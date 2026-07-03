@@ -84,35 +84,49 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          previous_pages_run_id="$(gh run list --workflow pages.yml --branch main --limit 1 --json databaseId --jq '.[0].databaseId // ""')"
-          echo "Previous Pages run id: ${previous_pages_run_id:-none}"
+          pages_deploy_attempts=3
+          for deploy_attempt in $(seq 1 "$pages_deploy_attempts"); do
+            previous_pages_run_id="$(gh run list --workflow pages.yml --branch main --limit 1 --json databaseId --jq '.[0].databaseId // ""')"
+            echo "Previous Pages run id: ${previous_pages_run_id:-none}"
+            echo "Dispatching GitHub Pages deploy attempt=${deploy_attempt}/${pages_deploy_attempts}"
 
-          gh workflow run pages.yml --ref main
+            gh workflow run pages.yml --ref main
 
-          pages_run_id=""
-          for attempt in {1..144}; do
-            latest_pages_run_id="$(gh run list --workflow pages.yml --branch main --limit 1 --json databaseId --jq '.[0].databaseId // ""')"
+            pages_run_id=""
+            attempt_result="timeout"
+            for poll_attempt in {1..44}; do
+              latest_pages_run_id="$(gh run list --workflow pages.yml --branch main --limit 1 --json databaseId --jq '.[0].databaseId // ""')"
 
-            if [ -n "$latest_pages_run_id" ] && [ "$latest_pages_run_id" != "$previous_pages_run_id" ]; then
-              pages_run_id="$latest_pages_run_id"
-              status="$(gh run view "$pages_run_id" --json status --jq '.status')"
-              conclusion="$(gh run view "$pages_run_id" --json conclusion --jq '.conclusion // ""')"
-              echo "Pages run $pages_run_id status=$status conclusion=${conclusion:-pending}"
+              if [ -n "$latest_pages_run_id" ] && [ "$latest_pages_run_id" != "$previous_pages_run_id" ]; then
+                pages_run_id="$latest_pages_run_id"
+                status="$(gh run view "$pages_run_id" --json status --jq '.status')"
+                conclusion="$(gh run view "$pages_run_id" --json conclusion --jq '.conclusion // ""')"
+                echo "Pages run $pages_run_id poll_attempt=$poll_attempt status=$status conclusion=${conclusion:-pending}"
 
-              if [ "$status" = "completed" ]; then
-                if [ "$conclusion" = "success" ]; then
-                  exit 0
+                if [ "$status" = "completed" ]; then
+                  if [ "$conclusion" = "success" ]; then
+                    exit 0
+                  fi
+
+                  attempt_result="$conclusion"
+                  echo "::warning::GitHub Pages deploy attempt ${deploy_attempt}/${pages_deploy_attempts} finished with conclusion=$conclusion run_id=$pages_run_id"
+                  break
                 fi
-
-                echo "::error::GitHub Pages deploy failed: run_id=$pages_run_id conclusion=$conclusion"
-                exit 1
+              else
+                echo "Waiting for new Pages run to appear, deploy_attempt=$deploy_attempt poll_attempt=$poll_attempt"
               fi
-            else
-              echo "Waiting for new Pages run to appear, attempt=$attempt"
+
+              sleep 15
+            done
+
+            if [ "$attempt_result" = "timeout" ]; then
+              echo "::warning::Timed out waiting for GitHub Pages deploy attempt ${deploy_attempt}/${pages_deploy_attempts}"
             fi
 
-            sleep 15
+            if [ "$deploy_attempt" -lt "$pages_deploy_attempts" ]; then
+              sleep 60
+            fi
           done
 
-          echo "::error::Timed out waiting for GitHub Pages deploy workflow"
+          echo "::error::GitHub Pages deploy did not succeed after ${pages_deploy_attempts} attempts"
           exit 1

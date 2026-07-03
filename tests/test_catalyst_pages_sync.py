@@ -49,18 +49,19 @@ def test_event_and_weekly_workflows_publish_pages_and_use_full_validation() -> N
         assert "git add docs/latest/" in text
         assert "gh workflow run pages.yml --ref main" in text
         assert "timeout-minutes: 40" in text
-        assert "for attempt in {1..144}" in text
-        assert "Timed out waiting for GitHub Pages deploy workflow" in text
+        assert "pages_deploy_attempts=3" in text
+        assert "for poll_attempt in {1..44}" in text
+        assert "GitHub Pages deploy did not succeed after" in text
         assert "validate_event_calendar_data.py --schema-only" not in text
         assert "validate_catalyst_layer.py --schema-only" not in text
 
 
-def test_pages_deploy_timeout_allows_github_pages_queue_delay() -> None:
+def test_pages_deploy_timeout_stays_within_action_limit() -> None:
     text = (ROOT / ".github" / "workflows" / "pages.yml").read_text(
         encoding="utf-8"
     )
     assert "uses: actions/deploy-pages@v5.0.0" in text
-    assert 'timeout: "1800000"' in text
+    assert "timeout: \"1800000\"" not in text
 
 
 def test_daily_workflow_syncs_catalyst_pages_artifacts() -> None:
@@ -70,4 +71,6 @@ def test_daily_workflow_syncs_catalyst_pages_artifacts() -> None:
     assert "python scripts/sync_catalyst_pages_artifacts.py" in text
     assert "Dispatch and wait for GitHub Pages deploy" in text
     assert "timeout-minutes: 40" in text
-    assert "for attempt in {1..144}" in text
+    assert "pages_deploy_attempts=3" in text
+    assert "for poll_attempt in {1..44}" in text
+    assert "GitHub Pages deploy did not succeed after" in text
