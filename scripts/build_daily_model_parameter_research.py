@@ -125,6 +125,19 @@ PRICE_PULLBACK_RESEARCH_SCORE_BUCKET_MD = (
 PRICE_PULLBACK_RESEARCH_SCORE_BUCKET_HISTORY_CSV = HISTORY_DIR / "price_pullback_23ema_research_score_bucket.csv"
 DOCS_PRICE_PULLBACK_RESEARCH_SCORE_BUCKET_CSV = DOCS_LATEST_DIR / PRICE_PULLBACK_RESEARCH_SCORE_BUCKET_CSV.name
 DOCS_PRICE_PULLBACK_RESEARCH_SCORE_BUCKET_MD = DOCS_LATEST_DIR / PRICE_PULLBACK_RESEARCH_SCORE_BUCKET_MD.name
+PRICE_PULLBACK_HIGH_RETURN_SCORE_GRID_CSV = (
+    RESEARCH_LATEST_DIR / "price_pullback_23ema_high_return_feature_score_grid_latest.csv"
+)
+PRICE_PULLBACK_HIGH_RETURN_SCORE_GRID_MD = (
+    RESEARCH_LATEST_DIR / "price_pullback_23ema_high_return_feature_score_grid_latest.md"
+)
+PRICE_PULLBACK_HIGH_RETURN_SCORE_GRID_HISTORY_CSV = (
+    HISTORY_DIR / "price_pullback_23ema_high_return_feature_score_grid.csv"
+)
+DOCS_PRICE_PULLBACK_HIGH_RETURN_SCORE_GRID_CSV = (
+    DOCS_LATEST_DIR / PRICE_PULLBACK_HIGH_RETURN_SCORE_GRID_CSV.name
+)
+DOCS_PRICE_PULLBACK_HIGH_RETURN_SCORE_GRID_MD = DOCS_LATEST_DIR / PRICE_PULLBACK_HIGH_RETURN_SCORE_GRID_MD.name
 PRICE_PULLBACK_ORDERED_CONDITION_MATRIX_CSV = (
     RESEARCH_LATEST_DIR / "price_pullback_23ema_ordered_condition_matrix_latest.csv"
 )
@@ -156,6 +169,14 @@ TIME_COST_TARGET_PCT = 5.0
 TIME_COST_STOP_PCT = -5.0
 MIN_OK_SAMPLE = 100
 MIN_REVIEW_SAMPLE = 30
+PRICE_PULLBACK_KNOWN_DATA_QUALITY_EXCEPTIONS = [
+    {
+        "stock_id": "2380",
+        "signal_date": "20260519",
+        "exception_id": "2380_20260519_unadjusted_capital_reduction_resumption_gap",
+        "exception_note": "unadjusted corporate-action/suspension-resumption price gap; research-only anomaly until adjusted basis is approved",
+    },
+]
 PRICE_PULLBACK_CANDIDATE_REPLAY_REQUIRED_COLUMNS = {
     "stock_id",
     "candidate_source_type",
@@ -1881,6 +1902,62 @@ PRICE_PULLBACK_RESEARCH_SCORE_COMPONENTS = [
         "points": 1,
         "component_rule": "OBV is above OBV MA20 on signal date",
         "condition": price_pullback_obv_above_ma20_filter,
+    },
+]
+PRICE_PULLBACK_HIGH_RETURN_FEATURE_SCORE_COMPONENTS = [
+    {
+        "component_id": "prev20_target_space_ge8",
+        "component_family": "payoff_space",
+        "points": 2,
+        "component_rule": "next-open buy price has at least 8% space to signal-date previous 20d high",
+        "condition": lambda d: price_pullback_prev20_high_space_pct(d).ge(8.0).fillna(False),
+        "component_role": "add_score_candidate",
+    },
+    {
+        "component_id": "prev20_target_space_5_to_8",
+        "component_family": "payoff_space",
+        "points": 1,
+        "component_rule": "next-open buy price has 5% to less than 8% space to signal-date previous 20d high",
+        "condition": lambda d: (
+            price_pullback_prev20_high_space_pct(d).ge(5.0)
+            & price_pullback_prev20_high_space_pct(d).lt(8.0)
+        ).fillna(False),
+        "component_role": "add_score_candidate",
+    },
+    {
+        "component_id": "prior_runup20_ge20",
+        "component_family": "price_structure",
+        "points": 1,
+        "component_rule": "prior 20d high-low runup is at least 20%",
+        "condition": lambda d: numeric_column(d, "prior_runup_20d_pct").ge(20.0).fillna(False),
+        "component_role": "add_score_candidate",
+    },
+    {
+        "component_id": "prior_extension_ema23_20d_ge10",
+        "component_family": "price_structure",
+        "points": 1,
+        "component_rule": "prior 20d high is at least 10% above 23EMA",
+        "condition": lambda d: numeric_column(d, "prior_extension_ema23_20d_pct").ge(10.0).fillna(False),
+        "component_role": "add_score_candidate",
+    },
+    {
+        "component_id": "return45_ge8_weak",
+        "component_family": "price_momentum",
+        "points": 1,
+        "component_rule": "prior 45d return is at least 8%; weak add-score candidate",
+        "condition": lambda d: numeric_column(d, "return_45d_pct").ge(8.0).fillna(False),
+        "component_role": "weak_add_score_candidate",
+    },
+    {
+        "component_id": "volume_red_or_solid_red_risk",
+        "component_family": "candle_quality_risk",
+        "points": -1,
+        "component_rule": "signal date is volume red K with volume_ratio_prev20 >= 1.2 or a solid red candle; risk tag, not buy-quality bonus",
+        "condition": lambda d: (
+            (numeric_column(d, "volume_ratio_prev20").ge(1.2) & trueish_column(d, "bullish_attack_candle"))
+            | trueish_column(d, "solid_red_candle")
+        ).fillna(False),
+        "component_role": "deduct_score_or_risk_tag_candidate",
     },
 ]
 PRICE_PULLBACK_RESEARCH_SCORE_BUCKETS = [
@@ -3818,11 +3895,425 @@ def price_pullback_research_score_ge_filter(d: pd.DataFrame, min_score: float) -
     return numeric_column(scored, "price_pullback_research_score").ge(min_score).fillna(False)
 
 
-def price_pullback_prev20_high_space_filter(d: pd.DataFrame, min_space_pct: float) -> pd.Series:
+def price_pullback_prev20_high_space_pct(d: pd.DataFrame) -> pd.Series:
     entry_price = numeric_column(d, "next_open").replace(0, pd.NA)
     target_price = numeric_column(d, "range_high_20d_prev")
     space_pct = (target_price / entry_price - 1.0) * 100.0
-    return space_pct.ge(min_space_pct).fillna(False)
+    return pd.to_numeric(space_pct, errors="coerce")
+
+
+def price_pullback_prev20_high_space_filter(d: pd.DataFrame, min_space_pct: float) -> pd.Series:
+    return price_pullback_prev20_high_space_pct(d).ge(min_space_pct).fillna(False)
+
+
+def _high_return_feature_score_bucket_label(score: float) -> str:
+    if math.isnan(score):
+        return "score_unknown"
+    if score < 0:
+        return "score_below_0"
+    return f"score_{int(score)}"
+
+
+def add_price_pullback_high_return_feature_score_columns(df: pd.DataFrame) -> pd.DataFrame:
+    out = df.copy()
+    total = pd.Series(0, index=out.index, dtype=float)
+    active_ids: list[pd.Series] = []
+    risk_ids: list[pd.Series] = []
+    for component in PRICE_PULLBACK_HIGH_RETURN_FEATURE_SCORE_COMPONENTS:
+        component_id = safe_str(component["component_id"])
+        condition = component["condition"](out).fillna(False)
+        points = float(component["points"])
+        col = f"high_return_score_component_{component_id}"
+        out[col] = condition
+        total = total + condition.astype(float) * points
+        active_ids.append(pd.Series(component_id, index=out.index).where(condition, ""))
+        if points < 0:
+            risk_ids.append(pd.Series(component_id, index=out.index).where(condition, ""))
+
+    out["price_pullback_high_return_feature_score"] = total
+    if active_ids:
+        active = pd.concat(active_ids, axis=1)
+        out["price_pullback_high_return_feature_score_components"] = active.apply(
+            lambda row: ";".join([safe_str(value) for value in row if safe_str(value)]),
+            axis=1,
+        )
+    else:
+        out["price_pullback_high_return_feature_score_components"] = ""
+    if risk_ids:
+        risks = pd.concat(risk_ids, axis=1)
+        out["price_pullback_high_return_feature_risk_tags"] = risks.apply(
+            lambda row: ";".join([safe_str(value) for value in row if safe_str(value)]),
+            axis=1,
+        )
+    else:
+        out["price_pullback_high_return_feature_risk_tags"] = ""
+    out["price_pullback_high_return_feature_score_bucket"] = total.map(_high_return_feature_score_bucket_label)
+    return out
+
+
+def _price_pullback_high_return_score_component_summary(row: pd.Series) -> str:
+    parts = []
+    for component in PRICE_PULLBACK_HIGH_RETURN_FEATURE_SCORE_COMPONENTS:
+        component_id = safe_str(component["component_id"])
+        col = f"component_hit_count_{component_id}"
+        if col in row:
+            parts.append(f"{component_id}:{int(row[col])}")
+    return ";".join(parts)
+
+
+def _price_pullback_v1_base_research_filter(d: pd.DataFrame) -> pd.Series:
+    return (
+        current_price_pullback_baseline_proxy(d)
+        & price_pullback_return20_balanced_filter(d)
+        & price_pullback_tdcc_high_thresholds_up_filter(d)
+        & price_pullback_obv_above_ma20_filter(d)
+    ).fillna(False)
+
+
+def _price_pullback_known_data_quality_exception_mask(d: pd.DataFrame) -> pd.Series:
+    if d.empty:
+        return bool_series(d, False)
+    if "stock_id" in d.columns:
+        stock = d["stock_id"].map(safe_str)
+    else:
+        stock = pd.Series("", index=d.index, dtype=object)
+    if "_price_pullback_signal_date" in d.columns:
+        signal_date = d["_price_pullback_signal_date"].map(safe_str)
+    elif "date" in d.columns:
+        signal_date = d["date"].map(normalize_date)
+    else:
+        signal_date = pd.Series("", index=d.index, dtype=object)
+    mask = bool_series(d, False)
+    for exception in PRICE_PULLBACK_KNOWN_DATA_QUALITY_EXCEPTIONS:
+        mask = mask | (
+            stock.eq(safe_str(exception["stock_id"]))
+            & signal_date.eq(safe_str(exception["signal_date"]))
+        )
+    return mask.fillna(False)
+
+
+def _price_pullback_high_return_score_bucket_specs(score: pd.Series) -> list[dict[str, object]]:
+    score_numeric = pd.to_numeric(score, errors="coerce").dropna()
+    if score_numeric.empty:
+        return []
+    low = int(math.floor(float(score_numeric.min())))
+    high = int(math.ceil(float(score_numeric.max())))
+    specs: list[dict[str, object]] = [
+        {
+            "score_bucket_type": "baseline",
+            "score_bucket": "all_scores",
+            "score_threshold": "",
+            "score_sort_value": -999,
+            "condition": lambda d: bool_series(d, True),
+        }
+    ]
+    for exact_score in range(low, high + 1):
+        specs.append(
+            {
+                "score_bucket_type": "exact_score",
+                "score_bucket": f"score_{exact_score}" if exact_score >= 0 else "score_below_0",
+                "score_threshold": "",
+                "score_sort_value": exact_score,
+                "condition": lambda d, exact_score=exact_score: pd.to_numeric(
+                    d["price_pullback_high_return_feature_score"],
+                    errors="coerce",
+                ).eq(float(exact_score)),
+            }
+        )
+    for threshold in range(max(0, low), high + 1):
+        specs.append(
+            {
+                "score_bucket_type": "score_threshold",
+                "score_bucket": f"score_ge_{threshold}",
+                "score_threshold": threshold,
+                "score_sort_value": threshold,
+                "condition": lambda d, threshold=threshold: pd.to_numeric(
+                    d["price_pullback_high_return_feature_score"],
+                    errors="coerce",
+                ).ge(float(threshold)),
+            }
+        )
+    return specs
+
+
+def _price_pullback_high_return_score_grid_metrics(accepted: pd.DataFrame) -> dict[str, object]:
+    outcome = _price_pullback_ordered_outcome_summary(accepted)
+    if accepted.empty:
+        return {
+            **outcome,
+            "median_realized_return_pct": "",
+            "high_return_8_count": 0,
+            "high_return_8_rate_pct": "",
+            "high_return_10_count": 0,
+            "high_return_10_rate_pct": "",
+            "loss_5_count": 0,
+            "loss_5_rate_pct": "",
+            "avg_high_return_feature_score": "",
+            "median_high_return_feature_score": "",
+            "avg_prev20_target_return_pct": "",
+            "median_prev20_target_return_pct": "",
+        }
+    realized = pd.to_numeric(accepted["realized_return_pct"], errors="coerce")
+    score = pd.to_numeric(accepted["price_pullback_high_return_feature_score"], errors="coerce")
+    high8 = realized.ge(8.0)
+    high10 = realized.ge(10.0)
+    loss5 = realized.le(-5.0)
+    metrics = {
+        **outcome,
+        "median_realized_return_pct": _median_or_blank(realized),
+        "high_return_8_count": int(high8.sum()),
+        "high_return_8_rate_pct": _rate(int(high8.sum()), len(accepted)),
+        "high_return_10_count": int(high10.sum()),
+        "high_return_10_rate_pct": _rate(int(high10.sum()), len(accepted)),
+        "loss_5_count": int(loss5.sum()),
+        "loss_5_rate_pct": _rate(int(loss5.sum()), len(accepted)),
+        "avg_high_return_feature_score": _mean_or_blank(score),
+        "median_high_return_feature_score": _median_or_blank(score),
+        "avg_prev20_target_return_pct": _mean_or_blank(accepted["prev20_target_return_pct"]),
+        "median_prev20_target_return_pct": _median_or_blank(accepted["prev20_target_return_pct"]),
+    }
+    for component in PRICE_PULLBACK_HIGH_RETURN_FEATURE_SCORE_COMPONENTS:
+        component_id = safe_str(component["component_id"])
+        col = f"high_return_score_component_{component_id}"
+        hit_count = int(trueish(accepted[col]).sum()) if col in accepted.columns else 0
+        metrics[f"component_hit_count_{component_id}"] = hit_count
+        metrics[f"component_hit_rate_pct_{component_id}"] = _rate(hit_count, len(accepted))
+    metrics["component_hit_summary"] = _price_pullback_high_return_score_component_summary(pd.Series(metrics))
+    return metrics
+
+
+def build_price_pullback_high_return_feature_score_grid(df: pd.DataFrame) -> pd.DataFrame:
+    positioned = _price_pullback_positioned_frame(_price_pullback_lifecycle_input_frame(df))
+    research_dates = positioned["_price_pullback_signal_date"].map(safe_str)
+    research_trading_day_count = int(research_dates[research_dates.ne("")].nunique())
+    base_mask = _price_pullback_v1_base_research_filter(positioned)
+    base = add_price_pullback_high_return_feature_score_columns(positioned[base_mask].copy())
+    exit_candidates = {
+        str(candidate["exit_rule_id"]): candidate
+        for candidate in PRICE_PULLBACK_EXIT_RULE_COMPARISON_CANDIDATES
+        if str(candidate["exit_rule_id"]) in PRICE_PULLBACK_RESEARCH_SCORE_EXIT_RULE_IDS
+    }
+    rows: list[dict[str, object]] = []
+    generated_at = now_text()
+    lifecycle_key_cols = [
+        "stock_id",
+        "_price_pullback_signal_date",
+        "_price_pullback_stock_day_position",
+        "_price_pullback_source_row_index",
+    ]
+    score_context_cols = [
+        "price_pullback_high_return_feature_score",
+        "price_pullback_high_return_feature_score_components",
+        "price_pullback_high_return_feature_risk_tags",
+        "price_pullback_high_return_feature_score_bucket",
+    ]
+    score_context_cols.extend(
+        f"high_return_score_component_{safe_str(component['component_id'])}"
+        for component in PRICE_PULLBACK_HIGH_RETURN_FEATURE_SCORE_COMPONENTS
+    )
+
+    for exit_rule_id, candidate in exit_candidates.items():
+        required = _price_pullback_exit_required_columns(candidate)
+        valid_base = (
+            base.dropna(subset=required).copy()
+            if all(col in base.columns for col in required)
+            else base.iloc[0:0].copy()
+        )
+        if valid_base.empty:
+            continue
+        outcome = _price_pullback_exit_rule_outcome_rows(valid_base, candidate)
+        enriched_base = valid_base[lifecycle_key_cols + score_context_cols].join(outcome)
+        lifecycle_all = _price_pullback_apply_lifecycle_suppression(enriched_base)
+        score_specs = _price_pullback_high_return_score_bucket_specs(
+            lifecycle_all["price_pullback_high_return_feature_score"]
+        )
+        if not score_specs:
+            continue
+
+        for anomaly_basis in [
+            "including_data_quality_exceptions",
+            "excluding_known_data_quality_exceptions",
+        ]:
+            exception_mask_all = _price_pullback_known_data_quality_exception_mask(lifecycle_all)
+            if anomaly_basis == "excluding_known_data_quality_exceptions":
+                basis_lifecycle = lifecycle_all[~exception_mask_all].copy()
+                baseline_exception_count = int(exception_mask_all.sum())
+            else:
+                basis_lifecycle = lifecycle_all.copy()
+                baseline_exception_count = int(exception_mask_all.sum())
+            basis_accepted = basis_lifecycle[trueish(basis_lifecycle["lifecycle_accepted_trade"])]
+            baseline_accepted_trade_count = len(basis_accepted)
+            baseline_source_mature_count = len(basis_lifecycle)
+
+            for spec in score_specs:
+                bucket_mask_all = spec["condition"](lifecycle_all).fillna(False)
+                bucket_lifecycle_raw = lifecycle_all[bucket_mask_all].copy()
+                bucket_exception_mask = _price_pullback_known_data_quality_exception_mask(bucket_lifecycle_raw)
+                excluded_exception_count = int(bucket_exception_mask.sum())
+                if anomaly_basis == "excluding_known_data_quality_exceptions":
+                    bucket_lifecycle = bucket_lifecycle_raw[~bucket_exception_mask].copy()
+                else:
+                    bucket_lifecycle = bucket_lifecycle_raw
+                accepted = bucket_lifecycle[trueish(bucket_lifecycle["lifecycle_accepted_trade"])]
+                if accepted.empty and bucket_lifecycle.empty:
+                    continue
+                accepted_date_stats = _price_pullback_date_stats(accepted)
+                source_date_stats = _price_pullback_date_stats(bucket_lifecycle)
+                suppressed_count = (
+                    int(trueish(bucket_lifecycle["lifecycle_suppressed_signal"]).sum())
+                    if not bucket_lifecycle.empty
+                    else 0
+                )
+                row = {
+                    "generated_at": generated_at,
+                    "model_id": "price_pullback_23ema",
+                    "model_name_zh": "股價回檔模型",
+                    "research_artifact_id": "price_pullback_23ema_high_return_feature_score_grid",
+                    "score_draft_id": "research_high_return_feature_score_v1",
+                    "base_condition_id": "v1_gate_return20_tdcc_high_obv",
+                    "base_condition_rule": "production proxy signal plus return20_0_25, TDCC high thresholds up, and OBV above MA20",
+                    "score_bucket_type": spec["score_bucket_type"],
+                    "score_bucket": spec["score_bucket"],
+                    "score_threshold": spec["score_threshold"],
+                    "_score_sort": spec["score_sort_value"],
+                    "score_rule_summary": (
+                        "+2 prev20 target space >=8%; +1 prev20 target space 5%-<8%; "
+                        "+1 prior 20d runup >=20%; +1 prior 20d high extension above 23EMA >=10%; "
+                        "+1 weak prior 45d return >=8%; -1/risk for volume red K >=1.2 or solid red candle."
+                    ),
+                    "anomaly_exclusion_basis": anomaly_basis,
+                    "known_data_quality_exception_count_in_bucket": excluded_exception_count,
+                    "known_data_quality_exception_count_in_baseline": baseline_exception_count,
+                    "known_data_quality_exception_ids": ";".join(
+                        safe_str(exception["exception_id"])
+                        for exception in PRICE_PULLBACK_KNOWN_DATA_QUALITY_EXCEPTIONS
+                    ),
+                    "exit_rule_id": exit_rule_id,
+                    "formal_price_rule_status": candidate["formal_price_rule_status"],
+                    "profit_target_pct": candidate["profit_target_pct"],
+                    "exit_price_rule": candidate["exit_price_rule"],
+                    "entry_rule_id": "signal_date_next_open",
+                    "lifecycle_replay_scope": "trade_level_same_stock_active_position_suppressed",
+                    "source_mature_signal_stock_days": len(bucket_lifecycle),
+                    "source_unique_stocks": (
+                        bucket_lifecycle["stock_id"].nunique() if "stock_id" in bucket_lifecycle.columns else ""
+                    ),
+                    "suppressed_signal_count": suppressed_count,
+                    "suppressed_rate_pct": _rate(suppressed_count, len(bucket_lifecycle)),
+                    "accepted_trade_count": len(accepted),
+                    "accepted_unique_stocks": accepted["stock_id"].nunique() if "stock_id" in accepted.columns else "",
+                    "baseline_source_mature_signal_stock_days": baseline_source_mature_count,
+                    "baseline_accepted_trade_count": baseline_accepted_trade_count,
+                    "accepted_trade_share_of_baseline_pct": _rate(len(accepted), baseline_accepted_trade_count),
+                    "source_signal_day_count": source_date_stats["signal_day_count"],
+                    "source_avg_signals_per_signal_day": source_date_stats["avg_rows_per_signal_day"],
+                    "accepted_signal_day_count": accepted_date_stats["signal_day_count"],
+                    "accepted_avg_trades_per_signal_day": accepted_date_stats["avg_rows_per_signal_day"],
+                    "research_trading_day_count": research_trading_day_count,
+                    "accepted_avg_trades_per_research_day": (
+                        round(len(accepted) / research_trading_day_count, 2)
+                        if research_trading_day_count
+                        else ""
+                    ),
+                    "first_signal_date": source_date_stats["first_signal_date"],
+                    "last_signal_date": source_date_stats["last_signal_date"],
+                    "score_use": "research_only_not_production_score",
+                    "metric_surface_use": "model_lane_research_metric_source_candidate_not_pdf_ready",
+                    "pdf_metric_readiness": "blocked_until_formal_promotion_and_operation_adapter_contract",
+                    "advisory_status": "not_production_ready_research_only",
+                    "approved_for_daily": False,
+                    "production_change": "none",
+                    "promotion_readiness": "blocked_explicit_score_decision_exact_parity_operation_adapter_and_metric_contract_required",
+                    "promotion_blocker": (
+                        "requires explicit score threshold decision, high/low-return feature review, "
+                        "model contract update if promoted, exact parity, validators, PR merge, "
+                        "post-merge main validation, and PDF metric consumer contract before display"
+                    ),
+                    **_price_pullback_high_return_score_grid_metrics(accepted),
+                }
+                rows.append(row)
+
+    out = pd.DataFrame(rows)
+    if out.empty:
+        return out
+    bucket_type_order = {"baseline": 0, "exact_score": 1, "score_threshold": 2}
+    anomaly_order = {
+        "including_data_quality_exceptions": 0,
+        "excluding_known_data_quality_exceptions": 1,
+    }
+    out["_bucket_type_order"] = out["score_bucket_type"].map(bucket_type_order).fillna(99)
+    out["_anomaly_order"] = out["anomaly_exclusion_basis"].map(anomaly_order).fillna(99)
+    out["_threshold_sort"] = pd.to_numeric(out["score_threshold"], errors="coerce").fillna(-99)
+    out["_score_sort"] = pd.to_numeric(out["_score_sort"], errors="coerce").fillna(99)
+    return (
+        out.sort_values(
+            [
+                "exit_rule_id",
+                "_anomaly_order",
+                "_bucket_type_order",
+                "_score_sort",
+            ],
+            kind="mergesort",
+        )
+        .drop(columns=["_bucket_type_order", "_anomaly_order", "_threshold_sort", "_score_sort"])
+        .reset_index(drop=True)
+    )
+
+
+def write_price_pullback_high_return_feature_score_grid(score_grid: pd.DataFrame) -> None:
+    write_csv(score_grid, PRICE_PULLBACK_HIGH_RETURN_SCORE_GRID_CSV)
+    write_csv(score_grid, PRICE_PULLBACK_HIGH_RETURN_SCORE_GRID_HISTORY_CSV)
+    write_csv(score_grid, DOCS_PRICE_PULLBACK_HIGH_RETURN_SCORE_GRID_CSV)
+    lines = [
+        "# Price Pullback 23EMA High-Return Feature Score Grid",
+        "",
+        f"- generated_at: `{now_text()}`",
+        "- model_id: `price_pullback_23ema`",
+        "- status: `not_production_ready_research_only`",
+        "- scope: score grid for the current research base `v1_gate_return20_tdcc_high_obv`; this does not approve production scoring.",
+        "- lifecycle_scope: same-stock active-position suppression is applied before scoring buckets are evaluated.",
+        "- anomaly_basis: metrics are emitted both including and excluding known data-quality exceptions.",
+        "- score_draft_id: `research_high_return_feature_score_v1`",
+        "- score_rule: +2 prev20 target space >=8%; +1 prev20 target space 5%-<8%; +1 prior 20d runup >=20%; +1 prior 20d high extension above 23EMA >=10%; +1 weak prior 45d return >=8%; -1/risk for volume red K >=1.2 or solid red candle.",
+        "- production_change: `none`",
+        "- promotion_blocker: production use requires explicit threshold decision, contract/parity/validator updates, merge, post-merge main validation, and PDF metric consumer contract.",
+        "",
+        markdown_table(
+            score_grid,
+            [
+                "anomaly_exclusion_basis",
+                "score_bucket_type",
+                "score_bucket",
+                "exit_rule_id",
+                "accepted_trade_count",
+                "accepted_unique_stocks",
+                "accepted_avg_trades_per_research_day",
+                "win_rate_pct",
+                "neutral_rate_pct",
+                "failure_rate_pct",
+                "avg_realized_return_pct",
+                "median_realized_return_pct",
+                "high_return_8_rate_pct",
+                "high_return_10_rate_pct",
+                "loss_5_rate_pct",
+                "avg_prev20_target_return_pct",
+                "component_hit_summary",
+            ],
+            limit=160,
+        )
+        if not score_grid.empty
+        else "No high-return feature score grid rows.",
+    ]
+    PRICE_PULLBACK_HIGH_RETURN_SCORE_GRID_MD.write_text(
+        "\n".join(lines).rstrip() + "\n",
+        encoding="utf-8",
+        newline="\n",
+    )
+    DOCS_PRICE_PULLBACK_HIGH_RETURN_SCORE_GRID_MD.write_text(
+        PRICE_PULLBACK_HIGH_RETURN_SCORE_GRID_MD.read_text(encoding="utf-8"),
+        encoding="utf-8",
+        newline="\n",
+    )
 
 
 def _price_pullback_ordered_condition_hint(
@@ -5547,6 +6038,8 @@ def main() -> int:
     price_pullback_continuation_win_profile_df = build_price_pullback_continuation_win_profile(df)
     print("Building price_pullback research score bucket", flush=True)
     price_pullback_research_score_bucket_df = build_price_pullback_research_score_bucket(df)
+    print("Building price_pullback high-return feature score grid", flush=True)
+    price_pullback_high_return_score_grid_df = build_price_pullback_high_return_feature_score_grid(df)
     print("Building price_pullback ordered condition matrix", flush=True)
     price_pullback_ordered_condition_matrix_df = build_price_pullback_ordered_condition_matrix(df)
     print("Building price_pullback lifecycle replay", flush=True)
@@ -5576,6 +6069,7 @@ def main() -> int:
     write_price_pullback_exit_rule_comparison(price_pullback_exit_rule_comparison_df)
     write_price_pullback_continuation_win_profile(price_pullback_continuation_win_profile_df)
     write_price_pullback_research_score_bucket(price_pullback_research_score_bucket_df)
+    write_price_pullback_high_return_feature_score_grid(price_pullback_high_return_score_grid_df)
     write_price_pullback_ordered_condition_matrix(price_pullback_ordered_condition_matrix_df)
     write_price_pullback_lifecycle_replay(price_pullback_lifecycle_replay_df)
     write_price_pullback_daily_row_parity_audit(price_pullback_daily_row_parity_df)
@@ -5591,6 +6085,7 @@ def main() -> int:
     print(f"Saved {PRICE_PULLBACK_EXIT_RULE_COMPARISON_CSV} rows={len(price_pullback_exit_rule_comparison_df)}")
     print(f"Saved {PRICE_PULLBACK_CONTINUATION_WIN_PROFILE_CSV} rows={len(price_pullback_continuation_win_profile_df)}")
     print(f"Saved {PRICE_PULLBACK_RESEARCH_SCORE_BUCKET_CSV} rows={len(price_pullback_research_score_bucket_df)}")
+    print(f"Saved {PRICE_PULLBACK_HIGH_RETURN_SCORE_GRID_CSV} rows={len(price_pullback_high_return_score_grid_df)}")
     print(f"Saved {PRICE_PULLBACK_ORDERED_CONDITION_MATRIX_CSV} rows={len(price_pullback_ordered_condition_matrix_df)}")
     print(f"Saved {PRICE_PULLBACK_LIFECYCLE_REPLAY_CSV} rows={len(price_pullback_lifecycle_replay_df)}")
     print(f"Saved {PRICE_PULLBACK_DAILY_ROW_PARITY_CSV} rows={len(price_pullback_daily_row_parity_df)}")
