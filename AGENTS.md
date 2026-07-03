@@ -108,6 +108,24 @@ testing same-day close exits, or use close-confirmed previous-high breakout with
 next trading day open exit semantics. `close_prev20_high_break_same_day_close`
 is invalid because the close-confirmed breakout is known only after that close.
 
+Daily model research/backtest conclusions must include a numerical anomaly
+check before interpreting performance. The first trigger is the number itself,
+not an assumed cause: any single trade, row, stock, date, return, price, volume,
+or small group of rows that looks abnormal, dominates an average, changes a
+conclusion, or is inconsistent with nearby observations must be reported to the
+user for discussion before it is used as model evidence. The implementer may
+then investigate possible causes such as corporate actions, capital reduction,
+stock split, reverse split, cash capital reduction, exchange ratio changes,
+ex-right/ex-dividend price adjustment gaps, delisting/relisting,
+suspension/resumption windows, missing trading-date gaps, source-file defects,
+column parsing errors, or unadjusted price jumps, but these are examples and
+must not narrow the rule. Until resolved, such rows must be labeled
+research-only data-quality exceptions, excluded from promotion evidence or rerun
+with an approved adjusted basis, and summarized with both including-exception
+and excluding-exception metrics. If the current lane cannot update the needed
+rule, validator, or artifact, hand the issue to the project
+governance/model_governance owner instead of silently continuing.
+
 When a formal model promotion or model change makes an operation-oriented model
 eligible for daily PDF or packet presentation, the daily model change must also
 define the formal daily operation-row adapter contract. The model lane owns the
