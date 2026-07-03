@@ -1,6 +1,6 @@
 # Stock Price History Manifest
 
-- generated_at: `2026-07-03 19:29:34 Asia/Taipei`
+- generated_at: `2026-07-03 23:06:28 Asia/Taipei`
 - stock_count: `2376`
 - history_dir: `data/stock_price_history/`
 - manifest_csv: `output/latest/stock_price_history_manifest.csv`
@@ -17,33 +17,33 @@
 
 | stock_id | stock_name | rows | start_date | end_date | file_path |
 |---|---|---:|---|---|---|
+| 2073 | 雄順 | 98 | 20250407 | 20260703 | `data/stock_price_history/2073.csv` |
+| 5547 | 久舜 | 98 | 20250407 | 20260703 | `data/stock_price_history/5547.csv` |
+| 6934 | 心誠鎂 | 98 | 20260202 | 20260703 | `data/stock_price_history/6934.csv` |
+| 7823 | 奧義賽博-KY創 | 95 | 20260205 | 20260703 | `data/stock_price_history/7823.csv` |
 | 8077 | 洛碁 | 88 | 20250407 | 20260630 | `data/stock_price_history/8077.csv` |
+| 8923 | 時報 | 87 | 20250407 | 20260703 | `data/stock_price_history/8923.csv` |
 | 6288 | 聯嘉 | 82 | 20250407 | 20250804 | `data/stock_price_history/6288.csv` |
+| 8291 | 尚茂 | 76 | 20250407 | 20260703 | `data/stock_price_history/8291.csv` |
 | 6103 | 合邦 | 74 | 20250407 | 20260701 | `data/stock_price_history/6103.csv` |
+| 7811 | 民盛 | 70 | 20250407 | 20260703 | `data/stock_price_history/7811.csv` |
+| 009823 | 群益S&P500 | 7 | 20260625 | 20260703 | `data/stock_price_history/009823.csv` |
+| 009824 | 群益美國科技巨頭 | 7 | 20260625 | 20260703 | `data/stock_price_history/009824.csv` |
+| 6908 | 宏碁遊戲-創 | 69 | 20260325 | 20260703 | `data/stock_price_history/6908.csv` |
+| 2072 | 世紀風電 | 67 | 20260326 | 20260703 | `data/stock_price_history/2072.csv` |
+| 6028 | 公勝保經 | 67 | 20250407 | 20260703 | `data/stock_price_history/6028.csv` |
 | 2888 | 新光金 | 66 | 20250407 | 20250711 | `data/stock_price_history/2888.csv` |
-| 6236 | 中湛 | 36 | 20251103 | 20260701 | `data/stock_price_history/6236.csv` |
-| 6806 | 森崴能源 | 285 | 20250407 | 20260622 | `data/stock_price_history/6806.csv` |
-| 00886 | 永豐美國科技 | 28 | 20260522 | 20260702 | `data/stock_price_history/00886.csv` |
-| 1538 | 正峰 | 249 | 20250407 | 20260630 | `data/stock_price_history/1538.csv` |
-| 1589 | 永冠-KY | 235 | 20250407 | 20260402 | `data/stock_price_history/1589.csv` |
-| 2321 | 東訊 | 235 | 20250407 | 20260630 | `data/stock_price_history/2321.csv` |
-| 5906 | 台南-KY | 225 | 20250407 | 20260702 | `data/stock_price_history/5906.csv` |
-| 3454 | 晶睿 | 224 | 20250407 | 20260318 | `data/stock_price_history/3454.csv` |
-| 6747 | 亨泰光 | 17 | 20251103 | 20251126 | `data/stock_price_history/6747.csv` |
-| 1591 | 駿吉-KY | 146 | 20250407 | 20260610 | `data/stock_price_history/1591.csv` |
-| 1259 | 安心 | 135 | 20250407 | 20260701 | `data/stock_price_history/1259.csv` |
-| 4987 | 科誠 | 129 | 20251103 | 20260520 | `data/stock_price_history/4987.csv` |
-| 3426 | 台興 | 126 | 20250407 | 20260601 | `data/stock_price_history/3426.csv` |
-| 8342 | 益張 | 122 | 20250407 | 20260702 | `data/stock_price_history/8342.csv` |
-| 2809 | 京城銀 | 110 | 20250407 | 20250917 | `data/stock_price_history/2809.csv` |
-| 3629 | 地心引力 | 102 | 20250407 | 20260701 | `data/stock_price_history/3629.csv` |
-| 4804 | 大略-KY | 101 | 20251103 | 20260413 | `data/stock_price_history/4804.csv` |
-| 0200 | 兆豐半導體氣候N | 1 | 20250407 | 20250407 | `data/stock_price_history/0200.csv` |
-| 7000 | 系統電永豐58購01 | 1 | 20250407 | 20250407 | `data/stock_price_history/7000.csv` |
-| 7001 | 華景電統一61購01 | 1 | 20250407 | 20250407 | `data/stock_price_history/7001.csv` |
-| 7002 | 鏵友益統一6A購01 | 1 | 20250407 | 20250407 | `data/stock_price_history/7002.csv` |
-| 7003 | 系微凱基57購01 | 1 | 20250407 | 20250407 | `data/stock_price_history/7003.csv` |
-| 7004 | 聖暉*兆豐56購01 | 1 | 20250407 | 20250407 | `data/stock_price_history/7004.csv` |
-| 7005 | 原相元大5A購01 | 1 | 20250407 | 20250407 | `data/stock_price_history/7005.csv` |
-| 7006 | 營邦統一6A購01 | 1 | 20250407 | 20250407 | `data/stock_price_history/7006.csv` |
-| 7007 | 竑騰統一5C購01 | 1 | 20250407 | 20250407 | `data/stock_price_history/7007.csv` |
+| 7822 | 倍利科 | 66 | 20260330 | 20260703 | `data/stock_price_history/7822.csv` |
+| 4169 | 泰宗 | 61 | 20260408 | 20260703 | `data/stock_price_history/4169.csv` |
+| 6986 | 和迅 | 6 | 20260626 | 20260703 | `data/stock_price_history/6986.csv` |
+| 7794 | 宏碁智新 | 54 | 20250407 | 20260703 | `data/stock_price_history/7794.csv` |
+| 7821 | 神數 | 53 | 20260420 | 20260703 | `data/stock_price_history/7821.csv` |
+| 7828 | 創新服務 | 52 | 20250407 | 20260703 | `data/stock_price_history/7828.csv` |
+| 7820 | 立盈 | 49 | 20250407 | 20260703 | `data/stock_price_history/7820.csv` |
+| 7760 | 享溫馨 | 47 | 20260428 | 20260703 | `data/stock_price_history/7760.csv` |
+| 4178 | 永笙-KY | 45 | 20260430 | 20260703 | `data/stock_price_history/4178.csv` |
+| 3485 | 敘豐 | 43 | 20250407 | 20260703 | `data/stock_price_history/3485.csv` |
+| 7768 | 頌勝科技 | 41 | 20260507 | 20260703 | `data/stock_price_history/7768.csv` |
+| 7772 | 耀穎 | 41 | 20250407 | 20260703 | `data/stock_price_history/7772.csv` |
+| 7842 | 天能綠電 | 40 | 20250407 | 20260703 | `data/stock_price_history/7842.csv` |
+| 4195 | 基米-創 | 39 | 20260511 | 20260703 | `data/stock_price_history/4195.csv` |
