@@ -126,6 +126,20 @@ and excluding-exception metrics. If the current lane cannot update the needed
 rule, validator, or artifact, hand the issue to the project
 governance/model_governance owner instead of silently continuing.
 
+Daily model condition development must not default to arbitrary condition
+stacking or win-rate-only tuning. Before promoting a new required condition,
+add-score item, deduct-score item, or risk tag, first compare the features of
+high-return and low-return trades under the same buy point, sell rule, holding
+window, and anomaly-exclusion basis. Use that comparison to decide whether a
+condition explains better payoff, merely raises win rate without payoff, reduces
+tail loss, or only shrinks sample size. Report sample count, win/neutral/failure
+rates, average and median realized return, high-return hit rate, loss rate, and
+including/excluding-anomaly metrics before treating the condition as model
+evidence. This method applies to future models and to any reopened discussion of
+previously approved models; when an older model is revisited, explicitly remind
+the user to evaluate high-return and low-return feature differences before
+changing gates, scoring, ranking, or operation rules.
+
 When a formal model promotion or model change makes an operation-oriented model
 eligible for daily PDF or packet presentation, the daily model change must also
 define the formal daily operation-row adapter contract. The model lane owns the
