@@ -175,6 +175,31 @@ rankings, PDF metrics, or shared cross-model features. `monthly_revenue_history`
 is the reusable objective input; the matrix conclusion is specific to the named
 model and still needs an explicit promotion PR before formal use.
 
+## Price Pullback 23EMA Promotion Matrix
+
+`price_pullback_23ema_promotion_matrix_latest.csv` is a research-only decision
+matrix for the 23EMA model discussion. It gathers evidence from lifecycle replay,
+ordered condition tests, high-return structure score buckets, and model-specific
+revenue condition matrices into candidate roles such as required gate package,
+add-score package, risk tag, rejected condition, or deferred context.
+
+The producer and validator are:
+
+```text
+python scripts/build_daily_model_parameter_research.py
+python scripts/validate_price_pullback_promotion_matrix.py
+```
+
+Allowed use: discuss which 23EMA conditions should become necessary conditions,
+score items, risk tags, or rejected/deferred items under the same buy point, sell
+rule, lifecycle suppression, and anomaly-exclusion basis.
+
+Forbidden use: do not use promotion-matrix rows as production gates, scores,
+rankings, PDF metrics, operation rows, or contract approval. Formal use still
+requires an explicit model promotion PR, parity/contract updates, validators,
+merge to `main`, post-merge main validation, and a model-owned PDF operation
+metric/adapter contract where presentation is affected.
+
 ## Revenue PIT Panel
 
 Monthly revenue now has a coverage-limited point-in-time panel:

@@ -29,6 +29,7 @@ from build_daily_model_parameter_research import (  # noqa: E402
     build_price_pullback_operation_research,
     build_price_pullback_lifecycle_replay,
     build_price_pullback_ordered_condition_matrix,
+    build_price_pullback_promotion_matrix,
     build_price_pullback_research_score_bucket,
     build_price_pullback_time_cost_backtest,
     build_revenue_unreacted_range_revenue_condition_matrix,
@@ -39,6 +40,7 @@ from build_daily_model_parameter_research import (  # noqa: E402
 )
 from validate_daily_model_research_parity import validate_rule_specs  # noqa: E402
 from validate_daily_model_revenue_condition_matrix import validate_price_pullback, validate_revenue_unreacted  # noqa: E402
+from validate_price_pullback_promotion_matrix import validate_matrix as validate_promotion_matrix  # noqa: E402
 from validate_research_against_stock_model_contract import build_parity_rows  # noqa: E402
 
 
@@ -1290,6 +1292,141 @@ def test_price_pullback_revenue_condition_matrix_is_research_only_and_uses_lifec
     tampered = matrix.astype(str).copy()
     tampered.loc[0, "approved_for_daily"] = "True"
     assert any("approved_for_daily" in error for error in validate_price_pullback(tampered))
+
+
+def test_price_pullback_promotion_matrix_keeps_research_decisions_separated() -> None:
+    exit_rule_id = "close_prev20_break_then_tp10_or_5ma_next_open"
+    lifecycle = pd.DataFrame(
+        [
+            {
+                "condition_test_id": "baseline_replay",
+                "exit_rule_id": exit_rule_id,
+                "condition_rule": "production proxy replay only",
+                "data_status": "available_point_in_time_research_frame",
+                "formal_price_rule_status": "close_confirmed_candidate",
+                "entry_rule_id": "signal_date_next_open",
+                "source_mature_signal_stock_days": 1000,
+                "accepted_trade_count": 200,
+                "accepted_avg_trades_per_research_day": 8.0,
+                "accepted_trade_share_of_baseline_pct": 100.0,
+                "win_rate_pct": 20.0,
+                "neutral_rate_pct": 30.0,
+                "failure_rate_pct": 50.0,
+                "avg_realized_return_pct": 1.0,
+                "median_realized_return_pct": 0.5,
+            },
+            {
+                "condition_test_id": "v1_gate_return20_tdcc_high_obv",
+                "exit_rule_id": exit_rule_id,
+                "condition_rule": "return20_0_25 plus TDCC high thresholds up plus OBV above MA20",
+                "data_status": "available_point_in_time_research_frame",
+                "formal_price_rule_status": "close_confirmed_candidate",
+                "entry_rule_id": "signal_date_next_open",
+                "source_mature_signal_stock_days": 100,
+                "accepted_trade_count": 80,
+                "accepted_avg_trades_per_research_day": 3.0,
+                "accepted_trade_share_of_baseline_pct": 40.0,
+                "win_rate_pct": 35.0,
+                "neutral_rate_pct": 30.0,
+                "failure_rate_pct": 35.0,
+                "avg_realized_return_pct": 3.0,
+                "median_realized_return_pct": 2.0,
+            },
+        ]
+    )
+    ordered = pd.DataFrame(
+        [
+            {
+                "condition_test_id": condition_id,
+                "exit_rule_id": exit_rule_id,
+                "condition_rule": f"rule for {condition_id}",
+                "data_status": "available_point_in_time_research_frame",
+                "formal_price_rule_status": "close_confirmed_candidate",
+                "entry_rule_id": "signal_date_next_open",
+                "mature_count": 50,
+                "accepted_trade_count": 50,
+                "win_rate_pct": 30.0,
+                "neutral_rate_pct": 30.0,
+                "failure_rate_pct": 40.0,
+                "avg_realized_return_pct": 2.0,
+                "median_realized_return_pct": 1.0,
+            }
+            for condition_id in [
+                "return20_0_25",
+                "tdcc_high_thresholds_up",
+                "obv_above_ma20",
+                "macd_kd_confirm",
+                "pattern45_bull_pullback",
+                "research_score_ge6",
+                "theme_context_mainstream_supported",
+            ]
+        ]
+    )
+    high_return = pd.DataFrame(
+        [
+            {
+                "score_bucket": score_bucket,
+                "exit_rule_id": exit_rule_id,
+                "anomaly_exclusion_basis": "excluding_known_data_quality_exceptions",
+                "score_rule_summary": "score rule",
+                "formal_price_rule_status": "close_confirmed_candidate",
+                "entry_rule_id": "signal_date_next_open",
+                "source_mature_signal_stock_days": 40,
+                "accepted_trade_count": 40,
+                "win_rate_pct": 40.0,
+                "neutral_rate_pct": 20.0,
+                "failure_rate_pct": 40.0,
+                "avg_realized_return_pct": 5.0,
+                "median_realized_return_pct": 4.0,
+                "high_return_10_rate_pct": 30.0,
+                "loss_5_rate_pct": 20.0,
+            }
+            for score_bucket in ["all_scores", "score_ge_2", "score_ge_3", "score_ge_5"]
+        ]
+    )
+    revenue = pd.DataFrame(
+        [
+            {
+                "condition_test_id": condition_id,
+                "anomaly_exclusion_basis": "excluding_known_price_or_revenue_anomalies",
+                "condition_rule": f"revenue rule for {condition_id}",
+                "data_status": "joined_from_full_market_monthly_revenue_history_research_only",
+                "formal_price_rule_status": "close_confirmed_candidate",
+                "entry_rule_id": "signal_date_next_open",
+                "source_mature_signal_stock_days": 30,
+                "accepted_trade_count": 30,
+                "accepted_avg_trades_per_research_day": 1.0,
+                "win_rate_pct": 40.0,
+                "neutral_rate_pct": 20.0,
+                "failure_rate_pct": 40.0,
+                "avg_realized_return_pct": 4.0,
+                "median_realized_return_pct": 3.0,
+                "high_return_10_rate_pct": 30.0,
+                "loss_5_rate_pct": 20.0,
+            }
+            for condition_id in [
+                "base_v1_without_revenue_gate",
+                "latest30_and_cumulative20",
+                "latest_revenue_yoy_ge50",
+                "latest_yoy_delta_ge20",
+                "latest_yoy_turn_positive_after_2_negative",
+                "revenue_negative_both_risk",
+            ]
+        ]
+    )
+
+    matrix = build_price_pullback_promotion_matrix(lifecycle, ordered, high_return, revenue)
+
+    assert not matrix.empty
+    assert validate_promotion_matrix(matrix.astype(str)) == []
+    assert matrix["approved_for_daily"].eq(False).all()
+    assert matrix["production_change"].eq("none").all()
+    roles = dict(zip(matrix["promotion_candidate_id"], matrix["proposed_contract_role"]))
+    assert roles["base_package:v1_gate_return20_tdcc_high_obv"] == "base_model_candidate_required_gate_package"
+    assert roles["revenue_package:latest30_and_cumulative20"] == "strong_add_score_package_candidate_not_required_gate"
+    assert roles["revenue_reject:latest_yoy_turn_positive_after_2_negative"] == "reject_as_required_gate_or_add_score"
+    assert roles["score_component:volume_red_or_solid_red_risk"] == "risk_tag_candidate_review"
+    assert roles["deferred_context:theme_leadership"] == "defer_until_mature_point_in_time_theme_samples"
 
 
 def test_revenue_unreacted_range_revenue_matrix_stays_advisory_without_operation_contract() -> None:

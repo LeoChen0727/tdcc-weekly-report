@@ -140,6 +140,7 @@ jobs:
           python scripts/validate_daily_model_signal_background_features.py
           python scripts/build_daily_model_parameter_research.py
           python scripts/validate_daily_model_revenue_condition_matrix.py
+          python scripts/validate_price_pullback_promotion_matrix.py
           python scripts/build_daily_model_background_data_cleanup_audit.py
           python scripts/validate_daily_model_background_data_cleanup_audit.py
           python scripts/validate_daily_model_research_parity.py
@@ -246,6 +247,7 @@ jobs:
           git add output/latest/research_backtest/price_pullback_23ema_model_decision_audit_latest.csv output/latest/research_backtest/price_pullback_23ema_model_decision_audit_latest.md || true
           git add output/latest/research_backtest/price_pullback_23ema_high_return_feature_score_grid_latest.csv output/latest/research_backtest/price_pullback_23ema_high_return_feature_score_grid_latest.md || true
           git add output/latest/research_backtest/price_pullback_23ema_revenue_condition_matrix_latest.csv output/latest/research_backtest/price_pullback_23ema_revenue_condition_matrix_latest.md || true
+          git add output/latest/research_backtest/price_pullback_23ema_promotion_matrix_latest.csv output/latest/research_backtest/price_pullback_23ema_promotion_matrix_latest.md || true
           git add output/latest/research_backtest/revenue_unreacted_range_revenue_condition_matrix_latest.csv output/latest/research_backtest/revenue_unreacted_range_revenue_condition_matrix_latest.md || true
           git add output/latest/research_backtest/price_pullback_23ema_lifecycle_replay_latest.csv output/latest/research_backtest/price_pullback_23ema_lifecycle_replay_latest.md || true
           git add output/latest/model_operation_readiness_latest.csv output/latest/model_operation_readiness_latest.md || true
@@ -274,6 +276,7 @@ jobs:
           git add docs/latest/price_pullback_23ema_model_decision_audit_latest.csv docs/latest/price_pullback_23ema_model_decision_audit_latest.md || true
           git add docs/latest/price_pullback_23ema_high_return_feature_score_grid_latest.csv docs/latest/price_pullback_23ema_high_return_feature_score_grid_latest.md || true
           git add docs/latest/price_pullback_23ema_revenue_condition_matrix_latest.csv docs/latest/price_pullback_23ema_revenue_condition_matrix_latest.md || true
+          git add docs/latest/price_pullback_23ema_promotion_matrix_latest.csv docs/latest/price_pullback_23ema_promotion_matrix_latest.md || true
           git add docs/latest/revenue_unreacted_range_revenue_condition_matrix_latest.csv docs/latest/revenue_unreacted_range_revenue_condition_matrix_latest.md || true
           git add docs/latest/price_pullback_23ema_lifecycle_replay_latest.csv docs/latest/price_pullback_23ema_lifecycle_replay_latest.md || true
           git add docs/latest/model_operation_readiness_latest.csv docs/latest/model_operation_readiness_latest.md || true
@@ -291,6 +294,7 @@ jobs:
           git add output/history/research/price_pullback_23ema_model_decision_audit.csv || true
           git add output/history/research/price_pullback_23ema_high_return_feature_score_grid.csv || true
           git add output/history/research/price_pullback_23ema_revenue_condition_matrix.csv || true
+          git add output/history/research/price_pullback_23ema_promotion_matrix.csv || true
           git add output/history/research/revenue_unreacted_range_revenue_condition_matrix.csv || true
           git add output/history/research/price_pullback_23ema_lifecycle_replay.csv || true
           git add output/history/volume_breakout/ || true
