@@ -115,7 +115,11 @@ def validate_audit(audit: pd.DataFrame) -> list[str]:
     if not bad_protected.empty:
         errors.append("protected cleanup decisions must have deletion_allowed=False")
 
-    for revenue_family in ["monthly_revenue_history", "monthly_revenue_point_in_time_panel"]:
+    for revenue_family in [
+        "monthly_revenue_history",
+        "monthly_revenue_coverage_backfill_audit",
+        "monthly_revenue_point_in_time_panel",
+    ]:
         revenue = audit[audit["data_family_id"].eq(revenue_family)]
         if revenue.empty:
             errors.append(f"cleanup audit must include {revenue_family}")

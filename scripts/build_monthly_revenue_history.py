@@ -436,6 +436,11 @@ def merge_history(current: pd.DataFrame, history_path: Path = HISTORY_CSV) -> pd
 
 
 def write_markdown(history: pd.DataFrame, current: pd.DataFrame, statuses: list[dict[str, Any]]) -> None:
+    source_kinds = (
+        ";".join(sorted(set(history["source_kind"].dropna().astype(str))))
+        if not history.empty and "source_kind" in history.columns
+        else SOURCE_KIND
+    )
     period_coverage = (
         history.groupby("revenue_period", dropna=False)
         .agg(rows=("stock_id", "size"), unique_stocks=("stock_id", "nunique"), source_table_date=("source_table_date", "max"))
@@ -468,15 +473,16 @@ def write_markdown(history: pd.DataFrame, current: pd.DataFrame, statuses: list[
         f"- generated_at: `{now_text()}`",
         f"- history_id: `{HISTORY_ID}`",
         f"- history_version: `{HISTORY_VERSION}`",
-        f"- source_kind: `{SOURCE_KIND}`",
-        f"- current_fetch_rows: `{len(current)}`",
+        f"- source_kind: `{source_kinds}`",
+        f"- latest_build_rows: `{len(current)}`",
         f"- total_history_rows: `{len(history)}`",
         f"- unique_stocks: `{history['stock_id'].nunique() if not history.empty else 0}`",
         f"- revenue_period_min: `{history['revenue_period'].min() if not history.empty else ''}`",
         f"- revenue_period_max: `{history['revenue_period'].max() if not history.empty else ''}`",
         "- allowed_use: save full-market official monthly revenue rows and join research rows where `source_table_date <= signal_date`.",
         "- forbidden_use: do not label older historical signals with the latest saved revenue period; formal model gates require sufficient coverage audit and promotion.",
-        "- current_limitation: the current official OpenAPI returns the latest available revenue period only; older periods require separate validated backfill or accumulation over future runs.",
+        "- current_limitation: the current official OpenAPI returns the latest available revenue period only; older periods require validated historical backfill or accumulation over future runs.",
+        "- historical_backfill_policy: static MOPS monthly revenue HTML backfill uses a conservative next-month-17 source date so historical research joins do not look ahead.",
         "",
         "## Source Fetch Status",
         "",

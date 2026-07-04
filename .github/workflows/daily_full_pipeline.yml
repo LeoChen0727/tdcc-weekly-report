@@ -435,6 +435,11 @@ jobs:
           python scripts/update_daily_published_model_snapshots.py
           python scripts/validate_daily_published_model_snapshots.py
 
+      - name: Build monthly revenue coverage/backfill audit
+        run: |
+          python scripts/build_monthly_revenue_coverage_backfill_audit.py
+          python scripts/validate_monthly_revenue_coverage_backfill_audit.py
+
       - name: Validate catalyst layer
         run: |
           python scripts/validate_event_calendar_data.py
@@ -521,7 +526,7 @@ jobs:
           git add docs/latest/daily_candidate_*.csv docs/latest/daily_candidate_*.md docs/latest/daily_candidate_*.json || true
           git add docs/latest/daily_report_model_registry_latest.* docs/latest/individual_stock_technical_snapshot_latest.* || true
           git add docs/latest/non_revenue_momentum_watch_latest.* docs/latest/market_abnormal_status_latest.* docs/latest/market_sentiment_context_latest.* || true
-          git add docs/latest/monthly_revenue_history_latest.* || true
+          git add docs/latest/monthly_revenue_* || true
           git add docs/latest/fundamental_catalyst_layer_latest.md docs/latest/catalyst_data_source_status_latest.* || true
           git add data/institutional_investor_flow/ data/warrant_daily/ data/warrant_flow_by_stock/ data/futures_options/ || true
           git add data/monthly_revenue_history/ || true
