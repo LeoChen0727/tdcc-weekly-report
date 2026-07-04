@@ -1,20 +1,20 @@
 # Market Abnormal Status Latest
 
-- generated_at: `2026-07-04 22:04:41 Asia/Taipei`
+- generated_at: `2026-07-05 01:06:47 Asia/Taipei`
 - source: TWSE / TPEx official OpenAPI
 - usage: execution-risk flag for daily candidate, short-term research, and backtest segmentation.
 - limitation: historical backtests can only use this flag after daily snapshots accumulate or a verified historical source is backfilled.
 
 ## Source Status
-| source              | status   |   rows | url                                                                 |
-|:--------------------|:---------|-------:|:--------------------------------------------------------------------|
-| twse_disposition    | ok       |     35 | https://openapi.twse.com.tw/v1/announcement/punish                  |
-| twse_attention      | ok       |      1 | https://openapi.twse.com.tw/v1/announcement/notice                  |
-| twse_attention_note | ok       |      4 | https://openapi.twse.com.tw/v1/announcement/notetrans               |
-| tpex_disposition    | ok       |     39 | https://www.tpex.org.tw/openapi/v1/tpex_disposal_information        |
-| tpex_attention      | ok       |     24 | https://www.tpex.org.tw/openapi/v1/tpex_trading_warning_information |
-| tpex_attention_note | ok       |      2 | https://www.tpex.org.tw/openapi/v1/tpex_trading_warning_note        |
-| tpex_trading_mode   | ok       |     20 | https://www.tpex.org.tw/openapi/v1/tpex_cmode                       |
+| source              | status       |   rows | url                                                                 |
+|:--------------------|:-------------|-------:|:--------------------------------------------------------------------|
+| twse_disposition    | ok           |     35 | https://openapi.twse.com.tw/v1/announcement/punish                  |
+| twse_attention      | ok           |      1 | https://openapi.twse.com.tw/v1/announcement/notice                  |
+| twse_attention_note | ok           |      4 | https://openapi.twse.com.tw/v1/announcement/notetrans               |
+| tpex_disposition    | ok           |     39 | https://www.tpex.org.tw/openapi/v1/tpex_disposal_information        |
+| tpex_attention      | ok           |     24 | https://www.tpex.org.tw/openapi/v1/tpex_trading_warning_information |
+| tpex_attention_note | fetch_failed |      1 | https://www.tpex.org.tw/openapi/v1/tpex_trading_warning_note        |
+| tpex_trading_mode   | ok           |     20 | https://www.tpex.org.tw/openapi/v1/tpex_cmode                       |
 
 ## Counts
 | market_abnormal_status           |   count |
