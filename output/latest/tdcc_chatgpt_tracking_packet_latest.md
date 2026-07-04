@@ -1,7 +1,7 @@
 # TDCC CHATGPT TRACKING PACKET
 
 ## Metadata
-- generated_at: 2026-07-04 15:42:49 Asia/Taipei
+- generated_at: 2026-07-04 19:41:17 Asia/Taipei
 - main_price_date: 20260703
 - latest_tdcc_signal_date: 20260703
 - source_files: tdcc_signal_snapshot.csv, tdcc_normalized_signal_log.csv, tdcc_signal_performance.csv, tdcc_pre_move_accumulation_latest.csv, tdcc_signal_effectiveness_latest.md
@@ -136,7 +136,7 @@
 
 | theme | theme_mainstream_status | signal_count | leading_count | confirmed_count | late_or_overheated_count | divergence_count | avg_tdcc_strength_score | avg_abm_score | representative_codes |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| other electronics | mainstream_leader | 405 | 31 | 2 | 25 | 45 | 151.78 | 55.73 | 2390/6609/6409/3092/6283 |
+| other electronics | mainstream_leader | 405 | 31 | 2 | 25 | 45 | 151.78 | 55.73 | 8084/8047/6409/6199/6609 |
 | traditional industries | mainstream_leader | 219 | 31 | 1 | 23 | 17 | 164.82 | 57.43 | 1217/1304/1323/1325/1474 |
 | other | single_name_signal | 177 | 19 | 2 | 3 | 29 | 162.63 | 62.92 | 1233/4161/4406/4198/4155 |
 | biotechnology | mainstream_leader | 108 | 15 | 1 | 6 | 8 | 155.97 | 59.04 | 1733/1734/1784/1737/2107 |

@@ -26,9 +26,9 @@
 
 - weekly_increase: 395
 - consecutive_accumulation: 19
-- model_cross: 8
-- highlight_report: 28
-- full_report: 77
+- model_cross: 18
+- highlight_report: 32
+- full_report: 87
 - manifest_sections: 4
 
 ## Section Row Counts
@@ -36,12 +36,12 @@
 ### highlight
 - `weekly_increase`: 10
 - `consecutive_accumulation`: 10
-- `model_cross_weekly_increase_tdcc_short_term_continuation_d5_d10`: 6
+- `model_cross_weekly_increase_tdcc_short_term_continuation_d5_d10`: 10
 - `model_cross_consecutive_accumulation_tdcc_short_term_continuation_d5_d10`: 2
 ### full
 - `weekly_increase`: 50
 - `consecutive_accumulation`: 19
-- `model_cross_weekly_increase_tdcc_short_term_continuation_d5_d10`: 6
+- `model_cross_weekly_increase_tdcc_short_term_continuation_d5_d10`: 16
 - `model_cross_consecutive_accumulation_tdcc_short_term_continuation_d5_d10`: 2
 
 ## Font Contract

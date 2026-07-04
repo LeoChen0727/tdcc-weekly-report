@@ -1,6 +1,6 @@
 # TDCC Normalized Signal Structures
 
-- generated_at: `2026-07-04 15:41:55 Asia/Taipei`
+- generated_at: `2026-07-04 19:40:13 Asia/Taipei`
 - processed_snapshot_window: `latest_8_dates`
 - price_metrics_limit: `500`
 - snapshot_rows: `11578`
