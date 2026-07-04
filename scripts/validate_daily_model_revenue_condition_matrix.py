@@ -112,6 +112,32 @@ def validate_price_pullback(df: pd.DataFrame) -> list[str]:
         errors.append("price_pullback_23ema revenue matrix must use close-confirmed candidate operation basis")
     if not df["operation_basis"].astype(str).eq("price_pullback_close_confirmed_candidate_lifecycle_replay").all():
         errors.append("price_pullback_23ema revenue matrix must use lifecycle replay operation basis")
+    required_turnaround_tests = {
+        "latest_yoy_improving_2m",
+        "latest_yoy_improving_3m",
+        "latest_yoy_turn_positive",
+        "latest_yoy_turn_positive_after_2_negative",
+        "turn_positive_and_cumulative_improving",
+        "latest_improving_2m_and_cumulative_improving",
+    }
+    missing_turnaround_tests = required_turnaround_tests - set(df["condition_test_id"].astype(str))
+    if missing_turnaround_tests:
+        errors.append(
+            "price_pullback_23ema revenue matrix missing turnaround tests: "
+            + ", ".join(sorted(missing_turnaround_tests))
+        )
+    required_delta_columns = {
+        "avg_revenue_latest_yoy_delta_1m_pct_points",
+        "median_revenue_latest_yoy_delta_1m_pct_points",
+        "avg_revenue_cumulative_yoy_delta_1m_pct_points",
+        "median_revenue_cumulative_yoy_delta_1m_pct_points",
+    }
+    missing_delta_columns = required_delta_columns - set(df.columns)
+    if missing_delta_columns:
+        errors.append(
+            "price_pullback_23ema revenue matrix missing turnaround metric columns: "
+            + ", ".join(sorted(missing_delta_columns))
+        )
     return errors
 
 

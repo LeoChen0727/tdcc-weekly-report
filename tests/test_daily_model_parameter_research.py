@@ -1133,6 +1133,66 @@ def test_full_monthly_revenue_history_join_uses_source_table_date_asof(tmp_path:
     assert bool(joined.loc[1, "full_monthly_revenue_formal_model_use_allowed"]) is False
 
 
+def test_full_monthly_revenue_history_join_adds_lagged_turnaround_context(tmp_path: Path) -> None:
+    history = pd.DataFrame(
+        [
+            {
+                "stock_id": "2330",
+                "revenue_period": "202511",
+                "source_table_date": "20251217",
+                "source_kind": "official_test",
+                "latest_revenue_yoy_pct": "-10",
+                "cumulative_revenue_yoy_pct": "-6",
+                "month_over_month_pct": "1",
+                "revenue_numerical_anomaly_flag": "False",
+                "revenue_numerical_anomaly_reason": "",
+                "research_join_allowed": "True",
+                "allowed_for_formal_historical_model_use": "False",
+            },
+            {
+                "stock_id": "2330",
+                "revenue_period": "202512",
+                "source_table_date": "20260117",
+                "source_kind": "official_test",
+                "latest_revenue_yoy_pct": "-5",
+                "cumulative_revenue_yoy_pct": "-2",
+                "month_over_month_pct": "2",
+                "revenue_numerical_anomaly_flag": "False",
+                "revenue_numerical_anomaly_reason": "",
+                "research_join_allowed": "True",
+                "allowed_for_formal_historical_model_use": "False",
+            },
+            {
+                "stock_id": "2330",
+                "revenue_period": "202601",
+                "source_table_date": "20260217",
+                "source_kind": "official_test",
+                "latest_revenue_yoy_pct": "8",
+                "cumulative_revenue_yoy_pct": "1",
+                "month_over_month_pct": "3",
+                "revenue_numerical_anomaly_flag": "False",
+                "revenue_numerical_anomaly_reason": "",
+                "research_join_allowed": "True",
+                "allowed_for_formal_historical_model_use": "False",
+            },
+        ]
+    )
+    path = tmp_path / "monthly_revenue_history.csv"
+    history.to_csv(path, index=False)
+    frame = pd.DataFrame([{"stock_id": "2330", "date": "20260217"}])
+
+    joined = attach_full_monthly_revenue_history_features(frame, path)
+
+    assert bool(joined.loc[0, "full_monthly_revenue_context_ready"]) is True
+    assert joined.loc[0, "full_monthly_revenue_period"] == "202601"
+    assert joined.loc[0, "full_monthly_revenue_prev1_period"] == "202512"
+    assert joined.loc[0, "full_monthly_revenue_prev2_period"] == "202511"
+    assert joined.loc[0, "full_monthly_revenue_prev1_latest_yoy_pct"] == -5.0
+    assert joined.loc[0, "full_monthly_revenue_prev2_latest_yoy_pct"] == -10.0
+    assert joined.loc[0, "full_monthly_revenue_latest_yoy_delta_1m_pct_points"] == 13.0
+    assert joined.loc[0, "full_monthly_revenue_cumulative_yoy_delta_1m_pct_points"] == 3.0
+
+
 def _price_pullback_revenue_matrix_fixture() -> pd.DataFrame:
     df = pd.DataFrame(
         {
@@ -1168,6 +1228,14 @@ def _price_pullback_revenue_matrix_fixture() -> pd.DataFrame:
             "full_monthly_revenue_context_ready": [True, True, True],
             "full_monthly_revenue_latest_yoy_pct": [40.0, 40.0, -5.0],
             "full_monthly_revenue_cumulative_yoy_pct": [25.0, 25.0, -2.0],
+            "full_monthly_revenue_prev1_latest_yoy_pct": [-5.0, -5.0, -8.0],
+            "full_monthly_revenue_prev2_latest_yoy_pct": [-10.0, -10.0, -6.0],
+            "full_monthly_revenue_prev3_latest_yoy_pct": [-15.0, -15.0, -4.0],
+            "full_monthly_revenue_prev1_cumulative_yoy_pct": [-2.0, -2.0, -3.0],
+            "full_monthly_revenue_prev2_cumulative_yoy_pct": [-6.0, -6.0, -2.0],
+            "full_monthly_revenue_prev3_cumulative_yoy_pct": [-8.0, -8.0, -1.0],
+            "full_monthly_revenue_latest_yoy_delta_1m_pct_points": [45.0, 45.0, 3.0],
+            "full_monthly_revenue_cumulative_yoy_delta_1m_pct_points": [27.0, 27.0, 1.0],
             "full_monthly_revenue_positive_flag": [True, True, False],
             "full_monthly_revenue_strong_flag": [True, True, False],
             "full_monthly_revenue_positive_or_strong": [True, True, False],
@@ -1206,6 +1274,19 @@ def test_price_pullback_revenue_condition_matrix_is_research_only_and_uses_lifec
     assert strong["accepted_trade_count"] == 1
     assert strong["suppressed_signal_count"] == 1
     assert strong["promotion_readiness"] == "blocked_model_specific_promotion_pr_required"
+    turnaround = matrix[
+        matrix["condition_test_id"].eq("latest_yoy_turn_positive_after_2_negative")
+        & matrix["anomaly_exclusion_basis"].eq("excluding_known_price_or_revenue_anomalies")
+    ].iloc[0]
+    assert turnaround["source_mature_signal_stock_days"] == 2
+    assert turnaround["accepted_trade_count"] == 1
+    assert turnaround["suppressed_signal_count"] == 1
+    combo = matrix[
+        matrix["condition_test_id"].eq("latest_improving_2m_and_cumulative_improving")
+        & matrix["anomaly_exclusion_basis"].eq("excluding_known_price_or_revenue_anomalies")
+    ].iloc[0]
+    assert combo["accepted_trade_count"] == 1
+    assert combo["avg_revenue_latest_yoy_delta_1m_pct_points"] == 45.0
     tampered = matrix.astype(str).copy()
     tampered.loc[0, "approved_for_daily"] = "True"
     assert any("approved_for_daily" in error for error in validate_price_pullback(tampered))
