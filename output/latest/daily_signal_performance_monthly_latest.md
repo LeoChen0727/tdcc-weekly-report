@@ -1,65 +1,64 @@
 # 每日候選股模型績效月報
 
-- generated_at: `2026-06-30 23:09:40 Asia/Taipei`
-- latest_signal_date: `20260630`
-- signal_count: `8824`
+- generated_at: `2026-07-05 05:07:40 Asia/Taipei`
+- latest_signal_date: `20260703`
+- signal_count: `1844`
 - period: latest signal month
 
 ## 市場背景摘要
 
-- TWSE: close=46125.91, 5d=-2.07%, 10d=+1.61%, 20d=+1.74%, above_ma20=True, above_ma60=True
-- TPEX: close=426.97, 5d=-3.14%, 10d=-0.56%, 20d=-4.27%, above_ma20=False, above_ma60=True
+- TWSE: close=46780.62, 5d=+4.96%, 10d=+0.68%, 20d=+2.42%, above_ma20=True, above_ma60=True
+- TPEX: close=445.38, 5d=+7.25%, 10d=-0.38%, 20d=+1.20%, above_ma20=True, above_ma60=True
 
 ## 絕對報酬 vs 相對報酬：分類
 
 | category | signal_count | avg_return_d5 | avg_return_d10 | avg_relative_return_vs_benchmark_d5 | avg_relative_return_vs_benchmark_d10 | win_rate_d10 | benchmark_outperform_rate_d10 | avg_mfe_d10 | avg_mae_d10 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| pattern | 3568 | 0.4281422366810308 | 2.7732883623054057 | 1.738765973172053 | 1.5799819827246457 | 52.32558139534884 | 47.61321909424724 | 9.684372790929912 | -6.018251092808027 |
-| range_rebound | 1714 | -1.928486577746419 | -0.18235489900210003 | 0.5991930039959152 | -1.3353623440852511 | 42.98245614035088 | 39.849624060150376 | 8.282292345119043 | -7.62140896163478 |
-| true_breakout | 627 | -1.7883820438476234 | -0.23191693395080845 | 0.6024643654418241 | -1.3732965913340187 | 38.43648208469055 | 33.876221498371336 | 11.265450249486445 | -9.837145713723189 |
-| revenue_breakout_low_response | 361 | -0.2626518229891513 | 0.0374784076918605 | 0.06158214321838918 | -2.3426914468060254 | 42.98245614035088 | 34.21052631578947 | 5.870870478822972 | -5.298152161635657 |
-| pullback_rebound | 277 | -0.9320675955965538 | 3.2930846949743806 | 0.7529864258530756 |  | 61.417322834645674 |  | 8.598608454215974 | -6.437265297397613 |
-| revenue_pullback | 2277 | 0.2099090843010141 | 1.9872871970113042 | 0.17174353711814946 |  | 51.32211538461539 |  | 8.065750878150457 | -5.9167607393970965 |
+| pattern | 649 |  |  |  |  |  |  | 4.133390952036044 | -2.2651959037352234 |
+| pullback_rebound | 64 |  |  |  |  |  |  | 3.0384131385206583 | -2.4024730873144744 |
+| range_rebound | 450 |  |  |  |  |  |  | 4.472087993537121 | -2.5406871066185452 |
+| revenue_breakout_low_response | 116 |  |  |  |  |  |  | 3.384300530891292 | -1.734888507640917 |
+| revenue_pullback | 431 |  |  |  |  |  |  | 3.283679383724748 | -2.2203178838199866 |
+| true_breakout | 134 |  |  |  |  |  |  | 8.550941680637292 | -2.5525020281594575 |
 
 ## TDCC 分層效果
 
 | tdcc_status | signal_count | avg_return_d5 | avg_return_d10 | avg_relative_return_vs_benchmark_d10 | win_rate_d10 | avg_mfe_d10 | avg_mae_d10 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| 無TDCC資料 | 1 | 8.824823943661976 | 13.3362676056338 | 13.205957231820808 | 100.0 | 18.39788732394365 | 4.84154929577465 |
-|  | 41 | 0.5966238336545662 | 3.11803339928946 | 1.492992893680357 | 73.33333333333333 | 4.646716118356161 | -3.3829356692966064 |
-| mild_accumulation | 3742 | -0.08366403957880364 | 2.3025984394772587 | 1.1382575493940967 | 51.01394169835235 | 9.23431378549937 | -6.550014742081144 |
-| distribution_warning | 3688 | -0.5087109475954871 | 1.3176079230938504 | -0.15041301463589912 | 48.150431565967935 | 8.789794712283442 | -6.6193047614713825 |
-| strong_accumulation | 1274 | -0.5767045308469956 | 1.130234062451927 | -0.6220610919170884 | 46.42233856893543 | 8.673054145738332 | -6.397143693351452 |
-| neutral | 78 | -3.8218333316866535 | -3.810372026121185 | -5.001676388488926 | 26.08695652173913 | 7.15801524260264 | -9.556296408751429 |
+|  | 9 |  |  |  |  | -0.0036377240870484975 | -2.342954440525874 |
+| distribution_warning | 782 |  |  |  |  | 4.071536980337341 | -2.3756171374940145 |
+| mild_accumulation | 787 |  |  |  |  | 4.659211705813044 | -2.2027923509363214 |
+| neutral | 23 |  |  |  |  | 1.697068532900917 | -4.0407101768178695 |
+| strong_accumulation | 243 |  |  |  |  | 3.580241281654058 | -2.1982314321345684 |
 
 ## 權證分層效果
 
 | warrant_status | signal_count | avg_return_d5 | avg_return_d10 | avg_relative_return_vs_benchmark_d10 | win_rate_d10 |
 | --- | --- | --- | --- | --- | --- |
-| put_inflow | 41 | 4.568021015111133 | 5.560049597193718 | 8.614421354375253 | 46.875 |
-| call_strong_inflow | 429 | 0.8558143847612875 | 2.584439830215694 | 2.4274102291900954 | 51.42857142857142 |
-|  | 4301 | -0.8126951852354443 | 2.6100207889684 | 0.6121726040102751 | 52.16413715570545 |
-| call_inflow | 690 | -0.3352367654041937 | 0.8673280930221497 | 0.2105910234151209 | 44.11764705882353 |
-| no_signal | 3148 | -0.08479911409919118 | 0.5987741065708557 | -0.4607582526725807 | 46.65257223396758 |
-| call_put_bullish | 185 | 0.30852185548216854 | 0.8383507577611017 | -0.9711017645299699 | 41.17647058823529 |
-| mixed_flow | 30 | 1.56340803478934 | -4.312218158672662 | -4.072597594666981 | 31.25 |
+|  | 1033 |  |  |  |  |
+| call_inflow | 130 |  |  |  |  |
+| call_put_bullish | 51 |  |  |  |  |
+| call_strong_inflow | 90 |  |  |  |  |
+| mixed_flow | 11 |  |  |  |  |
+| no_signal | 506 |  |  |  |  |
+| put_inflow | 23 |  |  |  |  |
 
 ## 族群表現
 
 | sector | sub_theme | signal_count | avg_return_d5 | avg_return_d10 | avg_relative_return_vs_benchmark_d10 | win_rate_d10 |
 | --- | --- | --- | --- | --- | --- | --- |
-|  |  | 8463 | -0.36476336257736824 | 1.727009242849002 | 0.3995872054225983 | 49.24283396430503 |
-| mainstream_growth | mainstream_growth | 188 | 0.28199600362341753 | 0.4387786691545022 | -1.9004527434698923 | 50.847457627118644 |
-| neutral | neutral | 147 | -0.491098731288314 | 0.1202098398839196 | -2.38308717612985 | 36.95652173913043 |
-| cyclical_turnaround | cyclical_turnaround | 26 | -2.5464047003254553 | -3.0161172931004225 | -5.035344774354451 | 22.22222222222222 |
+|  |  | 1728 |  |  |  |  |
+| cyclical_turnaround | cyclical_turnaround | 7 |  |  |  |  |
+| mainstream_growth | mainstream_growth | 76 |  |  |  |  |
+| neutral | neutral | 33 |  |  |  |  |
 
 ## 營收類型比較
 
 | revenue_signal_type | signal_count | avg_return_d10 | avg_relative_return_vs_benchmark_d10 | win_rate_d10 | benchmark_outperform_rate_d10 |
 | --- | --- | --- | --- | --- | --- |
-|  | 5968 | 1.7357226143034903 | 0.5132846128113981 | 48.72169466764061 | 44.119878603945374 |
-| 出貨型營收 / 其他 | 2356 | 2.075899638696568 | -1.7346503482969642 | 51.37395459976105 | 35.064935064935064 |
-| 營建認列型 / 交屋認列型 | 500 | -0.4184970338375551 | -2.8003402273954934 | 44.72573839662447 | 35.0 |
+|  | 1269 |  |  |  |  |
+| 出貨型營收 / 其他 | 500 |  |  |  |  |
+| 營建認列型 / 交屋認列型 | 75 |  |  |  |  |
 
 ## 財報 / 事件催化層績效
 
@@ -67,58 +66,46 @@
 
 | similar_to_shihsinko_flag | signal_count | avg_return_d5 | avg_return_d10 | avg_return_d20 | avg_relative_return_vs_benchmark_d10 | benchmark_outperform_rate_d10 |
 | --- | --- | --- | --- | --- | --- | --- |
-| False | 8784 | -0.34688440686654437 | 1.6772372016827846 | 3.1875060026505038 | 0.2910962289314069 | 43.443197755960725 |
-| True | 40 | -3.60736652136879 | -1.19825708061001 |  | -2.8039141957623803 | 0.0 |
+| False | 1830 |  |  |  |  |  |
+| True | 14 |  |  |  |  |  |
 
 ### EPS / 毛利率 / 營收待確認
 
 | eps_surprise_flag | signal_count | avg_return_d10 | avg_relative_return_vs_benchmark_d10 | benchmark_outperform_rate_d10 |
 | --- | --- | --- | --- | --- |
-| False | 8824 | 1.6764828747461917 | 0.2900114022841256 | 43.4279705573081 |
+| False | 1844 |  |  |  |
 
 | margin_improvement_flag | signal_count | avg_return_d10 | avg_relative_return_vs_benchmark_d10 | benchmark_outperform_rate_d10 |
 | --- | --- | --- | --- | --- |
-| False | 8824 | 1.6764828747461917 | 0.2900114022841256 | 43.4279705573081 |
+| False | 1844 |  |  |  |
 
 | revenue_good_eps_unconfirmed_flag | signal_count | avg_return_d10 | avg_relative_return_vs_benchmark_d10 | benchmark_outperform_rate_d10 |
 | --- | --- | --- | --- | --- |
-| False | 6424 | 1.7526187980848975 | 0.3995872054225985 | 43.81161007667031 |
-| True | 2400 | 1.4147490195433996 | -2.3426914468060245 | 34.21052631578947 |
+| False | 1353 |  |  |  |
+| True | 491 |  |  |  |
 
 ### 利多反應程度
 
 | low_reaction_after_catalyst | signal_count | avg_return_d10 | avg_relative_return_vs_benchmark_d10 | benchmark_outperform_rate_d10 |
 | --- | --- | --- | --- | --- |
-| True | 5983 | 2.037034283932778 | 0.9634753061052584 | 45.56365195027861 |
-| False | 2841 | -0.20875325171961964 | -2.7315103046672267 | 33.84615384615385 |
+| False | 1167 |  |  |  |
+| True | 677 |  |  |  |
 
 | already_reacted_to_catalyst | signal_count | avg_return_d10 | avg_relative_return_vs_benchmark_d10 | benchmark_outperform_rate_d10 |
 | --- | --- | --- | --- | --- |
-| False | 6638 | 1.7914981926893196 | 0.5746430444141758 | 44.36807941962581 |
-| True | 2186 | 0.1370136945791162 | -2.8956735154022053 | 32.9059829059829 |
+| False | 692 |  |  |  |
+| True | 1152 |  |  |  |
 
 ## 不同市場背景下的分類表現
 
 | category | market_regime | signal_count | avg_return_d10 | avg_relative_return_vs_benchmark_d10 | benchmark_outperform_rate_d10 |
 | --- | --- | --- | --- | --- | --- |
-| pattern | strong_bull | 2755 | 2.7997376426769884 | 1.77161041100285 | 48.382838283828384 |
-| range_rebound | correction | 184 | 2.506615377732114 | -0.7896020025085702 | 34.146341463414636 |
-| pattern | correction | 556 | 2.436560129003317 | -0.8596572512373676 | 37.81512605042017 |
-| range_rebound | strong_bull | 1354 | -0.32799265507357006 | -1.3649213586224296 | 40.158520475561424 |
-| true_breakout | strong_bull | 510 | -0.4702138938225956 | -1.3695646765370317 | 34.05797101449276 |
-| true_breakout | correction | 67 | 1.8896947087786538 | -1.4065226714620302 | 32.25806451612903 |
-| revenue_breakout_low_response | strong_bull | 225 | 0.6734680966059686 | -1.4493850371776476 | 38.20224719101123 |
-| revenue_breakout_low_response | correction | 97 | -2.2266448848423632 | -5.522862265083047 | 20.0 |
-| pattern | mild_bull | 257 |  |  |  |
-| pullback_rebound | correction | 42 | 5.247661900146619 |  |  |
-| pullback_rebound | mild_bull | 35 |  |  |  |
-| pullback_rebound | strong_bull | 200 | 3.1260268141904284 |  |  |
-| range_rebound | mild_bull | 176 |  |  |  |
-| revenue_breakout_low_response | mild_bull | 39 |  |  |  |
-| revenue_pullback | correction | 608 | 4.087354186793567 |  |  |
-| revenue_pullback | mild_bull | 253 |  |  |  |
-| revenue_pullback | strong_bull | 1416 | 1.4949866267062633 |  |  |
-| true_breakout | mild_bull | 50 |  |  |  |
+| pattern | mild_bull | 649 |  |  |  |
+| pullback_rebound | mild_bull | 64 |  |  |  |
+| range_rebound | mild_bull | 450 |  |  |  |
+| revenue_breakout_low_response | mild_bull | 116 |  |  |  |
+| revenue_pullback | mild_bull | 431 |  |  |  |
+| true_breakout | mild_bull | 134 |  |  |  |
 
 ## 判讀規則
 

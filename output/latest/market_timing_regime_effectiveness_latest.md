@@ -7,7 +7,7 @@
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | adx_trend_plus_di_dominant | TPEX | correction | 6 | 6 | 4.48 | 83.33 | 6 | 5.03 | 83.33 | insufficient_sample |
 | adx_trend_plus_di_dominant | TPEX | high_risk | 10 | 10 | 0.72 | 70.00 | 10 | 2.40 | 80.00 | insufficient_sample |
-| adx_trend_plus_di_dominant | TPEX | mild_bull | 35 | 35 | 0.59 | 57.14 | 35 | 1.10 | 68.57 | ok |
+| adx_trend_plus_di_dominant | TPEX | mild_bull | 38 | 35 | 0.59 | 57.14 | 35 | 1.10 | 68.57 | ok |
 | adx_trend_plus_di_dominant | TPEX | range_bound | 19 | 19 | 0.51 | 47.37 | 19 | 0.89 | 52.63 | insufficient_sample |
 | adx_trend_plus_di_dominant | TPEX | strong_bull | 82 | 82 | 1.04 | 65.85 | 82 | 2.95 | 74.39 | ok |
 | adx_trend_plus_di_dominant | TWSE | correction | 11 | 11 | 3.59 | 81.82 | 11 | 4.22 | 72.73 | insufficient_sample |
@@ -19,12 +19,9 @@
 | bb_upper_breakout_long_upper_shadow | TPEX | strong_bull | 3 | 3 | 5.97 | 100.00 | 3 | 8.01 | 100.00 | insufficient_sample |
 | bb_upper_breakout_long_upper_shadow | TWSE | mild_bull | 1 | 1 | -3.61 | 0.00 | 1 | -1.49 | 0.00 | insufficient_sample |
 | bb_upper_breakout_long_upper_shadow | TWSE | strong_bull | 9 | 9 | 1.13 | 77.78 | 9 | 1.26 | 66.67 | insufficient_sample |
-| composite_bull_confirmation | TPEX | mild_bull | 1 | 1 | -3.14 | 0.00 | 0 |  |  | pending_only |
-| composite_bull_confirmation | TPEX | strong_bull | 2 | 2 | -5.56 | 0.00 | 2 | -3.04 | 0.00 | insufficient_sample |
 | composite_bull_confirmation | TWSE | mild_bull | 21 | 21 | 0.94 | 61.90 | 21 | 1.59 | 57.14 | insufficient_sample |
 | composite_bull_confirmation | TWSE | range_bound | 2 | 2 | 1.39 | 100.00 | 2 | 0.98 | 100.00 | insufficient_sample |
 | composite_bull_confirmation | TWSE | strong_bull | 61 | 61 | 0.33 | 57.38 | 60 | 1.49 | 63.33 | ok |
-| foreign_tx_extreme_short_technical_weak | TPEX | correction | 1 | 0 |  |  | 0 |  |  | pending_only |
 | golden_cross_ma20_ma60 | TPEX | mild_bull | 1 | 1 | 1.45 | 100.00 | 1 | -0.68 | 0.00 | insufficient_sample |
 | golden_cross_ma20_ma60 | TPEX | strong_bull | 2 | 2 | 1.46 | 50.00 | 2 | 1.13 | 50.00 | insufficient_sample |
 | golden_cross_ma20_ma60 | TWSE | correction | 1 | 1 | -0.24 | 0.00 | 1 | -1.67 | 0.00 | insufficient_sample |
@@ -34,21 +31,21 @@
 | index_new_high_but_ma20_breadth_down | TPEX | mild_bull | 2 | 2 | 0.54 | 50.00 | 2 | 3.79 | 100.00 | insufficient_sample |
 | index_new_high_but_ma20_breadth_down | TPEX | strong_bull | 6 | 6 | -1.22 | 50.00 | 6 | 2.22 | 66.67 | insufficient_sample |
 | index_new_high_but_ma20_breadth_down | TWSE | strong_bull | 15 | 15 | 1.06 | 66.67 | 15 | 2.21 | 80.00 | insufficient_sample |
-| kd_high_death_cross | TPEX | mild_bull | 6 | 5 | 0.08 | 60.00 | 5 | -0.16 | 60.00 | insufficient_sample |
+| kd_high_death_cross | TPEX | mild_bull | 6 | 6 | 0.05 | 50.00 | 5 | -0.16 | 60.00 | insufficient_sample |
 | kd_high_death_cross | TPEX | range_bound | 2 | 2 | 1.66 | 100.00 | 2 | 0.42 | 50.00 | insufficient_sample |
 | kd_high_death_cross | TPEX | strong_bull | 11 | 11 | 1.53 | 81.82 | 11 | 4.74 | 90.91 | insufficient_sample |
 | kd_high_death_cross | TWSE | correction | 1 | 1 | -0.46 | 0.00 | 1 | -0.02 | 0.00 | insufficient_sample |
 | kd_high_death_cross | TWSE | mild_bull | 9 | 9 | -0.21 | 44.44 | 9 | 0.10 | 66.67 | insufficient_sample |
 | kd_high_death_cross | TWSE | range_bound | 1 | 1 | 6.02 | 100.00 | 1 | 6.12 | 100.00 | insufficient_sample |
-| kd_high_death_cross | TWSE | strong_bull | 20 | 19 | 0.77 | 63.16 | 19 | 3.22 | 73.68 | insufficient_sample |
+| kd_high_death_cross | TWSE | strong_bull | 20 | 20 | 0.84 | 65.00 | 19 | 3.22 | 73.68 | insufficient_sample |
 | kd_low_golden_cross | TPEX | correction | 2 | 2 | 2.20 | 100.00 | 2 | 0.76 | 50.00 | insufficient_sample |
 | kd_low_golden_cross | TPEX | high_risk | 4 | 4 | 2.00 | 75.00 | 4 | 3.75 | 100.00 | insufficient_sample |
 | kd_low_golden_cross | TWSE | correction | 2 | 2 | 1.45 | 100.00 | 2 | 3.03 | 100.00 | insufficient_sample |
 | kd_low_golden_cross | TWSE | high_risk | 2 | 2 | 0.86 | 50.00 | 2 | -1.96 | 50.00 | insufficient_sample |
-| ma20_slope_up_price_above_ma20_ma60 | TPEX | mild_bull | 81 | 79 | 0.38 | 50.63 | 78 | 1.77 | 58.97 | ok |
-| ma20_slope_up_price_above_ma20_ma60 | TPEX | strong_bull | 117 | 117 | 0.95 | 63.25 | 113 | 2.89 | 71.68 | ok |
-| ma20_slope_up_price_above_ma20_ma60 | TWSE | mild_bull | 89 | 87 | 0.81 | 62.07 | 87 | 1.63 | 70.11 | ok |
-| ma20_slope_up_price_above_ma20_ma60 | TWSE | strong_bull | 154 | 153 | 1.09 | 66.67 | 148 | 2.50 | 72.30 | ok |
+| ma20_slope_up_price_above_ma20_ma60 | TPEX | mild_bull | 81 | 81 | 0.34 | 49.38 | 78 | 1.77 | 58.97 | ok |
+| ma20_slope_up_price_above_ma20_ma60 | TPEX | strong_bull | 117 | 117 | 0.95 | 63.25 | 116 | 2.83 | 71.55 | ok |
+| ma20_slope_up_price_above_ma20_ma60 | TWSE | mild_bull | 92 | 88 | 0.81 | 62.50 | 87 | 1.63 | 70.11 | ok |
+| ma20_slope_up_price_above_ma20_ma60 | TWSE | strong_bull | 154 | 154 | 1.10 | 66.88 | 151 | 2.49 | 72.85 | ok |
 | macd_dif_low_cross_signal | TPEX | high_risk | 4 | 4 | 1.59 | 100.00 | 4 | 3.42 | 100.00 | insufficient_sample |
 | macd_dif_low_cross_signal | TPEX | mild_bull | 2 | 2 | -3.15 | 0.00 | 2 | -2.51 | 0.00 | insufficient_sample |
 | macd_dif_low_cross_signal | TWSE | high_risk | 2 | 2 | 0.20 | 50.00 | 2 | -3.64 | 50.00 | insufficient_sample |
@@ -59,7 +56,7 @@
 | macd_hist_turn_positive | TWSE | mild_bull | 9 | 9 | 0.16 | 77.78 | 9 | 0.58 | 44.44 | insufficient_sample |
 | macd_hist_turn_positive | TWSE | strong_bull | 10 | 10 | 1.32 | 60.00 | 9 | 2.34 | 66.67 | insufficient_sample |
 | reclaim_ma20_after_breakdown | TPEX | high_risk | 5 | 5 | -0.25 | 80.00 | 5 | 1.87 | 80.00 | insufficient_sample |
-| reclaim_ma20_after_breakdown | TPEX | mild_bull | 15 | 15 | 1.29 | 66.67 | 15 | 1.30 | 53.33 | insufficient_sample |
+| reclaim_ma20_after_breakdown | TPEX | mild_bull | 16 | 15 | 1.29 | 66.67 | 15 | 1.30 | 53.33 | insufficient_sample |
 | reclaim_ma20_after_breakdown | TPEX | range_bound | 2 | 2 | 1.67 | 100.00 | 2 | 1.15 | 100.00 | insufficient_sample |
 | reclaim_ma20_after_breakdown | TPEX | strong_bull | 3 | 3 | 3.22 | 66.67 | 3 | 6.18 | 66.67 | insufficient_sample |
 | reclaim_ma20_after_breakdown | TWSE | high_risk | 1 | 1 | 3.32 | 100.00 | 1 | 6.32 | 100.00 | insufficient_sample |

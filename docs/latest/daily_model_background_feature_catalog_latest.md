@@ -1,6 +1,6 @@
 # Daily Model Background Feature Catalog
 
-- generated_at: `2026-07-04 14:24:26 Asia/Taipei`
+- generated_at: `2026-07-05 04:29:41 Asia/Taipei`
 - scope: documents which columns are shared objective background data and which ideas are explicitly model-specific.
 - rule: shared objective data can be reused; model-specific interpretations require separate research evidence and promotion.
 
