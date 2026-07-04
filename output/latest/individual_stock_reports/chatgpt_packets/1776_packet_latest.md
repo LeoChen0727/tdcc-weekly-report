@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1776 展宇
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:19 Asia/Taipei
+- generated_at: 2026-07-04 22:26:18 Asia/Taipei
 - stock_id: 1776
 - stock_name: 展宇
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 296
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,12 +157,12 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 66.45
+- as_of_date: 20260703
+- over_400_ratio: 65.78
 - over_600_ratio: 60.85
 - over_800_ratio: 51.44
 - over_1000_ratio: 44.12
-- over_400_change_1w: -0.74
+- over_400_change_1w: -0.67
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
 - tdcc_consecutive_up_weeks: 0
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,67.25,0.13,51.44,0.2,44.12,0.2,2,True,True
 20260618,67.19,-0.06,51.44,0,44.12,0,0,False,False
 20260626,66.45,-0.74,51.44,0,44.12,0,0,False,False
+20260703,65.78,-0.67,51.44,0,44.12,0,0,False,False
 ```
 
 ## Candidate Context

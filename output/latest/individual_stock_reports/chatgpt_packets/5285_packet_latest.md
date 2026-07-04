@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5285 界霖
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:28 Asia/Taipei
+- generated_at: 2026-07-04 22:27:19 Asia/Taipei
 - stock_id: 5285
 - stock_name: 界霖
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 57.73
-- over_600_ratio: 55.8
-- over_800_ratio: 51.69
-- over_1000_ratio: 48.99
-- over_400_change_1w: -4.99
-- over_800_change_1w: -2.49
-- over_1000_change_1w: -5.19
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260703
+- over_400_ratio: 60.08
+- over_600_ratio: 58.2
+- over_800_ratio: 51.35
+- over_1000_ratio: 49.56
+- over_400_change_1w: 2.35
+- over_800_change_1w: -0.34
+- over_1000_change_1w: 0.57
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,61.27,0.06,52.31,0.46,50.66,-0.34,1,False,True
 20260618,62.72,1.45,54.18,1.87,54.18,3.52,2,True,True
 20260626,57.73,-4.99,51.69,-2.49,48.99,-5.19,0,False,False
+20260703,60.08,2.35,51.35,-0.34,49.56,0.57,1,False,True
 ```
 
 ## Candidate Context

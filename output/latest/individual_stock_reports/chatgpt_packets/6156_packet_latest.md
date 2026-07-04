@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6156 松上
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:39 Asia/Taipei
+- generated_at: 2026-07-04 22:27:29 Asia/Taipei
 - stock_id: 6156
 - stock_name: 松上
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 162
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -156,15 +156,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 43.2
-- over_600_ratio: 39.93
-- over_800_ratio: 37.99
-- over_1000_ratio: 37.2
-- over_400_change_1w: -0.06
-- over_800_change_1w: -0.95
-- over_1000_change_1w: -0.84
-- tdcc_consecutive_up_weeks: 6
+- as_of_date: 20260703
+- over_400_ratio: 43.25
+- over_600_ratio: 38.09
+- over_800_ratio: 36.9
+- over_1000_ratio: 35.23
+- over_400_change_1w: 0.05
+- over_800_change_1w: -1.09
+- over_1000_change_1w: -1.97
+- tdcc_consecutive_up_weeks: 7
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -181,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,42.07,0.27,37.71,-0.03,36.84,-0.11,4,False,False
 20260618,43.26,1.19,38.94,1.23,38.04,1.2,5,False,True
 20260626,43.2,-0.06,37.99,-0.95,37.2,-0.84,6,False,False
+20260703,43.25,0.05,36.9,-1.09,35.23,-1.97,7,False,False
 ```
 
 ## Candidate Context

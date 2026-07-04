@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8926 台汽電
 
 ## Metadata
-- generated_at: 2026-07-03 22:28:25 Asia/Taipei
+- generated_at: 2026-07-04 22:28:11 Asia/Taipei
 - stock_id: 8926
 - stock_name: 台汽電
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,14 +158,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 61.22
-- over_600_ratio: 58.82
-- over_800_ratio: 56.87
-- over_1000_ratio: 55.62
-- over_400_change_1w: -0.25
-- over_800_change_1w: -0.47
-- over_1000_change_1w: -0.24
+- as_of_date: 20260703
+- over_400_ratio: 59.99
+- over_600_ratio: 57.31
+- over_800_ratio: 55.71
+- over_1000_ratio: 54.56
+- over_400_change_1w: -1.23
+- over_800_change_1w: -1.16
+- over_1000_change_1w: -1.06
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -183,12 +183,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,61.14,0.37,57.11,-0.14,55.43,-0.23,2,False,False
 20260618,61.47,0.33,57.34,0.23,55.86,0.43,3,True,True
 20260626,61.22,-0.25,56.87,-0.47,55.62,-0.24,0,False,False
+20260703,59.99,-1.23,55.71,-1.16,54.56,-1.06,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 20260703 | 8926 | 台汽電 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.發生變動日期:115/07/01 2.法人名稱:大亞電線電纜股份有限公司 3.舊任者姓名:不適用 4.舊任者簡歷:不適用 5.新任者姓名:李文彬 6.新任者簡歷:大亞電線電纜股份有限公司銅材暨台北管理處執行顧問 7.異動原因:法人董事指派代表人 8.原任期（例xx/xx/xx至xx/xx/xx）:115/06/30~118/06/29 9.新任生效日期:115/07/01 10.其他應敘明事項:無；calendar event: ex_dividend on 20260702; status=confirmed; proximity=recent |
+| 20260703 | 8926 | 台汽電 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  |  | stale_signal | 1.發生變動日期:115/07/01 2.法人名稱:大亞電線電纜股份有限公司 3.舊任者姓名:不適用 4.舊任者簡歷:不適用 5.新任者姓名:李文彬 6.新任者簡歷:大亞電線電纜股份有限公司銅材暨台北管理處執行顧問 7.異動原因:法人董事指派代表人 8.原任期（例xx/xx/xx至xx/xx/xx）:115/06/30~118/06/29 9.新任生效日期:115/07/01 10.其他應敘明事項:無；calendar event: ex_dividend on 20260702; status=confirmed; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

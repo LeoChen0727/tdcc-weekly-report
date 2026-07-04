@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6151 晉倫
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:38 Asia/Taipei
+- generated_at: 2026-07-04 22:27:29 Asia/Taipei
 - stock_id: 6151
 - stock_name: 晉倫
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 162
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,14 +158,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 36.68
+- as_of_date: 20260703
+- over_400_ratio: 35.8
 - over_600_ratio: 31.13
 - over_800_ratio: 28.55
 - over_1000_ratio: 20.53
-- over_400_change_1w: -0.19
-- over_800_change_1w: -0.06
-- over_1000_change_1w: -1.82
+- over_400_change_1w: -0.88
+- over_800_change_1w: 0
+- over_1000_change_1w: 0
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,36.23,0.63,28.59,1.73,20.53,-1.82,3,False,True
 20260618,36.87,0.64,28.61,0.02,22.35,1.82,4,False,True
 20260626,36.68,-0.19,28.55,-0.06,20.53,-1.82,0,False,False
+20260703,35.8,-0.88,28.55,0,20.53,0,0,False,False
 ```
 
 ## Candidate Context

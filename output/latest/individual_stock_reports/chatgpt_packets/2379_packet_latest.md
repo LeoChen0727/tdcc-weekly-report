@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2379 瑞昱
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:31 Asia/Taipei
+- generated_at: 2026-07-04 22:26:28 Asia/Taipei
 - stock_id: 2379
 - stock_name: 瑞昱
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,17 +157,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 74.46
-- over_600_ratio: 67.88
-- over_800_ratio: 62.83
-- over_1000_ratio: 58.77
-- over_400_change_1w: -0.78
-- over_800_change_1w: -1.14
-- over_1000_change_1w: -0.66
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260703
+- over_400_ratio: 74.06
+- over_600_ratio: 67.86
+- over_800_ratio: 62.9
+- over_1000_ratio: 58.52
+- over_400_change_1w: -0.4
+- over_800_change_1w: 0.07
+- over_1000_change_1w: -0.25
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,74.97,0.44,63.77,0.44,59.8,0.86,1,True,True
 20260618,75.24,0.27,63.97,0.2,59.43,-0.37,2,False,True
 20260626,74.46,-0.78,62.83,-1.14,58.77,-0.66,0,False,False
+20260703,74.06,-0.4,62.9,0.07,58.52,-0.25,1,False,True
 ```
 
 ## Candidate Context
@@ -197,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 2379 | 瑞昱 | 87 | 0 | 11432240.0 | 0.0 |  | no_signal |
+| 20260703 | 2379 | 瑞昱 | 87 | 1 | 11432240.0 | 93810.0 | 121.87 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3380 明泰
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:00 Asia/Taipei
+- generated_at: 2026-07-04 22:26:54 Asia/Taipei
 - stock_id: 3380
 - stock_name: 明泰
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -162,14 +162,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 67.57
-- over_600_ratio: 66.08
-- over_800_ratio: 65.57
-- over_1000_ratio: 65.12
-- over_400_change_1w: -0.86
-- over_800_change_1w: -0.66
-- over_1000_change_1w: -0.66
+- as_of_date: 20260703
+- over_400_ratio: 67.18
+- over_600_ratio: 65.99
+- over_800_ratio: 65.11
+- over_1000_ratio: 64.81
+- over_400_change_1w: -0.39
+- over_800_change_1w: -0.46
+- over_1000_change_1w: -0.31
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -187,6 +187,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,68.47,-0.41,66.49,-0.41,66.03,-0.06,0,False,False
 20260618,68.43,-0.04,66.23,-0.26,65.78,-0.25,0,False,False
 20260626,67.57,-0.86,65.57,-0.66,65.12,-0.66,0,False,False
+20260703,67.18,-0.39,65.11,-0.46,64.81,-0.31,0,False,False
 ```
 
 ## Candidate Context

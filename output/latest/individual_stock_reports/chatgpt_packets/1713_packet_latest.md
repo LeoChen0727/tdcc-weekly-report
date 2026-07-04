@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1713 國化
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:17 Asia/Taipei
+- generated_at: 2026-07-04 22:26:16 Asia/Taipei
 - stock_id: 1713
 - stock_name: 國化
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 73.67
-- over_600_ratio: 69.78
+- as_of_date: 20260703
+- over_400_ratio: 73.97
+- over_600_ratio: 69.77
 - over_800_ratio: 66.61
 - over_1000_ratio: 66.61
-- over_400_change_1w: 0.34
+- over_400_change_1w: 0.3
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 8
+- tdcc_consecutive_up_weeks: 9
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,72.63,0.04,66.6,0.05,66.6,0.05,6,True,True
 20260618,73.33,0.7,66.61,0.01,66.61,0.01,7,True,True
 20260626,73.67,0.34,66.61,0,66.61,0,8,False,False
+20260703,73.97,0.3,66.61,0,66.61,0,9,False,False
 ```
 
 ## Candidate Context

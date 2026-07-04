@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6438 迅得
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:47 Asia/Taipei
+- generated_at: 2026-07-04 22:27:37 Asia/Taipei
 - stock_id: 6438
 - stock_name: 迅得
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 31.94
-- over_600_ratio: 30.27
-- over_800_ratio: 28.69
-- over_1000_ratio: 23.05
-- over_400_change_1w: -0.16
-- over_800_change_1w: -0.16
-- over_1000_change_1w: -1.23
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260703
+- over_400_ratio: 33.25
+- over_600_ratio: 30.38
+- over_800_ratio: 28.8
+- over_1000_ratio: 24.31
+- over_400_change_1w: 1.31
+- over_800_change_1w: 0.11
+- over_1000_change_1w: 1.26
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,32.63,-1.12,28.84,-0.02,24.27,-0.02,3,False,False
 20260618,32.1,-0.53,28.85,0.01,24.28,0.01,4,False,True
 20260626,31.94,-0.16,28.69,-0.16,23.05,-1.23,0,False,False
+20260703,33.25,1.31,28.8,0.11,24.31,1.26,1,True,True
 ```
 
 ## Candidate Context

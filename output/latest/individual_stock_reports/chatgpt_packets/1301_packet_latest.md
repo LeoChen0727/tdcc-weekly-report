@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1301 台塑
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:06 Asia/Taipei
+- generated_at: 2026-07-04 22:26:06 Asia/Taipei
 - stock_id: 1301
 - stock_name: 台塑
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 74.55
-- over_600_ratio: 73.44
-- over_800_ratio: 72.55
-- over_1000_ratio: 71.92
-- over_400_change_1w: 1.72
-- over_800_change_1w: 1.77
-- over_1000_change_1w: 1.74
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260703
+- over_400_ratio: 74.8
+- over_600_ratio: 73.76
+- over_800_ratio: 72.9
+- over_1000_ratio: 72.19
+- over_400_change_1w: 0.25
+- over_800_change_1w: 0.35
+- over_1000_change_1w: 0.27
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -183,12 +183,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,72.57,-0.79,70.47,-0.83,69.81,-0.86,0,False,False
 20260618,72.83,0.26,70.78,0.31,70.18,0.37,1,True,True
 20260626,74.55,1.72,72.55,1.77,71.92,1.74,2,True,True
+20260703,74.8,0.25,72.9,0.35,72.19,0.27,3,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 1301 | 台塑 | true_breakout | 嚴格突破 | 104.0 |  |  | platform_breakout |  | call_strong_inflow | continued_overheated | 符合條款第四條第XX款：12 事實發生日：115/06/26 1.召開法人說明會之日期：115/06/26 2.召開法人說明會之時間：15 時 30 分  3.召開法人說明會之地點：線上法說會 4.法人說明會擇要訊息：本公司受邀參加玉山證券線上法說會，說明本公司營運概況。 5.其他應敘明事項：報名請洽玉山證券Email: Gina0823-72190@esunsec.com.tw 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260703 | 1301 | 台塑 | true_breakout | 嚴格突破 | 104.0 |  |  | platform_breakout |  | call_put_bullish | continued_overheated | 符合條款第四條第XX款：12 事實發生日：115/06/26 1.召開法人說明會之日期：115/06/26 2.召開法人說明會之時間：15 時 30 分  3.召開法人說明會之地點：線上法說會 4.法人說明會擇要訊息：本公司受邀參加玉山證券線上法說會，說明本公司營運概況。 5.其他應敘明事項：報名請洽玉山證券Email: Gina0823-72190@esunsec.com.tw 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
@@ -198,7 +199,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 1301 | 台塑 | 96 | 0 | 31018900.0 | 0.0 |  | call_strong_inflow |
+| 20260703 | 1301 | 台塑 | 96 | 4 | 31018900.0 | 24540.0 | 1264.01 | call_put_bullish |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

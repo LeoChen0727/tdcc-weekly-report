@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5533 皇鼎
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:33 Asia/Taipei
+- generated_at: 2026-07-04 22:27:24 Asia/Taipei
 - stock_id: 5533
 - stock_name: 皇鼎
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 80.15
-- over_600_ratio: 76.37
-- over_800_ratio: 73.08
-- over_1000_ratio: 70.82
-- over_400_change_1w: 0.29
-- over_800_change_1w: 0.06
-- over_1000_change_1w: 0.05
-- tdcc_consecutive_up_weeks: 8
+- as_of_date: 20260703
+- over_400_ratio: 80.16
+- over_600_ratio: 77.3
+- over_800_ratio: 73.09
+- over_1000_ratio: 71.18
+- over_400_change_1w: 0.01
+- over_800_change_1w: 0.01
+- over_1000_change_1w: 0.36
+- tdcc_consecutive_up_weeks: 9
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,79.85,0.27,73.01,-0.24,70.76,0.04,6,False,True
 20260618,79.86,0.01,73.02,0.01,70.77,0.01,7,True,True
 20260626,80.15,0.29,73.08,0.06,70.82,0.05,8,True,True
+20260703,80.16,0.01,73.09,0.01,71.18,0.36,9,True,True
 ```
 
 ## Candidate Context

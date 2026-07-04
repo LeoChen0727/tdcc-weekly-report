@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6141 柏承
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:38 Asia/Taipei
+- generated_at: 2026-07-04 22:27:28 Asia/Taipei
 - stock_id: 6141
 - stock_name: 柏承
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,16 +158,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 51.5
-- over_600_ratio: 47.25
-- over_800_ratio: 44.35
-- over_1000_ratio: 40.21
-- over_400_change_1w: 1.8
-- over_800_change_1w: 2.06
-- over_1000_change_1w: 1.12
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
+- as_of_date: 20260703
+- over_400_ratio: 51.18
+- over_600_ratio: 47.3
+- over_800_ratio: 44.41
+- over_1000_ratio: 41.99
+- over_400_change_1w: -0.32
+- over_800_change_1w: 0.06
+- over_1000_change_1w: 1.78
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,50.53,0.35,43.37,-0.06,39.29,-0.14,1,False,False
 20260618,49.7,-0.83,42.29,-1.08,39.09,-0.2,0,False,False
 20260626,51.5,1.8,44.35,2.06,40.21,1.12,1,True,True
+20260703,51.18,-0.32,44.41,0.06,41.99,1.78,2,False,True
 ```
 
 ## Candidate Context

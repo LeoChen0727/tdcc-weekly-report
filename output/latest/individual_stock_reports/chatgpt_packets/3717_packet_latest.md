@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3717 聯嘉投控
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:10 Asia/Taipei
+- generated_at: 2026-07-04 22:27:03 Asia/Taipei
 - stock_id: 3717
 - stock_name: 聯嘉投控
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 207
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -156,14 +156,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 45.36
-- over_600_ratio: 39.39
-- over_800_ratio: 36.79
-- over_1000_ratio: 35.55
-- over_400_change_1w: -0.35
-- over_800_change_1w: -1.54
-- over_1000_change_1w: -0.77
+- as_of_date: 20260703
+- over_400_ratio: 43.16
+- over_600_ratio: 38.15
+- over_800_ratio: 35.52
+- over_1000_ratio: 33.75
+- over_400_change_1w: -2.2
+- over_800_change_1w: -1.27
+- over_1000_change_1w: -1.8
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -181,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,45.27,-0.72,36.88,-1.79,35.18,-1.42,0,False,False
 20260618,45.71,0.44,38.33,1.45,36.32,1.14,1,True,True
 20260626,45.36,-0.35,36.79,-1.54,35.55,-0.77,0,False,False
+20260703,43.16,-2.2,35.52,-1.27,33.75,-1.8,0,False,False
 ```
 
 ## Candidate Context

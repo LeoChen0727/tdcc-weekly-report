@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2331 精英
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:28 Asia/Taipei
+- generated_at: 2026-07-04 22:26:25 Asia/Taipei
 - stock_id: 2331
 - stock_name: 精英
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 58.15
-- over_600_ratio: 56.51
-- over_800_ratio: 55.08
-- over_1000_ratio: 54.28
-- over_400_change_1w: 0.15
-- over_800_change_1w: -0.18
+- as_of_date: 20260703
+- over_400_ratio: 57.94
+- over_600_ratio: 55.98
+- over_800_ratio: 54.8
+- over_1000_ratio: 53.96
+- over_400_change_1w: -0.21
+- over_800_change_1w: -0.28
 - over_1000_change_1w: -0.32
-- tdcc_consecutive_up_weeks: 3
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,57.84,-0.32,54.92,0,54.42,0.32,1,False,True
 20260618,58,0.16,55.26,0.34,54.6,0.18,2,True,True
 20260626,58.15,0.15,55.08,-0.18,54.28,-0.32,3,False,False
+20260703,57.94,-0.21,54.8,-0.28,53.96,-0.32,0,False,False
 ```
 
 ## Candidate Context

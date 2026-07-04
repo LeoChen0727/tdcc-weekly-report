@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3034 聯詠
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:50 Asia/Taipei
+- generated_at: 2026-07-04 22:26:45 Asia/Taipei
 - stock_id: 3034
 - stock_name: 聯詠
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 70.52
-- over_600_ratio: 66.31
-- over_800_ratio: 62.56
-- over_1000_ratio: 59.35
-- over_400_change_1w: 0.11
-- over_800_change_1w: -0.54
-- over_1000_change_1w: -0.39
-- tdcc_consecutive_up_weeks: 5
+- as_of_date: 20260703
+- over_400_ratio: 70.28
+- over_600_ratio: 66.73
+- over_800_ratio: 62.96
+- over_1000_ratio: 58.94
+- over_400_change_1w: -0.24
+- over_800_change_1w: 0.4
+- over_1000_change_1w: -0.41
+- tdcc_consecutive_up_weeks: 6
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,69.99,-0.17,62.35,0.12,59.27,0.84,3,False,True
 20260618,70.41,0.42,63.1,0.75,59.74,0.47,4,True,True
 20260626,70.52,0.11,62.56,-0.54,59.35,-0.39,5,False,False
+20260703,70.28,-0.24,62.96,0.4,58.94,-0.41,6,False,True
 ```
 
 ## Candidate Context
@@ -198,7 +199,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 3034 | 聯詠 | 88 | 0 | 8731400.0 | 0.0 |  | no_signal |
+| 20260703 | 3034 | 聯詠 | 88 | 7 | 8731400.0 | 1160.0 | 7527.07 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

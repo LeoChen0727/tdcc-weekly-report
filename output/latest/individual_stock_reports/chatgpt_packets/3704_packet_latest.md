@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3704 合勤控
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:09 Asia/Taipei
+- generated_at: 2026-07-04 22:27:02 Asia/Taipei
 - stock_id: 3704
 - stock_name: 合勤控
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 66.14
-- over_600_ratio: 63.64
-- over_800_ratio: 62.06
-- over_1000_ratio: 60.1
-- over_400_change_1w: 0.21
-- over_800_change_1w: 0.42
-- over_1000_change_1w: 0.23
-- tdcc_consecutive_up_weeks: 8
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260703
+- over_400_ratio: 65.83
+- over_600_ratio: 62.97
+- over_800_ratio: 61.23
+- over_1000_ratio: 59.48
+- over_400_change_1w: -0.31
+- over_800_change_1w: -0.83
+- over_1000_change_1w: -0.62
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,65.5,1.09,60.89,0.65,59.55,0.63,6,True,True
 20260618,65.93,0.43,61.64,0.75,59.87,0.32,7,True,True
 20260626,66.14,0.21,62.06,0.42,60.1,0.23,8,True,True
+20260703,65.83,-0.31,61.23,-0.83,59.48,-0.62,0,False,False
 ```
 
 ## Candidate Context

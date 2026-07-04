@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8021 尖點
 
 ## Metadata
-- generated_at: 2026-07-03 22:28:14 Asia/Taipei
+- generated_at: 2026-07-04 22:28:02 Asia/Taipei
 - stock_id: 8021
 - stock_name: 尖點
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,16 +158,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 47.84
-- over_600_ratio: 44.04
-- over_800_ratio: 40.38
-- over_1000_ratio: 37.38
-- over_400_change_1w: 1.27
-- over_800_change_1w: 2.4
-- over_1000_change_1w: 2.33
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
+- as_of_date: 20260703
+- over_400_ratio: 47.91
+- over_600_ratio: 42.97
+- over_800_ratio: 40.61
+- over_1000_ratio: 37.17
+- over_400_change_1w: 0.07
+- over_800_change_1w: 0.23
+- over_1000_change_1w: -0.21
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -183,12 +183,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,52.3,4,42.17,0.18,38.5,0.11,3,True,True
 20260618,46.57,-5.73,37.98,-4.19,35.05,-3.45,0,False,False
 20260626,47.84,1.27,40.38,2.4,37.38,2.33,1,True,True
+20260703,47.91,0.07,40.61,0.23,37.17,-0.21,2,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 20260703 | 8021 | 尖點 | pattern | 型態觀察 | 46.0 |  |  | base_building |  |  | stale_signal | 1.事實發生日:115/07/01 2.公司名稱:尖點科技股份有限公司。 3.與公司關係(請輸入本公司或子公司):本公司。 4.相互持股比例:不適用。 5.發生緣由:因應本公司配發普通股現金股利，依本公司國內第二次 無擔保轉換公司債發行及轉換辦法第十一條規定調整轉換價格。 6.因應措施:本公司因發行國內第二次私募無擔保轉換公司債， 已依本公司國內第二次無擔保轉換公司債發行及轉換辦法第十一 條規定，於115年6月24日將本公司國內第二次無擔保轉換公司債 之轉換價格由新台幣201.8元調整為201.1元；另因配發普通股現金 股利，自除息基準日（115年7月21日）起，再將轉換價格由新台幣 201.1元調整為200.4元。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 無。；calendar event: ex_dividend on 20260715; status=confirmed; proximity=within_14d |
+| 20260703 | 8021 | 尖點 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/07/01 2.公司名稱:尖點科技股份有限公司。 3.與公司關係(請輸入本公司或子公司):本公司。 4.相互持股比例:不適用。 5.發生緣由:因應本公司配發普通股現金股利，依本公司國內第二次 無擔保轉換公司債發行及轉換辦法第十一條規定調整轉換價格。 6.因應措施:本公司因發行國內第二次私募無擔保轉換公司債， 已依本公司國內第二次無擔保轉換公司債發行及轉換辦法第十一 條規定，於115年6月24日將本公司國內第二次無擔保轉換公司債 之轉換價格由新台幣201.8元調整為201.1元；另因配發普通股現金 股利，自除息基準日（115年7月21日）起，再將轉換價格由新台幣 201.1元調整為200.4元。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 無。；calendar event: ex_dividend on 20260715; status=confirmed; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

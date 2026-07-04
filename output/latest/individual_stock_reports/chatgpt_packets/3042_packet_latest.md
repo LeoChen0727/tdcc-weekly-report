@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3042 晶技
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:51 Asia/Taipei
+- generated_at: 2026-07-04 22:26:46 Asia/Taipei
 - stock_id: 3042
 - stock_name: 晶技
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 55.51
-- over_600_ratio: 51.87
-- over_800_ratio: 49.27
-- over_1000_ratio: 47.41
-- over_400_change_1w: -6.75
-- over_800_change_1w: -7.02
-- over_1000_change_1w: -7.29
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260703
+- over_400_ratio: 59.87
+- over_600_ratio: 55.5
+- over_800_ratio: 53.67
+- over_1000_ratio: 51.74
+- over_400_change_1w: 4.36
+- over_800_change_1w: 4.4
+- over_1000_change_1w: 4.33
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -183,12 +183,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,66.64,2.13,61.55,2.37,59.33,2.6,1,True,True
 20260618,62.26,-4.38,56.29,-5.26,54.7,-4.63,0,False,False
 20260626,55.51,-6.75,49.27,-7.02,47.41,-7.29,0,False,False
+20260703,59.87,4.36,53.67,4.4,51.74,4.33,1,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 3042 | 晶技 | true_breakout | 嚴格突破 | 99.0 |  |  | breakout_confirmed |  | call_strong_inflow | continued_2_3d | 1.事實發生日:115/06/15 2.公司名稱:台灣晶技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:                       當月數　　   當月數　　 　   累計數　　   累計數      項目            115年5月    差異比率          115年   　  差異比率   (新台幣仟元)                     (YoY)                          (YoY) -------------------------------------------------------------------------- 合併營業收入    $    1,217,159      10.5%     $   5,845,075         5.5% 合併營業利益    $      204,372      18.8%　   $     930,663         0.8% 合併稅前損益 　 $      207,003      85.1%　   $     989,904        13.5%   歸屬於母公司  $      205,793      82.9%     $     988,023        13.0%   非控制權益    $        1,210     284.7%     $       1,881       205.6% 稅前每股盈餘    $         0.61                $        2.91   歸屬於母公司  $         0.60                $        2.90   非控制權益    $         0.01                $        0.01 (新台幣元) 註:稅前每股盈餘係以當月底股數計算 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260703 | 3042 | 晶技 | true_breakout | 嚴格突破 | 99.0 |  |  | breakout_confirmed |  | call_put_bullish | continued_2_3d | 1.事實發生日:115/06/15 2.公司名稱:台灣晶技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:                       當月數　　   當月數　　 　   累計數　　   累計數      項目            115年5月    差異比率          115年   　  差異比率   (新台幣仟元)                     (YoY)                          (YoY) -------------------------------------------------------------------------- 合併營業收入    $    1,217,159      10.5%     $   5,845,075         5.5% 合併營業利益    $      204,372      18.8%　   $     930,663         0.8% 合併稅前損益 　 $      207,003      85.1%　   $     989,904        13.5%   歸屬於母公司  $      205,793      82.9%     $     988,023        13.0%   非控制權益    $        1,210     284.7%     $       1,881       205.6% 稅前每股盈餘    $         0.61                $        2.91   歸屬於母公司  $         0.60                $        2.90   非控制權益    $         0.01                $        0.01 (新台幣元) 註:稅前每股盈餘係以當月底股數計算 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
@@ -198,7 +199,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 3042 | 晶技 | 63 | 0 | 88981890.0 | 0.0 |  | call_strong_inflow |
+| 20260703 | 3042 | 晶技 | 63 | 1 | 88981890.0 | 330690.0 | 269.08 | call_put_bullish |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

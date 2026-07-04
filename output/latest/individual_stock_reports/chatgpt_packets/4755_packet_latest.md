@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4755 三福化
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:20 Asia/Taipei
+- generated_at: 2026-07-04 22:27:13 Asia/Taipei
 - stock_id: 4755
 - stock_name: 三福化
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,12 +158,12 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 71.13
-- over_600_ratio: 67.33
+- as_of_date: 20260703
+- over_400_ratio: 69.34
+- over_600_ratio: 66.6
 - over_800_ratio: 66.6
 - over_1000_ratio: 64.76
-- over_400_change_1w: -0.11
+- over_400_change_1w: -1.79
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
 - tdcc_consecutive_up_weeks: 0
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,71.2,0.2,66.65,0,64.81,0,1,False,False
 20260618,71.24,0.04,66.6,-0.05,64.76,-0.05,2,False,False
 20260626,71.13,-0.11,66.6,0,64.76,0,0,False,False
+20260703,69.34,-1.79,66.6,0,64.76,0,0,False,False
 ```
 
 ## Candidate Context

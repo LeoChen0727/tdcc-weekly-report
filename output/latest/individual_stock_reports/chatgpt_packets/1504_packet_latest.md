@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1504 東元
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:12 Asia/Taipei
+- generated_at: 2026-07-04 22:26:11 Asia/Taipei
 - stock_id: 1504
 - stock_name: 東元
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 296
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,14 +158,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 70.06
-- over_600_ratio: 68.96
-- over_800_ratio: 68.07
-- over_1000_ratio: 67.52
-- over_400_change_1w: -0.1
-- over_800_change_1w: -0.27
-- over_1000_change_1w: -0.19
+- as_of_date: 20260703
+- over_400_ratio: 69.58
+- over_600_ratio: 68.45
+- over_800_ratio: 67.51
+- over_1000_ratio: 66.95
+- over_400_change_1w: -0.48
+- over_800_change_1w: -0.56
+- over_1000_change_1w: -0.57
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,70.82,-2.46,68.89,-2.68,68.4,-2.54,0,False,False
 20260618,70.16,-0.66,68.34,-0.55,67.71,-0.69,0,False,False
 20260626,70.06,-0.1,68.07,-0.27,67.52,-0.19,0,False,False
+20260703,69.58,-0.48,67.51,-0.56,66.95,-0.57,0,False,False
 ```
 
 ## Candidate Context
@@ -198,7 +199,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 1504 | 東元 | 92 | 0 | 4646010.0 | 0.0 |  | call_strong_inflow |
+| 20260703 | 1504 | 東元 | 92 | 2 | 4646010.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

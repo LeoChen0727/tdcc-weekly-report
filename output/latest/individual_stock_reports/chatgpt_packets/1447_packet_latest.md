@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1447 力鵬
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:10 Asia/Taipei
+- generated_at: 2026-07-04 22:26:10 Asia/Taipei
 - stock_id: 1447
 - stock_name: 力鵬
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 31
+- latest_tdcc_date: 20260703
+- tdcc_rows: 32
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,23 +158,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 71.46
-- over_600_ratio: 69.56
-- over_800_ratio: 67.84
-- over_1000_ratio: 66.56
-- over_400_change_1w: 0.13
-- over_800_change_1w: 0.12
-- over_1000_change_1w: 0.02
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: True
+- as_of_date: 20260703
+- over_400_ratio: 71.1
+- over_600_ratio: 69.37
+- over_800_ratio: 67.87
+- over_1000_ratio: 66.71
+- over_400_change_1w: -0.36
+- over_800_change_1w: 0.03
+- over_1000_change_1w: 0.15
+- tdcc_consecutive_up_weeks: 4
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260410,70.09,0.02,66.54,-0.04,65.35,-0.15,2,False,False
 20260417,70.18,0.09,66.75,0.21,65.47,0.12,3,True,True
 20260424,70.14,-0.04,66.64,-0.11,65.36,-0.11,0,False,False
 20260430,69.98,-0.16,66.51,-0.13,65.23,-0.13,0,False,False
@@ -186,12 +185,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,71.19,-0.1,67.65,-0.09,66.47,0.01,1,False,True
 20260618,71.33,0.14,67.72,0.07,66.54,0.07,2,True,True
 20260626,71.46,0.13,67.84,0.12,66.56,0.02,3,True,True
+20260703,71.1,-0.36,67.87,0.03,66.71,0.15,4,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 1447 | 力鵬 | true_breakout | 嚴格突破 | 99.0 |  |  | breakout_confirmed |  |  | continued_overheated | 1.事實發生日:115/07/02 2.發生緣由:依臺灣證券交易所股份有限公司指示辦理。 3.財務業務資訊: 期間            (  月  )             (   季   )           (最近四季累計) ========  ==================== ======================== ====================            最近一月   與去年     最近一季     與去年 科目     (115年05月) 同期增減  (115年第1季)  同期增減   (114第2季至115第1季)            IFRS         (%)         IFRS        (%)             IFRS            合併自結數            合併核閱數                  合併核閱數 ========  =========== ======== ============= ========== ==================== 營業收入        1,609  -45.78%          8,072     16.35%             28,993 (百萬) 稅前純益         (29)   88.84%            107    434.28%              (848) (百萬) 歸屬母公司 業主淨利         (29)   88.14%             86    449.39%              (780) (百萬) 每股盈餘       (0.03)   89.29%            0.1    400.00%             (0.89) (元) 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無。 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無。 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告: 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260703 | 1447 | 力鵬 | true_breakout | 嚴格突破 | 99.0 |  |  | breakout_confirmed |  |  | continued_overheated | 1.事實發生日:115/07/03 2.被背書保證之: (1)公司名稱:伊德石化股份有限公司 (2)與提供背書保證公司之關係: 本公司之子公司 (3)背書保證之限額(仟元):1,521,322 (4)原背書保證之餘額(仟元):893,760 (5)本次新增背書保證之金額(仟元):478,800 (6)迄事實發生日止背書保證餘額(仟元):1,372,560 (7)被背書保證公司實際動支金額(仟元):0 (8)本次新增背書保證之原因: 子公司因銀行融資需要，由母公司提供背書保證。 (1)公司名稱:伊頓石化國際股份有限公司 (2)與提供背書保證公司之關係: 本公司之孫公司 (3)背書保證之限額(仟元):1,521,322 (4)原背書保證之餘額(仟元):510,720 (5)本次新增背書保證之金額(仟元):478,800 (6)迄事實發生日止背書保證餘額(仟元):989,520 (7)被背書保證公司實際動支金額(仟元):170,453 (8)本次新增背書保證之原因: 孫公司因銀行融資需要，由母公司提供背書保證。 3.被背書保證公司提供擔保品之: (1)內容: 無 (2)價值(仟元):0 4.被背書保證公司最近期財務報表之: (1)資本(仟元):70,229 (2)累積盈虧金額(仟元):40,830 5.解除背書保證責任之: (1)條件: 額度到期且債務清償完結。 (2)日期: 額度到期且債務清償完結。 6.背書保證之總限額(仟元): 3,042,644 7.迄事實發生日為止，背書保證餘額(仟元): 1,532,160 8.迄事實發生日為止，A提供背書保證餘額占公開發行公司最近期財務報表淨值之 比率: 20.14 9.迄事實發生日為止，背書保證、長期投資及資金貸與餘額合計數達該公開發行公 司最近期財務報表淨值之比率: 38.58 10.其他應敘明事項: (1)新增背書保證實際金額為1,500萬美金， 係由伊德石化股份有限公司及伊頓石化國際 股份有限公司共用額度，實質為同一筆書保證。 (2)上述申報金額以新台幣對美元匯率31.92計算。 (3)伊德石化股份有限公司:最近期財務報表之資本70,200仟元， 最近期財務報表之累積盈虧金額24,009仟元。 (4)伊頓石化國際股份有限公司:最近期財務報表之資本29仟元， 最近期財務報表之累積盈虧金額16,821仟元。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

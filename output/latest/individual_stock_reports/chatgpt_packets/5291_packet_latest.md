@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5291 邑昇
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:28 Asia/Taipei
+- generated_at: 2026-07-04 22:27:19 Asia/Taipei
 - stock_id: 5291
 - stock_name: 邑昇
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 162
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,14 +158,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 48.3
-- over_600_ratio: 35.99
-- over_800_ratio: 29.1
-- over_1000_ratio: 22.25
-- over_400_change_1w: -1.29
-- over_800_change_1w: 0
-- over_1000_change_1w: -0.01
+- as_of_date: 20260703
+- over_400_ratio: 47.65
+- over_600_ratio: 31.68
+- over_800_ratio: 23.11
+- over_1000_ratio: 16.27
+- over_400_change_1w: -0.65
+- over_800_change_1w: -5.99
+- over_1000_change_1w: -5.98
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,49.17,0.2,29.12,-0.29,22.28,0.13,6,False,True
 20260618,49.59,0.42,29.1,-0.02,22.26,-0.02,7,False,False
 20260626,48.3,-1.29,29.1,0,22.25,-0.01,0,False,False
+20260703,47.65,-0.65,23.11,-5.99,16.27,-5.98,0,False,False
 ```
 
 ## Candidate Context

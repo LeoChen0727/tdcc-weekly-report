@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2115 六暉-KY
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:25 Asia/Taipei
+- generated_at: 2026-07-04 22:26:23 Asia/Taipei
 - stock_id: 2115
 - stock_name: 六暉-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 294
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,16 +158,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 69.86
-- over_600_ratio: 66.67
-- over_800_ratio: 62.14
-- over_1000_ratio: 58.65
-- over_400_change_1w: -0.35
-- over_800_change_1w: 0.78
-- over_1000_change_1w: 0.01
-- tdcc_consecutive_up_weeks: 8
-- all_thresholds_up: False
+- as_of_date: 20260703
+- over_400_ratio: 70.36
+- over_600_ratio: 66.73
+- over_800_ratio: 62.2
+- over_1000_ratio: 58.67
+- over_400_change_1w: 0.5
+- over_800_change_1w: 0.06
+- over_1000_change_1w: 0.02
+- tdcc_consecutive_up_weeks: 9
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,69.71,-0.3,61.32,0.13,58.61,0.13,6,False,True
 20260618,70.21,0.5,61.36,0.04,58.64,0.03,7,True,True
 20260626,69.86,-0.35,62.14,0.78,58.65,0.01,8,False,True
+20260703,70.36,0.5,62.2,0.06,58.67,0.02,9,True,True
 ```
 
 ## Candidate Context

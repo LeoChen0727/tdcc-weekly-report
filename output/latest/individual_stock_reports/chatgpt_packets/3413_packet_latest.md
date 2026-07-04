@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3413 京鼎
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:01 Asia/Taipei
+- generated_at: 2026-07-04 22:26:55 Asia/Taipei
 - stock_id: 3413
 - stock_name: 京鼎
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 296
-- latest_tdcc_date: 20260626
-- tdcc_rows: 31
+- latest_tdcc_date: 20260703
+- tdcc_rows: 32
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,23 +158,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 42.62
-- over_600_ratio: 37.75
-- over_800_ratio: 37.15
-- over_1000_ratio: 35.66
-- over_400_change_1w: -0.75
-- over_800_change_1w: 0.7
-- over_1000_change_1w: -0.06
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: False
+- as_of_date: 20260703
+- over_400_ratio: 49.1
+- over_600_ratio: 45.42
+- over_800_ratio: 43.67
+- over_1000_ratio: 43.67
+- over_400_change_1w: 6.48
+- over_800_change_1w: 6.52
+- over_1000_change_1w: 8.01
+- tdcc_consecutive_up_weeks: 3
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260410,40.87,0.24,34.74,0.16,30.58,-1.47,1,False,True
 20260417,44.14,3.27,35.57,0.83,32.28,1.7,2,True,True
 20260424,44.14,0,36.69,1.12,32.6,0.32,3,False,True
 20260430,42.45,-1.69,36.91,0.22,32.16,-0.44,4,False,True
@@ -186,6 +185,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,42.05,-2.44,36.49,-0.83,36.49,-0.83,0,False,False
 20260618,43.37,1.32,36.45,-0.04,35.72,-0.77,1,False,False
 20260626,42.62,-0.75,37.15,0.7,35.66,-0.06,2,False,True
+20260703,49.1,6.48,43.67,6.52,43.67,8.01,3,True,True
 ```
 
 ## Candidate Context

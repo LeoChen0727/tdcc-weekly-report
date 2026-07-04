@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3596 智易
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:06 Asia/Taipei
+- generated_at: 2026-07-04 22:27:00 Asia/Taipei
 - stock_id: 3596
 - stock_name: 智易
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,16 +158,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 73.42
-- over_600_ratio: 67.62
-- over_800_ratio: 65.11
-- over_1000_ratio: 61.08
-- over_400_change_1w: -0.25
-- over_800_change_1w: 0.26
-- over_1000_change_1w: 0.23
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: False
+- as_of_date: 20260703
+- over_400_ratio: 73.81
+- over_600_ratio: 68.04
+- over_800_ratio: 65.8
+- over_1000_ratio: 61.44
+- over_400_change_1w: 0.39
+- over_800_change_1w: 0.69
+- over_1000_change_1w: 0.36
+- tdcc_consecutive_up_weeks: 3
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,73.51,-0.49,65.26,-1,62.07,-0.21,0,False,False
 20260618,73.67,0.16,64.85,-0.41,60.85,-1.22,1,False,False
 20260626,73.42,-0.25,65.11,0.26,61.08,0.23,2,False,True
+20260703,73.81,0.39,65.8,0.69,61.44,0.36,3,True,True
 ```
 
 ## Candidate Context

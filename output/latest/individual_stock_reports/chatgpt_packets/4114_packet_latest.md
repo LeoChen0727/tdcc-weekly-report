@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4114 健喬
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:11 Asia/Taipei
+- generated_at: 2026-07-04 22:27:04 Asia/Taipei
 - stock_id: 4114
 - stock_name: 健喬
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 162
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -162,17 +162,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 42.97
-- over_600_ratio: 39.5
-- over_800_ratio: 37.62
-- over_1000_ratio: 36.24
-- over_400_change_1w: 0.08
-- over_800_change_1w: -0.08
-- over_1000_change_1w: -0.24
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260703
+- over_400_ratio: 42.89
+- over_600_ratio: 39.43
+- over_800_ratio: 37.5
+- over_1000_ratio: 36.28
+- over_400_change_1w: -0.08
+- over_800_change_1w: -0.12
+- over_1000_change_1w: 0.04
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -187,12 +187,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,42.78,-0.37,37.64,-0.27,36.42,-0.11,0,False,False
 20260618,42.89,0.11,37.7,0.06,36.48,0.06,1,True,True
 20260626,42.97,0.08,37.62,-0.08,36.24,-0.24,2,False,False
+20260703,42.89,-0.08,37.5,-0.12,36.28,0.04,3,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 4114 | 健喬 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  |  | stale_signal | 1.董事會、股東會決議或公司決定日期: 115/07/02 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除權息 3.發放普通股股利種類及金額: (1)原發放股利種類及金額: 現金股利新台幣427,699,291元(每股0.85元)。 股票股利新台幣402,540,520元(每股0.8元)。 (2)變更後發放股利種類及金額: 現金股利新台幣427,699,291元(每股0.84838470元)。 股票股利新台幣402,540,520元(每股0.79847978元)。 4.除權（息）交易日:115/07/17 5.最後過戶日:115/07/20 6.停止過戶起始日期:115/07/21 7.停止過戶截止日期:115/07/25 8.除權（息）基準日:115/07/25 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/20 13.其他應敘明事項: (1)因本公司辦理第十三次買回庫藏股轉讓1,746,000股予員工，及115年6月29日至 115年7月1日買回庫藏股788,000股，致流通在外股數為504,133,636股，股利配股配 息率因此發生變動，依115年5月28日股東會決議及115年6月26日董事會授權董事長 調整股利配股配息率。 (2)本次增資發行新股，業奉金融監督管理委員會115年06月24日申報生效在案。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260703 | 4114 | 健喬 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  |  | stale_signal | 1.發生變動日期:115/07/03 2.法人名稱:祐僑股份有限公司 3.舊任者姓名:黃麗文 4.舊任者簡歷:本公司法人董事代表人 5.新任者姓名:張鴻仁 6.新任者簡歷: 美國哈佛大學醫療政策與管理碩士 台灣研發型生技新藥發展協會理事 7.異動原因:法人董事指派代表人 8.原任期（例xx/xx/xx至xx/xx/xx）:114/05/23~117/05/22 9.新任生效日期:115/07/03 10.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

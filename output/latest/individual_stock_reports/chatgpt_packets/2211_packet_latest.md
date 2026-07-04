@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2211 長榮鋼
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:26 Asia/Taipei
+- generated_at: 2026-07-04 22:26:23 Asia/Taipei
 - stock_id: 2211
 - stock_name: 長榮鋼
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,16 +158,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 82.65
-- over_600_ratio: 81.21
-- over_800_ratio: 80.32
-- over_1000_ratio: 78.86
-- over_400_change_1w: -0.17
-- over_800_change_1w: 0.05
-- over_1000_change_1w: 0.26
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: False
+- as_of_date: 20260703
+- over_400_ratio: 82.74
+- over_600_ratio: 81.44
+- over_800_ratio: 80.4
+- over_1000_ratio: 78.94
+- over_400_change_1w: 0.09
+- over_800_change_1w: 0.08
+- over_1000_change_1w: 0.08
+- tdcc_consecutive_up_weeks: 4
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,82.69,-0.11,80.37,0.22,78.44,-0.25,1,False,True
 20260618,82.82,0.13,80.27,-0.1,78.6,0.16,2,False,True
 20260626,82.65,-0.17,80.32,0.05,78.86,0.26,3,False,True
+20260703,82.74,0.09,80.4,0.08,78.94,0.08,4,True,True
 ```
 
 ## Candidate Context

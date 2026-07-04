@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3213 茂訊
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:56 Asia/Taipei
+- generated_at: 2026-07-04 22:26:50 Asia/Taipei
 - stock_id: 3213
 - stock_name: 茂訊
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 162
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -163,17 +163,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 28.07
-- over_600_ratio: 20.71
-- over_800_ratio: 18.31
+- as_of_date: 20260703
+- over_400_ratio: 29.93
+- over_600_ratio: 20.92
+- over_800_ratio: 19.88
 - over_1000_ratio: 16.7
-- over_400_change_1w: -1.04
-- over_800_change_1w: -1.37
+- over_400_change_1w: 1.86
+- over_800_change_1w: 1.57
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 4
+- tdcc_consecutive_up_weeks: 5
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -188,6 +188,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,29.78,4.84,18.31,0.03,16.7,0.03,2,True,True
 20260618,29.11,-0.67,19.68,1.37,16.7,0,3,False,True
 20260626,28.07,-1.04,18.31,-1.37,16.7,0,4,False,False
+20260703,29.93,1.86,19.88,1.57,16.7,0,5,False,True
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1314 中石化
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:07 Asia/Taipei
+- generated_at: 2026-07-04 22:26:07 Asia/Taipei
 - stock_id: 1314
 - stock_name: 中石化
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 296
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 40.15
-- over_600_ratio: 36.17
-- over_800_ratio: 33.55
-- over_1000_ratio: 31.67
-- over_400_change_1w: 0.81
-- over_800_change_1w: 0.85
-- over_1000_change_1w: 0.82
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260703
+- over_400_ratio: 41.97
+- over_600_ratio: 38
+- over_800_ratio: 35.3
+- over_1000_ratio: 33.47
+- over_400_change_1w: 1.82
+- over_800_change_1w: 1.75
+- over_1000_change_1w: 1.8
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,39.38,-0.03,32.74,-0.31,30.92,-0.15,0,False,False
 20260618,39.34,-0.04,32.7,-0.04,30.85,-0.07,0,False,False
 20260626,40.15,0.81,33.55,0.85,31.67,0.82,1,True,True
+20260703,41.97,1.82,35.3,1.75,33.47,1.8,2,True,True
 ```
 
 ## Candidate Context

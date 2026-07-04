@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6944 兆聯實業
 
 ## Metadata
-- generated_at: 2026-07-03 22:28:04 Asia/Taipei
+- generated_at: 2026-07-04 22:27:52 Asia/Taipei
 - stock_id: 6944
 - stock_name: 兆聯實業
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 263
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 51.93
-- over_600_ratio: 44.41
-- over_800_ratio: 37.32
-- over_1000_ratio: 33.89
-- over_400_change_1w: 0.14
-- over_800_change_1w: -0.3
-- over_1000_change_1w: -0.26
-- tdcc_consecutive_up_weeks: 8
+- as_of_date: 20260703
+- over_400_ratio: 51.61
+- over_600_ratio: 42.65
+- over_800_ratio: 36.29
+- over_1000_ratio: 33.92
+- over_400_change_1w: -0.32
+- over_800_change_1w: -1.03
+- over_1000_change_1w: 0.03
+- tdcc_consecutive_up_weeks: 9
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,50.78,0.6,36.29,0.03,33.92,0.03,6,False,True
 20260618,51.79,1.01,37.62,1.33,34.15,0.23,7,False,True
 20260626,51.93,0.14,37.32,-0.3,33.89,-0.26,8,False,False
+20260703,51.61,-0.32,36.29,-1.03,33.92,0.03,9,False,True
 ```
 
 ## Candidate Context
@@ -198,7 +199,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 6944 | 兆聯實業 | 88 | 0 | 12127170.0 | 0.0 |  | no_signal |
+| 20260703 | 6944 | 兆聯實業 | 88 | 5 | 12127170.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

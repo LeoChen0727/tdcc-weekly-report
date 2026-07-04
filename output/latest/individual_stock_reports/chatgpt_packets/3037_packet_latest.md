@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3037 欣興
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:50 Asia/Taipei
+- generated_at: 2026-07-04 22:26:45 Asia/Taipei
 - stock_id: 3037
 - stock_name: 欣興
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,17 +157,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 76.08
-- over_600_ratio: 72.96
-- over_800_ratio: 70.93
-- over_1000_ratio: 68.45
-- over_400_change_1w: 0.36
-- over_800_change_1w: 0.59
-- over_1000_change_1w: 0.2
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260703
+- over_400_ratio: 75.61
+- over_600_ratio: 72.48
+- over_800_ratio: 70.22
+- over_1000_ratio: 68.11
+- over_400_change_1w: -0.47
+- over_800_change_1w: -0.71
+- over_1000_change_1w: -0.34
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -182,12 +182,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,75.3,-0.38,70.25,-0.61,68.15,-0.29,0,False,False
 20260618,75.72,0.42,70.34,0.09,68.25,0.1,1,True,True
 20260626,76.08,0.36,70.93,0.59,68.45,0.2,2,True,True
+20260703,75.61,-0.47,70.22,-0.71,68.11,-0.34,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 20260703 | 3037 | 欣興 | pattern | 型態觀察 | 50.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.事實發生日:115/06/30 2.公司名稱:欣興同泰科技(昆山)有限公司 3.與公司關係(請輸入本公司或子公司):子公司 4.相互持股比例:100% 5.發生緣由: 鑑於子公司欣興同泰科技(昆山)有限公司，近年營運呈現明顯虧損， 依據國際會計準則第36號公報之規定，提列資產減損共計人民幣約2.95億元， 並將於115年第二季進行認列。此金額係為預估，實際金額將以會計師核閱數為準。 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 本次認列減損損失，因不涉及現金流量，對公司營運資金並無影響。；calendar event: ex_dividend on 20260706; status=confirmed; proximity=within_3d |
+| 20260703 | 3037 | 欣興 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/06/30 2.公司名稱:欣興同泰科技(昆山)有限公司 3.與公司關係(請輸入本公司或子公司):子公司 4.相互持股比例:100% 5.發生緣由: 鑑於子公司欣興同泰科技(昆山)有限公司，近年營運呈現明顯虧損， 依據國際會計準則第36號公報之規定，提列資產減損共計人民幣約2.95億元， 並將於115年第二季進行認列。此金額係為預估，實際金額將以會計師核閱數為準。 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 本次認列減損損失，因不涉及現金流量，對公司營運資金並無影響。；calendar event: ex_dividend on 20260706; status=confirmed; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
@@ -197,7 +199,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 3037 | 欣興 | 178 | 0 | 7333780.0 | 0.0 |  | no_signal |
+| 20260703 | 3037 | 欣興 | 178 | 32 | 7333780.0 | 11140.0 | 658.33 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

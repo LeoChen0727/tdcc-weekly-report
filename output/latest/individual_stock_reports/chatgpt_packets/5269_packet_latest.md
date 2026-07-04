@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5269 祥碩
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:27 Asia/Taipei
+- generated_at: 2026-07-04 22:27:19 Asia/Taipei
 - stock_id: 5269
 - stock_name: 祥碩
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -162,17 +162,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 55.56
-- over_600_ratio: 53.42
-- over_800_ratio: 51.61
-- over_1000_ratio: 51.61
-- over_400_change_1w: 0.01
-- over_800_change_1w: 0
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 5
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260703
+- over_400_ratio: 57.9
+- over_600_ratio: 55.04
+- over_800_ratio: 53.23
+- over_1000_ratio: 53.23
+- over_400_change_1w: 2.34
+- over_800_change_1w: 1.62
+- over_1000_change_1w: 1.62
+- tdcc_consecutive_up_weeks: 6
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -187,12 +187,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,55.49,-0.3,51.61,0,51.61,0,3,False,False
 20260618,55.55,0.06,51.61,0,51.61,0,4,False,False
 20260626,55.56,0.01,51.61,0,51.61,0,5,False,False
+20260703,57.9,2.34,53.23,1.62,53.23,1.62,6,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 5269 | 祥碩 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | stale_signal | 1.發生變動日期:115/06/17 2.選任或變動人員別（請輸入法人董事、法人監察人、獨立董事、自然人董事   或自然人監察人）:法人董事、獨立董事、自然人董事 3.舊任者職稱及姓名: (一)董事：     華碩電腦(股)公司代表人：徐世昌     華碩電腦(股)公司代表人：沈振來     華碩電腦(股)公司代表人：林哲偉     許金川 (二)獨立董事：     詹宏志     謝劍平     吳靜吉     金聯舫 4.舊任者簡歷: (一)董事：     華碩電腦(股)公司代表人徐世昌：祥碩科技(股)公司董事長     華碩電腦(股)公司代表人沈振來：祥碩科技(股)公司董事     華碩電腦(股)公司代表人林哲偉：祥碩科技(股)公司總經理     許金川：國立台灣大學醫學院內科名譽教授 (二)獨立董事：     詹宏志：網路家庭國際資訊(股)公司董事長     謝劍平：台灣科技大學財務金融所教授     吳靜吉：政治大學名譽教授     金聯舫：清華大學科管院榮譽講座教授 5.新任者職稱及姓名: (一)董事：     華碩電腦(股)公司代表人：徐世昌     華碩電腦(股)公司代表人：沈振來     華碩電腦(股)公司代表人：林哲偉     華碩電腦(股)公司代表人：許先越     許金川 (二)獨立董事：     謝劍平     金聯舫     林嬋娟     高壽延 6.新任者簡歷: (一)董事：     華碩電腦(股)公司代表人徐世昌：祥碩科技(股)公司董事長     華碩電腦(股)公司代表人沈振來：祥碩科技(股)公司董事     華碩電腦(股)公司代表人林哲偉：祥碩科技(股)公司總經理     華碩電腦(股)公司代表人許先越：華碩電腦(股)公司董事兼共同執行長     許金川：國立台灣大學醫學院內科名譽教授 (二)獨立董事：     謝劍平：台灣科技大學財務金融所教授     金聯舫：清華大學科管院榮譽講座教授     林嬋娟：臺灣大學會計學系名譽教授     高壽延：陽明交通大學牙醫學院教授 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 任期屆滿 8.異動原因:任期屆滿全面改選 9.新任者選任時持股數: (一)董事：     華碩電腦(股)公司：24,457,660股     許金川：0股 (二)獨立董事：     謝劍平：0股     金聯舫：0股     林嬋娟：0股     高壽延：0股 10.原任期（例xx/xx/xx ~ xx/xx/xx）:112/06/16~115/06/15 11.新任生效日期:115/06/17 12.同任期董事變動比率:不適用(董事全面改選) 13.同任期獨立董事變動比率:不適用(董事全面改選) 14.同任期監察人變動比率:不適用。 15.屬三分之一以上董事發生變動（請輸入是或否）:否。 16.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260703 | 5269 | 祥碩 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/03 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額: 普通股現金股利新台幣3,364,970,805元，每股配發新台幣45.37669932元 4.除權（息）交易日:115/07/21 5.最後過戶日:115/07/22 6.停止過戶起始日期:115/07/23 7.停止過戶截止日期:115/07/27 8.除權（息）基準日:115/07/27 9.債券最後申請轉換日期:不適用。 10.債券停止轉換起始日期:不適用。 11.債券停止轉換截止日期:不適用。 12.普通股現金股利發放日期:115/08/14 13.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

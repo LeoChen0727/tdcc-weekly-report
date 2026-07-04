@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5902 德記
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:35 Asia/Taipei
+- generated_at: 2026-07-04 22:27:25 Asia/Taipei
 - stock_id: 5902
 - stock_name: 德記
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 159
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 85.2
-- over_600_ratio: 83.01
-- over_800_ratio: 82.35
-- over_1000_ratio: 81.31
+- as_of_date: 20260703
+- over_400_ratio: 85.22
+- over_600_ratio: 83.02
+- over_800_ratio: 82.36
+- over_1000_ratio: 81.32
 - over_400_change_1w: 0.02
-- over_800_change_1w: 0.02
-- over_1000_change_1w: 0.02
-- tdcc_consecutive_up_weeks: 2
+- over_800_change_1w: 0.01
+- over_1000_change_1w: 0.01
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,85.16,0,82.31,0,81.27,0,0,False,False
 20260618,85.18,0.02,82.33,0.02,81.29,0.02,1,True,True
 20260626,85.2,0.02,82.35,0.02,81.31,0.02,2,True,True
+20260703,85.22,0.02,82.36,0.01,81.32,0.01,3,True,True
 ```
 
 ## Candidate Context

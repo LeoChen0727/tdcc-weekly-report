@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2444 兆勁
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:34 Asia/Taipei
+- generated_at: 2026-07-04 22:26:31 Asia/Taipei
 - stock_id: 2444
 - stock_name: 兆勁
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 28.77
-- over_600_ratio: 24.39
-- over_800_ratio: 21.59
-- over_1000_ratio: 18.04
-- over_400_change_1w: -0.62
-- over_800_change_1w: -0.18
-- over_1000_change_1w: -0.99
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260703
+- over_400_ratio: 28.05
+- over_600_ratio: 24.77
+- over_800_ratio: 19.92
+- over_1000_ratio: 18.06
+- over_400_change_1w: -0.72
+- over_800_change_1w: -1.67
+- over_1000_change_1w: 0.02
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,28.49,0.5,20.56,0.97,17.93,0.11,3,True,True
 20260618,29.39,0.9,21.77,1.21,19.03,1.1,4,True,True
 20260626,28.77,-0.62,21.59,-0.18,18.04,-0.99,0,False,False
+20260703,28.05,-0.72,19.92,-1.67,18.06,0.02,1,False,True
 ```
 
 ## Candidate Context

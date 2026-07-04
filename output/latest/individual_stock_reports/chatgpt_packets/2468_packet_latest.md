@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2468 華經
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:36 Asia/Taipei
+- generated_at: 2026-07-04 22:26:32 Asia/Taipei
 - stock_id: 2468
 - stock_name: 華經
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 50.8
-- over_600_ratio: 50.02
+- as_of_date: 20260703
+- over_400_ratio: 51.1
+- over_600_ratio: 51.1
 - over_800_ratio: 50.02
 - over_1000_ratio: 50.02
-- over_400_change_1w: 0.08
+- over_400_change_1w: 0.3
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 1
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,50.72,-3.29,50.02,-2.66,50.02,-2.66,0,False,False
 20260618,50.72,0,50.02,0,50.02,0,0,False,False
 20260626,50.8,0.08,50.02,0,50.02,0,1,False,False
+20260703,51.1,0.3,50.02,0,50.02,0,2,False,False
 ```
 
 ## Candidate Context

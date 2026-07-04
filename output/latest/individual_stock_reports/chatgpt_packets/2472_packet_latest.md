@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2472 立隆電
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:36 Asia/Taipei
+- generated_at: 2026-07-04 22:26:32 Asia/Taipei
 - stock_id: 2472
 - stock_name: 立隆電
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,15 +157,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 58.96
-- over_600_ratio: 54.75
-- over_800_ratio: 51.95
-- over_1000_ratio: 48.59
-- over_400_change_1w: 2.79
-- over_800_change_1w: 2.55
-- over_1000_change_1w: 2
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260703
+- over_400_ratio: 59.45
+- over_600_ratio: 55.43
+- over_800_ratio: 52.65
+- over_1000_ratio: 49.32
+- over_400_change_1w: 0.49
+- over_800_change_1w: 0.7
+- over_1000_change_1w: 0.73
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,59.88,-0.53,54.07,-0.05,50.73,-0.12,0,False,False
 20260618,56.17,-3.71,49.4,-4.67,46.59,-4.14,0,False,False
 20260626,58.96,2.79,51.95,2.55,48.59,2,1,True,True
+20260703,59.45,0.49,52.65,0.7,49.32,0.73,2,True,True
 ```
 
 ## Candidate Context
@@ -197,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 2472 | 立隆電 | 92 | 0 | 21056320.0 | 0.0 |  | no_signal |
+| 20260703 | 2472 | 立隆電 | 92 | 2 | 21056320.0 | 123670.0 | 170.26 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

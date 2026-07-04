@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2890 永豐金
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:46 Asia/Taipei
+- generated_at: 2026-07-04 22:26:41 Asia/Taipei
 - stock_id: 2890
 - stock_name: 永豐金
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -156,15 +156,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 80.72
-- over_600_ratio: 79.43
-- over_800_ratio: 78.35
-- over_1000_ratio: 77.49
-- over_400_change_1w: 0.24
-- over_800_change_1w: 0.31
-- over_1000_change_1w: 0.29
-- tdcc_consecutive_up_weeks: 4
+- as_of_date: 20260703
+- over_400_ratio: 80.81
+- over_600_ratio: 79.54
+- over_800_ratio: 78.46
+- over_1000_ratio: 77.59
+- over_400_change_1w: 0.09
+- over_800_change_1w: 0.11
+- over_1000_change_1w: 0.1
+- tdcc_consecutive_up_weeks: 5
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -181,12 +181,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,80.22,0.25,77.81,0.24,76.97,0.29,2,True,True
 20260618,80.48,0.26,78.04,0.23,77.2,0.23,3,True,True
 20260626,80.72,0.24,78.35,0.31,77.49,0.29,4,True,True
+20260703,80.81,0.09,78.46,0.11,77.59,0.1,5,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 20260703 | 2890 | 永豐金 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | no_signal | stale_signal | 1.董事會決議日期:115/07/01 2.私募有價證券種類:普通股 3.私募對象及其與公司間關係:永豐金控;永豐金證券之母公司 4.私募股數或張數:上限4.81億股 5.得私募額度:預估約新臺幣125億元 6.私募價格訂定之依據及合理性:以不低於永豐金證券115年03月31日經會計師核閱之 財務報告每股淨值25.36元為原則;每股發行價格暫定26元約當115年03月31日每股 淨值之102.5% 7.本次私募資金用途:強化資本、提升資本適足比率、降低債本比率，支應營運 及業務拓展之資金需求。 8.不採用公開募集之理由:考量籌集資本之時效、便利及發行成本等因素，並維持 永豐金證券股東結構單一化。 9.獨立董事反對或保留意見:無 10.實際定價日:授權永豐金證券董事長核定 11.參考價格:新臺幣25.36元 12.實際私募價格、轉換或認購價格:暫定新臺幣26元 13.本次私募新股之權利義務:同已流通在外普通股 14.附有轉換、交換或認股者，其換股基準日:不適用 15.附有轉換、交換或認股者，對股權可能稀釋情形:不適用 16.附有轉換或認股者，於私募公司債交付且假設全數轉換或認購普通股後對 上市普通股股權比率之可能影響（上市普通股數A、A/已發行普通股):不適用 17.前項預計上市普通股未達6000萬股且未達25%者，請說明股權流通性偏低之因應措施: 不適用 18.其他應敘明事項:發行股數、每股價格及增資基準日若有變更授權永豐金證券 董事長核定；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260703 | 2890 | 永豐金 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | no_signal | stale_signal | 1.董事會決議日期:115/07/01 2.私募有價證券種類:普通股 3.私募對象及其與公司間關係:永豐金控;永豐金證券之母公司 4.私募股數或張數:上限4.81億股 5.得私募額度:預估約新臺幣125億元 6.私募價格訂定之依據及合理性:以不低於永豐金證券115年03月31日經會計師核閱之 財務報告每股淨值25.36元為原則;每股發行價格暫定26元約當115年03月31日每股 淨值之102.5% 7.本次私募資金用途:強化資本、提升資本適足比率、降低債本比率，支應營運 及業務拓展之資金需求。 8.不採用公開募集之理由:考量籌集資本之時效、便利及發行成本等因素，並維持 永豐金證券股東結構單一化。 9.獨立董事反對或保留意見:無 10.實際定價日:授權永豐金證券董事長核定 11.參考價格:新臺幣25.36元 12.實際私募價格、轉換或認購價格:暫定新臺幣26元 13.本次私募新股之權利義務:同已流通在外普通股 14.附有轉換、交換或認股者，其換股基準日:不適用 15.附有轉換、交換或認股者，對股權可能稀釋情形:不適用 16.附有轉換或認股者，於私募公司債交付且假設全數轉換或認購普通股後對 上市普通股股權比率之可能影響（上市普通股數A、A/已發行普通股):不適用 17.前項預計上市普通股未達6000萬股且未達25%者，請說明股權流通性偏低之因應措施: 不適用 18.其他應敘明事項:發行股數、每股價格及增資基準日若有變更授權永豐金證券 董事長核定；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

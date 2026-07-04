@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6158 禾昌
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:39 Asia/Taipei
+- generated_at: 2026-07-04 22:27:29 Asia/Taipei
 - stock_id: 6158
 - stock_name: 禾昌
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 162
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,17 +157,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 43.24
-- over_600_ratio: 41.51
-- over_800_ratio: 37.63
-- over_1000_ratio: 34.42
-- over_400_change_1w: 0.13
-- over_800_change_1w: 1.48
-- over_1000_change_1w: 0.01
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260703
+- over_400_ratio: 43.21
+- over_600_ratio: 41.47
+- over_800_ratio: 37.55
+- over_1000_ratio: 34.34
+- over_400_change_1w: -0.03
+- over_800_change_1w: -0.08
+- over_1000_change_1w: -0.08
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,43.17,0.15,36.21,0,34.47,0,1,False,False
 20260618,43.11,-0.06,36.15,-0.06,34.41,-0.06,0,False,False
 20260626,43.24,0.13,37.63,1.48,34.42,0.01,1,True,True
+20260703,43.21,-0.03,37.55,-0.08,34.34,-0.08,0,False,False
 ```
 
 ## Candidate Context

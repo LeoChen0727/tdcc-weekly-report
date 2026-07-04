@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8110 華東
 
 ## Metadata
-- generated_at: 2026-07-03 22:28:18 Asia/Taipei
+- generated_at: 2026-07-04 22:28:05 Asia/Taipei
 - stock_id: 8110
 - stock_name: 華東
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,17 +157,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 56.4
-- over_600_ratio: 54.87
-- over_800_ratio: 54.2
-- over_1000_ratio: 53.87
-- over_400_change_1w: 4.14
-- over_800_change_1w: 4.43
-- over_1000_change_1w: 4.82
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260703
+- over_400_ratio: 53.13
+- over_600_ratio: 51.6
+- over_800_ratio: 50.93
+- over_1000_ratio: 50.4
+- over_400_change_1w: -3.27
+- over_800_change_1w: -3.27
+- over_1000_change_1w: -3.47
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,52.14,0.28,49.2,-0.11,48.87,0.4,1,False,True
 20260618,52.26,0.12,49.77,0.57,49.05,0.18,2,True,True
 20260626,56.4,4.14,54.2,4.43,53.87,4.82,3,True,True
+20260703,53.13,-3.27,50.93,-3.27,50.4,-3.47,0,False,False
 ```
 
 ## Candidate Context
@@ -197,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 8110 | 華東 | 36 | 0 | 2266350.0 | 0.0 |  | no_signal |
+| 20260703 | 8110 | 華東 | 36 | 6 | 2266350.0 | 220800.0 | 10.26 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

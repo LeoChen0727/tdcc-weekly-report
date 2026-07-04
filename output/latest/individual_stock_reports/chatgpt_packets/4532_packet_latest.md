@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4532 瑞智
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:16 Asia/Taipei
+- generated_at: 2026-07-04 22:27:08 Asia/Taipei
 - stock_id: 4532
 - stock_name: 瑞智
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -162,15 +162,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 69.77
-- over_600_ratio: 67.63
-- over_800_ratio: 66.18
-- over_1000_ratio: 64.85
-- over_400_change_1w: 0.09
-- over_800_change_1w: 0.03
-- over_1000_change_1w: 0.58
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260703
+- over_400_ratio: 70.53
+- over_600_ratio: 68.75
+- over_800_ratio: 67.48
+- over_1000_ratio: 65.8
+- over_400_change_1w: 0.76
+- over_800_change_1w: 1.3
+- over_1000_change_1w: 0.95
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -187,6 +187,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,69.77,0.01,66.22,0.31,64.53,0.11,4,True,True
 20260618,69.68,-0.09,66.15,-0.07,64.27,-0.26,0,False,False
 20260626,69.77,0.09,66.18,0.03,64.85,0.58,1,True,True
+20260703,70.53,0.76,67.48,1.3,65.8,0.95,2,True,True
 ```
 
 ## Candidate Context

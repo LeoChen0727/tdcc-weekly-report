@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6116 彩晶
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:36 Asia/Taipei
+- generated_at: 2026-07-04 22:27:27 Asia/Taipei
 - stock_id: 6116
 - stock_name: 彩晶
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,14 +158,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 42.73
-- over_600_ratio: 41.56
-- over_800_ratio: 40.77
-- over_1000_ratio: 40.3
-- over_400_change_1w: -4.35
-- over_800_change_1w: -4.42
-- over_1000_change_1w: -4.35
+- as_of_date: 20260703
+- over_400_ratio: 42.15
+- over_600_ratio: 41.14
+- over_800_ratio: 40.22
+- over_1000_ratio: 39.81
+- over_400_change_1w: -0.58
+- over_800_change_1w: -0.55
+- over_1000_change_1w: -0.49
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,46.56,1.55,44.78,1.44,44.31,1.5,1,True,True
 20260618,47.08,0.52,45.19,0.41,44.65,0.34,2,True,True
 20260626,42.73,-4.35,40.77,-4.42,40.3,-4.35,0,False,False
+20260703,42.15,-0.58,40.22,-0.55,39.81,-0.49,0,False,False
 ```
 
 ## Candidate Context
@@ -198,7 +199,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 6116 | 彩晶 | 31 | 0 | 1522590.0 | 0.0 |  | call_inflow |
+| 20260703 | 6116 | 彩晶 | 31 | 1 | 1522590.0 | 2990.0 | 509.23 | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

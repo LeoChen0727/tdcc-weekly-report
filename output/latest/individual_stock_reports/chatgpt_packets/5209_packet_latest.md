@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5209 新鼎
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:26 Asia/Taipei
+- generated_at: 2026-07-04 22:27:17 Asia/Taipei
 - stock_id: 5209
 - stock_name: 新鼎
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 162
-- latest_tdcc_date: 20260626
-- tdcc_rows: 31
+- latest_tdcc_date: 20260703
+- tdcc_rows: 32
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,7 +157,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
+- as_of_date: 20260703
 - over_400_ratio: 55.34
 - over_600_ratio: 53.29
 - over_800_ratio: 53.29
@@ -173,7 +173,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260410,56.88,0,53.22,0,53.22,0,0,False,False
 20260417,55.27,-1.61,53.22,0,53.22,0,0,False,False
 20260424,55.27,0,53.22,0,53.22,0,0,False,False
 20260430,55.27,0,53.22,0,53.22,0,0,False,False
@@ -185,6 +184,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,55.34,0.01,53.29,0.01,53.29,0.01,1,True,True
 20260618,55.34,0,53.29,0,53.29,0,0,False,False
 20260626,55.34,0,53.29,0,53.29,0,0,False,False
+20260703,55.34,0,53.29,0,53.29,0,0,False,False
 ```
 
 ## Candidate Context

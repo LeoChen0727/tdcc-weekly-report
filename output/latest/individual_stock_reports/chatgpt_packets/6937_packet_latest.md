@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6937 天虹
 
 ## Metadata
-- generated_at: 2026-07-03 22:28:04 Asia/Taipei
+- generated_at: 2026-07-04 22:27:52 Asia/Taipei
 - stock_id: 6937
 - stock_name: 天虹
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -162,15 +162,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 62.3
-- over_600_ratio: 56.91
-- over_800_ratio: 55.83
-- over_1000_ratio: 54.56
-- over_400_change_1w: 0.06
-- over_800_change_1w: 0.06
-- over_1000_change_1w: 0.22
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260703
+- over_400_ratio: 63.18
+- over_600_ratio: 57.09
+- over_800_ratio: 56.01
+- over_1000_ratio: 54.72
+- over_400_change_1w: 0.88
+- over_800_change_1w: 0.18
+- over_1000_change_1w: 0.16
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -187,12 +187,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,63.13,-0.9,55.76,-0.27,54.35,-1.68,0,False,False
 20260618,62.24,-0.89,55.77,0.01,54.34,-0.01,1,False,True
 20260626,62.3,0.06,55.83,0.06,54.56,0.22,2,True,True
+20260703,63.18,0.88,56.01,0.18,54.72,0.16,3,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 6937 | 天虹 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_strong_inflow | continued_2_3d | calendar event: ex_dividend on 20260708; status=confirmed; proximity=within_7d |
+| 20260703 | 6937 | 天虹 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_put_bullish | continued_2_3d | calendar event: ex_dividend on 20260708; status=confirmed; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
@@ -202,7 +203,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 6937 | 天虹 | 41 | 0 | 7758560.0 | 0.0 |  | call_strong_inflow |
+| 20260703 | 6937 | 天虹 | 41 | 1 | 7758560.0 | 25250.0 | 307.27 | call_put_bullish |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

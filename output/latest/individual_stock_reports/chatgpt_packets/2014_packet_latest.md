@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2014 中鴻
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:22 Asia/Taipei
+- generated_at: 2026-07-04 22:26:20 Asia/Taipei
 - stock_id: 2014
 - stock_name: 中鴻
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -163,16 +163,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 49.46
-- over_600_ratio: 48.2
-- over_800_ratio: 47.33
-- over_1000_ratio: 46.62
-- over_400_change_1w: 0.09
-- over_800_change_1w: 0.01
-- over_1000_change_1w: 0.06
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: True
+- as_of_date: 20260703
+- over_400_ratio: 49.4
+- over_600_ratio: 48
+- over_800_ratio: 47.21
+- over_1000_ratio: 46.63
+- over_400_change_1w: -0.06
+- over_800_change_1w: -0.12
+- over_1000_change_1w: 0.01
+- tdcc_consecutive_up_weeks: 3
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -188,6 +188,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,49.25,-0.21,47.15,-0.18,46.31,-0.46,0,False,False
 20260618,49.37,0.12,47.32,0.17,46.56,0.25,1,True,True
 20260626,49.46,0.09,47.33,0.01,46.62,0.06,2,True,True
+20260703,49.4,-0.06,47.21,-0.12,46.63,0.01,3,False,True
 ```
 
 ## Candidate Context

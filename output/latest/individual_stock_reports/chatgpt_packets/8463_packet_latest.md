@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8463 潤泰材
 
 ## Metadata
-- generated_at: 2026-07-03 22:28:23 Asia/Taipei
+- generated_at: 2026-07-04 22:28:10 Asia/Taipei
 - stock_id: 8463
 - stock_name: 潤泰材
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,16 +158,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 81.52
-- over_600_ratio: 80.19
-- over_800_ratio: 78.49
-- over_1000_ratio: 76.68
-- over_400_change_1w: -0.07
-- over_800_change_1w: -0.07
-- over_1000_change_1w: 0.64
-- tdcc_consecutive_up_weeks: 4
-- all_thresholds_up: False
+- as_of_date: 20260703
+- over_400_ratio: 81.81
+- over_600_ratio: 80.21
+- over_800_ratio: 78.51
+- over_1000_ratio: 76.7
+- over_400_change_1w: 0.29
+- over_800_change_1w: 0.02
+- over_1000_change_1w: 0.02
+- tdcc_consecutive_up_weeks: 5
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,81.55,0.02,78.52,0.02,76.02,0.01,2,True,True
 20260618,81.59,0.04,78.56,0.04,76.04,0.02,3,True,True
 20260626,81.52,-0.07,78.49,-0.07,76.68,0.64,4,False,True
+20260703,81.81,0.29,78.51,0.02,76.7,0.02,5,True,True
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6235 華孚
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:44 Asia/Taipei
+- generated_at: 2026-07-04 22:27:34 Asia/Taipei
 - stock_id: 6235
 - stock_name: 華孚
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -163,15 +163,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 40.53
-- over_600_ratio: 38.87
-- over_800_ratio: 36.81
+- as_of_date: 20260703
+- over_400_ratio: 40.75
+- over_600_ratio: 38.8
+- over_800_ratio: 36.38
 - over_1000_ratio: 36.38
-- over_400_change_1w: -0.09
-- over_800_change_1w: -0.04
-- over_1000_change_1w: -0.05
-- tdcc_consecutive_up_weeks: 0
+- over_400_change_1w: 0.22
+- over_800_change_1w: -0.43
+- over_1000_change_1w: 0
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -188,6 +188,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,40.71,-0.31,36.93,-0.06,36.46,-0.11,0,False,False
 20260618,40.62,-0.09,36.85,-0.08,36.43,-0.03,0,False,False
 20260626,40.53,-0.09,36.81,-0.04,36.38,-0.05,0,False,False
+20260703,40.75,0.22,36.38,-0.43,36.38,0,1,False,False
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3038 全台
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:51 Asia/Taipei
+- generated_at: 2026-07-04 22:26:45 Asia/Taipei
 - stock_id: 3038
 - stock_name: 全台
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 31
+- latest_tdcc_date: 20260703
+- tdcc_rows: 32
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 42.7
-- over_600_ratio: 39.82
-- over_800_ratio: 37.1
-- over_1000_ratio: 33.24
-- over_400_change_1w: -0.24
-- over_800_change_1w: 0
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 12
+- as_of_date: 20260703
+- over_400_ratio: 42.65
+- over_600_ratio: 39.76
+- over_800_ratio: 37.09
+- over_1000_ratio: 33.23
+- over_400_change_1w: -0.05
+- over_800_change_1w: -0.01
+- over_1000_change_1w: -0.01
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -174,7 +174,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260410,39.41,-0.01,35.1,0.03,31.82,0.03,1,False,True
 20260417,40.3,0.89,35.34,0.24,32.06,0.24,2,True,True
 20260424,40.83,0.53,35.74,0.4,32.46,0.4,3,True,True
 20260430,41.47,0.64,36.08,0.34,32.8,0.34,4,True,True
@@ -186,6 +185,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,42.67,-0.24,37.1,0.08,33.24,0.08,10,False,True
 20260618,42.94,0.27,37.1,0,33.24,0,11,False,False
 20260626,42.7,-0.24,37.1,0,33.24,0,12,False,False
+20260703,42.65,-0.05,37.09,-0.01,33.23,-0.01,0,False,False
 ```
 
 ## Candidate Context

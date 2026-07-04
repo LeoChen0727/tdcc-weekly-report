@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8163 達方
 
 ## Metadata
-- generated_at: 2026-07-03 22:28:19 Asia/Taipei
+- generated_at: 2026-07-04 22:28:06 Asia/Taipei
 - stock_id: 8163
 - stock_name: 達方
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 46.43
-- over_600_ratio: 43.35
-- over_800_ratio: 41.54
-- over_1000_ratio: 40.65
-- over_400_change_1w: -0.25
-- over_800_change_1w: -0.05
-- over_1000_change_1w: -0.37
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260703
+- over_400_ratio: 46.76
+- over_600_ratio: 43.82
+- over_800_ratio: 42.29
+- over_1000_ratio: 41.39
+- over_400_change_1w: 0.33
+- over_800_change_1w: 0.75
+- over_1000_change_1w: 0.74
+- tdcc_consecutive_up_weeks: 4
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,46.5,2.09,41.43,1.75,41.15,3.06,1,True,True
 20260618,46.68,0.18,41.59,0.16,41.02,-0.13,2,False,True
 20260626,46.43,-0.25,41.54,-0.05,40.65,-0.37,3,False,False
+20260703,46.76,0.33,42.29,0.75,41.39,0.74,4,True,True
 ```
 
 ## Candidate Context

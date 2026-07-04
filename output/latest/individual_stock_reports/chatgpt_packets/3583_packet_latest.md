@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3583 辛耘
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:06 Asia/Taipei
+- generated_at: 2026-07-04 22:26:59 Asia/Taipei
 - stock_id: 3583
 - stock_name: 辛耘
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,16 +158,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 60.63
-- over_600_ratio: 58.01
-- over_800_ratio: 54.15
-- over_1000_ratio: 49.6
-- over_400_change_1w: -0.22
-- over_800_change_1w: 0.77
-- over_1000_change_1w: -0.51
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: False
+- as_of_date: 20260703
+- over_400_ratio: 61.6
+- over_600_ratio: 59.04
+- over_800_ratio: 55.23
+- over_1000_ratio: 51.87
+- over_400_change_1w: 0.97
+- over_800_change_1w: 1.08
+- over_1000_change_1w: 2.27
+- tdcc_consecutive_up_weeks: 4
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,60.89,1.37,52.45,-0.34,50.17,-1.5,1,False,False
 20260618,60.85,-0.04,53.38,0.93,50.11,-0.06,2,False,True
 20260626,60.63,-0.22,54.15,0.77,49.6,-0.51,3,False,True
+20260703,61.6,0.97,55.23,1.08,51.87,2.27,4,True,True
 ```
 
 ## Candidate Context
@@ -198,7 +199,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 3583 | 辛耘 | 98 | 0 | 34069790.0 | 0.0 |  | no_signal |
+| 20260703 | 3583 | 辛耘 | 98 | 2 | 34069790.0 | 42430.0 | 802.96 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

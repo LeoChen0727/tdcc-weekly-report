@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3416 融程電
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:01 Asia/Taipei
+- generated_at: 2026-07-04 22:26:55 Asia/Taipei
 - stock_id: 3416
 - stock_name: 融程電
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,17 +157,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 56
-- over_600_ratio: 55.33
-- over_800_ratio: 53.65
-- over_1000_ratio: 51.39
-- over_400_change_1w: -0.46
-- over_800_change_1w: -0.43
-- over_1000_change_1w: -0.43
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260703
+- over_400_ratio: 56.36
+- over_600_ratio: 55.69
+- over_800_ratio: 54.09
+- over_1000_ratio: 51.83
+- over_400_change_1w: 0.36
+- over_800_change_1w: 0.44
+- over_1000_change_1w: 0.44
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,55.86,-0.27,53.63,-0.24,51.37,-0.24,0,False,False
 20260618,56.46,0.6,54.08,0.45,51.82,0.45,1,True,True
 20260626,56,-0.46,53.65,-0.43,51.39,-0.43,0,False,False
+20260703,56.36,0.36,54.09,0.44,51.83,0.44,1,True,True
 ```
 
 ## Candidate Context

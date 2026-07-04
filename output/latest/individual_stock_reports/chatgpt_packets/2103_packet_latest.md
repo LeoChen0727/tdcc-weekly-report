@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2103 台橡
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:24 Asia/Taipei
+- generated_at: 2026-07-04 22:26:22 Asia/Taipei
 - stock_id: 2103
 - stock_name: 台橡
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -163,16 +163,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 55.11
-- over_600_ratio: 52.48
-- over_800_ratio: 51.45
-- over_1000_ratio: 50.14
-- over_400_change_1w: 0.43
-- over_800_change_1w: 0.23
-- over_1000_change_1w: 0.34
-- tdcc_consecutive_up_weeks: 4
-- all_thresholds_up: True
+- as_of_date: 20260703
+- over_400_ratio: 55.1
+- over_600_ratio: 52.66
+- over_800_ratio: 51.56
+- over_1000_ratio: 50.17
+- over_400_change_1w: -0.01
+- over_800_change_1w: 0.11
+- over_1000_change_1w: 0.03
+- tdcc_consecutive_up_weeks: 5
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -188,6 +188,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,54.37,0.27,50.57,0.06,49.04,0.06,2,True,True
 20260618,54.68,0.31,51.22,0.65,49.8,0.76,3,True,True
 20260626,55.11,0.43,51.45,0.23,50.14,0.34,4,True,True
+20260703,55.1,-0.01,51.56,0.11,50.17,0.03,5,False,True
 ```
 
 ## Candidate Context

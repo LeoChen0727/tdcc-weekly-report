@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3390 旭軟
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:00 Asia/Taipei
+- generated_at: 2026-07-04 22:26:54 Asia/Taipei
 - stock_id: 3390
 - stock_name: 旭軟
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 162
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 30.92
-- over_600_ratio: 26.21
+- as_of_date: 20260703
+- over_400_ratio: 31.56
+- over_600_ratio: 26.95
 - over_800_ratio: 20.61
 - over_1000_ratio: 19.49
-- over_400_change_1w: -1.52
-- over_800_change_1w: -1.13
+- over_400_change_1w: 0.64
+- over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,29.23,0.1,21.71,0.05,19.51,0,2,False,True
 20260618,32.44,3.21,21.74,0.03,19.49,-0.02,3,False,True
 20260626,30.92,-1.52,20.61,-1.13,19.49,0,0,False,False
+20260703,31.56,0.64,20.61,0,19.49,0,1,False,False
 ```
 
 ## Candidate Context

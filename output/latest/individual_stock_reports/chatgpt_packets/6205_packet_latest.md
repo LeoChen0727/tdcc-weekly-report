@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6205 詮欣
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:42 Asia/Taipei
+- generated_at: 2026-07-04 22:27:32 Asia/Taipei
 - stock_id: 6205
 - stock_name: 詮欣
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 46.85
-- over_600_ratio: 43.85
-- over_800_ratio: 43.85
-- over_1000_ratio: 40.69
-- over_400_change_1w: -0.36
-- over_800_change_1w: 1.03
-- over_1000_change_1w: -0.1
-- tdcc_consecutive_up_weeks: 4
+- as_of_date: 20260703
+- over_400_ratio: 46.27
+- over_600_ratio: 42.61
+- over_800_ratio: 40.93
+- over_1000_ratio: 40.93
+- over_400_change_1w: -0.58
+- over_800_change_1w: -2.92
+- over_1000_change_1w: 0.24
+- tdcc_consecutive_up_weeks: 5
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,45.64,-0.17,41.52,-0.06,39.35,0.01,2,False,True
 20260618,47.21,1.57,42.82,1.3,40.79,1.44,3,True,True
 20260626,46.85,-0.36,43.85,1.03,40.69,-0.1,4,False,True
+20260703,46.27,-0.58,40.93,-2.92,40.93,0.24,5,False,True
 ```
 
 ## Candidate Context

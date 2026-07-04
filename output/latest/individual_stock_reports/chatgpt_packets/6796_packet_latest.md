@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6796 晉弘
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:59 Asia/Taipei
+- generated_at: 2026-07-04 22:27:48 Asia/Taipei
 - stock_id: 6796
 - stock_name: 晉弘
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 296
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,12 +158,12 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 48.3
+- as_of_date: 20260703
+- over_400_ratio: 47.28
 - over_600_ratio: 40.97
 - over_800_ratio: 37.54
 - over_1000_ratio: 35.45
-- over_400_change_1w: -1.07
+- over_400_change_1w: -1.02
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
 - tdcc_consecutive_up_weeks: 0
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,49.36,0.02,37.53,0.02,35.45,0,1,False,True
 20260618,49.37,0.01,37.54,0.01,35.45,0,2,False,True
 20260626,48.3,-1.07,37.54,0,35.45,0,0,False,False
+20260703,47.28,-1.02,37.54,0,35.45,0,0,False,False
 ```
 
 ## Candidate Context

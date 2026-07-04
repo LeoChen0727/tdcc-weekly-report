@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4178 永笙-KY
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:13 Asia/Taipei
+- generated_at: 2026-07-04 22:27:06 Asia/Taipei
 - stock_id: 4178
 - stock_name: 永笙-KY
 - packet_status: partial_rawdata_packet
 - latest_price_date: 20260703
 - price_rows: 45
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,12 +158,12 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 78
+- as_of_date: 20260703
+- over_400_ratio: 77.97
 - over_600_ratio: 75.46
 - over_800_ratio: 72.81
 - over_1000_ratio: 72.41
-- over_400_change_1w: -0.2
+- over_400_change_1w: -0.03
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
 - tdcc_consecutive_up_weeks: 0
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,78.23,0.16,72.81,0,72.41,0,6,False,False
 20260618,78.2,-0.03,72.81,0,72.41,0,0,False,False
 20260626,78,-0.2,72.81,0,72.41,0,0,False,False
+20260703,77.97,-0.03,72.81,0,72.41,0,0,False,False
 ```
 
 ## Candidate Context

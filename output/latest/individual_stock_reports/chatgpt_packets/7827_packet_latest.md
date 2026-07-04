@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7827 漢康-KY創
 
 ## Metadata
-- generated_at: 2026-07-03 22:28:14 Asia/Taipei
+- generated_at: 2026-07-04 22:28:02 Asia/Taipei
 - stock_id: 7827
 - stock_name: 漢康-KY創
 - packet_status: partial_rawdata_packet
 - latest_price_date: 20260703
 - price_rows: 25
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 76.61
-- over_600_ratio: 74.17
-- over_800_ratio: 71.8
-- over_1000_ratio: 69.73
-- over_400_change_1w: 0.77
-- over_800_change_1w: 0.79
-- over_1000_change_1w: 0.79
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260703
+- over_400_ratio: 76.81
+- over_600_ratio: 74.37
+- over_800_ratio: 72
+- over_1000_ratio: 69.93
+- over_400_change_1w: 0.2
+- over_800_change_1w: 0.2
+- over_1000_change_1w: 0.2
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,76.38,0.92,71.01,1.95,68.94,2.32,2,True,True
 20260618,75.84,-0.54,71.01,0,68.94,0,0,False,False
 20260626,76.61,0.77,71.8,0.79,69.73,0.79,1,True,True
+20260703,76.81,0.2,72,0.2,69.93,0.2,2,True,True
 ```
 
 ## Candidate Context

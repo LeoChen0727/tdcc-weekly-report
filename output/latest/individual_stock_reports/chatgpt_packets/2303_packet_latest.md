@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2303 聯電
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:27 Asia/Taipei
+- generated_at: 2026-07-04 22:26:24 Asia/Taipei
 - stock_id: 2303
 - stock_name: 聯電
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -156,17 +156,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 77.62
-- over_600_ratio: 76.59
-- over_800_ratio: 75.72
-- over_1000_ratio: 75.02
-- over_400_change_1w: 0.54
-- over_800_change_1w: 0.59
-- over_1000_change_1w: 0.57
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260703
+- over_400_ratio: 76.82
+- over_600_ratio: 75.82
+- over_800_ratio: 74.96
+- over_1000_ratio: 74.23
+- over_400_change_1w: -0.8
+- over_800_change_1w: -0.76
+- over_1000_change_1w: -0.79
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -181,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,76.52,-0.63,74.62,-0.62,73.97,-0.63,0,False,False
 20260618,77.08,0.56,75.13,0.51,74.45,0.48,1,True,True
 20260626,77.62,0.54,75.72,0.59,75.02,0.57,2,True,True
+20260703,76.82,-0.8,74.96,-0.76,74.23,-0.79,0,False,False
 ```
 
 ## Candidate Context
@@ -196,7 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 2303 | 聯電 | 328 | 0 | 22748990.0 | 0.0 |  | no_signal |
+| 20260703 | 2303 | 聯電 | 328 | 28 | 22748990.0 | 1528870.0 | 14.88 | put_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

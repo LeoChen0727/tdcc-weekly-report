@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6126 信音
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:37 Asia/Taipei
+- generated_at: 2026-07-04 22:27:28 Asia/Taipei
 - stock_id: 6126
 - stock_name: 信音
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 162
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,16 +158,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 38.84
-- over_600_ratio: 37.33
-- over_800_ratio: 34.73
-- over_1000_ratio: 32.7
-- over_400_change_1w: 1.02
-- over_800_change_1w: 1.64
-- over_1000_change_1w: 0.92
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
+- as_of_date: 20260703
+- over_400_ratio: 37.63
+- over_600_ratio: 36.78
+- over_800_ratio: 34.69
+- over_1000_ratio: 32.74
+- over_400_change_1w: -1.21
+- over_800_change_1w: -0.04
+- over_1000_change_1w: 0.04
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,39.78,0.22,35.42,0.07,32.66,-2.07,6,False,True
 20260618,37.82,-1.96,33.09,-2.33,31.78,-0.88,0,False,False
 20260626,38.84,1.02,34.73,1.64,32.7,0.92,1,True,True
+20260703,37.63,-1.21,34.69,-0.04,32.74,0.04,2,False,True
 ```
 
 ## Candidate Context

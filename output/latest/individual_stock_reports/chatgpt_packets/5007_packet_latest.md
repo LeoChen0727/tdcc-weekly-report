@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5007 三星
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:25 Asia/Taipei
+- generated_at: 2026-07-04 22:27:17 Asia/Taipei
 - stock_id: 5007
 - stock_name: 三星
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 87.77
-- over_600_ratio: 86.17
-- over_800_ratio: 84.73
-- over_1000_ratio: 84.73
+- as_of_date: 20260703
+- over_400_ratio: 87.76
+- over_600_ratio: 86.16
+- over_800_ratio: 84.72
+- over_1000_ratio: 84.72
 - over_400_change_1w: -0.01
-- over_800_change_1w: 0.23
-- over_1000_change_1w: 0.23
-- tdcc_consecutive_up_weeks: 1
+- over_800_change_1w: -0.01
+- over_1000_change_1w: -0.01
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,87.82,0,84.54,0,84.54,0,0,False,False
 20260618,87.78,-0.04,84.5,-0.04,84.5,-0.04,0,False,False
 20260626,87.77,-0.01,84.73,0.23,84.73,0.23,1,False,True
+20260703,87.76,-0.01,84.72,-0.01,84.72,-0.01,0,False,False
 ```
 
 ## Candidate Context

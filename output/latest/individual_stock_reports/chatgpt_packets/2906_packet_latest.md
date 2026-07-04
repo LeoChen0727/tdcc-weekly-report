@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2906 高林
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:47 Asia/Taipei
+- generated_at: 2026-07-04 22:26:42 Asia/Taipei
 - stock_id: 2906
 - stock_name: 高林
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -163,17 +163,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 65.86
-- over_600_ratio: 62.44
-- over_800_ratio: 61.13
-- over_1000_ratio: 59.53
-- over_400_change_1w: 0.13
-- over_800_change_1w: -0.01
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260703
+- over_400_ratio: 64.78
+- over_600_ratio: 60.91
+- over_800_ratio: 59.95
+- over_1000_ratio: 59.57
+- over_400_change_1w: -1.08
+- over_800_change_1w: -1.18
+- over_1000_change_1w: 0.04
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -188,6 +188,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,65.51,0.13,60.75,-0.38,59.53,0,1,False,False
 20260618,65.73,0.22,61.14,0.39,59.53,0,2,False,True
 20260626,65.86,0.13,61.13,-0.01,59.53,0,3,False,False
+20260703,64.78,-1.08,59.95,-1.18,59.57,0.04,4,False,True
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2949 欣新網
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:48 Asia/Taipei
+- generated_at: 2026-07-04 22:26:43 Asia/Taipei
 - stock_id: 2949
 - stock_name: 欣新網
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 132
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,15 +157,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 82.33
-- over_600_ratio: 77.25
-- over_800_ratio: 77.25
-- over_1000_ratio: 65.52
-- over_400_change_1w: 0.12
-- over_800_change_1w: 0.12
-- over_1000_change_1w: 0.12
-- tdcc_consecutive_up_weeks: 6
+- as_of_date: 20260703
+- over_400_ratio: 82.55
+- over_600_ratio: 79.23
+- over_800_ratio: 79.23
+- over_1000_ratio: 67.5
+- over_400_change_1w: 0.22
+- over_800_change_1w: 1.98
+- over_1000_change_1w: 1.98
+- tdcc_consecutive_up_weeks: 7
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,82.17,0.1,77.09,0.1,62.1,0,4,False,True
 20260618,82.21,0.04,77.13,0.04,65.4,3.3,5,True,True
 20260626,82.33,0.12,77.25,0.12,65.52,0.12,6,True,True
+20260703,82.55,0.22,79.23,1.98,67.5,1.98,7,True,True
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6196 帆宣
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:41 Asia/Taipei
+- generated_at: 2026-07-04 22:27:31 Asia/Taipei
 - stock_id: 6196
 - stock_name: 帆宣
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,17 +157,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 72.39
-- over_600_ratio: 70.63
-- over_800_ratio: 68.75
-- over_1000_ratio: 66.61
-- over_400_change_1w: 0.37
-- over_800_change_1w: -0.1
-- over_1000_change_1w: 0.67
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260703
+- over_400_ratio: 72.02
+- over_600_ratio: 70.51
+- over_800_ratio: 68.38
+- over_1000_ratio: 66.31
+- over_400_change_1w: -0.37
+- over_800_change_1w: -0.37
+- over_1000_change_1w: -0.3
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,72.16,-0.09,68.77,-0.3,66.25,-0.34,0,False,False
 20260618,72.02,-0.14,68.85,0.08,65.94,-0.31,1,False,True
 20260626,72.39,0.37,68.75,-0.1,66.61,0.67,2,False,True
+20260703,72.02,-0.37,68.38,-0.37,66.31,-0.3,0,False,False
 ```
 
 ## Candidate Context
@@ -197,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 6196 | 帆宣 | 78 | 0 | 13393350.0 | 0.0 |  | no_signal |
+| 20260703 | 6196 | 帆宣 | 78 | 1 | 13393350.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

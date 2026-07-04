@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2509 全坤建
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:38 Asia/Taipei
+- generated_at: 2026-07-04 22:26:34 Asia/Taipei
 - stock_id: 2509
 - stock_name: 全坤建
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 69.73
-- over_600_ratio: 67.29
+- as_of_date: 20260703
+- over_400_ratio: 69.78
+- over_600_ratio: 67.3
 - over_800_ratio: 65.41
 - over_1000_ratio: 63.87
-- over_400_change_1w: 0.04
-- over_800_change_1w: 0.01
+- over_400_change_1w: 0.05
+- over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 1
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,69.69,0.17,65.41,0.02,63.88,0.01,3,False,True
 20260618,69.69,0,65.4,-0.01,63.87,-0.01,0,False,False
 20260626,69.73,0.04,65.41,0.01,63.87,0,1,False,True
+20260703,69.78,0.05,65.41,0,63.87,0,2,False,False
 ```
 
 ## Candidate Context

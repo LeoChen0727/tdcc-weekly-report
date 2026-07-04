@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4989 榮科
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:25 Asia/Taipei
+- generated_at: 2026-07-04 22:27:16 Asia/Taipei
 - stock_id: 4989
 - stock_name: 榮科
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,16 +158,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 23.05
-- over_600_ratio: 21.25
-- over_800_ratio: 19.79
-- over_1000_ratio: 17.94
-- over_400_change_1w: -0.75
-- over_800_change_1w: 1.99
-- over_1000_change_1w: 0.79
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: False
+- as_of_date: 20260703
+- over_400_ratio: 30.1
+- over_600_ratio: 27.99
+- over_800_ratio: 25.52
+- over_1000_ratio: 23.62
+- over_400_change_1w: 7.05
+- over_800_change_1w: 5.73
+- over_1000_change_1w: 5.68
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,24.28,-1.89,19.47,-1.9,17.59,-2.56,0,False,False
 20260618,23.8,-0.48,17.8,-1.67,17.15,-0.44,0,False,False
 20260626,23.05,-0.75,19.79,1.99,17.94,0.79,1,False,True
+20260703,30.1,7.05,25.52,5.73,23.62,5.68,2,True,True
 ```
 
 ## Candidate Context

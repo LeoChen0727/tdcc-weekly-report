@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1470 大統新創
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:11 Asia/Taipei
+- generated_at: 2026-07-04 22:26:11 Asia/Taipei
 - stock_id: 1470
 - stock_name: 大統新創
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 234
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
+- as_of_date: 20260703
 - over_400_ratio: 87.26
 - over_600_ratio: 81.21
 - over_800_ratio: 77.39
 - over_1000_ratio: 70.23
-- over_400_change_1w: -0.03
-- over_800_change_1w: 0.02
-- over_1000_change_1w: 0.02
-- tdcc_consecutive_up_weeks: 1
+- over_400_change_1w: 0
+- over_800_change_1w: 0
+- over_1000_change_1w: 0
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,87.63,-0.01,77.72,0.02,71.56,0.02,1,False,True
 20260618,87.29,-0.34,77.37,-0.35,70.21,-1.35,0,False,False
 20260626,87.26,-0.03,77.39,0.02,70.23,0.02,1,False,True
+20260703,87.26,0,77.39,0,70.23,0,0,False,False
 ```
 
 ## Candidate Context

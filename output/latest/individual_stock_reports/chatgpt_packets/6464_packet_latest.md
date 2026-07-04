@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6464 台數科
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:48 Asia/Taipei
+- generated_at: 2026-07-04 22:27:38 Asia/Taipei
 - stock_id: 6464
 - stock_name: 台數科
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 295
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 85.33
-- over_600_ratio: 82.31
-- over_800_ratio: 79.29
-- over_1000_ratio: 77.2
-- over_400_change_1w: 0.03
-- over_800_change_1w: 0.01
-- over_1000_change_1w: 0.01
-- tdcc_consecutive_up_weeks: 8
+- as_of_date: 20260703
+- over_400_ratio: 85.41
+- over_600_ratio: 82.39
+- over_800_ratio: 79.83
+- over_1000_ratio: 77.74
+- over_400_change_1w: 0.08
+- over_800_change_1w: 0.54
+- over_1000_change_1w: 0.54
+- tdcc_consecutive_up_weeks: 9
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,85.27,0.08,79.31,0.07,77.26,-0.56,6,False,True
 20260618,85.3,0.03,79.28,-0.03,77.19,-0.07,7,False,False
 20260626,85.33,0.03,79.29,0.01,77.2,0.01,8,True,True
+20260703,85.41,0.08,79.83,0.54,77.74,0.54,9,True,True
 ```
 
 ## Candidate Context

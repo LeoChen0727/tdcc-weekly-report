@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2880 華南金
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:45 Asia/Taipei
+- generated_at: 2026-07-04 22:26:41 Asia/Taipei
 - stock_id: 2880
 - stock_name: 華南金
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,15 +157,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 81.26
-- over_600_ratio: 80.11
-- over_800_ratio: 79.46
-- over_1000_ratio: 78.8
-- over_400_change_1w: 0.06
-- over_800_change_1w: 0.06
-- over_1000_change_1w: 0.06
-- tdcc_consecutive_up_weeks: 4
+- as_of_date: 20260703
+- over_400_ratio: 81.31
+- over_600_ratio: 80.19
+- over_800_ratio: 79.51
+- over_1000_ratio: 78.88
+- over_400_change_1w: 0.05
+- over_800_change_1w: 0.05
+- over_1000_change_1w: 0.08
+- tdcc_consecutive_up_weeks: 5
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -182,12 +182,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,81.07,0.01,79.26,-0.02,78.57,-0.02,2,False,False
 20260618,81.2,0.13,79.4,0.14,78.74,0.17,3,True,True
 20260626,81.26,0.06,79.46,0.06,78.8,0.06,4,True,True
+20260703,81.31,0.05,79.51,0.05,78.88,0.08,5,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 20260703 | 2880 | 華南金 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1. 原公告日期： 115/06/26 2. 簡述原公告申報內容： 金融機構債權(放款)出售 3. 變動緣由及主要內容： 新增加出售對象，交易相對人為廣發銀行股份有限公司澳門分行 4. 變動後對公司財務業務之影響： 無 5. 其他應敘明事項： 交易日為澳門當地時間115/07/02；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260703 | 2880 | 華南金 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | 1. 原公告日期： 115/06/26 2. 簡述原公告申報內容： 金融機構債權(放款)出售 3. 變動緣由及主要內容： 新增加出售對象，交易相對人為廣發銀行股份有限公司澳門分行 4. 變動後對公司財務業務之影響： 無 5. 其他應敘明事項： 交易日為澳門當地時間115/07/02；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

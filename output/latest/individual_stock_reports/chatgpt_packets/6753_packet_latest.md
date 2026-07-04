@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6753 龍德造船
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:58 Asia/Taipei
+- generated_at: 2026-07-04 22:27:47 Asia/Taipei
 - stock_id: 6753
 - stock_name: 龍德造船
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -156,15 +156,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 58.41
-- over_600_ratio: 56.69
-- over_800_ratio: 56.69
-- over_1000_ratio: 53.59
-- over_400_change_1w: 0.08
-- over_800_change_1w: 0.06
-- over_1000_change_1w: 0.03
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260703
+- over_400_ratio: 61.69
+- over_600_ratio: 58.62
+- over_800_ratio: 56.78
+- over_1000_ratio: 54.47
+- over_400_change_1w: 3.28
+- over_800_change_1w: 0.09
+- over_1000_change_1w: 0.88
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -181,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,58.26,-0.03,56.57,-0.02,53.5,-0.02,0,False,False
 20260618,58.33,0.07,56.63,0.06,53.56,0.06,1,True,True
 20260626,58.41,0.08,56.69,0.06,53.59,0.03,2,True,True
+20260703,61.69,3.28,56.78,0.09,54.47,0.88,3,True,True
 ```
 
 ## Candidate Context
@@ -196,7 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 6753 | 龍德造船 | 61 | 0 | 4534150.0 | 0.0 |  | no_signal |
+| 20260703 | 6753 | 龍德造船 | 61 | 3 | 4534150.0 | 1300.0 | 3487.81 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

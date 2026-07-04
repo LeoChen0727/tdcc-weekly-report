@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1337 再生-KY
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:08 Asia/Taipei
+- generated_at: 2026-07-04 22:26:08 Asia/Taipei
 - stock_id: 1337
 - stock_name: 再生-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -162,15 +162,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
+- as_of_date: 20260703
 - over_400_ratio: 48.13
-- over_600_ratio: 44.07
-- over_800_ratio: 41.82
-- over_1000_ratio: 39.17
-- over_400_change_1w: -0.13
-- over_800_change_1w: 1.15
-- over_1000_change_1w: 0.84
-- tdcc_consecutive_up_weeks: 8
+- over_600_ratio: 44.22
+- over_800_ratio: 42.24
+- over_1000_ratio: 39.26
+- over_400_change_1w: 0
+- over_800_change_1w: 0.42
+- over_1000_change_1w: 0.09
+- tdcc_consecutive_up_weeks: 9
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -187,6 +187,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,48.15,0.04,40.71,0.3,38.4,-0.01,6,False,True
 20260618,48.26,0.11,40.67,-0.04,38.33,-0.07,7,False,False
 20260626,48.13,-0.13,41.82,1.15,39.17,0.84,8,False,True
+20260703,48.13,0,42.24,0.42,39.26,0.09,9,False,True
 ```
 
 ## Candidate Context

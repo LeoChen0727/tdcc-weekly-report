@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2312 金寶
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:27 Asia/Taipei
+- generated_at: 2026-07-04 22:26:25 Asia/Taipei
 - stock_id: 2312
 - stock_name: 金寶
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,14 +158,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 47.87
-- over_600_ratio: 46.04
-- over_800_ratio: 44.83
-- over_1000_ratio: 43.78
-- over_400_change_1w: -2.05
-- over_800_change_1w: -1.85
-- over_1000_change_1w: -2.2
+- as_of_date: 20260703
+- over_400_ratio: 46.99
+- over_600_ratio: 44.96
+- over_800_ratio: 43.66
+- over_1000_ratio: 42.78
+- over_400_change_1w: -0.88
+- over_800_change_1w: -1.17
+- over_1000_change_1w: -1
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,50.78,-0.86,47.59,-0.76,46.72,-0.62,0,False,False
 20260618,49.92,-0.86,46.68,-0.91,45.98,-0.74,0,False,False
 20260626,47.87,-2.05,44.83,-1.85,43.78,-2.2,0,False,False
+20260703,46.99,-0.88,43.66,-1.17,42.78,-1,0,False,False
 ```
 
 ## Candidate Context
@@ -198,7 +199,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 2312 | 金寶 | 95 | 0 | 4395690.0 | 0.0 |  | no_signal |
+| 20260703 | 2312 | 金寶 | 95 | 2 | 4395690.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

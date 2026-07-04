@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3338 泰碩
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:59 Asia/Taipei
+- generated_at: 2026-07-04 22:26:53 Asia/Taipei
 - stock_id: 3338
 - stock_name: 泰碩
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 31.37
-- over_600_ratio: 27.1
-- over_800_ratio: 24.81
-- over_1000_ratio: 23.8
-- over_400_change_1w: -0.33
-- over_800_change_1w: -1.9
-- over_1000_change_1w: 1.22
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260703
+- over_400_ratio: 31.12
+- over_600_ratio: 27.23
+- over_800_ratio: 24.79
+- over_1000_ratio: 23.78
+- over_400_change_1w: -0.25
+- over_800_change_1w: -0.02
+- over_1000_change_1w: -0.02
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,32.25,0.55,26.85,0.79,22.59,-2.46,6,False,True
 20260618,31.7,-0.55,26.71,-0.14,22.58,-0.01,0,False,False
 20260626,31.37,-0.33,24.81,-1.9,23.8,1.22,1,False,True
+20260703,31.12,-0.25,24.79,-0.02,23.78,-0.02,2,False,False
 ```
 
 ## Candidate Context

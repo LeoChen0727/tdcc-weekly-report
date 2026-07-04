@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5274 信驊
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:27 Asia/Taipei
+- generated_at: 2026-07-04 22:27:19 Asia/Taipei
 - stock_id: 5274
 - stock_name: 信驊
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 162
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,14 +158,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 33.99
-- over_600_ratio: 25.19
-- over_800_ratio: 21.66
-- over_1000_ratio: 19.07
-- over_400_change_1w: -0.16
-- over_800_change_1w: -0.21
-- over_1000_change_1w: -0.21
+- as_of_date: 20260703
+- over_400_ratio: 33.73
+- over_600_ratio: 24.96
+- over_800_ratio: 21.41
+- over_1000_ratio: 18.82
+- over_400_change_1w: -0.26
+- over_800_change_1w: -0.25
+- over_1000_change_1w: -0.25
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,34.37,-0.05,21.95,0.04,19.36,0.04,1,False,True
 20260618,34.15,-0.22,21.87,-0.08,19.28,-0.08,0,False,False
 20260626,33.99,-0.16,21.66,-0.21,19.07,-0.21,0,False,False
+20260703,33.73,-0.26,21.41,-0.25,18.82,-0.25,0,False,False
 ```
 
 ## Candidate Context

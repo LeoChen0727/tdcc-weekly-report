@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7718 友鋮
 
 ## Metadata
-- generated_at: 2026-07-03 22:28:11 Asia/Taipei
+- generated_at: 2026-07-04 22:27:59 Asia/Taipei
 - stock_id: 7718
 - stock_name: 友鋮
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 161
-- latest_tdcc_date: 20260626
-- tdcc_rows: 31
+- latest_tdcc_date: 20260703
+- tdcc_rows: 32
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 78.62
-- over_600_ratio: 74.53
-- over_800_ratio: 71.48
-- over_1000_ratio: 67.75
-- over_400_change_1w: 0.11
-- over_800_change_1w: 0.12
-- over_1000_change_1w: 0.12
-- tdcc_consecutive_up_weeks: 20
+- as_of_date: 20260703
+- over_400_ratio: 78.68
+- over_600_ratio: 74.59
+- over_800_ratio: 71.55
+- over_1000_ratio: 67.82
+- over_400_change_1w: 0.06
+- over_800_change_1w: 0.07
+- over_1000_change_1w: 0.07
+- tdcc_consecutive_up_weeks: 21
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -174,7 +174,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260410,77.93,0,70.97,0.03,67.24,0.03,9,False,True
 20260417,78.06,0.13,71.06,0.09,67.33,0.09,10,True,True
 20260424,78.14,0.08,71.07,0.01,67.34,0.01,11,True,True
 20260430,78.16,0.02,71.08,0.01,67.35,0.01,12,True,True
@@ -186,6 +185,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,78.51,0.05,71.35,0.08,67.62,0.08,18,True,True
 20260618,78.51,0,71.36,0.01,67.63,0.01,19,False,True
 20260626,78.62,0.11,71.48,0.12,67.75,0.12,20,True,True
+20260703,78.68,0.06,71.55,0.07,67.82,0.07,21,True,True
 ```
 
 ## Candidate Context

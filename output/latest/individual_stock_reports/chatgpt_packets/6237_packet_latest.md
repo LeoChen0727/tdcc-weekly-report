@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6237 驊訊
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:44 Asia/Taipei
+- generated_at: 2026-07-04 22:27:34 Asia/Taipei
 - stock_id: 6237
 - stock_name: 驊訊
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 162
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,14 +158,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 20.09
-- over_600_ratio: 18.28
-- over_800_ratio: 15.43
-- over_1000_ratio: 15.43
-- over_400_change_1w: -0.14
-- over_800_change_1w: -0.23
-- over_1000_change_1w: -0.23
+- as_of_date: 20260703
+- over_400_ratio: 19.82
+- over_600_ratio: 18.01
+- over_800_ratio: 15.22
+- over_1000_ratio: 13.97
+- over_400_change_1w: -0.27
+- over_800_change_1w: -0.21
+- over_1000_change_1w: -1.46
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,21.07,-0.54,15.7,0.18,15.7,0.18,6,False,True
 20260618,20.23,-0.84,15.66,-0.04,15.66,-0.04,0,False,False
 20260626,20.09,-0.14,15.43,-0.23,15.43,-0.23,0,False,False
+20260703,19.82,-0.27,15.22,-0.21,13.97,-1.46,0,False,False
 ```
 
 ## Candidate Context

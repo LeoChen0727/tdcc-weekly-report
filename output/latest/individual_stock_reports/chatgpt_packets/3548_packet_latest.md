@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3548 兆利
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:05 Asia/Taipei
+- generated_at: 2026-07-04 22:26:58 Asia/Taipei
 - stock_id: 3548
 - stock_name: 兆利
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 162
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 32.63
-- over_600_ratio: 27.56
-- over_800_ratio: 25.56
-- over_1000_ratio: 24.22
-- over_400_change_1w: -0.07
-- over_800_change_1w: -0.08
-- over_1000_change_1w: -0.08
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260703
+- over_400_ratio: 33.18
+- over_600_ratio: 27.46
+- over_800_ratio: 24.3
+- over_1000_ratio: 22.96
+- over_400_change_1w: 0.55
+- over_800_change_1w: -1.26
+- over_1000_change_1w: -1.26
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,32.77,-1.34,25.68,-0.21,24.34,-0.21,0,False,False
 20260618,32.7,-0.07,25.64,-0.04,24.3,-0.04,0,False,False
 20260626,32.63,-0.07,25.56,-0.08,24.22,-0.08,0,False,False
+20260703,33.18,0.55,24.3,-1.26,22.96,-1.26,1,False,False
 ```
 
 ## Candidate Context

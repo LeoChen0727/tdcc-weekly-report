@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8367 建新國際
 
 ## Metadata
-- generated_at: 2026-07-03 22:28:21 Asia/Taipei
+- generated_at: 2026-07-04 22:28:08 Asia/Taipei
 - stock_id: 8367
 - stock_name: 建新國際
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 70.64
+- as_of_date: 20260703
+- over_400_ratio: 70.61
 - over_600_ratio: 65.26
 - over_800_ratio: 62.32
 - over_1000_ratio: 61.36
-- over_400_change_1w: 0.01
+- over_400_change_1w: -0.03
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 8
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,70.63,0.51,62.32,0.06,61.36,0.06,6,True,True
 20260618,70.63,0,62.32,0,61.36,0,7,False,False
 20260626,70.64,0.01,62.32,0,61.36,0,8,False,False
+20260703,70.61,-0.03,62.32,0,61.36,0,0,False,False
 ```
 
 ## Candidate Context

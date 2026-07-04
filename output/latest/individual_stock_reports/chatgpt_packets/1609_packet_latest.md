@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1609 大亞
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:16 Asia/Taipei
+- generated_at: 2026-07-04 22:26:15 Asia/Taipei
 - stock_id: 1609
 - stock_name: 大亞
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -162,17 +162,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 30.4
-- over_600_ratio: 28.86
-- over_800_ratio: 27.65
-- over_1000_ratio: 26.84
-- over_400_change_1w: -0.48
-- over_800_change_1w: -0.35
-- over_1000_change_1w: -0.5
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260703
+- over_400_ratio: 30.8
+- over_600_ratio: 29.02
+- over_800_ratio: 27.75
+- over_1000_ratio: 26.72
+- over_400_change_1w: 0.4
+- over_800_change_1w: 0.1
+- over_1000_change_1w: -0.12
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -187,6 +187,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,30.81,-1.34,27.8,-1,26.55,-1.37,0,False,False
 20260618,30.88,0.07,28,0.2,27.34,0.79,1,True,True
 20260626,30.4,-0.48,27.65,-0.35,26.84,-0.5,0,False,False
+20260703,30.8,0.4,27.75,0.1,26.72,-0.12,1,False,True
 ```
 
 ## Candidate Context
@@ -202,7 +203,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 1609 | 大亞 | 29 | 0 | 3034280.0 | 0.0 |  | call_strong_inflow |
+| 20260703 | 1609 | 大亞 | 29 | 1 | 3034280.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

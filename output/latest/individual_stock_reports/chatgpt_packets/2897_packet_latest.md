@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2897 王道銀行
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:46 Asia/Taipei
+- generated_at: 2026-07-04 22:26:42 Asia/Taipei
 - stock_id: 2897
 - stock_name: 王道銀行
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,16 +158,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 85.58
-- over_600_ratio: 83.72
-- over_800_ratio: 82.45
-- over_1000_ratio: 81.21
-- over_400_change_1w: 0.02
-- over_800_change_1w: 0.13
-- over_1000_change_1w: 0.03
-- tdcc_consecutive_up_weeks: 4
-- all_thresholds_up: True
+- as_of_date: 20260703
+- over_400_ratio: 85.53
+- over_600_ratio: 83.66
+- over_800_ratio: 82.39
+- over_1000_ratio: 81.3
+- over_400_change_1w: -0.05
+- over_800_change_1w: -0.06
+- over_1000_change_1w: 0.09
+- tdcc_consecutive_up_weeks: 5
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -183,12 +183,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,85.47,0.31,82.39,0.37,81.33,0.33,2,True,True
 20260618,85.56,0.09,82.32,-0.07,81.18,-0.15,3,False,False
 20260626,85.58,0.02,82.45,0.13,81.21,0.03,4,True,True
+20260703,85.53,-0.05,82.39,-0.06,81.3,0.09,5,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 20260703 | 2897 | 王道銀行 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | continued_2_3d | 1.董事會、股東會決議或公司決定日期:115/06/24 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額: 普通股現金股利每股配發新台幣0.52元，合計新台幣1,446,857,817元 4.除權（息）交易日:115/07/23 5.最後過戶日:115/07/24 6.停止過戶起始日期:115/07/25 7.停止過戶截止日期:115/07/29 8.除權（息）基準日:115/07/29 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/19 13.其他應敘明事項: 普通股每股實際分派金額受本行於配息基準日之前， 特別股轉換、辦理增減資、買回本行股份、或股份轉讓、轉換、 註銷或其他因素影響，經董事會授權董事長依配息基準日 實際流通在外普通股股數及普通股實際總分派金額調整之， 但普通股合計總分派金額不變，屆時將另行公告。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260703 | 2897 | 王道銀行 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  |  | continued_2_3d | 1.董事會、股東會決議或公司決定日期:115/06/24 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額: 普通股現金股利每股配發新台幣0.52元，合計新台幣1,446,857,817元 4.除權（息）交易日:115/07/23 5.最後過戶日:115/07/24 6.停止過戶起始日期:115/07/25 7.停止過戶截止日期:115/07/29 8.除權（息）基準日:115/07/29 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/19 13.其他應敘明事項: 普通股每股實際分派金額受本行於配息基準日之前， 特別股轉換、辦理增減資、買回本行股份、或股份轉讓、轉換、 註銷或其他因素影響，經董事會授權董事長依配息基準日 實際流通在外普通股股數及普通股實際總分派金額調整之， 但普通股合計總分派金額不變，屆時將另行公告。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

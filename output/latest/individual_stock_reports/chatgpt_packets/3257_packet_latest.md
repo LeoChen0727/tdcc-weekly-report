@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3257 虹冠電
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:57 Asia/Taipei
+- generated_at: 2026-07-04 22:26:51 Asia/Taipei
 - stock_id: 3257
 - stock_name: 虹冠電
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 45.34
-- over_600_ratio: 43.94
-- over_800_ratio: 39.66
-- over_1000_ratio: 38.58
-- over_400_change_1w: 1.67
-- over_800_change_1w: 1.44
-- over_1000_change_1w: 1.44
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260703
+- over_400_ratio: 44.99
+- over_600_ratio: 43.59
+- over_800_ratio: 39.42
+- over_1000_ratio: 37.11
+- over_400_change_1w: -0.35
+- over_800_change_1w: -0.24
+- over_1000_change_1w: -1.47
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,43.68,0.35,38.22,-1.15,37.14,0.02,1,False,True
 20260618,43.67,-0.01,38.22,0,37.14,0,2,False,False
 20260626,45.34,1.67,39.66,1.44,38.58,1.44,3,True,True
+20260703,44.99,-0.35,39.42,-0.24,37.11,-1.47,0,False,False
 ```
 
 ## Candidate Context

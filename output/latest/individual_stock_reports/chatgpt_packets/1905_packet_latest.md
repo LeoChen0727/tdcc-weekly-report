@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1905 華紙
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:21 Asia/Taipei
+- generated_at: 2026-07-04 22:26:19 Asia/Taipei
 - stock_id: 1905
 - stock_name: 華紙
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -156,17 +156,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 71.07
-- over_600_ratio: 69.82
-- over_800_ratio: 69.35
-- over_1000_ratio: 68.78
-- over_400_change_1w: -0.72
-- over_800_change_1w: -0.84
-- over_1000_change_1w: -0.77
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260703
+- over_400_ratio: 71.31
+- over_600_ratio: 70.22
+- over_800_ratio: 69.68
+- over_1000_ratio: 69.11
+- over_400_change_1w: 0.24
+- over_800_change_1w: 0.33
+- over_1000_change_1w: 0.33
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -181,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,71.17,-0.33,69.39,-0.12,68.84,-0.11,0,False,False
 20260618,71.79,0.62,70.19,0.8,69.55,0.71,1,True,True
 20260626,71.07,-0.72,69.35,-0.84,68.78,-0.77,0,False,False
+20260703,71.31,0.24,69.68,0.33,69.11,0.33,1,True,True
 ```
 
 ## Candidate Context

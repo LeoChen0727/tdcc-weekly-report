@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2034 允強
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:23 Asia/Taipei
+- generated_at: 2026-07-04 22:26:21 Asia/Taipei
 - stock_id: 2034
 - stock_name: 允強
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -162,17 +162,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 49.62
-- over_600_ratio: 45.49
-- over_800_ratio: 44.03
-- over_1000_ratio: 43.16
-- over_400_change_1w: -0.1
-- over_800_change_1w: -0.28
-- over_1000_change_1w: 0.58
-- tdcc_consecutive_up_weeks: 5
+- as_of_date: 20260703
+- over_400_ratio: 48.85
+- over_600_ratio: 45
+- over_800_ratio: 43.67
+- over_1000_ratio: 42.46
+- over_400_change_1w: -0.77
+- over_800_change_1w: -0.36
+- over_1000_change_1w: -0.7
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -187,12 +187,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,49.12,0.19,43.65,0.19,42.44,0.35,3,True,True
 20260618,49.72,0.6,44.31,0.66,42.58,0.14,4,True,True
 20260626,49.62,-0.1,44.03,-0.28,43.16,0.58,5,False,True
+20260703,48.85,-0.77,43.67,-0.36,42.46,-0.7,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 2034 | 允強 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/16 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額: (1)盈餘配發現金股利新台幣 105,799,118元(每股 NT$0.2元)。 (2)資本公積發放現金股利新台幣 423,196,471元(每股 NT$0.8元)。 4.除權（息）交易日:115/07/16 5.最後過戶日:115/07/18 6.停止過戶起始日期:115/07/19 7.停止過戶截止日期:115/07/23 8.除權（息）基準日:115/07/23 9.債券最後申請轉換日期:115/06/25 10.債券停止轉換起始日期:115/06/29 11.債券停止轉換截止日期:115/07/23 12.普通股現金股利發放日期:115/08/13 13.其他應敘明事項: 如嗣後因股本變動，致影響流通在外股份數量，股東股息總金額因此發生變動 者，授權董事長全權處理變更相關事宜。；calendar event: ex_dividend on 20260716; status=confirmed; proximity=within_14d |
+| 20260703 | 2034 | 允強 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | stale_signal | 1.事實發生日:115/07/02 2.公司名稱:允強實業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:本公司發行國內第四次無擔保轉換公司債轉換價格之調整。 6.因應措施:無。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): (1)依據本公司國內第四次無擔保轉換公司債發行及轉換辦法第十一條 規定辦理。 (2)為配合本公司除息基準日，自115年07月23日起本公司發行國內第四次無擔保轉換 公司債轉換之價格依上述辦法計算後調整為22.8元。；calendar event: ex_dividend on 20260716; status=confirmed; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

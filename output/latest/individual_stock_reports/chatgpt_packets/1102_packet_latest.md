@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1102 亞泥
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:04 Asia/Taipei
+- generated_at: 2026-07-04 22:26:04 Asia/Taipei
 - stock_id: 1102
 - stock_name: 亞泥
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,15 +157,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 81.8
-- over_600_ratio: 80.73
-- over_800_ratio: 79.95
-- over_1000_ratio: 79.48
-- over_400_change_1w: 0.32
-- over_800_change_1w: 0.33
-- over_1000_change_1w: 0.31
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260703
+- over_400_ratio: 81.82
+- over_600_ratio: 80.82
+- over_800_ratio: 80.04
+- over_1000_ratio: 79.59
+- over_400_change_1w: 0.02
+- over_800_change_1w: 0.09
+- over_1000_change_1w: 0.11
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,81.17,-0.06,79.26,-0.14,78.86,-0.14,0,False,False
 20260618,81.48,0.31,79.62,0.36,79.17,0.31,1,True,True
 20260626,81.8,0.32,79.95,0.33,79.48,0.31,2,True,True
+20260703,81.82,0.02,80.04,0.09,79.59,0.11,3,True,True
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2351 順德
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:29 Asia/Taipei
+- generated_at: 2026-07-04 22:26:26 Asia/Taipei
 - stock_id: 2351
 - stock_name: 順德
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 71.54
-- over_600_ratio: 67.63
-- over_800_ratio: 61.97
-- over_1000_ratio: 59.62
-- over_400_change_1w: -3.42
-- over_800_change_1w: -3.74
-- over_1000_change_1w: -1.82
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260703
+- over_400_ratio: 71.1
+- over_600_ratio: 67.14
+- over_800_ratio: 62.62
+- over_1000_ratio: 58.84
+- over_400_change_1w: -0.44
+- over_800_change_1w: 0.65
+- over_1000_change_1w: -0.78
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,74.87,1.15,65.19,-0.61,61.82,-0.7,1,False,False
 20260618,74.96,0.09,65.71,0.52,61.44,-0.38,2,False,True
 20260626,71.54,-3.42,61.97,-3.74,59.62,-1.82,0,False,False
+20260703,71.1,-0.44,62.62,0.65,58.84,-0.78,1,False,True
 ```
 
 ## Candidate Context

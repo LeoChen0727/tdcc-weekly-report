@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4113 聯上
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:11 Asia/Taipei
+- generated_at: 2026-07-04 22:27:04 Asia/Taipei
 - stock_id: 4113
 - stock_name: 聯上
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 162
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 74.43
-- over_600_ratio: 69.67
-- over_800_ratio: 64.72
-- over_1000_ratio: 64.01
-- over_400_change_1w: 0.08
-- over_800_change_1w: -0.49
-- over_1000_change_1w: 1.06
-- tdcc_consecutive_up_weeks: 8
+- as_of_date: 20260703
+- over_400_ratio: 74.53
+- over_600_ratio: 69.99
+- over_800_ratio: 64.96
+- over_1000_ratio: 63.9
+- over_400_change_1w: 0.1
+- over_800_change_1w: 0.24
+- over_1000_change_1w: -0.11
+- tdcc_consecutive_up_weeks: 9
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,74.26,-0.3,64.63,0.3,63.1,-0.15,6,False,True
 20260618,74.35,0.09,65.21,0.58,62.95,-0.15,7,False,True
 20260626,74.43,0.08,64.72,-0.49,64.01,1.06,8,False,True
+20260703,74.53,0.1,64.96,0.24,63.9,-0.11,9,False,True
 ```
 
 ## Candidate Context

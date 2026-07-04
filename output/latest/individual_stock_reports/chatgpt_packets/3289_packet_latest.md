@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3289 宜特
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:58 Asia/Taipei
+- generated_at: 2026-07-04 22:26:52 Asia/Taipei
 - stock_id: 3289
 - stock_name: 宜特
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 162
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -162,16 +162,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 26.59
-- over_600_ratio: 20.56
-- over_800_ratio: 18.86
-- over_1000_ratio: 14.53
-- over_400_change_1w: -0.36
-- over_800_change_1w: 0.11
-- over_1000_change_1w: 1.36
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: False
+- as_of_date: 20260703
+- over_400_ratio: 32.52
+- over_600_ratio: 26.13
+- over_800_ratio: 23.7
+- over_1000_ratio: 17.16
+- over_400_change_1w: 5.93
+- over_800_change_1w: 4.84
+- over_1000_change_1w: 2.63
+- tdcc_consecutive_up_weeks: 3
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -187,6 +187,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,26.3,-0.83,17.52,-2.07,11.96,0,0,False,False
 20260618,26.95,0.65,18.75,1.23,13.17,1.21,1,True,True
 20260626,26.59,-0.36,18.86,0.11,14.53,1.36,2,False,True
+20260703,32.52,5.93,23.7,4.84,17.16,2.63,3,True,True
 ```
 
 ## Candidate Context

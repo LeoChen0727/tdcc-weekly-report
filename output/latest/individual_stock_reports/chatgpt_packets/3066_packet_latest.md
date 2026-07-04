@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3066 李洲
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:52 Asia/Taipei
+- generated_at: 2026-07-04 22:26:47 Asia/Taipei
 - stock_id: 3066
 - stock_name: 李洲
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 162
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,15 +157,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 72.56
-- over_600_ratio: 71.4
-- over_800_ratio: 69.1
-- over_1000_ratio: 68.12
-- over_400_change_1w: 0.02
-- over_800_change_1w: -0.13
-- over_1000_change_1w: -0.1
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260703
+- over_400_ratio: 72.69
+- over_600_ratio: 72.16
+- over_800_ratio: 69.02
+- over_1000_ratio: 68.04
+- over_400_change_1w: 0.13
+- over_800_change_1w: -0.08
+- over_1000_change_1w: -0.08
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,72.12,-0.93,69.26,-1.03,68.25,0,0,False,False
 20260618,72.54,0.42,69.23,-0.03,68.22,-0.03,1,False,False
 20260626,72.56,0.02,69.1,-0.13,68.12,-0.1,2,False,False
+20260703,72.69,0.13,69.02,-0.08,68.04,-0.08,3,False,False
 ```
 
 ## Candidate Context

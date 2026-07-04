@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6456 GIS-KY
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:48 Asia/Taipei
+- generated_at: 2026-07-04 22:27:38 Asia/Taipei
 - stock_id: 6456
 - stock_name: GIS-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,14 +157,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 49.04
-- over_600_ratio: 47.5
-- over_800_ratio: 46.3
-- over_1000_ratio: 44.98
-- over_400_change_1w: -1.28
-- over_800_change_1w: -0.77
-- over_1000_change_1w: -1.05
+- as_of_date: 20260703
+- over_400_ratio: 47.54
+- over_600_ratio: 45.55
+- over_800_ratio: 44.36
+- over_1000_ratio: 43.84
+- over_400_change_1w: -1.5
+- over_800_change_1w: -1.94
+- over_1000_change_1w: -1.14
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,50.68,-1.02,47.2,-1.98,45.91,-1.25,0,False,False
 20260618,50.32,-0.36,47.07,-0.13,46.03,0.12,1,False,True
 20260626,49.04,-1.28,46.3,-0.77,44.98,-1.05,0,False,False
+20260703,47.54,-1.5,44.36,-1.94,43.84,-1.14,0,False,False
 ```
 
 ## Candidate Context

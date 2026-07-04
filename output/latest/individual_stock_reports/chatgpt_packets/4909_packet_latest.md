@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4909 新復興
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:22 Asia/Taipei
+- generated_at: 2026-07-04 22:27:14 Asia/Taipei
 - stock_id: 4909
 - stock_name: 新復興
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 162
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,16 +158,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 26.3
-- over_600_ratio: 24.89
-- over_800_ratio: 22.88
-- over_1000_ratio: 21.82
-- over_400_change_1w: 0.22
-- over_800_change_1w: -0.8
-- over_1000_change_1w: 0.06
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: False
+- as_of_date: 20260703
+- over_400_ratio: 26.41
+- over_600_ratio: 24.94
+- over_800_ratio: 22.97
+- over_1000_ratio: 21.91
+- over_400_change_1w: 0.11
+- over_800_change_1w: 0.09
+- over_1000_change_1w: 0.09
+- tdcc_consecutive_up_weeks: 3
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,25.96,-0.09,22.79,-0.98,21.74,-0.11,0,False,False
 20260618,26.08,0.12,23.68,0.89,21.76,0.02,1,True,True
 20260626,26.3,0.22,22.88,-0.8,21.82,0.06,2,False,True
+20260703,26.41,0.11,22.97,0.09,21.91,0.09,3,True,True
 ```
 
 ## Candidate Context

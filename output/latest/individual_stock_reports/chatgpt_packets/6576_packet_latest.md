@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6576 逸達
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:52 Asia/Taipei
+- generated_at: 2026-07-04 22:27:41 Asia/Taipei
 - stock_id: 6576
 - stock_name: 逸達
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 162
-- latest_tdcc_date: 20260626
-- tdcc_rows: 31
+- latest_tdcc_date: 20260703
+- tdcc_rows: 32
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 66.38
-- over_600_ratio: 63.86
+- as_of_date: 20260703
+- over_400_ratio: 66.48
+- over_600_ratio: 64.31
 - over_800_ratio: 60.78
 - over_1000_ratio: 58.92
-- over_400_change_1w: 0.02
-- over_800_change_1w: -0.04
-- over_1000_change_1w: -0.04
-- tdcc_consecutive_up_weeks: 1
+- over_400_change_1w: 0.1
+- over_800_change_1w: 0
+- over_1000_change_1w: 0
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -174,7 +174,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260410,65.19,0.08,58.64,0.09,57.42,0.09,19,True,True
 20260417,65.38,0.19,58.82,0.18,57.6,0.18,20,True,True
 20260424,65.56,0.18,59.84,1.02,57.98,0.38,21,True,True
 20260430,65.67,0.11,59.95,0.11,58.09,0.11,22,True,True
@@ -186,6 +185,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,66.37,-0.34,60.82,0,58.96,0,28,False,False
 20260618,66.36,-0.01,60.82,0,58.96,0,0,False,False
 20260626,66.38,0.02,60.78,-0.04,58.92,-0.04,1,False,False
+20260703,66.48,0.1,60.78,0,58.92,0,2,False,False
 ```
 
 ## Candidate Context

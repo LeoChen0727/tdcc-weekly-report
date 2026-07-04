@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4735 豪展
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:20 Asia/Taipei
+- generated_at: 2026-07-04 22:27:12 Asia/Taipei
 - stock_id: 4735
 - stock_name: 豪展
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 161
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,7 +158,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
+- as_of_date: 20260703
 - over_400_ratio: 53.36
 - over_600_ratio: 48.97
 - over_800_ratio: 47.44
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,53.37,0,47.45,0,42.94,0,0,False,False
 20260618,53.36,-0.01,47.44,-0.01,42.93,-0.01,0,False,False
 20260626,53.36,0,47.44,0,42.93,0,0,False,False
+20260703,53.36,0,47.44,0,42.93,0,0,False,False
 ```
 
 ## Candidate Context

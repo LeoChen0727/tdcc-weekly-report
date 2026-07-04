@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6901 鑽石投資
 
 ## Metadata
-- generated_at: 2026-07-03 22:28:02 Asia/Taipei
+- generated_at: 2026-07-04 22:27:51 Asia/Taipei
 - stock_id: 6901
 - stock_name: 鑽石投資
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -156,14 +156,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 84.71
-- over_600_ratio: 83.76
-- over_800_ratio: 83.36
-- over_1000_ratio: 82.82
-- over_400_change_1w: -0.14
-- over_800_change_1w: -0.36
-- over_1000_change_1w: -0.26
+- as_of_date: 20260703
+- over_400_ratio: 83.69
+- over_600_ratio: 82.83
+- over_800_ratio: 82.27
+- over_1000_ratio: 81.94
+- over_400_change_1w: -1.02
+- over_800_change_1w: -1.09
+- over_1000_change_1w: -0.88
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -181,17 +181,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,84.81,-0.05,83.59,-0.44,83.15,-0.45,0,False,False
 20260618,84.85,0.04,83.72,0.13,83.08,-0.07,1,False,True
 20260626,84.71,-0.14,83.36,-0.36,82.82,-0.26,0,False,False
+20260703,83.69,-1.02,82.27,-1.09,81.94,-0.88,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 6901 | 鑽石投資 | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  |  | continued_overheated | 符合條款第四條第XX款：12 事實發生日：115/06/26 1.召開法人說明會之日期：115/06/26 2.召開法人說明會之時間：15 時 00 分  3.召開法人說明會之地點：線上法說會 4.法人說明會擇要訊息：說明本公司營運概況及財務業務相關資訊。連結：https://reurl.cc/x3kqz4 5.其他應敘明事項：簡報資訊將依規定公告於公開資訊觀測站 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260703 | 6901 | 鑽石投資 | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  |  | continued_overheated | 1.董事會決議日:115/07/03 2.許可從事競業行為之經理人姓名及職稱:路孔明總經理 3.許可從事競業行為之項目:  (1)鑽石高新投資股份有限公司董事長  (2)鑽石一號投資股份有限公司董事長  (3)精英投資股份有限公司董事長  (4)新耀生技投資股份有限公司董事長  (5)中天(上海)生物科技有限公司董事  (6)中天(香港)生物科技有限公司董事  (7)Megabio Inc., (HK) Limited法人董事代表人  (8)Microbio Pharmaceutical Co., Ltd. 董事  (9)Oneness (USA) Biotech Inc. 董事長  (10)永笙生技股份有限公司副董事長及執行長  (11)台灣永生細胞股份有限公司董事長及總經理 4.許可從事競業行為之期間:任職於本公司經理人期間。 5.決議情形（請依公司法第32條說明表決結果）:   全體出席董事同意照案通過。 6.所許可之競業行為如屬大陸地區事業之營業者，經理人姓名及職稱 （非屬大陸地區事業之營業者，以下請輸〝不適用〞）:路孔明總經理 7.所擔任該大陸地區事業之公司名稱及職務:中天(上海)生物科技有限公司董事 8.所擔任該大陸地區事業地址:上海市松江區光星路1188號 9.所擔任該大陸地區事業營業項目:  藥品生產、藥品委託生產、藥品批發、醫藥、食品、健康科技領域內的技術  開發、技術轉讓、技術諮詢、技術服務等 10.對本公司財務業務之影響程度:無 11.經理人如有對該大陸地區事業從事投資者，其投資金額及持股比例:   (1)投資金額：570.5萬美元   (2)持股比例：10.88% 12.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260703 | 6901 | 鑽石投資 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | continued_overheated | 1.董事會決議日:115/07/03 2.許可從事競業行為之經理人姓名及職稱:路孔明總經理 3.許可從事競業行為之項目:  (1)鑽石高新投資股份有限公司董事長  (2)鑽石一號投資股份有限公司董事長  (3)精英投資股份有限公司董事長  (4)新耀生技投資股份有限公司董事長  (5)中天(上海)生物科技有限公司董事  (6)中天(香港)生物科技有限公司董事  (7)Megabio Inc., (HK) Limited法人董事代表人  (8)Microbio Pharmaceutical Co., Ltd. 董事  (9)Oneness (USA) Biotech Inc. 董事長  (10)永笙生技股份有限公司副董事長及執行長  (11)台灣永生細胞股份有限公司董事長及總經理 4.許可從事競業行為之期間:任職於本公司經理人期間。 5.決議情形（請依公司法第32條說明表決結果）:   全體出席董事同意照案通過。 6.所許可之競業行為如屬大陸地區事業之營業者，經理人姓名及職稱 （非屬大陸地區事業之營業者，以下請輸〝不適用〞）:路孔明總經理 7.所擔任該大陸地區事業之公司名稱及職務:中天(上海)生物科技有限公司董事 8.所擔任該大陸地區事業地址:上海市松江區光星路1188號 9.所擔任該大陸地區事業營業項目:  藥品生產、藥品委託生產、藥品批發、醫藥、食品、健康科技領域內的技術  開發、技術轉讓、技術諮詢、技術服務等 10.對本公司財務業務之影響程度:無 11.經理人如有對該大陸地區事業從事投資者，其投資金額及持股比例:   (1)投資金額：570.5萬美元   (2)持股比例：10.88% 12.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 6901 | 鑽石投資 | 2 | 1 | 3 | 6 | 15 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260703 | 6901 | 鑽石投資 | 2 | 2 | 3 | 6 | 15 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2501 國建
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:38 Asia/Taipei
+- generated_at: 2026-07-04 22:26:34 Asia/Taipei
 - stock_id: 2501
 - stock_name: 國建
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,14 +158,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 78.05
-- over_600_ratio: 76.32
-- over_800_ratio: 75.06
-- over_1000_ratio: 73.56
-- over_400_change_1w: -0.33
-- over_800_change_1w: -0.53
-- over_1000_change_1w: -0.53
+- as_of_date: 20260703
+- over_400_ratio: 77.86
+- over_600_ratio: 76.03
+- over_800_ratio: 74.62
+- over_1000_ratio: 73.11
+- over_400_change_1w: -0.19
+- over_800_change_1w: -0.44
+- over_1000_change_1w: -0.45
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,78.11,1.28,75.11,1.15,73.88,1.26,4,True,True
 20260618,78.38,0.27,75.59,0.48,74.09,0.21,5,True,True
 20260626,78.05,-0.33,75.06,-0.53,73.56,-0.53,0,False,False
+20260703,77.86,-0.19,74.62,-0.44,73.11,-0.45,0,False,False
 ```
 
 ## Candidate Context

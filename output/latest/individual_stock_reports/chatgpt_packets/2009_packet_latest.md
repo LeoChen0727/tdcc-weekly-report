@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2009 第一銅
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:22 Asia/Taipei
+- generated_at: 2026-07-04 22:26:20 Asia/Taipei
 - stock_id: 2009
 - stock_name: 第一銅
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -163,17 +163,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 56.5
-- over_600_ratio: 55.68
-- over_800_ratio: 55.48
-- over_1000_ratio: 54.77
-- over_400_change_1w: -0.62
-- over_800_change_1w: -0.17
-- over_1000_change_1w: -0.39
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260703
+- over_400_ratio: 56.29
+- over_600_ratio: 55.7
+- over_800_ratio: 55.32
+- over_1000_ratio: 55.1
+- over_400_change_1w: -0.21
+- over_800_change_1w: -0.16
+- over_1000_change_1w: 0.33
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -188,6 +188,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,56.74,-1.18,55.61,-0.81,55.12,-0.81,0,False,False
 20260618,57.12,0.38,55.65,0.04,55.16,0.04,1,True,True
 20260626,56.5,-0.62,55.48,-0.17,54.77,-0.39,0,False,False
+20260703,56.29,-0.21,55.32,-0.16,55.1,0.33,1,False,True
 ```
 
 ## Candidate Context

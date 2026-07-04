@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8096 擎亞
 
 ## Metadata
-- generated_at: 2026-07-03 22:28:17 Asia/Taipei
+- generated_at: 2026-07-04 22:28:05 Asia/Taipei
 - stock_id: 8096
 - stock_name: 擎亞
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 162
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -156,17 +156,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 56.21
-- over_600_ratio: 54.07
-- over_800_ratio: 52.26
-- over_1000_ratio: 51.64
-- over_400_change_1w: -1.88
-- over_800_change_1w: -2.43
-- over_1000_change_1w: -1.2
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260703
+- over_400_ratio: 56.39
+- over_600_ratio: 54.2
+- over_800_ratio: 52.39
+- over_1000_ratio: 51.12
+- over_400_change_1w: 0.18
+- over_800_change_1w: 0.13
+- over_1000_change_1w: -0.52
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -181,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,53.81,-0.2,49.35,-1.64,48.19,-1.03,0,False,False
 20260618,58.09,4.28,54.69,5.34,52.84,4.65,1,True,True
 20260626,56.21,-1.88,52.26,-2.43,51.64,-1.2,0,False,False
+20260703,56.39,0.18,52.39,0.13,51.12,-0.52,1,False,True
 ```
 
 ## Candidate Context

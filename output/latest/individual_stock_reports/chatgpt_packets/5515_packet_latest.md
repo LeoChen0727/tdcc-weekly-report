@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5515 建國
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:32 Asia/Taipei
+- generated_at: 2026-07-04 22:27:23 Asia/Taipei
 - stock_id: 5515
 - stock_name: 建國
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 69.26
-- over_600_ratio: 65.41
-- over_800_ratio: 62.4
-- over_1000_ratio: 61.05
-- over_400_change_1w: -0.66
-- over_800_change_1w: -1.62
-- over_1000_change_1w: -0.7
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260703
+- over_400_ratio: 69.59
+- over_600_ratio: 66.04
+- over_800_ratio: 62.62
+- over_1000_ratio: 61.27
+- over_400_change_1w: 0.33
+- over_800_change_1w: 0.22
+- over_1000_change_1w: 0.22
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,70.14,0.33,63.63,0.11,61.83,0.04,1,True,True
 20260618,69.92,-0.22,64.02,0.39,61.75,-0.08,2,False,True
 20260626,69.26,-0.66,62.4,-1.62,61.05,-0.7,0,False,False
+20260703,69.59,0.33,62.62,0.22,61.27,0.22,1,True,True
 ```
 
 ## Candidate Context

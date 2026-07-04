@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8111 立碁
 
 ## Metadata
-- generated_at: 2026-07-03 22:28:18 Asia/Taipei
+- generated_at: 2026-07-04 22:28:05 Asia/Taipei
 - stock_id: 8111
 - stock_name: 立碁
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 162
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,14 +158,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 36.69
-- over_600_ratio: 31.23
-- over_800_ratio: 27.31
-- over_1000_ratio: 25.6
-- over_400_change_1w: -0.28
-- over_800_change_1w: -0.29
-- over_1000_change_1w: -0.31
+- as_of_date: 20260703
+- over_400_ratio: 36.5
+- over_600_ratio: 30.92
+- over_800_ratio: 27.07
+- over_1000_ratio: 25.44
+- over_400_change_1w: -0.19
+- over_800_change_1w: -0.24
+- over_1000_change_1w: -0.16
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,38.52,-0.1,30.18,-0.45,26.9,-2.17,0,False,False
 20260618,36.97,-1.55,27.6,-2.58,25.91,-0.99,0,False,False
 20260626,36.69,-0.28,27.31,-0.29,25.6,-0.31,0,False,False
+20260703,36.5,-0.19,27.07,-0.24,25.44,-0.16,0,False,False
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6409 旭隼
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:46 Asia/Taipei
+- generated_at: 2026-07-04 22:27:36 Asia/Taipei
 - stock_id: 6409
 - stock_name: 旭隼
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -156,16 +156,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 62.39
-- over_600_ratio: 57.55
-- over_800_ratio: 49.76
-- over_1000_ratio: 46.53
-- over_400_change_1w: -0.45
-- over_800_change_1w: 0.32
-- over_1000_change_1w: 0.28
-- tdcc_consecutive_up_weeks: 8
-- all_thresholds_up: False
+- as_of_date: 20260703
+- over_400_ratio: 65.42
+- over_600_ratio: 59.45
+- over_800_ratio: 52.58
+- over_1000_ratio: 49.33
+- over_400_change_1w: 3.03
+- over_800_change_1w: 2.82
+- over_1000_change_1w: 2.8
+- tdcc_consecutive_up_weeks: 9
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -181,12 +181,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,61.98,2.9,49.89,5.19,45.81,6.19,6,True,True
 20260618,62.84,0.86,49.44,-0.45,46.25,0.44,7,False,True
 20260626,62.39,-0.45,49.76,0.32,46.53,0.28,8,False,True
+20260703,65.42,3.03,52.58,2.82,49.33,2.8,9,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 6409 | 旭隼 | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  | no_signal | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260703 | 6409 | 旭隼 | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  | no_signal | first_seen | 1.事實發生日:115/07/03 2.發生緣由:本公司接獲證券交易所通知辦理 3.財務業務資訊: 期間　　　　　　 　(月)                    (季)            (最近四季累計) ＝＝＝＝  ＝＝＝＝＝＝＝＝＝＝＝　＝＝＝＝＝＝＝＝＝＝＝ 　＝＝＝＝＝＝＝ 　　　　　最近一月　  與去年同期　 最近一季　 與去年同期　  (114年第2季至 科目　　　(115年5月)　　增減%　  (115年第1季)　 增減% 　    115年第1季) 　　　　       (合併自結數)  　        (合併核閱數)       (合併查核/核閱數) ＝＝＝＝　＝＝＝＝＝  ＝＝＝＝＝  ＝＝＝＝＝  ＝＝＝＝＝   ＝＝＝＝＝＝＝ 營業收入 　 1,850       0.27%          4,205    -15.82%          19,731 （百萬） 稅前淨利      379     -47.07%            498    -52.66%           3,763 （百萬） 歸屬母公司 業主淨利      342     -46.48%            392    -53.94%           3,062 （百萬） 每股盈餘     3.90     -46.65%           4.46    -54.16%           34.96 （元） 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無。 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無。 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告: 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
@@ -196,7 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 6409 | 旭隼 | 87 | 0 | 24321070.0 | 0.0 |  | no_signal |
+| 20260703 | 6409 | 旭隼 | 87 | 2 | 24321070.0 | 518940.0 | 46.87 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

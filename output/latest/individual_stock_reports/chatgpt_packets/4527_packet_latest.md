@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4527 方方土霖
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:16 Asia/Taipei
+- generated_at: 2026-07-04 22:27:08 Asia/Taipei
 - stock_id: 4527
 - stock_name: 方方土霖
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 162
-- latest_tdcc_date: 20260626
-- tdcc_rows: 31
+- latest_tdcc_date: 20260703
+- tdcc_rows: 32
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,23 +158,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 66.62
-- over_600_ratio: 63.57
-- over_800_ratio: 61.67
-- over_1000_ratio: 61.67
-- over_400_change_1w: 0
-- over_800_change_1w: 0
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260703
+- over_400_ratio: 66.64
+- over_600_ratio: 63.59
+- over_800_ratio: 61.69
+- over_1000_ratio: 61.69
+- over_400_change_1w: 0.02
+- over_800_change_1w: 0.02
+- over_1000_change_1w: 0.02
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260410,66.13,0.03,61.26,0.03,61.26,0.03,15,True,True
 20260417,66.13,0,61.26,0,61.26,0,0,False,False
 20260424,66.22,0.09,61.32,0.06,61.32,0.06,1,True,True
 20260430,66.25,0.03,61.35,0.03,61.35,0.03,2,True,True
@@ -186,6 +185,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,66.61,0.05,61.67,0.04,61.67,0.04,8,True,True
 20260618,66.62,0.01,61.67,0,61.67,0,9,False,False
 20260626,66.62,0,61.67,0,61.67,0,0,False,False
+20260703,66.64,0.02,61.69,0.02,61.69,0.02,1,True,True
 ```
 
 ## Candidate Context

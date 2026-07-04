@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5607 遠雄港
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:34 Asia/Taipei
+- generated_at: 2026-07-04 22:27:25 Asia/Taipei
 - stock_id: 5607
 - stock_name: 遠雄港
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 75.41
-- over_600_ratio: 72.37
-- over_800_ratio: 71.04
-- over_1000_ratio: 68.56
-- over_400_change_1w: -0.32
-- over_800_change_1w: -0.19
-- over_1000_change_1w: 0.04
-- tdcc_consecutive_up_weeks: 8
+- as_of_date: 20260703
+- over_400_ratio: 75.29
+- over_600_ratio: 72.55
+- over_800_ratio: 71.01
+- over_1000_ratio: 68.53
+- over_400_change_1w: -0.12
+- over_800_change_1w: -0.03
+- over_1000_change_1w: -0.03
+- tdcc_consecutive_up_weeks: 9
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,75.41,0.29,70.96,0.12,68.48,-0.12,6,False,True
 20260618,75.73,0.32,71.23,0.27,68.52,0.04,7,True,True
 20260626,75.41,-0.32,71.04,-0.19,68.56,0.04,8,False,True
+20260703,75.29,-0.12,71.01,-0.03,68.53,-0.03,9,False,False
 ```
 
 ## Candidate Context

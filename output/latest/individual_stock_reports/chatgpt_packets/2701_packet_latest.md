@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2701 萬企
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:42 Asia/Taipei
+- generated_at: 2026-07-04 22:26:38 Asia/Taipei
 - stock_id: 2701
 - stock_name: 萬企
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 86.14
-- over_600_ratio: 85.35
-- over_800_ratio: 84.74
-- over_1000_ratio: 84.34
-- over_400_change_1w: -0.16
-- over_800_change_1w: -0.05
-- over_1000_change_1w: -0.05
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260703
+- over_400_ratio: 86.26
+- over_600_ratio: 85.47
+- over_800_ratio: 84.84
+- over_1000_ratio: 84.44
+- over_400_change_1w: 0.12
+- over_800_change_1w: 0.1
+- over_1000_change_1w: 0.1
+- tdcc_consecutive_up_weeks: 3
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,86.22,-0.05,84.72,-0.06,84.32,-0.06,0,False,False
 20260618,86.3,0.08,84.79,0.07,84.39,0.07,1,True,True
 20260626,86.14,-0.16,84.74,-0.05,84.34,-0.05,2,False,False
+20260703,86.26,0.12,84.84,0.1,84.44,0.1,3,True,True
 ```
 
 ## Candidate Context

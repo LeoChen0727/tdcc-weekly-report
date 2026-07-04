@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3588 通嘉
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:06 Asia/Taipei
+- generated_at: 2026-07-04 22:26:59 Asia/Taipei
 - stock_id: 3588
 - stock_name: 通嘉
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,17 +157,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 30.95
-- over_600_ratio: 26.41
-- over_800_ratio: 21.69
-- over_1000_ratio: 20.23
-- over_400_change_1w: 3.02
-- over_800_change_1w: -0.88
-- over_1000_change_1w: 1.81
-- tdcc_consecutive_up_weeks: 8
+- as_of_date: 20260703
+- over_400_ratio: 28.94
+- over_600_ratio: 27.4
+- over_800_ratio: 21.61
+- over_1000_ratio: 20.15
+- over_400_change_1w: -2.01
+- over_800_change_1w: -0.08
+- over_1000_change_1w: -0.08
+- tdcc_consecutive_up_weeks: 9
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,27.77,0.14,22.61,1.37,18.42,0.05,6,True,True
 20260618,27.93,0.16,22.57,-0.04,18.42,0,7,False,False
 20260626,30.95,3.02,21.69,-0.88,20.23,1.81,8,False,True
+20260703,28.94,-2.01,21.61,-0.08,20.15,-0.08,9,False,False
 ```
 
 ## Candidate Context

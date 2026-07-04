@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4167 松瑞藥
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:13 Asia/Taipei
+- generated_at: 2026-07-04 22:27:06 Asia/Taipei
 - stock_id: 4167
 - stock_name: 松瑞藥
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 162
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -162,17 +162,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 40.52
-- over_600_ratio: 36.85
-- over_800_ratio: 34.79
-- over_1000_ratio: 33.09
-- over_400_change_1w: 0.06
-- over_800_change_1w: -0.22
-- over_1000_change_1w: -0.47
-- tdcc_consecutive_up_weeks: 5
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260703
+- over_400_ratio: 40.78
+- over_600_ratio: 37.09
+- over_800_ratio: 34.96
+- over_1000_ratio: 33.53
+- over_400_change_1w: 0.26
+- over_800_change_1w: 0.17
+- over_1000_change_1w: 0.44
+- tdcc_consecutive_up_weeks: 6
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -187,6 +187,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,40.43,0.02,35.03,0.24,33.58,0.53,3,False,True
 20260618,40.46,0.03,35.01,-0.02,33.56,-0.02,4,False,False
 20260626,40.52,0.06,34.79,-0.22,33.09,-0.47,5,False,False
+20260703,40.78,0.26,34.96,0.17,33.53,0.44,6,True,True
 ```
 
 ## Candidate Context

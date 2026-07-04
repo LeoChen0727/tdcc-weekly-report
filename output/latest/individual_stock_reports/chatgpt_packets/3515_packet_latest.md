@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3515 華擎
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:03 Asia/Taipei
+- generated_at: 2026-07-04 22:26:57 Asia/Taipei
 - stock_id: 3515
 - stock_name: 華擎
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,15 +157,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 72.24
-- over_600_ratio: 69.96
-- over_800_ratio: 68.42
-- over_1000_ratio: 66.15
-- over_400_change_1w: 0.78
-- over_800_change_1w: 0
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 5
+- as_of_date: 20260703
+- over_400_ratio: 71.39
+- over_600_ratio: 68.7
+- over_800_ratio: 68.2
+- over_1000_ratio: 65.93
+- over_400_change_1w: -0.85
+- over_800_change_1w: -0.22
+- over_1000_change_1w: -0.22
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,71.39,0.21,67.61,1.66,65.34,1.66,3,True,True
 20260618,71.46,0.07,68.42,0.81,66.15,0.81,4,True,True
 20260626,72.24,0.78,68.42,0,66.15,0,5,False,False
+20260703,71.39,-0.85,68.2,-0.22,65.93,-0.22,0,False,False
 ```
 
 ## Candidate Context
@@ -197,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 3515 | 華擎 | 18 | 0 | 561610.0 | 0.0 |  | no_signal |
+| 20260703 | 3515 | 華擎 | 18 | 4 | 561610.0 | 135110.0 | 4.16 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

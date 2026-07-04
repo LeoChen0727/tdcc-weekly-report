@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8996 高力
 
 ## Metadata
-- generated_at: 2026-07-03 22:28:26 Asia/Taipei
+- generated_at: 2026-07-04 22:28:12 Asia/Taipei
 - stock_id: 8996
 - stock_name: 高力
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,15 +157,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 51.78
-- over_600_ratio: 41.92
-- over_800_ratio: 38.34
-- over_1000_ratio: 34.56
-- over_400_change_1w: -0.38
-- over_800_change_1w: -1.04
-- over_1000_change_1w: 3.02
-- tdcc_consecutive_up_weeks: 4
+- as_of_date: 20260703
+- over_400_ratio: 51.66
+- over_600_ratio: 42.28
+- over_800_ratio: 38.64
+- over_1000_ratio: 32.88
+- over_400_change_1w: -0.12
+- over_800_change_1w: 0.3
+- over_1000_change_1w: -1.68
+- tdcc_consecutive_up_weeks: 5
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -182,17 +182,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,52.25,0.14,39.07,3.42,31.46,0.67,2,True,True
 20260618,52.16,-0.09,39.38,0.31,31.54,0.08,3,False,True
 20260626,51.78,-0.38,38.34,-1.04,34.56,3.02,4,False,True
+20260703,51.66,-0.12,38.64,0.3,32.88,-1.68,5,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 20260703 | 8996 | 高力 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | stale_signal | 內容：依高力四發行及轉換辦法第十八條第二項規定辦理。 發行公司於115年07月27日至115年08月27日行使債券贖回權，贖回權價格為債券面額之100.0000% (一)本轉換公司債於發行日後屆滿三個月之翌日(民國113年3月7日)起至發行期間屆滿前四十日(民國117年10月27日)止，若本轉換公司債流通在外餘額低於原發行總額之百分之十時，本公司得於其後任何時間，以掛號寄發一份三十日期滿之「債券收回通知書」(前述期間自本公司發信之日起算，並以該期間屆滿日為債券收回基準日，且前述期間不得為第九條之停止轉換期間)予債券持有人(以「債券收回通知書」寄發日前第五個營業日債券持有人名冊所載者為準，對於其後因買賣或其他原因始取得本轉換公司債之債券持有人，則以公告方式為之)，贖回價格訂為本債券面額，以現金收回其全部債券，並函請櫃檯買賣中心公告。本公司執行收回請求，應於債券收回基準日後五個營業日內，按債券面額以現金收回流通在外之本轉換公司債。 (二)、轉換公司債停止過戶期間：不適用 (三)、通知及受理轉換公司債贖回期間：115年7月27日至115年8月27日 (四)、轉換公司債收回基準日：115年8月27日 (五)、轉換公司債終止櫃檯買賣日期:115年8月28日 (六)、掛號寄發債券收回通知書日期:115年7月24日 (七)、債券收回手續 (1)、債券己存於台灣集中保管結算所股份有限公司者: 債權人得自債券收回通知之始日（115年7月27日）起至屆滿日（115年8月27日）之前一營業日止、由債券持有人向往來券商辦理賣回手續。 (八)、如債券持有人不欲公司行使贖回權，擬請求將本轉換公司債轉換為普通股，最遲應於115年8月31日前至往來證券商辦理轉換手續。 (九)、公司股務代理機構（包括地址及電話）: 兆豐證券(股)公司股務代理本部，地址： 100台北市忠孝東路二段95號1樓，電話： (02)3393-0898。 警語：請投資人注意，具有請求轉換資格者，如未於115年8月31日前以書面請求轉換，本公司將按面額計算以現金收回其全部債券。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260703 | 8996 | 高力 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  |  | stale_signal | 內容：依高力四發行及轉換辦法第十八條第二項規定辦理。 發行公司於115年07月27日至115年08月27日行使債券贖回權，贖回權價格為債券面額之100.0000% (一)本轉換公司債於發行日後屆滿三個月之翌日(民國113年3月7日)起至發行期間屆滿前四十日(民國117年10月27日)止，若本轉換公司債流通在外餘額低於原發行總額之百分之十時，本公司得於其後任何時間，以掛號寄發一份三十日期滿之「債券收回通知書」(前述期間自本公司發信之日起算，並以該期間屆滿日為債券收回基準日，且前述期間不得為第九條之停止轉換期間)予債券持有人(以「債券收回通知書」寄發日前第五個營業日債券持有人名冊所載者為準，對於其後因買賣或其他原因始取得本轉換公司債之債券持有人，則以公告方式為之)，贖回價格訂為本債券面額，以現金收回其全部債券，並函請櫃檯買賣中心公告。本公司執行收回請求，應於債券收回基準日後五個營業日內，按債券面額以現金收回流通在外之本轉換公司債。 (二)、轉換公司債停止過戶期間：不適用 (三)、通知及受理轉換公司債贖回期間：115年7月27日至115年8月27日 (四)、轉換公司債收回基準日：115年8月27日 (五)、轉換公司債終止櫃檯買賣日期:115年8月28日 (六)、掛號寄發債券收回通知書日期:115年7月24日 (七)、債券收回手續 (1)、債券己存於台灣集中保管結算所股份有限公司者: 債權人得自債券收回通知之始日（115年7月27日）起至屆滿日（115年8月27日）之前一營業日止、由債券持有人向往來券商辦理賣回手續。 (八)、如債券持有人不欲公司行使贖回權，擬請求將本轉換公司債轉換為普通股，最遲應於115年8月31日前至往來證券商辦理轉換手續。 (九)、公司股務代理機構（包括地址及電話）: 兆豐證券(股)公司股務代理本部，地址： 100台北市忠孝東路二段95號1樓，電話： (02)3393-0898。 警語：請投資人注意，具有請求轉換資格者，如未於115年8月31日前以書面請求轉換，本公司將按面額計算以現金收回其全部債券。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 8996 | 高力 | 2 | 1 | 2 | 4 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260703 | 8996 | 高力 | 2 | 2 | 2 | 4 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

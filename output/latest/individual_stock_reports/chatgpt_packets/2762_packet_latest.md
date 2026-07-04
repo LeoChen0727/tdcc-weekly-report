@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2762 世界健身-KY
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:44 Asia/Taipei
+- generated_at: 2026-07-04 22:26:40 Asia/Taipei
 - stock_id: 2762
 - stock_name: 世界健身-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 86.71
-- over_600_ratio: 84.59
-- over_800_ratio: 83.33
+- as_of_date: 20260703
+- over_400_ratio: 86.39
+- over_600_ratio: 83.79
+- over_800_ratio: 82.53
 - over_1000_ratio: 80.91
-- over_400_change_1w: 0.01
-- over_800_change_1w: -0.01
+- over_400_change_1w: -0.32
+- over_800_change_1w: -0.8
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 1
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,86.73,-0.01,83.38,-0.01,80.91,0,5,False,False
 20260618,86.7,-0.03,83.34,-0.04,80.91,0,0,False,False
 20260626,86.71,0.01,83.33,-0.01,80.91,0,1,False,False
+20260703,86.39,-0.32,82.53,-0.8,80.91,0,0,False,False
 ```
 
 ## Candidate Context

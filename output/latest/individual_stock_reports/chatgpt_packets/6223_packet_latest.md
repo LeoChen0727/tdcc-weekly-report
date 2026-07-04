@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6223 旺矽
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:43 Asia/Taipei
+- generated_at: 2026-07-04 22:27:33 Asia/Taipei
 - stock_id: 6223
 - stock_name: 旺矽
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 162
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,17 +157,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 49.95
-- over_600_ratio: 44.85
-- over_800_ratio: 42.81
-- over_1000_ratio: 39.29
-- over_400_change_1w: 1.01
-- over_800_change_1w: 0.76
-- over_1000_change_1w: 2.8
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260703
+- over_400_ratio: 49.74
+- over_600_ratio: 44.66
+- over_800_ratio: 41.92
+- over_1000_ratio: 39.05
+- over_400_change_1w: -0.21
+- over_800_change_1w: -0.89
+- over_1000_change_1w: -0.24
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,49.14,0.65,42.46,2.16,34.26,0.34,1,True,True
 20260618,48.94,-0.2,42.05,-0.41,36.49,2.23,2,False,True
 20260626,49.95,1.01,42.81,0.76,39.29,2.8,3,True,True
+20260703,49.74,-0.21,41.92,-0.89,39.05,-0.24,0,False,False
 ```
 
 ## Candidate Context

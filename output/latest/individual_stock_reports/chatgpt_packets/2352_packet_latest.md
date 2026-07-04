@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2352 佳世達
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:29 Asia/Taipei
+- generated_at: 2026-07-04 22:26:26 Asia/Taipei
 - stock_id: 2352
 - stock_name: 佳世達
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 291
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 48.83
-- over_600_ratio: 46.64
-- over_800_ratio: 45.34
-- over_1000_ratio: 43.78
-- over_400_change_1w: 0.51
-- over_800_change_1w: 0.61
-- over_1000_change_1w: 0.56
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260703
+- over_400_ratio: 49.47
+- over_600_ratio: 47.23
+- over_800_ratio: 46.03
+- over_1000_ratio: 44.5
+- over_400_change_1w: 0.64
+- over_800_change_1w: 0.69
+- over_1000_change_1w: 0.72
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -183,12 +183,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,48.22,-0.23,44.53,-0.38,42.92,-0.44,0,False,False
 20260618,48.32,0.1,44.73,0.2,43.22,0.3,1,True,True
 20260626,48.83,0.51,45.34,0.61,43.78,0.56,2,True,True
+20260703,49.47,0.64,46.03,0.69,44.5,0.72,3,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 2352 | 佳世達 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | stale_signal | 1. 原公告日期： 115/01/22 2. 簡述原公告申報內容： 擬取得Above Vantage Limited（高優有限公司，以下簡稱「高優」） 100%股權，本交易完成後，將間接取得Eastech Holding Limited  (以下簡稱「東科」)約35%股權， 總投資金額為約新台幣32億元之等值美金。 3. 變動緣由及主要內容： 雙方經審慎評估本投資案相關交易細節後，考量未能取得共同共識， 爰決定不再繼續推動本投資案。 4. 變動後對公司財務業務之影響： 無。 5. 其他應敘明事項： 無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260703 | 2352 | 佳世達 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | stale_signal | 1.事實發生日:115/07/03 2.公司名稱:佳世達科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:不適用 6.因應措施:不適用 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):   本公司合併營收(新台幣億元):   115年6月:186.71   114年6月:187.86   增減幅度:-0.62%；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
@@ -198,7 +199,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 2352 | 佳世達 | 22 | 0 | 2781500.0 | 0.0 |  | no_signal |
+| 20260703 | 2352 | 佳世達 | 22 | 2 | 2781500.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

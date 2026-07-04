@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3321 同泰
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:59 Asia/Taipei
+- generated_at: 2026-07-04 22:26:53 Asia/Taipei
 - stock_id: 3321
 - stock_name: 同泰
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 294
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,15 +157,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 48.25
-- over_600_ratio: 43.04
-- over_800_ratio: 40.53
-- over_1000_ratio: 37.37
-- over_400_change_1w: -0.06
-- over_800_change_1w: 1.44
-- over_1000_change_1w: 0.49
-- tdcc_consecutive_up_weeks: 8
+- as_of_date: 20260703
+- over_400_ratio: 48.26
+- over_600_ratio: 43.16
+- over_800_ratio: 40.65
+- over_1000_ratio: 37.36
+- over_400_change_1w: 0.01
+- over_800_change_1w: 0.12
+- over_1000_change_1w: -0.01
+- tdcc_consecutive_up_weeks: 9
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,47.11,-0.25,38.71,0.25,36.5,0.24,6,False,True
 20260618,48.31,1.2,39.09,0.38,36.88,0.38,7,True,True
 20260626,48.25,-0.06,40.53,1.44,37.37,0.49,8,False,True
+20260703,48.26,0.01,40.65,0.12,37.36,-0.01,9,False,True
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4770 上品
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:21 Asia/Taipei
+- generated_at: 2026-07-04 22:27:13 Asia/Taipei
 - stock_id: 4770
 - stock_name: 上品
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 62.91
-- over_600_ratio: 62.38
-- over_800_ratio: 60.54
-- over_1000_ratio: 59.5
-- over_400_change_1w: -0.02
-- over_800_change_1w: 0.02
-- over_1000_change_1w: 0.02
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260703
+- over_400_ratio: 63.61
+- over_600_ratio: 62.36
+- over_800_ratio: 60.53
+- over_1000_ratio: 59.49
+- over_400_change_1w: 0.7
+- over_800_change_1w: -0.01
+- over_1000_change_1w: -0.01
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,62.88,-0.96,60.47,0.09,59.43,0.09,1,False,True
 20260618,62.93,0.05,60.52,0.05,59.48,0.05,2,True,True
 20260626,62.91,-0.02,60.54,0.02,59.5,0.02,3,False,True
+20260703,63.61,0.7,60.53,-0.01,59.49,-0.01,4,False,False
 ```
 
 ## Candidate Context

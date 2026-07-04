@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4961 天鈺
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:24 Asia/Taipei
+- generated_at: 2026-07-04 22:27:16 Asia/Taipei
 - stock_id: 4961
 - stock_name: 天鈺
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 31
+- latest_tdcc_date: 20260703
+- tdcc_rows: 32
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -163,23 +163,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 42.93
+- as_of_date: 20260703
+- over_400_ratio: 42.81
 - over_600_ratio: 39.01
-- over_800_ratio: 36.19
-- over_1000_ratio: 33.91
-- over_400_change_1w: 0.46
-- over_800_change_1w: 0.19
-- over_1000_change_1w: 0.92
-- tdcc_consecutive_up_weeks: 10
-- all_thresholds_up: True
-- high_thresholds_up: True
+- over_800_ratio: 36.17
+- over_1000_ratio: 33.23
+- over_400_change_1w: -0.12
+- over_800_change_1w: -0.02
+- over_1000_change_1w: -0.68
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260410,41.41,-0.63,35.15,-0.04,31.46,-0.88,0,False,False
 20260417,41.03,-0.38,34.43,-0.72,31.46,0,0,False,False
 20260424,42,0.97,34.71,0.28,31.62,0.16,1,True,True
 20260430,41.64,-0.36,34.74,0.03,32.46,0.84,2,False,True
@@ -191,6 +190,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,42.41,0.11,36.63,0.89,32.87,0.18,8,True,True
 20260618,42.47,0.06,36,-0.63,32.99,0.12,9,False,True
 20260626,42.93,0.46,36.19,0.19,33.91,0.92,10,True,True
+20260703,42.81,-0.12,36.17,-0.02,33.23,-0.68,0,False,False
 ```
 
 ## Candidate Context

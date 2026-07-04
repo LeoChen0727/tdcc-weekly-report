@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3591 艾笛森
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:06 Asia/Taipei
+- generated_at: 2026-07-04 22:26:59 Asia/Taipei
 - stock_id: 3591
 - stock_name: 艾笛森
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -163,17 +163,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 53.82
-- over_600_ratio: 51.82
-- over_800_ratio: 49.96
-- over_1000_ratio: 48.01
-- over_400_change_1w: -1.87
-- over_800_change_1w: -1.83
-- over_1000_change_1w: -2.52
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260703
+- over_400_ratio: 54.88
+- over_600_ratio: 52.82
+- over_800_ratio: 50.62
+- over_1000_ratio: 48.74
+- over_400_change_1w: 1.06
+- over_800_change_1w: 0.66
+- over_1000_change_1w: 0.73
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -188,6 +188,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,55.45,0.02,51.83,0,50.54,0,6,False,False
 20260618,55.69,0.24,51.79,-0.04,50.53,-0.01,7,False,False
 20260626,53.82,-1.87,49.96,-1.83,48.01,-2.52,0,False,False
+20260703,54.88,1.06,50.62,0.66,48.74,0.73,1,True,True
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1413 宏洲
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:09 Asia/Taipei
+- generated_at: 2026-07-04 22:26:08 Asia/Taipei
 - stock_id: 1413
 - stock_name: 宏洲
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 294
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 75.78
-- over_600_ratio: 73.62
-- over_800_ratio: 72.19
-- over_1000_ratio: 69.26
-- over_400_change_1w: 0.01
-- over_800_change_1w: 0.01
-- over_1000_change_1w: 0.01
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260703
+- over_400_ratio: 75.81
+- over_600_ratio: 73.65
+- over_800_ratio: 72.22
+- over_1000_ratio: 69.29
+- over_400_change_1w: 0.03
+- over_800_change_1w: 0.03
+- over_1000_change_1w: 0.03
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,75.75,0,72.16,0,69.23,0,0,False,False
 20260618,75.77,0.02,72.18,0.02,69.25,0.02,1,True,True
 20260626,75.78,0.01,72.19,0.01,69.26,0.01,2,True,True
+20260703,75.81,0.03,72.22,0.03,69.29,0.03,3,True,True
 ```
 
 ## Candidate Context

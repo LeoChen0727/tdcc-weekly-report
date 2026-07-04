@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8476 台境*
 
 ## Metadata
-- generated_at: 2026-07-03 22:28:23 Asia/Taipei
+- generated_at: 2026-07-04 22:28:10 Asia/Taipei
 - stock_id: 8476
 - stock_name: 台境*
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -156,15 +156,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 69.82
-- over_600_ratio: 66.56
-- over_800_ratio: 63.66
-- over_1000_ratio: 61.46
-- over_400_change_1w: 1.95
-- over_800_change_1w: 2.99
-- over_1000_change_1w: 2.97
-- tdcc_consecutive_up_weeks: 8
+- as_of_date: 20260703
+- over_400_ratio: 71.46
+- over_600_ratio: 68.28
+- over_800_ratio: 65.06
+- over_1000_ratio: 62.97
+- over_400_change_1w: 1.64
+- over_800_change_1w: 1.4
+- over_1000_change_1w: 1.51
+- tdcc_consecutive_up_weeks: 9
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -181,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,66.68,0.65,60.18,-0.13,58.58,0.99,6,False,True
 20260618,67.87,1.19,60.67,0.49,58.49,-0.09,7,False,True
 20260626,69.82,1.95,63.66,2.99,61.46,2.97,8,True,True
+20260703,71.46,1.64,65.06,1.4,62.97,1.51,9,True,True
 ```
 
 ## Candidate Context

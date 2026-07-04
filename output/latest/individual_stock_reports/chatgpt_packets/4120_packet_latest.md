@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4120 友華
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:11 Asia/Taipei
+- generated_at: 2026-07-04 22:27:04 Asia/Taipei
 - stock_id: 4120
 - stock_name: 友華
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 159
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 70.69
-- over_600_ratio: 69.69
-- over_800_ratio: 67.88
-- over_1000_ratio: 63.79
-- over_400_change_1w: 0.02
-- over_800_change_1w: 0.92
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260703
+- over_400_ratio: 70.7
+- over_600_ratio: 69.67
+- over_800_ratio: 66.97
+- over_1000_ratio: 63.8
+- over_400_change_1w: 0.01
+- over_800_change_1w: -0.91
+- over_1000_change_1w: 0.01
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,70.67,0.34,66.96,1.09,63.79,0.06,6,True,True
 20260618,70.67,0,66.96,0,63.79,0,0,False,False
 20260626,70.69,0.02,67.88,0.92,63.79,0,1,False,True
+20260703,70.7,0.01,66.97,-0.91,63.8,0.01,2,False,True
 ```
 
 ## Candidate Context

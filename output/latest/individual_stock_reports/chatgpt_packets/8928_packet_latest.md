@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8928 鉅明
 
 ## Metadata
-- generated_at: 2026-07-03 22:28:25 Asia/Taipei
+- generated_at: 2026-07-04 22:28:11 Asia/Taipei
 - stock_id: 8928
 - stock_name: 鉅明
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 157
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,13 +157,13 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 49.16
-- over_600_ratio: 44.62
-- over_800_ratio: 39.07
+- as_of_date: 20260703
+- over_400_ratio: 49.15
+- over_600_ratio: 44.61
+- over_800_ratio: 39.05
 - over_1000_ratio: 35.67
-- over_400_change_1w: 0
-- over_800_change_1w: -1.58
+- over_400_change_1w: -0.01
+- over_800_change_1w: -0.02
 - over_1000_change_1w: 0
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,49.13,0.04,40.64,0.04,35.67,0,5,False,True
 20260618,49.16,0.03,40.65,0.01,35.67,0,6,False,True
 20260626,49.16,0,39.07,-1.58,35.67,0,0,False,False
+20260703,49.15,-0.01,39.05,-0.02,35.67,0,0,False,False
 ```
 
 ## Candidate Context

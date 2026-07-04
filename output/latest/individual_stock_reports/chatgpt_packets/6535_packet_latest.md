@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6535 順藥
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:51 Asia/Taipei
+- generated_at: 2026-07-04 22:27:40 Asia/Taipei
 - stock_id: 6535
 - stock_name: 順藥
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 162
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 64.76
-- over_600_ratio: 61.1
-- over_800_ratio: 58.97
-- over_1000_ratio: 56.83
-- over_400_change_1w: -0.06
+- as_of_date: 20260703
+- over_400_ratio: 64.9
+- over_600_ratio: 61.04
+- over_800_ratio: 58.91
+- over_1000_ratio: 56.77
+- over_400_change_1w: 0.14
 - over_800_change_1w: -0.06
-- over_1000_change_1w: -0.65
-- tdcc_consecutive_up_weeks: 0
+- over_1000_change_1w: -0.06
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,64.94,-0.22,59.15,0.04,57.6,0.63,2,False,True
 20260618,64.82,-0.12,59.03,-0.12,57.48,-0.12,0,False,False
 20260626,64.76,-0.06,58.97,-0.06,56.83,-0.65,0,False,False
+20260703,64.9,0.14,58.91,-0.06,56.77,-0.06,1,False,False
 ```
 
 ## Candidate Context

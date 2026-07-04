@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6177 達麗
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:40 Asia/Taipei
+- generated_at: 2026-07-04 22:27:30 Asia/Taipei
 - stock_id: 6177
 - stock_name: 達麗
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 75.21
-- over_600_ratio: 73.01
-- over_800_ratio: 68.83
-- over_1000_ratio: 66.56
-- over_400_change_1w: -0.08
-- over_800_change_1w: -0.63
-- over_1000_change_1w: -0.83
-- tdcc_consecutive_up_weeks: 4
+- as_of_date: 20260703
+- over_400_ratio: 74.99
+- over_600_ratio: 72.61
+- over_800_ratio: 68.66
+- over_1000_ratio: 66.41
+- over_400_change_1w: -0.22
+- over_800_change_1w: -0.17
+- over_1000_change_1w: -0.15
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,75.25,0.15,68.99,0.26,67.3,0.07,2,True,True
 20260618,75.29,0.04,69.46,0.47,67.39,0.09,3,False,True
 20260626,75.21,-0.08,68.83,-0.63,66.56,-0.83,4,False,False
+20260703,74.99,-0.22,68.66,-0.17,66.41,-0.15,0,False,False
 ```
 
 ## Candidate Context

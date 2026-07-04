@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3306 鼎天
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:58 Asia/Taipei
+- generated_at: 2026-07-04 22:26:52 Asia/Taipei
 - stock_id: 3306
 - stock_name: 鼎天
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 162
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -162,13 +162,13 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 47.88
-- over_600_ratio: 46.21
-- over_800_ratio: 44.83
+- as_of_date: 20260703
+- over_400_ratio: 47.87
+- over_600_ratio: 46.2
+- over_800_ratio: 44.82
 - over_1000_ratio: 43.14
-- over_400_change_1w: -0.1
-- over_800_change_1w: -0.1
+- over_400_change_1w: -0.01
+- over_800_change_1w: -0.01
 - over_1000_change_1w: 0
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
@@ -187,6 +187,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,47.78,0.03,43.14,-1.58,43.14,0,3,False,False
 20260618,47.98,0.2,44.93,1.79,43.14,0,4,False,True
 20260626,47.88,-0.1,44.83,-0.1,43.14,0,0,False,False
+20260703,47.87,-0.01,44.82,-0.01,43.14,0,0,False,False
 ```
 
 ## Candidate Context

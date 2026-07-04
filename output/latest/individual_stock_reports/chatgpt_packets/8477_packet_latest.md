@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8477 創業家
 
 ## Metadata
-- generated_at: 2026-07-03 22:28:23 Asia/Taipei
+- generated_at: 2026-07-04 22:28:10 Asia/Taipei
 - stock_id: 8477
 - stock_name: 創業家
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 160
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,15 +157,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 78.16
-- over_600_ratio: 78.16
-- over_800_ratio: 77.19
+- as_of_date: 20260703
+- over_400_ratio: 78.18
+- over_600_ratio: 78.18
+- over_800_ratio: 77.21
 - over_1000_ratio: 75.87
-- over_400_change_1w: 0.01
-- over_800_change_1w: 0.01
+- over_400_change_1w: 0.02
+- over_800_change_1w: 0.02
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 1
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,78.15,0.06,77.18,0.06,75.87,0,3,False,True
 20260618,78.15,0,77.18,0,75.87,0,0,False,False
 20260626,78.16,0.01,77.19,0.01,75.87,0,1,False,True
+20260703,78.18,0.02,77.21,0.02,75.87,0,2,False,True
 ```
 
 ## Candidate Context

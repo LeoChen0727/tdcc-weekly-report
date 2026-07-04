@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4906 正文
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:22 Asia/Taipei
+- generated_at: 2026-07-04 22:27:14 Asia/Taipei
 - stock_id: 4906
 - stock_name: 正文
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,14 +158,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 30.91
-- over_600_ratio: 28.18
-- over_800_ratio: 26.25
-- over_1000_ratio: 25.11
-- over_400_change_1w: -2.11
-- over_800_change_1w: -2.63
-- over_1000_change_1w: -2.57
+- as_of_date: 20260703
+- over_400_ratio: 30.23
+- over_600_ratio: 27.03
+- over_800_ratio: 24.9
+- over_1000_ratio: 23.92
+- over_400_change_1w: -0.68
+- over_800_change_1w: -1.35
+- over_1000_change_1w: -1.19
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,32.84,-0.48,28.64,-0.64,27.47,-0.64,0,False,False
 20260618,33.02,0.18,28.88,0.24,27.68,0.21,1,True,True
 20260626,30.91,-2.11,26.25,-2.63,25.11,-2.57,0,False,False
+20260703,30.23,-0.68,24.9,-1.35,23.92,-1.19,0,False,False
 ```
 
 ## Candidate Context

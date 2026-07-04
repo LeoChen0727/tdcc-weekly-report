@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6218 豪勉
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:42 Asia/Taipei
+- generated_at: 2026-07-04 22:27:33 Asia/Taipei
 - stock_id: 6218
 - stock_name: 豪勉
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 162
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 47.45
-- over_600_ratio: 43.29
-- over_800_ratio: 40.03
-- over_1000_ratio: 37.28
-- over_400_change_1w: 0.08
-- over_800_change_1w: 0.08
-- over_1000_change_1w: 0.09
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260703
+- over_400_ratio: 47.69
+- over_600_ratio: 43.45
+- over_800_ratio: 40.19
+- over_1000_ratio: 37.44
+- over_400_change_1w: 0.24
+- over_800_change_1w: 0.16
+- over_1000_change_1w: 0.16
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,47.32,-0.14,39.94,-0.02,35.54,-0.04,0,False,False
 20260618,47.37,0.05,39.95,0.01,37.19,1.65,1,True,True
 20260626,47.45,0.08,40.03,0.08,37.28,0.09,2,True,True
+20260703,47.69,0.24,40.19,0.16,37.44,0.16,3,True,True
 ```
 
 ## Candidate Context

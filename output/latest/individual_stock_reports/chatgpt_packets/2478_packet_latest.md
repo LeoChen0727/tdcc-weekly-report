@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2478 大毅
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:36 Asia/Taipei
+- generated_at: 2026-07-04 22:26:33 Asia/Taipei
 - stock_id: 2478
 - stock_name: 大毅
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -156,17 +156,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 67.92
-- over_600_ratio: 62.21
-- over_800_ratio: 60.4
-- over_1000_ratio: 58.66
-- over_400_change_1w: -1.76
-- over_800_change_1w: -1.38
-- over_1000_change_1w: -0.7
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260703
+- over_400_ratio: 66.28
+- over_600_ratio: 61.06
+- over_800_ratio: 59.34
+- over_1000_ratio: 58.77
+- over_400_change_1w: -1.64
+- over_800_change_1w: -1.06
+- over_1000_change_1w: 0.11
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -181,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,65.5,1.46,56.99,2.58,55.14,2.57,6,True,True
 20260618,69.68,4.18,61.78,4.79,59.36,4.22,7,True,True
 20260626,67.92,-1.76,60.4,-1.38,58.66,-0.7,0,False,False
+20260703,66.28,-1.64,59.34,-1.06,58.77,0.11,1,False,True
 ```
 
 ## Candidate Context

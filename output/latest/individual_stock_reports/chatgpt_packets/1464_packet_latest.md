@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1464 得力
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:11 Asia/Taipei
+- generated_at: 2026-07-04 22:26:10 Asia/Taipei
 - stock_id: 1464
 - stock_name: 得力
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -163,16 +163,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 61.34
-- over_600_ratio: 58.58
-- over_800_ratio: 56.11
-- over_1000_ratio: 54.2
-- over_400_change_1w: 0.2
-- over_800_change_1w: -0.09
-- over_1000_change_1w: 0.07
-- tdcc_consecutive_up_weeks: 8
-- all_thresholds_up: False
+- as_of_date: 20260703
+- over_400_ratio: 61.5
+- over_600_ratio: 58.74
+- over_800_ratio: 56.59
+- over_1000_ratio: 54.32
+- over_400_change_1w: 0.16
+- over_800_change_1w: 0.48
+- over_1000_change_1w: 0.12
+- tdcc_consecutive_up_weeks: 9
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -188,12 +188,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,60.97,0.14,56,0.18,54.1,-0.01,6,False,True
 20260618,61.14,0.17,56.2,0.2,54.13,0.03,7,True,True
 20260626,61.34,0.2,56.11,-0.09,54.2,0.07,8,False,True
+20260703,61.5,0.16,56.59,0.48,54.32,0.12,9,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 1464 | 得力 | true_breakout | 嚴格突破 | 146.0 |  |  | platform_breakout |  |  | first_seen | calendar event: ex_dividend on 20260720; status=confirmed; proximity=within_30d |
+| 20260703 | 1464 | 得力 | true_breakout | 嚴格突破 | 146.0 |  |  | platform_breakout |  |  | first_seen | 1.事實發生日:115/07/03 2.公司名稱:得力實業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:更新本公司114年度股東會年報部分內容 6.更正資訊項目/報表名稱:114年度股東會年報 7.更正前金額/內容/頁次: 中文版：第45頁(開會時間：114/03/05) 8.更正後金額/內容/頁次: 中文版：第45頁(開會時間：115/03/05) 9.因應措施:重新上傳修正後股東會年報至公開資訊觀測站 10.其他應敘明事項:無。；calendar event: ex_dividend on 20260720; status=confirmed; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

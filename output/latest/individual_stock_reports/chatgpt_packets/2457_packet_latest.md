@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2457 飛宏
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:35 Asia/Taipei
+- generated_at: 2026-07-04 22:26:32 Asia/Taipei
 - stock_id: 2457
 - stock_name: 飛宏
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,16 +158,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 30.31
-- over_600_ratio: 28.77
-- over_800_ratio: 26.64
-- over_1000_ratio: 25.98
-- over_400_change_1w: 0.87
-- over_800_change_1w: 0.3
-- over_1000_change_1w: 0.94
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: True
+- as_of_date: 20260703
+- over_400_ratio: 30.49
+- over_600_ratio: 28.76
+- over_800_ratio: 26.96
+- over_1000_ratio: 25.69
+- over_400_change_1w: 0.18
+- over_800_change_1w: 0.32
+- over_1000_change_1w: -0.29
+- tdcc_consecutive_up_weeks: 3
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,29.13,-2.29,26.48,-1.71,25.41,-1.69,0,False,False
 20260618,29.44,0.31,26.34,-0.14,25.04,-0.37,1,False,False
 20260626,30.31,0.87,26.64,0.3,25.98,0.94,2,True,True
+20260703,30.49,0.18,26.96,0.32,25.69,-0.29,3,False,True
 ```
 
 ## Candidate Context
@@ -198,7 +199,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 2457 | 飛宏 | 41 | 0 | 598530.0 | 0.0 |  | no_signal |
+| 20260703 | 2457 | 飛宏 | 41 | 2 | 598530.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6446 藥華藥
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:48 Asia/Taipei
+- generated_at: 2026-07-04 22:27:37 Asia/Taipei
 - stock_id: 6446
 - stock_name: 藥華藥
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,17 +157,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 57.31
-- over_600_ratio: 51.97
-- over_800_ratio: 47.26
-- over_1000_ratio: 44.72
-- over_400_change_1w: 0.82
-- over_800_change_1w: 0.12
-- over_1000_change_1w: 0.84
-- tdcc_consecutive_up_weeks: 8
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260703
+- over_400_ratio: 57.87
+- over_600_ratio: 51.59
+- over_800_ratio: 46.91
+- over_1000_ratio: 44.14
+- over_400_change_1w: 0.56
+- over_800_change_1w: -0.35
+- over_1000_change_1w: -0.58
+- tdcc_consecutive_up_weeks: 9
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -182,12 +182,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,56.23,-0.05,47.25,0.31,44.02,0.34,6,False,True
 20260618,56.49,0.26,47.14,-0.11,43.88,-0.14,7,False,False
 20260626,57.31,0.82,47.26,0.12,44.72,0.84,8,True,True
+20260703,57.87,0.56,46.91,-0.35,44.14,-0.58,9,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 6446 | 藥華藥 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 58.0 |  |  | neckline_challenge |  |  | repeated_but_no_breakout | 1.事實發生日:115/06/18 2.公司名稱:藥華醫藥股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:工商時報 6.報導內容:115年6月18日工商時報報導： 「法人預估全年營收有機會突破 200 億元再創新高， 獲利將大賺逾二股本，有機會登上生技獲利王。」 7.發生緣由:媒體報導說明 8.因應措施:本公司並未發布任何預測性財務及業務資訊， 針對工商時報本次有關本公司之財務預測性報導，純屬媒體及法人推估。 本公司財務及業務相關資訊，請依「公開資訊觀測站」揭露為主。 9.其他應敘明事項:新藥開發時程長、投入經費高且並未保證能一定成功， 此等可能使投資面臨風險，投資人應審慎判斷謹慎投資。；calendar event: ex_right_dividend on 20260709; status=confirmed; proximity=within_7d |
+| 20260703 | 6446 | 藥華藥 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 58.0 |  |  | neckline_challenge |  |  | repeated_but_no_breakout | 1.事實發生日:115/07/02 2.研發新藥名稱或代號:BESREMi（Ropeginterferon alfa-2b, 即P1101） 3.用途:用於治療成人真性紅血球增多症（polycythemia vera , PV）患者。 4.預計進行之所有研發階段:不適用。 5.目前進行中之研發階段(請說明目前之研發階段係屬提出申請/通過核准/ 不通過核准，若未通過者，請說明公司所面臨之風險及因應措施； 另請說明未來經營方向及已投入累積研發費用): (1)提出申請/通過核准/不通過核准/各期人體試驗(含期中分析)結果/發生其他    影響新藥研發之重大事件：    本公司新藥BESREMi（Ropeginterferon alfa-2b）針筒裝注射液劑500微克/毫升   （BESREMi 500 mcg/mL solution for injection in prefilled syringe）獲加拿    大衛生部（Health Canada）核准用於成人真性紅血球增多症（PV）。 (2)未通過目的事業主管機關許可、各期人體臨床試驗(含期中分析)結果未達統計    上顯著意義或發生其他影響新藥研發之重大事件者，公司所面臨之風險及因應    措施：不適用。 (3)已通過目的事業主管機關許可、各期人體臨床試驗(含期中分析)結果達統計上    顯著意義或發生其他影響新藥研發之重大事件者，未來經營方向：    FORUS Therapeutics Inc.依照規劃正式啟動Ropeginterferon alfa-2b於加拿大    上市之銷售業務及行銷活動。 (4)已投入之累積研發費用：    考量未來市場行銷策略，保障公司及投資人權益，暫不公開揭露。 6.將再進行之下一階段研發(請說明預計完成時間及預計應負擔之義務):不適用 (1)預計完成時間：不適用。 (2)預計應負擔之義務：無。 7.市場現況: 真性紅血球增多症（PV）為骨髓增生性腫瘤（myeloproliferative neoplasms, MPN） 疾病的一種，雖然紅血球的過度增加最為顯著，但在大多數情況下，白血球和血小 板也會升高。PV患者發生心血管併發症的風險很高，如血栓、栓塞等，或惡化為繼 發性骨髓纖維化（myelofibrosis, MF）或急性骨髓白血病（acute myeloid leukemia, AML），影響病患存活與生活品質。根據市場研究推估，加拿大約有1.7萬名PV患者 ，目前臨床治療包括放血、愛治膠囊（hydroxyurea, HU）、干擾素、JAK2抑制劑等。 8.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第8款所定 對股東權益或證券價格有重大影響之事項): Ropeginterferon alfa-2b為本公司自行研發生產之新一代創新長效型干擾素，至今 已獲全球約50個國家核准用於成人真性紅血球增多症患者，包括美國、日本、中國 及歐盟等主要新藥市場。 9.新藥開發時程長、投入經費高且未保證一定能成功，此等可能使投資面臨風險，投    資人應審慎判斷謹慎投資。:；calendar event: ex_right_dividend on 20260709; status=confirmed; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

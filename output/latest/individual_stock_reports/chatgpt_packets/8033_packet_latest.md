@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8033 雷虎
 
 ## Metadata
-- generated_at: 2026-07-03 22:28:15 Asia/Taipei
+- generated_at: 2026-07-04 22:28:02 Asia/Taipei
 - stock_id: 8033
 - stock_name: 雷虎
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -156,16 +156,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 28.57
-- over_600_ratio: 25.19
-- over_800_ratio: 23.18
-- over_1000_ratio: 20.6
-- over_400_change_1w: 1.36
-- over_800_change_1w: 0.87
-- over_1000_change_1w: -0.1
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: False
+- as_of_date: 20260703
+- over_400_ratio: 38.94
+- over_600_ratio: 34.53
+- over_800_ratio: 32.5
+- over_1000_ratio: 30.38
+- over_400_change_1w: 10.37
+- over_800_change_1w: 9.32
+- over_1000_change_1w: 9.78
+- tdcc_consecutive_up_weeks: 4
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -181,12 +181,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,27.58,-1.67,22.62,0.43,20.45,0.19,1,False,True
 20260618,27.21,-0.37,22.31,-0.31,20.7,0.25,2,False,True
 20260626,28.57,1.36,23.18,0.87,20.6,-0.1,3,False,True
+20260703,38.94,10.37,32.5,9.32,30.38,9.78,4,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 8033 | 雷虎 | true_breakout | 嚴格突破 | 61.0 |  |  | platform_right_side |  | call_inflow | first_seen | 1.事實發生日:115/06/30 2.發生緣由:依臺灣證券交易所股份有限公司通知辦理。 3.財務業務資訊:                           最近一月 科目                     115年5月           與去年同期增減(%)                          (自結數) 營業收入(百萬元)             117                   -10% 稅前淨利(百萬元)              (9)                 -238% 本期淨利(百萬元)              (9)                 -214% (歸屬母公司業主權益) 每股盈餘(元)                (0.06)                -214%                           最近一季 科目                    115第一季           與去年同期增減(%)                           (查核數) 營業收入(百萬元)             375                    12% 稅前淨利(百萬元)              52                    27% 本期淨利(百萬元)              52                    41% (歸屬母公司業主權益) 每股盈餘(元)                 0.34                   36%                         最近四季累計 科目               114年第二季至115年第一季 與去年同期增減(%)                           (查核數) 營業收入(百萬元)           1,464                    13% 稅前淨利(百萬元)              96                   -12% 本期淨利(百萬元)             103                    21% (歸屬母公司業主權益) 每股盈餘(元)                 0.67                   16% 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無。 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無。 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告: 7.其他應敘明事項:115年5月為自結報表，營業外收支包含當期長短期投資及匯率之 變化，實際以會計師查核數為準。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260703 | 8033 | 雷虎 | true_breakout | 嚴格突破 | 61.0 |  |  | platform_right_side |  | call_inflow | first_seen | 1.事實發生日:115/07/03 2.公司名稱:雷虎科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:本公司115年度現金增資認股繳款催繳期間自115年06月03日至 115年07月03日15點30分截止。 6.因應措施:未於催繳期間繳納股款之原股東及員工，自115年07月03日15點30分起 停止繳納並喪失其權利。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): (1)本公司現金增資已於115年06月05日收足股款，並於115年06月10日    以股款繳納憑證上市買賣。 (2)貴股東於催繳期間(115年06月03日至115年07月03日15點30分)繳足股款者，    所認購之股數將由台灣集中保管結算所股份有限公司於115年7月23日劃撥    至  貴股東指定之集保帳戶。 (3)若  貴股東有任何疑問，敬請向福邦證券股份有限公司股務代理部(台北市　    中正區忠孝西路一段6號6樓，電話：(02)2371-1658)洽詢。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

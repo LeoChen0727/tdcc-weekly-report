@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4721 美琪瑪
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:19 Asia/Taipei
+- generated_at: 2026-07-04 22:27:12 Asia/Taipei
 - stock_id: 4721
 - stock_name: 美琪瑪
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 162
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 38.11
-- over_600_ratio: 32.84
-- over_800_ratio: 31.93
-- over_1000_ratio: 29.61
-- over_400_change_1w: -1.23
-- over_800_change_1w: -1.18
-- over_1000_change_1w: -0.22
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260703
+- over_400_ratio: 38.13
+- over_600_ratio: 32.92
+- over_800_ratio: 31.97
+- over_1000_ratio: 30.78
+- over_400_change_1w: 0.02
+- over_800_change_1w: 0.04
+- over_1000_change_1w: 1.17
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,36.25,1.56,30.76,1.65,29.69,1.65,5,True,True
 20260618,39.34,3.09,33.11,2.35,29.83,0.14,6,True,True
 20260626,38.11,-1.23,31.93,-1.18,29.61,-0.22,0,False,False
+20260703,38.13,0.02,31.97,0.04,30.78,1.17,1,True,True
 ```
 
 ## Candidate Context

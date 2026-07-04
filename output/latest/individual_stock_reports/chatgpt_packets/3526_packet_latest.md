@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3526 凡甲
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:04 Asia/Taipei
+- generated_at: 2026-07-04 22:26:57 Asia/Taipei
 - stock_id: 3526
 - stock_name: 凡甲
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 162
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 49.04
-- over_600_ratio: 44.09
-- over_800_ratio: 38.72
-- over_1000_ratio: 36.06
-- over_400_change_1w: -0.46
-- over_800_change_1w: -0.77
-- over_1000_change_1w: 1.93
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260703
+- over_400_ratio: 48.28
+- over_600_ratio: 43.88
+- over_800_ratio: 39.41
+- over_1000_ratio: 33.99
+- over_400_change_1w: -0.76
+- over_800_change_1w: 0.69
+- over_1000_change_1w: -2.07
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,48.99,-1.57,39.47,-0.35,34.2,-0.32,0,False,False
 20260618,49.5,0.51,39.49,0.02,34.13,-0.07,1,False,True
 20260626,49.04,-0.46,38.72,-0.77,36.06,1.93,2,False,True
+20260703,48.28,-0.76,39.41,0.69,33.99,-2.07,3,False,True
 ```
 
 ## Candidate Context

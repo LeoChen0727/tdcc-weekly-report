@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1773 勝一
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:19 Asia/Taipei
+- generated_at: 2026-07-04 22:26:18 Asia/Taipei
 - stock_id: 1773
 - stock_name: 勝一
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 75.19
-- over_600_ratio: 72.47
-- over_800_ratio: 70.18
-- over_1000_ratio: 68.66
-- over_400_change_1w: -0.1
-- over_800_change_1w: -0.08
-- over_1000_change_1w: -1
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260703
+- over_400_ratio: 75.13
+- over_600_ratio: 72.58
+- over_800_ratio: 69.8
+- over_1000_ratio: 68.55
+- over_400_change_1w: -0.06
+- over_800_change_1w: -0.38
+- over_1000_change_1w: -0.11
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,75.08,-0.64,69.84,-0.22,69.22,-0.52,0,False,False
 20260618,75.29,0.21,70.26,0.42,69.66,0.44,1,True,True
 20260626,75.19,-0.1,70.18,-0.08,68.66,-1,0,False,False
+20260703,75.13,-0.06,69.8,-0.38,68.55,-0.11,1,False,False
 ```
 
 ## Candidate Context

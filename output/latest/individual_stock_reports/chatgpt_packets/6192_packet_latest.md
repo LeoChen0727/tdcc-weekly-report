@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6192 巨路
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:41 Asia/Taipei
+- generated_at: 2026-07-04 22:27:31 Asia/Taipei
 - stock_id: 6192
 - stock_name: 巨路
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 57.12
-- over_600_ratio: 52.3
-- over_800_ratio: 47.29
-- over_1000_ratio: 45.48
-- over_400_change_1w: -0.46
-- over_800_change_1w: -0.07
-- over_1000_change_1w: -0.07
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260703
+- over_400_ratio: 57.14
+- over_600_ratio: 52.32
+- over_800_ratio: 47.31
+- over_1000_ratio: 45.5
+- over_400_change_1w: 0.02
+- over_800_change_1w: 0.02
+- over_1000_change_1w: 0.02
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,57.62,-0.77,47.43,-0.1,45.62,-0.1,0,False,False
 20260618,57.58,-0.04,47.36,-0.07,45.55,-0.07,0,False,False
 20260626,57.12,-0.46,47.29,-0.07,45.48,-0.07,0,False,False
+20260703,57.14,0.02,47.31,0.02,45.5,0.02,1,True,True
 ```
 
 ## Candidate Context

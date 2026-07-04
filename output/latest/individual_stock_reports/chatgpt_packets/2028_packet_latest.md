@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2028 威致
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:23 Asia/Taipei
+- generated_at: 2026-07-04 22:26:21 Asia/Taipei
 - stock_id: 2028
 - stock_name: 威致
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,16 +158,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 83.63
-- over_600_ratio: 82.45
-- over_800_ratio: 82
-- over_1000_ratio: 81.2
-- over_400_change_1w: -0.02
+- as_of_date: 20260703
+- over_400_ratio: 83.65
+- over_600_ratio: 82.65
+- over_800_ratio: 82.01
+- over_1000_ratio: 81.21
+- over_400_change_1w: 0.02
 - over_800_change_1w: 0.01
 - over_1000_change_1w: 0.01
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: False
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,83.65,-0.11,81.99,0,81.19,0,0,False,False
 20260618,83.65,0,81.99,0,81.19,0,0,False,False
 20260626,83.63,-0.02,82,0.01,81.2,0.01,1,False,True
+20260703,83.65,0.02,82.01,0.01,81.21,0.01,2,True,True
 ```
 
 ## Candidate Context

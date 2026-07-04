@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8489 三貝德
 
 ## Metadata
-- generated_at: 2026-07-03 22:28:24 Asia/Taipei
+- generated_at: 2026-07-04 22:28:11 Asia/Taipei
 - stock_id: 8489
 - stock_name: 三貝德
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 162
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 57.01
-- over_600_ratio: 56.12
-- over_800_ratio: 51.7
-- over_1000_ratio: 46.04
+- as_of_date: 20260703
+- over_400_ratio: 57.02
+- over_600_ratio: 56.13
+- over_800_ratio: 51.71
+- over_1000_ratio: 46.05
 - over_400_change_1w: 0.01
 - over_800_change_1w: 0.01
 - over_1000_change_1w: 0.01
-- tdcc_consecutive_up_weeks: 1
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,57.05,-0.01,51.69,-0.01,46.03,-0.01,0,False,False
 20260618,57,-0.05,51.69,0,46.03,0,0,False,False
 20260626,57.01,0.01,51.7,0.01,46.04,0.01,1,True,True
+20260703,57.02,0.01,51.71,0.01,46.05,0.01,2,True,True
 ```
 
 ## Candidate Context

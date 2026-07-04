@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4979 華星光
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:24 Asia/Taipei
+- generated_at: 2026-07-04 22:27:16 Asia/Taipei
 - stock_id: 4979
 - stock_name: 華星光
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 162
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,17 +157,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 38.76
-- over_600_ratio: 33.44
-- over_800_ratio: 30.82
-- over_1000_ratio: 26.29
-- over_400_change_1w: -0.98
-- over_800_change_1w: -1.88
-- over_1000_change_1w: -1.37
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260703
+- over_400_ratio: 38.68
+- over_600_ratio: 33.38
+- over_800_ratio: 31.85
+- over_1000_ratio: 28.06
+- over_400_change_1w: -0.08
+- over_800_change_1w: 1.03
+- over_1000_change_1w: 1.77
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,40.31,-1.18,33.59,-0.47,28.44,-2.39,0,False,False
 20260618,39.74,-0.57,32.7,-0.89,27.66,-0.78,1,False,False
 20260626,38.76,-0.98,30.82,-1.88,26.29,-1.37,0,False,False
+20260703,38.68,-0.08,31.85,1.03,28.06,1.77,1,False,True
 ```
 
 ## Candidate Context

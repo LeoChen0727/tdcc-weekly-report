@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0070 期元大S&P黃金正2(原名：元大S&P黃金正2)
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:00 Asia/Taipei
+- generated_at: 2026-07-04 22:26:00 Asia/Taipei
 - stock_id: 0070
 - stock_name: 期元大S&P黃金正2(原名：元大S&P黃金正2)
 - packet_status: insufficient_price_data
@@ -170,7 +170,7 @@ no_rows,True
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 0070 | 期元大S&P黃金正2(原名：元大S&P黃金正2) | 208 | 0 | 10006810.0 | 0.0 |  | call_strong_inflow |
+| 20260703 | 0070 | 期元大S&P黃金正2(原名：元大S&P黃金正2) | 208 | 25 | 10006810.0 | 68820.0 | 145.41 | call_put_bullish |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

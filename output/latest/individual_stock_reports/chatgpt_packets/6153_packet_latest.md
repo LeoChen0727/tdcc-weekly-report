@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6153 嘉聯益
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:38 Asia/Taipei
+- generated_at: 2026-07-04 22:27:29 Asia/Taipei
 - stock_id: 6153
 - stock_name: 嘉聯益
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,17 +157,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 49.22
-- over_600_ratio: 46.77
-- over_800_ratio: 44.51
-- over_1000_ratio: 42.77
-- over_400_change_1w: -0.69
-- over_800_change_1w: -0.82
-- over_1000_change_1w: -1.07
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260703
+- over_400_ratio: 48.85
+- over_600_ratio: 46.41
+- over_800_ratio: 44.45
+- over_1000_ratio: 42.97
+- over_400_change_1w: -0.37
+- over_800_change_1w: -0.06
+- over_1000_change_1w: 0.2
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,50.05,0.51,45.35,0.23,44.01,0.51,6,True,True
 20260618,49.91,-0.14,45.33,-0.02,43.84,-0.17,0,False,False
 20260626,49.22,-0.69,44.51,-0.82,42.77,-1.07,0,False,False
+20260703,48.85,-0.37,44.45,-0.06,42.97,0.2,1,False,True
 ```
 
 ## Candidate Context

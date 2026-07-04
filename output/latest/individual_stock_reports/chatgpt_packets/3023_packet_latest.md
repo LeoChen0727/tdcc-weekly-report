@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3023 信邦
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:49 Asia/Taipei
+- generated_at: 2026-07-04 22:26:44 Asia/Taipei
 - stock_id: 3023
 - stock_name: 信邦
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -162,16 +162,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 68.26
-- over_600_ratio: 61.71
-- over_800_ratio: 57.5
-- over_1000_ratio: 53.41
-- over_400_change_1w: -0.13
-- over_800_change_1w: 0.23
-- over_1000_change_1w: 0.55
-- tdcc_consecutive_up_weeks: 6
-- all_thresholds_up: False
+- as_of_date: 20260703
+- over_400_ratio: 68.69
+- over_600_ratio: 62.21
+- over_800_ratio: 58
+- over_1000_ratio: 54.68
+- over_400_change_1w: 0.43
+- over_800_change_1w: 0.5
+- over_1000_change_1w: 1.27
+- tdcc_consecutive_up_weeks: 7
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -187,12 +187,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,68.45,0.86,57.4,0.23,53.33,0.24,4,False,True
 20260618,68.39,-0.06,57.27,-0.13,52.86,-0.47,5,False,False
 20260626,68.26,-0.13,57.5,0.23,53.41,0.55,6,False,True
+20260703,68.69,0.43,58,0.5,54.68,1.27,7,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 3023 | 信邦 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260703 | 3023 | 信邦 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_strong_inflow | stale_signal | 1.事實發生日:115/07/03 2.發生緣由:依臺灣證券交易所股份有限公司通知辦理公告 3.財務業務資訊:  期間                    (月)                   (季)         (最近四季累計) ================ ===================== ====================== =============  科目             最近一月   與去年     最近一季    與去年   114年第2季至                   115年5月  同期增減   115年第1季  同期增減  115年第1季                  合併自結數    (%)     合併核閱數     (%)     合併核閱數 ================ ===================== ====================== =============  營業收入(百萬)　　  3,011　     18　　  8,293　   　 2　　　  31,158  稅前淨利(百萬)　　    320　   　21　　  1,116　　　 -9　　　   3,847  歸屬母公司業主淨利　  247　   　25　　    865　　　 -6　　　   3,066 (百萬)  每股盈餘(元)　　　   1.03　     24　　   3.60　　　 -6　　　   12.77 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無。 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無。 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告: 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

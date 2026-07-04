@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2327 國巨*
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:28 Asia/Taipei
+- generated_at: 2026-07-04 22:26:25 Asia/Taipei
 - stock_id: 2327
 - stock_name: 國巨*
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 290
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -156,17 +156,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 74.34
-- over_600_ratio: 72.38
-- over_800_ratio: 70.82
-- over_1000_ratio: 69.45
-- over_400_change_1w: 0.47
-- over_800_change_1w: 0.62
-- over_1000_change_1w: 0.67
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260703
+- over_400_ratio: 73.9
+- over_600_ratio: 71.99
+- over_800_ratio: 70.47
+- over_1000_ratio: 68.96
+- over_400_change_1w: -0.44
+- over_800_change_1w: -0.35
+- over_1000_change_1w: -0.49
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -181,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,73.47,-0.58,69.8,-0.69,68.55,-0.51,0,False,False
 20260618,73.87,0.4,70.2,0.4,68.78,0.23,1,True,True
 20260626,74.34,0.47,70.82,0.62,69.45,0.67,2,True,True
+20260703,73.9,-0.44,70.47,-0.35,68.96,-0.49,0,False,False
 ```
 
 ## Candidate Context
@@ -196,7 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 2327 | 國巨* | 247 | 0 | 134700730.0 | 0.0 |  | call_strong_inflow |
+| 20260703 | 2327 | 國巨* | 247 | 34 | 134700730.0 | 591390.0 | 227.77 | call_put_bullish |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

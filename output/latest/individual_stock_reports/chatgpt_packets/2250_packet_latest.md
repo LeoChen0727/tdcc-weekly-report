@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2250 IKKA-KY
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:27 Asia/Taipei
+- generated_at: 2026-07-04 22:26:24 Asia/Taipei
 - stock_id: 2250
 - stock_name: IKKA-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -163,15 +163,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 51.12
+- as_of_date: 20260703
+- over_400_ratio: 52.37
 - over_600_ratio: 51.12
 - over_800_ratio: 48.97
 - over_1000_ratio: 48.97
-- over_400_change_1w: -1.1
+- over_400_change_1w: 1.25
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -188,6 +188,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,52.24,-0.08,48.97,0,48.97,0,1,False,False
 20260618,52.22,-0.02,48.97,0,48.97,0,0,False,False
 20260626,51.12,-1.1,48.97,0,48.97,0,0,False,False
+20260703,52.37,1.25,48.97,0,48.97,0,1,False,False
 ```
 
 ## Candidate Context

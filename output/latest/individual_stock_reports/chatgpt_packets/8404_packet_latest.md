@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8404 百和興業-KY
 
 ## Metadata
-- generated_at: 2026-07-03 22:28:21 Asia/Taipei
+- generated_at: 2026-07-04 22:28:08 Asia/Taipei
 - stock_id: 8404
 - stock_name: 百和興業-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,16 +158,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 78.7
-- over_600_ratio: 76.1
-- over_800_ratio: 74.62
-- over_1000_ratio: 73.41
-- over_400_change_1w: 0.03
-- over_800_change_1w: 0.36
-- over_1000_change_1w: 0.64
-- tdcc_consecutive_up_weeks: 8
-- all_thresholds_up: True
+- as_of_date: 20260703
+- over_400_ratio: 78.68
+- over_600_ratio: 76.44
+- over_800_ratio: 74.66
+- over_1000_ratio: 73.43
+- over_400_change_1w: -0.02
+- over_800_change_1w: 0.04
+- over_1000_change_1w: 0.02
+- tdcc_consecutive_up_weeks: 9
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,78.81,-0.06,74.25,0.04,72.98,0.03,6,False,True
 20260618,78.67,-0.14,74.26,0.01,72.77,-0.21,7,False,True
 20260626,78.7,0.03,74.62,0.36,73.41,0.64,8,True,True
+20260703,78.68,-0.02,74.66,0.04,73.43,0.02,9,False,True
 ```
 
 ## Candidate Context

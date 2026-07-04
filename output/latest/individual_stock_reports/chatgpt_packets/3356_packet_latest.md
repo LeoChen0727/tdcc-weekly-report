@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3356 奇偶
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:00 Asia/Taipei
+- generated_at: 2026-07-04 22:26:54 Asia/Taipei
 - stock_id: 3356
 - stock_name: 奇偶
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,16 +158,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 31.18
-- over_600_ratio: 28.64
-- over_800_ratio: 25.92
-- over_1000_ratio: 24.91
-- over_400_change_1w: 0.69
-- over_800_change_1w: -0.34
-- over_1000_change_1w: 0.91
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: False
+- as_of_date: 20260703
+- over_400_ratio: 31.88
+- over_600_ratio: 29.52
+- over_800_ratio: 26.76
+- over_1000_ratio: 25.75
+- over_400_change_1w: 0.7
+- over_800_change_1w: 0.84
+- over_1000_change_1w: 0.84
+- tdcc_consecutive_up_weeks: 4
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,28.57,0.17,24.46,1.65,22.2,0.4,1,False,True
 20260618,30.49,1.92,26.26,1.8,24,1.8,2,True,True
 20260626,31.18,0.69,25.92,-0.34,24.91,0.91,3,False,True
+20260703,31.88,0.7,26.76,0.84,25.75,0.84,4,True,True
 ```
 
 ## Candidate Context

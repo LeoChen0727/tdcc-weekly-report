@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1605 華新
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:16 Asia/Taipei
+- generated_at: 2026-07-04 22:26:15 Asia/Taipei
 - stock_id: 1605
 - stock_name: 華新
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,14 +158,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 73.62
-- over_600_ratio: 72.52
-- over_800_ratio: 71.92
-- over_1000_ratio: 71.22
-- over_400_change_1w: -0.05
-- over_800_change_1w: -0.23
-- over_1000_change_1w: -0.18
+- as_of_date: 20260703
+- over_400_ratio: 73.09
+- over_600_ratio: 72
+- over_800_ratio: 71.38
+- over_1000_ratio: 70.7
+- over_400_change_1w: -0.53
+- over_800_change_1w: -0.54
+- over_1000_change_1w: -0.52
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -183,12 +183,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,72.92,-0.94,71.42,-0.84,70.69,-0.93,0,False,False
 20260618,73.67,0.75,72.15,0.73,71.4,0.71,1,True,True
 20260626,73.62,-0.05,71.92,-0.23,71.22,-0.18,0,False,False
+20260703,73.09,-0.53,71.38,-0.54,70.7,-0.52,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 1605 | 華新 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  | call_strong_inflow | stale_signal | 1.人員變動別（請輸入發言人、代理發言人、重要營運主管(如:執行長、營運長、 行銷長及策略長等)、財務主管、會計主管、公司治理主管、資訊安全長、研發主管、 內部稽核主管或訴訟及非訟代理人）:重要營運主管 2.發生變動日期:115/06/29 3.舊任者姓名、級職及簡歷:  數位智能發展組織總經理:吳明機(職務調整)  歐洲區域執行長:不適用 4.新任者姓名、級職及簡歷:  數位智能發展組織總經理:不適用  歐洲區域執行長:Massimiliano Burelli / Cogne Acciai Speciali S.p.A.董事兼 執行長 5.異動情形（請輸入「辭職」、「職務調整」、「資遣」、「退休」、「死亡」、「新 任」或「解任」）:新任 6.異動原因:公司組織調整 7.生效日期:115/07/01 8.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260703 | 1605 | 華新 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  | call_put_bullish | stale_signal | 1.人員變動別（請輸入發言人、代理發言人、重要營運主管(如:執行長、營運長、 行銷長及策略長等)、財務主管、會計主管、公司治理主管、資訊安全長、研發主管、 內部稽核主管或訴訟及非訟代理人）:重要營運主管 2.發生變動日期:115/06/29 3.舊任者姓名、級職及簡歷:  數位智能發展組織總經理:吳明機(職務調整)  歐洲區域執行長:不適用 4.新任者姓名、級職及簡歷:  數位智能發展組織總經理:不適用  歐洲區域執行長:Massimiliano Burelli / Cogne Acciai Speciali S.p.A.董事兼 執行長 5.異動情形（請輸入「辭職」、「職務調整」、「資遣」、「退休」、「死亡」、「新 任」或「解任」）:新任 6.異動原因:公司組織調整 7.生效日期:115/07/01 8.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
@@ -198,7 +199,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 1605 | 華新 | 147 | 0 | 8017330.0 | 0.0 |  | call_strong_inflow |
+| 20260703 | 1605 | 華新 | 147 | 5 | 8017330.0 | 69200.0 | 115.86 | call_put_bullish |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

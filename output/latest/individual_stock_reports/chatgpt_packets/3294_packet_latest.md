@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3294 英濟
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:58 Asia/Taipei
+- generated_at: 2026-07-04 22:26:52 Asia/Taipei
 - stock_id: 3294
 - stock_name: 英濟
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 162
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -163,17 +163,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 53.49
-- over_600_ratio: 51.58
-- over_800_ratio: 50.06
-- over_1000_ratio: 47.95
-- over_400_change_1w: 0.28
-- over_800_change_1w: 0.16
-- over_1000_change_1w: 0.89
-- tdcc_consecutive_up_weeks: 5
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260703
+- over_400_ratio: 52.98
+- over_600_ratio: 51.01
+- over_800_ratio: 49.96
+- over_1000_ratio: 47.85
+- over_400_change_1w: -0.51
+- over_800_change_1w: -0.1
+- over_1000_change_1w: -0.1
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -188,6 +188,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,52.82,0.57,49.9,0.73,47.1,0.04,3,True,True
 20260618,53.21,0.39,49.9,0,47.06,-0.04,4,False,False
 20260626,53.49,0.28,50.06,0.16,47.95,0.89,5,True,True
+20260703,52.98,-0.51,49.96,-0.1,47.85,-0.1,0,False,False
 ```
 
 ## Candidate Context

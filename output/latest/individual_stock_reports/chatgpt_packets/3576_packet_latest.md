@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3576 聯合再生
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:05 Asia/Taipei
+- generated_at: 2026-07-04 22:26:59 Asia/Taipei
 - stock_id: 3576
 - stock_name: 聯合再生
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,14 +158,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 36.86
-- over_600_ratio: 34.73
-- over_800_ratio: 33.68
-- over_1000_ratio: 32.57
-- over_400_change_1w: -1.96
-- over_800_change_1w: -2.09
-- over_1000_change_1w: -1.98
+- as_of_date: 20260703
+- over_400_ratio: 36.1
+- over_600_ratio: 34.03
+- over_800_ratio: 32.95
+- over_1000_ratio: 31.78
+- over_400_change_1w: -0.76
+- over_800_change_1w: -0.73
+- over_1000_change_1w: -0.79
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,37.51,-0.06,34.22,-0.09,33.06,-0.26,4,False,False
 20260618,38.82,1.31,35.77,1.55,34.55,1.49,5,True,True
 20260626,36.86,-1.96,33.68,-2.09,32.57,-1.98,0,False,False
+20260703,36.1,-0.76,32.95,-0.73,31.78,-0.79,0,False,False
 ```
 
 ## Candidate Context

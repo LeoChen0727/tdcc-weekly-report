@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2530 華建
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:39 Asia/Taipei
+- generated_at: 2026-07-04 22:26:35 Asia/Taipei
 - stock_id: 2530
 - stock_name: 華建
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 85.34
-- over_600_ratio: 83.59
-- over_800_ratio: 82.74
-- over_1000_ratio: 81.27
-- over_400_change_1w: -0.04
-- over_800_change_1w: -0.09
-- over_1000_change_1w: -0.09
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260703
+- over_400_ratio: 85.63
+- over_600_ratio: 83.95
+- over_800_ratio: 83.27
+- over_1000_ratio: 81.8
+- over_400_change_1w: 0.29
+- over_800_change_1w: 0.53
+- over_1000_change_1w: 0.53
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,85.44,0.06,82.86,0.17,81.17,-0.07,6,False,True
 20260618,85.38,-0.06,82.83,-0.03,81.36,0.19,7,False,True
 20260626,85.34,-0.04,82.74,-0.09,81.27,-0.09,0,False,False
+20260703,85.63,0.29,83.27,0.53,81.8,0.53,1,True,True
 ```
 
 ## Candidate Context

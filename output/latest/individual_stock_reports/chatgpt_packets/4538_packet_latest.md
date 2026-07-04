@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4538 大詠城
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:16 Asia/Taipei
+- generated_at: 2026-07-04 22:27:09 Asia/Taipei
 - stock_id: 4538
 - stock_name: 大詠城
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 162
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 80.4
-- over_600_ratio: 76.96
-- over_800_ratio: 73.25
-- over_1000_ratio: 71.63
-- over_400_change_1w: 0.06
-- over_800_change_1w: 0.05
-- over_1000_change_1w: 0.05
-- tdcc_consecutive_up_weeks: 8
+- as_of_date: 20260703
+- over_400_ratio: 80.43
+- over_600_ratio: 76.98
+- over_800_ratio: 73.27
+- over_1000_ratio: 71.65
+- over_400_change_1w: 0.03
+- over_800_change_1w: 0.02
+- over_1000_change_1w: 0.02
+- tdcc_consecutive_up_weeks: 9
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,80.3,0.08,73.16,0.08,71.54,0.08,6,True,True
 20260618,80.34,0.04,73.2,0.04,71.58,0.04,7,True,True
 20260626,80.4,0.06,73.25,0.05,71.63,0.05,8,True,True
+20260703,80.43,0.03,73.27,0.02,71.65,0.02,9,True,True
 ```
 
 ## Candidate Context

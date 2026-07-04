@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2206 三陽工業
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:25 Asia/Taipei
+- generated_at: 2026-07-04 22:26:23 Asia/Taipei
 - stock_id: 2206
 - stock_name: 三陽工業
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -164,17 +164,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 83.95
-- over_600_ratio: 83.13
+- as_of_date: 20260703
+- over_400_ratio: 84.2
+- over_600_ratio: 83.32
 - over_800_ratio: 81.87
-- over_1000_ratio: 80.2
-- over_400_change_1w: -0.14
-- over_800_change_1w: -0.17
-- over_1000_change_1w: -0.35
-- tdcc_consecutive_up_weeks: 0
+- over_1000_ratio: 80.57
+- over_400_change_1w: 0.25
+- over_800_change_1w: 0
+- over_1000_change_1w: 0.37
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -189,12 +189,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,84.06,0.06,82.02,0.21,80.63,-0.01,6,False,True
 20260618,84.09,0.03,82.04,0.02,80.55,-0.08,7,False,True
 20260626,83.95,-0.14,81.87,-0.17,80.2,-0.35,0,False,False
+20260703,84.2,0.25,81.87,0,80.57,0.37,1,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 2206 | 三陽工業 | true_breakout | 嚴格突破 | 131.0 |  |  | breakout_confirmed |  |  | first_seen | 1.主管機關核准減資日期:115/05/19 2.辦理資本變更登記完成日期:115/06/16 3.對財務報告之影響（含實收資本額與流通在外股數之差異與對每股淨值之影響）:   (1)本公司原實收資本額為新台幣7,836,756,040元，      註銷庫藏股後實收資本額為新台幣7,736,756,040元。   (2)註銷前流通在外股數為783,675,604股，      註銷股份後流通在外股數為773,675,604股，差異為10,000,000股。   (3)註銷前每股淨值為新台幣34.81元，      註銷後每股淨值為新台幣35.26元。      (以115年第1季財報為計算基礎) 4.預計換股作業計畫:不適用。 5.預計減資新股上市後之上市普通股股數:不適用。 6.預計減資新股上市後之上市普通股股數占已發行普通股比率  （減資後上市普通股股數/減資後已發行普通股股數）:不適用。 7.前二項預計減資後上巿普通股股數未達6000萬股且未達25%者，請說明股權流通性偏低   之因應措施:不適用。 8.其他應敘明事項:本公司於115年06月18日接獲經濟部之變更登記核准函。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260703 | 2206 | 三陽工業 | true_breakout | 嚴格突破 | 131.0 |  |  | breakout_confirmed |  |  | first_seen | 1.本次買回股份數量累積達公司已發行股份總額百分之二或金額達新台幣三億元以上之日期:115/07/03 2.本次買回股份數量(股):4,811,000 3.本次買回股份總金額(元):299,181,464 4.本次平均每股買回價格(元):62.19 5.於買回期間內累積已持有自己公司股份數量(股):9,833,000 6.於買回期間內累積已持有自己公司股份數量占公司已發行股份總數之比率(%):1.25 7.其他應敘明事項: 無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

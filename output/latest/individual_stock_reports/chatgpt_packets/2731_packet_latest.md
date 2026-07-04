@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2731 雄獅
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:43 Asia/Taipei
+- generated_at: 2026-07-04 22:26:39 Asia/Taipei
 - stock_id: 2731
 - stock_name: 雄獅
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 31
+- latest_tdcc_date: 20260703
+- tdcc_rows: 32
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,14 +158,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 43.75
-- over_600_ratio: 41
-- over_800_ratio: 38.01
-- over_1000_ratio: 35.13
-- over_400_change_1w: -1.74
-- over_800_change_1w: -0.43
-- over_1000_change_1w: -0.43
+- as_of_date: 20260703
+- over_400_ratio: 42.88
+- over_600_ratio: 39.6
+- over_800_ratio: 36.61
+- over_1000_ratio: 33.73
+- over_400_change_1w: -0.87
+- over_800_change_1w: -1.4
+- over_1000_change_1w: -1.4
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -174,7 +174,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260410,52.04,-0.8,43.68,-0.19,37.83,-1.24,0,False,False
 20260417,49.61,-2.43,40.79,-2.89,35.15,-2.68,0,False,False
 20260424,48.33,-1.28,38.01,-2.78,35.11,-0.04,0,False,False
 20260430,47.67,-0.66,36.71,-1.3,33.9,-1.21,0,False,False
@@ -186,6 +185,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,46.56,-3.03,38.44,-1.93,35.56,-2.9,0,False,False
 20260618,45.49,-1.07,38.44,0,35.56,0,0,False,False
 20260626,43.75,-1.74,38.01,-0.43,35.13,-0.43,0,False,False
+20260703,42.88,-0.87,36.61,-1.4,33.73,-1.4,0,False,False
 ```
 
 ## Candidate Context

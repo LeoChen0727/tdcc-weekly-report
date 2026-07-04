@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1906 寶隆
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:21 Asia/Taipei
+- generated_at: 2026-07-04 22:26:19 Asia/Taipei
 - stock_id: 1906
 - stock_name: 寶隆
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 31
+- latest_tdcc_date: 20260703
+- tdcc_rows: 32
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 74.43
-- over_600_ratio: 73.39
-- over_800_ratio: 72.58
-- over_1000_ratio: 70.19
-- over_400_change_1w: 0.02
-- over_800_change_1w: 0.02
-- over_1000_change_1w: 0.01
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260703
+- over_400_ratio: 74.47
+- over_600_ratio: 73.43
+- over_800_ratio: 72.62
+- over_1000_ratio: 70.23
+- over_400_change_1w: 0.04
+- over_800_change_1w: 0.04
+- over_1000_change_1w: 0.04
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -174,7 +174,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260410,74.45,0.12,72.24,0.12,69.22,0.04,1,True,True
 20260417,74.45,0,72.24,0,69.22,0,0,False,False
 20260424,74.55,0.1,72.34,0.1,69.32,0.1,1,True,True
 20260430,74.59,0.04,72.39,0.05,70.03,0.71,2,True,True
@@ -186,6 +185,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,74.42,0.09,72.57,0.09,70.19,0.65,1,True,True
 20260618,74.41,-0.01,72.56,-0.01,70.18,-0.01,0,False,False
 20260626,74.43,0.02,72.58,0.02,70.19,0.01,1,True,True
+20260703,74.47,0.04,72.62,0.04,70.23,0.04,2,True,True
 ```
 
 ## Candidate Context

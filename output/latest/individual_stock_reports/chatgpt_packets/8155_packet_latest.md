@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8155 博智
 
 ## Metadata
-- generated_at: 2026-07-03 22:28:18 Asia/Taipei
+- generated_at: 2026-07-04 22:28:06 Asia/Taipei
 - stock_id: 8155
 - stock_name: 博智
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 162
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 48.49
-- over_600_ratio: 45.9
-- over_800_ratio: 44.81
-- over_1000_ratio: 37.48
-- over_400_change_1w: -1.5
-- over_800_change_1w: 3.04
-- over_1000_change_1w: 1.61
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260703
+- over_400_ratio: 46.64
+- over_600_ratio: 45.83
+- over_800_ratio: 43.58
+- over_1000_ratio: 39.1
+- over_400_change_1w: -1.85
+- over_800_change_1w: -1.23
+- over_1000_change_1w: 1.62
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,47.66,-2.67,41.86,-0.06,35.92,-0.02,0,False,False
 20260618,49.99,2.33,41.77,-0.09,35.87,-0.05,1,False,False
 20260626,48.49,-1.5,44.81,3.04,37.48,1.61,2,False,True
+20260703,46.64,-1.85,43.58,-1.23,39.1,1.62,3,False,True
 ```
 
 ## Candidate Context

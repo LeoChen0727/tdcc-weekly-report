@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8114 振樺電
 
 ## Metadata
-- generated_at: 2026-07-03 22:28:18 Asia/Taipei
+- generated_at: 2026-07-04 22:28:06 Asia/Taipei
 - stock_id: 8114
 - stock_name: 振樺電
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 48.6
-- over_600_ratio: 40.33
-- over_800_ratio: 37.49
-- over_1000_ratio: 33.79
-- over_400_change_1w: -0.94
-- over_800_change_1w: -0.76
-- over_1000_change_1w: -2.05
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260703
+- over_400_ratio: 47.65
+- over_600_ratio: 39.46
+- over_800_ratio: 37.53
+- over_1000_ratio: 33.76
+- over_400_change_1w: -0.95
+- over_800_change_1w: 0.04
+- over_1000_change_1w: -0.03
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,51.26,0.96,38.52,-0.89,36.11,0.17,3,False,True
 20260618,49.54,-1.72,38.25,-0.27,35.84,-0.27,0,False,False
 20260626,48.6,-0.94,37.49,-0.76,33.79,-2.05,0,False,False
+20260703,47.65,-0.95,37.53,0.04,33.76,-0.03,1,False,True
 ```
 
 ## Candidate Context

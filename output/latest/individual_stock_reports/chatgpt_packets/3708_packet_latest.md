@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3708 上緯投控
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:10 Asia/Taipei
+- generated_at: 2026-07-04 22:27:03 Asia/Taipei
 - stock_id: 3708
 - stock_name: 上緯投控
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 52.37
-- over_600_ratio: 45.88
-- over_800_ratio: 42.75
-- over_1000_ratio: 41.71
-- over_400_change_1w: -0.36
-- over_800_change_1w: -0.78
-- over_1000_change_1w: 0.11
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260703
+- over_400_ratio: 50.61
+- over_600_ratio: 45.25
+- over_800_ratio: 42.12
+- over_1000_ratio: 41.24
+- over_400_change_1w: -1.76
+- over_800_change_1w: -0.63
+- over_1000_change_1w: -0.47
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,53.16,-0.4,43.77,-0.18,41.82,-1.26,0,False,False
 20260618,52.73,-0.43,43.53,-0.24,41.6,-0.22,0,False,False
 20260626,52.37,-0.36,42.75,-0.78,41.71,0.11,1,False,True
+20260703,50.61,-1.76,42.12,-0.63,41.24,-0.47,0,False,False
 ```
 
 ## Candidate Context
@@ -198,7 +199,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 3708 | 上緯投控 | 22 | 0 | 1900510.0 | 0.0 |  | call_inflow |
+| 20260703 | 3708 | 上緯投控 | 22 | 1 | 1900510.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

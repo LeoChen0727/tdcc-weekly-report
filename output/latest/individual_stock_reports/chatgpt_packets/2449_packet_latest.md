@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2449 京元電子
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:35 Asia/Taipei
+- generated_at: 2026-07-04 22:26:31 Asia/Taipei
 - stock_id: 2449
 - stock_name: 京元電子
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,15 +157,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 66.59
-- over_600_ratio: 63.84
-- over_800_ratio: 61.83
-- over_1000_ratio: 60.13
-- over_400_change_1w: 5.6
-- over_800_change_1w: 5.65
-- over_1000_change_1w: 5.08
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260703
+- over_400_ratio: 68.32
+- over_600_ratio: 65.41
+- over_800_ratio: 63.32
+- over_1000_ratio: 61.9
+- over_400_change_1w: 1.73
+- over_800_change_1w: 1.49
+- over_1000_change_1w: 1.77
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,61.82,-2.99,57.05,-2.8,55.78,-2.35,0,False,False
 20260618,60.99,-0.83,56.18,-0.87,55.05,-0.73,0,False,False
 20260626,66.59,5.6,61.83,5.65,60.13,5.08,1,True,True
+20260703,68.32,1.73,63.32,1.49,61.9,1.77,2,True,True
 ```
 
 ## Candidate Context
@@ -197,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 2449 | 京元電子 | 245 | 0 | 38881930.0 | 0.0 |  | no_signal |
+| 20260703 | 2449 | 京元電子 | 245 | 9 | 38881930.0 | 190370.0 | 204.24 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

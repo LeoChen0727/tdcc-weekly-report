@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4707 磐亞
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:19 Asia/Taipei
+- generated_at: 2026-07-04 22:27:11 Asia/Taipei
 - stock_id: 4707
 - stock_name: 磐亞
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 162
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,16 +158,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 71.14
-- over_600_ratio: 69.03
-- over_800_ratio: 66.7
-- over_1000_ratio: 65.36
-- over_400_change_1w: 0.02
-- over_800_change_1w: -0.03
-- over_1000_change_1w: 0.4
-- tdcc_consecutive_up_weeks: 8
-- all_thresholds_up: False
+- as_of_date: 20260703
+- over_400_ratio: 71.84
+- over_600_ratio: 70.04
+- over_800_ratio: 68.65
+- over_1000_ratio: 65.94
+- over_400_change_1w: 0.7
+- over_800_change_1w: 1.95
+- over_1000_change_1w: 0.58
+- tdcc_consecutive_up_weeks: 9
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -183,12 +183,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,70.6,0.2,66.41,0.28,63.92,0.01,6,True,True
 20260618,71.12,0.52,66.73,0.32,64.96,1.04,7,True,True
 20260626,71.14,0.02,66.7,-0.03,65.36,0.4,8,False,True
+20260703,71.84,0.7,68.65,1.95,65.94,0.58,9,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 4707 | 磐亞 | true_breakout | 嚴格突破 | 86.0 |  |  | breakout_confirmed |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260703 | 4707 | 磐亞 | true_breakout | 嚴格突破 | 86.0 |  |  | breakout_confirmed |  |  | continued_overheated | 1.事實發生日:115/07/03 2.發生緣由:依財團法人中華民國證券櫃檯買賣中心通知辦理。 3.財務業務資訊: (1)單月                     最近一月單月        去年同月       與去年同期增減%                        (115/05)         (114/05) ----------------------------------------------------------------------- 營業收入(百萬元)          99              104               -5% 稅前淨利(百萬元)          57               -4             1525% 本期淨利(百萬元)          57               -4             1525% 每股盈餘(元)            0.14           -0.009             1656% ====================================================================== (2)單季                      最近一季單季       去年同期       與去年同期增減%                        (115第1季)       (114第1季) ----------------------------------------------------------------------- 營業收入(百萬元)       304              327                -7% 稅前淨利(百萬元)       108               85                27% 本期淨利(百萬元)       104               88                18% 每股盈餘(元)          0.26             0.22                18% ======================================================================= (3)最近四季累計                           114年第2季至115年第1季 ----------------------------------------------------------------------- 營業收入(百萬元)                1321 稅前淨利(百萬元)                 379 本期淨利(百萬元)                 376 每股盈餘(元)                    0.93 ======================================================================= 公司每股面額:10元 4.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序 」第4條所列重大訊息之情事（如 「有」，請說明）:無。 5.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序」第11條所列重大訊息說明記者會 之情事:無。 6.其他應敘明事項: 註：以上115年5月及去年同期比較數之財務資料係本公司採IFRS會計準則編製之合併 數，未經會計師查核(閱)，僅供投資人參考。 註：最近一季115年第1季係指單季數字，非為最近財務報告中之累計數字，且係本公 司採IFRS下編製之合併數，業經會計師查核(閱)，僅供投資人參考。 註：最近四季累計係本公司114年第2季至115年第1季採IFRS編製之合併數，業經會計 師查核(閱)，僅供投資人參考。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

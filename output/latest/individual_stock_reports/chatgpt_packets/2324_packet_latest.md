@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2324 仁寶
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:28 Asia/Taipei
+- generated_at: 2026-07-04 22:26:25 Asia/Taipei
 - stock_id: 2324
 - stock_name: 仁寶
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: True
 - sell_strategy_summary_exists: True
@@ -158,14 +158,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 62.77
-- over_600_ratio: 61.11
-- over_800_ratio: 60.06
-- over_1000_ratio: 59.18
-- over_400_change_1w: -0.96
-- over_800_change_1w: -1.03
-- over_1000_change_1w: -1.03
+- as_of_date: 20260703
+- over_400_ratio: 62.07
+- over_600_ratio: 60.5
+- over_800_ratio: 59.34
+- over_1000_ratio: 58.38
+- over_400_change_1w: -0.7
+- over_800_change_1w: -0.72
+- over_1000_change_1w: -0.8
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,63.87,-0.43,61.3,-0.33,60.4,-0.24,0,False,False
 20260618,63.73,-0.14,61.09,-0.21,60.21,-0.19,0,False,False
 20260626,62.77,-0.96,60.06,-1.03,59.18,-1.03,0,False,False
+20260703,62.07,-0.7,59.34,-0.72,58.38,-0.8,0,False,False
 ```
 
 ## Candidate Context
@@ -198,7 +199,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 2324 | 仁寶 | 98 | 0 | 7462570.0 | 0.0 |  | call_strong_inflow |
+| 20260703 | 2324 | 仁寶 | 98 | 4 | 7462570.0 | 4560.0 | 1636.53 | call_put_bullish |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

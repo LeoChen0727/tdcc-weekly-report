@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6612 奈米醫材
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:53 Asia/Taipei
+- generated_at: 2026-07-04 22:27:42 Asia/Taipei
 - stock_id: 6612
 - stock_name: 奈米醫材
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 162
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 64.58
-- over_600_ratio: 57.13
-- over_800_ratio: 49.53
-- over_1000_ratio: 43.75
-- over_400_change_1w: 0.07
-- over_800_change_1w: -1.47
-- over_1000_change_1w: -1.47
-- tdcc_consecutive_up_weeks: 8
+- as_of_date: 20260703
+- over_400_ratio: 63.79
+- over_600_ratio: 56.3
+- over_800_ratio: 50.22
+- over_1000_ratio: 44.44
+- over_400_change_1w: -0.79
+- over_800_change_1w: 0.69
+- over_1000_change_1w: 0.69
+- tdcc_consecutive_up_weeks: 9
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,63.65,0,52.66,0,45.19,0.04,6,False,True
 20260618,64.51,0.86,51,-1.66,45.22,0.03,7,False,True
 20260626,64.58,0.07,49.53,-1.47,43.75,-1.47,8,False,False
+20260703,63.79,-0.79,50.22,0.69,44.44,0.69,9,False,True
 ```
 
 ## Candidate Context

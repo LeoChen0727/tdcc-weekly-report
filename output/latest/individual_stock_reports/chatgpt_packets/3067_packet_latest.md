@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3067 全域
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:52 Asia/Taipei
+- generated_at: 2026-07-04 22:26:47 Asia/Taipei
 - stock_id: 3067
 - stock_name: 全域
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 121
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,11 +158,11 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 71.35
-- over_600_ratio: 68.62
-- over_800_ratio: 68.62
-- over_1000_ratio: 63.64
+- as_of_date: 20260703
+- over_400_ratio: 71.34
+- over_600_ratio: 68.61
+- over_800_ratio: 68.61
+- over_1000_ratio: 63.63
 - over_400_change_1w: -0.01
 - over_800_change_1w: -0.01
 - over_1000_change_1w: -0.01
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,71.36,-0.02,68.63,-0.02,63.65,-0.02,0,False,False
 20260618,71.36,0,68.63,0,63.65,0,0,False,False
 20260626,71.35,-0.01,68.62,-0.01,63.64,-0.01,0,False,False
+20260703,71.34,-0.01,68.61,-0.01,63.63,-0.01,0,False,False
 ```
 
 ## Candidate Context

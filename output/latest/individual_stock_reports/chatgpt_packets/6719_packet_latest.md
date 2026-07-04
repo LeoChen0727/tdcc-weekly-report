@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6719 力智
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:57 Asia/Taipei
+- generated_at: 2026-07-04 22:27:46 Asia/Taipei
 - stock_id: 6719
 - stock_name: 力智
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,17 +157,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 53.16
-- over_600_ratio: 50.62
-- over_800_ratio: 46.18
-- over_1000_ratio: 44.43
-- over_400_change_1w: 4.07
-- over_800_change_1w: 0.14
-- over_1000_change_1w: 0.11
-- tdcc_consecutive_up_weeks: 4
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260703
+- over_400_ratio: 52.48
+- over_600_ratio: 49.82
+- over_800_ratio: 46.04
+- over_1000_ratio: 44.26
+- over_400_change_1w: -0.68
+- over_800_change_1w: -0.14
+- over_1000_change_1w: -0.17
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,49.33,-0.37,45.18,-0.79,44.32,0.01,2,False,True
 20260618,49.09,-0.24,46.04,0.86,44.32,0,3,False,True
 20260626,53.16,4.07,46.18,0.14,44.43,0.11,4,True,True
+20260703,52.48,-0.68,46.04,-0.14,44.26,-0.17,0,False,False
 ```
 
 ## Candidate Context
@@ -197,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 6719 | 力智 | 47 | 0 | 21690770.0 | 0.0 |  | no_signal |
+| 20260703 | 6719 | 力智 | 47 | 2 | 21690770.0 | 103110.0 | 210.37 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

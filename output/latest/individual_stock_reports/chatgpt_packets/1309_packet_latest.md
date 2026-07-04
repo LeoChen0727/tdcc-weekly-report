@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1309 台達化
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:07 Asia/Taipei
+- generated_at: 2026-07-04 22:26:07 Asia/Taipei
 - stock_id: 1309
 - stock_name: 台達化
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -162,16 +162,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 46.41
-- over_600_ratio: 44.95
-- over_800_ratio: 43.92
-- over_1000_ratio: 43.28
-- over_400_change_1w: -0.02
-- over_800_change_1w: 0.1
-- over_1000_change_1w: -0.1
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: False
+- as_of_date: 20260703
+- over_400_ratio: 47.22
+- over_600_ratio: 45.25
+- over_800_ratio: 44.36
+- over_1000_ratio: 43.91
+- over_400_change_1w: 0.81
+- over_800_change_1w: 0.44
+- over_1000_change_1w: 0.63
+- tdcc_consecutive_up_weeks: 3
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -187,6 +187,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,46.24,-0.29,43.25,-0.53,43.03,-0.53,0,False,False
 20260618,46.43,0.19,43.82,0.57,43.38,0.35,1,True,True
 20260626,46.41,-0.02,43.92,0.1,43.28,-0.1,2,False,True
+20260703,47.22,0.81,44.36,0.44,43.91,0.63,3,True,True
 ```
 
 ## Candidate Context

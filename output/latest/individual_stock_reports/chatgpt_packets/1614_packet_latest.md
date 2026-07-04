@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1614 三洋電
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:16 Asia/Taipei
+- generated_at: 2026-07-04 22:26:15 Asia/Taipei
 - stock_id: 1614
 - stock_name: 三洋電
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 31
+- latest_tdcc_date: 20260703
+- tdcc_rows: 32
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,23 +158,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 82.74
-- over_600_ratio: 79.59
-- over_800_ratio: 77.29
-- over_1000_ratio: 75.58
-- over_400_change_1w: 0
-- over_800_change_1w: 0
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260703
+- over_400_ratio: 82.75
+- over_600_ratio: 79.6
+- over_800_ratio: 77.3
+- over_1000_ratio: 75.59
+- over_400_change_1w: 0.01
+- over_800_change_1w: 0.01
+- over_1000_change_1w: 0.01
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260410,82.56,0,76.99,0,74.95,0,0,False,False
 20260417,82.56,0,77,0.01,74.96,0.01,1,False,True
 20260424,82.72,0.16,77.01,0.01,74.97,0.01,2,True,True
 20260430,82.74,0.02,77.02,0.01,74.98,0.01,3,True,True
@@ -186,6 +185,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,82.74,0,77.29,0,75.58,0,0,False,False
 20260618,82.74,0,77.29,0,75.58,0,0,False,False
 20260626,82.74,0,77.29,0,75.58,0,0,False,False
+20260703,82.75,0.01,77.3,0.01,75.59,0.01,1,True,True
 ```
 
 ## Candidate Context

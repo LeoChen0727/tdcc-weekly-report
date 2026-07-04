@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4439 冠星-KY
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:15 Asia/Taipei
+- generated_at: 2026-07-04 22:27:08 Asia/Taipei
 - stock_id: 4439
 - stock_name: 冠星-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,14 +158,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 78.51
-- over_600_ratio: 74.8
-- over_800_ratio: 74.8
-- over_1000_ratio: 69.8
-- over_400_change_1w: -0.01
-- over_800_change_1w: -0.01
-- over_1000_change_1w: -0.01
+- as_of_date: 20260703
+- over_400_ratio: 78.48
+- over_600_ratio: 74.77
+- over_800_ratio: 74.77
+- over_1000_ratio: 69.77
+- over_400_change_1w: -0.03
+- over_800_change_1w: -0.03
+- over_1000_change_1w: -0.03
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,78.55,0.02,74.84,0.02,69.84,0.02,6,True,True
 20260618,78.52,-0.03,74.81,-0.03,69.81,-0.03,0,False,False
 20260626,78.51,-0.01,74.8,-0.01,69.8,-0.01,0,False,False
+20260703,78.48,-0.03,74.77,-0.03,69.77,-0.03,0,False,False
 ```
 
 ## Candidate Context

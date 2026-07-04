@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3624 光頡
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:07 Asia/Taipei
+- generated_at: 2026-07-04 22:27:00 Asia/Taipei
 - stock_id: 3624
 - stock_name: 光頡
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 162
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -156,16 +156,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 61.81
-- over_600_ratio: 58.4
-- over_800_ratio: 57.75
-- over_1000_ratio: 56.21
-- over_400_change_1w: 0.68
-- over_800_change_1w: -0.32
-- over_1000_change_1w: 0.3
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: False
+- as_of_date: 20260703
+- over_400_ratio: 63.14
+- over_600_ratio: 60.18
+- over_800_ratio: 58.95
+- over_1000_ratio: 57.37
+- over_400_change_1w: 1.33
+- over_800_change_1w: 1.2
+- over_1000_change_1w: 1.16
+- tdcc_consecutive_up_weeks: 4
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -181,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,59.33,1.51,54.35,3.05,52.91,3.79,1,True,True
 20260618,61.13,1.8,58.07,3.72,55.91,3,2,True,True
 20260626,61.81,0.68,57.75,-0.32,56.21,0.3,3,False,True
+20260703,63.14,1.33,58.95,1.2,57.37,1.16,4,True,True
 ```
 
 ## Candidate Context

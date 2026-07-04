@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7788 松川精密
 
 ## Metadata
-- generated_at: 2026-07-03 22:28:13 Asia/Taipei
+- generated_at: 2026-07-04 22:28:01 Asia/Taipei
 - stock_id: 7788
 - stock_name: 松川精密
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 171
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,14 +158,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 71.57
-- over_600_ratio: 63.51
-- over_800_ratio: 62.67
-- over_1000_ratio: 59.22
-- over_400_change_1w: -1.35
-- over_800_change_1w: -0.83
-- over_1000_change_1w: -2.07
+- as_of_date: 20260703
+- over_400_ratio: 70.54
+- over_600_ratio: 61.88
+- over_800_ratio: 59.33
+- over_1000_ratio: 57.12
+- over_400_change_1w: -1.03
+- over_800_change_1w: -3.34
+- over_1000_change_1w: -2.1
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,75.61,0.7,65.34,0.12,63.13,1.13,1,True,True
 20260618,72.92,-2.69,63.5,-1.84,61.29,-1.84,0,False,False
 20260626,71.57,-1.35,62.67,-0.83,59.22,-2.07,0,False,False
+20260703,70.54,-1.03,59.33,-3.34,57.12,-2.1,0,False,False
 ```
 
 ## Candidate Context
@@ -198,7 +199,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 7788 | 松川精密 | 26 | 0 | 3401440.0 | 0.0 |  | no_signal |
+| 20260703 | 7788 | 松川精密 | 26 | 1 | 3401440.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

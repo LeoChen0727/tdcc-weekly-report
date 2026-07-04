@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8054 安國
 
 ## Metadata
-- generated_at: 2026-07-03 22:28:16 Asia/Taipei
+- generated_at: 2026-07-04 22:28:03 Asia/Taipei
 - stock_id: 8054
 - stock_name: 安國
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 162
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,17 +157,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 42.32
-- over_600_ratio: 37.21
-- over_800_ratio: 35.35
-- over_1000_ratio: 32.8
-- over_400_change_1w: 7.68
-- over_800_change_1w: 7.63
-- over_1000_change_1w: 5.08
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260703
+- over_400_ratio: 38.88
+- over_600_ratio: 33.81
+- over_800_ratio: 31.97
+- over_1000_ratio: 31.17
+- over_400_change_1w: -3.44
+- over_800_change_1w: -3.38
+- over_1000_change_1w: -1.63
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -182,17 +182,20 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,34.78,0.39,27.72,-0.79,27.72,0,1,False,False
 20260618,34.64,-0.14,27.72,0,27.72,0,0,False,False
 20260626,42.32,7.68,35.35,7.63,32.8,5.08,1,True,True
+20260703,38.88,-3.44,31.97,-3.38,31.17,-1.63,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 20260703 | 8054 | 安國 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  |  | continued_overheated | 1.事實發生日:115/06/29 2.公司名稱:安國國際科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:依據「發行人募集與發行有價證券處理準則」第九條第一項第二款  規定，公告本公司發行國內第一次有擔保轉換公司債之委託代收價款行庫及  存儲專戶行庫等相關事宜。 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項):  (1)訂約日期：115/6/29  (2)委託代收價款行庫：國泰世華商業銀行新生分行  (3)委託存儲專戶行庫：中國信託商業銀行承德分行；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260703 | 8054 | 安國 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | continued_overheated | 1.事實發生日:115/06/29 2.公司名稱:安國國際科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:依據「發行人募集與發行有價證券處理準則」第九條第一項第二款  規定，公告本公司發行國內第一次有擔保轉換公司債之委託代收價款行庫及  存儲專戶行庫等相關事宜。 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項):  (1)訂約日期：115/6/29  (2)委託代收價款行庫：國泰世華商業銀行新生分行  (3)委託存儲專戶行庫：中國信託商業銀行承德分行；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260703 | 8054 | 安國 | revenue_breakout_low_response | 營收爆發低反應股 | 23.0 | 2.0 | A_優先追蹤 |  |  |  | continued_overheated | 1.事實發生日:115/06/29 2.公司名稱:安國國際科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:依據「發行人募集與發行有價證券處理準則」第九條第一項第二款  規定，公告本公司發行國內第一次有擔保轉換公司債之委託代收價款行庫及  存儲專戶行庫等相關事宜。 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項):  (1)訂約日期：115/6/29  (2)委託代收價款行庫：國泰世華商業銀行新生分行  (3)委託存儲專戶行庫：中國信託商業銀行承德分行；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 8054 | 安國 | 10 | 2 | 5 | 10 | 13 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260703 | 8054 | 安國 | 10 | 5 | 5 | 10 | 13 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

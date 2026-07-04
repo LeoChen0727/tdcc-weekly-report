@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4743 合一
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:20 Asia/Taipei
+- generated_at: 2026-07-04 22:27:12 Asia/Taipei
 - stock_id: 4743
 - stock_name: 合一
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 162
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -163,15 +163,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 45.97
-- over_600_ratio: 43.12
-- over_800_ratio: 41.68
-- over_1000_ratio: 41.3
-- over_400_change_1w: 0.18
-- over_800_change_1w: 0.25
-- over_1000_change_1w: 0.05
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260703
+- over_400_ratio: 46.16
+- over_600_ratio: 43.58
+- over_800_ratio: 42.12
+- over_1000_ratio: 41.74
+- over_400_change_1w: 0.19
+- over_800_change_1w: 0.44
+- over_1000_change_1w: 0.44
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -188,12 +188,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,45.67,-0.08,41.65,-0.01,41.29,-0.01,0,False,False
 20260618,45.79,0.12,41.43,-0.22,41.25,-0.04,1,False,False
 20260626,45.97,0.18,41.68,0.25,41.3,0.05,2,True,True
+20260703,46.16,0.19,42.12,0.44,41.74,0.44,3,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 4743 | 合一 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_breakout |  |  | repeated_but_no_breakout | 1.股東常會日期:115/06/24 2.重要決議事項一、盈餘分配或盈虧撥補:承認114年度盈餘分配案。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表:承認114年度財務報表及營業報告書案。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項:無。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260703 | 4743 | 合一 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_breakout |  |  | repeated_but_no_breakout | 1.人員變動別（請輸入發言人、代理發言人、重要營運主管 (如:執行長、營運長、行銷長及策略長等)、財務主管、會計 主管、公司治理主管、資訊安全長、研發主管、內部稽核主管或訴訟及非 訟代理人）:內部稽核主管 2.發生變動日期:115/07/03 3.舊任者姓名、級職及簡歷:郭悅琳/本公司內部稽核主管 4.新任者姓名、級職及簡歷:不適用 5.異動情形（請輸入「辭職」、「職務調整」、「資遣」、 「退休」、「死亡」、「新任」或「解任」）:辭職 6.異動原因:轉任關聯企業。 7.生效日期:115/07/03 8.其他應敘明事項: (1)新任內部稽核主管就任前，暫由本公司稽核代理人代行職務。 (2)新任內部稽核主管待審計委員會及董事會通過後另行公告。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

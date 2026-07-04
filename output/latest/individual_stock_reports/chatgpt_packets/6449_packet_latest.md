@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6449 鈺邦
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:48 Asia/Taipei
+- generated_at: 2026-07-04 22:27:37 Asia/Taipei
 - stock_id: 6449
 - stock_name: 鈺邦
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 74.08
-- over_600_ratio: 69.69
-- over_800_ratio: 66.8
-- over_1000_ratio: 64.96
-- over_400_change_1w: -2.91
-- over_800_change_1w: -0.19
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 4
+- as_of_date: 20260703
+- over_400_ratio: 73.43
+- over_600_ratio: 69.08
+- over_800_ratio: 67.44
+- over_1000_ratio: 63.54
+- over_400_change_1w: -0.65
+- over_800_change_1w: 0.64
+- over_1000_change_1w: -1.42
+- tdcc_consecutive_up_weeks: 5
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,76.41,0.59,68.49,0.04,67.47,1.14,2,True,True
 20260618,76.99,0.58,66.99,-1.5,64.96,-2.51,3,False,False
 20260626,74.08,-2.91,66.8,-0.19,64.96,0,4,False,False
+20260703,73.43,-0.65,67.44,0.64,63.54,-1.42,5,False,True
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1438 三地開發
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:09 Asia/Taipei
+- generated_at: 2026-07-04 22:26:09 Asia/Taipei
 - stock_id: 1438
 - stock_name: 三地開發
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 31
+- latest_tdcc_date: 20260703
+- tdcc_rows: 32
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,23 +158,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 83.07
-- over_600_ratio: 80.25
-- over_800_ratio: 78.93
-- over_1000_ratio: 76.34
-- over_400_change_1w: -0.02
-- over_800_change_1w: -0.01
-- over_1000_change_1w: -0.01
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260703
+- over_400_ratio: 83.09
+- over_600_ratio: 80.27
+- over_800_ratio: 78.95
+- over_1000_ratio: 76.36
+- over_400_change_1w: 0.02
+- over_800_change_1w: 0.02
+- over_1000_change_1w: 0.02
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260410,82.82,0.01,78.62,0.01,76.03,0.01,1,True,True
 20260417,82.82,0,78.63,0.01,76.04,0.01,2,False,True
 20260424,82.86,0.04,78.67,0.04,76.08,0.04,3,True,True
 20260430,82.88,0.02,78.68,0.01,76.09,0.01,4,True,True
@@ -186,6 +185,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,83.05,-0.12,78.9,-0.04,76.31,-0.04,0,False,False
 20260618,83.09,0.04,78.94,0.04,76.35,0.04,1,True,True
 20260626,83.07,-0.02,78.93,-0.01,76.34,-0.01,0,False,False
+20260703,83.09,0.02,78.95,0.02,76.36,0.02,1,True,True
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6870 騰雲
 
 ## Metadata
-- generated_at: 2026-07-03 22:28:01 Asia/Taipei
+- generated_at: 2026-07-04 22:27:50 Asia/Taipei
 - stock_id: 6870
 - stock_name: 騰雲
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 162
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,17 +157,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 71.28
-- over_600_ratio: 60.75
-- over_800_ratio: 57.89
-- over_1000_ratio: 57.89
-- over_400_change_1w: 0.33
-- over_800_change_1w: 0.2
-- over_1000_change_1w: 0.2
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260703
+- over_400_ratio: 71.58
+- over_600_ratio: 60.73
+- over_800_ratio: 57.88
+- over_1000_ratio: 57.88
+- over_400_change_1w: 0.3
+- over_800_change_1w: -0.01
+- over_1000_change_1w: -0.01
+- tdcc_consecutive_up_weeks: 3
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,69.35,-0.07,57.75,-0.15,57.75,-0.15,0,False,False
 20260618,70.95,1.6,57.69,-0.06,57.69,-0.06,1,False,False
 20260626,71.28,0.33,57.89,0.2,57.89,0.2,2,True,True
+20260703,71.58,0.3,57.88,-0.01,57.88,-0.01,3,False,False
 ```
 
 ## Candidate Context

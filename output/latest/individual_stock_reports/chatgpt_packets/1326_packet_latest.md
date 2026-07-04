@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1326 台化
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:08 Asia/Taipei
+- generated_at: 2026-07-04 22:26:07 Asia/Taipei
 - stock_id: 1326
 - stock_name: 台化
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,16 +158,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 82.97
-- over_600_ratio: 81.9
-- over_800_ratio: 81.13
-- over_1000_ratio: 80.44
-- over_400_change_1w: 0.57
-- over_800_change_1w: 0.65
-- over_1000_change_1w: 0.61
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: True
+- as_of_date: 20260703
+- over_400_ratio: 82.95
+- over_600_ratio: 81.88
+- over_800_ratio: 81.12
+- over_1000_ratio: 80.46
+- over_400_change_1w: -0.02
+- over_800_change_1w: -0.01
+- over_1000_change_1w: 0.02
+- tdcc_consecutive_up_weeks: 3
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -183,12 +183,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,81.8,-0.57,79.88,-0.59,79.21,-0.58,0,False,False
 20260618,82.4,0.6,80.48,0.6,79.83,0.62,1,True,True
 20260626,82.97,0.57,81.13,0.65,80.44,0.61,2,True,True
+20260703,82.95,-0.02,81.12,-0.01,80.46,0.02,3,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 1326 | 台化 | true_breakout | 嚴格突破 | 104.0 |  |  | breakout_confirmed |  | call_strong_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260703 | 1326 | 台化 | true_breakout | 嚴格突破 | 104.0 |  |  | breakout_confirmed |  | call_put_bullish | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
@@ -198,7 +199,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 1326 | 台化 | 119 | 0 | 146759790.0 | 0.0 |  | call_strong_inflow |
+| 20260703 | 1326 | 台化 | 119 | 8 | 146759790.0 | 55160.0 | 2660.62 | call_put_bullish |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

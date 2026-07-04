@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1418 東華
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:09 Asia/Taipei
+- generated_at: 2026-07-04 22:26:08 Asia/Taipei
 - stock_id: 1418
 - stock_name: 東華
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 295
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 71.43
-- over_600_ratio: 64.23
+- as_of_date: 20260703
+- over_400_ratio: 71.44
+- over_600_ratio: 64.24
 - over_800_ratio: 62.1
 - over_1000_ratio: 58.95
 - over_400_change_1w: 0.01
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 3
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,71.41,0.01,62.1,0,58.95,0,1,False,False
 20260618,71.42,0.01,62.1,0,58.95,0,2,False,False
 20260626,71.43,0.01,62.1,0,58.95,0,3,False,False
+20260703,71.44,0.01,62.1,0,58.95,0,4,False,False
 ```
 
 ## Candidate Context

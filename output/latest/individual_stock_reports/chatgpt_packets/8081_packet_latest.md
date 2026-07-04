@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8081 致新
 
 ## Metadata
-- generated_at: 2026-07-03 22:28:16 Asia/Taipei
+- generated_at: 2026-07-04 22:28:04 Asia/Taipei
 - stock_id: 8081
 - stock_name: 致新
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,16 +157,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 41.49
-- over_600_ratio: 34.78
-- over_800_ratio: 31.6
-- over_1000_ratio: 25.55
-- over_400_change_1w: 0.79
-- over_800_change_1w: 0.12
-- over_1000_change_1w: 0.12
-- tdcc_consecutive_up_weeks: 5
-- all_thresholds_up: True
+- as_of_date: 20260703
+- over_400_ratio: 39.68
+- over_600_ratio: 32.29
+- over_800_ratio: 30.03
+- over_1000_ratio: 25.92
+- over_400_change_1w: -1.81
+- over_800_change_1w: -1.57
+- over_1000_change_1w: 0.37
+- tdcc_consecutive_up_weeks: 6
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,40.12,0.66,32.39,1.08,25.36,0,3,False,True
 20260618,40.7,0.58,31.48,-0.91,25.43,0.07,4,False,True
 20260626,41.49,0.79,31.6,0.12,25.55,0.12,5,True,True
+20260703,39.68,-1.81,30.03,-1.57,25.92,0.37,6,False,True
 ```
 
 ## Candidate Context

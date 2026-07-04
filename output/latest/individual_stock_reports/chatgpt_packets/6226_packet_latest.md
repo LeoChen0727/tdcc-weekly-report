@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6226 光鼎
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:43 Asia/Taipei
+- generated_at: 2026-07-04 22:27:33 Asia/Taipei
 - stock_id: 6226
 - stock_name: 光鼎
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -156,16 +156,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 29.68
-- over_600_ratio: 25.99
-- over_800_ratio: 23.48
-- over_1000_ratio: 20.99
-- over_400_change_1w: 3.9
-- over_800_change_1w: 3.79
-- over_1000_change_1w: 3.57
-- tdcc_consecutive_up_weeks: 5
-- all_thresholds_up: True
+- as_of_date: 20260703
+- over_400_ratio: 29.2
+- over_600_ratio: 25.47
+- over_800_ratio: 23.56
+- over_1000_ratio: 22.05
+- over_400_change_1w: -0.48
+- over_800_change_1w: 0.08
+- over_1000_change_1w: 1.06
+- tdcc_consecutive_up_weeks: 6
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -181,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,25.52,-0.25,18.9,-0.48,17.31,1.81,3,False,True
 20260618,25.78,0.26,19.69,0.79,17.42,0.11,4,True,True
 20260626,29.68,3.9,23.48,3.79,20.99,3.57,5,True,True
+20260703,29.2,-0.48,23.56,0.08,22.05,1.06,6,False,True
 ```
 
 ## Candidate Context

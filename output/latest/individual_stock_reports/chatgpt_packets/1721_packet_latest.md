@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1721 三晃
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:18 Asia/Taipei
+- generated_at: 2026-07-04 22:26:16 Asia/Taipei
 - stock_id: 1721
 - stock_name: 三晃
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 37.94
-- over_600_ratio: 35.85
-- over_800_ratio: 33.18
-- over_1000_ratio: 32.24
-- over_400_change_1w: -1.44
-- over_800_change_1w: -1.64
-- over_1000_change_1w: -1.64
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260703
+- over_400_ratio: 38.08
+- over_600_ratio: 35.73
+- over_800_ratio: 33.06
+- over_1000_ratio: 32.12
+- over_400_change_1w: 0.14
+- over_800_change_1w: -0.12
+- over_1000_change_1w: -0.12
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,40,0.08,34.93,-0.11,33.99,-0.11,1,False,False
 20260618,39.38,-0.62,34.82,-0.11,33.88,-0.11,0,False,False
 20260626,37.94,-1.44,33.18,-1.64,32.24,-1.64,0,False,False
+20260703,38.08,0.14,33.06,-0.12,32.12,-0.12,1,False,False
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1710 東聯
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:17 Asia/Taipei
+- generated_at: 2026-07-04 22:26:16 Asia/Taipei
 - stock_id: 1710
 - stock_name: 東聯
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 61.57
-- over_600_ratio: 59.39
-- over_800_ratio: 57.87
-- over_1000_ratio: 56.36
-- over_400_change_1w: 0.21
-- over_800_change_1w: 0.09
-- over_1000_change_1w: 0.41
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260703
+- over_400_ratio: 62.56
+- over_600_ratio: 60.15
+- over_800_ratio: 58.23
+- over_1000_ratio: 57.32
+- over_400_change_1w: 0.99
+- over_800_change_1w: 0.36
+- over_1000_change_1w: 0.96
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -183,12 +183,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,61.39,-0.39,57.84,-0.33,56.13,-0.02,0,False,False
 20260618,61.36,-0.03,57.78,-0.06,55.95,-0.18,0,False,False
 20260626,61.57,0.21,57.87,0.09,56.36,0.41,1,True,True
+20260703,62.56,0.99,58.23,0.36,57.32,0.96,2,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 1710 | 東聯 | true_breakout | 嚴格突破 | 87.0 |  |  | platform_breakout |  | call_inflow | first_seen | 符合條款第四條第XX款：12 事實發生日：115/06/23 1.召開法人說明會之日期：115/06/23 2.召開法人說明會之時間：14 時 00 分  3.召開法人說明會之地點：視訊會議 4.法人說明會擇要訊息：說明公司營運情形，相關訊息請參閱本公司網站。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260703 | 1710 | 東聯 | true_breakout | 嚴格突破 | 87.0 |  |  | platform_breakout |  | call_inflow | first_seen | 1.事實發生日:115/07/02 2.發生緣由:依據臺灣證券交易所股份有限公司通知辦理 3.財務業務資訊:  	   最近一月    與去年同    最近一季      與去年同       最近四季累計          合併自結數    期增減%    合併核閱數     期增減%        合併核閱數          (115年5月)              (115年第1季)                (114年第2季至                                                               115年第1季) ----------------------------------------------------------------------------- 營業收入   1,293       -28.90%      5,346      -12.84%          21,466 (百萬) 稅前淨利     -28        73.00%       -219      -41.24%          -1,227 (百萬) 歸屬母公司    11       111.87%       -127      -28.19%            -915 業主淨利 (百萬) 每股盈餘    0.01       110.00%      -0.15      -36.36%           -1.05 (元) 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告:無 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

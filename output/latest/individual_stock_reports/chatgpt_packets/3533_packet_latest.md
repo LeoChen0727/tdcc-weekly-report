@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3533 嘉澤
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:04 Asia/Taipei
+- generated_at: 2026-07-04 22:26:58 Asia/Taipei
 - stock_id: 3533
 - stock_name: 嘉澤
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 63.86
+- as_of_date: 20260703
+- over_400_ratio: 64.2
 - over_600_ratio: 56.95
-- over_800_ratio: 54.56
-- over_1000_ratio: 45.9
-- over_400_change_1w: 0.78
-- over_800_change_1w: 1.07
-- over_1000_change_1w: 1.93
-- tdcc_consecutive_up_weeks: 8
+- over_800_ratio: 52.53
+- over_1000_ratio: 46.81
+- over_400_change_1w: 0.34
+- over_800_change_1w: -2.03
+- over_1000_change_1w: 0.91
+- tdcc_consecutive_up_weeks: 9
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,63.06,0.66,52.29,1.42,45.2,-0.17,6,False,True
 20260618,63.08,0.02,53.49,1.2,43.97,-1.23,7,False,True
 20260626,63.86,0.78,54.56,1.07,45.9,1.93,8,False,True
+20260703,64.2,0.34,52.53,-2.03,46.81,0.91,9,False,True
 ```
 
 ## Candidate Context
@@ -198,7 +199,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 3533 | 嘉澤 | 155 | 0 | 15661760.0 | 0.0 |  | no_signal |
+| 20260703 | 3533 | 嘉澤 | 155 | 3 | 15661760.0 | 1680.0 | 9322.48 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

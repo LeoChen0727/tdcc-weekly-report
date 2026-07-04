@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6727 亞泰金屬
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:57 Asia/Taipei
+- generated_at: 2026-07-04 22:27:46 Asia/Taipei
 - stock_id: 6727
 - stock_name: 亞泰金屬
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 162
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,16 +158,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 22.73
-- over_600_ratio: 12.31
-- over_800_ratio: 9.71
-- over_1000_ratio: 6.39
-- over_400_change_1w: -1.36
-- over_800_change_1w: 0.48
-- over_1000_change_1w: 0.48
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: False
+- as_of_date: 20260703
+- over_400_ratio: 22.98
+- over_600_ratio: 14.7
+- over_800_ratio: 9.85
+- over_1000_ratio: 6.53
+- over_400_change_1w: 0.25
+- over_800_change_1w: 0.14
+- over_1000_change_1w: 0.14
+- tdcc_consecutive_up_weeks: 3
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,22.91,-8.97,9.46,-2.45,6.14,-2.45,0,False,False
 20260618,24.09,1.18,9.23,-0.23,5.91,-0.23,1,False,False
 20260626,22.73,-1.36,9.71,0.48,6.39,0.48,2,False,True
+20260703,22.98,0.25,9.85,0.14,6.53,0.14,3,True,True
 ```
 
 ## Candidate Context

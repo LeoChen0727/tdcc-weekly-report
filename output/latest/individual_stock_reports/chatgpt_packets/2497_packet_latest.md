@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2497 怡利電
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:37 Asia/Taipei
+- generated_at: 2026-07-04 22:26:34 Asia/Taipei
 - stock_id: 2497
 - stock_name: 怡利電
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 296
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 68.82
-- over_600_ratio: 65.9
-- over_800_ratio: 60.54
-- over_1000_ratio: 57
-- over_400_change_1w: -0.13
-- over_800_change_1w: -0.5
-- over_1000_change_1w: 0.11
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260703
+- over_400_ratio: 68.55
+- over_600_ratio: 66.42
+- over_800_ratio: 61.65
+- over_1000_ratio: 57.39
+- over_400_change_1w: -0.27
+- over_800_change_1w: 1.11
+- over_1000_change_1w: 0.39
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,69.43,1.16,61.06,0.67,56.78,-0.75,1,False,True
 20260618,68.95,-0.48,61.04,-0.02,56.89,0.11,2,False,True
 20260626,68.82,-0.13,60.54,-0.5,57,0.11,3,False,True
+20260703,68.55,-0.27,61.65,1.11,57.39,0.39,4,False,True
 ```
 
 ## Candidate Context

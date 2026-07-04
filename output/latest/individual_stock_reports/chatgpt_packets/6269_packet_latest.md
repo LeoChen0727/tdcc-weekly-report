@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6269 台郡
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:45 Asia/Taipei
+- generated_at: 2026-07-04 22:27:35 Asia/Taipei
 - stock_id: 6269
 - stock_name: 台郡
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -156,14 +156,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 35.81
-- over_600_ratio: 32.77
-- over_800_ratio: 30.13
-- over_1000_ratio: 28.24
-- over_400_change_1w: -1.59
-- over_800_change_1w: -1.64
-- over_1000_change_1w: -1.89
+- as_of_date: 20260703
+- over_400_ratio: 32.38
+- over_600_ratio: 29.33
+- over_800_ratio: 26.34
+- over_1000_ratio: 25.23
+- over_400_change_1w: -3.43
+- over_800_change_1w: -3.79
+- over_1000_change_1w: -3.01
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -181,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,33.32,-0.65,28.05,-0.22,26.71,-0.47,0,False,False
 20260618,37.4,4.08,31.77,3.72,30.13,3.42,1,True,True
 20260626,35.81,-1.59,30.13,-1.64,28.24,-1.89,0,False,False
+20260703,32.38,-3.43,26.34,-3.79,25.23,-3.01,0,False,False
 ```
 
 ## Candidate Context

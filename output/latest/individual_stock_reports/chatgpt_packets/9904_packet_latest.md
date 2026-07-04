@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9904 寶成
 
 ## Metadata
-- generated_at: 2026-07-03 22:28:26 Asia/Taipei
+- generated_at: 2026-07-04 22:28:13 Asia/Taipei
 - stock_id: 9904
 - stock_name: 寶成
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,14 +158,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 72.54
-- over_600_ratio: 70.75
-- over_800_ratio: 69.29
-- over_1000_ratio: 68.4
-- over_400_change_1w: -0.82
-- over_800_change_1w: -1.07
-- over_1000_change_1w: -1.02
+- as_of_date: 20260703
+- over_400_ratio: 70.05
+- over_600_ratio: 68.18
+- over_800_ratio: 66.76
+- over_1000_ratio: 65.7
+- over_400_change_1w: -2.49
+- over_800_change_1w: -2.53
+- over_1000_change_1w: -2.7
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,73.62,-0.38,70.63,-0.5,69.67,-0.47,0,False,False
 20260618,73.36,-0.26,70.36,-0.27,69.42,-0.25,0,False,False
 20260626,72.54,-0.82,69.29,-1.07,68.4,-1.02,0,False,False
+20260703,70.05,-2.49,66.76,-2.53,65.7,-2.7,0,False,False
 ```
 
 ## Candidate Context

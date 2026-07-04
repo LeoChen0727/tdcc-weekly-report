@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3645 達邁
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:07 Asia/Taipei
+- generated_at: 2026-07-04 22:27:01 Asia/Taipei
 - stock_id: 3645
 - stock_name: 達邁
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 45.75
-- over_600_ratio: 40.14
-- over_800_ratio: 37.3
-- over_1000_ratio: 35.99
-- over_400_change_1w: -0.39
-- over_800_change_1w: 1
-- over_1000_change_1w: 1.09
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260703
+- over_400_ratio: 45.26
+- over_600_ratio: 39.2
+- over_800_ratio: 36.78
+- over_1000_ratio: 36.08
+- over_400_change_1w: -0.49
+- over_800_change_1w: -0.52
+- over_1000_change_1w: 0.09
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,46.7,0.35,37.57,-1.23,36.2,-0.6,1,False,False
 20260618,46.14,-0.56,36.3,-1.27,34.9,-1.3,2,False,False
 20260626,45.75,-0.39,37.3,1,35.99,1.09,3,False,True
+20260703,45.26,-0.49,36.78,-0.52,36.08,0.09,4,False,True
 ```
 
 ## Candidate Context

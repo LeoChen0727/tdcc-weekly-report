@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3105 穩懋
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:53 Asia/Taipei
+- generated_at: 2026-07-04 22:26:48 Asia/Taipei
 - stock_id: 3105
 - stock_name: 穩懋
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 162
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,17 +157,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 54.25
-- over_600_ratio: 51.27
-- over_800_ratio: 50.08
-- over_1000_ratio: 48.13
-- over_400_change_1w: -1.44
-- over_800_change_1w: -0.73
-- over_1000_change_1w: 0.03
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260703
+- over_400_ratio: 52.25
+- over_600_ratio: 49.45
+- over_800_ratio: 48.61
+- over_1000_ratio: 46.89
+- over_400_change_1w: -2
+- over_800_change_1w: -1.47
+- over_1000_change_1w: -1.24
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,54.12,-0.1,48.61,0.08,46.71,0.49,1,False,True
 20260618,55.69,1.57,50.81,2.2,48.1,1.39,2,True,True
 20260626,54.25,-1.44,50.08,-0.73,48.13,0.03,3,False,True
+20260703,52.25,-2,48.61,-1.47,46.89,-1.24,0,False,False
 ```
 
 ## Candidate Context

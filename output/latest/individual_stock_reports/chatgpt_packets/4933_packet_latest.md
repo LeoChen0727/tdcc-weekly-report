@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4933 友輝
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:23 Asia/Taipei
+- generated_at: 2026-07-04 22:27:14 Asia/Taipei
 - stock_id: 4933
 - stock_name: 友輝
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 162
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 63.23
-- over_600_ratio: 60.71
+- as_of_date: 20260703
+- over_400_ratio: 63.74
+- over_600_ratio: 61.43
 - over_800_ratio: 60.71
 - over_1000_ratio: 59.63
-- over_400_change_1w: -0.02
-- over_800_change_1w: -0.03
-- over_1000_change_1w: -0.03
-- tdcc_consecutive_up_weeks: 0
+- over_400_change_1w: 0.51
+- over_800_change_1w: 0
+- over_1000_change_1w: 0
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,63.83,-0.52,60.74,-0.01,59.66,-0.01,0,False,False
 20260618,63.25,-0.58,60.74,0,59.66,0,0,False,False
 20260626,63.23,-0.02,60.71,-0.03,59.63,-0.03,0,False,False
+20260703,63.74,0.51,60.71,0,59.63,0,1,False,False
 ```
 
 ## Candidate Context

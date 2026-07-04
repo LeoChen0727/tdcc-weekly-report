@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3631 晟楠
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:07 Asia/Taipei
+- generated_at: 2026-07-04 22:27:01 Asia/Taipei
 - stock_id: 3631
 - stock_name: 晟楠
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 162
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 80.38
+- as_of_date: 20260703
+- over_400_ratio: 80.41
 - over_600_ratio: 76.94
 - over_800_ratio: 76.15
 - over_1000_ratio: 74.99
-- over_400_change_1w: 0.02
+- over_400_change_1w: 0.03
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 4
+- tdcc_consecutive_up_weeks: 5
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,80.31,0.09,76.15,0,74.99,0,2,False,False
 20260618,80.36,0.05,76.15,0,74.99,0,3,False,False
 20260626,80.38,0.02,76.15,0,74.99,0,4,False,False
+20260703,80.41,0.03,76.15,0,74.99,0,5,False,False
 ```
 
 ## Candidate Context

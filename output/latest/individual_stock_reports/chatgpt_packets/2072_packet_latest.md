@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2072 世紀風電
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:24 Asia/Taipei
+- generated_at: 2026-07-04 22:26:22 Asia/Taipei
 - stock_id: 2072
 - stock_name: 世紀風電
 - packet_status: standard_rawdata_packet
 - latest_price_date: 20260703
 - price_rows: 67
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,17 +157,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 75.87
-- over_600_ratio: 73.63
-- over_800_ratio: 72.5
-- over_1000_ratio: 72.08
-- over_400_change_1w: -0.38
-- over_800_change_1w: 0
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 5
+- as_of_date: 20260703
+- over_400_ratio: 75.58
+- over_600_ratio: 73.37
+- over_800_ratio: 72.62
+- over_1000_ratio: 72.2
+- over_400_change_1w: -0.29
+- over_800_change_1w: 0.12
+- over_1000_change_1w: 0.12
+- tdcc_consecutive_up_weeks: 6
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,76.24,0.32,72.5,0,72.08,0,3,False,False
 20260618,76.25,0.01,72.5,0,72.08,0,4,False,False
 20260626,75.87,-0.38,72.5,0,72.08,0,5,False,False
+20260703,75.58,-0.29,72.62,0.12,72.2,0.12,6,False,True
 ```
 
 ## Candidate Context

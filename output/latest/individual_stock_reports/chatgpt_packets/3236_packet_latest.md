@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3236 千如
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:57 Asia/Taipei
+- generated_at: 2026-07-04 22:26:51 Asia/Taipei
 - stock_id: 3236
 - stock_name: 千如
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 162
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -156,15 +156,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 37.24
-- over_600_ratio: 33.85
-- over_800_ratio: 32.47
-- over_1000_ratio: 30.88
-- over_400_change_1w: 1.99
-- over_800_change_1w: 1.04
-- over_1000_change_1w: 1.84
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260703
+- over_400_ratio: 37.5
+- over_600_ratio: 34.12
+- over_800_ratio: 34.12
+- over_1000_ratio: 31.67
+- over_400_change_1w: 0.26
+- over_800_change_1w: 1.65
+- over_1000_change_1w: 0.79
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -181,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,40.83,0.97,35.75,1.56,31.46,0.56,6,True,True
 20260618,35.25,-5.58,31.43,-4.32,29.04,-2.42,0,False,False
 20260626,37.24,1.99,32.47,1.04,30.88,1.84,1,True,True
+20260703,37.5,0.26,34.12,1.65,31.67,0.79,2,True,True
 ```
 
 ## Candidate Context

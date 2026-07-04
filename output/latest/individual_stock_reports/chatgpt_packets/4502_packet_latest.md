@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4502 健信
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:15 Asia/Taipei
+- generated_at: 2026-07-04 22:27:08 Asia/Taipei
 - stock_id: 4502
 - stock_name: 健信
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 162
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,14 +158,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 69.52
-- over_600_ratio: 66.2
-- over_800_ratio: 62.54
+- as_of_date: 20260703
+- over_400_ratio: 69.48
+- over_600_ratio: 66.16
+- over_800_ratio: 62.5
 - over_1000_ratio: 56.32
 - over_400_change_1w: -0.04
 - over_800_change_1w: -0.04
-- over_1000_change_1w: -1.76
+- over_1000_change_1w: 0
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,69.68,0,62.66,0,58.16,0,0,False,False
 20260618,69.56,-0.12,62.58,-0.08,58.08,-0.08,0,False,False
 20260626,69.52,-0.04,62.54,-0.04,56.32,-1.76,0,False,False
+20260703,69.48,-0.04,62.5,-0.04,56.32,0,0,False,False
 ```
 
 ## Candidate Context

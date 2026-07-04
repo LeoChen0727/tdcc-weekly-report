@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0001 臺股指數
 
 ## Metadata
-- generated_at: 2026-07-03 22:25:59 Asia/Taipei
+- generated_at: 2026-07-04 22:25:59 Asia/Taipei
 - stock_id: 0001
 - stock_name: 臺股指數
 - packet_status: insufficient_price_data
@@ -170,7 +170,7 @@ no_rows,True
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 0001 | 臺股指數 | 402 | 0 | 35322340.0 | 0.0 |  | no_signal |
+| 20260703 | 0001 | 臺股指數 | 402 | 429 | 35322340.0 | 23222190.0 | 1.52 | put_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

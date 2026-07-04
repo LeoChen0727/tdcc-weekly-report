@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2233 宇隆
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:26 Asia/Taipei
+- generated_at: 2026-07-04 22:26:24 Asia/Taipei
 - stock_id: 2233
 - stock_name: 宇隆
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 51.4
-- over_600_ratio: 47.15
-- over_800_ratio: 40.58
-- over_1000_ratio: 33.14
-- over_400_change_1w: -1.71
-- over_800_change_1w: -2.18
-- over_1000_change_1w: -2.05
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260703
+- over_400_ratio: 49.03
+- over_600_ratio: 44.73
+- over_800_ratio: 37.12
+- over_1000_ratio: 34.23
+- over_400_change_1w: -2.37
+- over_800_change_1w: -3.46
+- over_1000_change_1w: 1.09
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -183,12 +183,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,52.59,-1.54,41.08,-0.38,35.19,-1.73,0,False,False
 20260618,53.11,0.52,42.76,1.68,35.19,0,1,False,True
 20260626,51.4,-1.71,40.58,-2.18,33.14,-2.05,0,False,False
+20260703,49.03,-2.37,37.12,-3.46,34.23,1.09,1,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 2233 | 宇隆 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_inflow | stale_signal | 1.董事會決議日期或發生變動日期:115/06/22 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:伸興工業股份有限公司 代表人：劉俊昌 4.舊任者簡歷:宇隆科技股份有限公司董事長 5.新任者姓名:伸興工業股份有限公司 代表人：林志誠 6.新任者簡歷:伸興工業股份有限公司董事長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:辭職 8.異動原因:辭職 9.新任生效日期:115/06/22 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 本公司於115年06月22日接獲董事長請辭董事長職務，生效日為115年06月22日 本公司於同日115年06月22日召開董事會，推舉林志誠董事為新任董事長。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260703 | 2233 | 宇隆 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_inflow | stale_signal | 內容：本公司國內第一次無擔保轉換公司債發行及轉換辦法第九條辦理。<br>(一)停止受理轉交換之事由：辦理配股配息作業事宜。<br>(其他事項敘明：)<br>(二)停止受理轉交換登記起訖日期：115年07月13日至115年08月05日止。<br>(三)債券持有人如擬申請轉換，最遲應於停止受理轉換登記之始日（115年07月13日）之前一營業日前（115年07月10日），向往來證券商辦理轉換手續。<br>無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
@@ -198,7 +199,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 2233 | 宇隆 | 47 | 0 | 3021140.0 | 0.0 |  | call_inflow |
+| 20260703 | 2233 | 宇隆 | 47 | 1 | 3021140.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

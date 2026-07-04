@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4744 皇將
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:20 Asia/Taipei
+- generated_at: 2026-07-04 22:27:12 Asia/Taipei
 - stock_id: 4744
 - stock_name: 皇將
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 162
-- latest_tdcc_date: 20260626
-- tdcc_rows: 31
+- latest_tdcc_date: 20260703
+- tdcc_rows: 32
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,23 +157,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
+- as_of_date: 20260703
 - over_400_ratio: 51.51
 - over_600_ratio: 46.22
 - over_800_ratio: 39.87
 - over_1000_ratio: 35.21
-- over_400_change_1w: -1.17
-- over_800_change_1w: 1.33
-- over_1000_change_1w: -0.09
-- tdcc_consecutive_up_weeks: 30
+- over_400_change_1w: 0
+- over_800_change_1w: 0
+- over_1000_change_1w: 0
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260410,49.67,1.65,37.47,-0.98,29.17,-2.85,19,False,False
 20260417,48.7,-0.97,37.43,-0.04,29.44,0.27,20,False,True
 20260424,48.97,0.27,37.67,0.24,29.7,0.26,21,True,True
 20260430,49.06,0.09,35.04,-2.63,27.12,-2.58,22,False,False
@@ -185,6 +184,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,52.06,-1.06,40.64,0.02,34.29,0.03,28,False,True
 20260618,52.68,0.62,38.54,-2.1,35.3,1.01,29,False,True
 20260626,51.51,-1.17,39.87,1.33,35.21,-0.09,30,False,True
+20260703,51.51,0,39.87,0,35.21,0,0,False,False
 ```
 
 ## Candidate Context

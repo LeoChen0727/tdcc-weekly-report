@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1459 聯發
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:11 Asia/Taipei
+- generated_at: 2026-07-04 22:26:10 Asia/Taipei
 - stock_id: 1459
 - stock_name: 聯發
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 85.58
-- over_600_ratio: 83.33
-- over_800_ratio: 81.2
-- over_1000_ratio: 79.41
-- over_400_change_1w: 0.07
-- over_800_change_1w: 0.21
-- over_1000_change_1w: 0.21
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260703
+- over_400_ratio: 85.62
+- over_600_ratio: 83.37
+- over_800_ratio: 81.24
+- over_1000_ratio: 79.48
+- over_400_change_1w: 0.04
+- over_800_change_1w: 0.04
+- over_1000_change_1w: 0.07
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,85.63,0.11,80.99,0.11,79.2,0.1,6,True,True
 20260618,85.51,-0.12,80.99,0,79.2,0,0,False,False
 20260626,85.58,0.07,81.2,0.21,79.41,0.21,1,True,True
+20260703,85.62,0.04,81.24,0.04,79.48,0.07,2,True,True
 ```
 
 ## Candidate Context

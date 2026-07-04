@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3024 憶聲
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:49 Asia/Taipei
+- generated_at: 2026-07-04 22:26:44 Asia/Taipei
 - stock_id: 3024
 - stock_name: 憶聲
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 48.58
-- over_600_ratio: 45.1
-- over_800_ratio: 40.71
-- over_1000_ratio: 36.43
-- over_400_change_1w: -0.03
-- over_800_change_1w: 0.22
-- over_1000_change_1w: -0.14
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260703
+- over_400_ratio: 47.95
+- over_600_ratio: 44.92
+- over_800_ratio: 40.55
+- over_1000_ratio: 36.25
+- over_400_change_1w: -0.63
+- over_800_change_1w: -0.16
+- over_1000_change_1w: -0.18
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,49.35,-0.72,40.81,-0.79,36.89,-0.09,0,False,False
 20260618,48.61,-0.74,40.49,-0.32,36.57,-0.32,0,False,False
 20260626,48.58,-0.03,40.71,0.22,36.43,-0.14,1,False,True
+20260703,47.95,-0.63,40.55,-0.16,36.25,-0.18,0,False,False
 ```
 
 ## Candidate Context

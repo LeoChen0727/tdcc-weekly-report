@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9105 泰金寶-DR
 
 ## Metadata
-- generated_at: 2026-07-03 22:28:26 Asia/Taipei
+- generated_at: 2026-07-04 22:28:12 Asia/Taipei
 - stock_id: 9105
 - stock_name: 泰金寶-DR
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 23.37
-- over_600_ratio: 18.54
-- over_800_ratio: 15.73
-- over_1000_ratio: 13.22
-- over_400_change_1w: -0.99
-- over_800_change_1w: -1.11
-- over_1000_change_1w: -0.84
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260703
+- over_400_ratio: 23.36
+- over_600_ratio: 18.64
+- over_800_ratio: 16.21
+- over_1000_ratio: 13.49
+- over_400_change_1w: -0.01
+- over_800_change_1w: 0.48
+- over_1000_change_1w: 0.27
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,24.72,-2.59,17.49,-1.75,15.01,-1.74,0,False,False
 20260618,24.36,-0.36,16.84,-0.65,14.06,-0.95,0,False,False
 20260626,23.37,-0.99,15.73,-1.11,13.22,-0.84,0,False,False
+20260703,23.36,-0.01,16.21,0.48,13.49,0.27,1,False,True
 ```
 
 ## Candidate Context

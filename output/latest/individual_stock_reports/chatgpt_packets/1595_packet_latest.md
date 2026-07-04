@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1595 川寶
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:15 Asia/Taipei
+- generated_at: 2026-07-04 22:26:14 Asia/Taipei
 - stock_id: 1595
 - stock_name: 川寶
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 162
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 45.03
-- over_600_ratio: 40.65
-- over_800_ratio: 39.29
-- over_1000_ratio: 36.09
-- over_400_change_1w: -1.12
-- over_800_change_1w: 1.28
-- over_1000_change_1w: -0.36
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260703
+- over_400_ratio: 45.99
+- over_600_ratio: 40.62
+- over_800_ratio: 39.24
+- over_1000_ratio: 36.08
+- over_400_change_1w: 0.96
+- over_800_change_1w: -0.05
+- over_1000_change_1w: -0.01
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,46.16,0.64,38.02,-0.2,36.46,-0.2,1,False,False
 20260618,46.15,-0.01,38.01,-0.01,36.45,-0.01,2,False,False
 20260626,45.03,-1.12,39.29,1.28,36.09,-0.36,3,False,True
+20260703,45.99,0.96,39.24,-0.05,36.08,-0.01,4,False,False
 ```
 
 ## Candidate Context

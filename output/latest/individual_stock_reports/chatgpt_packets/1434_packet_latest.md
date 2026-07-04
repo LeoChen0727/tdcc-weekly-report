@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1434 福懋
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:09 Asia/Taipei
+- generated_at: 2026-07-04 22:26:09 Asia/Taipei
 - stock_id: 1434
 - stock_name: 福懋
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -163,16 +163,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
+- as_of_date: 20260703
 - over_400_ratio: 72.17
-- over_600_ratio: 70.35
-- over_800_ratio: 69.44
-- over_1000_ratio: 68.44
-- over_400_change_1w: 0.1
-- over_800_change_1w: 0.28
-- over_1000_change_1w: 0.08
-- tdcc_consecutive_up_weeks: 8
-- all_thresholds_up: True
+- over_600_ratio: 70.39
+- over_800_ratio: 69.35
+- over_1000_ratio: 68.49
+- over_400_change_1w: 0
+- over_800_change_1w: -0.09
+- over_1000_change_1w: 0.05
+- tdcc_consecutive_up_weeks: 9
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -188,6 +188,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,71.93,0.09,69.07,0.05,68.27,-0.06,6,False,True
 20260618,72.07,0.14,69.16,0.09,68.36,0.09,7,True,True
 20260626,72.17,0.1,69.44,0.28,68.44,0.08,8,True,True
+20260703,72.17,0,69.35,-0.09,68.49,0.05,9,False,True
 ```
 
 ## Candidate Context

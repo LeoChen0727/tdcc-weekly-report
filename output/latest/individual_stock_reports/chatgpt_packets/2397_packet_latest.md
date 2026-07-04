@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2397 友通
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:32 Asia/Taipei
+- generated_at: 2026-07-04 22:26:29 Asia/Taipei
 - stock_id: 2397
 - stock_name: 友通
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,14 +158,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 70
-- over_600_ratio: 68.59
-- over_800_ratio: 67.39
-- over_1000_ratio: 67.39
-- over_400_change_1w: -0.41
-- over_800_change_1w: -0.55
-- over_1000_change_1w: -0.55
+- as_of_date: 20260703
+- over_400_ratio: 69.39
+- over_600_ratio: 68.43
+- over_800_ratio: 67.19
+- over_1000_ratio: 67.19
+- over_400_change_1w: -0.61
+- over_800_change_1w: -0.2
+- over_1000_change_1w: -0.2
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,70.73,-0.38,68.31,0.06,68.31,0.92,1,False,True
 20260618,70.41,-0.32,67.94,-0.37,67.94,-0.37,0,False,False
 20260626,70,-0.41,67.39,-0.55,67.39,-0.55,0,False,False
+20260703,69.39,-0.61,67.19,-0.2,67.19,-0.2,0,False,False
 ```
 
 ## Candidate Context

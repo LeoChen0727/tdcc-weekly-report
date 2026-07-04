@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6899 創為精密
 
 ## Metadata
-- generated_at: 2026-07-03 22:28:02 Asia/Taipei
+- generated_at: 2026-07-04 22:27:51 Asia/Taipei
 - stock_id: 6899
 - stock_name: 創為精密
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 159
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,14 +158,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 80.17
-- over_600_ratio: 71.24
-- over_800_ratio: 68.21
-- over_1000_ratio: 66.01
-- over_400_change_1w: 0
-- over_800_change_1w: 0
-- over_1000_change_1w: 0
+- as_of_date: 20260703
+- over_400_ratio: 80.15
+- over_600_ratio: 71.21
+- over_800_ratio: 68.19
+- over_1000_ratio: 65.99
+- over_400_change_1w: -0.02
+- over_800_change_1w: -0.02
+- over_1000_change_1w: -0.02
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,80.17,-0.05,68.21,-0.01,66.01,-0.01,0,False,False
 20260618,80.17,0,68.21,0,66.01,0,0,False,False
 20260626,80.17,0,68.21,0,66.01,0,0,False,False
+20260703,80.15,-0.02,68.19,-0.02,65.99,-0.02,0,False,False
 ```
 
 ## Candidate Context

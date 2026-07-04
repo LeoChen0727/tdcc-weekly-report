@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1805 寶徠
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:20 Asia/Taipei
+- generated_at: 2026-07-04 22:26:19 Asia/Taipei
 - stock_id: 1805
 - stock_name: 寶徠
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 31
+- latest_tdcc_date: 20260703
+- tdcc_rows: 32
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,23 +158,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 77.78
-- over_600_ratio: 73.93
-- over_800_ratio: 72.33
-- over_1000_ratio: 70.31
-- over_400_change_1w: 0.02
-- over_800_change_1w: 0.02
+- as_of_date: 20260703
+- over_400_ratio: 77.75
+- over_600_ratio: 73.94
+- over_800_ratio: 72.34
+- over_1000_ratio: 70.33
+- over_400_change_1w: -0.03
+- over_800_change_1w: 0.01
 - over_1000_change_1w: 0.02
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: True
+- tdcc_consecutive_up_weeks: 4
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260410,76.98,0.08,70.75,0.07,68.67,0.06,2,True,True
 20260417,77.08,0.1,70.86,0.11,68.76,0.09,3,True,True
 20260424,77.8,0.72,70.92,0.06,68.82,0.06,4,True,True
 20260430,77.95,0.15,71.06,0.14,68.96,0.14,5,True,True
@@ -186,6 +185,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,77.75,-0.23,72.27,0.05,69.52,0.02,1,False,True
 20260618,77.76,0.01,72.31,0.04,70.29,0.77,2,True,True
 20260626,77.78,0.02,72.33,0.02,70.31,0.02,3,True,True
+20260703,77.75,-0.03,72.34,0.01,70.33,0.02,4,False,True
 ```
 
 ## Candidate Context

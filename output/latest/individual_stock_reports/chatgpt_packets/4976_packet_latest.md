@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4976 佳凌
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:24 Asia/Taipei
+- generated_at: 2026-07-04 22:27:16 Asia/Taipei
 - stock_id: 4976
 - stock_name: 佳凌
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,14 +157,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 31.09
-- over_600_ratio: 29.11
-- over_800_ratio: 27.55
-- over_1000_ratio: 25.07
-- over_400_change_1w: -1.79
-- over_800_change_1w: -2.46
-- over_1000_change_1w: -1.96
+- as_of_date: 20260703
+- over_400_ratio: 29.78
+- over_600_ratio: 28.84
+- over_800_ratio: 26.8
+- over_1000_ratio: 24.32
+- over_400_change_1w: -1.31
+- over_800_change_1w: -0.75
+- over_1000_change_1w: -0.75
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,31.94,-0.98,29.06,-0.63,26.61,-0.63,0,False,False
 20260618,32.88,0.94,30.01,0.95,27.03,0.42,1,True,True
 20260626,31.09,-1.79,27.55,-2.46,25.07,-1.96,0,False,False
+20260703,29.78,-1.31,26.8,-0.75,24.32,-0.75,0,False,False
 ```
 
 ## Candidate Context

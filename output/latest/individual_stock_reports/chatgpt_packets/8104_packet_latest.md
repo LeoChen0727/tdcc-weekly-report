@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8104 錸寶
 
 ## Metadata
-- generated_at: 2026-07-03 22:28:18 Asia/Taipei
+- generated_at: 2026-07-04 22:28:05 Asia/Taipei
 - stock_id: 8104
 - stock_name: 錸寶
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 35.88
-- over_600_ratio: 33.13
-- over_800_ratio: 32.51
-- over_1000_ratio: 31.62
-- over_400_change_1w: -2.56
-- over_800_change_1w: -0.52
-- over_1000_change_1w: -0.52
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260703
+- over_400_ratio: 35.97
+- over_600_ratio: 33.12
+- over_800_ratio: 32.5
+- over_1000_ratio: 31.61
+- over_400_change_1w: 0.09
+- over_800_change_1w: -0.01
+- over_1000_change_1w: -0.01
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,37.88,0.3,33.32,-0.86,32.43,0,1,False,False
 20260618,38.44,0.56,33.03,-0.29,32.14,-0.29,2,False,False
 20260626,35.88,-2.56,32.51,-0.52,31.62,-0.52,0,False,False
+20260703,35.97,0.09,32.5,-0.01,31.61,-0.01,1,False,False
 ```
 
 ## Candidate Context

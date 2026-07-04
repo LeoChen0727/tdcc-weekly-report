@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2485 兆赫
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:37 Asia/Taipei
+- generated_at: 2026-07-04 22:26:33 Asia/Taipei
 - stock_id: 2485
 - stock_name: 兆赫
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,17 +157,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 19.18
-- over_600_ratio: 18.03
-- over_800_ratio: 16.94
-- over_1000_ratio: 16.37
-- over_400_change_1w: -0.68
-- over_800_change_1w: -0.45
-- over_1000_change_1w: -0.73
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260703
+- over_400_ratio: 19.67
+- over_600_ratio: 18.08
+- over_800_ratio: 16.76
+- over_1000_ratio: 16.45
+- over_400_change_1w: 0.49
+- over_800_change_1w: -0.18
+- over_1000_change_1w: 0.08
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,19.57,-1.23,17.56,-0.63,17.03,-0.07,0,False,False
 20260618,19.86,0.29,17.39,-0.17,17.1,0.07,1,False,True
 20260626,19.18,-0.68,16.94,-0.45,16.37,-0.73,0,False,False
+20260703,19.67,0.49,16.76,-0.18,16.45,0.08,1,False,True
 ```
 
 ## Candidate Context
@@ -197,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 2485 | 兆赫 | 43 | 0 | 1023570.0 | 0.0 |  | call_inflow |
+| 20260703 | 2485 | 兆赫 | 43 | 2 | 1023570.0 | 69680.0 | 14.69 | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

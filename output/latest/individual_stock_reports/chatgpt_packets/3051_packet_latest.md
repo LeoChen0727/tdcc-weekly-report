@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3051 力特
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:51 Asia/Taipei
+- generated_at: 2026-07-04 22:26:46 Asia/Taipei
 - stock_id: 3051
 - stock_name: 力特
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,16 +158,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 34
-- over_600_ratio: 30.31
-- over_800_ratio: 27.46
-- over_1000_ratio: 26.39
-- over_400_change_1w: 0.22
-- over_800_change_1w: 0.66
-- over_1000_change_1w: 0.66
-- tdcc_consecutive_up_weeks: 7
-- all_thresholds_up: True
+- as_of_date: 20260703
+- over_400_ratio: 34.35
+- over_600_ratio: 30.66
+- over_800_ratio: 27.84
+- over_1000_ratio: 25.63
+- over_400_change_1w: 0.35
+- over_800_change_1w: 0.38
+- over_1000_change_1w: -0.76
+- tdcc_consecutive_up_weeks: 8
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,33.5,0.36,27.35,0.58,25.16,0,5,False,True
 20260618,33.78,0.28,26.8,-0.55,25.73,0.57,6,False,True
 20260626,34,0.22,27.46,0.66,26.39,0.66,7,True,True
+20260703,34.35,0.35,27.84,0.38,25.63,-0.76,8,False,True
 ```
 
 ## Candidate Context

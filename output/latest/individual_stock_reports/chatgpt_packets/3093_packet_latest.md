@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3093 港建*
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:53 Asia/Taipei
+- generated_at: 2026-07-04 22:26:48 Asia/Taipei
 - stock_id: 3093
 - stock_name: 港建*
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 162
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,16 +158,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 78.03
-- over_600_ratio: 76.35
-- over_800_ratio: 75.36
-- over_1000_ratio: 72.49
-- over_400_change_1w: 0.81
-- over_800_change_1w: 1.95
-- over_1000_change_1w: 0.79
-- tdcc_consecutive_up_weeks: 8
-- all_thresholds_up: True
+- as_of_date: 20260703
+- over_400_ratio: 78.06
+- over_600_ratio: 77.35
+- over_800_ratio: 74.99
+- over_1000_ratio: 72.55
+- over_400_change_1w: 0.03
+- over_800_change_1w: -0.37
+- over_1000_change_1w: 0.06
+- tdcc_consecutive_up_weeks: 9
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,76.53,0.7,72.64,1.04,71.49,1.65,6,True,True
 20260618,77.22,0.69,73.41,0.77,71.7,0.21,7,True,True
 20260626,78.03,0.81,75.36,1.95,72.49,0.79,8,True,True
+20260703,78.06,0.03,74.99,-0.37,72.55,0.06,9,False,True
 ```
 
 ## Candidate Context

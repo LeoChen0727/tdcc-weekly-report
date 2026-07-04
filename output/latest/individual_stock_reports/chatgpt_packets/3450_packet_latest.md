@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3450 聯鈞
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:02 Asia/Taipei
+- generated_at: 2026-07-04 22:26:55 Asia/Taipei
 - stock_id: 3450
 - stock_name: 聯鈞
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 48.93
-- over_600_ratio: 44.15
-- over_800_ratio: 40.32
-- over_1000_ratio: 37.81
-- over_400_change_1w: 3.76
-- over_800_change_1w: 2.93
-- over_1000_change_1w: 2.87
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260703
+- over_400_ratio: 47.57
+- over_600_ratio: 42.96
+- over_800_ratio: 39.61
+- over_1000_ratio: 35.81
+- over_400_change_1w: -1.36
+- over_800_change_1w: -0.71
+- over_1000_change_1w: -2
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,45.78,-1.79,37.41,-2.48,34.82,-0.19,0,False,False
 20260618,45.17,-0.61,37.39,-0.02,34.94,0.12,1,False,True
 20260626,48.93,3.76,40.32,2.93,37.81,2.87,2,True,True
+20260703,47.57,-1.36,39.61,-0.71,35.81,-2,0,False,False
 ```
 
 ## Candidate Context
@@ -198,7 +199,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 3450 | 聯鈞 | 136 | 0 | 467130.0 | 0.0 |  | no_signal |
+| 20260703 | 3450 | 聯鈞 | 136 | 4 | 467130.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

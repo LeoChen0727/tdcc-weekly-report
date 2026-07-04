@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1569 濱川
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:15 Asia/Taipei
+- generated_at: 2026-07-04 22:26:14 Asia/Taipei
 - stock_id: 1569
 - stock_name: 濱川
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 162
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 51.11
-- over_600_ratio: 47.12
-- over_800_ratio: 44.77
-- over_1000_ratio: 43.57
-- over_400_change_1w: -0.62
-- over_800_change_1w: -0.02
-- over_1000_change_1w: 0.68
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260703
+- over_400_ratio: 51.23
+- over_600_ratio: 46.17
+- over_800_ratio: 44.18
+- over_1000_ratio: 43.55
+- over_400_change_1w: 0.12
+- over_800_change_1w: -0.59
+- over_1000_change_1w: -0.02
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,51.51,-0.54,44.82,-1.52,43.6,-2.1,0,False,False
 20260618,51.73,0.22,44.79,-0.03,42.89,-0.71,1,False,False
 20260626,51.11,-0.62,44.77,-0.02,43.57,0.68,2,False,True
+20260703,51.23,0.12,44.18,-0.59,43.55,-0.02,3,False,False
 ```
 
 ## Candidate Context

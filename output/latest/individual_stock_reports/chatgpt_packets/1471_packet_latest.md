@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1471 首利
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:12 Asia/Taipei
+- generated_at: 2026-07-04 22:26:11 Asia/Taipei
 - stock_id: 1471
 - stock_name: 首利
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 31
+- latest_tdcc_date: 20260703
+- tdcc_rows: 32
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 23.15
-- over_600_ratio: 18.97
-- over_800_ratio: 17.53
-- over_1000_ratio: 17.53
-- over_400_change_1w: 0.09
+- as_of_date: 20260703
+- over_400_ratio: 22.57
+- over_600_ratio: 18.3
+- over_800_ratio: 16.86
+- over_1000_ratio: 16.86
+- over_400_change_1w: -0.58
 - over_800_change_1w: -0.67
 - over_1000_change_1w: -0.67
-- tdcc_consecutive_up_weeks: 13
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -174,7 +174,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260410,22.52,0.01,17.51,0.01,17.51,0.01,2,True,True
 20260417,22.99,0.47,17.53,0.02,17.53,0.02,3,True,True
 20260424,22.69,-0.3,18.17,0.64,17.6,0.07,4,False,True
 20260430,22.75,0.06,18.22,0.05,17.63,0.03,5,True,True
@@ -186,6 +185,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,22.85,-0.43,18.26,-0.07,18.26,0.59,11,False,True
 20260618,23.06,0.21,18.2,-0.06,18.2,-0.06,12,False,False
 20260626,23.15,0.09,17.53,-0.67,17.53,-0.67,13,False,False
+20260703,22.57,-0.58,16.86,-0.67,16.86,-0.67,0,False,False
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2483 百容
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:37 Asia/Taipei
+- generated_at: 2026-07-04 22:26:33 Asia/Taipei
 - stock_id: 2483
 - stock_name: 百容
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -156,15 +156,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 61.99
-- over_600_ratio: 60.03
-- over_800_ratio: 59.35
-- over_1000_ratio: 57.69
-- over_400_change_1w: 2.66
-- over_800_change_1w: 1.99
-- over_1000_change_1w: 1.08
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260703
+- over_400_ratio: 64.34
+- over_600_ratio: 62.65
+- over_800_ratio: 61.24
+- over_1000_ratio: 61.24
+- over_400_change_1w: 2.35
+- over_800_change_1w: 1.89
+- over_1000_change_1w: 3.55
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -181,6 +181,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,60.08,-3.45,57.38,-1.72,56.63,-0.95,0,False,False
 20260618,59.33,-0.75,57.36,-0.02,56.61,-0.02,0,False,False
 20260626,61.99,2.66,59.35,1.99,57.69,1.08,1,True,True
+20260703,64.34,2.35,61.24,1.89,61.24,3.55,2,True,True
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3543 州巧
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:04 Asia/Taipei
+- generated_at: 2026-07-04 22:26:58 Asia/Taipei
 - stock_id: 3543
 - stock_name: 州巧
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,15 +157,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 48.88
-- over_600_ratio: 41.39
-- over_800_ratio: 37.23
-- over_1000_ratio: 31.49
-- over_400_change_1w: -0.71
-- over_800_change_1w: -1.37
-- over_1000_change_1w: -1.6
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260703
+- over_400_ratio: 48.99
+- over_600_ratio: 40.77
+- over_800_ratio: 36.64
+- over_1000_ratio: 30.93
+- over_400_change_1w: 0.11
+- over_800_change_1w: -0.59
+- over_1000_change_1w: -0.56
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,49.26,1.16,38.85,0.91,33.27,-0.72,5,False,True
 20260618,49.59,0.33,38.6,-0.25,33.09,-0.18,6,False,False
 20260626,48.88,-0.71,37.23,-1.37,31.49,-1.6,0,False,False
+20260703,48.99,0.11,36.64,-0.59,30.93,-0.56,1,False,False
 ```
 
 ## Candidate Context

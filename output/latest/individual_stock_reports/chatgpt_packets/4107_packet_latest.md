@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4107 邦特
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:11 Asia/Taipei
+- generated_at: 2026-07-04 22:27:03 Asia/Taipei
 - stock_id: 4107
 - stock_name: 邦特
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 162
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 61.9
-- over_600_ratio: 59.57
-- over_800_ratio: 53.52
-- over_1000_ratio: 52.08
-- over_400_change_1w: 0.04
-- over_800_change_1w: 0.04
-- over_1000_change_1w: 0.04
-- tdcc_consecutive_up_weeks: 8
+- as_of_date: 20260703
+- over_400_ratio: 61.93
+- over_600_ratio: 59.6
+- over_800_ratio: 53.54
+- over_1000_ratio: 52.1
+- over_400_change_1w: 0.03
+- over_800_change_1w: 0.02
+- over_1000_change_1w: 0.02
+- tdcc_consecutive_up_weeks: 9
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,61.8,0.11,54.57,1.26,51.98,0.11,6,True,True
 20260618,61.86,0.06,53.48,-1.09,52.04,0.06,7,False,True
 20260626,61.9,0.04,53.52,0.04,52.08,0.04,8,True,True
+20260703,61.93,0.03,53.54,0.02,52.1,0.02,9,True,True
 ```
 
 ## Candidate Context

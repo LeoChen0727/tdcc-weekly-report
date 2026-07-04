@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6231 系微
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:43 Asia/Taipei
+- generated_at: 2026-07-04 22:27:33 Asia/Taipei
 - stock_id: 6231
 - stock_name: 系微
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 162
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,16 +158,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 34.19
-- over_600_ratio: 30.85
-- over_800_ratio: 27.99
-- over_1000_ratio: 26.24
-- over_400_change_1w: 0.38
-- over_800_change_1w: 2.07
-- over_1000_change_1w: 0.32
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: True
+- as_of_date: 20260703
+- over_400_ratio: 33.23
+- over_600_ratio: 30.95
+- over_800_ratio: 26.54
+- over_1000_ratio: 26.54
+- over_400_change_1w: -0.96
+- over_800_change_1w: -1.45
+- over_1000_change_1w: 0.3
+- tdcc_consecutive_up_weeks: 3
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,33.51,-0.3,25.84,-0.35,25.84,-0.35,0,False,False
 20260618,33.81,0.3,25.92,0.08,25.92,0.08,1,True,True
 20260626,34.19,0.38,27.99,2.07,26.24,0.32,2,True,True
+20260703,33.23,-0.96,26.54,-1.45,26.54,0.3,3,False,True
 ```
 
 ## Candidate Context

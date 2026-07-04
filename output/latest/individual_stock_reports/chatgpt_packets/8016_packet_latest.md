@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8016 矽創
 
 ## Metadata
-- generated_at: 2026-07-03 22:28:14 Asia/Taipei
+- generated_at: 2026-07-04 22:28:02 Asia/Taipei
 - stock_id: 8016
 - stock_name: 矽創
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,15 +157,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 44.34
-- over_600_ratio: 36.72
-- over_800_ratio: 33.14
-- over_1000_ratio: 28.62
-- over_400_change_1w: 1.19
-- over_800_change_1w: -0.51
-- over_1000_change_1w: 0.89
-- tdcc_consecutive_up_weeks: 4
+- as_of_date: 20260703
+- over_400_ratio: 44.37
+- over_600_ratio: 36.57
+- over_800_ratio: 32.53
+- over_1000_ratio: 28.71
+- over_400_change_1w: 0.03
+- over_800_change_1w: -0.61
+- over_1000_change_1w: 0.09
+- tdcc_consecutive_up_weeks: 5
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,44.42,1.45,31.43,-0.82,27.67,-0.88,2,False,False
 20260618,43.15,-1.27,33.65,2.22,27.73,0.06,3,False,True
 20260626,44.34,1.19,33.14,-0.51,28.62,0.89,4,False,True
+20260703,44.37,0.03,32.53,-0.61,28.71,0.09,5,False,True
 ```
 
 ## Candidate Context

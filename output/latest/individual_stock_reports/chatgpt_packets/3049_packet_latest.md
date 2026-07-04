@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3049 精金
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:51 Asia/Taipei
+- generated_at: 2026-07-04 22:26:46 Asia/Taipei
 - stock_id: 3049
 - stock_name: 精金
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,16 +158,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
+- as_of_date: 20260703
 - over_400_ratio: 47.05
-- over_600_ratio: 45.58
-- over_800_ratio: 44.28
-- over_1000_ratio: 43.33
-- over_400_change_1w: 0.25
-- over_800_change_1w: 0.3
-- over_1000_change_1w: 0.06
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
+- over_600_ratio: 45.44
+- over_800_ratio: 44.07
+- over_1000_ratio: 43.47
+- over_400_change_1w: 0
+- over_800_change_1w: -0.21
+- over_1000_change_1w: 0.14
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,47.2,-0.69,44.48,-0.96,43.77,-0.97,0,False,False
 20260618,46.8,-0.4,43.98,-0.5,43.27,-0.5,0,False,False
 20260626,47.05,0.25,44.28,0.3,43.33,0.06,1,True,True
+20260703,47.05,0,44.07,-0.21,43.47,0.14,2,False,True
 ```
 
 ## Candidate Context

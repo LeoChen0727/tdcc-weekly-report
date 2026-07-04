@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3530 晶相光
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:04 Asia/Taipei
+- generated_at: 2026-07-04 22:26:57 Asia/Taipei
 - stock_id: 3530
 - stock_name: 晶相光
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 57.43
-- over_600_ratio: 55.34
-- over_800_ratio: 53.69
-- over_1000_ratio: 53.69
-- over_400_change_1w: -1.19
-- over_800_change_1w: -0.06
-- over_1000_change_1w: -0.06
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260703
+- over_400_ratio: 57.31
+- over_600_ratio: 54.56
+- over_800_ratio: 53.68
+- over_1000_ratio: 53.68
+- over_400_change_1w: -0.12
+- over_800_change_1w: -0.01
+- over_1000_change_1w: -0.01
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,57.31,0.64,53.76,0,53.76,0,1,False,False
 20260618,58.62,1.31,53.75,-0.01,53.75,-0.01,2,False,False
 20260626,57.43,-1.19,53.69,-0.06,53.69,-0.06,3,False,False
+20260703,57.31,-0.12,53.68,-0.01,53.68,-0.01,0,False,False
 ```
 
 ## Candidate Context

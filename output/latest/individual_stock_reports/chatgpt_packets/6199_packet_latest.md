@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6199 天品
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:41 Asia/Taipei
+- generated_at: 2026-07-04 22:27:31 Asia/Taipei
 - stock_id: 6199
 - stock_name: 天品
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 162
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,15 +157,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 79.85
-- over_600_ratio: 78.39
-- over_800_ratio: 75.04
-- over_1000_ratio: 75.04
-- over_400_change_1w: 0.63
-- over_800_change_1w: 0.43
-- over_1000_change_1w: 0.43
-- tdcc_consecutive_up_weeks: 6
+- as_of_date: 20260703
+- over_400_ratio: 81.37
+- over_600_ratio: 78.95
+- over_800_ratio: 76.63
+- over_1000_ratio: 75.28
+- over_400_change_1w: 1.52
+- over_800_change_1w: 1.59
+- over_1000_change_1w: 0.24
+- tdcc_consecutive_up_weeks: 7
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,78.54,0.08,74.49,0.62,74.49,2.03,4,True,True
 20260618,79.22,0.68,74.61,0.12,74.61,0.12,5,True,True
 20260626,79.85,0.63,75.04,0.43,75.04,0.43,6,True,True
+20260703,81.37,1.52,76.63,1.59,75.28,0.24,7,True,True
 ```
 
 ## Candidate Context

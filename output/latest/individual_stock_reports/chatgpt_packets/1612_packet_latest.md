@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1612 宏泰
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:16 Asia/Taipei
+- generated_at: 2026-07-04 22:26:15 Asia/Taipei
 - stock_id: 1612
 - stock_name: 宏泰
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,14 +157,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 61.8
-- over_600_ratio: 59.09
-- over_800_ratio: 56.91
-- over_1000_ratio: 55.43
-- over_400_change_1w: -0.38
-- over_800_change_1w: -0.82
-- over_1000_change_1w: -0.84
+- as_of_date: 20260703
+- over_400_ratio: 60.74
+- over_600_ratio: 57.39
+- over_800_ratio: 55.85
+- over_1000_ratio: 54.99
+- over_400_change_1w: -1.06
+- over_800_change_1w: -1.06
+- over_1000_change_1w: -0.44
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,61.94,-0.13,57.34,-0.26,56.45,-0.55,0,False,False
 20260618,62.18,0.24,57.73,0.39,56.27,-0.18,1,False,True
 20260626,61.8,-0.38,56.91,-0.82,55.43,-0.84,0,False,False
+20260703,60.74,-1.06,55.85,-1.06,54.99,-0.44,0,False,False
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4958 臻鼎-KY
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:24 Asia/Taipei
+- generated_at: 2026-07-04 22:27:15 Asia/Taipei
 - stock_id: 4958
 - stock_name: 臻鼎-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -156,14 +156,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 73.81
-- over_600_ratio: 71.11
-- over_800_ratio: 69.15
-- over_1000_ratio: 66.87
-- over_400_change_1w: -1.92
-- over_800_change_1w: -1.71
-- over_1000_change_1w: -1.43
+- as_of_date: 20260703
+- over_400_ratio: 73.05
+- over_600_ratio: 70.32
+- over_800_ratio: 68.6
+- over_1000_ratio: 66.24
+- over_400_change_1w: -0.76
+- over_800_change_1w: -0.55
+- over_1000_change_1w: -0.63
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -181,12 +181,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,74.42,0.24,69.5,0.22,67.48,0.21,1,True,True
 20260618,75.73,1.31,70.86,1.36,68.3,0.82,2,True,True
 20260626,73.81,-1.92,69.15,-1.71,66.87,-1.43,0,False,False
+20260703,73.05,-0.76,68.6,-0.55,66.24,-0.63,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 4958 | 臻鼎-KY | pattern | 型態觀察 | 46.0 |  |  | base_building |  | call_inflow | stale_signal | 1.申請海外證券市場掛牌交易之子公司名稱:禮鼎半導體科技(深圳)股份有限公司 2.與公司關係及持股(或出資額)比例:本公司透過子公司間接持股60.75%之子公司 3.申請海外證券市場掛牌交易之送件日期:115/07/02 4.申請海外證券市場掛牌之交易所:香港聯合交易所有限公司主板 5.其他應敘明事項: 本上市案業經本公司民國115年5月29日召開之民國115年股東常會決議通過。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260703 | 4958 | 臻鼎-KY | pattern | 型態觀察 | 46.0 |  |  | base_building |  | call_inflow | stale_signal | 1.事實發生日:115/07/03 2.公司名稱:鵬鼎控股(深圳)股份有限公司 3.與公司關係(請輸入本公司或子公司):子公司 4.相互持股比例:70.17% 5.發生緣由: 代子公司公告董事會通過各項議案： (1) 關於公司符合向特定對象發行A股股票條件的議案。 (2) 關於公司2026年度向特定對象發行A股股票方案的議案。 (3) 關於公司2026年度向特定對象發行A股股票預案的議案。 (4) 關於公司2026年度向特定對象發行A股股票募集資金使用可行性分析報告     的議案。 (5) 關於公司2026年度向特定對象發行A股股票方案論證分析報告的議案。 (6) 關於公司2026年度向特定對象發行A股股票無需編制前次募集資金使用情況     報告的議案。 (7) 關於公司2026年度向特定對象發行A股股票攤薄即期回報及填補措施和相關     主體承諾的議案。 (8) 關於公司未來三年（2026年－2028年）股東回報規劃的議案。 (9) 關於設立本次向特定對象發行股票募集資金專項帳戶並授權簽署募集資金     監管協議的議案。 (10)關於提請股東會授權董事會、董事長和/或董事長授權的人士全權辦理公司     本次向特定對象發行A股股票相關事宜的議案。 (11)關於提請召開鵬鼎控股(深圳)股份有限公司2026年第一次臨時股東會的議案。 6.因應措施:依規定代子公司於公開資訊觀測站公告。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):  無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
@@ -196,7 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 4958 | 臻鼎-KY | 232 | 0 | 49618770.0 | 0.0 |  | call_inflow |
+| 20260703 | 4958 | 臻鼎-KY | 232 | 15 | 49618770.0 | 310110.0 | 160.0 | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

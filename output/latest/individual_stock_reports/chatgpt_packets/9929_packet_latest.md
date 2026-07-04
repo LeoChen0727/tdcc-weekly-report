@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9929 秋雨
 
 ## Metadata
-- generated_at: 2026-07-03 22:28:27 Asia/Taipei
+- generated_at: 2026-07-04 22:28:14 Asia/Taipei
 - stock_id: 9929
 - stock_name: 秋雨
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 273
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 88.06
-- over_600_ratio: 84.57
-- over_800_ratio: 83.96
-- over_1000_ratio: 83.96
-- over_400_change_1w: 0
-- over_800_change_1w: 0
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260703
+- over_400_ratio: 88.08
+- over_600_ratio: 84.58
+- over_800_ratio: 83.97
+- over_1000_ratio: 83.97
+- over_400_change_1w: 0.02
+- over_800_change_1w: 0.01
+- over_1000_change_1w: 0.01
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,88.06,0.1,83.96,0.1,83.96,0.1,1,True,True
 20260618,88.06,0,83.96,0,83.96,0,0,False,False
 20260626,88.06,0,83.96,0,83.96,0,0,False,False
+20260703,88.08,0.02,83.97,0.01,83.97,0.01,1,True,True
 ```
 
 ## Candidate Context

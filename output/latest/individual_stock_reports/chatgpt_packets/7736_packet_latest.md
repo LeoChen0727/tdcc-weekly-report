@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7736 虎山
 
 ## Metadata
-- generated_at: 2026-07-03 22:28:12 Asia/Taipei
+- generated_at: 2026-07-04 22:28:00 Asia/Taipei
 - stock_id: 7736
 - stock_name: 虎山
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,8 +158,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 83.98
+- as_of_date: 20260703
+- over_400_ratio: 83.97
 - over_600_ratio: 80.67
 - over_800_ratio: 77.84
 - over_1000_ratio: 76.73
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,84.01,-0.03,77.85,-0.03,76.74,0,0,False,False
 20260618,83.99,-0.02,77.84,-0.01,76.73,-0.01,0,False,False
 20260626,83.98,-0.01,77.84,0,76.73,0,0,False,False
+20260703,83.97,-0.01,77.84,0,76.73,0,0,False,False
 ```
 
 ## Candidate Context

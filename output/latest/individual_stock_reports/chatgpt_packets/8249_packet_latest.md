@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8249 菱光
 
 ## Metadata
-- generated_at: 2026-07-03 22:28:20 Asia/Taipei
+- generated_at: 2026-07-04 22:28:07 Asia/Taipei
 - stock_id: 8249
 - stock_name: 菱光
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 57.32
-- over_600_ratio: 55.84
-- over_800_ratio: 54.91
+- as_of_date: 20260703
+- over_400_ratio: 57.22
+- over_600_ratio: 56.25
+- over_800_ratio: 54.87
 - over_1000_ratio: 53.54
-- over_400_change_1w: -0.64
-- over_800_change_1w: -0.07
-- over_1000_change_1w: -0.74
-- tdcc_consecutive_up_weeks: 0
+- over_400_change_1w: -0.1
+- over_800_change_1w: -0.04
+- over_1000_change_1w: 0
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,57.47,0.76,54.83,0.01,53.54,0,2,False,True
 20260618,57.96,0.49,54.98,0.15,54.28,0.74,3,True,True
 20260626,57.32,-0.64,54.91,-0.07,53.54,-0.74,0,False,False
+20260703,57.22,-0.1,54.87,-0.04,53.54,0,1,False,False
 ```
 
 ## Candidate Context

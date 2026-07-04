@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2630 亞航
 
 ## Metadata
-- generated_at: 2026-07-03 22:26:41 Asia/Taipei
+- generated_at: 2026-07-04 22:26:37 Asia/Taipei
 - stock_id: 2630
 - stock_name: 亞航
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 297
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 65.33
-- over_600_ratio: 64.19
-- over_800_ratio: 63.1
-- over_1000_ratio: 61.89
-- over_400_change_1w: -0.14
-- over_800_change_1w: -0.06
-- over_1000_change_1w: -0.03
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260703
+- over_400_ratio: 64.97
+- over_600_ratio: 63.8
+- over_800_ratio: 63.18
+- over_1000_ratio: 62.38
+- over_400_change_1w: -0.36
+- over_800_change_1w: 0.08
+- over_1000_change_1w: 0.49
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,65.26,-0.27,63.54,-0.5,62.31,-0.49,0,False,False
 20260618,65.47,0.21,63.16,-0.38,61.92,-0.39,1,False,False
 20260626,65.33,-0.14,63.1,-0.06,61.89,-0.03,0,False,False
+20260703,64.97,-0.36,63.18,0.08,62.38,0.49,1,False,True
 ```
 
 ## Candidate Context

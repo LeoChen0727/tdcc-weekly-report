@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3444 利機
 
 ## Metadata
-- generated_at: 2026-07-03 22:27:01 Asia/Taipei
+- generated_at: 2026-07-04 22:26:55 Asia/Taipei
 - stock_id: 3444
 - stock_name: 利機
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 162
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 48.68
-- over_600_ratio: 45.35
-- over_800_ratio: 42.16
-- over_1000_ratio: 38
-- over_400_change_1w: 0.08
-- over_800_change_1w: 0.06
-- over_1000_change_1w: 0.06
-- tdcc_consecutive_up_weeks: 5
+- as_of_date: 20260703
+- over_400_ratio: 48.75
+- over_600_ratio: 45.42
+- over_800_ratio: 42.23
+- over_1000_ratio: 38.07
+- over_400_change_1w: 0.07
+- over_800_change_1w: 0.07
+- over_1000_change_1w: 0.07
+- tdcc_consecutive_up_weeks: 6
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,48.52,-2.03,42.02,0.08,37.86,0.08,3,False,True
 20260618,48.6,0.08,42.1,0.08,37.94,0.08,4,True,True
 20260626,48.68,0.08,42.16,0.06,38,0.06,5,True,True
+20260703,48.75,0.07,42.23,0.07,38.07,0.07,6,True,True
 ```
 
 ## Candidate Context

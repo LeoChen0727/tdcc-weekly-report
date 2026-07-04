@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8103 瀚荃
 
 ## Metadata
-- generated_at: 2026-07-03 22:28:18 Asia/Taipei
+- generated_at: 2026-07-04 22:28:05 Asia/Taipei
 - stock_id: 8103
 - stock_name: 瀚荃
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260703
 - price_rows: 290
-- latest_tdcc_date: 20260626
-- tdcc_rows: 9
+- latest_tdcc_date: 20260703
+- tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260626
-- over_400_ratio: 47.23
-- over_600_ratio: 39.01
-- over_800_ratio: 30.81
-- over_1000_ratio: 27.47
-- over_400_change_1w: 1.06
-- over_800_change_1w: 0.77
-- over_1000_change_1w: -1.49
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260703
+- over_400_ratio: 47.68
+- over_600_ratio: 38.59
+- over_800_ratio: 31.26
+- over_1000_ratio: 27.95
+- over_400_change_1w: 0.45
+- over_800_change_1w: 0.45
+- over_1000_change_1w: 0.48
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260612,46.69,-0.2,29.77,-0.73,28.69,-0.73,0,False,False
 20260618,46.17,-0.52,30.04,0.27,28.96,0.27,1,False,True
 20260626,47.23,1.06,30.81,0.77,27.47,-1.49,2,False,True
+20260703,47.68,0.45,31.26,0.45,27.95,0.48,3,False,True
 ```
 
 ## Candidate Context
