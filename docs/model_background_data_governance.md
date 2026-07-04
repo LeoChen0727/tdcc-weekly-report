@@ -79,6 +79,36 @@ old. A data family can be deleted only after a separate cleanup PR proves:
 This PR intentionally lists cleanup boundaries but does not delete historical
 snapshots or model research evidence.
 
+## Monthly Revenue History
+
+Monthly revenue now has a full-market source history data layer:
+
+- `data/monthly_revenue_history/monthly_revenue_history.csv`
+- `data/monthly_revenue_history/raw/*.csv`
+- `output/latest/research_backtest/monthly_revenue_history_latest.csv`
+- `docs/latest/monthly_revenue_history_latest.csv`
+
+The producer and validator are:
+
+```text
+python scripts/build_monthly_revenue_history.py
+python scripts/validate_monthly_revenue_history.py
+```
+
+Allowed use: save official TWSE / TPEX monthly revenue rows for all returned
+listed and OTC securities, and join research rows where `source_table_date <=
+signal_date`.
+
+Forbidden use: do not label older historical signals with the latest saved
+revenue period. The current official OpenAPI returns the latest available
+monthly revenue period only, so historical coverage starts at the first saved
+`source_table_date` unless a separate validated backfill is added. Formal model
+gates still require a sufficient coverage audit and model promotion approval.
+
+This data family is the canonical revenue source to build on. Do not replace it
+with current/latest candidate artifacts, PDF outputs, or model-specific revenue
+interpretations.
+
 ## Revenue PIT Panel
 
 Monthly revenue now has a coverage-limited point-in-time panel:

@@ -115,13 +115,14 @@ def validate_audit(audit: pd.DataFrame) -> list[str]:
     if not bad_protected.empty:
         errors.append("protected cleanup decisions must have deletion_allowed=False")
 
-    revenue = audit[audit["data_family_id"].eq("monthly_revenue_point_in_time_panel")]
-    if revenue.empty:
-        errors.append("cleanup audit must include monthly_revenue_point_in_time_panel")
-    elif set(revenue["deletion_decision"].astype(str)) != {"retain_shared_objective_source"}:
-        errors.append("monthly_revenue_point_in_time_panel must remain retain_shared_objective_source")
-    elif not revenue["deletion_allowed"].astype(str).str.lower().eq("false").all():
-        errors.append("monthly_revenue_point_in_time_panel must not be deletion_allowed")
+    for revenue_family in ["monthly_revenue_history", "monthly_revenue_point_in_time_panel"]:
+        revenue = audit[audit["data_family_id"].eq(revenue_family)]
+        if revenue.empty:
+            errors.append(f"cleanup audit must include {revenue_family}")
+        elif set(revenue["deletion_decision"].astype(str)) != {"retain_shared_objective_source"}:
+            errors.append(f"{revenue_family} must remain retain_shared_objective_source")
+        elif not revenue["deletion_allowed"].astype(str).str.lower().eq("false").all():
+            errors.append(f"{revenue_family} must not be deletion_allowed")
 
     replay = audit[audit["scope"].isin(["shared_replay_evidence", "shared_replay_source"])]
     if not replay.empty and set(replay["deletion_decision"].astype(str)) != {"retain_historical_replay_evidence"}:

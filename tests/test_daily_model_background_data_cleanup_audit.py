@@ -57,9 +57,11 @@ def test_deprecated_candidate_requires_no_dependencies_for_cleanup_pr() -> None:
     assert eligible[3] is True
 
 
-def test_revenue_panel_is_active_shared_source_not_deletion_target(audit_df: pd.DataFrame) -> None:
-    revenue = audit_df[audit_df["data_family_id"].eq("monthly_revenue_point_in_time_panel")]
+def test_revenue_families_are_active_shared_sources_not_deletion_targets(audit_df: pd.DataFrame) -> None:
+    revenue = audit_df[
+        audit_df["data_family_id"].isin(["monthly_revenue_history", "monthly_revenue_point_in_time_panel"])
+    ]
 
-    assert len(revenue) == 1
-    assert revenue.iloc[0]["deletion_decision"] == "retain_shared_objective_source"
-    assert revenue.iloc[0]["deletion_allowed"] == "False"
+    assert set(revenue["data_family_id"]) == {"monthly_revenue_history", "monthly_revenue_point_in_time_panel"}
+    assert set(revenue["deletion_decision"]) == {"retain_shared_objective_source"}
+    assert set(revenue["deletion_allowed"]) == {"False"}
