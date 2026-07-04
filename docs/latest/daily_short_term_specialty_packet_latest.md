@@ -1,7 +1,7 @@
 # DAILY SHORT-TERM SPECIALTY PACKET
 
 ## Metadata
-- generated_at: `2026-07-04 07:19:59 UTC`
+- generated_at: `2026-07-04 08:31:48 UTC`
 - main_price_date: `20260703`
 - purpose: Force daily reports to include short-term research-stat support sections without removing active D+5/D+10 core model rows.
 - market_abnormal_status_path: `output/latest/market_abnormal_status_latest.csv`
@@ -26,40 +26,40 @@
 ### D+5 Stats
 | rule_name | mature_count | win_rate_close_to_close_pct | avg_relative_return_vs_benchmark_pct | win_rate_next_open_to_close_pct | avg_next_open_relative_return_vs_benchmark_pct | sample_status |
 | --- | --- | --- | --- | --- | --- | --- |
-| phase_overheated_after_tdcc + KD bullish K<90 + 1w return 10~30 + 2w return 20~50 | 179 | 50.83798882681564 | 1.64444559509577 | 49.162011173184354 | 0.42985627834722473 | ok_initial_sample |
-| all_thresholds_overheated + 1w return 10~30 + MACD hist > 0 | 188 | 50.53191489361703 | 2.796591004789769 | 47.87234042553192 | 1.4409719396981235 | ok_initial_sample |
-| phase_overheated_after_tdcc + Bollinger width pct<=80 + 2w return 20~50 + TDCC 1w | 49 | 42.857142857142854 | 0.5628671885797184 | 36.734693877551024 | -0.8131236488068305 | ok_initial_sample |
+| all_thresholds_overheated + 1w return 10~30 + MACD hist > 0 | 59 | 62.71186440677966 | 2.146083716279749 | 54.23728813559322 | 1.0802258503195787 | ok_initial_sample |
+| phase_overheated_after_tdcc + KD bullish K<90 + 1w return 10~30 + 2w return 20~50 | 32 | 68.75 | 0.24748311283099655 | 53.125 | -0.9429822392474175 | ok_initial_sample |
+| phase_overheated_after_tdcc + Bollinger width pct<=80 + 2w return 20~50 + TDCC 1w | 6 | 66.66666666666666 | -4.2143323169423335 | 50.0 | -6.368648592431774 | insufficient_sample |
 
 ### D+10 Stats
 | rule_name | mature_count | win_rate_close_to_close_pct | avg_relative_return_vs_benchmark_pct | win_rate_next_open_to_close_pct | avg_next_open_relative_return_vs_benchmark_pct | sample_status |
 | --- | --- | --- | --- | --- | --- | --- |
-| phase_overheated_after_tdcc + Bollinger width pct<=80 + 2w return 20~50 + TDCC 1w | 44 | 59.09090909090909 | 4.99418229629367 | 61.36363636363637 | 3.9440897092054956 | ok_initial_sample |
-| all_thresholds_overheated + 1w return 10~30 + MACD hist > 0 | 166 | 66.86746987951807 | 4.8005692948852134 | 60.24096385542169 | 3.608596094049532 | ok_initial_sample |
-| phase_overheated_after_tdcc + KD bullish K<90 + 1w return 10~30 + 2w return 20~50 | 160 | 63.74999999999999 | 3.41868354289977 | 57.49999999999999 | 2.334441017452047 | ok_initial_sample |
+| phase_overheated_after_tdcc + KD bullish K<90 + 1w return 10~30 + 2w return 20~50 | 29 | 65.51724137931035 | 0.9461177134706775 | 68.96551724137932 | 2.7961009126728844 | insufficient_sample |
+| all_thresholds_overheated + 1w return 10~30 + MACD hist > 0 | 55 | 63.63636363636363 | 2.674562278545307 | 67.27272727272727 | 4.155369778981595 | ok_initial_sample |
+| phase_overheated_after_tdcc + Bollinger width pct<=80 + 2w return 20~50 + TDCC 1w | 6 | 66.66666666666666 | 2.2830783596132678 | 66.66666666666666 | -3.2097887420421363 | insufficient_sample |
 
 ### Current TDCC Edge Candidates
 | stock_id | stock_name | theme | tdcc_price_phase |
 | --- | --- | --- | --- |
-| 5328 | 華容 | other | overheated_after_tdcc |
-| 8261 | 富鼎 | power discrete/diodes | overheated_after_tdcc |
-| 2316 | 楠梓電 | other | overheated_after_tdcc |
-| 5011 | 久陽 | other | overheated_after_tdcc |
-| 6213 | 聯茂 | other | overheated_after_tdcc |
-| 8046 | 南電 | other | overheated_after_tdcc |
-| 6672 | 騰輝電子-KY | other | overheated_after_tdcc |
-| 1718 | 中纖 | other | overheated_after_tdcc |
-| 6270 | 倍微 | other | overheated_after_tdcc |
-| 2316 | 楠梓電 | other | overheated_after_tdcc |
-| 4716 | 大立 | other | overheated_after_tdcc |
-| 5011 | 久陽 | other | overheated_after_tdcc |
-| 6243 | 迅杰 | other | overheated_after_tdcc |
-| 6213 | 聯茂 | other | overheated_after_tdcc |
-| 8046 | 南電 | other | overheated_after_tdcc |
+| 2231 | 為升 | other | overheated_after_tdcc |
+| 6409 | 旭隼 | other | overheated_after_tdcc |
+| 2484 | 希華 | other | overheated_after_tdcc |
+| 5371 | 中光電 | other | overheated_after_tdcc |
+| 2481 | 強茂 | power discrete/diodes | overheated_after_tdcc |
+| 6525 | 捷敏-KY | other | overheated_after_tdcc |
+| 2645 | 長榮航太 | other | overheated_after_tdcc |
+| 2634 | 漢翔 | other | overheated_after_tdcc |
+| 1314 | 中石化 | other | overheated_after_tdcc |
+| 6753 | 龍德造船 | other | overheated_after_tdcc |
+| 1313 | 聯成 | other | overheated_after_tdcc |
+| 1310 | 台苯 | other | overheated_after_tdcc |
+| 1301 | 台塑 | other | overheated_after_tdcc |
+| 2483 | 百容 | other | overheated_after_tdcc |
 | 4707 | 磐亞 | other | overheated_after_tdcc |
-| 6672 | 騰輝電子-KY | other | overheated_after_tdcc |
-| 1515 | 力山 | other | overheated_after_tdcc |
-| 7795 | 長廣 | other | overheated_after_tdcc |
-| 1718 | 中纖 | other | overheated_after_tdcc |
+| 6409 | 旭隼 | other | overheated_after_tdcc |
+| 2484 | 希華 | other | overheated_after_tdcc |
+| 5371 | 中光電 | other | overheated_after_tdcc |
+| 2481 | 強茂 | power discrete/diodes | overheated_after_tdcc |
+| 6525 | 捷敏-KY | other | overheated_after_tdcc |
 
 ## Next-Open +10pct Touch Strict Parameter Research
 
