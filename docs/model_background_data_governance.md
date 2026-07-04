@@ -85,6 +85,7 @@ Monthly revenue now has a full-market source history data layer:
 
 - `data/monthly_revenue_history/monthly_revenue_history.csv`
 - `data/monthly_revenue_history/raw/*.csv`
+- `data/monthly_revenue_history/raw/mops_html/*.html`
 - `output/latest/research_backtest/monthly_revenue_history_latest.csv`
 - `docs/latest/monthly_revenue_history_latest.csv`
 
@@ -92,6 +93,7 @@ The producer and validator are:
 
 ```text
 python scripts/build_monthly_revenue_history.py
+python scripts/backfill_monthly_revenue_history_from_mops_html.py
 python scripts/validate_monthly_revenue_history.py
 ```
 
@@ -101,13 +103,51 @@ signal_date`.
 
 Forbidden use: do not label older historical signals with the latest saved
 revenue period. The current official OpenAPI returns the latest available
-monthly revenue period only, so historical coverage starts at the first saved
-`source_table_date` unless a separate validated backfill is added. Formal model
-gates still require a sufficient coverage audit and model promotion approval.
+monthly revenue period only, so older periods are filled only by the validated
+historical backfill builder. The historical MOPS static HTML backfill uses
+`source_table_date_raw=conservative_next_month_17th`; this intentionally delays
+availability to avoid lookahead when exact original filing timestamps are not
+present in the static HTML page. Formal model gates still require a sufficient
+coverage audit and model promotion approval.
 
 This data family is the canonical revenue source to build on. Do not replace it
 with current/latest candidate artifacts, PDF outputs, or model-specific revenue
 interpretations.
+
+Current validated historical backfill coverage:
+
+- `revenue_period_min=202405`
+- `revenue_period_max=202605`
+- `history_revenue_period_count=25`
+- source: official MOPS static monthly revenue HTML under
+  `https://mopsov.twse.com.tw/nas/t21/{sii,otc}/...`
+- source-date policy: conservative next-month-17 availability, not the static
+  page display date.
+
+## Monthly Revenue Coverage / Backfill Audit
+
+Monthly revenue coverage is audited by:
+
+```text
+python scripts/build_monthly_revenue_coverage_backfill_audit.py
+python scripts/validate_monthly_revenue_coverage_backfill_audit.py
+```
+
+The latest artifacts are:
+
+- `output/latest/research_backtest/monthly_revenue_coverage_backfill_audit_latest.csv`
+- `output/latest/research_backtest/monthly_revenue_coverage_backfill_audit_detail_latest.csv`
+- `output/latest/research_backtest/monthly_revenue_coverage_backfill_audit_latest.md`
+- `docs/latest/monthly_revenue_coverage_backfill_audit_latest.csv`
+- `docs/latest/monthly_revenue_coverage_backfill_audit_latest.md`
+
+The audit measures whether canonical full-market monthly revenue rows can be
+joined point-in-time by `source_table_date <= signal_date`, including model-level
+coverage for `price_pullback_23ema` and `revenue_unreacted_range`.
+
+Formal revenue gates remain blocked unless the audit reports enough history
+months and enough signal-row / stock coverage. A candidate snapshot PIT panel is
+not a validated full-market historical backfill source.
 
 ## Revenue PIT Panel
 

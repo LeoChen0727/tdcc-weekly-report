@@ -17,6 +17,10 @@ from build_monthly_revenue_history import (  # noqa: E402
     parse_roc_or_yyyymmdd,
     standardize_source,
 )
+from backfill_monthly_revenue_history_from_mops_html import (  # noqa: E402
+    conservative_source_table_date,
+    parse_static_html,
+)
 from validate_monthly_revenue_history import validate_history  # noqa: E402
 
 
@@ -171,6 +175,41 @@ def test_monthly_revenue_history_merge_preserves_old_periods(tmp_path: Path) -> 
     merged = merge_history(current, path)
 
     assert list(merged["revenue_period"]) == ["202604", "202605"]
+
+
+def test_monthly_revenue_backfill_parses_static_html_with_conservative_source_date() -> None:
+    html = """
+    <html><body>
+    <table><tr><th>產業別：半導體業</th><th>單位：千元</th></tr></table>
+    <table>
+      <tr><th>公司代號</th><th>公司名稱</th><th>當月營收</th><th>上月營收</th>
+      <th>去年當月營收</th><th>上月比較增減(%)</th><th>去年同月增減(%)</th>
+      <th>當月累計營收</th><th>去年累計營收</th><th>前期比較增減(%)</th><th>備註</th></tr>
+      <tr><td>2330</td><td>台積電</td><td>320,000,000</td><td>300,000,000</td>
+      <td>250,000,000</td><td>6.7</td><td>28.0</td><td>1,500,000,000</td>
+      <td>1,200,000,000</td><td>25.0</td><td>-</td></tr>
+    </table>
+    </body></html>
+    """
+
+    out = parse_static_html(
+        html,
+        period="202605",
+        market="listed",
+        source_file="data/monthly_revenue_history/raw/mops_html/example.html",
+        source_url_text="https://example.test/t21sc03_115_5_0.html",
+        fetch_date="20260704",
+        fetch_timestamp="2026-07-04 12:00:00 Asia/Taipei",
+    )
+
+    assert conservative_source_table_date("202605") == "20260617"
+    assert validate_history(out.astype(str), require_source_files=False, require_all_markets=False) == []
+    row = out.iloc[0]
+    assert row["source_kind"] == "official_mops_static_monthly_revenue_html_conservative_available_date_v1"
+    assert row["source_table_date"] == "20260617"
+    assert row["source_table_date_raw"] == "conservative_next_month_17th"
+    assert row["industry"] == "半導體業"
+    assert row["latest_revenue_yoy_pct"] == "28"
 
 
 def test_monthly_revenue_validator_rejects_formal_use_claim() -> None:

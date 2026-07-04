@@ -60,6 +60,7 @@ REQUIRED_FAMILIES = {
     "daily_model_signal_background_feature_panel",
     "daily_model_background_feature_catalog",
     "monthly_revenue_history",
+    "monthly_revenue_coverage_backfill_audit",
     "monthly_revenue_point_in_time_panel",
     "price_pullback_23ema_research_outputs",
     "neckline_context_interpretation",
