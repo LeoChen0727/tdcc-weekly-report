@@ -629,6 +629,17 @@ FULL_MONTHLY_REVENUE_CONTEXT_COLUMNS = [
     "full_monthly_revenue_latest_yoy_pct",
     "full_monthly_revenue_cumulative_yoy_pct",
     "full_monthly_revenue_month_over_month_pct",
+    "full_monthly_revenue_prev1_period",
+    "full_monthly_revenue_prev2_period",
+    "full_monthly_revenue_prev3_period",
+    "full_monthly_revenue_prev1_latest_yoy_pct",
+    "full_monthly_revenue_prev2_latest_yoy_pct",
+    "full_monthly_revenue_prev3_latest_yoy_pct",
+    "full_monthly_revenue_prev1_cumulative_yoy_pct",
+    "full_monthly_revenue_prev2_cumulative_yoy_pct",
+    "full_monthly_revenue_prev3_cumulative_yoy_pct",
+    "full_monthly_revenue_latest_yoy_delta_1m_pct_points",
+    "full_monthly_revenue_cumulative_yoy_delta_1m_pct_points",
     "full_monthly_revenue_positive_flag",
     "full_monthly_revenue_strong_flag",
     "full_monthly_revenue_positive_or_strong",
@@ -703,6 +714,11 @@ def attach_full_monthly_revenue_history_features(
     )
     history = history.dropna(subset=["_full_monthly_revenue_source_dt"])
     history = history.sort_values(["stock_id", "_full_monthly_revenue_source_dt", "revenue_period"])
+    grouped_history = history.groupby("stock_id", sort=False, dropna=False)
+    for lag in (1, 2, 3):
+        history[f"prev{lag}_revenue_period"] = grouped_history["revenue_period"].shift(lag)
+        history[f"prev{lag}_latest_revenue_yoy_pct"] = grouped_history["latest_revenue_yoy_pct"].shift(lag)
+        history[f"prev{lag}_cumulative_revenue_yoy_pct"] = grouped_history["cumulative_revenue_yoy_pct"].shift(lag)
 
     left = df.copy()
     left["_full_monthly_revenue_original_index"] = range(len(left))
@@ -765,12 +781,28 @@ def attach_full_monthly_revenue_history_features(
         merged_all.get("month_over_month_pct", pd.Series(math.nan, index=merged_all.index)),
         errors="coerce",
     )
+    for lag in (1, 2, 3):
+        merged_all[f"full_monthly_revenue_prev{lag}_period"] = _merged_text_column(f"prev{lag}_revenue_period")
+        merged_all[f"full_monthly_revenue_prev{lag}_latest_yoy_pct"] = pd.to_numeric(
+            merged_all.get(f"prev{lag}_latest_revenue_yoy_pct", pd.Series(math.nan, index=merged_all.index)),
+            errors="coerce",
+        )
+        merged_all[f"full_monthly_revenue_prev{lag}_cumulative_yoy_pct"] = pd.to_numeric(
+            merged_all.get(f"prev{lag}_cumulative_revenue_yoy_pct", pd.Series(math.nan, index=merged_all.index)),
+            errors="coerce",
+        )
     research_allowed = trueish(merged_all.get("research_join_allowed", pd.Series(False, index=merged_all.index)))
     formal_allowed = trueish(
         merged_all.get("allowed_for_formal_historical_model_use", pd.Series(False, index=merged_all.index))
     )
     latest = merged_all["full_monthly_revenue_latest_yoy_pct"]
     cumulative = merged_all["full_monthly_revenue_cumulative_yoy_pct"]
+    merged_all["full_monthly_revenue_latest_yoy_delta_1m_pct_points"] = (
+        latest - merged_all["full_monthly_revenue_prev1_latest_yoy_pct"]
+    )
+    merged_all["full_monthly_revenue_cumulative_yoy_delta_1m_pct_points"] = (
+        cumulative - merged_all["full_monthly_revenue_prev1_cumulative_yoy_pct"]
+    )
     context_ready = has_match & research_allowed
     merged_all["full_monthly_revenue_context_ready"] = context_ready
     merged_all["full_monthly_revenue_positive_flag"] = context_ready & ((latest > 0) | (cumulative > 0))
@@ -799,6 +831,15 @@ def attach_full_monthly_revenue_history_features(
         "latest_revenue_yoy_pct",
         "cumulative_revenue_yoy_pct",
         "month_over_month_pct",
+        "prev1_revenue_period",
+        "prev2_revenue_period",
+        "prev3_revenue_period",
+        "prev1_latest_revenue_yoy_pct",
+        "prev2_latest_revenue_yoy_pct",
+        "prev3_latest_revenue_yoy_pct",
+        "prev1_cumulative_revenue_yoy_pct",
+        "prev2_cumulative_revenue_yoy_pct",
+        "prev3_cumulative_revenue_yoy_pct",
         "revenue_numerical_anomaly_flag",
         "revenue_numerical_anomaly_reason",
         "research_join_allowed",
@@ -1002,6 +1043,81 @@ def full_monthly_revenue_negative_both_filter(d: pd.DataFrame) -> pd.Series:
         full_monthly_revenue_context_ready_filter(d)
         & numeric_column(d, "full_monthly_revenue_latest_yoy_pct").lt(0.0)
         & numeric_column(d, "full_monthly_revenue_cumulative_yoy_pct").lt(0.0)
+    ).fillna(False)
+
+
+def full_monthly_revenue_latest_yoy_improving_2m_filter(d: pd.DataFrame) -> pd.Series:
+    latest = numeric_column(d, "full_monthly_revenue_latest_yoy_pct")
+    prev1 = numeric_column(d, "full_monthly_revenue_prev1_latest_yoy_pct")
+    prev2 = numeric_column(d, "full_monthly_revenue_prev2_latest_yoy_pct")
+    return (full_monthly_revenue_context_ready_filter(d) & latest.gt(prev1) & prev1.gt(prev2)).fillna(False)
+
+
+def full_monthly_revenue_latest_yoy_improving_3m_filter(d: pd.DataFrame) -> pd.Series:
+    latest = numeric_column(d, "full_monthly_revenue_latest_yoy_pct")
+    prev1 = numeric_column(d, "full_monthly_revenue_prev1_latest_yoy_pct")
+    prev2 = numeric_column(d, "full_monthly_revenue_prev2_latest_yoy_pct")
+    prev3 = numeric_column(d, "full_monthly_revenue_prev3_latest_yoy_pct")
+    return (
+        full_monthly_revenue_context_ready_filter(d)
+        & latest.gt(prev1)
+        & prev1.gt(prev2)
+        & prev2.gt(prev3)
+    ).fillna(False)
+
+
+def full_monthly_revenue_cumulative_yoy_improving_2m_filter(d: pd.DataFrame) -> pd.Series:
+    cumulative = numeric_column(d, "full_monthly_revenue_cumulative_yoy_pct")
+    prev1 = numeric_column(d, "full_monthly_revenue_prev1_cumulative_yoy_pct")
+    prev2 = numeric_column(d, "full_monthly_revenue_prev2_cumulative_yoy_pct")
+    return (full_monthly_revenue_context_ready_filter(d) & cumulative.gt(prev1) & prev1.gt(prev2)).fillna(False)
+
+
+def full_monthly_revenue_latest_yoy_turn_positive_filter(d: pd.DataFrame) -> pd.Series:
+    return (
+        full_monthly_revenue_context_ready_filter(d)
+        & numeric_column(d, "full_monthly_revenue_latest_yoy_pct").gt(0.0)
+        & numeric_column(d, "full_monthly_revenue_prev1_latest_yoy_pct").lt(0.0)
+    ).fillna(False)
+
+
+def full_monthly_revenue_latest_yoy_turn_positive_after_2_negative_filter(d: pd.DataFrame) -> pd.Series:
+    return (
+        full_monthly_revenue_latest_yoy_turn_positive_filter(d)
+        & numeric_column(d, "full_monthly_revenue_prev2_latest_yoy_pct").lt(0.0)
+    ).fillna(False)
+
+
+def full_monthly_revenue_cumulative_yoy_turn_positive_filter(d: pd.DataFrame) -> pd.Series:
+    return (
+        full_monthly_revenue_context_ready_filter(d)
+        & numeric_column(d, "full_monthly_revenue_cumulative_yoy_pct").gt(0.0)
+        & numeric_column(d, "full_monthly_revenue_prev1_cumulative_yoy_pct").lt(0.0)
+    ).fillna(False)
+
+
+def full_monthly_revenue_latest_yoy_delta_ge_filter(d: pd.DataFrame, threshold: float) -> pd.Series:
+    return (
+        full_monthly_revenue_context_ready_filter(d)
+        & numeric_column(d, "full_monthly_revenue_latest_yoy_delta_1m_pct_points").ge(threshold)
+    ).fillna(False)
+
+
+def full_monthly_revenue_turn_positive_and_cumulative_improving_filter(d: pd.DataFrame) -> pd.Series:
+    return (
+        full_monthly_revenue_latest_yoy_turn_positive_filter(d)
+        & numeric_column(d, "full_monthly_revenue_cumulative_yoy_pct").gt(
+            numeric_column(d, "full_monthly_revenue_prev1_cumulative_yoy_pct")
+        )
+    ).fillna(False)
+
+
+def full_monthly_revenue_latest_improving_and_cumulative_improving_filter(d: pd.DataFrame) -> pd.Series:
+    return (
+        full_monthly_revenue_latest_yoy_improving_2m_filter(d)
+        & numeric_column(d, "full_monthly_revenue_cumulative_yoy_pct").gt(
+            numeric_column(d, "full_monthly_revenue_prev1_cumulative_yoy_pct")
+        )
     ).fillna(False)
 
 
@@ -4761,7 +4877,88 @@ PRICE_PULLBACK_REVENUE_CONDITION_TESTS = [
         "condition": full_monthly_revenue_both_latest30_cumulative20_filter,
     },
     {
+        "test_order": 70,
+        "condition_test_id": "latest_yoy_improving_2m",
+        "condition_family": "revenue_turnaround",
+        "condition_role_candidate": "turnaround_add_score_candidate",
+        "condition_rule": "latest monthly revenue YoY improves for two consecutive available months",
+        "data_status": "joined_from_full_market_monthly_revenue_history_research_only",
+        "condition": full_monthly_revenue_latest_yoy_improving_2m_filter,
+    },
+    {
+        "test_order": 80,
+        "condition_test_id": "latest_yoy_improving_3m",
+        "condition_family": "revenue_turnaround",
+        "condition_role_candidate": "turnaround_add_score_candidate",
+        "condition_rule": "latest monthly revenue YoY improves for three consecutive available months",
+        "data_status": "joined_from_full_market_monthly_revenue_history_research_only",
+        "condition": full_monthly_revenue_latest_yoy_improving_3m_filter,
+    },
+    {
         "test_order": 90,
+        "condition_test_id": "cumulative_yoy_improving_2m",
+        "condition_family": "revenue_turnaround",
+        "condition_role_candidate": "turnaround_add_score_candidate",
+        "condition_rule": "cumulative monthly revenue YoY improves for two consecutive available months",
+        "data_status": "joined_from_full_market_monthly_revenue_history_research_only",
+        "condition": full_monthly_revenue_cumulative_yoy_improving_2m_filter,
+    },
+    {
+        "test_order": 100,
+        "condition_test_id": "latest_yoy_turn_positive",
+        "condition_family": "revenue_turnaround",
+        "condition_role_candidate": "turnaround_add_score_candidate",
+        "condition_rule": "latest monthly revenue YoY turns from negative in the previous available month to positive",
+        "data_status": "joined_from_full_market_monthly_revenue_history_research_only",
+        "condition": full_monthly_revenue_latest_yoy_turn_positive_filter,
+    },
+    {
+        "test_order": 110,
+        "condition_test_id": "latest_yoy_turn_positive_after_2_negative",
+        "condition_family": "revenue_turnaround",
+        "condition_role_candidate": "turnaround_add_score_candidate",
+        "condition_rule": "latest monthly revenue YoY turns positive after two negative available months",
+        "data_status": "joined_from_full_market_monthly_revenue_history_research_only",
+        "condition": full_monthly_revenue_latest_yoy_turn_positive_after_2_negative_filter,
+    },
+    {
+        "test_order": 120,
+        "condition_test_id": "cumulative_yoy_turn_positive",
+        "condition_family": "revenue_turnaround",
+        "condition_role_candidate": "turnaround_add_score_candidate",
+        "condition_rule": "cumulative monthly revenue YoY turns from negative in the previous available month to positive",
+        "data_status": "joined_from_full_market_monthly_revenue_history_research_only",
+        "condition": full_monthly_revenue_cumulative_yoy_turn_positive_filter,
+    },
+    {
+        "test_order": 130,
+        "condition_test_id": "latest_yoy_delta_ge20",
+        "condition_family": "revenue_turnaround",
+        "condition_role_candidate": "turnaround_add_score_candidate",
+        "condition_rule": "latest monthly revenue YoY improves by at least 20 percentage points from the previous available month",
+        "data_status": "joined_from_full_market_monthly_revenue_history_research_only",
+        "condition": lambda d: full_monthly_revenue_latest_yoy_delta_ge_filter(d, 20.0),
+    },
+    {
+        "test_order": 140,
+        "condition_test_id": "turn_positive_and_cumulative_improving",
+        "condition_family": "revenue_turnaround_combo",
+        "condition_role_candidate": "condition_package_candidate",
+        "condition_rule": "latest monthly revenue YoY turns positive and cumulative monthly revenue YoY improves",
+        "data_status": "joined_from_full_market_monthly_revenue_history_research_only",
+        "condition": full_monthly_revenue_turn_positive_and_cumulative_improving_filter,
+    },
+    {
+        "test_order": 150,
+        "condition_test_id": "latest_improving_2m_and_cumulative_improving",
+        "condition_family": "revenue_turnaround_combo",
+        "condition_role_candidate": "condition_package_candidate",
+        "condition_rule": "latest monthly revenue YoY improves for two consecutive available months and cumulative monthly revenue YoY improves",
+        "data_status": "joined_from_full_market_monthly_revenue_history_research_only",
+        "condition": full_monthly_revenue_latest_improving_and_cumulative_improving_filter,
+    },
+    {
+        "test_order": 190,
         "condition_test_id": "revenue_negative_both_risk",
         "condition_family": "revenue_risk",
         "condition_role_candidate": "deduct_score_or_risk_tag_candidate",
@@ -4862,6 +5059,10 @@ def _price_pullback_revenue_condition_metrics(accepted: pd.DataFrame) -> dict[st
             "median_revenue_latest_yoy_pct": "",
             "avg_revenue_cumulative_yoy_pct": "",
             "median_revenue_cumulative_yoy_pct": "",
+            "avg_revenue_latest_yoy_delta_1m_pct_points": "",
+            "median_revenue_latest_yoy_delta_1m_pct_points": "",
+            "avg_revenue_cumulative_yoy_delta_1m_pct_points": "",
+            "median_revenue_cumulative_yoy_delta_1m_pct_points": "",
         }
     realized = pd.to_numeric(accepted["realized_return_pct"], errors="coerce")
     high8 = realized.ge(8.0)
@@ -4869,6 +5070,8 @@ def _price_pullback_revenue_condition_metrics(accepted: pd.DataFrame) -> dict[st
     loss5 = realized.le(-5.0)
     latest = numeric_column(accepted, "full_monthly_revenue_latest_yoy_pct")
     cumulative = numeric_column(accepted, "full_monthly_revenue_cumulative_yoy_pct")
+    latest_delta = numeric_column(accepted, "full_monthly_revenue_latest_yoy_delta_1m_pct_points")
+    cumulative_delta = numeric_column(accepted, "full_monthly_revenue_cumulative_yoy_delta_1m_pct_points")
     return {
         **outcome,
         "median_realized_return_pct": _median_or_blank(realized),
@@ -4882,6 +5085,10 @@ def _price_pullback_revenue_condition_metrics(accepted: pd.DataFrame) -> dict[st
         "median_revenue_latest_yoy_pct": _median_or_blank(latest),
         "avg_revenue_cumulative_yoy_pct": _mean_or_blank(cumulative),
         "median_revenue_cumulative_yoy_pct": _median_or_blank(cumulative),
+        "avg_revenue_latest_yoy_delta_1m_pct_points": _mean_or_blank(latest_delta),
+        "median_revenue_latest_yoy_delta_1m_pct_points": _median_or_blank(latest_delta),
+        "avg_revenue_cumulative_yoy_delta_1m_pct_points": _mean_or_blank(cumulative_delta),
+        "median_revenue_cumulative_yoy_delta_1m_pct_points": _median_or_blank(cumulative_delta),
     }
 
 

@@ -1,6 +1,6 @@
 # Price Pullback 23EMA Ordered Condition Matrix
 
-- generated_at: `2026-07-04 18:45:18 Asia/Taipei`
+- generated_at: `2026-07-04 20:42:25 Asia/Taipei`
 - model_id: `price_pullback_23ema`
 - status: `not_production_ready_research_only`
 - scope: ordered research matrix for deciding necessary conditions, add-score items, risk filters, or rejected conditions.
