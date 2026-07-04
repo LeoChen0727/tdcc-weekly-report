@@ -1266,6 +1266,7 @@ def test_price_pullback_revenue_condition_matrix_is_research_only_and_uses_lifec
     assert validate_price_pullback(matrix.astype(str)) == []
     assert matrix["approved_for_daily"].eq(False).all()
     assert matrix["production_change"].eq("none").all()
+    assert set(matrix["exit_rule_id"]) == {"close_prev20_high_break_next_open"}
     assert "revenue_production_strong" in set(matrix["condition_test_id"])
     strong = matrix[
         matrix["condition_test_id"].eq("revenue_production_strong")
@@ -1295,7 +1296,7 @@ def test_price_pullback_revenue_condition_matrix_is_research_only_and_uses_lifec
 
 
 def test_price_pullback_promotion_matrix_keeps_research_decisions_separated() -> None:
-    exit_rule_id = "close_prev20_break_then_tp10_or_5ma_next_open"
+    exit_rule_id = "close_prev20_high_break_next_open"
     lifecycle = pd.DataFrame(
         [
             {
@@ -1303,6 +1304,10 @@ def test_price_pullback_promotion_matrix_keeps_research_decisions_separated() ->
                 "exit_rule_id": exit_rule_id,
                 "condition_rule": "production proxy replay only",
                 "data_status": "available_point_in_time_research_frame",
+                "anomaly_exclusion_basis": "excluding_known_data_quality_exceptions",
+                "known_data_quality_exception_count_in_sample": 1,
+                "known_data_quality_exception_count_in_baseline": 1,
+                "known_data_quality_exception_ids": "fixture_exception",
                 "formal_price_rule_status": "close_confirmed_candidate",
                 "entry_rule_id": "signal_date_next_open",
                 "source_mature_signal_stock_days": 1000,
@@ -1320,6 +1325,10 @@ def test_price_pullback_promotion_matrix_keeps_research_decisions_separated() ->
                 "exit_rule_id": exit_rule_id,
                 "condition_rule": "return20_0_25 plus TDCC high thresholds up plus OBV above MA20",
                 "data_status": "available_point_in_time_research_frame",
+                "anomaly_exclusion_basis": "excluding_known_data_quality_exceptions",
+                "known_data_quality_exception_count_in_sample": 1,
+                "known_data_quality_exception_count_in_baseline": 1,
+                "known_data_quality_exception_ids": "fixture_exception",
                 "formal_price_rule_status": "close_confirmed_candidate",
                 "entry_rule_id": "signal_date_next_open",
                 "source_mature_signal_stock_days": 100,
@@ -1341,6 +1350,10 @@ def test_price_pullback_promotion_matrix_keeps_research_decisions_separated() ->
                 "exit_rule_id": exit_rule_id,
                 "condition_rule": f"rule for {condition_id}",
                 "data_status": "available_point_in_time_research_frame",
+                "anomaly_exclusion_basis": "excluding_known_data_quality_exceptions",
+                "known_data_quality_exception_count_in_sample": 1,
+                "known_data_quality_exception_count_in_baseline": 1,
+                "known_data_quality_exception_ids": "fixture_exception",
                 "formal_price_rule_status": "close_confirmed_candidate",
                 "entry_rule_id": "signal_date_next_open",
                 "mature_count": 50,
@@ -1370,6 +1383,9 @@ def test_price_pullback_promotion_matrix_keeps_research_decisions_separated() ->
                 "anomaly_exclusion_basis": "excluding_known_data_quality_exceptions",
                 "score_rule_summary": "score rule",
                 "formal_price_rule_status": "close_confirmed_candidate",
+                "known_data_quality_exception_count_in_bucket": 1,
+                "known_data_quality_exception_count_in_baseline": 1,
+                "known_data_quality_exception_ids": "fixture_exception",
                 "entry_rule_id": "signal_date_next_open",
                 "source_mature_signal_stock_days": 40,
                 "accepted_trade_count": 40,
@@ -1391,6 +1407,8 @@ def test_price_pullback_promotion_matrix_keeps_research_decisions_separated() ->
                 "anomaly_exclusion_basis": "excluding_known_price_or_revenue_anomalies",
                 "condition_rule": f"revenue rule for {condition_id}",
                 "data_status": "joined_from_full_market_monthly_revenue_history_research_only",
+                "revenue_or_price_anomaly_count_in_sample": 1,
+                "revenue_or_price_anomaly_count_in_baseline": 1,
                 "formal_price_rule_status": "close_confirmed_candidate",
                 "entry_rule_id": "signal_date_next_open",
                 "source_mature_signal_stock_days": 30,
@@ -1427,6 +1445,18 @@ def test_price_pullback_promotion_matrix_keeps_research_decisions_separated() ->
     assert roles["revenue_reject:latest_yoy_turn_positive_after_2_negative"] == "reject_as_required_gate_or_add_score"
     assert roles["score_component:volume_red_or_solid_red_risk"] == "risk_tag_candidate_review"
     assert roles["deferred_context:theme_leadership"] == "defer_until_mature_point_in_time_theme_samples"
+
+    tampered = matrix.astype(str).copy()
+    tampered.loc[tampered["promotion_candidate_id"].eq("base_package:v1_gate_return20_tdcc_high_obv"), "exit_rule_id"] = (
+        "close_prev20_break_then_tp10_or_5ma_next_open"
+    )
+    assert any("approved close-confirmed prev20 breakout" in error for error in validate_promotion_matrix(tampered))
+    tampered_anomaly = matrix.astype(str).copy()
+    tampered_anomaly.loc[
+        tampered_anomaly["promotion_candidate_id"].eq("base_package:v1_gate_return20_tdcc_high_obv"),
+        "anomaly_exclusion_basis",
+    ] = "including_data_quality_exceptions"
+    assert any("excluding anomaly basis" in error for error in validate_promotion_matrix(tampered_anomaly))
 
 
 def test_revenue_unreacted_range_revenue_matrix_stays_advisory_without_operation_contract() -> None:

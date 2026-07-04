@@ -1,6 +1,6 @@
 # Price Pullback 23EMA Daily Row Parity Audit
 
-- generated_at: `2026-07-04 21:42:54 Asia/Taipei`
+- generated_at: `2026-07-05 00:49:31 Asia/Taipei`
 - model_id: `price_pullback_23ema`
 - scope: compare as-published daily snapshot rows to the research production proxy at `signal_date + stock_id` level
 - rule: any missing or extra stock row keeps the model blocked from daily operation promotion
