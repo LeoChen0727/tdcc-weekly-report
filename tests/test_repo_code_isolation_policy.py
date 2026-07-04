@@ -72,6 +72,17 @@ def test_research_pipeline_stages_price_pullback_feature_confirmation_outputs() 
     assert "docs/latest/price_pullback_23ema_high_return_feature_score_grid_latest.csv" in workflow_text
     assert "docs/latest/price_pullback_23ema_high_return_feature_score_grid_latest.md" in workflow_text
     assert "output/history/research/price_pullback_23ema_high_return_feature_score_grid.csv" in workflow_text
+    assert "python scripts/validate_daily_model_revenue_condition_matrix.py" in workflow_text
+    assert "output/latest/research_backtest/price_pullback_23ema_revenue_condition_matrix_latest.csv" in workflow_text
+    assert "output/latest/research_backtest/price_pullback_23ema_revenue_condition_matrix_latest.md" in workflow_text
+    assert "output/latest/research_backtest/revenue_unreacted_range_revenue_condition_matrix_latest.csv" in workflow_text
+    assert "output/latest/research_backtest/revenue_unreacted_range_revenue_condition_matrix_latest.md" in workflow_text
+    assert "docs/latest/price_pullback_23ema_revenue_condition_matrix_latest.csv" in workflow_text
+    assert "docs/latest/price_pullback_23ema_revenue_condition_matrix_latest.md" in workflow_text
+    assert "docs/latest/revenue_unreacted_range_revenue_condition_matrix_latest.csv" in workflow_text
+    assert "docs/latest/revenue_unreacted_range_revenue_condition_matrix_latest.md" in workflow_text
+    assert "output/history/research/price_pullback_23ema_revenue_condition_matrix.csv" in workflow_text
+    assert "output/history/research/revenue_unreacted_range_revenue_condition_matrix.csv" in workflow_text
     assert "output/latest/research_backtest/price_pullback_23ema_lifecycle_replay_latest.csv" in workflow_text
     assert "output/latest/research_backtest/price_pullback_23ema_lifecycle_replay_latest.md" in workflow_text
     assert "docs/latest/price_pullback_23ema_lifecycle_replay_latest.csv" in workflow_text
