@@ -1,6 +1,6 @@
 # Monthly Revenue Coverage / Backfill Audit
 
-- generated_at: `2026-07-04 19:11:56 Asia/Taipei`
+- generated_at: `2026-07-04 21:04:00 Asia/Taipei`
 - audit_id: `monthly_revenue_coverage_backfill_audit`
 - audit_version: `coverage_backfill_audit_v1`
 - formal_model_revenue_gate_ready: `True`
