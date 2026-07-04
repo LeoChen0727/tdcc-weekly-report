@@ -216,6 +216,8 @@ PRICE_PULLBACK_KNOWN_DATA_QUALITY_EXCEPTIONS = [
         "exception_note": "unadjusted corporate-action/suspension-resumption price gap; research-only anomaly until adjusted basis is approved",
     },
 ]
+PRICE_PULLBACK_INCLUDE_DATA_QUALITY_EXCEPTIONS = "including_data_quality_exceptions"
+PRICE_PULLBACK_EXCLUDE_KNOWN_DATA_QUALITY_EXCEPTIONS = "excluding_known_data_quality_exceptions"
 PRICE_PULLBACK_CANDIDATE_REPLAY_REQUIRED_COLUMNS = {
     "stock_id",
     "candidate_source_type",
@@ -4497,6 +4499,30 @@ def _price_pullback_known_data_quality_exception_mask(d: pd.DataFrame) -> pd.Ser
     return mask.fillna(False)
 
 
+def _price_pullback_known_data_quality_exception_ids(d: pd.DataFrame) -> list[str]:
+    if d.empty:
+        return []
+    if "stock_id" in d.columns:
+        stock = d["stock_id"].map(safe_str)
+    else:
+        stock = pd.Series("", index=d.index, dtype=object)
+    if "_price_pullback_signal_date" in d.columns:
+        signal_date = d["_price_pullback_signal_date"].map(safe_str)
+    elif "date" in d.columns:
+        signal_date = d["date"].map(normalize_date)
+    else:
+        signal_date = pd.Series("", index=d.index, dtype=object)
+    ids: list[str] = []
+    for exception in PRICE_PULLBACK_KNOWN_DATA_QUALITY_EXCEPTIONS:
+        matched = (
+            stock.eq(safe_str(exception["stock_id"]))
+            & signal_date.eq(safe_str(exception["signal_date"]))
+        )
+        if bool(matched.fillna(False).any()):
+            ids.append(safe_str(exception["exception_id"]))
+    return sorted(set(ids))
+
+
 def _price_pullback_high_return_score_bucket_specs(score: pd.Series) -> list[dict[str, object]]:
     score_numeric = pd.to_numeric(score, errors="coerce").dropna()
     if score_numeric.empty:
@@ -5110,7 +5136,7 @@ def build_price_pullback_revenue_condition_matrix(df: pd.DataFrame) -> pd.DataFr
     candidate = next(
         candidate
         for candidate in PRICE_PULLBACK_EXIT_RULE_COMPARISON_CANDIDATES
-        if str(candidate["exit_rule_id"]) == "close_prev20_break_then_tp10_or_5ma_next_open"
+        if str(candidate["exit_rule_id"]) == "close_prev20_high_break_next_open"
     )
     required = _price_pullback_exit_required_columns(candidate)
     valid_base = base.dropna(subset=required).copy() if all(col in base.columns for col in required) else base.iloc[0:0].copy()
@@ -5545,107 +5571,128 @@ def build_price_pullback_ordered_condition_matrix(df: pd.DataFrame) -> pd.DataFr
             continue
         base_outcome = _price_pullback_exit_rule_outcome_rows(valid_base, candidate)
         enriched_base = valid_base.join(base_outcome)
-        baseline_counts = _price_pullback_ordered_outcome_summary(enriched_base)
-        baseline_mature_count = int(baseline_counts["mature_count"])
-        baseline_win_rate = _numeric_or_nan(baseline_counts["win_rate_pct"])
-        baseline_failure_rate = _numeric_or_nan(baseline_counts["failure_rate_pct"])
-        baseline_avg_return = _numeric_or_nan(baseline_counts["avg_realized_return_pct"])
-        for spec in PRICE_PULLBACK_ORDERED_CONDITION_TESTS:
-            condition = spec.get("condition")
-            if condition is None:
-                picked = base.iloc[0:0].copy()
+        baseline_exception_mask = _price_pullback_known_data_quality_exception_mask(enriched_base)
+        for anomaly_basis in [
+            PRICE_PULLBACK_INCLUDE_DATA_QUALITY_EXCEPTIONS,
+            PRICE_PULLBACK_EXCLUDE_KNOWN_DATA_QUALITY_EXCEPTIONS,
+        ]:
+            if anomaly_basis == PRICE_PULLBACK_EXCLUDE_KNOWN_DATA_QUALITY_EXCEPTIONS:
+                basis_enriched_base = enriched_base[~baseline_exception_mask].copy()
             else:
-                condition_mask = condition(base).fillna(False)
-                picked = base[condition_mask].copy()
-            if picked.empty:
-                enriched = enriched_base.iloc[0:0].copy()
-            else:
-                picked_mask = picked.index.to_series().isin(enriched_base.index)
-                valid_picked_index = picked.index[picked_mask]
-                enriched = enriched_base.loc[valid_picked_index].copy()
-            outcome = _price_pullback_ordered_outcome_summary(enriched)
-            if enriched.empty:
-                avg_score = ""
-                avg_space = ""
-                median_space = ""
-            else:
-                avg_score = _mean_or_blank(enriched["price_pullback_research_score"])
-                avg_space = _mean_or_blank(enriched["prev20_target_return_pct"])
-                median_space = _median_or_blank(enriched["prev20_target_return_pct"])
-            mature_count = int(outcome["mature_count"])
-            win_rate = _numeric_or_nan(outcome["win_rate_pct"])
-            failure_rate = _numeric_or_nan(outcome["failure_rate_pct"])
-            avg_return = _numeric_or_nan(outcome["avg_realized_return_pct"])
-            delta_win_rate = (
-                round(win_rate - baseline_win_rate, 2)
-                if not math.isnan(win_rate) and not math.isnan(baseline_win_rate)
-                else ""
-            )
-            delta_failure_rate = (
-                round(failure_rate - baseline_failure_rate, 2)
-                if not math.isnan(failure_rate) and not math.isnan(baseline_failure_rate)
-                else ""
-            )
-            delta_avg_return = (
-                round(avg_return - baseline_avg_return, 2)
-                if not math.isnan(avg_return) and not math.isnan(baseline_avg_return)
-                else ""
-            )
-            mature_share = _rate(mature_count, baseline_mature_count)
-            row = {
-                "generated_at": generated_at,
-                "model_id": "price_pullback_23ema",
-                "model_name_zh": "股價回檔模型",
-                "research_artifact_id": "price_pullback_23ema_ordered_condition_matrix",
-                "test_order": spec["test_order"],
-                "test_stage": spec["test_stage"],
-                "condition_test_id": spec["condition_test_id"],
-                "condition_role_candidate": spec["condition_role_candidate"],
-                "condition_rule": spec["condition_rule"],
-                "data_status": spec["data_status"],
-                "exit_rule_id": exit_rule_id,
-                "formal_price_rule_status": candidate["formal_price_rule_status"],
-                "profit_target_pct": candidate["profit_target_pct"],
-                "exit_price_rule": candidate["exit_price_rule"],
-                "entry_rule_id": "signal_date_next_open",
-                "buy_point_rule": (
-                    "Buy next open only after the price_pullback_23ema production proxy signal; "
-                    "ordered conditions are research-only."
-                ),
-                "selected_stock_days": len(picked),
-                "selected_unique_stocks": picked["stock_id"].nunique() if "stock_id" in picked.columns else "",
-                "baseline_mature_count": baseline_mature_count,
-                "mature_share_of_baseline_pct": mature_share,
-                "avg_research_score": avg_score,
-                "avg_prev20_target_return_pct": avg_space,
-                "median_prev20_target_return_pct": median_space,
-                "delta_vs_baseline_win_rate_pct": delta_win_rate,
-                "delta_vs_baseline_failure_rate_pct": delta_failure_rate,
-                "delta_vs_baseline_avg_realized_return_pct": delta_avg_return,
-                "decision_hint": _price_pullback_ordered_condition_hint(
-                    spec,
-                    mature_count,
-                    baseline_mature_count,
-                    delta_win_rate,
-                    delta_failure_rate,
-                    delta_avg_return,
-                ),
-                "score_use": "research_only_not_production_score",
-                "advisory_status": "not_production_ready_research_only",
-                "approved_for_daily": False,
-                "production_change": "none",
-                "promotion_readiness": "blocked_exact_daily_row_parity_and_operation_approval_required",
-                "promotion_blocker": (
-                    "requires explicit model-rule decision, production contract update if promoted, exact parity, "
-                    "validators, PR merge, and post-merge main validation"
-                ),
-                **outcome,
-            }
-            rows.append(row)
+                basis_enriched_base = enriched_base.copy()
+            baseline_counts = _price_pullback_ordered_outcome_summary(basis_enriched_base)
+            baseline_mature_count = int(baseline_counts["mature_count"])
+            baseline_win_rate = _numeric_or_nan(baseline_counts["win_rate_pct"])
+            baseline_failure_rate = _numeric_or_nan(baseline_counts["failure_rate_pct"])
+            baseline_avg_return = _numeric_or_nan(baseline_counts["avg_realized_return_pct"])
+            for spec in PRICE_PULLBACK_ORDERED_CONDITION_TESTS:
+                condition = spec.get("condition")
+                if condition is None:
+                    raw_picked_index = base.index[0:0]
+                else:
+                    condition_mask = condition(base).fillna(False)
+                    raw_picked_index = base.index[condition_mask]
+                raw_valid_index = raw_picked_index.intersection(enriched_base.index)
+                sample_exception_source = enriched_base.loc[raw_valid_index].copy()
+                sample_exception_mask = _price_pullback_known_data_quality_exception_mask(sample_exception_source)
+                valid_picked_index = raw_valid_index.intersection(basis_enriched_base.index)
+                picked = base.loc[valid_picked_index].copy()
+                enriched = basis_enriched_base.loc[valid_picked_index].copy()
+                outcome = _price_pullback_ordered_outcome_summary(enriched)
+                if enriched.empty:
+                    avg_score = ""
+                    avg_space = ""
+                    median_space = ""
+                else:
+                    avg_score = _mean_or_blank(enriched["price_pullback_research_score"])
+                    avg_space = _mean_or_blank(enriched["prev20_target_return_pct"])
+                    median_space = _median_or_blank(enriched["prev20_target_return_pct"])
+                mature_count = int(outcome["mature_count"])
+                win_rate = _numeric_or_nan(outcome["win_rate_pct"])
+                failure_rate = _numeric_or_nan(outcome["failure_rate_pct"])
+                avg_return = _numeric_or_nan(outcome["avg_realized_return_pct"])
+                delta_win_rate = (
+                    round(win_rate - baseline_win_rate, 2)
+                    if not math.isnan(win_rate) and not math.isnan(baseline_win_rate)
+                    else ""
+                )
+                delta_failure_rate = (
+                    round(failure_rate - baseline_failure_rate, 2)
+                    if not math.isnan(failure_rate) and not math.isnan(baseline_failure_rate)
+                    else ""
+                )
+                delta_avg_return = (
+                    round(avg_return - baseline_avg_return, 2)
+                    if not math.isnan(avg_return) and not math.isnan(baseline_avg_return)
+                    else ""
+                )
+                mature_share = _rate(mature_count, baseline_mature_count)
+                row = {
+                    "generated_at": generated_at,
+                    "model_id": "price_pullback_23ema",
+                    "model_name_zh": "股價回檔模型",
+                    "research_artifact_id": "price_pullback_23ema_ordered_condition_matrix",
+                    "test_order": spec["test_order"],
+                    "test_stage": spec["test_stage"],
+                    "condition_test_id": spec["condition_test_id"],
+                    "condition_role_candidate": spec["condition_role_candidate"],
+                    "condition_rule": spec["condition_rule"],
+                    "data_status": spec["data_status"],
+                    "anomaly_exclusion_basis": anomaly_basis,
+                    "known_data_quality_exception_count_in_sample": int(sample_exception_mask.sum()),
+                    "known_data_quality_exception_count_in_baseline": int(baseline_exception_mask.sum()),
+                    "known_data_quality_exception_ids": ";".join(
+                        _price_pullback_known_data_quality_exception_ids(sample_exception_source)
+                    ),
+                    "exit_rule_id": exit_rule_id,
+                    "formal_price_rule_status": candidate["formal_price_rule_status"],
+                    "profit_target_pct": candidate["profit_target_pct"],
+                    "exit_price_rule": candidate["exit_price_rule"],
+                    "entry_rule_id": "signal_date_next_open",
+                    "buy_point_rule": (
+                        "Buy next open only after the price_pullback_23ema production proxy signal; "
+                        "ordered conditions are research-only."
+                    ),
+                    "selected_stock_days": len(picked),
+                    "selected_unique_stocks": picked["stock_id"].nunique() if "stock_id" in picked.columns else "",
+                    "baseline_mature_count": baseline_mature_count,
+                    "mature_share_of_baseline_pct": mature_share,
+                    "avg_research_score": avg_score,
+                    "avg_prev20_target_return_pct": avg_space,
+                    "median_prev20_target_return_pct": median_space,
+                    "delta_vs_baseline_win_rate_pct": delta_win_rate,
+                    "delta_vs_baseline_failure_rate_pct": delta_failure_rate,
+                    "delta_vs_baseline_avg_realized_return_pct": delta_avg_return,
+                    "decision_hint": _price_pullback_ordered_condition_hint(
+                        spec,
+                        mature_count,
+                        baseline_mature_count,
+                        delta_win_rate,
+                        delta_failure_rate,
+                        delta_avg_return,
+                    ),
+                    "score_use": "research_only_not_production_score",
+                    "advisory_status": "not_production_ready_research_only",
+                    "approved_for_daily": False,
+                    "production_change": "none",
+                    "promotion_readiness": "blocked_exact_daily_row_parity_and_operation_approval_required",
+                    "promotion_blocker": (
+                        "requires explicit model-rule decision, production contract update if promoted, exact parity, "
+                        "validators, PR merge, and post-merge main validation"
+                    ),
+                    **outcome,
+                }
+                rows.append(row)
     out = pd.DataFrame(rows)
     if out.empty:
         return out
-    out = out.sort_values(["exit_rule_id", "test_order"]).reset_index(drop=True)
+    anomaly_order = {
+        PRICE_PULLBACK_INCLUDE_DATA_QUALITY_EXCEPTIONS: 0,
+        PRICE_PULLBACK_EXCLUDE_KNOWN_DATA_QUALITY_EXCEPTIONS: 1,
+    }
+    out["_anomaly_order"] = out["anomaly_exclusion_basis"].map(anomaly_order).fillna(99)
+    out = out.sort_values(["exit_rule_id", "_anomaly_order", "test_order"]).drop(columns=["_anomaly_order"])
+    out = out.reset_index(drop=True)
     return out
 
 
@@ -5672,6 +5719,8 @@ def write_price_pullback_ordered_condition_matrix(matrix: pd.DataFrame) -> None:
                 "test_stage",
                 "condition_test_id",
                 "condition_role_candidate",
+                "anomaly_exclusion_basis",
+                "known_data_quality_exception_count_in_sample",
                 "exit_rule_id",
                 "mature_count",
                 "mature_share_of_baseline_pct",
@@ -5861,6 +5910,14 @@ def _price_pullback_date_stats(frame: pd.DataFrame) -> dict[str, object]:
     }
 
 
+def _price_pullback_base_rows_for_lifecycle(base: pd.DataFrame, lifecycle: pd.DataFrame) -> pd.DataFrame:
+    if lifecycle.empty or "_price_pullback_original_index" not in lifecycle.columns:
+        return base.iloc[0:0].copy()
+    original_index = pd.to_numeric(lifecycle["_price_pullback_original_index"], errors="coerce").dropna().astype(int)
+    valid_index = base.index.intersection(original_index)
+    return base.loc[valid_index].copy()
+
+
 def _price_pullback_lifecycle_condition_hint(
     spec: dict[str, object],
     accepted_trade_count: int,
@@ -5925,136 +5982,169 @@ def build_price_pullback_lifecycle_replay(df: pd.DataFrame) -> pd.DataFrame:
             continue
         base_outcome = _price_pullback_exit_rule_outcome_rows(valid_base, candidate)
         enriched_base = valid_base[lifecycle_key_cols].join(base_outcome)
-        baseline_lifecycle = _price_pullback_apply_lifecycle_suppression(
+        baseline_lifecycle_all = _price_pullback_apply_lifecycle_suppression(
             enriched_base,
         )
-        baseline_accepted = baseline_lifecycle[trueish(baseline_lifecycle["lifecycle_accepted_trade"])]
-        baseline_counts = _price_pullback_ordered_outcome_summary(baseline_accepted)
-        baseline_accepted_trade_count = int(baseline_counts["mature_count"])
-        baseline_win_rate = _numeric_or_nan(baseline_counts["win_rate_pct"])
-        baseline_failure_rate = _numeric_or_nan(baseline_counts["failure_rate_pct"])
-        baseline_avg_return = _numeric_or_nan(baseline_counts["avg_realized_return_pct"])
-
-        for spec in _price_pullback_lifecycle_replay_condition_tests():
-            condition = spec.get("condition")
-            condition_id = safe_str(spec["condition_test_id"])
-            if condition_id == "baseline_replay":
-                picked_all = base.copy()
-                lifecycle = baseline_lifecycle.copy()
-            elif condition is None:
-                picked_all = base.iloc[0:0].copy()
-                lifecycle = _price_pullback_apply_lifecycle_suppression(enriched_base.iloc[0:0].copy())
+        baseline_exception_mask = _price_pullback_known_data_quality_exception_mask(baseline_lifecycle_all)
+        for anomaly_basis in [
+            PRICE_PULLBACK_INCLUDE_DATA_QUALITY_EXCEPTIONS,
+            PRICE_PULLBACK_EXCLUDE_KNOWN_DATA_QUALITY_EXCEPTIONS,
+        ]:
+            if anomaly_basis == PRICE_PULLBACK_EXCLUDE_KNOWN_DATA_QUALITY_EXCEPTIONS:
+                baseline_lifecycle = baseline_lifecycle_all[~baseline_exception_mask].copy()
             else:
-                condition_mask = condition(base).fillna(False)
-                picked_all = base[condition_mask].copy()
-                valid_index = picked_all.index.intersection(enriched_base.index)
-                enriched = enriched_base.loc[valid_index].copy()
-                lifecycle = _price_pullback_apply_lifecycle_suppression(enriched)
-            accepted = lifecycle[trueish(lifecycle["lifecycle_accepted_trade"])]
-            outcome = _price_pullback_ordered_outcome_summary(accepted)
-            accepted_trade_count = int(outcome["mature_count"])
-            selected_date_stats = _price_pullback_date_stats(picked_all)
-            accepted_date_stats = _price_pullback_date_stats(accepted)
-            suppressed_count = int(trueish(lifecycle["lifecycle_suppressed_signal"]).sum()) if not lifecycle.empty else 0
-            source_mature_count = len(lifecycle)
-            win_rate = _numeric_or_nan(outcome["win_rate_pct"])
-            failure_rate = _numeric_or_nan(outcome["failure_rate_pct"])
-            avg_return = _numeric_or_nan(outcome["avg_realized_return_pct"])
-            delta_win_rate = (
-                round(win_rate - baseline_win_rate, 2)
-                if not math.isnan(win_rate) and not math.isnan(baseline_win_rate)
-                else ""
-            )
-            delta_failure_rate = (
-                round(failure_rate - baseline_failure_rate, 2)
-                if not math.isnan(failure_rate) and not math.isnan(baseline_failure_rate)
-                else ""
-            )
-            delta_avg_return = (
-                round(avg_return - baseline_avg_return, 2)
-                if not math.isnan(avg_return) and not math.isnan(baseline_avg_return)
-                else ""
-            )
-            row = {
-                "generated_at": generated_at,
-                "model_id": "price_pullback_23ema",
-                "model_name_zh": "股價回檔模型",
-                "research_artifact_id": "price_pullback_23ema_lifecycle_replay",
-                "lifecycle_replay_scope": "trade_level_same_stock_active_position_suppressed",
-                "test_order": spec["test_order"],
-                "test_stage": spec["test_stage"],
-                "condition_test_id": spec["condition_test_id"],
-                "condition_role_candidate": spec["condition_role_candidate"],
-                "condition_rule": spec["condition_rule"],
-                "data_status": spec["data_status"],
-                "exit_rule_id": exit_rule_id,
-                "formal_price_rule_status": candidate["formal_price_rule_status"],
-                "profit_target_pct": candidate["profit_target_pct"],
-                "exit_price_rule": candidate["exit_price_rule"],
-                "entry_rule_id": "signal_date_next_open",
-                "buy_point_rule": (
-                    "Buy next open only after the price_pullback_23ema production proxy signal; "
-                    "lifecycle replay suppresses later same-stock signals until the prior accepted trade exits."
-                ),
-                "source_signal_stock_days": len(picked_all),
-                "source_unique_stocks": picked_all["stock_id"].nunique() if "stock_id" in picked_all.columns else "",
-                "source_mature_signal_stock_days": source_mature_count,
-                "accepted_trade_count": accepted_trade_count,
-                "accepted_unique_stocks": accepted["stock_id"].nunique() if "stock_id" in accepted.columns else "",
-                "suppressed_signal_count": suppressed_count,
-                "suppressed_rate_pct": _rate(suppressed_count, source_mature_count),
-                "accepted_share_of_source_mature_pct": _rate(accepted_trade_count, source_mature_count),
-                "baseline_accepted_trade_count": baseline_accepted_trade_count,
-                "accepted_trade_share_of_baseline_pct": _rate(
-                    accepted_trade_count,
-                    baseline_accepted_trade_count,
-                ),
-                "source_signal_day_count": selected_date_stats["signal_day_count"],
-                "source_avg_signals_per_signal_day": selected_date_stats["avg_rows_per_signal_day"],
-                "accepted_signal_day_count": accepted_date_stats["signal_day_count"],
-                "accepted_avg_trades_per_signal_day": accepted_date_stats["avg_rows_per_signal_day"],
-                "research_trading_day_count": research_trading_day_count,
-                "source_avg_signals_per_research_day": (
-                    round(len(picked_all) / research_trading_day_count, 2)
-                    if research_trading_day_count
+                baseline_lifecycle = baseline_lifecycle_all.copy()
+            baseline_accepted = baseline_lifecycle[trueish(baseline_lifecycle["lifecycle_accepted_trade"])]
+            baseline_counts = _price_pullback_ordered_outcome_summary(baseline_accepted)
+            baseline_accepted_trade_count = int(baseline_counts["mature_count"])
+            baseline_win_rate = _numeric_or_nan(baseline_counts["win_rate_pct"])
+            baseline_failure_rate = _numeric_or_nan(baseline_counts["failure_rate_pct"])
+            baseline_avg_return = _numeric_or_nan(baseline_counts["avg_realized_return_pct"])
+
+            for spec in _price_pullback_lifecycle_replay_condition_tests():
+                condition = spec.get("condition")
+                condition_id = safe_str(spec["condition_test_id"])
+                if condition_id == "baseline_replay":
+                    raw_valid_index = baseline_lifecycle_all.index
+                    sample_exception_source = baseline_lifecycle_all.copy()
+                    lifecycle = baseline_lifecycle.copy()
+                    picked_all = _price_pullback_base_rows_for_lifecycle(base, lifecycle)
+                elif condition is None:
+                    raw_valid_index = enriched_base.index[0:0]
+                    sample_exception_source = enriched_base.iloc[0:0].copy()
+                    picked_all = base.iloc[0:0].copy()
+                    lifecycle = _price_pullback_apply_lifecycle_suppression(enriched_base.iloc[0:0].copy())
+                else:
+                    condition_mask = condition(base).fillna(False)
+                    raw_picked_index = base.index[condition_mask]
+                    raw_valid_index = raw_picked_index.intersection(enriched_base.index)
+                    enriched = enriched_base.loc[raw_valid_index].copy()
+                    lifecycle_raw = _price_pullback_apply_lifecycle_suppression(enriched)
+                    sample_exception_source = lifecycle_raw.copy()
+                    sample_exception_mask = _price_pullback_known_data_quality_exception_mask(sample_exception_source)
+                    if anomaly_basis == PRICE_PULLBACK_EXCLUDE_KNOWN_DATA_QUALITY_EXCEPTIONS:
+                        lifecycle = lifecycle_raw[~sample_exception_mask].copy()
+                    else:
+                        lifecycle = lifecycle_raw.copy()
+                    picked_all = _price_pullback_base_rows_for_lifecycle(base, lifecycle)
+                sample_exception_mask = _price_pullback_known_data_quality_exception_mask(sample_exception_source)
+                accepted = lifecycle[trueish(lifecycle["lifecycle_accepted_trade"])]
+                outcome = _price_pullback_ordered_outcome_summary(accepted)
+                accepted_trade_count = int(outcome["mature_count"])
+                selected_date_stats = _price_pullback_date_stats(picked_all)
+                accepted_date_stats = _price_pullback_date_stats(accepted)
+                suppressed_count = int(trueish(lifecycle["lifecycle_suppressed_signal"]).sum()) if not lifecycle.empty else 0
+                source_mature_count = len(lifecycle)
+                win_rate = _numeric_or_nan(outcome["win_rate_pct"])
+                failure_rate = _numeric_or_nan(outcome["failure_rate_pct"])
+                avg_return = _numeric_or_nan(outcome["avg_realized_return_pct"])
+                delta_win_rate = (
+                    round(win_rate - baseline_win_rate, 2)
+                    if not math.isnan(win_rate) and not math.isnan(baseline_win_rate)
                     else ""
-                ),
-                "accepted_avg_trades_per_research_day": (
-                    round(accepted_trade_count / research_trading_day_count, 2)
-                    if research_trading_day_count
+                )
+                delta_failure_rate = (
+                    round(failure_rate - baseline_failure_rate, 2)
+                    if not math.isnan(failure_rate) and not math.isnan(baseline_failure_rate)
                     else ""
-                ),
-                "first_signal_date": selected_date_stats["first_signal_date"],
-                "last_signal_date": selected_date_stats["last_signal_date"],
-                "delta_vs_baseline_win_rate_pct": delta_win_rate,
-                "delta_vs_baseline_failure_rate_pct": delta_failure_rate,
-                "delta_vs_baseline_avg_realized_return_pct": delta_avg_return,
-                "decision_hint": _price_pullback_lifecycle_condition_hint(
-                    spec,
-                    accepted_trade_count,
-                    baseline_accepted_trade_count,
-                    delta_win_rate,
-                    delta_failure_rate,
-                    delta_avg_return,
-                ),
-                "score_use": "research_only_not_production_score",
-                "metric_surface_use": "model_lane_research_metric_source_candidate_not_pdf_ready",
-                "pdf_metric_readiness": "blocked_until_formal_promotion_and_operation_adapter_contract",
-                "advisory_status": "not_production_ready_research_only",
-                "approved_for_daily": False,
-                "production_change": "none",
-                "promotion_readiness": "blocked_exact_daily_row_parity_operation_adapter_and_metric_contract_required",
-                "promotion_blocker": (
-                    "requires explicit model-rule decision, lifecycle/operation adapter contract, exact parity, "
-                    "validators, PR merge, post-merge main validation, and PDF metric consumer contract before display"
-                ),
-                **outcome,
-            }
-            rows.append(row)
+                )
+                delta_avg_return = (
+                    round(avg_return - baseline_avg_return, 2)
+                    if not math.isnan(avg_return) and not math.isnan(baseline_avg_return)
+                    else ""
+                )
+                row = {
+                    "generated_at": generated_at,
+                    "model_id": "price_pullback_23ema",
+                    "model_name_zh": "股價回檔模型",
+                    "research_artifact_id": "price_pullback_23ema_lifecycle_replay",
+                    "lifecycle_replay_scope": "trade_level_same_stock_active_position_suppressed",
+                    "test_order": spec["test_order"],
+                    "test_stage": spec["test_stage"],
+                    "condition_test_id": spec["condition_test_id"],
+                    "condition_role_candidate": spec["condition_role_candidate"],
+                    "condition_rule": spec["condition_rule"],
+                    "data_status": spec["data_status"],
+                    "anomaly_exclusion_basis": anomaly_basis,
+                    "known_data_quality_exception_count_in_sample": int(sample_exception_mask.sum()),
+                    "known_data_quality_exception_count_in_baseline": int(baseline_exception_mask.sum()),
+                    "known_data_quality_exception_ids": ";".join(
+                        _price_pullback_known_data_quality_exception_ids(sample_exception_source)
+                    ),
+                    "exit_rule_id": exit_rule_id,
+                    "formal_price_rule_status": candidate["formal_price_rule_status"],
+                    "profit_target_pct": candidate["profit_target_pct"],
+                    "exit_price_rule": candidate["exit_price_rule"],
+                    "entry_rule_id": "signal_date_next_open",
+                    "buy_point_rule": (
+                        "Buy next open only after the price_pullback_23ema production proxy signal; "
+                        "lifecycle replay suppresses later same-stock signals until the prior accepted trade exits."
+                    ),
+                    "source_signal_stock_days": len(picked_all),
+                    "source_unique_stocks": picked_all["stock_id"].nunique() if "stock_id" in picked_all.columns else "",
+                    "source_mature_signal_stock_days": source_mature_count,
+                    "accepted_trade_count": accepted_trade_count,
+                    "accepted_unique_stocks": accepted["stock_id"].nunique() if "stock_id" in accepted.columns else "",
+                    "suppressed_signal_count": suppressed_count,
+                    "suppressed_rate_pct": _rate(suppressed_count, source_mature_count),
+                    "accepted_share_of_source_mature_pct": _rate(accepted_trade_count, source_mature_count),
+                    "baseline_accepted_trade_count": baseline_accepted_trade_count,
+                    "accepted_trade_share_of_baseline_pct": _rate(
+                        accepted_trade_count,
+                        baseline_accepted_trade_count,
+                    ),
+                    "source_signal_day_count": selected_date_stats["signal_day_count"],
+                    "source_avg_signals_per_signal_day": selected_date_stats["avg_rows_per_signal_day"],
+                    "accepted_signal_day_count": accepted_date_stats["signal_day_count"],
+                    "accepted_avg_trades_per_signal_day": accepted_date_stats["avg_rows_per_signal_day"],
+                    "research_trading_day_count": research_trading_day_count,
+                    "source_avg_signals_per_research_day": (
+                        round(len(picked_all) / research_trading_day_count, 2)
+                        if research_trading_day_count
+                        else ""
+                    ),
+                    "accepted_avg_trades_per_research_day": (
+                        round(accepted_trade_count / research_trading_day_count, 2)
+                        if research_trading_day_count
+                        else ""
+                    ),
+                    "first_signal_date": selected_date_stats["first_signal_date"],
+                    "last_signal_date": selected_date_stats["last_signal_date"],
+                    "delta_vs_baseline_win_rate_pct": delta_win_rate,
+                    "delta_vs_baseline_failure_rate_pct": delta_failure_rate,
+                    "delta_vs_baseline_avg_realized_return_pct": delta_avg_return,
+                    "decision_hint": _price_pullback_lifecycle_condition_hint(
+                        spec,
+                        accepted_trade_count,
+                        baseline_accepted_trade_count,
+                        delta_win_rate,
+                        delta_failure_rate,
+                        delta_avg_return,
+                    ),
+                    "score_use": "research_only_not_production_score",
+                    "metric_surface_use": "model_lane_research_metric_source_candidate_not_pdf_ready",
+                    "pdf_metric_readiness": "blocked_until_formal_promotion_and_operation_adapter_contract",
+                    "advisory_status": "not_production_ready_research_only",
+                    "approved_for_daily": False,
+                    "production_change": "none",
+                    "promotion_readiness": "blocked_exact_daily_row_parity_operation_adapter_and_metric_contract_required",
+                    "promotion_blocker": (
+                        "requires explicit model-rule decision, lifecycle/operation adapter contract, exact parity, "
+                        "validators, PR merge, post-merge main validation, and PDF metric consumer contract before display"
+                    ),
+                    **outcome,
+                }
+                rows.append(row)
     out = pd.DataFrame(rows)
     if out.empty:
         return out
-    return out.sort_values(["exit_rule_id", "test_order"]).reset_index(drop=True)
+    anomaly_order = {
+        PRICE_PULLBACK_INCLUDE_DATA_QUALITY_EXCEPTIONS: 0,
+        PRICE_PULLBACK_EXCLUDE_KNOWN_DATA_QUALITY_EXCEPTIONS: 1,
+    }
+    out["_anomaly_order"] = out["anomaly_exclusion_basis"].map(anomaly_order).fillna(99)
+    out = out.sort_values(["exit_rule_id", "_anomaly_order", "test_order"]).drop(columns=["_anomaly_order"])
+    return out.reset_index(drop=True)
 
 
 def write_price_pullback_lifecycle_replay(lifecycle: pd.DataFrame) -> None:
@@ -6079,6 +6169,8 @@ def write_price_pullback_lifecycle_replay(lifecycle: pd.DataFrame) -> None:
             [
                 "test_stage",
                 "condition_test_id",
+                "anomaly_exclusion_basis",
+                "known_data_quality_exception_count_in_sample",
                 "exit_rule_id",
                 "source_mature_signal_stock_days",
                 "accepted_trade_count",
@@ -6111,7 +6203,8 @@ def write_price_pullback_lifecycle_replay(lifecycle: pd.DataFrame) -> None:
     )
 
 
-PRICE_PULLBACK_PROMOTION_MATRIX_EXIT_RULE_ID = "close_prev20_break_then_tp10_or_5ma_next_open"
+PRICE_PULLBACK_PROMOTION_MATRIX_EXIT_RULE_ID = "close_prev20_high_break_next_open"
+PRICE_PULLBACK_PROMOTION_MATRIX_ANOMALY_BASIS = PRICE_PULLBACK_EXCLUDE_KNOWN_DATA_QUALITY_EXCEPTIONS
 PRICE_PULLBACK_PROMOTION_MATRIX_COLUMNS = [
     "generated_at",
     "model_id",
@@ -6130,6 +6223,10 @@ PRICE_PULLBACK_PROMOTION_MATRIX_COLUMNS = [
     "plain_conclusion_zh",
     "data_status",
     "sample_status",
+    "anomaly_exclusion_basis",
+    "known_metric_exception_count_in_sample",
+    "known_metric_exception_count_in_baseline",
+    "known_metric_exception_ids",
     "exit_rule_id",
     "formal_price_rule_status",
     "entry_rule_id",
@@ -6259,6 +6356,29 @@ def _promotion_row(
         "plain_conclusion_zh": plain_conclusion_zh,
         "data_status": data_status,
         "sample_status": _promotion_sample_status(source_row),
+        "anomaly_exclusion_basis": _row_value(
+            source_row,
+            "anomaly_exclusion_basis",
+            "definition_row_no_metric_sample",
+        ),
+        "known_metric_exception_count_in_sample": _row_first_value(
+            source_row,
+            [
+                "known_data_quality_exception_count_in_sample",
+                "known_data_quality_exception_count_in_bucket",
+                "revenue_or_price_anomaly_count_in_sample",
+            ],
+            "",
+        ),
+        "known_metric_exception_count_in_baseline": _row_first_value(
+            source_row,
+            [
+                "known_data_quality_exception_count_in_baseline",
+                "revenue_or_price_anomaly_count_in_baseline",
+            ],
+            "",
+        ),
+        "known_metric_exception_ids": _row_value(source_row, "known_data_quality_exception_ids", ""),
         "exit_rule_id": _row_value(source_row, "exit_rule_id", PRICE_PULLBACK_PROMOTION_MATRIX_EXIT_RULE_ID),
         "formal_price_rule_status": _row_value(source_row, "formal_price_rule_status", "close_confirmed_candidate"),
         "entry_rule_id": _row_value(source_row, "entry_rule_id", "signal_date_next_open"),
@@ -6311,6 +6431,7 @@ def build_price_pullback_promotion_matrix(
         {
             "condition_test_id": "baseline_replay",
             "exit_rule_id": exit_rule_id,
+            "anomaly_exclusion_basis": PRICE_PULLBACK_PROMOTION_MATRIX_ANOMALY_BASIS,
         },
     )
     base_package = _first_row_matching(
@@ -6318,6 +6439,7 @@ def build_price_pullback_promotion_matrix(
         {
             "condition_test_id": "v1_gate_return20_tdcc_high_obv",
             "exit_rule_id": exit_rule_id,
+            "anomaly_exclusion_basis": PRICE_PULLBACK_PROMOTION_MATRIX_ANOMALY_BASIS,
         },
     )
     rows: list[dict[str, object]] = [
@@ -6327,8 +6449,14 @@ def build_price_pullback_promotion_matrix(
             promotion_candidate_id="baseline:production_proxy_lifecycle_replay",
             promotion_axis="baseline_reference",
             source_artifact_id="price_pullback_23ema_lifecycle_replay",
-            source_selector=f"condition_test_id=baseline_replay;exit_rule_id={exit_rule_id}",
-            source_metric_basis="same_stock_active_position_suppressed; close-confirmed continuation exit",
+            source_selector=(
+                f"condition_test_id=baseline_replay;exit_rule_id={exit_rule_id};"
+                f"anomaly_exclusion_basis={PRICE_PULLBACK_PROMOTION_MATRIX_ANOMALY_BASIS}"
+            ),
+            source_metric_basis=(
+                "same_stock_active_position_suppressed; close-confirmed previous-20-day-high breakout, "
+                "next-open exit"
+            ),
             proposed_contract_role="comparison_anchor",
             proposed_score_points="",
             condition_rule="current production proxy replay only; no added 23EMA promotion gate",
@@ -6342,8 +6470,14 @@ def build_price_pullback_promotion_matrix(
             promotion_candidate_id="base_package:v1_gate_return20_tdcc_high_obv",
             promotion_axis="base_required_gate_package",
             source_artifact_id="price_pullback_23ema_lifecycle_replay",
-            source_selector=f"condition_test_id=v1_gate_return20_tdcc_high_obv;exit_rule_id={exit_rule_id}",
-            source_metric_basis="same_stock_active_position_suppressed; close-confirmed continuation exit",
+            source_selector=(
+                f"condition_test_id=v1_gate_return20_tdcc_high_obv;exit_rule_id={exit_rule_id};"
+                f"anomaly_exclusion_basis={PRICE_PULLBACK_PROMOTION_MATRIX_ANOMALY_BASIS}"
+            ),
+            source_metric_basis=(
+                "same_stock_active_position_suppressed; close-confirmed previous-20-day-high breakout, "
+                "next-open exit"
+            ),
             proposed_contract_role="base_model_candidate_required_gate_package",
             proposed_score_points="required_package",
             condition_rule=(
@@ -6420,6 +6554,7 @@ def build_price_pullback_promotion_matrix(
             {
                 "condition_test_id": condition_id,
                 "exit_rule_id": exit_rule_id,
+                "anomaly_exclusion_basis": PRICE_PULLBACK_PROMOTION_MATRIX_ANOMALY_BASIS,
             },
         )
         rows.append(
@@ -6429,7 +6564,10 @@ def build_price_pullback_promotion_matrix(
                 promotion_candidate_id=candidate_id,
                 promotion_axis=axis,
                 source_artifact_id="price_pullback_23ema_ordered_condition_matrix",
-                source_selector=f"condition_test_id={condition_id};exit_rule_id={exit_rule_id}",
+                source_selector=(
+                    f"condition_test_id={condition_id};exit_rule_id={exit_rule_id};"
+                    f"anomaly_exclusion_basis={PRICE_PULLBACK_PROMOTION_MATRIX_ANOMALY_BASIS}"
+                ),
                 source_metric_basis="same buy/sell rule, no same-stock lifecycle suppression in ordered condition matrix",
                 proposed_contract_role=role,
                 proposed_score_points=points,
@@ -6628,7 +6766,10 @@ def build_price_pullback_promotion_matrix(
             promotion_candidate_id="deferred_context:theme_leadership",
             promotion_axis="deferred_context",
             source_artifact_id="price_pullback_23ema_ordered_condition_matrix",
-            source_selector=f"condition_test_id=theme_context_mainstream_supported;exit_rule_id={exit_rule_id}",
+            source_selector=(
+                f"condition_test_id=theme_context_mainstream_supported;exit_rule_id={exit_rule_id};"
+                f"anomaly_exclusion_basis={PRICE_PULLBACK_PROMOTION_MATRIX_ANOMALY_BASIS}"
+            ),
             source_metric_basis="theme point-in-time join exists but D+20 mature outcome sample is not ready",
             proposed_contract_role="defer_until_mature_point_in_time_theme_samples",
             proposed_score_points="0_deferred",
@@ -6639,6 +6780,7 @@ def build_price_pullback_promotion_matrix(
                 {
                     "condition_test_id": "theme_context_mainstream_supported",
                     "exit_rule_id": exit_rule_id,
+                    "anomaly_exclusion_basis": PRICE_PULLBACK_PROMOTION_MATRIX_ANOMALY_BASIS,
                 },
             ),
             baseline_row=lifecycle_baseline,
@@ -6659,8 +6801,8 @@ def write_price_pullback_promotion_matrix(matrix: pd.DataFrame) -> None:
         "- model_id: `price_pullback_23ema`",
         "- status: `research_only_promotion_decision_matrix`; this does not change production condition, scoring, ranking, PDF, or contract registry.",
         "- proposed_base: `price_pullback_23ema` signal + `return20_0_25` + `TDCC high thresholds up` + `OBV above MA20`.",
-        "- operation_basis: signal-date close confirmation, next trading day open entry, close-confirmed continuation exit with next-open execution.",
-        "- anomaly_basis: revenue rows exclude known price/revenue anomalies; high-return rows exclude known data-quality exceptions.",
+        "- operation_basis: signal-date close confirmation, next trading day open entry, close-confirmed previous-20-day-high breakout, next trading day open exit.",
+        "- anomaly_basis: main lifecycle, ordered-condition, and high-return rows use `excluding_known_data_quality_exceptions`; revenue rows use `excluding_known_price_or_revenue_anomalies`.",
         "- PDF rule: metrics are not PDF-ready until formal promotion and model-owned operation adapter/metric contract are approved.",
         "",
         markdown_table(
@@ -6671,6 +6813,8 @@ def write_price_pullback_promotion_matrix(matrix: pd.DataFrame) -> None:
                 "proposed_contract_role",
                 "proposed_score_points",
                 "sample_status",
+                "anomaly_exclusion_basis",
+                "known_metric_exception_count_in_sample",
                 "accepted_trade_count",
                 "accepted_avg_trades_per_research_day",
                 "win_rate_pct",

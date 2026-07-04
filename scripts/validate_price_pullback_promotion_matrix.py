@@ -33,6 +33,10 @@ REQUIRED_COLUMNS = {
     "plain_conclusion_zh",
     "data_status",
     "sample_status",
+    "anomaly_exclusion_basis",
+    "known_metric_exception_count_in_sample",
+    "known_metric_exception_count_in_baseline",
+    "known_metric_exception_ids",
     "exit_rule_id",
     "formal_price_rule_status",
     "entry_rule_id",
@@ -72,6 +76,15 @@ REQUIRED_CANDIDATE_IDS = {
     "high_return_score:score_ge3",
     "score_component:volume_red_or_solid_red_risk",
     "deferred_context:theme_leadership",
+}
+EXPECTED_EXIT_RULE_ID = "close_prev20_high_break_next_open"
+PRICE_PULLBACK_EXCLUDING_EXCEPTION_BASIS = "excluding_known_data_quality_exceptions"
+REVENUE_EXCLUDING_EXCEPTION_BASIS = "excluding_known_price_or_revenue_anomalies"
+FORBIDDEN_PROMOTION_BASIS_TEXT = {
+    "close_prev20_break_then_tp5_or_5ma_next_open",
+    "close_prev20_break_then_tp8_or_5ma_next_open",
+    "close_prev20_break_then_tp10_or_5ma_next_open",
+    "close-confirmed continuation exit",
 }
 
 
@@ -119,6 +132,40 @@ def validate_matrix(df: pd.DataFrame) -> list[str]:
         errors.append("promotion matrix has empty promotion_blocker")
     if df["proposed_contract_role"].astype(str).str.strip().eq("").any():
         errors.append("promotion matrix has empty proposed_contract_role")
+    metric_rows = df["accepted_trade_count"].astype(str).str.strip().ne("")
+    allowed_exception_basis = {
+        PRICE_PULLBACK_EXCLUDING_EXCEPTION_BASIS,
+        REVENUE_EXCLUDING_EXCEPTION_BASIS,
+    }
+    unexpected_basis = sorted(
+        set(df.loc[metric_rows, "anomaly_exclusion_basis"].astype(str)) - allowed_exception_basis
+    )
+    if unexpected_basis:
+        errors.append(
+            "promotion matrix metric rows must use excluding anomaly basis only; "
+            f"unexpected anomaly_exclusion_basis values: {unexpected_basis}"
+        )
+    forbidden_basis_rows = df["anomaly_exclusion_basis"].astype(str).isin(
+        {
+            "including_data_quality_exceptions",
+            "including_numerical_anomalies",
+        }
+    )
+    if forbidden_basis_rows.any():
+        errors.append("promotion matrix must not use including-anomaly metric rows")
+    if df.loc[metric_rows, "known_metric_exception_count_in_baseline"].astype(str).str.strip().eq("").any():
+        errors.append("promotion matrix metric rows must expose baseline exception counts")
+    if not df["exit_rule_id"].astype(str).eq(EXPECTED_EXIT_RULE_ID).all():
+        unexpected_mask = ~df["exit_rule_id"].astype(str).eq(EXPECTED_EXIT_RULE_ID)
+        unexpected = sorted(set(df.loc[unexpected_mask, "exit_rule_id"].astype(str)))
+        errors.append(
+            "promotion matrix must use the approved close-confirmed prev20 breakout next-open exit rule only; "
+            f"unexpected exit_rule_id values: {unexpected}"
+        )
+    matrix_text = "\n".join(df.astype(str).agg("|".join, axis=1).tolist())
+    for forbidden in sorted(FORBIDDEN_PROMOTION_BASIS_TEXT):
+        if forbidden in matrix_text:
+            errors.append(f"promotion matrix must not use continuation/research-only exit basis: {forbidden}")
     missing_ids = REQUIRED_CANDIDATE_IDS - set(df["promotion_candidate_id"].astype(str))
     if missing_ids:
         errors.append("promotion matrix missing candidate rows: " + ", ".join(sorted(missing_ids)))

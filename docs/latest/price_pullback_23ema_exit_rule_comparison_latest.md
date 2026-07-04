@@ -1,6 +1,6 @@
 # Price Pullback 23EMA Exit Rule Comparison
 
-- generated_at: `2026-07-04 21:42:54 Asia/Taipei`
+- generated_at: `2026-07-05 00:49:30 Asia/Taipei`
 - model_id: `price_pullback_23ema`
 - status: `not_production_ready_research_only`
 - scope: advisory exit-rule comparison only; this does not approve daily production use

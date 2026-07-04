@@ -194,6 +194,19 @@ Allowed use: discuss which 23EMA conditions should become necessary conditions,
 score items, risk tags, or rejected/deferred items under the same buy point, sell
 rule, lifecycle suppression, and anomaly-exclusion basis.
 
+Current approved discussion basis: `close_prev20_high_break_next_open`, meaning
+the signal is close-confirmed, entry is the next trading day open, exit is only
+after the close breaks the signal-day previous 20-day high, and the realized exit
+price is the next trading day open. The main promotion-matrix statistics must
+use `excluding_known_data_quality_exceptions` or the revenue equivalent
+`excluding_known_price_or_revenue_anomalies`; including-anomaly rows are audit
+comparisons only and cannot be cited as promotion evidence. Continuation variants such as
+`close_prev20_break_then_tp5_or_5ma_next_open`,
+`close_prev20_break_then_tp8_or_5ma_next_open`, and
+`close_prev20_break_then_tp10_or_5ma_next_open` remain research-only comparison
+artifacts and must not be used as the promotion-matrix basis unless the user
+explicitly reopens and approves a new sell-rule decision.
+
 Forbidden use: do not use promotion-matrix rows as production gates, scores,
 rankings, PDF metrics, operation rows, or contract approval. Formal use still
 requires an explicit model promotion PR, parity/contract updates, validators,
