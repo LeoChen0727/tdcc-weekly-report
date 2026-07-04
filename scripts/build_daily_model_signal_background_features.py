@@ -21,6 +21,7 @@ PRICE_HISTORY_DIR = ROOT / "data" / "stock_price_history"
 TDCC_HISTORY_DIR = ROOT / "data" / "tdcc_stock_history"
 MARKET_INDEX_HISTORY_CSV = ROOT / "data" / "market_index_history.csv"
 RESEARCH_LATEST_DIR = LATEST_DIR / "research_backtest"
+MONTHLY_REVENUE_PIT_PANEL_CSV = RESEARCH_LATEST_DIR / "monthly_revenue_point_in_time_panel_latest.csv"
 THEME_STATUS_HISTORY_CSVS = (
     LATEST_DIR / "daily_theme_status_history_latest.csv",
     ROOT / "output" / "history" / "daily_signals" / "daily_theme_status_history.csv",
@@ -325,6 +326,23 @@ def load_theme_status_history(paths: tuple[Path, ...] = THEME_STATUS_HISTORY_CSV
     )
 
 
+@lru_cache(maxsize=1)
+def load_monthly_revenue_pit_panel(path_text: str = str(MONTHLY_REVENUE_PIT_PANEL_CSV)) -> pd.DataFrame:
+    df = read_csv_safely(Path(path_text), dtype=str, keep_default_na=False)
+    required = {"stock_id", "observed_as_of_date", "research_join_allowed"}
+    if df.empty or not required.issubset(df.columns):
+        return pd.DataFrame()
+    out = df.copy()
+    out["stock_id"] = out["stock_id"].map(normalize_stock_id)
+    out["observed_as_of_date"] = out["observed_as_of_date"].map(normalize_date)
+    for col in ["latest_revenue_yoy_pct", "cumulative_revenue_yoy_pct"]:
+        if col in out.columns:
+            out[col] = pd.to_numeric(out[col], errors="coerce")
+    return out[out["stock_id"].ne("") & out["observed_as_of_date"].ne("")].sort_values(
+        ["stock_id", "observed_as_of_date", "revenue_period"]
+    )
+
+
 def asof_market_features(signal_date: str, market_df: pd.DataFrame | None = None) -> dict[str, Any]:
     market = load_market_index_history() if market_df is None else market_df
     features: dict[str, Any] = {
@@ -358,6 +376,75 @@ def asof_market_features(signal_date: str, market_df: pd.DataFrame | None = None
             value = str(row.get(ma_col, "")).strip().lower()
             features[f"{prefix}_{ma_col}"] = value in {"true", "1", "yes"}
     features["market_index_as_of_date"] = max(asof_dates) if asof_dates else ""
+    return features
+
+
+def revenue_background_features(
+    stock_id: str,
+    signal_date: str,
+    revenue_panel: pd.DataFrame | None = None,
+) -> dict[str, Any]:
+    panel = load_monthly_revenue_pit_panel() if revenue_panel is None else revenue_panel
+    features: dict[str, Any] = {
+        "monthly_revenue_context_as_of_date": "",
+        "monthly_revenue_rows_as_of": 0,
+        "monthly_revenue_future_rows_ignored": 0,
+        "monthly_revenue_data_status": "missing_monthly_revenue_pit_panel",
+        "monthly_revenue_period": "",
+        "monthly_revenue_latest_yoy_pct": "",
+        "monthly_revenue_cumulative_yoy_pct": "",
+        "monthly_revenue_positive_flag": "",
+        "monthly_revenue_strong_flag": "",
+        "monthly_revenue_good_eps_unconfirmed_flag": "",
+        "monthly_revenue_numerical_anomaly_flag": "",
+        "monthly_revenue_source_artifact": "",
+        "monthly_revenue_formal_model_use_allowed": False,
+    }
+    if panel is None or panel.empty:
+        return features
+
+    stock_rows = panel[panel["stock_id"].astype(str).eq(normalize_stock_id(stock_id))].copy()
+    if stock_rows.empty:
+        features["monthly_revenue_data_status"] = "no_revenue_on_or_before_signal"
+        return features
+
+    stock_rows["observed_as_of_date"] = stock_rows["observed_as_of_date"].map(normalize_date)
+    features["monthly_revenue_future_rows_ignored"] = int(
+        (stock_rows["observed_as_of_date"].astype(str) > signal_date).sum()
+    )
+    asof = stock_rows[
+        stock_rows["observed_as_of_date"].astype(str).le(signal_date)
+        & stock_rows["research_join_allowed"].astype(str).eq("True")
+    ].copy()
+    if asof.empty:
+        features["monthly_revenue_data_status"] = "no_revenue_on_or_before_signal"
+        return features
+
+    row = asof.sort_values(["observed_as_of_date", "revenue_period"]).iloc[-1]
+    asof_date = str(row.get("observed_as_of_date", ""))
+    features.update(
+        {
+            "monthly_revenue_context_as_of_date": asof_date,
+            "monthly_revenue_rows_as_of": len(asof),
+            "monthly_revenue_data_status": "ready_exact_signal_date"
+            if asof_date == signal_date
+            else "ready_previous_snapshot_date",
+            "monthly_revenue_period": row.get("revenue_period", ""),
+            "monthly_revenue_latest_yoy_pct": blank_if_nan(to_float(row.get("latest_revenue_yoy_pct"))),
+            "monthly_revenue_cumulative_yoy_pct": blank_if_nan(to_float(row.get("cumulative_revenue_yoy_pct"))),
+            "monthly_revenue_positive_flag": _bool_value(row.get("revenue_positive_flag", "")),
+            "monthly_revenue_strong_flag": _bool_value(row.get("revenue_strong_flag", "")),
+            "monthly_revenue_good_eps_unconfirmed_flag": _bool_value(
+                row.get("revenue_good_eps_unconfirmed_flag", "")
+            ),
+            "monthly_revenue_numerical_anomaly_flag": _bool_value(row.get("revenue_numerical_anomaly_flag", "")),
+            "monthly_revenue_source_artifact": row.get("source_snapshot_files", ""),
+            "monthly_revenue_formal_model_use_allowed": _bool_value(
+                row.get("allowed_for_formal_historical_model_use", "")
+            )
+            is True,
+        }
+    )
     return features
 
 
@@ -631,6 +718,7 @@ def build_feature_panel(signals: pd.DataFrame | None = None) -> pd.DataFrame:
     rows: list[dict[str, Any]] = []
     market_cache: dict[str, dict[str, Any]] = {}
     theme_history = load_theme_status_history()
+    revenue_panel = load_monthly_revenue_pit_panel()
     for _, signal in signal_rows.iterrows():
         stock_id = normalize_stock_id(signal.get("stock_id"))
         signal_date = normalize_date(signal.get("signal_date"))
@@ -649,6 +737,7 @@ def build_feature_panel(signals: pd.DataFrame | None = None) -> pd.DataFrame:
         }
         row.update(price_background_features(stock_id, signal_date))
         row.update(tdcc_background_features(stock_id, signal_date))
+        row.update(revenue_background_features(stock_id, signal_date, revenue_panel))
         row.update(theme_background_features(stock_id, signal_date, theme_history))
         row.update(market_cache[signal_date])
         rows.append({key: blank_if_nan(value) for key, value in row.items()})
@@ -682,6 +771,7 @@ def feature_catalog(panel: pd.DataFrame) -> pd.DataFrame:
         "obv": "technical_indicator",
         "bb": "technical_indicator",
         "tdcc": "holder_flow",
+        "monthly_revenue": "revenue",
         "theme_context": "theme_status_history",
         "twse": "market_index",
         "tpex": "market_index",
@@ -711,10 +801,10 @@ def feature_catalog(panel: pd.DataFrame) -> pd.DataFrame:
                 "generated_at": now_text(),
                 "feature_column": "monthly_revenue_point_in_time_panel",
                 "feature_family": "revenue",
-                "feature_scope": "missing_shared_data_family",
-                "allowed_use": "not_available_for_required_model_gate_until_panel_and_validator_exist",
+                "feature_scope": "shared_objective_point_in_time",
+                "allowed_use": "research_background_only_coverage_limited_not_a_required_model_gate",
                 "model_specific_owner": "",
-                "point_in_time_rule": "must use revenue release date on or before signal_date",
+                "point_in_time_rule": "use observed_as_of_date on or before signal_date; reported release date is not complete",
             },
             {
                 "generated_at": now_text(),
@@ -792,7 +882,7 @@ def write_markdown(panel: pd.DataFrame, catalog: pd.DataFrame) -> None:
         "- scope: shared objective point-in-time background features for model research discussion.",
         "- non_goal: not a production gate, not a score, not a recommendation, not a model-specific filter.",
         "- model_specific_boundary: price_pullback_23ema, neckline, W-bottom, and volume-breakout interpretations must stay outside this shared panel.",
-        "- revenue_status: point-in-time revenue panel is not included in v1 and remains a missing shared data family.",
+        "- revenue_status: coverage-limited monthly revenue PIT context is joined from daily snapshot-observed rows; it remains research-only and cannot be a formal gate.",
         "",
         "## Coverage",
         "",
@@ -827,6 +917,10 @@ def write_markdown(panel: pd.DataFrame, catalog: pd.DataFrame) -> None:
                 "rsi14",
                 "tdcc_as_of_date",
                 "tdcc_over_400_change_1w",
+                "monthly_revenue_context_as_of_date",
+                "monthly_revenue_data_status",
+                "monthly_revenue_latest_yoy_pct",
+                "monthly_revenue_strong_flag",
                 "theme_context_as_of_date",
                 "theme_context_status_group",
                 "theme_context_volume_attack_status",

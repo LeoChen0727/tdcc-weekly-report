@@ -1,6 +1,6 @@
 # Price Pullback 23EMA Daily Row Parity Audit
 
-- generated_at: `2026-07-02 14:05:49 Asia/Taipei`
+- generated_at: `2026-07-04 14:40:02 Asia/Taipei`
 - model_id: `price_pullback_23ema`
 - scope: compare as-published daily snapshot rows to the research production proxy at `signal_date + stock_id` level
 - rule: any missing or extra stock row keeps the model blocked from daily operation promotion
@@ -12,7 +12,7 @@
 
 | parity_status | count |
 | --- | --- |
-| exact_daily_row_parity_pass | 11 |
+| exact_daily_row_parity_pass | 13 |
 
 ## Snapshot Detail
 
@@ -28,4 +28,6 @@
 | 20260626 | True | True | True | outcome_research_frame;production_all_candidates_source_row_replay | 217 | 217 | 217 | 0 | 0 | 100.0 | 100.0 | none_exact | production_all_candidates_source_row_replay | 217 | candidate_universe_replay_exact_match | exact_daily_row_parity_pass |  |
 | 20260629 | True | True | True | outcome_research_frame;production_all_candidates_source_row_replay | 219 | 219 | 219 | 0 | 0 | 100.0 | 100.0 | none_exact | production_all_candidates_source_row_replay | 219 | candidate_universe_replay_exact_match | exact_daily_row_parity_pass |  |
 | 20260630 | True | True | True | outcome_research_frame;production_all_candidates_source_row_replay | 233 | 233 | 233 | 0 | 0 | 100.0 | 100.0 | none_exact | production_all_candidates_source_row_replay | 233 | candidate_universe_replay_exact_match | exact_daily_row_parity_pass |  |
-| 20260701 | True | False | True | production_all_candidates_source_row_replay | 222 | 222 | 222 | 0 | 0 | 100.0 | 100.0 | none_exact | production_all_candidates_source_row_replay | 222 | candidate_universe_replay_exact_match | exact_daily_row_parity_pass |  |
+| 20260701 | True | True | True | outcome_research_frame;production_all_candidates_source_row_replay | 222 | 222 | 222 | 0 | 0 | 100.0 | 100.0 | none_exact | production_all_candidates_source_row_replay | 222 | candidate_universe_replay_exact_match | exact_daily_row_parity_pass |  |
+| 20260702 | True | True | True | outcome_research_frame;production_all_candidates_source_row_replay | 236 | 236 | 236 | 0 | 0 | 100.0 | 100.0 | none_exact | production_all_candidates_source_row_replay | 236 | candidate_universe_replay_exact_match | exact_daily_row_parity_pass |  |
+| 20260703 | True | False | True | production_all_candidates_source_row_replay | 237 | 237 | 237 | 0 | 0 | 100.0 | 100.0 | none_exact | production_all_candidates_source_row_replay | 237 | candidate_universe_replay_exact_match | exact_daily_row_parity_pass |  |

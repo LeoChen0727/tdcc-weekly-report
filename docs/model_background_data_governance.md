@@ -79,8 +79,30 @@ old. A data family can be deleted only after a separate cleanup PR proves:
 This PR intentionally lists cleanup boundaries but does not delete historical
 snapshots or model research evidence.
 
-## Revenue Gap
+## Revenue PIT Panel
 
-Revenue can be used where current production code already has current daily
-fields, but it must not become a formal historical model gate until a dated
-monthly revenue point-in-time panel exists and has its own validator.
+Monthly revenue now has a coverage-limited point-in-time panel:
+
+- `output/latest/research_backtest/monthly_revenue_point_in_time_panel_latest.csv`
+- `docs/latest/monthly_revenue_point_in_time_panel_latest.csv`
+- `output/history/research/monthly_revenue_point_in_time_panel.csv`
+
+The producer and validator are:
+
+```text
+python scripts/build_monthly_revenue_point_in_time_panel.py
+python scripts/validate_monthly_revenue_point_in_time_panel.py
+```
+
+Allowed use: research-only as-of joins where `research_join_allowed=True` and
+`observed_as_of_date <= signal_date`.
+
+Forbidden use: do not treat this panel as a formal historical revenue gate or a
+production scoring/ranking rule. It is built from revenue values observed in
+daily all-candidates snapshots, and the actual per-company release date is still
+incomplete when the source field contains only a revenue year-month such as
+`11505`.
+
+Promotion requirement: formal revenue gates still require a fuller validated
+release-date source or a model-specific promotion PR that explicitly accepts the
+coverage limitation.

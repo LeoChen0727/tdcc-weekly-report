@@ -330,6 +330,19 @@ def test_attach_signal_background_features_uses_point_in_time_theme_context(tmp_
                 "theme_context_volume_attack_watch": "false",
                 "theme_context_volume_attack_failed": "false",
                 "theme_context_source_artifact": "output/history/daily_signals/daily_theme_status_history.csv",
+                "monthly_revenue_context_as_of_date": "20260313",
+                "monthly_revenue_rows_as_of": "1",
+                "monthly_revenue_future_rows_ignored": "0",
+                "monthly_revenue_data_status": "ready_previous_snapshot_date",
+                "monthly_revenue_period": "202602",
+                "monthly_revenue_latest_yoy_pct": "10.5",
+                "monthly_revenue_cumulative_yoy_pct": "8.0",
+                "monthly_revenue_positive_flag": "true",
+                "monthly_revenue_strong_flag": "false",
+                "monthly_revenue_good_eps_unconfirmed_flag": "false",
+                "monthly_revenue_numerical_anomaly_flag": "false",
+                "monthly_revenue_source_artifact": "output/history/daily_model_snapshots/all_candidates_20260313.csv",
+                "monthly_revenue_formal_model_use_allowed": "false",
             }
         ]
     ).to_csv(panel_path, index=False)
@@ -349,8 +362,12 @@ def test_attach_signal_background_features_uses_point_in_time_theme_context(tmp_
     assert bool(out.loc[0, "theme_context_overheated"]) is False
     assert bool(out.loc[0, "theme_context_volume_attack_selected_flag"]) is True
     assert out.loc[0, "theme_context_volume_ratio"] == 1.8
+    assert bool(out.loc[0, "monthly_revenue_context_ready"]) is True
+    assert bool(out.loc[0, "monthly_revenue_positive_or_strong"]) is True
+    assert out.loc[0, "monthly_revenue_latest_yoy_pct"] == 10.5
     assert out.loc[1, "theme_context_data_status"] == "no_signal_background_row"
     assert bool(out.loc[1, "theme_context_ready"]) is False
+    assert bool(out.loc[1, "monthly_revenue_context_ready"]) is False
 
 
 def test_price_pullback_operation_research_stays_advisory_only() -> None:
@@ -685,6 +702,12 @@ def test_price_pullback_feature_confirmation_research_fixed_operation() -> None:
             "theme_context_volume_attack_selected_flag": [True, False, False],
             "theme_context_volume_ratio": [1.8, 3.0, ""],
             "theme_context_return_20d_pct": [12.5, 42.0, ""],
+            "monthly_revenue_context_ready": [True, True, False],
+            "monthly_revenue_positive_or_strong": [True, False, False],
+            "monthly_revenue_formal_model_use_allowed": [False, False, False],
+            "monthly_revenue_numerical_anomaly_flag": [False, False, False],
+            "monthly_revenue_latest_yoy_pct": [10.5, -3.0, ""],
+            "monthly_revenue_cumulative_yoy_pct": [8.0, -1.0, ""],
             "next_open_to_d20_close_return_pct": [2.0, -4.5, 1.0],
         }
     )
@@ -735,6 +758,7 @@ def test_price_pullback_feature_confirmation_research_fixed_operation() -> None:
         "theme_context_volume_attack_selected",
         "tdcc_high_thresholds_up_return20_0_25_theme_context_mainstream_supported",
         "tdcc_high_thresholds_up_return20_0_25_theme_context_leadership_not_overheated",
+        "tdcc_high_thresholds_up_return20_0_25_obv_above_ma20_revenue_positive_or_strong",
     }
     assert combo_ids <= set(feature["feature_filter_id"])
     for combo_id in combo_ids:
@@ -744,10 +768,11 @@ def test_price_pullback_feature_confirmation_research_fixed_operation() -> None:
 
     revenue = feature[feature["feature_filter_id"].eq("revenue_positive_or_strong")].iloc[0]
     market = feature[feature["feature_filter_id"].eq("market_background_regime")].iloc[0]
-    assert revenue["feature_test_status"] == "blocked_data_panel_incomplete"
+    assert revenue["feature_test_status"] == "tested_point_in_time"
+    assert revenue["data_status"] == "joined_from_monthly_revenue_pit_panel_coverage_limited_research_only"
     assert market["feature_test_status"] == "deferred_join_required"
-    assert revenue["mature_count"] == 0
-    assert revenue["selected_stock_days"] == ""
+    assert revenue["mature_count"] == 1
+    assert revenue["selected_stock_days"] == 1
 
     module = build_price_pullback_operation_module_research(df)
     decision = build_price_pullback_model_decision_audit(
@@ -785,7 +810,7 @@ def test_price_pullback_feature_confirmation_research_fixed_operation() -> None:
     theme_decision = decision[
         decision["decision_item_id"].eq("feature_filter:theme_context_mainstream_supported")
     ].iloc[0]
-    assert revenue_decision["decision_status"] == "blocked_data_gap_required_before_gate"
+    assert revenue_decision["decision_status"] == "coverage_limited_score_discussion_not_required_gate"
     assert market_decision["decision_status"] == "blocked_market_join_required"
     assert obv_combo_decision["condition_role"] == "score_bonus_candidate_not_required_gate"
     assert theme_decision["condition_role"] == "point_in_time_context_score_bonus_candidate_not_required_gate"
