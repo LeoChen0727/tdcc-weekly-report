@@ -579,11 +579,14 @@ def test_price_pullback_operation_module_prior_high_monthline_stop() -> None:
         future_cols[f"next_open_to_d{day}_day_close_return_pct"] = [1.0, 1.0, 1.0, 1.0]
         future_cols[f"future_d{day}_ma20"] = [100.0, 100.0, 100.0, 100.0]
         future_cols[f"future_d{day}_ema23"] = [100.0, 100.0, 100.0, 100.0]
+    for day in range(1, 22):
+        future_cols[f"future_d{day}_open"] = [100.0, 100.0, 100.0, 100.0]
     df = pd.concat([df, pd.DataFrame(future_cols)], axis=1)
 
     df.loc[0, "next_open_to_d2_day_high_return_pct"] = 5.5
     df.loc[1, "next_open_to_d2_day_close_return_pct"] = -2.0
     df.loc[1, "next_open_to_d3_day_close_return_pct"] = -2.0
+    df.loc[1, "future_d4_open"] = 97.5
     df.loc[2, "next_open_to_d1_day_close_return_pct"] = -2.0
     df.loc[2, "next_open_to_d2_day_close_return_pct"] = -2.0
     df.loc[2, "next_open_to_d2_day_high_return_pct"] = 5.5
@@ -601,9 +604,9 @@ def test_price_pullback_operation_module_prior_high_monthline_stop() -> None:
     assert prior_high["neutral_count"] == 1
     assert prior_high["failure_count"] == 1
     assert prior_high["same_day_unresolved_count"] == 1
-    assert prior_high["avg_realized_return_pct"] == 1.33
+    assert prior_high["avg_realized_return_pct"] == 1.17
     assert prior_high["avg_win_realized_return_pct"] == 5.0
-    assert prior_high["avg_failure_realized_return_pct"] == -2.0
+    assert prior_high["avg_failure_realized_return_pct"] == -2.5
     assert prior_high["avg_days_to_failure"] == 3.0
 
 
@@ -639,10 +642,13 @@ def test_price_pullback_operation_module_looser_lower_reference_stop_grid() -> N
         future_cols[f"next_open_to_d{day}_day_close_return_pct"] = [1.0]
         future_cols[f"future_d{day}_ma20"] = [105.0]
         future_cols[f"future_d{day}_ema23"] = [100.0]
+    for day in range(1, 22):
+        future_cols[f"future_d{day}_open"] = [100.0]
     df = pd.concat([df, pd.DataFrame(future_cols)], axis=1)
     for day in range(1, 5):
         df.loc[0, f"next_open_to_d{day}_day_close_return_pct"] = -4.5
     df.loc[0, "next_open_to_d20_day_close_return_pct"] = -4.5
+    df.loc[0, "future_d5_open"] = 94.0
 
     module = build_price_pullback_operation_module_research(df)
     looser_stop = module[
@@ -658,8 +664,8 @@ def test_price_pullback_operation_module_looser_lower_reference_stop_grid() -> N
     assert looser_stop["win_count"] == 0
     assert looser_stop["neutral_count"] == 0
     assert looser_stop["failure_count"] == 1
-    assert looser_stop["avg_realized_return_pct"] == -4.5
-    assert looser_stop["avg_failure_realized_return_pct"] == -4.5
+    assert looser_stop["avg_realized_return_pct"] == -6.0
+    assert looser_stop["avg_failure_realized_return_pct"] == -6.0
     assert looser_stop["avg_days_to_failure"] == 4.0
 
 
@@ -724,11 +730,14 @@ def test_price_pullback_feature_confirmation_research_fixed_operation() -> None:
         future_cols[f"next_open_to_d{day}_day_close_return_pct"] = [1.0, 1.0, 1.0]
         future_cols[f"future_d{day}_ma20"] = [101.0, 100.0, 100.0]
         future_cols[f"future_d{day}_ema23"] = [100.0, 100.0, 100.0]
+    for day in range(1, 22):
+        future_cols[f"future_d{day}_open"] = [100.0, 100.0, 100.0]
     df = pd.concat([df, pd.DataFrame(future_cols)], axis=1)
     df.loc[0, "next_open_to_d2_day_high_return_pct"] = 6.0
     for day in range(1, 5):
         df.loc[1, f"next_open_to_d{day}_day_close_return_pct"] = -4.5
     df.loc[1, "next_open_to_d20_day_close_return_pct"] = -4.5
+    df.loc[1, "future_d5_open"] = 95.0
 
     feature = build_price_pullback_feature_confirmation_research(df)
 
@@ -902,6 +911,7 @@ def test_price_pullback_exit_rule_comparison_separates_intraday_and_close_confir
     df.loc[3, "future_d3_open"] = 103.5
     for day in range(1, 5):
         df.loc[4, f"next_open_to_d{day}_day_close_return_pct"] = -4.5
+    df.loc[4, "future_d5_open"] = 94.0
 
     comparison = build_price_pullback_exit_rule_comparison(df)
 
@@ -926,13 +936,13 @@ def test_price_pullback_exit_rule_comparison_separates_intraday_and_close_confir
     assert intraday["formal_price_rule_status"] == "research_only_intraday_trigger"
     assert intraday["win_count"] == 4
     assert intraday["failure_count"] == 1
-    assert intraday["avg_realized_return_pct"] == 2.3
+    assert intraday["avg_realized_return_pct"] == 2.0
 
     assert close_confirmed["formal_price_rule_status"] == "close_confirmed_candidate"
     assert close_confirmed["win_count"] == 3
     assert close_confirmed["neutral_count"] == 1
     assert close_confirmed["failure_count"] == 1
-    assert close_confirmed["avg_realized_return_pct"] == 2.4
+    assert close_confirmed["avg_realized_return_pct"] == 2.1
 
     assert tp8["win_count"] == 1
     assert tp8["neutral_count"] == 3

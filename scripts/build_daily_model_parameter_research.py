@@ -1932,7 +1932,8 @@ def _price_pullback_prior_high_stop_candidates() -> list[dict[str, object]]:
                             ),
                             "stop_rule": (
                                 f"Failure stop when close stays at least {pct_label}% below "
-                                f"the {ref['stop_reference_name']} for {consecutive_days} consecutive trading days."
+                                f"the {ref['stop_reference_name']} for {consecutive_days} consecutive trading days; "
+                                "exit at the next trading day open after the confirming close."
                             ),
                             "exit_rule": (
                                 f"If no previous {target_window}-day high breakout or sustained reference stop appears by D+20, "
@@ -3153,6 +3154,7 @@ def _operation_required_columns(candidate: dict[str, object]) -> list[str]:
         required.extend(["next_open", "ema23"])
     if candidate["stop_rule_id"] in {"sustained_close_below_ma20_pct", "sustained_close_below_reference_pct"}:
         required.append("next_open")
+        required.extend(f"future_d{day + 1}_open" for day in range(1, h + 1))
         reference_id = str(candidate.get("stop_reference_id", "ma20"))
         if reference_id in {"ma20", "lower_ma20_ema23"}:
             required.extend(f"future_d{day}_ma20" for day in range(1, h + 1))
@@ -3202,7 +3204,7 @@ def _operation_outcome_counts(
         stop_threshold = (refs.mul(1.0 - stop_pct / 100.0).div(entry_price, axis=0) - 1.0) * 100.0
         stop_hits = close_returns.le(stop_threshold)
         stop_day = _first_consecutive_hit_day(stop_hits, consecutive_days)
-        stop_return_at_hit = _value_at_day(close_returns, stop_day)
+        stop_return_at_hit = _value_at_day(_future_open_return_frame(valid, h), stop_day)
     else:
         raise ValueError(f"Unsupported stop_rule_id: {candidate['stop_rule_id']}")
 
@@ -3526,7 +3528,7 @@ def write_price_pullback_feature_confirmation_research(feature_confirmation: pd.
         f"- fixed_operation_module_candidate_id: `{PRICE_PULLBACK_FEATURE_CONFIRMATION_OPERATION_ID}`",
         "- entry_basis: `signal_date_next_open` after production proxy replay plus the feature filter under test",
         "- target: previous 20-day high breakout before stop through D+20",
-        "- stop: close stays at least 4% below lower of MA20 and EMA23 for 4 consecutive trading days",
+        "- stop: close stays at least 4% below lower of MA20 and EMA23 for 4 consecutive trading days, then exit at the next trading day open",
         "- theme_context_rows: signal-date/as-of theme status history is joined from the shared background panel; latest-only taxonomy is not used for historical labels",
         "- obv_rule: OBV above MA20 is retained as an add-score discussion candidate, not as a required gate",
         "- revenue_context_status: coverage-limited monthly revenue PIT context is joined from daily snapshot-observed rows; it is research-only and cannot be a formal required gate.",
@@ -3595,10 +3597,9 @@ def _price_pullback_exit_required_columns(candidate: dict[str, object]) -> list[
     required.extend(f"next_open_to_d{day}_day_close_return_pct" for day in range(1, h + 1))
     required.extend(f"future_d{day}_ma20" for day in range(1, h + 1))
     required.extend(f"future_d{day}_ema23" for day in range(1, h + 1))
+    required.extend(f"future_d{day + 1}_open" for day in range(1, h + 1))
     if candidate["target_rule_id"] == "intraday_prev20_high_touch":
         required.extend(f"next_open_to_d{day}_day_high_return_pct" for day in range(1, h + 1))
-    else:
-        required.extend(f"future_d{day + 1}_open" for day in range(1, h + 1))
     if candidate["target_rule_id"] == "close_prev20_break_then_close_profit_target":
         required.extend(f"future_d{day}_ma5" for day in range(1, h + 1))
     return required
@@ -3621,7 +3622,8 @@ def _price_pullback_exit_rule_outcome_counts(
     refs = _future_reference_frame(valid, h, "lower_ma20_ema23", close_cols)
     hard_stop_threshold = (refs.mul(0.96).div(entry_price.replace(0, pd.NA), axis=0) - 1.0) * 100.0
     hard_stop_day = _first_consecutive_hit_day(close_returns.le(hard_stop_threshold), 4)
-    hard_stop_return = _value_at_day(close_returns, hard_stop_day)
+    open_exit_returns = _future_open_return_frame(valid, h)
+    hard_stop_return = _value_at_day(open_exit_returns, hard_stop_day)
 
     target_rule_id = str(candidate["target_rule_id"])
     trail_day = pd.Series(math.nan, index=valid.index, dtype=float)
@@ -3631,7 +3633,7 @@ def _price_pullback_exit_rule_outcome_counts(
         target_return_at_hit = _value_at_day(close_returns, target_day)
     elif target_rule_id == "close_prev20_high_break":
         target_day = _first_hit_day(close_returns.ge(prev20_target_pct, axis=0))
-        target_return_at_hit = _value_at_day(_future_open_return_frame(valid, h), target_day)
+        target_return_at_hit = _value_at_day(open_exit_returns, target_day)
     elif target_rule_id == "close_prev20_break_then_close_profit_target":
         breakout_day = _first_hit_day(close_returns.ge(prev20_target_pct, axis=0))
         day_numbers = np.arange(1, h + 1)
@@ -3648,7 +3650,7 @@ def _price_pullback_exit_rule_outcome_counts(
         ma5_refs = valid[ma5_cols].apply(pd.to_numeric, errors="coerce")
         ma5_refs.columns = close_cols
         trail_day = _first_hit_day(close_prices.lt(ma5_refs) & after_breakout)
-        target_return_at_hit = _value_at_day(_future_open_return_frame(valid, h), target_day)
+        target_return_at_hit = _value_at_day(open_exit_returns, target_day)
     else:
         raise ValueError(f"Unsupported exit target_rule_id: {target_rule_id}")
 
@@ -3681,7 +3683,6 @@ def _price_pullback_exit_rule_outcome_counts(
     realized_days = realized_days.mask(trail_exit, trail_day)
     realized_days = realized_days.mask(same_day_unresolved, target_day)
 
-    open_exit_returns = _future_open_return_frame(valid, h)
     trail_return = _value_at_day(open_exit_returns, trail_day)
     realized_return = pd.Series(math.nan, index=valid.index, dtype=float)
     realized_return = realized_return.mask(target_before_stop, target_return_at_hit)
@@ -3746,7 +3747,8 @@ def _price_pullback_exit_rule_outcome_rows(valid: pd.DataFrame, candidate: dict[
     refs = _future_reference_frame(valid, h, "lower_ma20_ema23", close_cols)
     hard_stop_threshold = (refs.mul(0.96).div(entry_price.replace(0, pd.NA), axis=0) - 1.0) * 100.0
     hard_stop_day = _first_consecutive_hit_day(close_returns.le(hard_stop_threshold), 4)
-    hard_stop_return = _value_at_day(close_returns, hard_stop_day)
+    open_exit_returns = _future_open_return_frame(valid, h)
+    hard_stop_return = _value_at_day(open_exit_returns, hard_stop_day)
 
     target_rule_id = str(candidate["target_rule_id"])
     trail_day = pd.Series(math.nan, index=valid.index, dtype=float)
@@ -3756,7 +3758,7 @@ def _price_pullback_exit_rule_outcome_rows(valid: pd.DataFrame, candidate: dict[
         target_return_at_hit = _value_at_day(close_returns, target_day)
     elif target_rule_id == "close_prev20_high_break":
         target_day = _first_hit_day(close_returns.ge(prev20_target_pct, axis=0))
-        target_return_at_hit = _value_at_day(_future_open_return_frame(valid, h), target_day)
+        target_return_at_hit = _value_at_day(open_exit_returns, target_day)
     elif target_rule_id == "close_prev20_break_then_close_profit_target":
         breakout_day = _first_hit_day(close_returns.ge(prev20_target_pct, axis=0))
         day_numbers = np.arange(1, h + 1)
@@ -3773,7 +3775,7 @@ def _price_pullback_exit_rule_outcome_rows(valid: pd.DataFrame, candidate: dict[
         ma5_refs = valid[ma5_cols].apply(pd.to_numeric, errors="coerce")
         ma5_refs.columns = close_cols
         trail_day = _first_hit_day(close_prices.lt(ma5_refs) & after_breakout)
-        target_return_at_hit = _value_at_day(_future_open_return_frame(valid, h), target_day)
+        target_return_at_hit = _value_at_day(open_exit_returns, target_day)
     else:
         raise ValueError(f"Unsupported exit target_rule_id: {target_rule_id}")
 
@@ -3806,7 +3808,6 @@ def _price_pullback_exit_rule_outcome_rows(valid: pd.DataFrame, candidate: dict[
     realized_days = realized_days.mask(trail_exit, trail_day)
     realized_days = realized_days.mask(same_day_unresolved, target_day)
 
-    open_exit_returns = _future_open_return_frame(valid, h)
     trail_return = _value_at_day(open_exit_returns, trail_day)
     realized_return = pd.Series(math.nan, index=valid.index, dtype=float)
     realized_return = realized_return.mask(target_before_stop, target_return_at_hit)
@@ -3893,7 +3894,7 @@ def build_price_pullback_exit_rule_comparison(df: pd.DataFrame) -> pd.DataFrame:
                     "entry_rule_id": "signal_date_next_open",
                     "buy_point_rule": "Buy next open only when the price_pullback_23ema signal and the entry filter both hold on signal date.",
                     "stop_rule_id": "sustained_close_below_lower_ma20_ema23_4pct_4d",
-                    "stop_rule": "Failure stop when close stays at least 4% below the lower of current 20MA and 23EMA for 4 consecutive trading days.",
+                    "stop_rule": "Failure stop when close stays at least 4% below the lower of current 20MA and 23EMA for 4 consecutive trading days; exit at the next trading day open after the confirming close.",
                     "holding_window_days": TIME_COST_HORIZON_DAYS,
                     "selected_stock_days": len(picked),
                     "selected_unique_stocks": picked["stock_id"].nunique() if not picked.empty else 0,
@@ -3922,7 +3923,7 @@ def write_price_pullback_exit_rule_comparison(exit_comparison: pd.DataFrame) -> 
         "- invalid_rule_excluded: `close_prev20_high_break_same_day_close` is excluded because the close break is known only after the close.",
         "- short_exit_rules: `intraday_prev20_high_touch_same_day_close` and `close_prev20_high_break_next_open`",
         "- continuation_exit_rules: after close-confirmed previous-20-day-high breakout, keep holding until +5%/+8%/+10% close target or close below 5MA, then exit next open.",
-        "- hard_stop: close stays at least 4% below the lower of MA20 and EMA23 for 4 consecutive trading days.",
+        "- hard_stop: close stays at least 4% below the lower of MA20 and EMA23 for 4 consecutive trading days; stop exit uses the next trading day open after the confirming close.",
         "- blocker: exact daily candidate row parity and explicit promotion/sync PR are still required before production use",
         "",
         markdown_table(
@@ -5810,12 +5811,17 @@ def _price_pullback_next_open_exit_offset(enriched: pd.DataFrame) -> pd.Series:
         return pd.Series(dtype=int)
     target = trueish(enriched["target_before_stop"]) if "target_before_stop" in enriched.columns else bool_series(enriched)
     ma5_exit = trueish(enriched["ma5_exit"]) if "ma5_exit" in enriched.columns else bool_series(enriched)
+    hard_stop = (
+        trueish(enriched["hard_stop_failure"])
+        if "hard_stop_failure" in enriched.columns
+        else bool_series(enriched)
+    )
     same_day = (
         trueish(enriched["same_day_unresolved"])
         if "same_day_unresolved" in enriched.columns
         else bool_series(enriched)
     )
-    return (target | ma5_exit | same_day).astype(int)
+    return (target | ma5_exit | hard_stop | same_day).astype(int)
 
 
 def _price_pullback_apply_lifecycle_suppression(enriched: pd.DataFrame) -> pd.DataFrame:
@@ -7194,7 +7200,7 @@ def write_price_pullback_model_decision_audit(decision: pd.DataFrame) -> None:
         f"- fixed_operation_module_candidate_id: `{PRICE_PULLBACK_FEATURE_CONFIRMATION_OPERATION_ID}`",
         "- buy_point: current production proxy signal plus the tested entry/feature filter on signal date; buy next open only after both hold",
         "- sell_point: first intraday breakout above signal-day previous 20-day high before stop through D+20",
-        "- stop: close stays at least 4% below the lower of 20MA and 23EMA for 4 consecutive trading days",
+        "- stop: close stays at least 4% below the lower of 20MA and 23EMA for 4 consecutive trading days, then exit at the next trading day open",
         "- model_decision_use: compare baseline, volume red K, prior extension, chip, technical, theme context, 45d structure, revenue gap, and market-background gap in one table",
         "- obv_scope: OBV combo rows are score-bonus candidates, not required gates.",
         "- theme_context_scope: theme context rows are point-in-time coverage-limited score-bonus discussion candidates, not production gates.",
