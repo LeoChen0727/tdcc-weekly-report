@@ -1,8 +1,8 @@
 # Daily Model Background Data Cleanup Audit
 
-- generated_at: `2026-07-04 14:40:18 Asia/Taipei`
+- generated_at: `2026-07-04 16:09:00 Asia/Taipei`
 - registry: `config/daily_model_background_data_registry.csv`
-- rows: `14`
+- rows: `15`
 - deletion_allowed_rows: `0`
 - deprecated_candidate_rows: `0`
 
@@ -19,7 +19,7 @@ inventory, lineage, validator, replay, parity, or promotion references.
 | retain_latest_only_context | 1 |
 | retain_model_research_evidence | 2 |
 | retain_model_specific_semantics | 2 |
-| retain_shared_objective_source | 7 |
+| retain_shared_objective_source | 8 |
 
 ## Data Family Decisions
 
@@ -33,6 +33,7 @@ inventory, lineage, validator, replay, parity, or promotion references.
 | daily_all_candidates_snapshots | shared_replay_source | active | retain_historical_replay_evidence | False | do not delete; preserve replay and parity audit trail |
 | daily_model_signal_background_feature_panel | shared_objective | active | retain_shared_objective_source | False | reuse only with point-in-time rules; do not convert to model gate by itself |
 | daily_model_background_feature_catalog | shared_objective | active | retain_shared_objective_source | False | reuse only with point-in-time rules; do not convert to model gate by itself |
+| monthly_revenue_history | shared_objective | active | retain_shared_objective_source | False | reuse only with point-in-time rules; do not convert to model gate by itself |
 | monthly_revenue_point_in_time_panel | shared_objective | active | retain_shared_objective_source | False | reuse only with point-in-time rules; do not convert to model gate by itself |
 | theme_taxonomy_latest | latest_only_context | active | retain_latest_only_context | False | do not use as historical point-in-time label |
 | price_pullback_23ema_research_outputs | model_research_output | active | retain_model_research_evidence | False | keep until superseded by explicit approved operation or cleanup PR |
@@ -52,9 +53,10 @@ inventory, lineage, validator, replay, parity, or promotion references.
 | daily_all_candidates_snapshots | 13 | 5 | 2 | 1 | 58 | 19 |
 | daily_model_signal_background_feature_panel | 1 | 9 | 2 | 1 | 86 | 63 |
 | daily_model_background_feature_catalog | 1 | 1 | 2 | 1 | 4 | 2 |
+| monthly_revenue_history | 1 | 1 | 2 | 1 | 7 | 7 |
 | monthly_revenue_point_in_time_panel | 1 | 5 | 2 | 1 | 63 | 20 |
 | theme_taxonomy_latest | 1 | 1 | 2 | 1 | 29 | 17 |
 | price_pullback_23ema_research_outputs | 12 | 1 | 2 | 1 | 16 | 32 |
 | neckline_context_interpretation | 1 | 6 | 2 | 1 | 78 | 51 |
 | w_bottom_shape_interpretation | 1 | 5 | 2 | 1 | 76 | 52 |
-| volume_breakout_operation_research_outputs | 15 | 8 | 2 | 1 | 234 | 169 |
+| volume_breakout_operation_research_outputs | 15 | 8 | 2 | 1 | 237 | 170 |

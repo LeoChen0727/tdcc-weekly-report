@@ -57,6 +57,11 @@ jobs:
           python -m pip install --upgrade pip
           pip install pandas requests tabulate matplotlib pillow openpyxl lxml html5lib beautifulsoup4 reportlab pypdf
 
+      - name: Build monthly revenue history
+        run: |
+          python scripts/build_monthly_revenue_history.py
+          python scripts/validate_monthly_revenue_history.py
+
       - name: Fetch latest official daily price
         timeout-minutes: 9
         env:
@@ -516,8 +521,10 @@ jobs:
           git add docs/latest/daily_candidate_*.csv docs/latest/daily_candidate_*.md docs/latest/daily_candidate_*.json || true
           git add docs/latest/daily_report_model_registry_latest.* docs/latest/individual_stock_technical_snapshot_latest.* || true
           git add docs/latest/non_revenue_momentum_watch_latest.* docs/latest/market_abnormal_status_latest.* docs/latest/market_sentiment_context_latest.* || true
+          git add docs/latest/monthly_revenue_history_latest.* || true
           git add docs/latest/fundamental_catalyst_layer_latest.md docs/latest/catalyst_data_source_status_latest.* || true
           git add data/institutional_investor_flow/ data/warrant_daily/ data/warrant_flow_by_stock/ data/futures_options/ || true
+          git add data/monthly_revenue_history/ || true
           git add data/theme_events/ data/company_calendar/ data/macro_events/ data/fundamental_catalysts/ data/event_catalysts/ || true
           git add data/market_index_history.csv data/market_index_ohlc_history.csv || true
           git add output/history/reports/ output/history/warrant_daily/ output/history/warrant_flow/ || true
