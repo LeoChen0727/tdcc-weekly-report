@@ -1,7 +1,7 @@
 # TDCC 訊號績效追蹤報告
 
-- 產生時間：`2026-06-28 05:52:27 Asia/Taipei`
-- 最新 TDCC signal 批次日期：`20260626`
+- 產生時間：`2026-07-04 15:40:45 Asia/Taipei`
+- 最新 TDCC signal 批次日期：`20260703`
 - signal log：`output/history/tdcc_signals/tdcc_signal_log.csv`
 - performance csv：`output/history/tdcc_signals/tdcc_signal_performance.csv`
 
@@ -9,346 +9,341 @@
 
 | signal_date | code | name | signal_type | threshold_group | rank | current_pct | previous_pct | weekly_change_pct | is_consecutive_2w | consecutive_score |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 2380 | 虹光 | consecutive_2w_all_thresholds | all_400_600_800_1000 | 1 | +100.00% | +40.48% | +238.09% | True | 238.50 |
-| 20260626 | 8261 | 富鼎 | consecutive_2w_all_thresholds | all_400_600_800_1000 | 1 | +50.00% | +46.53% | +13.89% | True | 41.61 |
-| 20260626 | 6213 | 聯茂 | consecutive_2w_all_thresholds | all_400_600_800_1000 | 2 | +62.19% | +54.52% | +30.71% | True | 34.32 |
-| 20260626 | 3060 | 銘異 | consecutive_2w_all_thresholds | all_400_600_800_1000 | 3 | +24.78% | +24.20% | +2.31% | True | 33.00 |
-| 20260626 | 6127 | 九豪 | consecutive_2w_all_thresholds | all_400_600_800_1000 | 4 | +25.95% | +22.15% | +15.17% | True | 29.91 |
-| 20260626 | 2369 | 菱生 | consecutive_2w_all_thresholds | all_400_600_800_1000 | 5 | +39.57% | +33.85% | +22.90% | True | 29.17 |
-| 20260626 | 3715 | 定穎投控 | consecutive_2w_all_thresholds | all_400_600_800_1000 | 6 | +34.23% | +30.80% | +13.75% | True | 22.79 |
-| 20260626 | 1727 | 中華化 | consecutive_2w_all_thresholds | all_400_600_800_1000 | 7 | +54.55% | +52.56% | +7.98% | True | 19.18 |
-| 20260626 | 8110 | 華東 | consecutive_2w_all_thresholds | all_400_600_800_1000 | 8 | +54.84% | +50.52% | +17.26% | True | 18.55 |
-| 20260626 | 3035 | 智原 | consecutive_2w_all_thresholds | all_400_600_800_1000 | 9 | +29.72% | +26.72% | +12.02% | True | 17.94 |
-| 20260626 | 4551 | 智伸科 | consecutive_2w_all_thresholds | all_400_600_800_1000 | 10 | +80.32% | +77.38% | +11.78% | True | 17.83 |
-| 20260626 | 2401 | 凌陽 | consecutive_2w_all_thresholds | all_400_600_800_1000 | 11 | +40.48% | +38.54% | +7.76% | True | 17.79 |
-| 20260626 | 2618 | 長榮航 | consecutive_2w_all_thresholds | all_400_600_800_1000 | 12 | +77.18% | +75.64% | +6.17% | True | 17.79 |
-| 20260626 | 4541 | 晟田 | consecutive_2w_all_thresholds | all_400_600_800_1000 | 13 | +34.66% | +32.62% | +8.19% | True | 17.42 |
-| 20260626 | 2610 | 華航 | consecutive_2w_all_thresholds | all_400_600_800_1000 | 14 | +70.81% | +68.00% | +11.25% | True | 16.99 |
-| 20260626 | 2425 | 承啟 | consecutive_2w_all_thresholds | all_400_600_800_1000 | 15 | +47.11% | +44.13% | +11.93% | True | 16.68 |
-| 20260626 | 2340 | 台亞 | consecutive_2w_all_thresholds | all_400_600_800_1000 | 16 | +38.07% | +35.47% | +10.38% | True | 15.96 |
-| 20260626 | 6226 | 光鼎 | consecutive_2w_all_thresholds | all_400_600_800_1000 | 17 | +25.04% | +21.46% | +14.30% | True | 15.70 |
-| 20260626 | 1815 | 富喬 | consecutive_2w_all_thresholds | all_400_600_800_1000 | 18 | +35.74% | +32.23% | +14.04% | True | 14.82 |
-| 20260626 | 4722 | 國精化 | consecutive_2w_all_thresholds | all_400_600_800_1000 | 19 | +52.96% | +51.20% | +7.06% | True | 14.81 |
-| 20260626 | 2436 | 偉詮電 | consecutive_2w_all_thresholds | all_400_600_800_1000 | 20 | +24.60% | +21.67% | +11.75% | True | 13.65 |
-| 20260626 | 2380 | 虹光 | weekly_change_top20 | over_1000 | 1 | +100.00% | +37.41% | +62.59% | False | 0.00 |
-| 20260626 | 3374 | 精材 | weekly_change_top20 | over_1000 | 1 | +57.05% | +47.16% | +9.89% | False | 0.00 |
-| 20260626 | 6672 | 騰輝電子-KY | weekly_change_top20 | over_1000 | 2 | +25.48% | +16.20% | +9.28% | False | 0.00 |
-| 20260626 | 2426 | 鼎元 | weekly_change_top20 | over_1000 | 3 | +46.47% | +37.31% | +9.16% | False | 0.00 |
-| 20260626 | 6213 | 聯茂 | weekly_change_top20 | over_1000 | 4 | +59.09% | +51.09% | +8.00% | False | 0.00 |
-| 20260626 | 2369 | 菱生 | weekly_change_top20 | over_1000 | 5 | +38.10% | +31.91% | +6.19% | False | 0.00 |
-| 20260626 | 3521 | 台鋼建設 | weekly_change_top20 | over_1000 | 6 | +78.11% | +72.11% | +6.00% | False | 0.00 |
-| 20260626 | 6271 | 同欣電 | weekly_change_top20 | over_1000 | 7 | +46.88% | +41.44% | +5.44% | False | 0.00 |
-| 20260626 | 2449 | 京元電子 | weekly_change_top20 | over_1000 | 8 | +60.13% | +55.05% | +5.08% | False | 0.00 |
-| 20260626 | 8054 | 安國 | weekly_change_top20 | over_1000 | 9 | +32.80% | +27.72% | +5.08% | False | 0.00 |
-| 20260626 | 2363 | 矽統 | weekly_change_top20 | over_1000 | 10 | +36.98% | +32.04% | +4.94% | False | 0.00 |
-| 20260626 | 8110 | 華東 | weekly_change_top20 | over_1000 | 11 | +53.87% | +49.05% | +4.82% | False | 0.00 |
-| 20260626 | 5464 | 霖宏 | weekly_change_top20 | over_1000 | 12 | +61.80% | +57.66% | +4.14% | False | 0.00 |
-| 20260626 | 4551 | 智伸科 | weekly_change_top20 | over_1000 | 13 | +78.33% | +74.22% | +4.11% | False | 0.00 |
-| 20260626 | 8261 | 富鼎 | weekly_change_top20 | over_1000 | 14 | +46.17% | +42.12% | +4.05% | False | 0.00 |
-| 20260626 | 2425 | 承啟 | weekly_change_top20 | over_1000 | 15 | +43.30% | +39.31% | +3.99% | False | 0.00 |
-| 20260626 | 6695 | 芯鼎 | weekly_change_top20 | over_1000 | 16 | +45.72% | +41.83% | +3.89% | False | 0.00 |
-| 20260626 | 6270 | 倍微 | weekly_change_top20 | over_1000 | 17 | +40.14% | +36.56% | +3.58% | False | 0.00 |
-| 20260626 | 6226 | 光鼎 | weekly_change_top20 | over_1000 | 18 | +20.99% | +17.42% | +3.57% | False | 0.00 |
-| 20260626 | 3035 | 智原 | weekly_change_top20 | over_1000 | 19 | +27.05% | +23.60% | +3.45% | False | 0.00 |
-| 20260626 | 3264 | 欣銓 | weekly_change_top20 | over_1000 | 20 | +64.70% | +61.26% | +3.44% | False | 0.00 |
-| 20260626 | 2380 | 虹光 | weekly_change_top20 | over_400 | 1 | +100.00% | +45.05% | +54.95% | False | 0.00 |
-| 20260626 | 3374 | 精材 | weekly_change_top20 | over_400 | 1 | +60.24% | +51.47% | +8.77% | False | 0.00 |
-| 20260626 | 6213 | 聯茂 | weekly_change_top20 | over_400 | 2 | +65.32% | +57.63% | +7.69% | False | 0.00 |
-| 20260626 | 8054 | 安國 | weekly_change_top20 | over_400 | 3 | +42.32% | +34.64% | +7.68% | False | 0.00 |
-| 20260626 | 2426 | 鼎元 | weekly_change_top20 | over_400 | 4 | +51.13% | +43.65% | +7.48% | False | 0.00 |
-| 20260626 | 6672 | 騰輝電子-KY | weekly_change_top20 | over_400 | 5 | +35.79% | +28.49% | +7.30% | False | 0.00 |
-| 20260626 | 2449 | 京元電子 | weekly_change_top20 | over_400 | 6 | +66.59% | +60.99% | +5.60% | False | 0.00 |
-| 20260626 | 2369 | 菱生 | weekly_change_top20 | over_400 | 7 | +40.94% | +35.62% | +5.32% | False | 0.00 |
-| 20260626 | 3521 | 台鋼建設 | weekly_change_top20 | over_400 | 8 | +81.32% | +76.20% | +5.12% | False | 0.00 |
-| 20260626 | 6695 | 芯鼎 | weekly_change_top20 | over_400 | 9 | +52.47% | +47.40% | +5.07% | False | 0.00 |
-| 20260626 | 6683 | 雍智科技 | weekly_change_top20 | over_400 | 10 | +25.22% | +20.19% | +5.03% | False | 0.00 |
-| 20260626 | 6127 | 九豪 | weekly_change_top20 | over_400 | 11 | +30.12% | +25.34% | +4.78% | False | 0.00 |
-| 20260626 | 2363 | 矽統 | weekly_change_top20 | over_400 | 12 | +41.37% | +36.63% | +4.74% | False | 0.00 |
-| 20260626 | 6271 | 同欣電 | weekly_change_top20 | over_400 | 13 | +54.73% | +50.31% | +4.42% | False | 0.00 |
-| 20260626 | 8110 | 華東 | weekly_change_top20 | over_400 | 14 | +56.40% | +52.26% | +4.14% | False | 0.00 |
-| 20260626 | 6719 | 力智 | weekly_change_top20 | over_400 | 15 | +53.16% | +49.09% | +4.07% | False | 0.00 |
-| 20260626 | 6168 | 宏齊 | weekly_change_top20 | over_400 | 16 | +48.30% | +44.32% | +3.98% | False | 0.00 |
-| 20260626 | 3715 | 定穎投控 | weekly_change_top20 | over_400 | 17 | +38.37% | +34.40% | +3.97% | False | 0.00 |
-| 20260626 | 6226 | 光鼎 | weekly_change_top20 | over_400 | 18 | +29.68% | +25.78% | +3.90% | False | 0.00 |
-| 20260626 | 1815 | 富喬 | weekly_change_top20 | over_400 | 19 | +37.70% | +33.83% | +3.87% | False | 0.00 |
-| 20260626 | 3450 | 聯鈞 | weekly_change_top20 | over_400 | 20 | +48.93% | +45.17% | +3.76% | False | 0.00 |
-| 20260626 | 2380 | 虹光 | weekly_change_top20 | over_600 | 1 | +100.00% | +40.49% | +59.51% | False | 0.00 |
-| 20260626 | 6672 | 騰輝電子-KY | weekly_change_top20 | over_600 | 1 | +32.86% | +23.92% | +8.94% | False | 0.00 |
-| 20260626 | 3374 | 精材 | weekly_change_top20 | over_600 | 2 | +59.17% | +50.30% | +8.87% | False | 0.00 |
-| 20260626 | 2426 | 鼎元 | weekly_change_top20 | over_600 | 3 | +49.18% | +41.04% | +8.14% | False | 0.00 |
-| 20260626 | 8054 | 安國 | weekly_change_top20 | over_600 | 4 | +37.21% | +29.69% | +7.52% | False | 0.00 |
-| 20260626 | 6213 | 聯茂 | weekly_change_top20 | over_600 | 5 | +63.51% | +56.00% | +7.51% | False | 0.00 |
-| 20260626 | 2369 | 菱生 | weekly_change_top20 | over_600 | 6 | +40.19% | +34.55% | +5.64% | False | 0.00 |
-| 20260626 | 2449 | 京元電子 | weekly_change_top20 | over_600 | 7 | +63.84% | +58.34% | +5.50% | False | 0.00 |
-| 20260626 | 6695 | 芯鼎 | weekly_change_top20 | over_600 | 8 | +51.62% | +46.17% | +5.45% | False | 0.00 |
-| 20260626 | 3521 | 台鋼建設 | weekly_change_top20 | over_600 | 9 | +80.76% | +75.48% | +5.28% | False | 0.00 |
-| 20260626 | 6127 | 九豪 | weekly_change_top20 | over_600 | 10 | +26.50% | +21.76% | +4.74% | False | 0.00 |
-| 20260626 | 6271 | 同欣電 | weekly_change_top20 | over_600 | 11 | +52.37% | +47.64% | +4.73% | False | 0.00 |
-| 20260626 | 2363 | 矽統 | weekly_change_top20 | over_600 | 12 | +39.71% | +35.14% | +4.57% | False | 0.00 |
-| 20260626 | 8261 | 富鼎 | weekly_change_top20 | over_600 | 13 | +51.40% | +47.09% | +4.31% | False | 0.00 |
-| 20260626 | 6168 | 宏齊 | weekly_change_top20 | over_600 | 14 | +47.33% | +43.16% | +4.17% | False | 0.00 |
-| 20260626 | 8110 | 華東 | weekly_change_top20 | over_600 | 15 | +54.87% | +51.00% | +3.87% | False | 0.00 |
-| 20260626 | 3715 | 定穎投控 | weekly_change_top20 | over_600 | 16 | +35.44% | +31.78% | +3.66% | False | 0.00 |
-| 20260626 | 6538 | 倉和 | weekly_change_top20 | over_600 | 17 | +23.93% | +20.28% | +3.65% | False | 0.00 |
-| 20260626 | 1815 | 富喬 | weekly_change_top20 | over_600 | 18 | +36.14% | +32.71% | +3.43% | False | 0.00 |
-| 20260626 | 3450 | 聯鈞 | weekly_change_top20 | over_600 | 19 | +44.15% | +40.80% | +3.35% | False | 0.00 |
-| 20260626 | 6257 | 矽格 | weekly_change_top20 | over_600 | 20 | +47.90% | +44.62% | +3.28% | False | 0.00 |
-| 20260626 | 2380 | 虹光 | weekly_change_top20 | over_800 | 1 | +100.00% | +38.96% | +61.04% | False | 0.00 |
-| 20260626 | 3374 | 精材 | weekly_change_top20 | over_800 | 1 | +57.72% | +48.19% | +9.53% | False | 0.00 |
-| 20260626 | 2426 | 鼎元 | weekly_change_top20 | over_800 | 2 | +47.97% | +39.36% | +8.61% | False | 0.00 |
-| 20260626 | 6672 | 騰輝電子-KY | weekly_change_top20 | over_800 | 3 | +27.74% | +19.73% | +8.01% | False | 0.00 |
-| 20260626 | 8054 | 安國 | weekly_change_top20 | over_800 | 4 | +35.35% | +27.72% | +7.63% | False | 0.00 |
-| 20260626 | 6213 | 聯茂 | weekly_change_top20 | over_800 | 5 | +60.85% | +53.34% | +7.51% | False | 0.00 |
-| 20260626 | 3521 | 台鋼建設 | weekly_change_top20 | over_800 | 6 | +78.11% | +72.11% | +6.00% | False | 0.00 |
-| 20260626 | 2369 | 菱生 | weekly_change_top20 | over_800 | 7 | +39.06% | +33.31% | +5.75% | False | 0.00 |
-| 20260626 | 2449 | 京元電子 | weekly_change_top20 | over_800 | 8 | +61.83% | +56.18% | +5.65% | False | 0.00 |
-| 20260626 | 2363 | 矽統 | weekly_change_top20 | over_800 | 9 | +38.40% | +33.25% | +5.15% | False | 0.00 |
-| 20260626 | 8110 | 華東 | weekly_change_top20 | over_800 | 10 | +54.20% | +49.77% | +4.43% | False | 0.00 |
-| 20260626 | 6271 | 同欣電 | weekly_change_top20 | over_800 | 11 | +47.77% | +43.70% | +4.07% | False | 0.00 |
-| 20260626 | 6695 | 芯鼎 | weekly_change_top20 | over_800 | 12 | +48.22% | +44.27% | +3.95% | False | 0.00 |
-| 20260626 | 6168 | 宏齊 | weekly_change_top20 | over_800 | 13 | +46.67% | +42.81% | +3.86% | False | 0.00 |
-| 20260626 | 6226 | 光鼎 | weekly_change_top20 | over_800 | 14 | +23.48% | +19.69% | +3.79% | False | 0.00 |
-| 20260626 | 1815 | 富喬 | weekly_change_top20 | over_800 | 15 | +35.50% | +31.97% | +3.53% | False | 0.00 |
-| 20260626 | 4551 | 智伸科 | weekly_change_top20 | over_800 | 16 | +79.91% | +76.44% | +3.47% | False | 0.00 |
-| 20260626 | 2436 | 偉詮電 | weekly_change_top20 | over_800 | 17 | +23.14% | +19.73% | +3.41% | False | 0.00 |
-| 20260626 | 4977 | 眾達-KY | weekly_change_top20 | over_800 | 18 | +14.09% | +10.73% | +3.36% | False | 0.00 |
-| 20260626 | 6257 | 矽格 | weekly_change_top20 | over_800 | 19 | +44.17% | +40.92% | +3.25% | False | 0.00 |
-| 20260626 | 4526 | 東台 | weekly_change_top20 | over_800 | 20 | +47.25% | +44.07% | +3.18% | False | 0.00 |
+| 20260703 | 6271 | 同欣電 | consecutive_2w_all_thresholds | all_400_600_800_1000 | 1 | +52.99% | +50.44% | +10.22% | True | 28.88 |
+| 20260703 | 2449 | 京元電子 | consecutive_2w_all_thresholds | all_400_600_800_1000 | 2 | +64.74% | +63.10% | +6.56% | True | 28.39 |
+| 20260703 | 8261 | 富鼎 | consecutive_2w_all_thresholds | all_400_600_800_1000 | 3 | +52.74% | +50.00% | +10.98% | True | 24.87 |
+| 20260703 | 3227 | 原相 | consecutive_2w_all_thresholds | all_400_600_800_1000 | 4 | +36.79% | +33.10% | +14.75% | True | 19.09 |
+| 20260703 | 4526 | 東台 | consecutive_2w_all_thresholds | all_400_600_800_1000 | 5 | +50.18% | +48.53% | +6.61% | True | 18.32 |
+| 20260703 | 2483 | 百容 | consecutive_2w_all_thresholds | all_400_600_800_1000 | 6 | +62.37% | +59.77% | +10.41% | True | 18.12 |
+| 20260703 | 8476 | 台境* | consecutive_2w_all_thresholds | all_400_600_800_1000 | 7 | +66.94% | +65.38% | +6.27% | True | 15.99 |
+| 20260703 | 8150 | 南茂 | consecutive_2w_all_thresholds | all_400_600_800_1000 | 8 | +69.29% | +66.36% | +11.74% | True | 14.93 |
+| 20260703 | 6257 | 矽格 | consecutive_2w_all_thresholds | all_400_600_800_1000 | 9 | +47.06% | +46.45% | +2.46% | True | 14.70 |
+| 20260703 | 3264 | 欣銓 | consecutive_2w_all_thresholds | all_400_600_800_1000 | 10 | +68.28% | +67.50% | +3.11% | True | 13.15 |
+| 20260703 | 2481 | 強茂 | consecutive_2w_all_thresholds | all_400_600_800_1000 | 11 | +64.44% | +63.55% | +3.58% | True | 13.11 |
+| 20260703 | 2472 | 立隆電 | consecutive_2w_all_thresholds | all_400_600_800_1000 | 12 | +54.21% | +53.56% | +2.60% | True | 12.39 |
+| 20260703 | 8046 | 南電 | consecutive_2w_all_thresholds | all_400_600_800_1000 | 13 | +83.13% | +82.15% | +3.94% | True | 12.14 |
+| 20260703 | 2610 | 華航 | consecutive_2w_all_thresholds | all_400_600_800_1000 | 14 | +71.00% | +70.81% | +0.76% | True | 12.01 |
+| 20260703 | 5011 | 久陽 | consecutive_2w_all_thresholds | all_400_600_800_1000 | 15 | +43.41% | +42.93% | +1.95% | True | 11.21 |
+| 20260703 | 2377 | 微星 | consecutive_2w_all_thresholds | all_400_600_800_1000 | 16 | +58.55% | +56.54% | +8.04% | True | 10.58 |
+| 20260703 | 1314 | 中石化 | consecutive_2w_all_thresholds | all_400_600_800_1000 | 17 | +37.19% | +35.38% | +7.20% | True | 10.45 |
+| 20260703 | 3236 | 千如 | consecutive_2w_all_thresholds | all_400_600_800_1000 | 18 | +34.35% | +33.61% | +2.97% | True | 10.26 |
+| 20260703 | 2401 | 凌陽 | consecutive_2w_all_thresholds | all_400_600_800_1000 | 19 | +41.05% | +40.48% | +2.30% | True | 10.06 |
+| 20260703 | 2359 | 所羅門 | consecutive_2w_all_thresholds | all_400_600_800_1000 | 20 | +44.16% | +42.17% | +7.95% | True | 9.24 |
+| 20260703 | 2484 | 希華 | weekly_change_top20 | over_1000 | 1 | +35.97% | +20.96% | +15.01% | False | 0.00 |
+| 20260703 | 8033 | 雷虎 | weekly_change_top20 | over_1000 | 2 | +30.38% | +20.60% | +9.78% | False | 0.00 |
+| 20260703 | 3413 | 京鼎 | weekly_change_top20 | over_1000 | 3 | +43.67% | +35.66% | +8.01% | False | 0.00 |
+| 20260703 | 3605 | 宏致 | weekly_change_top20 | over_1000 | 4 | +47.93% | +41.09% | +6.84% | False | 0.00 |
+| 20260703 | 2464 | 盟立 | weekly_change_top20 | over_1000 | 5 | +37.72% | +31.14% | +6.58% | False | 0.00 |
+| 20260703 | 4989 | 榮科 | weekly_change_top20 | over_1000 | 6 | +23.62% | +17.94% | +5.68% | False | 0.00 |
+| 20260703 | 6191 | 精成科 | weekly_change_top20 | over_1000 | 7 | +56.58% | +51.18% | +5.40% | False | 0.00 |
+| 20260703 | 6194 | 育富 | weekly_change_top20 | over_1000 | 8 | +38.20% | +33.32% | +4.88% | False | 0.00 |
+| 20260703 | 6133 | 金橋 | weekly_change_top20 | over_1000 | 9 | +48.45% | +43.85% | +4.60% | False | 0.00 |
+| 20260703 | 3042 | 晶技 | weekly_change_top20 | over_1000 | 10 | +51.74% | +47.41% | +4.33% | False | 0.00 |
+| 20260703 | 4440 | 宜新實業 | weekly_change_top20 | over_1000 | 11 | +32.74% | +28.48% | +4.26% | False | 0.00 |
+| 20260703 | 3227 | 原相 | weekly_change_top20 | over_1000 | 12 | +32.36% | +28.24% | +4.12% | False | 0.00 |
+| 20260703 | 6182 | 合晶 | weekly_change_top20 | over_1000 | 13 | +41.25% | +37.17% | +4.08% | False | 0.00 |
+| 20260703 | 3317 | 尼克森 | weekly_change_top20 | over_1000 | 14 | +26.76% | +22.87% | +3.89% | False | 0.00 |
+| 20260703 | 2483 | 百容 | weekly_change_top20 | over_1000 | 15 | +61.24% | +57.69% | +3.55% | False | 0.00 |
+| 20260703 | 6716 | 應廣 | weekly_change_top20 | over_1000 | 16 | +25.85% | +22.41% | +3.44% | False | 0.00 |
+| 20260703 | 2375 | 凱美 | weekly_change_top20 | over_1000 | 17 | +26.88% | +23.47% | +3.41% | False | 0.00 |
+| 20260703 | 9960 | 邁達康 | weekly_change_top20 | over_1000 | 18 | +60.10% | +56.78% | +3.32% | False | 0.00 |
+| 20260703 | 2406 | 國碩 | weekly_change_top20 | over_1000 | 19 | +31.08% | +27.76% | +3.32% | False | 0.00 |
+| 20260703 | 6538 | 倉和 | weekly_change_top20 | over_1000 | 20 | +11.10% | +7.83% | +3.27% | False | 0.00 |
+| 20260703 | 2484 | 希華 | weekly_change_top20 | over_400 | 1 | +41.12% | +29.79% | +11.33% | False | 0.00 |
+| 20260703 | 8033 | 雷虎 | weekly_change_top20 | over_400 | 2 | +38.94% | +28.57% | +10.37% | False | 0.00 |
+| 20260703 | 3605 | 宏致 | weekly_change_top20 | over_400 | 3 | +54.42% | +46.77% | +7.65% | False | 0.00 |
+| 20260703 | 4989 | 榮科 | weekly_change_top20 | over_400 | 4 | +30.10% | +23.05% | +7.05% | False | 0.00 |
+| 20260703 | 2375 | 凱美 | weekly_change_top20 | over_400 | 5 | +34.66% | +27.92% | +6.74% | False | 0.00 |
+| 20260703 | 3413 | 京鼎 | weekly_change_top20 | over_400 | 6 | +49.10% | +42.62% | +6.48% | False | 0.00 |
+| 20260703 | 2464 | 盟立 | weekly_change_top20 | over_400 | 7 | +45.98% | +40.02% | +5.96% | False | 0.00 |
+| 20260703 | 3289 | 宜特 | weekly_change_top20 | over_400 | 8 | +32.52% | +26.59% | +5.93% | False | 0.00 |
+| 20260703 | 3221 | 台嘉碩 | weekly_change_top20 | over_400 | 9 | +30.76% | +25.43% | +5.33% | False | 0.00 |
+| 20260703 | 6191 | 精成科 | weekly_change_top20 | over_400 | 10 | +59.99% | +55.34% | +4.65% | False | 0.00 |
+| 20260703 | 6538 | 倉和 | weekly_change_top20 | over_400 | 11 | +35.46% | +30.88% | +4.58% | False | 0.00 |
+| 20260703 | 3042 | 晶技 | weekly_change_top20 | over_400 | 12 | +59.87% | +55.51% | +4.36% | False | 0.00 |
+| 20260703 | 4440 | 宜新實業 | weekly_change_top20 | over_400 | 13 | +60.71% | +56.44% | +4.27% | False | 0.00 |
+| 20260703 | 6182 | 合晶 | weekly_change_top20 | over_400 | 14 | +45.88% | +42.01% | +3.87% | False | 0.00 |
+| 20260703 | 3055 | 蔚華科 | weekly_change_top20 | over_400 | 15 | +69.84% | +66.10% | +3.74% | False | 0.00 |
+| 20260703 | 6133 | 金橋 | weekly_change_top20 | over_400 | 16 | +51.35% | +47.66% | +3.69% | False | 0.00 |
+| 20260703 | 5392 | 能率 | weekly_change_top20 | over_400 | 17 | +37.65% | +33.96% | +3.69% | False | 0.00 |
+| 20260703 | 3317 | 尼克森 | weekly_change_top20 | over_400 | 18 | +32.18% | +28.88% | +3.30% | False | 0.00 |
+| 20260703 | 6753 | 龍德造船 | weekly_change_top20 | over_400 | 19 | +61.69% | +58.41% | +3.28% | False | 0.00 |
+| 20260703 | 6409 | 旭隼 | weekly_change_top20 | over_400 | 20 | +65.42% | +62.39% | +3.03% | False | 0.00 |
+| 20260703 | 2484 | 希華 | weekly_change_top20 | over_600 | 1 | +38.22% | +27.18% | +11.04% | False | 0.00 |
+| 20260703 | 8033 | 雷虎 | weekly_change_top20 | over_600 | 2 | +34.53% | +25.19% | +9.34% | False | 0.00 |
+| 20260703 | 3605 | 宏致 | weekly_change_top20 | over_600 | 3 | +52.55% | +44.87% | +7.68% | False | 0.00 |
+| 20260703 | 3413 | 京鼎 | weekly_change_top20 | over_600 | 4 | +45.42% | +37.75% | +7.67% | False | 0.00 |
+| 20260703 | 4989 | 榮科 | weekly_change_top20 | over_600 | 5 | +27.99% | +21.25% | +6.74% | False | 0.00 |
+| 20260703 | 2464 | 盟立 | weekly_change_top20 | over_600 | 6 | +42.64% | +36.84% | +5.80% | False | 0.00 |
+| 20260703 | 3289 | 宜特 | weekly_change_top20 | over_600 | 7 | +26.13% | +20.56% | +5.57% | False | 0.00 |
+| 20260703 | 6191 | 精成科 | weekly_change_top20 | over_600 | 8 | +59.07% | +54.09% | +4.98% | False | 0.00 |
+| 20260703 | 2375 | 凱美 | weekly_change_top20 | over_600 | 9 | +31.53% | +26.67% | +4.86% | False | 0.00 |
+| 20260703 | 6133 | 金橋 | weekly_change_top20 | over_600 | 10 | +50.20% | +45.63% | +4.57% | False | 0.00 |
+| 20260703 | 3055 | 蔚華科 | weekly_change_top20 | over_600 | 11 | +67.66% | +63.36% | +4.30% | False | 0.00 |
+| 20260703 | 3227 | 原相 | weekly_change_top20 | over_600 | 12 | +37.28% | +33.17% | +4.11% | False | 0.00 |
+| 20260703 | 3317 | 尼克森 | weekly_change_top20 | over_600 | 13 | +30.20% | +26.40% | +3.80% | False | 0.00 |
+| 20260703 | 6182 | 合晶 | weekly_change_top20 | over_600 | 14 | +43.95% | +40.26% | +3.69% | False | 0.00 |
+| 20260703 | 3042 | 晶技 | weekly_change_top20 | over_600 | 15 | +55.50% | +51.87% | +3.63% | False | 0.00 |
+| 20260703 | 8227 | 巨有科技 | weekly_change_top20 | over_600 | 16 | +28.53% | +25.17% | +3.36% | False | 0.00 |
+| 20260703 | 9960 | 邁達康 | weekly_change_top20 | over_600 | 17 | +72.98% | +69.66% | +3.32% | False | 0.00 |
+| 20260703 | 8150 | 南茂 | weekly_change_top20 | over_600 | 18 | +70.50% | +67.30% | +3.20% | False | 0.00 |
+| 20260703 | 1515 | 力山 | weekly_change_top20 | over_600 | 19 | +49.52% | +46.48% | +3.04% | False | 0.00 |
+| 20260703 | 2406 | 國碩 | weekly_change_top20 | over_600 | 20 | +35.69% | +32.75% | +2.94% | False | 0.00 |
+| 20260703 | 2484 | 希華 | weekly_change_top20 | over_800 | 1 | +38.22% | +25.01% | +13.21% | False | 0.00 |
+| 20260703 | 8033 | 雷虎 | weekly_change_top20 | over_800 | 2 | +32.50% | +23.18% | +9.32% | False | 0.00 |
+| 20260703 | 3605 | 宏致 | weekly_change_top20 | over_800 | 3 | +49.51% | +42.10% | +7.41% | False | 0.00 |
+| 20260703 | 2464 | 盟立 | weekly_change_top20 | over_800 | 4 | +39.41% | +32.85% | +6.56% | False | 0.00 |
+| 20260703 | 3413 | 京鼎 | weekly_change_top20 | over_800 | 5 | +43.67% | +37.15% | +6.52% | False | 0.00 |
+| 20260703 | 6538 | 倉和 | weekly_change_top20 | over_800 | 6 | +18.39% | +12.57% | +5.82% | False | 0.00 |
+| 20260703 | 4989 | 榮科 | weekly_change_top20 | over_800 | 7 | +25.52% | +19.79% | +5.73% | False | 0.00 |
+| 20260703 | 2375 | 凱美 | weekly_change_top20 | over_800 | 8 | +29.54% | +24.24% | +5.30% | False | 0.00 |
+| 20260703 | 6191 | 精成科 | weekly_change_top20 | over_800 | 9 | +57.84% | +52.62% | +5.22% | False | 0.00 |
+| 20260703 | 3289 | 宜特 | weekly_change_top20 | over_800 | 10 | +23.70% | +18.86% | +4.84% | False | 0.00 |
+| 20260703 | 6133 | 金橋 | weekly_change_top20 | over_800 | 11 | +48.45% | +43.85% | +4.60% | False | 0.00 |
+| 20260703 | 3042 | 晶技 | weekly_change_top20 | over_800 | 12 | +53.67% | +49.27% | +4.40% | False | 0.00 |
+| 20260703 | 3317 | 尼克森 | weekly_change_top20 | over_800 | 13 | +28.64% | +24.85% | +3.79% | False | 0.00 |
+| 20260703 | 2406 | 國碩 | weekly_change_top20 | over_800 | 14 | +33.92% | +30.35% | +3.57% | False | 0.00 |
+| 20260703 | 3227 | 原相 | weekly_change_top20 | over_800 | 15 | +33.57% | +30.01% | +3.56% | False | 0.00 |
+| 20260703 | 8261 | 富鼎 | weekly_change_top20 | over_800 | 16 | +51.91% | +48.40% | +3.51% | False | 0.00 |
+| 20260703 | 6182 | 合晶 | weekly_change_top20 | over_800 | 17 | +42.65% | +39.17% | +3.48% | False | 0.00 |
+| 20260703 | 9960 | 邁達康 | weekly_change_top20 | over_800 | 18 | +62.90% | +59.58% | +3.32% | False | 0.00 |
+| 20260703 | 6271 | 同欣電 | weekly_change_top20 | over_800 | 19 | +50.79% | +47.77% | +3.02% | False | 0.00 |
+| 20260703 | 4440 | 宜新實業 | weekly_change_top20 | over_800 | 20 | +37.87% | +35.00% | +2.87% | False | 0.00 |
 
 ## 2.1 D+1 表現排行
 
 | signal_date | code | name | signal_type | threshold_group | signal_close | d1_close | d1_return_pct | status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 6202 | 盛群 | weekly_change_top20 | over_800 | 67.00 | 73.70 | +10.00% | partial_5d |
-| 20260618 | 6202 | 盛群 | weekly_change_top20 | over_600 | 67.00 | 73.70 | +10.00% | partial_5d |
+| 20260626 | 2380 | 虹光 | weekly_change_top20 | over_600 | 6.60 | 21.50 | +225.76% | partial_5d |
+| 20260626 | 2380 | 虹光 | weekly_change_top20 | over_400 | 6.60 | 21.50 | +225.76% | partial_5d |
+| 20260626 | 2380 | 虹光 | consecutive_2w_all_thresholds | all_400_600_800_1000 | 6.60 | 21.50 | +225.76% | partial_5d |
+| 20260626 | 2380 | 虹光 | weekly_change_top20 | over_1000 | 6.60 | 21.50 | +225.76% | partial_5d |
+| 20260626 | 2380 | 虹光 | weekly_change_top20 | over_800 | 6.60 | 21.50 | +225.76% | partial_5d |
+| 20260618 | 6202 | 盛群 | weekly_change_top20 | over_600 | 67.00 | 73.70 | +10.00% | partial_10d |
+| 20260618 | 8261 | 富鼎 | weekly_change_top20 | over_800 | 215.00 | 236.50 | +10.00% | partial_10d |
+| 20260618 | 8261 | 富鼎 | weekly_change_top20 | over_1000 | 215.00 | 236.50 | +10.00% | partial_10d |
+| 20260618 | 6202 | 盛群 | weekly_change_top20 | over_400 | 67.00 | 73.70 | +10.00% | partial_10d |
+| 20260618 | 6202 | 盛群 | weekly_change_top20 | over_800 | 67.00 | 73.70 | +10.00% | partial_10d |
+| 20260618 | 8261 | 富鼎 | weekly_change_top20 | over_400 | 215.00 | 236.50 | +10.00% | partial_10d |
 | 20260515 | 6285 | 啟碁 | consecutive_2w_all_thresholds | all_400_600_800_1000 | 260.00 | 286.00 | +10.00% | complete_20d |
-| 20260612 | 6155 | 鈞寶 | weekly_change_top20 | over_800 | 82.00 | 90.20 | +10.00% | partial_5d |
-| 20260618 | 8261 | 富鼎 | weekly_change_top20 | over_1000 | 215.00 | 236.50 | +10.00% | partial_5d |
-| 20260618 | 8261 | 富鼎 | weekly_change_top20 | over_400 | 215.00 | 236.50 | +10.00% | partial_5d |
-| 20260618 | 6202 | 盛群 | weekly_change_top20 | over_400 | 67.00 | 73.70 | +10.00% | partial_5d |
-| 20260618 | 8261 | 富鼎 | weekly_change_top20 | over_600 | 215.00 | 236.50 | +10.00% | partial_5d |
-| 20260618 | 8261 | 富鼎 | weekly_change_top20 | over_800 | 215.00 | 236.50 | +10.00% | partial_5d |
+| 20260612 | 6155 | 鈞寶 | weekly_change_top20 | over_800 | 82.00 | 90.20 | +10.00% | partial_10d |
+| 20260618 | 8261 | 富鼎 | weekly_change_top20 | over_600 | 215.00 | 236.50 | +10.00% | partial_10d |
 | 20260515 | 4127 | 天良 | weekly_change_top20 | over_800 | 39.10 | 43.00 | +9.97% | complete_20d |
-| 20260515 | 3624 | 光頡 | consecutive_2w_all_thresholds | all_400_600_800_1000 | 76.20 | 83.80 | +9.97% | complete_20d |
 | 20260515 | 3624 | 光頡 | weekly_change_top20 | over_400 | 76.20 | 83.80 | +9.97% | complete_20d |
-| 20260515 | 3624 | 光頡 | weekly_change_top20 | over_1000 | 76.20 | 83.80 | +9.97% | complete_20d |
-| 20260515 | 3624 | 光頡 | weekly_change_top20 | over_800 | 76.20 | 83.80 | +9.97% | complete_20d |
 | 20260515 | 3624 | 光頡 | weekly_change_top20 | over_600 | 76.20 | 83.80 | +9.97% | complete_20d |
-| 20260618 | 3624 | 光頡 | weekly_change_top20 | over_600 | 160.50 | 176.50 | +9.97% | partial_5d |
-| 20260618 | 3624 | 光頡 | consecutive_2w_all_thresholds | all_400_600_800_1000 | 160.50 | 176.50 | +9.97% | partial_5d |
-| 20260618 | 3624 | 光頡 | weekly_change_top20 | over_800 | 160.50 | 176.50 | +9.97% | partial_5d |
-| 20260618 | 3041 | 揚智 | weekly_change_top20 | over_600 | 28.15 | 30.95 | +9.95% | partial_5d |
-| 20260618 | 3041 | 揚智 | weekly_change_top20 | over_1000 | 28.15 | 30.95 | +9.95% | partial_5d |
+| 20260515 | 3624 | 光頡 | weekly_change_top20 | over_800 | 76.20 | 83.80 | +9.97% | complete_20d |
+| 20260515 | 3624 | 光頡 | weekly_change_top20 | over_1000 | 76.20 | 83.80 | +9.97% | complete_20d |
+| 20260515 | 3624 | 光頡 | consecutive_2w_all_thresholds | all_400_600_800_1000 | 76.20 | 83.80 | +9.97% | complete_20d |
 
 ## 2.2 D+2 表現排行
 
 | signal_date | code | name | signal_type | threshold_group | signal_close | d2_close | d2_return_pct | status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260522 | 6983 | 華洋精機 | weekly_change_top20 | over_800 | 381.50 | 472.00 | +23.72% | complete_20d |
+| 20260626 | 2380 | 虹光 | weekly_change_top20 | over_600 | 6.60 | 19.35 | +193.18% | partial_5d |
+| 20260626 | 2380 | 虹光 | weekly_change_top20 | over_400 | 6.60 | 19.35 | +193.18% | partial_5d |
+| 20260626 | 2380 | 虹光 | weekly_change_top20 | over_1000 | 6.60 | 19.35 | +193.18% | partial_5d |
+| 20260626 | 2380 | 虹光 | weekly_change_top20 | over_800 | 6.60 | 19.35 | +193.18% | partial_5d |
+| 20260626 | 2380 | 虹光 | consecutive_2w_all_thresholds | all_400_600_800_1000 | 6.60 | 19.35 | +193.18% | partial_5d |
 | 20260522 | 6983 | 華洋精機 | weekly_change_top20 | over_1000 | 381.50 | 472.00 | +23.72% | complete_20d |
 | 20260522 | 6983 | 華洋精機 | weekly_change_top20 | over_400 | 381.50 | 472.00 | +23.72% | complete_20d |
+| 20260522 | 6983 | 華洋精機 | weekly_change_top20 | over_800 | 381.50 | 472.00 | +23.72% | complete_20d |
 | 20260522 | 6983 | 華洋精機 | weekly_change_top20 | over_600 | 381.50 | 472.00 | +23.72% | complete_20d |
 | 20260515 | 4127 | 天良 | weekly_change_top20 | over_800 | 39.10 | 47.30 | +20.97% | complete_20d |
-| 20260618 | 8261 | 富鼎 | weekly_change_top20 | over_400 | 215.00 | 260.00 | +20.93% | partial_5d |
-| 20260618 | 8261 | 富鼎 | weekly_change_top20 | over_1000 | 215.00 | 260.00 | +20.93% | partial_5d |
-| 20260618 | 8261 | 富鼎 | weekly_change_top20 | over_800 | 215.00 | 260.00 | +20.93% | partial_5d |
-| 20260618 | 8261 | 富鼎 | weekly_change_top20 | over_600 | 215.00 | 260.00 | +20.93% | partial_5d |
-| 20260612 | 5328 | 華容 | weekly_change_top20 | over_400 | 42.35 | 51.20 | +20.90% | partial_5d |
-| 20260612 | 5328 | 華容 | weekly_change_top20 | over_1000 | 42.35 | 51.20 | +20.90% | partial_5d |
-| 20260612 | 5328 | 華容 | weekly_change_top20 | over_600 | 42.35 | 51.20 | +20.90% | partial_5d |
-| 20260612 | 5328 | 華容 | weekly_change_top20 | over_800 | 42.35 | 51.20 | +20.90% | partial_5d |
-| 20260618 | 5464 | 霖宏 | consecutive_2w_all_thresholds | all_400_600_800_1000 | 73.70 | 89.10 | +20.90% | partial_5d |
-| 20260612 | 2243 | 宏旭-KY | weekly_change_top20 | over_1000 | 37.20 | 44.95 | +20.83% | partial_5d |
-| 20260612 | 2243 | 宏旭-KY | weekly_change_top20 | over_800 | 37.20 | 44.95 | +20.83% | partial_5d |
-| 20260612 | 2243 | 宏旭-KY | weekly_change_top20 | over_600 | 37.20 | 44.95 | +20.83% | partial_5d |
-| 20260612 | 2243 | 宏旭-KY | consecutive_2w_all_thresholds | all_400_600_800_1000 | 37.20 | 44.95 | +20.83% | partial_5d |
-| 20260515 | 2355 | 敬鵬 | consecutive_2w_all_thresholds | all_400_600_800_1000 | 52.50 | 63.40 | +20.76% | complete_20d |
-| 20260612 | 2478 | 大毅 | weekly_change_top20 | over_1000 | 171.50 | 207.00 | +20.70% | partial_5d |
+| 20260618 | 8261 | 富鼎 | weekly_change_top20 | over_800 | 215.00 | 260.00 | +20.93% | partial_10d |
+| 20260618 | 8261 | 富鼎 | weekly_change_top20 | over_600 | 215.00 | 260.00 | +20.93% | partial_10d |
+| 20260618 | 8261 | 富鼎 | weekly_change_top20 | over_1000 | 215.00 | 260.00 | +20.93% | partial_10d |
+| 20260618 | 8261 | 富鼎 | weekly_change_top20 | over_400 | 215.00 | 260.00 | +20.93% | partial_10d |
+| 20260612 | 5328 | 華容 | weekly_change_top20 | over_1000 | 42.35 | 51.20 | +20.90% | partial_10d |
+| 20260612 | 5328 | 華容 | weekly_change_top20 | over_400 | 42.35 | 51.20 | +20.90% | partial_10d |
+| 20260612 | 5328 | 華容 | weekly_change_top20 | over_800 | 42.35 | 51.20 | +20.90% | partial_10d |
+| 20260612 | 5328 | 華容 | weekly_change_top20 | over_600 | 42.35 | 51.20 | +20.90% | partial_10d |
+| 20260618 | 5464 | 霖宏 | consecutive_2w_all_thresholds | all_400_600_800_1000 | 73.70 | 89.10 | +20.90% | partial_10d |
+| 20260612 | 2243 | 宏旭-KY | weekly_change_top20 | over_600 | 37.20 | 44.95 | +20.83% | partial_10d |
 
 ## 2.5 D+5 表現排行
 
 | signal_date | code | name | signal_type | threshold_group | signal_close | d5_close | d5_return_pct | status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260626 | 2380 | 虹光 | weekly_change_top20 | over_600 | 6.60 | 22.00 | +233.33% | partial_5d |
+| 20260626 | 2380 | 虹光 | weekly_change_top20 | over_400 | 6.60 | 22.00 | +233.33% | partial_5d |
+| 20260626 | 2380 | 虹光 | consecutive_2w_all_thresholds | all_400_600_800_1000 | 6.60 | 22.00 | +233.33% | partial_5d |
+| 20260626 | 2380 | 虹光 | weekly_change_top20 | over_1000 | 6.60 | 22.00 | +233.33% | partial_5d |
+| 20260626 | 2380 | 虹光 | weekly_change_top20 | over_800 | 6.60 | 22.00 | +233.33% | partial_5d |
 | 20260515 | 4127 | 天良 | weekly_change_top20 | over_800 | 39.10 | 62.90 | +60.87% | complete_20d |
-| 20260612 | 3624 | 光頡 | weekly_change_top20 | over_1000 | 118.00 | 176.50 | +49.58% | partial_5d |
-| 20260612 | 3624 | 光頡 | weekly_change_top20 | over_800 | 118.00 | 176.50 | +49.58% | partial_5d |
-| 20260612 | 3624 | 光頡 | weekly_change_top20 | over_600 | 118.00 | 176.50 | +49.58% | partial_5d |
-| 20260515 | 2492 | 華新科 | consecutive_2w_all_thresholds | all_400_600_800_1000 | 206.00 | 292.50 | +41.99% | complete_20d |
+| 20260612 | 3624 | 光頡 | weekly_change_top20 | over_600 | 118.00 | 176.50 | +49.58% | partial_10d |
+| 20260612 | 3624 | 光頡 | weekly_change_top20 | over_800 | 118.00 | 176.50 | +49.58% | partial_10d |
+| 20260612 | 3624 | 光頡 | weekly_change_top20 | over_1000 | 118.00 | 176.50 | +49.58% | partial_10d |
 | 20260515 | 2492 | 華新科 | weekly_change_top20 | over_400 | 206.00 | 292.50 | +41.99% | complete_20d |
 | 20260515 | 2492 | 華新科 | weekly_change_top20 | over_600 | 206.00 | 292.50 | +41.99% | complete_20d |
-| 20260515 | 2492 | 華新科 | weekly_change_top20 | over_800 | 206.00 | 292.50 | +41.99% | complete_20d |
+| 20260515 | 2492 | 華新科 | consecutive_2w_all_thresholds | all_400_600_800_1000 | 206.00 | 292.50 | +41.99% | complete_20d |
 | 20260515 | 2492 | 華新科 | weekly_change_top20 | over_1000 | 206.00 | 292.50 | +41.99% | complete_20d |
-| 20260612 | 2491 | 吉祥全 | weekly_change_top20 | over_800 | 31.30 | 44.00 | +40.58% | partial_5d |
-| 20260612 | 2478 | 大毅 | consecutive_2w_all_thresholds | all_400_600_800_1000 | 171.50 | 235.50 | +37.32% | partial_5d |
-| 20260612 | 2478 | 大毅 | weekly_change_top20 | over_1000 | 171.50 | 235.50 | +37.32% | partial_5d |
-| 20260612 | 2478 | 大毅 | weekly_change_top20 | over_800 | 171.50 | 235.50 | +37.32% | partial_5d |
-| 20260612 | 5328 | 華容 | weekly_change_top20 | over_800 | 42.35 | 58.00 | +36.95% | partial_5d |
-| 20260612 | 5328 | 華容 | weekly_change_top20 | over_1000 | 42.35 | 58.00 | +36.95% | partial_5d |
-| 20260612 | 5328 | 華容 | weekly_change_top20 | over_400 | 42.35 | 58.00 | +36.95% | partial_5d |
-| 20260612 | 5328 | 華容 | weekly_change_top20 | over_600 | 42.35 | 58.00 | +36.95% | partial_5d |
-| 20260612 | 8996 | 高力 | consecutive_2w_all_thresholds | all_400_600_800_1000 | 1145.00 | 1555.00 | +35.81% | partial_5d |
-| 20260612 | 8996 | 高力 | weekly_change_top20 | over_800 | 1145.00 | 1555.00 | +35.81% | partial_5d |
-| 20260618 | 5464 | 霖宏 | consecutive_2w_all_thresholds | all_400_600_800_1000 | 73.70 | 100.00 | +35.69% | partial_5d |
+| 20260515 | 2492 | 華新科 | weekly_change_top20 | over_800 | 206.00 | 292.50 | +41.99% | complete_20d |
+| 20260612 | 2491 | 吉祥全 | weekly_change_top20 | over_800 | 31.30 | 44.00 | +40.58% | partial_10d |
+| 20260612 | 2478 | 大毅 | weekly_change_top20 | over_800 | 171.50 | 235.50 | +37.32% | partial_10d |
+| 20260612 | 2478 | 大毅 | weekly_change_top20 | over_1000 | 171.50 | 235.50 | +37.32% | partial_10d |
+| 20260612 | 2478 | 大毅 | consecutive_2w_all_thresholds | all_400_600_800_1000 | 171.50 | 235.50 | +37.32% | partial_10d |
+| 20260612 | 5328 | 華容 | weekly_change_top20 | over_400 | 42.35 | 58.00 | +36.95% | partial_10d |
+| 20260612 | 5328 | 華容 | weekly_change_top20 | over_800 | 42.35 | 58.00 | +36.95% | partial_10d |
 
 ## 2.10 D+10 表現排行
 
 | signal_date | code | name | signal_type | threshold_group | signal_close | d10_close | d10_return_pct | status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260515 | 2492 | 華新科 | consecutive_2w_all_thresholds | all_400_600_800_1000 | 206.00 | 361.00 | +75.24% | complete_20d |
 | 20260515 | 2492 | 華新科 | weekly_change_top20 | over_1000 | 206.00 | 361.00 | +75.24% | complete_20d |
 | 20260515 | 2492 | 華新科 | weekly_change_top20 | over_600 | 206.00 | 361.00 | +75.24% | complete_20d |
-| 20260515 | 2492 | 華新科 | consecutive_2w_all_thresholds | all_400_600_800_1000 | 206.00 | 361.00 | +75.24% | complete_20d |
 | 20260515 | 2492 | 華新科 | weekly_change_top20 | over_800 | 206.00 | 361.00 | +75.24% | complete_20d |
 | 20260515 | 2492 | 華新科 | weekly_change_top20 | over_400 | 206.00 | 361.00 | +75.24% | complete_20d |
 | 20260515 | 4127 | 天良 | weekly_change_top20 | over_800 | 39.10 | 66.70 | +70.59% | complete_20d |
 | 20260605 | 2243 | 宏旭-KY | weekly_change_top20 | over_400 | 28.05 | 46.55 | +65.95% | partial_10d |
 | 20260605 | 2243 | 宏旭-KY | weekly_change_top20 | over_600 | 28.05 | 46.55 | +65.95% | partial_10d |
 | 20260515 | 8042 | 金山電 | consecutive_2w_all_thresholds | all_400_600_800_1000 | 98.10 | 150.50 | +53.41% | complete_20d |
-| 20260605 | 3550 | 聯穎 | weekly_change_top20 | over_800 | 24.05 | 35.90 | +49.27% | partial_10d |
+| 20260612 | 5328 | 華容 | weekly_change_top20 | over_400 | 42.35 | 64.70 | +52.77% | partial_10d |
+| 20260612 | 5328 | 華容 | weekly_change_top20 | over_600 | 42.35 | 64.70 | +52.77% | partial_10d |
+| 20260612 | 5328 | 華容 | weekly_change_top20 | over_1000 | 42.35 | 64.70 | +52.77% | partial_10d |
+| 20260612 | 5328 | 華容 | weekly_change_top20 | over_800 | 42.35 | 64.70 | +52.77% | partial_10d |
 | 20260605 | 3550 | 聯穎 | weekly_change_top20 | over_400 | 24.05 | 35.90 | +49.27% | partial_10d |
+| 20260605 | 3550 | 聯穎 | weekly_change_top20 | over_800 | 24.05 | 35.90 | +49.27% | partial_10d |
 | 20260605 | 3550 | 聯穎 | weekly_change_top20 | over_600 | 24.05 | 35.90 | +49.27% | partial_10d |
-| 20260515 | 6173 | 信昌電 | weekly_change_top20 | over_400 | 155.00 | 226.00 | +45.81% | complete_20d |
-| 20260515 | 6173 | 信昌電 | consecutive_2w_all_thresholds | all_400_600_800_1000 | 155.00 | 226.00 | +45.81% | complete_20d |
-| 20260515 | 8261 | 富鼎 | weekly_change_top20 | over_600 | 134.50 | 195.00 | +44.98% | complete_20d |
-| 20260515 | 8261 | 富鼎 | weekly_change_top20 | over_400 | 134.50 | 195.00 | +44.98% | complete_20d |
-| 20260515 | 8261 | 富鼎 | weekly_change_top20 | over_800 | 134.50 | 195.00 | +44.98% | complete_20d |
-| 20260522 | 2492 | 華新科 | consecutive_2w_all_thresholds | all_400_600_800_1000 | 292.50 | 416.00 | +42.22% | complete_20d |
-| 20260522 | 6127 | 九豪 | weekly_change_top20 | over_1000 | 52.50 | 74.00 | +40.95% | complete_20d |
-| 20260522 | 6127 | 九豪 | weekly_change_top20 | over_400 | 52.50 | 74.00 | +40.95% | complete_20d |
+| 20260618 | 8261 | 富鼎 | weekly_change_top20 | over_600 | 215.00 | 320.00 | +48.84% | partial_10d |
+| 20260618 | 8261 | 富鼎 | weekly_change_top20 | over_400 | 215.00 | 320.00 | +48.84% | partial_10d |
+| 20260618 | 8261 | 富鼎 | weekly_change_top20 | over_1000 | 215.00 | 320.00 | +48.84% | partial_10d |
+| 20260618 | 8261 | 富鼎 | weekly_change_top20 | over_800 | 215.00 | 320.00 | +48.84% | partial_10d |
 
 ## 2.20 D+20 表現排行
 
 | signal_date | code | name | signal_type | threshold_group | signal_close | d20_close | d20_return_pct | status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260515 | 2492 | 華新科 | weekly_change_top20 | over_1000 | 206.00 | 400.00 | +94.17% | complete_20d |
 | 20260515 | 2492 | 華新科 | weekly_change_top20 | over_400 | 206.00 | 400.00 | +94.17% | complete_20d |
+| 20260515 | 2492 | 華新科 | consecutive_2w_all_thresholds | all_400_600_800_1000 | 206.00 | 400.00 | +94.17% | complete_20d |
+| 20260515 | 2492 | 華新科 | weekly_change_top20 | over_1000 | 206.00 | 400.00 | +94.17% | complete_20d |
 | 20260515 | 2492 | 華新科 | weekly_change_top20 | over_600 | 206.00 | 400.00 | +94.17% | complete_20d |
 | 20260515 | 2492 | 華新科 | weekly_change_top20 | over_800 | 206.00 | 400.00 | +94.17% | complete_20d |
-| 20260515 | 2492 | 華新科 | consecutive_2w_all_thresholds | all_400_600_800_1000 | 206.00 | 400.00 | +94.17% | complete_20d |
 | 20260515 | 4127 | 天良 | weekly_change_top20 | over_800 | 39.10 | 67.00 | +71.36% | complete_20d |
 | 20260522 | 8043 | 蜜望實 | weekly_change_top20 | over_400 | 130.50 | 202.50 | +55.17% | complete_20d |
 | 20260522 | 2492 | 華新科 | consecutive_2w_all_thresholds | all_400_600_800_1000 | 292.50 | 449.50 | +53.68% | complete_20d |
 | 20260522 | 6127 | 九豪 | weekly_change_top20 | over_600 | 52.50 | 79.00 | +50.48% | complete_20d |
+| 20260522 | 6127 | 九豪 | weekly_change_top20 | over_800 | 52.50 | 79.00 | +50.48% | complete_20d |
 | 20260522 | 6127 | 九豪 | weekly_change_top20 | over_1000 | 52.50 | 79.00 | +50.48% | complete_20d |
 | 20260522 | 6127 | 九豪 | weekly_change_top20 | over_400 | 52.50 | 79.00 | +50.48% | complete_20d |
-| 20260522 | 6127 | 九豪 | weekly_change_top20 | over_800 | 52.50 | 79.00 | +50.48% | complete_20d |
-| 20260522 | 2478 | 大毅 | weekly_change_top20 | over_600 | 127.50 | 188.50 | +47.84% | complete_20d |
 | 20260522 | 2478 | 大毅 | weekly_change_top20 | over_400 | 127.50 | 188.50 | +47.84% | complete_20d |
-| 20260515 | 4931 | 新盛力 | weekly_change_top20 | over_1000 | 183.50 | 266.50 | +45.23% | complete_20d |
-| 20260515 | 4931 | 新盛力 | weekly_change_top20 | over_600 | 183.50 | 266.50 | +45.23% | complete_20d |
+| 20260522 | 2478 | 大毅 | weekly_change_top20 | over_600 | 127.50 | 188.50 | +47.84% | complete_20d |
 | 20260515 | 4931 | 新盛力 | weekly_change_top20 | over_400 | 183.50 | 266.50 | +45.23% | complete_20d |
-| 20260529 | 6155 | 鈞寶 | weekly_change_top20 | over_1000 | 62.80 | 90.50 | +44.11% | complete_20d |
+| 20260515 | 4931 | 新盛力 | weekly_change_top20 | over_600 | 183.50 | 266.50 | +45.23% | complete_20d |
+| 20260515 | 4931 | 新盛力 | weekly_change_top20 | over_1000 | 183.50 | 266.50 | +45.23% | complete_20d |
 | 20260529 | 6155 | 鈞寶 | weekly_change_top20 | over_600 | 62.80 | 90.50 | +44.11% | complete_20d |
 | 20260529 | 6155 | 鈞寶 | weekly_change_top20 | over_400 | 62.80 | 90.50 | +44.11% | complete_20d |
+| 20260529 | 6155 | 鈞寶 | weekly_change_top20 | over_1000 | 62.80 | 90.50 | +44.11% | complete_20d |
 
 ## 3. 四級距同步入榜股票的表現
 
 | signal_date | code | name | threshold_count | avg_d5_return_pct | avg_d10_return_pct | avg_d20_return_pct | max_return_20d | max_drawdown_20d |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 2363 | 矽統 | 4 | - | - | - | - | - |
-| 20260626 | 2369 | 菱生 | 4 | - | - | - | - | - |
-| 20260626 | 2380 | 虹光 | 4 | - | - | - | - | - |
-| 20260626 | 2426 | 鼎元 | 4 | - | - | - | - | - |
-| 20260626 | 2449 | 京元電子 | 4 | - | - | - | - | - |
-| 20260626 | 3374 | 精材 | 4 | - | - | - | - | - |
-| 20260626 | 3521 | 台鋼建設 | 4 | - | - | - | - | - |
-| 20260626 | 6213 | 聯茂 | 4 | - | - | - | - | - |
-| 20260626 | 6271 | 同欣電 | 4 | - | - | - | - | - |
-| 20260626 | 6672 | 騰輝電子-KY | 4 | - | - | - | - | - |
-| 20260626 | 6695 | 芯鼎 | 4 | - | - | - | - | - |
-| 20260626 | 8054 | 安國 | 4 | - | - | - | - | - |
-| 20260626 | 8110 | 華東 | 4 | - | - | - | - | - |
-| 20260618 | 2455 | 全新 | 4 | -16.35% | - | - | -0.96% | -16.47% |
-| 20260618 | 2478 | 大毅 | 4 | -6.84% | - | - | +8.33% | -6.84% |
-| 20260618 | 2493 | 揚博 | 4 | -0.55% | - | - | +9.51% | -7.50% |
-| 20260618 | 3041 | 揚智 | 4 | -3.02% | - | - | +15.45% | -3.55% |
-| 20260618 | 3060 | 銘異 | 4 | -4.09% | - | - | +11.35% | -4.35% |
-| 20260618 | 5351 | 鈺創 | 4 | -7.13% | - | - | +9.57% | -7.34% |
-| 20260618 | 6207 | 雷科 | 4 | -1.08% | - | - | +2.08% | -1.58% |
-| 20260618 | 6269 | 台郡 | 4 | -10.05% | - | - | +15.33% | -10.05% |
-| 20260618 | 8096 | 擎亞 | 4 | -6.75% | - | - | +4.18% | -8.68% |
-| 20260618 | 8261 | 富鼎 | 4 | +13.49% | - | - | +30.70% | +10.00% |
-| 20260612 | 2413 | 環科 | 4 | -7.35% | - | - | +9.97% | -22.30% |
-| 20260612 | 5328 | 華容 | 4 | +36.95% | - | - | +65.76% | +2.72% |
-| 20260612 | 6409 | 旭隼 | 4 | +1.40% | - | - | +10.22% | -3.23% |
-| 20260612 | 6695 | 芯鼎 | 4 | +27.63% | - | - | +37.18% | +3.78% |
-| 20260612 | 6890 | 來億-KY | 4 | -9.96% | - | - | -1.56% | -14.06% |
-| 20260612 | 8454 | 富邦媒 | 4 | -6.03% | - | - | +6.59% | -15.85% |
+| 20260703 | 2375 | 凱美 | 4 | - | - | - | - | - |
+| 20260703 | 2464 | 盟立 | 4 | - | - | - | - | - |
+| 20260703 | 2484 | 希華 | 4 | - | - | - | - | - |
+| 20260703 | 3042 | 晶技 | 4 | - | - | - | - | - |
+| 20260703 | 3317 | 尼克森 | 4 | - | - | - | - | - |
+| 20260703 | 3413 | 京鼎 | 4 | - | - | - | - | - |
+| 20260703 | 3605 | 宏致 | 4 | - | - | - | - | - |
+| 20260703 | 4989 | 榮科 | 4 | - | - | - | - | - |
+| 20260703 | 6133 | 金橋 | 4 | - | - | - | - | - |
+| 20260703 | 6182 | 合晶 | 4 | - | - | - | - | - |
+| 20260703 | 6191 | 精成科 | 4 | - | - | - | - | - |
+| 20260703 | 8033 | 雷虎 | 4 | - | - | - | - | - |
+| 20260626 | 2363 | 矽統 | 4 | +2.92% | - | - | +10.64% | -3.35% |
+| 20260626 | 2369 | 菱生 | 4 | -4.03% | - | - | +0.49% | -8.67% |
+| 20260626 | 2380 | 虹光 | 4 | +233.33% | - | - | +261.36% | +193.18% |
+| 20260626 | 2426 | 鼎元 | 4 | +1.80% | - | - | +2.58% | -8.76% |
+| 20260626 | 2449 | 京元電子 | 4 | +8.77% | - | - | +12.82% | -1.30% |
+| 20260626 | 3374 | 精材 | 4 | +11.99% | - | - | +15.03% | -2.33% |
+| 20260626 | 3521 | 台鋼建設 | 4 | +7.05% | - | - | +12.03% | -0.41% |
+| 20260626 | 6213 | 聯茂 | 4 | +13.71% | - | - | +13.71% | -3.61% |
+| 20260626 | 6271 | 同欣電 | 4 | +9.41% | - | - | +15.10% | -5.29% |
+| 20260626 | 6672 | 騰輝電子-KY | 4 | +7.88% | - | - | +13.01% | -5.48% |
+| 20260626 | 6695 | 芯鼎 | 4 | -3.65% | - | - | +1.99% | -7.30% |
+| 20260626 | 8054 | 安國 | 4 | -8.47% | - | - | +1.61% | -10.08% |
+| 20260626 | 8110 | 華東 | 4 | -5.79% | - | - | +1.93% | -7.89% |
+| 20260618 | 8261 | 富鼎 | 4 | +13.49% | +48.84% | - | +63.95% | +9.07% |
+| 20260618 | 2493 | 揚博 | 4 | -0.55% | +14.81% | - | +23.22% | -8.23% |
+| 20260618 | 3041 | 揚智 | 4 | -3.02% | +2.31% | - | +15.45% | -5.15% |
+| 20260618 | 2478 | 大毅 | 4 | -6.84% | +1.71% | - | +8.33% | -15.17% |
+| 20260618 | 8096 | 擎亞 | 4 | -6.75% | +1.29% | - | +4.18% | -8.68% |
+| 20260618 | 6207 | 雷科 | 4 | -1.08% | -1.08% | - | +2.08% | -2.22% |
+| 20260618 | 3060 | 銘異 | 4 | -4.09% | -6.20% | - | +11.35% | -11.87% |
+| 20260618 | 5351 | 鈺創 | 4 | -7.13% | -12.98% | - | +9.57% | -17.45% |
+| 20260618 | 2455 | 全新 | 4 | -16.35% | -13.94% | - | -0.96% | -19.95% |
+| 20260618 | 6269 | 台郡 | 4 | -10.05% | -16.08% | - | +15.33% | -20.23% |
+| 20260612 | 5328 | 華容 | 4 | +36.95% | +52.77% | - | +109.68% | +2.72% |
+| 20260612 | 6695 | 芯鼎 | 4 | +27.63% | +17.10% | - | +37.18% | +3.78% |
+| 20260612 | 6409 | 旭隼 | 4 | +1.40% | +9.68% | - | +39.78% | -3.23% |
+| 20260612 | 8454 | 富邦媒 | 4 | -6.03% | -14.73% | - | +6.59% | -22.86% |
+| 20260612 | 6890 | 來億-KY | 4 | -9.96% | -21.29% | - | -1.56% | -25.59% |
+| 20260612 | 2413 | 環科 | 4 | -7.35% | -23.94% | - | +9.97% | -24.35% |
 | 20260605 | 4513 | 福裕 | 4 | +2.30% | +13.11% | - | +19.34% | -6.89% |
 | 20260605 | 3234 | 光環 | 4 | -10.80% | +11.20% | - | +20.80% | -16.40% |
 | 20260605 | 4939 | 亞電 | 4 | +10.89% | +5.19% | - | +20.77% | -7.87% |
-| 20260605 | 8093 | 保銳 | 4 | +3.29% | +3.29% | - | +7.40% | -1.37% |
-| 20260605 | 2406 | 國碩 | 4 | +12.55% | +2.74% | - | +24.96% | -9.96% |
-| 20260605 | 4967 | 十銓 | 4 | -2.51% | +1.97% | - | +5.38% | -9.86% |
-| 20260605 | 6282 | 康舒 | 4 | -8.93% | +0.16% | - | +5.02% | -15.36% |
+| 20260605 | 8093 | 保銳 | 4 | +3.29% | +3.29% | - | +14.79% | -1.37% |
+| 20260605 | 2406 | 國碩 | 4 | +12.55% | +2.74% | - | +32.61% | -9.96% |
+| 20260605 | 4967 | 十銓 | 4 | -2.51% | +1.97% | - | +5.38% | -13.80% |
+| 20260605 | 6282 | 康舒 | 4 | -8.93% | +0.16% | - | +5.02% | -15.83% |
 | 20260605 | 1514 | 亞力 | 4 | -11.48% | -5.93% | - | -4.07% | -15.56% |
 | 20260605 | 6806 | 森崴能源 | 4 | -28.37% | -37.77% | - | +2.84% | -43.79% |
-| 20260529 | 6155 | 鈞寶 | 4 | +13.69% | +21.82% | +44.11% | +64.01% | -1.43% |
-| 20260529 | 6127 | 九豪 | 4 | +10.85% | +14.41% | +39.08% | +39.08% | -10.25% |
-| 20260529 | 2484 | 希華 | 4 | +0.37% | +7.00% | +28.73% | +40.15% | -13.44% |
-| 20260529 | 6265 | 方土昶 | 4 | +6.70% | +1.99% | -0.36% | +17.21% | -5.98% |
-| 20260529 | 3221 | 台嘉碩 | 4 | -2.83% | -2.50% | -7.67% | +13.17% | -14.33% |
-| 20260529 | 3211 | 順達 | 4 | +6.42% | -7.11% | -6.42% | +7.80% | -12.61% |
-| 20260529 | 4927 | 泰鼎-KY | 4 | -7.47% | -11.57% | -13.35% | +6.58% | -16.99% |
-| 20260529 | 6284 | 佳邦 | 4 | -11.30% | -17.99% | -14.64% | +9.62% | -22.01% |
-| 20260529 | 6706 | 惠特 | 4 | +0.24% | -20.68% | -24.57% | +9.49% | -26.52% |
-| 20260529 | 6182 | 合晶 | 4 | -2.61% | -21.11% | +25.63% | +28.14% | -27.94% |
-| 20260529 | 2369 | 菱生 | 4 | -11.91% | -22.83% | +7.69% | +13.40% | -23.70% |
-| 20260529 | 5425 | 台半 | 4 | -9.87% | -25.06% | +9.01% | +22.75% | -27.04% |
 
 ## 4. 連續兩週四級距同步增加股票的表現
 
 | signal_date | code | name | rank | consecutive_score | signal_close | d5_return_pct | d10_return_pct | d20_return_pct | max_return_20d | max_drawdown_20d | status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260626 | 2380 | 虹光 | 1 | 238.50 | 6.60 | - | - | - | - | - | pending |
-| 20260626 | 8261 | 富鼎 | 1 | 41.61 | 244.00 | - | - | - | - | - | pending |
-| 20260626 | 6213 | 聯茂 | 2 | 34.32 | 346.50 | - | - | - | - | - | pending |
-| 20260626 | 3060 | 銘異 | 3 | 33.00 | 36.35 | - | - | - | - | - | pending |
-| 20260626 | 6127 | 九豪 | 4 | 29.91 | 91.40 | - | - | - | - | - | pending |
-| 20260626 | 2369 | 菱生 | 5 | 29.17 | 40.95 | - | - | - | - | - | pending |
-| 20260626 | 3715 | 定穎投控 | 6 | 22.79 | 168.50 | - | - | - | - | - | pending |
-| 20260626 | 1727 | 中華化 | 7 | 19.18 | 88.00 | - | - | - | - | - | pending |
-| 20260626 | 8110 | 華東 | 8 | 18.55 | 57.00 | - | - | - | - | - | pending |
-| 20260626 | 3035 | 智原 | 9 | 17.94 | 206.50 | - | - | - | - | - | pending |
-| 20260626 | 4551 | 智伸科 | 10 | 17.83 | 225.00 | - | - | - | - | - | pending |
-| 20260626 | 2401 | 凌陽 | 11 | 17.79 | 31.65 | - | - | - | - | - | pending |
-| 20260626 | 2618 | 長榮航 | 12 | 17.79 | 43.80 | - | - | - | - | - | pending |
-| 20260626 | 4541 | 晟田 | 13 | 17.42 | 47.50 | - | - | - | - | - | pending |
-| 20260626 | 2610 | 華航 | 14 | 16.99 | 23.20 | - | - | - | - | - | pending |
-| 20260626 | 2425 | 承啟 | 15 | 16.68 | 39.45 | - | - | - | - | - | pending |
-| 20260626 | 2340 | 台亞 | 16 | 15.96 | 36.45 | - | - | - | - | - | pending |
-| 20260626 | 6226 | 光鼎 | 17 | 15.70 | 18.25 | - | - | - | - | - | pending |
-| 20260626 | 1815 | 富喬 | 18 | 14.82 | 96.70 | - | - | - | - | - | pending |
-| 20260626 | 4722 | 國精化 | 19 | 14.81 | 289.50 | - | - | - | - | - | pending |
-| 20260626 | 2436 | 偉詮電 | 20 | 13.65 | 70.80 | - | - | - | - | - | pending |
-| 20260618 | 2243 | 宏旭-KY | 1 | 28.42 | 51.70 | +2.51% | - | - | +17.79% | -17.12% | partial_5d |
-| 20260618 | 3550 | 聯穎 | 2 | 26.66 | 37.25 | -15.70% | - | - | +6.58% | -15.84% | partial_5d |
-| 20260618 | 2478 | 大毅 | 3 | 25.44 | 234.00 | -6.84% | - | - | +8.33% | -6.84% | partial_5d |
-| 20260618 | 2241 | 艾姆勒 | 4 | 24.80 | 50.60 | -9.29% | - | - | +8.70% | -10.87% | partial_5d |
-| 20260618 | 3624 | 光頡 | 5 | 23.65 | 160.50 | -13.40% | - | - | +10.90% | -13.40% | partial_5d |
-| 20260618 | 2484 | 希華 | 6 | 19.11 | 71.20 | +7.87% | - | - | +7.87% | -11.52% | partial_5d |
-| 20260618 | 6182 | 合晶 | 7 | 14.74 | 120.00 | -0.42% | - | - | +12.08% | -11.25% | partial_5d |
-| 20260618 | 4721 | 美琪瑪 | 8 | 14.35 | 100.50 | -12.54% | - | - | +1.49% | -12.54% | partial_5d |
-| 20260618 | 8088 | 品安 | 9 | 12.92 | 69.20 | -9.39% | - | - | +4.77% | -9.39% | partial_5d |
-| 20260618 | 2618 | 長榮航 | 10 | 12.53 | 42.55 | +2.94% | - | - | +7.29% | -4.35% | partial_5d |
-| 20260618 | 2375 | 凱美 | 11 | 12.49 | 219.00 | -9.82% | - | - | +4.11% | -10.73% | partial_5d |
-| 20260618 | 3715 | 定穎投控 | 12 | 11.53 | 179.00 | -5.87% | - | - | +9.78% | -6.15% | partial_5d |
-| 20260618 | 1319 | 東陽 | 13 | 10.61 | 99.20 | -22.08% | - | - | -10.69% | -22.08% | partial_5d |
-| 20260618 | 2597 | 潤弘 | 14 | 8.84 | 178.00 | -7.87% | - | - | -0.84% | -7.87% | partial_5d |
-| 20260618 | 3035 | 智原 | 15 | 8.04 | 209.00 | -1.20% | - | - | +17.22% | -1.20% | partial_5d |
-| 20260618 | 3093 | 港建* | 16 | 7.84 | 65.00 | +9.23% | - | - | +14.77% | -3.69% | partial_5d |
-| 20260618 | 6116 | 彩晶 | 17 | 7.72 | 18.80 | -2.93% | - | - | +11.17% | -3.72% | partial_5d |
-| 20260618 | 2393 | 億光 | 18 | 7.55 | 70.60 | -4.25% | - | - | +1.56% | -4.67% | partial_5d |
-| 20260618 | 5464 | 霖宏 | 19 | 7.46 | 73.70 | +35.69% | - | - | +47.90% | -0.95% | partial_5d |
-| 20260618 | 4534 | 慶騰 | 20 | 7.30 | 33.65 | -11.74% | - | - | +6.69% | -16.49% | partial_5d |
-| 20260612 | 3550 | 聯穎 | 1 | 29.84 | 29.05 | +23.58% | - | - | +36.66% | -4.99% | partial_5d |
-| 20260612 | 2243 | 宏旭-KY | 2 | 23.42 | 37.20 | +25.13% | - | - | +63.71% | +4.84% | partial_5d |
-| 20260612 | 3147 | 大綜 | 3 | 17.07 | 338.00 | -5.33% | - | - | +3.85% | -8.14% | partial_5d |
-| 20260612 | 6890 | 來億-KY | 4 | 17.03 | 256.00 | -9.96% | - | - | -1.56% | -14.06% | partial_5d |
-| 20260612 | 6806 | 森崴能源 | 5 | 16.98 | 4.04 | -13.12% | - | - | -3.47% | -21.53% | partial_5d |
-| 20260612 | 2478 | 大毅 | 6 | 16.18 | 171.50 | +37.32% | - | - | +47.81% | +5.25% | partial_5d |
-| 20260612 | 8454 | 富邦媒 | 7 | 13.92 | 356.50 | -6.03% | - | - | +6.59% | -15.85% | partial_5d |
-| 20260612 | 4534 | 慶騰 | 8 | 13.07 | 33.00 | +2.42% | - | - | +10.00% | -14.85% | partial_5d |
-| 20260612 | 1319 | 東陽 | 9 | 12.20 | 99.50 | -14.77% | - | - | +5.53% | -22.31% | partial_5d |
+| 20260703 | 6271 | 同欣電 | 1 | 28.88 | 279.00 | - | - | - | - | - | pending |
+| 20260703 | 2449 | 京元電子 | 2 | 28.39 | 335.00 | - | - | - | - | - | pending |
+| 20260703 | 8261 | 富鼎 | 3 | 24.87 | 320.00 | - | - | - | - | - | pending |
+| 20260703 | 3227 | 原相 | 4 | 19.09 | 235.00 | - | - | - | - | - | pending |
+| 20260703 | 4526 | 東台 | 5 | 18.32 | 41.50 | - | - | - | - | - | pending |
+| 20260703 | 2483 | 百容 | 6 | 18.12 | 67.10 | - | - | - | - | - | pending |
+| 20260703 | 8476 | 台境* | 7 | 15.99 | 24.45 | - | - | - | - | - | pending |
+| 20260703 | 8150 | 南茂 | 8 | 14.93 | 105.00 | - | - | - | - | - | pending |
+| 20260703 | 6257 | 矽格 | 9 | 14.70 | 254.50 | - | - | - | - | - | pending |
+| 20260703 | 3264 | 欣銓 | 10 | 13.15 | 247.00 | - | - | - | - | - | pending |
+| 20260703 | 2481 | 強茂 | 11 | 13.11 | 207.00 | - | - | - | - | - | pending |
+| 20260703 | 2472 | 立隆電 | 12 | 12.39 | 425.00 | - | - | - | - | - | pending |
+| 20260703 | 8046 | 南電 | 13 | 12.14 | 1185.00 | - | - | - | - | - | pending |
+| 20260703 | 2610 | 華航 | 14 | 12.01 | 22.55 | - | - | - | - | - | pending |
+| 20260703 | 5011 | 久陽 | 15 | 11.21 | 24.25 | - | - | - | - | - | pending |
+| 20260703 | 2377 | 微星 | 16 | 10.58 | 143.00 | - | - | - | - | - | pending |
+| 20260703 | 1314 | 中石化 | 17 | 10.45 | 9.88 | - | - | - | - | - | pending |
+| 20260703 | 3236 | 千如 | 18 | 10.26 | 68.70 | - | - | - | - | - | pending |
+| 20260703 | 2401 | 凌陽 | 19 | 10.06 | 33.45 | - | - | - | - | - | pending |
+| 20260703 | 2359 | 所羅門 | 20 | 9.24 | 142.00 | - | - | - | - | - | pending |
+| 20260626 | 2380 | 虹光 | 1 | 238.50 | 6.60 | +233.33% | - | - | +261.36% | +193.18% | partial_5d |
+| 20260626 | 8261 | 富鼎 | 1 | 41.61 | 244.00 | +31.15% | - | - | +44.47% | -3.89% | partial_5d |
+| 20260626 | 6213 | 聯茂 | 2 | 34.32 | 346.50 | +13.71% | - | - | +13.71% | -3.61% | partial_5d |
+| 20260626 | 3060 | 銘異 | 3 | 33.00 | 36.35 | -2.20% | - | - | +5.50% | -8.12% | partial_5d |
+| 20260626 | 6127 | 九豪 | 4 | 29.91 | 91.40 | -3.72% | - | - | +11.60% | -7.66% | partial_5d |
+| 20260626 | 2369 | 菱生 | 5 | 29.17 | 40.95 | -4.03% | - | - | +0.49% | -8.67% | partial_5d |
+| 20260626 | 3715 | 定穎投控 | 6 | 22.79 | 168.50 | +2.08% | - | - | +10.68% | -2.08% | partial_5d |
+| 20260626 | 1727 | 中華化 | 7 | 19.18 | 88.00 | +5.34% | - | - | +9.09% | -0.57% | partial_5d |
+| 20260626 | 8110 | 華東 | 8 | 18.55 | 57.00 | -5.79% | - | - | +1.93% | -7.89% | partial_5d |
+| 20260626 | 3035 | 智原 | 9 | 17.94 | 206.50 | +7.75% | - | - | +8.96% | -3.15% | partial_5d |
+| 20260626 | 4551 | 智伸科 | 10 | 17.83 | 225.00 | +17.78% | - | - | +17.78% | -7.11% | partial_5d |
+| 20260626 | 2401 | 凌陽 | 11 | 17.79 | 31.65 | +5.69% | - | - | +12.64% | -2.37% | partial_5d |
+| 20260626 | 2618 | 長榮航 | 12 | 17.79 | 43.80 | +0.11% | - | - | +2.74% | -1.48% | partial_5d |
+| 20260626 | 4541 | 晟田 | 13 | 17.42 | 47.50 | +27.79% | - | - | +27.79% | +0.21% | partial_5d |
+| 20260626 | 2610 | 華航 | 14 | 16.99 | 23.20 | -2.80% | - | - | +3.02% | -3.88% | partial_5d |
+| 20260626 | 2425 | 承啟 | 15 | 16.68 | 39.45 | +7.35% | - | - | +17.87% | -0.63% | partial_5d |
+| 20260626 | 2340 | 台亞 | 16 | 15.96 | 36.45 | +4.53% | - | - | +10.70% | -3.98% | partial_5d |
+| 20260626 | 6226 | 光鼎 | 17 | 15.70 | 18.25 | +31.51% | - | - | +58.63% | +1.10% | partial_5d |
+| 20260626 | 1815 | 富喬 | 18 | 14.82 | 96.70 | +4.96% | - | - | +22.54% | -1.34% | partial_5d |
+| 20260626 | 4722 | 國精化 | 19 | 14.81 | 289.50 | -4.32% | - | - | +8.12% | -6.04% | partial_5d |
+| 20260626 | 2436 | 偉詮電 | 20 | 13.65 | 70.80 | +7.20% | - | - | +9.32% | -1.55% | partial_5d |
+| 20260618 | 5464 | 霖宏 | 19 | 7.46 | 73.70 | +35.69% | +39.08% | - | +47.90% | -0.95% | partial_10d |
+| 20260618 | 6182 | 合晶 | 7 | 14.74 | 120.00 | -0.42% | +35.83% | - | +35.83% | -11.25% | partial_10d |
+| 20260618 | 2484 | 希華 | 6 | 19.11 | 71.20 | +7.87% | +35.39% | - | +35.39% | -11.52% | partial_10d |
+| 20260618 | 2243 | 宏旭-KY | 1 | 28.42 | 51.70 | +2.51% | +27.47% | - | +27.66% | -17.12% | partial_10d |
+| 20260618 | 3093 | 港建* | 16 | 7.84 | 65.00 | +9.23% | +8.00% | - | +19.54% | -3.69% | partial_10d |
+| 20260618 | 3035 | 智原 | 15 | 8.04 | 209.00 | -1.20% | +6.46% | - | +17.22% | -4.31% | partial_10d |
+| 20260618 | 2618 | 長榮航 | 10 | 12.53 | 42.55 | +2.94% | +3.06% | - | +7.29% | -4.35% | partial_10d |
+| 20260618 | 4534 | 慶騰 | 20 | 7.30 | 33.65 | -11.74% | +1.93% | - | +6.69% | -16.49% | partial_10d |
+| 20260618 | 2478 | 大毅 | 3 | 25.44 | 234.00 | -6.84% | +1.71% | - | +8.33% | -15.17% | partial_10d |
 
 ## 5. 過熱警示
 
@@ -356,106 +351,106 @@
 
 | signal_date | code | name | signal_type | threshold_group | pre_signal_5d_return_pct | d5_return_pct | d10_return_pct | max_drawdown_10d |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260515 | 3498 | 陽程 | weekly_change_top20 | over_400 | +59.36% | +7.38% | +4.36% | -9.40% |
-| 20260515 | 3498 | 陽程 | weekly_change_top20 | over_1000 | +59.36% | +7.38% | +4.36% | -9.40% |
-| 20260515 | 3498 | 陽程 | weekly_change_top20 | over_600 | +59.36% | +7.38% | +4.36% | -9.40% |
 | 20260515 | 3498 | 陽程 | weekly_change_top20 | over_800 | +59.36% | +7.38% | +4.36% | -9.40% |
+| 20260515 | 3498 | 陽程 | weekly_change_top20 | over_600 | +59.36% | +7.38% | +4.36% | -9.40% |
+| 20260515 | 3498 | 陽程 | weekly_change_top20 | over_1000 | +59.36% | +7.38% | +4.36% | -9.40% |
+| 20260515 | 3498 | 陽程 | weekly_change_top20 | over_400 | +59.36% | +7.38% | +4.36% | -9.40% |
+| 20260703 | 3055 | 蔚華科 | weekly_change_top20 | over_600 | +58.85% | - | - | - |
+| 20260703 | 3055 | 蔚華科 | weekly_change_top20 | over_400 | +58.85% | - | - | - |
 | 20260605 | 3147 | 大綜 | weekly_change_top20 | over_600 | +55.89% | +18.80% | +12.48% | -9.84% |
 | 20260605 | 3147 | 大綜 | weekly_change_top20 | over_400 | +55.89% | +18.80% | +12.48% | -9.84% |
-| 20260618 | 2243 | 宏旭-KY | weekly_change_top20 | over_1000 | +52.73% | +2.51% | - | -17.12% |
-| 20260618 | 2243 | 宏旭-KY | weekly_change_top20 | over_400 | +52.73% | +2.51% | - | -17.12% |
-| 20260618 | 2243 | 宏旭-KY | weekly_change_top20 | over_800 | +52.73% | +2.51% | - | -17.12% |
-| 20260618 | 2243 | 宏旭-KY | consecutive_2w_all_thresholds | all_400_600_800_1000 | +52.73% | +2.51% | - | -17.12% |
+| 20260618 | 2243 | 宏旭-KY | weekly_change_top20 | over_1000 | +52.73% | +2.51% | +27.47% | -17.12% |
+| 20260618 | 2243 | 宏旭-KY | consecutive_2w_all_thresholds | all_400_600_800_1000 | +52.73% | +2.51% | +27.47% | -17.12% |
+| 20260618 | 2243 | 宏旭-KY | weekly_change_top20 | over_800 | +52.73% | +2.51% | +27.47% | -17.12% |
+| 20260618 | 2243 | 宏旭-KY | weekly_change_top20 | over_400 | +52.73% | +2.51% | +27.47% | -17.12% |
 | 20260522 | 2478 | 大毅 | weekly_change_top20 | over_600 | +52.69% | -5.88% | +12.94% | -12.16% |
 | 20260522 | 2478 | 大毅 | weekly_change_top20 | over_400 | +52.69% | -5.88% | +12.94% | -12.16% |
-| 20260522 | 3090 | 日電貿 | weekly_change_top20 | over_1000 | +51.41% | +7.44% | +8.60% | -12.56% |
-| 20260522 | 3090 | 日電貿 | weekly_change_top20 | over_600 | +51.41% | +7.44% | +8.60% | -12.56% |
 | 20260522 | 3090 | 日電貿 | weekly_change_top20 | over_800 | +51.41% | +7.44% | +8.60% | -12.56% |
+| 20260522 | 3090 | 日電貿 | weekly_change_top20 | over_600 | +51.41% | +7.44% | +8.60% | -12.56% |
 | 20260522 | 3090 | 日電貿 | weekly_change_top20 | over_400 | +51.41% | +7.44% | +8.60% | -12.56% |
-| 20260618 | 6182 | 合晶 | weekly_change_top20 | over_400 | +48.33% | -0.42% | - | -11.25% |
-| 20260618 | 6182 | 合晶 | consecutive_2w_all_thresholds | all_400_600_800_1000 | +48.33% | -0.42% | - | -11.25% |
-| 20260626 | 6226 | 光鼎 | weekly_change_top20 | over_800 | +47.18% | - | - | - |
-| 20260626 | 6226 | 光鼎 | consecutive_2w_all_thresholds | all_400_600_800_1000 | +47.18% | - | - | - |
-| 20260626 | 6226 | 光鼎 | weekly_change_top20 | over_400 | +47.18% | - | - | - |
-| 20260626 | 6226 | 光鼎 | weekly_change_top20 | over_1000 | +47.18% | - | - | - |
-| 20260618 | 3624 | 光頡 | weekly_change_top20 | over_800 | +45.91% | -13.40% | - | -13.40% |
-| 20260618 | 3624 | 光頡 | consecutive_2w_all_thresholds | all_400_600_800_1000 | +45.91% | -13.40% | - | -13.40% |
-| 20260618 | 3624 | 光頡 | weekly_change_top20 | over_600 | +45.91% | -13.40% | - | -13.40% |
-| 20260522 | 4916 | 事欣科 | consecutive_2w_all_thresholds | all_400_600_800_1000 | +45.20% | +1.12% | +21.06% | -3.36% |
-| 20260522 | 4916 | 事欣科 | weekly_change_top20 | over_1000 | +45.20% | +1.12% | +21.06% | -3.36% |
-| 20260522 | 4916 | 事欣科 | weekly_change_top20 | over_600 | +45.20% | +1.12% | +21.06% | -3.36% |
-| 20260522 | 4916 | 事欣科 | weekly_change_top20 | over_400 | +45.20% | +1.12% | +21.06% | -3.36% |
-| 20260522 | 4916 | 事欣科 | weekly_change_top20 | over_800 | +45.20% | +1.12% | +21.06% | -3.36% |
+| 20260522 | 3090 | 日電貿 | weekly_change_top20 | over_1000 | +51.41% | +7.44% | +8.60% | -12.56% |
+| 20260618 | 6182 | 合晶 | weekly_change_top20 | over_400 | +48.33% | -0.42% | +35.83% | -11.25% |
+| 20260618 | 6182 | 合晶 | consecutive_2w_all_thresholds | all_400_600_800_1000 | +48.33% | -0.42% | +35.83% | -11.25% |
+| 20260626 | 6226 | 光鼎 | weekly_change_top20 | over_400 | +47.18% | +31.51% | - | +1.10% |
+| 20260626 | 6226 | 光鼎 | consecutive_2w_all_thresholds | all_400_600_800_1000 | +47.18% | +31.51% | - | +1.10% |
+| 20260626 | 6226 | 光鼎 | weekly_change_top20 | over_1000 | +47.18% | +31.51% | - | +1.10% |
+| 20260626 | 6226 | 光鼎 | weekly_change_top20 | over_800 | +47.18% | +31.51% | - | +1.10% |
+| 20260618 | 3624 | 光頡 | weekly_change_top20 | over_800 | +45.91% | -13.40% | -3.43% | -14.33% |
+| 20260618 | 3624 | 光頡 | consecutive_2w_all_thresholds | all_400_600_800_1000 | +45.91% | -13.40% | -3.43% | -14.33% |
+| 20260618 | 3624 | 光頡 | weekly_change_top20 | over_600 | +45.91% | -13.40% | -3.43% | -14.33% |
+| 20260703 | 8033 | 雷虎 | weekly_change_top20 | over_400 | +45.55% | - | - | - |
+| 20260703 | 8033 | 雷虎 | weekly_change_top20 | over_800 | +45.55% | - | - | - |
+| 20260703 | 8033 | 雷虎 | weekly_change_top20 | over_1000 | +45.55% | - | - | - |
 
 ### 訊號日後隔日明顯轉弱
 
 | signal_date | code | name | signal_type | threshold_group | d1_return_pct | d5_return_pct | max_drawdown_10d | status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260618 | 1319 | 東陽 | consecutive_2w_all_thresholds | all_400_600_800_1000 | -14.52% | -22.08% | -22.08% | partial_5d |
+| 20260618 | 1319 | 東陽 | consecutive_2w_all_thresholds | all_400_600_800_1000 | -14.52% | -22.08% | -24.80% | partial_10d |
 | 20260605 | 3615 | 安可 | weekly_change_top20 | over_600 | -9.97% | -17.52% | -18.94% | partial_10d |
-| 20260618 | 2243 | 宏旭-KY | weekly_change_top20 | over_800 | -9.96% | +2.51% | -17.12% | partial_5d |
-| 20260618 | 2243 | 宏旭-KY | weekly_change_top20 | over_400 | -9.96% | +2.51% | -17.12% | partial_5d |
-| 20260618 | 2243 | 宏旭-KY | weekly_change_top20 | over_1000 | -9.96% | +2.51% | -17.12% | partial_5d |
-| 20260618 | 2243 | 宏旭-KY | consecutive_2w_all_thresholds | all_400_600_800_1000 | -9.96% | +2.51% | -17.12% | partial_5d |
-| 20260612 | 6890 | 來億-KY | consecutive_2w_all_thresholds | all_400_600_800_1000 | -9.96% | -9.96% | -14.06% | partial_5d |
-| 20260612 | 6890 | 來億-KY | weekly_change_top20 | over_1000 | -9.96% | -9.96% | -14.06% | partial_5d |
-| 20260612 | 6890 | 來億-KY | weekly_change_top20 | over_400 | -9.96% | -9.96% | -14.06% | partial_5d |
-| 20260612 | 6890 | 來億-KY | weekly_change_top20 | over_600 | -9.96% | -9.96% | -14.06% | partial_5d |
-| 20260612 | 6890 | 來億-KY | weekly_change_top20 | over_800 | -9.96% | -9.96% | -14.06% | partial_5d |
-| 20260612 | 8454 | 富邦媒 | weekly_change_top20 | over_600 | -9.96% | -6.03% | -15.85% | partial_5d |
-| 20260612 | 8454 | 富邦媒 | weekly_change_top20 | over_1000 | -9.96% | -6.03% | -15.85% | partial_5d |
-| 20260612 | 8454 | 富邦媒 | consecutive_2w_all_thresholds | all_400_600_800_1000 | -9.96% | -6.03% | -15.85% | partial_5d |
-| 20260612 | 8454 | 富邦媒 | weekly_change_top20 | over_800 | -9.96% | -6.03% | -15.85% | partial_5d |
-| 20260612 | 8454 | 富邦媒 | weekly_change_top20 | over_400 | -9.96% | -6.03% | -15.85% | partial_5d |
+| 20260618 | 2243 | 宏旭-KY | weekly_change_top20 | over_400 | -9.96% | +2.51% | -17.12% | partial_10d |
+| 20260618 | 2243 | 宏旭-KY | weekly_change_top20 | over_1000 | -9.96% | +2.51% | -17.12% | partial_10d |
+| 20260618 | 2243 | 宏旭-KY | weekly_change_top20 | over_800 | -9.96% | +2.51% | -17.12% | partial_10d |
+| 20260618 | 2243 | 宏旭-KY | consecutive_2w_all_thresholds | all_400_600_800_1000 | -9.96% | +2.51% | -17.12% | partial_10d |
+| 20260612 | 6890 | 來億-KY | weekly_change_top20 | over_600 | -9.96% | -9.96% | -21.29% | partial_10d |
+| 20260612 | 6890 | 來億-KY | consecutive_2w_all_thresholds | all_400_600_800_1000 | -9.96% | -9.96% | -21.29% | partial_10d |
+| 20260612 | 6890 | 來億-KY | weekly_change_top20 | over_800 | -9.96% | -9.96% | -21.29% | partial_10d |
+| 20260612 | 6890 | 來億-KY | weekly_change_top20 | over_400 | -9.96% | -9.96% | -21.29% | partial_10d |
+| 20260612 | 6890 | 來億-KY | weekly_change_top20 | over_1000 | -9.96% | -9.96% | -21.29% | partial_10d |
+| 20260612 | 8454 | 富邦媒 | consecutive_2w_all_thresholds | all_400_600_800_1000 | -9.96% | -6.03% | -15.85% | partial_10d |
+| 20260612 | 8454 | 富邦媒 | weekly_change_top20 | over_800 | -9.96% | -6.03% | -15.85% | partial_10d |
+| 20260612 | 8454 | 富邦媒 | weekly_change_top20 | over_1000 | -9.96% | -6.03% | -15.85% | partial_10d |
+| 20260612 | 8454 | 富邦媒 | weekly_change_top20 | over_600 | -9.96% | -6.03% | -15.85% | partial_10d |
+| 20260612 | 8454 | 富邦媒 | weekly_change_top20 | over_400 | -9.96% | -6.03% | -15.85% | partial_10d |
 | 20260612 | 6806 | 森崴能源 | consecutive_2w_all_thresholds | all_400_600_800_1000 | -9.90% | -13.12% | -21.53% | partial_5d |
-| 20260605 | 3689 | 湧德 | consecutive_2w_all_thresholds | all_400_600_800_1000 | -9.89% | -18.02% | -22.26% | partial_10d |
 | 20260605 | 3689 | 湧德 | weekly_change_top20 | over_400 | -9.89% | -18.02% | -22.26% | partial_10d |
+| 20260605 | 3689 | 湧德 | consecutive_2w_all_thresholds | all_400_600_800_1000 | -9.89% | -18.02% | -22.26% | partial_10d |
 | 20260605 | 6126 | 信音 | weekly_change_top20 | over_1000 | -9.88% | -5.29% | -10.00% | partial_10d |
 | 20260605 | 6126 | 信音 | consecutive_2w_all_thresholds | all_400_600_800_1000 | -9.88% | -5.29% | -10.00% | partial_10d |
-| 20260605 | 6485 | 點序 | weekly_change_top20 | over_1000 | -9.82% | -21.43% | -25.89% | partial_10d |
 | 20260605 | 6485 | 點序 | weekly_change_top20 | over_800 | -9.82% | -21.43% | -25.89% | partial_10d |
+| 20260605 | 6485 | 點序 | weekly_change_top20 | over_1000 | -9.82% | -21.43% | -25.89% | partial_10d |
 | 20260605 | 5475 | 德宏 | weekly_change_top20 | over_1000 | -8.91% | -14.44% | -21.93% | partial_10d |
+| 20260626 | 6270 | 倍微 | weekly_change_top20 | over_1000 | -8.77% | -14.39% | -14.62% | partial_5d |
 | 20260605 | 8112 | 至上 | weekly_change_top20 | over_600 | -8.53% | +6.70% | -9.72% | partial_10d |
 | 20260605 | 8112 | 至上 | weekly_change_top20 | over_1000 | -8.53% | +6.70% | -9.72% | partial_10d |
-| 20260605 | 4720 | 德淵 | consecutive_2w_all_thresholds | all_400_600_800_1000 | -8.42% | -13.00% | -15.75% | partial_10d |
 | 20260605 | 4720 | 德淵 | weekly_change_top20 | over_800 | -8.42% | -13.00% | -15.75% | partial_10d |
-| 20260605 | 4720 | 德淵 | weekly_change_top20 | over_400 | -8.42% | -13.00% | -15.75% | partial_10d |
 | 20260605 | 4720 | 德淵 | weekly_change_top20 | over_600 | -8.42% | -13.00% | -15.75% | partial_10d |
+| 20260605 | 4720 | 德淵 | weekly_change_top20 | over_400 | -8.42% | -13.00% | -15.75% | partial_10d |
 
 ### 訊號後最大回撤過大
 
 | signal_date | code | name | signal_type | threshold_group | max_drawdown_5d | max_drawdown_10d | max_drawdown_20d | d20_return_pct | status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 6806 | 森崴能源 | weekly_change_top20 | over_1000 | -28.37% | -43.79% | -43.79% | - | partial_10d |
-| 20260605 | 6806 | 森崴能源 | weekly_change_top20 | over_800 | -28.37% | -43.79% | -43.79% | - | partial_10d |
 | 20260605 | 6806 | 森崴能源 | weekly_change_top20 | over_600 | -28.37% | -43.79% | -43.79% | - | partial_10d |
 | 20260605 | 6806 | 森崴能源 | weekly_change_top20 | over_400 | -28.37% | -43.79% | -43.79% | - | partial_10d |
-| 20260529 | 6141 | 柏承 | weekly_change_top20 | over_400 | -13.59% | -30.43% | -34.78% | -8.04% | complete_20d |
-| 20260529 | 6141 | 柏承 | consecutive_2w_all_thresholds | all_400_600_800_1000 | -13.59% | -30.43% | -34.78% | -8.04% | complete_20d |
+| 20260605 | 6806 | 森崴能源 | weekly_change_top20 | over_1000 | -28.37% | -43.79% | -43.79% | - | partial_10d |
+| 20260605 | 6806 | 森崴能源 | weekly_change_top20 | over_800 | -28.37% | -43.79% | -43.79% | - | partial_10d |
 | 20260529 | 6141 | 柏承 | weekly_change_top20 | over_800 | -13.59% | -30.43% | -34.78% | -8.04% | complete_20d |
-| 20260522 | 3498 | 陽程 | weekly_change_top20 | over_600 | -6.87% | -10.62% | -30.00% | -21.56% | complete_20d |
-| 20260522 | 3498 | 陽程 | consecutive_2w_all_thresholds | all_400_600_800_1000 | -6.87% | -10.62% | -30.00% | -21.56% | complete_20d |
+| 20260529 | 6141 | 柏承 | consecutive_2w_all_thresholds | all_400_600_800_1000 | -13.59% | -30.43% | -34.78% | -8.04% | complete_20d |
+| 20260529 | 6141 | 柏承 | weekly_change_top20 | over_400 | -13.59% | -30.43% | -34.78% | -8.04% | complete_20d |
+| 20260612 | 3147 | 大綜 | weekly_change_top20 | over_400 | -5.33% | -17.31% | -31.95% | - | partial_10d |
+| 20260612 | 3147 | 大綜 | consecutive_2w_all_thresholds | all_400_600_800_1000 | -5.33% | -17.31% | -31.95% | - | partial_10d |
+| 20260612 | 4741 | 泓瀚 | weekly_change_top20 | over_1000 | -19.36% | -28.59% | -30.26% | - | partial_10d |
 | 20260522 | 3498 | 陽程 | weekly_change_top20 | over_800 | -6.87% | -10.62% | -30.00% | -21.56% | complete_20d |
-| 20260529 | 6770 | 力積電 | consecutive_2w_all_thresholds | all_400_600_800_1000 | -11.16% | -27.40% | -29.99% | -6.20% | complete_20d |
-| 20260529 | 6770 | 力積電 | weekly_change_top20 | over_1000 | -11.16% | -27.40% | -29.99% | -6.20% | complete_20d |
+| 20260522 | 3498 | 陽程 | consecutive_2w_all_thresholds | all_400_600_800_1000 | -6.87% | -10.62% | -30.00% | -21.56% | complete_20d |
+| 20260522 | 3498 | 陽程 | weekly_change_top20 | over_600 | -6.87% | -10.62% | -30.00% | -21.56% | complete_20d |
 | 20260529 | 6770 | 力積電 | weekly_change_top20 | over_600 | -11.16% | -27.40% | -29.99% | -6.20% | complete_20d |
-| 20260529 | 6770 | 力積電 | weekly_change_top20 | over_400 | -11.16% | -27.40% | -29.99% | -6.20% | complete_20d |
+| 20260529 | 6770 | 力積電 | weekly_change_top20 | over_1000 | -11.16% | -27.40% | -29.99% | -6.20% | complete_20d |
 | 20260529 | 6770 | 力積電 | weekly_change_top20 | over_800 | -11.16% | -27.40% | -29.99% | -6.20% | complete_20d |
-| 20260529 | 6182 | 合晶 | weekly_change_top20 | over_600 | -12.26% | -22.61% | -27.94% | +25.63% | complete_20d |
-| 20260529 | 6182 | 合晶 | weekly_change_top20 | over_800 | -12.26% | -22.61% | -27.94% | +25.63% | complete_20d |
+| 20260529 | 6770 | 力積電 | weekly_change_top20 | over_400 | -11.16% | -27.40% | -29.99% | -6.20% | complete_20d |
+| 20260529 | 6770 | 力積電 | consecutive_2w_all_thresholds | all_400_600_800_1000 | -11.16% | -27.40% | -29.99% | -6.20% | complete_20d |
+| 20260605 | 6485 | 點序 | weekly_change_top20 | over_800 | -25.89% | -25.89% | -29.20% | - | partial_10d |
+| 20260605 | 6485 | 點序 | weekly_change_top20 | over_1000 | -25.89% | -25.89% | -29.20% | - | partial_10d |
 | 20260529 | 6182 | 合晶 | weekly_change_top20 | over_400 | -12.26% | -22.61% | -27.94% | +25.63% | complete_20d |
 | 20260529 | 6182 | 合晶 | weekly_change_top20 | over_1000 | -12.26% | -22.61% | -27.94% | +25.63% | complete_20d |
+| 20260529 | 6182 | 合晶 | weekly_change_top20 | over_800 | -12.26% | -22.61% | -27.94% | +25.63% | complete_20d |
+| 20260529 | 6182 | 合晶 | weekly_change_top20 | over_600 | -12.26% | -22.61% | -27.94% | +25.63% | complete_20d |
 | 20260529 | 6182 | 合晶 | consecutive_2w_all_thresholds | all_400_600_800_1000 | -12.26% | -22.61% | -27.94% | +25.63% | complete_20d |
-| 20260612 | 4741 | 泓瀚 | weekly_change_top20 | over_1000 | -19.36% | -27.69% | -27.69% | - | partial_5d |
 | 20260522 | 6462 | 神盾 | consecutive_2w_all_thresholds | all_400_600_800_1000 | -8.65% | -16.26% | -27.68% | -21.80% | complete_20d |
-| 20260605 | 6485 | 點序 | weekly_change_top20 | over_1000 | -25.89% | -25.89% | -27.23% | - | partial_10d |
-| 20260605 | 6485 | 點序 | weekly_change_top20 | over_800 | -25.89% | -25.89% | -27.23% | - | partial_10d |
-| 20260529 | 5425 | 台半 | weekly_change_top20 | over_1000 | -14.16% | -27.04% | -27.04% | +9.01% | complete_20d |
 | 20260529 | 5425 | 台半 | weekly_change_top20 | over_400 | -14.16% | -27.04% | -27.04% | +9.01% | complete_20d |
-| 20260529 | 5425 | 台半 | weekly_change_top20 | over_600 | -14.16% | -27.04% | -27.04% | +9.01% | complete_20d |
 | 20260529 | 5425 | 台半 | consecutive_2w_all_thresholds | all_400_600_800_1000 | -14.16% | -27.04% | -27.04% | +9.01% | complete_20d |
-| 20260529 | 5425 | 台半 | weekly_change_top20 | over_800 | -14.16% | -27.04% | -27.04% | +9.01% | complete_20d |
-| 20260529 | 6706 | 惠特 | consecutive_2w_all_thresholds | all_400_600_800_1000 | -2.43% | -21.17% | -26.52% | -24.57% | complete_20d |
+| 20260529 | 5425 | 台半 | weekly_change_top20 | over_600 | -14.16% | -27.04% | -27.04% | +9.01% | complete_20d |
+| 20260529 | 5425 | 台半 | weekly_change_top20 | over_1000 | -14.16% | -27.04% | -27.04% | +9.01% | complete_20d |
 
 ## 6. 統計摘要
 
@@ -463,11 +458,11 @@
 
 | threshold_group | signal_count | avg_d5_return_pct | avg_d10_return_pct | avg_d20_return_pct | win_rate_d5 | win_rate_d10 | win_rate_d20 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| over_400 | 141 | +2.64% | +7.23% | +10.04% | +43.97% | +36.17% | +24.11% |
-| over_600 | 141 | +2.56% | +6.59% | +10.49% | +41.84% | +36.17% | +25.53% |
-| over_800 | 141 | +4.12% | +5.87% | +10.43% | +46.81% | +34.75% | +26.24% |
-| all_400_600_800_1000 | 141 | +2.53% | +5.12% | +9.19% | +43.97% | +30.50% | +26.24% |
-| over_1000 | 141 | +2.70% | +4.68% | +9.00% | +46.10% | +34.04% | +24.82% |
+| over_400 | 161 | +4.56% | +5.62% | +10.04% | +47.20% | +42.86% | +21.12% |
+| over_800 | 161 | +6.02% | +5.53% | +10.43% | +50.31% | +43.48% | +22.98% |
+| over_600 | 161 | +4.56% | +4.42% | +10.49% | +45.34% | +42.24% | +22.36% |
+| all_400_600_800_1000 | 161 | +4.83% | +3.96% | +9.19% | +47.83% | +37.27% | +22.98% |
+| over_1000 | 161 | +4.95% | +3.82% | +9.00% | +50.31% | +42.86% | +21.74% |
 
 
 
@@ -475,8 +470,8 @@
 
 | signal_type | signal_count | avg_d5_return_pct | avg_d10_return_pct | avg_d20_return_pct | win_rate_d5 | win_rate_d10 | win_rate_d20 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| weekly_change_top20 | 564 | +3.01% | +6.09% | +9.99% | +44.68% | +35.28% | +25.18% |
-| consecutive_2w_all_thresholds | 141 | +2.53% | +5.12% | +9.19% | +43.97% | +30.50% | +26.24% |
+| weekly_change_top20 | 644 | +5.02% | +4.84% | +9.99% | +48.29% | +42.86% | +22.05% |
+| consecutive_2w_all_thresholds | 161 | +4.83% | +3.96% | +9.19% | +47.83% | +37.27% | +22.98% |
 
 
 
@@ -484,8 +479,8 @@
 
 | sync_type | signal_count | avg_d5_return_pct | avg_d10_return_pct | avg_d20_return_pct |
 | --- | --- | --- | --- | --- |
-| four_threshold_sync | 73 | +2.41% | +5.32% | +10.91% |
-| single_or_partial | 168 | +3.16% | +7.78% | +8.05% |
+| four_threshold_sync | 85 | +5.75% | +4.54% | +10.91% |
+| single_or_partial | 187 | +3.71% | +4.91% | +8.05% |
 
 
 
@@ -493,8 +488,8 @@
 
 | group | signal_count | avg_d5_return_pct | avg_d10_return_pct | avg_d20_return_pct |
 | --- | --- | --- | --- | --- |
-| consecutive_2w_all_thresholds | 141 | +2.53% | +5.12% | +9.19% |
-| other_signals | 564 | +3.01% | +6.09% | +9.99% |
+| consecutive_2w_all_thresholds | 161 | +4.83% | +3.96% | +9.19% |
+| other_signals | 644 | +5.02% | +4.84% | +9.99% |
 
 ## 7. 使用說明
 

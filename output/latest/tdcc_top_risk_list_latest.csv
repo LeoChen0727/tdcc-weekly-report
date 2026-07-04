@@ -1,60 +1,61 @@
 risk_group,stock_id,stock_name,theme,theme_mainstream_status,tdcc_strength_score,tdcc_price_phase,price_return_20d,relative_return_vs_benchmark,distance_ma20_pct,volume_ratio_20d,risk_bucket,interpretation
-price_leading_tdcc,3060,銘異,semiconductor equipment/materials,mainstream_follow_through,235.00,price_leading_tdcc,26.66,21.40,7.99,0.98,strong_but_late,股價已先漲，TDCC 訊號可能偏晚。
-price_leading_tdcc,2618,長榮航,traditional industries,mainstream_leader,235.00,price_leading_tdcc,24.08,12.88,10.46,0.64,strong_but_late,股價已先漲，TDCC 訊號可能偏晚。
-price_leading_tdcc,8932,智通*,other,single_name_signal,235.00,price_leading_tdcc,14.43,11.03,8.42,5.16,strong_but_late,股價已先漲，TDCC 訊號可能偏晚。
-price_leading_tdcc,2380,虹光,other electronics,mainstream_leader,235.00,price_leading_tdcc,10.18,11.09,13.49,2.27,strong_but_late,股價已先漲，TDCC 訊號可能偏晚。
-price_leading_tdcc,3093,港建*,traditional industries,mainstream_leader,215.00,price_leading_tdcc,35.76,15.74,13.28,1.08,strong_but_late,股價已先漲，TDCC 訊號可能偏晚。
-price_leading_tdcc,2890,永豐金,finance,mainstream_leader,205.00,price_leading_tdcc,32.71,14.45,11.58,0.68,strong_but_late,股價已先漲，TDCC 訊號可能偏晚。
-price_leading_tdcc,2610,華航,traditional industries,mainstream_leader,205.00,price_leading_tdcc,24.73,15.98,11.24,0.84,strong_but_late,股價已先漲，TDCC 訊號可能偏晚。
-price_leading_tdcc,2401,凌陽,semiconductor,mainstream_leader,195.00,price_leading_tdcc,5.32,11.59,5.36,1.24,strong_but_late,股價已先漲，TDCC 訊號可能偏晚。
-price_leading_tdcc,6695,芯鼎,semiconductor,mainstream_leader,195.00,price_leading_tdcc,4.33,18.40,6.93,0.91,strong_but_late,股價已先漲，TDCC 訊號可能偏晚。
-price_leading_tdcc,6409,旭隼,other electronics,mainstream_leader,195.00,price_leading_tdcc,39.77,12.19,11.08,1.10,strong_but_late,股價已先漲，TDCC 訊號可能偏晚。
-price_leading_tdcc,6949,沛爾生醫-創,biotechnology,mainstream_leader,195.00,price_leading_tdcc,29.04,19.15,14.44,0.59,strong_but_late,股價已先漲，TDCC 訊號可能偏晚。
-price_leading_tdcc,5347,世界,semiconductor,mainstream_leader,195.00,price_leading_tdcc,25.08,23.07,15.46,2.39,strong_but_late,股價已先漲，TDCC 訊號可能偏晚。
-price_leading_tdcc,6691,洋基工程,other electronics,mainstream_leader,195.00,price_leading_tdcc,24.29,21.19,15.31,1.69,strong_but_late,股價已先漲，TDCC 訊號可能偏晚。
-price_leading_tdcc,3228,金麗科,semiconductor,mainstream_leader,195.00,price_leading_tdcc,-7.71,13.21,2.25,2.92,strong_but_late,股價已先漲，TDCC 訊號可能偏晚。
-price_leading_tdcc,3035,智原,semiconductor,mainstream_leader,195.00,price_leading_tdcc,-0.96,12.72,1.85,1.26,strong_but_late,股價已先漲，TDCC 訊號可能偏晚。
-price_leading_tdcc,3374,精材,semiconductor,mainstream_leader,185.00,price_leading_tdcc,9.61,23.33,8.61,2.16,strong_but_late,股價已先漲，TDCC 訊號可能偏晚。
-price_leading_tdcc,8438,昶昕,biotechnology,mainstream_leader,185.00,price_leading_tdcc,7.79,12.58,6.38,0.67,strong_but_late,股價已先漲，TDCC 訊號可能偏晚。
-price_leading_tdcc,6719,力智,semiconductor,mainstream_leader,185.00,price_leading_tdcc,7.04,21.00,7.79,1.62,strong_but_late,股價已先漲，TDCC 訊號可能偏晚。
-price_leading_tdcc,2458,義隆,semiconductor,mainstream_leader,185.00,price_leading_tdcc,6.83,14.51,6.45,1.98,strong_but_late,股價已先漲，TDCC 訊號可能偏晚。
-price_leading_tdcc,2363,矽統,semiconductor,mainstream_leader,185.00,price_leading_tdcc,6.03,18.33,8.18,3.40,strong_but_late,股價已先漲，TDCC 訊號可能偏晚。
-overheated_after_tdcc,8476,台境*,green energy,non_mainstream_watch,215.00,overheated_after_tdcc,55.05,20.99,23.49,1.57,strong_but_overheated,籌碼強但股價已過熱，需防追高。
-overheated_after_tdcc,6226,光鼎,consumer electronics,non_mainstream_watch,215.00,overheated_after_tdcc,39.85,50.07,35.74,10.30,strong_but_overheated,籌碼強但股價已過熱，需防追高。
-overheated_after_tdcc,4551,智伸科,other,single_name_signal,205.00,overheated_after_tdcc,45.16,59.16,25.91,0.68,strong_but_overheated,籌碼強但股價已過熱，需防追高。
-overheated_after_tdcc,6672,騰輝電子-KY,other electronics,mainstream_leader,205.00,overheated_after_tdcc,35.81,33.47,24.39,2.73,strong_but_overheated,籌碼強但股價已過熱，需防追高。
-overheated_after_tdcc,6213,聯茂,other electronics,mainstream_leader,205.00,overheated_after_tdcc,32.76,36.42,25.33,2.00,strong_but_overheated,籌碼強但股價已過熱，需防追高。
-overheated_after_tdcc,5328,華容,other electronics,mainstream_leader,195.00,overheated_after_tdcc,95.00,60.49,46.76,1.54,strong_but_overheated,籌碼強但股價已過熱，需防追高。
-overheated_after_tdcc,2305,全友,other electronics,mainstream_leader,195.00,overheated_after_tdcc,51.29,50.31,24.66,0.50,strong_but_overheated,籌碼強但股價已過熱，需防追高。
-overheated_after_tdcc,5011,久陽,traditional industries,mainstream_leader,195.00,overheated_after_tdcc,41.99,40.77,26.94,1.52,strong_but_overheated,籌碼強但股價已過熱，需防追高。
-overheated_after_tdcc,2316,楠梓電,other electronics,mainstream_leader,195.00,overheated_after_tdcc,36.50,46.54,25.92,0.67,strong_but_overheated,籌碼強但股價已過熱，需防追高。
-overheated_after_tdcc,1718,中纖,traditional industries,mainstream_leader,185.00,overheated_after_tdcc,74.22,19.91,20.87,4.14,strong_but_overheated,籌碼強但股價已過熱，需防追高。
-overheated_after_tdcc,4722,國精化,traditional industries,mainstream_leader,185.00,overheated_after_tdcc,6.43,37.24,9.50,1.08,strong_but_overheated,籌碼強但股價已過熱，需防追高。
-overheated_after_tdcc,8046,南電,other electronics,mainstream_leader,185.00,overheated_after_tdcc,32.35,36.11,25.85,1.83,strong_but_overheated,籌碼強但股價已過熱，需防追高。
-overheated_after_tdcc,8261,富鼎,power discrete/diodes,non_mainstream_watch,185.00,overheated_after_tdcc,28.42,51.13,26.21,2.00,strong_but_overheated,籌碼強但股價已過熱，需防追高。
-overheated_after_tdcc,2303,聯電,other electronics,mainstream_leader,185.00,overheated_after_tdcc,15.49,27.90,14.57,1.09,strong_but_overheated,籌碼強但股價已過熱，需防追高。
-overheated_after_tdcc,6270,倍微,other electronics,mainstream_leader,175.00,overheated_after_tdcc,58.04,19.44,22.34,3.68,strong_but_overheated,籌碼強但股價已過熱，需防追高。
-overheated_after_tdcc,2483,百容,other electronics,mainstream_leader,175.00,overheated_after_tdcc,118.43,57.45,54.85,2.93,strong_but_overheated,籌碼強但股價已過熱，需防追高。
-overheated_after_tdcc,1515,力山,other electronics,mainstream_leader,155.00,overheated_after_tdcc,38.95,29.89,22.54,3.44,strong_but_overheated,籌碼強但股價已過熱，需防追高。
-overheated_after_tdcc,7795,長廣,other electronics,mainstream_leader,155.00,overheated_after_tdcc,14.98,28.28,15.68,2.54,strong_but_overheated,籌碼強但股價已過熱，需防追高。
-overheated_after_tdcc,5464,霖宏,PCB/CCL,non_mainstream_watch,115.00,overheated_after_tdcc,32.45,41.05,29.00,4.41,strong_but_overheated,籌碼強但股價已過熱，需防追高。
-tdcc_price_divergence,4402,郡都開發,traditional industries,mainstream_leader,235.00,tdcc_price_divergence,38.46,-7.82,6.54,0.17,strong_but_divergent,TDCC 增加但股價轉弱，需防訊號失效。
-tdcc_price_divergence,2107,厚生,biotechnology,mainstream_leader,235.00,tdcc_price_divergence,2.42,-5.04,-1.03,1.18,strong_but_divergent,TDCC 增加但股價轉弱，需防訊號失效。
-tdcc_price_divergence,4552,力達-KY,other,single_name_signal,235.00,tdcc_price_divergence,2.28,-7.11,-3.57,0.95,strong_but_divergent,TDCC 增加但股價轉弱，需防訊號失效。
-tdcc_price_divergence,1904,正隆,traditional industries,mainstream_leader,235.00,tdcc_price_divergence,13.03,-9.89,-2.89,0.33,strong_but_divergent,TDCC 增加但股價轉弱，需防訊號失效。
-tdcc_price_divergence,8047,星雲,other electronics,mainstream_leader,235.00,tdcc_price_divergence,12.89,-8.22,0.25,1.51,strong_but_divergent,TDCC 增加但股價轉弱，需防訊號失效。
-tdcc_price_divergence,2596,綠意,traditional industries,mainstream_leader,235.00,tdcc_price_divergence,11.40,-2.83,1.40,0.57,strong_but_divergent,TDCC 增加但股價轉弱，需防訊號失效。
-tdcc_price_divergence,4107,邦特,other,single_name_signal,235.00,tdcc_price_divergence,1.32,-3.72,-0.73,1.77,strong_but_divergent,TDCC 增加但股價轉弱，需防訊號失效。
-tdcc_price_divergence,1460,宏遠,traditional industries,mainstream_leader,235.00,tdcc_price_divergence,1.30,-4.28,-1.75,0.51,strong_but_divergent,TDCC 增加但股價轉弱，需防訊號失效。
-tdcc_price_divergence,6965,中傑-KY,other,single_name_signal,235.00,tdcc_price_divergence,0.77,-7.21,-2.57,1.10,strong_but_divergent,TDCC 增加但股價轉弱，需防訊號失效。
-tdcc_price_divergence,2017,官田鋼,traditional industries,mainstream_leader,235.00,tdcc_price_divergence,0.11,-5.26,-3.43,0.55,strong_but_divergent,TDCC 增加但股價轉弱，需防訊號失效。
-tdcc_price_divergence,3713,新晶投控,other electronics,mainstream_leader,235.00,tdcc_price_divergence,-7.01,-10.76,-7.83,0.88,strong_but_divergent,TDCC 增加但股價轉弱，需防訊號失效。
-tdcc_price_divergence,3704,合勤控,other electronics,mainstream_leader,235.00,tdcc_price_divergence,-5.18,-9.72,-9.19,1.21,strong_but_divergent,TDCC 增加但股價轉弱，需防訊號失效。
-tdcc_price_divergence,4108,懷特,other,single_name_signal,235.00,tdcc_price_divergence,-5.18,-5.76,-2.34,0.80,strong_but_divergent,TDCC 增加但股價轉弱，需防訊號失效。
-tdcc_price_divergence,1410,南染,traditional industries,mainstream_leader,235.00,tdcc_price_divergence,-4.97,-3.50,-1.65,1.77,strong_but_divergent,TDCC 增加但股價轉弱，需防訊號失效。
-tdcc_price_divergence,8349,恒耀,other,single_name_signal,235.00,tdcc_price_divergence,-4.04,-8.68,-5.67,1.41,strong_but_divergent,TDCC 增加但股價轉弱，需防訊號失效。
-tdcc_price_divergence,6492,生華科,biotechnology,mainstream_leader,235.00,tdcc_price_divergence,-3.98,-4.66,-3.85,1.04,strong_but_divergent,TDCC 增加但股價轉弱，需防訊號失效。
-tdcc_price_divergence,3541,西柏,other electronics,mainstream_leader,235.00,tdcc_price_divergence,-3.57,-2.70,-1.72,2.08,strong_but_divergent,TDCC 增加但股價轉弱，需防訊號失效。
-tdcc_price_divergence,3705,永信,other electronics,mainstream_leader,235.00,tdcc_price_divergence,-3.42,-9.58,-4.79,0.90,strong_but_divergent,TDCC 增加但股價轉弱，需防訊號失效。
-tdcc_price_divergence,3164,景岳,semiconductor,mainstream_leader,235.00,tdcc_price_divergence,-3.05,-6.05,-2.80,0.65,strong_but_divergent,TDCC 增加但股價轉弱，需防訊號失效。
-tdcc_price_divergence,4406,新昕纖,other,single_name_signal,235.00,tdcc_price_divergence,-2.40,-3.42,-1.25,0.06,strong_but_divergent,TDCC 增加但股價轉弱，需防訊號失效。
+price_leading_tdcc,1474,弘裕,traditional industries,mainstream_leader,235.00,price_leading_tdcc,9.13,10.05,10.70,6.88,strong_but_late,股價已先漲，TDCC 訊號可能偏晚。
+price_leading_tdcc,1709,和益,traditional industries,mainstream_leader,235.00,price_leading_tdcc,14.49,10.85,10.77,2.26,strong_but_late,股價已先漲，TDCC 訊號可能偏晚。
+price_leading_tdcc,1304,台聚,traditional industries,mainstream_leader,235.00,price_leading_tdcc,13.14,13.71,16.80,4.10,strong_but_late,股價已先漲，TDCC 訊號可能偏晚。
+price_leading_tdcc,8476,台境*,biotechnology,mainstream_leader,225.00,price_leading_tdcc,56.23,11.73,13.58,0.51,strong_but_late,股價已先漲，TDCC 訊號可能偏晚。
+price_leading_tdcc,4414,如興,other,single_name_signal,215.00,price_leading_tdcc,9.35,10.22,9.67,1.98,strong_but_late,股價已先漲，TDCC 訊號可能偏晚。
+price_leading_tdcc,4924,欣厚-KY,other electronics,mainstream_leader,215.00,price_leading_tdcc,10.71,22.74,8.81,1.41,strong_but_late,股價已先漲，TDCC 訊號可能偏晚。
+price_leading_tdcc,6831,邁科,other,single_name_signal,205.00,price_leading_tdcc,28.02,18.73,15.39,0.84,strong_but_late,股價已先漲，TDCC 訊號可能偏晚。
+price_leading_tdcc,5011,久陽,other,single_name_signal,205.00,price_leading_tdcc,25.00,12.64,11.76,0.37,strong_but_late,股價已先漲，TDCC 訊號可能偏晚。
+price_leading_tdcc,3015,全漢,semiconductor,mainstream_leader,195.00,price_leading_tdcc,8.45,10.98,9.23,1.11,strong_but_late,股價已先漲，TDCC 訊號可能偏晚。
+price_leading_tdcc,3402,漢科,other electronics,mainstream_leader,195.00,price_leading_tdcc,6.16,10.70,8.75,1.36,strong_but_late,股價已先漲，TDCC 訊號可能偏晚。
+price_leading_tdcc,8444,綠河-KY,biotechnology,mainstream_leader,195.00,price_leading_tdcc,5.66,17.98,2.13,0.09,strong_but_late,股價已先漲，TDCC 訊號可能偏晚。
+price_leading_tdcc,6133,金橋,other electronics,mainstream_leader,195.00,price_leading_tdcc,4.03,11.25,10.34,7.39,strong_but_late,股價已先漲，TDCC 訊號可能偏晚。
+price_leading_tdcc,5302,太欣,semiconductor,mainstream_leader,195.00,price_leading_tdcc,26.01,12.33,14.51,1.50,strong_but_late,股價已先漲，TDCC 訊號可能偏晚。
+price_leading_tdcc,3349,寶德,other electronics,mainstream_leader,195.00,price_leading_tdcc,23.94,20.92,18.77,2.80,strong_but_late,股價已先漲，TDCC 訊號可能偏晚。
+price_leading_tdcc,3004,豐達科,traditional industries,mainstream_leader,195.00,price_leading_tdcc,18.11,10.85,12.32,4.02,strong_but_late,股價已先漲，TDCC 訊號可能偏晚。
+price_leading_tdcc,3711,日月光投控,other electronics,mainstream_leader,195.00,price_leading_tdcc,15.01,10.58,9.73,1.48,strong_but_late,股價已先漲，TDCC 訊號可能偏晚。
+price_leading_tdcc,4743,合一,biotechnology,mainstream_leader,195.00,price_leading_tdcc,14.14,19.75,15.09,4.41,strong_but_late,股價已先漲，TDCC 訊號可能偏晚。
+price_leading_tdcc,1309,台達化,traditional industries,mainstream_leader,195.00,price_leading_tdcc,-1.47,12.54,11.58,4.77,strong_but_late,股價已先漲，TDCC 訊號可能偏晚。
+price_leading_tdcc,6538,倉和,other electronics,mainstream_leader,195.00,price_leading_tdcc,-0.37,18.72,14.63,2.42,strong_but_late,股價已先漲，TDCC 訊號可能偏晚。
+price_leading_tdcc,2345,智邦,networking,non_mainstream_watch,185.00,price_leading_tdcc,8.96,11.64,10.76,0.86,strong_but_late,股價已先漲，TDCC 訊號可能偏晚。
+overheated_after_tdcc,4707,磐亞,traditional industries,mainstream_leader,235.00,overheated_after_tdcc,60.19,47.33,41.39,2.40,strong_but_overheated,籌碼強但股價已過熱，需防追高。
+overheated_after_tdcc,6409,旭隼,other electronics,mainstream_leader,235.00,overheated_after_tdcc,48.70,34.85,28.78,1.26,strong_but_overheated,籌碼強但股價已過熱，需防追高。
+overheated_after_tdcc,2645,長榮航太,traditional industries,mainstream_leader,235.00,overheated_after_tdcc,31.21,26.67,22.80,2.54,strong_but_overheated,籌碼強但股價已過熱，需防追高。
+overheated_after_tdcc,2634,漢翔,traditional industries,mainstream_leader,225.00,overheated_after_tdcc,28.89,26.44,20.87,3.06,strong_but_overheated,籌碼強但股價已過熱，需防追高。
+overheated_after_tdcc,2305,全友,other electronics,mainstream_leader,205.00,overheated_after_tdcc,72.06,14.63,22.04,0.19,strong_but_overheated,籌碼強但股價已過熱，需防追高。
+overheated_after_tdcc,8261,富鼎,power discrete/diodes,mainstream_overheated,195.00,overheated_after_tdcc,81.30,48.16,43.58,2.48,strong_but_overheated,籌碼強但股價已過熱，需防追高。
+overheated_after_tdcc,1515,力山,other electronics,mainstream_leader,195.00,overheated_after_tdcc,66.01,61.48,49.02,3.53,strong_but_overheated,籌碼強但股價已過熱，需防追高。
+overheated_after_tdcc,8033,雷虎,other electronics,mainstream_leader,195.00,overheated_after_tdcc,53.76,57.24,41.30,1.16,strong_but_overheated,籌碼強但股價已過熱，需防追高。
+overheated_after_tdcc,7402,邑錡,consumer electronics,non_mainstream_watch,195.00,overheated_after_tdcc,38.50,50.76,35.22,4.36,strong_but_overheated,籌碼強但股價已過熱，需防追高。
+overheated_after_tdcc,8046,南電,other electronics,mainstream_leader,195.00,overheated_after_tdcc,34.97,34.90,23.10,0.70,strong_but_overheated,籌碼強但股價已過熱，需防追高。
+overheated_after_tdcc,6164,華興,consumer electronics,non_mainstream_watch,195.00,overheated_after_tdcc,33.85,29.66,29.39,2.75,strong_but_overheated,籌碼強但股價已過熱，需防追高。
+overheated_after_tdcc,6753,龍德造船,traditional industries,mainstream_leader,195.00,overheated_after_tdcc,24.19,26.07,21.72,2.86,strong_but_overheated,籌碼強但股價已過熱，需防追高。
+overheated_after_tdcc,1310,台苯,traditional industries,mainstream_leader,195.00,overheated_after_tdcc,24.18,22.43,20.52,2.86,strong_but_overheated,籌碼強但股價已過熱，需防追高。
+overheated_after_tdcc,1301,台塑,traditional industries,mainstream_leader,195.00,overheated_after_tdcc,22.24,19.44,22.02,3.11,strong_but_overheated,籌碼強但股價已過熱，需防追高。
+overheated_after_tdcc,6525,捷敏-KY,semiconductor,mainstream_leader,185.00,overheated_after_tdcc,53.14,27.29,29.19,2.37,strong_but_overheated,籌碼強但股價已過熱，需防追高。
+overheated_after_tdcc,3055,蔚華科,other electronics,mainstream_leader,185.00,overheated_after_tdcc,47.34,66.72,53.41,5.52,strong_but_overheated,籌碼強但股價已過熱，需防追高。
+overheated_after_tdcc,2481,強茂,power discrete/diodes,mainstream_overheated,185.00,overheated_after_tdcc,29.78,28.70,23.21,0.28,strong_but_overheated,籌碼強但股價已過熱，需防追高。
+overheated_after_tdcc,1710,東聯,traditional industries,mainstream_leader,185.00,overheated_after_tdcc,22.40,37.42,26.53,3.11,strong_but_overheated,籌碼強但股價已過熱，需防追高。
+overheated_after_tdcc,1314,中石化,traditional industries,mainstream_leader,185.00,overheated_after_tdcc,19.76,26.31,22.24,5.94,strong_but_overheated,籌碼強但股價已過熱，需防追高。
+overheated_after_tdcc,4989,榮科,other electronics,mainstream_leader,185.00,overheated_after_tdcc,19.59,28.56,26.12,4.78,strong_but_overheated,籌碼強但股價已過熱，需防追高。
+tdcc_price_divergence,2867,三商壽,finance,mainstream_leader,235.00,tdcc_price_divergence,5.42,-2.74,1.83,0.59,strong_but_divergent,TDCC 增加但股價轉弱，需防訊號失效。
+tdcc_price_divergence,9946,三發地產,traditional industries,mainstream_leader,235.00,tdcc_price_divergence,17.40,-4.08,4.41,0.39,strong_but_divergent,TDCC 增加但股價轉弱，需防訊號失效。
+tdcc_price_divergence,4538,大詠城,other,single_name_signal,235.00,tdcc_price_divergence,1.63,-0.42,0.12,0.39,strong_but_divergent,TDCC 增加但股價轉弱，需防訊號失效。
+tdcc_price_divergence,5283,禾聯碩,other electronics,mainstream_leader,235.00,tdcc_price_divergence,1.32,-1.78,0.69,0.50,strong_but_divergent,TDCC 增加但股價轉弱，需防訊號失效。
+tdcc_price_divergence,2540,愛山林,traditional industries,mainstream_leader,235.00,tdcc_price_divergence,0.37,-3.22,0.48,0.57,strong_but_divergent,TDCC 增加但股價轉弱，需防訊號失效。
+tdcc_price_divergence,8437,大地-KY,biotechnology,mainstream_leader,235.00,tdcc_price_divergence,-8.22,-4.81,-2.72,0.86,strong_but_divergent,TDCC 增加但股價轉弱，需防訊號失效。
+tdcc_price_divergence,1325,恆大,traditional industries,mainstream_leader,235.00,tdcc_price_divergence,-7.31,-3.55,-0.84,1.24,strong_but_divergent,TDCC 增加但股價轉弱，需防訊號失效。
+tdcc_price_divergence,6570,維田,biotechnology,mainstream_leader,235.00,tdcc_price_divergence,-6.92,-1.09,-0.56,0.85,strong_but_divergent,TDCC 增加但股價轉弱，需防訊號失效。
+tdcc_price_divergence,6965,中傑-KY,other,single_name_signal,235.00,tdcc_price_divergence,-4.65,-5.56,-2.45,0.69,strong_but_divergent,TDCC 增加但股價轉弱，需防訊號失效。
+tdcc_price_divergence,3705,永信,other electronics,mainstream_leader,235.00,tdcc_price_divergence,-4.39,-5.07,-2.55,0.43,strong_but_divergent,TDCC 增加但股價轉弱，需防訊號失效。
+tdcc_price_divergence,7718,友鋮,other,single_name_signal,235.00,tdcc_price_divergence,-4.09,-1.71,-1.29,0.81,strong_but_divergent,TDCC 增加但股價轉弱，需防訊號失效。
+tdcc_price_divergence,9110,越南控-DR,other,single_name_signal,235.00,tdcc_price_divergence,-3.03,-9.25,-8.11,0.18,strong_but_divergent,TDCC 增加但股價轉弱，需防訊號失效。
+tdcc_price_divergence,4552,力達-KY,other,single_name_signal,235.00,tdcc_price_divergence,-2.19,-7.41,-3.28,0.93,strong_but_divergent,TDCC 增加但股價轉弱，需防訊號失效。
+tdcc_price_divergence,1423,利華,traditional industries,mainstream_leader,235.00,tdcc_price_divergence,-15.54,-7.49,-9.20,0.04,strong_but_divergent,TDCC 增加但股價轉弱，需防訊號失效。
+tdcc_price_divergence,3713,新晶投控,other electronics,mainstream_leader,235.00,tdcc_price_divergence,-12.79,-3.78,-2.26,1.12,strong_but_divergent,TDCC 增加但股價轉弱，需防訊號失效。
+tdcc_price_divergence,8047,星雲,other electronics,mainstream_leader,235.00,tdcc_price_divergence,-1.88,-4.48,-5.18,0.74,strong_but_divergent,TDCC 增加但股價轉弱，需防訊號失效。
+tdcc_price_divergence,6170,統振,other electronics,mainstream_leader,235.00,tdcc_price_divergence,-1.69,-0.57,-0.19,0.96,strong_but_divergent,TDCC 增加但股價轉弱，需防訊號失效。
+tdcc_price_divergence,4535,至興,other,single_name_signal,235.00,tdcc_price_divergence,-1.47,-1.99,-1.34,0.69,strong_but_divergent,TDCC 增加但股價轉弱，需防訊號失效。
+tdcc_price_divergence,8342,益張,other,single_name_signal,235.00,tdcc_price_divergence,-0.56,-1.61,-0.49,0.05,strong_but_divergent,TDCC 增加但股價轉弱，需防訊號失效。
+tdcc_price_divergence,2520,冠德,traditional industries,mainstream_leader,225.00,tdcc_price_divergence,9.59,-4.94,1.80,0.32,strong_but_divergent,TDCC 增加但股價轉弱，需防訊號失效。
