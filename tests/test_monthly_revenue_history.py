@@ -11,8 +11,11 @@ if str(SCRIPTS) not in sys.path:
     sys.path.insert(0, str(SCRIPTS))
 
 from build_monthly_revenue_history import (  # noqa: E402
+    FALLBACK_SOURCE_STATUS,
     SOURCE_FIELD_ORDER,
+    load_recent_history_fallback,
     merge_history,
+    official_current_sources_ready,
     parse_roc_or_yyyymm,
     parse_roc_or_yyyymmdd,
     standardize_source,
@@ -21,7 +24,7 @@ from backfill_monthly_revenue_history_from_mops_html import (  # noqa: E402
     conservative_source_table_date,
     parse_static_html,
 )
-from validate_monthly_revenue_history import validate_history  # noqa: E402
+from validate_monthly_revenue_history import validate_history, validate_source_status_rows  # noqa: E402
 
 
 def source_row(
@@ -62,6 +65,25 @@ def standardize(raw: pd.DataFrame) -> tuple[pd.DataFrame, dict[str, object]]:
         fetch_date="20260704",
         fetch_timestamp="2026-07-04 12:00:00 Asia/Taipei",
     )
+
+
+def standardized_market(raw: pd.DataFrame, market: str, source_market_name: str) -> pd.DataFrame:
+    out, status = standardize_source(
+        raw,
+        market=market,
+        source_market_name=source_market_name,
+        source_url=f"https://example.test/{market}.csv",
+        fetch_date="20260704",
+        fetch_timestamp="2026-07-04 12:00:00 Asia/Taipei",
+    )
+    assert status["status"] == "ok"
+    return out
+
+
+def full_market_history() -> pd.DataFrame:
+    listed = standardized_market(pd.DataFrame([source_row(stock_id="2330")]), "listed", "TWSE")
+    otc = standardized_market(pd.DataFrame([source_row(stock_id="6547")]), "otc", "TPEX")
+    return pd.concat([listed, otc], ignore_index=True)
 
 
 def test_monthly_revenue_history_parses_roc_period_and_source_table_date() -> None:
@@ -175,6 +197,112 @@ def test_monthly_revenue_history_merge_preserves_old_periods(tmp_path: Path) -> 
     merged = merge_history(current, path)
 
     assert list(merged["revenue_period"]) == ["202604", "202605"]
+
+
+def test_monthly_revenue_history_reuses_recent_validated_history_when_official_sources_empty(tmp_path: Path) -> None:
+    history = full_market_history()
+    history_path = tmp_path / "monthly_revenue_history.csv"
+    history.to_csv(history_path, index=False, encoding="utf-8")
+    statuses = [
+        {
+            "market": "listed",
+            "source_market_name": "TWSE",
+            "source_url": "https://example.test/listed.csv",
+            "raw_rows": 0,
+            "standardized_rows": 0,
+            "status": "empty_source",
+        },
+        {
+            "market": "otc",
+            "source_market_name": "TPEX",
+            "source_url": "https://example.test/otc.csv",
+            "raw_rows": 0,
+            "standardized_rows": 0,
+            "status": "fetch_failed:temporary 503",
+        },
+    ]
+
+    fallback_history, fallback_current, fallback_statuses = load_recent_history_fallback(
+        statuses,
+        history_path=history_path,
+        fetch_date="20260705",
+        max_age_days=45,
+    )
+
+    assert len(fallback_history) == 2
+    assert len(fallback_current) == 2
+    fallback = [row for row in fallback_statuses if row["status"] == FALLBACK_SOURCE_STATUS][0]
+    assert fallback["fallback_max_source_table_date"] == "20260617"
+    assert fallback["fallback_age_days"] == 18
+    assert official_current_sources_ready(fallback_current, statuses) is False
+    assert validate_source_status_rows(fallback_statuses) == []
+
+
+def test_monthly_revenue_history_rejects_stale_fallback_cache(tmp_path: Path) -> None:
+    history = full_market_history()
+    history_path = tmp_path / "monthly_revenue_history.csv"
+    history.to_csv(history_path, index=False, encoding="utf-8")
+    statuses = [
+        {
+            "market": "listed",
+            "source_market_name": "TWSE",
+            "source_url": "https://example.test/listed.csv",
+            "raw_rows": 0,
+            "standardized_rows": 0,
+            "status": "empty_source",
+        },
+        {
+            "market": "otc",
+            "source_market_name": "TPEX",
+            "source_url": "https://example.test/otc.csv",
+            "raw_rows": 0,
+            "standardized_rows": 0,
+            "status": "empty_source",
+        },
+    ]
+
+    try:
+        load_recent_history_fallback(statuses, history_path=history_path, fetch_date="20260820", max_age_days=45)
+    except RuntimeError as exc:
+        assert "cached history is stale" in str(exc)
+    else:
+        raise AssertionError("stale monthly revenue fallback cache should fail closed")
+
+
+def test_monthly_revenue_source_status_rejects_stale_fallback_status() -> None:
+    statuses = [
+        {
+            "market": "listed",
+            "source_market_name": "TWSE",
+            "source_url": "https://example.test/listed.csv",
+            "raw_rows": 0,
+            "standardized_rows": 0,
+            "status": "empty_source",
+        },
+        {
+            "market": "otc",
+            "source_market_name": "TPEX",
+            "source_url": "https://example.test/otc.csv",
+            "raw_rows": 0,
+            "standardized_rows": 0,
+            "status": "empty_source",
+        },
+        {
+            "market": "all",
+            "source_market_name": "validated_history_cache",
+            "source_url": "data/monthly_revenue_history/monthly_revenue_history.csv",
+            "raw_rows": 2,
+            "standardized_rows": 2,
+            "status": FALLBACK_SOURCE_STATUS,
+            "fallback_max_source_table_date": "20260617",
+            "fallback_age_days": 46,
+            "fallback_max_age_days": 45,
+        },
+    ]
+
+    errors = validate_source_status_rows(statuses)
+
+    assert any("cached history is stale" in error for error in errors)
 
 
 def test_monthly_revenue_backfill_parses_static_html_with_conservative_source_date() -> None:

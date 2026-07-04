@@ -3,8 +3,11 @@ from __future__ import annotations
 import io
 import json
 import math
+import os
 import re
 import sys
+import time
+from datetime import datetime
 from pathlib import Path
 from typing import Any
 
@@ -29,6 +32,10 @@ DOCS_LATEST_MD = DOCS_LATEST_DIR / LATEST_MD.name
 HISTORY_ID = "monthly_revenue_history"
 HISTORY_VERSION = "official_mops_monthly_revenue_v1"
 SOURCE_KIND = "official_mops_current_monthly_revenue_openapi"
+FALLBACK_SOURCE_STATUS = "fallback_reused_validated_history"
+FALLBACK_SOURCE_KIND = "official_mops_current_monthly_revenue_openapi_unavailable_reused_validated_history"
+DEFAULT_FALLBACK_MAX_AGE_DAYS = 45
+REQUIRED_MARKETS = {"listed", "otc"}
 
 SOURCE_DEFS = [
     ("listed", "TWSE", "https://mopsfin.twse.com.tw/opendata/t187ap05_L.csv"),
@@ -276,6 +283,116 @@ def fetch_source(url: str, timeout: int = 30) -> pd.DataFrame:
     return pd.read_csv(io.StringIO(response.text), dtype=str, keep_default_na=False)
 
 
+def env_int(name: str, default: int, *, min_value: int = 1) -> int:
+    raw = os.environ.get(name, "")
+    if not raw:
+        return default
+    try:
+        value = int(raw)
+    except ValueError:
+        return default
+    return max(min_value, value)
+
+
+def parse_yyyymmdd_date(value: Any) -> datetime | None:
+    text = safe_str(value)
+    if not re.fullmatch(r"20\d{6}", text):
+        return None
+    try:
+        return datetime.strptime(text, "%Y%m%d")
+    except ValueError:
+        return None
+
+
+def latest_period_rows(history: pd.DataFrame) -> pd.DataFrame:
+    if history.empty or "revenue_period" not in history.columns:
+        return pd.DataFrame(columns=OUTPUT_COLUMNS)
+    latest_period = history["revenue_period"].astype(str).max()
+    return (
+        history[history["revenue_period"].astype(str).eq(latest_period)][OUTPUT_COLUMNS]
+        .sort_values(["revenue_period", "market", "stock_id"])
+        .reset_index(drop=True)
+    )
+
+
+def display_path(path: Path) -> str:
+    try:
+        return path.relative_to(ROOT).as_posix()
+    except ValueError:
+        return path.as_posix()
+
+
+def official_current_sources_ready(current: pd.DataFrame, statuses: list[dict[str, Any]]) -> bool:
+    if current.empty:
+        return False
+    by_market = {safe_str(item.get("market")): item for item in statuses}
+    if not REQUIRED_MARKETS <= set(by_market):
+        return False
+    for market in REQUIRED_MARKETS:
+        item = by_market[market]
+        if safe_str(item.get("status")) != "ok":
+            return False
+        if int(item.get("standardized_rows") or 0) <= 0:
+            return False
+    return True
+
+
+def load_recent_history_fallback(
+    statuses: list[dict[str, Any]],
+    *,
+    history_path: Path = HISTORY_CSV,
+    fetch_date: str | None = None,
+    max_age_days: int | None = None,
+) -> tuple[pd.DataFrame, pd.DataFrame, list[dict[str, Any]]]:
+    max_age_days = DEFAULT_FALLBACK_MAX_AGE_DAYS if max_age_days is None else max_age_days
+    fetch_date = fetch_date or now_taipei().strftime("%Y%m%d")
+    fetch_dt = parse_yyyymmdd_date(fetch_date)
+    if fetch_dt is None:
+        raise RuntimeError(f"Cannot evaluate monthly revenue fallback freshness for fetch_date={fetch_date}")
+    if not history_path.exists():
+        raise RuntimeError("No monthly revenue rows fetched from official sources and no cached history exists")
+
+    history = pd.read_csv(history_path, dtype=str, keep_default_na=False)
+    missing = set(OUTPUT_COLUMNS) - set(history.columns)
+    if missing:
+        raise RuntimeError(f"cached monthly revenue history missing columns: {sorted(missing)}")
+    if history.empty:
+        raise RuntimeError("No monthly revenue rows fetched from official sources and cached history is empty")
+    markets = set(history["market"].astype(str))
+    if not REQUIRED_MARKETS <= markets:
+        raise RuntimeError(f"cached monthly revenue history missing required markets: {sorted(REQUIRED_MARKETS - markets)}")
+
+    source_dates = [parse_yyyymmdd_date(value) for value in history["source_table_date"].astype(str)]
+    source_dates = [value for value in source_dates if value is not None]
+    if not source_dates:
+        raise RuntimeError("cached monthly revenue history has no valid source_table_date")
+    max_source_dt = max(source_dates)
+    age_days = max(0, (fetch_dt - max_source_dt).days)
+    if age_days > max_age_days:
+        raise RuntimeError(
+            "No monthly revenue rows fetched from official sources and cached history is stale: "
+            f"max_source_table_date={max_source_dt.strftime('%Y%m%d')}, "
+            f"age_days={age_days}, max_age_days={max_age_days}"
+        )
+
+    history = history[OUTPUT_COLUMNS].sort_values(["revenue_period", "market", "stock_id"]).reset_index(drop=True)
+    fallback_status = {
+        "market": "all",
+        "source_market_name": "validated_history_cache",
+        "source_url": display_path(history_path),
+        "raw_rows": int(len(history)),
+        "standardized_rows": int(len(history)),
+        "status": FALLBACK_SOURCE_STATUS,
+        "source_kind": FALLBACK_SOURCE_KIND,
+        "fallback_reason": "official_sources_unavailable_or_incomplete",
+        "fallback_fetch_date": fetch_date,
+        "fallback_max_source_table_date": max_source_dt.strftime("%Y%m%d"),
+        "fallback_age_days": age_days,
+        "fallback_max_age_days": max_age_days,
+    }
+    return history, latest_period_rows(history), [*statuses, fallback_status]
+
+
 def standardize_source(
     df: pd.DataFrame,
     *,
@@ -380,11 +497,26 @@ def fetch_current_sources() -> tuple[pd.DataFrame, list[dict[str, Any]]]:
     fetch_dt = now_taipei()
     fetch_date = fetch_dt.strftime("%Y%m%d")
     fetch_timestamp = fetch_dt.strftime("%Y-%m-%d %H:%M:%S Asia/Taipei")
+    attempts = env_int("MONTHLY_REVENUE_SOURCE_FETCH_ATTEMPTS", 3)
+    sleep_seconds = env_int("MONTHLY_REVENUE_SOURCE_FETCH_SLEEP_SECONDS", 5, min_value=0)
     frames: list[pd.DataFrame] = []
     statuses: list[dict[str, Any]] = []
     for market, source_market_name, url in SOURCE_DEFS:
+        raw = pd.DataFrame()
+        fetch_error = ""
         try:
-            raw = fetch_source(url)
+            for attempt in range(1, attempts + 1):
+                try:
+                    raw = fetch_source(url)
+                    if not raw.empty or attempt == attempts:
+                        break
+                    fetch_error = "empty_raw_response"
+                except Exception as exc:
+                    fetch_error = str(exc)
+                    if attempt == attempts:
+                        raise
+                if sleep_seconds:
+                    time.sleep(sleep_seconds)
         except Exception as exc:
             statuses.append(
                 {
@@ -394,6 +526,7 @@ def fetch_current_sources() -> tuple[pd.DataFrame, list[dict[str, Any]]]:
                     "raw_rows": 0,
                     "standardized_rows": 0,
                     "status": f"fetch_failed:{exc}",
+                    "fetch_attempts": attempts,
                 }
             )
             continue
@@ -405,6 +538,9 @@ def fetch_current_sources() -> tuple[pd.DataFrame, list[dict[str, Any]]]:
             fetch_date=fetch_date,
             fetch_timestamp=fetch_timestamp,
         )
+        status["fetch_attempts"] = attempts
+        if fetch_error and status.get("status") == "ok":
+            status["fetch_recovered_after"] = fetch_error
         statuses.append(status)
         if not standardized.empty:
             frames.append(standardized)
@@ -435,7 +571,13 @@ def merge_history(current: pd.DataFrame, history_path: Path = HISTORY_CSV) -> pd
     return combined[OUTPUT_COLUMNS].sort_values(["revenue_period", "market", "stock_id"]).reset_index(drop=True)
 
 
-def write_markdown(history: pd.DataFrame, current: pd.DataFrame, statuses: list[dict[str, Any]]) -> None:
+def write_markdown(
+    history: pd.DataFrame,
+    current: pd.DataFrame,
+    statuses: list[dict[str, Any]],
+    *,
+    source_fetch_mode: str = "official_current_sources",
+) -> None:
     source_kinds = (
         ";".join(sorted(set(history["source_kind"].dropna().astype(str))))
         if not history.empty and "source_kind" in history.columns
@@ -474,6 +616,7 @@ def write_markdown(history: pd.DataFrame, current: pd.DataFrame, statuses: list[
         f"- history_id: `{HISTORY_ID}`",
         f"- history_version: `{HISTORY_VERSION}`",
         f"- source_kind: `{source_kinds}`",
+        f"- source_fetch_mode: `{source_fetch_mode}`",
         f"- latest_build_rows: `{len(current)}`",
         f"- total_history_rows: `{len(history)}`",
         f"- unique_stocks: `{history['stock_id'].nunique() if not history.empty else 0}`",
@@ -483,6 +626,7 @@ def write_markdown(history: pd.DataFrame, current: pd.DataFrame, statuses: list[
         "- forbidden_use: do not label older historical signals with the latest saved revenue period; formal model gates require sufficient coverage audit and promotion.",
         "- current_limitation: the current official OpenAPI returns the latest available revenue period only; older periods require validated historical backfill or accumulation over future runs.",
         "- historical_backfill_policy: static MOPS monthly revenue HTML backfill uses a conservative next-month-17 source date so historical research joins do not look ahead.",
+        f"- official_source_fallback_policy: if any official OpenAPI source is empty or unavailable, reuse validated cached history for at most `{DEFAULT_FALLBACK_MAX_AGE_DAYS}` days from its latest `source_table_date`; stale cache fails closed.",
         "",
         "## Source Fetch Status",
         "",
@@ -538,14 +682,31 @@ def main() -> int:
     RESEARCH_LATEST_DIR.mkdir(parents=True, exist_ok=True)
     DOCS_LATEST_DIR.mkdir(parents=True, exist_ok=True)
     current, statuses = fetch_current_sources()
-    if current.empty:
-        raise RuntimeError("No monthly revenue rows fetched from official sources")
-    history = merge_history(current)
+    source_fetch_mode = "official_current_sources"
+    if official_current_sources_ready(current, statuses):
+        history = merge_history(current)
+    else:
+        try:
+            history, current, statuses = load_recent_history_fallback(statuses)
+        except RuntimeError as exc:
+            statuses.append(
+                {
+                    "market": "all",
+                    "source_market_name": "validated_history_cache",
+                    "source_url": display_path(HISTORY_CSV),
+                    "raw_rows": 0,
+                    "standardized_rows": 0,
+                    "status": f"fallback_unavailable:{exc}",
+                }
+            )
+            SOURCE_STATUS_JSON.write_text(json.dumps(statuses, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+            raise
+        source_fetch_mode = "validated_history_cache_fallback"
     write_csv(history, HISTORY_CSV)
     write_csv(history, LATEST_CSV)
     write_csv(history, DOCS_LATEST_CSV)
     SOURCE_STATUS_JSON.write_text(json.dumps(statuses, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    write_markdown(history, current, statuses)
+    write_markdown(history, current, statuses, source_fetch_mode=source_fetch_mode)
     print(f"Saved {HISTORY_CSV} rows={len(history)}")
     print(f"Saved {LATEST_CSV} rows={len(history)}")
     return 0
