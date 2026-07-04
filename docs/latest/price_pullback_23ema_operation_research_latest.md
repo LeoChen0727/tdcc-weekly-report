@@ -1,6 +1,6 @@
 # Price Pullback 23EMA Operation Research
 
-- generated_at: `2026-07-04 14:40:01 Asia/Taipei`
+- generated_at: `2026-07-04 18:45:18 Asia/Taipei`
 - model_id: `price_pullback_23ema`
 - status: `not_production_ready_research_only`
 - entry_basis: `signal_date_next_open` after production proxy replay

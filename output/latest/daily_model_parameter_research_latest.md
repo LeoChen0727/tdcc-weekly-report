@@ -1,6 +1,6 @@
 # Daily Model Parameter Research
 
-- generated_at: `2026-07-04 14:40:01 Asia/Taipei`
+- generated_at: `2026-07-04 18:45:18 Asia/Taipei`
 - price_history_files: `2376`
 - max_price_rows: `297`
 - data_range: `20250407` ~ `20260703`
@@ -93,7 +93,7 @@
 | pullback_short_reclaim | prior20up_reclaim_vol1.2 | parameter_variant | variant_not_baseline | 2139 | 37.96 | 43.42 | 45.65 | 47.76 | 1.0 | 1.84 | ok_first_pass | 前 20 日漲幅 >= 10% + 距 23EMA -1% 至 6% + MACD 柱狀體 > 0 + 量比 >= 1.2 |
 | pullback_short_reclaim | prior20up_reclaim_vol1.5 | parameter_variant | variant_not_baseline | 1340 | 38.81 | 43.14 | 44.85 | 46.25 | 0.97 | 1.8 | ok_first_pass | 前 20 日漲幅 >= 10% + 距 23EMA -1% 至 6% + MACD 柱狀體 > 0 + 量比 >= 1.5 |
 | pullback_short_reclaim | prior20up_reclaim_vol1 | parameter_variant | variant_not_baseline | 3061 | 38.45 | 43.39 | 45.28 | 47.58 | 0.93 | 1.73 | ok_first_pass | 前 20 日漲幅 >= 10% + 距 23EMA -1% 至 6% + MACD 柱狀體 > 0 + 量比 >= 1 |
-| revenue_unreacted_range | production_current_proxy | production_baseline | proxy_only | 341516 | 39.53 | 43.12 | 43.81 | 44.26 | 0.25 | 0.7 | ok_first_pass | production baseline proxy: price still in 23d range and attack not started; revenue panel missing |
+| revenue_unreacted_range | production_current_proxy | production_baseline | proxy_only | 341516 | 39.53 | 43.12 | 43.81 | 44.26 | 0.25 | 0.7 | ok_first_pass | production baseline proxy: price still in 23d range and attack not started; revenue gate tested separately |
 | revenue_unreacted_range | range23_tol5 | parameter_variant | variant_not_baseline | 228227 | 39.2 | 42.84 | 43.35 | 43.97 | 0.11 | 0.4 | ok_first_pass | 股價位於 23 日區間上下 5% 內；營收確認由每日模型層欄位提供 |
 | revenue_unreacted_range | range23_tol10 | parameter_variant | variant_not_baseline | 229725 | 39.19 | 42.8 | 43.32 | 43.93 | 0.11 | 0.39 | ok_first_pass | 股價位於 23 日區間上下 10% 內；營收確認由每日模型層欄位提供 |
 | short_term_surge_d5_d10 | ret5_10_30_vol5_ge1_5_macd | parameter_variant | variant_not_baseline | 12186 | 37.48 | 39.55 | 41.4 | 43.83 | 0.14 | 1.71 | ok_first_pass | 5日漲幅 10% 至 30% + 5日平均量比 >= 1.5 + MACD 柱狀體 > 0 |

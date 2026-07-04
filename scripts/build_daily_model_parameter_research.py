@@ -165,6 +165,33 @@ PRICE_PULLBACK_LIFECYCLE_REPLAY_HISTORY_CSV = (
 )
 DOCS_PRICE_PULLBACK_LIFECYCLE_REPLAY_CSV = DOCS_LATEST_DIR / PRICE_PULLBACK_LIFECYCLE_REPLAY_CSV.name
 DOCS_PRICE_PULLBACK_LIFECYCLE_REPLAY_MD = DOCS_LATEST_DIR / PRICE_PULLBACK_LIFECYCLE_REPLAY_MD.name
+FULL_MONTHLY_REVENUE_HISTORY_CSV = Path("data/monthly_revenue_history/monthly_revenue_history.csv")
+PRICE_PULLBACK_REVENUE_CONDITION_MATRIX_CSV = (
+    RESEARCH_LATEST_DIR / "price_pullback_23ema_revenue_condition_matrix_latest.csv"
+)
+PRICE_PULLBACK_REVENUE_CONDITION_MATRIX_MD = (
+    RESEARCH_LATEST_DIR / "price_pullback_23ema_revenue_condition_matrix_latest.md"
+)
+PRICE_PULLBACK_REVENUE_CONDITION_MATRIX_HISTORY_CSV = (
+    HISTORY_DIR / "price_pullback_23ema_revenue_condition_matrix.csv"
+)
+DOCS_PRICE_PULLBACK_REVENUE_CONDITION_MATRIX_CSV = (
+    DOCS_LATEST_DIR / PRICE_PULLBACK_REVENUE_CONDITION_MATRIX_CSV.name
+)
+DOCS_PRICE_PULLBACK_REVENUE_CONDITION_MATRIX_MD = (
+    DOCS_LATEST_DIR / PRICE_PULLBACK_REVENUE_CONDITION_MATRIX_MD.name
+)
+REVENUE_UNREACTED_CONDITION_MATRIX_CSV = (
+    RESEARCH_LATEST_DIR / "revenue_unreacted_range_revenue_condition_matrix_latest.csv"
+)
+REVENUE_UNREACTED_CONDITION_MATRIX_MD = (
+    RESEARCH_LATEST_DIR / "revenue_unreacted_range_revenue_condition_matrix_latest.md"
+)
+REVENUE_UNREACTED_CONDITION_MATRIX_HISTORY_CSV = (
+    HISTORY_DIR / "revenue_unreacted_range_revenue_condition_matrix.csv"
+)
+DOCS_REVENUE_UNREACTED_CONDITION_MATRIX_CSV = DOCS_LATEST_DIR / REVENUE_UNREACTED_CONDITION_MATRIX_CSV.name
+DOCS_REVENUE_UNREACTED_CONDITION_MATRIX_MD = DOCS_LATEST_DIR / REVENUE_UNREACTED_CONDITION_MATRIX_MD.name
 
 HORIZONS = list(range(1, 11)) + [20]
 TIME_COST_HORIZON_DAYS = 20
@@ -594,6 +621,198 @@ def attach_signal_background_features(
     return merged
 
 
+FULL_MONTHLY_REVENUE_CONTEXT_COLUMNS = [
+    "full_monthly_revenue_context_ready",
+    "full_monthly_revenue_data_status",
+    "full_monthly_revenue_period",
+    "full_monthly_revenue_source_table_date",
+    "full_monthly_revenue_latest_yoy_pct",
+    "full_monthly_revenue_cumulative_yoy_pct",
+    "full_monthly_revenue_month_over_month_pct",
+    "full_monthly_revenue_positive_flag",
+    "full_monthly_revenue_strong_flag",
+    "full_monthly_revenue_positive_or_strong",
+    "full_monthly_revenue_numerical_anomaly_flag",
+    "full_monthly_revenue_numerical_anomaly_reason",
+    "full_monthly_revenue_research_join_allowed",
+    "full_monthly_revenue_formal_model_use_allowed",
+    "full_monthly_revenue_source_kind",
+    "full_monthly_revenue_source_artifact",
+]
+
+
+def _with_empty_full_monthly_revenue_context(df: pd.DataFrame, status: str) -> pd.DataFrame:
+    out = df.copy()
+    for col in FULL_MONTHLY_REVENUE_CONTEXT_COLUMNS:
+        if col not in out.columns:
+            out[col] = ""
+    out["full_monthly_revenue_context_ready"] = False
+    out["full_monthly_revenue_data_status"] = status
+    out["full_monthly_revenue_positive_flag"] = False
+    out["full_monthly_revenue_strong_flag"] = False
+    out["full_monthly_revenue_positive_or_strong"] = False
+    out["full_monthly_revenue_numerical_anomaly_flag"] = False
+    out["full_monthly_revenue_research_join_allowed"] = False
+    out["full_monthly_revenue_formal_model_use_allowed"] = False
+    return out
+
+
+def attach_full_monthly_revenue_history_features(
+    df: pd.DataFrame,
+    history_path: Path = FULL_MONTHLY_REVENUE_HISTORY_CSV,
+) -> pd.DataFrame:
+    """Attach canonical full-market monthly revenue rows as of each signal date."""
+    if df.empty:
+        return _with_empty_full_monthly_revenue_context(df, "empty_research_frame")
+    if not history_path.exists():
+        return _with_empty_full_monthly_revenue_context(df, "missing_full_monthly_revenue_history")
+
+    history = pd.read_csv(history_path, dtype=str, keep_default_na=False)
+    required = {"stock_id", "source_table_date", "revenue_period"}
+    if history.empty or not required.issubset(history.columns):
+        return _with_empty_full_monthly_revenue_context(df, "invalid_full_monthly_revenue_history")
+
+    history = history.copy()
+    history["stock_id"] = history["stock_id"].map(normalize_code)
+    history["source_table_date"] = history["source_table_date"].map(normalize_date)
+    history = history[history["stock_id"].ne("") & history["source_table_date"].ne("")]
+    if history.empty:
+        return _with_empty_full_monthly_revenue_context(df, "invalid_full_monthly_revenue_history")
+
+    keep_cols = [
+        "stock_id",
+        "source_table_date",
+        "revenue_period",
+        "source_kind",
+        "latest_revenue_yoy_pct",
+        "cumulative_revenue_yoy_pct",
+        "month_over_month_pct",
+        "revenue_numerical_anomaly_flag",
+        "revenue_numerical_anomaly_reason",
+        "research_join_allowed",
+        "allowed_for_formal_historical_model_use",
+    ]
+    for col in keep_cols:
+        if col not in history.columns:
+            history[col] = ""
+    history = history[keep_cols].copy()
+    history["_full_monthly_revenue_source_dt"] = pd.to_datetime(
+        history["source_table_date"],
+        format="%Y%m%d",
+        errors="coerce",
+    )
+    history = history.dropna(subset=["_full_monthly_revenue_source_dt"])
+    history = history.sort_values(["stock_id", "_full_monthly_revenue_source_dt", "revenue_period"])
+
+    left = df.copy()
+    left["_full_monthly_revenue_original_index"] = range(len(left))
+    left["stock_id"] = left["stock_id"].map(normalize_code) if "stock_id" in left.columns else ""
+    left["date"] = left["date"].map(normalize_date) if "date" in left.columns else ""
+    left["_full_monthly_revenue_signal_dt"] = pd.to_datetime(left["date"], format="%Y%m%d", errors="coerce")
+
+    merged_parts: list[pd.DataFrame] = []
+    history_by_stock = {
+        stock_id: part.reset_index(drop=True)
+        for stock_id, part in history.groupby("stock_id", sort=False, dropna=False)
+    }
+    for stock_id, price_part in left.groupby("stock_id", sort=False, dropna=False):
+        stock_key = safe_str(stock_id)
+        hist_part = history_by_stock.get(stock_key)
+        if not stock_key or hist_part is None or hist_part.empty:
+            p = _with_empty_full_monthly_revenue_context(
+                price_part,
+                "missing_stock_in_full_monthly_revenue_history",
+            )
+            merged_parts.append(p)
+            continue
+        merged = pd.merge_asof(
+            price_part.sort_values("_full_monthly_revenue_signal_dt"),
+            hist_part.drop(columns=["stock_id"]).sort_values("_full_monthly_revenue_source_dt"),
+            left_on="_full_monthly_revenue_signal_dt",
+            right_on="_full_monthly_revenue_source_dt",
+            direction="backward",
+        )
+        merged_parts.append(merged)
+
+    merged_all = pd.concat(merged_parts, ignore_index=True, sort=False)
+    has_match = merged_all["source_table_date"].fillna("").astype(str).ne("")
+    prior_status = (
+        merged_all["full_monthly_revenue_data_status"].fillna("")
+        if "full_monthly_revenue_data_status" in merged_all.columns
+        else pd.Series("", index=merged_all.index, dtype=object)
+    )
+    merged_all["full_monthly_revenue_data_status"] = np.where(
+        has_match,
+        "ready_asof_history_row",
+        np.where(prior_status.astype(str).ne(""), prior_status, "missing_asof_revenue_on_or_before_signal_date"),
+    )
+    def _merged_text_column(name: str) -> pd.Series:
+        if name not in merged_all.columns:
+            return pd.Series("", index=merged_all.index, dtype=object)
+        return merged_all[name].fillna("")
+
+    merged_all["full_monthly_revenue_period"] = _merged_text_column("revenue_period")
+    merged_all["full_monthly_revenue_source_table_date"] = _merged_text_column("source_table_date")
+    merged_all["full_monthly_revenue_latest_yoy_pct"] = pd.to_numeric(
+        merged_all.get("latest_revenue_yoy_pct", pd.Series(math.nan, index=merged_all.index)),
+        errors="coerce",
+    )
+    merged_all["full_monthly_revenue_cumulative_yoy_pct"] = pd.to_numeric(
+        merged_all.get("cumulative_revenue_yoy_pct", pd.Series(math.nan, index=merged_all.index)),
+        errors="coerce",
+    )
+    merged_all["full_monthly_revenue_month_over_month_pct"] = pd.to_numeric(
+        merged_all.get("month_over_month_pct", pd.Series(math.nan, index=merged_all.index)),
+        errors="coerce",
+    )
+    research_allowed = trueish(merged_all.get("research_join_allowed", pd.Series(False, index=merged_all.index)))
+    formal_allowed = trueish(
+        merged_all.get("allowed_for_formal_historical_model_use", pd.Series(False, index=merged_all.index))
+    )
+    latest = merged_all["full_monthly_revenue_latest_yoy_pct"]
+    cumulative = merged_all["full_monthly_revenue_cumulative_yoy_pct"]
+    context_ready = has_match & research_allowed
+    merged_all["full_monthly_revenue_context_ready"] = context_ready
+    merged_all["full_monthly_revenue_positive_flag"] = context_ready & ((latest > 0) | (cumulative > 0))
+    merged_all["full_monthly_revenue_strong_flag"] = context_ready & ((latest >= 30) | (cumulative >= 20))
+    merged_all["full_monthly_revenue_positive_or_strong"] = (
+        merged_all["full_monthly_revenue_positive_flag"] | merged_all["full_monthly_revenue_strong_flag"]
+    )
+    merged_all["full_monthly_revenue_numerical_anomaly_flag"] = (
+        context_ready
+        & trueish(merged_all.get("revenue_numerical_anomaly_flag", pd.Series(False, index=merged_all.index)))
+    )
+    merged_all["full_monthly_revenue_numerical_anomaly_reason"] = _merged_text_column(
+        "revenue_numerical_anomaly_reason"
+    )
+    merged_all["full_monthly_revenue_research_join_allowed"] = research_allowed
+    merged_all["full_monthly_revenue_formal_model_use_allowed"] = formal_allowed
+    merged_all["full_monthly_revenue_source_kind"] = _merged_text_column("source_kind")
+    merged_all["full_monthly_revenue_source_artifact"] = history_path.as_posix()
+
+    drop_cols = [
+        "_full_monthly_revenue_signal_dt",
+        "_full_monthly_revenue_source_dt",
+        "source_table_date",
+        "revenue_period",
+        "source_kind",
+        "latest_revenue_yoy_pct",
+        "cumulative_revenue_yoy_pct",
+        "month_over_month_pct",
+        "revenue_numerical_anomaly_flag",
+        "revenue_numerical_anomaly_reason",
+        "research_join_allowed",
+        "allowed_for_formal_historical_model_use",
+    ]
+    out = (
+        merged_all.sort_values("_full_monthly_revenue_original_index", kind="mergesort")
+        .drop(columns=[col for col in drop_cols if col in merged_all.columns])
+        .drop(columns=["_full_monthly_revenue_original_index"])
+        .reset_index(drop=True)
+    )
+    return out
+
+
 def build_research_frame() -> pd.DataFrame:
     df = build_stock_day_frame()
     if df.empty:
@@ -603,6 +822,7 @@ def build_research_frame() -> pd.DataFrame:
     df = attach_theme_labels(df)
     df = attach_tdcc_features(df)
     df = attach_signal_background_features(df)
+    df = attach_full_monthly_revenue_history_features(df)
     return df
 
 
@@ -737,6 +957,54 @@ def price_pullback_monthly_revenue_positive_or_strong_filter(d: pd.DataFrame) ->
     ).fillna(False)
 
 
+def full_monthly_revenue_context_ready_filter(d: pd.DataFrame) -> pd.Series:
+    return trueish_column(d, "full_monthly_revenue_context_ready").fillna(False)
+
+
+def full_monthly_revenue_positive_filter(d: pd.DataFrame) -> pd.Series:
+    return (
+        full_monthly_revenue_context_ready_filter(d)
+        & trueish_column(d, "full_monthly_revenue_positive_flag")
+    ).fillna(False)
+
+
+def full_monthly_revenue_strong_filter(d: pd.DataFrame) -> pd.Series:
+    return (
+        full_monthly_revenue_context_ready_filter(d)
+        & trueish_column(d, "full_monthly_revenue_strong_flag")
+    ).fillna(False)
+
+
+def full_monthly_revenue_latest_yoy_ge_filter(d: pd.DataFrame, threshold: float) -> pd.Series:
+    return (
+        full_monthly_revenue_context_ready_filter(d)
+        & numeric_column(d, "full_monthly_revenue_latest_yoy_pct").ge(threshold)
+    ).fillna(False)
+
+
+def full_monthly_revenue_cumulative_yoy_ge_filter(d: pd.DataFrame, threshold: float) -> pd.Series:
+    return (
+        full_monthly_revenue_context_ready_filter(d)
+        & numeric_column(d, "full_monthly_revenue_cumulative_yoy_pct").ge(threshold)
+    ).fillna(False)
+
+
+def full_monthly_revenue_both_latest30_cumulative20_filter(d: pd.DataFrame) -> pd.Series:
+    return (
+        full_monthly_revenue_context_ready_filter(d)
+        & numeric_column(d, "full_monthly_revenue_latest_yoy_pct").ge(30.0)
+        & numeric_column(d, "full_monthly_revenue_cumulative_yoy_pct").ge(20.0)
+    ).fillna(False)
+
+
+def full_monthly_revenue_negative_both_filter(d: pd.DataFrame) -> pd.Series:
+    return (
+        full_monthly_revenue_context_ready_filter(d)
+        & numeric_column(d, "full_monthly_revenue_latest_yoy_pct").lt(0.0)
+        & numeric_column(d, "full_monthly_revenue_cumulative_yoy_pct").lt(0.0)
+    ).fillna(False)
+
+
 def price_pullback_volume_red_k_entry(d: pd.DataFrame, volume_min: float, solid: bool = False) -> pd.Series:
     return current_price_pullback_baseline_proxy(d) & price_pullback_red_k_entry_filter(d, volume_min, solid)
 
@@ -758,9 +1026,10 @@ def active_price_attack_proxy(d: pd.DataFrame) -> pd.Series:
 
 
 def current_revenue_unreacted_baseline_proxy(d: pd.DataFrame) -> pd.Series:
-    # Historical revenue feature panels are not yet complete in this research
-    # frame, so this can only mirror the production price-range and not-started
-    # parts. The parity artifact must keep this row marked as proxy-only.
+    # This intentionally mirrors only the price-range and not-started portions.
+    # Full-market revenue conditions are tested in the model-specific revenue
+    # condition matrix and still require an explicit promotion PR before
+    # becoming a formal production gate.
     return (
         (d["close"] >= d["range_low_23d_prev"] * 0.95)
         & (d["close"] <= d["range_high_23d_prev"] * 1.05)
@@ -905,13 +1174,13 @@ def production_baseline_specs() -> list[RuleSpec]:
             "revenue_unreacted_range",
             "營收爆發但股價尚未反應模型",
             "production_current_proxy",
-            "production baseline proxy: price still in 23d range and attack not started; revenue panel missing",
+            "production baseline proxy: price still in 23d range and attack not started; revenue gate tested separately",
             "pdf_core_model",
             current_revenue_unreacted_baseline_proxy,
-            "Revenue YoY/cumulative YoY history is not complete in this research frame, so this row is not production-parity.",
+            "Canonical monthly revenue history exists for research joins, but formal revenue gate parity still requires model-specific promotion.",
             "production_baseline",
             "proxy_only",
-            "historical revenue panel is incomplete; strong_revenue gate cannot be replayed point-in-time",
+            "strong_revenue gate requires model-specific research matrix, contract update, exact parity, and promotion PR before formal use",
             "production_current",
         ),
         RuleSpec(
@@ -4427,6 +4696,542 @@ def write_price_pullback_high_return_feature_score_grid(score_grid: pd.DataFrame
     )
 
 
+PRICE_PULLBACK_REVENUE_CONDITION_TESTS = [
+    {
+        "test_order": 0,
+        "condition_test_id": "base_v1_without_revenue_gate",
+        "condition_family": "baseline",
+        "condition_role_candidate": "baseline_anchor",
+        "condition_rule": "price_pullback_23ema production proxy plus return20_0_25, TDCC high thresholds up, and OBV above MA20; no revenue gate",
+        "data_status": "available_full_market_monthly_revenue_history_join_not_required",
+        "condition": lambda d: bool_series(d, True),
+    },
+    {
+        "test_order": 10,
+        "condition_test_id": "revenue_context_ready",
+        "condition_family": "revenue_coverage",
+        "condition_role_candidate": "coverage_gate_review",
+        "condition_rule": "canonical monthly revenue history has an as-of row where source_table_date <= signal_date",
+        "data_status": "joined_from_full_market_monthly_revenue_history_research_only",
+        "condition": full_monthly_revenue_context_ready_filter,
+    },
+    {
+        "test_order": 20,
+        "condition_test_id": "revenue_positive",
+        "condition_family": "revenue_direction",
+        "condition_role_candidate": "add_score_candidate",
+        "condition_rule": "latest or cumulative monthly revenue YoY is positive",
+        "data_status": "joined_from_full_market_monthly_revenue_history_research_only",
+        "condition": full_monthly_revenue_positive_filter,
+    },
+    {
+        "test_order": 30,
+        "condition_test_id": "revenue_production_strong",
+        "condition_family": "revenue_strength",
+        "condition_role_candidate": "required_gate_candidate",
+        "condition_rule": "latest revenue YoY >= 30% or cumulative revenue YoY >= 20%",
+        "data_status": "joined_from_full_market_monthly_revenue_history_research_only",
+        "condition": full_monthly_revenue_strong_filter,
+    },
+    {
+        "test_order": 40,
+        "condition_test_id": "latest_revenue_yoy_ge50",
+        "condition_family": "revenue_strength",
+        "condition_role_candidate": "strong_add_score_candidate",
+        "condition_rule": "latest monthly revenue YoY >= 50%",
+        "data_status": "joined_from_full_market_monthly_revenue_history_research_only",
+        "condition": lambda d: full_monthly_revenue_latest_yoy_ge_filter(d, 50.0),
+    },
+    {
+        "test_order": 50,
+        "condition_test_id": "cumulative_revenue_yoy_ge30",
+        "condition_family": "revenue_strength",
+        "condition_role_candidate": "strong_add_score_candidate",
+        "condition_rule": "cumulative monthly revenue YoY >= 30%",
+        "data_status": "joined_from_full_market_monthly_revenue_history_research_only",
+        "condition": lambda d: full_monthly_revenue_cumulative_yoy_ge_filter(d, 30.0),
+    },
+    {
+        "test_order": 60,
+        "condition_test_id": "latest30_and_cumulative20",
+        "condition_family": "revenue_strength_combo",
+        "condition_role_candidate": "condition_package_candidate",
+        "condition_rule": "latest monthly revenue YoY >= 30% and cumulative revenue YoY >= 20%",
+        "data_status": "joined_from_full_market_monthly_revenue_history_research_only",
+        "condition": full_monthly_revenue_both_latest30_cumulative20_filter,
+    },
+    {
+        "test_order": 90,
+        "condition_test_id": "revenue_negative_both_risk",
+        "condition_family": "revenue_risk",
+        "condition_role_candidate": "deduct_score_or_risk_tag_candidate",
+        "condition_rule": "latest and cumulative monthly revenue YoY are both negative",
+        "data_status": "joined_from_full_market_monthly_revenue_history_research_only",
+        "condition": full_monthly_revenue_negative_both_filter,
+    },
+]
+
+
+REVENUE_UNREACTED_REVENUE_CONDITION_TESTS = [
+    {
+        "test_order": 0,
+        "condition_test_id": "price_range_no_attack_without_revenue_gate",
+        "condition_family": "baseline",
+        "condition_role_candidate": "baseline_price_proxy_anchor",
+        "condition_rule": "price remains inside the recent 23-day range and active attack has not started; no revenue gate",
+        "data_status": "price_proxy_available_revenue_gate_not_applied",
+        "condition": lambda d: bool_series(d, True),
+    },
+    {
+        "test_order": 10,
+        "condition_test_id": "revenue_context_ready",
+        "condition_family": "revenue_coverage",
+        "condition_role_candidate": "coverage_gate_review",
+        "condition_rule": "canonical monthly revenue history has an as-of row where source_table_date <= signal_date",
+        "data_status": "joined_from_full_market_monthly_revenue_history_research_only",
+        "condition": full_monthly_revenue_context_ready_filter,
+    },
+    {
+        "test_order": 20,
+        "condition_test_id": "revenue_production_strong",
+        "condition_family": "revenue_strength",
+        "condition_role_candidate": "production_semantic_gate_candidate",
+        "condition_rule": "latest revenue YoY >= 30% or cumulative revenue YoY >= 20%",
+        "data_status": "joined_from_full_market_monthly_revenue_history_research_only",
+        "condition": full_monthly_revenue_strong_filter,
+    },
+    {
+        "test_order": 30,
+        "condition_test_id": "latest_revenue_yoy_ge50",
+        "condition_family": "revenue_strength",
+        "condition_role_candidate": "stronger_revenue_gate_candidate",
+        "condition_rule": "latest monthly revenue YoY >= 50%",
+        "data_status": "joined_from_full_market_monthly_revenue_history_research_only",
+        "condition": lambda d: full_monthly_revenue_latest_yoy_ge_filter(d, 50.0),
+    },
+    {
+        "test_order": 40,
+        "condition_test_id": "latest_revenue_yoy_ge100",
+        "condition_family": "revenue_strength",
+        "condition_role_candidate": "stronger_revenue_gate_candidate",
+        "condition_rule": "latest monthly revenue YoY >= 100%",
+        "data_status": "joined_from_full_market_monthly_revenue_history_research_only",
+        "condition": lambda d: full_monthly_revenue_latest_yoy_ge_filter(d, 100.0),
+    },
+    {
+        "test_order": 50,
+        "condition_test_id": "cumulative_revenue_yoy_ge30",
+        "condition_family": "revenue_strength",
+        "condition_role_candidate": "stronger_revenue_gate_candidate",
+        "condition_rule": "cumulative monthly revenue YoY >= 30%",
+        "data_status": "joined_from_full_market_monthly_revenue_history_research_only",
+        "condition": lambda d: full_monthly_revenue_cumulative_yoy_ge_filter(d, 30.0),
+    },
+    {
+        "test_order": 60,
+        "condition_test_id": "latest30_and_cumulative20",
+        "condition_family": "revenue_strength_combo",
+        "condition_role_candidate": "condition_package_candidate",
+        "condition_rule": "latest monthly revenue YoY >= 30% and cumulative revenue YoY >= 20%",
+        "data_status": "joined_from_full_market_monthly_revenue_history_research_only",
+        "condition": full_monthly_revenue_both_latest30_cumulative20_filter,
+    },
+]
+
+
+def _full_monthly_revenue_anomaly_mask(d: pd.DataFrame, *, include_price_exception: bool = False) -> pd.Series:
+    mask = trueish_column(d, "full_monthly_revenue_numerical_anomaly_flag")
+    if include_price_exception:
+        mask = mask | _price_pullback_known_data_quality_exception_mask(d)
+    return mask.fillna(False)
+
+
+def _price_pullback_revenue_condition_metrics(accepted: pd.DataFrame) -> dict[str, object]:
+    outcome = _price_pullback_ordered_outcome_summary(accepted)
+    if accepted.empty:
+        return {
+            **outcome,
+            "median_realized_return_pct": "",
+            "high_return_8_count": 0,
+            "high_return_8_rate_pct": "",
+            "high_return_10_count": 0,
+            "high_return_10_rate_pct": "",
+            "loss_5_count": 0,
+            "loss_5_rate_pct": "",
+            "avg_revenue_latest_yoy_pct": "",
+            "median_revenue_latest_yoy_pct": "",
+            "avg_revenue_cumulative_yoy_pct": "",
+            "median_revenue_cumulative_yoy_pct": "",
+        }
+    realized = pd.to_numeric(accepted["realized_return_pct"], errors="coerce")
+    high8 = realized.ge(8.0)
+    high10 = realized.ge(10.0)
+    loss5 = realized.le(-5.0)
+    latest = numeric_column(accepted, "full_monthly_revenue_latest_yoy_pct")
+    cumulative = numeric_column(accepted, "full_monthly_revenue_cumulative_yoy_pct")
+    return {
+        **outcome,
+        "median_realized_return_pct": _median_or_blank(realized),
+        "high_return_8_count": int(high8.sum()),
+        "high_return_8_rate_pct": _rate(int(high8.sum()), len(accepted)),
+        "high_return_10_count": int(high10.sum()),
+        "high_return_10_rate_pct": _rate(int(high10.sum()), len(accepted)),
+        "loss_5_count": int(loss5.sum()),
+        "loss_5_rate_pct": _rate(int(loss5.sum()), len(accepted)),
+        "avg_revenue_latest_yoy_pct": _mean_or_blank(latest),
+        "median_revenue_latest_yoy_pct": _median_or_blank(latest),
+        "avg_revenue_cumulative_yoy_pct": _mean_or_blank(cumulative),
+        "median_revenue_cumulative_yoy_pct": _median_or_blank(cumulative),
+    }
+
+
+def build_price_pullback_revenue_condition_matrix(df: pd.DataFrame) -> pd.DataFrame:
+    positioned = _price_pullback_positioned_frame(df)
+    research_dates = positioned["_price_pullback_signal_date"].map(safe_str)
+    research_trading_day_count = int(research_dates[research_dates.ne("")].nunique())
+    base_mask = _price_pullback_v1_base_research_filter(positioned)
+    base = positioned[base_mask].copy()
+    candidate = next(
+        candidate
+        for candidate in PRICE_PULLBACK_EXIT_RULE_COMPARISON_CANDIDATES
+        if str(candidate["exit_rule_id"]) == "close_prev20_break_then_tp10_or_5ma_next_open"
+    )
+    required = _price_pullback_exit_required_columns(candidate)
+    valid_base = base.dropna(subset=required).copy() if all(col in base.columns for col in required) else base.iloc[0:0].copy()
+    outcome = _price_pullback_exit_rule_outcome_rows(valid_base, candidate) if not valid_base.empty else pd.DataFrame(index=valid_base.index)
+    lifecycle_key_cols = [
+        "stock_id",
+        "_price_pullback_signal_date",
+        "_price_pullback_stock_day_position",
+        "_price_pullback_source_row_index",
+    ]
+    context_cols = [col for col in FULL_MONTHLY_REVENUE_CONTEXT_COLUMNS if col in valid_base.columns]
+    enriched_base = valid_base[lifecycle_key_cols + context_cols].join(outcome)
+    rows: list[dict[str, object]] = []
+    generated_at = now_text()
+    for anomaly_basis in [
+        "including_numerical_anomalies",
+        "excluding_known_price_or_revenue_anomalies",
+    ]:
+        baseline_exception_mask = _full_monthly_revenue_anomaly_mask(
+            enriched_base,
+            include_price_exception=True,
+        )
+        if anomaly_basis == "excluding_known_price_or_revenue_anomalies":
+            basis_base = enriched_base[~baseline_exception_mask].copy()
+        else:
+            basis_base = enriched_base.copy()
+        baseline_lifecycle = _price_pullback_apply_lifecycle_suppression(basis_base)
+        baseline_accepted = baseline_lifecycle[trueish(baseline_lifecycle["lifecycle_accepted_trade"])]
+        baseline_accepted_trade_count = len(baseline_accepted)
+        baseline_source_mature_count = len(basis_base)
+        for spec in PRICE_PULLBACK_REVENUE_CONDITION_TESTS:
+            condition_mask = spec["condition"](valid_base).fillna(False)
+            picked_raw = enriched_base.loc[valid_base.index[condition_mask]].copy()
+            sample_exception_mask = _full_monthly_revenue_anomaly_mask(
+                picked_raw,
+                include_price_exception=True,
+            )
+            if anomaly_basis == "excluding_known_price_or_revenue_anomalies":
+                picked = picked_raw[~sample_exception_mask].copy()
+            else:
+                picked = picked_raw
+            lifecycle = _price_pullback_apply_lifecycle_suppression(picked)
+            accepted = lifecycle[trueish(lifecycle["lifecycle_accepted_trade"])]
+            source_date_stats = _price_pullback_date_stats(picked)
+            accepted_date_stats = _price_pullback_date_stats(accepted)
+            suppressed_count = int(trueish(lifecycle["lifecycle_suppressed_signal"]).sum()) if not lifecycle.empty else 0
+            rows.append(
+                {
+                    "generated_at": generated_at,
+                    "model_id": "price_pullback_23ema",
+                    "model_name_zh": "股價回檔模型",
+                    "research_artifact_id": "price_pullback_23ema_revenue_condition_matrix",
+                    "matrix_scope": "model_specific_revenue_condition_research",
+                    "base_condition_id": "v1_gate_return20_tdcc_high_obv",
+                    "base_condition_rule": "production proxy signal plus return20_0_25, TDCC high thresholds up, and OBV above MA20",
+                    "test_order": spec["test_order"],
+                    "condition_test_id": spec["condition_test_id"],
+                    "condition_family": spec["condition_family"],
+                    "condition_role_candidate": spec["condition_role_candidate"],
+                    "condition_rule": spec["condition_rule"],
+                    "data_status": spec["data_status"],
+                    "revenue_join_source": FULL_MONTHLY_REVENUE_HISTORY_CSV.as_posix(),
+                    "point_in_time_rule": "monthly revenue source_table_date must be <= signal_date",
+                    "anomaly_exclusion_basis": anomaly_basis,
+                    "revenue_or_price_anomaly_count_in_sample": int(sample_exception_mask.sum()),
+                    "revenue_or_price_anomaly_count_in_baseline": int(baseline_exception_mask.sum()),
+                    "exit_rule_id": candidate["exit_rule_id"],
+                    "formal_price_rule_status": candidate["formal_price_rule_status"],
+                    "profit_target_pct": candidate["profit_target_pct"],
+                    "exit_price_rule": candidate["exit_price_rule"],
+                    "entry_rule_id": "signal_date_next_open",
+                    "operation_basis": "price_pullback_close_confirmed_candidate_lifecycle_replay",
+                    "lifecycle_replay_scope": "trade_level_same_stock_active_position_suppressed_after_condition",
+                    "source_mature_signal_stock_days": len(picked),
+                    "source_unique_stocks": picked["stock_id"].nunique() if "stock_id" in picked.columns else "",
+                    "accepted_trade_count": len(accepted),
+                    "accepted_unique_stocks": accepted["stock_id"].nunique() if "stock_id" in accepted.columns else "",
+                    "suppressed_signal_count": suppressed_count,
+                    "suppressed_rate_pct": _rate(suppressed_count, len(picked)),
+                    "accepted_share_of_source_mature_pct": _rate(len(accepted), len(picked)),
+                    "baseline_source_mature_signal_stock_days": baseline_source_mature_count,
+                    "baseline_accepted_trade_count": baseline_accepted_trade_count,
+                    "accepted_trade_share_of_baseline_pct": _rate(len(accepted), baseline_accepted_trade_count),
+                    "source_signal_day_count": source_date_stats["signal_day_count"],
+                    "source_avg_signals_per_signal_day": source_date_stats["avg_rows_per_signal_day"],
+                    "accepted_signal_day_count": accepted_date_stats["signal_day_count"],
+                    "accepted_avg_trades_per_signal_day": accepted_date_stats["avg_rows_per_signal_day"],
+                    "research_trading_day_count": research_trading_day_count,
+                    "accepted_avg_trades_per_research_day": (
+                        round(len(accepted) / research_trading_day_count, 2)
+                        if research_trading_day_count
+                        else ""
+                    ),
+                    "first_signal_date": source_date_stats["first_signal_date"],
+                    "last_signal_date": source_date_stats["last_signal_date"],
+                    "metric_surface_use": "model_lane_research_metric_source_candidate_not_pdf_ready",
+                    "advisory_status": "not_production_ready_research_only",
+                    "approved_for_daily": False,
+                    "production_change": "none",
+                    "promotion_readiness": "blocked_model_specific_promotion_pr_required",
+                    "promotion_blocker": (
+                        "revenue condition cannot enter price_pullback_23ema production until explicit "
+                        "model-rule decision, contract/parity/validator updates, PR merge, and post-merge main validation"
+                    ),
+                    **_price_pullback_revenue_condition_metrics(accepted),
+                }
+            )
+    out = pd.DataFrame(rows)
+    if out.empty:
+        return out
+    return out.sort_values(["anomaly_exclusion_basis", "test_order"]).reset_index(drop=True)
+
+
+def _fixed_d20_close_metrics(frame: pd.DataFrame) -> dict[str, object]:
+    if frame.empty or "next_open_to_d20_close_return_pct" not in frame.columns:
+        return {
+            "mature_count": 0,
+            "win_count": 0,
+            "neutral_count": 0,
+            "failure_count": 0,
+            "win_rate_pct": "",
+            "neutral_rate_pct": "",
+            "failure_rate_pct": "",
+            "avg_d20_close_return_pct": "",
+            "median_d20_close_return_pct": "",
+            "avg_realized_return_pct": "",
+            "median_realized_return_pct": "",
+            "high_return_8_count": 0,
+            "high_return_8_rate_pct": "",
+            "high_return_10_count": 0,
+            "high_return_10_rate_pct": "",
+            "loss_5_count": 0,
+            "loss_5_rate_pct": "",
+            "avg_revenue_latest_yoy_pct": "",
+            "median_revenue_latest_yoy_pct": "",
+            "avg_revenue_cumulative_yoy_pct": "",
+            "median_revenue_cumulative_yoy_pct": "",
+        }
+    ret = pd.to_numeric(frame["next_open_to_d20_close_return_pct"], errors="coerce")
+    valid = frame[ret.notna()].copy()
+    realized = pd.to_numeric(valid["next_open_to_d20_close_return_pct"], errors="coerce")
+    wins = realized.ge(5.0)
+    neutral = realized.ge(0.0) & realized.lt(5.0)
+    failure = realized.lt(0.0)
+    high8 = realized.ge(8.0)
+    high10 = realized.ge(10.0)
+    loss5 = realized.le(-5.0)
+    latest = numeric_column(valid, "full_monthly_revenue_latest_yoy_pct")
+    cumulative = numeric_column(valid, "full_monthly_revenue_cumulative_yoy_pct")
+    mature = len(valid)
+    return {
+        "mature_count": mature,
+        "win_count": int(wins.sum()),
+        "neutral_count": int(neutral.sum()),
+        "failure_count": int(failure.sum()),
+        "win_rate_pct": _rate(int(wins.sum()), mature),
+        "neutral_rate_pct": _rate(int(neutral.sum()), mature),
+        "failure_rate_pct": _rate(int(failure.sum()), mature),
+        "avg_d20_close_return_pct": _mean_or_blank(realized),
+        "median_d20_close_return_pct": _median_or_blank(realized),
+        "avg_realized_return_pct": _mean_or_blank(realized),
+        "median_realized_return_pct": _median_or_blank(realized),
+        "high_return_8_count": int(high8.sum()),
+        "high_return_8_rate_pct": _rate(int(high8.sum()), mature),
+        "high_return_10_count": int(high10.sum()),
+        "high_return_10_rate_pct": _rate(int(high10.sum()), mature),
+        "loss_5_count": int(loss5.sum()),
+        "loss_5_rate_pct": _rate(int(loss5.sum()), mature),
+        "avg_revenue_latest_yoy_pct": _mean_or_blank(latest),
+        "median_revenue_latest_yoy_pct": _median_or_blank(latest),
+        "avg_revenue_cumulative_yoy_pct": _mean_or_blank(cumulative),
+        "median_revenue_cumulative_yoy_pct": _median_or_blank(cumulative),
+    }
+
+
+def build_revenue_unreacted_range_revenue_condition_matrix(df: pd.DataFrame) -> pd.DataFrame:
+    positioned = _price_pullback_positioned_frame(df)
+    research_dates = positioned["_price_pullback_signal_date"].map(safe_str)
+    research_trading_day_count = int(research_dates[research_dates.ne("")].nunique())
+    base = positioned[current_revenue_unreacted_baseline_proxy(positioned).fillna(False)].copy()
+    rows: list[dict[str, object]] = []
+    generated_at = now_text()
+    for anomaly_basis in ["including_numerical_anomalies", "excluding_revenue_numerical_anomalies"]:
+        baseline_exception_mask = _full_monthly_revenue_anomaly_mask(base)
+        basis_base = base[~baseline_exception_mask].copy() if anomaly_basis.startswith("excluding") else base.copy()
+        baseline_mature_count = int(_fixed_d20_close_metrics(basis_base)["mature_count"])
+        for spec in REVENUE_UNREACTED_REVENUE_CONDITION_TESTS:
+            condition_mask = spec["condition"](base).fillna(False)
+            picked_raw = base[condition_mask].copy()
+            sample_exception_mask = _full_monthly_revenue_anomaly_mask(picked_raw)
+            picked = picked_raw[~sample_exception_mask].copy() if anomaly_basis.startswith("excluding") else picked_raw
+            source_date_stats = _price_pullback_date_stats(picked)
+            metrics = _fixed_d20_close_metrics(picked)
+            mature_count = int(metrics["mature_count"])
+            rows.append(
+                {
+                    "generated_at": generated_at,
+                    "model_id": "revenue_unreacted_range",
+                    "model_name_zh": "營收爆發但股價尚未反應模型",
+                    "research_artifact_id": "revenue_unreacted_range_revenue_condition_matrix",
+                    "matrix_scope": "model_specific_revenue_condition_research",
+                    "base_condition_id": "price_range_no_attack_proxy",
+                    "base_condition_rule": "price remains inside the recent 23-day range and active attack has not started",
+                    "test_order": spec["test_order"],
+                    "condition_test_id": spec["condition_test_id"],
+                    "condition_family": spec["condition_family"],
+                    "condition_role_candidate": spec["condition_role_candidate"],
+                    "condition_rule": spec["condition_rule"],
+                    "data_status": spec["data_status"],
+                    "revenue_join_source": FULL_MONTHLY_REVENUE_HISTORY_CSV.as_posix(),
+                    "point_in_time_rule": "monthly revenue source_table_date must be <= signal_date",
+                    "anomaly_exclusion_basis": anomaly_basis,
+                    "revenue_anomaly_count_in_sample": int(sample_exception_mask.sum()),
+                    "revenue_anomaly_count_in_baseline": int(baseline_exception_mask.sum()),
+                    "exit_rule_id": "d20_close_advisory",
+                    "formal_price_rule_status": "research_only_no_formal_operation_contract",
+                    "profit_target_pct": 5.0,
+                    "exit_price_rule": "D+20 close-only advisory outcome",
+                    "entry_rule_id": "signal_date_next_open",
+                    "operation_basis": "research_only_d20_close_not_operation_contract",
+                    "lifecycle_replay_scope": "none_no_formal_operation_adapter",
+                    "source_mature_signal_stock_days": len(picked),
+                    "source_unique_stocks": picked["stock_id"].nunique() if "stock_id" in picked.columns else "",
+                    "accepted_trade_count": mature_count,
+                    "accepted_unique_stocks": picked["stock_id"].nunique() if mature_count and "stock_id" in picked.columns else "",
+                    "suppressed_signal_count": 0,
+                    "suppressed_rate_pct": 0.0 if len(picked) else "",
+                    "accepted_share_of_source_mature_pct": _rate(mature_count, len(picked)),
+                    "baseline_source_mature_signal_stock_days": len(basis_base),
+                    "baseline_accepted_trade_count": baseline_mature_count,
+                    "accepted_trade_share_of_baseline_pct": _rate(mature_count, baseline_mature_count),
+                    "source_signal_day_count": source_date_stats["signal_day_count"],
+                    "source_avg_signals_per_signal_day": source_date_stats["avg_rows_per_signal_day"],
+                    "accepted_signal_day_count": source_date_stats["signal_day_count"],
+                    "accepted_avg_trades_per_signal_day": source_date_stats["avg_rows_per_signal_day"],
+                    "research_trading_day_count": research_trading_day_count,
+                    "accepted_avg_trades_per_research_day": (
+                        round(mature_count / research_trading_day_count, 2)
+                        if research_trading_day_count
+                        else ""
+                    ),
+                    "first_signal_date": source_date_stats["first_signal_date"],
+                    "last_signal_date": source_date_stats["last_signal_date"],
+                    "metric_surface_use": "model_lane_research_metric_source_candidate_not_pdf_ready",
+                    "advisory_status": "not_production_ready_research_only",
+                    "approved_for_daily": False,
+                    "production_change": "none",
+                    "promotion_readiness": "blocked_operation_rule_and_model_specific_promotion_pr_required",
+                    "promotion_blocker": (
+                        "revenue_unreacted_range still needs explicit buy/sell/stop/outcome contract, "
+                        "contract/parity/validator updates, PR merge, and post-merge main validation before "
+                        "a revenue gate or PDF metric can be formal"
+                    ),
+                    **metrics,
+                }
+            )
+    out = pd.DataFrame(rows)
+    if out.empty:
+        return out
+    return out.sort_values(["anomaly_exclusion_basis", "test_order"]).reset_index(drop=True)
+
+
+def _write_revenue_condition_matrix(
+    matrix: pd.DataFrame,
+    *,
+    title: str,
+    csv_path: Path,
+    md_path: Path,
+    history_path: Path,
+    docs_csv_path: Path,
+    docs_md_path: Path,
+) -> None:
+    write_csv(matrix, csv_path)
+    write_csv(matrix, history_path)
+    write_csv(matrix, docs_csv_path)
+    lines = [
+        f"# {title}",
+        "",
+        f"- generated_at: `{now_text()}`",
+        "- status: `not_production_ready_research_only`",
+        "- production_change: `none`",
+        "- revenue_join_rule: `source_table_date <= signal_date`",
+        "- formal_use: blocked until an explicit model-specific promotion PR updates contract/parity/validators and passes post-merge main validation.",
+        "",
+        markdown_table(
+            matrix,
+            [
+                "anomaly_exclusion_basis",
+                "condition_test_id",
+                "condition_family",
+                "source_mature_signal_stock_days",
+                "accepted_trade_count",
+                "accepted_trade_share_of_baseline_pct",
+                "win_rate_pct",
+                "neutral_rate_pct",
+                "failure_rate_pct",
+                "avg_realized_return_pct",
+                "median_realized_return_pct",
+                "high_return_8_rate_pct",
+                "loss_5_rate_pct",
+                "avg_revenue_latest_yoy_pct",
+                "avg_revenue_cumulative_yoy_pct",
+                "promotion_readiness",
+            ],
+            limit=120,
+        )
+        if not matrix.empty
+        else "No revenue condition matrix rows.",
+    ]
+    md_path.write_text("\n".join(lines).rstrip() + "\n", encoding="utf-8", newline="\n")
+    docs_md_path.write_text(md_path.read_text(encoding="utf-8"), encoding="utf-8", newline="\n")
+
+
+def write_price_pullback_revenue_condition_matrix(matrix: pd.DataFrame) -> None:
+    _write_revenue_condition_matrix(
+        matrix,
+        title="Price Pullback 23EMA Revenue Condition Matrix",
+        csv_path=PRICE_PULLBACK_REVENUE_CONDITION_MATRIX_CSV,
+        md_path=PRICE_PULLBACK_REVENUE_CONDITION_MATRIX_MD,
+        history_path=PRICE_PULLBACK_REVENUE_CONDITION_MATRIX_HISTORY_CSV,
+        docs_csv_path=DOCS_PRICE_PULLBACK_REVENUE_CONDITION_MATRIX_CSV,
+        docs_md_path=DOCS_PRICE_PULLBACK_REVENUE_CONDITION_MATRIX_MD,
+    )
+
+
+def write_revenue_unreacted_range_revenue_condition_matrix(matrix: pd.DataFrame) -> None:
+    _write_revenue_condition_matrix(
+        matrix,
+        title="Revenue Unreacted Range Revenue Condition Matrix",
+        csv_path=REVENUE_UNREACTED_CONDITION_MATRIX_CSV,
+        md_path=REVENUE_UNREACTED_CONDITION_MATRIX_MD,
+        history_path=REVENUE_UNREACTED_CONDITION_MATRIX_HISTORY_CSV,
+        docs_csv_path=DOCS_REVENUE_UNREACTED_CONDITION_MATRIX_CSV,
+        docs_md_path=DOCS_REVENUE_UNREACTED_CONDITION_MATRIX_MD,
+    )
+
+
 def _price_pullback_ordered_condition_hint(
     spec: dict[str, object],
     mature_count: int,
@@ -6163,6 +6968,10 @@ def main() -> int:
     price_pullback_research_score_bucket_df = build_price_pullback_research_score_bucket(df)
     print("Building price_pullback high-return feature score grid", flush=True)
     price_pullback_high_return_score_grid_df = build_price_pullback_high_return_feature_score_grid(df)
+    print("Building price_pullback revenue condition matrix", flush=True)
+    price_pullback_revenue_condition_matrix_df = build_price_pullback_revenue_condition_matrix(df)
+    print("Building revenue_unreacted_range revenue condition matrix", flush=True)
+    revenue_unreacted_condition_matrix_df = build_revenue_unreacted_range_revenue_condition_matrix(df)
     print("Building price_pullback ordered condition matrix", flush=True)
     price_pullback_ordered_condition_matrix_df = build_price_pullback_ordered_condition_matrix(df)
     print("Building price_pullback lifecycle replay", flush=True)
@@ -6193,6 +7002,8 @@ def main() -> int:
     write_price_pullback_continuation_win_profile(price_pullback_continuation_win_profile_df)
     write_price_pullback_research_score_bucket(price_pullback_research_score_bucket_df)
     write_price_pullback_high_return_feature_score_grid(price_pullback_high_return_score_grid_df)
+    write_price_pullback_revenue_condition_matrix(price_pullback_revenue_condition_matrix_df)
+    write_revenue_unreacted_range_revenue_condition_matrix(revenue_unreacted_condition_matrix_df)
     write_price_pullback_ordered_condition_matrix(price_pullback_ordered_condition_matrix_df)
     write_price_pullback_lifecycle_replay(price_pullback_lifecycle_replay_df)
     write_price_pullback_daily_row_parity_audit(price_pullback_daily_row_parity_df)
@@ -6209,6 +7020,8 @@ def main() -> int:
     print(f"Saved {PRICE_PULLBACK_CONTINUATION_WIN_PROFILE_CSV} rows={len(price_pullback_continuation_win_profile_df)}")
     print(f"Saved {PRICE_PULLBACK_RESEARCH_SCORE_BUCKET_CSV} rows={len(price_pullback_research_score_bucket_df)}")
     print(f"Saved {PRICE_PULLBACK_HIGH_RETURN_SCORE_GRID_CSV} rows={len(price_pullback_high_return_score_grid_df)}")
+    print(f"Saved {PRICE_PULLBACK_REVENUE_CONDITION_MATRIX_CSV} rows={len(price_pullback_revenue_condition_matrix_df)}")
+    print(f"Saved {REVENUE_UNREACTED_CONDITION_MATRIX_CSV} rows={len(revenue_unreacted_condition_matrix_df)}")
     print(f"Saved {PRICE_PULLBACK_ORDERED_CONDITION_MATRIX_CSV} rows={len(price_pullback_ordered_condition_matrix_df)}")
     print(f"Saved {PRICE_PULLBACK_LIFECYCLE_REPLAY_CSV} rows={len(price_pullback_lifecycle_replay_df)}")
     print(f"Saved {PRICE_PULLBACK_DAILY_ROW_PARITY_CSV} rows={len(price_pullback_daily_row_parity_df)}")

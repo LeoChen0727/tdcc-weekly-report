@@ -149,6 +149,32 @@ Formal revenue gates remain blocked unless the audit reports enough history
 months and enough signal-row / stock coverage. A candidate snapshot PIT panel is
 not a validated full-market historical backfill source.
 
+## Revenue Condition Matrices
+
+Model-specific revenue condition matrices are research interpretation evidence,
+not shared objective background data:
+
+- `output/latest/research_backtest/price_pullback_23ema_revenue_condition_matrix_latest.csv`
+- `output/latest/research_backtest/revenue_unreacted_range_revenue_condition_matrix_latest.csv`
+- `docs/latest/price_pullback_23ema_revenue_condition_matrix_latest.csv`
+- `docs/latest/revenue_unreacted_range_revenue_condition_matrix_latest.csv`
+
+The producer and validator are:
+
+```text
+python scripts/build_daily_model_parameter_research.py
+python scripts/validate_daily_model_revenue_condition_matrix.py
+```
+
+Allowed use: compare model-specific revenue conditions under the matrix's stated
+buy point, sell rule, anomaly-exclusion basis, and `source_table_date <=
+signal_date` monthly revenue join.
+
+Forbidden use: do not use these matrix rows as production gates, scores,
+rankings, PDF metrics, or shared cross-model features. `monthly_revenue_history`
+is the reusable objective input; the matrix conclusion is specific to the named
+model and still needs an explicit promotion PR before formal use.
+
 ## Revenue PIT Panel
 
 Monthly revenue now has a coverage-limited point-in-time panel:

@@ -14,6 +14,7 @@ from build_daily_candidate_model_layer import build_parameter_table, build_specs
 from build_daily_model_parameter_research import (  # noqa: E402
     _add_feature_confirmation_deltas,
     add_price_structure_features,
+    attach_full_monthly_revenue_history_features,
     attach_signal_background_features,
     add_price_pullback_high_return_feature_score_columns,
     add_price_pullback_research_score_columns,
@@ -21,6 +22,7 @@ from build_daily_model_parameter_research import (  # noqa: E402
     build_price_pullback_exit_rule_comparison,
     build_price_pullback_feature_confirmation_research,
     build_price_pullback_high_return_feature_score_grid,
+    build_price_pullback_revenue_condition_matrix,
     build_model_parity,
     build_price_pullback_model_decision_audit,
     build_price_pullback_operation_module_research,
@@ -29,12 +31,14 @@ from build_daily_model_parameter_research import (  # noqa: E402
     build_price_pullback_ordered_condition_matrix,
     build_price_pullback_research_score_bucket,
     build_price_pullback_time_cost_backtest,
+    build_revenue_unreacted_range_revenue_condition_matrix,
     current_price_pullback_baseline_proxy,
     price_pullback_prior_extension_filter,
     rule_specs,
     sample_status,
 )
 from validate_daily_model_research_parity import validate_rule_specs  # noqa: E402
+from validate_daily_model_revenue_condition_matrix import validate_price_pullback, validate_revenue_unreacted  # noqa: E402
 from validate_research_against_stock_model_contract import build_parity_rows  # noqa: E402
 
 
@@ -1087,6 +1091,167 @@ def test_price_pullback_lifecycle_replay_suppresses_same_stock_active_signals() 
     assert bool(row["approved_for_daily"]) is False
     assert row["production_change"] == "none"
     assert row["pdf_metric_readiness"] == "blocked_until_formal_promotion_and_operation_adapter_contract"
+
+
+def test_full_monthly_revenue_history_join_uses_source_table_date_asof(tmp_path: Path) -> None:
+    history = pd.DataFrame(
+        [
+            {
+                "stock_id": "2330",
+                "revenue_period": "202601",
+                "source_table_date": "20260217",
+                "source_kind": "official_test",
+                "latest_revenue_yoy_pct": "40",
+                "cumulative_revenue_yoy_pct": "25",
+                "month_over_month_pct": "5",
+                "revenue_numerical_anomaly_flag": "False",
+                "revenue_numerical_anomaly_reason": "",
+                "research_join_allowed": "True",
+                "allowed_for_formal_historical_model_use": "False",
+            }
+        ]
+    )
+    path = tmp_path / "monthly_revenue_history.csv"
+    history.to_csv(path, index=False)
+    frame = pd.DataFrame(
+        [
+            {"stock_id": "2330", "date": "20260216"},
+            {"stock_id": "2330", "date": "20260217"},
+            {"stock_id": "9999", "date": "20260217"},
+        ]
+    )
+
+    joined = attach_full_monthly_revenue_history_features(frame, path)
+
+    assert list(joined["full_monthly_revenue_data_status"]) == [
+        "missing_asof_revenue_on_or_before_signal_date",
+        "ready_asof_history_row",
+        "missing_stock_in_full_monthly_revenue_history",
+    ]
+    assert bool(joined.loc[1, "full_monthly_revenue_context_ready"]) is True
+    assert bool(joined.loc[1, "full_monthly_revenue_strong_flag"]) is True
+    assert bool(joined.loc[1, "full_monthly_revenue_formal_model_use_allowed"]) is False
+
+
+def _price_pullback_revenue_matrix_fixture() -> pd.DataFrame:
+    df = pd.DataFrame(
+        {
+            "stock_id": ["2330", "2330", "2317"],
+            "date": ["20260101", "20260102", "20260101"],
+            "next_open": [100.0, 100.0, 100.0],
+            "distance_ema23_pct": [1.0, 1.0, 1.0],
+            "platform_low": [100.0, 100.0, 100.0],
+            "short_platform_low": [100.0, 100.0, 100.0],
+            "previous_20d_low": [100.0, 100.0, 100.0],
+            "low_20": [100.0, 100.0, 100.0],
+            "range_low_20d_prev": [100.0, 100.0, 100.0],
+            "range_high_20d_prev": [105.0, 105.0, 105.0],
+            "close": [101.0, 101.0, 101.0],
+            "ema23": [100.0, 100.0, 100.0],
+            "ma20": [101.0, 101.0, 101.0],
+            "ema23_slope_pct": [1.0, 1.0, 1.0],
+            "ema23_slope_5d_pct": [1.0, 1.0, 1.0],
+            "ma5_turning_up_flag": [False, False, False],
+            "ma10_turning_up_flag": [False, False, False],
+            "volume_ratio_prev20": [1.0, 1.0, 1.0],
+            "bullish_attack_candle": [True, True, True],
+            "solid_red_candle": [False, False, False],
+            "obv_above_ma20": [True, True, True],
+            "tdcc_history_available": [True, True, True],
+            "high_thresholds_up": [True, True, True],
+            "return_20d_pct": [10.0, 10.0, 10.0],
+            "return_45d_pct": [18.0, 18.0, 18.0],
+            "range_width_45d_pct": [25.0, 25.0, 25.0],
+            "prior_extension_ema23_20d_pct": [12.0, 12.0, 12.0],
+            "prior_runup_20d_pct": [22.0, 22.0, 22.0],
+            "pullback_from_high_20d_pct": [-6.0, -6.0, -6.0],
+            "full_monthly_revenue_context_ready": [True, True, True],
+            "full_monthly_revenue_latest_yoy_pct": [40.0, 40.0, -5.0],
+            "full_monthly_revenue_cumulative_yoy_pct": [25.0, 25.0, -2.0],
+            "full_monthly_revenue_positive_flag": [True, True, False],
+            "full_monthly_revenue_strong_flag": [True, True, False],
+            "full_monthly_revenue_positive_or_strong": [True, True, False],
+            "full_monthly_revenue_numerical_anomaly_flag": [False, False, False],
+            "next_open_to_d20_close_return_pct": [6.0, 6.0, -2.0],
+        }
+    )
+    future_cols = {}
+    for day in range(1, 21):
+        future_cols[f"next_open_to_d{day}_day_close_return_pct"] = [1.0, 1.0, -2.0]
+        future_cols[f"future_d{day}_ma20"] = [100.0, 100.0, 100.0]
+        future_cols[f"future_d{day}_ema23"] = [100.0, 100.0, 100.0]
+        future_cols[f"future_d{day}_ma5"] = [90.0, 90.0, 90.0]
+    for day in range(2, 22):
+        future_cols[f"future_d{day}_open"] = [100.0, 100.0, 100.0]
+    df = pd.concat([df, pd.DataFrame(future_cols)], axis=1)
+    df.loc[[0, 1], "next_open_to_d2_day_close_return_pct"] = 6.0
+    df.loc[[0, 1], "future_d3_open"] = 107.0
+    return df
+
+
+def test_price_pullback_revenue_condition_matrix_is_research_only_and_uses_lifecycle() -> None:
+    matrix = build_price_pullback_revenue_condition_matrix(_price_pullback_revenue_matrix_fixture())
+
+    assert not matrix.empty
+    assert validate_price_pullback(matrix.astype(str)) == []
+    assert matrix["approved_for_daily"].eq(False).all()
+    assert matrix["production_change"].eq("none").all()
+    assert "revenue_production_strong" in set(matrix["condition_test_id"])
+    strong = matrix[
+        matrix["condition_test_id"].eq("revenue_production_strong")
+        & matrix["anomaly_exclusion_basis"].eq("excluding_known_price_or_revenue_anomalies")
+    ].iloc[0]
+    assert strong["lifecycle_replay_scope"] == "trade_level_same_stock_active_position_suppressed_after_condition"
+    assert strong["source_mature_signal_stock_days"] == 2
+    assert strong["accepted_trade_count"] == 1
+    assert strong["suppressed_signal_count"] == 1
+    assert strong["promotion_readiness"] == "blocked_model_specific_promotion_pr_required"
+    tampered = matrix.astype(str).copy()
+    tampered.loc[0, "approved_for_daily"] = "True"
+    assert any("approved_for_daily" in error for error in validate_price_pullback(tampered))
+
+
+def test_revenue_unreacted_range_revenue_matrix_stays_advisory_without_operation_contract() -> None:
+    df = pd.DataFrame(
+        {
+            "stock_id": ["2330", "2317"],
+            "date": ["20260101", "20260101"],
+            "close": [100.0, 100.0],
+            "range_low_23d_prev": [95.0, 95.0],
+            "range_high_23d_prev": [105.0, 105.0],
+            "volume_ratio_prev20": [1.0, 1.0],
+            "range_breakout_20d_pct": [0.0, 0.0],
+            "volume_ma20_lots": [100.0, 100.0],
+            "bullish_attack_candle": [False, False],
+            "locked_limit_up_breakout": [False, False],
+            "return_5d_pct": [1.0, 1.0],
+            "return_20d_pct": [5.0, 5.0],
+            "full_monthly_revenue_context_ready": [True, True],
+            "full_monthly_revenue_latest_yoy_pct": [60.0, -5.0],
+            "full_monthly_revenue_cumulative_yoy_pct": [30.0, -2.0],
+            "full_monthly_revenue_positive_flag": [True, False],
+            "full_monthly_revenue_strong_flag": [True, False],
+            "full_monthly_revenue_positive_or_strong": [True, False],
+            "full_monthly_revenue_numerical_anomaly_flag": [False, False],
+            "next_open_to_d20_close_return_pct": [8.0, -3.0],
+        }
+    )
+
+    matrix = build_revenue_unreacted_range_revenue_condition_matrix(df)
+
+    assert not matrix.empty
+    assert validate_revenue_unreacted(matrix.astype(str)) == []
+    assert matrix["approved_for_daily"].eq(False).all()
+    assert matrix["production_change"].eq("none").all()
+    strong = matrix[
+        matrix["condition_test_id"].eq("revenue_production_strong")
+        & matrix["anomaly_exclusion_basis"].eq("excluding_revenue_numerical_anomalies")
+    ].iloc[0]
+    assert strong["formal_price_rule_status"] == "research_only_no_formal_operation_contract"
+    assert strong["operation_basis"] == "research_only_d20_close_not_operation_contract"
+    assert strong["accepted_trade_count"] == 1
+    assert strong["win_rate_pct"] == 100.0
+    assert strong["promotion_readiness"] == "blocked_operation_rule_and_model_specific_promotion_pr_required"
 
 
 def test_feature_confirmation_deltas_support_future_string_dtype() -> None:
