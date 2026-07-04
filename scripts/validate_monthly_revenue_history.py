@@ -10,8 +10,10 @@ import pandas as pd
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from build_monthly_revenue_history import (  # noqa: E402
+    DEFAULT_FALLBACK_MAX_AGE_DAYS,
     DOCS_LATEST_CSV,
     DOCS_LATEST_MD,
+    FALLBACK_SOURCE_STATUS,
     HISTORY_CSV,
     HISTORY_ID,
     HISTORY_VERSION,
@@ -46,6 +48,60 @@ def validate_mirror(errors: list[str]) -> None:
             errors.append(f"monthly revenue mirror differs: {right.as_posix()}")
 
 
+def validate_source_status_rows(data: object) -> list[str]:
+    errors: list[str] = []
+    if not isinstance(data, list) or not data:
+        errors.append("source status json must contain a non-empty list")
+        return errors
+    markets = {str(item.get("market", "")) for item in data if isinstance(item, dict)}
+    missing = VALID_MARKETS - markets
+    if missing:
+        errors.append(f"source status missing markets: {sorted(missing)}")
+    fallback_rows = [
+        item
+        for item in data
+        if isinstance(item, dict) and str(item.get("status", "")) == FALLBACK_SOURCE_STATUS
+    ]
+    fallback_active = bool(fallback_rows)
+    if len(fallback_rows) > 1:
+        errors.append("source status must not contain multiple monthly revenue fallback rows")
+    if fallback_active:
+        fallback = fallback_rows[0]
+        if str(fallback.get("market", "")) != "all":
+            errors.append("monthly revenue fallback status row must use market=all")
+        if int(fallback.get("standardized_rows") or 0) <= 0:
+            errors.append("monthly revenue fallback status must reference non-empty cached history")
+        try:
+            age_days = int(fallback.get("fallback_age_days"))
+            max_age_days = int(fallback.get("fallback_max_age_days"))
+        except (TypeError, ValueError):
+            errors.append("monthly revenue fallback status must include numeric fallback_age_days and fallback_max_age_days")
+        else:
+            if max_age_days > DEFAULT_FALLBACK_MAX_AGE_DAYS:
+                errors.append(
+                    "monthly revenue fallback max age exceeds repository default: "
+                    f"{max_age_days} > {DEFAULT_FALLBACK_MAX_AGE_DAYS}"
+                )
+            if age_days > max_age_days:
+                errors.append(f"monthly revenue fallback cached history is stale: {age_days} > {max_age_days}")
+        if not re.fullmatch(r"20\d{6}", str(fallback.get("fallback_max_source_table_date", ""))):
+            errors.append("monthly revenue fallback status must include fallback_max_source_table_date")
+    for item in data:
+        if not isinstance(item, dict):
+            errors.append("source status row must be an object")
+            continue
+        status = str(item.get("status", ""))
+        if status == FALLBACK_SOURCE_STATUS:
+            continue
+        if fallback_active and status != "ok":
+            continue
+        if status != "ok":
+            errors.append(f"source status is not ok for {item.get('market')}: {item.get('status')}")
+        if int(item.get("standardized_rows") or 0) <= 0:
+            errors.append(f"source status has no standardized rows for {item.get('market')}")
+    return errors
+
+
 def validate_source_status(errors: list[str]) -> None:
     if not SOURCE_STATUS_JSON.exists():
         errors.append(f"missing source status json: {SOURCE_STATUS_JSON.as_posix()}")
@@ -55,21 +111,7 @@ def validate_source_status(errors: list[str]) -> None:
     except json.JSONDecodeError as exc:
         errors.append(f"source status json is not valid JSON: {exc}")
         return
-    if not isinstance(data, list) or not data:
-        errors.append("source status json must contain a non-empty list")
-        return
-    markets = {str(item.get("market", "")) for item in data if isinstance(item, dict)}
-    missing = VALID_MARKETS - markets
-    if missing:
-        errors.append(f"source status missing markets: {sorted(missing)}")
-    for item in data:
-        if not isinstance(item, dict):
-            errors.append("source status row must be an object")
-            continue
-        if str(item.get("status", "")) != "ok":
-            errors.append(f"source status is not ok for {item.get('market')}: {item.get('status')}")
-        if int(item.get("standardized_rows") or 0) <= 0:
-            errors.append(f"source status has no standardized rows for {item.get('market')}")
+    errors.extend(validate_source_status_rows(data))
 
 
 def validate_history(
