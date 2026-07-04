@@ -90,8 +90,11 @@ daily PDF artifact paths.
 - `research_backtest`: research-only parameter studies, backtests, operation
   readiness evidence, and historical performance outputs.
 - `tdcc_weekly`: TDCC holder-flow, weekly candidate reports, TDCC-specific
-  tracking artifacts, and bounded TDCC history gap repair. The weekly report
-  workflow remains the report-production entrypoint; `scripts/repair_tdcc_monthly_history_gaps.py`
+  tracking artifacts, and bounded TDCC history gap repair. The GitHub weekly
+  report workflow remains the repo artifact production entrypoint; Codex local
+  report automation should call `scripts/run_tdcc_weekly_report_entrypoint.py`
+  so generated `output/latest` or `docs/latest` residue in the fixed worktree
+  cannot block a clean `origin/main` source build. `scripts/repair_tdcc_monthly_history_gaps.py`
   is the source-integrity entrypoint for current-month TDCC history repairs
   before the current week.
 - `individual_stock`: single-stock packet/report generation and single-stock
