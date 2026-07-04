@@ -1,6 +1,6 @@
 # Candidate Repeat Appearance Validation
 
-- generated_at: `2026-07-04 17:41:51 Asia/Taipei`
+- generated_at: `2026-07-04 19:04:49 Asia/Taipei`
 - status: `pass`
 - main_price_date: `20260703`
 - history_available_days: `26`
