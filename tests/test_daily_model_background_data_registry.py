@@ -37,18 +37,15 @@ def test_model_specific_family_cannot_be_all_models() -> None:
     assert any("model-specific family must list specific consumer_models" in error for error in errors)
 
 
-def test_missing_revenue_panel_must_stay_blocked() -> None:
+def test_revenue_panel_must_stay_coverage_limited() -> None:
     rows = deepcopy(registry_rows())
     for row in rows:
         if row["data_family_id"] == "monthly_revenue_point_in_time_panel":
-            row["artifact_path"] = "output/latest/fake_revenue.csv"
-            row["allowed_use"] = "use now"
+            row["forbidden_use"] = "use as a formal gate"
             row["validator"] = "not_ready_validator.py"
-            row["cleanup_status"] = "active"
             break
 
     errors = validate_registry(rows)
 
-    assert any("missing data family must use cleanup_status" in error for error in errors)
-    assert any("missing data family must not point to a real artifact_path" in error for error in errors)
-    assert any("missing data family must use validator=not_implemented" in error for error in errors)
+    assert any("monthly_revenue_point_in_time_panel" in error for error in errors)
+    assert any("validator path missing" in error for error in errors)

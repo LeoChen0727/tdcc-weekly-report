@@ -134,9 +134,11 @@ jobs:
       - name: Build daily model parameter research
         if: ${{ github.event.inputs.run_model_parameter_research == 'true' }}
         run: |
-          python scripts/build_daily_model_parameter_research.py
+          python scripts/build_monthly_revenue_point_in_time_panel.py
+          python scripts/validate_monthly_revenue_point_in_time_panel.py
           python scripts/build_daily_model_signal_background_features.py
           python scripts/validate_daily_model_signal_background_features.py
+          python scripts/build_daily_model_parameter_research.py
           python scripts/build_daily_model_background_data_cleanup_audit.py
           python scripts/validate_daily_model_background_data_cleanup_audit.py
           python scripts/validate_daily_model_research_parity.py
@@ -231,6 +233,7 @@ jobs:
           git add output/latest/daily_model_parameter_research_*.csv output/latest/daily_model_parameter_research_*.md || true
           git add output/latest/research_backtest/daily_model_signal_background_feature_panel_latest.csv output/latest/research_backtest/daily_model_signal_background_feature_panel_latest.md || true
           git add output/latest/research_backtest/daily_model_background_feature_catalog_latest.csv output/latest/research_backtest/daily_model_background_feature_catalog_latest.md || true
+          git add output/latest/research_backtest/monthly_revenue_point_in_time_panel_latest.csv output/latest/research_backtest/monthly_revenue_point_in_time_panel_latest.md || true
           git add output/latest/research_backtest/daily_model_background_data_cleanup_audit_latest.csv output/latest/research_backtest/daily_model_background_data_cleanup_audit_latest.md || true
           git add output/latest/daily_model_parameter_recommendations_latest.csv output/latest/daily_model_parameter_recommendations_latest.md || true
           git add output/latest/research_backtest/daily_model_research_parity_latest.csv output/latest/research_backtest/daily_model_research_parity_latest.md || true
@@ -256,6 +259,7 @@ jobs:
           git add docs/latest/daily_model_parameter_research_*.csv docs/latest/daily_model_parameter_research_*.md || true
           git add docs/latest/daily_model_signal_background_feature_panel_latest.csv docs/latest/daily_model_signal_background_feature_panel_latest.md || true
           git add docs/latest/daily_model_background_feature_catalog_latest.csv docs/latest/daily_model_background_feature_catalog_latest.md || true
+          git add docs/latest/monthly_revenue_point_in_time_panel_latest.csv docs/latest/monthly_revenue_point_in_time_panel_latest.md || true
           git add docs/latest/daily_model_background_data_cleanup_audit_latest.csv docs/latest/daily_model_background_data_cleanup_audit_latest.md || true
           git add docs/latest/daily_model_parameter_recommendations_latest.csv docs/latest/daily_model_parameter_recommendations_latest.md || true
           git add docs/latest/daily_model_research_parity_latest.csv docs/latest/daily_model_research_parity_latest.md || true
@@ -275,6 +279,7 @@ jobs:
           git add docs/latest/approved_operation_patterns_latest.csv docs/latest/approved_operation_patterns_latest.md || true
           git add docs/latest/daily_published_snapshot_ranking_backtest_latest.csv docs/latest/daily_published_snapshot_ranking_backtest_latest.md || true
           git add output/history/research/daily_model_parameter_research.csv || true
+          git add output/history/research/monthly_revenue_point_in_time_panel.csv || true
           git add output/history/research/price_pullback_23ema_operation_module_research.csv || true
           git add output/history/research/price_pullback_23ema_feature_confirmation_research.csv || true
           git add output/history/research/price_pullback_23ema_daily_row_parity.csv || true

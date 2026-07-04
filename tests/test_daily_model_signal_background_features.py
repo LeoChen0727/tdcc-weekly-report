@@ -15,9 +15,11 @@ from build_daily_model_signal_background_features import (  # noqa: E402
     build_feature_panel,
     feature_catalog,
     load_theme_status_history,
+    load_monthly_revenue_pit_panel,
     load_price_history,
     load_tdcc_history,
     price_background_features,
+    revenue_background_features,
     theme_background_features,
     tdcc_background_features,
 )
@@ -166,6 +168,53 @@ def test_theme_background_features_use_signal_date_asof_history(tmp_path: Path) 
     assert str(theme_path.name) in features["theme_context_source_artifact"]
 
 
+def test_revenue_background_features_use_snapshot_observed_asof_rows(tmp_path: Path) -> None:
+    panel_path = tmp_path / "monthly_revenue_point_in_time_panel_latest.csv"
+    pd.DataFrame(
+        [
+            {
+                "stock_id": "2330",
+                "observed_as_of_date": "20260313",
+                "revenue_period": "202602",
+                "latest_revenue_yoy_pct": "10.5",
+                "cumulative_revenue_yoy_pct": "8.0",
+                "revenue_positive_flag": "True",
+                "revenue_strong_flag": "False",
+                "revenue_good_eps_unconfirmed_flag": "False",
+                "revenue_numerical_anomaly_flag": "False",
+                "research_join_allowed": "True",
+                "allowed_for_formal_historical_model_use": "False",
+                "source_snapshot_files": "output/history/daily_model_snapshots/all_candidates_20260313.csv",
+            },
+            {
+                "stock_id": "2330",
+                "observed_as_of_date": "20260327",
+                "revenue_period": "202603",
+                "latest_revenue_yoy_pct": "99.0",
+                "cumulative_revenue_yoy_pct": "88.0",
+                "revenue_positive_flag": "True",
+                "revenue_strong_flag": "True",
+                "revenue_good_eps_unconfirmed_flag": "True",
+                "revenue_numerical_anomaly_flag": "False",
+                "research_join_allowed": "True",
+                "allowed_for_formal_historical_model_use": "False",
+                "source_snapshot_files": "future.csv",
+            },
+        ]
+    ).to_csv(panel_path, index=False)
+    load_monthly_revenue_pit_panel.cache_clear()
+    panel = load_monthly_revenue_pit_panel(str(panel_path))
+
+    features = revenue_background_features("2330", "20260320", panel)
+
+    assert features["monthly_revenue_context_as_of_date"] == "20260313"
+    assert features["monthly_revenue_future_rows_ignored"] == 1
+    assert features["monthly_revenue_data_status"] == "ready_previous_snapshot_date"
+    assert features["monthly_revenue_latest_yoy_pct"] == 10.5
+    assert features["monthly_revenue_positive_flag"] is True
+    assert features["monthly_revenue_formal_model_use_allowed"] is False
+
+
 def test_background_feature_panel_stays_shared_objective(tmp_path: Path) -> None:
     price_dir = tmp_path / "prices"
     tdcc_dir = tmp_path / "tdcc"
@@ -222,6 +271,19 @@ def test_background_feature_panel_stays_shared_objective(tmp_path: Path) -> None
     row.update(tdcc_background_features("2330", "20260320", tdcc_dir=tdcc_dir))
     row.update(
         {
+            "monthly_revenue_context_as_of_date": "20260313",
+            "monthly_revenue_rows_as_of": 1,
+            "monthly_revenue_future_rows_ignored": 0,
+            "monthly_revenue_data_status": "ready_previous_snapshot_date",
+            "monthly_revenue_period": "202602",
+            "monthly_revenue_latest_yoy_pct": 10.5,
+            "monthly_revenue_cumulative_yoy_pct": 8.0,
+            "monthly_revenue_positive_flag": True,
+            "monthly_revenue_strong_flag": False,
+            "monthly_revenue_good_eps_unconfirmed_flag": False,
+            "monthly_revenue_numerical_anomaly_flag": False,
+            "monthly_revenue_source_artifact": "output/history/daily_model_snapshots/all_candidates_20260313.csv",
+            "monthly_revenue_formal_model_use_allowed": False,
             "theme_context_as_of_date": "20260313",
             "theme_context_rows_as_of": 1,
             "theme_context_future_rows_ignored": 0,
@@ -272,6 +334,8 @@ def test_background_feature_panel_stays_shared_objective(tmp_path: Path) -> None
     assert not any("neckline" in col for col in panel.columns)
     assert "price_pullback_23ema_operation_filter" in set(catalog["feature_column"])
     assert "neckline_45d_non_bearish_filter" in set(catalog["feature_column"])
+    revenue_catalog = catalog[catalog["feature_column"].eq("monthly_revenue_point_in_time_panel")].iloc[0]
+    assert revenue_catalog["feature_scope"] == "shared_objective_point_in_time"
     theme_catalog = catalog[catalog["feature_column"].eq("theme_context_status_group")].iloc[0]
     assert theme_catalog["feature_family"] == "theme_status_history"
     assert theme_catalog["allowed_use"] == "research_background_only_not_a_model_gate_or_score"

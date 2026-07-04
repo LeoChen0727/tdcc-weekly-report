@@ -101,6 +101,9 @@ DOCS_PRICE_PULLBACK_EXIT_RULE_COMPARISON_MD = DOCS_LATEST_DIR / PRICE_PULLBACK_E
 DAILY_SIGNAL_BACKGROUND_FEATURE_PANEL_CSV = (
     RESEARCH_LATEST_DIR / "daily_model_signal_background_feature_panel_latest.csv"
 )
+MONTHLY_REVENUE_POINT_IN_TIME_PANEL_CSV = (
+    RESEARCH_LATEST_DIR / "monthly_revenue_point_in_time_panel_latest.csv"
+)
 PRICE_PULLBACK_CONTINUATION_WIN_PROFILE_CSV = (
     RESEARCH_LATEST_DIR / "price_pullback_23ema_continuation_win_profile_latest.csv"
 )
@@ -472,6 +475,21 @@ THEME_CONTEXT_JOIN_COLUMNS = [
     "theme_context_volume_attack_failed",
     "theme_context_source_artifact",
 ]
+MONTHLY_REVENUE_CONTEXT_JOIN_COLUMNS = [
+    "monthly_revenue_context_as_of_date",
+    "monthly_revenue_rows_as_of",
+    "monthly_revenue_future_rows_ignored",
+    "monthly_revenue_data_status",
+    "monthly_revenue_period",
+    "monthly_revenue_latest_yoy_pct",
+    "monthly_revenue_cumulative_yoy_pct",
+    "monthly_revenue_positive_flag",
+    "monthly_revenue_strong_flag",
+    "monthly_revenue_good_eps_unconfirmed_flag",
+    "monthly_revenue_numerical_anomaly_flag",
+    "monthly_revenue_source_artifact",
+    "monthly_revenue_formal_model_use_allowed",
+]
 
 
 def attach_signal_background_features(
@@ -486,6 +504,11 @@ def attach_signal_background_features(
         out["theme_context_leadership_supported"] = False
         out["theme_context_overheated"] = False
         out["theme_context_volume_attack_selected_flag"] = False
+        out["monthly_revenue_data_status"] = "missing_signal_background_panel"
+        out["monthly_revenue_context_ready"] = False
+        out["monthly_revenue_positive_or_strong"] = False
+        out["monthly_revenue_numerical_anomaly_flag"] = False
+        out["monthly_revenue_formal_model_use_allowed"] = False
         return out
 
     panel = pd.read_csv(panel_path, dtype=str, keep_default_na=False)
@@ -496,23 +519,45 @@ def attach_signal_background_features(
         out["theme_context_leadership_supported"] = False
         out["theme_context_overheated"] = False
         out["theme_context_volume_attack_selected_flag"] = False
+        out["monthly_revenue_data_status"] = "missing_signal_background_panel"
+        out["monthly_revenue_context_ready"] = False
+        out["monthly_revenue_positive_or_strong"] = False
+        out["monthly_revenue_numerical_anomaly_flag"] = False
+        out["monthly_revenue_formal_model_use_allowed"] = False
         return out
 
-    keep = ["stock_id", "signal_date", *[col for col in THEME_CONTEXT_JOIN_COLUMNS if col in panel.columns]]
-    theme = panel[keep].copy()
-    theme["stock_id"] = theme["stock_id"].map(normalize_code)
-    theme["date"] = theme["signal_date"].map(normalize_date)
-    theme = theme.drop(columns=["signal_date"]).drop_duplicates(["stock_id", "date"], keep="last")
-    for col in ["theme_context_priority", "theme_context_volume_ratio", "theme_context_return_20d_pct"]:
-        if col in theme.columns:
-            theme[col] = pd.to_numeric(theme[col], errors="coerce")
+    keep = [
+        "stock_id",
+        "signal_date",
+        *[col for col in THEME_CONTEXT_JOIN_COLUMNS if col in panel.columns],
+        *[col for col in MONTHLY_REVENUE_CONTEXT_JOIN_COLUMNS if col in panel.columns],
+    ]
+    background = panel[keep].copy()
+    background["stock_id"] = background["stock_id"].map(normalize_code)
+    background["date"] = background["signal_date"].map(normalize_date)
+    background = background.drop(columns=["signal_date"]).drop_duplicates(["stock_id", "date"], keep="last")
+    for col in [
+        "theme_context_priority",
+        "theme_context_volume_ratio",
+        "theme_context_return_20d_pct",
+        "monthly_revenue_latest_yoy_pct",
+        "monthly_revenue_cumulative_yoy_pct",
+    ]:
+        if col in background.columns:
+            background[col] = pd.to_numeric(background[col], errors="coerce")
 
     left = out.copy()
     left["stock_id"] = left["stock_id"].map(normalize_code)
     left["date"] = left["date"].map(normalize_date)
-    merged = left.merge(theme, on=["stock_id", "date"], how="left")
+    merged = left.merge(background, on=["stock_id", "date"], how="left")
     merged["theme_context_data_status"] = merged["theme_context_data_status"].fillna("no_signal_background_row")
     for col in THEME_CONTEXT_JOIN_COLUMNS:
+        if col not in merged.columns:
+            merged[col] = ""
+    merged["monthly_revenue_data_status"] = merged["monthly_revenue_data_status"].fillna(
+        "no_signal_background_row"
+    )
+    for col in MONTHLY_REVENUE_CONTEXT_JOIN_COLUMNS:
         if col not in merged.columns:
             merged[col] = ""
     ready_statuses = {"ready_exact_signal_date", "ready_previous_signal_date"}
@@ -529,6 +574,22 @@ def attach_signal_background_features(
     merged["theme_context_volume_attack_selected_flag"] = trueish_column(
         merged,
         "theme_context_volume_attack_selected",
+    )
+    revenue_ready_statuses = {"ready_exact_signal_date", "ready_previous_snapshot_date"}
+    merged["monthly_revenue_context_ready"] = merged["monthly_revenue_data_status"].astype(str).isin(
+        revenue_ready_statuses
+    )
+    merged["monthly_revenue_positive_or_strong"] = merged["monthly_revenue_context_ready"] & (
+        trueish_column(merged, "monthly_revenue_positive_flag")
+        | trueish_column(merged, "monthly_revenue_strong_flag")
+    )
+    merged["monthly_revenue_numerical_anomaly_flag"] = trueish_column(
+        merged,
+        "monthly_revenue_numerical_anomaly_flag",
+    )
+    merged["monthly_revenue_formal_model_use_allowed"] = trueish_column(
+        merged,
+        "monthly_revenue_formal_model_use_allowed",
     )
     return merged
 
@@ -662,6 +723,18 @@ def price_pullback_theme_context_leadership_not_overheated_filter(d: pd.DataFram
 
 def price_pullback_theme_context_volume_attack_selected_filter(d: pd.DataFrame) -> pd.Series:
     return trueish_column(d, "theme_context_volume_attack_selected_flag").fillna(False)
+
+
+def price_pullback_monthly_revenue_context_ready_filter(d: pd.DataFrame) -> pd.Series:
+    return trueish_column(d, "monthly_revenue_context_ready").fillna(False)
+
+
+def price_pullback_monthly_revenue_positive_or_strong_filter(d: pd.DataFrame) -> pd.Series:
+    return (
+        price_pullback_monthly_revenue_context_ready_filter(d)
+        & trueish_column(d, "monthly_revenue_positive_or_strong")
+        & ~trueish_column(d, "monthly_revenue_formal_model_use_allowed")
+    ).fillna(False)
 
 
 def price_pullback_volume_red_k_entry(d: pd.DataFrame, volume_min: float, solid: bool = False) -> pd.Series:
@@ -1746,10 +1819,21 @@ PRICE_PULLBACK_FEATURE_CONFIRMATION_FILTERS = [
     {
         "feature_filter_id": "revenue_positive_or_strong",
         "feature_family": "revenue",
-        "feature_rule": "candidate revenue should be positive/strong as gate or add-score candidate",
-        "feature_test_status": "blocked_data_panel_incomplete",
-        "data_status": "historical revenue panel is not complete enough for point-in-time replay in this research frame",
-        "condition": None,
+        "feature_rule": "candidate has snapshot-observed monthly revenue context and latest or cumulative revenue YoY is positive/strong",
+        "feature_test_status": "tested_point_in_time",
+        "data_status": "joined_from_monthly_revenue_pit_panel_coverage_limited_research_only",
+        "condition": price_pullback_monthly_revenue_positive_or_strong_filter,
+    },
+    {
+        "feature_filter_id": "tdcc_high_thresholds_up_return20_0_25_obv_above_ma20_revenue_positive_or_strong",
+        "feature_family": "combo_chip_risk_control_technical_volume_revenue",
+        "feature_rule": "large-holder TDCC high thresholds increased, 20d return is between 0% and 25%, OBV above MA20, and revenue is positive/strong where coverage-limited PIT context exists",
+        "feature_test_status": "tested_point_in_time",
+        "data_status": "joined_from_monthly_revenue_pit_panel_coverage_limited_research_only",
+        "condition": lambda d: price_pullback_tdcc_high_thresholds_up_filter(d)
+        & price_pullback_return20_balanced_filter(d)
+        & price_pullback_obv_above_ma20_filter(d)
+        & price_pullback_monthly_revenue_positive_or_strong_filter(d),
     },
     {
         "feature_filter_id": "market_background_regime",
@@ -1838,6 +1922,8 @@ PRICE_PULLBACK_SUCCESS_NUMERIC_FEATURES = [
     ("rsi14", "technical", "RSI14 on signal date"),
     ("obv_slope_5d", "technical_volume", "OBV 5d slope on signal date"),
     ("tdcc_consecutive_up_weeks", "chip", "TDCC consecutive up weeks"),
+    ("monthly_revenue_latest_yoy_pct", "revenue", "coverage-limited latest monthly revenue YoY"),
+    ("monthly_revenue_cumulative_yoy_pct", "revenue", "coverage-limited cumulative monthly revenue YoY"),
     ("theme_context_volume_ratio", "theme_context", "point-in-time theme context volume ratio"),
     ("theme_context_return_20d_pct", "theme_context", "point-in-time theme context 20d return"),
 ]
@@ -1852,6 +1938,9 @@ PRICE_PULLBACK_SUCCESS_BOOL_FEATURES = [
     ("theme_context_leadership_supported", "theme_context", "theme context leadership supported"),
     ("theme_context_overheated", "theme_context", "theme context overheated"),
     ("theme_context_volume_attack_selected_flag", "theme_context", "theme context volume-attack selected"),
+    ("monthly_revenue_context_ready", "revenue", "coverage-limited monthly revenue context row available"),
+    ("monthly_revenue_positive_or_strong", "revenue", "monthly revenue latest/cumulative YoY is positive or strong"),
+    ("monthly_revenue_numerical_anomaly_flag", "revenue", "monthly revenue numerical anomaly label"),
 ]
 PRICE_PULLBACK_RESEARCH_SCORE_COMPONENTS = [
     {
@@ -2025,6 +2114,15 @@ PRICE_PULLBACK_ORDERED_CONDITION_TESTS = [
         "condition": price_pullback_macd_kd_confirm_filter,
     },
     {
+        "test_order": 45,
+        "test_stage": "01_single_context_candidate",
+        "condition_test_id": "revenue_positive_or_strong",
+        "condition_role_candidate": "coverage_limited_add_score_candidate_not_required_gate",
+        "condition_rule": "coverage-limited monthly revenue context exists and latest/cumulative revenue YoY is positive or strong",
+        "data_status": "joined_from_monthly_revenue_pit_panel_coverage_limited_research_only",
+        "condition": price_pullback_monthly_revenue_positive_or_strong_filter,
+    },
+    {
         "test_order": 50,
         "test_stage": "01_single_gate_candidate",
         "condition_test_id": "pattern45_bull_pullback",
@@ -2118,6 +2216,18 @@ PRICE_PULLBACK_ORDERED_CONDITION_TESTS = [
         "condition": lambda d: price_pullback_research_score_ge_filter(d, 4.0)
         & price_pullback_prev20_high_space_filter(d, 3.0)
         & (price_pullback_tdcc_high_thresholds_up_filter(d) | price_pullback_obv_above_ma20_filter(d)),
+    },
+    {
+        "test_order": 145,
+        "test_stage": "04_layered_candidate",
+        "condition_test_id": "v1_base_revenue_positive_or_strong",
+        "condition_role_candidate": "coverage_limited_v1_base_add_score_candidate",
+        "condition_rule": "return20_0_25 plus TDCC high-thresholds up plus OBV above MA20 plus coverage-limited positive/strong revenue",
+        "data_status": "joined_from_monthly_revenue_pit_panel_coverage_limited_research_only",
+        "condition": lambda d: price_pullback_return20_balanced_filter(d)
+        & price_pullback_tdcc_high_thresholds_up_filter(d)
+        & price_pullback_obv_above_ma20_filter(d)
+        & price_pullback_monthly_revenue_positive_or_strong_filter(d),
     },
     {
         "test_order": 150,
@@ -3023,7 +3133,8 @@ def write_price_pullback_feature_confirmation_research(feature_confirmation: pd.
         "- stop: close stays at least 4% below lower of MA20 and EMA23 for 4 consecutive trading days",
         "- theme_context_rows: signal-date/as-of theme status history is joined from the shared background panel; latest-only taxonomy is not used for historical labels",
         "- obv_rule: OBV above MA20 is retained as an add-score discussion candidate, not as a required gate",
-        "- blocked rows: revenue and market background are documented as data/join gaps, not scored as backtest results",
+        "- revenue_context_status: coverage-limited monthly revenue PIT context is joined from daily snapshot-observed rows; it is research-only and cannot be a formal required gate.",
+        "- blocked rows: market background is documented as a data/join gap, not scored as a backtest result",
         "- blocker: exact daily candidate row parity and explicit promotion/sync PR are still required before production use",
         "",
         markdown_table(
@@ -5028,6 +5139,16 @@ def _price_pullback_decision_status(row: dict[str, object]) -> tuple[str, str]:
                 "大盤背景方向合理，但需要把 market regime 依 signal_date 接到個股 research frame 後才能評估。",
             )
         return ("blocked_data_gap", "資料或 join 尚未完成，不能視為已回測條件。")
+    uses_coverage_limited_revenue = (
+        feature_family == "revenue"
+        or "revenue" in item_id
+        or "revenue" in str(row.get("data_status", ""))
+    ) and "coverage_limited" in str(row.get("data_status", ""))
+    if uses_coverage_limited_revenue:
+        return (
+            "coverage_limited_score_discussion_not_required_gate",
+            "營收資料已可做 coverage-limited research-only 觀察；因不是完整 release-date 歷史 panel，暫時只能當加分討論，不能升正式必要條件。",
+        )
     if math.isnan(mature) or mature < MIN_REVIEW_SAMPLE:
         return ("insufficient_sample_review_only", "樣本不足，只能列為觀察，不能當必要條件。")
     if "tdcc_high_thresholds_up_return20_0_25_obv_above_ma20" in item_id:
@@ -5081,6 +5202,8 @@ def _price_pullback_feature_condition_role(feature_row: pd.Series) -> str:
         return "score_bonus_candidate_not_required_gate"
     if "theme_context" in feature_id or "theme_context" in family:
         return "point_in_time_context_score_bonus_candidate_not_required_gate"
+    if family == "revenue" or "revenue" in feature_id or "revenue" in family:
+        return "coverage_limited_context_score_bonus_candidate_not_required_gate"
     return "possible_required_gate_or_score_bonus"
 
 

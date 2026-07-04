@@ -118,8 +118,10 @@ def validate_audit(audit: pd.DataFrame) -> list[str]:
     revenue = audit[audit["data_family_id"].eq("monthly_revenue_point_in_time_panel")]
     if revenue.empty:
         errors.append("cleanup audit must include monthly_revenue_point_in_time_panel")
-    elif set(revenue["deletion_decision"].astype(str)) != {"not_applicable_missing_family"}:
-        errors.append("monthly_revenue_point_in_time_panel must remain not_applicable_missing_family")
+    elif set(revenue["deletion_decision"].astype(str)) != {"retain_shared_objective_source"}:
+        errors.append("monthly_revenue_point_in_time_panel must remain retain_shared_objective_source")
+    elif not revenue["deletion_allowed"].astype(str).str.lower().eq("false").all():
+        errors.append("monthly_revenue_point_in_time_panel must not be deletion_allowed")
 
     replay = audit[audit["scope"].isin(["shared_replay_evidence", "shared_replay_source"])]
     if not replay.empty and set(replay["deletion_decision"].astype(str)) != {"retain_historical_replay_evidence"}:
