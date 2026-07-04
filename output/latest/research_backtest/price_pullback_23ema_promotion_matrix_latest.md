@@ -1,0 +1,35 @@
+# Price Pullback 23EMA Promotion Matrix
+
+- generated_at: `2026-07-04 21:42:55 Asia/Taipei`
+- model_id: `price_pullback_23ema`
+- status: `research_only_promotion_decision_matrix`; this does not change production condition, scoring, ranking, PDF, or contract registry.
+- proposed_base: `price_pullback_23ema` signal + `return20_0_25` + `TDCC high thresholds up` + `OBV above MA20`.
+- operation_basis: signal-date close confirmation, next trading day open entry, close-confirmed continuation exit with next-open execution.
+- anomaly_basis: revenue rows exclude known price/revenue anomalies; high-return rows exclude known data-quality exceptions.
+- PDF rule: metrics are not PDF-ready until formal promotion and model-owned operation adapter/metric contract are approved.
+
+| promotion_axis | promotion_candidate_id | proposed_contract_role | proposed_score_points | sample_status | accepted_trade_count | accepted_avg_trades_per_research_day | win_rate_pct | failure_rate_pct | avg_realized_return_pct | median_realized_return_pct | high_return_10_rate_pct | loss_5_rate_pct | plain_conclusion_zh |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| baseline_reference | baseline:production_proxy_lifecycle_replay | comparison_anchor |  | ok_first_pass | 22358 | 81.3 | 16.5 | 56.6 | 1.21 |  |  |  | 這只是比較基準，不是升格後模型。 |
+| base_required_gate_package | base_package:v1_gate_return20_tdcc_high_obv | base_model_candidate_required_gate_package | required_package | ok_first_pass | 1023 | 3.72 | 26.1 | 42.03 | 3.32 |  |  |  | 這是目前最適合拿來討論的 23EMA 基礎模型候選：候選數仍可用，勝率、失敗率與報酬都優於原始 proxy。 |
+| chip_technical_package | supporting_gate:return20_0_25 | base_gate_component_candidate | +0_required_package_component | ok_first_pass | 103669 |  | 18.59 | 49.29 | 1.3 |  |  |  | 20 日漲幅 0%~25% 是基礎包的一部分；單獨看不是最強，但可避免買到過度延伸後回檔。 |
+| chip_technical_package | supporting_gate:tdcc_high_thresholds_up | base_gate_component_candidate | +0_required_package_component | ok_first_pass | 14890 |  | 20.54 | 44.59 | 2.43 |  |  |  | TDCC 大戶門檻上升是目前最有用的籌碼條件之一，適合放在基礎包或強加分包。 |
+| chip_technical_package | supporting_gate:obv_above_ma20 | base_gate_component_candidate | +0_required_package_component | ok_first_pass | 112158 |  | 18.16 | 50.44 | 1.14 |  |  |  | OBV 高於 MA20 單獨不是完整模型，但與 TDCC/漲幅限制搭配後能改善品質。 |
+| chip_technical_package | technical_package:macd_kd_confirm | reject_as_required_gate_candidate | 0 | ok_first_pass | 61245 |  | 16.07 | 50.63 | 0.79 |  |  |  | MACD/KD 確認單獨沒有穩定改善，暫時不能當必要條件，只能留作輔助觀察。 |
+| price_structure_package | structure_package:pattern45_bull_pullback | add_score_package_candidate | +1_review | ok_first_pass | 26515 |  | 28.45 | 51.31 | 2.38 |  |  |  | 45 日多頭回檔結構改善勝率與報酬，可作加分包候選，但仍需搭配基礎包討論。 |
+| chip_technical_package | research_score:score_ge6 | strict_add_score_package_review | +2_review | ok_first_pass | 11127 |  | 33.52 | 47.96 | 3.15 |  |  |  | 既有技術/籌碼研究分數高分桶有較佳品質，但不能直接取代明確條件包。 |
+| revenue_strength_package | revenue_package:latest30_and_cumulative20 | strong_add_score_package_candidate_not_required_gate | +2_review | ok_first_pass | 148 | 0.54 | 38.51 | 37.84 | 4.06 | 2.78 | 37.16 | 22.3 | 營收最新 YoY >=30% 且累計 YoY >=20% 表現較好，適合作強加分包候選，不適合先當必要條件。 |
+| revenue_strength_package | revenue_package:latest_revenue_yoy_ge50 | strong_add_score_candidate_small_sample_review | +1_to_+2_review | small_sample_review_only | 96 | 0.35 | 38.54 | 35.42 | 4.14 | 2.43 | 37.5 | 23.96 | 最新月營收 YoY >=50% 有觀察價值，但樣本較小，先當強加分覆核項。 |
+| revenue_turnaround_package | revenue_package:latest_yoy_delta_ge20 | weak_turnaround_add_score_review | +1_weak_review | ok_first_pass | 262 | 0.95 | 30.53 | 42.75 | 3.54 | 1.04 | 29.39 | 22.14 | 營收 YoY 單月改善 20 個百分點有些改善，但不足以當必要條件。 |
+| revenue_turnaround_package | revenue_reject:latest_yoy_turn_positive_after_2_negative | reject_as_required_gate_or_add_score | 0 | ok_first_pass | 113 | 0.41 | 23.89 | 47.79 | 2.92 | 0.0 | 22.12 | 15.04 | 由負轉正這個概念在目前 23EMA 樣本沒有變好，暫時不能加分。 |
+| revenue_risk_tag | risk_tag:revenue_negative_both | risk_tag_candidate_review | -1_review | ok_first_pass | 328 | 1.19 | 25.3 | 40.24 | 2.86 | 0.9 | 22.87 | 18.9 | 最新與累計營收 YoY 都為負可列風險標籤，但目前不能單靠它排除股票。 |
+| high_return_structure_score | high_return_score:score_ge2 | add_score_package_candidate | +1_review | ok_first_pass | 369 | 1.34 | 43.63 | 39.84 | 5.47 | 4.48 | 42.55 | 28.46 | 高報酬結構分 >=2 開始改善高報酬率與平均報酬，可作加分門檻候選。 |
+| high_return_structure_score | high_return_score:score_ge3 | strong_add_score_package_candidate | +2_review | ok_first_pass | 312 | 1.13 | 46.15 | 39.42 | 5.94 | 5.78 | 45.19 | 29.17 | 高報酬結構分 >=3 是較平衡的加分包候選，報酬改善明顯但失敗率仍需控管。 |
+| high_return_structure_score | high_return_score:score_ge5 | aggressive_high_return_package_review | +3_aggressive_review | ok_first_pass | 135 | 0.49 | 54.07 | 39.26 | 7.2 | 11.78 | 54.07 | 32.59 | 高報酬結構分 >=5 報酬最高但樣本較小，適合積極加分覆核，不適合當必要條件。 |
+| high_return_score_component_definition | score_component:prev20_target_space_ge8 | score_component_candidate | 2 | definition_row_no_direct_trade_sample |  |  |  |  |  |  |  |  | 這是高報酬結構分的組成項，需透過 score grid 分桶確認後才可進正式評分。 |
+| high_return_score_component_definition | score_component:prev20_target_space_5_to_8 | score_component_candidate | 1 | definition_row_no_direct_trade_sample |  |  |  |  |  |  |  |  | 這是高報酬結構分的組成項，需透過 score grid 分桶確認後才可進正式評分。 |
+| high_return_score_component_definition | score_component:prior_runup20_ge20 | score_component_candidate | 1 | definition_row_no_direct_trade_sample |  |  |  |  |  |  |  |  | 這是高報酬結構分的組成項，需透過 score grid 分桶確認後才可進正式評分。 |
+| high_return_score_component_definition | score_component:prior_extension_ema23_20d_ge10 | score_component_candidate | 1 | definition_row_no_direct_trade_sample |  |  |  |  |  |  |  |  | 這是高報酬結構分的組成項，需透過 score grid 分桶確認後才可進正式評分。 |
+| high_return_score_component_definition | score_component:return45_ge8_weak | score_component_candidate | 1 | definition_row_no_direct_trade_sample |  |  |  |  |  |  |  |  | 這是高報酬結構分的組成項，需透過 score grid 分桶確認後才可進正式評分。 |
+| high_return_score_component_definition | score_component:volume_red_or_solid_red_risk | risk_tag_candidate_review | -1 | definition_row_no_direct_trade_sample |  |  |  |  |  |  |  |  | 帶量紅 K 或實體紅 K 在目前賣法下不能保證品質，先列風險標籤，不作買點加分。 |
+| deferred_context | deferred_context:theme_leadership | defer_until_mature_point_in_time_theme_samples | 0_deferred | insufficient_sample | 0 |  |  |  |  |  |  |  | 熱門族群條件已接資料，但成熟樣本不足，現在不能當加分或必要條件。 |

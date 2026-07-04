@@ -181,6 +181,15 @@ DOCS_PRICE_PULLBACK_REVENUE_CONDITION_MATRIX_CSV = (
 DOCS_PRICE_PULLBACK_REVENUE_CONDITION_MATRIX_MD = (
     DOCS_LATEST_DIR / PRICE_PULLBACK_REVENUE_CONDITION_MATRIX_MD.name
 )
+PRICE_PULLBACK_PROMOTION_MATRIX_CSV = (
+    RESEARCH_LATEST_DIR / "price_pullback_23ema_promotion_matrix_latest.csv"
+)
+PRICE_PULLBACK_PROMOTION_MATRIX_MD = (
+    RESEARCH_LATEST_DIR / "price_pullback_23ema_promotion_matrix_latest.md"
+)
+PRICE_PULLBACK_PROMOTION_MATRIX_HISTORY_CSV = HISTORY_DIR / "price_pullback_23ema_promotion_matrix.csv"
+DOCS_PRICE_PULLBACK_PROMOTION_MATRIX_CSV = DOCS_LATEST_DIR / PRICE_PULLBACK_PROMOTION_MATRIX_CSV.name
+DOCS_PRICE_PULLBACK_PROMOTION_MATRIX_MD = DOCS_LATEST_DIR / PRICE_PULLBACK_PROMOTION_MATRIX_MD.name
 REVENUE_UNREACTED_CONDITION_MATRIX_CSV = (
     RESEARCH_LATEST_DIR / "revenue_unreacted_range_revenue_condition_matrix_latest.csv"
 )
@@ -6102,6 +6111,593 @@ def write_price_pullback_lifecycle_replay(lifecycle: pd.DataFrame) -> None:
     )
 
 
+PRICE_PULLBACK_PROMOTION_MATRIX_EXIT_RULE_ID = "close_prev20_break_then_tp10_or_5ma_next_open"
+PRICE_PULLBACK_PROMOTION_MATRIX_COLUMNS = [
+    "generated_at",
+    "model_id",
+    "model_name_zh",
+    "research_artifact_id",
+    "matrix_scope",
+    "matrix_order",
+    "promotion_candidate_id",
+    "promotion_axis",
+    "source_artifact_id",
+    "source_selector",
+    "source_metric_basis",
+    "proposed_contract_role",
+    "proposed_score_points",
+    "condition_rule",
+    "plain_conclusion_zh",
+    "data_status",
+    "sample_status",
+    "exit_rule_id",
+    "formal_price_rule_status",
+    "entry_rule_id",
+    "source_mature_signal_stock_days",
+    "accepted_trade_count",
+    "accepted_avg_trades_per_research_day",
+    "accepted_trade_share_of_baseline_pct",
+    "win_rate_pct",
+    "neutral_rate_pct",
+    "failure_rate_pct",
+    "avg_realized_return_pct",
+    "median_realized_return_pct",
+    "high_return_10_rate_pct",
+    "loss_5_rate_pct",
+    "delta_vs_base_win_rate_pct",
+    "delta_vs_base_failure_rate_pct",
+    "delta_vs_base_avg_realized_return_pct",
+    "metric_surface_use",
+    "pdf_metric_readiness",
+    "advisory_status",
+    "approved_for_daily",
+    "production_change",
+    "production_decision_status",
+    "promotion_readiness",
+    "promotion_blocker",
+]
+
+
+def _first_row_matching(df: pd.DataFrame, filters: dict[str, object]) -> pd.Series:
+    if df.empty:
+        return pd.Series(dtype=object)
+    mask = pd.Series(True, index=df.index)
+    for column, expected in filters.items():
+        if column not in df.columns:
+            return pd.Series(dtype=object)
+        mask &= df[column].map(safe_str).eq(safe_str(expected))
+    rows = df[mask]
+    if rows.empty:
+        return pd.Series(dtype=object)
+    return rows.iloc[0]
+
+
+def _row_value(row: pd.Series, column: str, default: object = "") -> object:
+    if row.empty:
+        return default
+    return row.get(column, default)
+
+
+def _row_first_value(row: pd.Series, columns: list[str], default: object = "") -> object:
+    for column in columns:
+        value = _row_value(row, column, "")
+        if safe_str(value) != "":
+            return value
+    return default
+
+
+def _row_int_or_none(row: pd.Series, column: str) -> int | None:
+    value = _numeric_or_nan(_row_value(row, column, ""))
+    if math.isnan(value):
+        return None
+    return int(value)
+
+
+def _promotion_sample_status(row: pd.Series) -> str:
+    count = _row_int_or_none(row, "accepted_trade_count")
+    if count is None:
+        count = _row_int_or_none(row, "mature_count")
+    if count is None:
+        return "definition_row_no_direct_trade_sample"
+    return sample_status(count)
+
+
+def _promotion_metric_delta(row: pd.Series, metric_col: str, baseline: pd.Series) -> float | str:
+    existing_col = {
+        "win_rate_pct": "delta_vs_baseline_win_rate_pct",
+        "failure_rate_pct": "delta_vs_baseline_failure_rate_pct",
+        "avg_realized_return_pct": "delta_vs_baseline_avg_realized_return_pct",
+    }[metric_col]
+    existing = _row_value(row, existing_col, "")
+    if safe_str(existing) != "":
+        return existing
+    return _delta_or_blank(_row_value(row, metric_col, ""), _row_value(baseline, metric_col, ""))
+
+
+def _promotion_row(
+    *,
+    generated_at: str,
+    matrix_order: int,
+    promotion_candidate_id: str,
+    promotion_axis: str,
+    source_artifact_id: str,
+    source_selector: str,
+    source_metric_basis: str,
+    proposed_contract_role: str,
+    proposed_score_points: str,
+    condition_rule: str,
+    plain_conclusion_zh: str,
+    source_row: pd.Series,
+    baseline_row: pd.Series,
+    data_status: str = "",
+) -> dict[str, object]:
+    accepted_count = _row_first_value(source_row, ["accepted_trade_count", "mature_count"], "")
+    source_count = _row_first_value(
+        source_row,
+        ["source_mature_signal_stock_days", "mature_count", "source_signal_stock_days", "selected_stock_days"],
+        "",
+    )
+    if source_row.empty:
+        data_status = data_status or "missing_source_metric_row"
+    else:
+        data_status = data_status or safe_str(_row_value(source_row, "data_status", "available_research_metric_row"))
+    return {
+        "generated_at": generated_at,
+        "model_id": "price_pullback_23ema",
+        "model_name_zh": "股價回檔模型",
+        "research_artifact_id": "price_pullback_23ema_promotion_matrix",
+        "matrix_scope": "research_only_promotion_decision_matrix",
+        "matrix_order": matrix_order,
+        "promotion_candidate_id": promotion_candidate_id,
+        "promotion_axis": promotion_axis,
+        "source_artifact_id": source_artifact_id,
+        "source_selector": source_selector,
+        "source_metric_basis": source_metric_basis,
+        "proposed_contract_role": proposed_contract_role,
+        "proposed_score_points": proposed_score_points,
+        "condition_rule": condition_rule or safe_str(_row_value(source_row, "condition_rule", "")),
+        "plain_conclusion_zh": plain_conclusion_zh,
+        "data_status": data_status,
+        "sample_status": _promotion_sample_status(source_row),
+        "exit_rule_id": _row_value(source_row, "exit_rule_id", PRICE_PULLBACK_PROMOTION_MATRIX_EXIT_RULE_ID),
+        "formal_price_rule_status": _row_value(source_row, "formal_price_rule_status", "close_confirmed_candidate"),
+        "entry_rule_id": _row_value(source_row, "entry_rule_id", "signal_date_next_open"),
+        "source_mature_signal_stock_days": source_count,
+        "accepted_trade_count": accepted_count,
+        "accepted_avg_trades_per_research_day": _row_value(source_row, "accepted_avg_trades_per_research_day", ""),
+        "accepted_trade_share_of_baseline_pct": _row_first_value(
+            source_row,
+            ["accepted_trade_share_of_baseline_pct", "mature_share_of_baseline_pct", "selected_share_of_baseline_pct"],
+            "",
+        ),
+        "win_rate_pct": _row_value(source_row, "win_rate_pct", ""),
+        "neutral_rate_pct": _row_value(source_row, "neutral_rate_pct", ""),
+        "failure_rate_pct": _row_value(source_row, "failure_rate_pct", ""),
+        "avg_realized_return_pct": _row_value(source_row, "avg_realized_return_pct", ""),
+        "median_realized_return_pct": _row_value(source_row, "median_realized_return_pct", ""),
+        "high_return_10_rate_pct": _row_value(source_row, "high_return_10_rate_pct", ""),
+        "loss_5_rate_pct": _row_value(source_row, "loss_5_rate_pct", ""),
+        "delta_vs_base_win_rate_pct": _promotion_metric_delta(source_row, "win_rate_pct", baseline_row),
+        "delta_vs_base_failure_rate_pct": _promotion_metric_delta(source_row, "failure_rate_pct", baseline_row),
+        "delta_vs_base_avg_realized_return_pct": _promotion_metric_delta(
+            source_row,
+            "avg_realized_return_pct",
+            baseline_row,
+        ),
+        "metric_surface_use": "model_lane_research_metric_source_candidate_not_pdf_ready",
+        "pdf_metric_readiness": "blocked_until_formal_promotion_and_operation_adapter_contract",
+        "advisory_status": "not_production_ready_research_only",
+        "approved_for_daily": False,
+        "production_change": "none",
+        "production_decision_status": "research_only_not_approved",
+        "promotion_readiness": "blocked_model_specific_promotion_pr_required",
+        "promotion_blocker": (
+            "promotion matrix is discussion evidence only; production use requires explicit model decision, "
+            "contract/parity/validator updates, PR merge, post-merge main validation, and PDF operation metric contract"
+        ),
+    }
+
+
+def build_price_pullback_promotion_matrix(
+    lifecycle_replay: pd.DataFrame,
+    ordered_condition_matrix: pd.DataFrame,
+    high_return_score_grid: pd.DataFrame,
+    revenue_condition_matrix: pd.DataFrame,
+) -> pd.DataFrame:
+    generated_at = now_text()
+    exit_rule_id = PRICE_PULLBACK_PROMOTION_MATRIX_EXIT_RULE_ID
+    lifecycle_baseline = _first_row_matching(
+        lifecycle_replay,
+        {
+            "condition_test_id": "baseline_replay",
+            "exit_rule_id": exit_rule_id,
+        },
+    )
+    base_package = _first_row_matching(
+        lifecycle_replay,
+        {
+            "condition_test_id": "v1_gate_return20_tdcc_high_obv",
+            "exit_rule_id": exit_rule_id,
+        },
+    )
+    rows: list[dict[str, object]] = [
+        _promotion_row(
+            generated_at=generated_at,
+            matrix_order=0,
+            promotion_candidate_id="baseline:production_proxy_lifecycle_replay",
+            promotion_axis="baseline_reference",
+            source_artifact_id="price_pullback_23ema_lifecycle_replay",
+            source_selector=f"condition_test_id=baseline_replay;exit_rule_id={exit_rule_id}",
+            source_metric_basis="same_stock_active_position_suppressed; close-confirmed continuation exit",
+            proposed_contract_role="comparison_anchor",
+            proposed_score_points="",
+            condition_rule="current production proxy replay only; no added 23EMA promotion gate",
+            plain_conclusion_zh="這只是比較基準，不是升格後模型。",
+            source_row=lifecycle_baseline,
+            baseline_row=lifecycle_baseline,
+        ),
+        _promotion_row(
+            generated_at=generated_at,
+            matrix_order=10,
+            promotion_candidate_id="base_package:v1_gate_return20_tdcc_high_obv",
+            promotion_axis="base_required_gate_package",
+            source_artifact_id="price_pullback_23ema_lifecycle_replay",
+            source_selector=f"condition_test_id=v1_gate_return20_tdcc_high_obv;exit_rule_id={exit_rule_id}",
+            source_metric_basis="same_stock_active_position_suppressed; close-confirmed continuation exit",
+            proposed_contract_role="base_model_candidate_required_gate_package",
+            proposed_score_points="required_package",
+            condition_rule=(
+                "price_pullback_23ema signal plus return20_0_25, TDCC high thresholds up, "
+                "and OBV above MA20"
+            ),
+            plain_conclusion_zh=(
+                "這是目前最適合拿來討論的 23EMA 基礎模型候選：候選數仍可用，勝率、失敗率與報酬都優於原始 proxy。"
+            ),
+            source_row=base_package,
+            baseline_row=lifecycle_baseline,
+        ),
+    ]
+
+    ordered_specs = [
+        (
+            20,
+            "supporting_gate:return20_0_25",
+            "chip_technical_package",
+            "return20_0_25",
+            "base_gate_component_candidate",
+            "+0_required_package_component",
+            "20 日漲幅 0%~25% 是基礎包的一部分；單獨看不是最強，但可避免買到過度延伸後回檔。",
+        ),
+        (
+            30,
+            "supporting_gate:tdcc_high_thresholds_up",
+            "chip_technical_package",
+            "tdcc_high_thresholds_up",
+            "base_gate_component_candidate",
+            "+0_required_package_component",
+            "TDCC 大戶門檻上升是目前最有用的籌碼條件之一，適合放在基礎包或強加分包。",
+        ),
+        (
+            40,
+            "supporting_gate:obv_above_ma20",
+            "chip_technical_package",
+            "obv_above_ma20",
+            "base_gate_component_candidate",
+            "+0_required_package_component",
+            "OBV 高於 MA20 單獨不是完整模型，但與 TDCC/漲幅限制搭配後能改善品質。",
+        ),
+        (
+            50,
+            "technical_package:macd_kd_confirm",
+            "chip_technical_package",
+            "macd_kd_confirm",
+            "reject_as_required_gate_candidate",
+            "0",
+            "MACD/KD 確認單獨沒有穩定改善，暫時不能當必要條件，只能留作輔助觀察。",
+        ),
+        (
+            60,
+            "structure_package:pattern45_bull_pullback",
+            "price_structure_package",
+            "pattern45_bull_pullback",
+            "add_score_package_candidate",
+            "+1_review",
+            "45 日多頭回檔結構改善勝率與報酬，可作加分包候選，但仍需搭配基礎包討論。",
+        ),
+        (
+            70,
+            "research_score:score_ge6",
+            "chip_technical_package",
+            "research_score_ge6",
+            "strict_add_score_package_review",
+            "+2_review",
+            "既有技術/籌碼研究分數高分桶有較佳品質，但不能直接取代明確條件包。",
+        ),
+    ]
+    for order, candidate_id, axis, condition_id, role, points, conclusion in ordered_specs:
+        source_row = _first_row_matching(
+            ordered_condition_matrix,
+            {
+                "condition_test_id": condition_id,
+                "exit_rule_id": exit_rule_id,
+            },
+        )
+        rows.append(
+            _promotion_row(
+                generated_at=generated_at,
+                matrix_order=order,
+                promotion_candidate_id=candidate_id,
+                promotion_axis=axis,
+                source_artifact_id="price_pullback_23ema_ordered_condition_matrix",
+                source_selector=f"condition_test_id={condition_id};exit_rule_id={exit_rule_id}",
+                source_metric_basis="same buy/sell rule, no same-stock lifecycle suppression in ordered condition matrix",
+                proposed_contract_role=role,
+                proposed_score_points=points,
+                condition_rule=safe_str(_row_value(source_row, "condition_rule", "")),
+                plain_conclusion_zh=conclusion,
+                source_row=source_row,
+                baseline_row=lifecycle_baseline,
+            )
+        )
+
+    revenue_specs = [
+        (
+            100,
+            "revenue_package:latest30_and_cumulative20",
+            "revenue_strength_package",
+            "latest30_and_cumulative20",
+            "strong_add_score_package_candidate_not_required_gate",
+            "+2_review",
+            "營收最新 YoY >=30% 且累計 YoY >=20% 表現較好，適合作強加分包候選，不適合先當必要條件。",
+        ),
+        (
+            110,
+            "revenue_package:latest_revenue_yoy_ge50",
+            "revenue_strength_package",
+            "latest_revenue_yoy_ge50",
+            "strong_add_score_candidate_small_sample_review",
+            "+1_to_+2_review",
+            "最新月營收 YoY >=50% 有觀察價值，但樣本較小，先當強加分覆核項。",
+        ),
+        (
+            120,
+            "revenue_package:latest_yoy_delta_ge20",
+            "revenue_turnaround_package",
+            "latest_yoy_delta_ge20",
+            "weak_turnaround_add_score_review",
+            "+1_weak_review",
+            "營收 YoY 單月改善 20 個百分點有些改善，但不足以當必要條件。",
+        ),
+        (
+            130,
+            "revenue_reject:latest_yoy_turn_positive_after_2_negative",
+            "revenue_turnaround_package",
+            "latest_yoy_turn_positive_after_2_negative",
+            "reject_as_required_gate_or_add_score",
+            "0",
+            "由負轉正這個概念在目前 23EMA 樣本沒有變好，暫時不能加分。",
+        ),
+        (
+            140,
+            "risk_tag:revenue_negative_both",
+            "revenue_risk_tag",
+            "revenue_negative_both_risk",
+            "risk_tag_candidate_review",
+            "-1_review",
+            "最新與累計營收 YoY 都為負可列風險標籤，但目前不能單靠它排除股票。",
+        ),
+    ]
+    revenue_baseline = _first_row_matching(
+        revenue_condition_matrix,
+        {
+            "condition_test_id": "base_v1_without_revenue_gate",
+            "anomaly_exclusion_basis": "excluding_known_price_or_revenue_anomalies",
+        },
+    )
+    for order, candidate_id, axis, condition_id, role, points, conclusion in revenue_specs:
+        source_row = _first_row_matching(
+            revenue_condition_matrix,
+            {
+                "condition_test_id": condition_id,
+                "anomaly_exclusion_basis": "excluding_known_price_or_revenue_anomalies",
+            },
+        )
+        rows.append(
+            _promotion_row(
+                generated_at=generated_at,
+                matrix_order=order,
+                promotion_candidate_id=candidate_id,
+                promotion_axis=axis,
+                source_artifact_id="price_pullback_23ema_revenue_condition_matrix",
+                source_selector=(
+                    f"condition_test_id={condition_id};"
+                    "anomaly_exclusion_basis=excluding_known_price_or_revenue_anomalies"
+                ),
+                source_metric_basis=(
+                    "base v1 lifecycle replay with source_table_date <= signal_date monthly revenue join; "
+                    "known numerical anomalies excluded"
+                ),
+                proposed_contract_role=role,
+                proposed_score_points=points,
+                condition_rule=safe_str(_row_value(source_row, "condition_rule", "")),
+                plain_conclusion_zh=conclusion,
+                source_row=source_row,
+                baseline_row=revenue_baseline if not revenue_baseline.empty else lifecycle_baseline,
+            )
+        )
+
+    high_return_specs = [
+        (
+            200,
+            "high_return_score:score_ge2",
+            "high_return_structure_score",
+            "score_ge_2",
+            "add_score_package_candidate",
+            "+1_review",
+            "高報酬結構分 >=2 開始改善高報酬率與平均報酬，可作加分門檻候選。",
+        ),
+        (
+            210,
+            "high_return_score:score_ge3",
+            "high_return_structure_score",
+            "score_ge_3",
+            "strong_add_score_package_candidate",
+            "+2_review",
+            "高報酬結構分 >=3 是較平衡的加分包候選，報酬改善明顯但失敗率仍需控管。",
+        ),
+        (
+            220,
+            "high_return_score:score_ge5",
+            "high_return_structure_score",
+            "score_ge_5",
+            "aggressive_high_return_package_review",
+            "+3_aggressive_review",
+            "高報酬結構分 >=5 報酬最高但樣本較小，適合積極加分覆核，不適合當必要條件。",
+        ),
+    ]
+    high_return_baseline = _first_row_matching(
+        high_return_score_grid,
+        {
+            "score_bucket": "all_scores",
+            "exit_rule_id": exit_rule_id,
+            "anomaly_exclusion_basis": "excluding_known_data_quality_exceptions",
+        },
+    )
+    for order, candidate_id, axis, score_bucket, role, points, conclusion in high_return_specs:
+        source_row = _first_row_matching(
+            high_return_score_grid,
+            {
+                "score_bucket": score_bucket,
+                "exit_rule_id": exit_rule_id,
+                "anomaly_exclusion_basis": "excluding_known_data_quality_exceptions",
+            },
+        )
+        rows.append(
+            _promotion_row(
+                generated_at=generated_at,
+                matrix_order=order,
+                promotion_candidate_id=candidate_id,
+                promotion_axis=axis,
+                source_artifact_id="price_pullback_23ema_high_return_feature_score_grid",
+                source_selector=(
+                    f"score_bucket={score_bucket};exit_rule_id={exit_rule_id};"
+                    "anomaly_exclusion_basis=excluding_known_data_quality_exceptions"
+                ),
+                source_metric_basis="base v1 package with known data-quality exceptions excluded",
+                proposed_contract_role=role,
+                proposed_score_points=points,
+                condition_rule=safe_str(_row_value(source_row, "score_rule_summary", "")),
+                plain_conclusion_zh=conclusion,
+                source_row=source_row,
+                baseline_row=high_return_baseline if not high_return_baseline.empty else base_package,
+            )
+        )
+
+    for component in PRICE_PULLBACK_HIGH_RETURN_FEATURE_SCORE_COMPONENTS:
+        component_id = safe_str(component["component_id"])
+        points = float(component.get("points", 0))
+        role = "risk_tag_candidate_review" if points < 0 else "score_component_candidate"
+        conclusion = (
+            "帶量紅 K 或實體紅 K 在目前賣法下不能保證品質，先列風險標籤，不作買點加分。"
+            if points < 0
+            else "這是高報酬結構分的組成項，需透過 score grid 分桶確認後才可進正式評分。"
+        )
+        rows.append(
+            _promotion_row(
+                generated_at=generated_at,
+                matrix_order=300 + len(rows),
+                promotion_candidate_id=f"score_component:{component_id}",
+                promotion_axis="high_return_score_component_definition",
+                source_artifact_id="price_pullback_23ema_high_return_feature_score_grid",
+                source_selector=f"component_id={component_id}",
+                source_metric_basis="component definition used by high-return score grid",
+                proposed_contract_role=role,
+                proposed_score_points=safe_str(component.get("points", "")),
+                condition_rule=safe_str(component.get("component_rule", "")),
+                plain_conclusion_zh=conclusion,
+                source_row=pd.Series(dtype=object),
+                baseline_row=high_return_baseline if not high_return_baseline.empty else base_package,
+                data_status="component_definition_no_direct_trade_sample",
+            )
+        )
+
+    rows.append(
+        _promotion_row(
+            generated_at=generated_at,
+            matrix_order=900,
+            promotion_candidate_id="deferred_context:theme_leadership",
+            promotion_axis="deferred_context",
+            source_artifact_id="price_pullback_23ema_ordered_condition_matrix",
+            source_selector=f"condition_test_id=theme_context_mainstream_supported;exit_rule_id={exit_rule_id}",
+            source_metric_basis="theme point-in-time join exists but D+20 mature outcome sample is not ready",
+            proposed_contract_role="defer_until_mature_point_in_time_theme_samples",
+            proposed_score_points="0_deferred",
+            condition_rule="theme/leadership support requires signal-date point-in-time theme context before scoring",
+            plain_conclusion_zh="熱門族群條件已接資料，但成熟樣本不足，現在不能當加分或必要條件。",
+            source_row=_first_row_matching(
+                ordered_condition_matrix,
+                {
+                    "condition_test_id": "theme_context_mainstream_supported",
+                    "exit_rule_id": exit_rule_id,
+                },
+            ),
+            baseline_row=lifecycle_baseline,
+        )
+    )
+    out = pd.DataFrame(rows, columns=PRICE_PULLBACK_PROMOTION_MATRIX_COLUMNS)
+    return out.sort_values("matrix_order").reset_index(drop=True)
+
+
+def write_price_pullback_promotion_matrix(matrix: pd.DataFrame) -> None:
+    write_csv(matrix, PRICE_PULLBACK_PROMOTION_MATRIX_CSV)
+    write_csv(matrix, PRICE_PULLBACK_PROMOTION_MATRIX_HISTORY_CSV)
+    write_csv(matrix, DOCS_PRICE_PULLBACK_PROMOTION_MATRIX_CSV)
+    lines = [
+        "# Price Pullback 23EMA Promotion Matrix",
+        "",
+        f"- generated_at: `{now_text()}`",
+        "- model_id: `price_pullback_23ema`",
+        "- status: `research_only_promotion_decision_matrix`; this does not change production condition, scoring, ranking, PDF, or contract registry.",
+        "- proposed_base: `price_pullback_23ema` signal + `return20_0_25` + `TDCC high thresholds up` + `OBV above MA20`.",
+        "- operation_basis: signal-date close confirmation, next trading day open entry, close-confirmed continuation exit with next-open execution.",
+        "- anomaly_basis: revenue rows exclude known price/revenue anomalies; high-return rows exclude known data-quality exceptions.",
+        "- PDF rule: metrics are not PDF-ready until formal promotion and model-owned operation adapter/metric contract are approved.",
+        "",
+        markdown_table(
+            matrix,
+            [
+                "promotion_axis",
+                "promotion_candidate_id",
+                "proposed_contract_role",
+                "proposed_score_points",
+                "sample_status",
+                "accepted_trade_count",
+                "accepted_avg_trades_per_research_day",
+                "win_rate_pct",
+                "failure_rate_pct",
+                "avg_realized_return_pct",
+                "median_realized_return_pct",
+                "high_return_10_rate_pct",
+                "loss_5_rate_pct",
+                "plain_conclusion_zh",
+            ],
+            limit=120,
+        )
+        if not matrix.empty
+        else "No promotion matrix rows.",
+    ]
+    PRICE_PULLBACK_PROMOTION_MATRIX_MD.write_text(
+        "\n".join(lines).rstrip() + "\n",
+        encoding="utf-8",
+        newline="\n",
+    )
+    DOCS_PRICE_PULLBACK_PROMOTION_MATRIX_MD.write_text(
+        PRICE_PULLBACK_PROMOTION_MATRIX_MD.read_text(encoding="utf-8"),
+        encoding="utf-8",
+        newline="\n",
+    )
+
+
 def _price_pullback_parity_discussion_status(row_parity: pd.DataFrame) -> dict[str, object]:
     if row_parity.empty or "parity_status" not in row_parity.columns:
         return {
@@ -7191,6 +7787,13 @@ def main() -> int:
         price_pullback_feature_confirmation_df,
         price_pullback_daily_row_parity_df,
     )
+    print("Building price_pullback promotion matrix", flush=True)
+    price_pullback_promotion_matrix_df = build_price_pullback_promotion_matrix(
+        price_pullback_lifecycle_replay_df,
+        price_pullback_ordered_condition_matrix_df,
+        price_pullback_high_return_score_grid_df,
+        price_pullback_revenue_condition_matrix_df,
+    )
 
     write_csv(summary_df, OUT_CSV)
     write_csv(detail_df, OUT_DETAIL_CSV)
@@ -7215,6 +7818,7 @@ def main() -> int:
     write_price_pullback_lifecycle_replay(price_pullback_lifecycle_replay_df)
     write_price_pullback_daily_row_parity_audit(price_pullback_daily_row_parity_df)
     write_price_pullback_model_decision_audit(price_pullback_decision_audit_df)
+    write_price_pullback_promotion_matrix(price_pullback_promotion_matrix_df)
 
     print(f"Saved {OUT_CSV} rows={len(summary_df)}")
     print(f"Saved {OUT_DETAIL_CSV} rows={len(detail_df)}")
@@ -7233,6 +7837,7 @@ def main() -> int:
     print(f"Saved {PRICE_PULLBACK_LIFECYCLE_REPLAY_CSV} rows={len(price_pullback_lifecycle_replay_df)}")
     print(f"Saved {PRICE_PULLBACK_DAILY_ROW_PARITY_CSV} rows={len(price_pullback_daily_row_parity_df)}")
     print(f"Saved {PRICE_PULLBACK_DECISION_AUDIT_CSV} rows={len(price_pullback_decision_audit_df)}")
+    print(f"Saved {PRICE_PULLBACK_PROMOTION_MATRIX_CSV} rows={len(price_pullback_promotion_matrix_df)}")
     print(f"Saved {OUT_MD}")
     return 0
 

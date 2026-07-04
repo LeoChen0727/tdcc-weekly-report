@@ -1,6 +1,6 @@
 # Price Pullback 23EMA Research Score Bucket
 
-- generated_at: `2026-07-04 20:42:24 Asia/Taipei`
+- generated_at: `2026-07-04 21:42:54 Asia/Taipei`
 - model_id: `price_pullback_23ema`
 - status: `not_production_ready_research_only`
 - scope: advisory score-bucket backtest for discussing add-score items; this does not approve production scoring.
