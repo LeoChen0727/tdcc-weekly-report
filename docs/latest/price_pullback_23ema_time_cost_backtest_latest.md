@@ -1,6 +1,6 @@
 # Price Pullback 23EMA Time Cost Backtest
 
-- generated_at: `2026-07-05 00:49:30 Asia/Taipei`
+- generated_at: `2026-07-05 02:31:38 Asia/Taipei`
 - model_id: `price_pullback_23ema`
 - status: `not_production_ready_research_only`
 - entry_basis: `signal_date_next_open`
