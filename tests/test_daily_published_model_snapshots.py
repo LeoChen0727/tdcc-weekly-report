@@ -151,6 +151,37 @@ def write_minimal_latest_artifacts(latest_dir: Path, report_date: str = "2026061
             }
         ],
     )
+    write_csv(
+        latest_dir / "daily_volume_breakout_operation_evidence_audit_latest.csv",
+        [
+            {
+                "model_id": "volume_range_breakout",
+                "operation_asof_date": report_date,
+                "stock_id": "6153",
+                "signal_date": report_date,
+                "selected_trigger_id": "",
+                "selected_confirmation_date": "",
+                "operation_lifecycle_state": "pending_confirmation",
+                "audit_status": "candidate_evaluated",
+                "included_in_daily_adapter": "False",
+                "tdcc_list_type": "",
+                "rank_bucket": "",
+                "classification_id": "",
+                "attack_method": "",
+                "price_position_type": "",
+                "evidence_confluence_scope": "",
+                "evidence_confluence_id": "",
+                "evidence_sample_size": "",
+                "evidence_win_rate": "",
+                "evidence_avg_return": "",
+                "evidence_median_return": "",
+                "evidence_out_of_sample_pass": "",
+                "ranking_research_score": "",
+                "reason": "",
+                "generated_at": "2026-06-16 08:00:00 Asia/Taipei",
+            }
+        ],
+    )
     for name, model_id in [
         ("daily_w_bottom_right_side_operation_section_latest.csv", "w_bottom_right_side"),
         (
@@ -208,6 +239,7 @@ def test_daily_published_model_snapshot_builder_and_validator_use_report_date(
         "model_signals_for_report",
         "model_summary_for_report",
         "neckline_volume_breakout_confirmation_operation_section",
+        "volume_breakout_operation_evidence_audit",
         "volume_breakout_operation_section",
         "w_bottom_right_side_operation_section",
     }
@@ -246,6 +278,53 @@ def test_daily_published_model_snapshot_hashes_tolerate_windows_crlf_checkout(
         snapshot_dir=snapshot_dir,
         manifest_path=manifest_path,
     ) == []
+
+
+def test_daily_published_model_snapshot_builder_blocks_silent_same_date_rewrite(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    latest_dir = tmp_path / "output" / "latest"
+    snapshot_dir = tmp_path / "output" / "history" / "daily_model_snapshots"
+    manifest_path = snapshot_dir / "daily_published_model_snapshot_manifest.csv"
+    write_minimal_latest_artifacts(latest_dir, report_date="20260615")
+
+    update_snapshots.build_daily_published_model_snapshots(
+        latest_dir=latest_dir,
+        snapshot_dir=snapshot_dir,
+        manifest_path=manifest_path,
+        generated_at="2026-06-16 08:00:00 Asia/Taipei",
+        commit_sha="test-sha",
+    )
+
+    section_path = latest_dir / "daily_volume_breakout_operation_section_latest.csv"
+    section = pd.read_csv(section_path, dtype=str)
+    section.loc[0, "stock_id"] = "9999"
+    section.to_csv(section_path, index=False, encoding="utf-8", lineterminator="\n")
+
+    monkeypatch.delenv(update_snapshots.ALLOW_SNAPSHOT_REWRITE_ENV, raising=False)
+    with pytest.raises(RuntimeError, match="published daily model snapshot rewrite blocked"):
+        update_snapshots.build_daily_published_model_snapshots(
+            latest_dir=latest_dir,
+            snapshot_dir=snapshot_dir,
+            manifest_path=manifest_path,
+            generated_at="2026-06-16 09:00:00 Asia/Taipei",
+            commit_sha="test-sha-2",
+        )
+
+    monkeypatch.setenv(update_snapshots.ALLOW_SNAPSHOT_REWRITE_ENV, "1")
+    update_snapshots.build_daily_published_model_snapshots(
+        latest_dir=latest_dir,
+        snapshot_dir=snapshot_dir,
+        manifest_path=manifest_path,
+        generated_at="2026-06-16 09:00:00 Asia/Taipei",
+        commit_sha="test-sha-2",
+    )
+    rewritten = pd.read_csv(
+        snapshot_dir / "daily_volume_breakout_operation_section_20260615.csv",
+        dtype=str,
+    )
+    assert rewritten.loc[0, "stock_id"] == "9999"
 
 
 def test_daily_published_model_snapshot_builder_rejects_not_ready_freshness(

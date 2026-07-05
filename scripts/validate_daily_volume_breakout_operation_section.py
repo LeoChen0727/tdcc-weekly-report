@@ -16,7 +16,13 @@ EVIDENCE_AUDIT_MD = LATEST_DIR / "daily_volume_breakout_operation_evidence_audit
 TAXONOMY_CSV = LATEST_DIR / "stock_theme_taxonomy_latest.csv"
 DATA_FRESHNESS_CSV = LATEST_DIR / "data_freshness_latest.csv"
 DAILY_SIGNALS_CSV = LATEST_DIR / "daily_candidate_model_signals_for_report_latest.csv"
-FORMAL_SUMMARY_CSV = LATEST_DIR / "volume_breakout_formal_operation_backtest_latest.csv"
+APPROVED_FORMAL_SUMMARY_CSV = (
+    ROOT
+    / "config"
+    / "approved_operation_evidence"
+    / "volume_breakout_operation_v1_20260615_formal_operation_backtest.csv"
+)
+FORMAL_SUMMARY_CSV = APPROVED_FORMAL_SUMMARY_CSV
 MODEL_SIGNAL_LOG_CSV = ROOT / "output" / "history" / "daily_candidate_models" / "daily_candidate_model_signal_log.csv"
 DAILY_THEME_STATUS_HISTORY_CSVS = [
     ROOT / "output" / "history" / "daily_signals" / "daily_theme_status_history.csv",

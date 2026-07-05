@@ -41,7 +41,7 @@ The adapter may read only these operation sources:
 - `output/history/daily_candidate_models/daily_candidate_model_signal_log.csv`
 - `output/history/daily_model_snapshots/daily_candidate_model_signals_for_report_*.csv`
 - `data/stock_price_history/{stock_id}.csv`
-- `output/latest/volume_breakout_formal_operation_backtest_latest.csv`
+- `config/approved_operation_evidence/volume_breakout_operation_v1_20260615_formal_operation_backtest.csv`
 - `output/latest/approved_operation_patterns_latest.csv`
 
 Research/backtest may also emit `output/latest/volume_breakout_formal_operation_lifecycle_latest.csv`
@@ -53,7 +53,9 @@ states. That lifecycle artifact is not a PDF or daily adapter source.
 - `model_id` is always `volume_range_breakout`.
 - The artifact is a production operation adapter, not a PDF calculation layer and not a research/backtest runner.
 - It must not run backtests inside `daily_full_pipeline.yml`.
-- `output/latest/volume_breakout_formal_operation_backtest_latest.csv` is the only formal operation evidence source for daily confirmed/active guidance.
+- `config/approved_operation_evidence/volume_breakout_operation_v1_20260615_formal_operation_backtest.csv` is the only approved v1 operation evidence source for daily confirmed/active guidance.
+- The approved v1 evidence source is versioned and immutable. Later research/backtest latest artifacts may support a future promotion, but they must not silently change the approved v1 daily adapter.
+- Published report-date operation snapshots under `output/history/daily_model_snapshots/` are immutable as-published evidence. A same-date rewrite is allowed only for an explicit correction run with `ALLOW_DAILY_MODEL_SNAPSHOT_REWRITE=1`; ordinary daily rebuilds must fail closed or reuse the already published snapshot.
 - Its win rate, average return, and median return must be computed only from `metric_sample_scope=mature_selected_operation_only` rows.
 - Missing or empty formal operation evidence must fail validation; the PDF must not fabricate buy/stop/exit rows.
 - Other stock models must not reuse this operation section, ranking, entry rule, stop rule, or exit rule.

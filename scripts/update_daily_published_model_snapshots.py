@@ -25,6 +25,7 @@ from tracking_utils import (  # noqa: E402
 
 SNAPSHOT_DIR = HISTORY_DIR / "daily_model_snapshots"
 MANIFEST_PATH = SNAPSHOT_DIR / "daily_published_model_snapshot_manifest.csv"
+ALLOW_SNAPSHOT_REWRITE_ENV = "ALLOW_DAILY_MODEL_SNAPSHOT_REWRITE"
 REQUIRED_READY_COLUMNS = ["report_ready", "daily_pdf_ready"]
 WARRANT_GRACE_COLUMNS = (
     "warrant_source_status",
@@ -150,6 +151,23 @@ ARTIFACTS: tuple[SnapshotArtifact, ...] = (
             "stop_loss_price",
             "exit_rule_id",
             "planned_holding_days",
+        ),
+    ),
+    SnapshotArtifact(
+        artifact_id="volume_breakout_operation_evidence_audit",
+        source_name="daily_volume_breakout_operation_evidence_audit_latest.csv",
+        snapshot_stem="daily_volume_breakout_operation_evidence_audit",
+        required_columns=(
+            "model_id",
+            "operation_asof_date",
+            "stock_id",
+            "signal_date",
+            "selected_trigger_id",
+            "selected_confirmation_date",
+            "operation_lifecycle_state",
+            "audit_status",
+            "included_in_daily_adapter",
+            "reason",
         ),
     ),
     SnapshotArtifact(
@@ -314,6 +332,28 @@ def snapshot_name(artifact: SnapshotArtifact, report_date: str) -> str:
     return f"{artifact.snapshot_stem}_{report_date}.csv"
 
 
+def snapshot_rewrite_allowed() -> bool:
+    return safe_str(os.environ.get(ALLOW_SNAPSHOT_REWRITE_ENV, "")).lower() in {"1", "true", "yes", "y"}
+
+
+def guard_existing_snapshot(source: Path, target: Path, artifact: SnapshotArtifact, report_date: str) -> None:
+    if not target.exists():
+        return
+    source_hash = sha256_file(source)
+    target_hash = sha256_file(target)
+    if source_hash == target_hash:
+        return
+    if snapshot_rewrite_allowed():
+        return
+    raise RuntimeError(
+        "published daily model snapshot rewrite blocked: "
+        f"report_date={report_date} artifact_id={artifact.artifact_id} "
+        f"source={source.as_posix()} target={target.as_posix()} "
+        f"source_sha256={source_hash} existing_snapshot_sha256={target_hash}; "
+        f"set {ALLOW_SNAPSHOT_REWRITE_ENV}=1 only for an explicit correction run"
+    )
+
+
 def build_daily_published_model_snapshots(
     latest_dir: Path = LATEST_DIR,
     snapshot_dir: Path = SNAPSHOT_DIR,
@@ -335,6 +375,7 @@ def build_daily_published_model_snapshots(
 
         validate_artifact_frame(source, artifact, report_date)
         target = snapshot_dir / snapshot_name(artifact, report_date)
+        guard_existing_snapshot(source, target, artifact, report_date)
         shutil.copyfile(source, target)
         row_count, column_count = csv_shape(target)
         rows.append(

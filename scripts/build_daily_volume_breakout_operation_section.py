@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from datetime import datetime
 import math
+import os
 from pathlib import Path
 import sys
 from typing import Any
@@ -33,7 +34,13 @@ DOCS_LATEST_DIR = ROOT / "docs" / "latest"
 
 DAILY_SIGNALS_CSV = LATEST_DIR / "daily_candidate_model_signals_for_report_latest.csv"
 APPROVAL_CSV = LATEST_DIR / "approved_operation_patterns_latest.csv"
-FORMAL_SUMMARY_CSV = LATEST_DIR / "volume_breakout_formal_operation_backtest_latest.csv"
+APPROVED_FORMAL_SUMMARY_CSV = (
+    ROOT
+    / "config"
+    / "approved_operation_evidence"
+    / "volume_breakout_operation_v1_20260615_formal_operation_backtest.csv"
+)
+FORMAL_SUMMARY_CSV = APPROVED_FORMAL_SUMMARY_CSV
 DATA_FRESHNESS_CSV = LATEST_DIR / "data_freshness_latest.csv"
 MODEL_SNAPSHOT_DIR = ROOT / "output" / "history" / "daily_model_snapshots"
 MODEL_SIGNAL_LOG_CSV = ROOT / "output" / "history" / "daily_candidate_models" / "daily_candidate_model_signal_log.csv"
@@ -43,6 +50,7 @@ OUT_CSV = LATEST_DIR / "daily_volume_breakout_operation_section_latest.csv"
 OUT_MD = LATEST_DIR / "daily_volume_breakout_operation_section_latest.md"
 EVIDENCE_AUDIT_CSV = LATEST_DIR / "daily_volume_breakout_operation_evidence_audit_latest.csv"
 EVIDENCE_AUDIT_MD = LATEST_DIR / "daily_volume_breakout_operation_evidence_audit_latest.md"
+ALLOW_SNAPSHOT_REWRITE_ENV = "ALLOW_DAILY_MODEL_SNAPSHOT_REWRITE"
 
 MODEL_ID = "volume_range_breakout"
 LIFECYCLE_ADAPTER_SOURCE = "daily_candidate_model_signal_log+daily_published_model_snapshots+stock_price_history"
@@ -254,6 +262,45 @@ def read_csv(path: Path) -> pd.DataFrame:
     except Exception as exc:
         print(f"WARNING: failed to read {path}: {exc}")
         return pd.DataFrame()
+
+
+def true_env(name: str) -> bool:
+    return safe_str(os.environ.get(name)).lower() in {"1", "true", "yes", "y"}
+
+
+def published_section_snapshot_path(report_date: str) -> Path:
+    return MODEL_SNAPSHOT_DIR / f"daily_volume_breakout_operation_section_{normalize_date_text(report_date)}.csv"
+
+
+def published_evidence_audit_snapshot_path(report_date: str) -> Path:
+    return MODEL_SNAPSHOT_DIR / f"daily_volume_breakout_operation_evidence_audit_{normalize_date_text(report_date)}.csv"
+
+
+def restore_published_snapshot(report_date: str) -> tuple[pd.DataFrame, pd.DataFrame] | None:
+    if true_env(ALLOW_SNAPSHOT_REWRITE_ENV):
+        return None
+    section_path = published_section_snapshot_path(report_date)
+    audit_path = published_evidence_audit_snapshot_path(report_date)
+    if not section_path.exists():
+        return None
+    if not audit_path.exists():
+        raise RuntimeError(
+            "published volume breakout operation section snapshot exists without matching evidence audit snapshot: "
+            f"{section_path.as_posix()} requires {audit_path.as_posix()}; set {ALLOW_SNAPSHOT_REWRITE_ENV}=1 only for an explicit correction run"
+        )
+    section = read_csv(section_path)
+    audit = read_csv(audit_path)
+    if section.empty:
+        raise RuntimeError(f"published volume breakout operation section snapshot is empty: {section_path.as_posix()}")
+    if audit.empty:
+        raise RuntimeError(f"published volume breakout operation evidence audit snapshot is empty: {audit_path.as_posix()}")
+    for col in OUTPUT_COLUMNS:
+        if col not in section.columns:
+            section[col] = ""
+    for col in EVIDENCE_AUDIT_COLUMNS:
+        if col not in audit.columns:
+            audit[col] = ""
+    return section[OUTPUT_COLUMNS].copy(), audit[EVIDENCE_AUDIT_COLUMNS].copy()
 
 
 def number_text(value: Any) -> float:
@@ -1633,6 +1680,9 @@ def build() -> tuple[pd.DataFrame, pd.DataFrame]:
     report_date = main_price_date()
     require_latest_signals_match_report_date(signals, report_date)
     daily_signal_date, daily_volume_count = daily_signal_context(signals, report_date)
+    restored = restore_published_snapshot(daily_signal_date)
+    if restored is not None:
+        return restored
     generated_at = now_text()
     approval_info = approval_context(approval)
     rows, audit_rows = build_lifecycle_rows(

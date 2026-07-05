@@ -8,6 +8,7 @@ import pandas as pd
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from build_approved_operation_patterns import (  # noqa: E402
+    APPROVED_VOLUME_EVIDENCE_DIR,
     BUY_FILTER_ID,
     DOCS_CSV,
     DOCS_MD,
@@ -282,7 +283,7 @@ def validate_positive_rank_source() -> list[str]:
     if volume_rows.empty:
         return [f"approval source must contain {MODEL_ID}: {OUT_CSV}"]
     row = volume_rows.iloc[0]
-    source = Path("output/latest") / str(row.get("evidence_rank_source", ""))
+    source = APPROVED_VOLUME_EVIDENCE_DIR / str(row.get("evidence_rank_source", ""))
     rank = read_csv(source, dtype=str).fillna("")
     if rank.empty:
         return [f"missing approval evidence rank source: {source}"]
