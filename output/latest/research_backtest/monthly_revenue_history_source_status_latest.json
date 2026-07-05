@@ -29,6 +29,6 @@
     "fallback_fetch_date": "20260705",
     "fallback_max_source_table_date": "20260617",
     "fallback_age_days": 18,
-    "fallback_max_age_days": 45
+    "fallback_max_age_days": 25
   }
 ]

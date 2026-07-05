@@ -14,7 +14,7 @@
 - forbidden_use: do not label older historical signals with the latest saved revenue period; formal model gates require sufficient coverage audit and promotion.
 - current_limitation: the current official OpenAPI returns the latest available revenue period only; older periods require validated historical backfill or accumulation over future runs.
 - historical_backfill_policy: static MOPS monthly revenue HTML backfill uses a conservative next-month-17 source date so historical research joins do not look ahead.
-- official_source_fallback_policy: if any official OpenAPI source is empty or unavailable, reuse validated cached history for at most `45` days from its latest `source_table_date`; stale cache fails closed.
+- official_source_fallback_policy: if any official OpenAPI source is empty or unavailable, reuse validated cached history for at most `25` days from its latest `source_table_date`; stale cache fails closed.
 
 ## Source Fetch Status
 

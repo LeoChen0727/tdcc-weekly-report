@@ -34,7 +34,7 @@ HISTORY_VERSION = "official_mops_monthly_revenue_v1"
 SOURCE_KIND = "official_mops_current_monthly_revenue_openapi"
 FALLBACK_SOURCE_STATUS = "fallback_reused_validated_history"
 FALLBACK_SOURCE_KIND = "official_mops_current_monthly_revenue_openapi_unavailable_reused_validated_history"
-DEFAULT_FALLBACK_MAX_AGE_DAYS = 45
+DEFAULT_FALLBACK_MAX_AGE_DAYS = 25
 REQUIRED_MARKETS = {"listed", "otc"}
 
 SOURCE_DEFS = [
