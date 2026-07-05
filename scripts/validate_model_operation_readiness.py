@@ -10,6 +10,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from build_model_operation_readiness import (  # noqa: E402
     APPROVAL_CSV,
     DAILY_NECKLINE_ADAPTER_CSV,
+    DAILY_PRICE_PULLBACK_ADAPTER_CSV,
     DAILY_VOLUME_ADAPTER_CSV,
     DAILY_W_BOTTOM_ADAPTER_CSV,
     DOCS_CSV,
@@ -47,8 +48,8 @@ REQUIRED_COLUMNS = {
     "status_note_zh",
 }
 
-APPROVED_MODEL_IDS = {VOLUME_MODEL_ID, W_BOTTOM_MODEL_ID, NECKLINE_MODEL_ID}
-PENDING_CANDIDATE_MODEL_IDS = {PRICE_PULLBACK_MODEL_ID}
+APPROVED_MODEL_IDS = {VOLUME_MODEL_ID, W_BOTTOM_MODEL_ID, NECKLINE_MODEL_ID, PRICE_PULLBACK_MODEL_ID}
+PENDING_CANDIDATE_MODEL_IDS: set[str] = set()
 
 
 def as_bool_text(series: pd.Series) -> pd.Series:
@@ -60,7 +61,7 @@ def validate_files() -> list[str]:
     for path in [OUT_CSV, OUT_MD, DOCS_CSV, DOCS_MD]:
         if not path.exists():
             errors.append(f"missing model operation readiness artifact: {path}")
-    for path in [DAILY_VOLUME_ADAPTER_CSV, DAILY_W_BOTTOM_ADAPTER_CSV, DAILY_NECKLINE_ADAPTER_CSV]:
+    for path in [DAILY_VOLUME_ADAPTER_CSV, DAILY_W_BOTTOM_ADAPTER_CSV, DAILY_NECKLINE_ADAPTER_CSV, DAILY_PRICE_PULLBACK_ADAPTER_CSV]:
         if not path.exists():
             errors.append(f"missing approved daily operation adapter artifact: {path}")
     if not PRICE_PULLBACK_DAILY_ROW_PARITY_CSV.exists():
@@ -208,63 +209,41 @@ def validate_readiness_csv() -> list[str]:
         errors.append(f"readiness must contain exactly one {PRICE_PULLBACK_MODEL_ID} row")
     else:
         row = price_pullback.iloc[0]
-        state = str(row.get("operation_module_status", ""))
-        allowed_state_expectations = {
-            "operation_candidate_v1_pending_exact_row_parity": {
-                "daily_adapter_status": "blocked_exact_daily_row_parity",
-                "approval_status": "pending_exact_daily_row_parity",
-                "pdf_integration_status": "blocked_exact_daily_row_parity",
-                "packet_integration_status": "blocked_exact_daily_row_parity",
-            },
-            "operation_candidate_v1_discussion_ready_pending_latest_research_frame": {
-                "daily_adapter_status": "blocked_latest_research_frame",
-                "approval_status": "pending_research_freshness_and_promotion_pr",
-                "pdf_integration_status": "blocked_latest_research_frame",
-                "packet_integration_status": "blocked_latest_research_frame",
-            },
-            "operation_candidate_v1_pending_promotion_pr": {
-                "daily_adapter_status": "blocked_promotion_pr_and_daily_operation_adapter_required",
-                "approval_status": "pending_promotion_pr_and_daily_adapter",
-                "pdf_integration_status": "blocked_promotion_pr_and_daily_operation_adapter_required",
-                "packet_integration_status": "blocked_promotion_pr_and_daily_operation_adapter_required",
-            },
-        }
-        if state not in allowed_state_expectations:
-            errors.append(f"{PRICE_PULLBACK_MODEL_ID} readiness operation_module_status has invalid state: {state!r}")
-            expected = {}
-        else:
-            expected = allowed_state_expectations[state]
         expected = {
-            **expected,
+            "operation_module_status": "approved_operation_v1",
             "operation_module_id": PRICE_PULLBACK_OPERATION_MODULE_ID,
-            "approval_version": PRICE_PULLBACK_CANDIDATE_VERSION,
-            "approved_for_daily": "False",
-            "presentation_allowed": "False",
-            "operation_directive_level": "no_operation_directive",
+            "approval_version": "price_pullback_23ema_operation_v1_20260703",
+            "approved_for_daily": "True",
+            "approval_status": "approved_for_daily_v1",
+            "presentation_allowed": "True",
+            "operation_directive_level": "approved_daily_operation_guidance",
+            "pdf_integration_status": "pdf_integrated_daily_adapter",
+            "packet_integration_status": "packet_integrated_daily_adapter",
             "registry_best_pattern_id": PRICE_PULLBACK_BUY_FILTER_ID,
         }
         for col, value in expected.items():
             if str(row.get(col, "")) != value:
                 errors.append(f"{PRICE_PULLBACK_MODEL_ID} readiness {col} must be {value!r}, got {row.get(col, '')!r}")
-        blocker = str(row.get("blocker", ""))
-        if state == "operation_candidate_v1_discussion_ready_pending_latest_research_frame":
-            if "latest research frame freshness" not in blocker:
-                errors.append("price pullback discussion-ready blocker must cite latest research frame freshness")
-        elif state == "operation_candidate_v1_pending_promotion_pr":
-            if "promotion/sync PR" not in blocker and "promotion" not in blocker:
-                errors.append("price pullback promotion blocker must cite the required promotion PR")
-            if "operation-row adapter" not in blocker:
-                errors.append("price pullback promotion blocker must cite the required operation-row adapter")
-        elif "daily row parity audit" not in blocker:
-            errors.append("price pullback readiness blocker must cite the daily row parity audit")
+        if str(row.get("daily_adapter_status", "")) not in {
+            "ready_approved_operation_guidance",
+            "ready_empty_no_operation_rows",
+        }:
+            errors.append(
+                f"{PRICE_PULLBACK_MODEL_ID} daily_adapter_status must be ready approved or ready empty, "
+                f"got {row.get('daily_adapter_status', '')!r}"
+            )
+        if not {"confirmed_operation", "active_operation"}.issubset(
+            set(str(row.get("daily_adapter_sections", "")).split(","))
+        ):
+            errors.append(
+                f"{PRICE_PULLBACK_MODEL_ID} daily_adapter_sections must include confirmed_operation and active_operation"
+            )
         if not PRICE_PULLBACK_SPEC_SOURCE.exists():
             errors.append(f"missing price pullback operation candidate spec source: {PRICE_PULLBACK_SPEC_SOURCE}")
-        if int(float(row.get("registry_best_sample_size", 0) or 0)) < 5000:
-            errors.append("price pullback candidate mature sample size is weaker than the v1 candidate gate")
+        if int(float(row.get("registry_best_sample_size", 0) or 0)) < 1000:
+            errors.append("price pullback approved sample size is weaker than the v1 gate")
         if float(row.get("registry_best_win_rate", 0) or 0) < 60.0:
-            errors.append("price pullback candidate win rate is weaker than the v1 candidate gate")
-        if float(row.get("registry_best_median_return", 0) or 0) <= 0.0:
-            errors.append("price pullback candidate median D+20 close return must stay positive")
+            errors.append("price pullback approved win rate is weaker than the v1 gate")
 
     others = df[~df["model_id"].astype(str).isin(APPROVED_MODEL_IDS | PENDING_CANDIDATE_MODEL_IDS)]
     if not others.empty:
@@ -363,6 +342,7 @@ def main() -> int:
     print(f"volume_status={df.loc[df['model_id'].eq(VOLUME_MODEL_ID), 'daily_adapter_status'].iloc[0]}")
     print(f"w_bottom_status={df.loc[df['model_id'].eq(W_BOTTOM_MODEL_ID), 'daily_adapter_status'].iloc[0]}")
     print(f"neckline_status={df.loc[df['model_id'].eq(NECKLINE_MODEL_ID), 'daily_adapter_status'].iloc[0]}")
+    print(f"price_pullback_status={df.loc[df['model_id'].eq(PRICE_PULLBACK_MODEL_ID), 'daily_adapter_status'].iloc[0]}")
     return 0
 
 

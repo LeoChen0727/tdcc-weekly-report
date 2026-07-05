@@ -1,5 +1,44 @@
 # price_pullback_23ema Operation Candidate Spec
 
+## Promoted v1 Contract
+
+This document also records the promoted daily operation contract:
+
+- approval_version: `price_pullback_23ema_operation_v1_20260703`
+- operation_module_id: `price_pullback_23ema_prev20_breakout_stop_v1`
+- production_status: `approved for daily operation guidance`
+- required gate: `price_pullback_23ema` signal + `return20_0_25` + `TDCC high thresholds up` + `OBV above MA20`
+- technical quality label: `RSI14 >= 60 AND MACD histogram > 0`
+- no v1 revenue gate or revenue score
+- no v1 warrant score, theme score, high-return structure score, or all-TDCC-up score
+- volume red K / solid red K remains a risk tag only
+
+Formal operation rules:
+
+- Buy: after the signal date qualifies, buy at the next trading day open.
+- Sell: after a close breaks the signal-day previous 20 trading day high, sell at the next trading day open.
+- Stop: after the close stays below `0.96 * min(MA20, EMA23)` for 4 consecutive trading days, sell at the next trading day open.
+- Win: target sell triggers before stop by D+20.
+- Neutral: no target or stop by D+20 and D+20 close return is at least 0%.
+- Failure: stop triggers before target, or no target/stop by D+20 and D+20 close return is below 0%.
+
+Approved metrics, excluding the known data-quality exception:
+
+- Base model: 1,160 trades; win / neutral / failure / average realized return = `66.03% / 5.60% / 28.36% / +2.90%`.
+- Technical quality package: 654 trades; win / neutral / failure / average realized return = `75.54% / 3.52% / 20.95% / +2.96%`.
+
+PDF operation presentation:
+
+- The model block must always render once the PDF renderer consumes the adapter.
+- Digest/highlight PDFs use two main tables only: `本日可買 / 已確認買入候選` and `操作中`.
+- If the confirmed table has no rows, the table contains `本日無股票推薦`.
+- If the active table has no rows, the table contains `目前無操作中追蹤列`.
+- The table must not show stock rank or display order as a quality ranking. It may show `操作品質` as `技術強勢` or `基礎`.
+- The model-owned adapter is `output/latest/daily_price_pullback_23ema_operation_section_latest.csv`.
+- Producer script: `scripts/build_daily_price_pullback_23ema_operation_section.py`.
+- Validator script: `scripts/validate_daily_price_pullback_23ema_operation_section.py`.
+- The PDF renderer must not infer buyable, active, pending, exit, stop, rank, or performance rows from candidate signals.
+
 - model_id: `price_pullback_23ema`
 - model_name_zh: `股價回檔模型`
 - candidate_version: `price_pullback_23ema_operation_candidate_v1_20260630`

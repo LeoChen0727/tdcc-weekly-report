@@ -1,6 +1,6 @@
 # Price Pullback 23EMA Lifecycle Replay
 
-- generated_at: `2026-07-05 04:40:31 Asia/Taipei`
+- generated_at: `2026-07-05 19:31:45 Asia/Taipei`
 - model_id: `price_pullback_23ema`
 - status: `not_production_ready_research_only`
 - scope: trade-level replay that suppresses later same-stock signals while a prior accepted trade is still active.

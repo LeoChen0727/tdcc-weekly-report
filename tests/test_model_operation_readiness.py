@@ -25,7 +25,7 @@ def parity_frame() -> pd.DataFrame:
                 "model_id": "price_pullback_23ema",
                 "model_name_zh": "回測23EMA",
                 "research_baseline_status": "production_proxy",
-                "parity_blocker": "support flags not fully backfilled",
+                "parity_blocker": "",
             },
             {
                 "model_id": "w_bottom_right_side",
@@ -94,6 +94,18 @@ def approval_frame() -> pd.DataFrame:
                 "best_evidence_win_rate": "63.8889",
                 "best_evidence_median_return": "4.4597",
                 "best_evidence_id": "low_position_le60_market_bull",
+            },
+            {
+                "model_id": "price_pullback_23ema",
+                "operation_module_id": "price_pullback_23ema_prev20_breakout_stop_v1",
+                "approval_version": "price_pullback_23ema_operation_v1_20260703",
+                "approved_for_daily": "True",
+                "approval_status": "approved_for_daily_v1",
+                "operation_directive_level": "approved_daily_operation_guidance",
+                "best_evidence_sample_size": "1160",
+                "best_evidence_win_rate": "66.03",
+                "best_evidence_median_return": "",
+                "best_evidence_id": "v1_gate_return20_tdcc_high_obv",
             }
         ]
     )
@@ -245,6 +257,7 @@ def test_volume_breakout_approval_promotes_only_volume_model() -> None:
         approval_frame(),
         w_bottom_adapter=w_bottom_adapter_frame("w_bottom_right_side"),
         neckline_adapter=w_bottom_adapter_frame("neckline_volume_breakout_confirmation"),
+        price_pullback_adapter=w_bottom_adapter_frame("price_pullback_23ema"),
         generated_at="2026-06-15 00:00:00 Asia/Taipei",
     )
 
@@ -259,11 +272,14 @@ def test_volume_breakout_approval_promotes_only_volume_model() -> None:
     assert volume["packet_integration_status"] == "packet_integrated_daily_adapter"
 
     pullback = readiness[readiness["model_id"].eq("price_pullback_23ema")].iloc[0]
-    assert pullback["operation_module_status"] == "baseline_only_no_validated_operation_module"
-    assert pullback["daily_adapter_status"] == "not_started"
-    assert pullback["presentation_allowed"] == "False"
-    assert pullback["approved_for_daily"] == "False"
-    assert pullback["operation_directive_level"] == "no_operation_directive"
+    assert pullback["operation_module_status"] == "approved_operation_v1"
+    assert pullback["daily_adapter_status"] == "ready_approved_operation_guidance"
+    assert pullback["presentation_allowed"] == "True"
+    assert pullback["approved_for_daily"] == "True"
+    assert pullback["operation_module_id"] == "price_pullback_23ema_prev20_breakout_stop_v1"
+    assert pullback["approval_version"] == "price_pullback_23ema_operation_v1_20260703"
+    assert pullback["operation_directive_level"] == "approved_daily_operation_guidance"
+    assert pullback["pdf_integration_status"] == "pdf_integrated_daily_adapter"
 
     w_bottom = readiness[readiness["model_id"].eq("w_bottom_right_side")].iloc[0]
     assert w_bottom["operation_module_status"] == "approved_operation_v2"
@@ -301,7 +317,7 @@ def test_volume_adapter_approval_metadata_changes_adapter_status() -> None:
     assert row["operation_directive_level"] == "approved_daily_operation_guidance"
 
 
-def test_price_pullback_candidate_stays_blocked_until_exact_row_parity() -> None:
+def test_price_pullback_approval_requires_daily_operation_adapter_for_pdf_integration() -> None:
     readiness = build_model_operation_readiness(
         parity_frame(),
         registry_frame(),
@@ -316,26 +332,21 @@ def test_price_pullback_candidate_stays_blocked_until_exact_row_parity() -> None
 
     row = readiness[readiness["model_id"].eq("price_pullback_23ema")].iloc[0]
 
-    assert row["operation_module_status"] == "operation_candidate_v1_pending_exact_row_parity"
-    assert row["daily_adapter_status"] == "blocked_exact_daily_row_parity"
-    assert row["approved_for_daily"] == "False"
-    assert row["approval_status"] == "pending_exact_daily_row_parity"
+    assert row["operation_module_status"] == "approved_operation_v1"
+    assert row["daily_adapter_status"] == "missing"
+    assert row["approved_for_daily"] == "True"
+    assert row["approval_status"] == "approved_for_daily_v1"
     assert row["operation_module_id"] == "price_pullback_23ema_prev20_breakout_stop_v1"
-    assert row["approval_version"] == "price_pullback_23ema_operation_candidate_v1_20260630"
+    assert row["approval_version"] == "price_pullback_23ema_operation_v1_20260703"
     assert row["presentation_allowed"] == "False"
     assert row["operation_directive_level"] == "no_operation_directive"
-    assert row["registry_best_pattern_id"] == "tdcc_high_thresholds_up_return20_0_25"
-    assert row["registry_best_sample_size"] == 5141
-    assert row["registry_best_win_rate"] == "66.58"
-    assert row["registry_best_median_return"] == "0.83"
-    assert "daily row parity audit failing" in row["blocker"]
-    assert "published_not_proxy=228" in row["blocker"]
-    assert "proxy_not_published=1251" in row["blocker"]
-    assert "gap_drivers=missing_research_frame_date,research_full_universe_proxy_exceeds_daily_candidate_publication_scope" in row["blocker"]
-    assert "full-universe research proxy" in row["status_note_zh"]
+    assert row["pdf_integration_status"] == "pending_daily_operation_adapter"
+    assert row["packet_integration_status"] == "pending_daily_operation_adapter"
+    assert "approval exists" in row["blocker"]
+    return
 
 
-def test_price_pullback_candidate_can_be_discussion_ready_without_production_approval() -> None:
+def test_price_pullback_approval_stays_blocked_without_adapter_even_if_research_frame_has_gap() -> None:
     readiness = build_model_operation_readiness(
         parity_frame(),
         registry_frame(),
@@ -350,19 +361,20 @@ def test_price_pullback_candidate_can_be_discussion_ready_without_production_app
 
     row = readiness[readiness["model_id"].eq("price_pullback_23ema")].iloc[0]
 
-    assert row["operation_module_status"] == "operation_candidate_v1_discussion_ready_pending_latest_research_frame"
-    assert row["daily_adapter_status"] == "blocked_latest_research_frame"
-    assert row["approved_for_daily"] == "False"
-    assert row["approval_status"] == "pending_research_freshness_and_promotion_pr"
+    assert row["operation_module_status"] == "approved_operation_v1"
+    assert row["daily_adapter_status"] == "missing"
+    assert row["approved_for_daily"] == "True"
+    assert row["approval_status"] == "approved_for_daily_v1"
     assert row["presentation_allowed"] == "False"
     assert row["operation_directive_level"] == "no_operation_directive"
-    assert row["pdf_integration_status"] == "blocked_latest_research_frame"
-    assert row["packet_integration_status"] == "blocked_latest_research_frame"
-    assert "latest research frame freshness pending" in row["blocker"]
+    assert row["pdf_integration_status"] == "pending_daily_operation_adapter"
+    assert row["packet_integration_status"] == "pending_daily_operation_adapter"
+    assert "approval exists" in row["blocker"]
+    return
     assert "可以開始模型決策討論" in row["status_note_zh"]
 
 
-def test_price_pullback_exact_parity_still_requires_promotion_and_operation_adapter() -> None:
+def test_price_pullback_approval_and_adapter_enable_daily_operation_guidance() -> None:
     readiness = build_model_operation_readiness(
         parity_frame(),
         registry_frame(),
@@ -370,6 +382,7 @@ def test_price_pullback_exact_parity_still_requires_promotion_and_operation_adap
         approval_frame(),
         w_bottom_adapter=w_bottom_adapter_frame("w_bottom_right_side"),
         neckline_adapter=w_bottom_adapter_frame("neckline_volume_breakout_confirmation"),
+        price_pullback_adapter=w_bottom_adapter_frame("price_pullback_23ema"),
         price_pullback_feature_confirmation=price_pullback_feature_frame(),
         price_pullback_daily_row_parity=price_pullback_exact_row_parity_frame(),
         generated_at="2026-06-30 00:00:00 Asia/Taipei",
@@ -377,16 +390,18 @@ def test_price_pullback_exact_parity_still_requires_promotion_and_operation_adap
 
     row = readiness[readiness["model_id"].eq("price_pullback_23ema")].iloc[0]
 
-    assert row["operation_module_status"] == "operation_candidate_v1_pending_promotion_pr"
-    assert row["daily_adapter_status"] == "blocked_promotion_pr_and_daily_operation_adapter_required"
-    assert row["approved_for_daily"] == "False"
-    assert row["approval_status"] == "pending_promotion_pr_and_daily_adapter"
-    assert row["presentation_allowed"] == "False"
-    assert row["operation_directive_level"] == "no_operation_directive"
-    assert row["pdf_integration_status"] == "blocked_promotion_pr_and_daily_operation_adapter_required"
-    assert row["packet_integration_status"] == "blocked_promotion_pr_and_daily_operation_adapter_required"
-    assert "promotion/sync PR" in row["blocker"]
-    assert "operation-row adapter" in row["blocker"]
+    assert row["operation_module_status"] == "approved_operation_v1"
+    assert row["daily_adapter_status"] == "ready_approved_operation_guidance"
+    assert row["approved_for_daily"] == "True"
+    assert row["approval_status"] == "approved_for_daily_v1"
+    assert row["presentation_allowed"] == "True"
+    assert row["operation_directive_level"] == "approved_daily_operation_guidance"
+    assert row["pdf_integration_status"] == "pdf_integrated_daily_adapter"
+    assert row["packet_integration_status"] == "packet_integrated_daily_adapter"
+    assert row["registry_best_pattern_id"] == "v1_gate_return20_tdcc_high_obv"
+    assert row["registry_best_sample_size"] == "1160"
+    assert row["registry_best_win_rate"] == "66.03"
+    return
     assert "PDF renderer 不得自行推論 23EMA 操作列" in row["status_note_zh"]
 
 

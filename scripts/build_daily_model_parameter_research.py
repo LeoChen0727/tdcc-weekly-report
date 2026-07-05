@@ -18,6 +18,7 @@ from build_daily_candidate_model_layer import build_parameter_table, build_specs
 from build_approved_operation_patterns import (  # noqa: E402
     NECKLINE_APPROVAL_METRICS,
     NECKLINE_OPERATION_MODULE_ID,
+    PRICE_PULLBACK_OPERATION_MODULE_ID,
     W_BOTTOM_APPROVAL_METRICS,
     W_BOTTOM_OPERATION_MODULE_ID,
 )
@@ -928,6 +929,15 @@ def current_price_pullback_baseline_proxy(d: pd.DataFrame) -> pd.Series:
     return price_pullback_near_ema23_or_support(d) & price_pullback_ema23_slope_proxy_up(d)
 
 
+def current_price_pullback_approved_operation_baseline(d: pd.DataFrame) -> pd.Series:
+    return (
+        current_price_pullback_baseline_proxy(d)
+        & price_pullback_return20_balanced_filter(d)
+        & price_pullback_tdcc_high_thresholds_up_filter(d)
+        & price_pullback_obv_above_ma20_filter(d)
+    )
+
+
 def price_pullback_red_k_entry_filter(d: pd.DataFrame, volume_min: float, solid: bool = False) -> pd.Series:
     candle_col = "solid_red_candle" if solid else "bullish_attack_candle"
     return (numeric_column(d, "volume_ratio_prev20") >= volume_min) & trueish_column(d, candle_col)
@@ -1273,15 +1283,18 @@ def production_baseline_specs() -> list[RuleSpec]:
         ),
         RuleSpec(
             "price_pullback_23ema",
-            "股價回檔模型",
-            "production_current_proxy",
-            "production baseline proxy replay: near 23EMA/support + MA/EMA trend proxy up",
+            "23EMA回檔模型",
+            PRICE_PULLBACK_OPERATION_MODULE_ID,
+            "approved operation baseline: 23EMA/support pullback, return20_0_25, TDCC high thresholds up, OBV above MA20",
             "pdf_core_model",
-            current_price_pullback_baseline_proxy,
-            "Research replays production pullback support/EMA and MA/EMA trend proxy fields from point-in-time price history; operation rules remain advisory.",
+            current_price_pullback_approved_operation_baseline,
+            (
+                f"{PRICE_PULLBACK_OPERATION_MODULE_ID} is the formal daily baseline through "
+                "approved_operation_patterns_latest.csv and the model-owned operation adapter."
+            ),
             "production_baseline",
-            "production_proxy",
-            "as-published daily candidate row parity and a validated operation module are still pending",
+            "production_parity",
+            "",
             "production_current",
         ),
         RuleSpec(
@@ -7431,7 +7444,7 @@ def build_price_pullback_daily_row_parity_audit(
     research["_row_parity_date"] = research["date"].map(normalize_date)
     research["_row_parity_stock_id"] = research["stock_id"].map(normalize_code)
     outcome_research_dates = set(research["_row_parity_date"].astype(str))
-    proxy_mask = current_price_pullback_baseline_proxy(research).fillna(False)
+    proxy_mask = current_price_pullback_approved_operation_baseline(research).fillna(False)
     proxy_rows = research.loc[
         proxy_mask
         & research["_row_parity_date"].astype(str).ne("")

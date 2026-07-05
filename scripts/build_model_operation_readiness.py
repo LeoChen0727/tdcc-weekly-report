@@ -16,6 +16,7 @@ REGISTRY_CSV = LATEST_DIR / "historical_pattern_operation_registry_latest.csv"
 DAILY_VOLUME_ADAPTER_CSV = LATEST_DIR / "daily_volume_breakout_operation_section_latest.csv"
 DAILY_W_BOTTOM_ADAPTER_CSV = LATEST_DIR / "daily_w_bottom_right_side_operation_section_latest.csv"
 DAILY_NECKLINE_ADAPTER_CSV = LATEST_DIR / "daily_neckline_volume_breakout_confirmation_operation_section_latest.csv"
+DAILY_PRICE_PULLBACK_ADAPTER_CSV = LATEST_DIR / "daily_price_pullback_23ema_operation_section_latest.csv"
 APPROVAL_CSV = LATEST_DIR / "approved_operation_patterns_latest.csv"
 
 OUT_CSV = LATEST_DIR / "model_operation_readiness_latest.csv"
@@ -36,7 +37,7 @@ PRICE_PULLBACK_DAILY_ROW_PARITY_CSV = (
 PRICE_PULLBACK_SPEC_SOURCE = Path("docs/specs/price_pullback_23ema_operation_candidate_spec.md")
 PRICE_PULLBACK_OPERATION_MODULE_ID = "price_pullback_23ema_prev20_breakout_stop_v1"
 PRICE_PULLBACK_CANDIDATE_VERSION = "price_pullback_23ema_operation_candidate_v1_20260630"
-PRICE_PULLBACK_BUY_FILTER_ID = "tdcc_high_thresholds_up_return20_0_25"
+PRICE_PULLBACK_BUY_FILTER_ID = "v1_gate_return20_tdcc_high_obv"
 
 
 def truthy(value: Any) -> bool:
@@ -463,6 +464,7 @@ def build_model_operation_readiness(
     approval: pd.DataFrame | None = None,
     w_bottom_adapter: pd.DataFrame | None = None,
     neckline_adapter: pd.DataFrame | None = None,
+    price_pullback_adapter: pd.DataFrame | None = None,
     price_pullback_feature_confirmation: pd.DataFrame | None = None,
     price_pullback_daily_row_parity: pd.DataFrame | None = None,
     generated_at: str | None = None,
@@ -485,10 +487,15 @@ def build_model_operation_readiness(
         neckline_adapter if neckline_adapter is not None else pd.DataFrame(),
         NECKLINE_MODEL_ID,
     )
+    price_pullback_adapter_summary = summarize_w_bottom_daily_adapter(
+        price_pullback_adapter if price_pullback_adapter is not None else pd.DataFrame(),
+        PRICE_PULLBACK_MODEL_ID,
+    )
     approval_frame = approval if approval is not None else pd.DataFrame()
     volume_approval = summarize_volume_approval(approval_frame)
     w_bottom_approval = summarize_model_approval(approval_frame, W_BOTTOM_MODEL_ID)
     neckline_approval = summarize_model_approval(approval_frame, NECKLINE_MODEL_ID)
+    price_pullback_approval = summarize_model_approval(approval_frame, PRICE_PULLBACK_MODEL_ID)
     price_pullback_candidate = summarize_price_pullback_candidate(
         price_pullback_feature_confirmation if price_pullback_feature_confirmation is not None else pd.DataFrame(),
         price_pullback_daily_row_parity,
@@ -496,6 +503,7 @@ def build_model_operation_readiness(
     volume_approved = volume_approval["approved_for_daily"] == "True"
     w_bottom_approved = w_bottom_approval["approved_for_daily"] == "True"
     neckline_approved = neckline_approval["approved_for_daily"] == "True"
+    price_pullback_approved = price_pullback_approval["approved_for_daily"] == "True"
     adapter_ready = volume_adapter["daily_adapter_status"] in {
         "ready_pending_approval_metadata",
         "ready_approved_operation_guidance",
@@ -674,6 +682,64 @@ def build_model_operation_readiness(
             )
             continue
 
+        if model_id == PRICE_PULLBACK_MODEL_ID and price_pullback_approved:
+            adapter_ready = price_pullback_adapter_summary["daily_adapter_status"] in {
+                "ready_approved_operation_guidance",
+                "ready_empty_no_operation_rows",
+            }
+            presentation_allowed = parity_status in {
+                "production_parity",
+                "production_proxy",
+                "proxy_only",
+            } and adapter_ready
+            if presentation_allowed:
+                blocker = "price_pullback_23ema v1 operation adapter is ready"
+            else:
+                blocker = parity_blocker or "price_pullback_23ema approval exists, but daily operation adapter is not ready"
+            rows.append(
+                {
+                    "generated_at": generated,
+                    "model_id": model_id,
+                    "model_name_zh": "23EMA回檔模型",
+                    "parity_status": parity_status,
+                    "blocker": blocker,
+                    "operation_module_status": "approved_operation_v1",
+                    "daily_adapter_status": (
+                        price_pullback_adapter_summary["daily_adapter_status"] if adapter_ready else "missing"
+                    ),
+                    "approved_for_daily": price_pullback_approval["approved_for_daily"],
+                    "approval_status": price_pullback_approval["approval_status"],
+                    "operation_module_id": price_pullback_approval["operation_module_id"],
+                    "approval_version": price_pullback_approval["approval_version"],
+                    "presentation_allowed": "True" if presentation_allowed else "False",
+                    "operation_directive_level": (
+                        price_pullback_approval["operation_directive_level"] if presentation_allowed else "no_operation_directive"
+                    ),
+                    "pdf_integration_status": (
+                        "pdf_integrated_daily_adapter" if presentation_allowed else "pending_daily_operation_adapter"
+                    ),
+                    "packet_integration_status": (
+                        "packet_integrated_daily_adapter" if presentation_allowed else "pending_daily_operation_adapter"
+                    ),
+                    "registry_pattern_count": 1,
+                    "registry_current_model_pattern_count": 1,
+                    "registry_best_pattern_id": price_pullback_approval.get("best_evidence_id", ""),
+                    "registry_best_sample_size": price_pullback_approval.get("best_evidence_sample_size", ""),
+                    "registry_best_win_rate": price_pullback_approval.get("best_evidence_win_rate", ""),
+                    "registry_best_median_return": price_pullback_approval.get("best_evidence_median_return", ""),
+                    "daily_adapter_row_count": price_pullback_adapter_summary["daily_adapter_row_count"],
+                    "daily_adapter_data_row_count": price_pullback_adapter_summary["daily_adapter_data_row_count"],
+                    "daily_adapter_sections": price_pullback_adapter_summary["daily_adapter_sections"],
+                    "status_note_zh": (
+                        "23EMA回檔模型 v1 已批准為 daily operation guidance；買入為訊號後下一交易日開盤，"
+                        "賣出為收盤突破訊號日前20日高點後下一交易日開盤，停損為收盤連續4天低於"
+                        "MA20/EMA23較低者4%後下一交易日開盤。PDF只能消費 model-owned operation adapter，"
+                        "不得由 candidate signal 推論 lifecycle。"
+                    ),
+                }
+            )
+            continue
+
         if model_id == PRICE_PULLBACK_MODEL_ID and price_pullback_candidate["candidate_ready"] == "True":
             rows.append(
                 {
@@ -805,6 +871,7 @@ def main() -> int:
     adapter = read_csv(DAILY_VOLUME_ADAPTER_CSV, dtype=str).fillna("")
     w_bottom_adapter = read_csv(DAILY_W_BOTTOM_ADAPTER_CSV, dtype=str).fillna("")
     neckline_adapter = read_csv(DAILY_NECKLINE_ADAPTER_CSV, dtype=str).fillna("")
+    price_pullback_adapter = read_csv(DAILY_PRICE_PULLBACK_ADAPTER_CSV, dtype=str).fillna("")
     approval = read_csv(APPROVAL_CSV, dtype=str).fillna("")
     price_pullback_feature_confirmation = read_csv(PRICE_PULLBACK_FEATURE_CONFIRMATION_CSV, dtype=str).fillna("")
     price_pullback_daily_row_parity = read_csv(PRICE_PULLBACK_DAILY_ROW_PARITY_CSV, dtype=str).fillna("")
@@ -815,6 +882,7 @@ def main() -> int:
         approval,
         w_bottom_adapter=w_bottom_adapter,
         neckline_adapter=neckline_adapter,
+        price_pullback_adapter=price_pullback_adapter,
         price_pullback_feature_confirmation=price_pullback_feature_confirmation,
         price_pullback_daily_row_parity=price_pullback_daily_row_parity,
     )

@@ -1,6 +1,6 @@
 # Daily Model Parameter Research
 
-- generated_at: `2026-07-05 04:40:31 Asia/Taipei`
+- generated_at: `2026-07-05 19:31:44 Asia/Taipei`
 - price_history_files: `2376`
 - max_price_rows: `297`
 - data_range: `20250407` ~ `20260703`
@@ -27,6 +27,7 @@
 | pullback_short_reclaim | prior20up_reclaim_vol1.2 | parameter_variant | variant_not_baseline | 2139 | 970 | D+10 | 47.76 | 1.84 | ok_first_pass | 前 20 日漲幅 >= 10% + 距 23EMA -1% 至 6% + MACD 柱狀體 > 0 + 量比 >= 1.2 |
 | pullback_short_reclaim | prior20up_reclaim_vol1.5 | parameter_variant | variant_not_baseline | 1340 | 773 | D+10 | 46.25 | 1.8 | ok_first_pass | 前 20 日漲幅 >= 10% + 距 23EMA -1% 至 6% + MACD 柱狀體 > 0 + 量比 >= 1.5 |
 | volume_range_breakout | prior20x1.02_vol2_minvol1000 | parameter_variant | variant_not_baseline | 3832 | 1143 | D+10 | 44.23 | 1.77 | ok_first_pass | 收盤突破前20日高點 2% + 量比 >= 2 + 20日均量 >= 1000張 + 實體紅K |
+| price_pullback_23ema | price_pullback_23ema_prev20_breakout_stop_v1 | production_baseline | production_parity | 8795 | 1128 | D+10 | 49.38 | 1.76 | ok_first_pass | approved operation baseline: 23EMA/support pullback, return20_0_25, TDCC high thresholds up, OBV above MA20 |
 | volume_range_breakout | prior20x1.01_vol2_minvol1000 | parameter_variant | variant_not_baseline | 4824 | 1269 | D+10 | 44.22 | 1.74 | ok_first_pass | 收盤突破前20日高點 1% + 量比 >= 2 + 20日均量 >= 1000張 + 實體紅K |
 | tdcc_stealth_accumulation | production_current_proxy | production_baseline | production_proxy | 38487 | 1769 | D+10 | 50.94 | 1.73 | ok_first_pass | production baseline proxy: TDCC positive, attack not started, low volume/return, still in range |
 | pullback_short_reclaim | prior20up_reclaim_vol1 | parameter_variant | variant_not_baseline | 3061 | 1115 | D+10 | 47.58 | 1.73 | ok_first_pass | 前 20 日漲幅 >= 10% + 距 23EMA -1% 至 6% + MACD 柱狀體 > 0 + 量比 >= 1 |
@@ -47,7 +48,6 @@
 | volume_range_breakout | prior20x1.02_vol2_minvol500 | parameter_variant | variant_not_baseline | 4700 | 1326 | D+10 | 43.46 | 1.43 | ok_first_pass | 收盤突破前20日高點 2% + 量比 >= 2 + 20日均量 >= 500張 + 實體紅K |
 | volume_range_breakout | prior20x1.03_vol3_minvol500 | parameter_variant | variant_not_baseline | 2846 | 1109 | D+10 | 42.09 | 1.33 | ok_first_pass | 收盤突破前20日高點 3% + 量比 >= 3 + 20日均量 >= 500張 + 實體紅K |
 | volume_range_breakout | prior20x1.01_vol3_minvol500 | parameter_variant | variant_not_baseline | 4169 | 1311 | D+10 | 42.11 | 1.32 | ok_first_pass | 收盤突破前20日高點 1% + 量比 >= 3 + 20日均量 >= 500張 + 實體紅K |
-| volume_range_breakout | prior20x1.02_vol3_minvol500 | parameter_variant | variant_not_baseline | 3441 | 1201 | D+10 | 42.29 | 1.32 | ok_first_pass | 收盤突破前20日高點 2% + 量比 >= 3 + 20日均量 >= 500張 + 實體紅K |
 
 ## All Model Parameter Summary
 
@@ -76,6 +76,7 @@
 | platform_strengthening | w30_near5_vol1.2 | parameter_variant | variant_not_baseline | 8198 | 39.86 | 41.25 | 40.79 | 41.65 | -0.07 | 0.2 | ok_first_pass | 30日區間寬度 <= 18% + 距區間上緣 5% 內 + 量比 >= 1.2 + 實體紅K |
 | platform_strengthening | w30_near5_vol1.5 | parameter_variant | variant_not_baseline | 5763 | 39.16 | 40.72 | 40.75 | 41.71 | -0.08 | 0.19 | ok_first_pass | 30日區間寬度 <= 18% + 距區間上緣 5% 內 + 量比 >= 1.5 + 實體紅K |
 | platform_strengthening | w30_near3_vol1.5 | parameter_variant | variant_not_baseline | 4245 | 38.66 | 40.6 | 40.14 | 41.74 | -0.1 | 0.18 | ok_first_pass | 30日區間寬度 <= 18% + 距區間上緣 3% 內 + 量比 >= 1.5 + 實體紅K |
+| price_pullback_23ema | price_pullback_23ema_prev20_breakout_stop_v1 | production_baseline | production_parity | 8795 | 43.15 | 45.54 | 47.15 | 49.38 | 0.63 | 1.76 | ok_first_pass | approved operation baseline: 23EMA/support pullback, return20_0_25, TDCC high thresholds up, OBV above MA20 |
 | price_pullback_23ema | ema-4_7_volmax1 | parameter_variant | variant_not_baseline | 75599 | 39.35 | 43.0 | 43.55 | 44.72 | 0.28 | 1.06 | ok_first_pass | 距 23EMA -4% 至 7% + 23EMA 向上 + 量比 <= 1 |
 | price_pullback_23ema | ema-4_7_volmax1.2 | parameter_variant | variant_not_baseline | 87135 | 39.5 | 43.16 | 43.74 | 44.82 | 0.3 | 1.06 | ok_first_pass | 距 23EMA -4% 至 7% + 23EMA 向上 + 量比 <= 1.2 |
 | price_pullback_23ema | ema-4_7_volmax1.5 | parameter_variant | variant_not_baseline | 98184 | 39.56 | 43.12 | 43.72 | 44.82 | 0.3 | 1.05 | ok_first_pass | 距 23EMA -4% 至 7% + 23EMA 向上 + 量比 <= 1.5 |
@@ -85,7 +86,6 @@
 | price_pullback_23ema | ema-1.5_3_volmax1 | parameter_variant | variant_not_baseline | 52526 | 39.19 | 42.59 | 43.25 | 44.31 | 0.21 | 0.85 | ok_first_pass | 距 23EMA -1.5% 至 3% + 23EMA 向上 + 量比 <= 1 |
 | price_pullback_23ema | ema-1.5_3_volmax1.2 | parameter_variant | variant_not_baseline | 59707 | 39.34 | 42.75 | 43.39 | 44.32 | 0.21 | 0.82 | ok_first_pass | 距 23EMA -1.5% 至 3% + 23EMA 向上 + 量比 <= 1.2 |
 | price_pullback_23ema | ema-1.5_3_volmax1.5 | parameter_variant | variant_not_baseline | 66210 | 39.49 | 42.74 | 43.36 | 44.23 | 0.21 | 0.81 | ok_first_pass | 距 23EMA -1.5% 至 3% + 23EMA 向上 + 量比 <= 1.5 |
-| price_pullback_23ema | production_current_proxy | production_baseline | production_proxy | 304517 | 39.36 | 43.01 | 43.71 | 44.44 | 0.22 | 0.68 | ok_first_pass | production baseline proxy replay: near 23EMA/support + MA/EMA trend proxy up |
 | price_pullback_23ema | solid_volume_red_k_vol1.2 | parameter_variant | variant_not_baseline | 16206 | 40.34 | 41.85 | 42.12 | 42.68 | 0.06 | 0.4 | ok_first_pass | production proxy replay + 實體帶量紅K + 量比 >= 1.2 |
 | price_pullback_23ema | volume_red_k_vol1.2 | parameter_variant | variant_not_baseline | 30879 | 39.41 | 41.42 | 41.88 | 42.46 | 0.1 | 0.39 | ok_first_pass | production proxy replay + 帶量紅K + 量比 >= 1.2 |
 | price_pullback_23ema | solid_volume_red_k_vol1.5 | parameter_variant | variant_not_baseline | 10435 | 39.81 | 41.02 | 41.53 | 42.2 | -0.02 | 0.25 | ok_first_pass | production proxy replay + 實體強量紅K + 量比 >= 1.5 |
