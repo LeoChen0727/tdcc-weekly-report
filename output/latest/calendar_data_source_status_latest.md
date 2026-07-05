@@ -1,6 +1,6 @@
 # Calendar Data Source Status
 
-- generated_at: `2026-07-06 05:26:45 Asia/Taipei`
+- generated_at: `2026-07-06 06:03:38 Asia/Taipei`
 - policy: Official/known-calendar sources are stored. Missing or blocked sources remain pending instead of being fabricated.
 
 | source | status | rows | url | note |
