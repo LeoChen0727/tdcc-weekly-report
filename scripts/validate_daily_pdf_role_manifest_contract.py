@@ -23,7 +23,12 @@ EXPECTED_PDF_ROLES = [
 ]
 
 BANNED_REPLAY_SNIPPETS = {
+    "EXPECTED_TITLES": "replay validation must not require PDF Chinese title tokens",
+    "HIGHLIGHT_LAYOUT_TITLES": "highlight layout validation must use pdf_role, not title tokens",
+    "HIGHLIGHT_LAYOUT_ROLE_TITLES": "highlight layout validation must not map roles through titles",
     "PDF_ROLE_TITLE_TOKENS": "replay validation must not map PDF roles from title tokens",
+    "title_to_pages": "PDF page text maps must be keyed by pdf_role, not title text",
+    "matched_title": "PDF role validation must not carry matched title state",
     "rendered_model_regression_pdf_role": "rendered model regression must not infer roles from filenames",
     "for role, title in": "PDF role matching must not iterate role/title substring pairs",
 }

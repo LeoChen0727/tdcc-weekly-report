@@ -23,14 +23,6 @@ DEFAULT_OUTPUT_DIR = REPO_ROOT / "chatgpt_side_outputs_new_conversation_replay"
 RENDERED_MODEL_REGRESSION_CONTRACT = REPO_ROOT / "config" / "daily_pdf_rendered_model_regression_contract.csv"
 STALE_RESIDUE_NAME = "20260612_requested_repo20260612_stale_residue_current_rules.pdf"
 RUNTIME_MANIFEST_NAME = "chatgpt_daily_report_runtime_manifest.json"
-EXPECTED_TITLES = (
-    "主流股每日推薦精華",
-    "主流股完整候選清單",
-    "非主流股每日推薦精華",
-    "非主流股完整候選清單",
-    "權證市場輔助分析",
-    "市場風險與大盤期權背景",
-)
 EXPECTED_PDF_ROLES = (
     "mainstream_highlight",
     "mainstream_full",
@@ -39,9 +31,9 @@ EXPECTED_PDF_ROLES = (
     "warrant_market_auxiliary",
     "market_risk_background",
 )
-HIGHLIGHT_LAYOUT_TITLES = (
-    "非主流股每日推薦精華",
-    "主流股每日推薦精華",
+HIGHLIGHT_LAYOUT_ROLES = (
+    "mainstream_highlight",
+    "non_mainstream_highlight",
 )
 HIGHLIGHT_FIRST_PAGE_REQUIRED_TEXT = (
     "放量攻擊模型",
@@ -54,12 +46,7 @@ HIGHLIGHT_FULL_TEXT_FORBIDDEN_TEXT = (
     "lifecycle_suppressed",
     "程式推薦買進",
 )
-
-
-HIGHLIGHT_LAYOUT_ROLE_TITLES = {
-    "non_mainstream_highlight": EXPECTED_TITLES[2],
-    "mainstream_highlight": EXPECTED_TITLES[0],
-}
+HIGHLIGHT_STOCK_MODEL_SECTION_TEXT = '股價回檔模型'
 
 
 class ReplayValidationError(RuntimeError):
@@ -225,8 +212,6 @@ def validate_pdf_path_contract(paths: list[Path], output_dir: Path, main_price_d
         errors.append(f"new-conversation replay must emit exactly 6 unique PDF paths, got {len(paths)}")
     output_root = output_dir.resolve()
     expected_fragment = f"{main_price_date}_requested_repo{main_price_date}_"
-    titles_found = {title: False for title in EXPECTED_TITLES}
-
     for path in paths:
         try:
             path.relative_to(output_root)
@@ -242,13 +227,6 @@ def validate_pdf_path_contract(paths: list[Path], output_dir: Path, main_price_d
             errors.append(f"emitted PDF path reused stale residue: {name}")
         if not name.endswith("_current_rules.pdf"):
             errors.append(f"emitted PDF filename must end with _current_rules.pdf: {name}")
-        for title in titles_found:
-            if title in name:
-                titles_found[title] = True
-
-    missing_titles = [title for title, found in titles_found.items() if not found]
-    if missing_titles:
-        errors.append(f"missing expected ChatGPT-side PDF titles: {', '.join(missing_titles)}")
     return errors
 
 
@@ -272,23 +250,23 @@ def validate_pdf_files_open(paths: list[Path]) -> list[str]:
     return errors
 
 
-def validate_highlight_layout_texts(title_to_pages: dict[str, list[str]]) -> list[str]:
+def validate_highlight_layout_texts(role_to_pages: dict[str, list[str]]) -> list[str]:
     errors: list[str] = []
-    for title in HIGHLIGHT_LAYOUT_TITLES:
-        pages = title_to_pages.get(title, [])
+    for role in HIGHLIGHT_LAYOUT_ROLES:
+        pages = role_to_pages.get(role, [])
         if not pages:
-            errors.append(f"{title}: missing text pages for daily highlight layout validation")
+            errors.append(f"{role}: missing text pages for daily highlight layout validation")
             continue
         first_page = pages[0]
         full_text = "\n".join(pages)
         for token in HIGHLIGHT_FIRST_PAGE_REQUIRED_TEXT:
             if token not in first_page:
-                errors.append(f"{title}: first page missing required layout text: {token}")
-        if "股價回檔模型" in first_page:
-            errors.append(f"{title}: first page must not start with stock-model tables before volume operations")
+                errors.append(f"{role}: first page missing required layout text: {token}")
+        if HIGHLIGHT_STOCK_MODEL_SECTION_TEXT in first_page:
+            errors.append(f"{role}: first page must not start with stock-model tables before volume operations")
         for token in HIGHLIGHT_FULL_TEXT_FORBIDDEN_TEXT:
             if token in full_text:
-                errors.append(f"{title}: highlight PDF contains forbidden operation-layer text: {token}")
+                errors.append(f"{role}: highlight PDF contains forbidden operation-layer text: {token}")
     return errors
 
 
@@ -306,18 +284,18 @@ def validate_pdf_highlight_layout_contract(paths: list[Path], output_dir: Path) 
     if manifest_errors:
         return manifest_errors
 
-    title_to_pages: dict[str, list[str]] = {}
+    role_to_pages: dict[str, list[str]] = {}
     errors: list[str] = []
-    for role, matched_title in HIGHLIGHT_LAYOUT_ROLE_TITLES.items():
+    for role in HIGHLIGHT_LAYOUT_ROLES:
         path = role_to_paths.get(role)
         if path is None:
             continue
         try:
             reader = PdfReader(str(path))
-            title_to_pages[matched_title] = [page.extract_text() or "" for page in reader.pages]
+            role_to_pages[role] = [page.extract_text() or "" for page in reader.pages]
         except Exception as exc:
-            errors.append(f"{matched_title}: pypdf text extraction failed for {path}: {exc}")
-    errors.extend(validate_highlight_layout_texts(title_to_pages))
+            errors.append(f"{role}: pypdf text extraction failed for {path}: {exc}")
+    errors.extend(validate_highlight_layout_texts(role_to_pages))
     return errors
 
 

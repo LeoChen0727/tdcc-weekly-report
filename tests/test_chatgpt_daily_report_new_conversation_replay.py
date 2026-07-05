@@ -5,8 +5,10 @@ import json
 
 from scripts.validate_chatgpt_daily_report_new_conversation_replay import (
     EXPECTED_PDF_ROLES,
-    EXPECTED_TITLES,
-    HIGHLIGHT_LAYOUT_TITLES,
+    HIGHLIGHT_FULL_TEXT_FORBIDDEN_TEXT,
+    HIGHLIGHT_FIRST_PAGE_REQUIRED_TEXT,
+    HIGHLIGHT_LAYOUT_ROLES,
+    HIGHLIGHT_STOCK_MODEL_SECTION_TEXT,
     RENDERED_MODEL_REGRESSION_CONTRACT,
     RUNTIME_MANIFEST_NAME,
     pdf_paths_from_stdout,
@@ -23,8 +25,8 @@ from scripts.validate_chatgpt_daily_report_new_conversation_replay import (
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def pdf_name(date: str, title: str) -> str:
-    return f"{date}_requested_repo{date}_{title}_current_rules.pdf"
+def pdf_name(date: str, role: str) -> str:
+    return f"{date}_requested_repo{date}_{role}_current_rules.pdf"
 
 
 def pdf_outputs(paths: list[Path]) -> list[dict[str, object]]:
@@ -52,7 +54,7 @@ def runtime_manifest(paths: list[Path], state: dict, *, main_price_date: str = "
 
 
 def test_replay_stdout_pdf_parser_deduplicates_entrypoint_output(tmp_path: Path) -> None:
-    paths = [tmp_path / pdf_name("20260617", title) for title in EXPECTED_TITLES]
+    paths = [tmp_path / pdf_name("20260617", role) for role in EXPECTED_PDF_ROLES]
     stdout = "\n".join(
         [
             "official daily report source gate passed: source_ref=origin/main",
@@ -68,21 +70,21 @@ def test_replay_stdout_pdf_parser_deduplicates_entrypoint_output(tmp_path: Path)
 
 
 def test_replay_pdf_path_contract_requires_exact_six_current_date_pdfs(tmp_path: Path) -> None:
-    paths = [tmp_path / pdf_name("20260617", title) for title in EXPECTED_TITLES]
+    paths = [tmp_path / pdf_name("20260617", role) for role in EXPECTED_PDF_ROLES]
 
     errors = validate_pdf_path_contract(paths, tmp_path, "20260617")
 
     assert errors == []
 
 
-def test_replay_pdf_path_contract_rejects_stale_or_missing_pdf_titles(tmp_path: Path) -> None:
+def test_replay_pdf_path_contract_rejects_stale_or_wrong_date_pdfs(tmp_path: Path) -> None:
     paths = [
-        tmp_path / pdf_name("20260617", EXPECTED_TITLES[0]),
-        tmp_path / pdf_name("20260617", EXPECTED_TITLES[1]),
-        tmp_path / pdf_name("20260617", EXPECTED_TITLES[2]),
-        tmp_path / pdf_name("20260617", EXPECTED_TITLES[3]),
-        tmp_path / pdf_name("20260617", EXPECTED_TITLES[4]),
-        tmp_path / pdf_name("20260612", EXPECTED_TITLES[5]),
+        tmp_path / pdf_name("20260617", EXPECTED_PDF_ROLES[0]),
+        tmp_path / pdf_name("20260617", EXPECTED_PDF_ROLES[1]),
+        tmp_path / pdf_name("20260617", EXPECTED_PDF_ROLES[2]),
+        tmp_path / pdf_name("20260617", EXPECTED_PDF_ROLES[3]),
+        tmp_path / pdf_name("20260617", EXPECTED_PDF_ROLES[4]),
+        tmp_path / pdf_name("20260612", EXPECTED_PDF_ROLES[5]),
     ]
 
     errors = validate_pdf_path_contract(paths, tmp_path, "20260617")
@@ -113,7 +115,7 @@ def test_replay_source_gate_echo_must_include_origin_main_state() -> None:
 
 
 def test_replay_runtime_manifest_must_match_source_and_pdf_paths(tmp_path: Path) -> None:
-    paths = [tmp_path / pdf_name("20260617", title) for title in EXPECTED_TITLES]
+    paths = [tmp_path / pdf_name("20260617", role) for role in EXPECTED_PDF_ROLES]
     state = {
         "source_ref": "origin/main",
         "source_commit_sha": "a" * 40,
@@ -133,7 +135,7 @@ def test_replay_runtime_manifest_must_match_source_and_pdf_paths(tmp_path: Path)
 
 
 def test_replay_runtime_manifest_rejects_wrong_date(tmp_path: Path) -> None:
-    paths = [tmp_path / pdf_name("20260617", title) for title in EXPECTED_TITLES]
+    paths = [tmp_path / pdf_name("20260617", role) for role in EXPECTED_PDF_ROLES]
     state = {
         "source_ref": "origin/main",
         "source_commit_sha": "a" * 40,
@@ -153,7 +155,7 @@ def test_replay_runtime_manifest_rejects_wrong_date(tmp_path: Path) -> None:
 
 
 def test_replay_runtime_manifest_requires_pdf_outputs(tmp_path: Path) -> None:
-    paths = [tmp_path / pdf_name("20260617", title) for title in EXPECTED_TITLES]
+    paths = [tmp_path / pdf_name("20260617", role) for role in EXPECTED_PDF_ROLES]
     state = {
         "source_ref": "origin/main",
         "source_commit_sha": "a" * 40,
@@ -172,7 +174,7 @@ def test_replay_runtime_manifest_requires_pdf_outputs(tmp_path: Path) -> None:
 
 
 def test_replay_runtime_manifest_role_mapping_uses_manifest_not_filename_tokens(tmp_path: Path) -> None:
-    paths = [tmp_path / pdf_name("20260617", title) for title in EXPECTED_TITLES]
+    paths = [tmp_path / pdf_name("20260617", role) for role in EXPECTED_PDF_ROLES]
     manifest = {
         "pdf_outputs": [
             {"pdf_role": role, "pdf_index": index, "path": str(path.resolve())}
@@ -188,55 +190,40 @@ def test_replay_runtime_manifest_role_mapping_uses_manifest_not_filename_tokens(
 
 
 def test_replay_highlight_layout_contract_accepts_legacy_volume_first() -> None:
+    required_text = "\n".join(HIGHLIGHT_FIRST_PAGE_REQUIRED_TEXT)
     pages = {
-        "主流股每日推薦精華": [
-            "主流股每日推薦精華\n放量攻擊模型\n本日可買 / 已確認買入候選\n操作中",
-            "股價回檔模型\n新上榜\n重複上榜",
-        ],
-        "非主流股每日推薦精華": [
-            "非主流股每日推薦精華\n放量攻擊模型\n本日可買 / 已確認買入候選\n操作中",
-            "股價回檔模型\n新上榜\n重複上榜",
-        ],
+        "mainstream_highlight": [f"mainstream highlight\n{required_text}", "other content"],
+        "non_mainstream_highlight": [f"non-mainstream highlight\n{required_text}", "other content"],
     }
 
     assert validate_highlight_layout_texts(pages) == []
 
-
-def test_replay_highlight_title_matching_prefers_non_mainstream() -> None:
-    assert HIGHLIGHT_LAYOUT_TITLES.index("非主流股每日推薦精華") < HIGHLIGHT_LAYOUT_TITLES.index("主流股每日推薦精華")
-
+def test_replay_highlight_layout_roles_are_machine_readable() -> None:
+    assert HIGHLIGHT_LAYOUT_ROLES == ("mainstream_highlight", "non_mainstream_highlight")
 
 def test_replay_highlight_layout_contract_rejects_reordered_first_page() -> None:
+    required_text = "\n".join(HIGHLIGHT_FIRST_PAGE_REQUIRED_TEXT)
     pages = {
-        "主流股每日推薦精華": [
-            "主流股每日推薦精華\n股價回檔模型\n新上榜\n重複上榜",
-            "放量攻擊模型\n本日可買 / 已確認買入候選\n操作中",
-        ],
-        "非主流股每日推薦精華": [
-            "非主流股每日推薦精華\n放量攻擊模型\n本日可買 / 已確認買入候選\n操作中",
-        ],
+        "mainstream_highlight": [HIGHLIGHT_STOCK_MODEL_SECTION_TEXT, required_text],
+        "non_mainstream_highlight": [f"non-mainstream highlight\n{required_text}"],
     }
 
     errors = validate_highlight_layout_texts(pages)
 
-    assert any("first page missing required layout text: 放量攻擊模型" in error for error in errors)
+    assert any("first page missing required layout text" in error for error in errors)
     assert any("must not start with stock-model tables" in error for error in errors)
 
-
 def test_replay_highlight_layout_contract_rejects_pending_operation_text() -> None:
+    required_text = "\n".join(HIGHLIGHT_FIRST_PAGE_REQUIRED_TEXT)
+    forbidden_text = HIGHLIGHT_FULL_TEXT_FORBIDDEN_TEXT[0]
     pages = {
-        "主流股每日推薦精華": [
-            "主流股每日推薦精華\n放量攻擊模型\n本日可買 / 已確認買入候選\n操作中\n待確認",
-        ],
-        "非主流股每日推薦精華": [
-            "非主流股每日推薦精華\n放量攻擊模型\n本日可買 / 已確認買入候選\n操作中",
-        ],
+        "mainstream_highlight": [f"mainstream highlight\n{required_text}\n{forbidden_text}"],
+        "non_mainstream_highlight": [f"non-mainstream highlight\n{required_text}"],
     }
 
     errors = validate_highlight_layout_texts(pages)
 
-    assert any("forbidden operation-layer text: 待確認" in error for error in errors)
-
+    assert any(f"forbidden operation-layer text: {forbidden_text}" in error for error in errors)
 
 def test_rendered_model_regression_contract_accepts_as_published_volume_rows() -> None:
     rows = [
