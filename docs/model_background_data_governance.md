@@ -164,6 +164,19 @@ Until that data family exists, any `needs_eps_confirmation`,
 non-operating income interpretation remains disclosure/advisory context only
 and must not be promoted into production model rules.
 
+Revenue-model discussion trigger:
+
+- Any future discussion of a revenue-driven model, revenue condition, or
+  revenue interpretation must explicitly ask whether quarterly/annual financial
+  statement fundamentals belong in scope.
+- If the answer is yes, the next step is to design and build the formal
+  financial-statement data layer before using those fields in backtest
+  matrices, promotion decisions, model contracts, ranking, scoring, packets, or
+  PDFs.
+- If the answer is no, document that the current discussion is monthly-revenue
+  only and do not use EPS, margin, operating/non-operating income, net income,
+  or annual statement fields as implied evidence.
+
 ## Monthly Revenue Coverage / Backfill Audit
 
 Monthly revenue coverage is audited by:

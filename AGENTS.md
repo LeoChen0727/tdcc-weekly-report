@@ -89,6 +89,18 @@ recommendations or variants into the production baseline. Report that the
 `research_backtest` lane must be synchronized, or create an explicit
 promotion/sync PR when that is requested.
 
+When discussing any revenue-driven model, revenue condition, or revenue
+interpretation, explicitly separate monthly revenue from quarterly/annual
+financial-statement fundamentals. The discussion must state whether EPS, gross
+margin, operating margin, operating income, non-operating income, net income,
+or annual financial statement fields should be included in scope. If they are
+needed, create or route to a formal shared objective financial-statement data
+layer first; do not infer those fields from monthly revenue, catalyst labels,
+PDF text, or latest-only artifacts. Until that data layer exists and passes
+point-in-time coverage validation, those fields remain advisory/disclosure
+context and must not become production gates, scores, rankings, PDF metrics, or
+promotion evidence.
+
 Formal operation buy/sell/stop/profit-taking rules must be close-confirmed by
 default. A formal daily operation model may use only the next trading day open
 after a qualifying close confirmation, the same-day close when the rule
