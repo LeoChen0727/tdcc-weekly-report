@@ -327,6 +327,41 @@ def test_daily_published_model_snapshot_builder_blocks_silent_same_date_rewrite(
     assert rewritten.loc[0, "stock_id"] == "9999"
 
 
+def test_daily_published_model_snapshot_builder_allows_non_guarded_status_rewrite(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    latest_dir = tmp_path / "output" / "latest"
+    snapshot_dir = tmp_path / "output" / "history" / "daily_model_snapshots"
+    manifest_path = snapshot_dir / "daily_published_model_snapshot_manifest.csv"
+    write_minimal_latest_artifacts(latest_dir, report_date="20260615")
+
+    update_snapshots.build_daily_published_model_snapshots(
+        latest_dir=latest_dir,
+        snapshot_dir=snapshot_dir,
+        manifest_path=manifest_path,
+        generated_at="2026-06-16 08:00:00 Asia/Taipei",
+        commit_sha="test-sha",
+    )
+
+    freshness_path = latest_dir / "data_freshness_latest.csv"
+    freshness = pd.read_csv(freshness_path, dtype=str)
+    freshness.loc[0, "warrant_source_status"] = "ok_refreshed"
+    freshness.to_csv(freshness_path, index=False, encoding="utf-8", lineterminator="\n")
+
+    monkeypatch.delenv(update_snapshots.ALLOW_SNAPSHOT_REWRITE_ENV, raising=False)
+    update_snapshots.build_daily_published_model_snapshots(
+        latest_dir=latest_dir,
+        snapshot_dir=snapshot_dir,
+        manifest_path=manifest_path,
+        generated_at="2026-06-16 09:00:00 Asia/Taipei",
+        commit_sha="test-sha-2",
+    )
+
+    rewritten = pd.read_csv(snapshot_dir / "data_freshness_20260615.csv", dtype=str)
+    assert rewritten.loc[0, "warrant_source_status"] == "ok_refreshed"
+
+
 def test_daily_published_model_snapshot_builder_rejects_not_ready_freshness(
     tmp_path: Path,
 ) -> None:

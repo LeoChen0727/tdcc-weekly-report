@@ -43,6 +43,7 @@ class SnapshotArtifact:
     snapshot_stem: str
     required_columns: tuple[str, ...] = ()
     date_columns: tuple[str, ...] = ()
+    block_same_date_rewrite: bool = False
 
 
 ARTIFACTS: tuple[SnapshotArtifact, ...] = (
@@ -134,6 +135,7 @@ ARTIFACTS: tuple[SnapshotArtifact, ...] = (
         artifact_id="volume_breakout_operation_section",
         source_name="daily_volume_breakout_operation_section_latest.csv",
         snapshot_stem="daily_volume_breakout_operation_section",
+        block_same_date_rewrite=True,
         required_columns=(
             "model_id",
             "pdf_view",
@@ -157,6 +159,7 @@ ARTIFACTS: tuple[SnapshotArtifact, ...] = (
         artifact_id="volume_breakout_operation_evidence_audit",
         source_name="daily_volume_breakout_operation_evidence_audit_latest.csv",
         snapshot_stem="daily_volume_breakout_operation_evidence_audit",
+        block_same_date_rewrite=True,
         required_columns=(
             "model_id",
             "operation_asof_date",
@@ -337,6 +340,8 @@ def snapshot_rewrite_allowed() -> bool:
 
 
 def guard_existing_snapshot(source: Path, target: Path, artifact: SnapshotArtifact, report_date: str) -> None:
+    if not artifact.block_same_date_rewrite:
+        return
     if not target.exists():
         return
     source_hash = sha256_file(source)
