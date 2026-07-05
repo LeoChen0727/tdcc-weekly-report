@@ -429,6 +429,21 @@ def main() -> int:
             "tests/test_chatgpt_daily_report_new_conversation_replay.py": (
                 "daily model maintenance PR workflow must run rendered PDF replay regression tests"
             ),
+            "python scripts/validate_chatgpt_daily_report_new_conversation_replay.py": (
+                "daily model maintenance PR workflow must run actual rendered PDF replay validation"
+            ),
+            "--output-dir chatgpt_side_outputs_pr_validation": (
+                "daily model maintenance PR workflow must persist PR replay outputs in a stable folder"
+            ),
+            "GITHUB_HEAD_REF": (
+                "daily model maintenance PR workflow must replay the PR head ref, not origin/main"
+            ),
+            "Upload PR daily PDF replay evidence": (
+                "daily model maintenance PR workflow must upload generated PDF replay evidence"
+            ),
+            "actions/upload-artifact@v4": (
+                "daily model maintenance PR workflow must preserve generated PDF replay artifacts"
+            ),
             "tests/test_daily_volume_breakout_operation_section.py": (
                 "daily model maintenance PR workflow must run volume operation adapter tests"
             ),

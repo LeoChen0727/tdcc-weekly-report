@@ -54,3 +54,19 @@ def test_daily_model_maintenance_pr_workflow_runs_focused_pdf_operation_tests() 
     )
     for path in required_tests:
         assert path in text
+
+
+def test_daily_model_maintenance_pr_workflow_runs_actual_pdf_replay_and_uploads_evidence() -> None:
+    text = WORKFLOW.read_text(encoding="utf-8")
+
+    assert "Replay ChatGPT-side daily PDF new conversation" in text
+    assert "python scripts/validate_chatgpt_daily_report_new_conversation_replay.py" in text
+    assert "--source-ref \"$source_ref\"" in text
+    assert "--output-dir chatgpt_side_outputs_pr_validation" in text
+    assert "GITHUB_HEAD_REF" in text
+    assert "source_ref=\"origin/${GITHUB_HEAD_REF}\"" in text
+    assert "Upload PR daily PDF replay evidence" in text
+    assert "actions/upload-artifact@v4" in text
+    assert "daily-pdf-replay-pr-validation" in text
+    assert "chatgpt_side_outputs_pr_validation/*.pdf" in text
+    assert "chatgpt_side_outputs_pr_validation/chatgpt_daily_report_runtime_manifest.json" in text

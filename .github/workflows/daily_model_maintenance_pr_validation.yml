@@ -79,3 +79,25 @@ jobs:
             tests/test_daily_price_pullback_23ema_operation_section.py \
             tests/test_daily_production_boundaries.py \
             tests/test_stock_model_contract_registry.py
+
+      - name: Replay ChatGPT-side daily PDF new conversation
+        run: |
+          if [ -n "${GITHUB_HEAD_REF:-}" ]; then
+            source_ref="origin/${GITHUB_HEAD_REF}"
+          else
+            source_ref="origin/${GITHUB_REF_NAME}"
+          fi
+          git fetch origin "${source_ref#origin/}"
+          python scripts/validate_chatgpt_daily_report_new_conversation_replay.py \
+            --source-ref "$source_ref" \
+            --output-dir chatgpt_side_outputs_pr_validation
+
+      - name: Upload PR daily PDF replay evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: daily-pdf-replay-pr-validation
+          path: |
+            chatgpt_side_outputs_pr_validation/*.pdf
+            chatgpt_side_outputs_pr_validation/chatgpt_daily_report_runtime_manifest.json
+          if-no-files-found: warn
