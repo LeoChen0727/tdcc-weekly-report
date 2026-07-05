@@ -1,6 +1,6 @@
 # Warrant Source Status
 
-- generated_at: `2026-07-06 06:03:26 Asia/Taipei`
+- generated_at: `2026-07-06 06:39:09 Asia/Taipei`
 - status: `ok`
 - requested_date: `20260703`
 - data_date: `20260703`
