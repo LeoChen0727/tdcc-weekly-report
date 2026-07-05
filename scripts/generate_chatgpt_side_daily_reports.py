@@ -68,10 +68,12 @@ REMOTE_DATA_BASE = "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-re
 VOLUME_BREAKOUT_MODEL_ID = "volume_range_breakout"
 W_BOTTOM_RIGHT_SIDE_MODEL_ID = "w_bottom_right_side"
 W_BOTTOM_NECKLINE_BREAKOUT_MODEL_ID = "neckline_volume_breakout_confirmation"
+PRICE_PULLBACK_MODEL_ID = "price_pullback_23ema"
 PDF_PRESENTATION_MODEL_ORDER_OVERRIDES = {
     VOLUME_BREAKOUT_MODEL_ID: 1.0,
     W_BOTTOM_RIGHT_SIDE_MODEL_ID: 1.1,
     W_BOTTOM_NECKLINE_BREAKOUT_MODEL_ID: 1.2,
+    PRICE_PULLBACK_MODEL_ID: 1.3,
 }
 VOLUME_OPERATION_HIGHLIGHT_LIMITS = {
     "confirmed_operation": 10,
@@ -89,11 +91,13 @@ OPERATION_TABLE_MODEL_IDS = {
     VOLUME_BREAKOUT_MODEL_ID,
     W_BOTTOM_RIGHT_SIDE_MODEL_ID,
     W_BOTTOM_NECKLINE_BREAKOUT_MODEL_ID,
+    PRICE_PULLBACK_MODEL_ID,
 }
 W_BOTTOM_OPERATION_INPUT_KEYS = {
     W_BOTTOM_RIGHT_SIDE_MODEL_ID: "w_bottom_right_side_operation",
     W_BOTTOM_NECKLINE_BREAKOUT_MODEL_ID: "w_bottom_neckline_operation",
 }
+PRICE_PULLBACK_OPERATION_INPUT_KEY = "price_pullback_operation"
 W_BOTTOM_OPERATION_REQUIRED_COLUMNS = {
     "model_id",
     "pdf_view",
@@ -106,6 +110,27 @@ W_BOTTOM_OPERATION_REQUIRED_COLUMNS = {
     "operation_status",
     "row_action_status",
     "buy_rank_eligible",
+}
+PRICE_PULLBACK_OPERATION_REQUIRED_COLUMNS = W_BOTTOM_OPERATION_REQUIRED_COLUMNS | {
+    "stock_display",
+    "operation_quality_zh",
+    "operation_status_zh",
+    "signal_date",
+    "entry_basis_zh",
+    "stop_basis_zh",
+    "exit_rule_zh",
+    "sample_size",
+    "win_rate_zh",
+    "neutral_rate_zh",
+    "failure_rate_zh",
+    "avg_return_zh",
+    "technical_package_win_rate_zh",
+    "technical_package_neutral_rate_zh",
+    "technical_package_failure_rate_zh",
+    "technical_package_avg_return_zh",
+    "operation_age_days",
+    "rank_reason_zh",
+    "risk_tags_zh",
 }
 OPERATION_HIGHLIGHT_TABLE_CONTRACT = "confirmed_buy_then_active_only"
 DAILY_HIGHLIGHT_LAYOUT_CONTRACT = "legacy_volume_first"
@@ -1668,6 +1693,7 @@ def load_inputs() -> dict[str, pd.DataFrame]:
         "w_bottom_neckline_operation": read_latest_csv(
             "daily_neckline_volume_breakout_confirmation_operation_section_latest.csv"
         ),
+        "price_pullback_operation": read_latest_csv("daily_price_pullback_23ema_operation_section_latest.csv"),
         "stock_theme_taxonomy": read_latest_csv("stock_theme_taxonomy_latest.csv"),
         "group_rotation": read_latest_csv("daily_candidate_group_rotation_latest.csv"),
         "themes": read_latest_csv("daily_theme_leadership_latest.csv"),
@@ -1937,6 +1963,58 @@ def w_bottom_operation_frame(
     ].copy()
     if frame.empty:
         raise RuntimeError(f"W-bottom PDF operation adapter has no {pdf_view}/{pdf_section} rows for {model_id}")
+    frame["_display_order"] = pd.to_numeric(frame["display_order"], errors="coerce").fillna(999999)
+    return frame.sort_values(["_display_order", "stock_id"]).drop(columns=["_display_order"], errors="ignore")
+
+
+def require_price_pullback_operation_readiness(inputs: dict[str, pd.DataFrame]) -> None:
+    readiness = inputs.get("model_readiness", pd.DataFrame()).copy()
+    if readiness.empty or "model_id" not in readiness.columns:
+        raise RuntimeError("price_pullback_23ema PDF operation adapter readiness missing")
+    rows = readiness[readiness["model_id"].astype(str).eq(PRICE_PULLBACK_MODEL_ID)].copy()
+    if rows.empty:
+        raise RuntimeError("price_pullback_23ema PDF operation adapter readiness row missing")
+    row = rows.iloc[0]
+    if clean(row.get("pdf_integration_status")) != "pdf_integrated_daily_adapter":
+        raise RuntimeError(
+            "price_pullback_23ema PDF operation adapter is not pdf_integrated_daily_adapter: "
+            f"{clean(row.get('pdf_integration_status'), 'missing')}"
+        )
+    sections = clean(row.get("daily_adapter_sections"))
+    section_tokens = {token.strip() for token in re.split(r"[|,;]", sections) if token.strip()}
+    missing_sections = {"confirmed_operation", "active_operation"} - section_tokens
+    if missing_sections:
+        raise RuntimeError(
+            "price_pullback_23ema PDF operation adapter sections missing: "
+            + ",".join(sorted(missing_sections))
+        )
+
+
+def price_pullback_operation_frame(
+    inputs: dict[str, pd.DataFrame],
+    pdf_view: str,
+    pdf_section: str,
+) -> pd.DataFrame:
+    require_price_pullback_operation_readiness(inputs)
+    frame = inputs.get(PRICE_PULLBACK_OPERATION_INPUT_KEY, pd.DataFrame()).copy()
+    if frame.empty:
+        raise RuntimeError(
+            "price_pullback_23ema PDF operation adapter artifact is empty or missing: "
+            f"{PRICE_PULLBACK_OPERATION_INPUT_KEY}"
+        )
+    missing = sorted(PRICE_PULLBACK_OPERATION_REQUIRED_COLUMNS - set(frame.columns))
+    if missing:
+        raise RuntimeError(
+            "price_pullback_23ema PDF operation adapter artifact missing required columns: "
+            + ",".join(missing)
+        )
+    frame = frame[
+        frame["model_id"].astype(str).eq(PRICE_PULLBACK_MODEL_ID)
+        & frame["pdf_view"].astype(str).eq(pdf_view)
+        & frame["pdf_section"].astype(str).eq(pdf_section)
+    ].copy()
+    if frame.empty:
+        raise RuntimeError(f"price_pullback_23ema PDF operation adapter has no {pdf_view}/{pdf_section} rows")
     frame["_display_order"] = pd.to_numeric(frame["display_order"], errors="coerce").fillna(999999)
     return frame.sort_values(["_display_order", "stock_id"]).drop(columns=["_display_order"], errors="ignore")
 
@@ -2433,6 +2511,87 @@ def build_w_bottom_active_operation_table(rows: pd.DataFrame) -> Table:
     )
 
 
+def price_pullback_metrics_label(row: pd.Series) -> str:
+    base = (
+        f"基礎 {clean(row.get('win_rate_zh'), '-')} / "
+        f"{clean(row.get('neutral_rate_zh'), '-')} / "
+        f"{clean(row.get('failure_rate_zh'), '-')} / "
+        f"{clean(row.get('avg_return_zh'), '-')}"
+    )
+    quality = clean(row.get("operation_quality"))
+    if quality != "technical_strength":
+        return base
+    technical = (
+        f"技術強勢 {clean(row.get('technical_package_win_rate_zh'), '-')} / "
+        f"{clean(row.get('technical_package_neutral_rate_zh'), '-')} / "
+        f"{clean(row.get('technical_package_failure_rate_zh'), '-')} / "
+        f"{clean(row.get('technical_package_avg_return_zh'), '-')}"
+    )
+    return f"{base}; {technical}"
+
+
+def price_pullback_note_label(row: pd.Series) -> str:
+    reason = clean(row.get("rank_reason_zh"))
+    risk = clean(row.get("risk_tags_zh"))
+    if reason and risk:
+        return f"{reason}；風險：{risk}"
+    return reason or (f"風險：{risk}" if risk else "-")
+
+
+def build_price_pullback_confirmed_operation_table(rows: pd.DataFrame) -> Table:
+    data = [["股票", "操作品質", "訊號日", "買入", "賣出", "停損", "勝/和/敗/報酬", "理由 / 風險"]]
+    if rows.empty:
+        data.append(["-", "-", "-", MODEL_EMPTY_STATE_TEXT, "-", "-", "-", "-"])
+    for _, row in rows.iterrows():
+        data.append(
+            [
+                clean(row.get("stock_display"), "-"),
+                clean(row.get("operation_quality_zh"), "-"),
+                clean(row.get("signal_date"), "-"),
+                clean(row.get("entry_basis_zh"), "-"),
+                clean(row.get("exit_rule_zh"), "-"),
+                clean(row.get("stop_basis_zh"), "-"),
+                price_pullback_metrics_label(row),
+                price_pullback_note_label(row),
+            ]
+        )
+    return build_table(
+        data,
+        [26 * mm, 22 * mm, 18 * mm, 42 * mm, 43 * mm, 43 * mm, 33 * mm, 46 * mm],
+        11.0,
+        header_bg=colors.HexColor("#7f6000"),
+    )
+
+
+def build_price_pullback_active_operation_table(rows: pd.DataFrame) -> Table:
+    data = [["股票", "操作品質", "訊號日", "買入", "出場 / 停損", "持有天數", "目前狀態", "理由 / 風險"]]
+    if rows.empty:
+        data.append(["-", "-", "-", "-", "-", "-", OPERATION_ACTIVE_EMPTY_STATE_TEXT, "-"])
+    for _, row in rows.iterrows():
+        age = clean(row.get("operation_age_days"))
+        planned = clean(row.get("planned_holding_days"))
+        age_text = f"{age or '-'} / {planned or '-'}" if (age or planned) else "-"
+        exit_stop = f"{clean(row.get('exit_rule_zh'), '-')} / {clean(row.get('stop_basis_zh'), '-')}"
+        data.append(
+            [
+                clean(row.get("stock_display"), "-"),
+                clean(row.get("operation_quality_zh"), "-"),
+                clean(row.get("signal_date"), "-"),
+                clean(row.get("entry_basis_zh"), "-"),
+                exit_stop,
+                age_text,
+                clean(row.get("operation_status_zh"), "-"),
+                price_pullback_note_label(row),
+            ]
+        )
+    return build_table(
+        data,
+        [26 * mm, 22 * mm, 18 * mm, 42 * mm, 62 * mm, 20 * mm, 34 * mm, 49 * mm],
+        11.0,
+        header_bg=colors.HexColor("#44546a"),
+    )
+
+
 def render_w_bottom_operation_section(
     story: list,
     inputs: dict[str, pd.DataFrame],
@@ -2467,6 +2626,39 @@ def render_w_bottom_operation_section(
     story.append(Spacer(1, 5))
     story.append(Paragraph(OPERATION_ACTIVE_TABLE_TITLE, H2))
     story.append(build_w_bottom_active_operation_table(active_rows))
+
+
+def render_price_pullback_operation_section(
+    story: list,
+    inputs: dict[str, pd.DataFrame],
+    pdf_view: str,
+    line: str | None = None,
+) -> None:
+    confirmed_all = filter_w_bottom_operation_rows_for_line(
+        price_pullback_operation_frame(inputs, pdf_view, "confirmed_operation"),
+        line,
+    )
+    active_all = filter_w_bottom_operation_rows_for_line(
+        price_pullback_operation_frame(inputs, pdf_view, "active_operation"),
+        line,
+    )
+    confirmed = confirmed_all[
+        confirmed_all.get("row_type", pd.Series(dtype=str)).astype(str).eq("data")
+        & confirmed_all.get("row_action_status", pd.Series(dtype=str)).astype(str).eq("confirmed_buy_candidate")
+        & confirmed_all.get("buy_rank_eligible", pd.Series(dtype=str)).map(is_true_text)
+    ].copy() if not confirmed_all.empty else pd.DataFrame()
+    active_rows = active_all[
+        active_all.get("row_type", pd.Series(dtype=str)).astype(str).eq("data")
+        & active_all.get("operation_status", pd.Series(dtype=str)).astype(str).eq("active_operation")
+        & ~active_all.get("buy_rank_eligible", pd.Series(dtype=str)).map(is_true_text)
+    ].copy() if not active_all.empty else pd.DataFrame()
+
+    story.append(Spacer(1, 6))
+    story.append(Paragraph(OPERATION_CONFIRMED_BUY_TABLE_TITLE, H2))
+    story.append(build_price_pullback_confirmed_operation_table(confirmed))
+    story.append(Spacer(1, 5))
+    story.append(Paragraph(OPERATION_ACTIVE_TABLE_TITLE, H2))
+    story.append(build_price_pullback_active_operation_table(active_rows))
 
 
 def render_volume_range_breakout_operation_section(
@@ -2555,6 +2747,9 @@ def render_model_operation_section_if_applicable(
         return True
     if model_id in W_BOTTOM_OPERATION_TABLE_MODEL_IDS:
         render_w_bottom_operation_section(story, inputs, model_id, pdf_view, line)
+        return True
+    if model_id == PRICE_PULLBACK_MODEL_ID:
+        render_price_pullback_operation_section(story, inputs, pdf_view, line)
         return True
     return False
 
