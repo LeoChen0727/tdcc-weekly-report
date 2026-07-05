@@ -6,9 +6,13 @@ import json
 from scripts.validate_chatgpt_daily_report_new_conversation_replay import (
     EXPECTED_TITLES,
     HIGHLIGHT_LAYOUT_TITLES,
+    RENDERED_MODEL_REGRESSION_CONTRACT,
     RUNTIME_MANIFEST_NAME,
     pdf_paths_from_stdout,
+    read_rendered_model_regression_contract,
+    rendered_model_regression_pdf_role,
     validate_highlight_layout_texts,
+    validate_rendered_model_regression_texts,
     validate_runtime_manifest,
     validate_pdf_path_contract,
     validate_source_gate_echo,
@@ -200,6 +204,74 @@ def test_replay_highlight_layout_contract_rejects_pending_operation_text() -> No
     errors = validate_highlight_layout_texts(pages)
 
     assert any("forbidden operation-layer text: 待確認" in error for error in errors)
+
+
+def test_rendered_model_regression_contract_accepts_as_published_volume_rows() -> None:
+    rows = [
+        {
+            "contract_id": "volume_range_breakout_mainstream_highlight_20260703",
+            "active": "True",
+            "report_date": "20260703",
+            "pdf_role": "mainstream_highlight",
+            "page_scope": "first_page",
+            "model_id": "volume_range_breakout",
+            "required_stock_ids": "6226|2483|6742",
+            "forbidden_stock_ids": "3055|1515|2342",
+        }
+    ]
+    role_to_pages = {
+        "mainstream_highlight": [
+            "2026/7/3 main daily digest\nvolume_range_breakout\n6226 光鼎\n2483 百容\n6742 澤米"
+        ]
+    }
+
+    assert validate_rendered_model_regression_texts(role_to_pages, "20260703", rows) == []
+
+
+def test_rendered_model_regression_contract_rejects_volume_snapshot_drift() -> None:
+    rows = [
+        {
+            "contract_id": "volume_range_breakout_mainstream_highlight_20260703",
+            "active": "True",
+            "report_date": "20260703",
+            "pdf_role": "mainstream_highlight",
+            "page_scope": "first_page",
+            "model_id": "volume_range_breakout",
+            "required_stock_ids": "6226|2483|6742",
+            "forbidden_stock_ids": "3055|1515|2342",
+        }
+    ]
+    role_to_pages = {
+        "mainstream_highlight": [
+            "2026/7/3 main daily digest\nvolume_range_breakout\n3055 蔚華科\n1515 力山\n2342 茂矽"
+        ]
+    }
+
+    errors = validate_rendered_model_regression_texts(role_to_pages, "20260703", rows)
+
+    assert any("required stock_id=6226 missing" in error for error in errors)
+    assert any("forbidden stock_id=3055 appeared" in error for error in errors)
+    assert any("forbidden stock_id=2342 appeared" in error for error in errors)
+
+
+def test_rendered_model_regression_contract_records_20260703_volume_guard() -> None:
+    rows = read_rendered_model_regression_contract(RENDERED_MODEL_REGRESSION_CONTRACT)
+    row_by_id = {row["contract_id"]: row for row in rows}
+
+    guard = row_by_id["volume_range_breakout_mainstream_highlight_20260703"]
+
+    assert guard["active"] == "True"
+    assert guard["report_date"] == "20260703"
+    assert guard["pdf_role"] == "mainstream_highlight"
+    assert guard["page_scope"] == "first_page"
+    assert guard["model_id"] == "volume_range_breakout"
+    assert guard["required_stock_ids"] == "6226|2483|6742"
+    assert guard["forbidden_stock_ids"] == "3055|1515|2342"
+
+
+def test_rendered_model_regression_pdf_role_prefers_non_mainstream_longer_title() -> None:
+    assert rendered_model_regression_pdf_role(pdf_name("20260703", EXPECTED_TITLES[0])) == "mainstream_highlight"
+    assert rendered_model_regression_pdf_role(pdf_name("20260703", EXPECTED_TITLES[2])) == "non_mainstream_highlight"
 
 
 def test_daily_workflow_runs_new_conversation_replay_gate() -> None:

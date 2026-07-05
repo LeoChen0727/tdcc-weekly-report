@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import csv
 import json
 import subprocess
 import sys
@@ -19,6 +20,7 @@ from scripts.resolve_daily_report_source_state import (  # noqa: E402
 
 
 DEFAULT_OUTPUT_DIR = REPO_ROOT / "chatgpt_side_outputs_new_conversation_replay"
+RENDERED_MODEL_REGRESSION_CONTRACT = REPO_ROOT / "config" / "daily_pdf_rendered_model_regression_contract.csv"
 STALE_RESIDUE_NAME = "20260612_requested_repo20260612_stale_residue_current_rules.pdf"
 RUNTIME_MANIFEST_NAME = "chatgpt_daily_report_runtime_manifest.json"
 EXPECTED_TITLES = (
@@ -44,6 +46,16 @@ HIGHLIGHT_FULL_TEXT_FORBIDDEN_TEXT = (
     "lifecycle_suppressed",
     "程式推薦買進",
 )
+
+
+PDF_ROLE_TITLE_TOKENS = {
+    "mainstream_highlight": EXPECTED_TITLES[0],
+    "mainstream_full": EXPECTED_TITLES[1],
+    "non_mainstream_highlight": EXPECTED_TITLES[2],
+    "non_mainstream_full": EXPECTED_TITLES[3],
+    "warrant_market_auxiliary": EXPECTED_TITLES[4],
+    "market_risk_background": EXPECTED_TITLES[5],
+}
 
 
 class ReplayValidationError(RuntimeError):
@@ -244,6 +256,94 @@ def validate_pdf_highlight_layout_contract(paths: list[Path]) -> list[str]:
     return errors
 
 
+def split_contract_tokens(value: object) -> list[str]:
+    return [token.strip() for token in str(value or "").replace(";", "|").split("|") if token.strip()]
+
+
+def read_rendered_model_regression_contract(path: Path = RENDERED_MODEL_REGRESSION_CONTRACT) -> list[dict[str, str]]:
+    if not path.exists():
+        return []
+    with path.open(newline="", encoding="utf-8-sig") as handle:
+        return list(csv.DictReader(handle))
+
+
+def validate_rendered_model_regression_texts(
+    role_to_pages: dict[str, list[str]],
+    main_price_date: str,
+    contract_rows: list[dict[str, str]],
+) -> list[str]:
+    errors: list[str] = []
+    for row in contract_rows:
+        if str(row.get("active", "")).strip().lower() not in {"true", "1", "yes", "y"}:
+            continue
+        report_date = str(row.get("report_date", "")).strip()
+        if report_date not in {main_price_date, "*"}:
+            continue
+
+        contract_id = str(row.get("contract_id", "")).strip() or "<missing_contract_id>"
+        pdf_role = str(row.get("pdf_role", "")).strip()
+        pages = role_to_pages.get(pdf_role)
+        if not pages:
+            errors.append(f"{contract_id}: missing rendered PDF text for pdf_role={pdf_role}")
+            continue
+
+        page_scope = str(row.get("page_scope", "all_pages")).strip() or "all_pages"
+        if page_scope == "first_page":
+            scoped_pages = pages[:1]
+        elif page_scope == "all_pages":
+            scoped_pages = pages
+        else:
+            errors.append(f"{contract_id}: unsupported page_scope={page_scope}")
+            continue
+
+        compact_text = "".join("\n".join(scoped_pages).split())
+        for stock_id in split_contract_tokens(row.get("required_stock_ids")):
+            if stock_id not in compact_text:
+                errors.append(f"{contract_id}: required stock_id={stock_id} missing from {pdf_role} {page_scope}")
+        for stock_id in split_contract_tokens(row.get("forbidden_stock_ids")):
+            if stock_id in compact_text:
+                errors.append(f"{contract_id}: forbidden stock_id={stock_id} appeared in {pdf_role} {page_scope}")
+    return errors
+
+
+def rendered_model_regression_pdf_role(name: str) -> str:
+    matches = [
+        (role, title)
+        for role, title in PDF_ROLE_TITLE_TOKENS.items()
+        if title in name
+    ]
+    if not matches:
+        return ""
+    role, _title = max(matches, key=lambda item: len(item[1]))
+    return role
+
+
+def validate_rendered_model_regression_contract(paths: list[Path], main_price_date: str) -> list[str]:
+    try:
+        from pypdf import PdfReader
+    except Exception as exc:  # pragma: no cover - dependency is installed in CI.
+        return [f"pypdf import failed for rendered model regression validation: {exc}"]
+
+    contract_rows = read_rendered_model_regression_contract()
+    if not contract_rows:
+        return []
+
+    role_to_pages: dict[str, list[str]] = {}
+    errors: list[str] = []
+    for path in paths:
+        matched_role = rendered_model_regression_pdf_role(path.name)
+        if not matched_role:
+            continue
+        try:
+            reader = PdfReader(str(path))
+            role_to_pages[matched_role] = [page.extract_text() or "" for page in reader.pages]
+        except Exception as exc:
+            errors.append(f"{matched_role}: pypdf text extraction failed for {path}: {exc}")
+
+    errors.extend(validate_rendered_model_regression_texts(role_to_pages, main_price_date, contract_rows))
+    return errors
+
+
 def validate_runtime_manifest(paths: list[Path], output_dir: Path, state: dict) -> list[str]:
     errors: list[str] = []
     manifest_path = output_dir / RUNTIME_MANIFEST_NAME
@@ -343,6 +443,7 @@ def validate_replay(repo_root: Path, source_ref: str, output_dir: Path) -> tuple
     errors.extend(validate_pdf_path_contract(paths, output_dir, main_price_date))
     errors.extend(validate_pdf_files_open(paths))
     errors.extend(validate_pdf_highlight_layout_contract(paths))
+    errors.extend(validate_rendered_model_regression_contract(paths, main_price_date))
     errors.extend(validate_runtime_manifest(paths, output_dir, state))
 
     if errors:
