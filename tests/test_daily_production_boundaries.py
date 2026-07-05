@@ -400,11 +400,16 @@ def test_repo_agent_rules_require_completion_claim_evidence() -> None:
     assert "Post-merge official `main` workflow run id and conclusion" in text
     assert "Local post-merge validators or tests" in text
     assert "Runtime behavior or user-facing artifact inspection result" in text
+    assert "Direct clickable links to generated PDF files" in text
+    assert "folder plus exact PDF filenames" in text
     assert "Final `git status --short --branch` state" in text
     assert "`remaining blocker`" in text
     assert "main_workflow_passed_pending_artifact_inspection" in text
     assert "renderer consumed the dedicated adapter" in text
     assert "PDF contract/replay validation passed after merge" in text
+    assert "produced PDF link evidence" in text
+    assert "no generated PDF file" in text
+    assert "PDF folder\nlink is available" in text
 
 
 def test_formal_model_change_rules_include_pdf_operation_adapter_gate() -> None:
