@@ -12,9 +12,11 @@ def test_daily_model_maintenance_pr_workflow_exists_for_model_pdf_paths() -> Non
 
     assert "pull_request:" in text
     assert "scripts/generate_chatgpt_side_daily_reports.py" in text
+    assert "scripts/run_chatgpt_daily_report_entrypoint.py" in text
     assert "scripts/update_daily_published_model_snapshots.py" in text
     assert "config/daily_pdf_rendered_model_regression_contract.csv" in text
     assert "tests/test_chatgpt_daily_report_new_conversation_replay.py" in text
+    assert "tests/test_chatgpt_daily_report_entrypoint.py" in text
 
 
 def test_daily_model_maintenance_pr_workflow_runs_contract_validators() -> None:
@@ -40,6 +42,7 @@ def test_daily_model_maintenance_pr_workflow_runs_focused_pdf_operation_tests() 
 
     required_tests = (
         "tests/test_chatgpt_daily_report_new_conversation_replay.py",
+        "tests/test_chatgpt_daily_report_entrypoint.py",
         "tests/test_daily_pdf_contract_consumers.py",
         "tests/test_daily_published_model_snapshots.py",
         "tests/test_daily_volume_breakout_operation_section.py",
