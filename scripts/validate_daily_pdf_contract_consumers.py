@@ -27,6 +27,33 @@ W_BOTTOM_OPERATION_ARTIFACTS = {
         ROOT / "output/latest/daily_neckline_volume_breakout_confirmation_operation_section_latest.csv"
     ),
 }
+PDF_OPERATION_ADAPTER_ARTIFACTS = {
+    "volume_range_breakout": ROOT / "output/latest/daily_volume_breakout_operation_section_latest.csv",
+    **W_BOTTOM_OPERATION_ARTIFACTS,
+    "price_pullback_23ema": ROOT / "output/latest/daily_price_pullback_23ema_operation_section_latest.csv",
+}
+PDF_OPERATION_RENDERER_TOKENS = {
+    "volume_range_breakout": (
+        "VOLUME_BREAKOUT_MODEL_ID",
+        "daily_volume_breakout_operation_section_latest.csv",
+        "render_volume_range_breakout_operation_section",
+    ),
+    "w_bottom_right_side": (
+        "W_BOTTOM_RIGHT_SIDE_MODEL_ID",
+        "daily_w_bottom_right_side_operation_section_latest.csv",
+        "render_w_bottom_operation_section",
+    ),
+    "neckline_volume_breakout_confirmation": (
+        "W_BOTTOM_NECKLINE_BREAKOUT_MODEL_ID",
+        "daily_neckline_volume_breakout_confirmation_operation_section_latest.csv",
+        "render_w_bottom_operation_section",
+    ),
+    "price_pullback_23ema": (
+        "PRICE_PULLBACK_MODEL_ID",
+        "daily_price_pullback_23ema_operation_section_latest.csv",
+        "render_price_pullback_operation_section",
+    ),
+}
 W_BOTTOM_OPERATION_REQUIRED_COLUMNS = {
     "model_id",
     "pdf_view",
@@ -51,6 +78,82 @@ W_BOTTOM_OPERATION_REQUIRED_COLUMNS = {
 }
 W_BOTTOM_OPERATION_REQUIRED_SECTIONS = {"confirmed_operation", "active_operation"}
 W_BOTTOM_OPERATION_REQUIRED_VIEWS = {"highlight", "full"}
+PRICE_PULLBACK_OPERATION_REQUIRED_COLUMNS = {
+    "model_id",
+    "pdf_view",
+    "pdf_section",
+    "row_type",
+    "display_order",
+    "operation_asof_date",
+    "report_line",
+    "report_line_memberships",
+    "operation_status",
+    "row_action_status",
+    "buy_rank_eligible",
+    "stock_display",
+    "operation_quality_zh",
+    "operation_status_zh",
+    "signal_date",
+    "entry_rule_id",
+    "entry_basis_zh",
+    "stop_loss_rule_id",
+    "stop_basis_zh",
+    "exit_rule_id",
+    "exit_rule_zh",
+    "planned_holding_days",
+    "sample_size",
+    "win_rate_zh",
+    "neutral_rate_zh",
+    "failure_rate_zh",
+    "avg_return_zh",
+    "technical_package_win_rate_zh",
+    "technical_package_neutral_rate_zh",
+    "technical_package_failure_rate_zh",
+    "technical_package_avg_return_zh",
+    "operation_age_days",
+    "rank_reason_zh",
+    "risk_tags_zh",
+}
+VOLUME_OPERATION_REQUIRED_COLUMNS = {
+    "model_id",
+    "pdf_view",
+    "pdf_section",
+    "row_type",
+    "display_order",
+    "operation_asof_date",
+    "operation_status",
+    "row_action_status",
+    "buy_rank_eligible",
+    "stock_display",
+    "entry_rule_id",
+    "entry_basis_zh",
+    "stop_loss_rule_id",
+    "stop_basis_zh",
+    "exit_rule_id",
+    "exit_rule_zh",
+    "planned_holding_days",
+    "sample_size",
+    "win_rate_zh",
+}
+PDF_OPERATION_REQUIRED_SECTIONS = {"confirmed_operation", "active_operation"}
+PDF_OPERATION_REQUIRED_VIEWS = {"highlight", "full"}
+PDF_OPERATION_REQUIRED_COLUMNS_BY_MODEL = {
+    "volume_range_breakout": VOLUME_OPERATION_REQUIRED_COLUMNS,
+    "w_bottom_right_side": W_BOTTOM_OPERATION_REQUIRED_COLUMNS,
+    "neckline_volume_breakout_confirmation": W_BOTTOM_OPERATION_REQUIRED_COLUMNS,
+    "price_pullback_23ema": PRICE_PULLBACK_OPERATION_REQUIRED_COLUMNS,
+}
+PDF_OPERATION_ALLOWED_SECTIONS_BY_MODEL = {
+    "volume_range_breakout": {
+        "confirmed_operation",
+        "confirmed_unranked_operation",
+        "pending_confirmation",
+        "active_operation",
+    },
+    "w_bottom_right_side": PDF_OPERATION_REQUIRED_SECTIONS,
+    "neckline_volume_breakout_confirmation": PDF_OPERATION_REQUIRED_SECTIONS,
+    "price_pullback_23ema": PDF_OPERATION_REQUIRED_SECTIONS,
+}
 
 DAILY_MODEL_OUTPUTS = (
     DAILY_MODEL_SIGNALS,
@@ -128,15 +231,20 @@ REQUIRED_RENDERER_MODEL_ORDER_TOKENS = (
     "VOLUME_BREAKOUT_MODEL_ID: 1.0",
     "W_BOTTOM_RIGHT_SIDE_MODEL_ID: 1.1",
     "W_BOTTOM_NECKLINE_BREAKOUT_MODEL_ID: 1.2",
+    "PRICE_PULLBACK_MODEL_ID: 1.3",
 )
 REQUIRED_OPERATION_HIGHLIGHT_CONTRACT_TOKENS = (
     "OPERATION_TABLE_MODEL_IDS",
     "W_BOTTOM_OPERATION_TABLE_MODEL_IDS",
     "W_BOTTOM_OPERATION_INPUT_KEYS",
+    "PRICE_PULLBACK_OPERATION_INPUT_KEY",
     "daily_w_bottom_right_side_operation_section_latest.csv",
     "daily_neckline_volume_breakout_confirmation_operation_section_latest.csv",
+    "daily_price_pullback_23ema_operation_section_latest.csv",
     "render_w_bottom_operation_section",
+    "render_price_pullback_operation_section",
     "w_bottom_operation_frame",
+    "price_pullback_operation_frame",
     "pdf_integrated_daily_adapter",
     "OPERATION_HIGHLIGHT_TABLE_CONTRACT = \"confirmed_buy_then_active_only\"",
     "OPERATION_CONFIRMED_BUY_TABLE_TITLE = \"本日可買 / 已確認買入候選\"",
@@ -144,6 +252,7 @@ REQUIRED_OPERATION_HIGHLIGHT_CONTRACT_TOKENS = (
     "OPERATION_ACTIVE_EMPTY_STATE_TEXT = \"目前無操作中追蹤列\"",
     "W_BOTTOM_RIGHT_SIDE_MODEL_ID",
     "W_BOTTOM_NECKLINE_BREAKOUT_MODEL_ID",
+    "PRICE_PULLBACK_MODEL_ID",
 )
 
 
@@ -332,63 +441,145 @@ def split_tokens(value: str) -> set[str]:
     return {part.strip() for part in re.split(r"[|,;]", str(value or "")) if part.strip()}
 
 
-def validate_w_bottom_operation_adapter_contract(readiness_rows: Iterable[dict[str, str]]) -> list[str]:
+def renderer_text_for_operation_contract(source_paths: Iterable[Path]) -> tuple[str, list[str]]:
+    chunks: list[str] = []
     errors: list[str] = []
-    readiness = rows_by_model_id(readiness_rows)
-    for model_id, path in W_BOTTOM_OPERATION_ARTIFACTS.items():
-        ready = readiness.get(model_id, {})
+    for path in source_paths:
+        if not path.exists():
+            errors.append(f"missing daily PDF renderer path for operation adapter contract: {rel(path)}")
+            continue
+        chunks.append(path.read_text(encoding="utf-8-sig", errors="replace"))
+    return "\n".join(chunks), errors
+
+
+def validate_pdf_integrated_operation_adapter_contract(
+    readiness_rows: Iterable[dict[str, str]],
+    *,
+    source_paths: Iterable[Path] = (RENDERER,),
+    artifact_paths: dict[str, Path] | None = None,
+    renderer_tokens: dict[str, tuple[str, ...]] | None = None,
+    required_columns_by_model: dict[str, set[str]] | None = None,
+    allowed_sections_by_model: dict[str, set[str]] | None = None,
+    required_model_ids: set[str] | None = None,
+) -> list[str]:
+    errors: list[str] = []
+    artifacts = artifact_paths if artifact_paths is not None else PDF_OPERATION_ADAPTER_ARTIFACTS
+    tokens_by_model = renderer_tokens if renderer_tokens is not None else PDF_OPERATION_RENDERER_TOKENS
+    required_columns = (
+        required_columns_by_model if required_columns_by_model is not None else PDF_OPERATION_REQUIRED_COLUMNS_BY_MODEL
+    )
+    allowed_sections = (
+        allowed_sections_by_model if allowed_sections_by_model is not None else PDF_OPERATION_ALLOWED_SECTIONS_BY_MODEL
+    )
+    renderer_text, renderer_errors = renderer_text_for_operation_contract(source_paths)
+    errors.extend(renderer_errors)
+
+    readiness_by_model = rows_by_model_id(readiness_rows)
+    target_model_ids = {
+        row.get("model_id", "")
+        for row in readiness_rows
+        if row.get("model_id", "") and row.get("pdf_integration_status", "") == "pdf_integrated_daily_adapter"
+    }
+    target_model_ids.update(required_model_ids or set())
+    integrated_rows: list[dict[str, str]] = []
+    for model_id in sorted(target_model_ids):
+        ready = readiness_by_model.get(model_id, {})
+        if not ready:
+            errors.append(f"PDF operation adapter readiness row missing for {model_id}")
+            continue
+        integrated_rows.append(ready)
+    for ready in integrated_rows:
+        model_id = ready.get("model_id", "")
         if ready.get("pdf_integration_status", "") != "pdf_integrated_daily_adapter":
             errors.append(
-                f"W-bottom PDF operation adapter must be pdf_integrated_daily_adapter before renderer use: {model_id}"
+                f"PDF operation adapter must be pdf_integrated_daily_adapter before renderer use: {model_id}"
+            )
+        path = artifacts.get(model_id)
+        if path is None:
+            errors.append(
+                "PDF-integrated operation model missing dedicated adapter contract artifact mapping: "
+                f"{model_id}"
+            )
+            continue
+        missing_tokens = [token for token in tokens_by_model.get(model_id, ()) if token not in renderer_text]
+        if model_id not in tokens_by_model:
+            errors.append(
+                "PDF-integrated operation model missing renderer-consumption token contract: "
+                f"{model_id}"
+            )
+        elif missing_tokens:
+            errors.append(
+                "PDF-integrated operation model is not consumed from its dedicated adapter by renderer: "
+                f"{model_id} missing " + ";".join(missing_tokens)
             )
         readiness_sections = split_tokens(ready.get("daily_adapter_sections", ""))
-        missing_readiness_sections = sorted(W_BOTTOM_OPERATION_REQUIRED_SECTIONS - readiness_sections)
+        missing_readiness_sections = sorted(PDF_OPERATION_REQUIRED_SECTIONS - readiness_sections)
         if missing_readiness_sections:
             errors.append(
-                f"W-bottom PDF operation adapter readiness missing sections for {model_id}: "
+                f"PDF operation adapter readiness missing required sections for {model_id}: "
                 + ";".join(missing_readiness_sections)
             )
         header = set(csv_header(path))
         if not header:
-            errors.append(f"missing W-bottom PDF operation adapter artifact: {rel(path)}")
+            errors.append(f"missing PDF operation adapter artifact: {rel(path)}")
             continue
-        missing_columns = sorted(W_BOTTOM_OPERATION_REQUIRED_COLUMNS - header)
+        missing_columns = sorted(required_columns.get(model_id, set()) - header)
         if missing_columns:
             errors.append(
-                f"W-bottom PDF operation adapter artifact missing required columns for {model_id}: "
+                f"PDF operation adapter artifact missing required columns for {model_id}: "
                 + ";".join(missing_columns)
             )
         rows = load_csv_rows(path)
         if not rows:
-            errors.append(f"W-bottom PDF operation adapter artifact has no rows: {rel(path)}")
+            errors.append(f"PDF operation adapter artifact has no rows: {rel(path)}")
             continue
         other_models = sorted({row.get("model_id", "") for row in rows if row.get("model_id", "") != model_id})
         if other_models:
             errors.append(
-                f"W-bottom PDF operation adapter artifact mixes model_ids for {model_id}: "
+                f"PDF operation adapter artifact mixes model_ids for {model_id}: "
                 + ";".join(other_models)
             )
         sections = {row.get("pdf_section", "") for row in rows if row.get("pdf_section", "")}
-        extra_sections = sorted(sections - W_BOTTOM_OPERATION_REQUIRED_SECTIONS)
+        extra_sections = sorted(sections - allowed_sections.get(model_id, PDF_OPERATION_REQUIRED_SECTIONS))
         if extra_sections:
             errors.append(
-                f"W-bottom PDF operation adapter exposes PDF-forbidden sections for {model_id}: "
+                f"PDF operation adapter exposes PDF-forbidden sections for {model_id}: "
                 + ";".join(extra_sections)
             )
+        missing_sections = sorted(PDF_OPERATION_REQUIRED_SECTIONS - sections)
+        if missing_sections:
+            errors.append(
+                f"PDF operation adapter missing required sections for {model_id}: "
+                + ";".join(missing_sections)
+            )
         views = {row.get("pdf_view", "") for row in rows if row.get("pdf_view", "")}
-        missing_views = sorted(W_BOTTOM_OPERATION_REQUIRED_VIEWS - views)
+        missing_views = sorted(PDF_OPERATION_REQUIRED_VIEWS - views)
         if missing_views:
             errors.append(
-                f"W-bottom PDF operation adapter missing required pdf_view rows for {model_id}: "
+                f"PDF operation adapter missing required pdf_view rows for {model_id}: "
                 + ";".join(missing_views)
             )
-        for view in sorted(W_BOTTOM_OPERATION_REQUIRED_VIEWS):
-            for section in sorted(W_BOTTOM_OPERATION_REQUIRED_SECTIONS):
+        for view in sorted(PDF_OPERATION_REQUIRED_VIEWS):
+            for section in sorted(PDF_OPERATION_REQUIRED_SECTIONS):
                 if not any(row.get("pdf_view", "") == view and row.get("pdf_section", "") == section for row in rows):
                     errors.append(
-                        f"W-bottom PDF operation adapter missing {view}/{section} row for {model_id}: {rel(path)}"
+                        f"PDF operation adapter missing {view}/{section} row for {model_id}: {rel(path)}"
                     )
     return errors
+
+
+def validate_w_bottom_operation_adapter_contract(readiness_rows: Iterable[dict[str, str]]) -> list[str]:
+    return validate_pdf_integrated_operation_adapter_contract(
+        readiness_rows,
+        artifact_paths=dict(W_BOTTOM_OPERATION_ARTIFACTS),
+        required_columns_by_model={
+            model_id: W_BOTTOM_OPERATION_REQUIRED_COLUMNS for model_id in W_BOTTOM_OPERATION_ARTIFACTS
+        },
+        allowed_sections_by_model={
+            model_id: W_BOTTOM_OPERATION_REQUIRED_SECTIONS for model_id in W_BOTTOM_OPERATION_ARTIFACTS
+        },
+        required_model_ids=set(W_BOTTOM_OPERATION_ARTIFACTS),
+    )
 
 
 def event_rows_by_field(event_rows: Iterable[dict[str, str]]) -> dict[str, list[dict[str, str]]]:
@@ -614,7 +805,12 @@ def validate() -> tuple[
     errors.extend(validate_event_field_usages(event_usages, event_rows))
     errors.extend(validate_private_pdf_rules())
     errors.extend(validate_renderer_fixed_model_table_contract())
-    errors.extend(validate_w_bottom_operation_adapter_contract(readiness_rows))
+    errors.extend(
+        validate_pdf_integrated_operation_adapter_contract(
+            readiness_rows,
+            required_model_ids=set(W_BOTTOM_OPERATION_ARTIFACTS),
+        )
+    )
     errors.extend(validate_research_recommendations_not_direct_pdf_inputs())
     return errors, used_model_ids, required_display_model_ids, event_usages, model_rows, event_rows
 

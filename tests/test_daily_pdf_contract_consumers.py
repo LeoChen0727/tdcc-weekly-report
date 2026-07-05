@@ -133,11 +133,13 @@ def renderer_source_with_required_order() -> str:
         'VOLUME_BREAKOUT_MODEL_ID = "volume_range_breakout"\n'
         'W_BOTTOM_RIGHT_SIDE_MODEL_ID = "w_bottom_right_side"\n'
         'W_BOTTOM_NECKLINE_BREAKOUT_MODEL_ID = "neckline_volume_breakout_confirmation"\n'
+        'PRICE_PULLBACK_MODEL_ID = "price_pullback_23ema"\n'
         'MODEL_EMPTY_STATE_TEXT = "本日無股票推薦"\n'
         "PDF_PRESENTATION_MODEL_ORDER_OVERRIDES = {\n"
         "    VOLUME_BREAKOUT_MODEL_ID: 1.0,\n"
         "    W_BOTTOM_RIGHT_SIDE_MODEL_ID: 1.1,\n"
         "    W_BOTTOM_NECKLINE_BREAKOUT_MODEL_ID: 1.2,\n"
+        "    PRICE_PULLBACK_MODEL_ID: 1.3,\n"
         "}\n"
     )
 
@@ -146,16 +148,22 @@ def renderer_source_with_operation_contract() -> str:
     return (
         renderer_source_with_required_order()
         + "W_BOTTOM_OPERATION_TABLE_MODEL_IDS = {W_BOTTOM_RIGHT_SIDE_MODEL_ID, W_BOTTOM_NECKLINE_BREAKOUT_MODEL_ID}\n"
-        + "OPERATION_TABLE_MODEL_IDS = {VOLUME_BREAKOUT_MODEL_ID, W_BOTTOM_RIGHT_SIDE_MODEL_ID, W_BOTTOM_NECKLINE_BREAKOUT_MODEL_ID}\n"
+        + "OPERATION_TABLE_MODEL_IDS = {VOLUME_BREAKOUT_MODEL_ID, W_BOTTOM_RIGHT_SIDE_MODEL_ID, W_BOTTOM_NECKLINE_BREAKOUT_MODEL_ID, PRICE_PULLBACK_MODEL_ID}\n"
         + "W_BOTTOM_OPERATION_INPUT_KEYS = {\n"
         + "    W_BOTTOM_RIGHT_SIDE_MODEL_ID: 'w_bottom_right_side_operation',\n"
         + "    W_BOTTOM_NECKLINE_BREAKOUT_MODEL_ID: 'w_bottom_neckline_operation',\n"
         + "}\n"
+        + "PRICE_PULLBACK_OPERATION_INPUT_KEY = 'price_pullback_operation'\n"
         + "\"daily_w_bottom_right_side_operation_section_latest.csv\"\n"
         + "\"daily_neckline_volume_breakout_confirmation_operation_section_latest.csv\"\n"
+        + "\"daily_price_pullback_23ema_operation_section_latest.csv\"\n"
         + "def w_bottom_operation_frame():\n"
         + "    return 'pdf_integrated_daily_adapter'\n"
         + "def render_w_bottom_operation_section():\n"
+        + "    return 'adapter'\n"
+        + "def price_pullback_operation_frame():\n"
+        + "    return 'price_pullback_23ema adapter'\n"
+        + "def render_price_pullback_operation_section():\n"
         + "    return 'adapter'\n"
         + 'OPERATION_HIGHLIGHT_TABLE_CONTRACT = "confirmed_buy_then_active_only"\n'
         + 'OPERATION_CONFIRMED_BUY_TABLE_TITLE = "本日可買 / 已確認買入候選"\n'
@@ -364,6 +372,56 @@ def write_w_bottom_adapter(path: Path, model_id: str, extra_section: str | None 
     path.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
+def write_price_pullback_adapter(path: Path, extra_column_drop: str | None = None) -> None:
+    columns = sorted(validator.PRICE_PULLBACK_OPERATION_REQUIRED_COLUMNS - ({extra_column_drop} if extra_column_drop else set()))
+    rows: list[dict[str, str]] = []
+    for pdf_view in sorted(validator.PDF_OPERATION_REQUIRED_VIEWS):
+        for pdf_section in sorted(validator.PDF_OPERATION_REQUIRED_SECTIONS):
+            rows.append(
+                {
+                    column: {
+                        "model_id": "price_pullback_23ema",
+                        "pdf_view": pdf_view,
+                        "pdf_section": pdf_section,
+                        "row_type": "empty_state",
+                        "display_order": "1",
+                        "operation_asof_date": "20260703",
+                        "report_line": "both",
+                        "report_line_memberships": "mainstream|non_mainstream",
+                        "operation_status": pdf_section,
+                        "operation_status_zh": "empty",
+                        "operation_quality_zh": "基礎",
+                        "row_action_status": "empty_state",
+                        "buy_rank_eligible": "False",
+                        "signal_date": "20260703",
+                        "entry_rule_id": "signal_date_next_open",
+                        "entry_basis_zh": "下一個交易日開盤買入",
+                        "stop_loss_rule_id": "sustained_close_below_lower_ma20_ema23_4pct_4d",
+                        "stop_basis_zh": "收盤連續4天低於MA20/EMA23較低者4%",
+                        "exit_rule_id": "close_prev20_high_break_next_open",
+                        "exit_rule_zh": "收盤突破訊號日前20日高點後下一交易日開盤賣出",
+                        "planned_holding_days": "20",
+                        "operation_age_days": "",
+                        "sample_size": "1160",
+                        "win_rate_zh": "66.03%",
+                        "neutral_rate_zh": "5.60%",
+                        "failure_rate_zh": "28.36%",
+                        "avg_return_zh": "+2.90%",
+                        "technical_package_win_rate_zh": "75.54%",
+                        "technical_package_neutral_rate_zh": "3.52%",
+                        "technical_package_failure_rate_zh": "20.95%",
+                        "technical_package_avg_return_zh": "+2.96%",
+                        "rank_reason_zh": "基礎",
+                        "risk_tags_zh": "",
+                    }.get(column, "test")
+                    for column in columns
+                }
+            )
+    lines = [",".join(columns)]
+    lines.extend(",".join(row[column] for column in columns) for row in rows)
+    path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+
 def test_w_bottom_operation_adapter_contract_requires_integrated_readiness_and_sections(
     tmp_path: Path,
     monkeypatch,
@@ -407,3 +465,71 @@ def test_w_bottom_operation_adapter_contract_rejects_pdf_forbidden_sections(
     errors = validator.validate_w_bottom_operation_adapter_contract(readiness_rows)
 
     assert any("PDF-forbidden sections" in error and "pending_confirmation" in error for error in errors)
+
+
+def test_pdf_integrated_operation_adapter_must_be_consumed_by_renderer(tmp_path: Path) -> None:
+    adapter = tmp_path / "daily_price_pullback_23ema_operation_section_latest.csv"
+    write_price_pullback_adapter(adapter)
+    renderer = tmp_path / "renderer.py"
+    renderer.write_text(
+        renderer_source_with_operation_contract().replace(
+            '"daily_price_pullback_23ema_operation_section_latest.csv"\n',
+            "",
+        ),
+        encoding="utf-8",
+    )
+    readiness_rows = [
+        {
+            "model_id": "price_pullback_23ema",
+            "pdf_integration_status": "pdf_integrated_daily_adapter",
+            "daily_adapter_sections": "confirmed_operation,active_operation",
+        }
+    ]
+
+    errors = validator.validate_pdf_integrated_operation_adapter_contract(
+        readiness_rows,
+        source_paths=[renderer],
+        artifact_paths={"price_pullback_23ema": adapter},
+        renderer_tokens={
+            "price_pullback_23ema": (
+                "PRICE_PULLBACK_MODEL_ID",
+                "daily_price_pullback_23ema_operation_section_latest.csv",
+                "render_price_pullback_operation_section",
+            )
+        },
+        required_columns_by_model={"price_pullback_23ema": validator.PRICE_PULLBACK_OPERATION_REQUIRED_COLUMNS},
+        allowed_sections_by_model={"price_pullback_23ema": validator.PDF_OPERATION_REQUIRED_SECTIONS},
+    )
+
+    assert any("not consumed from its dedicated adapter" in error for error in errors)
+
+
+def test_price_pullback_operation_adapter_contract_requires_pdf_safe_columns(tmp_path: Path) -> None:
+    adapter = tmp_path / "daily_price_pullback_23ema_operation_section_latest.csv"
+    write_price_pullback_adapter(adapter, extra_column_drop="technical_package_win_rate_zh")
+    renderer = tmp_path / "renderer.py"
+    renderer.write_text(renderer_source_with_operation_contract(), encoding="utf-8")
+    readiness_rows = [
+        {
+            "model_id": "price_pullback_23ema",
+            "pdf_integration_status": "pdf_integrated_daily_adapter",
+            "daily_adapter_sections": "confirmed_operation,active_operation",
+        }
+    ]
+
+    errors = validator.validate_pdf_integrated_operation_adapter_contract(
+        readiness_rows,
+        source_paths=[renderer],
+        artifact_paths={"price_pullback_23ema": adapter},
+        renderer_tokens={
+            "price_pullback_23ema": (
+                "PRICE_PULLBACK_MODEL_ID",
+                "daily_price_pullback_23ema_operation_section_latest.csv",
+                "render_price_pullback_operation_section",
+            )
+        },
+        required_columns_by_model={"price_pullback_23ema": validator.PRICE_PULLBACK_OPERATION_REQUIRED_COLUMNS},
+        allowed_sections_by_model={"price_pullback_23ema": validator.PDF_OPERATION_REQUIRED_SECTIONS},
+    )
+
+    assert any("technical_package_win_rate_zh" in error for error in errors)
