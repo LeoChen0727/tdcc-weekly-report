@@ -1,6 +1,6 @@
 CHATGPT DAILY REPORT PACKET
 
-generated_at: 2026-07-05 22:46:55 Asia/Taipei
+generated_at: 2026-07-05 23:09:28 Asia/Taipei
 repo: LeoChen0727/tdcc-weekly-report
 main_price_date: 20260703
 report_ready: True
@@ -77,7 +77,7 @@ EMBEDDED DAILY SHORT-TERM SPECIALTY PACKET
 # DAILY SHORT-TERM SPECIALTY PACKET
 
 ## Metadata
-- generated_at: `2026-07-05 14:46:06 UTC`
+- generated_at: `2026-07-05 15:08:37 UTC`
 - main_price_date: `20260703`
 - purpose: Force daily reports to include short-term research-stat support sections without removing active D+5/D+10 core model rows.
 - market_abnormal_status_path: `output/latest/market_abnormal_status_latest.csv`
@@ -464,7 +464,7 @@ performance_csv_path: output/history/daily_signals/daily_candidate_signal_perfor
 summary_latest_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_signal_performance_summary_latest.md
 weekly_report_pdf_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_signal_performance_weekly_latest.pdf
 monthly_report_pdf_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_signal_performance_monthly_latest.pdf
-last_updated_at: 2026-07-05 22:46:55 Asia/Taipei
+last_updated_at: 2026-07-05 23:09:28 Asia/Taipei
 status: generated
 
 CANDIDATE REPEAT APPEARANCE
@@ -657,7 +657,7 @@ EMBEDDED SUMMARY REPORT
 # 每日全市場候選股監測報告 - 精華版
 
 - 主資料日期：`20260703`
-- 產生時間：`2026-07-05 22:46:26 Asia/Taipei`
+- 產生時間：`2026-07-05 23:08:57 Asia/Taipei`
 - 是否可產出正式每日報告：`True`
 - 判斷說明：core daily data dates match main_price_date
 - 權證資料日期：`20260703`
@@ -1082,7 +1082,7 @@ EMBEDDED FULL REPORT
 # 完整候選股清單 - 完整版
 
 - 主資料日期：`20260703`
-- 產生時間：`2026-07-05 22:46:26 Asia/Taipei`
+- 產生時間：`2026-07-05 23:08:58 Asia/Taipei`
 - 是否可產出正式每日報告：`True`
 - 權證資料日期：`20260703`
 
