@@ -36,6 +36,9 @@ when the evidence is listed in the response itself. The response must include:
 - Local post-merge validators or tests that were actually run.
 - Runtime behavior or user-facing artifact inspection result when outputs,
   PDFs, packets, reports, or model presentation are affected.
+- Direct clickable links to generated PDF files, or at minimum the containing
+  folder plus exact PDF filenames, when PDF deliverables or PDF presentation are
+  affected.
 - Final `git status --short --branch` state.
 - `remaining blocker`, explicitly set to `none` only when no known blocker
   remains.
@@ -51,8 +54,10 @@ consumer contract, and post-merge official workflow evidence all match the
 requested scope. A model being approved, a readiness row being marked
 `pdf_integrated_daily_adapter`, or a dedicated adapter artifact existing is not
 by itself PDF presentation completion. If PDF output is affected, the final
-evidence must show that the renderer consumed the dedicated adapter and that the
-PDF contract/replay validation passed after merge.
+evidence must show that the renderer consumed the dedicated adapter, that the
+PDF contract/replay validation passed after merge, and that the final response
+contains the produced PDF link evidence. If no generated PDF file or PDF folder
+link is available for inspection, `completion_state=complete` is forbidden.
 
 ## Traditional Chinese User-Facing Language Boundary
 
