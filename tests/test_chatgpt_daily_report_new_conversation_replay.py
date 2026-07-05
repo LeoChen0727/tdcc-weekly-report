@@ -260,6 +260,36 @@ def test_rendered_model_regression_contract_accepts_as_published_volume_rows() -
     assert validate_rendered_model_regression_texts(role_to_pages, "20260703", rows) == []
 
 
+def test_rendered_model_regression_contract_checks_required_and_forbidden_text_tokens() -> None:
+    rows = [
+        {
+            "contract_id": "price_pullback_23ema_highlight_structure",
+            "active": "True",
+            "report_date": "*",
+            "pdf_role": "mainstream_highlight",
+            "page_scope": "all_pages",
+            "model_id": "price_pullback_23ema",
+            "required_text_tokens": "23EMA回檔模型|MA20/EMA23|66.03%|5.60%|28.36%|+2.90%",
+            "forbidden_text_tokens": "盤中過前高收盤賣",
+        }
+    ]
+    role_to_pages = {
+        "mainstream_highlight": [
+            "第1頁",
+            "23EMA回檔模型\n停損：收盤連續 4 天低於 MA20/EMA23 較低者的 4%\n"
+            "基礎 66.03% / 5.60% / 28.36% / +2.90%",
+        ]
+    }
+
+    assert validate_rendered_model_regression_texts(role_to_pages, "20260706", rows) == []
+
+    role_to_pages["mainstream_highlight"][1] = "23EMA回檔模型\n盤中過前高收盤賣\n基礎 66.03%"
+    errors = validate_rendered_model_regression_texts(role_to_pages, "20260706", rows)
+
+    assert any("required text token='MA20/EMA23' missing" in error for error in errors)
+    assert any("forbidden text token='盤中過前高收盤賣' appeared" in error for error in errors)
+
+
 def test_rendered_model_regression_contract_rejects_volume_snapshot_drift() -> None:
     rows = [
         {
@@ -299,6 +329,34 @@ def test_rendered_model_regression_contract_records_20260703_volume_guard() -> N
     assert guard["model_id"] == "volume_range_breakout"
     assert guard["required_stock_ids"] == "6226|2483|6742"
     assert guard["forbidden_stock_ids"] == "3055|1515|2342"
+    assert "放量攻擊模型" in guard["required_text_tokens"]
+
+
+def test_rendered_model_regression_contract_records_formal_operation_models() -> None:
+    rows = read_rendered_model_regression_contract(RENDERED_MODEL_REGRESSION_CONTRACT)
+    row_by_id = {row["contract_id"]: row for row in rows}
+
+    required_contracts = {
+        "volume_range_breakout_mainstream_highlight_structure",
+        "volume_range_breakout_non_mainstream_highlight_empty_20260703",
+        "w_bottom_right_side_mainstream_highlight_structure",
+        "w_bottom_right_side_non_mainstream_highlight_structure",
+        "neckline_volume_breakout_confirmation_mainstream_highlight_structure",
+        "neckline_volume_breakout_confirmation_non_mainstream_highlight_structure",
+        "price_pullback_23ema_mainstream_highlight_structure",
+        "price_pullback_23ema_non_mainstream_highlight_structure",
+        "price_pullback_23ema_mainstream_highlight_20260703",
+        "price_pullback_23ema_non_mainstream_highlight_20260703",
+    }
+
+    assert required_contracts <= set(row_by_id)
+    assert row_by_id["price_pullback_23ema_mainstream_highlight_structure"]["report_date"] == "*"
+    assert "23EMA回檔模型" in row_by_id["price_pullback_23ema_mainstream_highlight_structure"][
+        "required_text_tokens"
+    ]
+    assert "W底頸線帶量突破確認模型" in row_by_id[
+        "neckline_volume_breakout_confirmation_mainstream_highlight_structure"
+    ]["required_text_tokens"]
 
 
 def test_daily_workflow_runs_new_conversation_replay_gate() -> None:
