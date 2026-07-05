@@ -163,6 +163,19 @@ def validate_rendered_regression_contract_roles() -> list[str]:
         role = str(row.get("pdf_role", "")).strip()
         if role and role not in EXPECTED_PDF_ROLES:
             errors.append(f"{rel(REGRESSION_CONTRACT)}:{index} unknown pdf_role={role!r}")
+        active = str(row.get("active", "")).strip().lower() in {"true", "1", "yes", "y"}
+        model_id = str(row.get("model_id", "")).strip()
+        report_date = str(row.get("report_date", "")).strip()
+        required_stock_ids = [
+            token.strip()
+            for token in str(row.get("required_stock_ids", "") or "").replace(";", "|").split("|")
+            if token.strip()
+        ]
+        if active and model_id == "price_pullback_23ema" and report_date not in {"", "*"} and required_stock_ids:
+            errors.append(
+                f"{rel(REGRESSION_CONTRACT)}:{index} price_pullback_23ema date-specific regression rows "
+                "must not require dynamic candidate stock ids; use stable text tokens and forbidden_stock_ids"
+            )
     return errors
 
 

@@ -351,6 +351,10 @@ def test_rendered_model_regression_contract_records_formal_operation_models() ->
 
     assert required_contracts <= set(row_by_id)
     assert row_by_id["price_pullback_23ema_mainstream_highlight_structure"]["report_date"] == "*"
+    assert row_by_id["price_pullback_23ema_mainstream_highlight_20260703"]["required_stock_ids"] == ""
+    assert row_by_id["price_pullback_23ema_non_mainstream_highlight_20260703"]["required_stock_ids"] == ""
+    assert row_by_id["price_pullback_23ema_mainstream_highlight_20260703"]["forbidden_stock_ids"]
+    assert row_by_id["price_pullback_23ema_non_mainstream_highlight_20260703"]["forbidden_stock_ids"]
     assert "23EMA回檔模型" in row_by_id["price_pullback_23ema_mainstream_highlight_structure"][
         "required_text_tokens"
     ]
