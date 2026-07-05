@@ -432,6 +432,18 @@ def main() -> int:
             "python scripts/validate_chatgpt_daily_report_new_conversation_replay.py": (
                 "daily model maintenance PR workflow must run actual rendered PDF replay validation"
             ),
+            "timeout-minutes: 20": (
+                "daily model maintenance PR workflow must bound rendered PDF replay runtime"
+            ),
+            "timeout 20m python scripts/validate_chatgpt_daily_report_new_conversation_replay.py": (
+                "daily model maintenance PR workflow must hard-timeout the rendered PDF replay command"
+            ),
+            "PDF replay source_ref=$source_ref": (
+                "daily model maintenance PR workflow must log the replay source ref"
+            ),
+            "PDF replay output_dir=chatgpt_side_outputs_pr_validation": (
+                "daily model maintenance PR workflow must log the replay output directory"
+            ),
             "--output-dir chatgpt_side_outputs_pr_validation": (
                 "daily model maintenance PR workflow must persist PR replay outputs in a stable folder"
             ),

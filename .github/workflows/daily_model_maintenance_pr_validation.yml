@@ -81,14 +81,17 @@ jobs:
             tests/test_stock_model_contract_registry.py
 
       - name: Replay ChatGPT-side daily PDF new conversation
+        timeout-minutes: 20
         run: |
           if [ -n "${GITHUB_HEAD_REF:-}" ]; then
             source_ref="origin/${GITHUB_HEAD_REF}"
           else
             source_ref="origin/${GITHUB_REF_NAME}"
           fi
+          echo "PDF replay source_ref=$source_ref"
+          echo "PDF replay output_dir=chatgpt_side_outputs_pr_validation"
           git fetch origin "${source_ref#origin/}"
-          python scripts/validate_chatgpt_daily_report_new_conversation_replay.py \
+          timeout 20m python scripts/validate_chatgpt_daily_report_new_conversation_replay.py \
             --source-ref "$source_ref" \
             --output-dir chatgpt_side_outputs_pr_validation
 

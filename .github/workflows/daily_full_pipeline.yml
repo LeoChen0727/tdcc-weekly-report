@@ -621,8 +621,11 @@ jobs:
           bash scripts/ci_push_with_retry.sh "$TARGET_BRANCH" 5
 
       - name: Replay ChatGPT-side daily PDF new conversation
+        timeout-minutes: 20
         run: |
-          python scripts/validate_chatgpt_daily_report_new_conversation_replay.py \
+          echo "PDF replay source_ref=workflow default"
+          echo "PDF replay output_dir=chatgpt_side_outputs_new_conversation_replay"
+          timeout 20m python scripts/validate_chatgpt_daily_report_new_conversation_replay.py \
             --output-dir chatgpt_side_outputs_new_conversation_replay
 
       - name: Dispatch and wait for GitHub Pages deploy
