@@ -1,6 +1,6 @@
 # Stock Theme Authorized Seed Preview
 
-- generated_at: 2026-07-06 06:40:21 Asia/Taipei
+- generated_at: 2026-07-06 07:12:00 Asia/Taipei
 - rows: 134
 - purpose: user-authorized market theme seed integrated with existing manual/default taxonomy.
 
