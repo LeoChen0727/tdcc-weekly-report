@@ -36,7 +36,10 @@ from build_daily_candidate_model_layer import (  # noqa: E402
     score_volume_breakout,
     update_model_signal_log,
 )
-from audit_daily_candidate_model_selection_correctness import model_stock_key_set  # noqa: E402
+from audit_daily_candidate_model_selection_correctness import (  # noqa: E402
+    model_stock_key_set,
+    selected_price_pullback_23ema_condition,
+)
 
 
 def make_row(**overrides: object) -> pd.Series:
@@ -392,6 +395,33 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
         self.assertIn("price_pullback_obv_above_ma20_required", positive_components)
         self.assertIn("price_pullback_technical_strength_package", positive_components)
         self.assertNotIn("price_pullback_return20_over_25_no_bonus", positive_risks)
+
+    def test_selection_audit_validates_price_pullback_enriched_signal_context(self) -> None:
+        source = make_row(
+            distance_23ema_pct="1.0",
+            ema23_slope_pct="0.3",
+            return_20d="12",
+            return_20d_pct="12",
+            price_pullback_tdcc_history_available="",
+            price_pullback_high_thresholds_up="",
+            price_pullback_obv_above_ma20="",
+        )
+        selected = pd.Series(
+            {
+                "stock_id": "9999",
+                "model_id": "price_pullback_23ema",
+                "main_condition_met": "True",
+                "price_pullback_tdcc_history_available": "True",
+                "price_pullback_high_thresholds_up": "True",
+                "price_pullback_obv_above_ma20": "True",
+            }
+        )
+
+        self.assertTrue(selected_price_pullback_23ema_condition(selected, source))
+
+        missing_obv = selected.copy()
+        missing_obv["price_pullback_obv_above_ma20"] = "False"
+        self.assertFalse(selected_price_pullback_23ema_condition(missing_obv, source))
 
     def test_pre_breakout_models_exclude_confirmed_breakouts(self) -> None:
         breakout = make_row(

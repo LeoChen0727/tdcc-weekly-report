@@ -14,8 +14,12 @@ from build_daily_candidate_model_layer import (
     build_specs,
     cond_neckline_volume_breakout_confirmation,
     cond_volume_breakout,
-    cond_pullback,
     cond_w_bottom_right,
+    ema23_slope_proxy_up,
+    near_ema23_or_support,
+    price_pullback_obv_above_ma20,
+    price_pullback_return20_0_25,
+    price_pullback_tdcc_high_thresholds_up,
 )
 from tracking_utils import LATEST_DIR, main_price_date_from_freshness, read_csv, resolve_candidate_signal_date, safe_str
 
@@ -269,6 +273,17 @@ def active_attack(row: pd.Series) -> bool:
     return active_price_attack_for_early_models(row)
 
 
+def selected_price_pullback_23ema_condition(row: pd.Series, source: pd.Series) -> bool:
+    """Validate the formal v1 gate across source price fields and enriched signal context."""
+    return (
+        near_ema23_or_support(source)
+        and ema23_slope_proxy_up(source)
+        and price_pullback_return20_0_25(source)
+        and price_pullback_tdcc_high_thresholds_up(row)
+        and price_pullback_obv_above_ma20(row)
+    )
+
+
 def audit_selected_row(
     row: pd.Series,
     source: pd.Series | None,
@@ -353,7 +368,7 @@ def audit_selected_row(
         if not cond_neckline_volume_breakout_confirmation(source):
             errors.append(f"{sid}: neckline_volume_breakout_confirmation selected but W-bottom neckline breakout condition failed")
     elif model == "price_pullback_23ema":
-        if not cond_pullback(source):
+        if not selected_price_pullback_23ema_condition(row, source):
             errors.append(f"{sid}: price_pullback_23ema selected but pullback/23EMA/support condition failed")
     elif model == "pullback_short_reclaim":
         ret20 = num(source, "return_20d", "return_20d_pct")
