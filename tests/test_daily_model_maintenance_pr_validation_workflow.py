@@ -26,6 +26,7 @@ def test_daily_model_maintenance_pr_workflow_runs_contract_validators() -> None:
         "python scripts/validate_repo_production_inventory.py",
         "python scripts/validate_stock_model_contract_registry.py",
         "python scripts/validate_daily_pdf_contract_consumers.py",
+        "python scripts/validate_daily_pdf_role_manifest_contract.py",
         "python scripts/validate_daily_production_boundaries.py",
         "python scripts/validate_daily_published_model_snapshots.py",
         "python scripts/validate_research_against_stock_model_contract.py",
