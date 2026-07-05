@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2049 上銀
 
 ## Metadata
-- generated_at: 2026-07-04 22:26:21 Asia/Taipei
+- generated_at: 2026-07-05 22:26:23 Asia/Taipei
 - stock_id: 2049
 - stock_name: 上銀
 - packet_status: standard_180d_window_packet
@@ -189,8 +189,8 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 2049 | 上銀 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | repeated_but_no_breakout | 1.股東常會日期:115/06/26 2.重要決議事項一、盈餘分配或盈虧撥補:通過承認2025年度虧損撥補案。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表:通過承認2025年度營業報告書  暨財務報表案。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項:通過解除董事及其代表人競業禁止之限制案。 7.其他應敘明事項:無。；calendar event: ex_dividend on 20260708; status=confirmed; proximity=within_7d |
-| 20260703 | 2049 | 上銀 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | repeated_but_no_breakout | 1.股東常會日期:115/06/26 2.重要決議事項一、盈餘分配或盈虧撥補:通過承認2025年度虧損撥補案。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表:通過承認2025年度營業報告書  暨財務報表案。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項:通過解除董事及其代表人競業禁止之限制案。 7.其他應敘明事項:無。；calendar event: ex_dividend on 20260708; status=confirmed; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260703 | 2049 | 上銀 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | repeated_but_no_breakout | 1.股東常會日期:115/06/26 2.重要決議事項一、盈餘分配或盈虧撥補:通過承認2025年度虧損撥補案。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表:通過承認2025年度營業報告書  暨財務報表案。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項:通過解除董事及其代表人競業禁止之限制案。 7.其他應敘明事項:無。；calendar event: ex_dividend on 20260708; status=confirmed; proximity=within_3d |
+| 20260703 | 2049 | 上銀 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | repeated_but_no_breakout | 1.股東常會日期:115/06/26 2.重要決議事項一、盈餘分配或盈虧撥補:通過承認2025年度虧損撥補案。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表:通過承認2025年度營業報告書  暨財務報表案。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項:通過解除董事及其代表人競業禁止之限制案。 7.其他應敘明事項:無。；calendar event: ex_dividend on 20260708; status=confirmed; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

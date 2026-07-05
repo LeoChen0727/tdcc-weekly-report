@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7287 世界凱基5B售02
 
 ## Metadata
-- generated_at: 2026-07-04 22:27:56 Asia/Taipei
+- generated_at: 2026-07-05 22:28:15 Asia/Taipei
 - stock_id: 7287
 - stock_name: 世界凱基5B售02
 - packet_status: partial_rawdata_packet
