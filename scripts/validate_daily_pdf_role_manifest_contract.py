@@ -28,6 +28,25 @@ BANNED_REPLAY_SNIPPETS = {
     "for role, title in": "PDF role matching must not iterate role/title substring pairs",
 }
 
+REQUIRED_RENDERED_REGRESSION_CONTRACT_IDS = {
+    "volume_range_breakout_mainstream_highlight_structure",
+    "volume_range_breakout_non_mainstream_highlight_structure",
+    "volume_range_breakout_mainstream_highlight_20260703",
+    "volume_range_breakout_non_mainstream_highlight_empty_20260703",
+    "w_bottom_right_side_mainstream_highlight_structure",
+    "w_bottom_right_side_non_mainstream_highlight_structure",
+    "w_bottom_right_side_mainstream_highlight_20260703",
+    "w_bottom_right_side_non_mainstream_highlight_20260703",
+    "neckline_volume_breakout_confirmation_mainstream_highlight_structure",
+    "neckline_volume_breakout_confirmation_non_mainstream_highlight_structure",
+    "neckline_volume_breakout_confirmation_mainstream_highlight_empty_20260703",
+    "neckline_volume_breakout_confirmation_non_mainstream_highlight_empty_20260703",
+    "price_pullback_23ema_mainstream_highlight_structure",
+    "price_pullback_23ema_non_mainstream_highlight_structure",
+    "price_pullback_23ema_mainstream_highlight_20260703",
+    "price_pullback_23ema_non_mainstream_highlight_20260703",
+}
+
 
 def rel(path: Path) -> str:
     try:
@@ -159,6 +178,14 @@ def validate_rendered_regression_contract_roles() -> list[str]:
         return [f"missing rendered model regression contract: {rel(REGRESSION_CONTRACT)}"]
     with REGRESSION_CONTRACT.open(newline="", encoding="utf-8-sig") as handle:
         rows = list(csv.DictReader(handle))
+    active_contract_ids = {
+        str(row.get("contract_id", "")).strip()
+        for row in rows
+        if str(row.get("active", "")).strip().lower() in {"true", "1", "yes", "y"}
+    }
+    missing_contract_ids = sorted(REQUIRED_RENDERED_REGRESSION_CONTRACT_IDS - active_contract_ids)
+    for contract_id in missing_contract_ids:
+        errors.append(f"{rel(REGRESSION_CONTRACT)} missing required active contract_id={contract_id!r}")
     for index, row in enumerate(rows, start=2):
         role = str(row.get("pdf_role", "")).strip()
         if role and role not in EXPECTED_PDF_ROLES:
