@@ -48,6 +48,11 @@ WORKFLOW_ALLOWED_OWNERS = {
         "market_risk",
         "repo_infrastructure",
     },
+    ".github/workflows/daily_model_maintenance_pr_validation.yml": {
+        "daily_production",
+        "research_backtest",
+        "repo_infrastructure",
+    },
     ".github/workflows/debug_tpex_fetch.yml": {"diagnostics", "official_price_data", "repo_infrastructure"},
     ".github/workflows/diagnose_stock_selection.yml": {
         "diagnostics",
@@ -213,6 +218,11 @@ REQUIRED_WORKFLOW_COMMANDS = {
     ".github/workflows/research_backtest_pipeline.yml": (
         "python scripts/validate_repo_production_inventory.py",
         "python scripts/validate_research_production_boundaries.py",
+    ),
+    ".github/workflows/daily_model_maintenance_pr_validation.yml": (
+        "python scripts/validate_repo_production_inventory.py",
+        "python scripts/validate_daily_pdf_contract_consumers.py",
+        "python scripts/validate_daily_production_boundaries.py",
     ),
     ".github/workflows/tdcc_weekly.yml": (
         "python scripts/validate_repo_production_inventory.py",

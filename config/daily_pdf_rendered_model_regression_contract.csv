@@ -1,0 +1,2 @@
+contract_id,active,report_date,pdf_role,page_scope,model_id,required_stock_ids,forbidden_stock_ids,reason
+volume_range_breakout_mainstream_highlight_20260703,True,20260703,mainstream_highlight,first_page,volume_range_breakout,6226|2483|6742,3055|1515|2342,Guard the 20260703 as-published volume breakout operation PDF section against mutable latest-adapter drift.

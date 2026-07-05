@@ -1,0 +1,77 @@
+name: Daily Model Maintenance PR Validation
+
+on:
+  pull_request:
+    paths:
+      - ".github/workflows/daily_full_pipeline.yml"
+      - ".github/workflows/daily_model_maintenance_pr_validation.yml"
+      - "config/daily_model_*.csv"
+      - "config/daily_pdf_rendered_model_regression_contract.csv"
+      - "config/model_surface_registry.csv"
+      - "config/report_artifact_lineage.csv"
+      - "config/stock_model_contract_registry.csv"
+      - "docs/specs/*operation*.md"
+      - "scripts/build_daily_*model*.py"
+      - "scripts/build_daily_*operation*.py"
+      - "scripts/build_model_operation_readiness.py"
+      - "scripts/generate_chatgpt_side_daily_reports.py"
+      - "scripts/update_daily_published_model_snapshots.py"
+      - "scripts/validate_chatgpt_daily_report_new_conversation_replay.py"
+      - "scripts/validate_daily_*.py"
+      - "scripts/validate_model_operation_readiness.py"
+      - "scripts/validate_research_against_stock_model_contract.py"
+      - "scripts/validate_stock_model_contract_registry.py"
+      - "tests/test_chatgpt_daily_report_new_conversation_replay.py"
+      - "tests/test_daily_*.py"
+      - "tests/test_model_operation_readiness.py"
+      - "tests/test_stock_model_contract_registry.py"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: daily-model-maintenance-pr-validation-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  daily-model-maintenance-pr-validation:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pandas requests tabulate matplotlib pillow openpyxl lxml html5lib beautifulsoup4 reportlab pypdf pytest
+
+      - name: Validate daily model and PDF contracts
+        run: |
+          python scripts/validate_repo_production_inventory.py
+          python scripts/validate_stock_model_contract_registry.py
+          python scripts/validate_daily_pdf_contract_consumers.py
+          python scripts/validate_daily_production_boundaries.py
+          python scripts/validate_daily_published_model_snapshots.py
+          python scripts/validate_research_against_stock_model_contract.py
+          python scripts/validate_daily_model_research_parity.py
+          python scripts/validate_repo_code_isolation_policy.py
+          python scripts/validate_chatgpt_side_pdf_layout_independence.py
+
+      - name: Run focused regression tests
+        run: |
+          python -m pytest \
+            tests/test_chatgpt_daily_report_new_conversation_replay.py \
+            tests/test_daily_pdf_contract_consumers.py \
+            tests/test_daily_published_model_snapshots.py \
+            tests/test_daily_volume_breakout_operation_section.py \
+            tests/test_daily_w_bottom_operation_sections.py \
+            tests/test_daily_price_pullback_23ema_operation_section.py \
+            tests/test_daily_production_boundaries.py \
+            tests/test_stock_model_contract_registry.py

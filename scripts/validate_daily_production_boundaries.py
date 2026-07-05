@@ -8,6 +8,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 DAILY_WORKFLOW = ROOT / ".github" / "workflows" / "daily_full_pipeline.yml"
+DAILY_MODEL_MAINTENANCE_PR_WORKFLOW = ROOT / ".github" / "workflows" / "daily_model_maintenance_pr_validation.yml"
 CANONICAL_CHATGPT_PDF_ENTRYPOINT = ROOT / "scripts" / "run_chatgpt_daily_report_entrypoint.py"
 CANONICAL_CHATGPT_PDF_GENERATOR = ROOT / "scripts" / "generate_chatgpt_side_daily_reports.py"
 DAILY_MARKET_ARTIFACT_BUILDER = ROOT / "build_daily_market_report_artifacts.py"
@@ -397,6 +398,47 @@ def main() -> int:
 
     if not STAGED_PATH_VALIDATOR.exists():
         errors.append(f"missing daily staged path validator: {STAGED_PATH_VALIDATOR}")
+
+    if not DAILY_MODEL_MAINTENANCE_PR_WORKFLOW.exists():
+        errors.append(
+            "missing daily model maintenance PR validation workflow: "
+            f"{DAILY_MODEL_MAINTENANCE_PR_WORKFLOW.relative_to(ROOT).as_posix()}"
+        )
+    else:
+        pr_workflow_text = read_text(DAILY_MODEL_MAINTENANCE_PR_WORKFLOW)
+        required_pr_workflow_literals = {
+            "pull_request:": "daily model maintenance PR workflow must run on pull_request",
+            "scripts/generate_chatgpt_side_daily_reports.py": (
+                "daily model maintenance PR workflow must trigger on PDF renderer changes"
+            ),
+            "scripts/update_daily_published_model_snapshots.py": (
+                "daily model maintenance PR workflow must trigger on published snapshot changes"
+            ),
+            "config/daily_pdf_rendered_model_regression_contract.csv": (
+                "daily model maintenance PR workflow must trigger on rendered PDF regression contract changes"
+            ),
+            "python scripts/validate_daily_pdf_contract_consumers.py": (
+                "daily model maintenance PR workflow must validate daily PDF consumer contracts"
+            ),
+            "python scripts/validate_daily_production_boundaries.py": (
+                "daily model maintenance PR workflow must run production boundary validation"
+            ),
+            "python scripts/validate_daily_published_model_snapshots.py": (
+                "daily model maintenance PR workflow must validate published model snapshots"
+            ),
+            "tests/test_chatgpt_daily_report_new_conversation_replay.py": (
+                "daily model maintenance PR workflow must run rendered PDF replay regression tests"
+            ),
+            "tests/test_daily_volume_breakout_operation_section.py": (
+                "daily model maintenance PR workflow must run volume operation adapter tests"
+            ),
+            "tests/test_daily_price_pullback_23ema_operation_section.py": (
+                "daily model maintenance PR workflow must run 23EMA operation adapter tests"
+            ),
+        }
+        for literal, message in required_pr_workflow_literals.items():
+            if literal not in pr_workflow_text:
+                errors.append(f"{message}: missing {literal!r}")
 
     if not CANONICAL_CHATGPT_PDF_ENTRYPOINT.exists():
         errors.append(f"missing canonical ChatGPT-side PDF entrypoint: {CANONICAL_CHATGPT_PDF_ENTRYPOINT}")
