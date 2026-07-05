@@ -325,6 +325,10 @@ def split_contract_tokens(value: object) -> list[str]:
     return [token.strip() for token in str(value or "").replace(";", "|").split("|") if token.strip()]
 
 
+def compact_contract_text(value: object) -> str:
+    return "".join(str(value or "").split())
+
+
 def read_rendered_model_regression_contract(path: Path = RENDERED_MODEL_REGRESSION_CONTRACT) -> list[dict[str, str]]:
     if not path.exists():
         return []
@@ -361,13 +365,21 @@ def validate_rendered_model_regression_texts(
             errors.append(f"{contract_id}: unsupported page_scope={page_scope}")
             continue
 
-        compact_text = "".join("\n".join(scoped_pages).split())
+        compact_text = compact_contract_text("\n".join(scoped_pages))
         for stock_id in split_contract_tokens(row.get("required_stock_ids")):
             if stock_id not in compact_text:
                 errors.append(f"{contract_id}: required stock_id={stock_id} missing from {pdf_role} {page_scope}")
         for stock_id in split_contract_tokens(row.get("forbidden_stock_ids")):
             if stock_id in compact_text:
                 errors.append(f"{contract_id}: forbidden stock_id={stock_id} appeared in {pdf_role} {page_scope}")
+        for token in split_contract_tokens(row.get("required_text_tokens")):
+            compact_token = compact_contract_text(token)
+            if compact_token and compact_token not in compact_text:
+                errors.append(f"{contract_id}: required text token={token!r} missing from {pdf_role} {page_scope}")
+        for token in split_contract_tokens(row.get("forbidden_text_tokens")):
+            compact_token = compact_contract_text(token)
+            if compact_token and compact_token in compact_text:
+                errors.append(f"{contract_id}: forbidden text token={token!r} appeared in {pdf_role} {page_scope}")
     return errors
 
 
