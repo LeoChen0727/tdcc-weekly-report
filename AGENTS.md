@@ -24,6 +24,36 @@ identified, the fix was verified against that failure mode, appropriate
 regression coverage or validator evidence exists, and any remaining unverified
 risk is reported instead of hidden.
 
+## Completion Claim Evidence Gate
+
+For this repository, a final response may use `completion_state=complete` only
+when the evidence is listed in the response itself. The response must include:
+
+- PR number and URL.
+- Merge commit on `main`.
+- Post-merge official `main` workflow run id and conclusion when workflows are
+  part of the requested completion boundary.
+- Local post-merge validators or tests that were actually run.
+- Runtime behavior or user-facing artifact inspection result when outputs,
+  PDFs, packets, reports, or model presentation are affected.
+- Final `git status --short --branch` state.
+- `remaining blocker`, explicitly set to `none` only when no known blocker
+  remains.
+
+If any required evidence is missing, stale, branch-only, inferred, or not yet
+verified after merge, do not use `completion_state=complete`. Use a narrower
+state such as `local_validated`, `pr_open`, `branch_action_passed`,
+`merged_pending_main_validation`, or `main_workflow_passed_pending_artifact_inspection`.
+
+For formal daily model promotions, `complete` is forbidden until the model
+contract, operation readiness, dedicated operation-row adapter, PDF/packet
+consumer contract, and post-merge official workflow evidence all match the
+requested scope. A model being approved, a readiness row being marked
+`pdf_integrated_daily_adapter`, or a dedicated adapter artifact existing is not
+by itself PDF presentation completion. If PDF output is affected, the final
+evidence must show that the renderer consumed the dedicated adapter and that the
+PDF contract/replay validation passed after merge.
+
 ## Traditional Chinese User-Facing Language Boundary
 
 All user-facing replies from this worktree must use Traditional Chinese by

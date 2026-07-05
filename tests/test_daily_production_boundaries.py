@@ -390,6 +390,23 @@ def test_repo_agent_rules_default_to_independent_business_surfaces() -> None:
     assert "Business-facing code defaults to independent ownership." in workflow_text
 
 
+def test_repo_agent_rules_require_completion_claim_evidence() -> None:
+    text = (ROOT / "AGENTS.md").read_text(encoding="utf-8")
+
+    assert "Completion Claim Evidence Gate" in text
+    assert "completion_state=complete" in text
+    assert "PR number and URL" in text
+    assert "Merge commit on `main`" in text
+    assert "Post-merge official `main` workflow run id and conclusion" in text
+    assert "Local post-merge validators or tests" in text
+    assert "Runtime behavior or user-facing artifact inspection result" in text
+    assert "Final `git status --short --branch` state" in text
+    assert "`remaining blocker`" in text
+    assert "main_workflow_passed_pending_artifact_inspection" in text
+    assert "renderer consumed the dedicated adapter" in text
+    assert "PDF contract/replay validation passed after merge" in text
+
+
 def test_formal_model_change_rules_include_pdf_operation_adapter_gate() -> None:
     agents = (ROOT / "AGENTS.md").read_text(encoding="utf-8")
     model_contract = (ROOT / "docs" / "stock_model_contract_governance.md").read_text(
