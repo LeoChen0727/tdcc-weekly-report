@@ -104,3 +104,11 @@ def test_daily_full_pipeline_runs_price_pullback_operation_adapter() -> None:
     workflow = (ROOT / ".github" / "workflows" / "daily_full_pipeline.yml").read_text(encoding="utf-8")
     assert "python scripts/build_daily_price_pullback_23ema_operation_section.py" in workflow
     assert "python scripts/validate_daily_price_pullback_23ema_operation_section.py" in workflow
+    for name in [
+        "daily_price_pullback_23ema_operation_section_latest.csv",
+        "daily_price_pullback_23ema_operation_section_latest.md",
+        "daily_price_pullback_23ema_operation_evidence_audit_latest.csv",
+        "daily_price_pullback_23ema_operation_evidence_audit_latest.md",
+    ]:
+        assert f"cp output/latest/{name} docs/latest/{name}" in workflow
+    assert "git add docs/latest/daily_price_pullback_23ema_operation_*_latest.*" in workflow

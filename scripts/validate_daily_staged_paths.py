@@ -35,6 +35,10 @@ DAILY_CANDIDATE_DOCS_MIRROR_FILES = (
     "daily_report_model_registry_latest.md",
     "daily_candidate_model_summary_for_report_latest.csv",
     "daily_candidate_model_summary_for_report_latest.md",
+    "daily_price_pullback_23ema_operation_section_latest.csv",
+    "daily_price_pullback_23ema_operation_section_latest.md",
+    "daily_price_pullback_23ema_operation_evidence_audit_latest.csv",
+    "daily_price_pullback_23ema_operation_evidence_audit_latest.md",
 )
 
 INDICATOR_GUIDE_MIRROR_FILES = (
