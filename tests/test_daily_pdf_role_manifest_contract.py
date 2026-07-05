@@ -61,3 +61,20 @@ def test_daily_pdf_role_manifest_contract_rejects_unknown_regression_role(
     errors = validator.validate_rendered_regression_contract_roles()
 
     assert any("unknown pdf_role='mainstream'" in error for error in errors)
+
+
+def test_daily_pdf_role_manifest_contract_rejects_23ema_dynamic_required_stock_ids(
+    tmp_path: Path,
+    monkeypatch,
+) -> None:
+    contract_copy = tmp_path / "daily_pdf_rendered_model_regression_contract.csv"
+    contract_copy.write_text(
+        "contract_id,active,report_date,pdf_role,page_scope,model_id,required_stock_ids,forbidden_stock_ids,required_text_tokens,forbidden_text_tokens,reason\n"
+        "bad,true,20260703,non_mainstream_highlight,all_pages,price_pullback_23ema,2610|1102,2347,23EMA,,,dynamic rows\n",
+        encoding="utf-8",
+    )
+    monkeypatch.setattr(validator, "REGRESSION_CONTRACT", contract_copy)
+
+    errors = validator.validate_rendered_regression_contract_roles()
+
+    assert any("price_pullback_23ema date-specific regression rows must not require dynamic" in error for error in errors)
