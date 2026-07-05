@@ -1,6 +1,6 @@
 # Catalyst Performance Summary
 
-- generated_at: `2026-07-04 18:15:25 Asia/Taipei`
+- generated_at: `2026-07-05 08:17:10 Asia/Taipei`
 - catalyst_event_rows: `2081`
 - note: Empty event rows mean no confirmed catalyst records have been loaded yet. The model does not fabricate news or announcements.
 
