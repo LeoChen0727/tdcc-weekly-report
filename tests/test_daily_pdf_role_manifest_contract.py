@@ -26,6 +26,24 @@ def test_daily_pdf_role_manifest_contract_rejects_title_token_role_mapping(
     assert any("PDF_ROLE_TITLE_TOKENS" in error for error in errors)
 
 
+def test_daily_pdf_role_manifest_contract_rejects_highlight_title_maps(
+    tmp_path: Path,
+    monkeypatch,
+) -> None:
+    replay_copy = tmp_path / "validate_chatgpt_daily_report_new_conversation_replay.py"
+    replay_copy.write_text(
+        validator.REPLAY_VALIDATOR.read_text(encoding="utf-8")
+        + "\nHIGHLIGHT_LAYOUT_TITLES = ('主流股每日推薦精華',)\ntitle_to_pages = {}\n",
+        encoding="utf-8",
+    )
+    monkeypatch.setattr(validator, "REPLAY_VALIDATOR", replay_copy)
+
+    errors = validator.validate_replay_manifest_contract()
+
+    assert any("HIGHLIGHT_LAYOUT_TITLES" in error for error in errors)
+    assert any("title_to_pages" in error for error in errors)
+
+
 def test_daily_pdf_role_manifest_contract_rejects_entrypoint_role_order_drift(
     tmp_path: Path,
     monkeypatch,
