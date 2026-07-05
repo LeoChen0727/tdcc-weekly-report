@@ -148,6 +148,8 @@ jobs:
           python scripts/build_daily_model_parameter_recommendations.py
           python scripts/build_daily_w_bottom_operation_sections.py
           python scripts/validate_daily_w_bottom_operation_sections.py
+          python scripts/build_daily_price_pullback_23ema_operation_section.py
+          python scripts/validate_daily_price_pullback_23ema_operation_section.py
           python scripts/build_model_operation_readiness.py
           python scripts/validate_model_operation_readiness.py
 
@@ -172,6 +174,8 @@ jobs:
           python scripts/validate_approved_operation_patterns.py
           python scripts/build_daily_w_bottom_operation_sections.py
           python scripts/validate_daily_w_bottom_operation_sections.py
+          python scripts/build_daily_price_pullback_23ema_operation_section.py
+          python scripts/validate_daily_price_pullback_23ema_operation_section.py
           python scripts/build_model_operation_readiness.py
           python scripts/validate_model_operation_readiness.py
           python scripts/build_volume_breakout_operation_pdf_preview.py

@@ -34,6 +34,18 @@ from build_approved_operation_patterns import (  # noqa: E402
     OPERATION_MODULE_ID,
     OUT_CSV,
     OUT_MD,
+    PRICE_PULLBACK_APPROVAL_METRICS,
+    PRICE_PULLBACK_APPROVAL_VERSION,
+    PRICE_PULLBACK_BUY_FILTER_ID,
+    PRICE_PULLBACK_ENTRY_RULE_ID,
+    PRICE_PULLBACK_EXIT_RULE_ID,
+    PRICE_PULLBACK_MIN_MATURE_SAMPLE_SIZE,
+    PRICE_PULLBACK_MIN_WIN_RATE,
+    PRICE_PULLBACK_MODEL_ID,
+    PRICE_PULLBACK_OPERATION_MODULE_ID,
+    PRICE_PULLBACK_SOURCE_RESEARCH_ID,
+    PRICE_PULLBACK_SPEC_SOURCE,
+    PRICE_PULLBACK_STOP_LOSS_RULE_ID,
     STOP_LOSS_RULE_ID,
     W_BOTTOM_APPROVAL_METRICS,
     W_BOTTOM_APPROVAL_STATUS,
@@ -76,7 +88,7 @@ REQUIRED_COLUMNS = {
     "risk_notes_zh",
 }
 
-EXPECTED_APPROVED_MODELS = {MODEL_ID, W_BOTTOM_MODEL_ID, NECKLINE_MODEL_ID}
+EXPECTED_APPROVED_MODELS = {MODEL_ID, W_BOTTOM_MODEL_ID, NECKLINE_MODEL_ID, PRICE_PULLBACK_MODEL_ID}
 
 
 def bool_text(value: object) -> str:
@@ -218,6 +230,45 @@ def validate_approval() -> list[str]:
         errors.append("neckline approval loss_count does not match operation spec metrics")
     if str(neckline_row.get("neckline_filter90_auto_bearish_confirmed_count", "")) != NECKLINE_APPROVAL_METRICS["filter90_auto_bearish_confirmed_count"]:
         errors.append("neckline approval must retain 90d bearish rows as score-only evidence")
+
+    pullback_rows = df[df["model_id"].astype(str).eq(PRICE_PULLBACK_MODEL_ID)]
+    if len(pullback_rows) != 1:
+        errors.append(f"approved operation artifact must contain exactly one {PRICE_PULLBACK_MODEL_ID} row")
+        return errors
+    pullback_row = pullback_rows.iloc[0]
+    expected_pullback = {
+        "model_id": PRICE_PULLBACK_MODEL_ID,
+        "operation_module_id": PRICE_PULLBACK_OPERATION_MODULE_ID,
+        "approval_version": PRICE_PULLBACK_APPROVAL_VERSION,
+        "approved_for_daily": "True",
+        "approval_status": "approved_for_daily_v1",
+        "operation_directive_level": "approved_daily_operation_guidance",
+        "source_research_id": PRICE_PULLBACK_SOURCE_RESEARCH_ID,
+        "entry_rule_id": PRICE_PULLBACK_ENTRY_RULE_ID,
+        "stop_loss_rule_id": PRICE_PULLBACK_STOP_LOSS_RULE_ID,
+        "exit_rule_id": PRICE_PULLBACK_EXIT_RULE_ID,
+        "buy_filter_id": PRICE_PULLBACK_BUY_FILTER_ID,
+        "evidence_source_kind": "price_pullback_23ema_promoted_operation_spec",
+    }
+    for col, value in expected_pullback.items():
+        if str(pullback_row.get(col, "")) != value:
+            errors.append(f"{PRICE_PULLBACK_MODEL_ID} {col} must be {value!r}, got {pullback_row.get(col, '')!r}")
+    if not PRICE_PULLBACK_SPEC_SOURCE.exists():
+        errors.append(f"missing price pullback operation spec source: {PRICE_PULLBACK_SPEC_SOURCE}")
+    if to_number(pullback_row.get("best_evidence_sample_size")) < PRICE_PULLBACK_MIN_MATURE_SAMPLE_SIZE:
+        errors.append("price_pullback approval mature sample size is weaker than the v1 gate")
+    if to_number(pullback_row.get("best_evidence_win_rate")) < PRICE_PULLBACK_MIN_WIN_RATE:
+        errors.append("price_pullback approval win rate is weaker than the v1 gate")
+    for col, key in {
+        "price_pullback_win_rate_pct": "win_rate_pct",
+        "price_pullback_neutral_rate_pct": "neutral_rate_pct",
+        "price_pullback_failure_rate_pct": "failure_rate_pct",
+        "price_pullback_avg_return_pct": "avg_return_pct",
+        "price_pullback_technical_package_win_rate_pct": "technical_package_win_rate_pct",
+        "price_pullback_technical_package_avg_return_pct": "technical_package_avg_return_pct",
+    }.items():
+        if str(pullback_row.get(col, "")) != PRICE_PULLBACK_APPROVAL_METRICS[key]:
+            errors.append(f"price_pullback approval {col} does not match promoted operation metrics")
 
     return errors
 

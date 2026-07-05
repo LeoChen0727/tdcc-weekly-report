@@ -232,6 +232,13 @@ STRUCTURAL_BUCKET_ZH = {
 }
 
 SCORE_COMPONENT_ZH_REPLACEMENTS = {
+    "base=70": "基礎分=70",
+    "price_pullback_v1_required_gate": "23EMA回檔v1必要條件通過",
+    "price_pullback_return20_0_25_required": "20日漲幅0%至25%",
+    "price_pullback_tdcc_high_thresholds_up_required": "高門檻籌碼增加",
+    "price_pullback_obv_above_ma20_required": "OBV高於20日均線",
+    "price_pullback_technical_strength_package": "技術強勢組合",
+    "price_pullback_tdcc_all_thresholds_up_reason_only": "籌碼全門檻同步改善",
     "price_pullback_tdcc_status:strong_accumulation": "回檔模型TDCC強吸籌",
     "price_pullback_tdcc_status:mild_accumulation": "回檔模型TDCC溫和吸籌",
     "price_pullback_strong_tdcc_accumulation": "回檔模型強TDCC加分",
@@ -409,14 +416,7 @@ MODEL_SCORE_PROFILES: dict[str, ScoreProfile] = {
     ),
     "price_pullback_23ema": ScoreProfile(
         "price_pullback_23ema",
-        volume_ratio_bonus_per_1x=1.0,
-        volume_ratio_bonus_cap=5.0,
-        tdcc_positive_bonus=8.0,
-        warrant_bullish_bonus=5.0,
-        strong_revenue_bonus=8.0,
-        lower_position_bonus=5.0,
-        tdcc_distribution_penalty=8.0,
-        false_breakout_penalty=4.0,
+        base_score=70.0,
     ),
     "hot_theme_pullback": ScoreProfile(
         "hot_theme_pullback",
@@ -724,6 +724,146 @@ def price_history_for_stock(stock_id: str) -> pd.DataFrame:
             df[col] = pd.to_numeric(df[col], errors="coerce")
     df = df.dropna(subset=["date", "high", "low", "close"]).sort_values("date")
     return df
+
+
+def compact_date(value: Any) -> str:
+    text_value = safe_str(value)
+    if text_value.endswith(".0"):
+        text_value = text_value[:-2]
+    text_value = text_value.replace("-", "").replace("/", "")
+    return text_value if len(text_value) == 8 and text_value.isdigit() else ""
+
+
+def bool_text(value: bool) -> str:
+    return "True" if bool(value) else "False"
+
+
+@lru_cache(maxsize=65536)
+def price_pullback_price_context(stock_id: str, signal_date: str) -> dict[str, Any]:
+    price = price_history_for_stock(stock_id)
+    signal_date = compact_date(signal_date)
+    empty = {
+        "rsi14": math.nan,
+        "macd_hist": math.nan,
+        "macd_hist_gt0": False,
+        "obv": math.nan,
+        "obv_ma20": math.nan,
+        "obv_above_ma20": False,
+    }
+    if price.empty or not signal_date:
+        return empty
+    work = price.copy()
+    work["date"] = work["date"].map(compact_date)
+    work = work[work["date"].astype(str).le(signal_date)].copy()
+    if work.empty:
+        return empty
+    for col in ["open", "high", "low", "close", "volume"]:
+        if col in work.columns:
+            work[col] = pd.to_numeric(work[col], errors="coerce")
+    work = work.dropna(subset=["close"]).sort_values("date").reset_index(drop=True)
+    if work.empty:
+        return empty
+
+    close = work["close"]
+    ema12 = close.ewm(span=12, adjust=False, min_periods=12).mean()
+    ema26 = close.ewm(span=26, adjust=False, min_periods=26).mean()
+    macd_dif = ema12 - ema26
+    macd_dea = macd_dif.ewm(span=9, adjust=False, min_periods=9).mean()
+    work["macd_hist"] = macd_dif - macd_dea
+
+    delta = close.diff()
+    gain = delta.clip(lower=0)
+    loss = -delta.clip(upper=0)
+    avg_gain = gain.rolling(14, min_periods=14).mean()
+    avg_loss = loss.rolling(14, min_periods=14).mean()
+    rs = avg_gain / avg_loss.replace(0, pd.NA)
+    work["rsi14"] = 100 - (100 / (1 + rs))
+
+    volume = pd.to_numeric(work.get("volume", pd.Series([0.0] * len(work))), errors="coerce").fillna(0.0)
+    previous_close = close.shift(1)
+    obv_direction = (close - previous_close).apply(lambda value: 1.0 if value > 0 else (-1.0 if value < 0 else 0.0))
+    work["obv"] = (obv_direction * volume).cumsum()
+    work["obv_ma20"] = work["obv"].rolling(20, min_periods=10).mean()
+
+    latest = work.iloc[-1]
+    macd_hist = to_number(latest.get("macd_hist", math.nan))
+    rsi14 = to_number(latest.get("rsi14", math.nan))
+    obv = to_number(latest.get("obv", math.nan))
+    obv_ma20 = to_number(latest.get("obv_ma20", math.nan))
+    return {
+        "rsi14": rsi14,
+        "macd_hist": macd_hist,
+        "macd_hist_gt0": (not math.isnan(macd_hist)) and macd_hist > 0,
+        "obv": obv,
+        "obv_ma20": obv_ma20,
+        "obv_above_ma20": (not math.isnan(obv)) and (not math.isnan(obv_ma20)) and obv > obv_ma20,
+    }
+
+
+@lru_cache(maxsize=65536)
+def price_pullback_tdcc_context(stock_id: str, signal_date: str) -> dict[str, Any]:
+    code = normalize_code(stock_id)
+    signal_date = compact_date(signal_date)
+    empty = {
+        "tdcc_history_available": False,
+        "tdcc_as_of_date": "",
+        "high_thresholds_up": False,
+        "all_thresholds_up": False,
+    }
+    if not code or not signal_date:
+        return empty
+    path = TDCC_STOCK_HISTORY_DIR / f"{code}.csv"
+    if not path.exists():
+        return empty
+    try:
+        df = pd.read_csv(path, dtype=str, keep_default_na=False)
+    except Exception:
+        return empty
+    if df.empty or "as_of_date" not in df.columns:
+        return empty
+    df = df.copy()
+    df["as_of_date"] = df["as_of_date"].map(compact_date)
+    df = df[(df["as_of_date"] != "") & df["as_of_date"].le(signal_date)].copy()
+    if df.empty:
+        return empty
+    row = df.sort_values("as_of_date").iloc[-1]
+    return {
+        "tdcc_history_available": True,
+        "tdcc_as_of_date": safe_str(row.get("as_of_date")),
+        "high_thresholds_up": truthy(row.get("high_thresholds_up")),
+        "all_thresholds_up": truthy(row.get("all_thresholds_up")),
+    }
+
+
+def enrich_price_pullback_v1_context(candidates: pd.DataFrame, default_signal_date: str) -> pd.DataFrame:
+    if candidates.empty or "stock_id" not in candidates.columns:
+        return candidates
+    out = candidates.copy()
+    context_rows: list[dict[str, Any]] = []
+    for _, row in out.iterrows():
+        stock_id = normalize_code(text(row, "stock_id", "ticker"))
+        signal_date = compact_date(text(row, "signal_date", "date", "main_price_date") or default_signal_date)
+        price_ctx = price_pullback_price_context(stock_id, signal_date)
+        tdcc_ctx = price_pullback_tdcc_context(stock_id, signal_date)
+        context_rows.append(
+            {
+                "price_pullback_signal_date": signal_date,
+                "price_pullback_rsi14": price_ctx["rsi14"],
+                "price_pullback_macd_hist": price_ctx["macd_hist"],
+                "price_pullback_macd_hist_gt0": bool_text(bool(price_ctx["macd_hist_gt0"])),
+                "price_pullback_obv": price_ctx["obv"],
+                "price_pullback_obv_ma20": price_ctx["obv_ma20"],
+                "price_pullback_obv_above_ma20": bool_text(bool(price_ctx["obv_above_ma20"])),
+                "price_pullback_tdcc_history_available": bool_text(bool(tdcc_ctx["tdcc_history_available"])),
+                "price_pullback_tdcc_as_of_date": tdcc_ctx["tdcc_as_of_date"],
+                "price_pullback_high_thresholds_up": bool_text(bool(tdcc_ctx["high_thresholds_up"])),
+                "price_pullback_all_thresholds_up": bool_text(bool(tdcc_ctx["all_thresholds_up"])),
+            }
+        )
+    context = pd.DataFrame(context_rows, index=out.index)
+    for col in context.columns:
+        out[col] = context[col]
+    return out
 
 
 def truthy(value: Any) -> bool:
@@ -1344,40 +1484,22 @@ def volume_breakout_operation_score_fields(
 
 def score_pullback(row: pd.Series) -> tuple[float, list[str], list[str]]:
     score, comps, risks = score_from_profile(row, MODEL_SCORE_PROFILES["price_pullback_23ema"])
+    comps.append("price_pullback_v1_required_gate")
     if near_ema23_or_platform(row):
-        score += 10
-        comps.append("near 23EMA/platform +10")
+        comps.append("near 23EMA/platform")
     if ema23_slope_proxy_up(row):
-        score += 7
-        comps.append("EMA23 slope proxy up +7")
+        comps.append("EMA23 slope proxy up")
     if flag(row, "pullback_entry_zone_flag"):
-        score += 5
-        comps.append("pullback entry zone +5")
-    if num(row, "volume_ratio") < 1.2:
-        score += 3
-        comps.append("pullback not volume-chasing +3")
-    tdcc_signal = price_pullback_tdcc_signal_status(row)
-    if tdcc_signal in POSITIVE_TDCC and not tdcc_positive(row):
-        score += 8
-        comps.append(f"price_pullback_tdcc_status:{tdcc_signal} +8")
-    if tdcc_signal == "strong_accumulation":
-        score += 2
-        comps.append("price_pullback_strong_tdcc_accumulation +2")
-    if tdcc_signal == "distribution_warning" and not tdcc_distribution(row):
-        score -= 8
-        risks.append("price_pullback_tdcc_distribution_penalty:8")
-    if tdcc_signal != "distribution_warning" and price_pullback_large_holder_confirmation(row):
-        score += 4
-        comps.append("price_pullback_large_holder_tdcc_confirmation +4")
-    ret20 = num(row, "return_20d", "return_20d_pct")
-    if not math.isnan(ret20):
-        if 0 <= ret20 <= 25:
-            score += 6
-            comps.append("price_pullback_return20_0_25 +6")
-        elif ret20 > 25:
-            risks.append("price_pullback_return20_over_25_no_bonus")
-        elif ret20 < 0:
-            risks.append("price_pullback_return20_negative_no_bonus")
+        comps.append("pullback entry zone")
+    comps.append("price_pullback_return20_0_25_required")
+    comps.append("price_pullback_tdcc_high_thresholds_up_required")
+    comps.append("price_pullback_obv_above_ma20_required")
+    if price_pullback_technical_strength_package(row):
+        comps.append("price_pullback_technical_strength_package")
+    if price_pullback_all_thresholds_up(row):
+        comps.append("price_pullback_tdcc_all_thresholds_up_reason_only")
+    if price_pullback_volume_red_or_solid_red_risk(row):
+        risks.append("price_pullback_volume_red_or_solid_red_risk")
     return score, comps, risks
 
 
@@ -1398,6 +1520,50 @@ def price_pullback_large_holder_confirmation(row: pd.Series) -> bool:
         and change_1000 > 0
     )
     return weeks_confirmed or changes_confirmed
+
+
+def price_pullback_return20_0_25(row: pd.Series) -> bool:
+    ret20 = num(row, "return_20d", "return_20d_pct")
+    return not math.isnan(ret20) and 0 <= ret20 <= 25
+
+
+def price_pullback_tdcc_high_thresholds_up(row: pd.Series) -> bool:
+    return flag(row, "price_pullback_tdcc_history_available") and flag(row, "price_pullback_high_thresholds_up")
+
+
+def price_pullback_all_thresholds_up(row: pd.Series) -> bool:
+    return flag(row, "price_pullback_tdcc_history_available") and flag(row, "price_pullback_all_thresholds_up")
+
+
+def price_pullback_obv_above_ma20(row: pd.Series) -> bool:
+    return flag(row, "price_pullback_obv_above_ma20")
+
+
+def price_pullback_technical_strength_package(row: pd.Series) -> bool:
+    rsi14 = num(row, "price_pullback_rsi14", "rsi14")
+    macd_hist = num(row, "price_pullback_macd_hist", "macd_hist")
+    return not math.isnan(rsi14) and rsi14 >= 60 and not math.isnan(macd_hist) and macd_hist > 0
+
+
+def price_pullback_volume_red_or_solid_red_risk(row: pd.Series) -> bool:
+    volume_ratio = num(row, "volume_ratio", "volume_ratio_prev20")
+    return (
+        (not math.isnan(volume_ratio) and volume_ratio >= 1.2 and bottom_volume_attack_bullish_candle(row))
+        or red_solid_candle(row)
+    )
+
+
+def price_pullback_operation_quality(row: pd.Series) -> str:
+    return "technical_strength" if price_pullback_technical_strength_package(row) else "base"
+
+
+def price_pullback_reason_tags(row: pd.Series) -> str:
+    tags = ["base_v1", "return20_0_25", "tdcc_high_thresholds_up", "obv_above_ma20"]
+    if price_pullback_technical_strength_package(row):
+        tags.append("technical_strength_rsi60_macd_positive")
+    if price_pullback_all_thresholds_up(row):
+        tags.append("tdcc_all_thresholds_up_reason_only")
+    return "|".join(tags)
 
 
 def score_hot_theme_pullback(row: pd.Series) -> tuple[float, list[str], list[str]]:
@@ -1707,7 +1873,13 @@ def tdcc_stealth_attack_already_started(row: pd.Series) -> bool:
 
 
 def cond_pullback(row: pd.Series) -> bool:
-    return near_ema23_or_support(row) and ema23_slope_proxy_up(row)
+    return (
+        near_ema23_or_support(row)
+        and ema23_slope_proxy_up(row)
+        and price_pullback_return20_0_25(row)
+        and price_pullback_tdcc_high_thresholds_up(row)
+        and price_pullback_obv_above_ma20(row)
+    )
 
 
 def cond_hot_theme_pullback(row: pd.Series) -> bool:
@@ -2757,6 +2929,30 @@ def build_parameter_table(specs: list[ModelSpec]) -> pd.DataFrame:
             "operation_guidance": spec.operation_guidance_zh,
             "parameter_status": "initial_program_rule_pending_backtest_optimization",
         }
+        if spec.model_id == "price_pullback_23ema":
+            row.update(
+                {
+                    "model_name_zh": "23EMA回檔模型",
+                    "main_conditions": (
+                        "股價回到23EMA或支撐附近，且23EMA/均線結構未破；20日漲幅0%到25%；"
+                        "TDCC高門檻籌碼增加；OBV站上OBV MA20。"
+                    ),
+                    "add_score_items": (
+                        "技術強勢組合只作操作品質標籤：RSI14>=60且MACD histogram>0。"
+                        "籌碼全同步只作理由標籤，不額外加分；本模型不使用營收、權證或熱門族群加分。"
+                    ),
+                    "forbidden_veto": (
+                        "帶量紅K或實體紅K只作追價風險標籤，不作買點品質加分；"
+                        "不得使用盤中高低點作正式進出場或勝敗報酬。"
+                    ),
+                    "operation_guidance": (
+                        "買入：訊號成立後下一個交易日開盤買入。賣出：收盤突破訊號日前20日高點後，"
+                        "下一個交易日開盤賣出。停損：收盤連續4天低於MA20/EMA23較低者4%，"
+                        "下一個交易日開盤停損。"
+                    ),
+                    "parameter_status": "approved_operation_v1_close_confirmed",
+                }
+            )
         if profile:
             row.update(
                 {
@@ -3334,7 +3530,7 @@ def build_signals(candidates: pd.DataFrame, specs: list[ModelSpec], signal_date:
                         "dual_report_membership_flag": dual_report_membership_flag_value(row),
                         "report_bucket": bucket,
                         "model_id": spec.model_id,
-                        "model_name_zh": spec.model_name_zh,
+                        "model_name_zh": "23EMA回檔模型" if spec.model_id == "price_pullback_23ema" else spec.model_name_zh,
                         "model_group": spec.pdf_visibility,
                         "main_condition_met": "True",
                         "entry_basis": spec.entry_basis,
@@ -3347,6 +3543,25 @@ def build_signals(candidates: pd.DataFrame, specs: list[ModelSpec], signal_date:
                         "volume_ratio": num(row, "volume_ratio"),
                         "return_5d": num(row, "return_5d", "return_5d_pct"),
                         "return_20d": num(row, "return_20d", "return_20d_pct"),
+                        "price_pullback_signal_date": text(row, "price_pullback_signal_date"),
+                        "price_pullback_operation_quality": (
+                            price_pullback_operation_quality(row) if spec.model_id == "price_pullback_23ema" else ""
+                        ),
+                        "price_pullback_reason_tags": (
+                            price_pullback_reason_tags(row) if spec.model_id == "price_pullback_23ema" else ""
+                        ),
+                        "price_pullback_risk_tags": (
+                            "volume_red_or_solid_red_risk"
+                            if spec.model_id == "price_pullback_23ema"
+                            and price_pullback_volume_red_or_solid_red_risk(row)
+                            else ""
+                        ),
+                        "price_pullback_tdcc_history_available": text(row, "price_pullback_tdcc_history_available"),
+                        "price_pullback_high_thresholds_up": text(row, "price_pullback_high_thresholds_up"),
+                        "price_pullback_all_thresholds_up": text(row, "price_pullback_all_thresholds_up"),
+                        "price_pullback_obv_above_ma20": text(row, "price_pullback_obv_above_ma20"),
+                        "price_pullback_rsi14": num(row, "price_pullback_rsi14"),
+                        "price_pullback_macd_hist": num(row, "price_pullback_macd_hist"),
                         "next_confirmation": clean_next_confirmation(row, spec),
                         "model_main_conditions": spec.main_conditions_zh,
                         "model_add_score_items": spec.add_score_zh,
@@ -4518,6 +4733,7 @@ def main() -> int:
         signal_date = preferred_date
     for note in date_notes:
         print(f"date_note: {note}")
+    candidates = enrich_price_pullback_v1_context(candidates, signal_date)
     specs = build_specs()
     recommendations = load_model_recommendations()
     params = build_parameter_table(specs)

@@ -37,6 +37,10 @@ def research_frame() -> pd.DataFrame:
                 "ema23_slope_5d_pct": 0.1,
                 "ma5_turning_up_flag": False,
                 "ma10_turning_up_flag": False,
+                "return_20d_pct": 10.0,
+                "tdcc_history_available": True,
+                "high_thresholds_up": True,
+                "obv_above_ma20": True,
             },
             {
                 "date": "20260615",
@@ -54,6 +58,10 @@ def research_frame() -> pd.DataFrame:
                 "ema23_slope_5d_pct": 0.1,
                 "ma5_turning_up_flag": False,
                 "ma10_turning_up_flag": False,
+                "return_20d_pct": 10.0,
+                "tdcc_history_available": True,
+                "high_thresholds_up": True,
+                "obv_above_ma20": True,
             },
         ]
     )
@@ -175,6 +183,13 @@ def test_price_pullback_daily_row_parity_uses_all_candidates_replay_when_availab
                 "low_20": "94",
                 "ma5_turning_up_flag": "False",
                 "ma10_turning_up_flag": "False",
+                "return_20d_pct": "10",
+                "tdcc_history_available": "True",
+                "high_thresholds_up": "True",
+                "obv_above_ma20": "True",
+                "price_pullback_tdcc_history_available": "True",
+                "price_pullback_high_thresholds_up": "True",
+                "price_pullback_obv_above_ma20": "True",
             }
         ],
     )
@@ -236,6 +251,13 @@ def test_price_pullback_daily_row_parity_accepts_source_row_replay_without_outco
                 "low_20": "94",
                 "ma5_turning_up_flag": "False",
                 "ma10_turning_up_flag": "False",
+                "return_20d_pct": "10",
+                "tdcc_history_available": "True",
+                "high_thresholds_up": "True",
+                "obv_above_ma20": "True",
+                "price_pullback_tdcc_history_available": "True",
+                "price_pullback_high_thresholds_up": "True",
+                "price_pullback_obv_above_ma20": "True",
             }
         ],
     )

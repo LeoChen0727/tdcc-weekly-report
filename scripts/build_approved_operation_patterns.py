@@ -59,6 +59,38 @@ NECKLINE_MIN_MATURE_SAMPLE_SIZE = 30
 NECKLINE_MIN_PURE_WIN_RATE = 60.0
 NECKLINE_MIN_NEUTRAL_INCLUSIVE_SUCCESS_RATE = 70.0
 
+PRICE_PULLBACK_MODEL_ID = "price_pullback_23ema"
+PRICE_PULLBACK_OPERATION_MODULE_ID = "price_pullback_23ema_prev20_breakout_stop_v1"
+PRICE_PULLBACK_APPROVAL_VERSION = "price_pullback_23ema_operation_v1_20260703"
+PRICE_PULLBACK_SOURCE_RESEARCH_ID = "price_pullback_23ema_promotion_matrix"
+PRICE_PULLBACK_ENTRY_RULE_ID = "signal_date_next_open"
+PRICE_PULLBACK_STOP_LOSS_RULE_ID = "sustained_close_below_lower_ma20_ema23_4pct_4d"
+PRICE_PULLBACK_EXIT_RULE_ID = "close_prev20_high_break_next_open"
+PRICE_PULLBACK_BUY_FILTER_ID = "v1_gate_return20_tdcc_high_obv"
+PRICE_PULLBACK_SPEC_SOURCE = Path("docs/specs/price_pullback_23ema_operation_candidate_spec.md")
+PRICE_PULLBACK_MIN_MATURE_SAMPLE_SIZE = 1000
+PRICE_PULLBACK_MIN_WIN_RATE = 60.0
+
+PRICE_PULLBACK_APPROVAL_METRICS = {
+    "surface_id": "price_pullback_23ema_v1",
+    "selected_segment_id": PRICE_PULLBACK_BUY_FILTER_ID,
+    "mature_sample_size": "1160",
+    "accepted_trade_count": "1160",
+    "win_count": "766",
+    "neutral_count": "65",
+    "failure_count": "329",
+    "hard_stop_rate_pct": "9.14",
+    "win_rate_pct": "66.03",
+    "neutral_rate_pct": "5.60",
+    "failure_rate_pct": "28.36",
+    "avg_return_pct": "2.90",
+    "technical_package_sample_size": "654",
+    "technical_package_win_rate_pct": "75.54",
+    "technical_package_neutral_rate_pct": "3.52",
+    "technical_package_failure_rate_pct": "20.95",
+    "technical_package_avg_return_pct": "2.96",
+}
+
 W_BOTTOM_APPROVAL_METRICS = {
     "surface_id": "w_bottom_right_low_early_entry",
     "selected_segment_id": W_BOTTOM_BUY_FILTER_ID,
@@ -365,6 +397,93 @@ def neckline_approval_row(generated_at: str) -> dict[str, Any]:
     }
 
 
+def price_pullback_approval_row(generated_at: str) -> dict[str, Any]:
+    if not PRICE_PULLBACK_SPEC_SOURCE.exists():
+        raise RuntimeError(f"missing price pullback operation spec: {PRICE_PULLBACK_SPEC_SOURCE}")
+
+    mature_sample = to_number(PRICE_PULLBACK_APPROVAL_METRICS["mature_sample_size"])
+    win_rate = to_number(PRICE_PULLBACK_APPROVAL_METRICS["win_rate_pct"])
+    if mature_sample < PRICE_PULLBACK_MIN_MATURE_SAMPLE_SIZE:
+        raise RuntimeError("price_pullback_23ema approval evidence mature sample is below the v1 gate")
+    if win_rate < PRICE_PULLBACK_MIN_WIN_RATE:
+        raise RuntimeError("price_pullback_23ema approval evidence win rate is below the v1 gate")
+
+    return {
+        "generated_at": generated_at,
+        "model_id": PRICE_PULLBACK_MODEL_ID,
+        "operation_module_id": PRICE_PULLBACK_OPERATION_MODULE_ID,
+        "approval_version": PRICE_PULLBACK_APPROVAL_VERSION,
+        "approved_for_daily": "True",
+        "approval_status": "approved_for_daily_v1",
+        "operation_directive_level": "approved_daily_operation_guidance",
+        "source_research_id": PRICE_PULLBACK_SOURCE_RESEARCH_ID,
+        "entry_rule_id": PRICE_PULLBACK_ENTRY_RULE_ID,
+        "entry_rule_zh": "訊號成立後下一個交易日開盤買入。",
+        "stop_loss_rule_id": PRICE_PULLBACK_STOP_LOSS_RULE_ID,
+        "stop_loss_rule_zh": "收盤連續4天低於MA20/EMA23較低者4%，下一個交易日開盤停損。",
+        "exit_rule_id": PRICE_PULLBACK_EXIT_RULE_ID,
+        "exit_rule_zh": "收盤突破訊號日前20日高點後，下一個交易日開盤賣出。",
+        "buy_filter_id": PRICE_PULLBACK_BUY_FILTER_ID,
+        "buy_filter_zh": (
+            "price_pullback_23ema訊號、20日漲幅0%到25%、TDCC高門檻籌碼增加、OBV站上OBV MA20。"
+        ),
+        "pending_rule_zh": (
+            "本模型v1沒有待確認主表；精華版只提供本日可買/已確認候選與操作中。"
+        ),
+        "min_sample_size": PRICE_PULLBACK_MIN_MATURE_SAMPLE_SIZE,
+        "min_win_rate": PRICE_PULLBACK_MIN_WIN_RATE,
+        "min_median_return": "",
+        "require_out_of_sample_pass": "False",
+        "min_research_score": "",
+        "evidence_summary_source": "output/latest/research_backtest/price_pullback_23ema_promotion_matrix_latest.csv",
+        "evidence_rank_source": "output/latest/research_backtest/price_pullback_23ema_promotion_matrix_latest.csv",
+        "evidence_source_kind": "price_pullback_23ema_promoted_operation_spec",
+        "evidence_total_rank_rows": 1,
+        "evidence_positive_rank_rows": 1,
+        "best_evidence_scope": PRICE_PULLBACK_APPROVAL_METRICS["surface_id"],
+        "best_evidence_id": PRICE_PULLBACK_APPROVAL_METRICS["selected_segment_id"],
+        "best_evidence_sample_size": PRICE_PULLBACK_APPROVAL_METRICS["mature_sample_size"],
+        "best_evidence_win_rate": PRICE_PULLBACK_APPROVAL_METRICS["win_rate_pct"],
+        "best_evidence_median_return": "",
+        "best_evidence_confidence_status": "approved_from_promoted_operation_spec_v1",
+        "best_evidence_out_of_sample_pass": "not_applicable",
+        "price_pullback_mature_sample_size": PRICE_PULLBACK_APPROVAL_METRICS["mature_sample_size"],
+        "price_pullback_win_count": PRICE_PULLBACK_APPROVAL_METRICS["win_count"],
+        "price_pullback_neutral_count": PRICE_PULLBACK_APPROVAL_METRICS["neutral_count"],
+        "price_pullback_failure_count": PRICE_PULLBACK_APPROVAL_METRICS["failure_count"],
+        "price_pullback_hard_stop_rate_pct": PRICE_PULLBACK_APPROVAL_METRICS["hard_stop_rate_pct"],
+        "price_pullback_win_rate_pct": PRICE_PULLBACK_APPROVAL_METRICS["win_rate_pct"],
+        "price_pullback_neutral_rate_pct": PRICE_PULLBACK_APPROVAL_METRICS["neutral_rate_pct"],
+        "price_pullback_failure_rate_pct": PRICE_PULLBACK_APPROVAL_METRICS["failure_rate_pct"],
+        "price_pullback_avg_return_pct": PRICE_PULLBACK_APPROVAL_METRICS["avg_return_pct"],
+        "price_pullback_technical_package_sample_size": PRICE_PULLBACK_APPROVAL_METRICS[
+            "technical_package_sample_size"
+        ],
+        "price_pullback_technical_package_win_rate_pct": PRICE_PULLBACK_APPROVAL_METRICS[
+            "technical_package_win_rate_pct"
+        ],
+        "price_pullback_technical_package_neutral_rate_pct": PRICE_PULLBACK_APPROVAL_METRICS[
+            "technical_package_neutral_rate_pct"
+        ],
+        "price_pullback_technical_package_failure_rate_pct": PRICE_PULLBACK_APPROVAL_METRICS[
+            "technical_package_failure_rate_pct"
+        ],
+        "price_pullback_technical_package_avg_return_pct": PRICE_PULLBACK_APPROVAL_METRICS[
+            "technical_package_avg_return_pct"
+        ],
+        "data_start_date": "",
+        "data_end_date": "",
+        "out_of_sample_start_date": "",
+        "approval_note_zh": (
+            "23EMA回檔模型 v1 正式批准為 daily operation guidance；營收、熱門族群、權證與高報酬結構分不進v1。"
+        ),
+        "risk_notes_zh": (
+            "RSI>=60且MACD histogram>0只作技術強勢操作品質標籤；籌碼全同步與帶量紅K只作理由/風險標籤，"
+            "不作額外排序分。正式進出場只使用收盤確認與下一交易日開盤，不使用盤中高低點作報酬。"
+        ),
+    }
+
+
 def build_approval(summary: pd.DataFrame, rank: pd.DataFrame, generated_at: str | None = None) -> pd.DataFrame:
     generated = generated_at or now_text()
     if summary.empty:
@@ -376,6 +495,7 @@ def build_approval(summary: pd.DataFrame, rank: pd.DataFrame, generated_at: str 
             approval_row(summary, rank, generated),
             w_bottom_approval_row(generated),
             neckline_approval_row(generated),
+            price_pullback_approval_row(generated),
         ]
     )
 
