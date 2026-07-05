@@ -367,4 +367,7 @@ def test_daily_workflow_runs_new_conversation_replay_gate() -> None:
 
     assert "Replay ChatGPT-side daily PDF new conversation" in workflow
     assert "python scripts/validate_chatgpt_daily_report_new_conversation_replay.py" in workflow
+    assert "timeout-minutes: 20" in workflow
+    assert "timeout 20m python scripts/validate_chatgpt_daily_report_new_conversation_replay.py" in workflow
+    assert "PDF replay output_dir=chatgpt_side_outputs_new_conversation_replay" in workflow
     assert "--output-dir chatgpt_side_outputs_new_conversation_replay" in workflow

@@ -61,6 +61,10 @@ def test_daily_model_maintenance_pr_workflow_runs_actual_pdf_replay_and_uploads_
 
     assert "Replay ChatGPT-side daily PDF new conversation" in text
     assert "python scripts/validate_chatgpt_daily_report_new_conversation_replay.py" in text
+    assert "timeout-minutes: 20" in text
+    assert "timeout 20m python scripts/validate_chatgpt_daily_report_new_conversation_replay.py" in text
+    assert "PDF replay source_ref=$source_ref" in text
+    assert "PDF replay output_dir=chatgpt_side_outputs_pr_validation" in text
     assert "--source-ref \"$source_ref\"" in text
     assert "--output-dir chatgpt_side_outputs_pr_validation" in text
     assert "GITHUB_HEAD_REF" in text
