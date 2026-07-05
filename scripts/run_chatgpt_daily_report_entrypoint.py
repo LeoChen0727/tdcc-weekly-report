@@ -24,6 +24,14 @@ GENERATOR_RELATIVE_PATH = Path("scripts") / "generate_chatgpt_side_daily_reports
 GENERATOR = REPO_ROOT / GENERATOR_RELATIVE_PATH
 DEFAULT_OUTPUT_ROOT_NAME = "chatgpt_side_outputs_official"
 RUNTIME_MANIFEST_NAME = "chatgpt_daily_report_runtime_manifest.json"
+PDF_OUTPUT_ROLES = (
+    "mainstream_highlight",
+    "mainstream_full",
+    "non_mainstream_highlight",
+    "non_mainstream_full",
+    "warrant_market_auxiliary",
+    "market_risk_background",
+)
 
 
 class DailyReportEntrypointError(RuntimeError):
@@ -138,6 +146,21 @@ def run_generator(source_root: Path, output_dir: Path, source_ref: str) -> list[
     return paths
 
 
+def pdf_outputs_for_manifest(pdf_paths: list[Path]) -> list[dict[str, object]]:
+    if len(pdf_paths) != len(PDF_OUTPUT_ROLES):
+        raise DailyReportEntrypointError(
+            f"runtime manifest requires {len(PDF_OUTPUT_ROLES)} PDF outputs, got {len(pdf_paths)}"
+        )
+    return [
+        {
+            "pdf_role": role,
+            "pdf_index": index,
+            "path": str(path),
+        }
+        for index, (role, path) in enumerate(zip(PDF_OUTPUT_ROLES, pdf_paths), start=1)
+    ]
+
+
 def write_runtime_manifest(
     output_dir: Path,
     entry_state: dict,
@@ -164,6 +187,7 @@ def write_runtime_manifest(
         "output_dir": str(output_dir),
         "pdf_count": len(pdf_paths),
         "pdf_paths": [str(path) for path in pdf_paths],
+        "pdf_outputs": pdf_outputs_for_manifest(pdf_paths),
     }
     manifest_path = output_dir / RUNTIME_MANIFEST_NAME
     manifest_path.write_text(

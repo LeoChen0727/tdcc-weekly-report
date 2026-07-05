@@ -31,6 +31,14 @@ EXPECTED_TITLES = (
     "權證市場輔助分析",
     "市場風險與大盤期權背景",
 )
+EXPECTED_PDF_ROLES = (
+    "mainstream_highlight",
+    "mainstream_full",
+    "non_mainstream_highlight",
+    "non_mainstream_full",
+    "warrant_market_auxiliary",
+    "market_risk_background",
+)
 HIGHLIGHT_LAYOUT_TITLES = (
     "非主流股每日推薦精華",
     "主流股每日推薦精華",
@@ -48,13 +56,9 @@ HIGHLIGHT_FULL_TEXT_FORBIDDEN_TEXT = (
 )
 
 
-PDF_ROLE_TITLE_TOKENS = {
-    "mainstream_highlight": EXPECTED_TITLES[0],
-    "mainstream_full": EXPECTED_TITLES[1],
+HIGHLIGHT_LAYOUT_ROLE_TITLES = {
     "non_mainstream_highlight": EXPECTED_TITLES[2],
-    "non_mainstream_full": EXPECTED_TITLES[3],
-    "warrant_market_auxiliary": EXPECTED_TITLES[4],
-    "market_risk_background": EXPECTED_TITLES[5],
+    "mainstream_highlight": EXPECTED_TITLES[0],
 }
 
 
@@ -124,6 +128,59 @@ def pdf_paths_from_stdout(stdout: str) -> list[Path]:
             seen.add(key)
             paths.append(path)
     return paths
+
+
+def normalized_path_text(path: Path) -> str:
+    return str(path.expanduser().resolve())
+
+
+def read_runtime_manifest(output_dir: Path) -> tuple[dict | None, list[str]]:
+    manifest_path = output_dir / RUNTIME_MANIFEST_NAME
+    if not manifest_path.exists():
+        return None, [f"runtime manifest is missing: {manifest_path}"]
+
+    try:
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    except Exception as exc:
+        return None, [f"runtime manifest is unreadable JSON: {manifest_path}: {exc}"]
+    if not isinstance(manifest, dict):
+        return None, [f"runtime manifest root must be an object: {manifest_path}"]
+    return manifest, []
+
+
+def role_to_pdf_paths_from_manifest(manifest: dict, paths: list[Path]) -> tuple[dict[str, Path], list[str]]:
+    pdf_outputs = manifest.get("pdf_outputs")
+    if not isinstance(pdf_outputs, list):
+        return {}, ["runtime manifest pdf_outputs must be a list of role/path objects"]
+
+    emitted_paths = {normalized_path_text(path): path.expanduser().resolve() for path in paths}
+    role_to_path: dict[str, Path] = {}
+    errors: list[str] = []
+    for index, output in enumerate(pdf_outputs, start=1):
+        if not isinstance(output, dict):
+            errors.append(f"runtime manifest pdf_outputs[{index}] must be an object")
+            continue
+
+        role = str(output.get("pdf_role", "")).strip()
+        if role not in EXPECTED_PDF_ROLES:
+            errors.append(f"runtime manifest pdf_outputs[{index}] has unknown pdf_role={role!r}")
+            continue
+        if role in role_to_path:
+            errors.append(f"runtime manifest pdf_outputs contains duplicate pdf_role={role}")
+            continue
+
+        path_text = str(output.get("path", "")).strip()
+        resolved_path = normalized_path_text(Path(path_text)) if path_text else ""
+        if resolved_path not in emitted_paths:
+            errors.append(f"runtime manifest pdf_outputs[{index}] path is not an emitted PDF path: {path_text}")
+            continue
+        role_to_path[role] = emitted_paths[resolved_path]
+
+    missing_roles = [role for role in EXPECTED_PDF_ROLES if role not in role_to_path]
+    if missing_roles:
+        errors.append(f"runtime manifest pdf_outputs missing pdf_role values: {', '.join(missing_roles)}")
+
+    return role_to_path, errors
 
 
 def date_slash(value: str) -> str:
@@ -235,17 +292,25 @@ def validate_highlight_layout_texts(title_to_pages: dict[str, list[str]]) -> lis
     return errors
 
 
-def validate_pdf_highlight_layout_contract(paths: list[Path]) -> list[str]:
+def validate_pdf_highlight_layout_contract(paths: list[Path], output_dir: Path) -> list[str]:
     try:
         from pypdf import PdfReader
     except Exception as exc:  # pragma: no cover - dependency is installed in CI.
         return [f"pypdf import failed for highlight layout validation: {exc}"]
 
+    manifest, manifest_errors = read_runtime_manifest(output_dir)
+    if manifest_errors:
+        return manifest_errors
+    assert manifest is not None
+    role_to_paths, manifest_errors = role_to_pdf_paths_from_manifest(manifest, paths)
+    if manifest_errors:
+        return manifest_errors
+
     title_to_pages: dict[str, list[str]] = {}
     errors: list[str] = []
-    for path in paths:
-        matched_title = next((title for title in HIGHLIGHT_LAYOUT_TITLES if title in path.name), "")
-        if not matched_title:
+    for role, matched_title in HIGHLIGHT_LAYOUT_ROLE_TITLES.items():
+        path = role_to_paths.get(role)
+        if path is None:
             continue
         try:
             reader = PdfReader(str(path))
@@ -306,19 +371,7 @@ def validate_rendered_model_regression_texts(
     return errors
 
 
-def rendered_model_regression_pdf_role(name: str) -> str:
-    matches = [
-        (role, title)
-        for role, title in PDF_ROLE_TITLE_TOKENS.items()
-        if title in name
-    ]
-    if not matches:
-        return ""
-    role, _title = max(matches, key=lambda item: len(item[1]))
-    return role
-
-
-def validate_rendered_model_regression_contract(paths: list[Path], main_price_date: str) -> list[str]:
+def validate_rendered_model_regression_contract(paths: list[Path], main_price_date: str, output_dir: Path) -> list[str]:
     try:
         from pypdf import PdfReader
     except Exception as exc:  # pragma: no cover - dependency is installed in CI.
@@ -328,12 +381,17 @@ def validate_rendered_model_regression_contract(paths: list[Path], main_price_da
     if not contract_rows:
         return []
 
+    manifest, manifest_errors = read_runtime_manifest(output_dir)
+    if manifest_errors:
+        return manifest_errors
+    assert manifest is not None
+    role_to_paths, manifest_errors = role_to_pdf_paths_from_manifest(manifest, paths)
+    if manifest_errors:
+        return manifest_errors
+
     role_to_pages: dict[str, list[str]] = {}
     errors: list[str] = []
-    for path in paths:
-        matched_role = rendered_model_regression_pdf_role(path.name)
-        if not matched_role:
-            continue
+    for matched_role, path in role_to_paths.items():
         try:
             reader = PdfReader(str(path))
             role_to_pages[matched_role] = [page.extract_text() or "" for page in reader.pages]
@@ -345,17 +403,12 @@ def validate_rendered_model_regression_contract(paths: list[Path], main_price_da
 
 
 def validate_runtime_manifest(paths: list[Path], output_dir: Path, state: dict) -> list[str]:
-    errors: list[str] = []
-    manifest_path = output_dir / RUNTIME_MANIFEST_NAME
-    if not manifest_path.exists():
-        return [f"runtime manifest is missing: {manifest_path}"]
+    manifest, errors = read_runtime_manifest(output_dir)
+    if errors:
+        return errors
+    assert manifest is not None
 
-    try:
-        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
-    except Exception as exc:
-        return [f"runtime manifest is unreadable JSON: {manifest_path}: {exc}"]
-
-    expected_pdf_paths = [str(path) for path in paths]
+    expected_pdf_paths = [normalized_path_text(path) for path in paths]
     checks = {
         "manifest_type": "chatgpt_daily_report_runtime_manifest",
         "source_ref": state["source_ref"],
@@ -375,6 +428,27 @@ def validate_runtime_manifest(paths: list[Path], output_dir: Path, state: dict) 
 
     if manifest.get("pdf_paths") != expected_pdf_paths:
         errors.append("runtime manifest pdf_paths do not match emitted PDF paths")
+
+    pdf_outputs = manifest.get("pdf_outputs")
+    if not isinstance(pdf_outputs, list):
+        errors.append("runtime manifest pdf_outputs must be a list of role/path objects")
+    else:
+        roles = [str(output.get("pdf_role", "")).strip() if isinstance(output, dict) else "" for output in pdf_outputs]
+        indices = [output.get("pdf_index") if isinstance(output, dict) else None for output in pdf_outputs]
+        output_paths = [
+            normalized_path_text(Path(str(output.get("path", "")))) if isinstance(output, dict) else ""
+            for output in pdf_outputs
+        ]
+        if roles != list(EXPECTED_PDF_ROLES):
+            errors.append(
+                f"runtime manifest pdf_outputs roles do not match expected order: {roles!r}"
+            )
+        if indices != list(range(1, len(EXPECTED_PDF_ROLES) + 1)):
+            errors.append("runtime manifest pdf_outputs pdf_index values do not match expected 1-based order")
+        if output_paths != expected_pdf_paths:
+            errors.append("runtime manifest pdf_outputs paths do not match emitted PDF paths")
+        _role_to_paths, role_errors = role_to_pdf_paths_from_manifest(manifest, paths)
+        errors.extend(role_errors)
 
     if output_dir.resolve() != Path(str(manifest.get("output_dir", ""))).expanduser().resolve():
         errors.append("runtime manifest output_dir does not match replay output_dir")
@@ -442,9 +516,11 @@ def validate_replay(repo_root: Path, source_ref: str, output_dir: Path) -> tuple
     errors.extend(validate_source_gate_echo(stdout, state, source_ref))
     errors.extend(validate_pdf_path_contract(paths, output_dir, main_price_date))
     errors.extend(validate_pdf_files_open(paths))
-    errors.extend(validate_pdf_highlight_layout_contract(paths))
-    errors.extend(validate_rendered_model_regression_contract(paths, main_price_date))
-    errors.extend(validate_runtime_manifest(paths, output_dir, state))
+    runtime_errors = validate_runtime_manifest(paths, output_dir, state)
+    errors.extend(runtime_errors)
+    if not runtime_errors:
+        errors.extend(validate_pdf_highlight_layout_contract(paths, output_dir))
+        errors.extend(validate_rendered_model_regression_contract(paths, main_price_date, output_dir))
 
     if errors:
         raise ReplayValidationError("\n".join(errors))

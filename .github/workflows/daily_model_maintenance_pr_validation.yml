@@ -15,6 +15,7 @@ on:
       - "scripts/build_daily_*operation*.py"
       - "scripts/build_model_operation_readiness.py"
       - "scripts/generate_chatgpt_side_daily_reports.py"
+      - "scripts/run_chatgpt_daily_report_entrypoint.py"
       - "scripts/update_daily_published_model_snapshots.py"
       - "scripts/validate_chatgpt_daily_report_new_conversation_replay.py"
       - "scripts/validate_daily_*.py"
@@ -22,6 +23,7 @@ on:
       - "scripts/validate_research_against_stock_model_contract.py"
       - "scripts/validate_stock_model_contract_registry.py"
       - "tests/test_chatgpt_daily_report_new_conversation_replay.py"
+      - "tests/test_chatgpt_daily_report_entrypoint.py"
       - "tests/test_daily_*.py"
       - "tests/test_model_operation_readiness.py"
       - "tests/test_stock_model_contract_registry.py"
@@ -68,6 +70,7 @@ jobs:
         run: |
           python -m pytest \
             tests/test_chatgpt_daily_report_new_conversation_replay.py \
+            tests/test_chatgpt_daily_report_entrypoint.py \
             tests/test_daily_pdf_contract_consumers.py \
             tests/test_daily_published_model_snapshots.py \
             tests/test_daily_volume_breakout_operation_section.py \

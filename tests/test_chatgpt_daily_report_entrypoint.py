@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 import subprocess
 import sys
 from pathlib import Path
@@ -227,3 +228,7 @@ def test_entrypoint_writes_runtime_manifest(tmp_path: Path) -> None:
     assert '"main_price_date": "20260616"' in text
     assert "chatgpt_daily_report_packet_latest.txt" in text
     assert '"pdf_count": 6' in text
+    manifest = json.loads(text)
+    assert [output["pdf_role"] for output in manifest["pdf_outputs"]] == list(entrypoint.PDF_OUTPUT_ROLES)
+    assert [output["pdf_index"] for output in manifest["pdf_outputs"]] == [1, 2, 3, 4, 5, 6]
+    assert [output["path"] for output in manifest["pdf_outputs"]] == [str(path) for path in pdf_paths]

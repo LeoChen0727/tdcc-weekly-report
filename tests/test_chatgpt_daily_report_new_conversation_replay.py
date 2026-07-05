@@ -4,13 +4,14 @@ from pathlib import Path
 import json
 
 from scripts.validate_chatgpt_daily_report_new_conversation_replay import (
+    EXPECTED_PDF_ROLES,
     EXPECTED_TITLES,
     HIGHLIGHT_LAYOUT_TITLES,
     RENDERED_MODEL_REGRESSION_CONTRACT,
     RUNTIME_MANIFEST_NAME,
     pdf_paths_from_stdout,
     read_rendered_model_regression_contract,
-    rendered_model_regression_pdf_role,
+    role_to_pdf_paths_from_manifest,
     validate_highlight_layout_texts,
     validate_rendered_model_regression_texts,
     validate_runtime_manifest,
@@ -24,6 +25,30 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def pdf_name(date: str, title: str) -> str:
     return f"{date}_requested_repo{date}_{title}_current_rules.pdf"
+
+
+def pdf_outputs(paths: list[Path]) -> list[dict[str, object]]:
+    return [
+        {"pdf_role": role, "pdf_index": index, "path": str(path.resolve())}
+        for index, (role, path) in enumerate(zip(EXPECTED_PDF_ROLES, paths), start=1)
+    ]
+
+
+def runtime_manifest(paths: list[Path], state: dict, *, main_price_date: str = "20260617") -> dict:
+    return {
+        "manifest_type": "chatgpt_daily_report_runtime_manifest",
+        "source_ref": "origin/main",
+        "source_commit_sha": "a" * 40,
+        "clean_source_commit_sha": "a" * 40,
+        "main_price_date": main_price_date,
+        "freshness_path": state["freshness_path"],
+        "readme_path": state["readme_path"],
+        "packet_path": state["packet_path"],
+        "pdf_count": len(paths),
+        "output_dir": str(paths[0].parent),
+        "pdf_paths": [str(path.resolve()) for path in paths],
+        "pdf_outputs": pdf_outputs(paths),
+    }
 
 
 def test_replay_stdout_pdf_parser_deduplicates_entrypoint_output(tmp_path: Path) -> None:
@@ -98,21 +123,7 @@ def test_replay_runtime_manifest_must_match_source_and_pdf_paths(tmp_path: Path)
         "packet_path": "origin/main:output/latest/chatgpt_daily_report_packet_latest.txt",
     }
     (tmp_path / RUNTIME_MANIFEST_NAME).write_text(
-        json.dumps(
-            {
-                "manifest_type": "chatgpt_daily_report_runtime_manifest",
-                "source_ref": "origin/main",
-                "source_commit_sha": "a" * 40,
-                "clean_source_commit_sha": "a" * 40,
-                "main_price_date": "20260617",
-                "freshness_path": state["freshness_path"],
-                "readme_path": state["readme_path"],
-                "packet_path": state["packet_path"],
-                "pdf_count": 6,
-                "output_dir": str(tmp_path),
-                "pdf_paths": [str(path) for path in paths],
-            }
-        ),
+        json.dumps(runtime_manifest(paths, state)),
         encoding="utf-8",
     )
 
@@ -132,27 +143,48 @@ def test_replay_runtime_manifest_rejects_wrong_date(tmp_path: Path) -> None:
         "packet_path": "origin/main:output/latest/chatgpt_daily_report_packet_latest.txt",
     }
     (tmp_path / RUNTIME_MANIFEST_NAME).write_text(
-        json.dumps(
-            {
-                "manifest_type": "chatgpt_daily_report_runtime_manifest",
-                "source_ref": "origin/main",
-                "source_commit_sha": "a" * 40,
-                "clean_source_commit_sha": "a" * 40,
-                "main_price_date": "20260612",
-                "freshness_path": state["freshness_path"],
-                "readme_path": state["readme_path"],
-                "packet_path": state["packet_path"],
-                "pdf_count": 6,
-                "output_dir": str(tmp_path),
-                "pdf_paths": [str(path) for path in paths],
-            }
-        ),
+        json.dumps(runtime_manifest(paths, state, main_price_date="20260612")),
         encoding="utf-8",
     )
 
     errors = validate_runtime_manifest(paths, tmp_path, state)
 
     assert any("main_price_date" in error for error in errors)
+
+
+def test_replay_runtime_manifest_requires_pdf_outputs(tmp_path: Path) -> None:
+    paths = [tmp_path / pdf_name("20260617", title) for title in EXPECTED_TITLES]
+    state = {
+        "source_ref": "origin/main",
+        "source_commit_sha": "a" * 40,
+        "main_price_date": "20260617",
+        "freshness_path": "origin/main:output/latest/data_freshness_latest.csv",
+        "readme_path": "origin/main:output/latest/READ_ME_FIRST_DAILY_REPORT.txt",
+        "packet_path": "origin/main:output/latest/chatgpt_daily_report_packet_latest.txt",
+    }
+    manifest = runtime_manifest(paths, state)
+    manifest.pop("pdf_outputs")
+    (tmp_path / RUNTIME_MANIFEST_NAME).write_text(json.dumps(manifest), encoding="utf-8")
+
+    errors = validate_runtime_manifest(paths, tmp_path, state)
+
+    assert any("pdf_outputs must be a list" in error for error in errors)
+
+
+def test_replay_runtime_manifest_role_mapping_uses_manifest_not_filename_tokens(tmp_path: Path) -> None:
+    paths = [tmp_path / pdf_name("20260617", title) for title in EXPECTED_TITLES]
+    manifest = {
+        "pdf_outputs": [
+            {"pdf_role": role, "pdf_index": index, "path": str(path.resolve())}
+            for index, (role, path) in enumerate(zip(EXPECTED_PDF_ROLES, paths), start=1)
+        ]
+    }
+
+    role_to_path, errors = role_to_pdf_paths_from_manifest(manifest, paths)
+
+    assert errors == []
+    assert role_to_path["mainstream_highlight"] == paths[0].resolve()
+    assert role_to_path["non_mainstream_highlight"] == paths[2].resolve()
 
 
 def test_replay_highlight_layout_contract_accepts_legacy_volume_first() -> None:
@@ -267,11 +299,6 @@ def test_rendered_model_regression_contract_records_20260703_volume_guard() -> N
     assert guard["model_id"] == "volume_range_breakout"
     assert guard["required_stock_ids"] == "6226|2483|6742"
     assert guard["forbidden_stock_ids"] == "3055|1515|2342"
-
-
-def test_rendered_model_regression_pdf_role_prefers_non_mainstream_longer_title() -> None:
-    assert rendered_model_regression_pdf_role(pdf_name("20260703", EXPECTED_TITLES[0])) == "mainstream_highlight"
-    assert rendered_model_regression_pdf_role(pdf_name("20260703", EXPECTED_TITLES[2])) == "non_mainstream_highlight"
 
 
 def test_daily_workflow_runs_new_conversation_replay_gate() -> None:
