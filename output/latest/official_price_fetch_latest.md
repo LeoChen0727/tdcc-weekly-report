@@ -1,6 +1,6 @@
 # Official Daily Price Fetch Report
 
-- generated_at: `2026-07-05 21:36:45 Asia/Taipei`
+- generated_at: `2026-07-05 22:06:25 Asia/Taipei`
 - target_date: `20260705`
 - saved_price_date: `20260703`
 - is_target_date: `False`
@@ -44,8 +44,7 @@
 - GET https://www.tpex.org.tw/www/zh-tw/afterTrading/dailyCloseQuotes?date=2026/07/05&type=EW&response=json -> status=200, chars=11371
 - TPEX_NEW_AFTERTRADING_JSON: JSON parse failed
 - Trying TPEx batch source=TPEX_NEW_AFTERTRADING_CSV date=20260705
-- GET https://www.tpex.org.tw/www/zh-tw/afterTrading/dailyCloseQuotes?date=2026/07/05&type=EW&response=csv -> status=200, chars=11371
-- TPEX_NEW_AFTERTRADING_CSV: parsed TPEx CSV rows=0
+- GET https://www.tpex.org.tw/www/zh-tw/afterTrading/dailyCloseQuotes?date=2026/07/05&type=EW&response=csv -> status=520, chars=960
 - Trying TPEx batch source=TPEX_OTC_QUOTES_NO1430_JSON date=20260705
 - GET https://www.tpex.org.tw/web/stock/aftertrading/otc_quotes_no1430/stk_wn1430_result.php?l=zh-tw&o=json&d=115/07/05&se=EW -> status=200, chars=393
 - TPEX_OTC_QUOTES_NO1430_JSON: parsed TPEx JSON rows=0
