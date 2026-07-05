@@ -12,6 +12,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from tracking_utils import DOCS_LATEST_DIR, LATEST_DIR, markdown_table, now_text, read_csv, safe_str, to_number, write_csv  # noqa: E402
 
 
+ROOT = Path(__file__).resolve().parents[1]
 MODEL_ID = "volume_range_breakout"
 OPERATION_MODULE_ID = "volume_breakout_confirmed_operation_v1"
 APPROVAL_VERSION = "volume_breakout_operation_v1_20260615"
@@ -21,8 +22,9 @@ STOP_LOSS_RULE_ID = "signal_low_stop"
 EXIT_RULE_ID = "signal_low_stop_or_fixed_10d_close"
 BUY_FILTER_ID = "positive_evidence_oos_rank_v1"
 
-CONFIRMED_SUMMARY_CSV = LATEST_DIR / "volume_breakout_formal_operation_backtest_latest.csv"
-CONFIRMED_RANK_CSV = LATEST_DIR / "volume_breakout_confirmed_operation_rank_latest.csv"
+APPROVED_VOLUME_EVIDENCE_DIR = ROOT / "config" / "approved_operation_evidence"
+CONFIRMED_SUMMARY_CSV = APPROVED_VOLUME_EVIDENCE_DIR / "volume_breakout_operation_v1_20260615_formal_operation_backtest.csv"
+CONFIRMED_RANK_CSV = APPROVED_VOLUME_EVIDENCE_DIR / "volume_breakout_operation_v1_20260615_rank.csv"
 OUT_CSV = LATEST_DIR / "approved_operation_patterns_latest.csv"
 OUT_MD = LATEST_DIR / "approved_operation_patterns_latest.md"
 DOCS_CSV = DOCS_LATEST_DIR / OUT_CSV.name
@@ -179,16 +181,9 @@ def best_evidence(summary: pd.DataFrame) -> pd.Series | None:
 
 def approval_row(summary: pd.DataFrame, rank: pd.DataFrame, generated_at: str) -> dict[str, Any]:
     positive = positive_rank_rows(rank)
-    best = best_evidence(summary)
-    source = summary if not summary.empty else rank
-    data_start = safe_str(source.get("data_start_date", pd.Series(dtype=str)).min()) if "data_start_date" in source.columns else ""
-    data_end = safe_str(source.get("data_end_date", pd.Series(dtype=str)).max()) if "data_end_date" in source.columns else ""
-    split = (
-        safe_str(source.get("out_of_sample_start_date", pd.Series(dtype=str)).max())
-        if "out_of_sample_start_date" in source.columns
-        else ""
-    )
-
+    selected = best_evidence(summary)
+    if selected is None:
+        raise RuntimeError("volume breakout approval evidence has no eligible best evidence row")
     return {
         "generated_at": generated_at,
         "model_id": MODEL_ID,
@@ -219,16 +214,16 @@ def approval_row(summary: pd.DataFrame, rank: pd.DataFrame, generated_at: str) -
         "evidence_rank_source": CONFIRMED_RANK_CSV.name,
         "evidence_total_rank_rows": len(rank),
         "evidence_positive_rank_rows": len(positive),
-        "best_evidence_scope": "" if best is None else safe_str(best.get("confluence_scope")),
-        "best_evidence_id": "" if best is None else safe_str(best.get("confluence_id")),
-        "best_evidence_sample_size": "" if best is None else safe_str(best.get("sample_size")),
-        "best_evidence_win_rate": "" if best is None else safe_str(best.get("win_rate")),
-        "best_evidence_median_return": "" if best is None else safe_str(best.get("median_return")),
-        "best_evidence_confidence_status": "" if best is None else safe_str(best.get("confidence_status")),
-        "best_evidence_out_of_sample_pass": "" if best is None else safe_str(best.get("out_of_sample_pass")),
-        "data_start_date": data_start,
-        "data_end_date": data_end,
-        "out_of_sample_start_date": split,
+        "best_evidence_scope": selected.get("confluence_scope", ""),
+        "best_evidence_id": selected.get("confluence_id", ""),
+        "best_evidence_sample_size": selected.get("sample_size", ""),
+        "best_evidence_win_rate": selected.get("win_rate", ""),
+        "best_evidence_median_return": selected.get("median_return", ""),
+        "best_evidence_confidence_status": selected.get("confidence_status", ""),
+        "best_evidence_out_of_sample_pass": selected.get("out_of_sample_pass", ""),
+        "data_start_date": selected.get("data_start_date", ""),
+        "data_end_date": selected.get("data_end_date", ""),
+        "out_of_sample_start_date": selected.get("out_of_sample_start_date", ""),
         "approval_note_zh": (
             "以目前 repo 可用歷史資料批准放量攻擊 v1 操作建議。"
             "後續固定 research/backtest 可用新版 approval_version 調整參數與條件。"

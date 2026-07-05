@@ -120,6 +120,91 @@ def build_rows_and_audit_for_test(
     )
 
 
+def output_row(**updates: str) -> dict[str, str]:
+    row = {col: "" for col in builder.OUTPUT_COLUMNS}
+    row.update(
+        {
+            "model_id": "volume_range_breakout",
+            "pdf_view": "highlight",
+            "pdf_section": "confirmed_operation",
+            "row_type": "empty_state",
+            "operation_asof_date": "20260615",
+            "operation_source_date_status": "ready",
+            "display_order": "0",
+            "operation_status": "confirmed_operation",
+            "row_action_status": "empty_state",
+            "buy_rank_eligible": "False",
+            "generated_at": "2026-06-16 08:00:00 Asia/Taipei",
+        }
+    )
+    row.update(updates)
+    return row
+
+
+def audit_row(**updates: str) -> dict[str, str]:
+    row = {col: "" for col in builder.EVIDENCE_AUDIT_COLUMNS}
+    row.update(
+        {
+            "model_id": "volume_range_breakout",
+            "operation_asof_date": "20260615",
+            "stock_id": "1234",
+            "signal_date": "20260615",
+            "operation_lifecycle_state": "confirmed_operation",
+            "audit_status": "candidate_evaluated",
+            "included_in_daily_adapter": "False",
+            "generated_at": "2026-06-16 08:00:00 Asia/Taipei",
+        }
+    )
+    row.update(updates)
+    return row
+
+
+def test_build_reuses_existing_published_operation_snapshot(monkeypatch, tmp_path) -> None:
+    latest_dir = tmp_path / "output" / "latest"
+    snapshot_dir = tmp_path / "output" / "history" / "daily_model_snapshots"
+    latest_dir.mkdir(parents=True)
+    snapshot_dir.mkdir(parents=True)
+    pd.DataFrame(
+        [
+            {
+                "main_price_date": "20260615",
+                "report_ready": "True",
+                "daily_pdf_ready": "True",
+            }
+        ]
+    ).to_csv(latest_dir / "data_freshness_latest.csv", index=False)
+    pd.DataFrame([volume_signal("9999", "20260615")]).to_csv(
+        latest_dir / "daily_candidate_model_signals_for_report_latest.csv",
+        index=False,
+    )
+    pd.DataFrame([{"model_id": "volume_range_breakout", **approval_stub()}]).to_csv(
+        latest_dir / "approved_operation_patterns_latest.csv",
+        index=False,
+    )
+    formal_summary().to_csv(latest_dir / "approved_formal_summary.csv", index=False)
+    pd.DataFrame([output_row(stock_id="", stock_display="目前無資料")]).to_csv(
+        snapshot_dir / "daily_volume_breakout_operation_section_20260615.csv",
+        index=False,
+    )
+    pd.DataFrame([audit_row()]).to_csv(
+        snapshot_dir / "daily_volume_breakout_operation_evidence_audit_20260615.csv",
+        index=False,
+    )
+
+    monkeypatch.setattr(builder, "MODEL_SNAPSHOT_DIR", snapshot_dir)
+    monkeypatch.setattr(builder, "DAILY_SIGNALS_CSV", latest_dir / "daily_candidate_model_signals_for_report_latest.csv")
+    monkeypatch.setattr(builder, "APPROVAL_CSV", latest_dir / "approved_operation_patterns_latest.csv")
+    monkeypatch.setattr(builder, "FORMAL_SUMMARY_CSV", latest_dir / "approved_formal_summary.csv")
+    monkeypatch.setattr(builder, "DATA_FRESHNESS_CSV", latest_dir / "data_freshness_latest.csv")
+    monkeypatch.delenv(builder.ALLOW_SNAPSHOT_REWRITE_ENV, raising=False)
+
+    section, audit = builder.build()
+
+    assert section["stock_id"].tolist() == [""]
+    assert section["row_type"].tolist() == ["empty_state"]
+    assert audit["stock_id"].tolist() == ["1234"]
+
+
 def backtest_lifecycle_state(stock_id: str, signal_date: str, report_date: str) -> str:
     price = builder.load_price_history(stock_id)
     signal_positions = price.index[price["date"].astype(str).eq(signal_date)].tolist()
