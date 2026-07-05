@@ -124,6 +124,46 @@ Current validated historical backfill coverage:
 - source-date policy: conservative next-month-17 availability, not the static
   page display date.
 
+Monthly revenue official-source fallback policy:
+
+- The pipeline must try official TWSE / TPEX sources first.
+- If official sources are temporarily empty, unavailable, or incomplete, the
+  builder may reuse the latest validated full-market monthly revenue history
+  cache.
+- The cache may be reused for at most 25 days from its latest
+  `source_table_date`.
+- A stale cache must fail closed instead of silently treating old revenue data
+  as current.
+
+## Future Quarterly Financial Statement Data Layer
+
+The repository does not currently have a formal full-market quarterly or annual
+financial statement history data layer equivalent to `monthly_revenue_history`.
+Existing catalyst files may contain columns such as EPS or margin fields, but
+they must not be treated as a complete point-in-time EPS, gross margin,
+operating income, non-operating income, net income, or annual financial
+statement history.
+
+Future work should create a separate shared objective data family before any
+model uses those fundamentals as gates, scores, ranking features, PDF metrics,
+or promotion evidence. The expected scope is:
+
+- quarterly and annual statement rows for all available listed and OTC stocks;
+- point-in-time source availability date per filing or conservative source-date
+  policy when exact filing timestamps are unavailable;
+- EPS, gross margin, operating margin, operating income, non-operating income,
+  net income, recurring/non-recurring flags where source data supports them;
+- validated history artifacts, raw source retention, source-status artifacts,
+  and freshness/fallback policy;
+- registry entry in `config/daily_model_background_data_registry.csv`;
+- validator and coverage audit before model-specific research matrices consume
+  the data.
+
+Until that data family exists, any `needs_eps_confirmation`,
+`revenue_good_eps_unconfirmed`, EPS surprise, margin improvement, or
+non-operating income interpretation remains disclosure/advisory context only
+and must not be promoted into production model rules.
+
 ## Monthly Revenue Coverage / Backfill Audit
 
 Monthly revenue coverage is audited by:

@@ -226,7 +226,7 @@ def test_monthly_revenue_history_reuses_recent_validated_history_when_official_s
         statuses,
         history_path=history_path,
         fetch_date="20260705",
-        max_age_days=45,
+        max_age_days=25,
     )
 
     assert len(fallback_history) == 2
@@ -262,7 +262,7 @@ def test_monthly_revenue_history_rejects_stale_fallback_cache(tmp_path: Path) ->
     ]
 
     try:
-        load_recent_history_fallback(statuses, history_path=history_path, fetch_date="20260820", max_age_days=45)
+        load_recent_history_fallback(statuses, history_path=history_path, fetch_date="20260713", max_age_days=25)
     except RuntimeError as exc:
         assert "cached history is stale" in str(exc)
     else:
@@ -295,8 +295,8 @@ def test_monthly_revenue_source_status_rejects_stale_fallback_status() -> None:
             "standardized_rows": 2,
             "status": FALLBACK_SOURCE_STATUS,
             "fallback_max_source_table_date": "20260617",
-            "fallback_age_days": 46,
-            "fallback_max_age_days": 45,
+            "fallback_age_days": 26,
+            "fallback_max_age_days": 25,
         },
     ]
 
