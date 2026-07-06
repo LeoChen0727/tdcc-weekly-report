@@ -1,7 +1,7 @@
 # Non-Revenue Momentum Watch
 
 ## Metadata
-- generated_at: `2026-07-06 09:36:40 UTC`
+- generated_at: `2026-07-06 11:15:54 UTC`
 - main_price_date: `20260706`
 - section_type: `specialty_section_not_core_category`
 - model_effect_allowed: `False`

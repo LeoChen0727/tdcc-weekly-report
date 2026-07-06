@@ -1,6 +1,6 @@
 # 市場風險與大盤期權背景
 
-- generated_at: `2026-07-06 17:41:04 Asia/Taipei`
+- generated_at: `2026-07-06 19:19:36 Asia/Taipei`
 - data_date: `20260706`
 - market_regime: `mild_bull`
 - risk_level: `high_risk`
@@ -13,10 +13,10 @@
 
 | source | status | rows | latest_date |
 | --- | --- | ---: | --- |
-| institutional_fo | ok | 3 | 20260703 |
-| futures_contracts | ok | 66 | 20260703 |
-| options_call_put | ok | 30 | 20260703 |
-| put_call_ratio | ok | 22 | 20260703 |
+| institutional_fo | ok | 3 | 20260706 |
+| futures_contracts | ok | 66 | 20260706 |
+| options_call_put | ok | 30 | 20260706 |
+| put_call_ratio | ok | 20 | 20260706 |
 | taiwan_vix | ok | 65 | 20260706 |
 
 ## 大盤指數結構
@@ -30,14 +30,14 @@
 
 | indicator | value | state |
 | --- | --- | --- |
-| Foreign TX futures net OI | -81,052 | foreign_heavy_net_short |
-| Dealer TX futures net OI | +3,071 |  |
-| Trust TX futures net OI | +67,213 |  |
-| Retail MTX net OI proxy | +5,309 | neutral |
-| Foreign TXO call net OI | -641 |  |
-| Foreign TXO put net OI | +6,123 |  |
-| TXO put/call OI ratio | 136.30% | neutral |
-| Taiwan VIX | 36.58 | panic_high |
+| Foreign TX futures net OI | -80,087 | foreign_heavy_net_short |
+| Dealer TX futures net OI | +2,670 |  |
+| Trust TX futures net OI | +67,254 |  |
+| Retail MTX net OI proxy | +5,173 | neutral |
+| Foreign TXO call net OI | +194 |  |
+| Foreign TXO put net OI | +7,720 |  |
+| TXO put/call OI ratio | 122.22% | neutral |
+| Taiwan VIX | 36.89 | panic_high |
 
 ## 近期總經事件日曆
 
@@ -69,7 +69,7 @@ Index chart data status: TWSE / TAIEX: standard OHLC K-line data is available wi
 ## 散戶小台 proxy
 
 - 這是反向情緒輔助指標，以三大法人小台淨未平倉的反向 proxy 估算。
-- latest_proxy_value: `+5,309`
+- latest_proxy_value: `+5,173`
 - state: `neutral`
 - proxy 為正代表非三大法人帳戶偏多；擁擠偏多只能視為追高風險，不是單獨放空訊號。
 - proxy 為負代表非三大法人帳戶偏空；極端偏空可列反彈觀察，但仍需指數與廣度確認。
@@ -88,17 +88,17 @@ Index chart data status: TWSE / TAIEX: standard OHLC K-line data is available wi
 <!-- MARKET_SENTIMENT_CONTEXT_START -->
 ## VIX Historical Context
 
-- Taiwan VIX latest: `36.58`
-- 252D high / low / percentile: `44.01` / `25.68` / `59.6%`
+- Taiwan VIX latest: `36.89`
+- 252D high / low / percentile: `44.01` / `25.68` / `63.64%`
 - 504D percentile: `-`
-- z-score: `0.35`
-- vix_return_5d / 10d / 20d: `-16.88%` / `-3.33%` / `3.83%`
+- z-score: `0.42`
+- vix_return_5d / 10d / 20d: `-7.73%` / `-2.48%` / `1.71%`
 - TWSE / TPEx position: TWSE dist 60D high `-2.48%`, TPEx dist 60D high `-3.02%`
 - vix_index_interpretation: `trend_supported_no_extreme_vix`
 
 ## Retail MTX Historical Context
 
-- retail_mtx_net_oi_proxy latest: `5,309`
+- retail_mtx_net_oi_proxy latest: `5,173`
 - proxy method: `negative_sum_of_three_institution_mtx_net_oi`
 - 252D high / low / percentile: `-` / `-` / `-`
 - 504D percentile: `-`
