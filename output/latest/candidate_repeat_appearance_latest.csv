@@ -161,8 +161,6 @@ signal_date,stock_id,stock_name,consecutive_appear_days_any_category,consecutive
 20260706,3081,聯亞,5,5,5,8,8,20260524,20260706,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
 20260706,6509,聚和,5,2,5,8,8,20260524,20260706,true_breakout,continued_many_days,連續 5 日上榜，需區分醞釀延續或訊號鈍化。
 20260706,2610,華航,5,2,5,7,16,20260526,20260706,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20260706,0050,元大台灣50,5,5,5,7,14,20260526,20260706,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20260706,0052,富邦科技,5,5,5,7,14,20260526,20260706,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
 20260706,2312,金寶,5,5,5,7,14,20260523,20260706,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
 20260706,1709,和益,5,1,5,7,11,20260525,20260706,true_breakout,continued_many_days,連續 5 日上榜，需區分醞釀延續或訊號鈍化。
 20260706,2454,聯發科,5,5,5,7,11,20260523,20260706,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。

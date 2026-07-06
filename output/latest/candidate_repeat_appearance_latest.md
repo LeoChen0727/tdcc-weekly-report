@@ -1,6 +1,6 @@
 # Candidate Repeat Appearance Latest
 
-- generated_at: `2026-07-06 21:45:29 Asia/Taipei`
+- generated_at: `2026-07-06 22:38:49 Asia/Taipei`
 - signal_date: `20260706`
 - history_available_days: `27`
 - source_signal_log: `output/history/daily_signals/daily_candidate_signal_log.csv`
@@ -180,8 +180,6 @@
 |       3081 | 聯亞           |                                      5 |                                       5 |                 5 |                  8 |                  8 | revenue_pullback                                                              | stale_signal             | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 |       6509 | 聚和           |                                      5 |                                       2 |                 5 |                  8 |                  8 | true_breakout                                                                 | continued_many_days      | 連續 5 日上榜，需區分醞釀延續或訊號鈍化。                        |
 |       2610 | 華航           |                                      5 |                                       2 |                 5 |                  7 |                 16 | pattern|revenue_pullback                                                      | stale_signal             | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
-|       0050 | 元大台灣50       |                                      5 |                                       5 |                 5 |                  7 |                 14 | pattern                                                                       | stale_signal             | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
-|       0052 | 富邦科技         |                                      5 |                                       5 |                 5 |                  7 |                 14 | pattern                                                                       | stale_signal             | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 |       2312 | 金寶           |                                      5 |                                       5 |                 5 |                  7 |                 14 | pattern                                                                       | stale_signal             | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 |       1709 | 和益           |                                      5 |                                       1 |                 5 |                  7 |                 11 | true_breakout                                                                 | continued_many_days      | 連續 5 日上榜，需區分醞釀延續或訊號鈍化。                        |
 |       2454 | 聯發科          |                                      5 |                                       5 |                 5 |                  7 |                 11 | pattern                                                                       | stale_signal             | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |

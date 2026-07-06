@@ -182,9 +182,9 @@
       "path": "/home/runner/work/tdcc-weekly-report/tdcc-weekly-report/data/daily_price/daily_price_20260706.csv",
       "exists": true,
       "legacy_exists": true,
-      "rows": 2137,
-      "date_rows": 2137,
-      "stock_rows": 2117,
+      "rows": 1986,
+      "date_rows": 1986,
+      "stock_rows": 1976,
       "markets": [
         "TPEx",
         "TWSE"
