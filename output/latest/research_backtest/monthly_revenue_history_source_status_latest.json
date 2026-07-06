@@ -45,8 +45,7 @@
     "source_table_dates": [
       "20260617"
     ],
-    "fetch_attempts": 3,
-    "fetch_recovered_after": "HTTPSConnectionPool(host='mopsfin.twse.com.tw', port=443): Max retries exceeded with url: /opendata/t187ap05_L.csv (Caused by NameResolutionError(\"HTTPSConnection(host='mopsfin.twse.com.tw', port=443): Failed to resolve 'mopsfin.twse.com.tw' ([Errno -2] Name or service not known)\"))"
+    "fetch_attempts": 3
   },
   {
     "market": "otc",
