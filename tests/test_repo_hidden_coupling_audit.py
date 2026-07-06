@@ -21,7 +21,7 @@ def test_hidden_coupling_audit_has_required_categories_and_actions() -> None:
 
     categories = {row["category"] for row in rows}
     assert validator.REQUIRED_CATEGORIES <= categories
-    assert {row["issue_id"] for row in rows} == {f"HC-{index:03d}" for index in range(1, 7)}
+    assert {row["issue_id"] for row in rows} == {f"HC-{index:03d}" for index in range(1, 8)}
     assert all(row["next_action"].strip() for row in rows)
     assert all(row["owner_lane"].strip() for row in rows)
 

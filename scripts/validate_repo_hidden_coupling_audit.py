@@ -32,6 +32,7 @@ REQUIRED_CATEGORIES = {
     "model_condition_scoring_ranking_shared_coupling",
     "validators_not_workflow_called",
     "artifact_lineage_owner_gaps",
+    "legacy_artifact_code_cleanup",
 }
 
 VALID_RISK_LEVELS = {"low", "medium", "high", "critical"}
