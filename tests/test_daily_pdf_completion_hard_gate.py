@@ -25,6 +25,204 @@ def test_completion_gate_requires_operation_model_regression_contract() -> None:
     assert validator.validate_regression_contract() == []
 
 
+def test_completion_gate_requires_operation_table_title_for_active_rows() -> None:
+    rows = {
+        "price_pullback_23ema": [
+            {
+                "model_id": "price_pullback_23ema",
+                "model_name_zh": "23EMA回檔模型",
+                "pdf_view": "highlight",
+                "pdf_section": "confirmed_operation",
+                "row_type": "empty_state",
+                "report_line": "both",
+                "stock_display": "本日無股票推薦",
+            },
+            {
+                "model_id": "price_pullback_23ema",
+                "model_name_zh": "23EMA回檔模型",
+                "pdf_view": "highlight",
+                "pdf_section": "active_operation",
+                "row_type": "data",
+                "display_order": "1",
+                "report_line": "mainstream",
+                "operation_status": "active_operation",
+                "buy_rank_eligible": "False",
+                "stock_id": "1785",
+                "stock_display": "1785 光洋科",
+            },
+            {
+                "model_id": "price_pullback_23ema",
+                "model_name_zh": "23EMA回檔模型",
+                "pdf_view": "highlight",
+                "pdf_section": "active_operation",
+                "row_type": "empty_state",
+                "report_line": "non_mainstream",
+                "stock_display": "目前無操作中追蹤列",
+            },
+        ]
+    }
+    role_to_text = {
+        "mainstream_highlight": validator.compact_text(
+            "23EMA回檔模型 - 本日可買 / 已確認買入候選 本日無股票推薦 "
+            "23EMA回檔模型 操作中 1785"
+        ),
+        "non_mainstream_highlight": validator.compact_text(
+            "23EMA回檔模型 - 本日可買 / 已確認買入候選 本日無股票推薦 "
+            "23EMA回檔模型 - 操作中 目前無操作中追蹤列"
+        ),
+    }
+
+    errors = validator.validate_operation_adapter_pdf_text(
+        role_to_text,
+        rows,
+        required_model_ids=["price_pullback_23ema"],
+    )
+
+    assert any(
+        "missing operation table title for price_pullback_23ema/active_operation" in error
+        for error in errors
+    )
+
+
+def test_completion_gate_accepts_operation_empty_state_tables() -> None:
+    rows = {
+        "neckline_volume_breakout_confirmation": [
+            {
+                "model_id": "neckline_volume_breakout_confirmation",
+                "pdf_view": "highlight",
+                "pdf_section": "confirmed_operation",
+                "row_type": "empty_state",
+                "report_line": "both",
+                "stock_display": "本日無股票推薦",
+            },
+            {
+                "model_id": "neckline_volume_breakout_confirmation",
+                "pdf_view": "highlight",
+                "pdf_section": "active_operation",
+                "row_type": "empty_state",
+                "report_line": "both",
+                "stock_display": "目前無操作中追蹤列",
+            },
+        ]
+    }
+    text = validator.compact_text(
+        "W底頸線帶量突破確認模型 - 本日可買 / 已確認買入候選 本日無股票推薦 "
+        "W底頸線帶量突破確認模型 - 操作中 目前無操作中追蹤列"
+    )
+
+    errors = validator.validate_operation_adapter_pdf_text(
+        {
+            "mainstream_highlight": text,
+            "non_mainstream_highlight": text,
+        },
+        rows,
+        required_model_ids=["neckline_volume_breakout_confirmation"],
+    )
+
+    assert errors == []
+
+
+def test_completion_gate_requires_rendered_stock_ids_for_operation_rows() -> None:
+    rows = {
+        "price_pullback_23ema": [
+            {
+                "model_id": "price_pullback_23ema",
+                "model_name_zh": "23EMA回檔模型",
+                "pdf_view": "highlight",
+                "pdf_section": "confirmed_operation",
+                "row_type": "empty_state",
+                "report_line": "both",
+                "stock_display": "本日無股票推薦",
+            },
+            {
+                "model_id": "price_pullback_23ema",
+                "model_name_zh": "23EMA回檔模型",
+                "pdf_view": "highlight",
+                "pdf_section": "active_operation",
+                "row_type": "data",
+                "display_order": "1",
+                "report_line": "mainstream",
+                "operation_status": "active_operation",
+                "buy_rank_eligible": "False",
+                "stock_id": "1785",
+                "stock_display": "1785 光洋科",
+            },
+            {
+                "model_id": "price_pullback_23ema",
+                "model_name_zh": "23EMA回檔模型",
+                "pdf_view": "highlight",
+                "pdf_section": "active_operation",
+                "row_type": "empty_state",
+                "report_line": "non_mainstream",
+                "stock_display": "目前無操作中追蹤列",
+            },
+        ]
+    }
+    role_to_text = {
+        "mainstream_highlight": validator.compact_text(
+            "23EMA回檔模型 - 本日可買 / 已確認買入候選 本日無股票推薦 "
+            "23EMA回檔模型 - 操作中"
+        ),
+        "non_mainstream_highlight": validator.compact_text(
+            "23EMA回檔模型 - 本日可買 / 已確認買入候選 本日無股票推薦 "
+            "23EMA回檔模型 - 操作中 目前無操作中追蹤列"
+        ),
+    }
+
+    errors = validator.validate_operation_adapter_pdf_text(
+        role_to_text,
+        rows,
+        required_model_ids=["price_pullback_23ema"],
+    )
+
+    assert any("missing rendered stock_id=1785" in error for error in errors)
+
+
+def test_completion_gate_uses_report_line_membership_for_line_agnostic_rows() -> None:
+    rows = {
+        "volume_range_breakout": [
+            {
+                "model_id": "volume_range_breakout",
+                "pdf_view": "highlight",
+                "pdf_section": "confirmed_operation",
+                "row_type": "empty_state",
+                "report_line": "both",
+                "stock_display": "本日無股票推薦",
+            },
+            {
+                "model_id": "volume_range_breakout",
+                "pdf_view": "highlight",
+                "pdf_section": "active_operation",
+                "row_type": "data",
+                "display_order": "1",
+                "operation_status": "active_operation",
+                "buy_rank_eligible": "False",
+                "stock_id": "3055",
+                "stock_display": "3055 蔚華科",
+            },
+        ]
+    }
+    role_to_text = {
+        "mainstream_highlight": validator.compact_text(
+            "放量攻擊模型 - 本日可買 / 已確認買入候選 本日無股票推薦 "
+            "放量攻擊模型 - 操作中 3055"
+        ),
+        "non_mainstream_highlight": validator.compact_text(
+            "放量攻擊模型 - 本日可買 / 已確認買入候選 本日無股票推薦 "
+            "放量攻擊模型 - 操作中 目前無操作中追蹤列"
+        ),
+    }
+
+    errors = validator.validate_operation_adapter_pdf_text(
+        role_to_text,
+        rows,
+        required_model_ids=["volume_range_breakout"],
+        stock_report_lines={"3055": {"mainstream"}},
+    )
+
+    assert errors == []
+
+
 def test_completion_gate_rejects_pr_workflow_without_post_replay_gate(
     tmp_path: Path, monkeypatch
 ) -> None:
