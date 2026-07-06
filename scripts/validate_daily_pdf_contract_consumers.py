@@ -254,6 +254,24 @@ REQUIRED_OPERATION_HIGHLIGHT_CONTRACT_TOKENS = (
     "W_BOTTOM_NECKLINE_BREAKOUT_MODEL_ID",
     "PRICE_PULLBACK_MODEL_ID",
 )
+REQUIRED_STOCK_MODEL_HEADER_LAYOUT_TOKENS = (
+    'PDF_MODEL_TITLE_BLUE = "#1f4e79"',
+    "MODEL_H1 = ParagraphStyle(",
+    "MODEL_H2 = ParagraphStyle(",
+    "MODEL_SUMMARY_NUMBER_RE = re.compile(",
+    "def operation_model_summary_lines(",
+    "def append_stock_model_summary_lines(",
+    "def append_stock_model_title(",
+    "append_stock_model_title(story, model_name, level=1)",
+    "append_stock_model_title(story, model_name, level=2)",
+    "append_stock_model_description_lines(story, desc)",
+)
+FORBIDDEN_STOCK_MODEL_HEADER_LAYOUT_TOKENS = (
+    "story.append(Paragraph(model_name, H1))",
+    "story.append(Paragraph(model_name, H2))",
+    "story.append(para(desc, BODY_SMALL))",
+    "story.append(para(operation_model_summary_text(inputs, model_id), BODY_SMALL))",
+)
 
 
 @dataclass(frozen=True)
@@ -428,6 +446,18 @@ def validate_renderer_fixed_model_table_contract(source_paths: Iterable[Path] = 
                 errors.append(
                     "daily PDF renderer must keep operation-oriented model highlight tables as confirmed-buy then active only: "
                     f"missing {required} in {rel(path)}"
+                )
+        for required in REQUIRED_STOCK_MODEL_HEADER_LAYOUT_TOKENS:
+            if required not in text:
+                errors.append(
+                    "daily PDF stock model header layout must keep blue model titles, split summary paragraphs, "
+                    f"and red numeric markup: missing {required} in {rel(path)}"
+                )
+        for forbidden in FORBIDDEN_STOCK_MODEL_HEADER_LAYOUT_TOKENS:
+            if forbidden in text:
+                errors.append(
+                    "daily PDF stock model header layout must not collapse model titles/descriptions back to "
+                    f"generic single-paragraph rendering: forbidden {forbidden} in {rel(path)}"
                 )
         if skip_re.search(text):
             errors.append(

@@ -173,6 +173,11 @@ OPERATION_CONFIRMED_BUY_TABLE_TITLE = "本日可買 / 已確認買入候選"
 OPERATION_ACTIVE_TABLE_TITLE = "操作中"
 OPERATION_ACTIVE_EMPTY_STATE_TEXT = "目前無操作中追蹤列"
 MODEL_PDF_VISIBILITIES = {"pdf_core_model", "pdf_specialty_section"}
+PDF_RED = "#c00000"
+PDF_MODEL_TITLE_BLUE = "#1f4e79"
+MODEL_SUMMARY_NUMBER_RE = re.compile(
+    r"(?<![A-Za-z0-9])(?:D\+\d+(?:/D\+\d+)*|v\d+(?:\.\d+)?|[+-]?\d+(?:\.\d+)?%?)(?![A-Za-z0-9])"
+)
 VOLUME_TRIGGER_LABELS = {
     "pullback_5ma_confirmed": "回測 5 日線後站回",
     "next_day_break_signal_high_confirmed": "隔日突破訊號高點",
@@ -355,6 +360,56 @@ def operation_model_summary_text(inputs: dict[str, pd.DataFrame], model_id: str)
     return summary
 
 
+def split_stock_model_summary_lines(
+    summary: str,
+    labels: tuple[str, ...] = OPERATION_MODEL_SUMMARY_REQUIRED_TOKENS,
+) -> list[str]:
+    text = clean(summary)
+    if not text:
+        return []
+    positions = sorted((text.find(label), label) for label in labels if text.find(label) >= 0)
+    if not positions:
+        return [text]
+    lines: list[str] = []
+    for idx, (start, _label) in enumerate(positions):
+        end = positions[idx + 1][0] if idx + 1 < len(positions) else len(text)
+        line = text[start:end].strip()
+        if line:
+            lines.append(line)
+    return lines
+
+
+def operation_model_summary_lines(inputs: dict[str, pd.DataFrame], model_id: str) -> list[str]:
+    return split_stock_model_summary_lines(operation_model_summary_text(inputs, model_id))
+
+
+def stock_model_summary_markup(text: str) -> str:
+    escaped = escape_html(text)
+    return MODEL_SUMMARY_NUMBER_RE.sub(
+        lambda match: f'<font color="{PDF_RED}">{match.group(0)}</font>',
+        escaped,
+    )
+
+
+def append_stock_model_summary_lines(story: list, lines: list[str]) -> None:
+    for line in lines:
+        if clean(line):
+            story.append(rich_para(stock_model_summary_markup(line), MODEL_SUMMARY))
+
+
+def stock_model_description_lines(text: str) -> list[str]:
+    summary = clean(text)
+    if not summary:
+        return []
+    if any(label in summary for label in OPERATION_MODEL_SUMMARY_REQUIRED_TOKENS):
+        return split_stock_model_summary_lines(summary)
+    return [line.strip() for line in re.split(r"(?<=[。；;])\s*", summary) if line.strip()]
+
+
+def append_stock_model_description_lines(story: list, text: str) -> None:
+    append_stock_model_summary_lines(story, stock_model_description_lines(text))
+
+
 def render_operation_model_summary_if_applicable(
     story: list,
     inputs: dict[str, pd.DataFrame],
@@ -362,7 +417,7 @@ def render_operation_model_summary_if_applicable(
 ) -> bool:
     if model_id not in OPERATION_TABLE_MODEL_IDS:
         return False
-    story.append(para(operation_model_summary_text(inputs, model_id), BODY_SMALL))
+    append_stock_model_summary_lines(story, operation_model_summary_lines(inputs, model_id))
     return True
 
 
@@ -527,7 +582,7 @@ H1 = ParagraphStyle(
     leading=22,
     spaceBefore=7,
     spaceAfter=4,
-    textColor=colors.HexColor("#c00000"),
+    textColor=colors.HexColor(PDF_RED),
 )
 H2 = ParagraphStyle(
     "H2CJK",
@@ -537,7 +592,24 @@ H2 = ParagraphStyle(
     leading=18.5,
     spaceBefore=5,
     spaceAfter=3,
-    textColor=colors.HexColor("#c00000"),
+    textColor=colors.HexColor(PDF_RED),
+)
+MODEL_H1 = ParagraphStyle(
+    "StockModelH1CJK",
+    parent=H1,
+    textColor=colors.HexColor(PDF_MODEL_TITLE_BLUE),
+)
+MODEL_H2 = ParagraphStyle(
+    "StockModelH2CJK",
+    parent=H2,
+    textColor=colors.HexColor(PDF_MODEL_TITLE_BLUE),
+)
+MODEL_SUMMARY = ParagraphStyle(
+    "StockModelSummaryCJK",
+    parent=BODY_SMALL,
+    leading=15.5,
+    spaceAfter=1.5,
+    wordWrap="CJK",
 )
 OP_LABEL = ParagraphStyle(
     "OperationLabelCJK",
@@ -545,7 +617,7 @@ OP_LABEL = ParagraphStyle(
     fontName=FONT_BOLD,
     fontSize=12,
     leading=14.5,
-    textColor=colors.HexColor("#c00000"),
+    textColor=colors.HexColor(PDF_RED),
     alignment=TA_CENTER,
 )
 OP_VALUE = ParagraphStyle(
@@ -799,7 +871,12 @@ def rich_para(markup: str, style: ParagraphStyle = SUMMARY_CELL) -> Paragraph:
 
 
 def red(value) -> str:
-    return f'<font color="#c00000">{escape_html(value)}</font>'
+    return f'<font color="{PDF_RED}">{escape_html(value)}</font>'
+
+
+def append_stock_model_title(story: list, model_name: str, *, level: int) -> None:
+    style = MODEL_H1 if level == 1 else MODEL_H2
+    story.append(Paragraph(escape_html(model_name), style))
 
 
 def num(value, ndigits: int = 2, suffix: str = "") -> str:
@@ -4303,12 +4380,12 @@ def build_mainstream_curated_pdf(
         ranked_rows = mainstream_curated_model_signal_rows(inputs, model_id)
         if started_model_sections:
             append_page_break_once(story)
-        story.append(Paragraph(model_name, H1))
+        append_stock_model_title(story, model_name, level=1)
         started_model_sections = True
         desc = clean(spec.get("model_description_zh"))
         render_operation_model_summary_if_applicable(story, inputs, model_id)
         if desc and should_render_highlight_model_description(model_id):
-            story.append(para(desc, BODY_SMALL))
+            append_stock_model_description_lines(story, desc)
         if render_model_operation_section_if_applicable(story, inputs, model_id, "highlight", line):
             continue
         story.extend(build_mainstream_curated_model_table(ranked_rows, two_map, all_map, limit=limit))
@@ -4352,12 +4429,12 @@ def build_non_mainstream_curated_pdf(
         ranked_rows = non_mainstream_curated_model_signal_rows(inputs, model_id)
         if started_model_sections:
             append_page_break_once(story)
-        story.append(Paragraph(model_name, H1))
+        append_stock_model_title(story, model_name, level=1)
         started_model_sections = True
         desc = clean(spec.get("model_description_zh"))
         render_operation_model_summary_if_applicable(story, inputs, model_id)
         if desc and should_render_highlight_model_description(model_id):
-            story.append(para(desc, BODY_SMALL))
+            append_stock_model_description_lines(story, desc)
         if render_model_operation_section_if_applicable(story, inputs, model_id, "highlight", line):
             continue
         story.extend(build_non_mainstream_curated_model_table(ranked_rows, two_map, all_map, limit=limit))
@@ -4445,7 +4522,7 @@ def build_mainstream_full_candidate_pdf(
         model_name = clean(spec.get("model_name_zh"), model_id)
         line_rows = mainstream_full_model_signal_rows(inputs, model_id)
         story.append(CondPageBreak(MODEL_SECTION_MIN_ROOM))
-        story.append(Paragraph(model_name, H2))
+        append_stock_model_title(story, model_name, level=2)
         render_operation_model_summary_if_applicable(story, inputs, model_id)
         if render_model_operation_section_if_applicable(story, inputs, model_id, "full", line):
             continue
@@ -4566,7 +4643,7 @@ def build_non_mainstream_full_candidate_pdf(
         model_name = clean(spec.get("model_name_zh"), model_id)
         line_rows = non_mainstream_full_model_signal_rows(inputs, model_id)
         story.append(CondPageBreak(MODEL_SECTION_MIN_ROOM))
-        story.append(Paragraph(model_name, H2))
+        append_stock_model_title(story, model_name, level=2)
         render_operation_model_summary_if_applicable(story, inputs, model_id)
         if render_model_operation_section_if_applicable(story, inputs, model_id, "full", line):
             continue
