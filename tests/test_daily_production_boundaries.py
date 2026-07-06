@@ -532,3 +532,19 @@ def test_research_workflow_does_not_stage_generated_recommendations_as_config() 
     assert "git add config/daily_model_parameter_recommendations.csv" not in workflow
     assert "CONFIG_CSV" not in recommender
     assert 'Path("config/daily_model_parameter_recommendations.csv")' not in recommender
+
+
+def test_research_workflow_uses_generated_output_rebase_helper() -> None:
+    workflow = (ROOT / ".github" / "workflows" / "research_backtest_pipeline.yml").read_text(
+        encoding="utf-8"
+    )
+    helper = (ROOT / "scripts" / "ci_push_research_backtest_outputs_with_retry.sh").read_text(
+        encoding="utf-8"
+    )
+
+    assert 'git pull --rebase --autostash origin "$TARGET_BRANCH" || true' not in workflow
+    assert 'bash scripts/ci_push_research_backtest_outputs_with_retry.sh "$TARGET_BRANCH" 5' in workflow
+    assert 'git checkout --theirs -- "$path"' in helper
+    assert 'Unexpected rebase conflict outside research-generated outputs' in helper
+    assert 'output/latest/' in helper
+    assert 'docs/latest/' in helper

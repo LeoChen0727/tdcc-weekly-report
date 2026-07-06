@@ -31,6 +31,7 @@ def test_inventory_covers_tests_and_non_python_executables() -> None:
 
     assert rows["tests/conftest.py"]["kind"] == "test_python"
     assert rows["scripts/ci_push_with_retry.sh"]["kind"] == "executable_script"
+    assert rows["scripts/ci_push_research_backtest_outputs_with_retry.sh"]["kind"] == "executable_script"
     assert rows["docs/apps_script_workflow_trigger.gs"]["kind"] == "executable_script"
 
 

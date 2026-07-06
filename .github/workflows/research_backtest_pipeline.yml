@@ -211,7 +211,6 @@ jobs:
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-          git pull --rebase --autostash origin "$TARGET_BRANCH" || true
 
           git add output/history/research/ || true
           git add output/history/surge_model/ || true
@@ -318,4 +317,4 @@ jobs:
 
           git status --short
           git commit -m "Update research backtest outputs" || echo "No changes to commit"
-          bash scripts/ci_push_with_retry.sh "$TARGET_BRANCH" 5
+          bash scripts/ci_push_research_backtest_outputs_with_retry.sh "$TARGET_BRANCH" 5
