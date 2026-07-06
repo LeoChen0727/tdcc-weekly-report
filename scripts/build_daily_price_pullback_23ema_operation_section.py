@@ -39,9 +39,9 @@ ENTRY_RULE_ID = "signal_date_next_open"
 STOP_LOSS_RULE_ID = "sustained_close_below_lower_ma20_ema23_4pct_4d"
 EXIT_RULE_ID = "close_prev20_high_break_next_open"
 
-ENTRY_BASIS_ZH = "本表股票為23EMA回檔模型通過候選，下一個交易日開盤買入。"
-EXIT_RULE_ZH = "收盤突破訊號日前20日高點後，下一個交易日開盤賣出。"
-STOP_BASIS_ZH = "收盤連續4天低於MA20/EMA23較低者4%，下一個交易日開盤停損。"
+ENTRY_BASIS_ZH = "本表股票為23EMA回檔模型通過候選，隔日開盤買入。"
+EXIT_RULE_ZH = "收盤突破訊號日前20日高點後，隔日開盤賣出。"
+STOP_BASIS_ZH = "收盤連續4天低於MA20/EMA23較低者的4%，隔日開盤停損。"
 WIN_DEFINITION_ZH = "勝：D+20內先觸發收盤突破訊號日前20日高點，且停損未先觸發。"
 NEUTRAL_DEFINITION_ZH = "和：D+20內沒有賣出或停損，且D+20收盤報酬大於等於0%。"
 FAILURE_DEFINITION_ZH = "敗：停損先觸發，或D+20內沒有賣出/停損但D+20收盤報酬小於0%。"
@@ -575,7 +575,7 @@ def confirmed_rows(row: pd.Series, approval: dict[str, str], report_date: str, c
         item = base_row(row, approval, report_date, count, generated_at, view, "confirmed_operation")
         item["row_action_status"] = "confirmed_buy_candidate"
         item["buy_rank_eligible"] = "True"
-        item["pdf_note_zh"] = "買入：下一個交易日開盤買入。"
+        item["pdf_note_zh"] = "買入：隔日開盤買入。"
         out.append(item)
     return out
 
@@ -605,9 +605,9 @@ def active_rows(row: pd.Series, approval: dict[str, str], report_date: str, coun
         item["realized_exit_date"] = safe_str(state.get("exit_date"))
         item["realized_exit_reason"] = safe_str(state.get("exit_reason"))
         if action == "target_exit_pending_next_open":
-            item["pdf_note_zh"] = "收盤突破前20日高點，下一個交易日開盤賣出。"
+            item["pdf_note_zh"] = "收盤突破訊號日前20日高點後，隔日開盤賣出。"
         elif action == "stop_exit_pending_next_open":
-            item["pdf_note_zh"] = "停損條件已確認，下一個交易日開盤停損。"
+            item["pdf_note_zh"] = "停損條件已確認，隔日開盤停損。"
         else:
             item["pdf_note_zh"] = "操作中，依正式賣出/停損規則追蹤。"
         out.append(item)
