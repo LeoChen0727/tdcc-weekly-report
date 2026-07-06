@@ -135,6 +135,22 @@ Future operation-oriented stock models must follow this presentation contract
 when their formal PDF operation adapters are wired; do not invent operation
 lifecycle rows in the PDF layer before such an adapter exists.
 
+Daily PDF rendering must also emit `chatgpt_daily_pdf_semantic_manifest.csv`.
+This manifest is the machine-readable row-level contract for official daily PDF
+operation-model sections. For every rendered operation row it must record the
+PDF role, PDF view, report line, model id, PDF section, rendered row type,
+stock id, source artifact, and source hash. Validators must compare this
+manifest with golden semantic cases for known incident dates before a PR or
+main run can be treated as complete.
+
+Legacy preview artifacts and preview builders such as
+`volume_breakout_operation_pdf_preview` may remain in another owner lane only
+while they are still registered and workflow-owned there. They must not be used
+as formal daily PDF operation-row sources, runtime manifest sources, or
+semantic manifest sources. Removal of such legacy code or artifacts requires
+the owning lane to remove its workflow, inventory, validator, and spec
+dependencies in the same cleanup PR.
+
 ## Event / Catalyst Contract Rule
 
 Every event or catalyst field consumed from daily report sources must exist in

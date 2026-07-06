@@ -15,6 +15,7 @@ def test_daily_model_maintenance_pr_workflow_exists_for_model_pdf_paths() -> Non
     assert "scripts/run_chatgpt_daily_report_entrypoint.py" in text
     assert "scripts/update_daily_published_model_snapshots.py" in text
     assert "config/daily_pdf_rendered_model_regression_contract.csv" in text
+    assert "config/daily_pdf_semantic_golden_cases.csv" in text
     assert "tests/test_chatgpt_daily_report_new_conversation_replay.py" in text
     assert "tests/test_chatgpt_daily_report_entrypoint.py" in text
 
@@ -80,4 +81,5 @@ def test_daily_model_maintenance_pr_workflow_runs_actual_pdf_replay_and_uploads_
     assert "daily-pdf-replay-pr-validation" in text
     assert "chatgpt_side_outputs_pr_validation/*.pdf" in text
     assert "chatgpt_side_outputs_pr_validation/chatgpt_daily_report_runtime_manifest.json" in text
+    assert "chatgpt_side_outputs_pr_validation/chatgpt_daily_pdf_semantic_manifest.csv" in text
     assert "if-no-files-found: error" in text

@@ -328,6 +328,23 @@ buy-ranked confirmed operation row, not by re-evaluating old signals with newer
 context. Rows that were `confirmed_unranked_operation` on their confirmation
 date must not later be promoted into active tracking.
 
+Official daily PDF generation must emit
+`chatgpt_daily_pdf_semantic_manifest.csv` next to the six PDFs and
+`chatgpt_daily_report_runtime_manifest.json`. The runtime manifest must record
+`semantic_manifest_path`. The semantic manifest is the row-level source of truth
+for formal operation-model PDF rendering and must include at least `pdf_role`,
+`pdf_view`, `report_line`, `model_id`, `pdf_section`, `rendered_row_type`,
+`stock_id`, `source_artifact`, and `source_sha256`. PR and main validators must
+fail closed when the semantic manifest is missing, malformed, sourced from a
+legacy/preview artifact, or inconsistent with configured golden semantic cases.
+
+Legacy preview code or artifacts that can be confused with production operation
+rows must be removed only after an owner/dependency audit proves no active
+workflow, validator, inventory, spec, replay, or research lane still depends on
+them. If a legacy artifact is still owned by another lane, the daily PDF layer
+must instead forbid consuming it as a formal operation-row source and hand off a
+separate cleanup/sync PR to that owner lane.
+
 Full-list PDFs can be large. Page-count validation must define an explicit
 reasonable range instead of treating the current high page count as an implicit
 failure.

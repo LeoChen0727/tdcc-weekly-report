@@ -417,6 +417,9 @@ def main() -> int:
             "config/daily_pdf_rendered_model_regression_contract.csv": (
                 "daily model maintenance PR workflow must trigger on rendered PDF regression contract changes"
             ),
+            "config/daily_pdf_semantic_golden_cases.csv": (
+                "daily model maintenance PR workflow must trigger on semantic PDF golden case changes"
+            ),
             "python scripts/validate_daily_pdf_contract_consumers.py": (
                 "daily model maintenance PR workflow must validate daily PDF consumer contracts"
             ),
@@ -456,6 +459,9 @@ def main() -> int:
             "if-no-files-found: error": (
                 "daily model maintenance PR workflow must fail when replay PDF evidence is missing"
             ),
+            "chatgpt_side_outputs_pr_validation/chatgpt_daily_pdf_semantic_manifest.csv": (
+                "daily model maintenance PR workflow must preserve semantic PDF manifest evidence"
+            ),
             "GITHUB_HEAD_REF": (
                 "daily model maintenance PR workflow must replay the PR head ref, not origin/main"
             ),
@@ -484,6 +490,8 @@ def main() -> int:
             "resolve_daily_report_source_state": "official PDF entrypoint must use the origin/main resolver",
             '"worktree", "add", "--detach"': "official PDF entrypoint must use a clean temporary source worktree",
             "CHATGPT_DAILY_REPORT_ENTRYPOINT": "official PDF entrypoint must be the only allowed renderer caller",
+            "SEMANTIC_MANIFEST_NAME": "official PDF entrypoint must require semantic PDF manifest output",
+            "semantic_manifest_path": "official PDF entrypoint runtime manifest must record semantic PDF manifest path",
             "PYTHONIOENCODING": "official PDF entrypoint must force UTF-8 subprocess output",
             'reconfigure(encoding="utf-8", errors="replace")': "official PDF entrypoint must force UTF-8 terminal output",
             "source-gate-only": "official PDF entrypoint must expose a source-gate-only diagnostic mode",
@@ -559,6 +567,7 @@ def main() -> int:
         "chatgpt_daily_report_packet_latest.txt": "daily usage prompt must include packet consistency in the hard source gate",
         "六份": "daily usage prompt must state the six formal ChatGPT-side PDFs",
         "chatgpt_daily_report_runtime_manifest.json": "daily usage prompt must require runtime lineage manifest evidence",
+        "chatgpt_daily_pdf_semantic_manifest.csv": "daily usage prompt must require semantic row manifest evidence",
     }
     for literal, message in required_usage_literals.items():
         if literal not in usage_prompt_text:

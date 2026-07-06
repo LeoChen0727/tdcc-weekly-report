@@ -314,6 +314,7 @@ def test_completion_gate_rejects_pr_workflow_without_post_replay_gate(
                 "- name: Upload PR daily PDF replay evidence",
                 "chatgpt_side_outputs_pr_validation/*.pdf",
                 "chatgpt_side_outputs_pr_validation/chatgpt_daily_report_runtime_manifest.json",
+                "chatgpt_side_outputs_pr_validation/chatgpt_daily_pdf_semantic_manifest.csv",
                 "if-no-files-found: error",
             ]
         ),

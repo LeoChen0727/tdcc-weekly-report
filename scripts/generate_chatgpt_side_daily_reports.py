@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import math
 import os
 import re
@@ -58,6 +59,7 @@ LATEST = REPO / "output" / "latest"
 DATA = REPO / "data"
 OUT = env_path("CHATGPT_DAILY_OUTPUT_DIR", REPO / "chatgpt_side_outputs")
 CHARTS = OUT / "charts"
+SEMANTIC_MANIFEST_NAME = "chatgpt_daily_pdf_semantic_manifest.csv"
 TDCC_WINDOW_DIRS = [
     LATEST / "individual_stock_reports" / "tdcc_windows",
     REPO / "docs" / "latest" / "individual_stock_reports" / "tdcc_windows",
@@ -590,12 +592,44 @@ def read_latest_csv(filename: str, **kwargs) -> pd.DataFrame:
     return read_csv(LATEST / filename, **kwargs)
 
 
+def normalized_sha256_file(path: Path) -> str:
+    if not path.exists():
+        return ""
+    data = path.read_bytes().replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+    return hashlib.sha256(data).hexdigest()
+
+
 MAINSTREAM_CURATED_TITLE = "\u4e3b\u6d41\u80a1\u6bcf\u65e5\u63a8\u85a6\u7cbe\u83ef"
 MAINSTREAM_FULL_TITLE = "\u4e3b\u6d41\u80a1\u5b8c\u6574\u5019\u9078\u6e05\u55ae"
 NON_MAINSTREAM_CURATED_TITLE = "\u975e\u4e3b\u6d41\u80a1\u6bcf\u65e5\u63a8\u85a6\u7cbe\u83ef"
 NON_MAINSTREAM_FULL_TITLE = "\u975e\u4e3b\u6d41\u80a1\u5b8c\u6574\u5019\u9078\u6e05\u55ae"
 MAINSTREAM_LINE_LABEL = "\u4e3b\u6d41\u80a1"
 NON_MAINSTREAM_LINE_LABEL = "\u975e\u4e3b\u6d41\u80a1"
+PDF_ROLE_RENDER_SPECS = (
+    ("mainstream_highlight", "highlight", "mainstream"),
+    ("mainstream_full", "full", "mainstream"),
+    ("non_mainstream_highlight", "highlight", "non_mainstream"),
+    ("non_mainstream_full", "full", "non_mainstream"),
+)
+OPERATION_SOURCE_ARTIFACTS = {
+    VOLUME_BREAKOUT_MODEL_ID: "output/latest/daily_volume_breakout_operation_section_latest.csv",
+    W_BOTTOM_RIGHT_SIDE_MODEL_ID: "output/latest/daily_w_bottom_right_side_operation_section_latest.csv",
+    W_BOTTOM_NECKLINE_BREAKOUT_MODEL_ID: (
+        "output/latest/daily_neckline_volume_breakout_confirmation_operation_section_latest.csv"
+    ),
+    PRICE_PULLBACK_MODEL_ID: "output/latest/daily_price_pullback_23ema_operation_section_latest.csv",
+}
+OPERATION_RENDERED_SECTIONS = {
+    VOLUME_BREAKOUT_MODEL_ID: (
+        "confirmed_operation",
+        "confirmed_unranked_operation",
+        "pending_confirmation",
+        "active_operation",
+    ),
+    W_BOTTOM_RIGHT_SIDE_MODEL_ID: ("confirmed_operation", "active_operation"),
+    W_BOTTOM_NECKLINE_BREAKOUT_MODEL_ID: ("confirmed_operation", "active_operation"),
+    PRICE_PULLBACK_MODEL_ID: ("confirmed_operation", "active_operation"),
+}
 
 
 def clean(value, default: str = "") -> str:
@@ -2345,6 +2379,150 @@ def limit_w_bottom_operation_rows_for_pdf_view(
     return rows.copy()
 
 
+def volume_operation_all_rows_for_pdf(
+    inputs: dict[str, pd.DataFrame],
+    pdf_view: str,
+    line: str | None,
+    pdf_section: str,
+) -> pd.DataFrame:
+    return filter_volume_operation_rows_for_line(
+        volume_operation_frame(inputs, pdf_view, pdf_section),
+        inputs,
+        line,
+    )
+
+
+def selected_volume_operation_rows_for_pdf(
+    inputs: dict[str, pd.DataFrame],
+    pdf_view: str,
+    line: str | None,
+    pdf_section: str,
+) -> pd.DataFrame:
+    rows = volume_operation_all_rows_for_pdf(inputs, pdf_view, line, pdf_section)
+    if rows.empty:
+        return pd.DataFrame()
+
+    row_type = rows.get("row_type", pd.Series(dtype=str)).astype(str)
+    row_action = rows.get("row_action_status", pd.Series(dtype=str)).astype(str)
+    buy_rank_eligible = rows.get("buy_rank_eligible", pd.Series(dtype=str)).map(is_true_text)
+
+    if pdf_section == "confirmed_operation":
+        selected = rows[
+            row_type.eq("data")
+            & row_action.eq("confirmed_buy_candidate")
+            & buy_rank_eligible
+        ].copy()
+        return limit_volume_operation_rows_for_pdf_view(selected, pdf_view, pdf_section)
+    if pdf_section == "confirmed_unranked_operation":
+        if pdf_view != "full":
+            return pd.DataFrame()
+        return rows[
+            row_type.eq("data")
+            & row_action.eq("confirmed_not_buy_ranked")
+            & ~buy_rank_eligible
+        ].copy()
+    if pdf_section == "pending_confirmation":
+        if pdf_view != "full":
+            return pd.DataFrame()
+        return rows[
+            row_type.eq("data")
+            & row_action.eq("pending_confirmation")
+            & ~buy_rank_eligible
+        ].copy()
+    if pdf_section == "active_operation":
+        selected = rows[
+            row_type.eq("data")
+            & row_action.eq("active_operation")
+            & ~buy_rank_eligible
+        ].copy()
+        return limit_volume_operation_rows_for_pdf_view(selected, pdf_view, pdf_section)
+    return pd.DataFrame()
+
+
+def w_bottom_operation_all_rows_for_pdf(
+    inputs: dict[str, pd.DataFrame],
+    model_id: str,
+    pdf_view: str,
+    line: str | None,
+    pdf_section: str,
+) -> pd.DataFrame:
+    return filter_w_bottom_operation_rows_for_line(
+        w_bottom_operation_frame(inputs, model_id, pdf_view, pdf_section),
+        line,
+    )
+
+
+def selected_w_bottom_operation_rows_for_pdf(
+    inputs: dict[str, pd.DataFrame],
+    model_id: str,
+    pdf_view: str,
+    line: str | None,
+    pdf_section: str,
+) -> pd.DataFrame:
+    rows = w_bottom_operation_all_rows_for_pdf(inputs, model_id, pdf_view, line, pdf_section)
+    if rows.empty:
+        return pd.DataFrame()
+    row_type = rows.get("row_type", pd.Series(dtype=str)).astype(str)
+    buy_rank_eligible = rows.get("buy_rank_eligible", pd.Series(dtype=str)).map(is_true_text)
+    if pdf_section == "confirmed_operation":
+        row_action = rows.get("row_action_status", pd.Series(dtype=str)).astype(str)
+        selected = rows[
+            row_type.eq("data")
+            & row_action.eq("confirmed_buy_candidate")
+            & buy_rank_eligible
+        ].copy()
+        return limit_w_bottom_operation_rows_for_pdf_view(selected, pdf_view, pdf_section)
+    if pdf_section == "active_operation":
+        operation_status = rows.get("operation_status", pd.Series(dtype=str)).astype(str)
+        selected = rows[
+            row_type.eq("data")
+            & operation_status.eq("active_operation")
+            & ~buy_rank_eligible
+        ].copy()
+        return limit_w_bottom_operation_rows_for_pdf_view(selected, pdf_view, pdf_section)
+    return pd.DataFrame()
+
+
+def price_pullback_operation_all_rows_for_pdf(
+    inputs: dict[str, pd.DataFrame],
+    pdf_view: str,
+    line: str | None,
+    pdf_section: str,
+) -> pd.DataFrame:
+    return filter_price_pullback_operation_rows_for_line(
+        price_pullback_operation_frame(inputs, pdf_view, pdf_section),
+        line,
+    )
+
+
+def selected_price_pullback_operation_rows_for_pdf(
+    inputs: dict[str, pd.DataFrame],
+    pdf_view: str,
+    line: str | None,
+    pdf_section: str,
+) -> pd.DataFrame:
+    rows = price_pullback_operation_all_rows_for_pdf(inputs, pdf_view, line, pdf_section)
+    if rows.empty:
+        return pd.DataFrame()
+    row_type = rows.get("row_type", pd.Series(dtype=str)).astype(str)
+    buy_rank_eligible = rows.get("buy_rank_eligible", pd.Series(dtype=str)).map(is_true_text)
+    if pdf_section == "confirmed_operation":
+        row_action = rows.get("row_action_status", pd.Series(dtype=str)).astype(str)
+        return rows[
+            row_type.eq("data")
+            & row_action.eq("confirmed_buy_candidate")
+            & buy_rank_eligible
+        ].copy()
+    if pdf_section == "active_operation":
+        operation_status = rows.get("operation_status", pd.Series(dtype=str)).astype(str)
+        return rows[
+            row_type.eq("data")
+            & operation_status.eq("active_operation")
+            & ~buy_rank_eligible
+        ].copy()
+    return pd.DataFrame()
+
+
 def volume_operation_date_label(value) -> str:
     text = clean(value)
     if not text:
@@ -2873,26 +3051,12 @@ def render_w_bottom_operation_section(
     line: str | None = None,
 ) -> None:
     model_name = operation_model_display_name(model_id)
-    confirmed_all = filter_w_bottom_operation_rows_for_line(
-        w_bottom_operation_frame(inputs, model_id, pdf_view, "confirmed_operation"),
-        line,
+    confirmed = selected_w_bottom_operation_rows_for_pdf(
+        inputs, model_id, pdf_view, line, "confirmed_operation"
     )
-    active_all = filter_w_bottom_operation_rows_for_line(
-        w_bottom_operation_frame(inputs, model_id, pdf_view, "active_operation"),
-        line,
+    active_rows = selected_w_bottom_operation_rows_for_pdf(
+        inputs, model_id, pdf_view, line, "active_operation"
     )
-    confirmed = confirmed_all[
-        confirmed_all.get("row_type", pd.Series(dtype=str)).astype(str).eq("data")
-        & confirmed_all.get("row_action_status", pd.Series(dtype=str)).astype(str).eq("confirmed_buy_candidate")
-        & confirmed_all.get("buy_rank_eligible", pd.Series(dtype=str)).map(is_true_text)
-    ].copy() if not confirmed_all.empty else pd.DataFrame()
-    confirmed = limit_w_bottom_operation_rows_for_pdf_view(confirmed, pdf_view, "confirmed_operation")
-    active_rows = active_all[
-        active_all.get("row_type", pd.Series(dtype=str)).astype(str).eq("data")
-        & active_all.get("operation_status", pd.Series(dtype=str)).astype(str).eq("active_operation")
-        & ~active_all.get("buy_rank_eligible", pd.Series(dtype=str)).map(is_true_text)
-    ].copy() if not active_all.empty else pd.DataFrame()
-    active_rows = limit_w_bottom_operation_rows_for_pdf_view(active_rows, pdf_view, "active_operation")
 
     story.append(Spacer(1, 6))
     story.append(Paragraph(OPERATION_CONFIRMED_BUY_TABLE_TITLE, H2))
@@ -2908,24 +3072,12 @@ def render_price_pullback_operation_section(
     pdf_view: str,
     line: str | None = None,
 ) -> None:
-    confirmed_all = filter_price_pullback_operation_rows_for_line(
-        price_pullback_operation_frame(inputs, pdf_view, "confirmed_operation"),
-        line,
+    confirmed = selected_price_pullback_operation_rows_for_pdf(
+        inputs, pdf_view, line, "confirmed_operation"
     )
-    active_all = filter_price_pullback_operation_rows_for_line(
-        price_pullback_operation_frame(inputs, pdf_view, "active_operation"),
-        line,
+    active_rows = selected_price_pullback_operation_rows_for_pdf(
+        inputs, pdf_view, line, "active_operation"
     )
-    confirmed = confirmed_all[
-        confirmed_all.get("row_type", pd.Series(dtype=str)).astype(str).eq("data")
-        & confirmed_all.get("row_action_status", pd.Series(dtype=str)).astype(str).eq("confirmed_buy_candidate")
-        & confirmed_all.get("buy_rank_eligible", pd.Series(dtype=str)).map(is_true_text)
-    ].copy() if not confirmed_all.empty else pd.DataFrame()
-    active_rows = active_all[
-        active_all.get("row_type", pd.Series(dtype=str)).astype(str).eq("data")
-        & active_all.get("operation_status", pd.Series(dtype=str)).astype(str).eq("active_operation")
-        & ~active_all.get("buy_rank_eligible", pd.Series(dtype=str)).map(is_true_text)
-    ].copy() if not active_all.empty else pd.DataFrame()
 
     story.append(Spacer(1, 6))
     story.append(Paragraph(OPERATION_CONFIRMED_BUY_TABLE_TITLE, H2))
@@ -2941,54 +3093,14 @@ def render_volume_range_breakout_operation_section(
     pdf_view: str,
     line: str | None = None,
 ) -> None:
-    confirmed_all = filter_volume_operation_rows_for_line(
-        volume_operation_frame(inputs, pdf_view, "confirmed_operation"),
-        inputs,
-        line,
-    )
-    unranked_all = filter_volume_operation_rows_for_line(
-        volume_operation_frame(inputs, pdf_view, "confirmed_unranked_operation"),
-        inputs,
-        line,
-    )
-    pending_all = filter_volume_operation_rows_for_line(
-        volume_operation_frame(inputs, pdf_view, "pending_confirmation"),
-        inputs,
-        line,
-    )
-    active_all = filter_volume_operation_rows_for_line(
-        volume_operation_frame(inputs, pdf_view, "active_operation"),
-        inputs,
-        line,
-    )
+    confirmed_all = volume_operation_all_rows_for_pdf(inputs, pdf_view, line, "confirmed_operation")
+    unranked_all = volume_operation_all_rows_for_pdf(inputs, pdf_view, line, "confirmed_unranked_operation")
+    pending_all = volume_operation_all_rows_for_pdf(inputs, pdf_view, line, "pending_confirmation")
 
-    confirmed = confirmed_all[
-        confirmed_all.get("row_type", pd.Series(dtype=str)).astype(str).eq("data")
-        & confirmed_all.get("row_action_status", pd.Series(dtype=str)).astype(str).eq("confirmed_buy_candidate")
-        & confirmed_all.get("buy_rank_eligible", pd.Series(dtype=str)).map(is_true_text)
-    ].copy() if not confirmed_all.empty else pd.DataFrame()
-    confirmed = limit_volume_operation_rows_for_pdf_view(confirmed, pdf_view, "confirmed_operation")
-
-    unranked = unranked_all[
-        unranked_all.get("row_type", pd.Series(dtype=str)).astype(str).eq("data")
-        & unranked_all.get("row_action_status", pd.Series(dtype=str)).astype(str).eq("confirmed_not_buy_ranked")
-        & ~unranked_all.get("buy_rank_eligible", pd.Series(dtype=str)).map(is_true_text)
-    ].copy() if not unranked_all.empty and pdf_view == "full" else pd.DataFrame()
-
-    if pdf_view == "full":
-        pending = pending_all[
-            pending_all.get("row_type", pd.Series(dtype=str)).astype(str).eq("data")
-            & pending_all.get("row_action_status", pd.Series(dtype=str)).astype(str).eq("pending_confirmation")
-            & ~pending_all.get("buy_rank_eligible", pd.Series(dtype=str)).map(is_true_text)
-        ].copy() if not pending_all.empty else pd.DataFrame()
-    else:
-        pending = pd.DataFrame()
-    active_rows = active_all[
-        active_all.get("row_type", pd.Series(dtype=str)).astype(str).eq("data")
-        & active_all.get("row_action_status", pd.Series(dtype=str)).astype(str).eq("active_operation")
-        & ~active_all.get("buy_rank_eligible", pd.Series(dtype=str)).map(is_true_text)
-    ].copy() if not active_all.empty else pd.DataFrame()
-    active_rows = limit_volume_operation_rows_for_pdf_view(active_rows, pdf_view, "active_operation")
+    confirmed = selected_volume_operation_rows_for_pdf(inputs, pdf_view, line, "confirmed_operation")
+    unranked = selected_volume_operation_rows_for_pdf(inputs, pdf_view, line, "confirmed_unranked_operation")
+    pending = selected_volume_operation_rows_for_pdf(inputs, pdf_view, line, "pending_confirmation")
+    active_rows = selected_volume_operation_rows_for_pdf(inputs, pdf_view, line, "active_operation")
 
     story.append(Spacer(1, 6))
     story.append(Paragraph(OPERATION_CONFIRMED_BUY_TABLE_TITLE, H2))
@@ -4713,6 +4825,142 @@ def build_market_risk_background_pdf(inputs: dict[str, pd.DataFrame]) -> Path:
     return out
 
 
+def source_artifact_info(model_id: str) -> tuple[str, str]:
+    rel_path = OPERATION_SOURCE_ARTIFACTS.get(model_id, "")
+    if not rel_path:
+        return "", ""
+    return rel_path, normalized_sha256_file(REPO / rel_path)
+
+
+def selected_operation_rows_for_manifest(
+    inputs: dict[str, pd.DataFrame],
+    model_id: str,
+    pdf_view: str,
+    report_line: str,
+    pdf_section: str,
+) -> pd.DataFrame:
+    if model_id == VOLUME_BREAKOUT_MODEL_ID:
+        return selected_volume_operation_rows_for_pdf(inputs, pdf_view, report_line, pdf_section)
+    if model_id in W_BOTTOM_OPERATION_TABLE_MODEL_IDS:
+        return selected_w_bottom_operation_rows_for_pdf(inputs, model_id, pdf_view, report_line, pdf_section)
+    if model_id == PRICE_PULLBACK_MODEL_ID:
+        return selected_price_pullback_operation_rows_for_pdf(inputs, pdf_view, report_line, pdf_section)
+    return pd.DataFrame()
+
+
+def manifest_value(row: pd.Series, column: str) -> str:
+    return clean(row.get(column))
+
+
+def semantic_manifest_data_row(
+    base: dict[str, str],
+    row: pd.Series,
+    rendered_order: int,
+) -> dict[str, str]:
+    output = dict(base)
+    output.update(
+        {
+            "rendered_row_type": "data",
+            "rendered_order": str(rendered_order),
+            "stock_id": stock_id_text(row.get("stock_id")),
+            "stock_name": manifest_value(row, "stock_name"),
+            "stock_display": manifest_value(row, "stock_display") or stock_label(row),
+            "operation_status": manifest_value(row, "operation_status"),
+            "row_action_status": manifest_value(row, "row_action_status"),
+            "buy_rank_eligible": str(is_true_text(row.get("buy_rank_eligible"))),
+            "signal_date": manifest_value(row, "signal_date"),
+            "confirmation_date": manifest_value(row, "confirmation_date"),
+            "entry_date": manifest_value(row, "entry_date"),
+            "display_order": manifest_value(row, "display_order"),
+            "empty_state_text": "",
+        }
+    )
+    return output
+
+
+def semantic_manifest_empty_row(base: dict[str, str], empty_state_text: str) -> dict[str, str]:
+    output = dict(base)
+    output.update(
+        {
+            "rendered_row_type": "empty_state",
+            "rendered_order": "1",
+            "stock_id": "",
+            "stock_name": "",
+            "stock_display": "",
+            "operation_status": "",
+            "row_action_status": "",
+            "buy_rank_eligible": "",
+            "signal_date": "",
+            "confirmation_date": "",
+            "entry_date": "",
+            "display_order": "",
+            "empty_state_text": empty_state_text,
+        }
+    )
+    return output
+
+
+def operation_section_empty_text(model_id: str, pdf_section: str) -> str:
+    if pdf_section == "confirmed_operation":
+        return MODEL_EMPTY_STATE_TEXT
+    if pdf_section == "active_operation":
+        return OPERATION_ACTIVE_EMPTY_STATE_TEXT
+    if model_id == VOLUME_BREAKOUT_MODEL_ID and pdf_section == "confirmed_unranked_operation":
+        return "no confirmed unranked operation rows"
+    if model_id == VOLUME_BREAKOUT_MODEL_ID and pdf_section == "pending_confirmation":
+        return "no pending confirmation rows"
+    return ""
+
+
+def write_pdf_semantic_manifest(paths: list[Path], inputs: dict[str, pd.DataFrame]) -> Path:
+    path_by_role = {
+        role: str(path)
+        for role, path in zip(
+            (
+                "mainstream_highlight",
+                "mainstream_full",
+                "non_mainstream_highlight",
+                "non_mainstream_full",
+                "warrant_market_auxiliary",
+                "market_risk_background",
+            ),
+            paths,
+        )
+    }
+    rows: list[dict[str, str]] = []
+    generated_at = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    for pdf_role, pdf_view, report_line in PDF_ROLE_RENDER_SPECS:
+        for model_id, sections in OPERATION_RENDERED_SECTIONS.items():
+            source_artifact, source_hash = source_artifact_info(model_id)
+            for pdf_section in sections:
+                if pdf_view == "highlight" and pdf_section in {"confirmed_unranked_operation", "pending_confirmation"}:
+                    continue
+                selected = selected_operation_rows_for_manifest(inputs, model_id, pdf_view, report_line, pdf_section)
+                base = {
+                    "manifest_type": "chatgpt_daily_pdf_semantic_manifest",
+                    "generated_at": generated_at,
+                    "main_price_date": DATA_DATE,
+                    "request_date": REQUEST_DATE,
+                    "pdf_role": pdf_role,
+                    "pdf_path": path_by_role.get(pdf_role, ""),
+                    "pdf_view": pdf_view,
+                    "report_line": report_line,
+                    "model_id": model_id,
+                    "model_name_zh": operation_model_display_name(model_id),
+                    "pdf_section": pdf_section,
+                    "source_artifact": source_artifact,
+                    "source_sha256": source_hash,
+                }
+                if selected.empty:
+                    rows.append(semantic_manifest_empty_row(base, operation_section_empty_text(model_id, pdf_section)))
+                    continue
+                for rendered_order, (_, row) in enumerate(selected.iterrows(), start=1):
+                    rows.append(semantic_manifest_data_row(base, row, rendered_order))
+    manifest_path = OUT / SEMANTIC_MANIFEST_NAME
+    pd.DataFrame(rows).to_csv(manifest_path, index=False, encoding="utf-8-sig")
+    return manifest_path
+
+
 def stock_pdf_line_for_path(path: Path) -> str | None:
     name = path.name
     if NON_MAINSTREAM_CURATED_TITLE in name or NON_MAINSTREAM_FULL_TITLE in name:
@@ -4842,6 +5090,7 @@ def main() -> None:
         build_warrant_market_auxiliary_pdf(inputs),
         build_market_risk_background_pdf(inputs),
     ]
+    write_pdf_semantic_manifest(paths, inputs)
     validate_outputs(paths, inputs)
     for path in paths:
         print(path)

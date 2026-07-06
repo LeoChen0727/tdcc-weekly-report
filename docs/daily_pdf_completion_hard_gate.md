@@ -19,8 +19,16 @@ The enforced requirements are:
 - The replay output directory must contain exactly the six manifest-listed PDFs.
 - `chatgpt_daily_report_runtime_manifest.json` must exist and provide the
   machine-readable PDF role map.
+- `chatgpt_daily_pdf_semantic_manifest.csv` must exist and be referenced by
+  the runtime manifest. It records machine-readable operation row semantics
+  (`pdf_role`, `model_id`, `pdf_section`, `stock_id`, `source_artifact`, and
+  `source_sha256`) so PDF row placement is validated without relying only on
+  extracted text.
 - The six PDFs must open, expose extractable text, and pass rendered model text
   regression.
+- The semantic manifest must pass schema checks, forbidden legacy/preview source
+  checks, and configured golden semantic cases such as the 2026-07-06 accident
+  guard rows.
 - PDF-integrated operation models must have readiness status
   `pdf_integrated_daily_adapter`, `presentation_allowed=True`, model-owned
   adapter artifacts, required adapter sections, required PDF-safe columns, and

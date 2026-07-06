@@ -21,8 +21,10 @@ from scripts.resolve_daily_report_source_state import (  # noqa: E402
 
 DEFAULT_OUTPUT_DIR = REPO_ROOT / "chatgpt_side_outputs_new_conversation_replay"
 RENDERED_MODEL_REGRESSION_CONTRACT = REPO_ROOT / "config" / "daily_pdf_rendered_model_regression_contract.csv"
+SEMANTIC_GOLDEN_CASES_CONTRACT = REPO_ROOT / "config" / "daily_pdf_semantic_golden_cases.csv"
 STALE_RESIDUE_NAME = "20260612_requested_repo20260612_stale_residue_current_rules.pdf"
 RUNTIME_MANIFEST_NAME = "chatgpt_daily_report_runtime_manifest.json"
+SEMANTIC_MANIFEST_NAME = "chatgpt_daily_pdf_semantic_manifest.csv"
 EXPECTED_PDF_ROLES = (
     "mainstream_highlight",
     "mainstream_full",
@@ -314,6 +316,149 @@ def read_rendered_model_regression_contract(path: Path = RENDERED_MODEL_REGRESSI
         return list(csv.DictReader(handle))
 
 
+def boolish(value: object) -> bool:
+    return str(value or "").strip().lower() in {"true", "1", "yes", "y"}
+
+
+def read_semantic_manifest(output_dir: Path, manifest: dict) -> tuple[list[dict[str, str]], list[str]]:
+    path_text = str(manifest.get("semantic_manifest_path", "")).strip()
+    if not path_text:
+        return [], ["runtime manifest missing semantic_manifest_path"]
+    manifest_path = Path(path_text).expanduser()
+    if not manifest_path.is_absolute():
+        manifest_path = output_dir / manifest_path
+    manifest_path = manifest_path.resolve()
+    expected_path = (output_dir / SEMANTIC_MANIFEST_NAME).resolve()
+    if manifest_path != expected_path:
+        return [], [f"semantic manifest path must be {expected_path}, observed={manifest_path}"]
+    if not manifest_path.exists():
+        return [], [f"semantic manifest is missing: {manifest_path}"]
+    with manifest_path.open(newline="", encoding="utf-8-sig") as handle:
+        rows = list(csv.DictReader(handle))
+    if not rows:
+        return [], [f"semantic manifest is empty: {manifest_path}"]
+    return rows, []
+
+
+SEMANTIC_MANIFEST_REQUIRED_COLUMNS = {
+    "manifest_type",
+    "main_price_date",
+    "pdf_role",
+    "pdf_view",
+    "report_line",
+    "model_id",
+    "pdf_section",
+    "rendered_row_type",
+    "rendered_order",
+    "stock_id",
+    "stock_name",
+    "operation_status",
+    "row_action_status",
+    "buy_rank_eligible",
+    "source_artifact",
+    "source_sha256",
+}
+FORBIDDEN_SEMANTIC_SOURCE_TOKENS = (
+    "volume_breakout_operation_pdf_preview",
+)
+
+
+def validate_semantic_manifest_schema(rows: list[dict[str, str]], main_price_date: str) -> list[str]:
+    errors: list[str] = []
+    observed_columns = set(rows[0])
+    missing = sorted(SEMANTIC_MANIFEST_REQUIRED_COLUMNS - observed_columns)
+    if missing:
+        errors.append(f"semantic manifest missing columns: {missing}")
+    for index, row in enumerate(rows, start=2):
+        if str(row.get("manifest_type", "")).strip() != "chatgpt_daily_pdf_semantic_manifest":
+            errors.append(f"semantic manifest row {index} has invalid manifest_type")
+        if str(row.get("main_price_date", "")).strip() != main_price_date:
+            errors.append(f"semantic manifest row {index} main_price_date mismatch")
+        if str(row.get("pdf_role", "")).strip() not in EXPECTED_PDF_ROLES:
+            errors.append(f"semantic manifest row {index} has unknown pdf_role={row.get('pdf_role')!r}")
+        if str(row.get("rendered_row_type", "")).strip() not in {"data", "empty_state"}:
+            errors.append(f"semantic manifest row {index} has invalid rendered_row_type")
+        if str(row.get("rendered_row_type", "")).strip() == "data" and not str(row.get("stock_id", "")).strip():
+            errors.append(f"semantic manifest data row {index} missing stock_id")
+        source_sha = str(row.get("source_sha256", "")).strip()
+        if len(source_sha) != 64 and str(row.get("model_id", "")).strip():
+            errors.append(f"semantic manifest row {index} source_sha256 must be a sha256 hex digest")
+        source_artifact = str(row.get("source_artifact", "")).strip()
+        if str(row.get("model_id", "")).strip() and not source_artifact:
+            errors.append(f"semantic manifest row {index} missing source_artifact")
+        for token in FORBIDDEN_SEMANTIC_SOURCE_TOKENS:
+            if token in source_artifact:
+                errors.append(
+                    f"semantic manifest row {index} uses forbidden legacy/preview source artifact: {source_artifact}"
+                )
+    return errors
+
+
+def semantic_rows_matching(rows: list[dict[str, str]], case: dict[str, str]) -> list[dict[str, str]]:
+    def value(name: str) -> str:
+        return str(case.get(name, "") or "").strip()
+
+    filters = {
+        "pdf_role": value("pdf_role"),
+        "model_id": value("model_id"),
+        "pdf_section": value("pdf_section"),
+        "stock_id": value("stock_id"),
+    }
+    matched = []
+    for row in rows:
+        if str(row.get("rendered_row_type", "")).strip() != "data":
+            continue
+        if all(not expected or str(row.get(column, "")).strip() == expected for column, expected in filters.items()):
+            matched.append(row)
+    return matched
+
+
+def read_semantic_golden_cases(path: Path = SEMANTIC_GOLDEN_CASES_CONTRACT) -> list[dict[str, str]]:
+    if not path.exists():
+        return []
+    with path.open(newline="", encoding="utf-8-sig") as handle:
+        return list(csv.DictReader(handle))
+
+
+def validate_semantic_golden_cases(
+    rows: list[dict[str, str]],
+    main_price_date: str,
+    cases: list[dict[str, str]] | None = None,
+) -> list[str]:
+    errors: list[str] = []
+    for case in cases if cases is not None else read_semantic_golden_cases():
+        if not boolish(case.get("active")):
+            continue
+        report_date = str(case.get("report_date", "")).strip()
+        if report_date not in {main_price_date, "*"}:
+            continue
+        case_id = str(case.get("case_id", "")).strip() or "<missing_case_id>"
+        expectation = str(case.get("expectation", "")).strip()
+        matched = semantic_rows_matching(rows, case)
+        if expectation == "present":
+            if len(matched) != 1:
+                errors.append(f"{case_id}: expected exactly one semantic row, observed={len(matched)}")
+        elif expectation == "absent":
+            if matched:
+                errors.append(f"{case_id}: expected absent semantic row, observed={len(matched)}")
+        else:
+            errors.append(f"{case_id}: unsupported expectation={expectation!r}")
+    return errors
+
+
+def validate_semantic_manifest_contract(output_dir: Path, main_price_date: str) -> list[str]:
+    manifest, errors = read_runtime_manifest(output_dir)
+    if errors:
+        return errors
+    assert manifest is not None
+    rows, semantic_errors = read_semantic_manifest(output_dir, manifest)
+    errors.extend(semantic_errors)
+    if rows:
+        errors.extend(validate_semantic_manifest_schema(rows, main_price_date))
+        errors.extend(validate_semantic_golden_cases(rows, main_price_date))
+    return errors
+
+
 def validate_rendered_model_regression_texts(
     role_to_pages: dict[str, list[str]],
     main_price_date: str,
@@ -419,6 +564,16 @@ def validate_runtime_manifest(paths: list[Path], output_dir: Path, state: dict) 
     if manifest.get("pdf_paths") != expected_pdf_paths:
         errors.append("runtime manifest pdf_paths do not match emitted PDF paths")
 
+    expected_semantic_manifest_path = normalized_path_text(output_dir / SEMANTIC_MANIFEST_NAME)
+    observed_semantic_manifest_path = str(manifest.get("semantic_manifest_path", "")).strip()
+    if not observed_semantic_manifest_path:
+        errors.append("runtime manifest semantic_manifest_path is missing")
+    elif normalized_path_text(Path(observed_semantic_manifest_path)) != expected_semantic_manifest_path:
+        errors.append(
+            "runtime manifest semantic_manifest_path does not match expected output_dir manifest: "
+            f"{observed_semantic_manifest_path}"
+        )
+
     pdf_outputs = manifest.get("pdf_outputs")
     if not isinstance(pdf_outputs, list):
         errors.append("runtime manifest pdf_outputs must be a list of role/path objects")
@@ -511,6 +666,7 @@ def validate_replay(repo_root: Path, source_ref: str, output_dir: Path) -> tuple
     if not runtime_errors:
         errors.extend(validate_pdf_highlight_layout_contract(paths, output_dir))
         errors.extend(validate_rendered_model_regression_contract(paths, main_price_date, output_dir))
+        errors.extend(validate_semantic_manifest_contract(output_dir, main_price_date))
 
     if errors:
         raise ReplayValidationError("\n".join(errors))

@@ -1,0 +1,8 @@
+case_id,active,report_date,pdf_role,model_id,pdf_section,stock_id,expectation,reason
+w_bottom_20260706_6176_confirmed_present,True,20260706,mainstream_highlight,w_bottom_right_side,confirmed_operation,6176,present,20260706 accident guard: Radiant Opto-Electronics must remain W-bottom confirmed in digest replay
+w_bottom_20260706_1618_confirmed_absent,True,20260706,mainstream_highlight,w_bottom_right_side,confirmed_operation,1618,absent,20260706 accident guard: Syntek Semiconductor must not appear in W-bottom confirmed while already active
+w_bottom_20260706_1618_active_present,True,20260706,mainstream_highlight,w_bottom_right_side,active_operation,1618,present,20260706 accident guard: Syntek Semiconductor must remain active tracking only
+volume_20260706_3055_confirmed_present,True,20260706,mainstream_highlight,volume_range_breakout,confirmed_operation,3055,present,20260706 accident guard: Wholetech System must be volume-breakout confirmed
+volume_20260706_3055_active_absent,True,20260706,mainstream_highlight,volume_range_breakout,active_operation,3055,absent,20260706 accident guard: Wholetech System must not be volume-breakout active
+volume_20260706_1515_confirmed_absent,True,20260706,mainstream_highlight,volume_range_breakout,confirmed_operation,1515,absent,20260706 accident guard: Lishan full-only/unranked row must not enter digest confirmed
+volume_20260706_1515_active_absent,True,20260706,mainstream_highlight,volume_range_breakout,active_operation,1515,absent,20260706 accident guard: Lishan must not enter digest active

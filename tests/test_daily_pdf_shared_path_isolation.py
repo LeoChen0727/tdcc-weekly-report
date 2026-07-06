@@ -20,10 +20,14 @@ def test_price_pullback_operation_renderer_uses_model_owned_line_filter() -> Non
     tree = validator.ast.parse(source)
     functions = validator.function_nodes(tree)
     body = validator.function_text(source, functions["render_price_pullback_operation_section"])
+    selector_body = validator.function_text(source, functions["price_pullback_operation_all_rows_for_pdf"])
 
-    assert "filter_price_pullback_operation_rows_for_line" in body
+    assert "selected_price_pullback_operation_rows_for_pdf" in body
+    assert "filter_price_pullback_operation_rows_for_line" in selector_body
     assert "filter_w_bottom_operation_rows_for_line" not in body
+    assert "filter_w_bottom_operation_rows_for_line" not in selector_body
     assert "volume_operation_" not in body
+    assert "volume_operation_" not in selector_body
 
 
 def test_daily_pdf_shared_path_inventory_registers_operation_like_symbols() -> None:
