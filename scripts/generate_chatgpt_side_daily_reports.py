@@ -69,6 +69,12 @@ VOLUME_BREAKOUT_MODEL_ID = "volume_range_breakout"
 W_BOTTOM_RIGHT_SIDE_MODEL_ID = "w_bottom_right_side"
 W_BOTTOM_NECKLINE_BREAKOUT_MODEL_ID = "neckline_volume_breakout_confirmation"
 PRICE_PULLBACK_MODEL_ID = "price_pullback_23ema"
+OPERATION_MODEL_DISPLAY_NAMES = {
+    VOLUME_BREAKOUT_MODEL_ID: "放量攻擊模型",
+    W_BOTTOM_RIGHT_SIDE_MODEL_ID: "W底右側模型",
+    W_BOTTOM_NECKLINE_BREAKOUT_MODEL_ID: "W底頸線帶量突破確認模型",
+    PRICE_PULLBACK_MODEL_ID: "23EMA回檔模型",
+}
 PDF_PRESENTATION_MODEL_ORDER_OVERRIDES = {
     VOLUME_BREAKOUT_MODEL_ID: 1.0,
     W_BOTTOM_RIGHT_SIDE_MODEL_ID: 1.1,
@@ -1258,6 +1264,9 @@ def build_table(
     widths: list[float],
     font_size: float = 7.2,
     header_bg=colors.HexColor("#1f4e79"),
+    repeat_rows: int = 1,
+    header_rows: int = 1,
+    span_first_row: bool = False,
 ) -> Table:
     font_size = max(font_size, 12.0)
     style = BODY_TINY if font_size < 7.0 else BODY_SMALL
@@ -1266,30 +1275,41 @@ def build_table(
         row_style = ParagraphStyle(
             f"tbl_{id(rows)}_{idx}",
             parent=style,
-            fontName=FONT_BOLD if idx == 0 else FONT_NAME,
+            fontName=FONT_BOLD if idx < header_rows else FONT_NAME,
             fontSize=font_size,
             leading=font_size + 1.8,
-            textColor=colors.white if idx == 0 else colors.black,
+            textColor=colors.white if idx < header_rows else colors.black,
             wordWrap="CJK",
-            alignment=TA_CENTER if idx == 0 else TA_LEFT,
+            alignment=TA_CENTER if idx < header_rows else TA_LEFT,
         )
         data.append([table_para(cell, row_style) for cell in row])
-    table = Table(data, colWidths=widths, repeatRows=1, splitByRow=1)
-    table.setStyle(
-        TableStyle(
-            [
-                ("BACKGROUND", (0, 0), (-1, 0), header_bg),
-                ("GRID", (0, 0), (-1, -1), 0.25, colors.HexColor("#b7b7b7")),
-                ("VALIGN", (0, 0), (-1, -1), "TOP"),
-                ("LEFTPADDING", (0, 0), (-1, -1), 3),
-                ("RIGHTPADDING", (0, 0), (-1, -1), 3),
-                ("TOPPADDING", (0, 0), (-1, -1), 2.5),
-                ("BOTTOMPADDING", (0, 0), (-1, -1), 2.5),
-                ("ROWBACKGROUNDS", (0, 1), (-1, -1), [colors.white, colors.HexColor("#f6f8fa")]),
-            ]
-        )
-    )
+    table = Table(data, colWidths=widths, repeatRows=repeat_rows, splitByRow=1)
+    commands = [
+        ("BACKGROUND", (0, 0), (-1, max(header_rows - 1, 0)), header_bg),
+        ("GRID", (0, 0), (-1, -1), 0.25, colors.HexColor("#b7b7b7")),
+        ("VALIGN", (0, 0), (-1, -1), "TOP"),
+        ("LEFTPADDING", (0, 0), (-1, -1), 3),
+        ("RIGHTPADDING", (0, 0), (-1, -1), 3),
+        ("TOPPADDING", (0, 0), (-1, -1), 2.5),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 2.5),
+        ("ROWBACKGROUNDS", (0, header_rows), (-1, -1), [colors.white, colors.HexColor("#f6f8fa")]),
+    ]
+    if span_first_row and rows:
+        commands.append(("SPAN", (0, 0), (-1, 0)))
+    table.setStyle(TableStyle(commands))
     return table
+
+
+def operation_table_title_row(title: str, column_count: int) -> list[str]:
+    return [title, *("" for _ in range(max(column_count - 1, 0)))]
+
+
+def operation_table_title(model_name: str, section_title: str) -> str:
+    return f"{model_name} - {section_title}"
+
+
+def operation_model_display_name(model_id: str) -> str:
+    return OPERATION_MODEL_DISPLAY_NAMES.get(model_id, model_id)
 
 
 def date_note() -> Paragraph:
@@ -2325,7 +2345,7 @@ def w_bottom_operation_note_label(row: pd.Series) -> str:
 
 
 def build_volume_confirmed_operation_table(rows: pd.DataFrame) -> Table:
-    data = [[
+    columns = [
         "排名",
         "股票",
         "確認方式",
@@ -2338,7 +2358,14 @@ def build_volume_confirmed_operation_table(rows: pd.DataFrame) -> Table:
         "勝率",
         "中位數報酬",
         "排名原因",
-    ]]
+    ]
+    data = [
+        operation_table_title_row(
+            operation_table_title(operation_model_display_name(VOLUME_BREAKOUT_MODEL_ID), OPERATION_CONFIRMED_BUY_TABLE_TITLE),
+            len(columns),
+        ),
+        columns,
+    ]
     if rows.empty:
         data.append(["-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", MODEL_EMPTY_STATE_TEXT])
     for _, row in rows.iterrows():
@@ -2363,11 +2390,14 @@ def build_volume_confirmed_operation_table(rows: pd.DataFrame) -> Table:
         [8 * mm, 18 * mm, 27 * mm, 18 * mm, 31 * mm, 28 * mm, 35 * mm, 28 * mm, 11 * mm, 14 * mm, 17 * mm, 38 * mm],
         12.0,
         header_bg=colors.HexColor("#7f6000"),
+        repeat_rows=2,
+        header_rows=2,
+        span_first_row=True,
     )
 
 
 def build_volume_unranked_operation_table(rows: pd.DataFrame) -> Table:
-    data = [[
+    columns = [
         "股票",
         "確認方式",
         "確認日",
@@ -2376,7 +2406,14 @@ def build_volume_unranked_operation_table(rows: pd.DataFrame) -> Table:
         "勝率",
         "中位數報酬",
         "證據狀態",
-    ]]
+    ]
+    data = [
+        operation_table_title_row(
+            operation_table_title(operation_model_display_name(VOLUME_BREAKOUT_MODEL_ID), "已確認但未通過買入排名門檻"),
+            len(columns),
+        ),
+        columns,
+    ]
     if rows.empty:
         data.append(["-", "-", "-", "目前沒有已確認但未通過買入排名門檻的股票。", "-", "-", "-", "-"])
     for _, row in rows.iterrows():
@@ -2402,11 +2439,21 @@ def build_volume_unranked_operation_table(rows: pd.DataFrame) -> Table:
         [28 * mm, 32 * mm, 18 * mm, 78 * mm, 14 * mm, 16 * mm, 20 * mm, 42 * mm],
         12.0,
         header_bg=colors.HexColor("#8064a2"),
+        repeat_rows=2,
+        header_rows=2,
+        span_first_row=True,
     )
 
 
 def build_volume_pending_operation_table(rows: pd.DataFrame) -> Table:
-    data = [["股票", "等待天數", "等待分組", "待確認條件", "模型分數 / 排名原因", "進場 / 停損狀態", "狀態"]]
+    columns = ["股票", "等待天數", "等待分組", "待確認條件", "模型分數 / 排名原因", "進場 / 停損狀態", "狀態"]
+    data = [
+        operation_table_title_row(
+            operation_table_title(operation_model_display_name(VOLUME_BREAKOUT_MODEL_ID), "待確認"),
+            len(columns),
+        ),
+        columns,
+    ]
     if rows.empty:
         data.append(["-", "-", "-", "目前無待確認列。", "-", "不列進場價 / 不列停損價", "待確認"])
     for _, row in rows.iterrows():
@@ -2430,11 +2477,21 @@ def build_volume_pending_operation_table(rows: pd.DataFrame) -> Table:
         [26 * mm, 20 * mm, 24 * mm, 62 * mm, 76 * mm, 40 * mm, 25 * mm],
         12.0,
         header_bg=colors.HexColor("#5f7530"),
+        repeat_rows=2,
+        header_rows=2,
+        span_first_row=True,
     )
 
 
 def build_volume_active_operation_table(rows: pd.DataFrame) -> Table:
-    data = [["股票", "確認方式", "進場日 / 價", "停損基準", "持有天數", "出場規則", "操作 / 最終分數", "備註"]]
+    columns = ["股票", "確認方式", "進場日 / 價", "停損基準", "持有天數", "出場規則", "操作 / 最終分數", "備註"]
+    data = [
+        operation_table_title_row(
+            operation_table_title(operation_model_display_name(VOLUME_BREAKOUT_MODEL_ID), OPERATION_ACTIVE_TABLE_TITLE),
+            len(columns),
+        ),
+        columns,
+    ]
     if rows.empty:
         data.append(["-", "-", "-", "-", "-", "-", "-", OPERATION_ACTIVE_EMPTY_STATE_TEXT])
     for _, row in rows.iterrows():
@@ -2460,11 +2517,14 @@ def build_volume_active_operation_table(rows: pd.DataFrame) -> Table:
         [30 * mm, 28 * mm, 36 * mm, 34 * mm, 22 * mm, 46 * mm, 32 * mm, 45 * mm],
         12.0,
         header_bg=colors.HexColor("#44546a"),
+        repeat_rows=2,
+        header_rows=2,
+        span_first_row=True,
     )
 
 
-def build_w_bottom_confirmed_operation_table(rows: pd.DataFrame) -> Table:
-    data = [[
+def build_w_bottom_confirmed_operation_table(rows: pd.DataFrame, model_name: str) -> Table:
+    columns = [
         "排名",
         "股票",
         "確認方式",
@@ -2477,7 +2537,14 @@ def build_w_bottom_confirmed_operation_table(rows: pd.DataFrame) -> Table:
         "勝率",
         "中位數報酬",
         "備註",
-    ]]
+    ]
+    data = [
+        operation_table_title_row(
+            operation_table_title(model_name, OPERATION_CONFIRMED_BUY_TABLE_TITLE),
+            len(columns),
+        ),
+        columns,
+    ]
     if rows.empty:
         data.append(["-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", MODEL_EMPTY_STATE_TEXT])
     for _, row in rows.iterrows():
@@ -2502,11 +2569,21 @@ def build_w_bottom_confirmed_operation_table(rows: pd.DataFrame) -> Table:
         [8 * mm, 28 * mm, 34 * mm, 18 * mm, 35 * mm, 30 * mm, 40 * mm, 30 * mm, 13 * mm, 15 * mm, 18 * mm, 22 * mm],
         12.0,
         header_bg=colors.HexColor("#7f6000"),
+        repeat_rows=2,
+        header_rows=2,
+        span_first_row=True,
     )
 
 
-def build_w_bottom_active_operation_table(rows: pd.DataFrame) -> Table:
-    data = [["股票", "確認方式", "進場日 / 價", "停損基準", "持有天數", "出場規則", "操作 / 模型分數", "備註"]]
+def build_w_bottom_active_operation_table(rows: pd.DataFrame, model_name: str) -> Table:
+    columns = ["股票", "確認方式", "進場日 / 價", "停損基準", "持有天數", "出場規則", "操作 / 模型分數", "備註"]
+    data = [
+        operation_table_title_row(
+            operation_table_title(model_name, OPERATION_ACTIVE_TABLE_TITLE),
+            len(columns),
+        ),
+        columns,
+    ]
     if rows.empty:
         data.append(["-", "-", "-", "-", "-", "-", "-", OPERATION_ACTIVE_EMPTY_STATE_TEXT])
     for _, row in rows.iterrows():
@@ -2527,6 +2604,9 @@ def build_w_bottom_active_operation_table(rows: pd.DataFrame) -> Table:
         [30 * mm, 36 * mm, 36 * mm, 34 * mm, 22 * mm, 50 * mm, 32 * mm, 33 * mm],
         12.0,
         header_bg=colors.HexColor("#44546a"),
+        repeat_rows=2,
+        header_rows=2,
+        span_first_row=True,
     )
 
 
@@ -2558,7 +2638,14 @@ def price_pullback_note_label(row: pd.Series) -> str:
 
 
 def build_price_pullback_confirmed_operation_table(rows: pd.DataFrame) -> Table:
-    data = [["股票", "操作品質", "訊號日", "買入", "賣出", "停損", "勝/和/敗/報酬", "理由 / 風險"]]
+    columns = ["股票", "操作品質", "訊號日", "買入", "賣出", "停損", "勝/和/敗/報酬", "理由 / 風險"]
+    data = [
+        operation_table_title_row(
+            operation_table_title(operation_model_display_name(PRICE_PULLBACK_MODEL_ID), OPERATION_CONFIRMED_BUY_TABLE_TITLE),
+            len(columns),
+        ),
+        columns,
+    ]
     if rows.empty:
         data.append(["-", "-", "-", MODEL_EMPTY_STATE_TEXT, "-", "-", "-", "-"])
     for _, row in rows.iterrows():
@@ -2579,11 +2666,21 @@ def build_price_pullback_confirmed_operation_table(rows: pd.DataFrame) -> Table:
         [26 * mm, 22 * mm, 18 * mm, 42 * mm, 43 * mm, 43 * mm, 33 * mm, 46 * mm],
         11.0,
         header_bg=colors.HexColor("#7f6000"),
+        repeat_rows=2,
+        header_rows=2,
+        span_first_row=True,
     )
 
 
 def build_price_pullback_active_operation_table(rows: pd.DataFrame) -> Table:
-    data = [["股票", "操作品質", "訊號日", "買入", "出場 / 停損", "持有天數", "目前狀態", "理由 / 風險"]]
+    columns = ["股票", "操作品質", "訊號日", "買入", "出場 / 停損", "持有天數", "目前狀態", "理由 / 風險"]
+    data = [
+        operation_table_title_row(
+            operation_table_title(operation_model_display_name(PRICE_PULLBACK_MODEL_ID), OPERATION_ACTIVE_TABLE_TITLE),
+            len(columns),
+        ),
+        columns,
+    ]
     if rows.empty:
         data.append(["-", "-", "-", "-", "-", "-", OPERATION_ACTIVE_EMPTY_STATE_TEXT, "-"])
     for _, row in rows.iterrows():
@@ -2608,6 +2705,9 @@ def build_price_pullback_active_operation_table(rows: pd.DataFrame) -> Table:
         [26 * mm, 22 * mm, 18 * mm, 42 * mm, 62 * mm, 20 * mm, 34 * mm, 49 * mm],
         11.0,
         header_bg=colors.HexColor("#44546a"),
+        repeat_rows=2,
+        header_rows=2,
+        span_first_row=True,
     )
 
 
@@ -2618,6 +2718,7 @@ def render_w_bottom_operation_section(
     pdf_view: str,
     line: str | None = None,
 ) -> None:
+    model_name = operation_model_display_name(model_id)
     confirmed_all = filter_w_bottom_operation_rows_for_line(
         w_bottom_operation_frame(inputs, model_id, pdf_view, "confirmed_operation"),
         line,
@@ -2641,10 +2742,10 @@ def render_w_bottom_operation_section(
 
     story.append(Spacer(1, 6))
     story.append(Paragraph(OPERATION_CONFIRMED_BUY_TABLE_TITLE, H2))
-    story.append(build_w_bottom_confirmed_operation_table(confirmed))
+    story.append(build_w_bottom_confirmed_operation_table(confirmed, model_name))
     story.append(Spacer(1, 5))
     story.append(Paragraph(OPERATION_ACTIVE_TABLE_TITLE, H2))
-    story.append(build_w_bottom_active_operation_table(active_rows))
+    story.append(build_w_bottom_active_operation_table(active_rows, model_name))
 
 
 def render_price_pullback_operation_section(

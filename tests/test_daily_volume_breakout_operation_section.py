@@ -1082,7 +1082,7 @@ def test_pdf_operation_highlight_limits_apply_after_report_line_filter() -> None
 def test_pdf_operation_renderer_uses_row_level_buy_eligibility(monkeypatch) -> None:
     captured_tables: list[list[list[str]]] = []
 
-    def capture_table(rows, widths, font_size=7.2, header_bg=None):
+    def capture_table(rows, widths, font_size=7.2, header_bg=None, **_kwargs):
         captured_tables.append(rows)
         return rows
 
@@ -1192,7 +1192,8 @@ def test_pdf_operation_renderer_uses_row_level_buy_eligibility(monkeypatch) -> N
 
     assert len(captured_tables) == 2
     confirmed, active = captured_tables
-    assert confirmed[0] == [
+    assert confirmed[0][0] == "放量攻擊模型 - 本日可買 / 已確認買入候選"
+    assert confirmed[1] == [
         "排名",
         "股票",
         "確認方式",
@@ -1206,17 +1207,18 @@ def test_pdf_operation_renderer_uses_row_level_buy_eligibility(monkeypatch) -> N
         "中位數報酬",
         "排名原因",
     ]
-    assert confirmed[1][1] == "1111 測試A"
-    assert confirmed[1][2] == "隔日突破訊號高點"
-    assert confirmed[1][3] == "2026/6/12"
-    assert confirmed[1][4] == "確認後下一交易日開盤，尚未產生"
-    assert confirmed[1][5] == "6/11最低點 10.00"
-    assert confirmed[1][6] == "跌破停損基準，否則最多第 10 個交易日收盤"
-    assert confirmed[1][7] == "操作 12.30 / 最終 88.80"
-    assert confirmed[1][11] == "正式分數理由"
+    assert confirmed[2][1] == "1111 測試A"
+    assert confirmed[2][2] == "隔日突破訊號高點"
+    assert confirmed[2][3] == "2026/6/12"
+    assert confirmed[2][4] == "確認後下一交易日開盤，尚未產生"
+    assert confirmed[2][5] == "6/11最低點 10.00"
+    assert confirmed[2][6] == "跌破停損基準，否則最多第 10 個交易日收盤"
+    assert confirmed[2][7] == "操作 12.30 / 最終 88.80"
+    assert confirmed[2][11] == "正式分數理由"
     assert "2222 測試B" not in " ".join(str(cell) for row in confirmed for cell in row)
-    assert active[0] == ["股票", "確認方式", "進場日 / 價", "停損基準", "持有天數", "出場規則", "操作 / 最終分數", "備註"]
-    assert active[1][7] == "目前無操作中追蹤列"
+    assert active[0][0] == "放量攻擊模型 - 操作中"
+    assert active[1] == ["股票", "確認方式", "進場日 / 價", "停損基準", "持有天數", "出場規則", "操作 / 最終分數", "備註"]
+    assert active[2][7] == "目前無操作中追蹤列"
 
     visible = "\n".join(str(cell) for table in captured_tables for row in table for cell in row)
     assert "2222 測試B" not in visible
@@ -1234,7 +1236,7 @@ def test_pdf_operation_renderer_uses_row_level_buy_eligibility(monkeypatch) -> N
 def test_pdf_operation_renderer_full_shows_confirmed_unranked(monkeypatch) -> None:
     captured_tables: list[list[list[str]]] = []
 
-    def capture_table(rows, widths, font_size=7.2, header_bg=None):
+    def capture_table(rows, widths, font_size=7.2, header_bg=None, **_kwargs):
         captured_tables.append(rows)
         return rows
 
@@ -1302,10 +1304,11 @@ def test_pdf_operation_renderer_full_shows_confirmed_unranked(monkeypatch) -> No
 
     assert len(captured_tables) == 4
     _, unranked, _, _ = captured_tables
-    assert unranked[0] == ["股票", "確認方式", "確認日", "未列排名原因", "樣本數", "勝率", "中位數報酬", "證據狀態"]
-    assert unranked[1][0] == "3333 測試C"
-    assert unranked[1][3] == "已確認但證據未過門檻"
-    assert unranked[1][7] == "歷史證據未過門檻"
+    assert unranked[0][0] == "放量攻擊模型 - 已確認但未通過買入排名門檻"
+    assert unranked[1] == ["股票", "確認方式", "確認日", "未列排名原因", "樣本數", "勝率", "中位數報酬", "證據狀態"]
+    assert unranked[2][0] == "3333 測試C"
+    assert unranked[2][3] == "已確認但證據未過門檻"
+    assert unranked[2][7] == "歷史證據未過門檻"
     visible = "\n".join(str(cell) for table in captured_tables for row in table for cell in row)
     assert "confirmed_not_buy_ranked" not in visible
     assert "row_level_evidence_not_buy_ranked" not in visible
@@ -1314,7 +1317,7 @@ def test_pdf_operation_renderer_full_shows_confirmed_unranked(monkeypatch) -> No
 def test_pdf_operation_renderer_keeps_highlight_empty_tables(monkeypatch) -> None:
     captured_tables: list[list[list[str]]] = []
 
-    def capture_table(rows, widths, font_size=7.2, header_bg=None):
+    def capture_table(rows, widths, font_size=7.2, header_bg=None, **_kwargs):
         captured_tables.append(rows)
         return rows
 
@@ -1362,9 +1365,11 @@ def test_pdf_operation_renderer_keeps_highlight_empty_tables(monkeypatch) -> Non
 
     assert len(captured_tables) == 2
     confirmed, active = captured_tables
-    assert confirmed[0][:2] == ["排名", "股票"]
-    assert confirmed[1][11] == "本日無股票推薦"
-    assert active[0][:2] == ["股票", "確認方式"]
+    assert confirmed[0][0] == "放量攻擊模型 - 本日可買 / 已確認買入候選"
+    assert confirmed[1][:2] == ["排名", "股票"]
+    assert confirmed[2][11] == "本日無股票推薦"
+    assert active[0][0] == "放量攻擊模型 - 操作中"
+    assert active[1][:2] == ["股票", "確認方式"]
     story_text = "\n".join(
         flowable.getPlainText()
         for flowable in story
@@ -1493,7 +1498,7 @@ def price_pullback_operation_row(
 def test_price_pullback_pdf_renderer_uses_model_owned_adapter_rows(monkeypatch) -> None:
     captured_tables: list[list[list[str]]] = []
 
-    def capture_table(rows, widths, font_size=7.2, header_bg=None):
+    def capture_table(rows, widths, font_size=7.2, header_bg=None, **_kwargs):
         captured_tables.append(rows)
         return rows
 
@@ -1540,17 +1545,19 @@ def test_price_pullback_pdf_renderer_uses_model_owned_adapter_rows(monkeypatch) 
     assert rendered is True
     assert len(captured_tables) == 2
     confirmed, active = captured_tables
-    assert confirmed[0] == ["股票", "操作品質", "訊號日", "買入", "賣出", "停損", "勝/和/敗/報酬", "理由 / 風險"]
-    assert "排名" not in confirmed[0]
-    assert confirmed[1][0] == "3333 PricePullback"
-    assert confirmed[1][1] == "技術強勢"
-    assert "隔日開盤買入" in confirmed[1][3]
-    assert "隔日開盤賣出" in confirmed[1][4]
-    assert "下一個交易日" not in confirmed[1][3]
-    assert "下一個交易日" not in confirmed[1][4]
-    assert "66.03%" in confirmed[1][6]
-    assert "75.54%" in confirmed[1][6]
-    assert active[1][6] == pdf_generator.OPERATION_ACTIVE_EMPTY_STATE_TEXT
+    assert confirmed[0][0] == "23EMA回檔模型 - 本日可買 / 已確認買入候選"
+    assert confirmed[1] == ["股票", "操作品質", "訊號日", "買入", "賣出", "停損", "勝/和/敗/報酬", "理由 / 風險"]
+    assert "排名" not in confirmed[1]
+    assert confirmed[2][0] == "3333 PricePullback"
+    assert confirmed[2][1] == "技術強勢"
+    assert "隔日開盤買入" in confirmed[2][3]
+    assert "隔日開盤賣出" in confirmed[2][4]
+    assert "下一個交易日" not in confirmed[2][3]
+    assert "下一個交易日" not in confirmed[2][4]
+    assert "66.03%" in confirmed[2][6]
+    assert "75.54%" in confirmed[2][6]
+    assert active[0][0] == "23EMA回檔模型 - 操作中"
+    assert active[2][6] == pdf_generator.OPERATION_ACTIVE_EMPTY_STATE_TEXT
     visible = "\n".join(str(cell) for table in captured_tables for row in table for cell in row)
     assert "9999" not in visible
     assert "CandidateLeak" not in visible
@@ -1559,7 +1566,7 @@ def test_price_pullback_pdf_renderer_uses_model_owned_adapter_rows(monkeypatch) 
 def test_w_bottom_pdf_renderer_uses_model_owned_adapter_rows(monkeypatch) -> None:
     captured_tables: list[list[list[str]]] = []
 
-    def capture_table(rows, widths, font_size=7.2, header_bg=None):
+    def capture_table(rows, widths, font_size=7.2, header_bg=None, **_kwargs):
         captured_tables.append(rows)
         return rows
 
@@ -1605,8 +1612,10 @@ def test_w_bottom_pdf_renderer_uses_model_owned_adapter_rows(monkeypatch) -> Non
 
     assert len(captured_tables) == 2
     confirmed, active = captured_tables
-    assert confirmed[1][1] == "1111 WBuy"
-    assert active[1][0] == "2222 WActive"
+    assert confirmed[0][0] == "W底右側模型 - 本日可買 / 已確認買入候選"
+    assert confirmed[2][1] == "1111 WBuy"
+    assert active[0][0] == "W底右側模型 - 操作中"
+    assert active[2][0] == "2222 WActive"
     visible = "\n".join(str(cell) for table in captured_tables for row in table for cell in row)
     assert "9999" not in visible
     assert "CandidateLeak" not in visible
@@ -1624,7 +1633,7 @@ def test_w_bottom_pdf_renderer_uses_model_owned_adapter_rows(monkeypatch) -> Non
 def test_w_bottom_pdf_renderer_sanitizes_pending_entry_price_text(monkeypatch) -> None:
     captured_tables: list[list[list[str]]] = []
 
-    def capture_table(rows, widths, font_size=7.2, header_bg=None):
+    def capture_table(rows, widths, font_size=7.2, header_bg=None, **_kwargs):
         captured_tables.append(rows)
         return rows
 
@@ -1687,7 +1696,7 @@ def test_w_bottom_pdf_renderer_fails_closed_without_integrated_readiness() -> No
 def test_w_bottom_pdf_renderer_keeps_model_owned_empty_state_inside_tables(monkeypatch) -> None:
     captured_tables: list[list[list[str]]] = []
 
-    def capture_table(rows, widths, font_size=7.2, header_bg=None):
+    def capture_table(rows, widths, font_size=7.2, header_bg=None, **_kwargs):
         captured_tables.append(rows)
         return rows
 
@@ -1731,5 +1740,7 @@ def test_w_bottom_pdf_renderer_keeps_model_owned_empty_state_inside_tables(monke
 
     assert len(captured_tables) == 2
     confirmed, active = captured_tables
-    assert confirmed[1][-1] == pdf_generator.MODEL_EMPTY_STATE_TEXT
-    assert active[1][-1] == pdf_generator.OPERATION_ACTIVE_EMPTY_STATE_TEXT
+    assert confirmed[0][0] == "W底頸線帶量突破確認模型 - 本日可買 / 已確認買入候選"
+    assert confirmed[2][-1] == pdf_generator.MODEL_EMPTY_STATE_TEXT
+    assert active[0][0] == "W底頸線帶量突破確認模型 - 操作中"
+    assert active[2][-1] == pdf_generator.OPERATION_ACTIVE_EMPTY_STATE_TEXT
