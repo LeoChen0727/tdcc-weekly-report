@@ -14,7 +14,7 @@ The validator is:
 
 - `scripts/validate_daily_pdf_shared_path_isolation.py`
 
-The validator fails closed when a PDF operation-like renderer function is not registered, when a low-level shared function owns business semantics, when a model-specific operation renderer calls another model's frame/filter/table path, or when stock PDF builders bypass the operation dispatcher.
+The validator fails closed when a PDF operation-like renderer function is not registered, when an operation-named helper is missing from the inventory, when semantic-manifest operation helpers are missing from the inventory, when a low-level shared function owns business semantics, when a model-specific operation renderer calls another model's frame/filter/table path, or when stock PDF builders bypass the operation dispatcher.
 
 ## Allowed Shared Paths
 
@@ -25,6 +25,8 @@ Only low-level PDF utilities are allowed to be shared across PDF outputs and mod
 - `write_pdf`
 
 These functions may format paragraphs, construct a table from caller-supplied rows/columns, or write a PDF file. They must not choose model sections, report line, row limits, ranking, stock lifecycle, operation state, or business wording.
+
+The validator checks these helpers for business tokens such as `model_id`, `stock_id`, `pdf_section`, `report_line`, `buy_rank_eligible`, `operation_status`, and model constants. If any low-level helper starts using those tokens, it must be split or reclassified before merge.
 
 ## Business-Semantic Paths
 
@@ -38,6 +40,9 @@ The following classes are business-semantic and must stay explicitly owned:
   - `build_warrant_market_auxiliary_pdf`
   - `build_market_risk_background_pdf`
 - Model-specific operation frames, filters, row limits, renderers, and tables.
+- Model-specific operation labels and wording helpers.
+- Report-specific operation representative/page builders.
+- Shared operation summary and semantic-manifest contract helpers.
 - The guarded operation dispatcher:
   - `render_model_operation_section_if_applicable`
 
@@ -54,7 +59,9 @@ This keeps the 23EMA operation renderer independent from the W-bottom operation 
 
 ## Remaining Rule
 
-Future daily PDF or model operation changes must update the inventory when adding or renaming any function that matches these operation-like surfaces:
+Future daily PDF or model operation changes must update the inventory when adding or renaming any function that contains operation semantics, including old or compatibility code paths. A helper is not safe just because it is old. If it can affect model rows, operation state, section placement, table wording, semantic manifest rows, or report-line routing, it must be registered, split, or removed after owner/dependency audit.
+
+At minimum, update the inventory when adding or renaming any function that matches these operation-like surfaces:
 
 - `build_*_operation_table`
 - `render_*operation_section`
@@ -62,5 +69,7 @@ Future daily PDF or model operation changes must update the inventory when addin
 - `filter_*operation_rows_for_line`
 - `limit_*operation_rows_for_pdf_view`
 - `*_operation_row_matches_line`
+- any function name containing `operation`
+- semantic manifest helpers that write or select operation rows
 
 Adding a model-owned operation adapter is not enough. The renderer path must also be registered and validated so changing model A cannot silently change model B.
