@@ -1,9 +1,9 @@
 {
   "status": "pass",
   "parameter_rows": 15,
-  "raw_signal_rows": 401,
-  "signal_rows": 401,
-  "same_model_repeat_rows": 242,
+  "raw_signal_rows": 404,
+  "signal_rows": 404,
+  "same_model_repeat_rows": 243,
   "rotation_rows": 10,
   "packet_lines": 214,
   "expected_signal_date": "20260706",

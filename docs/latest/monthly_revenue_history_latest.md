@@ -1,6 +1,6 @@
 # Monthly Revenue History Data Layer
 
-- generated_at: `2026-07-06 16:00:35 Asia/Taipei`
+- generated_at: `2026-07-06 17:27:19 Asia/Taipei`
 - history_id: `monthly_revenue_history`
 - history_version: `official_mops_monthly_revenue_v1`
 - source_kind: `official_mops_current_monthly_revenue_openapi;official_mops_static_monthly_revenue_html_conservative_available_date_v1`
