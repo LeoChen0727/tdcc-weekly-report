@@ -21,6 +21,12 @@ SUMMARY_MD = LATEST_DIR / "daily_candidate_model_summary_for_report_latest.md"
 
 
 REPORT_LINES = ("mainstream", "non_mainstream")
+PRICE_PULLBACK_MODEL_ID = "price_pullback_23ema"
+PRICE_PULLBACK_PDF_OPERATION_DESCRIPTION_ZH = (
+    "買入：本表股票為23EMA回檔模型通過候選，下一個交易日開盤買入。"
+    "賣出：收盤突破訊號日前20日高點後，下一個交易日開盤賣出。"
+    "停損：收盤連續4天低於MA20/EMA23較低者4%，下一個交易日開盤停損。"
+)
 
 
 def read_csv(path: Path) -> pd.DataFrame:
@@ -126,6 +132,8 @@ def build_registry(parameters: pd.DataFrame) -> pd.DataFrame:
             or safe_str(row.get("operation_guidance"))
             or "依程式端模型條件選出。"
         )
+        if model_id == PRICE_PULLBACK_MODEL_ID:
+            description = PRICE_PULLBACK_PDF_OPERATION_DESCRIPTION_ZH
         rows.append(
             {
                 "model_id": model_id,

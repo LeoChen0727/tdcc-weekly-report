@@ -229,6 +229,7 @@ tests/test_daily_published_model_snapshots.py,test_python,daily_production,activ
 tests/test_daily_published_snapshot_ranking_backtest.py,test_python,research_backtest,active,research/backtest test: test_daily_published_snapshot_ranking_backtest,,
 tests/test_daily_report_source_preflight.py,test_python,daily_production,active,daily production test: test_daily_report_source_preflight,,
 tests/test_daily_report_source_resolver.py,test_python,daily_production,active,daily production test: test_daily_report_source_resolver,,
+tests/test_daily_report_model_summary.py,test_python,daily_production,active,daily production test: test_daily_report_model_summary,,
 tests/test_daily_theme_leadership_layer.py,test_python,daily_production,active,daily production test: test_daily_theme_leadership_layer,,
 tests/test_daily_volume_breakout_operation_section.py,test_python,daily_production,active,daily production test: test_daily_volume_breakout_operation_section,,
 tests/test_daily_price_pullback_23ema_operation_section.py,test_python,daily_production,active,daily model test: test_daily_price_pullback_23ema_operation_section,,

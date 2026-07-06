@@ -52,6 +52,7 @@ def test_daily_model_maintenance_pr_workflow_runs_focused_pdf_operation_tests() 
         "tests/test_daily_volume_breakout_operation_section.py",
         "tests/test_daily_w_bottom_operation_sections.py",
         "tests/test_daily_price_pullback_23ema_operation_section.py",
+        "tests/test_daily_report_model_summary.py",
         "tests/test_daily_production_boundaries.py",
         "tests/test_repo_hidden_coupling_audit.py",
         "tests/test_stock_model_contract_registry.py",
