@@ -2,9 +2,9 @@
 
 - status: `pass`
 - main_price_date: `20260703`
-- all_candidates_rows: `732`
-- raw_model_signal_rows: `397`
-- report_model_signal_rows: `397`
+- all_candidates_rows: `583`
+- raw_model_signal_rows: `300`
+- report_model_signal_rows: `300`
 - selected_condition_error_count: `0`
 - selected_condition_warning_count: `0`
 - expected_volume_breakout_stock_count: `49`
