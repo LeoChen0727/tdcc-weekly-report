@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5426 振發
 
 ## Metadata
-- generated_at: 2026-07-05 22:27:34 Asia/Taipei
+- generated_at: 2026-07-06 22:27:38 Asia/Taipei
 - stock_id: 5426
 - stock_name: 振發
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 162
+- latest_price_date: 20260706
+- price_rows: 163
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 32.3
-- high: 32.75
+- date: 20260706
+- open: 32.65
+- high: 33.3
 - low: 31.55
-- close: 31.75
-- volume: 1505000
-- ma5: 32.28
+- close: 31.55
+- volume: 1584000
+- ma5: 32.37
 - ema23_primary: 31.5
-- distance_to_ema23_pct: 0.8
-- ma20: 34.19
-- ma60: 24.09
-- ma120: 21.98
-- return_5d: -2.46
-- return_20d: 16.51
-- volume_ratio: 0.37
-- distance_to_ma20_pct_auxiliary: -7.14
-- distance_to_high_60_pct: -21.12
+- distance_to_ema23_pct: 0.16
+- ma20: 34.27
+- ma60: 24.29
+- ma120: 22.08
+- return_5d: 1.45
+- return_20d: 5.34
+- volume_ratio: 0.39
+- distance_to_ma20_pct_auxiliary: -7.94
+- distance_to_high_60_pct: -21.61
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,29,29.95,28.6,29.95,30000,20.93,43.09,20.04,19.41,0.17
 20260608,27.5,32.9,27.5,32.9,25476000,21.93,50.03,20.75,19.64,17.93
 20260609,34,36.05,34,36.05,7196000,23.11,56.03,21.66,19.93,4.11
 20260610,35.3,35.4,32.45,32.45,5000000,23.88,35.87,22.37,20.14,2.53
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,31.55,34.4,30.45,34.4,3346000,31.35,9.73,33.56,23.67,0.9
 20260702,36.1,36.15,32.65,32.85,4669000,31.47,4.37,33.97,23.89,1.18
 20260703,32.3,32.75,31.55,31.75,1505000,31.5,0.8,34.19,24.09,0.37
+20260706,32.65,33.3,31.55,31.55,1584000,31.5,0.16,34.27,24.29,0.39
 ```
 
 ## Latest TDCC Snapshot
@@ -189,12 +189,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 5426 | 振發 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260706 | 5426 | 振發 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 5426 | 振發 | 2 | 2 | 2 | 4 | 4 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260706 | 5426 | 振發 | 3 | 3 | 3 | 5 | 5 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

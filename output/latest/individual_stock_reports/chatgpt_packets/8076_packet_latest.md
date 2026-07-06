@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8076 伍豐
 
 ## Metadata
-- generated_at: 2026-07-05 22:28:23 Asia/Taipei
+- generated_at: 2026-07-06 22:28:18 Asia/Taipei
 - stock_id: 8076
 - stock_name: 伍豐
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 162
+- latest_price_date: 20260706
+- price_rows: 163
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 24.9
-- high: 26.15
-- low: 24.9
-- close: 26
-- volume: 1082000
-- ma5: 24.96
-- ema23_primary: 25.32
-- distance_to_ema23_pct: 2.67
-- ma20: 25.87
-- ma60: 24.46
-- ma120: 24.2
-- return_5d: 7.44
-- return_20d: -9.09
-- volume_ratio: 0.66
-- distance_to_ma20_pct_auxiliary: 0.49
-- distance_to_high_60_pct: -13.04
+- date: 20260706
+- open: 26.05
+- high: 27.05
+- low: 26.05
+- close: 26.3
+- volume: 1698000
+- ma5: 25.36
+- ema23_primary: 25.4
+- distance_to_ema23_pct: 3.53
+- ma20: 25.78
+- ma60: 24.51
+- ma120: 24.22
+- return_5d: 8.23
+- return_20d: -6.74
+- volume_ratio: 0.98
+- distance_to_ma20_pct_auxiliary: 2.03
+- distance_to_high_60_pct: -12.04
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,28.2,29.45,28,28.2,29000,24.87,13.38,24.72,24.2,0.04
 20260608,26,27.25,25.4,27.25,3620000,25.07,8.69,24.85,24.24,4.78
 20260609,27.05,28.15,26.3,27.5,3043000,25.27,8.81,24.98,24.29,3.65
 20260610,27.2,28.15,26.6,26.6,2642000,25.38,4.79,25.09,24.31,2.87
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,24.75,25.2,24.35,24.85,703000,25.28,-1.68,26.12,24.38,0.45
 20260702,24.85,25.15,24.65,25.1,502000,25.26,-0.64,26,24.41,0.31
 20260703,24.9,26.15,24.9,26,1082000,25.32,2.67,25.87,24.46,0.66
+20260706,26.05,27.05,26.05,26.3,1698000,25.4,3.53,25.78,24.51,0.98
 ```
 
 ## Latest TDCC Snapshot
@@ -189,13 +189,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 8076 | 伍豐 | pattern | 型態觀察 | 46.0 |  |  | base_building |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
-| 20260703 | 8076 | 伍豐 | revenue_pullback | 營收成長股價回檔 | 74.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260706 | 8076 | 伍豐 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260706 | 8076 | 伍豐 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 8076 | 伍豐 | 1 | 1 | 1 | 4 | 4 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260706 | 8076 | 伍豐 | 2 | 2 | 2 | 5 | 5 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

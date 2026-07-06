@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00730 富邦臺灣優質高息
 
 ## Metadata
-- generated_at: 2026-07-05 22:25:59 Asia/Taipei
+- generated_at: 2026-07-06 22:26:22 Asia/Taipei
 - stock_id: 00730
 - stock_name: 富邦臺灣優質高息
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260703
-- price_rows: 30
+- latest_price_date: 20260706
+- price_rows: 31
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 29.25
-- high: 29.65
-- low: 29.2
-- close: 29.5
-- volume: 243797
-- ma5: 29.14
-- ema23_primary: 28.82
-- distance_to_ema23_pct: 2.35
-- ma20: 28.91
-- ma60: 28.74
-- ma120: 28.74
-- return_5d: 4.06
-- return_20d: -0.84
-- volume_ratio: 0.91
-- distance_to_ma20_pct_auxiliary: 2.04
-- distance_to_high_60_pct: -0.97
+- date: 20260706
+- open: 29.87
+- high: 29.87
+- low: 29.41
+- close: 29.69
+- volume: 148000
+- ma5: 29.29
+- ema23_primary: 28.89
+- distance_to_ema23_pct: 2.75
+- ma20: 28.93
+- ma60: 28.77
+- ma120: 28.77
+- return_5d: 2.59
+- return_20d: 0.95
+- volume_ratio: 0.58
+- distance_to_ma20_pct_auxiliary: 2.64
+- distance_to_high_60_pct: -0.6
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,29.65,29.7,29.18,29.41,369995,28.18,4.37,28.49,28.49,0.94
 20260608,28.03,28.13,27.38,28.06,384670,28.17,-0.39,28.46,28.46,0.98
 20260609,28.12,28.81,28.12,28.74,233385,28.22,1.85,28.48,28.48,0.62
 20260610,28.7,29.02,28.45,28.49,291938,28.24,0.89,28.48,28.48,0.78
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,28.9,29.2,28.83,29,154000,28.71,1.02,28.93,28.69,0.56
 20260702,28.85,29.35,28.85,29.35,140000,28.76,2.05,28.92,28.72,0.51
 20260703,29.25,29.65,29.2,29.5,243797,28.82,2.35,28.91,28.74,0.91
+20260706,29.87,29.87,29.41,29.69,148000,28.89,2.75,28.93,28.77,0.58
 ```
 
 ## Latest TDCC Snapshot

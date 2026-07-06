@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6509 聚和
 
 ## Metadata
-- generated_at: 2026-07-05 22:27:55 Asia/Taipei
+- generated_at: 2026-07-06 22:27:55 Asia/Taipei
 - stock_id: 6509
 - stock_name: 聚和
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 162
+- latest_price_date: 20260706
+- price_rows: 163
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -74,7 +74,7 @@
 - action_rating: starter_position
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
-- thesis_state: breakout_confirmed
+- thesis_state: breakout_initial
 - entry_style: breakout_follow
 - position_sizing: starter_1_3
 
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 52.5
-- high: 55.9
-- low: 52.5
-- close: 55.6
-- volume: 7685000
-- ma5: 51.44
-- ema23_primary: 49.36
-- distance_to_ema23_pct: 12.63
-- ma20: 48.96
-- ma60: 46.88
-- ma120: 42.62
-- return_5d: 17.55
-- return_20d: 7.96
-- volume_ratio: 2.4
-- distance_to_ma20_pct_auxiliary: 13.56
-- distance_to_high_60_pct: -0.54
+- date: 20260706
+- open: 58
+- high: 59.2
+- low: 56
+- close: 57.5
+- volume: 8347000
+- ma5: 53.3
+- ema23_primary: 50.04
+- distance_to_ema23_pct: 14.9
+- ma20: 49.27
+- ma60: 47.1
+- ma120: 42.83
+- return_5d: 19.29
+- return_20d: 12.3
+- volume_ratio: 2.31
+- distance_to_ma20_pct_auxiliary: 16.69
+- distance_to_high_60_pct: -2.87
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,52.3,53.1,50.7,51.2,52000,48.5,5.58,48.96,45.33,0.02
 20260608,47.6,50.5,47.5,49.85,3788000,48.61,2.55,49.27,45.48,1.51
 20260609,50.3,51.4,49.3,49.45,3026000,48.68,1.58,49.41,45.65,1.41
 20260610,49.65,50.3,47.85,48.45,3639000,48.66,-0.43,49.5,45.79,1.77
@@ -160,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,50.5,54.3,50.5,51.7,10661000,48.48,6.65,48.62,46.55,4.23
 20260702,52.3,54,51.9,52.3,5962000,48.8,7.18,48.76,46.7,2.12
 20260703,52.5,55.9,52.5,55.6,7685000,49.36,12.63,48.96,46.88,2.4
+20260706,58,59.2,56,57.5,8347000,50.04,14.9,49.27,47.1,2.31
 ```
 
 ## Latest TDCC Snapshot
@@ -194,12 +194,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 6509 | 聚和 | true_breakout | 嚴格突破 | 118.0 |  |  | breakout_confirmed |  |  | continued_many_days | 1.董事會、股東會決議或公司決定日期:115/07/02 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.發放普通股股利種類及金額:   發放普通股現金股利新台幣275,160,656元(每股配發新台幣1.40元) 4.除權（息）交易日:115/07/30 5.最後過戶日:115/07/31 6.停止過戶起始日期:115/08/01 7.停止過戶截止日期:115/08/05 8.除權（息）基準日:115/08/05 9.債券最後申請轉換日期:最遲應於停止受理轉換登記之   始日(115年07月13日)之前一營業日前(115年07月09日)，   向往來證券商辦理轉換手續。 10.債券停止轉換起始日期:115/07/13 11.債券停止轉換截止日期:115/08/05 12.普通股現金股利發放日期:115/08/26 13.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260706 | 6509 | 聚和 | true_breakout | 嚴格突破 | 94.0 |  |  | platform_breakout |  |  | continued_many_days | 1.董事會、股東會決議或公司決定日期:115/07/02 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.發放普通股股利種類及金額:   發放普通股現金股利新台幣275,160,656元(每股配發新台幣1.40元) 4.除權（息）交易日:115/07/30 5.最後過戶日:115/07/31 6.停止過戶起始日期:115/08/01 7.停止過戶截止日期:115/08/05 8.除權（息）基準日:115/08/05 9.債券最後申請轉換日期:最遲應於停止受理轉換登記之   始日(115年07月13日)之前一營業日前(115年07月09日)，   向往來證券商辦理轉換手續。 10.債券停止轉換起始日期:115/07/13 11.債券停止轉換截止日期:115/08/05 12.普通股現金股利發放日期:115/08/26 13.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 6509 | 聚和 | 4 | 1 | 4 | 7 | 7 | continued_many_days | 連續 4 日上榜，需區分醞釀延續或訊號鈍化。 |
+| 20260706 | 6509 | 聚和 | 5 | 2 | 5 | 8 | 8 | continued_many_days | 連續 5 日上榜，需區分醞釀延續或訊號鈍化。 |
 
 ## Warrant Context
 | status |

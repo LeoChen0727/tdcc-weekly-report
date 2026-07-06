@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1310 台苯
 
 ## Metadata
-- generated_at: 2026-07-05 22:26:06 Asia/Taipei
+- generated_at: 2026-07-06 22:26:28 Asia/Taipei
 - stock_id: 1310
 - stock_name: 台苯
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 297
+- latest_price_date: 20260706
+- price_rows: 298
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 10.8
-- high: 11.4
-- low: 10.75
-- close: 11.4
-- volume: 25050677
-- ma5: 10.5
-- ema23_primary: 9.62
-- distance_to_ema23_pct: 18.45
-- ma20: 9.46
-- ma60: 9.17
-- ma120: 9.51
-- return_5d: 15.04
-- return_20d: 24.18
-- volume_ratio: 2.86
-- distance_to_ma20_pct_auxiliary: 20.52
-- distance_to_high_60_pct: 0
+- date: 20260706
+- open: 12.05
+- high: 12.45
+- low: 11.65
+- close: 11.8
+- volume: 38389000
+- ma5: 10.86
+- ema23_primary: 9.81
+- distance_to_ema23_pct: 20.34
+- ma20: 9.6
+- ma60: 9.19
+- ma120: 9.54
+- return_5d: 18
+- return_20d: 31.84
+- volume_ratio: 3.71
+- distance_to_ma20_pct_auxiliary: 22.9
+- distance_to_high_60_pct: -5.22
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,9.18,9.18,8.8,8.95,6374788,8.64,3.55,8.29,9.77,1.31
 20260608,8.49,8.81,8.39,8.74,3197967,8.65,1.02,8.3,9.73,0.65
 20260609,8.78,8.9,8.66,8.71,2792066,8.66,0.62,8.31,9.68,0.57
 20260610,8.61,8.78,8.54,8.57,2979443,8.65,-0.91,8.32,9.62,0.61
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,10.55,10.9,10.05,10.15,12628000,9.38,8.23,9.3,9.17,1.5
 20260702,10.1,10.6,9.99,10.4,9072000,9.46,9.9,9.35,9.15,1.09
 20260703,10.8,11.4,10.75,11.4,25050677,9.62,18.45,9.46,9.17,2.86
+20260706,12.05,12.45,11.65,11.8,38389000,9.81,20.34,9.6,9.19,3.71
 ```
 
 ## Latest TDCC Snapshot
@@ -189,12 +189,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 1310 | 台苯 | true_breakout | 嚴格突破 | 111.0 |  |  | breakout_confirmed |  |  | continued_overheated | 1.發生變動日期:115/06/18 2.選任或變動人員別（請輸入法人董事、法人監察人、獨立董事、自然人董事   或自然人監察人）:法人董事 3.舊任者職稱及姓名: (1)法人董事安慶開發(股)公司(代表人：徐定睿) (2)法人董事開疆(股)公司(代表人：張國欽) 4.舊任者簡歷:台灣苯乙烯工業(股)公司法人董事 5.新任者職稱及姓名:不適用 6.新任者簡歷:不適用 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）:辭職 8.異動原因:法人董事辭任 9.新任者選任時持股數:不適用 10.原任期（例xx/xx/xx ~ xx/xx/xx）:113/05/31~116/05/30 11.新任生效日期:不適用 12.同任期董事變動比率:2/11 13.同任期獨立董事變動比率:不適用 14.同任期監察人變動比率:無 15.屬三分之一以上董事發生變動（請輸入是或否）:否 16.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 本公司於115年6月18日接獲法人董事辭職書，辭任生效日為115年6月18日。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260706 | 1310 | 台苯 | true_breakout | 嚴格突破 | 91.0 |  |  | platform_breakout |  |  | continued_overheated | 1.發生變動日期:115/06/18 2.選任或變動人員別（請輸入法人董事、法人監察人、獨立董事、自然人董事   或自然人監察人）:法人董事 3.舊任者職稱及姓名: (1)法人董事安慶開發(股)公司(代表人：徐定睿) (2)法人董事開疆(股)公司(代表人：張國欽) 4.舊任者簡歷:台灣苯乙烯工業(股)公司法人董事 5.新任者職稱及姓名:不適用 6.新任者簡歷:不適用 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）:辭職 8.異動原因:法人董事辭任 9.新任者選任時持股數:不適用 10.原任期（例xx/xx/xx ~ xx/xx/xx）:113/05/31~116/05/30 11.新任生效日期:不適用 12.同任期董事變動比率:2/11 13.同任期獨立董事變動比率:不適用 14.同任期監察人變動比率:無 15.屬三分之一以上董事發生變動（請輸入是或否）:否 16.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 本公司於115年6月18日接獲法人董事辭職書，辭任生效日為115年6月18日。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 1310 | 台苯 | 2 | 1 | 3 | 7 | 10 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260706 | 1310 | 台苯 | 3 | 2 | 4 | 7 | 11 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

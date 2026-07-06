@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8081 致新
 
 ## Metadata
-- generated_at: 2026-07-05 22:28:23 Asia/Taipei
+- generated_at: 2026-07-06 22:28:18 Asia/Taipei
 - stock_id: 8081
 - stock_name: 致新
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 297
+- latest_price_date: 20260706
+- price_rows: 298
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 315
-- high: 321.5
-- low: 311
-- close: 319.5
-- volume: 1804814
-- ma5: 313.6
-- ema23_primary: 301.24
-- distance_to_ema23_pct: 6.06
-- ma20: 299.18
-- ma60: 273.24
-- ma120: 252.49
-- return_5d: 5.62
-- return_20d: 14.11
-- volume_ratio: 1.01
-- distance_to_ma20_pct_auxiliary: 6.79
-- distance_to_high_60_pct: -8.06
+- date: 20260706
+- open: 328
+- high: 336.5
+- low: 321
+- close: 324
+- volume: 3695000
+- ma5: 316.3
+- ema23_primary: 303.13
+- distance_to_ema23_pct: 6.88
+- ma20: 301.35
+- ma60: 274.81
+- ma120: 253.44
+- return_5d: 4.35
+- return_20d: 15.51
+- volume_ratio: 1.91
+- distance_to_ma20_pct_auxiliary: 7.52
+- distance_to_high_60_pct: -6.76
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,278.5,283.5,276.5,280.5,776013,274.33,2.25,275.7,252.68,0.48
 20260608,263,265.5,255.5,260.5,1140203,273.18,-4.64,275.52,253,0.72
 20260609,263,268.5,261,267.5,656206,272.71,-1.91,275.9,253.47,0.42
 20260610,267,269,258.5,258.5,777175,271.52,-4.8,276,253.76,0.5
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,316,320.5,308,309,2206000,298.08,3.66,295.7,270.39,1.43
 20260702,287,320,280,316,4511000,299.58,5.48,297.2,271.83,2.6
 20260703,315,321.5,311,319.5,1804814,301.24,6.06,299.18,273.24,1.01
+20260706,328,336.5,321,324,3695000,303.13,6.88,301.35,274.81,1.91
 ```
 
 ## Latest TDCC Snapshot
@@ -188,17 +188,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 8081 | 致新 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_inflow | repeated_but_no_breakout | 1.董事會決議日期或發生變動日期:115/06/24 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:吳錦川 4.舊任者簡歷:本公司董事長及總經理 5.新任者姓名:吳錦川 6.新任者簡歷:本公司董事長及總經理 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因:任期屆滿改選 9.新任生效日期:115/06/24 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 無重大影響；calendar event: ex_dividend on 20260702; status=confirmed; proximity=recent |
+| 20260706 | 8081 | 致新 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | call_inflow | repeated_but_no_breakout | 1.董事會決議日期或發生變動日期:115/06/24 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:吳錦川 4.舊任者簡歷:本公司董事長及總經理 5.新任者姓名:吳錦川 6.新任者簡歷:本公司董事長及總經理 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因:任期屆滿改選 9.新任生效日期:115/06/24 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 無重大影響；calendar event: ex_dividend on 20260702; status=confirmed; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 8081 | 致新 | 4 | 1 | 4 | 9 | 14 | repeated_but_no_breakout | 近 10 日上榜 9 次、近 20 日上榜 14 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260706 | 8081 | 致新 | 5 | 2 | 5 | 9 | 14 | repeated_but_no_breakout | 近 10 日上榜 9 次、近 20 日上榜 14 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 8081 | 致新 | 17 | 0 | 4040220.0 | 0.0 |  | call_inflow |
+| 20260706 | 8081 | 致新 | 17 | 0 | 4665630.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

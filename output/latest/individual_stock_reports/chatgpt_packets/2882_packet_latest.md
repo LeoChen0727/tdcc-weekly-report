@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2882 國泰金
 
 ## Metadata
-- generated_at: 2026-07-05 22:26:47 Asia/Taipei
+- generated_at: 2026-07-06 22:27:01 Asia/Taipei
 - stock_id: 2882
 - stock_name: 國泰金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 297
+- latest_price_date: 20260706
+- price_rows: 298
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -119,29 +119,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 92.8
-- high: 94.8
-- low: 92.8
-- close: 93.6
-- volume: 38336316
-- ma5: 96.38
-- ema23_primary: 99.39
-- distance_to_ema23_pct: -5.82
-- ma20: 103.92
-- ma60: 87.08
-- ma120: 80.87
-- return_5d: -11.7
-- return_20d: -0.85
-- volume_ratio: 0.76
-- distance_to_ma20_pct_auxiliary: -9.93
-- distance_to_high_60_pct: -20.34
+- date: 20260706
+- open: 94.2
+- high: 94.9
+- low: 93.1
+- close: 93.4
+- volume: 44123000
+- ma5: 94.76
+- ema23_primary: 98.89
+- distance_to_ema23_pct: -5.55
+- ma20: 103.58
+- ma60: 87.42
+- ma120: 81.02
+- return_5d: -7.98
+- return_20d: -6.6
+- volume_ratio: 0.9
+- distance_to_ma20_pct_auxiliary: -9.83
+- distance_to_high_60_pct: -20.51
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,94.4,100,93.7,100,69269147,84.41,18.47,83.08,76.85,1.43
 20260608,97.8,97.8,94,95,57020304,85.29,11.39,83.92,77.23,1.14
 20260609,95.3,104,95.3,104,55872704,86.85,19.75,85.3,77.76,1.1
 20260610,102,102.5,99.4,99.9,42154420,87.94,13.61,86.42,78.23,0.82
@@ -161,6 +160,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,100,101,94.3,95,78426000,100.49,-5.47,103.87,86.39,1.54
 20260702,95.3,95.9,92.6,93.5,64381000,99.91,-6.42,103.95,86.75,1.26
 20260703,92.8,94.8,92.8,93.6,38336316,99.39,-5.82,103.92,87.08,0.76
+20260706,94.2,94.9,93.1,93.4,44123000,98.89,-5.55,103.58,87.42,0.9
 ```
 
 ## Latest TDCC Snapshot
@@ -195,17 +195,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 2882 | 國泰金 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/30 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.發放股利種類及金額:本公司114年度盈餘分派案，業經115年6月29日董事會 （代行股東會）通過，分配現金股利新台幣5,000,000,000元。 4.除權（息）交易日:115/07/07 5.最後過戶日:115/07/08 6.停止過戶起始日期:115/07/09 7.停止過戶截止日期:115/07/13 8.除權（息）基準日:115/07/13 9.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260706 | 2882 | 國泰金 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/30 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.發放股利種類及金額:本公司114年度盈餘分派案，業經115年6月29日董事會 （代行股東會）通過，分配現金股利新台幣5,000,000,000元。 4.除權（息）交易日:115/07/07 5.最後過戶日:115/07/08 6.停止過戶起始日期:115/07/09 7.停止過戶截止日期:115/07/13 8.除權（息）基準日:115/07/13 9.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 2882 | 國泰金 | 2 | 2 | 4 | 7 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260706 | 2882 | 國泰金 | 3 | 3 | 4 | 8 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 2882 | 國泰金 | 41 | 2 | 1775440.0 | 374220.0 | 4.74 | no_signal |
+| 20260706 | 2882 | 國泰金 | 41 | 2 | 2465560.0 | 80230.0 | 30.73 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

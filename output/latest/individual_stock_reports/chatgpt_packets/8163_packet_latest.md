@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8163 達方
 
 ## Metadata
-- generated_at: 2026-07-05 22:28:26 Asia/Taipei
+- generated_at: 2026-07-06 22:28:20 Asia/Taipei
 - stock_id: 8163
 - stock_name: 達方
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 297
+- latest_price_date: 20260706
+- price_rows: 298
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 41.3
-- high: 41.65
+- date: 20260706
+- open: 40.65
+- high: 43.25
 - low: 40.65
-- close: 41
-- volume: 1095644
-- ma5: 41.08
-- ema23_primary: 41.05
-- distance_to_ema23_pct: -0.12
-- ma20: 42.44
-- ma60: 35.12
-- ma120: 32.51
-- return_5d: 0.49
-- return_20d: 1.23
-- volume_ratio: 0.23
-- distance_to_ma20_pct_auxiliary: -3.4
-- distance_to_high_60_pct: -14.23
+- close: 42.7
+- volume: 3004000
+- ma5: 41.74
+- ema23_primary: 41.19
+- distance_to_ema23_pct: 3.68
+- ma20: 42.56
+- ma60: 35.37
+- ma120: 32.62
+- return_5d: 8.38
+- return_20d: 5.82
+- volume_ratio: 0.64
+- distance_to_ma20_pct_auxiliary: 0.33
+- distance_to_high_60_pct: -10.67
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,40.6,41.05,38.95,40.35,3497179,35.85,12.54,35.77,30.49,0.56
 20260608,36.6,39.55,36.35,39,3503701,36.11,7.99,36.22,30.66,0.56
 20260609,39.5,42.9,39.15,42.9,7325173,36.68,16.96,36.88,30.9,1.11
 20260610,42.95,46.85,42,42.05,16596240,37.13,13.26,37.51,31.13,2.25
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,42.8,44,41,41.3,2895000,40.97,0.81,42.38,34.63,0.58
 20260702,41.05,42,40.15,42,1145000,41.05,2.31,42.42,34.89,0.24
 20260703,41.3,41.65,40.65,41,1095644,41.05,-0.12,42.44,35.12,0.23
+20260706,40.65,43.25,40.65,42.7,3004000,41.19,3.68,42.56,35.37,0.64
 ```
 
 ## Latest TDCC Snapshot
@@ -189,17 +189,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 8163 | 達方 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.董事會決議日期或發生變動日期:115/06/24 2.人員別（請輸入董事長或總經理）:副董事長 3.舊任者姓名:不適用 4.舊任者簡歷:不適用 5.新任者姓名:胡紹榮 6.新任者簡歷:太宇科技股份有限公司總經理 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:新任 8.異動原因:新任 9.新任生效日期:115/06/24 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260706 | 8163 | 達方 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | call_inflow | stale_signal | 1.董事會決議日期或發生變動日期:115/06/24 2.人員別（請輸入董事長或總經理）:副董事長 3.舊任者姓名:不適用 4.舊任者簡歷:不適用 5.新任者姓名:胡紹榮 6.新任者簡歷:太宇科技股份有限公司總經理 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:新任 8.異動原因:新任 9.新任生效日期:115/06/24 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 8163 | 達方 | 5 | 5 | 5 | 7 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260706 | 8163 | 達方 | 6 | 6 | 5 | 7 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 8163 | 達方 | 3 | 0 | 605090.0 | 0.0 |  | no_signal |
+| 20260706 | 8163 | 達方 | 3 | 0 | 1855380.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6703 軒郁
 
 ## Metadata
-- generated_at: 2026-07-05 22:28:02 Asia/Taipei
+- generated_at: 2026-07-06 22:28:01 Asia/Taipei
 - stock_id: 6703
 - stock_name: 軒郁
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 162
+- latest_price_date: 20260706
+- price_rows: 163
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 119
-- high: 120.5
-- low: 117.5
-- close: 118
-- volume: 119000
-- ma5: 114.1
-- ema23_primary: 111.81
-- distance_to_ema23_pct: 5.54
-- ma20: 110.9
-- ma60: 112.36
-- ma120: 111.27
-- return_5d: 8.26
-- return_20d: 6.31
-- volume_ratio: 1.6
-- distance_to_ma20_pct_auxiliary: 6.4
-- distance_to_high_60_pct: -2.07
+- date: 20260706
+- open: 117.5
+- high: 117.5
+- low: 116.5
+- close: 116.5
+- volume: 56000
+- ma5: 115.5
+- ema23_primary: 112.2
+- distance_to_ema23_pct: 3.83
+- ma20: 111.22
+- ma60: 112.33
+- ma120: 111.35
+- return_5d: 6.39
+- return_20d: 5.91
+- volume_ratio: 0.78
+- distance_to_ma20_pct_auxiliary: 4.74
+- distance_to_high_60_pct: -3.32
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,111,111,110,110,110000,111.58,-1.42,112.35,114.46,1.1
 20260608,102.5,108.5,102.5,108,118000,111.28,-2.95,111.78,114.27,1.19
 20260609,109.5,112,109,112,95000,111.34,0.59,111.58,114.15,0.96
 20260610,111.5,112,110.5,110.5,28000,111.27,-0.69,111.15,114.03,0.3
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,110,114.5,109.5,114,161000,110.5,3.17,110.05,112.33,2.36
 20260702,112.5,119.5,112.5,119.5,222000,111.25,7.42,110.55,112.35,3.01
 20260703,119,120.5,117.5,118,119000,111.81,5.54,110.9,112.36,1.6
+20260706,117.5,117.5,116.5,116.5,56000,112.2,3.83,111.22,112.33,0.78
 ```
 
 ## Latest TDCC Snapshot

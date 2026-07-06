@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3615 安可
 
 ## Metadata
-- generated_at: 2026-07-05 22:27:10 Asia/Taipei
+- generated_at: 2026-07-06 22:27:19 Asia/Taipei
 - stock_id: 3615
 - stock_name: 安可
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 162
+- latest_price_date: 20260706
+- price_rows: 163
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 51.2
-- high: 52.4
-- low: 50.8
-- close: 51.8
-- volume: 1413000
-- ma5: 51.9
+- date: 20260706
+- open: 52.6
+- high: 53.2
+- low: 51.5
+- close: 51.7
+- volume: 1572000
+- ma5: 52.02
 - ema23_primary: 51.7
-- distance_to_ema23_pct: 0.18
-- ma20: 53.47
-- ma60: 43.5
-- ma120: 36.35
-- return_5d: 2.57
-- return_20d: -10.54
-- volume_ratio: 0.24
-- distance_to_ma20_pct_auxiliary: -3.13
-- distance_to_high_60_pct: -22.57
+- distance_to_ema23_pct: -0.01
+- ma20: 53.05
+- ma60: 43.82
+- ma120: 36.57
+- return_5d: 1.17
+- return_20d: -14.12
+- volume_ratio: 0.27
+- distance_to_ma20_pct_auxiliary: -2.54
+- distance_to_high_60_pct: -22.72
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,57,63.6,56,60.2,60000,46.37,29.81,45.84,37.14,0.01
 20260608,54.2,54.2,54.2,54.2,1735000,47.03,15.25,46.87,37.51,0.38
 20260609,54.6,58.9,52.5,53.5,9748000,47.57,12.48,47.9,37.81,1.93
 20260610,53,58.8,53,53.8,13810000,48.09,11.88,48.79,38.09,2.59
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,54,55.3,51.5,52.2,3354000,51.7,0.96,53.91,42.85,0.59
 20260702,51.1,53.9,51,51.6,2145000,51.7,-0.19,53.78,43.18,0.37
 20260703,51.2,52.4,50.8,51.8,1413000,51.7,0.18,53.47,43.5,0.24
+20260706,52.6,53.2,51.5,51.7,1572000,51.7,-0.01,53.05,43.82,0.27
 ```
 
 ## Latest TDCC Snapshot
@@ -188,12 +188,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 3615 | 安可 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/01 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.發放普通股股利種類及金額:分派現金股利每股新台幣0.70元 4.除權（息）交易日:115/07/16 5.最後過戶日:115/07/19 6.停止過戶起始日期:115/07/20 7.停止過戶截止日期:115/07/24 8.除權（息）基準日:115/07/24 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/14 13.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260706 | 3615 | 安可 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/01 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.發放普通股股利種類及金額:分派現金股利每股新台幣0.70元 4.除權（息）交易日:115/07/16 5.最後過戶日:115/07/19 6.停止過戶起始日期:115/07/20 7.停止過戶截止日期:115/07/24 8.除權（息）基準日:115/07/24 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/14 13.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 3615 | 安可 | 10 | 6 | 5 | 10 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260706 | 3615 | 安可 | 11 | 7 | 5 | 10 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

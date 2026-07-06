@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0085 國泰美國道瓊正2
 
 ## Metadata
-- generated_at: 2026-07-05 22:26:00 Asia/Taipei
+- generated_at: 2026-07-06 22:26:22 Asia/Taipei
 - stock_id: 0085
 - stock_name: 國泰美國道瓊正2
 - packet_status: insufficient_price_data
@@ -170,7 +170,7 @@ no_rows,True
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 0085 | 國泰美國道瓊正2 | 5 | 5 | 28680.0 | 6900.0 | 4.16 | no_signal |
+| 20260706 | 0085 | 國泰美國道瓊正2 | 5 | 5 | 53440.0 | 13870.0 | 3.85 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

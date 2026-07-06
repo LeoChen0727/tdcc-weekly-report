@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4958 臻鼎-KY
 
 ## Metadata
-- generated_at: 2026-07-05 22:27:28 Asia/Taipei
+- generated_at: 2026-07-06 22:27:33 Asia/Taipei
 - stock_id: 4958
 - stock_name: 臻鼎-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 297
+- latest_price_date: 20260706
+- price_rows: 298
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 - acceptable_risk_reward
@@ -111,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 580
-- high: 618
-- low: 561
-- close: 613
-- volume: 22484803
-- ma5: 603.4
-- ema23_primary: 570.37
-- distance_to_ema23_pct: 7.47
-- ma20: 581.7
-- ma60: 462.04
-- ma120: 323.05
-- return_5d: 5.69
-- return_20d: 24.47
-- volume_ratio: 0.66
-- distance_to_ma20_pct_auxiliary: 5.38
-- distance_to_high_60_pct: -6.98
+- date: 20260706
+- open: 616
+- high: 621
+- low: 567
+- close: 579
+- volume: 32178000
+- ma5: 604.6
+- ema23_primary: 571.09
+- distance_to_ema23_pct: 1.39
+- ma20: 585.45
+- ma60: 467.3
+- ma120: 326.69
+- return_5d: 1.05
+- return_20d: 14.88
+- volume_ratio: 0.92
+- distance_to_ma20_pct_auxiliary: -1.1
+- distance_to_high_60_pct: -12.14
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,480,513,450,504,8176859,466.29,8.09,474.85,342.33,0.22
 20260608,456,512,456,512,10721588,470.1,8.91,479.85,347.96,0.31
 20260609,528,545,515,545,11129854,476.34,14.41,486.75,354.18,0.33
 20260610,531,550,502,502,12649770,478.48,4.92,489.73,359.41,0.41
@@ -153,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,641,659,602,603,50034000,563.63,6.99,571.27,449.73,1.52
 20260702,595,601,582,598,17841000,566.49,5.56,575.67,455.95,0.54
 20260703,580,618,561,613,22484803,570.37,7.47,581.7,462.04,0.66
+20260706,616,621,567,579,32178000,571.09,1.39,585.45,467.3,0.92
 ```
 
 ## Latest TDCC Snapshot
@@ -187,17 +188,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 4958 | 臻鼎-KY | pattern | 型態觀察 | 46.0 |  |  | base_building |  | call_inflow | stale_signal | 1.事實發生日:115/07/03 2.公司名稱:鵬鼎控股(深圳)股份有限公司 3.與公司關係(請輸入本公司或子公司):子公司 4.相互持股比例:70.17% 5.發生緣由: 代子公司公告董事會通過各項議案： (1) 關於公司符合向特定對象發行A股股票條件的議案。 (2) 關於公司2026年度向特定對象發行A股股票方案的議案。 (3) 關於公司2026年度向特定對象發行A股股票預案的議案。 (4) 關於公司2026年度向特定對象發行A股股票募集資金使用可行性分析報告     的議案。 (5) 關於公司2026年度向特定對象發行A股股票方案論證分析報告的議案。 (6) 關於公司2026年度向特定對象發行A股股票無需編制前次募集資金使用情況     報告的議案。 (7) 關於公司2026年度向特定對象發行A股股票攤薄即期回報及填補措施和相關     主體承諾的議案。 (8) 關於公司未來三年（2026年－2028年）股東回報規劃的議案。 (9) 關於設立本次向特定對象發行股票募集資金專項帳戶並授權簽署募集資金     監管協議的議案。 (10)關於提請股東會授權董事會、董事長和/或董事長授權的人士全權辦理公司     本次向特定對象發行A股股票相關事宜的議案。 (11)關於提請召開鵬鼎控股(深圳)股份有限公司2026年第一次臨時股東會的議案。 6.因應措施:依規定代子公司於公開資訊觀測站公告。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):  無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260706 | 4958 | 臻鼎-KY | pattern | 型態觀察 | 54.0 |  |  | pullback_right_side |  | no_signal | stale_signal | 1.事實發生日:115/07/03 2.公司名稱:鵬鼎控股(深圳)股份有限公司 3.與公司關係(請輸入本公司或子公司):子公司 4.相互持股比例:70.17% 5.發生緣由: 代子公司公告董事會通過各項議案： (1) 關於公司符合向特定對象發行A股股票條件的議案。 (2) 關於公司2026年度向特定對象發行A股股票方案的議案。 (3) 關於公司2026年度向特定對象發行A股股票預案的議案。 (4) 關於公司2026年度向特定對象發行A股股票募集資金使用可行性分析報告     的議案。 (5) 關於公司2026年度向特定對象發行A股股票方案論證分析報告的議案。 (6) 關於公司2026年度向特定對象發行A股股票無需編制前次募集資金使用情況     報告的議案。 (7) 關於公司2026年度向特定對象發行A股股票攤薄即期回報及填補措施和相關     主體承諾的議案。 (8) 關於公司未來三年（2026年－2028年）股東回報規劃的議案。 (9) 關於設立本次向特定對象發行股票募集資金專項帳戶並授權簽署募集資金     監管協議的議案。 (10)關於提請股東會授權董事會、董事長和/或董事長授權的人士全權辦理公司     本次向特定對象發行A股股票相關事宜的議案。 (11)關於提請召開鵬鼎控股(深圳)股份有限公司2026年第一次臨時股東會的議案。 6.因應措施:依規定代子公司於公開資訊觀測站公告。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):  無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260706 | 4958 | 臻鼎-KY | revenue_pullback | 營收成長股價回檔 | 69.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/07/03 2.公司名稱:鵬鼎控股(深圳)股份有限公司 3.與公司關係(請輸入本公司或子公司):子公司 4.相互持股比例:70.17% 5.發生緣由: 代子公司公告董事會通過各項議案： (1) 關於公司符合向特定對象發行A股股票條件的議案。 (2) 關於公司2026年度向特定對象發行A股股票方案的議案。 (3) 關於公司2026年度向特定對象發行A股股票預案的議案。 (4) 關於公司2026年度向特定對象發行A股股票募集資金使用可行性分析報告     的議案。 (5) 關於公司2026年度向特定對象發行A股股票方案論證分析報告的議案。 (6) 關於公司2026年度向特定對象發行A股股票無需編制前次募集資金使用情況     報告的議案。 (7) 關於公司2026年度向特定對象發行A股股票攤薄即期回報及填補措施和相關     主體承諾的議案。 (8) 關於公司未來三年（2026年－2028年）股東回報規劃的議案。 (9) 關於設立本次向特定對象發行股票募集資金專項帳戶並授權簽署募集資金     監管協議的議案。 (10)關於提請股東會授權董事會、董事長和/或董事長授權的人士全權辦理公司     本次向特定對象發行A股股票相關事宜的議案。 (11)關於提請召開鵬鼎控股(深圳)股份有限公司2026年第一次臨時股東會的議案。 6.因應措施:依規定代子公司於公開資訊觀測站公告。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):  無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 4958 | 臻鼎-KY | 8 | 1 | 5 | 9 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260706 | 4958 | 臻鼎-KY | 9 | 2 | 5 | 9 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 4958 | 臻鼎-KY | 232 | 15 | 49618770.0 | 310110.0 | 160.0 | call_inflow |
+| 20260706 | 4958 | 臻鼎-KY | 232 | 15 | 49240070.0 | 554090.0 | 88.87 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3211 順達
 
 ## Metadata
-- generated_at: 2026-07-05 22:26:58 Asia/Taipei
+- generated_at: 2026-07-06 22:27:09 Asia/Taipei
 - stock_id: 3211
 - stock_name: 順達
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 162
+- latest_price_date: 20260706
+- price_rows: 163
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 402.5
-- high: 408.5
-- low: 399
-- close: 401
-- volume: 1546000
-- ma5: 404.2
-- ema23_primary: 412.53
-- distance_to_ema23_pct: -2.8
-- ma20: 415.38
-- ma60: 397.62
-- ma120: 355.23
-- return_5d: 2.82
-- return_20d: -11.67
-- volume_ratio: 0.29
-- distance_to_ma20_pct_auxiliary: -3.46
-- distance_to_high_60_pct: -18.58
+- date: 20260706
+- open: 417.5
+- high: 434.5
+- low: 409
+- close: 422.5
+- volume: 8631000
+- ma5: 410.2
+- ema23_primary: 413.37
+- distance_to_ema23_pct: 2.21
+- ma20: 415.35
+- ma60: 398.55
+- ma120: 355.94
+- return_5d: 7.64
+- return_20d: -0.12
+- volume_ratio: 1.49
+- distance_to_ma20_pct_auxiliary: 1.72
+- distance_to_high_60_pct: -14.21
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,450.5,451.5,415,423,427000,412.09,2.65,409.07,370.82,0.1
 20260608,381,397.5,381,393,8540000,410.5,-4.26,408.57,372.16,2.24
 20260609,400,431.5,398.5,422,9439000,411.46,2.56,409.57,374.18,2.72
 20260610,414,427,405,405,7601000,410.92,-1.44,410.32,375.8,2.29
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,419,423,405,408,5107000,414.23,-1.5,420.9,396.42,0.99
 20260702,393.5,406.5,389.5,406.5,4209000,413.58,-1.71,418.02,397.24,0.79
 20260703,402.5,408.5,399,401,1546000,412.53,-2.8,415.38,397.62,0.29
+20260706,417.5,434.5,409,422.5,8631000,413.37,2.21,415.35,398.55,1.49
 ```
 
 ## Latest TDCC Snapshot
@@ -188,12 +188,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 3211 | 順達 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.發生變動日期:115/06/22 2.功能性委員會名稱:提名委員會 3.舊任者姓名:不適用 4.舊任者簡歷:不適用 5.新任者姓名:  董　　事：鹿寮坑(股)公司代表人：鍾聰明  獨立董事：謝漢萍  獨立董事：林政憲  獨立董事：許婉美 6.新任者簡歷:  董　　事 鹿寮坑(股)公司代表人：鍾聰明；順達科技(股)公司董事長  獨立董事 謝漢萍；凱崴電子(股)公司獨立董事  獨立董事 林政憲；律宇國際商務法律事務所主持律師  獨立董事 許婉美；之初創業投資管理顧問(股)公司監察人 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）:  「新任」。 8.異動原因:設置提名委員會。 9.原任期（例xx/xx/xx ~ xx/xx/xx）:不適用。 10.新任生效日期:115/06/22 11.其他應敘明事項:  提名委員會成員推舉謝漢萍獨立董事為召集人。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260706 | 3211 | 順達 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | stale_signal | 1.發生變動日期:115/06/22 2.功能性委員會名稱:提名委員會 3.舊任者姓名:不適用 4.舊任者簡歷:不適用 5.新任者姓名:  董　　事：鹿寮坑(股)公司代表人：鍾聰明  獨立董事：謝漢萍  獨立董事：林政憲  獨立董事：許婉美 6.新任者簡歷:  董　　事 鹿寮坑(股)公司代表人：鍾聰明；順達科技(股)公司董事長  獨立董事 謝漢萍；凱崴電子(股)公司獨立董事  獨立董事 林政憲；律宇國際商務法律事務所主持律師  獨立董事 許婉美；之初創業投資管理顧問(股)公司監察人 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）:  「新任」。 8.異動原因:設置提名委員會。 9.原任期（例xx/xx/xx ~ xx/xx/xx）:不適用。 10.新任生效日期:115/06/22 11.其他應敘明事項:  提名委員會成員推舉謝漢萍獨立董事為召集人。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 3211 | 順達 | 4 | 4 | 4 | 8 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260706 | 3211 | 順達 | 5 | 5 | 5 | 8 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

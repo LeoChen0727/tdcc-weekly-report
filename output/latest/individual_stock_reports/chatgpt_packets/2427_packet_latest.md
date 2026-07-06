@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2427 三商電
 
 ## Metadata
-- generated_at: 2026-07-05 22:26:34 Asia/Taipei
+- generated_at: 2026-07-06 22:26:50 Asia/Taipei
 - stock_id: 2427
 - stock_name: 三商電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 297
+- latest_price_date: 20260706
+- price_rows: 298
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -56,29 +56,33 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 停利
-- model_category_display_zh: 嚴格突破
-- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前以風險管理為主，不適合新買第一筆。
-- action_summary_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。
-- entry_strategy_zh: 目前進入停利管理，不建議新買第一筆。
-- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- action_rating_display_zh: 可分批買進
+- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- action_summary_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。
+- entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
+- position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 轉弱警訊、股價乖離過大
+- risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。 進場策略：目前進入停利管理，不建議新買第一筆。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊、股價乖離過大
+- final_decision_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: take_profit
-- action_rating_label_zh: 停利
-- confidence_level: low
-- thesis_state: high_level_distribution_risk
-- entry_style: no_entry_now
-- position_sizing: observe_only
+- action_rating: scale_in
+- action_rating_label_zh: 可分批買進
+- confidence_level: medium
+- thesis_state: healthy_pullback
+- entry_style: pullback_to_23ema
+- position_sizing: half_position
 
 ### management_plan
+- buy_first_tranche_near_support
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -88,10 +92,11 @@
 
 ### entry_prerequisites
 - model_recommended
-- decision_score_high
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
+- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -105,7 +110,6 @@
 
 ### downgrade_reason
 - tdcc_distribution_warning
-- price_too_extended
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -113,29 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 24.25
-- high: 26.65
-- low: 23.75
-- close: 26.65
-- volume: 15242152
-- ma5: 23.46
-- ema23_primary: 22.72
-- distance_to_ema23_pct: 17.28
-- ma20: 22.79
-- ma60: 21.98
+- date: 20260706
+- open: 26.85
+- high: 27.1
+- low: 25.55
+- close: 25.9
+- volume: 11549000
+- ma5: 24.2
+- ema23_primary: 22.99
+- distance_to_ema23_pct: 12.66
+- ma20: 22.91
+- ma60: 22.03
 - ma120: 23.67
-- return_5d: 22.53
-- return_20d: 13.4
-- volume_ratio: 8.02
-- distance_to_ma20_pct_auxiliary: 16.92
-- distance_to_high_60_pct: 0
+- return_5d: 16.67
+- return_20d: 9.51
+- volume_ratio: 4.85
+- distance_to_ma20_pct_auxiliary: 13.08
+- distance_to_high_60_pct: -4.43
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,23.75,24.4,23.6,23.65,1998313,21.85,8.24,21.36,22.27,1.5
 20260608,22,24.45,21.75,23.9,3609611,22.02,8.53,21.47,22.26,2.44
 20260609,24.15,24.45,23.65,23.7,1701803,22.16,6.94,21.59,22.25,1.11
 20260610,22.95,23.15,22.25,22.3,2250853,22.17,0.57,21.64,22.21,1.39
@@ -155,6 +158,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,22.25,22.35,22.05,22.05,410000,22.2,-0.66,22.61,21.9,0.32
 20260702,23,24.25,22.25,24.25,4285000,22.37,8.42,22.64,21.92,3.48
 20260703,24.25,26.65,23.75,26.65,15242152,22.72,17.28,22.79,21.98,8.02
+20260706,26.85,27.1,25.55,25.9,11549000,22.99,12.66,22.91,22.03,4.85
 ```
 
 ## Latest TDCC Snapshot
@@ -189,12 +193,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 2427 | 三商電 | true_breakout | 嚴格突破 | 124.0 |  |  | breakout_confirmed |  |  | continued_overheated | 1.發生變動日期:115/07/02 2.功能性委員會名稱:薪資報酬委員會。 3.舊任者姓名:不適用。 4.舊任者簡歷:不適用。 5.新任者姓名:郭雅慧。 6.新任者簡歷:本公司獨立董事。 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 新任。 8.異動原因:董事會決議聘任。 9.原任期（例xx/xx/xx ~ xx/xx/xx）:114/07/03~117/06/08。 10.新任生效日期:115/07/02 11.其他應敘明事項:本公司115/06/09補選一席獨立董事，並於115/07/02董事會通過增 聘一席薪資報酬委員會委員，第六屆薪資報酬委員會委員由原本5席，增聘為6席委員。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260706 | 2427 | 三商電 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_overheated | 1.發生變動日期:115/07/02 2.功能性委員會名稱:薪資報酬委員會。 3.舊任者姓名:不適用。 4.舊任者簡歷:不適用。 5.新任者姓名:郭雅慧。 6.新任者簡歷:本公司獨立董事。 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 新任。 8.異動原因:董事會決議聘任。 9.原任期（例xx/xx/xx ~ xx/xx/xx）:114/07/03~117/06/08。 10.新任生效日期:115/07/02 11.其他應敘明事項:本公司115/06/09補選一席獨立董事，並於115/07/02董事會通過增 聘一席薪資報酬委員會委員，第六屆薪資報酬委員會委員由原本5席，增聘為6席委員。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 2427 | 三商電 | 2 | 1 | 2 | 2 | 5 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260706 | 2427 | 三商電 | 3 | 1 | 3 | 3 | 6 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2420 新巨
 
 ## Metadata
-- generated_at: 2026-07-05 22:26:33 Asia/Taipei
+- generated_at: 2026-07-06 22:26:50 Asia/Taipei
 - stock_id: 2420
 - stock_name: 新巨
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 297
+- latest_price_date: 20260706
+- price_rows: 298
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 61.4
-- high: 62
-- low: 60.9
+- date: 20260706
+- open: 64
+- high: 64
+- low: 61.4
 - close: 62
-- volume: 334147
-- ma5: 61.06
-- ema23_primary: 61.21
-- distance_to_ema23_pct: 1.29
-- ma20: 61.45
-- ma60: 59.05
-- ma120: 55.27
-- return_5d: 2.99
-- return_20d: -5.05
-- volume_ratio: 0.47
-- distance_to_ma20_pct_auxiliary: 0.9
+- volume: 514000
+- ma5: 61.4
+- ema23_primary: 61.28
+- distance_to_ema23_pct: 1.18
+- ma20: 61.28
+- ma60: 59.21
+- ma120: 55.37
+- return_5d: 2.82
+- return_20d: -4.91
+- volume_ratio: 0.72
+- distance_to_ma20_pct_auxiliary: 1.17
 - distance_to_high_60_pct: -6.2
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,65.3,65.4,64.2,65.2,591190,61.31,6.35,61.42,56.01,0.61
 20260608,61.5,63.4,60.3,63,753777,61.45,2.52,61.74,56.21,0.78
 20260609,62.9,65.2,62.4,64.2,874709,61.68,4.09,62.05,56.43,0.91
 20260610,64.2,64.7,63,63.2,610456,61.81,2.26,62.4,56.63,0.64
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,61.1,61.6,60.5,60.9,392000,61.12,-0.36,61.76,58.71,0.52
 20260702,61.5,61.8,60.3,61.4,418000,61.14,0.42,61.61,58.88,0.56
 20260703,61.4,62,60.9,62,334147,61.21,1.29,61.45,59.05,0.47
+20260706,64,64,61.4,62,514000,61.28,1.18,61.28,59.21,0.72
 ```
 
 ## Latest TDCC Snapshot
@@ -197,9 +197,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260706 | 2420 | 新巨 | 2 | 0 | 0.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

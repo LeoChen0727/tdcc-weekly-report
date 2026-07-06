@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2401 凌陽
 
 ## Metadata
-- generated_at: 2026-07-05 22:26:32 Asia/Taipei
+- generated_at: 2026-07-06 22:26:49 Asia/Taipei
 - stock_id: 2401
 - stock_name: 凌陽
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 297
+- latest_price_date: 20260706
+- price_rows: 298
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 34.45
-- high: 35.65
+- date: 20260706
+- open: 33.8
+- high: 34.4
 - low: 32.6
-- close: 33.45
-- volume: 24684820
-- ma5: 32.42
-- ema23_primary: 31.11
-- distance_to_ema23_pct: 7.52
-- ma20: 30.84
-- ma60: 27.4
-- ma120: 24.36
-- return_5d: 5.69
-- return_20d: 19.04
-- volume_ratio: 1.48
-- distance_to_ma20_pct_auxiliary: 8.45
-- distance_to_high_60_pct: -6.17
+- close: 32.7
+- volume: 9226000
+- ma5: 32.68
+- ema23_primary: 31.24
+- distance_to_ema23_pct: 4.67
+- ma20: 31.11
+- ma60: 27.61
+- ma120: 24.46
+- return_5d: 4.14
+- return_20d: 19.13
+- volume_ratio: 0.55
+- distance_to_ma20_pct_auxiliary: 5.12
+- distance_to_high_60_pct: -8.27
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,28,28.15,26.7,27.45,6301964,27.63,-0.63,27.86,24.07,0.38
 20260608,24.8,25.35,24.75,25.25,7898195,27.43,-7.94,27.84,24.14,0.47
 20260609,25.35,26.6,25.05,26.5,5050315,27.35,-3.11,27.86,24.22,0.3
 20260610,25.75,26.95,25.3,25.35,4590425,27.18,-6.74,27.88,24.3,0.28
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,32.45,33.35,31.15,31.2,10033000,30.59,2,30.33,26.93,0.66
 20260702,31.15,34.3,31.15,34.3,19048000,30.9,11.01,30.58,27.18,1.21
 20260703,34.45,35.65,32.6,33.45,24684820,31.11,7.52,30.84,27.4,1.48
+20260706,33.8,34.4,32.6,32.7,9226000,31.24,4.67,31.11,27.61,0.55
 ```
 
 ## Latest TDCC Snapshot
@@ -198,7 +199,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 2401 | 凌陽 | 24 | 0 | 1975470.0 | 0.0 |  | no_signal |
+| 20260706 | 2401 | 凌陽 | 24 | 0 | 854200.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

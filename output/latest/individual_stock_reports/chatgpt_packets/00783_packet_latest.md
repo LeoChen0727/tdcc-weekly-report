@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00783 富邦中証500
 
 ## Metadata
-- generated_at: 2026-07-05 22:26:00 Asia/Taipei
+- generated_at: 2026-07-06 22:26:22 Asia/Taipei
 - stock_id: 00783
 - stock_name: 富邦中証500
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260703
-- price_rows: 30
+- latest_price_date: 20260706
+- price_rows: 31
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 30.79
-- high: 31.48
-- low: 30.75
-- close: 31.33
-- volume: 208413
-- ma5: 31.42
-- ema23_primary: 30.55
-- distance_to_ema23_pct: 2.54
-- ma20: 30.23
-- ma60: 30.08
-- ma120: 30.08
-- return_5d: 1.49
-- return_20d: 6.71
-- volume_ratio: 0.73
-- distance_to_ma20_pct_auxiliary: 3.65
-- distance_to_high_60_pct: -2.94
+- date: 20260706
+- open: 31.34
+- high: 31.34
+- low: 30.93
+- close: 31.28
+- volume: 32000
+- ma5: 31.55
+- ema23_primary: 30.61
+- distance_to_ema23_pct: 2.18
+- ma20: 30.32
+- ma60: 30.12
+- ma120: 30.12
+- return_5d: 2.06
+- return_20d: 6.11
+- volume_ratio: 0.11
+- distance_to_ma20_pct_auxiliary: 3.18
+- distance_to_high_60_pct: -3.1
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,29.36,29.48,28.96,29.48,81371,29.75,-0.91,29.75,29.75,0.38
 20260608,28.47,28.66,28.06,28.06,144604,29.61,-5.24,29.61,29.61,0.7
 20260609,28.21,28.39,28.12,28.39,285663,29.51,-3.79,29.52,29.52,1.35
 20260610,28.76,28.76,28.31,28.31,465176,29.41,-3.74,29.43,29.43,2.02
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,32.12,32.28,31.93,32.12,213000,30.42,5.6,30.05,29.99,0.83
 20260702,32.08,32.08,30.95,31.2,587000,30.48,2.36,30.13,30.03,2.1
 20260703,30.79,31.48,30.75,31.33,208413,30.55,2.54,30.23,30.08,0.73
+20260706,31.34,31.34,30.93,31.28,32000,30.61,2.18,30.32,30.12,0.11
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009805 新光美國電力基建
 
 ## Metadata
-- generated_at: 2026-07-05 22:26:02 Asia/Taipei
+- generated_at: 2026-07-06 22:26:24 Asia/Taipei
 - stock_id: 009805
 - stock_name: 新光美國電力基建
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260703
-- price_rows: 30
+- latest_price_date: 20260706
+- price_rows: 31
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 16.71
-- high: 16.83
-- low: 16.69
-- close: 16.82
-- volume: 6549480
-- ma5: 17.01
+- date: 20260706
+- open: 16.82
+- high: 16.84
+- low: 16.78
+- close: 16.8
+- volume: 5768000
+- ma5: 16.99
 - ema23_primary: 16.76
-- distance_to_ema23_pct: 0.36
-- ma20: 16.63
+- distance_to_ema23_pct: 0.22
+- ma20: 16.64
 - ma60: 16.65
 - ma120: 16.65
-- return_5d: -1.35
-- return_20d: 1.57
-- volume_ratio: 0.66
-- distance_to_ma20_pct_auxiliary: 1.13
-- distance_to_high_60_pct: -3.5
+- return_5d: -0.53
+- return_20d: 1.27
+- volume_ratio: 0.59
+- distance_to_ma20_pct_auxiliary: 0.94
+- distance_to_high_60_pct: -3.61
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,16.57,16.59,16.52,16.59,8602609,16.6,-0.06,16.66,16.66,0.62
 20260608,16.1,16.29,16.06,16.26,14740032,16.57,-1.88,16.63,16.63,1.05
 20260609,16.18,16.19,16.03,16.19,10404256,16.54,-2.11,16.6,16.6,0.76
 20260610,16.05,16.05,15.91,15.93,13540063,16.49,-3.39,16.55,16.55,0.99
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,17.4,17.41,17.28,17.34,7218000,16.74,3.59,16.61,16.63,0.7
 20260702,16.9,16.97,16.87,16.93,5745000,16.75,1.05,16.62,16.64,0.57
 20260703,16.71,16.83,16.69,16.82,6549480,16.76,0.36,16.63,16.65,0.66
+20260706,16.82,16.84,16.78,16.8,5768000,16.76,0.22,16.64,16.65,0.59
 ```
 
 ## Latest TDCC Snapshot

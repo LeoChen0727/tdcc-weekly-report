@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1563 巧新
 
 ## Metadata
-- generated_at: 2026-07-05 22:26:14 Asia/Taipei
+- generated_at: 2026-07-06 22:26:34 Asia/Taipei
 - stock_id: 1563
 - stock_name: 巧新
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 297
+- latest_price_date: 20260706
+- price_rows: 298
 - latest_tdcc_date: 20260703
 - tdcc_rows: 32
 - tdcc_history_status: tdcc_history_ready
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 63.8
-- high: 70.5
-- low: 63.5
-- close: 70.5
-- volume: 4158374
-- ma5: 64.44
-- ema23_primary: 62.69
-- distance_to_ema23_pct: 12.45
-- ma20: 63.85
-- ma60: 52.75
-- ma120: 48.66
-- return_5d: 9.47
-- return_20d: 6.33
-- volume_ratio: 1.73
-- distance_to_ma20_pct_auxiliary: 10.41
-- distance_to_high_60_pct: -2.76
+- date: 20260706
+- open: 69.8
+- high: 73.3
+- low: 69
+- close: 71
+- volume: 5214000
+- ma5: 66.12
+- ema23_primary: 63.38
+- distance_to_ema23_pct: 12.01
+- ma20: 64.14
+- ma60: 53.24
+- ma120: 48.84
+- return_5d: 13.42
+- return_20d: 8.73
+- volume_ratio: 1.99
+- distance_to_ma20_pct_auxiliary: 10.7
+- distance_to_high_60_pct: -3.14
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,66,66,63.4,65.3,905197,55.2,18.29,53.42,45.57,0.37
 20260608,58.8,61.6,58.8,60.5,1422554,55.64,8.73,54.26,45.88,0.58
 20260609,63.3,64.5,60.5,62,1863153,56.17,10.37,55.16,46.22,0.74
 20260610,60.7,62,57.8,58,1154064,56.33,2.97,55.85,46.51,0.46
@@ -160,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,63,63.6,61.3,62.9,1009000,61.79,1.8,63.83,51.89,0.43
 20260702,62.9,64.5,62.3,64.1,667000,61.98,3.42,63.64,52.27,0.29
 20260703,63.8,70.5,63.5,70.5,4158374,62.69,12.45,63.85,52.75,1.73
+20260706,69.8,73.3,69,71,5214000,63.38,12.01,64.14,53.24,1.99
 ```
 
 ## Latest TDCC Snapshot
@@ -196,12 +196,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 1563 | 巧新 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | repeated_but_no_breakout | 1.董事會、股東會決議或公司決定日期:115/06/25 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額: 盈餘分配發放現金股利217,088,140元及資本公積發放現金股利217,088,140元。 共計現金股利434,176,280元，每股現金股利2元。 4.除權（息）交易日:115/07/15 5.最後過戶日:115/07/16 6.停止過戶起始日期:115/07/17 7.停止過戶截止日期:115/07/21 8.除權（息）基準日:115/07/21 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/06 13.其他應敘明事項:無；calendar event: ex_dividend on 20260715; status=confirmed; proximity=within_14d |
+| 20260706 | 1563 | 巧新 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_2_3d | 1.董事會、股東會決議或公司決定日期:115/06/25 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額: 盈餘分配發放現金股利217,088,140元及資本公積發放現金股利217,088,140元。 共計現金股利434,176,280元，每股現金股利2元。 4.除權（息）交易日:115/07/15 5.最後過戶日:115/07/16 6.停止過戶起始日期:115/07/17 7.停止過戶截止日期:115/07/21 8.除權（息）基準日:115/07/21 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/06 13.其他應敘明事項:無；calendar event: ex_dividend on 20260715; status=confirmed; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 1563 | 巧新 | 1 | 1 | 3 | 6 | 8 | repeated_but_no_breakout | 近 10 日上榜 6 次、近 20 日上榜 8 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260706 | 1563 | 巧新 | 2 | 2 | 3 | 6 | 8 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | status |

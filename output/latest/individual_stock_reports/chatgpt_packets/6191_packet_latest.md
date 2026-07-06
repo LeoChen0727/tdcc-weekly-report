@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6191 精成科
 
 ## Metadata
-- generated_at: 2026-07-05 22:27:46 Asia/Taipei
+- generated_at: 2026-07-06 22:27:47 Asia/Taipei
 - stock_id: 6191
 - stock_name: 精成科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 297
+- latest_price_date: 20260706
+- price_rows: 298
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 109
+- date: 20260706
+- open: 109.5
 - high: 111
-- low: 106.5
-- close: 108
-- volume: 16806666
-- ma5: 106.8
-- ema23_primary: 101.49
-- distance_to_ema23_pct: 6.41
-- ma20: 100.51
-- ma60: 99.9
-- ma120: 102.19
-- return_5d: 7.46
-- return_20d: 9.98
-- volume_ratio: 1.18
-- distance_to_ma20_pct_auxiliary: 7.45
-- distance_to_high_60_pct: -6.9
+- low: 107
+- close: 107
+- volume: 11165000
+- ma5: 107
+- ema23_primary: 101.95
+- distance_to_ema23_pct: 4.95
+- ma20: 100.83
+- ma60: 100.1
+- ma120: 102.15
+- return_5d: 0.94
+- return_20d: 6.47
+- volume_ratio: 0.78
+- distance_to_ma20_pct_auxiliary: 6.11
+- distance_to_high_60_pct: -7.76
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,97.5,101.5,94.3,100.5,10604877,97.59,2.98,95.64,98.04,1.39
 20260608,90.8,95.2,90.7,94.7,6277911,97.35,-2.72,95.64,97.98,0.82
 20260609,95,98.6,95,98,5092621,97.4,0.61,95.84,98.01,0.67
 20260610,97.1,99.8,92.2,92.4,6765550,96.98,-4.73,95.84,97.89,0.89
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,108,108.5,103.5,103.5,15651000,100.07,3.42,99.55,99.33,1.2
 20260702,102,113.5,101,110,32179000,100.9,9.02,100.02,99.67,2.32
 20260703,109,111,106.5,108,16806666,101.49,6.41,100.51,99.9,1.18
+20260706,109.5,111,107,107,11165000,101.95,4.95,100.83,100.1,0.78
 ```
 
 ## Latest TDCC Snapshot
@@ -198,7 +199,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 6191 | 精成科 | 59 | 3 | 9690300.0 | 9900.0 | 978.82 | no_signal |
+| 20260706 | 6191 | 精成科 | 59 | 3 | 6187370.0 | 2250.0 | 2749.94 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

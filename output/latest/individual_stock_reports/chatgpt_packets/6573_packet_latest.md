@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6573 虹揚-KY
 
 ## Metadata
-- generated_at: 2026-07-05 22:27:57 Asia/Taipei
+- generated_at: 2026-07-06 22:27:57 Asia/Taipei
 - stock_id: 6573
 - stock_name: 虹揚-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 297
+- latest_price_date: 20260706
+- price_rows: 298
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 23.1
-- high: 25.4
-- low: 22.8
-- close: 25.1
-- volume: 3035521
-- ma5: 22.13
-- ema23_primary: 18.71
-- distance_to_ema23_pct: 34.12
-- ma20: 18.11
-- ma60: 15.04
-- ma120: 14.8
-- return_5d: 26.45
-- return_20d: 50.75
-- volume_ratio: 2.36
-- distance_to_ma20_pct_auxiliary: 38.58
-- distance_to_high_60_pct: -1.18
+- date: 20260706
+- open: 25
+- high: 27.6
+- low: 24.15
+- close: 27.6
+- volume: 2695000
+- ma5: 23.7
+- ema23_primary: 19.45
+- distance_to_ema23_pct: 41.87
+- ma20: 18.69
+- ma60: 15.3
+- ma120: 14.9
+- return_5d: 39.75
+- return_20d: 71.43
+- volume_ratio: 1.94
+- distance_to_ma20_pct_auxiliary: 47.69
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,16.55,16.6,15.8,16.1,615211,14.73,9.31,14.44,13.49,0.91
 20260608,14.5,15.55,14.5,15.05,405233,14.76,2,14.58,13.52,0.59
 20260609,15.15,15.95,15.1,15.25,344386,14.8,3.06,14.66,13.54,0.5
 20260610,15.2,15.75,14.8,15.05,258579,14.82,1.57,14.73,13.55,0.38
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,22.75,23.4,21,21,1763000,17.68,18.76,17.44,14.65,1.49
 20260702,19.25,23.1,19.2,23.1,1970000,18.13,27.39,17.69,14.83,1.66
 20260703,23.1,25.4,22.8,25.1,3035521,18.71,34.12,18.11,15.04,2.36
+20260706,25,27.6,24.15,27.6,2695000,19.45,41.87,18.69,15.3,1.94
 ```
 
 ## Latest TDCC Snapshot
@@ -189,12 +189,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 6573 | 虹揚-KY | true_breakout | 嚴格突破 | 86.0 |  |  | breakout_confirmed |  |  | continued_overheated | 1.董事會決議日期或發生變動日期:115/06/22 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:高桂珍 4.舊任者簡歷:虹揚發展科技(股)公司-董事長 5.新任者姓名:高桂珍 6.新任者簡歷:虹揚發展科技(股)公司-董事長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因:董事全面改選後，董事會推選董事長 9.新任生效日期:115/06/22 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260706 | 6573 | 虹揚-KY | true_breakout | 嚴格突破 | 87.0 |  |  | breakout_confirmed |  |  | continued_overheated | 1.董事會決議日期或發生變動日期:115/06/22 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:高桂珍 4.舊任者簡歷:虹揚發展科技(股)公司-董事長 5.新任者姓名:高桂珍 6.新任者簡歷:虹揚發展科技(股)公司-董事長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因:董事全面改選後，董事會推選董事長 9.新任生效日期:115/06/22 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 6573 | 虹揚-KY | 2 | 1 | 3 | 5 | 8 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260706 | 6573 | 虹揚-KY | 3 | 2 | 4 | 6 | 8 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

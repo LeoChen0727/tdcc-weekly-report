@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3645 達邁
 
 ## Metadata
-- generated_at: 2026-07-05 22:27:10 Asia/Taipei
+- generated_at: 2026-07-06 22:27:19 Asia/Taipei
 - stock_id: 3645
 - stock_name: 達邁
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 297
+- latest_price_date: 20260706
+- price_rows: 298
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 91.9
-- high: 95.7
-- low: 91.3
-- close: 93.7
-- volume: 1855418
-- ma5: 91.02
-- ema23_primary: 94.23
-- distance_to_ema23_pct: -0.56
-- ma20: 92.78
-- ma60: 99.52
-- ma120: 82.91
-- return_5d: 7.58
-- return_20d: -6.3
-- volume_ratio: 0.79
-- distance_to_ma20_pct_auxiliary: 0.99
-- distance_to_high_60_pct: -22.88
+- date: 20260706
+- open: 94.2
+- high: 94.9
+- low: 91
+- close: 91
+- volume: 1637000
+- ma5: 91.76
+- ema23_primary: 93.96
+- distance_to_ema23_pct: -3.15
+- ma20: 92.2
+- ma60: 99.79
+- ma120: 83.23
+- return_5d: 4.24
+- return_20d: -11.22
+- volume_ratio: 0.74
+- distance_to_ma20_pct_auxiliary: -1.31
+- distance_to_high_60_pct: -25.1
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,99.6,102.5,95,102.5,4667303,104.16,-1.59,106.92,94.88,0.41
 20260608,92.4,97.3,92.3,96.4,3806819,103.51,-6.87,106.69,95.1,0.34
 20260609,97,101,96.2,99,2615818,103.14,-4.01,106.27,95.42,0.25
 20260610,97,98.1,89.1,90,5719216,102.04,-11.8,105.34,95.57,0.57
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,92,93,89.5,91.1,1340000,94.52,-3.62,93.52,98.86,0.54
 20260702,91.8,92.5,90.3,91.6,1003000,94.28,-2.84,93.09,99.23,0.42
 20260703,91.9,95.7,91.3,93.7,1855418,94.23,-0.56,92.78,99.52,0.79
+20260706,94.2,94.9,91,91,1637000,93.96,-3.15,92.2,99.79,0.74
 ```
 
 ## Latest TDCC Snapshot
@@ -199,7 +199,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 3645 | 達邁 | 26 | 0 | 2188090.0 | 0.0 |  | call_inflow |
+| 20260706 | 3645 | 達邁 | 28 | 0 | 699650.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

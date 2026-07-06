@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6770 力積電
 
 ## Metadata
-- generated_at: 2026-07-05 22:28:04 Asia/Taipei
+- generated_at: 2026-07-06 22:28:02 Asia/Taipei
 - stock_id: 6770
 - stock_name: 力積電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 297
+- latest_price_date: 20260706
+- price_rows: 298
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 73.3
-- high: 75.1
-- low: 72.1
-- close: 73.4
-- volume: 101737426
-- ma5: 76.2
-- ema23_primary: 74.92
-- distance_to_ema23_pct: -2.03
-- ma20: 74.33
-- ma60: 66.21
-- ma120: 63.69
-- return_5d: -6.26
-- return_20d: -9.38
-- volume_ratio: 0.48
-- distance_to_ma20_pct_auxiliary: -1.26
-- distance_to_high_60_pct: -22.33
+- date: 20260706
+- open: 74.2
+- high: 77.4
+- low: 72.5
+- close: 72.6
+- volume: 152302000
+- ma5: 74.94
+- ema23_primary: 74.73
+- distance_to_ema23_pct: -2.85
+- ma20: 74.23
+- ma60: 66.52
+- ma120: 63.96
+- return_5d: -7.98
+- return_20d: -2.68
+- volume_ratio: 0.72
+- distance_to_ma20_pct_auxiliary: -2.2
+- distance_to_high_60_pct: -23.17
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,77,77,73,74.6,112133197,71.45,4.41,70.35,62.72,0.4
 20260608,67.2,68.3,67.2,67.5,104480847,71.12,-5.09,70.6,62.74,0.39
 20260609,70.4,71.5,69.9,71.5,57680845,71.15,0.49,71.07,62.88,0.22
 20260610,67,67.8,64.4,64.4,132801225,70.59,-8.77,71.27,62.88,0.5
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,80.2,80.5,72.7,74.3,261609000,75.09,-1.06,75.21,65.6,1.28
 20260702,70.4,75.8,70.3,74.7,154353000,75.06,-0.48,74.72,65.94,0.74
 20260703,73.3,75.1,72.1,73.4,101737426,74.92,-2.03,74.33,66.21,0.48
+20260706,74.2,77.4,72.5,72.6,152302000,74.73,-2.85,74.23,66.52,0.72
 ```
 
 ## Latest TDCC Snapshot
@@ -188,19 +188,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 6770 | 力積電 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  | put_inflow | stale_signal | 1.事實發生日:115/07/01 2.公司名稱:力晶積成電子製造股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:海外某券商內部報告 6.報導內容: 海外某券商內部報告：「…台灣力晶與合作廠商將推進DRAM產銷…。」 7.發生緣由: 針對海外某券商內部報告指稱台灣力晶與合作廠商將推進DRAM產銷，力積電鄭重聲明 絕無任何在海外推進DRAM相關技術移轉或製造的計畫。為恐不實訊息誤導，特此澄清 。 8.因應措施:針對媒體報導內容發佈重大訊息澄清。 9.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
-| 20260703 | 6770 | 力積電 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  | put_inflow | stale_signal | 1.事實發生日:115/07/01 2.公司名稱:力晶積成電子製造股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:海外某券商內部報告 6.報導內容: 海外某券商內部報告：「…台灣力晶與合作廠商將推進DRAM產銷…。」 7.發生緣由: 針對海外某券商內部報告指稱台灣力晶與合作廠商將推進DRAM產銷，力積電鄭重聲明 絕無任何在海外推進DRAM相關技術移轉或製造的計畫。為恐不實訊息誤導，特此澄清 。 8.因應措施:針對媒體報導內容發佈重大訊息澄清。 9.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260703 | 6770 | 力積電 | revenue_breakout_low_response | 營收爆發低反應股 | 18.0 | 11.0 | A_優先追蹤 |  |  | put_inflow | stale_signal | 1.事實發生日:115/07/01 2.公司名稱:力晶積成電子製造股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:海外某券商內部報告 6.報導內容: 海外某券商內部報告：「…台灣力晶與合作廠商將推進DRAM產銷…。」 7.發生緣由: 針對海外某券商內部報告指稱台灣力晶與合作廠商將推進DRAM產銷，力積電鄭重聲明 絕無任何在海外推進DRAM相關技術移轉或製造的計畫。為恐不實訊息誤導，特此澄清 。 8.因應措施:針對媒體報導內容發佈重大訊息澄清。 9.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260706 | 6770 | 力積電 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | put_inflow | stale_signal | 1.事實發生日:115/07/01 2.公司名稱:力晶積成電子製造股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:海外某券商內部報告 6.報導內容: 海外某券商內部報告：「…台灣力晶與合作廠商將推進DRAM產銷…。」 7.發生緣由: 針對海外某券商內部報告指稱台灣力晶與合作廠商將推進DRAM產銷，力積電鄭重聲明 絕無任何在海外推進DRAM相關技術移轉或製造的計畫。為恐不實訊息誤導，特此澄清 。 8.因應措施:針對媒體報導內容發佈重大訊息澄清。 9.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260706 | 6770 | 力積電 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  | put_inflow | stale_signal | 1.事實發生日:115/07/01 2.公司名稱:力晶積成電子製造股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:海外某券商內部報告 6.報導內容: 海外某券商內部報告：「…台灣力晶與合作廠商將推進DRAM產銷…。」 7.發生緣由: 針對海外某券商內部報告指稱台灣力晶與合作廠商將推進DRAM產銷，力積電鄭重聲明 絕無任何在海外推進DRAM相關技術移轉或製造的計畫。為恐不實訊息誤導，特此澄清 。 8.因應措施:針對媒體報導內容發佈重大訊息澄清。 9.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260706 | 6770 | 力積電 | revenue_breakout_low_response | 營收爆發低反應股 | 18.0 | 11.0 | A_優先追蹤 |  |  | put_inflow | stale_signal | 1.事實發生日:115/07/01 2.公司名稱:力晶積成電子製造股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:海外某券商內部報告 6.報導內容: 海外某券商內部報告：「…台灣力晶與合作廠商將推進DRAM產銷…。」 7.發生緣由: 針對海外某券商內部報告指稱台灣力晶與合作廠商將推進DRAM產銷，力積電鄭重聲明 絕無任何在海外推進DRAM相關技術移轉或製造的計畫。為恐不實訊息誤導，特此澄清 。 8.因應措施:針對媒體報導內容發佈重大訊息澄清。 9.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 6770 | 力積電 | 2 | 2 | 4 | 9 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260706 | 6770 | 力積電 | 3 | 3 | 4 | 9 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 6770 | 力積電 | 162 | 21 | 31767230.0 | 1209390.0 | 26.27 | put_inflow |
+| 20260706 | 6770 | 力積電 | 162 | 21 | 21679380.0 | 1051700.0 | 20.61 | put_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

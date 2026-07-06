@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3663 鑫科
 
 ## Metadata
-- generated_at: 2026-07-05 22:27:11 Asia/Taipei
+- generated_at: 2026-07-06 22:27:20 Asia/Taipei
 - stock_id: 3663
 - stock_name: 鑫科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 162
+- latest_price_date: 20260706
+- price_rows: 163
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -117,29 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 79.9
-- high: 88.4
-- low: 79.6
-- close: 88.4
-- volume: 10844000
-- ma5: 79.34
-- ema23_primary: 78.68
-- distance_to_ema23_pct: 12.35
-- ma20: 76.59
-- ma60: 76.16
-- ma120: 70.21
-- return_5d: 22.1
-- return_20d: 7.15
-- volume_ratio: 3.49
-- distance_to_ma20_pct_auxiliary: 15.41
-- distance_to_high_60_pct: -5.76
+- date: 20260706
+- open: 87.8
+- high: 92.4
+- low: 85.1
+- close: 85.1
+- volume: 6478000
+- ma5: 81.82
+- ema23_primary: 79.21
+- distance_to_ema23_pct: 7.43
+- ma20: 76.92
+- ma60: 76.38
+- ma120: 70.44
+- return_5d: 17.06
+- return_20d: 8.41
+- volume_ratio: 1.89
+- distance_to_ma20_pct_auxiliary: 10.63
+- distance_to_high_60_pct: -9.28
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,82.5,83,76.4,78.5,79000,80.96,-3.03,80.83,74.54,0.03
 20260608,70.7,72.8,70.7,72.3,1758000,80.24,-9.89,81.06,74.65,0.6
 20260609,73,73,70,71.6,2019000,79.52,-9.95,81.22,74.63,0.69
 20260610,71.1,73.9,67,67,2542000,78.47,-14.62,81.19,74.52,0.85
@@ -159,6 +158,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,78.5,79.8,76.1,77.7,1650000,77.56,0.18,76.47,75.62,0.67
 20260702,77,81.4,75.9,80.4,1904000,77.8,3.35,76.3,75.86,0.74
 20260703,79.9,88.4,79.6,88.4,10844000,78.68,12.35,76.59,76.16,3.49
+20260706,87.8,92.4,85.1,85.1,6478000,79.21,7.43,76.92,76.38,1.89
 ```
 
 ## Latest TDCC Snapshot
@@ -193,12 +193,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 3663 | 鑫科 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_overheated | 符合條款第四條第XX款：12 事實發生日：115/07/03 1.召開法人說明會之日期：115/07/03 2.召開法人說明會之時間：14 時 00 分  3.召開法人說明會之地點：康和證券總公司B2智匯廳(台北市信義區基隆路1段176號B2) 4.法人說明會擇要訊息：本公司受邀參加康和證券舉辦之法人說明會，向投資人說明本公司之營運狀況。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260706 | 3663 | 鑫科 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/03 1.召開法人說明會之日期：115/07/03 2.召開法人說明會之時間：14 時 00 分  3.召開法人說明會之地點：康和證券總公司B2智匯廳(台北市信義區基隆路1段176號B2) 4.法人說明會擇要訊息：本公司受邀參加康和證券舉辦之法人說明會，向投資人說明本公司之營運狀況。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 3663 | 鑫科 | 4 | 1 | 4 | 8 | 11 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260706 | 3663 | 鑫科 | 5 | 2 | 5 | 8 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

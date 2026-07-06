@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3078 僑威
 
 ## Metadata
-- generated_at: 2026-07-05 22:26:55 Asia/Taipei
+- generated_at: 2026-07-06 22:27:07 Asia/Taipei
 - stock_id: 3078
 - stock_name: 僑威
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 162
+- latest_price_date: 20260706
+- price_rows: 163
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -117,29 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 54.1
-- high: 56.8
-- low: 53.8
-- close: 56.4
-- volume: 1706000
-- ma5: 54.12
-- ema23_primary: 54.85
-- distance_to_ema23_pct: 2.82
-- ma20: 54.66
+- date: 20260706
+- open: 56.6
+- high: 58.8
+- low: 56.6
+- close: 57.6
+- volume: 3411000
+- ma5: 55.26
+- ema23_primary: 55.08
+- distance_to_ema23_pct: 4.58
+- ma20: 54.67
 - ma60: 55.8
-- ma120: 58.89
-- return_5d: 8.46
-- return_20d: -3.75
-- volume_ratio: 1.59
-- distance_to_ma20_pct_auxiliary: 3.17
-- distance_to_high_60_pct: -6.62
+- ma120: 58.79
+- return_5d: 10.98
+- return_20d: 0.17
+- volume_ratio: 2.74
+- distance_to_ma20_pct_auxiliary: 5.36
+- distance_to_high_60_pct: -4.64
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,58.9,58.9,57.2,57.5,58000,56.99,0.89,56.34,57,0.1
 20260608,54.8,55.9,54.1,55.7,1303000,56.88,-2.08,56.27,56.94,2.19
 20260609,56.3,57.2,56.2,57.1,883000,56.9,0.35,56.3,56.9,1.48
 20260610,55.5,57,54.2,54.3,2083000,56.68,-4.21,56.23,56.8,3.23
@@ -159,6 +158,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,53.4,55.9,52.9,55.3,2773000,54.77,0.96,55.02,55.87,3.01
 20260702,55.7,56,54,54,1494000,54.71,-1.3,54.77,55.82,1.5
 20260703,54.1,56.8,53.8,56.4,1706000,54.85,2.82,54.66,55.8,1.59
+20260706,56.6,58.8,56.6,57.6,3411000,55.08,4.58,54.67,55.8,2.74
 ```
 
 ## Latest TDCC Snapshot
@@ -193,12 +193,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 3078 | 僑威 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260706 | 3078 | 僑威 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 3078 | 僑威 | 1 | 1 | 2 | 2 | 2 | first_seen | 首次上榜或資料有限，需後續確認。 |
+| 20260706 | 3078 | 僑威 | 2 | 2 | 3 | 3 | 3 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

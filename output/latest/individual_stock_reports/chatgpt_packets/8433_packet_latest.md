@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8433 弘帆
 
 ## Metadata
-- generated_at: 2026-07-05 22:28:29 Asia/Taipei
+- generated_at: 2026-07-06 22:28:23 Asia/Taipei
 - stock_id: 8433
 - stock_name: 弘帆
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 162
+- latest_price_date: 20260706
+- price_rows: 163
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
+- date: 20260706
 - open: 52.7
 - high: 52.8
-- low: 52.7
+- low: 52.3
 - close: 52.8
-- volume: 15000
-- ma5: 52.56
+- volume: 24000
+- ma5: 52.66
 - ema23_primary: 52.88
-- distance_to_ema23_pct: -0.16
+- distance_to_ema23_pct: -0.15
 - ma20: 52.87
-- ma60: 54.4
-- ma120: 55.57
-- return_5d: 0.38
-- return_20d: 0
-- volume_ratio: 0.43
-- distance_to_ma20_pct_auxiliary: -0.12
+- ma60: 54.23
+- ma120: 55.58
+- return_5d: 0.96
+- return_20d: 0.19
+- volume_ratio: 0.72
+- distance_to_ma20_pct_auxiliary: -0.13
 - distance_to_high_60_pct: -16.98
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,52.8,53.1,52.6,52.7,53000,53.34,-1.19,52.84,56.84,1.18
 20260608,51.1,53.1,50.5,52.1,39000,53.23,-2.13,52.72,56.77,0.93
 20260609,52.5,52.5,51.9,52,28000,53.13,-2.13,52.61,56.71,0.68
 20260610,53,54.4,53,53.8,75000,53.19,1.15,52.62,56.67,1.75
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,52.8,52.8,51.8,52.4,50000,52.92,-0.98,52.88,54.71,1.3
 20260702,52.3,52.6,52.3,52.6,15000,52.89,-0.55,52.87,54.56,0.41
 20260703,52.7,52.8,52.7,52.8,15000,52.88,-0.16,52.87,54.4,0.43
+20260706,52.7,52.8,52.3,52.8,24000,52.88,-0.15,52.87,54.23,0.72
 ```
 
 ## Latest TDCC Snapshot

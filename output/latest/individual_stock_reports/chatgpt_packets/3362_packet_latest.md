@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3362 先進光
 
 ## Metadata
-- generated_at: 2026-07-05 22:27:02 Asia/Taipei
+- generated_at: 2026-07-06 22:27:13 Asia/Taipei
 - stock_id: 3362
 - stock_name: 先進光
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 162
+- latest_price_date: 20260706
+- price_rows: 163
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 轉弱警訊
+- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -90,6 +90,7 @@
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
+- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -104,7 +105,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- tdcc_distribution_warning
+- none
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 185.5
-- high: 193
-- low: 185.5
-- close: 187
-- volume: 2275000
-- ma5: 186.9
-- ema23_primary: 174.81
-- distance_to_ema23_pct: 6.97
-- ma20: 182.4
-- ma60: 135.61
-- ma120: 118.71
-- return_5d: -1.58
-- return_20d: 29.86
-- volume_ratio: 0.28
-- distance_to_ma20_pct_auxiliary: 2.52
-- distance_to_high_60_pct: -14.22
+- date: 20260706
+- open: 186.5
+- high: 191
+- low: 168.5
+- close: 169.5
+- volume: 4900000
+- ma5: 184.3
+- ema23_primary: 174.37
+- distance_to_ema23_pct: -2.79
+- ma20: 183.47
+- ma60: 136.84
+- ma120: 119.35
+- return_5d: -7.12
+- return_20d: 14.53
+- volume_ratio: 0.59
+- distance_to_ma20_pct_auxiliary: -7.62
+- distance_to_high_60_pct: -22.25
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,152,157.5,145.5,148,152000,119.42,23.93,117.42,107.78,0.1
 20260608,133.5,145,133.5,141.5,4341000,121.26,16.69,119.4,108.48,2.68
 20260609,143,155.5,142.5,155.5,2538000,124.11,25.29,121.95,109.44,1.5
 20260610,168,171,160,171,9811000,128.02,33.57,125.42,110.67,4.55
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,193,197.5,184,188.5,4620000,172.45,9.31,177.43,132.55,0.58
 20260702,185,191,183.5,187.5,2130000,173.7,7.94,180.25,134.11,0.27
 20260703,185.5,193,185.5,187,2275000,174.81,6.97,182.4,135.61,0.28
+20260706,186.5,191,168.5,169.5,4900000,174.37,-2.79,183.47,136.84,0.59
 ```
 
 ## Latest TDCC Snapshot
@@ -186,14 +187,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 3362 | 先進光 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.事實發生日:115/06/18 2.發生緣由:依財團法人中華民國證券櫃檯買賣中心通知辦理。 3.財務業務資訊: 單月(註1)                  115年5月        114年5月      與去年同期增減% ----------------------  --------------  --------------  ---------------- 營業收入(百萬元)               315              366       (13.8%) 稅前淨利(百萬元)              (107)            (133)       19.5% 虧損減少 歸屬母公司業主淨利(百萬元)    (88)            (115)       23.5% 虧損減少 每股盈餘(元)                 (0.62)           (0.81)       24.7% 虧損減少 ========================================================================= 最近一季單季(註2)         115年第1季       114年第1季     與去年同期增減% ----------------------  --------------  --------------  ------------------ 營業收入(百萬元)               1,108            1,010              9.7% 稅前淨利(百萬元)                (81)               52           (255.8%) 歸屬母公司業主淨利(百萬元)     (71)               38           (286.8%) 每股盈餘(元)                   (0.5)             0.27           (285.2%) =========================================================================== 最近四季累計(註3)             114年第2季~115年第1季 -----------------------     -------------------------- 營業收入(百萬元)                        4,414 稅前淨利(百萬元)                         (332) 歸屬母公司業主淨利(百萬元)                (71) 每股盈餘(元)                            (1.84) =========================================================================== 公司每股面額:10元 4.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序 」第4條所列重大訊息之情事（如 「有」，請說明）:有 115/06/11 代重要子公司公告董事會代行股東會重要決議事項 115/06/11 代重要子公司公告經董事會決議不分派盈餘 5.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序」第11條所列重大訊息說明記者會 之情事:無。 6.其他應敘明事項: 註1：以上115年5月及去年同期比較數之財務資料係本公司採IFRS 會計準則編製之合併數，未經會計師查核(閱)，僅供投資人參考。 註2：最近一季115年第1季係指單季數字，非為最近財務報告中之累計數字， 且係本公司採IFRS下編製之合併數，業經會計師查核(閱)，僅供投資人參考。 註3：最近四季累計係本公司115年第1季至114年第2季採IFRS編製之合併數， 業經會計師查核(閱)，僅供投資人參考。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 3362 | 先進光 | 1 | 1 | 1 | 2 | 5 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

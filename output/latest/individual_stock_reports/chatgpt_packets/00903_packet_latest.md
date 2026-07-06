@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00903 富邦元宇宙
 
 ## Metadata
-- generated_at: 2026-07-05 22:26:01 Asia/Taipei
+- generated_at: 2026-07-06 22:26:23 Asia/Taipei
 - stock_id: 00903
 - stock_name: 富邦元宇宙
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260703
-- price_rows: 30
+- latest_price_date: 20260706
+- price_rows: 31
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 20.84
-- high: 20.94
-- low: 20.84
-- close: 20.92
-- volume: 35226
-- ma5: 20.98
-- ema23_primary: 21.37
-- distance_to_ema23_pct: -2.08
-- ma20: 21.32
-- ma60: 21.73
-- ma120: 21.73
-- return_5d: 3.46
-- return_20d: -9.12
-- volume_ratio: 0.12
-- distance_to_ma20_pct_auxiliary: -1.89
-- distance_to_high_60_pct: -10.79
+- date: 20260706
+- open: 21
+- high: 21.07
+- low: 20.96
+- close: 21.05
+- volume: 283000
+- ma5: 21.1
+- ema23_primary: 21.34
+- distance_to_ema23_pct: -1.35
+- ma20: 21.23
+- ma60: 21.71
+- ma120: 21.71
+- return_5d: 3.03
+- return_20d: -7.96
+- volume_ratio: 0.99
+- distance_to_ma20_pct_auxiliary: -0.85
+- distance_to_high_60_pct: -10.23
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,22.68,22.87,22.68,22.87,524568,22.31,2.51,22.57,22.57,0.99
 20260608,22.7,22.7,21.37,21.6,744568,22.25,-2.93,22.49,22.49,1.36
 20260609,21.62,21.88,21.62,21.88,269736,22.22,-1.53,22.44,22.44,0.51
 20260610,21.29,21.29,21.03,21.07,405260,22.12,-4.77,22.35,22.35,0.78
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,21.33,21.37,21.26,21.34,174000,21.42,-0.37,21.54,21.77,0.48
 20260702,21.3,21.32,21.24,21.25,41000,21.41,-0.73,21.43,21.76,0.12
 20260703,20.84,20.94,20.84,20.92,35226,21.37,-2.08,21.32,21.73,0.12
+20260706,21,21.07,20.96,21.05,283000,21.34,-1.35,21.23,21.71,0.99
 ```
 
 ## Latest TDCC Snapshot

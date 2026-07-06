@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3014 聯陽
 
 ## Metadata
-- generated_at: 2026-07-05 22:26:50 Asia/Taipei
+- generated_at: 2026-07-06 22:27:03 Asia/Taipei
 - stock_id: 3014
 - stock_name: 聯陽
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 297
+- latest_price_date: 20260706
+- price_rows: 298
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -90,7 +90,6 @@
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
-- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -105,7 +104,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- none
+- tdcc_distribution_warning
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 159
-- high: 160.5
-- low: 158.5
-- close: 160
-- volume: 1955207
-- ma5: 160.4
-- ema23_primary: 154.86
-- distance_to_ema23_pct: 3.32
-- ma20: 154.3
-- ma60: 141.01
-- ma120: 129.49
-- return_5d: 3.56
-- return_20d: 6.31
-- volume_ratio: 0.53
-- distance_to_ma20_pct_auxiliary: 3.69
-- distance_to_high_60_pct: -6.43
+- date: 20260706
+- open: 160
+- high: 161
+- low: 156.5
+- close: 158
+- volume: 1862000
+- ma5: 160.5
+- ema23_primary: 155.12
+- distance_to_ema23_pct: 1.85
+- ma20: 154.6
+- ma60: 141.67
+- ma120: 129.85
+- return_5d: 0.32
+- return_20d: 3.95
+- volume_ratio: 0.51
+- distance_to_ma20_pct_auxiliary: 2.2
+- distance_to_high_60_pct: -7.6
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,151.5,153,149.5,152,2624101,143.93,5.6,145.2,129.21,0.85
 20260608,141.5,144,139,142.5,2307834,143.81,-0.91,145.38,129.6,0.77
 20260609,141.5,141.5,135,140.5,3487582,143.54,-2.12,145.4,129.94,1.24
 20260610,140,141.5,136.5,136.5,1287825,142.95,-4.51,145.35,130.24,0.47
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,161,164,160,163.5,4341000,153.7,6.37,153.28,139.54,1.22
 20260702,160.5,162,157,162,2504000,154.39,4.93,153.82,140.31,0.69
 20260703,159,160.5,158.5,160,1955207,154.86,3.32,154.3,141.01,0.53
+20260706,160,161,156.5,158,1862000,155.12,1.85,154.6,141.67,0.51
 ```
 
 ## Latest TDCC Snapshot
@@ -187,19 +186,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260706 | 3014 | 聯陽 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.董事會或股東會決議日期:115/06/22 2.原發放股利種類及金額: 現金股利：新台幣1,410,890,554元 (每股配發新台幣8.5元) 3.變更後發放股利種類及金額: 現金股利：新台幣1,410,890,554元 (每股配發新台幣8.50169022元) 4.變更原因: 本公司因收回限制員工權利新股致流通在外之股數變動為165,954,124股， 故調整配息率。 5.其他應敘明事項: 本公司於除息交易日前，如因買回本公司股份、將庫藏股轉讓、轉換或註銷、 或因員工依據員工認股權憑證發行辦法行使員工認股權而發行新股、發行或 收回限制員工權利新股及其他因法令等因素致影響本公司流通在外股份總數， 而需配合變更股東配息率時，將另行公告；calendar event: ex_dividend on 20260709; status=confirmed; proximity=within_3d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260706 | 3014 | 聯陽 | 1 | 1 | 2 | 6 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 3014 | 聯陽 | 17 | 0 | 1048340.0 | 0.0 |  | no_signal |
+| 20260706 | 3014 | 聯陽 | 17 | 0 | 1230430.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

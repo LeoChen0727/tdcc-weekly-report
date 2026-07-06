@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6204 艾華
 
 ## Metadata
-- generated_at: 2026-07-05 22:27:47 Asia/Taipei
+- generated_at: 2026-07-06 22:27:48 Asia/Taipei
 - stock_id: 6204
 - stock_name: 艾華
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 162
+- latest_price_date: 20260706
+- price_rows: 163
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 123
-- high: 127
-- low: 122
-- close: 122
-- volume: 847000
-- ma5: 121.6
-- ema23_primary: 112.12
-- distance_to_ema23_pct: 8.81
-- ma20: 114.42
-- ma60: 89.91
-- ma120: 80.74
-- return_5d: 6.09
-- return_20d: 15.09
-- volume_ratio: 0.81
-- distance_to_ma20_pct_auxiliary: 6.62
-- distance_to_high_60_pct: -6.15
+- date: 20260706
+- open: 123.5
+- high: 123.5
+- low: 116
+- close: 117
+- volume: 441000
+- ma5: 121.7
+- ema23_primary: 112.53
+- distance_to_ema23_pct: 3.97
+- ma20: 114.75
+- ma60: 90.89
+- ma120: 81.05
+- return_5d: 0.43
+- return_20d: 5.88
+- volume_ratio: 0.42
+- distance_to_ma20_pct_auxiliary: 1.96
+- distance_to_high_60_pct: -10
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,109,113.5,103.5,110.5,110000,90.13,22.59,90.03,73.07,0.3
 20260608,99.5,103,99.5,101.5,600000,91.08,11.44,91.45,73.68,1.56
 20260609,102.5,111.5,102,111.5,1122000,92.78,20.17,93.18,74.5,2.74
 20260610,112.5,122.5,111.5,112.5,2522000,94.43,19.14,94.81,75.33,5.18
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,126.5,130,119,120,1279000,109.97,9.12,112.55,87.8,1.31
 20260702,122,125.5,119,125,749000,111.22,12.39,113.62,88.87,0.74
 20260703,123,127,122,122,847000,112.12,8.81,114.42,89.91,0.81
+20260706,123.5,123.5,116,117,441000,112.53,3.97,114.75,90.89,0.42
 ```
 
 ## Latest TDCC Snapshot

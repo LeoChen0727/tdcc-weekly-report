@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1810 和成
 
 ## Metadata
-- generated_at: 2026-07-05 22:26:20 Asia/Taipei
+- generated_at: 2026-07-06 22:26:39 Asia/Taipei
 - stock_id: 1810
 - stock_name: 和成
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 297
+- latest_price_date: 20260706
+- price_rows: 298
 - latest_tdcc_date: 20260703
 - tdcc_rows: 32
 - tdcc_history_status: tdcc_history_ready
@@ -74,7 +74,7 @@
 - action_rating: starter_position
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
-- thesis_state: breakout_confirmed
+- thesis_state: breakout_initial
 - entry_style: breakout_follow
 - position_sizing: starter_1_3
 
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 21.1
-- high: 23.25
-- low: 21.1
-- close: 23.25
-- volume: 20422279
-- ma5: 21.3
-- ema23_primary: 20.54
-- distance_to_ema23_pct: 13.2
-- ma20: 20.81
-- ma60: 19.27
-- ma120: 18.88
-- return_5d: 19.85
-- return_20d: 13.14
-- volume_ratio: 3.36
-- distance_to_ma20_pct_auxiliary: 11.74
-- distance_to_high_60_pct: 0
+- date: 20260706
+- open: 24.6
+- high: 24.9
+- low: 22.4
+- close: 23.7
+- volume: 23280000
+- ma5: 22.06
+- ema23_primary: 20.8
+- distance_to_ema23_pct: 13.93
+- ma20: 20.86
+- ma60: 19.38
+- ma120: 18.93
+- return_5d: 19.1
+- return_20d: 4.87
+- volume_ratio: 3.85
+- distance_to_ma20_pct_auxiliary: 13.6
+- distance_to_high_60_pct: -4.82
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,22.1,22.6,21.85,22.6,23846581,19.44,16.26,19.3,18.27,5.33
 20260608,20.35,22.3,20.35,22,15995700,19.65,11.94,19.5,18.34,3.08
 20260609,22.7,23,21.2,21.5,8314271,19.81,8.55,19.67,18.4,1.49
 20260610,21.2,21.9,21.1,21.1,6119423,19.91,5.95,19.79,18.46,1.06
@@ -160,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,21.45,22.2,20.7,20.85,5433000,20.21,3.15,20.62,19.1,1.04
 20260702,20.8,21.8,20.65,21.15,3120000,20.29,4.23,20.67,19.17,0.6
 20260703,21.1,23.25,21.1,23.25,20422279,20.54,13.2,20.81,19.27,3.36
+20260706,24.6,24.9,22.4,23.7,23280000,20.8,13.93,20.86,19.38,3.85
 ```
 
 ## Latest TDCC Snapshot
@@ -196,12 +196,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 1810 | 和成 | true_breakout | 嚴格突破 | 114.0 |  |  | breakout_confirmed |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260706 | 1810 | 和成 | true_breakout | 嚴格突破 | 97.0 |  |  | platform_breakout |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 1810 | 和成 | 2 | 1 | 3 | 5 | 13 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260706 | 1810 | 和成 | 3 | 2 | 4 | 5 | 13 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

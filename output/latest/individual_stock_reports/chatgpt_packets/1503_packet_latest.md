@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1503 士電
 
 ## Metadata
-- generated_at: 2026-07-05 22:26:12 Asia/Taipei
+- generated_at: 2026-07-06 22:26:32 Asia/Taipei
 - stock_id: 1503
 - stock_name: 士電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 297
+- latest_price_date: 20260706
+- price_rows: 298
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 238
-- high: 241
-- low: 237
-- close: 238
-- volume: 1566665
-- ma5: 238.3
-- ema23_primary: 232.17
-- distance_to_ema23_pct: 2.51
+- date: 20260706
+- open: 240
+- high: 246.5
+- low: 240
+- close: 241.5
+- volume: 4019000
+- ma5: 239.1
+- ema23_primary: 232.95
+- distance_to_ema23_pct: 3.67
 - ma20: 234.22
-- ma60: 211.8
-- ma120: 207.38
-- return_5d: 1.93
-- return_20d: -11.19
-- volume_ratio: 0.24
-- distance_to_ma20_pct_auxiliary: 1.61
-- distance_to_high_60_pct: -11.69
+- ma60: 212.78
+- ma120: 207.97
+- return_5d: 1.68
+- return_20d: 0
+- volume_ratio: 0.74
+- distance_to_ma20_pct_auxiliary: 3.11
+- distance_to_high_60_pct: -10.39
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,268,269.5,241.5,241.5,27220179,214.55,12.56,209.6,199.2,3.66
 20260608,217.5,230.5,217.5,230,10931551,215.83,6.56,210.78,199.56,1.41
 20260609,232,233,225.5,229.5,6872007,216.97,5.77,212.03,199.99,0.87
 20260610,225.5,228.5,216,217,5857383,216.98,0.01,212.8,200.22,0.72
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,241.5,244,238.5,238.5,2358000,231.06,3.22,236.03,209.96,0.32
 20260702,239.5,241.5,236.5,238,2250000,231.64,2.75,235.72,210.94,0.33
 20260703,238,241,237,238,1566665,232.17,2.51,234.22,211.8,0.24
+20260706,240,246.5,240,241.5,4019000,232.95,3.67,234.22,212.78,0.74
 ```
 
 ## Latest TDCC Snapshot
@@ -188,17 +188,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 1503 | 士電 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/26 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:普通股現金股利NT$2,604,861,115元(每股NT$5元) 4.除權（息）交易日:115/07/23 5.最後過戶日:115/07/25 6.停止過戶起始日期:115/07/26 7.停止過戶截止日期:115/07/30 8.除權（息）基準日:115/07/30 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/20 13.其他應敘明事項:無；calendar event: ex_dividend on 20260723; status=confirmed; proximity=within_30d |
+| 20260706 | 1503 | 士電 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | call_strong_inflow | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/26 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:普通股現金股利NT$2,604,861,115元(每股NT$5元) 4.除權（息）交易日:115/07/23 5.最後過戶日:115/07/25 6.停止過戶起始日期:115/07/26 7.停止過戶截止日期:115/07/30 8.除權（息）基準日:115/07/30 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/20 13.其他應敘明事項:無；calendar event: ex_dividend on 20260723; status=confirmed; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 1503 | 士電 | 8 | 6 | 5 | 9 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260706 | 1503 | 士電 | 9 | 7 | 5 | 9 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 1503 | 士電 | 92 | 3 | 3684360.0 | 0.0 |  | no_signal |
+| 20260706 | 1503 | 士電 | 92 | 3 | 11496000.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

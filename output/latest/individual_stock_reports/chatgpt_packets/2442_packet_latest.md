@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2442 新美齊
 
 ## Metadata
-- generated_at: 2026-07-05 22:26:35 Asia/Taipei
+- generated_at: 2026-07-06 22:26:51 Asia/Taipei
 - stock_id: 2442
 - stock_name: 新美齊
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 297
+- latest_price_date: 20260706
+- price_rows: 298
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 19.35
-- high: 19.8
-- low: 19.3
-- close: 19.7
-- volume: 1904842
-- ma5: 19.4
-- ema23_primary: 19.37
-- distance_to_ema23_pct: 1.71
-- ma20: 19.57
-- ma60: 19.09
-- ma120: 20.24
-- return_5d: 3.96
-- return_20d: 0.51
-- volume_ratio: 0.92
-- distance_to_ma20_pct_auxiliary: 0.69
-- distance_to_high_60_pct: -4.6
+- date: 20260706
+- open: 19.9
+- high: 20.05
+- low: 19.7
+- close: 19.8
+- volume: 1288000
+- ma5: 19.51
+- ema23_primary: 19.41
+- distance_to_ema23_pct: 2.03
+- ma20: 19.56
+- ma60: 19.08
+- ma120: 20.19
+- return_5d: 2.86
+- return_20d: -0.5
+- volume_ratio: 0.67
+- distance_to_ma20_pct_auxiliary: 1.23
+- distance_to_high_60_pct: -3.41
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,19.85,20.05,19.5,19.9,4321585,18.91,5.25,18.7,19.39,2.15
 20260608,19,19.6,18.85,19.55,2492386,18.96,3.1,18.74,19.39,1.21
 20260609,19.65,20,19.45,19.5,2228620,19.01,2.6,18.78,19.38,1.06
 20260610,19.25,20.3,19.25,20,5199384,19.09,4.77,18.86,19.38,2.3
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,19.4,19.4,19.2,19.35,1155000,19.34,0.06,19.56,19.12,0.51
 20260702,19.3,19.4,19.25,19.35,931000,19.34,0.05,19.56,19.11,0.44
 20260703,19.35,19.8,19.3,19.7,1904842,19.37,1.71,19.57,19.09,0.92
+20260706,19.9,20.05,19.7,19.8,1288000,19.41,2.03,19.56,19.08,0.67
 ```
 
 ## Latest TDCC Snapshot
@@ -188,12 +188,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 2442 | 新美齊 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | stale_signal | 1.董事會決議日期或發生變動日期:115/07/03 2.人員別（請輸入董事長或總經理）:總經理 3.舊任者姓名:紀榮村 4.舊任者簡歷:本公司總經理 5.新任者姓名:不適用 6.新任者簡歷:不適用 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:退休 8.異動原因:退休 9.新任生效日期:不適用 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): (1)退休生效日:115/07/04 (2)新任總經理待董事會通過聘任後另行公告。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260706 | 2442 | 新美齊 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | stale_signal | 1.董事會決議日期或發生變動日期:115/07/03 2.人員別（請輸入董事長或總經理）:總經理 3.舊任者姓名:紀榮村 4.舊任者簡歷:本公司總經理 5.新任者姓名:不適用 6.新任者簡歷:不適用 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:退休 8.異動原因:退休 9.新任生效日期:不適用 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): (1)退休生效日:115/07/04 (2)新任總經理待董事會通過聘任後另行公告。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 2442 | 新美齊 | 1 | 1 | 1 | 2 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260706 | 2442 | 新美齊 | 2 | 2 | 2 | 3 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

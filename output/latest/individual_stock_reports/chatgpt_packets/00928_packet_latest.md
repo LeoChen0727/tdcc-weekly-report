@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00928 中信上櫃ESG 30
 
 ## Metadata
-- generated_at: 2026-07-05 22:26:01 Asia/Taipei
+- generated_at: 2026-07-06 22:26:24 Asia/Taipei
 - stock_id: 00928
 - stock_name: 中信上櫃ESG 30
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260703
-- price_rows: 30
+- latest_price_date: 20260706
+- price_rows: 31
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 38.61
-- high: 39.41
-- low: 38
-- close: 39.32
-- volume: 1671000
-- ma5: 37.89
-- ema23_primary: 38.05
-- distance_to_ema23_pct: 3.33
-- ma20: 37.86
-- ma60: 38.19
-- ma120: 38.19
-- return_5d: 8.23
-- return_20d: 0.74
-- volume_ratio: 2.42
-- distance_to_ma20_pct_auxiliary: 3.85
-- distance_to_high_60_pct: -4.56
+- date: 20260706
+- open: 40.42
+- high: 40.54
+- low: 38.19
+- close: 38.44
+- volume: 3969000
+- ma5: 38.33
+- ema23_primary: 38.08
+- distance_to_ema23_pct: 0.93
+- ma20: 37.88
+- ma60: 38.2
+- ma120: 38.2
+- return_5d: 6.04
+- return_20d: 1.13
+- volume_ratio: 4.47
+- distance_to_ma20_pct_auxiliary: 1.47
+- distance_to_high_60_pct: -6.7
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,38.88,38.88,36.65,38.01,38000,38,0.03,38.78,38.78,1.07
 20260608,35.79,36.29,34.67,36.12,1114000,37.84,-4.55,38.56,38.56,8.89
 20260609,36.25,37.56,36.2,37.53,381000,37.82,-0.76,38.48,38.48,2.63
 20260610,37.5,37.74,35.41,35.45,1206000,37.62,-5.77,38.26,38.26,5.46
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,37.79,38.5,37.7,37.74,322000,37.89,-0.39,37.91,38.14,0.64
 20260702,37.4,38.54,37,38.46,2233000,37.94,1.38,37.85,38.15,3.67
 20260703,38.61,39.41,38,39.32,1671000,38.05,3.33,37.86,38.19,2.42
+20260706,40.42,40.54,38.19,38.44,3969000,38.08,0.93,37.88,38.2,4.47
 ```
 
 ## Latest TDCC Snapshot

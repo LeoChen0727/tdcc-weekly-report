@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4746 台耀
 
 ## Metadata
-- generated_at: 2026-07-05 22:27:24 Asia/Taipei
+- generated_at: 2026-07-06 22:27:30 Asia/Taipei
 - stock_id: 4746
 - stock_name: 台耀
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 297
+- latest_price_date: 20260706
+- price_rows: 298
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 53.1
-- high: 55.1
-- low: 53.1
-- close: 54.4
-- volume: 1172456
-- ma5: 53.7
-- ema23_primary: 52.69
-- distance_to_ema23_pct: 3.26
-- ma20: 52.4
-- ma60: 52.82
-- ma120: 54.74
-- return_5d: 7.09
-- return_20d: 2.45
-- volume_ratio: 1.68
-- distance_to_ma20_pct_auxiliary: 3.82
-- distance_to_high_60_pct: -4.56
+- date: 20260706
+- open: 55.3
+- high: 56.7
+- low: 54.8
+- close: 55.1
+- volume: 1994000
+- ma5: 54.12
+- ema23_primary: 52.89
+- distance_to_ema23_pct: 4.19
+- ma20: 52.49
+- ma60: 52.85
+- ma120: 54.7
+- return_5d: 3.96
+- return_20d: 3.57
+- volume_ratio: 2.58
+- distance_to_ma20_pct_auxiliary: 4.96
+- distance_to_high_60_pct: -3.33
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,53.1,53.7,52.3,53.2,508795,52.71,0.94,52.52,53.51,0.51
 20260608,51.2,52.6,50.6,52.5,865597,52.69,-0.36,52.38,53.51,0.88
 20260609,52.5,53.7,52.2,52.3,684391,52.66,-0.68,52.27,53.53,0.71
 20260610,53,53,51.4,51.8,620523,52.59,-1.49,52.21,53.47,0.66
@@ -160,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,53.9,54.6,53,53.7,1111000,52.44,2.4,52.28,52.84,1.63
 20260702,53.7,53.7,52.6,53.5,526000,52.53,1.85,52.34,52.82,0.78
 20260703,53.1,55.1,53.1,54.4,1172456,52.69,3.26,52.4,52.82,1.68
+20260706,55.3,56.7,54.8,55.1,1994000,52.89,4.19,52.49,52.85,2.58
 ```
 
 ## Latest TDCC Snapshot
@@ -194,17 +194,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 4746 | 台耀 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260706 | 4746 | 台耀 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 4746 | 台耀 | 1 | 1 | 1 | 1 | 2 | first_seen | 首次上榜或資料有限，需後續確認。 |
+| 20260706 | 4746 | 台耀 | 2 | 2 | 2 | 2 | 3 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 4746 | 台耀 | 2 | 0 | 95300.0 | 0.0 |  | no_signal |
+| 20260706 | 4746 | 台耀 | 2 | 0 | 104820.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009824 群益美國科技巨頭
 
 ## Metadata
-- generated_at: 2026-07-05 22:26:03 Asia/Taipei
+- generated_at: 2026-07-06 22:26:25 Asia/Taipei
 - stock_id: 009824
 - stock_name: 群益美國科技巨頭
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260703
-- price_rows: 7
+- latest_price_date: 20260706
+- price_rows: 8
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,22 +113,22 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 9.92
-- high: 9.97
-- low: 9.9
+- date: 20260706
+- open: 9.99
+- high: 10
+- low: 9.94
 - close: 9.97
-- volume: 21796209
-- ma5: 10
-- ema23_primary: 10.1
-- distance_to_ema23_pct: -1.25
-- ma20: 10.01
-- ma60: 10.01
-- ma120: 10.01
-- return_5d: 1.01
+- volume: 14086000
+- ma5: 10.02
+- ema23_primary: 10.09
+- distance_to_ema23_pct: -1.15
+- ma20: 10
+- ma60: 10
+- ma120: 10
+- return_5d: 0.91
 - return_20d:
-- volume_ratio: 0.36
-- distance_to_ma20_pct_auxiliary: -0.39
+- volume_ratio: 0.26
+- distance_to_ma20_pct_auxiliary: -0.34
 - distance_to_high_60_pct: -2.25
 
 ## Recent Price Preview
@@ -142,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,10.12,10.19,10.1,10.14,26078000,10.11,0.26,10.01,10.01,0.34
 20260702,10.04,10.06,10,10.04,16844000,10.11,-0.67,10.02,10.02,0.25
 20260703,9.92,9.97,9.9,9.97,21796209,10.1,-1.25,10.01,10.01,0.36
+20260706,9.99,10,9.94,9.97,14086000,10.09,-1.15,10,10,0.26
 ```
 
 ## Latest TDCC Snapshot

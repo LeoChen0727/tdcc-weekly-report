@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3715 定穎投控
 
 ## Metadata
-- generated_at: 2026-07-05 22:27:13 Asia/Taipei
+- generated_at: 2026-07-06 22:27:22 Asia/Taipei
 - stock_id: 3715
 - stock_name: 定穎投控
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 297
+- latest_price_date: 20260706
+- price_rows: 298
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -58,7 +58,7 @@
 - pdf_visible: true
 - action_rating_display_zh: 可分批買進
 - model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
 - action_summary_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。
 - entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
 - position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
@@ -73,7 +73,7 @@
 - internal_use_only: true
 - action_rating: scale_in
 - action_rating_label_zh: 可分批買進
-- confidence_level: medium
+- confidence_level: high
 - thesis_state: healthy_pullback
 - entry_style: pullback_to_23ema
 - position_sizing: half_position
@@ -92,6 +92,7 @@
 
 ### entry_prerequisites
 - model_recommended
+- decision_score_high
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -118,29 +119,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 173.5
-- high: 176.5
-- low: 172
-- close: 172
-- volume: 3878539
-- ma5: 172.3
-- ema23_primary: 174.15
-- distance_to_ema23_pct: -1.23
-- ma20: 173.07
-- ma60: 177.79
-- ma120: 164.69
-- return_5d: 2.08
-- return_20d: 1.78
-- volume_ratio: 0.38
-- distance_to_ma20_pct_auxiliary: -0.62
-- distance_to_high_60_pct: -14.43
+- date: 20260706
+- open: 174.5
+- high: 174.5
+- low: 164
+- close: 165
+- volume: 10196000
+- ma5: 172.1
+- ema23_primary: 173.38
+- distance_to_ema23_pct: -4.84
+- ma20: 172.82
+- ma60: 177.43
+- ma120: 165
+- return_5d: -0.6
+- return_20d: -2.94
+- volume_ratio: 0.98
+- distance_to_ma20_pct_auxiliary: -4.53
+- distance_to_high_60_pct: -17.91
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,165.5,170.5,162,170,5941562,175.4,-3.08,174.32,178.4,0.52
 20260608,153,167,153,166,8189737,174.62,-4.93,173.55,178.63,0.73
 20260609,173.5,179.5,171,174.5,16071546,174.61,-0.06,173.25,179.02,1.38
 20260610,172.5,175.5,162.5,162.5,11657423,173.6,-6.39,172.55,178.96,0.98
@@ -160,6 +160,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,177.5,186.5,172,172,9571000,174.24,-1.28,172.85,178.27,0.91
 20260702,170.5,179,169,175.5,5179000,174.34,0.66,172.93,178.17,0.5
 20260703,173.5,176.5,172,172,3878539,174.15,-1.23,173.07,177.79,0.38
+20260706,174.5,174.5,164,165,10196000,173.38,-4.84,172.82,177.43,0.98
 ```
 
 ## Latest TDCC Snapshot
@@ -194,18 +195,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 3715 | 定穎投控 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | 1.董事會決議日期或發生變動日期:115/06/26 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:黃銘宏 4.舊任者簡歷:定穎投資控股股份有限公司董事長 5.新任者姓名:黃銘宏 6.新任者簡歷:定穎投資控股股份有限公司董事長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因:任期屆滿改選 9.新任生效日期:115/06/26 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 無；calendar event: ex_dividend on 20260702; status=confirmed; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260703 | 3715 | 定穎投控 | revenue_breakout_low_response | 營收爆發低反應股 | 19.0 | 10.0 | A_優先追蹤 |  |  | no_signal | stale_signal | 1.董事會決議日期或發生變動日期:115/06/26 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:黃銘宏 4.舊任者簡歷:定穎投資控股股份有限公司董事長 5.新任者姓名:黃銘宏 6.新任者簡歷:定穎投資控股股份有限公司董事長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因:任期屆滿改選 9.新任生效日期:115/06/26 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 無；calendar event: ex_dividend on 20260702; status=confirmed; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260706 | 3715 | 定穎投控 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  | no_signal | repeated_but_no_breakout | 1.董事會決議日期或發生變動日期:115/06/26 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:黃銘宏 4.舊任者簡歷:定穎投資控股股份有限公司董事長 5.新任者姓名:黃銘宏 6.新任者簡歷:定穎投資控股股份有限公司董事長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因:任期屆滿改選 9.新任生效日期:115/06/26 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 無；calendar event: ex_dividend on 20260702; status=confirmed; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260706 | 3715 | 定穎投控 | revenue_breakout_low_response | 營收爆發低反應股 | 19.0 | 10.0 | A_優先追蹤 |  |  | no_signal | repeated_but_no_breakout | 1.董事會決議日期或發生變動日期:115/06/26 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:黃銘宏 4.舊任者簡歷:定穎投資控股股份有限公司董事長 5.新任者姓名:黃銘宏 6.新任者簡歷:定穎投資控股股份有限公司董事長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因:任期屆滿改選 9.新任生效日期:115/06/26 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 無；calendar event: ex_dividend on 20260702; status=confirmed; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 3715 | 定穎投控 | 17 | 8 | 5 | 10 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260706 | 3715 | 定穎投控 | 18 | 9 | 5 | 10 | 19 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 19 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 3715 | 定穎投控 | 233 | 8 | 24130300.0 | 12660.0 | 1906.03 | no_signal |
+| 20260706 | 3715 | 定穎投控 | 233 | 8 | 16549400.0 | 247800.0 | 66.79 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

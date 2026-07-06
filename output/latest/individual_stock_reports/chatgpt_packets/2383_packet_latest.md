@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2383 台光電
 
 ## Metadata
-- generated_at: 2026-07-05 22:26:31 Asia/Taipei
+- generated_at: 2026-07-06 22:26:48 Asia/Taipei
 - stock_id: 2383
 - stock_name: 台光電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 297
+- latest_price_date: 20260706
+- price_rows: 298
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -59,14 +59,14 @@
 - action_rating_display_zh: 已持有續抱
 - model_category_display_zh: 型態觀察
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「初步突破」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「初步突破」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -74,7 +74,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: breakout_initial
+- thesis_state: unclear
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 5535
-- high: 6080
-- low: 5530
-- close: 6080
-- volume: 3177228
-- ma5: 5622
-- ema23_primary: 5347.28
-- distance_to_ema23_pct: 13.7
-- ma20: 5331.25
-- ma60: 4792.75
-- ma120: 3485.62
-- return_5d: 15.7
-- return_20d: 25.88
-- volume_ratio: 1.51
-- distance_to_ma20_pct_auxiliary: 14.04
-- distance_to_high_60_pct: 0
+- date: 20260706
+- open: 6225
+- high: 6250
+- low: 5475
+- close: 5475
+- volume: 2973000
+- ma5: 5627
+- ema23_primary: 5357.93
+- distance_to_ema23_pct: 2.19
+- ma20: 5360.75
+- ma60: 4830.33
+- ma120: 3517.54
+- return_5d: 0.46
+- return_20d: 12.08
+- volume_ratio: 1.41
+- distance_to_ma20_pct_auxiliary: 2.13
+- distance_to_high_60_pct: -12.4
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,4780,5025,4545,4885,2909896,4798.28,1.81,4906.75,3975.5,1.18
 20260608,4575,4810,4530,4770,2667787,4795.92,-0.54,4902.75,4014.17,1.08
 20260609,4965,5065,4820,5065,2437441,4818.34,5.12,4911,4055.25,0.99
 20260610,5080,5245,4875,4940,2802050,4828.48,2.31,4911.5,4092.5,1.12
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,5475,5670,5300,5535,879000,5246.64,5.5,5227.5,4698.08,0.42
 20260702,5440,5750,5390,5655,905000,5280.67,7.09,5268.75,4744.25,0.44
 20260703,5535,6080,5530,6080,3177228,5347.28,13.7,5331.25,4792.75,1.51
+20260706,6225,6250,5475,5475,2973000,5357.93,2.19,5360.75,4830.33,1.41
 ```
 
 ## Latest TDCC Snapshot
@@ -188,17 +189,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 2383 | 台光電 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | call_put_bullish | first_seen | 1.契約種類:工程契約 2.事實發生日:115/7/3~115/7/3 3.董事會通過日期: 民國114年7月30日 4.其他核決日期: 不適用 5.契約相對人及其與公司之關係: 江蘇永泰建造工程有限公司 與公司關係：無 6.契約主要內容（含契約總金額、預計參與投入之金額及契約起迄日期） 、限制條款及其他重要約定事項: 廠房及宿舍建造工程， 過去一年內累計向同一相對人發包工程價款累計金額折合新台幣約560,351仟元。 工程係依公司建造時程規劃發包。 7.專業估價者事務所或公司名稱及其估價結果: 不適用 8.不動產估價師姓名: 不適用 9.不動產估價師開業證書字號: 不適用 10.取得之具體目的: 供生產及營運所需 11.本次交易表示異議之董事意見: 不適用 12.本次交易為關係人交易:否 13.監察人承認或審計委員會同意日期: 不適用 14.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 15.是否尚未取得估價報告:否或不適用 16.尚未取得估價報告之原因: 不適用 17.估價結果有重大差異時，其差異原因及會計師意見: 不適用 18.會計師事務所名稱: 不適用 19.會計師姓名: 不適用 20.會計師開業證書字號: 不適用 21.前已就同一件事件發布重大訊息日期: 不適用 22.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260706 | 2383 | 台光電 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | continued_2_3d | 1.契約種類:工程契約 2.事實發生日:115/7/3~115/7/3 3.董事會通過日期: 民國114年7月30日 4.其他核決日期: 不適用 5.契約相對人及其與公司之關係: 江蘇永泰建造工程有限公司 與公司關係：無 6.契約主要內容（含契約總金額、預計參與投入之金額及契約起迄日期） 、限制條款及其他重要約定事項: 廠房及宿舍建造工程， 過去一年內累計向同一相對人發包工程價款累計金額折合新台幣約560,351仟元。 工程係依公司建造時程規劃發包。 7.專業估價者事務所或公司名稱及其估價結果: 不適用 8.不動產估價師姓名: 不適用 9.不動產估價師開業證書字號: 不適用 10.取得之具體目的: 供生產及營運所需 11.本次交易表示異議之董事意見: 不適用 12.本次交易為關係人交易:否 13.監察人承認或審計委員會同意日期: 不適用 14.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 15.是否尚未取得估價報告:否或不適用 16.尚未取得估價報告之原因: 不適用 17.估價結果有重大差異時，其差異原因及會計師意見: 不適用 18.會計師事務所名稱: 不適用 19.會計師姓名: 不適用 20.會計師開業證書字號: 不適用 21.前已就同一件事件發布重大訊息日期: 不適用 22.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260706 | 2383 | 台光電 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  | no_signal | continued_2_3d | 1.契約種類:工程契約 2.事實發生日:115/7/3~115/7/3 3.董事會通過日期: 民國114年7月30日 4.其他核決日期: 不適用 5.契約相對人及其與公司之關係: 江蘇永泰建造工程有限公司 與公司關係：無 6.契約主要內容（含契約總金額、預計參與投入之金額及契約起迄日期） 、限制條款及其他重要約定事項: 廠房及宿舍建造工程， 過去一年內累計向同一相對人發包工程價款累計金額折合新台幣約560,351仟元。 工程係依公司建造時程規劃發包。 7.專業估價者事務所或公司名稱及其估價結果: 不適用 8.不動產估價師姓名: 不適用 9.不動產估價師開業證書字號: 不適用 10.取得之具體目的: 供生產及營運所需 11.本次交易表示異議之董事意見: 不適用 12.本次交易為關係人交易:否 13.監察人承認或審計委員會同意日期: 不適用 14.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 15.是否尚未取得估價報告:否或不適用 16.尚未取得估價報告之原因: 不適用 17.估價結果有重大差異時，其差異原因及會計師意見: 不適用 18.會計師事務所名稱: 不適用 19.會計師姓名: 不適用 20.會計師開業證書字號: 不適用 21.前已就同一件事件發布重大訊息日期: 不適用 22.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 2383 | 台光電 | 1 | 1 | 2 | 7 | 17 | first_seen | 首次上榜或資料有限，需後續確認。 |
+| 20260706 | 2383 | 台光電 | 2 | 2 | 3 | 7 | 17 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 2383 | 台光電 | 99 | 11 | 14923200.0 | 21250.0 | 702.27 | call_put_bullish |
+| 20260706 | 2383 | 台光電 | 97 | 11 | 5646530.0 | 40260.0 | 140.25 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

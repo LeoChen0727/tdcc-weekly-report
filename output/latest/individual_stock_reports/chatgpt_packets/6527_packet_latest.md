@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6527 明達醫
 
 ## Metadata
-- generated_at: 2026-07-05 22:27:56 Asia/Taipei
+- generated_at: 2026-07-06 22:27:55 Asia/Taipei
 - stock_id: 6527
 - stock_name: 明達醫
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 162
+- latest_price_date: 20260706
+- price_rows: 163
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 72.5
-- high: 73
-- low: 72.5
+- date: 20260706
+- open: 73
+- high: 73.3
+- low: 73
 - close: 73
-- volume: 22000
-- ma5: 72.8
-- ema23_primary: 71.95
-- distance_to_ema23_pct: 1.46
-- ma20: 72.11
-- ma60: 70.63
-- ma120: 72.72
-- return_5d: 1.11
-- return_20d: 3.11
-- volume_ratio: 0.95
-- distance_to_ma20_pct_auxiliary: 1.24
+- volume: 15000
+- ma5: 72.74
+- ema23_primary: 72.04
+- distance_to_ema23_pct: 1.33
+- ma20: 72.19
+- ma60: 70.68
+- ma120: 72.69
+- return_5d: -0.41
+- return_20d: 2.38
+- volume_ratio: 0.74
+- distance_to_ma20_pct_auxiliary: 1.12
 - distance_to_high_60_pct: -0.68
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,70.7,72,70,71.3,71000,70.26,1.49,70.16,70.71,1.31
 20260608,71,73,71,71.5,41000,70.36,1.62,70.31,70.67,0.82
 20260609,72,72.4,72,72.3,41000,70.52,2.52,70.42,70.64,0.86
 20260610,72,72.1,71.5,71.5,32000,70.6,1.27,70.47,70.59,0.67
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,71.6,72.5,71.6,72.5,13000,71.83,0.93,71.94,70.55,0.45
 20260702,72,72.1,72,72.1,9000,71.86,0.34,72,70.58,0.35
 20260703,72.5,73,72.5,73,22000,71.95,1.46,72.11,70.63,0.95
+20260706,73,73.3,73,73,15000,72.04,1.33,72.19,70.68,0.74
 ```
 
 ## Latest TDCC Snapshot

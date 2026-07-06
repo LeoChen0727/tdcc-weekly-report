@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00907 永豐優息存股
 
 ## Metadata
-- generated_at: 2026-07-05 22:26:01 Asia/Taipei
+- generated_at: 2026-07-06 22:26:23 Asia/Taipei
 - stock_id: 00907
 - stock_name: 永豐優息存股
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260703
-- price_rows: 30
+- latest_price_date: 20260706
+- price_rows: 31
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 16.2
-- high: 16.43
-- low: 16.2
-- close: 16.33
-- volume: 1329790
-- ma5: 16.19
-- ema23_primary: 16.11
-- distance_to_ema23_pct: 1.37
-- ma20: 16.29
-- ma60: 16
-- ma120: 16
-- return_5d: 1.24
-- return_20d: -0.43
-- volume_ratio: 0.79
-- distance_to_ma20_pct_auxiliary: 0.27
-- distance_to_high_60_pct: -2.33
+- date: 20260706
+- open: 16.33
+- high: 16.56
+- low: 16.33
+- close: 16.5
+- volume: 1993000
+- ma5: 16.26
+- ema23_primary: 16.14
+- distance_to_ema23_pct: 2.21
+- ma20: 16.3
+- ma60: 16.02
+- ma120: 16.02
+- return_5d: 2.17
+- return_20d: 1.23
+- volume_ratio: 1.21
+- distance_to_ma20_pct_auxiliary: 1.25
+- distance_to_high_60_pct: -1.32
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,16.4,16.4,16.12,16.3,2681517,15.37,6.08,15.52,15.52,0.84
 20260608,15.59,15.86,15.51,15.73,1710583,15.4,2.17,15.54,15.54,0.56
 20260609,15.74,16.27,15.74,16.23,2337352,15.47,4.94,15.59,15.59,0.77
 20260610,16.18,16.2,16.08,16.16,1280326,15.52,4.1,15.63,15.63,0.44
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,16.27,16.3,16.05,16.11,935000,16.08,0.16,16.3,15.99,0.43
 20260702,16.1,16.16,16.04,16.16,754000,16.09,0.44,16.29,15.99,0.4
 20260703,16.2,16.43,16.2,16.33,1329790,16.11,1.37,16.29,16,0.79
+20260706,16.33,16.56,16.33,16.5,1993000,16.14,2.21,16.3,16.02,1.21
 ```
 
 ## Latest TDCC Snapshot

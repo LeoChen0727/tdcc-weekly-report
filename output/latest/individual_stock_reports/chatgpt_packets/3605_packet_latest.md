@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3605 宏致
 
 ## Metadata
-- generated_at: 2026-07-05 22:27:09 Asia/Taipei
+- generated_at: 2026-07-06 22:27:19 Asia/Taipei
 - stock_id: 3605
 - stock_name: 宏致
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 297
+- latest_price_date: 20260706
+- price_rows: 298
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -117,29 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 90.1
-- high: 90.6
-- low: 87.8
-- close: 88.2
-- volume: 7953564
-- ma5: 83.96
-- ema23_primary: 79.31
-- distance_to_ema23_pct: 11.22
-- ma20: 77.28
-- ma60: 77.3
-- ma120: 69.78
-- return_5d: 19.19
-- return_20d: 15.6
-- volume_ratio: 1.59
-- distance_to_ma20_pct_auxiliary: 14.12
-- distance_to_high_60_pct: -4.13
+- date: 20260706
+- open: 90.3
+- high: 91.5
+- low: 85.8
+- close: 87.7
+- volume: 11651000
+- ma5: 85.9
+- ema23_primary: 80
+- distance_to_ema23_pct: 9.62
+- ma20: 77.92
+- ma60: 77.69
+- ma120: 69.99
+- return_5d: 12.44
+- return_20d: 16.93
+- volume_ratio: 2.13
+- distance_to_ma20_pct_auxiliary: 12.55
+- distance_to_high_60_pct: -4.67
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,76.3,76.3,73.7,75,1915779,78.14,-4.01,79,71.75,0.44
 20260608,67.5,72.7,67.5,72.2,2680248,77.64,-7.01,78.5,71.95,0.66
 20260609,73,73.8,71.5,72.7,1684442,77.23,-5.87,78.05,72.16,0.43
 20260610,71.5,73,68.4,68.4,2195011,76.49,-10.58,77.45,72.31,0.57
@@ -159,6 +158,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,79.5,85.6,78.7,85.6,14239000,77.44,10.53,76.05,76.49,4.44
 20260702,84.6,92,83.2,90.1,31065000,78.5,14.78,76.69,76.94,6.66
 20260703,90.1,90.6,87.8,88.2,7953564,79.31,11.22,77.28,77.3,1.59
+20260706,90.3,91.5,85.8,87.7,11651000,80,9.62,77.92,77.69,2.13
 ```
 
 ## Latest TDCC Snapshot
@@ -193,17 +193,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 3605 | 宏致 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | stale_signal | 1.事實發生日:115/07/03 2.公司名稱:宏致電子股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:依據「發行人募集與發行有價證券處理準則」第九條第一項第二款規定辦理  公告，本公司發行國內第四次無擔保轉換公司債至公告日止，債款代收銀行已收足所  有應募款項共計新臺幣1,005,000,000元整，並匯撥至存儲專戶銀行，特此公告。 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260706 | 3605 | 宏致 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_inflow | stale_signal | 1.事實發生日:115/07/03 2.公司名稱:宏致電子股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:依據「發行人募集與發行有價證券處理準則」第九條第一項第二款規定辦理  公告，本公司發行國內第四次無擔保轉換公司債至公告日止，債款代收銀行已收足所  有應募款項共計新臺幣1,005,000,000元整，並匯撥至存儲專戶銀行，特此公告。 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 3605 | 宏致 | 5 | 3 | 5 | 7 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260706 | 3605 | 宏致 | 6 | 4 | 5 | 7 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 3605 | 宏致 | 25 | 0 | 6446020.0 | 0.0 |  | no_signal |
+| 20260706 | 3605 | 宏致 | 28 | 0 | 12220270.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

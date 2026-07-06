@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4438 廣越
 
 ## Metadata
-- generated_at: 2026-07-05 22:27:18 Asia/Taipei
+- generated_at: 2026-07-06 22:27:26 Asia/Taipei
 - stock_id: 4438
 - stock_name: 廣越
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 297
+- latest_price_date: 20260706
+- price_rows: 298
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 60.9
-- high: 62
-- low: 60.9
-- close: 62
-- volume: 73706
-- ma5: 60.12
-- ema23_primary: 60.21
-- distance_to_ema23_pct: 2.97
-- ma20: 60.65
-- ma60: 59
-- ma120: 62.54
-- return_5d: 6.16
-- return_20d: -1.12
-- volume_ratio: 1.04
-- distance_to_ma20_pct_auxiliary: 2.23
-- distance_to_high_60_pct: -2.97
+- date: 20260706
+- open: 62
+- high: 62.9
+- low: 62
+- close: 62.6
+- volume: 70000
+- ma5: 60.78
+- ema23_primary: 60.41
+- distance_to_ema23_pct: 3.63
+- ma20: 60.68
+- ma60: 59.11
+- ma120: 62.43
+- return_5d: 5.56
+- return_20d: 1.13
+- volume_ratio: 0.98
+- distance_to_ma20_pct_auxiliary: 3.16
+- distance_to_high_60_pct: -2.03
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,62.7,63,61.6,61.9,63139,59.6,3.85,59.24,58.15,0.68
 20260608,60.3,61.2,59.6,60.3,107472,59.66,1.07,59.26,58.11,1.18
 20260609,60.5,63.5,60.5,63,171086,59.94,5.1,59.47,58.15,1.83
 20260610,61.3,61.3,59.8,60.5,176180,59.99,0.85,59.59,58.17,1.78
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,59.8,59.8,59,59.3,35000,60,-1.16,60.74,58.85,0.44
 20260702,59.3,61,59.3,60.6,51000,60.05,0.92,60.68,58.92,0.65
 20260703,60.9,62,60.9,62,73706,60.21,2.97,60.65,59,1.04
+20260706,62,62.9,62,62.6,70000,60.41,3.63,60.68,59.11,0.98
 ```
 
 ## Latest TDCC Snapshot

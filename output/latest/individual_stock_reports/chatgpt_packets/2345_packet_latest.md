@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2345 智邦
 
 ## Metadata
-- generated_at: 2026-07-05 22:26:29 Asia/Taipei
+- generated_at: 2026-07-06 22:26:46 Asia/Taipei
 - stock_id: 2345
 - stock_name: 智邦
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 297
+- latest_price_date: 20260706
+- price_rows: 298
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 2750
-- high: 2800
-- low: 2675
-- close: 2735
-- volume: 3021446
-- ma5: 2596
-- ema23_primary: 2494.17
-- distance_to_ema23_pct: 9.66
-- ma20: 2469.25
-- ma60: 2371.42
-- ma120: 1864.46
-- return_5d: 14.92
-- return_20d: 8.96
-- volume_ratio: 0.86
-- distance_to_ma20_pct_auxiliary: 10.76
-- distance_to_high_60_pct: -2.32
+- date: 20260706
+- open: 2825
+- high: 2825
+- low: 2600
+- close: 2645
+- volume: 2184000
+- ma5: 2657
+- ema23_primary: 2506.74
+- distance_to_ema23_pct: 5.52
+- ma20: 2477
+- ma60: 2387.33
+- ma120: 1876.62
+- return_5d: 13.03
+- return_20d: 6.22
+- volume_ratio: 0.63
+- distance_to_ma20_pct_auxiliary: 6.78
+- distance_to_high_60_pct: -6.37
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,2460,2545,2430,2490,2517690,2441.05,2.01,2504.25,2088,0.55
 20260608,2265,2435,2260,2420,3205900,2439.3,-0.79,2495.75,2103.58,0.75
 20260609,2420,2475,2345,2475,2691554,2442.28,1.34,2493.25,2119.75,0.65
 20260610,2590,2630,2360,2365,4169145,2435.84,-2.91,2489.75,2135.5,1.01
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,2600,2695,2540,2660,4245000,2447.03,8.7,2449.75,2335.42,1.22
 20260702,2660,2780,2610,2750,4000000,2472.28,11.23,2458,2354.33,1.15
 20260703,2750,2800,2675,2735,3021446,2494.17,9.66,2469.25,2371.42,0.86
+20260706,2825,2825,2600,2645,2184000,2506.74,5.52,2477,2387.33,0.63
 ```
 
 ## Latest TDCC Snapshot
@@ -189,17 +189,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 2345 | 智邦 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260706 | 2345 | 智邦 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 2345 | 智邦 | 9 | 2 | 5 | 9 | 19 | repeated_but_no_breakout | 近 10 日上榜 9 次、近 20 日上榜 19 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260706 | 2345 | 智邦 | 10 | 3 | 5 | 10 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 2345 | 智邦 | 263 | 29 | 50980930.0 | 850740.0 | 59.93 | no_signal |
+| 20260706 | 2345 | 智邦 | 267 | 29 | 33843060.0 | 907480.0 | 37.29 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

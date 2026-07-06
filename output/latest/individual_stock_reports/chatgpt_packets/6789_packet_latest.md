@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6789 采鈺
 
 ## Metadata
-- generated_at: 2026-07-05 22:28:05 Asia/Taipei
+- generated_at: 2026-07-06 22:28:03 Asia/Taipei
 - stock_id: 6789
 - stock_name: 采鈺
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 297
+- latest_price_date: 20260706
+- price_rows: 298
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 521
-- high: 542
-- low: 519
-- close: 528
-- volume: 1402428
-- ma5: 520.7
-- ema23_primary: 519.94
-- distance_to_ema23_pct: 1.55
-- ma20: 509.6
-- ma60: 518.52
-- ma120: 412.6
-- return_5d: 7.32
-- return_20d: 0.76
-- volume_ratio: 0.52
-- distance_to_ma20_pct_auxiliary: 3.61
-- distance_to_high_60_pct: -17.76
+- date: 20260706
+- open: 536
+- high: 538
+- low: 514
+- close: 524
+- volume: 1604000
+- ma5: 526
+- ema23_primary: 520.28
+- distance_to_ema23_pct: 0.71
+- ma20: 510.15
+- ma60: 521.6
+- ma120: 414.59
+- return_5d: 5.33
+- return_20d: 2.14
+- volume_ratio: 0.61
+- distance_to_ma20_pct_auxiliary: 2.71
+- distance_to_high_60_pct: -18.38
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,518,522,490,513,2837854,533.38,-3.82,548.45,462.73,0.53
 20260608,462,489,462,487.5,2767945,529.56,-7.94,542.83,465.01,0.55
 20260609,495,502,482.5,496,2163733,526.76,-5.84,537.92,467.39,0.47
 20260610,484.5,492,460,460,3075584,521.2,-11.74,531.77,469.3,0.69
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,525,539,515,535,2461000,518.23,3.24,509.9,512.15,0.86
 20260702,527,530,518,530,1355000,519.21,2.08,509.4,515.42,0.5
 20260703,521,542,519,528,1402428,519.94,1.55,509.6,518.52,0.52
+20260706,536,538,514,524,1604000,520.28,0.71,510.15,521.6,0.61
 ```
 
 ## Latest TDCC Snapshot
@@ -188,17 +188,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 6789 | 采鈺 | pattern | 型態觀察 | 48.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260706 | 6789 | 采鈺 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 6789 | 采鈺 | 5 | 5 | 5 | 9 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260706 | 6789 | 采鈺 | 6 | 6 | 5 | 9 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 6789 | 采鈺 | 90 | 0 | 4405950.0 | 0.0 |  | no_signal |
+| 20260706 | 6789 | 采鈺 | 89 | 0 | 6511990.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2884 玉山金
 
 ## Metadata
-- generated_at: 2026-07-05 22:26:47 Asia/Taipei
+- generated_at: 2026-07-06 22:27:01 Asia/Taipei
 - stock_id: 2884
 - stock_name: 玉山金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 296
+- latest_price_date: 20260706
+- price_rows: 297
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 33.7
-- high: 34.6
-- low: 33.6
-- close: 33.7
-- volume: 47694755
-- ma5: 33.85
-- ema23_primary: 33.98
-- distance_to_ema23_pct: -0.82
-- ma20: 34.45
-- ma60: 32.88
+- date: 20260706
+- open: 33.75
+- high: 34.45
+- low: 33.75
+- close: 34.45
+- volume: 30279000
+- ma5: 33.84
+- ema23_primary: 34.02
+- distance_to_ema23_pct: 1.27
+- ma20: 34.5
+- ma60: 32.91
 - ma120: 33.03
-- return_5d: -2.46
-- return_20d: 0.75
-- volume_ratio: 0.76
-- distance_to_ma20_pct_auxiliary: -2.16
-- distance_to_high_60_pct: -7.92
+- return_5d: -0.14
+- return_20d: 3.3
+- volume_ratio: 0.49
+- distance_to_ma20_pct_auxiliary: -0.14
+- distance_to_high_60_pct: -5.87
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,33.45,33.6,32.9,33.35,49409021,32.03,4.11,31.82,32.15,0.97
 20260608,32.75,33.1,32.3,32.9,60140936,32.1,2.48,31.85,32.14,1.15
 20260609,32.9,34.35,32.9,34.2,88605638,32.28,5.95,31.97,32.16,1.63
 20260610,34,34.15,33.15,33.65,59541179,32.39,3.88,32.05,32.17,1.07
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,32.95,33.3,32.8,32.9,83638000,34.03,-3.33,34.4,32.83,1.28
 20260702,32.8,33.7,32.8,33.7,53148000,34,-0.89,34.43,32.86,0.83
 20260703,33.7,34.6,33.6,33.7,47694755,33.98,-0.82,34.45,32.88,0.76
+20260706,33.75,34.45,33.75,34.45,30279000,34.02,1.27,34.5,32.91,0.49
 ```
 
 ## Latest TDCC Snapshot
@@ -188,17 +188,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 2884 | 玉山金 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_strong_inflow | stale_signal | 1.董事會決議日期或發生變動日期:115/07/02 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:陳美滿 4.舊任者簡歷:陳美滿,玉山銀行(中國)有限公司董事長 5.新任者姓名:林隆政 6.新任者簡歷:林隆政,玉山銀行總經理 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:職務調整 8.異動原因:職務調整 9.新任生效日期:本案將由玉山銀行(中國)有限公司董事會審議 並經當地主管機關核准後生效 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):無；degraded calendar context only: ex_dividend on 20260701; status=source_stale_cached; proximity=recent; model_effect_allowed=False; pdf_effect_allowed=False |
+| 20260706 | 2884 | 玉山金 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_inflow | stale_signal | 1.董事會決議日期或發生變動日期:115/07/02 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:陳美滿 4.舊任者簡歷:陳美滿,玉山銀行(中國)有限公司董事長 5.新任者姓名:林隆政 6.新任者簡歷:林隆政,玉山銀行總經理 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:職務調整 8.異動原因:職務調整 9.新任生效日期:本案將由玉山銀行(中國)有限公司董事會審議 並經當地主管機關核准後生效 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):無；degraded calendar context only: ex_dividend on 20260701; status=source_stale_cached; proximity=recent; model_effect_allowed=False; pdf_effect_allowed=False |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 2884 | 玉山金 | 2 | 2 | 4 | 7 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260706 | 2884 | 玉山金 | 3 | 3 | 4 | 8 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 2884 | 玉山金 | 10 | 0 | 11941990.0 | 0.0 |  | call_strong_inflow |
+| 20260706 | 2884 | 玉山金 | 10 | 0 | 7830480.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

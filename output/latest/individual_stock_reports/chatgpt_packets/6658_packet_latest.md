@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6658 聯策
 
 ## Metadata
-- generated_at: 2026-07-05 22:28:00 Asia/Taipei
+- generated_at: 2026-07-06 22:27:59 Asia/Taipei
 - stock_id: 6658
 - stock_name: 聯策
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 297
+- latest_price_date: 20260706
+- price_rows: 298
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 230.5
-- high: 231
-- low: 208.5
-- close: 208.5
-- volume: 3092670
-- ma5: 228.8
-- ema23_primary: 203.41
-- distance_to_ema23_pct: 2.5
-- ma20: 198.03
-- ma60: 168.94
-- ma120: 114.55
-- return_5d: -2.11
-- return_20d: 2.71
-- volume_ratio: 1.81
-- distance_to_ma20_pct_auxiliary: 5.29
-- distance_to_high_60_pct: -19.81
+- date: 20260706
+- open: 211
+- high: 211
+- low: 200
+- close: 205.5
+- volume: 1481000
+- ma5: 227.3
+- ema23_primary: 203.59
+- distance_to_ema23_pct: 0.94
+- ma20: 198.9
+- ma60: 171.12
+- ma120: 115.77
+- return_5d: -3.52
+- return_20d: 9.31
+- volume_ratio: 0.87
+- distance_to_ma20_pct_auxiliary: 3.32
+- distance_to_high_60_pct: -20.96
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,203,205,184.5,188,1782441,188,0,200.53,127.78,1.24
 20260608,168.5,192,168.5,188.5,1211250,188.04,0.24,201.12,129.94,0.82
 20260609,195,195,182.5,188.5,879706,188.08,0.22,200.85,132.01,0.59
 20260610,185,193,176,176,1239153,187.07,-5.92,199,133.79,0.82
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,257,257,244,257,2602000,200.35,28.27,196.32,164.03,1.78
 20260702,257,260,231.5,231.5,3577000,202.95,14.07,197.75,166.7,2.24
 20260703,230.5,231,208.5,208.5,3092670,203.41,2.5,198.03,168.94,1.81
+20260706,211,211,200,205.5,1481000,203.59,0.94,198.9,171.12,0.87
 ```
 
 ## Latest TDCC Snapshot
@@ -189,12 +189,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 6658 | 聯策 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | repeated_but_no_breakout | 1.事實發生日:115/07/01 2.發生緣由:依臺灣證券交易所股份有限公司通知辦理。 3.財務業務資訊: 期間          (月)        (月)        (季)       (季)    (最近四季累計) =========  =========== ========== ============ ========= ============== 科目        最近一月     與去年     最近一季    與去年    114年第2季至            115年05月    同期增減   115年第1季  同期增減   115年第1季             (自結數)       (%)      (核閱數)      (%)       (查核數) =========  =========== ========== ============ ========= ============== 營業收入        298      (2.80)%          619     27.32%         2,214 (百萬) 稅前淨利         32      136.49%           75    316.22%           141 (百萬) 歸屬母公司 業主淨利         23      720.60%           59    330.38%            95 (百萬) 每股盈餘       0.63      720.60%         1.63    307.50%          2.61 (元) 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告:不適用 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260706 | 6658 | 聯策 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | repeated_but_no_breakout | 1.事實發生日:115/07/01 2.發生緣由:依臺灣證券交易所股份有限公司通知辦理。 3.財務業務資訊: 期間          (月)        (月)        (季)       (季)    (最近四季累計) =========  =========== ========== ============ ========= ============== 科目        最近一月     與去年     最近一季    與去年    114年第2季至            115年05月    同期增減   115年第1季  同期增減   115年第1季             (自結數)       (%)      (核閱數)      (%)       (查核數) =========  =========== ========== ============ ========= ============== 營業收入        298      (2.80)%          619     27.32%         2,214 (百萬) 稅前淨利         32      136.49%           75    316.22%           141 (百萬) 歸屬母公司 業主淨利         23      720.60%           59    330.38%            95 (百萬) 每股盈餘       0.63      720.60%         1.63    307.50%          2.61 (元) 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告:不適用 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 6658 | 聯策 | 4 | 1 | 4 | 6 | 8 | repeated_but_no_breakout | 近 10 日上榜 6 次、近 20 日上榜 8 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260706 | 6658 | 聯策 | 5 | 2 | 5 | 6 | 9 | repeated_but_no_breakout | 近 10 日上榜 6 次、近 20 日上榜 9 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

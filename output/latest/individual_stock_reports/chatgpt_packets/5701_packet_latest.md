@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5701 劍湖山
 
 ## Metadata
-- generated_at: 2026-07-05 22:27:39 Asia/Taipei
+- generated_at: 2026-07-06 22:27:42 Asia/Taipei
 - stock_id: 5701
 - stock_name: 劍湖山
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 162
+- latest_price_date: 20260706
+- price_rows: 163
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 4.95
-- high: 5.1
-- low: 4.95
-- close: 4.98
-- volume: 169000
+- date: 20260706
+- open: 4.96
+- high: 5.03
+- low: 4.91
+- close: 5
+- volume: 233000
 - ma5: 5
 - ema23_primary: 4.96
-- distance_to_ema23_pct: 0.43
-- ma20: 5.28
-- ma60: 4.18
-- ma120: 4
-- return_5d: -0.2
-- return_20d: -14.87
-- volume_ratio: 0.33
-- distance_to_ma20_pct_auxiliary: -5.59
-- distance_to_high_60_pct: -23.38
+- distance_to_ema23_pct: 0.76
+- ma20: 5.2
+- ma60: 4.2
+- ma120: 4.01
+- return_5d: -0.4
+- return_20d: -22.24
+- volume_ratio: 0.44
+- distance_to_ma20_pct_auxiliary: -3.91
+- distance_to_high_60_pct: -23.08
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,6.43,6.43,6,6.43,6000,4.17,54.09,3.92,3.67,0.19
 20260608,6.5,6.5,5.79,6.13,2055000,4.34,41.38,4.05,3.71,16.08
 20260609,6.13,6.15,5.52,5.53,1136000,4.44,24.68,4.16,3.74,6.29
 20260610,5.46,5.46,4.98,4.98,796000,4.48,11.14,4.24,3.76,3.62
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,5.08,5.2,4.95,4.97,213000,4.96,0.25,5.34,4.13,0.42
 20260702,4.97,5,4.95,4.95,98000,4.96,-0.14,5.32,4.15,0.19
 20260703,4.95,5.1,4.95,4.98,169000,4.96,0.43,5.28,4.18,0.33
+20260706,4.96,5.03,4.91,5,233000,4.96,0.76,5.2,4.2,0.44
 ```
 
 ## Latest TDCC Snapshot

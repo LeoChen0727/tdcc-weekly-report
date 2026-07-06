@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3293 鈊象
 
 ## Metadata
-- generated_at: 2026-07-05 22:27:00 Asia/Taipei
+- generated_at: 2026-07-06 22:27:11 Asia/Taipei
 - stock_id: 3293
 - stock_name: 鈊象
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 162
+- latest_price_date: 20260706
+- price_rows: 163
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 798
-- high: 810
-- low: 794
-- close: 797
-- volume: 1146000
-- ma5: 794.8
-- ema23_primary: 775.75
-- distance_to_ema23_pct: 2.74
-- ma20: 777.55
-- ma60: 760.52
-- ma120: 742.64
-- return_5d: 6.98
-- return_20d: -0.38
-- volume_ratio: 0.49
-- distance_to_ma20_pct_auxiliary: 2.5
-- distance_to_high_60_pct: -4.32
+- date: 20260706
+- open: 799
+- high: 805
+- low: 792
+- close: 794
+- volume: 1361000
+- ma5: 799.8
+- ema23_primary: 777.27
+- distance_to_ema23_pct: 2.15
+- ma20: 777.75
+- ma60: 761.02
+- ma120: 743.25
+- return_5d: 3.25
+- return_20d: 0.51
+- volume_ratio: 0.58
+- distance_to_ma20_pct_auxiliary: 2.09
+- distance_to_high_60_pct: -4.68
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,795,795,777,790,788000,758.79,4.11,749.05,751.37,0.77
 20260608,740,786,740,780,3564000,760.55,2.56,751.5,752.35,3.1
 20260609,780,800,776,800,3206000,763.84,4.73,754.6,753.57,2.63
 20260610,796,833,792,799,5297000,766.77,4.2,758.35,754.85,3.73
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,790,819,781,819,5049000,771.44,6.17,777.15,759.68,2.24
 20260702,816,819,793,800,1926000,773.82,3.38,777.7,760.1,0.84
 20260703,798,810,794,797,1146000,775.75,2.74,777.55,760.52,0.49
+20260706,799,805,792,794,1361000,777.27,2.15,777.75,761.02,0.58
 ```
 
 ## Latest TDCC Snapshot
@@ -188,12 +188,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 3293 | 鈊象 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/22 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.發放普通股股利種類及金額: (1)普通股現金股利：每股配發新台幣36元，現金總額為10,144,856,160元。 4.除權（息）交易日:115/07/08 5.最後過戶日:115/07/09 6.停止過戶起始日期:115/07/10 7.停止過戶截止日期:115/07/14 8.除權（息）基準日:115/07/14 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/07 13.其他應敘明事項: 除息交易日:115/07/08(本日及以後買進者無權參與配息)。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260706 | 3293 | 鈊象 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/22 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.發放普通股股利種類及金額: (1)普通股現金股利：每股配發新台幣36元，現金總額為10,144,856,160元。 4.除權（息）交易日:115/07/08 5.最後過戶日:115/07/09 6.停止過戶起始日期:115/07/10 7.停止過戶截止日期:115/07/14 8.除權（息）基準日:115/07/14 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/07 13.其他應敘明事項: 除息交易日:115/07/08(本日及以後買進者無權參與配息)。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 3293 | 鈊象 | 4 | 2 | 4 | 6 | 6 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260706 | 3293 | 鈊象 | 5 | 3 | 5 | 6 | 7 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

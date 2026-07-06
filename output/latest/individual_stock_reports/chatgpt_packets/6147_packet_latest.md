@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6147 頎邦
 
 ## Metadata
-- generated_at: 2026-07-05 22:27:43 Asia/Taipei
+- generated_at: 2026-07-06 22:27:45 Asia/Taipei
 - stock_id: 6147
 - stock_name: 頎邦
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 162
+- latest_price_date: 20260706
+- price_rows: 163
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -111,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 209
-- high: 219
-- low: 202.5
-- close: 215.5
-- volume: 28662000
-- ma5: 213.7
-- ema23_primary: 229.81
-- distance_to_ema23_pct: -6.23
-- ma20: 234.47
-- ma60: 202.57
-- ma120: 131.44
-- return_5d: -0.46
-- return_20d: -20.48
-- volume_ratio: 0.89
-- distance_to_ma20_pct_auxiliary: -8.09
-- distance_to_high_60_pct: -31.26
+- date: 20260706
+- open: 228
+- high: 236.5
+- low: 213.5
+- close: 217
+- volume: 40636000
+- ma5: 214.9
+- ema23_primary: 228.74
+- distance_to_ema23_pct: -5.13
+- ma20: 231.82
+- ma60: 204.58
+- ma120: 132.8
+- return_5d: 2.84
+- return_20d: -19.63
+- volume_ratio: 1.19
+- distance_to_ma20_pct_auxiliary: -6.39
+- distance_to_high_60_pct: -30.78
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,265.5,275.5,253,270,266000,234.58,15.1,238.38,151.57,0.01
 20260608,243,243,243,243,12698000,235.28,3.28,240.7,154.7,0.48
 20260609,249.5,258,239,251,57322000,236.59,6.09,243.45,157.87,2.07
 20260610,245,256,226,226,59213000,235.71,-4.12,245.15,160.65,2.05
@@ -153,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,216,232.5,213,219,44129000,232.89,-5.96,240.43,198.6,1.53
 20260702,210,217.5,201.5,211.5,35503000,231.11,-8.48,237.25,200.63,1.16
 20260703,209,219,202.5,215.5,28662000,229.81,-6.23,234.47,202.57,0.89
+20260706,228,236.5,213.5,217,40636000,228.74,-5.13,231.82,204.58,1.19
 ```
 
 ## Latest TDCC Snapshot
@@ -187,12 +187,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 6147 | 頎邦 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  |  | first_seen | 符合條款第四條第XX款：12 事實發生日：115/06/24 1.召開法人說明會之日期：115/06/24 2.召開法人說明會之時間：14 時 00 分  3.召開法人說明會之地點：台北市松山區南京東路五段188號15樓 4.法人說明會擇要訊息：說明本公司營運概況及產業發展 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260706 | 6147 | 頎邦 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/24 1.召開法人說明會之日期：115/06/24 2.召開法人說明會之時間：14 時 00 分  3.召開法人說明會之地點：台北市松山區南京東路五段188號15樓 4.法人說明會擇要訊息：說明本公司營運概況及產業發展 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 6147 | 頎邦 | 1 | 1 | 1 | 2 | 2 | first_seen | 首次上榜或資料有限，需後續確認。 |
+| 20260706 | 6147 | 頎邦 | 2 | 2 | 2 | 3 | 3 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

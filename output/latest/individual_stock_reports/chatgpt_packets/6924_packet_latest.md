@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6924 榮惠-KY創
 
 ## Metadata
-- generated_at: 2026-07-05 22:28:10 Asia/Taipei
+- generated_at: 2026-07-06 22:28:07 Asia/Taipei
 - stock_id: 6924
 - stock_name: 榮惠-KY創
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 278
+- latest_price_date: 20260706
+- price_rows: 279
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 114.5
-- high: 129.5
-- low: 114.5
+- date: 20260706
+- open: 130.5
+- high: 133.5
+- low: 124
 - close: 129.5
-- volume: 63629
-- ma5: 121.5
-- ema23_primary: 128
-- distance_to_ema23_pct: 1.18
-- ma20: 125.28
-- ma60: 121.98
-- ma120: 95.89
-- return_5d: 3.6
-- return_20d: -23.6
-- volume_ratio: 0.89
-- distance_to_ma20_pct_auxiliary: 3.37
+- volume: 69000
+- ma5: 122.3
+- ema23_primary: 128.12
+- distance_to_ema23_pct: 1.08
+- ma20: 123.9
+- ma60: 122.8
+- ma120: 96.39
+- return_5d: 3.19
+- return_20d: -17.52
+- volume_ratio: 1.05
+- distance_to_ma20_pct_auxiliary: 4.52
 - distance_to_high_60_pct: -33.07
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,162,163,153,157,172217,151.31,3.76,155.97,107.2,0.85
 20260608,142,149.5,141.5,146,216232,150.86,-3.22,158.12,108.59,1.09
 20260609,147,157,140.5,146.5,117849,150.5,-2.66,159.8,109.88,0.65
 20260610,132,132,132,132,99938,148.96,-11.39,160.22,110.84,0.61
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,120.5,120.5,113.5,114,68000,128.76,-11.46,130.78,120.56,0.82
 20260702,114,120.5,114,118,41000,127.86,-7.71,127.28,121.16,0.54
 20260703,114.5,129.5,114.5,129.5,63629,128,1.18,125.28,121.98,0.89
+20260706,130.5,133.5,124,129.5,69000,128.12,1.08,123.9,122.8,1.05
 ```
 
 ## Latest TDCC Snapshot

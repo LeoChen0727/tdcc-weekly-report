@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1617 榮星
 
 ## Metadata
-- generated_at: 2026-07-05 22:26:16 Asia/Taipei
+- generated_at: 2026-07-06 22:26:36 Asia/Taipei
 - stock_id: 1617
 - stock_name: 榮星
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 297
+- latest_price_date: 20260706
+- price_rows: 298
 - latest_tdcc_date: 20260703
 - tdcc_rows: 32
 - tdcc_history_status: tdcc_history_ready
@@ -58,7 +58,7 @@
 - pdf_visible: true
 - action_rating_display_zh: 停利
 - model_category_display_zh: 嚴格突破
-- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前以風險管理為主，不適合新買第一筆。
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前以風險管理為主，不適合新買第一筆。
 - action_summary_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。
 - entry_strategy_zh: 目前進入停利管理，不建議新買第一筆。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
@@ -74,7 +74,7 @@
 - action_rating: take_profit
 - action_rating_label_zh: 停利
 - confidence_level: low
-- thesis_state: breakout_confirmed
+- thesis_state: breakout_initial
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - model_recommended
-- decision_score_high
 - price_structure_not_broken
 - revenue_not_deteriorating
 - no_major_tdcc_warning
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 22.3
-- high: 24.5
-- low: 22.05
-- close: 24.5
-- volume: 4480050
-- ma5: 21.88
-- ema23_primary: 18.24
-- distance_to_ema23_pct: 34.31
-- ma20: 17.74
-- ma60: 16.07
-- ma120: 15.78
-- return_5d: 42.03
-- return_20d: 46.71
-- volume_ratio: 3.6
-- distance_to_ma20_pct_auxiliary: 38.09
-- distance_to_high_60_pct: 0
+- date: 20260706
+- open: 26.95
+- high: 26.95
+- low: 25.8
+- close: 26.7
+- volume: 3288000
+- ma5: 23.43
+- ema23_primary: 18.95
+- distance_to_ema23_pct: 40.92
+- ma20: 18.24
+- ma60: 16.27
+- ma120: 15.87
+- return_5d: 40.9
+- return_20d: 59.88
+- volume_ratio: 2.37
+- distance_to_ma20_pct_auxiliary: 46.36
+- distance_to_high_60_pct: -0.93
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,16.6,16.8,16.2,16.7,394640,15.55,7.38,15.24,15.12,1.03
 20260608,15.15,16.1,15.15,16.1,195879,15.6,3.22,15.3,15.14,0.52
 20260609,16.5,16.7,16.1,16.55,195320,15.68,5.57,15.38,15.17,0.51
 20260610,16.6,16.8,16.1,16.15,197800,15.72,2.76,15.43,15.18,0.53
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,22.85,22.85,22.85,22.85,1044000,17.25,32.45,17.09,15.78,2
 20260702,22.9,24,20.6,22.3,11727000,17.67,26.18,17.35,15.91,11.09
 20260703,22.3,24.5,22.05,24.5,4480050,18.24,34.31,17.74,16.07,3.6
+20260706,26.95,26.95,25.8,26.7,3288000,18.95,40.92,18.24,16.27,2.37
 ```
 
 ## Latest TDCC Snapshot
@@ -191,12 +190,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 1617 | 榮星 | true_breakout | 嚴格突破 | 96.0 |  |  | breakout_confirmed |  |  | continued_overheated | 1.事實發生日:115/07/02 2.發生緣由:依臺灣證券交易所股份有限公司指示辦理。 3.財務業務資訊: 期間      (月)                      (季)                      (最近四季累計)         最近一月     與去年同期   最近一季      與去年同期   (114年第2季至 科目   (115年5月)      增減％   (115年1季)       增減％         115年1季)        (IFRS合併自結數)        (IFRS合併核閱數)            (IFRS合併核閱數) ---------------------------------------------------------------------------- 營業收入 (百萬)     345          38% 	    911	           18.31% 	        3,504 稅前淨利 (百萬)       2        105.41% 	     16 	  17677.78% 	          251 歸屬母公司 業主淨利 (百萬)     0.6        100.85% 	     14 	   170.00% 	          149 每股盈餘 (元)         0        100.87%      0.08 	   166.67% 	          0.88 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告: 7.其他應敘明事項:較同期獲利減少主係營收下降所致；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260706 | 1617 | 榮星 | true_breakout | 嚴格突破 | 79.0 |  |  | platform_breakout |  |  | continued_overheated | 1.事實發生日:115/07/02 2.發生緣由:依臺灣證券交易所股份有限公司指示辦理。 3.財務業務資訊: 期間      (月)                      (季)                      (最近四季累計)         最近一月     與去年同期   最近一季      與去年同期   (114年第2季至 科目   (115年5月)      增減％   (115年1季)       增減％         115年1季)        (IFRS合併自結數)        (IFRS合併核閱數)            (IFRS合併核閱數) ---------------------------------------------------------------------------- 營業收入 (百萬)     345          38% 	    911	           18.31% 	        3,504 稅前淨利 (百萬)       2        105.41% 	     16 	  17677.78% 	          251 歸屬母公司 業主淨利 (百萬)     0.6        100.85% 	     14 	   170.00% 	          149 每股盈餘 (元)         0        100.87%      0.08 	   166.67% 	          0.88 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告: 7.其他應敘明事項:較同期獲利減少主係營收下降所致；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 1617 | 榮星 | 3 | 1 | 4 | 5 | 7 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260706 | 1617 | 榮星 | 4 | 2 | 4 | 6 | 8 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

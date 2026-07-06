@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2536 宏普
 
 ## Metadata
-- generated_at: 2026-07-05 22:26:40 Asia/Taipei
+- generated_at: 2026-07-06 22:26:55 Asia/Taipei
 - stock_id: 2536
 - stock_name: 宏普
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 297
+- latest_price_date: 20260706
+- price_rows: 298
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 21.3
-- high: 21.6
-- low: 21.25
-- close: 21.45
-- volume: 1621317
-- ma5: 21.15
-- ema23_primary: 21.09
-- distance_to_ema23_pct: 1.72
-- ma20: 21.29
-- ma60: 21.03
-- ma120: 22.15
-- return_5d: 2.14
-- return_20d: 6.72
-- volume_ratio: 1.47
-- distance_to_ma20_pct_auxiliary: 0.74
-- distance_to_high_60_pct: -5.51
+- date: 20260706
+- open: 21.6
+- high: 21.8
+- low: 21.55
+- close: 21.6
+- volume: 4383000
+- ma5: 21.23
+- ema23_primary: 21.13
+- distance_to_ema23_pct: 2.22
+- ma20: 21.34
+- ma60: 21.02
+- ma120: 22.11
+- return_5d: 1.89
+- return_20d: 4.85
+- volume_ratio: 3.41
+- distance_to_ma20_pct_auxiliary: 1.21
+- distance_to_high_60_pct: -4
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,20.15,21.3,20,20.6,637899,20.23,1.82,19.96,21.38,1.43
 20260608,20.5,20.7,20,20.55,321271,20.26,1.44,19.96,21.34,0.72
 20260609,20.95,21.2,20.75,20.8,1204757,20.3,2.44,19.99,21.31,2.51
 20260610,20.8,21.95,20.8,21.6,1307670,20.41,5.82,20.05,21.3,2.48
@@ -160,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,21.5,21.5,20.85,20.85,912000,21.04,-0.91,21.18,21.07,0.9
 20260702,20.95,21.3,20.9,21.2,896000,21.05,0.69,21.23,21.05,0.87
 20260703,21.3,21.6,21.25,21.45,1621317,21.09,1.72,21.29,21.03,1.47
+20260706,21.6,21.8,21.55,21.6,4383000,21.13,2.22,21.34,21.02,3.41
 ```
 
 ## Latest TDCC Snapshot
@@ -194,15 +194,15 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 2536 | 宏普 | pullback_rebound | 回檔後短線轉強 | 70.0 |  |  |  |  |  | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/17 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:現金股利新台幣665,617,304元，每股配發2元 4.除權（息）交易日:115/07/07 5.最後過戶日:115/07/08 6.停止過戶起始日期:115/07/09 7.停止過戶截止日期:115/07/13 8.除權（息）基準日:115/07/13 9.債券最後申請轉換日期:NA 10.債券停止轉換起始日期:NA 11.債券停止轉換截止日期:NA 12.普通股現金股利發放日期:115/07/30 13.其他應敘明事項:無；calendar event: ex_dividend on 20260707; status=confirmed; proximity=within_3d |
-| 20260703 | 2536 | 宏普 | revenue_pullback | 營收成長股價回檔 | 70.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  |  | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/17 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:現金股利新台幣665,617,304元，每股配發2元 4.除權（息）交易日:115/07/07 5.最後過戶日:115/07/08 6.停止過戶起始日期:115/07/09 7.停止過戶截止日期:115/07/13 8.除權（息）基準日:115/07/13 9.債券最後申請轉換日期:NA 10.債券停止轉換起始日期:NA 11.債券停止轉換截止日期:NA 12.普通股現金股利發放日期:115/07/30 13.其他應敘明事項:無；calendar event: ex_dividend on 20260707; status=confirmed; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
-| 20260703 | 2536 | 宏普 | revenue_breakout_low_response | 營收爆發低反應股 | 18.0 | 20.0 | D_降級_TDCC轉弱 |  |  |  | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/17 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:現金股利新台幣665,617,304元，每股配發2元 4.除權（息）交易日:115/07/07 5.最後過戶日:115/07/08 6.停止過戶起始日期:115/07/09 7.停止過戶截止日期:115/07/13 8.除權（息）基準日:115/07/13 9.債券最後申請轉換日期:NA 10.債券停止轉換起始日期:NA 11.債券停止轉換截止日期:NA 12.普通股現金股利發放日期:115/07/30 13.其他應敘明事項:無；calendar event: ex_dividend on 20260707; status=confirmed; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
-| 20260703 | 2536 | 宏普 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/17 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:現金股利新台幣665,617,304元，每股配發2元 4.除權（息）交易日:115/07/07 5.最後過戶日:115/07/08 6.停止過戶起始日期:115/07/09 7.停止過戶截止日期:115/07/13 8.除權（息）基準日:115/07/13 9.債券最後申請轉換日期:NA 10.債券停止轉換起始日期:NA 11.債券停止轉換截止日期:NA 12.普通股現金股利發放日期:115/07/30 13.其他應敘明事項:無；calendar event: ex_dividend on 20260707; status=confirmed; proximity=within_3d |
+| 20260706 | 2536 | 宏普 | pullback_rebound | 回檔後短線轉強 | 70.0 |  |  |  |  |  | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/17 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:現金股利新台幣665,617,304元，每股配發2元 4.除權（息）交易日:115/07/07 5.最後過戶日:115/07/08 6.停止過戶起始日期:115/07/09 7.停止過戶截止日期:115/07/13 8.除權（息）基準日:115/07/13 9.債券最後申請轉換日期:NA 10.債券停止轉換起始日期:NA 11.債券停止轉換截止日期:NA 12.普通股現金股利發放日期:115/07/30 13.其他應敘明事項:無；calendar event: ex_dividend on 20260707; status=confirmed; proximity=within_3d |
+| 20260706 | 2536 | 宏普 | revenue_pullback | 營收成長股價回檔 | 70.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  |  | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/17 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:現金股利新台幣665,617,304元，每股配發2元 4.除權（息）交易日:115/07/07 5.最後過戶日:115/07/08 6.停止過戶起始日期:115/07/09 7.停止過戶截止日期:115/07/13 8.除權（息）基準日:115/07/13 9.債券最後申請轉換日期:NA 10.債券停止轉換起始日期:NA 11.債券停止轉換截止日期:NA 12.普通股現金股利發放日期:115/07/30 13.其他應敘明事項:無；calendar event: ex_dividend on 20260707; status=confirmed; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260706 | 2536 | 宏普 | revenue_breakout_low_response | 營收爆發低反應股 | 18.0 | 23.0 | D_降級_TDCC轉弱 |  |  |  | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/17 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:現金股利新台幣665,617,304元，每股配發2元 4.除權（息）交易日:115/07/07 5.最後過戶日:115/07/08 6.停止過戶起始日期:115/07/09 7.停止過戶截止日期:115/07/13 8.除權（息）基準日:115/07/13 9.債券最後申請轉換日期:NA 10.債券停止轉換起始日期:NA 11.債券停止轉換截止日期:NA 12.普通股現金股利發放日期:115/07/30 13.其他應敘明事項:無；calendar event: ex_dividend on 20260707; status=confirmed; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260706 | 2536 | 宏普 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/17 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:現金股利新台幣665,617,304元，每股配發2元 4.除權（息）交易日:115/07/07 5.最後過戶日:115/07/08 6.停止過戶起始日期:115/07/09 7.停止過戶截止日期:115/07/13 8.除權（息）基準日:115/07/13 9.債券最後申請轉換日期:NA 10.債券停止轉換起始日期:NA 11.債券停止轉換截止日期:NA 12.普通股現金股利發放日期:115/07/30 13.其他應敘明事項:無；calendar event: ex_dividend on 20260707; status=confirmed; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 2536 | 宏普 | 1 | 1 | 1 | 3 | 4 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260706 | 2536 | 宏普 | 2 | 2 | 2 | 3 | 5 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

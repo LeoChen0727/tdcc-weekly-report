@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5475 德宏
 
 ## Metadata
-- generated_at: 2026-07-05 22:27:36 Asia/Taipei
+- generated_at: 2026-07-06 22:27:39 Asia/Taipei
 - stock_id: 5475
 - stock_name: 德宏
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 162
+- latest_price_date: 20260706
+- price_rows: 163
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 232.5
+- date: 20260706
+- open: 243
 - high: 243
-- low: 227.5
-- close: 238.5
-- volume: 875000
-- ma5: 233.9
-- ema23_primary: 256.31
-- distance_to_ema23_pct: -6.95
-- ma20: 249.18
-- ma60: 297.99
-- ma120: 228.46
-- return_5d: -1.65
-- return_20d: -21.29
-- volume_ratio: 0.48
-- distance_to_ma20_pct_auxiliary: -4.28
-- distance_to_high_60_pct: -41.04
+- low: 226.5
+- close: 226.5
+- volume: 976000
+- ma5: 234.3
+- ema23_primary: 253.83
+- distance_to_ema23_pct: -10.77
+- ma20: 246.47
+- ma60: 297.14
+- ma120: 229.55
+- return_5d: 0.89
+- return_20d: -19.25
+- volume_ratio: 0.53
+- distance_to_ma20_pct_auxiliary: -8.1
+- distance_to_high_60_pct: -44
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,291.5,297,273,280.5,283000,300.86,-6.77,297.52,288.77,0.23
 20260608,252.5,263.5,252.5,255.5,1760000,297.08,-14,293.73,289.68,1.44
 20260609,265,265.5,248.5,261,1918000,294.08,-11.25,290.77,290.34,1.58
 20260610,253,269,245,245,2010000,289.99,-15.51,287.48,290.69,1.7
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,246.5,247,230,230,1409000,260.29,-11.64,256.05,299.41,0.8
 20260702,226,235,224.5,232,743000,257.93,-10.05,252.4,298.76,0.41
 20260703,232.5,243,227.5,238.5,875000,256.31,-6.95,249.18,297.99,0.48
+20260706,243,243,226.5,226.5,976000,253.83,-10.77,246.47,297.14,0.53
 ```
 
 ## Latest TDCC Snapshot

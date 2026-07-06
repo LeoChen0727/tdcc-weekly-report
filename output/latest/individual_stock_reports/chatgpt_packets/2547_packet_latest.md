@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2547 日勝生
 
 ## Metadata
-- generated_at: 2026-07-05 22:26:40 Asia/Taipei
+- generated_at: 2026-07-06 22:26:55 Asia/Taipei
 - stock_id: 2547
 - stock_name: 日勝生
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 297
+- latest_price_date: 20260706
+- price_rows: 298
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 回檔後短線轉強
+- model_category_display_zh: 型態觀察
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 回檔後短線轉強 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 回檔後短線轉強 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 11.25
-- high: 11.7
-- low: 11.25
-- close: 11.55
-- volume: 8496588
-- ma5: 11.21
-- ema23_primary: 10.92
-- distance_to_ema23_pct: 5.76
-- ma20: 11.03
-- ma60: 10.55
+- date: 20260706
+- open: 11.75
+- high: 11.8
+- low: 11.55
+- close: 11.6
+- volume: 5104000
+- ma5: 11.33
+- ema23_primary: 10.98
+- distance_to_ema23_pct: 5.67
+- ma20: 11.08
+- ma60: 10.56
 - ma120: 10.72
-- return_5d: 5.96
-- return_20d: 11.59
-- volume_ratio: 1.37
-- distance_to_ma20_pct_auxiliary: 4.74
-- distance_to_high_60_pct: -1.28
+- return_5d: 5.45
+- return_20d: 10.48
+- volume_ratio: 0.82
+- distance_to_ma20_pct_auxiliary: 4.67
+- distance_to_high_60_pct: -1.69
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,10.4,10.6,10.35,10.5,4529130,10.17,3.2,10.06,10.49,1.5
 20260608,10.2,10.65,10.15,10.65,5186710,10.21,4.27,10.08,10.48,1.64
 20260609,11,11.4,11,11.05,18281196,10.28,7.45,10.13,10.48,4.61
 20260610,10.9,11.5,10.75,11.15,25092422,10.36,7.67,10.18,10.48,4.98
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,11,11.35,10.85,11.25,7952000,10.83,3.89,10.92,10.53,1.29
 20260702,11.3,11.35,11.15,11.25,2860000,10.86,3.55,10.97,10.53,0.47
 20260703,11.25,11.7,11.25,11.55,8496588,10.92,5.76,11.03,10.55,1.37
+20260706,11.75,11.8,11.55,11.6,5104000,10.98,5.67,11.08,10.56,0.82
 ```
 
 ## Latest TDCC Snapshot
@@ -188,14 +188,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 2547 | 日勝生 | pullback_rebound | 回檔後短線轉強 | 63.0 |  |  |  |  |  | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/03 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除權 3.發放股利種類及金額:股票股利新台幣641,800,000元 4.除權（息）交易日:NA 5.最後過戶日:115/07/10 6.停止過戶起始日期:115/07/11 7.停止過戶截止日期:115/07/15 8.除權（息）基準日:115/07/15 9.其他應敘明事項:無。；calendar event: ex_dividend on 20260717; status=confirmed; proximity=within_14d |
-| 20260703 | 2547 | 日勝生 | revenue_pullback | 營收成長股價回檔 | 63.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  |  | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/03 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除權 3.發放股利種類及金額:股票股利新台幣641,800,000元 4.除權（息）交易日:NA 5.最後過戶日:115/07/10 6.停止過戶起始日期:115/07/11 7.停止過戶截止日期:115/07/15 8.除權（息）基準日:115/07/15 9.其他應敘明事項:無。；calendar event: ex_dividend on 20260717; status=confirmed; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
-| 20260703 | 2547 | 日勝生 | revenue_breakout_low_response | 營收爆發低反應股 | 19.0 | 15.0 | B_可觀察 |  |  |  | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/03 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除權 3.發放股利種類及金額:股票股利新台幣641,800,000元 4.除權（息）交易日:NA 5.最後過戶日:115/07/10 6.停止過戶起始日期:115/07/11 7.停止過戶截止日期:115/07/15 8.除權（息）基準日:115/07/15 9.其他應敘明事項:無。；calendar event: ex_dividend on 20260717; status=confirmed; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260706 | 2547 | 日勝生 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/03 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除權 3.發放股利種類及金額:股票股利新台幣641,800,000元 4.除權（息）交易日:NA 5.最後過戶日:115/07/10 6.停止過戶起始日期:115/07/11 7.停止過戶截止日期:115/07/15 8.除權（息）基準日:115/07/15 9.其他應敘明事項:無。；calendar event: ex_dividend on 20260717; status=confirmed; proximity=within_14d |
+| 20260706 | 2547 | 日勝生 | revenue_pullback | 營收成長股價回檔 | 63.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  |  | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/03 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除權 3.發放股利種類及金額:股票股利新台幣641,800,000元 4.除權（息）交易日:NA 5.最後過戶日:115/07/10 6.停止過戶起始日期:115/07/11 7.停止過戶截止日期:115/07/15 8.除權（息）基準日:115/07/15 9.其他應敘明事項:無。；calendar event: ex_dividend on 20260717; status=confirmed; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260706 | 2547 | 日勝生 | revenue_breakout_low_response | 營收爆發低反應股 | 19.0 | 18.0 | B_可觀察 |  |  |  | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/03 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除權 3.發放股利種類及金額:股票股利新台幣641,800,000元 4.除權（息）交易日:NA 5.最後過戶日:115/07/10 6.停止過戶起始日期:115/07/11 7.停止過戶截止日期:115/07/15 8.除權（息）基準日:115/07/15 9.其他應敘明事項:無。；calendar event: ex_dividend on 20260717; status=confirmed; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 2547 | 日勝生 | 17 | 9 | 5 | 10 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260706 | 2547 | 日勝生 | 18 | 10 | 5 | 10 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

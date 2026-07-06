@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2885 元大金
 
 ## Metadata
-- generated_at: 2026-07-05 22:26:47 Asia/Taipei
+- generated_at: 2026-07-06 22:27:01 Asia/Taipei
 - stock_id: 2885
 - stock_name: 元大金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 297
+- latest_price_date: 20260706
+- price_rows: 298
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 65.8
-- high: 67.2
-- low: 65.8
-- close: 67.2
-- volume: 18238828
-- ma5: 66.08
-- ema23_primary: 64.48
-- distance_to_ema23_pct: 4.22
-- ma20: 65.58
-- ma60: 58.03
-- ma120: 50.84
-- return_5d: 1.36
-- return_20d: 5.16
-- volume_ratio: 0.58
-- distance_to_ma20_pct_auxiliary: 2.47
-- distance_to_high_60_pct: -3.59
+- date: 20260706
+- open: 67.6
+- high: 68.7
+- low: 67.6
+- close: 68.4
+- volume: 14600000
+- ma5: 66.62
+- ema23_primary: 64.81
+- distance_to_ema23_pct: 5.54
+- ma20: 65.73
+- ma60: 58.37
+- ma120: 51.08
+- return_5d: 4.11
+- return_20d: 4.75
+- volume_ratio: 0.48
+- distance_to_ma20_pct_auxiliary: 4.05
+- distance_to_high_60_pct: -1.87
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,63.7,66.7,62,65.3,40414143,57.89,12.8,57.72,51.53,1.21
 20260608,63.9,64.6,60.9,62,47187669,58.23,6.47,57.99,51.83,1.37
 20260609,62,65.2,62,64.8,31001284,58.78,10.25,58.51,52.17,0.9
 20260610,64.3,64.5,62.2,62.3,30654583,59.07,5.47,58.83,52.49,0.88
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,66.4,66.8,64.9,66,19232000,64.09,2.98,65.31,57.38,0.58
 20260702,65.6,66.6,65,65.8,21055000,64.23,2.44,65.42,57.7,0.65
 20260703,65.8,67.2,65.8,67.2,18238828,64.48,4.22,65.58,58.03,0.58
+20260706,67.6,68.7,67.6,68.4,14600000,64.81,5.54,65.73,58.37,0.48
 ```
 
 ## Latest TDCC Snapshot
@@ -189,18 +189,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 2885 | 元大金 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/03 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:現金股利總額23,996,069,903元，每股配發1.80元 4.除權（息）交易日:115/07/21 5.最後過戶日:115/07/22 6.停止過戶起始日期:115/07/23 7.停止過戶截止日期:115/07/27 8.除權（息）基準日:115/07/27 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/14 13.其他應敘明事項:嗣後如因事實需要、法令變更或主管機關核示致現金股利分派 基準日流通在外股數發生變動者，授權董事長以該基準日流通在外股數重新計算 現金股利配息率及全權處理相關事宜；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
-| 20260703 | 2885 | 元大金 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/03 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:現金股利總額23,996,069,903元，每股配發1.80元 4.除權（息）交易日:115/07/21 5.最後過戶日:115/07/22 6.停止過戶起始日期:115/07/23 7.停止過戶截止日期:115/07/27 8.除權（息）基準日:115/07/27 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/14 13.其他應敘明事項:嗣後如因事實需要、法令變更或主管機關核示致現金股利分派 基準日流通在外股數發生變動者，授權董事長以該基準日流通在外股數重新計算 現金股利配息率及全權處理相關事宜；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260706 | 2885 | 元大金 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | call_strong_inflow | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/03 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:現金股利總額23,996,069,903元，每股配發1.80元 4.除權（息）交易日:115/07/21 5.最後過戶日:115/07/22 6.停止過戶起始日期:115/07/23 7.停止過戶截止日期:115/07/27 8.除權（息）基準日:115/07/27 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/14 13.其他應敘明事項:嗣後如因事實需要、法令變更或主管機關核示致現金股利分派 基準日流通在外股數發生變動者，授權董事長以該基準日流通在外股數重新計算 現金股利配息率及全權處理相關事宜；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260706 | 2885 | 元大金 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | call_strong_inflow | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/03 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:現金股利總額23,996,069,903元，每股配發1.80元 4.除權（息）交易日:115/07/21 5.最後過戶日:115/07/22 6.停止過戶起始日期:115/07/23 7.停止過戶截止日期:115/07/27 8.除權（息）基準日:115/07/27 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/14 13.其他應敘明事項:嗣後如因事實需要、法令變更或主管機關核示致現金股利分派 基準日流通在外股數發生變動者，授權董事長以該基準日流通在外股數重新計算 現金股利配息率及全權處理相關事宜；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 2885 | 元大金 | 9 | 9 | 5 | 9 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260706 | 2885 | 元大金 | 10 | 10 | 5 | 10 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 2885 | 元大金 | 16 | 0 | 708530.0 | 0.0 |  | no_signal |
+| 20260706 | 2885 | 元大金 | 16 | 0 | 3474290.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

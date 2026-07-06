@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6180 橘子
 
 ## Metadata
-- generated_at: 2026-07-05 22:27:45 Asia/Taipei
+- generated_at: 2026-07-06 22:27:47 Asia/Taipei
 - stock_id: 6180
 - stock_name: 橘子
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 162
+- latest_price_date: 20260706
+- price_rows: 163
 - latest_tdcc_date: 20260703
 - tdcc_rows: 32
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 49
-- high: 49.9
-- low: 49
-- close: 49.2
-- volume: 1126000
-- ma5: 49.3
-- ema23_primary: 47.13
-- distance_to_ema23_pct: 4.39
-- ma20: 47.7
-- ma60: 42.81
-- ma120: 46.03
-- return_5d: 0.41
-- return_20d: 14.95
-- volume_ratio: 0.46
-- distance_to_ma20_pct_auxiliary: 3.16
-- distance_to_high_60_pct: -6.29
+- date: 20260706
+- open: 49.2
+- high: 50.4
+- low: 48.4
+- close: 48.4
+- volume: 1068000
+- ma5: 48.96
+- ema23_primary: 47.24
+- distance_to_ema23_pct: 2.46
+- ma20: 47.93
+- ma60: 42.9
+- ma120: 46
+- return_5d: -3.39
+- return_20d: 10.76
+- volume_ratio: 0.42
+- distance_to_ma20_pct_auxiliary: 0.98
+- distance_to_high_60_pct: -7.81
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,42.8,44.95,42.4,43.7,44000,41.05,6.45,40.33,41.49,0.24
 20260608,41,44.75,40.7,43.9,955000,41.29,6.32,40.55,41.45,4.5
 20260609,43,43.55,42.4,42.8,923000,41.42,3.34,40.71,41.43,3.83
 20260610,42.55,47.05,42.25,47.05,2456000,41.89,12.33,41.11,41.5,7.04
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,49.8,50.2,48.55,48.8,1554000,46.78,4.33,47.11,42.63,0.66
 20260702,49.35,49.35,48,48.8,1197000,46.94,3.95,47.38,42.72,0.5
 20260703,49,49.9,49,49.2,1126000,47.13,4.39,47.7,42.81,0.46
+20260706,49.2,50.4,48.4,48.4,1068000,47.24,2.46,47.93,42.9,0.42
 ```
 
 ## Latest TDCC Snapshot
@@ -191,12 +191,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 6180 | 橘子 | pattern | 型態觀察 | 46.0 |  |  | base_building |  |  | stale_signal | 1.原預定買回股份總金額上限(元):2,302,390,584 2.原預定買回之期間:115/05/06~115/07/05 3.原預定買回之數量(股):2,500,000 4.原預定買回區間價格(元):26.70~62.80 5.本次實際買回期間:115/05/07~115/07/03 6.本次已買回股份數量(股):2,500,000 7.本次已買回股份總金額(元):110,469,428 8.本次平均每股買回價格(元):44.19 9.累積已持有自己公司股份數量(股):4,000,000 10.累積已持有自己公司股份數量占公司已發行股份總數之比率(%):2.28 11.本次未執行完畢之原因:  12.其他應敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260706 | 6180 | 橘子 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.原預定買回股份總金額上限(元):2,302,390,584 2.原預定買回之期間:115/05/06~115/07/05 3.原預定買回之數量(股):2,500,000 4.原預定買回區間價格(元):26.70~62.80 5.本次實際買回期間:115/05/07~115/07/03 6.本次已買回股份數量(股):2,500,000 7.本次已買回股份總金額(元):110,469,428 8.本次平均每股買回價格(元):44.19 9.累積已持有自己公司股份數量(股):4,000,000 10.累積已持有自己公司股份數量占公司已發行股份總數之比率(%):2.28 11.本次未執行完畢之原因:  12.其他應敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 6180 | 橘子 | 1 | 1 | 3 | 7 | 7 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260706 | 6180 | 橘子 | 2 | 2 | 3 | 7 | 8 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

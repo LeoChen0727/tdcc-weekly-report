@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2849 安泰銀
 
 ## Metadata
-- generated_at: 2026-07-05 22:26:46 Asia/Taipei
+- generated_at: 2026-07-06 22:27:00 Asia/Taipei
 - stock_id: 2849
 - stock_name: 安泰銀
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 297
+- latest_price_date: 20260706
+- price_rows: 298
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 14.15
+- date: 20260706
+- open: 14.6
 - high: 14.7
-- low: 14.15
+- low: 14.55
 - close: 14.6
-- volume: 230639
-- ma5: 14.49
-- ema23_primary: 14.32
-- distance_to_ema23_pct: 1.97
-- ma20: 14.37
-- ma60: 13.92
+- volume: 80000
+- ma5: 14.5
+- ema23_primary: 14.34
+- distance_to_ema23_pct: 1.8
+- ma20: 14.39
+- ma60: 13.94
 - ma120: 13.61
-- return_5d: 1.39
+- return_5d: 0.34
 - return_20d: 2.82
-- volume_ratio: 1.34
-- distance_to_ma20_pct_auxiliary: 1.58
+- volume_ratio: 0.46
+- distance_to_ma20_pct_auxiliary: 1.44
 - distance_to_high_60_pct: -1.02
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,14.35,14.35,14,14.2,61844,13.74,3.34,13.6,13.5,0.44
 20260608,13.6,13.95,13.6,13.6,237372,13.73,-0.94,13.59,13.51,1.6
 20260609,13.6,14.05,13.5,14,329418,13.75,1.81,13.61,13.53,2.07
 20260610,13.75,13.85,13.7,13.8,185287,13.76,0.32,13.62,13.54,1.14
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,14.6,14.6,14.4,14.4,67000,14.29,0.75,14.34,13.88,0.36
 20260702,14.5,14.5,14.25,14.3,178000,14.29,0.05,14.35,13.91,1.03
 20260703,14.15,14.7,14.15,14.6,230639,14.32,1.97,14.37,13.92,1.34
+20260706,14.6,14.7,14.55,14.6,80000,14.34,1.8,14.39,13.94,0.46
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3630 新鉅科
 
 ## Metadata
-- generated_at: 2026-07-05 22:27:10 Asia/Taipei
+- generated_at: 2026-07-06 22:27:19 Asia/Taipei
 - stock_id: 3630
 - stock_name: 新鉅科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 162
+- latest_price_date: 20260706
+- price_rows: 163
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 轉弱警訊
+- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -90,6 +90,7 @@
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
+- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -104,7 +105,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- tdcc_distribution_warning
+- none
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 29.1
-- high: 30.2
-- low: 29.05
-- close: 29.75
-- volume: 1111000
-- ma5: 29.58
-- ema23_primary: 30.22
-- distance_to_ema23_pct: -1.55
-- ma20: 31.03
-- ma60: 28.75
-- ma120: 30.01
-- return_5d: -0.34
-- return_20d: 2.06
-- volume_ratio: 0.26
-- distance_to_ma20_pct_auxiliary: -4.12
-- distance_to_high_60_pct: -19.27
+- date: 20260706
+- open: 30.3
+- high: 30.4
+- low: 29.2
+- close: 29.5
+- volume: 754000
+- ma5: 29.62
+- ema23_primary: 30.16
+- distance_to_ema23_pct: -2.18
+- ma20: 31.02
+- ma60: 28.77
+- ma120: 30.02
+- return_5d: 0.68
+- return_20d: -0.34
+- volume_ratio: 0.18
+- distance_to_ma20_pct_auxiliary: -4.91
+- distance_to_high_60_pct: -19.95
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,29.2,31.45,29.2,29.6,30000,27.32,8.33,26.7,28.16,0.06
 20260608,26.65,28.55,26.65,27.85,1704000,27.37,1.76,26.77,28.11,2.96
 20260609,28.2,30.6,27.7,30.6,1853000,27.64,10.72,26.98,28.11,3
 20260610,32,33.65,30.1,30.4,11979000,27.87,9.09,27.22,28.11,10.24
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,30.5,30.75,29.5,29.5,774000,30.35,-2.81,30.9,28.69,0.19
 20260702,29.6,30,28.85,29.25,1335000,30.26,-3.34,31,28.73,0.32
 20260703,29.1,30.2,29.05,29.75,1111000,30.22,-1.55,31.03,28.75,0.26
+20260706,30.3,30.4,29.2,29.5,754000,30.16,-2.18,31.02,28.77,0.18
 ```
 
 ## Latest TDCC Snapshot
@@ -186,14 +187,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 3630 | 新鉅科 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.發生變動日期:115/06/17 2.功能性委員會名稱:薪酬委員會 3.舊任者姓名: (1)獨立董事王智信 (2)獨立董事Erwin Limowa (3)獨立董事魏仁裕 4.舊任者簡歷: (1)獨立董事王智信、Master Concept (HK) Limited. CEO (2)獨立董事Erwin Limowa、極穎印刷製品（東莞）有限公司總經理 (3)獨立董事魏仁裕、東博財務管理顧問(股)公司合夥人 5.新任者姓名: 獨立董事：王智信 獨立董事：蔡洲灝 獨立董事：廖苑珊 6.新任者簡歷: 獨立董事：王智信 Master Concept (HK) Limited. CEO 獨立董事：蔡洲灝 國聯創業投資管理顧問股份有限公司 副總經理 獨立董事：廖苑珊 美時化學製藥股份有限公司 公司治理處長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 任期屆滿 8.異動原因:股東常會全面改選董事後，由新任董事會重新委任。 9.原任期（例xx/xx/xx ~ xx/xx/xx）:112/06/21~115/06/20 10.新任生效日期:115/06/17 11.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 3630 | 新鉅科 | 2 | 2 | 3 | 4 | 4 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

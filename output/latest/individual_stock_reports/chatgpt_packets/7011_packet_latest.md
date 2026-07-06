@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7011 擎亞元大56購01
 
 ## Metadata
-- generated_at: 2026-07-05 22:28:12 Asia/Taipei
+- generated_at: 2026-07-06 22:28:09 Asia/Taipei
 - stock_id: 7011
 - stock_name: 擎亞元大56購01
 - packet_status: partial_rawdata_packet

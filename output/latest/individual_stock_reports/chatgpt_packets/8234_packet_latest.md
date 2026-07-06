@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8234 新漢
 
 ## Metadata
-- generated_at: 2026-07-05 22:28:26 Asia/Taipei
+- generated_at: 2026-07-06 22:28:21 Asia/Taipei
 - stock_id: 8234
 - stock_name: 新漢
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 162
+- latest_price_date: 20260706
+- price_rows: 163
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 73
-- high: 73.4
-- low: 70.2
+- date: 20260706
+- open: 72
+- high: 73.8
+- low: 71
 - close: 71
-- volume: 1328000
-- ma5: 69.98
-- ema23_primary: 68.07
-- distance_to_ema23_pct: 4.3
-- ma20: 66.64
-- ma60: 67.16
+- volume: 1098000
+- ma5: 70.98
+- ema23_primary: 68.31
+- distance_to_ema23_pct: 3.93
+- ma20: 66.73
+- ma60: 67.34
 - ma120: 67.9
-- return_5d: 8.07
-- return_20d: 2.01
-- volume_ratio: 1.05
-- distance_to_ma20_pct_auxiliary: 6.53
+- return_5d: 7.58
+- return_20d: 2.6
+- volume_ratio: 0.83
+- distance_to_ma20_pct_auxiliary: 6.39
 - distance_to_high_60_pct: -9.44
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,70.2,72.5,68.3,69.2,70000,69.85,-0.93,70.29,66.3,0.12
 20260608,62.9,64.3,62.3,64.1,1014000,69.37,-7.6,69.94,66.3,1.79
 20260609,65.2,69.8,64.8,66.6,767000,69.14,-3.67,69.72,66.37,1.38
 20260610,66.6,68.3,63,63.4,618000,68.66,-7.66,69.47,66.36,1.12
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,71.8,72,68.3,68.4,848000,67.32,1.6,66.46,66.74,0.86
 20260702,68.4,75,68.4,73.1,4468000,67.8,7.81,66.58,66.98,3.72
 20260703,73,73.4,70.2,71,1328000,68.07,4.3,66.64,67.16,1.05
+20260706,72,73.8,71,71,1098000,68.31,3.93,66.73,67.34,0.83
 ```
 
 ## Latest TDCC Snapshot
@@ -188,12 +188,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 8234 | 新漢 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | stale_signal | 1.股東常會日期:115/06/24 2.重要決議事項一、盈餘分配或盈虧撥補:通過承認114年度盈餘分派案。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表:通過承認114年度營業報告書及財務報表案。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項:通過本公司之子公司綠基企業股份有限公司申請股票上櫃 暨配合股票上櫃應辦理股權稀釋案。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260706 | 8234 | 新漢 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | stale_signal | 1.股東常會日期:115/06/24 2.重要決議事項一、盈餘分配或盈虧撥補:通過承認114年度盈餘分派案。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表:通過承認114年度營業報告書及財務報表案。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項:通過本公司之子公司綠基企業股份有限公司申請股票上櫃 暨配合股票上櫃應辦理股權稀釋案。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 8234 | 新漢 | 2 | 1 | 3 | 4 | 4 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260706 | 8234 | 新漢 | 3 | 2 | 4 | 5 | 5 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

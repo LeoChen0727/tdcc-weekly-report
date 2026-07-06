@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2454 聯發科
 
 ## Metadata
-- generated_at: 2026-07-05 22:26:36 Asia/Taipei
+- generated_at: 2026-07-06 22:26:51 Asia/Taipei
 - stock_id: 2454
 - stock_name: 聯發科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 297
+- latest_price_date: 20260706
+- price_rows: 298
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 4160
-- high: 4230
-- low: 4120
-- close: 4195
-- volume: 12778372
-- ma5: 4206
-- ema23_primary: 4189.15
-- distance_to_ema23_pct: 0.14
-- ma20: 4282.5
-- ma60: 3504.75
-- ma120: 2577.67
-- return_5d: 8.12
-- return_20d: -5.3
-- volume_ratio: 0.95
-- distance_to_ma20_pct_auxiliary: -2.04
-- distance_to_high_60_pct: -15.59
+- date: 20260706
+- open: 4250
+- high: 4325
+- low: 4110
+- close: 4125
+- volume: 6288000
+- ma5: 4249
+- ema23_primary: 4183.8
+- distance_to_ema23_pct: -1.41
+- ma20: 4273.75
+- ma60: 3547.25
+- ma120: 2600.12
+- return_5d: 5.5
+- return_20d: -4.07
+- volume_ratio: 0.48
+- distance_to_ma20_pct_auxiliary: -3.48
+- distance_to_high_60_pct: -17
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,4360,4430,4130,4300,11919031,3862.88,11.32,3958,2662.92,0.96
 20260608,3935,4090,3935,4070,16219464,3880.14,4.89,3967.5,2701.33,1.27
 20260609,4180,4475,4130,4475,16487210,3929.71,13.88,4006.25,2746.17,1.26
 20260610,4315,4520,4120,4155,17412956,3948.49,5.23,4039.25,2786.75,1.29
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,4315,4380,4225,4335,8471000,4174.4,3.85,4304.25,3413.25,0.63
 20260702,4200,4380,4150,4345,6505000,4188.62,3.73,4294.25,3461.17,0.49
 20260703,4160,4230,4120,4195,12778372,4189.15,0.14,4282.5,3504.75,0.95
+20260706,4250,4325,4110,4125,6288000,4183.8,-1.41,4273.75,3547.25,0.48
 ```
 
 ## Latest TDCC Snapshot
@@ -189,17 +189,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 2454 | 聯發科 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  | put_inflow | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/23 1.召開法人說明會之日期：115/06/23 2.召開法人說明會之時間：15 時 00 分  3.召開法人說明會之地點：線上法說會 4.法人說明會擇要訊息：公告本公司115年 6月23日受邀參加摩根大通證券舉辦之Asia Pacific All Star Forum，簡報資料請參閱公開資訊觀測&#8206;站。&#8206; 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: ex_dividend on 20260707; status=confirmed; proximity=within_3d |
+| 20260706 | 2454 | 聯發科 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/23 1.召開法人說明會之日期：115/06/23 2.召開法人說明會之時間：15 時 00 分  3.召開法人說明會之地點：線上法說會 4.法人說明會擇要訊息：公告本公司115年 6月23日受邀參加摩根大通證券舉辦之Asia Pacific All Star Forum，簡報資料請參閱公開資訊觀測&#8206;站。&#8206; 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: ex_dividend on 20260707; status=confirmed; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 2454 | 聯發科 | 4 | 4 | 4 | 7 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260706 | 2454 | 聯發科 | 5 | 5 | 5 | 7 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 2454 | 聯發科 | 357 | 38 | 22489220.0 | 1610980.0 | 13.96 | put_inflow |
+| 20260706 | 2454 | 聯發科 | 356 | 38 | 21068390.0 | 850980.0 | 24.76 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

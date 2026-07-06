@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2337 旺宏
 
 ## Metadata
-- generated_at: 2026-07-05 22:26:29 Asia/Taipei
+- generated_at: 2026-07-06 22:26:46 Asia/Taipei
 - stock_id: 2337
 - stock_name: 旺宏
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 297
+- latest_price_date: 20260706
+- price_rows: 298
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -58,7 +58,7 @@
 - pdf_visible: true
 - action_rating_display_zh: 可分批買進
 - model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
 - action_summary_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。
 - entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
 - position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
@@ -92,6 +92,7 @@
 
 ### entry_prerequisites
 - model_recommended
+- decision_score_high
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -117,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 142
-- high: 147
-- low: 140.5
-- close: 142.5
-- volume: 52691353
-- ma5: 149.1
-- ema23_primary: 156.09
-- distance_to_ema23_pct: -8.7
-- ma20: 155.78
-- ma60: 153.3
-- ma120: 124.94
-- return_5d: -12.31
-- return_20d: -8.95
-- volume_ratio: 0.61
-- distance_to_ma20_pct_auxiliary: -8.52
-- distance_to_high_60_pct: -25.78
+- date: 20260706
+- open: 146.5
+- high: 152
+- low: 144
+- close: 144.5
+- volume: 62380000
+- ma5: 146.3
+- ema23_primary: 155.12
+- distance_to_ema23_pct: -6.85
+- ma20: 155.5
+- ma60: 153.34
+- ma120: 125.82
+- return_5d: -8.83
+- return_20d: -3.67
+- volume_ratio: 0.71
+- distance_to_ma20_pct_auxiliary: -7.07
+- distance_to_high_60_pct: -24.74
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,148,150,141,150,54586699,156.35,-4.06,157.7,145.26,0.36
 20260608,135,143.5,135,143.5,34560976,155.28,-7.58,156.9,145.99,0.24
 20260609,148,148,143.5,145.5,22931253,154.46,-5.8,156.53,146.77,0.16
 20260610,141.5,144,135,135,24873473,152.84,-11.67,154.88,147.21,0.19
@@ -159,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,156,156.5,142.5,143.5,126029000,158.4,-9.4,157.3,153.28,1.48
 20260702,135,146,135,145.5,69573000,157.32,-7.51,156.47,153.43,0.81
 20260703,142,147,140.5,142.5,52691353,156.09,-8.7,155.78,153.3,0.61
+20260706,146.5,152,144,144.5,62380000,155.12,-6.85,155.5,153.34,0.71
 ```
 
 ## Latest TDCC Snapshot
@@ -193,17 +194,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 2337 | 旺宏 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260706 | 2337 | 旺宏 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  | call_put_bullish | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 2337 | 旺宏 | 2 | 2 | 4 | 9 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260706 | 2337 | 旺宏 | 3 | 3 | 4 | 9 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 2337 | 旺宏 | 60 | 19 | 984810.0 | 2200.0 | 447.64 | no_signal |
+| 20260706 | 2337 | 旺宏 | 57 | 18 | 4219250.0 | 1020.0 | 4136.52 | call_put_bullish |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

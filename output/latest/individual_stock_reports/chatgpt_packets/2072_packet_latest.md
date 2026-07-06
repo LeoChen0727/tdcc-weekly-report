@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2072 世紀風電
 
 ## Metadata
-- generated_at: 2026-07-05 22:26:24 Asia/Taipei
+- generated_at: 2026-07-06 22:26:42 Asia/Taipei
 - stock_id: 2072
 - stock_name: 世紀風電
 - packet_status: standard_rawdata_packet
-- latest_price_date: 20260703
-- price_rows: 67
+- latest_price_date: 20260706
+- price_rows: 68
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 146.5
+- date: 20260706
+- open: 147.5
 - high: 152.5
-- low: 146
-- close: 147
-- volume: 757363
-- ma5: 149.4
-- ema23_primary: 166.64
-- distance_to_ema23_pct: -11.79
-- ma20: 172.22
-- ma60: 175.33
-- ma120: 175.99
-- return_5d: -10.64
-- return_20d: -18.78
-- volume_ratio: 1.08
-- distance_to_ma20_pct_auxiliary: -14.65
-- distance_to_high_60_pct: -28.99
+- low: 147
+- close: 147.5
+- volume: 570000
+- ma5: 148.5
+- ema23_primary: 165.04
+- distance_to_ema23_pct: -10.63
+- ma20: 169.65
+- ma60: 174.71
+- ma120: 175.57
+- return_5d: -2.96
+- return_20d: -25.88
+- volume_ratio: 0.91
+- distance_to_ma20_pct_auxiliary: -13.06
+- distance_to_high_60_pct: -28.74
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,180,199,179.5,199,2024602,176.18,12.95,174.5,178.04,2.95
 20260605,204,207,190.5,195,1736728,177.75,9.71,175.22,178.39,2.32
 20260608,177.5,191,177,189,908643,178.69,5.77,175.7,178.6,1.19
 20260609,189.5,189.5,182,183,635196,179.05,2.21,175.93,178.69,0.81
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,154.5,154.5,148,148,799000,170.37,-13.13,175.32,176.22,1.11
 20260702,148.5,150,146,147,452000,168.43,-12.72,173.93,175.83,0.64
 20260703,146.5,152.5,146,147,757363,166.64,-11.79,172.22,175.33,1.08
+20260706,147.5,152.5,147,147.5,570000,165.04,-10.63,169.65,174.71,0.91
 ```
 
 ## Latest TDCC Snapshot
@@ -196,9 +196,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260706 | 2072 | 世紀風電 | 3 | 0 | 3550.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3088 艾訊
 
 ## Metadata
-- generated_at: 2026-07-05 22:26:55 Asia/Taipei
+- generated_at: 2026-07-06 22:27:07 Asia/Taipei
 - stock_id: 3088
 - stock_name: 艾訊
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 162
+- latest_price_date: 20260706
+- price_rows: 163
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 142
-- high: 146.5
-- low: 141.5
-- close: 146.5
-- volume: 1394000
-- ma5: 141.5
-- ema23_primary: 139.38
-- distance_to_ema23_pct: 5.11
-- ma20: 140.3
-- ma60: 125.97
-- ma120: 103.98
-- return_5d: 7.72
-- return_20d: 5.4
-- volume_ratio: 0.89
-- distance_to_ma20_pct_auxiliary: 4.42
-- distance_to_high_60_pct: -3.62
+- date: 20260706
+- open: 147
+- high: 149
+- low: 143.5
+- close: 143.5
+- volume: 1124000
+- ma5: 142.7
+- ema23_primary: 139.73
+- distance_to_ema23_pct: 2.7
+- ma20: 140.55
+- ma60: 126.94
+- ma120: 104.54
+- return_5d: 4.36
+- return_20d: 3.61
+- volume_ratio: 0.7
+- distance_to_ma20_pct_auxiliary: 2.1
+- distance_to_high_60_pct: -5.59
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,138.5,139,135.5,138.5,137000,132.43,4.58,136.88,107.76,0.13
 20260608,125,131,125,129.5,1656000,132.19,-2.03,136.95,108.55,1.61
 20260609,130.5,139,130.5,136,1369000,132.5,2.64,137.15,109.47,1.38
 20260610,139.5,144,139,139.5,3216000,133.09,4.82,137.45,110.43,2.99
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,143.5,144,137,137.5,1232000,138.39,-0.65,139.8,123.93,0.84
 20260702,136,142.5,136,142.5,797000,138.74,2.71,139.93,124.94,0.53
 20260703,142,146.5,141.5,146.5,1394000,139.38,5.11,140.3,125.97,0.89
+20260706,147,149,143.5,143.5,1124000,139.73,2.7,140.55,126.94,0.7
 ```
 
 ## Latest TDCC Snapshot
@@ -189,13 +189,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 3088 | 艾訊 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | repeated_but_no_breakout | 1.董事會或股東會決議日期:115/06/18 2.原發放股利種類及金額:現金股利新台幣(以下同)325,488,050元，每股配發3元。 3.變更後發放股利種類及金額: 現金股利總額325,488,050元不變，調整後每股配發金額為2.93644855元。 4.變更原因: 公司因可轉換公司債轉換及員工認股權憑證執行認股致流通在外股數發生變動， 影響股東配息率，依據本公司截至115/06/17止實際流通在外股數110,844,118股計算， 每股配發金額由3元調整為2.93644855元。 5.其他應敘明事項: (1)依據115/02/25董事會授權董事長訂定除息基準日及辦理發放事宜。 (2)本次除息未盡事宜，如因股本變動致影響流通在外股數，股東配息率因此發生    變動時，授權董事長全權處理並公告之，其他未盡事項授權董事長全權處理。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
-| 20260703 | 3088 | 艾訊 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  |  | repeated_but_no_breakout | 1.董事會或股東會決議日期:115/06/18 2.原發放股利種類及金額:現金股利新台幣(以下同)325,488,050元，每股配發3元。 3.變更後發放股利種類及金額: 現金股利總額325,488,050元不變，調整後每股配發金額為2.93644855元。 4.變更原因: 公司因可轉換公司債轉換及員工認股權憑證執行認股致流通在外股數發生變動， 影響股東配息率，依據本公司截至115/06/17止實際流通在外股數110,844,118股計算， 每股配發金額由3元調整為2.93644855元。 5.其他應敘明事項: (1)依據115/02/25董事會授權董事長訂定除息基準日及辦理發放事宜。 (2)本次除息未盡事宜，如因股本變動致影響流通在外股數，股東配息率因此發生    變動時，授權董事長全權處理並公告之，其他未盡事項授權董事長全權處理。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260706 | 3088 | 艾訊 | pattern | 型態觀察 | 51.0 |  |  | base_building |  |  | stale_signal | 1.董事會或股東會決議日期:115/06/18 2.原發放股利種類及金額:現金股利新台幣(以下同)325,488,050元，每股配發3元。 3.變更後發放股利種類及金額: 現金股利總額325,488,050元不變，調整後每股配發金額為2.93644855元。 4.變更原因: 公司因可轉換公司債轉換及員工認股權憑證執行認股致流通在外股數發生變動， 影響股東配息率，依據本公司截至115/06/17止實際流通在外股數110,844,118股計算， 每股配發金額由3元調整為2.93644855元。 5.其他應敘明事項: (1)依據115/02/25董事會授權董事長訂定除息基準日及辦理發放事宜。 (2)本次除息未盡事宜，如因股本變動致影響流通在外股數，股東配息率因此發生    變動時，授權董事長全權處理並公告之，其他未盡事項授權董事長全權處理。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260706 | 3088 | 艾訊 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  |  | stale_signal | 1.董事會或股東會決議日期:115/06/18 2.原發放股利種類及金額:現金股利新台幣(以下同)325,488,050元，每股配發3元。 3.變更後發放股利種類及金額: 現金股利總額325,488,050元不變，調整後每股配發金額為2.93644855元。 4.變更原因: 公司因可轉換公司債轉換及員工認股權憑證執行認股致流通在外股數發生變動， 影響股東配息率，依據本公司截至115/06/17止實際流通在外股數110,844,118股計算， 每股配發金額由3元調整為2.93644855元。 5.其他應敘明事項: (1)依據115/02/25董事會授權董事長訂定除息基準日及辦理發放事宜。 (2)本次除息未盡事宜，如因股本變動致影響流通在外股數，股東配息率因此發生    變動時，授權董事長全權處理並公告之，其他未盡事項授權董事長全權處理。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 3088 | 艾訊 | 1 | 1 | 2 | 6 | 6 | repeated_but_no_breakout | 近 10 日上榜 6 次、近 20 日上榜 6 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260706 | 3088 | 艾訊 | 2 | 2 | 3 | 6 | 7 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

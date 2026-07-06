@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6125 廣運
 
 ## Metadata
-- generated_at: 2026-07-05 22:27:42 Asia/Taipei
+- generated_at: 2026-07-06 22:27:44 Asia/Taipei
 - stock_id: 6125
 - stock_name: 廣運
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 162
+- latest_price_date: 20260706
+- price_rows: 163
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -58,7 +58,7 @@
 - pdf_visible: true
 - action_rating_display_zh: 可分批買進
 - model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
 - action_summary_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。
 - entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
 - position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
@@ -73,7 +73,7 @@
 - internal_use_only: true
 - action_rating: scale_in
 - action_rating_label_zh: 可分批買進
-- confidence_level: high
+- confidence_level: medium
 - thesis_state: healthy_pullback
 - entry_style: pullback_to_23ema
 - position_sizing: half_position
@@ -92,7 +92,6 @@
 
 ### entry_prerequisites
 - model_recommended
-- decision_score_high
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -119,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 60.3
-- high: 60.5
-- low: 59.4
-- close: 59.7
-- volume: 1032000
-- ma5: 59.08
-- ema23_primary: 60.62
-- distance_to_ema23_pct: -1.52
-- ma20: 60.58
-- ma60: 59.73
-- ma120: 62.07
-- return_5d: 4.74
-- return_20d: -10.36
-- volume_ratio: 0.65
-- distance_to_ma20_pct_auxiliary: -1.45
-- distance_to_high_60_pct: -21.34
+- date: 20260706
+- open: 60
+- high: 61.3
+- low: 59.7
+- close: 60.1
+- volume: 1181000
+- ma5: 59.54
+- ema23_primary: 60.58
+- distance_to_ema23_pct: -0.79
+- ma20: 60.34
+- ma60: 59.87
+- ma120: 61.97
+- return_5d: 3.98
+- return_20d: -7.25
+- volume_ratio: 0.72
+- distance_to_ma20_pct_auxiliary: -0.41
+- distance_to_high_60_pct: -20.82
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,66.7,67.7,64,64.8,65000,63.47,2.09,62.95,58.97,0.07
 20260608,58.4,64,58.4,63.1,2778000,63.44,-0.54,63.12,58.98,2.97
 20260609,63.1,63.4,61.4,62.4,1972000,63.35,-1.51,63.2,59.01,2.25
 20260610,61.9,63.6,59.5,59.5,1702000,63.03,-5.6,63.23,59.01,1.97
@@ -161,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,59.6,60.2,58.3,58.4,907000,60.77,-3.89,61.39,59.48,0.61
 20260702,58.2,60.3,57.4,60,1072000,60.7,-1.16,60.92,59.62,0.7
 20260703,60.3,60.5,59.4,59.7,1032000,60.62,-1.52,60.58,59.73,0.65
+20260706,60,61.3,59.7,60.1,1181000,60.58,-0.79,60.34,59.87,0.72
 ```
 
 ## Latest TDCC Snapshot
@@ -195,13 +194,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 6125 | 廣運 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  |  | stale_signal | 1.人員變動別（請輸入發言人、代理發言人、重要營運主管 (如:執行長、營運長、行銷長及策略長等)、財務主管、會計 主管、公司治理主管、資訊安全長、研發主管、內部稽核主管或訴訟及非 訟代理人）:發言人 2.發生變動日期:115/07/01 3.舊任者姓名、級職及簡歷:沈麗娟 營管中心總經理 4.新任者姓名、級職及簡歷:待近期董事會任命後另行公告 5.異動情形（請輸入「辭職」、「職務調整」、「資遣」、 「退休」、「死亡」、「新任」或「解任」）:退休 6.異動原因:退休 7.生效日期:115/07/01 8.其他應敘明事項:  (1)於115年07月01日起發言人由朱淑娥 特助暫代。  (2)本公司新任發言人待提報董事會正式委任後，依相關規定公告。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260703 | 6125 | 廣運 | revenue_breakout_low_response | 營收爆發低反應股 | 16.0 | 18.0 | B_可觀察 |  |  |  | stale_signal | 1.人員變動別（請輸入發言人、代理發言人、重要營運主管 (如:執行長、營運長、行銷長及策略長等)、財務主管、會計 主管、公司治理主管、資訊安全長、研發主管、內部稽核主管或訴訟及非 訟代理人）:發言人 2.發生變動日期:115/07/01 3.舊任者姓名、級職及簡歷:沈麗娟 營管中心總經理 4.新任者姓名、級職及簡歷:待近期董事會任命後另行公告 5.異動情形（請輸入「辭職」、「職務調整」、「資遣」、 「退休」、「死亡」、「新任」或「解任」）:退休 6.異動原因:退休 7.生效日期:115/07/01 8.其他應敘明事項:  (1)於115年07月01日起發言人由朱淑娥 特助暫代。  (2)本公司新任發言人待提報董事會正式委任後，依相關規定公告。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260706 | 6125 | 廣運 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | 1.人員變動別（請輸入發言人、代理發言人、重要營運主管 (如:執行長、營運長、行銷長及策略長等)、財務主管、會計 主管、公司治理主管、資訊安全長、研發主管、內部稽核主管或訴訟及非 訟代理人）:發言人 2.發生變動日期:115/07/01 3.舊任者姓名、級職及簡歷:沈麗娟 營管中心總經理 4.新任者姓名、級職及簡歷:待近期董事會任命後另行公告 5.異動情形（請輸入「辭職」、「職務調整」、「資遣」、 「退休」、「死亡」、「新任」或「解任」）:退休 6.異動原因:退休 7.生效日期:115/07/01 8.其他應敘明事項:  (1)於115年07月01日起發言人由朱淑娥 特助暫代。  (2)本公司新任發言人待提報董事會正式委任後，依相關規定公告。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260706 | 6125 | 廣運 | revenue_breakout_low_response | 營收爆發低反應股 | 16.0 | 21.0 | B_可觀察 |  |  |  | stale_signal | 1.人員變動別（請輸入發言人、代理發言人、重要營運主管 (如:執行長、營運長、行銷長及策略長等)、財務主管、會計 主管、公司治理主管、資訊安全長、研發主管、內部稽核主管或訴訟及非 訟代理人）:發言人 2.發生變動日期:115/07/01 3.舊任者姓名、級職及簡歷:沈麗娟 營管中心總經理 4.新任者姓名、級職及簡歷:待近期董事會任命後另行公告 5.異動情形（請輸入「辭職」、「職務調整」、「資遣」、 「退休」、「死亡」、「新任」或「解任」）:退休 6.異動原因:退休 7.生效日期:115/07/01 8.其他應敘明事項:  (1)於115年07月01日起發言人由朱淑娥 特助暫代。  (2)本公司新任發言人待提報董事會正式委任後，依相關規定公告。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 6125 | 廣運 | 2 | 2 | 2 | 7 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260706 | 6125 | 廣運 | 3 | 3 | 3 | 7 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

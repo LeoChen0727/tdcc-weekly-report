@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3044 健鼎
 
 ## Metadata
-- generated_at: 2026-07-05 22:26:53 Asia/Taipei
+- generated_at: 2026-07-06 22:27:05 Asia/Taipei
 - stock_id: 3044
 - stock_name: 健鼎
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 297
+- latest_price_date: 20260706
+- price_rows: 298
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 507
-- high: 520
-- low: 501
-- close: 520
-- volume: 1633507
-- ma5: 509.9
-- ema23_primary: 514.43
-- distance_to_ema23_pct: 1.08
-- ma20: 517.92
-- ma60: 484.37
-- ma120: 420.83
-- return_5d: 2.36
-- return_20d: 1.56
-- volume_ratio: 0.38
-- distance_to_ma20_pct_auxiliary: 0.4
-- distance_to_high_60_pct: -13.04
+- date: 20260706
+- open: 523
+- high: 525
+- low: 502
+- close: 506
+- volume: 2571000
+- ma5: 511.2
+- ema23_primary: 513.73
+- distance_to_ema23_pct: -1.5
+- ma20: 518.33
+- ma60: 486.5
+- ma120: 422.4
+- return_5d: 1.3
+- return_20d: 1.61
+- volume_ratio: 0.6
+- distance_to_ma20_pct_auxiliary: -2.38
+- distance_to_high_60_pct: -15.38
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,509,511,485.5,498,3630294,491.2,1.38,497.5,433.52,0.7
 20260608,464,481,454,478,4506697,490.1,-2.47,496.93,435.52,0.87
 20260609,475,504,475,500,4612051,490.92,1.85,497.88,437.88,0.91
 20260610,490,502,477,479,6576180,489.93,-2.23,495.38,439.52,1.37
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,534,535,506,506,5067000,514.65,-1.68,517.73,479.38,1.18
 20260702,501,518,498.5,506,5918000,513.93,-1.54,517.52,481.87,1.35
 20260703,507,520,501,520,1633507,514.43,1.08,517.92,484.37,0.38
+20260706,523,525,502,506,2571000,513.73,-1.5,518.33,486.5,0.6
 ```
 
 ## Latest TDCC Snapshot
@@ -189,18 +189,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 3044 | 健鼎 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | call_inflow | stale_signal | calendar event: ex_dividend on 20260709; status=confirmed; proximity=within_7d |
-| 20260703 | 3044 | 健鼎 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  | call_inflow | stale_signal | calendar event: ex_dividend on 20260709; status=confirmed; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260706 | 3044 | 健鼎 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: ex_dividend on 20260709; status=confirmed; proximity=within_3d |
+| 20260706 | 3044 | 健鼎 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  | no_signal | stale_signal | calendar event: ex_dividend on 20260709; status=confirmed; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 3044 | 健鼎 | 2 | 2 | 4 | 7 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260706 | 3044 | 健鼎 | 3 | 3 | 4 | 8 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 3044 | 健鼎 | 73 | 3 | 5489320.0 | 4120.0 | 1332.36 | call_inflow |
+| 20260706 | 3044 | 健鼎 | 73 | 2 | 5868080.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

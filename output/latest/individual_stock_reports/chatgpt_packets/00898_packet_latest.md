@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00898 國泰基因免疫革命
 
 ## Metadata
-- generated_at: 2026-07-05 22:26:01 Asia/Taipei
+- generated_at: 2026-07-06 22:26:23 Asia/Taipei
 - stock_id: 00898
 - stock_name: 國泰基因免疫革命
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260703
-- price_rows: 30
+- latest_price_date: 20260706
+- price_rows: 31
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 9.6
-- high: 9.68
-- low: 9.6
-- close: 9.68
-- volume: 1616207
-- ma5: 9.41
-- ema23_primary: 8.77
-- distance_to_ema23_pct: 10.39
-- ma20: 8.69
-- ma60: 8.51
-- ma120: 8.51
-- return_5d: 8.04
-- return_20d: 18.19
-- volume_ratio: 1.38
-- distance_to_ma20_pct_auxiliary: 11.41
-- distance_to_high_60_pct: 0
+- date: 20260706
+- open: 9.68
+- high: 9.78
+- low: 9.68
+- close: 9.75
+- volume: 1400000
+- ma5: 9.5
+- ema23_primary: 8.85
+- distance_to_ema23_pct: 10.16
+- ma20: 8.76
+- ma60: 8.55
+- ma120: 8.55
+- return_5d: 4.84
+- return_20d: 15.93
+- volume_ratio: 1.22
+- distance_to_ma20_pct_auxiliary: 11.36
+- distance_to_high_60_pct: -0.31
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,8.4,8.43,8.39,8.41,1839787,8.14,3.37,8.19,8.19,2.3
 20260608,8.3,8.3,8.2,8.23,275305,8.14,1.06,8.19,8.19,0.36
 20260609,8.21,8.21,8.13,8.14,151234,8.14,-0.05,8.19,8.19,0.21
 20260610,8.26,8.27,8.22,8.23,727901,8.15,0.97,8.19,8.19,1.02
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,9.38,9.38,9.24,9.3,1543000,8.62,7.89,8.55,8.44,1.43
 20260702,9.34,9.45,9.34,9.41,1272000,8.69,8.34,8.61,8.47,1.13
 20260703,9.6,9.68,9.6,9.68,1616207,8.77,10.39,8.69,8.51,1.38
+20260706,9.68,9.78,9.68,9.75,1400000,8.85,10.16,8.76,8.55,1.22
 ```
 
 ## Latest TDCC Snapshot

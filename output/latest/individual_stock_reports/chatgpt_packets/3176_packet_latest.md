@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3176 基亞
 
 ## Metadata
-- generated_at: 2026-07-05 22:26:57 Asia/Taipei
+- generated_at: 2026-07-06 22:27:09 Asia/Taipei
 - stock_id: 3176
 - stock_name: 基亞
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 162
+- latest_price_date: 20260706
+- price_rows: 163
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 34.2
-- high: 35.5
-- low: 34.05
-- close: 35.35
-- volume: 1236000
-- ma5: 34
-- ema23_primary: 33.56
-- distance_to_ema23_pct: 5.33
-- ma20: 33.28
-- ma60: 33.18
-- ma120: 32.46
-- return_5d: 8.6
-- return_20d: 6.16
-- volume_ratio: 2.12
-- distance_to_ma20_pct_auxiliary: 6.21
-- distance_to_high_60_pct: -18.92
+- date: 20260706
+- open: 36
+- high: 38.2
+- low: 35.6
+- close: 37.05
+- volume: 2042000
+- ma5: 34.79
+- ema23_primary: 33.85
+- distance_to_ema23_pct: 9.45
+- ma20: 33.53
+- ma60: 33.25
+- ma120: 32.5
+- return_5d: 11.93
+- return_20d: 15.6
+- volume_ratio: 2.99
+- distance_to_ma20_pct_auxiliary: 10.49
+- distance_to_high_60_pct: -15.02
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,33.55,33.55,31.95,32.05,32000,33.59,-4.57,34.09,32.69,0.06
 20260608,30.4,31.4,30.35,30.95,528000,33.37,-7.24,34.01,32.71,0.91
 20260609,32.5,34,32,34,683000,33.42,1.74,34.12,32.79,1.14
 20260610,35.5,35.5,32.95,33.15,1925000,33.4,-0.74,34.22,32.85,2.8
@@ -160,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,34.45,34.45,33.7,34,635000,33.35,1.95,33.08,33.12,1.27
 20260702,34,34.25,33.65,33.95,485000,33.4,1.65,33.18,33.14,0.93
 20260703,34.2,35.5,34.05,35.35,1236000,33.56,5.33,33.28,33.18,2.12
+20260706,36,38.2,35.6,37.05,2042000,33.85,9.45,33.53,33.25,2.99
 ```
 
 ## Latest TDCC Snapshot
@@ -194,12 +194,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 3176 | 基亞 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260706 | 3176 | 基亞 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 3176 | 基亞 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬新訊號，需確認量價、TDCC 與 benchmark 表現。 |
+| 20260706 | 3176 | 基亞 | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4147 中裕
 
 ## Metadata
-- generated_at: 2026-07-05 22:27:15 Asia/Taipei
+- generated_at: 2026-07-06 22:27:23 Asia/Taipei
 - stock_id: 4147
 - stock_name: 中裕
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 162
+- latest_price_date: 20260706
+- price_rows: 163
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -74,7 +74,7 @@
 - action_rating: take_profit
 - action_rating_label_zh: 停利
 - confidence_level: low
-- thesis_state: breakout_confirmed
+- thesis_state: breakout_initial
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 63.6
-- high: 70
-- low: 62.5
-- close: 70
-- volume: 4777000
-- ma5: 65.28
-- ema23_primary: 60.01
-- distance_to_ema23_pct: 16.64
-- ma20: 60.02
-- ma60: 53.88
-- ma120: 54.74
-- return_5d: 16.47
-- return_20d: 19.45
-- volume_ratio: 2.25
-- distance_to_ma20_pct_auxiliary: 16.63
-- distance_to_high_60_pct: 0
+- date: 20260706
+- open: 70
+- high: 75.4
+- low: 69.7
+- close: 72.2
+- volume: 3864000
+- ma5: 66.96
+- ema23_primary: 61.03
+- distance_to_ema23_pct: 18.31
+- ma20: 60.86
+- ma60: 54.17
+- ma120: 54.84
+- return_5d: 13.17
+- return_20d: 30.32
+- volume_ratio: 1.67
+- distance_to_ma20_pct_auxiliary: 18.63
+- distance_to_high_60_pct: -4.24
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,58,58.8,55.2,55.4,56000,51.64,7.29,50.93,51.54,0.1
 20260608,52.7,55.5,51.7,54.1,1550000,51.84,4.36,51.2,51.59,2.49
 20260609,55,56.5,54.8,55,1128000,52.1,5.56,51.44,51.65,1.77
 20260610,56,57.8,55.3,57.6,1908000,52.56,9.58,51.87,51.77,2.74
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,66.3,66.5,63.7,63.9,2007000,58.69,8.88,59.05,53.51,1.1
 20260702,63.1,65,63.1,63.7,1433000,59.1,7.78,59.45,53.65,0.76
 20260703,63.6,70,62.5,70,4777000,60.01,16.64,60.02,53.88,2.25
+20260706,70,75.4,69.7,72.2,3864000,61.03,18.31,60.86,54.17,1.67
 ```
 
 ## Latest TDCC Snapshot
@@ -189,12 +189,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 4147 | 中裕 | true_breakout | 嚴格突破 | 111.0 |  |  | breakout_confirmed |  |  | first_seen | 1.事實發生日:115/06/22 2.契約或承諾相對人:Samsung Biologics Co., Ltd. 3.與公司關係:無 4.契約或承諾起迄日期（或解除日期）:115/06/22 5.主要內容（解除者不適用）:本公司與Samsung Biologics Co., Ltd.簽訂TMB-365 商業產品藥物原料之產品專屬協議（Product Specific Agreement–Commercial Product Drug Substance） 6.限制條款（解除者不適用）:無 7.承諾事項（解除者不適用）:無 8.其他重要約定事項（解除者不適用）:無 9.對公司財務、業務之影響:本公司與Samsung Biologics Co., Ltd.達成深度合作， 全面啟動 TMB-365 的技術移轉與規模化量產，以全力支持臨床試驗以及未來的 全球市場上市供應。 10.具體目的:本公司與Samsung Biologics Co., Ltd.達成深度合作，全面啟動 TMB-365 的技術移轉與規模化量產，以全力支持臨床試驗以及未來的全球市場 上市供應。 11.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第8款所定 對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260706 | 4147 | 中裕 | true_breakout | 嚴格突破 | 84.0 |  |  | platform_breakout |  |  | continued_overheated | 1.事實發生日:115/06/22 2.契約或承諾相對人:Samsung Biologics Co., Ltd. 3.與公司關係:無 4.契約或承諾起迄日期（或解除日期）:115/06/22 5.主要內容（解除者不適用）:本公司與Samsung Biologics Co., Ltd.簽訂TMB-365 商業產品藥物原料之產品專屬協議（Product Specific Agreement–Commercial Product Drug Substance） 6.限制條款（解除者不適用）:無 7.承諾事項（解除者不適用）:無 8.其他重要約定事項（解除者不適用）:無 9.對公司財務、業務之影響:本公司與Samsung Biologics Co., Ltd.達成深度合作， 全面啟動 TMB-365 的技術移轉與規模化量產，以全力支持臨床試驗以及未來的 全球市場上市供應。 10.具體目的:本公司與Samsung Biologics Co., Ltd.達成深度合作，全面啟動 TMB-365 的技術移轉與規模化量產，以全力支持臨床試驗以及未來的全球市場 上市供應。 11.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第8款所定 對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 4147 | 中裕 | 1 | 1 | 3 | 6 | 6 | first_seen | 首次上榜或資料有限，需後續確認。 |
+| 20260706 | 4147 | 中裕 | 2 | 2 | 3 | 7 | 7 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

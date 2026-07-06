@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6442 光聖
 
 ## Metadata
-- generated_at: 2026-07-05 22:27:53 Asia/Taipei
+- generated_at: 2026-07-06 22:27:53 Asia/Taipei
 - stock_id: 6442
 - stock_name: 光聖
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 297
+- latest_price_date: 20260706
+- price_rows: 298
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 1595
-- high: 1685
-- low: 1585
-- close: 1640
-- volume: 1789655
-- ma5: 1618
-- ema23_primary: 1814.16
-- distance_to_ema23_pct: -9.6
-- ma20: 1845
-- ma60: 1953.25
-- ma120: 1844.46
-- return_5d: -2.38
-- return_20d: -23.54
-- volume_ratio: 0.96
-- distance_to_ma20_pct_auxiliary: -11.11
-- distance_to_high_60_pct: -33.33
+- date: 20260706
+- open: 1675
+- high: 1690
+- low: 1580
+- close: 1595
+- volume: 1263000
+- ma5: 1617
+- ema23_primary: 1795.9
+- distance_to_ema23_pct: -11.19
+- ma20: 1822
+- ma60: 1944.58
+- ma120: 1846.42
+- return_5d: -0.31
+- return_20d: -22.38
+- volume_ratio: 0.74
+- distance_to_ma20_pct_auxiliary: -12.46
+- distance_to_high_60_pct: -35.16
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,2120,2170,2000,2055,4582051,1971.17,4.25,1918.75,1986.5,1.23
 20260608,1850,1970,1850,1970,1145589,1971.07,-0.05,1919.75,1989.17,0.32
 20260609,2030,2115,2000,2100,1110799,1981.81,5.96,1929.5,1996,0.32
 20260610,2075,2090,1890,1890,1710409,1974.16,-4.26,1933.75,1999.33,0.51
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,1665,1675,1570,1575,1873000,1847.72,-14.76,1891.75,1969.67,0.89
 20260702,1530,1640,1485,1635,2089000,1829.99,-10.66,1870.25,1962,1.01
 20260703,1595,1685,1585,1640,1789655,1814.16,-9.6,1845,1953.25,0.96
+20260706,1675,1690,1580,1595,1263000,1795.9,-11.19,1822,1944.58,0.74
 ```
 
 ## Latest TDCC Snapshot
@@ -188,17 +188,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 6442 | 光聖 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/30 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額: 普通股現金股利NT$918,904,798(每股配發11.23元) 4.除權（息）交易日:115/07/15 5.最後過戶日:115/07/16 6.停止過戶起始日期:115/07/17 7.停止過戶截止日期:115/07/21 8.除權（息）基準日:115/07/21 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/11 13.其他應敘明事項:無；calendar event: ex_dividend on 20260715; status=confirmed; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260706 | 6442 | 光聖 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/30 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額: 普通股現金股利NT$918,904,798(每股配發11.23元) 4.除權（息）交易日:115/07/15 5.最後過戶日:115/07/16 6.停止過戶起始日期:115/07/17 7.停止過戶截止日期:115/07/21 8.除權（息）基準日:115/07/21 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/11 13.其他應敘明事項:無；calendar event: ex_dividend on 20260715; status=confirmed; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 6442 | 光聖 | 2 | 2 | 4 | 7 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260706 | 6442 | 光聖 | 3 | 3 | 4 | 8 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 6442 | 光聖 | 4 | 0 | 459300.0 | 0.0 |  | no_signal |
+| 20260706 | 6442 | 光聖 | 4 | 0 | 168850.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5512 力麒
 
 ## Metadata
-- generated_at: 2026-07-05 22:27:37 Asia/Taipei
+- generated_at: 2026-07-06 22:27:40 Asia/Taipei
 - stock_id: 5512
 - stock_name: 力麒
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 162
+- latest_price_date: 20260706
+- price_rows: 163
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 8.08
-- high: 8.3
-- low: 8.08
-- close: 8.26
-- volume: 2563000
-- ma5: 8.1
-- ema23_primary: 7.87
-- distance_to_ema23_pct: 4.99
-- ma20: 7.97
-- ma60: 7.53
+- date: 20260706
+- open: 8.33
+- high: 8.35
+- low: 8.09
+- close: 8.18
+- volume: 3976000
+- ma5: 8.13
+- ema23_primary: 7.89
+- distance_to_ema23_pct: 3.63
+- ma20: 7.98
+- ma60: 7.54
 - ma120: 7.74
-- return_5d: 4.56
-- return_20d: 5.63
-- volume_ratio: 1.76
-- distance_to_ma20_pct_auxiliary: 3.66
-- distance_to_high_60_pct: -0.48
+- return_5d: 1.61
+- return_20d: 1.87
+- volume_ratio: 2.4
+- distance_to_ma20_pct_auxiliary: 2.56
+- distance_to_high_60_pct: -2.04
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,7.95,8.22,7.95,8.03,8000,7.29,10.19,7.09,7.53,0.02
 20260608,7.72,7.86,7.66,7.84,1799000,7.33,6.9,7.13,7.53,3.62
 20260609,7.88,7.99,7.74,7.79,1430000,7.37,5.67,7.18,7.52,2.71
 20260610,7.8,8.3,7.67,7.99,3628000,7.42,7.63,7.23,7.52,5.53
@@ -160,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,8.14,8.24,7.96,7.98,2227000,7.81,2.2,7.93,7.52,1.74
 20260702,7.98,8.09,7.91,8.09,1053000,7.83,3.3,7.95,7.52,0.79
 20260703,8.08,8.3,8.08,8.26,2563000,7.87,4.99,7.97,7.53,1.76
+20260706,8.33,8.35,8.09,8.18,3976000,7.89,3.63,7.98,7.54,2.4
 ```
 
 ## Latest TDCC Snapshot
@@ -194,12 +194,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 5512 | 力麒 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | repeated_but_no_breakout | 1.股東常會日期:115/06/30 2.重要決議事項一、盈餘分配或盈虧撥補: 通過承認114年度盈餘分派案 3.重要決議事項二、章程修訂:無 4.重要決議事項三、營業報告書及財務報表: 通過承認114年度營業報告書及財務報表案 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項:無 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260706 | 5512 | 力麒 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | repeated_but_no_breakout | 1.股東常會日期:115/06/30 2.重要決議事項一、盈餘分配或盈虧撥補: 通過承認114年度盈餘分派案 3.重要決議事項二、章程修訂:無 4.重要決議事項三、營業報告書及財務報表: 通過承認114年度營業報告書及財務報表案 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項:無 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 5512 | 力麒 | 5 | 1 | 5 | 7 | 7 | repeated_but_no_breakout | 近 10 日上榜 7 次、近 20 日上榜 7 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260706 | 5512 | 力麒 | 6 | 2 | 5 | 7 | 8 | repeated_but_no_breakout | 近 10 日上榜 7 次、近 20 日上榜 8 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

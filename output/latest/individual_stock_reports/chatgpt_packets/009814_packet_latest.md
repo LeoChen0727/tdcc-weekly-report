@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009814 富邦標普500
 
 ## Metadata
-- generated_at: 2026-07-05 22:26:03 Asia/Taipei
+- generated_at: 2026-07-06 22:26:25 Asia/Taipei
 - stock_id: 009814
 - stock_name: 富邦標普500
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260703
-- price_rows: 30
+- latest_price_date: 20260706
+- price_rows: 31
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 11.1
-- high: 11.15
-- low: 11.1
-- close: 11.14
-- volume: 1320000
-- ma5: 11.07
-- ema23_primary: 11
-- distance_to_ema23_pct: 1.24
+- date: 20260706
+- open: 11.14
+- high: 11.19
+- low: 11.14
+- close: 11.18
+- volume: 1163000
+- ma5: 11.12
+- ema23_primary: 11.02
+- distance_to_ema23_pct: 1.46
 - ma20: 10.98
 - ma60: 11
 - ma120: 11
-- return_5d: 2.67
-- return_20d: 1.09
-- volume_ratio: 0.77
-- distance_to_ma20_pct_auxiliary: 1.49
-- distance_to_high_60_pct: -0.18
+- return_5d: 2.1
+- return_20d: 1.08
+- volume_ratio: 0.66
+- distance_to_ma20_pct_auxiliary: 1.8
+- distance_to_high_60_pct: -0.09
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,11.02,11.07,11.02,11.06,11000,11.01,0.43,11.04,11.04,1.1
 20260608,10.92,10.92,10.85,10.87,2523000,11,-1.19,11.02,11.02,11.5
 20260609,10.88,10.92,10.86,10.9,2113000,10.99,-0.84,11.01,11.01,5.79
 20260610,10.9,10.9,10.82,10.83,2530000,10.98,-1.36,11,11,4.87
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,11.1,11.11,11.07,11.1,2170000,10.98,1.08,10.97,10.99,1.38
 20260702,11.03,11.12,11.03,11.11,1259000,10.99,1.08,10.97,10.99,0.77
 20260703,11.1,11.15,11.1,11.14,1320000,11,1.24,10.98,11,0.77
+20260706,11.14,11.19,11.14,11.18,1163000,11.02,1.46,10.98,11,0.66
 ```
 
 ## Latest TDCC Snapshot

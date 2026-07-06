@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2031 新光鋼
 
 ## Metadata
-- generated_at: 2026-07-05 22:26:23 Asia/Taipei
+- generated_at: 2026-07-06 22:26:41 Asia/Taipei
 - stock_id: 2031
 - stock_name: 新光鋼
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 297
+- latest_price_date: 20260706
+- price_rows: 298
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 38
-- high: 39.15
-- low: 38
-- close: 39.05
-- volume: 1008064
-- ma5: 38.24
-- ema23_primary: 39.19
-- distance_to_ema23_pct: -0.37
-- ma20: 39.66
-- ma60: 39.73
-- ma120: 39.45
-- return_5d: 1.3
-- return_20d: -9.19
-- volume_ratio: 0.76
-- distance_to_ma20_pct_auxiliary: -1.55
-- distance_to_high_60_pct: -10.74
+- date: 20260706
+- open: 39.1
+- high: 39.6
+- low: 38.8
+- close: 38.9
+- volume: 730000
+- ma5: 38.36
+- ema23_primary: 39.17
+- distance_to_ema23_pct: -0.69
+- ma20: 39.44
+- ma60: 39.7
+- ma120: 39.46
+- return_5d: 1.57
+- return_20d: -10.27
+- volume_ratio: 0.58
+- distance_to_ma20_pct_auxiliary: -1.38
+- distance_to_high_60_pct: -11.09
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,42.95,43.4,42.35,43.35,2247039,40.05,8.25,39.45,39.88,1.72
 20260608,40.9,41.8,40.5,41.45,2543308,40.16,3.21,39.53,39.91,1.83
 20260609,41.6,42.6,41.35,41.9,1826831,40.31,3.95,39.67,39.97,1.27
 20260610,41.6,42.35,41.45,41.65,1804522,40.42,3.05,39.82,40.01,1.22
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,38,38,37.4,37.7,752000,39.29,-4.05,40.05,39.81,0.47
 20260702,37.85,38.3,37.5,38.3,499000,39.21,-2.31,39.86,39.77,0.35
 20260703,38,39.15,38,39.05,1008064,39.19,-0.37,39.66,39.73,0.76
+20260706,39.1,39.6,38.8,38.9,730000,39.17,-0.69,39.44,39.7,0.58
 ```
 
 ## Latest TDCC Snapshot
@@ -197,9 +197,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260706 | 2031 | 新光鋼 | 1 | 0 | 0.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2887 台新新光金
 
 ## Metadata
-- generated_at: 2026-07-05 22:26:47 Asia/Taipei
+- generated_at: 2026-07-06 22:27:01 Asia/Taipei
 - stock_id: 2887
 - stock_name: 台新新光金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 297
+- latest_price_date: 20260706
+- price_rows: 298
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 營收成長股價回檔
+- model_category_display_zh: 型態觀察
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 - acceptable_risk_reward
@@ -112,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 32.95
-- high: 34.9
-- low: 32.95
-- close: 34.15
-- volume: 108841693
-- ma5: 33.35
-- ema23_primary: 30.85
-- distance_to_ema23_pct: 10.71
-- ma20: 31.45
-- ma60: 26.58
-- ma120: 24.95
-- return_5d: 7.05
-- return_20d: 19.61
-- volume_ratio: 1.16
-- distance_to_ma20_pct_auxiliary: 8.59
-- distance_to_high_60_pct: -2.15
+- date: 20260706
+- open: 34.15
+- high: 34.8
+- low: 34.15
+- close: 34.3
+- volume: 33724000
+- ma5: 33.61
+- ema23_primary: 31.13
+- distance_to_ema23_pct: 10.17
+- ma20: 31.73
+- ma60: 26.74
+- ma120: 25.07
+- return_5d: 3.94
+- return_20d: 19.93
+- volume_ratio: 0.38
+- distance_to_ma20_pct_auxiliary: 8.08
+- distance_to_high_60_pct: -1.72
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,28.5,28.8,27.9,28.6,143711010,24.94,14.66,24.39,24.28,0.94
 20260608,27.5,27.9,27.15,27.75,115887137,25.18,10.22,24.61,24.33,0.75
 20260609,28.4,29.65,28.15,29.55,137888947,25.54,15.7,24.93,24.41,0.89
 20260610,29.5,29.55,28.5,28.9,111385443,25.82,11.93,25.22,24.48,0.72
@@ -154,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,33.5,34.1,32.75,33.35,85549000,30.32,9.99,30.93,26.28,0.75
 20260702,33.3,33.8,32.95,33,50616000,30.55,8.04,31.17,26.42,0.5
 20260703,32.95,34.9,32.95,34.15,108841693,30.85,10.71,31.45,26.58,1.16
+20260706,34.15,34.8,34.15,34.3,33724000,31.13,10.17,31.73,26.74,0.38
 ```
 
 ## Latest TDCC Snapshot
@@ -188,17 +187,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 2887 | 台新新光金 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_strong_inflow | stale_signal | 1.事實發生日:115/07/03 2.公司名稱:新光人壽保險股份有限公司 3.與公司關係(請輸入本公司或子公司):子公司 4.相互持股比例:不適用 5.發生緣由:更正公告新光人壽115年第一季合併財務報告iXBRL申報資訊 6.更正資訊項目/報表名稱:iXBRL/”資產負債表”及”列入合併財務報表之子公司” 7.更正前金額/內容/頁次: (1)”資產負債表”未含追溯重編之114年1月1日欄位。 (2)”列入合併財務報表之子公司”未含追溯重編後之去年年初所持股權百分比。 8.更正後金額/內容/頁次: (1)”資產負債表”補正包含追溯重編之114年1月1日欄位。 (2)”列入合併財務報表之子公司”補正包含追溯重編後之去年年初所持股權百分比。 9.因應措施:更正後內容重新上傳iXBRL。 10.其他應敘明事項:本次更正屬iXBRL之資訊補正，對財務報告並無影響。；degraded calendar context only: ex_dividend on 20260701; status=source_stale_cached; proximity=recent; model_effect_allowed=False; pdf_effect_allowed=False |
+| 20260706 | 2887 | 台新新光金 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | no_signal | stale_signal | 1.事實發生日:115/07/03 2.公司名稱:新光人壽保險股份有限公司 3.與公司關係(請輸入本公司或子公司):子公司 4.相互持股比例:不適用 5.發生緣由:更正公告新光人壽115年第一季合併財務報告iXBRL申報資訊 6.更正資訊項目/報表名稱:iXBRL/”資產負債表”及”列入合併財務報表之子公司” 7.更正前金額/內容/頁次: (1)”資產負債表”未含追溯重編之114年1月1日欄位。 (2)”列入合併財務報表之子公司”未含追溯重編後之去年年初所持股權百分比。 8.更正後金額/內容/頁次: (1)”資產負債表”補正包含追溯重編之114年1月1日欄位。 (2)”列入合併財務報表之子公司”補正包含追溯重編後之去年年初所持股權百分比。 9.因應措施:更正後內容重新上傳iXBRL。 10.其他應敘明事項:本次更正屬iXBRL之資訊補正，對財務報告並無影響。；calendar event: ex_right_dividend on 20260721; status=confirmed; proximity=within_30d |
+| 20260706 | 2887 | 台新新光金 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/07/03 2.公司名稱:新光人壽保險股份有限公司 3.與公司關係(請輸入本公司或子公司):子公司 4.相互持股比例:不適用 5.發生緣由:更正公告新光人壽115年第一季合併財務報告iXBRL申報資訊 6.更正資訊項目/報表名稱:iXBRL/”資產負債表”及”列入合併財務報表之子公司” 7.更正前金額/內容/頁次: (1)”資產負債表”未含追溯重編之114年1月1日欄位。 (2)”列入合併財務報表之子公司”未含追溯重編後之去年年初所持股權百分比。 8.更正後金額/內容/頁次: (1)”資產負債表”補正包含追溯重編之114年1月1日欄位。 (2)”列入合併財務報表之子公司”補正包含追溯重編後之去年年初所持股權百分比。 9.因應措施:更正後內容重新上傳iXBRL。 10.其他應敘明事項:本次更正屬iXBRL之資訊補正，對財務報告並無影響。；calendar event: ex_right_dividend on 20260721; status=confirmed; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 2887 | 台新新光金 | 8 | 2 | 5 | 8 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260706 | 2887 | 台新新光金 | 9 | 3 | 5 | 9 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 2887 | 台新新光金 | 26 | 0 | 7358890.0 | 0.0 |  | call_strong_inflow |
+| 20260706 | 2887 | 台新新光金 | 27 | 0 | 6725000.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

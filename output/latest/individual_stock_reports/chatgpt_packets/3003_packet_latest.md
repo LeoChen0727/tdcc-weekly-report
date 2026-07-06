@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3003 健和興
 
 ## Metadata
-- generated_at: 2026-07-05 22:26:50 Asia/Taipei
+- generated_at: 2026-07-06 22:27:03 Asia/Taipei
 - stock_id: 3003
 - stock_name: 健和興
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 297
+- latest_price_date: 20260706
+- price_rows: 298
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 64.7
-- high: 65.4
-- low: 63.7
-- close: 65.3
-- volume: 768220
-- ma5: 65.74
-- ema23_primary: 65.25
-- distance_to_ema23_pct: 0.07
-- ma20: 66.06
-- ma60: 60.31
-- ma120: 54.67
-- return_5d: -0.61
-- return_20d: 4.48
-- volume_ratio: 0.38
-- distance_to_ma20_pct_auxiliary: -1.14
-- distance_to_high_60_pct: -8.42
+- date: 20260706
+- open: 65.7
+- high: 67.3
+- low: 65.7
+- close: 66.3
+- volume: 648000
+- ma5: 65.88
+- ema23_primary: 65.34
+- distance_to_ema23_pct: 1.47
+- ma20: 66.22
+- ma60: 60.57
+- ma120: 54.81
+- return_5d: 1.07
+- return_20d: 5.41
+- volume_ratio: 0.33
+- distance_to_ma20_pct_auxiliary: 0.11
+- distance_to_high_60_pct: -7.01
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,63,63.4,61.4,62.9,1293492,60.26,4.38,60.92,55.2,0.85
 20260608,58,61.4,57.5,61,1185773,60.32,1.13,61.02,55.37,0.81
 20260609,61.8,64.5,61.2,64.2,1829862,60.64,5.86,61.24,55.58,1.27
 20260610,64.2,66.6,64,64.1,2481735,60.93,5.2,61.55,55.81,1.65
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,67.2,67.4,65.8,65.9,584000,65.23,1.03,65.77,59.78,0.29
 20260702,65.4,66.2,65.3,65.5,597000,65.25,0.38,65.92,60.05,0.3
 20260703,64.7,65.4,63.7,65.3,768220,65.25,0.07,66.06,60.31,0.38
+20260706,65.7,67.3,65.7,66.3,648000,65.34,1.47,66.22,60.57,0.33
 ```
 
 ## Latest TDCC Snapshot
@@ -197,9 +197,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260706 | 3003 | 健和興 | 4 | 0 | 71790.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3042 晶技
 
 ## Metadata
-- generated_at: 2026-07-05 22:26:53 Asia/Taipei
+- generated_at: 2026-07-06 22:27:05 Asia/Taipei
 - stock_id: 3042
 - stock_name: 晶技
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 297
+- latest_price_date: 20260706
+- price_rows: 298
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -56,25 +56,25 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 停利
-- model_category_display_zh: 嚴格突破
-- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前以風險管理為主，不適合新買第一筆。
-- action_summary_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。
-- entry_strategy_zh: 目前進入停利管理，不建議新買第一筆。
+- action_rating_display_zh: 已持有續抱
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 轉弱警訊、股價乖離過大
+- risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。 進場策略：目前進入停利管理，不建議新買第一筆。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊、股價乖離過大
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: take_profit
-- action_rating_label_zh: 停利
-- confidence_level: low
-- thesis_state: high_level_distribution_risk
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
+- confidence_level: medium
+- thesis_state: unclear
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -87,11 +87,10 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
-- decision_score_high
 - price_structure_not_broken
 - revenue_not_deteriorating
 - no_major_volume_price_failure
+- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -105,7 +104,6 @@
 
 ### downgrade_reason
 - tdcc_distribution_warning
-- price_too_extended
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -113,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 229.5
-- high: 249
+- date: 20260706
+- open: 250
+- high: 250
 - low: 224.5
-- close: 249
-- volume: 93064180
-- ma5: 210.9
-- ema23_primary: 205.62
-- distance_to_ema23_pct: 21.1
-- ma20: 212.53
-- ma60: 179.12
-- ma120: 133.85
-- return_5d: 29.02
-- return_20d: 19.71
-- volume_ratio: 2.3
-- distance_to_ma20_pct_auxiliary: 17.16
-- distance_to_high_60_pct: 0
+- close: 224.5
+- volume: 56639000
+- ma5: 218.7
+- ema23_primary: 207.19
+- distance_to_ema23_pct: 8.35
+- ma20: 213.15
+- ma60: 181.07
+- ma120: 135.05
+- return_5d: 21.02
+- return_20d: 5.9
+- volume_ratio: 1.33
+- distance_to_ma20_pct_auxiliary: 5.32
+- distance_to_high_60_pct: -10.2
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,203.5,216,195,212,15946082,183.86,15.31,180.07,141.17,0.69
 20260608,191,217,191,210.5,22132239,186.08,13.12,182.82,143.11,0.95
 20260609,213,231.5,207,228.5,65055380,189.61,20.51,186.78,145.38,2.5
 20260610,230,245,211,214,91570449,191.65,11.66,190.15,147.39,3.03
@@ -155,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,201.5,206,199.5,206,13655000,199.41,3.3,210.03,174.39,0.39
 20260702,200,226.5,196,226.5,73711000,201.67,12.31,210.47,176.6,2.02
 20260703,229.5,249,224.5,249,93064180,205.62,21.1,212.53,179.12,2.3
+20260706,250,250,224.5,224.5,56639000,207.19,8.35,213.15,181.07,1.33
 ```
 
 ## Latest TDCC Snapshot
@@ -189,17 +187,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 3042 | 晶技 | true_breakout | 嚴格突破 | 99.0 |  |  | breakout_confirmed |  | call_put_bullish | continued_2_3d | 1.事實發生日:115/06/15 2.公司名稱:台灣晶技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:                       當月數　　   當月數　　 　   累計數　　   累計數      項目            115年5月    差異比率          115年   　  差異比率   (新台幣仟元)                     (YoY)                          (YoY) -------------------------------------------------------------------------- 合併營業收入    $    1,217,159      10.5%     $   5,845,075         5.5% 合併營業利益    $      204,372      18.8%　   $     930,663         0.8% 合併稅前損益 　 $      207,003      85.1%　   $     989,904        13.5%   歸屬於母公司  $      205,793      82.9%     $     988,023        13.0%   非控制權益    $        1,210     284.7%     $       1,881       205.6% 稅前每股盈餘    $         0.61                $        2.91   歸屬於母公司  $         0.60                $        2.90   非控制權益    $         0.01                $        0.01 (新台幣元) 註:稅前每股盈餘係以當月底股數計算 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260706 | 3042 | 晶技 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_inflow | stale_signal | 1.事實發生日:115/06/15 2.公司名稱:台灣晶技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:                       當月數　　   當月數　　 　   累計數　　   累計數      項目            115年5月    差異比率          115年   　  差異比率   (新台幣仟元)                     (YoY)                          (YoY) -------------------------------------------------------------------------- 合併營業收入    $    1,217,159      10.5%     $   5,845,075         5.5% 合併營業利益    $      204,372      18.8%　   $     930,663         0.8% 合併稅前損益 　 $      207,003      85.1%　   $     989,904        13.5%   歸屬於母公司  $      205,793      82.9%     $     988,023        13.0%   非控制權益    $        1,210     284.7%     $       1,881       205.6% 稅前每股盈餘    $         0.61                $        2.91   歸屬於母公司  $         0.60                $        2.90   非控制權益    $         0.01                $        0.01 (新台幣元) 註:稅前每股盈餘係以當月底股數計算 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 3042 | 晶技 | 3 | 1 | 3 | 4 | 10 | continued_2_3d | 連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| 20260706 | 3042 | 晶技 | 4 | 1 | 4 | 4 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 3042 | 晶技 | 63 | 1 | 88981890.0 | 330690.0 | 269.08 | call_put_bullish |
+| 20260706 | 3042 | 晶技 | 63 | 1 | 60900990.0 | 333350.0 | 182.69 | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

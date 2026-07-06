@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3131 弘塑
 
 ## Metadata
-- generated_at: 2026-07-05 22:26:56 Asia/Taipei
+- generated_at: 2026-07-06 22:27:08 Asia/Taipei
 - stock_id: 3131
 - stock_name: 弘塑
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 162
+- latest_price_date: 20260706
+- price_rows: 163
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 3880
-- high: 3910
-- low: 3780
-- close: 3785
-- volume: 309000
-- ma5: 3714
-- ema23_primary: 3445.05
-- distance_to_ema23_pct: 9.87
-- ma20: 3406.75
-- ma60: 3201.42
-- ma120: 2590.46
-- return_5d: 14.35
-- return_20d: 17.91
-- volume_ratio: 0.56
-- distance_to_ma20_pct_auxiliary: 11.1
-- distance_to_high_60_pct: -6.43
+- date: 20260706
+- open: 3810
+- high: 3815
+- low: 3415
+- close: 3425
+- volume: 504000
+- ma5: 3687
+- ema23_primary: 3443.37
+- distance_to_ema23_pct: -0.53
+- ma20: 3420.5
+- ma60: 3204
+- ma120: 2606
+- return_5d: -3.79
+- return_20d: 8.73
+- volume_ratio: 1.21
+- distance_to_ma20_pct_auxiliary: 0.13
+- distance_to_high_60_pct: -15.33
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,3180,3245,3060,3150,3131000,3108.55,1.33,3059.5,2922.42,1.69
 20260608,2835,3075,2835,3030,287000,3102,-2.32,3056.5,2940.25,0.16
 20260609,3120,3215,3050,3165,416000,3107.25,1.86,3057.75,2960.67,0.23
 20260610,3080,3265,3080,3105,438000,3107.07,-0.07,3061.75,2979.67,0.24
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,3640,3830,3615,3690,310000,3369.52,9.51,3342.75,3181.42,0.37
 20260702,3770,4045,3645,3905,601000,3414.14,14.38,3378,3194,0.86
 20260703,3880,3910,3780,3785,309000,3445.05,9.87,3406.75,3201.42,0.56
+20260706,3810,3815,3415,3425,504000,3443.37,-0.53,3420.5,3204,1.21
 ```
 
 ## Latest TDCC Snapshot

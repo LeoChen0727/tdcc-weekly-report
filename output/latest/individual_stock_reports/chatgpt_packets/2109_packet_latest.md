@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2109 華豐
 
 ## Metadata
-- generated_at: 2026-07-05 22:26:25 Asia/Taipei
+- generated_at: 2026-07-06 22:26:43 Asia/Taipei
 - stock_id: 2109
 - stock_name: 華豐
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 297
+- latest_price_date: 20260706
+- price_rows: 298
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 14.7
-- high: 15.15
-- low: 14.7
+- date: 20260706
+- open: 15.1
+- high: 15.1
+- low: 14.9
 - close: 14.95
-- volume: 619001
-- ma5: 14.67
-- ema23_primary: 14.51
-- distance_to_ema23_pct: 3.04
-- ma20: 14.51
+- volume: 344000
+- ma5: 14.76
+- ema23_primary: 14.55
+- distance_to_ema23_pct: 2.78
+- ma20: 14.53
 - ma60: 14.36
 - ma120: 14.65
 - return_5d: 3.1
-- return_20d: 2.05
-- volume_ratio: 3.2
-- distance_to_ma20_pct_auxiliary: 3.01
+- return_20d: 2.75
+- volume_ratio: 1.72
+- distance_to_ma20_pct_auxiliary: 2.87
 - distance_to_high_60_pct: -1.32
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,14.7,14.7,14.45,14.55,201514,14.23,2.27,14.1,14.48,0.96
 20260608,14.45,14.45,14.15,14.2,179798,14.22,-0.17,14.11,14.47,0.85
 20260609,14.2,14.4,14.2,14.3,106094,14.23,0.49,14.12,14.46,0.52
 20260610,14.25,14.3,14.15,14.15,79659,14.22,-0.52,14.13,14.45,0.41
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,14.6,15.05,14.6,14.65,265000,14.45,1.4,14.48,14.35,1.39
 20260702,14.7,14.7,14.5,14.7,176000,14.47,1.6,14.5,14.36,0.98
 20260703,14.7,15.15,14.7,14.95,619001,14.51,3.04,14.51,14.36,3.2
+20260706,15.1,15.1,14.9,14.95,344000,14.55,2.78,14.53,14.36,1.72
 ```
 
 ## Latest TDCC Snapshot

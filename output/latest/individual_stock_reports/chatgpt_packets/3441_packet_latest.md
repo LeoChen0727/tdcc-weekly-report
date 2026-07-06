@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3441 聯一光電
 
 ## Metadata
-- generated_at: 2026-07-05 22:27:04 Asia/Taipei
+- generated_at: 2026-07-06 22:27:14 Asia/Taipei
 - stock_id: 3441
 - stock_name: 聯一光電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 162
+- latest_price_date: 20260706
+- price_rows: 163
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「高位派發風險」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 股價乖離過大
+- risk_control_zh: TDCC 轉弱警訊、股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
+- final_decision_zh: 型態觀察 目前屬於「高位派發風險」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊、股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -74,7 +74,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: high_level_consolidation
+- thesis_state: high_level_distribution_risk
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -90,7 +90,6 @@
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
-- no_major_tdcc_warning
 - no_major_volume_price_failure
 
 ### post_entry_watch_items
@@ -104,6 +103,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
+- tdcc_distribution_warning
 - price_too_extended
 
 ### chatgpt_instruction
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 79
-- high: 81.1
-- low: 78
-- close: 78.8
-- volume: 852000
-- ma5: 78.44
-- ema23_primary: 74.19
-- distance_to_ema23_pct: 6.22
-- ma20: 77.2
-- ma60: 53.32
-- ma120: 43.93
-- return_5d: -5.74
-- return_20d: 43.8
-- volume_ratio: 0.15
-- distance_to_ma20_pct_auxiliary: 2.07
-- distance_to_high_60_pct: -17.75
+- date: 20260706
+- open: 77.3
+- high: 80.1
+- low: 77.3
+- close: 79
+- volume: 1151000
+- ma5: 79
+- ema23_primary: 74.59
+- distance_to_ema23_pct: 5.91
+- ma20: 78.14
+- ma60: 54.13
+- ma120: 44.27
+- return_5d: 3.67
+- return_20d: 31.23
+- volume_ratio: 0.2
+- distance_to_ma20_pct_auxiliary: 1.09
+- distance_to_high_60_pct: -17.54
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,55.7,60.2,55.2,60.2,59000,49.09,22.63,49.63,38.44,0.03
 20260608,54.2,55.6,54.2,54.6,6309000,49.55,10.19,50.33,38.8,2.85
 20260609,56.2,59.1,55.4,59.1,1856000,50.35,17.38,51.28,39.24,0.82
 20260610,64.4,65,64.2,65,3613000,51.57,26.05,52.58,39.78,1.5
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,80.1,81,76.2,77.2,872000,73.2,5.46,74.61,51.68,0.15
 20260702,75.8,80.7,75.8,80,698000,73.77,8.45,76,52.52,0.12
 20260703,79,81.1,78,78.8,852000,74.19,6.22,77.2,53.32,0.15
+20260706,77.3,80.1,77.3,79,1151000,74.59,5.91,78.14,54.13,0.2
 ```
 
 ## Latest TDCC Snapshot
@@ -186,14 +186,15 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260706 | 3441 | 聯一光電 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  |  | first_seen | 1.事實發生日:115/06/17 2.發生緣由:依臺灣證券交易所股份有限公司通知辦理。 3.財務業務資訊: 單月(註1)                 115年5月       114年5月    與去年同期增減% ----------------------  ------------  -------------  ----------------- 營業收入(百萬元)            41.79          28.59       46.19 稅前淨利(百萬元)             7.73         -13.93      155.49 由虧轉盈 歸屬母公司淨利(百萬元)       5.21         -12.64      141.23 由虧轉盈 每股盈餘(  元  )             0.14          -0.31      145.16 由虧轉盈 ====================================================================== 最近一季單季(註2)        115年第1季     114年第1季   與去年同期增減% ----------------------  ------------  -------------  ----------------- 營業收入(百萬元)           113.34          91.02       24.51 稅前淨利(百萬元)            26.98          21.41       26.01 歸屬母公司淨利(百萬元)      18.74          15.77       18.81 每股盈餘(  元  )             0.47           0.39       20.51 ====================================================================== 最近四季累計(註3)             114年第2季~115年第1季 -----------------------     -------------------------- 營業收入(百萬元)                      447.80 稅前淨利(百萬元)                       69.20 歸屬母公司淨利(百萬元)                 45.54 每股盈餘(  元  )                        1.17 ====================================================================== 公司每股面額10元 4.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序 」第4條所列重大訊息之情事（如 「有」，請說明）:”無” 5.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序」第11條所列重大訊息說明記者會 之情事:”無” 6.其他應敘明事項: 註1：以上115年5月及去年同期比較數之財務資料係本公司採IFRS會計準則編製之合併數 ，未經會計師查核(閱)，僅供投資人參考。 註2：最近一季115年第1季係指單季數字，非為最近財務報告中之累計數字，且係本公司 採IFRS下編製之合併數，業經會計師查核(閱)，僅供投資人參考。 註3：最近四季累計係本公司114年第2季至115年第1季採IFRS編製之合併數，業經會計師 查核(閱)，僅供投資人參考。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260706 | 3441 | 聯一光電 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  |  | first_seen | 1.事實發生日:115/06/17 2.發生緣由:依臺灣證券交易所股份有限公司通知辦理。 3.財務業務資訊: 單月(註1)                 115年5月       114年5月    與去年同期增減% ----------------------  ------------  -------------  ----------------- 營業收入(百萬元)            41.79          28.59       46.19 稅前淨利(百萬元)             7.73         -13.93      155.49 由虧轉盈 歸屬母公司淨利(百萬元)       5.21         -12.64      141.23 由虧轉盈 每股盈餘(  元  )             0.14          -0.31      145.16 由虧轉盈 ====================================================================== 最近一季單季(註2)        115年第1季     114年第1季   與去年同期增減% ----------------------  ------------  -------------  ----------------- 營業收入(百萬元)           113.34          91.02       24.51 稅前淨利(百萬元)            26.98          21.41       26.01 歸屬母公司淨利(百萬元)      18.74          15.77       18.81 每股盈餘(  元  )             0.47           0.39       20.51 ====================================================================== 最近四季累計(註3)             114年第2季~115年第1季 -----------------------     -------------------------- 營業收入(百萬元)                      447.80 稅前淨利(百萬元)                       69.20 歸屬母公司淨利(百萬元)                 45.54 每股盈餘(  元  )                        1.17 ====================================================================== 公司每股面額10元 4.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序 」第4條所列重大訊息之情事（如 「有」，請說明）:”無” 5.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序」第11條所列重大訊息說明記者會 之情事:”無” 6.其他應敘明事項: 註1：以上115年5月及去年同期比較數之財務資料係本公司採IFRS會計準則編製之合併數 ，未經會計師查核(閱)，僅供投資人參考。 註2：最近一季115年第1季係指單季數字，非為最近財務報告中之累計數字，且係本公司 採IFRS下編製之合併數，業經會計師查核(閱)，僅供投資人參考。 註3：最近四季累計係本公司114年第2季至115年第1季採IFRS編製之合併數，業經會計師 查核(閱)，僅供投資人參考。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260706 | 3441 | 聯一光電 | 1 | 1 | 1 | 2 | 3 | first_seen | 首次上榜或資料有限，需後續確認。 |
 
 ## Warrant Context
 | status |

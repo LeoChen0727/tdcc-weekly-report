@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2645 長榮航太
 
 ## Metadata
-- generated_at: 2026-07-05 22:26:43 Asia/Taipei
+- generated_at: 2026-07-06 22:26:57 Asia/Taipei
 - stock_id: 2645
 - stock_name: 長榮航太
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 297
+- latest_price_date: 20260706
+- price_rows: 298
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 202.5
-- high: 216.5
-- low: 201
-- close: 216.5
-- volume: 7042493
-- ma5: 195
-- ema23_primary: 178.2
-- distance_to_ema23_pct: 21.49
-- ma20: 176.3
-- ma60: 164.74
-- ma120: 161.6
-- return_5d: 26.98
-- return_20d: 31.21
-- volume_ratio: 2.54
-- distance_to_ma20_pct_auxiliary: 22.8
+- date: 20260706
+- open: 228
+- high: 238
+- low: 220
+- close: 238
+- volume: 13613000
+- ma5: 208.2
+- ema23_primary: 183.19
+- distance_to_ema23_pct: 29.92
+- ma20: 179.72
+- ma60: 166.19
+- ma120: 162.4
+- return_5d: 38.37
+- return_20d: 40.41
+- volume_ratio: 4.08
+- distance_to_ma20_pct_auxiliary: 32.42
 - distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,166.5,172,161.5,169.5,2336557,162.05,4.6,160.12,157.47,1.26
 20260608,161.5,167,160,166,1779344,162.38,2.23,160.7,157.57,1.04
 20260609,166,174.5,166,173.5,2962578,163.3,6.24,161.53,157.8,1.69
 20260610,172.5,173,168.5,168.5,1733380,163.74,2.91,162.15,157.93,0.97
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,188,204,187,204,5882000,172.7,18.13,172.28,162.78,3.06
 20260702,209.5,211.5,194.5,197,11860000,174.72,12.75,173.72,163.63,4.82
 20260703,202.5,216.5,201,216.5,7042493,178.2,21.49,176.3,164.74,2.54
+20260706,228,238,220,238,13613000,183.19,29.92,179.72,166.19,4.08
 ```
 
 ## Latest TDCC Snapshot
@@ -189,17 +189,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 2645 | 長榮航太 | true_breakout | 嚴格突破 | 91.0 |  |  | breakout_confirmed |  | call_inflow | continued_overheated | 1.董事會、股東會決議或公司決定日期:115/06/26 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:現金股利，每股配發新台幣5元 4.除權（息）交易日:115/07/13 5.最後過戶日:115/07/14 6.停止過戶起始日期:115/07/15 7.停止過戶截止日期:115/07/19 8.除權（息）基準日:115/07/19 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/07/31 13.其他應敘明事項:無；calendar event: ex_dividend on 20260713; status=confirmed; proximity=within_14d |
+| 20260706 | 2645 | 長榮航太 | true_breakout | 嚴格突破 | 99.0 |  |  | breakout_confirmed |  | call_strong_inflow | continued_overheated | 1.董事會、股東會決議或公司決定日期:115/06/26 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:現金股利，每股配發新台幣5元 4.除權（息）交易日:115/07/13 5.最後過戶日:115/07/14 6.停止過戶起始日期:115/07/15 7.停止過戶截止日期:115/07/19 8.除權（息）基準日:115/07/19 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/07/31 13.其他應敘明事項:無；calendar event: ex_dividend on 20260713; status=confirmed; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 2645 | 長榮航太 | 6 | 1 | 5 | 9 | 16 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260706 | 2645 | 長榮航太 | 7 | 2 | 5 | 9 | 16 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 2645 | 長榮航太 | 34 | 0 | 7301710.0 | 0.0 |  | call_inflow |
+| 20260706 | 2645 | 長榮航太 | 36 | 0 | 13366140.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

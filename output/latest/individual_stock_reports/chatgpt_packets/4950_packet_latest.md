@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4950 金耘國際
 
 ## Metadata
-- generated_at: 2026-07-05 22:27:27 Asia/Taipei
+- generated_at: 2026-07-06 22:27:33 Asia/Taipei
 - stock_id: 4950
 - stock_name: 金耘國際
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 157
+- latest_price_date: 20260706
+- price_rows: 158
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
+- date: 20260706
 - open: 16.1
 - high: 16.35
 - low: 16.1
 - close: 16.35
-- volume: 19000
-- ma5: 16.18
-- ema23_primary: 16.2
-- distance_to_ema23_pct: 0.92
-- ma20: 16.13
-- ma60: 16.56
-- ma120: 16.79
-- return_5d: 1.87
-- return_20d: 1.24
-- volume_ratio: 0.66
-- distance_to_ma20_pct_auxiliary: 1.38
+- volume: 9000
+- ma5: 16.25
+- ema23_primary: 16.21
+- distance_to_ema23_pct: 0.84
+- ma20: 16.14
+- ma60: 16.55
+- ma120: 16.77
+- return_5d: 2.19
+- return_20d: 1.55
+- volume_ratio: 0.32
+- distance_to_ma20_pct_auxiliary: 1.3
 - distance_to_high_60_pct: -17.01
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,16.15,16.25,16.1,16.1,16000,16.49,-2.36,16.56,16.28,0.69
 20260608,15.8,16.1,15.8,16,21000,16.45,-2.72,16.53,16.28,0.98
 20260609,16,16.05,16,16.05,21000,16.41,-2.22,16.5,16.29,1.07
 20260610,16.1,16.45,16.1,16.1,32000,16.39,-1.76,16.43,16.3,1.67
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,15.85,16.5,15.8,16.45,49000,16.2,1.57,16.1,16.58,1.71
 20260702,16,16.1,16,16.1,13000,16.19,-0.54,16.12,16.57,0.46
 20260703,16.1,16.35,16.1,16.35,19000,16.2,0.92,16.13,16.56,0.66
+20260706,16.1,16.35,16.1,16.35,9000,16.21,0.84,16.14,16.55,0.32
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00971 野村美國研發龍頭
 
 ## Metadata
-- generated_at: 2026-07-05 22:26:02 Asia/Taipei
+- generated_at: 2026-07-06 22:26:24 Asia/Taipei
 - stock_id: 00971
 - stock_name: 野村美國研發龍頭
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260703
-- price_rows: 30
+- latest_price_date: 20260706
+- price_rows: 31
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 16.97
-- high: 17.08
-- low: 16.97
-- close: 17.07
-- volume: 267870
-- ma5: 16.89
-- ema23_primary: 16.74
-- distance_to_ema23_pct: 2
-- ma20: 16.67
-- ma60: 16.76
-- ma120: 16.76
-- return_5d: 5.44
-- return_20d: 0.71
-- volume_ratio: 0.62
-- distance_to_ma20_pct_auxiliary: 2.41
-- distance_to_high_60_pct: -0.7
+- date: 20260706
+- open: 17.12
+- high: 17.15
+- low: 17.07
+- close: 17.13
+- volume: 638000
+- ma5: 17.01
+- ema23_primary: 16.77
+- distance_to_ema23_pct: 2.16
+- ma20: 16.68
+- ma60: 16.77
+- ma120: 16.77
+- return_5d: 3.69
+- return_20d: 0.76
+- volume_ratio: 1.49
+- distance_to_ma20_pct_auxiliary: 2.73
+- distance_to_high_60_pct: -0.35
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,16.98,17,16.92,17,773239,16.88,0.73,16.94,16.94,1.18
 20260608,16.21,16.7,16.21,16.62,559659,16.86,-1.4,16.91,16.91,0.86
 20260609,16.62,16.73,16.58,16.72,482178,16.84,-0.74,16.9,16.9,0.76
 20260610,16.72,16.72,16.46,16.48,486170,16.81,-1.98,16.87,16.87,0.78
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,17.13,17.13,16.91,16.97,679000,16.68,1.77,16.67,16.74,1.56
 20260702,17,17.08,16.99,17.03,279000,16.7,1.95,16.66,16.75,0.65
 20260703,16.97,17.08,16.97,17.07,267870,16.74,2,16.67,16.76,0.62
+20260706,17.12,17.15,17.07,17.13,638000,16.77,2.16,16.68,16.77,1.49
 ```
 
 ## Latest TDCC Snapshot

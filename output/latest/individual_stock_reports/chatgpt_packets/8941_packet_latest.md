@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8941 關中
 
 ## Metadata
-- generated_at: 2026-07-05 22:28:33 Asia/Taipei
+- generated_at: 2026-07-06 22:28:26 Asia/Taipei
 - stock_id: 8941
 - stock_name: 關中
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 157
+- latest_price_date: 20260706
+- price_rows: 158
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,21 +113,21 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 43.1
+- date: 20260706
+- open: 43.35
 - high: 43.35
-- low: 43.1
+- low: 43.35
 - close: 43.35
-- volume: 7000
-- ma5: 43.33
+- volume: 1000
+- ma5: 43.4
 - ema23_primary: 43.38
 - distance_to_ema23_pct: -0.07
 - ma20: 43.24
-- ma60: 44.11
+- ma60: 44.06
 - ma120: 44.96
 - return_5d: 0.81
 - return_20d: 0
-- volume_ratio: 0.72
+- volume_ratio: 0.13
 - distance_to_ma20_pct_auxiliary: 0.25
 - distance_to_high_60_pct: -6.77
 
@@ -135,7 +135,6 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,42.75,43.35,42.7,43.35,43000,44.05,-1.58,44.07,44.91,1.78
 20260608,43.35,44.3,42.9,44.3,3000,44.07,0.53,44.06,44.88,0.13
 20260609,44,44.05,43.3,43.3,8000,44,-1.6,43.98,44.83,0.33
 20260610,42.45,43.95,42.45,43.5,16000,43.96,-1.05,43.97,44.78,0.65
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,42.1,44.15,42.1,44.15,15000,43.41,1.71,43.26,44.18,1.11
 20260702,43.05,43.15,43.05,43.15,3000,43.38,-0.54,43.24,44.14,0.26
 20260703,43.1,43.35,43.1,43.35,7000,43.38,-0.07,43.24,44.11,0.72
+20260706,43.35,43.35,43.35,43.35,1000,43.38,-0.07,43.24,44.06,0.13
 ```
 
 ## Latest TDCC Snapshot

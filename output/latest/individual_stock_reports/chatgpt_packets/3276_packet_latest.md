@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3276 宇環
 
 ## Metadata
-- generated_at: 2026-07-05 22:27:00 Asia/Taipei
+- generated_at: 2026-07-06 22:27:11 Asia/Taipei
 - stock_id: 3276
 - stock_name: 宇環
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 162
+- latest_price_date: 20260706
+- price_rows: 163
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 16.8
-- high: 17.1
-- low: 16.6
-- close: 17
-- volume: 410000
-- ma5: 16.62
-- ema23_primary: 15.7
-- distance_to_ema23_pct: 8.29
-- ma20: 15.53
-- ma60: 14.98
+- date: 20260706
+- open: 17.3
+- high: 17.3
+- low: 16.4
+- close: 16.45
+- volume: 535000
+- ma5: 16.68
+- ema23_primary: 15.76
+- distance_to_ema23_pct: 4.37
+- ma20: 15.62
+- ma60: 15.03
 - ma120: 14.76
-- return_5d: 3.34
-- return_20d: 14.09
-- volume_ratio: 0.99
-- distance_to_ma20_pct_auxiliary: 9.45
-- distance_to_high_60_pct: -2.86
+- return_5d: 1.86
+- return_20d: 11.15
+- volume_ratio: 1.21
+- distance_to_ma20_pct_auxiliary: 5.35
+- distance_to_high_60_pct: -6
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,14.8,14.85,14.5,14.8,15000,14.63,1.16,14.69,14.48,0.03
 20260608,13.5,14.3,13.5,14.05,224000,14.58,-3.64,14.57,14.48,1.09
 20260609,14.2,14.6,14.1,14.3,150000,14.56,-1.77,14.47,14.49,0.89
 20260610,14.3,14.4,14,14.15,173000,14.52,-2.57,14.38,14.49,1.15
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,16.7,16.9,16.35,16.55,537000,15.47,6.95,15.34,14.89,1.43
 20260702,16.45,16.85,16.4,16.75,409000,15.58,7.5,15.43,14.93,1.03
 20260703,16.8,17.1,16.6,17,410000,15.7,8.29,15.53,14.98,0.99
+20260706,17.3,17.3,16.4,16.45,535000,15.76,4.37,15.62,15.03,1.21
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8070 長華*
 
 ## Metadata
-- generated_at: 2026-07-05 22:28:23 Asia/Taipei
+- generated_at: 2026-07-06 22:28:18 Asia/Taipei
 - stock_id: 8070
 - stock_name: 長華*
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 297
+- latest_price_date: 20260706
+- price_rows: 298
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 56.5
-- high: 57
-- low: 55.6
-- close: 56
-- volume: 5008866
-- ma5: 54.5
-- ema23_primary: 55.06
-- distance_to_ema23_pct: 1.72
-- ma20: 56.67
-- ma60: 51.23
-- ma120: 47.96
-- return_5d: 4.28
-- return_20d: -14.24
-- volume_ratio: 0.45
-- distance_to_ma20_pct_auxiliary: -1.19
-- distance_to_high_60_pct: -15.15
+- date: 20260706
+- open: 57
+- high: 60.2
+- low: 57
+- close: 57.2
+- volume: 12086000
+- ma5: 55.34
+- ema23_primary: 55.23
+- distance_to_ema23_pct: 3.56
+- ma20: 56.4
+- ma60: 51.4
+- ma120: 48.07
+- return_5d: 7.92
+- return_20d: -8.77
+- volume_ratio: 1.14
+- distance_to_ma20_pct_auxiliary: 1.42
+- distance_to_high_60_pct: -13.33
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,62.1,63.4,59.5,62.7,24540644,51.89,20.83,49.97,47.29,2.17
 20260608,56.5,59.6,56.5,59.3,18547867,52.51,12.93,50.52,47.56,1.53
 20260609,60.5,62.4,59.3,59.4,18617114,53.08,11.9,51.11,47.82,1.44
 20260610,59,59.9,57.2,57.6,15991463,53.46,7.75,51.67,48.05,1.18
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,54.1,55.6,53.4,53.4,4298000,54.83,-2.61,57.31,50.81,0.29
 20260702,52.6,57.2,52.4,56.5,7049000,54.97,2.78,57.14,51.03,0.51
 20260703,56.5,57,55.6,56,5008866,55.06,1.72,56.67,51.23,0.45
+20260706,57,60.2,57,57.2,12086000,55.23,3.56,56.4,51.4,1.14
 ```
 
 ## Latest TDCC Snapshot
@@ -189,18 +189,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 8070 | 長華* | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
-| 20260703 | 8070 | 長華* | revenue_pullback | 營收成長股價回檔 | 67.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260706 | 8070 | 長華* | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260706 | 8070 | 長華* | revenue_pullback | 營收成長股價回檔 | 67.0 |  |  |  |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 8070 | 長華* | 2 | 2 | 4 | 9 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260706 | 8070 | 長華* | 3 | 3 | 4 | 9 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 8070 | 長華* | 20 | 0 | 1471820.0 | 0.0 |  | no_signal |
+| 20260706 | 8070 | 長華* | 20 | 0 | 2866300.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3016 嘉晶
 
 ## Metadata
-- generated_at: 2026-07-05 22:26:50 Asia/Taipei
+- generated_at: 2026-07-06 22:27:04 Asia/Taipei
 - stock_id: 3016
 - stock_name: 嘉晶
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 297
+- latest_price_date: 20260706
+- price_rows: 298
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 131
-- high: 137.5
+- date: 20260706
+- open: 139.5
+- high: 143
 - low: 127
-- close: 135.5
-- volume: 24047267
-- ma5: 129.3
-- ema23_primary: 125.08
-- distance_to_ema23_pct: 8.33
-- ma20: 123.6
-- ma60: 106.58
-- ma120: 83.07
-- return_5d: 8.84
-- return_20d: 22.62
-- volume_ratio: 1.75
-- distance_to_ma20_pct_auxiliary: 9.63
-- distance_to_high_60_pct: -11.44
+- close: 128.5
+- volume: 19666000
+- ma5: 130.7
+- ema23_primary: 125.36
+- distance_to_ema23_pct: 2.5
+- ma20: 124.62
+- ma60: 107.82
+- ma120: 83.72
+- return_5d: 5.76
+- return_20d: 18.98
+- volume_ratio: 1.36
+- distance_to_ma20_pct_auxiliary: 3.11
+- distance_to_high_60_pct: -16.01
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,108.5,110.5,103,108,4538327,113.25,-4.64,119.8,85.72,0.65
 20260608,97.2,106.5,97.2,104,4965303,112.48,-7.54,118.58,86.47,0.71
 20260609,107,113,102,112,6130078,112.44,-0.39,118.1,87.34,0.86
 20260610,107,113.5,103,103,5033055,111.65,-7.75,117.2,88.06,0.69
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,136.5,142,120.5,122,38227000,123.23,-1,121.42,103.85,3.23
 20260702,121,134,121,134,27948000,124.13,7.95,122.35,105.22,2.19
 20260703,131,137.5,127,135.5,24047267,125.08,8.33,123.6,106.58,1.75
+20260706,139.5,143,127,128.5,19666000,125.36,2.5,124.62,107.82,1.36
 ```
 
 ## Latest TDCC Snapshot
@@ -186,19 +187,20 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260706 | 3016 | 嘉晶 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | repeated_but_no_breakout | 1.董事會決議日期:115/06/30 2.名稱﹝XX公司第X次（有、無）擔保公司債﹞: 嘉晶電子股份有限公司國內第六次無擔保轉換公司債 3.是否採總括申報發行公司債(是/否):否 4.發行總額:發行總面額為新台幣參億伍仟萬元 5.每張面額:新台幣壹拾萬元整 6.發行價格:票面金額之100%~101%發行 7.發行期間:三年 8.發行利率:0% 9.擔保品之種類、名稱、金額及約定事項:無擔保 10.募得價款之用途及運用計畫:購置機器設備及相關廠務工程 11.承銷方式:採詢價圈購方式辦理公開承銷 12.公司債受託人:凱基商業銀行股份有限公司 13.承銷或代銷機構:凱基證券股份有限公司 14.發行保證人:不適用 15.代理還本付息機構:永豐金證券股份有限公司股務代理部 16.簽證機構:不適用 17.能轉換股份者，其轉換辦法: 轉換辦法將依相關法令規定辦理，並報相關主管機關核准後另行公告。 18.賣回條件: 轉換辦法將依相關法令規定辦理，並報相關主管機關核准後另行公告。 19.買回條件: 轉換辦法將依相關法令規定辦理，並報相關主管機關核准後另行公告。 20.附有轉換、交換或認股者，其換股基準日: 轉換辦法將依相關法令規定辦理，並報相關主管機關核准後另行公告。 21.附有轉換、交換或認股者，對股權可能稀釋情形: 轉換辦法將依相關法令規定辦理，並報相關主管機關核准後另行公告。 22.現金減資後再行募資之合理性及必要性 (募資當年度及前一年度有辦理現金減資者適用):不適用 23.其他應敘明事項: 本次募集與發行國內第六次無擔保轉換公司債之重要內容，包括但不限發行金額、 發行價格、發行期間、發行條件、發行及轉換辦法之訂定、本次計畫所需資金總額、 資金來源、計畫項目、資金運用進度、預計可能產生效益及其他發行相關事宜，如遇 有法令變更，經主管機關修正或因應主客觀環境因素需要而需修正或調整時，擬授權 本公司董事長全權處理之。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260706 | 3016 | 嘉晶 | revenue_pullback | 營收成長股價回檔 | 69.0 |  |  |  |  | no_signal | repeated_but_no_breakout | 1.董事會決議日期:115/06/30 2.名稱﹝XX公司第X次（有、無）擔保公司債﹞: 嘉晶電子股份有限公司國內第六次無擔保轉換公司債 3.是否採總括申報發行公司債(是/否):否 4.發行總額:發行總面額為新台幣參億伍仟萬元 5.每張面額:新台幣壹拾萬元整 6.發行價格:票面金額之100%~101%發行 7.發行期間:三年 8.發行利率:0% 9.擔保品之種類、名稱、金額及約定事項:無擔保 10.募得價款之用途及運用計畫:購置機器設備及相關廠務工程 11.承銷方式:採詢價圈購方式辦理公開承銷 12.公司債受託人:凱基商業銀行股份有限公司 13.承銷或代銷機構:凱基證券股份有限公司 14.發行保證人:不適用 15.代理還本付息機構:永豐金證券股份有限公司股務代理部 16.簽證機構:不適用 17.能轉換股份者，其轉換辦法: 轉換辦法將依相關法令規定辦理，並報相關主管機關核准後另行公告。 18.賣回條件: 轉換辦法將依相關法令規定辦理，並報相關主管機關核准後另行公告。 19.買回條件: 轉換辦法將依相關法令規定辦理，並報相關主管機關核准後另行公告。 20.附有轉換、交換或認股者，其換股基準日: 轉換辦法將依相關法令規定辦理，並報相關主管機關核准後另行公告。 21.附有轉換、交換或認股者，對股權可能稀釋情形: 轉換辦法將依相關法令規定辦理，並報相關主管機關核准後另行公告。 22.現金減資後再行募資之合理性及必要性 (募資當年度及前一年度有辦理現金減資者適用):不適用 23.其他應敘明事項: 本次募集與發行國內第六次無擔保轉換公司債之重要內容，包括但不限發行金額、 發行價格、發行期間、發行條件、發行及轉換辦法之訂定、本次計畫所需資金總額、 資金來源、計畫項目、資金運用進度、預計可能產生效益及其他發行相關事宜，如遇 有法令變更，經主管機關修正或因應主客觀環境因素需要而需修正或調整時，擬授權 本公司董事長全權處理之。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260706 | 3016 | 嘉晶 | 1 | 1 | 3 | 7 | 17 | repeated_but_no_breakout | 近 10 日上榜 7 次、近 20 日上榜 17 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 3016 | 嘉晶 | 41 | 3 | 6334280.0 | 10500.0 | 603.26 | call_inflow |
+| 20260706 | 3016 | 嘉晶 | 40 | 3 | 5401890.0 | 496960.0 | 10.87 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

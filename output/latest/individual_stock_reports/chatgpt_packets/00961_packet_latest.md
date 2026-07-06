@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00961 FT臺灣永續高息
 
 ## Metadata
-- generated_at: 2026-07-05 22:26:02 Asia/Taipei
+- generated_at: 2026-07-06 22:26:24 Asia/Taipei
 - stock_id: 00961
 - stock_name: FT臺灣永續高息
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260703
-- price_rows: 30
+- latest_price_date: 20260706
+- price_rows: 31
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 12.64
-- high: 12.83
-- low: 12.64
-- close: 12.78
-- volume: 12582050
-- ma5: 12.66
-- ema23_primary: 12.64
-- distance_to_ema23_pct: 1.1
-- ma20: 12.79
-- ma60: 12.67
-- ma120: 12.67
-- return_5d: 2.24
-- return_20d: -3.69
-- volume_ratio: 1.61
-- distance_to_ma20_pct_auxiliary: -0.06
-- distance_to_high_60_pct: -5.96
+- date: 20260706
+- open: 12.91
+- high: 12.99
+- low: 12.84
+- close: 12.91
+- volume: 21011000
+- ma5: 12.73
+- ema23_primary: 12.66
+- distance_to_ema23_pct: 1.95
+- ma20: 12.78
+- ma60: 12.68
+- ma120: 12.68
+- return_5d: 2.7
+- return_20d: -1.53
+- volume_ratio: 2.53
+- distance_to_ma20_pct_auxiliary: 1.03
+- distance_to_high_60_pct: -5
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,13.26,13.26,12.98,13.11,11031834,12.25,7.03,12.51,12.51,1.31
 20260608,12.42,12.71,12.42,12.66,10613305,12.28,3.07,12.52,12.52,1.24
 20260609,12.77,13.06,12.77,13.01,6246160,12.34,5.4,12.56,12.56,0.74
 20260610,12.92,13.08,12.9,12.95,8518027,12.39,4.48,12.59,12.59,1.01
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,12.71,12.71,12.56,12.64,3706000,12.62,0.13,12.85,12.67,0.45
 20260702,12.58,12.7,12.56,12.68,10792000,12.63,0.41,12.81,12.67,1.37
 20260703,12.64,12.83,12.64,12.78,12582050,12.64,1.1,12.79,12.67,1.61
+20260706,12.91,12.99,12.84,12.91,21011000,12.66,1.95,12.78,12.68,2.53
 ```
 
 ## Latest TDCC Snapshot

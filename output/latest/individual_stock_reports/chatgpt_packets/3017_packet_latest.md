@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3017 奇鋐
 
 ## Metadata
-- generated_at: 2026-07-05 22:26:51 Asia/Taipei
+- generated_at: 2026-07-06 22:27:04 Asia/Taipei
 - stock_id: 3017
 - stock_name: 奇鋐
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 297
+- latest_price_date: 20260706
+- price_rows: 298
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 營收成長股價回檔
+- model_category_display_zh: 型態觀察
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 - acceptable_risk_reward
@@ -112,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 2690
-- high: 2780
-- low: 2665
-- close: 2760
-- volume: 4659120
-- ma5: 2589
-- ema23_primary: 2520.27
-- distance_to_ema23_pct: 9.51
-- ma20: 2472
-- ma60: 2538.42
-- ma120: 2107.71
-- return_5d: 22.39
-- return_20d: 1.84
-- volume_ratio: 1.09
-- distance_to_ma20_pct_auxiliary: 11.65
-- distance_to_high_60_pct: -8.31
+- date: 20260706
+- open: 2790
+- high: 2790
+- low: 2615
+- close: 2670
+- volume: 3472000
+- ma5: 2663
+- ema23_primary: 2532.74
+- distance_to_ema23_pct: 5.42
+- ma20: 2475.5
+- ma60: 2545.67
+- ma120: 2117.38
+- return_5d: 16.09
+- return_20d: 2.69
+- volume_ratio: 0.83
+- distance_to_ma20_pct_auxiliary: 7.86
+- distance_to_high_60_pct: -11.3
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,2680,2680,2505,2600,4900550,2608.33,-0.32,2587.25,2396.5,0.9
 20260608,2340,2570,2340,2570,4356915,2605.14,-1.35,2588,2408.33,0.82
 20260609,2575,2575,2440,2545,6361937,2600.12,-2.12,2589.25,2419.5,1.18
 20260610,2490,2505,2350,2360,5878553,2580.11,-8.53,2578,2427.75,1.09
@@ -154,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,2615,2665,2500,2620,4922000,2476.52,5.79,2475.25,2517.75,1.12
 20260702,2565,2745,2525,2740,4455000,2498.47,9.67,2469.5,2529.58,1.04
 20260703,2690,2780,2665,2760,4659120,2520.27,9.51,2472,2538.42,1.09
+20260706,2790,2790,2615,2670,3472000,2532.74,5.42,2475.5,2545.67,0.83
 ```
 
 ## Latest TDCC Snapshot
@@ -188,18 +187,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 3017 | 奇鋐 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | mixed_flow | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/16 1.召開法人說明會之日期：115/06/16 2.召開法人說明會之時間：13 時 30 分  3.召開法人說明會之地點：台北茹曦酒店2F（台北市松山區敦化北路100號) 4.法人說明會擇要訊息：本公司受邀參加群益2Q26投資論壇，說明2026年第一季營運結果與未來展望 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260703 | 3017 | 奇鋐 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 60.0 |  |  | neckline_challenge |  | mixed_flow | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/16 1.召開法人說明會之日期：115/06/16 2.召開法人說明會之時間：13 時 30 分  3.召開法人說明會之地點：台北茹曦酒店2F（台北市松山區敦化北路100號) 4.法人說明會擇要訊息：本公司受邀參加群益2Q26投資論壇，說明2026年第一季營運結果與未來展望 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260706 | 3017 | 奇鋐 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | put_inflow | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/16 1.召開法人說明會之日期：115/06/16 2.召開法人說明會之時間：13 時 30 分  3.召開法人說明會之地點：台北茹曦酒店2F（台北市松山區敦化北路100號) 4.法人說明會擇要訊息：本公司受邀參加群益2Q26投資論壇，說明2026年第一季營運結果與未來展望 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260706 | 3017 | 奇鋐 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | put_inflow | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/16 1.召開法人說明會之日期：115/06/16 2.召開法人說明會之時間：13 時 30 分  3.召開法人說明會之地點：台北茹曦酒店2F（台北市松山區敦化北路100號) 4.法人說明會擇要訊息：本公司受邀參加群益2Q26投資論壇，說明2026年第一季營運結果與未來展望 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 3017 | 奇鋐 | 5 | 2 | 5 | 8 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260706 | 3017 | 奇鋐 | 6 | 3 | 5 | 9 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 3017 | 奇鋐 | 367 | 28 | 146809570.0 | 1053650.0 | 139.33 | mixed_flow |
+| 20260706 | 3017 | 奇鋐 | 367 | 28 | 87584880.0 | 1040640.0 | 84.16 | put_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

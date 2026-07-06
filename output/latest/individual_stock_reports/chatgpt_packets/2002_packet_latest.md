@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2002 中鋼
 
 ## Metadata
-- generated_at: 2026-07-05 22:26:21 Asia/Taipei
+- generated_at: 2026-07-06 22:26:40 Asia/Taipei
 - stock_id: 2002
 - stock_name: 中鋼
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 297
+- latest_price_date: 20260706
+- price_rows: 298
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 18.6
-- high: 19.05
-- low: 18.55
-- close: 18.95
-- volume: 41119896
-- ma5: 18.81
+- date: 20260706
+- open: 18.95
+- high: 19.1
+- low: 18.85
+- close: 19
+- volume: 26035000
+- ma5: 18.8
 - ema23_primary: 18.93
-- distance_to_ema23_pct: 0.11
-- ma20: 18.93
-- ma60: 19.03
+- distance_to_ema23_pct: 0.35
+- ma20: 18.91
+- ma60: 19.01
 - ma120: 19.34
 - return_5d: -0.26
-- return_20d: -1.56
-- volume_ratio: 0.54
-- distance_to_ma20_pct_auxiliary: 0.13
-- distance_to_high_60_pct: -9.76
+- return_20d: -1.55
+- volume_ratio: 0.35
+- distance_to_ma20_pct_auxiliary: 0.48
+- distance_to_high_60_pct: -9.52
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,19.35,19.4,19.1,19.3,52447615,18.98,1.68,18.77,19.16,0.7
 20260608,18.6,18.8,18.5,18.65,113184195,18.95,-1.6,18.77,19.15,1.45
 20260609,18.75,18.85,18.6,18.75,55158381,18.94,-0.99,18.78,19.14,0.7
 20260610,18.75,19.1,18.65,18.7,45094124,18.92,-1.15,18.8,19.13,0.57
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,18.9,18.95,18.6,18.65,44196000,18.96,-1.62,18.98,19.06,0.54
 20260702,18.65,18.7,18.55,18.6,29899000,18.93,-1.73,18.94,19.05,0.38
 20260703,18.6,19.05,18.55,18.95,41119896,18.93,0.11,18.93,19.03,0.54
+20260706,18.95,19.1,18.85,19,26035000,18.93,0.35,18.91,19.01,0.35
 ```
 
 ## Latest TDCC Snapshot
@@ -188,17 +188,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 2002 | 中鋼 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | call_inflow | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/24 1.召開法人說明會之日期：115/06/24 2.召開法人說明會之時間：14 時 00 分  3.召開法人說明會之地點：線上法說會 4.法人說明會擇要訊息：本公司業務及財務相關資訊(含部分截至115年5月份之自結財務資訊) 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: ex_dividend on 20260724; status=confirmed; proximity=within_30d |
+| 20260706 | 2002 | 中鋼 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | call_strong_inflow | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/24 1.召開法人說明會之日期：115/06/24 2.召開法人說明會之時間：14 時 00 分  3.召開法人說明會之地點：線上法說會 4.法人說明會擇要訊息：本公司業務及財務相關資訊(含部分截至115年5月份之自結財務資訊) 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: ex_dividend on 20260724; status=confirmed; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 2002 | 中鋼 | 1 | 1 | 2 | 6 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260706 | 2002 | 中鋼 | 2 | 2 | 2 | 6 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 2002 | 中鋼 | 45 | 0 | 1897840.0 | 0.0 |  | call_inflow |
+| 20260706 | 2002 | 中鋼 | 44 | 0 | 3575130.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

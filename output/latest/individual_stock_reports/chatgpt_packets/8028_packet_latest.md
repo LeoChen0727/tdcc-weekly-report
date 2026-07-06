@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8028 昇陽半導體
 
 ## Metadata
-- generated_at: 2026-07-05 22:28:21 Asia/Taipei
+- generated_at: 2026-07-06 22:28:17 Asia/Taipei
 - stock_id: 8028
 - stock_name: 昇陽半導體
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 297
+- latest_price_date: 20260706
+- price_rows: 298
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 315.5
-- high: 339
-- low: 314.5
-- close: 334.5
-- volume: 11321993
-- ma5: 314.5
-- ema23_primary: 308.79
-- distance_to_ema23_pct: 8.33
-- ma20: 312.1
-- ma60: 273.57
-- ma120: 227.12
-- return_5d: 17.16
-- return_20d: -1.91
-- volume_ratio: 1.6
-- distance_to_ma20_pct_auxiliary: 7.18
-- distance_to_high_60_pct: -8.36
+- date: 20260706
+- open: 342
+- high: 364
+- low: 330
+- close: 330.5
+- volume: 12624000
+- ma5: 322.9
+- ema23_primary: 310.6
+- distance_to_ema23_pct: 6.41
+- ma20: 311.75
+- ma60: 275.65
+- ma120: 228.39
+- return_5d: 14.56
+- return_20d: -2.07
+- volume_ratio: 1.71
+- distance_to_ma20_pct_auxiliary: 6.01
+- distance_to_high_60_pct: -9.45
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,340,343,327.5,337.5,6896147,296.79,13.72,296.32,233.76,0.48
 20260608,304,304,304,304,4245639,297.39,2.22,299.82,235.88,0.3
 20260609,312,323,302,309,6336689,298.36,3.57,303.35,238.13,0.47
 20260610,305,339.5,305,315,9291070,299.75,5.09,307.2,240.23,0.69
@@ -160,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,315,319,307,312,6971000,305.18,2.24,313.62,268.73,0.99
 20260702,306,321,300.5,320.5,5056000,306.45,4.58,312.43,271.11,0.74
 20260703,315.5,339,314.5,334.5,11321993,308.79,8.33,312.1,273.57,1.6
+20260706,342,364,330,330.5,12624000,310.6,6.41,311.75,275.65,1.71
 ```
 
 ## Latest TDCC Snapshot
@@ -194,17 +194,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 8028 | 昇陽半導體 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_put_bullish | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260706 | 8028 | 昇陽半導體 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_put_bullish | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 8028 | 昇陽半導體 | 15 | 1 | 5 | 10 | 16 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 16 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260706 | 8028 | 昇陽半導體 | 16 | 2 | 5 | 10 | 17 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 17 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 8028 | 昇陽半導體 | 141 | 2 | 30788980.0 | 6770.0 | 4547.86 | call_put_bullish |
+| 20260706 | 8028 | 昇陽半導體 | 140 | 2 | 37075680.0 | 6450.0 | 5748.17 | call_put_bullish |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

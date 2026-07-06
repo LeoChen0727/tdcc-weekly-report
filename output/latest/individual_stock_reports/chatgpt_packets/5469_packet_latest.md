@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5469 瀚宇博
 
 ## Metadata
-- generated_at: 2026-07-05 22:27:35 Asia/Taipei
+- generated_at: 2026-07-06 22:27:39 Asia/Taipei
 - stock_id: 5469
 - stock_name: 瀚宇博
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 297
+- latest_price_date: 20260706
+- price_rows: 298
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 87.5
-- high: 89.4
-- low: 86.7
-- close: 87.5
-- volume: 5415317
-- ma5: 88.04
-- ema23_primary: 86.3
-- distance_to_ema23_pct: 1.39
-- ma20: 85.77
-- ma60: 86.08
-- ma120: 89.2
-- return_5d: 0.11
-- return_20d: 2.22
-- volume_ratio: 0.88
-- distance_to_ma20_pct_auxiliary: 2.02
-- distance_to_high_60_pct: -12.5
+- date: 20260706
+- open: 88
+- high: 89.5
+- low: 87.5
+- close: 88
+- volume: 5368000
+- ma5: 87.78
+- ema23_primary: 86.44
+- distance_to_ema23_pct: 1.8
+- ma20: 85.97
+- ma60: 86.13
+- ma120: 89.16
+- return_5d: -1.46
+- return_20d: 4.76
+- volume_ratio: 0.86
+- distance_to_ma20_pct_auxiliary: 2.36
+- distance_to_high_60_pct: -12
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,85.6,85.6,82.2,84,3005036,84.52,-0.61,83.13,85.61,0.77
 20260608,76,80.8,76,80.1,3030460,84.15,-4.81,82.88,85.47,0.81
 20260609,80.5,83.6,80.4,83.2,1778120,84.07,-1.04,82.9,85.4,0.49
 20260610,82,86.6,80.5,80.6,4051134,83.78,-3.8,82.87,85.28,1.11
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,89.1,90.2,86.6,86.6,7817000,86.07,0.61,85.64,85.91,1.35
 20260702,84.9,90.6,84.2,87.5,8807000,86.19,1.52,85.67,86.02,1.47
 20260703,87.5,89.4,86.7,87.5,5415317,86.3,1.39,85.77,86.08,0.88
+20260706,88,89.5,87.5,88,5368000,86.44,1.8,85.97,86.13,0.86
 ```
 
 ## Latest TDCC Snapshot
@@ -188,17 +188,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 5469 | 瀚宇博 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/24 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:  現金股利總額新台幣1,225,138,320元，每股配發2.52117718元 4.除權（息）交易日:115/07/09 5.最後過戶日:115/07/10 6.停止過戶起始日期:115/07/11 7.停止過戶截止日期:115/07/15 8.除權（息）基準日:115/07/15 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/07/30 13.其他應敘明事項:  (1)本公司已發行普通股486,166,000股，扣除本公司持有之庫藏股227,000股，     實際流通在外股數為485,939,000股，故調整每股配息率。  (2)股利分派計算至新台幣元為止(元以下捨去)，不足一元之畸零款合計數列入     公司其他收入。；calendar event: ex_dividend on 20260709; status=confirmed; proximity=within_7d |
+| 20260706 | 5469 | 瀚宇博 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/24 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:  現金股利總額新台幣1,225,138,320元，每股配發2.52117718元 4.除權（息）交易日:115/07/09 5.最後過戶日:115/07/10 6.停止過戶起始日期:115/07/11 7.停止過戶截止日期:115/07/15 8.除權（息）基準日:115/07/15 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/07/30 13.其他應敘明事項:  (1)本公司已發行普通股486,166,000股，扣除本公司持有之庫藏股227,000股，     實際流通在外股數為485,939,000股，故調整每股配息率。  (2)股利分派計算至新台幣元為止(元以下捨去)，不足一元之畸零款合計數列入     公司其他收入。；calendar event: ex_dividend on 20260709; status=confirmed; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 5469 | 瀚宇博 | 4 | 4 | 4 | 9 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260706 | 5469 | 瀚宇博 | 5 | 5 | 5 | 9 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 5469 | 瀚宇博 | 46 | 0 | 2801310.0 | 0.0 |  | no_signal |
+| 20260706 | 5469 | 瀚宇博 | 46 | 0 | 1943390.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

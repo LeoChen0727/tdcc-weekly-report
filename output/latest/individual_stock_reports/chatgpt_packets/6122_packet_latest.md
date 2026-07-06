@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6122 擎邦
 
 ## Metadata
-- generated_at: 2026-07-05 22:27:41 Asia/Taipei
+- generated_at: 2026-07-06 22:27:44 Asia/Taipei
 - stock_id: 6122
 - stock_name: 擎邦
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 162
+- latest_price_date: 20260706
+- price_rows: 163
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
+- date: 20260706
 - open: 52
-- high: 52.5
+- high: 52.3
 - low: 50.9
-- close: 51.5
-- volume: 944000
-- ma5: 49.51
-- ema23_primary: 48.28
-- distance_to_ema23_pct: 6.66
-- ma20: 47.86
-- ma60: 48.48
-- ma120: 50.53
-- return_5d: 9.11
-- return_20d: 6.51
-- volume_ratio: 2.76
-- distance_to_ma20_pct_auxiliary: 7.61
-- distance_to_high_60_pct: -1.9
+- close: 51.6
+- volume: 546000
+- ma5: 50.36
+- ema23_primary: 48.56
+- distance_to_ema23_pct: 6.26
+- ma20: 48.01
+- ma60: 48.49
+- ma120: 50.55
+- return_5d: 8.98
+- return_20d: 6.17
+- volume_ratio: 1.49
+- distance_to_ma20_pct_auxiliary: 7.48
+- distance_to_high_60_pct: -1.71
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,48.35,48.8,47.95,48.6,48000,48.11,1.01,47.65,49.51,0.28
 20260608,45.2,48.2,45.2,47.7,330000,48.08,-0.79,47.59,49.4,1.84
 20260609,48.35,48.35,47.7,47.8,169000,48.06,-0.53,47.59,49.32,1.17
 20260610,48,48.5,47.8,47.8,169000,48.04,-0.49,47.58,49.25,1.26
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,47.8,49.5,47.7,49,595000,47.63,2.88,47.53,48.43,2.98
 20260702,49.65,52,49.2,52,2010000,47.99,8.35,47.7,48.47,6.76
 20260703,52,52.5,50.9,51.5,944000,48.28,6.66,47.86,48.48,2.76
+20260706,52,52.3,50.9,51.6,546000,48.56,6.26,48.01,48.49,1.49
 ```
 
 ## Latest TDCC Snapshot

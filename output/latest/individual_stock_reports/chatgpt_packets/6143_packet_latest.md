@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6143 振曜
 
 ## Metadata
-- generated_at: 2026-07-05 22:27:43 Asia/Taipei
+- generated_at: 2026-07-06 22:27:45 Asia/Taipei
 - stock_id: 6143
 - stock_name: 振曜
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 162
+- latest_price_date: 20260706
+- price_rows: 163
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -74,7 +74,7 @@
 - action_rating: starter_position
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
-- thesis_state: breakout_confirmed
+- thesis_state: breakout_initial
 - entry_style: breakout_follow
 - position_sizing: starter_1_3
 
@@ -117,29 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 97.3
-- high: 106.5
-- low: 97
-- close: 106.5
-- volume: 5063000
-- ma5: 96.98
-- ema23_primary: 93.86
-- distance_to_ema23_pct: 13.47
-- ma20: 91.91
-- ma60: 93.77
-- ma120: 99.44
-- return_5d: 17.68
-- return_20d: 10.25
-- volume_ratio: 6.22
-- distance_to_ma20_pct_auxiliary: 15.87
-- distance_to_high_60_pct: 0
+- date: 20260706
+- open: 107
+- high: 111
+- low: 105
+- close: 108.5
+- volume: 8377000
+- ma5: 99.9
+- ema23_primary: 95.08
+- distance_to_ema23_pct: 14.11
+- ma20: 92.55
+- ma60: 93.91
+- ma120: 99.33
+- return_5d: 15.55
+- return_20d: 13.26
+- volume_ratio: 6.82
+- distance_to_ma20_pct_auxiliary: 17.24
+- distance_to_high_60_pct: -2.25
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,98.1,98.2,94.9,95.8,96000,97.18,-1.42,98.11,95.96,0.09
 20260608,90,92,87.6,92,925000,96.75,-4.91,97.83,95.85,1.07
 20260609,91.9,92.3,91.1,91.4,506000,96.31,-5.09,97.41,95.69,0.75
 20260610,90.4,92.6,89.6,89.8,626000,95.76,-6.23,96.83,95.53,1.23
@@ -159,6 +158,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,94,94.1,92.8,93.4,553000,92.31,1.18,91.51,93.64,1.05
 20260702,93,97.4,92.4,97.1,918000,92.71,4.73,91.42,93.66,1.62
 20260703,97.3,106.5,97,106.5,5063000,93.86,13.47,91.91,93.77,6.22
+20260706,107,111,105,108.5,8377000,95.08,14.11,92.55,93.91,6.82
 ```
 
 ## Latest TDCC Snapshot
@@ -193,12 +193,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 6143 | 振曜 | true_breakout | 嚴格突破 | 129.0 |  |  | breakout_confirmed |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260706 | 6143 | 振曜 | true_breakout | 嚴格突破 | 117.0 |  |  | platform_breakout |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 6143 | 振曜 | 1 | 1 | 2 | 2 | 2 | first_seen | 首次上榜或資料有限，需後續確認。 |
+| 20260706 | 6143 | 振曜 | 2 | 2 | 2 | 3 | 3 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

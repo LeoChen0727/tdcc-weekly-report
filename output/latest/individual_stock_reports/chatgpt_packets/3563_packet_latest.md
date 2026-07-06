@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3563 牧德
 
 ## Metadata
-- generated_at: 2026-07-05 22:27:08 Asia/Taipei
+- generated_at: 2026-07-06 22:27:17 Asia/Taipei
 - stock_id: 3563
 - stock_name: 牧德
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 297
+- latest_price_date: 20260706
+- price_rows: 298
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 - acceptable_risk_reward
@@ -111,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 809
-- high: 816
-- low: 785
-- close: 787
-- volume: 1313225
-- ma5: 748.4
-- ema23_primary: 749.07
-- distance_to_ema23_pct: 5.06
-- ma20: 722.95
-- ma60: 822.17
-- ma120: 706.34
-- return_5d: 16.59
-- return_20d: -2.48
-- volume_ratio: 1.54
-- distance_to_ma20_pct_auxiliary: 8.86
-- distance_to_high_60_pct: -21.06
+- date: 20260706
+- open: 796
+- high: 798
+- low: 772
+- close: 777
+- volume: 1124000
+- ma5: 771.8
+- ema23_primary: 751.39
+- distance_to_ema23_pct: 3.41
+- ma20: 722.5
+- ma60: 820.53
+- ma120: 708.41
+- return_5d: 17.73
+- return_20d: -1.15
+- volume_ratio: 1.3
+- distance_to_ma20_pct_auxiliary: 7.54
+- distance_to_high_60_pct: -22.07
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,808,808,785,786,828621,838.91,-6.31,843.65,829.75,0.41
 20260608,708,738,708,734,787423,830.17,-11.58,840,831.43,0.39
 20260609,750,754,734,742,772996,822.82,-9.82,836.35,833.1,0.39
 20260610,736,745,691,692,1261218,811.92,-14.77,829.8,833,0.64
@@ -153,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,778,778,778,778,414000,739.85,5.16,724.5,822.95,0.64
 20260702,780,838,777,809,3932000,745.62,8.5,723.95,823.08,4.82
 20260703,809,816,785,787,1313225,749.07,5.06,722.95,822.17,1.54
+20260706,796,798,772,777,1124000,751.39,3.41,722.5,820.53,1.3
 ```
 
 ## Latest TDCC Snapshot
@@ -187,17 +188,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 3563 | 牧德 | pattern | 型態觀察 | 52.0 |  |  | base_building |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260706 | 3563 | 牧德 | pattern | 型態觀察 | 51.0 |  |  | early_entry_watch |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 3563 | 牧德 | 2 | 1 | 2 | 2 | 2 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| 20260706 | 3563 | 牧德 | 3 | 2 | 3 | 3 | 3 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 3563 | 牧德 | 122 | 7 | 16140270.0 | 54570.0 | 295.77 | no_signal |
+| 20260706 | 3563 | 牧德 | 125 | 7 | 9089550.0 | 20160.0 | 450.87 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

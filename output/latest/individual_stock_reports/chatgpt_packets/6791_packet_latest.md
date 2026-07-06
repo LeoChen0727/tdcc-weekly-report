@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6791 虎門科技
 
 ## Metadata
-- generated_at: 2026-07-05 22:28:05 Asia/Taipei
+- generated_at: 2026-07-06 22:28:03 Asia/Taipei
 - stock_id: 6791
 - stock_name: 虎門科技
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 162
+- latest_price_date: 20260706
+- price_rows: 163
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 107.5
-- high: 107.5
-- low: 105.5
-- close: 107.5
-- volume: 45000
-- ma5: 105.3
-- ema23_primary: 106.34
-- distance_to_ema23_pct: 1.09
-- ma20: 104.05
-- ma60: 114.18
-- ma120: 108.98
-- return_5d: 7.5
-- return_20d: -8.12
-- volume_ratio: 0.62
-- distance_to_ma20_pct_auxiliary: 3.32
-- distance_to_high_60_pct: -25.86
+- date: 20260706
+- open: 110
+- high: 118
+- low: 110
+- close: 118
+- volume: 251000
+- ma5: 108.4
+- ema23_primary: 107.31
+- distance_to_ema23_pct: 9.96
+- ma20: 104.3
+- ma60: 114.49
+- ma120: 109.09
+- return_5d: 15.12
+- return_20d: 4.42
+- volume_ratio: 3.15
+- distance_to_ma20_pct_auxiliary: 13.14
+- distance_to_high_60_pct: -18.62
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,114.5,116.5,111.5,113,114000,116.47,-2.98,115.88,112.88,1.23
 20260608,102,103.5,102,103,265000,115.34,-10.7,114.92,112.86,2.7
 20260609,103,105,102.5,105,74000,114.48,-8.28,114.15,112.91,0.76
 20260610,104.5,105,102,102.5,57000,113.48,-9.68,113.58,112.92,0.59
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,106.5,106.5,102,104.5,84000,106.17,-1.57,105.17,113.94,1.07
 20260702,104.5,108.5,104.5,107,72000,106.24,0.72,104.53,114.06,0.94
 20260703,107.5,107.5,105.5,107.5,45000,106.34,1.09,104.05,114.18,0.62
+20260706,110,118,110,118,251000,107.31,9.96,104.3,114.49,3.15
 ```
 
 ## Latest TDCC Snapshot

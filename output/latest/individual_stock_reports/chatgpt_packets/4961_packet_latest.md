@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4961 天鈺
 
 ## Metadata
-- generated_at: 2026-07-05 22:27:28 Asia/Taipei
+- generated_at: 2026-07-06 22:27:33 Asia/Taipei
 - stock_id: 4961
 - stock_name: 天鈺
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 297
+- latest_price_date: 20260706
+- price_rows: 298
 - latest_tdcc_date: 20260703
 - tdcc_rows: 32
 - tdcc_history_status: tdcc_history_ready
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 165
-- high: 173
-- low: 165
-- close: 173
-- volume: 1268590
-- ma5: 166.1
-- ema23_primary: 168.92
-- distance_to_ema23_pct: 2.42
-- ma20: 168.65
-- ma60: 165.87
-- ma120: 156.38
-- return_5d: 4.85
-- return_20d: 2.98
-- volume_ratio: 1.21
-- distance_to_ma20_pct_auxiliary: 2.58
-- distance_to_high_60_pct: -7.73
+- date: 20260706
+- open: 176
+- high: 181
+- low: 174.5
+- close: 177
+- volume: 1646000
+- ma5: 168.5
+- ema23_primary: 169.59
+- distance_to_ema23_pct: 4.37
+- ma20: 169.07
+- ma60: 166.28
+- ma120: 156.66
+- return_5d: 7.27
+- return_20d: 5.04
+- volume_ratio: 1.51
+- distance_to_ma20_pct_auxiliary: 4.69
+- distance_to_high_60_pct: -5.6
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,167,169,163,168.5,794586,169.29,-0.47,172.43,158.52,0.51
 20260608,153,158.5,153,158,952155,168.35,-6.15,171.8,158.7,0.63
 20260609,159.5,170,159.5,169.5,1151279,168.45,0.63,171.4,159.13,0.85
 20260610,166.5,170,163.5,163.5,946324,168.03,-2.7,170.9,159.45,0.74
@@ -160,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,159.5,164,159.5,161.5,1269000,168.78,-4.31,168.68,165.23,1.26
 20260702,161.5,167,157.5,166,1085000,168.55,-1.51,168.4,165.53,1.06
 20260703,165,173,165,173,1268590,168.92,2.42,168.65,165.87,1.21
+20260706,176,181,174.5,177,1646000,169.59,4.37,169.07,166.28,1.51
 ```
 
 ## Latest TDCC Snapshot
@@ -196,17 +196,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 4961 | 天鈺 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | early_entry_watch |  | call_inflow | repeated_but_no_breakout | 1.人員變動別（請輸入發言人、代理發言人、重要營運主管(如:執行長、營運長、 行銷長及策略長等)、財務主管、會計主管、公司治理主管、資訊安全長、研發主管、 內部稽核主管或訴訟及非訟代理人）:內部稽核主管 2.發生變動日期:115/06/24 3.舊任者姓名、級職及簡歷:江俊德、內部稽核主管 4.新任者姓名、級職及簡歷:李敏華、內部稽核主管 5.異動情形（請輸入「辭職」、「職務調整」、「資遣」、「退休」、「死亡」、「新 任」或「解任」）:職務調整 6.異動原因:職務調整 7.生效日期:115/06/24 8.其他應敘明事項:無；degraded calendar context only: ex_dividend on 20260701; status=source_stale_cached; proximity=recent; model_effect_allowed=False; pdf_effect_allowed=False |
+| 20260706 | 4961 | 天鈺 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | early_entry_watch |  | call_strong_inflow | continued_2_3d | 1.人員變動別（請輸入發言人、代理發言人、重要營運主管(如:執行長、營運長、 行銷長及策略長等)、財務主管、會計主管、公司治理主管、資訊安全長、研發主管、 內部稽核主管或訴訟及非訟代理人）:內部稽核主管 2.發生變動日期:115/06/24 3.舊任者姓名、級職及簡歷:江俊德、內部稽核主管 4.新任者姓名、級職及簡歷:李敏華、內部稽核主管 5.異動情形（請輸入「辭職」、「職務調整」、「資遣」、「退休」、「死亡」、「新 任」或「解任」）:職務調整 6.異動原因:職務調整 7.生效日期:115/06/24 8.其他應敘明事項:無；degraded calendar context only: ex_dividend on 20260701; status=source_stale_cached; proximity=recent; model_effect_allowed=False; pdf_effect_allowed=False |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 4961 | 天鈺 | 1 | 1 | 1 | 5 | 8 | repeated_but_no_breakout | 近 10 日上榜 5 次、近 20 日上榜 8 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260706 | 4961 | 天鈺 | 2 | 2 | 2 | 5 | 8 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 4961 | 天鈺 | 8 | 0 | 1442400.0 | 0.0 |  | call_inflow |
+| 20260706 | 4961 | 天鈺 | 8 | 0 | 3356430.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

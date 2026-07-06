@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6109 亞元
 
 ## Metadata
-- generated_at: 2026-07-05 22:27:41 Asia/Taipei
+- generated_at: 2026-07-06 22:27:43 Asia/Taipei
 - stock_id: 6109
 - stock_name: 亞元
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 162
+- latest_price_date: 20260706
+- price_rows: 163
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -74,7 +74,7 @@
 - action_rating: starter_position
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
-- thesis_state: breakout_confirmed
+- thesis_state: breakout_initial
 - entry_style: breakout_follow
 - position_sizing: starter_1_3
 
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 13.4
-- high: 14
-- low: 13.1
-- close: 14
-- volume: 1354000
-- ma5: 13.15
-- ema23_primary: 12.34
-- distance_to_ema23_pct: 13.47
-- ma20: 12.15
-- ma60: 11.81
-- ma120: 11.94
-- return_5d: 12.9
-- return_20d: 18.64
-- volume_ratio: 1.78
-- distance_to_ma20_pct_auxiliary: 15.25
-- distance_to_high_60_pct: 0
+- date: 20260706
+- open: 14.1
+- high: 15.4
+- low: 14
+- close: 14.2
+- volume: 2279000
+- ma5: 13.48
+- ema23_primary: 12.49
+- distance_to_ema23_pct: 13.67
+- ma20: 12.28
+- ma60: 11.84
+- ma120: 11.96
+- return_5d: 13.15
+- return_20d: 23.48
+- volume_ratio: 2.61
+- distance_to_ma20_pct_auxiliary: 15.61
+- distance_to_high_60_pct: -7.79
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,11.9,11.9,11.4,11.5,12000,11.37,1.15,11.21,11.75,0.07
 20260608,11.05,11.3,10.75,11.3,170000,11.36,-0.56,11.15,11.73,0.99
 20260609,11.4,11.45,11.2,11.25,136000,11.35,-0.92,11.1,11.71,0.86
 20260610,11.5,11.5,11.05,11.1,175000,11.33,-2.05,11.08,11.7,1.28
@@ -160,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,13.45,13.45,12.75,13,501000,12.09,7.49,11.96,11.75,0.76
 20260702,12.85,13.65,12.85,13.2,729000,12.19,8.32,12.04,11.77,1.05
 20260703,13.4,14,13.1,14,1354000,12.34,13.47,12.15,11.81,1.78
+20260706,14.1,15.4,14,14.2,2279000,12.49,13.67,12.28,11.84,2.61
 ```
 
 ## Latest TDCC Snapshot
@@ -194,12 +194,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 6109 | 亞元 | true_breakout | 嚴格突破 | 94.0 |  |  | breakout_confirmed |  |  | first_seen | 1.董事會決議日期或發生變動日期:115/06/25 2.人員別（請輸入董事長或總經理）:總經理 3.舊任者姓名:游偉煌 4.舊任者簡歷:本公司 總經理、發言人、永續長、資安主管等。 5.新任者姓名:待董事會委任後另行公告。 6.新任者簡歷:待董事會委任後另行公告。 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:職務調整 8.異動原因:職務調整 9.新任生效日期:不適用。 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第6款所定 對股東權益或證券價格有重大影響之事項): 職務由董事長先行代理，新任者待董事會委任後另行公告。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260706 | 6109 | 亞元 | true_breakout | 嚴格突破 | 97.0 |  |  | platform_breakout |  |  | continued_overheated | 1.董事會決議日期或發生變動日期:115/06/25 2.人員別（請輸入董事長或總經理）:總經理 3.舊任者姓名:游偉煌 4.舊任者簡歷:本公司 總經理、發言人、永續長、資安主管等。 5.新任者姓名:待董事會委任後另行公告。 6.新任者簡歷:待董事會委任後另行公告。 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:職務調整 8.異動原因:職務調整 9.新任生效日期:不適用。 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第6款所定 對股東權益或證券價格有重大影響之事項): 職務由董事長先行代理，新任者待董事會委任後另行公告。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 6109 | 亞元 | 1 | 1 | 1 | 4 | 4 | first_seen | 首次上榜或資料有限，需後續確認。 |
+| 20260706 | 6109 | 亞元 | 2 | 2 | 2 | 5 | 5 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

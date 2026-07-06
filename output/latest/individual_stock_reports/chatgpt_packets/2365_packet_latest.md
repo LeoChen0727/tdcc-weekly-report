@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2365 昆盈
 
 ## Metadata
-- generated_at: 2026-07-05 22:26:30 Asia/Taipei
+- generated_at: 2026-07-06 22:26:47 Asia/Taipei
 - stock_id: 2365
 - stock_name: 昆盈
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 297
+- latest_price_date: 20260706
+- price_rows: 298
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 35.3
-- high: 36
-- low: 34.7
-- close: 35.05
-- volume: 4897061
-- ma5: 34.36
-- ema23_primary: 34.45
-- distance_to_ema23_pct: 1.74
-- ma20: 33.97
-- ma60: 35.27
+- date: 20260706
+- open: 35.65
+- high: 35.9
+- low: 34.2
+- close: 34.2
+- volume: 2087000
+- ma5: 34.48
+- ema23_primary: 34.43
+- distance_to_ema23_pct: -0.66
+- ma20: 33.88
+- ma60: 35.32
 - ma120: 35.28
-- return_5d: 10.22
-- return_20d: -4.37
-- volume_ratio: 1.69
-- distance_to_ma20_pct_auxiliary: 3.17
-- distance_to_high_60_pct: -13.56
+- return_5d: 1.79
+- return_20d: -5
+- volume_ratio: 0.78
+- distance_to_ma20_pct_auxiliary: 0.94
+- distance_to_high_60_pct: -15.66
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,36.2,38,35.7,36,6314393,36.73,-1.99,36.89,35.07,0.83
 20260608,32.4,34.65,32.4,34.55,2600497,36.55,-5.47,36.77,35.07,0.37
 20260609,34.7,36.55,34.7,35.55,3350151,36.47,-2.51,36.74,35.08,0.49
 20260610,35.4,35.95,33.8,33.8,2167610,36.24,-6.74,36.7,35.06,0.33
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,33.95,34.9,33.95,34.25,3525000,34.32,-0.21,34.15,35.15,1.32
 20260702,34.3,36,33.95,35.2,7969000,34.39,2.34,34.05,35.21,2.8
 20260703,35.3,36,34.7,35.05,4897061,34.45,1.74,33.97,35.27,1.69
+20260706,35.65,35.9,34.2,34.2,2087000,34.43,-0.66,33.88,35.32,0.78
 ```
 
 ## Latest TDCC Snapshot
@@ -189,18 +189,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 2365 | 昆盈 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/30 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額: 普通股現金股利新台幣NT$66,458,549元(每股配發0.30元) 4.除權（息）交易日:115/07/16 5.最後過戶日:115/07/17 6.停止過戶起始日期:115/07/18 7.停止過戶截止日期:115/07/22 8.除權（息）基準日:115/07/22 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/11 13.其他應敘明事項:無；calendar event: ex_dividend on 20260716; status=confirmed; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260703 | 2365 | 昆盈 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/30 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額: 普通股現金股利新台幣NT$66,458,549元(每股配發0.30元) 4.除權（息）交易日:115/07/16 5.最後過戶日:115/07/17 6.停止過戶起始日期:115/07/18 7.停止過戶截止日期:115/07/22 8.除權（息）基準日:115/07/22 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/11 13.其他應敘明事項:無；calendar event: ex_dividend on 20260716; status=confirmed; proximity=within_14d |
+| 20260706 | 2365 | 昆盈 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/30 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額: 普通股現金股利新台幣NT$66,458,549元(每股配發0.30元) 4.除權（息）交易日:115/07/16 5.最後過戶日:115/07/17 6.停止過戶起始日期:115/07/18 7.停止過戶截止日期:115/07/22 8.除權（息）基準日:115/07/22 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/11 13.其他應敘明事項:無；calendar event: ex_dividend on 20260716; status=confirmed; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 2365 | 昆盈 | 2 | 2 | 4 | 7 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260706 | 2365 | 昆盈 | 3 | 3 | 4 | 8 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 2365 | 昆盈 | 8 | 0 | 743400.0 | 0.0 |  | no_signal |
+| 20260706 | 2365 | 昆盈 | 8 | 0 | 192310.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

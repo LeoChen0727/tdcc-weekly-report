@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00891 中信關鍵半導體
 
 ## Metadata
-- generated_at: 2026-07-05 22:26:00 Asia/Taipei
+- generated_at: 2026-07-06 22:26:23 Asia/Taipei
 - stock_id: 00891
 - stock_name: 中信關鍵半導體
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260703
-- price_rows: 30
+- latest_price_date: 20260706
+- price_rows: 31
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 37.08
-- high: 37.79
-- low: 36.92
-- close: 37.66
-- volume: 11269527
-- ma5: 37.38
-- ema23_primary: 36.6
-- distance_to_ema23_pct: 2.89
-- ma20: 36.45
-- ma60: 36.21
-- ma120: 36.21
-- return_5d: 5.17
-- return_20d: 4.03
-- volume_ratio: 0.51
-- distance_to_ma20_pct_auxiliary: 3.32
-- distance_to_high_60_pct: -5.61
+- date: 20260706
+- open: 38.23
+- high: 38.3
+- low: 37.31
+- close: 37.53
+- volume: 14109000
+- ma5: 37.68
+- ema23_primary: 36.68
+- distance_to_ema23_pct: 2.32
+- ma20: 36.56
+- ma60: 36.25
+- ma120: 36.25
+- return_5d: 4.13
+- return_20d: 6.26
+- volume_ratio: 0.65
+- distance_to_ma20_pct_auxiliary: 2.65
+- distance_to_high_60_pct: -5.94
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,35.61,35.77,34.62,35.32,27154623,34.97,0.99,35.69,35.69,0.66
 20260608,32.3,33.98,32.3,33.76,36236563,34.87,-3.19,35.53,35.53,0.89
 20260609,34.34,35,33.9,34.95,20436051,34.88,0.21,35.48,35.48,0.52
 20260610,34.3,34.9,33.51,33.51,21210387,34.76,-3.61,35.34,35.34,0.56
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,38.15,38.15,37.57,37.86,18565000,36.37,4.09,36.32,36.09,0.79
 20260702,36.99,38.08,36.83,37.98,13825000,36.51,4.04,36.38,36.16,0.61
 20260703,37.08,37.79,36.92,37.66,11269527,36.6,2.89,36.45,36.21,0.51
+20260706,38.23,38.3,37.31,37.53,14109000,36.68,2.32,36.56,36.25,0.65
 ```
 
 ## Latest TDCC Snapshot

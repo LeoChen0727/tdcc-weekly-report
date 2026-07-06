@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8426 紅木-KY
 
 ## Metadata
-- generated_at: 2026-07-05 22:28:29 Asia/Taipei
+- generated_at: 2026-07-06 22:28:23 Asia/Taipei
 - stock_id: 8426
 - stock_name: 紅木-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 162
+- latest_price_date: 20260706
+- price_rows: 163
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 20.3
-- high: 20.75
-- low: 20.3
-- close: 20.6
-- volume: 39000
-- ma5: 20.27
-- ema23_primary: 20.86
-- distance_to_ema23_pct: -1.25
-- ma20: 20.73
-- ma60: 22.33
-- ma120: 24.58
-- return_5d: 1.48
-- return_20d: -6.15
-- volume_ratio: 0.96
-- distance_to_ma20_pct_auxiliary: -0.62
-- distance_to_high_60_pct: -18.25
+- date: 20260706
+- open: 20.45
+- high: 20.95
+- low: 20.45
+- close: 20.7
+- volume: 32000
+- ma5: 20.35
+- ema23_primary: 20.85
+- distance_to_ema23_pct: -0.7
+- ma20: 20.67
+- ma60: 22.26
+- ma120: 24.52
+- return_5d: 1.97
+- return_20d: -5.26
+- volume_ratio: 0.78
+- distance_to_ma20_pct_auxiliary: 0.15
+- distance_to_high_60_pct: -17.86
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,22.2,22.2,21.6,21.85,22000,22.33,-2.14,21.99,23.86,0.35
 20260608,21.8,21.8,21.55,21.75,15000,22.28,-2.38,21.95,23.79,0.25
 20260609,21.8,22,21.65,21.95,7000,22.25,-1.36,21.91,23.72,0.12
 20260610,20.65,21.8,20.65,21.25,89000,22.17,-4.14,21.86,23.63,1.44
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,20.1,20.1,19.9,20.1,37000,20.94,-4,20.89,22.49,0.92
 20260702,20.1,20.35,20.05,20.3,13000,20.88,-2.79,20.8,22.41,0.33
 20260703,20.3,20.75,20.3,20.6,39000,20.86,-1.25,20.73,22.33,0.96
+20260706,20.45,20.95,20.45,20.7,32000,20.85,-0.7,20.67,22.26,0.78
 ```
 
 ## Latest TDCC Snapshot

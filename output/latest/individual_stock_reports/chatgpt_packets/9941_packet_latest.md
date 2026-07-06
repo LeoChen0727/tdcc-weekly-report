@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9941 裕融
 
 ## Metadata
-- generated_at: 2026-07-05 22:28:35 Asia/Taipei
+- generated_at: 2026-07-06 22:28:28 Asia/Taipei
 - stock_id: 9941
 - stock_name: 裕融
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 297
+- latest_price_date: 20260706
+- price_rows: 298
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 80.4
-- high: 82.7
-- low: 80.4
-- close: 82.4
-- volume: 1746492
-- ma5: 80.82
-- ema23_primary: 80.47
-- distance_to_ema23_pct: 2.4
-- ma20: 82.08
-- ma60: 77.99
-- ma120: 77.94
-- return_5d: 4.83
-- return_20d: 0.49
-- volume_ratio: 0.56
-- distance_to_ma20_pct_auxiliary: 0.4
-- distance_to_high_60_pct: -7.42
+- date: 20260706
+- open: 82.4
+- high: 84.1
+- low: 82.4
+- close: 83.1
+- volume: 1184000
+- ma5: 81.54
+- ema23_primary: 80.69
+- distance_to_ema23_pct: 2.99
+- ma20: 82.14
+- ma60: 78.12
+- ma120: 77.92
+- return_5d: 4.53
+- return_20d: 1.47
+- volume_ratio: 0.43
+- distance_to_ma20_pct_auxiliary: 1.17
+- distance_to_high_60_pct: -6.63
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,82.1,83.4,80.8,81.9,8343720,76.24,7.42,74.96,76.41,2.73
 20260608,79.2,83,77.9,83,6820137,76.8,8.07,75.35,76.52,2.06
 20260609,83,85.4,81.8,84.1,7323234,77.41,8.64,75.84,76.67,2.05
 20260610,83.7,89,83.3,86.4,9201159,78.16,10.54,76.47,76.85,2.34
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,80,81.3,80,81.3,941000,80.23,1.33,82.14,77.82,0.24
 20260702,80.2,81.9,80.2,80.9,897000,80.29,0.76,82.06,77.9,0.26
 20260703,80.4,82.7,80.4,82.4,1746492,80.47,2.4,82.08,77.99,0.56
+20260706,82.4,84.1,82.4,83.1,1184000,80.69,2.99,82.14,78.12,0.43
 ```
 
 ## Latest TDCC Snapshot
@@ -188,17 +188,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 9941 | 裕融 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | stale_signal | 1.董事會決議日期:NA 2.名稱﹝XX公司第X次（有、無）擔保公司債﹞:新鑫股份有限公司一一五年度第一期 無擔保普通公司債 3.是否採總括申報發行公司債(是/否):否 4.發行總額:新台幣15億元整 5.每張面額:新台幣壹佰萬元 6.發行價格:依票面金額十足發行 7.發行期間:3年期 8.發行利率:票面利率(固定年利率)2.09% 9.擔保品之種類、名稱、金額及約定事項:不適用 10.募得價款之用途及運用計畫:償還金融機構借款 11.承銷方式:委託承銷商對外公開承銷 12.公司債受託人:永豐商業銀行股份有限公司 13.承銷或代銷機構:委任凱基證券股份有限公司為主辦承銷商 14.發行保證人:不適用 15.代理還本付息機構:華南商業銀行股份有限公司敦化分行 16.簽證機構:不適用 17.能轉換股份者，其轉換辦法:不適用 18.賣回條件:不適用 19.買回條件:不適用 20.附有轉換、交換或認股者，其換股基準日:不適用 21.附有轉換、交換或認股者，對股權可能稀釋情形:不適用 22.現金減資後再行募資之合理性及必要性 (募資當年度及前一年度有辦理現金減資者適用):不適用 23.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260706 | 9941 | 裕融 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | 1.董事會決議日期:NA 2.名稱﹝XX公司第X次（有、無）擔保公司債﹞:新鑫股份有限公司一一五年度第一期 無擔保普通公司債 3.是否採總括申報發行公司債(是/否):否 4.發行總額:新台幣15億元整 5.每張面額:新台幣壹佰萬元 6.發行價格:依票面金額十足發行 7.發行期間:3年期 8.發行利率:票面利率(固定年利率)2.09% 9.擔保品之種類、名稱、金額及約定事項:不適用 10.募得價款之用途及運用計畫:償還金融機構借款 11.承銷方式:委託承銷商對外公開承銷 12.公司債受託人:永豐商業銀行股份有限公司 13.承銷或代銷機構:委任凱基證券股份有限公司為主辦承銷商 14.發行保證人:不適用 15.代理還本付息機構:華南商業銀行股份有限公司敦化分行 16.簽證機構:不適用 17.能轉換股份者，其轉換辦法:不適用 18.賣回條件:不適用 19.買回條件:不適用 20.附有轉換、交換或認股者，其換股基準日:不適用 21.附有轉換、交換或認股者，對股權可能稀釋情形:不適用 22.現金減資後再行募資之合理性及必要性 (募資當年度及前一年度有辦理現金減資者適用):不適用 23.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 9941 | 裕融 | 1 | 1 | 1 | 5 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260706 | 9941 | 裕融 | 2 | 2 | 2 | 5 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260706 | 9941 | 裕融 | 1 | 0 | 0.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

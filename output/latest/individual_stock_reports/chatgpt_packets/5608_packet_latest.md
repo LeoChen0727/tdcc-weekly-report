@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5608 四維航
 
 ## Metadata
-- generated_at: 2026-07-05 22:27:38 Asia/Taipei
+- generated_at: 2026-07-06 22:27:42 Asia/Taipei
 - stock_id: 5608
 - stock_name: 四維航
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 297
+- latest_price_date: 20260706
+- price_rows: 298
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 14.25
-- high: 14.9
-- low: 14.25
-- close: 14.8
-- volume: 2665135
-- ma5: 14.34
-- ema23_primary: 14.62
-- distance_to_ema23_pct: 1.21
+- date: 20260706
+- open: 14.95
+- high: 15.4
+- low: 14.9
+- close: 14.95
+- volume: 1888000
+- ma5: 14.5
+- ema23_primary: 14.65
+- distance_to_ema23_pct: 2.05
 - ma20: 14.69
-- ma60: 15.02
-- ma120: 16.2
-- return_5d: 4.96
-- return_20d: -1
-- volume_ratio: 1.96
-- distance_to_ma20_pct_auxiliary: 0.73
-- distance_to_high_60_pct: -12.43
+- ma60: 15
+- ma120: 16.18
+- return_5d: 5.65
+- return_20d: -0.66
+- volume_ratio: 1.44
+- distance_to_ma20_pct_auxiliary: 1.79
+- distance_to_high_60_pct: -11.54
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,15.05,15.35,15.05,15.05,2730810,14.85,1.32,14.6,15.66,1.46
 20260608,14.1,14.75,14.05,14.65,1396349,14.84,-1.26,14.58,15.63,0.76
 20260609,14.65,15.2,14.65,15.05,1522340,14.85,1.31,14.58,15.6,0.83
 20260610,15.1,15.1,14.8,14.8,1199565,14.85,-0.34,14.58,15.57,0.66
@@ -160,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,14.3,14.4,14.15,14.25,985000,14.64,-2.66,14.74,15.09,0.7
 20260702,14.25,14.4,14.15,14.25,976000,14.61,-2.44,14.7,15.05,0.75
 20260703,14.25,14.9,14.25,14.8,2665135,14.62,1.21,14.69,15.02,1.96
+20260706,14.95,15.4,14.9,14.95,1888000,14.65,2.05,14.69,15,1.44
 ```
 
 ## Latest TDCC Snapshot
@@ -194,12 +194,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 5608 | 四維航 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260706 | 5608 | 四維航 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 5608 | 四維航 | 1 | 1 | 1 | 1 | 9 | repeated_but_no_breakout | 近 10 日上榜 1 次、近 20 日上榜 9 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260706 | 5608 | 四維航 | 2 | 2 | 2 | 2 | 10 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | status |

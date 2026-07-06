@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8087 麗升能源
 
 ## Metadata
-- generated_at: 2026-07-05 22:28:24 Asia/Taipei
+- generated_at: 2026-07-06 22:28:19 Asia/Taipei
 - stock_id: 8087
 - stock_name: 麗升能源
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 162
+- latest_price_date: 20260706
+- price_rows: 163
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 31.9
-- high: 31.9
-- low: 31.05
-- close: 31.5
-- volume: 259000
-- ma5: 32.41
-- ema23_primary: 33.31
-- distance_to_ema23_pct: -5.42
-- ma20: 33.88
-- ma60: 33.97
+- date: 20260706
+- open: 32.2
+- high: 32.8
+- low: 31.9
+- close: 31.9
+- volume: 45000
+- ma5: 32.19
+- ema23_primary: 33.19
+- distance_to_ema23_pct: -3.88
+- ma20: 33.7
+- ma60: 33.94
 - ma120: 33.05
-- return_5d: -2.48
-- return_20d: -10.51
-- volume_ratio: 2.85
-- distance_to_ma20_pct_auxiliary: -7.02
-- distance_to_high_60_pct: -20.45
+- return_5d: -3.33
+- return_20d: -10.39
+- volume_ratio: 0.49
+- distance_to_ma20_pct_auxiliary: -5.33
+- distance_to_high_60_pct: -19.44
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,35.35,35.65,35.25,35.6,35000,33.9,5.01,33.83,33.95,0.43
 20260608,35.5,35.95,34.15,35.75,79000,34.06,4.97,33.92,33.98,1.11
 20260609,36,39.3,36,38.85,345000,34.46,12.75,34.2,34.08,4.25
 20260610,38.6,38.6,37.3,37.85,105000,34.74,8.96,34.44,34.17,1.25
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,33.8,33.8,32.3,32.35,41000,33.59,-3.68,34.18,34.03,0.52
 20260702,32.35,32.4,31.85,32.2,48000,33.47,-3.79,34.06,34.01,0.6
 20260703,31.9,31.9,31.05,31.5,259000,33.31,-5.42,33.88,33.97,2.85
+20260706,32.2,32.8,31.9,31.9,45000,33.19,-3.88,33.7,33.94,0.49
 ```
 
 ## Latest TDCC Snapshot

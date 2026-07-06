@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5498 凱崴
 
 ## Metadata
-- generated_at: 2026-07-05 22:27:36 Asia/Taipei
+- generated_at: 2026-07-06 22:27:40 Asia/Taipei
 - stock_id: 5498
 - stock_name: 凱崴
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 162
+- latest_price_date: 20260706
+- price_rows: 163
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 60.4
-- high: 61.9
-- low: 60
-- close: 61
-- volume: 1387000
-- ma5: 60.08
-- ema23_primary: 63.27
-- distance_to_ema23_pct: -3.59
-- ma20: 63.26
-- ma60: 67.4
-- ma120: 63.38
-- return_5d: 5.17
-- return_20d: -0.16
-- volume_ratio: 0.23
-- distance_to_ma20_pct_auxiliary: -3.57
-- distance_to_high_60_pct: -30.05
+- date: 20260706
+- open: 62.6
+- high: 63.8
+- low: 60.6
+- close: 61.2
+- volume: 2245000
+- ma5: 60.68
+- ema23_primary: 63.1
+- distance_to_ema23_pct: -3.01
+- ma20: 63.23
+- ma60: 67.37
+- ma120: 63.47
+- return_5d: 5.15
+- return_20d: -0.97
+- volume_ratio: 0.36
+- distance_to_ma20_pct_auxiliary: -3.21
+- distance_to_high_60_pct: -29.82
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,60.5,61.8,57.2,61.8,60000,66.41,-6.94,66.89,65.89,0.01
 20260608,55.7,58.3,55.7,57.6,2910000,65.68,-12.3,66.32,65.83,0.57
 20260609,59.2,63.3,58.2,63.3,3772000,65.48,-3.33,65.86,65.87,0.84
 20260610,63,67.9,60.7,60.7,12663000,65.08,-6.73,65.26,65.84,3.09
@@ -160,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,62,62.5,59,59.1,2070000,63.67,-7.18,63.32,67.26,0.34
 20260702,58.1,61.4,57.1,61.3,1358000,63.48,-3.43,63.27,67.37,0.22
 20260703,60.4,61.9,60,61,1387000,63.27,-3.59,63.26,67.4,0.23
+20260706,62.6,63.8,60.6,61.2,2245000,63.1,-3.01,63.23,67.37,0.36
 ```
 
 ## Latest TDCC Snapshot
@@ -194,13 +194,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 5498 | 凱崴 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  |  | stale_signal | 1.股東常會日期:115/06/17 2.重要決議事項一、盈餘分配或盈虧撥補: 通過承認本公司114年度盈餘分配表案。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表: 通過承認本公司114年度營業報告書及財務報表(含合併財務報表)決算表冊案。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項:無。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260703 | 5498 | 凱崴 | revenue_breakout_low_response | 營收爆發低反應股 | 14.0 | 30.0 | D_降級_TDCC轉弱 |  |  |  | stale_signal | 1.股東常會日期:115/06/17 2.重要決議事項一、盈餘分配或盈虧撥補: 通過承認本公司114年度盈餘分配表案。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表: 通過承認本公司114年度營業報告書及財務報表(含合併財務報表)決算表冊案。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項:無。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260706 | 5498 | 凱崴 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  |  | stale_signal | 1.股東常會日期:115/06/17 2.重要決議事項一、盈餘分配或盈虧撥補: 通過承認本公司114年度盈餘分配表案。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表: 通過承認本公司114年度營業報告書及財務報表(含合併財務報表)決算表冊案。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項:無。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260706 | 5498 | 凱崴 | revenue_breakout_low_response | 營收爆發低反應股 | 14.0 | 34.0 | D_降級_TDCC轉弱 |  |  |  | stale_signal | 1.股東常會日期:115/06/17 2.重要決議事項一、盈餘分配或盈虧撥補: 通過承認本公司114年度盈餘分配表案。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表: 通過承認本公司114年度營業報告書及財務報表(含合併財務報表)決算表冊案。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項:無。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 5498 | 凱崴 | 10 | 9 | 5 | 10 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260706 | 5498 | 凱崴 | 11 | 10 | 5 | 10 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

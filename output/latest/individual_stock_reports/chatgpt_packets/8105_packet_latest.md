@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8105 凌巨
 
 ## Metadata
-- generated_at: 2026-07-05 22:28:25 Asia/Taipei
+- generated_at: 2026-07-06 22:28:20 Asia/Taipei
 - stock_id: 8105
 - stock_name: 凌巨
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 297
+- latest_price_date: 20260706
+- price_rows: 298
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
+- date: 20260706
 - open: 22
-- high: 22.15
+- high: 22.25
 - low: 21.6
-- close: 21.75
-- volume: 5579703
-- ma5: 22.26
-- ema23_primary: 21.29
-- distance_to_ema23_pct: 2.14
-- ma20: 21.93
-- ma60: 17.52
-- ma120: 15.27
-- return_5d: -3.97
-- return_20d: 8.48
-- volume_ratio: 0.25
-- distance_to_ma20_pct_auxiliary: -0.83
-- distance_to_high_60_pct: -15.53
+- close: 21.95
+- volume: 4972000
+- ma5: 22.07
+- ema23_primary: 21.35
+- distance_to_ema23_pct: 2.81
+- ma20: 22.01
+- ma60: 17.65
+- ma120: 15.36
+- return_5d: -4.15
+- return_20d: 7.6
+- volume_ratio: 0.23
+- distance_to_ma20_pct_auxiliary: -0.27
+- distance_to_high_60_pct: -14.76
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,20,21.2,18.7,20.4,21072131,17.29,18,17.16,14.69,1.34
 20260608,18.5,20.6,18.5,19.7,15570556,17.49,12.64,17.48,14.8,0.95
 20260609,19.9,21.65,19.25,21.65,37275530,17.84,21.39,17.82,14.94,2.11
 20260610,20.8,21.95,20.35,20.7,33678834,18.07,14.53,18.05,15.07,1.91
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,22.9,23.5,21.6,21.65,14211000,21.17,2.26,21.77,17.23,0.58
 20260702,21.2,22.4,21,22.15,7162000,21.25,4.22,21.85,17.38,0.31
 20260703,22,22.15,21.6,21.75,5579703,21.29,2.14,21.93,17.52,0.25
+20260706,22,22.25,21.6,21.95,4972000,21.35,2.81,22.01,17.65,0.23
 ```
 
 ## Latest TDCC Snapshot
@@ -189,17 +189,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 8105 | 凌巨 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.人員變動別（請輸入發言人、代理發言人、重要營運主管(如:執行長、營運長、 行銷長及策略長等)、財務主管、會計主管、公司治理主管、資訊安全長、研發主管、 內部稽核主管或訴訟及非訟代理人）:發言人及代理發言人 2.發生變動日期:115/07/03 3.舊任者姓名、級職及簡歷: 發言人：陳力文 / 副處長 / 本公司智權法務處副處長 代理發言人:劉德齊 / 處長 / 本公司財務會計處處長兼任公司治理主管 4.新任者姓名、級職及簡歷: 發言人：劉德齊 / 處長 / 本公司財務會計處處長兼任公司治理主管 代理發言人:楊佩娟 / 經理 / 本公司會計二部經理 5.異動情形（請輸入「辭職」、「職務調整」、「資遣」、「退休」、「死亡」、「新 任」或「解任」）:職務調整 6.異動原因:職務調整 7.生效日期:115/07/03 8.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260706 | 8105 | 凌巨 | pattern | 型態觀察 | 48.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.人員變動別（請輸入發言人、代理發言人、重要營運主管(如:執行長、營運長、 行銷長及策略長等)、財務主管、會計主管、公司治理主管、資訊安全長、研發主管、 內部稽核主管或訴訟及非訟代理人）:發言人及代理發言人 2.發生變動日期:115/07/03 3.舊任者姓名、級職及簡歷: 發言人：陳力文 / 副處長 / 本公司智權法務處副處長 代理發言人:劉德齊 / 處長 / 本公司財務會計處處長兼任公司治理主管 4.新任者姓名、級職及簡歷: 發言人：劉德齊 / 處長 / 本公司財務會計處處長兼任公司治理主管 代理發言人:楊佩娟 / 經理 / 本公司會計二部經理 5.異動情形（請輸入「辭職」、「職務調整」、「資遣」、「退休」、「死亡」、「新 任」或「解任」）:職務調整 6.異動原因:職務調整 7.生效日期:115/07/03 8.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 8105 | 凌巨 | 3 | 3 | 4 | 8 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260706 | 8105 | 凌巨 | 4 | 4 | 4 | 8 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260706 | 8105 | 凌巨 | 4 | 0 | 0.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

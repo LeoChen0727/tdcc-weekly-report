@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6752 叡揚
 
 ## Metadata
-- generated_at: 2026-07-05 22:28:04 Asia/Taipei
+- generated_at: 2026-07-06 22:28:02 Asia/Taipei
 - stock_id: 6752
 - stock_name: 叡揚
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 162
+- latest_price_date: 20260706
+- price_rows: 163
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,21 +113,21 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 102.5
-- high: 104.5
+- date: 20260706
+- open: 104.5
+- high: 105
 - low: 101.5
 - close: 103.5
-- volume: 94000
-- ma5: 100.3
-- ema23_primary: 100.69
-- distance_to_ema23_pct: 2.79
+- volume: 62000
+- ma5: 101.38
+- ema23_primary: 100.93
+- distance_to_ema23_pct: 2.55
 - ma20: 100.3
-- ma60: 102.19
-- ma120: 110.12
-- return_5d: 6.48
-- return_20d: -1.43
-- volume_ratio: 2.37
+- ma60: 102.17
+- ma120: 109.95
+- return_5d: 5.5
+- return_20d: 0
+- volume_ratio: 1.65
 - distance_to_ma20_pct_auxiliary: 3.19
 - distance_to_high_60_pct: -8.81
 
@@ -135,7 +135,6 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,104,105,103,103.5,104000,103.06,0.43,101.67,106.45,1.3
 20260608,96.5,100.5,96.5,100.5,80000,102.85,-2.28,101.55,106.15,0.98
 20260609,101,101.5,101,101.5,20000,102.73,-1.2,101.5,105.87,0.25
 20260610,99.8,101,98.4,98.4,47000,102.37,-3.88,101.34,105.55,0.59
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,100,100,98.4,99.9,11000,100.39,-0.48,100.7,102.33,0.26
 20260702,100.5,101.5,100,101,51000,100.44,0.56,100.38,102.25,1.27
 20260703,102.5,104.5,101.5,103.5,94000,100.69,2.79,100.3,102.19,2.37
+20260706,104.5,105,101.5,103.5,62000,100.93,2.55,100.3,102.17,1.65
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9802 鈺齊-KY
 
 ## Metadata
-- generated_at: 2026-07-05 22:28:33 Asia/Taipei
+- generated_at: 2026-07-06 22:28:27 Asia/Taipei
 - stock_id: 9802
 - stock_name: 鈺齊-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 297
+- latest_price_date: 20260706
+- price_rows: 298
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 72.8
-- high: 74.8
-- low: 72.8
-- close: 74.4
-- volume: 535908
-- ma5: 73.18
-- ema23_primary: 75.49
-- distance_to_ema23_pct: -1.44
-- ma20: 76.28
-- ma60: 77.02
-- ma120: 84.22
-- return_5d: 2.62
-- return_20d: -7.46
-- volume_ratio: 0.65
-- distance_to_ma20_pct_auxiliary: -2.46
-- distance_to_high_60_pct: -13.19
+- date: 20260706
+- open: 75.4
+- high: 76.1
+- low: 74.5
+- close: 74.8
+- volume: 454000
+- ma5: 73.42
+- ema23_primary: 75.43
+- distance_to_ema23_pct: -0.83
+- ma20: 76.06
+- ma60: 77
+- ma120: 84
+- return_5d: 1.63
+- return_20d: -5.32
+- volume_ratio: 0.57
+- distance_to_ma20_pct_auxiliary: -1.66
+- distance_to_high_60_pct: -12.72
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,80.9,80.9,78.8,79,805501,77.46,1.99,77.02,78.56,0.66
 20260608,74.9,79,74.9,77.7,1135475,77.48,0.29,76.75,78.4,0.96
 20260609,77.9,82.1,77.9,81,1392623,77.77,4.15,76.76,78.31,1.15
 20260610,80.7,82.9,79.6,80.9,1521568,78.03,3.68,76.84,78.23,1.2
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,73.4,73.4,72.4,72.4,591000,75.84,-4.53,76.92,77.11,0.67
 20260702,72.5,73,72,72.8,603000,75.59,-3.69,76.58,77.07,0.71
 20260703,72.8,74.8,72.8,74.4,535908,75.49,-1.44,76.28,77.02,0.65
+20260706,75.4,76.1,74.5,74.8,454000,75.43,-0.83,76.06,77,0.57
 ```
 
 ## Latest TDCC Snapshot
@@ -199,7 +199,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 9802 | 鈺齊-KY | 1 | 0 | 0.0 | 0.0 |  | no_signal |
+| 20260706 | 9802 | 鈺齊-KY | 1 | 0 | 0.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

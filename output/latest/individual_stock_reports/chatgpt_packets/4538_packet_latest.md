@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4538 大詠城
 
 ## Metadata
-- generated_at: 2026-07-05 22:27:20 Asia/Taipei
+- generated_at: 2026-07-06 22:27:27 Asia/Taipei
 - stock_id: 4538
 - stock_name: 大詠城
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 162
+- latest_price_date: 20260706
+- price_rows: 163
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 18.9
-- high: 18.9
-- low: 18.5
+- date: 20260706
+- open: 18.8
+- high: 18.8
+- low: 18.65
 - close: 18.7
-- volume: 21000
-- ma5: 18.78
+- volume: 8000
+- ma5: 18.75
 - ema23_primary: 18.66
-- distance_to_ema23_pct: 0.21
-- ma20: 18.68
+- distance_to_ema23_pct: 0.19
+- ma20: 18.69
 - ma60: 18.52
-- ma120: 18.37
-- return_5d: -1.06
-- return_20d: 1.63
-- volume_ratio: 0.39
-- distance_to_ma20_pct_auxiliary: 0.12
+- ma120: 18.39
+- return_5d: -0.8
+- return_20d: 1.08
+- volume_ratio: 0.15
+- distance_to_ma20_pct_auxiliary: 0.07
 - distance_to_high_60_pct: -6.27
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,18.4,18.65,18.3,18.5,18000,18.27,1.24,18.25,18.58,0.84
 20260608,17.9,18.35,17.9,18.15,50000,18.26,-0.62,18.24,18.57,2.34
 20260609,18.1,18.2,18.05,18.1,24000,18.25,-0.82,18.23,18.55,1.12
 20260610,18.45,18.45,18,18.4,48000,18.26,0.76,18.23,18.54,2.1
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,18.9,18.9,18.6,18.75,29000,18.65,0.55,18.64,18.53,0.54
 20260702,18.5,18.75,18.5,18.75,19000,18.66,0.5,18.66,18.52,0.36
 20260703,18.9,18.9,18.5,18.7,21000,18.66,0.21,18.68,18.52,0.39
+20260706,18.8,18.8,18.65,18.7,8000,18.66,0.19,18.69,18.52,0.15
 ```
 
 ## Latest TDCC Snapshot

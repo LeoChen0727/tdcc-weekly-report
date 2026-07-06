@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7738 東聯互動
 
 ## Metadata
-- generated_at: 2026-07-05 22:28:18 Asia/Taipei
+- generated_at: 2026-07-06 22:28:14 Asia/Taipei
 - stock_id: 7738
 - stock_name: 東聯互動
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 162
+- latest_price_date: 20260706
+- price_rows: 163
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 166.5
-- high: 170
-- low: 166.5
-- close: 170
-- volume: 17000
-- ma5: 167.4
-- ema23_primary: 169.26
-- distance_to_ema23_pct: 0.44
-- ma20: 169.07
-- ma60: 173.88
-- ma120: 175.99
-- return_5d: 2.41
-- return_20d: 1.8
-- volume_ratio: 0.35
-- distance_to_ma20_pct_auxiliary: 0.55
-- distance_to_high_60_pct: -12.37
+- date: 20260706
+- open: 170
+- high: 180.5
+- low: 170
+- close: 176.5
+- volume: 83000
+- ma5: 169.4
+- ema23_primary: 169.87
+- distance_to_ema23_pct: 3.91
+- ma20: 169.5
+- ma60: 173.62
+- ma120: 175.9
+- return_5d: 6.01
+- return_20d: 5.06
+- volume_ratio: 1.88
+- distance_to_ma20_pct_auxiliary: 4.13
+- distance_to_high_60_pct: -7.11
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,166,168,165,168,168000,171.48,-2.03,169.88,179.94,1.52
 20260608,162,167.5,162,167.5,48000,171.15,-2.13,169.32,179.7,0.43
 20260609,173,173,165.5,169.5,116000,171.01,-0.88,169,179.44,1
 20260610,169,171,167,169,63000,170.85,-1.08,168.6,179.18,0.54
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,167,167,166,166.5,15000,169.39,-1.71,169.05,174.48,0.23
 20260702,164.5,167,164.5,167,6000,169.2,-1.3,168.93,174.21,0.11
 20260703,166.5,170,166.5,170,17000,169.26,0.44,169.07,173.88,0.35
+20260706,170,180.5,170,176.5,83000,169.87,3.91,169.5,173.62,1.88
 ```
 
 ## Latest TDCC Snapshot

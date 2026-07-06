@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2308 台達電
 
 ## Metadata
-- generated_at: 2026-07-05 22:26:27 Asia/Taipei
+- generated_at: 2026-07-06 22:26:45 Asia/Taipei
 - stock_id: 2308
 - stock_name: 台達電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260703
-- price_rows: 297
+- latest_price_date: 20260706
+- price_rows: 298
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -117,29 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260703
-- open: 1920
-- high: 2075
-- low: 1885
-- close: 2075
-- volume: 15207642
-- ma5: 1978
-- ema23_primary: 2086.41
-- distance_to_ema23_pct: -0.55
-- ma20: 2110
-- ma60: 2109
-- ma120: 1691.9
-- return_5d: 14.64
-- return_20d: -14.43
-- volume_ratio: 1.06
-- distance_to_ma20_pct_auxiliary: -1.66
-- distance_to_high_60_pct: -19.73
+- date: 20260706
+- open: 2120
+- high: 2135
+- low: 1995
+- close: 1995
+- volume: 8113000
+- ma5: 1996
+- ema23_primary: 2078.79
+- distance_to_ema23_pct: -4.03
+- ma20: 2094.75
+- ma60: 2114.83
+- ma120: 1700.5
+- return_5d: 4.72
+- return_20d: -13.26
+- volume_ratio: 0.57
+- distance_to_ma20_pct_auxiliary: -4.76
+- distance_to_high_60_pct: -22.82
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,2380,2380,2275,2300,12283892,2241.27,2.62,2238.25,1905.67,1.07
 20260608,2090,2260,2090,2255,15374423,2242.41,0.56,2238.75,1919.92,1.31
 20260609,2265,2435,2215,2415,15579800,2256.8,7.01,2249.75,1937.33,1.31
 20260610,2370,2410,2190,2200,18810727,2252.06,-2.31,2251.5,1950.92,1.51
@@ -159,6 +158,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,2020,2020,1965,1990,7891000,2098.12,-5.15,2151.75,2094.58,0.55
 20260702,1955,2010,1920,1970,6242000,2087.45,-5.63,2127.5,2102.17,0.44
 20260703,1920,2075,1885,2075,15207642,2086.41,-0.55,2110,2109,1.06
+20260706,2120,2135,1995,1995,8113000,2078.79,-4.03,2094.75,2114.83,0.57
 ```
 
 ## Latest TDCC Snapshot
@@ -193,17 +193,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 2308 | 台達電 | revenue_pullback | 營收成長股價回檔 | 74.0 |  |  |  |  | call_put_bullish | stale_signal | 1.股東常會日期:115/06/30 2.重要決議事項一、盈餘分配或盈虧撥補:無 3.重要決議事項二、章程修訂:無 4.重要決議事項三、營業報告書及財務報表:承認2025年董事報告、財務報告及 會計師查核報告書 5.重要決議事項四、董監事選舉:選任董事 6.重要決議事項五、其他事項: (1)通過訂定取得或處分資產處理程序案 (2)通過會計師聘任案 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260706 | 2308 | 台達電 | revenue_pullback | 營收成長股價回檔 | 76.0 |  |  |  |  | no_signal | stale_signal | 1.股東常會日期:115/06/30 2.重要決議事項一、盈餘分配或盈虧撥補:無 3.重要決議事項二、章程修訂:無 4.重要決議事項三、營業報告書及財務報表:承認2025年董事報告、財務報告及 會計師查核報告書 5.重要決議事項四、董監事選舉:選任董事 6.重要決議事項五、其他事項: (1)通過訂定取得或處分資產處理程序案 (2)通過會計師聘任案 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 2308 | 台達電 | 2 | 2 | 3 | 6 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260706 | 2308 | 台達電 | 3 | 3 | 4 | 7 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260703 | 2308 | 台達電 | 224 | 28 | 33049360.0 | 544890.0 | 60.65 | call_put_bullish |
+| 20260706 | 2308 | 台達電 | 223 | 28 | 23241130.0 | 95980.0 | 242.15 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

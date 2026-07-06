@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7065 弘塑凱基59購07
 
 ## Metadata
-- generated_at: 2026-07-05 22:28:13 Asia/Taipei
+- generated_at: 2026-07-06 22:28:10 Asia/Taipei
 - stock_id: 7065
 - stock_name: 弘塑凱基59購07
 - packet_status: partial_rawdata_packet
