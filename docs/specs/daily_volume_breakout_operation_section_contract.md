@@ -170,7 +170,8 @@ Lifecycle meaning:
 
 - First daily model hit enters `pending_confirmation`.
 - If a later trading day meets one confirmation trigger before invalidation, it enters `confirmed_operation` only on that confirmation report date when row-level evidence passes the buy-ranking gate; otherwise it enters `confirmed_unranked_operation` on that confirmation report date.
-- After the entry day starts, it enters `active_operation` until stop or the 10th trading-day holding limit.
+- After the entry day starts, it enters `active_operation` until stop or the 10th trading-day holding limit only if the confirmation-date published operation snapshot contains the same stock/signal as `confirmed_operation` with `row_action_status=confirmed_buy_candidate` and `buy_rank_eligible=True`.
+- A row that was `confirmed_unranked_operation` on its confirmation date must remain not-tracked for active operation purposes. Later TDCC, context, or evidence changes must not re-promote that historical signal into `active_operation`.
 - If a signal breaks its stop basis before confirmation, exceeds the confirmation window, hits stop after entry, or exceeds the holding window, it must drop from the operation section. A row that confirms without buy-ranking evidence must not be tracked as active.
 
 ## PDF Rule

@@ -128,6 +128,58 @@ def test_prior_signal_can_become_active_tracking_row(monkeypatch) -> None:
     assert "candidate_evaluated" in set(audit["audit_status"])
 
 
+def test_current_w_bottom_signal_is_suppressed_when_same_stock_is_already_active(monkeypatch) -> None:
+    price = pd.DataFrame(
+        [
+            {"date": "20260624", "open": 10.0, "high": 10.5, "low": 9.8, "close": 10.2},
+            {"date": "20260625", "open": 10.3, "high": 10.8, "low": 10.1, "close": 10.5},
+            {"date": "20260626", "open": 10.6, "high": 11.0, "low": 10.4, "close": 10.8},
+            {"date": "20260629", "open": 10.9, "high": 11.2, "low": 10.7, "close": 11.0},
+            {"date": "20260630", "open": 11.1, "high": 11.5, "low": 10.9, "close": 11.2},
+        ]
+    )
+    monkeypatch.setattr(builder, "price_for_stock", lambda _stock_id: price)
+    monkeypatch.setattr(
+        builder,
+        "build_structure_context",
+        lambda _row, _price: {
+            "left_low_date": "20260624",
+            "right_low_date": "20260625",
+            "w_structure_low_price": 9.8,
+            "neckline_price": 12.0,
+            "neckline_distance_pct": -6.67,
+        },
+    )
+    monkeypatch.setattr(
+        builder,
+        "load_signal_history",
+        lambda _signals, _config, _report_date: pd.DataFrame([signal_row("w_bottom_right_side", "20260624")]),
+    )
+
+    section, audit = builder.build_model_section(
+        pd.DataFrame([signal_row("w_bottom_right_side", "20260630")]),
+        approval_frame(),
+        builder.MODEL_CONFIGS["w_bottom_right_side"],
+        "20260630",
+        "2026-06-30 12:00:00 Asia/Taipei",
+    )
+
+    confirmed = section[section["row_type"].eq("data") & section["pdf_section"].eq("confirmed_operation")]
+    active = section[section["row_type"].eq("data") & section["pdf_section"].eq("active_operation")]
+    assert confirmed.empty
+    assert set(active["signal_date"]) == {"20260624"}
+    assert set(active["stock_id"]) == {"1234"}
+    suppressed = audit[audit["audit_status"].eq("lifecycle_suppressed")]
+    assert suppressed[["stock_id", "signal_date", "reason"]].to_dict("records") == [
+        {
+            "stock_id": "1234",
+            "signal_date": "20260630",
+            "reason": "same_stock_already_active_operation",
+        }
+    ]
+    assert set(suppressed["included_in_daily_adapter"]) == {"False"}
+
+
 def test_daily_full_pipeline_runs_w_bottom_operation_adapter() -> None:
     workflow = (ROOT / ".github" / "workflows" / "daily_full_pipeline.yml").read_text(encoding="utf-8")
     assert "python scripts/build_daily_w_bottom_operation_sections.py" in workflow

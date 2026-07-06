@@ -931,10 +931,6 @@ def build_model_section(
     rows: list[dict[str, str]] = []
     audit_rows: list[dict[str, str]] = []
 
-    for idx, (_, row) in enumerate(current.iterrows(), start=1):
-        rows.extend(confirmed_data_row(row, config, approval, report_date, daily_signal_count, generated_at, idx))
-        audit_rows.append(audit_row(row, config, report_date, generated_at, "candidate_evaluated", "True", "confirmed_operation"))
-
     if history.empty or "signal_date" not in history.columns:
         active_candidates = pd.DataFrame()
     else:
@@ -963,6 +959,37 @@ def build_model_section(
         for item in active_rows:
             item["display_order"] = str(display_order)
             rows.append(item)
+
+    active_keys = set(active_rows_by_key)
+    confirmed_order = 1
+    for _, row in current.iterrows():
+        key = (stock_id_key(row.get("stock_id")), safe_str(row.get("report_bucket")) or safe_str(row.get("report_line")))
+        if key in active_keys:
+            audit_rows.append(
+                audit_row(
+                    row,
+                    config,
+                    report_date,
+                    generated_at,
+                    "lifecycle_suppressed",
+                    "False",
+                    "same_stock_already_active_operation",
+                )
+            )
+            continue
+        rows.extend(
+            confirmed_data_row(
+                row,
+                config,
+                approval,
+                report_date,
+                daily_signal_count,
+                generated_at,
+                confirmed_order,
+            )
+        )
+        audit_rows.append(audit_row(row, config, report_date, generated_at, "candidate_evaluated", "True", "confirmed_operation"))
+        confirmed_order += 1
 
     existing = {(row["pdf_view"], row["pdf_section"]) for row in rows if row["row_type"] == "data"}
     for pdf_view in PDF_VIEWS:

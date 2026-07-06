@@ -8,6 +8,7 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parents[1]
 LATEST_DIR = ROOT / "output" / "latest"
 DOCS_LATEST_DIR = ROOT / "docs" / "latest"
+MODEL_SNAPSHOT_DIR = ROOT / "output" / "history" / "daily_model_snapshots"
 
 SECTION_CSV = LATEST_DIR / "daily_volume_breakout_operation_section_latest.csv"
 SECTION_MD = LATEST_DIR / "daily_volume_breakout_operation_section_latest.md"
@@ -66,6 +67,13 @@ SOURCE_GAP_REASONS = {
     "signal_date_after_operation_asof_date",
     "signal_low_missing_in_stock_price_history",
 }
+LIFECYCLE_SUPPRESSION_STATES = PDF_SECTIONS | {"active_operation_suppressed"}
+LIFECYCLE_SUPPRESSION_REASON_PREFIXES = (
+    "same_stock_lifecycle_suppressed_by_",
+    "confirmation_snapshot_",
+    "missing_confirmation_",
+    "empty_confirmation_",
+)
 
 REQUIRED_COLUMNS = {
     "model_id",
@@ -572,7 +580,7 @@ def validate_lifecycle_suppression_audit(audit: pd.DataFrame) -> None:
         return
     if suppressed["included_in_daily_adapter"].astype(str).ne("False").any():
         fail("lifecycle_suppressed audit rows must never be included in the daily adapter")
-    bad_states = sorted(set(suppressed["operation_lifecycle_state"].astype(str)) - PDF_SECTIONS)
+    bad_states = sorted(set(suppressed["operation_lifecycle_state"].astype(str)) - LIFECYCLE_SUPPRESSION_STATES)
     if bad_states:
         fail(f"lifecycle_suppressed audit rows have invalid lifecycle states: {bad_states}")
     missing_identity = suppressed[
@@ -582,11 +590,73 @@ def validate_lifecycle_suppression_audit(audit: pd.DataFrame) -> None:
     ]
     if not missing_identity.empty:
         fail("lifecycle_suppressed audit rows must preserve stock_id, signal_date, and operation_asof_date")
-    bad_reason = suppressed[
-        ~suppressed["reason"].astype(str).str.startswith("same_stock_lifecycle_suppressed_by_")
-    ]
+    reason = suppressed["reason"].astype(str)
+    allowed_reason = pd.Series(False, index=suppressed.index)
+    for prefix in LIFECYCLE_SUPPRESSION_REASON_PREFIXES:
+        allowed_reason = allowed_reason | reason.str.startswith(prefix)
+    bad_reason = suppressed[~allowed_reason]
     if not bad_reason.empty:
-        fail("lifecycle_suppressed audit rows must explain the selected same-stock lifecycle winner")
+        fail("lifecycle_suppressed audit rows must explain same-stock suppression or confirmation snapshot gating")
+
+
+def published_section_snapshot_path(report_date: str) -> Path:
+    return MODEL_SNAPSHOT_DIR / f"daily_volume_breakout_operation_section_{normalize_date_text(report_date)}.csv"
+
+
+def matching_snapshot_rows(path: Path, row: pd.Series) -> pd.DataFrame:
+    snapshot = read_csv(path).fillna("")
+    stock_id = stock_id_text(row.get("stock_id"))
+    signal_date = normalize_date_text(row.get("signal_date"))
+    confirmation_date = normalize_date_text(row.get("selected_confirmation_date"))
+    matches = snapshot[
+        snapshot.get("stock_id", pd.Series(dtype=str)).map(stock_id_text).eq(stock_id)
+        & snapshot.get("signal_date", pd.Series(dtype=str)).map(normalize_date_text).eq(signal_date)
+        & snapshot.get("row_type", pd.Series(dtype=str)).astype(str).eq("data")
+    ].copy()
+    if "selected_confirmation_date" in matches.columns:
+        matches = matches[
+            matches["selected_confirmation_date"].map(normalize_date_text).eq(confirmation_date)
+        ].copy()
+    return matches
+
+
+def active_backed_by_prior_active_snapshot(row: pd.Series) -> bool:
+    report_date = normalize_date_text(row.get("operation_asof_date") or row.get("daily_signal_date"))
+    for path in sorted(MODEL_SNAPSHOT_DIR.glob("daily_volume_breakout_operation_section_*.csv"), reverse=True):
+        snapshot_date = normalize_date_text(path.stem.rsplit("_", 1)[-1])
+        if not snapshot_date or snapshot_date >= report_date:
+            continue
+        matches = matching_snapshot_rows(path, row)
+        active = matches[matches.get("pdf_section", pd.Series(dtype=str)).astype(str).eq("active_operation")]
+        if not active.empty:
+            return True
+    return False
+
+
+def active_backed_by_confirmation_snapshot(row: pd.Series) -> bool:
+    confirmation_date = normalize_date_text(row.get("selected_confirmation_date"))
+    path = published_section_snapshot_path(confirmation_date)
+    if not path.exists():
+        return False
+    matches = matching_snapshot_rows(path, row)
+    buy_ranked = matches[
+        matches.get("pdf_section", pd.Series(dtype=str)).astype(str).eq("confirmed_operation")
+        & matches.get("row_action_status", pd.Series(dtype=str)).astype(str).eq("confirmed_buy_candidate")
+        & matches.get("buy_rank_eligible", pd.Series(dtype=str)).astype(str).eq("True")
+    ]
+    return not buy_ranked.empty
+
+
+def validate_active_confirmation_snapshot_gate(active_data: pd.DataFrame) -> None:
+    for _, row in active_data.iterrows():
+        if active_backed_by_prior_active_snapshot(row) or active_backed_by_confirmation_snapshot(row):
+            continue
+        fail(
+            "active_operation row is not backed by prior active tracking or confirmation-date buy-ranked row: "
+            f"stock_id={stock_id_text(row.get('stock_id'))} "
+            f"signal_date={normalize_date_text(row.get('signal_date'))} "
+            f"confirmation_date={normalize_date_text(row.get('selected_confirmation_date'))}"
+        )
 
 
 def validate_file_presence() -> None:
@@ -879,6 +949,7 @@ def validate_shape(section: pd.DataFrame, formal_summary: pd.DataFrame, audit: p
         ]
         if not bad_active_dates.empty:
             fail("active_operation confirmation date cannot be after the report date")
+        validate_active_confirmation_snapshot_gate(active_data)
         missing_active_entry = active_data[
             active_data["entry_date"].astype(str).str.strip().eq("")
             | active_data["entry_price"].astype(str).str.strip().eq("")

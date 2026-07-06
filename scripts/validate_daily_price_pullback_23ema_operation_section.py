@@ -154,6 +154,24 @@ def validate_section(df: pd.DataFrame) -> list[str]:
         data = df[df["row_type"].astype(str).eq("data")]
         if data["operation_quality"].astype(str).isin(["", "empty_state"]).any():
             errors.append("price_pullback data rows must expose operation_quality")
+        confirmed = data[data["pdf_section"].astype(str).eq("confirmed_operation")]
+        active = data[data["pdf_section"].astype(str).eq("active_operation")]
+        if not confirmed.empty and not active.empty:
+            confirmed_keys = set(
+                tuple(item)
+                for item in confirmed[["pdf_view", "report_line", "stock_id"]]
+                .astype(str)
+                .itertuples(index=False, name=None)
+            )
+            active_keys = set(
+                tuple(item)
+                for item in active[["pdf_view", "report_line", "stock_id"]]
+                .astype(str)
+                .itertuples(index=False, name=None)
+            )
+            overlap = sorted(confirmed_keys & active_keys)
+            if overlap:
+                errors.append(f"price_pullback stock cannot be both confirmed and active in the same view/report line: {overlap}")
     return errors
 
 

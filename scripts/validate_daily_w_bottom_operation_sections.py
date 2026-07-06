@@ -136,10 +136,21 @@ def validate_section(model_id: str) -> list[str]:
     active = data[data["pdf_section"].astype(str).eq("active_operation")]
     expected_signal_count = expected_current_signal_count(model_id)
     confirmed_highlight = confirmed[confirmed["pdf_view"].astype(str).eq("highlight")]
-    if expected_signal_count and len(confirmed_highlight) != expected_signal_count:
+    suppressed_current = pd.DataFrame()
+    if not audit.empty and "reason" in audit.columns:
+        suppressed_current = audit[
+            audit["audit_status"].astype(str).eq("lifecycle_suppressed")
+            & audit["included_in_daily_adapter"].astype(str).eq("False")
+            & audit["reason"].astype(str).eq("same_stock_already_active_operation")
+        ].copy()
+    confirmed_or_suppressed = len(confirmed_highlight) + len(
+        suppressed_current[["stock_id", "report_line"]].drop_duplicates()
+    )
+    if expected_signal_count and confirmed_or_suppressed != expected_signal_count:
         errors.append(
-            f"{csv_path.name} confirmed highlight data rows must match current published signals: "
-            f"expected={expected_signal_count}, got={len(confirmed_highlight)}"
+            f"{csv_path.name} current published signals must become confirmed rows or audited active suppressions: "
+            f"expected={expected_signal_count}, got_confirmed={len(confirmed_highlight)}, "
+            f"got_suppressed={len(suppressed_current)}"
         )
     if not confirmed.empty:
         if sorted(set(confirmed["row_action_status"].astype(str))) != ["confirmed_buy_candidate"]:
@@ -154,6 +165,18 @@ def validate_section(model_id: str) -> list[str]:
         missing_entry = active[active["entry_date"].map(normalize_date_text).eq("")]
         if not missing_entry.empty:
             errors.append(f"{csv_path.name} active rows must have entry_date")
+    if not confirmed.empty and not active.empty:
+        confirmed_keys = set(
+            tuple(item)
+            for item in confirmed[["pdf_view", "report_line", "stock_id"]].astype(str).itertuples(index=False, name=None)
+        )
+        active_keys = set(
+            tuple(item)
+            for item in active[["pdf_view", "report_line", "stock_id"]].astype(str).itertuples(index=False, name=None)
+        )
+        overlap = sorted(confirmed_keys & active_keys)
+        if overlap:
+            errors.append(f"{csv_path.name} stock cannot be both confirmed and active in the same view/report line: {overlap}")
 
     empty = section[section["row_type"].astype(str).eq("empty_state")]
     if not empty.empty:

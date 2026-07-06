@@ -166,6 +166,31 @@ def patch_lifecycle_sources(monkeypatch, tmp_path: Path, stock_id: str, price_ro
     return snapshot_dir
 
 
+def write_operation_snapshot(
+    snapshot_dir: Path,
+    confirmation_date: str,
+    signal_date: str,
+    stock_id: str = "1234",
+    pdf_section: str = "confirmed_operation",
+    row_action_status: str = "confirmed_buy_candidate",
+    buy_rank_eligible: str = "True",
+) -> None:
+    pd.DataFrame(
+        [
+            {
+                "stock_id": stock_id,
+                "stock_name": "TestCo",
+                "signal_date": signal_date,
+                "selected_confirmation_date": confirmation_date,
+                "row_type": "data",
+                "pdf_section": pdf_section,
+                "row_action_status": row_action_status,
+                "buy_rank_eligible": buy_rank_eligible,
+            }
+        ]
+    ).to_csv(snapshot_dir / f"daily_volume_breakout_operation_section_{confirmation_date}.csv", index=False)
+
+
 def build_rows_for_test(signals: pd.DataFrame, report_date: str, summary: pd.DataFrame) -> pd.DataFrame:
     rows, _audit = build_rows_and_audit_for_test(signals, report_date, summary)
     return rows
@@ -399,6 +424,7 @@ def test_lifecycle_moves_prior_confirmed_signal_to_active(monkeypatch, tmp_path)
         snapshot_dir / "daily_candidate_model_signals_for_report_20260615.csv",
         index=False,
     )
+    write_operation_snapshot(snapshot_dir, "20260616", "20260615")
 
     out = build_rows_for_test(pd.DataFrame(), "20260617", formal_summary())
 
@@ -413,8 +439,41 @@ def test_lifecycle_moves_prior_confirmed_signal_to_active(monkeypatch, tmp_path)
     assert backtest_lifecycle_state("1234", "20260615", "20260617") == "active_operation"
 
 
+def test_lifecycle_does_not_repromote_confirmation_day_unranked_signal_to_active(monkeypatch, tmp_path) -> None:
+    snapshot_dir = patch_lifecycle_sources(
+        monkeypatch,
+        tmp_path,
+        "1234",
+        [
+            {"date": "20260615", "open": "10", "high": "11", "low": "9", "close": "10", "volume": "1000"},
+            {"date": "20260616", "open": "10.5", "high": "12", "low": "10.9", "close": "11.5", "volume": "1200"},
+            {"date": "20260617", "open": "11.7", "high": "12.5", "low": "11.2", "close": "12", "volume": "1100"},
+        ],
+    )
+    pd.DataFrame([volume_signal("1234", "20260615")]).to_csv(
+        snapshot_dir / "daily_candidate_model_signals_for_report_20260615.csv",
+        index=False,
+    )
+    write_operation_snapshot(
+        snapshot_dir,
+        "20260616",
+        "20260615",
+        pdf_section="confirmed_unranked_operation",
+        row_action_status="confirmed_not_buy_ranked",
+        buy_rank_eligible="False",
+    )
+
+    out, audit = build_rows_and_audit_for_test(pd.DataFrame(), "20260617", formal_summary())
+
+    active = out[out["pdf_section"].eq("active_operation") & out["row_type"].eq("data")]
+    assert active.empty
+    suppressed = audit[audit["audit_status"].eq("lifecycle_suppressed")]
+    assert suppressed["reason"].tolist() == ["confirmation_snapshot_not_buy_ranked_not_tracked_active"]
+    assert suppressed["included_in_daily_adapter"].tolist() == ["False"]
+
+
 def test_active_operation_wins_over_new_confirmed_signal_for_same_stock(monkeypatch, tmp_path) -> None:
-    patch_lifecycle_sources(
+    snapshot_dir = patch_lifecycle_sources(
         monkeypatch,
         tmp_path,
         "1234",
@@ -430,6 +489,7 @@ def test_active_operation_wins_over_new_confirmed_signal_for_same_stock(monkeypa
             volume_signal("1234", "20260616", "2"),
         ]
     ).to_csv(builder.MODEL_SIGNAL_LOG_CSV, index=False)
+    write_operation_snapshot(snapshot_dir, "20260616", "20260615")
 
     out, audit = build_rows_and_audit_for_test(pd.DataFrame(), "20260617", formal_summary())
 
@@ -455,7 +515,7 @@ def test_active_operation_wins_over_new_confirmed_signal_for_same_stock(monkeypa
 
 
 def test_active_operation_audits_new_pending_same_stock_suppression(monkeypatch, tmp_path) -> None:
-    patch_lifecycle_sources(
+    snapshot_dir = patch_lifecycle_sources(
         monkeypatch,
         tmp_path,
         "1234",
@@ -471,6 +531,7 @@ def test_active_operation_audits_new_pending_same_stock_suppression(monkeypatch,
             volume_signal("1234", "20260617", "2"),
         ]
     ).to_csv(builder.MODEL_SIGNAL_LOG_CSV, index=False)
+    write_operation_snapshot(snapshot_dir, "20260616", "20260615")
 
     out, audit = build_rows_and_audit_for_test(pd.DataFrame(), "20260617", formal_summary())
 
