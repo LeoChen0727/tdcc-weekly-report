@@ -186,6 +186,8 @@ def semantic_row(
     *,
     pdf_role: str = "mainstream_highlight",
     main_price_date: str = "20260706",
+    rendered_row_type: str = "data",
+    empty_state_text: str = "",
 ) -> dict[str, str]:
     return {
         "manifest_type": "chatgpt_daily_pdf_semantic_manifest",
@@ -195,10 +197,11 @@ def semantic_row(
         "report_line": "mainstream",
         "model_id": model_id,
         "pdf_section": section,
-        "rendered_row_type": "data",
+        "rendered_row_type": rendered_row_type,
         "rendered_order": "1",
         "stock_id": stock_id,
         "stock_name": stock_id,
+        "empty_state_text": empty_state_text,
         "operation_status": section,
         "row_action_status": "confirmed_buy_candidate" if section == "confirmed_operation" else "active_operation",
         "buy_rank_eligible": "True" if section == "confirmed_operation" else "False",
@@ -222,7 +225,20 @@ def test_semantic_golden_cases_accept_known_20260706_accident_rows() -> None:
         semantic_row("w_bottom_right_side", "active_operation", "1618"),
         semantic_row("volume_range_breakout", "confirmed_operation", "3055"),
     ]
-    cases = read_semantic_golden_cases(SEMANTIC_GOLDEN_CASES_CONTRACT)
+    case_ids = {
+        "w_bottom_20260706_6176_confirmed_present",
+        "w_bottom_20260706_1618_confirmed_absent",
+        "w_bottom_20260706_1618_active_present",
+        "volume_20260706_3055_confirmed_present",
+        "volume_20260706_3055_active_absent",
+        "volume_20260706_1515_confirmed_absent",
+        "volume_20260706_1515_active_absent",
+    }
+    cases = [
+        case
+        for case in read_semantic_golden_cases(SEMANTIC_GOLDEN_CASES_CONTRACT)
+        if case.get("case_id") in case_ids
+    ]
 
     errors = validate_semantic_golden_cases(rows, "20260706", cases)
 
@@ -235,7 +251,18 @@ def test_semantic_golden_cases_reject_known_20260706_accident_drift() -> None:
         semantic_row("w_bottom_right_side", "active_operation", "1618"),
         semantic_row("volume_range_breakout", "active_operation", "3055"),
     ]
-    cases = read_semantic_golden_cases(SEMANTIC_GOLDEN_CASES_CONTRACT)
+    case_ids = {
+        "w_bottom_20260706_6176_confirmed_present",
+        "w_bottom_20260706_1618_confirmed_absent",
+        "w_bottom_20260706_1618_active_present",
+        "volume_20260706_3055_confirmed_present",
+        "volume_20260706_3055_active_absent",
+    }
+    cases = [
+        case
+        for case in read_semantic_golden_cases(SEMANTIC_GOLDEN_CASES_CONTRACT)
+        if case.get("case_id") in case_ids
+    ]
 
     errors = validate_semantic_golden_cases(rows, "20260706", cases)
 
@@ -243,6 +270,84 @@ def test_semantic_golden_cases_reject_known_20260706_accident_drift() -> None:
     assert any("w_bottom_20260706_1618_confirmed_absent" in error for error in errors)
     assert any("volume_20260706_3055_confirmed_present" in error for error in errors)
     assert any("volume_20260706_3055_active_absent" in error for error in errors)
+
+
+def test_semantic_golden_cases_support_count_equals() -> None:
+    rows = [
+        semantic_row("volume_range_breakout", "confirmed_operation", "3055"),
+        semantic_row("volume_range_breakout", "confirmed_operation", "4989"),
+    ]
+    cases = [
+        {
+            "case_id": "volume_confirmed_count",
+            "active": "True",
+            "report_date": "20260706",
+            "pdf_role": "mainstream_highlight",
+            "model_id": "volume_range_breakout",
+            "pdf_section": "confirmed_operation",
+            "rendered_row_type": "data",
+            "expectation": "count_equals",
+            "expected_count": "2",
+        }
+    ]
+
+    errors = validate_semantic_golden_cases(rows, "20260706", cases)
+
+    assert errors == []
+
+
+def test_semantic_golden_cases_count_equals_rejects_duplicate_stock() -> None:
+    rows = [
+        semantic_row("price_pullback_23ema", "confirmed_operation", "1802"),
+        semantic_row("price_pullback_23ema", "confirmed_operation", "1802"),
+    ]
+    cases = [
+        {
+            "case_id": "price_pullback_1802_once",
+            "active": "True",
+            "report_date": "20260706",
+            "pdf_role": "mainstream_highlight",
+            "model_id": "price_pullback_23ema",
+            "pdf_section": "confirmed_operation",
+            "rendered_row_type": "data",
+            "stock_id": "1802",
+            "expectation": "count_equals",
+            "expected_count": "1",
+        }
+    ]
+
+    errors = validate_semantic_golden_cases(rows, "20260706", cases)
+
+    assert any("price_pullback_1802_once" in error for error in errors)
+
+
+def test_semantic_golden_cases_support_empty_state_rows() -> None:
+    rows = [
+        semantic_row(
+            "neckline_volume_breakout_confirmation",
+            "confirmed_operation",
+            "",
+            rendered_row_type="empty_state",
+            empty_state_text="本日無股票推薦",
+        )
+    ]
+    cases = [
+        {
+            "case_id": "neckline_empty_confirmed",
+            "active": "True",
+            "report_date": "20260706",
+            "pdf_role": "mainstream_highlight",
+            "model_id": "neckline_volume_breakout_confirmation",
+            "pdf_section": "confirmed_operation",
+            "rendered_row_type": "empty_state",
+            "empty_state_text": "本日無股票推薦",
+            "expectation": "present",
+        }
+    ]
+
+    errors = validate_semantic_golden_cases(rows, "20260706", cases)
+
+    assert errors == []
 
 
 def test_replay_runtime_manifest_requires_pdf_outputs(tmp_path: Path) -> None:

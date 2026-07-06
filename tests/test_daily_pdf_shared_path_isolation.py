@@ -1,7 +1,11 @@
 from __future__ import annotations
 
 from pathlib import Path
+import urllib.error
 
+import pandas as pd
+
+from scripts import generate_chatgpt_side_daily_reports as renderer
 from scripts import validate_daily_pdf_shared_path_isolation as validator
 
 
@@ -40,6 +44,47 @@ def test_daily_pdf_shared_path_inventory_registers_operation_like_symbols() -> N
     functions = validator.function_nodes(validator.ast.parse(source))
 
     assert validator.operation_like_symbols(functions) <= registered
+
+
+def test_operation_line_matcher_prefers_explicit_report_line_over_memberships() -> None:
+    row = pd.Series(
+        {
+            "report_line": "non_mainstream",
+            "report_line_memberships": "mainstream|non_mainstream",
+        }
+    )
+
+    assert renderer.price_pullback_operation_row_matches_line(row, "non_mainstream") is True
+    assert renderer.price_pullback_operation_row_matches_line(row, "mainstream") is False
+    assert renderer.w_bottom_operation_row_matches_line(row, "non_mainstream") is True
+    assert renderer.w_bottom_operation_row_matches_line(row, "mainstream") is False
+
+
+def test_operation_line_matcher_uses_memberships_only_without_explicit_report_line() -> None:
+    row = pd.Series(
+        {
+            "report_line": "",
+            "report_line_memberships": "mainstream|non_mainstream",
+        }
+    )
+
+    assert renderer.price_pullback_operation_row_matches_line(row, "mainstream") is True
+    assert renderer.price_pullback_operation_row_matches_line(row, "non_mainstream") is True
+    assert renderer.w_bottom_operation_row_matches_line(row, "mainstream") is True
+    assert renderer.w_bottom_operation_row_matches_line(row, "non_mainstream") is True
+
+
+def test_remote_latest_csv_read_falls_back_to_clean_source_latest_on_http_429(monkeypatch) -> None:
+    url = renderer.remote_latest_url("futures_options_put_call_ratio_latest.csv")
+
+    def fail_with_rate_limit(requested_url: str) -> str:
+        raise urllib.error.HTTPError(requested_url, 429, "Too Many Requests", None, None)
+
+    monkeypatch.setattr(renderer, "fetch_text_no_cache", fail_with_rate_limit)
+
+    frame = renderer.read_csv(url)
+
+    assert not frame.empty
 
 
 def test_daily_workflows_run_shared_path_validator() -> None:
