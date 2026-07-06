@@ -6,6 +6,7 @@ import math
 import os
 import re
 import textwrap
+import urllib.error
 import urllib.request
 from io import StringIO
 from datetime import datetime
@@ -569,14 +570,32 @@ def remote_data_url(filename: str) -> str:
     return f"{REMOTE_DATA_BASE}/{filename}"
 
 
+def local_latest_path_for_remote_url(url: str) -> Path | None:
+    prefix = f"{REMOTE_LATEST_BASE}/"
+    if not url.startswith(prefix):
+        return None
+    filename = url[len(prefix) :].split("?", 1)[0]
+    if not filename or "/" in filename or "\\" in filename:
+        return None
+    local_path = LATEST / filename
+    return local_path if local_path.exists() else None
+
+
 def read_csv(path: Path | str, **kwargs) -> pd.DataFrame:
     kwargs.setdefault("encoding", "utf-8-sig")
     kwargs.setdefault("low_memory", False)
     if isinstance(path, str) and path.startswith(("http://", "https://")):
-        text = fetch_text_no_cache(path)
-        if not text.strip():
-            return pd.DataFrame()
-        df = pd.read_csv(StringIO(text), **kwargs)
+        try:
+            text = fetch_text_no_cache(path)
+        except urllib.error.HTTPError as exc:
+            local_fallback = local_latest_path_for_remote_url(path)
+            if exc.code != 429 or local_fallback is None:
+                raise
+            df = pd.read_csv(local_fallback, **kwargs)
+        else:
+            if not text.strip():
+                return pd.DataFrame()
+            df = pd.read_csv(StringIO(text), **kwargs)
     else:
         file_path = Path(path)
         if not file_path.exists():
@@ -2298,8 +2317,8 @@ def w_bottom_operation_row_matches_line(row: pd.Series, line: str | None) -> boo
     if not line:
         return True
     report_line = clean(row.get("report_line"))
-    if report_line == line or report_line == "both":
-        return True
+    if report_line:
+        return report_line == line or report_line == "both"
     memberships = clean(row.get("report_line_memberships"))
     if memberships:
         tokens = {token.strip() for token in re.split(r"[|,;]", memberships) if token.strip()}
@@ -2317,8 +2336,8 @@ def price_pullback_operation_row_matches_line(row: pd.Series, line: str | None) 
     if not line:
         return True
     report_line = clean(row.get("report_line"))
-    if report_line == line or report_line == "both":
-        return True
+    if report_line:
+        return report_line == line or report_line == "both"
     memberships = clean(row.get("report_line_memberships"))
     if memberships:
         tokens = {token.strip() for token in re.split(r"[|,;]", memberships) if token.strip()}

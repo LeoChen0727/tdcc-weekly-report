@@ -398,6 +398,8 @@ def semantic_rows_matching(rows: list[dict[str, str]], case: dict[str, str]) -> 
     def value(name: str) -> str:
         return str(case.get(name, "") or "").strip()
 
+    rendered_row_type = value("rendered_row_type") or "data"
+    empty_state_text = value("empty_state_text")
     filters = {
         "pdf_role": value("pdf_role"),
         "model_id": value("model_id"),
@@ -406,7 +408,9 @@ def semantic_rows_matching(rows: list[dict[str, str]], case: dict[str, str]) -> 
     }
     matched = []
     for row in rows:
-        if str(row.get("rendered_row_type", "")).strip() != "data":
+        if str(row.get("rendered_row_type", "")).strip() != rendered_row_type:
+            continue
+        if empty_state_text and str(row.get("empty_state_text", "")).strip() != empty_state_text:
             continue
         if all(not expected or str(row.get(column, "")).strip() == expected for column, expected in filters.items()):
             matched.append(row)
@@ -441,6 +445,17 @@ def validate_semantic_golden_cases(
         elif expectation == "absent":
             if matched:
                 errors.append(f"{case_id}: expected absent semantic row, observed={len(matched)}")
+        elif expectation == "count_equals":
+            expected_count_text = str(case.get("expected_count", "")).strip()
+            try:
+                expected_count = int(expected_count_text)
+            except ValueError:
+                errors.append(f"{case_id}: invalid expected_count={expected_count_text!r}")
+                continue
+            if len(matched) != expected_count:
+                errors.append(
+                    f"{case_id}: expected semantic row count={expected_count}, observed={len(matched)}"
+                )
         else:
             errors.append(f"{case_id}: unsupported expectation={expectation!r}")
     return errors
