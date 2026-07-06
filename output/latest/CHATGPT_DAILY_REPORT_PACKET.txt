@@ -1,6 +1,6 @@
 CHATGPT DAILY REPORT PACKET
 
-generated_at: 2026-07-06 19:20:29 Asia/Taipei
+generated_at: 2026-07-06 19:39:53 Asia/Taipei
 repo: LeoChen0727/tdcc-weekly-report
 main_price_date: 20260706
 report_ready: True
@@ -77,7 +77,7 @@ EMBEDDED DAILY SHORT-TERM SPECIALTY PACKET
 # DAILY SHORT-TERM SPECIALTY PACKET
 
 ## Metadata
-- generated_at: `2026-07-06 11:19:40 UTC`
+- generated_at: `2026-07-06 11:39:00 UTC`
 - main_price_date: `20260706`
 - purpose: Force daily reports to include short-term research-stat support sections without removing active D+5/D+10 core model rows.
 - market_abnormal_status_path: `output/latest/market_abnormal_status_latest.csv`
@@ -182,8 +182,8 @@ EMBEDDED DAILY SHORT-TERM SPECIALTY PACKET
 | day_vol_ge_2 + tdcc_high_streak2 + bb_width_not_extreme + return_10d_20_50 | D+5 | 39 | 42.11 | -1.76 | -1.64 | -8.8 | -18.35 | 46.15 | 8.54 | -8.71 | -20.0 |
 | vol5_avg_ge_3 + market_strong_bull + tdcc_all_up + kd_bullish_not_overheated + return_5d_10_30 | D+5 | 50 | 42.0 | -0.02 | -1.87 | -5.76 | -15.96 | 46.0 | 7.54 | -5.43 | -17.34 |
 | vol5_avg_ge_3 + tdcc_high_up + kd_bullish_not_overheated + bb_width_not_extreme + return_20d_10_60 | D+5 | 35 | 54.55 | 2.63 | 1.54 | -6.62 | -14.15 | 45.71 | 8.54 | -5.52 | -14.87 |
-| vol5_avg_ge_3 + tdcc_high_up + kd_bullish_not_overheated + bb_width_not_extreme + near_60d_high_5pct | D+5 | 33 | 54.84 | 2.9 | 1.54 | -4.79 | -11.55 | 45.45 | 6.71 | -4.73 | -12.55 |
 | vol5_avg_ge_3 + tdcc_all_up + kd_bullish_not_overheated + bb_width_not_extreme + return_10d_10_40 | D+5 | 33 | 50.0 | 2.05 | 0.28 | -5.51 | -15.96 | 45.45 | 8.54 | -5.97 | -17.34 |
+| vol5_avg_ge_3 + tdcc_high_up + kd_bullish_not_overheated + bb_width_not_extreme + near_60d_high_5pct | D+5 | 33 | 54.84 | 2.9 | 1.54 | -4.79 | -11.55 | 45.45 | 6.71 | -4.73 | -12.55 |
 | vol5_avg_ge_3 + market_strong_bull + tdcc_high_up + bb_width_not_extreme + return_5d_10_30 | D+5 | 31 | 45.16 | -0.82 | -3.04 | -7.92 | -23.85 | 45.16 | 6.98 | -7.08 | -24.97 |
 
 ### D+10 Parameter Table
@@ -200,7 +200,7 @@ EMBEDDED DAILY SHORT-TERM SPECIALTY PACKET
 | vol5_avg_ge_3 + tdcc_all_up + bb_width_not_extreme + return_20d_10_60 | D+10 | 54 | 51.28 | 2.28 | 0.32 | -8.7 | -18.6 | 59.26 | 13.39 | -8.28 | -25.98 |
 | vol5_avg_ge_3 + market_strong_bull + tdcc_all_up + rsi_50_75 + return_5d_10_30 | D+10 | 51 | 57.14 | 5.61 | 2.8 | -6.42 | -18.6 | 58.82 | 11.19 | -7.88 | -24.97 |
 | vol5_avg_ge_3 + tdcc_all_up + bb_width_not_extreme + return_5d_5_20 | D+10 | 53 | 50.0 | 2.46 | -0.29 | -9.66 | -19.28 | 58.49 | 13.99 | -7.54 | -20.8 |
-| vol5_avg_ge_3 + market_strong_bull + tdcc_all_up + kd_bullish_not_overheated + return_5d_5_20 | D+10 | 48 | 51.22 | 2.63 | 0.42 | -5.82 | -18.6 | 58.33 | 13.29 | -6.51 | -20.43 |
+| vol5_avg_ge_3 + market_strong_bull + tdcc_all_up + kd_bullish_not_overheated + return_20d_10_60 | D+10 | 48 | 54.55 | 3.2 | 1.14 | -7.07 | -18.6 | 58.33 | 13.78 | -7.26 | -20.43 |
 
 ### Current Strict Research Candidates
 | research_priority | stock_id | stock_name | matched_rules | best_d5_hit_rate_pct | best_d10_hit_rate_pct | best_d10_rule | market_abnormal_status | market_abnormal_risk_level | execution_risk_note | research_caveat |
@@ -306,74 +306,74 @@ EMBEDDED DAILY SHORT-TERM SPECIALTY PACKET
 ### D+5 Explosive Volume By Price Position
 | signal_quality_bucket | price_position_bucket | market_theme_group | theme_group_source | theme_structural_status | 結構族群 | theme_mainstream_label | theme_status_group | horizon | volume_ratio_threshold | min_signal_return_pct | mature_count | close_win_rate_pct |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 日內區間資料不足 | 低位爆量反轉 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 2 | 7 | 1 | 100.0 |
-| 日內區間資料不足 | 低位爆量反轉 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 2 | 5 | 1 | 100.0 |
-| 日內區間資料不足 | 低位爆量反轉 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 2 | 3 | 1 | 100.0 |
-| 日內區間資料不足 | 低位爆量反轉 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 2 | 0 | 1 | 100.0 |
-| red_candle_but_not_strong_close | 近高放量攻擊 | ai_server_theme | 結構族群 | 核心主流題材 | ai_server_theme | 主流成長題材 | 族群脈絡不足 | D+5 | 8 | 0 | 1 | 100.0 |
-| red_candle_but_not_strong_close | 近高放量攻擊 | ai_server_theme | 結構族群 | 核心主流題材 | ai_server_theme | 主流成長題材 | 族群脈絡不足 | D+5 | 10 | 0 | 1 | 100.0 |
-| red_candle_but_not_strong_close | 近高放量攻擊 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 4 | 5 | 2 | 100.0 |
-| red_candle_but_not_strong_close | 近高放量攻擊 | ai_server_theme | 結構族群 | 核心主流題材 | ai_server_theme | 主流成長題材 | 族群脈絡不足 | D+5 | 5 | 0 | 2 | 100.0 |
-| red_candle_but_not_strong_close | 近高放量攻擊 | 被動元件族群 | 結構族群 | 核心主流題材 | 被動元件族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 5 | 0 | 4 | 100.0 |
-| red_candle_but_not_strong_close | 近高放量攻擊 | 被動元件族群 | 結構族群 | 核心主流題材 | 被動元件族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 4 | 0 | 4 | 100.0 |
-| red_candle_but_not_strong_close | 近高放量攻擊 | 被動元件族群 | 結構族群 | 核心主流題材 | 被動元件族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 8 | 0 | 2 | 100.0 |
-| red_candle_but_not_strong_close | 近高放量攻擊 | 被動元件族群 | 結構族群 | 核心主流題材 | 被動元件族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 3 | 3 | 3 | 100.0 |
-| red_candle_but_not_strong_close | 中位放量攻擊 | glass_fiber_ccl_theme | 結構族群 | 核心主流題材 | glass_fiber_ccl_theme | 主流成長題材 | 族群脈絡不足 | D+5 | 2 | 3 | 2 | 100.0 |
-| red_candle_but_not_strong_close | 中位放量攻擊 | 半導體設備族群 | 結構族群 | 核心主流題材 | 半導體設備族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 3 | 3 | 2 | 100.0 |
-| red_candle_but_not_strong_close | 中位放量攻擊 | 消費電子族群 | 結構族群 | 核心主流題材 | 消費電子族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 2 | 0 | 1 | 100.0 |
-| red_candle_but_not_strong_close | 低中位站回放量攻擊 | 被動元件族群 | 結構族群 | 核心主流題材 | 被動元件族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 3 | 3 | 1 | 100.0 |
-| red_candle_but_not_strong_close | 中位放量攻擊 | 消費電子族群 | 結構族群 | 核心主流題材 | 消費電子族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 2 | 3 | 1 | 100.0 |
-| red_candle_but_not_strong_close | 中位放量攻擊 | glass_fiber_ccl_theme | 結構族群 | 核心主流題材 | glass_fiber_ccl_theme | 主流成長題材 | 族群脈絡不足 | D+5 | 2 | 5 | 1 | 100.0 |
-| red_candle_but_not_strong_close | 中位放量攻擊 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 5 | 3 | 1 | 100.0 |
-| red_candle_but_not_strong_close | 中位放量攻擊 | 半導體設備族群 | 結構族群 | 核心主流題材 | 半導體設備族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 2 | 3 | 3 | 100.0 |
+| 強紅K收近高 | 近高放量攻擊 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 8 | 7 | 3 | 100.0 |
+| 強紅K收近高 | 近高放量攻擊 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 8 | 5 | 3 | 100.0 |
+| 強紅K收近高 | 近高放量攻擊 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 8 | 3 | 3 | 100.0 |
+| 強紅K收近高 | 近高放量攻擊 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 8 | 0 | 3 | 100.0 |
+| 強紅K收近高 | 近高放量攻擊 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 10 | 7 | 2 | 100.0 |
+| 強紅K收近高 | 近高放量攻擊 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 10 | 5 | 2 | 100.0 |
+| 強紅K收近高 | 近高放量攻擊 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 10 | 3 | 2 | 100.0 |
+| 強紅K收近高 | 近高放量攻擊 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 10 | 0 | 2 | 100.0 |
+| 強紅K收近高 | 近高放量攻擊 | 消費電子族群 | 結構族群 | 核心主流題材 | 消費電子族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 6 | 7 | 1 | 100.0 |
+| 強紅K收近高 | 近高放量攻擊 | 消費電子族群 | 結構族群 | 核心主流題材 | 消費電子族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 6 | 5 | 1 | 100.0 |
+| 強紅K收近高 | 近高放量攻擊 | 消費電子族群 | 結構族群 | 核心主流題材 | 消費電子族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 6 | 3 | 1 | 100.0 |
+| 強紅K收近高 | 近高放量攻擊 | 消費電子族群 | 結構族群 | 核心主流題材 | 消費電子族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 6 | 0 | 1 | 100.0 |
+| 強紅K收近高 | 近高放量攻擊 | 消費電子族群 | 結構族群 | 核心主流題材 | 消費電子族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 8 | 7 | 1 | 100.0 |
+| 強紅K收近高 | 近高放量攻擊 | 消費電子族群 | 結構族群 | 核心主流題材 | 消費電子族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 8 | 5 | 1 | 100.0 |
+| 強紅K收近高 | 近高放量攻擊 | 消費電子族群 | 結構族群 | 核心主流題材 | 消費電子族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 8 | 3 | 1 | 100.0 |
+| 強紅K收近高 | 近高放量攻擊 | 消費電子族群 | 結構族群 | 核心主流題材 | 消費電子族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 8 | 0 | 1 | 100.0 |
+| 強紅K收近高 | 近高放量攻擊 | 消費電子族群 | 結構族群 | 核心主流題材 | 消費電子族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 10 | 7 | 1 | 100.0 |
+| 日內區間資料不足 | 高位延伸或追價 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 8 | 7 | 1 | 100.0 |
+| 日內區間資料不足 | 高位延伸或追價 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 8 | 5 | 1 | 100.0 |
+| 日內區間資料不足 | 高位延伸或追價 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 8 | 3 | 1 | 100.0 |
 
 ### D+10 Explosive Volume By Price Position
 | signal_quality_bucket | price_position_bucket | market_theme_group | theme_group_source | theme_structural_status | 結構族群 | theme_mainstream_label | theme_status_group | horizon | volume_ratio_threshold | min_signal_return_pct | mature_count | close_win_rate_pct |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 日內區間資料不足 | 低位爆量反轉 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+10 | 2 | 7 | 1 | 100.0 |
-| 日內區間資料不足 | 低位爆量反轉 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+10 | 2 | 5 | 1 | 100.0 |
-| 日內區間資料不足 | 低位爆量反轉 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+10 | 2 | 3 | 1 | 100.0 |
-| 日內區間資料不足 | 低位爆量反轉 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+10 | 2 | 0 | 1 | 100.0 |
-| red_candle_but_not_strong_close | 近高放量攻擊 | low_earth_orbit_satellite_theme | 結構族群 | 核心主流題材 | low_earth_orbit_satellite_theme | 主流成長題材 | 族群脈絡不足 | D+10 | 4 | 5 | 1 | 100.0 |
-| red_candle_but_not_strong_close | 近高放量攻擊 | low_earth_orbit_satellite_theme | 結構族群 | 核心主流題材 | low_earth_orbit_satellite_theme | 主流成長題材 | 族群脈絡不足 | D+10 | 3 | 5 | 1 | 100.0 |
-| red_candle_but_not_strong_close | 近高放量攻擊 | glass_fiber_ccl_theme | 結構族群 | 核心主流題材 | glass_fiber_ccl_theme | 主流成長題材 | 族群脈絡不足 | D+10 | 6 | 3 | 1 | 100.0 |
-| red_candle_but_not_strong_close | 近高放量攻擊 | glass_fiber_ccl_theme | 結構族群 | 核心主流題材 | glass_fiber_ccl_theme | 主流成長題材 | 族群脈絡不足 | D+10 | 5 | 3 | 1 | 100.0 |
-| red_candle_but_not_strong_close | 近高放量攻擊 | low_earth_orbit_satellite_theme | 結構族群 | 核心主流題材 | low_earth_orbit_satellite_theme | 主流成長題材 | 族群脈絡不足 | D+10 | 10 | 0 | 1 | 100.0 |
-| red_candle_but_not_strong_close | 近高放量攻擊 | low_earth_orbit_satellite_theme | 結構族群 | 核心主流題材 | low_earth_orbit_satellite_theme | 主流成長題材 | 族群脈絡不足 | D+10 | 10 | 3 | 1 | 100.0 |
-| red_candle_but_not_strong_close | 近高放量攻擊 | glass_fiber_ccl_theme | 結構族群 | 核心主流題材 | glass_fiber_ccl_theme | 主流成長題材 | 族群脈絡不足 | D+10 | 4 | 3 | 2 | 100.0 |
-| 紅K小上影 | 低位爆量反轉 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+10 | 2 | 5 | 1 | 100.0 |
-| 紅K小上影 | 低位爆量反轉 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+10 | 2 | 0 | 3 | 100.0 |
-| 紅K小上影 | 低位爆量反轉 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+10 | 2 | 3 | 3 | 100.0 |
-| 紅K小上影 | 低位爆量反轉 | 族群脈絡不足 | unavailable | 族群脈絡不足 | 族群脈絡不足 | 族群脈絡不足 | 族群脈絡不足 | D+10 | 10 | 3 | 3 | 100.0 |
-| red_candle_but_not_strong_close | 近高放量攻擊 | low_earth_orbit_satellite_theme | 結構族群 | 核心主流題材 | low_earth_orbit_satellite_theme | 主流成長題材 | 族群脈絡不足 | D+10 | 5 | 5 | 1 | 100.0 |
-| red_candle_but_not_strong_close | 近高放量攻擊 | 消費電子族群 | 結構族群 | 核心主流題材 | 消費電子族群 | 主流成長題材 | 族群脈絡不足 | D+10 | 5 | 3 | 2 | 100.0 |
-| red_candle_but_not_strong_close | 近高放量攻擊 | 消費電子族群 | 結構族群 | 核心主流題材 | 消費電子族群 | 主流成長題材 | 族群脈絡不足 | D+10 | 4 | 0 | 2 | 100.0 |
-| red_candle_but_not_strong_close | 近高放量攻擊 | 消費電子族群 | 結構族群 | 核心主流題材 | 消費電子族群 | 主流成長題材 | 族群脈絡不足 | D+10 | 4 | 3 | 2 | 100.0 |
-| red_candle_but_not_strong_close | 近高放量攻擊 | 消費電子族群 | 結構族群 | 核心主流題材 | 消費電子族群 | 主流成長題材 | 族群脈絡不足 | D+10 | 3 | 0 | 2 | 100.0 |
+| 強紅K收近高 | 近高放量攻擊 | low_earth_orbit_satellite_theme | 結構族群 | 核心主流題材 | low_earth_orbit_satellite_theme | 主流成長題材 | 族群脈絡不足 | D+10 | 8 | 7 | 1 | 100.0 |
+| 強紅K收近高 | 近高放量攻擊 | low_earth_orbit_satellite_theme | 結構族群 | 核心主流題材 | low_earth_orbit_satellite_theme | 主流成長題材 | 族群脈絡不足 | D+10 | 8 | 5 | 1 | 100.0 |
+| 強紅K收近高 | 近高放量攻擊 | low_earth_orbit_satellite_theme | 結構族群 | 核心主流題材 | low_earth_orbit_satellite_theme | 主流成長題材 | 族群脈絡不足 | D+10 | 8 | 3 | 1 | 100.0 |
+| 強紅K收近高 | 近高放量攻擊 | low_earth_orbit_satellite_theme | 結構族群 | 核心主流題材 | low_earth_orbit_satellite_theme | 主流成長題材 | 族群脈絡不足 | D+10 | 8 | 0 | 1 | 100.0 |
+| 強紅K收近高 | 近高放量攻擊 | low_earth_orbit_satellite_theme | 結構族群 | 核心主流題材 | low_earth_orbit_satellite_theme | 主流成長題材 | 族群脈絡不足 | D+10 | 10 | 7 | 1 | 100.0 |
+| 強紅K收近高 | 近高放量攻擊 | low_earth_orbit_satellite_theme | 結構族群 | 核心主流題材 | low_earth_orbit_satellite_theme | 主流成長題材 | 族群脈絡不足 | D+10 | 10 | 5 | 1 | 100.0 |
+| 強紅K收近高 | 近高放量攻擊 | low_earth_orbit_satellite_theme | 結構族群 | 核心主流題材 | low_earth_orbit_satellite_theme | 主流成長題材 | 族群脈絡不足 | D+10 | 10 | 3 | 1 | 100.0 |
+| 強紅K收近高 | 近高放量攻擊 | low_earth_orbit_satellite_theme | 結構族群 | 核心主流題材 | low_earth_orbit_satellite_theme | 主流成長題材 | 族群脈絡不足 | D+10 | 10 | 0 | 1 | 100.0 |
+| 強紅K收近高 | 近高放量攻擊 | 消費電子族群 | 結構族群 | 核心主流題材 | 消費電子族群 | 主流成長題材 | 族群脈絡不足 | D+10 | 6 | 7 | 1 | 100.0 |
+| 強紅K收近高 | 近高放量攻擊 | 消費電子族群 | 結構族群 | 核心主流題材 | 消費電子族群 | 主流成長題材 | 族群脈絡不足 | D+10 | 6 | 5 | 1 | 100.0 |
+| 強紅K收近高 | 近高放量攻擊 | 消費電子族群 | 結構族群 | 核心主流題材 | 消費電子族群 | 主流成長題材 | 族群脈絡不足 | D+10 | 6 | 3 | 1 | 100.0 |
+| 強紅K收近高 | 近高放量攻擊 | 消費電子族群 | 結構族群 | 核心主流題材 | 消費電子族群 | 主流成長題材 | 族群脈絡不足 | D+10 | 6 | 0 | 1 | 100.0 |
+| 強紅K收近高 | 近高放量攻擊 | 消費電子族群 | 結構族群 | 核心主流題材 | 消費電子族群 | 主流成長題材 | 族群脈絡不足 | D+10 | 8 | 7 | 1 | 100.0 |
+| 強紅K收近高 | 近高放量攻擊 | 消費電子族群 | 結構族群 | 核心主流題材 | 消費電子族群 | 主流成長題材 | 族群脈絡不足 | D+10 | 8 | 5 | 1 | 100.0 |
+| 強紅K收近高 | 近高放量攻擊 | 消費電子族群 | 結構族群 | 核心主流題材 | 消費電子族群 | 主流成長題材 | 族群脈絡不足 | D+10 | 8 | 3 | 1 | 100.0 |
+| 強紅K收近高 | 近高放量攻擊 | 消費電子族群 | 結構族群 | 核心主流題材 | 消費電子族群 | 主流成長題材 | 族群脈絡不足 | D+10 | 8 | 0 | 1 | 100.0 |
+| 強紅K收近高 | 近高放量攻擊 | 消費電子族群 | 結構族群 | 核心主流題材 | 消費電子族群 | 主流成長題材 | 族群脈絡不足 | D+10 | 10 | 7 | 1 | 100.0 |
+| 強紅K收近高 | 近高放量攻擊 | 消費電子族群 | 結構族群 | 核心主流題材 | 消費電子族群 | 主流成長題材 | 族群脈絡不足 | D+10 | 10 | 5 | 1 | 100.0 |
+| 強紅K收近高 | 近高放量攻擊 | 消費電子族群 | 結構族群 | 核心主流題材 | 消費電子族群 | 主流成長題材 | 族群脈絡不足 | D+10 | 10 | 3 | 1 | 100.0 |
+| 強紅K收近高 | 近高放量攻擊 | 消費電子族群 | 結構族群 | 核心主流題材 | 消費電子族群 | 主流成長題材 | 族群脈絡不足 | D+10 | 10 | 0 | 1 | 100.0 |
 
 ### D+20 Explosive Volume By Price Position
 | signal_quality_bucket | price_position_bucket | market_theme_group | theme_group_source | theme_structural_status | 結構族群 | theme_mainstream_label | theme_status_group | horizon | volume_ratio_threshold | min_signal_return_pct | mature_count | close_win_rate_pct |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 強紅K收近高 | 近高放量攻擊 | pcb_ccl_theme | 結構族群 | 核心主流題材 | pcb_ccl_theme | 主流成長題材 | 族群脈絡不足 | D+20 | 10 | 0 | 1 | 100.0 |
-| 強紅K收近高 | 近高放量攻擊 | pcb_ccl_theme | 結構族群 | 核心主流題材 | pcb_ccl_theme | 主流成長題材 | 族群脈絡不足 | D+20 | 10 | 7 | 1 | 100.0 |
-| 強紅K收近高 | 近高放量攻擊 | pcb_ccl_theme | 結構族群 | 核心主流題材 | pcb_ccl_theme | 主流成長題材 | 族群脈絡不足 | D+20 | 10 | 5 | 1 | 100.0 |
-| 強紅K收近高 | 近高放量攻擊 | pcb_ccl_theme | 結構族群 | 核心主流題材 | pcb_ccl_theme | 主流成長題材 | 族群脈絡不足 | D+20 | 10 | 3 | 1 | 100.0 |
-| 紅K小上影 | 近高放量攻擊 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+20 | 4 | 5 | 2 | 100.0 |
-| 強紅K收近高 | 低位爆量反轉 | ai_server_theme | 結構族群 | 核心主流題材 | ai_server_theme | 主流成長題材 | 族群脈絡不足 | D+20 | 3 | 0 | 1 | 100.0 |
-| 紅K小上影 | 近高放量攻擊 | 消費電子族群 | 結構族群 | 核心主流題材 | 消費電子族群 | 主流成長題材 | 族群脈絡不足 | D+20 | 3 | 0 | 1 | 100.0 |
-| 紅K小上影 | 近高放量攻擊 | 消費電子族群 | 結構族群 | 核心主流題材 | 消費電子族群 | 主流成長題材 | 族群脈絡不足 | D+20 | 3 | 3 | 1 | 100.0 |
-| 紅K小上影 | 近高放量攻擊 | 消費電子族群 | 結構族群 | 核心主流題材 | 消費電子族群 | 主流成長題材 | 族群脈絡不足 | D+20 | 3 | 5 | 1 | 100.0 |
-| 紅K小上影 | 近高放量攻擊 | 消費電子族群 | 結構族群 | 核心主流題材 | 消費電子族群 | 主流成長題材 | 族群脈絡不足 | D+20 | 2 | 0 | 1 | 100.0 |
-| 紅K小上影 | 近高放量攻擊 | 消費電子族群 | 結構族群 | 核心主流題材 | 消費電子族群 | 主流成長題材 | 族群脈絡不足 | D+20 | 2 | 3 | 1 | 100.0 |
+| red_candle_but_not_strong_close | 中位放量攻擊 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+20 | 5 | 3 | 1 | 100.0 |
+| red_candle_but_not_strong_close | 中位放量攻擊 | 半導體設備族群 | 結構族群 | 核心主流題材 | 半導體設備族群 | 主流成長題材 | 族群脈絡不足 | D+20 | 4 | 0 | 1 | 100.0 |
 | 紅K小上影 | 近高放量攻擊 | 消費電子族群 | 結構族群 | 核心主流題材 | 消費電子族群 | 主流成長題材 | 族群脈絡不足 | D+20 | 2 | 5 | 1 | 100.0 |
-| 紅K小上影 | 近高放量攻擊 | glass_fiber_ccl_theme | 結構族群 | 核心主流題材 | glass_fiber_ccl_theme | 主流成長題材 | 族群脈絡不足 | D+20 | 4 | 0 | 1 | 100.0 |
-| 紅K小上影 | 近高放量攻擊 | glass_fiber_ccl_theme | 結構族群 | 核心主流題材 | glass_fiber_ccl_theme | 主流成長題材 | 族群脈絡不足 | D+20 | 4 | 3 | 1 | 100.0 |
-| 紅K小上影 | 中位放量攻擊 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+20 | 3 | 0 | 3 | 100.0 |
-| 紅K小上影 | 中位放量攻擊 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+20 | 3 | 5 | 1 | 100.0 |
-| 紅K小上影 | 中位放量攻擊 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+20 | 3 | 7 | 1 | 100.0 |
-| 紅K小上影 | 中位放量攻擊 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+20 | 2 | 5 | 1 | 100.0 |
-| 紅K小上影 | 近高放量攻擊 | network_communication_theme | 結構族群 | 核心主流題材 | network_communication_theme | 主流成長題材 | 族群脈絡不足 | D+20 | 3 | 7 | 1 | 100.0 |
-| 紅K小上影 | 近高放量攻擊 | network_communication_theme | 結構族群 | 核心主流題材 | network_communication_theme | 主流成長題材 | 族群脈絡不足 | D+20 | 2 | 7 | 1 | 100.0 |
+| 紅K小上影 | 近高放量攻擊 | 消費電子族群 | 結構族群 | 核心主流題材 | 消費電子族群 | 主流成長題材 | 族群脈絡不足 | D+20 | 2 | 3 | 1 | 100.0 |
+| 紅K小上影 | 近高放量攻擊 | 消費電子族群 | 結構族群 | 核心主流題材 | 消費電子族群 | 主流成長題材 | 族群脈絡不足 | D+20 | 2 | 0 | 1 | 100.0 |
+| 紅K小上影 | 近高放量攻擊 | 消費電子族群 | 結構族群 | 核心主流題材 | 消費電子族群 | 主流成長題材 | 族群脈絡不足 | D+20 | 3 | 5 | 1 | 100.0 |
+| 紅K小上影 | 近高放量攻擊 | 消費電子族群 | 結構族群 | 核心主流題材 | 消費電子族群 | 主流成長題材 | 族群脈絡不足 | D+20 | 3 | 3 | 1 | 100.0 |
+| 紅K小上影 | 近高放量攻擊 | 消費電子族群 | 結構族群 | 核心主流題材 | 消費電子族群 | 主流成長題材 | 族群脈絡不足 | D+20 | 3 | 0 | 1 | 100.0 |
+| red_candle_but_not_strong_close | 中位放量攻擊 | pcb_ccl_theme | 結構族群 | 核心主流題材 | pcb_ccl_theme | 主流成長題材 | 族群脈絡不足 | D+20 | 2 | 3 | 1 | 100.0 |
+| red_candle_but_not_strong_close | 中位放量攻擊 | pcb_ccl_theme | 結構族群 | 核心主流題材 | pcb_ccl_theme | 主流成長題材 | 族群脈絡不足 | D+20 | 2 | 0 | 1 | 100.0 |
+| red_candle_but_not_strong_close | 中位放量攻擊 | 被動元件族群 | 結構族群 | 核心主流題材 | 被動元件族群 | 主流成長題材 | 族群脈絡不足 | D+20 | 3 | 0 | 1 | 100.0 |
+| red_candle_but_not_strong_close | 中位放量攻擊 | glass_fiber_ccl_theme | 結構族群 | 核心主流題材 | glass_fiber_ccl_theme | 主流成長題材 | 族群脈絡不足 | D+20 | 2 | 5 | 1 | 100.0 |
+| red_candle_but_not_strong_close | 中位放量攻擊 | 消費電子族群 | 結構族群 | 核心主流題材 | 消費電子族群 | 主流成長題材 | 族群脈絡不足 | D+20 | 2 | 3 | 1 | 100.0 |
+| 紅K小上影 | 長底低位爆量反轉 | pcb_ccl_theme | 結構族群 | 核心主流題材 | pcb_ccl_theme | 主流成長題材 | 族群脈絡不足 | D+20 | 2 | 0 | 1 | 100.0 |
+| red_candle_but_not_strong_close | 中位放量攻擊 | 消費電子族群 | 結構族群 | 核心主流題材 | 消費電子族群 | 主流成長題材 | 族群脈絡不足 | D+20 | 2 | 0 | 1 | 100.0 |
+| red_candle_but_not_strong_close | 中位放量攻擊 | 半導體設備族群 | 結構族群 | 核心主流題材 | 半導體設備族群 | 主流成長題材 | 族群脈絡不足 | D+20 | 3 | 3 | 2 | 100.0 |
+| red_candle_but_not_strong_close | 中位放量攻擊 | glass_fiber_ccl_theme | 結構族群 | 核心主流題材 | glass_fiber_ccl_theme | 主流成長題材 | 族群脈絡不足 | D+20 | 2 | 3 | 2 | 100.0 |
+| red_candle_but_not_strong_close | 中位放量攻擊 | 半導體設備族群 | 結構族群 | 核心主流題材 | 半導體設備族群 | 主流成長題材 | 族群脈絡不足 | D+20 | 3 | 0 | 3 | 100.0 |
+| red_candle_but_not_strong_close | 中位放量攻擊 | glass_fiber_ccl_theme | 結構族群 | 核心主流題材 | glass_fiber_ccl_theme | 主流成長題材 | 族群脈絡不足 | D+20 | 2 | 0 | 4 | 100.0 |
+| 紅K小上影 | 近高放量攻擊 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+20 | 4 | 5 | 2 | 100.0 |
 
 ### Latest Explosive Volume Events
 | date | stock_id | stock_name | industry | market | close | volume_ratio_vs_prev20 | signal_return_1d_pct | signal_quality_bucket | price_position_bucket | market_theme_group | theme_group_source | theme_structural_status | 結構族群 | theme_mainstream_label | next_open_to_d10_max_high_return_pct | next_open_to_d20_max_high_return_pct |
@@ -464,7 +464,7 @@ performance_csv_path: output/history/daily_signals/daily_candidate_signal_perfor
 summary_latest_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_signal_performance_summary_latest.md
 weekly_report_pdf_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_signal_performance_weekly_latest.pdf
 monthly_report_pdf_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_signal_performance_monthly_latest.pdf
-last_updated_at: 2026-07-06 19:20:29 Asia/Taipei
+last_updated_at: 2026-07-06 19:39:53 Asia/Taipei
 status: generated
 
 CANDIDATE REPEAT APPEARANCE
@@ -639,7 +639,7 @@ EMBEDDED SUMMARY REPORT
 # 每日全市場候選股監測報告 - 精華版
 
 - 主資料日期：`20260706`
-- 產生時間：`2026-07-06 19:20:00 Asia/Taipei`
+- 產生時間：`2026-07-06 19:39:21 Asia/Taipei`
 - 是否可產出正式每日報告：`True`
 - 判斷說明：core daily data dates match main_price_date
 - 權證資料日期：`20260706`
@@ -670,17 +670,17 @@ EMBEDDED SUMMARY REPORT
 | 股票 | 原始分類 | 催化標籤 / 反應程度 | TDCC |
 |---|---|---|---|
 | 2317 鴻海 | 營收成長股價回檔 | score 44 / theme 100.0/5 / revenue_good_eps_unconfirmed;event_confirmed;low_reaction_after_catalyst;new_order;其他電子業;divi... | 大戶同步增加 |
-| 3036 文曄 | 營收成長股價回檔 | score 44 / theme 100.0/5 / revenue_good_eps_unconfirmed;event_confirmed;low_reaction_after_catalyst;new_order;電子通路業;mont... | 大戶溫和增加 |
 | 2606 裕民 | 營收成長股價回檔 | score 44 / theme 100.0/5 / revenue_good_eps_unconfirmed;event_confirmed;low_reaction_after_catalyst;new_order;航運業;monthl... | 大戶同步增加 |
+| 3036 文曄 | 營收成長股價回檔 | score 44 / theme 100.0/5 / revenue_good_eps_unconfirmed;event_confirmed;low_reaction_after_catalyst;new_order;電子通路業;mont... | 大戶溫和增加 |
 | 2356 英業達 | 營收成長股價回檔 | score 44 / theme 100.0/5 / revenue_good_eps_unconfirmed;event_confirmed;low_reaction_after_catalyst;new_order;電腦及週邊設備業;d... | 大戶同步增加 |
 | 2610 華航 | 營收成長股價回檔 | score 34 / theme 100.0/5 / revenue_good_eps_unconfirmed;event_confirmed;new_order;航運業;dividend_calendar;calendar_ex_divi... | 大戶溫和增加 |
 | 2912 統一超 | 區間內轉強 / 挑戰前高觀察 | score 34 / theme 17.9/5 / event_confirmed;low_reaction_after_catalyst;new_order;貿易百貨;monthly_revenue_calendar;calendar_m... | 大戶溫和增加 |
 | 2356 英業達 | 型態觀察 | score 34 / theme 100.0/5 / event_confirmed;low_reaction_after_catalyst;new_order;電腦及週邊設備業;dividend_calendar;calendar_ex_... | 大戶同步增加 |
-| 2425 承啟 | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;shareholder_meeting;電腦及週邊設備業;dividen... | 大戶溫和增加 |
-| 3048 益登 | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;material_information;電子通路業;dividend_... | 大戶同步增加 |
 | 9945 潤泰新 | 營收爆發低反應股 | score 28 / theme 91.4/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;investor_conference;neutral;dividend_... | 大戶溫和增加 |
+| 3048 益登 | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;material_information;電子通路業;dividend_... | 大戶同步增加 |
+| 2425 承啟 | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;shareholder_meeting;電腦及週邊設備業;dividen... | 大戶溫和增加 |
 | 2425 承啟 | 營收爆發低反應股 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;shareholder_meeting;mainstream_growt... | 大戶溫和增加 |
-| 4772 台特化 | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_mo... | 大戶溫和增加 |
+| 5905 南仁湖 | 營收成長股價回檔 | score 28 / theme 12.1/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_mon... | 大戶溫和增加 |
 
 ## 精華候選股
 
@@ -1064,7 +1064,7 @@ EMBEDDED FULL REPORT
 # 完整候選股清單 - 完整版
 
 - 主資料日期：`20260706`
-- 產生時間：`2026-07-06 19:20:00 Asia/Taipei`
+- 產生時間：`2026-07-06 19:39:21 Asia/Taipei`
 - 是否可產出正式每日報告：`True`
 - 權證資料日期：`20260706`
 

@@ -1,7 +1,7 @@
 # 每日全市場候選股監測報告 - 精華版
 
 - 主資料日期：`20260706`
-- 產生時間：`2026-07-06 19:20:00 Asia/Taipei`
+- 產生時間：`2026-07-06 19:39:21 Asia/Taipei`
 - 是否可產出正式每日報告：`True`
 - 判斷說明：core daily data dates match main_price_date
 - 權證資料日期：`20260706`
@@ -32,17 +32,17 @@
 | 股票 | 原始分類 | 催化標籤 / 反應程度 | TDCC |
 |---|---|---|---|
 | 2317 鴻海 | 營收成長股價回檔 | score 44 / theme 100.0/5 / revenue_good_eps_unconfirmed;event_confirmed;low_reaction_after_catalyst;new_order;其他電子業;divi... | 大戶同步增加 |
-| 3036 文曄 | 營收成長股價回檔 | score 44 / theme 100.0/5 / revenue_good_eps_unconfirmed;event_confirmed;low_reaction_after_catalyst;new_order;電子通路業;mont... | 大戶溫和增加 |
 | 2606 裕民 | 營收成長股價回檔 | score 44 / theme 100.0/5 / revenue_good_eps_unconfirmed;event_confirmed;low_reaction_after_catalyst;new_order;航運業;monthl... | 大戶同步增加 |
+| 3036 文曄 | 營收成長股價回檔 | score 44 / theme 100.0/5 / revenue_good_eps_unconfirmed;event_confirmed;low_reaction_after_catalyst;new_order;電子通路業;mont... | 大戶溫和增加 |
 | 2356 英業達 | 營收成長股價回檔 | score 44 / theme 100.0/5 / revenue_good_eps_unconfirmed;event_confirmed;low_reaction_after_catalyst;new_order;電腦及週邊設備業;d... | 大戶同步增加 |
 | 2610 華航 | 營收成長股價回檔 | score 34 / theme 100.0/5 / revenue_good_eps_unconfirmed;event_confirmed;new_order;航運業;dividend_calendar;calendar_ex_divi... | 大戶溫和增加 |
 | 2912 統一超 | 區間內轉強 / 挑戰前高觀察 | score 34 / theme 17.9/5 / event_confirmed;low_reaction_after_catalyst;new_order;貿易百貨;monthly_revenue_calendar;calendar_m... | 大戶溫和增加 |
 | 2356 英業達 | 型態觀察 | score 34 / theme 100.0/5 / event_confirmed;low_reaction_after_catalyst;new_order;電腦及週邊設備業;dividend_calendar;calendar_ex_... | 大戶同步增加 |
-| 2425 承啟 | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;shareholder_meeting;電腦及週邊設備業;dividen... | 大戶溫和增加 |
-| 3048 益登 | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;material_information;電子通路業;dividend_... | 大戶同步增加 |
 | 9945 潤泰新 | 營收爆發低反應股 | score 28 / theme 91.4/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;investor_conference;neutral;dividend_... | 大戶溫和增加 |
+| 3048 益登 | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;material_information;電子通路業;dividend_... | 大戶同步增加 |
+| 2425 承啟 | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;shareholder_meeting;電腦及週邊設備業;dividen... | 大戶溫和增加 |
 | 2425 承啟 | 營收爆發低反應股 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;shareholder_meeting;mainstream_growt... | 大戶溫和增加 |
-| 4772 台特化 | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_mo... | 大戶溫和增加 |
+| 5905 南仁湖 | 營收成長股價回檔 | score 28 / theme 12.1/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_mon... | 大戶溫和增加 |
 
 ## 精華候選股
 
