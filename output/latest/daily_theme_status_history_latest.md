@@ -1,23 +1,23 @@
 # Daily Theme Status History
 
-- generated_at: `2026-07-06 22:42:10 Asia/Taipei`
+- generated_at: `2026-07-06 23:31:34 Asia/Taipei`
 - latest_signal_date: `20260706`
-- latest_rows: `522`
-- history_rows: `9984`
+- latest_rows: `524`
+- history_rows: `9986`
 - purpose: Persist stock-level mainstream/non-mainstream and volume-attack labels by signal date for no-lookahead backtests.
 - caveat: Historical rows begin when this tracker starts unless older snapshots are backfilled from archived artifacts.
 
 ## Theme Status Group Counts
 | theme_status_group | count |
 | --- | --- |
-| mainstream_overheated | 494 |
+| mainstream_overheated | 496 |
 | mainstream_supported | 24 |
 | non_mainstream | 4 |
 
 ## Theme Final Status Counts
 | theme_final_status | count |
 | --- | --- |
-| mainstream_overheated | 494 |
+| mainstream_overheated | 496 |
 | mainstream_follow_through | 16 |
 | emerging_theme | 8 |
 | single_name_signal | 4 |
@@ -25,7 +25,7 @@
 ## Volume Attack Theme Status Counts
 | theme_volume_attack_status | count |
 | --- | --- |
-| blank | 498 |
+| blank | 500 |
 | overheated_volume_theme | 22 |
 | non_mainstream_volume_watch | 1 |
 | single_stock_volume_attack | 1 |
@@ -33,6 +33,8 @@
 ## Latest Stock-Level Rows
 | signal_date | stock_id | stock_name | theme_name | theme_final_status | theme_status_group | theme_volume_attack_status | candidate_source_type | presentation_priority | volume_breakout_type | selection_status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260706 | 0050 | 元大台灣50 | TWSE | mainstream_overheated | mainstream_overheated |  | individual_quality_candidate |  |  |  |
+| 20260706 | 0052 | 富邦科技 | TWSE | mainstream_overheated | mainstream_overheated |  | individual_quality_candidate |  |  |  |
 | 20260706 | 1304 | 台聚 | 塑膠工業 | mainstream_overheated | mainstream_overheated |  | individual_quality_candidate |  |  |  |
 | 20260706 | 1305 | 華夏 | 塑膠工業 | mainstream_overheated | mainstream_overheated |  | individual_quality_candidate |  |  |  |
 | 20260706 | 1308 | 亞聚 | 塑膠工業 | mainstream_overheated | mainstream_overheated |  | individual_quality_candidate |  |  |  |
@@ -71,6 +73,4 @@
 | 20260706 | 1605 | 華新 | 電器電纜 | mainstream_overheated | mainstream_overheated |  | risk_downgraded_candidate |  |  |  |
 | 20260706 | 1608 | 華榮 | 電器電纜 | mainstream_overheated | mainstream_overheated |  | individual_quality_candidate |  |  |  |
 | 20260706 | 1609 | 大亞 | 電器電纜 | mainstream_overheated | mainstream_overheated | overheated_volume_theme | individual_quality_candidate |  | bottom_volume_attack | selected |
-| 20260706 | 1611 | 中電 | 電器電纜 | mainstream_overheated | mainstream_overheated |  | individual_quality_candidate |  |  |  |
-| 20260706 | 1616 | 億泰 | 電器電纜 | mainstream_overheated | mainstream_overheated |  | individual_quality_candidate |  |  |  |
 
