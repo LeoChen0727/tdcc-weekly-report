@@ -38,6 +38,63 @@ def test_completion_gate_requires_operation_model_regression_contract() -> None:
     assert validator.validate_regression_contract() == []
 
 
+def semantic_source_row(
+    model_id: str,
+    source_artifact: str,
+    *,
+    pdf_section: str = "confirmed_operation",
+) -> dict[str, str]:
+    return {
+        "model_id": model_id,
+        "pdf_section": pdf_section,
+        "source_artifact": source_artifact,
+    }
+
+
+def test_completion_gate_accepts_semantic_manifest_dedicated_adapter_sources() -> None:
+    rows = [
+        semantic_source_row(
+            "volume_range_breakout",
+            "output/latest/daily_volume_breakout_operation_section_latest.csv",
+        ),
+        semantic_source_row(
+            "w_bottom_right_side",
+            "output/latest/daily_w_bottom_right_side_operation_section_latest.csv",
+            pdf_section="active_operation",
+        ),
+    ]
+
+    errors = validator.validate_semantic_manifest_adapter_sources(rows)
+
+    assert errors == []
+
+
+def test_completion_gate_rejects_semantic_manifest_candidate_signal_source() -> None:
+    rows = [
+        semantic_source_row(
+            "volume_range_breakout",
+            "output/latest/daily_candidate_model_signals_for_report_latest.csv",
+        )
+    ]
+
+    errors = validator.validate_semantic_manifest_adapter_sources(rows)
+
+    assert any("must use dedicated adapter" in error for error in errors)
+
+
+def test_completion_gate_rejects_semantic_manifest_unknown_operation_model() -> None:
+    rows = [
+        semantic_source_row(
+            "future_operation_model",
+            "output/latest/daily_future_operation_model_operation_section_latest.csv",
+        )
+    ]
+
+    errors = validator.validate_semantic_manifest_adapter_sources(rows)
+
+    assert any("without a formal PDF operation adapter contract" in error for error in errors)
+
+
 def test_completion_gate_requires_operation_table_title_for_active_rows() -> None:
     rows = {
         "price_pullback_23ema": [

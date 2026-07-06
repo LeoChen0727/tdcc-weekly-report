@@ -79,6 +79,22 @@ def rel(path: Path) -> str:
         return path.as_posix()
 
 
+def normalized_repo_artifact(path: Path | str) -> str:
+    text = str(path).replace("\\", "/").strip()
+    if not text:
+        return ""
+    path_obj = Path(text)
+    if path_obj.is_absolute():
+        return rel(path_obj).replace("\\", "/")
+    return text.lstrip("./")
+
+
+PDF_OPERATION_ADAPTER_SOURCE_ARTIFACTS = {
+    model_id: normalized_repo_artifact(path)
+    for model_id, path in pdf_consumers.PDF_OPERATION_ADAPTER_ARTIFACTS.items()
+}
+
+
 def read_text(path: Path) -> str:
     if not path.exists():
         raise FileNotFoundError(path)
@@ -310,6 +326,36 @@ def validate_operation_adapter_pdf_presence(role_map: dict[str, Path]) -> list[s
         required_model_ids=pdf_consumers.PDF_OPERATION_ADAPTER_ARTIFACTS,
         stock_report_lines=load_stock_report_line_memberships(),
     )
+
+
+def validate_semantic_manifest_adapter_sources(
+    rows: Iterable[dict[str, str]],
+    expected_artifacts: dict[str, str] | None = None,
+) -> list[str]:
+    errors: list[str] = []
+    expected = expected_artifacts or PDF_OPERATION_ADAPTER_SOURCE_ARTIFACTS
+    for index, row in enumerate(rows, start=2):
+        model_id = str(row.get("model_id", "") or "").strip()
+        if not model_id:
+            continue
+        section = str(row.get("pdf_section", "") or "").strip()
+        if not section:
+            errors.append(f"semantic manifest row {index} missing pdf_section for {model_id}")
+            continue
+        expected_source = expected.get(model_id)
+        if not expected_source:
+            errors.append(
+                "semantic manifest row "
+                f"{index} uses model_id without a formal PDF operation adapter contract: {model_id}"
+            )
+            continue
+        observed_source = normalized_repo_artifact(row.get("source_artifact", ""))
+        if observed_source != expected_source:
+            errors.append(
+                f"semantic manifest row {index} for {model_id}/{section} must use dedicated adapter "
+                f"{expected_source}, observed={observed_source or '<missing>'}"
+            )
+    return errors
 
 
 def require_literals(text: str, literals: Iterable[str], context: str) -> list[str]:
@@ -561,6 +607,9 @@ def validate_output_dir(output_dir: Path) -> list[str]:
             if main_price_date:
                 errors.extend(replay.validate_rendered_model_regression_contract(paths, main_price_date, output_dir))
                 errors.extend(replay.validate_semantic_manifest_contract(output_dir, main_price_date))
+                semantic_rows, semantic_read_errors = replay.read_semantic_manifest(output_dir, manifest)
+                if not semantic_read_errors:
+                    errors.extend(validate_semantic_manifest_adapter_sources(semantic_rows))
             errors.extend(validate_operation_adapter_pdf_presence(role_map))
     return errors
 

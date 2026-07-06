@@ -29,6 +29,11 @@ The enforced requirements are:
 - The semantic manifest must pass schema checks, forbidden legacy/preview source
   checks, and configured golden semantic cases such as the 2026-07-06 accident
   guard rows.
+- Every operation-model row in the semantic manifest must name that model's
+  dedicated production operation adapter artifact as `source_artifact`. Candidate
+  signal snapshots, preview artifacts, legacy helper outputs, research/backtest
+  variants, and unknown future model ids are not accepted as production PDF
+  operation-row sources.
 - PDF-integrated operation models must have readiness status
   `pdf_integrated_daily_adapter`, `presentation_allowed=True`, model-owned
   adapter artifacts, required adapter sections, required PDF-safe columns, and
