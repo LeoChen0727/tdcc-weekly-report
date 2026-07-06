@@ -1,6 +1,6 @@
 ﻿model_id,model_name_zh,model_registry_order,model_registry_active,report_line_applicability,model_group_zh,model_description_zh
 volume_range_breakout,放量攻擊模型,1,True,both,突破,不含今日的前20日最高價為突破基準；一般放量突破需收盤價 >= 基準 * 1.02、量比 >= 2.0、20日均量 >= 1000張，且為實體紅K或漲停型態；鎖量漲停突破不要求量比或20日均量，但需收盤價 >= 基準 * 1.02、漲幅 >= 9%、一價漲停或極窄區間，且開盤與收盤貼近漲停價。
-price_pullback_23ema,23EMA回檔模型,2,True,both,回檔,股價回到23EMA或支撐附近，且23EMA/均線結構未破；20日漲幅0%到25%；TDCC高門檻籌碼增加；OBV站上OBV MA20。
+price_pullback_23ema,23EMA回檔模型,2,True,both,回檔,買入：本表股票為23EMA回檔模型通過候選，下一個交易日開盤買入。賣出：收盤突破訊號日前20日高點後，下一個交易日開盤賣出。停損：收盤連續4天低於MA20/EMA23較低者4%，下一個交易日開盤停損。
 hot_theme_pullback,熱門族群回檔模型,3,True,both,回檔,必須有熱門族群標籤，且股價回到23EMA或合理支撐區附近；不以營收作為必要條件。
 revenue_unreacted_range,營收爆發但股價尚未反應模型,4,True,both,基本面,營收YoY或累計YoY強，且股價仍位於23日盤整區間內；區間用近期最高/最低價加緩衝判斷。
 w_bottom_right_side,W底右側模型,5,True,both,型態,W底右側初步成立，右側低點墊高，兩側低點高度不能差距過大；左低右高且已創高者不應歸入此模型。
