@@ -99,6 +99,29 @@ OPERATION_TABLE_MODEL_IDS = {
     W_BOTTOM_NECKLINE_BREAKOUT_MODEL_ID,
     PRICE_PULLBACK_MODEL_ID,
 }
+OPERATION_MODEL_SUMMARY_REQUIRED_TOKENS = ("買入：", "賣出：", "停損：", "基礎模型績效：", "勝：", "和：", "敗：")
+OPERATION_MODEL_OUTCOME_DEFINITIONS = {
+    VOLUME_BREAKOUT_MODEL_ID: {
+        "win": "勝：確認後依停損與10個交易日收盤出場規則，操作報酬為正。",
+        "neutral": "和：v1無正式和局定義。",
+        "failure": "敗：先觸發訊號K低點停損，或10個交易日收盤結算不為正報酬。",
+    },
+    W_BOTTOM_RIGHT_SIDE_MODEL_ID: {
+        "win": "勝：依W結構低點停損與D+20/D+40出場規則，最後操作報酬為正。",
+        "neutral": "和：v2無正式和局定義；目前中立樣本為0。",
+        "failure": "敗：觸發W結構低點收盤停損，或D+40收盤結算為負報酬。",
+    },
+    W_BOTTOM_NECKLINE_BREAKOUT_MODEL_ID: {
+        "win": "勝：20個交易日內收盤報酬先達+10%。",
+        "neutral": "和：先達+5%後回落到<=+5%，且未達+10%。",
+        "failure": "敗：未達勝/和條件，第20日收盤歸為操作規則敗。",
+    },
+    PRICE_PULLBACK_MODEL_ID: {
+        "win": "勝：D+20內先觸發收盤突破訊號日前20日高點，且停損未先觸發。",
+        "neutral": "和：D+20內沒有賣出或停損，且D+20收盤報酬大於等於0%。",
+        "failure": "敗：停損先觸發，或D+20內沒有賣出/停損但D+20收盤報酬小於0%。",
+    },
+}
 W_BOTTOM_OPERATION_INPUT_KEYS = {
     W_BOTTOM_RIGHT_SIDE_MODEL_ID: "w_bottom_right_side_operation",
     W_BOTTOM_NECKLINE_BREAKOUT_MODEL_ID: "w_bottom_neckline_operation",
@@ -203,11 +226,141 @@ def highlight_specs_in_layout_order(specs: list[pd.Series]) -> list[pd.Series]:
 
 
 def should_render_highlight_model_description(model_id: str) -> bool:
+    if model_id in OPERATION_TABLE_MODEL_IDS:
+        return False
     if DAILY_HIGHLIGHT_DESCRIPTION_POLICY == "program_side_non_volume":
         return model_id != VOLUME_BREAKOUT_MODEL_ID
     if DAILY_HIGHLIGHT_DESCRIPTION_POLICY == "none":
         return False
     raise ValueError(f"unsupported daily highlight description policy: {DAILY_HIGHLIGHT_DESCRIPTION_POLICY}")
+
+
+def approval_row_for_operation_model(inputs: dict[str, pd.DataFrame], model_id: str) -> pd.Series:
+    approval = inputs.get("approved_operation_patterns", pd.DataFrame()).copy()
+    if approval.empty or "model_id" not in approval.columns:
+        raise RuntimeError(f"approved operation pattern artifact missing for PDF operation model summary: {model_id}")
+    rows = approval[approval["model_id"].astype(str).eq(model_id)].copy()
+    if rows.empty:
+        raise RuntimeError(f"approved operation pattern row missing for PDF operation model summary: {model_id}")
+    return rows.iloc[0]
+
+
+def fmt_pct(value: object, *, signed: bool = False) -> str:
+    text = clean(value)
+    if not text:
+        return ""
+    numeric_text = re.sub(r"[^0-9.\-]", "", text)
+    if not numeric_text:
+        return text
+    try:
+        number = float(numeric_text)
+    except ValueError:
+        return text
+    sign = "+" if signed and number > 0 else ""
+    return f"{sign}{number:.2f}%"
+
+
+def pct_from_counts(numerator: object, denominator: object) -> str:
+    try:
+        num = float(clean(numerator))
+        den = float(clean(denominator))
+    except ValueError:
+        return ""
+    if den <= 0:
+        return ""
+    return fmt_pct((num / den) * 100.0)
+
+
+def operation_rule_text(value: object) -> str:
+    text = clean(value)
+    replacements = (
+        ("下一個交易日", "隔日"),
+        ("下一個交易日開盤價進場", "隔日開盤買入"),
+        ("下一個交易日開盤進場", "隔日開盤買入"),
+        ("下一個交易日開盤買進", "隔日開盤買入"),
+        ("隔日開盤價進場", "隔日開盤買入"),
+        ("隔日開盤買進", "隔日開盤買入"),
+    )
+    for old, new in replacements:
+        text = text.replace(old, new)
+    return text
+
+
+def operation_model_metric_summary(model_id: str, row: pd.Series) -> str:
+    if model_id == VOLUME_BREAKOUT_MODEL_ID:
+        return (
+            f"基礎模型績效：勝率{fmt_pct(row.get('best_evidence_win_rate'))} / "
+            "和局未定義 / 敗率未登錄 / "
+            f"中位報酬{fmt_pct(row.get('best_evidence_median_return'), signed=True)}。"
+        )
+    if model_id == W_BOTTOM_RIGHT_SIDE_MODEL_ID:
+        sample = row.get("w_bottom_mature_sample_size")
+        return (
+            f"基礎模型績效：勝率{fmt_pct(row.get('w_bottom_pure_win_rate_pct'))} / "
+            f"和局{pct_from_counts(row.get('w_bottom_neutral_count'), sample) or '0%'} / "
+            f"敗率{pct_from_counts(row.get('w_bottom_loss_count'), sample)} / "
+            f"平均報酬{fmt_pct(row.get('w_bottom_avg_return_pct'), signed=True)}。"
+        )
+    if model_id == W_BOTTOM_NECKLINE_BREAKOUT_MODEL_ID:
+        inclusive = fmt_pct(row.get("neckline_neutral_inclusive_success_rate_pct"))
+        failure_rate = ""
+        try:
+            failure_rate = fmt_pct(100.0 - float(re.sub(r"[^0-9.\-]", "", inclusive)))
+        except ValueError:
+            failure_rate = ""
+        return (
+            f"基礎模型績效：勝率{fmt_pct(row.get('neckline_pure_win_rate_pct'))} / "
+            f"含和局成功率{inclusive} / "
+            f"敗率{failure_rate} / "
+            f"平均報酬{fmt_pct(row.get('neckline_avg_return_pct'), signed=True)}。"
+        )
+    if model_id == PRICE_PULLBACK_MODEL_ID:
+        return (
+            f"基礎模型績效：勝率{fmt_pct(row.get('price_pullback_win_rate_pct'))} / "
+            f"和局{fmt_pct(row.get('price_pullback_neutral_rate_pct'))} / "
+            f"敗率{fmt_pct(row.get('price_pullback_failure_rate_pct'))} / "
+            f"平均報酬{fmt_pct(row.get('price_pullback_avg_return_pct'), signed=True)}。"
+            f"技術強勢組合績效：勝率{fmt_pct(row.get('price_pullback_technical_package_win_rate_pct'))} / "
+            f"和局{fmt_pct(row.get('price_pullback_technical_package_neutral_rate_pct'))} / "
+            f"敗率{fmt_pct(row.get('price_pullback_technical_package_failure_rate_pct'))} / "
+            f"平均報酬{fmt_pct(row.get('price_pullback_technical_package_avg_return_pct'), signed=True)}。"
+        )
+    raise RuntimeError(f"unsupported PDF operation model summary metrics: {model_id}")
+
+
+def operation_model_summary_text(inputs: dict[str, pd.DataFrame], model_id: str) -> str:
+    row = approval_row_for_operation_model(inputs, model_id)
+    outcomes = OPERATION_MODEL_OUTCOME_DEFINITIONS.get(model_id)
+    if not outcomes:
+        raise RuntimeError(f"PDF operation model summary outcome definitions missing: {model_id}")
+    entry_text = operation_rule_text(row.get("entry_rule_zh"))
+    if model_id == PRICE_PULLBACK_MODEL_ID:
+        entry_text = "本表股票為23EMA回檔模型通過候選，隔日開盤買入。"
+    parts = [
+        f"買入：{entry_text}",
+        f"賣出：{operation_rule_text(row.get('exit_rule_zh'))}",
+        f"停損：{operation_rule_text(row.get('stop_loss_rule_zh'))}",
+        operation_model_metric_summary(model_id, row),
+        outcomes["win"],
+        outcomes["neutral"],
+        outcomes["failure"],
+    ]
+    summary = "".join(part for part in parts if clean(part))
+    missing = [token for token in OPERATION_MODEL_SUMMARY_REQUIRED_TOKENS if token not in summary]
+    if missing:
+        raise RuntimeError(f"PDF operation model summary missing required tokens for {model_id}: {','.join(missing)}")
+    return summary
+
+
+def render_operation_model_summary_if_applicable(
+    story: list,
+    inputs: dict[str, pd.DataFrame],
+    model_id: str,
+) -> bool:
+    if model_id not in OPERATION_TABLE_MODEL_IDS:
+        return False
+    story.append(para(operation_model_summary_text(inputs, model_id), BODY_SMALL))
+    return True
 
 
 def read_readme_value(key: str, default: str = "") -> str:
@@ -1708,6 +1861,7 @@ def load_inputs() -> dict[str, pd.DataFrame]:
         "model_signals": read_latest_csv("daily_candidate_model_signals_for_report_latest.csv"),
         "model_summary": read_latest_csv("daily_candidate_model_summary_for_report_latest.csv"),
         "model_readiness": read_latest_csv("model_operation_readiness_latest.csv"),
+        "approved_operation_patterns": read_latest_csv("approved_operation_patterns_latest.csv"),
         "volume_operation": read_latest_csv("daily_volume_breakout_operation_section_latest.csv"),
         "w_bottom_right_side_operation": read_latest_csv("daily_w_bottom_right_side_operation_section_latest.csv"),
         "w_bottom_neckline_operation": read_latest_csv(
@@ -4021,6 +4175,7 @@ def build_mainstream_curated_pdf(
         story.append(Paragraph(model_name, H1))
         started_model_sections = True
         desc = clean(spec.get("model_description_zh"))
+        render_operation_model_summary_if_applicable(story, inputs, model_id)
         if desc and should_render_highlight_model_description(model_id):
             story.append(para(desc, BODY_SMALL))
         if render_model_operation_section_if_applicable(story, inputs, model_id, "highlight", line):
@@ -4069,6 +4224,7 @@ def build_non_mainstream_curated_pdf(
         story.append(Paragraph(model_name, H1))
         started_model_sections = True
         desc = clean(spec.get("model_description_zh"))
+        render_operation_model_summary_if_applicable(story, inputs, model_id)
         if desc and should_render_highlight_model_description(model_id):
             story.append(para(desc, BODY_SMALL))
         if render_model_operation_section_if_applicable(story, inputs, model_id, "highlight", line):
@@ -4159,6 +4315,7 @@ def build_mainstream_full_candidate_pdf(
         line_rows = mainstream_full_model_signal_rows(inputs, model_id)
         story.append(CondPageBreak(MODEL_SECTION_MIN_ROOM))
         story.append(Paragraph(model_name, H2))
+        render_operation_model_summary_if_applicable(story, inputs, model_id)
         if render_model_operation_section_if_applicable(story, inputs, model_id, "full", line):
             continue
         story.extend(build_mainstream_full_model_table(line_rows, two_map, all_map, limit=limit))
@@ -4279,6 +4436,7 @@ def build_non_mainstream_full_candidate_pdf(
         line_rows = non_mainstream_full_model_signal_rows(inputs, model_id)
         story.append(CondPageBreak(MODEL_SECTION_MIN_ROOM))
         story.append(Paragraph(model_name, H2))
+        render_operation_model_summary_if_applicable(story, inputs, model_id)
         if render_model_operation_section_if_applicable(story, inputs, model_id, "full", line):
             continue
         story.extend(build_non_mainstream_full_model_table(line_rows, two_map, all_map, limit=limit))

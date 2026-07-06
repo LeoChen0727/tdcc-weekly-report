@@ -68,6 +68,7 @@ OPERATION_SECTION_EMPTY_TEXT = {
     "active_operation": "目前無操作中追蹤列",
 }
 HIGHLIGHT_OPERATION_SECTIONS = ("confirmed_operation", "active_operation")
+OPERATION_MODEL_SUMMARY_REQUIRED_TOKENS = ("買入：", "賣出：", "停損：", "基礎模型績效：", "勝：", "和：", "敗：")
 RENDERED_STOCK_ID_SAMPLE_SIZE = 3
 
 
@@ -250,6 +251,11 @@ def validate_operation_adapter_pdf_text(
             if not compact_pdf_text:
                 errors.append(f"{role}: missing compact PDF text for operation adapter validation")
                 continue
+            if compact_text(model_name) not in compact_pdf_text:
+                errors.append(f"{role}: missing operation model title for {model_id}: {model_name}")
+            for token in OPERATION_MODEL_SUMMARY_REQUIRED_TOKENS:
+                if compact_text(token) not in compact_pdf_text:
+                    errors.append(f"{role}: missing operation model summary token for {model_id}: {token}")
             for section in HIGHLIGHT_OPERATION_SECTIONS:
                 title = operation_table_title(model_name, section)
                 compact_title = compact_text(title)
@@ -414,6 +420,28 @@ def validate_regression_contract() -> list[str]:
     for role in ("mainstream_highlight", "non_mainstream_highlight"):
         if role not in roles:
             errors.append(f"rendered model regression contract missing digest role: {role}")
+    summary_tokens = {compact_text(token) for token in OPERATION_MODEL_SUMMARY_REQUIRED_TOKENS}
+    for model_id in sorted(REQUIRED_REGRESSION_MODEL_IDS):
+        for role in ("mainstream_highlight", "non_mainstream_highlight"):
+            candidates = [
+                row
+                for row in rows
+                if row.get("model_id", "").strip() == model_id
+                and row.get("pdf_role", "").strip() == role
+                and row.get("report_date", "").strip() == "*"
+            ]
+            if not candidates:
+                errors.append(f"rendered model regression contract missing wildcard summary row: {model_id}/{role}")
+                continue
+            required_text = ""
+            for row in candidates:
+                required_text += "".join(compact_text(token) for token in split_tokens(row.get("required_text_tokens", "")))
+            missing_tokens = sorted(token for token in summary_tokens if token not in required_text)
+            if missing_tokens:
+                errors.append(
+                    f"rendered model regression contract missing operation summary tokens for {model_id}/{role}: "
+                    + ";".join(missing_tokens)
+                )
     return errors
 
 

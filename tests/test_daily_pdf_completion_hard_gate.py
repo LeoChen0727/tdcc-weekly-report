@@ -6,6 +6,19 @@ from scripts import validate_daily_pdf_completion_hard_gate as validator
 
 
 ROOT = Path(__file__).resolve().parents[1]
+OPERATION_SUMMARY_TEXT = (
+    "買入：隔日開盤買入。"
+    "賣出：依規則出場。"
+    "停損：依規則停損。"
+    "基礎模型績效：勝率1%。"
+    "勝：測試勝。"
+    "和：測試和。"
+    "敗：測試敗。"
+)
+
+
+def compact_operation_pdf_text(text: str) -> str:
+    return validator.compact_text(OPERATION_SUMMARY_TEXT + text)
 
 
 def test_daily_pdf_completion_hard_gate_passes_current_repo() -> None:
@@ -62,11 +75,11 @@ def test_completion_gate_requires_operation_table_title_for_active_rows() -> Non
         ]
     }
     role_to_text = {
-        "mainstream_highlight": validator.compact_text(
+        "mainstream_highlight": compact_operation_pdf_text(
             "23EMA回檔模型 - 本日可買 / 已確認買入候選 本日無股票推薦 "
             "23EMA回檔模型 操作中 1785"
         ),
-        "non_mainstream_highlight": validator.compact_text(
+        "non_mainstream_highlight": compact_operation_pdf_text(
             "23EMA回檔模型 - 本日可買 / 已確認買入候選 本日無股票推薦 "
             "23EMA回檔模型 - 操作中 目前無操作中追蹤列"
         ),
@@ -105,7 +118,7 @@ def test_completion_gate_accepts_operation_empty_state_tables() -> None:
             },
         ]
     }
-    text = validator.compact_text(
+    text = compact_operation_pdf_text(
         "W底頸線帶量突破確認模型 - 本日可買 / 已確認買入候選 本日無股票推薦 "
         "W底頸線帶量突破確認模型 - 操作中 目前無操作中追蹤列"
     )
@@ -120,6 +133,46 @@ def test_completion_gate_accepts_operation_empty_state_tables() -> None:
     )
 
     assert errors == []
+
+
+def test_completion_gate_requires_operation_summary_tokens() -> None:
+    rows = {
+        "volume_range_breakout": [
+            {
+                "model_id": "volume_range_breakout",
+                "model_name_zh": "放量攻擊模型",
+                "pdf_view": "highlight",
+                "pdf_section": "confirmed_operation",
+                "row_type": "empty_state",
+                "report_line": "both",
+                "stock_display": "本日無股票推薦",
+            },
+            {
+                "model_id": "volume_range_breakout",
+                "model_name_zh": "放量攻擊模型",
+                "pdf_view": "highlight",
+                "pdf_section": "active_operation",
+                "row_type": "empty_state",
+                "report_line": "both",
+                "stock_display": "目前無操作中追蹤列",
+            },
+        ]
+    }
+    text = validator.compact_text(
+        "放量攻擊模型 - 本日可買 / 已確認買入候選 本日無股票推薦 "
+        "放量攻擊模型 - 操作中 目前無操作中追蹤列"
+    )
+
+    errors = validator.validate_operation_adapter_pdf_text(
+        {
+            "mainstream_highlight": text,
+            "non_mainstream_highlight": text,
+        },
+        rows,
+        required_model_ids=["volume_range_breakout"],
+    )
+
+    assert any("missing operation model summary token" in error for error in errors)
 
 
 def test_completion_gate_requires_rendered_stock_ids_for_operation_rows() -> None:
@@ -159,11 +212,11 @@ def test_completion_gate_requires_rendered_stock_ids_for_operation_rows() -> Non
         ]
     }
     role_to_text = {
-        "mainstream_highlight": validator.compact_text(
+        "mainstream_highlight": compact_operation_pdf_text(
             "23EMA回檔模型 - 本日可買 / 已確認買入候選 本日無股票推薦 "
             "23EMA回檔模型 - 操作中"
         ),
-        "non_mainstream_highlight": validator.compact_text(
+        "non_mainstream_highlight": compact_operation_pdf_text(
             "23EMA回檔模型 - 本日可買 / 已確認買入候選 本日無股票推薦 "
             "23EMA回檔模型 - 操作中 目前無操作中追蹤列"
         ),
@@ -203,11 +256,11 @@ def test_completion_gate_uses_report_line_membership_for_line_agnostic_rows() ->
         ]
     }
     role_to_text = {
-        "mainstream_highlight": validator.compact_text(
+        "mainstream_highlight": compact_operation_pdf_text(
             "放量攻擊模型 - 本日可買 / 已確認買入候選 本日無股票推薦 "
             "放量攻擊模型 - 操作中 3055"
         ),
-        "non_mainstream_highlight": validator.compact_text(
+        "non_mainstream_highlight": compact_operation_pdf_text(
             "放量攻擊模型 - 本日可買 / 已確認買入候選 本日無股票推薦 "
             "放量攻擊模型 - 操作中 目前無操作中追蹤列"
         ),
