@@ -1,6 +1,6 @@
 # Official Daily Price Fetch Report
 
-- generated_at: `2026-07-07 00:15:12 Asia/Taipei`
+- generated_at: `2026-07-07 04:55:19 Asia/Taipei`
 - target_date: `20260707`
 - saved_price_date: `20260706`
 - is_target_date: `False`
@@ -56,8 +56,7 @@
 - GET https://www.tpex.org.tw/web/stock/aftertrading/daily_close_quotes/stk_quote_result.php?l=zh-tw&o=csv&d=115/07/07&s=0,asc,0 -> status=200, chars=1392852
 - TPEX_OLD_DAILY_CSV: rejected response date 20260706; target date is 20260707
 - Trying TPEx batch source=TPEX_OPENAPI_MAINBOARD_DAILY_CLOSE_QUOTES date=20260707
-- GET https://www.tpex.org.tw/openapi/v1/tpex_mainboard_daily_close_quotes -> status=200, chars=3799983
-- TPEX_OPENAPI_MAINBOARD_DAILY_CLOSE_QUOTES: rejected response dates ['20260706']; target date is 20260707
+- GET https://www.tpex.org.tw/openapi/v1/tpex_mainboard_daily_close_quotes failed: ChunkedEncodingError: Response ended prematurely
 - TPEx batch best rows=0
 - date=20260707 twse_rows=1238 tpex_rows=0 total_rows=1238 full_market_ok=False
 - Published previous valid daily price file as latest: data/daily_price/daily_price_20260706.csv
