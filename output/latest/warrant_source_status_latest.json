@@ -1,6 +1,6 @@
 {
   "status": "ok",
-  "generated_at": "2026-07-06 09:08:55 Asia/Taipei",
+  "generated_at": "2026-07-06 09:59:32 Asia/Taipei",
   "requested_date": "20260703",
   "target_date": "20260703",
   "data_date": "20260703",
@@ -13,7 +13,7 @@
   "model_effect_allowed": true,
   "pdf_effect_allowed": true,
   "final_rows": 26347,
-  "mapping_rows": 0,
+  "mapping_rows": 28728,
   "quote_rows": 0,
   "note": "preserved existing same-date usable raw snapshot from output/latest/warrant_daily_raw_latest.csv"
 }
