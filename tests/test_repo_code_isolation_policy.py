@@ -19,6 +19,7 @@ def test_daily_full_pipeline_runs_code_isolation_gates() -> None:
 
     assert "python scripts/validate_repo_code_isolation_policy.py" in workflow_text
     assert "python scripts/validate_chatgpt_side_pdf_layout_independence.py" in workflow_text
+    assert "python scripts/validate_daily_pdf_shared_path_isolation.py" in workflow_text
 
 
 def test_daily_boundary_validator_runs_code_isolation_policy() -> None:

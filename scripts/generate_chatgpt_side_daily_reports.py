@@ -2105,6 +2105,25 @@ def filter_w_bottom_operation_rows_for_line(rows: pd.DataFrame, line: str | None
     return rows[rows.apply(lambda row: w_bottom_operation_row_matches_line(row, line), axis=1)].copy()
 
 
+def price_pullback_operation_row_matches_line(row: pd.Series, line: str | None) -> bool:
+    if not line:
+        return True
+    report_line = clean(row.get("report_line"))
+    if report_line == line or report_line == "both":
+        return True
+    memberships = clean(row.get("report_line_memberships"))
+    if memberships:
+        tokens = {token.strip() for token in re.split(r"[|,;]", memberships) if token.strip()}
+        return line in tokens or "both" in tokens
+    return False
+
+
+def filter_price_pullback_operation_rows_for_line(rows: pd.DataFrame, line: str | None) -> pd.DataFrame:
+    if rows.empty or not line:
+        return rows
+    return rows[rows.apply(lambda row: price_pullback_operation_row_matches_line(row, line), axis=1)].copy()
+
+
 def volume_operation_empty_text(rows: pd.DataFrame, fallback: str) -> str:
     if rows.empty:
         return fallback
@@ -2634,11 +2653,11 @@ def render_price_pullback_operation_section(
     pdf_view: str,
     line: str | None = None,
 ) -> None:
-    confirmed_all = filter_w_bottom_operation_rows_for_line(
+    confirmed_all = filter_price_pullback_operation_rows_for_line(
         price_pullback_operation_frame(inputs, pdf_view, "confirmed_operation"),
         line,
     )
-    active_all = filter_w_bottom_operation_rows_for_line(
+    active_all = filter_price_pullback_operation_rows_for_line(
         price_pullback_operation_frame(inputs, pdf_view, "active_operation"),
         line,
     )
