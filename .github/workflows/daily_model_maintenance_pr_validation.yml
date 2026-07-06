@@ -62,6 +62,7 @@ jobs:
           python scripts/validate_daily_pdf_contract_consumers.py
           python scripts/validate_daily_pdf_role_manifest_contract.py
           python scripts/validate_daily_pdf_shared_path_isolation.py
+          python scripts/validate_daily_pdf_completion_hard_gate.py
           python scripts/validate_daily_production_boundaries.py
           python scripts/validate_daily_published_model_snapshots.py
           python scripts/validate_research_against_stock_model_contract.py
@@ -75,6 +76,7 @@ jobs:
             tests/test_chatgpt_daily_report_new_conversation_replay.py \
             tests/test_chatgpt_daily_report_entrypoint.py \
             tests/test_daily_pdf_contract_consumers.py \
+            tests/test_daily_pdf_completion_hard_gate.py \
             tests/test_daily_pdf_shared_path_isolation.py \
             tests/test_daily_published_model_snapshots.py \
             tests/test_daily_volume_breakout_operation_section.py \
@@ -97,6 +99,7 @@ jobs:
           timeout 20m python scripts/validate_chatgpt_daily_report_new_conversation_replay.py \
             --source-ref "$source_ref" \
             --output-dir chatgpt_side_outputs_pr_validation
+          python scripts/validate_daily_pdf_completion_hard_gate.py --require-output-dir chatgpt_side_outputs_pr_validation
 
       - name: Upload PR daily PDF replay evidence
         if: always()
@@ -106,4 +109,4 @@ jobs:
           path: |
             chatgpt_side_outputs_pr_validation/*.pdf
             chatgpt_side_outputs_pr_validation/chatgpt_daily_report_runtime_manifest.json
-          if-no-files-found: warn
+          if-no-files-found: error

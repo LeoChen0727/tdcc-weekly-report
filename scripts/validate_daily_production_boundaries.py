@@ -420,6 +420,9 @@ def main() -> int:
             "python scripts/validate_daily_pdf_contract_consumers.py": (
                 "daily model maintenance PR workflow must validate daily PDF consumer contracts"
             ),
+            "python scripts/validate_daily_pdf_completion_hard_gate.py": (
+                "daily model maintenance PR workflow must validate daily PDF completion hard gates"
+            ),
             "python scripts/validate_daily_production_boundaries.py": (
                 "daily model maintenance PR workflow must run production boundary validation"
             ),
@@ -446,6 +449,12 @@ def main() -> int:
             ),
             "--output-dir chatgpt_side_outputs_pr_validation": (
                 "daily model maintenance PR workflow must persist PR replay outputs in a stable folder"
+            ),
+            "--require-output-dir chatgpt_side_outputs_pr_validation": (
+                "daily model maintenance PR workflow must validate generated replay PDFs and runtime manifest"
+            ),
+            "if-no-files-found: error": (
+                "daily model maintenance PR workflow must fail when replay PDF evidence is missing"
             ),
             "GITHUB_HEAD_REF": (
                 "daily model maintenance PR workflow must replay the PR head ref, not origin/main"

@@ -27,6 +27,7 @@ def test_daily_model_maintenance_pr_workflow_runs_contract_validators() -> None:
         "python scripts/validate_stock_model_contract_registry.py",
         "python scripts/validate_daily_pdf_contract_consumers.py",
         "python scripts/validate_daily_pdf_role_manifest_contract.py",
+        "python scripts/validate_daily_pdf_completion_hard_gate.py",
         "python scripts/validate_daily_production_boundaries.py",
         "python scripts/validate_daily_published_model_snapshots.py",
         "python scripts/validate_research_against_stock_model_contract.py",
@@ -45,6 +46,7 @@ def test_daily_model_maintenance_pr_workflow_runs_focused_pdf_operation_tests() 
         "tests/test_chatgpt_daily_report_new_conversation_replay.py",
         "tests/test_chatgpt_daily_report_entrypoint.py",
         "tests/test_daily_pdf_contract_consumers.py",
+        "tests/test_daily_pdf_completion_hard_gate.py",
         "tests/test_daily_published_model_snapshots.py",
         "tests/test_daily_volume_breakout_operation_section.py",
         "tests/test_daily_w_bottom_operation_sections.py",
@@ -67,6 +69,7 @@ def test_daily_model_maintenance_pr_workflow_runs_actual_pdf_replay_and_uploads_
     assert "PDF replay output_dir=chatgpt_side_outputs_pr_validation" in text
     assert "--source-ref \"$source_ref\"" in text
     assert "--output-dir chatgpt_side_outputs_pr_validation" in text
+    assert "--require-output-dir chatgpt_side_outputs_pr_validation" in text
     assert "GITHUB_HEAD_REF" in text
     assert "source_ref=\"origin/${GITHUB_HEAD_REF}\"" in text
     assert "Upload PR daily PDF replay evidence" in text
@@ -74,3 +77,4 @@ def test_daily_model_maintenance_pr_workflow_runs_actual_pdf_replay_and_uploads_
     assert "daily-pdf-replay-pr-validation" in text
     assert "chatgpt_side_outputs_pr_validation/*.pdf" in text
     assert "chatgpt_side_outputs_pr_validation/chatgpt_daily_report_runtime_manifest.json" in text
+    assert "if-no-files-found: error" in text
