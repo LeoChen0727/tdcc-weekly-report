@@ -16,6 +16,7 @@ on:
       - "docs/repo_hidden_coupling_audit.md"
       - "scripts/build_daily_*model*.py"
       - "scripts/build_daily_*operation*.py"
+      - "scripts/build_daily_report_model_summary.py"
       - "scripts/build_model_operation_readiness.py"
       - "scripts/generate_chatgpt_side_daily_reports.py"
       - "scripts/run_chatgpt_daily_report_entrypoint.py"
@@ -87,6 +88,7 @@ jobs:
             tests/test_daily_volume_breakout_operation_section.py \
             tests/test_daily_w_bottom_operation_sections.py \
             tests/test_daily_price_pullback_23ema_operation_section.py \
+            tests/test_daily_report_model_summary.py \
             tests/test_daily_production_boundaries.py \
             tests/test_repo_hidden_coupling_audit.py \
             tests/test_stock_model_contract_registry.py
