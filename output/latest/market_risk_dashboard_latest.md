@@ -1,6 +1,6 @@
 # 市場風險與大盤期權背景
 
-- generated_at: `2026-07-06 19:38:55 Asia/Taipei`
+- generated_at: `2026-07-06 20:33:25 Asia/Taipei`
 - data_date: `20260706`
 - market_regime: `mild_bull`
 - risk_level: `high_risk`
@@ -54,7 +54,7 @@
 
 PDF 固定納入半年圖表，包含指數趨勢、波動/期權指標、外資台指期部位與散戶小台 proxy。若資料不足，圖表或文字會明確標示限制。
 
-Index chart data status: TWSE / TAIEX: standard OHLC K-line data is available with volume/turnover overlay. TPEx / OTC: standard OHLC K-line data is available with volume/turnover overlay.
+Index chart data status: TWSE / TAIEX: standard OHLC K-line data is available with volume/turnover overlay. TPEx / OTC: standard OHLC K-line data is available; volume data is unavailable or partial.
 
 - chart: `output/latest/charts/market_regime/market_index_technical_6m.png`
 - chart: `output/latest/charts/market_regime/risk_indicators_6m.png`

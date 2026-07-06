@@ -380,10 +380,10 @@ date,index_code,index_name,open,high,low,close,ohlc_source,ohlc_available,volume
 20260626,TPEX,TPEx,438.84,438.84,414.87,415.26,https://www.tpex.org.tw/www/zh-tw/indexInfo/inx?date=115/06&response=json,True,,,,,False
 20260629,TPEX,TPEx,414.75,420.92,409.3,412.93,https://www.tpex.org.tw/www/zh-tw/indexInfo/inx?date=115/06&response=json,True,,,,,False
 20260630,TPEX,TPEx,414.56,427.96,414.56,426.97,https://www.tpex.org.tw/www/zh-tw/indexInfo/inx?date=115/06&response=json,True,,,,,False
-20260701,TPEX,TPEx,430.29,437.56,430.29,431.23,https://www.tpex.org.tw/www/zh-tw/indexInfo/inx?date=115/07&response=json,True,1369067164.0,248218713640.0,1273652.0,https://www.tpex.org.tw/openapi/v1/tpex_daily_trading_index,True
-20260702,TPEX,TPEx,429.41,439.51,424.2,439.51,https://www.tpex.org.tw/www/zh-tw/indexInfo/inx?date=115/07&response=json,True,1340448042.0,242505188171.0,1280213.0,https://www.tpex.org.tw/openapi/v1/tpex_daily_trading_index,True
-20260703,TPEX,TPEx,438.16,445.97,435.92,445.38,https://www.tpex.org.tw/www/zh-tw/indexInfo/inx?date=115/07&response=json,True,1497271218.0,264742267840.0,1300261.0,https://www.tpex.org.tw/openapi/v1/tpex_daily_trading_index,True
-20260706,TPEX,TPEx,447.13,454.58,437.21,439.8,https://www.tpex.org.tw/www/zh-tw/indexInfo/inx?date=115/07&response=json,True,1520530712.0,305181097307.0,1457377.0,https://www.tpex.org.tw/openapi/v1/tpex_daily_trading_index,True
+20260701,TPEX,TPEx,430.29,437.56,430.29,431.23,https://www.tpex.org.tw/www/zh-tw/indexInfo/inx?date=115/07&response=json,True,,,,,False
+20260702,TPEX,TPEx,429.41,439.51,424.2,439.51,https://www.tpex.org.tw/www/zh-tw/indexInfo/inx?date=115/07&response=json,True,,,,,False
+20260703,TPEX,TPEx,438.16,445.97,435.92,445.38,https://www.tpex.org.tw/www/zh-tw/indexInfo/inx?date=115/07&response=json,True,,,,,False
+20260706,TPEX,TPEx,447.13,454.58,437.21,439.8,https://www.tpex.org.tw/www/zh-tw/indexInfo/inx?date=115/07&response=json,True,,,,,False
 20170202,TWSE,TAIEX,9502.25,9521.34,9413.77,9428.97,https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20250201&response=json,True,,,,,False
 20170203,TWSE,TAIEX,9450.06,9478.01,9423.93,9455.56,https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20250201&response=json,True,,,,,False
 20170206,TWSE,TAIEX,9467.67,9548.68,9467.67,9538.01,https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20250201&response=json,True,,,,,False
