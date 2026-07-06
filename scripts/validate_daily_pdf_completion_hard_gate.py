@@ -1,0 +1,341 @@
+from __future__ import annotations
+
+import argparse
+import csv
+import sys
+from pathlib import Path
+from typing import Iterable
+
+
+ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from scripts import validate_chatgpt_daily_report_new_conversation_replay as replay  # noqa: E402
+from scripts import validate_daily_pdf_contract_consumers as pdf_consumers  # noqa: E402
+DAILY_FULL_WORKFLOW = ROOT / ".github" / "workflows" / "daily_full_pipeline.yml"
+DAILY_MODEL_PR_WORKFLOW = ROOT / ".github" / "workflows" / "daily_model_maintenance_pr_validation.yml"
+COMPLETION_GATE = ROOT / "scripts" / "validate_daily_pdf_completion_hard_gate.py"
+REPLAY_VALIDATOR = ROOT / "scripts" / "validate_chatgpt_daily_report_new_conversation_replay.py"
+RENDERED_MODEL_REGRESSION_CONTRACT = ROOT / "config" / "daily_pdf_rendered_model_regression_contract.csv"
+DAILY_MODEL_READINESS = ROOT / "output" / "latest" / "model_operation_readiness_latest.csv"
+
+STATIC_COMPLETION_GATE_COMMAND = "python scripts/validate_daily_pdf_completion_hard_gate.py"
+DAILY_FULL_OUTPUT_GATE_COMMAND = (
+    "python scripts/validate_daily_pdf_completion_hard_gate.py "
+    "--require-output-dir chatgpt_side_outputs_new_conversation_replay"
+)
+PR_OUTPUT_GATE_COMMAND = (
+    "python scripts/validate_daily_pdf_completion_hard_gate.py "
+    "--require-output-dir chatgpt_side_outputs_pr_validation"
+)
+REPLAY_COMMAND = "timeout 20m python scripts/validate_chatgpt_daily_report_new_conversation_replay.py"
+
+REQUIRED_STATIC_VALIDATORS = (
+    "python scripts/validate_chatgpt_side_pdf_contract.py",
+    "python scripts/validate_daily_pdf_shared_path_isolation.py",
+    "python scripts/validate_daily_pdf_contract_consumers.py",
+    "python scripts/validate_daily_pdf_role_manifest_contract.py",
+    "python scripts/validate_pdf_production_inventory.py",
+)
+REQUIRED_PR_VALIDATORS = (
+    "python scripts/validate_repo_production_inventory.py",
+    "python scripts/validate_daily_pdf_contract_consumers.py",
+    "python scripts/validate_daily_pdf_role_manifest_contract.py",
+    "python scripts/validate_daily_pdf_shared_path_isolation.py",
+    "python scripts/validate_daily_production_boundaries.py",
+    "python scripts/validate_chatgpt_side_pdf_layout_independence.py",
+)
+REQUIRED_REGRESSION_MODEL_IDS = set(pdf_consumers.PDF_OPERATION_ADAPTER_ARTIFACTS)
+
+
+def rel(path: Path) -> str:
+    try:
+        return path.relative_to(ROOT).as_posix()
+    except ValueError:
+        return path.as_posix()
+
+
+def read_text(path: Path) -> str:
+    if not path.exists():
+        raise FileNotFoundError(path)
+    return path.read_text(encoding="utf-8-sig", errors="replace")
+
+
+def load_csv_rows(path: Path) -> list[dict[str, str]]:
+    if not path.exists():
+        return []
+    with path.open("r", encoding="utf-8-sig", newline="") as fh:
+        return list(csv.DictReader(fh))
+
+
+def boolish(value: str) -> bool:
+    return str(value or "").strip().lower() in {"true", "1", "yes", "y"}
+
+
+def require_literals(text: str, literals: Iterable[str], context: str) -> list[str]:
+    errors: list[str] = []
+    for literal in literals:
+        if literal not in text:
+            errors.append(f"{context} missing required completion hard-gate literal: {literal!r}")
+    return errors
+
+
+def require_ordered(text: str, literals: Iterable[str], context: str) -> list[str]:
+    errors: list[str] = []
+    cursor = -1
+    for literal in literals:
+        index = text.find(literal, cursor + 1)
+        if index < 0:
+            errors.append(f"{context} missing ordered completion hard-gate literal: {literal!r}")
+            continue
+        if index <= cursor:
+            errors.append(f"{context} completion hard-gate order is invalid at literal: {literal!r}")
+        cursor = index
+    return errors
+
+
+def validate_workflow_gates() -> list[str]:
+    errors: list[str] = []
+    for path in (DAILY_FULL_WORKFLOW, DAILY_MODEL_PR_WORKFLOW, COMPLETION_GATE, REPLAY_VALIDATOR):
+        if not path.exists():
+            errors.append(f"missing required daily PDF completion hard-gate file: {rel(path)}")
+
+    if DAILY_FULL_WORKFLOW.exists():
+        text = read_text(DAILY_FULL_WORKFLOW)
+        errors.extend(require_literals(text, REQUIRED_STATIC_VALIDATORS, rel(DAILY_FULL_WORKFLOW)))
+        errors.extend(
+            require_literals(
+                text,
+                (
+                    STATIC_COMPLETION_GATE_COMMAND,
+                    REPLAY_COMMAND,
+                    "PDF replay output_dir=chatgpt_side_outputs_new_conversation_replay",
+                    "--output-dir chatgpt_side_outputs_new_conversation_replay",
+                    DAILY_FULL_OUTPUT_GATE_COMMAND,
+                ),
+                rel(DAILY_FULL_WORKFLOW),
+            )
+        )
+        errors.extend(
+            require_ordered(
+                text,
+                (
+                    "- name: Replay ChatGPT-side daily PDF new conversation",
+                    REPLAY_COMMAND,
+                    DAILY_FULL_OUTPUT_GATE_COMMAND,
+                    "- name: Dispatch and wait for GitHub Pages deploy",
+                ),
+                rel(DAILY_FULL_WORKFLOW),
+            )
+        )
+
+    if DAILY_MODEL_PR_WORKFLOW.exists():
+        text = read_text(DAILY_MODEL_PR_WORKFLOW)
+        errors.extend(require_literals(text, REQUIRED_PR_VALIDATORS, rel(DAILY_MODEL_PR_WORKFLOW)))
+        errors.extend(
+            require_literals(
+                text,
+                (
+                    STATIC_COMPLETION_GATE_COMMAND,
+                    "tests/test_daily_pdf_completion_hard_gate.py",
+                    REPLAY_COMMAND,
+                    "PDF replay output_dir=chatgpt_side_outputs_pr_validation",
+                    "--output-dir chatgpt_side_outputs_pr_validation",
+                    PR_OUTPUT_GATE_COMMAND,
+                    "chatgpt_side_outputs_pr_validation/*.pdf",
+                    "chatgpt_side_outputs_pr_validation/chatgpt_daily_report_runtime_manifest.json",
+                    "if-no-files-found: error",
+                ),
+                rel(DAILY_MODEL_PR_WORKFLOW),
+            )
+        )
+        errors.extend(
+            require_ordered(
+                text,
+                (
+                    "- name: Replay ChatGPT-side daily PDF new conversation",
+                    REPLAY_COMMAND,
+                    PR_OUTPUT_GATE_COMMAND,
+                    "- name: Upload PR daily PDF replay evidence",
+                ),
+                rel(DAILY_MODEL_PR_WORKFLOW),
+            )
+        )
+    return errors
+
+
+def validate_regression_contract() -> list[str]:
+    errors: list[str] = []
+    if not RENDERED_MODEL_REGRESSION_CONTRACT.exists():
+        return [f"missing rendered model regression contract: {rel(RENDERED_MODEL_REGRESSION_CONTRACT)}"]
+    rows = replay.read_rendered_model_regression_contract(RENDERED_MODEL_REGRESSION_CONTRACT)
+    if not rows:
+        errors.append(f"rendered model regression contract has no active rows: {rel(RENDERED_MODEL_REGRESSION_CONTRACT)}")
+        return errors
+    model_ids = {row.get("model_id", "").strip() for row in rows if row.get("model_id", "").strip()}
+    missing = sorted(REQUIRED_REGRESSION_MODEL_IDS - model_ids)
+    if missing:
+        errors.append("rendered model regression contract missing PDF operation model_ids: " + ";".join(missing))
+    roles = {row.get("pdf_role", "").strip() for row in rows if row.get("pdf_role", "").strip()}
+    for role in ("mainstream_highlight", "non_mainstream_highlight"):
+        if role not in roles:
+            errors.append(f"rendered model regression contract missing digest role: {role}")
+    return errors
+
+
+def rows_by_model_id(rows: Iterable[dict[str, str]]) -> dict[str, dict[str, str]]:
+    return {row.get("model_id", "").strip(): row for row in rows if row.get("model_id", "").strip()}
+
+
+def validate_readiness_pdf_consistency() -> list[str]:
+    errors: list[str] = []
+    readiness_rows = load_csv_rows(DAILY_MODEL_READINESS)
+    if not readiness_rows:
+        return [f"missing or empty model operation readiness artifact: {rel(DAILY_MODEL_READINESS)}"]
+
+    by_model = rows_by_model_id(readiness_rows)
+    for model_id in sorted(REQUIRED_REGRESSION_MODEL_IDS):
+        row = by_model.get(model_id)
+        if row is None:
+            errors.append(f"PDF operation model missing readiness row: {model_id}")
+            continue
+        if row.get("pdf_integration_status", "") != "pdf_integrated_daily_adapter":
+            errors.append(
+                f"PDF operation model is not marked pdf_integrated_daily_adapter in readiness: {model_id}"
+            )
+        if not boolish(row.get("presentation_allowed", "")):
+            errors.append(f"PDF operation model is not presentation_allowed in readiness: {model_id}")
+        if not boolish(row.get("approved_for_daily", "")):
+            errors.append(f"PDF operation model is not approved_for_daily in readiness: {model_id}")
+
+    for row in readiness_rows:
+        model_id = row.get("model_id", "").strip()
+        status = row.get("pdf_integration_status", "").strip()
+        presentation_allowed = boolish(row.get("presentation_allowed", ""))
+        if presentation_allowed and status != "pdf_integrated_daily_adapter":
+            errors.append(
+                f"presentation_allowed model must be pdf_integrated_daily_adapter: {model_id}"
+            )
+        if status == "pdf_integrated_daily_adapter" and not presentation_allowed:
+            errors.append(
+                f"pdf_integrated_daily_adapter model must be presentation_allowed: {model_id}"
+            )
+
+    errors.extend(
+        pdf_consumers.validate_pdf_integrated_operation_adapter_contract(
+            readiness_rows,
+            required_model_ids=set(pdf_consumers.PDF_OPERATION_ADAPTER_ARTIFACTS),
+        )
+    )
+    return errors
+
+
+def manifest_pdf_paths(output_dir: Path, manifest: dict) -> tuple[list[Path], list[str]]:
+    errors: list[str] = []
+    outputs = manifest.get("pdf_outputs")
+    if not isinstance(outputs, list):
+        return [], ["runtime manifest pdf_outputs must be a list of role/path objects"]
+    paths: list[Path] = []
+    for index, output in enumerate(outputs, start=1):
+        if not isinstance(output, dict):
+            errors.append(f"runtime manifest pdf_outputs[{index}] must be an object")
+            continue
+        raw_path = str(output.get("path", "")).strip()
+        if not raw_path:
+            errors.append(f"runtime manifest pdf_outputs[{index}] missing path")
+            continue
+        path = Path(raw_path).expanduser()
+        if not path.is_absolute():
+            path = output_dir / path
+        paths.append(path.resolve())
+    return paths, errors
+
+
+def validate_output_dir(output_dir: Path) -> list[str]:
+    output_dir = output_dir.expanduser().resolve()
+    manifest, errors = replay.read_runtime_manifest(output_dir)
+    if errors:
+        return errors
+    assert manifest is not None
+
+    required_manifest_fields = (
+        "manifest_type",
+        "source_ref",
+        "source_commit_sha",
+        "clean_source_commit_sha",
+        "main_price_date",
+        "freshness_path",
+        "readme_path",
+        "packet_path",
+        "pdf_count",
+        "pdf_paths",
+        "pdf_outputs",
+        "output_dir",
+    )
+    for field in required_manifest_fields:
+        if field not in manifest or manifest.get(field) in ("", None):
+            errors.append(f"runtime manifest missing completion field: {field}")
+    if manifest.get("manifest_type") != "chatgpt_daily_report_runtime_manifest":
+        errors.append("runtime manifest_type must be chatgpt_daily_report_runtime_manifest")
+    if manifest.get("pdf_count") != len(replay.EXPECTED_PDF_ROLES):
+        errors.append("runtime manifest pdf_count must match the six official daily PDFs")
+
+    paths, path_errors = manifest_pdf_paths(output_dir, manifest)
+    errors.extend(path_errors)
+    if paths:
+        role_map, role_errors = replay.role_to_pdf_paths_from_manifest(manifest, paths)
+        errors.extend(role_errors)
+        if sorted(role_map) != sorted(replay.EXPECTED_PDF_ROLES):
+            errors.append("runtime manifest role map does not cover every official daily PDF role")
+        emitted_pdfs = sorted(path.resolve() for path in output_dir.glob("*.pdf"))
+        if sorted(paths) != emitted_pdfs:
+            errors.append("daily PDF output directory must contain exactly the manifest-listed six PDFs")
+        errors.extend(replay.validate_pdf_files_open(paths))
+        if not errors:
+            errors.extend(replay.validate_pdf_highlight_layout_contract(paths, output_dir))
+            main_price_date = str(manifest.get("main_price_date", "")).strip()
+            if main_price_date:
+                errors.extend(replay.validate_rendered_model_regression_contract(paths, main_price_date, output_dir))
+    return errors
+
+
+def validate(require_output_dirs: Iterable[Path] = ()) -> list[str]:
+    errors: list[str] = []
+    errors.extend(validate_workflow_gates())
+    errors.extend(validate_regression_contract())
+    errors.extend(validate_readiness_pdf_consistency())
+    for output_dir in require_output_dirs:
+        errors.extend(validate_output_dir(output_dir))
+    return errors
+
+
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="Validate daily PDF completion hard gates.")
+    parser.add_argument(
+        "--require-output-dir",
+        type=Path,
+        action="append",
+        default=[],
+        help="Require a replay output directory with six PDFs, runtime manifest, and text regression pass.",
+    )
+    return parser.parse_args()
+
+
+def main() -> int:
+    args = parse_args()
+    errors = validate(args.require_output_dir)
+    if errors:
+        for error in errors:
+            print(f"ERROR: {error}")
+        return 1
+    print("daily PDF completion hard-gate validation passed")
+    print(f"validated_workflows={rel(DAILY_FULL_WORKFLOW)};{rel(DAILY_MODEL_PR_WORKFLOW)}")
+    print(f"validated_readiness={rel(DAILY_MODEL_READINESS)}")
+    if args.require_output_dir:
+        print("validated_output_dirs=" + ";".join(str(path) for path in args.require_output_dir))
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

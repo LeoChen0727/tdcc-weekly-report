@@ -421,6 +421,7 @@ jobs:
           python scripts/validate_daily_pdf_shared_path_isolation.py
           python scripts/validate_daily_pdf_contract_consumers.py
           python scripts/validate_daily_pdf_role_manifest_contract.py
+          python scripts/validate_daily_pdf_completion_hard_gate.py
           python scripts/validate_pdf_production_inventory.py
 
       - name: Build ChatGPT indicator usage guide
@@ -628,6 +629,7 @@ jobs:
           echo "PDF replay output_dir=chatgpt_side_outputs_new_conversation_replay"
           timeout 20m python scripts/validate_chatgpt_daily_report_new_conversation_replay.py \
             --output-dir chatgpt_side_outputs_new_conversation_replay
+          python scripts/validate_daily_pdf_completion_hard_gate.py --require-output-dir chatgpt_side_outputs_new_conversation_replay
 
       - name: Dispatch and wait for GitHub Pages deploy
         if: ${{ github.ref == 'refs/heads/main' }}

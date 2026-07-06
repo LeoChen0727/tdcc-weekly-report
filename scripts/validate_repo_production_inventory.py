@@ -214,6 +214,7 @@ REQUIRED_WORKFLOW_COMMANDS = {
         "python scripts/validate_pdf_production_inventory.py",
         "python scripts/validate_daily_pdf_contract_consumers.py",
         "python scripts/validate_daily_pdf_shared_path_isolation.py",
+        "python scripts/validate_daily_pdf_completion_hard_gate.py",
         "python scripts/validate_repo_code_isolation_policy.py",
     ),
     ".github/workflows/research_backtest_pipeline.yml": (
@@ -224,6 +225,7 @@ REQUIRED_WORKFLOW_COMMANDS = {
         "python scripts/validate_repo_production_inventory.py",
         "python scripts/validate_daily_pdf_contract_consumers.py",
         "python scripts/validate_daily_pdf_shared_path_isolation.py",
+        "python scripts/validate_daily_pdf_completion_hard_gate.py",
         "python scripts/validate_daily_production_boundaries.py",
     ),
     ".github/workflows/tdcc_weekly.yml": (

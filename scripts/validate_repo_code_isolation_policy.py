@@ -11,6 +11,7 @@ RESEARCH_WORKFLOW = ROOT / ".github" / "workflows" / "research_backtest_pipeline
 BOUNDARY_VALIDATOR = ROOT / "scripts" / "validate_daily_production_boundaries.py"
 PDF_LAYOUT_VALIDATOR = ROOT / "scripts" / "validate_chatgpt_side_pdf_layout_independence.py"
 PDF_SHARED_PATH_VALIDATOR = ROOT / "scripts" / "validate_daily_pdf_shared_path_isolation.py"
+PDF_COMPLETION_HARD_GATE = ROOT / "scripts" / "validate_daily_pdf_completion_hard_gate.py"
 THREAD_WORKFLOW_DOC = ROOT / "docs" / "CODEX_THREAD_WORKFLOW.md"
 RULES_MASTER = ROOT / "rules" / "master_priority_rules.md"
 DOCS_RULES_MASTER = ROOT / "docs" / "rules" / "master_priority_rules.md"
@@ -58,6 +59,7 @@ REQUIRED_WORKFLOW_COMMANDS = [
     "python scripts/validate_repo_code_isolation_policy.py",
     "python scripts/validate_chatgpt_side_pdf_layout_independence.py",
     "python scripts/validate_daily_pdf_shared_path_isolation.py",
+    "python scripts/validate_daily_pdf_completion_hard_gate.py",
     "python scripts/validate_daily_production_boundaries.py",
 ]
 
@@ -88,6 +90,7 @@ def validate() -> list[str]:
         BOUNDARY_VALIDATOR,
         PDF_LAYOUT_VALIDATOR,
         PDF_SHARED_PATH_VALIDATOR,
+        PDF_COMPLETION_HARD_GATE,
         THREAD_WORKFLOW_DOC,
         RULES_MASTER,
         DOCS_RULES_MASTER,
