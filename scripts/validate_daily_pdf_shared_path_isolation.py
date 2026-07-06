@@ -43,10 +43,18 @@ STOCK_PDF_BUILDERS = {
 
 MODEL_SPECIFIC_OPERATION_SYMBOLS = {
     "volume_operation_frame",
+    "volume_operation_report_lines_for_stock",
     "filter_volume_operation_rows_for_line",
+    "volume_operation_empty_text",
     "limit_volume_operation_rows_for_pdf_view",
     "volume_operation_all_rows_for_pdf",
     "selected_volume_operation_rows_for_pdf",
+    "volume_operation_date_label",
+    "volume_operation_score_label",
+    "volume_operation_trigger_label",
+    "volume_operation_entry_label",
+    "volume_operation_stop_label",
+    "volume_operation_exit_label",
     "render_volume_range_breakout_operation_section",
     "build_volume_confirmed_operation_table",
     "build_volume_unranked_operation_table",
@@ -60,6 +68,14 @@ MODEL_SPECIFIC_OPERATION_SYMBOLS = {
     "limit_w_bottom_operation_rows_for_pdf_view",
     "w_bottom_operation_all_rows_for_pdf",
     "selected_w_bottom_operation_rows_for_pdf",
+    "w_bottom_operation_signal_label",
+    "w_bottom_operation_signal_date_label",
+    "w_bottom_operation_entry_label",
+    "w_bottom_operation_stop_label",
+    "w_bottom_operation_exit_label",
+    "w_bottom_operation_age_label",
+    "w_bottom_operation_score_label",
+    "w_bottom_operation_note_label",
     "render_w_bottom_operation_section",
     "build_w_bottom_confirmed_operation_table",
     "build_w_bottom_active_operation_table",
@@ -76,11 +92,57 @@ MODEL_SPECIFIC_OPERATION_SYMBOLS = {
 
 OPERATION_DISPATCHER = "render_model_operation_section_if_applicable"
 
+OPERATION_SHARED_CONTRACT_SYMBOLS = {
+    "approval_row_for_operation_model",
+    "operation_rule_text",
+    "operation_model_metric_summary",
+    "operation_model_summary_text",
+    "render_operation_model_summary_if_applicable",
+    "operation_table_title_row",
+    "operation_table_title",
+    "operation_model_display_name",
+    "operation_cell_text",
+    "operation_cell_markup",
+    "operation_confirmation_sentence",
+    "operation_invalidation_sentence",
+    "operation_tracking_sentence",
+    "operation_risk_sentence",
+    "operation_tdcc_sentence",
+    "operation_section_empty_text",
+    "source_artifact_info",
+    "selected_operation_rows_for_manifest",
+    "manifest_value",
+    "semantic_manifest_data_row",
+    "semantic_manifest_empty_row",
+    "write_pdf_semantic_manifest",
+}
+
+REPORT_SPECIFIC_OPERATION_SYMBOLS = {
+    "mainstream_curated_operation_representatives",
+    "non_mainstream_curated_operation_representatives",
+    "build_mainstream_curated_operation_page",
+    "build_non_mainstream_curated_operation_page",
+}
+
 OWNERSHIP_CLASSES = {
     "low_level_shared",
     "report_specific_business",
     "model_specific_business",
     "operation_dispatcher_guarded",
+    "operation_shared_contract",
+}
+
+LOW_LEVEL_FORBIDDEN_BUSINESS_TOKENS = {
+    "model_id",
+    "stock_id",
+    "pdf_section",
+    "report_line",
+    "buy_rank_eligible",
+    "operation_status",
+    "row_action_status",
+    "VOLUME_BREAKOUT",
+    "W_BOTTOM",
+    "PRICE_PULLBACK",
 }
 
 
@@ -153,7 +215,12 @@ def operation_like_symbols(functions: dict[str, ast.FunctionDef]) -> set[str]:
         re.compile(r"^selected_.*operation_rows_for_pdf$"),
         re.compile(r".*_operation_row_matches_line$"),
     ]
-    symbols = {OPERATION_DISPATCHER}
+    symbols = {
+        name
+        for name in functions
+        if "operation" in name or name.startswith("semantic_manifest_")
+    }
+    symbols.update({OPERATION_DISPATCHER, "source_artifact_info", "manifest_value", "write_pdf_semantic_manifest"})
     for name in functions:
         if any(pattern.search(name) for pattern in patterns):
             symbols.add(name)
@@ -167,7 +234,14 @@ def validate_inventory_rows(
     errors: list[str] = []
     by_symbol = inventory_by_symbol(rows)
 
-    required = LOW_LEVEL_SHARED_SYMBOLS | REPORT_SPECIFIC_BUILDERS | MODEL_SPECIFIC_OPERATION_SYMBOLS | {OPERATION_DISPATCHER}
+    required = (
+        LOW_LEVEL_SHARED_SYMBOLS
+        | REPORT_SPECIFIC_BUILDERS
+        | REPORT_SPECIFIC_OPERATION_SYMBOLS
+        | MODEL_SPECIFIC_OPERATION_SYMBOLS
+        | OPERATION_SHARED_CONTRACT_SYMBOLS
+        | {OPERATION_DISPATCHER}
+    )
     missing_required = sorted(required - set(by_symbol))
     if missing_required:
         errors.append("daily PDF shared path inventory missing required symbols: " + ",".join(missing_required))
@@ -196,11 +270,14 @@ def validate_inventory_rows(
             if row["allowed_business_semantics"] != "none":
                 errors.append(f"{symbol} is low-level shared but has business semantics")
 
-        if symbol in REPORT_SPECIFIC_BUILDERS and ownership != "report_specific_business":
+        if symbol in REPORT_SPECIFIC_BUILDERS | REPORT_SPECIFIC_OPERATION_SYMBOLS and ownership != "report_specific_business":
             errors.append(f"{symbol} must be report_specific_business")
 
         if symbol in MODEL_SPECIFIC_OPERATION_SYMBOLS and ownership != "model_specific_business":
             errors.append(f"{symbol} must be model_specific_business")
+
+        if symbol in OPERATION_SHARED_CONTRACT_SYMBOLS and ownership != "operation_shared_contract":
+            errors.append(f"{symbol} must be operation_shared_contract")
 
         if symbol == OPERATION_DISPATCHER and ownership != "operation_dispatcher_guarded":
             errors.append(f"{symbol} must be operation_dispatcher_guarded")
@@ -210,6 +287,15 @@ def validate_inventory_rows(
 
 def validate_source_boundaries(source: str, functions: dict[str, ast.FunctionDef]) -> list[str]:
     errors: list[str] = []
+
+    for symbol in sorted(LOW_LEVEL_SHARED_SYMBOLS):
+        node = functions.get(symbol)
+        if not node:
+            continue
+        body = function_text(source, node)
+        for token in sorted(LOW_LEVEL_FORBIDDEN_BUSINESS_TOKENS):
+            if token in body:
+                errors.append(f"{symbol} low-level shared helper contains business token: {token}")
 
     dispatcher = functions.get(OPERATION_DISPATCHER)
     if not dispatcher:

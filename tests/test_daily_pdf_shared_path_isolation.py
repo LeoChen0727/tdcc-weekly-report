@@ -46,6 +46,19 @@ def test_daily_pdf_shared_path_inventory_registers_operation_like_symbols() -> N
     assert validator.operation_like_symbols(functions) <= registered
 
 
+def test_low_level_shared_helpers_do_not_contain_business_tokens() -> None:
+    source = (ROOT / "scripts" / "generate_chatgpt_side_daily_reports.py").read_text(
+        encoding="utf-8",
+        errors="replace",
+    )
+    functions = validator.function_nodes(validator.ast.parse(source))
+
+    for symbol in validator.LOW_LEVEL_SHARED_SYMBOLS:
+        body = validator.function_text(source, functions[symbol])
+        leaked = {token for token in validator.LOW_LEVEL_FORBIDDEN_BUSINESS_TOKENS if token in body}
+        assert not leaked, f"{symbol} contains business tokens: {sorted(leaked)}"
+
+
 def test_operation_line_matcher_prefers_explicit_report_line_over_memberships() -> None:
     row = pd.Series(
         {
