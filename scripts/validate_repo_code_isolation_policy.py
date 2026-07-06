@@ -10,6 +10,7 @@ DAILY_WORKFLOW = ROOT / ".github" / "workflows" / "daily_full_pipeline.yml"
 RESEARCH_WORKFLOW = ROOT / ".github" / "workflows" / "research_backtest_pipeline.yml"
 BOUNDARY_VALIDATOR = ROOT / "scripts" / "validate_daily_production_boundaries.py"
 PDF_LAYOUT_VALIDATOR = ROOT / "scripts" / "validate_chatgpt_side_pdf_layout_independence.py"
+PDF_SHARED_PATH_VALIDATOR = ROOT / "scripts" / "validate_daily_pdf_shared_path_isolation.py"
 THREAD_WORKFLOW_DOC = ROOT / "docs" / "CODEX_THREAD_WORKFLOW.md"
 RULES_MASTER = ROOT / "rules" / "master_priority_rules.md"
 DOCS_RULES_MASTER = ROOT / "docs" / "rules" / "master_priority_rules.md"
@@ -56,6 +57,7 @@ REQUIRED_POLICY_TEXT = {
 REQUIRED_WORKFLOW_COMMANDS = [
     "python scripts/validate_repo_code_isolation_policy.py",
     "python scripts/validate_chatgpt_side_pdf_layout_independence.py",
+    "python scripts/validate_daily_pdf_shared_path_isolation.py",
     "python scripts/validate_daily_production_boundaries.py",
 ]
 
@@ -85,6 +87,7 @@ def validate() -> list[str]:
         RESEARCH_WORKFLOW,
         BOUNDARY_VALIDATOR,
         PDF_LAYOUT_VALIDATOR,
+        PDF_SHARED_PATH_VALIDATOR,
         THREAD_WORKFLOW_DOC,
         RULES_MASTER,
         DOCS_RULES_MASTER,
@@ -153,6 +156,7 @@ def main() -> int:
     print(f"validated_agents={AGENTS.relative_to(ROOT).as_posix()}")
     print(f"validated_master_rules={RULES_MASTER.relative_to(ROOT).as_posix()}")
     print(f"validated_daily_rules={RULES_DAILY.relative_to(ROOT).as_posix()}")
+    print(f"validated_pdf_shared_path={PDF_SHARED_PATH_VALIDATOR.relative_to(ROOT).as_posix()}")
     print(f"validated_workflow={DAILY_WORKFLOW.relative_to(ROOT).as_posix()}")
     print(f"validated_research_workflow={RESEARCH_WORKFLOW.relative_to(ROOT).as_posix()}")
     return 0
