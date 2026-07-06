@@ -319,6 +319,15 @@ candidate signal rows to infer W-bottom lifecycle. Future operation-oriented
 models must follow this contract when their formal PDF operation adapters are
 wired.
 
+Formal operation adapters must enforce lifecycle monotonicity. Within the same
+model, report line, and PDF view, the same stock must not appear in both
+`confirmed_operation` and `active_operation` on the same operation date. An
+existing active position suppresses a new same-stock confirmed row until that
+position exits. `active_operation` rows must be backed by a prior formal
+buy-ranked confirmed operation row, not by re-evaluating old signals with newer
+context. Rows that were `confirmed_unranked_operation` on their confirmation
+date must not later be promoted into active tracking.
+
 Full-list PDFs can be large. Page-count validation must define an explicit
 reasonable range instead of treating the current high page count as an implicit
 failure.

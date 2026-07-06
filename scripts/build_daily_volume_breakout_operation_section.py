@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from datetime import datetime
+from functools import lru_cache
 import math
 import os
 from pathlib import Path
@@ -264,6 +265,46 @@ def read_csv(path: Path) -> pd.DataFrame:
         return pd.DataFrame()
 
 
+@lru_cache(maxsize=None)
+def read_snapshot_csv_cached(path_text: str) -> pd.DataFrame:
+    return read_csv(Path(path_text)).fillna("")
+
+
+@lru_cache(maxsize=None)
+def prior_operation_snapshot_paths(report_date: str) -> tuple[str, ...]:
+    report_date = normalize_date_text(report_date)
+    paths: list[tuple[str, str]] = []
+    for path in MODEL_SNAPSHOT_DIR.glob("daily_volume_breakout_operation_section_*.csv"):
+        snapshot_date = normalize_date_text(path.stem.rsplit("_", 1)[-1])
+        if snapshot_date and snapshot_date < report_date:
+            paths.append((snapshot_date, str(path)))
+    return tuple(path for _snapshot_date, path in sorted(paths, reverse=True))
+
+
+@lru_cache(maxsize=None)
+def prior_active_snapshot_keys(report_date: str) -> frozenset[tuple[str, str, str]]:
+    keys: set[tuple[str, str, str]] = set()
+    for path_text in prior_operation_snapshot_paths(report_date):
+        section = read_snapshot_csv_cached(path_text)
+        if section.empty:
+            continue
+        active = section[
+            section.get("pdf_section", pd.Series(dtype=str)).astype(str).eq("active_operation")
+            & section.get("row_type", pd.Series(dtype=str)).astype(str).eq("data")
+        ].copy()
+        if active.empty:
+            continue
+        for _, row in active.iterrows():
+            keys.add(
+                (
+                    stock_id_key(row.get("stock_id")),
+                    normalize_date_text(row.get("signal_date")),
+                    normalize_date_text(row.get("selected_confirmation_date")),
+                )
+            )
+    return frozenset(keys)
+
+
 def true_env(name: str) -> bool:
     return safe_str(os.environ.get(name)).lower() in {"1", "true", "yes", "y"}
 
@@ -274,6 +315,60 @@ def published_section_snapshot_path(report_date: str) -> Path:
 
 def published_evidence_audit_snapshot_path(report_date: str) -> Path:
     return MODEL_SNAPSHOT_DIR / f"daily_volume_breakout_operation_evidence_audit_{normalize_date_text(report_date)}.csv"
+
+
+def confirmation_snapshot_buy_ranked(signal: pd.Series, selected: dict[str, Any]) -> tuple[bool, str]:
+    confirmation_date = normalize_date_text(selected.get("confirmation_date"))
+    if not confirmation_date:
+        return False, "missing_selected_confirmation_date"
+    path = published_section_snapshot_path(confirmation_date)
+    if not path.exists():
+        return False, "missing_confirmation_operation_snapshot"
+    section = read_snapshot_csv_cached(str(path))
+    if section.empty:
+        return False, "empty_confirmation_operation_snapshot"
+
+    stock_id = stock_id_key(signal.get("stock_id"))
+    signal_date = normalize_date_text(signal.get("signal_date"))
+    matches = section[
+        section.get("stock_id", pd.Series(dtype=str)).map(stock_id_key).eq(stock_id)
+        & section.get("signal_date", pd.Series(dtype=str)).map(normalize_date_text).eq(signal_date)
+        & section.get("row_type", pd.Series(dtype=str)).astype(str).eq("data")
+    ].copy()
+    if "selected_confirmation_date" in matches.columns:
+        matches = matches[
+            matches["selected_confirmation_date"].map(normalize_date_text).eq(confirmation_date)
+        ].copy()
+    if matches.empty:
+        return False, "missing_confirmation_operation_snapshot_row"
+
+    buy_ranked = matches[
+        matches.get("pdf_section", pd.Series(dtype=str)).astype(str).eq("confirmed_operation")
+        & matches.get("row_action_status", pd.Series(dtype=str)).astype(str).eq("confirmed_buy_candidate")
+        & matches.get("buy_rank_eligible", pd.Series(dtype=str)).astype(str).eq("True")
+    ]
+    if buy_ranked.empty:
+        return False, "confirmation_snapshot_not_buy_ranked_not_tracked_active"
+    return True, "confirmation_snapshot_buy_ranked"
+
+
+def prior_active_snapshot_tracked(signal: pd.Series, selected: dict[str, Any], report_date: str) -> tuple[bool, str]:
+    confirmation_date = normalize_date_text(selected.get("confirmation_date"))
+    key = (
+        stock_id_key(signal.get("stock_id")),
+        normalize_date_text(signal.get("signal_date")),
+        confirmation_date,
+    )
+    if key in prior_active_snapshot_keys(report_date):
+        return True, "prior_active_snapshot_tracked"
+    return False, "missing_prior_active_snapshot"
+
+
+def active_snapshot_backing(signal: pd.Series, selected: dict[str, Any], report_date: str) -> tuple[bool, str]:
+    prior_active, prior_reason = prior_active_snapshot_tracked(signal, selected, report_date)
+    if prior_active:
+        return True, prior_reason
+    return confirmation_snapshot_buy_ranked(signal, selected)
 
 
 def restore_published_snapshot(report_date: str) -> tuple[pd.DataFrame, pd.DataFrame] | None:
@@ -1232,6 +1327,44 @@ def source_gap_audit_payload(
     }
 
 
+def lifecycle_gate_audit_payload(
+    signal: pd.Series,
+    selected: dict[str, Any],
+    report_date: str,
+    reason: str,
+    generated_at: str,
+) -> dict[str, Any]:
+    return {
+        "model_id": MODEL_ID,
+        "operation_asof_date": normalize_date_text(report_date),
+        "stock_id": stock_id_key(signal.get("stock_id")),
+        "stock_name": safe_str(signal.get("stock_name")),
+        "signal_date": normalize_date_text(signal.get("signal_date")),
+        "selected_trigger_id": safe_str(selected.get("trigger_id")),
+        "selected_confirmation_date": normalize_date_text(selected.get("confirmation_date")),
+        "operation_lifecycle_state": "active_operation_suppressed",
+        "audit_status": "lifecycle_suppressed",
+        "included_in_daily_adapter": "False",
+        "tdcc_list_type": "",
+        "tdcc_rank": "",
+        "rank_bucket": "",
+        "classification_id": "",
+        "attack_method": "",
+        "price_position_type": "",
+        "risk_type": "",
+        "evidence_confluence_scope": "",
+        "evidence_confluence_id": "",
+        "evidence_sample_size": "",
+        "evidence_win_rate": "",
+        "evidence_avg_return": "",
+        "evidence_median_return": "",
+        "evidence_out_of_sample_pass": "",
+        "ranking_research_score": "",
+        "reason": reason,
+        "generated_at": generated_at,
+    }
+
+
 def lifecycle_suppression_audit_payload(
     record: dict[str, Any],
     winner: dict[str, Any],
@@ -1320,6 +1453,16 @@ def lifecycle_state_for_signal(
 
     selected = selected_confirmation(price, signal_idx, report_idx)
     if selected is not None:
+        confirmation_idx = int(selected["confirmation_idx"])
+        entry_idx = confirmation_idx + 1
+        if confirmation_idx < report_idx:
+            active_backed_by_snapshot, snapshot_reason = active_snapshot_backing(signal, selected, report_date)
+            if not active_backed_by_snapshot:
+                audit_rows.append(
+                    lifecycle_gate_audit_payload(signal, selected, report_date, snapshot_reason, generated_at)
+                )
+                return 90, None, audit_rows
+
         evidence, context, is_buy_rank_eligible, evidence_audit = select_row_evidence(
             price,
             signal_idx,
@@ -1328,8 +1471,6 @@ def lifecycle_state_for_signal(
             signal,
         )
         audit_rows.extend(evidence_audit)
-        confirmation_idx = int(selected["confirmation_idx"])
-        entry_idx = confirmation_idx + 1
         if confirmation_idx == report_idx:
             if is_buy_rank_eligible and evidence is not None and context is not None:
                 record = confirmed_record(

@@ -119,6 +119,18 @@ both `confirmed_operation` and `active_operation` sections. The PDF layer must
 fail closed on missing artifacts or missing required columns and must not fall
 back to candidate signal rows to infer lifecycle state.
 
+Formal operation adapters must also enforce lifecycle monotonicity before the
+PDF layer reads them:
+
+- The same stock must not appear in both `confirmed_operation` and
+  `active_operation` for the same model/report line/PDF view on the same
+  operation date.
+- An existing active position suppresses a new same-stock confirmed row until
+  that position exits; the suppression must be recorded in the adapter audit.
+- An `active_operation` row must be backed by a prior model-owned buy-ranked
+  confirmed row. Historical rows that were not buy-ranked on their confirmation
+  date must not be re-promoted into active tracking by newer context.
+
 Future operation-oriented stock models must follow this presentation contract
 when their formal PDF operation adapters are wired; do not invent operation
 lifecycle rows in the PDF layer before such an adapter exists.

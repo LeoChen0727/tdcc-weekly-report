@@ -5,12 +5,6 @@
 
 | model_id | operation_asof_date | stock_id | stock_name | report_line | signal_date | entry_date | audit_status | included_in_daily_adapter | operation_lifecycle_state | exit_date | exit_reason |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| w_bottom_right_side | 20260706 | 2646 | 星宇航空 | non_mainstream | 20260706 |  | candidate_evaluated | True | confirmed_operation |  |  |
-| w_bottom_right_side | 20260706 | 6176 | 瑞儀 | mainstream | 20260706 |  | candidate_evaluated | True | confirmed_operation |  |  |
-| w_bottom_right_side | 20260706 | 1618 | 合機 | mainstream | 20260706 |  | candidate_evaluated | True | confirmed_operation |  |  |
-| w_bottom_right_side | 20260706 | 8422 | 可寧衛* | non_mainstream | 20260706 |  | candidate_evaluated | True | confirmed_operation |  |  |
-| w_bottom_right_side | 20260706 | 1477 | 聚陽 | non_mainstream | 20260706 |  | candidate_evaluated | True | confirmed_operation |  |  |
-| w_bottom_right_side | 20260706 | 2101 | 南港 | non_mainstream | 20260706 |  | candidate_evaluated | True | confirmed_operation |  |  |
 | w_bottom_right_side | 20260706 | 1618 | 合機 | mainstream | 20260529 | 20260601 | candidate_evaluated | True | active_operation |  |  |
 | w_bottom_right_side | 20260706 | 2241 | 艾姆勒 | non_mainstream | 20260529 |  | lifecycle_suppressed | False | d20_gain10_close_exit | 20260629 | d20_gain10_close_exit |
 | w_bottom_right_side | 20260706 | 2374 | 佳能 | mainstream | 20260529 | 20260601 | candidate_evaluated | True | active_operation |  |  |
@@ -85,3 +79,9 @@
 | w_bottom_right_side | 20260706 | 2348 | 海悅 | non_mainstream | 20260703 | 20260706 | candidate_evaluated | True | active_operation |  |  |
 | w_bottom_right_side | 20260706 | 2646 | 星宇航空 | non_mainstream | 20260703 | 20260706 | candidate_evaluated | True | active_operation |  |  |
 | w_bottom_right_side | 20260706 | 3029 | 零壹 | mainstream | 20260703 | 20260706 | candidate_evaluated | True | active_operation |  |  |
+| w_bottom_right_side | 20260706 | 2646 | 星宇航空 | non_mainstream | 20260706 |  | lifecycle_suppressed | False | same_stock_already_active_operation |  |  |
+| w_bottom_right_side | 20260706 | 6176 | 瑞儀 | mainstream | 20260706 |  | candidate_evaluated | True | confirmed_operation |  |  |
+| w_bottom_right_side | 20260706 | 1618 | 合機 | mainstream | 20260706 |  | lifecycle_suppressed | False | same_stock_already_active_operation |  |  |
+| w_bottom_right_side | 20260706 | 8422 | 可寧衛* | non_mainstream | 20260706 |  | candidate_evaluated | True | confirmed_operation |  |  |
+| w_bottom_right_side | 20260706 | 1477 | 聚陽 | non_mainstream | 20260706 |  | lifecycle_suppressed | False | same_stock_already_active_operation |  |  |
+| w_bottom_right_side | 20260706 | 2101 | 南港 | non_mainstream | 20260706 |  | lifecycle_suppressed | False | same_stock_already_active_operation |  |  |
