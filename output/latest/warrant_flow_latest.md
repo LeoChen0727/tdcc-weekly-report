@@ -1,6 +1,6 @@
 # 權證資金流向最新摘要
 
-- 產出時間：`2026-07-06 20:27:25 Asia/Taipei`
+- 產出時間：`2026-07-06 21:44:22 Asia/Taipei`
 - CSV：`output/latest/warrant_flow_latest.csv`
 
 - 資料日期：`20260706`

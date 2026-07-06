@@ -416,7 +416,7 @@ event_date,stock_id,stock_name,event_type,theme_tags,title,summary,source,source
 7.其他應敘明事項：(1)本公司於115/6/11收到經濟部變更登記核准函。
 (2)依據臺灣證券交易所股份有限公司營業細則第45條規定，於更
 名後須連續公告三個月。
-(3)本公司股票代號未變動，普通股仍為「3708」",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-07-06 20:27:40 Asia/Taipei
+(3)本公司股票代號未變動，普通股仍為「3708」",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-07-06 21:44:50 Asia/Taipei
 20260612,3498,陽程,shareholder_meeting,semiconductor_equipment_theme;automation equipment;automation;equipment,公告本公司115年股東常會補選董事當選名單,"1.發生變動日期:115/06/12
 2.選任或變動人員別（請輸入法人董事、法人監察人、獨立董事、
 自然人董事或自然人監察人）:法人董事、獨立董事
@@ -40813,7 +40813,7 @@ Walsin Lihwa Europe S.a r.l. 股權
 7.其他應敘明事項：(1)本公司於115/07/01收到經濟部變更登記核准函。
 (2)依據臺灣證券交易所股份有限公司營業細則第45條規定，於更名後須連續公告三個月。
 (3)本公司股票代號未變動，普通股仍為「1721」。
-(4)本公司英文名未更動，仍為「SUNKO INK CO., LTD.」",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-07-06 20:27:40 Asia/Taipei
+(4)本公司英文名未更動，仍為「SUNKO INK CO., LTD.」",TWSE material information OpenAPI,https://openapi.twse.com.tw/v1/opendata/t187ap04_L,low,high,True,False,False,False,False,False,False,2026-07-06 21:44:50 Asia/Taipei
 20260629,1736,喬山,shareholder_meeting,,"代重要子公司Johnson Health Tech North America, Inc.
 公告董事會決議辦理減資彌補虧損","1.董事會決議日期:115/06/29
 2.減資緣由:改善財務結構，進行減資彌補虧損
