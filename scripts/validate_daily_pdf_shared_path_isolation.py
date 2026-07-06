@@ -97,6 +97,7 @@ OPERATION_SHARED_CONTRACT_SYMBOLS = {
     "operation_rule_text",
     "operation_model_metric_summary",
     "operation_model_summary_text",
+    "operation_model_summary_lines",
     "render_operation_model_summary_if_applicable",
     "operation_table_title_row",
     "operation_table_title",
