@@ -33,6 +33,76 @@ def approval_stub() -> dict[str, str]:
     }
 
 
+def pdf_summary_approval_rows() -> pd.DataFrame:
+    return pd.DataFrame(
+        [
+            {
+                "model_id": "volume_range_breakout",
+                "entry_rule_zh": "確認日收盤後列入；下一個交易日開盤價進場。",
+                "exit_rule_zh": "先跌破停損基準出場，否則持有 10 個交易日收盤出場。",
+                "stop_loss_rule_zh": "跌破訊號K低點停損。",
+                "best_evidence_win_rate": "58.06",
+                "best_evidence_median_return": "8.3888",
+            },
+            {
+                "model_id": "w_bottom_right_side",
+                "entry_rule_zh": "右低點觀察訊號成立後，下一個交易日開盤買進。",
+                "exit_rule_zh": "若 D+20 收盤報酬達 +10% 則 D+20 收盤出場；否則持有到 D+40 收盤。",
+                "stop_loss_rule_zh": "收盤跌破 W 結構低點出場。",
+                "w_bottom_mature_sample_size": "31",
+                "w_bottom_neutral_count": "0",
+                "w_bottom_loss_count": "13",
+                "w_bottom_pure_win_rate_pct": "58.0645",
+                "w_bottom_avg_return_pct": "11.2532",
+            },
+            {
+                "model_id": "neckline_volume_breakout_confirmation",
+                "entry_rule_zh": "3個交易日內收盤相對原始回測進場價達+1%，下一個交易日開盤買進。",
+                "exit_rule_zh": "20個交易日內收盤報酬先達+10%為勝；先達+5%後回落到<=+5%且未達+10%為和局；否則第20日收盤歸為操作規則敗。",
+                "stop_loss_rule_zh": "v1不升級固定收盤停損；以20個交易日操作規則判定勝、和、敗。",
+                "neckline_pure_win_rate_pct": "63.8889",
+                "neckline_neutral_inclusive_success_rate_pct": "74.5098",
+                "neckline_avg_return_pct": "4.3784",
+            },
+            {
+                "model_id": "price_pullback_23ema",
+                "entry_rule_zh": "確認日成立後隔日開盤買入。",
+                "exit_rule_zh": "收盤突破訊號日前20日高點後，隔日開盤賣出。",
+                "stop_loss_rule_zh": "收盤連續4天低於MA20/EMA23較低者的4%，隔日開盤停損。",
+                "price_pullback_win_rate_pct": "66.03",
+                "price_pullback_neutral_rate_pct": "5.60",
+                "price_pullback_failure_rate_pct": "28.36",
+                "price_pullback_avg_return_pct": "2.90",
+                "price_pullback_technical_package_win_rate_pct": "75.54",
+                "price_pullback_technical_package_neutral_rate_pct": "3.52",
+                "price_pullback_technical_package_failure_rate_pct": "20.95",
+                "price_pullback_technical_package_avg_return_pct": "2.96",
+            },
+        ]
+    ).fillna("")
+
+
+def test_pdf_operation_model_summary_uses_standard_contract_tokens() -> None:
+    inputs = {"approved_operation_patterns": pdf_summary_approval_rows()}
+
+    for model_id in pdf_generator.OPERATION_TABLE_MODEL_IDS:
+        summary = pdf_generator.operation_model_summary_text(inputs, model_id)
+        for token in pdf_generator.OPERATION_MODEL_SUMMARY_REQUIRED_TOKENS:
+            assert token in summary
+        assert "下一個交易日" not in summary
+
+    assert "勝率58.06%" in pdf_generator.operation_model_summary_text(inputs, "volume_range_breakout")
+    assert "和局0.00%" in pdf_generator.operation_model_summary_text(inputs, "w_bottom_right_side")
+    assert "含和局成功率74.51%" in pdf_generator.operation_model_summary_text(
+        inputs,
+        "neckline_volume_breakout_confirmation",
+    )
+    assert "技術強勢組合績效：勝率75.54%" in pdf_generator.operation_model_summary_text(
+        inputs,
+        "price_pullback_23ema",
+    )
+
+
 def volume_signal(stock_id: str = "1234", signal_date: str = "20260616", rank: str = "1") -> dict[str, str]:
     return {
         "model_id": "volume_range_breakout",
@@ -908,10 +978,10 @@ def test_daily_pdf_generator_does_not_read_research_operation_artifacts_directly
 
     assert "daily_volume_breakout_operation_section_latest.csv" in source
     assert "render_volume_range_breakout_operation_section" in source
+    assert "approved_operation_patterns_latest.csv" in source
     assert "volume_breakout_operation_pdf_preview_latest.csv" not in source
     assert "volume_breakout_confirmed_operation_rank_latest.csv" not in source
     assert "volume_breakout_pending_operation_queue_latest.csv" not in source
-    assert "approved_operation_patterns_latest.csv" not in source
 
 
 def test_daily_pdf_generator_omits_obsolete_volume_breakout_explanatory_text() -> None:
