@@ -302,7 +302,7 @@
 1580,新麥,電機機械,電機機械,主流,,,,,,provisional_industry_mapping
 1582,信錦,電子零組件業,電子零組件業,主流,,,,,,provisional_industry_mapping
 1583,程泰,電機機械,電機機械,主流,,,,,,provisional_industry_mapping
-1584,精剛,其他,其他,非主流,,,,,,
+1584,精剛,其他業,其他業,非主流,,,,,,
 1586,和勤,電機機械,電機機械,主流,,,,,,provisional_industry_mapping
 1587,吉茂,汽車工業,汽車工業,非主流,,,,,,provisional_industry_mapping
 1589,永冠-KY,電機機械,電機機械,主流,,,,,,provisional_industry_mapping
@@ -860,7 +860,7 @@
 3268,海德威,半導體業,半導體業,主流,,,,,,provisional_industry_mapping
 3272,東碩,電腦及週邊設備業,電腦及週邊設備業,主流,,,,,,provisional_industry_mapping
 3276,宇環,電子零組件業,電子零組件業,主流,,,,,,provisional_industry_mapping
-3284,太普高,其他業,其他業,非主流,,,,,,
+3284,太普高,其他,其他,非主流,,,,,,
 3285,微端,其他電子業,其他電子業,主流,,,,,,provisional_industry_mapping
 3287,廣寰科,電腦及週邊設備業,電腦及週邊設備業,主流,,,,,,provisional_industry_mapping
 3288,點晶,電子零組件業,電子零組件業,主流,,,,,,provisional_industry_mapping
@@ -1145,7 +1145,7 @@
 4552,力達-KY,電機機械,電機機械,主流,,,,,,provisional_industry_mapping
 4554,橙的,其他電子業,其他電子業,主流,,,,,,provisional_industry_mapping
 4555,氣立,電機機械,電機機械,主流,,,,,,provisional_industry_mapping
-4556,旭然,其他業,其他業,非主流,,,,,,
+4556,旭然,其他,其他,非主流,,,,,,
 4557,永新-KY,汽車工業,汽車工業,非主流,,,,,,provisional_industry_mapping
 4558,寶緯,電機機械,電機機械,主流,,,,,,provisional_industry_mapping
 4560,強信-KY,電機機械,電機機械,主流,,,,,,provisional_industry_mapping
@@ -1474,7 +1474,7 @@
 6175,立敦,電子零組件業,電子零組件業,主流,,,,,,provisional_industry_mapping
 6176,瑞儀,光電業,光電業,主流,,,,,,provisional_industry_mapping
 6177,達麗,建材營造,建材營造,非主流,,,,,,provisional_industry_mapping
-6179,亞通,其他業,其他業,非主流,,,,,,
+6179,亞通,其他,其他,非主流,,,,,,
 6180,橘子,文化創意業,文化創意業,非主流,,,,,,
 6182,合晶,半導體業,半導體業,主流,,,,,,provisional_industry_mapping
 6183,關貿,資訊服務業,資訊服務業,主流,,,,,,provisional_industry_mapping
@@ -1492,7 +1492,7 @@
 6196,帆宣,其他電子業,其他電子業,主流,半導體設備_CoWoS,,,,,user_authorized_seed_20260530
 6197,佳必琪,電子零組件業,電子零組件業,主流,,,,,,provisional_industry_mapping
 6198,瑞築,建材營造,建材營造,非主流,,,,,,provisional_industry_mapping
-6199,天品,其他業,其他業,非主流,,,,,,
+6199,天品,其他,其他,非主流,,,,,,
 6201,亞弘電,其他電子業,其他電子業,主流,,,,,,provisional_industry_mapping
 6202,盛群,半導體業,半導體業,主流,,,,,,provisional_industry_mapping
 6203,海韻電,電子零組件業,電子零組件業,主流,,,,,,provisional_industry_mapping
@@ -2357,7 +2357,7 @@
 9934,成霖,居家生活,居家生活,非主流,,,,,,
 9935,慶豐富,居家生活,居家生活,非主流,,,,,,
 9937,全國,油電燃氣業,油電燃氣業,非主流,,,,,,provisional_industry_mapping
-9938,百和,其他,其他,非主流,,,,,,
+9938,百和,其他業,其他業,非主流,,,,,,
 9939,宏全,其他業,其他業,非主流,,,,,,
 9940,信義,其他業,其他業,非主流,,,,,,
 9941,裕融,汽車金融 / 分期租賃,汽車金融 / 分期租賃,非主流,,,,,,
