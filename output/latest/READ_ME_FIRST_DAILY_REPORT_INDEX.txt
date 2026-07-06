@@ -1,4 +1,4 @@
-generated_at=2026-07-06 19:21:34 Asia/Taipei
+generated_at=2026-07-06 19:40:55 Asia/Taipei
 main_price_date=20260706
 report_ready=True
 warrant_flow_date=20260706
@@ -8,7 +8,7 @@ warrant_daily_publish_allowed=True
 warrant_pdf_visibility=visible
 daily_pdf_ready=True
 daily_pdf_ready_note=core daily data, warrant layer, and PDF theme display are ready for daily PDF source use; group rotation themes resolved for PDF display
-commit_sha=f12e1b94b5f1244bdc16ce53ce0bb42b7f19226c
+commit_sha=a88c40521f7b63195c14b4d02c82d7a5cbf4c58e
 daily_read_contract=raw_or_github_api_first_pages_auxiliary_only
 pages_cache_warning=GitHub Pages may lag or deploy later than main; daily stock/PDF tasks must prefer raw/GitHub API entries and reject stale Pages dates.
 latest_readme_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/READ_ME_FIRST_DAILY_REPORT.txt
@@ -21,7 +21,7 @@ history_readme_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/histor
 history_readme_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/reports/20260706_READ_ME_FIRST_DAILY_REPORT.txt
 astrology_read_protocol_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/astrology_read_protocol_latest.md
 astrology_read_protocol_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/astrology_read_protocol_latest.md
-preferred_chatgpt_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/f12e1b94b5f1244bdc16ce53ce0bb42b7f19226c/output/history/reports/20260706_CHATGPT_DAILY_REPORT_PACKET.txt
+preferred_chatgpt_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/a88c40521f7b63195c14b4d02c82d7a5cbf4c58e/output/history/reports/20260706_CHATGPT_DAILY_REPORT_PACKET.txt
 recommended_read_order=astrology_read_protocol_pages_url only for Zi Wei / Ba Zi / astrology tasks,astrology_read_protocol_raw_url only for Zi Wei / Ba Zi / astrology tasks,date_stamped_readme_raw_url,date_stamped_readme_github_api_url,history_readme_raw_url,latest_readme_raw_url,latest_readme_github_api_url,date_stamped_readme_pages_url,history_readme_pages_url,latest_readme_pages_url
 daily_task_fallback_rule=For daily stock/PDF tasks, read raw/GitHub API README entries before Pages. If latest raw returns an older main_price_date, try the date-stamped raw README for the expected Taiwan trading date. If that fails, try the date-stamped GitHub API and previous 7 calendar dates through raw/GitHub API. Use Pages only as auxiliary fallback when its main_price_date matches raw/API. Use only a report_ready=True entry and state the actual main_price_date used.
 
