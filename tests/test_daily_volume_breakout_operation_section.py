@@ -103,6 +103,39 @@ def test_pdf_operation_model_summary_uses_standard_contract_tokens() -> None:
     )
 
 
+def test_pdf_operation_model_summary_renders_each_contract_token_as_own_line() -> None:
+    inputs = {"approved_operation_patterns": pdf_summary_approval_rows()}
+
+    lines = pdf_generator.operation_model_summary_lines(inputs, "volume_range_breakout")
+
+    assert len(lines) == len(pdf_generator.OPERATION_MODEL_SUMMARY_REQUIRED_TOKENS)
+    for line, token in zip(lines, pdf_generator.OPERATION_MODEL_SUMMARY_REQUIRED_TOKENS):
+        assert line.startswith(token)
+    for line, next_token in zip(lines, pdf_generator.OPERATION_MODEL_SUMMARY_REQUIRED_TOKENS[1:]):
+        assert next_token not in line
+
+
+def test_pdf_stock_model_summary_marks_numeric_tokens_red() -> None:
+    markup = pdf_generator.stock_model_summary_markup(
+        "v1 uses 10 trading days, win 58.06%, return +8.39%, watch D+20/D+40, model 23EMA"
+    )
+
+    assert f'<font color="{pdf_generator.PDF_RED}">v1</font>' in markup
+    assert f'<font color="{pdf_generator.PDF_RED}">10</font>' in markup
+    assert f'<font color="{pdf_generator.PDF_RED}">58.06%</font>' in markup
+    assert f'<font color="{pdf_generator.PDF_RED}">+8.39%</font>' in markup
+    assert f'<font color="{pdf_generator.PDF_RED}">D+20/D+40</font>' in markup
+    assert "23EMA" in markup
+    assert f'<font color="{pdf_generator.PDF_RED}">23</font>EMA' not in markup
+
+
+def test_pdf_stock_model_title_styles_are_blue() -> None:
+    expected = pdf_generator.colors.HexColor(pdf_generator.PDF_MODEL_TITLE_BLUE)
+
+    assert pdf_generator.MODEL_H1.textColor == expected
+    assert pdf_generator.MODEL_H2.textColor == expected
+
+
 def volume_signal(stock_id: str = "1234", signal_date: str = "20260616", rank: str = "1") -> dict[str, str]:
     return {
         "model_id": "volume_range_breakout",

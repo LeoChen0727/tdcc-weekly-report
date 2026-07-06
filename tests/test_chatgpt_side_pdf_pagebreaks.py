@@ -58,16 +58,33 @@ def test_curated_pdfs_use_single_pagebreak_helper_before_model_sections() -> Non
     assert 'DAILY_HIGHLIGHT_LAYOUT_CONTRACT = "legacy_volume_first"' in text
     assert 'DAILY_HIGHLIGHT_MODEL_ORDER_POLICY = "program_side_order"' in text
     assert "curated_specs_with_volume_last" not in text
-    assert "append_page_break_once(story)\n        story.append(Paragraph(model_name, H1))" in mainstream_text
+    assert "append_page_break_once(story)\n        append_stock_model_title(story, model_name, level=1)" in mainstream_text
     assert "highlight_specs_in_layout_order(mainstream_curated_core_model_specs(inputs))" in mainstream_text
     assert "should_render_highlight_model_description(model_id)" in mainstream_text
     assert "build_mainstream_curated_operation_page(row, all_map, two_map, story, vol_map)" in mainstream_text
-    assert "story.append(para(desc, BODY_SMALL))" in mainstream_text
-    assert "append_page_break_once(story)\n        story.append(Paragraph(model_name, H1))" in non_mainstream_text
+    assert "append_stock_model_description_lines(story, desc)" in mainstream_text
+    assert "story.append(para(desc, BODY_SMALL))" not in mainstream_text
+    assert "append_page_break_once(story)\n        append_stock_model_title(story, model_name, level=1)" in non_mainstream_text
     assert "highlight_specs_in_layout_order(non_mainstream_curated_core_model_specs(inputs))" in non_mainstream_text
     assert "should_render_highlight_model_description(model_id)" in non_mainstream_text
     assert "build_non_mainstream_curated_operation_page(row, all_map, two_map, story, vol_map)" in non_mainstream_text
-    assert "story.append(para(desc, BODY_SMALL))" in non_mainstream_text
+    assert "append_stock_model_description_lines(story, desc)" in non_mainstream_text
+    assert "story.append(para(desc, BODY_SMALL))" not in non_mainstream_text
+
+
+def test_daily_stock_model_titles_use_dedicated_blue_style_helper() -> None:
+    text = (ROOT / "scripts" / "generate_chatgpt_side_daily_reports.py").read_text(
+        encoding="utf-8",
+        errors="replace",
+    )
+
+    assert "PDF_MODEL_TITLE_BLUE" in text
+    assert "MODEL_H1 = ParagraphStyle(" in text
+    assert "MODEL_H2 = ParagraphStyle(" in text
+    assert "append_stock_model_title(story, model_name, level=1)" in text
+    assert "append_stock_model_title(story, model_name, level=2)" in text
+    assert "story.append(Paragraph(model_name, H1))" not in text
+    assert "story.append(Paragraph(model_name, H2))" not in text
 
 
 def test_group_rotation_end_sections_use_single_pagebreak_helper() -> None:
