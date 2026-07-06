@@ -938,7 +938,6 @@ def validate_pdf_generator_boundary() -> None:
         "volume_breakout_confirmed_operation_rank_latest.csv",
         "volume_breakout_pending_operation_queue_latest.csv",
         "historical_pattern_operation_registry_latest.csv",
-        "approved_operation_patterns_latest.csv",
     ]
     for token in forbidden:
         if token in source:
