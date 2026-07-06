@@ -14,10 +14,12 @@ pipeline can succeed.
 
 The remaining repo risk is broader: several production surfaces still depend on
 large shared files, manually interpreted fallback behavior, validators that may
-exist without workflow wiring, and generated artifacts whose owner/lineage is
-tracked at a broad class level instead of one artifact at a time. These are not
-all immediate defects, but they are the places where "change A unexpectedly
-changes B" can return if future PRs are not scoped carefully.
+exist without workflow wiring, generated artifacts whose owner/lineage is
+tracked at a broad class level instead of one artifact at a time, and old code
+or old generated outputs that can look usable even after the production contract
+has moved on. These are not all immediate defects, but they are the places where
+"change A unexpectedly changes B" can return if future PRs are not scoped
+carefully.
 
 ## Audit Matrix
 
@@ -31,6 +33,7 @@ Source of truth: `config/repo_hidden_coupling_audit.csv`.
 | HC-004 | `model_condition_scoring_ranking_shared_coupling` | model condition / scoring / ranking shared coupling | high | open | Split per-model condition/scoring modules or add an AST owner-map validator. |
 | HC-005 | `validators_not_workflow_called` | validators not called by workflow | medium | open | Add a validator tier registry for `ci_required`, `pr_required`, `manual_only`, or retired validators. |
 | HC-006 | `artifact_lineage_owner_gaps` | artifact lineage / owner gaps | high | open | Build artifact lineage v2 with pattern-level generated artifact classes and producer-owned manifests. |
+| HC-007 | `legacy_artifact_code_cleanup` | legacy artifact / code cleanup | high | partially guarded | Create a legacy artifact and code cleanup registry with owner, dependency proof, production-forbidden status, delete-candidate status, and cleanup PR evidence. |
 
 ## Evidence Summary
 
@@ -43,7 +46,11 @@ Source of truth: `config/repo_hidden_coupling_audit.csv`.
 - Daily PDF completion is now protected by
   `scripts/validate_daily_pdf_completion_hard_gate.py`, including runtime
   manifest, six generated PDFs, output text regression, and formal operation
-  adapter readiness consistency.
+  adapter readiness consistency. It also requires semantic manifest operation
+  rows to name the model's dedicated production operation adapter as their
+  `source_artifact`, so production daily PDFs cannot silently consume candidate
+  signals, preview artifacts, legacy helper outputs, or unknown future model ids
+  as operation-row sources.
 - Daily shared PDF path ownership is now inventoried by
   `config/daily_pdf_shared_path_inventory.csv` and guarded by
   `scripts/validate_daily_pdf_shared_path_isolation.py`.
@@ -61,10 +68,13 @@ Source of truth: `config/repo_hidden_coupling_audit.csv`.
 ## Follow-Up PR Order
 
 1. Fallback semantics registry and validator.
-2. Per-model condition/scoring owner-map validator or module split.
-3. Validator tier registry and workflow coverage validator.
-4. Artifact lineage v2 for generated latest/history artifacts.
-5. Extend machine-readable role/section manifests to non-daily PDFs and packets.
+2. Legacy artifact and code cleanup registry, with production-forbidden,
+   research-retained, delete-candidate, owner, dependency proof, and cleanup PR
+   evidence fields.
+3. Per-model condition/scoring owner-map validator or module split.
+4. Validator tier registry and workflow coverage validator.
+5. Artifact lineage v2 for generated latest/history artifacts.
+6. Extend machine-readable role/section manifests to non-daily PDFs and packets.
 
 No row in this audit authorizes deleting artifacts, changing model behavior,
 changing PDF layout, or promoting research-only evidence into production.
