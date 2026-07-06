@@ -326,14 +326,29 @@ def test_rendered_model_regression_contract_records_formal_operation_models() ->
     required_contracts = {
         "volume_range_breakout_mainstream_highlight_structure",
         "volume_range_breakout_non_mainstream_highlight_empty_20260703",
+        "volume_range_breakout_mainstream_highlight_confirmed_empty_table_20260703",
+        "volume_range_breakout_mainstream_highlight_active_table_20260703",
+        "volume_range_breakout_non_mainstream_highlight_empty_tables_20260703",
         "w_bottom_right_side_mainstream_highlight_structure",
         "w_bottom_right_side_non_mainstream_highlight_structure",
+        "w_bottom_right_side_mainstream_highlight_confirmed_table_20260703",
+        "w_bottom_right_side_mainstream_highlight_active_table_20260703",
+        "w_bottom_right_side_non_mainstream_highlight_confirmed_table_20260703",
+        "w_bottom_right_side_non_mainstream_highlight_active_table_20260703",
         "neckline_volume_breakout_confirmation_mainstream_highlight_structure",
         "neckline_volume_breakout_confirmation_non_mainstream_highlight_structure",
+        "neckline_volume_breakout_confirmation_mainstream_highlight_confirmed_empty_table_20260703",
+        "neckline_volume_breakout_confirmation_mainstream_highlight_active_empty_table_20260703",
+        "neckline_volume_breakout_confirmation_non_mainstream_highlight_confirmed_empty_table_20260703",
+        "neckline_volume_breakout_confirmation_non_mainstream_highlight_active_empty_table_20260703",
         "price_pullback_23ema_mainstream_highlight_structure",
         "price_pullback_23ema_non_mainstream_highlight_structure",
         "price_pullback_23ema_mainstream_highlight_20260703",
         "price_pullback_23ema_non_mainstream_highlight_20260703",
+        "price_pullback_23ema_mainstream_highlight_confirmed_table_20260703",
+        "price_pullback_23ema_mainstream_highlight_active_empty_table_20260703",
+        "price_pullback_23ema_non_mainstream_highlight_confirmed_table_20260703",
+        "price_pullback_23ema_non_mainstream_highlight_active_empty_table_20260703",
     }
 
     assert required_contracts <= set(row_by_id)
@@ -342,6 +357,17 @@ def test_rendered_model_regression_contract_records_formal_operation_models() ->
     assert row_by_id["price_pullback_23ema_non_mainstream_highlight_20260703"]["required_stock_ids"] == ""
     assert row_by_id["price_pullback_23ema_mainstream_highlight_20260703"]["forbidden_stock_ids"]
     assert row_by_id["price_pullback_23ema_non_mainstream_highlight_20260703"]["forbidden_stock_ids"]
+    assert row_by_id["volume_range_breakout_mainstream_highlight_confirmed_empty_table_20260703"][
+        "required_text_tokens"
+    ]
+    assert row_by_id["w_bottom_right_side_mainstream_highlight_active_table_20260703"]["required_stock_ids"]
+    assert row_by_id[
+        "neckline_volume_breakout_confirmation_mainstream_highlight_active_empty_table_20260703"
+    ]["required_text_tokens"]
+    assert (
+        row_by_id["price_pullback_23ema_mainstream_highlight_confirmed_table_20260703"]["required_stock_ids"]
+        == ""
+    )
     assert "23EMA回檔模型" in row_by_id["price_pullback_23ema_mainstream_highlight_structure"][
         "required_text_tokens"
     ]
