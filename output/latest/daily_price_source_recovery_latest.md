@@ -10,7 +10,7 @@
 
 ## Date Candidates
 
-- main_price_date: `20260703`
+- main_price_date: `20260706`
 - official_fetch_saved_price_date: `20260706`
 - latest_daily_price_file_date: `20260706`
 

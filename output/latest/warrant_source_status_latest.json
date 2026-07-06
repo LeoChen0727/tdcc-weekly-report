@@ -1,6 +1,6 @@
 {
   "status": "ok",
-  "generated_at": "2026-07-06 14:55:18 Asia/Taipei",
+  "generated_at": "2026-07-06 16:05:06 Asia/Taipei",
   "requested_date": "20260706",
   "target_date": "20260706",
   "data_date": "20260706",
@@ -14,6 +14,6 @@
   "pdf_effect_allowed": true,
   "final_rows": 28816,
   "mapping_rows": 28881,
-  "quote_rows": 28816,
-  "note": "current-date stock-level warrant data is usable"
+  "quote_rows": 0,
+  "note": "preserved existing same-date usable raw snapshot from output/latest/warrant_daily_raw_latest.csv"
 }

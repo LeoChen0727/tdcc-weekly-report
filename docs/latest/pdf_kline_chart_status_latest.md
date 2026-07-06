@@ -2,8 +2,8 @@
 
 - status: `generated`
 - policy: `local_price_redraw_first`
-- total_charts: `30`
-- local_price_redraw_count: `30`
+- total_charts: `25`
+- local_price_redraw_count: `25`
 - chart_path_fallback_count: `0`
 - missing_count: `0`
 - pdf_kline_output_dir: `output/latest/charts/pdf_kline`
@@ -22,11 +22,6 @@
 | 1717 | 長興 | range_rebound | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/1717_長興_range_rebound_126d.png` | `data/daily_price` |
 | 6753 | 龍德造船 | range_rebound | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/6753_龍德造船_range_rebound_126d.png` | `data/daily_price` |
 | 8028 | 昇陽半導體 | range_rebound | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/8028_昇陽半導體_range_rebound_126d.png` | `data/daily_price` |
-| 2347 | 聯強 | revenue_breakout_low_response | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/2347_聯強_revenue_breakout_low_response_126d.png` | `data/daily_price` |
-| 4934 | 太極 | revenue_breakout_low_response | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/4934_太極_revenue_breakout_low_response_126d.png` | `data/daily_price` |
-| 8054 | 安國 | revenue_breakout_low_response | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/8054_安國_revenue_breakout_low_response_126d.png` | `data/daily_price` |
-| 1808 | 潤隆 | revenue_breakout_low_response | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/1808_潤隆_revenue_breakout_low_response_126d.png` | `data/daily_price` |
-| 4967 | 十銓 | revenue_breakout_low_response | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/4967_十銓_revenue_breakout_low_response_126d.png` | `data/daily_price` |
 | 2337 | 旺宏 | revenue_pullback | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/2337_旺宏_revenue_pullback_126d.png` | `data/daily_price` |
 | 4739 | 康普 | revenue_pullback | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/4739_康普_revenue_pullback_126d.png` | `data/daily_price` |
 | 8112 | 至上 | revenue_pullback | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/8112_至上_revenue_pullback_126d.png` | `data/daily_price` |

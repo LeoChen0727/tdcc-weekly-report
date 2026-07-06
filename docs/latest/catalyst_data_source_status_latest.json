@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-06 14:56:00 Asia/Taipei",
+  "generated_at": "2026-07-06 16:05:58 Asia/Taipei",
   "external_fetch_status": "partial_ok",
   "note": "Official monthly revenue and material-information sources are used when reachable. No unverified news, MOPS pages, or social rumor data is fabricated.",
   "files": {
@@ -16,7 +16,7 @@
     "quarterly_catalyst": {
       "path": "data/fundamental_catalysts/quarterly_catalyst.csv",
       "exists": true,
-      "rows": 959
+      "rows": 969
     },
     "event_catalyst_log": {
       "path": "data/event_catalysts/event_catalyst_log.csv",
@@ -31,18 +31,18 @@
       "rows": 1082,
       "error": "",
       "http_status": 200,
-      "matched_tracked_rows": 364,
-      "stored_rows": 364,
+      "matched_tracked_rows": 366,
+      "stored_rows": 366,
       "note": "Official monthly revenue rows are stored as fundamental source rows with EPS/margin fields blank. They can flag revenue_good_eps_unconfirmed only; they are not EPS confirmation."
     },
     "TPEX monthly revenue OpenAPI": {
       "url": "https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap05_O",
-      "status": "failed",
-      "rows": 0,
-      "error": "520 Server Error: <none> for url: https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap05_O",
-      "http_status": 520,
-      "matched_tracked_rows": 0,
-      "stored_rows": 0,
+      "status": "ok",
+      "rows": 890,
+      "error": "",
+      "http_status": 200,
+      "matched_tracked_rows": 159,
+      "stored_rows": 159,
       "note": "Official monthly revenue rows are stored as fundamental source rows with EPS/margin fields blank. They can flag revenue_good_eps_unconfirmed only; they are not EPS confirmation."
     },
     "TWSE material information OpenAPI": {
