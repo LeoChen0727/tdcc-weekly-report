@@ -24,6 +24,7 @@ GENERATOR_RELATIVE_PATH = Path("scripts") / "generate_chatgpt_side_daily_reports
 GENERATOR = REPO_ROOT / GENERATOR_RELATIVE_PATH
 DEFAULT_OUTPUT_ROOT_NAME = "chatgpt_side_outputs_official"
 RUNTIME_MANIFEST_NAME = "chatgpt_daily_report_runtime_manifest.json"
+SEMANTIC_MANIFEST_NAME = "chatgpt_daily_pdf_semantic_manifest.csv"
 PDF_OUTPUT_ROLES = (
     "mainstream_highlight",
     "mainstream_full",
@@ -168,6 +169,9 @@ def write_runtime_manifest(
     pdf_paths: list[Path],
     source_root: Path,
 ) -> Path:
+    semantic_manifest_path = output_dir / SEMANTIC_MANIFEST_NAME
+    if not semantic_manifest_path.exists():
+        raise DailyReportEntrypointError(f"semantic PDF manifest missing: {semantic_manifest_path}")
     manifest = {
         "manifest_type": "chatgpt_daily_report_runtime_manifest",
         "generated_at_utc": datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
@@ -188,6 +192,7 @@ def write_runtime_manifest(
         "pdf_count": len(pdf_paths),
         "pdf_paths": [str(path) for path in pdf_paths],
         "pdf_outputs": pdf_outputs_for_manifest(pdf_paths),
+        "semantic_manifest_path": str(semantic_manifest_path),
     }
     manifest_path = output_dir / RUNTIME_MANIFEST_NAME
     manifest_path.write_text(

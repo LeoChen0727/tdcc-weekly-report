@@ -7,6 +7,7 @@ on:
       - ".github/workflows/daily_model_maintenance_pr_validation.yml"
       - "config/daily_model_*.csv"
       - "config/daily_pdf_rendered_model_regression_contract.csv"
+      - "config/daily_pdf_semantic_golden_cases.csv"
       - "config/daily_pdf_shared_path_inventory.csv"
       - "config/repo_hidden_coupling_audit.csv"
       - "config/model_surface_registry.csv"
@@ -117,4 +118,5 @@ jobs:
           path: |
             chatgpt_side_outputs_pr_validation/*.pdf
             chatgpt_side_outputs_pr_validation/chatgpt_daily_report_runtime_manifest.json
+            chatgpt_side_outputs_pr_validation/chatgpt_daily_pdf_semantic_manifest.csv
           if-no-files-found: error

@@ -68,3 +68,9 @@ repo 內 `docs/latest/*.pdf` 或 `output/latest/*.pdf` 是 pipeline artifact / s
 - `chatgpt_daily_report_runtime_manifest.json`，記錄 `source_ref`、`source_commit_sha`、`main_price_date`、三個 gate 檔與六份 PDF 路徑。
 
 回覆使用者時，要提供可直接開啟的 PDF 資料夾連結與六份 PDF 路徑。
+
+## Daily PDF semantic manifest requirement
+
+- Official ChatGPT-side daily PDF delivery must include `chatgpt_daily_pdf_semantic_manifest.csv`.
+- The semantic manifest records machine-readable `pdf_role`, `model_id`, `pdf_section`, `stock_id`, `source_artifact`, and `source_sha256` for rendered operation-model rows.
+- Missing semantic manifest evidence, semantic manifest schema failures, forbidden legacy/preview source artifacts, or failed golden semantic cases mean the PDF delivery is not complete.

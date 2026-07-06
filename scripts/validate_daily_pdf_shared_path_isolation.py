@@ -45,6 +45,8 @@ MODEL_SPECIFIC_OPERATION_SYMBOLS = {
     "volume_operation_frame",
     "filter_volume_operation_rows_for_line",
     "limit_volume_operation_rows_for_pdf_view",
+    "volume_operation_all_rows_for_pdf",
+    "selected_volume_operation_rows_for_pdf",
     "render_volume_range_breakout_operation_section",
     "build_volume_confirmed_operation_table",
     "build_volume_unranked_operation_table",
@@ -56,6 +58,8 @@ MODEL_SPECIFIC_OPERATION_SYMBOLS = {
     "w_bottom_operation_row_matches_line",
     "filter_w_bottom_operation_rows_for_line",
     "limit_w_bottom_operation_rows_for_pdf_view",
+    "w_bottom_operation_all_rows_for_pdf",
+    "selected_w_bottom_operation_rows_for_pdf",
     "render_w_bottom_operation_section",
     "build_w_bottom_confirmed_operation_table",
     "build_w_bottom_active_operation_table",
@@ -63,6 +67,8 @@ MODEL_SPECIFIC_OPERATION_SYMBOLS = {
     "price_pullback_operation_frame",
     "price_pullback_operation_row_matches_line",
     "filter_price_pullback_operation_rows_for_line",
+    "price_pullback_operation_all_rows_for_pdf",
+    "selected_price_pullback_operation_rows_for_pdf",
     "render_price_pullback_operation_section",
     "build_price_pullback_confirmed_operation_table",
     "build_price_pullback_active_operation_table",
@@ -143,6 +149,8 @@ def operation_like_symbols(functions: dict[str, ast.FunctionDef]) -> set[str]:
         re.compile(r".*_operation_frame$"),
         re.compile(r"^filter_.*operation_rows_for_line$"),
         re.compile(r"^limit_.*operation_rows_for_pdf_view$"),
+        re.compile(r".*_operation_(all|selected)_rows_for_pdf$"),
+        re.compile(r"^selected_.*operation_rows_for_pdf$"),
         re.compile(r".*_operation_row_matches_line$"),
     ]
     symbols = {OPERATION_DISPATCHER}
@@ -232,17 +240,17 @@ def validate_source_boundaries(source: str, functions: dict[str, ast.FunctionDef
 
     renderer_rules = {
         "render_volume_range_breakout_operation_section": {
-            "required_calls": {"volume_operation_frame", "filter_volume_operation_rows_for_line"},
+            "required_calls": {"selected_volume_operation_rows_for_pdf"},
             "allowed_prefixes": ("volume_", "render_", "build_volume_", "filter_volume_", "limit_volume_"),
             "forbidden_tokens": ["w_bottom_", "price_pullback_", "model_signal_rows"],
         },
         "render_w_bottom_operation_section": {
-            "required_calls": {"w_bottom_operation_frame", "filter_w_bottom_operation_rows_for_line"},
+            "required_calls": {"selected_w_bottom_operation_rows_for_pdf"},
             "allowed_prefixes": ("w_bottom_", "render_", "build_w_bottom_", "filter_w_bottom_", "limit_w_bottom_"),
             "forbidden_tokens": ["volume_operation_", "price_pullback_", "model_signal_rows"],
         },
         "render_price_pullback_operation_section": {
-            "required_calls": {"price_pullback_operation_frame", "filter_price_pullback_operation_rows_for_line"},
+            "required_calls": {"selected_price_pullback_operation_rows_for_pdf"},
             "allowed_prefixes": (
                 "price_pullback_",
                 "render_",
@@ -264,6 +272,45 @@ def validate_source_boundaries(source: str, functions: dict[str, ast.FunctionDef
         for token in rule["forbidden_tokens"]:
             if token in body:
                 errors.append(f"{renderer} crosses model operation boundary with forbidden token: {token}")
+
+    selector_rules = {
+        "volume_operation_all_rows_for_pdf": {
+            "required_calls": {"volume_operation_frame", "filter_volume_operation_rows_for_line"},
+            "forbidden_tokens": ["w_bottom_", "price_pullback_", "model_signal_rows"],
+        },
+        "selected_volume_operation_rows_for_pdf": {
+            "required_calls": {"volume_operation_all_rows_for_pdf"},
+            "forbidden_tokens": ["w_bottom_", "price_pullback_", "model_signal_rows"],
+        },
+        "w_bottom_operation_all_rows_for_pdf": {
+            "required_calls": {"w_bottom_operation_frame", "filter_w_bottom_operation_rows_for_line"},
+            "forbidden_tokens": ["volume_operation_", "price_pullback_", "model_signal_rows"],
+        },
+        "selected_w_bottom_operation_rows_for_pdf": {
+            "required_calls": {"w_bottom_operation_all_rows_for_pdf"},
+            "forbidden_tokens": ["volume_operation_", "price_pullback_", "model_signal_rows"],
+        },
+        "price_pullback_operation_all_rows_for_pdf": {
+            "required_calls": {"price_pullback_operation_frame", "filter_price_pullback_operation_rows_for_line"},
+            "forbidden_tokens": ["volume_operation_", "w_bottom_", "model_signal_rows"],
+        },
+        "selected_price_pullback_operation_rows_for_pdf": {
+            "required_calls": {"price_pullback_operation_all_rows_for_pdf"},
+            "forbidden_tokens": ["volume_operation_", "w_bottom_", "model_signal_rows"],
+        },
+    }
+    for selector, rule in selector_rules.items():
+        node = functions.get(selector)
+        if not node:
+            errors.append(f"missing model operation selector: {selector}")
+            continue
+        calls = ast_call_names(node)
+        for call in sorted(rule["required_calls"] - calls):
+            errors.append(f"{selector} missing model-owned operation call: {call}")
+        body = function_text(source, node)
+        for token in rule["forbidden_tokens"]:
+            if token in body:
+                errors.append(f"{selector} crosses model operation boundary with forbidden token: {token}")
 
     for builder_name in sorted(STOCK_PDF_BUILDERS):
         node = functions.get(builder_name)

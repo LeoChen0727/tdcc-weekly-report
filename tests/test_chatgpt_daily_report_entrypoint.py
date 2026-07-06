@@ -214,6 +214,10 @@ def test_entrypoint_writes_runtime_manifest(tmp_path: Path) -> None:
         "packet_path": "origin/main:output/latest/chatgpt_daily_report_packet_latest.txt",
     }
     pdf_paths = [tmp_path / f"report_{idx}.pdf" for idx in range(6)]
+    (tmp_path / entrypoint.SEMANTIC_MANIFEST_NAME).write_text(
+        "manifest_type\nchatgpt_daily_pdf_semantic_manifest\n",
+        encoding="utf-8",
+    )
 
     manifest_path = entrypoint.write_runtime_manifest(
         output_dir=tmp_path,
@@ -232,3 +236,32 @@ def test_entrypoint_writes_runtime_manifest(tmp_path: Path) -> None:
     assert [output["pdf_role"] for output in manifest["pdf_outputs"]] == list(entrypoint.PDF_OUTPUT_ROLES)
     assert [output["pdf_index"] for output in manifest["pdf_outputs"]] == [1, 2, 3, 4, 5, 6]
     assert [output["path"] for output in manifest["pdf_outputs"]] == [str(path) for path in pdf_paths]
+    assert manifest["semantic_manifest_path"] == str(tmp_path / entrypoint.SEMANTIC_MANIFEST_NAME)
+
+
+def test_entrypoint_runtime_manifest_requires_semantic_manifest(tmp_path: Path) -> None:
+    state = {
+        "source_ref": "origin/main",
+        "source_commit_sha": "a" * 40,
+        "main_price_date": "20260616",
+        "report_ready": True,
+        "warrant_ready": True,
+        "daily_pdf_ready": True,
+        "freshness_path": "origin/main:output/latest/data_freshness_latest.csv",
+        "readme_path": "origin/main:output/latest/READ_ME_FIRST_DAILY_REPORT.txt",
+        "packet_path": "origin/main:output/latest/chatgpt_daily_report_packet_latest.txt",
+    }
+    pdf_paths = [tmp_path / f"report_{idx}.pdf" for idx in range(6)]
+
+    try:
+        entrypoint.write_runtime_manifest(
+            output_dir=tmp_path,
+            entry_state=state,
+            source_state=state,
+            pdf_paths=pdf_paths,
+            source_root=tmp_path / "source",
+        )
+    except entrypoint.DailyReportEntrypointError as exc:
+        assert "semantic PDF manifest missing" in str(exc)
+    else:  # pragma: no cover - explicit failure message for regressions.
+        raise AssertionError("write_runtime_manifest must require the semantic manifest")

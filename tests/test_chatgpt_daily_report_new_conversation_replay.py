@@ -11,11 +11,16 @@ from scripts.validate_chatgpt_daily_report_new_conversation_replay import (
     HIGHLIGHT_STOCK_MODEL_SECTION_TEXT,
     RENDERED_MODEL_REGRESSION_CONTRACT,
     RUNTIME_MANIFEST_NAME,
+    SEMANTIC_GOLDEN_CASES_CONTRACT,
+    SEMANTIC_MANIFEST_NAME,
     pdf_paths_from_stdout,
     read_rendered_model_regression_contract,
+    read_semantic_golden_cases,
     role_to_pdf_paths_from_manifest,
     validate_highlight_layout_texts,
     validate_rendered_model_regression_texts,
+    validate_semantic_golden_cases,
+    validate_semantic_manifest_schema,
     validate_runtime_manifest,
     validate_pdf_path_contract,
     validate_source_gate_echo,
@@ -50,6 +55,7 @@ def runtime_manifest(paths: list[Path], state: dict, *, main_price_date: str = "
         "output_dir": str(paths[0].parent),
         "pdf_paths": [str(path.resolve()) for path in paths],
         "pdf_outputs": pdf_outputs(paths),
+        "semantic_manifest_path": str((paths[0].parent / SEMANTIC_MANIFEST_NAME).resolve()),
     }
 
 
@@ -152,6 +158,91 @@ def test_replay_runtime_manifest_rejects_wrong_date(tmp_path: Path) -> None:
     errors = validate_runtime_manifest(paths, tmp_path, state)
 
     assert any("main_price_date" in error for error in errors)
+
+
+def test_replay_runtime_manifest_requires_semantic_manifest_path(tmp_path: Path) -> None:
+    paths = [tmp_path / pdf_name("20260617", role) for role in EXPECTED_PDF_ROLES]
+    state = {
+        "source_ref": "origin/main",
+        "source_commit_sha": "a" * 40,
+        "main_price_date": "20260617",
+        "freshness_path": "origin/main:output/latest/data_freshness_latest.csv",
+        "readme_path": "origin/main:output/latest/READ_ME_FIRST_DAILY_REPORT.txt",
+        "packet_path": "origin/main:output/latest/chatgpt_daily_report_packet_latest.txt",
+    }
+    manifest = runtime_manifest(paths, state)
+    manifest.pop("semantic_manifest_path")
+    (tmp_path / RUNTIME_MANIFEST_NAME).write_text(json.dumps(manifest), encoding="utf-8")
+
+    errors = validate_runtime_manifest(paths, tmp_path, state)
+
+    assert any("semantic_manifest_path is missing" in error for error in errors)
+
+
+def semantic_row(
+    model_id: str,
+    section: str,
+    stock_id: str,
+    *,
+    pdf_role: str = "mainstream_highlight",
+    main_price_date: str = "20260706",
+) -> dict[str, str]:
+    return {
+        "manifest_type": "chatgpt_daily_pdf_semantic_manifest",
+        "main_price_date": main_price_date,
+        "pdf_role": pdf_role,
+        "pdf_view": "highlight",
+        "report_line": "mainstream",
+        "model_id": model_id,
+        "pdf_section": section,
+        "rendered_row_type": "data",
+        "rendered_order": "1",
+        "stock_id": stock_id,
+        "stock_name": stock_id,
+        "operation_status": section,
+        "row_action_status": "confirmed_buy_candidate" if section == "confirmed_operation" else "active_operation",
+        "buy_rank_eligible": "True" if section == "confirmed_operation" else "False",
+        "source_artifact": f"output/latest/daily_{model_id}_operation_section_latest.csv",
+        "source_sha256": "a" * 64,
+    }
+
+
+def test_semantic_manifest_schema_rejects_preview_source_artifact() -> None:
+    row = semantic_row("volume_range_breakout", "confirmed_operation", "3055")
+    row["source_artifact"] = "output/latest/volume_breakout_operation_pdf_preview_latest.csv"
+
+    errors = validate_semantic_manifest_schema([row], "20260706")
+
+    assert any("preview" in error for error in errors)
+
+
+def test_semantic_golden_cases_accept_known_20260706_accident_rows() -> None:
+    rows = [
+        semantic_row("w_bottom_right_side", "confirmed_operation", "6176"),
+        semantic_row("w_bottom_right_side", "active_operation", "1618"),
+        semantic_row("volume_range_breakout", "confirmed_operation", "3055"),
+    ]
+    cases = read_semantic_golden_cases(SEMANTIC_GOLDEN_CASES_CONTRACT)
+
+    errors = validate_semantic_golden_cases(rows, "20260706", cases)
+
+    assert errors == []
+
+
+def test_semantic_golden_cases_reject_known_20260706_accident_drift() -> None:
+    rows = [
+        semantic_row("w_bottom_right_side", "confirmed_operation", "1618"),
+        semantic_row("w_bottom_right_side", "active_operation", "1618"),
+        semantic_row("volume_range_breakout", "active_operation", "3055"),
+    ]
+    cases = read_semantic_golden_cases(SEMANTIC_GOLDEN_CASES_CONTRACT)
+
+    errors = validate_semantic_golden_cases(rows, "20260706", cases)
+
+    assert any("w_bottom_20260706_6176_confirmed_present" in error for error in errors)
+    assert any("w_bottom_20260706_1618_confirmed_absent" in error for error in errors)
+    assert any("volume_20260706_3055_confirmed_present" in error for error in errors)
+    assert any("volume_20260706_3055_active_absent" in error for error in errors)
 
 
 def test_replay_runtime_manifest_requires_pdf_outputs(tmp_path: Path) -> None:

@@ -384,6 +384,7 @@ def validate_workflow_gates() -> list[str]:
                     PR_OUTPUT_GATE_COMMAND,
                     "chatgpt_side_outputs_pr_validation/*.pdf",
                     "chatgpt_side_outputs_pr_validation/chatgpt_daily_report_runtime_manifest.json",
+                    "chatgpt_side_outputs_pr_validation/chatgpt_daily_pdf_semantic_manifest.csv",
                     "if-no-files-found: error",
                 ),
                 rel(DAILY_MODEL_PR_WORKFLOW),
@@ -533,6 +534,7 @@ def validate_output_dir(output_dir: Path) -> list[str]:
         "pdf_paths",
         "pdf_outputs",
         "output_dir",
+        "semantic_manifest_path",
     )
     for field in required_manifest_fields:
         if field not in manifest or manifest.get(field) in ("", None):
@@ -558,6 +560,7 @@ def validate_output_dir(output_dir: Path) -> list[str]:
             main_price_date = str(manifest.get("main_price_date", "")).strip()
             if main_price_date:
                 errors.extend(replay.validate_rendered_model_regression_contract(paths, main_price_date, output_dir))
+                errors.extend(replay.validate_semantic_manifest_contract(output_dir, main_price_date))
             errors.extend(validate_operation_adapter_pdf_presence(role_map))
     return errors
 
