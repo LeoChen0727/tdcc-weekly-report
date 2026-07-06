@@ -23,10 +23,10 @@
 | 1717 | 長興 | range_rebound | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/1717_長興_range_rebound_126d.png` | `data/daily_price` |
 | 1795 | 美時 | range_rebound | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/1795_美時_range_rebound_126d.png` | `data/daily_price` |
 | 2347 | 聯強 | revenue_breakout_low_response | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/2347_聯強_revenue_breakout_low_response_126d.png` | `data/daily_price` |
-| 8054 | 安國 | revenue_breakout_low_response | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/8054_安國_revenue_breakout_low_response_126d.png` | `data/daily_price` |
 | 3006 | 晶豪科 | revenue_breakout_low_response | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/3006_晶豪科_revenue_breakout_low_response_126d.png` | `data/daily_price` |
 | 4967 | 十銓 | revenue_breakout_low_response | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/4967_十銓_revenue_breakout_low_response_126d.png` | `data/daily_price` |
 | 6691 | 洋基工程 | revenue_breakout_low_response | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/6691_洋基工程_revenue_breakout_low_response_126d.png` | `data/daily_price` |
+| 2101 | 南港 | revenue_breakout_low_response | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/2101_南港_revenue_breakout_low_response_126d.png` | `data/daily_price` |
 | 4739 | 康普 | revenue_pullback | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/4739_康普_revenue_pullback_126d.png` | `data/daily_price` |
 | 2344 | 華邦電 | revenue_pullback | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/2344_華邦電_revenue_pullback_126d.png` | `data/daily_price` |
 | 2388 | 威盛 | revenue_pullback | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/2388_威盛_revenue_pullback_126d.png` | `data/daily_price` |

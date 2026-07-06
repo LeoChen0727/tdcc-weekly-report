@@ -1,7 +1,7 @@
 # Non-Revenue Momentum Watch
 
 ## Metadata
-- generated_at: `2026-07-05 23:12:47 UTC`
+- generated_at: `2026-07-05 23:57:27 UTC`
 - main_price_date: `20260703`
 - section_type: `specialty_section_not_core_category`
 - model_effect_allowed: `False`
@@ -24,7 +24,7 @@
 ## Current Watch List
 | non_revenue_momentum_type | stock_id | stock_name | theme_name | presentation_priority | model_score | revenue_confirmation_status | theme_final_status | theme_structural_status | theme_mainstream_label | theme_volume_attack_status | volume_breakout_type | volume_ratio | tdcc_status | warrant_flow_signal | interpretation | next_confirmation |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| C_hot_money_watch | 1529 | 樂事綠能 | cyclical_turnaround | B_可觀察 | 18.0 | revenue_negative | mainstream_follow_through | non_mainstream_theme | non_mainstream_flow_active |  |  | 1.55 |  |  | 價格或題材有資金推動，但基本面確認不足，避免當主攻理由 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。 |
+| C_hot_money_watch | 1529 | 樂事綠能 | cyclical_turnaround | B_可觀察 | 18.0 | revenue_negative | emerging_theme | non_mainstream_theme | non_mainstream_flow_active |  |  | 1.55 |  |  | 價格或題材有資金推動，但基本面確認不足，避免當主攻理由 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。 |
 | C_hot_money_watch | 2705 | 六福 | 觀光餐旅 |  | 69.0 | revenue_negative | mainstream_leader | non_mainstream_theme | non_mainstream_flow_active |  |  | 9.32 |  |  | 價格或題材有資金推動，但基本面確認不足，避免當主攻理由 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。 |
 | C_hot_money_watch | 8443 | 阿瘦 | 貿易百貨 |  | 69.0 | revenue_negative | mainstream_leader | non_mainstream_theme | non_mainstream_flow_active |  |  | 8.73 |  |  | 價格或題材有資金推動，但基本面確認不足，避免當主攻理由 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。 |
 | C_hot_money_watch | 1108 | 幸福 | 水泥工業 |  | 69.0 | revenue_negative | emerging_theme | non_mainstream_theme | non_mainstream_flow_active |  |  | 2.58 |  |  | 價格或題材有資金推動，但基本面確認不足，避免當主攻理由 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。 |

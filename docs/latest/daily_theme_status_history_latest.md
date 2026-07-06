@@ -1,6 +1,6 @@
 # Daily Theme Status History
 
-- generated_at: `2026-07-06 07:15:20 Asia/Taipei`
+- generated_at: `2026-07-06 08:00:42 Asia/Taipei`
 - latest_signal_date: `20260703`
 - latest_rows: `555`
 - history_rows: `9462`
@@ -18,9 +18,9 @@
 | theme_final_status | count |
 | --- | --- |
 | mainstream_overheated | 531 |
+| emerging_theme | 8 |
 | mainstream_leader | 8 |
-| mainstream_follow_through | 7 |
-| emerging_theme | 6 |
+| mainstream_follow_through | 5 |
 | single_name_signal | 3 |
 
 ## Volume Attack Theme Status Counts
