@@ -22,9 +22,15 @@ def test_price_pullback_registry_description_uses_formal_operation_rules() -> No
     description = registry.loc[0, "model_description_zh"]
 
     assert description == summary.PRICE_PULLBACK_PDF_OPERATION_DESCRIPTION_ZH
-    assert "買入：本表股票為23EMA回檔模型通過候選" in description
-    assert "賣出：收盤突破訊號日前20日高點後" in description
-    assert "停損：收盤連續4天低於MA20/EMA23較低者4%" in description
+    assert "買入：本表股票為23EMA回檔模型通過候選，隔日開盤買入。" in description
+    assert "賣出：收盤突破訊號日前20日高點後，隔日開盤賣出。" in description
+    assert "停損：收盤連續4天低於MA20/EMA23較低者的4%，隔日開盤停損。" in description
+    assert "基礎模型績效：勝率66.03% / 和局5.60% / 敗率28.36% / 平均報酬+2.90%。" in description
+    assert "技術強勢組合績效：勝率75.54% / 和局3.52% / 敗率20.95% / 平均報酬+2.96%。" in description
+    assert "勝：D+20內先觸發收盤突破訊號日前20日高點" in description
+    assert "和：D+20內沒有賣出或停損" in description
+    assert "敗：停損先觸發" in description
+    assert "下一個交易日" not in description
     assert "股價回到23EMA或支撐附近" not in description
 
 

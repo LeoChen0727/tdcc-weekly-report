@@ -1,6 +1,6 @@
 # Approved Operation Patterns
 
-- generated_at: `2026-07-06 00:12:02 Asia/Taipei`
+- generated_at: `2026-07-06 14:31:08 Asia/Taipei`
 - purpose: explicit promotion gate from research/backtest evidence to daily operation guidance
 - rule: raw research backtest rows can remain research-only; this artifact is the explicit approval layer
 

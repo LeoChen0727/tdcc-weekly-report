@@ -62,7 +62,16 @@ def test_current_price_pullback_signal_becomes_confirmed_operation_rows() -> Non
     assert set(confirmed["buy_rank_eligible"]) == {"True"}
     assert set(confirmed["operation_quality"]) == {"technical_strength"}
     assert set(confirmed["entry_rule_id"]) == {builder.ENTRY_RULE_ID}
+    assert set(confirmed["entry_basis_zh"]) == {builder.ENTRY_BASIS_ZH}
     assert set(confirmed["exit_rule_id"]) == {builder.EXIT_RULE_ID}
+    assert set(confirmed["exit_rule_zh"]) == {builder.EXIT_RULE_ZH}
+    assert set(confirmed["stop_basis_zh"]) == {builder.STOP_BASIS_ZH}
+    assert "隔日開盤買入" in builder.ENTRY_BASIS_ZH
+    assert "隔日開盤賣出" in builder.EXIT_RULE_ZH
+    assert "較低者的4%" in builder.STOP_BASIS_ZH
+    assert "下一個交易日" not in (
+        builder.ENTRY_BASIS_ZH + builder.EXIT_RULE_ZH + builder.STOP_BASIS_ZH
+    )
     assert "active_operation" in set(section["pdf_section"])
     assert not audit.empty
 

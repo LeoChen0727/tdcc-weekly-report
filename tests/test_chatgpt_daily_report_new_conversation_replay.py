@@ -371,6 +371,23 @@ def test_rendered_model_regression_contract_records_formal_operation_models() ->
     assert "23EMA回檔模型" in row_by_id["price_pullback_23ema_mainstream_highlight_structure"][
         "required_text_tokens"
     ]
+    price_pullback_tokens = row_by_id["price_pullback_23ema_mainstream_highlight_structure"][
+        "required_text_tokens"
+    ]
+    assert "買入：本表股票為23EMA回檔模型通過候選，隔日開盤買入。" in price_pullback_tokens
+    assert "賣出：收盤突破訊號日前20日高點後，隔日開盤賣出。" in price_pullback_tokens
+    assert "停損：收盤連續4天低於MA20/EMA23較低者的4%，隔日開盤停損。" in price_pullback_tokens
+    assert "基礎模型績效：勝率66.03%" in price_pullback_tokens
+    assert "技術強勢組合績效：勝率75.54%" in price_pullback_tokens
+    assert "勝：D+20內先觸發收盤突破訊號日前20日高點" in price_pullback_tokens
+    assert "和：D+20內沒有賣出或停損" in price_pullback_tokens
+    assert "敗：停損先觸發" in price_pullback_tokens
+    price_pullback_forbidden = row_by_id["price_pullback_23ema_mainstream_highlight_structure"][
+        "forbidden_text_tokens"
+    ]
+    assert "下一個交易日開盤買入" in price_pullback_forbidden
+    assert "下一個交易日開盤賣出" in price_pullback_forbidden
+    assert "下一個交易日開盤停損" in price_pullback_forbidden
     assert "W底頸線帶量突破確認模型" in row_by_id[
         "neckline_volume_breakout_confirmation_mainstream_highlight_structure"
     ]["required_text_tokens"]

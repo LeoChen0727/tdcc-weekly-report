@@ -413,11 +413,11 @@ def price_pullback_approval_row(generated_at: str) -> dict[str, Any]:
         "operation_directive_level": "approved_daily_operation_guidance",
         "source_research_id": PRICE_PULLBACK_SOURCE_RESEARCH_ID,
         "entry_rule_id": PRICE_PULLBACK_ENTRY_RULE_ID,
-        "entry_rule_zh": "訊號成立後下一個交易日開盤買入。",
+        "entry_rule_zh": "訊號成立後隔日開盤買入。",
         "stop_loss_rule_id": PRICE_PULLBACK_STOP_LOSS_RULE_ID,
-        "stop_loss_rule_zh": "收盤連續4天低於MA20/EMA23較低者4%，下一個交易日開盤停損。",
+        "stop_loss_rule_zh": "收盤連續4天低於MA20/EMA23較低者的4%，隔日開盤停損。",
         "exit_rule_id": PRICE_PULLBACK_EXIT_RULE_ID,
-        "exit_rule_zh": "收盤突破訊號日前20日高點後，下一個交易日開盤賣出。",
+        "exit_rule_zh": "收盤突破訊號日前20日高點後，隔日開盤賣出。",
         "buy_filter_id": PRICE_PULLBACK_BUY_FILTER_ID,
         "buy_filter_zh": (
             "price_pullback_23ema訊號、20日漲幅0%到25%、TDCC高門檻籌碼增加、OBV站上OBV MA20。"
@@ -474,7 +474,7 @@ def price_pullback_approval_row(generated_at: str) -> dict[str, Any]:
         ),
         "risk_notes_zh": (
             "RSI>=60且MACD histogram>0只作技術強勢操作品質標籤；籌碼全同步與帶量紅K只作理由/風險標籤，"
-            "不作額外排序分。正式進出場只使用收盤確認與下一交易日開盤，不使用盤中高低點作報酬。"
+            "不作額外排序分。正式進出場只使用收盤確認與隔日開盤，不使用盤中高低點作報酬。"
         ),
     }
 

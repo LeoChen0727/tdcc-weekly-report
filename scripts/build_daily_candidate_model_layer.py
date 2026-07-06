@@ -2946,9 +2946,9 @@ def build_parameter_table(specs: list[ModelSpec]) -> pd.DataFrame:
                         "不得使用盤中高低點作正式進出場或勝敗報酬。"
                     ),
                     "operation_guidance": (
-                        "買入：訊號成立後下一個交易日開盤買入。賣出：收盤突破訊號日前20日高點後，"
-                        "下一個交易日開盤賣出。停損：收盤連續4天低於MA20/EMA23較低者4%，"
-                        "下一個交易日開盤停損。"
+                        "買入：訊號成立後隔日開盤買入。賣出：收盤突破訊號日前20日高點後，"
+                        "隔日開盤賣出。停損：收盤連續4天低於MA20/EMA23較低者的4%，"
+                        "隔日開盤停損。"
                     ),
                     "parameter_status": "approved_operation_v1_close_confirmed",
                 }

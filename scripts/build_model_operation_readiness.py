@@ -731,9 +731,9 @@ def build_model_operation_readiness(
                     "daily_adapter_data_row_count": price_pullback_adapter_summary["daily_adapter_data_row_count"],
                     "daily_adapter_sections": price_pullback_adapter_summary["daily_adapter_sections"],
                     "status_note_zh": (
-                        "23EMA回檔模型 v1 已批准為 daily operation guidance；買入為訊號後下一交易日開盤，"
-                        "賣出為收盤突破訊號日前20日高點後下一交易日開盤，停損為收盤連續4天低於"
-                        "MA20/EMA23較低者4%後下一交易日開盤。PDF只能消費 model-owned operation adapter，"
+                        "23EMA回檔模型 v1 已批准為 daily operation guidance；買入為訊號成立後隔日開盤，"
+                        "賣出為收盤突破訊號日前20日高點後隔日開盤，停損為收盤連續4天低於"
+                        "MA20/EMA23較低者的4%後隔日開盤。PDF只能消費 model-owned operation adapter，"
                         "不得由 candidate signal 推論 lifecycle。"
                     ),
                 }

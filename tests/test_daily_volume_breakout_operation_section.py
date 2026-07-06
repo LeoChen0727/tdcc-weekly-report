@@ -1469,11 +1469,11 @@ def price_pullback_operation_row(
         "buy_rank_eligible": buy_rank_eligible,
         "signal_date": "20260703",
         "entry_rule_id": "signal_date_next_open",
-        "entry_basis_zh": "本表股票為23EMA回檔模型通過候選，下一個交易日開盤買入。",
+        "entry_basis_zh": "本表股票為23EMA回檔模型通過候選，隔日開盤買入。",
         "stop_loss_rule_id": "sustained_close_below_lower_ma20_ema23_4pct_4d",
-        "stop_basis_zh": "收盤連續4天低於MA20/EMA23較低者4%",
+        "stop_basis_zh": "收盤連續4天低於MA20/EMA23較低者的4%，隔日開盤停損。",
         "exit_rule_id": "close_prev20_high_break_next_open",
-        "exit_rule_zh": "收盤突破訊號日前20日高點後，下一個交易日開盤賣出。",
+        "exit_rule_zh": "收盤突破訊號日前20日高點後，隔日開盤賣出。",
         "planned_holding_days": "20",
         "operation_age_days": "2" if row_type == "data" else "",
         "sample_size": "1160",
@@ -1544,8 +1544,10 @@ def test_price_pullback_pdf_renderer_uses_model_owned_adapter_rows(monkeypatch) 
     assert "排名" not in confirmed[0]
     assert confirmed[1][0] == "3333 PricePullback"
     assert confirmed[1][1] == "技術強勢"
-    assert "下一個交易日開盤買入" in confirmed[1][3]
-    assert "下一個交易日開盤賣出" in confirmed[1][4]
+    assert "隔日開盤買入" in confirmed[1][3]
+    assert "隔日開盤賣出" in confirmed[1][4]
+    assert "下一個交易日" not in confirmed[1][3]
+    assert "下一個交易日" not in confirmed[1][4]
     assert "66.03%" in confirmed[1][6]
     assert "75.54%" in confirmed[1][6]
     assert active[1][6] == pdf_generator.OPERATION_ACTIVE_EMPTY_STATE_TEXT
