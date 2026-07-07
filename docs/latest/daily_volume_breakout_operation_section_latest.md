@@ -1,13 +1,13 @@
 # Daily Volume Breakout Operation Section
 
-- generated_at: `2026-07-07 22:14:05 Asia/Taipei`
+- generated_at: `2026-07-07 23:19:28 Asia/Taipei`
 - model_id: `volume_range_breakout`
 - source: `daily_candidate_model_signal_log+daily_published_model_snapshots+stock_price_history`
 - approval_source: `approved_operation_patterns_latest.csv`
 - approved_for_daily: `True`
 - approval_version: `volume_breakout_operation_v1_20260615`
 - source_status: `ready`
-- source_rows: `35`
+- source_rows: `32`
 - purpose: production presentation adapter only; PDF/packet 必須讀取本 artifact，且不得重新計算進場、停損、出場或排名。
 - sections: confirmed_operation, confirmed_unranked_operation, pending_confirmation, active_operation.
 
@@ -31,11 +31,9 @@
 
 ### 操作中
 
-|   display_order | row_type   | stock_display   | trigger_zh       | entry_basis_zh                             | stop_basis_zh        | exit_rule_zh                                           | pending_age_zh   |   sample_size | win_rate_zh   | median_return_zh   | approved_for_daily   | operation_module_approved_for_daily   | operation_directive_level         | row_action_status   | buy_rank_eligible   | adapter_note_zh                                  |
-|----------------:|:-----------|:----------------|:-----------------|:-------------------------------------------|:---------------------|:-------------------------------------------------------|:-----------------|--------------:|:--------------|:-------------------|:---------------------|:--------------------------------------|:----------------------------------|:--------------------|:--------------------|:-------------------------------------------------|
-|               2 | data       | 1314 中石化     | 隔日突破訊號高點 | 確認日收盤後列入，下一個交易日開盤價進場。 | 跌破 7/3 最低價 8.92 | 先跌破停損基準出場，否則最多持有至第 10 個交易日收盤。 |                  |            45 | 51.11%        | 0.76%              | True                 | True                                  | approved_daily_operation_guidance | active_operation    | False               | 由已發布模型快照與價格資料重建 D0-D10 操作狀態。 |
-|               3 | data       | 3055 蔚華科     | 隔日突破訊號高點 | 確認日收盤後列入，下一個交易日開盤價進場。 | 跌破 7/3 最低價 140  | 先跌破停損基準出場，否則最多持有至第 10 個交易日收盤。 |                  |            31 | 58.06%        | 8.39%              | True                 | True                                  | approved_daily_operation_guidance | active_operation    | False               | 由已發布模型快照與價格資料重建 D0-D10 操作狀態。 |
-|               4 | data       | 4989 榮科       | 隔日突破訊號高點 | 確認日收盤後列入，下一個交易日開盤價進場。 | 跌破 7/3 最低價 97.9 | 先跌破停損基準出場，否則最多持有至第 10 個交易日收盤。 |                  |            13 | 69.23%        | 22.03%             | True                 | True                                  | approved_daily_operation_guidance | active_operation    | False               | 由已發布模型快照與價格資料重建 D0-D10 操作狀態。 |
+|   display_order | row_type    | stock_display   | trigger_zh   | entry_basis_zh   | stop_basis_zh   | exit_rule_zh   | pending_age_zh   | sample_size   | win_rate_zh   | median_return_zh   | approved_for_daily   | operation_module_approved_for_daily   | operation_directive_level         | row_action_status   | buy_rank_eligible   | adapter_note_zh        |
+|----------------:|:------------|:----------------|:-------------|:-----------------|:----------------|:---------------|:-----------------|:--------------|:--------------|:-------------------|:---------------------|:--------------------------------------|:----------------------------------|:--------------------|:--------------------|:-----------------------|
+|               0 | empty_state | 目前無資料      |              |                  |                 |                |                  |               |               |                    | True                 | True                                  | approved_daily_operation_guidance | empty_state         | False               | 目前沒有操作中追蹤列。 |
 
 ## full
 
@@ -89,8 +87,6 @@
 
 ### 操作中
 
-|   display_order | row_type   | stock_display   | trigger_zh       | entry_basis_zh                             | stop_basis_zh        | exit_rule_zh                                           | pending_age_zh   |   sample_size | win_rate_zh   | median_return_zh   | approved_for_daily   | operation_module_approved_for_daily   | operation_directive_level         | row_action_status   | buy_rank_eligible   | adapter_note_zh                                  |
-|----------------:|:-----------|:----------------|:-----------------|:-------------------------------------------|:---------------------|:-------------------------------------------------------|:-----------------|--------------:|:--------------|:-------------------|:---------------------|:--------------------------------------|:----------------------------------|:--------------------|:--------------------|:-------------------------------------------------|
-|               2 | data       | 1314 中石化     | 隔日突破訊號高點 | 確認日收盤後列入，下一個交易日開盤價進場。 | 跌破 7/3 最低價 8.92 | 先跌破停損基準出場，否則最多持有至第 10 個交易日收盤。 |                  |            45 | 51.11%        | 0.76%              | True                 | True                                  | approved_daily_operation_guidance | active_operation    | False               | 由已發布模型快照與價格資料重建 D0-D10 操作狀態。 |
-|               3 | data       | 3055 蔚華科     | 隔日突破訊號高點 | 確認日收盤後列入，下一個交易日開盤價進場。 | 跌破 7/3 最低價 140  | 先跌破停損基準出場，否則最多持有至第 10 個交易日收盤。 |                  |            31 | 58.06%        | 8.39%              | True                 | True                                  | approved_daily_operation_guidance | active_operation    | False               | 由已發布模型快照與價格資料重建 D0-D10 操作狀態。 |
-|               4 | data       | 4989 榮科       | 隔日突破訊號高點 | 確認日收盤後列入，下一個交易日開盤價進場。 | 跌破 7/3 最低價 97.9 | 先跌破停損基準出場，否則最多持有至第 10 個交易日收盤。 |                  |            13 | 69.23%        | 22.03%             | True                 | True                                  | approved_daily_operation_guidance | active_operation    | False               | 由已發布模型快照與價格資料重建 D0-D10 操作狀態。 |
+|   display_order | row_type    | stock_display   | trigger_zh   | entry_basis_zh   | stop_basis_zh   | exit_rule_zh   | pending_age_zh   | sample_size   | win_rate_zh   | median_return_zh   | approved_for_daily   | operation_module_approved_for_daily   | operation_directive_level         | row_action_status   | buy_rank_eligible   | adapter_note_zh        |
+|----------------:|:------------|:----------------|:-------------|:-----------------|:----------------|:---------------|:-----------------|:--------------|:--------------|:-------------------|:---------------------|:--------------------------------------|:----------------------------------|:--------------------|:--------------------|:-----------------------|
+|               0 | empty_state | 目前無資料      |              |                  |                 |                |                  |               |               |                    | True                 | True                                  | approved_daily_operation_guidance | empty_state         | False               | 目前沒有操作中追蹤列。 |

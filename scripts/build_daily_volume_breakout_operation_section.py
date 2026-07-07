@@ -805,12 +805,14 @@ def evidence_rows_for_trigger(summary: pd.DataFrame, trigger_id: str) -> pd.Data
         if col in out.columns:
             out[f"_{col}"] = pd.to_numeric(out[col], errors="coerce")
     oos = out.get("out_of_sample_pass", pd.Series(dtype=str)).astype(str).str.lower().isin({"true", "1", "1.0"})
+    approved = out.apply(evidence_is_formally_approved, axis=1)
     eligible = out[
         out.get("_sample_size", pd.Series(dtype=float)).ge(10)
         & out.get("_win_rate", pd.Series(dtype=float)).ge(50)
         & out.get("_median_return", pd.Series(dtype=float)).gt(0)
         & out.get("_ranking_research_score", pd.Series(dtype=float)).gt(0)
         & oos
+        & approved
     ].copy()
     if eligible.empty:
         return pd.DataFrame()
@@ -847,11 +849,21 @@ def rank_bucket_for_context(row: pd.Series) -> str:
     return ""
 
 
+def evidence_is_formally_approved(evidence: pd.Series | None) -> bool:
+    if evidence is None:
+        return False
+    if not true_text(evidence.get("approved_for_daily")):
+        return False
+    risk_notes = safe_str(evidence.get("risk_notes_zh")).lower()
+    return "research only" not in risk_notes
+
+
 def evidence_passes_daily_gate(evidence: pd.Series | None) -> bool:
     if evidence is None:
         return False
     return (
-        number_text(evidence.get("sample_size")) >= 10
+        evidence_is_formally_approved(evidence)
+        and number_text(evidence.get("sample_size")) >= 10
         and number_text(evidence.get("win_rate")) >= 50
         and number_text(evidence.get("median_return")) > 0
         and number_text(evidence.get("ranking_research_score")) > 0

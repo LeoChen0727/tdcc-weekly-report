@@ -440,6 +440,7 @@ def eligible_formal_triggers(formal_summary: pd.DataFrame) -> set[str]:
         & out["_median_return"].gt(0)
         & out["_ranking_research_score"].gt(0)
         & oos
+        & out.apply(evidence_is_formally_approved, axis=1)
     ].copy()
     return {str(value).strip() for value in eligible["trigger_id"].tolist() if str(value).strip()}
 
@@ -457,9 +458,16 @@ def formal_evidence_row(formal_summary: pd.DataFrame, row: pd.Series) -> pd.Seri
     return part.iloc[0]
 
 
+def evidence_is_formally_approved(evidence: pd.Series) -> bool:
+    approved = str(evidence.get("approved_for_daily", "")).strip().lower() in {"true", "1", "1.0"}
+    risk_notes = str(evidence.get("risk_notes_zh", "")).strip().lower()
+    return approved and "research only" not in risk_notes
+
+
 def evidence_passes_buy_gate(evidence: pd.Series) -> bool:
     return (
-        pd.to_numeric(pd.Series([evidence.get("sample_size", "")]), errors="coerce").iloc[0] >= 10
+        evidence_is_formally_approved(evidence)
+        and pd.to_numeric(pd.Series([evidence.get("sample_size", "")]), errors="coerce").iloc[0] >= 10
         and pd.to_numeric(pd.Series([evidence.get("win_rate", "")]), errors="coerce").iloc[0] >= 50
         and pd.to_numeric(pd.Series([evidence.get("median_return", "")]), errors="coerce").iloc[0] > 0
         and pd.to_numeric(pd.Series([evidence.get("ranking_research_score", "")]), errors="coerce").iloc[0] > 0
@@ -723,8 +731,6 @@ def validate_shape(section: pd.DataFrame, formal_summary: pd.DataFrame, audit: p
     if set(section["adapter_source"].astype(str)) != {LIFECYCLE_ADAPTER_SOURCE}:
         fail("daily volume breakout operation section must use the lifecycle adapter source only")
     eligible_triggers = eligible_formal_triggers(formal_summary)
-    if not eligible_triggers:
-        fail("formal operation summary has no trigger passing the daily operation evidence gate")
 
     confirmed_data = section[
         section["pdf_section"].eq("confirmed_operation") & section["row_type"].eq("data")
@@ -1047,6 +1053,8 @@ def main() -> int:
             "ranking_research_score",
             "out_of_sample_pass",
             "metric_sample_scope",
+            "approved_for_daily",
+            "risk_notes_zh",
         },
     )
     section = read_csv(SECTION_CSV)
