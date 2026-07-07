@@ -272,6 +272,18 @@ FORBIDDEN_STOCK_MODEL_HEADER_LAYOUT_TOKENS = (
     "story.append(para(desc, BODY_SMALL))",
     "story.append(para(operation_model_summary_text(inputs, model_id), BODY_SMALL))",
 )
+REQUIRED_OPERATION_SECTION_PAGEBREAK_TOKENS = (
+    "def append_section_label_with_table(",
+    "keepWithNext = 1",
+    "append_section_label_with_table(\n        story,\n        OPERATION_CONFIRMED_BUY_TABLE_TITLE,",
+    "append_section_label_with_table(\n        story,\n        OPERATION_ACTIVE_TABLE_TITLE,",
+)
+FORBIDDEN_OPERATION_SECTION_PAGEBREAK_TOKENS = (
+    "story.append(Paragraph(OPERATION_CONFIRMED_BUY_TABLE_TITLE, H2))",
+    "story.append(Paragraph(OPERATION_ACTIVE_TABLE_TITLE, H2))",
+    'story.append(Paragraph("已確認但未通過買入排名門檻", H2))',
+    'story.append(Paragraph("待確認", H2))',
+)
 
 
 @dataclass(frozen=True)
@@ -458,6 +470,18 @@ def validate_renderer_fixed_model_table_contract(source_paths: Iterable[Path] = 
                 errors.append(
                     "daily PDF stock model header layout must not collapse model titles/descriptions back to "
                     f"generic single-paragraph rendering: forbidden {forbidden} in {rel(path)}"
+                )
+        for required in REQUIRED_OPERATION_SECTION_PAGEBREAK_TOKENS:
+            if required not in text:
+                errors.append(
+                    "daily PDF operation section labels must keep with their tables through the shared "
+                    f"keep-with-table helper: missing {required} in {rel(path)}"
+                )
+        for forbidden in FORBIDDEN_OPERATION_SECTION_PAGEBREAK_TOKENS:
+            if forbidden in text:
+                errors.append(
+                    "daily PDF operation section labels must not be appended separately from their tables: "
+                    f"forbidden {forbidden} in {rel(path)}"
                 )
         if skip_re.search(text):
             errors.append(

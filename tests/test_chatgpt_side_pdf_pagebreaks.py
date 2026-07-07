@@ -2,6 +2,8 @@ from __future__ import annotations
 
 from pathlib import Path
 
+from pypdf import PdfReader
+
 from scripts import generate_chatgpt_side_daily_reports as generator
 
 
@@ -85,6 +87,68 @@ def test_daily_stock_model_titles_use_dedicated_blue_style_helper() -> None:
     assert "append_stock_model_title(story, model_name, level=2)" in text
     assert "story.append(Paragraph(model_name, H1))" not in text
     assert "story.append(Paragraph(model_name, H2))" not in text
+
+
+def test_operation_section_labels_use_keep_with_table_helper() -> None:
+    text = (ROOT / "scripts" / "generate_chatgpt_side_daily_reports.py").read_text(
+        encoding="utf-8",
+        errors="replace",
+    )
+    cases = [
+        ("render_w_bottom_operation_section", "render_price_pullback_operation_section"),
+        ("render_price_pullback_operation_section", "render_volume_range_breakout_operation_section"),
+        ("render_volume_range_breakout_operation_section", "render_model_operation_section_if_applicable"),
+    ]
+
+    assert "def append_section_label_with_table(" in text
+    assert "keepWithNext = 1" in text
+    for name, next_name in cases:
+        function_text = _function_text(text, name, next_name)
+
+        assert "append_section_label_with_table(" in function_text
+        assert "story.append(Paragraph(OPERATION_CONFIRMED_BUY_TABLE_TITLE, H2))" not in function_text
+        assert "story.append(Paragraph(OPERATION_ACTIVE_TABLE_TITLE, H2))" not in function_text
+        assert 'story.append(Paragraph("已確認但未通過買入排名門檻", H2))' not in function_text
+        assert 'story.append(Paragraph("待確認", H2))' not in function_text
+
+
+def test_append_section_label_with_table_marks_label_and_preface_keep_with_next() -> None:
+    story: list[object] = []
+    table = generator.build_table([["TABLE_HEADER"], ["FIRST_ROW"]], [40 * generator.mm], 12.0)
+    preface = generator.para("PREFACE", generator.BODY_SMALL)
+
+    generator.append_section_label_with_table(story, "ACTIVE_SECTION", table, preface)
+
+    assert len(story) == 3
+    assert story[0].getPlainText() == "ACTIVE_SECTION"
+    assert getattr(story[0], "keepWithNext") == 1
+    assert story[1].getPlainText() == "PREFACE"
+    assert getattr(story[1], "keepWithNext") == 1
+    assert story[2] is table
+
+
+def test_section_label_moves_with_table_when_page_tail_is_too_short(tmp_path: Path) -> None:
+    pdf_path = tmp_path / "section_label_keep_with_table.pdf"
+    story: list[object] = [generator.Spacer(1, 42 * generator.mm)]
+    table = generator.build_table([["TABLE_HEADER"], ["FIRST_ROW"]], [45 * generator.mm], 12.0)
+    generator.append_section_label_with_table(story, "ACTIVE_SECTION", table)
+    doc = generator.SimpleDocTemplate(
+        str(pdf_path),
+        pagesize=(70 * generator.mm, 70 * generator.mm),
+        leftMargin=6 * generator.mm,
+        rightMargin=6 * generator.mm,
+        topMargin=6 * generator.mm,
+        bottomMargin=6 * generator.mm,
+    )
+
+    doc.build(story)
+
+    page_texts = [page.extract_text() or "" for page in PdfReader(str(pdf_path)).pages]
+    assert len(page_texts) >= 2
+    assert "ACTIVE_SECTION" not in page_texts[0]
+    assert "ACTIVE_SECTION" in page_texts[1]
+    assert "TABLE_HEADER" in page_texts[1]
+    assert "FIRST_ROW" in page_texts[1]
 
 
 def test_group_rotation_end_sections_use_single_pagebreak_helper() -> None:
