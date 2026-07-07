@@ -103,6 +103,16 @@ block must use the same two-table presentation contract as the
    formal adapter provides that state. `已失效` and `已出場` stay in
    audit/lifecycle artifacts and must not be promoted into PDF main tables.
 
+Highlight operation table display limits are part of the PDF contract:
+
+- `confirmed_operation` / `本日可買 / 已確認買入候選` rows must be rendered in
+  full for the applicable report line. The PDF renderer must not use a fixed
+  `confirmed_operation` cap such as 10.
+- `active_operation` / `操作中` rows must render at least the first 10 rows
+  for the applicable report line when that many rows exist. A 5-row highlight
+  cap is forbidden for all formal stock operation models.
+- Full-list PDFs must not inherit highlight row caps.
+
 `w_bottom_right_side` and `neckline_volume_breakout_confirmation` now have
 formal model-owned PDF operation section adapters and must be rendered from
 their dedicated artifacts:

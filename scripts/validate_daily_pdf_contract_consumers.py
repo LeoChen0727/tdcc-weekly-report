@@ -254,6 +254,21 @@ REQUIRED_OPERATION_HIGHLIGHT_CONTRACT_TOKENS = (
     "W_BOTTOM_NECKLINE_BREAKOUT_MODEL_ID",
     "PRICE_PULLBACK_MODEL_ID",
 )
+REQUIRED_OPERATION_HIGHLIGHT_DISPLAY_LIMIT_TOKENS = (
+    "OPERATION_HIGHLIGHT_ACTIVE_MIN_ROWS = 10",
+    "OPERATION_HIGHLIGHT_ROW_LIMITS",
+    "def operation_highlight_row_limit(",
+    "def limit_operation_rows_for_pdf_view(",
+    "return limit_operation_rows_for_pdf_view(selected, pdf_view, pdf_section)",
+)
+FORBIDDEN_OPERATION_HIGHLIGHT_DISPLAY_LIMIT_TOKENS = (
+    "VOLUME_OPERATION_HIGHLIGHT_LIMITS",
+    "W_BOTTOM_OPERATION_HIGHLIGHT_LIMITS",
+    '"confirmed_operation": 10',
+    "'confirmed_operation': 10",
+    '"active_operation": 5',
+    "'active_operation': 5",
+)
 REQUIRED_STOCK_MODEL_HEADER_LAYOUT_TOKENS = (
     'PDF_MODEL_TITLE_BLUE = "#1f4e79"',
     "MODEL_H1 = ParagraphStyle(",
@@ -428,6 +443,8 @@ def validate_required_display_model_coverage(
 def validate_renderer_fixed_model_table_contract(source_paths: Iterable[Path] = (RENDERER,)) -> list[str]:
     errors: list[str] = []
     skip_re = re.compile(r"if\s+not\s+(?:ranked_rows|line_rows)\s*:\s*\n\s*continue")
+    confirmed_limit_re = re.compile(r"['\"]confirmed_operation['\"]\s*:\s*(\d+)")
+    active_limit_re = re.compile(r"['\"]active_operation['\"]\s*:\s*(\d+)")
     for path in source_paths:
         if not path.exists():
             errors.append(f"missing daily PDF renderer path: {rel(path)}")
@@ -458,6 +475,30 @@ def validate_renderer_fixed_model_table_contract(source_paths: Iterable[Path] = 
                 errors.append(
                     "daily PDF renderer must keep operation-oriented model highlight tables as confirmed-buy then active only: "
                     f"missing {required} in {rel(path)}"
+                )
+        for required in REQUIRED_OPERATION_HIGHLIGHT_DISPLAY_LIMIT_TOKENS:
+            if required not in text:
+                errors.append(
+                    "daily PDF renderer must keep highlight operation display limits as confirmed-all and active-min-10: "
+                    f"missing {required} in {rel(path)}"
+                )
+        for forbidden in FORBIDDEN_OPERATION_HIGHLIGHT_DISPLAY_LIMIT_TOKENS:
+            if forbidden in text:
+                errors.append(
+                    "daily PDF renderer must not keep legacy operation highlight row caps: "
+                    f"forbidden {forbidden} in {rel(path)}"
+                )
+        for match in confirmed_limit_re.finditer(text):
+            errors.append(
+                "daily PDF renderer must not cap highlight confirmed_operation rows: "
+                f"{match.group(0)} in {rel(path)}"
+            )
+        for match in active_limit_re.finditer(text):
+            limit = int(match.group(1))
+            if limit < 10:
+                errors.append(
+                    "daily PDF renderer must not cap highlight active_operation rows below 10: "
+                    f"{match.group(0)} in {rel(path)}"
                 )
         for required in REQUIRED_STOCK_MODEL_HEADER_LAYOUT_TOKENS:
             if required not in text:

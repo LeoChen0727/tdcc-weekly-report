@@ -319,6 +319,13 @@ candidate signal rows to infer W-bottom lifecycle. Future operation-oriented
 models must follow this contract when their formal PDF operation adapters are
 wired.
 
+Daily stock operation-model highlight display limits are also contractual:
+`confirmed_operation` / `本日可買 / 已確認買入候選` rows must be rendered in full
+for the applicable report line, without a fixed 10-row cap.
+`active_operation` / `操作中` rows must render at least the first 10 rows when
+that many rows exist; a 5-row highlight cap is forbidden. Full-list PDFs must
+not inherit highlight caps.
+
 Formal operation adapters must enforce lifecycle monotonicity. Within the same
 model, report line, and PDF view, the same stock must not appear in both
 `confirmed_operation` and `active_operation` on the same operation date. An
