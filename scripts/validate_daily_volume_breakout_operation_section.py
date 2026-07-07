@@ -620,19 +620,6 @@ def matching_snapshot_rows(path: Path, row: pd.Series) -> pd.DataFrame:
     return matches
 
 
-def active_backed_by_prior_active_snapshot(row: pd.Series) -> bool:
-    report_date = normalize_date_text(row.get("operation_asof_date") or row.get("daily_signal_date"))
-    for path in sorted(MODEL_SNAPSHOT_DIR.glob("daily_volume_breakout_operation_section_*.csv"), reverse=True):
-        snapshot_date = normalize_date_text(path.stem.rsplit("_", 1)[-1])
-        if not snapshot_date or snapshot_date >= report_date:
-            continue
-        matches = matching_snapshot_rows(path, row)
-        active = matches[matches.get("pdf_section", pd.Series(dtype=str)).astype(str).eq("active_operation")]
-        if not active.empty:
-            return True
-    return False
-
-
 def active_backed_by_confirmation_snapshot(row: pd.Series) -> bool:
     confirmation_date = normalize_date_text(row.get("selected_confirmation_date"))
     path = published_section_snapshot_path(confirmation_date)
@@ -649,10 +636,10 @@ def active_backed_by_confirmation_snapshot(row: pd.Series) -> bool:
 
 def validate_active_confirmation_snapshot_gate(active_data: pd.DataFrame) -> None:
     for _, row in active_data.iterrows():
-        if active_backed_by_prior_active_snapshot(row) or active_backed_by_confirmation_snapshot(row):
+        if active_backed_by_confirmation_snapshot(row):
             continue
         fail(
-            "active_operation row is not backed by prior active tracking or confirmation-date buy-ranked row: "
+            "active_operation row is not backed by a confirmation-date buy-ranked row: "
             f"stock_id={stock_id_text(row.get('stock_id'))} "
             f"signal_date={normalize_date_text(row.get('signal_date'))} "
             f"confirmation_date={normalize_date_text(row.get('selected_confirmation_date'))}"
