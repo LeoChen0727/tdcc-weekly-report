@@ -131,11 +131,32 @@ def test_pdf_stock_model_summary_marks_numeric_tokens_red() -> None:
     assert f'<font color="{pdf_generator.PDF_RED}">23</font>EMA' not in markup
 
 
+def test_pdf_stock_model_sampling_sentence_is_fully_red() -> None:
+    markup = pdf_generator.stock_model_summary_markup(pdf_generator.OPERATION_MODEL_SAMPLING_TEXT)
+
+    assert markup == (
+        f'<font color="{pdf_generator.PDF_RED}">'
+        f"{pdf_generator.escape_html(pdf_generator.OPERATION_MODEL_SAMPLING_TEXT)}</font>"
+    )
+
+
 def test_pdf_stock_model_title_styles_are_blue() -> None:
     expected = pdf_generator.colors.HexColor(pdf_generator.PDF_MODEL_TITLE_BLUE)
 
     assert pdf_generator.MODEL_H1.textColor == expected
     assert pdf_generator.MODEL_H2.textColor == expected
+
+
+def test_operation_section_label_helper_reserves_table_start_room_without_full_table_keep() -> None:
+    table_flowable = object()
+    story: list = []
+
+    pdf_generator.append_section_label_with_table(story, pdf_generator.OPERATION_ACTIVE_TABLE_TITLE, table_flowable)
+
+    assert isinstance(story[0], pdf_generator.CondPageBreak)
+    assert getattr(story[0], "height", None) == pdf_generator.OPERATION_SECTION_TABLE_START_MIN_ROOM
+    assert story[-1] is table_flowable
+    assert getattr(story[1], "keepWithNext", 0) in (0, None, False)
 
 
 def volume_signal(stock_id: str = "1234", signal_date: str = "20260616", rank: str = "1") -> dict[str, str]:

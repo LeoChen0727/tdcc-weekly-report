@@ -224,6 +224,8 @@ FULL_REPORT_MAINSTREAM_LIMIT = 12
 FULL_REPORT_NON_MAINSTREAM_LIMIT = 4
 MODEL_SECTION_MIN_ROOM = 58 * mm
 MODEL_SUBSECTION_MIN_ROOM = 42 * mm
+OPERATION_SECTION_TABLE_START_MIN_ROOM = 88 * mm
+STOCK_MODEL_SECTION_TABLE_START_MIN_ROOM = 168 * mm
 CHATGPT_SIDE_KLINE_DAYS = 126
 
 
@@ -392,6 +394,8 @@ def operation_model_summary_lines(inputs: dict[str, pd.DataFrame], model_id: str
 
 def stock_model_summary_markup(text: str) -> str:
     escaped = escape_html(text)
+    if clean(text) == OPERATION_MODEL_SAMPLING_TEXT:
+        return f'<font color="{PDF_RED}">{escaped}</font>'
     return MODEL_SUMMARY_NUMBER_RE.sub(
         lambda match: f'<font color="{PDF_RED}">{match.group(0)}</font>',
         escaped,
@@ -886,6 +890,11 @@ def append_stock_model_title(story: list, model_name: str, *, level: int) -> Non
     story.append(Paragraph(escape_html(model_name), style))
 
 
+def append_stock_model_section_start(story: list, model_name: str, *, level: int) -> None:
+    story.append(CondPageBreak(STOCK_MODEL_SECTION_TABLE_START_MIN_ROOM))
+    append_stock_model_title(story, model_name, level=level)
+
+
 def keep_with_next(flowable: object) -> object:
     try:
         flowable.keepWithNext = 1
@@ -900,9 +909,10 @@ def append_section_label_with_table(
     table_flowable: object,
     *preface_flowables: object,
 ) -> None:
-    story.append(keep_with_next(Paragraph(escape_html(label), H2)))
+    story.append(CondPageBreak(OPERATION_SECTION_TABLE_START_MIN_ROOM))
+    story.append(Paragraph(escape_html(label), H2))
     for flowable in preface_flowables:
-        story.append(keep_with_next(flowable))
+        story.append(flowable)
     story.append(table_flowable)
 
 
@@ -4579,8 +4589,7 @@ def build_mainstream_full_candidate_pdf(
         model_id = clean(spec.get("model_id"))
         model_name = clean(spec.get("model_name_zh"), model_id)
         line_rows = mainstream_full_model_signal_rows(inputs, model_id)
-        story.append(CondPageBreak(MODEL_SECTION_MIN_ROOM))
-        append_stock_model_title(story, model_name, level=2)
+        append_stock_model_section_start(story, model_name, level=2)
         render_operation_model_summary_if_applicable(story, inputs, model_id)
         if render_model_operation_section_if_applicable(story, inputs, model_id, "full", line):
             continue
@@ -4700,8 +4709,7 @@ def build_non_mainstream_full_candidate_pdf(
         model_id = clean(spec.get("model_id"))
         model_name = clean(spec.get("model_name_zh"), model_id)
         line_rows = non_mainstream_full_model_signal_rows(inputs, model_id)
-        story.append(CondPageBreak(MODEL_SECTION_MIN_ROOM))
-        append_stock_model_title(story, model_name, level=2)
+        append_stock_model_section_start(story, model_name, level=2)
         render_operation_model_summary_if_applicable(story, inputs, model_id)
         if render_model_operation_section_if_applicable(story, inputs, model_id, "full", line):
             continue

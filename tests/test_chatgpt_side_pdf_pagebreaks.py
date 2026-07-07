@@ -84,12 +84,33 @@ def test_daily_stock_model_titles_use_dedicated_blue_style_helper() -> None:
     assert "MODEL_H1 = ParagraphStyle(" in text
     assert "MODEL_H2 = ParagraphStyle(" in text
     assert "append_stock_model_title(story, model_name, level=1)" in text
-    assert "append_stock_model_title(story, model_name, level=2)" in text
+    assert "STOCK_MODEL_SECTION_TABLE_START_MIN_ROOM = 168 * mm" in text
+    assert "def append_stock_model_section_start(" in text
+    assert "CondPageBreak(STOCK_MODEL_SECTION_TABLE_START_MIN_ROOM)" in text
+    assert "append_stock_model_section_start(story, model_name, level=2)" in text
     assert "story.append(Paragraph(model_name, H1))" not in text
     assert "story.append(Paragraph(model_name, H2))" not in text
 
 
-def test_operation_section_labels_use_keep_with_table_helper() -> None:
+def test_full_candidate_pdfs_start_model_sections_with_table_start_room() -> None:
+    text = (ROOT / "scripts" / "generate_chatgpt_side_daily_reports.py").read_text(
+        encoding="utf-8",
+        errors="replace",
+    )
+    mainstream_text = _function_text(text, "build_mainstream_full_candidate_pdf", "build_non_mainstream_full_candidate_pdf")
+    non_mainstream_text = _function_text(
+        text,
+        "build_non_mainstream_full_candidate_pdf",
+        "build_warrant_market_auxiliary_pdf",
+    )
+
+    assert "append_stock_model_section_start(story, model_name, level=2)" in mainstream_text
+    assert "append_stock_model_section_start(story, model_name, level=2)" in non_mainstream_text
+    assert "story.append(CondPageBreak(MODEL_SECTION_MIN_ROOM))\n        append_stock_model_title(story, model_name, level=2)" not in mainstream_text
+    assert "story.append(CondPageBreak(MODEL_SECTION_MIN_ROOM))\n        append_stock_model_title(story, model_name, level=2)" not in non_mainstream_text
+
+
+def test_operation_section_labels_use_table_start_room_helper() -> None:
     text = (ROOT / "scripts" / "generate_chatgpt_side_daily_reports.py").read_text(
         encoding="utf-8",
         errors="replace",
@@ -101,7 +122,9 @@ def test_operation_section_labels_use_keep_with_table_helper() -> None:
     ]
 
     assert "def append_section_label_with_table(" in text
-    assert "keepWithNext = 1" in text
+    assert "OPERATION_SECTION_TABLE_START_MIN_ROOM = 88 * mm" in text
+    assert "CondPageBreak(OPERATION_SECTION_TABLE_START_MIN_ROOM)" in text
+    assert "story.append(keep_with_next(Paragraph(escape_html(label), H2)))" not in text
     for name, next_name in cases:
         function_text = _function_text(text, name, next_name)
 
@@ -112,29 +135,31 @@ def test_operation_section_labels_use_keep_with_table_helper() -> None:
         assert 'story.append(Paragraph("待確認", H2))' not in function_text
 
 
-def test_append_section_label_with_table_marks_label_and_preface_keep_with_next() -> None:
+def test_append_section_label_with_table_reserves_room_without_full_table_keep() -> None:
     story: list[object] = []
     table = generator.build_table([["TABLE_HEADER"], ["FIRST_ROW"]], [40 * generator.mm], 12.0)
     preface = generator.para("PREFACE", generator.BODY_SMALL)
 
     generator.append_section_label_with_table(story, "ACTIVE_SECTION", table, preface)
 
-    assert len(story) == 3
-    assert story[0].getPlainText() == "ACTIVE_SECTION"
-    assert getattr(story[0], "keepWithNext") == 1
-    assert story[1].getPlainText() == "PREFACE"
-    assert getattr(story[1], "keepWithNext") == 1
-    assert story[2] is table
+    assert len(story) == 4
+    assert isinstance(story[0], generator.CondPageBreak)
+    assert getattr(story[0], "height", None) == generator.OPERATION_SECTION_TABLE_START_MIN_ROOM
+    assert story[1].getPlainText() == "ACTIVE_SECTION"
+    assert getattr(story[1], "keepWithNext", 0) in (0, None, False)
+    assert story[2].getPlainText() == "PREFACE"
+    assert getattr(story[2], "keepWithNext", 0) in (0, None, False)
+    assert story[3] is table
 
 
-def test_section_label_moves_with_table_when_page_tail_is_too_short(tmp_path: Path) -> None:
-    pdf_path = tmp_path / "section_label_keep_with_table.pdf"
-    story: list[object] = [generator.Spacer(1, 42 * generator.mm)]
+def test_section_label_moves_to_new_page_when_table_start_room_is_too_short(tmp_path: Path) -> None:
+    pdf_path = tmp_path / "section_label_table_start_room.pdf"
+    story: list[object] = [generator.Spacer(1, 45 * generator.mm)]
     table = generator.build_table([["TABLE_HEADER"], ["FIRST_ROW"]], [45 * generator.mm], 12.0)
     generator.append_section_label_with_table(story, "ACTIVE_SECTION", table)
     doc = generator.SimpleDocTemplate(
         str(pdf_path),
-        pagesize=(70 * generator.mm, 70 * generator.mm),
+        pagesize=(70 * generator.mm, 130 * generator.mm),
         leftMargin=6 * generator.mm,
         rightMargin=6 * generator.mm,
         topMargin=6 * generator.mm,
@@ -147,6 +172,40 @@ def test_section_label_moves_with_table_when_page_tail_is_too_short(tmp_path: Pa
     assert len(page_texts) >= 2
     assert "ACTIVE_SECTION" not in page_texts[0]
     assert "ACTIVE_SECTION" in page_texts[1]
+    assert "TABLE_HEADER" in page_texts[1]
+    assert "FIRST_ROW" in page_texts[1]
+
+
+def test_stock_model_section_start_moves_title_with_first_table_start(tmp_path: Path) -> None:
+    pdf_path = tmp_path / "stock_model_section_table_start_room.pdf"
+    story: list[object] = [generator.Spacer(1, 60 * generator.mm)]
+    generator.append_stock_model_section_start(story, "23EMA回檔模型", level=2)
+    generator.append_stock_model_summary_lines(
+        story,
+        [
+            "買入：測試文字。",
+            "賣出：測試文字。",
+            generator.OPERATION_MODEL_SAMPLING_TEXT,
+        ],
+    )
+    table = generator.build_table([["TABLE_HEADER"], ["FIRST_ROW"]], [45 * generator.mm], 12.0)
+    generator.append_section_label_with_table(story, "BUY_SECTION", table)
+    doc = generator.SimpleDocTemplate(
+        str(pdf_path),
+        pagesize=(100 * generator.mm, 220 * generator.mm),
+        leftMargin=6 * generator.mm,
+        rightMargin=6 * generator.mm,
+        topMargin=6 * generator.mm,
+        bottomMargin=6 * generator.mm,
+    )
+
+    doc.build(story)
+
+    page_texts = [page.extract_text() or "" for page in PdfReader(str(pdf_path)).pages]
+    assert len(page_texts) >= 2
+    assert "23EMA回檔模型" not in page_texts[0]
+    assert "23EMA回檔模型" in page_texts[1]
+    assert "BUY_SECTION" in page_texts[1]
     assert "TABLE_HEADER" in page_texts[1]
     assert "FIRST_ROW" in page_texts[1]
 
