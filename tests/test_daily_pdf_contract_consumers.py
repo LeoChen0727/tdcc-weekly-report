@@ -169,6 +169,22 @@ def renderer_source_with_operation_contract() -> str:
         + 'OPERATION_CONFIRMED_BUY_TABLE_TITLE = "本日可買 / 已確認買入候選"\n'
         + 'OPERATION_ACTIVE_TABLE_TITLE = "操作中"\n'
         + 'OPERATION_ACTIVE_EMPTY_STATE_TEXT = "目前無操作中追蹤列"\n'
+        + "def append_section_label_with_table(\n"
+        + "    story,\n"
+        + "    label,\n"
+        + "    table_flowable,\n"
+        + "):\n"
+        + "    label_flowable.keepWithNext = 1\n"
+        + "append_section_label_with_table(\n"
+        + "        story,\n"
+        + "        OPERATION_CONFIRMED_BUY_TABLE_TITLE,\n"
+        + "        table_flowable,\n"
+        + ")\n"
+        + "append_section_label_with_table(\n"
+        + "        story,\n"
+        + "        OPERATION_ACTIVE_TABLE_TITLE,\n"
+        + "        table_flowable,\n"
+        + ")\n"
     )
 
 
@@ -238,6 +254,31 @@ def test_renderer_contract_blocks_old_operation_empty_state_policy(tmp_path: Pat
     errors = validator.validate_renderer_fixed_model_table_contract([renderer])
 
     assert any("empty states inside the two main tables" in error for error in errors)
+
+
+def test_renderer_contract_requires_operation_label_keep_with_table_helper(tmp_path: Path) -> None:
+    renderer = tmp_path / "renderer.py"
+    renderer.write_text(
+        renderer_source_with_operation_contract().replace("def append_section_label_with_table(", "def append_label("),
+        encoding="utf-8",
+    )
+
+    errors = validator.validate_renderer_fixed_model_table_contract([renderer])
+
+    assert any("keep-with-table helper" in error for error in errors)
+
+
+def test_renderer_contract_blocks_direct_operation_label_append(tmp_path: Path) -> None:
+    renderer = tmp_path / "renderer.py"
+    renderer.write_text(
+        renderer_source_with_operation_contract()
+        + "story.append(Paragraph(OPERATION_ACTIVE_TABLE_TITLE, H2))\n",
+        encoding="utf-8",
+    )
+
+    errors = validator.validate_renderer_fixed_model_table_contract([renderer])
+
+    assert any("must not be appended separately" in error for error in errors)
 
 
 def test_unapproved_event_field_is_rejected_even_for_disclosure() -> None:

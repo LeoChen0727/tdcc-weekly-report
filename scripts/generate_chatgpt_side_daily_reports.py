@@ -879,6 +879,26 @@ def append_stock_model_title(story: list, model_name: str, *, level: int) -> Non
     story.append(Paragraph(escape_html(model_name), style))
 
 
+def keep_with_next(flowable: object) -> object:
+    try:
+        flowable.keepWithNext = 1
+    except Exception:
+        pass
+    return flowable
+
+
+def append_section_label_with_table(
+    story: list,
+    label: str,
+    table_flowable: object,
+    *preface_flowables: object,
+) -> None:
+    story.append(keep_with_next(Paragraph(escape_html(label), H2)))
+    for flowable in preface_flowables:
+        story.append(keep_with_next(flowable))
+    story.append(table_flowable)
+
+
 def num(value, ndigits: int = 2, suffix: str = "") -> str:
     s = clean(value)
     if not s:
@@ -3155,11 +3175,17 @@ def render_w_bottom_operation_section(
     )
 
     story.append(Spacer(1, 6))
-    story.append(Paragraph(OPERATION_CONFIRMED_BUY_TABLE_TITLE, H2))
-    story.append(build_w_bottom_confirmed_operation_table(confirmed, model_name))
+    append_section_label_with_table(
+        story,
+        OPERATION_CONFIRMED_BUY_TABLE_TITLE,
+        build_w_bottom_confirmed_operation_table(confirmed, model_name),
+    )
     story.append(Spacer(1, 5))
-    story.append(Paragraph(OPERATION_ACTIVE_TABLE_TITLE, H2))
-    story.append(build_w_bottom_active_operation_table(active_rows, model_name))
+    append_section_label_with_table(
+        story,
+        OPERATION_ACTIVE_TABLE_TITLE,
+        build_w_bottom_active_operation_table(active_rows, model_name),
+    )
 
 
 def render_price_pullback_operation_section(
@@ -3176,11 +3202,17 @@ def render_price_pullback_operation_section(
     )
 
     story.append(Spacer(1, 6))
-    story.append(Paragraph(OPERATION_CONFIRMED_BUY_TABLE_TITLE, H2))
-    story.append(build_price_pullback_confirmed_operation_table(confirmed))
+    append_section_label_with_table(
+        story,
+        OPERATION_CONFIRMED_BUY_TABLE_TITLE,
+        build_price_pullback_confirmed_operation_table(confirmed),
+    )
     story.append(Spacer(1, 5))
-    story.append(Paragraph(OPERATION_ACTIVE_TABLE_TITLE, H2))
-    story.append(build_price_pullback_active_operation_table(active_rows))
+    append_section_label_with_table(
+        story,
+        OPERATION_ACTIVE_TABLE_TITLE,
+        build_price_pullback_active_operation_table(active_rows),
+    )
 
 
 def render_volume_range_breakout_operation_section(
@@ -3199,22 +3231,42 @@ def render_volume_range_breakout_operation_section(
     active_rows = selected_volume_operation_rows_for_pdf(inputs, pdf_view, line, "active_operation")
 
     story.append(Spacer(1, 6))
-    story.append(Paragraph(OPERATION_CONFIRMED_BUY_TABLE_TITLE, H2))
-    story.append(build_volume_confirmed_operation_table(confirmed))
+    append_section_label_with_table(
+        story,
+        OPERATION_CONFIRMED_BUY_TABLE_TITLE,
+        build_volume_confirmed_operation_table(confirmed),
+    )
     story.append(Spacer(1, 5))
     if pdf_view == "full":
-        story.append(Paragraph("已確認但未通過買入排名門檻", H2))
+        unranked_preface = []
         if unranked.empty:
-            story.append(para(volume_operation_empty_text(unranked_all, "目前沒有已確認但未通過買入排名門檻的股票。"), BODY_SMALL))
-        story.append(build_volume_unranked_operation_table(unranked))
+            unranked_preface.append(
+                para(volume_operation_empty_text(unranked_all, "目前沒有已確認但未通過買入排名門檻的股票。"), BODY_SMALL)
+            )
+        append_section_label_with_table(
+            story,
+            "已確認但未通過買入排名門檻",
+            build_volume_unranked_operation_table(unranked),
+            *unranked_preface,
+        )
         story.append(Spacer(1, 5))
-        story.append(Paragraph("待確認", H2))
+        pending_preface = []
         if pending.empty:
-            story.append(para(volume_operation_empty_text(pending_all, "目前無待確認列。"), BODY_SMALL))
-        story.append(build_volume_pending_operation_table(pending))
+            pending_preface.append(
+                para(volume_operation_empty_text(pending_all, "目前無待確認列。"), BODY_SMALL)
+            )
+        append_section_label_with_table(
+            story,
+            "待確認",
+            build_volume_pending_operation_table(pending),
+            *pending_preface,
+        )
         story.append(Spacer(1, 5))
-    story.append(Paragraph(OPERATION_ACTIVE_TABLE_TITLE, H2))
-    story.append(build_volume_active_operation_table(active_rows))
+    append_section_label_with_table(
+        story,
+        OPERATION_ACTIVE_TABLE_TITLE,
+        build_volume_active_operation_table(active_rows),
+    )
 
 
 def render_model_operation_section_if_applicable(

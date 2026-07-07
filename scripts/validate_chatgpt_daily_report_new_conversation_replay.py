@@ -40,6 +40,8 @@ HIGHLIGHT_LAYOUT_ROLES = (
 HIGHLIGHT_FIRST_PAGE_REQUIRED_TEXT = (
     "放量攻擊模型",
     "本日可買 / 已確認買入候選",
+)
+HIGHLIGHT_FULL_TEXT_REQUIRED_TEXT = (
     "操作中",
 )
 HIGHLIGHT_FULL_TEXT_FORBIDDEN_TEXT = (
@@ -264,6 +266,9 @@ def validate_highlight_layout_texts(role_to_pages: dict[str, list[str]]) -> list
         for token in HIGHLIGHT_FIRST_PAGE_REQUIRED_TEXT:
             if token not in first_page:
                 errors.append(f"{role}: first page missing required layout text: {token}")
+        for token in HIGHLIGHT_FULL_TEXT_REQUIRED_TEXT:
+            if token not in full_text:
+                errors.append(f"{role}: full text missing required layout text: {token}")
         if HIGHLIGHT_STOCK_MODEL_SECTION_TEXT in first_page:
             errors.append(f"{role}: first page must not start with stock-model tables before volume operations")
         for token in HIGHLIGHT_FULL_TEXT_FORBIDDEN_TEXT:

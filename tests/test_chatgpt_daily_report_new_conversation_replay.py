@@ -6,6 +6,7 @@ import json
 from scripts.validate_chatgpt_daily_report_new_conversation_replay import (
     EXPECTED_PDF_ROLES,
     HIGHLIGHT_FULL_TEXT_FORBIDDEN_TEXT,
+    HIGHLIGHT_FULL_TEXT_REQUIRED_TEXT,
     HIGHLIGHT_FIRST_PAGE_REQUIRED_TEXT,
     HIGHLIGHT_LAYOUT_ROLES,
     HIGHLIGHT_STOCK_MODEL_SECTION_TEXT,
@@ -387,9 +388,20 @@ def test_replay_runtime_manifest_role_mapping_uses_manifest_not_filename_tokens(
 
 def test_replay_highlight_layout_contract_accepts_legacy_volume_first() -> None:
     required_text = "\n".join(HIGHLIGHT_FIRST_PAGE_REQUIRED_TEXT)
+    full_required_text = "\n".join(HIGHLIGHT_FULL_TEXT_REQUIRED_TEXT)
     pages = {
-        "mainstream_highlight": [f"mainstream highlight\n{required_text}", "other content"],
-        "non_mainstream_highlight": [f"non-mainstream highlight\n{required_text}", "other content"],
+        "mainstream_highlight": [f"mainstream highlight\n{required_text}", f"other content\n{full_required_text}"],
+        "non_mainstream_highlight": [f"non-mainstream highlight\n{required_text}", f"other content\n{full_required_text}"],
+    }
+
+    assert validate_highlight_layout_texts(pages) == []
+
+def test_replay_highlight_layout_allows_active_table_after_first_page() -> None:
+    first_page_text = "\n".join(HIGHLIGHT_FIRST_PAGE_REQUIRED_TEXT)
+    active_text = "\n".join(HIGHLIGHT_FULL_TEXT_REQUIRED_TEXT)
+    pages = {
+        "mainstream_highlight": [first_page_text, active_text],
+        "non_mainstream_highlight": [first_page_text, active_text],
     }
 
     assert validate_highlight_layout_texts(pages) == []
@@ -399,9 +411,10 @@ def test_replay_highlight_layout_roles_are_machine_readable() -> None:
 
 def test_replay_highlight_layout_contract_rejects_reordered_first_page() -> None:
     required_text = "\n".join(HIGHLIGHT_FIRST_PAGE_REQUIRED_TEXT)
+    full_required_text = "\n".join(HIGHLIGHT_FULL_TEXT_REQUIRED_TEXT)
     pages = {
-        "mainstream_highlight": [HIGHLIGHT_STOCK_MODEL_SECTION_TEXT, required_text],
-        "non_mainstream_highlight": [f"non-mainstream highlight\n{required_text}"],
+        "mainstream_highlight": [HIGHLIGHT_STOCK_MODEL_SECTION_TEXT, f"{required_text}\n{full_required_text}"],
+        "non_mainstream_highlight": [f"non-mainstream highlight\n{required_text}\n{full_required_text}"],
     }
 
     errors = validate_highlight_layout_texts(pages)
@@ -411,15 +424,27 @@ def test_replay_highlight_layout_contract_rejects_reordered_first_page() -> None
 
 def test_replay_highlight_layout_contract_rejects_pending_operation_text() -> None:
     required_text = "\n".join(HIGHLIGHT_FIRST_PAGE_REQUIRED_TEXT)
+    full_required_text = "\n".join(HIGHLIGHT_FULL_TEXT_REQUIRED_TEXT)
     forbidden_text = HIGHLIGHT_FULL_TEXT_FORBIDDEN_TEXT[0]
     pages = {
-        "mainstream_highlight": [f"mainstream highlight\n{required_text}\n{forbidden_text}"],
-        "non_mainstream_highlight": [f"non-mainstream highlight\n{required_text}"],
+        "mainstream_highlight": [f"mainstream highlight\n{required_text}\n{full_required_text}\n{forbidden_text}"],
+        "non_mainstream_highlight": [f"non-mainstream highlight\n{required_text}\n{full_required_text}"],
     }
 
     errors = validate_highlight_layout_texts(pages)
 
     assert any(f"forbidden operation-layer text: {forbidden_text}" in error for error in errors)
+
+def test_replay_highlight_layout_contract_rejects_missing_active_table_text() -> None:
+    required_text = "\n".join(HIGHLIGHT_FIRST_PAGE_REQUIRED_TEXT)
+    pages = {
+        "mainstream_highlight": [f"mainstream highlight\n{required_text}"],
+        "non_mainstream_highlight": [f"non-mainstream highlight\n{required_text}"],
+    }
+
+    errors = validate_highlight_layout_texts(pages)
+
+    assert any("full text missing required layout text" in error for error in errors)
 
 def test_rendered_model_regression_contract_accepts_as_published_volume_rows() -> None:
     rows = [
