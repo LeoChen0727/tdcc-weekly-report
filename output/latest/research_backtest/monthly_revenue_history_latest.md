@@ -1,11 +1,11 @@
 # Monthly Revenue History Data Layer
 
-- generated_at: `2026-07-07 19:27:50 Asia/Taipei`
+- generated_at: `2026-07-07 19:47:07 Asia/Taipei`
 - history_id: `monthly_revenue_history`
 - history_version: `official_mops_monthly_revenue_v1`
 - source_kind: `official_mops_current_monthly_revenue_openapi;official_mops_static_monthly_revenue_html_conservative_available_date_v1`
-- source_fetch_mode: `official_current_sources`
-- latest_build_rows: `1972`
+- source_fetch_mode: `validated_history_cache_fallback`
+- latest_build_rows: `1973`
 - total_history_rows: `49025`
 - unique_stocks: `1973`
 - revenue_period_min: `202405`
@@ -20,8 +20,9 @@
 
 | market | source_market_name | raw_rows | standardized_rows | status |
 | --- | --- | --- | --- | --- |
-| listed | TWSE | 1082 | 1082 | ok |
-| otc | TPEX | 890 | 890 | ok |
+| listed | TWSE | 0 | 0 | fetch_failed:Error tokenizing data. C error: Expected 1 fields in line 7, saw 2 |
+| otc | TPEX | 0 | 0 | fetch_failed:Error tokenizing data. C error: Expected 1 fields in line 7, saw 2 |
+| all | validated_history_cache | 49025 | 49025 | fallback_reused_validated_history |
 
 ## Period Coverage
 
