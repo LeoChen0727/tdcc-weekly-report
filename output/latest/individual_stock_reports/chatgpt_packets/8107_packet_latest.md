@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8107 大億金茂
 
 ## Metadata
-- generated_at: 2026-07-06 22:28:20 Asia/Taipei
+- generated_at: 2026-07-07 22:28:41 Asia/Taipei
 - stock_id: 8107
 - stock_name: 大億金茂
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260706
-- price_rows: 163
+- latest_price_date: 20260707
+- price_rows: 164
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
-- open: 12.95
-- high: 13.55
-- low: 12.75
-- close: 13.2
-- volume: 313000
-- ma5: 12.64
-- ema23_primary: 12.36
-- distance_to_ema23_pct: 6.82
-- ma20: 12.28
-- ma60: 12.35
-- ma120: 13.29
-- return_5d: 3.53
-- return_20d: 5.18
-- volume_ratio: 2.47
-- distance_to_ma20_pct_auxiliary: 7.47
-- distance_to_high_60_pct: -2.94
+- date: 20260707
+- open: 13.2
+- high: 13.3
+- low: 12.45
+- close: 12.8
+- volume: 142000
+- ma5: 12.68
+- ema23_primary: 12.39
+- distance_to_ema23_pct: 3.28
+- ma20: 12.3
+- ma60: 12.36
+- ma120: 13.28
+- return_5d: 1.59
+- return_20d: 3.64
+- volume_ratio: 1.1
+- distance_to_ma20_pct_auxiliary: 4.02
+- distance_to_high_60_pct: -5.88
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,11.95,12.4,11.9,12.35,93000,12.25,0.84,11.95,12.64,2.25
 20260609,12.65,12.65,12.05,12.2,165000,12.24,-0.35,11.97,12.62,3.78
 20260610,12.3,12.5,12.2,12.4,92000,12.26,1.17,12.02,12.6,2.06
 20260611,12.3,12.3,12,12.1,84000,12.24,-1.17,12.04,12.57,2.06
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,12.3,12.55,12.3,12.35,64000,12.25,0.84,12.25,12.35,0.59
 20260703,12.65,12.95,12.3,12.65,93000,12.28,3.01,12.25,12.34,0.83
 20260706,12.95,13.55,12.75,13.2,313000,12.36,6.82,12.28,12.35,2.47
+20260707,13.2,13.3,12.45,12.8,142000,12.39,3.28,12.3,12.36,1.1
 ```
 
 ## Latest TDCC Snapshot

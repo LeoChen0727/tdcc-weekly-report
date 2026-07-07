@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6668 中揚光
 
 ## Metadata
-- generated_at: 2026-07-06 22:27:59 Asia/Taipei
+- generated_at: 2026-07-07 22:28:18 Asia/Taipei
 - stock_id: 6668
 - stock_name: 中揚光
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260706
-- price_rows: 298
+- latest_price_date: 20260707
+- price_rows: 299
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
-- open: 40
-- high: 40.2
-- low: 38.8
-- close: 39.05
-- volume: 750000
-- ma5: 39.04
-- ema23_primary: 40.02
-- distance_to_ema23_pct: -2.42
-- ma20: 40.46
-- ma60: 38.39
+- date: 20260707
+- open: 39
+- high: 39.5
+- low: 37.4
+- close: 37.65
+- volume: 846873
+- ma5: 38.78
+- ema23_primary: 39.82
+- distance_to_ema23_pct: -5.46
+- ma20: 40.54
+- ma60: 38.45
 - ma120: 37.38
-- return_5d: 0.77
-- return_20d: 0.13
-- volume_ratio: 0.36
-- distance_to_ma20_pct_auxiliary: -3.49
-- distance_to_high_60_pct: -18.9
+- return_5d: -3.34
+- return_20d: 4.44
+- volume_ratio: 0.4
+- distance_to_ma20_pct_auxiliary: -7.13
+- distance_to_high_60_pct: -21.81
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,35.1,36.25,35.1,36.05,554432,38.32,-5.94,38.73,36.26,0.66
 20260609,36.3,39.4,36.15,38.35,1131726,38.33,0.06,38.84,36.31,1.29
 20260610,38.35,40.65,37.15,37.15,1310332,38.23,-2.82,38.89,36.36,1.41
 20260611,37.15,38.85,36.95,38.25,563171,38.23,0.05,38.93,36.42,0.61
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,38.5,39.6,37.9,38.85,378000,40.13,-3.18,40.39,38.19,0.18
 20260703,39,40.4,38.5,39.9,731703,40.11,-0.52,40.46,38.3,0.35
 20260706,40,40.2,38.8,39.05,750000,40.02,-2.42,40.46,38.39,0.36
+20260707,39,39.5,37.4,37.65,846873,39.82,-5.46,40.54,38.45,0.4
 ```
 
 ## Latest TDCC Snapshot

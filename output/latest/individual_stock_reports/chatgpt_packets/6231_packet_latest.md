@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6231 系微
 
 ## Metadata
-- generated_at: 2026-07-06 22:27:50 Asia/Taipei
+- generated_at: 2026-07-07 22:28:06 Asia/Taipei
 - stock_id: 6231
 - stock_name: 系微
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260706
-- price_rows: 163
+- latest_price_date: 20260707
+- price_rows: 164
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
-- open: 288
-- high: 293.5
-- low: 280
-- close: 281
-- volume: 466000
-- ma5: 283
-- ema23_primary: 288.78
-- distance_to_ema23_pct: -2.69
-- ma20: 285.68
-- ma60: 294.83
-- ma120: 257.59
-- return_5d: 0.36
-- return_20d: -9.94
-- volume_ratio: 0.68
-- distance_to_ma20_pct_auxiliary: -1.64
-- distance_to_high_60_pct: -24.66
+- date: 20260707
+- open: 283
+- high: 292.5
+- low: 265
+- close: 267.5
+- volume: 609000
+- ma5: 280.2
+- ema23_primary: 287.01
+- distance_to_ema23_pct: -6.8
+- ma20: 284.27
+- ma60: 295.02
+- ma120: 258
+- return_5d: -4.97
+- return_20d: -9.48
+- volume_ratio: 0.91
+- distance_to_ma20_pct_auxiliary: -5.9
+- distance_to_high_60_pct: -28.28
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,281,300.5,281,295.5,952000,300.8,-1.76,297.6,285.38,1.69
 20260609,298.5,310.5,295,296,748000,300.4,-1.46,296.82,286.92,1.4
 20260610,294,299.5,278,278,784000,298.53,-6.88,295.43,287.99,1.53
 20260611,279,280.5,260,266.5,727000,295.86,-9.93,294.3,288.84,1.59
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,283.5,286.5,275,283.5,258000,289.85,-2.19,288.9,294.37,0.38
 20260703,280.5,289,280.5,285.5,231000,289.49,-1.38,287.23,294.64,0.34
 20260706,288,293.5,280,281,466000,288.78,-2.69,285.68,294.83,0.68
+20260707,283,292.5,265,267.5,609000,287.01,-6.8,284.27,295.02,0.91
 ```
 
 ## Latest TDCC Snapshot

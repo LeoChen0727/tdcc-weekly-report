@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2542 興富發
 
 ## Metadata
-- generated_at: 2026-07-06 22:26:55 Asia/Taipei
+- generated_at: 2026-07-07 22:27:02 Asia/Taipei
 - stock_id: 2542
 - stock_name: 興富發
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260706
-- price_rows: 298
+- latest_price_date: 20260707
+- price_rows: 299
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
-- open: 43.8
+- date: 20260707
+- open: 44.95
 - high: 45
-- low: 43.7
-- close: 45
-- volume: 13006000
-- ma5: 43.43
-- ema23_primary: 43.37
-- distance_to_ema23_pct: 3.75
-- ma20: 43.83
-- ma60: 41.41
-- ma120: 39.39
-- return_5d: 4.41
-- return_20d: 4.65
-- volume_ratio: 0.77
-- distance_to_ma20_pct_auxiliary: 2.68
-- distance_to_high_60_pct: -4.46
+- low: 43.65
+- close: 44
+- volume: 6939731
+- ma5: 43.62
+- ema23_primary: 43.42
+- distance_to_ema23_pct: 1.33
+- ma20: 43.93
+- ma60: 41.53
+- ma120: 39.43
+- return_5d: 2.21
+- return_20d: 5.01
+- volume_ratio: 0.42
+- distance_to_ma20_pct_auxiliary: 0.16
+- distance_to_high_60_pct: -6.58
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,41.3,42.45,41.2,41.9,19587145,41.98,-0.2,42.87,38.89,1.3
 20260609,41.75,43.35,41.75,43.2,18093139,42.08,2.65,42.98,39,1.16
 20260610,43.2,46.1,42.65,45.45,60906374,42.36,7.28,43.12,39.15,3.54
 20260611,45.85,46,44.55,45.35,39535484,42.61,6.42,43.23,39.29,2.14
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,42.15,43.1,42.1,43.1,6561000,43.19,-0.2,43.7,41.14,0.37
 20260703,42.75,43.8,42.75,43.65,7838135,43.22,0.99,43.73,41.26,0.45
 20260706,43.8,45,43.7,45,13006000,43.37,3.75,43.83,41.41,0.77
+20260707,44.95,45,43.65,44,6939731,43.42,1.33,43.93,41.53,0.42
 ```
 
 ## Latest TDCC Snapshot
@@ -189,19 +189,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 2542 | 興富發 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | call_strong_inflow | stale_signal | 1.董事會決議日期或發生變動日期:115/06/17 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:曹淵博 4.舊任者簡歷:興富發建設股份有限公司-董事長 5.新任者姓名:王嶠奇 6.新任者簡歷:華豐橡膠工業股份有限公司-總經理 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因:任期屆滿退休 9.新任生效日期:115/06/17 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
-| 20260706 | 2542 | 興富發 | revenue_pullback | 營收成長股價回檔 | 70.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  | call_strong_inflow | stale_signal | 1.董事會決議日期或發生變動日期:115/06/17 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:曹淵博 4.舊任者簡歷:興富發建設股份有限公司-董事長 5.新任者姓名:王嶠奇 6.新任者簡歷:華豐橡膠工業股份有限公司-總經理 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因:任期屆滿退休 9.新任生效日期:115/06/17 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
-| 20260706 | 2542 | 興富發 | revenue_breakout_low_response | 營收爆發低反應股 | 15.0 | 29.0 | D_降級_TDCC轉弱 |  |  | call_strong_inflow | stale_signal | 1.董事會決議日期或發生變動日期:115/06/17 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:曹淵博 4.舊任者簡歷:興富發建設股份有限公司-董事長 5.新任者姓名:王嶠奇 6.新任者簡歷:華豐橡膠工業股份有限公司-總經理 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因:任期屆滿退休 9.新任生效日期:115/06/17 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260707 | 2542 | 興富發 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | call_strong_inflow | stale_signal | 1.董事會決議日期或發生變動日期:115/06/17 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:曹淵博 4.舊任者簡歷:興富發建設股份有限公司-董事長 5.新任者姓名:王嶠奇 6.新任者簡歷:華豐橡膠工業股份有限公司-總經理 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因:任期屆滿退休 9.新任生效日期:115/06/17 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 2542 | 興富發 | 10 | 10 | 5 | 10 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260707 | 2542 | 興富發 | 11 | 2 | 5 | 10 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 2542 | 興富發 | 5 | 0 | 3452680.0 | 0.0 |  | call_strong_inflow |
+| 20260707 | 2542 | 興富發 | 5 | 0 | 4820110.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

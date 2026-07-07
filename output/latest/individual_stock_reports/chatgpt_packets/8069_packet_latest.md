@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8069 元太
 
 ## Metadata
-- generated_at: 2026-07-06 22:28:18 Asia/Taipei
+- generated_at: 2026-07-07 22:28:39 Asia/Taipei
 - stock_id: 8069
 - stock_name: 元太
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260706
-- price_rows: 163
+- latest_price_date: 20260707
+- price_rows: 164
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
-- open: 215
-- high: 215
-- low: 205.5
-- close: 205.5
-- volume: 8141000
-- ma5: 208.4
-- ema23_primary: 204.37
-- distance_to_ema23_pct: 0.55
+- date: 20260707
+- open: 205.5
+- high: 209.5
+- low: 198.5
+- close: 198.5
+- volume: 7572000
+- ma5: 205.2
+- ema23_primary: 203.88
+- distance_to_ema23_pct: -2.64
 - ma20: 200.93
-- ma60: 190.12
-- ma120: 178.49
-- return_5d: -4.2
-- return_20d: -3.97
-- volume_ratio: 0.89
-- distance_to_ma20_pct_auxiliary: 2.28
-- distance_to_high_60_pct: -18.13
+- ma60: 191.04
+- ma120: 178.47
+- return_5d: -7.46
+- return_20d: 0
+- volume_ratio: 0.84
+- distance_to_ma20_pct_auxiliary: -1.21
+- distance_to_high_60_pct: -20.92
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,193,199.5,193,198.5,10623000,209.21,-5.12,222.38,172.68,1.08
 20260609,204,207,194,201.5,10520000,208.57,-3.39,222.68,173.38,1.44
 20260610,197,203.5,191,191,6765000,207.1,-7.78,221.47,174.03,1.18
 20260611,190.5,193.5,183,190.5,9628000,205.72,-7.4,219.7,174.72,2.62
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,205,222,201.5,205.5,15477000,203.52,0.97,201.45,188.03,1.87
 20260703,207,215.5,206.5,212.5,10192000,204.27,4.03,201.35,189.09,1.16
 20260706,215,215,205.5,205.5,8141000,204.37,0.55,200.93,190.12,0.89
+20260707,205.5,209.5,198.5,198.5,7572000,203.88,-2.64,200.93,191.04,0.84
 ```
 
 ## Latest TDCC Snapshot
@@ -189,12 +189,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 8069 | 元太 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/01 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.發放普通股股利種類及金額:  現金股利新台幣6,798,985,118元，每股配發新台幣5.88820682元。 4.除權（息）交易日:115/07/20 5.最後過戶日:115/07/21 6.停止過戶起始日期:115/07/22 7.停止過戶截止日期:115/07/26 8.除權（息）基準日:115/07/26 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/21 13.其他應敘明事項: 本公司因員工認股權執行之股份影響流通在外股數，致配發現金比率發生變動， 原現金股利每股配發新台幣5.9元，調整為每股配發新台幣5.88820682元。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260707 | 8069 | 元太 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | repeated_but_no_breakout | 1.董事會、股東會決議或公司決定日期:115/07/01 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.發放普通股股利種類及金額:  現金股利新台幣6,798,985,118元，每股配發新台幣5.88820682元。 4.除權（息）交易日:115/07/20 5.最後過戶日:115/07/21 6.停止過戶起始日期:115/07/22 7.停止過戶截止日期:115/07/26 8.除權（息）基準日:115/07/26 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/21 13.其他應敘明事項: 本公司因員工認股權執行之股份影響流通在外股數，致配發現金比率發生變動， 原現金股利每股配發新台幣5.9元，調整為每股配發新台幣5.88820682元。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 8069 | 元太 | 4 | 4 | 4 | 7 | 7 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260707 | 8069 | 元太 | 5 | 5 | 5 | 8 | 8 | repeated_but_no_breakout | 近 10 日上榜 8 次、近 20 日上榜 8 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

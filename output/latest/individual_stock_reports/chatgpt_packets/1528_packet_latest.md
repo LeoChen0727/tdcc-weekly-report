@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1528 恩德
 
 ## Metadata
-- generated_at: 2026-07-06 22:26:33 Asia/Taipei
+- generated_at: 2026-07-07 22:26:37 Asia/Taipei
 - stock_id: 1528
 - stock_name: 恩德
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260706
-- price_rows: 298
+- latest_price_date: 20260707
+- price_rows: 299
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
-- open: 24.25
-- high: 24.7
-- low: 23.8
-- close: 24.05
-- volume: 1462000
-- ma5: 23.79
-- ema23_primary: 24.83
-- distance_to_ema23_pct: -3.14
-- ma20: 24.71
-- ma60: 26.37
+- date: 20260707
+- open: 24.05
+- high: 24.1
+- low: 22.75
+- close: 22.8
+- volume: 1831352
+- ma5: 23.64
+- ema23_primary: 24.66
+- distance_to_ema23_pct: -7.55
+- ma20: 24.55
+- ma60: 26.29
 - ma120: 25.53
-- return_5d: 2.34
-- return_20d: -13.49
-- volume_ratio: 0.5
-- distance_to_ma20_pct_auxiliary: -2.69
-- distance_to_high_60_pct: -26.45
+- return_5d: -3.18
+- return_20d: -12.31
+- volume_ratio: 0.66
+- distance_to_ma20_pct_auxiliary: -7.15
+- distance_to_high_60_pct: -30.28
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,25.05,26.25,25.05,26,5125175,26.98,-3.62,26.52,26.2,0.59
 20260609,26.15,26.5,25.6,26.15,4777099,26.91,-2.81,26.5,26.27,0.55
 20260610,26,27.15,25.3,25.3,4725504,26.77,-5.5,26.46,26.31,0.55
 20260611,24.8,25.45,24.3,25.2,3774126,26.64,-5.41,26.45,26.36,0.45
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,23.15,24.3,23.05,24,2549000,24.96,-3.86,25.14,26.47,0.67
 20260703,24,24.35,23.65,24.2,1552881,24.9,-2.81,24.9,26.42,0.48
 20260706,24.25,24.7,23.8,24.05,1462000,24.83,-3.14,24.71,26.37,0.5
+20260707,24.05,24.1,22.75,22.8,1831352,24.66,-7.55,24.55,26.29,0.66
 ```
 
 ## Latest TDCC Snapshot

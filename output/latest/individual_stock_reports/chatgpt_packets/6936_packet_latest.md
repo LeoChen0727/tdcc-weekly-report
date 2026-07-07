@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6936 永鴻生技
 
 ## Metadata
-- generated_at: 2026-07-06 22:28:07 Asia/Taipei
+- generated_at: 2026-07-07 22:28:27 Asia/Taipei
 - stock_id: 6936
 - stock_name: 永鴻生技
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260706
-- price_rows: 284
+- latest_price_date: 20260707
+- price_rows: 285
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
-- open: 32.8
+- date: 20260707
+- open: 32.9
 - high: 33
-- low: 32.7
+- low: 32.75
 - close: 33
-- volume: 73000
-- ma5: 32.78
+- volume: 30194
+- ma5: 32.83
 - ema23_primary: 33.04
-- distance_to_ema23_pct: -0.12
-- ma20: 33.05
-- ma60: 33.81
-- ma120: 34.54
-- return_5d: 2.01
-- return_20d: -4.49
-- volume_ratio: 2.43
-- distance_to_ma20_pct_auxiliary: -0.14
+- distance_to_ema23_pct: -0.11
+- ma20: 32.98
+- ma60: 33.77
+- ma120: 34.51
+- return_5d: 0.76
+- return_20d: -3.79
+- volume_ratio: 1.03
+- distance_to_ma20_pct_auxiliary: 0.05
 - distance_to_high_60_pct: -8.21
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,34,34.3,33.85,34.3,48026,33.77,1.58,33.5,34.24,0.77
 20260609,32.8,33.45,32.8,33.25,59849,33.72,-1.41,33.46,34.22,0.97
 20260610,32.95,33.5,32.95,33,32858,33.66,-1.97,33.42,34.21,0.55
 20260611,33,33.2,32.8,33.2,26715,33.63,-1.27,33.41,34.19,0.46
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,32.6,32.7,32.3,32.65,11000,33.05,-1.22,33.16,33.87,0.3
 20260703,32.75,32.95,32.7,32.9,42271,33.04,-0.43,33.12,33.84,1.22
 20260706,32.8,33,32.7,33,73000,33.04,-0.12,33.05,33.81,2.43
+20260707,32.9,33,32.75,33,30194,33.04,-0.11,32.98,33.77,1.03
 ```
 
 ## Latest TDCC Snapshot

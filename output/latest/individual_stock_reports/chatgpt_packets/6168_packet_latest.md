@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6168 宏齊
 
 ## Metadata
-- generated_at: 2026-07-06 22:27:46 Asia/Taipei
+- generated_at: 2026-07-07 22:28:02 Asia/Taipei
 - stock_id: 6168
 - stock_name: 宏齊
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260706
-- price_rows: 298
+- latest_price_date: 20260707
+- price_rows: 299
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
-- open: 30.5
-- high: 31.45
-- low: 29.85
-- close: 29.9
-- volume: 3283000
-- ma5: 30.23
-- ema23_primary: 29.41
-- distance_to_ema23_pct: 1.68
-- ma20: 29
-- ma60: 27.74
-- ma120: 24.73
-- return_5d: 0.34
-- return_20d: 14.78
-- volume_ratio: 0.37
-- distance_to_ma20_pct_auxiliary: 3.09
-- distance_to_high_60_pct: -18.42
+- date: 20260707
+- open: 30.1
+- high: 31.25
+- low: 28.3
+- close: 28.4
+- volume: 5407145
+- ma5: 29.7
+- ema23_primary: 29.32
+- distance_to_ema23_pct: -3.15
+- ma20: 29.21
+- ma60: 27.77
+- ma120: 24.8
+- return_5d: -8.53
+- return_20d: 16.87
+- volume_ratio: 0.59
+- distance_to_ma20_pct_auxiliary: -2.76
+- distance_to_high_60_pct: -22.51
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,23.5,24.4,23.5,24.3,2343591,27,-10,27.27,26.18,0.37
 20260609,24.5,25.15,24.05,25.05,1954003,26.84,-6.66,27.18,26.24,0.32
 20260610,24.65,25.4,23.85,23.85,2455720,26.59,-10.3,27.09,26.27,0.4
 20260611,24,24.25,23.25,24.1,1335570,26.38,-8.64,26.95,26.29,0.23
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,29.8,30.75,29.45,30.15,3085000,29.31,2.86,28.64,27.66,0.34
 20260703,30.1,30.55,29.65,29.9,2179179,29.36,1.83,28.81,27.7,0.24
 20260706,30.5,31.45,29.85,29.9,3283000,29.41,1.68,29,27.74,0.37
+20260707,30.1,31.25,28.3,28.4,5407145,29.32,-3.15,29.21,27.77,0.59
 ```
 
 ## Latest TDCC Snapshot
@@ -188,12 +188,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 6168 | 宏齊 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | continued_overheated | 1.股東常會日期:115/06/26 2.重要決議事項一、盈餘分配或盈虧撥補: 通過承認本公司114年度盈餘分配案。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表: 通過承認本公司114年度營業報告書、財務報表。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項:無。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260707 | 6168 | 宏齊 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | continued_overheated | 1.股東常會日期:115/06/26 2.重要決議事項一、盈餘分配或盈虧撥補: 通過承認本公司114年度盈餘分配案。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表: 通過承認本公司114年度營業報告書、財務報表。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項:無。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 6168 | 宏齊 | 4 | 4 | 4 | 9 | 15 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260707 | 6168 | 宏齊 | 5 | 5 | 5 | 9 | 15 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

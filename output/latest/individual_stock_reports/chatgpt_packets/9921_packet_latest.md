@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9921 巨大
 
 ## Metadata
-- generated_at: 2026-07-06 22:28:27 Asia/Taipei
+- generated_at: 2026-07-07 22:28:50 Asia/Taipei
 - stock_id: 9921
 - stock_name: 巨大
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260706
-- price_rows: 298
+- latest_price_date: 20260707
+- price_rows: 299
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
+- date: 20260707
 - open: 77.1
-- high: 78.7
-- low: 76.6
-- close: 77.1
-- volume: 1114000
-- ma5: 76.98
-- ema23_primary: 74.76
-- distance_to_ema23_pct: 3.13
-- ma20: 75.15
-- ma60: 71.39
-- ma120: 76.94
-- return_5d: 0
-- return_20d: 8.9
-- volume_ratio: 0.58
-- distance_to_ma20_pct_auxiliary: 2.59
-- distance_to_high_60_pct: -3.62
+- high: 77.1
+- low: 74.5
+- close: 75.7
+- volume: 1165548
+- ma5: 76.38
+- ema23_primary: 74.84
+- distance_to_ema23_pct: 1.15
+- ma20: 75.41
+- ma60: 71.53
+- ma120: 76.83
+- return_5d: -3.81
+- return_20d: 7.22
+- volume_ratio: 0.62
+- distance_to_ma20_pct_auxiliary: 0.39
+- distance_to_high_60_pct: -5.38
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,68.8,71.5,67.9,70.6,1851520,70.06,0.76,70.8,70.13,0.78
 20260609,70.4,71.7,69.6,71.3,1463148,70.17,1.61,70.76,70.12,0.66
 20260610,70.4,72.4,70.4,72,1899345,70.32,2.39,70.58,70.14,0.91
 20260611,72.6,77.2,72.3,75.7,4311513,70.77,6.97,70.69,70.15,1.99
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,78,78.4,75.2,75.5,1356000,74.39,1.49,74.56,71.14,0.68
 20260703,75,77.2,75,76.2,891840,74.54,2.22,74.83,71.24,0.46
 20260706,77.1,78.7,76.6,77.1,1114000,74.76,3.13,75.15,71.39,0.58
+20260707,77.1,77.1,74.5,75.7,1165548,74.84,1.15,75.41,71.53,0.62
 ```
 
 ## Latest TDCC Snapshot
@@ -189,17 +189,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 9921 | 巨大 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | 1.原預定買回股份總金額上限(元):28,914,080,517 2.原預定買回之期間:115/05/08~115/07/07 3.原預定買回之數量(股):4,000,000 4.原預定買回區間價格(元):60.00~100.00 5.本次實際買回期間:115/05/12~115/07/02 6.本次已買回股份數量(股):4,000,000 7.本次已買回股份總金額(元):287,003,263 8.本次平均每股買回價格(元):71.75 9.累積已持有自己公司股份數量(股):4,000,000 10.累積已持有自己公司股份數量占公司已發行股份總數之比率(%):1.02 11.本次未執行完畢之原因:  12.其他應敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260707 | 9921 | 巨大 | pattern | 型態觀察 | 51.0 |  |  | base_building |  | no_signal | stale_signal | 1.原預定買回股份總金額上限(元):28,914,080,517 2.原預定買回之期間:115/05/08~115/07/07 3.原預定買回之數量(股):4,000,000 4.原預定買回區間價格(元):60.00~100.00 5.本次實際買回期間:115/05/12~115/07/02 6.本次已買回股份數量(股):4,000,000 7.本次已買回股份總金額(元):287,003,263 8.本次平均每股買回價格(元):71.75 9.累積已持有自己公司股份數量(股):4,000,000 10.累積已持有自己公司股份數量占公司已發行股份總數之比率(%):1.02 11.本次未執行完畢之原因:  12.其他應敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 9921 | 巨大 | 1 | 1 | 4 | 8 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260707 | 9921 | 巨大 | 2 | 2 | 4 | 8 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 9921 | 巨大 | 9 | 0 | 337170.0 | 0.0 |  | no_signal |
+| 20260707 | 9921 | 巨大 | 9 | 0 | 432470.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

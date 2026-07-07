@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2363 矽統
 
 ## Metadata
-- generated_at: 2026-07-06 22:26:47 Asia/Taipei
+- generated_at: 2026-07-07 22:26:53 Asia/Taipei
 - stock_id: 2363
 - stock_name: 矽統
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260706
-- price_rows: 298
+- latest_price_date: 20260707
+- price_rows: 299
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
-- open: 71.5
-- high: 72.2
-- low: 68
-- close: 68.3
-- volume: 19866000
-- ma5: 70.5
-- ema23_primary: 66.49
-- distance_to_ema23_pct: 2.73
-- ma20: 64.89
-- ma60: 60.85
-- ma120: 55.85
-- return_5d: -0.58
-- return_20d: 9.28
-- volume_ratio: 0.82
-- distance_to_ma20_pct_auxiliary: 5.26
-- distance_to_high_60_pct: -10.25
+- date: 20260707
+- open: 68.6
+- high: 69.9
+- low: 65.6
+- close: 65.7
+- volume: 14371951
+- ma5: 69.84
+- ema23_primary: 66.42
+- distance_to_ema23_pct: -1.09
+- ma20: 65.31
+- ma60: 61.16
+- ma120: 56.01
+- return_5d: -4.78
+- return_20d: 15.06
+- volume_ratio: 0.59
+- distance_to_ma20_pct_auxiliary: 0.59
+- distance_to_high_60_pct: -13.67
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,56.3,57.6,56.3,57.1,8666248,62.22,-8.24,63.77,55.76,0.39
 20260609,57.5,58.7,56.3,58.3,7483912,61.9,-5.81,63.52,55.88,0.37
 20260610,57.5,59.3,55,55.1,7035917,61.33,-10.16,63.28,55.95,0.35
 20260611,54.5,56.5,53.6,56.4,7225995,60.92,-7.42,62.95,56.05,0.39
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,72.5,72.9,70,71.1,29261000,65.93,7.84,64.22,60.13,1.25
 20260703,70.2,71.7,69.2,70.6,13028756,66.32,6.45,64.59,60.5,0.55
 20260706,71.5,72.2,68,68.3,19866000,66.49,2.73,64.89,60.85,0.82
+20260707,68.6,69.9,65.6,65.7,14371951,66.42,-1.09,65.31,61.16,0.59
 ```
 
 ## Latest TDCC Snapshot
@@ -189,18 +189,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 2363 | 矽統 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
-| 20260706 | 2363 | 矽統 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260707 | 2363 | 矽統 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 2363 | 矽統 | 27 | 3 | 5 | 10 | 20 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260707 | 2363 | 矽統 | 28 | 2 | 5 | 10 | 20 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 2363 | 矽統 | 77 | 5 | 16040060.0 | 65590.0 | 244.55 | no_signal |
+| 20260707 | 2363 | 矽統 | 85 | 0 | 10122540.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

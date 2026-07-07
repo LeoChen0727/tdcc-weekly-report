@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6588 東典光電
 
 ## Metadata
-- generated_at: 2026-07-06 22:27:57 Asia/Taipei
+- generated_at: 2026-07-07 22:28:15 Asia/Taipei
 - stock_id: 6588
 - stock_name: 東典光電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260706
-- price_rows: 163
+- latest_price_date: 20260707
+- price_rows: 164
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
-- open: 90.6
-- high: 90.6
-- low: 85.2
-- close: 85.9
-- volume: 482000
-- ma5: 86.68
-- ema23_primary: 99.56
-- distance_to_ema23_pct: -13.72
-- ma20: 98.09
-- ma60: 122.56
-- ma120: 102
-- return_5d: -0.81
-- return_20d: -21.19
-- volume_ratio: 0.63
-- distance_to_ma20_pct_auxiliary: -12.43
-- distance_to_high_60_pct: -48.41
+- date: 20260707
+- open: 85.9
+- high: 89.3
+- low: 81
+- close: 81.1
+- volume: 558000
+- ma5: 85.26
+- ema23_primary: 98.02
+- distance_to_ema23_pct: -17.26
+- ma20: 97
+- ma60: 121.55
+- ma120: 102.24
+- return_5d: -8.05
+- return_20d: -21.26
+- volume_ratio: 0.74
+- distance_to_ma20_pct_auxiliary: -16.39
+- distance_to_high_60_pct: -51.29
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,98.1,104.5,98.1,103,673000,121.57,-15.28,122.78,126.21,1.12
 20260609,107,107,103,103.5,453000,120.07,-13.8,120.88,126.61,0.87
 20260610,100.5,113.5,100,100,1717000,118.4,-15.54,118.97,126.89,3.28
 20260611,102,104,94.7,99.4,1059000,116.81,-14.91,117.32,127.11,2.09
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,84,86.3,83.1,85.2,364000,101.86,-16.36,100.22,123.91,0.51
 20260703,85.7,91.5,85,89.1,599000,100.8,-11.61,99.25,123.27,0.81
 20260706,90.6,90.6,85.2,85.9,482000,99.56,-13.72,98.09,122.56,0.63
+20260707,85.9,89.3,81,81.1,558000,98.02,-17.26,97,121.55,0.74
 ```
 
 ## Latest TDCC Snapshot

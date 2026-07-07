@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3285 微端
 
 ## Metadata
-- generated_at: 2026-07-06 22:27:11 Asia/Taipei
+- generated_at: 2026-07-07 22:27:21 Asia/Taipei
 - stock_id: 3285
 - stock_name: 微端
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260706
-- price_rows: 161
+- latest_price_date: 20260707
+- price_rows: 162
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -59,14 +59,14 @@
 - action_rating_display_zh: 已持有續抱
 - model_category_display_zh: 單一個股分析
 - score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 股價乖離過大
+- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -74,7 +74,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: high_level_consolidation
+- thesis_state: unclear
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -88,10 +88,10 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
+- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -104,7 +104,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- price_too_extended
+- none
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
-- open: 44.3
-- high: 45
-- low: 43.25
-- close: 43.85
-- volume: 146000
-- ma5: 47.22
-- ema23_primary: 42.52
-- distance_to_ema23_pct: 3.12
-- ma20: 43.71
-- ma60: 34
-- ma120: 31.28
-- return_5d: -1.68
-- return_20d: 38.33
-- volume_ratio: 0.43
-- distance_to_ma20_pct_auxiliary: 0.31
-- distance_to_high_60_pct: -18.04
+- date: 20260707
+- open: 44
+- high: 44
+- low: 40
+- close: 40.15
+- volume: 351000
+- ma5: 45.44
+- ema23_primary: 42.32
+- distance_to_ema23_pct: -5.14
+- ma20: 44.16
+- ma60: 34.19
+- ma120: 31.37
+- return_5d: -18.14
+- return_20d: 29.1
+- volume_ratio: 0.98
+- distance_to_ma20_pct_auxiliary: -9.09
+- distance_to_high_60_pct: -24.95
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,29.65,31.5,29.45,31.1,52000,30.17,3.07,29.93,28.93,1.93
 20260609,31.7,31.7,30.6,31.15,24000,30.25,2.96,30.06,28.96,0.87
 20260610,31.8,34.25,30.5,34.25,479000,30.59,11.98,30.35,29.05,9.35
 20260611,37.65,37.65,37.65,37.65,316000,31.18,20.77,30.82,29.19,4.74
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,49.8,52.5,48.5,48.5,207000,42.23,14.85,42.55,33.5,0.66
 20260703,46.15,47.55,43.8,44.3,450000,42.4,4.48,43.1,33.75,1.34
 20260706,44.3,45,43.25,43.85,146000,42.52,3.12,43.71,34,0.43
+20260707,44,44,40,40.15,351000,42.32,-5.14,44.16,34.19,0.98
 ```
 
 ## Latest TDCC Snapshot

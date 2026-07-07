@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4551 智伸科
 
 ## Metadata
-- generated_at: 2026-07-06 22:27:27 Asia/Taipei
+- generated_at: 2026-07-07 22:27:40 Asia/Taipei
 - stock_id: 4551
 - stock_name: 智伸科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260706
-- price_rows: 298
+- latest_price_date: 20260707
+- price_rows: 299
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
+- final_decision_zh: 型態觀察 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -111,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
-- open: 291
-- high: 291.5
-- low: 263.5
-- close: 282
-- volume: 1760000
-- ma5: 249.4
-- ema23_primary: 212.49
-- distance_to_ema23_pct: 32.71
-- ma20: 207.3
-- ma60: 165.21
-- ma120: 144.06
-- return_5d: 25.61
-- return_20d: 99.29
-- volume_ratio: 0.97
-- distance_to_ma20_pct_auxiliary: 36.03
-- distance_to_high_60_pct: -3.26
+- date: 20260707
+- open: 272.5
+- high: 290
+- low: 254
+- close: 254
+- volume: 3650834
+- ma5: 255.2
+- ema23_primary: 215.95
+- distance_to_ema23_pct: 17.62
+- ma20: 213.03
+- ma60: 167.18
+- ma120: 145.22
+- return_5d: 12.89
+- return_20d: 82.08
+- volume_ratio: 1.93
+- distance_to_ma20_pct_auxiliary: 19.23
+- distance_to_high_60_pct: -12.86
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,130,140.5,128,139.5,2037217,147.54,-5.45,151.38,139.03,1.66
 20260609,139,144,137.5,144,1864948,147.25,-2.2,150.8,139.42,1.57
 20260610,141.5,144,136,137.5,1144781,146.43,-6.1,150.03,139.68,0.97
 20260611,137.5,139,132.5,138.5,924025,145.77,-4.99,149.18,140.04,0.8
@@ -153,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,226.5,244,226.5,241,583000,200.82,20.01,194.28,160.51,0.32
 20260703,241,265,241,265,955651,206.17,28.54,200.28,162.72,0.53
 20260706,291,291.5,263.5,282,1760000,212.49,32.71,207.3,165.21,0.97
+20260707,272.5,290,254,254,3650834,215.95,17.62,213.03,167.18,1.93
 ```
 
 ## Latest TDCC Snapshot
@@ -185,19 +185,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260707 | 4551 | 智伸科 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | call_strong_inflow | repeated_but_no_breakout | 1.事實發生日:115/06/22 2.公司名稱:智伸科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:2026.06.19 工商時報B01版 6.報導內容:「…法人估前五月 EPS 至少3.5元。智伸科指出…法人估智伸科今年  全年 EPS 最低9.25元，最高12.23元，明年 EPS 估至少13元。」 7.發生緣由:澄清媒體報導 8.因應措施: 關於上述報導，係媒體推測並非本公司發佈之訊息，謹此澄清。 有關財務與業務資訊，應以本公司於公開資訊觀測站公告為主。 9.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260707 | 4551 | 智伸科 | 1 | 1 | 1 | 1 | 8 | repeated_but_no_breakout | 近 10 日上榜 1 次、近 20 日上榜 8 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 4551 | 智伸科 | 30 | 0 | 2033650.0 | 0.0 |  | call_inflow |
+| 20260707 | 4551 | 智伸科 | 30 | 0 | 7122970.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

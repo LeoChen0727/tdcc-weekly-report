@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3296 勝德
 
 ## Metadata
-- generated_at: 2026-07-06 22:27:11 Asia/Taipei
+- generated_at: 2026-07-07 22:27:21 Asia/Taipei
 - stock_id: 3296
 - stock_name: 勝德
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260706
-- price_rows: 298
+- latest_price_date: 20260707
+- price_rows: 299
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -111,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
-- open: 29.35
-- high: 31.35
-- low: 29.35
-- close: 30
-- volume: 570000
-- ma5: 29.37
-- ema23_primary: 26.87
-- distance_to_ema23_pct: 11.67
-- ma20: 27.05
-- ma60: 22.88
-- ma120: 23.06
-- return_5d: 4.9
-- return_20d: 37.61
-- volume_ratio: 1.33
-- distance_to_ma20_pct_auxiliary: 10.91
-- distance_to_high_60_pct: -5.06
+- date: 20260707
+- open: 29.8
+- high: 29.8
+- low: 27.2
+- close: 27.45
+- volume: 244849
+- ma5: 29.08
+- ema23_primary: 26.91
+- distance_to_ema23_pct: 1.99
+- ma20: 27.38
+- ma60: 22.97
+- ma120: 23.08
+- return_5d: -5.02
+- return_20d: 31.03
+- volume_ratio: 0.56
+- distance_to_ma20_pct_auxiliary: 0.27
+- distance_to_high_60_pct: -13.13
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,21.5,21.5,20.7,20.95,75783,20.93,0.12,20.66,21.08,0.49
 20260609,20.8,21.2,20.8,21.05,38377,20.94,0.55,20.62,21.06,0.25
 20260610,21.45,23.15,21.45,22.25,375864,21.05,5.72,20.66,21.07,2.28
 20260611,22.7,24.45,22.25,24.45,658196,21.33,14.63,20.82,21.11,3.4
@@ -153,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,29.5,29.95,29,29.1,112000,26.33,10.5,26.31,22.61,0.27
 20260703,29.1,29.3,28.85,29.3,72705,26.58,10.23,26.64,22.74,0.18
 20260706,29.35,31.35,29.35,30,570000,26.87,11.67,27.05,22.88,1.33
+20260707,29.8,29.8,27.2,27.45,244849,26.91,1.99,27.38,22.97,0.56
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1449 佳和
 
 ## Metadata
-- generated_at: 2026-07-06 22:26:30 Asia/Taipei
+- generated_at: 2026-07-07 22:26:34 Asia/Taipei
 - stock_id: 1449
 - stock_name: 佳和
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260706
-- price_rows: 298
+- latest_price_date: 20260707
+- price_rows: 299
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
-- open: 14.9
-- high: 15.5
-- low: 14.4
-- close: 14.75
-- volume: 3618000
+- date: 20260707
+- open: 14.75
+- high: 14.75
+- low: 14
+- close: 14.25
+- volume: 1541230
 - ma5: 14.38
 - ema23_primary: 14.23
-- distance_to_ema23_pct: 3.67
-- ma20: 14.51
-- ma60: 13.82
-- ma120: 12.71
-- return_5d: 2.08
-- return_20d: 8.86
-- volume_ratio: 1.19
-- distance_to_ma20_pct_auxiliary: 1.64
-- distance_to_high_60_pct: -13.49
+- distance_to_ema23_pct: 0.14
+- ma20: 14.48
+- ma60: 13.79
+- ma120: 12.74
+- return_5d: 0
+- return_20d: -4.36
+- volume_ratio: 0.56
+- distance_to_ma20_pct_auxiliary: -1.59
+- distance_to_high_60_pct: -15.18
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,13.55,14.9,13.55,14.9,6598580,13.28,12.24,13,13.1,3.43
 20260609,16.35,16.35,16.3,16.35,3306677,13.53,20.83,13.13,13.19,1.77
 20260610,16.55,16.8,14.75,14.75,19191975,13.63,8.19,13.2,13.26,6.98
 20260611,14.75,14.75,14,14.25,2885917,13.68,4.13,13.27,13.32,1.02
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,14.05,14.35,13.8,14.3,850000,14.15,1.08,14.4,13.85,0.29
 20260703,14.3,14.8,14.2,14.55,1289185,14.18,2.61,14.45,13.85,0.45
 20260706,14.9,15.5,14.4,14.75,3618000,14.23,3.67,14.51,13.82,1.19
+20260707,14.75,14.75,14,14.25,1541230,14.23,0.14,14.48,13.79,0.56
 ```
 
 ## Latest TDCC Snapshot
@@ -189,13 +189,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 1449 | 佳和 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | continued_2_3d | 1.董事會決議日期或發生變動日期:115/06/24 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:翁偉翔 4.舊任者簡歷:佳和實業(股)公司董事長 5.新任者姓名:翁偉翔 6.新任者簡歷:佳和實業(股)公司董事長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因:任期屆滿重新選任 9.新任生效日期:115/06/24 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
-| 20260706 | 1449 | 佳和 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | continued_2_3d | 1.董事會決議日期或發生變動日期:115/06/24 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:翁偉翔 4.舊任者簡歷:佳和實業(股)公司董事長 5.新任者姓名:翁偉翔 6.新任者簡歷:佳和實業(股)公司董事長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因:任期屆滿重新選任 9.新任生效日期:115/06/24 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260707 | 1449 | 佳和 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.董事會決議日期或發生變動日期:115/06/24 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:翁偉翔 4.舊任者簡歷:佳和實業(股)公司董事長 5.新任者姓名:翁偉翔 6.新任者簡歷:佳和實業(股)公司董事長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因:任期屆滿重新選任 9.新任生效日期:115/06/24 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 1449 | 佳和 | 2 | 2 | 4 | 9 | 18 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| 20260707 | 1449 | 佳和 | 3 | 3 | 4 | 9 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

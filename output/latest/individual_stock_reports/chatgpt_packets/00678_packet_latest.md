@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00678 群益那斯達克生技
 
 ## Metadata
-- generated_at: 2026-07-06 22:26:22 Asia/Taipei
+- generated_at: 2026-07-07 22:26:24 Asia/Taipei
 - stock_id: 00678
 - stock_name: 群益那斯達克生技
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260706
-- price_rows: 31
+- latest_price_date: 20260707
+- price_rows: 32
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
-- open: 41.85
-- high: 41.88
-- low: 41.69
-- close: 41.79
-- volume: 759000
-- ma5: 40.86
-- ema23_primary: 38.26
-- distance_to_ema23_pct: 9.22
-- ma20: 37.79
-- ma60: 37.02
-- ma120: 37.02
-- return_5d: 4.32
-- return_20d: 16.8
-- volume_ratio: 1.59
-- distance_to_ma20_pct_auxiliary: 10.58
-- distance_to_high_60_pct: -0.21
+- date: 20260707
+- open: 41.79
+- high: 41.79
+- low: 41.47
+- close: 41.59
+- volume: 610745
+- ma5: 41.1
+- ema23_primary: 38.54
+- distance_to_ema23_pct: 7.91
+- ma20: 38.09
+- ma60: 37.16
+- ma120: 37.16
+- return_5d: 3.02
+- return_20d: 16.86
+- volume_ratio: 1.26
+- distance_to_ma20_pct_auxiliary: 9.19
+- distance_to_high_60_pct: -0.69
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,35.05,35.74,35.05,35.59,488902,35.65,-0.17,35.61,35.61,1.64
 20260609,35.37,35.4,35,35.4,1012783,35.63,-0.64,35.59,35.59,2.86
 20260610,35.8,35.8,35.59,35.61,380866,35.63,-0.05,35.6,35.6,1.07
 20260611,35.35,35.45,35.25,35.38,303923,35.61,-0.64,35.58,35.58,0.86
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,40.29,40.38,40.27,40.27,528000,37.6,7.1,37.17,36.69,1.19
 20260703,41.42,41.72,41.42,41.72,529055,37.94,9.96,37.49,36.86,1.16
 20260706,41.85,41.88,41.69,41.79,759000,38.26,9.22,37.79,37.02,1.59
+20260707,41.79,41.79,41.47,41.59,610745,38.54,7.91,38.09,37.16,1.26
 ```
 
 ## Latest TDCC Snapshot

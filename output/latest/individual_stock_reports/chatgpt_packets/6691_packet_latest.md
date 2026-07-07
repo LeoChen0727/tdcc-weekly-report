@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6691 洋基工程
 
 ## Metadata
-- generated_at: 2026-07-06 22:28:00 Asia/Taipei
+- generated_at: 2026-07-07 22:28:19 Asia/Taipei
 - stock_id: 6691
 - stock_name: 洋基工程
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260706
-- price_rows: 298
+- latest_price_date: 20260707
+- price_rows: 299
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
-- open: 774
-- high: 774
-- low: 748
-- close: 748
-- volume: 1204000
-- ma5: 757.4
-- ema23_primary: 724.86
-- distance_to_ema23_pct: 3.19
-- ma20: 723.6
-- ma60: 671.1
-- ma120: 636.78
-- return_5d: -5.91
-- return_20d: 16.51
-- volume_ratio: 0.91
-- distance_to_ma20_pct_auxiliary: 3.37
-- distance_to_high_60_pct: -10.31
+- date: 20260707
+- open: 750
+- high: 770
+- low: 728
+- close: 728
+- volume: 1380308
+- ma5: 750.8
+- ema23_primary: 725.12
+- distance_to_ema23_pct: 0.4
+- ma20: 729.15
+- ma60: 672.73
+- ma120: 638.23
+- return_5d: -4.34
+- return_20d: 17.99
+- volume_ratio: 1.02
+- distance_to_ma20_pct_auxiliary: -0.16
+- distance_to_high_60_pct: -12.71
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,590,620,590,617,734077,638.76,-3.41,636.2,629.33,1.4
 20260609,621,637,618,637,434287,638.61,-0.25,636.4,629.35,0.82
 20260610,653,667,631,632,962788,638.06,-0.95,636.4,629.58,1.75
 20260611,635,652,613,637,719997,637.97,-0.15,636.4,629.95,1.26
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,740,780,729,766,960000,719.18,6.51,711.95,665.63,0.75
 20260703,760,777,759,762,1007699,722.75,5.43,718.3,668.63,0.79
 20260706,774,774,748,748,1204000,724.86,3.19,723.6,671.1,0.91
+20260707,750,770,728,728,1380308,725.12,0.4,729.15,672.73,1.02
 ```
 
 ## Latest TDCC Snapshot
@@ -189,19 +189,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 6691 | 洋基工程 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
-| 20260706 | 6691 | 洋基工程 | revenue_pullback | 營收成長股價回檔 | 70.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
-| 20260706 | 6691 | 洋基工程 | revenue_breakout_low_response | 營收爆發低反應股 | 20.0 | 6.0 | B_可等確認_營建認列型需基本面確認 |  |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260707 | 6691 | 洋基工程 | pattern | 型態觀察 | 54.0 |  |  | pullback_right_side |  | no_signal | continued_2_3d | 1.董事會決議日期:115/07/06 2.發放股利種類及金額:現金股利共計人民幣80,000,000元 3.其他應敘明事項:孫公司蘇州市洋基機電工程有限公司於2026/07/06董事會決議發放現 金股利人民幣80,000,000元，扣除10%所得稅後，淨匯出金額為人民幣72,000,000 元，匯予STAR KING CORP.。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 6691 | 洋基工程 | 2 | 2 | 4 | 7 | 10 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| 20260707 | 6691 | 洋基工程 | 3 | 2 | 4 | 8 | 11 | continued_2_3d | 連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 6691 | 洋基工程 | 60 | 0 | 2691400.0 | 0.0 |  | no_signal |
+| 20260707 | 6691 | 洋基工程 | 61 | 0 | 1678250.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

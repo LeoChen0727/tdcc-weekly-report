@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6863 永道-KY
 
 ## Metadata
-- generated_at: 2026-07-06 22:28:05 Asia/Taipei
+- generated_at: 2026-07-07 22:28:24 Asia/Taipei
 - stock_id: 6863
 - stock_name: 永道-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260706
-- price_rows: 298
+- latest_price_date: 20260707
+- price_rows: 299
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
-- open: 92.7
-- high: 95.3
-- low: 92
-- close: 92.9
-- volume: 87000
-- ma5: 91.8
-- ema23_primary: 95.97
-- distance_to_ema23_pct: -3.2
-- ma20: 94.75
-- ma60: 101.88
-- ma120: 103.38
-- return_5d: 2.77
-- return_20d: -10.67
-- volume_ratio: 0.7
-- distance_to_ma20_pct_auxiliary: -1.95
-- distance_to_high_60_pct: -23.54
+- date: 20260707
+- open: 93.6
+- high: 94.7
+- low: 90.7
+- close: 91.4
+- volume: 133427
+- ma5: 91.72
+- ema23_primary: 95.59
+- distance_to_ema23_pct: -4.38
+- ma20: 94.36
+- ma60: 101.89
+- ma120: 103.17
+- return_5d: -0.44
+- return_20d: -7.68
+- volume_ratio: 1.06
+- distance_to_ma20_pct_auxiliary: -3.14
+- distance_to_high_60_pct: -24.77
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,95,99.9,95,99,121411,107.03,-7.51,109.78,100.45,0.75
 20260609,99.2,105,99.2,103.5,234671,106.74,-3.04,109.03,100.65,1.62
 20260610,102.5,103.5,99.5,100.5,115642,106.22,-5.39,108.25,100.82,0.82
 20260611,97.7,97.9,92.2,94.3,362223,105.23,-10.38,107.31,100.9,2.4
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,90.3,91.2,90.3,91.2,90000,96.66,-5.65,96.03,101.81,0.73
 20260703,92.2,92.5,90.9,91.8,120641,96.25,-4.63,95.3,101.83,0.96
 20260706,92.7,95.3,92,92.9,87000,95.97,-3.2,94.75,101.88,0.7
+20260707,93.6,94.7,90.7,91.4,133427,95.59,-4.38,94.36,101.89,1.06
 ```
 
 ## Latest TDCC Snapshot

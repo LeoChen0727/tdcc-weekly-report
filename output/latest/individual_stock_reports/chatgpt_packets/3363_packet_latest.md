@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3363 上詮
 
 ## Metadata
-- generated_at: 2026-07-06 22:27:13 Asia/Taipei
+- generated_at: 2026-07-07 22:27:23 Asia/Taipei
 - stock_id: 3363
 - stock_name: 上詮
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260706
-- price_rows: 163
+- latest_price_date: 20260707
+- price_rows: 164
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
-- open: 610
-- high: 618
-- low: 567
-- close: 574
-- volume: 5696000
-- ma5: 559.8
-- ema23_primary: 663.2
-- distance_to_ema23_pct: -13.45
-- ma20: 665.95
-- ma60: 780.03
-- ma120: 653.69
-- return_5d: 1.23
-- return_20d: -36.78
-- volume_ratio: 1.81
-- distance_to_ma20_pct_auxiliary: -13.81
-- distance_to_high_60_pct: -46.1
+- date: 20260707
+- open: 605
+- high: 631
+- low: 587
+- close: 587
+- volume: 5749000
+- ma5: 561.6
+- ema23_primary: 656.85
+- distance_to_ema23_pct: -10.63
+- ma20: 653.85
+- ma60: 776.75
+- ma120: 654.8
+- return_5d: 1.56
+- return_20d: -29.19
+- volume_ratio: 1.78
+- distance_to_ma20_pct_auxiliary: -10.22
+- distance_to_high_60_pct: -44.88
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,818,845,818,829,4082000,833.19,-0.5,840.3,776.5,2.05
 20260609,854,854,817,830,2936000,832.92,-0.35,835.8,780.58,1.57
 20260610,790,802,747,747,5194000,825.76,-9.54,830.5,782.63,2.66
 20260611,730,755,694,728,4205000,817.62,-10.96,821.8,784.27,2.12
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,505,532,505,529,2091000,679.52,-22.15,695.6,785.5,0.77
 20260703,528,581,523,581,4456000,671.31,-13.45,682.65,783.18,1.53
 20260706,610,618,567,574,5696000,663.2,-13.45,665.95,780.03,1.81
+20260707,605,631,587,587,5749000,656.85,-10.63,653.85,776.75,1.78
 ```
 
 ## Latest TDCC Snapshot

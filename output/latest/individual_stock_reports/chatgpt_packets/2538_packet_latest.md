@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2538 基泰
 
 ## Metadata
-- generated_at: 2026-07-06 22:26:55 Asia/Taipei
+- generated_at: 2026-07-07 22:27:02 Asia/Taipei
 - stock_id: 2538
 - stock_name: 基泰
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260706
-- price_rows: 298
+- latest_price_date: 20260707
+- price_rows: 299
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
+- date: 20260707
 - open: 10
 - high: 10
-- low: 9.94
-- close: 9.97
-- volume: 253000
+- low: 9.84
+- close: 9.88
+- volume: 505256
 - ma5: 9.89
 - ema23_primary: 9.91
-- distance_to_ema23_pct: 0.61
-- ma20: 10
+- distance_to_ema23_pct: -0.28
+- ma20: 9.99
 - ma60: 9.84
-- ma120: 10.19
-- return_5d: 1.12
-- return_20d: -1.29
-- volume_ratio: 0.56
-- distance_to_ma20_pct_auxiliary: -0.28
-- distance_to_high_60_pct: -4.13
+- ma120: 10.18
+- return_5d: 0.2
+- return_20d: -1.2
+- volume_ratio: 1.1
+- distance_to_ma20_pct_auxiliary: -1.12
+- distance_to_high_60_pct: -5
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,9.88,10.1,9.76,10,416942,9.7,3.07,9.56,9.88,0.62
 20260609,9.93,10.1,9.93,9.99,452879,9.73,2.71,9.58,9.87,0.66
 20260610,9.99,10.4,9.92,10.15,1049720,9.76,3.98,9.6,9.87,1.48
 20260611,10.3,10.3,10,10.1,372481,9.79,3.17,9.63,9.87,0.53
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,9.88,9.88,9.74,9.8,327000,9.9,-1,10.01,9.84,0.7
 20260703,9.74,9.98,9.74,9.97,413556,9.9,0.66,10,9.84,0.89
 20260706,10,10,9.94,9.97,253000,9.91,0.61,10,9.84,0.56
+20260707,10,10,9.84,9.88,505256,9.91,-0.28,9.99,9.84,1.1
 ```
 
 ## Latest TDCC Snapshot

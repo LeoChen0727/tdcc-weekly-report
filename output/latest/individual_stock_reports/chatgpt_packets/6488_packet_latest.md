@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6488 環球晶
 
 ## Metadata
-- generated_at: 2026-07-06 22:27:54 Asia/Taipei
+- generated_at: 2026-07-07 22:28:12 Asia/Taipei
 - stock_id: 6488
 - stock_name: 環球晶
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260706
-- price_rows: 163
+- latest_price_date: 20260707
+- price_rows: 164
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -56,25 +56,25 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 停利
-- model_category_display_zh: 嚴格突破
-- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前以風險管理為主，不適合新買第一筆。
-- action_summary_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。
-- entry_strategy_zh: 目前進入停利管理，不建議新買第一筆。
+- action_rating_display_zh: 已持有續抱
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
+- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。 進場策略：目前進入停利管理，不建議新買第一筆。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
+- final_decision_zh: 型態觀察 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: take_profit
-- action_rating_label_zh: 停利
-- confidence_level: low
-- thesis_state: breakout_initial
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
+- confidence_level: medium
+- thesis_state: high_level_consolidation
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -87,8 +87,6 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
-- decision_score_high
 - price_structure_not_broken
 - revenue_not_deteriorating
 - no_major_tdcc_warning
@@ -113,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
-- open: 1290
-- high: 1380
-- low: 1280
-- close: 1335
-- volume: 21316000
-- ma5: 1181
-- ema23_primary: 1019.16
-- distance_to_ema23_pct: 30.99
-- ma20: 1004.35
-- ma60: 804.65
-- ma120: 632.61
-- return_5d: 45.9
-- return_20d: 64.61
-- volume_ratio: 4.16
-- distance_to_ma20_pct_auxiliary: 32.92
-- distance_to_high_60_pct: -3.26
+- date: 20260707
+- open: 1320
+- high: 1320
+- low: 1205
+- close: 1205
+- volume: 10122000
+- ma5: 1221
+- ema23_primary: 1034.65
+- distance_to_ema23_pct: 16.46
+- ma20: 1026.2
+- ma60: 816.56
+- ma120: 639.3
+- return_5d: 19.9
+- return_20d: 56.9
+- volume_ratio: 1.83
+- distance_to_ma20_pct_auxiliary: 17.42
+- distance_to_high_60_pct: -12.68
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,730,788,730,768,2185000,802.27,-4.27,813.35,622.26,1.06
 20260609,783,814,758,803,2135000,802.33,0.08,814.25,628.49,1.07
 20260610,780,800,745,775,3090000,800.05,-3.13,815.5,634.2,1.6
 20260611,773,786,745,786,2364000,798.88,-1.61,815.4,639.96,1.23
@@ -155,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,1085,1205,1085,1205,4087000,966.4,24.69,958.9,776.21,1.03
 20260703,1175,1255,1170,1255,3716000,990.45,26.71,978.15,789.86,0.91
 20260706,1290,1380,1280,1335,21316000,1019.16,30.99,1004.35,804.65,4.16
+20260707,1320,1320,1205,1205,10122000,1034.65,16.46,1026.2,816.56,1.83
 ```
 
 ## Latest TDCC Snapshot
@@ -189,12 +187,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 6488 | 環球晶 | true_breakout | 嚴格突破 | 89.0 |  |  | platform_breakout |  |  | continued_overheated | 1.事實發生日:115/06/18 2.發生緣由:依財團法人中華民國證券櫃檯買賣中心通知辦理。 3.財務業務資訊: 一、基本資料 (一)單月                     115年5月         114年5月        與去年同期增減 營業收入(百萬元)              4,842            5,007            -3.30% 稅前淨利(百萬元)              3,985              403            889.80% 歸屬母公司業主淨利(百萬元)     3,503              270          1,199.28% 每股盈餘(元)                   7.33             0.56          1,208.93%  (二)單季                    115年第1季      114年第1季        與去年同期增減 營業收入(百萬元)             13,985           15,595            -10.32% 稅前淨利(百萬元)              2,347            2,133             10.03% 歸屬母公司業主淨利(百萬元)     1,896            1,456             30.22% 每股盈餘(元)                  3.97              3.05             30.16%  (三)最近四季累計       114年第2季至115年第1季 營業收入(百萬元)             58,988 稅前淨利(百萬元)              9,730 歸屬母公司業主淨利(百萬元)     7,752 每股盈餘(元)                  16.21 每股面額：10元 4.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序 」第4條所列重大訊息之情事（如 「有」，請說明）: 無 5.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序」第11條所列重大訊息說明記者會 之情事: 無 6.其他應敘明事項:  註1：本公司本業營運狀況穩定，115年5月每股盈餘較高，主係因持有之 Siltronic AG股票價格上升，認列評價損益所致，該等評價損益屬未實現 之金融資產公允價值變動影響，在未實際處分Siltronic AG股票前，將隨 該股票價格波動而有所變動，請投資人審慎評估相關風險。 另每股盈餘亦受本公司德國子公司以Siltronic AG股票為認股標的 所發行之海外附認股權公司債相關評價損益影響，該等評價損益係依現有 市場資訊估算之公允價值變動金額，實際數仍應以經會計師查核（核閱） 之財務報告為準。  註2：以上115年5月及去年同期比較數之財務資料係本公司採IFRS會計準則 編製之合併數，未經會計師查核(閱)，僅供投資人參考。  註3：最近一季115年第1季係指單季數字，非為最近財務報告中之累計數字， 且係本公司採IFRS下編製之合併數，業經會計師查核(閱)，僅供投資人參考。  註4：最近四季累計係本公司114年第2季至115年第1季採IFRS編製之合併數， 業經會計師查核(閱)，僅供投資人參考。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260707 | 6488 | 環球晶 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | continued_overheated | 1.事實發生日:115/06/18 2.發生緣由:依財團法人中華民國證券櫃檯買賣中心通知辦理。 3.財務業務資訊: 一、基本資料 (一)單月                     115年5月         114年5月        與去年同期增減 營業收入(百萬元)              4,842            5,007            -3.30% 稅前淨利(百萬元)              3,985              403            889.80% 歸屬母公司業主淨利(百萬元)     3,503              270          1,199.28% 每股盈餘(元)                   7.33             0.56          1,208.93%  (二)單季                    115年第1季      114年第1季        與去年同期增減 營業收入(百萬元)             13,985           15,595            -10.32% 稅前淨利(百萬元)              2,347            2,133             10.03% 歸屬母公司業主淨利(百萬元)     1,896            1,456             30.22% 每股盈餘(元)                  3.97              3.05             30.16%  (三)最近四季累計       114年第2季至115年第1季 營業收入(百萬元)             58,988 稅前淨利(百萬元)              9,730 歸屬母公司業主淨利(百萬元)     7,752 每股盈餘(元)                  16.21 每股面額：10元 4.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序 」第4條所列重大訊息之情事（如 「有」，請說明）: 無 5.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序」第11條所列重大訊息說明記者會 之情事: 無 6.其他應敘明事項:  註1：本公司本業營運狀況穩定，115年5月每股盈餘較高，主係因持有之 Siltronic AG股票價格上升，認列評價損益所致，該等評價損益屬未實現 之金融資產公允價值變動影響，在未實際處分Siltronic AG股票前，將隨 該股票價格波動而有所變動，請投資人審慎評估相關風險。 另每股盈餘亦受本公司德國子公司以Siltronic AG股票為認股標的 所發行之海外附認股權公司債相關評價損益影響，該等評價損益係依現有 市場資訊估算之公允價值變動金額，實際數仍應以經會計師查核（核閱） 之財務報告為準。  註2：以上115年5月及去年同期比較數之財務資料係本公司採IFRS會計準則 編製之合併數，未經會計師查核(閱)，僅供投資人參考。  註3：最近一季115年第1季係指單季數字，非為最近財務報告中之累計數字， 且係本公司採IFRS下編製之合併數，業經會計師查核(閱)，僅供投資人參考。  註4：最近四季累計係本公司114年第2季至115年第1季採IFRS編製之合併數， 業經會計師查核(閱)，僅供投資人參考。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 6488 | 環球晶 | 3 | 1 | 3 | 5 | 6 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260707 | 6488 | 環球晶 | 4 | 1 | 4 | 6 | 7 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1718 中纖
 
 ## Metadata
-- generated_at: 2026-07-06 22:26:37 Asia/Taipei
+- generated_at: 2026-07-07 22:26:42 Asia/Taipei
 - stock_id: 1718
 - stock_name: 中纖
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260706
-- price_rows: 298
+- latest_price_date: 20260707
+- price_rows: 299
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -56,25 +56,25 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 停利
-- model_category_display_zh: 嚴格突破
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前以風險管理為主，不適合新買第一筆。
-- action_summary_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。
-- entry_strategy_zh: 目前進入停利管理，不建議新買第一筆。
+- action_rating_display_zh: 已持有續抱
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
+- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。 進場策略：目前進入停利管理，不建議新買第一筆。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
+- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: take_profit
-- action_rating_label_zh: 停利
-- confidence_level: low
-- thesis_state: breakout_initial
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
+- confidence_level: medium
+- thesis_state: high_level_consolidation
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -87,7 +87,6 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
 - price_structure_not_broken
 - revenue_not_deteriorating
 - no_major_tdcc_warning
@@ -112,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
-- open: 15.8
-- high: 16.2
-- low: 15.1
-- close: 15.2
-- volume: 316744000
-- ma5: 13.92
-- ema23_primary: 10.96
-- distance_to_ema23_pct: 38.75
-- ma20: 10.81
-- ma60: 8.2
-- ma120: 7.72
-- return_5d: 24.08
-- return_20d: 54.31
-- volume_ratio: 4.67
-- distance_to_ma20_pct_auxiliary: 40.67
-- distance_to_high_60_pct: -6.17
+- date: 20260707
+- open: 15
+- high: 15.5
+- low: 14.55
+- close: 14.95
+- volume: 32381477
+- ma5: 14.22
+- ema23_primary: 11.29
+- distance_to_ema23_pct: 32.44
+- ma20: 11.05
+- ma60: 8.33
+- ma120: 7.79
+- return_5d: 11.15
+- return_20d: 49.5
+- volume_ratio: 0.48
+- distance_to_ma20_pct_auxiliary: 35.26
+- distance_to_high_60_pct: -7.72
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,9.37,10.2,9,10,32120210,7.58,31.96,7.22,7.14,1.54
 20260609,10.25,10.75,9.21,9.41,39528263,7.73,21.72,7.36,7.17,1.76
 20260610,9.41,9.41,8.85,8.9,17099937,7.83,13.69,7.48,7.19,0.74
 20260611,8.9,9.1,8.9,9.05,9217814,7.93,14.12,7.59,7.22,0.4
@@ -154,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,12.6,13.6,12.55,13.6,63424000,10.17,33.71,10.27,7.94,1.12
 20260703,14.25,14.95,14.1,14.95,148912446,10.57,41.45,10.54,8.07,2.39
 20260706,15.8,16.2,15.1,15.2,316744000,10.96,38.75,10.81,8.2,4.67
+20260707,15,15.5,14.55,14.95,32381477,11.29,32.44,11.05,8.33,0.48
 ```
 
 ## Latest TDCC Snapshot
@@ -186,19 +185,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 1718 | 中纖 | true_breakout | 嚴格突破 | 79.0 |  |  | platform_breakout |  | call_strong_inflow | continued_overheated | 1.證券名稱: 台中商業銀行股份有限公司普通股 2.交易日期:115/4/24~115/6/29 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:董事長核決 民國115年4月22日 5.交易數量、每單位價格及交易總金額: 交易數量：19,753,570股 每單位價格：平均約19.39元 交易總金額：382,926,229元 6.處分利益（或損失）（取得有價證券者不適用）: 處分利益約228,010仟元 7.與交易標的公司之關係: 台中銀為母公司中纖採權益法評價之投資公司 8.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 中纖:1,277,768,406股，20,269,770,990元，21.22％，質押592,060仟股 磐亞:341,322,463股，5,414,493,303元，5.63％，無質押情形 德興投資:17,650,648股，275,487,211元，0.29％，質押4,500仟股 久津實業:10,354,498股，212,784,934元，0.17％，質押9,175仟股 久暢:0股，0元，0％，無質押情形 9.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列之有價證券投 資（含本次交易）占公司最近期財務報表中總資產及歸屬於母公司業主之權益之比例 暨最近期財務報表中營運資金數額: 0.74％，1.34％，213,965,015元 10.取得或處分之具體目的: 實現利益 11.本次交易表示異議董事之意見: 不適用 12.本次交易為關係人交易: 否 13.交易相對人及其與公司之關係: 不適用 14.監察人承認或審計委員會同意日期: 不適用，原因:董事長核決 115年4月22日 15.前已就同一件事件發布重大訊息日期: 不適用 16.其他敘明事項: 本次交易依取得成本計算，處分利益約為新台幣228,010仟元，惟依IFRS9 規定，本年度實際可認列之損益金額，以本公司經會計師查核或核閱；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 1718 | 中纖 | 7 | 2 | 5 | 7 | 11 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 1718 | 中纖 | 9 | 0 | 8799670.0 | 0.0 |  | call_strong_inflow |
+| 20260707 | 1718 | 中纖 | 9 | 0 | 2535270.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

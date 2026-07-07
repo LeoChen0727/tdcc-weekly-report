@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3591 艾笛森
 
 ## Metadata
-- generated_at: 2026-07-06 22:27:18 Asia/Taipei
+- generated_at: 2026-07-07 22:27:29 Asia/Taipei
 - stock_id: 3591
 - stock_name: 艾笛森
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260706
-- price_rows: 298
+- latest_price_date: 20260707
+- price_rows: 299
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
-- open: 28.25
-- high: 28.7
-- low: 26.85
-- close: 27
-- volume: 4376000
-- ma5: 26.69
-- ema23_primary: 25.64
-- distance_to_ema23_pct: 5.29
-- ma20: 25.02
-- ma60: 24.67
-- ma120: 22.11
-- return_5d: 3.05
-- return_20d: 11.34
-- volume_ratio: 1.22
-- distance_to_ma20_pct_auxiliary: 7.92
-- distance_to_high_60_pct: -9.7
+- date: 20260707
+- open: 27.3
+- high: 27.5
+- low: 25.8
+- close: 26.05
+- volume: 1905515
+- ma5: 26.68
+- ema23_primary: 25.68
+- distance_to_ema23_pct: 1.45
+- ma20: 25.16
+- ma60: 24.73
+- ma120: 22.18
+- return_5d: -0.19
+- return_20d: 12.53
+- volume_ratio: 0.53
+- distance_to_ma20_pct_auxiliary: 3.53
+- distance_to_high_60_pct: -12.88
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,21.9,23.55,21.9,23.15,1204724,24.73,-6.4,25.11,23.27,0.52
 20260609,23.25,23.7,22.95,22.95,775114,24.58,-6.64,25.03,23.35,0.35
 20260610,22.55,23.35,22,22.05,834555,24.37,-9.53,24.95,23.38,0.39
 20260611,22.05,22.35,21.35,22.3,748648,24.2,-7.85,24.88,23.42,0.35
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,25.4,26.65,25.05,26.35,1853000,25.27,4.27,24.7,24.49,0.63
 20260703,28,28.9,27.55,28.25,10692678,25.52,10.7,24.88,24.59,3.13
 20260706,28.25,28.7,26.85,27,4376000,25.64,5.29,25.02,24.67,1.22
+20260707,27.3,27.5,25.8,26.05,1905515,25.68,1.45,25.16,24.73,0.53
 ```
 
 ## Latest TDCC Snapshot
@@ -188,12 +189,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 3591 | 艾笛森 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260707 | 3591 | 艾笛森 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 3591 | 艾笛森 | 2 | 1 | 3 | 7 | 10 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260707 | 3591 | 艾笛森 | 3 | 2 | 4 | 7 | 10 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

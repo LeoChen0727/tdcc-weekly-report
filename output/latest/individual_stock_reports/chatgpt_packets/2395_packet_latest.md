@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2395 研華
 
 ## Metadata
-- generated_at: 2026-07-06 22:26:49 Asia/Taipei
+- generated_at: 2026-07-07 22:26:55 Asia/Taipei
 - stock_id: 2395
 - stock_name: 研華
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260706
-- price_rows: 298
+- latest_price_date: 20260707
+- price_rows: 299
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
-- open: 523
-- high: 528
-- low: 506
-- close: 515
-- volume: 1456000
-- ma5: 508.2
-- ema23_primary: 488.59
-- distance_to_ema23_pct: 5.41
-- ma20: 486
-- ma60: 449.04
-- ma120: 381.48
-- return_5d: 8.99
-- return_20d: 3.83
-- volume_ratio: 0.53
-- distance_to_ma20_pct_auxiliary: 5.97
-- distance_to_high_60_pct: -4.45
+- date: 20260707
+- open: 519
+- high: 522
+- low: 493
+- close: 496.5
+- volume: 1854906
+- ma5: 509.1
+- ema23_primary: 489.25
+- distance_to_ema23_pct: 1.48
+- ma20: 487.27
+- ma60: 451.55
+- ma120: 383.23
+- return_5d: 0.91
+- return_20d: 5.41
+- volume_ratio: 0.71
+- distance_to_ma20_pct_auxiliary: 1.89
+- distance_to_high_60_pct: -7.88
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,456,474.5,456,471,3763357,474.54,-0.75,486.85,401.38,0.76
 20260609,473.5,492,473.5,489.5,4107302,475.78,2.88,486.6,403.78,0.84
 20260610,485,493,462,465.5,3732799,474.93,-1.98,486.65,405.83,0.78
 20260611,456,467,449,464,4185113,474.02,-2.11,486.6,407.9,0.88
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,493.5,511,493.5,510,1866000,483.02,5.59,485.1,443.38,0.61
 20260703,498.5,522,498.5,521,2059910,486.19,7.16,485.05,446.26,0.71
 20260706,523,528,506,515,1456000,488.59,5.41,486,449.04,0.53
+20260707,519,522,493,496.5,1854906,489.25,1.48,487.27,451.55,0.71
 ```
 
 ## Latest TDCC Snapshot
@@ -188,17 +189,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 2395 | 研華 | pattern | 型態觀察 | 51.0 |  |  | base_building |  | no_signal | stale_signal | 1.標的物之名稱及性質（如坐落台中市北區ＸＸ段ＸＸ小段土地）: 坐落東京都台東區淺草六丁目之土地及建物 2.事實發生日:115/6/30~115/6/30 3.董事會通過日期: 民國115年4月30日 4.其他核決日期: 不適用 5.交易單位數量（如ＸＸ平方公尺，折合ＸＸ坪）、每單位價格及交易總金額: 土地：368.41平方公尺 建物：1,648.07平方公尺 預計交易總金額日圓1,810,000,000元(約NTD363,810,000元) 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之關 係人者，得免揭露其姓名）: Sekisui House Real Estate, Ltd.；非關係人 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移轉之 所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次移轉日期 及移轉金額: 不適用 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係 人之取得及處分日期、價格及交易當時與公司之關係: 不適用 9.預計處分利益（或損失）（取得資產者不適用）（遞延者應列表說明 認列情形）: 預估處分利益日圓9.3億元(依會計師查核簽證報表為準) 10.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 依買賣契約規定辦理 11.本次交易之決定方式（如招標、比價或議價）、價格決定之參考依據及 決策單位: 交易之決定方式：招標 價格決定之參考依據：參考市場行情與專業估價報告 決策單位：董事會授權董事長以不低於特定價格以上出售 12.專業估價者事務所或公司名稱及其估價金額: 第一太平戴維斯不動產估價師事務所，日圓1,010,000,000元 13.專業估價師姓名: 張宏楷 14.專業估價師開業證書字號: 不動產估價師證書證號：(96)台內估字第000294號 15.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 16.是否尚未取得估價報告:否或不適用 17.尚未取得估價報告之原因: 不適用 18.估價結果有重大差異時，其差異原因及會計師意見: 不適用 19.會計師事務所名稱: 不適用 20.會計師姓名: 不適用 21.會計師開業證書字號: 不適用 22.經紀人及經紀費用: 依委託買賣契約辦理 23.取得或處分之具體目的或用途: 活化資產 24.本次交易表示異議之董事之意見: 無 25.本次交易為關係人交易:否 26.監察人承認或審計委員會同意日期: 民國115年04月30日 27.本次交易係向關係人取得不動產或其使用權資產:否 28.依「公開發行公司取得或處分資產處理準則」第十六條規定 評估之價格:不適用 29.依前項評估之價格較交易價格為低者，依同準則第十七條規 定評估之價格:不適用 30.前已就同一件事件發布重大訊息日期: 115年4月30日 31.其他敘明事項: 1.原公告已於115年4月30日申報，本次為交易條件確定之補充公告。 2.以JPY/NTD=0.201匯率換算約當台幣數。；calendar event: ex_dividend on 20260717; status=confirmed; proximity=within_14d |
+| 20260707 | 2395 | 研華 | pattern | 型態觀察 | 51.0 |  |  | base_building |  | no_signal | stale_signal | 1.標的物之名稱及性質（如坐落台中市北區ＸＸ段ＸＸ小段土地）: 坐落東京都台東區淺草六丁目之土地及建物 2.事實發生日:115/6/30~115/6/30 3.董事會通過日期: 民國115年4月30日 4.其他核決日期: 不適用 5.交易單位數量（如ＸＸ平方公尺，折合ＸＸ坪）、每單位價格及交易總金額: 土地：368.41平方公尺 建物：1,648.07平方公尺 預計交易總金額日圓1,810,000,000元(約NTD363,810,000元) 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之關 係人者，得免揭露其姓名）: Sekisui House Real Estate, Ltd.；非關係人 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移轉之 所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次移轉日期 及移轉金額: 不適用 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係 人之取得及處分日期、價格及交易當時與公司之關係: 不適用 9.預計處分利益（或損失）（取得資產者不適用）（遞延者應列表說明 認列情形）: 預估處分利益日圓9.3億元(依會計師查核簽證報表為準) 10.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 依買賣契約規定辦理 11.本次交易之決定方式（如招標、比價或議價）、價格決定之參考依據及 決策單位: 交易之決定方式：招標 價格決定之參考依據：參考市場行情與專業估價報告 決策單位：董事會授權董事長以不低於特定價格以上出售 12.專業估價者事務所或公司名稱及其估價金額: 第一太平戴維斯不動產估價師事務所，日圓1,010,000,000元 13.專業估價師姓名: 張宏楷 14.專業估價師開業證書字號: 不動產估價師證書證號：(96)台內估字第000294號 15.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 16.是否尚未取得估價報告:否或不適用 17.尚未取得估價報告之原因: 不適用 18.估價結果有重大差異時，其差異原因及會計師意見: 不適用 19.會計師事務所名稱: 不適用 20.會計師姓名: 不適用 21.會計師開業證書字號: 不適用 22.經紀人及經紀費用: 依委託買賣契約辦理 23.取得或處分之具體目的或用途: 活化資產 24.本次交易表示異議之董事之意見: 無 25.本次交易為關係人交易:否 26.監察人承認或審計委員會同意日期: 民國115年04月30日 27.本次交易係向關係人取得不動產或其使用權資產:否 28.依「公開發行公司取得或處分資產處理準則」第十六條規定 評估之價格:不適用 29.依前項評估之價格較交易價格為低者，依同準則第十七條規 定評估之價格:不適用 30.前已就同一件事件發布重大訊息日期: 115年4月30日 31.其他敘明事項: 1.原公告已於115年4月30日申報，本次為交易條件確定之補充公告。 2.以JPY/NTD=0.201匯率換算約當台幣數。；calendar event: ex_dividend on 20260717; status=confirmed; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 2395 | 研華 | 18 | 5 | 5 | 10 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260707 | 2395 | 研華 | 19 | 6 | 5 | 10 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 2395 | 研華 | 53 | 0 | 9358710.0 | 0.0 |  | no_signal |
+| 20260707 | 2395 | 研華 | 54 | 0 | 3289540.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

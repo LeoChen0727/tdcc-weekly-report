@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6186 新潤
 
 ## Metadata
-- generated_at: 2026-07-06 22:27:47 Asia/Taipei
+- generated_at: 2026-07-07 22:28:03 Asia/Taipei
 - stock_id: 6186
 - stock_name: 新潤
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260706
-- price_rows: 163
+- latest_price_date: 20260707
+- price_rows: 164
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
-- open: 43.3
-- high: 44.3
-- low: 43.3
-- close: 43.9
-- volume: 825000
-- ma5: 42.96
-- ema23_primary: 41.65
-- distance_to_ema23_pct: 5.4
-- ma20: 41.62
-- ma60: 40.62
-- ma120: 42.88
-- return_5d: 5.66
-- return_20d: 7.47
-- volume_ratio: 0.73
-- distance_to_ma20_pct_auxiliary: 5.48
-- distance_to_high_60_pct: -0.9
+- date: 20260707
+- open: 43.8
+- high: 43.8
+- low: 43
+- close: 43.1
+- volume: 960000
+- ma5: 43.19
+- ema23_primary: 41.77
+- distance_to_ema23_pct: 3.18
+- ma20: 41.77
+- ma60: 40.66
+- ma120: 42.79
+- return_5d: 2.74
+- return_20d: 7.21
+- volume_ratio: 0.85
+- distance_to_ma20_pct_auxiliary: 3.2
+- distance_to_high_60_pct: -2.71
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,38.65,40.35,38.65,40.2,882000,39.94,0.65,39.66,40.33,1.58
 20260609,40.35,41.2,40,40.05,697000,39.95,0.25,39.72,40.3,1.47
 20260610,40,43,39.75,42,3494000,40.12,4.69,39.9,40.31,6.03
 20260611,42.25,42.35,40.3,41,1732000,40.19,2.01,39.98,40.29,2.86
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,42.65,43.5,42.6,43.1,1144000,41.29,4.4,41.34,40.51,1.09
 20260703,43.1,43.85,42.9,43.2,793000,41.45,4.23,41.47,40.56,0.73
 20260706,43.3,44.3,43.3,43.9,825000,41.65,5.4,41.62,40.62,0.73
+20260707,43.8,43.8,43,43.1,960000,41.77,3.18,41.77,40.66,0.85
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2520 冠德
 
 ## Metadata
-- generated_at: 2026-07-06 22:26:54 Asia/Taipei
+- generated_at: 2026-07-07 22:27:02 Asia/Taipei
 - stock_id: 2520
 - stock_name: 冠德
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260706
-- price_rows: 298
+- latest_price_date: 20260707
+- price_rows: 299
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
-- open: 35
+- date: 20260707
+- open: 35.45
 - high: 35.45
-- low: 34.55
-- close: 35.25
-- volume: 1837000
-- ma5: 34.59
-- ema23_primary: 33.86
-- distance_to_ema23_pct: 4.09
-- ma20: 34.39
-- ma60: 31.84
-- ma120: 31.98
-- return_5d: 2.17
-- return_20d: 9.81
-- volume_ratio: 0.46
-- distance_to_ma20_pct_auxiliary: 2.5
-- distance_to_high_60_pct: -5.62
+- low: 34.7
+- close: 34.7
+- volume: 1751781
+- ma5: 34.74
+- ema23_primary: 33.93
+- distance_to_ema23_pct: 2.26
+- ma20: 34.55
+- ma60: 31.9
+- ma120: 32
+- return_5d: 2.21
+- return_20d: 10.33
+- volume_ratio: 0.44
+- distance_to_ma20_pct_auxiliary: 0.43
+- distance_to_high_60_pct: -7.09
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,31.25,31.7,31,31.45,1506527,30.84,1.96,30.77,31.06,0.97
 20260609,31.15,32.55,31.15,32.4,1583411,30.97,4.6,30.87,31.05,1
 20260610,32.35,35.6,32.05,35.6,9908759,31.36,13.52,31.12,31.09,4.96
 20260611,35.2,35.2,33.3,33.4,13487475,31.53,5.93,31.23,31.1,5.23
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,34,34.75,34,34.6,1026000,33.64,2.86,34.08,31.71,0.25
 20260703,34.1,35.2,34.1,34.85,1273042,33.74,3.3,34.23,31.76,0.32
 20260706,35,35.45,34.55,35.25,1837000,33.86,4.09,34.39,31.84,0.46
+20260707,35.45,35.45,34.7,34.7,1751781,33.93,2.26,34.55,31.9,0.44
 ```
 
 ## Latest TDCC Snapshot
@@ -188,19 +188,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 2520 | 冠德 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/29 1.召開法人說明會之日期：115/06/29 2.召開法人說明會之時間：14 時 00 分  3.召開法人說明會之地點：台北市民權東路三段169號(冠德民權大樓15樓會議室) 4.法人說明會擇要訊息：本公司受邀參加國泰證券舉辦之法說會，說明本公司115年第1 季營運成果。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: ex_dividend on 20260810; status=confirmed; proximity=within_60d |
-| 20260706 | 2520 | 冠德 | revenue_pullback | 營收成長股價回檔 | 63.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/29 1.召開法人說明會之日期：115/06/29 2.召開法人說明會之時間：14 時 00 分  3.召開法人說明會之地點：台北市民權東路三段169號(冠德民權大樓15樓會議室) 4.法人說明會擇要訊息：本公司受邀參加國泰證券舉辦之法說會，說明本公司115年第1 季營運成果。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: ex_dividend on 20260810; status=confirmed; proximity=within_60d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
-| 20260706 | 2520 | 冠德 | revenue_breakout_low_response | 營收爆發低反應股 | 16.0 | 22.0 | B_可觀察 |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/29 1.召開法人說明會之日期：115/06/29 2.召開法人說明會之時間：14 時 00 分  3.召開法人說明會之地點：台北市民權東路三段169號(冠德民權大樓15樓會議室) 4.法人說明會擇要訊息：本公司受邀參加國泰證券舉辦之法說會，說明本公司115年第1 季營運成果。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: ex_dividend on 20260810; status=confirmed; proximity=within_60d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260707 | 2520 | 冠德 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/29 1.召開法人說明會之日期：115/06/29 2.召開法人說明會之時間：14 時 00 分  3.召開法人說明會之地點：台北市民權東路三段169號(冠德民權大樓15樓會議室) 4.法人說明會擇要訊息：本公司受邀參加國泰證券舉辦之法說會，說明本公司115年第1 季營運成果。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: ex_dividend on 20260810; status=confirmed; proximity=within_60d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 2520 | 冠德 | 12 | 10 | 5 | 10 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260707 | 2520 | 冠德 | 13 | 11 | 5 | 10 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 2520 | 冠德 | 6 | 0 | 254100.0 | 0.0 |  | no_signal |
+| 20260707 | 2520 | 冠德 | 6 | 0 | 207560.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2718 全心投控
 
 ## Metadata
-- generated_at: 2026-07-06 22:26:58 Asia/Taipei
+- generated_at: 2026-07-07 22:27:06 Asia/Taipei
 - stock_id: 2718
 - stock_name: 全心投控
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260706
-- price_rows: 163
+- latest_price_date: 20260707
+- price_rows: 164
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
-- open: 52.1
-- high: 52.7
-- low: 51.4
-- close: 52.5
-- volume: 85000
-- ma5: 52.12
-- ema23_primary: 49.76
-- distance_to_ema23_pct: 5.5
-- ma20: 49.83
-- ma60: 46.93
-- ma120: 48.11
-- return_5d: 5
-- return_20d: 10.76
-- volume_ratio: 1.09
-- distance_to_ma20_pct_auxiliary: 5.37
-- distance_to_high_60_pct: -0.94
+- date: 20260707
+- open: 52.5
+- high: 52.5
+- low: 50.5
+- close: 50.5
+- volume: 38000
+- ma5: 51.94
+- ema23_primary: 49.83
+- distance_to_ema23_pct: 1.35
+- ma20: 49.98
+- ma60: 47.01
+- ma120: 48.1
+- return_5d: -1.75
+- return_20d: 6.77
+- volume_ratio: 0.51
+- distance_to_ma20_pct_auxiliary: 1.03
+- distance_to_high_60_pct: -4.72
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,44.6,47.3,44.6,47.3,95000,46.03,2.76,46.04,46.25,1.43
 20260609,47.35,47.55,47.3,47.3,58000,46.14,2.52,46.27,46.22,0.88
 20260610,47.45,48,47.05,47.85,48000,46.28,3.4,46.39,46.21,0.84
 20260611,47.75,48,47,47.6,57000,46.39,2.61,46.45,46.19,1.05
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,51.8,52.6,51.5,52.3,97000,49.25,6.18,49.31,46.73,1.26
 20260703,52.2,53,52.2,52.4,31000,49.52,5.82,49.57,46.83,0.41
 20260706,52.1,52.7,51.4,52.5,85000,49.76,5.5,49.83,46.93,1.09
+20260707,52.5,52.5,50.5,50.5,38000,49.83,1.35,49.98,47.01,0.51
 ```
 
 ## Latest TDCC Snapshot

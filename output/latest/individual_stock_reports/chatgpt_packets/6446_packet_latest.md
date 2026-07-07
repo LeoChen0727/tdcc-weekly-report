@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6446 藥華藥
 
 ## Metadata
-- generated_at: 2026-07-06 22:27:53 Asia/Taipei
+- generated_at: 2026-07-07 22:28:11 Asia/Taipei
 - stock_id: 6446
 - stock_name: 藥華藥
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260706
-- price_rows: 298
+- latest_price_date: 20260707
+- price_rows: 299
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
+- final_decision_zh: 型態觀察 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -111,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
-- open: 1410
-- high: 1470
-- low: 1390
-- close: 1445
-- volume: 2478000
-- ma5: 1387
-- ema23_primary: 1150.2
-- distance_to_ema23_pct: 25.63
-- ma20: 1135.15
-- ma60: 875.05
-- ma120: 759.16
-- return_5d: 13.78
-- return_20d: 54.22
-- volume_ratio: 0.81
-- distance_to_ma20_pct_auxiliary: 27.3
-- distance_to_high_60_pct: -1.7
+- date: 20260707
+- open: 1470
+- high: 1540
+- low: 1450
+- close: 1495
+- volume: 3569848
+- ma5: 1418
+- ema23_primary: 1178.94
+- distance_to_ema23_pct: 26.81
+- ma20: 1163.6
+- ma60: 889.2
+- ma120: 767.5
+- return_5d: 11.57
+- return_20d: 61.45
+- volume_ratio: 1.17
+- distance_to_ma20_pct_auxiliary: 28.48
+- distance_to_high_60_pct: -2.92
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,907,956,907,926,3873609,841.72,10.01,852.55,714.47,1.02
 20260609,931,994,931,990,4766832,854.08,15.91,866.5,719.9,1.22
 20260610,993,1020,980,986,4662954,865.07,13.98,876.7,725.38,1.24
 20260611,988,988,923,934,4946227,870.82,7.26,884.3,730.13,1.34
@@ -153,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,1345,1400,1320,1395,2488000,1098.71,26.97,1086.9,849.03,0.82
 20260703,1390,1430,1380,1395,3205716,1123.4,24.18,1109.75,861.48,1.04
 20260706,1410,1470,1390,1445,2478000,1150.2,25.63,1135.15,875.05,0.81
+20260707,1470,1540,1450,1495,3569848,1178.94,26.81,1163.6,889.2,1.17
 ```
 
 ## Latest TDCC Snapshot
@@ -185,14 +185,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260707 | 6446 | 藥華藥 | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  |  | first_seen | 1.事實發生日:115/07/02 2.研發新藥名稱或代號:BESREMi（Ropeginterferon alfa-2b, 即P1101） 3.用途:用於治療成人真性紅血球增多症（polycythemia vera , PV）患者。 4.預計進行之所有研發階段:不適用。 5.目前進行中之研發階段(請說明目前之研發階段係屬提出申請/通過核准/ 不通過核准，若未通過者，請說明公司所面臨之風險及因應措施； 另請說明未來經營方向及已投入累積研發費用): (1)提出申請/通過核准/不通過核准/各期人體試驗(含期中分析)結果/發生其他    影響新藥研發之重大事件：    本公司新藥BESREMi（Ropeginterferon alfa-2b）針筒裝注射液劑500微克/毫升   （BESREMi 500 mcg/mL solution for injection in prefilled syringe）獲加拿    大衛生部（Health Canada）核准用於成人真性紅血球增多症（PV）。 (2)未通過目的事業主管機關許可、各期人體臨床試驗(含期中分析)結果未達統計    上顯著意義或發生其他影響新藥研發之重大事件者，公司所面臨之風險及因應    措施：不適用。 (3)已通過目的事業主管機關許可、各期人體臨床試驗(含期中分析)結果達統計上    顯著意義或發生其他影響新藥研發之重大事件者，未來經營方向：    FORUS Therapeutics Inc.依照規劃正式啟動Ropeginterferon alfa-2b於加拿大    上市之銷售業務及行銷活動。 (4)已投入之累積研發費用：    考量未來市場行銷策略，保障公司及投資人權益，暫不公開揭露。 6.將再進行之下一階段研發(請說明預計完成時間及預計應負擔之義務):不適用 (1)預計完成時間：不適用。 (2)預計應負擔之義務：無。 7.市場現況: 真性紅血球增多症（PV）為骨髓增生性腫瘤（myeloproliferative neoplasms, MPN） 疾病的一種，雖然紅血球的過度增加最為顯著，但在大多數情況下，白血球和血小 板也會升高。PV患者發生心血管併發症的風險很高，如血栓、栓塞等，或惡化為繼 發性骨髓纖維化（myelofibrosis, MF）或急性骨髓白血病（acute myeloid leukemia, AML），影響病患存活與生活品質。根據市場研究推估，加拿大約有1.7萬名PV患者 ，目前臨床治療包括放血、愛治膠囊（hydroxyurea, HU）、干擾素、JAK2抑制劑等。 8.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第8款所定 對股東權益或證券價格有重大影響之事項): Ropeginterferon alfa-2b為本公司自行研發生產之新一代創新長效型干擾素，至今 已獲全球約50個國家核准用於成人真性紅血球增多症患者，包括美國、日本、中國 及歐盟等主要新藥市場。 9.新藥開發時程長、投入經費高且未保證一定能成功，此等可能使投資面臨風險，投    資人應審慎判斷謹慎投資。:；calendar event: ex_right_dividend on 20260709; status=confirmed; proximity=within_3d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260707 | 6446 | 藥華藥 | 1 | 1 | 2 | 5 | 15 | first_seen | 首次上榜或資料有限，需後續確認。 |
 
 ## Warrant Context
 | status |

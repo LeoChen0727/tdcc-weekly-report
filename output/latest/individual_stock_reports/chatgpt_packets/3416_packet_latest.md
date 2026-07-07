@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3416 融程電
 
 ## Metadata
-- generated_at: 2026-07-06 22:27:14 Asia/Taipei
+- generated_at: 2026-07-07 22:27:24 Asia/Taipei
 - stock_id: 3416
 - stock_name: 融程電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260706
-- price_rows: 298
+- latest_price_date: 20260707
+- price_rows: 299
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
-- open: 190.5
-- high: 195.5
-- low: 185
-- close: 187
-- volume: 738000
-- ma5: 181.9
-- ema23_primary: 176.17
-- distance_to_ema23_pct: 6.15
-- ma20: 175.07
-- ma60: 170.17
-- ma120: 159.05
-- return_5d: 12.31
-- return_20d: 3.31
-- volume_ratio: 1.56
-- distance_to_ma20_pct_auxiliary: 6.81
-- distance_to_high_60_pct: -4.59
+- date: 20260707
+- open: 187.5
+- high: 188
+- low: 181.5
+- close: 182
+- volume: 392721
+- ma5: 182.8
+- ema23_primary: 176.66
+- distance_to_ema23_pct: 3.03
+- ma20: 175.45
+- ma60: 170.72
+- ma120: 159.32
+- return_5d: 2.54
+- return_20d: 4.3
+- volume_ratio: 0.84
+- distance_to_ma20_pct_auxiliary: 3.73
+- distance_to_high_60_pct: -7.14
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,165,174.5,164.5,174.5,507919,175.46,-0.55,176.72,161.78,0.7
 20260609,175,180.5,174.5,176.5,361621,175.55,0.54,177.03,162.28,0.51
 20260610,173.5,178.5,169.5,174.5,511680,175.46,-0.55,177.4,162.72,0.72
 20260611,173.5,173.5,165,171,438421,175.09,-2.34,177.53,163.07,0.61
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,178.5,187,178,178.5,411000,174.11,2.52,174.43,168.92,0.98
 20260703,182,192,178.5,187,969603,175.19,6.74,174.78,169.55,2.14
 20260706,190.5,195.5,185,187,738000,176.17,6.15,175.07,170.17,1.56
+20260707,187.5,188,181.5,182,392721,176.66,3.03,175.45,170.72,0.84
 ```
 
 ## Latest TDCC Snapshot
@@ -198,7 +199,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 3416 | 融程電 | 14 | 0 | 1910040.0 | 0.0 |  | no_signal |
+| 20260707 | 3416 | 融程電 | 14 | 0 | 825780.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

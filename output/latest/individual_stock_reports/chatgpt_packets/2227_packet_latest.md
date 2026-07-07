@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2227 裕日車
 
 ## Metadata
-- generated_at: 2026-07-06 22:26:43 Asia/Taipei
+- generated_at: 2026-07-07 22:26:49 Asia/Taipei
 - stock_id: 2227
 - stock_name: 裕日車
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260706
-- price_rows: 298
+- latest_price_date: 20260707
+- price_rows: 299
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
-- open: 50.5
-- high: 50.5
+- date: 20260707
+- open: 49.6
+- high: 50
 - low: 49.1
-- close: 50
-- volume: 24000
-- ma5: 49.59
-- ema23_primary: 49.64
-- distance_to_ema23_pct: 0.72
-- ma20: 49.48
-- ma60: 50.98
-- ma120: 51.84
-- return_5d: 2.46
-- return_20d: 0.1
-- volume_ratio: 0.62
-- distance_to_ma20_pct_auxiliary: 1.06
-- distance_to_high_60_pct: -11.35
+- close: 49.7
+- volume: 53894
+- ma5: 49.63
+- ema23_primary: 49.65
+- distance_to_ema23_pct: 0.1
+- ma20: 49.51
+- ma60: 50.96
+- ma120: 51.79
+- return_5d: 0.4
+- return_20d: 1.43
+- volume_ratio: 1.37
+- distance_to_ma20_pct_auxiliary: 0.38
+- distance_to_high_60_pct: -11.88
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,48.35,49.65,48.35,49,45796,50.22,-2.42,49.57,51.19,0.87
 20260609,48.4,49.2,48.4,49,55940,50.12,-2.23,49.4,51.17,1.05
 20260610,48.45,48.95,48.45,48.9,44046,50.01,-2.23,49.32,51.15,0.92
 20260611,49.65,50,48.65,49,52493,49.93,-1.86,49.29,51.13,1.14
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,49.5,49.5,48.95,49,40000,49.58,-1.16,49.49,51.01,1
 20260703,48.1,50,48.1,50,53748,49.61,0.78,49.48,50.99,1.36
 20260706,50.5,50.5,49.1,50,24000,49.64,0.72,49.48,50.98,0.62
+20260707,49.6,50,49.1,49.7,53894,49.65,0.1,49.51,50.96,1.37
 ```
 
 ## Latest TDCC Snapshot

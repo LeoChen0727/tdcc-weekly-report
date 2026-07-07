@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4114 健喬
 
 ## Metadata
-- generated_at: 2026-07-06 22:27:22 Asia/Taipei
+- generated_at: 2026-07-07 22:27:34 Asia/Taipei
 - stock_id: 4114
 - stock_name: 健喬
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260706
-- price_rows: 163
+- latest_price_date: 20260707
+- price_rows: 164
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -74,7 +74,7 @@
 - action_rating: starter_position
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
-- thesis_state: breakout_confirmed
+- thesis_state: unclear
 - entry_style: breakout_follow
 - position_sizing: starter_1_3
 
@@ -117,29 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
-- open: 32.05
-- high: 32.75
-- low: 32.05
-- close: 32.65
-- volume: 2631000
-- ma5: 31.66
-- ema23_primary: 31.07
-- distance_to_ema23_pct: 5.1
-- ma20: 30.93
-- ma60: 30.91
-- ma120: 31.45
-- return_5d: 4.82
-- return_20d: 6.35
-- volume_ratio: 2.39
-- distance_to_ma20_pct_auxiliary: 5.55
-- distance_to_high_60_pct: -0.31
+- date: 20260707
+- open: 32.95
+- high: 32.95
+- low: 32.6
+- close: 32.85
+- volume: 2148000
+- ma5: 31.96
+- ema23_primary: 31.21
+- distance_to_ema23_pct: 5.24
+- ma20: 31.06
+- ma60: 30.95
+- ma120: 31.46
+- return_5d: 4.78
+- return_20d: 8.6
+- volume_ratio: 1.86
+- distance_to_ma20_pct_auxiliary: 5.75
+- distance_to_high_60_pct: -0.3
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,29.9,30.35,29.75,30.25,1101000,30.56,-1.02,30.53,30.96,2.73
 20260609,30.25,30.8,30.25,30.5,1005000,30.56,-0.18,30.5,30.95,2.48
 20260610,30.5,30.65,30.35,30.4,995000,30.54,-0.47,30.47,30.94,2.44
 20260611,30.5,30.6,30.1,30.25,1026000,30.52,-0.88,30.45,30.92,2.42
@@ -159,6 +158,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,31.25,31.35,31.1,31.15,405000,30.84,1,30.77,30.88,0.49
 20260703,31.4,32,31.35,31.8,2759000,30.92,2.84,30.84,30.89,2.85
 20260706,32.05,32.75,32.05,32.65,2631000,31.07,5.1,30.93,30.91,2.39
+20260707,32.95,32.95,32.6,32.85,2148000,31.21,5.24,31.06,30.95,1.86
 ```
 
 ## Latest TDCC Snapshot
@@ -193,12 +193,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 4114 | 健喬 | true_breakout | 嚴格突破 | 148.0 |  |  | breakout_confirmed |  |  | continued_2_3d | 1.發生變動日期:115/07/03 2.法人名稱:祐僑股份有限公司 3.舊任者姓名:黃麗文 4.舊任者簡歷:本公司法人董事代表人 5.新任者姓名:張鴻仁 6.新任者簡歷: 美國哈佛大學醫療政策與管理碩士 台灣研發型生技新藥發展協會理事 7.異動原因:法人董事指派代表人 8.原任期（例xx/xx/xx至xx/xx/xx）:114/05/23~117/05/22 9.新任生效日期:115/07/03 10.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260707 | 4114 | 健喬 | true_breakout | 嚴格突破 | 133.0 |  |  | neckline_challenge |  |  | continued_2_3d | 1.發生變動日期:115/07/03 2.法人名稱:祐僑股份有限公司 3.舊任者姓名:黃麗文 4.舊任者簡歷:本公司法人董事代表人 5.新任者姓名:張鴻仁 6.新任者簡歷: 美國哈佛大學醫療政策與管理碩士 台灣研發型生技新藥發展協會理事 7.異動原因:法人董事指派代表人 8.原任期（例xx/xx/xx至xx/xx/xx）:114/05/23~117/05/22 9.新任生效日期:115/07/03 10.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 4114 | 健喬 | 2 | 1 | 3 | 5 | 6 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| 20260707 | 4114 | 健喬 | 3 | 2 | 3 | 6 | 7 | continued_2_3d | 連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | status |

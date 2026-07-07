@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2892 第一金
 
 ## Metadata
-- generated_at: 2026-07-06 22:27:01 Asia/Taipei
+- generated_at: 2026-07-07 22:27:09 Asia/Taipei
 - stock_id: 2892
 - stock_name: 第一金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260706
-- price_rows: 298
+- latest_price_date: 20260707
+- price_rows: 299
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
-- open: 32.35
-- high: 33.1
-- low: 32.35
-- close: 33.05
-- volume: 28419000
-- ma5: 32.7
-- ema23_primary: 31.64
-- distance_to_ema23_pct: 4.46
-- ma20: 31.94
-- ma60: 29.69
-- ma120: 29.41
-- return_5d: 0.15
-- return_20d: 12.8
-- volume_ratio: 0.51
-- distance_to_ma20_pct_auxiliary: 3.48
-- distance_to_high_60_pct: -0.9
+- date: 20260707
+- open: 33.05
+- high: 33.65
+- low: 33.05
+- close: 33.3
+- volume: 41274232
+- ma5: 32.81
+- ema23_primary: 31.78
+- distance_to_ema23_pct: 4.79
+- ma20: 32.15
+- ma60: 29.77
+- ma120: 29.44
+- return_5d: 1.68
+- return_20d: 14.43
+- volume_ratio: 0.74
+- distance_to_ma20_pct_auxiliary: 3.58
+- distance_to_high_60_pct: -1.04
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,28.7,29.15,28.45,29.1,50961160,28.51,2.08,28.45,28.59,0.82
 20260609,29.1,30.55,29.1,30.5,99331453,28.67,6.37,28.5,28.62,1.54
 20260610,30.4,30.95,30.2,30.55,68192460,28.83,5.96,28.55,28.65,1.03
 20260611,30.55,30.75,29.95,30.65,46641122,28.98,5.75,28.61,28.68,0.69
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,33,33,32.05,32.1,50033000,31.43,2.13,31.61,29.56,0.82
 20260703,32,32.95,32,32.4,25664750,31.51,2.82,31.75,29.62,0.45
 20260706,32.35,33.1,32.35,33.05,28419000,31.64,4.46,31.94,29.69,0.51
+20260707,33.05,33.65,33.05,33.3,41274232,31.78,4.79,32.15,29.77,0.74
 ```
 
 ## Latest TDCC Snapshot
@@ -189,18 +189,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 2892 | 第一金 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | 1.發生變動日期:115/06/29 2.法人名稱:第一金融控股股份有限公司 3.舊任者姓名:甘美珠 4.舊任者簡歷:第一金人壽保險股份有限公司董事 5.新任者姓名:無 6.新任者簡歷:無 7.異動原因:辭任 8.原任期（例xx/xx/xx至xx/xx/xx）:112/07/27~115/07/26 9.新任生效日期:不適用 10.其他應敘明事項:1.依第一金控總事發管字第000342號函辦理，自115/06/30起生效。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
-| 20260706 | 2892 | 第一金 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.發生變動日期:115/06/29 2.法人名稱:第一金融控股股份有限公司 3.舊任者姓名:甘美珠 4.舊任者簡歷:第一金人壽保險股份有限公司董事 5.新任者姓名:無 6.新任者簡歷:無 7.異動原因:辭任 8.原任期（例xx/xx/xx至xx/xx/xx）:112/07/27~115/07/26 9.新任生效日期:不適用 10.其他應敘明事項:1.依第一金控總事發管字第000342號函辦理，自115/06/30起生效。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260707 | 2892 | 第一金 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | 1.發生變動日期:115/06/29 2.法人名稱:第一金融控股股份有限公司 3.舊任者姓名:甘美珠 4.舊任者簡歷:第一金人壽保險股份有限公司董事 5.新任者姓名:無 6.新任者簡歷:無 7.異動原因:辭任 8.原任期（例xx/xx/xx至xx/xx/xx）:112/07/27~115/07/26 9.新任生效日期:不適用 10.其他應敘明事項:1.依第一金控總事發管字第000342號函辦理，自115/06/30起生效。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 2892 | 第一金 | 27 | 3 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260707 | 2892 | 第一金 | 28 | 4 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 2892 | 第一金 | 6 | 0 | 631830.0 | 0.0 |  | no_signal |
+| 20260707 | 2892 | 第一金 | 6 | 0 | 709470.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

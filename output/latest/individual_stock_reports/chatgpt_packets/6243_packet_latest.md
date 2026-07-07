@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6243 迅杰
 
 ## Metadata
-- generated_at: 2026-07-06 22:27:50 Asia/Taipei
+- generated_at: 2026-07-07 22:28:07 Asia/Taipei
 - stock_id: 6243
 - stock_name: 迅杰
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260706
-- price_rows: 298
+- latest_price_date: 20260707
+- price_rows: 299
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
-- open: 40.1
-- high: 42.75
-- low: 40.1
-- close: 41.2
-- volume: 404000
-- ma5: 40.44
-- ema23_primary: 37.85
-- distance_to_ema23_pct: 8.86
-- ma20: 36.76
-- ma60: 34.62
-- ma120: 33.98
-- return_5d: 4.97
-- return_20d: 26.77
-- volume_ratio: 0.28
-- distance_to_ma20_pct_auxiliary: 12.09
-- distance_to_high_60_pct: -9.75
+- date: 20260707
+- open: 41
+- high: 41.85
+- low: 39.05
+- close: 39.25
+- volume: 320960
+- ma5: 40.31
+- ema23_primary: 37.96
+- distance_to_ema23_pct: 3.39
+- ma20: 37.2
+- ma60: 34.78
+- ma120: 34
+- return_5d: -1.63
+- return_20d: 29.11
+- volume_ratio: 0.23
+- distance_to_ma20_pct_auxiliary: 5.52
+- distance_to_high_60_pct: -14.02
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,29.3,30.5,29.3,30.4,286181,33.57,-9.44,33.95,32.48,0.69
 20260609,30.5,30.75,30.2,30.55,175916,33.32,-8.31,33.77,32.44,0.43
 20260610,30.15,30.9,29.45,29.45,232276,33,-10.75,33.57,32.4,0.57
 20260611,30.1,30.25,29,30.15,249553,32.76,-7.96,33.33,32.38,0.64
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,41,41.2,39.65,40.1,345000,37.31,7.48,36,34.25,0.24
 20260703,40.3,40.3,39.7,40.1,242265,37.54,6.82,36.32,34.43,0.17
 20260706,40.1,42.75,40.1,41.2,404000,37.85,8.86,36.76,34.62,0.28
+20260707,41,41.85,39.05,39.25,320960,37.96,3.39,37.2,34.78,0.23
 ```
 
 ## Latest TDCC Snapshot

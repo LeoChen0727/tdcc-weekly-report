@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3054 立萬利
 
 ## Metadata
-- generated_at: 2026-07-06 22:27:06 Asia/Taipei
+- generated_at: 2026-07-07 22:27:15 Asia/Taipei
 - stock_id: 3054
 - stock_name: 立萬利
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260706
-- price_rows: 296
+- latest_price_date: 20260707
+- price_rows: 297
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
-- open: 63
-- high: 65.2
-- low: 63
-- close: 63.6
-- volume: 47000
-- ma5: 62.52
-- ema23_primary: 65.89
-- distance_to_ema23_pct: -3.47
-- ma20: 66.03
-- ma60: 69.13
-- ma120: 57.54
-- return_5d: 1.44
-- return_20d: -24.11
-- volume_ratio: 0.29
-- distance_to_ma20_pct_auxiliary: -3.67
-- distance_to_high_60_pct: -24.2
+- date: 20260707
+- open: 62.9
+- high: 62.9
+- low: 60.1
+- close: 61
+- volume: 80832
+- ma5: 62.16
+- ema23_primary: 65.48
+- distance_to_ema23_pct: -6.84
+- ma20: 65.3
+- ma60: 68.89
+- ma120: 57.78
+- return_5d: -2.87
+- return_20d: -19.21
+- volume_ratio: 0.56
+- distance_to_ma20_pct_auxiliary: -6.58
+- distance_to_high_60_pct: -27.29
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,75.5,75.5,75.5,75.5,405806,71.78,5.18,70.17,70.99,1.15
 20260609,75.7,76,70.5,70.5,723728,71.67,-1.64,70.27,71.07,1.92
 20260610,69.7,72,67.8,67.8,380657,71.35,-4.97,70.27,71,0.99
 20260611,68.5,68.5,64.5,67.2,260132,71,-5.36,70.25,70.79,0.67
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,59.5,61.3,59.4,61.3,46000,66.26,-7.48,68,69.17,0.17
 20260703,62.2,64.4,61.3,64.3,57533,66.09,-2.71,67.03,69.21,0.24
 20260706,63,65.2,63,63.6,47000,65.89,-3.47,66.03,69.13,0.29
+20260707,62.9,62.9,60.1,61,80832,65.48,-6.84,65.3,68.89,0.56
 ```
 
 ## Latest TDCC Snapshot

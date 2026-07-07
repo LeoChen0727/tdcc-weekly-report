@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7788 松川精密
 
 ## Metadata
-- generated_at: 2026-07-06 22:28:15 Asia/Taipei
+- generated_at: 2026-07-07 22:28:36 Asia/Taipei
 - stock_id: 7788
 - stock_name: 松川精密
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260706
-- price_rows: 172
+- latest_price_date: 20260707
+- price_rows: 173
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 - acceptable_risk_reward
@@ -112,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
-- open: 250
-- high: 252
-- low: 231
-- close: 239
-- volume: 1552000
-- ma5: 249
-- ema23_primary: 246.36
-- distance_to_ema23_pct: -2.99
-- ma20: 260.77
-- ma60: 206.32
-- ma120: 181.41
-- return_5d: -10.49
-- return_20d: 6.7
-- volume_ratio: 0.49
-- distance_to_ma20_pct_auxiliary: -8.35
-- distance_to_high_60_pct: -21.77
+- date: 20260707
+- open: 240.5
+- high: 250.5
+- low: 228
+- close: 232.5
+- volume: 1464445
+- ma5: 244.1
+- ema23_primary: 245.21
+- distance_to_ema23_pct: -5.18
+- ma20: 260.1
+- ma60: 207.76
+- ma120: 182.17
+- return_5d: -9.53
+- return_20d: -5.49
+- volume_ratio: 0.51
+- distance_to_ma20_pct_auxiliary: -10.61
+- distance_to_high_60_pct: -23.9
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,202,246,202,246,6900617,194.95,26.19,198.03,169.43,3.28
 20260609,250,251.5,229,235,6201409,198.29,18.51,200.57,170.72,2.61
 20260610,253,258.5,251,258.5,3257354,203.31,27.15,204.12,172.52,1.3
 20260611,263,280.5,256.5,271,7256660,208.95,29.7,207.38,174.5,2.67
@@ -154,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,250,255,246.5,248.5,865000,247.08,0.58,257.9,202.9,0.25
 20260703,248.5,250,244.5,246.5,750690,247.03,-0.21,260.02,204.68,0.23
 20260706,250,252,231,239,1552000,246.36,-2.99,260.77,206.32,0.49
+20260707,240.5,250.5,228,232.5,1464445,245.21,-5.18,260.1,207.76,0.51
 ```
 
 ## Latest TDCC Snapshot
@@ -188,18 +187,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 7788 | 松川精密 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | call_inflow | stale_signal | 1.股東常會日期:115/06/17 2.重要決議事項一、盈餘分配或盈虧撥補:通過承認民國114年度盈餘分配案。 3.重要決議事項二、章程修訂:無 4.重要決議事項三、營業報告書及財務報表:  通過承認民國114年度營業報告書及財務報表案。 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項:  (1)通過修訂本公司「股東會議事規則」部分條文案。  (2)通過修訂本公司「取得或處分資產處理程序」部分條文案。  (3)通過解除董事競業禁止限制案。 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
-| 20260706 | 7788 | 松川精密 | revenue_pullback | 營收成長股價回檔 | 60.0 |  |  |  |  | call_inflow | stale_signal | 1.股東常會日期:115/06/17 2.重要決議事項一、盈餘分配或盈虧撥補:通過承認民國114年度盈餘分配案。 3.重要決議事項二、章程修訂:無 4.重要決議事項三、營業報告書及財務報表:  通過承認民國114年度營業報告書及財務報表案。 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項:  (1)通過修訂本公司「股東會議事規則」部分條文案。  (2)通過修訂本公司「取得或處分資產處理程序」部分條文案。  (3)通過解除董事競業禁止限制案。 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260707 | 7788 | 松川精密 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.股東常會日期:115/06/17 2.重要決議事項一、盈餘分配或盈虧撥補:通過承認民國114年度盈餘分配案。 3.重要決議事項二、章程修訂:無 4.重要決議事項三、營業報告書及財務報表:  通過承認民國114年度營業報告書及財務報表案。 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項:  (1)通過修訂本公司「股東會議事規則」部分條文案。  (2)通過修訂本公司「取得或處分資產處理程序」部分條文案。  (3)通過解除董事競業禁止限制案。 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 7788 | 松川精密 | 1 | 1 | 2 | 3 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260707 | 7788 | 松川精密 | 2 | 2 | 2 | 4 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 7788 | 松川精密 | 27 | 1 | 6314200.0 | 0.0 |  | call_inflow |
+| 20260707 | 7788 | 松川精密 | 28 | 0 | 5099200.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

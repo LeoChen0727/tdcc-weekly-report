@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3594 磐儀
 
 ## Metadata
-- generated_at: 2026-07-06 22:27:18 Asia/Taipei
+- generated_at: 2026-07-07 22:27:29 Asia/Taipei
 - stock_id: 3594
 - stock_name: 磐儀
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260706
-- price_rows: 163
+- latest_price_date: 20260707
+- price_rows: 164
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
-- open: 58.7
-- high: 58.7
-- low: 54
-- close: 54.6
-- volume: 2212000
-- ma5: 55.4
-- ema23_primary: 50.76
-- distance_to_ema23_pct: 7.56
-- ma20: 49.05
-- ma60: 50.35
-- ma120: 44.68
-- return_5d: 17.17
-- return_20d: 14.95
-- volume_ratio: 1.88
-- distance_to_ma20_pct_auxiliary: 11.31
-- distance_to_high_60_pct: -8.7
+- date: 20260707
+- open: 54.6
+- high: 54.9
+- low: 51.7
+- close: 51.7
+- volume: 874000
+- ma5: 55.5
+- ema23_primary: 50.84
+- distance_to_ema23_pct: 1.69
+- ma20: 49.42
+- ma60: 50.46
+- ma120: 44.79
+- return_5d: 0.98
+- return_20d: 16.84
+- volume_ratio: 0.73
+- distance_to_ma20_pct_auxiliary: 4.61
+- distance_to_high_60_pct: -13.55
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,43.05,44.4,42.75,44.25,520000,49.95,-11.42,50.54,47.54,1.03
 20260609,44.8,46.3,44.6,45.7,185000,49.6,-7.86,50.15,47.58,0.39
 20260610,45.2,47,44.15,44.15,172000,49.14,-10.16,49.67,47.61,0.38
 20260611,46.65,47.55,44.65,46.1,690000,48.89,-5.71,49.21,47.68,1.95
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,53.5,58.8,53.2,56.7,4080000,49.66,14.18,48.17,49.82,4.67
 20260703,56.7,59.8,56.7,58.7,3897000,50.41,16.44,48.7,50.15,3.66
 20260706,58.7,58.7,54,54.6,2212000,50.76,7.56,49.05,50.35,1.88
+20260707,54.6,54.9,51.7,51.7,874000,50.84,1.69,49.42,50.46,0.73
 ```
 
 ## Latest TDCC Snapshot
@@ -187,15 +187,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 3594 | 磐儀 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | repeated_but_no_breakout | 1.股東常會日期:115/06/29 2.重要決議事項一、盈餘分配或盈虧撥補:承認114年度盈餘分配案 3.重要決議事項二、章程修訂:修訂「公司章程」案 4.重要決議事項三、營業報告書及財務報表:  承認114年度營業報告書及財務報表案 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項: (一) 本公司為引進策略性投資人擬辦理私募現金增資發行新股案 (二) 修訂「取得或處分資產處理程序」案。 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260706 | 3594 | 磐儀 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | 1.股東常會日期:115/06/29 2.重要決議事項一、盈餘分配或盈虧撥補:承認114年度盈餘分配案 3.重要決議事項二、章程修訂:修訂「公司章程」案 4.重要決議事項三、營業報告書及財務報表:  承認114年度營業報告書及財務報表案 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項: (一) 本公司為引進策略性投資人擬辦理私募現金增資發行新股案 (二) 修訂「取得或處分資產處理程序」案。 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 3594 | 磐儀 | 5 | 5 | 5 | 5 | 5 | repeated_but_no_breakout | 近 10 日上榜 5 次、近 20 日上榜 5 次，但尚未有效突破，需等待攻擊確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

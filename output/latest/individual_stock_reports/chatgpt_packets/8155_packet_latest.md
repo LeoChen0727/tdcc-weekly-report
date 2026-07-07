@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8155 博智
 
 ## Metadata
-- generated_at: 2026-07-06 22:28:20 Asia/Taipei
+- generated_at: 2026-07-07 22:28:42 Asia/Taipei
 - stock_id: 8155
 - stock_name: 博智
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260706
-- price_rows: 163
+- latest_price_date: 20260707
+- price_rows: 164
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
-- open: 387.5
-- high: 388.5
-- low: 373.5
-- close: 373.5
-- volume: 611000
-- ma5: 378.6
-- ema23_primary: 382.97
-- distance_to_ema23_pct: -2.47
-- ma20: 378.8
-- ma60: 391.77
-- ma120: 302.82
-- return_5d: 1.49
-- return_20d: 0.67
-- volume_ratio: 0.55
-- distance_to_ma20_pct_auxiliary: -1.4
-- distance_to_high_60_pct: -22.19
+- date: 20260707
+- open: 374.5
+- high: 377.5
+- low: 350
+- close: 350
+- volume: 857000
+- ma5: 373.6
+- ema23_primary: 380.22
+- distance_to_ema23_pct: -7.95
+- ma20: 378.32
+- ma60: 392.24
+- ma120: 304.33
+- return_5d: -6.67
+- return_20d: -2.64
+- volume_ratio: 0.79
+- distance_to_ma20_pct_auxiliary: -7.49
+- distance_to_high_60_pct: -27.08
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,334,360.5,334,359.5,1197000,392.82,-8.48,401.07,352.14,1.22
 20260609,363,372.5,357,364,780000,390.42,-6.77,398.27,354.81,0.84
 20260610,354,376.5,354,355,1351000,387.47,-8.38,394.82,357.29,1.47
 20260611,355,362.5,335,347.5,967000,384.14,-9.54,391.27,359.5,1.15
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,368,387,365.5,384,457000,383.77,0.06,378.55,389.16,0.42
 20260703,376.5,391,375.5,384.5,685000,383.83,0.17,378.68,390.63,0.63
 20260706,387.5,388.5,373.5,373.5,611000,382.97,-2.47,378.8,391.77,0.55
+20260707,374.5,377.5,350,350,857000,380.22,-7.95,378.32,392.24,0.79
 ```
 
 ## Latest TDCC Snapshot

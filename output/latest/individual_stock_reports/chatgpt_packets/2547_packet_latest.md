@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2547 日勝生
 
 ## Metadata
-- generated_at: 2026-07-06 22:26:55 Asia/Taipei
+- generated_at: 2026-07-07 22:27:03 Asia/Taipei
 - stock_id: 2547
 - stock_name: 日勝生
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260706
-- price_rows: 298
+- latest_price_date: 20260707
+- price_rows: 299
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
-- open: 11.75
+- date: 20260707
+- open: 11.8
 - high: 11.8
-- low: 11.55
-- close: 11.6
-- volume: 5104000
-- ma5: 11.33
-- ema23_primary: 10.98
-- distance_to_ema23_pct: 5.67
-- ma20: 11.08
-- ma60: 10.56
-- ma120: 10.72
-- return_5d: 5.45
-- return_20d: 10.48
-- volume_ratio: 0.82
-- distance_to_ma20_pct_auxiliary: 4.67
-- distance_to_high_60_pct: -1.69
+- low: 11.2
+- close: 11.25
+- volume: 5878705
+- ma5: 11.38
+- ema23_primary: 11
+- distance_to_ema23_pct: 2.27
+- ma20: 11.11
+- ma60: 10.57
+- ma120: 10.73
+- return_5d: 2.27
+- return_20d: 5.63
+- volume_ratio: 0.94
+- distance_to_ma20_pct_auxiliary: 1.24
+- distance_to_high_60_pct: -4.66
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,10.2,10.65,10.15,10.65,5186710,10.21,4.27,10.08,10.48,1.64
 20260609,11,11.4,11,11.05,18281196,10.28,7.45,10.13,10.48,4.61
 20260610,10.9,11.5,10.75,11.15,25092422,10.36,7.67,10.18,10.48,4.98
 20260611,11,11.1,10.85,11,9859218,10.41,5.67,10.23,10.48,1.83
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,11.3,11.35,11.15,11.25,2860000,10.86,3.55,10.97,10.53,0.47
 20260703,11.25,11.7,11.25,11.55,8496588,10.92,5.76,11.03,10.55,1.37
 20260706,11.75,11.8,11.55,11.6,5104000,10.98,5.67,11.08,10.56,0.82
+20260707,11.8,11.8,11.2,11.25,5878705,11,2.27,11.11,10.57,0.94
 ```
 
 ## Latest TDCC Snapshot
@@ -188,14 +188,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 2547 | 日勝生 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/03 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除權 3.發放股利種類及金額:股票股利新台幣641,800,000元 4.除權（息）交易日:NA 5.最後過戶日:115/07/10 6.停止過戶起始日期:115/07/11 7.停止過戶截止日期:115/07/15 8.除權（息）基準日:115/07/15 9.其他應敘明事項:無。；calendar event: ex_dividend on 20260717; status=confirmed; proximity=within_14d |
-| 20260706 | 2547 | 日勝生 | revenue_pullback | 營收成長股價回檔 | 63.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  |  | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/03 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除權 3.發放股利種類及金額:股票股利新台幣641,800,000元 4.除權（息）交易日:NA 5.最後過戶日:115/07/10 6.停止過戶起始日期:115/07/11 7.停止過戶截止日期:115/07/15 8.除權（息）基準日:115/07/15 9.其他應敘明事項:無。；calendar event: ex_dividend on 20260717; status=confirmed; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
-| 20260706 | 2547 | 日勝生 | revenue_breakout_low_response | 營收爆發低反應股 | 19.0 | 18.0 | B_可觀察 |  |  |  | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/03 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除權 3.發放股利種類及金額:股票股利新台幣641,800,000元 4.除權（息）交易日:NA 5.最後過戶日:115/07/10 6.停止過戶起始日期:115/07/11 7.停止過戶截止日期:115/07/15 8.除權（息）基準日:115/07/15 9.其他應敘明事項:無。；calendar event: ex_dividend on 20260717; status=confirmed; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260707 | 2547 | 日勝生 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/03 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除權 3.發放股利種類及金額:股票股利新台幣641,800,000元 4.除權（息）交易日:NA 5.最後過戶日:115/07/10 6.停止過戶起始日期:115/07/11 7.停止過戶截止日期:115/07/15 8.除權（息）基準日:115/07/15 9.其他應敘明事項:無。；calendar event: ex_dividend on 20260717; status=confirmed; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 2547 | 日勝生 | 18 | 10 | 5 | 10 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260707 | 2547 | 日勝生 | 19 | 2 | 5 | 10 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

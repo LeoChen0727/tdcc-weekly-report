@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2476 鉅祥
 
 ## Metadata
-- generated_at: 2026-07-06 22:26:53 Asia/Taipei
+- generated_at: 2026-07-07 22:26:59 Asia/Taipei
 - stock_id: 2476
 - stock_name: 鉅祥
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260706
-- price_rows: 298
+- latest_price_date: 20260707
+- price_rows: 299
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
-- open: 134
-- high: 138
-- low: 133
-- close: 136
-- volume: 4062000
-- ma5: 132.3
-- ema23_primary: 126.77
-- distance_to_ema23_pct: 7.28
-- ma20: 126.25
-- ma60: 120.36
-- ma120: 103.07
-- return_5d: 7.51
-- return_20d: 13.33
-- volume_ratio: 0.84
-- distance_to_ma20_pct_auxiliary: 7.72
-- distance_to_high_60_pct: -1.45
+- date: 20260707
+- open: 138
+- high: 140
+- low: 128.5
+- close: 131
+- volume: 6017800
+- ma5: 132.5
+- ema23_primary: 127.12
+- distance_to_ema23_pct: 3.05
+- ma20: 126.9
+- ma60: 120.88
+- ma120: 103.4
+- return_5d: 0.77
+- return_20d: 11.02
+- volume_ratio: 1.23
+- distance_to_ma20_pct_auxiliary: 3.23
+- distance_to_high_60_pct: -6.43
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,108.5,119,108,118,4634734,119.21,-1.02,120.55,107.2,0.83
 20260609,122,126,119.5,125.5,6499279,119.74,4.81,120.9,108,1.17
 20260610,123.5,127.5,118,118.5,5077066,119.63,-0.95,120.9,108.61,0.9
 20260611,119,123,116.5,119,3431874,119.58,-0.49,120.9,109.25,0.61
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,127.5,134,123,134,6115000,125.29,6.95,124.85,119.16,1.3
 20260703,132.5,136,130,133,4928043,125.93,5.61,125.45,119.79,1.03
 20260706,134,138,133,136,4062000,126.77,7.28,126.25,120.36,0.84
+20260707,138,140,128.5,131,6017800,127.12,3.05,126.9,120.88,1.23
 ```
 
 ## Latest TDCC Snapshot
@@ -188,18 +189,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 2476 | 鉅祥 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
-| 20260706 | 2476 | 鉅祥 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260707 | 2476 | 鉅祥 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 2476 | 鉅祥 | 22 | 3 | 5 | 10 | 20 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 20 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260707 | 2476 | 鉅祥 | 23 | 2 | 5 | 10 | 20 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 20 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 2476 | 鉅祥 | 50 | 0 | 22156440.0 | 0.0 |  | no_signal |
+| 20260707 | 2476 | 鉅祥 | 51 | 0 | 17467060.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

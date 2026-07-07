@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3479 安勤
 
 ## Metadata
-- generated_at: 2026-07-06 22:27:15 Asia/Taipei
+- generated_at: 2026-07-07 22:27:25 Asia/Taipei
 - stock_id: 3479
 - stock_name: 安勤
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260706
-- price_rows: 163
+- latest_price_date: 20260707
+- price_rows: 164
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
-- open: 145.5
-- high: 148
-- low: 143
-- close: 143
-- volume: 1812000
-- ma5: 142.8
-- ema23_primary: 135.04
-- distance_to_ema23_pct: 5.9
-- ma20: 135.65
-- ma60: 115.79
-- ma120: 102.77
-- return_5d: 3.25
-- return_20d: 10.85
-- volume_ratio: 0.84
-- distance_to_ma20_pct_auxiliary: 5.42
-- distance_to_high_60_pct: -4.98
+- date: 20260707
+- open: 144
+- high: 145
+- low: 134
+- close: 135
+- volume: 1549000
+- ma5: 141.4
+- ema23_primary: 135.03
+- distance_to_ema23_pct: -0.03
+- ma20: 136.3
+- ma60: 116.54
+- ma120: 103.13
+- return_5d: -4.93
+- return_20d: 10.66
+- volume_ratio: 0.7
+- distance_to_ma20_pct_auxiliary: -0.95
+- distance_to_high_60_pct: -10.3
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,118,122,118,122,749000,119.45,2.13,120.2,100.18,0.96
 20260609,123.5,126,123,125.5,1259000,119.96,4.62,121.67,100.77,1.54
 20260610,122.5,135,122.5,130.5,4145000,120.83,8,123.38,101.45,4.13
 20260611,130,134,129,132,2697000,121.76,8.41,124.78,102.18,2.57
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,138,146.5,137.5,146.5,2258000,133.52,9.72,134.25,113.92,1.12
 20260703,142.5,145,142.5,143,1417000,134.31,6.47,134.95,114.86,0.68
 20260706,145.5,148,143,143,1812000,135.04,5.9,135.65,115.79,0.84
+20260707,144,145,134,135,1549000,135.03,-0.03,136.3,116.54,0.7
 ```
 
 ## Latest TDCC Snapshot
@@ -188,12 +189,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 3479 | 安勤 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | repeated_but_no_breakout | 1.原預定買回股份總金額上限(元):2,206,127,929 2.原預定買回之期間:115/05/04~115/06/29 3.原預定買回之數量(股):500,000 4.原預定買回區間價格(元):70.00~115.00 5.本次實際買回期間:115/05/04~115/05/13 6.本次已買回股份數量(股):364,000 7.本次已買回股份總金額(元):34,728,764 8.本次平均每股買回價格(元):95.41 9.累積已持有自己公司股份數量(股):364,000 10.累積已持有自己公司股份數量占公司已發行股份總數之比率(%):0.50 11.本次未執行完畢之原因: 本公司於規定價格區間內分批買回庫藏股，執行率72.80%。考量不影響市場量價及維護股東權益，故未全數執行完畢。 12.其他應敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260707 | 3479 | 安勤 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.事實發生日:115/07/03 2.公司名稱:安勤科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:本公司股東會紀念品兌換條碼使用日期限制及因應辦法 6.因應措施: 本公司115年股東會開會通知書原載明，由電子投票平台領取之【全家便利商店中杯美式 咖啡兌換條碼 (下稱兌換條碼)】使用期限為118年6月30日。 惟因電子票券系統之設定限制，致該兌換條碼僅可使用至115年11月30日。若股東未及於 115年11月30日前兌換使用，請股東提供以下五項資訊寄至StockAffairs@avalue.com： 1.股東姓名 2.身分證字號或統一編號 3.聯絡電話 4.電子郵件 5.兌換條碼PIN序號(即QR碼下方顯示之PIN序號) 本公司將秉持維護股東權益的一貫立場協助後續處理，並確保股東的兌換使用權益至 118年6月30日 (即股東會開會通知書原載明兌換使用期限)。造成不便敬請見諒，並感謝 股東的理解與支持。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 3479 | 安勤 | 1 | 1 | 3 | 6 | 7 | repeated_but_no_breakout | 近 10 日上榜 6 次、近 20 日上榜 7 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260707 | 3479 | 安勤 | 2 | 2 | 3 | 7 | 8 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6986 和迅
 
 ## Metadata
-- generated_at: 2026-07-06 22:28:08 Asia/Taipei
+- generated_at: 2026-07-07 22:28:28 Asia/Taipei
 - stock_id: 6986
 - stock_name: 和迅
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260706
-- price_rows: 7
+- latest_price_date: 20260707
+- price_rows: 8
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
+- date: 20260707
 - open: 51
-- high: 52.9
-- low: 50
-- close: 51.1
-- volume: 429000
-- ma5: 48.49
-- ema23_primary: 48.15
-- distance_to_ema23_pct: 6.13
-- ma20: 48.08
-- ma60: 48.08
-- ma120: 48.08
-- return_5d: 10.85
+- high: 51.6
+- low: 49.5
+- close: 49.55
+- volume: 288000
+- ma5: 49.13
+- ema23_primary: 48.27
+- distance_to_ema23_pct: 2.66
+- ma20: 48.26
+- ma60: 48.26
+- ma120: 48.26
+- return_5d: 6.9
 - return_20d:
-- volume_ratio: 0.68
-- distance_to_ma20_pct_auxiliary: 6.28
-- distance_to_high_60_pct: -3.4
+- volume_ratio: 0.49
+- distance_to_ma20_pct_auxiliary: 2.67
+- distance_to_high_60_pct: -6.33
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -141,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,46.5,47.3,45.6,47.1,119000,47.63,-1.12,46.97,46.97,0.17
 20260703,47.1,51.5,47.1,50.6,437000,47.88,5.68,47.58,47.58,0.65
 20260706,51,52.9,50,51.1,429000,48.15,6.13,48.08,48.08,0.68
+20260707,51,51.6,49.5,49.55,288000,48.27,2.66,48.26,48.26,0.49
 ```
 
 ## Latest TDCC Snapshot

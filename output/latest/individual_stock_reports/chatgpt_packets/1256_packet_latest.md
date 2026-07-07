@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1256 鮮活果汁-KY
 
 ## Metadata
-- generated_at: 2026-07-06 22:26:27 Asia/Taipei
+- generated_at: 2026-07-07 22:26:30 Asia/Taipei
 - stock_id: 1256
 - stock_name: 鮮活果汁-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260706
-- price_rows: 298
+- latest_price_date: 20260707
+- price_rows: 299
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
-- open: 199
-- high: 203
-- low: 193.5
-- close: 199
-- volume: 159000
-- ma5: 188.1
-- ema23_primary: 183.85
-- distance_to_ema23_pct: 8.24
-- ma20: 181
-- ma60: 177.38
-- ma120: 167.12
-- return_5d: 13.07
-- return_20d: 9.94
-- volume_ratio: 1.28
-- distance_to_ma20_pct_auxiliary: 9.94
-- distance_to_high_60_pct: -8.92
+- date: 20260707
+- open: 201
+- high: 201.5
+- low: 195
+- close: 200
+- volume: 116944
+- ma5: 192.2
+- ema23_primary: 185.19
+- distance_to_ema23_pct: 8
+- ma20: 182.18
+- ma60: 178.17
+- ma120: 167.57
+- return_5d: 11.42
+- return_20d: 13.31
+- volume_ratio: 0.98
+- distance_to_ma20_pct_auxiliary: 9.78
+- distance_to_high_60_pct: -8.47
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,172.5,179,171,176.5,206617,186.82,-5.52,190.7,168.18,0.98
 20260609,176,182,176,182,71101,186.42,-2.37,190.47,168.47,0.36
 20260610,180,183,175.5,178,107958,185.72,-4.15,189.82,168.75,0.58
 20260611,176,179,172,175,161117,184.82,-5.31,189.32,169.07,0.88
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,184.5,189,181.5,184,318000,181.51,1.37,180.45,175.92,2.31
 20260703,184,196,184,193,166071,182.47,5.77,180.1,176.56,1.19
 20260706,199,203,193.5,199,159000,183.85,8.24,181,177.38,1.28
+20260707,201,201.5,195,200,116944,185.19,8,182.18,178.17,0.98
 ```
 
 ## Latest TDCC Snapshot

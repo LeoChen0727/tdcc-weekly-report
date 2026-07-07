@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5704 老爺知
 
 ## Metadata
-- generated_at: 2026-07-06 22:27:42 Asia/Taipei
+- generated_at: 2026-07-07 22:27:57 Asia/Taipei
 - stock_id: 5704
 - stock_name: 老爺知
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260706
-- price_rows: 163
+- latest_price_date: 20260707
+- price_rows: 164
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
+- date: 20260707
 - open: 21.55
 - high: 21.55
-- low: 21.55
+- low: 21.45
 - close: 21.55
-- volume: 1000
-- ma5: 21.42
-- ema23_primary: 21.36
-- distance_to_ema23_pct: 0.87
-- ma20: 21.34
-- ma60: 21.49
-- ma120: 22.41
+- volume: 22000
+- ma5: 21.46
+- ema23_primary: 21.38
+- distance_to_ema23_pct: 0.79
+- ma20: 21.36
+- ma60: 21.48
+- ma120: 22.35
 - return_5d: 0.94
-- return_20d: 1.89
-- volume_ratio: 0.08
-- distance_to_ma20_pct_auxiliary: 1
+- return_20d: 2.62
+- volume_ratio: 1.74
+- distance_to_ma20_pct_auxiliary: 0.87
 - distance_to_high_60_pct: -8.88
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,21.05,21.25,20.9,21,14000,21.31,-1.46,21.28,21.64,0.67
 20260609,21.55,21.55,21.2,21.4,10000,21.32,0.38,21.28,21.63,0.48
 20260610,21.4,21.4,21.1,21.2,27000,21.31,-0.51,21.25,21.61,1.24
 20260611,21.1,21.55,21.1,21.35,23000,21.31,0.18,21.25,21.61,1.01
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,21.35,21.35,21.35,21.35,10000,21.33,0.07,21.3,21.5,0.74
 20260703,21.2,21.85,21.2,21.5,16000,21.35,0.71,21.32,21.49,1.21
 20260706,21.55,21.55,21.55,21.55,1000,21.36,0.87,21.34,21.49,0.08
+20260707,21.55,21.55,21.45,21.55,22000,21.38,0.79,21.36,21.48,1.74
 ```
 
 ## Latest TDCC Snapshot

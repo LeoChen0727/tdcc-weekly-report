@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7705 三商餐飲
 
 ## Metadata
-- generated_at: 2026-07-06 22:28:13 Asia/Taipei
+- generated_at: 2026-07-07 22:28:34 Asia/Taipei
 - stock_id: 7705
 - stock_name: 三商餐飲
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260706
-- price_rows: 298
+- latest_price_date: 20260707
+- price_rows: 299
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
-- open: 31.5
-- high: 31.5
-- low: 31
-- close: 31.2
-- volume: 118000
-- ma5: 32.19
-- ema23_primary: 31.85
-- distance_to_ema23_pct: -2.05
-- ma20: 31.76
-- ma60: 32.26
-- ma120: 35.06
-- return_5d: -1.27
-- return_20d: -4
-- volume_ratio: 1.89
-- distance_to_ma20_pct_auxiliary: -1.77
-- distance_to_high_60_pct: -11.74
+- date: 20260707
+- open: 31.1
+- high: 31.1
+- low: 30.8
+- close: 30.8
+- volume: 100369
+- ma5: 32.01
+- ema23_primary: 31.77
+- distance_to_ema23_pct: -3.04
+- ma20: 31.71
+- ma60: 32.19
+- ma120: 34.98
+- return_5d: -2.84
+- return_20d: -2.99
+- volume_ratio: 1.55
+- distance_to_ma20_pct_auxiliary: -2.89
+- distance_to_high_60_pct: -12.87
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,31.35,32.2,31.25,31.75,57700,31.74,0.02,31.18,33.32,0.58
 20260609,31.75,31.9,31.4,31.55,47535,31.73,-0.56,31.21,33.24,0.49
 20260610,31.55,31.9,31.4,31.4,49577,31.7,-0.95,31.24,33.17,0.51
 20260611,31.5,31.6,31,31,77830,31.64,-2.03,31.24,33.09,0.8
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,32.3,33.2,32.2,32.95,128000,31.82,3.54,31.77,32.35,2.18
 20260703,33.4,33.4,32.8,32.9,187840,31.91,3.09,31.83,32.32,3.05
 20260706,31.5,31.5,31,31.2,118000,31.85,-2.05,31.76,32.26,1.89
+20260707,31.1,31.1,30.8,30.8,100369,31.77,-3.04,31.71,32.19,1.55
 ```
 
 ## Latest TDCC Snapshot

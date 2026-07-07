@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6757 台灣虎航
 
 ## Metadata
-- generated_at: 2026-07-06 22:28:02 Asia/Taipei
+- generated_at: 2026-07-07 22:28:21 Asia/Taipei
 - stock_id: 6757
 - stock_name: 台灣虎航
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260706
-- price_rows: 298
+- latest_price_date: 20260707
+- price_rows: 299
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
+- date: 20260707
 - open: 61
-- high: 61.3
-- low: 59.2
-- close: 60.7
-- volume: 1467000
-- ma5: 61.16
-- ema23_primary: 59.18
-- distance_to_ema23_pct: 2.57
-- ma20: 59.06
-- ma60: 54.48
-- ma120: 57.47
-- return_5d: -0.98
-- return_20d: 11.58
-- volume_ratio: 0.27
-- distance_to_ma20_pct_auxiliary: 2.78
-- distance_to_high_60_pct: -9.81
+- high: 61.2
+- low: 59.7
+- close: 60.2
+- volume: 1462084
+- ma5: 60.74
+- ema23_primary: 59.27
+- distance_to_ema23_pct: 1.58
+- ma20: 59.46
+- ma60: 54.66
+- ma120: 57.44
+- return_5d: -3.37
+- return_20d: 15.33
+- volume_ratio: 0.28
+- distance_to_ma20_pct_auxiliary: 1.24
+- distance_to_high_60_pct: -10.55
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,52.4,53.1,51.3,52.2,6423234,54,-3.33,54.17,52.13,2.5
 20260609,52.4,53,51.8,52.7,5309531,53.89,-2.21,54.1,52.11,1.94
 20260610,52.8,54.1,52.6,53.6,5600730,53.87,-0.5,54.16,52.12,1.9
 20260611,54,55.6,53.3,55.6,7113228,54.01,2.94,54.29,52.16,2.18
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,61.6,62.1,60.8,60.8,2191000,58.91,3.21,58.43,54.12,0.37
 20260703,60.6,61.7,60.5,60.5,2298574,59.04,2.47,58.74,54.29,0.4
 20260706,61,61.3,59.2,60.7,1467000,59.18,2.57,59.06,54.48,0.27
+20260707,61,61.2,59.7,60.2,1462084,59.27,1.58,59.46,54.66,0.28
 ```
 
 ## Latest TDCC Snapshot
@@ -188,18 +188,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 6757 | 台灣虎航 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | call_inflow | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/16 1.召開法人說明會之日期：115/06/16 2.召開法人說明會之時間：15 時 00 分  3.召開法人說明會之地點：台北茹曦酒店2F貴賓軒5（台北市松山區敦化北路100號） 4.法人說明會擇要訊息：本公司受邀參加群益金鼎證券舉辦之法人說明會，說明本公司營運概況。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
-| 20260706 | 6757 | 台灣虎航 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_inflow | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/16 1.召開法人說明會之日期：115/06/16 2.召開法人說明會之時間：15 時 00 分  3.召開法人說明會之地點：台北茹曦酒店2F貴賓軒5（台北市松山區敦化北路100號） 4.法人說明會擇要訊息：本公司受邀參加群益金鼎證券舉辦之法人說明會，說明本公司營運概況。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260707 | 6757 | 台灣虎航 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/16 1.召開法人說明會之日期：115/06/16 2.召開法人說明會之時間：15 時 00 分  3.召開法人說明會之地點：台北茹曦酒店2F貴賓軒5（台北市松山區敦化北路100號） 4.法人說明會擇要訊息：本公司受邀參加群益金鼎證券舉辦之法人說明會，說明本公司營運概況。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 6757 | 台灣虎航 | 3 | 3 | 4 | 7 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260707 | 6757 | 台灣虎航 | 4 | 3 | 4 | 7 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 6757 | 台灣虎航 | 15 | 0 | 1138370.0 | 0.0 |  | call_inflow |
+| 20260707 | 6757 | 台灣虎航 | 15 | 0 | 198540.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

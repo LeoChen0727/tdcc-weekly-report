@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00886 永豐美國科技
 
 ## Metadata
-- generated_at: 2026-07-06 22:26:23 Asia/Taipei
+- generated_at: 2026-07-07 22:26:26 Asia/Taipei
 - stock_id: 00886
 - stock_name: 永豐美國科技
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260706
-- price_rows: 29
+- latest_price_date: 20260707
+- price_rows: 30
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
-- open: 45.97
-- high: 45.97
-- low: 45.85
-- close: 45.97
-- volume: 27000
-- ma5: 45.51
-- ema23_primary: 44.64
-- distance_to_ema23_pct: 2.97
-- ma20: 44.49
-- ma60: 44.41
-- ma120: 44.41
-- return_5d: 3.89
-- return_20d: 2.04
-- volume_ratio: 1.02
-- distance_to_ma20_pct_auxiliary: 3.33
-- distance_to_high_60_pct: -0.65
+- date: 20260707
+- open: 45.99
+- high: 46.3
+- low: 45.98
+- close: 46.3
+- volume: 39000
+- ma5: 45.92
+- ema23_primary: 44.78
+- distance_to_ema23_pct: 3.39
+- ma20: 44.55
+- ma60: 44.47
+- ma120: 44.47
+- return_5d: 4.63
+- return_20d: 3
+- volume_ratio: 1.49
+- distance_to_ma20_pct_auxiliary: 3.92
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,44.9,44.95,44.79,44.95,45000,43.94,2.29,44.31,44.31,1.13
 20260605,44.66,44.66,44.66,44.66,45000,44,1.49,44.35,44.35,1.12
 20260608,42.65,42.7,42.57,42.62,8000,43.89,-2.89,44.2,44.2,0.21
 20260609,43.33,43.4,43.33,43.4,24000,43.85,-1.02,44.14,44.14,0.66
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,45.45,46.27,45.45,46.25,223000,44.41,4.14,44.39,44.3,8.2
 20260702,46.25,46.25,45.75,45.75,3000,44.52,2.76,44.44,44.36,0.11
 20260706,45.97,45.97,45.85,45.97,27000,44.64,2.97,44.49,44.41,1.02
+20260707,45.99,46.3,45.98,46.3,39000,44.78,3.39,44.55,44.47,1.49
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6175 立敦
 
 ## Metadata
-- generated_at: 2026-07-06 22:27:46 Asia/Taipei
+- generated_at: 2026-07-07 22:28:03 Asia/Taipei
 - stock_id: 6175
 - stock_name: 立敦
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260706
-- price_rows: 163
+- latest_price_date: 20260707
+- price_rows: 164
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
+- date: 20260707
 - open: 116.5
 - high: 119.5
-- low: 110.5
-- close: 116.5
-- volume: 9620000
-- ma5: 112.4
-- ema23_primary: 105.78
-- distance_to_ema23_pct: 10.14
-- ma20: 108.2
-- ma60: 85.7
-- ma120: 67.31
-- return_5d: 9.91
-- return_20d: 20.6
-- volume_ratio: 0.65
-- distance_to_ma20_pct_auxiliary: 7.67
-- distance_to_high_60_pct: -5.28
+- low: 105.5
+- close: 107
+- volume: 7592000
+- ma5: 111.3
+- ema23_primary: 105.88
+- distance_to_ema23_pct: 1.06
+- ma20: 108.53
+- ma60: 86.6
+- ma120: 67.74
+- return_5d: -4.89
+- return_20d: 6.47
+- volume_ratio: 0.55
+- distance_to_ma20_pct_auxiliary: -1.41
+- distance_to_high_60_pct: -13.01
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,87,103.5,87,100.5,25594000,86.55,16.12,87.42,66.44,4.06
 20260609,102.5,109,100,104,24002000,88,18.18,89.23,67.41,3.35
 20260610,102.5,111.5,99.5,99.9,24853000,89,12.25,90.8,68.27,3.05
 20260611,101.5,106,96.6,103,19824000,90.16,14.24,92.5,69.11,2.31
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,107.5,111.5,106.5,109.5,3862000,103.88,5.41,105.86,83.55,0.28
 20260703,108,117.5,108,115,9215000,104.8,9.73,107.21,84.62,0.65
 20260706,116.5,119.5,110.5,116.5,9620000,105.78,10.14,108.2,85.7,0.65
+20260707,116.5,119.5,105.5,107,7592000,105.88,1.06,108.53,86.6,0.55
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6134 萬旭
 
 ## Metadata
-- generated_at: 2026-07-06 22:27:45 Asia/Taipei
+- generated_at: 2026-07-07 22:28:00 Asia/Taipei
 - stock_id: 6134
 - stock_name: 萬旭
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260706
-- price_rows: 163
+- latest_price_date: 20260707
+- price_rows: 164
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
-- open: 34.4
-- high: 35.35
-- low: 34.15
-- close: 34.35
-- volume: 679000
-- ma5: 34.56
-- ema23_primary: 34.49
-- distance_to_ema23_pct: -0.4
-- ma20: 34.77
-- ma60: 33.23
-- ma120: 31.88
-- return_5d: 2.38
-- return_20d: -2.83
-- volume_ratio: 0.47
-- distance_to_ma20_pct_auxiliary: -1.21
-- distance_to_high_60_pct: -17.82
+- date: 20260707
+- open: 34.35
+- high: 34.45
+- low: 31.9
+- close: 32.05
+- volume: 1068000
+- ma5: 33.73
+- ema23_primary: 34.29
+- distance_to_ema23_pct: -6.52
+- ma20: 34.66
+- ma60: 33.21
+- ma120: 31.92
+- return_5d: -11.46
+- return_20d: -6.15
+- volume_ratio: 0.75
+- distance_to_ma20_pct_auxiliary: -7.54
+- distance_to_high_60_pct: -23.33
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,31.85,34.25,31.85,34.15,1756000,33.93,0.66,33.51,31.73,4.41
 20260609,34.75,35.25,33.5,34.15,1462000,33.94,0.61,33.56,31.78,3.54
 20260610,33.55,37.55,33.55,34.2,3826000,33.97,0.69,33.66,31.85,6.86
 20260611,34.2,36.3,32.4,35.45,2237000,34.09,3.99,33.84,31.93,3.57
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,34.1,35.4,33.65,34.45,566000,34.57,-0.35,34.96,33.16,0.41
 20260703,34.35,34.85,33.7,33.75,635000,34.5,-2.18,34.82,33.21,0.45
 20260706,34.4,35.35,34.15,34.35,679000,34.49,-0.4,34.77,33.23,0.47
+20260707,34.35,34.45,31.9,32.05,1068000,34.29,-6.52,34.66,33.21,0.75
 ```
 
 ## Latest TDCC Snapshot

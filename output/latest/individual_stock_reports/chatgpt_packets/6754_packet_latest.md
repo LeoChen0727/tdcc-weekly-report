@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6754 匯僑設計
 
 ## Metadata
-- generated_at: 2026-07-06 22:28:02 Asia/Taipei
+- generated_at: 2026-07-07 22:28:21 Asia/Taipei
 - stock_id: 6754
 - stock_name: 匯僑設計
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260706
-- price_rows: 298
+- latest_price_date: 20260707
+- price_rows: 299
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
-- open: 42.75
-- high: 43.1
-- low: 42.6
-- close: 42.65
-- volume: 64000
-- ma5: 44.71
-- ema23_primary: 44.88
-- distance_to_ema23_pct: -4.97
-- ma20: 44.93
-- ma60: 45.38
-- ma120: 45.19
-- return_5d: -3.62
-- return_20d: -6.47
-- volume_ratio: 1.87
-- distance_to_ma20_pct_auxiliary: -5.08
-- distance_to_high_60_pct: -10.96
+- date: 20260707
+- open: 42.5
+- high: 43.05
+- low: 42
+- close: 42
+- volume: 59050
+- ma5: 44.21
+- ema23_primary: 44.64
+- distance_to_ema23_pct: -5.91
+- ma20: 44.78
+- ma60: 45.3
+- ma120: 45.14
+- return_5d: -5.62
+- return_20d: -6.67
+- volume_ratio: 1.71
+- distance_to_ma20_pct_auxiliary: -6.21
+- distance_to_high_60_pct: -12.13
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,45.6,45.6,45,45,52216,45.05,-0.1,44.6,45.4,1.63
 20260609,44.65,45.35,44.65,44.85,37957,45.03,-0.4,44.58,45.4,1.14
 20260610,44.85,44.85,44.65,44.7,22648,45,-0.67,44.56,45.39,0.68
 20260611,44.85,45.5,44.45,44.5,51009,44.96,-1.03,44.56,45.39,1.47
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,44.7,45.4,44.7,45.4,19000,44.97,0.95,45.07,45.43,0.75
 20260703,46,47.4,45.7,46.3,155216,45.08,2.7,45.08,45.44,4.89
 20260706,42.75,43.1,42.6,42.65,64000,44.88,-4.97,44.93,45.38,1.87
+20260707,42.5,43.05,42,42,59050,44.64,-5.91,44.78,45.3,1.71
 ```
 
 ## Latest TDCC Snapshot

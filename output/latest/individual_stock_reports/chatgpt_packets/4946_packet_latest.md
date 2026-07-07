@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4946 辣椒
 
 ## Metadata
-- generated_at: 2026-07-06 22:27:32 Asia/Taipei
+- generated_at: 2026-07-07 22:27:46 Asia/Taipei
 - stock_id: 4946
 - stock_name: 辣椒
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260706
-- price_rows: 163
+- latest_price_date: 20260707
+- price_rows: 164
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
-- open: 104.5
-- high: 105.5
-- low: 104
-- close: 104
-- volume: 41000
-- ma5: 104.7
-- ema23_primary: 105.81
-- distance_to_ema23_pct: -1.71
-- ma20: 106.2
-- ma60: 107.59
-- ma120: 114.92
-- return_5d: -1.42
-- return_20d: -5.02
-- volume_ratio: 0.36
-- distance_to_ma20_pct_auxiliary: -2.07
-- distance_to_high_60_pct: -20.31
+- date: 20260707
+- open: 103
+- high: 103
+- low: 101
+- close: 101
+- volume: 38000
+- ma5: 104
+- ema23_primary: 105.41
+- distance_to_ema23_pct: -4.18
+- ma20: 106.08
+- ma60: 107.43
+- ma120: 114.9
+- return_5d: -3.35
+- return_20d: -2.42
+- volume_ratio: 0.34
+- distance_to_ma20_pct_auxiliary: -4.78
+- distance_to_high_60_pct: -22.61
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,98.7,105,98.7,103.5,46000,106.09,-2.44,104.78,113.1,0.66
 20260609,105,105.5,103,104,32000,105.91,-1.81,104.62,112.46,0.47
 20260610,104.5,114,104.5,114,212000,106.59,6.96,105.08,111.92,2.81
 20260611,125,125,105,105,639000,106.45,-1.37,105.12,111.27,6.07
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,107,109,105,105,52000,106.11,-1.05,106.55,107.78,0.44
 20260703,106,106,104.5,104.5,42000,105.98,-1.39,106.47,107.69,0.36
 20260706,104.5,105.5,104,104,41000,105.81,-1.71,106.2,107.59,0.36
+20260707,103,103,101,101,38000,105.41,-4.18,106.08,107.43,0.34
 ```
 
 ## Latest TDCC Snapshot

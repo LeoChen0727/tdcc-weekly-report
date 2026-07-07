@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1612 宏泰
 
 ## Metadata
-- generated_at: 2026-07-06 22:26:36 Asia/Taipei
+- generated_at: 2026-07-07 22:26:40 Asia/Taipei
 - stock_id: 1612
 - stock_name: 宏泰
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260706
-- price_rows: 298
+- latest_price_date: 20260707
+- price_rows: 299
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
-- open: 35.2
-- high: 35.6
-- low: 34.9
-- close: 35.1
-- volume: 1020000
-- ma5: 35.86
-- ema23_primary: 36.92
-- distance_to_ema23_pct: -4.93
-- ma20: 37.24
-- ma60: 36.7
+- date: 20260707
+- open: 35.1
+- high: 35.25
+- low: 34.25
+- close: 34.35
+- volume: 1509114
+- ma5: 35.31
+- ema23_primary: 36.71
+- distance_to_ema23_pct: -6.42
+- ma20: 37.07
+- ma60: 36.69
 - ma120: 36.09
-- return_5d: -5.14
-- return_20d: -11.14
-- volume_ratio: 0.69
-- distance_to_ma20_pct_auxiliary: -5.75
-- distance_to_high_60_pct: -17.41
+- return_5d: -7.41
+- return_20d: -9.01
+- volume_ratio: 1.06
+- distance_to_ma20_pct_auxiliary: -7.34
+- distance_to_high_60_pct: -19.18
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,36.1,38.3,36.1,37.75,2587636,37.37,1.03,37.15,36.02,1.23
 20260609,38,38.4,37.75,38.15,1748514,37.43,1.92,37.22,36.09,0.81
 20260610,37.8,38.2,37.3,37.35,1759713,37.42,-0.2,37.24,36.14,0.79
 20260611,37.3,37.3,36.4,37.1,1642001,37.4,-0.8,37.29,36.16,0.73
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,34.75,35.15,34.35,34.9,2472000,37.27,-6.36,37.74,36.69,1.09
 20260703,35,35.25,34.95,35.1,948100,37.09,-5.36,37.46,36.69,0.59
 20260706,35.2,35.6,34.9,35.1,1020000,36.92,-4.93,37.24,36.7,0.69
+20260707,35.1,35.25,34.25,34.35,1509114,36.71,-6.42,37.07,36.69,1.06
 ```
 
 ## Latest TDCC Snapshot
@@ -199,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 1612 | 宏泰 | 5 | 0 | 2710.0 | 0.0 |  | no_signal |
+| 20260707 | 1612 | 宏泰 | 5 | 0 | 0.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

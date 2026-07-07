@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2601 益航
 
 ## Metadata
-- generated_at: 2026-07-06 22:26:56 Asia/Taipei
+- generated_at: 2026-07-07 22:27:03 Asia/Taipei
 - stock_id: 2601
 - stock_name: 益航
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260706
-- price_rows: 297
+- latest_price_date: 20260707
+- price_rows: 298
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
-- open: 6.6
-- high: 6.6
-- low: 6.6
-- close: 6.6
-- volume: 5780000
-- ma5: 5.79
-- ema23_primary: 5.68
-- distance_to_ema23_pct: 16.27
-- ma20: 5.71
-- ma60: 5.44
-- ma120: 5.62
-- return_5d: 22.45
-- return_20d: 6.97
-- volume_ratio: 2.61
-- distance_to_ma20_pct_auxiliary: 15.49
-- distance_to_high_60_pct: -4.21
+- date: 20260707
+- open: 6.95
+- high: 7.2
+- low: 6.7
+- close: 6.87
+- volume: 28261967
+- ma5: 6.07
+- ema23_primary: 5.78
+- distance_to_ema23_pct: 18.95
+- ma20: 5.76
+- ma60: 5.46
+- ma120: 5.64
+- return_5d: 26.05
+- return_20d: 16.64
+- volume_ratio: 8.19
+- distance_to_ma20_pct_auxiliary: 19.19
+- distance_to_high_60_pct: -4.58
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,5.71,6,5.71,5.89,3465703,5.5,7.01,5.31,5.55,0.87
 20260609,5.89,6.09,5.86,5.88,2034877,5.54,6.23,5.35,5.54,0.52
 20260610,5.88,5.99,5.82,5.83,1899065,5.56,4.86,5.4,5.54,0.48
 20260611,5.89,5.89,5.55,5.71,1529516,5.57,2.47,5.45,5.53,0.39
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,5.51,5.51,5.42,5.46,1253000,5.56,-1.71,5.7,5.42,0.55
 20260703,5.46,6,5.46,6,5252076,5.59,7.29,5.69,5.43,2.39
 20260706,6.6,6.6,6.6,6.6,5780000,5.68,16.27,5.71,5.44,2.61
+20260707,6.95,7.2,6.7,6.87,28261967,5.78,18.95,5.76,5.46,8.19
 ```
 
 ## Latest TDCC Snapshot
@@ -189,12 +189,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 2601 | 益航 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_breakout |  |  | continued_2_3d | 1.董事會決議日:115/06/30 2.許可從事競業行為之經理人姓名及職稱: 陳勁渤/本公司之財務長、公司治理主管暨代理發言人 3.許可從事競業行為之項目: 有擔任其他公司之經理人，或經營其他與本公司營業範圍相同或類似公司之行為 4.許可從事競業行為之期間: 任職本公司經理人之職務期間 5.決議情形（請依公司法第32條說明表決結果）: 本案經主席徵詢全體出席董事無異議照案通過 6.所許可之競業行為如屬大陸地區事業之營業者，經理人姓名及職稱 （非屬大陸地區事業之營業者，以下請輸〝不適用〞）:不適用 7.所擔任該大陸地區事業之公司名稱及職務:不適用 8.所擔任該大陸地區事業地址:不適用 9.所擔任該大陸地區事業營業項目:不適用 10.對本公司財務業務之影響程度:無 11.經理人如有對該大陸地區事業從事投資者，其投資金額及持股比例:無 12.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260707 | 2601 | 益航 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  |  | continued_overheated | 1.董事會決議日:115/06/30 2.許可從事競業行為之經理人姓名及職稱: 陳勁渤/本公司之財務長、公司治理主管暨代理發言人 3.許可從事競業行為之項目: 有擔任其他公司之經理人，或經營其他與本公司營業範圍相同或類似公司之行為 4.許可從事競業行為之期間: 任職本公司經理人之職務期間 5.決議情形（請依公司法第32條說明表決結果）: 本案經主席徵詢全體出席董事無異議照案通過 6.所許可之競業行為如屬大陸地區事業之營業者，經理人姓名及職稱 （非屬大陸地區事業之營業者，以下請輸〝不適用〞）:不適用 7.所擔任該大陸地區事業之公司名稱及職務:不適用 8.所擔任該大陸地區事業地址:不適用 9.所擔任該大陸地區事業營業項目:不適用 10.對本公司財務業務之影響程度:無 11.經理人如有對該大陸地區事業從事投資者，其投資金額及持股比例:無 12.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 2601 | 益航 | 2 | 2 | 3 | 7 | 13 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| 20260707 | 2601 | 益航 | 3 | 3 | 3 | 7 | 13 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

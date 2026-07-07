@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00712 復華富時不動產
 
 ## Metadata
-- generated_at: 2026-07-06 22:26:22 Asia/Taipei
+- generated_at: 2026-07-07 22:26:25 Asia/Taipei
 - stock_id: 00712
 - stock_name: 復華富時不動產
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260706
-- price_rows: 31
+- latest_price_date: 20260707
+- price_rows: 32
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
-- open: 8.8
-- high: 8.85
-- low: 8.8
-- close: 8.84
-- volume: 19103000
+- date: 20260707
+- open: 8.88
+- high: 8.93
+- low: 8.87
+- close: 8.87
+- volume: 69159827
 - ma5: 8.81
-- ema23_primary: 8.74
-- distance_to_ema23_pct: 1.19
-- ma20: 8.72
-- ma60: 8.73
-- ma120: 8.73
-- return_5d: 0.8
-- return_20d: 1.49
-- volume_ratio: 0.52
-- distance_to_ma20_pct_auxiliary: 1.39
-- distance_to_high_60_pct: -0.23
+- ema23_primary: 8.75
+- distance_to_ema23_pct: 1.4
+- ma20: 8.73
+- ma60: 8.74
+- ma120: 8.74
+- return_5d: 0.34
+- return_20d: 2.07
+- volume_ratio: 1.82
+- distance_to_ma20_pct_auxiliary: 1.63
+- distance_to_high_60_pct: -0.67
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,8.65,8.7,8.63,8.69,38252822,8.75,-0.7,8.75,8.75,0.98
 20260609,8.65,8.65,8.62,8.64,59215419,8.74,-1.17,8.74,8.74,1.46
 20260610,8.73,8.76,8.73,8.74,43104687,8.74,-0.02,8.74,8.74,1.06
 20260611,8.74,8.77,8.72,8.77,32879415,8.74,0.29,8.74,8.74,0.82
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,8.77,8.77,8.74,8.76,13075000,8.72,0.46,8.71,8.72,0.31
 20260703,8.78,8.81,8.78,8.8,24745532,8.73,0.84,8.71,8.73,0.63
 20260706,8.8,8.85,8.8,8.84,19103000,8.74,1.19,8.72,8.73,0.52
+20260707,8.88,8.93,8.87,8.87,69159827,8.75,1.4,8.73,8.74,1.82
 ```
 
 ## Latest TDCC Snapshot

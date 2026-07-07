@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2409 友達
 
 ## Metadata
-- generated_at: 2026-07-06 22:26:49 Asia/Taipei
+- generated_at: 2026-07-07 22:26:56 Asia/Taipei
 - stock_id: 2409
 - stock_name: 友達
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260706
-- price_rows: 298
+- latest_price_date: 20260707
+- price_rows: 299
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
-- open: 30.4
-- high: 32
-- low: 30.15
-- close: 31.7
-- volume: 408698000
-- ma5: 31.11
-- ema23_primary: 27.96
-- distance_to_ema23_pct: 13.38
-- ma20: 27.77
-- ma60: 22.78
-- ma120: 19.12
-- return_5d: 3.59
-- return_20d: 16.97
-- volume_ratio: 0.84
-- distance_to_ma20_pct_auxiliary: 14.15
-- distance_to_high_60_pct: -7.98
+- date: 20260707
+- open: 31.9
+- high: 33
+- low: 29.05
+- close: 29.35
+- volume: 505399029
+- ma5: 30.44
+- ema23_primary: 28.07
+- distance_to_ema23_pct: 4.54
+- ma20: 28.02
+- ma60: 22.97
+- ma120: 19.26
+- return_5d: -10.24
+- return_20d: 20.29
+- volume_ratio: 1
+- distance_to_ma20_pct_auxiliary: 4.76
+- distance_to_high_60_pct: -14.8
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,24.4,24.4,24.4,24.4,69133057,22.79,7.06,22.55,18.94,0.15
 20260609,25,25.2,24,24,505972455,22.89,4.84,22.71,19.05,1.13
 20260610,23.4,24.7,22.85,22.95,368098295,22.9,0.24,22.85,19.16,0.83
 20260611,22.75,23.75,22.2,23.15,320575053,22.92,1.02,23.03,19.28,0.73
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,29.95,31.5,29.9,30.5,369821000,27.4,11.31,27.5,22.35,0.7
 20260703,30.05,30.5,29.6,30,231040275,27.62,8.62,27.54,22.57,0.47
 20260706,30.4,32,30.15,31.7,408698000,27.96,13.38,27.77,22.78,0.84
+20260707,31.9,33,29.05,29.35,505399029,28.07,4.54,28.02,22.97,1
 ```
 
 ## Latest TDCC Snapshot
@@ -188,17 +189,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 2409 | 友達 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | call_inflow | repeated_but_no_breakout | 1.股東常會日期:115/06/25 2.重要決議事項一、盈餘分配或盈虧撥補:無 3.重要決議事項二、章程修訂:核准修訂公司章程案 4.重要決議事項三、營業報告書及財務報表:無 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項:核准股東出資方式及出資時間變更案 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260707 | 2409 | 友達 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | continued_2_3d | 1.股東常會日期:115/06/25 2.重要決議事項一、盈餘分配或盈虧撥補:無 3.重要決議事項二、章程修訂:核准修訂公司章程案 4.重要決議事項三、營業報告書及財務報表:無 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項:核准股東出資方式及出資時間變更案 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 2409 | 友達 | 1 | 1 | 2 | 6 | 12 | repeated_but_no_breakout | 近 10 日上榜 6 次、近 20 日上榜 12 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260707 | 2409 | 友達 | 2 | 2 | 2 | 6 | 13 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 2409 | 友達 | 280 | 14 | 66921960.0 | 216650.0 | 308.89 | call_inflow |
+| 20260707 | 2409 | 友達 | 278 | 0 | 74105200.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

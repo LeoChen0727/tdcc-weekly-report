@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00943 兆豐電子高息等權
 
 ## Metadata
-- generated_at: 2026-07-06 22:26:24 Asia/Taipei
+- generated_at: 2026-07-07 22:26:27 Asia/Taipei
 - stock_id: 00943
 - stock_name: 兆豐電子高息等權
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260706
-- price_rows: 31
+- latest_price_date: 20260707
+- price_rows: 32
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
-- open: 23.18
-- high: 23.41
-- low: 23.1
-- close: 23.13
-- volume: 109000
-- ma5: 22.77
-- ema23_primary: 22.29
-- distance_to_ema23_pct: 3.78
-- ma20: 22.17
-- ma60: 22.12
-- ma120: 22.12
-- return_5d: 6.39
-- return_20d: 4.71
-- volume_ratio: 0.37
-- distance_to_ma20_pct_auxiliary: 4.33
-- distance_to_high_60_pct: -1.99
+- date: 20260707
+- open: 23.13
+- high: 23.13
+- low: 22.59
+- close: 22.59
+- volume: 265446
+- ma5: 22.8
+- ema23_primary: 22.31
+- distance_to_ema23_pct: 1.24
+- ma20: 22.26
+- ma60: 22.14
+- ma120: 22.14
+- return_5d: 0.67
+- return_20d: 8.35
+- volume_ratio: 0.93
+- distance_to_ma20_pct_auxiliary: 1.49
+- distance_to_high_60_pct: -4.28
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,20.44,20.88,20.33,20.85,514854,21.63,-3.6,21.93,21.93,2.01
 20260609,21.17,21.61,21.07,21.57,134452,21.62,-0.25,21.9,21.9,0.55
 20260610,22.04,22.04,20.76,20.76,518192,21.55,-3.68,21.82,21.82,1.95
 20260611,20.7,21.06,20.38,20.98,159455,21.5,-2.44,21.77,21.77,0.62
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,22.41,22.8,22.35,22.8,60000,22.14,2.99,22.08,22.06,0.2
 20260703,22.8,23.05,22.8,23.01,59628,22.21,3.6,22.12,22.09,0.2
 20260706,23.18,23.41,23.1,23.13,109000,22.29,3.78,22.17,22.12,0.37
+20260707,23.13,23.13,22.59,22.59,265446,22.31,1.24,22.26,22.14,0.93
 ```
 
 ## Latest TDCC Snapshot

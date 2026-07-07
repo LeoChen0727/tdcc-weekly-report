@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5515 建國
 
 ## Metadata
-- generated_at: 2026-07-06 22:27:40 Asia/Taipei
+- generated_at: 2026-07-07 22:27:55 Asia/Taipei
 - stock_id: 5515
 - stock_name: 建國
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260706
-- price_rows: 298
+- latest_price_date: 20260707
+- price_rows: 299
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
-- open: 40.4
-- high: 40.8
-- low: 40.15
-- close: 40.6
-- volume: 266000
-- ma5: 40.59
-- ema23_primary: 41.12
-- distance_to_ema23_pct: -1.27
-- ma20: 41.71
-- ma60: 40.94
-- ma120: 37.91
-- return_5d: 0.25
-- return_20d: -1.34
-- volume_ratio: 0.35
-- distance_to_ma20_pct_auxiliary: -2.66
-- distance_to_high_60_pct: -9.48
+- date: 20260707
+- open: 40.7
+- high: 41
+- low: 40.4
+- close: 40.65
+- volume: 318025
+- ma5: 40.47
+- ema23_primary: 41.08
+- distance_to_ema23_pct: -1.06
+- ma20: 41.7
+- ma60: 40.95
+- ma120: 37.95
+- return_5d: -1.45
+- return_20d: -0.12
+- volume_ratio: 0.42
+- distance_to_ma20_pct_auxiliary: -2.53
+- distance_to_high_60_pct: -9.36
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,40.25,40.8,39.55,40.7,459162,40.47,0.56,40.38,39.47,0.58
 20260609,40.55,41.5,40.55,41.5,527790,40.56,2.32,40.55,39.56,0.69
 20260610,41.8,43.4,41.8,43,1439993,40.76,5.49,40.76,39.68,1.75
 20260611,43.8,44.3,42.55,43.5,1228085,40.99,6.12,40.88,39.78,1.67
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,40.45,40.45,39.9,40.4,219000,41.25,-2.07,41.78,40.85,0.28
 20260703,40.45,41.2,40.05,40.25,271689,41.17,-2.24,41.73,40.89,0.35
 20260706,40.4,40.8,40.15,40.6,266000,41.12,-1.27,41.71,40.94,0.35
+20260707,40.7,41,40.4,40.65,318025,41.08,-1.06,41.7,40.95,0.42
 ```
 
 ## Latest TDCC Snapshot
@@ -199,7 +199,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 5515 | 建國 | 4 | 0 | 399200.0 | 0.0 |  | no_signal |
+| 20260707 | 5515 | 建國 | 4 | 0 | 414170.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

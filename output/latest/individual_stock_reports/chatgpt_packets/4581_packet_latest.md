@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4581 光隆精密-KY
 
 ## Metadata
-- generated_at: 2026-07-06 22:27:28 Asia/Taipei
+- generated_at: 2026-07-07 22:27:41 Asia/Taipei
 - stock_id: 4581
 - stock_name: 光隆精密-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260706
-- price_rows: 294
+- latest_price_date: 20260707
+- price_rows: 295
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
-- open: 50.2
-- high: 50.8
-- low: 50.2
-- close: 50.8
-- volume: 12000
-- ma5: 50.23
-- ema23_primary: 50.03
-- distance_to_ema23_pct: 1.54
-- ma20: 49.97
-- ma60: 50
-- ma120: 50.3
-- return_5d: 1.6
-- return_20d: 1.8
-- volume_ratio: 0.93
-- distance_to_ma20_pct_auxiliary: 1.66
-- distance_to_high_60_pct: -3.79
+- date: 20260707
+- open: 50.7
+- high: 50.7
+- low: 50.4
+- close: 50.5
+- volume: 20029
+- ma5: 50.34
+- ema23_primary: 50.07
+- distance_to_ema23_pct: 0.86
+- ma20: 50
+- ma60: 50.01
+- ma120: 50.29
+- return_5d: 1.1
+- return_20d: 1.2
+- volume_ratio: 1.49
+- distance_to_ma20_pct_auxiliary: 1
+- distance_to_high_60_pct: -4.36
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,49,50.2,49,49.9,7146,49.84,0.12,49.79,49.8,0.34
 20260609,49.3,49.85,49.3,49.55,24326,49.82,-0.54,49.72,49.79,1.14
 20260610,49.4,50,49.4,49.7,10028,49.81,-0.22,49.71,49.79,0.56
 20260611,49.5,49.85,49.5,49.85,12003,49.81,0.08,49.7,49.79,0.65
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,50.1,50.1,50.1,50.1,4000,49.94,0.33,49.91,49.97,0.29
 20260703,50,50.2,50,50.2,6006,49.96,0.48,49.92,49.99,0.45
 20260706,50.2,50.8,50.2,50.8,12000,50.03,1.54,49.97,50,0.93
+20260707,50.7,50.7,50.4,50.5,20029,50.07,0.86,50,50.01,1.49
 ```
 
 ## Latest TDCC Snapshot

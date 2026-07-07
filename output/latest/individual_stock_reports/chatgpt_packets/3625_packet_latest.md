@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3625 西勝
 
 ## Metadata
-- generated_at: 2026-07-06 22:27:19 Asia/Taipei
+- generated_at: 2026-07-07 22:27:30 Asia/Taipei
 - stock_id: 3625
 - stock_name: 西勝
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260706
-- price_rows: 163
+- latest_price_date: 20260707
+- price_rows: 164
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
-- open: 17.5
-- high: 18.4
-- low: 17
-- close: 18.4
-- volume: 2482000
-- ma5: 16.57
-- ema23_primary: 16.08
-- distance_to_ema23_pct: 14.43
-- ma20: 15.96
-- ma60: 15.87
-- ma120: 17.18
-- return_5d: 17.57
-- return_20d: 17.2
-- volume_ratio: 4.55
-- distance_to_ma20_pct_auxiliary: 15.31
-- distance_to_high_60_pct: -5.15
+- date: 20260707
+- open: 19
+- high: 19.45
+- low: 18.4
+- close: 18.65
+- volume: 4121000
+- ma5: 17.13
+- ema23_primary: 16.29
+- distance_to_ema23_pct: 14.46
+- ma20: 16.14
+- ma60: 15.91
+- ma120: 17.17
+- return_5d: 17.67
+- return_20d: 23.51
+- volume_ratio: 5.64
+- distance_to_ma20_pct_auxiliary: 15.59
+- distance_to_high_60_pct: -4.11
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,14.75,15.25,14.4,15.1,415000,15.33,-1.5,14.8,16.2,1.64
 20260609,15.3,15.6,15.1,15.5,295000,15.34,1.02,14.84,16.17,1.25
 20260610,15.3,15.55,15,15.15,372000,15.33,-1.16,14.85,16.14,1.69
 20260611,15.15,15.5,15.1,15.1,184000,15.31,-1.36,14.91,16.11,1.1
@@ -160,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,15.9,16.2,15.75,16.1,289000,15.79,1.98,15.8,15.85,0.74
 20260703,16.4,17.3,16.15,16.75,669000,15.87,5.56,15.82,15.84,1.58
 20260706,17.5,18.4,17,18.4,2482000,16.08,14.43,15.96,15.87,4.55
+20260707,19,19.45,18.4,18.65,4121000,16.29,14.46,16.14,15.91,5.64
 ```
 
 ## Latest TDCC Snapshot
@@ -194,12 +194,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 3625 | 西勝 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_breakout |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260707 | 3625 | 西勝 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 3625 | 西勝 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬新訊號，需確認量價、TDCC 與 benchmark 表現。 |
+| 20260707 | 3625 | 西勝 | 2 | 2 | 2 | 2 | 2 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

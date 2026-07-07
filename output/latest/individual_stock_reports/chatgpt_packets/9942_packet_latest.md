@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9942 茂順
 
 ## Metadata
-- generated_at: 2026-07-06 22:28:28 Asia/Taipei
+- generated_at: 2026-07-07 22:28:52 Asia/Taipei
 - stock_id: 9942
 - stock_name: 茂順
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260706
-- price_rows: 298
+- latest_price_date: 20260707
+- price_rows: 299
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,21 +113,21 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
-- open: 120
+- date: 20260707
+- open: 119
 - high: 120
 - low: 118
 - close: 118.5
-- volume: 81000
-- ma5: 118.1
-- ema23_primary: 118.24
-- distance_to_ema23_pct: 0.22
+- volume: 132386
+- ma5: 118.3
+- ema23_primary: 118.26
+- distance_to_ema23_pct: 0.2
 - ma20: 118.35
-- ma60: 118.11
-- ma120: 115.68
+- ma60: 118.13
+- ma120: 115.79
 - return_5d: 0.85
-- return_20d: -1.66
-- volume_ratio: 0.86
+- return_20d: 0
+- volume_ratio: 1.42
 - distance_to_ma20_pct_auxiliary: 0.13
 - distance_to_high_60_pct: -3.27
 
@@ -135,7 +135,6 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,118.5,118.5,117,118.5,147993,118.53,-0.02,118.33,117.12,1.43
 20260609,118,120,118,119.5,114479,118.61,0.75,118.33,117.18,1.1
 20260610,118.5,119.5,118.5,119.5,46889,118.68,0.69,118.3,117.23,0.46
 20260611,118.5,119.5,118,119.5,80415,118.75,0.63,118.38,117.3,0.79
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,117.5,118,117,117.5,47000,118.09,-0.5,118.45,118.03,0.48
 20260703,118,119.5,118,119.5,54846,118.21,1.09,118.45,118.09,0.57
 20260706,120,120,118,118.5,81000,118.24,0.22,118.35,118.11,0.86
+20260707,119,120,118,118.5,132386,118.26,0.2,118.35,118.13,1.42
 ```
 
 ## Latest TDCC Snapshot

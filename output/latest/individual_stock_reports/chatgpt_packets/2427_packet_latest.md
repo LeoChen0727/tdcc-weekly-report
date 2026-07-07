@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2427 三商電
 
 ## Metadata
-- generated_at: 2026-07-06 22:26:50 Asia/Taipei
+- generated_at: 2026-07-07 22:26:57 Asia/Taipei
 - stock_id: 2427
 - stock_name: 三商電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260706
-- price_rows: 298
+- latest_price_date: 20260707
+- price_rows: 299
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -117,29 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
-- open: 26.85
-- high: 27.1
-- low: 25.55
-- close: 25.9
-- volume: 11549000
-- ma5: 24.2
-- ema23_primary: 22.99
-- distance_to_ema23_pct: 12.66
-- ma20: 22.91
-- ma60: 22.03
-- ma120: 23.67
-- return_5d: 16.67
-- return_20d: 9.51
-- volume_ratio: 4.85
-- distance_to_ma20_pct_auxiliary: 13.08
-- distance_to_high_60_pct: -4.43
+- date: 20260707
+- open: 26.1
+- high: 26.2
+- low: 24.6
+- close: 24.9
+- volume: 6080723
+- ma5: 24.75
+- ema23_primary: 23.15
+- distance_to_ema23_pct: 7.57
+- ma20: 22.95
+- ma60: 22.06
+- ma120: 23.65
+- return_5d: 12.42
+- return_20d: 4.18
+- volume_ratio: 2.43
+- distance_to_ma20_pct_auxiliary: 8.47
+- distance_to_high_60_pct: -8.12
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,22,24.45,21.75,23.9,3609611,22.02,8.53,21.47,22.26,2.44
 20260609,24.15,24.45,23.65,23.7,1701803,22.16,6.94,21.59,22.25,1.11
 20260610,22.95,23.15,22.25,22.3,2250853,22.17,0.57,21.64,22.21,1.39
 20260611,22.1,22.4,21.95,22,877180,22.16,-0.71,21.69,22.18,0.54
@@ -159,6 +158,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,23,24.25,22.25,24.25,4285000,22.37,8.42,22.64,21.92,3.48
 20260703,24.25,26.65,23.75,26.65,15242152,22.72,17.28,22.79,21.98,8.02
 20260706,26.85,27.1,25.55,25.9,11549000,22.99,12.66,22.91,22.03,4.85
+20260707,26.1,26.2,24.6,24.9,6080723,23.15,7.57,22.95,22.06,2.43
 ```
 
 ## Latest TDCC Snapshot
@@ -193,12 +193,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 2427 | 三商電 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_overheated | 1.發生變動日期:115/07/02 2.功能性委員會名稱:薪資報酬委員會。 3.舊任者姓名:不適用。 4.舊任者簡歷:不適用。 5.新任者姓名:郭雅慧。 6.新任者簡歷:本公司獨立董事。 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 新任。 8.異動原因:董事會決議聘任。 9.原任期（例xx/xx/xx ~ xx/xx/xx）:114/07/03~117/06/08。 10.新任生效日期:115/07/02 11.其他應敘明事項:本公司115/06/09補選一席獨立董事，並於115/07/02董事會通過增 聘一席薪資報酬委員會委員，第六屆薪資報酬委員會委員由原本5席，增聘為6席委員。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260707 | 2427 | 三商電 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  |  | stale_signal | 1.發生變動日期:115/07/02 2.功能性委員會名稱:薪資報酬委員會。 3.舊任者姓名:不適用。 4.舊任者簡歷:不適用。 5.新任者姓名:郭雅慧。 6.新任者簡歷:本公司獨立董事。 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 新任。 8.異動原因:董事會決議聘任。 9.原任期（例xx/xx/xx ~ xx/xx/xx）:114/07/03~117/06/08。 10.新任生效日期:115/07/02 11.其他應敘明事項:本公司115/06/09補選一席獨立董事，並於115/07/02董事會通過增 聘一席薪資報酬委員會委員，第六屆薪資報酬委員會委員由原本5席，增聘為6席委員。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 2427 | 三商電 | 3 | 1 | 3 | 3 | 6 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260707 | 2427 | 三商電 | 4 | 2 | 4 | 4 | 6 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

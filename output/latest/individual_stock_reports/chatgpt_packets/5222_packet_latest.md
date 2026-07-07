@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5222 全訊
 
 ## Metadata
-- generated_at: 2026-07-06 22:27:35 Asia/Taipei
+- generated_at: 2026-07-07 22:27:49 Asia/Taipei
 - stock_id: 5222
 - stock_name: 全訊
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260706
-- price_rows: 298
+- latest_price_date: 20260707
+- price_rows: 299
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
-- open: 131
-- high: 133
-- low: 129
-- close: 129.5
-- volume: 1251000
-- ma5: 126.1
-- ema23_primary: 121.96
-- distance_to_ema23_pct: 6.18
-- ma20: 118.8
-- ma60: 126.46
-- ma120: 130.93
-- return_5d: 7.47
-- return_20d: 6.58
-- volume_ratio: 2.01
-- distance_to_ma20_pct_auxiliary: 9.01
-- distance_to_high_60_pct: -15.36
+- date: 20260707
+- open: 129.5
+- high: 129.5
+- low: 124
+- close: 124.5
+- volume: 703643
+- ma5: 125.7
+- ema23_primary: 122.17
+- distance_to_ema23_pct: 1.91
+- ma20: 119.22
+- ma60: 126.58
+- ma120: 130.88
+- return_5d: -1.58
+- return_20d: 7.33
+- volume_ratio: 1.12
+- distance_to_ma20_pct_auxiliary: 4.42
+- distance_to_high_60_pct: -18.63
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,111,116,111,116,589460,125.54,-7.6,124.47,129.82,1.13
 20260609,116.5,118,116,117,450642,124.83,-6.27,123.88,129.52,0.9
 20260610,117,118.5,113,113,444571,123.84,-8.75,123.17,129.18,0.9
 20260611,113,113.5,110.5,112.5,423931,122.9,-8.46,122.5,128.8,0.86
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,124.5,127.5,123,123,434000,120.71,1.9,118.17,126.06,0.81
 20260703,124.5,131.5,123.5,127.5,1275626,121.28,5.13,118.4,126.24,2.19
 20260706,131,133,129,129.5,1251000,121.96,6.18,118.8,126.46,2.01
+20260707,129.5,129.5,124,124.5,703643,122.17,1.91,119.22,126.58,1.12
 ```
 
 ## Latest TDCC Snapshot
@@ -198,7 +199,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 5222 | 全訊 | 10 | 0 | 370250.0 | 0.0 |  | no_signal |
+| 20260707 | 5222 | 全訊 | 10 | 0 | 141690.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

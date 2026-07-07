@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6742 澤米
 
 ## Metadata
-- generated_at: 2026-07-06 22:28:02 Asia/Taipei
+- generated_at: 2026-07-07 22:28:21 Asia/Taipei
 - stock_id: 6742
 - stock_name: 澤米
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260706
-- price_rows: 298
+- latest_price_date: 20260707
+- price_rows: 299
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
-- open: 67.4
-- high: 67.4
-- low: 62.9
-- close: 63
-- volume: 1888000
-- ma5: 65.84
-- ema23_primary: 63.22
-- distance_to_ema23_pct: -0.35
-- ma20: 63.87
-- ma60: 52.98
-- ma120: 48.22
-- return_5d: -2.17
-- return_20d: 8.62
-- volume_ratio: 0.39
-- distance_to_ma20_pct_auxiliary: -1.35
-- distance_to_high_60_pct: -15.89
+- date: 20260707
+- open: 63.3
+- high: 65.6
+- low: 59
+- close: 59.3
+- volume: 1715218
+- ma5: 64.14
+- ema23_primary: 62.9
+- distance_to_ema23_pct: -5.72
+- ma20: 64.11
+- ma60: 53.3
+- ma120: 48.33
+- return_5d: -12.54
+- return_20d: 8.81
+- volume_ratio: 0.35
+- distance_to_ma20_pct_auxiliary: -7.5
+- distance_to_high_60_pct: -20.83
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,52.2,55.9,52.2,54.5,1483563,54.05,0.82,54.62,45.66,0.48
 20260609,55.2,59.9,51,59.9,2879520,54.54,9.82,55.61,45.95,0.9
 20260610,61,65.1,59.8,59.8,8065446,54.98,8.77,56.67,46.24,2.24
 20260611,56.5,58.7,54,54.6,3120183,54.95,-0.63,57.27,46.42,0.84
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,65.7,67.6,64.5,66.2,1121000,62.96,5.15,63.48,52.17,0.23
 20260703,65.3,71.7,64.7,66.4,3079609,63.24,4.99,63.62,52.59,0.64
 20260706,67.4,67.4,62.9,63,1888000,63.22,-0.35,63.87,52.98,0.39
+20260707,63.3,65.6,59,59.3,1715218,62.9,-5.72,64.11,53.3,0.35
 ```
 
 ## Latest TDCC Snapshot
@@ -189,12 +188,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 6742 | 澤米 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.股東常會日期:115/06/26 2.重要決議事項一、盈餘分配或盈虧撥補:通過本公司114年度虧損撥補案。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表:   通過本公司114年度營業報告書及財務報表案。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項:無。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260707 | 6742 | 澤米 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.股東常會日期:115/06/26 2.重要決議事項一、盈餘分配或盈虧撥補:通過本公司114年度虧損撥補案。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表:   通過本公司114年度營業報告書及財務報表案。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項:無。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 6742 | 澤米 | 3 | 3 | 3 | 8 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260707 | 6742 | 澤米 | 4 | 4 | 4 | 8 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2066 世德
 
 ## Metadata
-- generated_at: 2026-07-06 22:26:42 Asia/Taipei
+- generated_at: 2026-07-07 22:26:48 Asia/Taipei
 - stock_id: 2066
 - stock_name: 世德
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260706
-- price_rows: 163
+- latest_price_date: 20260707
+- price_rows: 164
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
-- open: 68.9
-- high: 69.4
-- low: 67.9
-- close: 68.8
-- volume: 164000
-- ma5: 67.84
-- ema23_primary: 64.92
-- distance_to_ema23_pct: 5.97
-- ma20: 65.48
-- ma60: 56.14
-- ma120: 53.88
-- return_5d: 2.99
-- return_20d: 16.61
-- volume_ratio: 0.73
-- distance_to_ma20_pct_auxiliary: 5.06
-- distance_to_high_60_pct: -9.35
+- date: 20260707
+- open: 69.5
+- high: 69.5
+- low: 67.6
+- close: 67.6
+- volume: 89000
+- ma5: 67.96
+- ema23_primary: 65.14
+- distance_to_ema23_pct: 3.77
+- ma20: 65.87
+- ma60: 56.45
+- ma120: 54.03
+- return_5d: 0.9
+- return_20d: 12.85
+- volume_ratio: 0.4
+- distance_to_ma20_pct_auxiliary: 2.63
+- distance_to_high_60_pct: -10.94
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,56.8,59.9,56.1,59.9,90000,56,6.97,57.02,51.22,0.61
 20260609,59.8,60.7,59.1,60.4,185000,56.37,7.16,57.74,51.32,1.2
 20260610,60.6,61,59,60.5,128000,56.71,6.68,58.24,51.44,0.84
 20260611,60.7,60.8,59.2,60.6,110000,57.03,6.25,58.49,51.61,0.73
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,65.2,68.7,64.8,68.5,122000,64.16,6.77,64.48,55.5,0.56
 20260703,68.4,70,67.5,69.1,95000,64.57,7.02,65,55.83,0.44
 20260706,68.9,69.4,67.9,68.8,164000,64.92,5.97,65.48,56.14,0.73
+20260707,69.5,69.5,67.6,67.6,89000,65.14,3.77,65.87,56.45,0.4
 ```
 
 ## Latest TDCC Snapshot

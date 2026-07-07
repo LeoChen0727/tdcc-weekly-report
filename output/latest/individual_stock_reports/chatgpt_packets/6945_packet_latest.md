@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6945 圓祥生技
 
 ## Metadata
-- generated_at: 2026-07-06 22:28:07 Asia/Taipei
+- generated_at: 2026-07-07 22:28:27 Asia/Taipei
 - stock_id: 6945
 - stock_name: 圓祥生技
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260706
-- price_rows: 21
+- latest_price_date: 20260707
+- price_rows: 22
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
-- open: 106.5
-- high: 109.5
-- low: 103
-- close: 104.5
-- volume: 590000
-- ma5: 101.04
-- ema23_primary: 101.15
-- distance_to_ema23_pct: 3.31
-- ma20: 100.37
-- ma60: 100.59
-- ma120: 100.59
-- return_5d: 4.6
-- return_20d: -0.48
-- volume_ratio: 1.73
-- distance_to_ma20_pct_auxiliary: 4.11
-- distance_to_high_60_pct: -4.57
+- date: 20260707
+- open: 106
+- high: 114.5
+- low: 104
+- close: 114.5
+- volume: 1076000
+- ma5: 103.74
+- ema23_primary: 102.26
+- distance_to_ema23_pct: 11.97
+- ma20: 100.89
+- ma60: 101.22
+- ma120: 101.22
+- return_5d: 13.37
+- return_20d: 10.1
+- volume_ratio: 2.91
+- distance_to_ma20_pct_auxiliary: 13.48
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,99.9,105,97.1,104,509000,,,,,
 20260609,104,104,101.5,102,274000,,,,,
 20260610,102,104.5,101,102,319000,,,,,
 20260611,102,104,99.9,100,306000,104.08,-3.92,102.6,102.6,1.01
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,98.5,98.5,96,97.5,88000,100.47,-2.96,100.15,100.15,0.29
 20260703,97.9,107,97.9,105,659000,100.85,4.12,100.39,100.39,2.08
 20260706,106.5,109.5,103,104.5,590000,101.15,3.31,100.37,100.59,1.73
+20260707,106,114.5,104,114.5,1076000,102.26,11.97,100.89,101.22,2.91
 ```
 
 ## Latest TDCC Snapshot

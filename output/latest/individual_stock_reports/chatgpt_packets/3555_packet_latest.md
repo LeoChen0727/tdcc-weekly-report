@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3555 博士旺
 
 ## Metadata
-- generated_at: 2026-07-06 22:27:17 Asia/Taipei
+- generated_at: 2026-07-07 22:27:28 Asia/Taipei
 - stock_id: 3555
 - stock_name: 博士旺
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260706
-- price_rows: 163
+- latest_price_date: 20260707
+- price_rows: 164
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
-- open: 193
-- high: 193
-- low: 187
-- close: 188
-- volume: 34000
-- ma5: 192.2
-- ema23_primary: 197.57
-- distance_to_ema23_pct: -4.84
-- ma20: 194.85
-- ma60: 217.16
-- ma120: 171.36
-- return_5d: 2.45
-- return_20d: -16.81
-- volume_ratio: 0.23
-- distance_to_ma20_pct_auxiliary: -3.52
-- distance_to_high_60_pct: -33.21
+- date: 20260707
+- open: 193.5
+- high: 193.5
+- low: 181.5
+- close: 181.5
+- volume: 57000
+- ma5: 188.2
+- ema23_primary: 196.23
+- distance_to_ema23_pct: -7.51
+- ma20: 193.7
+- ma60: 216.93
+- ma120: 172.13
+- return_5d: -9.93
+- return_20d: -11.25
+- volume_ratio: 0.43
+- distance_to_ma20_pct_auxiliary: -6.3
+- distance_to_high_60_pct: -35.52
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,203.5,210,203.5,204.5,347000,219.03,-6.63,216.45,210.24,1.65
 20260609,209.5,209.5,195,202,340000,217.61,-7.17,215.53,211.15,1.6
 20260610,199.5,206,187.5,187.5,240000,215.1,-12.83,213.95,211.57,1.12
 20260611,187.5,206,177,206,221000,214.34,-3.89,213.47,212.04,1.03
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,191,196,189.5,191.5,46000,199.39,-3.96,199,216.88,0.28
 20260703,197,197,188,188,45000,198.44,-5.26,196.75,216.98,0.29
 20260706,193,193,187,188,34000,197.57,-4.84,194.85,217.16,0.23
+20260707,193.5,193.5,181.5,181.5,57000,196.23,-7.51,193.7,216.93,0.43
 ```
 
 ## Latest TDCC Snapshot

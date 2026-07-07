@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2248 華勝-KY
 
 ## Metadata
-- generated_at: 2026-07-06 22:26:44 Asia/Taipei
+- generated_at: 2026-07-07 22:26:50 Asia/Taipei
 - stock_id: 2248
 - stock_name: 華勝-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260706
-- price_rows: 296
+- latest_price_date: 20260707
+- price_rows: 297
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
-- open: 57.9
-- high: 60
-- low: 57.3
-- close: 58.9
-- volume: 146000
-- ma5: 56.64
-- ema23_primary: 55.96
-- distance_to_ema23_pct: 5.25
-- ma20: 55.96
-- ma60: 55.55
-- ma120: 52.22
-- return_5d: 7.09
-- return_20d: 2.43
-- volume_ratio: 2.53
-- distance_to_ma20_pct_auxiliary: 5.25
-- distance_to_high_60_pct: -5.15
+- date: 20260707
+- open: 60
+- high: 60.1
+- low: 58.8
+- close: 58.8
+- volume: 68040
+- ma5: 57.4
+- ema23_primary: 56.2
+- distance_to_ema23_pct: 4.63
+- ma20: 56.12
+- ma60: 55.73
+- ma120: 52.3
+- return_5d: 6.91
+- return_20d: 5.95
+- volume_ratio: 1.2
+- distance_to_ma20_pct_auxiliary: 4.77
+- distance_to_high_60_pct: -5.31
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,55,55.5,54,55.5,94161,55.4,0.18,55.12,53.48,1.31
 20260609,55.5,56.9,55.1,56.4,71500,55.48,1.65,55.24,53.6,1.13
 20260610,55.7,57.4,55.7,56.4,52788,55.56,1.51,55.34,53.73,0.82
 20260611,55,56,54.1,55.4,112892,55.55,-0.26,55.38,53.82,1.67
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,55.9,57.5,55.9,56.7,72000,55.55,2.07,55.91,55.26,1.37
 20260703,56.7,57.6,56.7,57.3,103550,55.69,2.88,55.89,55.39,1.93
 20260706,57.9,60,57.3,58.9,146000,55.96,5.25,55.96,55.55,2.53
+20260707,60,60.1,58.8,58.8,68040,56.2,4.63,56.12,55.73,1.2
 ```
 
 ## Latest TDCC Snapshot

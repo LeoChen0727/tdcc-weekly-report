@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6913 鴻呈
 
 ## Metadata
-- generated_at: 2026-07-06 22:28:06 Asia/Taipei
+- generated_at: 2026-07-07 22:28:26 Asia/Taipei
 - stock_id: 6913
 - stock_name: 鴻呈
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260706
-- price_rows: 163
+- latest_price_date: 20260707
+- price_rows: 164
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
-- open: 123
-- high: 128
+- date: 20260707
+- open: 125.5
+- high: 126
 - low: 123
 - close: 125
-- volume: 170000
-- ma5: 120.9
-- ema23_primary: 124.91
+- volume: 213000
+- ma5: 122
+- ema23_primary: 124.92
 - distance_to_ema23_pct: 0.07
-- ma20: 123.83
-- ma60: 130.62
-- ma120: 123.01
-- return_5d: 5.49
-- return_20d: -6.72
-- volume_ratio: 0.85
-- distance_to_ma20_pct_auxiliary: 0.95
+- ma20: 123.58
+- ma60: 130.61
+- ma120: 123.05
+- return_5d: 4.6
+- return_20d: -3.85
+- volume_ratio: 1.1
+- distance_to_ma20_pct_auxiliary: 1.15
 - distance_to_high_60_pct: -17.76
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,124,130,123,130,360000,135.67,-4.18,137.47,126.88,0.92
 20260609,132,136.5,130.5,136,310000,135.7,0.22,137.3,127.35,0.88
 20260610,134,135.5,125,125,322000,134.81,-7.28,136.95,127.68,0.99
 20260611,124.5,126.5,120.5,123,212000,133.82,-8.09,136.55,127.97,0.66
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,119,120.5,118.5,119.5,88000,125.08,-4.46,124.95,130.53,0.44
 20260703,118,123.5,118,123,140000,124.9,-1.52,124.28,130.58,0.7
 20260706,123,128,123,125,170000,124.91,0.07,123.83,130.62,0.85
+20260707,125.5,126,123,125,213000,124.92,0.07,123.58,130.61,1.1
 ```
 
 ## Latest TDCC Snapshot

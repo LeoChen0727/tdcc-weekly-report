@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2887 台新新光金
 
 ## Metadata
-- generated_at: 2026-07-06 22:27:01 Asia/Taipei
+- generated_at: 2026-07-07 22:27:09 Asia/Taipei
 - stock_id: 2887
 - stock_name: 台新新光金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260706
-- price_rows: 298
+- latest_price_date: 20260707
+- price_rows: 299
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -111,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
-- open: 34.15
-- high: 34.8
-- low: 34.15
-- close: 34.3
-- volume: 33724000
-- ma5: 33.61
-- ema23_primary: 31.13
-- distance_to_ema23_pct: 10.17
-- ma20: 31.73
-- ma60: 26.74
-- ma120: 25.07
-- return_5d: 3.94
-- return_20d: 19.93
-- volume_ratio: 0.38
-- distance_to_ma20_pct_auxiliary: 8.08
-- distance_to_high_60_pct: -1.72
+- date: 20260707
+- open: 34.3
+- high: 35.5
+- low: 34.3
+- close: 34.9
+- volume: 85489406
+- ma5: 33.94
+- ema23_primary: 31.45
+- distance_to_ema23_pct: 10.98
+- ma20: 32.09
+- ma60: 26.91
+- ma120: 25.19
+- return_5d: 4.96
+- return_20d: 25.77
+- volume_ratio: 0.98
+- distance_to_ma20_pct_auxiliary: 8.75
+- distance_to_high_60_pct: -1.69
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,27.5,27.9,27.15,27.75,115887137,25.18,10.22,24.61,24.33,0.75
 20260609,28.4,29.65,28.15,29.55,137888947,25.54,15.7,24.93,24.41,0.89
 20260610,29.5,29.55,28.5,28.9,111385443,25.82,11.93,25.22,24.48,0.72
 20260611,28.9,28.9,28,28.75,65102370,26.06,10.3,25.5,24.55,0.43
@@ -153,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,33.3,33.8,32.95,33,50616000,30.55,8.04,31.17,26.42,0.5
 20260703,32.95,34.9,32.95,34.15,108841693,30.85,10.71,31.45,26.58,1.16
 20260706,34.15,34.8,34.15,34.3,33724000,31.13,10.17,31.73,26.74,0.38
+20260707,34.3,35.5,34.3,34.9,85489406,31.45,10.98,32.09,26.91,0.98
 ```
 
 ## Latest TDCC Snapshot
@@ -187,18 +187,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 2887 | 台新新光金 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | no_signal | stale_signal | 1.事實發生日:115/07/03 2.公司名稱:新光人壽保險股份有限公司 3.與公司關係(請輸入本公司或子公司):子公司 4.相互持股比例:不適用 5.發生緣由:更正公告新光人壽115年第一季合併財務報告iXBRL申報資訊 6.更正資訊項目/報表名稱:iXBRL/”資產負債表”及”列入合併財務報表之子公司” 7.更正前金額/內容/頁次: (1)”資產負債表”未含追溯重編之114年1月1日欄位。 (2)”列入合併財務報表之子公司”未含追溯重編後之去年年初所持股權百分比。 8.更正後金額/內容/頁次: (1)”資產負債表”補正包含追溯重編之114年1月1日欄位。 (2)”列入合併財務報表之子公司”補正包含追溯重編後之去年年初所持股權百分比。 9.因應措施:更正後內容重新上傳iXBRL。 10.其他應敘明事項:本次更正屬iXBRL之資訊補正，對財務報告並無影響。；calendar event: ex_right_dividend on 20260721; status=confirmed; proximity=within_30d |
-| 20260706 | 2887 | 台新新光金 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/07/03 2.公司名稱:新光人壽保險股份有限公司 3.與公司關係(請輸入本公司或子公司):子公司 4.相互持股比例:不適用 5.發生緣由:更正公告新光人壽115年第一季合併財務報告iXBRL申報資訊 6.更正資訊項目/報表名稱:iXBRL/”資產負債表”及”列入合併財務報表之子公司” 7.更正前金額/內容/頁次: (1)”資產負債表”未含追溯重編之114年1月1日欄位。 (2)”列入合併財務報表之子公司”未含追溯重編後之去年年初所持股權百分比。 8.更正後金額/內容/頁次: (1)”資產負債表”補正包含追溯重編之114年1月1日欄位。 (2)”列入合併財務報表之子公司”補正包含追溯重編後之去年年初所持股權百分比。 9.因應措施:更正後內容重新上傳iXBRL。 10.其他應敘明事項:本次更正屬iXBRL之資訊補正，對財務報告並無影響。；calendar event: ex_right_dividend on 20260721; status=confirmed; proximity=within_30d |
+| 20260707 | 2887 | 台新新光金 | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  | no_signal | stale_signal | 1.事實發生日:115/07/03 2.公司名稱:新光人壽保險股份有限公司 3.與公司關係(請輸入本公司或子公司):子公司 4.相互持股比例:不適用 5.發生緣由:更正公告新光人壽115年第一季合併財務報告iXBRL申報資訊 6.更正資訊項目/報表名稱:iXBRL/”資產負債表”及”列入合併財務報表之子公司” 7.更正前金額/內容/頁次: (1)”資產負債表”未含追溯重編之114年1月1日欄位。 (2)”列入合併財務報表之子公司”未含追溯重編後之去年年初所持股權百分比。 8.更正後金額/內容/頁次: (1)”資產負債表”補正包含追溯重編之114年1月1日欄位。 (2)”列入合併財務報表之子公司”補正包含追溯重編後之去年年初所持股權百分比。 9.因應措施:更正後內容重新上傳iXBRL。 10.其他應敘明事項:本次更正屬iXBRL之資訊補正，對財務報告並無影響。；calendar event: ex_right_dividend on 20260721; status=confirmed; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 2887 | 台新新光金 | 9 | 3 | 5 | 9 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260707 | 2887 | 台新新光金 | 10 | 2 | 5 | 10 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 2887 | 台新新光金 | 27 | 0 | 6725000.0 | 0.0 |  | no_signal |
+| 20260707 | 2887 | 台新新光金 | 26 | 0 | 8342060.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

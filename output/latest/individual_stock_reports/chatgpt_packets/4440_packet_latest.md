@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4440 宜新實業
 
 ## Metadata
-- generated_at: 2026-07-06 22:27:26 Asia/Taipei
+- generated_at: 2026-07-07 22:27:38 Asia/Taipei
 - stock_id: 4440
 - stock_name: 宜新實業
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260706
-- price_rows: 298
+- latest_price_date: 20260707
+- price_rows: 299
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
-- open: 17.55
-- high: 18.35
-- low: 17.55
-- close: 18.25
-- volume: 288000
-- ma5: 17.49
-- ema23_primary: 17.45
-- distance_to_ema23_pct: 4.57
+- date: 20260707
+- open: 18.25
+- high: 18.25
+- low: 17.7
+- close: 17.95
+- volume: 132087
+- ma5: 17.63
+- ema23_primary: 17.49
+- distance_to_ema23_pct: 2.61
 - ma20: 17.27
-- ma60: 17.76
+- ma60: 17.77
 - ma120: 17.59
-- return_5d: 6.73
+- return_5d: 4.06
 - return_20d: 0
-- volume_ratio: 1.13
-- distance_to_ma20_pct_auxiliary: 5.64
-- distance_to_high_60_pct: -9.2
+- volume_ratio: 0.51
+- distance_to_ma20_pct_auxiliary: 3.91
+- distance_to_high_60_pct: -10.7
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,17.85,17.95,17.7,17.95,34339,18.04,-0.51,18.19,17.83,0.2
 20260609,17.75,17.75,17.25,17.3,465119,17.98,-3.78,18.16,17.83,2.43
 20260610,17.35,17.35,17,17,133016,17.9,-5.02,18.05,17.81,0.82
 20260611,17,17.15,17,17.1,52406,17.83,-4.1,17.94,17.79,0.35
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,17.15,17.25,17.15,17.25,22000,17.36,-0.66,17.31,17.74,0.23
 20260703,17.2,17.8,17.2,17.55,3010558,17.38,0.98,17.27,17.75,12.32
 20260706,17.55,18.35,17.55,18.25,288000,17.45,4.57,17.27,17.76,1.13
+20260707,18.25,18.25,17.7,17.95,132087,17.49,2.61,17.27,17.77,0.51
 ```
 
 ## Latest TDCC Snapshot

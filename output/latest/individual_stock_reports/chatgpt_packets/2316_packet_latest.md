@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2316 楠梓電
 
 ## Metadata
-- generated_at: 2026-07-06 22:26:45 Asia/Taipei
+- generated_at: 2026-07-07 22:26:51 Asia/Taipei
 - stock_id: 2316
 - stock_name: 楠梓電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260706
-- price_rows: 298
+- latest_price_date: 20260707
+- price_rows: 299
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
-- open: 225.5
-- high: 225.5
+- date: 20260707
+- open: 219
+- high: 219
 - low: 205.5
-- close: 216
-- volume: 1241000
-- ma5: 217.3
-- ema23_primary: 197.79
-- distance_to_ema23_pct: 9.21
-- ma20: 198.03
-- ma60: 155.06
-- ma120: 126.96
-- return_5d: 2.86
-- return_20d: 29.34
-- volume_ratio: 0.23
-- distance_to_ma20_pct_auxiliary: 9.08
-- distance_to_high_60_pct: -13.08
+- close: 205.5
+- volume: 986420
+- ma5: 215
+- ema23_primary: 198.43
+- distance_to_ema23_pct: 3.56
+- ma20: 199.97
+- ma60: 156.52
+- ma120: 127.83
+- return_5d: -5.3
+- return_20d: 23.42
+- volume_ratio: 0.2
+- distance_to_ma20_pct_auxiliary: 2.76
+- distance_to_high_60_pct: -17.3
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,150.5,167.5,150.5,166.5,5983314,151.42,9.96,154.05,123.94,0.59
 20260609,167.5,171.5,162,168.5,7372687,152.84,10.25,155.7,125.23,0.71
 20260610,166.5,171,156.5,157,5662415,153.19,2.49,156.43,126.33,0.59
 20260611,154.5,160,150,153.5,3573267,153.21,0.19,157.4,127.21,0.4
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,212,215,210,214,706000,193.83,10.41,192.5,151.19,0.12
 20260703,213.5,226.5,210,221.5,1051419,196.13,12.93,195.57,153.25,0.18
 20260706,225.5,225.5,205.5,216,1241000,197.79,9.21,198.03,155.06,0.23
+20260707,219,219,205.5,205.5,986420,198.43,3.56,199.97,156.52,0.2
 ```
 
 ## Latest TDCC Snapshot
@@ -198,7 +199,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 2316 | 楠梓電 | 87 | 0 | 2343500.0 | 0.0 |  | call_inflow |
+| 20260707 | 2316 | 楠梓電 | 87 | 0 | 1709100.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

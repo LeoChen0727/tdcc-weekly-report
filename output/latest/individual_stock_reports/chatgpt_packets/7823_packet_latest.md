@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7823 奧義賽博-KY創
 
 ## Metadata
-- generated_at: 2026-07-06 22:28:16 Asia/Taipei
+- generated_at: 2026-07-07 22:28:37 Asia/Taipei
 - stock_id: 7823
 - stock_name: 奧義賽博-KY創
 - packet_status: standard_rawdata_packet
-- latest_price_date: 20260706
-- price_rows: 96
+- latest_price_date: 20260707
+- price_rows: 97
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
-- open: 81.5
-- high: 81.5
+- date: 20260707
+- open: 81
+- high: 81
 - low: 80
 - close: 80
-- volume: 31000
-- ma5: 79.36
-- ema23_primary: 83.43
-- distance_to_ema23_pct: -4.11
-- ma20: 81.7
-- ma60: 87.57
-- ma120: 88.3
-- return_5d: 1.65
-- return_20d: -14.98
-- volume_ratio: 1.24
-- distance_to_ma20_pct_auxiliary: -2.08
+- volume: 24820
+- ma5: 79.58
+- ema23_primary: 83.14
+- distance_to_ema23_pct: -3.78
+- ma20: 81.2
+- ma60: 87.55
+- ma120: 88.21
+- return_5d: 1.39
+- return_20d: -11.11
+- volume_ratio: 1.07
+- distance_to_ma20_pct_auxiliary: -1.48
 - distance_to_high_60_pct: -27.93
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,87,92,85.5,90,59262,95.92,-6.17,98.94,87.7,0.82
 20260609,86.1,89,86,86,42159,95.09,-9.56,98.75,87.76,0.58
 20260610,84,86,82.7,84.9,31545,94.24,-9.91,98.48,87.81,0.44
 20260611,83.5,84.5,83.5,83.5,11002,93.35,-10.55,97.73,87.89,0.18
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,77.8,79,77.8,79,13000,84,-5.95,83.25,87.57,0.56
 20260703,79.7,80.9,79.1,80.9,35348,83.74,-3.39,82.41,87.58,1.46
 20260706,81.5,81.5,80,80,31000,83.43,-4.11,81.7,87.57,1.24
+20260707,81,81,80,80,24820,83.14,-3.78,81.2,87.55,1.07
 ```
 
 ## Latest TDCC Snapshot

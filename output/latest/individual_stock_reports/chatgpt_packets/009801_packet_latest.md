@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009801 中信美國創新科技
 
 ## Metadata
-- generated_at: 2026-07-06 22:26:24 Asia/Taipei
+- generated_at: 2026-07-07 22:26:28 Asia/Taipei
 - stock_id: 009801
 - stock_name: 中信美國創新科技
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260706
-- price_rows: 31
+- latest_price_date: 20260707
+- price_rows: 32
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
-- open: 12.33
-- high: 12.33
-- low: 12.23
+- date: 20260707
+- open: 12.28
+- high: 12.35
+- low: 12.25
 - close: 12.27
-- volume: 524000
+- volume: 1704695
 - ma5: 12.31
 - ema23_primary: 12.3
-- distance_to_ema23_pct: -0.25
-- ma20: 12.26
+- distance_to_ema23_pct: -0.23
+- ma20: 12.27
 - ma60: 12.34
 - ma120: 12.34
-- return_5d: 1.57
-- return_20d: -2.31
-- volume_ratio: 0.41
-- distance_to_ma20_pct_auxiliary: 0.05
+- return_5d: -0.16
+- return_20d: 1.66
+- volume_ratio: 1.47
+- distance_to_ma20_pct_auxiliary: -0.03
 - distance_to_high_60_pct: -4.88
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,12.1,12.18,12.02,12.07,4391749,12.37,-2.42,12.45,12.45,3.36
 20260609,12.1,12.25,12.1,12.25,834787,12.36,-0.88,12.44,12.44,0.66
 20260610,12.1,12.1,11.93,11.95,1040595,12.33,-3.04,12.4,12.4,0.83
 20260611,11.61,11.85,11.61,11.82,4015727,12.28,-3.77,12.36,12.36,2.79
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,12.38,12.38,12.29,12.32,168000,12.31,0.08,12.3,12.35,0.13
 20260703,12.12,12.25,12.12,12.23,608810,12.3,-0.6,12.28,12.35,0.47
 20260706,12.33,12.33,12.23,12.27,524000,12.3,-0.25,12.26,12.34,0.41
+20260707,12.28,12.35,12.25,12.27,1704695,12.3,-0.23,12.27,12.34,1.47
 ```
 
 ## Latest TDCC Snapshot

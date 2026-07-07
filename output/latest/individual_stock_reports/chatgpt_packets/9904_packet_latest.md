@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9904 寶成
 
 ## Metadata
-- generated_at: 2026-07-06 22:28:27 Asia/Taipei
+- generated_at: 2026-07-07 22:28:50 Asia/Taipei
 - stock_id: 9904
 - stock_name: 寶成
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260706
-- price_rows: 298
+- latest_price_date: 20260707
+- price_rows: 299
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
-- open: 24.75
-- high: 24.85
-- low: 24.35
+- date: 20260707
+- open: 24.4
+- high: 24.5
+- low: 24.2
 - close: 24.35
-- volume: 19842000
-- ma5: 24.65
-- ema23_primary: 25.53
-- distance_to_ema23_pct: -4.63
-- ma20: 25.76
-- ma60: 26.14
-- ma120: 28.14
-- return_5d: -4.13
-- return_20d: -7.94
-- volume_ratio: 0.72
-- distance_to_ma20_pct_auxiliary: -5.48
-- distance_to_high_60_pct: -15.01
+- volume: 18652130
+- ma5: 24.45
+- ema23_primary: 25.43
+- distance_to_ema23_pct: -4.26
+- ma20: 25.68
+- ma60: 26.07
+- ma120: 28.09
+- return_5d: -3.94
+- return_20d: -5.98
+- volume_ratio: 0.68
+- distance_to_ma20_pct_auxiliary: -5.2
+- distance_to_high_60_pct: -14.11
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,25.8,26.05,25.55,25.9,21151181,26.07,-0.66,25.89,27.1,1.23
 20260609,26,26.65,26,26.5,24459293,26.11,1.5,25.92,27.04,1.38
 20260610,26.6,26.9,26.35,26.5,28067010,26.14,1.37,25.95,26.99,1.52
 20260611,26.35,26.45,26.1,26.3,17328850,26.15,0.56,25.97,26.95,0.93
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,24,24.3,23.8,24.1,43307000,25.75,-6.4,25.96,26.28,1.58
 20260703,24.1,24.7,24.1,24.45,25716398,25.64,-4.64,25.87,26.21,0.93
 20260706,24.75,24.85,24.35,24.35,19842000,25.53,-4.63,25.76,26.14,0.72
+20260707,24.4,24.5,24.2,24.35,18652130,25.43,-4.26,25.68,26.07,0.68
 ```
 
 ## Latest TDCC Snapshot
@@ -199,7 +199,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 9904 | 寶成 | 8 | 0 | 124940.0 | 0.0 |  | no_signal |
+| 20260707 | 9904 | 寶成 | 8 | 0 | 109590.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

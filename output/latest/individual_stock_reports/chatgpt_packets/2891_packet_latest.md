@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2891 中信金
 
 ## Metadata
-- generated_at: 2026-07-06 22:27:01 Asia/Taipei
+- generated_at: 2026-07-07 22:27:09 Asia/Taipei
 - stock_id: 2891
 - stock_name: 中信金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260706
-- price_rows: 298
+- latest_price_date: 20260707
+- price_rows: 299
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
-- open: 71
-- high: 72
-- low: 70.7
-- close: 71.4
-- volume: 31508000
-- ma5: 70.7
-- ema23_primary: 68.54
-- distance_to_ema23_pct: 4.18
-- ma20: 69.96
-- ma60: 60.85
-- ma120: 56.32
-- return_5d: 1.56
-- return_20d: 7.21
-- volume_ratio: 0.63
-- distance_to_ma20_pct_auxiliary: 2.06
-- distance_to_high_60_pct: -2.99
+- date: 20260707
+- open: 71.3
+- high: 72.2
+- low: 70.2
+- close: 70.2
+- volume: 57251759
+- ma5: 70.54
+- ema23_primary: 68.68
+- distance_to_ema23_pct: 2.22
+- ma20: 70.2
+- ma60: 61.12
+- ma120: 56.48
+- return_5d: -1.13
+- return_20d: 7.34
+- volume_ratio: 1.13
+- distance_to_ma20_pct_auxiliary: 0
+- distance_to_high_60_pct: -4.62
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,65.2,66.9,64.5,65.4,46262357,60.4,8.29,59.59,55.37,0.72
 20260609,64.8,69.5,64.8,69.2,53708919,61.13,13.2,60.37,55.67,0.86
 20260610,68.3,68.7,67.1,68.2,63864184,61.72,10.5,61.03,55.95,1.01
 20260611,68.5,68.5,66.5,67.5,63717773,62.2,8.52,61.67,56.21,0.99
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,71.1,71.8,69.7,69.9,50154000,68.07,2.69,69.59,60.34,0.92
 20260703,69.8,71.4,69.7,70.6,40938670,68.28,3.4,69.72,60.57,0.79
 20260706,71,72,70.7,71.4,31508000,68.54,4.18,69.96,60.85,0.63
+20260707,71.3,72.2,70.2,70.2,57251759,68.68,2.22,70.2,61.12,1.13
 ```
 
 ## Latest TDCC Snapshot
@@ -189,18 +189,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 2891 | 中信金 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | call_strong_inflow | stale_signal | 1.股東常會日期:115/07/03 2.重要決議事項一、盈餘分配或盈虧撥補:不適用 3.重要決議事項二、章程修訂:不適用 4.重要決議事項三、營業報告書及財務報表:114年度銀行及信託投資部之財務報表 5.重要決議事項四、董監事選舉:選任以下八席董事 董事 王正新 William B. Go Eriberto Luis S. Elizaga 廖甄文 劉建虹 獨立董事 Armando B. Escobar Stephen D. Sy Luis Y. Benitez, Jr. 6.重要決議事項五、其他事項: (1)承認114/6/26股東會會議紀錄 (2)承認年報 (3)追認前次股東會後董事會、功能性委員會、管理階層核准之重大事項 (4)追認關係人交易 (5)任命銀行及信託投資部會計師 7.其他應敘明事項:不適用；calendar event: ex_dividend on 20260710; status=confirmed; proximity=within_7d |
-| 20260706 | 2891 | 中信金 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | call_strong_inflow | stale_signal | 1.股東常會日期:115/07/03 2.重要決議事項一、盈餘分配或盈虧撥補:不適用 3.重要決議事項二、章程修訂:不適用 4.重要決議事項三、營業報告書及財務報表:114年度銀行及信託投資部之財務報表 5.重要決議事項四、董監事選舉:選任以下八席董事 董事 王正新 William B. Go Eriberto Luis S. Elizaga 廖甄文 劉建虹 獨立董事 Armando B. Escobar Stephen D. Sy Luis Y. Benitez, Jr. 6.重要決議事項五、其他事項: (1)承認114/6/26股東會會議紀錄 (2)承認年報 (3)追認前次股東會後董事會、功能性委員會、管理階層核准之重大事項 (4)追認關係人交易 (5)任命銀行及信託投資部會計師 7.其他應敘明事項:不適用；calendar event: ex_dividend on 20260710; status=confirmed; proximity=within_7d |
+| 20260707 | 2891 | 中信金 | pattern | 型態觀察 | 54.0 |  |  | pullback_right_side |  | call_strong_inflow | repeated_but_no_breakout | 1.股東常會日期:115/07/03 2.重要決議事項一、盈餘分配或盈虧撥補:不適用 3.重要決議事項二、章程修訂:不適用 4.重要決議事項三、營業報告書及財務報表:114年度銀行及信託投資部之財務報表 5.重要決議事項四、董監事選舉:選任以下八席董事 董事 王正新 William B. Go Eriberto Luis S. Elizaga 廖甄文 劉建虹 獨立董事 Armando B. Escobar Stephen D. Sy Luis Y. Benitez, Jr. 6.重要決議事項五、其他事項: (1)承認114/6/26股東會會議紀錄 (2)承認年報 (3)追認前次股東會後董事會、功能性委員會、管理階層核准之重大事項 (4)追認關係人交易 (5)任命銀行及信託投資部會計師 7.其他應敘明事項:不適用；calendar event: ex_dividend on 20260710; status=confirmed; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 2891 | 中信金 | 13 | 7 | 5 | 10 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260707 | 2891 | 中信金 | 14 | 8 | 5 | 10 | 17 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 17 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 2891 | 中信金 | 27 | 0 | 3822120.0 | 0.0 |  | call_strong_inflow |
+| 20260707 | 2891 | 中信金 | 27 | 0 | 3877880.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

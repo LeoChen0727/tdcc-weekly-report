@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8390 金益鼎
 
 ## Metadata
-- generated_at: 2026-07-06 22:28:22 Asia/Taipei
+- generated_at: 2026-07-07 22:28:44 Asia/Taipei
 - stock_id: 8390
 - stock_name: 金益鼎
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260706
-- price_rows: 163
+- latest_price_date: 20260707
+- price_rows: 164
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
-- open: 110.5
-- high: 110.5
-- low: 106.5
-- close: 107
-- volume: 323000
-- ma5: 106.9
-- ema23_primary: 110.73
-- distance_to_ema23_pct: -3.37
-- ma20: 112.08
-- ma60: 106.38
-- ma120: 101.6
-- return_5d: -0.47
-- return_20d: -14.4
-- volume_ratio: 0.37
-- distance_to_ma20_pct_auxiliary: -4.53
-- distance_to_high_60_pct: -18.94
+- date: 20260707
+- open: 107.5
+- high: 107.5
+- low: 101.5
+- close: 102
+- volume: 686000
+- ma5: 105.8
+- ema23_primary: 110
+- distance_to_ema23_pct: -7.27
+- ma20: 111.03
+- ma60: 106.5
+- ma120: 101.68
+- return_5d: -5.12
+- return_20d: -17.07
+- volume_ratio: 0.8
+- distance_to_ma20_pct_auxiliary: -8.13
+- distance_to_high_60_pct: -22.73
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,115,123.5,113.5,123,1070000,115.34,6.64,118.97,100.67,1.03
 20260609,124,131,124,129.5,1804000,116.52,11.14,119.92,101.15,1.98
 20260610,128,132,117,117,2903000,116.56,0.38,120.08,101.43,3.04
 20260611,113,113,107,110.5,1757000,116.05,-4.78,120.05,101.63,1.83
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,104,108.5,104,107,534000,111.25,-3.82,113.78,105.91,0.62
 20260703,108,110.5,107,109,381000,111.06,-1.86,112.97,106.17,0.44
 20260706,110.5,110.5,106.5,107,323000,110.73,-3.37,112.08,106.38,0.37
+20260707,107.5,107.5,101.5,102,686000,110,-7.27,111.03,106.5,0.8
 ```
 
 ## Latest TDCC Snapshot

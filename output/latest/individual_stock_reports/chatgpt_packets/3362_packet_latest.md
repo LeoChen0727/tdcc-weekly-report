@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3362 先進光
 
 ## Metadata
-- generated_at: 2026-07-06 22:27:13 Asia/Taipei
+- generated_at: 2026-07-07 22:27:23 Asia/Taipei
 - stock_id: 3362
 - stock_name: 先進光
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260706
-- price_rows: 163
+- latest_price_date: 20260707
+- price_rows: 164
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
-- open: 186.5
-- high: 191
-- low: 168.5
-- close: 169.5
-- volume: 4900000
-- ma5: 184.3
-- ema23_primary: 174.37
-- distance_to_ema23_pct: -2.79
-- ma20: 183.47
-- ma60: 136.84
-- ma120: 119.35
-- return_5d: -7.12
-- return_20d: 14.53
-- volume_ratio: 0.59
-- distance_to_ma20_pct_auxiliary: -7.62
-- distance_to_high_60_pct: -22.25
+- date: 20260707
+- open: 170.5
+- high: 171
+- low: 160
+- close: 161.5
+- volume: 2842000
+- ma5: 178.8
+- ema23_primary: 173.3
+- distance_to_ema23_pct: -6.81
+- ma20: 184.47
+- ma60: 137.93
+- ma120: 119.92
+- return_5d: -14.55
+- return_20d: 14.13
+- volume_ratio: 0.34
+- distance_to_ma20_pct_auxiliary: -12.45
+- distance_to_high_60_pct: -25.92
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,133.5,145,133.5,141.5,4341000,121.26,16.69,119.4,108.48,2.68
 20260609,143,155.5,142.5,155.5,2538000,124.11,25.29,121.95,109.44,1.5
 20260610,168,171,160,171,9811000,128.02,33.57,125.42,110.67,4.55
 20260611,166,172,160,164,15741000,131.02,25.17,128.05,111.76,5.63
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,185,191,183.5,187.5,2130000,173.7,7.94,180.25,134.11,0.27
 20260703,185.5,193,185.5,187,2275000,174.81,6.97,182.4,135.61,0.28
 20260706,186.5,191,168.5,169.5,4900000,174.37,-2.79,183.47,136.84,0.59
+20260707,170.5,171,160,161.5,2842000,173.3,-6.81,184.47,137.93,0.34
 ```
 
 ## Latest TDCC Snapshot

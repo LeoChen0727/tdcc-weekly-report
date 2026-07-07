@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3632 研勤
 
 ## Metadata
-- generated_at: 2026-07-06 22:27:19 Asia/Taipei
+- generated_at: 2026-07-07 22:27:30 Asia/Taipei
 - stock_id: 3632
 - stock_name: 研勤
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260706
-- price_rows: 157
+- latest_price_date: 20260707
+- price_rows: 158
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
-- open: 7.84
-- high: 7.84
-- low: 7.63
-- close: 7.8
-- volume: 15000
-- ma5: 7.9
-- ema23_primary: 8.04
-- distance_to_ema23_pct: -3
-- ma20: 8.06
-- ma60: 8.36
-- ma120: 8.93
-- return_5d: -1.64
-- return_20d: -6.02
-- volume_ratio: 1.26
-- distance_to_ma20_pct_auxiliary: -3.17
-- distance_to_high_60_pct: -18.75
+- date: 20260707
+- open: 7.8
+- high: 8.57
+- low: 7.8
+- close: 8.57
+- volume: 19000
+- ma5: 8.03
+- ema23_primary: 8.09
+- distance_to_ema23_pct: 6
+- ma20: 8.07
+- ma60: 8.35
+- ma120: 8.92
+- return_5d: 8.07
+- return_20d: 3.25
+- volume_ratio: 1.51
+- distance_to_ma20_pct_auxiliary: 6.21
+- distance_to_high_60_pct: -10.73
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,8.3,8.3,8.3,8.3,6000,8.3,-0.01,8.12,8.83,0.46
 20260609,8,8.3,7.96,8.3,6000,8.3,-0.01,8.11,8.81,0.49
 20260610,8.3,8.3,8.12,8.12,5000,8.29,-2,8.11,8.78,0.41
 20260611,8.12,8.12,8.12,8.12,16000,8.27,-1.84,8.1,8.75,1.26
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,8.08,8.08,7.83,7.83,17000,8.08,-3.14,8.1,8.41,1.51
 20260703,7.83,7.84,7.83,7.84,15000,8.06,-2.77,8.08,8.38,1.29
 20260706,7.84,7.84,7.63,7.8,15000,8.04,-3,8.06,8.36,1.26
+20260707,7.8,8.57,7.8,8.57,19000,8.09,6,8.07,8.35,1.51
 ```
 
 ## Latest TDCC Snapshot

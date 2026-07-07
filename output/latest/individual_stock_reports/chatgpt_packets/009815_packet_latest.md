@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009815 大華美國MAG7+
 
 ## Metadata
-- generated_at: 2026-07-06 22:26:25 Asia/Taipei
+- generated_at: 2026-07-07 22:26:28 Asia/Taipei
 - stock_id: 009815
 - stock_name: 大華美國MAG7+
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260706
-- price_rows: 31
+- latest_price_date: 20260707
+- price_rows: 32
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
-- open: 11.22
-- high: 11.24
-- low: 11.17
-- close: 11.21
-- volume: 4992000
-- ma5: 11.2
+- date: 20260707
+- open: 11.25
+- high: 11.27
+- low: 11.18
+- close: 11.19
+- volume: 4806000
+- ma5: 11.21
 - ema23_primary: 11.18
-- distance_to_ema23_pct: 0.27
+- distance_to_ema23_pct: 0.09
 - ma20: 11.12
 - ma60: 11.25
 - ma120: 11.25
-- return_5d: 2.84
-- return_20d: -2.44
+- return_5d: 0.54
+- return_20d: 0.81
 - volume_ratio: 0.86
-- distance_to_ma20_pct_auxiliary: 0.83
-- distance_to_high_60_pct: -4.76
+- distance_to_ma20_pct_auxiliary: 0.61
+- distance_to_high_60_pct: -4.93
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,11.15,11.17,11.08,11.1,9761000,11.43,-2.85,11.47,11.47,11.86
 20260609,11.24,11.25,11.15,11.24,4083000,11.41,-1.49,11.45,11.45,3.8
 20260610,11.1,11.1,10.98,10.99,7098000,11.38,-3.39,11.42,11.42,4.72
 20260611,10.82,10.92,10.82,10.9,4792000,11.34,-3.84,11.38,11.38,2.78
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,11.24,11.28,11.21,11.22,4681000,11.18,0.38,11.15,11.26,0.87
 20260703,11.22,11.22,11.1,11.17,4698000,11.18,-0.06,11.13,11.26,0.84
 20260706,11.22,11.24,11.17,11.21,4992000,11.18,0.27,11.12,11.25,0.86
+20260707,11.25,11.27,11.18,11.19,4806000,11.18,0.09,11.12,11.25,0.86
 ```
 
 ## Latest TDCC Snapshot

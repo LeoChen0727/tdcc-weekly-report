@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6598 ABC-KY
 
 ## Metadata
-- generated_at: 2026-07-06 22:27:58 Asia/Taipei
+- generated_at: 2026-07-07 22:28:16 Asia/Taipei
 - stock_id: 6598
 - stock_name: ABC-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260706
-- price_rows: 298
+- latest_price_date: 20260707
+- price_rows: 299
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
-- open: 23.2
-- high: 23.7
-- low: 22.8
-- close: 23.25
-- volume: 113000
-- ma5: 22.88
-- ema23_primary: 23.51
-- distance_to_ema23_pct: -1.1
-- ma20: 23.74
-- ma60: 23.46
-- ma120: 23.71
-- return_5d: 1.75
-- return_20d: -5.1
-- volume_ratio: 0.82
-- distance_to_ma20_pct_auxiliary: -2.06
-- distance_to_high_60_pct: -10.06
+- date: 20260707
+- open: 23
+- high: 23.65
+- low: 22.6
+- close: 22.95
+- volume: 64810
+- ma5: 22.9
+- ema23_primary: 23.46
+- distance_to_ema23_pct: -2.19
+- ma20: 23.66
+- ma60: 23.47
+- ma120: 23.72
+- return_5d: 0.44
+- return_20d: -6.33
+- volume_ratio: 0.49
+- distance_to_ma20_pct_auxiliary: -3.01
+- distance_to_high_60_pct: -11.22
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,23.2,24.95,23.2,24.5,167737,24.1,1.64,24.37,23.49,0.73
 20260609,24.5,25.25,24.5,25,187661,24.18,3.39,24.45,23.5,0.83
 20260610,25,25.1,24.45,24.9,152009,24.24,2.73,24.49,23.49,0.71
 20260611,24.6,25,24.2,24.5,189794,24.26,0.98,24.53,23.49,0.89
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,22.55,22.75,22.35,22.75,67000,23.58,-3.51,23.88,23.43,0.46
 20260703,22.35,23.45,22.3,23.05,183809,23.53,-2.05,23.8,23.43,1.31
 20260706,23.2,23.7,22.8,23.25,113000,23.51,-1.1,23.74,23.46,0.82
+20260707,23,23.65,22.6,22.95,64810,23.46,-2.19,23.66,23.47,0.49
 ```
 
 ## Latest TDCC Snapshot

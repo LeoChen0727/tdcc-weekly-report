@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0050 元大台灣50
 
 ## Metadata
-- generated_at: 2026-07-06 22:26:21 Asia/Taipei
+- generated_at: 2026-07-07 22:26:23 Asia/Taipei
 - stock_id: 0050
 - stock_name: 元大台灣50
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260706
-- price_rows: 162
+- latest_price_date: 20260707
+- price_rows: 163
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
-- open: 109.05
-- high: 109.6
-- low: 107.7
-- close: 108.25
-- volume: 69849000
-- ma5: 108.51
-- ema23_primary: 105.5
-- distance_to_ema23_pct: 2.61
-- ma20: 105.83
-- ma60: 98.1
-- ma120: 86.22
-- return_5d: 3.64
-- return_20d: 3.94
-- volume_ratio: 0.46
-- distance_to_ma20_pct_auxiliary: 2.28
-- distance_to_high_60_pct: -3.61
+- date: 20260707
+- open: 108.55
+- high: 109.05
+- low: 105.85
+- close: 106.2
+- volume: 124629074
+- ma5: 108.19
+- ema23_primary: 105.56
+- distance_to_ema23_pct: 0.61
+- ma20: 106.09
+- ma60: 98.53
+- ma120: 86.55
+- return_5d: -1.48
+- return_20d: 5.2
+- volume_ratio: 0.94
+- distance_to_ma20_pct_auxiliary: 0.1
+- distance_to_high_60_pct: -5.43
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,98.05,101.3,98.05,100.95,524952235,99.5,1.46,99.84,88.5,3.63
 20260609,102.1,103.6,101.35,103.5,246039378,99.83,3.67,100.17,88.95,1.62
 20260610,102.6,102.95,100.2,100.25,192916596,99.87,0.38,100.41,89.35,1.24
 20260611,100,100.55,97.6,99.85,299040372,99.86,-0.01,100.6,89.76,1.79
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,107.2,108.95,106.9,108.8,67361000,104.97,3.65,105.52,97.13,0.39
 20260703,106.15,108.8,106.1,108.35,82436126,105.25,2.95,105.63,97.62,0.5
 20260706,109.05,109.6,107.7,108.25,69849000,105.5,2.61,105.83,98.1,0.46
+20260707,108.55,109.05,105.85,106.2,124629074,105.56,0.61,106.09,98.53,0.94
 ```
 
 ## Latest TDCC Snapshot
@@ -180,17 +180,17 @@ no_rows,True
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 0050 | 元大台灣50 | pattern | 型態觀察 | 51.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: ex_dividend on 20260721; status=confirmed; proximity=within_30d |
+| 20260707 | 0050 | 元大台灣50 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | repeated_but_no_breakout | calendar event: ex_dividend on 20260721; status=confirmed; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 0050 | 元大台灣50 | 5 | 5 | 5 | 7 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260707 | 0050 | 元大台灣50 | 6 | 6 | 5 | 7 | 15 | repeated_but_no_breakout | 近 10 日上榜 7 次、近 20 日上榜 15 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 0050 | 元大台灣50 | 254 | 196 | 27777780.0 | 3927460.0 | 7.07 | no_signal |
+| 20260707 | 0050 | 元大台灣50 | 255 | 0 | 40353530.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

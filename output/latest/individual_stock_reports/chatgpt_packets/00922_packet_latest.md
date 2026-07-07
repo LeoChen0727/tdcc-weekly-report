@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00922 國泰台灣領袖50
 
 ## Metadata
-- generated_at: 2026-07-06 22:26:23 Asia/Taipei
+- generated_at: 2026-07-07 22:26:27 Asia/Taipei
 - stock_id: 00922
 - stock_name: 國泰台灣領袖50
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260706
-- price_rows: 31
+- latest_price_date: 20260707
+- price_rows: 32
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
-- open: 42.03
-- high: 42.12
-- low: 41.26
-- close: 41.57
-- volume: 15192000
-- ma5: 41.67
+- date: 20260707
+- open: 41.73
+- high: 41.79
+- low: 40.42
+- close: 40.53
+- volume: 10807494
+- ma5: 41.53
 - ema23_primary: 40.53
-- distance_to_ema23_pct: 2.56
-- ma20: 40.55
-- ma60: 40.11
-- ma120: 40.11
-- return_5d: 3.92
-- return_20d: 4.74
-- volume_ratio: 1.25
-- distance_to_ma20_pct_auxiliary: 2.5
-- distance_to_high_60_pct: -3.42
+- distance_to_ema23_pct: -0.01
+- ma20: 40.66
+- ma60: 40.12
+- ma120: 40.12
+- return_5d: -1.75
+- return_20d: 5.35
+- volume_ratio: 0.93
+- distance_to_ma20_pct_auxiliary: -0.31
+- distance_to_high_60_pct: -5.83
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,37.25,38.54,37.24,38.47,21372676,38.5,-0.08,39.22,39.22,1.46
 20260609,38.93,39.7,38.65,39.65,8531015,38.6,2.73,39.25,39.25,0.6
 20260610,39.26,39.5,38.33,38.34,17666194,38.58,-0.61,39.19,39.19,1.22
 20260611,38.04,38.48,37.23,38.17,14780205,38.54,-0.97,39.12,39.12,1.02
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,41.08,41.91,40.99,41.86,11007000,40.32,3.82,40.39,40,0.89
 20260703,41.02,41.86,40.89,41.76,13380850,40.44,3.27,40.46,40.06,1.1
 20260706,42.03,42.12,41.26,41.57,15192000,40.53,2.56,40.55,40.11,1.25
+20260707,41.73,41.79,40.42,40.53,10807494,40.53,-0.01,40.66,40.12,0.93
 ```
 
 ## Latest TDCC Snapshot

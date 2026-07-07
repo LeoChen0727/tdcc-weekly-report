@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7722 LINEPAY
 
 ## Metadata
-- generated_at: 2026-07-06 22:28:14 Asia/Taipei
+- generated_at: 2026-07-07 22:28:35 Asia/Taipei
 - stock_id: 7722
 - stock_name: LINEPAY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260706
-- price_rows: 298
+- latest_price_date: 20260707
+- price_rows: 299
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
-- open: 319.5
-- high: 326.5
-- low: 317
-- close: 317
-- volume: 137000
-- ma5: 317.3
-- ema23_primary: 312.26
-- distance_to_ema23_pct: 1.52
-- ma20: 322.55
-- ma60: 294.56
-- ma120: 357.15
-- return_5d: 0.48
-- return_20d: 3.76
-- volume_ratio: 0.28
-- distance_to_ma20_pct_auxiliary: -1.72
-- distance_to_high_60_pct: -18.72
+- date: 20260707
+- open: 317.5
+- high: 324
+- low: 316.5
+- close: 319.5
+- volume: 152105
+- ma5: 316.5
+- ema23_primary: 312.87
+- distance_to_ema23_pct: 2.12
+- ma20: 323.95
+- ma60: 294.77
+- ma120: 355.17
+- return_5d: -1.24
+- return_20d: 9.61
+- volume_ratio: 0.34
+- distance_to_ma20_pct_auxiliary: -1.37
+- distance_to_high_60_pct: -18.08
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,298,303,278,291.5,821434,276.72,5.34,268.12,293.75,4.16
 20260609,305,320.5,296.5,320.5,288959,280.37,14.31,270.6,293.28,1.42
 20260610,330,352.5,329,347,1613360,285.92,21.36,274.2,293.45,5.9
 20260611,356,379,355,370.5,1286133,292.97,26.46,279.57,293.98,3.96
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,316,324,315,315,117000,311.59,1.09,320.15,294.44,0.24
 20260703,312.5,321,312.5,314.5,94686,311.83,0.85,321.98,294.39,0.19
 20260706,319.5,326.5,317,317,137000,312.26,1.52,322.55,294.56,0.28
+20260707,317.5,324,316.5,319.5,152105,312.87,2.12,323.95,294.77,0.34
 ```
 
 ## Latest TDCC Snapshot
@@ -199,7 +199,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 7722 | LINEPAY | 10 | 0 | 27440.0 | 0.0 |  | no_signal |
+| 20260707 | 7722 | LINEPAY | 10 | 0 | 285990.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

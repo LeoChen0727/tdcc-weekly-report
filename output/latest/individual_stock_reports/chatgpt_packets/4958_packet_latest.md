@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4958 臻鼎-KY
 
 ## Metadata
-- generated_at: 2026-07-06 22:27:33 Asia/Taipei
+- generated_at: 2026-07-07 22:27:47 Asia/Taipei
 - stock_id: 4958
 - stock_name: 臻鼎-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260706
-- price_rows: 298
+- latest_price_date: 20260707
+- price_rows: 299
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
-- open: 616
-- high: 621
-- low: 567
-- close: 579
-- volume: 32178000
-- ma5: 604.6
-- ema23_primary: 571.09
-- distance_to_ema23_pct: 1.39
-- ma20: 585.45
-- ma60: 467.3
-- ma120: 326.69
-- return_5d: 1.05
-- return_20d: 14.88
-- volume_ratio: 0.92
-- distance_to_ma20_pct_auxiliary: -1.1
-- distance_to_high_60_pct: -12.14
+- date: 20260707
+- open: 581
+- high: 594
+- low: 544
+- close: 548
+- volume: 39380209
+- ma5: 588.2
+- ema23_primary: 569.16
+- distance_to_ema23_pct: -3.72
+- ma20: 587.25
+- ma60: 472.02
+- ma120: 330.08
+- return_5d: -13.02
+- return_20d: 7.03
+- volume_ratio: 1.08
+- distance_to_ma20_pct_auxiliary: -6.68
+- distance_to_high_60_pct: -16.84
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,456,512,456,512,10721588,470.1,8.91,479.85,347.96,0.31
 20260609,528,545,515,545,11129854,476.34,14.41,486.75,354.18,0.33
 20260610,531,550,502,502,12649770,478.48,4.92,489.73,359.41,0.41
 20260611,509,544,495.5,529,45987404,482.69,9.59,494.35,364.95,1.56
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,595,601,582,598,17841000,566.49,5.56,575.67,455.95,0.54
 20260703,580,618,561,613,22484803,570.37,7.47,581.7,462.04,0.66
 20260706,616,621,567,579,32178000,571.09,1.39,585.45,467.3,0.92
+20260707,581,594,544,548,39380209,569.16,-3.72,587.25,472.02,1.08
 ```
 
 ## Latest TDCC Snapshot
@@ -188,18 +188,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 4958 | 臻鼎-KY | pattern | 型態觀察 | 54.0 |  |  | pullback_right_side |  | no_signal | stale_signal | 1.事實發生日:115/07/03 2.公司名稱:鵬鼎控股(深圳)股份有限公司 3.與公司關係(請輸入本公司或子公司):子公司 4.相互持股比例:70.17% 5.發生緣由: 代子公司公告董事會通過各項議案： (1) 關於公司符合向特定對象發行A股股票條件的議案。 (2) 關於公司2026年度向特定對象發行A股股票方案的議案。 (3) 關於公司2026年度向特定對象發行A股股票預案的議案。 (4) 關於公司2026年度向特定對象發行A股股票募集資金使用可行性分析報告     的議案。 (5) 關於公司2026年度向特定對象發行A股股票方案論證分析報告的議案。 (6) 關於公司2026年度向特定對象發行A股股票無需編制前次募集資金使用情況     報告的議案。 (7) 關於公司2026年度向特定對象發行A股股票攤薄即期回報及填補措施和相關     主體承諾的議案。 (8) 關於公司未來三年（2026年－2028年）股東回報規劃的議案。 (9) 關於設立本次向特定對象發行股票募集資金專項帳戶並授權簽署募集資金     監管協議的議案。 (10)關於提請股東會授權董事會、董事長和/或董事長授權的人士全權辦理公司     本次向特定對象發行A股股票相關事宜的議案。 (11)關於提請召開鵬鼎控股(深圳)股份有限公司2026年第一次臨時股東會的議案。 6.因應措施:依規定代子公司於公開資訊觀測站公告。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):  無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
-| 20260706 | 4958 | 臻鼎-KY | revenue_pullback | 營收成長股價回檔 | 69.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/07/03 2.公司名稱:鵬鼎控股(深圳)股份有限公司 3.與公司關係(請輸入本公司或子公司):子公司 4.相互持股比例:70.17% 5.發生緣由: 代子公司公告董事會通過各項議案： (1) 關於公司符合向特定對象發行A股股票條件的議案。 (2) 關於公司2026年度向特定對象發行A股股票方案的議案。 (3) 關於公司2026年度向特定對象發行A股股票預案的議案。 (4) 關於公司2026年度向特定對象發行A股股票募集資金使用可行性分析報告     的議案。 (5) 關於公司2026年度向特定對象發行A股股票方案論證分析報告的議案。 (6) 關於公司2026年度向特定對象發行A股股票無需編制前次募集資金使用情況     報告的議案。 (7) 關於公司2026年度向特定對象發行A股股票攤薄即期回報及填補措施和相關     主體承諾的議案。 (8) 關於公司未來三年（2026年－2028年）股東回報規劃的議案。 (9) 關於設立本次向特定對象發行股票募集資金專項帳戶並授權簽署募集資金     監管協議的議案。 (10)關於提請股東會授權董事會、董事長和/或董事長授權的人士全權辦理公司     本次向特定對象發行A股股票相關事宜的議案。 (11)關於提請召開鵬鼎控股(深圳)股份有限公司2026年第一次臨時股東會的議案。 6.因應措施:依規定代子公司於公開資訊觀測站公告。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):  無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260707 | 4958 | 臻鼎-KY | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.標的物之名稱及性質（如坐落台中市北區ＸＸ段ＸＸ小段土地）: 機器設備 2.事實發生日:115/6/23~115/7/6 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:總經理核決 民國115年07月06日 5.交易單位數量（如ＸＸ平方公尺，折合ＸＸ坪）、每單位價格及交易總金額: 交易數量:一批 交易總金額:新台幣1,141,465,050元 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之關 係人者，得免揭露其姓名）: 交易相對人: TAKEWIN INTERNATIONAL(HK)LIMITED 與公司之關係:無 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移轉之 所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次移轉日期 及移轉金額: 不適用 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係 人之取得及處分日期、價格及交易當時與公司之關係: 不適用 9.預計處分利益（或損失）（取得資產者不適用）（遞延者應列表說明 認列情形）: 不適用 10.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 依採購合約規定 11.本次交易之決定方式（如招標、比價或議價）、價格決定之參考依據及 決策單位: 交易決定方式:比價及議價 價格決定之參考依據:依市場行情 決策單位:依公司核決權限決定 12.專業估價者事務所或公司名稱及其估價金額: 不適用 13.專業估價師姓名: 不適用 14.專業估價師開業證書字號: 不適用 15.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 16.是否尚未取得估價報告:否或不適用 17.尚未取得估價報告之原因: 不適用 18.估價結果有重大差異時，其差異原因及會計師意見: 不適用 19.會計師事務所名稱: 不適用 20.會計師姓名: 不適用 21.會計師開業證書字號: 不適用 22.經紀人及經紀費用: 無 23.取得或處分之具體目的或用途: 供營業使用 24.本次交易表示異議之董事之意見: 不適用 25.本次交易為關係人交易:否 26.監察人承認或審計委員會同意日期: 不適用 27.本次交易係向關係人取得不動產或其使用權資產:否 28.依「公開發行公司取得或處分資產處理準則」第十六條規定 評估之價格:不適用 29.依前項評估之價格較交易價格為低者，依同準則第十七條規 定評估之價格:不適用 30.前已就同一件事件發布重大訊息日期: 不適用 31.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 4958 | 臻鼎-KY | 9 | 2 | 5 | 9 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260707 | 4958 | 臻鼎-KY | 10 | 3 | 5 | 10 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 4958 | 臻鼎-KY | 232 | 15 | 49240070.0 | 554090.0 | 88.87 | no_signal |
+| 20260707 | 4958 | 臻鼎-KY | 232 | 0 | 57762260.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

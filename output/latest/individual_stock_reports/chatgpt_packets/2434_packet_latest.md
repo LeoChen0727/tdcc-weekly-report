@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2434 統懋
 
 ## Metadata
-- generated_at: 2026-07-06 22:26:51 Asia/Taipei
+- generated_at: 2026-07-07 22:26:57 Asia/Taipei
 - stock_id: 2434
 - stock_name: 統懋
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260706
-- price_rows: 298
+- latest_price_date: 20260707
+- price_rows: 299
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -111,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
-- open: 57.2
-- high: 58.5
-- low: 53.2
-- close: 54.3
-- volume: 1370000
-- ma5: 51.14
-- ema23_primary: 42.6
-- distance_to_ema23_pct: 27.46
-- ma20: 41.25
-- ma60: 34.77
-- ma120: 32.27
-- return_5d: 37.47
-- return_20d: 54.26
-- volume_ratio: 1.81
-- distance_to_ma20_pct_auxiliary: 31.63
-- distance_to_high_60_pct: -7.18
+- date: 20260707
+- open: 54.3
+- high: 58
+- low: 49.55
+- close: 51.4
+- volume: 1238317
+- ma5: 52.73
+- ema23_primary: 43.34
+- distance_to_ema23_pct: 18.61
+- ma20: 42.19
+- ma60: 35.14
+- ma120: 32.43
+- return_5d: 18.3
+- return_20d: 57.19
+- volume_ratio: 1.52
+- distance_to_ma20_pct_auxiliary: 21.84
+- distance_to_high_60_pct: -12.14
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,33,33.85,32.5,32.7,81423,33.24,-1.63,32.77,30.82,0.44
 20260609,33.7,34.75,32.75,34.6,58213,33.36,3.73,32.94,30.91,0.31
 20260610,34.2,34.5,32.1,32.45,75457,33.28,-2.5,32.99,30.95,0.39
 20260611,32.45,33.5,32.2,32.45,31966,33.21,-2.29,33.1,31,0.17
@@ -153,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,48.7,52.5,48.15,52.5,1148000,40.07,31.02,39.19,33.88,1.95
 20260703,54.3,57.7,54,57.7,2154121,41.54,38.9,40.3,34.35,3.11
 20260706,57.2,58.5,53.2,54.3,1370000,42.6,27.46,41.25,34.77,1.81
+20260707,54.3,58,49.55,51.4,1238317,43.34,18.61,42.19,35.14,1.52
 ```
 
 ## Latest TDCC Snapshot
@@ -187,12 +187,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 2434 | 統懋 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260707 | 2434 | 統懋 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | continued_overheated | 1.事實發生日:115/07/06 2.發生緣由:依台灣證券交易所(股)公司指示辦理 3.財務業務資訊: 期間           (月)                 (季)             (最近四季累計)        最近一月   與去年同期  最近一季  與去年同期   (115年1季至114年2季) 科目  (115年05月)  增減％     (115年1季) 增減％        合併自結數             合併核閱數              合併核閱數 ---------- ----------- ---------- ---------- --------------- 營業收入 (百萬)     3.92   - 12.30%     10.86      5.95%         46.16 稅前淨利 (百萬)   -10.34   -258.35%     -1.31   -109.44%        -14.41 歸屬母公司業主淨利 (百萬)   -10.34   -258.35%     -4.73   -134.08%        -17.84 每股盈餘 (元)     -0.28    -255.56%     -0.13   -134.21%         -0.49 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告: 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 2434 | 統懋 | 4 | 1 | 4 | 7 | 7 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260707 | 2434 | 統懋 | 5 | 2 | 5 | 7 | 8 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

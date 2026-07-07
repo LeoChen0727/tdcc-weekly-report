@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2323 中環
 
 ## Metadata
-- generated_at: 2026-07-06 22:26:45 Asia/Taipei
+- generated_at: 2026-07-07 22:26:51 Asia/Taipei
 - stock_id: 2323
 - stock_name: 中環
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260706
-- price_rows: 298
+- latest_price_date: 20260707
+- price_rows: 299
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
-- open: 12
-- high: 12.2
-- low: 11.8
-- close: 11.9
-- volume: 11220000
-- ma5: 11.58
-- ema23_primary: 11.31
-- distance_to_ema23_pct: 5.2
-- ma20: 11.33
-- ma60: 10.81
+- date: 20260707
+- open: 11.95
+- high: 12
+- low: 11.35
+- close: 11.5
+- volume: 8163568
+- ma5: 11.57
+- ema23_primary: 11.33
+- distance_to_ema23_pct: 1.52
+- ma20: 11.36
+- ma60: 10.82
 - ma120: 10.88
-- return_5d: 8.18
-- return_20d: 0
-- volume_ratio: 0.86
-- distance_to_ma20_pct_auxiliary: 5.03
-- distance_to_high_60_pct: -6.67
+- return_5d: -0.43
+- return_20d: 5.02
+- volume_ratio: 0.65
+- distance_to_ma20_pct_auxiliary: 1.25
+- distance_to_high_60_pct: -9.8
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,10.85,11.2,10.75,10.95,17959494,10.83,1.13,10.54,10.79,1.06
 20260609,11.05,11.45,10.95,11.3,15201859,10.87,3.98,10.58,10.79,0.88
 20260610,11.05,11.5,10.85,10.9,12341695,10.87,0.28,10.6,10.8,0.7
 20260611,10.95,11.1,10.65,10.85,9343014,10.87,-0.17,10.64,10.81,0.54
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,11,11.35,10.95,11.35,4839000,11.19,1.42,11.34,10.78,0.32
 20260703,11.2,12.1,11.2,12,18200947,11.26,6.59,11.33,10.79,1.34
 20260706,12,12.2,11.8,11.9,11220000,11.31,5.2,11.33,10.81,0.86
+20260707,11.95,12,11.35,11.5,8163568,11.33,1.52,11.36,10.82,0.65
 ```
 
 ## Latest TDCC Snapshot
@@ -188,17 +189,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 2323 | 中環 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_strong_inflow | repeated_but_no_breakout | 1.證券名稱: 群聯 普通股 2.交易日期:115/6/25~115/7/3 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:董事長核決 民國115年07月03日 5.交易數量、每單位價格及交易總金額: 交易數量(仟股):139 每單位價格(元):2,341.60 交易總金額(元):325,482,774 6.處分利益（或損失）（取得有價證券者不適用）: 處分損失15,413,807元 7.與交易標的公司之關係: 無 8.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 持有餘額:179,000股、金額:443,962,864元     持股比例:0.08%、權利受限情形: 無 9.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列之有價證券投 資（含本次交易）占公司最近期財務報表中總資產及歸屬於母公司業主之權益之比例 暨最近期財務報表中營運資金數額: 占總資產比例:83.19%   占歸屬於母公司業主之權益比例:119.49  營運資金數額:8,285,327仟元 10.取得或處分之具體目的: 投資組合 11.本次交易表示異議董事之意見: 無 12.本次交易為關係人交易: 否 13.交易相對人及其與公司之關係: 不適用 14.監察人承認或審計委員會同意日期: 不適用 15.前已就同一件事件發布重大訊息日期: 不適用 16.其他敘明事項: 已於115/06/30授權有權交易人在115年第三季期間，得於集中交易市場進行有價證券交易；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260707 | 2323 | 中環 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.證券名稱: 南亞科 普通股 2.交易日期:115/7/3~115/7/6 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:董事長核決 民國115年07月06日 5.交易數量、每單位價格及交易總金額: 交易數量(仟股):1,060 每單位價格(元):424.48 交易總金額(元):449,953,250 6.處分利益（或損失）（取得有價證券者不適用）: 處分損失9,828,066元 7.與交易標的公司之關係: 無 8.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 持有餘額:3,444,000股、金額:1,519,428,136元  持股比例:0.10%、權利受限情形: 無 9.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列之有價證券投 資（含本次交易）占公司最近期財務報表中總資產及歸屬於母公司業主之權益之比例 暨最近期財務報表中營運資金數額: 占總資產比例:86.03%    占歸屬於母公司業主之權益比例:123.56%    營運資金數額:8,285,327仟元 10.取得或處分之具體目的: 投資組合 11.本次交易表示異議董事之意見: 無 12.本次交易為關係人交易: 否 13.交易相對人及其與公司之關係: 不適用 14.監察人承認或審計委員會同意日期: 不適用 15.前已就同一件事件發布重大訊息日期: 不適用 16.其他敘明事項: 已於115/06/30授權有權交易人在115年第三季期間，得於集中交易市場進行有價證券交易；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 2323 | 中環 | 14 | 1 | 5 | 10 | 17 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 17 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260707 | 2323 | 中環 | 15 | 2 | 5 | 10 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 2323 | 中環 | 15 | 0 | 4000450.0 | 0.0 |  | call_strong_inflow |
+| 20260707 | 2323 | 中環 | 14 | 0 | 2394560.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

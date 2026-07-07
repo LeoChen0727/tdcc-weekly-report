@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2030 彰源
 
 ## Metadata
-- generated_at: 2026-07-06 22:26:41 Asia/Taipei
+- generated_at: 2026-07-07 22:26:47 Asia/Taipei
 - stock_id: 2030
 - stock_name: 彰源
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260706
-- price_rows: 298
+- latest_price_date: 20260707
+- price_rows: 299
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
-- open: 19.35
-- high: 19.7
-- low: 19.05
-- close: 19.2
-- volume: 1199000
-- ma5: 18.67
-- ema23_primary: 18.62
-- distance_to_ema23_pct: 3.13
-- ma20: 18.8
-- ma60: 17.6
-- ma120: 16.82
-- return_5d: 4.35
-- return_20d: 3.78
-- volume_ratio: 0.63
-- distance_to_ma20_pct_auxiliary: 2.14
-- distance_to_high_60_pct: -4.95
+- date: 20260707
+- open: 19.2
+- high: 19.2
+- low: 18.8
+- close: 19.1
+- volume: 1057337
+- ma5: 18.86
+- ema23_primary: 18.66
+- distance_to_ema23_pct: 2.38
+- ma20: 18.81
+- ma60: 17.65
+- ma120: 16.86
+- return_5d: 5.23
+- return_20d: 1.6
+- volume_ratio: 0.58
+- distance_to_ma20_pct_auxiliary: 1.53
+- distance_to_high_60_pct: -5.45
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,17.8,18.9,17.5,18.8,2760515,17.79,5.67,17.9,16.69,1.13
 20260609,18.8,19.45,18.6,19.2,3675794,17.91,7.21,17.96,16.75,1.7
 20260610,18.9,19.25,18.5,18.65,2521328,17.97,3.78,18,16.81,1.24
 20260611,18.2,18.25,17.85,18.15,1593671,17.99,0.92,18,16.86,0.81
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,18.15,18.45,18.1,18.45,433000,18.5,-0.28,18.73,17.5,0.23
 20260703,18.5,19.25,18.5,19.25,1583940,18.56,3.7,18.76,17.55,0.84
 20260706,19.35,19.7,19.05,19.2,1199000,18.62,3.13,18.8,17.6,0.63
+20260707,19.2,19.2,18.8,19.1,1057337,18.66,2.38,18.81,17.65,0.58
 ```
 
 ## Latest TDCC Snapshot
@@ -189,12 +189,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 2030 | 彰源 | pattern | 型態觀察 | 51.0 |  |  | base_building |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260707 | 2030 | 彰源 | pattern | 型態觀察 | 51.0 |  |  | base_building |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 2030 | 彰源 | 2 | 2 | 2 | 5 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260707 | 2030 | 彰源 | 3 | 3 | 3 | 5 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

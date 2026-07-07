@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8227 巨有科技
 
 ## Metadata
-- generated_at: 2026-07-06 22:28:21 Asia/Taipei
+- generated_at: 2026-07-07 22:28:43 Asia/Taipei
 - stock_id: 8227
 - stock_name: 巨有科技
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260706
-- price_rows: 163
+- latest_price_date: 20260707
+- price_rows: 164
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
-- open: 210
-- high: 218
-- low: 200
-- close: 201
-- volume: 1424000
-- ma5: 207.2
-- ema23_primary: 196.81
-- distance_to_ema23_pct: 2.13
-- ma20: 190.55
-- ma60: 186.76
-- ma120: 160.61
-- return_5d: -2.19
-- return_20d: -0.99
-- volume_ratio: 0.86
-- distance_to_ma20_pct_auxiliary: 5.48
-- distance_to_high_60_pct: -19.28
+- date: 20260707
+- open: 202
+- high: 205
+- low: 189
+- close: 191
+- volume: 1271000
+- ma5: 202.5
+- ema23_primary: 196.33
+- distance_to_ema23_pct: -2.71
+- ma20: 190.6
+- ma60: 187.91
+- ma120: 161.01
+- return_5d: -10.96
+- return_20d: 0.53
+- volume_ratio: 0.76
+- distance_to_ma20_pct_auxiliary: 0.21
+- distance_to_high_60_pct: -23.29
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,183,193.5,183,190,988000,202.99,-6.4,211.57,165.5,1.88
 20260609,192.5,193,186,189.5,789000,201.86,-6.12,210.43,166.53,1.66
 20260610,190,203.5,175,175,1942000,199.62,-12.34,209.07,167.32,3.85
 20260611,175.5,179,163,173.5,1976000,197.45,-12.13,207.4,168.08,3.47
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,196.5,214,191.5,214,1661000,195.38,9.53,190.12,184.11,1.14
 20260703,211,229.5,203.5,208,2775000,196.43,5.89,190.65,185.47,1.75
 20260706,210,218,200,201,1424000,196.81,2.13,190.55,186.76,0.86
+20260707,202,205,189,191,1271000,196.33,-2.71,190.6,187.91,0.76
 ```
 
 ## Latest TDCC Snapshot
@@ -189,13 +189,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 8227 | 巨有科技 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
-| 20260706 | 8227 | 巨有科技 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260707 | 8227 | 巨有科技 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 8227 | 巨有科技 | 7 | 2 | 5 | 8 | 8 | repeated_but_no_breakout | 近 10 日上榜 8 次、近 20 日上榜 8 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260707 | 8227 | 巨有科技 | 8 | 2 | 5 | 8 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

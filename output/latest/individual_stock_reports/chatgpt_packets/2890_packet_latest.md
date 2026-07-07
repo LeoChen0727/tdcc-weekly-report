@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2890 永豐金
 
 ## Metadata
-- generated_at: 2026-07-06 22:27:01 Asia/Taipei
+- generated_at: 2026-07-07 22:27:09 Asia/Taipei
 - stock_id: 2890
 - stock_name: 永豐金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260706
-- price_rows: 298
+- latest_price_date: 20260707
+- price_rows: 299
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -111,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260706
-- open: 40.05
-- high: 41
-- low: 39.95
-- close: 41
-- volume: 35568000
-- ma5: 40.02
-- ema23_primary: 37.33
-- distance_to_ema23_pct: 9.82
-- ma20: 37.55
-- ma60: 33.29
-- ma120: 31.94
-- return_5d: 3.8
-- return_20d: 25.38
-- volume_ratio: 0.56
-- distance_to_ma20_pct_auxiliary: 9.18
-- distance_to_high_60_pct: 0
+- date: 20260707
+- open: 41
+- high: 41.8
+- low: 40.85
+- close: 41.1
+- volume: 39076859
+- ma5: 40.26
+- ema23_primary: 37.65
+- distance_to_ema23_pct: 9.17
+- ma20: 38.01
+- ma60: 33.43
+- ma120: 32.04
+- return_5d: 3.01
+- return_20d: 28.84
+- volume_ratio: 0.62
+- distance_to_ma20_pct_auxiliary: 8.12
+- distance_to_high_60_pct: -1.67
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,31.9,32.3,31.35,31.9,45790751,31.02,2.84,30.52,31.36,1.04
 20260609,32.45,34.4,32.35,34.25,80605349,31.29,9.47,30.7,31.4,1.78
 20260610,34.3,34.3,33,33,52876983,31.43,4.99,30.82,31.42,1.13
 20260611,33,33.3,32.5,33.25,45454788,31.58,5.28,30.96,31.45,0.95
@@ -153,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260702,39.6,39.9,39.2,39.5,60483000,36.75,7.47,36.81,33.04,0.92
 20260703,39.15,40.35,39.15,39.7,25809189,37,7.3,37.14,33.16,0.4
 20260706,40.05,41,39.95,41,35568000,37.33,9.82,37.55,33.29,0.56
+20260707,41,41.8,40.85,41.1,39076859,37.65,9.17,38.01,33.43,0.62
 ```
 
 ## Latest TDCC Snapshot
@@ -187,18 +187,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 2890 | 永豐金 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | call_inflow | continued_many_days | 1.董事會決議日期:115/07/01 2.私募有價證券種類:普通股 3.私募對象及其與公司間關係:永豐金控;永豐金證券之母公司 4.私募股數或張數:上限4.81億股 5.得私募額度:預估約新臺幣125億元 6.私募價格訂定之依據及合理性:以不低於永豐金證券115年03月31日經會計師核閱之 財務報告每股淨值25.36元為原則;每股發行價格暫定26元約當115年03月31日每股 淨值之102.5% 7.本次私募資金用途:強化資本、提升資本適足比率、降低債本比率，支應營運 及業務拓展之資金需求。 8.不採用公開募集之理由:考量籌集資本之時效、便利及發行成本等因素，並維持 永豐金證券股東結構單一化。 9.獨立董事反對或保留意見:無 10.實際定價日:授權永豐金證券董事長核定 11.參考價格:新臺幣25.36元 12.實際私募價格、轉換或認購價格:暫定新臺幣26元 13.本次私募新股之權利義務:同已流通在外普通股 14.附有轉換、交換或認股者，其換股基準日:不適用 15.附有轉換、交換或認股者，對股權可能稀釋情形:不適用 16.附有轉換或認股者，於私募公司債交付且假設全數轉換或認購普通股後對 上市普通股股權比率之可能影響（上市普通股數A、A/已發行普通股):不適用 17.前項預計上市普通股未達6000萬股且未達25%者，請說明股權流通性偏低之因應措施: 不適用 18.其他應敘明事項:發行股數、每股價格及增資基準日若有變更授權永豐金證券 董事長核定；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
-| 20260706 | 2890 | 永豐金 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_inflow | continued_many_days | 1.董事會決議日期:115/07/01 2.私募有價證券種類:普通股 3.私募對象及其與公司間關係:永豐金控;永豐金證券之母公司 4.私募股數或張數:上限4.81億股 5.得私募額度:預估約新臺幣125億元 6.私募價格訂定之依據及合理性:以不低於永豐金證券115年03月31日經會計師核閱之 財務報告每股淨值25.36元為原則;每股發行價格暫定26元約當115年03月31日每股 淨值之102.5% 7.本次私募資金用途:強化資本、提升資本適足比率、降低債本比率，支應營運 及業務拓展之資金需求。 8.不採用公開募集之理由:考量籌集資本之時效、便利及發行成本等因素，並維持 永豐金證券股東結構單一化。 9.獨立董事反對或保留意見:無 10.實際定價日:授權永豐金證券董事長核定 11.參考價格:新臺幣25.36元 12.實際私募價格、轉換或認購價格:暫定新臺幣26元 13.本次私募新股之權利義務:同已流通在外普通股 14.附有轉換、交換或認股者，其換股基準日:不適用 15.附有轉換、交換或認股者，對股權可能稀釋情形:不適用 16.附有轉換或認股者，於私募公司債交付且假設全數轉換或認購普通股後對 上市普通股股權比率之可能影響（上市普通股數A、A/已發行普通股):不適用 17.前項預計上市普通股未達6000萬股且未達25%者，請說明股權流通性偏低之因應措施: 不適用 18.其他應敘明事項:發行股數、每股價格及增資基準日若有變更授權永豐金證券 董事長核定；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260707 | 2890 | 永豐金 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | call_strong_inflow | continued_many_days | 1.董事會決議日期:115/07/01 2.私募有價證券種類:普通股 3.私募對象及其與公司間關係:永豐金控;永豐金證券之母公司 4.私募股數或張數:上限4.81億股 5.得私募額度:預估約新臺幣125億元 6.私募價格訂定之依據及合理性:以不低於永豐金證券115年03月31日經會計師核閱之 財務報告每股淨值25.36元為原則;每股發行價格暫定26元約當115年03月31日每股 淨值之102.5% 7.本次私募資金用途:強化資本、提升資本適足比率、降低債本比率，支應營運 及業務拓展之資金需求。 8.不採用公開募集之理由:考量籌集資本之時效、便利及發行成本等因素，並維持 永豐金證券股東結構單一化。 9.獨立董事反對或保留意見:無 10.實際定價日:授權永豐金證券董事長核定 11.參考價格:新臺幣25.36元 12.實際私募價格、轉換或認購價格:暫定新臺幣26元 13.本次私募新股之權利義務:同已流通在外普通股 14.附有轉換、交換或認股者，其換股基準日:不適用 15.附有轉換、交換或認股者，對股權可能稀釋情形:不適用 16.附有轉換或認股者，於私募公司債交付且假設全數轉換或認購普通股後對 上市普通股股權比率之可能影響（上市普通股數A、A/已發行普通股):不適用 17.前項預計上市普通股未達6000萬股且未達25%者，請說明股權流通性偏低之因應措施: 不適用 18.其他應敘明事項:發行股數、每股價格及增資基準日若有變更授權永豐金證券 董事長核定；calendar event: ex_right_dividend on 20260723; status=confirmed; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 2890 | 永豐金 | 7 | 3 | 5 | 8 | 17 | continued_many_days | 連續 7 日上榜，需區分醞釀延續或訊號鈍化。 |
+| 20260707 | 2890 | 永豐金 | 8 | 4 | 5 | 8 | 17 | continued_many_days | 連續 8 日上榜，需區分醞釀延續或訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260706 | 2890 | 永豐金 | 18 | 0 | 2579380.0 | 0.0 |  | call_inflow |
+| 20260707 | 2890 | 永豐金 | 17 | 0 | 6138450.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.
