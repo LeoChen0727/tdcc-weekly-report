@@ -988,8 +988,9 @@ def validate_pdf_generator_boundary() -> None:
     if "render_volume_range_breakout_operation_section" not in source:
         fail("PDF generator must expose an independent volume breakout operation renderer")
     for token in [
-        "OPERATION_HIGHLIGHT_ACTIVE_MIN_ROWS = 10",
+        "OPERATION_HIGHLIGHT_ACTIVE_MAX_ROWS = 10",
         "OPERATION_HIGHLIGHT_ROW_LIMITS",
+        '"active_operation": OPERATION_HIGHLIGHT_ACTIVE_MAX_ROWS',
         "limit_operation_rows_for_pdf_view",
         "confirmed_unranked_operation",
         "confirmed_not_buy_ranked",
@@ -1007,6 +1008,7 @@ def validate_pdf_generator_boundary() -> None:
         "VOLUME_OPERATION_HIGHLIGHT_LIMITS",
         '"confirmed_operation": 10',
         '"active_operation": 5',
+        '"active_operation": None',
     ]:
         if token in source:
             fail(f"PDF generator must not keep legacy highlight operation display caps: {token}")

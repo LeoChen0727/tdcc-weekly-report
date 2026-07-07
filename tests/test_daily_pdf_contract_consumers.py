@@ -166,8 +166,8 @@ def renderer_source_with_operation_contract() -> str:
         + "def render_price_pullback_operation_section():\n"
         + "    return 'adapter'\n"
         + 'OPERATION_HIGHLIGHT_TABLE_CONTRACT = "confirmed_buy_then_active_only"\n'
-        + "OPERATION_HIGHLIGHT_ACTIVE_MIN_ROWS = 10\n"
-        + "OPERATION_HIGHLIGHT_ROW_LIMITS = {'active_operation': None}\n"
+        + "OPERATION_HIGHLIGHT_ACTIVE_MAX_ROWS = 10\n"
+        + 'OPERATION_HIGHLIGHT_ROW_LIMITS = {"active_operation": OPERATION_HIGHLIGHT_ACTIVE_MAX_ROWS}\n'
         + "def operation_highlight_row_limit(pdf_section):\n"
         + "    return OPERATION_HIGHLIGHT_ROW_LIMITS.get(pdf_section)\n"
         + "def limit_operation_rows_for_pdf_view(rows, pdf_view, pdf_section):\n"
@@ -177,6 +177,7 @@ def renderer_source_with_operation_contract() -> str:
         + 'OPERATION_CONFIRMED_BUY_TABLE_TITLE = "本日可買 / 已確認買入候選"\n'
         + 'OPERATION_ACTIVE_TABLE_TITLE = "操作中"\n'
         + 'OPERATION_ACTIVE_EMPTY_STATE_TEXT = "目前無操作中追蹤列"\n'
+        + 'OPERATION_MODEL_SAMPLING_TEXT = "取樣：已確認欄位股票精華版全部列出，操作中欄位股票精華版最多列出十檔股票。"\n'
         + "def append_section_label_with_table(\n"
         + "    story,\n"
         + "    label,\n"
@@ -273,7 +274,20 @@ def test_renderer_contract_blocks_active_operation_highlight_cap_below_10(tmp_pa
 
     errors = validator.validate_renderer_fixed_model_table_contract([renderer])
 
-    assert any("active_operation rows below 10" in error for error in errors)
+    assert any("active_operation rows at exactly 10" in error for error in errors)
+
+
+def test_renderer_contract_blocks_active_operation_highlight_uncapped(tmp_path: Path) -> None:
+    renderer = tmp_path / "renderer.py"
+    renderer.write_text(
+        renderer_source_with_operation_contract()
+        + 'BROKEN_OPERATION_HIGHLIGHT_LIMITS = {"active_operation": None}\n',
+        encoding="utf-8",
+    )
+
+    errors = validator.validate_renderer_fixed_model_table_contract([renderer])
+
+    assert any("active_operation rows uncapped" in error for error in errors)
 
 
 def test_renderer_contract_blocks_old_operation_empty_state_policy(tmp_path: Path) -> None:
