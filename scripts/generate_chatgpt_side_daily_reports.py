@@ -225,6 +225,8 @@ FULL_REPORT_NON_MAINSTREAM_LIMIT = 4
 MODEL_SECTION_MIN_ROOM = 58 * mm
 MODEL_SUBSECTION_MIN_ROOM = 42 * mm
 OPERATION_SECTION_TABLE_START_MIN_ROOM = 88 * mm
+OPERATION_SECTION_SHORT_TABLE_START_MIN_ROOM = 48 * mm
+OPERATION_SECTION_SHORT_TABLE_MAX_ROWS = 3
 STOCK_MODEL_SECTION_TABLE_START_MIN_ROOM = 168 * mm
 CHATGPT_SIDE_KLINE_DAYS = 126
 
@@ -895,6 +897,23 @@ def append_stock_model_section_start(story: list, model_name: str, *, level: int
     append_stock_model_title(story, model_name, level=level)
 
 
+def table_flowable_row_count(table_flowable: object) -> int | None:
+    cell_values = getattr(table_flowable, "_cellvalues", None)
+    if isinstance(cell_values, list):
+        return len(cell_values)
+    row_heights = getattr(table_flowable, "_argH", None)
+    if isinstance(row_heights, list):
+        return len(row_heights)
+    return None
+
+
+def operation_section_table_start_min_room(table_flowable: object) -> float:
+    row_count = table_flowable_row_count(table_flowable)
+    if row_count is not None and row_count <= OPERATION_SECTION_SHORT_TABLE_MAX_ROWS:
+        return OPERATION_SECTION_SHORT_TABLE_START_MIN_ROOM
+    return OPERATION_SECTION_TABLE_START_MIN_ROOM
+
+
 def keep_with_next(flowable: object) -> object:
     try:
         flowable.keepWithNext = 1
@@ -909,7 +928,7 @@ def append_section_label_with_table(
     table_flowable: object,
     *preface_flowables: object,
 ) -> None:
-    story.append(CondPageBreak(OPERATION_SECTION_TABLE_START_MIN_ROOM))
+    story.append(CondPageBreak(operation_section_table_start_min_room(table_flowable)))
     story.append(Paragraph(escape_html(label), H2))
     for flowable in preface_flowables:
         story.append(flowable)

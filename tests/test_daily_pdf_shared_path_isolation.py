@@ -46,6 +46,15 @@ def test_daily_pdf_shared_path_inventory_registers_operation_like_symbols() -> N
     assert validator.operation_like_symbols(functions) <= registered
 
 
+def test_operation_table_start_room_helper_is_low_level_shared() -> None:
+    rows = validator.read_inventory()
+    row = {row["symbol_name"]: row for row in rows}["operation_section_table_start_min_room"]
+
+    assert row["ownership_class"] == "low_level_shared"
+    assert row["allowed_business_semantics"] == "none"
+    assert "operation_section_table_start_min_room" in validator.LOW_LEVEL_SHARED_SYMBOLS
+
+
 def test_low_level_shared_helpers_do_not_contain_business_tokens() -> None:
     source = (ROOT / "scripts" / "generate_chatgpt_side_daily_reports.py").read_text(
         encoding="utf-8",

@@ -296,8 +296,11 @@ FORBIDDEN_STOCK_MODEL_HEADER_LAYOUT_TOKENS = (
 )
 REQUIRED_OPERATION_SECTION_PAGEBREAK_TOKENS = (
     "OPERATION_SECTION_TABLE_START_MIN_ROOM = 88 * mm",
+    "OPERATION_SECTION_SHORT_TABLE_START_MIN_ROOM = 48 * mm",
+    "OPERATION_SECTION_SHORT_TABLE_MAX_ROWS = 3",
+    "def operation_section_table_start_min_room(",
     "def append_section_label_with_table(",
-    "CondPageBreak(OPERATION_SECTION_TABLE_START_MIN_ROOM)",
+    "CondPageBreak(operation_section_table_start_min_room(table_flowable))",
     "append_section_label_with_table(\n        story,\n        OPERATION_CONFIRMED_BUY_TABLE_TITLE,",
     "append_section_label_with_table(\n        story,\n        OPERATION_ACTIVE_TABLE_TITLE,",
 )

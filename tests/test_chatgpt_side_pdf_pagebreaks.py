@@ -123,7 +123,10 @@ def test_operation_section_labels_use_table_start_room_helper() -> None:
 
     assert "def append_section_label_with_table(" in text
     assert "OPERATION_SECTION_TABLE_START_MIN_ROOM = 88 * mm" in text
-    assert "CondPageBreak(OPERATION_SECTION_TABLE_START_MIN_ROOM)" in text
+    assert "OPERATION_SECTION_SHORT_TABLE_START_MIN_ROOM = 48 * mm" in text
+    assert "OPERATION_SECTION_SHORT_TABLE_MAX_ROWS = 3" in text
+    assert "def operation_section_table_start_min_room(" in text
+    assert "CondPageBreak(operation_section_table_start_min_room(table_flowable))" in text
     assert "story.append(keep_with_next(Paragraph(escape_html(label), H2)))" not in text
     for name, next_name in cases:
         function_text = _function_text(text, name, next_name)
@@ -144,7 +147,7 @@ def test_append_section_label_with_table_reserves_room_without_full_table_keep()
 
     assert len(story) == 4
     assert isinstance(story[0], generator.CondPageBreak)
-    assert getattr(story[0], "height", None) == generator.OPERATION_SECTION_TABLE_START_MIN_ROOM
+    assert getattr(story[0], "height", None) == generator.OPERATION_SECTION_SHORT_TABLE_START_MIN_ROOM
     assert story[1].getPlainText() == "ACTIVE_SECTION"
     assert getattr(story[1], "keepWithNext", 0) in (0, None, False)
     assert story[2].getPlainText() == "PREFACE"
@@ -152,10 +155,26 @@ def test_append_section_label_with_table_reserves_room_without_full_table_keep()
     assert story[3] is table
 
 
+def test_operation_section_table_start_room_is_adaptive_for_short_and_long_tables() -> None:
+    short_table = generator.build_table([["TITLE"], ["HEADER"], ["EMPTY_ROW"]], [40 * generator.mm], 12.0)
+    long_table = generator.build_table(
+        [["TITLE"], ["HEADER"], ["FIRST_ROW"], ["SECOND_ROW"]],
+        [40 * generator.mm],
+        12.0,
+    )
+
+    assert generator.table_flowable_row_count(short_table) == 3
+    assert generator.operation_section_table_start_min_room(short_table) == (
+        generator.OPERATION_SECTION_SHORT_TABLE_START_MIN_ROOM
+    )
+    assert generator.table_flowable_row_count(long_table) == 4
+    assert generator.operation_section_table_start_min_room(long_table) == generator.OPERATION_SECTION_TABLE_START_MIN_ROOM
+
+
 def test_section_label_moves_to_new_page_when_table_start_room_is_too_short(tmp_path: Path) -> None:
     pdf_path = tmp_path / "section_label_table_start_room.pdf"
     story: list[object] = [generator.Spacer(1, 45 * generator.mm)]
-    table = generator.build_table([["TABLE_HEADER"], ["FIRST_ROW"]], [45 * generator.mm], 12.0)
+    table = generator.build_table([["TABLE_HEADER"], ["FIRST_ROW"], ["SECOND_ROW"], ["THIRD_ROW"]], [45 * generator.mm], 12.0)
     generator.append_section_label_with_table(story, "ACTIVE_SECTION", table)
     doc = generator.SimpleDocTemplate(
         str(pdf_path),
@@ -174,6 +193,28 @@ def test_section_label_moves_to_new_page_when_table_start_room_is_too_short(tmp_
     assert "ACTIVE_SECTION" in page_texts[1]
     assert "TABLE_HEADER" in page_texts[1]
     assert "FIRST_ROW" in page_texts[1]
+
+
+def test_short_empty_operation_table_can_stay_on_page_with_modest_room(tmp_path: Path) -> None:
+    pdf_path = tmp_path / "short_empty_operation_table_room.pdf"
+    story: list[object] = [generator.Spacer(1, 54 * generator.mm)]
+    table = generator.build_table([["TABLE_TITLE"], ["TABLE_HEADER"], ["EMPTY_STATE"]], [45 * generator.mm], 12.0)
+    generator.append_section_label_with_table(story, "ACTIVE_SECTION", table)
+    doc = generator.SimpleDocTemplate(
+        str(pdf_path),
+        pagesize=(70 * generator.mm, 130 * generator.mm),
+        leftMargin=6 * generator.mm,
+        rightMargin=6 * generator.mm,
+        topMargin=6 * generator.mm,
+        bottomMargin=6 * generator.mm,
+    )
+
+    doc.build(story)
+
+    page_texts = [page.extract_text() or "" for page in PdfReader(str(pdf_path)).pages]
+    assert "ACTIVE_SECTION" in page_texts[0]
+    assert "TABLE_TITLE" in page_texts[0]
+    assert "EMPTY_STATE" in page_texts[0]
 
 
 def test_stock_model_section_start_moves_title_with_first_table_start(tmp_path: Path) -> None:
