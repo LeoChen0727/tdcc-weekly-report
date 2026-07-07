@@ -108,10 +108,13 @@ Highlight operation table display limits are part of the PDF contract:
 - `confirmed_operation` / `本日可買 / 已確認買入候選` rows must be rendered in
   full for the applicable report line. The PDF renderer must not use a fixed
   `confirmed_operation` cap such as 10.
-- `active_operation` / `操作中` rows must render at least the first 10 rows
-  for the applicable report line when that many rows exist. A 5-row highlight
+- `active_operation` / `操作中` rows must render at most the first 10 rows
+  for the applicable report line when more than 10 rows exist; when there are
+  10 or fewer rows, render all of them. A missing or unlimited highlight active
   cap is forbidden for all formal stock operation models.
 - Full-list PDFs must not inherit highlight row caps.
+- Every formal stock operation-model header summary must include this sentence
+  as its own paragraph: `取樣：已確認欄位股票精華版全部列出，操作中欄位股票精華版最多列出十檔股票。`
 
 `w_bottom_right_side` and `neckline_volume_breakout_confirmation` now have
 formal model-owned PDF operation section adapters and must be rendered from

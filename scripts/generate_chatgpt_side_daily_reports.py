@@ -84,9 +84,9 @@ PDF_PRESENTATION_MODEL_ORDER_OVERRIDES = {
     W_BOTTOM_NECKLINE_BREAKOUT_MODEL_ID: 1.2,
     PRICE_PULLBACK_MODEL_ID: 1.3,
 }
-OPERATION_HIGHLIGHT_ACTIVE_MIN_ROWS = 10
+OPERATION_HIGHLIGHT_ACTIVE_MAX_ROWS = 10
 OPERATION_HIGHLIGHT_ROW_LIMITS: dict[str, int | None] = {
-    "active_operation": None,
+    "active_operation": OPERATION_HIGHLIGHT_ACTIVE_MAX_ROWS,
 }
 W_BOTTOM_OPERATION_TABLE_MODEL_IDS = {
     W_BOTTOM_RIGHT_SIDE_MODEL_ID,
@@ -98,7 +98,17 @@ OPERATION_TABLE_MODEL_IDS = {
     W_BOTTOM_NECKLINE_BREAKOUT_MODEL_ID,
     PRICE_PULLBACK_MODEL_ID,
 }
-OPERATION_MODEL_SUMMARY_REQUIRED_TOKENS = ("買入：", "賣出：", "停損：", "基礎模型績效：", "勝：", "和：", "敗：")
+OPERATION_MODEL_SAMPLING_TEXT = "取樣：已確認欄位股票精華版全部列出，操作中欄位股票精華版最多列出十檔股票。"
+OPERATION_MODEL_SUMMARY_REQUIRED_TOKENS = (
+    "買入：",
+    "賣出：",
+    "停損：",
+    "基礎模型績效：",
+    "取樣：",
+    "勝：",
+    "和：",
+    "敗：",
+)
 OPERATION_MODEL_OUTCOME_DEFINITIONS = {
     VOLUME_BREAKOUT_MODEL_ID: {
         "win": "勝：確認後依停損與10個交易日收盤出場規則，操作報酬為正。",
@@ -345,6 +355,7 @@ def operation_model_summary_text(inputs: dict[str, pd.DataFrame], model_id: str)
         f"賣出：{operation_rule_text(row.get('exit_rule_zh'))}",
         f"停損：{operation_rule_text(row.get('stop_loss_rule_zh'))}",
         operation_model_metric_summary(model_id, row),
+        OPERATION_MODEL_SAMPLING_TEXT,
         outcomes["win"],
         outcomes["neutral"],
         outcomes["failure"],
@@ -2459,14 +2470,10 @@ def operation_highlight_row_limit(pdf_section: str) -> int | None:
     if pdf_section == "confirmed_operation":
         return None
     limit = OPERATION_HIGHLIGHT_ROW_LIMITS.get(pdf_section)
-    if (
-        pdf_section == "active_operation"
-        and limit is not None
-        and limit < OPERATION_HIGHLIGHT_ACTIVE_MIN_ROWS
-    ):
+    if pdf_section == "active_operation" and limit != OPERATION_HIGHLIGHT_ACTIVE_MAX_ROWS:
         raise RuntimeError(
-            "daily PDF highlight active_operation row limit must be at least "
-            f"{OPERATION_HIGHLIGHT_ACTIVE_MIN_ROWS}: {limit}"
+            "daily PDF highlight active_operation row limit must be exactly "
+            f"{OPERATION_HIGHLIGHT_ACTIVE_MAX_ROWS}: {limit}"
         )
     return limit
 

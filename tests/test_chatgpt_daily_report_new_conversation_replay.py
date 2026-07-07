@@ -232,6 +232,7 @@ def test_semantic_golden_cases_accept_known_20260706_accident_rows() -> None:
         "w_bottom_20260706_1618_confirmed_absent",
         "w_bottom_20260706_1618_active_present",
         "w_bottom_20260706_3029_active_present",
+        "w_bottom_20260706_6134_active_absent",
         "volume_20260706_3055_confirmed_present",
         "volume_20260706_3055_active_absent",
         "volume_20260706_1515_confirmed_absent",
@@ -252,6 +253,7 @@ def test_semantic_golden_cases_reject_known_20260706_accident_drift() -> None:
     rows = [
         semantic_row("w_bottom_right_side", "confirmed_operation", "1618"),
         semantic_row("w_bottom_right_side", "active_operation", "1618"),
+        semantic_row("w_bottom_right_side", "active_operation", "6134"),
         semantic_row("volume_range_breakout", "active_operation", "3055"),
     ]
     case_ids = {
@@ -259,6 +261,7 @@ def test_semantic_golden_cases_reject_known_20260706_accident_drift() -> None:
         "w_bottom_20260706_1618_confirmed_absent",
         "w_bottom_20260706_1618_active_present",
         "w_bottom_20260706_3029_active_present",
+        "w_bottom_20260706_6134_active_absent",
         "volume_20260706_3055_confirmed_present",
         "volume_20260706_3055_active_absent",
     }
@@ -273,6 +276,7 @@ def test_semantic_golden_cases_reject_known_20260706_accident_drift() -> None:
     assert any("w_bottom_20260706_6176_confirmed_present" in error for error in errors)
     assert any("w_bottom_20260706_1618_confirmed_absent" in error for error in errors)
     assert any("w_bottom_20260706_3029_active_present" in error for error in errors)
+    assert any("w_bottom_20260706_6134_active_absent" in error for error in errors)
     assert any("volume_20260706_3055_confirmed_present" in error for error in errors)
     assert any("volume_20260706_3055_active_absent" in error for error in errors)
 
@@ -547,6 +551,7 @@ def test_rendered_model_regression_contract_records_20260703_volume_guard() -> N
 def test_rendered_model_regression_contract_records_formal_operation_models() -> None:
     rows = read_rendered_model_regression_contract(RENDERED_MODEL_REGRESSION_CONTRACT)
     row_by_id = {row["contract_id"]: row for row in rows}
+    sampling_sentence = "取樣：已確認欄位股票精華版全部列出，操作中欄位股票精華版最多列出十檔股票。"
 
     required_contracts = {
         "volume_range_breakout_mainstream_highlight_structure",
@@ -591,6 +596,17 @@ def test_rendered_model_regression_contract_records_formal_operation_models() ->
         row_by_id["w_bottom_right_side_mainstream_highlight_active_table_20260706"]["required_stock_ids"]
         == "3029"
     )
+    for contract_id in (
+        "volume_range_breakout_mainstream_highlight_structure",
+        "volume_range_breakout_non_mainstream_highlight_structure",
+        "w_bottom_right_side_mainstream_highlight_structure",
+        "w_bottom_right_side_non_mainstream_highlight_structure",
+        "neckline_volume_breakout_confirmation_mainstream_highlight_structure",
+        "neckline_volume_breakout_confirmation_non_mainstream_highlight_structure",
+        "price_pullback_23ema_mainstream_highlight_structure",
+        "price_pullback_23ema_non_mainstream_highlight_structure",
+    ):
+        assert sampling_sentence in row_by_id[contract_id]["required_text_tokens"]
     assert row_by_id[
         "neckline_volume_breakout_confirmation_mainstream_highlight_active_empty_table_20260703"
     ]["required_text_tokens"]

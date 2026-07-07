@@ -113,6 +113,8 @@ def test_pdf_operation_model_summary_renders_each_contract_token_as_own_line() -
         assert line.startswith(token)
     for line, next_token in zip(lines, pdf_generator.OPERATION_MODEL_SUMMARY_REQUIRED_TOKENS[1:]):
         assert next_token not in line
+    assert pdf_generator.OPERATION_MODEL_SAMPLING_TEXT in lines
+    assert lines.count(pdf_generator.OPERATION_MODEL_SAMPLING_TEXT) == 1
 
 
 def test_pdf_stock_model_summary_marks_numeric_tokens_red() -> None:
@@ -1191,14 +1193,17 @@ def test_pdf_operation_highlight_display_limits_are_section_specific() -> None:
     confirmed = operation_rows_for_limit_test("confirmed_operation", 12)
     pending = operation_rows_for_limit_test("pending_confirmation", 8)
     active = operation_rows_for_limit_test("active_operation", 7)
+    active_many = operation_rows_for_limit_test("active_operation", 12)
 
     assert len(pdf_generator.limit_operation_rows_for_pdf_view(confirmed, "highlight", "confirmed_operation")) == 12
     assert len(pdf_generator.limit_operation_rows_for_pdf_view(pending, "highlight", "pending_confirmation")) == 8
     assert len(pdf_generator.limit_operation_rows_for_pdf_view(active, "highlight", "active_operation")) == 7
+    assert len(pdf_generator.limit_operation_rows_for_pdf_view(active_many, "highlight", "active_operation")) == 10
 
     assert len(pdf_generator.limit_operation_rows_for_pdf_view(confirmed, "full", "confirmed_operation")) == 12
     assert len(pdf_generator.limit_operation_rows_for_pdf_view(pending, "full", "pending_confirmation")) == 8
     assert len(pdf_generator.limit_operation_rows_for_pdf_view(active, "full", "active_operation")) == 7
+    assert len(pdf_generator.limit_operation_rows_for_pdf_view(active_many, "full", "active_operation")) == 12
 
 
 def test_pdf_operation_highlight_display_limits_apply_after_report_line_filter() -> None:
@@ -1822,7 +1827,7 @@ def test_w_bottom_pdf_renderer_uses_model_owned_adapter_rows(monkeypatch) -> Non
     assert "重複上榜" not in story_text
 
 
-def test_operation_highlight_limit_helper_keeps_confirmed_all_and_active_min_10() -> None:
+def test_operation_highlight_limit_helper_keeps_confirmed_all_and_active_max_10() -> None:
     rows = pd.DataFrame(
         [
             {"row_type": "data", "stock_id": f"{idx:04d}", "display_order": str(idx)}
@@ -1842,8 +1847,9 @@ def test_operation_highlight_limit_helper_keeps_confirmed_all_and_active_min_10(
     )
 
     assert len(confirmed) == 12
-    assert len(active) >= pdf_generator.OPERATION_HIGHLIGHT_ACTIVE_MIN_ROWS
+    assert len(active) == pdf_generator.OPERATION_HIGHLIGHT_ACTIVE_MAX_ROWS
     assert "0006" in set(active["stock_id"].astype(str))
+    assert "0011" not in set(active["stock_id"].astype(str))
 
 
 def test_w_bottom_highlight_confirmed_operation_rows_are_not_capped(monkeypatch) -> None:
@@ -1887,7 +1893,7 @@ def test_w_bottom_highlight_confirmed_operation_rows_are_not_capped(monkeypatch)
         assert f"{idx:04d}" in visible
 
 
-def test_w_bottom_highlight_active_operation_keeps_at_least_10_and_3029(monkeypatch) -> None:
+def test_w_bottom_highlight_active_operation_caps_at_10_and_keeps_3029(monkeypatch) -> None:
     captured_tables: list[list[list[str]]] = []
 
     def capture_table(rows, widths, font_size=7.2, header_bg=None, **_kwargs):
@@ -1945,9 +1951,9 @@ def test_w_bottom_highlight_active_operation_keeps_at_least_10_and_3029(monkeypa
     active_table = captured_tables[1]
     visible = "\n".join(str(cell) for row in active_table for cell in row)
     visible_stock_count = sum(1 for stock_id in active_stock_ids if stock_id in visible)
-    assert visible_stock_count >= pdf_generator.OPERATION_HIGHLIGHT_ACTIVE_MIN_ROWS
+    assert visible_stock_count == pdf_generator.OPERATION_HIGHLIGHT_ACTIVE_MAX_ROWS
     assert "3029 零壹" in visible
-    assert "6134 Active" in visible
+    assert "6134 Active" not in visible
 
 
 def test_w_bottom_pdf_renderer_sanitizes_pending_entry_price_text(monkeypatch) -> None:

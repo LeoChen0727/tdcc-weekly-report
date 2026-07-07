@@ -255,8 +255,9 @@ REQUIRED_OPERATION_HIGHLIGHT_CONTRACT_TOKENS = (
     "PRICE_PULLBACK_MODEL_ID",
 )
 REQUIRED_OPERATION_HIGHLIGHT_DISPLAY_LIMIT_TOKENS = (
-    "OPERATION_HIGHLIGHT_ACTIVE_MIN_ROWS = 10",
+    "OPERATION_HIGHLIGHT_ACTIVE_MAX_ROWS = 10",
     "OPERATION_HIGHLIGHT_ROW_LIMITS",
+    '"active_operation": OPERATION_HIGHLIGHT_ACTIVE_MAX_ROWS',
     "def operation_highlight_row_limit(",
     "def limit_operation_rows_for_pdf_view(",
     "return limit_operation_rows_for_pdf_view(selected, pdf_view, pdf_section)",
@@ -268,12 +269,15 @@ FORBIDDEN_OPERATION_HIGHLIGHT_DISPLAY_LIMIT_TOKENS = (
     "'confirmed_operation': 10",
     '"active_operation": 5',
     "'active_operation': 5",
+    '"active_operation": None',
+    "'active_operation': None",
 )
 REQUIRED_STOCK_MODEL_HEADER_LAYOUT_TOKENS = (
     'PDF_MODEL_TITLE_BLUE = "#1f4e79"',
     "MODEL_H1 = ParagraphStyle(",
     "MODEL_H2 = ParagraphStyle(",
     "MODEL_SUMMARY_NUMBER_RE = re.compile(",
+    'OPERATION_MODEL_SAMPLING_TEXT = "取樣：已確認欄位股票精華版全部列出，操作中欄位股票精華版最多列出十檔股票。"',
     "def operation_model_summary_lines(",
     "def append_stock_model_summary_lines(",
     "def append_stock_model_title(",
@@ -445,6 +449,7 @@ def validate_renderer_fixed_model_table_contract(source_paths: Iterable[Path] = 
     skip_re = re.compile(r"if\s+not\s+(?:ranked_rows|line_rows)\s*:\s*\n\s*continue")
     confirmed_limit_re = re.compile(r"['\"]confirmed_operation['\"]\s*:\s*(\d+)")
     active_limit_re = re.compile(r"['\"]active_operation['\"]\s*:\s*(\d+)")
+    active_none_re = re.compile(r"['\"]active_operation['\"]\s*:\s*None")
     for path in source_paths:
         if not path.exists():
             errors.append(f"missing daily PDF renderer path: {rel(path)}")
@@ -479,7 +484,7 @@ def validate_renderer_fixed_model_table_contract(source_paths: Iterable[Path] = 
         for required in REQUIRED_OPERATION_HIGHLIGHT_DISPLAY_LIMIT_TOKENS:
             if required not in text:
                 errors.append(
-                    "daily PDF renderer must keep highlight operation display limits as confirmed-all and active-min-10: "
+                    "daily PDF renderer must keep highlight operation display limits as confirmed-all and active-max-10: "
                     f"missing {required} in {rel(path)}"
                 )
         for forbidden in FORBIDDEN_OPERATION_HIGHLIGHT_DISPLAY_LIMIT_TOKENS:
@@ -495,11 +500,16 @@ def validate_renderer_fixed_model_table_contract(source_paths: Iterable[Path] = 
             )
         for match in active_limit_re.finditer(text):
             limit = int(match.group(1))
-            if limit < 10:
+            if limit != 10:
                 errors.append(
-                    "daily PDF renderer must not cap highlight active_operation rows below 10: "
+                    "daily PDF renderer must cap highlight active_operation rows at exactly 10: "
                     f"{match.group(0)} in {rel(path)}"
                 )
+        for match in active_none_re.finditer(text):
+            errors.append(
+                "daily PDF renderer must not leave highlight active_operation rows uncapped: "
+                f"{match.group(0)} in {rel(path)}"
+            )
         for required in REQUIRED_STOCK_MODEL_HEADER_LAYOUT_TOKENS:
             if required not in text:
                 errors.append(

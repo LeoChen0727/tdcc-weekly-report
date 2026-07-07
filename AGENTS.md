@@ -322,9 +322,12 @@ wired.
 Daily stock operation-model highlight display limits are also contractual:
 `confirmed_operation` / `本日可買 / 已確認買入候選` rows must be rendered in full
 for the applicable report line, without a fixed 10-row cap.
-`active_operation` / `操作中` rows must render at least the first 10 rows when
-that many rows exist; a 5-row highlight cap is forbidden. Full-list PDFs must
-not inherit highlight caps.
+`active_operation` / `操作中` rows must render at most the first 10 rows when
+more than 10 rows exist, and all rows when 10 or fewer rows exist; a missing or
+unlimited highlight active cap is forbidden. Full-list PDFs must not inherit
+highlight caps. Every formal stock operation-model header summary must include
+this standalone sentence:
+`取樣：已確認欄位股票精華版全部列出，操作中欄位股票精華版最多列出十檔股票。`
 
 Formal operation adapters must enforce lifecycle monotonicity. Within the same
 model, report line, and PDF view, the same stock must not appear in both
