@@ -196,6 +196,8 @@ def formal_summary(
     median_return: str = "2.5",
     score: str = "18",
     oos: str = "True",
+    approved_for_daily: str = "True",
+    risk_notes_zh: str = "approved formal daily evidence",
 ) -> pd.DataFrame:
     return pd.DataFrame(
         [
@@ -212,6 +214,8 @@ def formal_summary(
                 "median_return": median_return,
                 "ranking_research_score": score,
                 "out_of_sample_pass": oos,
+                "approved_for_daily": approved_for_daily,
+                "risk_notes_zh": risk_notes_zh,
                 "confidence_status": "中",
             }
         ]
@@ -589,6 +593,45 @@ def test_lifecycle_does_not_carry_forward_prior_active_without_buy_ranked_confir
     assert suppressed["included_in_daily_adapter"].tolist() == ["False"]
 
 
+def test_lifecycle_does_not_carry_forward_snapshot_when_evidence_loses_formal_approval(
+    monkeypatch,
+    tmp_path,
+) -> None:
+    snapshot_dir = patch_lifecycle_sources(
+        monkeypatch,
+        tmp_path,
+        "1234",
+        [
+            {"date": "20260615", "open": "10", "high": "11", "low": "9", "close": "10", "volume": "1000"},
+            {"date": "20260616", "open": "10.5", "high": "12", "low": "10.9", "close": "11.5", "volume": "1200"},
+            {"date": "20260617", "open": "11.7", "high": "12.5", "low": "11.2", "close": "12", "volume": "1100"},
+        ],
+    )
+    pd.DataFrame([volume_signal("1234", "20260615")]).to_csv(
+        snapshot_dir / "daily_candidate_model_signals_for_report_20260615.csv",
+        index=False,
+    )
+    write_operation_snapshot(
+        snapshot_dir,
+        "20260616",
+        "20260615",
+        pdf_section="confirmed_operation",
+        row_action_status="confirmed_buy_candidate",
+        buy_rank_eligible="True",
+    )
+
+    out, audit = build_rows_and_audit_for_test(
+        pd.DataFrame(),
+        "20260617",
+        formal_summary(approved_for_daily="False", risk_notes_zh="approved formal daily evidence"),
+    )
+
+    active = out[out["pdf_section"].eq("active_operation") & out["row_type"].eq("data")]
+    assert active.empty
+    assert audit[audit["included_in_daily_adapter"].eq("True")].empty
+    assert set(audit["reason"]) == {"confirmed_without_buy_rank_eligibility_not_tracked_active"}
+
+
 def test_volume_operation_validator_rejects_prior_active_without_buy_ranked_confirmation(
     monkeypatch,
     tmp_path,
@@ -810,6 +853,68 @@ def test_lifecycle_does_not_promote_confirmed_signal_without_positive_evidence(m
     assert set(unranked["entry_price"]) == {""}
     assert set(unranked["stop_loss_price"]) == {""}
     assert set(unranked["evidence_match_status"]) == {"row_level_evidence_not_buy_ranked"}
+
+
+def test_lifecycle_rejects_row_level_evidence_without_daily_approval(monkeypatch, tmp_path) -> None:
+    snapshot_dir = patch_lifecycle_sources(
+        monkeypatch,
+        tmp_path,
+        "1234",
+        [
+            {"date": "20260616", "open": "10", "high": "11", "low": "9", "close": "10", "volume": "1000"},
+            {"date": "20260617", "open": "10.6", "high": "12", "low": "10.9", "close": "11.5", "volume": "1200"},
+        ],
+    )
+    pd.DataFrame([volume_signal("1234", "20260616")]).to_csv(
+        snapshot_dir / "daily_candidate_model_signals_for_report_20260616.csv",
+        index=False,
+    )
+
+    out, audit = build_rows_and_audit_for_test(
+        pd.DataFrame(),
+        "20260617",
+        formal_summary(approved_for_daily="False", risk_notes_zh="approved formal daily evidence"),
+    )
+
+    confirmed = out[out["pdf_section"].eq("confirmed_operation") & out["row_type"].eq("data")]
+    unranked = out[out["pdf_section"].eq("confirmed_unranked_operation") & out["row_type"].eq("data")]
+    assert confirmed.empty
+    assert unranked["stock_id"].tolist() == ["1234"]
+    assert set(unranked["row_action_status"]) == {"confirmed_not_buy_ranked"}
+    assert set(unranked["buy_rank_eligible"]) == {"False"}
+    assert set(unranked["evidence_match_status"]) == {"row_level_evidence_not_buy_ranked"}
+    assert audit[audit["included_in_daily_adapter"].eq("True")].empty
+
+
+def test_lifecycle_rejects_research_only_row_level_evidence(monkeypatch, tmp_path) -> None:
+    snapshot_dir = patch_lifecycle_sources(
+        monkeypatch,
+        tmp_path,
+        "1234",
+        [
+            {"date": "20260616", "open": "10", "high": "11", "low": "9", "close": "10", "volume": "1000"},
+            {"date": "20260617", "open": "10.6", "high": "12", "low": "10.9", "close": "11.5", "volume": "1200"},
+        ],
+    )
+    pd.DataFrame([volume_signal("1234", "20260616")]).to_csv(
+        snapshot_dir / "daily_candidate_model_signals_for_report_20260616.csv",
+        index=False,
+    )
+
+    out, audit = build_rows_and_audit_for_test(
+        pd.DataFrame(),
+        "20260617",
+        formal_summary(approved_for_daily="True", risk_notes_zh="research only; not approved for daily buy gate"),
+    )
+
+    confirmed = out[out["pdf_section"].eq("confirmed_operation") & out["row_type"].eq("data")]
+    unranked = out[out["pdf_section"].eq("confirmed_unranked_operation") & out["row_type"].eq("data")]
+    assert confirmed.empty
+    assert unranked["stock_id"].tolist() == ["1234"]
+    assert set(unranked["row_action_status"]) == {"confirmed_not_buy_ranked"}
+    assert set(unranked["buy_rank_eligible"]) == {"False"}
+    assert set(unranked["evidence_match_status"]) == {"row_level_evidence_not_buy_ranked"}
+    assert audit[audit["included_in_daily_adapter"].eq("True")].empty
 
 
 def test_lifecycle_does_not_apply_tdcc_top10_evidence_to_no_tdcc_stock(monkeypatch, tmp_path) -> None:

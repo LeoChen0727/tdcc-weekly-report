@@ -64,11 +64,13 @@ states. That lifecycle artifact is not a PDF or daily adapter source.
 - The PDF renderer must use `buy_rank_eligible=True` plus `row_action_status=confirmed_buy_candidate` for buy-ranking rows.
 - `pending_confirmation` rows must remain `buy_rank_eligible=False` even when `approved_for_daily=True`.
 - The adapter must copy approval metadata from `approved_operation_patterns_latest.csv`; the PDF renderer must not read that approval table directly.
-- `confirmed_operation` data rows must be positive evidence only. Weak-evidence confirmations must not be presented as daily buy guidance.
+- `confirmed_operation` data rows must be positive formal evidence only. The matched evidence row itself must carry `approved_for_daily=True` and must not be marked `research only` in `risk_notes_zh`. Module-level approval in `approved_operation_patterns_latest.csv` is not enough to make a row buyable.
+- Evidence rows with `approved_for_daily=False`, missing row-level approval, or `risk_notes_zh` marked `research only` may remain audit / research context only. They must not enter `confirmed_operation` or `active_operation`.
+- Weak-evidence or research-only confirmations must not be presented as daily buy guidance.
 - `confirmed_unranked_operation` data rows are lifecycle-confirmed rows that did not pass the buy-ranking evidence gate. They must remain `buy_rank_eligible=False`, must not carry entry price, stop price, or exit guidance, and must be rendered only in full PDFs.
-- `active_operation` data rows must trace back to a confirmation-date published `confirmed_operation` row with `row_action_status=confirmed_buy_candidate` and `buy_rank_eligible=True`. A prior `active_operation` snapshot is not sufficient by itself; it may continue tracking only when the original confirmation snapshot remains buy-ranked.
+- `active_operation` data rows must trace back to a confirmation-date published `confirmed_operation` row with `row_action_status=confirmed_buy_candidate` and `buy_rank_eligible=True`, and the current row-level evidence gate must still pass formal approval. A prior `active_operation` snapshot is not sufficient by itself; it may continue tracking only when the original confirmation snapshot remains buy-ranked and the matched evidence row remains formal-approved.
 - `confirmed_operation`, `confirmed_unranked_operation`, and `active_operation` data rows must use row-level evidence attribution when matching evidence exists. The adapter must match the selected trigger plus that stock's TDCC list type, rank bucket, and best available confluence row before copying sample size, win rate, average return, or median return.
-- If no positive row-level evidence exists for a confirmation on the report date, the adapter must keep the lifecycle-confirmed row in `confirmed_unranked_operation` instead of dropping it from the full report. It must not enter `active_operation`.
+- If no positive formal row-level evidence exists for a confirmation on the report date, the adapter must keep the lifecycle-confirmed row in `confirmed_unranked_operation` instead of dropping it from the full report. It must not enter `active_operation`.
 - If a lifecycle source signal cannot be evaluated because stock price history is
   missing or incomplete, the adapter must emit `audit_status=source_gap` in
   `daily_volume_breakout_operation_evidence_audit_latest.csv`, keep
@@ -170,8 +172,8 @@ PDF display limits:
 Lifecycle meaning:
 
 - First daily model hit enters `pending_confirmation`.
-- If a later trading day meets one confirmation trigger before invalidation, it enters `confirmed_operation` only on that confirmation report date when row-level evidence passes the buy-ranking gate; otherwise it enters `confirmed_unranked_operation` on that confirmation report date.
-- After the entry day starts, it enters `active_operation` until stop or the 10th trading-day holding limit only if the confirmation-date published operation snapshot contains the same stock/signal as `confirmed_operation` with `row_action_status=confirmed_buy_candidate` and `buy_rank_eligible=True`.
+- If a later trading day meets one confirmation trigger before invalidation, it enters `confirmed_operation` only on that confirmation report date when row-level evidence passes the formal buy-ranking gate; otherwise it enters `confirmed_unranked_operation` on that confirmation report date.
+- After the entry day starts, it enters `active_operation` until stop or the 10th trading-day holding limit only if the confirmation-date published operation snapshot contains the same stock/signal as `confirmed_operation` with `row_action_status=confirmed_buy_candidate` and `buy_rank_eligible=True`, and the matched row-level evidence still passes the formal buy-ranking gate.
 - A row that was `confirmed_unranked_operation` on its confirmation date must remain not-tracked for active operation purposes. Later TDCC, context, or evidence changes must not re-promote that historical signal into `active_operation`.
 - If a signal breaks its stop basis before confirmation, exceeds the confirmation window, hits stop after entry, or exceeds the holding window, it must drop from the operation section. A row that confirms without buy-ranking evidence must not be tracked as active.
 
