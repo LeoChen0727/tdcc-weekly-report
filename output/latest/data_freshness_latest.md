@@ -1,8 +1,8 @@
 # Data Freshness Status
 
-- generated_at: `2026-07-07 13:53:51` Asia/Taipei
-- main_price_date: `20260706`
-- actual_stock_price_history_date: `20260706`
+- generated_at: `2026-07-07 15:02:11` Asia/Taipei
+- main_price_date: `20260707`
+- actual_stock_price_history_date: `20260707`
 - report_ready: `True`
 - report_ready_note: core daily data dates match main_price_date
 - warrant_ready: `True`
@@ -21,10 +21,10 @@
 
 | source | effective_date | raw_date | note |
 |---|---:|---:|---|
-| all_candidates_latest.csv | 20260706 | 20260706 | ready |
-| official_price_fetch_latest | 20260706 | 20260706 | ready |
-| stock_monitor_latest.md | 20260706 | 20260706 | ready |
-| warrant_flow_latest.csv | 20260706 | 20260706 | ready |
+| all_candidates_latest.csv | 20260707 | 20260707 | ready |
+| official_price_fetch_latest | 20260707 | 20260707 | ready |
+| stock_monitor_latest.md | 20260707 | 20260707 | ready |
+| warrant_flow_latest.csv | 20260707 | 20260707 | ready |
 
 ## Rule
 

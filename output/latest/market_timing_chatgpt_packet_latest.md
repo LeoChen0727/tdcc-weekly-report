@@ -1,24 +1,24 @@
 # MARKET TIMING CHATGPT PACKET
 
 ## Metadata
-- generated_at: 2026-07-07 13:53:29 Asia/Taipei
-- main_price_date: 20260706
+- generated_at: 2026-07-07 15:01:48 Asia/Taipei
+- main_price_date: 20260707
 - packet_source: daily_market_regime_dashboard
-- packet_status: ready
-- packet_status_note: all source rows aligned with main_price_date
+- packet_status: partial_market_context
+- packet_status_note: futures_options_date=20260706
 - tuning_status: not_ready
 
 ## Source Dates
-- market_regime_latest.csv: 20260706
-- futures_options_indicators_latest.csv: 20260706
-- TWSE market index: 20260706
-- TPEx market index: 20260706
+- market_regime_latest.csv: 20260707
+- futures_options_indicators_latest.csv: 20260706 (latest available at or before main_price_date=20260707)
+- TWSE market index: 20260707
+- TPEx market index: 20260707
 
 ## Current Market Technical State
 | index_id | trade_date | close | ret_5d | ret_20d | above_ma20 | above_ma60 | market_regime | risk_level |
 | --- | --- | ---: | ---: | ---: | --- | --- | --- | --- |
-| TWSE | 20260706 | 46,556 | 3.46% | 3.3% | True | True | mild_bull | high_risk |
-| TPEx | 20260706 | 439.8 | 6.51% | 2.03% | True | True | mild_bull | high_risk |
+| TWSE | 20260707 | 45,479 | -1.4% | 4.54% | False | True | correction | very_high_risk |
+| TPEx | 20260707 | 419.47 | -1.76% | 1.67% | False | True | correction | very_high_risk |
 
 ## Futures Options Context
 | item | value | note |
@@ -42,11 +42,11 @@
 market_sentiment_context:
   taiwan_vix:
     latest: 36.89
-    percentile_252d: 63.6364
+    percentile_252d: 64.0
     percentile_504d: 
     rank_label: middle_range
     context_label: normal_range
-    index_interpretation: trend_supported_no_extreme_vix
+    index_interpretation: vix_context_neutral_observe
   retail_mtx:
     latest_proxy: 5173.0
     proxy_method: negative_sum_of_three_institution_mtx_net_oi
@@ -62,7 +62,7 @@ market_sentiment_context:
     data_quality_note: 資料不足 / 僅能觀察：VIX 或散戶小台歷史樣本未達 60 筆，不能判斷是否達歷史極端。
 
 ChatGPT-friendly summary:
-- VIX context: normal_range / trend_supported_no_extreme_vix
+- VIX context: normal_range / vix_context_neutral_observe
 - Retail MTX context: insufficient_history / insufficient_history_observe_only
 - Combined: insufficient_history_observe_only (warning=insufficient)
 - VIX / PutCall / retail MTX are auxiliary context only; cross-check market_regime and foreign_tx_futures_net_oi.

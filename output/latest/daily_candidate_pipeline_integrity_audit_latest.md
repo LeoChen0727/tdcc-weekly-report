@@ -1,7 +1,7 @@
 # Daily Candidate Pipeline Integrity Audit
 
 - status: `pass`
-- main_price_date: `20260706`
+- main_price_date: `20260707`
 - selection_audit_status: `pass`
 - stock_model_spec_count: `8`
 - registry_pdf_model_count: `9`
