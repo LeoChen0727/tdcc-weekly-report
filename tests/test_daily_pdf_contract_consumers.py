@@ -178,12 +178,18 @@ def renderer_source_with_operation_contract() -> str:
         + 'OPERATION_ACTIVE_TABLE_TITLE = "操作中"\n'
         + 'OPERATION_ACTIVE_EMPTY_STATE_TEXT = "目前無操作中追蹤列"\n'
         + 'OPERATION_MODEL_SAMPLING_TEXT = "取樣：已確認欄位股票精華版全部列出，操作中欄位股票精華版最多列出十檔股票。"\n'
+        + "OPERATION_SECTION_TABLE_START_MIN_ROOM = 88 * mm\n"
+        + "STOCK_MODEL_SECTION_TABLE_START_MIN_ROOM = 168 * mm\n"
+        + "def append_stock_model_section_start(story, model_name, level):\n"
+        + "    story.append(CondPageBreak(STOCK_MODEL_SECTION_TABLE_START_MIN_ROOM))\n"
+        + "    append_stock_model_title(story, model_name, level=level)\n"
+        + "append_stock_model_section_start(story, model_name, level=2)\n"
         + "def append_section_label_with_table(\n"
         + "    story,\n"
         + "    label,\n"
         + "    table_flowable,\n"
         + "):\n"
-        + "    label_flowable.keepWithNext = 1\n"
+        + "    story.append(CondPageBreak(OPERATION_SECTION_TABLE_START_MIN_ROOM))\n"
         + "append_section_label_with_table(\n"
         + "        story,\n"
         + "        OPERATION_CONFIRMED_BUY_TABLE_TITLE,\n"
@@ -304,7 +310,7 @@ def test_renderer_contract_blocks_old_operation_empty_state_policy(tmp_path: Pat
     assert any("empty states inside the two main tables" in error for error in errors)
 
 
-def test_renderer_contract_requires_operation_label_keep_with_table_helper(tmp_path: Path) -> None:
+def test_renderer_contract_requires_operation_label_table_start_helper(tmp_path: Path) -> None:
     renderer = tmp_path / "renderer.py"
     renderer.write_text(
         renderer_source_with_operation_contract().replace("def append_section_label_with_table(", "def append_label("),
@@ -313,7 +319,7 @@ def test_renderer_contract_requires_operation_label_keep_with_table_helper(tmp_p
 
     errors = validator.validate_renderer_fixed_model_table_contract([renderer])
 
-    assert any("keep-with-table helper" in error for error in errors)
+    assert any("section-label-with-table helper" in error for error in errors)
 
 
 def test_renderer_contract_blocks_direct_operation_label_append(tmp_path: Path) -> None:
