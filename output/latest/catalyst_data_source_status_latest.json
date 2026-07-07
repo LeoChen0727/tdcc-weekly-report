@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-07 19:51:55 Asia/Taipei",
+  "generated_at": "2026-07-07 22:37:37 Asia/Taipei",
   "external_fetch_status": "partial_ok",
   "note": "Official monthly revenue and material-information sources are used when reachable. No unverified news, MOPS pages, or social rumor data is fabricated.",
   "files": {
@@ -27,12 +27,12 @@
   "sources": {
     "TWSE monthly revenue OpenAPI": {
       "url": "https://openapi.twse.com.tw/v1/opendata/t187ap05_L",
-      "status": "failed",
-      "rows": 0,
-      "error": "Expecting value: line 1 column 1 (char 0)",
+      "status": "ok",
+      "rows": 1082,
+      "error": "",
       "http_status": 200,
-      "matched_tracked_rows": 0,
-      "stored_rows": 0,
+      "matched_tracked_rows": 311,
+      "stored_rows": 311,
       "note": "Official monthly revenue rows are stored as fundamental source rows with EPS/margin fields blank. They can flag revenue_good_eps_unconfirmed only; they are not EPS confirmation."
     },
     "TPEX monthly revenue OpenAPI": {
@@ -41,18 +41,18 @@
       "rows": 890,
       "error": "",
       "http_status": 200,
-      "matched_tracked_rows": 91,
-      "stored_rows": 91,
+      "matched_tracked_rows": 129,
+      "stored_rows": 129,
       "note": "Official monthly revenue rows are stored as fundamental source rows with EPS/margin fields blank. They can flag revenue_good_eps_unconfirmed only; they are not EPS confirmation."
     },
     "TWSE material information OpenAPI": {
       "url": "https://openapi.twse.com.tw/v1/opendata/t187ap04_L",
-      "status": "failed",
-      "rows": 0,
-      "error": "Expecting value: line 1 column 1 (char 0)",
+      "status": "ok",
+      "rows": 137,
+      "error": "",
       "http_status": 200,
-      "matched_tracked_rows": 0,
-      "stored_rows": 0,
+      "matched_tracked_rows": 61,
+      "stored_rows": 61,
       "note": "Official material-information rows are filtered to tracked stocks. Only objective order/customer/capacity/production/certification keywords become evidence event types; other rows stay material_information context."
     },
     "TPEX material information OpenAPI": {
@@ -61,8 +61,8 @@
       "rows": 38,
       "error": "",
       "http_status": 200,
-      "matched_tracked_rows": 5,
-      "stored_rows": 5,
+      "matched_tracked_rows": 7,
+      "stored_rows": 7,
       "note": "Official material-information rows are filtered to tracked stocks. Only objective order/customer/capacity/production/certification keywords become evidence event types; other rows stay material_information context."
     }
   }
