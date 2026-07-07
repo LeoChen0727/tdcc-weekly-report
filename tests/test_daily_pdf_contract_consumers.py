@@ -166,6 +166,14 @@ def renderer_source_with_operation_contract() -> str:
         + "def render_price_pullback_operation_section():\n"
         + "    return 'adapter'\n"
         + 'OPERATION_HIGHLIGHT_TABLE_CONTRACT = "confirmed_buy_then_active_only"\n'
+        + "OPERATION_HIGHLIGHT_ACTIVE_MIN_ROWS = 10\n"
+        + "OPERATION_HIGHLIGHT_ROW_LIMITS = {'active_operation': None}\n"
+        + "def operation_highlight_row_limit(pdf_section):\n"
+        + "    return OPERATION_HIGHLIGHT_ROW_LIMITS.get(pdf_section)\n"
+        + "def limit_operation_rows_for_pdf_view(rows, pdf_view, pdf_section):\n"
+        + "    return rows\n"
+        + "def selected_rows():\n"
+        + "    return limit_operation_rows_for_pdf_view(selected, pdf_view, pdf_section)\n"
         + 'OPERATION_CONFIRMED_BUY_TABLE_TITLE = "本日可買 / 已確認買入候選"\n'
         + 'OPERATION_ACTIVE_TABLE_TITLE = "操作中"\n'
         + 'OPERATION_ACTIVE_EMPTY_STATE_TEXT = "目前無操作中追蹤列"\n'
@@ -240,6 +248,32 @@ def test_renderer_contract_requires_operation_oriented_highlight_tables(tmp_path
     errors = validator.validate_renderer_fixed_model_table_contract([renderer])
 
     assert any("operation-oriented model highlight tables" in error for error in errors)
+
+
+def test_renderer_contract_blocks_legacy_confirmed_operation_highlight_cap(tmp_path: Path) -> None:
+    renderer = tmp_path / "renderer.py"
+    renderer.write_text(
+        renderer_source_with_operation_contract()
+        + 'BROKEN_OPERATION_HIGHLIGHT_LIMITS = {"confirmed_operation": 10, "active_operation": 10}\n',
+        encoding="utf-8",
+    )
+
+    errors = validator.validate_renderer_fixed_model_table_contract([renderer])
+
+    assert any("must not cap highlight confirmed_operation rows" in error for error in errors)
+
+
+def test_renderer_contract_blocks_active_operation_highlight_cap_below_10(tmp_path: Path) -> None:
+    renderer = tmp_path / "renderer.py"
+    renderer.write_text(
+        renderer_source_with_operation_contract()
+        + 'BROKEN_OPERATION_HIGHLIGHT_LIMITS = {"active_operation": 5}\n',
+        encoding="utf-8",
+    )
+
+    errors = validator.validate_renderer_fixed_model_table_contract([renderer])
+
+    assert any("active_operation rows below 10" in error for error in errors)
 
 
 def test_renderer_contract_blocks_old_operation_empty_state_policy(tmp_path: Path) -> None:

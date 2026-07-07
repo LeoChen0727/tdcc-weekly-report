@@ -988,13 +988,12 @@ def validate_pdf_generator_boundary() -> None:
     if "render_volume_range_breakout_operation_section" not in source:
         fail("PDF generator must expose an independent volume breakout operation renderer")
     for token in [
-        "VOLUME_OPERATION_HIGHLIGHT_LIMITS",
-        '"confirmed_operation": 10',
-        '"active_operation": 5',
+        "OPERATION_HIGHLIGHT_ACTIVE_MIN_ROWS = 10",
+        "OPERATION_HIGHLIGHT_ROW_LIMITS",
+        "limit_operation_rows_for_pdf_view",
         "confirmed_unranked_operation",
         "confirmed_not_buy_ranked",
         "build_volume_unranked_operation_table",
-        "limit_volume_operation_rows_for_pdf_view",
         "VOLUME_TRIGGER_LABELS",
         "entry_date",
         "entry_price",
@@ -1004,6 +1003,13 @@ def validate_pdf_generator_boundary() -> None:
     ]:
         if token not in source:
             fail(f"PDF generator must enforce structured volume operation rendering: {token}")
+    for token in [
+        "VOLUME_OPERATION_HIGHLIGHT_LIMITS",
+        '"confirmed_operation": 10',
+        '"active_operation": 5',
+    ]:
+        if token in source:
+            fail(f"PDF generator must not keep legacy highlight operation display caps: {token}")
     forbidden = [
         "volume_breakout_operation_pdf_preview_latest.csv",
         "volume_breakout_confirmed_operation_rank_latest.csv",

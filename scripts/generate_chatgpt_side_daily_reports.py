@@ -84,13 +84,9 @@ PDF_PRESENTATION_MODEL_ORDER_OVERRIDES = {
     W_BOTTOM_NECKLINE_BREAKOUT_MODEL_ID: 1.2,
     PRICE_PULLBACK_MODEL_ID: 1.3,
 }
-VOLUME_OPERATION_HIGHLIGHT_LIMITS = {
-    "confirmed_operation": 10,
-    "active_operation": 5,
-}
-W_BOTTOM_OPERATION_HIGHLIGHT_LIMITS = {
-    "confirmed_operation": 10,
-    "active_operation": 5,
+OPERATION_HIGHLIGHT_ACTIVE_MIN_ROWS = 10
+OPERATION_HIGHLIGHT_ROW_LIMITS: dict[str, int | None] = {
+    "active_operation": None,
 }
 W_BOTTOM_OPERATION_TABLE_MODEL_IDS = {
     W_BOTTOM_RIGHT_SIDE_MODEL_ID,
@@ -2459,39 +2455,40 @@ def volume_operation_empty_text(rows: pd.DataFrame, fallback: str) -> str:
     return fallback
 
 
-def limit_volume_operation_rows_for_pdf_view(
+def operation_highlight_row_limit(pdf_section: str) -> int | None:
+    if pdf_section == "confirmed_operation":
+        return None
+    limit = OPERATION_HIGHLIGHT_ROW_LIMITS.get(pdf_section)
+    if (
+        pdf_section == "active_operation"
+        and limit is not None
+        and limit < OPERATION_HIGHLIGHT_ACTIVE_MIN_ROWS
+    ):
+        raise RuntimeError(
+            "daily PDF highlight active_operation row limit must be at least "
+            f"{OPERATION_HIGHLIGHT_ACTIVE_MIN_ROWS}: {limit}"
+        )
+    return limit
+
+
+def limit_operation_rows_for_pdf_view(
     rows: pd.DataFrame,
     pdf_view: str,
     pdf_section: str,
 ) -> pd.DataFrame:
     if rows.empty or pdf_view != "highlight":
         return rows
-    limit = VOLUME_OPERATION_HIGHLIGHT_LIMITS.get(pdf_section)
+    limit = operation_highlight_row_limit(pdf_section)
+    row_type = rows.get("row_type", pd.Series(dtype=str)).astype(str)
+    data_rows = rows[row_type.eq("data")].copy()
+    if not data_rows.empty:
+        if limit is None:
+            return data_rows
+        return data_rows.head(limit).copy()
     if limit is None:
-        return rows
+        return rows.copy()
     if "row_type" not in rows.columns:
         return rows.head(limit).copy()
-    row_type = rows["row_type"].astype(str)
-    data_rows = rows[row_type.eq("data")].head(limit).copy()
-    if not data_rows.empty:
-        return data_rows
-    return rows.copy()
-
-
-def limit_w_bottom_operation_rows_for_pdf_view(
-    rows: pd.DataFrame,
-    pdf_view: str,
-    pdf_section: str,
-) -> pd.DataFrame:
-    if rows.empty or pdf_view != "highlight":
-        return rows
-    limit = W_BOTTOM_OPERATION_HIGHLIGHT_LIMITS.get(pdf_section)
-    if limit is None:
-        return rows
-    row_type = rows.get("row_type", pd.Series(dtype=str)).astype(str)
-    data_rows = rows[row_type.eq("data")].head(limit).copy()
-    if not data_rows.empty:
-        return data_rows
     return rows.copy()
 
 
@@ -2528,7 +2525,7 @@ def selected_volume_operation_rows_for_pdf(
             & row_action.eq("confirmed_buy_candidate")
             & buy_rank_eligible
         ].copy()
-        return limit_volume_operation_rows_for_pdf_view(selected, pdf_view, pdf_section)
+        return limit_operation_rows_for_pdf_view(selected, pdf_view, pdf_section)
     if pdf_section == "confirmed_unranked_operation":
         if pdf_view != "full":
             return pd.DataFrame()
@@ -2551,7 +2548,7 @@ def selected_volume_operation_rows_for_pdf(
             & row_action.eq("active_operation")
             & ~buy_rank_eligible
         ].copy()
-        return limit_volume_operation_rows_for_pdf_view(selected, pdf_view, pdf_section)
+        return limit_operation_rows_for_pdf_view(selected, pdf_view, pdf_section)
     return pd.DataFrame()
 
 
@@ -2587,7 +2584,7 @@ def selected_w_bottom_operation_rows_for_pdf(
             & row_action.eq("confirmed_buy_candidate")
             & buy_rank_eligible
         ].copy()
-        return limit_w_bottom_operation_rows_for_pdf_view(selected, pdf_view, pdf_section)
+        return limit_operation_rows_for_pdf_view(selected, pdf_view, pdf_section)
     if pdf_section == "active_operation":
         operation_status = rows.get("operation_status", pd.Series(dtype=str)).astype(str)
         selected = rows[
@@ -2595,7 +2592,7 @@ def selected_w_bottom_operation_rows_for_pdf(
             & operation_status.eq("active_operation")
             & ~buy_rank_eligible
         ].copy()
-        return limit_w_bottom_operation_rows_for_pdf_view(selected, pdf_view, pdf_section)
+        return limit_operation_rows_for_pdf_view(selected, pdf_view, pdf_section)
     return pd.DataFrame()
 
 
@@ -2624,18 +2621,20 @@ def selected_price_pullback_operation_rows_for_pdf(
     buy_rank_eligible = rows.get("buy_rank_eligible", pd.Series(dtype=str)).map(is_true_text)
     if pdf_section == "confirmed_operation":
         row_action = rows.get("row_action_status", pd.Series(dtype=str)).astype(str)
-        return rows[
+        selected = rows[
             row_type.eq("data")
             & row_action.eq("confirmed_buy_candidate")
             & buy_rank_eligible
         ].copy()
+        return limit_operation_rows_for_pdf_view(selected, pdf_view, pdf_section)
     if pdf_section == "active_operation":
         operation_status = rows.get("operation_status", pd.Series(dtype=str)).astype(str)
-        return rows[
+        selected = rows[
             row_type.eq("data")
             & operation_status.eq("active_operation")
             & ~buy_rank_eligible
         ].copy()
+        return limit_operation_rows_for_pdf_view(selected, pdf_view, pdf_section)
     return pd.DataFrame()
 
 

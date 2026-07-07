@@ -1187,21 +1187,21 @@ def operation_rows_for_limit_test(
     return pd.DataFrame(rows)
 
 
-def test_pdf_operation_highlight_limits_are_section_specific() -> None:
+def test_pdf_operation_highlight_display_limits_are_section_specific() -> None:
     confirmed = operation_rows_for_limit_test("confirmed_operation", 12)
     pending = operation_rows_for_limit_test("pending_confirmation", 8)
     active = operation_rows_for_limit_test("active_operation", 7)
 
-    assert len(pdf_generator.limit_volume_operation_rows_for_pdf_view(confirmed, "highlight", "confirmed_operation")) == 10
-    assert len(pdf_generator.limit_volume_operation_rows_for_pdf_view(pending, "highlight", "pending_confirmation")) == 8
-    assert len(pdf_generator.limit_volume_operation_rows_for_pdf_view(active, "highlight", "active_operation")) == 5
+    assert len(pdf_generator.limit_operation_rows_for_pdf_view(confirmed, "highlight", "confirmed_operation")) == 12
+    assert len(pdf_generator.limit_operation_rows_for_pdf_view(pending, "highlight", "pending_confirmation")) == 8
+    assert len(pdf_generator.limit_operation_rows_for_pdf_view(active, "highlight", "active_operation")) == 7
 
-    assert len(pdf_generator.limit_volume_operation_rows_for_pdf_view(confirmed, "full", "confirmed_operation")) == 12
-    assert len(pdf_generator.limit_volume_operation_rows_for_pdf_view(pending, "full", "pending_confirmation")) == 8
-    assert len(pdf_generator.limit_volume_operation_rows_for_pdf_view(active, "full", "active_operation")) == 7
+    assert len(pdf_generator.limit_operation_rows_for_pdf_view(confirmed, "full", "confirmed_operation")) == 12
+    assert len(pdf_generator.limit_operation_rows_for_pdf_view(pending, "full", "pending_confirmation")) == 8
+    assert len(pdf_generator.limit_operation_rows_for_pdf_view(active, "full", "active_operation")) == 7
 
 
-def test_pdf_operation_highlight_limits_apply_after_report_line_filter() -> None:
+def test_pdf_operation_highlight_display_limits_apply_after_report_line_filter() -> None:
     rows = operation_rows_for_limit_test("active_operation", 8)
     taxonomy = []
     for index, stock_id in enumerate(rows["stock_id"].astype(str).tolist()):
@@ -1223,7 +1223,7 @@ def test_pdf_operation_highlight_limits_apply_after_report_line_filter() -> None
         inputs,
         "mainstream",
     )
-    mainstream = pdf_generator.limit_volume_operation_rows_for_pdf_view(
+    mainstream = pdf_generator.limit_operation_rows_for_pdf_view(
         mainstream,
         "highlight",
         "active_operation",
@@ -1233,13 +1233,13 @@ def test_pdf_operation_highlight_limits_apply_after_report_line_filter() -> None
         inputs,
         "non_mainstream",
     )
-    non_mainstream = pdf_generator.limit_volume_operation_rows_for_pdf_view(
+    non_mainstream = pdf_generator.limit_operation_rows_for_pdf_view(
         non_mainstream,
         "highlight",
         "active_operation",
     )
 
-    assert len(mainstream) == 5
+    assert len(mainstream) == 6
     assert len(non_mainstream) == 2
 
 
@@ -1605,6 +1605,34 @@ def w_bottom_operation_row(
     }
 
 
+def numbered_w_bottom_operation_row(
+    model_id: str,
+    pdf_section: str,
+    stock_id: str,
+    display_order: int,
+    *,
+    stock_display: str | None = None,
+    report_line: str = "mainstream",
+    row_action_status: str | None = None,
+    buy_rank_eligible: str | None = None,
+) -> dict[str, str]:
+    if row_action_status is None:
+        row_action_status = "confirmed_buy_candidate" if pdf_section == "confirmed_operation" else "active_tracking"
+    if buy_rank_eligible is None:
+        buy_rank_eligible = "True" if pdf_section == "confirmed_operation" else "False"
+    row = w_bottom_operation_row(
+        model_id,
+        pdf_section,
+        stock_id=stock_id,
+        stock_display=stock_display or f"{stock_id} TestStock",
+        report_line=report_line,
+        row_action_status=row_action_status,
+        buy_rank_eligible=buy_rank_eligible,
+    )
+    row["display_order"] = str(display_order)
+    return row
+
+
 def price_pullback_operation_row(
     pdf_section: str,
     row_type: str = "data",
@@ -1792,6 +1820,134 @@ def test_w_bottom_pdf_renderer_uses_model_owned_adapter_rows(monkeypatch) -> Non
     assert pdf_generator.OPERATION_ACTIVE_TABLE_TITLE in story_text
     assert "新上榜" not in story_text
     assert "重複上榜" not in story_text
+
+
+def test_operation_highlight_limit_helper_keeps_confirmed_all_and_active_min_10() -> None:
+    rows = pd.DataFrame(
+        [
+            {"row_type": "data", "stock_id": f"{idx:04d}", "display_order": str(idx)}
+            for idx in range(1, 13)
+        ]
+    )
+
+    confirmed = pdf_generator.limit_operation_rows_for_pdf_view(
+        rows,
+        "highlight",
+        "confirmed_operation",
+    )
+    active = pdf_generator.limit_operation_rows_for_pdf_view(
+        rows,
+        "highlight",
+        "active_operation",
+    )
+
+    assert len(confirmed) == 12
+    assert len(active) >= pdf_generator.OPERATION_HIGHLIGHT_ACTIVE_MIN_ROWS
+    assert "0006" in set(active["stock_id"].astype(str))
+
+
+def test_w_bottom_highlight_confirmed_operation_rows_are_not_capped(monkeypatch) -> None:
+    captured_tables: list[list[list[str]]] = []
+
+    def capture_table(rows, widths, font_size=7.2, header_bg=None, **_kwargs):
+        captured_tables.append(rows)
+        return rows
+
+    monkeypatch.setattr(pdf_generator, "build_table", capture_table)
+    model_id = pdf_generator.W_BOTTOM_RIGHT_SIDE_MODEL_ID
+    confirmed_rows = [
+        numbered_w_bottom_operation_row(model_id, "confirmed_operation", f"{idx:04d}", idx)
+        for idx in range(1, 13)
+    ]
+    active_empty = w_bottom_operation_row(
+        model_id,
+        "active_operation",
+        row_type="empty_state",
+        stock_id="",
+        stock_display=pdf_generator.OPERATION_ACTIVE_EMPTY_STATE_TEXT,
+        report_line="both",
+        row_action_status="empty_state",
+        buy_rank_eligible="False",
+    )
+
+    pdf_generator.render_w_bottom_operation_section(
+        [],
+        {
+            "model_readiness": w_bottom_readiness(model_id),
+            "w_bottom_right_side_operation": pd.DataFrame([*confirmed_rows, active_empty]),
+        },
+        model_id,
+        "highlight",
+        "mainstream",
+    )
+
+    confirmed_table = captured_tables[0]
+    visible = "\n".join(str(cell) for row in confirmed_table for cell in row)
+    for idx in range(1, 13):
+        assert f"{idx:04d}" in visible
+
+
+def test_w_bottom_highlight_active_operation_keeps_at_least_10_and_3029(monkeypatch) -> None:
+    captured_tables: list[list[list[str]]] = []
+
+    def capture_table(rows, widths, font_size=7.2, header_bg=None, **_kwargs):
+        captured_tables.append(rows)
+        return rows
+
+    monkeypatch.setattr(pdf_generator, "build_table", capture_table)
+    model_id = pdf_generator.W_BOTTOM_RIGHT_SIDE_MODEL_ID
+    confirmed_empty = w_bottom_operation_row(
+        model_id,
+        "confirmed_operation",
+        row_type="empty_state",
+        stock_id="",
+        stock_display=pdf_generator.MODEL_EMPTY_STATE_TEXT,
+        report_line="both",
+        row_action_status="empty_state",
+        buy_rank_eligible="False",
+    )
+    active_stock_ids = [
+        "1590",
+        "1609",
+        "1618",
+        "2301",
+        "2323",
+        "2331",
+        "2374",
+        "3029",
+        "3596",
+        "5469",
+        "6134",
+        "6153",
+    ]
+    active_rows = [
+        numbered_w_bottom_operation_row(
+            model_id,
+            "active_operation",
+            stock_id,
+            display_order,
+            stock_display=f"{stock_id} 零壹" if stock_id == "3029" else f"{stock_id} Active",
+        )
+        for display_order, stock_id in enumerate(active_stock_ids, start=1)
+    ]
+
+    pdf_generator.render_w_bottom_operation_section(
+        [],
+        {
+            "model_readiness": w_bottom_readiness(model_id),
+            "w_bottom_right_side_operation": pd.DataFrame([confirmed_empty, *active_rows]),
+        },
+        model_id,
+        "highlight",
+        "mainstream",
+    )
+
+    active_table = captured_tables[1]
+    visible = "\n".join(str(cell) for row in active_table for cell in row)
+    visible_stock_count = sum(1 for stock_id in active_stock_ids if stock_id in visible)
+    assert visible_stock_count >= pdf_generator.OPERATION_HIGHLIGHT_ACTIVE_MIN_ROWS
+    assert "3029 零壹" in visible
+    assert "6134 Active" in visible
 
 
 def test_w_bottom_pdf_renderer_sanitizes_pending_entry_price_text(monkeypatch) -> None:

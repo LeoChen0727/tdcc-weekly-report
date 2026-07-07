@@ -24,6 +24,10 @@ REQUIRED_COLUMNS = {
 }
 
 LOW_LEVEL_SHARED_SYMBOLS = {"table_para", "build_table", "write_pdf"}
+LOW_LEVEL_OPERATION_DISPLAY_SYMBOLS = {
+    "operation_highlight_row_limit",
+    "limit_operation_rows_for_pdf_view",
+}
 
 REPORT_SPECIFIC_BUILDERS = {
     "build_mainstream_curated_pdf",
@@ -46,7 +50,6 @@ MODEL_SPECIFIC_OPERATION_SYMBOLS = {
     "volume_operation_report_lines_for_stock",
     "filter_volume_operation_rows_for_line",
     "volume_operation_empty_text",
-    "limit_volume_operation_rows_for_pdf_view",
     "volume_operation_all_rows_for_pdf",
     "selected_volume_operation_rows_for_pdf",
     "volume_operation_date_label",
@@ -65,7 +68,6 @@ MODEL_SPECIFIC_OPERATION_SYMBOLS = {
     "w_bottom_operation_frame",
     "w_bottom_operation_row_matches_line",
     "filter_w_bottom_operation_rows_for_line",
-    "limit_w_bottom_operation_rows_for_pdf_view",
     "w_bottom_operation_all_rows_for_pdf",
     "selected_w_bottom_operation_rows_for_pdf",
     "w_bottom_operation_signal_label",
@@ -237,6 +239,7 @@ def validate_inventory_rows(
 
     required = (
         LOW_LEVEL_SHARED_SYMBOLS
+        | LOW_LEVEL_OPERATION_DISPLAY_SYMBOLS
         | REPORT_SPECIFIC_BUILDERS
         | REPORT_SPECIFIC_OPERATION_SYMBOLS
         | MODEL_SPECIFIC_OPERATION_SYMBOLS
@@ -271,6 +274,12 @@ def validate_inventory_rows(
             if row["allowed_business_semantics"] != "none":
                 errors.append(f"{symbol} is low-level shared but has business semantics")
 
+        if symbol in LOW_LEVEL_OPERATION_DISPLAY_SYMBOLS:
+            if ownership != "low_level_shared":
+                errors.append(f"{symbol} must be low_level_shared")
+            if row["allowed_business_semantics"] != "operation display row cap only":
+                errors.append(f"{symbol} may only carry operation display row cap semantics")
+
         if symbol in REPORT_SPECIFIC_BUILDERS | REPORT_SPECIFIC_OPERATION_SYMBOLS and ownership != "report_specific_business":
             errors.append(f"{symbol} must be report_specific_business")
 
@@ -297,6 +306,15 @@ def validate_source_boundaries(source: str, functions: dict[str, ast.FunctionDef
         for token in sorted(LOW_LEVEL_FORBIDDEN_BUSINESS_TOKENS):
             if token in body:
                 errors.append(f"{symbol} low-level shared helper contains business token: {token}")
+
+    for symbol in sorted(LOW_LEVEL_OPERATION_DISPLAY_SYMBOLS):
+        node = functions.get(symbol)
+        if not node:
+            continue
+        body = function_text(source, node)
+        for token in ("model_id", "stock_id", "report_line", "buy_rank_eligible", "VOLUME_BREAKOUT", "W_BOTTOM"):
+            if token in body:
+                errors.append(f"{symbol} operation display helper contains model business token: {token}")
 
     dispatcher = functions.get(OPERATION_DISPATCHER)
     if not dispatcher:

@@ -224,12 +224,14 @@ def test_semantic_golden_cases_accept_known_20260706_accident_rows() -> None:
     rows = [
         semantic_row("w_bottom_right_side", "confirmed_operation", "6176"),
         semantic_row("w_bottom_right_side", "active_operation", "1618"),
+        semantic_row("w_bottom_right_side", "active_operation", "3029"),
         semantic_row("volume_range_breakout", "confirmed_operation", "3055"),
     ]
     case_ids = {
         "w_bottom_20260706_6176_confirmed_present",
         "w_bottom_20260706_1618_confirmed_absent",
         "w_bottom_20260706_1618_active_present",
+        "w_bottom_20260706_3029_active_present",
         "volume_20260706_3055_confirmed_present",
         "volume_20260706_3055_active_absent",
         "volume_20260706_1515_confirmed_absent",
@@ -256,6 +258,7 @@ def test_semantic_golden_cases_reject_known_20260706_accident_drift() -> None:
         "w_bottom_20260706_6176_confirmed_present",
         "w_bottom_20260706_1618_confirmed_absent",
         "w_bottom_20260706_1618_active_present",
+        "w_bottom_20260706_3029_active_present",
         "volume_20260706_3055_confirmed_present",
         "volume_20260706_3055_active_absent",
     }
@@ -269,6 +272,7 @@ def test_semantic_golden_cases_reject_known_20260706_accident_drift() -> None:
 
     assert any("w_bottom_20260706_6176_confirmed_present" in error for error in errors)
     assert any("w_bottom_20260706_1618_confirmed_absent" in error for error in errors)
+    assert any("w_bottom_20260706_3029_active_present" in error for error in errors)
     assert any("volume_20260706_3055_confirmed_present" in error for error in errors)
     assert any("volume_20260706_3055_active_absent" in error for error in errors)
 
@@ -554,6 +558,7 @@ def test_rendered_model_regression_contract_records_formal_operation_models() ->
         "w_bottom_right_side_non_mainstream_highlight_structure",
         "w_bottom_right_side_mainstream_highlight_confirmed_table_20260703",
         "w_bottom_right_side_mainstream_highlight_active_table_20260703",
+        "w_bottom_right_side_mainstream_highlight_active_table_20260706",
         "w_bottom_right_side_non_mainstream_highlight_confirmed_table_20260703",
         "w_bottom_right_side_non_mainstream_highlight_active_table_20260703",
         "neckline_volume_breakout_confirmation_mainstream_highlight_structure",
@@ -582,6 +587,10 @@ def test_rendered_model_regression_contract_records_formal_operation_models() ->
         "required_text_tokens"
     ]
     assert row_by_id["w_bottom_right_side_mainstream_highlight_active_table_20260703"]["required_stock_ids"]
+    assert (
+        row_by_id["w_bottom_right_side_mainstream_highlight_active_table_20260706"]["required_stock_ids"]
+        == "3029"
+    )
     assert row_by_id[
         "neckline_volume_breakout_confirmation_mainstream_highlight_active_empty_table_20260703"
     ]["required_text_tokens"]
