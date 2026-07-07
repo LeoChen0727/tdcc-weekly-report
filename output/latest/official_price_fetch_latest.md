@@ -1,6 +1,6 @@
 # Official Daily Price Fetch Report
 
-- generated_at: `2026-07-07 10:49:03 Asia/Taipei`
+- generated_at: `2026-07-07 12:47:10 Asia/Taipei`
 - target_date: `20260707`
 - saved_price_date: `20260706`
 - is_target_date: `False`
@@ -53,7 +53,8 @@
 - GET https://www.tpex.org.tw/web/stock/aftertrading/otc_quotes_no1430/stk_wn1430_result.php?l=zh-tw&o=csv&d=115/07/07&se=EW -> status=200, chars=219
 - TPEX_OTC_QUOTES_NO1430_CSV: parsed TPEx CSV rows=0
 - Trying TPEx batch source=TPEX_OLD_DAILY_JSON date=20260707
-- GET https://www.tpex.org.tw/web/stock/aftertrading/daily_close_quotes/stk_quote_result.php?l=zh-tw&o=json&d=115/07/07&s=0,asc,0 failed: ChunkedEncodingError: Response ended prematurely
+- GET https://www.tpex.org.tw/web/stock/aftertrading/daily_close_quotes/stk_quote_result.php?l=zh-tw&o=json&d=115/07/07&s=0,asc,0 -> status=200, chars=1403332
+- TPEX_OLD_DAILY_JSON: rejected response dates ['20260706']; target date is 20260707
 - Trying TPEx batch source=TPEX_OLD_DAILY_CSV date=20260707
 - GET https://www.tpex.org.tw/web/stock/aftertrading/daily_close_quotes/stk_quote_result.php?l=zh-tw&o=csv&d=115/07/07&s=0,asc,0 -> status=200, chars=1392852
 - TPEX_OLD_DAILY_CSV: rejected response date 20260706; target date is 20260707
