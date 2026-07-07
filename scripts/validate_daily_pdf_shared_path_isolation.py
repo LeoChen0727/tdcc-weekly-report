@@ -23,7 +23,7 @@ REQUIRED_COLUMNS = {
     "notes",
 }
 
-LOW_LEVEL_SHARED_SYMBOLS = {"table_para", "build_table", "write_pdf"}
+LOW_LEVEL_SHARED_SYMBOLS = {"table_para", "build_table", "write_pdf", "operation_section_table_start_min_room"}
 LOW_LEVEL_OPERATION_DISPLAY_SYMBOLS = {
     "operation_highlight_row_limit",
     "limit_operation_rows_for_pdf_view",

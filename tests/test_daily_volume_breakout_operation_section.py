@@ -159,6 +159,17 @@ def test_operation_section_label_helper_reserves_table_start_room_without_full_t
     assert getattr(story[1], "keepWithNext", 0) in (0, None, False)
 
 
+def test_operation_section_label_helper_uses_short_room_for_empty_tables() -> None:
+    table_flowable = pdf_generator.build_table([["TITLE"], ["HEADER"], ["EMPTY"]], [40 * pdf_generator.mm], 12.0)
+    story: list = []
+
+    pdf_generator.append_section_label_with_table(story, pdf_generator.OPERATION_ACTIVE_TABLE_TITLE, table_flowable)
+
+    assert isinstance(story[0], pdf_generator.CondPageBreak)
+    assert getattr(story[0], "height", None) == pdf_generator.OPERATION_SECTION_SHORT_TABLE_START_MIN_ROOM
+    assert story[-1] is table_flowable
+
+
 def volume_signal(stock_id: str = "1234", signal_date: str = "20260616", rank: str = "1") -> dict[str, str]:
     return {
         "model_id": "volume_range_breakout",
