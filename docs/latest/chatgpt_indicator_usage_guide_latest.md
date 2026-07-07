@@ -1,6 +1,6 @@
 # ChatGPT Indicator Usage Guide
 
-- generated_at: `2026-07-07 11:18:51 UTC`
+- generated_at: `2026-07-07 11:40:12 UTC`
 - main_price_date: `20260707`
 - purpose: Use program-side classifications first. ChatGPT should explain and synthesize, not re-rank from memory.
 - rule: If memory, PDF, or ad-hoc interpretation conflicts with program-side fields, use the structured program-side fields.
@@ -44,9 +44,9 @@
 | TDCC pre-move / ABM | output/latest/tdcc_pre_move_abm_top_latest.csv | tracking_priority, accumulation_label, tdcc_price_phase, setup_type, trigger_to_watch | B_confirm_needed=34; A_prime_watch=16 | Use for hidden accumulation candidates, subject to mature-sample caveats. |
 | TDCC risk list | output/latest/tdcc_top_risk_list_latest.csv | risk_group, tdcc_price_phase, risk_bucket | strong_but_late=20; strong_but_overheated=20; strong_but_divergent=20 | Use to avoid mislabeling late/overheated/divergent names as accumulation. |
 | TDCC overheated short-term edge | output/latest/tdcc_overheated_short_term_edge_latest.csv | horizon, mature_count, win_rate_close_to_close_pct, avg_relative_return_vs_benchmark_pct, win_rate_next_open_to_close_pct, avg_next_open_relative_return_vs_benchmark_pct | stats_rows=6 / current_candidates=39 | Core D+5/D+10 continuation model when active in the program-side registry. Separate research-stat tables are supporting evidence and must not override model ranking. |
-| Non-revenue momentum watch | output/latest/non_revenue_momentum_watch_latest.csv | non_revenue_momentum_type, revenue_confirmation_status, theme_final_status, theme_volume_attack_status, volume_breakout_type, next_confirmation | rows=43 / D_overheated_or_failed_risk=40; C_hot_money_watch=3 | Specialty overlay for stocks moving on price/theme/fund flow before revenue/EPS confirmation. It is not a seventh core category. |
+| Non-revenue momentum watch | output/latest/non_revenue_momentum_watch_latest.csv | non_revenue_momentum_type, revenue_confirmation_status, theme_final_status, theme_volume_attack_status, volume_breakout_type, next_confirmation | rows=48 / D_overheated_or_failed_risk=45; C_hot_money_watch=3 | Specialty overlay for stocks moving on price/theme/fund flow before revenue/EPS confirmation. It is not a seventh core category. |
 | MSCI Taiwan rebalance event tag | output/latest/msci_taiwan_rebalance_backtest_latest.csv | msci_index_segment, action, effective_date, entry_date, ret_d5_return, ret_d10_return, ret_d15_return, ret_d20_return, sample_status | addition=59; deletion=59 / ok=102; price_history_starts_after_event=16 | Event tag and research layer only. Entry is first trading day after effective date open; exits are D+5/D+10/D+15/D+20 close. Do not treat MSCI addition/deletion as a standalone buy/sell signal. |
-| Warrant flow | output/latest/warrant_flow_by_stock_latest.csv | warrant_flow_signal, warrant_flow_score, warrant_flow_warning | 無明確權證訊號=160; 認售流入=22 | Auxiliary only. Do not make warrant-only conclusions. |
+| Warrant flow | output/latest/warrant_flow_by_stock_latest.csv | warrant_flow_signal, warrant_flow_score, warrant_flow_warning | 無明確權證訊號=392; 認購流入=42; 認購強流入=39 | Auxiliary only. Do not make warrant-only conclusions. |
 | Market regime / futures options | output/latest/market_regime_latest.csv | market_regime, risk_level, vix_state, put_call_state, foreign_futures_state, retail_mtx_state | correction=1 / very_high_risk=1 | Background for exposure, index futures, and chasing-risk interpretation. |
 | Market timing backtest | output/latest/market_timing_backtest_latest.csv | event_name, sample_status, best_horizon, mature counts | D+1:insufficient_sample;D+3:insufficient_sample;D+5:insufficient_sample;D+10:insufficient_sample;D+20:insufficient_sample;D+40:insufficient_sample;D+60:insufficient_sample=16; D+1:ok;D+3:ok;D+5:ok;D+10:ok;D+20:ok;D+40:ok;D+60:ok=7; D+1:insufficient_sample;D+3:insufficient_sample;D+5:insufficient_sample;D+10:insufficient_sample;D+20:insufficient_sample;D+40:ok;D+60:ok=2; D+1:ok;D+3:ok;D+5:ok;D+10:ok;D+20:insufficient_sample;D+40:ok;D+60:ok=1 | Use only mature_dN samples. If sample_status is insufficient, say it is observation only. |
 | Surge precondition model | output/latest/surge_precondition_candidates_latest.csv | surge_precondition_score, surge_watch_label, reason_summary, risk_flags | A_surge_watch=83; C_too_hot=9; B_confirm_needed=8 | Independent research layer; not the daily recommendation model. |
@@ -143,7 +143,7 @@
 | market_timing_chatgpt_packet_latest.md | ready | - |
 | market_timing_backtest_chatgpt_packet_latest.md | ready | - |
 | surge_model_chatgpt_packet_latest.md | ready | - |
-| warrant_flow_by_stock_latest.csv | ready | 182 |
+| warrant_flow_by_stock_latest.csv | ready | 473 |
 | catalyst_needs_review_latest.csv | ready | 2 |
 
 ## Copy-Paste Summary For ChatGPT
