@@ -235,27 +235,29 @@ def patch_lifecycle_sources(monkeypatch, tmp_path: Path, stock_id: str, price_ro
 
 def write_operation_snapshot(
     snapshot_dir: Path,
-    confirmation_date: str,
+    snapshot_date: str,
     signal_date: str,
     stock_id: str = "1234",
     pdf_section: str = "confirmed_operation",
     row_action_status: str = "confirmed_buy_candidate",
     buy_rank_eligible: str = "True",
+    selected_confirmation_date: str | None = None,
 ) -> None:
+    selected_confirmation_date = selected_confirmation_date or snapshot_date
     pd.DataFrame(
         [
             {
                 "stock_id": stock_id,
                 "stock_name": "TestCo",
                 "signal_date": signal_date,
-                "selected_confirmation_date": confirmation_date,
+                "selected_confirmation_date": selected_confirmation_date,
                 "row_type": "data",
                 "pdf_section": pdf_section,
                 "row_action_status": row_action_status,
                 "buy_rank_eligible": buy_rank_eligible,
             }
         ]
-    ).to_csv(snapshot_dir / f"daily_volume_breakout_operation_section_{confirmation_date}.csv", index=False)
+    ).to_csv(snapshot_dir / f"daily_volume_breakout_operation_section_{snapshot_date}.csv", index=False)
 
 
 def build_rows_for_test(signals: pd.DataFrame, report_date: str, summary: pd.DataFrame) -> pd.DataFrame:
@@ -537,6 +539,95 @@ def test_lifecycle_does_not_repromote_confirmation_day_unranked_signal_to_active
     suppressed = audit[audit["audit_status"].eq("lifecycle_suppressed")]
     assert suppressed["reason"].tolist() == ["confirmation_snapshot_not_buy_ranked_not_tracked_active"]
     assert suppressed["included_in_daily_adapter"].tolist() == ["False"]
+
+
+def test_lifecycle_does_not_carry_forward_prior_active_without_buy_ranked_confirmation(
+    monkeypatch,
+    tmp_path,
+) -> None:
+    snapshot_dir = patch_lifecycle_sources(
+        monkeypatch,
+        tmp_path,
+        "1234",
+        [
+            {"date": "20260615", "open": "10", "high": "11", "low": "9", "close": "10", "volume": "1000"},
+            {"date": "20260616", "open": "10.5", "high": "12", "low": "10.9", "close": "11.5", "volume": "1200"},
+            {"date": "20260617", "open": "11.7", "high": "12.5", "low": "11.2", "close": "12", "volume": "1100"},
+            {"date": "20260618", "open": "12.1", "high": "12.8", "low": "11.8", "close": "12.4", "volume": "1000"},
+        ],
+    )
+    pd.DataFrame([volume_signal("1234", "20260615")]).to_csv(
+        snapshot_dir / "daily_candidate_model_signals_for_report_20260615.csv",
+        index=False,
+    )
+    write_operation_snapshot(
+        snapshot_dir,
+        "20260616",
+        "20260615",
+        pdf_section="confirmed_unranked_operation",
+        row_action_status="confirmed_not_buy_ranked",
+        buy_rank_eligible="False",
+    )
+    write_operation_snapshot(
+        snapshot_dir,
+        "20260617",
+        "20260615",
+        selected_confirmation_date="20260616",
+        pdf_section="active_operation",
+        row_action_status="active_operation",
+        buy_rank_eligible="False",
+    )
+
+    out, audit = build_rows_and_audit_for_test(pd.DataFrame(), "20260618", formal_summary())
+
+    active = out[out["pdf_section"].eq("active_operation") & out["row_type"].eq("data")]
+    assert active.empty
+    suppressed = audit[audit["audit_status"].eq("lifecycle_suppressed")]
+    assert suppressed["reason"].tolist() == [
+        "confirmation_snapshot_not_buy_ranked_not_tracked_active_despite_prior_active_snapshot"
+    ]
+    assert suppressed["included_in_daily_adapter"].tolist() == ["False"]
+
+
+def test_volume_operation_validator_rejects_prior_active_without_buy_ranked_confirmation(
+    monkeypatch,
+    tmp_path,
+) -> None:
+    snapshot_dir = tmp_path / "snapshots"
+    snapshot_dir.mkdir()
+    write_operation_snapshot(
+        snapshot_dir,
+        "20260616",
+        "20260615",
+        pdf_section="confirmed_unranked_operation",
+        row_action_status="confirmed_not_buy_ranked",
+        buy_rank_eligible="False",
+    )
+    write_operation_snapshot(
+        snapshot_dir,
+        "20260617",
+        "20260615",
+        selected_confirmation_date="20260616",
+        pdf_section="active_operation",
+        row_action_status="active_operation",
+        buy_rank_eligible="False",
+    )
+    monkeypatch.setattr(section_validator, "MODEL_SNAPSHOT_DIR", snapshot_dir)
+    active_data = pd.DataFrame(
+        [
+            {
+                "operation_asof_date": "20260618",
+                "stock_id": "1234",
+                "signal_date": "20260615",
+                "selected_confirmation_date": "20260616",
+                "row_type": "data",
+                "pdf_section": "active_operation",
+            }
+        ]
+    )
+
+    with pytest.raises(SystemExit):
+        section_validator.validate_active_confirmation_snapshot_gate(active_data)
 
 
 def test_active_operation_wins_over_new_confirmed_signal_for_same_stock(monkeypatch, tmp_path) -> None:

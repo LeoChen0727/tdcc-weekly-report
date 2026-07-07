@@ -365,10 +365,13 @@ def prior_active_snapshot_tracked(signal: pd.Series, selected: dict[str, Any], r
 
 
 def active_snapshot_backing(signal: pd.Series, selected: dict[str, Any], report_date: str) -> tuple[bool, str]:
-    prior_active, prior_reason = prior_active_snapshot_tracked(signal, selected, report_date)
+    buy_ranked, buy_ranked_reason = confirmation_snapshot_buy_ranked(signal, selected)
+    if buy_ranked:
+        return True, buy_ranked_reason
+    prior_active, _prior_reason = prior_active_snapshot_tracked(signal, selected, report_date)
     if prior_active:
-        return True, prior_reason
-    return confirmation_snapshot_buy_ranked(signal, selected)
+        return False, f"{buy_ranked_reason}_despite_prior_active_snapshot"
+    return False, buy_ranked_reason
 
 
 def restore_published_snapshot(report_date: str) -> tuple[pd.DataFrame, pd.DataFrame] | None:
