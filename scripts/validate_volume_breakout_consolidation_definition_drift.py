@@ -12,7 +12,7 @@ V2_CLOSE_ONLY = ROOT / "scripts" / "build_volume_range_breakout_v2_close_only_co
 V2_CLOSE_ONLY_VALIDATOR = ROOT / "scripts" / "validate_volume_range_breakout_v2_close_only_confirmation_audit.py"
 LIFECYCLE_INVENTORY = ROOT / "config" / "repo_file_lifecycle_inventory.csv"
 V2_SUMMARY = ROOT / "output" / "latest" / "research_backtest" / "volume_range_breakout_v2_close_only_confirmation_audit_latest.csv"
-V2_DETAIL = ROOT / "output" / "latest" / "research_backtest" / "volume_range_breakout_v2_close_only_confirmation_audit_detail_latest.csv"
+V2_DETAIL = ROOT / "output" / "latest" / "research_backtest" / "volume_range_breakout_v2_close_only_confirmation_audit_detail_latest.csv.gz"
 
 BASE_SHAPE_ID = "width40_gt40_non_consolidation"
 BASE_SHAPE_DEFINITION = "range_width_40_pct > 40"

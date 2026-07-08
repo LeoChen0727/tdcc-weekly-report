@@ -25,10 +25,10 @@ RESEARCH_HISTORY_DIR = ROOT / "output" / "history" / "research"
 
 SOURCE_DETAIL_CSV = RESEARCH_LATEST_DIR / "volume_range_breakout_v2_semantic_audit_detail_latest.csv"
 LATEST_SUMMARY_CSV = RESEARCH_LATEST_DIR / "volume_range_breakout_v2_close_only_confirmation_audit_latest.csv"
-LATEST_DETAIL_CSV = RESEARCH_LATEST_DIR / "volume_range_breakout_v2_close_only_confirmation_audit_detail_latest.csv"
+LATEST_DETAIL_CSV = RESEARCH_LATEST_DIR / "volume_range_breakout_v2_close_only_confirmation_audit_detail_latest.csv.gz"
 LATEST_MD = RESEARCH_LATEST_DIR / "volume_range_breakout_v2_close_only_confirmation_audit_latest.md"
 HISTORY_SUMMARY_CSV = RESEARCH_HISTORY_DIR / "volume_range_breakout_v2_close_only_confirmation_audit.csv"
-HISTORY_DETAIL_CSV = RESEARCH_HISTORY_DIR / "volume_range_breakout_v2_close_only_confirmation_audit_detail.csv"
+HISTORY_DETAIL_CSV = RESEARCH_HISTORY_DIR / "volume_range_breakout_v2_close_only_confirmation_audit_detail.csv.gz"
 
 RESEARCH_ID = "volume_range_breakout_v2_close_only_confirmation_audit"
 ARTIFACT_VERSION = "volume_range_breakout_v2_close_only_confirmation_audit_20260709_stop_sensitivity"
@@ -67,6 +67,7 @@ STOP_SPECS = [
     ("entry_minus_10pct_close_stop", "entry_minus_10pct"),
     ("ma10_close_stop", "ma10"),
     ("ma20_close_stop", "ma20"),
+    ("lower_ma20_ema23_4pct_4d_close_stop", "lower_ma20_ema23_4pct_4d"),
 ]
 RETURN_BASES = [f"fixed_{horizon}d_close_no_stop" for horizon in FIXED_HORIZONS] + [
     f"close_{stop_token}_stop_next_open_or_fixed_{horizon}d_close"
@@ -271,11 +272,13 @@ def load_price_cache(stock_ids: pd.Series) -> dict[str, pd.DataFrame]:
         price = price.copy()
         price["date"] = price["date"].map(normalize_date)
         price = price[price["date"] != ""].sort_values("date").reset_index(drop=True)
-        for col in ["open", "high", "low", "close", "ma5", "ma10", "ma20"]:
+        for col in ["open", "high", "low", "close", "ma5", "ma10", "ma20", "ema23"]:
             price[col] = pd.to_numeric(price.get(col, ""), errors="coerce")
         for window, col in [(5, "ma5"), (10, "ma10"), (20, "ma20")]:
             if col not in price.columns or price[col].isna().all():
                 price[col] = price["close"].rolling(window, min_periods=window).mean()
+        if "ema23" not in price.columns or price["ema23"].isna().all():
+            price["ema23"] = price["close"].ewm(span=23, adjust=False, min_periods=23).mean()
         cache[stock_id] = price
     return cache
 
@@ -415,7 +418,12 @@ def simulate_return(
 
     if stop_rule_id != "no_stop":
         monitor = price.iloc[entry_idx:fixed_exit_idx]
-        indicator_seen = stop_rule_id not in {"ma10_close_stop", "ma20_close_stop"}
+        indicator_seen = stop_rule_id not in {
+            "ma10_close_stop",
+            "ma20_close_stop",
+            "lower_ma20_ema23_4pct_4d_close_stop",
+        }
+        sustained_stop_days = 0
         for idx, row in monitor.iterrows():
             close = numeric(row.get("close"))
             if math.isnan(close):
@@ -438,6 +446,19 @@ def simulate_return(
                     continue
                 indicator_seen = True
                 stop_hit = close < ma_value
+            elif stop_rule_id == "lower_ma20_ema23_4pct_4d_close_stop":
+                ma20 = numeric(row.get("ma20"))
+                ema23 = numeric(row.get("ema23"))
+                refs = [value for value in [ma20, ema23] if not math.isnan(value) and value > 0]
+                if not refs:
+                    continue
+                indicator_seen = True
+                stop_price = min(refs) * 0.96
+                if close <= stop_price:
+                    sustained_stop_days += 1
+                else:
+                    sustained_stop_days = 0
+                stop_hit = sustained_stop_days >= 4
             else:
                 raise ValueError(stop_rule_id)
             if stop_hit:
@@ -448,7 +469,10 @@ def simulate_return(
                 simulated_exit_reason = f"{stop_rule_id}_next_open"
                 break
         if not indicator_seen:
-            ma_col = "ma10" if stop_rule_id == "ma10_close_stop" else "ma20"
+            if stop_rule_id == "lower_ma20_ema23_4pct_4d_close_stop":
+                ma_col = "lower_ma20_ema23"
+            else:
+                ma_col = "ma10" if stop_rule_id == "ma10_close_stop" else "ma20"
             return {"data_quality_flag": f"missing_{ma_col}_for_stop"}
 
     if exit_idx >= len(price):
@@ -710,7 +734,8 @@ def write_markdown(summary: pd.DataFrame, path: Path) -> None:
         "entry_minus_7pct_close_stop": 3,
         "entry_minus_10pct_close_stop": 4,
         "ma20_close_stop": 5,
-        "ma10_close_stop": 6,
+        "lower_ma20_ema23_4pct_4d_close_stop": 6,
+        "ma10_close_stop": 7,
     }
     stop_20d["_stop_order"] = stop_20d["stop_rule_id"].map(stop_order).fillna(99)
     stop_20d = stop_20d.sort_values(["_stop_order", "return_basis"])
@@ -748,7 +773,7 @@ def write_markdown(summary: pd.DataFrame, path: Path) -> None:
         "- Scope: research-only replay on existing v1 formal-operation source events, not a full raw-market producer rerun.",
         f"- Candidate population: `base_shape_id={BASE_SHAPE_ID}` (`{BASE_SHAPE_DEFINITION}`) and `breakout_over_prev60_pct >= threshold`.",
         "- Close-only triggers: next-day close above signal high, 5MA close reclaim, and 10MA close reclaim.",
-        "- Stop sweep: no stop, signal-low close stop, entry-minus 5/7/10pct close stop, MA10 close stop, and MA20 close stop.",
+        "- Stop sweep: no stop, signal-low close stop, entry-minus 5/7/10pct close stop, MA10 close stop, MA20 close stop, and 23EMA-style lower MA20/EMA23 4pct 4d close stop.",
         "- Operation prices use confirmation next trading day open, close-confirmed stop next trading day open, or fixed future close.",
         "- Intraday high/low are not used as confirmation, entry, exit, stop, or realized return prices in this artifact.",
         "",
