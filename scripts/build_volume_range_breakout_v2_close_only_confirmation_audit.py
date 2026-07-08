@@ -647,7 +647,15 @@ def build_summary(source: pd.DataFrame, detail: pd.DataFrame, source_version: st
 def markdown_table(df: pd.DataFrame, columns: list[str], limit: int = 80) -> list[str]:
     if df.empty:
         return ["(empty)"]
-    return df[columns].head(limit).to_markdown(index=False).splitlines()
+    out = df[columns].head(limit).copy().fillna("NA")
+    return out.to_markdown(index=False).splitlines()
+
+
+def metric_number(value: Any, suffix: str = "") -> str:
+    number = numeric(value)
+    if math.isnan(number):
+        return "NA"
+    return f"{number:.2f}{suffix}"
 
 
 def write_markdown(summary: pd.DataFrame, path: Path) -> None:
@@ -666,8 +674,65 @@ def write_markdown(summary: pd.DataFrame, path: Path) -> None:
         "median_return_pct",
         "split_gate_status",
     ]
-    threshold_2 = summary[summary["breakout_threshold_pct"].astype(str).eq("2.0")].copy()
-    selected = summary[summary["trigger_scope"].astype(str).eq("selected_any_close_only")].copy()
+    work = summary.copy()
+    for col in [
+        "breakout_threshold_pct",
+        "fixed_horizon_days",
+        "sample_size",
+        "win_rate_pct",
+        "loss_rate_pct",
+        "avg_return_pct",
+        "median_return_pct",
+        "data_quality_exception_count",
+    ]:
+        work[col] = pd.to_numeric(work[col], errors="coerce")
+    threshold_2 = work[work["breakout_threshold_pct"].eq(2.0)].copy()
+    selected = work[work["trigger_scope"].astype(str).eq("selected_any_close_only")].copy()
+    threshold_2_selected = threshold_2[threshold_2["trigger_scope"].astype(str).eq("selected_any_close_only")].copy()
+
+    no_stop_snapshot = threshold_2_selected[
+        threshold_2_selected["return_basis"].isin(
+            [
+                "fixed_20d_close_no_stop",
+                "fixed_40d_close_no_stop",
+                "fixed_60d_close_no_stop",
+            ]
+        )
+    ].sort_values(["fixed_horizon_days"])
+    stop_20d = threshold_2_selected[threshold_2_selected["fixed_horizon_days"].eq(20)].copy()
+    stop_order = {
+        "no_stop": 0,
+        "signal_low_close_stop": 1,
+        "entry_minus_5pct_close_stop": 2,
+        "entry_minus_7pct_close_stop": 3,
+        "entry_minus_10pct_close_stop": 4,
+        "ma20_close_stop": 5,
+        "ma10_close_stop": 6,
+    }
+    stop_20d["_stop_order"] = stop_20d["stop_rule_id"].map(stop_order).fillna(99)
+    stop_20d = stop_20d.sort_values(["_stop_order", "return_basis"])
+    threshold_sweep = selected[
+        selected["return_basis"].isin(
+            [
+                "fixed_20d_close_no_stop",
+                "fixed_40d_close_no_stop",
+                "fixed_60d_close_no_stop",
+            ]
+        )
+    ].sort_values(["fixed_horizon_days", "breakout_threshold_pct"])
+    baseline_20 = stop_20d[stop_20d["stop_rule_id"].astype(str).eq("no_stop")]
+    best_short = threshold_sweep[threshold_sweep["fixed_horizon_days"].le(40)].sort_values(
+        ["win_rate_pct", "avg_return_pct"], ascending=[False, False]
+    )
+    best_short_text = "NA"
+    if not best_short.empty:
+        best = best_short.iloc[0]
+        best_short_text = (
+            f"{int(best['fixed_horizon_days'])} \u65e5\u7121\u505c\u640d / "
+            f"\u9580\u6abb {metric_number(best['breakout_threshold_pct'], '%')} / "
+            f"\u52dd\u7387 {metric_number(best['win_rate_pct'], '%')} / "
+            f"\u5e73\u5747 {metric_number(best['avg_return_pct'], '%')}"
+        )
     lines = [
         "# Volume Range Breakout V2 Close-Only Confirmation Audit",
         "",
@@ -683,6 +748,72 @@ def write_markdown(summary: pd.DataFrame, path: Path) -> None:
         "- Stop sweep: no stop, signal-low close stop, entry-minus 5/7/10pct close stop, MA10 close stop, and MA20 close stop.",
         "- Operation prices use confirmation next trading day open, close-confirmed stop next trading day open, or fixed future close.",
         "- Intraday high/low are not used as confirmation, entry, exit, stop, or realized return prices in this artifact.",
+        "",
+        "## Decision Summary / \u7d50\u8ad6\u6458\u8981",
+        "",
+        "- `breakout_threshold_pct=2.0` \u5c31\u662f +2pct \u7a81\u7834\u5e45\u5ea6\u9580\u6abb\u6e2c\u8a66\u3002",
+        "- \u9019\u4efd research evidence \u4e0d\u652f\u6301\u7528 close-confirmed \u505c\u640d\u6539\u5584\u9019\u500b\u5019\u9078\u65b9\u5411\uff1b\u5728 +2pct\u300120 \u65e5\u53e3\u5f91\u4e0b\uff0c\u6240\u6709\u6e2c\u5230\u7684\u505c\u640d\u898f\u5247\u52dd\u7387\u90fd\u4f4e\u65bc\u7121\u505c\u640d\u3002",
+        "- \u552f\u4e00\u901a\u904e\u7c21\u55ae research gate\uff08\u52dd\u7387 >=60pct \u4e14\u5e73\u5747\u5831\u916c >0\uff09\u7684\u5217\u662f\u56fa\u5b9a 60 \u65e5\u7121\u505c\u640d\uff0c\u4f46\u9019\u500b\u6301\u6709\u6642\u9593\u5df2\u6a19\u8a18\u70ba\u4e0d\u9069\u5408\u77ed\u7dda\u64cd\u4f5c\u65b9\u5411\u3002",
+        f"- 40 \u65e5\u4ee5\u5167\u8868\u73fe\u6700\u597d\u7684\u7121\u505c\u640d\u5217\uff1a{best_short_text}\u3002",
+        "- MA10 stop \u672c\u8f2a\u4e0d\u53ef\u7528\uff0c\u56e0\u70ba\u76ee\u524d price history layer \u6c92\u6709 `ma10` \u6b04\u4f4d\uff1b\u9019\u4e9b\u5217\u6a19\u70ba insufficient sample\uff0c\u4e0d\u51c6\u7576\u6210\u7121\u505c\u640d\u7e3e\u6548\u3002",
+        "",
+        "## Plus 2pct No-Stop Horizon Snapshot / +2pct \u7121\u505c\u640d\u6301\u6709\u671f\u6bd4\u8f03",
+        "",
+        *markdown_table(
+            no_stop_snapshot,
+            [
+                "breakout_threshold_pct",
+                "return_basis",
+                "fixed_horizon_days",
+                "sample_size",
+                "win_rate_pct",
+                "loss_rate_pct",
+                "avg_return_pct",
+                "median_return_pct",
+                "split_gate_status",
+            ],
+            20,
+        ),
+        "",
+        "## Plus 2pct Stop Rule Comparison At 20d / +2pct \u4e8c\u5341\u65e5\u505c\u640d\u6bd4\u8f03",
+        "",
+        "\u9019\u5f35\u8868\u56de\u7b54\u505c\u640d\u662f\u5426\u6539\u5584 20 \u65e5\u7d50\u679c\uff1b\u672c artifact \u7684\u7b54\u6848\u662f\u6c92\u6709\u6539\u5584\u3002",
+        "",
+        *markdown_table(
+            stop_20d,
+            [
+                "stop_rule_id",
+                "return_basis",
+                "sample_size",
+                "data_quality_exception_count",
+                "win_rate_pct",
+                "loss_rate_pct",
+                "avg_return_pct",
+                "median_return_pct",
+                "split_gate_status",
+            ],
+            20,
+        ),
+        "",
+        "## Breakout Threshold Sweep For No-Stop Horizons / \u7a81\u7834\u5e45\u5ea6\u9580\u6abb sweep",
+        "",
+        "\u9019\u5f35\u8868\u56de\u7b54\u6539\u8b8a +2pct \u7a81\u7834\u5e45\u5ea6\u9580\u6abb\u6703\u600e\u9ebc\u5f71\u97ff\u52dd\u7387\u8207\u5831\u916c\u7387\uff1b\u6e2c\u8a66\u9580\u6abb\u662f 0\u30011\u30012\u30013\u30014\u30015\u30017.5\u300110pct\u3002",
+        "",
+        *markdown_table(
+            threshold_sweep,
+            [
+                "breakout_threshold_pct",
+                "return_basis",
+                "fixed_horizon_days",
+                "sample_size",
+                "win_rate_pct",
+                "loss_rate_pct",
+                "avg_return_pct",
+                "median_return_pct",
+                "split_gate_status",
+            ],
+            40,
+        ),
         "",
         "## Threshold 2pct",
         "",

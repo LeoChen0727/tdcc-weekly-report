@@ -196,6 +196,9 @@ def validate_markdown() -> None:
         BASE_SHAPE_DEFINITION,
         "Close-only triggers",
         "Stop sweep",
+        "## Decision Summary",
+        "## Plus 2pct Stop Rule Comparison At 20d",
+        "## Breakout Threshold Sweep For No-Stop Horizons",
         "Intraday high/low are not used as confirmation, entry, exit, stop, or realized return prices",
     ]
     for item in required:
