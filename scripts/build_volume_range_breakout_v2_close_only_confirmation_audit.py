@@ -273,6 +273,9 @@ def load_price_cache(stock_ids: pd.Series) -> dict[str, pd.DataFrame]:
         price = price[price["date"] != ""].sort_values("date").reset_index(drop=True)
         for col in ["open", "high", "low", "close", "ma5", "ma10", "ma20"]:
             price[col] = pd.to_numeric(price.get(col, ""), errors="coerce")
+        for window, col in [(5, "ma5"), (10, "ma10"), (20, "ma20")]:
+            if col not in price.columns or price[col].isna().all():
+                price[col] = price["close"].rolling(window, min_periods=window).mean()
         cache[stock_id] = price
     return cache
 
@@ -755,7 +758,7 @@ def write_markdown(summary: pd.DataFrame, path: Path) -> None:
         "- \u9019\u4efd research evidence \u4e0d\u652f\u6301\u7528 close-confirmed \u505c\u640d\u6539\u5584\u9019\u500b\u5019\u9078\u65b9\u5411\uff1b\u5728 +2pct\u300120 \u65e5\u53e3\u5f91\u4e0b\uff0c\u6240\u6709\u6e2c\u5230\u7684\u505c\u640d\u898f\u5247\u52dd\u7387\u90fd\u4f4e\u65bc\u7121\u505c\u640d\u3002",
         "- \u552f\u4e00\u901a\u904e\u7c21\u55ae research gate\uff08\u52dd\u7387 >=60pct \u4e14\u5e73\u5747\u5831\u916c >0\uff09\u7684\u5217\u662f\u56fa\u5b9a 60 \u65e5\u7121\u505c\u640d\uff0c\u4f46\u9019\u500b\u6301\u6709\u6642\u9593\u5df2\u6a19\u8a18\u70ba\u4e0d\u9069\u5408\u77ed\u7dda\u64cd\u4f5c\u65b9\u5411\u3002",
         f"- 40 \u65e5\u4ee5\u5167\u8868\u73fe\u6700\u597d\u7684\u7121\u505c\u640d\u5217\uff1a{best_short_text}\u3002",
-        "- MA10 stop \u672c\u8f2a\u4e0d\u53ef\u7528\uff0c\u56e0\u70ba\u76ee\u524d price history layer \u6c92\u6709 `ma10` \u6b04\u4f4d\uff1b\u9019\u4e9b\u5217\u6a19\u70ba insufficient sample\uff0c\u4e0d\u51c6\u7576\u6210\u7121\u505c\u640d\u7e3e\u6548\u3002",
+        "- MA10/10MA \u5df2\u5728 price history \u7f3a\u6b04\u4f4d\u6642\u7528 close rolling 10 \u65e5\u88dc\u7b97\uff1b\u4f46 +2pct \u4e0b 10MA reclaim \u6a23\u672c\u53ea\u6709 8 \u7b46\uff0c\u53ea\u80fd\u5217\u70ba\u89c0\u5bdf\uff0c\u4e0d\u80fd\u7576 promotion evidence\u3002",
         "",
         "## Plus 2pct No-Stop Horizon Snapshot / +2pct \u7121\u505c\u640d\u6301\u6709\u671f\u6bd4\u8f03",
         "",
