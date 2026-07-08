@@ -23,6 +23,10 @@ ROOT = Path(__file__).resolve().parents[1]
 DOCS_LATEST_DIR = ROOT / "docs" / "latest"
 DAILY_SIGNALS_CSV = ROOT / "output" / "latest" / "daily_candidate_model_signals_for_report_latest.csv"
 
+REQUIRED_ACTIVE_EXIT_RULE_TOKENS = {
+    "w_bottom_right_side": ("D+20", "+10%", "D+40"),
+}
+
 
 def fail(message: str) -> None:
     print(f"ERROR: {message}")
@@ -56,6 +60,25 @@ def expected_current_signal_count(model_id: str) -> int:
     if {"stock_id", "report_bucket"}.issubset(part.columns):
         return len(part.drop_duplicates(["stock_id", "report_bucket"]))
     return int(part["stock_id"].astype(str).str.strip().replace("", pd.NA).dropna().nunique())
+
+
+def validate_active_exit_rule_tokens(active: pd.DataFrame, csv_name: str, model_id: str) -> list[str]:
+    required_tokens = REQUIRED_ACTIVE_EXIT_RULE_TOKENS.get(model_id, ())
+    if not required_tokens or active.empty:
+        return []
+    errors: list[str] = []
+    for _, row in active.iterrows():
+        exit_rule = safe_str(row.get("exit_rule_zh"))
+        missing = [token for token in required_tokens if token not in exit_rule]
+        if missing:
+            location = "/".join(
+                safe_str(row.get(column)) or "-"
+                for column in ("pdf_view", "report_line", "stock_id")
+            )
+            errors.append(
+                f"{csv_name} active row {location} exit_rule_zh missing tokens {missing}: {exit_rule!r}"
+            )
+    return errors
 
 
 def validate_section(model_id: str) -> list[str]:
@@ -122,6 +145,7 @@ def validate_section(model_id: str) -> list[str]:
         "entry_rule_id": config.entry_rule_id,
         "stop_loss_rule_id": config.stop_loss_rule_id,
         "exit_rule_id": config.exit_rule_id,
+        "exit_rule_zh": config.exit_rule_zh,
         "approved_for_daily": "True",
         "operation_module_approved_for_daily": "True",
         "operation_directive_level": "approved_daily_operation_guidance",
@@ -165,6 +189,7 @@ def validate_section(model_id: str) -> list[str]:
         missing_entry = active[active["entry_date"].map(normalize_date_text).eq("")]
         if not missing_entry.empty:
             errors.append(f"{csv_path.name} active rows must have entry_date")
+        errors.extend(validate_active_exit_rule_tokens(active, csv_path.name, model_id))
     if not confirmed.empty and not active.empty:
         confirmed_keys = set(
             tuple(item)
