@@ -186,6 +186,8 @@ jobs:
           python scripts/validate_volume_range_breakout_v2_condition_matrix.py
           python scripts/build_volume_range_breakout_v2_overlap_sensitivity.py
           python scripts/validate_volume_range_breakout_v2_overlap_sensitivity.py
+          python scripts/build_volume_range_breakout_v2_split_feature_audit.py
+          python scripts/validate_volume_range_breakout_v2_split_feature_audit.py
           python scripts/build_approved_operation_patterns.py
           python scripts/validate_approved_operation_patterns.py
           python scripts/build_daily_w_bottom_operation_sections.py
