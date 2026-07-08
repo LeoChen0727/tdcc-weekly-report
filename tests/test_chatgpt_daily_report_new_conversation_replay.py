@@ -506,6 +506,64 @@ def test_rendered_model_regression_contract_checks_required_and_forbidden_text_t
     assert any("forbidden text token='盤中過前高收盤賣' appeared" in error for error in errors)
 
 
+def test_rendered_model_regression_contract_checks_formal_exit_rule_text_tokens() -> None:
+    rows = [
+        {
+            "contract_id": "w_bottom_right_side_exit_rule_text",
+            "active": "True",
+            "report_date": "*",
+            "pdf_role": "mainstream_highlight",
+            "page_scope": "all_pages",
+            "model_id": "w_bottom_right_side",
+            "required_text_tokens": (
+                "W底右側模型|若 D+20 收盤報酬達 +10%|D+20 收盤出場|"
+                "D+40 收盤|W 結構低點收盤停損"
+            ),
+        },
+        {
+            "contract_id": "neckline_volume_breakout_confirmation_exit_rule_text",
+            "active": "True",
+            "report_date": "*",
+            "pdf_role": "mainstream_highlight",
+            "page_scope": "all_pages",
+            "model_id": "neckline_volume_breakout_confirmation",
+            "required_text_tokens": (
+                "W底頸線帶量突破確認模型|20 個交易日內收盤報酬先達 +10%|"
+                "先達 +5% 後回落到 <= +5%|否則第 20 日收盤歸為操作規則敗"
+            ),
+        },
+    ]
+    role_to_pages = {
+        "mainstream_highlight": [
+            (
+                "W底右側模型\n"
+                "賣出：若 D+20 收盤報酬達 +10% 則 D+20 收盤出場；"
+                "否則持有到 D+40 收盤，除非先觸發 W 結構低點收盤停損。\n"
+                "W底頸線帶量突破確認模型\n"
+                "賣出：20 個交易日內收盤報酬先達 +10% 為勝；"
+                "先達 +5% 後回落到 <= +5% 且未達 +10% 為和局；"
+                "否則第 20 日收盤歸為操作規則敗。"
+            )
+        ]
+    }
+
+    assert validate_rendered_model_regression_texts(role_to_pages, "20260706", rows) == []
+
+    role_to_pages["mainstream_highlight"][0] = (
+        "W底右側模型\n"
+        "賣出：若 D+20 收盤報酬達 +10% 則 D+20 收盤出場；"
+        "W底頸線帶量突破確認模型\n"
+        "賣出：20 個交易日內收盤報酬先達 +10% 為勝；"
+        "先達 +5% 後回落到 <= +5% 且未達 +10% 為和局；"
+        "否則第 20 日收盤歸為操作規則敗。"
+    )
+
+    errors = validate_rendered_model_regression_texts(role_to_pages, "20260706", rows)
+
+    assert any("required text token='D+40 收盤' missing" in error for error in errors)
+    assert any("required text token='W 結構低點收盤停損' missing" in error for error in errors)
+
+
 def test_rendered_model_regression_contract_rejects_volume_snapshot_drift() -> None:
     rows = [
         {
@@ -610,6 +668,40 @@ def test_rendered_model_regression_contract_records_formal_operation_models() ->
     assert row_by_id[
         "neckline_volume_breakout_confirmation_mainstream_highlight_active_empty_table_20260703"
     ]["required_text_tokens"]
+    w_bottom_exit_tokens = (
+        "若 D+20 收盤報酬達 +10%",
+        "D+20 收盤出場",
+        "D+40 收盤",
+        "W 結構低點收盤停損",
+    )
+    for contract_id in (
+        "w_bottom_right_side_mainstream_highlight_structure",
+        "w_bottom_right_side_non_mainstream_highlight_structure",
+    ):
+        required_text_tokens = row_by_id[contract_id]["required_text_tokens"]
+        for token in w_bottom_exit_tokens:
+            assert token in required_text_tokens
+    for contract_id in (
+        "w_bottom_right_side_mainstream_highlight_active_table_20260703",
+        "w_bottom_right_side_mainstream_highlight_active_table_20260706",
+        "w_bottom_right_side_non_mainstream_highlight_active_table_20260703",
+    ):
+        required_text_tokens = row_by_id[contract_id]["required_text_tokens"]
+        assert "D+20" in required_text_tokens
+        assert "+10%" in required_text_tokens
+        assert "D+40" in required_text_tokens
+    neckline_exit_tokens = (
+        "20 個交易日內收盤報酬先達 +10%",
+        "先達 +5% 後回落到 <= +5%",
+        "否則第 20 日收盤歸為操作規則敗",
+    )
+    for contract_id in (
+        "neckline_volume_breakout_confirmation_mainstream_highlight_structure",
+        "neckline_volume_breakout_confirmation_non_mainstream_highlight_structure",
+    ):
+        required_text_tokens = row_by_id[contract_id]["required_text_tokens"]
+        for token in neckline_exit_tokens:
+            assert token in required_text_tokens
     assert (
         row_by_id["price_pullback_23ema_mainstream_highlight_confirmed_table_20260703"]["required_stock_ids"]
         == ""

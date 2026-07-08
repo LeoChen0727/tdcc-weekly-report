@@ -10,6 +10,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
 import build_daily_w_bottom_operation_sections as builder  # noqa: E402
+import validate_daily_w_bottom_operation_sections as validator  # noqa: E402
 
 
 def approval_frame() -> pd.DataFrame:
@@ -125,7 +126,40 @@ def test_prior_signal_can_become_active_tracking_row(monkeypatch) -> None:
     assert set(active["row_action_status"]) == {"active_tracking"}
     assert set(active["buy_rank_eligible"]) == {"False"}
     assert set(active["entry_date"]) == {"20260625"}
+    assert all(token in active.iloc[0]["exit_rule_zh"] for token in ("D+20", "+10%", "D+40"))
     assert "candidate_evaluated" in set(audit["audit_status"])
+
+
+def test_validator_rejects_active_w_bottom_rows_without_exit_rule_tokens() -> None:
+    active = pd.DataFrame(
+        [
+            {
+                "pdf_view": "highlight",
+                "report_line": "mainstream",
+                "stock_id": "1234",
+                "exit_rule_zh": "若 D+20 收盤報酬達 +10% 則 D+20 收盤出場。",
+            }
+        ]
+    )
+
+    errors = validator.validate_active_exit_rule_tokens(
+        active,
+        "daily_w_bottom_right_side_operation_section_latest.csv",
+        "w_bottom_right_side",
+    )
+
+    assert any("missing tokens ['D+40']" in error for error in errors)
+
+    active.loc[0, "exit_rule_zh"] = "若 D+20 收盤報酬達 +10% 則 D+20 收盤出場；否則持有到 D+40 收盤。"
+
+    assert (
+        validator.validate_active_exit_rule_tokens(
+            active,
+            "daily_w_bottom_right_side_operation_section_latest.csv",
+            "w_bottom_right_side",
+        )
+        == []
+    )
 
 
 def test_current_w_bottom_signal_is_suppressed_when_same_stock_is_already_active(monkeypatch) -> None:
