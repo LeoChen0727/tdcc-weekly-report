@@ -170,6 +170,20 @@ jobs:
           python scripts/validate_volume_breakout_tdcc_confluence_backtest.py
           python scripts/build_volume_breakout_confirmed_operation_backtest.py
           python scripts/validate_volume_breakout_confirmed_operation_backtest.py
+          python scripts/build_volume_range_breakout_v2_semantic_audit.py
+          python scripts/validate_volume_range_breakout_v2_semantic_audit.py
+          python scripts/build_volume_range_breakout_v2_next_day_continuation_timing_audit.py
+          python scripts/validate_volume_range_breakout_v2_next_day_continuation_timing_audit.py
+          python scripts/build_volume_range_breakout_v2_raw_market_rerun.py
+          python scripts/validate_volume_range_breakout_v2_raw_market_rerun.py
+          python scripts/build_volume_range_breakout_v2_feature_slice_analysis.py
+          python scripts/validate_volume_range_breakout_v2_feature_slice_analysis.py
+          python scripts/build_volume_range_breakout_v2_deep_low_base_matrix.py
+          python scripts/validate_volume_range_breakout_v2_deep_low_base_matrix.py
+          python scripts/build_volume_range_breakout_v2_condition_matrix.py
+          python scripts/validate_volume_range_breakout_v2_condition_matrix.py
+          python scripts/build_volume_range_breakout_v2_overlap_sensitivity.py
+          python scripts/validate_volume_range_breakout_v2_overlap_sensitivity.py
           python scripts/build_approved_operation_patterns.py
           python scripts/validate_approved_operation_patterns.py
           python scripts/build_daily_w_bottom_operation_sections.py
@@ -265,6 +279,7 @@ jobs:
           git add output/latest/volume_breakout_formal_operation_backtest_latest.csv output/latest/volume_breakout_formal_operation_backtest_latest.md || true
           git add output/history/research/volume_breakout_confirmed_operation_backtest.csv output/history/research/volume_breakout_confirmed_operation_events.csv || true
           git add output/history/research/volume_breakout_formal_operation_events.csv || true
+          git add output/latest/research_backtest/volume_range_breakout_v2_*_latest.csv output/latest/research_backtest/volume_range_breakout_v2_*_latest.md || true
           git add docs/latest/daily_model_parameter_research_*.csv docs/latest/daily_model_parameter_research_*.md || true
           git add docs/latest/daily_model_signal_background_feature_panel_latest.csv docs/latest/daily_model_signal_background_feature_panel_latest.md || true
           git add docs/latest/daily_model_background_feature_catalog_latest.csv docs/latest/daily_model_background_feature_catalog_latest.md || true

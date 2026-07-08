@@ -107,6 +107,19 @@ def test_research_pipeline_runs_approved_operation_validator() -> None:
     assert "python scripts/validate_approved_operation_patterns.py" in workflow_text
 
 
+def test_research_pipeline_runs_volume_range_breakout_v2_overlap_sensitivity_validator() -> None:
+    workflow_text = (ROOT / ".github" / "workflows" / "research_backtest_pipeline.yml").read_text(
+        encoding="utf-8"
+    )
+
+    assert "python scripts/build_volume_range_breakout_v2_semantic_audit.py" in workflow_text
+    assert "python scripts/validate_volume_range_breakout_v2_semantic_audit.py" in workflow_text
+    assert "python scripts/build_volume_range_breakout_v2_overlap_sensitivity.py" in workflow_text
+    assert "python scripts/validate_volume_range_breakout_v2_overlap_sensitivity.py" in workflow_text
+    assert "output/latest/research_backtest/volume_range_breakout_v2_*_latest.csv" in workflow_text
+    assert "output/latest/research_backtest/volume_range_breakout_v2_*_latest.md" in workflow_text
+
+
 def test_research_pipeline_does_not_stage_daily_route_files() -> None:
     workflow_text = (ROOT / ".github" / "workflows" / "research_backtest_pipeline.yml").read_text(
         encoding="utf-8"
