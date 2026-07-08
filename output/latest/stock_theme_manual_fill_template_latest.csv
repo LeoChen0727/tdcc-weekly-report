@@ -1145,7 +1145,7 @@
 4552,力達-KY,電機機械,電機機械,主流,,,,,,provisional_industry_mapping
 4554,橙的,其他電子業,其他電子業,主流,,,,,,provisional_industry_mapping
 4555,氣立,電機機械,電機機械,主流,,,,,,provisional_industry_mapping
-4556,旭然,其他,其他,非主流,,,,,,
+4556,旭然,其他業,其他業,非主流,,,,,,
 4557,永新-KY,汽車工業,汽車工業,非主流,,,,,,provisional_industry_mapping
 4558,寶緯,電機機械,電機機械,主流,,,,,,provisional_industry_mapping
 4560,強信-KY,電機機械,電機機械,主流,,,,,,provisional_industry_mapping
@@ -2159,7 +2159,7 @@
 8027,鈦昇,電機機械,電機機械,主流,,,,,,provisional_industry_mapping
 8028,昇陽半導體,半導體業,半導體業,主流,半導體設備_CoWoS,晶圓再生,,,,user_authorized_seed_20260530
 8032,光菱,電子通路業,電子通路業,主流,,,,,,provisional_industry_mapping
-8033,雷虎,其他業,其他業,都有,軍工無人機,,,,,user_authorized_seed_20260530;dual_industry_theme_identity
+8033,雷虎,其他,其他,都有,軍工無人機,,,,,user_authorized_seed_20260530;dual_industry_theme_identity
 8034,榮群,通信網路業,通信網路業,主流,,,,,,provisional_industry_mapping
 8038,長園科,電子零組件業,電子零組件業,主流,,,,,,provisional_industry_mapping
 8039,台虹,電子零組件業,電子零組件業,主流,PCB_CCL_ABF材料,,,,,user_authorized_seed_20260530

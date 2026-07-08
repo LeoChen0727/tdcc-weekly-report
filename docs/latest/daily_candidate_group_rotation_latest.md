@@ -1,12 +1,8 @@
 # Daily Candidate Group Rotation
 
-- generated_at: `2026-07-07 23:42:47 Asia/Taipei`
+- generated_at: `2026-07-08 19:58:37 Asia/Taipei`
 
 - This is theme flow detection, not a stock buy model.
 - Condition: same theme has at least one third of listed candidate rows with volume ratio >= 3x.
 
-|   signal_date | rotation_model_id          | rotation_model_name   | theme    | theme_display_zh   | theme_resolution_status   | theme_key   |   stock_count |   volume_expansion_3x_count |   volume_expansion_1_5x_count |   volume_expansion_ratio |   slow_inflow_count |   slow_inflow_ratio |   median_volume_ratio |   median_return_15d |   median_return_30d | leader_1   | leader_2   | leader_3   | diffusion_status_zh   | interpretation_zh                                 | interpretation                                    |
-|--------------:|:---------------------------|:----------------------|:---------|:-------------------|:--------------------------|:------------|--------------:|----------------------------:|------------------------------:|-------------------------:|--------------------:|--------------------:|----------------------:|--------------------:|--------------------:|:-----------|:-----------|:-----------|:----------------------|:--------------------------------------------------|:--------------------------------------------------|
-|      20260707 | group_fund_rotation_launch | 族群資金發動型               | 半導體設備    | 半導體設備              | resolved                  | 半導體設備       |             2 |                           1 |                             1 |                      0.5 |                   0 |              0      |                2.3132 |             -1.4626 |             -6.7831 | 3498 陽程    | 3131 弘塑    |            | 同步出量                  | 同族群超過三分之一成員量比大於等於3，屬於資金同步發動觀察。                    | 同族群超過三分之一成員量比大於等於3，屬於資金同步發動觀察。                    |
-|      20260707 | group_slow_inflow_rotation | 族群慢速資金進入型             | 功率元件/二極體 | 功率元件/二極體           | resolved                  | 功率元件/二極體    |             3 |                           0 |                             1 |                      0   |                   2 |              0.6667 |                0.4869 |             51.5789 |             61.194  | 8261 富鼎    | 2481 強茂    | 5425 台半    | 慢速進場                  | 15日量能相對前段放大且族群內多檔正報酬，屬於資金緩慢進場觀察；需等個股模型觸發才能成為進場依據。 | 15日量能相對前段放大且族群內多檔正報酬，屬於資金緩慢進場觀察；需等個股模型觸發才能成為進場依據。 |
-|      20260707 | group_slow_inflow_rotation | 族群慢速資金進入型             | 造紙工業     | 造紙工業               | resolved                  | 造紙工業        |             7 |                           0 |                             2 |                      0   |                   3 |              0.4286 |                0.6377 |              3.7281 |             14.0845 | 1909 榮成    | 6790 永豐實   | 1904 正隆    | 慢速進場                  | 15日量能相對前段放大且族群內多檔正報酬，屬於資金緩慢進場觀察；需等個股模型觸發才能成為進場依據。 | 15日量能相對前段放大且族群內多檔正報酬，屬於資金緩慢進場觀察；需等個股模型觸發才能成為進場依據。 |
+_No rows._
