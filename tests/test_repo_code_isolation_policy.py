@@ -120,6 +120,18 @@ def test_research_pipeline_runs_volume_range_breakout_v2_overlap_sensitivity_val
     assert "output/latest/research_backtest/volume_range_breakout_v2_*_latest.md" in workflow_text
 
 
+def test_research_pipeline_runs_w_bottom_overlap_guardrail_validator() -> None:
+    workflow_text = (ROOT / ".github" / "workflows" / "research_backtest_pipeline.yml").read_text(
+        encoding="utf-8"
+    )
+
+    assert "python scripts/build_w_bottom_research_overlap_guardrails.py" in workflow_text
+    assert "python scripts/validate_w_bottom_research_overlap_guardrails.py" in workflow_text
+    assert "output/latest/research_backtest/w_bottom_research_overlap_guardrails_latest.csv" in workflow_text
+    assert "output/latest/research_backtest/w_bottom_research_overlap_guardrails_latest.md" in workflow_text
+    assert "output/history/research/w_bottom_research_overlap_guardrails.csv" in workflow_text
+
+
 def test_research_pipeline_does_not_stage_daily_route_files() -> None:
     workflow_text = (ROOT / ".github" / "workflows" / "research_backtest_pipeline.yml").read_text(
         encoding="utf-8"
