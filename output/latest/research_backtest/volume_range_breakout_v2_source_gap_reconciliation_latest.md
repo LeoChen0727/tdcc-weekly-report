@@ -10,6 +10,7 @@
 - It compares raw price-history v2 rerun rows against timing-audit 60d rows, semantic-audit rows, and formal operation events.
 - Rows after the timing artifact max signal date are classified as freshness extension, not promotion evidence.
 - Rows inside the timing artifact date window that exist only in the raw rerun are a source-gap blocker before promotion.
+- Current formal producer single-stock replay reproduces the raw-minus-timing rows; the gap is an unsynchronized artifact/source issue, not a standalone v2-only signal.
 
 ## Source Profile
 
@@ -30,20 +31,26 @@
 | --- | --- | --- | --- | --- |
 | 2 | promotion_blocked_pending_research_source_sync | inside_timing_window_gap_count=2 | expected_action=research_backtest_source_sync_or_exclusion_rule | production_registry_changed=False |
 
+## Root Cause
+
+| sample_size | status | value_a | value_b | value_c |
+| --- | --- | --- | --- | --- |
+| 10 | current_formal_producer_reproduces_all_raw_minus_timing_rows | raw_minus_timing_count=10 | current_formal_reproducer_match_count=10 | writes_output=False |
+
 ## Gap Detail
 
-| stock_id | signal_date | confirmation_date | entry_date | return_pct | gap_scope | gap_classification | present_in_semantic_audit | present_in_formal_operation_events |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 8077 | 20260529 | 20260601 | 20260602 | 1.3265 | inside_timing_artifact_window | source_gap_inside_timing_window_promotion_blocker | False | False |
-| 8077 | 20260603 | 20260604 | 20260605 | -10.2564 | inside_timing_artifact_window | source_gap_inside_timing_window_promotion_blocker | False | False |
-| 2061 | 20260618 | 20260622 | 20260623 | 33.7229 | after_timing_artifact_window | freshness_extension_after_timing_window | False | False |
-| 2492 | 20260618 | 20260622 | 20260623 | -22.3256 | after_timing_artifact_window | freshness_extension_after_timing_window | False | False |
-| 4551 | 20260618 | 20260622 | 20260623 | -4.4248 | after_timing_artifact_window | freshness_extension_after_timing_window | False | False |
-| 5489 | 20260618 | 20260622 | 20260623 | 18.4725 | after_timing_artifact_window | freshness_extension_after_timing_window | False | False |
-| 6259 | 20260618 | 20260622 | 20260623 | -1.5248 | after_timing_artifact_window | freshness_extension_after_timing_window | False | False |
-| 6834 | 20260618 | 20260622 | 20260623 | 14.2857 | after_timing_artifact_window | freshness_extension_after_timing_window | False | False |
-| 8081 | 20260618 | 20260622 | 20260623 | -16.0819 | after_timing_artifact_window | freshness_extension_after_timing_window | False | False |
-| 5489 | 20260622 | 20260623 | 20260624 | 3.8772 | after_timing_artifact_window | freshness_extension_after_timing_window | False | False |
+| stock_id | signal_date | confirmation_date | entry_date | return_pct | gap_scope | gap_classification | present_in_current_formal_reproducer | present_in_semantic_audit | present_in_formal_operation_events | root_cause_classification |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 8077 | 20260529 | 20260601 | 20260602 | 1.3265 | inside_timing_artifact_window | source_gap_inside_timing_window_promotion_blocker | True | False | False | current_formal_producer_reproduces_event_existing_artifact_unsynced |
+| 8077 | 20260603 | 20260604 | 20260605 | -10.2564 | inside_timing_artifact_window | source_gap_inside_timing_window_promotion_blocker | True | False | False | current_formal_producer_reproduces_event_existing_artifact_unsynced |
+| 2061 | 20260618 | 20260622 | 20260623 | 33.7229 | after_timing_artifact_window | freshness_extension_after_timing_window | True | False | False | current_formal_producer_reproduces_event_after_artifact_window |
+| 2492 | 20260618 | 20260622 | 20260623 | -22.3256 | after_timing_artifact_window | freshness_extension_after_timing_window | True | False | False | current_formal_producer_reproduces_event_after_artifact_window |
+| 4551 | 20260618 | 20260622 | 20260623 | -4.4248 | after_timing_artifact_window | freshness_extension_after_timing_window | True | False | False | current_formal_producer_reproduces_event_after_artifact_window |
+| 5489 | 20260618 | 20260622 | 20260623 | 18.4725 | after_timing_artifact_window | freshness_extension_after_timing_window | True | False | False | current_formal_producer_reproduces_event_after_artifact_window |
+| 6259 | 20260618 | 20260622 | 20260623 | -1.5248 | after_timing_artifact_window | freshness_extension_after_timing_window | True | False | False | current_formal_producer_reproduces_event_after_artifact_window |
+| 6834 | 20260618 | 20260622 | 20260623 | 14.2857 | after_timing_artifact_window | freshness_extension_after_timing_window | True | False | False | current_formal_producer_reproduces_event_after_artifact_window |
+| 8081 | 20260618 | 20260622 | 20260623 | -16.0819 | after_timing_artifact_window | freshness_extension_after_timing_window | True | False | False | current_formal_producer_reproduces_event_after_artifact_window |
+| 5489 | 20260622 | 20260623 | 20260624 | 3.8772 | after_timing_artifact_window | freshness_extension_after_timing_window | True | False | False | current_formal_producer_reproduces_event_after_artifact_window |
 
 ## Outputs
 

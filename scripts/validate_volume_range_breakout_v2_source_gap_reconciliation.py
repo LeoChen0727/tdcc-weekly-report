@@ -122,6 +122,7 @@ def validate_gap_detail(detail: pd.DataFrame) -> None:
         fail("inside-window source-gap rows must be within timing audit max signal date")
     for col in [
         "present_in_raw_rerun",
+        "present_in_current_formal_reproducer",
         "present_in_timing_audit_60d",
         "present_in_semantic_audit",
         "present_in_formal_operation_events",
@@ -130,6 +131,8 @@ def validate_gap_detail(detail: pd.DataFrame) -> None:
             fail(f"{col} must be True/False")
     if set(detail["present_in_raw_rerun"].astype(str)) != {"True"}:
         fail("every detail row must be present in raw rerun")
+    if set(detail["present_in_current_formal_reproducer"].astype(str)) != {"True"}:
+        fail("current formal producer must reproduce every raw-minus-timing row")
     for col in ["present_in_timing_audit_60d", "present_in_semantic_audit", "present_in_formal_operation_events"]:
         if not source_gap[col].astype(str).eq("False").all():
             fail(f"inside-window source-gap rows must be absent from {col}")
@@ -141,6 +144,14 @@ def validate_gap_detail(detail: pd.DataFrame) -> None:
         fail(f"inside-window source-gap dates changed; got {sorted(source_gap_dates)}")
     if set(source_gap["promotion_impact"].astype(str)) != {"promotion_blocked_pending_research_source_sync"}:
         fail("inside-window source-gap rows must block promotion pending research source sync")
+    if set(source_gap["root_cause_classification"].astype(str)) != {
+        "current_formal_producer_reproduces_event_existing_artifact_unsynced"
+    }:
+        fail("inside-window source-gap rows must be classified as unsynced existing artifacts")
+    if set(freshness["root_cause_classification"].astype(str)) != {
+        "current_formal_producer_reproduces_event_after_artifact_window"
+    }:
+        fail("freshness rows must be classified as current formal producer events after the artifact window")
 
 
 def validate_summary(summary: pd.DataFrame, detail: pd.DataFrame) -> None:
@@ -159,6 +170,12 @@ def validate_summary(summary: pd.DataFrame, detail: pd.DataFrame) -> None:
         "source_gap_inside_timing_window_promotion_blocker",
     )
     blocker = require_single(summary, "promotion_gate", "promotion_readiness", "source_gap_blocker")
+    root_cause = require_single(
+        summary,
+        "root_cause",
+        "current_formal_reproducer",
+        "raw_minus_timing_reproduced_by_current_formal_code",
+    )
     if int(profile["sample_size"]) != 808:
         fail("source profile sample_size must match raw rerun detail count 808")
     if "timing_60d_count=798" not in str(profile["value_a"]):
@@ -181,6 +198,12 @@ def validate_summary(summary: pd.DataFrame, detail: pd.DataFrame) -> None:
         fail("promotion gate must remain blocked")
     if blocker["value_c"] != "production_registry_changed=False":
         fail("promotion gate must explicitly record production registry unchanged")
+    if int(root_cause["sample_size"]) != len(detail):
+        fail("root-cause reproduced count must match all detail rows")
+    if root_cause["status"] != "current_formal_producer_reproduces_all_raw_minus_timing_rows":
+        fail("root-cause status must record that current formal producer reproduces every gap row")
+    if root_cause["value_c"] != "writes_output=False":
+        fail("root-cause replay must be documented as non-writing")
 
 
 def validate_markdown() -> None:
@@ -192,6 +215,7 @@ def validate_markdown() -> None:
         "does not change `stock_model_contract_registry.csv`",
         "freshness extension",
         "source-gap blocker before promotion",
+        "Current formal producer single-stock replay reproduces the raw-minus-timing rows",
         "approved_for_daily: `False`",
     ]
     for item in required:

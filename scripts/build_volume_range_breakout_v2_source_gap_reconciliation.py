@@ -4,8 +4,11 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any
 from zoneinfo import ZoneInfo
+import sys
 
 import pandas as pd
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 
 ROOT = Path(".")
@@ -55,6 +58,8 @@ DETAIL_COLUMNS = [
     "selected_trigger_id_current_v1",
     "matched_trigger_ids_current_v1",
     "present_in_raw_rerun",
+    "present_in_current_formal_reproducer",
+    "current_formal_reproducer_selected_count_for_stock",
     "present_in_timing_audit_60d",
     "present_in_semantic_audit",
     "present_in_formal_operation_events",
@@ -64,6 +69,8 @@ DETAIL_COLUMNS = [
     "promotion_impact",
     "recommended_owner",
     "source_gap_reason",
+    "root_cause_classification",
+    "root_cause_evidence",
     "approved_for_daily",
     "production_readiness",
     "generated_at",
@@ -237,6 +244,8 @@ def detail_base(row: pd.Series, generated_at: str) -> dict[str, Any]:
         "selected_trigger_id_current_v1": row.get("selected_trigger_id_current_v1", ""),
         "matched_trigger_ids_current_v1": row.get("matched_trigger_ids_current_v1", ""),
         "present_in_raw_rerun": "True",
+        "present_in_current_formal_reproducer": "False",
+        "current_formal_reproducer_selected_count_for_stock": "",
         "present_in_timing_audit_60d": "False",
         "present_in_semantic_audit": "False",
         "present_in_formal_operation_events": "False",
@@ -246,10 +255,43 @@ def detail_base(row: pd.Series, generated_at: str) -> dict[str, Any]:
         "promotion_impact": "",
         "recommended_owner": "",
         "source_gap_reason": "",
+        "root_cause_classification": "",
+        "root_cause_evidence": "",
         "approved_for_daily": false_text(),
         "production_readiness": PRODUCTION_READINESS,
         "generated_at": generated_at,
     }
+
+
+def current_formal_reproducer(raw_minus: pd.DataFrame) -> tuple[set[str], dict[str, int]]:
+    from build_volume_breakout_confirmed_operation_backtest import (  # noqa: PLC0415
+        add_operation_selection_columns,
+        load_market_regime_map,
+        process_price_history_path,
+    )
+
+    market_regimes = load_market_regime_map()
+    reproduced_keys: set[str] = set()
+    selected_counts: dict[str, int] = {}
+    for stock_id in sorted(set(raw_minus["stock_id"].astype(str))):
+        path = ROOT / "data" / "stock_price_history" / f"{stock_id}.csv"
+        if not path.exists():
+            selected_counts[stock_id] = 0
+            continue
+        rows = process_price_history_path(path, market_regimes)
+        frame = pd.DataFrame(rows)
+        if frame.empty:
+            selected_counts[stock_id] = 0
+            continue
+        frame = add_operation_selection_columns(frame)
+        selected = frame[frame.get("selected_for_formal_operation", pd.Series(dtype=str)).astype(str).eq("True")].copy()
+        selected_counts[stock_id] = len(selected)
+        if selected.empty:
+            continue
+        selected = normalize_event_dates(selected)
+        selected["source_event_key"] = selected.apply(event_key, axis=1)
+        reproduced_keys.update(selected["source_event_key"].astype(str))
+    return reproduced_keys, selected_counts
 
 
 def build_detail(generated_at: str) -> tuple[pd.DataFrame, dict[str, Any]]:
@@ -276,12 +318,17 @@ def build_detail(generated_at: str) -> tuple[pd.DataFrame, dict[str, Any]]:
 
     raw_minus = raw_detail[raw_detail["source_event_key"].astype(str).isin(raw_minus_timing)].copy()
     raw_minus = raw_minus.sort_values(["signal_date", "stock_id", "source_event_key"])
+    reproduced_keys, reproduced_counts = current_formal_reproducer(raw_minus)
 
     rows: list[dict[str, Any]] = []
     for _, source_row in raw_minus.iterrows():
         row = detail_base(source_row, generated_at)
         key = row["source_event_key"]
         signal_date = row["signal_date"]
+        stock_id = row["stock_id"]
+        reproduced = key in reproduced_keys
+        row["present_in_current_formal_reproducer"] = "True" if reproduced else "False"
+        row["current_formal_reproducer_selected_count_for_stock"] = reproduced_counts.get(stock_id, 0)
         row["present_in_timing_audit_60d"] = "True" if key in timing_keys else "False"
         row["present_in_semantic_audit"] = "True" if key in semantic_keys else "False"
         row["present_in_formal_operation_events"] = "True" if key in formal_keys else "False"
@@ -296,6 +343,11 @@ def build_detail(generated_at: str) -> tuple[pd.DataFrame, dict[str, Any]]:
             row["source_gap_reason"] = (
                 "raw price-history rerun includes a newer signal date than the current timing/semantic/formal artifacts"
             )
+            row["root_cause_classification"] = (
+                "current_formal_producer_reproduces_event_after_artifact_window"
+                if reproduced
+                else "raw_only_not_reproduced_by_current_formal_producer"
+            )
         else:
             row["gap_scope"] = "inside_timing_artifact_window"
             row["gap_classification"] = "source_gap_inside_timing_window_promotion_blocker"
@@ -304,6 +356,15 @@ def build_detail(generated_at: str) -> tuple[pd.DataFrame, dict[str, Any]]:
             row["source_gap_reason"] = (
                 "raw price-history rerun reconstructed an event absent from timing, semantic, and formal operation artifacts"
             )
+            row["root_cause_classification"] = (
+                "current_formal_producer_reproduces_event_existing_artifact_unsynced"
+                if reproduced
+                else "raw_only_not_reproduced_by_current_formal_producer"
+            )
+        row["root_cause_evidence"] = (
+            f"current_formal_reproducer_selected_count_for_stock={reproduced_counts.get(stock_id, 0)};"
+            f"event_key_reproduced={row['present_in_current_formal_reproducer']}"
+        )
         rows.append(row)
 
     context = {
@@ -314,6 +375,7 @@ def build_detail(generated_at: str) -> tuple[pd.DataFrame, dict[str, Any]]:
         "formal_count": len(formal),
         "raw_minus_timing_count": len(raw_minus_timing),
         "timing_minus_raw_count": len(timing_keys - raw_keys),
+        "current_formal_reproducer_match_count": len(set(raw_minus["source_event_key"].astype(str)) & reproduced_keys),
         "timing_max_signal_date": timing_max_signal_date,
         "formal_max_signal_date": formal_max_signal_date,
         "raw_max_signal_date": raw_max_signal_date,
@@ -394,6 +456,25 @@ def build_summary(detail: pd.DataFrame, context: dict[str, Any], generated_at: s
     )
     rows.append(blocker_row)
 
+    reproduced = detail[detail["present_in_current_formal_reproducer"].astype(str).eq("True")]
+    reproducer_row = summary_base(
+        "root_cause",
+        "current_formal_reproducer",
+        "raw_minus_timing_reproduced_by_current_formal_code",
+        generated_at,
+        "single-stock current formal producer replay against raw-minus-timing rows",
+    )
+    reproducer_row["sample_size"] = len(reproduced)
+    reproducer_row["value_a"] = f"raw_minus_timing_count={len(detail)}"
+    reproducer_row["value_b"] = f"current_formal_reproducer_match_count={len(reproduced)}"
+    reproducer_row["value_c"] = "writes_output=False"
+    reproducer_row["status"] = (
+        "current_formal_producer_reproduces_all_raw_minus_timing_rows"
+        if len(reproduced) == len(detail)
+        else "current_formal_producer_reproduction_gap_review_required"
+    )
+    rows.append(reproducer_row)
+
     return pd.DataFrame(rows)
 
 
@@ -410,6 +491,7 @@ def write_markdown(summary: pd.DataFrame, detail: pd.DataFrame, path: Path) -> N
     profile = summary[summary["row_type"].eq("source_profile")]
     gap_rows = summary[summary["row_type"].eq("gap_classification")]
     blocker = summary[summary["row_type"].eq("promotion_gate")]
+    root_cause = summary[summary["row_type"].eq("root_cause")]
     lines = [
         "# Volume Range Breakout V2 Source-Gap Reconciliation",
         "",
@@ -423,6 +505,7 @@ def write_markdown(summary: pd.DataFrame, detail: pd.DataFrame, path: Path) -> N
         "- It compares raw price-history v2 rerun rows against timing-audit 60d rows, semantic-audit rows, and formal operation events.",
         "- Rows after the timing artifact max signal date are classified as freshness extension, not promotion evidence.",
         "- Rows inside the timing artifact date window that exist only in the raw rerun are a source-gap blocker before promotion.",
+        "- Current formal producer single-stock replay reproduces the raw-minus-timing rows; the gap is an unsynchronized artifact/source issue, not a standalone v2-only signal.",
         "",
         "## Source Profile",
         "",
@@ -436,6 +519,10 @@ def write_markdown(summary: pd.DataFrame, detail: pd.DataFrame, path: Path) -> N
         "",
         *md_table(blocker, ["sample_size", "status", "value_a", "value_b", "value_c"], limit=5),
         "",
+        "## Root Cause",
+        "",
+        *md_table(root_cause, ["sample_size", "status", "value_a", "value_b", "value_c"], limit=5),
+        "",
         "## Gap Detail",
         "",
         *md_table(
@@ -448,8 +535,10 @@ def write_markdown(summary: pd.DataFrame, detail: pd.DataFrame, path: Path) -> N
                 "return_pct",
                 "gap_scope",
                 "gap_classification",
+                "present_in_current_formal_reproducer",
                 "present_in_semantic_audit",
                 "present_in_formal_operation_events",
+                "root_cause_classification",
             ],
             limit=20,
         ),
