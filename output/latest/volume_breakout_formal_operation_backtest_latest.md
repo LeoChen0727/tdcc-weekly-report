@@ -1,6 +1,6 @@
 # Volume Breakout Formal Operation Backtest
 
-- generated_at: `2026-07-08 16:30:27 Asia/Taipei`
+- generated_at: `2026-07-08 21:30:24 Asia/Taipei`
 - model_id: `volume_range_breakout`
 - purpose: one signal produces one formal operation event.
 - lifecycle_definition: `daily_volume_breakout_operation_lifecycle_v1`
@@ -8,20 +8,20 @@
 - trigger_selection_rule: earliest confirmation date wins; if multiple triggers confirm on the same date, use trigger priority order.
 - trigger_priority: `next_day_continuation_confirmed`, `pullback_5ma_confirmed`, `pullback_10ma_confirmed`.
 - research note: multi-trigger events remain in `volume_breakout_confirmed_operation_events.csv`; this formal artifact is the production-operation statistics source.
-- formal_event_rows: `3292`
-- lifecycle_event_rows: `4752`
+- formal_event_rows: `3310`
+- lifecycle_event_rows: `4760`
 
 ## Lifecycle State Counts
 
 | operation_lifecycle_state | sample_maturity_status | signal_events | mature_samples |
 | --- | --- | --- | --- |
-| active_operation | immature_active | 95 | 0 |
-| active_operation | mature | 5 | 5 |
-| confirmed_operation | confirmed_not_entered | 9 | 0 |
-| expired | expired_unconfirmed | 1427 | 0 |
-| expired | immature_active | 23 | 0 |
-| expired | mature | 3170 | 3170 |
-| pending_confirmation | pending_confirmation | 23 | 0 |
+| active_operation | immature_active | 81 | 0 |
+| active_operation | mature | 10 | 10 |
+| confirmed_operation | confirmed_not_entered | 5 | 0 |
+| expired | expired_unconfirmed | 1434 | 0 |
+| expired | immature_active | 31 | 0 |
+| expired | mature | 3180 | 3180 |
+| pending_confirmation | pending_confirmation | 19 | 0 |
 
 | tdcc_list_type | rank_bucket | trigger_id | confluence_scope | confluence_id | metric_sample_scope | sample_size | win_rate | median_return | out_of_sample_pass | confidence_status | ranking_research_score |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -102,6 +102,6 @@
 | no_tdcc | all | pullback_10ma_confirmed | operation_attack_position | locked_limit_up__high_position | mature_selected_operation_only | 31 | 45.16 | -1.1194 | True | medium | 2.4321 |
 | no_tdcc | all | next_day_break_signal_high_confirmed | operation_attack_position | general_breakout__low_position | mature_selected_operation_only | 25 | 52.0 | 0.5435 | False | low | 1.578 |
 | no_tdcc | all | pullback_5ma_confirmed | operation_classification | wide_range_breakout | mature_selected_operation_only | 42 | 35.71 | -1.7383 | True | medium | 0.3309 |
-| no_tdcc | all | pullback_5ma_confirmed | operation_attack_position | volume_attack__high_position | mature_selected_operation_only | 188 | 42.02 | -1.2556 | False | medium | 0.3254 |
+| no_tdcc | all | pullback_5ma_confirmed | operation_attack_position | volume_attack__high_position | mature_selected_operation_only | 191 | 41.88 | -1.2766 | False | medium | 0.2935 |
 | no_tdcc | all | pullback_10ma_confirmed | operation_classification | locked_limit_up_breakout | mature_selected_operation_only | 51 | 39.22 | -1.9608 | True | medium | -0.0139 |
 | no_tdcc | all | pullback_10ma_confirmed | operation_attack_method | locked_limit_up | mature_selected_operation_only | 51 | 39.22 | -1.9608 | True | medium | -0.0139 |

@@ -16,25 +16,25 @@
 
 | sample_size | win_rate_pct | neutral_rate_pct | loss_rate_pct | avg_return_pct | median_return_pct | trim_avg_return_pct | trim_median_return_pct | status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 808 | 52.48 | 0.5 | 47.03 | 4.9893 | 1.3482 | 4.5094 | 1.3482 | raw_rerun_matches_timing_window |
+| 811 | 52.4 | 0.49 | 47.1 | 4.9629 | 1.3359 | 4.4842 | 1.3359 | raw_rerun_matches_timing_window |
 
 ## Data Scope
 
 | scanned_price_files | equity_price_files | base_v1_signal_count | base_v1_mature_trade_count | next_day_trigger_mature_count | trigger_only_excluded_by_follow_through_count | v2_raw_candidate_count | v2_raw_mature_event_count | timing_audit_60d_event_count | timing_audit_max_signal_date | raw_extension_after_timing_count | raw_minus_timing_within_timing_window_count |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 2376 | 1948 | 4752 | 3175 | 1256 | 448 | 808 | 808 | 808 | 20260622 | 0 | 0 |
+| 2376 | 1949 | 4760 | 3190 | 1261 | 450 | 811 | 811 | 811 | 20260623 | 0 | 0 |
 
 ## Out Of Sample
 
 | sample_size | win_rate_pct | loss_rate_pct | avg_return_pct | median_return_pct | status |
 | --- | --- | --- | --- | --- | --- |
-| 353 | 58.07 | 41.93 | 6.9907 | 3.5354 | research_only_oos_check |
+| 355 | 57.75 | 42.25 | 6.9019 | 3.5124 | research_only_oos_check |
 
 ## Anomaly Check
 
 | sample_size | win_rate_pct | avg_return_pct | median_return_pct | anomaly_count | status |
 | --- | --- | --- | --- | --- | --- |
-| 790 | 52.53 | 4.5094 | 1.3482 | 18 | anomaly_rows_marked_review_before_promotion |
+| 793 | 52.46 | 4.4842 | 1.3359 | 18 | anomaly_rows_marked_review_before_promotion |
 
 ## Membership Check
 
@@ -48,4 +48,4 @@
 
 - summary_csv: `output/latest/research_backtest/volume_range_breakout_v2_raw_market_rerun_latest.csv`
 - detail_csv: `output/latest/research_backtest/volume_range_breakout_v2_raw_market_rerun_detail_latest.csv`
-- detail_rows: `808`
+- detail_rows: `811`

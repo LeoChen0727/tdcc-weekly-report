@@ -16,68 +16,68 @@
 
 | condition_set_id | sample_size | win_rate_pct | loss_rate_pct | avg_return_pct | median_return_pct |
 | --- | --- | --- | --- | --- | --- |
-| baseline_all_dedup | 3175 | 36.82 | 61.35 | 0.5071 | -2.9091 |
+| baseline_all_dedup | 3190 | 36.71 | 61.47 | 0.4751 | -2.9175 |
 
 ## 20/40/60 High-Window Only
 
 | condition_set_id | sample_size | coverage_pct | win_rate_pct | loss_rate_pct | avg_return_pct | median_return_pct |
 | --- | --- | --- | --- | --- | --- | --- |
-| prev20_high_only | 3175 | 100.0 | 36.82 | 61.35 | 0.5071 | -2.9091 |
-| prev40_high_only | 2328 | 73.32 | 36.94 | 61.21 | 0.7292 | -3.094 |
-| prev60_high_only | 1795 | 56.54 | 37.6 | 60.45 | 1.0907 | -3.2787 |
+| prev20_high_only | 3190 | 100.0 | 36.71 | 61.47 | 0.4751 | -2.9175 |
+| prev40_high_only | 2341 | 73.39 | 36.78 | 61.38 | 0.6769 | -3.1385 |
+| prev60_high_only | 1805 | 56.58 | 37.45 | 60.61 | 1.0383 | -3.3033 |
 
 ## Low/Base Proxy Rows
 
 | condition_set_id | sample_size | coverage_pct | win_rate_pct | loss_rate_pct | avg_return_pct | median_return_pct | candidate_interpretation |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| prev20_high_off60_le50_range60_le45 | 1447 | 45.57 | 36.97 | 61.23 | 0.3044 | -2.583 | weaker_than_baseline_do_not_promote_as_gate |
-| prev20_high_off60_le40_range60_le35 | 1038 | 32.69 | 35.36 | 62.52 | -0.0406 | -2.6025 | weaker_than_baseline_do_not_promote_as_gate |
-| prev40_high_off60_le50_range60_le45 | 1079 | 33.98 | 37.16 | 60.89 | 0.4473 | -2.682 | weaker_than_baseline_do_not_promote_as_gate |
-| prev40_high_off60_le40_range60_le35 | 744 | 23.43 | 35.62 | 62.1 | 0.0448 | -2.7511 | weaker_than_baseline_do_not_promote_as_gate |
-| prev60_high_off60_le50_range60_le45 | 842 | 26.52 | 36.82 | 61.05 | 0.3032 | -2.9329 | weaker_than_baseline_do_not_promote_as_gate |
-| prev60_high_off60_le40_range60_le35 | 565 | 17.8 | 33.63 | 63.72 | -0.3958 | -3.3099 | weaker_than_baseline_do_not_promote_as_gate |
+| prev20_high_off60_le50_range60_le45 | 1456 | 45.64 | 36.88 | 61.33 | 0.2847 | -2.5977 | weaker_than_baseline_do_not_promote_as_gate |
+| prev20_high_off60_le40_range60_le35 | 1044 | 32.73 | 35.34 | 62.55 | -0.0389 | -2.6025 | weaker_than_baseline_do_not_promote_as_gate |
+| prev40_high_off60_le50_range60_le45 | 1086 | 34.04 | 37.02 | 61.05 | 0.4037 | -2.7195 | weaker_than_baseline_do_not_promote_as_gate |
+| prev40_high_off60_le40_range60_le35 | 748 | 23.45 | 35.56 | 62.17 | 0.0221 | -2.7686 | weaker_than_baseline_do_not_promote_as_gate |
+| prev60_high_off60_le50_range60_le45 | 846 | 26.52 | 36.76 | 61.11 | 0.2842 | -2.9576 | weaker_than_baseline_do_not_promote_as_gate |
+| prev60_high_off60_le40_range60_le35 | 567 | 17.77 | 33.69 | 63.67 | -0.398 | -3.3099 | weaker_than_baseline_do_not_promote_as_gate |
 
 ## Best Reviewable Source-Signal Rows
 
 | condition_set_id | sample_size | win_rate_pct | avg_return_pct | median_return_pct | candidate_interpretation |
 | --- | --- | --- | --- | --- | --- |
-| prev60_high_signal_return_lt_9_8 | 799 | 38.67 | 1.2913 | -2.7397 | mixed_result_research_only |
-| prev60_high_volume_ratio_2_to_6 | 1377 | 38.49 | 1.2393 | -2.8889 | mixed_result_research_only |
-| prev40_high_not_locked_limit_up | 834 | 37.65 | 1.22 | -2.4126 | mixed_result_research_only |
-| prev60_high_not_locked_limit_up | 597 | 38.02 | 1.1762 | -2.6316 | mixed_result_research_only |
-| prev60_high_only | 1795 | 37.6 | 1.0907 | -3.2787 | mixed_result_research_only |
-| prev40_high_signal_return_lt_9_8 | 1096 | 37.32 | 0.9914 | -2.6883 | mixed_result_research_only |
-| prev20_high_not_locked_limit_up | 1279 | 37.29 | 0.9754 | -2.3454 | mixed_result_research_only |
-| prev40_high_volume_ratio_2_to_6 | 1791 | 37.74 | 0.9516 | -2.8139 | mixed_result_research_only |
-| prev20_high_signal_return_lt_9_8 | 1606 | 36.92 | 0.7497 | -2.4964 | mixed_result_research_only |
-| prev40_high_only | 2328 | 36.94 | 0.7292 | -3.094 | mixed_result_research_only |
-| prev20_high_volume_ratio_2_to_6 | 2477 | 37.14 | 0.689 | -2.7638 | mixed_result_research_only |
-| prev40_high_not_locked_off60_le50_range60_le45 | 450 | 37.11 | 0.6407 | -2.4221 | mixed_result_research_only |
-| prev20_high_only | 3175 | 36.82 | 0.5071 | -2.9091 | mixed_result_research_only |
-| prev20_high_not_locked_off60_le50_range60_le45 | 667 | 36.43 | 0.4589 | -2.3675 | weaker_than_baseline_do_not_promote_as_gate |
-| prev40_high_off60_le50_range60_le45 | 1079 | 37.16 | 0.4473 | -2.682 | weaker_than_baseline_do_not_promote_as_gate |
+| prev60_high_signal_return_lt_9_8 | 804 | 38.43 | 1.2296 | -2.7482 | mixed_result_research_only |
+| prev40_high_not_locked_limit_up | 837 | 37.51 | 1.1905 | -2.4155 | mixed_result_research_only |
+| prev60_high_volume_ratio_2_to_6 | 1386 | 38.31 | 1.1896 | -2.9162 | mixed_result_research_only |
+| prev60_high_not_locked_limit_up | 600 | 37.83 | 1.1352 | -2.6366 | mixed_result_research_only |
+| prev60_high_only | 1805 | 37.45 | 1.0383 | -3.3033 | mixed_result_research_only |
+| prev20_high_not_locked_limit_up | 1284 | 37.23 | 0.9695 | -2.344 | mixed_result_research_only |
+| prev40_high_signal_return_lt_9_8 | 1102 | 37.11 | 0.9337 | -2.7322 | mixed_result_research_only |
+| prev40_high_volume_ratio_2_to_6 | 1801 | 37.59 | 0.9103 | -2.8526 | mixed_result_research_only |
+| prev20_high_signal_return_lt_9_8 | 1614 | 36.8 | 0.7216 | -2.5409 | mixed_result_research_only |
+| prev40_high_only | 2341 | 36.78 | 0.6769 | -3.1385 | mixed_result_research_only |
+| prev20_high_volume_ratio_2_to_6 | 2489 | 37.04 | 0.667 | -2.7842 | mixed_result_research_only |
+| prev40_high_not_locked_off60_le50_range60_le45 | 451 | 37.03 | 0.6147 | -2.4345 | mixed_result_research_only |
+| prev20_high_only | 3190 | 36.71 | 0.4751 | -2.9175 | mixed_result_research_only |
+| prev20_high_not_locked_off60_le50_range60_le45 | 670 | 36.42 | 0.4677 | -2.363 | weaker_than_baseline_do_not_promote_as_gate |
+| prev40_high_off60_le50_range60_le45 | 1086 | 37.02 | 0.4037 | -2.7195 | weaker_than_baseline_do_not_promote_as_gate |
 
 ## Confirmation-Timing Rows
 
 | condition_set_id | sample_size | win_rate_pct | avg_return_pct | median_return_pct | candidate_interpretation |
 | --- | --- | --- | --- | --- | --- |
-| prev60_high_next_day_continuation | 808 | 52.48 | 4.9893 | 1.3482 | interesting_confirmation_timing_needs_contract_review |
-| prev60_high_pullback_5ma_or_10ma | 183 | 53.01 | 4.4937 | 0.7828 | mixed_result_research_only |
-| prev40_high_next_day_continuation | 1033 | 50.73 | 4.029 | 0.4959 | interesting_confirmation_timing_needs_contract_review |
-| prev60_high_not_locked_next_day_continuation | 208 | 49.52 | 3.7001 | -0.2258 | mixed_result_research_only |
-| prev40_high_pullback_5ma_or_10ma | 270 | 48.52 | 3.6891 | -0.5432 | mixed_result_research_only |
-| prev40_high_not_locked_next_day_continuation | 295 | 48.47 | 3.2929 | -0.5202 | mixed_result_research_only |
-| prev20_high_next_day_continuation | 1381 | 49.09 | 3.2824 | -0.2002 | mixed_result_research_only |
-| prev20_high_pullback_5ma_or_10ma | 409 | 48.66 | 3.2376 | -0.3636 | mixed_result_research_only |
-| prev20_high_not_locked_next_day_continuation | 440 | 47.5 | 2.7073 | -0.7874 | mixed_result_research_only |
+| prev60_high_next_day_continuation | 811 | 52.4 | 4.9629 | 1.3359 | interesting_confirmation_timing_needs_contract_review |
+| prev60_high_pullback_5ma_or_10ma | 185 | 52.43 | 4.3914 | 0.7528 | mixed_result_research_only |
+| prev40_high_next_day_continuation | 1037 | 50.63 | 3.9997 | 0.4292 | interesting_confirmation_timing_needs_contract_review |
+| prev60_high_not_locked_next_day_continuation | 209 | 49.28 | 3.6293 | -0.4515 | mixed_result_research_only |
+| prev40_high_pullback_5ma_or_10ma | 273 | 47.99 | 3.5865 | -0.7472 | mixed_result_research_only |
+| prev20_high_next_day_continuation | 1385 | 49.03 | 3.2626 | -0.2169 | mixed_result_research_only |
+| prev40_high_not_locked_next_day_continuation | 296 | 48.31 | 3.2443 | -0.5399 | mixed_result_research_only |
+| prev20_high_pullback_5ma_or_10ma | 413 | 48.18 | 3.1614 | -0.4815 | mixed_result_research_only |
+| prev20_high_not_locked_next_day_continuation | 441 | 47.39 | 2.676 | -0.7937 | mixed_result_research_only |
 
 ## Diagnostic-Only Rows
 
 | condition_set_id | sample_size | win_rate_pct | avg_return_pct | median_return_pct | candidate_interpretation |
 | --- | --- | --- | --- | --- | --- |
-| prev20_high_exclude_breakout_failure | 2435 | 48.01 | 2.959 | -0.5181 | diagnostic_only_not_promotion_evidence |
-| prev40_high_exclude_breakout_failure | 1759 | 48.89 | 3.4649 | -0.3006 | diagnostic_only_not_promotion_evidence |
-| prev60_high_exclude_breakout_failure | 1334 | 50.6 | 4.2248 | 0.2702 | diagnostic_only_not_promotion_evidence |
+| prev20_high_exclude_breakout_failure | 2446 | 47.87 | 2.9271 | -0.5639 | diagnostic_only_not_promotion_evidence |
+| prev40_high_exclude_breakout_failure | 1768 | 48.7 | 3.4111 | -0.314 | diagnostic_only_not_promotion_evidence |
+| prev60_high_exclude_breakout_failure | 1341 | 50.41 | 4.1662 | 0.2273 | diagnostic_only_not_promotion_evidence |
 
 ## Outputs
 

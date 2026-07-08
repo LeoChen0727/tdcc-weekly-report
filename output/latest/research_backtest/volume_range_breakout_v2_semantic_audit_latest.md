@@ -15,33 +15,33 @@
 
 | audit_key | sample_size | win_rate_pct | neutral_rate_pct | loss_rate_pct | avg_return_pct | median_return_pct | min_return_pct | max_return_pct |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| all_dedup_mature_formal_operations | 3175 | 36.82 | 1.83 | 61.35 | 0.5071 | -2.9091 | -89.8551 | 91.0714 |
+| all_dedup_mature_formal_operations | 3190 | 36.71 | 1.82 | 61.47 | 0.4751 | -2.9175 | -89.8551 | 91.0714 |
 
 ## 20/40/60 Previous High
 
 | audit_key | sample_size | win_rate_pct | loss_rate_pct | avg_return_pct | median_return_pct | value_c |
 | --- | --- | --- | --- | --- | --- | --- |
-| previous_20d_high | 3175 | 36.82 | 61.35 | 0.5071 | -2.9091 | coverage_pct=100.00 |
-| previous_40d_high | 2328 | 36.94 | 61.21 | 0.7292 | -3.094 | coverage_pct=73.32 |
-| previous_60d_high | 1795 | 37.6 | 60.45 | 1.0907 | -3.2787 | coverage_pct=56.54 |
+| previous_20d_high | 3190 | 36.71 | 61.47 | 0.4751 | -2.9175 | coverage_pct=100.00 |
+| previous_40d_high | 2341 | 36.78 | 61.38 | 0.6769 | -3.1385 | coverage_pct=73.39 |
+| previous_60d_high | 1805 | 37.45 | 60.61 | 1.0383 | -3.3033 | coverage_pct=56.58 |
 
 ## Semantic Slices
 
 | audit_key | sample_size | win_rate_pct | loss_rate_pct | avg_return_pct | median_return_pct |
 | --- | --- | --- | --- | --- | --- |
-| all_dedup | 3175 | 36.82 | 61.35 | 0.5071 | -2.9091 |
+| all_dedup | 3190 | 36.71 | 61.47 | 0.4751 | -2.9175 |
 | low_position_60_le_60 | 192 | 29.17 | 68.23 | -1.0615 | -3.2964 |
 | low_position_60_le_80 | 415 | 31.57 | 66.51 | -0.9559 | -2.8571 |
-| high_position_60_gt_80 | 2191 | 38.16 | 59.97 | 1.1384 | -2.9197 |
-| consolidated_any | 1460 | 35.21 | 62.81 | -0.2171 | -2.5007 |
-| long_consolidation | 1203 | 34.16 | 63.84 | -0.5438 | -2.6667 |
+| high_position_60_gt_80 | 2206 | 37.99 | 60.15 | 1.0878 | -2.9696 |
+| consolidated_any | 1464 | 35.18 | 62.84 | -0.2141 | -2.5007 |
+| long_consolidation | 1207 | 34.13 | 63.88 | -0.5391 | -2.6667 |
 | short_consolidation | 257 | 40.08 | 57.98 | 1.3122 | -2.0408 |
-| non_consolidation | 1715 | 38.19 | 60.12 | 1.1236 | -3.5363 |
-| locked_limit_up | 1896 | 36.5 | 61.45 | 0.1912 | -3.6606 |
-| not_locked_limit_up | 1279 | 37.29 | 61.22 | 0.9754 | -2.3454 |
+| non_consolidation | 1726 | 38.01 | 60.31 | 1.0596 | -3.5915 |
+| locked_limit_up | 1906 | 36.36 | 61.59 | 0.142 | -3.7037 |
+| not_locked_limit_up | 1284 | 37.23 | 61.29 | 0.9695 | -2.344 |
 | low_position_60_le_80_and_consolidated | 318 | 31.13 | 67.3 | -0.9808 | -2.4289 |
-| high_position_60_gt_80_non_consolidation | 1317 | 38.88 | 59.61 | 1.685 | -3.4026 |
-| volume_attack_not_locked | 807 | 36.56 | 62.08 | 1.0469 | -2.5281 |
+| high_position_60_gt_80_non_consolidation | 1328 | 38.63 | 59.86 | 1.5972 | -3.5363 |
+| volume_attack_not_locked | 811 | 36.5 | 62.15 | 1.0413 | -2.5281 |
 
 ## 4989 Evidence Matching Guard
 
