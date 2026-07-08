@@ -31,11 +31,11 @@ from build_volume_breakout_confirmed_operation_backtest import (  # noqa: E402
     selected_confirmation_for_signal,
     simulate_confirmed_trade,
 )
-from build_volume_breakout_watch import PRICE_HISTORY_DIR  # noqa: E402
 from tracking_utils import normalize_code, normalize_date, safe_str  # noqa: E402
 
 
 ROOT = Path(".")
+PRICE_HISTORY_DIR = ROOT / "data" / "stock_price_history"
 RESEARCH_LATEST_DIR = ROOT / "output" / "latest" / "research_backtest"
 RESEARCH_HISTORY_DIR = ROOT / "output" / "history" / "research"
 
