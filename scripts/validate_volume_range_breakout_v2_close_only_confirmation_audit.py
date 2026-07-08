@@ -7,6 +7,8 @@ import pandas as pd
 from build_volume_range_breakout_v2_close_only_confirmation_audit import (
     ADVISORY_STATUS,
     ARTIFACT_VERSION,
+    BASE_SHAPE_DEFINITION,
+    BASE_SHAPE_ID,
     BREAKOUT_THRESHOLDS,
     CLOSE_ONLY_TRIGGERS,
     DETAIL_COLUMNS,
@@ -18,6 +20,7 @@ from build_volume_range_breakout_v2_close_only_confirmation_audit import (
     MODEL_ID,
     PRODUCTION_READINESS,
     RESEARCH_ID,
+    RETURN_BASES,
     SOURCE_DETAIL_CSV,
     SOURCE_RESEARCH_ID,
     SUMMARY_COLUMNS,
@@ -34,11 +37,6 @@ FORBIDDEN_PRODUCTION_FIELDS = {
     "daily_candidate_decision",
     "buy_signal",
     "approved_for_daily_true",
-}
-RETURN_BASES = {
-    "close_signal_low_stop_next_open_or_fixed_10d_close",
-    "fixed_10d_close_no_stop",
-    "fixed_60d_close_no_stop",
 }
 TRIGGER_SCOPES = {"selected_any_close_only", *CLOSE_ONLY_TRIGGERS}
 
@@ -100,10 +98,17 @@ def validate_common(summary: pd.DataFrame, detail: pd.DataFrame, history_summary
         fail(f"artifact must not contain production decision fields: {forbidden}")
     require_common("summary", summary)
     require_common("detail", detail)
-    if set(summary["return_basis"].astype(str)) != RETURN_BASES:
+    expected_return_bases = set(RETURN_BASES)
+    if set(summary["return_basis"].astype(str)) != expected_return_bases:
         fail("summary return_basis set mismatch")
-    if set(detail["return_basis"].astype(str)) != RETURN_BASES:
+    if set(detail["return_basis"].astype(str)) != expected_return_bases:
         fail("detail return_basis set mismatch")
+    if set(summary["base_shape_id"].astype(str)) != {BASE_SHAPE_ID}:
+        fail("summary base_shape_id mismatch")
+    if set(summary["base_shape_definition"].astype(str)) != {BASE_SHAPE_DEFINITION}:
+        fail("summary base_shape_definition mismatch")
+    if set(detail["base_shape_definition"].astype(str)) != {BASE_SHAPE_DEFINITION}:
+        fail("detail base_shape_definition mismatch")
     if set(summary["trigger_scope"].astype(str)) != TRIGGER_SCOPES:
         fail("summary trigger scopes must include selected_any and all close-only triggers")
     if set(detail["selected_close_only_trigger_id"].astype(str)) - set(CLOSE_ONLY_TRIGGERS):
@@ -153,11 +158,12 @@ def validate_summary_grid(summary: pd.DataFrame, source: pd.DataFrame) -> None:
 def validate_non_overlap_replay(summary: pd.DataFrame, detail: pd.DataFrame, source: pd.DataFrame) -> None:
     source_work = source.copy()
     source_work["breakout_over_prev60_pct"] = pd.to_numeric(source_work["breakout_over_prev60_pct"], errors="coerce")
+    source_work["range_width_40_pct"] = pd.to_numeric(source_work["range_width_40_pct"], errors="coerce")
     for _, row in summary.iterrows():
         threshold = float(row["breakout_threshold_pct"])
         source_keys = set(
             source_work.loc[
-                source_work["consolidation_type"].astype(str).eq("non_consolidation")
+                source_work["range_width_40_pct"].gt(40)
                 & source_work["breakout_over_prev60_pct"].ge(threshold),
                 "source_event_key",
             ].astype(str)
@@ -186,8 +192,10 @@ def validate_markdown() -> None:
     text = LATEST_MD.read_text(encoding="utf-8", errors="replace")
     required = [
         "research-only replay on existing v1 formal-operation source events",
-        "Candidate population: `consolidation_type=non_consolidation`",
+        f"Candidate population: `base_shape_id={BASE_SHAPE_ID}`",
+        BASE_SHAPE_DEFINITION,
         "Close-only triggers",
+        "Stop sweep",
         "Intraday high/low are not used as confirmation, entry, exit, stop, or realized return prices",
     ]
     for item in required:

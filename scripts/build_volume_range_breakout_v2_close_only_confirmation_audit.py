@@ -31,15 +31,17 @@ HISTORY_SUMMARY_CSV = RESEARCH_HISTORY_DIR / "volume_range_breakout_v2_close_onl
 HISTORY_DETAIL_CSV = RESEARCH_HISTORY_DIR / "volume_range_breakout_v2_close_only_confirmation_audit_detail.csv"
 
 RESEARCH_ID = "volume_range_breakout_v2_close_only_confirmation_audit"
-ARTIFACT_VERSION = "volume_range_breakout_v2_close_only_confirmation_audit_20260709"
+ARTIFACT_VERSION = "volume_range_breakout_v2_close_only_confirmation_audit_20260709_stop_sensitivity"
 SOURCE_RESEARCH_ID = "volume_range_breakout_v2_semantic_audit"
 ADVISORY_STATUS = "warning_research_variant_only"
 PRODUCTION_READINESS = "not_production_ready_research_only"
 MODEL_ID = "volume_range_breakout"
 
 BREAKOUT_THRESHOLDS = [0.0, 1.0, 2.0, 3.0, 4.0, 5.0, 7.5, 10.0]
+BASE_SHAPE_ID = "width40_gt40_non_consolidation"
+BASE_SHAPE_DEFINITION = "range_width_40_pct > 40"
 MAX_CONFIRM_DAYS = 10
-FIXED_HORIZONS = [10, 60]
+FIXED_HORIZONS = [10, 20, 40, 60]
 CLOSE_ONLY_TRIGGERS = [
     "next_day_close_above_signal_high_confirmed",
     "pullback_5ma_close_reclaim_confirmed",
@@ -57,6 +59,22 @@ TRIGGER_ZH = {
     "pullback_10ma_close_reclaim_confirmed": "收盤回測 10MA 後重新站回",
 }
 
+STOP_SPECS = [
+    ("no_stop", ""),
+    ("signal_low_close_stop", "signal_low"),
+    ("entry_minus_5pct_close_stop", "entry_minus_5pct"),
+    ("entry_minus_7pct_close_stop", "entry_minus_7pct"),
+    ("entry_minus_10pct_close_stop", "entry_minus_10pct"),
+    ("ma10_close_stop", "ma10"),
+    ("ma20_close_stop", "ma20"),
+]
+RETURN_BASES = [f"fixed_{horizon}d_close_no_stop" for horizon in FIXED_HORIZONS] + [
+    f"close_{stop_token}_stop_next_open_or_fixed_{horizon}d_close"
+    for horizon in [10, 20, 40]
+    for stop_rule_id, stop_token in STOP_SPECS
+    if stop_rule_id != "no_stop"
+]
+
 SUMMARY_COLUMNS = [
     "research_id",
     "artifact_version",
@@ -66,12 +84,16 @@ SUMMARY_COLUMNS = [
     "model_id",
     "row_type",
     "population_id",
+    "base_shape_id",
+    "base_shape_definition",
     "breakout_threshold_pct",
     "trigger_scope",
     "trigger_scope_zh",
     "return_basis",
     "entry_rule_id",
     "exit_rule_id",
+    "stop_rule_id",
+    "fixed_horizon_days",
     "overlap_policy",
     "anomaly_policy",
     "source_event_count",
@@ -135,9 +157,14 @@ DETAIL_COLUMNS = [
     "return_outcome",
     "data_quality_flag",
     "breakout_over_prev60_pct",
+    "base_shape_id",
+    "base_shape_definition",
+    "v2_base_shape_match_flag",
     "consolidation_type",
     "range_width_40_pct",
     "range_width_60_pct",
+    "stop_rule_id",
+    "fixed_horizon_days",
     "approved_for_daily",
     "production_readiness",
     "generated_at",
@@ -176,6 +203,30 @@ def numeric(value: Any) -> float:
     return number if not math.isnan(number) and not math.isinf(number) else math.nan
 
 
+def v2_base_shape_id(row: pd.Series) -> str:
+    width40 = numeric(row.get("range_width_40_pct"))
+    if math.isnan(width40):
+        return "unknown_width40"
+    if width40 > 40:
+        return BASE_SHAPE_ID
+    if width40 > 25:
+        return "width40_25_40_short_consolidation"
+    return "width40_le25_long_consolidation"
+
+
+def parse_return_basis(return_basis: str) -> tuple[str, int]:
+    for horizon in FIXED_HORIZONS:
+        if return_basis == f"fixed_{horizon}d_close_no_stop":
+            return "no_stop", horizon
+    prefix = "close_"
+    middle = "_stop_next_open_or_fixed_"
+    suffix = "d_close"
+    if not return_basis.startswith(prefix) or middle not in return_basis or not return_basis.endswith(suffix):
+        raise ValueError(return_basis)
+    stop_token, horizon_text = return_basis[len(prefix) : -len(suffix)].split(middle, 1)
+    return f"{stop_token}_close_stop", int(horizon_text)
+
+
 def load_source() -> tuple[pd.DataFrame, str]:
     source = read_csv(SOURCE_DETAIL_CSV)
     if source.empty:
@@ -202,6 +253,7 @@ def load_source() -> tuple[pd.DataFrame, str]:
     source["stock_id"] = source["stock_id"].map(normalize_code)
     source["signal_date"] = source["signal_date"].map(normalize_date)
     source["confirmation_date"] = source["confirmation_date"].map(normalize_date)
+    source["v2_base_shape_id"] = source.apply(v2_base_shape_id, axis=1)
     return source, versions[0]
 
 
@@ -219,7 +271,7 @@ def load_price_cache(stock_ids: pd.Series) -> dict[str, pd.DataFrame]:
         price = price.copy()
         price["date"] = price["date"].map(normalize_date)
         price = price[price["date"] != ""].sort_values("date").reset_index(drop=True)
-        for col in ["open", "high", "low", "close", "ma5", "ma10"]:
+        for col in ["open", "high", "low", "close", "ma5", "ma10", "ma20"]:
             price[col] = pd.to_numeric(price.get(col, ""), errors="coerce")
         cache[stock_id] = price
     return cache
@@ -324,6 +376,9 @@ def base_detail(row: pd.Series, source_version: str, generated_at: str, selected
         "close_only_confirmation_date": safe_str(selected.get("confirmation_date")),
         "confirmation_age_trading_days": safe_str(selected.get("confirmation_age_trading_days")),
         "breakout_over_prev60_pct": pct_round(row.get("breakout_over_prev60_pct")),
+        "base_shape_id": safe_str(row.get("v2_base_shape_id")),
+        "base_shape_definition": BASE_SHAPE_DEFINITION,
+        "v2_base_shape_match_flag": str(safe_str(row.get("v2_base_shape_id")) == BASE_SHAPE_ID),
         "consolidation_type": safe_str(row.get("consolidation_type")),
         "range_width_40_pct": pct_round(row.get("range_width_40_pct")),
         "range_width_60_pct": pct_round(row.get("range_width_60_pct")),
@@ -339,6 +394,7 @@ def simulate_return(
     signal_low: float,
     return_basis: str,
 ) -> dict[str, Any]:
+    stop_rule_id, fixed_horizon_days = parse_return_basis(return_basis)
     entry_idx = confirmation_idx + 1
     if price.empty or entry_idx >= len(price):
         return {"data_quality_flag": "missing_next_trading_day_entry"}
@@ -347,32 +403,50 @@ def simulate_return(
     if math.isnan(entry_price) or entry_price <= 0:
         return {"data_quality_flag": "invalid_entry_or_exit_price"}
 
-    if return_basis == "close_signal_low_stop_next_open_or_fixed_10d_close":
-        fixed_exit_idx = entry_idx + 10 - 1
-        if fixed_exit_idx >= len(price):
-            return {"data_quality_flag": "insufficient_forward_price_window"}
-        exit_idx = fixed_exit_idx
-        exit_price_col = "close"
-        simulated_exit_reason = "fixed_10d_close"
+    fixed_exit_idx = entry_idx + fixed_horizon_days - 1
+    if fixed_exit_idx >= len(price):
+        return {"data_quality_flag": "insufficient_forward_price_window"}
+    exit_idx = fixed_exit_idx
+    exit_price_col = "close"
+    simulated_exit_reason = f"fixed_{fixed_horizon_days}d_close"
+
+    if stop_rule_id != "no_stop":
         monitor = price.iloc[entry_idx:fixed_exit_idx]
-        closes = pd.to_numeric(monitor["close"], errors="coerce")
-        stop_hits = closes[closes.lt(signal_low)]
-        if not stop_hits.empty:
-            exit_idx = int(stop_hits.index[0]) + 1
-            if exit_idx >= len(price):
-                return {"data_quality_flag": "insufficient_forward_price_window"}
-            exit_price_col = "open"
-            simulated_exit_reason = "close_signal_low_stop_next_open"
-    elif return_basis == "fixed_10d_close_no_stop":
-        exit_idx = entry_idx + 10 - 1
-        exit_price_col = "close"
-        simulated_exit_reason = "fixed_10d_close_no_stop"
-    elif return_basis == "fixed_60d_close_no_stop":
-        exit_idx = entry_idx + 60 - 1
-        exit_price_col = "close"
-        simulated_exit_reason = "fixed_60d_close_no_stop"
-    else:
-        raise ValueError(return_basis)
+        indicator_seen = stop_rule_id not in {"ma10_close_stop", "ma20_close_stop"}
+        for idx, row in monitor.iterrows():
+            close = numeric(row.get("close"))
+            if math.isnan(close):
+                continue
+            stop_hit = False
+            if stop_rule_id == "signal_low_close_stop":
+                if math.isnan(signal_low):
+                    return {"data_quality_flag": "missing_signal_low_for_stop"}
+                stop_hit = close < signal_low
+            elif stop_rule_id == "entry_minus_5pct_close_stop":
+                stop_hit = close < entry_price * 0.95
+            elif stop_rule_id == "entry_minus_7pct_close_stop":
+                stop_hit = close < entry_price * 0.93
+            elif stop_rule_id == "entry_minus_10pct_close_stop":
+                stop_hit = close < entry_price * 0.90
+            elif stop_rule_id in {"ma10_close_stop", "ma20_close_stop"}:
+                ma_col = "ma10" if stop_rule_id == "ma10_close_stop" else "ma20"
+                ma_value = numeric(row.get(ma_col))
+                if math.isnan(ma_value):
+                    continue
+                indicator_seen = True
+                stop_hit = close < ma_value
+            else:
+                raise ValueError(stop_rule_id)
+            if stop_hit:
+                exit_idx = int(idx) + 1
+                if exit_idx >= len(price):
+                    return {"data_quality_flag": "insufficient_forward_price_window"}
+                exit_price_col = "open"
+                simulated_exit_reason = f"{stop_rule_id}_next_open"
+                break
+        if not indicator_seen:
+            ma_col = "ma10" if stop_rule_id == "ma10_close_stop" else "ma20"
+            return {"data_quality_flag": f"missing_{ma_col}_for_stop"}
 
     if exit_idx >= len(price):
         return {"data_quality_flag": "insufficient_forward_price_window"}
@@ -393,6 +467,8 @@ def simulate_return(
         "return_pct": pct_round(ret),
         "return_outcome": outcome(ret),
         "data_quality_flag": flag,
+        "stop_rule_id": stop_rule_id,
+        "fixed_horizon_days": fixed_horizon_days,
     }
 
 
@@ -409,12 +485,9 @@ def build_detail(source: pd.DataFrame, source_version: str, generated_at: str) -
         confirmation_idx = int(selected["confirmation_idx"])
         signal_low = numeric(row.get("signal_low"))
         base = base_detail(row, source_version, generated_at, selected, matched_ids)
-        for return_basis in [
-            "close_signal_low_stop_next_open_or_fixed_10d_close",
-            "fixed_10d_close_no_stop",
-            "fixed_60d_close_no_stop",
-        ]:
+        for return_basis in RETURN_BASES:
             simulated = simulate_return(price, confirmation_idx, signal_low, return_basis)
+            stop_rule_id, fixed_horizon_days = parse_return_basis(return_basis)
             rows.append(
                 {
                     **base,
@@ -422,6 +495,8 @@ def build_detail(source: pd.DataFrame, source_version: str, generated_at: str) -
                     "return_basis": return_basis,
                     "entry_rule_id": "confirmation_next_trading_day_open",
                     "exit_rule_id": return_basis,
+                    "stop_rule_id": stop_rule_id,
+                    "fixed_horizon_days": fixed_horizon_days,
                 }
             )
     return pd.DataFrame(rows)
@@ -504,8 +579,9 @@ def summary_row(
     trigger_scope: str,
     return_basis: str,
 ) -> dict[str, Any]:
+    stop_rule_id, fixed_horizon_days = parse_return_basis(return_basis)
     source_mask = (
-        source["consolidation_type"].astype(str).eq("non_consolidation")
+        source["v2_base_shape_id"].astype(str).eq(BASE_SHAPE_ID)
         & pd.to_numeric(source["breakout_over_prev60_pct"], errors="coerce").ge(threshold)
     )
     source_keys = set(source.loc[source_mask, "source_event_key"].astype(str))
@@ -529,12 +605,16 @@ def summary_row(
         "model_id": MODEL_ID,
         "row_type": "close_only_threshold_metrics",
         "population_id": "non_consolidation_momentum_close_only",
+        "base_shape_id": BASE_SHAPE_ID,
+        "base_shape_definition": BASE_SHAPE_DEFINITION,
         "breakout_threshold_pct": threshold,
         "trigger_scope": trigger_scope,
         "trigger_scope_zh": TRIGGER_ZH.get(trigger_scope, trigger_scope),
         "return_basis": return_basis,
         "entry_rule_id": "confirmation_next_trading_day_open",
         "exit_rule_id": return_basis,
+        "stop_rule_id": stop_rule_id,
+        "fixed_horizon_days": fixed_horizon_days,
         "overlap_policy": "same_stock_non_overlap",
         "anomaly_policy": "exclude_extreme_review",
         "source_event_count": int(source_mask.sum()),
@@ -546,7 +626,7 @@ def summary_row(
         "same_stock_overlap_suppressed_count": int(len(ok_part) - len(metric_part)),
         "sample_status": sample_status(int(metrics["sample_size"])),
         "split_gate_status": split_gate_status(metrics),
-        "note": "Research-only close-confirmed trigger replay on existing v1 formal-operation source events; not a full raw-market producer rerun.",
+        "note": "Research-only close-confirmed trigger replay on existing v1 formal-operation source events; base shape is recomputed from range_width_40_pct and is not gated by the legacy consolidation_type label.",
         "approved_for_daily": false_text(),
         "production_readiness": PRODUCTION_READINESS,
         "generated_at": generated_at,
@@ -559,11 +639,7 @@ def build_summary(source: pd.DataFrame, detail: pd.DataFrame, source_version: st
     rows: list[dict[str, Any]] = []
     for threshold in BREAKOUT_THRESHOLDS:
         for trigger_scope in ["selected_any_close_only", *CLOSE_ONLY_TRIGGERS]:
-            for return_basis in [
-                "close_signal_low_stop_next_open_or_fixed_10d_close",
-                "fixed_10d_close_no_stop",
-                "fixed_60d_close_no_stop",
-            ]:
+            for return_basis in RETURN_BASES:
                 rows.append(summary_row(source, detail, source_version, generated_at, threshold, trigger_scope, return_basis))
     return pd.DataFrame(rows)
 
@@ -579,6 +655,8 @@ def write_markdown(summary: pd.DataFrame, path: Path) -> None:
         "breakout_threshold_pct",
         "trigger_scope",
         "return_basis",
+        "stop_rule_id",
+        "fixed_horizon_days",
         "source_event_count",
         "close_only_confirmed_count",
         "sample_size",
@@ -600,18 +678,19 @@ def write_markdown(summary: pd.DataFrame, path: Path) -> None:
         f"- production_readiness: `{PRODUCTION_READINESS}`",
         f"- approved_for_daily: `False`",
         "- Scope: research-only replay on existing v1 formal-operation source events, not a full raw-market producer rerun.",
-        "- Candidate population: `consolidation_type=non_consolidation` and `breakout_over_prev60_pct >= threshold`.",
+        f"- Candidate population: `base_shape_id={BASE_SHAPE_ID}` (`{BASE_SHAPE_DEFINITION}`) and `breakout_over_prev60_pct >= threshold`.",
         "- Close-only triggers: next-day close above signal high, 5MA close reclaim, and 10MA close reclaim.",
+        "- Stop sweep: no stop, signal-low close stop, entry-minus 5/7/10pct close stop, MA10 close stop, and MA20 close stop.",
         "- Operation prices use confirmation next trading day open, close-confirmed stop next trading day open, or fixed future close.",
         "- Intraday high/low are not used as confirmation, entry, exit, stop, or realized return prices in this artifact.",
         "",
         "## Threshold 2pct",
         "",
-        *markdown_table(threshold_2.sort_values(["return_basis", "trigger_scope"]), main_cols, 80),
+        *markdown_table(threshold_2.sort_values(["return_basis", "trigger_scope"]), main_cols, 200),
         "",
         "## Selected Any Trigger Threshold Sweep",
         "",
-        *markdown_table(selected.sort_values(["return_basis", "breakout_threshold_pct"]), main_cols, 80),
+        *markdown_table(selected.sort_values(["return_basis", "breakout_threshold_pct"]), main_cols, 240),
         "",
         "## Outputs",
         "",
