@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6462 神盾
 
 ## Metadata
-- generated_at: 2026-07-07 22:28:11 Asia/Taipei
+- generated_at: 2026-07-08 22:28:07 Asia/Taipei
 - stock_id: 6462
 - stock_name: 神盾
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260707
-- price_rows: 164
+- latest_price_date: 20260708
+- price_rows: 165
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260707
-- open: 120
-- high: 120
-- low: 113
-- close: 114
-- volume: 859000
-- ma5: 116.8
-- ema23_primary: 118.61
-- distance_to_ema23_pct: -3.89
+- date: 20260708
+- open: 114.5
+- high: 114.5
+- low: 109.5
+- close: 112
+- volume: 733000
+- ma5: 115.9
+- ema23_primary: 118.06
+- distance_to_ema23_pct: -5.13
 - ma20: 116.22
-- ma60: 123.03
-- ma120: 116.18
-- return_5d: -2.98
-- return_20d: 4.11
-- volume_ratio: 0.53
-- distance_to_ma20_pct_auxiliary: -1.91
-- distance_to_high_60_pct: -28.97
+- ma60: 123.13
+- ma120: 116.17
+- return_5d: -3.86
+- return_20d: 0
+- volume_ratio: 0.46
+- distance_to_ma20_pct_auxiliary: -3.64
+- distance_to_high_60_pct: -30.22
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260609,111,114,109.5,112,993000,124.68,-10.17,129.57,118.48,0.67
 20260610,109,114.5,107.5,107.5,1130000,123.25,-12.78,128.43,118.58,0.79
 20260611,109,112,106,110,1324000,122.15,-9.94,127.35,118.72,0.93
 20260612,113.5,113.5,110,110.5,885000,121.18,-8.81,126.17,118.89,0.74
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260703,116.5,121.5,116,117.5,794000,119.12,-1.36,115.9,122.63,0.49
 20260706,118,121.5,118,118,846000,119.03,-0.87,116,122.88,0.51
 20260707,120,120,113,114,859000,118.61,-3.89,116.22,123.03,0.53
+20260708,114.5,114.5,109.5,112,733000,118.06,-5.13,116.22,123.13,0.46
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3717 聯嘉投控
 
 ## Metadata
-- generated_at: 2026-07-07 22:27:33 Asia/Taipei
+- generated_at: 2026-07-08 22:27:25 Asia/Taipei
 - stock_id: 3717
 - stock_name: 聯嘉投控
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260707
-- price_rows: 209
+- latest_price_date: 20260708
+- price_rows: 210
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 轉弱警訊
+- risk_control_zh: 股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -74,7 +74,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: unclear
+- thesis_state: high_level_consolidation
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -89,8 +89,8 @@
 ### entry_prerequisites
 - price_structure_not_broken
 - revenue_not_deteriorating
+- no_major_tdcc_warning
 - no_major_volume_price_failure
-- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -103,7 +103,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- tdcc_distribution_warning
+- price_too_extended
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -111,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260707
-- open: 30.1
-- high: 31
-- low: 27.2
-- close: 27.6
-- volume: 21643392
-- ma5: 28.67
-- ema23_primary: 24.93
-- distance_to_ema23_pct: 10.73
-- ma20: 24.02
-- ma60: 22.77
-- ma120: 20.82
-- return_5d: 0.55
-- return_20d: 28.67
-- volume_ratio: 1.96
-- distance_to_ma20_pct_auxiliary: 14.93
-- distance_to_high_60_pct: -12.38
+- date: 20260708
+- open: 27.85
+- high: 28.4
+- low: 27
+- close: 27.55
+- volume: 5541942
+- ma5: 28.39
+- ema23_primary: 25.15
+- distance_to_ema23_pct: 9.56
+- ma20: 24.34
+- ma60: 22.86
+- ma120: 20.91
+- return_5d: -4.84
+- return_20d: 30.26
+- volume_ratio: 0.49
+- distance_to_ma20_pct_auxiliary: 13.21
+- distance_to_high_60_pct: -12.54
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260609,21.5,21.5,20.8,21.15,1638773,22.29,-5.11,22.52,21.83,0.68
 20260610,21,21.3,20.1,20.2,2731241,22.12,-8.66,22.42,21.85,1.11
 20260611,20.2,20.9,20.1,20.3,1765550,21.96,-7.58,22.32,21.87,0.71
 20260612,20.6,20.65,20.25,20.25,1077483,21.82,-7.2,22.23,21.89,0.43
@@ -153,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260703,28.55,28.95,27.75,28.9,7894307,24.26,19.13,23.35,22.57,0.84
 20260706,29.6,31.5,29.3,29.35,15100000,24.68,18.91,23.71,22.68,1.5
 20260707,30.1,31,27.2,27.6,21643392,24.93,10.73,24.02,22.77,1.96
+20260708,27.85,28.4,27,27.55,5541942,25.15,9.56,24.34,22.86,0.49
 ```
 
 ## Latest TDCC Snapshot
@@ -185,14 +185,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260707 | 3717 | 聯嘉投控 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | stale_signal | 1.董事會決議變更日期:115/07/02 2.原計畫申報生效之日期:114/12/18 3.追補發行之日期:不適用 4.變動原因: a.本公司於114年11月13日董事會決議辦理114年度現金增資 發行新股暨國內第一次有擔保轉換公司債，原計畫所需資金 總額1,400,000仟元，全數用於轉投資子公司聯嘉光電股份有限 公司以償還其銀行借款。 b.本公司國內第一次有擔保轉換公司債，每張債券發行面額為 100千元整，發行總面額為700,000千元整，票面利率0%， 發行期間3年，採競價拍賣方式辦理公開承銷，每張實際發行價格 依面額之105.57%發行，實際募集總金額為738,998千元， 並於115年第一季執行完畢，其中700,000千元用於轉投資子公司 聯嘉光電股份有限公司以償還其銀行借款，餘38,998千用於充實 本公司營運資金。 c.本公司114年度現金增資發行新股因考量募集期間資本市場波 動劇烈、募資環境變化及維護公司股東權益，本公司董事長115年 06月12日依本公司114年11月13日董事會之授權，代表本公司 撤銷114年度現金增資發行新股案，向金融監督管理委員會申請 撤銷本次現金增資發行新股案，業經金融監督管理委員會 115年6月23日金管證發字第1150347329號同意在案， 並於115年07月02日董事會通過辦理計畫金額變更。 5.歷次變更前後募集資金計畫:                                          單位:新臺幣千元 計劃項目     原幕資計畫金額    變動金額   計畫變更後金額 轉投資子公司 聯嘉光電        1,400,000      (700,000)       700,000 充實營運資金       38,998             -         38,998 合計            1,438,998      (700,000)       738,998 6.預計執行進度:變更後之計畫已於115年第一季執行完畢 7.預計完成日期:變更後之計畫已於115年第一季執行完畢 8.預計可能產生效益: 本次募資計劃所需資金738,998仟元，已於115年01月20日募集 完成，其中700,000千元用於轉投資子公司聯嘉光電股份有限 公司以償還其銀行借款，餘38,998千用於充實本公司營運資金 ，皆於115年第一季執行完畢。本公司本次募集資金轉投資 子公司聯嘉光電以償還其銀行借款，可減少利息支出，並可提升 償債能力，若以聯嘉光電擬償還銀行借款之利率設算，預估115 年度可節省之利息支出約15,443千元，後續可節省之年度 利息支出約18,740千元。 9.與原預計效益產生之差異: 本公司計畫變更後用途仍為轉投資子公司聯嘉光電股份有限公司 以償還其銀行借款，故與原預計效益並無重大差異，然因計畫 變更後之金額減少，故可節省之利息支出亦同步減少，惟仍有 強化財務結構及提升償債能力，以及節省利息支出，減輕財務 負擔之效益。 10.本次變更對股東權益之影響: 本次辦理計畫金額變更，可避免股本過度擴張顧及股東權益， 後續再依營運資金需求情形評估辦理增資事宜，對股東權益 應無重大不利之影響。 11.原主辦承銷商評估意見摘要: 聯嘉光電投資控股股份有限公司辦理114年度現金增資發行　 新股暨發行國內第一次有擔保轉換公司債，其中國內第一次 有擔保轉換公司債已於115年第一季發行募集資金完成， 唯114年度現金增資發行新股因募集期間資本市場波動劇烈、 募資環境變化及維護公司股東權益，且該公司因依核准 資金之募集期間已不足以調整延後，而需申請撤銷現金增資 發行新股案並辦理計畫變更，經評估有其必要性及合理性。 該公司變更後計畫變更後資金用途仍為轉投資子公司 聯嘉光電股份有限公司以償還其銀行借款，故與原預計效益 並無重大差異，然因計畫變更後之金額減少，故可節省之利 息支出亦同步減少，惟仍有強化財務結構及提升償債能力， 以及節省利息支出，減輕財務負擔之效益，且已於115年 第一季執行完畢，經評估對該公司股東權益並無負面之影響。 12.其他應敘明事項:提報最近次股東會追認。；calendar event: ex_dividend on 20260714; status=confirmed; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260707 | 3717 | 聯嘉投控 | 2 | 1 | 4 | 8 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6617 共信-KY
 
 ## Metadata
-- generated_at: 2026-07-07 22:28:17 Asia/Taipei
+- generated_at: 2026-07-08 22:28:13 Asia/Taipei
 - stock_id: 6617
 - stock_name: 共信-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260707
-- price_rows: 164
+- latest_price_date: 20260708
+- price_rows: 165
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260707
-- open: 111.5
-- high: 111.5
-- low: 106
-- close: 111.5
-- volume: 2304000
-- ma5: 93.28
-- ema23_primary: 76.86
-- distance_to_ema23_pct: 45.07
-- ma20: 73.69
-- ma60: 69.14
-- ma120: 72.2
-- return_5d: 59.97
-- return_20d: 64.21
-- volume_ratio: 6.03
-- distance_to_ma20_pct_auxiliary: 51.3
-- distance_to_high_60_pct: 0
+- date: 20260708
+- open: 109.5
+- high: 120
+- low: 102.5
+- close: 117.5
+- volume: 1480000
+- ma5: 101.46
+- ema23_primary: 80.25
+- distance_to_ema23_pct: 46.43
+- ma20: 76.14
+- ma60: 70
+- ma120: 72.51
+- return_5d: 53.39
+- return_20d: 71.53
+- volume_ratio: 3.32
+- distance_to_ma20_pct_auxiliary: 54.31
+- distance_to_high_60_pct: -2.08
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260609,66.7,69.4,66.7,68.5,206000,67.81,1.02,67.36,67.84,1.42
 20260610,70,70,67.4,67.6,119000,67.79,-0.29,67.36,67.65,0.94
 20260611,67.5,68.2,66.9,68.1,244000,67.82,0.41,67.55,67.5,2
 20260612,68.1,69.3,67.7,68.8,133000,67.9,1.32,67.88,67.37,1.1
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260703,92.6,92.6,92.6,92.6,358000,71.18,30.09,69.85,67.85,1.32
 20260706,101.5,101.5,101.5,101.5,366000,73.71,37.7,71.52,68.4,1.28
 20260707,111.5,111.5,106,111.5,2304000,76.86,45.07,73.69,69.14,6.03
+20260708,109.5,120,102.5,117.5,1480000,80.25,46.43,76.14,70,3.32
 ```
 
 ## Latest TDCC Snapshot
@@ -189,12 +189,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260707 | 6617 | 共信-KY | true_breakout | 嚴格突破 | 94.0 |  |  | breakout_confirmed |  |  | first_seen | 1.事實發生日:115/06/29 2.公司名稱:共信醫藥科技股份有限公司 3.與公司關係(請輸入本公司或子公司):子公司 4.相互持股比例:100% 5.發生緣由: 本公司之子公司共信醫藥科技股份有限公司(以下簡稱”台灣共信”) 自主開發之脂肪消融用藥：含對甲苯磺醯胺的組合物 向歐洲專利辦公室提出之專利案 「COMPOSITION COMPRISING PARA-TOLUENE SULFONAMIDE FOR USE IN PREVENTING OR TREATING LIPOMA」 申請案號： EP 21873130.5 業經核准專利在案，並獲通知進行繳費領證的 行政手續。 6.因應措施:無。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項): (1) 本專利主係本公司開發產品在脂肪減少/消融之調控藥物，可應用於減少脂肪     堆積之方法，本專利的取得有利於公司產品擴大適應症的應用範疇。 (2) 新藥開發時程長，投入經費高且並未保證一定能成功，此等可能使投資面臨風險     ，投資人應審慎判斷謹慎投資。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260708 | 6617 | 共信-KY | true_breakout | 嚴格突破 | 91.0 |  |  | breakout_confirmed |  |  | continued_overheated | 1.事實發生日:115/06/29 2.公司名稱:共信醫藥科技股份有限公司 3.與公司關係(請輸入本公司或子公司):子公司 4.相互持股比例:100% 5.發生緣由: 本公司之子公司共信醫藥科技股份有限公司(以下簡稱”台灣共信”) 自主開發之脂肪消融用藥：含對甲苯磺醯胺的組合物 向歐洲專利辦公室提出之專利案 「COMPOSITION COMPRISING PARA-TOLUENE SULFONAMIDE FOR USE IN PREVENTING OR TREATING LIPOMA」 申請案號： EP 21873130.5 業經核准專利在案，並獲通知進行繳費領證的 行政手續。 6.因應措施:無。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項): (1) 本專利主係本公司開發產品在脂肪減少/消融之調控藥物，可應用於減少脂肪     堆積之方法，本專利的取得有利於公司產品擴大適應症的應用範疇。 (2) 新藥開發時程長，投入經費高且並未保證一定能成功，此等可能使投資面臨風險     ，投資人應審慎判斷謹慎投資。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260707 | 6617 | 共信-KY | 1 | 1 | 2 | 2 | 2 | first_seen | 首次上榜或資料有限，需後續確認。 |
+| 20260708 | 6617 | 共信-KY | 2 | 2 | 2 | 3 | 3 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

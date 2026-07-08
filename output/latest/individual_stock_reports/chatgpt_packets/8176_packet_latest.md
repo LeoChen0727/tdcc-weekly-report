@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8176 智捷
 
 ## Metadata
-- generated_at: 2026-07-07 22:28:42 Asia/Taipei
+- generated_at: 2026-07-08 22:28:41 Asia/Taipei
 - stock_id: 8176
 - stock_name: 智捷
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260707
-- price_rows: 164
+- latest_price_date: 20260708
+- price_rows: 165
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260707
-- open: 10.95
-- high: 10.95
-- low: 10.2
-- close: 10.3
-- volume: 261000
-- ma5: 10.68
-- ema23_primary: 10.31
-- distance_to_ema23_pct: -0.12
-- ma20: 10.24
-- ma60: 10.31
-- ma120: 10.77
-- return_5d: 3.21
-- return_20d: 1.48
-- volume_ratio: 0.77
-- distance_to_ma20_pct_auxiliary: 0.62
-- distance_to_high_60_pct: -8.85
+- date: 20260708
+- open: 10.4
+- high: 10.4
+- low: 10.1
+- close: 10.4
+- volume: 132000
+- ma5: 10.57
+- ema23_primary: 10.32
+- distance_to_ema23_pct: 0.78
+- ma20: 10.25
+- ma60: 10.3
+- ma120: 10.76
+- return_5d: -5.02
+- return_20d: 1.96
+- volume_ratio: 0.39
+- distance_to_ma20_pct_auxiliary: 1.49
+- distance_to_high_60_pct: -7.96
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260609,10.15,10.3,10.1,10.2,97000,10.28,-0.74,10.18,10.79,1.04
 20260610,10.45,10.45,10.1,10.1,104000,10.26,-1.57,10.17,10.78,1.18
 20260611,10.3,10.3,10.05,10.25,207000,10.26,-0.1,10.16,10.77,2.59
 20260612,10.3,10.4,10.15,10.2,134000,10.26,-0.54,10.17,10.74,1.83
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260703,10.45,10.7,10.45,10.7,410000,10.26,4.24,10.2,10.32,1.33
 20260706,10.75,10.95,10.6,10.85,541000,10.31,5.2,10.23,10.32,1.62
 20260707,10.95,10.95,10.2,10.3,261000,10.31,-0.12,10.24,10.31,0.77
+20260708,10.4,10.4,10.1,10.4,132000,10.32,0.78,10.25,10.3,0.39
 ```
 
 ## Latest TDCC Snapshot

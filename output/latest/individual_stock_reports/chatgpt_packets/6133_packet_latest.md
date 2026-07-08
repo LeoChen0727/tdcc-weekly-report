@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6133 金橋
 
 ## Metadata
-- generated_at: 2026-07-07 22:28:00 Asia/Taipei
+- generated_at: 2026-07-08 22:27:55 Asia/Taipei
 - stock_id: 6133
 - stock_name: 金橋
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260707
-- price_rows: 299
+- latest_price_date: 20260708
+- price_rows: 300
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260707
-- open: 27.35
-- high: 27.4
-- low: 25.25
-- close: 25.6
-- volume: 4548880
-- ma5: 25.81
-- ema23_primary: 23.97
-- distance_to_ema23_pct: 6.78
-- ma20: 23.68
-- ma60: 23.1
-- ma120: 23.33
-- return_5d: 14.54
-- return_20d: 11.3
-- volume_ratio: 1.46
-- distance_to_ma20_pct_auxiliary: 8.11
-- distance_to_high_60_pct: -9.22
+- date: 20260708
+- open: 25.45
+- high: 25.7
+- low: 24.55
+- close: 24.9
+- volume: 2240613
+- ma5: 26.01
+- ema23_primary: 24.05
+- distance_to_ema23_pct: 3.53
+- ma20: 23.75
+- ma60: 23.14
+- ma120: 23.37
+- return_5d: 4.18
+- return_20d: 6.18
+- volume_ratio: 0.71
+- distance_to_ma20_pct_auxiliary: 4.83
+- distance_to_high_60_pct: -11.7
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260609,23.15,23.8,23.05,23.45,1142495,23.29,0.7,23.18,23.02,0.42
 20260610,23.05,23.55,22.75,22.75,1413733,23.24,-2.12,23.23,23,0.51
 20260611,22.6,23.1,22.25,22.75,767965,23.2,-1.95,23.29,22.98,0.28
 20260612,23.35,24.85,23.15,23.8,2136809,23.25,2.36,23.43,22.94,0.76
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260703,27.35,28.2,25.75,25.8,22153899,23.49,9.82,23.38,22.99,7.39
 20260706,25.9,27.5,25.5,27.5,9319000,23.83,15.42,23.55,23.06,3.14
 20260707,27.35,27.4,25.25,25.6,4548880,23.97,6.78,23.68,23.1,1.46
+20260708,25.45,25.7,24.55,24.9,2240613,24.05,3.53,23.75,23.14,0.71
 ```
 
 ## Latest TDCC Snapshot

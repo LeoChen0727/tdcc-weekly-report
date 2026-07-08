@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8477 創業家
 
 ## Metadata
-- generated_at: 2026-07-07 22:28:47 Asia/Taipei
+- generated_at: 2026-07-08 22:28:46 Asia/Taipei
 - stock_id: 8477
 - stock_name: 創業家
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260707
-- price_rows: 162
+- latest_price_date: 20260708
+- price_rows: 163
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260707
-- open: 16
+- date: 20260708
+- open: 15.7
 - high: 16
-- low: 15.55
-- close: 15.9
-- volume: 72000
-- ma5: 16.04
-- ema23_primary: 16.79
-- distance_to_ema23_pct: -5.31
-- ma20: 16.88
-- ma60: 16.17
-- ma120: 14.64
-- return_5d: -3.93
-- return_20d: -14.05
-- volume_ratio: 1.32
-- distance_to_ma20_pct_auxiliary: -5.78
-- distance_to_high_60_pct: -30.11
+- low: 15.7
+- close: 16
+- volume: 14000
+- ma5: 16
+- ema23_primary: 16.73
+- distance_to_ema23_pct: -4.34
+- ma20: 16.73
+- ma60: 16.21
+- ma120: 14.67
+- return_5d: -1.23
+- return_20d: -14.89
+- volume_ratio: 0.26
+- distance_to_ma20_pct_auxiliary: -4.39
+- distance_to_high_60_pct: -29.67
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260609,18.5,18.9,17.7,18.8,43000,17.82,5.51,18.1,15.22,0.54
 20260610,18.8,18.9,16.95,18.3,118000,17.86,2.48,18.14,15.3,2.06
 20260611,16.65,17.9,16.6,16.8,104000,17.77,-5.46,18.11,15.35,2.08
 20260612,16.9,17.65,16.8,16.8,51000,17.69,-5.02,18.13,15.4,1.17
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260703,15.75,16.2,15.7,16.1,29000,16.95,-5.03,17.18,16.1,0.54
 20260706,16.65,16.65,15.75,16,37000,16.87,-5.18,17,16.13,0.68
 20260707,16,16,15.55,15.9,72000,16.79,-5.31,16.88,16.17,1.32
+20260708,15.7,16,15.7,16,14000,16.73,-4.34,16.73,16.21,0.26
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1216 統一
 
 ## Metadata
-- generated_at: 2026-07-07 22:26:29 Asia/Taipei
+- generated_at: 2026-07-08 22:26:14 Asia/Taipei
 - stock_id: 1216
 - stock_name: 統一
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260707
-- price_rows: 299
+- latest_price_date: 20260708
+- price_rows: 300
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260707
-- open: 77.8
-- high: 78.7
-- low: 77.7
-- close: 78
-- volume: 20179662
-- ma5: 76.3
-- ema23_primary: 75.18
-- distance_to_ema23_pct: 3.75
-- ma20: 75.47
-- ma60: 73.33
-- ma120: 73.07
-- return_5d: 4.7
-- return_20d: 7
-- volume_ratio: 1.35
-- distance_to_ma20_pct_auxiliary: 3.35
-- distance_to_high_60_pct: -0.89
+- date: 20260708
+- open: 78
+- high: 79
+- low: 77.9
+- close: 78.6
+- volume: 21797605
+- ma5: 77.12
+- ema23_primary: 75.47
+- distance_to_ema23_pct: 4.15
+- ma20: 75.69
+- ma60: 73.44
+- ma120: 73.09
+- return_5d: 5.5
+- return_20d: 6.07
+- volume_ratio: 1.42
+- distance_to_ma20_pct_auxiliary: 3.84
+- distance_to_high_60_pct: -0.51
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260609,73,75,73,74.1,14802022,72.79,1.8,73.18,71.96,0.83
 20260610,73.3,74.7,73.3,74.4,16700795,72.92,2.02,73.14,72.04,0.96
 20260611,74.4,75.6,74.4,75.6,14585691,73.15,3.35,73.18,72.12,0.83
 20260612,75.6,76.7,75.6,76.5,14052495,73.43,4.19,73.22,72.22,0.81
@@ -160,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260703,74.6,77.2,74.6,76.3,16111988,74.67,2.19,75.02,73.13,1.15
 20260706,76.4,78.4,76.4,77.8,22406000,74.93,3.83,75.22,73.23,1.53
 20260707,77.8,78.7,77.7,78,20179662,75.18,3.75,75.47,73.33,1.35
+20260708,78,79,77.9,78.6,21797605,75.47,4.15,75.69,73.44,1.42
 ```
 
 ## Latest TDCC Snapshot
@@ -194,17 +194,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260707 | 1216 | 統一 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_inflow | repeated_but_no_breakout | 1.標的物之名稱及性質（屬特別股者，並應標明特別股約定發行條件，如股息率等）: 處分中國信託人民幣“匯高信福”結構性存款產品(2026年第0030期)及 處分中國信託人民幣“匯高信福”結構性存款產品(2026年第0031期) 2.事實發生日:115/7/6~115/7/6 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:理財產品到期 民國115年7月6日 5.交易數量、每單位價格及交易總金額: 中國信託人民幣“匯高信福”結構性存款產品(2026年第0030期)： 交易數量、每單位價格：不適用；交易總金額：人民幣 50,000,000元 中國信託人民幣“匯高信福”結構性存款產品(2026年第0031期)： 交易數量、每單位價格：不適用；交易總金額：人民幣 50,000,000元 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之 關係人者，得免揭露其姓名）: 交易相對人：中國信託商業銀行上海分行 與公司關係：無 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移 轉之所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次 移轉日期及移轉金額: 不適用 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係人之取 得及處分日期、價格及交易當時與公司之關係: 不適用 9.本次係處分債權之相關事項（含處分之債權附隨擔保品種類、處分債權 如有屬對關係人債權者尚需公告關係人名稱及本次處分該關係人之債權 帳面金額: 不適用 10.處分利益（或損失）（取得有價證券者不適用）（原遞延者應列表說明 認列情形）: 中國信託人民幣“匯高信福”結構性存款產品(2026年第0030期)： 利息收入：人民幣110仟元 中國信託人民幣“匯高信福”結構性存款產品(2026年第0031期)： 利息收入：人民幣123仟元 11.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 交付或付款條件：一次性支付；契約限制條款及其他重要約定：無 12.本次交易之決定方式、價格決定之參考依據及決策單位: 交易決定方式：比價；價格決定參考依據：依市場利率 決策單位：依公司核決權限辦理 13.取得或處分有價證券標的公司每股淨值: 不適用 14.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 中國信託人民幣“匯高信福”結構性存款產品(2026年第0030期)： 數量：不適用；金額：人民幣0元；持股比例及權利受限情形：無。 中國信託人民幣“匯高信福”結構性存款產品(2026年第0031期)： 數量：不適用；金額：人民幣0元；持股比例及權利受限情形：無。 15.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列 之有價證券投資（含本次交易）占公司最近期財務報表中總資產及歸屬 於母公司業主之權益之比例暨最近期財務報表中營運資金數額（註二）: 占總資產比例：20.83% 占業主權益比例：39.15% 營運資金數額：新台幣-32,046,405仟元 16.經紀人及經紀費用: 無 17.取得或處分之具體目的或用途: 處分保本收益之理財產品 18.本次交易表示異議董事之意見: 不適用 19.本次交易為關係人交易:否 20.監察人承認或審計委員會同意日期: 不適用 21.本次交易會計師出具非合理性意見:不適用 22.會計師事務所名稱: 不適用 23.會計師姓名: 不適用 24.會計師開業證書字號: 不適用 25.是否涉及營運模式變更:否 26.營運模式變更說明: 不適用 27.過去一年及預計未來一年內與交易相對人交易情形: 不適用 28.資金來源: 不適用 29.前已就同一件事件發布重大訊息日期: 不適用 30.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260708 | 1216 | 統一 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | repeated_but_no_breakout | 1.發生變動日期:115/07/07 2.選任或變動人員別（請輸入法人董事、法人監察人、獨立董事、自然人董事   或自然人監察人）:法人董事 3.舊任者職稱及姓名:Uni-President Asia Holdings Ltd.代表人 王志強先生 4.舊任者簡歷:王志強先生:統一企業香港控股有限公司董事 5.新任者職稱及姓名:不適用 6.新任者簡歷:不適用 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）:逝世 8.異動原因:逝世 9.新任者選任時持股數:不適用 10.原任期（例xx/xx/xx ~ xx/xx/xx）:NA 11.新任生效日期:不適用 12.同任期董事變動比率:1/8 13.同任期獨立董事變動比率:不適用 14.同任期監察人變動比率:不適用 15.屬三分之一以上董事發生變動（請輸入是或否）:否 16.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 待法人董事改派代表人再另行公告；calendar event: ex_dividend on 20260730; status=confirmed; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260707 | 1216 | 統一 | 4 | 1 | 4 | 8 | 17 | repeated_but_no_breakout | 近 10 日上榜 8 次、近 20 日上榜 17 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260708 | 1216 | 統一 | 5 | 2 | 5 | 8 | 17 | repeated_but_no_breakout | 近 10 日上榜 8 次、近 20 日上榜 17 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260707 | 1216 | 統一 | 10 | 0 | 2090530.0 | 0.0 |  | call_inflow |
+| 20260708 | 1216 | 統一 | 10 | 0 | 1619260.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

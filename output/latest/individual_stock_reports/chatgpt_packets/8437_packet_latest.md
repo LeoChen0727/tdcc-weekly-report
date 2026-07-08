@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8437 大地-KY
 
 ## Metadata
-- generated_at: 2026-07-07 22:28:46 Asia/Taipei
+- generated_at: 2026-07-08 22:28:45 Asia/Taipei
 - stock_id: 8437
 - stock_name: 大地-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260707
-- price_rows: 164
+- latest_price_date: 20260708
+- price_rows: 165
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260707
-- open: 10.4
-- high: 10.4
-- low: 10.05
-- close: 10.15
-- volume: 29000
-- ma5: 10.06
-- ema23_primary: 10.4
-- distance_to_ema23_pct: -2.42
-- ma20: 10.27
-- ma60: 11.34
-- ma120: 13.1
-- return_5d: 0.49
-- return_20d: -4.69
-- volume_ratio: 0.36
-- distance_to_ma20_pct_auxiliary: -1.13
-- distance_to_high_60_pct: -26.45
+- date: 20260708
+- open: 10.3
+- high: 10.3
+- low: 9.95
+- close: 10.05
+- volume: 44000
+- ma5: 10.07
+- ema23_primary: 10.37
+- distance_to_ema23_pct: -3.11
+- ma20: 10.23
+- ma60: 11.3
+- ma120: 13.04
+- return_5d: 0.5
+- return_20d: -6.94
+- volume_ratio: 0.55
+- distance_to_ma20_pct_auxiliary: -1.74
+- distance_to_high_60_pct: -27.17
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260609,10.65,11,10.65,10.8,64000,11.39,-5.16,11.32,12.16,1.8
 20260610,10.6,10.7,10.5,10.5,73000,11.31,-7.19,11.28,12.11,2.01
 20260611,10.5,10.85,10.3,10.5,71000,11.25,-6.63,11.24,12.06,1.96
 20260612,10.55,10.55,10.35,10.4,119000,11.17,-6.93,11.21,12.02,3.07
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260703,9.98,10.05,9.96,10.05,69000,10.45,-3.82,10.33,11.41,0.86
 20260706,10,10.65,10,10.15,87000,10.42,-2.63,10.29,11.37,1.04
 20260707,10.4,10.4,10.05,10.15,29000,10.4,-2.42,10.27,11.34,0.36
+20260708,10.3,10.3,9.95,10.05,44000,10.37,-3.11,10.23,11.3,0.55
 ```
 
 ## Latest TDCC Snapshot

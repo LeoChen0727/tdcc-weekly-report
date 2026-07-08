@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2887 台新新光金
 
 ## Metadata
-- generated_at: 2026-07-07 22:27:09 Asia/Taipei
+- generated_at: 2026-07-08 22:26:59 Asia/Taipei
 - stock_id: 2887
 - stock_name: 台新新光金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260707
-- price_rows: 299
+- latest_price_date: 20260708
+- price_rows: 300
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -111,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260707
-- open: 34.3
-- high: 35.5
-- low: 34.3
-- close: 34.9
-- volume: 85489406
-- ma5: 33.94
-- ema23_primary: 31.45
-- distance_to_ema23_pct: 10.98
-- ma20: 32.09
-- ma60: 26.91
-- ma120: 25.19
-- return_5d: 4.96
-- return_20d: 25.77
-- volume_ratio: 0.98
-- distance_to_ma20_pct_auxiliary: 8.75
-- distance_to_high_60_pct: -1.69
+- date: 20260708
+- open: 35.45
+- high: 36
+- low: 35.2
+- close: 35.85
+- volume: 77134233
+- ma5: 34.44
+- ema23_primary: 31.81
+- distance_to_ema23_pct: 12.68
+- ma20: 32.41
+- ma60: 27.11
+- ma120: 25.31
+- return_5d: 7.5
+- return_20d: 21.32
+- volume_ratio: 0.92
+- distance_to_ma20_pct_auxiliary: 10.62
+- distance_to_high_60_pct: -0.42
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260609,28.4,29.65,28.15,29.55,137888947,25.54,15.7,24.93,24.41,0.89
 20260610,29.5,29.55,28.5,28.9,111385443,25.82,11.93,25.22,24.48,0.72
 20260611,28.9,28.9,28,28.75,65102370,26.06,10.3,25.5,24.55,0.43
 20260612,29.2,30.8,29.15,30.2,157917202,26.41,14.35,25.82,24.64,1.03
@@ -153,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260703,32.95,34.9,32.95,34.15,108841693,30.85,10.71,31.45,26.58,1.16
 20260706,34.15,34.8,34.15,34.3,33724000,31.13,10.17,31.73,26.74,0.38
 20260707,34.3,35.5,34.3,34.9,85489406,31.45,10.98,32.09,26.91,0.98
+20260708,35.45,36,35.2,35.85,77134233,31.81,12.68,32.41,27.11,0.92
 ```
 
 ## Latest TDCC Snapshot
@@ -187,17 +187,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260707 | 2887 | 台新新光金 | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  | no_signal | stale_signal | 1.事實發生日:115/07/03 2.公司名稱:新光人壽保險股份有限公司 3.與公司關係(請輸入本公司或子公司):子公司 4.相互持股比例:不適用 5.發生緣由:更正公告新光人壽115年第一季合併財務報告iXBRL申報資訊 6.更正資訊項目/報表名稱:iXBRL/”資產負債表”及”列入合併財務報表之子公司” 7.更正前金額/內容/頁次: (1)”資產負債表”未含追溯重編之114年1月1日欄位。 (2)”列入合併財務報表之子公司”未含追溯重編後之去年年初所持股權百分比。 8.更正後金額/內容/頁次: (1)”資產負債表”補正包含追溯重編之114年1月1日欄位。 (2)”列入合併財務報表之子公司”補正包含追溯重編後之去年年初所持股權百分比。 9.因應措施:更正後內容重新上傳iXBRL。 10.其他應敘明事項:本次更正屬iXBRL之資訊補正，對財務報告並無影響。；calendar event: ex_right_dividend on 20260721; status=confirmed; proximity=within_14d |
+| 20260708 | 2887 | 台新新光金 | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  | no_signal | continued_many_days | 1.契約種類:工程契約 2.事實發生日:115/07/07~115/07/07 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:總經理核決 民國115年07月07日 5.契約相對人及其與公司之關係: 豐譽聯合工程股份有限公司，關係：無 6.契約主要內容（含契約總金額、預計參與投入之金額及契約起迄日期） 、限制條款及其他重要約定事項: 契約總金額：新臺幣 2,649,000,000元 起迄日期：111/10/07~115/08/15 工程地點: 高雄市前金區前金段395-4、395-5、395-6等3筆地號。 工程內容:主體工程 7.專業估價者事務所或公司名稱及其估價結果: 不適用 8.不動產估價師姓名: 不適用 9.不動產估價師開業證書字號: 不適用 10.取得之具體目的: 依保險法之規定，為不動產之投資 11.本次交易表示異議之董事意見: 不適用 12.本次交易為關係人交易:否 13.監察人承認或審計委員會同意日期: 不適用 14.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 15.是否尚未取得估價報告:否或不適用 16.尚未取得估價報告之原因: 不適用 17.估價結果有重大差異時，其差異原因及會計師意見: 不適用 18.會計師事務所名稱: 不適用 19.會計師姓名: 不適用 20.會計師開業證書字號: 不適用 21.前已就同一件事件發布重大訊息日期: 111年10月7日 22.其他敘明事項: 補充公告： 1.原契約總金額：新臺幣 2,649,000,000元，本次修訂後為新臺幣2,696,937,686元。 2.原竣工日期：115年8月15日，本次修訂後為116年3月19日。 3.其餘內容未變更。；calendar event: ex_right_dividend on 20260721; status=confirmed; proximity=within_14d |
+| 20260708 | 2887 | 台新新光金 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | continued_many_days | 1.契約種類:工程契約 2.事實發生日:115/07/07~115/07/07 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:總經理核決 民國115年07月07日 5.契約相對人及其與公司之關係: 豐譽聯合工程股份有限公司，關係：無 6.契約主要內容（含契約總金額、預計參與投入之金額及契約起迄日期） 、限制條款及其他重要約定事項: 契約總金額：新臺幣 2,649,000,000元 起迄日期：111/10/07~115/08/15 工程地點: 高雄市前金區前金段395-4、395-5、395-6等3筆地號。 工程內容:主體工程 7.專業估價者事務所或公司名稱及其估價結果: 不適用 8.不動產估價師姓名: 不適用 9.不動產估價師開業證書字號: 不適用 10.取得之具體目的: 依保險法之規定，為不動產之投資 11.本次交易表示異議之董事意見: 不適用 12.本次交易為關係人交易:否 13.監察人承認或審計委員會同意日期: 不適用 14.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 15.是否尚未取得估價報告:否或不適用 16.尚未取得估價報告之原因: 不適用 17.估價結果有重大差異時，其差異原因及會計師意見: 不適用 18.會計師事務所名稱: 不適用 19.會計師姓名: 不適用 20.會計師開業證書字號: 不適用 21.前已就同一件事件發布重大訊息日期: 111年10月7日 22.其他敘明事項: 補充公告： 1.原契約總金額：新臺幣 2,649,000,000元，本次修訂後為新臺幣2,696,937,686元。 2.原竣工日期：115年8月15日，本次修訂後為116年3月19日。 3.其餘內容未變更。；calendar event: ex_right_dividend on 20260721; status=confirmed; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260707 | 2887 | 台新新光金 | 10 | 2 | 5 | 10 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260708 | 2887 | 台新新光金 | 11 | 5 | 5 | 10 | 15 | continued_many_days | 連續 11 日上榜，需區分醞釀延續或訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260707 | 2887 | 台新新光金 | 26 | 0 | 8342060.0 | 0.0 |  | no_signal |
+| 20260708 | 2887 | 台新新光金 | 26 | 0 | 7061500.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

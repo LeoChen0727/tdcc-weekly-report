@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6908 宏碁遊戲-創
 
 ## Metadata
-- generated_at: 2026-07-07 22:28:26 Asia/Taipei
+- generated_at: 2026-07-08 22:28:23 Asia/Taipei
 - stock_id: 6908
 - stock_name: 宏碁遊戲-創
 - packet_status: standard_rawdata_packet
-- latest_price_date: 20260707
-- price_rows: 71
+- latest_price_date: 20260708
+- price_rows: 72
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260707
-- open: 37.75
-- high: 37.75
+- date: 20260708
+- open: 37
+- high: 37
 - low: 37
 - close: 37
-- volume: 17330
-- ma5: 37.56
-- ema23_primary: 38.24
-- distance_to_ema23_pct: -3.24
-- ma20: 38.3
-- ma60: 38.95
-- ma120: 39.25
-- return_5d: -1.07
-- return_20d: -3.9
-- volume_ratio: 1.2
-- distance_to_ma20_pct_auxiliary: -3.41
+- volume: 6200
+- ma5: 37.39
+- ema23_primary: 38.14
+- distance_to_ema23_pct: -2.98
+- ma20: 38.19
+- ma60: 38.94
+- ma120: 39.22
+- return_5d: -2.25
+- return_20d: -6.09
+- volume_ratio: 0.43
+- distance_to_ma20_pct_auxiliary: -3.1
 - distance_to_high_60_pct: -13.35
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260609,38.05,40,38.05,39.4,7214,39.4,0.01,38.95,39.62,0.31
 20260610,39.3,40.35,38.3,39.4,17326,39.4,0.01,38.99,39.61,0.75
 20260611,38.3,40.1,38.3,38.65,15091,39.33,-1.74,38.97,39.6,0.67
 20260612,38.9,38.9,38.9,38.9,4033,39.3,-1.01,38.98,39.58,0.18
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260703,37.85,38,36.8,38,17000,38.43,-1.12,38.53,38.98,1.21
 20260706,37.5,37.7,37.5,37.5,9000,38.35,-2.23,38.38,38.97,0.65
 20260707,37.75,37.75,37,37,17330,38.24,-3.24,38.3,38.95,1.2
+20260708,37,37,37,37,6200,38.14,-2.98,38.19,38.94,0.43
 ```
 
 ## Latest TDCC Snapshot

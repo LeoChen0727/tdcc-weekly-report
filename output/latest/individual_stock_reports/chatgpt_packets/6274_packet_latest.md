@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6274 台燿
 
 ## Metadata
-- generated_at: 2026-07-07 22:28:08 Asia/Taipei
+- generated_at: 2026-07-08 22:28:04 Asia/Taipei
 - stock_id: 6274
 - stock_name: 台燿
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260707
-- price_rows: 164
+- latest_price_date: 20260708
+- price_rows: 165
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260707
+- date: 20260708
 - open: 1630
-- high: 1715
-- low: 1560
-- close: 1575
-- volume: 6384000
-- ma5: 1675
-- ema23_primary: 1627.88
-- distance_to_ema23_pct: -3.25
-- ma20: 1649.75
-- ma60: 1404
-- ma120: 969.33
-- return_5d: -6.25
-- return_20d: 2.61
-- volume_ratio: 1.02
-- distance_to_ma20_pct_auxiliary: -4.53
-- distance_to_high_60_pct: -17.97
+- high: 1665
+- low: 1550
+- close: 1645
+- volume: 5814000
+- ma5: 1666
+- ema23_primary: 1629.3
+- distance_to_ema23_pct: 0.96
+- ma20: 1651.25
+- ma60: 1418.07
+- ma120: 979.08
+- return_5d: -2.66
+- return_20d: 1.86
+- volume_ratio: 0.95
+- distance_to_ma20_pct_auxiliary: -0.38
+- distance_to_high_60_pct: -14.32
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260609,1550,1620,1480,1615,8699000,1478.01,9.27,1508,1072.56,4.13
 20260610,1590,1705,1490,1500,8634000,1479.84,1.36,1510.5,1089.27,3.53
 20260611,1520,1555,1400,1475,8042000,1479.44,-0.3,1511.75,1105.47,2.93
 20260612,1580,1620,1430,1430,8780000,1475.32,-3.07,1518,1120.88,2.82
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260703,1655,1840,1615,1790,7637000,1632.93,9.62,1646.75,1377.33,1.29
 20260706,1820,1825,1615,1630,7729000,1632.68,-0.16,1647.75,1391.22,1.24
 20260707,1630,1715,1560,1575,6384000,1627.88,-3.25,1649.75,1404,1.02
+20260708,1630,1665,1550,1645,5814000,1629.3,0.96,1651.25,1418.07,0.95
 ```
 
 ## Latest TDCC Snapshot
@@ -189,12 +189,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260707 | 6274 | 台燿 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | repeated_but_no_breakout | 1.事實發生日:115/06/24 2.發生緣由:依財團法人中華民國證券櫃檯買賣中心通知辦理 3.財務業務資訊: 台燿五(代號:62745)相關資訊 下櫃日期:115/06/29(本公司已於115/04/29公告執行台燿五強制贖回權) 實際發行總額:4,000,000仟元 發行餘額:1,221,500仟元(截至115/05/31) 最新轉(交)換價格:380.8(115/04/23) 轉換標的收市價格(6274):1,765(115/06/24) 可轉債收市價格(62745):452(115/06/24) 4.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序 」第4條所列重大訊息之情事（如 「有」，請說明）:無 5.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序」第11條所列重大訊息說明記者會 之情事:無 6.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260708 | 6274 | 台燿 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | repeated_but_no_breakout | 1.事實發生日:115/06/24 2.發生緣由:依財團法人中華民國證券櫃檯買賣中心通知辦理 3.財務業務資訊: 台燿五(代號:62745)相關資訊 下櫃日期:115/06/29(本公司已於115/04/29公告執行台燿五強制贖回權) 實際發行總額:4,000,000仟元 發行餘額:1,221,500仟元(截至115/05/31) 最新轉(交)換價格:380.8(115/04/23) 轉換標的收市價格(6274):1,765(115/06/24) 可轉債收市價格(62745):452(115/06/24) 4.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序 」第4條所列重大訊息之情事（如 「有」，請說明）:無 5.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序」第11條所列重大訊息說明記者會 之情事:無 6.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260708 | 6274 | 台燿 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  |  | repeated_but_no_breakout | 1.事實發生日:115/06/24 2.發生緣由:依財團法人中華民國證券櫃檯買賣中心通知辦理 3.財務業務資訊: 台燿五(代號:62745)相關資訊 下櫃日期:115/06/29(本公司已於115/04/29公告執行台燿五強制贖回權) 實際發行總額:4,000,000仟元 發行餘額:1,221,500仟元(截至115/05/31) 最新轉(交)換價格:380.8(115/04/23) 轉換標的收市價格(6274):1,765(115/06/24) 可轉債收市價格(62745):452(115/06/24) 4.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序 」第4條所列重大訊息之情事（如 「有」，請說明）:無 5.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序」第11條所列重大訊息說明記者會 之情事:無 6.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260707 | 6274 | 台燿 | 12 | 1 | 5 | 10 | 12 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 12 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260708 | 6274 | 台燿 | 13 | 11 | 5 | 10 | 13 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 13 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

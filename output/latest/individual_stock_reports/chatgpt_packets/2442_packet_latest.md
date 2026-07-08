@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2442 新美齊
 
 ## Metadata
-- generated_at: 2026-07-07 22:26:58 Asia/Taipei
+- generated_at: 2026-07-08 22:26:46 Asia/Taipei
 - stock_id: 2442
 - stock_name: 新美齊
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260707
-- price_rows: 299
+- latest_price_date: 20260708
+- price_rows: 300
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260707
-- open: 19.9
-- high: 19.95
-- low: 19.35
-- close: 19.35
-- volume: 1028539
-- ma5: 19.51
-- ema23_primary: 19.4
-- distance_to_ema23_pct: -0.26
-- ma20: 19.55
-- ma60: 19.07
-- ma120: 20.15
-- return_5d: 0
-- return_20d: -1.02
-- volume_ratio: 0.55
-- distance_to_ma20_pct_auxiliary: -1.02
-- distance_to_high_60_pct: -5.61
+- date: 20260708
+- open: 19.4
+- high: 19.4
+- low: 19.2
+- close: 19.25
+- volume: 1037151
+- ma5: 19.49
+- ema23_primary: 19.39
+- distance_to_ema23_pct: -0.71
+- ma20: 19.54
+- ma60: 19.05
+- ma120: 20.1
+- return_5d: -0.52
+- return_20d: -1.28
+- volume_ratio: 0.58
+- distance_to_ma20_pct_auxiliary: -1.47
+- distance_to_high_60_pct: -5.87
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260609,19.65,20,19.45,19.5,2228620,19.01,2.6,18.78,19.38,1.06
 20260610,19.25,20.3,19.25,20,5199384,19.09,4.77,18.86,19.38,2.3
 20260611,20.25,20.25,19.6,19.75,2852854,19.14,3.16,18.94,19.37,1.23
 20260612,19.95,20.2,19.8,19.85,2585608,19.2,3.37,19.02,19.34,1.1
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260703,19.35,19.8,19.3,19.7,1904842,19.37,1.71,19.57,19.09,0.92
 20260706,19.9,20.05,19.7,19.8,1288000,19.41,2.03,19.56,19.08,0.67
 20260707,19.9,19.95,19.35,19.35,1028539,19.4,-0.26,19.55,19.07,0.55
+20260708,19.4,19.4,19.2,19.25,1037151,19.39,-0.71,19.54,19.05,0.58
 ```
 
 ## Latest TDCC Snapshot

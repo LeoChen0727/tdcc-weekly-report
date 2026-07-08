@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6235 華孚
 
 ## Metadata
-- generated_at: 2026-07-07 22:28:07 Asia/Taipei
+- generated_at: 2026-07-08 22:28:02 Asia/Taipei
 - stock_id: 6235
 - stock_name: 華孚
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260707
-- price_rows: 299
+- latest_price_date: 20260708
+- price_rows: 300
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260707
-- open: 46.4
-- high: 46.4
-- low: 43.05
-- close: 43.1
-- volume: 3916831
-- ma5: 43.01
-- ema23_primary: 41.91
-- distance_to_ema23_pct: 2.83
-- ma20: 41.21
-- ma60: 42.71
-- ma120: 48.85
-- return_5d: 7.48
-- return_20d: 4.36
-- volume_ratio: 2.84
-- distance_to_ma20_pct_auxiliary: 4.59
-- distance_to_high_60_pct: -10.95
+- date: 20260708
+- open: 43.5
+- high: 44.35
+- low: 42.95
+- close: 43.25
+- volume: 1701408
+- ma5: 43.81
+- ema23_primary: 42.03
+- distance_to_ema23_pct: 2.91
+- ma20: 41.27
+- ma60: 42.69
+- ma120: 48.68
+- return_5d: 10.19
+- return_20d: 3.1
+- volume_ratio: 1.19
+- distance_to_ma20_pct_auxiliary: 4.79
+- distance_to_high_60_pct: -10.64
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260609,41.3,42.15,41.2,41.95,814906,43.24,-2.98,42.33,44.7,0.45
 20260610,41.75,42.95,40.5,41,840404,43.05,-4.77,42.31,44.56,0.47
 20260611,41,41,39.55,40.2,925623,42.81,-6.11,42.31,44.4,0.52
 20260612,41,41.6,40.75,40.95,469989,42.66,-4.01,42.35,44.23,0.27
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260703,41,45.5,40.85,44.2,3607193,41.34,6.92,40.98,42.73,3.88
 20260706,44.2,48.4,43.55,46.95,7458000,41.81,12.3,41.12,42.75,5.96
 20260707,46.4,46.4,43.05,43.1,3916831,41.91,2.83,41.21,42.71,2.84
+20260708,43.5,44.35,42.95,43.25,1701408,42.03,2.91,41.27,42.69,1.19
 ```
 
 ## Latest TDCC Snapshot
@@ -189,17 +189,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260707 | 6235 | 華孚 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | repeated_but_no_breakout | 1.事實發生日:115/07/02 2.公司名稱:華孚科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: 華孚科技股份有限公司(股票代碼：6235)今日(115/7/2)公佈115年6月份自結合併 營收為新台幣5.38億元，較5月份的5.24億元增加2.62%；相較於去年同期的5.60億 元減少3.96%。累計合併營收1至6月底初估為32.17億元，較去年同期的31.42億元 增加約2.37%。 6.因應措施:無。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260708 | 6235 | 華孚 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | repeated_but_no_breakout | 1.事實發生日:115/07/02 2.公司名稱:華孚科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: 華孚科技股份有限公司(股票代碼：6235)今日(115/7/2)公佈115年6月份自結合併 營收為新台幣5.38億元，較5月份的5.24億元增加2.62%；相較於去年同期的5.60億 元減少3.96%。累計合併營收1至6月底初估為32.17億元，較去年同期的31.42億元 增加約2.37%。 6.因應措施:無。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260707 | 6235 | 華孚 | 4 | 1 | 4 | 4 | 6 | repeated_but_no_breakout | 近 10 日上榜 4 次、近 20 日上榜 6 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260708 | 6235 | 華孚 | 5 | 2 | 5 | 5 | 6 | repeated_but_no_breakout | 近 10 日上榜 5 次、近 20 日上榜 6 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260707 | 6235 | 華孚 | 9 | 0 | 389950.0 | 0.0 |  | no_signal |
+| 20260708 | 6235 | 華孚 | 9 | 0 | 101570.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

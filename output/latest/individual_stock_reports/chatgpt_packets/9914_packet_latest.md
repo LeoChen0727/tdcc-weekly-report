@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9914 美利達
 
 ## Metadata
-- generated_at: 2026-07-07 22:28:50 Asia/Taipei
+- generated_at: 2026-07-08 22:28:50 Asia/Taipei
 - stock_id: 9914
 - stock_name: 美利達
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260707
-- price_rows: 299
+- latest_price_date: 20260708
+- price_rows: 300
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260707
-- open: 76.7
-- high: 76.7
-- low: 74.6
-- close: 75
-- volume: 1125520
-- ma5: 76
-- ema23_primary: 73.23
-- distance_to_ema23_pct: 2.41
-- ma20: 73.86
-- ma60: 66.66
-- ma120: 71.57
-- return_5d: -4.21
-- return_20d: 10.29
-- volume_ratio: 0.5
-- distance_to_ma20_pct_auxiliary: 1.54
-- distance_to_high_60_pct: -7.29
+- date: 20260708
+- open: 75
+- high: 75.5
+- low: 73.9
+- close: 74.2
+- volume: 1043712
+- ma5: 75.3
+- ema23_primary: 73.31
+- distance_to_ema23_pct: 1.21
+- ma20: 74.14
+- ma60: 66.88
+- ma120: 71.53
+- return_5d: -4.5
+- return_20d: 8.16
+- volume_ratio: 0.46
+- distance_to_ma20_pct_auxiliary: 0.07
+- distance_to_high_60_pct: -8.28
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260609,67.5,69.4,67,68.6,1138710,66.5,3.16,67.68,64.07,0.46
 20260610,67.7,69.5,67.7,69,1220768,66.71,3.43,67.98,64.07,0.53
 20260611,69.4,75.5,68.7,73.7,4794831,67.29,9.52,68.48,64.12,2.05
 20260612,74.7,75.4,72.7,73.4,3083751,67.8,8.26,68.64,64.19,1.45
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260703,74.8,77.7,74.8,76.6,1660824,72.82,5.2,73.17,66.1,0.72
 20260706,77.7,78.5,75.5,75.9,970000,73.07,3.87,73.52,66.4,0.42
 20260707,76.7,76.7,74.6,75,1125520,73.23,2.41,73.86,66.66,0.5
+20260708,75,75.5,73.9,74.2,1043712,73.31,1.21,74.14,66.88,0.46
 ```
 
 ## Latest TDCC Snapshot
@@ -189,17 +189,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260707 | 9914 | 美利達 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/26 1.召開法人說明會之日期：115/06/26 2.召開法人說明會之時間：14 時 00 分  3.召開法人說明會之地點：線上法說會 4.法人說明會擇要訊息：本公司受邀參加兆豐證券舉辦投資人線上會議 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260708 | 9914 | 美利達 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/26 1.召開法人說明會之日期：115/06/26 2.召開法人說明會之時間：14 時 00 分  3.召開法人說明會之地點：線上法說會 4.法人說明會擇要訊息：本公司受邀參加兆豐證券舉辦投資人線上會議 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260707 | 9914 | 美利達 | 1 | 1 | 3 | 7 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260708 | 9914 | 美利達 | 2 | 2 | 4 | 7 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260707 | 9914 | 美利達 | 8 | 0 | 275810.0 | 0.0 |  | no_signal |
+| 20260708 | 9914 | 美利達 | 8 | 0 | 87440.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4905 台聯電
 
 ## Metadata
-- generated_at: 2026-07-07 22:27:45 Asia/Taipei
+- generated_at: 2026-07-08 22:27:38 Asia/Taipei
 - stock_id: 4905
 - stock_name: 台聯電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260707
-- price_rows: 153
+- latest_price_date: 20260708
+- price_rows: 154
 - latest_tdcc_date: 20260703
 - tdcc_rows: 32
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260707
-- open: 69.3
-- high: 69.3
+- date: 20260708
+- open: 67.2
+- high: 69.1
 - low: 67
-- close: 67
-- volume: 14000
-- ma5: 67.92
-- ema23_primary: 71.6
-- distance_to_ema23_pct: -6.42
-- ma20: 70.67
-- ma60: 78.21
-- ma120: 72.83
-- return_5d: -1.47
-- return_20d: -17.49
-- volume_ratio: 0.92
-- distance_to_ma20_pct_auxiliary: -5.2
-- distance_to_high_60_pct: -30.43
+- close: 67.2
+- volume: 15000
+- ma5: 67.76
+- ema23_primary: 71.23
+- distance_to_ema23_pct: -5.66
+- ma20: 70.27
+- ma60: 77.94
+- ma120: 72.87
+- return_5d: -1.18
+- return_20d: -10.76
+- volume_ratio: 0.99
+- distance_to_ma20_pct_auxiliary: -4.37
+- distance_to_high_60_pct: -30.22
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,81.2,81.2,74.5,75.3,19000,80.7,-6.7,80.13,81.1,0.39
 20260609,77.1,77.9,76.5,76.5,12000,80.35,-4.8,79.92,81.34,0.25
 20260610,76.5,76.5,74.1,74.1,10000,79.83,-7.18,79.65,81.55,0.21
 20260611,74.1,74.5,71.9,72.9,23000,79.25,-8.02,79.36,81.75,0.47
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260703,64.6,68.2,64.6,68.2,17000,72.38,-5.77,72.08,78.76,0.76
 20260706,68.2,68.2,67.5,68,9000,72.01,-5.57,71.39,78.5,0.48
 20260707,69.3,69.3,67,67,14000,71.6,-6.42,70.67,78.21,0.92
+20260708,67.2,69.1,67,67.2,15000,71.23,-5.66,70.27,77.94,0.99
 ```
 
 ## Latest TDCC Snapshot

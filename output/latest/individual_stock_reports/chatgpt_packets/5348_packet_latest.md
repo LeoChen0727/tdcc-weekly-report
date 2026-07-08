@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5348 正能量智能
 
 ## Metadata
-- generated_at: 2026-07-07 22:27:52 Asia/Taipei
+- generated_at: 2026-07-08 22:27:46 Asia/Taipei
 - stock_id: 5348
 - stock_name: 正能量智能
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260707
-- price_rows: 155
+- latest_price_date: 20260708
+- price_rows: 156
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260707
-- open: 15.7
-- high: 15.75
-- low: 15.3
-- close: 15.65
-- volume: 21000
-- ma5: 15.76
-- ema23_primary: 16.21
-- distance_to_ema23_pct: -3.46
-- ma20: 16.26
-- ma60: 16.28
-- ma120: 16.75
-- return_5d: -5.15
-- return_20d: 1.62
-- volume_ratio: 0.46
-- distance_to_ma20_pct_auxiliary: -3.74
-- distance_to_high_60_pct: -20.96
+- date: 20260708
+- open: 16.15
+- high: 17.2
+- low: 16
+- close: 17.1
+- volume: 98000
+- ma5: 16.03
+- ema23_primary: 16.29
+- distance_to_ema23_pct: 5
+- ma20: 16.34
+- ma60: 16.29
+- ma120: 16.74
+- return_5d: 8.57
+- return_20d: 10.68
+- volume_ratio: 1.98
+- distance_to_ma20_pct_auxiliary: 4.65
+- distance_to_high_60_pct: -13.64
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,15.45,15.45,15.45,15.45,15000,15.83,-2.43,15.55,16.56,1.3
 20260608,15.2,15.25,15.2,15.25,2000,15.79,-3.39,15.57,16.53,0.19
 20260609,15.3,15.3,14.8,14.8,8000,15.7,-5.75,15.59,16.49,0.77
 20260610,15.9,15.9,15.9,15.9,1000,15.72,1.15,15.64,16.48,0.1
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260703,15.7,16.4,15.6,15.8,26000,16.3,-3.1,16.22,16.33,0.58
 20260706,15.75,15.8,15.35,15.8,15000,16.26,-2.85,16.25,16.31,0.33
 20260707,15.7,15.75,15.3,15.65,21000,16.21,-3.46,16.26,16.28,0.46
+20260708,16.15,17.2,16,17.1,98000,16.29,5,16.34,16.29,1.98
 ```
 
 ## Latest TDCC Snapshot

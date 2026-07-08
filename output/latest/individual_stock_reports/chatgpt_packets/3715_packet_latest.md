@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3715 定穎投控
 
 ## Metadata
-- generated_at: 2026-07-07 22:27:33 Asia/Taipei
+- generated_at: 2026-07-08 22:27:25 Asia/Taipei
 - stock_id: 3715
 - stock_name: 定穎投控
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260707
-- price_rows: 299
+- latest_price_date: 20260708
+- price_rows: 300
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 營收成長股價回檔
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260707
-- open: 166.5
-- high: 166.5
-- low: 154.5
-- close: 155.5
-- volume: 11550106
-- ma5: 168
-- ema23_primary: 171.89
-- distance_to_ema23_pct: -9.54
-- ma20: 172.3
-- ma60: 176.91
-- ma120: 165.24
-- return_5d: -11.65
-- return_20d: -6.33
-- volume_ratio: 1.09
-- distance_to_ma20_pct_auxiliary: -9.75
-- distance_to_high_60_pct: -22.64
+- date: 20260708
+- open: 155.5
+- high: 157
+- low: 146
+- close: 151.5
+- volume: 11061563
+- ma5: 163.9
+- ema23_primary: 170.19
+- distance_to_ema23_pct: -10.98
+- ma20: 171.15
+- ma60: 176.32
+- ma120: 165.51
+- return_5d: -11.92
+- return_20d: -13.18
+- volume_ratio: 1.07
+- distance_to_ma20_pct_auxiliary: -11.48
+- distance_to_high_60_pct: -24.63
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260609,173.5,179.5,171,174.5,16071546,174.61,-0.06,173.25,179.02,1.38
 20260610,172.5,175.5,162.5,162.5,11657423,173.6,-6.39,172.55,178.96,0.98
 20260611,167.5,171.5,160,166,11889160,172.96,-4.03,171.8,179.03,1.02
 20260612,172,173,166.5,166.5,5842203,172.43,-3.44,171.38,179.18,0.52
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260703,173.5,176.5,172,172,3878539,174.15,-1.23,173.07,177.79,0.38
 20260706,174.5,174.5,164,165,10196000,173.38,-4.84,172.82,177.43,0.98
 20260707,166.5,166.5,154.5,155.5,11550106,171.89,-9.54,172.3,176.91,1.09
+20260708,155.5,157,146,151.5,11061563,170.19,-10.98,171.15,176.32,1.07
 ```
 
 ## Latest TDCC Snapshot
@@ -186,19 +187,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260708 | 3715 | 定穎投控 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | mixed_flow | stale_signal | 1.董事會決議日期：115/07/06 2.股東臨時會召開日期：115/09/02 3.股東臨時會召開地點：桃園尊爵天際大飯店B1紫雲廳(桃園市蘆竹區南崁路一段108號B1) 4.股東臨時會召開方式(實體股東會/視訊輔助股東會/視訊股東會)：實體股東會 5.召集事由一：討論事項 (1)：修訂本公司「背書保證管理辦法」案 (2)：本公司之子公司超穎電子電路股份有限公司發行H股股票 並在香港聯合交易所有限公司主板上市案 6.臨時動議： 7.停止過戶起始日期：115/08/04 8.停止過戶截止日期：115/09/02 9.其他應敘明事項：(1)依證券交易法第26條之2，凡持股未滿一仟股之股東， 其股東會之召集通知得以公告方式為之，故不另寄發。 (2)本次股東臨時會股東得以電子方式行使表決權， 行使期間自民國115年8月12日至115年8月30日止 (電子投票平台：台灣集中保管結算所股份有限公司)。 (3)轉換公司債持有人如擬申請轉換為股票以參與本次股東臨時會者， 請於115年7月31日前，向往來證券商辦理轉換手續。；calendar event: ex_dividend on 20260702; status=confirmed; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260708 | 3715 | 定穎投控 | 20 | 5 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260707 | 3715 | 定穎投控 | 233 | 0 | 5787920.0 | 0.0 |  | no_signal |
+| 20260708 | 3715 | 定穎投控 | 234 | 8 | 8778010.0 | 3326250.0 | 2.64 | mixed_flow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

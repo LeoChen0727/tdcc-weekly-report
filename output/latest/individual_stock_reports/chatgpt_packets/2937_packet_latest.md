@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2937 集雅社
 
 ## Metadata
-- generated_at: 2026-07-07 22:27:11 Asia/Taipei
+- generated_at: 2026-07-08 22:27:01 Asia/Taipei
 - stock_id: 2937
 - stock_name: 集雅社
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260707
-- price_rows: 142
+- latest_price_date: 20260708
+- price_rows: 143
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260707
+- date: 20260708
 - open: 47
-- high: 47
+- high: 48.7
 - low: 47
-- close: 47
-- volume: 6000
-- ma5: 47.4
-- ema23_primary: 47.8
-- distance_to_ema23_pct: -1.68
-- ma20: 48.21
+- close: 48.7
+- volume: 13000
+- ma5: 47.53
+- ema23_primary: 47.88
+- distance_to_ema23_pct: 1.71
+- ma20: 48.22
 - ma60: 46.26
-- ma120: 45.4
-- return_5d: -3.89
-- return_20d: -3.29
-- volume_ratio: 0.5
-- distance_to_ma20_pct_auxiliary: -2.51
-- distance_to_high_60_pct: -5.91
+- ma120: 45.44
+- return_5d: 1.35
+- return_20d: 0.41
+- volume_ratio: 1.03
+- distance_to_ma20_pct_auxiliary: 1
+- distance_to_high_60_pct: -2.5
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,48.6,48.6,47.95,48.5,48,46.6,4.08,46.14,45.57,0
 20260603,48.5,48.5,48.45,48.45,48000,46.75,3.63,46.38,45.64,2.02
 20260605,45.7,48.25,45.7,48,48000,46.86,2.44,46.59,45.71,1.84
 20260608,46.8,47.75,46,47.75,25000,46.93,1.74,46.8,45.77,0.92
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260703,47.75,47.75,46.65,47.3,9000,47.93,-1.32,48.36,46.3,0.55
 20260706,47.8,47.8,47,47.3,4000,47.88,-1.21,48.29,46.28,0.28
 20260707,47,47,47,47,6000,47.8,-1.68,48.21,46.26,0.5
+20260708,47,48.7,47,48.7,13000,47.88,1.71,48.22,46.26,1.03
 ```
 
 ## Latest TDCC Snapshot

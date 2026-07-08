@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4912 聯德控股-KY
 
 ## Metadata
-- generated_at: 2026-07-07 22:27:45 Asia/Taipei
+- generated_at: 2026-07-08 22:27:38 Asia/Taipei
 - stock_id: 4912
 - stock_name: 聯德控股-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260707
-- price_rows: 299
+- latest_price_date: 20260708
+- price_rows: 300
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260707
-- open: 90.7
-- high: 90.7
-- low: 85.1
-- close: 85.9
-- volume: 344105
-- ma5: 87.14
-- ema23_primary: 89.86
-- distance_to_ema23_pct: -4.41
-- ma20: 88.62
-- ma60: 93.06
-- ma120: 92.68
-- return_5d: -0.69
-- return_20d: -4.02
-- volume_ratio: 0.77
-- distance_to_ma20_pct_auxiliary: -3.07
-- distance_to_high_60_pct: -26.58
+- date: 20260708
+- open: 88.4
+- high: 89.3
+- low: 87.2
+- close: 89
+- volume: 338285
+- ma5: 87.82
+- ema23_primary: 89.79
+- distance_to_ema23_pct: -0.88
+- ma20: 88.28
+- ma60: 93.09
+- ma120: 92.53
+- return_5d: 3.97
+- return_20d: -7
+- volume_ratio: 0.8
+- distance_to_ma20_pct_auxiliary: 0.81
+- distance_to_high_60_pct: -23.93
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260609,91.9,97.8,91.9,95.7,842821,99.44,-3.76,103.64,93.47,0.48
 20260610,95.7,99.3,92.8,93,1111220,98.91,-5.97,103.06,93.57,0.66
 20260611,91.9,93.8,88.2,91.1,509426,98.25,-7.28,102.39,93.57,0.33
 20260612,92.6,93.5,90.5,90.8,485114,97.63,-7,101.66,93.58,0.34
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260703,86.2,88.4,85.9,88.3,216683,90.25,-2.16,88.94,93.03,0.44
 20260706,88.8,91,88.7,89.9,384000,90.22,-0.36,88.8,93.07,0.82
 20260707,90.7,90.7,85.1,85.9,344105,89.86,-4.41,88.62,93.06,0.77
+20260708,88.4,89.3,87.2,89,338285,89.79,-0.88,88.28,93.09,0.8
 ```
 
 ## Latest TDCC Snapshot

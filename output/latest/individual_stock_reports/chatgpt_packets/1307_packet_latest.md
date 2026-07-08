@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1307 三芳
 
 ## Metadata
-- generated_at: 2026-07-07 22:26:31 Asia/Taipei
+- generated_at: 2026-07-08 22:26:16 Asia/Taipei
 - stock_id: 1307
 - stock_name: 三芳
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260707
-- price_rows: 299
+- latest_price_date: 20260708
+- price_rows: 300
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260707
-- open: 33.65
-- high: 33.85
-- low: 32.95
-- close: 33
-- volume: 1341851
-- ma5: 34.25
-- ema23_primary: 34.48
-- distance_to_ema23_pct: -4.28
-- ma20: 35.28
-- ma60: 33.06
-- ma120: 32.93
-- return_5d: -3.79
-- return_20d: -4.49
-- volume_ratio: 0.84
-- distance_to_ma20_pct_auxiliary: -6.46
-- distance_to_high_60_pct: -13.84
+- date: 20260708
+- open: 33.3
+- high: 33.3
+- low: 31.8
+- close: 32
+- volume: 1535238
+- ma5: 33.79
+- ema23_primary: 34.27
+- distance_to_ema23_pct: -6.62
+- ma20: 35.15
+- ma60: 33.05
+- ma120: 32.94
+- return_5d: -6.71
+- return_20d: -7.51
+- volume_ratio: 0.98
+- distance_to_ma20_pct_auxiliary: -8.96
+- distance_to_high_60_pct: -16.45
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260609,34.55,35.75,34.55,34.6,2278923,32.65,5.97,32.27,32.43,1.86
 20260610,34.8,35.5,34.7,35,2064472,32.85,6.55,32.43,32.45,1.59
 20260611,35.25,35.6,34.7,35.2,1292262,33.04,6.53,32.59,32.47,0.98
 20260612,35.7,36.9,35.6,36.75,2857558,33.35,10.19,32.84,32.51,2
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260703,35.5,36.55,35.5,35.8,2925469,34.74,3.04,35.41,33.01,1.82
 20260706,33.6,34.7,32.95,33.15,2730000,34.61,-4.22,35.35,33.04,1.67
 20260707,33.65,33.85,32.95,33,1341851,34.48,-4.28,35.28,33.06,0.84
+20260708,33.3,33.3,31.8,32,1535238,34.27,-6.62,35.15,33.05,0.98
 ```
 
 ## Latest TDCC Snapshot
@@ -199,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260707 | 1307 | 三芳 | 11 | 0 | 149810.0 | 0.0 |  | no_signal |
+| 20260708 | 1307 | 三芳 | 11 | 0 | 197700.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

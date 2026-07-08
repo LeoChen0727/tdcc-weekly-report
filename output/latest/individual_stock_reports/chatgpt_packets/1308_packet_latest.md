@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1308 亞聚
 
 ## Metadata
-- generated_at: 2026-07-07 22:26:31 Asia/Taipei
+- generated_at: 2026-07-08 22:26:16 Asia/Taipei
 - stock_id: 1308
 - stock_name: 亞聚
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260707
-- price_rows: 299
+- latest_price_date: 20260708
+- price_rows: 300
 - latest_tdcc_date: 20260703
 - tdcc_rows: 32
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260707
+- date: 20260708
 - open: 15.5
-- high: 15.5
-- low: 14.9
-- close: 15.1
-- volume: 4435818
-- ma5: 14.99
-- ema23_primary: 14.24
-- distance_to_ema23_pct: 6.04
-- ma20: 14.06
-- ma60: 14.16
-- ma120: 14.48
-- return_5d: 7.09
-- return_20d: 12.69
-- volume_ratio: 1.16
-- distance_to_ma20_pct_auxiliary: 7.4
-- distance_to_high_60_pct: -13.96
+- high: 15.8
+- low: 14.95
+- close: 15
+- volume: 5124970
+- ma5: 15.18
+- ema23_primary: 14.3
+- distance_to_ema23_pct: 4.87
+- ma20: 14.14
+- ma60: 14.12
+- ma120: 14.5
+- return_5d: 6.76
+- return_20d: 11.94
+- volume_ratio: 1.28
+- distance_to_ma20_pct_auxiliary: 6.08
+- distance_to_high_60_pct: -12.28
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260609,13.4,13.65,13.25,13.4,1824386,13.73,-2.38,13.39,15.08,0.57
 20260610,13.4,13.6,13.35,13.45,1597805,13.7,-1.85,13.4,15.05,0.51
 20260611,13.6,13.65,13.2,13.45,1931729,13.68,-1.7,13.4,15.02,0.62
 20260612,13.45,13.75,13.45,13.65,2354894,13.68,-0.22,13.44,15.01,0.76
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260703,15.1,15.85,15,15.85,14799638,14.04,12.89,13.89,14.2,5
 20260706,16.8,17,15.1,15.5,17713000,14.16,9.45,13.97,14.18,4.75
 20260707,15.5,15.5,14.9,15.1,4435818,14.24,6.04,14.06,14.16,1.16
+20260708,15.5,15.8,14.95,15,5124970,14.3,4.87,14.14,14.12,1.28
 ```
 
 ## Latest TDCC Snapshot
@@ -190,17 +191,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260707 | 1308 | 亞聚 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | repeated_but_no_breakout | 1.董事會、股東會決議或公司決定日期:115/06/17 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額: 現金股利：每股0.2元，計新台幣118,748,783元。 4.除權（息）交易日:115/07/23 5.最後過戶日:115/07/26 6.停止過戶起始日期:115/07/27 7.停止過戶截止日期:115/07/31 8.除權（息）基準日:115/07/31 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/21 13.其他應敘明事項:無；calendar event: ex_dividend on 20260723; status=confirmed; proximity=within_30d |
+| 20260708 | 1308 | 亞聚 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | repeated_but_no_breakout | 1.董事會、股東會決議或公司決定日期:115/06/17 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額: 現金股利：每股0.2元，計新台幣118,748,783元。 4.除權（息）交易日:115/07/23 5.最後過戶日:115/07/26 6.停止過戶起始日期:115/07/27 7.停止過戶截止日期:115/07/31 8.除權（息）基準日:115/07/31 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/21 13.其他應敘明事項:無；calendar event: ex_dividend on 20260723; status=confirmed; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260707 | 1308 | 亞聚 | 6 | 1 | 5 | 8 | 11 | repeated_but_no_breakout | 近 10 日上榜 8 次、近 20 日上榜 11 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260708 | 1308 | 亞聚 | 7 | 2 | 5 | 9 | 11 | repeated_but_no_breakout | 近 10 日上榜 9 次、近 20 日上榜 11 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260707 | 1308 | 亞聚 | 20 | 0 | 1075040.0 | 0.0 |  | no_signal |
+| 20260708 | 1308 | 亞聚 | 20 | 1 | 400080.0 | 13290.0 | 30.1 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

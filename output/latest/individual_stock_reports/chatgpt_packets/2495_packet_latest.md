@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2495 普安
 
 ## Metadata
-- generated_at: 2026-07-07 22:27:01 Asia/Taipei
+- generated_at: 2026-07-08 22:26:49 Asia/Taipei
 - stock_id: 2495
 - stock_name: 普安
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260707
-- price_rows: 299
+- latest_price_date: 20260708
+- price_rows: 300
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260707
-- open: 52.8
-- high: 53.3
-- low: 50.5
-- close: 50.7
-- volume: 5097000
-- ma5: 51
-- ema23_primary: 50.15
-- distance_to_ema23_pct: 1.09
-- ma20: 51.05
-- ma60: 45.49
-- ma120: 39.25
-- return_5d: 0.8
-- return_20d: 9.03
-- volume_ratio: 0.48
-- distance_to_ma20_pct_auxiliary: -0.69
-- distance_to_high_60_pct: -6.63
+- date: 20260708
+- open: 51.4
+- high: 52.8
+- low: 50.4
+- close: 51.2
+- volume: 7076515
+- ma5: 51.28
+- ema23_primary: 50.24
+- distance_to_ema23_pct: 1.91
+- ma20: 51.09
+- ma60: 45.68
+- ma120: 39.42
+- return_5d: 2.81
+- return_20d: 1.59
+- volume_ratio: 0.67
+- distance_to_ma20_pct_auxiliary: 0.21
+- distance_to_high_60_pct: -5.71
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260609,46.5,50.8,45.65,50.4,8895328,45.84,9.95,44.81,40.37,0.7
 20260610,50.4,51.7,47.6,48.1,12595810,46.03,4.5,45.44,40.62,0.95
 20260611,48.1,50.3,47.8,49.65,12999963,46.33,7.17,46.1,40.92,0.95
 20260612,50.6,51.4,49.3,50.3,14663418,46.66,7.8,46.86,41.21,1.03
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260703,49.95,52.4,49.8,51.8,7749768,49.88,3.86,50.69,44.98,0.73
 20260706,52.6,53.7,52,52.6,6368000,50.1,4.99,50.84,45.26,0.6
 20260707,52.8,53.3,50.5,50.7,5097000,50.15,1.09,51.05,45.49,0.48
+20260708,51.4,52.8,50.4,51.2,7076515,50.24,1.91,51.09,45.68,0.67
 ```
 
 ## Latest TDCC Snapshot
@@ -188,17 +188,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260707 | 2495 | 普安 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/02 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:現金股利新台幣218,841,230元，每股配發0.8元 4.除權（息）交易日:115/07/24 5.最後過戶日:115/07/27 6.停止過戶起始日期:115/07/28 7.停止過戶截止日期:115/08/01 8.除權（息）基準日:115/08/01 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/27 13.其他應敘明事項:無；calendar event: ex_dividend on 20260724; status=confirmed; proximity=within_30d |
+| 20260708 | 2495 | 普安 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/02 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:現金股利新台幣218,841,230元，每股配發0.8元 4.除權（息）交易日:115/07/24 5.最後過戶日:115/07/27 6.停止過戶起始日期:115/07/28 7.停止過戶截止日期:115/08/01 8.除權（息）基準日:115/08/01 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/27 13.其他應敘明事項:無；calendar event: ex_dividend on 20260724; status=confirmed; proximity=within_30d |
+| 20260708 | 2495 | 普安 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/02 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:現金股利新台幣218,841,230元，每股配發0.8元 4.除權（息）交易日:115/07/24 5.最後過戶日:115/07/27 6.停止過戶起始日期:115/07/28 7.停止過戶截止日期:115/08/01 8.除權（息）基準日:115/08/01 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/27 13.其他應敘明事項:無；calendar event: ex_dividend on 20260724; status=confirmed; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260707 | 2495 | 普安 | 11 | 1 | 5 | 10 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260708 | 2495 | 普安 | 12 | 5 | 5 | 10 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260707 | 2495 | 普安 | 29 | 0 | 2180840.0 | 0.0 |  | no_signal |
+| 20260708 | 2495 | 普安 | 29 | 0 | 1985280.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

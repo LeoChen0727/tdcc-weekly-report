@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8926 台汽電
 
 ## Metadata
-- generated_at: 2026-07-07 22:28:48 Asia/Taipei
+- generated_at: 2026-07-08 22:28:47 Asia/Taipei
 - stock_id: 8926
 - stock_name: 台汽電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260707
-- price_rows: 299
+- latest_price_date: 20260708
+- price_rows: 300
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260707
-- open: 80
-- high: 82.4
-- low: 77.7
-- close: 78.5
-- volume: 10746676
-- ma5: 76.36
-- ema23_primary: 74.58
-- distance_to_ema23_pct: 5.26
-- ma20: 76.91
-- ma60: 62.2
-- ma120: 53.25
-- return_5d: 2.88
-- return_20d: 17.34
-- volume_ratio: 0.92
-- distance_to_ma20_pct_auxiliary: 2.07
-- distance_to_high_60_pct: -6.88
+- date: 20260708
+- open: 79
+- high: 79.1
+- low: 76.2
+- close: 77.7
+- volume: 6556322
+- ma5: 77.04
+- ema23_primary: 74.84
+- distance_to_ema23_pct: 3.82
+- ma20: 77.12
+- ma60: 62.76
+- ma120: 53.55
+- return_5d: 4.58
+- return_20d: 5.71
+- volume_ratio: 0.59
+- distance_to_ma20_pct_auxiliary: 0.75
+- distance_to_high_60_pct: -7.83
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260609,71.1,73.5,71.1,73.5,19260676,63.48,15.79,64.83,52.09,1.3
 20260610,73.5,78,73.1,75,23702694,64.44,16.39,65.74,52.57,1.58
 20260611,77,77.3,73.6,75.5,15998730,65.36,15.52,66.64,53.04,1.09
 20260612,76.8,78.3,74,74.2,12637681,66.09,12.26,67.29,53.5,0.88
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260703,72.9,76,72.7,75,5555355,73.61,1.9,75.76,60.99,0.48
 20260706,76.7,81.5,75.4,81,12725000,74.22,9.13,76.33,61.62,1.1
 20260707,80,82.4,77.7,78.5,10746676,74.58,5.26,76.91,62.2,0.92
+20260708,79,79.1,76.2,77.7,6556322,74.84,3.82,77.12,62.76,0.59
 ```
 
 ## Latest TDCC Snapshot
@@ -189,17 +189,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260707 | 8926 | 台汽電 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | repeated_but_no_breakout | 1.發生變動日期:115/07/01 2.法人名稱:大亞電線電纜股份有限公司 3.舊任者姓名:不適用 4.舊任者簡歷:不適用 5.新任者姓名:李文彬 6.新任者簡歷:大亞電線電纜股份有限公司銅材暨台北管理處執行顧問 7.異動原因:法人董事指派代表人 8.原任期（例xx/xx/xx至xx/xx/xx）:115/06/30~118/06/29 9.新任生效日期:115/07/01 10.其他應敘明事項:無；calendar event: ex_dividend on 20260702; status=confirmed; proximity=recent |
+| 20260708 | 8926 | 台汽電 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | call_inflow | stale_signal | 1.發生變動日期:115/07/01 2.法人名稱:大亞電線電纜股份有限公司 3.舊任者姓名:不適用 4.舊任者簡歷:不適用 5.新任者姓名:李文彬 6.新任者簡歷:大亞電線電纜股份有限公司銅材暨台北管理處執行顧問 7.異動原因:法人董事指派代表人 8.原任期（例xx/xx/xx至xx/xx/xx）:115/06/30~118/06/29 9.新任生效日期:115/07/01 10.其他應敘明事項:無；calendar event: ex_dividend on 20260702; status=confirmed; proximity=recent |
+| 20260708 | 8926 | 台汽電 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  | call_inflow | stale_signal | 1.發生變動日期:115/07/01 2.法人名稱:大亞電線電纜股份有限公司 3.舊任者姓名:不適用 4.舊任者簡歷:不適用 5.新任者姓名:李文彬 6.新任者簡歷:大亞電線電纜股份有限公司銅材暨台北管理處執行顧問 7.異動原因:法人董事指派代表人 8.原任期（例xx/xx/xx至xx/xx/xx）:115/06/30~118/06/29 9.新任生效日期:115/07/01 10.其他應敘明事項:無；calendar event: ex_dividend on 20260702; status=confirmed; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260707 | 8926 | 台汽電 | 11 | 1 | 5 | 10 | 18 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 18 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260708 | 8926 | 台汽電 | 12 | 5 | 5 | 10 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260707 | 8926 | 台汽電 | 2 | 0 | 130250.0 | 0.0 |  | no_signal |
+| 20260708 | 8926 | 台汽電 | 3 | 0 | 1270360.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3005 神基
 
 ## Metadata
-- generated_at: 2026-07-07 22:27:11 Asia/Taipei
+- generated_at: 2026-07-08 22:27:01 Asia/Taipei
 - stock_id: 3005
 - stock_name: 神基
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260707
-- price_rows: 299
+- latest_price_date: 20260708
+- price_rows: 300
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260707
-- open: 110.5
-- high: 111
+- date: 20260708
+- open: 107
+- high: 108.5
 - low: 106
-- close: 107
-- volume: 3968097
-- ma5: 106.6
-- ema23_primary: 103.44
-- distance_to_ema23_pct: 3.44
-- ma20: 102.78
-- ma60: 101.59
-- ma120: 108.92
-- return_5d: 5.94
-- return_20d: 2.39
-- volume_ratio: 0.66
-- distance_to_ma20_pct_auxiliary: 4.1
-- distance_to_high_60_pct: -5.31
+- close: 107.5
+- volume: 2570252
+- ma5: 106.8
+- ema23_primary: 103.78
+- distance_to_ema23_pct: 3.58
+- ma20: 102.89
+- ma60: 101.74
+- ma120: 108.87
+- return_5d: 0.94
+- return_20d: 1.9
+- volume_ratio: 0.43
+- distance_to_ma20_pct_auxiliary: 4.49
+- distance_to_high_60_pct: -4.87
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260609,105.5,106.5,105,105.5,4047943,104.37,1.09,103.8,105.5,0.59
 20260610,106,108.5,104,104,5235658,104.34,-0.32,104.11,104.97,0.75
 20260611,104,105,103,104.5,4462776,104.35,0.14,104.16,104.45,0.72
 20260612,106,109,105.5,105.5,6710580,104.45,1.01,104.45,103.91,1.09
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260703,101.5,108,101,107,7372821,102.5,4.39,102.61,101.32,1.22
 20260706,109.5,113,108,110,8012000,103.12,6.67,102.66,101.48,1.31
 20260707,110.5,111,106,107,3968097,103.44,3.44,102.78,101.59,0.66
+20260708,107,108.5,106,107.5,2570252,103.78,3.58,102.89,101.74,0.43
 ```
 
 ## Latest TDCC Snapshot
@@ -188,17 +188,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260707 | 3005 | 神基 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260708 | 3005 | 神基 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260707 | 3005 | 神基 | 5 | 1 | 5 | 5 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260708 | 3005 | 神基 | 6 | 2 | 5 | 6 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260707 | 3005 | 神基 | 34 | 0 | 2754820.0 | 0.0 |  | no_signal |
+| 20260708 | 3005 | 神基 | 35 | 0 | 3838900.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

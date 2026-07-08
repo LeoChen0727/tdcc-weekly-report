@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1722 台肥
 
 ## Metadata
-- generated_at: 2026-07-07 22:26:42 Asia/Taipei
+- generated_at: 2026-07-08 22:26:28 Asia/Taipei
 - stock_id: 1722
 - stock_name: 台肥
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260707
-- price_rows: 299
+- latest_price_date: 20260708
+- price_rows: 300
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260707
-- open: 48.95
-- high: 49.15
-- low: 48.05
-- close: 48.15
-- volume: 1727929
-- ma5: 48.28
-- ema23_primary: 47.84
-- distance_to_ema23_pct: 0.65
-- ma20: 48.02
-- ma60: 46.95
-- ma120: 46.77
-- return_5d: 1.48
-- return_20d: 0.94
-- volume_ratio: 0.71
-- distance_to_ma20_pct_auxiliary: 0.28
-- distance_to_high_60_pct: -7.4
+- date: 20260708
+- open: 48.15
+- high: 48.4
+- low: 47.75
+- close: 48.05
+- volume: 1491526
+- ma5: 48.4
+- ema23_primary: 47.86
+- distance_to_ema23_pct: 0.41
+- ma20: 48.04
+- ma60: 46.97
+- ma120: 46.78
+- return_5d: 1.26
+- return_20d: 0.95
+- volume_ratio: 0.63
+- distance_to_ma20_pct_auxiliary: 0.02
+- distance_to_high_60_pct: -7.6
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260609,47.2,47.75,47.2,47.6,2552558,46.89,1.52,46.61,46.4,0.72
 20260610,47.45,47.75,47.15,47.3,2421514,46.92,0.81,46.64,46.39,0.68
 20260611,47.65,47.65,47.05,47.65,2234697,46.98,1.42,46.67,46.38,0.64
 20260612,47.75,48.8,47.6,48.4,4287427,47.1,2.76,46.8,46.4,1.29
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260703,48.25,49.25,48.25,48.75,3193768,47.71,2.19,47.96,46.89,1.19
 20260706,49,49.55,48.8,48.95,3234000,47.81,2.39,47.99,46.92,1.26
 20260707,48.95,49.15,48.05,48.15,1727929,47.84,0.65,48.02,46.95,0.71
+20260708,48.15,48.4,47.75,48.05,1491526,47.86,0.41,48.04,46.97,0.63
 ```
 
 ## Latest TDCC Snapshot
@@ -188,17 +188,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260707 | 1722 | 台肥 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/17 1.召開法人說明會之日期：115/06/17 2.召開法人說明會之時間：15 時 00 分  3.召開法人說明會之地點：線上會議 4.法人說明會擇要訊息：本公司受凱基證券邀請參加線上法人說明會，說明公司簡介、營運狀況及未來方向。 5.其他應敘明事項：相關資訊請參考公開資訊觀測站公司治理專區及本公司網站。 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260708 | 1722 | 台肥 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/17 1.召開法人說明會之日期：115/06/17 2.召開法人說明會之時間：15 時 00 分  3.召開法人說明會之地點：線上會議 4.法人說明會擇要訊息：本公司受凱基證券邀請參加線上法人說明會，說明公司簡介、營運狀況及未來方向。 5.其他應敘明事項：相關資訊請參考公開資訊觀測站公司治理專區及本公司網站。 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260707 | 1722 | 台肥 | 1 | 1 | 3 | 3 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260708 | 1722 | 台肥 | 2 | 2 | 4 | 4 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260707 | 1722 | 台肥 | 1 | 0 | 0.0 | 0.0 |  | no_signal |
+| 20260708 | 1722 | 台肥 | 1 | 0 | 0.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

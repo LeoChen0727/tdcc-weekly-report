@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2645 長榮航太
 
 ## Metadata
-- generated_at: 2026-07-07 22:27:05 Asia/Taipei
+- generated_at: 2026-07-08 22:26:54 Asia/Taipei
 - stock_id: 2645
 - stock_name: 長榮航太
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260707
-- price_rows: 299
+- latest_price_date: 20260708
+- price_rows: 300
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -111,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260707
-- open: 235.5
+- date: 20260708
+- open: 225.5
 - high: 235.5
-- low: 214.5
-- close: 214.5
-- volume: 9266764
-- ma5: 214
-- ema23_primary: 185.8
-- distance_to_ema23_pct: 15.45
-- ma20: 182.15
-- ma60: 167.27
-- ma120: 162.99
-- return_5d: 15.63
-- return_20d: 29.22
-- volume_ratio: 2.5
-- distance_to_ma20_pct_auxiliary: 17.76
-- distance_to_high_60_pct: -9.87
+- low: 221.5
+- close: 235.5
+- volume: 7446021
+- ma5: 220.3
+- ema23_primary: 189.94
+- distance_to_ema23_pct: 23.99
+- ma20: 185.25
+- ma60: 168.68
+- ma120: 163.75
+- return_5d: 15.44
+- return_20d: 35.73
+- volume_ratio: 1.89
+- distance_to_ma20_pct_auxiliary: 27.13
+- distance_to_high_60_pct: -1.05
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260609,166,174.5,166,173.5,2962578,163.3,6.24,161.53,157.8,1.69
 20260610,172.5,173,168.5,168.5,1733380,163.74,2.91,162.15,157.93,0.97
 20260611,168,169.5,165.5,167,1196532,164.01,1.82,162.85,158.02,0.68
 20260612,169,171,166,166.5,1057718,164.22,1.39,163.65,158.06,0.61
@@ -153,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260703,202.5,216.5,201,216.5,7042493,178.2,21.49,176.3,164.74,2.54
 20260706,228,238,220,238,13613000,183.19,29.92,179.72,166.19,4.08
 20260707,235.5,235.5,214.5,214.5,9266764,185.8,15.45,182.15,167.27,2.5
+20260708,225.5,235.5,221.5,235.5,7446021,189.94,23.99,185.25,168.68,1.89
 ```
 
 ## Latest TDCC Snapshot
@@ -187,17 +187,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260707 | 2645 | 長榮航太 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  | no_signal | repeated_but_no_breakout | 1.董事會、股東會決議或公司決定日期:115/06/26 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:現金股利，每股配發新台幣5元 4.除權（息）交易日:115/07/13 5.最後過戶日:115/07/14 6.停止過戶起始日期:115/07/15 7.停止過戶截止日期:115/07/19 8.除權（息）基準日:115/07/19 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/07/31 13.其他應敘明事項:無；calendar event: ex_dividend on 20260713; status=confirmed; proximity=within_7d |
+| 20260708 | 2645 | 長榮航太 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | continued_overheated | 1.事實發生日:115/07/07 2.發生緣由:依據臺灣證券交易所股份有限公司通知辦理 3.財務業務資訊:            最近一月   與去年    最近一季    與去年  (114年第2季至115年第1季) 科目      (115年5月) 同期增減 (115年第1季) 同期增減     個別查核/核閱數           個別自結數     %     個別核閱數      % ======== ============ ======== ============ ======== ======================= 營業收入     1,688     10.64%     4,739      13.12%            18,729 (百萬) 稅前純益       379   2,076.5%     1,207      73.11%             3,073 (百萬) 稅後純益       303   2,076.5%       966      73.11%             2,453 (百萬) 每股盈餘      0.81   2,076.9%      2.58      73.15%              6.55 (元) 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告: 7.其他應敘明事項:無；calendar event: ex_dividend on 20260713; status=confirmed; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260707 | 2645 | 長榮航太 | 8 | 1 | 5 | 9 | 16 | repeated_but_no_breakout | 近 10 日上榜 9 次、近 20 日上榜 16 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260708 | 2645 | 長榮航太 | 9 | 2 | 5 | 9 | 16 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260707 | 2645 | 長榮航太 | 37 | 0 | 9373820.0 | 0.0 |  | no_signal |
+| 20260708 | 2645 | 長榮航太 | 38 | 0 | 8779830.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

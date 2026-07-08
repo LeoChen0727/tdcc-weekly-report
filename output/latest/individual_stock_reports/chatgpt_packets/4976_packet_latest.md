@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4976 佳凌
 
 ## Metadata
-- generated_at: 2026-07-07 22:27:47 Asia/Taipei
+- generated_at: 2026-07-08 22:27:41 Asia/Taipei
 - stock_id: 4976
 - stock_name: 佳凌
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260707
-- price_rows: 299
+- latest_price_date: 20260708
+- price_rows: 300
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260707
-- open: 39.4
-- high: 39.8
-- low: 37
-- close: 37.05
-- volume: 1673610
-- ma5: 38.11
-- ema23_primary: 37.15
-- distance_to_ema23_pct: -0.28
-- ma20: 37.91
-- ma60: 33.1
-- ma120: 31.6
-- return_5d: -1.2
-- return_20d: 14.53
-- volume_ratio: 0.27
-- distance_to_ma20_pct_auxiliary: -2.27
-- distance_to_high_60_pct: -17.48
+- date: 20260708
+- open: 37.25
+- high: 37.6
+- low: 36.25
+- close: 36.75
+- volume: 1107966
+- ma5: 38.23
+- ema23_primary: 37.12
+- distance_to_ema23_pct: -1
+- ma20: 37.97
+- ma60: 33.23
+- ma120: 31.65
+- return_5d: 1.66
+- return_20d: 3.38
+- volume_ratio: 0.18
+- distance_to_ma20_pct_auxiliary: -3.21
+- distance_to_high_60_pct: -18.15
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260609,32.35,35.55,32.3,35.55,3338505,32.11,10.72,32.2,30.11,2.04
 20260610,35.45,38.65,33.55,33.8,9873575,32.25,4.81,32.36,30.19,4.74
 20260611,33.2,33.4,31.95,32.85,2248134,32.3,1.7,32.44,30.25,1.06
 20260612,33.8,34.05,32.55,32.55,1162502,32.32,0.71,32.55,30.29,0.56
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260703,37.65,41.4,37,40.25,7382679,36.96,8.9,37.39,32.76,1.19
 20260706,40.4,41.05,39.05,39.4,2570000,37.16,6.02,37.67,32.95,0.41
 20260707,39.4,39.8,37,37.05,1673610,37.15,-0.28,37.91,33.1,0.27
+20260708,37.25,37.6,36.25,36.75,1107966,37.12,-1,37.97,33.23,0.18
 ```
 
 ## Latest TDCC Snapshot
@@ -189,12 +189,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260707 | 4976 | 佳凌 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.董事會決議日期或發生變動日期:115/07/02 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:劉嘉彬 4.舊任者簡歷:佳凌科技股份有限公司董事長 5.新任者姓名:劉嘉彬 6.新任者簡歷:佳凌科技股份有限公司董事長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因:任期屆滿改選 9.新任生效日期:115/07/02 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260708 | 4976 | 佳凌 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.董事會決議日期或發生變動日期:115/07/02 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:劉嘉彬 4.舊任者簡歷:佳凌科技股份有限公司董事長 5.新任者姓名:劉嘉彬 6.新任者簡歷:佳凌科技股份有限公司董事長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因:任期屆滿改選 9.新任生效日期:115/07/02 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260707 | 4976 | 佳凌 | 1 | 1 | 4 | 7 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260708 | 4976 | 佳凌 | 2 | 2 | 4 | 8 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

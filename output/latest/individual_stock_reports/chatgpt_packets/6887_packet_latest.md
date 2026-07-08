@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6887 寶綠特-KY
 
 ## Metadata
-- generated_at: 2026-07-07 22:28:25 Asia/Taipei
+- generated_at: 2026-07-08 22:28:22 Asia/Taipei
 - stock_id: 6887
 - stock_name: 寶綠特-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260707
-- price_rows: 294
+- latest_price_date: 20260708
+- price_rows: 295
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260707
-- open: 34.35
-- high: 34.4
-- low: 33.65
-- close: 33.8
-- volume: 31001
-- ma5: 34.5
-- ema23_primary: 35.14
-- distance_to_ema23_pct: -3.82
-- ma20: 35.06
-- ma60: 36.72
-- ma120: 44.32
-- return_5d: -5.32
-- return_20d: -1.74
-- volume_ratio: 1.1
-- distance_to_ma20_pct_auxiliary: -3.59
-- distance_to_high_60_pct: -21.94
+- date: 20260708
+- open: 34.25
+- high: 34.3
+- low: 33.55
+- close: 33.9
+- volume: 31000
+- ma5: 34.09
+- ema23_primary: 35.04
+- distance_to_ema23_pct: -3.25
+- ma20: 35.03
+- ma60: 36.58
+- ma120: 44.1
+- return_5d: -5.7
+- return_20d: -1.45
+- volume_ratio: 1.14
+- distance_to_ma20_pct_auxiliary: -3.23
+- distance_to_high_60_pct: -21.35
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260609,33.4,34.5,32.5,34.4,48402,35.78,-3.85,34.95,39.5,0.84
 20260610,33.75,36.7,33.25,35.65,18065,35.77,-0.32,34.83,39.34,0.32
 20260611,35,36,34.5,34.5,48202,35.66,-3.25,34.66,39.17,0.82
 20260612,36.5,36.5,34.7,35.1,9050,35.61,-1.44,34.59,39.03,0.16
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260703,34.15,35.35,33.9,34,63148,35.38,-3.89,35.13,37.05,2.53
 20260706,34,34.3,33.95,34,60000,35.26,-3.58,35.09,36.88,2.17
 20260707,34.35,34.4,33.65,33.8,31001,35.14,-3.82,35.06,36.72,1.1
+20260708,34.25,34.3,33.55,33.9,31000,35.04,-3.25,35.03,36.58,1.14
 ```
 
 ## Latest TDCC Snapshot

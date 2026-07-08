@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00881 國泰台灣科技龍頭
 
 ## Metadata
-- generated_at: 2026-07-07 22:26:26 Asia/Taipei
+- generated_at: 2026-07-08 22:26:10 Asia/Taipei
 - stock_id: 00881
 - stock_name: 國泰台灣科技龍頭
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260707
-- price_rows: 32
+- latest_price_date: 20260708
+- price_rows: 33
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260707
-- open: 55.45
-- high: 55.5
-- low: 53.5
-- close: 53.7
-- volume: 16133575
-- ma5: 55.25
-- ema23_primary: 54.52
-- distance_to_ema23_pct: -1.5
-- ma20: 54.63
-- ma60: 54.44
-- ma120: 54.44
-- return_5d: -2.1
-- return_20d: 2.48
-- volume_ratio: 1.38
-- distance_to_ma20_pct_auxiliary: -1.71
-- distance_to_high_60_pct: -7.33
+- date: 20260708
+- open: 53.75
+- high: 53.8
+- low: 52.85
+- close: 53.4
+- volume: 13756411
+- ma5: 54.76
+- ema23_primary: 54.43
+- distance_to_ema23_pct: -1.89
+- ma20: 54.59
+- ma60: 54.41
+- ma120: 54.41
+- return_5d: -4.39
+- return_20d: -1.75
+- volume_ratio: 1.15
+- distance_to_ma20_pct_auxiliary: -2.18
+- distance_to_high_60_pct: -7.85
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260609,52.9,54.35,52.7,54.35,9146716,53.24,2.08,54.14,54.14,0.65
 20260610,53.7,54.1,52.15,52.2,19458441,53.15,-1.79,54,54,1.34
 20260611,51.85,52.6,50.5,51.85,16771320,53.05,-2.25,53.86,53.86,1.14
 20260612,53.8,53.95,52.8,53,9814258,53.04,-0.08,53.81,53.81,0.68
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260703,54.2,55.95,54.2,55.7,9309784,54.53,2.15,54.51,54.44,0.76
 20260706,56.2,56.35,54.9,55.3,11078000,54.59,1.29,54.57,54.47,0.92
 20260707,55.45,55.5,53.5,53.7,16133575,54.52,-1.5,54.63,54.44,1.38
+20260708,53.75,53.8,52.85,53.4,13756411,54.43,-1.89,54.59,54.41,1.15
 ```
 
 ## Latest TDCC Snapshot

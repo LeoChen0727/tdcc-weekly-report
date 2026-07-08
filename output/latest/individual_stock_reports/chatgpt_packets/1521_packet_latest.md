@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1521 大億
 
 ## Metadata
-- generated_at: 2026-07-07 22:26:37 Asia/Taipei
+- generated_at: 2026-07-08 22:26:23 Asia/Taipei
 - stock_id: 1521
 - stock_name: 大億
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260707
-- price_rows: 296
+- latest_price_date: 20260708
+- price_rows: 297
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,21 +113,21 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260707
-- open: 26.2
-- high: 26.3
-- low: 26
+- date: 20260708
+- open: 25.7
+- high: 26.1
+- low: 25.5
 - close: 26.1
-- volume: 48181
-- ma5: 25.9
+- volume: 20251
+- ma5: 26.06
 - ema23_primary: 26.1
 - distance_to_ema23_pct: -0
 - ma20: 26.13
-- ma60: 25.67
-- ma120: 25.74
-- return_5d: 1.95
-- return_20d: -1.32
-- volume_ratio: 0.91
+- ma60: 25.69
+- ma120: 25.76
+- return_5d: 3.16
+- return_20d: -0.19
+- volume_ratio: 0.42
 - distance_to_ma20_pct_auxiliary: -0.11
 - distance_to_high_60_pct: -12.42
 
@@ -135,7 +135,6 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260609,26.1,27,26,26.15,127408,26.21,-0.22,25.91,25.31,1.12
 20260610,27.35,27.35,25.9,26,72594,26.19,-0.73,25.95,25.32,0.62
 20260611,26,26,25.7,25.9,47194,26.17,-1.02,26.02,25.34,0.4
 20260612,25.6,26.25,25.5,25.95,121544,26.15,-0.76,26.09,25.35,0.99
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260703,26,26.5,25.8,26.25,25214,26.09,0.63,26.22,25.63,0.44
 20260706,26.25,26.35,25.95,26.25,20000,26.1,0.57,26.15,25.65,0.38
 20260707,26.2,26.3,26,26.1,48181,26.1,-0,26.13,25.67,0.91
+20260708,25.7,26.1,25.5,26.1,20251,26.1,-0,26.13,25.69,0.42
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00917 中信特選金融
 
 ## Metadata
-- generated_at: 2026-07-07 22:26:26 Asia/Taipei
+- generated_at: 2026-07-08 22:26:11 Asia/Taipei
 - stock_id: 00917
 - stock_name: 中信特選金融
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260707
-- price_rows: 32
+- latest_price_date: 20260708
+- price_rows: 33
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260707
-- open: 23.12
-- high: 23.4
-- low: 23.12
-- close: 23.31
-- volume: 1532886
-- ma5: 22.67
-- ema23_primary: 22.33
-- distance_to_ema23_pct: 4.39
-- ma20: 22.35
-- ma60: 22.11
-- ma120: 22.11
-- return_5d: 5.43
-- return_20d: 6.88
-- volume_ratio: 1.84
-- distance_to_ma20_pct_auxiliary: 4.31
-- distance_to_high_60_pct: -0.38
+- date: 20260708
+- open: 23.31
+- high: 23.37
+- low: 23.25
+- close: 23.26
+- volume: 299270
+- ma5: 22.92
+- ema23_primary: 22.41
+- distance_to_ema23_pct: 3.81
+- ma20: 22.42
+- ma60: 22.15
+- ma120: 22.15
+- return_5d: 5.73
+- return_20d: 6.65
+- volume_ratio: 0.37
+- distance_to_ma20_pct_auxiliary: 3.75
+- distance_to_high_60_pct: -0.6
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260609,21.83,21.97,21.79,21.81,774955,21.73,0.37,21.73,21.73,0.74
 20260610,21.81,21.96,21.81,21.91,961587,21.74,0.77,21.74,21.74,0.93
 20260611,21.92,21.92,21.8,21.92,791797,21.76,0.74,21.75,21.75,0.78
 20260612,21.93,21.99,21.9,21.97,1358767,21.78,0.89,21.76,21.76,1.3
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260703,22.55,22.83,22.55,22.76,746385,22.18,2.61,22.22,22.05,0.85
 20260706,22.8,22.9,22.8,22.88,627000,22.24,2.88,22.27,22.07,0.78
 20260707,23.12,23.4,23.12,23.31,1532886,22.33,4.39,22.35,22.11,1.84
+20260708,23.31,23.37,23.25,23.26,299270,22.41,3.81,22.42,22.15,0.37
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3004 豐達科
 
 ## Metadata
-- generated_at: 2026-07-07 22:27:11 Asia/Taipei
+- generated_at: 2026-07-08 22:27:01 Asia/Taipei
 - stock_id: 3004
 - stock_name: 豐達科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260707
-- price_rows: 299
+- latest_price_date: 20260708
+- price_rows: 300
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260707
-- open: 156.5
-- high: 156.5
-- low: 146.5
-- close: 146.5
-- volume: 1978639
-- ma5: 146
-- ema23_primary: 135.82
-- distance_to_ema23_pct: 7.86
-- ma20: 135.97
-- ma60: 126
-- ma120: 118.23
-- return_5d: 9.33
-- return_20d: 14.9
-- volume_ratio: 2.09
-- distance_to_ma20_pct_auxiliary: 7.74
-- distance_to_high_60_pct: -10.12
+- date: 20260708
+- open: 152
+- high: 152.5
+- low: 143.5
+- close: 145.5
+- volume: 1286846
+- ma5: 147.6
+- ema23_primary: 136.63
+- distance_to_ema23_pct: 6.49
+- ma20: 136.53
+- ma60: 126.44
+- ma120: 118.51
+- return_5d: 5.82
+- return_20d: 8.18
+- volume_ratio: 1.34
+- distance_to_ma20_pct_auxiliary: 6.57
+- distance_to_high_60_pct: -10.74
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260609,128.5,136,127,134.5,1070709,124.94,7.66,126.05,116.39,1.07
 20260610,134.5,137.5,130.5,131.5,943435,125.48,4.8,126.9,116.81,0.91
 20260611,130,132.5,127.5,132,539416,126.03,4.74,127.65,117.22,0.51
 20260612,134.5,136,132.5,133.5,623651,126.65,5.41,128.28,117.65,0.6
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260703,142,150,140.5,150,2886882,132.61,13.11,133.55,124.7,4.03
 20260706,157,163,154.5,159.5,4293000,134.85,18.28,135.03,125.49,4.86
 20260707,156.5,156.5,146.5,146.5,1978639,135.82,7.86,135.97,126,2.09
+20260708,152,152.5,143.5,145.5,1286846,136.63,6.49,136.53,126.44,1.34
 ```
 
 ## Latest TDCC Snapshot
@@ -188,17 +188,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260707 | 3004 | 豐達科 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | continued_2_3d | 1.事實發生日:115/07/02 2.公司名稱:豐達科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:  豐達科技股份有限公司(股票代碼：3004)今日(2026/07/02)公佈2026年6  月份自結合併營收。  2026年6月份自結合併營收為新台幣4.98億元，較2026年5月份4.69億元增加6.05%，  相較去年同期的3.39億元增加 46.56%。  2026年第二季自結合併營收為新台幣13.86億元，較第一季的12.04億元增加15.11 %，  相較去年同期的9.87億元增加40.37%。  2026年上半年累計自結合併營收為新台幣25.90億元，相較去年同期的19.23億元增加  34.67%。 6.因應措施:無。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):  無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260708 | 3004 | 豐達科 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | repeated_but_no_breakout | 1.事實發生日:115/07/02 2.公司名稱:豐達科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:  豐達科技股份有限公司(股票代碼：3004)今日(2026/07/02)公佈2026年6  月份自結合併營收。  2026年6月份自結合併營收為新台幣4.98億元，較2026年5月份4.69億元增加6.05%，  相較去年同期的3.39億元增加 46.56%。  2026年第二季自結合併營收為新台幣13.86億元，較第一季的12.04億元增加15.11 %，  相較去年同期的9.87億元增加40.37%。  2026年上半年累計自結合併營收為新台幣25.90億元，相較去年同期的19.23億元增加  34.67%。 6.因應措施:無。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):  無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260708 | 3004 | 豐達科 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | no_signal | repeated_but_no_breakout | 1.事實發生日:115/07/02 2.公司名稱:豐達科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:  豐達科技股份有限公司(股票代碼：3004)今日(2026/07/02)公佈2026年6  月份自結合併營收。  2026年6月份自結合併營收為新台幣4.98億元，較2026年5月份4.69億元增加6.05%，  相較去年同期的3.39億元增加 46.56%。  2026年第二季自結合併營收為新台幣13.86億元，較第一季的12.04億元增加15.11 %，  相較去年同期的9.87億元增加40.37%。  2026年上半年累計自結合併營收為新台幣25.90億元，相較去年同期的19.23億元增加  34.67%。 6.因應措施:無。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):  無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260708 | 3004 | 豐達科 | revenue_breakout_low_response | 營收爆發低反應股 | 17.0 | 17.0 | B_可觀察 |  |  | no_signal | repeated_but_no_breakout | 1.事實發生日:115/07/02 2.公司名稱:豐達科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:  豐達科技股份有限公司(股票代碼：3004)今日(2026/07/02)公佈2026年6  月份自結合併營收。  2026年6月份自結合併營收為新台幣4.98億元，較2026年5月份4.69億元增加6.05%，  相較去年同期的3.39億元增加 46.56%。  2026年第二季自結合併營收為新台幣13.86億元，較第一季的12.04億元增加15.11 %，  相較去年同期的9.87億元增加40.37%。  2026年上半年累計自結合併營收為新台幣25.90億元，相較去年同期的19.23億元增加  34.67%。 6.因應措施:無。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):  無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260707 | 3004 | 豐達科 | 3 | 1 | 3 | 3 | 5 | continued_2_3d | 連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| 20260708 | 3004 | 豐達科 | 4 | 2 | 4 | 4 | 5 | repeated_but_no_breakout | 近 10 日上榜 4 次、近 20 日上榜 5 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260707 | 3004 | 豐達科 | 4 | 0 | 696140.0 | 0.0 |  | no_signal |
+| 20260708 | 3004 | 豐達科 | 5 | 0 | 525000.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

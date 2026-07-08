@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5434 崇越
 
 ## Metadata
-- generated_at: 2026-07-07 22:27:53 Asia/Taipei
+- generated_at: 2026-07-08 22:27:47 Asia/Taipei
 - stock_id: 5434
 - stock_name: 崇越
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260707
-- price_rows: 299
+- latest_price_date: 20260708
+- price_rows: 300
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260707
-- open: 529
-- high: 544
-- low: 516
-- close: 516
-- volume: 2280501
-- ma5: 528.6
-- ema23_primary: 497.28
-- distance_to_ema23_pct: 3.76
-- ma20: 496.45
-- ma60: 451.05
-- ma120: 389.18
-- return_5d: -6.01
-- return_20d: 17.94
-- volume_ratio: 1.35
-- distance_to_ma20_pct_auxiliary: 3.94
-- distance_to_high_60_pct: -12.1
+- date: 20260708
+- open: 519
+- high: 530
+- low: 501
+- close: 509
+- volume: 1179236
+- ma5: 523.8
+- ema23_primary: 498.26
+- distance_to_ema23_pct: 2.16
+- ma20: 499.1
+- ma60: 452.88
+- ma120: 390.93
+- return_5d: -4.5
+- return_20d: 11.62
+- volume_ratio: 0.69
+- distance_to_ma20_pct_auxiliary: 1.98
+- distance_to_high_60_pct: -13.29
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260609,442,456,440.5,456,767260,442.3,3.1,442,398.88,0.81
 20260610,456,466,443.5,449.5,1059492,442.9,1.49,443.85,400.84,1.1
 20260611,454,456.5,434.5,453,925647,443.74,2.09,445.85,402.94,0.94
 20260612,467,476.5,460.5,466,1281475,445.6,4.58,449,405.22,1.26
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260703,536,542,527,531,1609185,493.17,7.67,489.35,446.52,1.02
 20260706,527,535,521,522,1881000,495.58,5.33,492.52,449.13,1.17
 20260707,529,544,516,516,2280501,497.28,3.76,496.45,451.05,1.35
+20260708,519,530,501,509,1179236,498.26,2.16,499.1,452.88,0.69
 ```
 
 ## Latest TDCC Snapshot
@@ -188,17 +188,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260707 | 5434 | 崇越 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/30 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:盈餘發放現金股利 (1)原發放股利種類及金額: 普通股現金股利新台幣2,603,217,717元，每股配發  現金13.5元。 (2)變更後發放股利種類及金額: 普通股現金股利新台幣2,603,217,717元，每股配發  現金13.41809587元。 4.除權（息）交易日:115/07/16 5.最後過戶日:115/07/17 6.停止過戶起始日期:115/07/18 7.停止過戶截止日期:115/07/22 8.除權（息）基準日:115/07/22 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/12 13.其他應敘明事項:因可轉換公司債之債權人提出申請轉換成普通股, 致流通在外 股數增加。；calendar event: ex_dividend on 20260716; status=confirmed; proximity=within_14d |
+| 20260708 | 5434 | 崇越 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/30 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:盈餘發放現金股利 (1)原發放股利種類及金額: 普通股現金股利新台幣2,603,217,717元，每股配發  現金13.5元。 (2)變更後發放股利種類及金額: 普通股現金股利新台幣2,603,217,717元，每股配發  現金13.41809587元。 4.除權（息）交易日:115/07/16 5.最後過戶日:115/07/17 6.停止過戶起始日期:115/07/18 7.停止過戶截止日期:115/07/22 8.除權（息）基準日:115/07/22 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/12 13.其他應敘明事項:因可轉換公司債之債權人提出申請轉換成普通股, 致流通在外 股數增加。；calendar event: ex_dividend on 20260716; status=confirmed; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260707 | 5434 | 崇越 | 2 | 2 | 4 | 8 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260708 | 5434 | 崇越 | 3 | 3 | 4 | 8 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260707 | 5434 | 崇越 | 12 | 0 | 729350.0 | 0.0 |  | no_signal |
+| 20260708 | 5434 | 崇越 | 12 | 0 | 468470.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

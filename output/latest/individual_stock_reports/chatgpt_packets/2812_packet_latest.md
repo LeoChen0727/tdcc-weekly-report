@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2812 台中銀
 
 ## Metadata
-- generated_at: 2026-07-07 22:27:07 Asia/Taipei
+- generated_at: 2026-07-08 22:26:57 Asia/Taipei
 - stock_id: 2812
 - stock_name: 台中銀
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260707
-- price_rows: 299
+- latest_price_date: 20260708
+- price_rows: 300
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260707
-- open: 20.6
-- high: 20.8
-- low: 20.55
-- close: 20.65
-- volume: 15527585
-- ma5: 20.33
-- ema23_primary: 19.89
-- distance_to_ema23_pct: 3.82
-- ma20: 19.89
+- date: 20260708
+- open: 20.7
+- high: 20.75
+- low: 20.45
+- close: 20.6
+- volume: 7737126
+- ma5: 20.47
+- ema23_primary: 19.95
+- distance_to_ema23_pct: 3.26
+- ma20: 19.93
 - ma60: 19.66
 - ma120: 20.13
-- return_5d: 2.99
-- return_20d: 8.4
-- volume_ratio: 0.98
-- distance_to_ma20_pct_auxiliary: 3.82
-- distance_to_high_60_pct: -1.43
+- return_5d: 3.52
+- return_20d: 4.57
+- volume_ratio: 0.52
+- distance_to_ma20_pct_auxiliary: 3.34
+- distance_to_high_60_pct: -1.2
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260609,19.05,19.75,19.05,19.7,24967617,19.2,2.61,18.96,19.91,1.09
 20260610,19.6,19.65,19.3,19.4,18308641,19.22,0.96,18.96,19.89,0.82
 20260611,19.3,19.3,19.05,19.2,12756792,19.21,-0.07,18.97,19.86,0.62
 20260612,19.35,19.65,19.35,19.5,13229252,19.24,1.36,19,19.85,0.7
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260703,20.15,20.6,20.15,20.4,18851526,19.75,3.27,19.75,19.68,1.14
 20260706,20.5,20.7,20.4,20.55,10904000,19.82,3.68,19.81,19.67,0.68
 20260707,20.6,20.8,20.55,20.65,15527585,19.89,3.82,19.89,19.66,0.98
+20260708,20.7,20.75,20.45,20.6,7737126,19.95,3.26,19.93,19.66,0.52
 ```
 
 ## Latest TDCC Snapshot
@@ -188,12 +188,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260707 | 2812 | 台中銀 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260708 | 2812 | 台中銀 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260708 | 2812 | 台中銀 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260707 | 2812 | 台中銀 | 11 | 2 | 5 | 10 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260708 | 2812 | 台中銀 | 12 | 5 | 5 | 10 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

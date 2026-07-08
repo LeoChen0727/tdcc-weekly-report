@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6139 亞翔
 
 ## Metadata
-- generated_at: 2026-07-07 22:28:01 Asia/Taipei
+- generated_at: 2026-07-08 22:27:55 Asia/Taipei
 - stock_id: 6139
 - stock_name: 亞翔
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260707
-- price_rows: 299
+- latest_price_date: 20260708
+- price_rows: 300
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260707
-- open: 936
-- high: 948
-- low: 879
-- close: 883
-- volume: 4642597
-- ma5: 922.8
-- ema23_primary: 856.47
-- distance_to_ema23_pct: 3.1
-- ma20: 850.65
-- ma60: 766.52
-- ma120: 665.43
-- return_5d: -4.33
-- return_20d: 21.29
-- volume_ratio: 0.8
-- distance_to_ma20_pct_auxiliary: 3.8
-- distance_to_high_60_pct: -10.54
+- date: 20260708
+- open: 891
+- high: 905
+- low: 853
+- close: 866
+- volume: 3798181
+- ma5: 913.6
+- ema23_primary: 857.26
+- distance_to_ema23_pct: 1.02
+- ma20: 856.5
+- ma60: 770.78
+- ma120: 667.69
+- return_5d: -5.04
+- return_20d: 15.62
+- volume_ratio: 0.66
+- distance_to_ma20_pct_auxiliary: 1.11
+- distance_to_high_60_pct: -12.26
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260609,734,750,711,749,5223929,753.96,-0.66,763.2,677.33,0.89
 20260610,737,797,733,737,6037370,752.55,-2.07,765.75,680.88,1.03
 20260611,744,767,708,732,4400096,750.84,-2.51,766.35,683.58,0.77
 20260612,768,805,768,805,5822279,755.35,6.57,771.95,687.33,1.02
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260703,929,987,928,948,6409356,846.97,11.93,836.7,756.95,1.05
 20260706,960,960,928,932,3646000,854.06,9.13,842.9,762.4,0.63
 20260707,936,948,879,883,4642597,856.47,3.1,850.65,766.52,0.8
+20260708,891,905,853,866,3798181,857.26,1.02,856.5,770.78,0.66
 ```
 
 ## Latest TDCC Snapshot
@@ -188,17 +188,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260707 | 6139 | 亞翔 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260708 | 6139 | 亞翔 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260708 | 6139 | 亞翔 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260707 | 6139 | 亞翔 | 3 | 1 | 3 | 7 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260708 | 6139 | 亞翔 | 4 | 3 | 4 | 7 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260707 | 6139 | 亞翔 | 208 | 0 | 24526890.0 | 0.0 |  | no_signal |
+| 20260708 | 6139 | 亞翔 | 208 | 2 | 29376450.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

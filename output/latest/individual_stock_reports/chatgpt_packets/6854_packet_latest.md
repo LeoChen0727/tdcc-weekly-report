@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6854 錼創科技-KY創
 
 ## Metadata
-- generated_at: 2026-07-07 22:28:24 Asia/Taipei
+- generated_at: 2026-07-08 22:28:21 Asia/Taipei
 - stock_id: 6854
 - stock_name: 錼創科技-KY創
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260707
-- price_rows: 299
+- latest_price_date: 20260708
+- price_rows: 300
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260707
-- open: 121.5
-- high: 123
-- low: 117
-- close: 118.5
-- volume: 380832
-- ma5: 120.7
-- ema23_primary: 128.88
-- distance_to_ema23_pct: -8.06
-- ma20: 126.62
-- ma60: 145.97
-- ma120: 138.9
-- return_5d: -4.44
-- return_20d: -11.57
-- volume_ratio: 1.11
-- distance_to_ma20_pct_auxiliary: -6.42
-- distance_to_high_60_pct: -40
+- date: 20260708
+- open: 120
+- high: 120
+- low: 114.5
+- close: 118
+- volume: 293133
+- ma5: 120.3
+- ema23_primary: 127.98
+- distance_to_ema23_pct: -7.8
+- ma20: 125.7
+- ma60: 145.47
+- ma120: 138.8
+- return_5d: -1.67
+- return_20d: -13.55
+- volume_ratio: 0.86
+- distance_to_ma20_pct_auxiliary: -6.13
+- distance_to_high_60_pct: -40.25
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260609,134.5,138.5,134.5,136.5,371288,148.3,-7.96,149.6,150.99,0.44
 20260610,137,137,128,128,656907,146.61,-12.69,148.78,150.73,0.77
 20260611,127.5,130.5,124,130.5,342787,145.27,-10.17,147.95,150.59,0.41
 20260612,134.5,138,132.5,133,194062,144.24,-7.8,147.18,150.5,0.24
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260703,119,123.5,118,123,113262,130.58,-5.81,128.32,146.59,0.31
 20260706,124,124.5,121.5,121.5,220000,129.83,-6.41,127.4,146.29,0.62
 20260707,121.5,123,117,118.5,380832,128.88,-8.06,126.62,145.97,1.11
+20260708,120,120,114.5,118,293133,127.98,-7.8,125.7,145.47,0.86
 ```
 
 ## Latest TDCC Snapshot

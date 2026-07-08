@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009805 新光美國電力基建
 
 ## Metadata
-- generated_at: 2026-07-07 22:26:28 Asia/Taipei
+- generated_at: 2026-07-08 22:26:12 Asia/Taipei
 - stock_id: 009805
 - stock_name: 新光美國電力基建
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260707
-- price_rows: 32
+- latest_price_date: 20260708
+- price_rows: 33
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260707
-- open: 16.98
-- high: 16.98
-- low: 16.8
-- close: 16.81
-- volume: 6222766
-- ma5: 16.94
-- ema23_primary: 16.77
-- distance_to_ema23_pct: 0.26
-- ma20: 16.67
-- ma60: 16.66
-- ma120: 16.66
-- return_5d: -1.41
-- return_20d: 3.38
-- volume_ratio: 0.66
-- distance_to_ma20_pct_auxiliary: 0.84
-- distance_to_high_60_pct: -3.56
+- date: 20260708
+- open: 16.69
+- high: 16.7
+- low: 16.53
+- close: 16.54
+- volume: 5916740
+- ma5: 16.78
+- ema23_primary: 16.75
+- distance_to_ema23_pct: -1.24
+- ma20: 16.69
+- ma60: 16.65
+- ma120: 16.65
+- return_5d: -4.61
+- return_20d: 2.16
+- volume_ratio: 0.64
+- distance_to_ma20_pct_auxiliary: -0.89
+- distance_to_high_60_pct: -5.11
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260609,16.18,16.19,16.03,16.19,10404256,16.54,-2.11,16.6,16.6,0.76
 20260610,16.05,16.05,15.91,15.93,13540063,16.49,-3.39,16.55,16.55,0.99
 20260611,15.51,15.73,15.48,15.73,15240217,16.43,-4.23,16.49,16.49,1.11
 20260612,16,16.03,15.88,15.94,6323252,16.38,-2.71,16.46,16.46,0.47
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260703,16.71,16.83,16.69,16.82,6549480,16.76,0.36,16.63,16.65,0.66
 20260706,16.82,16.84,16.78,16.8,5768000,16.76,0.22,16.64,16.65,0.59
 20260707,16.98,16.98,16.8,16.81,6222766,16.77,0.26,16.67,16.66,0.66
+20260708,16.69,16.7,16.53,16.54,5916740,16.75,-1.24,16.69,16.65,0.64
 ```
 
 ## Latest TDCC Snapshot

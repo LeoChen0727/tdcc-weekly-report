@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5299 杰力
 
 ## Metadata
-- generated_at: 2026-07-07 22:27:51 Asia/Taipei
+- generated_at: 2026-07-08 22:27:45 Asia/Taipei
 - stock_id: 5299
 - stock_name: 杰力
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260707
-- price_rows: 164
+- latest_price_date: 20260708
+- price_rows: 165
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 - acceptable_risk_reward
@@ -111,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260707
-- open: 139
-- high: 139
-- low: 127.5
-- close: 127.5
-- volume: 3271000
-- ma5: 131.6
-- ema23_primary: 120.63
-- distance_to_ema23_pct: 5.7
-- ma20: 118.88
-- ma60: 104.94
-- ma120: 90.16
-- return_5d: 3.66
-- return_20d: 26.87
-- volume_ratio: 2.19
-- distance_to_ma20_pct_auxiliary: 7.26
-- distance_to_high_60_pct: -9.89
+- date: 20260708
+- open: 126.5
+- high: 126.5
+- low: 120.5
+- close: 123.5
+- volume: 1065000
+- ma5: 131.5
+- ema23_primary: 120.87
+- distance_to_ema23_pct: 2.18
+- ma20: 120
+- ma60: 105.65
+- ma120: 90.6
+- return_5d: -0.4
+- return_20d: 22.28
+- volume_ratio: 0.7
+- distance_to_ma20_pct_auxiliary: 2.92
+- distance_to_high_60_pct: -12.72
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260609,101.5,103,99.6,101,449000,105.62,-4.38,108.67,91.6,0.99
 20260610,101.5,106,100,100,475000,105.15,-4.9,108.7,91.97,1.05
 20260611,100.5,102,98.3,100.5,347000,104.77,-4.07,108.55,92.35,0.8
 20260612,103.5,106.5,103.5,105.5,348000,104.83,0.64,108.86,92.82,0.88
@@ -153,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260703,134.5,140,128,129,3036000,118.05,9.28,115.95,103.12,2.52
 20260706,137.5,141.5,137,141.5,3086000,120,17.91,117.53,104.14,2.28
 20260707,139,139,127.5,127.5,3271000,120.63,5.7,118.88,104.94,2.19
+20260708,126.5,126.5,120.5,123.5,1065000,120.87,2.18,120,105.65,0.7
 ```
 
 ## Latest TDCC Snapshot
@@ -187,12 +188,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260707 | 5299 | 杰力 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260708 | 5299 | 杰力 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260707 | 5299 | 杰力 | 4 | 1 | 4 | 7 | 8 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260708 | 5299 | 杰力 | 5 | 2 | 5 | 7 | 9 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7284 印能凱基5A售04
 
 ## Metadata
-- generated_at: 2026-07-07 22:28:31 Asia/Taipei
+- generated_at: 2026-07-08 22:28:29 Asia/Taipei
 - stock_id: 7284
 - stock_name: 印能凱基5A售04
 - packet_status: partial_rawdata_packet

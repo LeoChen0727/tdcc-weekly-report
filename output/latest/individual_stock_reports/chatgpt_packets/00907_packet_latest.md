@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00907 永豐優息存股
 
 ## Metadata
-- generated_at: 2026-07-07 22:26:26 Asia/Taipei
+- generated_at: 2026-07-08 22:26:10 Asia/Taipei
 - stock_id: 00907
 - stock_name: 永豐優息存股
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260707
-- price_rows: 32
+- latest_price_date: 20260708
+- price_rows: 33
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260707
-- open: 16.5
-- high: 16.57
-- low: 16.42
-- close: 16.44
-- volume: 1383262
-- ma5: 16.31
-- ema23_primary: 16.17
-- distance_to_ema23_pct: 1.69
-- ma20: 16.33
-- ma60: 16.03
-- ma120: 16.03
-- return_5d: 1.42
-- return_20d: 4.51
-- volume_ratio: 0.85
-- distance_to_ma20_pct_auxiliary: 0.66
-- distance_to_high_60_pct: -1.67
+- date: 20260708
+- open: 16.55
+- high: 16.62
+- low: 16.41
+- close: 16.45
+- volume: 1085733
+- ma5: 16.38
+- ema23_primary: 16.19
+- distance_to_ema23_pct: 1.6
+- ma20: 16.34
+- ma60: 16.05
+- ma120: 16.05
+- return_5d: 2.11
+- return_20d: 1.36
+- volume_ratio: 0.69
+- distance_to_ma20_pct_auxiliary: 0.65
+- distance_to_high_60_pct: -1.61
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260609,15.74,16.27,15.74,16.23,2337352,15.47,4.94,15.59,15.59,0.77
 20260610,16.18,16.2,16.08,16.16,1280326,15.52,4.1,15.63,15.63,0.44
 20260611,16.14,16.16,15.95,16.15,1377981,15.58,3.69,15.66,15.66,0.49
 20260612,16.29,16.42,16.22,16.25,1721082,15.63,3.95,15.7,15.7,0.63
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260703,16.2,16.43,16.2,16.33,1329790,16.11,1.37,16.29,16,0.79
 20260706,16.33,16.56,16.33,16.5,1993000,16.14,2.21,16.3,16.02,1.21
 20260707,16.5,16.57,16.42,16.44,1383262,16.17,1.69,16.33,16.03,0.85
+20260708,16.55,16.62,16.41,16.45,1085733,16.19,1.6,16.34,16.05,0.69
 ```
 
 ## Latest TDCC Snapshot

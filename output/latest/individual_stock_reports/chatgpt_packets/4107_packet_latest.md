@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4107 邦特
 
 ## Metadata
-- generated_at: 2026-07-07 22:27:34 Asia/Taipei
+- generated_at: 2026-07-08 22:27:26 Asia/Taipei
 - stock_id: 4107
 - stock_name: 邦特
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260707
-- price_rows: 164
+- latest_price_date: 20260708
+- price_rows: 165
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,21 +113,21 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260707
+- date: 20260708
 - open: 117.5
 - high: 117.5
-- low: 115.5
+- low: 116
 - close: 117
-- volume: 104000
-- ma5: 116.1
-- ema23_primary: 116.09
-- distance_to_ema23_pct: 0.78
+- volume: 72000
+- ma5: 116.7
+- ema23_primary: 116.17
+- distance_to_ema23_pct: 0.72
 - ma20: 116.17
-- ma60: 116.78
-- ma120: 118.55
-- return_5d: 1.74
-- return_20d: 1.74
-- volume_ratio: 1.35
+- ma60: 116.72
+- ma120: 118.51
+- return_5d: 2.63
+- return_20d: 0
+- volume_ratio: 0.92
 - distance_to_ma20_pct_auxiliary: 0.71
 - distance_to_high_60_pct: -3.7
 
@@ -135,7 +135,6 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260609,115.5,117,115.5,117,48000,116.06,0.81,116.08,117.57,0.49
 20260610,117,117,115.5,115.5,81000,116.01,-0.44,115.88,117.51,0.82
 20260611,116.5,117,116,117,46000,116.09,0.78,115.8,117.45,0.47
 20260612,117,118,117,118,71000,116.25,1.5,115.78,117.41,0.72
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260703,115.5,116.5,115.5,116.5,115000,115.87,0.54,116.03,116.92,1.5
 20260706,117.5,118,116.5,117.5,90000,116.01,1.29,116.08,116.88,1.2
 20260707,117.5,117.5,115.5,117,104000,116.09,0.78,116.17,116.78,1.35
+20260708,117.5,117.5,116,117,72000,116.17,0.72,116.17,116.72,0.92
 ```
 
 ## Latest TDCC Snapshot

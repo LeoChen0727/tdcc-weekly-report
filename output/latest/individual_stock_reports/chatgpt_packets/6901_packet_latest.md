@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6901 鑽石投資
 
 ## Metadata
-- generated_at: 2026-07-07 22:28:26 Asia/Taipei
+- generated_at: 2026-07-08 22:28:23 Asia/Taipei
 - stock_id: 6901
 - stock_name: 鑽石投資
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260707
-- price_rows: 299
+- latest_price_date: 20260708
+- price_rows: 300
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -56,25 +56,25 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
-- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
+- action_rating_display_zh: 停利
+- model_category_display_zh: 嚴格突破
+- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前以風險管理為主，不適合新買第一筆。
+- action_summary_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。
+- entry_strategy_zh: 目前進入停利管理，不建議新買第一筆。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 轉弱警訊
+- risk_control_zh: TDCC 轉弱警訊、股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。 進場策略：目前進入停利管理，不建議新買第一筆。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊、股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
-- confidence_level: medium
-- thesis_state: unclear
+- action_rating: take_profit
+- action_rating_label_zh: 停利
+- confidence_level: low
+- thesis_state: high_level_distribution_risk
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -87,10 +87,11 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
+- decision_score_high
 - price_structure_not_broken
 - revenue_not_deteriorating
 - no_major_volume_price_failure
-- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -104,6 +105,7 @@
 
 ### downgrade_reason
 - tdcc_distribution_warning
+- price_too_extended
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -111,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260707
-- open: 18.9
-- high: 19.25
-- low: 18.45
-- close: 19.15
-- volume: 3603819
-- ma5: 18.67
-- ema23_primary: 17.19
-- distance_to_ema23_pct: 11.43
-- ma20: 17.38
-- ma60: 14.97
-- ma120: 15.44
-- return_5d: 1.86
-- return_20d: 21.97
-- volume_ratio: 0.68
-- distance_to_ma20_pct_auxiliary: 10.18
-- distance_to_high_60_pct: -7.04
+- date: 20260708
+- open: 21.05
+- high: 21.05
+- low: 20.35
+- close: 21.05
+- volume: 17031772
+- ma5: 19.19
+- ema23_primary: 17.51
+- distance_to_ema23_pct: 20.23
+- ma20: 17.63
+- ma60: 15.1
+- ma120: 15.49
+- return_5d: 14.09
+- return_20d: 31.56
+- volume_ratio: 3.12
+- distance_to_ma20_pct_auxiliary: 19.38
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260609,15.85,17.25,15.55,16,14410314,13.96,14.58,13.8,13.91,4.49
 20260610,15.7,16.75,15.6,16.1,5087805,14.14,13.84,13.87,13.93,1.63
 20260611,16.5,16.5,15.4,16.05,3033611,14.3,12.23,13.96,13.96,1
 20260612,16.15,16.8,16,16.2,2894922,14.46,12.04,14.07,13.98,0.93
@@ -153,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260703,18.15,19.5,18.05,18.9,6163355,16.84,12.27,16.98,14.8,1.18
 20260706,19.6,20.55,18.8,18.9,7314000,17.01,11.13,17.21,14.88,1.32
 20260707,18.9,19.25,18.45,19.15,3603819,17.19,11.43,17.38,14.97,0.68
+20260708,21.05,21.05,20.35,21.05,17031772,17.51,20.23,17.63,15.1,3.12
 ```
 
 ## Latest TDCC Snapshot
@@ -187,12 +189,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260707 | 6901 | 鑽石投資 | pattern | 型態觀察 | 46.0 |  |  | base_building |  |  | stale_signal | 1.董事會決議日:115/07/03 2.許可從事競業行為之經理人姓名及職稱:路孔明總經理 3.許可從事競業行為之項目:  (1)鑽石高新投資股份有限公司董事長  (2)鑽石一號投資股份有限公司董事長  (3)精英投資股份有限公司董事長  (4)新耀生技投資股份有限公司董事長  (5)中天(上海)生物科技有限公司董事  (6)中天(香港)生物科技有限公司董事  (7)Megabio Inc., (HK) Limited法人董事代表人  (8)Microbio Pharmaceutical Co., Ltd. 董事  (9)Oneness (USA) Biotech Inc. 董事長  (10)永笙生技股份有限公司副董事長及執行長  (11)台灣永生細胞股份有限公司董事長及總經理 4.許可從事競業行為之期間:任職於本公司經理人期間。 5.決議情形（請依公司法第32條說明表決結果）:   全體出席董事同意照案通過。 6.所許可之競業行為如屬大陸地區事業之營業者，經理人姓名及職稱 （非屬大陸地區事業之營業者，以下請輸〝不適用〞）:路孔明總經理 7.所擔任該大陸地區事業之公司名稱及職務:中天(上海)生物科技有限公司董事 8.所擔任該大陸地區事業地址:上海市松江區光星路1188號 9.所擔任該大陸地區事業營業項目:  藥品生產、藥品委託生產、藥品批發、醫藥、食品、健康科技領域內的技術  開發、技術轉讓、技術諮詢、技術服務等 10.對本公司財務業務之影響程度:無 11.經理人如有對該大陸地區事業從事投資者，其投資金額及持股比例:   (1)投資金額：570.5萬美元   (2)持股比例：10.88% 12.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260708 | 6901 | 鑽石投資 | true_breakout | 嚴格突破 | 101.0 |  |  | breakout_confirmed |  |  | continued_overheated | 1.事實發生日:115/07/07 2.公司名稱:鑽石生技投資股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:   依據臺灣證券交易所股份有限公司112年6月29日臺證上一字第1121802934號   函規定，本公司股票初次上市時出具之承諾事項如下：   (一)於公開說明書特別記載事項乙節中揭露以下事項：       1.最近三年度與截至最近期業績變化之合理性。       2.與投資標的合一生技股份有限公司相互持股之緣由、適法性、合理性、營運         風險及因應措施。   (二)為降低相互持股對損益造成之影響，不再增加持有合一生技股份有限公司股份，       並於113年12月31日前處分所持合一生技股份有限公司所有股份。   (三)內部人及前十大股東承諾延長股票集中保管期間，上市屆滿2年後，每屆滿6個月       可領回四分之一，滿4年後始得全數領回。前述人員於上市後至集保期間屆滿前，       因盈餘轉增資或其他原因(如執行員工認股權及員工分紅等)而取得之股份，應       提交集中保管，並於最後一次領回日始得領回。   (四)上市後增設「提名委員會」，並於113年股東常會增選獨立董事達全體董事席次       三分之二以上。   (五)公開說明書應加強揭露下列事項：       1.生技創投公司的特性與投資風險(包括但不限於其投資標的所包括之未上市櫃         或非公開發行公司之公允價值欠缺透明度；其投資標的組合可能產生重大變動         等)。       2.公司未來投資標的之方針、策略、範圍、地區、決策過程及行使表決權之處理         原則及方法等。       3.封面載明「本公司業務性質為創業投資公司型態且以生技產業為主要投資標的         ，生技產業開發時程長，投入經費高且未保證一定能成功，請投資人特別注意         且詳細閱讀本公司公開說明書內容並審慎投資。」。       4.產業、營運及其他重要風險乙節載明「...本公司主要投資標的為生技類股，         其股價及公允價值受研發成果之影響甚大，因而產生較鉅幅之波動。因此若         公允價值下跌可能導致本公司營業收入為負數…」。   (六)經董事會通過修訂本公司「取得或處分資產處理程序」、「投資業務作業辦法」       及「投資業務風險控管辦法」之下列投資業務相關規範，「取得或處分資產處理       程序」並應提報最近一次股東會通過：       1.董事長核決權限由新台幣5億元調降為3億元，凡取得或處分投資之交易金額         超過3億元者，均須經投資審議委員會、審計委員會及董事會通過後始得為之。         前述金額應採累積計算，且母公司與子公司(若有)合併計算。       2.訂定明確投資標的退場機制：         (1)通知評估：就上市及上櫃投資標的之未實現獲利達原始投資成本3倍或未實            現損失達原始投資成本30%者，投資部發出通知或預警並擬訂持有或處分評            估方案，若評估為處分退場，即依核決權限執行(預估獲利金額且交易金額            在新台幣三億元(含)以下由董事長核定；預估獲利金額或交易金額在新台幣            三億元以上，須經投資審議委員會、審計委員會及董事會通過後始得為之)            ；若評估為繼續持有，應提報投資審議委員會同意。         (2)強制退場：若未實現獲利達原始投資成本5倍或未實現損失達原始投資成本            50%強制退場條件，投資部發出通知或預警並擬訂處分退場方案，依核決            權限執行 (同上段所述)。若決議不處分退場，應將例外管理方案提報投資            審議委員會、審計委員會、董事會決議執行，並定期於董事會報告執行情            形。   (七)上市後辦理資訊揭露如下：       1.每日於官網公告屬上市/櫃及興櫃股票之投資標的公允價值。       2.每月於官網及以重大訊息公告「所有投資標的」股數變動及公允價值變動、         本公司每股淨值、現金及約當現金餘額。       3.按季舉辦法人說明會，向投資人說明財務業務狀況及營收認列特性。       4.若公司連續3個月營業收入呈現負數，應發布重大訊息提醒投資人注意。 6.因應措施:   (一)相關內容均已於112年9月刊印之「現金增資發行新股辦理上市前公開承銷暨股票       初次上市用」公開說明書中作適當揭露，請詳公開資訊觀測站。   (二)已於113年10月25日完成處分所持合一生技股份有限公司所有股份。   (三)內部人及前十大股東已依規定延長股票集中保管期間，上市屆滿2年後，每屆滿       6個月可領回四分之一，滿4年後始得全數領回。前述人員因員工認股權而取得       之股份，亦已提交集中保管，並於最後一次領回日始得領回。   (四)已於112年10月13日董事會通過增設「提名委員會」，並於113年5月21日股東       常會全面改選第6屆董事，改選後獨立董事達全體董事席次三分之二以上，已於       113年8月1日就任。   (五)相關內容均已於112年9月刊印之「現金增資發行新股辦理上市前公開承銷暨股票       初次上市用」公開說明書中作適當揭露，請詳公開資訊觀測站。   (六)已於112年7月20日董事會通過修訂投資業務相關規範。另「取得或處分資產處理       程序」已提報113年5月21日股東常會通過。   (七)資訊揭露辦理情形如下：       1.已於112年9月1日起每日於官網公告屬上市/櫃及興櫃股票之投資標的公允         價值。       2.已每月於官網及以重大訊息公告「所有投資標的」股數變動及公允價值變動、         本公司每股淨值、現金及約當現金餘額。       3.已自112年第四季起按季舉辦法人說明會，向投資人說明財務業務狀況及營收         認列特性。       4.若連續3個月營業收入呈現負數，將發布重大訊息提醒投資人注意。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):    無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260707 | 6901 | 鑽石投資 | 4 | 1 | 4 | 6 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260708 | 6901 | 鑽石投資 | 5 | 1 | 5 | 7 | 15 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

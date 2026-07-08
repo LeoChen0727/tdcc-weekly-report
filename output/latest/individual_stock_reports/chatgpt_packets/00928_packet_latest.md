@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00928 中信上櫃ESG 30
 
 ## Metadata
-- generated_at: 2026-07-07 22:26:27 Asia/Taipei
+- generated_at: 2026-07-08 22:26:11 Asia/Taipei
 - stock_id: 00928
 - stock_name: 中信上櫃ESG 30
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260707
-- price_rows: 32
+- latest_price_date: 20260708
+- price_rows: 33
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260707
-- open: 38.45
-- high: 39.35
-- low: 36.36
-- close: 36.49
-- volume: 4888000
-- ma5: 38.09
-- ema23_primary: 37.95
-- distance_to_ema23_pct: -3.85
-- ma20: 37.9
-- ma60: 38.15
-- ma120: 38.15
-- return_5d: -3.21
-- return_20d: 1.02
-- volume_ratio: 4.54
-- distance_to_ma20_pct_auxiliary: -3.73
-- distance_to_high_60_pct: -11.43
+- date: 20260708
+- open: 36.62
+- high: 37.66
+- low: 35.9
+- close: 36.48
+- volume: 2335000
+- ma5: 37.84
+- ema23_primary: 37.83
+- distance_to_ema23_pct: -3.56
+- ma20: 37.85
+- ma60: 38.1
+- ma120: 38.1
+- return_5d: -3.34
+- return_20d: -2.8
+- volume_ratio: 1.99
+- distance_to_ma20_pct_auxiliary: -3.62
+- distance_to_high_60_pct: -11.46
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260609,36.25,37.56,36.2,37.53,381000,37.82,-0.76,38.48,38.48,2.63
 20260610,37.5,37.74,35.41,35.45,1206000,37.62,-5.77,38.26,38.26,5.46
 20260611,35.25,36.18,34.2,35.42,668000,37.44,-5.38,38.07,38.07,2.67
 20260612,36.95,37.4,36.68,36.83,351000,37.39,-1.49,37.99,37.99,1.37
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260703,38.61,39.41,38,39.32,1671000,38.05,3.33,37.86,38.19,2.42
 20260706,40.42,40.54,38.19,38.44,3969000,38.08,0.93,37.88,38.2,4.47
 20260707,38.45,39.35,36.36,36.49,4888000,37.95,-3.85,37.9,38.15,4.54
+20260708,36.62,37.66,35.9,36.48,2335000,37.83,-3.56,37.85,38.1,1.99
 ```
 
 ## Latest TDCC Snapshot

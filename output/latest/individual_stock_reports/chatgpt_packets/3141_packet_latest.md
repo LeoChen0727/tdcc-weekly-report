@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3141 晶宏
 
 ## Metadata
-- generated_at: 2026-07-07 22:27:17 Asia/Taipei
+- generated_at: 2026-07-08 22:27:08 Asia/Taipei
 - stock_id: 3141
 - stock_name: 晶宏
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260707
-- price_rows: 164
+- latest_price_date: 20260708
+- price_rows: 165
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260707
-- open: 82
-- high: 82.1
-- low: 74.9
-- close: 75.1
-- volume: 4046000
-- ma5: 79.16
-- ema23_primary: 75.12
-- distance_to_ema23_pct: -0.02
-- ma20: 75.06
-- ma60: 65.23
-- ma120: 55.96
-- return_5d: -3.84
-- return_20d: 7.59
-- volume_ratio: 1.93
-- distance_to_ma20_pct_auxiliary: 0.06
-- distance_to_high_60_pct: -11.75
+- date: 20260708
+- open: 75.1
+- high: 75.6
+- low: 72.7
+- close: 74.7
+- volume: 1051000
+- ma5: 78.74
+- ema23_primary: 75.08
+- distance_to_ema23_pct: -0.51
+- ma20: 75.09
+- ma60: 65.78
+- ma120: 56.16
+- return_5d: -2.73
+- return_20d: 1.08
+- volume_ratio: 0.51
+- distance_to_ma20_pct_auxiliary: -0.53
+- distance_to_high_60_pct: -12.22
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260609,71.2,74.2,68.9,73.9,1507000,70.11,5.41,72.83,55.21,0.88
 20260610,76.3,78,73.2,73.5,3153000,70.39,4.42,73.31,55.69,2.34
 20260611,72.5,74.3,69,71.3,1453000,70.47,1.18,73.75,56.14,1.17
 20260612,75,75,71.5,71.5,831000,70.55,1.34,74.05,56.58,0.83
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260703,78,84.1,78,82.7,7499000,74.38,11.18,74.34,64.01,4.6
 20260706,84,85.1,81.3,83.2,6512000,75.12,10.76,74.79,64.69,3.33
 20260707,82,82.1,74.9,75.1,4046000,75.12,-0.02,75.06,65.23,1.93
+20260708,75.1,75.6,72.7,74.7,1051000,75.08,-0.51,75.09,65.78,0.51
 ```
 
 ## Latest TDCC Snapshot
@@ -189,12 +189,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260707 | 3141 | 晶宏 | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260708 | 3141 | 晶宏 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260707 | 3141 | 晶宏 | 6 | 1 | 5 | 7 | 8 | repeated_but_no_breakout | 近 10 日上榜 7 次、近 20 日上榜 8 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260708 | 3141 | 晶宏 | 7 | 2 | 5 | 7 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

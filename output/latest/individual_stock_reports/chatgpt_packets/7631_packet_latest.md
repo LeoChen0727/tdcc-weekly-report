@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7631 聚賢研發-創
 
 ## Metadata
-- generated_at: 2026-07-07 22:28:34 Asia/Taipei
+- generated_at: 2026-07-08 22:28:31 Asia/Taipei
 - stock_id: 7631
 - stock_name: 聚賢研發-創
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260707
-- price_rows: 287
+- latest_price_date: 20260708
+- price_rows: 288
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260707
-- open: 155
-- high: 159
-- low: 150
-- close: 154.5
-- volume: 98274
-- ma5: 157.1
-- ema23_primary: 146.65
-- distance_to_ema23_pct: 5.36
-- ma20: 145.22
-- ma60: 132.82
-- ma120: 126.85
-- return_5d: -3.44
-- return_20d: 25.1
-- volume_ratio: 0.41
-- distance_to_ma20_pct_auxiliary: 6.39
-- distance_to_high_60_pct: -13.45
+- date: 20260708
+- open: 150
+- high: 154
+- low: 144.5
+- close: 153.5
+- volume: 103217
+- ma5: 155.9
+- ema23_primary: 147.22
+- distance_to_ema23_pct: 4.27
+- ma20: 146.72
+- ma60: 133.53
+- ma120: 127.07
+- return_5d: -3.76
+- return_20d: 24.29
+- volume_ratio: 0.42
+- distance_to_ma20_pct_auxiliary: 4.62
+- distance_to_high_60_pct: -14.01
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260609,123.5,125.5,123,123.5,12489,125.14,-1.31,124.95,122.8,0.38
 20260610,129.5,132.5,125.5,126.5,121460,125.26,0.99,124.9,122.91,3.86
 20260611,127,131.5,124,127,73254,125.4,1.27,124.95,123.07,2.18
 20260612,128,128,124.5,125,36129,125.37,-0.29,125.05,123.17,1.11
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260703,155,161.5,154.5,160.5,115798,145.15,10.57,142.28,131.36,0.51
 20260706,162.5,162.5,153.5,154.5,179000,145.93,5.87,143.68,132.08,0.76
 20260707,155,159,150,154.5,98274,146.65,5.36,145.22,132.82,0.41
+20260708,150,154,144.5,153.5,103217,147.22,4.27,146.72,133.53,0.42
 ```
 
 ## Latest TDCC Snapshot

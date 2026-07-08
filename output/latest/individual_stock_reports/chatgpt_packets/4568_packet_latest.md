@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4568 科際精密
 
 ## Metadata
-- generated_at: 2026-07-07 22:27:41 Asia/Taipei
+- generated_at: 2026-07-08 22:27:34 Asia/Taipei
 - stock_id: 4568
 - stock_name: 科際精密
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260707
-- price_rows: 144
+- latest_price_date: 20260708
+- price_rows: 145
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260707
-- open: 41.5
-- high: 41.8
-- low: 41.3
-- close: 41.8
-- volume: 13000
-- ma5: 41.55
-- ema23_primary: 41.27
-- distance_to_ema23_pct: 1.27
-- ma20: 41.1
-- ma60: 41.19
+- date: 20260708
+- open: 41
+- high: 41.35
+- low: 40.8
+- close: 41.35
+- volume: 14000
+- ma5: 41.51
+- ema23_primary: 41.28
+- distance_to_ema23_pct: 0.17
+- ma20: 41.15
+- ma60: 41.18
 - ma120: 41.73
-- return_5d: 0.48
-- return_20d: -0.12
-- volume_ratio: 0.8
-- distance_to_ma20_pct_auxiliary: 1.69
-- distance_to_high_60_pct: -4.35
+- return_5d: -0.48
+- return_20d: 2.1
+- volume_ratio: 1
+- distance_to_ma20_pct_auxiliary: 0.49
+- distance_to_high_60_pct: -5.38
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260609,41,41,40,40.5,58000,41.09,-1.43,40.72,41.49,2
 20260610,40.6,41.15,40.3,40.3,41000,41.02,-1.76,40.73,41.46,1.36
 20260611,40.1,40.1,40.1,40.1,1000,40.95,-2.06,40.72,41.45,0.04
 20260612,40.55,40.7,40.5,40.6,6000,40.92,-0.77,40.74,41.42,0.22
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260703,41.8,41.8,41.2,41.2,3000,41.22,-0.06,41.14,41.21,0.17
 20260706,41.25,41.4,41.25,41.25,7000,41.23,0.06,41.11,41.2,0.44
 20260707,41.5,41.8,41.3,41.8,13000,41.27,1.27,41.1,41.19,0.8
+20260708,41,41.35,40.8,41.35,14000,41.28,0.17,41.15,41.18,1
 ```
 
 ## Latest TDCC Snapshot

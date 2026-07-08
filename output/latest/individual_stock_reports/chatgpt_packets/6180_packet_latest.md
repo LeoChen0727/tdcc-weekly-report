@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6180 橘子
 
 ## Metadata
-- generated_at: 2026-07-07 22:28:03 Asia/Taipei
+- generated_at: 2026-07-08 22:27:58 Asia/Taipei
 - stock_id: 6180
 - stock_name: 橘子
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260707
-- price_rows: 164
+- latest_price_date: 20260708
+- price_rows: 165
 - latest_tdcc_date: 20260703
 - tdcc_rows: 32
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260707
-- open: 48.4
-- high: 48.7
-- low: 46.75
-- close: 46.75
-- volume: 1194000
-- ma5: 48.39
-- ema23_primary: 47.2
-- distance_to_ema23_pct: -0.95
-- ma20: 48.07
-- ma60: 42.98
-- ma120: 45.95
-- return_5d: -5.75
-- return_20d: 6.49
-- volume_ratio: 0.47
-- distance_to_ma20_pct_auxiliary: -2.75
-- distance_to_high_60_pct: -10.95
+- date: 20260708
+- open: 46.75
+- high: 47.15
+- low: 46.3
+- close: 46.4
+- volume: 529000
+- ma5: 47.91
+- ema23_primary: 47.13
+- distance_to_ema23_pct: -1.55
+- ma20: 48.25
+- ma60: 43.06
+- ma120: 45.9
+- return_5d: -4.92
+- return_20d: 8.41
+- volume_ratio: 0.21
+- distance_to_ma20_pct_auxiliary: -3.84
+- distance_to_high_60_pct: -11.62
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260609,43,43.55,42.4,42.8,923000,41.42,3.34,40.71,41.43,3.83
 20260610,42.55,47.05,42.25,47.05,2456000,41.89,12.33,41.11,41.5,7.04
 20260611,49,51,45,45.25,4911000,42.17,7.31,41.43,41.52,8.62
 20260612,45.25,46.35,44.05,44.6,1465000,42.37,5.26,41.74,41.53,2.34
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260703,49,49.9,49,49.2,1126000,47.13,4.39,47.7,42.81,0.46
 20260706,49.2,50.4,48.4,48.4,1068000,47.24,2.46,47.93,42.9,0.42
 20260707,48.4,48.7,46.75,46.75,1194000,47.2,-0.95,48.07,42.98,0.47
+20260708,46.75,47.15,46.3,46.4,529000,47.13,-1.55,48.25,43.06,0.21
 ```
 
 ## Latest TDCC Snapshot
@@ -189,14 +189,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260707 | 6180 | 橘子 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.原預定買回股份總金額上限(元):2,302,390,584 2.原預定買回之期間:115/05/06~115/07/05 3.原預定買回之數量(股):2,500,000 4.原預定買回區間價格(元):26.70~62.80 5.本次實際買回期間:115/05/07~115/07/03 6.本次已買回股份數量(股):2,500,000 7.本次已買回股份總金額(元):110,469,428 8.本次平均每股買回價格(元):44.19 9.累積已持有自己公司股份數量(股):4,000,000 10.累積已持有自己公司股份數量占公司已發行股份總數之比率(%):2.28 11.本次未執行完畢之原因:  12.其他應敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260707 | 6180 | 橘子 | 3 | 3 | 3 | 7 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

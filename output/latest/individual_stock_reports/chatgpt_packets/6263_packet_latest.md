@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6263 普萊德
 
 ## Metadata
-- generated_at: 2026-07-07 22:28:08 Asia/Taipei
+- generated_at: 2026-07-08 22:28:03 Asia/Taipei
 - stock_id: 6263
 - stock_name: 普萊德
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260707
-- price_rows: 164
+- latest_price_date: 20260708
+- price_rows: 165
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260707
-- open: 173.5
-- high: 175
-- low: 169
-- close: 171
-- volume: 728000
-- ma5: 165.1
-- ema23_primary: 164.91
-- distance_to_ema23_pct: 3.69
-- ma20: 162.93
-- ma60: 160.22
-- ma120: 142.42
-- return_5d: 4.91
-- return_20d: 12.87
-- volume_ratio: 1.48
-- distance_to_ma20_pct_auxiliary: 4.96
-- distance_to_high_60_pct: -12.31
+- date: 20260708
+- open: 172
+- high: 172
+- low: 165.5
+- close: 169
+- volume: 394000
+- ma5: 167.2
+- ema23_primary: 165.25
+- distance_to_ema23_pct: 2.27
+- ma20: 163.28
+- ma60: 160.84
+- ma120: 142.78
+- return_5d: 6.62
+- return_20d: 4.32
+- volume_ratio: 0.83
+- distance_to_ma20_pct_auxiliary: 3.51
+- distance_to_high_60_pct: -13.33
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260609,152.5,163,147.5,162,765000,168.64,-3.94,176.12,147.99,1.42
 20260610,161,169,159,162,857000,168.09,-3.62,174.8,148.63,2.52
 20260611,161,161.5,156,156,367000,167.08,-6.63,173.5,149.17,1.28
 20260612,161.5,164.5,157,158.5,281000,166.37,-4.73,172.88,149.72,1.04
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260703,159,168,158.5,168,420000,164.03,2.42,161.88,158.81,0.9
 20260706,168,170,166,168,535000,164.36,2.21,161.95,159.49,1.1
 20260707,173.5,175,169,171,728000,164.91,3.69,162.93,160.22,1.48
+20260708,172,172,165.5,169,394000,165.25,2.27,163.28,160.84,0.83
 ```
 
 ## Latest TDCC Snapshot

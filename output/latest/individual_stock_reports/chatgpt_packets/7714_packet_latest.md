@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7714 創泓科技
 
 ## Metadata
-- generated_at: 2026-07-07 22:28:34 Asia/Taipei
+- generated_at: 2026-07-08 22:28:32 Asia/Taipei
 - stock_id: 7714
 - stock_name: 創泓科技
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260707
-- price_rows: 164
+- latest_price_date: 20260708
+- price_rows: 165
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260707
-- open: 153
-- high: 153
+- date: 20260708
+- open: 144
+- high: 157
 - low: 140
-- close: 143
-- volume: 344000
-- ma5: 149.7
-- ema23_primary: 137.66
-- distance_to_ema23_pct: 3.88
-- ma20: 135.9
-- ma60: 130.82
-- ma120: 138.73
-- return_5d: -5.61
-- return_20d: 0
-- volume_ratio: 1.59
-- distance_to_ma20_pct_auxiliary: 5.22
-- distance_to_high_60_pct: -12.54
+- close: 157
+- volume: 460000
+- ma5: 151.9
+- ema23_primary: 139.27
+- distance_to_ema23_pct: 12.73
+- ma20: 136.88
+- ma60: 131.32
+- ma120: 138.65
+- return_5d: 7.53
+- return_20d: 14.18
+- volume_ratio: 2.07
+- distance_to_ma20_pct_auxiliary: 14.7
+- distance_to_high_60_pct: -3.98
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260609,143,145,137,137.5,342000,128.52,6.99,125.95,129.47,2.19
 20260610,135,138.5,130.5,130.5,190000,128.68,1.41,126.08,129.38,1.16
 20260611,128.5,132,122.5,127,104000,128.54,-1.2,126.12,129.29,0.63
 20260612,129,131,128,129,61000,128.58,0.33,126.3,129.18,0.37
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260703,146.5,163.5,146.5,159.5,881000,135.92,17.35,135.35,130.18,3.67
 20260706,160,160,150.5,151,421000,137.18,10.08,135.9,130.56,1.65
 20260707,153,153,140,143,344000,137.66,3.88,135.9,130.82,1.59
+20260708,144,157,140,157,460000,139.27,12.73,136.88,131.32,2.07
 ```
 
 ## Latest TDCC Snapshot

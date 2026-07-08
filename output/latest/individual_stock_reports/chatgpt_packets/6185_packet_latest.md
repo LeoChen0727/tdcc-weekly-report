@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6185 幃翔
 
 ## Metadata
-- generated_at: 2026-07-07 22:28:03 Asia/Taipei
+- generated_at: 2026-07-08 22:27:58 Asia/Taipei
 - stock_id: 6185
 - stock_name: 幃翔
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260707
-- price_rows: 164
+- latest_price_date: 20260708
+- price_rows: 165
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260707
-- open: 14.6
-- high: 14.7
+- date: 20260708
+- open: 14.3
+- high: 14.35
 - low: 14.2
 - close: 14.3
-- volume: 276000
-- ma5: 14.46
-- ema23_primary: 14.32
-- distance_to_ema23_pct: -0.11
-- ma20: 14.32
-- ma60: 14.13
+- volume: 182000
+- ma5: 14.48
+- ema23_primary: 14.31
+- distance_to_ema23_pct: -0.1
+- ma20: 14.31
+- ma60: 14.14
 - ma120: 14.32
-- return_5d: 0
-- return_20d: 2.88
-- volume_ratio: 0.85
-- distance_to_ma20_pct_auxiliary: -0.14
+- return_5d: 0.7
+- return_20d: -1.72
+- volume_ratio: 0.58
+- distance_to_ma20_pct_auxiliary: -0.05
 - distance_to_high_60_pct: -4.35
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260609,14.15,14.6,13.9,14.55,450000,14.12,3.02,14.06,14.05,4.39
 20260610,14.6,14.6,14.2,14.2,344000,14.13,0.5,14.07,14.05,3.04
 20260611,14.2,14.3,13.95,14,238000,14.12,-0.84,14.08,14.05,2
 20260612,14.2,14.3,13.95,14,456000,14.11,-0.77,14.09,14.05,3.48
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260703,14.55,14.8,14.45,14.65,349000,14.3,2.48,14.29,14.12,1.15
 20260706,14.75,14.95,14.55,14.55,313000,14.32,1.63,14.3,14.13,0.98
 20260707,14.6,14.7,14.2,14.3,276000,14.32,-0.11,14.32,14.13,0.85
+20260708,14.3,14.35,14.2,14.3,182000,14.31,-0.1,14.31,14.14,0.58
 ```
 
 ## Latest TDCC Snapshot

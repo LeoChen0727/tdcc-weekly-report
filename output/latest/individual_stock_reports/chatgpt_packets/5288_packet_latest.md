@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5288 豐祥-KY
 
 ## Metadata
-- generated_at: 2026-07-07 22:27:51 Asia/Taipei
+- generated_at: 2026-07-08 22:27:44 Asia/Taipei
 - stock_id: 5288
 - stock_name: 豐祥-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260707
-- price_rows: 299
+- latest_price_date: 20260708
+- price_rows: 300
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260707
-- open: 187
-- high: 192
-- low: 184.5
-- close: 187
-- volume: 206993
-- ma5: 184
-- ema23_primary: 179
-- distance_to_ema23_pct: 4.47
-- ma20: 183.6
-- ma60: 168.22
-- ma120: 156.2
-- return_5d: 4.47
-- return_20d: 9.04
-- volume_ratio: 0.69
-- distance_to_ma20_pct_auxiliary: 1.85
-- distance_to_high_60_pct: -7.43
+- date: 20260708
+- open: 191
+- high: 192.5
+- low: 183
+- close: 186
+- volume: 110573
+- ma5: 185.5
+- ema23_primary: 179.59
+- distance_to_ema23_pct: 3.57
+- ma20: 184.1
+- ma60: 168.72
+- ma120: 156.52
+- return_5d: 4.2
+- return_20d: 5.68
+- volume_ratio: 0.4
+- distance_to_ma20_pct_auxiliary: 1.03
+- distance_to_high_60_pct: -7.92
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260609,172,179,172,176,540621,160.43,9.71,156.95,154.25,2.8
 20260610,177.5,187.5,177.5,184.5,1086638,162.43,13.58,158.28,154.99,4.57
 20260611,189,192,184,191,916780,164.81,15.89,160.2,155.88,3.38
 20260612,194.5,202,190,190.5,636765,166.96,14.1,162.25,156.78,2.16
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260703,181,187,181,185,84690,177.53,4.21,181.82,166.75,0.28
 20260706,186,189.5,184.5,186.5,88000,178.28,4.61,182.82,167.47,0.29
 20260707,187,192,184.5,187,206993,179,4.47,183.6,168.22,0.69
+20260708,191,192.5,183,186,110573,179.59,3.57,184.1,168.72,0.4
 ```
 
 ## Latest TDCC Snapshot
@@ -199,7 +199,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260707 | 5288 | 豐祥-KY | 3 | 0 | 19990.0 | 0.0 |  | no_signal |
+| 20260708 | 5288 | 豐祥-KY | 3 | 0 | 19500.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2368 金像電
 
 ## Metadata
-- generated_at: 2026-07-07 22:26:54 Asia/Taipei
+- generated_at: 2026-07-08 22:26:41 Asia/Taipei
 - stock_id: 2368
 - stock_name: 金像電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260707
-- price_rows: 299
+- latest_price_date: 20260708
+- price_rows: 300
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 營收成長股價回檔
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260707
-- open: 1220
-- high: 1220
-- low: 1130
-- close: 1135
-- volume: 5225357
-- ma5: 1224
-- ema23_primary: 1268.42
-- distance_to_ema23_pct: -10.52
-- ma20: 1289.5
-- ma60: 1311.17
-- ma120: 1054.56
-- return_5d: -5.42
-- return_20d: -16.54
-- volume_ratio: 0.86
-- distance_to_ma20_pct_auxiliary: -11.98
-- distance_to_high_60_pct: -28.16
+- date: 20260708
+- open: 1150
+- high: 1180
+- low: 1110
+- close: 1150
+- volume: 3923915
+- ma5: 1210
+- ema23_primary: 1258.55
+- distance_to_ema23_pct: -8.63
+- ma20: 1272.25
+- ma60: 1312.75
+- ma120: 1058.86
+- return_5d: -5.74
+- return_20d: -23.08
+- volume_ratio: 0.69
+- distance_to_ma20_pct_auxiliary: -9.61
+- distance_to_high_60_pct: -27.22
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260609,1410,1495,1350,1495,12023156,1341.55,11.44,1341.5,1206.32,1.83
 20260610,1500,1580,1415,1420,9767166,1348.09,5.33,1345,1214.4,1.48
 20260611,1415,1440,1285,1345,7917874,1347.83,-0.21,1340.75,1221.67,1.19
 20260612,1425,1450,1305,1320,6276215,1345.51,-1.9,1342.25,1228.38,0.95
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260703,1210,1305,1195,1305,5700146,1285.6,1.51,1305.25,1308.25,0.93
 20260706,1335,1335,1190,1225,5143000,1280.55,-4.34,1300.75,1310.42,0.84
 20260707,1220,1220,1130,1135,5225357,1268.42,-10.52,1289.5,1311.17,0.86
+20260708,1150,1180,1110,1150,3923915,1258.55,-8.63,1272.25,1312.75,0.69
 ```
 
 ## Latest TDCC Snapshot
@@ -186,19 +187,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260708 | 2368 | 金像電 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | put_inflow | stale_signal | 1.事實發生日:115/07/07 2.被背書保證之: (1)公司名稱:Gold Circuit Electronics (Thailand) Co.,Ltd. (2)與提供背書保證公司之關係: 本公司直接與間接持股100%之子公司 (3)背書保證之限額(仟元):26,178,417 (4)原背書保證之餘額(仟元):12,980,254 (5)本次新增背書保證之金額(仟元):2,643,550 (6)迄事實發生日止背書保證餘額(仟元):15,623,804 (7)被背書保證公司實際動支金額(仟元):6,221,761 (8)本次新增背書保證之原因: 本公司為新設立子公司融資之目的所為之背書保證 3.被背書保證公司提供擔保品之: (1)內容: 無 (2)價值(仟元):0 4.被背書保證公司最近期財務報表之: (1)資本(仟元):3,033,061 (2)累積盈虧金額(仟元):-534,314 5.解除背書保證責任之: (1)條件: 被背書保證公司之銀行融資額度到期且債務清償 (2)日期: 被背書保證公司之銀行融資額度到期且債務清償 6.背書保證之總限額(仟元): 52,356,834 7.迄事實發生日為止，背書保證餘額(仟元): 17,343,704 8.迄事實發生日為止，A提供背書保證餘額占公開發行公司最近期財務報表淨值之 比率: 49.69 9.迄事實發生日為止，背書保證、長期投資及資金貸與餘額合計數達該公開發行公 司最近期財務報表淨值之比率: 76.37 10.其他應敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260708 | 2368 | 金像電 | 5 | 5 | 5 | 9 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260707 | 2368 | 金像電 | 248 | 0 | 33592850.0 | 0.0 |  | no_signal |
+| 20260708 | 2368 | 金像電 | 251 | 20 | 33755040.0 | 5208340.0 | 6.48 | put_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

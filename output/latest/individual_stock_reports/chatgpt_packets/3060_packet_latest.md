@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3060 銘異
 
 ## Metadata
-- generated_at: 2026-07-07 22:27:15 Asia/Taipei
+- generated_at: 2026-07-08 22:27:06 Asia/Taipei
 - stock_id: 3060
 - stock_name: 銘異
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260707
-- price_rows: 299
+- latest_price_date: 20260708
+- price_rows: 300
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260707
-- open: 38.05
-- high: 38.3
-- low: 35.5
-- close: 36
-- volume: 5059607
-- ma5: 36.15
-- ema23_primary: 35.04
-- distance_to_ema23_pct: 2.75
-- ma20: 35.52
-- ma60: 31.18
-- ma120: 31.56
-- return_5d: -2.04
-- return_20d: 24.57
-- volume_ratio: 0.61
-- distance_to_ma20_pct_auxiliary: 1.37
-- distance_to_high_60_pct: -14.69
+- date: 20260708
+- open: 36.3
+- high: 36.7
+- low: 34.65
+- close: 35.8
+- volume: 3688538
+- ma5: 36.35
+- ema23_primary: 35.1
+- distance_to_ema23_pct: 2
+- ma20: 35.77
+- ma60: 31.29
+- ma120: 31.59
+- return_5d: 2.87
+- return_20d: 16.23
+- volume_ratio: 0.44
+- distance_to_ma20_pct_auxiliary: 0.1
+- distance_to_high_60_pct: -15.17
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260609,29.35,31.15,28.8,30.8,2824206,29.68,3.76,29.16,29.53,0.65
 20260610,29.9,31.45,29,29.15,2870959,29.64,-1.65,29.21,29.55,0.65
 20260611,29.6,29.95,28.25,29.15,1653867,29.6,-1.52,29.28,29.57,0.38
 20260612,30.35,31.7,30.15,31.15,2843707,29.73,4.78,29.49,29.61,0.64
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260703,35.75,37.15,35.45,35.55,3222648,34.69,2.48,34.81,30.93,0.4
 20260706,35.75,38.1,35.75,37.8,5660000,34.95,8.16,35.16,31.07,0.69
 20260707,38.05,38.3,35.5,36,5059607,35.04,2.75,35.52,31.18,0.61
+20260708,36.3,36.7,34.65,35.8,3688538,35.1,2,35.77,31.29,0.44
 ```
 
 ## Latest TDCC Snapshot
@@ -189,12 +189,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260707 | 3060 | 銘異 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.董事會決議日期:115/06/26 2.減資緣由:   為妥善運用資金及調整資本結構,辦理現金減資退還股款 3.減資金額:美金2,000,000元 4.消除股份:2,000,000股 5.減資比率:9.07% 6.減資後股本:美金20,056,508元 7.預定股東會日期:不適用 8.預計減資新股上市後之上市普通股股數:不適用 9.預計減資新股上市後之上市普通股股數占已發行普通股比率 （減資後上市普通股股數/減資後已發行普通股股數）:不適用 10.前二項預計減資後上巿普通股股數未達6000萬股且未達25%者， 請說明股權流通性偏低之因應措施:不適用 11.減資基準日:115/06/26 12.其他應敘明事項:無；calendar event: ex_dividend on 20260709; status=confirmed; proximity=within_3d |
+| 20260708 | 3060 | 銘異 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.董事會決議日期:115/06/26 2.減資緣由:   為妥善運用資金及調整資本結構,辦理現金減資退還股款 3.減資金額:美金2,000,000元 4.消除股份:2,000,000股 5.減資比率:9.07% 6.減資後股本:美金20,056,508元 7.預定股東會日期:不適用 8.預計減資新股上市後之上市普通股股數:不適用 9.預計減資新股上市後之上市普通股股數占已發行普通股比率 （減資後上市普通股股數/減資後已發行普通股股數）:不適用 10.前二項預計減資後上巿普通股股數未達6000萬股且未達25%者， 請說明股權流通性偏低之因應措施:不適用 11.減資基準日:115/06/26 12.其他應敘明事項:無；calendar event: ex_dividend on 20260709; status=confirmed; proximity=within_3d |
+| 20260708 | 3060 | 銘異 | revenue_pullback | 營收成長股價回檔 | 69.0 |  |  |  |  |  | stale_signal | 1.董事會決議日期:115/06/26 2.減資緣由:   為妥善運用資金及調整資本結構,辦理現金減資退還股款 3.減資金額:美金2,000,000元 4.消除股份:2,000,000股 5.減資比率:9.07% 6.減資後股本:美金20,056,508元 7.預定股東會日期:不適用 8.預計減資新股上市後之上市普通股股數:不適用 9.預計減資新股上市後之上市普通股股數占已發行普通股比率 （減資後上市普通股股數/減資後已發行普通股股數）:不適用 10.前二項預計減資後上巿普通股股數未達6000萬股且未達25%者， 請說明股權流通性偏低之因應措施:不適用 11.減資基準日:115/06/26 12.其他應敘明事項:無；calendar event: ex_dividend on 20260709; status=confirmed; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260707 | 3060 | 銘異 | 5 | 1 | 5 | 7 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260708 | 3060 | 銘異 | 6 | 4 | 5 | 7 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

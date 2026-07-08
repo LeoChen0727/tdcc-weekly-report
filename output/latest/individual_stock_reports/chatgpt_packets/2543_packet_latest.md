@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2543 皇昌
 
 ## Metadata
-- generated_at: 2026-07-07 22:27:03 Asia/Taipei
+- generated_at: 2026-07-08 22:26:51 Asia/Taipei
 - stock_id: 2543
 - stock_name: 皇昌
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260707
-- price_rows: 299
+- latest_price_date: 20260708
+- price_rows: 300
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260707
-- open: 39.35
-- high: 39.8
-- low: 38.3
-- close: 38.5
-- volume: 837983
-- ma5: 38.75
-- ema23_primary: 41.61
-- distance_to_ema23_pct: -7.46
-- ma20: 42.43
-- ma60: 45.12
-- ma120: 54.89
-- return_5d: -0.13
-- return_20d: -18.95
-- volume_ratio: 0.42
-- distance_to_ma20_pct_auxiliary: -9.26
-- distance_to_high_60_pct: -34.19
+- date: 20260708
+- open: 38.5
+- high: 38.8
+- low: 38.15
+- close: 38.7
+- volume: 440176
+- ma5: 38.83
+- ema23_primary: 41.36
+- distance_to_ema23_pct: -6.44
+- ma20: 41.92
+- ma60: 44.81
+- ma120: 54.66
+- return_5d: 1.04
+- return_20d: -20.86
+- volume_ratio: 0.24
+- distance_to_ma20_pct_auxiliary: -7.68
+- distance_to_high_60_pct: -33.85
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260609,48.1,49.85,47.75,48.9,3068790,45.77,6.84,43.63,51.91,0.74
 20260610,49.5,51.4,48.15,48.9,5928346,46.03,6.23,43.98,51.5,1.36
 20260611,49.45,49.5,46.25,46.8,2777238,46.1,1.53,44.33,51.05,0.66
 20260612,47.2,47.6,46.1,46.85,1702434,46.16,1.5,44.8,50.64,0.43
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260703,38.1,39.4,38.1,39.2,850665,42.11,-6.91,43.37,45.74,0.34
 20260706,40.2,40.35,39.15,39.45,789000,41.89,-5.82,42.88,45.44,0.36
 20260707,39.35,39.8,38.3,38.5,837983,41.61,-7.46,42.43,45.12,0.42
+20260708,38.5,38.8,38.15,38.7,440176,41.36,-6.44,41.92,44.81,0.24
 ```
 
 ## Latest TDCC Snapshot
@@ -198,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260707 | 2543 | 皇昌 | 21 | 0 | 230280.0 | 0.0 |  | no_signal |
+| 20260708 | 2543 | 皇昌 | 20 | 0 | 6800.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9921 巨大
 
 ## Metadata
-- generated_at: 2026-07-07 22:28:50 Asia/Taipei
+- generated_at: 2026-07-08 22:28:50 Asia/Taipei
 - stock_id: 9921
 - stock_name: 巨大
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260707
-- price_rows: 299
+- latest_price_date: 20260708
+- price_rows: 300
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260707
-- open: 77.1
-- high: 77.1
-- low: 74.5
-- close: 75.7
-- volume: 1165548
-- ma5: 76.38
-- ema23_primary: 74.84
-- distance_to_ema23_pct: 1.15
-- ma20: 75.41
-- ma60: 71.53
-- ma120: 76.83
-- return_5d: -3.81
-- return_20d: 7.22
-- volume_ratio: 0.62
-- distance_to_ma20_pct_auxiliary: 0.39
-- distance_to_high_60_pct: -5.38
+- date: 20260708
+- open: 76.5
+- high: 76.7
+- low: 73.6
+- close: 74.1
+- volume: 997557
+- ma5: 75.72
+- ema23_primary: 74.77
+- distance_to_ema23_pct: -0.9
+- ma20: 75.55
+- ma60: 71.63
+- ma120: 76.71
+- return_5d: -4.26
+- return_20d: 3.93
+- volume_ratio: 0.53
+- distance_to_ma20_pct_auxiliary: -1.91
+- distance_to_high_60_pct: -7.38
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260609,70.4,71.7,69.6,71.3,1463148,70.17,1.61,70.76,70.12,0.66
 20260610,70.4,72.4,70.4,72,1899345,70.32,2.39,70.58,70.14,0.91
 20260611,72.6,77.2,72.3,75.7,4311513,70.77,6.97,70.69,70.15,1.99
 20260612,76.4,77.5,75.2,75.4,2613252,71.15,5.97,70.66,70.18,1.28
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260703,75,77.2,75,76.2,891840,74.54,2.22,74.83,71.24,0.46
 20260706,77.1,78.7,76.6,77.1,1114000,74.76,3.13,75.15,71.39,0.58
 20260707,77.1,77.1,74.5,75.7,1165548,74.84,1.15,75.41,71.53,0.62
+20260708,76.5,76.7,73.6,74.1,997557,74.77,-0.9,75.55,71.63,0.53
 ```
 
 ## Latest TDCC Snapshot
@@ -187,19 +187,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260707 | 9921 | 巨大 | pattern | 型態觀察 | 51.0 |  |  | base_building |  | no_signal | stale_signal | 1.原預定買回股份總金額上限(元):28,914,080,517 2.原預定買回之期間:115/05/08~115/07/07 3.原預定買回之數量(股):4,000,000 4.原預定買回區間價格(元):60.00~100.00 5.本次實際買回期間:115/05/12~115/07/02 6.本次已買回股份數量(股):4,000,000 7.本次已買回股份總金額(元):287,003,263 8.本次平均每股買回價格(元):71.75 9.累積已持有自己公司股份數量(股):4,000,000 10.累積已持有自己公司股份數量占公司已發行股份總數之比率(%):1.02 11.本次未執行完畢之原因:  12.其他應敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260707 | 9921 | 巨大 | 2 | 2 | 4 | 8 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260707 | 9921 | 巨大 | 9 | 0 | 432470.0 | 0.0 |  | no_signal |
+| 20260708 | 9921 | 巨大 | 9 | 0 | 417790.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

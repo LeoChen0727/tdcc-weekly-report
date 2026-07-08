@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1294 漢田生技
 
 ## Metadata
-- generated_at: 2026-07-07 22:26:31 Asia/Taipei
+- generated_at: 2026-07-08 22:26:15 Asia/Taipei
 - stock_id: 1294
 - stock_name: 漢田生技
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260707
-- price_rows: 163
+- latest_price_date: 20260708
+- price_rows: 164
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260707
-- open: 61.1
-- high: 61.1
-- low: 59.5
-- close: 59.5
-- volume: 121000
-- ma5: 68.16
-- ema23_primary: 74.8
-- distance_to_ema23_pct: -20.46
-- ma20: 76.5
-- ma60: 78.18
-- ma120: 79.28
-- return_5d: -24.59
-- return_20d: -23.23
-- volume_ratio: 0.99
-- distance_to_ma20_pct_auxiliary: -22.22
-- distance_to_high_60_pct: -30.16
+- date: 20260708
+- open: 59.4
+- high: 59.4
+- low: 58.4
+- close: 58.4
+- volume: 76000
+- ma5: 64.08
+- ema23_primary: 73.44
+- distance_to_ema23_pct: -20.48
+- ma20: 75.28
+- ma60: 77.81
+- ma120: 79.12
+- return_5d: -25.89
+- return_20d: -29.55
+- volume_ratio: 0.63
+- distance_to_ma20_pct_auxiliary: -22.42
+- distance_to_high_60_pct: -31.46
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260609,77.3,85.2,77.3,82.9,115000,78.7,5.33,78.05,80.23,2.14
 20260610,83.5,83.5,78.1,78.2,145000,78.66,-0.58,78.04,80.07,2.42
 20260611,78.2,80.8,76.2,77.5,43000,78.56,-1.35,78.03,79.94,0.71
 20260612,79.1,79.9,78.8,78.8,28000,78.58,0.28,78.08,79.8,0.46
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260703,62,64,60.9,62,342000,77.58,-20.08,78.29,78.9,2.92
 20260706,62,62,61,61,95000,76.2,-19.94,77.4,78.55,0.81
 20260707,61.1,61.1,59.5,59.5,121000,74.8,-20.46,76.5,78.18,0.99
+20260708,59.4,59.4,58.4,58.4,76000,73.44,-20.48,75.28,77.81,0.63
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3287 廣寰科
 
 ## Metadata
-- generated_at: 2026-07-07 22:27:21 Asia/Taipei
+- generated_at: 2026-07-08 22:27:12 Asia/Taipei
 - stock_id: 3287
 - stock_name: 廣寰科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260707
-- price_rows: 164
+- latest_price_date: 20260708
+- price_rows: 165
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260707
-- open: 33.2
-- high: 33.45
-- low: 31.7
-- close: 32.05
-- volume: 110000
-- ma5: 32.77
-- ema23_primary: 33.21
-- distance_to_ema23_pct: -3.49
-- ma20: 33.35
-- ma60: 32.04
-- ma120: 30.71
-- return_5d: -0.47
-- return_20d: -6.29
-- volume_ratio: 0.85
-- distance_to_ma20_pct_auxiliary: -3.89
-- distance_to_high_60_pct: -19.67
+- date: 20260708
+- open: 31.95
+- high: 32.05
+- low: 30.25
+- close: 30.55
+- volume: 317000
+- ma5: 32.51
+- ema23_primary: 32.99
+- distance_to_ema23_pct: -7.39
+- ma20: 33.12
+- ma60: 32.07
+- ma120: 30.73
+- return_5d: -4.08
+- return_20d: -12.71
+- volume_ratio: 2.32
+- distance_to_ma20_pct_auxiliary: -7.77
+- distance_to_high_60_pct: -23.43
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260609,35.2,35.2,34.4,35,159000,34.06,2.75,34.33,30.6,0.5
 20260610,34.6,35.45,33.6,33.6,162000,34.02,-1.25,34.4,30.67,1.03
 20260611,34,34.25,33.25,33.55,158000,33.98,-1.28,34.51,30.73,1.21
 20260612,34.1,34.75,34.1,34.3,138000,34.01,0.85,34.63,30.8,1.27
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260703,33.3,33.3,32.6,33.3,56000,33.31,-0.03,33.62,31.91,0.4
 20260706,33.55,33.55,32.85,33.4,77000,33.32,0.25,33.45,31.99,0.55
 20260707,33.2,33.45,31.7,32.05,110000,33.21,-3.49,33.35,32.04,0.85
+20260708,31.95,32.05,30.25,30.55,317000,32.99,-7.39,33.12,32.07,2.32
 ```
 
 ## Latest TDCC Snapshot

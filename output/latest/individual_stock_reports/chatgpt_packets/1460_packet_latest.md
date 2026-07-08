@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1460 宏遠
 
 ## Metadata
-- generated_at: 2026-07-07 22:26:35 Asia/Taipei
+- generated_at: 2026-07-08 22:26:20 Asia/Taipei
 - stock_id: 1460
 - stock_name: 宏遠
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260707
-- price_rows: 299
+- latest_price_date: 20260708
+- price_rows: 300
 - latest_tdcc_date: 20260703
 - tdcc_rows: 32
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260707
-- open: 8.15
-- high: 8.15
-- low: 7.66
-- close: 7.77
-- volume: 2152778
-- ma5: 7.91
+- date: 20260708
+- open: 7.77
+- high: 7.78
+- low: 7.3
+- close: 7.31
+- volume: 1923357
+- ma5: 7.93
 - ema23_primary: 7.39
-- distance_to_ema23_pct: 5.09
-- ma20: 7.31
+- distance_to_ema23_pct: -1.04
+- ma20: 7.32
 - ma60: 7.12
 - ma120: 6.95
-- return_5d: 9.28
-- return_20d: 10.37
-- volume_ratio: 1.2
-- distance_to_ma20_pct_auxiliary: 6.36
-- distance_to_high_60_pct: -11.7
+- return_5d: 1.53
+- return_20d: 5.18
+- volume_ratio: 1.04
+- distance_to_ma20_pct_auxiliary: -0.18
+- distance_to_high_60_pct: -16.93
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260609,7.06,7.16,6.9,6.95,950641,7.09,-1.99,7.07,7.04,1.13
 20260610,6.95,7.14,6.92,7.05,900399,7.09,-0.53,7.07,7.04,1.07
 20260611,7.09,7.14,6.95,7.09,627820,7.09,0.03,7.07,7.04,0.76
 20260612,7.12,7.12,7.03,7.09,516714,7.09,0.03,7.07,7.05,0.63
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260703,8.06,8.7,8.06,8.58,11227721,7.29,17.63,7.24,7.09,7.62
 20260706,8.8,8.8,7.96,8.08,5995000,7.36,9.79,7.27,7.11,3.47
 20260707,8.15,8.15,7.66,7.77,2152778,7.39,5.09,7.31,7.12,1.2
+20260708,7.77,7.78,7.3,7.31,1923357,7.39,-1.04,7.32,7.12,1.04
 ```
 
 ## Latest TDCC Snapshot
@@ -190,12 +191,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260707 | 1460 | 宏遠 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260708 | 1460 | 宏遠 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260707 | 1460 | 宏遠 | 5 | 1 | 5 | 5 | 8 | repeated_but_no_breakout | 近 10 日上榜 5 次、近 20 日上榜 8 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260708 | 1460 | 宏遠 | 6 | 2 | 5 | 6 | 8 | repeated_but_no_breakout | 近 10 日上榜 6 次、近 20 日上榜 8 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

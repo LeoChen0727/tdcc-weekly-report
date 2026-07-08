@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7786 東方風能
 
 ## Metadata
-- generated_at: 2026-07-07 22:28:36 Asia/Taipei
+- generated_at: 2026-07-08 22:28:34 Asia/Taipei
 - stock_id: 7786
 - stock_name: 東方風能
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260707
-- price_rows: 152
+- latest_price_date: 20260708
+- price_rows: 153
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260707
-- open: 126.5
-- high: 126.5
+- date: 20260708
+- open: 122.5
+- high: 129
 - low: 122
-- close: 122.5
-- volume: 205425
-- ma5: 123.4
-- ema23_primary: 124.43
-- distance_to_ema23_pct: -1.55
-- ma20: 125.28
-- ma60: 127.69
-- ma120: 138.68
-- return_5d: -0.41
-- return_20d: 2.08
-- volume_ratio: 0.81
-- distance_to_ma20_pct_auxiliary: -2.22
-- distance_to_high_60_pct: -16.67
+- close: 128.5
+- volume: 316290
+- ma5: 124.8
+- ema23_primary: 124.76
+- distance_to_ema23_pct: 2.99
+- ma20: 125.67
+- ma60: 127.47
+- ma120: 138.48
+- return_5d: 5.76
+- return_20d: 6.64
+- volume_ratio: 1.22
+- distance_to_ma20_pct_auxiliary: 2.25
+- distance_to_high_60_pct: -12.59
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260609,119.5,122.5,119,120.5,215170,122.71,-1.8,120.22,130.49,0.6
 20260610,120.5,123,119,120.5,195206,122.53,-1.66,119.35,130.08,0.54
 20260611,126,132.5,122,130,949428,123.15,5.56,119.3,129.86,2.59
 20260612,133,134.5,125.5,127,416429,123.47,2.86,119.45,129.54,1.15
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260703,122,126,122,126,353840,124.65,1.08,125.2,127.9,1.24
 20260706,126,127,124,124,182000,124.6,-0.48,125.15,127.8,0.7
 20260707,126.5,126.5,122,122.5,205425,124.43,-1.55,125.28,127.69,0.81
+20260708,122.5,129,122,128.5,316290,124.76,2.99,125.67,127.47,1.22
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2233 宇隆
 
 ## Metadata
-- generated_at: 2026-07-07 22:26:50 Asia/Taipei
+- generated_at: 2026-07-08 22:26:37 Asia/Taipei
 - stock_id: 2233
 - stock_name: 宇隆
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260707
-- price_rows: 299
+- latest_price_date: 20260708
+- price_rows: 300
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260707
-- open: 261.5
-- high: 269
+- date: 20260708
+- open: 254
+- high: 259
 - low: 247
-- close: 252
-- volume: 742981
-- ma5: 254.9
-- ema23_primary: 269.08
-- distance_to_ema23_pct: -6.35
-- ma20: 268.23
-- ma60: 287.58
-- ma120: 259.23
-- return_5d: 18.87
-- return_20d: -14.58
-- volume_ratio: 0.42
-- distance_to_ma20_pct_auxiliary: -6.05
-- distance_to_high_60_pct: -36.04
+- close: 256
+- volume: 388349
+- ma5: 259.5
+- ema23_primary: 267.99
+- distance_to_ema23_pct: -4.47
+- ma20: 265.75
+- ma60: 288.07
+- ma120: 259.54
+- return_5d: 9.87
+- return_20d: -16.2
+- volume_ratio: 0.23
+- distance_to_ma20_pct_auxiliary: -3.67
+- distance_to_high_60_pct: -35.03
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260609,297.5,317.5,297,305.5,1387488,318.59,-4.11,330.5,274.94,0.68
 20260610,297,311.5,290,290,950606,316.21,-8.29,330.6,276,0.46
 20260611,286,293.5,277,293,875934,314.28,-6.77,331.12,277,0.42
 20260612,312.5,314.5,290,290.5,797629,312.29,-6.98,330.9,277.89,0.38
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260703,260,275,250.5,275,2105472,271.19,1.41,272.7,286.07,1.18
 20260706,275,279.5,262,264.5,1138000,270.63,-2.26,270.38,286.93,0.64
 20260707,261.5,269,247,252,742981,269.08,-6.35,268.23,287.58,0.42
+20260708,254,259,247,256,388349,267.99,-4.47,265.75,288.07,0.23
 ```
 
 ## Latest TDCC Snapshot
@@ -198,7 +199,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260707 | 2233 | 宇隆 | 46 | 0 | 666960.0 | 0.0 |  | no_signal |
+| 20260708 | 2233 | 宇隆 | 45 | 1 | 405290.0 | 68050.0 | 5.96 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

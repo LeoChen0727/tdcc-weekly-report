@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009800 中信NASDAQ
 
 ## Metadata
-- generated_at: 2026-07-07 22:26:28 Asia/Taipei
+- generated_at: 2026-07-08 22:26:12 Asia/Taipei
 - stock_id: 009800
 - stock_name: 中信NASDAQ
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260707
-- price_rows: 32
+- latest_price_date: 20260708
+- price_rows: 33
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260707
-- open: 13.2
-- high: 13.2
-- low: 13.09
-- close: 13.09
-- volume: 770645
-- ma5: 13.2
-- ema23_primary: 13.12
-- distance_to_ema23_pct: -0.23
+- date: 20260708
+- open: 13.09
+- high: 13.12
+- low: 12.99
+- close: 13
+- volume: 1851564
+- ma5: 13.13
+- ema23_primary: 13.11
+- distance_to_ema23_pct: -0.84
 - ma20: 13.11
 - ma60: 13.11
 - ma120: 13.11
-- return_5d: -1.21
-- return_20d: 2.59
-- volume_ratio: 0.49
-- distance_to_ma20_pct_auxiliary: -0.12
-- distance_to_high_60_pct: -2.24
+- return_5d: -2.62
+- return_20d: 0.23
+- volume_ratio: 1.18
+- distance_to_ma20_pct_auxiliary: -0.82
+- distance_to_high_60_pct: -2.91
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260609,12.82,12.97,12.82,12.97,1581998,13.04,-0.55,13.11,13.11,0.6
 20260610,12.84,12.84,12.68,12.71,2503826,13.01,-2.33,13.08,13.08,0.96
 20260611,12.56,12.7,12.56,12.67,1296159,12.98,-2.43,13.05,13.05,0.51
 20260612,12.99,13,12.94,12.98,2188662,12.98,-0.04,13.05,13.05,0.87
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260703,13.08,13.16,13,13.16,1021414,13.12,0.32,13.09,13.11,0.62
 20260706,13.24,13.24,13.13,13.18,1839000,13.12,0.44,13.09,13.11,1.11
 20260707,13.2,13.2,13.09,13.09,770645,13.12,-0.23,13.11,13.11,0.49
+20260708,13.09,13.12,12.99,13,1851564,13.11,-0.84,13.11,13.11,1.18
 ```
 
 ## Latest TDCC Snapshot

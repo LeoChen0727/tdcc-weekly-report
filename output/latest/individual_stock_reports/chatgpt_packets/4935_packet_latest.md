@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4935 茂林-KY
 
 ## Metadata
-- generated_at: 2026-07-07 22:27:46 Asia/Taipei
+- generated_at: 2026-07-08 22:27:39 Asia/Taipei
 - stock_id: 4935
 - stock_name: 茂林-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260707
-- price_rows: 299
+- latest_price_date: 20260708
+- price_rows: 300
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260707
-- open: 36.7
-- high: 37
-- low: 36.1
-- close: 36.1
-- volume: 117516
-- ma5: 36.74
-- ema23_primary: 37.79
-- distance_to_ema23_pct: -4.48
-- ma20: 38.07
-- ma60: 37.99
-- ma120: 38.21
-- return_5d: -1.37
-- return_20d: -4.24
-- volume_ratio: 0.72
-- distance_to_ma20_pct_auxiliary: -5.18
-- distance_to_high_60_pct: -16.53
+- date: 20260708
+- open: 36.45
+- high: 36.45
+- low: 35.55
+- close: 35.85
+- volume: 115635
+- ma5: 36.65
+- ema23_primary: 37.63
+- distance_to_ema23_pct: -4.73
+- ma20: 37.96
+- ma60: 38
+- ma120: 38.17
+- return_5d: -1.24
+- return_20d: -5.91
+- volume_ratio: 0.75
+- distance_to_ma20_pct_auxiliary: -5.56
+- distance_to_high_60_pct: -17.11
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260609,37,38.4,37,38.1,270953,38.65,-1.42,38.15,37.45,1.19
 20260610,38,38.6,37.3,37.6,157767,38.56,-2.49,38.23,37.47,0.68
 20260611,38.1,38.15,37.3,37.75,129799,38.49,-1.93,38.31,37.51,0.56
 20260612,37.85,39.2,37.85,39,184208,38.53,1.21,38.47,37.55,0.78
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260703,36.85,37.85,36.85,37.7,82434,38.04,-0.89,38.36,37.98,0.46
 20260706,37.7,37.9,36.8,36.9,103000,37.95,-2.75,38.15,37.99,0.59
 20260707,36.7,37,36.1,36.1,117516,37.79,-4.48,38.07,37.99,0.72
+20260708,36.45,36.45,35.55,35.85,115635,37.63,-4.73,37.96,38,0.75
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6725 矽科宏晟
 
 ## Metadata
-- generated_at: 2026-07-07 22:28:20 Asia/Taipei
+- generated_at: 2026-07-08 22:28:17 Asia/Taipei
 - stock_id: 6725
 - stock_name: 矽科宏晟
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260707
-- price_rows: 124
+- latest_price_date: 20260708
+- price_rows: 125
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260707
-- open: 332
-- high: 334
-- low: 312
-- close: 313
-- volume: 131000
-- ma5: 334.5
-- ema23_primary: 326.91
-- distance_to_ema23_pct: -4.25
-- ma20: 323.05
-- ma60: 330.49
-- ma120: 292.55
-- return_5d: -10.32
-- return_20d: 11.19
-- volume_ratio: 0.34
-- distance_to_ma20_pct_auxiliary: -3.11
-- distance_to_high_60_pct: -26.18
+- date: 20260708
+- open: 313.5
+- high: 313.5
+- low: 304.5
+- close: 306.5
+- volume: 56000
+- ma5: 327.1
+- ema23_primary: 325.21
+- distance_to_ema23_pct: -5.75
+- ma20: 324.15
+- ma60: 329.91
+- ma120: 292.68
+- return_5d: -10.77
+- return_20d: 7.73
+- volume_ratio: 0.15
+- distance_to_ma20_pct_auxiliary: -5.45
+- distance_to_high_60_pct: -27.71
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260609,295,295.5,281.5,284.5,158000,314.64,-9.58,311.8,310.48,0.54
 20260610,280,293,278,278,199000,311.59,-10.78,309.88,311.39,0.7
 20260611,278.5,279,273,273,171000,308.37,-11.47,308.15,312.27,0.62
 20260612,277,289,277,283.5,149000,306.3,-7.44,307.55,313.11,0.57
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260703,345,345,336.5,340,105000,327.92,3.68,319.93,330.61,0.26
 20260706,340,342,331,331,119000,328.17,0.86,321.48,330.96,0.3
 20260707,332,334,312,313,131000,326.91,-4.25,323.05,330.49,0.34
+20260708,313.5,313.5,304.5,306.5,56000,325.21,-5.75,324.15,329.91,0.15
 ```
 
 ## Latest TDCC Snapshot

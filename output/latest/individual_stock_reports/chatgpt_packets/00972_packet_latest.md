@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00972 野村日本動能高息
 
 ## Metadata
-- generated_at: 2026-07-07 22:26:27 Asia/Taipei
+- generated_at: 2026-07-08 22:26:12 Asia/Taipei
 - stock_id: 00972
 - stock_name: 野村日本動能高息
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260707
-- price_rows: 32
+- latest_price_date: 20260708
+- price_rows: 33
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260707
-- open: 20.2
-- high: 20.24
-- low: 20.18
-- close: 20.23
-- volume: 145273
-- ma5: 19.8
-- ema23_primary: 19.48
-- distance_to_ema23_pct: 3.87
-- ma20: 19.44
-- ma60: 19.35
-- ma120: 19.35
-- return_5d: 4.76
-- return_20d: 6.08
-- volume_ratio: 1.11
-- distance_to_ma20_pct_auxiliary: 4.05
-- distance_to_high_60_pct: -0.05
+- date: 20260708
+- open: 20.18
+- high: 20.2
+- low: 20.15
+- close: 20.2
+- volume: 129740
+- ma5: 20.01
+- ema23_primary: 19.54
+- distance_to_ema23_pct: 3.4
+- ma20: 19.49
+- ma60: 19.38
+- ma120: 19.38
+- return_5d: 5.65
+- return_20d: 4.66
+- volume_ratio: 0.95
+- distance_to_ma20_pct_auxiliary: 3.65
+- distance_to_high_60_pct: -0.2
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260609,19.07,19.4,19.07,19.3,38349,19.22,0.41,19.2,19.2,0.14
 20260610,19.3,19.45,19.3,19.35,91591,19.23,0.61,19.21,19.21,0.35
 20260611,19.2,19.25,19.16,19.25,154845,19.23,0.08,19.21,19.21,0.62
 20260612,19.48,19.58,19.4,19.47,73156,19.25,1.12,19.23,19.23,0.3
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260703,19.61,20,19.61,19.91,106070,19.33,2.98,19.34,19.29,0.79
 20260706,20.05,20.24,20.05,20.22,237000,19.41,4.19,19.39,19.32,1.71
 20260707,20.2,20.24,20.18,20.23,145273,19.48,3.87,19.44,19.35,1.11
+20260708,20.18,20.2,20.15,20.2,129740,19.54,3.4,19.49,19.38,0.95
 ```
 
 ## Latest TDCC Snapshot

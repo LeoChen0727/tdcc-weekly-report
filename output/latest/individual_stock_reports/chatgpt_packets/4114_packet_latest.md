@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4114 健喬
 
 ## Metadata
-- generated_at: 2026-07-07 22:27:34 Asia/Taipei
+- generated_at: 2026-07-08 22:27:26 Asia/Taipei
 - stock_id: 4114
 - stock_name: 健喬
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260707
-- price_rows: 164
+- latest_price_date: 20260708
+- price_rows: 165
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -74,7 +74,7 @@
 - action_rating: starter_position
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
-- thesis_state: unclear
+- thesis_state: breakout_initial
 - entry_style: breakout_follow
 - position_sizing: starter_1_3
 
@@ -117,29 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260707
-- open: 32.95
-- high: 32.95
-- low: 32.6
-- close: 32.85
-- volume: 2148000
-- ma5: 31.96
-- ema23_primary: 31.21
-- distance_to_ema23_pct: 5.24
-- ma20: 31.06
-- ma60: 30.95
+- date: 20260708
+- open: 33.45
+- high: 34
+- low: 33
+- close: 33.55
+- volume: 4366000
+- ma5: 32.4
+- ema23_primary: 31.41
+- distance_to_ema23_pct: 6.82
+- ma20: 31.21
+- ma60: 30.98
 - ma120: 31.46
-- return_5d: 4.78
-- return_20d: 8.6
-- volume_ratio: 1.86
-- distance_to_ma20_pct_auxiliary: 5.75
-- distance_to_high_60_pct: -0.3
+- return_5d: 7.02
+- return_20d: 10
+- volume_ratio: 3.31
+- distance_to_ma20_pct_auxiliary: 7.48
+- distance_to_high_60_pct: -1.32
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260609,30.25,30.8,30.25,30.5,1005000,30.56,-0.18,30.5,30.95,2.48
 20260610,30.5,30.65,30.35,30.4,995000,30.54,-0.47,30.47,30.94,2.44
 20260611,30.5,30.6,30.1,30.25,1026000,30.52,-0.88,30.45,30.92,2.42
 20260612,30.4,30.65,30.35,30.5,845000,30.52,-0.06,30.44,30.9,2.13
@@ -159,6 +158,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260703,31.4,32,31.35,31.8,2759000,30.92,2.84,30.84,30.89,2.85
 20260706,32.05,32.75,32.05,32.65,2631000,31.07,5.1,30.93,30.91,2.39
 20260707,32.95,32.95,32.6,32.85,2148000,31.21,5.24,31.06,30.95,1.86
+20260708,33.45,34,33,33.55,4366000,31.41,6.82,31.21,30.98,3.31
 ```
 
 ## Latest TDCC Snapshot
@@ -193,12 +193,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260707 | 4114 | 健喬 | true_breakout | 嚴格突破 | 133.0 |  |  | neckline_challenge |  |  | continued_2_3d | 1.發生變動日期:115/07/03 2.法人名稱:祐僑股份有限公司 3.舊任者姓名:黃麗文 4.舊任者簡歷:本公司法人董事代表人 5.新任者姓名:張鴻仁 6.新任者簡歷: 美國哈佛大學醫療政策與管理碩士 台灣研發型生技新藥發展協會理事 7.異動原因:法人董事指派代表人 8.原任期（例xx/xx/xx至xx/xx/xx）:114/05/23~117/05/22 9.新任生效日期:115/07/03 10.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260708 | 4114 | 健喬 | true_breakout | 嚴格突破 | 151.0 |  |  | platform_breakout |  |  | continued_many_days | 1.發生變動日期:115/07/03 2.法人名稱:祐僑股份有限公司 3.舊任者姓名:黃麗文 4.舊任者簡歷:本公司法人董事代表人 5.新任者姓名:張鴻仁 6.新任者簡歷: 美國哈佛大學醫療政策與管理碩士 台灣研發型生技新藥發展協會理事 7.異動原因:法人董事指派代表人 8.原任期（例xx/xx/xx至xx/xx/xx）:114/05/23~117/05/22 9.新任生效日期:115/07/03 10.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260707 | 4114 | 健喬 | 3 | 2 | 3 | 6 | 7 | continued_2_3d | 連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| 20260708 | 4114 | 健喬 | 4 | 3 | 4 | 6 | 8 | continued_many_days | 連續 4 日上榜，需區分醞釀延續或訊號鈍化。 |
 
 ## Warrant Context
 | status |

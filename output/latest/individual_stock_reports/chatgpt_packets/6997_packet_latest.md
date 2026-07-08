@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6997 博弘
 
 ## Metadata
-- generated_at: 2026-07-07 22:28:29 Asia/Taipei
+- generated_at: 2026-07-08 22:28:26 Asia/Taipei
 - stock_id: 6997
 - stock_name: 博弘
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260707
-- price_rows: 136
+- latest_price_date: 20260708
+- price_rows: 137
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260707
-- open: 77.4
-- high: 77.4
+- date: 20260708
+- open: 72.5
+- high: 72.5
 - low: 72.4
 - close: 72.4
-- volume: 6000
-- ma5: 72.22
-- ema23_primary: 73.3
-- distance_to_ema23_pct: -1.22
-- ma20: 74.03
-- ma60: 75.14
-- ma120: 81.79
-- return_5d: -0.82
-- return_20d: -5.48
-- volume_ratio: 1.17
-- distance_to_ma20_pct_auxiliary: -2.2
+- volume: 5000
+- ma5: 72.18
+- ema23_primary: 73.22
+- distance_to_ema23_pct: -1.12
+- ma20: 73.8
+- ma60: 74.99
+- ma120: 81.59
+- return_5d: -0.28
+- return_20d: -6.1
+- volume_ratio: 0.95
+- distance_to_ma20_pct_auxiliary: -1.89
 - distance_to_high_60_pct: -13.29
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,76.6,78,76.6,77.1,3000,73.52,4.87,71.61,78.49,0.08
 20260609,76,76,74.1,74.5,3000,73.6,1.22,71.59,78.28,0.08
 20260610,74.3,74.4,74.3,74.4,7000,73.67,0.99,71.61,78.06,0.18
 20260611,78.3,78.6,78,78,9000,74.03,5.36,71.78,77.92,0.23
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260703,72.2,72.2,72,72,7000,73.49,-2.03,74.32,75.5,0.59
 20260706,72.1,72.1,72,72.1,5000,73.38,-1.74,74.24,75.32,0.58
 20260707,77.4,77.4,72.4,72.4,6000,73.3,-1.22,74.03,75.14,1.17
+20260708,72.5,72.5,72.4,72.4,5000,73.22,-1.12,73.8,74.99,0.95
 ```
 
 ## Latest TDCC Snapshot

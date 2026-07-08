@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7777 能率亞洲
 
 ## Metadata
-- generated_at: 2026-07-07 22:28:36 Asia/Taipei
+- generated_at: 2026-07-08 22:28:34 Asia/Taipei
 - stock_id: 7777
 - stock_name: 能率亞洲
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260707
-- price_rows: 129
+- latest_price_date: 20260708
+- price_rows: 130
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260707
-- open: 42
-- high: 43.8
-- low: 40.3
-- close: 41.8
-- volume: 4379000
-- ma5: 41.83
-- ema23_primary: 40.59
-- distance_to_ema23_pct: 2.97
-- ma20: 41.26
-- ma60: 34.96
-- ma120: 32.26
-- return_5d: 0.84
-- return_20d: 16.11
-- volume_ratio: 0.81
-- distance_to_ma20_pct_auxiliary: 1.31
-- distance_to_high_60_pct: -13.81
+- date: 20260708
+- open: 42.15
+- high: 42.8
+- low: 40.85
+- close: 41
+- volume: 1759000
+- ma5: 41.94
+- ema23_primary: 40.63
+- distance_to_ema23_pct: 0.92
+- ma20: 41.33
+- ma60: 35.25
+- ma120: 32.39
+- return_5d: 1.36
+- return_20d: 3.54
+- volume_ratio: 0.33
+- distance_to_ma20_pct_auxiliary: -0.79
+- distance_to_high_60_pct: -15.46
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260609,38.35,39.6,37.7,39.6,3161000,36.25,9.23,36.89,30.32,1.32
 20260610,39.6,41.8,38.1,38.2,4330000,36.42,4.9,37.25,30.45,1.79
 20260611,37.1,38.15,36.1,37.55,1849000,36.51,2.85,37.42,30.58,0.84
 20260612,40,40.5,38.6,40,3118000,36.8,8.69,37.63,30.77,2.05
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260703,42.45,43.8,41.65,42.5,4479000,40.37,5.28,40.87,34.4,0.86
 20260706,42.5,42.85,41.5,41.75,1951000,40.48,3.13,40.97,34.67,0.37
 20260707,42,43.8,40.3,41.8,4379000,40.59,2.97,41.26,34.96,0.81
+20260708,42.15,42.8,40.85,41,1759000,40.63,0.92,41.33,35.25,0.33
 ```
 
 ## Latest TDCC Snapshot
@@ -189,12 +189,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260707 | 7777 | 能率亞洲 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260708 | 7777 | 能率亞洲 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260708 | 7777 | 能率亞洲 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260707 | 7777 | 能率亞洲 | 12 | 2 | 5 | 10 | 13 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 13 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260708 | 7777 | 能率亞洲 | 13 | 12 | 5 | 10 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

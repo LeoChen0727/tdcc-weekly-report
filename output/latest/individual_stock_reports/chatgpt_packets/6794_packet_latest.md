@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6794 向榮生技
 
 ## Metadata
-- generated_at: 2026-07-07 22:28:22 Asia/Taipei
+- generated_at: 2026-07-08 22:28:19 Asia/Taipei
 - stock_id: 6794
 - stock_name: 向榮生技
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260707
-- price_rows: 299
+- latest_price_date: 20260708
+- price_rows: 300
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260707
-- open: 81.8
+- date: 20260708
+- open: 85.1
 - high: 85.2
-- low: 81.4
-- close: 85.2
-- volume: 161503
-- ma5: 81.12
-- ema23_primary: 80.38
-- distance_to_ema23_pct: 5.99
-- ma20: 79.87
-- ma60: 80.88
-- ma120: 82.95
-- return_5d: 7.17
-- return_20d: 4.03
-- volume_ratio: 2.79
-- distance_to_ma20_pct_auxiliary: 6.67
-- distance_to_high_60_pct: -4.27
+- low: 82.3
+- close: 82.3
+- volume: 70180
+- ma5: 81.8
+- ema23_primary: 80.54
+- distance_to_ema23_pct: 2.18
+- ma20: 79.94
+- ma60: 80.87
+- ma120: 82.9
+- return_5d: 4.31
+- return_20d: 1.86
+- volume_ratio: 1.19
+- distance_to_ma20_pct_auxiliary: 2.95
+- distance_to_high_60_pct: -7.53
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260609,80.7,83.2,80.7,80.8,45461,81.33,-0.65,80.7,81.06,0.94
 20260610,81.9,81.9,79.8,80.7,60190,81.27,-0.71,80.65,81.1,1.25
 20260611,79.9,81,79.5,80.7,37157,81.23,-0.65,80.73,81.09,0.81
 20260612,80.6,81,79.7,80.1,51442,81.13,-1.27,80.75,81.09,1.13
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260703,81.9,85.2,79,82.6,187903,79.81,3.49,79.78,80.8,3.76
 20260706,83.2,84.1,81.3,81.4,69000,79.95,1.82,79.7,80.81,1.33
 20260707,81.8,85.2,81.4,85.2,161503,80.38,5.99,79.87,80.88,2.79
+20260708,85.1,85.2,82.3,82.3,70180,80.54,2.18,79.94,80.87,1.19
 ```
 
 ## Latest TDCC Snapshot

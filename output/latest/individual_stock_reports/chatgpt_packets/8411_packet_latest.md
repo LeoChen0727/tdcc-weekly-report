@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8411 福貞-KY
 
 ## Metadata
-- generated_at: 2026-07-07 22:28:45 Asia/Taipei
+- generated_at: 2026-07-08 22:28:44 Asia/Taipei
 - stock_id: 8411
 - stock_name: 福貞-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260707
-- price_rows: 299
+- latest_price_date: 20260708
+- price_rows: 300
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260707
-- open: 12.35
+- date: 20260708
+- open: 12.45
 - high: 12.45
-- low: 12.25
-- close: 12.45
-- volume: 66187
-- ma5: 12.32
-- ema23_primary: 12.17
-- distance_to_ema23_pct: 2.27
-- ma20: 12.16
+- low: 12.35
+- close: 12.4
+- volume: 49857
+- ma5: 12.37
+- ema23_primary: 12.19
+- distance_to_ema23_pct: 1.7
+- ma20: 12.17
 - ma60: 12.17
 - ma120: 12.18
-- return_5d: 2.05
-- return_20d: 2.47
-- volume_ratio: 0.46
-- distance_to_ma20_pct_auxiliary: 2.38
-- distance_to_high_60_pct: 0
+- return_5d: 2.06
+- return_20d: 1.64
+- volume_ratio: 0.36
+- distance_to_ma20_pct_auxiliary: 1.89
+- distance_to_high_60_pct: -0.4
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260609,12.05,12.25,12.05,12.2,138662,12.12,0.66,12.09,12.2,1.16
 20260610,12.1,12.3,12.1,12.25,153572,12.13,0.98,12.08,12.21,1.29
 20260611,12.25,12.25,12,12.2,289186,12.14,0.52,12.08,12.21,2.24
 20260612,12.1,12.2,12.05,12.2,116886,12.14,0.48,12.08,12.21,0.88
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260703,12.15,12.35,12.15,12.35,62959,12.13,1.85,12.13,12.17,0.41
 20260706,12.35,12.4,12.2,12.4,62000,12.15,2.07,12.14,12.17,0.4
 20260707,12.35,12.45,12.25,12.45,66187,12.17,2.27,12.16,12.17,0.46
+20260708,12.45,12.45,12.35,12.4,49857,12.19,1.7,12.17,12.17,0.36
 ```
 
 ## Latest TDCC Snapshot

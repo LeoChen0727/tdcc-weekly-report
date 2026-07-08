@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6272 驊陞
 
 ## Metadata
-- generated_at: 2026-07-07 22:28:08 Asia/Taipei
+- generated_at: 2026-07-08 22:28:04 Asia/Taipei
 - stock_id: 6272
 - stock_name: 驊陞
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260707
-- price_rows: 128
+- latest_price_date: 20260708
+- price_rows: 129
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260707
-- open: 32.7
-- high: 32.8
-- low: 30.8
-- close: 30.8
-- volume: 291834
-- ma5: 31.72
-- ema23_primary: 32.48
-- distance_to_ema23_pct: -5.18
-- ma20: 32.5
-- ma60: 32.91
-- ma120: 35.59
-- return_5d: 0
-- return_20d: -18.73
-- volume_ratio: 0.95
-- distance_to_ma20_pct_auxiliary: -5.24
-- distance_to_high_60_pct: -25.78
+- date: 20260708
+- open: 30.8
+- high: 31.2
+- low: 30.5
+- close: 31
+- volume: 195278
+- ma5: 31.68
+- ema23_primary: 32.36
+- distance_to_ema23_pct: -4.2
+- ma20: 32.19
+- ma60: 32.89
+- ma120: 35.48
+- return_5d: -0.64
+- return_20d: -16.78
+- volume_ratio: 0.66
+- distance_to_ma20_pct_auxiliary: -3.7
+- distance_to_high_60_pct: -25.3
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260609,38.45,38.45,37,37.25,440979,35.12,6.07,34.47,33.17,0.76
 20260610,37,37.25,35.15,35.35,581998,35.14,0.6,34.68,33.16,0.99
 20260611,35.1,35.6,34.3,35.1,364489,35.13,-0.1,34.89,33.14,0.63
 20260612,36.5,36.5,35,35.25,366983,35.14,0.3,35.11,33.12,0.65
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260703,31.65,33.1,31.65,32.5,233363,32.65,-0.45,33.12,32.89,0.68
 20260706,33,33,32.1,32.5,241000,32.64,-0.42,32.86,32.89,0.77
 20260707,32.7,32.8,30.8,30.8,291834,32.48,-5.18,32.5,32.91,0.95
+20260708,30.8,31.2,30.5,31,195278,32.36,-4.2,32.19,32.89,0.66
 ```
 
 ## Latest TDCC Snapshot

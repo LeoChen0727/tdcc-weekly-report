@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1537 廣隆
 
 ## Metadata
-- generated_at: 2026-07-07 22:26:38 Asia/Taipei
+- generated_at: 2026-07-08 22:26:24 Asia/Taipei
 - stock_id: 1537
 - stock_name: 廣隆
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260707
-- price_rows: 299
+- latest_price_date: 20260708
+- price_rows: 300
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260707
-- open: 126
-- high: 126.5
-- low: 125.5
-- close: 126
-- volume: 44807
-- ma5: 126.1
-- ema23_primary: 126.09
-- distance_to_ema23_pct: -0.07
-- ma20: 126.35
-- ma60: 125.25
-- ma120: 124.51
-- return_5d: 0.4
-- return_20d: 0
-- volume_ratio: 0.75
-- distance_to_ma20_pct_auxiliary: -0.28
-- distance_to_high_60_pct: -3.08
+- date: 20260708
+- open: 125.5
+- high: 126
+- low: 125
+- close: 125.5
+- volume: 74502
+- ma5: 126
+- ema23_primary: 126.04
+- distance_to_ema23_pct: -0.43
+- ma20: 126.3
+- ma60: 125.28
+- ma120: 124.53
+- return_5d: -0.4
+- return_20d: -0.79
+- volume_ratio: 1.22
+- distance_to_ma20_pct_auxiliary: -0.63
+- distance_to_high_60_pct: -3.46
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260609,126,127,126,126.5,47779,125.8,0.55,126.03,124.52,0.46
 20260610,126.5,127.5,126.5,126.5,93473,125.86,0.51,126.03,124.54,0.92
 20260611,127,127.5,125.5,127.5,86155,126,1.19,126.1,124.6,0.85
 20260612,127.5,128,127,127,53473,126.08,0.73,126.17,124.63,0.55
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260703,125.5,126.5,125.5,126.5,32964,126.07,0.34,126.45,125.19,0.46
 20260706,126,127,126,126.5,49000,126.1,0.32,126.35,125.23,0.74
 20260707,126,126.5,125.5,126,44807,126.09,-0.07,126.35,125.25,0.75
+20260708,125.5,126,125,125.5,74502,126.04,-0.43,126.3,125.28,1.22
 ```
 
 ## Latest TDCC Snapshot

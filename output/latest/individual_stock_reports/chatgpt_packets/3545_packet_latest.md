@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3545 敦泰
 
 ## Metadata
-- generated_at: 2026-07-07 22:27:27 Asia/Taipei
+- generated_at: 2026-07-08 22:27:19 Asia/Taipei
 - stock_id: 3545
 - stock_name: 敦泰
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260707
-- price_rows: 298
+- latest_price_date: 20260708
+- price_rows: 299
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260707
-- open: 59.1
-- high: 60.8
-- low: 56.9
-- close: 57.1
-- volume: 2511967
-- ma5: 57.18
-- ema23_primary: 56.9
-- distance_to_ema23_pct: 0.35
-- ma20: 56.63
-- ma60: 55.54
-- ma120: 52.81
-- return_5d: 2.7
-- return_20d: 10.66
-- volume_ratio: 1.49
-- distance_to_ma20_pct_auxiliary: 0.82
-- distance_to_high_60_pct: -10.08
+- date: 20260708
+- open: 57.6
+- high: 58.3
+- low: 55.8
+- close: 58.2
+- volume: 1112711
+- ma5: 57.64
+- ema23_primary: 57.01
+- distance_to_ema23_pct: 2.09
+- ma20: 56.84
+- ma60: 55.69
+- ma120: 52.87
+- return_5d: 4.11
+- return_20d: 7.78
+- volume_ratio: 0.67
+- distance_to_ma20_pct_auxiliary: 2.38
+- distance_to_high_60_pct: -8.35
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260609,51.8,54.1,51.4,54,1455062,56.51,-4.45,57.88,52.07,0.53
 20260610,53.3,56.4,52.9,53.1,1740580,56.23,-5.56,57.76,52.23,0.63
 20260611,52.4,54.2,52,53.4,1147836,55.99,-4.63,57.53,52.39,0.45
 20260612,53.8,56,53.8,53.9,1068608,55.82,-3.44,57.45,52.55,0.44
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260703,57.1,58.4,57,57.1,1396021,56.74,0.64,56.23,55.24,0.87
 20260706,58.1,60.2,57.7,58.5,2271000,56.88,2.84,56.36,55.39,1.38
 20260707,59.1,60.8,56.9,57.1,2511967,56.9,0.35,56.63,55.54,1.49
+20260708,57.6,58.3,55.8,58.2,1112711,57.01,2.09,56.84,55.69,0.67
 ```
 
 ## Latest TDCC Snapshot
@@ -189,17 +189,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260707 | 3545 | 敦泰 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | continued_2_3d | 1.主管機關核准減資日期:115/06/22 2.辦理資本變更登記完成日期:115/06/22 3.對財務報告之影響（含實收資本額與流通在外股數之差異與對每股淨值之影響）:  (1)本次註銷限制員工權利新股81,999股，     每股面額新台幣10元，共計減少資本819,990元。  (2)股份註銷減資前：本公司實收資本額為新台幣2,211,512,150元，     流通在外股數為221,151,215股，每股淨值新台幣 40.27元。  (3)股份註銷減資後：本公司實收資本額為新台幣2,210,692,160元，     流通在外股數為221,069,216股，每股淨值新台幣 40.28元。  以上每股淨值依最近一期(115年第1季)會計師核閱財務報告，依證券發行人財務報告  編製準則規定之資產負債表歸屬於母公司業主之權益。 4.預計換股作業計畫:不適用 5.預計減資新股上市後之上市普通股股數:不適用 6.預計減資新股上市後之上市普通股股數占已發行普通股比率  （減資後上市普通股股數/減資後已發行普通股股數）:不適用 7.前二項預計減資後上巿普通股股數未達6000萬股且未達25%者，請說明股權流通性偏低   之因應措施:不適用 8.其他應敘明事項:  本次變更登記包含發行限制員工權利新股1,386,800股，變更登記後，  股份總數為222,456,016股。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260708 | 3545 | 敦泰 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | no_signal | stale_signal | 1.主管機關核准減資日期:115/06/22 2.辦理資本變更登記完成日期:115/06/22 3.對財務報告之影響（含實收資本額與流通在外股數之差異與對每股淨值之影響）:  (1)本次註銷限制員工權利新股81,999股，     每股面額新台幣10元，共計減少資本819,990元。  (2)股份註銷減資前：本公司實收資本額為新台幣2,211,512,150元，     流通在外股數為221,151,215股，每股淨值新台幣 40.27元。  (3)股份註銷減資後：本公司實收資本額為新台幣2,210,692,160元，     流通在外股數為221,069,216股，每股淨值新台幣 40.28元。  以上每股淨值依最近一期(115年第1季)會計師核閱財務報告，依證券發行人財務報告  編製準則規定之資產負債表歸屬於母公司業主之權益。 4.預計換股作業計畫:不適用 5.預計減資新股上市後之上市普通股股數:不適用 6.預計減資新股上市後之上市普通股股數占已發行普通股比率  （減資後上市普通股股數/減資後已發行普通股股數）:不適用 7.前二項預計減資後上巿普通股股數未達6000萬股且未達25%者，請說明股權流通性偏低   之因應措施:不適用 8.其他應敘明事項:  本次變更登記包含發行限制員工權利新股1,386,800股，變更登記後，  股份總數為222,456,016股。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260707 | 3545 | 敦泰 | 3 | 3 | 4 | 5 | 9 | continued_2_3d | 連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| 20260708 | 3545 | 敦泰 | 4 | 4 | 4 | 6 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260707 | 3545 | 敦泰 | 14 | 0 | 285170.0 | 0.0 |  | no_signal |
+| 20260708 | 3545 | 敦泰 | 14 | 0 | 129520.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

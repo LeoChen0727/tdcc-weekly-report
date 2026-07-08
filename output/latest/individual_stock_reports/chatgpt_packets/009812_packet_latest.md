@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009812 野村日本東證
 
 ## Metadata
-- generated_at: 2026-07-07 22:26:28 Asia/Taipei
+- generated_at: 2026-07-08 22:26:12 Asia/Taipei
 - stock_id: 009812
 - stock_name: 野村日本東證
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260707
-- price_rows: 32
+- latest_price_date: 20260708
+- price_rows: 33
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260707
-- open: 12.71
-- high: 12.75
-- low: 12.62
-- close: 12.62
-- volume: 224088
-- ma5: 12.54
-- ema23_primary: 12.35
-- distance_to_ema23_pct: 2.19
-- ma20: 12.32
-- ma60: 12.25
-- ma120: 12.25
-- return_5d: 2.35
-- return_20d: 6.14
-- volume_ratio: 0.33
-- distance_to_ma20_pct_auxiliary: 2.45
-- distance_to_high_60_pct: -1.02
+- date: 20260708
+- open: 12.62
+- high: 12.65
+- low: 12.5
+- close: 12.54
+- volume: 778203
+- ma5: 12.58
+- ema23_primary: 12.37
+- distance_to_ema23_pct: 1.41
+- ma20: 12.34
+- ma60: 12.26
+- ma120: 12.26
+- return_5d: 1.87
+- return_20d: 4.24
+- volume_ratio: 1.15
+- distance_to_ma20_pct_auxiliary: 1.59
+- distance_to_high_60_pct: -1.65
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260609,11.89,12.04,11.89,12.03,630359,12.12,-0.74,12.14,12.14,0.61
 20260610,12.03,12.03,11.85,11.87,472236,12.1,-1.89,12.12,12.12,0.48
 20260611,11.86,11.87,11.65,11.84,522264,12.08,-1.97,12.1,12.1,0.54
 20260612,12.06,12.09,11.98,12.03,1410543,12.07,-0.36,12.09,12.09,1.43
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260703,12.47,12.63,12.47,12.6,853523,12.29,2.52,12.26,12.23,1.21
 20260706,12.74,12.74,12.64,12.71,504000,12.32,3.12,12.28,12.24,0.72
 20260707,12.71,12.75,12.62,12.62,224088,12.35,2.19,12.32,12.25,0.33
+20260708,12.62,12.65,12.5,12.54,778203,12.37,1.41,12.34,12.26,1.15
 ```
 
 ## Latest TDCC Snapshot

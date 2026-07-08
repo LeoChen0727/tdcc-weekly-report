@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00901 永豐智能車供應鏈
 
 ## Metadata
-- generated_at: 2026-07-07 22:26:26 Asia/Taipei
+- generated_at: 2026-07-08 22:26:10 Asia/Taipei
 - stock_id: 00901
 - stock_name: 永豐智能車供應鏈
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260707
-- price_rows: 32
+- latest_price_date: 20260708
+- price_rows: 33
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260707
-- open: 47.35
-- high: 47.35
-- low: 45.43
-- close: 45.47
-- volume: 358896
-- ma5: 47.31
-- ema23_primary: 46.6
+- date: 20260708
+- open: 45.53
+- high: 45.62
+- low: 44.85
+- close: 45.37
+- volume: 222441
+- ma5: 46.76
+- ema23_primary: 46.5
 - distance_to_ema23_pct: -2.42
-- ma20: 46.71
-- ma60: 46.51
-- ma120: 46.51
-- return_5d: -4.07
-- return_20d: 2.46
-- volume_ratio: 0.7
-- distance_to_ma20_pct_auxiliary: -2.66
-- distance_to_high_60_pct: -8.14
+- ma20: 46.67
+- ma60: 46.47
+- ma120: 46.47
+- return_5d: -5.7
+- return_20d: -1.69
+- volume_ratio: 0.45
+- distance_to_ma20_pct_auxiliary: -2.79
+- distance_to_high_60_pct: -8.34
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260609,44.79,46.19,44.7,46.15,450699,45.18,2.16,46.16,46.16,0.46
 20260610,45.62,46.12,44.07,44.15,1124051,45.09,-2.09,46.02,46.02,1.14
 20260611,44.11,44.25,42.6,44,1377028,45,-2.22,45.88,45.88,1.36
 20260612,45.77,45.77,45.15,45.23,309391,45.02,0.47,45.84,45.84,0.32
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260703,46.92,47.97,46.82,47.81,267766,46.64,2.51,46.6,46.51,0.48
 20260706,48.11,48.11,47,47.35,112000,46.7,1.39,46.66,46.54,0.22
 20260707,47.35,47.35,45.43,45.47,358896,46.6,-2.42,46.71,46.51,0.7
+20260708,45.53,45.62,44.85,45.37,222441,46.5,-2.42,46.67,46.47,0.45
 ```
 
 ## Latest TDCC Snapshot
