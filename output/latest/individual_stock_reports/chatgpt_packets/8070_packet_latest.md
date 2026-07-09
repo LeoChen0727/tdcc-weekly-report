@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8070 長華*
 
 ## Metadata
-- generated_at: 2026-07-08 22:28:38 Asia/Taipei
+- generated_at: 2026-07-09 22:28:04 Asia/Taipei
 - stock_id: 8070
 - stock_name: 長華*
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 300
+- latest_price_date: 20260709
+- price_rows: 301
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 56.1
-- high: 56.2
-- low: 52.9
-- close: 53.3
-- volume: 4738291
-- ma5: 55.64
-- ema23_primary: 55.07
-- distance_to_ema23_pct: -3.21
-- ma20: 55.89
-- ma60: 51.62
-- ma120: 48.25
-- return_5d: -0.19
-- return_20d: -10.27
-- volume_ratio: 0.51
-- distance_to_ma20_pct_auxiliary: -4.63
-- distance_to_high_60_pct: -19.24
+- date: 20260709
+- open: 53.6
+- high: 54.3
+- low: 52.7
+- close: 52.7
+- volume: 2352532
+- ma5: 54.88
+- ema23_primary: 54.87
+- distance_to_ema23_pct: -3.96
+- ma20: 55.65
+- ma60: 51.7
+- ma120: 48.32
+- return_5d: -6.73
+- return_20d: -8.51
+- volume_ratio: 0.27
+- distance_to_ma20_pct_auxiliary: -5.29
+- distance_to_high_60_pct: -20.15
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,59,59.9,57.2,57.6,15991463,53.46,7.75,51.67,48.05,1.18
 20260611,57.8,59.1,56.5,58.8,14766771,53.9,9.08,52.34,48.3,1.04
 20260612,60.5,60.5,57.1,57.3,11584551,54.19,5.74,52.94,48.53,0.79
 20260615,58.4,58.4,56.8,57,5889747,54.42,4.74,53.62,48.75,0.4
@@ -160,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,57,60.2,57,57.2,12086000,55.23,3.56,56.4,51.4,1.14
 20260707,58.7,58.8,55.2,55.2,8164630,55.23,-0.06,56.2,51.52,0.81
 20260708,56.1,56.2,52.9,53.3,4738291,55.07,-3.21,55.89,51.62,0.51
+20260709,53.6,54.3,52.7,52.7,2352532,54.87,-3.96,55.65,51.7,0.27
 ```
 
 ## Latest TDCC Snapshot
@@ -194,17 +194,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 8070 | 長華* | revenue_pullback | 營收成長股價回檔 | 69.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260709 | 8070 | 長華* | revenue_pullback | 營收成長股價回檔 | 69.0 |  |  |  |  | no_signal | stale_signal | 營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 8070 | 長華* | 5 | 5 | 5 | 9 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260709 | 8070 | 長華* | 6 | 6 | 5 | 9 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 8070 | 長華* | 20 | 0 | 1068130.0 | 0.0 |  | no_signal |
+| 20260709 | 8070 | 長華* | 20 | 0 | 468390.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

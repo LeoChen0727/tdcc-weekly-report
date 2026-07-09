@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6190 萬泰科
 
 ## Metadata
-- generated_at: 2026-07-08 22:27:59 Asia/Taipei
+- generated_at: 2026-07-09 22:27:32 Asia/Taipei
 - stock_id: 6190
 - stock_name: 萬泰科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 165
+- latest_price_date: 20260709
+- price_rows: 166
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 84.5
-- high: 85.4
-- low: 82.3
-- close: 83.1
-- volume: 2310000
-- ma5: 84.9
-- ema23_primary: 82.4
-- distance_to_ema23_pct: 0.86
-- ma20: 82.06
-- ma60: 77.87
-- ma120: 64.62
-- return_5d: -1.19
-- return_20d: 2.72
-- volume_ratio: 0.53
-- distance_to_ma20_pct_auxiliary: 1.26
-- distance_to_high_60_pct: -16.57
+- date: 20260709
+- open: 83.2
+- high: 84.8
+- low: 82
+- close: 82.1
+- volume: 2002000
+- ma5: 84.14
+- ema23_primary: 82.37
+- distance_to_ema23_pct: -0.33
+- ma20: 82.17
+- ma60: 78.21
+- ma120: 64.91
+- return_5d: -4.42
+- return_20d: 2.62
+- volume_ratio: 0.49
+- distance_to_ma20_pct_auxiliary: -0.09
+- distance_to_high_60_pct: -17.57
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,80.1,85.8,79.8,80,6425000,79.74,0.32,81.19,69.48,2.2
 20260611,80.7,82.5,77.6,79,4533000,79.68,-0.85,81.23,69.96,1.7
 20260612,82,82.6,79.6,80.4,3122000,79.74,0.83,81.39,70.46,1.23
 20260615,82.6,82.8,79.2,79.3,3435000,79.7,-0.51,81.41,70.92,1.54
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,86.8,87.9,85.3,87.1,4733000,82.31,5.82,81.67,77.24,1.08
 20260707,87.5,88,82.5,82.6,4089000,82.33,0.33,81.95,77.56,0.93
 20260708,84.5,85.4,82.3,83.1,2310000,82.4,0.86,82.06,77.87,0.53
+20260709,83.2,84.8,82,82.1,2002000,82.37,-0.33,82.17,78.21,0.49
 ```
 
 ## Latest TDCC Snapshot
@@ -189,12 +189,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 6190 | 萬泰科 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | 1.董事會或股東會決議日期:NA 2.原發放股利種類及金額:現金股利新台幣364,911,368元，每股配發2元。 3.變更後發放股利種類及金額:現金股利新台幣364,911,368元，每股配發1.93303817元。 4.變更原因:因本公司發行之國內第七次無擔保轉換公司債轉換及庫藏股轉讓員工暨買回 致影響流通在外股數增加，原現金股利配息率因此發生變動。 5.其他應敘明事項: 依115年3月9日董事會決議，授權董事長調整配息比率。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260709 | 6190 | 萬泰科 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | 1.董事會或股東會決議日期:NA 2.原發放股利種類及金額:現金股利新台幣364,911,368元，每股配發2元。 3.變更後發放股利種類及金額:現金股利新台幣364,911,368元，每股配發1.93303817元。 4.變更原因:因本公司發行之國內第七次無擔保轉換公司債轉換及庫藏股轉讓員工暨買回 致影響流通在外股數增加，原現金股利配息率因此發生變動。 5.其他應敘明事項: 依115年3月9日董事會決議，授權董事長調整配息比率。；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 6190 | 萬泰科 | 13 | 2 | 5 | 10 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260709 | 6190 | 萬泰科 | 14 | 3 | 5 | 10 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

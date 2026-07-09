@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4991 環宇-KY
 
 ## Metadata
-- generated_at: 2026-07-08 22:27:41 Asia/Taipei
+- generated_at: 2026-07-09 22:27:18 Asia/Taipei
 - stock_id: 4991
 - stock_name: 環宇-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 165
+- latest_price_date: 20260709
+- price_rows: 166
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 485
-- high: 504
-- low: 467.5
-- close: 482
-- volume: 7931000
-- ma5: 515.2
-- ema23_primary: 556.65
-- distance_to_ema23_pct: -13.41
-- ma20: 537.17
-- ma60: 638.41
-- ma120: 477.51
-- return_5d: -11.23
-- return_20d: -19.4
-- volume_ratio: 2.22
-- distance_to_ma20_pct_auxiliary: -10.27
-- distance_to_high_60_pct: -46.15
+- date: 20260709
+- open: 505
+- high: 506
+- low: 461.5
+- close: 461.5
+- volume: 4852000
+- ma5: 502.3
+- ema23_primary: 548.72
+- distance_to_ema23_pct: -15.9
+- ma20: 533.3
+- ma60: 635.75
+- ma120: 479.55
+- return_5d: -12.26
+- return_20d: -14.38
+- volume_ratio: 1.36
+- distance_to_ma20_pct_auxiliary: -13.46
+- distance_to_high_60_pct: -48.44
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,572,584,539,539,5041000,677.31,-20.42,707.5,606.01,3.96
 20260611,518,541,485.5,530,8076000,665.03,-20.3,698.6,609.11,4.91
 20260612,577,577,525,554,6298000,655.78,-15.52,694.2,612.98,3.27
 20260615,570,573,539,544,7189000,646.46,-15.85,686.5,616.16,3.2
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,578,586,521,521,5980000,572.02,-8.92,550.12,641.48,1.83
 20260707,512,530,469,469,6147000,563.44,-16.76,542.98,640.09,1.77
 20260708,485,504,467.5,482,7931000,556.65,-13.41,537.17,638.41,2.22
+20260709,505,506,461.5,461.5,4852000,548.72,-15.9,533.3,635.75,1.36
 ```
 
 ## Latest TDCC Snapshot
@@ -189,12 +189,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 4991 | 環宇-KY | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260709 | 4991 | 環宇-KY | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | 營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 4991 | 環宇-KY | 4 | 4 | 4 | 4 | 5 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260709 | 4991 | 環宇-KY | 5 | 5 | 5 | 5 | 6 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

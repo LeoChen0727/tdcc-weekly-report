@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4576 大銀微系統
 
 ## Metadata
-- generated_at: 2026-07-08 22:27:34 Asia/Taipei
+- generated_at: 2026-07-09 22:27:12 Asia/Taipei
 - stock_id: 4576
 - stock_name: 大銀微系統
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 300
+- latest_price_date: 20260709
+- price_rows: 301
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 223
-- high: 229
-- low: 216
-- close: 220.5
-- volume: 1620607
-- ma5: 227.9
-- ema23_primary: 221.86
-- distance_to_ema23_pct: -0.61
-- ma20: 215.65
-- ma60: 225.13
-- ma120: 174.03
-- return_5d: 3.04
-- return_20d: 3.04
-- volume_ratio: 0.79
-- distance_to_ma20_pct_auxiliary: 2.25
-- distance_to_high_60_pct: -24.23
+- date: 20260709
+- open: 224
+- high: 225.5
+- low: 216.5
+- close: 218
+- volume: 1240194
+- ma5: 224.5
+- ema23_primary: 221.54
+- distance_to_ema23_pct: -1.6
+- ma20: 216.5
+- ma60: 225.56
+- ma120: 174.95
+- return_5d: -7.23
+- return_20d: 8.46
+- volume_ratio: 0.61
+- distance_to_ma20_pct_auxiliary: 0.69
+- distance_to_high_60_pct: -25.09
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,210,216.5,200,201,1768811,233.21,-13.81,246.43,199.4,0.4
 20260611,200,204,191,196.5,2056853,230.15,-14.62,244.18,200.62,0.48
 20260612,206.5,207,199,202,1501750,227.81,-11.33,241,201.99,0.38
 20260615,209.5,215.5,208,215,1493885,226.74,-5.18,238.82,203.56,0.42
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,228,240,225.5,238.5,3396000,221.89,7.48,214.68,223.52,1.69
 20260707,242,244.5,221,223,3391518,221.99,0.46,215.32,224.48,1.65
 20260708,223,229,216,220.5,1620607,221.86,-0.61,215.65,225.13,0.79
+20260709,224,225.5,216.5,218,1240194,221.54,-1.6,216.5,225.56,0.61
 ```
 
 ## Latest TDCC Snapshot
@@ -189,18 +189,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 4576 | 大銀微系統 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: ex_dividend on 20260708; status=confirmed; proximity=within_3d |
-| 20260708 | 4576 | 大銀微系統 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | no_signal | stale_signal | calendar event: ex_dividend on 20260708; status=confirmed; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260709 | 4576 | 大銀微系統 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | call_strong_inflow | stale_signal | calendar event: ex_dividend on 20260708; status=confirmed; proximity=recent |
+| 20260709 | 4576 | 大銀微系統 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | call_strong_inflow | stale_signal | calendar event: ex_dividend on 20260708; status=confirmed; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 4576 | 大銀微系統 | 5 | 5 | 5 | 7 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260709 | 4576 | 大銀微系統 | 6 | 6 | 5 | 7 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 4576 | 大銀微系統 | 59 | 0 | 3029460.0 | 0.0 |  | no_signal |
+| 20260709 | 4576 | 大銀微系統 | 59 | 0 | 10620080.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

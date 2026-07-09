@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7768 頌勝科技
 
 ## Metadata
-- generated_at: 2026-07-08 22:28:34 Asia/Taipei
+- generated_at: 2026-07-09 22:28:01 Asia/Taipei
 - stock_id: 7768
 - stock_name: 頌勝科技
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260708
-- price_rows: 44
+- latest_price_date: 20260709
+- price_rows: 45
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 340
-- high: 347
-- low: 339.5
-- close: 344
-- volume: 65940
-- ma5: 352
-- ema23_primary: 360.02
-- distance_to_ema23_pct: -4.45
-- ma20: 358.38
-- ma60: 370.52
-- ma120: 370.52
-- return_5d: 0.58
-- return_20d: -14.21
-- volume_ratio: 0.39
-- distance_to_ma20_pct_auxiliary: -4.01
-- distance_to_high_60_pct: -22.52
+- date: 20260709
+- open: 351
+- high: 357.5
+- low: 348.5
+- close: 350.5
+- volume: 97236
+- ma5: 353.3
+- ema23_primary: 359.23
+- distance_to_ema23_pct: -2.43
+- ma20: 356.7
+- ma60: 370.08
+- ma120: 370.08
+- return_5d: 1.89
+- return_20d: -8.72
+- volume_ratio: 0.61
+- distance_to_ma20_pct_auxiliary: -1.74
+- distance_to_high_60_pct: -21.06
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,400,402,384,384,305331,390.72,-1.72,387.68,380.78,0.77
 20260611,384.5,387.5,364,373.5,266471,389.28,-4.05,387.62,380.5,0.71
 20260612,380,384,378,378,113900,388.34,-2.66,388.52,380.41,0.31
 20260615,385,388,380.5,380.5,165093,387.69,-1.85,390.05,380.41,0.46
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,370,370,357,370,164000,363.43,1.81,364.18,371.88,0.91
 20260707,370,370,340,340,181414,361.48,-5.94,361.23,371.14,1.03
 20260708,340,347,339.5,344,65940,360.02,-4.45,358.38,370.52,0.39
+20260709,351,357.5,348.5,350.5,97236,359.23,-2.43,356.7,370.08,0.61
 ```
 
 ## Latest TDCC Snapshot

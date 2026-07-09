@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3511 矽瑪
 
 ## Metadata
-- generated_at: 2026-07-08 22:27:17 Asia/Taipei
+- generated_at: 2026-07-09 22:26:59 Asia/Taipei
 - stock_id: 3511
 - stock_name: 矽瑪
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 165
+- latest_price_date: 20260709
+- price_rows: 166
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 - acceptable_risk_reward
@@ -111,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 27.75
-- high: 27.75
-- low: 26
-- close: 26.1
-- volume: 2186000
-- ma5: 26.43
-- ema23_primary: 24.71
-- distance_to_ema23_pct: 5.62
-- ma20: 24.73
-- ma60: 22.69
-- ma120: 21.4
-- return_5d: 8.75
-- return_20d: 5.24
-- volume_ratio: 1.28
-- distance_to_ma20_pct_auxiliary: 5.55
-- distance_to_high_60_pct: -15.4
+- date: 20260709
+- open: 25.85
+- high: 26.95
+- low: 25
+- close: 25.15
+- volume: 1594000
+- ma5: 26.59
+- ema23_primary: 24.75
+- distance_to_ema23_pct: 1.62
+- ma20: 24.82
+- ma60: 22.79
+- ma120: 21.43
+- return_5d: 3.29
+- return_20d: 7.94
+- volume_ratio: 0.92
+- distance_to_ma20_pct_auxiliary: 1.33
+- distance_to_high_60_pct: -18.48
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,24.4,25,23.15,23.3,936000,22.68,2.75,22.03,20.85,4.23
 20260611,23.3,23.8,22.35,23.55,737000,22.75,3.52,22.18,20.92,3.24
 20260612,24.45,24.45,23.5,23.65,541000,22.82,3.62,22.38,21,2.27
 20260615,24.05,25.3,23.95,25.2,1156000,23.02,9.46,22.64,21.1,4.04
@@ -153,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,25.75,28.05,25.75,28.05,5724000,24.26,15.61,24.47,22.43,6.06
 20260707,29.3,30.85,26.8,28.15,14725000,24.59,14.5,24.66,22.57,8.99
 20260708,27.75,27.75,26,26.1,2186000,24.71,5.62,24.73,22.69,1.28
+20260709,25.85,26.95,25,25.15,1594000,24.75,1.62,24.82,22.79,0.92
 ```
 
 ## Latest TDCC Snapshot
@@ -187,12 +188,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 3511 | 矽瑪 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/07 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.發放股利種類及金額:資本公積發放現金新台幣26,960,500元，每股配發0.5元。 4.除權（息）交易日:不適用 5.最後過戶日:115/08/15 6.停止過戶起始日期:115/08/16 7.停止過戶截止日期:115/08/20 8.除權（息）基準日:115/08/20 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.現金股利發放日期:115/09/04 13.其他應敘明事項:因最後過戶日8月15日適逢假日，故現場過戶提前至8月14日， 掛號郵寄者以115年8月15日(最後過戶日)郵戳日期為憑。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260709 | 3511 | 矽瑪 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/07 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.發放股利種類及金額:資本公積發放現金新台幣26,960,500元，每股配發0.5元。 4.除權（息）交易日:不適用 5.最後過戶日:115/08/15 6.停止過戶起始日期:115/08/16 7.停止過戶截止日期:115/08/20 8.除權（息）基準日:115/08/20 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.現金股利發放日期:115/09/04 13.其他應敘明事項:因最後過戶日8月15日適逢假日，故現場過戶提前至8月14日， 掛號郵寄者以115年8月15日(最後過戶日)郵戳日期為憑。 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 3511 | 矽瑪 | 4 | 1 | 4 | 4 | 4 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260709 | 3511 | 矽瑪 | 5 | 2 | 5 | 5 | 5 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

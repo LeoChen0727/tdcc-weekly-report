@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3236 千如
 
 ## Metadata
-- generated_at: 2026-07-08 22:27:11 Asia/Taipei
+- generated_at: 2026-07-09 22:26:54 Asia/Taipei
 - stock_id: 3236
 - stock_name: 千如
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 165
+- latest_price_date: 20260709
+- price_rows: 166
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 64.1
-- high: 64.1
-- low: 60.4
-- close: 62
-- volume: 7101000
-- ma5: 66.48
-- ema23_primary: 63.24
-- distance_to_ema23_pct: -1.96
-- ma20: 65.61
-- ma60: 49.51
-- ma120: 40.39
-- return_5d: -15.07
-- return_20d: 9.73
-- volume_ratio: 0.39
-- distance_to_ma20_pct_auxiliary: -5.5
-- distance_to_high_60_pct: -18.1
+- date: 20260709
+- open: 63
+- high: 63.8
+- low: 60.2
+- close: 60.8
+- volume: 6024000
+- ma5: 64.62
+- ema23_primary: 63.03
+- distance_to_ema23_pct: -3.55
+- ma20: 66.03
+- ma60: 49.95
+- ma120: 40.64
+- return_5d: -13.27
+- return_20d: 16.25
+- volume_ratio: 0.33
+- distance_to_ma20_pct_auxiliary: -7.93
+- distance_to_high_60_pct: -19.68
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,54.9,59.3,52.3,52.3,4647000,49.28,6.13,51.05,38.37,0.67
 20260611,52,57.5,52,57.5,19435000,49.96,15.08,51.91,38.86,3.2
 20260612,61.9,63.2,61.9,63.2,6601000,51.07,23.76,53.13,39.41,1.22
 20260615,64.8,69.5,63.7,69.5,38786000,52.6,32.12,54.55,40.02,5.84
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,69.7,70.6,64.7,66.8,9282000,63.22,5.67,64.75,48.51,0.53
 20260707,66.8,68.4,60.2,64.8,9457000,63.35,2.29,65.33,49.05,0.53
 20260708,64.1,64.1,60.4,62,7101000,63.24,-1.96,65.61,49.51,0.39
+20260709,63,63.8,60.2,60.8,6024000,63.03,-3.55,66.03,49.95,0.33
 ```
 
 ## Latest TDCC Snapshot
@@ -189,12 +189,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 3236 | 千如 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260709 | 3236 | 千如 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal |  |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 3236 | 千如 | 2 | 2 | 2 | 5 | 8 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260709 | 3236 | 千如 | 3 | 3 | 3 | 5 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

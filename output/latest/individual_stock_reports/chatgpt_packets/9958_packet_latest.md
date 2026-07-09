@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9958 世紀鋼
 
 ## Metadata
-- generated_at: 2026-07-08 22:28:52 Asia/Taipei
+- generated_at: 2026-07-09 22:28:16 Asia/Taipei
 - stock_id: 9958
 - stock_name: 世紀鋼
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 300
+- latest_price_date: 20260709
+- price_rows: 301
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 120
-- high: 121
-- low: 117.5
-- close: 118.5
-- volume: 1699095
+- date: 20260709
+- open: 119.5
+- high: 120
+- low: 117
+- close: 117
+- volume: 1510403
 - ma5: 118.7
-- ema23_primary: 115.07
-- distance_to_ema23_pct: 2.98
-- ma20: 115.53
-- ma60: 108.78
-- ma120: 118.39
-- return_5d: 0.85
-- return_20d: 4.41
-- volume_ratio: 0.62
-- distance_to_ma20_pct_auxiliary: 2.58
-- distance_to_high_60_pct: -5.58
+- ema23_primary: 115.23
+- distance_to_ema23_pct: 1.54
+- ma20: 115.83
+- ma60: 109
+- ma120: 118.18
+- return_5d: 0
+- return_20d: 5.41
+- volume_ratio: 0.57
+- distance_to_ma20_pct_auxiliary: 1.01
+- distance_to_high_60_pct: -6.77
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,113,116,111,111,3523712,108.31,2.49,107,109.28,0.89
 20260611,111.5,114.5,108.5,111.5,3247768,108.57,2.7,107.08,108.98,0.83
 20260612,112.5,114.5,111.5,112.5,1728181,108.9,3.31,107.47,108.71,0.46
 20260615,114,114,110,110,2218975,108.99,0.93,107.7,108.4,0.58
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,121.5,125.5,120,120.5,3447000,114.51,5.23,115.15,108.36,1.12
 20260707,121,121.5,117,117.5,1723945,114.76,2.39,115.28,108.53,0.6
 20260708,120,121,117.5,118.5,1699095,115.07,2.98,115.53,108.78,0.62
+20260709,119.5,120,117,117,1510403,115.23,1.54,115.83,109,0.57
 ```
 
 ## Latest TDCC Snapshot
@@ -189,18 +189,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 9958 | 世紀鋼 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/25 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額: 　現金股利新台幣1,111,034,993元，每股配發4.5元。 4.除權（息）交易日:115/07/23 5.最後過戶日:115/07/26 6.停止過戶起始日期:115/07/27 7.停止過戶截止日期:115/07/31 8.除權（息）基準日:115/07/31 9.債券最後申請轉換日期:115/07/02 10.債券停止轉換起始日期:115/07/06 11.債券停止轉換截止日期:115/07/31 12.普通股現金股利發放日期:115/08/21 13.其他應敘明事項: 　 如因本公司可轉換公司債轉換等因素，致影響流通在外普通股數量， 　 股東配息率因此發生變動而需調整時，授權董事長全權處理之。；calendar event: ex_dividend on 20260723; status=confirmed; proximity=within_30d |
-| 20260708 | 9958 | 世紀鋼 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/25 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額: 　現金股利新台幣1,111,034,993元，每股配發4.5元。 4.除權（息）交易日:115/07/23 5.最後過戶日:115/07/26 6.停止過戶起始日期:115/07/27 7.停止過戶截止日期:115/07/31 8.除權（息）基準日:115/07/31 9.債券最後申請轉換日期:115/07/02 10.債券停止轉換起始日期:115/07/06 11.債券停止轉換截止日期:115/07/31 12.普通股現金股利發放日期:115/08/21 13.其他應敘明事項: 　 如因本公司可轉換公司債轉換等因素，致影響流通在外普通股數量， 　 股東配息率因此發生變動而需調整時，授權董事長全權處理之。；calendar event: ex_dividend on 20260723; status=confirmed; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260709 | 9958 | 世紀鋼 | pattern | 型態觀察 | 51.0 |  |  | base_building |  | no_signal | stale_signal | 1.事實發生日:115/07/08 2.公司名稱:世紀鋼鐵結構股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:因配發現金股利，本公司國內第八次無擔保轉換公司債轉換價格調整。 6.因應措施:依據本公司國內第八次無擔保轉換公司債發行及轉換辦法第11條規定， 　　　　　轉換價格應予以調整，故自115/07/31除息基準日起，由新台幣232.7元 　　　　　調整為新台幣元223.8。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: ex_dividend on 20260723; status=confirmed; proximity=within_14d |
+| 20260709 | 9958 | 世紀鋼 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/07/08 2.公司名稱:世紀鋼鐵結構股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:因配發現金股利，本公司國內第八次無擔保轉換公司債轉換價格調整。 6.因應措施:依據本公司國內第八次無擔保轉換公司債發行及轉換辦法第11條規定， 　　　　　轉換價格應予以調整，故自115/07/31除息基準日起，由新台幣232.7元 　　　　　調整為新台幣元223.8。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: ex_dividend on 20260723; status=confirmed; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 9958 | 世紀鋼 | 29 | 5 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260709 | 9958 | 世紀鋼 | 30 | 6 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 9958 | 世紀鋼 | 29 | 0 | 1347250.0 | 0.0 |  | no_signal |
+| 20260709 | 9958 | 世紀鋼 | 28 | 0 | 347180.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

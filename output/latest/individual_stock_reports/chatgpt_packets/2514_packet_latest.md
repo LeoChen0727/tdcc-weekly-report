@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2514 龍邦
 
 ## Metadata
-- generated_at: 2026-07-08 22:26:50 Asia/Taipei
+- generated_at: 2026-07-09 22:26:38 Asia/Taipei
 - stock_id: 2514
 - stock_name: 龍邦
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 300
+- latest_price_date: 20260709
+- price_rows: 301
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 12.95
-- high: 13.25
-- low: 12.9
-- close: 13
-- volume: 662583
-- ma5: 13.04
-- ema23_primary: 13.24
-- distance_to_ema23_pct: -1.79
-- ma20: 13.37
-- ma60: 13.3
-- ma120: 13.82
-- return_5d: -1.52
-- return_20d: -3.35
-- volume_ratio: 2.33
-- distance_to_ma20_pct_auxiliary: -2.73
-- distance_to_high_60_pct: -8.13
+- date: 20260709
+- open: 12.9
+- high: 13
+- low: 12.85
+- close: 12.95
+- volume: 286476
+- ma5: 13.03
+- ema23_primary: 13.21
+- distance_to_ema23_pct: -1.99
+- ma20: 13.32
+- ma60: 13.29
+- ma120: 13.81
+- return_5d: -0.38
+- return_20d: -5.82
+- volume_ratio: 1.08
+- distance_to_ma20_pct_auxiliary: -2.81
+- distance_to_high_60_pct: -8.48
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,13.4,14.15,13.4,13.75,680713,13.35,2.97,13.23,13.37,1.72
 20260611,13.8,13.8,13.5,13.7,85707,13.38,2.38,13.26,13.37,0.22
 20260612,13.65,14,13.65,13.8,126972,13.42,2.86,13.29,13.37,0.35
 20260615,14.05,14.05,13.85,13.95,540402,13.46,3.63,13.34,13.37,1.42
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,13.15,13.25,13.05,13.15,96000,13.29,-1.06,13.41,13.32,0.33
 20260707,13.25,13.25,12.9,12.9,137790,13.26,-2.7,13.39,13.31,0.47
 20260708,12.95,13.25,12.9,13,662583,13.24,-1.79,13.37,13.3,2.33
+20260709,12.9,13,12.85,12.95,286476,13.21,-1.99,13.32,13.29,1.08
 ```
 
 ## Latest TDCC Snapshot

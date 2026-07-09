@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1815 富喬
 
 ## Metadata
-- generated_at: 2026-07-08 22:26:31 Asia/Taipei
+- generated_at: 2026-07-09 22:26:23 Asia/Taipei
 - stock_id: 1815
 - stock_name: 富喬
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 165
+- latest_price_date: 20260709
+- price_rows: 166
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 97.3
-- high: 97.9
-- low: 93.9
-- close: 96.6
-- volume: 11992000
-- ma5: 99.12
-- ema23_primary: 101.06
-- distance_to_ema23_pct: -4.41
-- ma20: 99.47
-- ma60: 105.43
-- ma120: 103.06
-- return_5d: -7.12
-- return_20d: -2.33
-- volume_ratio: 0.4
-- distance_to_ma20_pct_auxiliary: -2.89
-- distance_to_high_60_pct: -25.41
+- date: 20260709
+- open: 97.1
+- high: 97.8
+- low: 94.5
+- close: 95
+- volume: 9656000
+- ma5: 97.82
+- ema23_primary: 100.56
+- distance_to_ema23_pct: -5.53
+- ma20: 99.66
+- ma60: 105.11
+- ma120: 103.12
+- return_5d: -6.4
+- return_20d: 3.94
+- volume_ratio: 0.33
+- distance_to_ma20_pct_auxiliary: -4.67
+- distance_to_high_60_pct: -26.64
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,97.1,97.9,91.2,91.4,19508000,103.83,-11.97,103.53,107.44,2.26
 20260611,90.5,92.9,85,90.1,24590000,102.68,-12.25,102.72,107.1,2.89
 20260612,95,97.8,93.9,96.2,17201000,102.14,-5.82,102.4,106.91,2.09
 20260615,98.1,98.6,94.1,95.1,29818000,101.56,-6.36,101.98,106.62,3.49
@@ -160,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,102.5,103,98.1,99.5,16203000,101.92,-2.37,99.61,105.93,0.54
 20260707,101.5,103,96.1,96.5,22575000,101.47,-4.9,99.59,105.7,0.75
 20260708,97.3,97.9,93.9,96.6,11992000,101.06,-4.41,99.47,105.43,0.4
+20260709,97.1,97.8,94.5,95,9656000,100.56,-5.53,99.66,105.11,0.33
 ```
 
 ## Latest TDCC Snapshot
@@ -194,12 +194,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 1815 | 富喬 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  |  | continued_overheated | 1.董事會決議日期或發生變動日期: 115/06/23 2.人員別（請輸入董事長或總經理）: 董事長 3.舊任者姓名: 張元賓 4.舊任者簡歷: 富喬工業股份有限公司 董事長 5.新任者姓名: 景泰投資有限公司 代表人：張元賓 6.新任者簡歷: 富喬工業股份有限公司 董事長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）: 任期屆滿 8.異動原因: 115年股東常會董事全面改選 9.新任生效日期: 115/06/23 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第6款所定 對股東權益或證券價格有重大影響之事項): 無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260709 | 1815 | 富喬 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  |  | continued_overheated | 1.董事會決議日期或發生變動日期: 115/06/23 2.人員別（請輸入董事長或總經理）: 董事長 3.舊任者姓名: 張元賓 4.舊任者簡歷: 富喬工業股份有限公司 董事長 5.新任者姓名: 景泰投資有限公司 代表人：張元賓 6.新任者簡歷: 富喬工業股份有限公司 董事長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）: 任期屆滿 8.異動原因: 115年股東常會董事全面改選 9.新任生效日期: 115/06/23 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第6款所定 對股東權益或證券價格有重大影響之事項): 無；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 1815 | 富喬 | 12 | 12 | 5 | 10 | 12 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260709 | 1815 | 富喬 | 13 | 13 | 5 | 10 | 13 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8046 南電
 
 ## Metadata
-- generated_at: 2026-07-08 22:28:37 Asia/Taipei
+- generated_at: 2026-07-09 22:28:04 Asia/Taipei
 - stock_id: 8046
 - stock_name: 南電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 300
+- latest_price_date: 20260709
+- price_rows: 301
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -59,14 +59,14 @@
 - action_rating_display_zh: 已持有續抱
 - model_category_display_zh: 單一個股分析
 - score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- risk_control_zh: 股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -74,7 +74,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: unclear
+- thesis_state: high_level_consolidation
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -91,7 +91,6 @@
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
-- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -104,7 +103,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- none
+- price_too_extended
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -112,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 1065
-- high: 1130
-- low: 1020
-- close: 1105
-- volume: 21268557
-- ma5: 1108
-- ema23_primary: 1012.91
-- distance_to_ema23_pct: 9.09
-- ma20: 993.6
-- ma60: 904.32
-- ma120: 676.77
-- return_5d: -5.96
-- return_20d: 20.9
-- volume_ratio: 1.12
-- distance_to_ma20_pct_auxiliary: 11.21
-- distance_to_high_60_pct: -14.01
+- date: 20260709
+- open: 1110
+- high: 1215
+- low: 1090
+- close: 1215
+- volume: 24652125
+- ma5: 1122
+- ema23_primary: 1029.75
+- distance_to_ema23_pct: 17.99
+- ma20: 1012
+- ma60: 913.8
+- ma120: 684.85
+- return_5d: 6.11
+- return_20d: 43.45
+- volume_ratio: 1.27
+- distance_to_ma20_pct_auxiliary: 20.06
+- distance_to_high_60_pct: -5.45
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,894,912,843,847,17501947,862.6,-1.81,862.6,770.07,0.99
 20260611,845,863,777,807,19365377,857.97,-5.94,860.6,774.08,1.1
 20260612,850,868,812,819,13021503,854.72,-4.18,862.25,778.67,0.75
 20260615,842,865,830,860,10103522,855.16,0.57,865.7,783.55,0.58
@@ -154,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,1160,1170,1070,1075,13347000,1002.23,7.26,974.1,890.77,0.71
 20260707,1040,1135,1015,1030,18823215,1004.54,2.53,984.05,896.82,0.99
 20260708,1065,1130,1020,1105,21268557,1012.91,9.09,993.6,904.32,1.12
+20260709,1110,1215,1090,1215,24652125,1029.75,17.99,1012,913.8,1.27
 ```
 
 ## Latest TDCC Snapshot
@@ -198,7 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 8046 | 南電 | 71 | 7 | 7097230.0 | 78020.0 | 90.97 | call_inflow |
+| 20260709 | 8046 | 南電 | 71 | 0 | 8677520.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

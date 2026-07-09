@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6771 平和環保-創
 
 ## Metadata
-- generated_at: 2026-07-08 22:28:19 Asia/Taipei
+- generated_at: 2026-07-09 22:27:48 Asia/Taipei
 - stock_id: 6771
 - stock_name: 平和環保-創
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 300
+- latest_price_date: 20260709
+- price_rows: 301
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 39.6
-- high: 39.6
-- low: 39.3
-- close: 39.3
-- volume: 5126
-- ma5: 39.39
-- ema23_primary: 40.39
-- distance_to_ema23_pct: -2.71
-- ma20: 40.49
-- ma60: 42.39
-- ma120: 43.34
-- return_5d: 1.16
-- return_20d: -6.21
-- volume_ratio: 0.14
-- distance_to_ma20_pct_auxiliary: -2.94
-- distance_to_high_60_pct: -16.56
+- date: 20260709
+- open: 41.25
+- high: 41.25
+- low: 39.25
+- close: 39.8
+- volume: 14077
+- ma5: 39.6
+- ema23_primary: 40.34
+- distance_to_ema23_pct: -1.35
+- ma20: 40.39
+- ma60: 42.32
+- ma120: 43.3
+- return_5d: 2.71
+- return_20d: -4.67
+- volume_ratio: 0.38
+- distance_to_ma20_pct_auxiliary: -1.47
+- distance_to_high_60_pct: -15.5
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,41.85,41.85,41.75,41.75,12270,42.31,-1.33,41.9,43.55,0.35
 20260611,41.6,41.9,41.5,41.85,38205,42.27,-1.01,41.89,43.51,1.21
 20260612,41.9,42.75,41.9,42,28347,42.25,-0.6,41.9,43.48,0.91
 20260615,42,42,41.6,42,36000,42.23,-0.55,41.91,43.45,1.14
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,39.45,40.1,39.2,40,29000,40.56,-1.37,40.72,42.55,0.74
 20260707,40.1,40.1,39.4,39.8,20355,40.49,-1.71,40.62,42.47,0.55
 20260708,39.6,39.6,39.3,39.3,5126,40.39,-2.71,40.49,42.39,0.14
+20260709,41.25,41.25,39.25,39.8,14077,40.34,-1.35,40.39,42.32,0.38
 ```
 
 ## Latest TDCC Snapshot

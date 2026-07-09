@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6005 群益證
 
 ## Metadata
-- generated_at: 2026-07-08 22:27:52 Asia/Taipei
+- generated_at: 2026-07-09 22:27:27 Asia/Taipei
 - stock_id: 6005
 - stock_name: 群益證
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 300
+- latest_price_date: 20260709
+- price_rows: 301
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -119,29 +119,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 38.05
-- high: 38.1
-- low: 36.15
-- close: 36.25
-- volume: 20952061
-- ma5: 37.65
-- ema23_primary: 37.93
-- distance_to_ema23_pct: -4.43
-- ma20: 38.54
-- ma60: 34.49
-- ma120: 31.49
-- return_5d: -3.72
-- return_20d: -10.82
-- volume_ratio: 1.35
-- distance_to_ma20_pct_auxiliary: -5.95
-- distance_to_high_60_pct: -20.42
+- date: 20260709
+- open: 36.4
+- high: 36.5
+- low: 35.85
+- close: 36.4
+- volume: 7498556
+- ma5: 37.46
+- ema23_primary: 37.8
+- distance_to_ema23_pct: -3.72
+- ma20: 38.45
+- ma60: 34.63
+- ma120: 31.58
+- return_5d: -2.54
+- return_20d: -4.84
+- volume_ratio: 0.53
+- distance_to_ma20_pct_auxiliary: -5.33
+- distance_to_high_60_pct: -20.09
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,40.4,40.4,38,38.25,32125886,36.76,4.07,36.3,31.18,1.48
 20260611,37.35,38.55,36.85,38.3,24467234,36.88,3.84,36.63,31.36,1.1
 20260612,39.7,39.9,38.9,39,14133634,37.06,5.23,37.02,31.54,0.63
 20260615,40.45,41,40,40.05,15345460,37.31,7.35,37.49,31.72,0.69
@@ -161,6 +160,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,38.5,39.45,38.4,38.45,10029000,38.09,0.95,38.89,34.2,0.58
 20260707,38.8,39.65,37.85,38.05,14488352,38.09,-0.09,38.76,34.36,0.89
 20260708,38.05,38.1,36.15,36.25,20952061,37.93,-4.43,38.54,34.49,1.35
+20260709,36.4,36.5,35.85,36.4,7498556,37.8,-3.72,38.45,34.63,0.53
 ```
 
 ## Latest TDCC Snapshot
@@ -195,12 +195,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 6005 | 群益證 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/07/07 2.公司名稱:群益金鼎證券股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:公告本公司115年6月份合併自結損益: (1)6月份稅前淨利1,264,386仟元、每股淨利0.51元。 (2)6月份稅後淨利937,758仟元、每股淨利0.38元。 (3)1至6月份累計稅前淨利9,541,695仟元、每股淨利4.07元。 (4)1至6月份累計稅後淨利8,430,239仟元、每股淨利3.66元。 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):  上述損益金額為本公司自結數，尚未經會計師查核或核閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260709 | 6005 | 群益證 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/07/07 2.公司名稱:群益金鼎證券股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:公告本公司115年6月份合併自結損益: (1)6月份稅前淨利1,264,386仟元、每股淨利0.51元。 (2)6月份稅後淨利937,758仟元、每股淨利0.38元。 (3)1至6月份累計稅前淨利9,541,695仟元、每股淨利4.07元。 (4)1至6月份累計稅後淨利8,430,239仟元、每股淨利3.66元。 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):  上述損益金額為本公司自結數，尚未經會計師查核或核閱。 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 6005 | 群益證 | 5 | 5 | 5 | 9 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260709 | 6005 | 群益證 | 6 | 6 | 5 | 9 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

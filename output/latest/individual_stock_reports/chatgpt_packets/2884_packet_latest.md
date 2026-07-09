@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2884 玉山金
 
 ## Metadata
-- generated_at: 2026-07-08 22:26:58 Asia/Taipei
+- generated_at: 2026-07-09 22:26:44 Asia/Taipei
 - stock_id: 2884
 - stock_name: 玉山金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 299
+- latest_price_date: 20260709
+- price_rows: 300
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 34.6
-- high: 35
-- low: 34.2
+- date: 20260709
+- open: 34.95
+- high: 35.35
+- low: 34.35
 - close: 34.75
-- volume: 43197399
-- ma5: 34.22
-- ema23_primary: 34.12
-- distance_to_ema23_pct: 1.86
-- ma20: 34.61
-- ma60: 32.99
-- ma120: 33.04
-- return_5d: 5.62
-- return_20d: 1.61
-- volume_ratio: 0.73
-- distance_to_ma20_pct_auxiliary: 0.41
+- volume: 44406098
+- ma5: 34.43
+- ema23_primary: 34.17
+- distance_to_ema23_pct: 1.7
+- ma20: 34.66
+- ma60: 33.02
+- ma120: 33.05
+- return_5d: 3.12
+- return_20d: 3.27
+- volume_ratio: 0.76
+- distance_to_ma20_pct_auxiliary: 0.25
 - distance_to_high_60_pct: -5.05
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,34,34.15,33.15,33.65,59541179,32.39,3.88,32.05,32.17,1.07
 20260611,33.65,33.85,33.05,33.85,45609225,32.51,4.11,32.16,32.2,0.81
 20260612,34.15,34.7,33.95,34.35,50080952,32.67,5.15,32.27,32.24,0.87
 20260615,34.85,34.85,34.4,34.65,41423794,32.83,5.53,32.42,32.28,0.72
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,33.75,34.45,33.75,34.45,30279000,34.02,1.27,34.5,32.91,0.49
 20260707,34.3,34.65,34.3,34.5,44384491,34.06,1.3,34.58,32.95,0.72
 20260708,34.6,35,34.2,34.75,43197399,34.12,1.86,34.61,32.99,0.73
+20260709,34.95,35.35,34.35,34.75,44406098,34.17,1.7,34.66,33.02,0.76
 ```
 
 ## Latest TDCC Snapshot
@@ -188,18 +188,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 2884 | 玉山金 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | call_inflow | stale_signal | 1.事實發生日:115/07/07 2.公司名稱:玉山金控 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: 本公司向金融監督管理委員會申請以股份轉換方式，將三商美邦人壽轉換 為本公司100%持股子公司乙案獲同意，依金管會於民國115年7月7日 官方網站發布之新聞稿，金管會於本日同意此案。 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 無；degraded calendar context only: ex_dividend on 20260701; status=source_stale_cached; proximity=recent; model_effect_allowed=False; pdf_effect_allowed=False |
-| 20260708 | 2884 | 玉山金 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_inflow | stale_signal | 1.事實發生日:115/07/07 2.公司名稱:玉山金控 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: 本公司向金融監督管理委員會申請以股份轉換方式，將三商美邦人壽轉換 為本公司100%持股子公司乙案獲同意，依金管會於民國115年7月7日 官方網站發布之新聞稿，金管會於本日同意此案。 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 無；degraded calendar context only: ex_dividend on 20260701; status=source_stale_cached; proximity=recent; model_effect_allowed=False; pdf_effect_allowed=False |
+| 20260709 | 2884 | 玉山金 | pattern | 型態觀察 | 51.0 |  |  | base_building |  | no_signal | stale_signal | 1.事實發生日:115/07/07 2.公司名稱:玉山金控 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: 本公司向金融監督管理委員會申請以股份轉換方式，將三商美邦人壽轉換 為本公司100%持股子公司乙案獲同意，依金管會於民國115年7月7日 官方網站發布之新聞稿，金管會於本日同意此案。 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 無 |
+| 20260709 | 2884 | 玉山金 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/07/07 2.公司名稱:玉山金控 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: 本公司向金融監督管理委員會申請以股份轉換方式，將三商美邦人壽轉換 為本公司100%持股子公司乙案獲同意，依金管會於民國115年7月7日 官方網站發布之新聞稿，金管會於本日同意此案。 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 無 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 2884 | 玉山金 | 5 | 5 | 5 | 9 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260709 | 2884 | 玉山金 | 6 | 6 | 5 | 9 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 2884 | 玉山金 | 11 | 0 | 3986030.0 | 0.0 |  | call_inflow |
+| 20260709 | 2884 | 玉山金 | 11 | 0 | 3235800.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2312 金寶
 
 ## Metadata
-- generated_at: 2026-07-08 22:26:38 Asia/Taipei
+- generated_at: 2026-07-09 22:26:29 Asia/Taipei
 - stock_id: 2312
 - stock_name: 金寶
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 300
+- latest_price_date: 20260709
+- price_rows: 301
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 34.35
-- high: 34.6
-- low: 33.55
-- close: 34.15
-- volume: 11598073
-- ma5: 34.71
-- ema23_primary: 34.97
-- distance_to_ema23_pct: -2.34
-- ma20: 35.03
-- ma60: 32.45
-- ma120: 28.76
-- return_5d: -1.87
-- return_20d: -8.2
-- volume_ratio: 0.27
-- distance_to_ma20_pct_auxiliary: -2.52
-- distance_to_high_60_pct: -23.09
+- date: 20260709
+- open: 34.4
+- high: 35.6
+- low: 34
+- close: 34
+- volume: 20796099
+- ma5: 34.53
+- ema23_primary: 34.89
+- distance_to_ema23_pct: -2.55
+- ma20: 34.99
+- ma60: 32.64
+- ma120: 28.85
+- return_5d: -2.58
+- return_20d: -2.44
+- volume_ratio: 0.52
+- distance_to_ma20_pct_auxiliary: -2.83
+- distance_to_high_60_pct: -23.42
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,35.9,37.85,34.8,34.85,69192221,35.19,-0.96,35.37,28.56,0.75
 20260611,34.35,35.85,33.9,34.9,38352628,35.16,-0.75,35.7,28.76,0.42
 20260612,36.85,37.3,34.9,34.95,40835399,35.15,-0.56,36.05,28.94,0.44
 20260615,35.8,36.6,35.45,35.45,33443586,35.17,0.79,36.4,29.12,0.36
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,35.2,36.4,35.05,35.55,21571000,35.13,1.2,35.25,32.05,0.46
 20260707,36.05,36.1,33.9,34.1,19621054,35.04,-2.69,35.19,32.25,0.43
 20260708,34.35,34.6,33.55,34.15,11598073,34.97,-2.34,35.03,32.45,0.27
+20260709,34.4,35.6,34,34,20796099,34.89,-2.55,34.99,32.64,0.52
 ```
 
 ## Latest TDCC Snapshot
@@ -199,7 +199,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 2312 | 金寶 | 96 | 2 | 2339350.0 | 0.0 |  | no_signal |
+| 20260709 | 2312 | 金寶 | 96 | 0 | 4988170.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6757 台灣虎航
 
 ## Metadata
-- generated_at: 2026-07-08 22:28:18 Asia/Taipei
+- generated_at: 2026-07-09 22:27:48 Asia/Taipei
 - stock_id: 6757
 - stock_name: 台灣虎航
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 300
+- latest_price_date: 20260709
+- price_rows: 301
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 60.6
-- high: 62.2
-- low: 59.5
-- close: 59.8
-- volume: 2301095
-- ma5: 60.4
-- ema23_primary: 59.31
-- distance_to_ema23_pct: 0.83
-- ma20: 59.81
-- ma60: 54.83
-- ma120: 57.4
-- return_5d: -2.76
-- return_20d: 13.47
-- volume_ratio: 0.45
-- distance_to_ma20_pct_auxiliary: -0.03
-- distance_to_high_60_pct: -11.14
+- date: 20260709
+- open: 59.7
+- high: 59.7
+- low: 58.1
+- close: 58.2
+- volume: 1904217
+- ma5: 59.88
+- ema23_primary: 59.22
+- distance_to_ema23_pct: -1.72
+- ma20: 60.05
+- ma60: 54.97
+- ma120: 57.35
+- return_5d: -4.28
+- return_20d: 8.58
+- volume_ratio: 0.39
+- distance_to_ma20_pct_auxiliary: -3.07
+- distance_to_high_60_pct: -13.52
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,52.8,54.1,52.6,53.6,5600730,53.87,-0.5,54.16,52.12,1.9
 20260611,54,55.6,53.3,55.6,7113228,54.01,2.94,54.29,52.16,2.18
 20260612,56.5,57.2,55.8,56.6,3443768,54.23,4.37,54.52,52.2,1.02
 20260615,58,59.4,57.1,58.5,4557371,54.58,7.17,54.88,52.29,1.28
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,61,61.3,59.2,60.7,1467000,59.18,2.57,59.06,54.48,0.27
 20260707,61,61.2,59.7,60.2,1462084,59.27,1.58,59.46,54.66,0.28
 20260708,60.6,62.2,59.5,59.8,2301095,59.31,0.83,59.81,54.83,0.45
+20260709,59.7,59.7,58.1,58.2,1904217,59.22,-1.72,60.05,54.97,0.39
 ```
 
 ## Latest TDCC Snapshot
@@ -188,18 +188,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 6757 | 台灣虎航 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/07 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:  現金股利每股新台幣2.42027元，總計新台幣1,112,186,673元。 4.除權（息）交易日:115/07/28 5.最後過戶日:115/07/29 6.停止過戶起始日期:115/07/30 7.停止過戶截止日期:115/08/03 8.除權（息）基準日:115/08/03 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/28 13.現金股利之一部或全部是否以外幣發放(請填入「是」或「否」):否 14.外幣現金股利發放幣別:不適用 15.外幣現金股利發放對象:不適用 16.外幣現金股利匯率決定方式:不適用 17.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
-| 20260708 | 6757 | 台灣虎航 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/07 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:  現金股利每股新台幣2.42027元，總計新台幣1,112,186,673元。 4.除權（息）交易日:115/07/28 5.最後過戶日:115/07/29 6.停止過戶起始日期:115/07/30 7.停止過戶截止日期:115/08/03 8.除權（息）基準日:115/08/03 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/28 13.現金股利之一部或全部是否以外幣發放(請填入「是」或「否」):否 14.外幣現金股利發放幣別:不適用 15.外幣現金股利發放對象:不適用 16.外幣現金股利匯率決定方式:不適用 17.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260709 | 6757 | 台灣虎航 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/07 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:  現金股利每股新台幣2.42027元，總計新台幣1,112,186,673元。 4.除權（息）交易日:115/07/28 5.最後過戶日:115/07/29 6.停止過戶起始日期:115/07/30 7.停止過戶截止日期:115/08/03 8.除權（息）基準日:115/08/03 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/28 13.現金股利之一部或全部是否以外幣發放(請填入「是」或「否」):否 14.外幣現金股利發放幣別:不適用 15.外幣現金股利發放對象:不適用 16.外幣現金股利匯率決定方式:不適用 17.其他應敘明事項:無。；calendar event: ex_dividend on 20260728; status=confirmed; proximity=within_30d |
+| 20260709 | 6757 | 台灣虎航 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/07 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:  現金股利每股新台幣2.42027元，總計新台幣1,112,186,673元。 4.除權（息）交易日:115/07/28 5.最後過戶日:115/07/29 6.停止過戶起始日期:115/07/30 7.停止過戶截止日期:115/08/03 8.除權（息）基準日:115/08/03 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/28 13.現金股利之一部或全部是否以外幣發放(請填入「是」或「否」):否 14.外幣現金股利發放幣別:不適用 15.外幣現金股利發放對象:不適用 16.外幣現金股利匯率決定方式:不適用 17.其他應敘明事項:無。；calendar event: ex_dividend on 20260728; status=confirmed; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 6757 | 台灣虎航 | 5 | 5 | 5 | 7 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260709 | 6757 | 台灣虎航 | 6 | 6 | 5 | 7 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 6757 | 台灣虎航 | 15 | 0 | 91160.0 | 0.0 |  | no_signal |
+| 20260709 | 6757 | 台灣虎航 | 15 | 0 | 267840.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4532 瑞智
 
 ## Metadata
-- generated_at: 2026-07-08 22:27:32 Asia/Taipei
+- generated_at: 2026-07-09 22:27:10 Asia/Taipei
 - stock_id: 4532
 - stock_name: 瑞智
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 300
+- latest_price_date: 20260709
+- price_rows: 301
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 28.25
-- high: 28.35
-- low: 27.2
-- close: 27.3
-- volume: 3001886
-- ma5: 28.32
+- date: 20260709
+- open: 27.35
+- high: 27.65
+- low: 26.05
+- close: 26.05
+- volume: 3032181
+- ma5: 27.87
 - ema23_primary: 26.07
-- distance_to_ema23_pct: 4.71
-- ma20: 25.68
-- ma60: 24.34
-- ma120: 25.02
-- return_5d: -4.38
-- return_20d: 11.89
-- volume_ratio: 0.83
-- distance_to_ma20_pct_auxiliary: 6.3
-- distance_to_high_60_pct: -10.2
+- distance_to_ema23_pct: -0.08
+- ma20: 25.78
+- ma60: 24.38
+- ma120: 25.04
+- return_5d: -7.95
+- return_20d: 8.09
+- volume_ratio: 0.81
+- distance_to_ma20_pct_auxiliary: 1.05
+- distance_to_high_60_pct: -14.31
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,24.4,24.55,24,24.1,868760,24.02,0.35,23.86,24.51,0.66
 20260611,24.25,24.25,23.8,24.1,953852,24.02,0.32,23.91,24.47,0.73
 20260612,24.35,24.8,24.3,24.45,1077658,24.06,1.62,23.98,24.43,0.82
 20260615,24.8,24.85,24.45,24.55,1148679,24.1,1.87,24.02,24.38,0.88
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,29.6,30.4,28.35,28.85,5922000,25.77,11.95,25.34,24.24,1.74
 20260707,28.85,28.85,27.9,28.05,3682814,25.96,8.05,25.54,24.3,1.04
 20260708,28.25,28.35,27.2,27.3,3001886,26.07,4.71,25.68,24.34,0.83
+20260709,27.35,27.65,26.05,26.05,3032181,26.07,-0.08,25.78,24.38,0.81
 ```
 
 ## Latest TDCC Snapshot
@@ -188,17 +188,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 4532 | 瑞智 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | stale_signal | 1.事實發生日:115/07/07 2.公司名稱:瑞智精密股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:本公司115年06月自結合併營收情形 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 瑞智精密自結合併海外廠淨銷售量(扣除內部轉銷交易後)115年6月206.36萬台， 較去年同期增加約24.05%。1-6月累計合併淨銷售量約1,347.05萬台， 較去年同期增加約6.25%。 瑞智精密自結合併海外廠營業收入(扣除內部轉銷交易後)115年6月約19.74億， 較去年同期增加約28.80%。1-6月累計合併淨營收約123.65億， 較去年同期增加約1.91%。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260709 | 4532 | 瑞智 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.事實發生日:115/07/07 2.公司名稱:瑞智精密股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:本公司115年06月自結合併營收情形 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 瑞智精密自結合併海外廠淨銷售量(扣除內部轉銷交易後)115年6月206.36萬台， 較去年同期增加約24.05%。1-6月累計合併淨銷售量約1,347.05萬台， 較去年同期增加約6.25%。 瑞智精密自結合併海外廠營業收入(扣除內部轉銷交易後)115年6月約19.74億， 較去年同期增加約28.80%。1-6月累計合併淨營收約123.65億， 較去年同期增加約1.91%。 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 4532 | 瑞智 | 1 | 1 | 4 | 7 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260709 | 4532 | 瑞智 | 2 | 2 | 4 | 8 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 4532 | 瑞智 | 3 | 0 | 11730.0 | 0.0 |  | no_signal |
+| 20260709 | 4532 | 瑞智 | 3 | 0 | 11600.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

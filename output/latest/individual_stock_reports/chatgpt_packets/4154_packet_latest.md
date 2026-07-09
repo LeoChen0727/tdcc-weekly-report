@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4154 樂威科-KY
 
 ## Metadata
-- generated_at: 2026-07-08 22:27:27 Asia/Taipei
+- generated_at: 2026-07-09 22:27:07 Asia/Taipei
 - stock_id: 4154
 - stock_name: 樂威科-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 143
+- latest_price_date: 20260709
+- price_rows: 144
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 11.3
-- high: 11.85
-- low: 11.3
-- close: 11.85
-- volume: 6000
-- ma5: 11.96
-- ema23_primary: 12.63
-- distance_to_ema23_pct: -6.19
-- ma20: 12.76
-- ma60: 13.3
-- ma120: 13.43
-- return_5d: -4.05
-- return_20d: -9.2
-- volume_ratio: 0.41
-- distance_to_ma20_pct_auxiliary: -7.1
-- distance_to_high_60_pct: -23.55
+- date: 20260709
+- open: 12.25
+- high: 12.25
+- low: 11.4
+- close: 11.8
+- volume: 9000
+- ma5: 11.91
+- ema23_primary: 12.56
+- distance_to_ema23_pct: -6.07
+- ma20: 12.67
+- ma60: 13.26
+- ma120: 13.39
+- return_5d: -2.07
+- return_20d: -12.59
+- volume_ratio: 0.63
+- distance_to_ma20_pct_auxiliary: -6.87
+- distance_to_high_60_pct: -23.87
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260605,13.05,13.5,13.05,13.5,13000,13.37,0.96,13.38,13.1,0.45
 20260608,13.5,13.5,13.5,13.5,3000,13.38,0.88,13.45,13.14,0.11
 20260609,14.6,14.6,12.9,13.95,4000,13.43,3.88,13.57,13.19,0.17
 20260612,13.75,13.75,13.75,13.75,1000,13.46,2.18,13.63,13.24,0.05
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,12.05,12.05,11.75,11.75,24000,12.78,-8.07,12.88,13.38,1.8
 20260707,11.6,11.85,11.3,11.85,43000,12.7,-6.72,12.81,13.34,2.9
 20260708,11.3,11.85,11.3,11.85,6000,12.63,-6.19,12.76,13.3,0.41
+20260709,12.25,12.25,11.4,11.8,9000,12.56,-6.07,12.67,13.26,0.63
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6271 同欣電
 
 ## Metadata
-- generated_at: 2026-07-08 22:28:04 Asia/Taipei
+- generated_at: 2026-07-09 22:27:36 Asia/Taipei
 - stock_id: 6271
 - stock_name: 同欣電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 300
+- latest_price_date: 20260709
+- price_rows: 301
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 250
-- high: 257.5
-- low: 237.5
-- close: 255
-- volume: 12795261
-- ma5: 263.4
-- ema23_primary: 250.77
-- distance_to_ema23_pct: 1.69
-- ma20: 251
-- ma60: 218.11
-- ma120: 183.92
-- return_5d: -11.3
-- return_20d: 6.25
-- volume_ratio: 0.74
-- distance_to_ma20_pct_auxiliary: 1.59
-- distance_to_high_60_pct: -15.56
+- date: 20260709
+- open: 257.5
+- high: 266.5
+- low: 251
+- close: 252
+- volume: 9524361
+- ma5: 261
+- ema23_primary: 250.87
+- distance_to_ema23_pct: 0.45
+- ma20: 252.35
+- ma60: 219.38
+- ma120: 184.93
+- return_5d: -4.55
+- return_20d: 12
+- volume_ratio: 0.54
+- distance_to_ma20_pct_auxiliary: -0.14
+- distance_to_high_60_pct: -16.56
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,235,244,225,225,3044965,222.51,1.12,225.35,187.41,0.38
 20260611,224.5,234,206.5,217,7830732,222.05,-2.27,227.03,188.48,0.97
 20260612,238.5,238.5,237,238.5,5785024,223.42,6.75,230.1,189.81,0.71
 20260615,255,255,240.5,244,13644294,225.13,8.38,233.05,191.19,1.61
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,294,302,272,272,28399000,250.7,8.5,248.82,215.47,1.77
 20260707,272,278,245,247,18362426,250.39,-1.35,250.25,216.72,1.09
 20260708,250,257.5,237.5,255,12795261,250.77,1.69,251,218.11,0.74
+20260709,257.5,266.5,251,252,9524361,250.87,0.45,252.35,219.38,0.54
 ```
 
 ## Latest TDCC Snapshot
@@ -188,17 +188,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 6271 | 同欣電 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.人員變動別（請輸入發言人、代理發言人、重要營運主管(如:執行長、營運長、 行銷長及策略長等)、財務主管、會計主管、公司治理主管、資訊安全長、研發主管、 內部稽核主管或訴訟及非訟代理人）:財會主管 2.發生變動日期:115/06/26 3.舊任者姓名、級職及簡歷: Hsiu-An Tsai/TONG HSING ELECTRONICS PHILS. INC.財會主管 4.新任者姓名、級職及簡歷: Hsiu-An Tsai/TONG HSING ELECTRONICS PHILS. INC.財會主管 5.異動情形（請輸入「辭職」、「職務調整」、「資遣」、「退休」、「死亡」、「新 任」或「解任」）:任期屆滿 6.異動原因:董事會決議 7.生效日期:115/06/26 8.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260709 | 6271 | 同欣電 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  | no_signal | continued_overheated | 1.人員變動別（請輸入發言人、代理發言人、重要營運主管(如:執行長、營運長、 行銷長及策略長等)、財務主管、會計主管、公司治理主管、資訊安全長、研發主管、 內部稽核主管或訴訟及非訟代理人）:財會主管 2.發生變動日期:115/06/26 3.舊任者姓名、級職及簡歷: Hsiu-An Tsai/TONG HSING ELECTRONICS PHILS. INC.財會主管 4.新任者姓名、級職及簡歷: Hsiu-An Tsai/TONG HSING ELECTRONICS PHILS. INC.財會主管 5.異動情形（請輸入「辭職」、「職務調整」、「資遣」、「退休」、「死亡」、「新 任」或「解任」）:任期屆滿 6.異動原因:董事會決議 7.生效日期:115/06/26 8.其他應敘明事項:無 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 6271 | 同欣電 | 1 | 1 | 4 | 9 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260709 | 6271 | 同欣電 | 2 | 2 | 4 | 9 | 15 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 6271 | 同欣電 | 106 | 0 | 6595030.0 | 0.0 |  | no_signal |
+| 20260709 | 6271 | 同欣電 | 106 | 0 | 4956640.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

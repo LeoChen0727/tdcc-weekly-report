@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4747 強生製藥
 
 ## Metadata
-- generated_at: 2026-07-08 22:27:36 Asia/Taipei
+- generated_at: 2026-07-09 22:27:14 Asia/Taipei
 - stock_id: 4747
 - stock_name: 強生製藥
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 163
+- latest_price_date: 20260709
+- price_rows: 164
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 48.4
-- high: 48.8
-- low: 48.4
-- close: 48.8
-- volume: 10000
-- ma5: 49.08
-- ema23_primary: 51.15
-- distance_to_ema23_pct: -4.6
-- ma20: 51.09
-- ma60: 53.78
-- ma120: 55.34
-- return_5d: 0.51
-- return_20d: -11.27
-- volume_ratio: 0.32
-- distance_to_ma20_pct_auxiliary: -4.49
-- distance_to_high_60_pct: -16.3
+- date: 20260709
+- open: 51.3
+- high: 51.3
+- low: 50
+- close: 50
+- volume: 15000
+- ma5: 49.27
+- ema23_primary: 51.05
+- distance_to_ema23_pct: -2.07
+- ma20: 50.84
+- ma60: 53.7
+- ma120: 55.26
+- return_5d: 1.94
+- return_20d: -9.09
+- volume_ratio: 0.48
+- distance_to_ma20_pct_auxiliary: -1.66
+- distance_to_high_60_pct: -14.24
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,55,55.1,55,55,13000,55.68,-1.22,56.4,55.04,0.28
 20260611,54,54,52.6,53.7,43000,55.51,-3.27,56.23,55.01,0.93
 20260612,54.8,55,52,54.1,74000,55.4,-2.34,56.04,54.99,1.65
 20260615,53.8,53.8,52.6,52.6,27000,55.16,-4.65,55.77,54.97,0.62
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,49.2,49.2,48.9,48.95,15000,51.63,-5.2,51.72,53.99,0.47
 20260707,48.65,48.65,48.4,48.4,5000,51.36,-5.77,51.41,53.9,0.16
 20260708,48.4,48.8,48.4,48.8,10000,51.15,-4.6,51.09,53.78,0.32
+20260709,51.3,51.3,50,50,15000,51.05,-2.07,50.84,53.7,0.48
 ```
 
 ## Latest TDCC Snapshot

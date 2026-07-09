@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6126 信音
 
 ## Metadata
-- generated_at: 2026-07-08 22:27:55 Asia/Taipei
+- generated_at: 2026-07-09 22:27:29 Asia/Taipei
 - stock_id: 6126
 - stock_name: 信音
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 165
+- latest_price_date: 20260709
+- price_rows: 166
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -119,29 +119,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 35.35
-- high: 37.45
-- low: 34.75
-- close: 35.55
-- volume: 3868000
-- ma5: 35.67
-- ema23_primary: 37.07
-- distance_to_ema23_pct: -4.09
-- ma20: 38.04
-- ma60: 35.71
-- ma120: 35.08
-- return_5d: 0.99
-- return_20d: -13.19
-- volume_ratio: 1.16
-- distance_to_ma20_pct_auxiliary: -6.55
-- distance_to_high_60_pct: -20.11
+- date: 20260709
+- open: 35.6
+- high: 35.85
+- low: 34.95
+- close: 35.1
+- volume: 1318000
+- ma5: 35.49
+- ema23_primary: 36.9
+- distance_to_ema23_pct: -4.88
+- ma20: 37.87
+- ma60: 35.75
+- ma120: 35.11
+- return_5d: -2.5
+- return_20d: -9.07
+- volume_ratio: 0.41
+- distance_to_ma20_pct_auxiliary: -7.31
+- distance_to_high_60_pct: -21.12
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,39.95,41.8,38.55,38.6,4059000,37.2,3.76,36.96,33.59,2.83
 20260611,39.6,42.45,39.1,41.55,11590000,37.56,10.61,37.41,33.74,5.94
 20260612,42.05,42.95,40.1,40.25,10563000,37.79,6.52,37.78,33.88,4.49
 20260615,40.9,43.3,40.1,41.65,6639000,38.11,9.29,38.17,34.01,2.55
@@ -161,6 +160,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,36.5,37.3,35.95,36.35,985000,37.48,-3.02,38.52,35.61,0.28
 20260707,36.8,36.8,34.05,34.15,1619000,37.2,-8.21,38.31,35.65,0.48
 20260708,35.35,37.45,34.75,35.55,3868000,37.07,-4.09,38.04,35.71,1.16
+20260709,35.6,35.85,34.95,35.1,1318000,36.9,-4.88,37.87,35.75,0.41
 ```
 
 ## Latest TDCC Snapshot
@@ -195,13 +195,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 6126 | 信音 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/06/30 2.經理人或董事之名稱:楊政綱 總經理 3.所擔任該大陸地區事業之公司名稱及職務: 東莞市國聯電子有限公司 董事 4.所擔任該大陸地區事業地址: 廣東省東莞市塘廈鎮永太路3號15棟601室、701室 5.所擔任該大陸地區事業營業項目: 車用連接器、線束的生產、研發、銷售 6.對本公司財務業務之影響程度:子公司轉投資事業 7.經理人或董事如有對該大陸地區事業從事投資者，其投資金額及持股比例: 不適用 8.公司擬採行措施:將於最近一次董事會解除經理人競業禁止限制 9.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260708 | 6126 | 信音 | revenue_breakout_low_response | 營收爆發低反應股 | 16.0 | 11.0 | A_優先追蹤 |  |  |  | stale_signal | 1.事實發生日:115/06/30 2.經理人或董事之名稱:楊政綱 總經理 3.所擔任該大陸地區事業之公司名稱及職務: 東莞市國聯電子有限公司 董事 4.所擔任該大陸地區事業地址: 廣東省東莞市塘廈鎮永太路3號15棟601室、701室 5.所擔任該大陸地區事業營業項目: 車用連接器、線束的生產、研發、銷售 6.對本公司財務業務之影響程度:子公司轉投資事業 7.經理人或董事如有對該大陸地區事業從事投資者，其投資金額及持股比例: 不適用 8.公司擬採行措施:將於最近一次董事會解除經理人競業禁止限制 9.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260709 | 6126 | 信音 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/06/30 2.經理人或董事之名稱:楊政綱 總經理 3.所擔任該大陸地區事業之公司名稱及職務: 東莞市國聯電子有限公司 董事 4.所擔任該大陸地區事業地址: 廣東省東莞市塘廈鎮永太路3號15棟601室、701室 5.所擔任該大陸地區事業營業項目: 車用連接器、線束的生產、研發、銷售 6.對本公司財務業務之影響程度:子公司轉投資事業 7.經理人或董事如有對該大陸地區事業從事投資者，其投資金額及持股比例: 不適用 8.公司擬採行措施:將於最近一次董事會解除經理人競業禁止限制 9.其他應敘明事項:無；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260709 | 6126 | 信音 | revenue_breakout_low_response | 營收爆發低反應股 | 16.0 | 13.0 | A_優先追蹤 |  |  |  | stale_signal | 1.事實發生日:115/06/30 2.經理人或董事之名稱:楊政綱 總經理 3.所擔任該大陸地區事業之公司名稱及職務: 東莞市國聯電子有限公司 董事 4.所擔任該大陸地區事業地址: 廣東省東莞市塘廈鎮永太路3號15棟601室、701室 5.所擔任該大陸地區事業營業項目: 車用連接器、線束的生產、研發、銷售 6.對本公司財務業務之影響程度:子公司轉投資事業 7.經理人或董事如有對該大陸地區事業從事投資者，其投資金額及持股比例: 不適用 8.公司擬採行措施:將於最近一次董事會解除經理人競業禁止限制 9.其他應敘明事項:無；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 6126 | 信音 | 2 | 2 | 2 | 6 | 8 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260709 | 6126 | 信音 | 3 | 3 | 3 | 6 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

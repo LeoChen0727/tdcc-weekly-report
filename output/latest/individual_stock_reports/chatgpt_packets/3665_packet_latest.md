@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3665 貿聯-KY
 
 ## Metadata
-- generated_at: 2026-07-08 22:27:23 Asia/Taipei
+- generated_at: 2026-07-09 22:27:03 Asia/Taipei
 - stock_id: 3665
 - stock_name: 貿聯-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 299
+- latest_price_date: 20260709
+- price_rows: 300
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 1995
-- high: 1995
-- low: 1830
-- close: 1900
-- volume: 3599849
-- ma5: 1972
-- ema23_primary: 2037.32
-- distance_to_ema23_pct: -6.74
-- ma20: 2031.75
-- ma60: 2284.08
-- ma120: 1924.96
-- return_5d: -5.47
-- return_20d: -9.31
-- volume_ratio: 1.13
-- distance_to_ma20_pct_auxiliary: -6.48
-- distance_to_high_60_pct: -36.88
+- date: 20260709
+- open: 1905
+- high: 1910
+- low: 1865
+- close: 1865
+- volume: 1576338
+- ma5: 1937
+- ema23_primary: 2022.96
+- distance_to_ema23_pct: -7.81
+- ma20: 2017.25
+- ma60: 2278.08
+- ma120: 1927.38
+- return_5d: -8.58
+- return_20d: -13.46
+- volume_ratio: 0.5
+- distance_to_ma20_pct_auxiliary: -7.55
+- distance_to_high_60_pct: -38.04
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260609,2120,2180,2090,2155,2520543,2237.75,-3.7,2169.75,2225.58,0.78
 20260611,2230,2280,2005,2160,5944676,2231.27,-3.19,2152.75,2235.08,1.71
 20260612,2300,2350,2235,2310,4177566,2237.83,3.23,2155.75,2246.17,1.22
 20260615,2420,2425,2250,2265,3103163,2240.09,1.11,2164.25,2254.92,1.01
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,1995,1995,1910,1945,1951000,2056.15,-5.41,2052.5,2291.58,0.63
 20260707,2020,2130,1975,1980,4686875,2049.8,-3.41,2041.5,2289.08,1.47
 20260708,1995,1995,1830,1900,3599849,2037.32,-6.74,2031.75,2284.08,1.13
+20260709,1905,1910,1865,1865,1576338,2022.96,-7.81,2017.25,2278.08,0.5
 ```
 
 ## Latest TDCC Snapshot
@@ -198,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 3665 | 貿聯-KY | 214 | 9 | 24696690.0 | 422980.0 | 58.39 | no_signal |
+| 20260709 | 3665 | 貿聯-KY | 214 | 0 | 10895960.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

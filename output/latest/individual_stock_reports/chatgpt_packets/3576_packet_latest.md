@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3576 聯合再生
 
 ## Metadata
-- generated_at: 2026-07-08 22:27:20 Asia/Taipei
+- generated_at: 2026-07-09 22:27:01 Asia/Taipei
 - stock_id: 3576
 - stock_name: 聯合再生
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 300
+- latest_price_date: 20260709
+- price_rows: 301
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 16.2
-- high: 16.3
-- low: 15.95
-- close: 16.05
-- volume: 8064144
-- ma5: 16.62
-- ema23_primary: 17.34
-- distance_to_ema23_pct: -7.43
-- ma20: 17.72
-- ma60: 17.36
-- ma120: 17.33
-- return_5d: -4.46
-- return_20d: -6.96
+- date: 20260709
+- open: 16.15
+- high: 16.6
+- low: 16.15
+- close: 16.4
+- volume: 7485367
+- ma5: 16.49
+- ema23_primary: 17.26
+- distance_to_ema23_pct: -4.99
+- ma20: 17.62
+- ma60: 17.37
+- ma120: 17.39
+- return_5d: -3.81
+- return_20d: -10.14
 - volume_ratio: 0.3
-- distance_to_ma20_pct_auxiliary: -9.41
-- distance_to_high_60_pct: -26.21
+- distance_to_ma20_pct_auxiliary: -6.95
+- distance_to_high_60_pct: -24.6
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,17.3,18.95,17.25,18.25,57258941,17.79,2.59,18.02,18.78,1.97
 20260611,17.6,18.3,16.95,18,30798683,17.81,1.08,18.03,18.65,1.05
 20260612,18.6,19.8,18.55,19.8,74459884,17.97,10.17,18.17,18.53,2.31
 20260615,21.75,21.75,20.7,21,85552255,18.23,15.23,18.35,18.46,2.39
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,17.3,17.45,16.85,16.85,10017000,17.58,-4.15,17.76,17.42,0.36
 20260707,16.9,17.1,16,16.1,15762797,17.46,-7.77,17.78,17.37,0.58
 20260708,16.2,16.3,15.95,16.05,8064144,17.34,-7.43,17.72,17.36,0.3
+20260709,16.15,16.6,16.15,16.4,7485367,17.26,-4.99,17.62,17.37,0.3
 ```
 
 ## Latest TDCC Snapshot

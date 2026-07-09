@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00861 元大全球未來通訊
 
 ## Metadata
-- generated_at: 2026-07-08 22:26:10 Asia/Taipei
+- generated_at: 2026-07-09 22:26:07 Asia/Taipei
 - stock_id: 00861
 - stock_name: 元大全球未來通訊
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260708
-- price_rows: 33
+- latest_price_date: 20260709
+- price_rows: 34
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 89.8
-- high: 89.8
-- low: 88.05
-- close: 88.3
-- volume: 305452
-- ma5: 91.21
-- ema23_primary: 92.59
-- distance_to_ema23_pct: -4.64
-- ma20: 93.57
-- ma60: 92.42
-- ma120: 92.42
-- return_5d: -9.02
-- return_20d: -2.75
-- volume_ratio: 1.23
-- distance_to_ma20_pct_auxiliary: -5.63
-- distance_to_high_60_pct: -10.36
+- date: 20260709
+- open: 89.1
+- high: 90
+- low: 89.1
+- close: 89.5
+- volume: 139452
+- ma5: 90.32
+- ema23_primary: 92.34
+- distance_to_ema23_pct: -3.07
+- ma20: 93.67
+- ma60: 92.33
+- ma120: 92.33
+- return_5d: -4.74
+- return_20d: 2.11
+- volume_ratio: 0.63
+- distance_to_ma20_pct_auxiliary: -4.45
+- distance_to_high_60_pct: -9.14
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,90.8,90.8,87.6,87.65,676964,89.22,-1.76,90.42,90.42,1.98
 20260611,87.5,87.7,86.65,87.6,297520,89.09,-1.67,90.23,90.23,0.88
 20260612,92.05,92.4,91.4,91.9,197871,89.32,2.89,90.34,90.34,0.6
 20260615,94.25,94.9,94.25,94.75,170533,89.77,5.54,90.6,90.6,0.53
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,91.85,92.45,91.3,92.05,172000,93.27,-1.31,93.62,92.63,0.69
 20260707,91.65,91.65,89.8,89.8,531045,92.98,-3.42,93.7,92.54,2.09
 20260708,89.8,89.8,88.05,88.3,305452,92.59,-4.64,93.57,92.42,1.23
+20260709,89.1,90,89.1,89.5,139452,92.34,-3.07,93.67,92.33,0.63
 ```
 
 ## Latest TDCC Snapshot

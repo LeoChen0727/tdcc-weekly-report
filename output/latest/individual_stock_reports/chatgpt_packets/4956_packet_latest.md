@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4956 光鋐
 
 ## Metadata
-- generated_at: 2026-07-08 22:27:40 Asia/Taipei
+- generated_at: 2026-07-09 22:27:17 Asia/Taipei
 - stock_id: 4956
 - stock_name: 光鋐
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 300
+- latest_price_date: 20260709
+- price_rows: 301
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 39.35
-- high: 39.35
-- low: 37
-- close: 37.6
-- volume: 1556769
-- ma5: 38.56
-- ema23_primary: 39.56
-- distance_to_ema23_pct: -4.96
-- ma20: 38.52
-- ma60: 43.86
-- ma120: 35.37
-- return_5d: -0.27
-- return_20d: -6.93
-- volume_ratio: 0.64
-- distance_to_ma20_pct_auxiliary: -2.39
-- distance_to_high_60_pct: -37.44
+- date: 20260709
+- open: 37.6
+- high: 37.9
+- low: 36.6
+- close: 36.6
+- volume: 1296151
+- ma5: 38.29
+- ema23_primary: 39.31
+- distance_to_ema23_pct: -6.9
+- ma20: 38.46
+- ma60: 43.78
+- ma120: 35.5
+- return_5d: -3.56
+- return_20d: -3.17
+- volume_ratio: 0.54
+- distance_to_ma20_pct_auxiliary: -4.84
+- distance_to_high_60_pct: -39.1
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,39.7,41.5,37.5,37.8,2210076,43.92,-13.94,44.23,42.55,0.51
 20260611,37,38,35.65,37.3,1879646,43.37,-14,43.95,42.63,0.44
 20260612,38.75,38.9,37.2,37.4,1935566,42.87,-12.77,43.72,42.71,0.46
 20260615,39,39.3,38.35,38.5,1491943,42.51,-9.43,43.55,42.82,0.36
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,40.15,40.5,38.4,38.8,1753000,39.86,-2.65,38.74,43.83,0.78
 20260707,38.45,41.9,38.45,38.45,5649356,39.74,-3.24,38.66,43.87,2.32
 20260708,39.35,39.35,37,37.6,1556769,39.56,-4.96,38.52,43.86,0.64
+20260709,37.6,37.9,36.6,36.6,1296151,39.31,-6.9,38.46,43.78,0.54
 ```
 
 ## Latest TDCC Snapshot

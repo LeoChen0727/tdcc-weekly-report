@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6207 雷科
 
 ## Metadata
-- generated_at: 2026-07-08 22:28:00 Asia/Taipei
+- generated_at: 2026-07-09 22:27:33 Asia/Taipei
 - stock_id: 6207
 - stock_name: 雷科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 165
+- latest_price_date: 20260709
+- price_rows: 166
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 138.5
-- high: 138.5
-- low: 126.5
-- close: 131
-- volume: 5556000
-- ma5: 143.5
-- ema23_primary: 139.62
-- distance_to_ema23_pct: -6.18
-- ma20: 146.85
-- ma60: 104.5
-- ma120: 78.91
-- return_5d: -18.63
-- return_20d: 6.94
-- volume_ratio: 0.39
-- distance_to_ma20_pct_auxiliary: -10.79
-- distance_to_high_60_pct: -27.82
+- date: 20260709
+- open: 132
+- high: 144
+- low: 130.5
+- close: 144
+- volume: 8564000
+- ma5: 141.9
+- ema23_primary: 139.99
+- distance_to_ema23_pct: 2.87
+- ma20: 147.32
+- ma60: 105.98
+- ma120: 79.64
+- return_5d: -5.26
+- return_20d: 7.06
+- volume_ratio: 0.61
+- distance_to_ma20_pct_auxiliary: -2.26
+- distance_to_high_60_pct: -20.66
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,125,134.5,124.5,134.5,12038000,109.07,23.32,108.84,74.35,1.25
 20260611,134.5,135,121.5,125,23997000,110.4,13.23,111.58,75.56,2.31
 20260612,131,134,124,124,16893000,111.53,11.18,113.92,76.76,1.56
 20260615,131,136,131,136,7483000,113.57,19.75,116.47,78.15,0.81
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,152,154,145.5,145.5,5449000,140.9,3.26,146.2,101.89,0.36
 20260707,146.5,149.5,132.5,135,6697000,140.41,-3.85,146.43,103.24,0.44
 20260708,138.5,138.5,126.5,131,5556000,139.62,-6.18,146.85,104.5,0.39
+20260709,132,144,130.5,144,8564000,139.99,2.87,147.32,105.98,0.61
 ```
 
 ## Latest TDCC Snapshot
@@ -188,12 +189,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 6207 | 雷科 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.董事會或股東會決議日期:NA 2.原發放股利種類及金額: 盈餘分配之現金股利新台幣55,775,937元 (每股配發0.7元)。 3.變更後發放股利種類及金額: 盈餘分配之現金股利新台幣55,775,937元 (每股配發0.60275886元)。 4.變更原因:本公司因國內第五次及第六次無擔保可轉換公司債轉換， 致影響流通在外股數，爰依民國115年3月10日董事會決議，授權董事長調整配息率。 5.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260709 | 6207 | 雷科 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.董事會或股東會決議日期:NA 2.原發放股利種類及金額: 盈餘分配之現金股利新台幣55,775,937元 (每股配發0.7元)。 3.變更後發放股利種類及金額: 盈餘分配之現金股利新台幣55,775,937元 (每股配發0.60275886元)。 4.變更原因:本公司因國內第五次及第六次無擔保可轉換公司債轉換， 致影響流通在外股數，爰依民國115年3月10日董事會決議，授權董事長調整配息率。 5.其他應敘明事項:無 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 6207 | 雷科 | 1 | 1 | 3 | 5 | 7 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260709 | 6207 | 雷科 | 2 | 2 | 3 | 5 | 8 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7760 享溫馨
 
 ## Metadata
-- generated_at: 2026-07-08 22:28:34 Asia/Taipei
+- generated_at: 2026-07-09 22:28:01 Asia/Taipei
 - stock_id: 7760
 - stock_name: 享溫馨
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260708
-- price_rows: 50
+- latest_price_date: 20260709
+- price_rows: 51
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
+- date: 20260709
 - open: 36
-- high: 36.5
-- low: 35.55
+- high: 36.05
+- low: 35.25
 - close: 35.6
-- volume: 163226
-- ma5: 35.94
-- ema23_primary: 33.99
-- distance_to_ema23_pct: 4.73
-- ma20: 33.54
-- ma60: 33.54
-- ma120: 33.54
-- return_5d: 2.89
-- return_20d: 11.42
-- volume_ratio: 1.13
-- distance_to_ma20_pct_auxiliary: 6.13
+- volume: 63576
+- ma5: 36.05
+- ema23_primary: 34.13
+- distance_to_ema23_pct: 4.32
+- ma20: 33.72
+- ma60: 33.58
+- ma120: 33.58
+- return_5d: 1.57
+- return_20d: 11.25
+- volume_ratio: 0.44
+- distance_to_ma20_pct_auxiliary: 5.57
 - distance_to_high_60_pct: -3.78
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,31.8,32.15,31.5,32,81323,32.89,-2.69,32.84,33.49,0.61
 20260611,32.1,32.25,31.75,32,53222,32.81,-2.47,32.73,33.44,0.4
 20260612,32,32.3,32,32.15,77099,32.76,-1.85,32.63,33.4,0.59
 20260615,32.05,32.3,32,32,95250,32.69,-2.12,32.52,33.36,0.72
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,35.35,37,35.35,36.7,90000,33.65,9.06,33.12,33.45,0.71
 20260707,37,37,35.5,36,290463,33.85,6.36,33.36,33.5,2.1
 20260708,36,36.5,35.55,35.6,163226,33.99,4.73,33.54,33.54,1.13
+20260709,36,36.05,35.25,35.6,63576,34.13,4.32,33.72,33.58,0.44
 ```
 
 ## Latest TDCC Snapshot

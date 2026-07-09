@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009823 群益S&P500
 
 ## Metadata
-- generated_at: 2026-07-08 22:26:13 Asia/Taipei
+- generated_at: 2026-07-09 22:26:09 Asia/Taipei
 - stock_id: 009823
 - stock_name: 群益S&P500
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260708
-- price_rows: 10
+- latest_price_date: 20260709
+- price_rows: 11
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,22 +113,22 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 10.32
-- high: 10.36
-- low: 10.28
+- date: 20260709
+- open: 10.28
+- high: 10.31
+- low: 10.26
 - close: 10.3
-- volume: 8417000
-- ma5: 10.28
-- ema23_primary: 10.18
-- distance_to_ema23_pct: 1.18
-- ma20: 10.2
-- ma60: 10.2
-- ma120: 10.2
-- return_5d: 1.08
+- volume: 6125000
+- ma5: 10.3
+- ema23_primary: 10.19
+- distance_to_ema23_pct: 1.08
+- ma20: 10.21
+- ma60: 10.21
+- ma120: 10.21
+- return_5d: 0.78
 - return_20d:
-- volume_ratio: 0.36
-- distance_to_ma20_pct_auxiliary: 0.98
+- volume_ratio: 0.28
+- distance_to_ma20_pct_auxiliary: 0.89
 - distance_to_high_60_pct: -0.58
 
 ## Recent Price Preview
@@ -145,6 +145,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,10.3,10.32,10.28,10.31,10609000,10.15,1.53,10.17,10.17,0.4
 20260707,10.34,10.35,10.32,10.32,11549000,10.17,1.49,10.19,10.19,0.46
 20260708,10.32,10.36,10.28,10.3,8417000,10.18,1.18,10.2,10.2,0.36
+20260709,10.28,10.31,10.26,10.3,6125000,10.19,1.08,10.21,10.21,0.28
 ```
 
 ## Latest TDCC Snapshot

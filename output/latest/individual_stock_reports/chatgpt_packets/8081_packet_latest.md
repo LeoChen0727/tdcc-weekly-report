@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8081 致新
 
 ## Metadata
-- generated_at: 2026-07-08 22:28:38 Asia/Taipei
+- generated_at: 2026-07-09 22:28:05 Asia/Taipei
 - stock_id: 8081
 - stock_name: 致新
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 300
+- latest_price_date: 20260709
+- price_rows: 301
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 308.5
-- high: 308.5
-- low: 289.5
-- close: 295.5
-- volume: 1372255
-- ma5: 311.7
-- ema23_primary: 302.53
-- distance_to_ema23_pct: -2.32
-- ma20: 304.9
-- ma60: 277.08
-- ma120: 254.93
-- return_5d: -4.37
-- return_20d: 10.47
-- volume_ratio: 0.68
-- distance_to_ma20_pct_auxiliary: -3.08
-- distance_to_high_60_pct: -14.96
+- date: 20260709
+- open: 295
+- high: 295
+- low: 282
+- close: 283
+- volume: 1562497
+- ma5: 305.1
+- ema23_primary: 300.9
+- distance_to_ema23_pct: -5.95
+- ma20: 306.12
+- ma60: 277.93
+- ma120: 255.54
+- return_5d: -10.44
+- return_20d: 9.48
+- volume_ratio: 0.76
+- distance_to_ma20_pct_auxiliary: -7.55
+- distance_to_high_60_pct: -18.56
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,267,269,258.5,258.5,777175,271.52,-4.8,276,253.76,0.5
 20260611,258,276,258,273,1065233,271.64,0.5,276.6,254.32,0.69
 20260612,283.5,291.5,275.5,283,2063617,272.59,3.82,277.98,255.02,1.28
 20260615,285.5,288.5,283,284,654359,273.54,3.82,278.68,255.71,0.42
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,328,336.5,321,324,3695000,303.13,6.88,301.35,274.81,1.91
 20260707,329,329,302,303.5,2167766,303.16,0.11,303.5,276.02,1.09
 20260708,308.5,308.5,289.5,295.5,1372255,302.53,-2.32,304.9,277.08,0.68
+20260709,295,295,282,283,1562497,300.9,-5.95,306.12,277.93,0.76
 ```
 
 ## Latest TDCC Snapshot
@@ -189,17 +188,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 8081 | 致新 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.董事會決議日期或發生變動日期:115/06/24 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:吳錦川 4.舊任者簡歷:本公司董事長及總經理 5.新任者姓名:吳錦川 6.新任者簡歷:本公司董事長及總經理 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因:任期屆滿改選 9.新任生效日期:115/06/24 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 無重大影響；calendar event: ex_dividend on 20260702; status=confirmed; proximity=recent |
+| 20260709 | 8081 | 致新 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.董事會決議日期或發生變動日期:115/06/24 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:吳錦川 4.舊任者簡歷:本公司董事長及總經理 5.新任者姓名:吳錦川 6.新任者簡歷:本公司董事長及總經理 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因:任期屆滿改選 9.新任生效日期:115/06/24 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 無重大影響；degraded calendar context only: ex_dividend on 20260702; status=source_stale_cached; proximity=recent; model_effect_allowed=False; pdf_effect_allowed=False |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 8081 | 致新 | 1 | 1 | 4 | 8 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260709 | 8081 | 致新 | 2 | 2 | 4 | 8 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 8081 | 致新 | 18 | 0 | 2431100.0 | 0.0 |  | no_signal |
+| 20260709 | 8081 | 致新 | 18 | 0 | 1121890.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

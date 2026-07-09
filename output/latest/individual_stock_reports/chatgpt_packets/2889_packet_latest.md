@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2889 國票金
 
 ## Metadata
-- generated_at: 2026-07-08 22:26:59 Asia/Taipei
+- generated_at: 2026-07-09 22:26:45 Asia/Taipei
 - stock_id: 2889
 - stock_name: 國票金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 300
+- latest_price_date: 20260709
+- price_rows: 301
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -117,29 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 15.5
+- date: 20260709
+- open: 15.7
 - high: 15.95
-- low: 15.5
-- close: 15.7
-- volume: 24296189
-- ma5: 15.2
-- ema23_primary: 15.03
-- distance_to_ema23_pct: 4.43
-- ma20: 15.04
-- ma60: 14.87
+- low: 15.65
+- close: 15.8
+- volume: 24647542
+- ma5: 15.4
+- ema23_primary: 15.1
+- distance_to_ema23_pct: 4.65
+- ma20: 15.08
+- ma60: 14.88
 - ma120: 15.61
-- return_5d: 5.72
-- return_20d: 4.67
-- volume_ratio: 3.01
-- distance_to_ma20_pct_auxiliary: 4.35
-- distance_to_high_60_pct: -1.57
+- return_5d: 6.76
+- return_20d: 4.98
+- volume_ratio: 2.78
+- distance_to_ma20_pct_auxiliary: 4.76
+- distance_to_high_60_pct: -0.94
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,15,15.2,14.95,15.05,9037478,14.84,1.42,14.75,15.12,2.06
 20260611,15.1,15.1,14.85,14.95,5710056,14.85,0.68,14.77,15.09,1.27
 20260612,15,15.15,14.9,15,8138925,14.86,0.93,14.79,15.07,1.72
 20260615,15.1,15.2,14.95,15.05,8033924,14.88,1.16,14.82,15.05,1.59
@@ -159,6 +158,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,15,15.25,15,15.2,8308000,14.94,1.72,14.98,14.86,1.15
 20260707,15.1,15.3,15.1,15.3,8919366,14.97,2.18,15.01,14.86,1.23
 20260708,15.5,15.95,15.5,15.7,24296189,15.03,4.43,15.04,14.87,3.01
+20260709,15.7,15.95,15.65,15.8,24647542,15.1,4.65,15.08,14.88,2.78
 ```
 
 ## Latest TDCC Snapshot
@@ -193,14 +193,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 2889 | 國票金 | pullback_rebound | 回檔後短線轉強 | 70.0 |  |  |  |  |  | continued_many_days | 符合條款第四條第XX款：12 事實發生日：115/07/07 1.召開法人說明會之日期：115/07/07 2.召開法人說明會之時間：14 時 00 分  3.召開法人說明會之地點：本次法說會為線上說明會。 4.法人說明會擇要訊息：本公司自辦說明會，說明公司營運概況。 5.其他應敘明事項：當日webex連線號碼為:1849465878/連結https://mibf.webex.com/meet/ibf.1703 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
-| 20260708 | 2889 | 國票金 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | continued_many_days | 符合條款第四條第XX款：12 事實發生日：115/07/07 1.召開法人說明會之日期：115/07/07 2.召開法人說明會之時間：14 時 00 分  3.召開法人說明會之地點：本次法說會為線上說明會。 4.法人說明會擇要訊息：本公司自辦說明會，說明公司營運概況。 5.其他應敘明事項：當日webex連線號碼為:1849465878/連結https://mibf.webex.com/meet/ibf.1703 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
-| 20260708 | 2889 | 國票金 | true_breakout | 嚴格突破 | 151.0 |  |  | platform_breakout |  |  | continued_many_days | 符合條款第四條第XX款：12 事實發生日：115/07/07 1.召開法人說明會之日期：115/07/07 2.召開法人說明會之時間：14 時 00 分  3.召開法人說明會之地點：本次法說會為線上說明會。 4.法人說明會擇要訊息：本公司自辦說明會，說明公司營運概況。 5.其他應敘明事項：當日webex連線號碼為:1849465878/連結https://mibf.webex.com/meet/ibf.1703 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260709 | 2889 | 國票金 | pullback_rebound | 回檔後短線轉強 | 70.0 |  |  |  |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/07 1.召開法人說明會之日期：115/07/07 2.召開法人說明會之時間：14 時 00 分  3.召開法人說明會之地點：本次法說會為線上說明會。 4.法人說明會擇要訊息：本公司自辦說明會，說明公司營運概況。 5.其他應敘明事項：當日webex連線號碼為:1849465878/連結https://mibf.webex.com/meet/ibf.1703 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。 |
+| 20260709 | 2889 | 國票金 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/07 1.召開法人說明會之日期：115/07/07 2.召開法人說明會之時間：14 時 00 分  3.召開法人說明會之地點：本次法說會為線上說明會。 4.法人說明會擇要訊息：本公司自辦說明會，說明公司營運概況。 5.其他應敘明事項：當日webex連線號碼為:1849465878/連結https://mibf.webex.com/meet/ibf.1703 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。 |
+| 20260709 | 2889 | 國票金 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/07 1.召開法人說明會之日期：115/07/07 2.召開法人說明會之時間：14 時 00 分  3.召開法人說明會之地點：本次法說會為線上說明會。 4.法人說明會擇要訊息：本公司自辦說明會，說明公司營運概況。 5.其他應敘明事項：當日webex連線號碼為:1849465878/連結https://mibf.webex.com/meet/ibf.1703 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 2889 | 國票金 | 5 | 5 | 5 | 9 | 19 | continued_many_days | 連續 5 日上榜，需區分醞釀延續或訊號鈍化。 |
+| 20260709 | 2889 | 國票金 | 6 | 6 | 5 | 9 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

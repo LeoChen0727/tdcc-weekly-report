@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3339 泰谷
 
 ## Metadata
-- generated_at: 2026-07-08 22:27:13 Asia/Taipei
+- generated_at: 2026-07-09 22:26:56 Asia/Taipei
 - stock_id: 3339
 - stock_name: 泰谷
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 165
+- latest_price_date: 20260709
+- price_rows: 166
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 38.25
-- high: 40.2
-- low: 37.65
-- close: 39.2
-- volume: 1413000
-- ma5: 40.6
-- ema23_primary: 44.08
-- distance_to_ema23_pct: -11.07
-- ma20: 44.07
-- ma60: 50.41
-- ma120: 40.96
-- return_5d: -9.15
-- return_20d: -15.97
-- volume_ratio: 0.57
-- distance_to_ma20_pct_auxiliary: -11.05
-- distance_to_high_60_pct: -46.08
+- date: 20260709
+- open: 39.5
+- high: 39.5
+- low: 38.15
+- close: 38.2
+- volume: 724000
+- ma5: 39.82
+- ema23_primary: 43.59
+- distance_to_ema23_pct: -12.37
+- ma20: 43.8
+- ma60: 50.18
+- ma120: 41.06
+- return_5d: -9.26
+- return_20d: -12.39
+- volume_ratio: 0.3
+- distance_to_ma20_pct_auxiliary: -12.78
+- distance_to_high_60_pct: -47.46
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,46.65,46.85,43.6,43.6,1651000,48.55,-10.2,47.53,48.75,1.52
 20260611,42,43.85,40.7,41.9,1570000,48,-12.71,47.19,48.9,1.53
 20260612,42.8,43.7,41.7,42.1,1246000,47.51,-11.38,46.89,49.04,1.33
 20260615,43.85,46.3,43.65,45,3586000,47.3,-4.86,46.83,49.26,3.65
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,43.4,43.55,41,41.25,1591000,45.11,-8.56,44.8,50.75,0.65
 20260707,41.65,41.65,37.65,38.1,2550000,44.53,-14.43,44.44,50.61,1.03
 20260708,38.25,40.2,37.65,39.2,1413000,44.08,-11.07,44.07,50.41,0.57
+20260709,39.5,39.5,38.15,38.2,724000,43.59,-12.37,43.8,50.18,0.3
 ```
 
 ## Latest TDCC Snapshot

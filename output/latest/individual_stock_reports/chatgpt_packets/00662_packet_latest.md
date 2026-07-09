@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00662 富邦NASDAQ
 
 ## Metadata
-- generated_at: 2026-07-08 22:26:08 Asia/Taipei
+- generated_at: 2026-07-09 22:26:06 Asia/Taipei
 - stock_id: 00662
 - stock_name: 富邦NASDAQ
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260708
-- price_rows: 33
+- latest_price_date: 20260709
+- price_rows: 34
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 121.15
-- high: 121.25
-- low: 120.05
-- close: 120.15
-- volume: 4582799
-- ma5: 121.33
-- ema23_primary: 121.26
-- distance_to_ema23_pct: -0.91
-- ma20: 121.23
-- ma60: 121.26
-- ma120: 121.26
-- return_5d: -2.83
-- return_20d: 0.29
-- volume_ratio: 0.76
-- distance_to_ma20_pct_auxiliary: -0.89
-- distance_to_high_60_pct: -3.1
+- date: 20260709
+- open: 120.45
+- high: 121.15
+- low: 120.45
+- close: 120.9
+- volume: 1643754
+- ma5: 121.07
+- ema23_primary: 121.23
+- distance_to_ema23_pct: -0.27
+- ma20: 121.39
+- ma60: 121.25
+- ma120: 121.25
+- return_5d: -1.06
+- return_20d: 2.85
+- volume_ratio: 0.29
+- distance_to_ma20_pct_auxiliary: -0.41
+- distance_to_high_60_pct: -2.5
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,118.1,118.35,117.3,117.55,6479248,120.46,-2.42,121.03,121.03,1.17
 20260611,116.35,117.35,116.3,117.05,4720584,120.18,-2.6,120.77,120.77,0.86
 20260612,120.05,120.25,119.55,120.05,8250449,120.17,-0.1,120.72,120.72,1.46
 20260615,122.2,122.5,122.1,122.45,5217272,120.36,1.74,120.82,120.82,0.93
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,122,122,121.35,121.7,3717000,121.39,0.26,121.06,121.3,0.59
 20260707,121.75,121.95,120.95,121.05,3865097,121.36,-0.25,121.21,121.29,0.64
 20260708,121.15,121.25,120.05,120.15,4582799,121.26,-0.91,121.23,121.26,0.76
+20260709,120.45,121.15,120.45,120.9,1643754,121.23,-0.27,121.39,121.25,0.29
 ```
 
 ## Latest TDCC Snapshot

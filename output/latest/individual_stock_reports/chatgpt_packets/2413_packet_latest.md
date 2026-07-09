@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2413 環科
 
 ## Metadata
-- generated_at: 2026-07-08 22:26:44 Asia/Taipei
+- generated_at: 2026-07-09 22:26:33 Asia/Taipei
 - stock_id: 2413
 - stock_name: 環科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 300
+- latest_price_date: 20260709
+- price_rows: 301
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 45.45
-- high: 46.8
-- low: 44.5
-- close: 46.3
-- volume: 1131725
-- ma5: 47.43
-- ema23_primary: 50.42
-- distance_to_ema23_pct: -8.16
-- ma20: 52.64
-- ma60: 50.01
-- ma120: 49.25
-- return_5d: -4.54
-- return_20d: -14.58
-- volume_ratio: 0.18
-- distance_to_ma20_pct_auxiliary: -12.05
-- distance_to_high_60_pct: -31.2
+- date: 20260709
+- open: 46.65
+- high: 48
+- low: 45.2
+- close: 45.3
+- volume: 1479483
+- ma5: 46.84
+- ema23_primary: 49.99
+- distance_to_ema23_pct: -9.38
+- ma20: 51.93
+- ma60: 49.91
+- ma120: 49.26
+- return_5d: -6.11
+- return_20d: -23.99
+- volume_ratio: 0.29
+- distance_to_ma20_pct_auxiliary: -12.76
+- distance_to_high_60_pct: -32.69
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,55.1,59.6,55.1,59.6,21280900,51.55,15.62,51.21,50.25,3.17
 20260611,61,61,55.1,57.5,18232711,52.04,10.48,51.89,50.37,2.41
 20260612,60.5,63.2,59.2,61.2,23282710,52.81,15.89,52.79,50.46,2.68
 20260615,64.7,67.3,61,62.5,17962600,53.61,16.57,53.54,50.52,1.91
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,49.05,49.65,48.05,48.5,1145000,51.26,-5.38,53.42,50.25,0.17
 20260707,48.5,49.1,45.25,45.65,1585555,50.79,-10.12,53.04,50.11,0.25
 20260708,45.45,46.8,44.5,46.3,1131725,50.42,-8.16,52.64,50.01,0.18
+20260709,46.65,48,45.2,45.3,1479483,49.99,-9.38,51.93,49.91,0.29
 ```
 
 ## Latest TDCC Snapshot
@@ -188,12 +188,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 2413 | 環科 | revenue_pullback | 營收成長股價回檔 | 60.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260709 | 2413 | 環科 | revenue_pullback | 營收成長股價回檔 | 60.0 |  |  |  |  |  | stale_signal | 營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 2413 | 環科 | 5 | 5 | 5 | 9 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260709 | 2413 | 環科 | 6 | 6 | 5 | 9 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

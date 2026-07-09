@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2454 聯發科
 
 ## Metadata
-- generated_at: 2026-07-08 22:26:47 Asia/Taipei
+- generated_at: 2026-07-09 22:26:35 Asia/Taipei
 - stock_id: 2454
 - stock_name: 聯發科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 300
+- latest_price_date: 20260709
+- price_rows: 301
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 4000
-- high: 4040
-- low: 3955
-- close: 3995
-- volume: 6728233
-- ma5: 4138
-- ema23_primary: 4156.32
-- distance_to_ema23_pct: -3.88
-- ma20: 4247.75
-- ma60: 3627.75
-- ma120: 2642.04
-- return_5d: -7.84
-- return_20d: -10.73
-- volume_ratio: 0.55
-- distance_to_ma20_pct_auxiliary: -5.95
-- distance_to_high_60_pct: -19.62
+- date: 20260709
+- open: 3970
+- high: 4050
+- low: 3925
+- close: 3925
+- volume: 7370647
+- ma5: 4054
+- ema23_primary: 4137.05
+- distance_to_ema23_pct: -5.13
+- ma20: 4236.25
+- ma60: 3664.5
+- ma120: 2662.38
+- return_5d: -9.67
+- return_20d: -5.54
+- volume_ratio: 0.62
+- distance_to_ma20_pct_auxiliary: -7.35
+- distance_to_high_60_pct: -21.03
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,4315,4520,4120,4155,17412956,3948.49,5.23,4039.25,2786.75,1.29
 20260611,4085,4150,3880,4085,17556610,3959.86,3.16,4073.25,2826.33,1.26
 20260612,4410,4415,4165,4180,8765007,3978.21,5.07,4119.25,2867.17,0.62
 20260615,4355,4545,4350,4470,12014769,4019.19,11.22,4172.75,2912.83,0.84
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,4250,4325,4110,4125,6288000,4183.8,-1.41,4273.75,3547.25,0.48
 20260707,4200,4250,3955,4030,9065409,4170.99,-3.38,4271.75,3588.17,0.71
 20260708,4000,4040,3955,3995,6728233,4156.32,-3.88,4247.75,3627.75,0.55
+20260709,3970,4050,3925,3925,7370647,4137.05,-5.13,4236.25,3664.5,0.62
 ```
 
 ## Latest TDCC Snapshot
@@ -199,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 2454 | 聯發科 | 351 | 38 | 18588160.0 | 1759960.0 | 10.56 | put_inflow |
+| 20260709 | 2454 | 聯發科 | 349 | 0 | 27619630.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

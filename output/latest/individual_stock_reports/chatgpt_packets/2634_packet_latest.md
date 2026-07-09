@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2634 漢翔
 
 ## Metadata
-- generated_at: 2026-07-08 22:26:54 Asia/Taipei
+- generated_at: 2026-07-09 22:26:41 Asia/Taipei
 - stock_id: 2634
 - stock_name: 漢翔
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 300
+- latest_price_date: 20260709
+- price_rows: 301
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 60
-- high: 60.5
-- low: 56.8
-- close: 59.6
-- volume: 26152628
-- ma5: 58.58
-- ema23_primary: 52.69
-- distance_to_ema23_pct: 13.11
-- ma20: 51.64
-- ma60: 48.91
-- ma120: 50.64
-- return_5d: 6.05
-- return_20d: 27.35
-- volume_ratio: 1.24
-- distance_to_ma20_pct_auxiliary: 15.42
-- distance_to_high_60_pct: -7.6
+- date: 20260709
+- open: 59.1
+- high: 62.4
+- low: 58
+- close: 58
+- volume: 30957303
+- ma5: 59.26
+- ema23_primary: 53.13
+- distance_to_ema23_pct: 9.16
+- ma20: 52.21
+- ma60: 49.09
+- ma120: 50.69
+- return_5d: 6.23
+- return_20d: 24.46
+- volume_ratio: 1.38
+- distance_to_ma20_pct_auxiliary: 11.1
+- distance_to_high_60_pct: -10.08
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,47,47.35,46.5,46.6,4431605,46.78,-0.38,46.34,47.85,0.98
 20260611,46.6,46.95,46.05,46.2,2585283,46.73,-1.14,46.34,47.78,0.58
 20260612,47.05,47.6,46.95,47.15,5710163,46.77,0.82,46.37,47.73,1.27
 20260615,47.7,47.75,47.2,47.25,3251259,46.81,0.95,46.44,47.66,0.73
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,63.4,64.5,60.3,60.3,82713000,51.49,17.12,50.33,48.5,4.37
 20260707,60.9,61.4,58.3,58.4,24836981,52.06,12.17,51,48.7,1.24
 20260708,60,60.5,56.8,59.6,26152628,52.69,13.11,51.64,48.91,1.24
+20260709,59.1,62.4,58,58,30957303,53.13,9.16,52.21,49.09,1.38
 ```
 
 ## Latest TDCC Snapshot
@@ -198,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 2634 | 漢翔 | 51 | 0 | 13691130.0 | 0.0 |  | no_signal |
+| 20260709 | 2634 | 漢翔 | 54 | 0 | 16418560.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

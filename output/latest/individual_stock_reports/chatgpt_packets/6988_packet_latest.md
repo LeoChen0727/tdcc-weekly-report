@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6988 威力暘-創
 
 ## Metadata
-- generated_at: 2026-07-08 22:28:26 Asia/Taipei
+- generated_at: 2026-07-09 22:27:54 Asia/Taipei
 - stock_id: 6988
 - stock_name: 威力暘-創
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 288
+- latest_price_date: 20260709
+- price_rows: 289
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
+- date: 20260709
 - open: 13.6
 - high: 13.6
-- low: 13.45
+- low: 13.4
 - close: 13.6
-- volume: 28000
+- volume: 37001
 - ma5: 13.54
-- ema23_primary: 13.93
-- distance_to_ema23_pct: -2.34
-- ma20: 13.73
-- ma60: 14.66
+- ema23_primary: 13.9
+- distance_to_ema23_pct: -2.15
+- ma20: 13.68
+- ma60: 14.64
 - ma120: 15.46
-- return_5d: 0.37
+- return_5d: 0
 - return_20d: -6.85
-- volume_ratio: 0.67
-- distance_to_ma20_pct_auxiliary: -0.95
+- volume_ratio: 0.89
+- distance_to_ma20_pct_auxiliary: -0.58
 - distance_to_high_60_pct: -25.07
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,14.8,14.8,14.6,14.6,46000,15.26,-4.31,15.84,14.89,0.59
 20260611,14.65,14.65,13.85,13.85,33799,15.14,-8.52,15.76,14.88,0.45
 20260612,13.85,14.4,13.85,13.9,38372,15.04,-7.56,15.6,14.87,0.54
 20260615,13.9,14.8,13.9,14.05,76022,14.95,-6.05,15.44,14.86,1.11
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,13.4,13.55,13.4,13.5,46000,14,-3.58,13.84,14.7,1.17
 20260707,13.6,13.6,13.45,13.45,87000,13.96,-3.62,13.78,14.68,2.08
 20260708,13.6,13.6,13.45,13.6,28000,13.93,-2.34,13.73,14.66,0.67
+20260709,13.6,13.6,13.4,13.6,37001,13.9,-2.15,13.68,14.64,0.89
 ```
 
 ## Latest TDCC Snapshot

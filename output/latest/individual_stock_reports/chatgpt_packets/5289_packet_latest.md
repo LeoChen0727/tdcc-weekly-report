@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5289 宜鼎
 
 ## Metadata
-- generated_at: 2026-07-08 22:27:44 Asia/Taipei
+- generated_at: 2026-07-09 22:27:21 Asia/Taipei
 - stock_id: 5289
 - stock_name: 宜鼎
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 165
+- latest_price_date: 20260709
+- price_rows: 166
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 1615
-- high: 1635
-- low: 1490
-- close: 1515
-- volume: 2862000
-- ma5: 1620
-- ema23_primary: 1697.27
-- distance_to_ema23_pct: -10.74
-- ma20: 1742.5
-- ma60: 1609
-- ma120: 1233.87
-- return_5d: -3.81
-- return_20d: -23.87
-- volume_ratio: 0.84
-- distance_to_ma20_pct_auxiliary: -13.06
-- distance_to_high_60_pct: -25.19
+- date: 20260709
+- open: 1555
+- high: 1595
+- low: 1520
+- close: 1530
+- volume: 2439000
+- ma5: 1583
+- ema23_primary: 1683.33
+- distance_to_ema23_pct: -9.11
+- ma20: 1729.25
+- ma60: 1614.83
+- ma120: 1241.4
+- return_5d: -10.79
+- return_20d: -14.76
+- volume_ratio: 0.75
+- distance_to_ma20_pct_auxiliary: -11.52
+- distance_to_high_60_pct: -24.44
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,1950,2005,1795,1795,5535000,1735.03,3.46,1792,1393.47,1.8
 20260611,1780,1815,1665,1710,4905000,1732.94,-1.32,1784.25,1404.3,1.62
 20260612,1825,1830,1760,1805,3135000,1738.95,3.8,1786.5,1414.97,1.06
 20260615,1850,1950,1845,1920,3517000,1754.04,9.46,1789.25,1425.63,1.24
@@ -160,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,1650,1720,1625,1645,2659000,1725.09,-4.64,1777.25,1595.42,0.74
 20260707,1680,1700,1565,1590,3154000,1713.84,-7.23,1766.25,1602.67,0.88
 20260708,1615,1635,1490,1515,2862000,1697.27,-10.74,1742.5,1609,0.84
+20260709,1555,1595,1520,1530,2439000,1683.33,-9.11,1729.25,1614.83,0.75
 ```
 
 ## Latest TDCC Snapshot
@@ -194,12 +194,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 5289 | 宜鼎 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/06/30 2.公司名稱:宜鼎國際股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: 依據「發行人募集與發行有價證券處理準則」第九條第一項第二款之規定， 公司發行國內第二次無擔保轉換公司債案至公告日止，債款代收銀行業 已收足所有應募款項並匯撥至存儲專戶銀行，共計新台幣3,770,570,320元整， 特此公告。 6.因應措施:無。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項):無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260709 | 5289 | 宜鼎 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/06/30 2.公司名稱:宜鼎國際股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: 依據「發行人募集與發行有價證券處理準則」第九條第一項第二款之規定， 公司發行國內第二次無擔保轉換公司債案至公告日止，債款代收銀行業 已收足所有應募款項並匯撥至存儲專戶銀行，共計新台幣3,770,570,320元整， 特此公告。 6.因應措施:無。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項):無。；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 5289 | 宜鼎 | 13 | 12 | 5 | 10 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260709 | 5289 | 宜鼎 | 14 | 13 | 5 | 10 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

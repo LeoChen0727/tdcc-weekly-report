@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4967 十銓
 
 ## Metadata
-- generated_at: 2026-07-08 22:27:40 Asia/Taipei
+- generated_at: 2026-07-09 22:27:17 Asia/Taipei
 - stock_id: 4967
 - stock_name: 十銓
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 300
+- latest_price_date: 20260709
+- price_rows: 301
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 246
-- high: 249.5
-- low: 230
+- date: 20260709
+- open: 236.5
+- high: 240.5
+- low: 232
 - close: 233
-- volume: 6795466
-- ma5: 251.9
-- ema23_primary: 264.74
-- distance_to_ema23_pct: -11.99
-- ma20: 266.85
-- ma60: 269.93
-- ma120: 242.6
-- return_5d: -6.99
-- return_20d: -18.53
-- volume_ratio: 1.35
-- distance_to_ma20_pct_auxiliary: -12.69
+- volume: 2630286
+- ma5: 247.3
+- ema23_primary: 262.09
+- distance_to_ema23_pct: -11.1
+- ma20: 265.05
+- ma60: 270.13
+- ma120: 242.85
+- return_5d: -8.98
+- return_20d: -13.38
+- volume_ratio: 0.55
+- distance_to_ma20_pct_auxiliary: -12.09
 - distance_to_high_60_pct: -27.86
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,280,286.5,268,269,7527763,278.15,-3.29,277.85,258.28,0.77
 20260611,265,280,260.5,277.5,8130467,278.09,-0.21,277.48,259.43,0.85
 20260612,288,290,272,272,10242700,277.59,-2.01,277.27,260.23,1.06
 20260615,276.5,285,274,277,5621808,277.54,-0.19,277.2,260.73,0.58
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,263,267,255,261,3529000,269.27,-3.07,270.9,269.21,0.65
 20260707,262,262,248.5,249.5,2556522,267.62,-6.77,269.5,269.71,0.5
 20260708,246,249.5,230,233,6795466,264.74,-11.99,266.85,269.93,1.35
+20260709,236.5,240.5,232,233,2630286,262.09,-11.1,265.05,270.13,0.55
 ```
 
 ## Latest TDCC Snapshot
@@ -188,17 +188,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 4967 | 十銓 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.董事會決議日期:115/06/17 2.名稱﹝XX公司第X次（有、無）擔保公司債﹞: 十銓科技股份有限公司國內第五次無擔保轉換公司債。 3.是否採總括申報發行公司債(是/否):否 4.發行總額:上限新台幣30億元整。 5.每張面額:新台幣10萬元整。 6.發行價格:底標不低於面額，實際總發行金額依競價拍賣結果而定。 7.發行期間:五年。 8.發行利率:票面利率0%。 9.擔保品之種類、名稱、金額及約定事項:不適用 10.募得價款之用途及運用計畫:償還銀行借款。 11.承銷方式:擬採競價拍賣方式辦理公開承銷。 12.公司債受託人:永豐商業銀行股份有限公司 13.承銷或代銷機構:永豐金證券股份有限公司 14.發行保證人:不適用 15.代理還本付息機構:群益金鼎證券股份有限公司股務代理部 16.簽證機構:本次係發行無實體有價證券，故不適用。 17.能轉換股份者，其轉換辦法:將依有關法令辦理，俟報奉主管機關核准後另行公告。 18.賣回條件:將依有關法令辦理，俟報奉主管機關核准後另行公告。 19.買回條件:將依有關法令辦理，俟報奉主管機關核准後另行公告。 20.附有轉換、交換或認股者，其換股基準日: 將依有關法令辦理，俟報奉主管機關核准後另行公告。 21.附有轉換、交換或認股者，對股權可能稀釋情形: 將依有關法令辦理，俟報奉主管機關核准後另行公告。 22.現金減資後再行募資之合理性及必要性 (募資當年度及前一年度有辦理現金減資者適用):不適用 23.其他應敘明事項: (1)本次轉換公司債於獲主管機關核准發行後，授權董事長訂定發行日，並向財團法人 中華民國證券櫃檯買賣中心申請為櫃檯買賣。 (2)本次發行無擔保轉換公司債之主要內容包括發行條件、資金運用計劃、預定進度 、預計可能效益，及其他與本次發行相關事宜，如經主管機關修正或有未盡事宜，或因 客觀環境而需變更，及向主管機關申請延期或撤銷，授權董事長全權處理之。 (3)為配合本次國內第五次無擔保轉換公司債相關發行作業，授權本公司董事長代表本 公司簽署一切有關辦理國內第五次無擔保轉換公司債之相關契約及文件，並代表本公司 辦理相關發行事宜。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260709 | 4967 | 十銓 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.董事會決議日期:115/06/17 2.名稱﹝XX公司第X次（有、無）擔保公司債﹞: 十銓科技股份有限公司國內第五次無擔保轉換公司債。 3.是否採總括申報發行公司債(是/否):否 4.發行總額:上限新台幣30億元整。 5.每張面額:新台幣10萬元整。 6.發行價格:底標不低於面額，實際總發行金額依競價拍賣結果而定。 7.發行期間:五年。 8.發行利率:票面利率0%。 9.擔保品之種類、名稱、金額及約定事項:不適用 10.募得價款之用途及運用計畫:償還銀行借款。 11.承銷方式:擬採競價拍賣方式辦理公開承銷。 12.公司債受託人:永豐商業銀行股份有限公司 13.承銷或代銷機構:永豐金證券股份有限公司 14.發行保證人:不適用 15.代理還本付息機構:群益金鼎證券股份有限公司股務代理部 16.簽證機構:本次係發行無實體有價證券，故不適用。 17.能轉換股份者，其轉換辦法:將依有關法令辦理，俟報奉主管機關核准後另行公告。 18.賣回條件:將依有關法令辦理，俟報奉主管機關核准後另行公告。 19.買回條件:將依有關法令辦理，俟報奉主管機關核准後另行公告。 20.附有轉換、交換或認股者，其換股基準日: 將依有關法令辦理，俟報奉主管機關核准後另行公告。 21.附有轉換、交換或認股者，對股權可能稀釋情形: 將依有關法令辦理，俟報奉主管機關核准後另行公告。 22.現金減資後再行募資之合理性及必要性 (募資當年度及前一年度有辦理現金減資者適用):不適用 23.其他應敘明事項: (1)本次轉換公司債於獲主管機關核准發行後，授權董事長訂定發行日，並向財團法人 中華民國證券櫃檯買賣中心申請為櫃檯買賣。 (2)本次發行無擔保轉換公司債之主要內容包括發行條件、資金運用計劃、預定進度 、預計可能效益，及其他與本次發行相關事宜，如經主管機關修正或有未盡事宜，或因 客觀環境而需變更，及向主管機關申請延期或撤銷，授權董事長全權處理之。 (3)為配合本次國內第五次無擔保轉換公司債相關發行作業，授權本公司董事長代表本 公司簽署一切有關辦理國內第五次無擔保轉換公司債之相關契約及文件，並代表本公司 辦理相關發行事宜。；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 4967 | 十銓 | 5 | 5 | 5 | 9 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260709 | 4967 | 十銓 | 6 | 6 | 5 | 9 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 4967 | 十銓 | 65 | 1 | 7465130.0 | 0.0 |  | no_signal |
+| 20260709 | 4967 | 十銓 | 65 | 0 | 3721760.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2601 益航
 
 ## Metadata
-- generated_at: 2026-07-08 22:26:52 Asia/Taipei
+- generated_at: 2026-07-09 22:26:39 Asia/Taipei
 - stock_id: 2601
 - stock_name: 益航
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 299
+- latest_price_date: 20260709
+- price_rows: 300
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -74,7 +74,7 @@
 - action_rating: take_profit
 - action_rating_label_zh: 停利
 - confidence_level: low
-- thesis_state: breakout_confirmed
+- thesis_state: breakout_initial
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 7
-- high: 7.55
-- low: 6.95
-- close: 7.55
-- volume: 26882744
-- ma5: 6.5
-- ema23_primary: 5.92
-- distance_to_ema23_pct: 27.46
-- ma20: 5.85
-- ma60: 5.49
-- ma120: 5.65
-- return_5d: 39.04
-- return_20d: 28.4
-- volume_ratio: 5.73
-- distance_to_ma20_pct_auxiliary: 29.11
-- distance_to_high_60_pct: 0
+- date: 20260709
+- open: 7.8
+- high: 8.28
+- low: 7.8
+- close: 7.98
+- volume: 37809537
+- ma5: 7
+- ema23_primary: 6.09
+- distance_to_ema23_pct: 30.93
+- ma20: 5.96
+- ma60: 5.53
+- ma120: 5.68
+- return_5d: 46.15
+- return_20d: 36.88
+- volume_ratio: 5.83
+- distance_to_ma20_pct_auxiliary: 34.01
+- distance_to_high_60_pct: -3.62
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,5.88,5.99,5.82,5.83,1899065,5.56,4.86,5.4,5.54,0.48
 20260611,5.89,5.89,5.55,5.71,1529516,5.57,2.47,5.45,5.53,0.39
 20260612,5.68,5.84,5.68,5.75,1794253,5.59,2.91,5.5,5.52,0.46
 20260615,5.84,5.98,5.81,5.85,1370196,5.61,4.3,5.55,5.51,0.35
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,6.6,6.6,6.6,6.6,5780000,5.68,16.27,5.71,5.44,2.61
 20260707,6.95,7.2,6.7,6.87,28261967,5.78,18.95,5.76,5.46,8.19
 20260708,7,7.55,6.95,7.55,26882744,5.92,27.46,5.85,5.49,5.73
+20260709,7.8,8.28,7.8,7.98,37809537,6.09,30.93,5.96,5.53,5.83
 ```
 
 ## Latest TDCC Snapshot
@@ -189,12 +189,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 2601 | 益航 | true_breakout | 嚴格突破 | 106.0 |  |  | breakout_confirmed |  |  | continued_overheated | 1.董事會決議日:115/06/30 2.許可從事競業行為之經理人姓名及職稱: 陳勁渤/本公司之財務長、公司治理主管暨代理發言人 3.許可從事競業行為之項目: 有擔任其他公司之經理人，或經營其他與本公司營業範圍相同或類似公司之行為 4.許可從事競業行為之期間: 任職本公司經理人之職務期間 5.決議情形（請依公司法第32條說明表決結果）: 本案經主席徵詢全體出席董事無異議照案通過 6.所許可之競業行為如屬大陸地區事業之營業者，經理人姓名及職稱 （非屬大陸地區事業之營業者，以下請輸〝不適用〞）:不適用 7.所擔任該大陸地區事業之公司名稱及職務:不適用 8.所擔任該大陸地區事業地址:不適用 9.所擔任該大陸地區事業營業項目:不適用 10.對本公司財務業務之影響程度:無 11.經理人如有對該大陸地區事業從事投資者，其投資金額及持股比例:無 12.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260709 | 2601 | 益航 | true_breakout | 嚴格突破 | 89.0 |  |  | platform_breakout |  |  | continued_overheated | 1.事實發生日:115/07/08 2.發生緣由:115/07/08 3.財務業務資訊: (1)單月                 最近一個月單月   與去年同期                    115年5月        增減%                         (IFRS自結數) 營業收入(百萬元)        137           5.81% 稅前淨利(百萬元)         6          -67.77% 歸屬於母公司淨利         8          167.26% (百萬元) 每股盈餘(元)            0.01        167.26% ----------------- ------------------- --------------- (2)單季                  最近一季單季    與去年同期                  115年第1季        增減%                         合併核閱數                     (IFRS會計師查核數) 營業收入(百萬元)        568         56.56% 稅前淨利(百萬元)         18        153.37% 歸屬於母公司淨利        -14         89.43% (百萬元) 每股盈餘(元)           -0.02        50.00% ----------------- ------------------- --------------- (3)最近四季累計                       最近四季累計                   (114年第2季至115年第1季)                         合併核閱數                      (IFRS會計師查核數) 營業收入(百萬元)         1,695 稅前淨利(百萬元)           -33 歸屬於母公司淨利        -1,227 (百萬元) 每股盈餘(元)             -0.06 ----------------- ------------------- --------------- 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無。 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無。 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告: 7.其他應敘明事項:無。 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 2601 | 益航 | 4 | 1 | 4 | 7 | 13 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260709 | 2601 | 益航 | 5 | 2 | 5 | 7 | 13 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00908 富邦入息REITs+
 
 ## Metadata
-- generated_at: 2026-07-08 22:26:10 Asia/Taipei
+- generated_at: 2026-07-09 22:26:07 Asia/Taipei
 - stock_id: 00908
 - stock_name: 富邦入息REITs+
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260708
-- price_rows: 33
+- latest_price_date: 20260709
+- price_rows: 34
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 15.41
-- high: 15.44
-- low: 15.37
-- close: 15.38
-- volume: 232783
-- ma5: 15.32
-- ema23_primary: 15.02
-- distance_to_ema23_pct: 2.38
-- ma20: 15.07
-- ma60: 14.83
-- ma120: 14.83
-- return_5d: 2.19
-- return_20d: 5.13
-- volume_ratio: 1.37
-- distance_to_ma20_pct_auxiliary: 2.08
-- distance_to_high_60_pct: -0.39
+- date: 20260709
+- open: 15.2
+- high: 15.26
+- low: 15.2
+- close: 15.26
+- volume: 178764
+- ma5: 15.35
+- ema23_primary: 15.04
+- distance_to_ema23_pct: 1.45
+- ma20: 15.09
+- ma60: 14.84
+- ma120: 14.84
+- return_5d: 1.13
+- return_20d: 2.83
+- volume_ratio: 1.12
+- distance_to_ma20_pct_auxiliary: 1.14
+- distance_to_high_60_pct: -1.17
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,14.72,14.85,14.72,14.84,364537,14.49,2.42,14.5,14.5,1.91
 20260611,14.85,15.01,14.85,15,129088,14.53,3.22,14.53,14.53,0.69
 20260612,15,15.03,14.98,15.01,80816,14.57,3.01,14.56,14.56,0.45
 20260615,15.08,15.16,15.08,15.12,227250,14.62,3.44,14.59,14.59,1.24
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,15.34,15.43,15.34,15.4,117000,14.95,2.98,14.99,14.8,0.62
 20260707,15.4,15.41,15.38,15.39,171653,14.99,2.67,15.03,14.81,0.88
 20260708,15.41,15.44,15.37,15.38,232783,15.02,2.38,15.07,14.83,1.37
+20260709,15.2,15.26,15.2,15.26,178764,15.04,1.45,15.09,14.84,1.12
 ```
 
 ## Latest TDCC Snapshot

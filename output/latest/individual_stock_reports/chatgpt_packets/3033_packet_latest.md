@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3033 威健
 
 ## Metadata
-- generated_at: 2026-07-08 22:27:03 Asia/Taipei
+- generated_at: 2026-07-09 22:26:48 Asia/Taipei
 - stock_id: 3033
 - stock_name: 威健
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 300
+- latest_price_date: 20260709
+- price_rows: 301
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 49.8
-- high: 49.95
-- low: 48.85
+- date: 20260709
+- open: 49.9
+- high: 50.6
+- low: 49.3
 - close: 49.6
-- volume: 2526868
-- ma5: 50.04
-- ema23_primary: 49.41
-- distance_to_ema23_pct: 0.39
-- ma20: 49.71
-- ma60: 45.58
-- ma120: 38.58
-- return_5d: -0.4
-- return_20d: -2.75
-- volume_ratio: 0.35
-- distance_to_ma20_pct_auxiliary: -0.22
+- volume: 3135282
+- ma5: 49.88
+- ema23_primary: 49.42
+- distance_to_ema23_pct: 0.36
+- ma20: 49.68
+- ma60: 45.84
+- ma120: 38.73
+- return_5d: -1.59
+- return_20d: -1.2
+- volume_ratio: 0.5
+- distance_to_ma20_pct_auxiliary: -0.16
 - distance_to_high_60_pct: -10.31
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,50.2,52.2,50,50.2,23826799,48.03,4.52,49.97,40.37,1.08
 20260611,49.9,50.4,48.25,49.7,9290157,48.17,3.18,50.13,40.67,0.44
 20260612,51,51.5,49.6,49.6,7972925,48.29,2.72,50.22,40.94,0.4
 20260615,50.6,50.8,49.5,49.6,6504894,48.4,2.49,50.26,41.19,0.35
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,50.9,51.3,50.2,50.4,3683000,49.39,2.04,49.7,45.06,0.44
 20260707,50.8,51.1,49.3,49.4,4374999,49.39,0.02,49.78,45.33,0.54
 20260708,49.8,49.95,48.85,49.6,2526868,49.41,0.39,49.71,45.58,0.35
+20260709,49.9,50.6,49.3,49.6,3135282,49.42,0.36,49.68,45.84,0.5
 ```
 
 ## Latest TDCC Snapshot
@@ -189,17 +189,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 3033 | 威健 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_strong_inflow | stale_signal | 1.股東常會日期:115/06/18 2.重要決議事項一、盈餘分配或盈虧撥補:通過本公司114年度盈餘分配案 3.重要決議事項二、章程修訂:通過修訂本公司「公司章程」部分條文案 4.重要決議事項三、營業報告書及財務報表:通過本公司114年度營業報告書及財務報告案 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項:無 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260709 | 3033 | 威健 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.股東常會日期:115/06/18 2.重要決議事項一、盈餘分配或盈虧撥補:通過本公司114年度盈餘分配案 3.重要決議事項二、章程修訂:通過修訂本公司「公司章程」部分條文案 4.重要決議事項三、營業報告書及財務報表:通過本公司114年度營業報告書及財務報告案 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項:無 7.其他應敘明事項:無；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 3033 | 威健 | 18 | 5 | 5 | 10 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260709 | 3033 | 威健 | 19 | 6 | 5 | 10 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 3033 | 威健 | 32 | 0 | 3147900.0 | 0.0 |  | call_strong_inflow |
+| 20260709 | 3033 | 威健 | 32 | 0 | 2435700.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3691 碩禾
 
 ## Metadata
-- generated_at: 2026-07-08 22:27:24 Asia/Taipei
+- generated_at: 2026-07-09 22:27:04 Asia/Taipei
 - stock_id: 3691
 - stock_name: 碩禾
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 165
+- latest_price_date: 20260709
+- price_rows: 166
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 149
-- high: 149.5
-- low: 143.5
-- close: 146
-- volume: 738000
-- ma5: 151.3
-- ema23_primary: 152.55
-- distance_to_ema23_pct: -4.3
-- ma20: 154.72
-- ma60: 144.27
-- ma120: 128.03
-- return_5d: 0
-- return_20d: -12.57
-- volume_ratio: 0.28
-- distance_to_ma20_pct_auxiliary: -5.64
-- distance_to_high_60_pct: -17.98
+- date: 20260709
+- open: 146.5
+- high: 148
+- low: 142
+- close: 142
+- volume: 900000
+- ma5: 148.9
+- ema23_primary: 151.67
+- distance_to_ema23_pct: -6.38
+- ma20: 153.68
+- ma60: 144.56
+- ma120: 128.59
+- return_5d: -7.79
+- return_20d: -12.88
+- volume_ratio: 0.39
+- distance_to_ma20_pct_auxiliary: -7.6
+- distance_to_high_60_pct: -20.22
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,165,178,163,163,7852000,152.42,6.94,154.43,130.92,3.86
 20260611,160,167.5,156,167,5478000,153.64,8.7,155.82,131.65,2.65
 20260612,170.5,177,157.5,158.5,7975000,154.04,2.89,156.12,132.31,3.61
 20260615,162,165.5,155.5,158,2717000,154.37,2.35,156.32,132.97,1.44
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,154.5,157.5,153,153.5,1036000,153.57,-0.05,156.07,143.22,0.36
 20260707,154.5,157,146.5,148.5,1024000,153.15,-3.04,155.78,143.72,0.36
 20260708,149,149.5,143.5,146,738000,152.55,-4.3,154.72,144.27,0.28
+20260709,146.5,148,142,142,900000,151.67,-6.38,153.68,144.56,0.39
 ```
 
 ## Latest TDCC Snapshot

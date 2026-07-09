@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5475 德宏
 
 ## Metadata
-- generated_at: 2026-07-08 22:27:48 Asia/Taipei
+- generated_at: 2026-07-09 22:27:24 Asia/Taipei
 - stock_id: 5475
 - stock_name: 德宏
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 165
+- latest_price_date: 20260709
+- price_rows: 166
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 回檔後短線轉強
+- model_category_display_zh: 營收成長股價回檔
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 回檔後短線轉強 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 回檔後短線轉強 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 207
-- high: 227
-- low: 206.5
-- close: 213.5
-- volume: 3400000
-- ma5: 223.5
-- ema23_primary: 246.89
-- distance_to_ema23_pct: -13.52
-- ma20: 241.68
-- ma60: 294.49
-- ma120: 231.54
-- return_5d: -7.17
-- return_20d: -18.2
-- volume_ratio: 1.68
-- distance_to_ma20_pct_auxiliary: -11.66
-- distance_to_high_60_pct: -47.22
+- date: 20260709
+- open: 215.5
+- high: 222
+- low: 192.5
+- close: 192.5
+- volume: 3660000
+- ma5: 215.6
+- ema23_primary: 242.36
+- distance_to_ema23_pct: -20.57
+- ma20: 239.05
+- ma60: 292.43
+- ma120: 232.4
+- return_5d: -17.03
+- return_20d: -21.43
+- volume_ratio: 1.74
+- distance_to_ma20_pct_auxiliary: -19.47
+- distance_to_high_60_pct: -52.41
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,253,269,245,245,2010000,289.99,-15.51,287.48,290.69,1.7
 20260611,245,245,220.5,238,2999000,285.65,-16.68,283.6,291.29,2.47
 20260612,247.5,248,239,240,1355000,281.85,-14.85,280.65,292.07,1.24
 20260615,240,250,234.5,238.5,1916000,278.24,-14.28,277.65,292.52,1.85
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,243,243,226.5,226.5,976000,253.83,-10.77,246.47,297.14,0.53
 20260707,221.5,232,204,207,3720000,249.93,-17.18,244.05,295.73,1.91
 20260708,207,227,206.5,213.5,3400000,246.89,-13.52,241.68,294.49,1.68
+20260709,215.5,222,192.5,192.5,3660000,242.36,-20.57,239.05,292.43,1.74
 ```
 
 ## Latest TDCC Snapshot
@@ -188,13 +188,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 5475 | 德宏 | pullback_rebound | 回檔後短線轉強 | 55.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
-| 20260708 | 5475 | 德宏 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260709 | 5475 | 德宏 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | 營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 5475 | 德宏 | 2 | 2 | 2 | 4 | 6 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260709 | 5475 | 德宏 | 3 | 3 | 3 | 4 | 7 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

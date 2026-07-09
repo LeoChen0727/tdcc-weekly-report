@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6015 宏遠證
 
 ## Metadata
-- generated_at: 2026-07-08 22:27:53 Asia/Taipei
+- generated_at: 2026-07-09 22:27:27 Asia/Taipei
 - stock_id: 6015
 - stock_name: 宏遠證
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 165
+- latest_price_date: 20260709
+- price_rows: 166
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 18.3
-- high: 18.9
-- low: 17.9
-- close: 18.15
-- volume: 5898000
-- ma5: 17.72
-- ema23_primary: 17.96
-- distance_to_ema23_pct: 1.07
-- ma20: 18.03
-- ma60: 16.71
-- ma120: 15.03
-- return_5d: 3.71
-- return_20d: -4.97
-- volume_ratio: 1.53
-- distance_to_ma20_pct_auxiliary: 0.68
-- distance_to_high_60_pct: -24.38
+- date: 20260709
+- open: 18.2
+- high: 18.2
+- low: 17.65
+- close: 17.65
+- volume: 3343000
+- ma5: 17.8
+- ema23_primary: 17.93
+- distance_to_ema23_pct: -1.57
+- ma20: 18.01
+- ma60: 16.78
+- ma120: 15.08
+- return_5d: 2.32
+- return_20d: -1.94
+- volume_ratio: 0.94
+- distance_to_ma20_pct_auxiliary: -2
+- distance_to_high_60_pct: -26.46
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,18.75,19.15,17.85,18,9012000,18.21,-1.15,17.92,15.28,4.04
 20260611,17.75,18.05,17.3,17.85,5238000,18.18,-1.81,18.06,15.35,2.3
 20260612,18.65,19.05,18.45,18.5,5425000,18.21,1.61,18.25,15.43,2.27
 20260615,19.4,19.5,18.75,18.85,5157000,18.26,3.23,18.45,15.51,2.03
@@ -160,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,18.05,18.45,17.95,17.95,2620000,17.99,-0.22,18.22,16.56,0.61
 20260707,18.1,18.25,17.3,17.4,3012000,17.94,-3.01,18.07,16.63,0.73
 20260708,18.3,18.9,17.9,18.15,5898000,17.96,1.07,18.03,16.71,1.53
+20260709,18.2,18.2,17.65,17.65,3343000,17.93,-1.57,18.01,16.78,0.94
 ```
 
 ## Latest TDCC Snapshot
@@ -194,12 +194,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 6015 | 宏遠證 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/07/07 2.公司名稱:宏遠證券股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:公告本公司自行結算一一五年六月份合併損益：  (1)六月份稅前淨(損)益:345,221仟元，累計至六月底稅前淨(損)益:1,444,858仟元  (2)六月份稅後淨(損)益:309,237仟元，累計至六月底稅後淨(損)益:1,314,455仟元  (3)六月份每股稅後(損)益:0.77元，累計至六月底每股稅後(損)益:3.33元 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260709 | 6015 | 宏遠證 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | repeated_but_no_breakout | 1.事實發生日:115/07/07 2.公司名稱:宏遠證券股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:公告本公司自行結算一一五年六月份合併損益：  (1)六月份稅前淨(損)益:345,221仟元，累計至六月底稅前淨(損)益:1,444,858仟元  (2)六月份稅後淨(損)益:309,237仟元，累計至六月底稅後淨(損)益:1,314,455仟元  (3)六月份每股稅後(損)益:0.77元，累計至六月底每股稅後(損)益:3.33元 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項):無 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 6015 | 宏遠證 | 13 | 12 | 5 | 10 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260709 | 6015 | 宏遠證 | 14 | 13 | 5 | 10 | 14 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 14 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

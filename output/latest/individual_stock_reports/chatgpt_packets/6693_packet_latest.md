@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6693 廣閎科
 
 ## Metadata
-- generated_at: 2026-07-08 22:28:16 Asia/Taipei
+- generated_at: 2026-07-09 22:27:46 Asia/Taipei
 - stock_id: 6693
 - stock_name: 廣閎科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 165
+- latest_price_date: 20260709
+- price_rows: 166
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 248
-- high: 256.5
-- low: 236
-- close: 244
-- volume: 1198000
-- ma5: 255.2
-- ema23_primary: 219.28
-- distance_to_ema23_pct: 11.28
-- ma20: 220.5
-- ma60: 172.82
-- ma120: 133.91
-- return_5d: 5.17
-- return_20d: 39.43
+- date: 20260709
+- open: 244
+- high: 257
+- low: 224.5
+- close: 236.5
+- volume: 1119000
+- ma5: 251.5
+- ema23_primary: 220.71
+- distance_to_ema23_pct: 7.15
+- ma20: 224.3
+- ma60: 174.37
+- ma120: 135.24
+- return_5d: -7.25
+- return_20d: 47.35
 - volume_ratio: 0.71
-- distance_to_ma20_pct_auxiliary: 10.66
-- distance_to_high_60_pct: -12.86
+- distance_to_ma20_pct_auxiliary: 5.44
+- distance_to_high_60_pct: -15.54
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,174,180,160.5,160.5,3282000,152.67,5.13,150.7,137.3,4.05
 20260611,157,161,150,155,1681000,152.87,1.4,151.15,138.28,1.99
 20260612,159.5,170.5,154.5,169,1967000,154.21,9.59,152.55,139.47,2.17
 20260615,173,185.5,170.5,185.5,4005000,156.82,18.29,154.78,140.86,3.79
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,255,276.5,255,276.5,920000,214.12,29.13,212.85,169.38,0.47
 20260707,263,280,249,249,1080000,217.03,14.73,217.05,171.21,0.58
 20260708,248,256.5,236,244,1198000,219.28,11.28,220.5,172.82,0.71
+20260709,244,257,224.5,236.5,1119000,220.71,7.15,224.3,174.37,0.71
 ```
 
 ## Latest TDCC Snapshot
@@ -188,12 +188,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 6693 | 廣閎科 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | first_seen | 1.董事會、股東會決議或公司決定日期:115/06/22 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.發放普通股股利種類及金額:現金股利新台幣 27,027,600 元(每股配發新台幣 0.6 元) 4.除權（息）交易日:115/07/08 5.最後過戶日:115/07/09 6.停止過戶起始日期:115/07/10 7.停止過戶截止日期:115/07/14 8.除權（息）基準日:115/07/14 9.債券最後申請轉換日期:不適用。 10.債券停止轉換起始日期:不適用。 11.債券停止轉換截止日期:不適用。 12.普通股現金股利發放日期:115/07/31 13.其他應敘明事項:115/06/15股東常會通過授權董事長訂定除息基準日、   發放日及其他相關事宜，董事長決定除息基準日及現金股利發放日如上。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260709 | 6693 | 廣閎科 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  |  | continued_overheated | 1.董事會、股東會決議或公司決定日期:115/06/22 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.發放普通股股利種類及金額:現金股利新台幣 27,027,600 元(每股配發新台幣 0.6 元) 4.除權（息）交易日:115/07/08 5.最後過戶日:115/07/09 6.停止過戶起始日期:115/07/10 7.停止過戶截止日期:115/07/14 8.除權（息）基準日:115/07/14 9.債券最後申請轉換日期:不適用。 10.債券停止轉換起始日期:不適用。 11.債券停止轉換截止日期:不適用。 12.普通股現金股利發放日期:115/07/31 13.其他應敘明事項:115/06/15股東常會通過授權董事長訂定除息基準日、   發放日及其他相關事宜，董事長決定除息基準日及現金股利發放日如上。；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 6693 | 廣閎科 | 1 | 1 | 1 | 1 | 3 | first_seen | 首次上榜或資料有限，需後續確認。 |
+| 20260709 | 6693 | 廣閎科 | 2 | 2 | 2 | 2 | 4 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

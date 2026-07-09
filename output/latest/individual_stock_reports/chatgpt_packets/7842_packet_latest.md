@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7842 天能綠電
 
 ## Metadata
-- generated_at: 2026-07-08 22:28:35 Asia/Taipei
+- generated_at: 2026-07-09 22:28:02 Asia/Taipei
 - stock_id: 7842
 - stock_name: 天能綠電
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260708
-- price_rows: 43
+- latest_price_date: 20260709
+- price_rows: 44
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 96
-- high: 96
+- date: 20260709
+- open: 98.9
+- high: 98.9
 - low: 96
-- close: 96
-- volume: 3000
-- ma5: 96.74
-- ema23_primary: 100.28
-- distance_to_ema23_pct: -4.27
-- ma20: 99.55
-- ma60: 105.28
-- ma120: 105.28
-- return_5d: 0
-- return_20d: -10.7
-- volume_ratio: 0.1
-- distance_to_ma20_pct_auxiliary: -3.57
-- distance_to_high_60_pct: -24.71
+- close: 97.4
+- volume: 5000
+- ma5: 97.18
+- ema23_primary: 100.04
+- distance_to_ema23_pct: -2.64
+- ma20: 99.05
+- ma60: 105.1
+- ma120: 105.1
+- return_5d: 2.31
+- return_20d: -9.4
+- volume_ratio: 0.19
+- distance_to_ma20_pct_auxiliary: -1.66
+- distance_to_high_60_pct: -23.61
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,103.5,108,102.5,107.5,66000,109.65,-1.96,108.67,110.15,0.7
 20260611,107.5,107.5,103,106,49000,109.34,-3.06,108.45,109.98,0.54
 20260612,106,107,103,103,44000,108.81,-5.34,108.1,109.71,0.51
 20260615,104,105,102,104.5,43000,108.46,-3.65,108.22,109.52,0.55
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,97.6,103,97.6,98.5,25000,100.96,-2.44,100.5,105.7,0.77
 20260707,98.5,100,97.5,97.5,11000,100.67,-3.15,100.12,105.5,0.36
 20260708,96,96,96,96,3000,100.28,-4.27,99.55,105.28,0.1
+20260709,98.9,98.9,96,97.4,5000,100.04,-2.64,99.05,105.1,0.19
 ```
 
 ## Latest TDCC Snapshot

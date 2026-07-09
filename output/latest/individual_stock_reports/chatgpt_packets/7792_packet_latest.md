@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7792 安葆
 
 ## Metadata
-- generated_at: 2026-07-08 22:28:35 Asia/Taipei
+- generated_at: 2026-07-09 22:28:02 Asia/Taipei
 - stock_id: 7792
 - stock_name: 安葆
 - packet_status: standard_rawdata_packet
-- latest_price_date: 20260708
-- price_rows: 105
+- latest_price_date: 20260709
+- price_rows: 106
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 250.5
-- high: 250.5
-- low: 237
-- close: 238
-- volume: 156000
-- ma5: 249.1
-- ema23_primary: 261.83
-- distance_to_ema23_pct: -9.1
-- ma20: 259.2
-- ma60: 294.87
-- ma120: 311.18
-- return_5d: -5.37
-- return_20d: -10.53
-- volume_ratio: 1.35
-- distance_to_ma20_pct_auxiliary: -8.18
-- distance_to_high_60_pct: -38.18
+- date: 20260709
+- open: 238.5
+- high: 238.5
+- low: 235
+- close: 235.5
+- volume: 48000
+- ma5: 245.7
+- ema23_primary: 259.64
+- distance_to_ema23_pct: -9.3
+- ma20: 258.02
+- ma60: 292.86
+- ma120: 310.47
+- return_5d: -6.73
+- return_20d: -9.07
+- volume_ratio: 0.43
+- distance_to_ma20_pct_auxiliary: -8.73
+- distance_to_high_60_pct: -38.83
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,266,275,259,259,136000,285.9,-9.41,276.68,314.3,0.52
 20260611,260.5,261.5,250,259,110000,283.66,-8.69,274.62,313.23,0.45
 20260612,267.5,267.5,256,257,87000,281.44,-8.68,272.82,312.35,0.37
 20260615,268,268,260,264.5,102000,280.02,-5.54,271.95,311.52,0.45
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,257,260,253.5,254.5,66000,265.55,-4.16,261.1,298.67,0.51
 20260707,257.5,258.5,247,247,113000,264,-6.44,260.6,296.8,0.99
 20260708,250.5,250.5,237,238,156000,261.83,-9.1,259.2,294.87,1.35
+20260709,238.5,238.5,235,235.5,48000,259.64,-9.3,258.02,292.86,0.43
 ```
 
 ## Latest TDCC Snapshot

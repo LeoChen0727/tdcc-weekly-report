@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2231 為升
 
 ## Metadata
-- generated_at: 2026-07-08 22:26:37 Asia/Taipei
+- generated_at: 2026-07-09 22:26:27 Asia/Taipei
 - stock_id: 2231
 - stock_name: 為升
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 300
+- latest_price_date: 20260709
+- price_rows: 301
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 118.5
-- high: 121.5
-- low: 112.5
-- close: 115.5
-- volume: 2586254
-- ma5: 116.7
-- ema23_primary: 104.63
-- distance_to_ema23_pct: 10.39
-- ma20: 99.85
-- ma60: 109.37
-- ma120: 103.43
-- return_5d: 6.45
-- return_20d: 21.07
-- volume_ratio: 1.78
-- distance_to_ma20_pct_auxiliary: 15.67
-- distance_to_high_60_pct: -22.22
+- date: 20260709
+- open: 113.5
+- high: 123
+- low: 111
+- close: 111
+- volume: 3065186
+- ma5: 116.9
+- ema23_primary: 105.16
+- distance_to_ema23_pct: 5.55
+- ma20: 100.75
+- ma60: 109.11
+- ma120: 103.59
+- return_5d: 0.91
+- return_20d: 19.35
+- volume_ratio: 1.93
+- distance_to_ma20_pct_auxiliary: 10.17
+- distance_to_high_60_pct: -25.25
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,95.4,96.4,92.7,93,359236,104.7,-11.17,103.53,111.47,0.58
 20260611,92.9,93,90,92.4,268284,103.67,-10.87,102.8,111.67,0.45
 20260612,94.3,94.8,92.1,92.1,310745,102.71,-10.33,102.08,111.85,0.54
 20260615,93.6,94.5,92.7,94.3,268868,102.01,-7.56,101.64,112.03,0.49
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,121,126.5,117.5,123.5,4763000,102.52,20.47,97.8,109.62,3.97
 20260707,124,124,113,116,3525789,103.64,11.92,98.84,109.52,2.63
 20260708,118.5,121.5,112.5,115.5,2586254,104.63,10.39,99.85,109.37,1.78
+20260709,113.5,123,111,111,3065186,105.16,5.55,100.75,109.11,1.93
 ```
 
 ## Latest TDCC Snapshot
@@ -188,17 +188,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 2231 | 為升 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | repeated_but_no_breakout | 1.事實發生日:115/07/07 2.發生緣由:依據臺灣證券交易所股份有限公司通知辦理 3.財務業務資訊:            最近一月   與去年    最近一季    與去年        (最近四季累計) 科目      (115年6月) 同期增減 (115年第1季) 同期增減        合併查核數           合併自結數     %     合併核閱數      %       (114年2季至115年1季) ======== ============ ======== ============ ======== ====================== 營業收入      233    -17.90%       760       -13.78%          3,532 (百萬) 稅前純益       11       255%        42       -56.96%           -418 (百萬) 稅後純益        5       142%        16       -66.19%           -488 (百萬) 每股盈餘     0.04       144%      0.39       -42.65%          -1.92 (元) 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告: 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260709 | 2231 | 為升 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | repeated_but_no_breakout | 1.事實發生日:115/07/07 2.發生緣由:依據臺灣證券交易所股份有限公司通知辦理 3.財務業務資訊:            最近一月   與去年    最近一季    與去年        (最近四季累計) 科目      (115年6月) 同期增減 (115年第1季) 同期增減        合併查核數           合併自結數     %     合併核閱數      %       (114年2季至115年1季) ======== ============ ======== ============ ======== ====================== 營業收入      233    -17.90%       760       -13.78%          3,532 (百萬) 稅前純益       11       255%        42       -56.96%           -418 (百萬) 稅後純益        5       142%        16       -66.19%           -488 (百萬) 每股盈餘     0.04       144%      0.39       -42.65%          -1.92 (元) 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告: 7.其他應敘明事項:無。 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 2231 | 為升 | 7 | 2 | 5 | 7 | 7 | repeated_but_no_breakout | 近 10 日上榜 7 次、近 20 日上榜 7 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260709 | 2231 | 為升 | 8 | 3 | 5 | 8 | 8 | repeated_but_no_breakout | 近 10 日上榜 8 次、近 20 日上榜 8 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 2231 | 為升 | 20 | 0 | 2567670.0 | 0.0 |  | no_signal |
+| 20260709 | 2231 | 為升 | 22 | 0 | 3580330.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

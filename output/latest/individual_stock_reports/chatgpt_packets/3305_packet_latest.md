@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3305 昇貿
 
 ## Metadata
-- generated_at: 2026-07-08 22:27:12 Asia/Taipei
+- generated_at: 2026-07-09 22:26:55 Asia/Taipei
 - stock_id: 3305
 - stock_name: 昇貿
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 300
+- latest_price_date: 20260709
+- price_rows: 301
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -119,29 +119,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 133
-- high: 140.5
-- low: 128
-- close: 131
-- volume: 5128880
-- ma5: 133.7
-- ema23_primary: 137.85
-- distance_to_ema23_pct: -4.97
-- ma20: 137.95
-- ma60: 133.72
-- ma120: 122.33
-- return_5d: -3.32
-- return_20d: -7.75
-- volume_ratio: 1.51
-- distance_to_ma20_pct_auxiliary: -5.04
-- distance_to_high_60_pct: -22.71
+- date: 20260709
+- open: 131
+- high: 134
+- low: 127
+- close: 127.5
+- volume: 2480876
+- ma5: 132.3
+- ema23_primary: 136.99
+- distance_to_ema23_pct: -6.93
+- ma20: 137.5
+- ma60: 133.85
+- ma120: 122.48
+- return_5d: -5.2
+- return_20d: -6.59
+- volume_ratio: 0.78
+- distance_to_ma20_pct_auxiliary: -7.27
+- distance_to_high_60_pct: -24.78
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,140.5,147,136,136.5,7135149,144.48,-5.53,149.32,123.69,0.54
 20260611,138,140.5,131,140,6544259,144.11,-2.85,150.03,124.32,0.51
 20260612,145.5,149,143,144.5,6238423,144.14,0.25,150.32,124.92,0.52
 20260615,147,148,143,144,3612818,144.13,-0.09,150.68,125.45,0.33
@@ -161,6 +160,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,137,141,134,136.5,1947000,139.2,-1.94,139.22,133.28,0.51
 20260707,138.5,142.5,130,130.5,4275683,138.47,-5.76,138.5,133.52,1.14
 20260708,133,140.5,128,131,5128880,137.85,-4.97,137.95,133.72,1.51
+20260709,131,134,127,127.5,2480876,136.99,-6.93,137.5,133.85,0.78
 ```
 
 ## Latest TDCC Snapshot
@@ -195,17 +195,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 3305 | 昇貿 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  | no_signal | stale_signal | 1.董事會或股東會決議日期:NA 2.原發放股利種類及金額: 盈餘分配現金股利新台幣320,543,870元，每股配發新台幣2.3元。 3.變更後發放股利種類及金額: 盈餘分配現金股利新台幣320,543,870元，每股配發新台幣2.28330410元。 4.變更原因:因本公司可轉換公司債轉換普通股影響流通在外普通股股數總數， 故調整配息率。 5.其他應敘明事項:依115年03月12日董事會決議，授權董事長調整配息率相關事宜。；calendar event: ex_dividend on 20260715; status=confirmed; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260709 | 3305 | 昇貿 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  | no_signal | stale_signal | 1.董事會或股東會決議日期:NA 2.原發放股利種類及金額: 盈餘分配現金股利新台幣320,543,870元，每股配發新台幣2.3元。 3.變更後發放股利種類及金額: 盈餘分配現金股利新台幣320,543,870元，每股配發新台幣2.28330410元。 4.變更原因:因本公司可轉換公司債轉換普通股影響流通在外普通股股數總數， 故調整配息率。 5.其他應敘明事項:依115年03月12日董事會決議，授權董事長調整配息率相關事宜。；calendar event: ex_dividend on 20260715; status=confirmed; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260709 | 3305 | 昇貿 | revenue_breakout_low_response | 營收爆發低反應股 | 11.0 | 38.0 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | 1.董事會或股東會決議日期:NA 2.原發放股利種類及金額: 盈餘分配現金股利新台幣320,543,870元，每股配發新台幣2.3元。 3.變更後發放股利種類及金額: 盈餘分配現金股利新台幣320,543,870元，每股配發新台幣2.28330410元。 4.變更原因:因本公司可轉換公司債轉換普通股影響流通在外普通股股數總數， 故調整配息率。 5.其他應敘明事項:依115年03月12日董事會決議，授權董事長調整配息率相關事宜。；calendar event: ex_dividend on 20260715; status=confirmed; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 3305 | 昇貿 | 21 | 5 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260709 | 3305 | 昇貿 | 22 | 6 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 3305 | 昇貿 | 94 | 1 | 7384280.0 | 4760.0 | 1551.32 | no_signal |
+| 20260709 | 3305 | 昇貿 | 95 | 0 | 3959610.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5455 昇益
 
 ## Metadata
-- generated_at: 2026-07-08 22:27:48 Asia/Taipei
+- generated_at: 2026-07-09 22:27:23 Asia/Taipei
 - stock_id: 5455
 - stock_name: 昇益
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 123
+- latest_price_date: 20260709
+- price_rows: 124
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 27.9
-- high: 28.75
+- date: 20260709
+- open: 27.5
+- high: 27.5
 - low: 27.5
 - close: 27.5
-- volume: 123000
-- ma5: 27.28
-- ema23_primary: 26.64
-- distance_to_ema23_pct: 3.24
-- ma20: 26.94
-- ma60: 25.41
-- ma120: 26.51
-- return_5d: 1.85
+- volume: 4000
+- ma5: 27.45
+- ema23_primary: 26.71
+- distance_to_ema23_pct: 2.96
+- ma20: 27.09
+- ma60: 25.47
+- ma120: 26.5
+- return_5d: 3.19
 - return_20d: 11.79
-- volume_ratio: 3.99
-- distance_to_ma20_pct_auxiliary: 2.07
+- volume_ratio: 0.13
+- distance_to_ma20_pct_auxiliary: 1.52
 - distance_to_high_60_pct: -4.35
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260609,24.5,24.65,24.3,24.6,5000,24.42,0.74,24.25,24.83,0.17
 20260610,24.6,25.5,24.3,25.5,9000,24.51,4.04,24.24,24.79,0.32
 20260611,25.4,27,25.3,26.75,117000,24.7,8.32,24.31,24.76,3.73
 20260612,27,27,27,27,3000,24.89,8.48,24.42,24.76,0.1
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,27.5,27.55,27.15,27.55,11000,26.48,4.05,26.68,25.28,0.42
 20260707,27.1,27.45,27.1,27.45,3000,26.56,3.35,26.8,25.35,0.12
 20260708,27.9,28.75,27.5,27.5,123000,26.64,3.24,26.94,25.41,3.99
+20260709,27.5,27.5,27.5,27.5,4000,26.71,2.96,27.09,25.47,0.13
 ```
 
 ## Latest TDCC Snapshot

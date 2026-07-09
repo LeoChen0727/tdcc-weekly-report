@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1312 國喬
 
 ## Metadata
-- generated_at: 2026-07-08 22:26:16 Asia/Taipei
+- generated_at: 2026-07-09 22:26:12 Asia/Taipei
 - stock_id: 1312
 - stock_name: 國喬
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 300
+- latest_price_date: 20260709
+- price_rows: 301
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 13.95
-- high: 14.2
-- low: 13.6
-- close: 13.65
-- volume: 16126793
-- ma5: 14.25
-- ema23_primary: 13.65
-- distance_to_ema23_pct: -0.02
-- ma20: 13.74
-- ma60: 12.71
-- ma120: 13
-- return_5d: -1.09
-- return_20d: -0.73
-- volume_ratio: 0.73
-- distance_to_ma20_pct_auxiliary: -0.67
-- distance_to_high_60_pct: -13.61
+- date: 20260709
+- open: 13.6
+- high: 13.8
+- low: 13.3
+- close: 13.5
+- volume: 11993369
+- ma5: 14.06
+- ema23_primary: 13.64
+- distance_to_ema23_pct: -1.03
+- ma20: 13.76
+- ma60: 12.69
+- ma120: 13.01
+- return_5d: -6.57
+- return_20d: 2.27
+- volume_ratio: 0.54
+- distance_to_ma20_pct_auxiliary: -1.87
+- distance_to_high_60_pct: -14.56
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,13.5,13.95,13.2,13.2,13999425,12.43,6.17,11.76,12.65,0.8
 20260611,13.2,13.3,12.65,12.85,11211465,12.47,3.07,11.87,12.64,0.63
 20260612,13,13.3,12.9,12.95,7718513,12.51,3.54,12,12.62,0.43
 20260615,13.05,13.1,12.65,12.7,8911473,12.52,1.41,12.11,12.6,0.49
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,15,15.05,14.1,14.15,45705000,13.63,3.81,13.73,12.68,2.09
 20260707,14.1,14.4,13.85,13.9,21999535,13.65,1.81,13.75,12.71,1
 20260708,13.95,14.2,13.6,13.65,16126793,13.65,-0.02,13.74,12.71,0.73
+20260709,13.6,13.8,13.3,13.5,11993369,13.64,-1.03,13.76,12.69,0.54
 ```
 
 ## Latest TDCC Snapshot
@@ -188,17 +188,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 1312 | 國喬 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.事實發生日:115/07/03 2.公司名稱:國喬石油化學股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:本公司現金增資發行新股認股繳款期限已於115年7月3日截止，依公司法 第142條、266條第3項規定，訂定自115年7月6日至115年8月5日下午3時30分止為尚未 繳款之原股東及認股員工之催告繳款期限。 6.因應措施: (1)尚未繳納股款之股東，請於上述期間內持原繳款書至凱基銀行敦北分公司及 全國各地分行辦理繳款事宜，逾期未繳納者即喪失認購新股之權利。 (2)於催繳期間繳款之股東及員工，本公司將於催繳期間屆滿並經集保結算所作業後， 依所認購之股數，撥入所登記之集保帳號。 (3)若有任何疑問，請洽詢本公司股務代理機構：凱基證券股務代理部（地址：台北市　 重慶南路一段2號5樓，電話：02-2389-2999）。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260709 | 1312 | 國喬 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.事實發生日:115/07/03 2.公司名稱:國喬石油化學股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:本公司現金增資發行新股認股繳款期限已於115年7月3日截止，依公司法 第142條、266條第3項規定，訂定自115年7月6日至115年8月5日下午3時30分止為尚未 繳款之原股東及認股員工之催告繳款期限。 6.因應措施: (1)尚未繳納股款之股東，請於上述期間內持原繳款書至凱基銀行敦北分公司及 全國各地分行辦理繳款事宜，逾期未繳納者即喪失認購新股之權利。 (2)於催繳期間繳款之股東及員工，本公司將於催繳期間屆滿並經集保結算所作業後， 依所認購之股數，撥入所登記之集保帳號。 (3)若有任何疑問，請洽詢本公司股務代理機構：凱基證券股務代理部（地址：台北市　 重慶南路一段2號5樓，電話：02-2389-2999）。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 無。 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 1312 | 國喬 | 5 | 3 | 5 | 7 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260709 | 1312 | 國喬 | 6 | 4 | 5 | 7 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 1312 | 國喬 | 31 | 0 | 1633460.0 | 0.0 |  | no_signal |
+| 20260709 | 1312 | 國喬 | 32 | 0 | 718160.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

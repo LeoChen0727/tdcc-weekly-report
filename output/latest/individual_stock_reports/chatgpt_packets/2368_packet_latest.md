@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2368 金像電
 
 ## Metadata
-- generated_at: 2026-07-08 22:26:41 Asia/Taipei
+- generated_at: 2026-07-09 22:26:31 Asia/Taipei
 - stock_id: 2368
 - stock_name: 金像電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 300
+- latest_price_date: 20260709
+- price_rows: 301
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 1150
-- high: 1180
-- low: 1110
-- close: 1150
-- volume: 3923915
-- ma5: 1210
-- ema23_primary: 1258.55
-- distance_to_ema23_pct: -8.63
-- ma20: 1272.25
-- ma60: 1312.75
-- ma120: 1058.86
-- return_5d: -5.74
-- return_20d: -23.08
-- volume_ratio: 0.69
-- distance_to_ma20_pct_auxiliary: -9.61
-- distance_to_high_60_pct: -27.22
+- date: 20260709
+- open: 1125
+- high: 1140
+- low: 1065
+- close: 1075
+- volume: 8061580
+- ma5: 1178
+- ema23_primary: 1243.26
+- distance_to_ema23_pct: -13.53
+- ma20: 1255
+- ma60: 1311.5
+- ma120: 1062.3
+- return_5d: -12.96
+- return_20d: -24.3
+- volume_ratio: 1.44
+- distance_to_ma20_pct_auxiliary: -14.34
+- distance_to_high_60_pct: -31.96
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,1500,1580,1415,1420,9767166,1348.09,5.33,1345,1214.4,1.48
 20260611,1415,1440,1285,1345,7917874,1347.83,-0.21,1340.75,1221.67,1.19
 20260612,1425,1450,1305,1320,6276215,1345.51,-1.9,1342.25,1228.38,0.95
 20260615,1380,1400,1305,1320,5263369,1343.39,-1.74,1345.75,1235.1,0.81
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,1335,1335,1190,1225,5143000,1280.55,-4.34,1300.75,1310.42,0.84
 20260707,1220,1220,1130,1135,5225357,1268.42,-10.52,1289.5,1311.17,0.86
 20260708,1150,1180,1110,1150,3923915,1258.55,-8.63,1272.25,1312.75,0.69
+20260709,1125,1140,1065,1075,8061580,1243.26,-13.53,1255,1311.5,1.44
 ```
 
 ## Latest TDCC Snapshot
@@ -189,17 +189,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 2368 | 金像電 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | put_inflow | stale_signal | 1.事實發生日:115/07/07 2.被背書保證之: (1)公司名稱:Gold Circuit Electronics (Thailand) Co.,Ltd. (2)與提供背書保證公司之關係: 本公司直接與間接持股100%之子公司 (3)背書保證之限額(仟元):26,178,417 (4)原背書保證之餘額(仟元):12,980,254 (5)本次新增背書保證之金額(仟元):2,643,550 (6)迄事實發生日止背書保證餘額(仟元):15,623,804 (7)被背書保證公司實際動支金額(仟元):6,221,761 (8)本次新增背書保證之原因: 本公司為新設立子公司融資之目的所為之背書保證 3.被背書保證公司提供擔保品之: (1)內容: 無 (2)價值(仟元):0 4.被背書保證公司最近期財務報表之: (1)資本(仟元):3,033,061 (2)累積盈虧金額(仟元):-534,314 5.解除背書保證責任之: (1)條件: 被背書保證公司之銀行融資額度到期且債務清償 (2)日期: 被背書保證公司之銀行融資額度到期且債務清償 6.背書保證之總限額(仟元): 52,356,834 7.迄事實發生日為止，背書保證餘額(仟元): 17,343,704 8.迄事實發生日為止，A提供背書保證餘額占公開發行公司最近期財務報表淨值之 比率: 49.69 9.迄事實發生日為止，背書保證、長期投資及資金貸與餘額合計數達該公開發行公 司最近期財務報表淨值之比率: 76.37 10.其他應敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260709 | 2368 | 金像電 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/07/07 2.被背書保證之: (1)公司名稱:Gold Circuit Electronics (Thailand) Co.,Ltd. (2)與提供背書保證公司之關係: 本公司直接與間接持股100%之子公司 (3)背書保證之限額(仟元):26,178,417 (4)原背書保證之餘額(仟元):12,980,254 (5)本次新增背書保證之金額(仟元):2,643,550 (6)迄事實發生日止背書保證餘額(仟元):15,623,804 (7)被背書保證公司實際動支金額(仟元):6,221,761 (8)本次新增背書保證之原因: 本公司為新設立子公司融資之目的所為之背書保證 3.被背書保證公司提供擔保品之: (1)內容: 無 (2)價值(仟元):0 4.被背書保證公司最近期財務報表之: (1)資本(仟元):3,033,061 (2)累積盈虧金額(仟元):-534,314 5.解除背書保證責任之: (1)條件: 被背書保證公司之銀行融資額度到期且債務清償 (2)日期: 被背書保證公司之銀行融資額度到期且債務清償 6.背書保證之總限額(仟元): 52,356,834 7.迄事實發生日為止，背書保證餘額(仟元): 17,343,704 8.迄事實發生日為止，A提供背書保證餘額占公開發行公司最近期財務報表淨值之 比率: 49.69 9.迄事實發生日為止，背書保證、長期投資及資金貸與餘額合計數達該公開發行公 司最近期財務報表淨值之比率: 76.37 10.其他應敘明事項: 無；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 2368 | 金像電 | 5 | 5 | 5 | 9 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260709 | 2368 | 金像電 | 6 | 6 | 5 | 9 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 2368 | 金像電 | 251 | 20 | 33755040.0 | 5208340.0 | 6.48 | put_inflow |
+| 20260709 | 2368 | 金像電 | 250 | 0 | 41804060.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

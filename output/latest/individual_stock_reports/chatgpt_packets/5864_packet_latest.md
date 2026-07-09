@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5864 致和證
 
 ## Metadata
-- generated_at: 2026-07-08 22:27:52 Asia/Taipei
+- generated_at: 2026-07-09 22:27:26 Asia/Taipei
 - stock_id: 5864
 - stock_name: 致和證
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 165
+- latest_price_date: 20260709
+- price_rows: 166
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 41.6
-- high: 41.8
-- low: 39.25
-- close: 40.35
-- volume: 6754000
-- ma5: 43.6
-- ema23_primary: 44.62
-- distance_to_ema23_pct: -9.56
-- ma20: 46.37
-- ma60: 37.94
-- ma120: 30.41
-- return_5d: -12.57
-- return_20d: -13.6
-- volume_ratio: 0.89
-- distance_to_ma20_pct_auxiliary: -12.98
-- distance_to_high_60_pct: -24.72
+- date: 20260709
+- open: 40.65
+- high: 40.65
+- low: 39.65
+- close: 39.65
+- volume: 3717000
+- ma5: 42.3
+- ema23_primary: 44.2
+- distance_to_ema23_pct: -10.3
+- ma20: 46.17
+- ma60: 38.19
+- ma120: 30.61
+- return_5d: -14.08
+- return_20d: -9.16
+- volume_ratio: 0.51
+- distance_to_ma20_pct_auxiliary: -14.12
+- distance_to_high_60_pct: -26.03
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,45.4,45.9,43.6,43.65,10984000,40.47,7.85,39.59,30.93,3.18
 20260611,43,43.95,42.15,43,7171000,40.68,5.7,40.2,31.25,2.05
 20260612,45.6,47.3,45.2,47.2,8898000,41.23,14.49,41.05,31.62,2.45
 20260615,49.15,50.8,48.65,49.8,9164000,41.94,18.74,41.98,32.02,2.38
@@ -160,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,44.3,45.95,44,45.5,5669000,45.28,0.49,47,37.37,0.7
 20260707,44.95,45.25,40.95,42,11943000,45,-6.67,46.69,37.66,1.43
 20260708,41.6,41.8,39.25,40.35,6754000,44.62,-9.56,46.37,37.94,0.89
+20260709,40.65,40.65,39.65,39.65,3717000,44.2,-10.3,46.17,38.19,0.51
 ```
 
 ## Latest TDCC Snapshot
@@ -194,12 +194,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 5864 | 致和證 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/07/06 2.公司名稱:致和證券股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: (1)六月份稅前盈餘：223,655 仟元 (2)六月份稅後盈餘：220,917 仟元 (3)六月份每股稅前盈餘：0.492 元 (4)六月份每股稅後盈餘：0.486 元 (5)一至六月份累計稅前盈餘：5,021,469 仟元 (6)一至六月份累計稅後盈餘：4,950,600 仟元 (7)一至六月份累計每股稅前盈餘：11.048 元 (8)一至六月份累計每股稅後盈餘：10.892 元 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項): 以上資訊係本公司初步自行結算結果並未經會計師簽證或核閱；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260709 | 5864 | 致和證 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/07/06 2.公司名稱:致和證券股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: (1)六月份稅前盈餘：223,655 仟元 (2)六月份稅後盈餘：220,917 仟元 (3)六月份每股稅前盈餘：0.492 元 (4)六月份每股稅後盈餘：0.486 元 (5)一至六月份累計稅前盈餘：5,021,469 仟元 (6)一至六月份累計稅後盈餘：4,950,600 仟元 (7)一至六月份累計每股稅前盈餘：11.048 元 (8)一至六月份累計每股稅後盈餘：10.892 元 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項): 以上資訊係本公司初步自行結算結果並未經會計師簽證或核閱 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 5864 | 致和證 | 13 | 12 | 5 | 10 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260709 | 5864 | 致和證 | 14 | 13 | 5 | 10 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

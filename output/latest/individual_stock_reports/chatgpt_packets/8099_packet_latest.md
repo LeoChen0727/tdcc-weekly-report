@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8099 大世科
 
 ## Metadata
-- generated_at: 2026-07-08 22:28:39 Asia/Taipei
+- generated_at: 2026-07-09 22:28:06 Asia/Taipei
 - stock_id: 8099
 - stock_name: 大世科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 165
+- latest_price_date: 20260709
+- price_rows: 166
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 59.8
-- high: 59.8
-- low: 57.8
-- close: 58
-- volume: 365000
-- ma5: 58.66
-- ema23_primary: 59.51
-- distance_to_ema23_pct: -2.53
-- ma20: 59.17
-- ma60: 62.16
-- ma120: 64.11
-- return_5d: -0.34
-- return_20d: -6.45
-- volume_ratio: 2.47
-- distance_to_ma20_pct_auxiliary: -1.98
-- distance_to_high_60_pct: -20.33
+- date: 20260709
+- open: 62
+- high: 62.2
+- low: 59.5
+- close: 60.2
+- volume: 695000
+- ma5: 58.96
+- ema23_primary: 59.56
+- distance_to_ema23_pct: 1.07
+- ma20: 59.18
+- ma60: 61.96
+- ma120: 64.01
+- return_5d: 2.56
+- return_20d: 0.33
+- volume_ratio: 4.21
+- distance_to_ma20_pct_auxiliary: 1.72
+- distance_to_high_60_pct: -16.85
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,62.3,63.2,60,60,354000,62.41,-3.86,61.48,62.92,1.6
 20260611,60.5,61.4,59.4,60.1,85000,62.22,-3.4,61.51,62.94,0.39
 20260612,61.4,61.4,60.4,60.7,63000,62.09,-2.24,61.56,62.97,0.3
 20260615,61.8,61.8,60.1,60.5,133000,61.96,-2.35,61.52,63,0.62
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,59.5,60.9,58.4,58.7,264000,59.73,-1.72,59.65,62.5,1
 20260707,58.6,59.7,57.7,58.7,73000,59.64,-1.58,59.37,62.35,0.43
 20260708,59.8,59.8,57.8,58,365000,59.51,-2.53,59.17,62.16,2.47
+20260709,62,62.2,59.5,60.2,695000,59.56,1.07,59.18,61.96,4.21
 ```
 
 ## Latest TDCC Snapshot

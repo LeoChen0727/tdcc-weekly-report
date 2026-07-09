@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00971 野村美國研發龍頭
 
 ## Metadata
-- generated_at: 2026-07-08 22:26:12 Asia/Taipei
+- generated_at: 2026-07-09 22:26:09 Asia/Taipei
 - stock_id: 00971
 - stock_name: 野村美國研發龍頭
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260708
-- price_rows: 33
+- latest_price_date: 20260709
+- price_rows: 34
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 17.17
-- high: 17.22
-- low: 17.09
+- date: 20260709
+- open: 17.05
+- high: 17.1
+- low: 17.04
 - close: 17.09
-- volume: 161969
-- ma5: 17.09
-- ema23_primary: 16.82
-- distance_to_ema23_pct: 1.6
-- ma20: 16.72
-- ma60: 16.79
-- ma120: 16.79
-- return_5d: 0.71
-- return_20d: 2.21
-- volume_ratio: 0.38
-- distance_to_ma20_pct_auxiliary: 2.23
+- volume: 147488
+- ma5: 17.1
+- ema23_primary: 16.84
+- distance_to_ema23_pct: 1.46
+- ma20: 16.75
+- ma60: 16.8
+- ma120: 16.8
+- return_5d: 0.35
+- return_20d: 3.7
+- volume_ratio: 0.36
+- distance_to_ma20_pct_auxiliary: 2.04
 - distance_to_high_60_pct: -0.75
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,16.72,16.72,16.46,16.48,486170,16.81,-1.98,16.87,16.87,0.78
 20260611,16.4,16.4,16.26,16.36,470419,16.78,-2.48,16.84,16.84,0.77
 20260612,16.37,16.55,16.37,16.48,243779,16.75,-1.62,16.81,16.81,0.41
 20260615,16.65,16.73,16.65,16.72,344482,16.75,-0.17,16.81,16.81,0.6
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,17.12,17.15,17.07,17.13,638000,16.77,2.16,16.68,16.77,1.49
 20260707,17.09,17.19,17.08,17.11,823005,16.8,1.87,16.7,16.78,1.86
 20260708,17.17,17.22,17.09,17.09,161969,16.82,1.6,16.72,16.79,0.38
+20260709,17.05,17.1,17.04,17.09,147488,16.84,1.46,16.75,16.8,0.36
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2527 宏璟
 
 ## Metadata
-- generated_at: 2026-07-08 22:26:51 Asia/Taipei
+- generated_at: 2026-07-09 22:26:38 Asia/Taipei
 - stock_id: 2527
 - stock_name: 宏璟
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 300
+- latest_price_date: 20260709
+- price_rows: 301
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 42.6
-- high: 42.7
-- low: 40.75
-- close: 41.3
-- volume: 902415
-- ma5: 41.74
-- ema23_primary: 39.52
-- distance_to_ema23_pct: 4.5
-- ma20: 39.61
-- ma60: 36.66
-- ma120: 33.34
-- return_5d: 1.47
-- return_20d: 17.83
-- volume_ratio: 0.65
-- distance_to_ma20_pct_auxiliary: 4.27
-- distance_to_high_60_pct: -4.84
+- date: 20260709
+- open: 41.7
+- high: 42.95
+- low: 41.2
+- close: 42.6
+- volume: 774245
+- ma5: 42.06
+- ema23_primary: 39.78
+- distance_to_ema23_pct: 7.1
+- ma20: 40.01
+- ma60: 36.74
+- ma120: 33.45
+- return_5d: 3.9
+- return_20d: 23.12
+- volume_ratio: 0.56
+- distance_to_ma20_pct_auxiliary: 6.47
+- distance_to_high_60_pct: -1.84
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,34.45,35.95,34.2,34.6,697747,35.2,-1.71,35.07,33.64,1.54
 20260611,34.8,35.35,34.15,34.6,322398,35.15,-1.57,35.13,33.72,0.72
 20260612,35,37,35,36.5,701326,35.26,3.51,35.3,33.83,1.52
 20260615,36.55,39.85,36,39.15,2294490,35.59,10.01,35.57,33.97,4.1
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,41.6,43.4,41.55,42.6,1188000,39.06,9.05,38.9,36.42,0.89
 20260707,42.55,43.3,42.1,42.6,736971,39.36,8.24,39.3,36.58,0.54
 20260708,42.6,42.7,40.75,41.3,902415,39.52,4.5,39.61,36.66,0.65
+20260709,41.7,42.95,41.2,42.6,774245,39.78,7.1,40.01,36.74,0.56
 ```
 
 ## Latest TDCC Snapshot
@@ -199,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 2527 | 宏璟 | 1 | 0 | 0.0 | 0.0 |  | no_signal |
+| 20260709 | 2527 | 宏璟 | 1 | 0 | 0.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

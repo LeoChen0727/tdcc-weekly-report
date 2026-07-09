@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2207 和泰車
 
 ## Metadata
-- generated_at: 2026-07-08 22:26:36 Asia/Taipei
+- generated_at: 2026-07-09 22:26:27 Asia/Taipei
 - stock_id: 2207
 - stock_name: 和泰車
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 299
+- latest_price_date: 20260709
+- price_rows: 300
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 479.5
-- high: 482
-- low: 476
-- close: 480.5
-- volume: 364348
-- ma5: 473.1
-- ema23_primary: 474.71
-- distance_to_ema23_pct: 1.22
-- ma20: 474.6
-- ma60: 479.79
-- ma120: 501.08
-- return_5d: 3.33
-- return_20d: -0.52
-- volume_ratio: 0.3
-- distance_to_ma20_pct_auxiliary: 1.24
-- distance_to_high_60_pct: -7.95
+- date: 20260709
+- open: 480.5
+- high: 481.5
+- low: 475.5
+- close: 476.5
+- volume: 244800
+- ma5: 475.5
+- ema23_primary: 474.86
+- distance_to_ema23_pct: 0.34
+- ma20: 474.07
+- ma60: 479.22
+- ma120: 500.49
+- return_5d: 2.58
+- return_20d: -2.16
+- volume_ratio: 0.21
+- distance_to_ma20_pct_auxiliary: 0.51
+- distance_to_high_60_pct: -8.72
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,481,493,473.5,487,1870439,477.99,1.88,472.1,486.4,2.04
 20260611,490,496.5,480,489.5,1897137,478.95,2.2,473.15,486.54,1.92
 20260612,475.5,479.5,457,461,2591320,477.45,-3.45,472.8,485.43,2.35
 20260615,469.5,473,460.5,463.5,1034133,476.29,-2.69,472.93,484.8,0.91
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,472.5,482,472.5,476.5,258000,474.48,0.43,474.82,480.7,0.19
 20260707,473,481,471,471,355146,474.19,-0.67,474.73,480.08,0.28
 20260708,479.5,482,476,480.5,364348,474.71,1.22,474.6,479.79,0.3
+20260709,480.5,481.5,475.5,476.5,244800,474.86,0.34,474.07,479.22,0.21
 ```
 
 ## Latest TDCC Snapshot

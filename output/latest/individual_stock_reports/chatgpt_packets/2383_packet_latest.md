@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2383 台光電
 
 ## Metadata
-- generated_at: 2026-07-08 22:26:42 Asia/Taipei
+- generated_at: 2026-07-09 22:26:32 Asia/Taipei
 - stock_id: 2383
 - stock_name: 台光電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 300
+- latest_price_date: 20260709
+- price_rows: 301
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 5350
-- high: 5555
-- low: 5250
-- close: 5315
-- volume: 2642600
-- ma5: 5549
-- ema23_primary: 5343.81
-- distance_to_ema23_pct: -0.54
-- ma20: 5395.75
-- ma60: 4893.5
-- ma120: 3578.58
-- return_5d: -3.97
-- return_20d: 4.94
-- volume_ratio: 1.21
-- distance_to_ma20_pct_auxiliary: -1.5
-- distance_to_high_60_pct: -14.96
+- date: 20260709
+- open: 5315
+- high: 5500
+- low: 5270
+- close: 5295
+- volume: 1991369
+- ma5: 5477
+- ema23_primary: 5339.74
+- distance_to_ema23_pct: -0.84
+- ma20: 5413.5
+- ma60: 4921.67
+- ma120: 3608.58
+- return_5d: -6.37
+- return_20d: 7.19
+- volume_ratio: 0.93
+- distance_to_ma20_pct_auxiliary: -2.19
+- distance_to_high_60_pct: -15.28
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,5080,5245,4875,4940,2802050,4828.48,2.31,4911.5,4092.5,1.12
 20260611,4995,5130,4800,5095,2793147,4850.69,5.04,4920.25,4134.33,1.11
 20260612,5500,5500,4750,4830,4224358,4848.97,-0.39,4931,4169.83,1.62
 20260615,5000,5080,4935,5030,2220308,4864.05,3.41,4955.25,4208.67,0.87
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,6225,6250,5475,5475,2973000,5357.93,2.19,5360.75,4830.33,1.41
 20260707,5475,5550,5200,5220,4025186,5346.43,-2.36,5383.25,4860.33,1.85
 20260708,5350,5555,5250,5315,2642600,5343.81,-0.54,5395.75,4893.5,1.21
+20260709,5315,5500,5270,5295,1991369,5339.74,-0.84,5413.5,4921.67,0.93
 ```
 
 ## Latest TDCC Snapshot
@@ -189,18 +189,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 2383 | 台光電 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  | no_signal | repeated_but_no_breakout | 1.契約種類:工程契約 2.事實發生日:115/7/6~115/7/6 3.董事會通過日期: 民國114年7月30日 4.其他核決日期: 不適用 5.契約相對人及其與公司之關係: 昆山英建機電工程有限公司 與公司關係:無 6.契約主要內容（含契約總金額、預計參與投入之金額及契約起迄日期） 、限制條款及其他重要約定事項: 建廠機電工程。 過去一年內累計向同一相對人發包累計工程價款折合新台幣約628,203仟元。 工程係依公司建造時程規劃發包。 7.專業估價者事務所或公司名稱及其估價結果: 不適用 8.不動產估價師姓名: 不適用 9.不動產估價師開業證書字號: 不適用 10.取得之具體目的: 供生產及營運所需 11.本次交易表示異議之董事意見: 不適用 12.本次交易為關係人交易:否 13.監察人承認或審計委員會同意日期: 不適用 14.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 15.是否尚未取得估價報告:否或不適用 16.尚未取得估價報告之原因: 不適用 17.估價結果有重大差異時，其差異原因及會計師意見: 不適用 18.會計師事務所名稱: 不適用 19.會計師姓名: 不適用 20.會計師開業證書字號: 不適用 21.前已就同一件事件發布重大訊息日期: 不適用 22.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
-| 20260708 | 2383 | 台光電 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | repeated_but_no_breakout | 1.契約種類:工程契約 2.事實發生日:115/7/6~115/7/6 3.董事會通過日期: 民國114年7月30日 4.其他核決日期: 不適用 5.契約相對人及其與公司之關係: 昆山英建機電工程有限公司 與公司關係:無 6.契約主要內容（含契約總金額、預計參與投入之金額及契約起迄日期） 、限制條款及其他重要約定事項: 建廠機電工程。 過去一年內累計向同一相對人發包累計工程價款折合新台幣約628,203仟元。 工程係依公司建造時程規劃發包。 7.專業估價者事務所或公司名稱及其估價結果: 不適用 8.不動產估價師姓名: 不適用 9.不動產估價師開業證書字號: 不適用 10.取得之具體目的: 供生產及營運所需 11.本次交易表示異議之董事意見: 不適用 12.本次交易為關係人交易:否 13.監察人承認或審計委員會同意日期: 不適用 14.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 15.是否尚未取得估價報告:否或不適用 16.尚未取得估價報告之原因: 不適用 17.估價結果有重大差異時，其差異原因及會計師意見: 不適用 18.會計師事務所名稱: 不適用 19.會計師姓名: 不適用 20.會計師開業證書字號: 不適用 21.前已就同一件事件發布重大訊息日期: 不適用 22.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260709 | 2383 | 台光電 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | repeated_but_no_breakout | 1.契約種類:工程契約 2.事實發生日:115/7/6~115/7/6 3.董事會通過日期: 民國114年7月30日 4.其他核決日期: 不適用 5.契約相對人及其與公司之關係: 昆山英建機電工程有限公司 與公司關係:無 6.契約主要內容（含契約總金額、預計參與投入之金額及契約起迄日期） 、限制條款及其他重要約定事項: 建廠機電工程。 過去一年內累計向同一相對人發包累計工程價款折合新台幣約628,203仟元。 工程係依公司建造時程規劃發包。 7.專業估價者事務所或公司名稱及其估價結果: 不適用 8.不動產估價師姓名: 不適用 9.不動產估價師開業證書字號: 不適用 10.取得之具體目的: 供生產及營運所需 11.本次交易表示異議之董事意見: 不適用 12.本次交易為關係人交易:否 13.監察人承認或審計委員會同意日期: 不適用 14.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 15.是否尚未取得估價報告:否或不適用 16.尚未取得估價報告之原因: 不適用 17.估價結果有重大差異時，其差異原因及會計師意見: 不適用 18.會計師事務所名稱: 不適用 19.會計師姓名: 不適用 20.會計師開業證書字號: 不適用 21.前已就同一件事件發布重大訊息日期: 不適用 22.其他敘明事項: 無 |
+| 20260709 | 2383 | 台光電 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  | no_signal | repeated_but_no_breakout | 1.契約種類:工程契約 2.事實發生日:115/7/6~115/7/6 3.董事會通過日期: 民國114年7月30日 4.其他核決日期: 不適用 5.契約相對人及其與公司之關係: 昆山英建機電工程有限公司 與公司關係:無 6.契約主要內容（含契約總金額、預計參與投入之金額及契約起迄日期） 、限制條款及其他重要約定事項: 建廠機電工程。 過去一年內累計向同一相對人發包累計工程價款折合新台幣約628,203仟元。 工程係依公司建造時程規劃發包。 7.專業估價者事務所或公司名稱及其估價結果: 不適用 8.不動產估價師姓名: 不適用 9.不動產估價師開業證書字號: 不適用 10.取得之具體目的: 供生產及營運所需 11.本次交易表示異議之董事意見: 不適用 12.本次交易為關係人交易:否 13.監察人承認或審計委員會同意日期: 不適用 14.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 15.是否尚未取得估價報告:否或不適用 16.尚未取得估價報告之原因: 不適用 17.估價結果有重大差異時，其差異原因及會計師意見: 不適用 18.會計師事務所名稱: 不適用 19.會計師姓名: 不適用 20.會計師開業證書字號: 不適用 21.前已就同一件事件發布重大訊息日期: 不適用 22.其他敘明事項: 無；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 2383 | 台光電 | 4 | 3 | 4 | 7 | 17 | repeated_but_no_breakout | 近 10 日上榜 7 次、近 20 日上榜 17 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260709 | 2383 | 台光電 | 5 | 4 | 5 | 7 | 17 | repeated_but_no_breakout | 近 10 日上榜 7 次、近 20 日上榜 17 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 2383 | 台光電 | 97 | 11 | 4034710.0 | 2110.0 | 1912.18 | no_signal |
+| 20260709 | 2383 | 台光電 | 95 | 0 | 1781260.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6231 系微
 
 ## Metadata
-- generated_at: 2026-07-08 22:28:02 Asia/Taipei
+- generated_at: 2026-07-09 22:27:34 Asia/Taipei
 - stock_id: 6231
 - stock_name: 系微
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 165
+- latest_price_date: 20260709
+- price_rows: 166
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 271
-- high: 273
-- low: 262.5
-- close: 270
-- volume: 277000
-- ma5: 277.5
-- ema23_primary: 285.59
-- distance_to_ema23_pct: -5.46
-- ma20: 282.98
-- ma60: 295.06
-- ma120: 258.47
-- return_5d: -4.76
-- return_20d: -8.78
-- volume_ratio: 0.43
-- distance_to_ma20_pct_auxiliary: -4.59
-- distance_to_high_60_pct: -27.61
+- date: 20260709
+- open: 272
+- high: 277.5
+- low: 264
+- close: 264
+- volume: 387000
+- ma5: 273.6
+- ema23_primary: 283.79
+- distance_to_ema23_pct: -6.97
+- ma20: 282.27
+- ma60: 295.12
+- ma120: 258.89
+- return_5d: -6.88
+- return_20d: -5.04
+- volume_ratio: 0.62
+- distance_to_ma20_pct_auxiliary: -6.47
+- distance_to_high_60_pct: -29.22
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,294,299.5,278,278,784000,298.53,-6.88,295.43,287.99,1.53
 20260611,279,280.5,260,266.5,727000,295.86,-9.93,294.3,288.84,1.59
 20260612,279,279,266,267.5,651000,293.5,-8.86,293.55,289.64,1.48
 20260615,274.5,282.5,274.5,282.5,467000,292.58,-3.45,293.43,290.33,1.07
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,288,293.5,280,281,466000,288.78,-2.69,285.68,294.83,0.68
 20260707,283,292.5,265,267.5,609000,287.01,-6.8,284.27,295.02,0.91
 20260708,271,273,262.5,270,277000,285.59,-5.46,282.98,295.06,0.43
+20260709,272,277.5,264,264,387000,283.79,-6.97,282.27,295.12,0.62
 ```
 
 ## Latest TDCC Snapshot

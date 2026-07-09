@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3715 定穎投控
 
 ## Metadata
-- generated_at: 2026-07-08 22:27:25 Asia/Taipei
+- generated_at: 2026-07-09 22:27:05 Asia/Taipei
 - stock_id: 3715
 - stock_name: 定穎投控
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 300
+- latest_price_date: 20260709
+- price_rows: 301
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 155.5
-- high: 157
-- low: 146
-- close: 151.5
-- volume: 11061563
-- ma5: 163.9
-- ema23_primary: 170.19
-- distance_to_ema23_pct: -10.98
-- ma20: 171.15
-- ma60: 176.32
-- ma120: 165.51
-- return_5d: -11.92
-- return_20d: -13.18
-- volume_ratio: 1.07
+- date: 20260709
+- open: 151.5
+- high: 155
+- low: 149.5
+- close: 151
+- volume: 7496918
+- ma5: 159
+- ema23_primary: 168.59
+- distance_to_ema23_pct: -10.44
+- ma20: 170.57
+- ma60: 175.73
+- ma120: 165.78
+- return_5d: -13.96
+- return_20d: -7.08
+- volume_ratio: 0.74
 - distance_to_ma20_pct_auxiliary: -11.48
-- distance_to_high_60_pct: -24.63
+- distance_to_high_60_pct: -24.88
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,172.5,175.5,162.5,162.5,11657423,173.6,-6.39,172.55,178.96,0.98
 20260611,167.5,171.5,160,166,11889160,172.96,-4.03,171.8,179.03,1.02
 20260612,172,173,166.5,166.5,5842203,172.43,-3.44,171.38,179.18,0.52
 20260615,170,173,168.5,169,5117879,172.14,-1.82,171.3,179.1,0.47
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,174.5,174.5,164,165,10196000,173.38,-4.84,172.82,177.43,0.98
 20260707,166.5,166.5,154.5,155.5,11550106,171.89,-9.54,172.3,176.91,1.09
 20260708,155.5,157,146,151.5,11061563,170.19,-10.98,171.15,176.32,1.07
+20260709,151.5,155,149.5,151,7496918,168.59,-10.44,170.57,175.73,0.74
 ```
 
 ## Latest TDCC Snapshot
@@ -189,17 +189,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 3715 | 定穎投控 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | mixed_flow | stale_signal | 1.董事會決議日期：115/07/06 2.股東臨時會召開日期：115/09/02 3.股東臨時會召開地點：桃園尊爵天際大飯店B1紫雲廳(桃園市蘆竹區南崁路一段108號B1) 4.股東臨時會召開方式(實體股東會/視訊輔助股東會/視訊股東會)：實體股東會 5.召集事由一：討論事項 (1)：修訂本公司「背書保證管理辦法」案 (2)：本公司之子公司超穎電子電路股份有限公司發行H股股票 並在香港聯合交易所有限公司主板上市案 6.臨時動議： 7.停止過戶起始日期：115/08/04 8.停止過戶截止日期：115/09/02 9.其他應敘明事項：(1)依證券交易法第26條之2，凡持股未滿一仟股之股東， 其股東會之召集通知得以公告方式為之，故不另寄發。 (2)本次股東臨時會股東得以電子方式行使表決權， 行使期間自民國115年8月12日至115年8月30日止 (電子投票平台：台灣集中保管結算所股份有限公司)。 (3)轉換公司債持有人如擬申請轉換為股票以參與本次股東臨時會者， 請於115年7月31日前，向往來證券商辦理轉換手續。；calendar event: ex_dividend on 20260702; status=confirmed; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260709 | 3715 | 定穎投控 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.董事會決議日期：115/07/06 2.股東臨時會召開日期：115/09/02 3.股東臨時會召開地點：桃園尊爵天際大飯店B1紫雲廳(桃園市蘆竹區南崁路一段108號B1) 4.股東臨時會召開方式(實體股東會/視訊輔助股東會/視訊股東會)：實體股東會 5.召集事由一：討論事項 (1)：修訂本公司「背書保證管理辦法」案 (2)：本公司之子公司超穎電子電路股份有限公司發行H股股票 並在香港聯合交易所有限公司主板上市案 6.臨時動議： 7.停止過戶起始日期：115/08/04 8.停止過戶截止日期：115/09/02 9.其他應敘明事項：(1)依證券交易法第26條之2，凡持股未滿一仟股之股東， 其股東會之召集通知得以公告方式為之，故不另寄發。 (2)本次股東臨時會股東得以電子方式行使表決權， 行使期間自民國115年8月12日至115年8月30日止 (電子投票平台：台灣集中保管結算所股份有限公司)。 (3)轉換公司債持有人如擬申請轉換為股票以參與本次股東臨時會者， 請於115年7月31日前，向往來證券商辦理轉換手續。；degraded calendar context only: ex_dividend on 20260702; status=source_stale_cached; proximity=recent; model_effect_allowed=False; pdf_effect_allowed=False；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 3715 | 定穎投控 | 20 | 5 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260709 | 3715 | 定穎投控 | 21 | 6 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 3715 | 定穎投控 | 234 | 8 | 8778010.0 | 3326250.0 | 2.64 | mixed_flow |
+| 20260709 | 3715 | 定穎投控 | 234 | 0 | 8741550.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2062 橋椿
 
 ## Metadata
-- generated_at: 2026-07-08 22:26:34 Asia/Taipei
+- generated_at: 2026-07-09 22:26:26 Asia/Taipei
 - stock_id: 2062
 - stock_name: 橋椿
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 300
+- latest_price_date: 20260709
+- price_rows: 301
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 19.2
-- high: 19.35
-- low: 19.05
-- close: 19.35
-- volume: 389053
-- ma5: 19.2
-- ema23_primary: 19.13
-- distance_to_ema23_pct: 1.13
-- ma20: 19.07
-- ma60: 19.81
-- ma120: 20.54
-- return_5d: 1.57
-- return_20d: 2.65
-- volume_ratio: 1.45
-- distance_to_ma20_pct_auxiliary: 1.44
-- distance_to_high_60_pct: -16.41
+- date: 20260709
+- open: 19.4
+- high: 19.4
+- low: 19.15
+- close: 19.3
+- volume: 112361
+- ma5: 19.24
+- ema23_primary: 19.15
+- distance_to_ema23_pct: 0.8
+- ma20: 19.09
+- ma60: 19.76
+- ma120: 20.53
+- return_5d: 1.05
+- return_20d: 2.12
+- volume_ratio: 0.43
+- distance_to_ma20_pct_auxiliary: 1.07
+- distance_to_high_60_pct: -16.63
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,18.9,19.1,18.75,18.9,304912,19.25,-1.82,18.84,20.29,0.56
 20260611,19.2,19.2,18.65,18.8,259688,19.21,-2.15,18.8,20.27,0.5
 20260612,19.1,19.3,19.05,19.15,517321,19.21,-0.3,18.8,20.24,1.01
 20260615,19.35,19.4,19.1,19.2,233017,19.21,-0.04,18.81,20.21,0.48
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,19.3,19.45,19.2,19.35,292000,19.13,1.16,19.05,19.9,1.08
 20260707,19.4,19.45,18.85,18.95,432416,19.11,-0.86,19.05,19.85,1.62
 20260708,19.2,19.35,19.05,19.35,389053,19.13,1.13,19.07,19.81,1.45
+20260709,19.4,19.4,19.15,19.3,112361,19.15,0.8,19.09,19.76,0.43
 ```
 
 ## Latest TDCC Snapshot

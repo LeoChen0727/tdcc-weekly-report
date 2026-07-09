@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5386 青雲
 
 ## Metadata
-- generated_at: 2026-07-08 22:27:46 Asia/Taipei
+- generated_at: 2026-07-09 22:27:22 Asia/Taipei
 - stock_id: 5386
 - stock_name: 青雲
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 165
+- latest_price_date: 20260709
+- price_rows: 166
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 434
-- high: 435.5
-- low: 403.5
-- close: 412.5
-- volume: 1353000
-- ma5: 417.8
-- ema23_primary: 470.69
-- distance_to_ema23_pct: -12.36
-- ma20: 478.95
-- ma60: 460.91
-- ma120: 333.15
-- return_5d: -2.94
-- return_20d: -24.73
-- volume_ratio: 0.95
-- distance_to_ma20_pct_auxiliary: -13.87
-- distance_to_high_60_pct: -34.32
+- date: 20260709
+- open: 380
+- high: 396
+- low: 371.5
+- close: 371.5
+- volume: 2882000
+- ma5: 415.6
+- ema23_primary: 462.43
+- distance_to_ema23_pct: -19.66
+- ma20: 472.77
+- ma60: 461.05
+- ma120: 335.53
+- return_5d: -2.88
+- return_20d: -24.95
+- volume_ratio: 2.01
+- distance_to_ma20_pct_auxiliary: -21.42
+- distance_to_high_60_pct: -40.84
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,500,542,493.5,495,2815000,502.73,-1.54,512.1,414.03,4.01
 20260611,480.5,504,466.5,483,2115000,501.09,-3.61,514.73,416.33,2.69
 20260612,510,516,483,485.5,1379000,499.79,-2.86,518.25,418.1,1.65
 20260615,499.5,508,490.5,494.5,1000000,499.35,-0.97,520.73,419.39,1.15
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,456,462.5,433.5,443,2673000,480.12,-7.73,489.45,458.01,1.83
 20260707,443,453,426,430.5,1528000,475.98,-9.56,485.73,459.53,1.05
 20260708,434,435.5,403.5,412.5,1353000,470.69,-12.36,478.95,460.91,0.95
+20260709,380,396,371.5,371.5,2882000,462.43,-19.66,472.77,461.05,2.01
 ```
 
 ## Latest TDCC Snapshot
@@ -188,12 +188,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 5386 | 青雲 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/07/06 2.原公告申報日期:115/05/06 3.簡述原公告申報內容:董事會決議現金增資發行新股、發行國內第二次無擔保轉換                       公司債。 4.變動緣由及主要內容:本公司基於營運策略規劃及評估資本市場募資時程，並基於                       維護全體股東權益，擬自行撤回115年度現金增資發行新股                       暨國內第二次無擔保轉換公司債。 5.變動後對公司財務業務之影響:無重大影響。 6.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260709 | 5386 | 青雲 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/07/06 2.原公告申報日期:115/05/06 3.簡述原公告申報內容:董事會決議現金增資發行新股、發行國內第二次無擔保轉換                       公司債。 4.變動緣由及主要內容:本公司基於營運策略規劃及評估資本市場募資時程，並基於                       維護全體股東權益，擬自行撤回115年度現金增資發行新股                       暨國內第二次無擔保轉換公司債。 5.變動後對公司財務業務之影響:無重大影響。 6.其他應敘明事項:無。；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 5386 | 青雲 | 4 | 4 | 4 | 7 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260709 | 5386 | 青雲 | 5 | 5 | 5 | 8 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

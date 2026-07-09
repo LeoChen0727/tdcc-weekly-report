@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3617 碩天
 
 ## Metadata
-- generated_at: 2026-07-08 22:27:21 Asia/Taipei
+- generated_at: 2026-07-09 22:27:02 Asia/Taipei
 - stock_id: 3617
 - stock_name: 碩天
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 300
+- latest_price_date: 20260709
+- price_rows: 301
 - latest_tdcc_date: 20260703
 - tdcc_rows: 32
 - tdcc_history_status: tdcc_history_ready
@@ -74,7 +74,7 @@
 - action_rating: starter_position
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
-- thesis_state: breakout_confirmed
+- thesis_state: breakout_initial
 - entry_style: breakout_follow
 - position_sizing: starter_1_3
 
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 230
-- high: 238
-- low: 230
-- close: 238
-- volume: 1948813
-- ma5: 222.8
-- ema23_primary: 215.83
-- distance_to_ema23_pct: 10.27
-- ma20: 215.95
-- ma60: 204.16
-- ma120: 194.65
-- return_5d: 9.93
-- return_20d: 11.48
-- volume_ratio: 3.41
-- distance_to_ma20_pct_auxiliary: 10.21
-- distance_to_high_60_pct: 0
+- date: 20260709
+- open: 245
+- high: 247.5
+- low: 235
+- close: 242
+- volume: 2361690
+- ma5: 227.3
+- ema23_primary: 218.01
+- distance_to_ema23_pct: 11
+- ma20: 217.43
+- ma60: 205.2
+- ma120: 194.92
+- return_5d: 10.25
+- return_20d: 13.88
+- volume_ratio: 3.68
+- distance_to_ma20_pct_auxiliary: 11.3
+- distance_to_high_60_pct: -2.22
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,219.5,228,212,212.5,952658,206.26,3.03,205.68,190.62,1.98
 20260611,210,214.5,204.5,210,477203,206.57,1.66,206.5,191.18,0.97
 20260612,215,219,212.5,217,428240,207.44,4.61,207.85,191.79,0.86
 20260615,219,219.5,215,215.5,282439,208.11,3.55,209.05,192.4,0.56
@@ -160,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,223,226,219,220,417000,213.57,3.01,214.3,202.47,0.85
 20260707,221,223,216,216.5,395381,213.81,1.26,214.72,203.14,0.81
 20260708,230,238,230,238,1948813,215.83,10.27,215.95,204.16,3.41
+20260709,245,247.5,235,242,2361690,218.01,11,217.43,205.2,3.68
 ```
 
 ## Latest TDCC Snapshot
@@ -196,17 +196,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 3617 | 碩天 | true_breakout | 嚴格突破 | 141.0 |  |  | breakout_confirmed |  | no_signal | first_seen | 1.董事會或股東會決議日期:NA 2.原發放股利種類及金額: 普通股現金股利新台幣941,660,490元，每股配發新台幣10元。 3.變更後發放股利種類及金額: 普通股現金股利新台幣941,660,490元，每股配發新台幣9.93710562元。 4.變更原因:因本公司發行限制員工權利新股；另限制員工權利新股未達既得條件收回 部分股數，致影響本公司實際流通在外股數，故調整每股配發金額。 5.其他應敘明事項:依本公司民國115年3月10日董事會之決議，授權董事長調整配息率。；calendar event: ex_dividend on 20260722; status=confirmed; proximity=within_14d |
+| 20260709 | 3617 | 碩天 | true_breakout | 嚴格突破 | 107.0 |  |  | platform_breakout |  | call_strong_inflow | continued_2_3d | 1.董事會或股東會決議日期:NA 2.原發放股利種類及金額: 普通股現金股利新台幣941,660,490元，每股配發新台幣10元。 3.變更後發放股利種類及金額: 普通股現金股利新台幣941,660,490元，每股配發新台幣9.93710562元。 4.變更原因:因本公司發行限制員工權利新股；另限制員工權利新股未達既得條件收回 部分股數，致影響本公司實際流通在外股數，故調整每股配發金額。 5.其他應敘明事項:依本公司民國115年3月10日董事會之決議，授權董事長調整配息率。；calendar event: ex_dividend on 20260722; status=confirmed; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 3617 | 碩天 | 1 | 1 | 1 | 1 | 2 | first_seen | 首次上榜或資料有限，需後續確認。 |
+| 20260709 | 3617 | 碩天 | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 3617 | 碩天 | 6 | 0 | 939330.0 | 0.0 |  | no_signal |
+| 20260709 | 3617 | 碩天 | 6 | 0 | 6800660.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

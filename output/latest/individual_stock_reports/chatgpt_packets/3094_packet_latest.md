@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3094 聯傑
 
 ## Metadata
-- generated_at: 2026-07-08 22:27:07 Asia/Taipei
+- generated_at: 2026-07-09 22:26:51 Asia/Taipei
 - stock_id: 3094
 - stock_name: 聯傑
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 300
+- latest_price_date: 20260709
+- price_rows: 301
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
+- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -111,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 39.8
-- high: 43.2
-- low: 38.2
-- close: 42.5
-- volume: 5499791
-- ma5: 40.76
-- ema23_primary: 38.46
-- distance_to_ema23_pct: 10.52
-- ma20: 38.62
-- ma60: 33.17
-- ma120: 28.76
-- return_5d: 10.53
-- return_20d: 39.57
-- volume_ratio: 0.93
-- distance_to_ma20_pct_auxiliary: 10.03
-- distance_to_high_60_pct: -7.91
+- date: 20260709
+- open: 41.35
+- high: 42.1
+- low: 40.2
+- close: 40.35
+- volume: 3057016
+- ma5: 40.85
+- ema23_primary: 38.61
+- distance_to_ema23_pct: 4.5
+- ma20: 39.2
+- ma60: 33.46
+- ma120: 28.9
+- return_5d: 1.13
+- return_20d: 39.62
+- volume_ratio: 0.51
+- distance_to_ma20_pct_auxiliary: 2.94
+- distance_to_high_60_pct: -12.57
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,30.1,30.8,28.85,28.9,894221,31.87,-9.32,33.51,28.11,0.29
 20260611,29.8,29.8,28.3,29.25,450611,31.65,-7.59,33.33,28.2,0.16
 20260612,30.15,32.15,30.1,32.15,1780010,31.69,1.44,33.31,28.34,0.67
 20260615,33.1,35.35,33,35.35,4822593,32,10.47,33.39,28.52,1.75
@@ -153,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,41.9,42.9,41.5,42.9,4927000,37.96,13.01,37.52,32.56,0.91
 20260707,42.95,43.4,39.05,39.5,7138774,38.09,3.71,38.02,32.84,1.25
 20260708,39.8,43.2,38.2,42.5,5499791,38.46,10.52,38.62,33.17,0.93
+20260709,41.35,42.1,40.2,40.35,3057016,38.61,4.5,39.2,33.46,0.51
 ```
 
 ## Latest TDCC Snapshot
@@ -185,14 +186,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 3094 | 聯傑 | pattern | 型態觀察 | 46.0 |  |  | base_building |  |  | repeated_but_no_breakout | 1.事實發生日:115/06/18 2.發生緣由:依臺灣證券交易所股份有限公司指示辦理。 3.財務業務資訊: 期間　　　　　　　月　　　　　　　　　　　季　　　　　　   最近四季累計 ＝＝＝＝　＝＝＝＝＝＝＝＝＝＝＝　＝＝＝＝＝＝＝＝＝＝＝　＝＝＝＝＝＝＝            最近一月　　與去年　　　最近一季　　與去年　　  114年第二季 科目　　   115年5月 　 同期增減%　 115年第一季 同期增減%　 至115年第一季            (IFRS合併　   　        (IFRS合併　　            (IFRS合併               自結數)                 查核數)                  查核數) 營業收入　　 19.74      16.46%      47.21       -8.50%        183.37 (百萬) 稅前淨利　  　4.87     253.63%       7.48       17.15%         25.92 (百萬) 歸屬母公司 業主淨利　    4.14     303.94%       5.76       24.70%         21.50 (百萬) 每股盈餘　    0.05     350.00%       0.07       16.67%          0.26 (元) 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無。 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無。 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告: 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 3094 | 聯傑 | 1 | 1 | 3 | 4 | 12 | repeated_but_no_breakout | 近 10 日上榜 4 次、近 20 日上榜 12 次，但尚未有效突破，需等待攻擊確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

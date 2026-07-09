@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3048 益登
 
 ## Metadata
-- generated_at: 2026-07-08 22:27:05 Asia/Taipei
+- generated_at: 2026-07-09 22:26:49 Asia/Taipei
 - stock_id: 3048
 - stock_name: 益登
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 300
+- latest_price_date: 20260709
+- price_rows: 301
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -119,29 +119,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 60.5
-- high: 62.5
-- low: 58.9
-- close: 59.5
-- volume: 2932631
-- ma5: 62.66
-- ema23_primary: 65.22
-- distance_to_ema23_pct: -8.77
-- ma20: 67.81
-- ma60: 57.94
-- ma120: 48.37
-- return_5d: -9.44
-- return_20d: -16.9
-- volume_ratio: 0.26
-- distance_to_ma20_pct_auxiliary: -12.25
-- distance_to_high_60_pct: -27.35
+- date: 20260709
+- open: 61
+- high: 61.3
+- low: 59.6
+- close: 60
+- volume: 1897212
+- ma5: 61.8
+- ema23_primary: 64.78
+- distance_to_ema23_pct: -7.38
+- ma20: 67.14
+- ma60: 58.29
+- ma120: 48.51
+- return_5d: -6.69
+- return_20d: -18.14
+- volume_ratio: 0.21
+- distance_to_ma20_pct_auxiliary: -10.64
+- distance_to_high_60_pct: -26.74
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,71.1,77,70.9,73.3,46626396,63.99,14.56,67.17,48.44,2.07
 20260611,73.2,76,71.5,75,32055691,64.9,15.56,68.37,49.04,1.43
 20260612,76,77.9,72.5,73,35966873,65.58,11.32,69.22,49.59,1.57
 20260615,73.5,76.7,72.6,73.5,21406739,66.24,10.96,70.03,50.13,1
@@ -161,6 +160,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,66,66.8,63.6,64.6,3881000,66.22,-2.44,68.72,57.23,0.3
 20260707,64.2,64.6,60,60.5,3435576,65.74,-7.97,68.42,57.61,0.27
 20260708,60.5,62.5,58.9,59.5,2932631,65.22,-8.77,67.81,57.94,0.26
+20260709,61,61.3,59.6,60,1897212,64.78,-7.38,67.14,58.29,0.21
 ```
 
 ## Latest TDCC Snapshot
@@ -195,17 +195,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 3048 | 益登 | revenue_pullback | 營收成長股價回檔 | 83.0 |  |  |  |  | no_signal | stale_signal | 1.證券名稱: 蜜望實企業股份有限公司普通股(8043) 2.交易日期:115/7/2~115/7/7 3.董事會通過日期: 民國115年5月13日 4.其他核決日期: 不適用 5.交易數量、每單位價格及交易總金額: 交易數量(股):1,546,000  每股平均價格(新台幣元): 202.88 交易總金額(新台幣元):313,650,500 6.處分利益（或損失）（取得有價證券者不適用）: 本次處分為出售透過其他綜合損益按公允價值衡量之金融資產， 處分結果將計入資產負債表之權益項下，不影響本公司當期損益。 7.與交易標的公司之關係: 無。 8.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 數量：4,102,398股 金額：284,296仟元 持股比例：5.13% 權利受限情形：無。 9.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列之有價證券投 資（含本次交易）占公司最近期財務報表中總資產及歸屬於母公司業主之權益之比例 暨最近期財務報表中營運資金數額: 占總資產比例：3.52%    占母公司業主權益比例：21.27%     營運資金：6,603,994仟元 10.取得或處分之具體目的: 財務投資。 11.本次交易表示異議董事之意見: 無。 12.本次交易為關係人交易: 否 13.交易相對人及其與公司之關係: 不適用。 14.監察人承認或審計委員會同意日期: 民國 115年 5月 13日 15.前已就同一件事件發布重大訊息日期: 不適用 16.其他敘明事項: 無。；calendar event: ex_dividend on 20260707; status=confirmed; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260709 | 3048 | 益登 | revenue_pullback | 營收成長股價回檔 | 83.0 |  |  |  |  | call_strong_inflow | stale_signal | 1.證券名稱: 蜜望實企業股份有限公司普通股(8043) 2.交易日期:115/7/2~115/7/7 3.董事會通過日期: 民國115年5月13日 4.其他核決日期: 不適用 5.交易數量、每單位價格及交易總金額: 交易數量(股):1,546,000  每股平均價格(新台幣元): 202.88 交易總金額(新台幣元):313,650,500 6.處分利益（或損失）（取得有價證券者不適用）: 本次處分為出售透過其他綜合損益按公允價值衡量之金融資產， 處分結果將計入資產負債表之權益項下，不影響本公司當期損益。 7.與交易標的公司之關係: 無。 8.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 數量：4,102,398股 金額：284,296仟元 持股比例：5.13% 權利受限情形：無。 9.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列之有價證券投 資（含本次交易）占公司最近期財務報表中總資產及歸屬於母公司業主之權益之比例 暨最近期財務報表中營運資金數額: 占總資產比例：3.52%    占母公司業主權益比例：21.27%     營運資金：6,603,994仟元 10.取得或處分之具體目的: 財務投資。 11.本次交易表示異議董事之意見: 無。 12.本次交易為關係人交易: 否 13.交易相對人及其與公司之關係: 不適用。 14.監察人承認或審計委員會同意日期: 民國 115年 5月 13日 15.前已就同一件事件發布重大訊息日期: 不適用 16.其他敘明事項: 無。；degraded calendar context only: ex_dividend on 20260707; status=source_stale_cached; proximity=recent; model_effect_allowed=False; pdf_effect_allowed=False；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 3048 | 益登 | 20 | 5 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260709 | 3048 | 益登 | 21 | 6 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 3048 | 益登 | 27 | 1 | 821090.0 | 0.0 |  | no_signal |
+| 20260709 | 3048 | 益登 | 27 | 0 | 3413160.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

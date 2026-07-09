@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2820 華票
 
 ## Metadata
-- generated_at: 2026-07-08 22:26:57 Asia/Taipei
+- generated_at: 2026-07-09 22:26:43 Asia/Taipei
 - stock_id: 2820
 - stock_name: 華票
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 300
+- latest_price_date: 20260709
+- price_rows: 301
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -117,29 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
+- date: 20260709
 - open: 17.25
-- high: 17.35
-- low: 17.1
-- close: 17.25
-- volume: 3058049
-- ma5: 17.05
-- ema23_primary: 17.37
-- distance_to_ema23_pct: -0.68
-- ma20: 17.57
-- ma60: 17.15
-- ma120: 16.92
-- return_5d: -2.82
-- return_20d: -0.86
-- volume_ratio: 0.88
-- distance_to_ma20_pct_auxiliary: -1.81
-- distance_to_high_60_pct: -4.43
+- high: 17.25
+- low: 16.9
+- close: 17.05
+- volume: 2495193
+- ma5: 17.1
+- ema23_primary: 17.34
+- distance_to_ema23_pct: -1.68
+- ma20: 17.54
+- ma60: 17.14
+- ma120: 16.93
+- return_5d: 1.49
+- return_20d: -3.12
+- volume_ratio: 0.75
+- distance_to_ma20_pct_auxiliary: -2.79
+- distance_to_high_60_pct: -5.54
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,17.35,17.65,17.35,17.6,5339858,17.01,3.47,16.93,16.91,2.49
 20260611,17.75,17.75,17.45,17.6,2795131,17.06,3.17,16.97,16.93,1.27
 20260612,17.65,17.8,17.6,17.7,2218251,17.11,3.44,17.02,16.94,1.02
 20260615,17.85,17.85,17.65,17.75,2818535,17.17,3.41,17.07,16.95,1.27
@@ -159,6 +158,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,16.85,17.15,16.85,17.1,3005000,17.39,-1.67,17.56,17.14,0.87
 20260707,17.15,17.25,17,17.25,4025888,17.38,-0.74,17.57,17.14,1.13
 20260708,17.25,17.35,17.1,17.25,3058049,17.37,-0.68,17.57,17.15,0.88
+20260709,17.25,17.25,16.9,17.05,2495193,17.34,-1.68,17.54,17.14,0.75
 ```
 
 ## Latest TDCC Snapshot
@@ -193,12 +193,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 2820 | 華票 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/29 1.召開法人說明會之日期：115/06/29 2.召開法人說明會之時間：14 時 30 分  3.召開法人說明會之地點：台北市信義區信義路五段7號台灣證券交易所1樓資訊展示中心(101辦公大樓) 4.法人說明會擇要訊息：2026年第一季營運概況 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: ex_dividend on 20260702; status=confirmed; proximity=recent |
+| 20260709 | 2820 | 華票 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/29 1.召開法人說明會之日期：115/06/29 2.召開法人說明會之時間：14 時 30 分  3.召開法人說明會之地點：台北市信義區信義路五段7號台灣證券交易所1樓資訊展示中心(101辦公大樓) 4.法人說明會擇要訊息：2026年第一季營運概況 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；degraded calendar context only: ex_dividend on 20260702; status=source_stale_cached; proximity=recent; model_effect_allowed=False; pdf_effect_allowed=False |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 2820 | 華票 | 12 | 5 | 5 | 10 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260709 | 2820 | 華票 | 13 | 6 | 5 | 10 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

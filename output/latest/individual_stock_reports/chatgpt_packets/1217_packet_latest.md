@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1217 愛之味
 
 ## Metadata
-- generated_at: 2026-07-08 22:26:14 Asia/Taipei
+- generated_at: 2026-07-09 22:26:10 Asia/Taipei
 - stock_id: 1217
 - stock_name: 愛之味
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 300
+- latest_price_date: 20260709
+- price_rows: 301
 - latest_tdcc_date: 20260703
 - tdcc_rows: 32
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
+- date: 20260709
 - open: 10
-- high: 10.1
-- low: 10
-- close: 10
-- volume: 353510
+- high: 10
+- low: 9.95
+- close: 9.99
+- volume: 413397
 - ma5: 10.07
 - ema23_primary: 9.91
-- distance_to_ema23_pct: 0.93
-- ma20: 9.9
-- ma60: 9.86
-- ma120: 10.14
-- return_5d: 1.63
-- return_20d: 1.63
-- volume_ratio: 0.56
-- distance_to_ma20_pct_auxiliary: 0.99
-- distance_to_high_60_pct: -3.85
+- distance_to_ema23_pct: 0.76
+- ma20: 9.91
+- ma60: 9.85
+- ma120: 10.13
+- return_5d: 0
+- return_20d: 1.22
+- volume_ratio: 0.67
+- distance_to_ma20_pct_auxiliary: 0.83
+- distance_to_high_60_pct: -3.94
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,9.85,9.92,9.84,9.87,678490,9.78,0.88,9.66,9.97,0.78
 20260611,9.86,9.86,9.77,9.86,681288,9.79,0.71,9.68,9.96,0.77
 20260612,9.9,9.9,9.84,9.87,443749,9.8,0.74,9.69,9.96,0.52
 20260615,9.9,9.97,9.83,9.84,620050,9.8,0.4,9.72,9.95,0.74
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,10.2,10.25,10.1,10.2,1120000,9.89,3.13,9.89,9.87,1.7
 20260707,10.2,10.2,9.98,10,602130,9.9,1.01,9.89,9.87,0.94
 20260708,10,10.1,10,10,353510,9.91,0.93,9.9,9.86,0.56
+20260709,10,10,9.95,9.99,413397,9.91,0.76,9.91,9.85,0.67
 ```
 
 ## Latest TDCC Snapshot

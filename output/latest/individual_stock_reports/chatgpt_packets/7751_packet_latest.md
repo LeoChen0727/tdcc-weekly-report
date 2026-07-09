@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7751 竑騰
 
 ## Metadata
-- generated_at: 2026-07-08 22:28:34 Asia/Taipei
+- generated_at: 2026-07-09 22:28:01 Asia/Taipei
 - stock_id: 7751
 - stock_name: 竑騰
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 165
+- latest_price_date: 20260709
+- price_rows: 166
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 1380
-- high: 1420
-- low: 1365
-- close: 1420
-- volume: 121000
-- ma5: 1428
-- ema23_primary: 1470.76
-- distance_to_ema23_pct: -3.45
-- ma20: 1417.5
-- ma60: 1756.42
-- ma120: 1461.99
-- return_5d: -2.07
-- return_20d: -4.38
-- volume_ratio: 0.52
-- distance_to_ma20_pct_auxiliary: 0.18
-- distance_to_high_60_pct: -49.38
+- date: 20260709
+- open: 1420
+- high: 1425
+- low: 1285
+- close: 1295
+- volume: 341000
+- ma5: 1405
+- ema23_primary: 1456.11
+- distance_to_ema23_pct: -11.06
+- ma20: 1412.75
+- ma60: 1745.42
+- ma120: 1466.42
+- return_5d: -8.16
+- return_20d: -6.83
+- volume_ratio: 1.45
+- distance_to_ma20_pct_auxiliary: -8.33
+- distance_to_high_60_pct: -53.83
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,1450,1455,1345,1390,326000,1685.75,-17.54,1640,1829.75,0.33
 20260611,1370,1400,1255,1320,422000,1655.27,-20.25,1628.5,1828.42,0.42
 20260612,1400,1440,1335,1375,256000,1631.91,-15.74,1616,1827.58,0.26
 20260615,1375,1430,1360,1390,224000,1611.76,-13.76,1596.25,1824.67,0.23
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,1500,1565,1445,1505,340000,1485.41,1.32,1424,1775.92,1.34
 20260707,1500,1555,1360,1365,285000,1475.37,-7.48,1420.75,1765.42,1.17
 20260708,1380,1420,1365,1420,121000,1470.76,-3.45,1417.5,1756.42,0.52
+20260709,1420,1425,1285,1295,341000,1456.11,-11.06,1412.75,1745.42,1.45
 ```
 
 ## Latest TDCC Snapshot

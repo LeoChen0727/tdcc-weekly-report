@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6257 矽格
 
 ## Metadata
-- generated_at: 2026-07-08 22:28:03 Asia/Taipei
+- generated_at: 2026-07-09 22:27:35 Asia/Taipei
 - stock_id: 6257
 - stock_name: 矽格
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 300
+- latest_price_date: 20260709
+- price_rows: 301
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 243
-- high: 245
-- low: 236
+- date: 20260709
+- open: 245.5
+- high: 249.5
+- low: 242
 - close: 244.5
-- volume: 7357697
-- ma5: 253
-- ema23_primary: 235.34
-- distance_to_ema23_pct: 3.89
-- ma20: 233.55
-- ma60: 214.32
-- ma120: 174.78
-- return_5d: -0.2
-- return_20d: 17.27
-- volume_ratio: 0.62
-- distance_to_ma20_pct_auxiliary: 4.69
+- volume: 6047152
+- ma5: 251.7
+- ema23_primary: 236.11
+- distance_to_ema23_pct: 3.56
+- ma20: 235.6
+- ma60: 215.37
+- ma120: 175.85
+- return_5d: -2.59
+- return_20d: 20.15
+- volume_ratio: 0.52
+- distance_to_ma20_pct_auxiliary: 3.78
 - distance_to_high_60_pct: -12.52
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,206,218,203.5,203.5,7985179,213.2,-4.55,219.45,186.59,0.62
 20260611,203.5,208,195.5,205.5,5998458,212.56,-3.32,219.2,187.85,0.48
 20260612,215,224,214,221.5,9227154,213.31,3.84,219.43,189.33,0.77
 20260615,224,227.5,221,222,6718746,214.03,3.72,219.6,190.76,0.58
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,267.5,279.5,267,273,21509000,233.83,16.75,229.7,212.14,1.87
 20260707,270,274.5,242,242,18889081,234.51,3.19,231.75,213.24,1.59
 20260708,243,245,236,244.5,7357697,235.34,3.89,233.55,214.32,0.62
+20260709,245.5,249.5,242,244.5,6047152,236.11,3.56,235.6,215.37,0.52
 ```
 
 ## Latest TDCC Snapshot
@@ -188,17 +188,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 6257 | 矽格 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/25 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.發放股利種類及金額:現金股利新臺幣380,948,098元 4.除權（息）交易日:NA 5.最後過戶日:115/07/15 6.停止過戶起始日期:115/07/16 7.停止過戶截止日期:115/07/20 8.除權（息）基準日:115/07/20 9.其他應敘明事項:預計現金紅利發放日115/07/30；calendar event: ex_dividend on 20260707; status=confirmed; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260709 | 6257 | 矽格 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/25 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.發放股利種類及金額:現金股利新臺幣380,948,098元 4.除權（息）交易日:NA 5.最後過戶日:115/07/15 6.停止過戶起始日期:115/07/16 7.停止過戶截止日期:115/07/20 8.除權（息）基準日:115/07/20 9.其他應敘明事項:預計現金紅利發放日115/07/30；degraded calendar context only: ex_dividend on 20260707; status=source_stale_cached; proximity=recent; model_effect_allowed=False; pdf_effect_allowed=False；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 6257 | 矽格 | 24 | 2 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260709 | 6257 | 矽格 | 25 | 3 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 6257 | 矽格 | 109 | 8 | 6971990.0 | 114840.0 | 60.71 | no_signal |
+| 20260709 | 6257 | 矽格 | 109 | 0 | 5700910.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

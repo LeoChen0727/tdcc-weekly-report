@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2330 台積電
 
 ## Metadata
-- generated_at: 2026-07-08 22:26:39 Asia/Taipei
+- generated_at: 2026-07-09 22:26:29 Asia/Taipei
 - stock_id: 2330
 - stock_name: 台積電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 300
+- latest_price_date: 20260709
+- price_rows: 301
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 2445
-- high: 2465
-- low: 2420
-- close: 2465
-- volume: 25519599
-- ma5: 2455
-- ema23_primary: 2400.02
-- distance_to_ema23_pct: 2.71
-- ma20: 2403.25
-- ma60: 2287.92
-- ma120: 2058.25
-- return_5d: -1.6
-- return_20d: 6.94
-- volume_ratio: 0.66
-- distance_to_ma20_pct_auxiliary: 2.57
-- distance_to_high_60_pct: -2.76
+- date: 20260709
+- open: 2450
+- high: 2460
+- low: 2415
+- close: 2415
+- volume: 34681018
+- ma5: 2445
+- ema23_primary: 2401.27
+- distance_to_ema23_pct: 0.57
+- ma20: 2411.25
+- ma60: 2293.92
+- ma120: 2064.17
+- return_5d: -2.03
+- return_20d: 7.1
+- volume_ratio: 0.93
+- distance_to_ma20_pct_auxiliary: 0.16
+- distance_to_high_60_pct: -4.73
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,2285,2300,2255,2255,54194021,2284.52,-1.29,2297.25,2114.33,1.28
 20260611,2240,2260,2210,2250,46417523,2281.65,-1.39,2296.25,2121.08,1.09
 20260612,2325,2325,2290,2310,26306885,2284.01,1.14,2298.5,2128.42,0.62
 20260615,2360,2375,2345,2375,30228535,2291.59,3.64,2305.25,2136.25,0.72
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,2465,2500,2455,2460,19209000,2389.95,2.93,2388,2272.67,0.48
 20260707,2480,2500,2440,2440,30367854,2394.12,1.92,2395.25,2280,0.78
 20260708,2445,2465,2420,2465,25519599,2400.02,2.71,2403.25,2287.92,0.66
+20260709,2450,2460,2415,2415,34681018,2401.27,0.57,2411.25,2293.92,0.93
 ```
 
 ## Latest TDCC Snapshot
@@ -188,18 +188,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 2330 | 台積電 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | put_inflow | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/16 1.召開法人說明會之日期：115/07/16 2.召開法人說明會之時間：14 時 00 分  3.召開法人說明會之地點：台北文華東方酒店B2 文華廳（台北市松山區敦化北路158號） 4.法人說明會擇要訊息：(1)公布本公司2026年第2季財務報告及2026年第3季業績展望。(2)參加方式：請參見https://investor.tsmc.com/chinese/quarterly-results/2026/q2 5.其他應敘明事項：無。 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
-| 20260708 | 2330 | 台積電 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | put_inflow | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/16 1.召開法人說明會之日期：115/07/16 2.召開法人說明會之時間：14 時 00 分  3.召開法人說明會之地點：台北文華東方酒店B2 文華廳（台北市松山區敦化北路158號） 4.法人說明會擇要訊息：(1)公布本公司2026年第2季財務報告及2026年第3季業績展望。(2)參加方式：請參見https://investor.tsmc.com/chinese/quarterly-results/2026/q2 5.其他應敘明事項：無。 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260709 | 2330 | 台積電 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/16 1.召開法人說明會之日期：115/07/16 2.召開法人說明會之時間：14 時 00 分  3.召開法人說明會之地點：台北文華東方酒店B2 文華廳（台北市松山區敦化北路158號） 4.法人說明會擇要訊息：(1)公布本公司2026年第2季財務報告及2026年第3季業績展望。(2)參加方式：請參見https://investor.tsmc.com/chinese/quarterly-results/2026/q2 5.其他應敘明事項：無。 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。 |
+| 20260709 | 2330 | 台積電 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/16 1.召開法人說明會之日期：115/07/16 2.召開法人說明會之時間：14 時 00 分  3.召開法人說明會之地點：台北文華東方酒店B2 文華廳（台北市松山區敦化北路158號） 4.法人說明會擇要訊息：(1)公布本公司2026年第2季財務報告及2026年第3季業績展望。(2)參加方式：請參見https://investor.tsmc.com/chinese/quarterly-results/2026/q2 5.其他應敘明事項：無。 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 2330 | 台積電 | 23 | 6 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260709 | 2330 | 台積電 | 24 | 7 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 2330 | 台積電 | 915 | 193 | 95421510.0 | 3240360.0 | 29.45 | put_inflow |
+| 20260709 | 2330 | 台積電 | 921 | 0 | 90998850.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

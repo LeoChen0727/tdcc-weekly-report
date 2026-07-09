@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3026 禾伸堂
 
 ## Metadata
-- generated_at: 2026-07-08 22:27:03 Asia/Taipei
+- generated_at: 2026-07-09 22:26:48 Asia/Taipei
 - stock_id: 3026
 - stock_name: 禾伸堂
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 300
+- latest_price_date: 20260709
+- price_rows: 301
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -111,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 878
-- high: 953
-- low: 827
-- close: 953
-- volume: 20931649
-- ma5: 934
-- ema23_primary: 803.45
-- distance_to_ema23_pct: 18.61
-- ma20: 836.6
-- ma60: 537.17
-- ma120: 328.02
-- return_5d: 6.01
-- return_20d: 44.18
-- volume_ratio: 3.12
-- distance_to_ma20_pct_auxiliary: 13.91
-- distance_to_high_60_pct: -6.57
+- date: 20260709
+- open: 966
+- high: 1045
+- low: 948
+- close: 1005
+- volume: 19004107
+- ma5: 955.2
+- ema23_primary: 820.25
+- distance_to_ema23_pct: 22.52
+- ma20: 854.75
+- ma60: 550.09
+- ma120: 335.51
+- return_5d: 11.79
+- return_20d: 56.54
+- volume_ratio: 2.52
+- distance_to_ma20_pct_auxiliary: 17.58
+- distance_to_high_60_pct: -3.83
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,661,725,639,642,2749064,526.96,21.83,538.73,314.44,1.25
 20260611,655,695,590,695,3544235,540.96,28.47,555.6,324.23,1.64
 20260612,764,764,764,764,2566138,559.55,36.54,577.45,335.07,1.19
 20260615,840,840,840,840,2593202,582.92,44.1,601.48,347.11,1.19
@@ -153,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,1015,1020,891,963,19863000,782.85,23.01,808.7,513.62,3.81
 20260707,955,986,867,867,12818325,789.86,9.77,822,524.83,2.22
 20260708,878,953,827,953,20931649,803.45,18.61,836.6,537.17,3.12
+20260709,966,1045,948,1005,19004107,820.25,22.52,854.75,550.09,2.52
 ```
 
 ## Latest TDCC Snapshot
@@ -187,17 +187,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 3026 | 禾伸堂 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  | call_strong_inflow | repeated_but_no_breakout | 1.事實發生日:115/06/16 2.發生緣由:依臺灣證券交易所股份有限公司通知辦理公告 3.財務業務資訊: 期間　　　　　　　(月)                   (季)              (最近四季累計) ＝＝＝＝  ＝＝＝＝＝＝＝＝＝＝＝　＝＝＝＝＝＝＝＝＝＝＝ 　＝＝＝＝＝＝＝ 　　　　　最近一月　  與去年同期　 最近一季　 與去年同期　  (114年第2季至 科目　　　(115年5月)　　增減%　   (115年第1季)　　增減% 　   115年第1季) 　　　　      (合併自結數)  　         (合併核閱數)       (合併查核/核閱數) ＝＝＝＝　＝＝＝＝＝  ＝＝＝＝＝  ＝＝＝＝＝  ＝＝＝＝＝   ＝＝＝＝＝＝＝ 營業收入　  1,291.19 　   21.34%　　3,618.45　     6.36%　　    13,643.30 （百萬） 稅前淨利      201.80     235.56%　    568.65　    94.65%　　     1,467.33 （百萬）　　 歸屬母公司    168.40     207.44%　　  474.58　　  70.41%　　     1,287.79 業主淨利 （百萬） 每股盈餘        1.02     207.44% 　　   2.86　　  70.41%　           7.76 （元） 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無。 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無。 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告:無。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260709 | 3026 | 禾伸堂 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_strong_inflow | continued_overheated | 1.事實發生日:115/06/16 2.發生緣由:依臺灣證券交易所股份有限公司通知辦理公告 3.財務業務資訊: 期間　　　　　　　(月)                   (季)              (最近四季累計) ＝＝＝＝  ＝＝＝＝＝＝＝＝＝＝＝　＝＝＝＝＝＝＝＝＝＝＝ 　＝＝＝＝＝＝＝ 　　　　　最近一月　  與去年同期　 最近一季　 與去年同期　  (114年第2季至 科目　　　(115年5月)　　增減%　   (115年第1季)　　增減% 　   115年第1季) 　　　　      (合併自結數)  　         (合併核閱數)       (合併查核/核閱數) ＝＝＝＝　＝＝＝＝＝  ＝＝＝＝＝  ＝＝＝＝＝  ＝＝＝＝＝   ＝＝＝＝＝＝＝ 營業收入　  1,291.19 　   21.34%　　3,618.45　     6.36%　　    13,643.30 （百萬） 稅前淨利      201.80     235.56%　    568.65　    94.65%　　     1,467.33 （百萬）　　 歸屬母公司    168.40     207.44%　　  474.58　　  70.41%　　     1,287.79 業主淨利 （百萬） 每股盈餘        1.02     207.44% 　　   2.86　　  70.41%　           7.76 （元） 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無。 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無。 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告:無。 7.其他應敘明事項:無。 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 3026 | 禾伸堂 | 1 | 1 | 3 | 5 | 10 | repeated_but_no_breakout | 近 10 日上榜 5 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260709 | 3026 | 禾伸堂 | 2 | 2 | 4 | 6 | 11 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 3026 | 禾伸堂 | 49 | 0 | 12708950.0 | 0.0 |  | call_strong_inflow |
+| 20260709 | 3026 | 禾伸堂 | 49 | 0 | 16115080.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

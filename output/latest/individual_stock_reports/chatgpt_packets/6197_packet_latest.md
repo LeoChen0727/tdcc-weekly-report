@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6197 佳必琪
 
 ## Metadata
-- generated_at: 2026-07-08 22:27:59 Asia/Taipei
+- generated_at: 2026-07-09 22:27:32 Asia/Taipei
 - stock_id: 6197
 - stock_name: 佳必琪
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 300
+- latest_price_date: 20260709
+- price_rows: 301
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 368
-- high: 369.5
-- low: 348
-- close: 369
-- volume: 3734933
-- ma5: 367.5
-- ema23_primary: 342.31
-- distance_to_ema23_pct: 7.8
-- ma20: 349.15
-- ma60: 275.52
-- ma120: 216.84
-- return_5d: 6.03
-- return_20d: 7.58
-- volume_ratio: 0.89
-- distance_to_ma20_pct_auxiliary: 5.69
-- distance_to_high_60_pct: -8.89
+- date: 20260709
+- open: 370.5
+- high: 376
+- low: 358
+- close: 358.5
+- volume: 3333535
+- ma5: 366.5
+- ema23_primary: 343.66
+- distance_to_ema23_pct: 4.32
+- ma20: 350.8
+- ma60: 278.5
+- ma120: 218.58
+- return_5d: -1.38
+- return_20d: 10.14
+- volume_ratio: 0.84
+- distance_to_ma20_pct_auxiliary: 2.19
+- distance_to_high_60_pct: -11.48
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,336,351.5,324.5,325.5,7812997,282.81,15.1,279.55,220.53,1.29
 20260611,328,333,304,317.5,7438140,285.7,11.13,284.1,222.89,1.2
 20260612,330.5,335.5,318,327.5,4878141,289.18,13.25,289.55,225.16,0.77
 20260615,335.5,342,330.5,331.5,3735725,292.71,13.25,295.2,227.43,0.58
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,375,375,363,372.5,2370000,338.05,10.19,346.2,269.34,0.52
 20260707,388.5,405,355.5,360,6637208,339.88,5.92,347.85,272.36,1.47
 20260708,368,369.5,348,369,3734933,342.31,7.8,349.15,275.52,0.89
+20260709,370.5,376,358,358.5,3333535,343.66,4.32,350.8,278.5,0.84
 ```
 
 ## Latest TDCC Snapshot
@@ -188,17 +189,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 6197 | 佳必琪 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | continued_2_3d | 1.董事會或股東會決議日期:NA 2.原發放股利種類及金額: 普通股現金股利新台幣854,601,174元，合計每股配發新台幣7.0元。 3.變更後發放股利種類及金額: 普通股現金股利新台幣854,601,174元，合計每股配發新台幣6.92325997元。 4.變更原因: 因本公司國內無擔保轉換公司債轉換成普通股，致使本公司流通在外股數 發生變動而影響股東配息比率異動，依民國115年03月06日董事會決議由 董事會授權董事長調整配息率。 5.其他應敘明事項:無。；calendar event: ex_dividend on 20260702; status=confirmed; proximity=recent |
+| 20260709 | 6197 | 佳必琪 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | continued_2_3d | 1.董事會或股東會決議日期:NA 2.原發放股利種類及金額: 普通股現金股利新台幣854,601,174元，合計每股配發新台幣7.0元。 3.變更後發放股利種類及金額: 普通股現金股利新台幣854,601,174元，合計每股配發新台幣6.92325997元。 4.變更原因: 因本公司國內無擔保轉換公司債轉換成普通股，致使本公司流通在外股數 發生變動而影響股東配息比率異動，依民國115年03月06日董事會決議由 董事會授權董事長調整配息率。 5.其他應敘明事項:無。；degraded calendar context only: ex_dividend on 20260702; status=source_stale_cached; proximity=recent; model_effect_allowed=False; pdf_effect_allowed=False |
+| 20260709 | 6197 | 佳必琪 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | continued_2_3d | 1.董事會或股東會決議日期:NA 2.原發放股利種類及金額: 普通股現金股利新台幣854,601,174元，合計每股配發新台幣7.0元。 3.變更後發放股利種類及金額: 普通股現金股利新台幣854,601,174元，合計每股配發新台幣6.92325997元。 4.變更原因: 因本公司國內無擔保轉換公司債轉換成普通股，致使本公司流通在外股數 發生變動而影響股東配息比率異動，依民國115年03月06日董事會決議由 董事會授權董事長調整配息率。 5.其他應敘明事項:無。；degraded calendar context only: ex_dividend on 20260702; status=source_stale_cached; proximity=recent; model_effect_allowed=False; pdf_effect_allowed=False；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 6197 | 佳必琪 | 2 | 2 | 4 | 8 | 12 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| 20260709 | 6197 | 佳必琪 | 3 | 3 | 4 | 8 | 13 | continued_2_3d | 連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 6197 | 佳必琪 | 107 | 0 | 24513650.0 | 0.0 |  | no_signal |
+| 20260709 | 6197 | 佳必琪 | 106 | 0 | 26638150.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

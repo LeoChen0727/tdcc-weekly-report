@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3034 聯詠
 
 ## Metadata
-- generated_at: 2026-07-08 22:27:04 Asia/Taipei
+- generated_at: 2026-07-09 22:26:48 Asia/Taipei
 - stock_id: 3034
 - stock_name: 聯詠
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 300
+- latest_price_date: 20260709
+- price_rows: 301
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 532
-- high: 547
-- low: 528
-- close: 544
-- volume: 6123648
-- ma5: 538.4
-- ema23_primary: 521.74
-- distance_to_ema23_pct: 4.27
-- ma20: 524.65
-- ma60: 479.34
-- ma120: 431.07
-- return_5d: 1.12
-- return_20d: 13.22
-- volume_ratio: 0.97
-- distance_to_ma20_pct_auxiliary: 3.69
-- distance_to_high_60_pct: -10.23
+- date: 20260709
+- open: 549
+- high: 549
+- low: 535
+- close: 542
+- volume: 6587848
+- ma5: 538.6
+- ema23_primary: 523.43
+- distance_to_ema23_pct: 3.55
+- ma20: 527.83
+- ma60: 481.73
+- ma120: 432.43
+- return_5d: 0.18
+- return_20d: 13.27
+- volume_ratio: 1.03
+- distance_to_ma20_pct_auxiliary: 2.69
+- distance_to_high_60_pct: -10.56
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,478,494,477,478.5,4923081,476.66,0.39,484.2,434.42,0.77
 20260611,480,488.5,476,488,3877499,477.61,2.18,483.95,436.24,0.63
 20260612,497,507,488.5,488.5,4748957,478.52,2.09,485.05,438.03,0.8
 20260615,500,501,491.5,495,2892362,479.89,3.15,486.02,439.91,0.49
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,542,543,531,538,3430000,518.69,3.72,518.58,474.57,0.55
 20260707,539,553,531,531,5418571,519.72,2.17,521.48,476.85,0.86
 20260708,532,547,528,544,6123648,521.74,4.27,524.65,479.34,0.97
+20260709,549,549,535,542,6587848,523.43,3.55,527.83,481.73,1.03
 ```
 
 ## Latest TDCC Snapshot
@@ -189,17 +189,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 3034 | 聯詠 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | continued_2_3d | 1.人員變動別（請輸入發言人、代理發言人、重要營運主管(如:執行長、營運長、 行銷長及策略長等)、財務主管、會計主管、公司治理主管、資訊安全長、研發主管、 內部稽核主管或訴訟及非訟代理人）:內部稽核主管 2.發生變動日期:115/06/30 3.舊任者姓名、級職及簡歷: 葉育芬 聯詠科技內部稽核主管 4.新任者姓名、級職及簡歷: 徐韻筑 聯詠科技主任管理師 5.異動情形（請輸入「辭職」、「職務調整」、「資遣」、「退休」、「死亡」、「新 任」或「解任」）:退休 6.異動原因:退休 7.生效日期:115/06/30 8.其他應敘明事項:無；calendar event: ex_dividend on 20260710; status=confirmed; proximity=within_3d |
+| 20260709 | 3034 | 聯詠 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | continued_2_3d | 1.人員變動別（請輸入發言人、代理發言人、重要營運主管(如:執行長、營運長、 行銷長及策略長等)、財務主管、會計主管、公司治理主管、資訊安全長、研發主管、 內部稽核主管或訴訟及非訟代理人）:內部稽核主管 2.發生變動日期:115/06/30 3.舊任者姓名、級職及簡歷: 葉育芬 聯詠科技內部稽核主管 4.新任者姓名、級職及簡歷: 徐韻筑 聯詠科技主任管理師 5.異動情形（請輸入「辭職」、「職務調整」、「資遣」、「退休」、「死亡」、「新 任」或「解任」）:退休 6.異動原因:退休 7.生效日期:115/06/30 8.其他應敘明事項:無；calendar event: ex_dividend on 20260710; status=confirmed; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 3034 | 聯詠 | 2 | 2 | 3 | 7 | 16 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| 20260709 | 3034 | 聯詠 | 3 | 3 | 3 | 8 | 16 | continued_2_3d | 連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 3034 | 聯詠 | 88 | 7 | 7574820.0 | 61700.0 | 122.77 | no_signal |
+| 20260709 | 3034 | 聯詠 | 88 | 0 | 8190330.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

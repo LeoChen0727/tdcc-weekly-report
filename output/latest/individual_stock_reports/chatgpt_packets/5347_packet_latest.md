@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5347 世界
 
 ## Metadata
-- generated_at: 2026-07-08 22:27:46 Asia/Taipei
+- generated_at: 2026-07-09 22:27:22 Asia/Taipei
 - stock_id: 5347
 - stock_name: 世界
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 165
+- latest_price_date: 20260709
+- price_rows: 166
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 176
-- high: 176.5
-- low: 168
-- close: 176.5
-- volume: 25030000
-- ma5: 185.6
-- ema23_primary: 184.8
-- distance_to_ema23_pct: -4.49
-- ma20: 186.38
-- ma60: 166.64
-- ma120: 145.81
-- return_5d: -13.69
-- return_20d: 9.63
-- volume_ratio: 0.74
-- distance_to_ma20_pct_auxiliary: -5.3
-- distance_to_high_60_pct: -20.85
+- date: 20260709
+- open: 177.5
+- high: 178
+- low: 170.5
+- close: 173
+- volume: 20279000
+- ma5: 180.6
+- ema23_primary: 183.82
+- distance_to_ema23_pct: -5.88
+- ma20: 187.4
+- ma60: 167.45
+- ma120: 146.42
+- return_5d: -12.63
+- return_20d: 13.44
+- volume_ratio: 0.6
+- distance_to_ma20_pct_auxiliary: -7.68
+- distance_to_high_60_pct: -22.42
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,158,161.5,151.5,152.5,24248000,161.35,-5.49,164.72,144.98,1.38
 20260611,153,161.5,151.5,161.5,34997000,161.37,0.08,164.05,145.74,2.01
 20260612,169,173.5,168,169.5,34093000,162.04,4.6,163.7,146.59,2.03
 20260615,174.5,176.5,170.5,174.5,27174000,163.08,7,164.47,147.48,1.57
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,193,193.5,182.5,185,27184000,186.51,-0.81,184.68,165.03,0.8
 20260707,186,186.5,173,175,27650000,185.55,-5.69,185.6,165.79,0.82
 20260708,176,176.5,168,176.5,25030000,184.8,-4.49,186.38,166.64,0.74
+20260709,177.5,178,170.5,173,20279000,183.82,-5.88,187.4,167.45,0.6
 ```
 
 ## Latest TDCC Snapshot
@@ -189,12 +188,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 5347 | 世界 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  |  | continued_overheated | 1.董事會決議日期:115/06/24 2.增資資金來源:現金增資 3.是否採總括申報發行新股(是，請併敘明預定發行期間/否):否 4.全案發行總金額及股數(如屬盈餘或公積轉增資，發行股數則不含配發給員工部分): 發行總金額:US$70,000,000 發行股數:70,000,000股 5.採總括申報發行新股案件，本次發行金額及股數:不適用 6.採總括申報發行新股案件，本次發行後，剩餘之金額及股數餘額:不適用 7.每股面額:US$1 8.發行價格:US$1 9.員工認購股數或配發金額:不適用 10.公開銷售股數:不適用 11.原股東認購或無償配發比例(請註明暫定每仟股認購或配發股數): 全數由原股東認購 12.畸零股及逾期未認購股份之處理方式:不適用 13.本次發行新股之權利義務:發行之新股權利義務與原已發行普通股股份相同 14.本次增資資金用途:公司營運需求 15.其他應敘明事項:VSMC於115/5/29股東會通過，授權董事會於次一年度股東常會前 辦理現金增資發行新股；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260709 | 5347 | 世界 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | continued_overheated | 1.董事會決議日期:115/06/24 2.增資資金來源:現金增資 3.是否採總括申報發行新股(是，請併敘明預定發行期間/否):否 4.全案發行總金額及股數(如屬盈餘或公積轉增資，發行股數則不含配發給員工部分): 發行總金額:US$70,000,000 發行股數:70,000,000股 5.採總括申報發行新股案件，本次發行金額及股數:不適用 6.採總括申報發行新股案件，本次發行後，剩餘之金額及股數餘額:不適用 7.每股面額:US$1 8.發行價格:US$1 9.員工認購股數或配發金額:不適用 10.公開銷售股數:不適用 11.原股東認購或無償配發比例(請註明暫定每仟股認購或配發股數): 全數由原股東認購 12.畸零股及逾期未認購股份之處理方式:不適用 13.本次發行新股之權利義務:發行之新股權利義務與原已發行普通股股份相同 14.本次增資資金用途:公司營運需求 15.其他應敘明事項:VSMC於115/5/29股東會通過，授權董事會於次一年度股東常會前 辦理現金增資發行新股 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 5347 | 世界 | 3 | 3 | 3 | 6 | 9 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260709 | 5347 | 世界 | 4 | 4 | 4 | 6 | 10 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

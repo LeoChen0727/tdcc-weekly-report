@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2436 偉詮電
 
 ## Metadata
-- generated_at: 2026-07-08 22:26:46 Asia/Taipei
+- generated_at: 2026-07-09 22:26:34 Asia/Taipei
 - stock_id: 2436
 - stock_name: 偉詮電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 300
+- latest_price_date: 20260709
+- price_rows: 301
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -58,7 +58,7 @@
 - pdf_visible: true
 - action_rating_display_zh: 可分批買進
 - model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
 - action_summary_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。
 - entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
 - position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
@@ -92,7 +92,6 @@
 
 ### entry_prerequisites
 - model_recommended
-- decision_score_high
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -118,29 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 70.6
-- high: 71.3
-- low: 68
-- close: 68.9
-- volume: 3859724
-- ma5: 73.8
-- ema23_primary: 72.61
-- distance_to_ema23_pct: -5.11
-- ma20: 71.95
-- ma60: 72.47
-- ma120: 64.42
-- return_5d: -2.82
-- return_20d: 1.92
-- volume_ratio: 0.72
-- distance_to_ma20_pct_auxiliary: -4.24
-- distance_to_high_60_pct: -18.36
+- date: 20260709
+- open: 69.5
+- high: 71.1
+- low: 67.1
+- close: 67.2
+- volume: 4885069
+- ma5: 72
+- ema23_primary: 72.16
+- distance_to_ema23_pct: -6.87
+- ma20: 72.09
+- ma60: 72.53
+- ma120: 64.58
+- return_5d: -11.81
+- return_20d: 4.51
+- volume_ratio: 0.9
+- distance_to_ma20_pct_auxiliary: -6.79
+- distance_to_high_60_pct: -20.38
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,66,68.7,64.1,64.3,3821848,71.94,-10.62,73.11,69.36,0.54
 20260611,64.3,66.1,62.7,65,2974710,71.36,-8.92,72.78,69.4,0.43
 20260612,66.5,69.3,66.5,67.8,3969803,71.07,-4.6,72.69,69.48,0.58
 20260615,69.4,70.4,68.4,69.7,3638949,70.95,-1.77,72.62,69.48,0.53
@@ -160,6 +158,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,76.4,79.3,76.2,77.7,8462000,73.19,6.16,71.66,72.2,1.62
 20260707,77.1,77.1,70.2,70.3,7458429,72.95,-3.63,71.89,72.35,1.4
 20260708,70.6,71.3,68,68.9,3859724,72.61,-5.11,71.95,72.47,0.72
+20260709,69.5,71.1,67.1,67.2,4885069,72.16,-6.87,72.09,72.53,0.9
 ```
 
 ## Latest TDCC Snapshot
@@ -194,17 +193,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 2436 | 偉詮電 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260709 | 2436 | 偉詮電 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  | no_signal | stale_signal | 營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 2436 | 偉詮電 | 5 | 5 | 5 | 9 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260709 | 2436 | 偉詮電 | 6 | 6 | 5 | 9 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 2436 | 偉詮電 | 42 | 0 | 1596260.0 | 0.0 |  | no_signal |
+| 20260709 | 2436 | 偉詮電 | 42 | 0 | 2017420.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

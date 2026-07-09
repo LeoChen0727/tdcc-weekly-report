@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2855 統一證
 
 ## Metadata
-- generated_at: 2026-07-08 22:26:58 Asia/Taipei
+- generated_at: 2026-07-09 22:26:44 Asia/Taipei
 - stock_id: 2855
 - stock_name: 統一證
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 300
+- latest_price_date: 20260709
+- price_rows: 301
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -117,29 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 51.8
-- high: 51.9
-- low: 49.8
+- date: 20260709
+- open: 50.5
+- high: 50.9
+- low: 49.9
 - close: 50.4
-- volume: 5495515
-- ma5: 51.07
-- ema23_primary: 50.1
-- distance_to_ema23_pct: 0.59
-- ma20: 50.93
-- ma60: 44.31
-- ma120: 37.12
-- return_5d: 0.2
-- return_20d: -6.67
-- volume_ratio: 0.52
-- distance_to_ma20_pct_auxiliary: -1.04
+- volume: 3685174
+- ma5: 51.2
+- ema23_primary: 50.13
+- distance_to_ema23_pct: 0.54
+- ma20: 50.88
+- ma60: 44.62
+- ma120: 37.33
+- return_5d: 1.31
+- return_20d: -1.75
+- volume_ratio: 0.38
+- distance_to_ma20_pct_auxiliary: -0.95
 - distance_to_high_60_pct: -15.72
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,53.8,54.5,51.1,51.3,24955147,46.97,9.21,46.34,38.34,1.51
 20260611,50.5,52,49.55,50.9,20256366,47.3,7.61,46.88,38.68,1.2
 20260612,53,53.4,50.5,50.5,11060123,47.57,6.17,47.37,38.99,0.65
 20260615,52,53.2,51,51.4,10982530,47.89,7.34,47.95,39.28,0.64
@@ -159,6 +158,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,52.4,53.7,52,52.2,7010000,49.98,4.43,51.22,43.66,0.54
 20260707,53.1,54.1,50.8,51.1,11250218,50.08,2.04,51.11,43.98,0.96
 20260708,51.8,51.9,49.8,50.4,5495515,50.1,0.59,50.93,44.31,0.52
+20260709,50.5,50.9,49.9,50.4,3685174,50.13,0.54,50.88,44.62,0.38
 ```
 
 ## Latest TDCC Snapshot
@@ -193,12 +193,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 2855 | 統一證 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/07/06 2.公司名稱:統一綜合證券股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:公告本公司自行結算115年6月份合併損益情形: (1)六月份稅前盈餘：1,899,079       仟元 (2)六月份稅後盈餘：1,629,273       仟元 (3)六月份每股稅前盈餘：1.186   元 (4)六月份每股稅後盈餘：1.017   元 (5)一至六月份累計稅前盈餘：11,872,346     仟元 (6)一至六月份累計稅後盈餘：11,138,988     仟元 (7)一至六月份累計每股稅前盈餘：7.414  元 (8)一至六月份累計每股稅後盈餘：6.956  元 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 以上資訊係本公司初步自行結算結果並未經會計師簽證或核閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260709 | 2855 | 統一證 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/07/06 2.公司名稱:統一綜合證券股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:公告本公司自行結算115年6月份合併損益情形: (1)六月份稅前盈餘：1,899,079       仟元 (2)六月份稅後盈餘：1,629,273       仟元 (3)六月份每股稅前盈餘：1.186   元 (4)六月份每股稅後盈餘：1.017   元 (5)一至六月份累計稅前盈餘：11,872,346     仟元 (6)一至六月份累計稅後盈餘：11,138,988     仟元 (7)一至六月份累計每股稅前盈餘：7.414  元 (8)一至六月份累計每股稅後盈餘：6.956  元 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 以上資訊係本公司初步自行結算結果並未經會計師簽證或核閱。 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 2855 | 統一證 | 21 | 5 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260709 | 2855 | 統一證 | 22 | 6 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3664 安瑞-KY
 
 ## Metadata
-- generated_at: 2026-07-08 22:27:23 Asia/Taipei
+- generated_at: 2026-07-09 22:27:03 Asia/Taipei
 - stock_id: 3664
 - stock_name: 安瑞-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 165
+- latest_price_date: 20260709
+- price_rows: 166
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 7.14
-- high: 7.58
-- low: 7.14
-- close: 7.48
-- volume: 16000
-- ma5: 7.64
-- ema23_primary: 7.43
-- distance_to_ema23_pct: 0.62
-- ma20: 7.2
+- date: 20260709
+- open: 7.48
+- high: 8.22
+- low: 7.48
+- close: 8
+- volume: 25000
+- ma5: 7.7
+- ema23_primary: 7.48
+- distance_to_ema23_pct: 6.93
+- ma20: 7.23
 - ma60: 7.51
-- ma120: 10.68
-- return_5d: -2.86
-- return_20d: 1.08
-- volume_ratio: 0.49
-- distance_to_ma20_pct_auxiliary: 3.96
-- distance_to_high_60_pct: -34.1
+- ma120: 10.6
+- return_5d: 3.36
+- return_20d: 10.19
+- volume_ratio: 0.75
+- distance_to_ma20_pct_auxiliary: 10.62
+- distance_to_high_60_pct: -29.52
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,7.26,7.26,7.26,7.26,11000,7.87,-7.73,8.09,8.74,0.23
 20260611,7.2,7.2,7.15,7.15,10000,7.81,-8.43,7.93,8.63,0.41
 20260612,7.69,7.69,6.82,6.82,8000,7.73,-11.73,7.81,8.51,0.39
 20260615,6.82,6.82,6.76,6.82,29000,7.65,-10.86,7.74,8.4,1.6
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,7.47,7.6,7.47,7.6,22000,7.46,1.94,7.19,7.55,0.69
 20260707,8.1,8.1,7.13,7.15,34000,7.43,-3.77,7.19,7.53,1.06
 20260708,7.14,7.58,7.14,7.48,16000,7.43,0.62,7.2,7.51,0.49
+20260709,7.48,8.22,7.48,8,25000,7.48,6.93,7.23,7.51,0.75
 ```
 
 ## Latest TDCC Snapshot

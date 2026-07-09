@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2890 永豐金
 
 ## Metadata
-- generated_at: 2026-07-08 22:26:59 Asia/Taipei
+- generated_at: 2026-07-09 22:26:45 Asia/Taipei
 - stock_id: 2890
 - stock_name: 永豐金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 300
+- latest_price_date: 20260709
+- price_rows: 301
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -56,29 +56,33 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
-- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
-- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- action_rating_display_zh: 可分批買進
+- model_category_display_zh: 營收成長股價回檔
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- action_summary_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。
+- entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
+- position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
+- action_rating: scale_in
+- action_rating_label_zh: 可分批買進
 - confidence_level: medium
-- thesis_state: unclear
-- entry_style: no_entry_now
-- position_sizing: observe_only
+- thesis_state: healthy_pullback
+- entry_style: pullback_to_23ema
+- position_sizing: half_position
 
 ### management_plan
+- buy_first_tranche_near_support
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -87,7 +91,9 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 - acceptable_risk_reward
@@ -111,29 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 41.8
-- high: 42
-- low: 41.25
-- close: 41.9
-- volume: 31400453
-- ma5: 40.64
-- ema23_primary: 38
-- distance_to_ema23_pct: 10.26
-- ma20: 38.4
-- ma60: 33.58
-- ma120: 32.15
-- return_5d: 4.75
-- return_20d: 22.34
-- volume_ratio: 0.51
-- distance_to_ma20_pct_auxiliary: 9.13
-- distance_to_high_60_pct: -0.24
+- date: 20260709
+- open: 42.05
+- high: 42.3
+- low: 40.35
+- close: 40.45
+- volume: 26714324
+- ma5: 40.83
+- ema23_primary: 38.2
+- distance_to_ema23_pct: 5.88
+- ma20: 38.77
+- ma60: 33.7
+- ma120: 32.25
+- return_5d: 2.41
+- return_20d: 22.58
+- volume_ratio: 0.45
+- distance_to_ma20_pct_auxiliary: 4.34
+- distance_to_high_60_pct: -4.37
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,34.3,34.3,33,33,52876983,31.43,4.99,30.82,31.42,1.13
 20260611,33,33.3,32.5,33.25,45454788,31.58,5.28,30.96,31.45,0.95
 20260612,33.55,34.95,33.55,34.15,65256890,31.8,7.4,31.16,31.49,1.33
 20260615,35,35.2,34.2,35.2,55731231,32.08,9.73,31.42,31.54,1.11
@@ -153,6 +158,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,40.05,41,39.95,41,35568000,37.33,9.82,37.55,33.29,0.56
 20260707,41,41.8,40.85,41.1,39076859,37.65,9.17,38.01,33.43,0.62
 20260708,41.8,42,41.25,41.9,31400453,38,10.26,38.4,33.58,0.51
+20260709,42.05,42.3,40.35,40.45,26714324,38.2,5.88,38.77,33.7,0.45
 ```
 
 ## Latest TDCC Snapshot
@@ -187,18 +193,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 2890 | 永豐金 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | call_strong_inflow | continued_many_days | 1.事實發生日:115/07/07 2.公司名稱:永豐商業銀行股份有限公司 3.與公司關係(請輸入本公司或子公司):子公司 4.相互持股比例:不適用 5.發生緣由:永豐銀行向金融監督管理委員會銀行局申請吸收合併京城銀行案 獲核准，依銀行局於民國115年7月7日官方網站發布之新聞稿，銀行局於 本日核准此合併案。 6.因應措施:不適用 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 合併基準日擬由雙方董事長共同協議訂定並對外公告之。；calendar event: ex_right_dividend on 20260723; status=confirmed; proximity=within_30d |
-| 20260708 | 2890 | 永豐金 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_strong_inflow | continued_many_days | 1.事實發生日:115/07/07 2.公司名稱:永豐商業銀行股份有限公司 3.與公司關係(請輸入本公司或子公司):子公司 4.相互持股比例:不適用 5.發生緣由:永豐銀行向金融監督管理委員會銀行局申請吸收合併京城銀行案 獲核准，依銀行局於民國115年7月7日官方網站發布之新聞稿，銀行局於 本日核准此合併案。 6.因應措施:不適用 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 合併基準日擬由雙方董事長共同協議訂定並對外公告之。；calendar event: ex_right_dividend on 20260723; status=confirmed; proximity=within_30d |
+| 20260709 | 2890 | 永豐金 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | call_inflow | stale_signal | 1.事實發生日:115/07/08 2.公司名稱:永豐金控 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:本公司;本公司100%持有之子公司 5.發生緣由:永豐金控公告其與子公司永豐銀行與京城銀行及永豐金證券115年6月 自結損益如下: 　　　　　　　　     稅後     累計稅後    稅後   累計稅後 　　　　　　　　     損益       損益       EPS     EPS 　　　　　　　     (佰萬元)   (佰萬元)    (元)    (元) 永豐金控            4,259      24,550     0.29    1.69 永豐銀行            2,363      13,524     0.21    1.22 京城銀行              924       3,756     0.83    3.38 永豐金證券          1,104       7,348     0.65    4.35 註：永豐金控及永豐銀行為屬母公司業主之稅後損益 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 無；calendar event: ex_right_dividend on 20260723; status=confirmed; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 2890 | 永豐金 | 9 | 5 | 5 | 9 | 17 | continued_many_days | 連續 9 日上榜，需區分醞釀延續或訊號鈍化。 |
+| 20260709 | 2890 | 永豐金 | 10 | 6 | 5 | 10 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 2890 | 永豐金 | 18 | 0 | 6184420.0 | 0.0 |  | call_strong_inflow |
+| 20260709 | 2890 | 永豐金 | 18 | 0 | 4903890.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

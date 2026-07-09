@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2317 鴻海
 
 ## Metadata
-- generated_at: 2026-07-08 22:26:38 Asia/Taipei
+- generated_at: 2026-07-09 22:26:29 Asia/Taipei
 - stock_id: 2317
 - stock_name: 鴻海
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 299
+- latest_price_date: 20260709
+- price_rows: 300
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 240
-- high: 240.5
-- low: 234
+- date: 20260709
+- open: 238
+- high: 240
+- low: 234.5
 - close: 237.5
-- volume: 37939126
-- ma5: 239.2
-- ema23_primary: 252.51
-- distance_to_ema23_pct: -5.94
-- ma20: 254.53
-- ma60: 249.44
-- ma120: 233.29
-- return_5d: -4.23
-- return_20d: -14.41
-- volume_ratio: 0.62
-- distance_to_ma20_pct_auxiliary: -6.69
+- volume: 40528079
+- ma5: 238.9
+- ema23_primary: 251.26
+- distance_to_ema23_pct: -5.48
+- ma20: 253.25
+- ma60: 249.94
+- ma120: 233.3
+- return_5d: -0.63
+- return_20d: -9.7
+- volume_ratio: 0.69
+- distance_to_ma20_pct_auxiliary: -6.22
 - distance_to_high_60_pct: -24.36
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,271,274,262.5,263,93369272,266.31,-1.24,267.57,232.37,0.89
 20260611,260,262.5,251.5,258.5,97550509,265.66,-2.7,268.27,233.07,0.92
 20260612,266.5,269,260,260.5,60260948,265.23,-1.78,268.88,233.88,0.59
 20260615,271,272.5,265,267.5,54689024,265.42,0.78,269.82,234.83,0.54
@@ -160,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,243.5,247.5,240.5,242,42156000,255.41,-5.25,258.15,248.21,0.63
 20260707,243,243,236,237,51778760,253.88,-6.65,256.52,248.82,0.82
 20260708,240,240.5,234,237.5,37939126,252.51,-5.94,254.53,249.44,0.62
+20260709,238,240,234.5,237.5,40528079,251.26,-5.48,253.25,249.94,0.69
 ```
 
 ## Latest TDCC Snapshot
@@ -194,17 +194,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 2317 | 鴻海 | revenue_pullback | 營收成長股價回檔 | 76.0 |  |  |  |  | put_inflow | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/07 1.召開法人說明會之日期：115/07/07 ~ 115/07/08 2.召開法人說明會之時間：09 時 00 分  3.召開法人說明會之地點：電話會議 4.法人說明會擇要訊息：115年7月7日受岡三証券邀請參加投資人會議，說明本公司營運概況。 115年7月8日受SIG邀請參加投資人會議，說明本公司營運概況。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: ex_dividend on 20260702; status=confirmed; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260709 | 2317 | 鴻海 | revenue_pullback | 營收成長股價回檔 | 76.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/07/08 2.公司名稱:鴻海精密工業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: 依本公司民國113年度海外第一次無擔保轉換公司債發行辦法之規定，調整民國 113年度海外第一次無擔保轉換公司債之轉換價格 6.因應措施: 民國113年度海外第一次無擔保轉換公司債之轉換價格由新台幣288.86元調整為 新台幣281.09元。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 無；degraded calendar context only: ex_dividend on 20260702; status=source_stale_cached; proximity=recent; model_effect_allowed=False; pdf_effect_allowed=False；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 2317 | 鴻海 | 5 | 5 | 5 | 9 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260709 | 2317 | 鴻海 | 6 | 6 | 5 | 9 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 2317 | 鴻海 | 517 | 40 | 31518080.0 | 2081850.0 | 15.14 | put_inflow |
+| 20260709 | 2317 | 鴻海 | 516 | 0 | 24833470.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

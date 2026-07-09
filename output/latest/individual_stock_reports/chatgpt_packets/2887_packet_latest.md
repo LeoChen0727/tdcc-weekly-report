@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2887 台新新光金
 
 ## Metadata
-- generated_at: 2026-07-08 22:26:59 Asia/Taipei
+- generated_at: 2026-07-09 22:26:45 Asia/Taipei
 - stock_id: 2887
 - stock_name: 台新新光金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 300
+- latest_price_date: 20260709
+- price_rows: 301
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -59,14 +59,14 @@
 - action_rating_display_zh: 已持有續抱
 - model_category_display_zh: 型態觀察
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「初步突破」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 型態觀察 目前屬於「初步突破」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -74,7 +74,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: unclear
+- thesis_state: breakout_initial
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -111,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 35.45
-- high: 36
-- low: 35.2
-- close: 35.85
-- volume: 77134233
-- ma5: 34.44
-- ema23_primary: 31.81
-- distance_to_ema23_pct: 12.68
-- ma20: 32.41
-- ma60: 27.11
-- ma120: 25.31
-- return_5d: 7.5
-- return_20d: 21.32
-- volume_ratio: 0.92
-- distance_to_ma20_pct_auxiliary: 10.62
-- distance_to_high_60_pct: -0.42
+- date: 20260709
+- open: 36.45
+- high: 37.15
+- low: 36.3
+- close: 36.85
+- volume: 111661117
+- ma5: 35.21
+- ema23_primary: 32.23
+- distance_to_ema23_pct: 14.32
+- ma20: 32.8
+- ma60: 27.31
+- ma120: 25.45
+- return_5d: 11.67
+- return_20d: 27.51
+- volume_ratio: 1.33
+- distance_to_ma20_pct_auxiliary: 12.33
+- distance_to_high_60_pct: -0.81
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,29.5,29.55,28.5,28.9,111385443,25.82,11.93,25.22,24.48,0.72
 20260611,28.9,28.9,28,28.75,65102370,26.06,10.3,25.5,24.55,0.43
 20260612,29.2,30.8,29.15,30.2,157917202,26.41,14.35,25.82,24.64,1.03
 20260615,30.8,31.75,30.55,31.6,124423007,26.84,17.73,26.23,24.75,0.8
@@ -153,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,34.15,34.8,34.15,34.3,33724000,31.13,10.17,31.73,26.74,0.38
 20260707,34.3,35.5,34.3,34.9,85489406,31.45,10.98,32.09,26.91,0.98
 20260708,35.45,36,35.2,35.85,77134233,31.81,12.68,32.41,27.11,0.92
+20260709,36.45,37.15,36.3,36.85,111661117,32.23,14.32,32.8,27.31,1.33
 ```
 
 ## Latest TDCC Snapshot
@@ -187,18 +187,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 2887 | 台新新光金 | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  | no_signal | continued_many_days | 1.契約種類:工程契約 2.事實發生日:115/07/07~115/07/07 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:總經理核決 民國115年07月07日 5.契約相對人及其與公司之關係: 豐譽聯合工程股份有限公司，關係：無 6.契約主要內容（含契約總金額、預計參與投入之金額及契約起迄日期） 、限制條款及其他重要約定事項: 契約總金額：新臺幣 2,649,000,000元 起迄日期：111/10/07~115/08/15 工程地點: 高雄市前金區前金段395-4、395-5、395-6等3筆地號。 工程內容:主體工程 7.專業估價者事務所或公司名稱及其估價結果: 不適用 8.不動產估價師姓名: 不適用 9.不動產估價師開業證書字號: 不適用 10.取得之具體目的: 依保險法之規定，為不動產之投資 11.本次交易表示異議之董事意見: 不適用 12.本次交易為關係人交易:否 13.監察人承認或審計委員會同意日期: 不適用 14.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 15.是否尚未取得估價報告:否或不適用 16.尚未取得估價報告之原因: 不適用 17.估價結果有重大差異時，其差異原因及會計師意見: 不適用 18.會計師事務所名稱: 不適用 19.會計師姓名: 不適用 20.會計師開業證書字號: 不適用 21.前已就同一件事件發布重大訊息日期: 111年10月7日 22.其他敘明事項: 補充公告： 1.原契約總金額：新臺幣 2,649,000,000元，本次修訂後為新臺幣2,696,937,686元。 2.原竣工日期：115年8月15日，本次修訂後為116年3月19日。 3.其餘內容未變更。；calendar event: ex_right_dividend on 20260721; status=confirmed; proximity=within_14d |
-| 20260708 | 2887 | 台新新光金 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | continued_many_days | 1.契約種類:工程契約 2.事實發生日:115/07/07~115/07/07 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:總經理核決 民國115年07月07日 5.契約相對人及其與公司之關係: 豐譽聯合工程股份有限公司，關係：無 6.契約主要內容（含契約總金額、預計參與投入之金額及契約起迄日期） 、限制條款及其他重要約定事項: 契約總金額：新臺幣 2,649,000,000元 起迄日期：111/10/07~115/08/15 工程地點: 高雄市前金區前金段395-4、395-5、395-6等3筆地號。 工程內容:主體工程 7.專業估價者事務所或公司名稱及其估價結果: 不適用 8.不動產估價師姓名: 不適用 9.不動產估價師開業證書字號: 不適用 10.取得之具體目的: 依保險法之規定，為不動產之投資 11.本次交易表示異議之董事意見: 不適用 12.本次交易為關係人交易:否 13.監察人承認或審計委員會同意日期: 不適用 14.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 15.是否尚未取得估價報告:否或不適用 16.尚未取得估價報告之原因: 不適用 17.估價結果有重大差異時，其差異原因及會計師意見: 不適用 18.會計師事務所名稱: 不適用 19.會計師姓名: 不適用 20.會計師開業證書字號: 不適用 21.前已就同一件事件發布重大訊息日期: 111年10月7日 22.其他敘明事項: 補充公告： 1.原契約總金額：新臺幣 2,649,000,000元，本次修訂後為新臺幣2,696,937,686元。 2.原竣工日期：115年8月15日，本次修訂後為116年3月19日。 3.其餘內容未變更。；calendar event: ex_right_dividend on 20260721; status=confirmed; proximity=within_14d |
+| 20260709 | 2887 | 台新新光金 | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  | no_signal | continued_many_days | 1.標的物之名稱及性質（屬特別股者，並應標明特別股約定發行條件，如股息率等）: 聯合授信案之授信資產轉讓 2.事實發生日:115/4/8~115/7/8 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:執行長 民國115年7月8日 5.交易單位數量、每單位價格及交易總金額: 115/04/08美金6,500,000.00 / BDO Unibank, Inc.、 115/07/08美金9,500,000.00 / CIMB Bank Berhad。 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之 關係人者，得免揭露其姓名）: KEB Hana Bank之分支機構KEB Hana Bank Offshore Branch，二者皆非實質關係人。 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移 轉之所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次 移轉日期及移轉金額: 不適用 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係人之取 得及處分日期、價格及交易當時與公司之關係: 不適用 9.本次係處分債權之相關事項（含處分之債權附隨擔保品種類、處分債權 如有屬對關係人債權者尚需公告關係人名稱及本次處分該關係人之債權 帳面金額: 處分之債權無隨附擔保品且並無屬對關係人債權，故不適用。 10.處分利益（或損失）（取得有價證券者不適用）（遞延者應列表說明 認列情形）: 無 11.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 依合約相關規定辦理 12.本次交易之決定方式、價格決定之參考依據及決策單位: 相關條件依合約及一般市場慣例為之，為本行內部最終審核單位核准。 13.取得或處分有價證券標的公司每股淨值: 不適用 14.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 不適用 15.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列 之有價證券投資（含本次交易）占公司最近期財務報表中總資產及歸屬 於母公司業主之權益之比例暨最近期財務報表中營運資金數額: 不適用 16.經紀人及經紀費用: 不適用 17.取得或處分之具體目的或用途: 活絡債權資產組合 18.本次交易表示異議董事之意見: 無 19.本次交易為關係人交易:否 20.監察人承認或審計委員會同意日期: 不適用 21.本次交易會計師出具非合理性意見:不適用 22.會計師事務所名稱: 不適用 23.會計師姓名: 不適用 24.會計師開業證書字號: 不適用 25.是否涉及營運模式變更:否 26.營運模式變更說明: 不適用 27.過去一年及預計未來一年內與交易相對人交易情形: 累計至115/07/08之交易金額於一年內與同一相對人 取得或處分同一性質標的交易金額已達新臺幣三億元以上。 28.資金來源: 不適用 29.前已就同一件事件發布重大訊息日期: 不適用 30.其他敘明事項: 民國115年04月08日之交易係以美金/新臺幣兌換匯率31.777表示， 民國115年07月08日之交易係以美金/新臺幣兌換匯率31.885表示。；calendar event: ex_right_dividend on 20260721; status=confirmed; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 2887 | 台新新光金 | 11 | 5 | 5 | 10 | 15 | continued_many_days | 連續 11 日上榜，需區分醞釀延續或訊號鈍化。 |
+| 20260709 | 2887 | 台新新光金 | 12 | 4 | 5 | 10 | 15 | continued_many_days | 連續 12 日上榜，需區分醞釀延續或訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 2887 | 台新新光金 | 26 | 0 | 7061500.0 | 0.0 |  | no_signal |
+| 20260709 | 2887 | 台新新光金 | 26 | 0 | 5636530.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

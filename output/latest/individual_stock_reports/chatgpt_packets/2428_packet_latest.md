@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2428 興勤
 
 ## Metadata
-- generated_at: 2026-07-08 22:26:45 Asia/Taipei
+- generated_at: 2026-07-09 22:26:34 Asia/Taipei
 - stock_id: 2428
 - stock_name: 興勤
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 300
+- latest_price_date: 20260709
+- price_rows: 301
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 309
-- high: 309
-- low: 293
-- close: 301
-- volume: 1764081
-- ma5: 321.4
-- ema23_primary: 299.29
-- distance_to_ema23_pct: 0.57
-- ma20: 305.4
-- ma60: 246.68
-- ma120: 207.69
-- return_5d: -0.99
-- return_20d: 4.15
-- volume_ratio: 0.58
-- distance_to_ma20_pct_auxiliary: -1.44
-- distance_to_high_60_pct: -17.19
+- date: 20260709
+- open: 310
+- high: 331
+- low: 308.5
+- close: 325
+- volume: 3837173
+- ma5: 324.2
+- ema23_primary: 301.43
+- distance_to_ema23_pct: 7.82
+- ma20: 307.35
+- ma60: 249.01
+- ma120: 208.91
+- return_5d: 4.5
+- return_20d: 13.64
+- volume_ratio: 1.34
+- distance_to_ma20_pct_auxiliary: 5.74
+- distance_to_high_60_pct: -10.59
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,283,307,283,286,7506305,252.46,13.29,255.72,199.88,2.4
 20260611,279.5,291.5,272,281,3459999,254.83,10.27,259.18,201.9,1.1
 20260612,294.5,302,286.5,291,2672919,257.85,12.86,263.43,204.01,0.86
 20260615,296.5,319,296.5,310,3352084,262.19,18.23,268.35,206.43,1.04
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,351,363.5,325.5,343.5,6302000,298.19,15.19,302.95,242.27,2.07
 20260707,344.5,347,309.5,309.5,4274097,299.14,3.46,304.8,244.61,1.36
 20260708,309,309,293,301,1764081,299.29,0.57,305.4,246.68,0.58
+20260709,310,331,308.5,325,3837173,301.43,7.82,307.35,249.01,1.34
 ```
 
 ## Latest TDCC Snapshot
@@ -189,18 +188,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 2428 | 興勤 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.事實發生日:115/07/01 2.接受資金貸與之: (1)公司名稱:為勤電子有限公司 (2)與資金貸與他人公司之關係: 直接持有100%之子公司 (3)資金貸與之限額(仟元):1,181,491 (4)原資金貸與之餘額(仟元):422,010 (5)本次新增資金貸與之金額(仟元):656,460 (6)是否為董事會授權董事長對同一貸與對象分次撥貸或循環動用之資金貸與:是 (7)迄事實發生日止資金貸與餘額(仟元):1,078,470 (8)本次新增資金貸與之原因: 營運週轉需求 3.接受資金貸與公司所提供擔保品之: (1)內容: 無 (2)價值(仟元):0 4.接受資金貸與公司最近期財務報表之: (1)資本(仟元):693,600 (2)累積盈虧金額(仟元):313,327 5.計息方式: 2.5% 6.還款之: (1)條件: 依合約規定 (2)日期: 依合約規定 7.迄事實發生日為止，資金貸與餘額(仟元): 1,078,470 8.迄事實發生日為止，資金貸與餘額占公開發行公司最近期財務報表淨值之比率: 9.18 9.公司貸與他人資金之來源: 子公司本身 10.其他應敘明事項: 新增資金貸與金額為人民幣140,000元，依115/07/01台銀買進賣出即期平均匯率4.689， 折合新台幣為656,460仟元。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
-| 20260708 | 2428 | 興勤 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/07/01 2.接受資金貸與之: (1)公司名稱:為勤電子有限公司 (2)與資金貸與他人公司之關係: 直接持有100%之子公司 (3)資金貸與之限額(仟元):1,181,491 (4)原資金貸與之餘額(仟元):422,010 (5)本次新增資金貸與之金額(仟元):656,460 (6)是否為董事會授權董事長對同一貸與對象分次撥貸或循環動用之資金貸與:是 (7)迄事實發生日止資金貸與餘額(仟元):1,078,470 (8)本次新增資金貸與之原因: 營運週轉需求 3.接受資金貸與公司所提供擔保品之: (1)內容: 無 (2)價值(仟元):0 4.接受資金貸與公司最近期財務報表之: (1)資本(仟元):693,600 (2)累積盈虧金額(仟元):313,327 5.計息方式: 2.5% 6.還款之: (1)條件: 依合約規定 (2)日期: 依合約規定 7.迄事實發生日為止，資金貸與餘額(仟元): 1,078,470 8.迄事實發生日為止，資金貸與餘額占公開發行公司最近期財務報表淨值之比率: 9.18 9.公司貸與他人資金之來源: 子公司本身 10.其他應敘明事項: 新增資金貸與金額為人民幣140,000元，依115/07/01台銀買進賣出即期平均匯率4.689， 折合新台幣為656,460仟元。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260709 | 2428 | 興勤 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | repeated_but_no_breakout | 1.事實發生日:115/07/08 2.公司名稱:興勤電子工業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:公佈本公司115年06月份自結合併營業收入(已扣除內部交易)。 6.因應措施:本公司115年06月份自結合併營業收入為新台幣973,436仟元，較去年同期 自結合併營收新台幣663,913仟元，增加46.62%。 115年01-06月份累計自結合併營業收入為新台幣4,757,503仟元，較去年同期累計自結 合併營收新台幣3,950,877仟元，增加20.42%。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 自結數尚未經會計師簽證，特此說明。 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 2428 | 興勤 | 7 | 2 | 5 | 9 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260709 | 2428 | 興勤 | 8 | 3 | 5 | 9 | 14 | repeated_but_no_breakout | 近 10 日上榜 9 次、近 20 日上榜 14 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 2428 | 興勤 | 36 | 0 | 5903510.0 | 0.0 |  | no_signal |
+| 20260709 | 2428 | 興勤 | 36 | 0 | 6566500.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

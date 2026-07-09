@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8464 億豐
 
 ## Metadata
-- generated_at: 2026-07-08 22:28:46 Asia/Taipei
+- generated_at: 2026-07-09 22:28:11 Asia/Taipei
 - stock_id: 8464
 - stock_name: 億豐
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 300
+- latest_price_date: 20260709
+- price_rows: 301
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 370.5
-- high: 375
-- low: 359
-- close: 359
-- volume: 256032
-- ma5: 369.7
-- ema23_primary: 352.23
-- distance_to_ema23_pct: 1.92
-- ma20: 353.38
-- ma60: 342.79
-- ma120: 365.84
-- return_5d: 0.56
-- return_20d: 7.81
-- volume_ratio: 0.29
-- distance_to_ma20_pct_auxiliary: 1.59
-- distance_to_high_60_pct: -5.65
+- date: 20260709
+- open: 355
+- high: 363
+- low: 355
+- close: 360
+- volume: 225387
+- ma5: 365.6
+- ema23_primary: 352.88
+- distance_to_ema23_pct: 2.02
+- ma20: 354.5
+- ma60: 342.51
+- ma120: 365.75
+- return_5d: -5.39
+- return_20d: 6.67
+- volume_ratio: 0.26
+- distance_to_ma20_pct_auxiliary: 1.55
+- distance_to_high_60_pct: -5.39
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,332,342.5,326,337.5,631983,328.14,2.85,320.7,345.19,0.51
 20260611,339.5,341,329.5,337,415987,328.88,2.47,321.15,344.12,0.34
 20260612,337.5,348.5,337.5,348.5,567283,330.52,5.44,322.82,343.22,0.49
 20260615,354,354,340.5,344,463820,331.64,3.73,324.23,342.35,0.41
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,367,375.5,365.5,370,507000,349.94,5.73,349.95,342.74,0.54
 20260707,366.5,371.5,366.5,370,719895,351.61,5.23,352.07,342.98,0.79
 20260708,370.5,375,359,359,256032,352.23,1.92,353.38,342.79,0.29
+20260709,355,363,355,360,225387,352.88,2.02,354.5,342.51,0.26
 ```
 
 ## Latest TDCC Snapshot
@@ -199,7 +199,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 8464 | 億豐 | 8 | 0 | 391370.0 | 0.0 |  | no_signal |
+| 20260709 | 8464 | 億豐 | 8 | 0 | 95850.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3702 大聯大
 
 ## Metadata
-- generated_at: 2026-07-08 22:27:24 Asia/Taipei
+- generated_at: 2026-07-09 22:27:04 Asia/Taipei
 - stock_id: 3702
 - stock_name: 大聯大
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 300
+- latest_price_date: 20260709
+- price_rows: 301
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 109
-- high: 110
-- low: 104.5
-- close: 105.5
-- volume: 6789094
-- ma5: 108.5
-- ema23_primary: 109.02
-- distance_to_ema23_pct: -3.23
-- ma20: 108.12
-- ma60: 108.76
-- ma120: 91.33
-- return_5d: -4.09
-- return_20d: -4.52
-- volume_ratio: 0.51
-- distance_to_ma20_pct_auxiliary: -2.43
-- distance_to_high_60_pct: -17.25
+- date: 20260709
+- open: 106.5
+- high: 109.5
+- low: 106.5
+- close: 106.5
+- volume: 6821826
+- ma5: 108.2
+- ema23_primary: 108.81
+- distance_to_ema23_pct: -2.12
+- ma20: 108
+- ma60: 108.93
+- ma120: 91.71
+- return_5d: -1.39
+- return_20d: -2.29
+- volume_ratio: 0.52
+- distance_to_ma20_pct_auxiliary: -1.39
+- distance_to_high_60_pct: -16.47
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,110,113.5,109,109,12426606,113,-3.54,115.95,103.38,0.82
 20260611,111,111.5,105.5,108.5,18045469,112.63,-3.66,115.83,103.82,1.18
 20260612,111.5,111.5,104,105,20657601,111.99,-6.24,115.58,104.07,1.3
 20260615,107,108.5,103.5,107.5,12127021,111.62,-3.69,115.42,104.31,0.76
@@ -160,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,110,112.5,109.5,110,8221000,109.37,0.58,108.33,108.32,0.56
 20260707,111.5,112.5,109,109,9681413,109.34,-0.31,108.38,108.61,0.7
 20260708,109,110,104.5,105.5,6789094,109.02,-3.23,108.12,108.76,0.51
+20260709,106.5,109.5,106.5,106.5,6821826,108.81,-2.12,108,108.93,0.52
 ```
 
 ## Latest TDCC Snapshot
@@ -194,18 +194,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 3702 | 大聯大 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | 1.董事會決議日期或發生變動日期:115/06/30 2.人員別（請輸入董事長或總經理）:董事長、副董事長 3.舊任者姓名: 董事長-黃偉祥；副董事長-葉福海 4.舊任者簡歷: 董事長-黃偉祥：大聯大控股所屬轉投資公司董事長、董事 副董事長-葉福海：大聯大控股所屬轉投資公司董事 5.新任者姓名: 董事長-黃偉祥、副董事長-葉福海 6.新任者簡歷: 董事長-黃偉祥：大聯大控股所屬轉投資公司董事長、董事 副董事長-葉福海：大聯大控股所屬轉投資公司董事 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因: 本公司現任第七屆董事於115年5月30日任期屆滿，於115年股東常會全面改 選，新任董事會選任董事長、副董事長。 9.新任生效日期:115/06/30 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260708 | 3702 | 大聯大 | revenue_breakout_low_response | 營收爆發低反應股 | 14.0 | 29.0 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | 1.董事會決議日期或發生變動日期:115/06/30 2.人員別（請輸入董事長或總經理）:董事長、副董事長 3.舊任者姓名: 董事長-黃偉祥；副董事長-葉福海 4.舊任者簡歷: 董事長-黃偉祥：大聯大控股所屬轉投資公司董事長、董事 副董事長-葉福海：大聯大控股所屬轉投資公司董事 5.新任者姓名: 董事長-黃偉祥、副董事長-葉福海 6.新任者簡歷: 董事長-黃偉祥：大聯大控股所屬轉投資公司董事長、董事 副董事長-葉福海：大聯大控股所屬轉投資公司董事 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因: 本公司現任第七屆董事於115年5月30日任期屆滿，於115年股東常會全面改 選，新任董事會選任董事長、副董事長。 9.新任生效日期:115/06/30 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260709 | 3702 | 大聯大 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | 1.董事會決議日期或發生變動日期:115/06/30 2.人員別（請輸入董事長或總經理）:董事長、副董事長 3.舊任者姓名: 董事長-黃偉祥；副董事長-葉福海 4.舊任者簡歷: 董事長-黃偉祥：大聯大控股所屬轉投資公司董事長、董事 副董事長-葉福海：大聯大控股所屬轉投資公司董事 5.新任者姓名: 董事長-黃偉祥、副董事長-葉福海 6.新任者簡歷: 董事長-黃偉祥：大聯大控股所屬轉投資公司董事長、董事 副董事長-葉福海：大聯大控股所屬轉投資公司董事 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因: 本公司現任第七屆董事於115年5月30日任期屆滿，於115年股東常會全面改 選，新任董事會選任董事長、副董事長。 9.新任生效日期:115/06/30 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):無；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260709 | 3702 | 大聯大 | revenue_breakout_low_response | 營收爆發低反應股 | 14.0 | 30.0 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | 1.董事會決議日期或發生變動日期:115/06/30 2.人員別（請輸入董事長或總經理）:董事長、副董事長 3.舊任者姓名: 董事長-黃偉祥；副董事長-葉福海 4.舊任者簡歷: 董事長-黃偉祥：大聯大控股所屬轉投資公司董事長、董事 副董事長-葉福海：大聯大控股所屬轉投資公司董事 5.新任者姓名: 董事長-黃偉祥、副董事長-葉福海 6.新任者簡歷: 董事長-黃偉祥：大聯大控股所屬轉投資公司董事長、董事 副董事長-葉福海：大聯大控股所屬轉投資公司董事 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因: 本公司現任第七屆董事於115年5月30日任期屆滿，於115年股東常會全面改 選，新任董事會選任董事長、副董事長。 9.新任生效日期:115/06/30 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):無；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 3702 | 大聯大 | 26 | 5 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260709 | 3702 | 大聯大 | 27 | 6 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 3702 | 大聯大 | 28 | 0 | 1711340.0 | 0.0 |  | no_signal |
+| 20260709 | 3702 | 大聯大 | 28 | 0 | 1250310.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2305 全友
 
 ## Metadata
-- generated_at: 2026-07-08 22:26:38 Asia/Taipei
+- generated_at: 2026-07-09 22:26:28 Asia/Taipei
 - stock_id: 2305
 - stock_name: 全友
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 300
+- latest_price_date: 20260709
+- price_rows: 301
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -58,7 +58,7 @@
 - pdf_visible: true
 - action_rating_display_zh: 等待回檔
 - model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前還沒有新的第一筆買點，需等待回檔或站回條件成立。
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前還沒有新的第一筆買點，需等待回檔或站回條件成立。
 - action_summary_zh: 營收成長股價回檔 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。
 - entry_strategy_zh: 目前等待回檔，不建立新部位；回測支撐或 23EMA 不破後再評估。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
@@ -86,7 +86,6 @@
 
 ### entry_prerequisites
 - model_recommended
-- decision_score_high
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -112,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 37.8
-- high: 37.9
-- low: 34.85
-- close: 35.15
-- volume: 6166650
-- ma5: 38.52
-- ema23_primary: 33.46
-- distance_to_ema23_pct: 5.06
-- ma20: 34.2
-- ma60: 23.86
-- ma120: 19.05
-- return_5d: -7.5
-- return_20d: 52.83
-- volume_ratio: 0.98
-- distance_to_ma20_pct_auxiliary: 2.79
-- distance_to_high_60_pct: -17.59
+- date: 20260709
+- open: 34.8
+- high: 37.7
+- low: 33.55
+- close: 36
+- volume: 5351004
+- ma5: 38.2
+- ema23_primary: 33.67
+- distance_to_ema23_pct: 6.92
+- ma20: 34.87
+- ma60: 24.16
+- ma120: 19.25
+- return_5d: -4.26
+- return_20d: 58.94
+- volume_ratio: 0.89
+- distance_to_ma20_pct_auxiliary: 3.26
+- distance_to_high_60_pct: -15.59
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,23,25.3,22.45,22.65,11663519,20.87,8.53,20.67,17.9,1.58
 20260611,22.7,23.3,21.6,22.85,4698556,21.03,8.63,21,18.03,0.62
 20260612,23.3,25.1,22.85,25.1,9609252,21.37,17.44,21.43,18.21,1.22
 20260615,27.6,27.6,27.6,27.6,1301064,21.89,26.07,21.98,18.41,0.17
@@ -154,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,40.5,42.65,40.5,42.65,2831000,32.84,29.87,32.8,23.26,0.46
 20260707,42.5,42.65,38.4,38.4,3357662,33.3,15.3,33.59,23.6,0.55
 20260708,37.8,37.9,34.85,35.15,6166650,33.46,5.06,34.2,23.86,0.98
+20260709,34.8,37.7,33.55,36,5351004,33.67,6.92,34.87,24.16,0.89
 ```
 
 ## Latest TDCC Snapshot
@@ -188,12 +187,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 2305 | 全友 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260709 | 2305 | 全友 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | continued_overheated | 營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 2305 | 全友 | 1 | 1 | 2 | 2 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260709 | 2305 | 全友 | 2 | 2 | 3 | 3 | 12 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

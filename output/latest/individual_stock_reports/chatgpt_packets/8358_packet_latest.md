@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8358 金居
 
 ## Metadata
-- generated_at: 2026-07-08 22:28:43 Asia/Taipei
+- generated_at: 2026-07-09 22:28:09 Asia/Taipei
 - stock_id: 8358
 - stock_name: 金居
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 165
+- latest_price_date: 20260709
+- price_rows: 166
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -119,29 +119,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 523
-- high: 534
-- low: 509
-- close: 523
-- volume: 6591000
-- ma5: 553.8
-- ema23_primary: 576.17
-- distance_to_ema23_pct: -9.23
-- ma20: 597.65
-- ma60: 508.53
-- ma120: 383.62
-- return_5d: -10.9
-- return_20d: -14.26
-- volume_ratio: 0.79
-- distance_to_ma20_pct_auxiliary: -12.49
-- distance_to_high_60_pct: -31
+- date: 20260709
+- open: 534
+- high: 563
+- low: 529
+- close: 533
+- volume: 8964000
+- ma5: 546.4
+- ema23_primary: 572.57
+- distance_to_ema23_pct: -6.91
+- ma20: 596.55
+- ma60: 512.16
+- ma120: 385.8
+- return_5d: -6.49
+- return_20d: -3.96
+- volume_ratio: 1.03
+- distance_to_ma20_pct_auxiliary: -10.65
+- distance_to_high_60_pct: -29.68
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,596,605,555,555,1797000,534.91,3.75,538.73,397.65,0.57
 20260611,555,564,510,540,3154000,535.34,0.87,544.38,402.48,1.77
 20260612,579,584,562,574,1869000,538.56,6.58,553.6,407.67,1.08
 20260615,594,625,594,624,1740000,545.68,14.35,563.4,413.51,1.05
@@ -161,6 +160,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,596,608,560,563,9843000,586.27,-3.97,605.15,500.44,1.27
 20260707,561,568,513,523,10330000,581,-9.98,602,504.6,1.27
 20260708,523,534,509,523,6591000,576.17,-9.23,597.65,508.53,0.79
+20260709,534,563,529,533,8964000,572.57,-6.91,596.55,512.16,1.03
 ```
 
 ## Latest TDCC Snapshot
@@ -195,12 +195,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 8358 | 金居 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  |  | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/01 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.發放普通股股利種類及金額:盈餘分配現金股利新台幣504,982,000元 4.除權（息）交易日:115/07/17 5.最後過戶日:115/07/20 6.停止過戶起始日期:115/07/21 7.停止過戶截止日期:115/07/25 8.除權（息）基準日:115/07/25 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/20 13.其他應敘明事項:現金股利以匯款或掛號郵寄支票方式發放，匯費及郵費由股東支付。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260709 | 8358 | 金居 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  |  | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/01 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.發放普通股股利種類及金額:盈餘分配現金股利新台幣504,982,000元 4.除權（息）交易日:115/07/17 5.最後過戶日:115/07/20 6.停止過戶起始日期:115/07/21 7.停止過戶截止日期:115/07/25 8.除權（息）基準日:115/07/25 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/20 13.其他應敘明事項:現金股利以匯款或掛號郵寄支票方式發放，匯費及郵費由股東支付。；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 8358 | 金居 | 13 | 11 | 5 | 10 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260709 | 8358 | 金居 | 14 | 12 | 5 | 10 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

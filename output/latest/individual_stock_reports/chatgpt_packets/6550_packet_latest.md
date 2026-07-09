@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6550 北極星藥業-KY
 
 ## Metadata
-- generated_at: 2026-07-08 22:28:10 Asia/Taipei
+- generated_at: 2026-07-09 22:27:41 Asia/Taipei
 - stock_id: 6550
 - stock_name: 北極星藥業-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 300
+- latest_price_date: 20260709
+- price_rows: 301
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 營收成長股價回檔
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 13.55
-- high: 13.7
-- low: 13.25
-- close: 13.4
-- volume: 759532
-- ma5: 13.53
-- ema23_primary: 13.65
-- distance_to_ema23_pct: -1.8
+- date: 20260709
+- open: 13.4
+- high: 13.4
+- low: 12.85
+- close: 13
+- volume: 1201133
+- ma5: 13.5
+- ema23_primary: 13.59
+- distance_to_ema23_pct: -4.35
 - ma20: 13.31
-- ma60: 15.38
-- ma120: 21.4
-- return_5d: 0
-- return_20d: 1.9
-- volume_ratio: 0.56
-- distance_to_ma20_pct_auxiliary: 0.7
-- distance_to_high_60_pct: -33.33
+- ma60: 15.3
+- ma120: 21.25
+- return_5d: -1.14
+- return_20d: 0
+- volume_ratio: 0.89
+- distance_to_ma20_pct_auxiliary: -2.31
+- distance_to_high_60_pct: -35.32
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,13.15,13.25,12.95,13,1101474,14.8,-12.17,14.71,17.51,0.41
 20260611,13.15,13.55,12.95,13.45,1490130,14.69,-8.43,14.53,17.38,0.57
 20260612,13.55,13.55,13.05,13.2,1181195,14.56,-9.37,14.35,17.2,0.46
 20260615,13.35,13.35,13,13.2,937492,14.45,-8.66,14.2,17.04,0.37
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,13.85,14.15,13.55,13.85,1343000,13.68,1.25,13.28,15.54,0.97
 20260707,14,14,13.4,13.55,1451435,13.67,-0.86,13.29,15.46,1.05
 20260708,13.55,13.7,13.25,13.4,759532,13.65,-1.8,13.31,15.38,0.56
+20260709,13.4,13.4,12.85,13,1201133,13.59,-4.35,13.31,15.3,0.89
 ```
 
 ## Latest TDCC Snapshot
@@ -187,14 +187,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260709 | 6550 | 北極星藥業-KY | revenue_pullback | 營收成長股價回檔 | 50.0 |  |  |  |  |  | repeated_but_no_breakout | 1.事實發生日:115/07/01 2.接受資金貸與之: (1)公司名稱:迪瑞藥業(成都)有限公司 (2)與資金貸與他人公司之關係: 本公司直接或間接100%持有之子公司 (3)資金貸與之限額(仟元):480,000 (4)原資金貸與之餘額(仟元):0 (5)本次新增資金貸與之金額(仟元):414,050 (6)是否為董事會授權董事長對同一貸與對象分次撥貸或循環動用之資金貸與:是 (7)迄事實發生日止資金貸與餘額(仟元):414,050 (8)本次新增資金貸與之原因: 供應子公司之短期資金需求 (1)公司名稱:霖揚生技製藥股份有限公司 (2)與資金貸與他人公司之關係: 供應子公司之短期資金需求 (3)資金貸與之限額(仟元):480,000 (4)原資金貸與之餘額(仟元):0 (5)本次新增資金貸與之金額(仟元):414,050 (6)是否為董事會授權董事長對同一貸與對象分次撥貸或循環動用之資金貸與:是 (7)迄事實發生日止資金貸與餘額(仟元):414,050 (8)本次新增資金貸與之原因: 供應子公司之短期資金需求 3.接受資金貸與公司所提供擔保品之: (1)內容: 無 (2)價值(仟元):0 4.接受資金貸與公司最近期財務報表之: (1)資本(仟元):3,775,491 (2)累積盈虧金額(仟元):-3,121,537 5.計息方式: 待實際借款時視當時利率訂定之 6.還款之: (1)條件: 到期時還款 (2)日期: 由起借日起一年內還款 7.迄事實發生日為止，資金貸與餘額(仟元): 923,650 8.迄事實發生日為止，資金貸與餘額占公開發行公司最近期財務報表淨值之比率: 19.24 9.公司貸與他人資金之來源: 母公司 10.其他應敘明事項: 無；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260709 | 6550 | 北極星藥業-KY | 1 | 1 | 4 | 8 | 13 | repeated_but_no_breakout | 近 10 日上榜 8 次、近 20 日上榜 13 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

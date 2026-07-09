@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00905 FT臺灣Smart
 
 ## Metadata
-- generated_at: 2026-07-08 22:26:10 Asia/Taipei
+- generated_at: 2026-07-09 22:26:07 Asia/Taipei
 - stock_id: 00905
 - stock_name: FT臺灣Smart
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260708
-- price_rows: 33
+- latest_price_date: 20260709
+- price_rows: 34
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 27.74
-- high: 27.8
-- low: 27.25
-- close: 27.49
-- volume: 4056843
-- ma5: 28.24
-- ema23_primary: 27.83
-- distance_to_ema23_pct: -1.21
-- ma20: 27.96
+- date: 20260709
+- open: 27.52
+- high: 27.94
+- low: 27.45
+- close: 27.55
+- volume: 1929994
+- ma5: 28
+- ema23_primary: 27.8
+- distance_to_ema23_pct: -0.91
+- ma20: 28.02
 - ma60: 27.59
 - ma120: 27.59
-- return_5d: -4.32
-- return_20d: 0.77
-- volume_ratio: 1.65
+- return_5d: -4.17
+- return_20d: 4.63
+- volume_ratio: 0.8
 - distance_to_ma20_pct_auxiliary: -1.69
-- distance_to_high_60_pct: -7
+- distance_to_high_60_pct: -6.8
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,27.14,27.31,26.33,26.33,3136124,26.54,-0.8,26.97,26.97,1.48
 20260611,26.25,26.65,25.48,26.29,2020091,26.52,-0.87,26.93,26.93,0.96
 20260612,27.3,27.34,26.89,26.93,1009949,26.56,1.41,26.93,26.93,0.49
 20260615,27.69,27.8,27.59,27.7,995685,26.65,3.94,26.97,26.97,0.5
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,29.03,29.05,28.36,28.61,4220000,27.87,2.64,27.88,27.59,1.94
 20260707,28.67,28.71,27.59,27.67,6415832,27.86,-0.67,27.95,27.59,2.76
 20260708,27.74,27.8,27.25,27.49,4056843,27.83,-1.21,27.96,27.59,1.65
+20260709,27.52,27.94,27.45,27.55,1929994,27.8,-0.91,28.02,27.59,0.8
 ```
 
 ## Latest TDCC Snapshot

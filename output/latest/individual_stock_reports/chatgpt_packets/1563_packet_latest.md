@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1563 巧新
 
 ## Metadata
-- generated_at: 2026-07-08 22:26:24 Asia/Taipei
+- generated_at: 2026-07-09 22:26:18 Asia/Taipei
 - stock_id: 1563
 - stock_name: 巧新
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 300
+- latest_price_date: 20260709
+- price_rows: 301
 - latest_tdcc_date: 20260703
 - tdcc_rows: 32
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 70.5
-- high: 70.9
-- low: 68.8
-- close: 69
-- volume: 3368966
-- ma5: 69.02
-- ema23_primary: 64.4
-- distance_to_ema23_pct: 7.15
-- ma20: 64.98
-- ma60: 54.15
-- ma120: 49.2
-- return_5d: 9.7
-- return_20d: 11.29
-- volume_ratio: 1.21
-- distance_to_ma20_pct_auxiliary: 6.18
-- distance_to_high_60_pct: -5.87
+- date: 20260709
+- open: 68.5
+- high: 70.2
+- low: 66.6
+- close: 67.7
+- volume: 2633251
+- ma5: 69.74
+- ema23_primary: 64.67
+- distance_to_ema23_pct: 4.68
+- ma20: 65.47
+- ma60: 54.56
+- ma120: 49.37
+- return_5d: 5.62
+- return_20d: 16.72
+- volume_ratio: 0.92
+- distance_to_ma20_pct_auxiliary: 3.41
+- distance_to_high_60_pct: -7.64
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,60.7,62,57.8,58,1154064,56.33,2.97,55.85,46.51,0.46
 20260611,57.5,60,57,60,567633,56.63,5.95,56.58,46.83,0.23
 20260612,61.7,61.7,60,60.1,702611,56.92,5.58,57.34,47.15,0.28
 20260615,61,64.6,61,64,1154641,57.51,11.28,58.29,47.53,0.46
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,69.8,73.3,69,71,5214000,63.38,12.01,64.14,53.24,1.99
 20260707,70.2,72.9,69.8,70.5,3325124,63.98,10.19,64.64,53.71,1.23
 20260708,70.5,70.9,68.8,69,3368966,64.4,7.15,64.98,54.15,1.21
+20260709,68.5,70.2,66.6,67.7,2633251,64.67,4.68,65.47,54.56,0.92
 ```
 
 ## Latest TDCC Snapshot
@@ -190,12 +191,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 1563 | 巧新 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | 1.董事會決議日期:NA 2.減資基準日:115/07/07 3.減資換發股票作業計畫:俟經濟部變更登記核准後，另行公告之。 4.換發股票基準日:NA 5.停止過戶起始日期:NA 6.停止過戶截止日期:NA 7.減資後新股權利義務:與原發行股份相同 8.新股預計上市日:NA 9.預計減資新股上市後之上市普通股股數:169,206,105股 10.預計減資新股上市後之上市普通股股數占已發行普通股比率  （減資後上市普通股股數/減資後已發行普通股股數）:100% 11.前二項預計減資後上巿普通股股數未達6000萬股且未達25%者，   請說明股權流通性偏低之因應措施:不適用 12.其他應敘明事項: (1)本公司於民國115年5月20日經股東常會決議通過現金減資案， 並授權董事長訂定減資基準日。俟呈奉經濟部核准減資變更登記後， 授權董事長全權處理減資換發股票作業計畫，並訂定減資換發股票基準日及 新股預計上市買賣日等相關事宜及公告。 (2)本案業經臺灣證券交易所股份有限公司民國115年07月07日 臺證上一字第1150011772號函核准在案。；calendar event: ex_dividend on 20260715; status=confirmed; proximity=within_7d |
+| 20260709 | 1563 | 巧新 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | 1.董事會決議日期:NA 2.減資基準日:115/07/07 3.減資換發股票作業計畫:俟經濟部變更登記核准後，另行公告之。 4.換發股票基準日:NA 5.停止過戶起始日期:NA 6.停止過戶截止日期:NA 7.減資後新股權利義務:與原發行股份相同 8.新股預計上市日:NA 9.預計減資新股上市後之上市普通股股數:169,206,105股 10.預計減資新股上市後之上市普通股股數占已發行普通股比率  （減資後上市普通股股數/減資後已發行普通股股數）:100% 11.前二項預計減資後上巿普通股股數未達6000萬股且未達25%者，   請說明股權流通性偏低之因應措施:不適用 12.其他應敘明事項: (1)本公司於民國115年5月20日經股東常會決議通過現金減資案， 並授權董事長訂定減資基準日。俟呈奉經濟部核准減資變更登記後， 授權董事長全權處理減資換發股票作業計畫，並訂定減資換發股票基準日及 新股預計上市買賣日等相關事宜及公告。 (2)本案業經臺灣證券交易所股份有限公司民國115年07月07日 臺證上一字第1150011772號函核准在案。；calendar event: ex_dividend on 20260715; status=confirmed; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 1563 | 巧新 | 4 | 1 | 4 | 7 | 9 | repeated_but_no_breakout | 近 10 日上榜 7 次、近 20 日上榜 9 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260709 | 1563 | 巧新 | 5 | 2 | 5 | 8 | 10 | repeated_but_no_breakout | 近 10 日上榜 8 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

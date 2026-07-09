@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2034 允強
 
 ## Metadata
-- generated_at: 2026-07-08 22:26:34 Asia/Taipei
+- generated_at: 2026-07-09 22:26:25 Asia/Taipei
 - stock_id: 2034
 - stock_name: 允強
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 300
+- latest_price_date: 20260709
+- price_rows: 301
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 20.65
-- high: 20.8
-- low: 20.3
-- close: 20.4
-- volume: 1033943
-- ma5: 20.43
-- ema23_primary: 20.36
-- distance_to_ema23_pct: 0.2
-- ma20: 20.39
+- date: 20260709
+- open: 20.4
+- high: 20.75
+- low: 20.4
+- close: 20.55
+- volume: 1173602
+- ma5: 20.53
+- ema23_primary: 20.37
+- distance_to_ema23_pct: 0.86
+- ma20: 20.42
 - ma60: 20.47
 - ma120: 20.62
-- return_5d: 2
-- return_20d: 1.75
-- volume_ratio: 0.66
-- distance_to_ma20_pct_auxiliary: 0.05
-- distance_to_high_60_pct: -7.27
+- return_5d: 2.49
+- return_20d: 3.01
+- volume_ratio: 0.75
+- distance_to_ma20_pct_auxiliary: 0.64
+- distance_to_high_60_pct: -6.59
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,19.95,20.2,19.95,19.95,1456442,20.25,-1.47,20.08,20.46,0.84
 20260611,20.15,20.15,19.7,20.05,1342738,20.23,-0.89,20.08,20.46,0.78
 20260612,20.05,20.5,20.05,20.25,2599497,20.23,0.09,20.1,20.46,1.47
 20260615,20.8,21.15,20.6,20.8,3022426,20.28,2.57,20.16,20.46,1.64
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,20.45,20.75,20.45,20.6,1248000,20.33,1.34,20.34,20.47,0.78
 20260707,20.6,20.9,20.55,20.65,1945394,20.35,1.45,20.37,20.47,1.23
 20260708,20.65,20.8,20.3,20.4,1033943,20.36,0.2,20.39,20.47,0.66
+20260709,20.4,20.75,20.4,20.55,1173602,20.37,0.86,20.42,20.47,0.75
 ```
 
 ## Latest TDCC Snapshot
@@ -188,17 +188,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 2034 | 允強 | pattern | 型態觀察 | 51.0 |  |  | base_building |  | no_signal | stale_signal | 1.事實發生日:115/07/02 2.公司名稱:允強實業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:本公司發行國內第四次無擔保轉換公司債轉換價格之調整。 6.因應措施:無。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): (1)依據本公司國內第四次無擔保轉換公司債發行及轉換辦法第十一條 規定辦理。 (2)為配合本公司除息基準日，自115年07月23日起本公司發行國內第四次無擔保轉換 公司債轉換之價格依上述辦法計算後調整為22.8元。；calendar event: ex_dividend on 20260716; status=confirmed; proximity=within_14d |
+| 20260709 | 2034 | 允強 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | 1.事實發生日:115/07/02 2.公司名稱:允強實業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:本公司發行國內第四次無擔保轉換公司債轉換價格之調整。 6.因應措施:無。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): (1)依據本公司國內第四次無擔保轉換公司債發行及轉換辦法第十一條 規定辦理。 (2)為配合本公司除息基準日，自115年07月23日起本公司發行國內第四次無擔保轉換 公司債轉換之價格依上述辦法計算後調整為22.8元。；calendar event: ex_dividend on 20260716; status=confirmed; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 2034 | 允強 | 4 | 1 | 4 | 4 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260709 | 2034 | 允強 | 5 | 2 | 5 | 5 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 2034 | 允強 | 6 | 0 | 68130.0 | 0.0 |  | no_signal |
+| 20260709 | 2034 | 允強 | 6 | 0 | 0.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

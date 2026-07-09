@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5438 東友
 
 ## Metadata
-- generated_at: 2026-07-08 22:27:47 Asia/Taipei
+- generated_at: 2026-07-09 22:27:23 Asia/Taipei
 - stock_id: 5438
 - stock_name: 東友
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 165
+- latest_price_date: 20260709
+- price_rows: 166
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 19.25
-- high: 19.25
+- date: 20260709
+- open: 19.35
+- high: 19.35
 - low: 19
-- close: 19.2
-- volume: 50000
-- ma5: 19.35
+- close: 19.15
+- volume: 54000
+- ma5: 19.36
 - ema23_primary: 19.12
-- distance_to_ema23_pct: 0.44
-- ma20: 19.03
-- ma60: 19.12
-- ma120: 20.21
-- return_5d: 4.63
-- return_20d: -0.26
-- volume_ratio: 0.26
-- distance_to_ma20_pct_auxiliary: 0.91
-- distance_to_high_60_pct: -8.57
+- distance_to_ema23_pct: 0.17
+- ma20: 19.04
+- ma60: 19.13
+- ma120: 20.18
+- return_5d: 0.26
+- return_20d: 1.32
+- volume_ratio: 0.28
+- distance_to_ma20_pct_auxiliary: 0.58
+- distance_to_high_60_pct: -8.81
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,19.2,19.2,18.7,18.9,73000,19.27,-1.91,19.11,19.32,1.66
 20260611,18.7,18.9,18.65,18.65,66000,19.22,-2.95,19.11,19.29,1.61
 20260612,19.15,19.15,18.7,18.7,80000,19.17,-2.47,19.12,19.26,1.96
 20260615,18.8,19.15,18.8,19.15,92000,19.17,-0.11,19.15,19.24,2.17
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,20,20.25,19.7,19.7,284000,19.1,3.15,19.04,19.12,1.52
 20260707,19.85,20,19.05,19.2,225000,19.11,0.48,19.03,19.12,1.16
 20260708,19.25,19.25,19,19.2,50000,19.12,0.44,19.03,19.12,0.26
+20260709,19.35,19.35,19,19.15,54000,19.12,0.17,19.04,19.13,0.28
 ```
 
 ## Latest TDCC Snapshot

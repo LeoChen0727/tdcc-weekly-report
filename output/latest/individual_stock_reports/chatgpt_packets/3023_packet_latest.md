@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3023 信邦
 
 ## Metadata
-- generated_at: 2026-07-08 22:27:03 Asia/Taipei
+- generated_at: 2026-07-09 22:26:48 Asia/Taipei
 - stock_id: 3023
 - stock_name: 信邦
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 300
+- latest_price_date: 20260709
+- price_rows: 301
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 324.5
-- high: 327.5
-- low: 319
-- close: 319.5
-- volume: 1403833
-- ma5: 328.4
-- ema23_primary: 321.33
-- distance_to_ema23_pct: -0.57
-- ma20: 321.23
-- ma60: 306.02
-- ma120: 269.01
-- return_5d: -4.05
-- return_20d: -2.89
-- volume_ratio: 0.63
-- distance_to_ma20_pct_auxiliary: -0.54
-- distance_to_high_60_pct: -9.62
+- date: 20260709
+- open: 321
+- high: 333
+- low: 320.5
+- close: 326
+- volume: 1797993
+- ma5: 327.6
+- ema23_primary: 321.72
+- distance_to_ema23_pct: 1.33
+- ma20: 322.2
+- ma60: 306.99
+- ma120: 270.09
+- return_5d: -1.21
+- return_20d: 6.36
+- volume_ratio: 0.83
+- distance_to_ma20_pct_auxiliary: 1.18
+- distance_to_high_60_pct: -7.78
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,322,329.5,305.5,306.5,3032827,309.47,-0.96,310.77,286.18,1.25
 20260611,306.5,310.5,297,308,1486028,309.35,-0.44,311.52,287.31,0.61
 20260612,315.5,317,310.5,314,711992,309.73,1.38,313.18,288.46,0.3
 20260615,316,319,314,319,975813,310.51,2.74,314.43,289.6,0.43
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,337.5,338.5,320.5,331,3411000,321.17,3.06,321.57,304.4,1.45
 20260707,345,349,325,325,3846533,321.49,1.09,321.7,305.25,1.67
 20260708,324.5,327.5,319,319.5,1403833,321.33,-0.57,321.23,306.02,0.63
+20260709,321,333,320.5,326,1797993,321.72,1.33,322.2,306.99,0.83
 ```
 
 ## Latest TDCC Snapshot
@@ -188,17 +188,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 3023 | 信邦 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.事實發生日:115/07/06 2.公司名稱:信邦電子股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:澄清07/06工商時報 B03版 6.報導內容:信邦預期…預估信邦今年上半年每股稅後純益落在7~7.5元，全年應有 機會達14元…可望連六年獲利突破1個股本… 7.發生緣由:應證交所要求澄清上述內容 8.因應措施:本公司未自願公告財測,投資人應以本公司公告之財務數據為準,特此澄清 9.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260709 | 3023 | 信邦 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_strong_inflow | stale_signal | 1.事實發生日:115/07/06 2.公司名稱:信邦電子股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:澄清07/06工商時報 B03版 6.報導內容:信邦預期…預估信邦今年上半年每股稅後純益落在7~7.5元，全年應有 機會達14元…可望連六年獲利突破1個股本… 7.發生緣由:應證交所要求澄清上述內容 8.因應措施:本公司未自願公告財測,投資人應以本公司公告之財務數據為準,特此澄清 9.其他應敘明事項:無 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 3023 | 信邦 | 8 | 3 | 5 | 9 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260709 | 3023 | 信邦 | 9 | 4 | 5 | 9 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 3023 | 信邦 | 17 | 0 | 1908030.0 | 0.0 |  | no_signal |
+| 20260709 | 3023 | 信邦 | 17 | 0 | 4004320.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

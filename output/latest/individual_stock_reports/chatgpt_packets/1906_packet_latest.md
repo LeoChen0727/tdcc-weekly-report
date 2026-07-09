@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1906 寶隆
 
 ## Metadata
-- generated_at: 2026-07-08 22:26:31 Asia/Taipei
+- generated_at: 2026-07-09 22:26:23 Asia/Taipei
 - stock_id: 1906
 - stock_name: 寶隆
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 300
+- latest_price_date: 20260709
+- price_rows: 301
 - latest_tdcc_date: 20260703
 - tdcc_rows: 32
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 11.45
-- high: 11.45
-- low: 11.1
+- date: 20260709
+- open: 11.2
+- high: 11.35
+- low: 11.2
 - close: 11.3
-- volume: 75588
-- ma5: 11.36
+- volume: 31538
+- ma5: 11.38
 - ema23_primary: 11.22
-- distance_to_ema23_pct: 0.73
-- ma20: 11.26
-- ma60: 11.13
-- ma120: 11.46
-- return_5d: 2.26
+- distance_to_ema23_pct: 0.67
+- ma20: 11.27
+- ma60: 11.12
+- ma120: 11.45
+- return_5d: 0.89
 - return_20d: 1.35
-- volume_ratio: 0.45
-- distance_to_ma20_pct_auxiliary: 0.36
+- volume_ratio: 0.22
+- distance_to_ma20_pct_auxiliary: 0.29
 - distance_to_high_60_pct: -9.96
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,11.05,11.6,11.05,11.15,474203,10.96,1.75,10.71,11.27,1.36
 20260611,11,11.2,10.95,11.05,269713,10.97,0.76,10.72,11.27,0.76
 20260612,11.1,11.2,11.1,11.2,81636,10.99,1.95,10.76,11.27,0.23
 20260615,11.2,11.3,11.1,11.3,77961,11.01,2.62,10.79,11.27,0.22
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,11.55,11.65,11.45,11.55,156000,11.2,3.1,11.27,11.15,0.59
 20260707,11.6,11.6,11.25,11.3,131862,11.21,0.8,11.25,11.14,0.58
 20260708,11.45,11.45,11.1,11.3,75588,11.22,0.73,11.26,11.13,0.45
+20260709,11.2,11.35,11.2,11.3,31538,11.22,0.67,11.27,11.12,0.22
 ```
 
 ## Latest TDCC Snapshot

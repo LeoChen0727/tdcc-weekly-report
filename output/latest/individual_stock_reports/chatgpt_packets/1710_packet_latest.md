@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1710 東聯
 
 ## Metadata
-- generated_at: 2026-07-08 22:26:27 Asia/Taipei
+- generated_at: 2026-07-09 22:26:20 Asia/Taipei
 - stock_id: 1710
 - stock_name: 東聯
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 300
+- latest_price_date: 20260709
+- price_rows: 301
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 17.4
-- high: 17.65
-- low: 16.9
-- close: 17.3
-- volume: 7642554
-- ma5: 18.11
-- ema23_primary: 15.76
-- distance_to_ema23_pct: 9.75
-- ma20: 15.31
-- ma60: 13.96
-- ma120: 13.72
-- return_5d: -5.98
-- return_20d: 18.09
-- volume_ratio: 0.52
-- distance_to_ma20_pct_auxiliary: 13
-- distance_to_high_60_pct: -14.14
+- date: 20260709
+- open: 17.1
+- high: 17.25
+- low: 16.25
+- close: 16.4
+- volume: 10534789
+- ma5: 17.71
+- ema23_primary: 15.82
+- distance_to_ema23_pct: 3.69
+- ma20: 15.42
+- ma60: 13.99
+- ma120: 13.75
+- return_5d: -10.87
+- return_20d: 15.09
+- volume_ratio: 0.71
+- distance_to_ma20_pct_auxiliary: 6.37
+- distance_to_high_60_pct: -18.61
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,14.45,14.55,14.2,14.25,6869835,13.88,2.67,13.54,13.65,0.67
 20260611,13.9,14,13.2,13.4,11180103,13.84,-3.17,13.61,13.65,1.04
 20260612,13.4,13.7,13.3,13.55,5363869,13.81,-1.92,13.71,13.65,0.49
 20260615,13.75,13.9,13.7,13.75,3630747,13.81,-0.43,13.82,13.66,0.33
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,19.75,20.15,18.6,18.65,24015000,15.47,20.58,15.04,13.85,1.69
 20260707,18.4,18.45,17.15,17.35,18259125,15.62,11.05,15.18,13.91,1.25
 20260708,17.4,17.65,16.9,17.3,7642554,15.76,9.75,15.31,13.96,0.52
+20260709,17.1,17.25,16.25,16.4,10534789,15.82,3.69,15.42,13.99,0.71
 ```
 
 ## Latest TDCC Snapshot
@@ -198,7 +199,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 1710 | 東聯 | 17 | 0 | 843400.0 | 0.0 |  | no_signal |
+| 20260709 | 1710 | 東聯 | 17 | 0 | 700270.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

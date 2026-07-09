@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6986 和迅
 
 ## Metadata
-- generated_at: 2026-07-08 22:28:26 Asia/Taipei
+- generated_at: 2026-07-09 22:27:54 Asia/Taipei
 - stock_id: 6986
 - stock_name: 和迅
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260708
-- price_rows: 9
+- latest_price_date: 20260709
+- price_rows: 10
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 49.5
-- high: 49.6
-- low: 47.5
-- close: 47.55
-- volume: 178000
-- ma5: 49.18
-- ema23_primary: 48.21
-- distance_to_ema23_pct: -1.36
-- ma20: 48.18
-- ma60: 48.18
-- ma120: 48.18
-- return_5d: 0.53
+- date: 20260709
+- open: 47.55
+- high: 47.8
+- low: 46.9
+- close: 47
+- volume: 76000
+- ma5: 49.16
+- ema23_primary: 48.11
+- distance_to_ema23_pct: -2.3
+- ma20: 48.06
+- ma60: 48.06
+- ma120: 48.06
+- return_5d: -0.21
 - return_20d:
-- volume_ratio: 0.33
-- distance_to_ma20_pct_auxiliary: -1.31
-- distance_to_high_60_pct: -10.11
+- volume_ratio: 0.15
+- distance_to_ma20_pct_auxiliary: -2.22
+- distance_to_high_60_pct: -11.15
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -144,6 +144,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,51,52.9,50,51.1,429000,48.15,6.13,48.08,48.08,0.68
 20260707,51,51.6,49.5,49.55,288000,48.27,2.66,48.26,48.26,0.49
 20260708,49.5,49.6,47.5,47.55,178000,48.21,-1.36,48.18,48.18,0.33
+20260709,47.55,47.8,46.9,47,76000,48.11,-2.3,48.06,48.06,0.15
 ```
 
 ## Latest TDCC Snapshot

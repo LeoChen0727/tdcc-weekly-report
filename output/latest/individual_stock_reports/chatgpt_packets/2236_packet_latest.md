@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2236 百達-KY
 
 ## Metadata
-- generated_at: 2026-07-08 22:26:37 Asia/Taipei
+- generated_at: 2026-07-09 22:26:28 Asia/Taipei
 - stock_id: 2236
 - stock_name: 百達-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 300
+- latest_price_date: 20260709
+- price_rows: 301
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「高位派發風險」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 轉弱警訊、股價乖離過大
+- risk_control_zh: 股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「高位派發風險」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊、股價乖離過大
+- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -74,7 +74,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: high_level_distribution_risk
+- thesis_state: high_level_consolidation
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -89,6 +89,7 @@
 ### entry_prerequisites
 - price_structure_not_broken
 - revenue_not_deteriorating
+- no_major_tdcc_warning
 - no_major_volume_price_failure
 
 ### post_entry_watch_items
@@ -102,7 +103,6 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- tdcc_distribution_warning
 - price_too_extended
 
 ### chatgpt_instruction
@@ -111,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 185
-- high: 186
-- low: 170.5
-- close: 175.5
-- volume: 1255345
-- ma5: 179.1
-- ema23_primary: 153.68
-- distance_to_ema23_pct: 14.19
-- ma20: 148.62
-- ma60: 139.76
-- ma120: 126.29
-- return_5d: 9.01
-- return_20d: 30.97
-- volume_ratio: 1.59
-- distance_to_ma20_pct_auxiliary: 18.08
-- distance_to_high_60_pct: -7.39
+- date: 20260709
+- open: 177
+- high: 179.5
+- low: 174
+- close: 176
+- volume: 406948
+- ma5: 180.8
+- ema23_primary: 155.54
+- distance_to_ema23_pct: 13.15
+- ma20: 150.72
+- ma60: 140.57
+- ma120: 126.78
+- return_5d: 5.07
+- return_20d: 31.34
+- volume_ratio: 0.51
+- distance_to_ma20_pct_auxiliary: 16.77
+- distance_to_high_60_pct: -7.12
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,134,135.5,131.5,134,339145,136.42,-1.78,137.7,127.97,0.76
 20260611,131.5,134,131,134,168887,136.22,-1.63,137.47,128.34,0.39
 20260612,134,135,126,132,950963,135.87,-2.85,137.4,128.68,2.06
 20260615,132,137,132,133.5,288229,135.67,-1.6,137.3,129.07,0.63
@@ -153,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,188,189,180.5,184,1652000,148.72,23.72,144.07,137.8,2.37
 20260707,186,189.5,181,184.5,1462876,151.7,21.62,146.55,138.95,1.98
 20260708,185,186,170.5,175.5,1255345,153.68,14.19,148.62,139.76,1.59
+20260709,177,179.5,174,176,406948,155.54,13.15,150.72,140.57,0.51
 ```
 
 ## Latest TDCC Snapshot
@@ -185,19 +185,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 2236 | 百達-KY | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | continued_overheated | 1.事實發生日:115/07/07 2.發生緣由:依據證券櫃檯買賣中心通知辦理重大訊息。 3.公司債相關資訊: 到期日期:120/02/10 實際發行總額: 250,000,000元 本月發行餘額: 71,400,000元(截至115/07/07未轉換金額) 最新轉(交)換價格: 118.1元 轉換標的收市價格(2236): 184.5元(115/07/07收盤價) 轉債收市價格(22363): 158元(115/07/07收盤價) 4.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 2236 | 百達-KY | 2 | 1 | 4 | 6 | 6 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 2236 | 百達-KY | 2 | 0 | 85690.0 | 0.0 |  | no_signal |
+| 20260709 | 2236 | 百達-KY | 2 | 0 | 41590.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

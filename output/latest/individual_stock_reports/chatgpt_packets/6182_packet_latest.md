@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6182 合晶
 
 ## Metadata
-- generated_at: 2026-07-08 22:27:58 Asia/Taipei
+- generated_at: 2026-07-09 22:27:32 Asia/Taipei
 - stock_id: 6182
 - stock_name: 合晶
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 165
+- latest_price_date: 20260709
+- price_rows: 166
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -111,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 149
-- high: 160
-- low: 145
-- close: 160
-- volume: 137606000
-- ma5: 154.6
-- ema23_primary: 122.05
-- distance_to_ema23_pct: 31.1
-- ma20: 121.08
-- ma60: 80.77
-- ma120: 58.02
-- return_5d: 18.52
-- return_20d: 83.49
-- volume_ratio: 1.66
-- distance_to_ma20_pct_auxiliary: 32.15
-- distance_to_high_60_pct: -8.05
+- date: 20260709
+- open: 161
+- high: 175
+- low: 159
+- close: 172.5
+- volume: 180509000
+- ma5: 159.4
+- ema23_primary: 126.25
+- distance_to_ema23_pct: 36.63
+- ma20: 125.78
+- ma60: 83.02
+- ma120: 59.17
+- return_5d: 16.16
+- return_20d: 119.75
+- volume_ratio: 1.97
+- distance_to_ma20_pct_auxiliary: 37.15
+- distance_to_high_60_pct: -1.43
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,85.5,89.4,78.5,78.5,8614000,76.31,2.87,78.11,52.55,1.5
 20260611,79.5,80.9,71.7,80.9,10787000,76.69,5.49,79.28,53.35,1.89
 20260612,88.9,88.9,87,88.9,8938000,77.71,14.4,80.97,54.28,1.61
 20260615,94.2,97.7,94.2,97.7,7284000,79.37,23.09,83.11,55.29,1.33
@@ -153,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,168.5,174,154.5,156,182745000,116.15,34.31,114.16,76.87,2.55
 20260707,153.5,153.5,140.5,145.5,110264000,118.6,22.68,117.44,78.7,1.44
 20260708,149,160,145,160,137606000,122.05,31.1,121.08,80.77,1.66
+20260709,161,175,159,172.5,180509000,126.25,36.63,125.78,83.02,1.97
 ```
 
 ## Latest TDCC Snapshot
@@ -187,12 +187,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 6182 | 合晶 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | 1.事實發生日:115/07/03 2.發生緣由:依財團法人中華民國證券櫃檯買賣中心通知辦理。 3.財務業務資訊:合晶八(61828)可轉債相關資訊 到期日期：118/09/27 實際發行總額：1,500,000,000元 發行餘額：564,500,000元(截至115/06/30) 最新轉(交)換價格：33.10 轉換標的收盤價格(6182)：      163.00    (115/07/03收盤價) 轉換債開盤參考價格(61828)：   499.00    (115/07/03收盤價) 4.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序 」第4條所列重大訊息之情事（如 「有」，請說明）:無。 5.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序」第11條所列重大訊息說明記者會 之情事:無。 6.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=recent |
+| 20260709 | 6182 | 合晶 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_overheated | 1.事實發生日:115/07/08 2.公司名稱:合晶科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: 本公司國內第七次無擔保轉換公司債將於民國115年07月27日到期， 並於到期日之次一營業日(115年07月28日)終止上櫃買賣。 6.因應措施: 依本公司國內第七次無擔保轉換公司債發行及轉換辦法第6條規定 ，債券到期時依債券面額之102.016%以現金一次償還。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項): 本公司預計於115年08月14日將到期償還款項以支票或匯款方式交付 債權人，稅款、補充保費、郵費或匯費將自償還價款中扣除。 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 6182 | 合晶 | 1 | 1 | 4 | 7 | 10 | repeated_but_no_breakout | 近 10 日上榜 7 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260709 | 6182 | 合晶 | 2 | 2 | 4 | 7 | 11 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

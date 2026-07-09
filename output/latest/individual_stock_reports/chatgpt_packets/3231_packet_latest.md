@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3231 緯創
 
 ## Metadata
-- generated_at: 2026-07-08 22:27:10 Asia/Taipei
+- generated_at: 2026-07-09 22:26:54 Asia/Taipei
 - stock_id: 3231
 - stock_name: 緯創
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 300
+- latest_price_date: 20260709
+- price_rows: 301
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -58,7 +58,7 @@
 - pdf_visible: true
 - action_rating_display_zh: 可分批買進
 - model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
 - action_summary_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。
 - entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
 - position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
@@ -92,6 +92,7 @@
 
 ### entry_prerequisites
 - model_recommended
+- decision_score_high
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -117,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 150
-- high: 152
-- low: 145
-- close: 146.5
-- volume: 59256833
-- ma5: 155.5
-- ema23_primary: 156.9
-- distance_to_ema23_pct: -6.63
-- ma20: 157.57
-- ma60: 150.68
-- ma120: 142.1
-- return_5d: -8.15
-- return_20d: -11.48
-- volume_ratio: 1.54
-- distance_to_ma20_pct_auxiliary: -7.03
-- distance_to_high_60_pct: -27.11
+- date: 20260709
+- open: 147
+- high: 148
+- low: 144.5
+- close: 144.5
+- volume: 29080046
+- ma5: 152.7
+- ema23_primary: 155.86
+- distance_to_ema23_pct: -7.29
+- ma20: 156.9
+- ma60: 150.82
+- ma120: 142.01
+- return_5d: -8.83
+- return_20d: -8.54
+- volume_ratio: 0.77
+- distance_to_ma20_pct_auxiliary: -7.9
+- distance_to_high_60_pct: -28.11
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,162.5,165,158,158,42514909,157.28,0.46,154.72,141.62,0.55
 20260611,157,159,150.5,152.5,55231062,156.88,-2.79,155.45,141.92,0.71
 20260612,159,159,156,156,38077913,156.8,-0.51,156.47,142.28,0.5
 20260615,162,166,158.5,161.5,46483201,157.2,2.74,157.78,142.8,0.6
@@ -159,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,161,162,157.5,158,25621000,158.05,-0.03,158.93,150.14,0.63
 20260707,158.5,159.5,155.5,155.5,34773345,157.84,-1.48,158.53,150.48,0.9
 20260708,150,152,145,146.5,59256833,156.9,-6.63,157.57,150.68,1.54
+20260709,147,148,144.5,144.5,29080046,155.86,-7.29,156.9,150.82,0.77
 ```
 
 ## Latest TDCC Snapshot
@@ -193,17 +194,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 3231 | 緯創 | revenue_pullback | 營收成長股價回檔 | 76.0 |  |  |  |  | no_signal | stale_signal | 1.標的物之名稱及性質（如坐落台中市北區ＸＸ段ＸＸ小段土地）: 機器設備 2.事實發生日:115/6/30~115/6/30 3.董事會通過日期: 民國115年6月30日 4.其他核決日期: 不適用 5.交易單位數量（如ＸＸ平方公尺，折合ＸＸ坪）、每單位價格及交易總金額: 交易單位數量：2批 交易總金額：USD24,194,865及USD17,112,490 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之關 係人者，得免揭露其姓名）: 交易相對人：松下產業科技股份有限公司及旭東機械工業股份有限公司 與公司之關係：非關係人 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移轉之 所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次移轉日期 及移轉金額: 不適用 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係 人之取得及處分日期、價格及交易當時與公司之關係: 不適用 9.預計處分利益（或損失）（取得資產者不適用）（遞延者應列表說明 認列情形）: 不適用 10.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 交付或付款條件：依契約履行 交易總金額：USD24,194,865及USD17,112,490 契約限制條款及其他重要約定事項：無 11.本次交易之決定方式（如招標、比價或議價）、價格決定之參考依據及 決策單位: 交易之決定方式：依雙方議價 價格決定之參考依據：參考市場行情議定 決策單位：董事會 12.專業估價者事務所或公司名稱及其估價金額: 不適用 13.專業估價師姓名: 不適用 14.專業估價師開業證書字號: 不適用 15.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 16.是否尚未取得估價報告:否或不適用 17.尚未取得估價報告之原因: 不適用 18.估價結果有重大差異時，其差異原因及會計師意見: 不適用 19.會計師事務所名稱: 不適用 20.會計師姓名: 不適用 21.會計師開業證書字號: 不適用 22.經紀人及經紀費用: 無 23.取得或處分之具體目的或用途: 營運所需 24.本次交易表示異議之董事之意見: 無 25.本次交易為關係人交易:否 26.監察人承認或審計委員會同意日期: 不適用 27.本次交易係向關係人取得不動產或其使用權資產:否 28.依「公開發行公司取得或處分資產處理準則」第十六條規定 評估之價格:不適用 29.依前項評估之價格較交易價格為低者，依同準則第十七條規 定評估之價格:不適用 30.前已就同一件事件發布重大訊息日期: 不適用 31.其他敘明事項: 無；calendar event: ex_dividend on 20260708; status=confirmed; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260709 | 3231 | 緯創 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  | no_signal | stale_signal | 1. 原公告日期： 114/09/10 2. 簡述原公告申報內容： 子公司WisLab於114年9月10日公告，擬進行建築物改良及取得機器設備，並於114年 11月5日補充公告與非關係人CoBuild Construction Services, Inc.簽訂合約， 累計交易金額為美金15,708仟元 3. 變動緣由及主要內容： 因應實務需求及追加工程，WisLab與非關係人CoBuild Construction Services, Inc.新增美金10,891仟元，使累計交易金額更新至美金26,599仟元 4. 變動後對公司財務業務之影響： 無 5. 其他應敘明事項： 無；calendar event: ex_dividend on 20260708; status=confirmed; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 3231 | 緯創 | 29 | 5 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260709 | 3231 | 緯創 | 30 | 6 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260708 | 3231 | 緯創 | 207 | 15 | 6441520.0 | 832460.0 | 7.74 | no_signal |
+| 20260709 | 3231 | 緯創 | 207 | 0 | 5986260.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8183 精星
 
 ## Metadata
-- generated_at: 2026-07-08 22:28:41 Asia/Taipei
+- generated_at: 2026-07-09 22:28:07 Asia/Taipei
 - stock_id: 8183
 - stock_name: 精星
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 165
+- latest_price_date: 20260709
+- price_rows: 166
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 33.3
-- high: 33.95
-- low: 33.2
-- close: 33.8
-- volume: 425000
-- ma5: 34.3
+- date: 20260709
+- open: 34
+- high: 34.8
+- low: 33.25
+- close: 33.25
+- volume: 731000
+- ma5: 33.94
 - ema23_primary: 33.24
-- distance_to_ema23_pct: 1.67
-- ma20: 32.98
-- ma60: 33.17
+- distance_to_ema23_pct: 0.02
+- ma20: 33.11
+- ma60: 33.13
 - ma120: 33.72
-- return_5d: -0.73
-- return_20d: 5.46
-- volume_ratio: 0.6
-- distance_to_ma20_pct_auxiliary: 2.47
-- distance_to_high_60_pct: -15.5
+- return_5d: -5.14
+- return_20d: 7.95
+- volume_ratio: 1
+- distance_to_ma20_pct_auxiliary: 0.43
+- distance_to_high_60_pct: -16.88
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,32.05,32.25,30.8,30.8,465000,32.17,-4.26,31.57,33.53,2.48
 20260611,30.8,31.2,30.15,30.45,247000,32.03,-4.92,31.55,33.43,1.4
 20260612,30.9,31.4,30.9,31.3,205000,31.97,-2.09,31.61,33.34,1.25
 20260615,31.75,33.8,31.5,33.25,1161000,32.07,3.67,31.78,33.28,5.83
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,35.2,35.3,34.3,34.45,573000,33.17,3.87,32.78,33.21,0.82
 20260707,34.5,34.95,33.45,33.5,512000,33.19,0.92,32.9,33.19,0.72
 20260708,33.3,33.95,33.2,33.8,425000,33.24,1.67,32.98,33.17,0.6
+20260709,34,34.8,33.25,33.25,731000,33.24,0.02,33.11,33.13,1
 ```
 
 ## Latest TDCC Snapshot
