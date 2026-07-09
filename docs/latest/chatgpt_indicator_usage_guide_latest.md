@@ -1,6 +1,6 @@
 # ChatGPT Indicator Usage Guide
 
-- generated_at: `2026-07-08 12:02:16 UTC`
+- generated_at: `2026-07-09 00:17:37 UTC`
 - main_price_date: `20260708`
 - purpose: Use program-side classifications first. ChatGPT should explain and synthesize, not re-rank from memory.
 - rule: If memory, PDF, or ad-hoc interpretation conflicts with program-side fields, use the structured program-side fields.
@@ -63,7 +63,7 @@
 | Next-open +10pct strict parameter search | output/latest/weekly_surge_strict_parameter_search_latest.csv | rule_name, target_window, entry_basis, target_return_pct, selected_stock_days, hit_rate_pct, median_next_open_to_high_return_pct, sample_status | ok_initial_sample=26147; insufficient_sample=3135 / rows=29282 | No latest-theme labels are used. Entry is D+1 open; hit means next-open to D+N high touches +10%. This is not weekly candlestick analysis. Research only. |
 | Next-open +10pct strict parameter current candidates | output/latest/weekly_surge_strict_parameter_candidates_latest.csv | research_priority, stock_id, matched_rules, best_d5_touch_rate_pct, best_d10_touch_rate_pct, best_d10_rule, research_caveat | C_strict_short_term_watch=62; B_strict_research_confirm=37; D_background_only=4 / rows=103 | Current strict research watchlist using no latest-theme label. Keep as a standalone D+5/D+10 research table, not core ranking. |
 | Individual stock raw availability | output/latest/individual_stock_reports/individual_stock_available_raw_data_index_slim.csv | data_quality_status, report_status, price/TDCC row counts | ok=1953; partial=423; insufficient_data=23 | Check before single-stock analysis. |
-| Catalyst layer | output/latest/fundamental_catalyst_layer_latest.md | catalyst_quality, catalyst_tags, price_reaction_level, needs_eps_confirmation | needs_review_rows=2 | Currently source-limited; do not upgrade without confirmed source rows. |
+| Catalyst layer | output/latest/fundamental_catalyst_layer_latest.md | catalyst_quality, catalyst_tags, price_reaction_level, needs_eps_confirmation | needs_review_rows=3 | Currently source-limited; do not upgrade without confirmed source rows. |
 
 ## Task-Specific Rules
 
@@ -144,7 +144,7 @@
 | market_timing_backtest_chatgpt_packet_latest.md | ready | - |
 | surge_model_chatgpt_packet_latest.md | ready | - |
 | warrant_flow_by_stock_latest.csv | ready | 476 |
-| catalyst_needs_review_latest.csv | ready | 2 |
+| catalyst_needs_review_latest.csv | ready | 3 |
 
 ## Copy-Paste Summary For ChatGPT
 Use program-side indicator classifications first. Start from READ_ME_FIRST, then this indicator usage guide, then the task-specific packet/top-list. Do not re-rank from memory. For daily candidates, use `model_id`, `model_name_zh`, `model_score`, `model_rank`, `display_rank`, `score_components`, `risk_penalty_tags`, `risk_tags`, and `next_confirmation`. For TDCC, keep Strength Ranking separate from ABM Pre-Move Ranking and respect risk buckets. For market timing, use sample_status and mature counts before making any timing statement. For single stocks, verify raw price/TDCC availability before producing a standard raw-data report.
