@@ -124,6 +124,8 @@ def test_research_pipeline_runs_volume_range_breakout_v2_overlap_sensitivity_val
     assert "python scripts/validate_volume_range_breakout_v2_promotion_readiness_audit.py" in workflow_text
     assert "python scripts/build_volume_range_breakout_v2_position_shape_matrix.py" in workflow_text
     assert "python scripts/validate_volume_range_breakout_v2_position_shape_matrix.py" in workflow_text
+    assert "python scripts/build_volume_range_breakout_v2_candidate_bucket_contract.py" in workflow_text
+    assert "python scripts/validate_volume_range_breakout_v2_candidate_bucket_contract.py" in workflow_text
     assert "output/latest/research_backtest/volume_range_breakout_v2_*_latest.csv" in workflow_text
     assert "output/latest/research_backtest/volume_range_breakout_v2_*_latest.md" in workflow_text
 
