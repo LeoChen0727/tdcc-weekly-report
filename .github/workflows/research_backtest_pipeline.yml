@@ -194,6 +194,8 @@ jobs:
           python scripts/validate_volume_range_breakout_v2_promotion_readiness_audit.py
           python scripts/build_volume_range_breakout_v2_position_shape_matrix.py
           python scripts/validate_volume_range_breakout_v2_position_shape_matrix.py
+          python scripts/build_volume_range_breakout_v2_candidate_bucket_contract.py
+          python scripts/validate_volume_range_breakout_v2_candidate_bucket_contract.py
           python scripts/build_approved_operation_patterns.py
           python scripts/validate_approved_operation_patterns.py
           python scripts/build_daily_w_bottom_operation_sections.py
