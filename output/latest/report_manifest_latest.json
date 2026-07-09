@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-07-09 19:45:41 Asia/Taipei",
+  "generated_at": "2026-07-10 01:37:59 Asia/Taipei",
   "main_price_date": "20260709",
   "report_ready": true,
   "report_ready_note": "core daily data dates match main_price_date",
   "summary_pdf_kline_policy": "local_price_redraw_first",
   "summary_pdf_kline_status": "generated",
-  "summary_pdf_kline_total_charts": 30,
-  "summary_pdf_kline_local_price_redraw_count": 30,
+  "summary_pdf_kline_total_charts": 15,
+  "summary_pdf_kline_local_price_redraw_count": 15,
   "summary_pdf_kline_chart_path_fallback_count": 0,
   "summary_pdf_kline_missing_count": 0,
   "summary_pdf_kline_output_dir": "output/latest/charts/pdf_kline",
@@ -60,5 +60,5 @@
   "summary_pdf_kline_status_csv_raw_url": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/pdf_kline_chart_status_latest.csv",
   "summary_pdf_kline_status_json_raw_url": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/pdf_kline_chart_status_latest.json",
   "summary_pdf_kline_status_md_raw_url": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/pdf_kline_chart_status_latest.md",
-  "alias_generated_at": "2026-07-09 19:45:41 Asia/Taipei"
+  "alias_generated_at": "2026-07-10 01:37:59 Asia/Taipei"
 }

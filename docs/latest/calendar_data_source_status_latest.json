@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-09 19:39:04 Asia/Taipei",
+  "generated_at": "2026-07-10 01:33:23 Asia/Taipei",
   "files": {
     "company_event_calendar": {
       "path": "data/company_calendar/company_event_calendar.csv",
@@ -11,11 +11,11 @@
     },
     "upcoming_catalyst_calendar": {
       "path": "output/latest/upcoming_catalyst_calendar_latest.csv",
-      "rows": 364
+      "rows": 333
     },
     "upcoming_macro_event_calendar": {
       "path": "output/latest/upcoming_macro_event_calendar_latest.csv",
-      "rows": 19
+      "rows": 18
     }
   },
   "sources": {
@@ -31,16 +31,15 @@
     },
     "twse_shareholder_meeting_from_dividend_distribution": {
       "url": "https://openapi.twse.com.tw/v1/opendata/t187ap45_L",
-      "status": "ok",
-      "rows": 545,
-      "error": "",
-      "http_status": 200,
-      "note": "TWSE-listed shareholder meeting dates parsed from official OpenAPI t187ap45_L when available."
+      "status": "failed",
+      "rows": 0,
+      "error": "Expecting value: line 1 column 1 (char 0)",
+      "http_status": 200
     },
     "monthly_revenue_expected_window": {
       "url": "https://mops.twse.com.tw/mops/web/t05st10_ifrs",
       "status": "rule_based_expected_window",
-      "rows": 384,
+      "rows": 285,
       "note": "Expected monthly revenue publication window generated for tracked stocks; not a confirmed company catalyst."
     },
     "federal_reserve_fomc": {
@@ -68,15 +67,15 @@
     "bls_employment_release_schedule": {
       "url": "https://www.bls.gov/schedule/news_release/empsit.htm",
       "status": "ok",
-      "rows": 6,
+      "rows": 5,
       "error": "",
       "http_status": 200,
-      "note": "Parsed 6 release rows from the official BLS schedule table."
+      "note": "Parsed 5 release rows from the official BLS schedule table."
     },
     "mops_shareholder_meeting_calendar": {
       "url": "https://mops.twse.com.tw/mops/web/t108sb31new",
-      "status": "partial_coverage_twse_only",
-      "rows": 545,
+      "status": "blocked_or_unavailable",
+      "rows": 0,
       "note": "TWSE-listed shareholder meeting dates are stored from t187ap45_L. Direct MOPS shareholder pages are blocked or unavailable from this environment, and OTC coverage still needs a stable official endpoint."
     }
   }
