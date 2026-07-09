@@ -551,6 +551,27 @@ MODEL_SCORE_PROFILES: dict[str, ScoreProfile] = {
     ),
 }
 
+SCORE_COMPONENT_EXTRA_ZH_REPLACEMENTS = {
+    "profile=volume_range_breakout_v2_low_position_volume_attack": "參數=低位放量攻擊",
+    "profile=volume_range_breakout_v2_mid_position_momentum_attack": "參數=中位動能放量攻擊",
+    "base=60": "基礎分60",
+    "base=58": "基礎分58",
+    "position_bucket_120d=low_pos_le40": "120日位階=低位",
+    "position_bucket_120d=mid_pos_40_75": "120日位階=中位",
+    "position_bucket_120d=high_pos_gt75": "120日位階=高位",
+    "position_bucket_120d=unknown_position": "120日位階=資料不足",
+    "shape_bucket=non_consolidation": "型態=非盤整",
+    "shape_bucket=consolidation": "型態=盤整",
+    "shape_bucket=wide_range": "型態=寬幅震盪",
+    "low_pos_le40": "低位",
+    "mid_pos_40_75": "中位",
+    "high_pos_gt75": "高位",
+    "unknown_position": "資料不足",
+    "non_consolidation": "非盤整",
+    "wide_range": "寬幅震盪",
+    "consolidation": "盤整",
+}
+
 
 def text(row: pd.Series, *names: str) -> str:
     for name in names:
@@ -590,8 +611,11 @@ def score_components_zh(value: Any) -> str:
     if not raw:
         return ""
     out = raw
+    for src, dst in sorted(SCORE_COMPONENT_EXTRA_ZH_REPLACEMENTS.items(), key=lambda item: len(item[0]), reverse=True):
+        out = out.replace(src, dst)
     for src, dst in SCORE_COMPONENT_ZH_REPLACEMENTS.items():
         out = out.replace(src, dst)
+    out = re.sub(r"\bbase=(\d+(?:\.\d+)?)\b", lambda match: f"基礎分{match.group(1)}", out)
     return out
 
 

@@ -208,6 +208,7 @@ tests/test_chatgpt_side_pdf_contract.py,test_python,daily_production,active,dail
 tests/test_chatgpt_side_pdf_independent_layouts.py,test_python,daily_production,active,daily production test: test_chatgpt_side_pdf_independent_layouts,,
 tests/test_chatgpt_side_pdf_pagebreaks.py,test_python,daily_production,active,daily production test: test_chatgpt_side_pdf_pagebreaks,,
 tests/test_daily_candidate_model_layer.py,test_python,daily_production,active,daily production test: test_daily_candidate_model_layer,,
+tests/test_daily_candidate_selection_audit.py,test_python,daily_production,active,daily production test: test_daily_candidate_selection_audit,,
 tests/test_daily_model_parameter_recommendations.py,test_python,research_backtest,active,research/backtest test: test_daily_model_parameter_recommendations,,
 tests/test_daily_model_parameter_research.py,test_python,research_backtest,active,research/backtest test: test_daily_model_parameter_research,,
 tests/test_daily_model_background_data_cleanup_audit.py,test_python,research_backtest,active,research/backtest test: daily model background data cleanup audit,,
