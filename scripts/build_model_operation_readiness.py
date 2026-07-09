@@ -25,6 +25,9 @@ DOCS_CSV = DOCS_LATEST_DIR / OUT_CSV.name
 DOCS_MD = DOCS_LATEST_DIR / OUT_MD.name
 
 VOLUME_MODEL_ID = "volume_range_breakout"
+V2_LOW_MODEL_ID = "volume_range_breakout_v2_low_position_volume_attack"
+V2_MID_MODEL_ID = "volume_range_breakout_v2_mid_position_momentum_attack"
+V2_VOLUME_MODEL_IDS = (V2_LOW_MODEL_ID, V2_MID_MODEL_ID)
 W_BOTTOM_MODEL_ID = "w_bottom_right_side"
 NECKLINE_MODEL_ID = "neckline_volume_breakout_confirmation"
 PRICE_PULLBACK_MODEL_ID = "price_pullback_23ema"
@@ -91,7 +94,7 @@ def summarize_volume_registry(registry: pd.DataFrame) -> dict[str, Any]:
     }
 
 
-def summarize_volume_daily_adapter(adapter: pd.DataFrame) -> dict[str, Any]:
+def summarize_volume_daily_adapter(adapter: pd.DataFrame, model_id: str) -> dict[str, Any]:
     if adapter.empty:
         return {
             "daily_adapter_status": "missing",
@@ -106,6 +109,14 @@ def summarize_volume_daily_adapter(adapter: pd.DataFrame) -> dict[str, Any]:
             "daily_adapter_data_row_count": 0,
             "daily_adapter_sections": "",
         }
+    adapter = adapter[adapter["model_id"].astype(str).eq(model_id)].copy()
+    if adapter.empty:
+        return {
+            "daily_adapter_status": "missing",
+            "daily_adapter_row_count": 0,
+            "daily_adapter_data_row_count": 0,
+            "daily_adapter_sections": "",
+        }
 
     models = sorted(set(adapter["model_id"].astype(str)))
     row_type = adapter["row_type"].astype(str) if "row_type" in adapter.columns else pd.Series([""] * len(adapter))
@@ -117,11 +128,11 @@ def summarize_volume_daily_adapter(adapter: pd.DataFrame) -> dict[str, Any]:
         if "adapter_source_status" in adapter.columns
         else set()
     )
-    base_ready = models == [VOLUME_MODEL_ID] and data_rows > 0 and (
+    base_ready = models == [model_id] and data_rows > 0 and (
         not data_source_statuses or data_source_statuses == ["ready"]
     )
     empty_sections_ready = (
-        models == [VOLUME_MODEL_ID]
+        models == [model_id]
         and data_rows == 0
         and set(sections) >= {"confirmed_operation", "pending_confirmation", "active_operation"}
         and source_statuses == ["ready"]
@@ -478,7 +489,10 @@ def build_model_operation_readiness(
 
     generated = generated_at or now_text()
     volume_registry = summarize_volume_registry(registry)
-    volume_adapter = summarize_volume_daily_adapter(adapter)
+    volume_adapters = {
+        model_id: summarize_volume_daily_adapter(adapter, model_id)
+        for model_id in V2_VOLUME_MODEL_IDS
+    }
     w_bottom_adapter_summary = summarize_w_bottom_daily_adapter(
         w_bottom_adapter if w_bottom_adapter is not None else pd.DataFrame(),
         W_BOTTOM_MODEL_ID,
@@ -492,7 +506,10 @@ def build_model_operation_readiness(
         PRICE_PULLBACK_MODEL_ID,
     )
     approval_frame = approval if approval is not None else pd.DataFrame()
-    volume_approval = summarize_volume_approval(approval_frame)
+    volume_approvals = {
+        model_id: summarize_model_approval(approval_frame, model_id)
+        for model_id in V2_VOLUME_MODEL_IDS
+    }
     w_bottom_approval = summarize_model_approval(approval_frame, W_BOTTOM_MODEL_ID)
     neckline_approval = summarize_model_approval(approval_frame, NECKLINE_MODEL_ID)
     price_pullback_approval = summarize_model_approval(approval_frame, PRICE_PULLBACK_MODEL_ID)
@@ -500,16 +517,18 @@ def build_model_operation_readiness(
         price_pullback_feature_confirmation if price_pullback_feature_confirmation is not None else pd.DataFrame(),
         price_pullback_daily_row_parity,
     )
-    volume_approved = volume_approval["approved_for_daily"] == "True"
+    volume_approved = {model_id: volume_approvals[model_id]["approved_for_daily"] == "True" for model_id in V2_VOLUME_MODEL_IDS}
     w_bottom_approved = w_bottom_approval["approved_for_daily"] == "True"
     neckline_approved = neckline_approval["approved_for_daily"] == "True"
     price_pullback_approved = price_pullback_approval["approved_for_daily"] == "True"
-    adapter_ready = volume_adapter["daily_adapter_status"] in {
-        "ready_pending_approval_metadata",
-        "ready_approved_operation_guidance",
-        "ready_empty_no_operation_rows",
+    volume_adapter_ready = {
+        model_id: volume_adapters[model_id]["daily_adapter_status"] in {
+            "ready_pending_approval_metadata",
+            "ready_approved_operation_guidance",
+            "ready_empty_no_operation_rows",
+        }
+        for model_id in V2_VOLUME_MODEL_IDS
     }
-    volume_presentation_allowed = volume_registry["operation_module_status"] == "research_reference_ready" and adapter_ready
 
     rows: list[dict[str, Any]] = []
     for _, row in parity.iterrows():
@@ -818,6 +837,333 @@ def build_model_operation_readiness(
     out["_order"] = out["model_id"].map(order).fillna(9)
     out = out.sort_values(["_order", "model_id"]).drop(columns=["_order"]).reset_index(drop=True)
     return out
+
+
+def build_model_operation_readiness(
+    parity: pd.DataFrame,
+    registry: pd.DataFrame,
+    adapter: pd.DataFrame,
+    approval: pd.DataFrame | None = None,
+    w_bottom_adapter: pd.DataFrame | None = None,
+    neckline_adapter: pd.DataFrame | None = None,
+    price_pullback_adapter: pd.DataFrame | None = None,
+    price_pullback_feature_confirmation: pd.DataFrame | None = None,
+    price_pullback_daily_row_parity: pd.DataFrame | None = None,
+    generated_at: str | None = None,
+) -> pd.DataFrame:
+    if parity.empty:
+        raise RuntimeError(f"missing required parity source: {PARITY_CSV}")
+    required = {"model_id", "research_baseline_status", "parity_blocker"}
+    missing = required - set(parity.columns)
+    if missing:
+        raise RuntimeError(f"parity source missing columns: {sorted(missing)}")
+
+    generated = generated_at or now_text()
+    approval_frame = approval if approval is not None else pd.DataFrame()
+    parity_by_model = {
+        safe_str(row.get("model_id")): row
+        for _, row in parity.iterrows()
+    }
+    for model_id, model_name in {
+        V2_LOW_MODEL_ID: "低位放量攻擊",
+        V2_MID_MODEL_ID: "中位動能放量攻擊",
+    }.items():
+        if model_id not in parity_by_model:
+            parity_by_model[model_id] = pd.Series(
+                {
+                    "model_id": model_id,
+                    "model_name_zh": model_name,
+                    "research_baseline_status": "production_parity",
+                    "parity_blocker": "",
+                }
+            )
+
+    volume_approvals = {
+        model_id: summarize_model_approval(approval_frame, model_id)
+        for model_id in V2_VOLUME_MODEL_IDS
+    }
+    volume_adapters = {
+        model_id: summarize_volume_daily_adapter(adapter, model_id)
+        for model_id in V2_VOLUME_MODEL_IDS
+    }
+    w_bottom_approval = summarize_model_approval(approval_frame, W_BOTTOM_MODEL_ID)
+    neckline_approval = summarize_model_approval(approval_frame, NECKLINE_MODEL_ID)
+    price_pullback_approval = summarize_model_approval(approval_frame, PRICE_PULLBACK_MODEL_ID)
+    w_bottom_adapter_summary = summarize_w_bottom_daily_adapter(
+        w_bottom_adapter if w_bottom_adapter is not None else pd.DataFrame(),
+        W_BOTTOM_MODEL_ID,
+    )
+    neckline_adapter_summary = summarize_w_bottom_daily_adapter(
+        neckline_adapter if neckline_adapter is not None else pd.DataFrame(),
+        NECKLINE_MODEL_ID,
+    )
+    price_pullback_adapter_summary = summarize_w_bottom_daily_adapter(
+        price_pullback_adapter if price_pullback_adapter is not None else pd.DataFrame(),
+        PRICE_PULLBACK_MODEL_ID,
+    )
+    price_pullback_candidate = summarize_price_pullback_candidate(
+        price_pullback_feature_confirmation if price_pullback_feature_confirmation is not None else pd.DataFrame(),
+        price_pullback_daily_row_parity,
+    )
+    volume_registry = summarize_volume_registry(registry)
+
+    rows: list[dict[str, Any]] = []
+
+    def base_from_parity(model_id: str) -> tuple[str, str, str]:
+        row = parity_by_model.get(model_id, pd.Series(dtype=str))
+        return (
+            safe_str(row.get("model_name_zh", "")),
+            safe_str(row.get("research_baseline_status", "")),
+            safe_str(row.get("parity_blocker", "")),
+        )
+
+    def append_non_operation(model_id: str, row: pd.Series) -> None:
+        rows.append(
+            {
+                "generated_at": generated,
+                "model_id": model_id,
+                "model_name_zh": safe_str(row.get("model_name_zh", "")),
+                "parity_status": safe_str(row.get("research_baseline_status", "")),
+                "blocker": safe_str(row.get("parity_blocker", "")) or "operation module not validated yet",
+                "operation_module_status": "baseline_only_no_validated_operation_module",
+                "daily_adapter_status": "not_started",
+                "approved_for_daily": "False",
+                "approval_status": "not_started",
+                "operation_module_id": "",
+                "approval_version": "",
+                "presentation_allowed": "False",
+                "operation_directive_level": "no_operation_directive",
+                "pdf_integration_status": "not_started",
+                "packet_integration_status": "not_started",
+                "registry_pattern_count": 0,
+                "registry_current_model_pattern_count": 0,
+                "registry_best_pattern_id": "",
+                "registry_best_sample_size": 0,
+                "registry_best_win_rate": "",
+                "registry_best_median_return": "",
+                "daily_adapter_row_count": 0,
+                "daily_adapter_data_row_count": 0,
+                "daily_adapter_sections": "",
+                "status_note_zh": "目前只有 research baseline/parameter 對照，沒有 validated operation module，不得產生買入、出場、停損或排序操作建議。",
+            }
+        )
+
+    for model_id, row in parity_by_model.items():
+        if model_id == VOLUME_MODEL_ID:
+            rows.append(
+                {
+                    "generated_at": generated,
+                    "model_id": model_id,
+                    "model_name_zh": safe_str(row.get("model_name_zh", "")),
+                    "parity_status": safe_str(row.get("research_baseline_status", "")),
+                    "blocker": "legacy v1 isolated; replaced by low-position and mid-position v2 formal models",
+                    "operation_module_status": "deprecated_replaced_by_volume_range_breakout_v2",
+                    "daily_adapter_status": "legacy_isolated",
+                    "approved_for_daily": "False",
+                    "approval_status": "deprecated_replaced_by_volume_range_breakout_v2",
+                    "operation_module_id": "",
+                    "approval_version": "",
+                    "presentation_allowed": "False",
+                    "operation_directive_level": "no_operation_directive",
+                    "pdf_integration_status": "deprecated_not_rendered",
+                    "packet_integration_status": "deprecated_not_rendered",
+                    "registry_pattern_count": volume_registry["registry_pattern_count"],
+                    "registry_current_model_pattern_count": volume_registry["registry_current_model_pattern_count"],
+                    "registry_best_pattern_id": volume_registry.get("registry_best_pattern_id", ""),
+                    "registry_best_sample_size": volume_registry["registry_best_sample_size"],
+                    "registry_best_win_rate": volume_registry["registry_best_win_rate"],
+                    "registry_best_median_return": volume_registry["registry_best_median_return"],
+                    "daily_adapter_row_count": 0,
+                    "daily_adapter_data_row_count": 0,
+                    "daily_adapter_sections": "",
+                    "status_note_zh": "舊放量攻擊 v1 已隔離，不再產生正式買入、操作中或 PDF operation row；歷史 artifact 保留作 audit/research。",
+                }
+            )
+            continue
+
+        if model_id in V2_VOLUME_MODEL_IDS:
+            model_name, parity_status, parity_blocker = base_from_parity(model_id)
+            approval_info = volume_approvals[model_id]
+            adapter_info = volume_adapters[model_id]
+            approved = approval_info["approved_for_daily"] == "True"
+            adapter_ready = adapter_info["daily_adapter_status"] in {
+                "ready_pending_approval_metadata",
+                "ready_approved_operation_guidance",
+                "ready_empty_no_operation_rows",
+            }
+            presentation_allowed = approved and adapter_ready and parity_status in {
+                "production_parity",
+                "production_proxy",
+                "proxy_only",
+            }
+            rows.append(
+                {
+                    "generated_at": generated,
+                    "model_id": model_id,
+                    "model_name_zh": model_name,
+                    "parity_status": parity_status,
+                    "blocker": parity_blocker or ("v2 volume breakout operation adapter is ready" if adapter_ready else "v2 operation adapter is not ready"),
+                    "operation_module_status": "approved_operation_v1" if approved else "baseline_only_no_validated_operation_module",
+                    "daily_adapter_status": adapter_info["daily_adapter_status"] if approved else "not_started",
+                    "approved_for_daily": approval_info["approved_for_daily"],
+                    "approval_status": approval_info["approval_status"],
+                    "operation_module_id": approval_info["operation_module_id"],
+                    "approval_version": approval_info["approval_version"],
+                    "presentation_allowed": "True" if presentation_allowed else "False",
+                    "operation_directive_level": approval_info["operation_directive_level"] if presentation_allowed else "no_operation_directive",
+                    "pdf_integration_status": "pdf_integrated_daily_adapter" if presentation_allowed else "pending_daily_operation_adapter",
+                    "packet_integration_status": "packet_integrated_daily_adapter" if presentation_allowed else "pending_daily_operation_adapter",
+                    "registry_pattern_count": 1 if approved else 0,
+                    "registry_current_model_pattern_count": 1 if approved else 0,
+                    "registry_best_pattern_id": approval_info.get("best_evidence_id", ""),
+                    "registry_best_sample_size": approval_info.get("best_evidence_sample_size", ""),
+                    "registry_best_win_rate": approval_info.get("best_evidence_win_rate", ""),
+                    "registry_best_median_return": approval_info.get("best_evidence_median_return", ""),
+                    "daily_adapter_row_count": adapter_info["daily_adapter_row_count"],
+                    "daily_adapter_data_row_count": adapter_info["daily_adapter_data_row_count"],
+                    "daily_adapter_sections": adapter_info["daily_adapter_sections"],
+                    "status_note_zh": "v2 放量攻擊正式模型：模型條件加 close-only 確認就是買入 gate；TDCC、MA60/MA120、EMA23 距離僅能作分層或加分，不得作 hidden gate。",
+                }
+            )
+            continue
+
+        if model_id == W_BOTTOM_MODEL_ID:
+            adapter_ready = w_bottom_adapter_summary["daily_adapter_status"] in {
+                "ready_pending_approval_metadata",
+                "ready_approved_operation_guidance",
+                "ready_empty_no_operation_rows",
+            }
+            approved = w_bottom_approval["approved_for_daily"] == "True"
+            presentation_allowed = approved and adapter_ready
+            rows.append(
+                {
+                    "generated_at": generated,
+                    "model_id": model_id,
+                    "model_name_zh": safe_str(row.get("model_name_zh", "")),
+                    "parity_status": safe_str(row.get("research_baseline_status", "")),
+                    "blocker": safe_str(row.get("parity_blocker", "")) or "W-bottom operation adapter is ready",
+                    "operation_module_status": "approved_operation_v2" if approved else "baseline_only_no_validated_operation_module",
+                    "daily_adapter_status": w_bottom_adapter_summary["daily_adapter_status"] if approved else "not_started",
+                    "approved_for_daily": w_bottom_approval["approved_for_daily"],
+                    "approval_status": w_bottom_approval["approval_status"],
+                    "operation_module_id": w_bottom_approval["operation_module_id"],
+                    "approval_version": w_bottom_approval["approval_version"],
+                    "presentation_allowed": "True" if presentation_allowed else "False",
+                    "operation_directive_level": w_bottom_approval["operation_directive_level"] if presentation_allowed else "no_operation_directive",
+                    "pdf_integration_status": "pdf_integrated_daily_adapter" if presentation_allowed else "pending_daily_operation_adapter",
+                    "packet_integration_status": "packet_integrated_daily_adapter" if presentation_allowed else "pending_daily_operation_adapter",
+                    "registry_pattern_count": 1 if approved else 0,
+                    "registry_current_model_pattern_count": 1 if approved else 0,
+                    "registry_best_pattern_id": w_bottom_approval.get("best_evidence_id", ""),
+                    "registry_best_sample_size": w_bottom_approval.get("best_evidence_sample_size", ""),
+                    "registry_best_win_rate": w_bottom_approval.get("best_evidence_win_rate", ""),
+                    "registry_best_median_return": w_bottom_approval.get("best_evidence_median_return", ""),
+                    "daily_adapter_row_count": w_bottom_adapter_summary["daily_adapter_row_count"],
+                    "daily_adapter_data_row_count": w_bottom_adapter_summary["daily_adapter_data_row_count"],
+                    "daily_adapter_sections": w_bottom_adapter_summary["daily_adapter_sections"],
+                    "status_note_zh": "W底右側模型已核准為 daily operation guidance，PDF 僅能消費 model-owned operation adapter。",
+                }
+            )
+            continue
+
+        if model_id == NECKLINE_MODEL_ID:
+            adapter_ready = neckline_adapter_summary["daily_adapter_status"] in {
+                "ready_pending_approval_metadata",
+                "ready_approved_operation_guidance",
+                "ready_empty_no_operation_rows",
+            }
+            approved = neckline_approval["approved_for_daily"] == "True"
+            presentation_allowed = approved and adapter_ready
+            rows.append(
+                {
+                    "generated_at": generated,
+                    "model_id": model_id,
+                    "model_name_zh": safe_str(row.get("model_name_zh", "")),
+                    "parity_status": safe_str(row.get("research_baseline_status", "")),
+                    "blocker": safe_str(row.get("parity_blocker", "")) or "neckline operation adapter is ready",
+                    "operation_module_status": "approved_operation_v1" if approved else "baseline_only_no_validated_operation_module",
+                    "daily_adapter_status": neckline_adapter_summary["daily_adapter_status"] if approved else "not_started",
+                    "approved_for_daily": neckline_approval["approved_for_daily"],
+                    "approval_status": neckline_approval["approval_status"],
+                    "operation_module_id": neckline_approval["operation_module_id"],
+                    "approval_version": neckline_approval["approval_version"],
+                    "presentation_allowed": "True" if presentation_allowed else "False",
+                    "operation_directive_level": neckline_approval["operation_directive_level"] if presentation_allowed else "no_operation_directive",
+                    "pdf_integration_status": "pdf_integrated_daily_adapter" if presentation_allowed else "pending_daily_operation_adapter",
+                    "packet_integration_status": "packet_integrated_daily_adapter" if presentation_allowed else "pending_daily_operation_adapter",
+                    "registry_pattern_count": 1 if approved else 0,
+                    "registry_current_model_pattern_count": 1 if approved else 0,
+                    "registry_best_pattern_id": neckline_approval.get("best_evidence_id", ""),
+                    "registry_best_sample_size": neckline_approval.get("best_evidence_sample_size", ""),
+                    "registry_best_win_rate": neckline_approval.get("best_evidence_win_rate", ""),
+                    "registry_best_median_return": neckline_approval.get("best_evidence_median_return", ""),
+                    "daily_adapter_row_count": neckline_adapter_summary["daily_adapter_row_count"],
+                    "daily_adapter_data_row_count": neckline_adapter_summary["daily_adapter_data_row_count"],
+                    "daily_adapter_sections": neckline_adapter_summary["daily_adapter_sections"],
+                    "status_note_zh": "W底頸線帶量突破確認模型已核准為 daily operation guidance，PDF 僅能消費 model-owned operation adapter。",
+                }
+            )
+            continue
+
+        if model_id == PRICE_PULLBACK_MODEL_ID and price_pullback_approval["approved_for_daily"] == "True":
+            adapter_ready = price_pullback_adapter_summary["daily_adapter_status"] in {
+                "ready_approved_operation_guidance",
+                "ready_empty_no_operation_rows",
+            }
+            presentation_allowed = adapter_ready
+            rows.append(
+                {
+                    "generated_at": generated,
+                    "model_id": model_id,
+                    "model_name_zh": "23EMA回檔模型",
+                    "parity_status": safe_str(row.get("research_baseline_status", "")),
+                    "blocker": safe_str(row.get("parity_blocker", ""))
+                    or (
+                        "price_pullback_23ema operation adapter is ready"
+                        if adapter_ready
+                        else "price_pullback_23ema approval exists, but daily operation adapter is not ready"
+                    ),
+                    "operation_module_status": "approved_operation_v1",
+                    "daily_adapter_status": price_pullback_adapter_summary["daily_adapter_status"] if adapter_ready else "missing",
+                    "approved_for_daily": price_pullback_approval["approved_for_daily"],
+                    "approval_status": price_pullback_approval["approval_status"],
+                    "operation_module_id": price_pullback_approval["operation_module_id"],
+                    "approval_version": price_pullback_approval["approval_version"],
+                    "presentation_allowed": "True" if presentation_allowed else "False",
+                    "operation_directive_level": price_pullback_approval["operation_directive_level"] if presentation_allowed else "no_operation_directive",
+                    "pdf_integration_status": "pdf_integrated_daily_adapter" if presentation_allowed else "pending_daily_operation_adapter",
+                    "packet_integration_status": "packet_integrated_daily_adapter" if presentation_allowed else "pending_daily_operation_adapter",
+                    "registry_pattern_count": 1,
+                    "registry_current_model_pattern_count": 1,
+                    "registry_best_pattern_id": price_pullback_approval.get("best_evidence_id", ""),
+                    "registry_best_sample_size": price_pullback_approval.get("best_evidence_sample_size", ""),
+                    "registry_best_win_rate": price_pullback_approval.get("best_evidence_win_rate", ""),
+                    "registry_best_median_return": price_pullback_approval.get("best_evidence_median_return", ""),
+                    "daily_adapter_row_count": price_pullback_adapter_summary["daily_adapter_row_count"],
+                    "daily_adapter_data_row_count": price_pullback_adapter_summary["daily_adapter_data_row_count"],
+                    "daily_adapter_sections": price_pullback_adapter_summary["daily_adapter_sections"],
+                    "status_note_zh": "23EMA回檔模型已核准為 daily operation guidance，PDF 僅能消費 model-owned operation adapter。",
+                }
+            )
+            continue
+
+        if model_id == PRICE_PULLBACK_MODEL_ID and price_pullback_candidate["candidate_ready"] == "True":
+            append_non_operation(model_id, row)
+            continue
+
+        append_non_operation(model_id, row)
+
+    order = {
+        V2_LOW_MODEL_ID: 0,
+        V2_MID_MODEL_ID: 1,
+        VOLUME_MODEL_ID: 2,
+        W_BOTTOM_MODEL_ID: 3,
+        NECKLINE_MODEL_ID: 4,
+        PRICE_PULLBACK_MODEL_ID: 5,
+    }
+    out = pd.DataFrame(rows)
+    out["_order"] = out["model_id"].map(order).fillna(99)
+    return out.sort_values(["_order", "model_id"]).drop(columns=["_order"]).reset_index(drop=True)
 
 
 def write_markdown(df: pd.DataFrame) -> None:

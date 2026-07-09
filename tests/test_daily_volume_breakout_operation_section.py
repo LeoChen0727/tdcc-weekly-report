@@ -16,33 +16,52 @@ import generate_chatgpt_side_daily_reports as pdf_generator  # noqa: E402
 import validate_chatgpt_side_volume_operation_pdf_integration as pdf_integration_validator  # noqa: E402
 import validate_daily_volume_breakout_operation_section as section_validator  # noqa: E402
 
+LOW_VOLUME_MODEL_ID = "volume_range_breakout_v2_low_position_volume_attack"
+MID_VOLUME_MODEL_ID = "volume_range_breakout_v2_mid_position_momentum_attack"
 
-def approval_stub() -> dict[str, str]:
-    return {
+
+def approval_stub(**updates: str) -> dict[str, str]:
+    row = {
         "approval_source": "approved_operation_patterns_latest.csv",
         "approved_for_daily": "True",
         "operation_module_approved_for_daily": "True",
         "approval_status": "approved_for_daily_v1",
-        "operation_module_id": "volume_breakout_confirmed_operation_v1",
-        "approval_version": "volume_breakout_operation_v1_20260615",
+        "operation_module_id": "volume_range_breakout_v2_low_position_operation_v1",
+        "approval_version": "volume_range_breakout_v2_formal_operation_20260709",
         "operation_directive_level": "approved_daily_operation_guidance",
         "row_action_status": "",
         "buy_rank_eligible": "False",
-        "buy_filter_id": "positive_evidence_oos_rank_v1",
+        "buy_filter_id": "pos120_low_all_shapes_next_day_continuation_d15_stop",
+        "best_evidence_sample_size": "26",
+        "best_evidence_win_rate": "80.7692",
+        "best_evidence_median_return": "18.7857",
+        "best_evidence_confidence_status": "approved",
+        "best_evidence_out_of_sample_pass": "not_applicable",
+        "volume_v2_avg_return_pct": "28.7704",
         "approval_note_zh": "approved for test",
     }
+    row.update(updates)
+    return row
 
 
 def pdf_summary_approval_rows() -> pd.DataFrame:
     return pd.DataFrame(
         [
             {
-                "model_id": "volume_range_breakout",
-                "entry_rule_zh": "確認日收盤後列入；下一個交易日開盤價進場。",
-                "exit_rule_zh": "先跌破停損基準出場，否則持有 10 個交易日收盤出場。",
-                "stop_loss_rule_zh": "跌破訊號K低點停損。",
-                "best_evidence_win_rate": "58.06",
-                "best_evidence_median_return": "8.3888",
+                "model_id": LOW_VOLUME_MODEL_ID,
+                "entry_rule_zh": "確認日收盤後成立，下一個交易日開盤買入。",
+                "exit_rule_zh": "若未觸發停損，固定第15個交易日收盤出場。",
+                "stop_loss_rule_zh": "收盤連續4天低於MA20/EMA23較低者的4%，隔日開盤停損。",
+                "best_evidence_win_rate": "80.7692",
+                "best_evidence_median_return": "18.7857",
+            },
+            {
+                "model_id": MID_VOLUME_MODEL_ID,
+                "entry_rule_zh": "確認日收盤後成立，下一個交易日開盤買入。",
+                "exit_rule_zh": "若未觸發停損，固定第15個交易日收盤出場。",
+                "stop_loss_rule_zh": "收盤連續4天低於MA20/EMA23較低者的4%，隔日開盤停損。",
+                "best_evidence_win_rate": "80.0000",
+                "best_evidence_median_return": "14.6953",
             },
             {
                 "model_id": "w_bottom_right_side",
@@ -91,7 +110,7 @@ def test_pdf_operation_model_summary_uses_standard_contract_tokens() -> None:
             assert token in summary
         assert "下一個交易日" not in summary
 
-    assert "勝率58.06%" in pdf_generator.operation_model_summary_text(inputs, "volume_range_breakout")
+    assert "勝率80.77%" in pdf_generator.operation_model_summary_text(inputs, LOW_VOLUME_MODEL_ID)
     assert "和局0.00%" in pdf_generator.operation_model_summary_text(inputs, "w_bottom_right_side")
     assert "含和局成功率74.51%" in pdf_generator.operation_model_summary_text(
         inputs,
@@ -106,7 +125,7 @@ def test_pdf_operation_model_summary_uses_standard_contract_tokens() -> None:
 def test_pdf_operation_model_summary_renders_each_contract_token_as_own_line() -> None:
     inputs = {"approved_operation_patterns": pdf_summary_approval_rows()}
 
-    lines = pdf_generator.operation_model_summary_lines(inputs, "volume_range_breakout")
+    lines = pdf_generator.operation_model_summary_lines(inputs, LOW_VOLUME_MODEL_ID)
 
     assert len(lines) == len(pdf_generator.OPERATION_MODEL_SUMMARY_REQUIRED_TOKENS)
     for line, token in zip(lines, pdf_generator.OPERATION_MODEL_SUMMARY_REQUIRED_TOKENS):
@@ -172,7 +191,7 @@ def test_operation_section_label_helper_uses_short_room_for_empty_tables() -> No
 
 def volume_signal(stock_id: str = "1234", signal_date: str = "20260616", rank: str = "1") -> dict[str, str]:
     return {
-        "model_id": "volume_range_breakout",
+        "model_id": LOW_VOLUME_MODEL_ID,
         "signal_date": signal_date,
         "stock_id": stock_id,
         "stock_name": "測試股",
@@ -185,7 +204,7 @@ def volume_signal(stock_id: str = "1234", signal_date: str = "20260616", rank: s
 
 
 def formal_summary(
-    trigger_id: str = "next_day_break_signal_high_confirmed",
+    trigger_id: str = "next_day_continuation_confirmed",
     tdcc_list_type: str = "no_tdcc",
     rank_bucket: str = "all",
     confluence_scope: str = "operation_trigger",
@@ -202,7 +221,7 @@ def formal_summary(
     return pd.DataFrame(
         [
             {
-                "model_id": "volume_range_breakout",
+                "model_id": LOW_VOLUME_MODEL_ID,
                 "tdcc_list_type": tdcc_list_type,
                 "rank_bucket": rank_bucket,
                 "trigger_id": trigger_id,
@@ -252,6 +271,7 @@ def write_operation_snapshot(
         [
             {
                 "stock_id": stock_id,
+                "model_id": LOW_VOLUME_MODEL_ID,
                 "stock_name": "TestCo",
                 "signal_date": signal_date,
                 "selected_confirmation_date": selected_confirmation_date,
@@ -264,8 +284,13 @@ def write_operation_snapshot(
     ).to_csv(snapshot_dir / f"daily_volume_breakout_operation_section_{snapshot_date}.csv", index=False)
 
 
-def build_rows_for_test(signals: pd.DataFrame, report_date: str, summary: pd.DataFrame) -> pd.DataFrame:
-    rows, _audit = build_rows_and_audit_for_test(signals, report_date, summary)
+def build_rows_for_test(
+    signals: pd.DataFrame,
+    report_date: str,
+    summary: pd.DataFrame,
+    approval_overrides: dict[str, str] | None = None,
+) -> pd.DataFrame:
+    rows, _audit = build_rows_and_audit_for_test(signals, report_date, summary, approval_overrides)
     return rows
 
 
@@ -273,12 +298,14 @@ def build_rows_and_audit_for_test(
     signals: pd.DataFrame,
     report_date: str,
     summary: pd.DataFrame,
+    approval_overrides: dict[str, str] | None = None,
 ) -> tuple[pd.DataFrame, pd.DataFrame]:
+    approval = approval_stub(**(approval_overrides or {}))
     rows, audit = builder.build_lifecycle_rows(
         signals,
         report_date,
         int(signals["stock_id"].nunique()) if not signals.empty else 0,
-        approval_stub(),
+        {LOW_VOLUME_MODEL_ID: approval},
         "2026-06-17 12:00:00 Asia/Taipei",
         summary,
     )
@@ -292,7 +319,7 @@ def output_row(**updates: str) -> dict[str, str]:
     row = {col: "" for col in builder.OUTPUT_COLUMNS}
     row.update(
         {
-            "model_id": "volume_range_breakout",
+            "model_id": LOW_VOLUME_MODEL_ID,
             "pdf_view": "highlight",
             "pdf_section": "confirmed_operation",
             "row_type": "empty_state",
@@ -313,7 +340,7 @@ def audit_row(**updates: str) -> dict[str, str]:
     row = {col: "" for col in builder.EVIDENCE_AUDIT_COLUMNS}
     row.update(
         {
-            "model_id": "volume_range_breakout",
+            "model_id": LOW_VOLUME_MODEL_ID,
             "operation_asof_date": "20260615",
             "stock_id": "1234",
             "signal_date": "20260615",
@@ -345,12 +372,30 @@ def test_build_reuses_existing_published_operation_snapshot(monkeypatch, tmp_pat
         latest_dir / "daily_candidate_model_signals_for_report_latest.csv",
         index=False,
     )
-    pd.DataFrame([{"model_id": "volume_range_breakout", **approval_stub()}]).to_csv(
+    pd.DataFrame([{"model_id": LOW_VOLUME_MODEL_ID, **approval_stub()}]).to_csv(
         latest_dir / "approved_operation_patterns_latest.csv",
         index=False,
     )
     formal_summary().to_csv(latest_dir / "approved_formal_summary.csv", index=False)
     pd.DataFrame([output_row(stock_id="", stock_display="目前無資料")]).to_csv(
+        snapshot_dir / "daily_volume_breakout_operation_section_20260615.csv",
+        index=False,
+    )
+    snapshot_rows = []
+    for model_id in [LOW_VOLUME_MODEL_ID, MID_VOLUME_MODEL_ID]:
+        for pdf_view in builder.PDF_VIEWS:
+            for pdf_section in builder.PDF_SECTIONS:
+                if not builder.section_allowed_for_pdf_view(pdf_view, pdf_section):
+                    continue
+                snapshot_rows.append(
+                    output_row(
+                        model_id=model_id,
+                        pdf_view=pdf_view,
+                        pdf_section=pdf_section,
+                        operation_status=pdf_section,
+                    )
+                )
+    pd.DataFrame(snapshot_rows).to_csv(
         snapshot_dir / "daily_volume_breakout_operation_section_20260615.csv",
         index=False,
     )
@@ -368,9 +413,71 @@ def test_build_reuses_existing_published_operation_snapshot(monkeypatch, tmp_pat
 
     section, audit = builder.build()
 
-    assert section["stock_id"].tolist() == [""]
-    assert section["row_type"].tolist() == ["empty_state"]
+    assert len(section) == len(snapshot_rows)
+    assert set(section["model_id"]) == {LOW_VOLUME_MODEL_ID, MID_VOLUME_MODEL_ID}
+    assert set(section["stock_id"]) == {""}
+    assert set(section["row_type"]) == {"empty_state"}
     assert audit["stock_id"].tolist() == ["1234"]
+
+
+def test_build_allows_empty_published_operation_evidence_audit_snapshot(monkeypatch, tmp_path) -> None:
+    latest_dir = tmp_path / "output" / "latest"
+    snapshot_dir = tmp_path / "output" / "history" / "daily_model_snapshots"
+    latest_dir.mkdir(parents=True)
+    snapshot_dir.mkdir(parents=True)
+    pd.DataFrame(
+        [
+            {
+                "main_price_date": "20260615",
+                "report_ready": "True",
+                "daily_pdf_ready": "True",
+            }
+        ]
+    ).to_csv(latest_dir / "data_freshness_latest.csv", index=False)
+    pd.DataFrame([volume_signal("9999", "20260615")]).to_csv(
+        latest_dir / "daily_candidate_model_signals_for_report_latest.csv",
+        index=False,
+    )
+    pd.DataFrame([{"model_id": LOW_VOLUME_MODEL_ID, **approval_stub()}]).to_csv(
+        latest_dir / "approved_operation_patterns_latest.csv",
+        index=False,
+    )
+    formal_summary().to_csv(latest_dir / "approved_formal_summary.csv", index=False)
+    snapshot_rows = []
+    for model_id in [LOW_VOLUME_MODEL_ID, MID_VOLUME_MODEL_ID]:
+        for pdf_view in builder.PDF_VIEWS:
+            for pdf_section in builder.PDF_SECTIONS:
+                if not builder.section_allowed_for_pdf_view(pdf_view, pdf_section):
+                    continue
+                snapshot_rows.append(
+                    output_row(
+                        model_id=model_id,
+                        pdf_view=pdf_view,
+                        pdf_section=pdf_section,
+                        operation_status=pdf_section,
+                    )
+                )
+    pd.DataFrame(snapshot_rows).to_csv(
+        snapshot_dir / "daily_volume_breakout_operation_section_20260615.csv",
+        index=False,
+    )
+    pd.DataFrame(columns=builder.EVIDENCE_AUDIT_COLUMNS).to_csv(
+        snapshot_dir / "daily_volume_breakout_operation_evidence_audit_20260615.csv",
+        index=False,
+    )
+
+    monkeypatch.setattr(builder, "MODEL_SNAPSHOT_DIR", snapshot_dir)
+    monkeypatch.setattr(builder, "DAILY_SIGNALS_CSV", latest_dir / "daily_candidate_model_signals_for_report_latest.csv")
+    monkeypatch.setattr(builder, "APPROVAL_CSV", latest_dir / "approved_operation_patterns_latest.csv")
+    monkeypatch.setattr(builder, "FORMAL_SUMMARY_CSV", latest_dir / "approved_formal_summary.csv")
+    monkeypatch.setattr(builder, "DATA_FRESHNESS_CSV", latest_dir / "data_freshness_latest.csv")
+    monkeypatch.delenv(builder.ALLOW_SNAPSHOT_REWRITE_ENV, raising=False)
+
+    section, audit = builder.build()
+
+    assert len(section) == len(snapshot_rows)
+    assert list(audit.columns) == builder.EVIDENCE_AUDIT_COLUMNS
+    assert audit.empty
 
 
 def backtest_lifecycle_state(stock_id: str, signal_date: str, report_date: str) -> str:
@@ -436,7 +543,7 @@ def test_lifecycle_confirms_signal_on_report_date(monkeypatch, tmp_path) -> None
     assert confirmed["stock_id"].tolist() == ["1234", "1234"]
     assert set(confirmed["row_action_status"]) == {"confirmed_buy_candidate"}
     assert set(confirmed["buy_rank_eligible"]) == {"True"}
-    assert set(confirmed["selected_trigger_id"]) == {"next_day_break_signal_high_confirmed"}
+    assert set(confirmed["selected_trigger_id"]) == {"next_day_continuation_confirmed"}
     assert set(confirmed["confirmation_date"]) == {"20260617"}
     assert pending.empty
     assert backtest_lifecycle_state("1234", "20260616", "20260617") == "confirmed_operation"
@@ -507,7 +614,7 @@ def test_lifecycle_moves_prior_confirmed_signal_to_active(monkeypatch, tmp_path)
     assert confirmed.empty
     assert set(active["row_action_status"]) == {"active_operation"}
     assert set(active["buy_rank_eligible"]) == {"False"}
-    assert set(active["selected_trigger_id"]) == {"next_day_break_signal_high_confirmed"}
+    assert set(active["selected_trigger_id"]) == {"next_day_continuation_confirmed"}
     assert set(active["confirmation_date"]) == {"20260616"}
     assert backtest_lifecycle_state("1234", "20260615", "20260617") == "active_operation"
 
@@ -623,7 +730,12 @@ def test_lifecycle_does_not_carry_forward_snapshot_when_evidence_loses_formal_ap
     out, audit = build_rows_and_audit_for_test(
         pd.DataFrame(),
         "20260617",
-        formal_summary(approved_for_daily="False", risk_notes_zh="approved formal daily evidence"),
+        formal_summary(risk_notes_zh="approved formal daily evidence"),
+        approval_overrides={
+            "approved_for_daily": "False",
+            "operation_module_approved_for_daily": "False",
+            "approval_status": "research_only",
+        },
     )
 
     active = out[out["pdf_section"].eq("active_operation") & out["row_type"].eq("data")]
@@ -707,7 +819,7 @@ def test_active_operation_wins_over_new_confirmed_signal_for_same_stock(monkeypa
         {"stock_id": "1234", "signal_date": "20260615"}
     ]
     suppressed = audit[
-        audit["audit_status"].eq("positive_row_evidence")
+        audit["audit_status"].eq("positive_model_contract_evidence")
         & audit["stock_id"].eq("1234")
         & audit["signal_date"].eq("20260616")
     ]
@@ -839,9 +951,16 @@ def test_lifecycle_does_not_promote_confirmed_signal_without_positive_evidence(m
         index=False,
     )
 
-    weak_summary = formal_summary()
-    weak_summary["median_return"] = "-1"
-    out = build_rows_for_test(pd.DataFrame(), "20260617", weak_summary)
+    out = build_rows_for_test(
+        pd.DataFrame(),
+        "20260617",
+        formal_summary(),
+        approval_overrides={
+            "approved_for_daily": "False",
+            "operation_module_approved_for_daily": "False",
+            "approval_status": "research_only",
+        },
+    )
 
     confirmed = out[out["pdf_section"].eq("confirmed_operation") & out["row_type"].eq("data")]
     unranked = out[out["pdf_section"].eq("confirmed_unranked_operation") & out["row_type"].eq("data")]
@@ -852,7 +971,7 @@ def test_lifecycle_does_not_promote_confirmed_signal_without_positive_evidence(m
     assert set(unranked["buy_rank_eligible"]) == {"False"}
     assert set(unranked["entry_price"]) == {""}
     assert set(unranked["stop_loss_price"]) == {""}
-    assert set(unranked["evidence_match_status"]) == {"row_level_evidence_not_buy_ranked"}
+    assert set(unranked["evidence_match_status"]) == {"model_contract_evidence_not_buy_ranked"}
 
 
 def test_lifecycle_rejects_row_level_evidence_without_daily_approval(monkeypatch, tmp_path) -> None:
@@ -873,7 +992,12 @@ def test_lifecycle_rejects_row_level_evidence_without_daily_approval(monkeypatch
     out, audit = build_rows_and_audit_for_test(
         pd.DataFrame(),
         "20260617",
-        formal_summary(approved_for_daily="False", risk_notes_zh="approved formal daily evidence"),
+        formal_summary(risk_notes_zh="approved formal daily evidence"),
+        approval_overrides={
+            "approved_for_daily": "False",
+            "operation_module_approved_for_daily": "False",
+            "approval_status": "research_only",
+        },
     )
 
     confirmed = out[out["pdf_section"].eq("confirmed_operation") & out["row_type"].eq("data")]
@@ -882,7 +1006,7 @@ def test_lifecycle_rejects_row_level_evidence_without_daily_approval(monkeypatch
     assert unranked["stock_id"].tolist() == ["1234"]
     assert set(unranked["row_action_status"]) == {"confirmed_not_buy_ranked"}
     assert set(unranked["buy_rank_eligible"]) == {"False"}
-    assert set(unranked["evidence_match_status"]) == {"row_level_evidence_not_buy_ranked"}
+    assert set(unranked["evidence_match_status"]) == {"model_contract_evidence_not_buy_ranked"}
     assert audit[audit["included_in_daily_adapter"].eq("True")].empty
 
 
@@ -904,7 +1028,12 @@ def test_lifecycle_rejects_research_only_row_level_evidence(monkeypatch, tmp_pat
     out, audit = build_rows_and_audit_for_test(
         pd.DataFrame(),
         "20260617",
-        formal_summary(approved_for_daily="True", risk_notes_zh="research only; not approved for daily buy gate"),
+        formal_summary(risk_notes_zh="research only; not approved for daily buy gate"),
+        approval_overrides={
+            "approved_for_daily": "False",
+            "operation_module_approved_for_daily": "False",
+            "approval_status": "research_only",
+        },
     )
 
     confirmed = out[out["pdf_section"].eq("confirmed_operation") & out["row_type"].eq("data")]
@@ -913,7 +1042,7 @@ def test_lifecycle_rejects_research_only_row_level_evidence(monkeypatch, tmp_pat
     assert unranked["stock_id"].tolist() == ["1234"]
     assert set(unranked["row_action_status"]) == {"confirmed_not_buy_ranked"}
     assert set(unranked["buy_rank_eligible"]) == {"False"}
-    assert set(unranked["evidence_match_status"]) == {"row_level_evidence_not_buy_ranked"}
+    assert set(unranked["evidence_match_status"]) == {"model_contract_evidence_not_buy_ranked"}
     assert audit[audit["included_in_daily_adapter"].eq("True")].empty
 
 
@@ -945,13 +1074,13 @@ def test_lifecycle_does_not_apply_tdcc_top10_evidence_to_no_tdcc_stock(monkeypat
     out = build_rows_for_test(pd.DataFrame(), "20260617", tdcc_top10_only)
 
     confirmed = out[out["pdf_section"].eq("confirmed_operation") & out["row_type"].eq("data")]
-    unranked = out[out["pdf_section"].eq("confirmed_unranked_operation") & out["row_type"].eq("data")]
-    assert confirmed.empty
-    assert unranked["stock_id"].tolist() == ["1234"]
-    assert unranked["pdf_view"].tolist() == ["full"]
-    assert set(unranked["row_action_status"]) == {"confirmed_not_buy_ranked"}
-    assert set(unranked["buy_rank_eligible"]) == {"False"}
-    assert set(unranked["evidence_match_status"]) == {"no_matching_row_level_evidence"}
+    assert confirmed["stock_id"].tolist() == ["1234", "1234"]
+    assert set(confirmed["row_action_status"]) == {"confirmed_buy_candidate"}
+    assert set(confirmed["buy_rank_eligible"]) == {"True"}
+    assert set(confirmed["evidence_match_status"]) == {"positive_model_contract_evidence"}
+    assert set(confirmed["evidence_tdcc_list_type"]) == {"model_level"}
+    assert set(confirmed["evidence_confluence_scope"]) == {"model_contract"}
+    assert set(confirmed["evidence_confluence_id"]) == {LOW_VOLUME_MODEL_ID}
 
 
 def test_lifecycle_uses_exact_no_tdcc_row_level_evidence(monkeypatch, tmp_path) -> None:
@@ -998,19 +1127,22 @@ def test_lifecycle_uses_exact_no_tdcc_row_level_evidence(monkeypatch, tmp_path) 
 
     confirmed = out[out["pdf_section"].eq("confirmed_operation") & out["row_type"].eq("data")]
     assert confirmed["stock_id"].tolist() == ["1234", "1234"]
-    assert set(confirmed["sample_size"]) == {"22"}
-    assert set(confirmed["win_rate_zh"]) == {"55.00%"}
-    assert set(confirmed["median_return_zh"]) == {"1.80%"}
-    assert set(confirmed["evidence_tdcc_list_type"]) == {"no_tdcc"}
+    assert set(confirmed["sample_size"]) == {"26"}
+    assert set(confirmed["win_rate_zh"]) == {"80.77%"}
+    assert set(confirmed["median_return_zh"]) == {"18.79%"}
+    assert set(confirmed["evidence_match_status"]) == {"positive_model_contract_evidence"}
+    assert set(confirmed["evidence_tdcc_list_type"]) == {"model_level"}
     assert set(confirmed["evidence_rank_bucket"]) == {"all"}
+    assert set(confirmed["evidence_confluence_scope"]) == {"model_contract"}
+    assert set(confirmed["evidence_confluence_id"]) == {LOW_VOLUME_MODEL_ID}
 
 
 def test_daily_signal_context_uses_report_date_as_authority() -> None:
     signals = pd.DataFrame(
         [
-            {"model_id": "volume_range_breakout", "signal_date": "20260612", "stock_id": "1111"},
-            {"model_id": "volume_range_breakout", "signal_date": "20260615", "stock_id": "2222"},
-            {"model_id": "volume_range_breakout", "signal_date": "20260615", "stock_id": "3333"},
+            {"model_id": LOW_VOLUME_MODEL_ID, "signal_date": "20260612", "stock_id": "1111"},
+            {"model_id": LOW_VOLUME_MODEL_ID, "signal_date": "20260615", "stock_id": "2222"},
+            {"model_id": LOW_VOLUME_MODEL_ID, "signal_date": "20260615", "stock_id": "3333"},
         ]
     )
 
@@ -1023,7 +1155,7 @@ def test_daily_signal_context_uses_report_date_as_authority() -> None:
 def test_daily_signal_context_does_not_promote_stale_model_signal_date() -> None:
     signals = pd.DataFrame(
         [
-            {"model_id": "volume_range_breakout", "signal_date": "20260612", "stock_id": "1111"},
+            {"model_id": LOW_VOLUME_MODEL_ID, "signal_date": "20260612", "stock_id": "1111"},
         ]
     )
 
@@ -1037,7 +1169,7 @@ def test_pdf_volume_operation_uses_taxonomy_for_report_line_fallback() -> None:
     rows = pd.DataFrame(
         [
             {
-                "model_id": "volume_range_breakout",
+                "model_id": LOW_VOLUME_MODEL_ID,
                 "pdf_view": "highlight",
                 "pdf_section": "pending_confirmation",
                 "row_type": "data",
@@ -1048,7 +1180,7 @@ def test_pdf_volume_operation_uses_taxonomy_for_report_line_fallback() -> None:
                 "buy_rank_eligible": "False",
             },
             {
-                "model_id": "volume_range_breakout",
+                "model_id": LOW_VOLUME_MODEL_ID,
                 "pdf_view": "highlight",
                 "pdf_section": "active_operation",
                 "row_type": "empty_state",
@@ -1087,7 +1219,7 @@ def test_pdf_volume_operation_does_not_guess_missing_taxonomy() -> None:
     rows = pd.DataFrame(
         [
             {
-                "model_id": "volume_range_breakout",
+                "model_id": LOW_VOLUME_MODEL_ID,
                 "pdf_view": "highlight",
                 "pdf_section": "pending_confirmation",
                 "row_type": "data",
@@ -1111,7 +1243,7 @@ def test_pdf_volume_operation_ignores_non_string_membership_values() -> None:
     rows = pd.DataFrame(
         [
             {
-                "model_id": "volume_range_breakout",
+                "model_id": LOW_VOLUME_MODEL_ID,
                 "pdf_view": "highlight",
                 "pdf_section": "pending_confirmation",
                 "row_type": "data",
@@ -1122,7 +1254,7 @@ def test_pdf_volume_operation_ignores_non_string_membership_values() -> None:
                 "buy_rank_eligible": "False",
             },
             {
-                "model_id": "volume_range_breakout",
+                "model_id": LOW_VOLUME_MODEL_ID,
                 "pdf_view": "highlight",
                 "pdf_section": "pending_confirmation",
                 "row_type": "data",
@@ -1191,7 +1323,7 @@ def test_volume_operation_validator_rejects_unsynced_model_signal_log(monkeypatc
                 "signal_date": "20260618",
                 "report_bucket": "mainstream",
                 "stock_id": "2061",
-                "model_id": "volume_range_breakout",
+                "model_id": LOW_VOLUME_MODEL_ID,
             }
         ]
     ).to_csv(latest_signals, index=False)
@@ -1201,7 +1333,7 @@ def test_volume_operation_validator_rejects_unsynced_model_signal_log(monkeypatc
                 "signal_date": "20260618",
                 "report_bucket": "mainstream",
                 "stock_id": "3002",
-                "model_id": "volume_range_breakout",
+                "model_id": LOW_VOLUME_MODEL_ID,
             }
         ]
     ).to_csv(signal_log, index=False)
@@ -1241,7 +1373,7 @@ def test_volume_operation_validator_allows_lineage_only_signal_log_rows(monkeypa
                 "signal_date": "20260618",
                 "report_bucket": "mainstream",
                 "stock_id": "2061",
-                "model_id": "volume_range_breakout",
+                "model_id": LOW_VOLUME_MODEL_ID,
             }
         ]
     ).to_csv(latest_signals, index=False)
@@ -1251,13 +1383,13 @@ def test_volume_operation_validator_allows_lineage_only_signal_log_rows(monkeypa
                 "signal_date": "20260618",
                 "report_bucket": "mainstream",
                 "stock_id": "2061",
-                "model_id": "volume_range_breakout",
+                "model_id": LOW_VOLUME_MODEL_ID,
             },
             {
                 "signal_date": "20260618",
                 "report_bucket": "",
                 "stock_id": "5211",
-                "model_id": "volume_range_breakout",
+                "model_id": LOW_VOLUME_MODEL_ID,
             },
         ]
     ).to_csv(signal_log, index=False)
@@ -1285,7 +1417,7 @@ def test_volume_operation_builder_rejects_latest_signal_date_mismatch() -> None:
             {
                 "signal_date": "20260618",
                 "stock_id": "2061",
-                "model_id": "volume_range_breakout",
+                "model_id": LOW_VOLUME_MODEL_ID,
             }
         ]
     )
@@ -1397,7 +1529,7 @@ def operation_rows_for_limit_test(
     for index in range(count):
         rows.append(
             {
-                "model_id": "volume_range_breakout",
+                "model_id": LOW_VOLUME_MODEL_ID,
                 "pdf_view": pdf_view,
                 "pdf_section": pdf_section,
                 "row_type": "data",
@@ -1452,7 +1584,7 @@ def test_pdf_operation_highlight_display_limits_apply_after_report_line_filter()
     }
 
     mainstream = pdf_generator.filter_volume_operation_rows_for_line(
-        pdf_generator.volume_operation_frame(inputs, "highlight", "active_operation"),
+        pdf_generator.volume_operation_frame(inputs, LOW_VOLUME_MODEL_ID, "highlight", "active_operation"),
         inputs,
         "mainstream",
     )
@@ -1462,7 +1594,7 @@ def test_pdf_operation_highlight_display_limits_apply_after_report_line_filter()
         "active_operation",
     )
     non_mainstream = pdf_generator.filter_volume_operation_rows_for_line(
-        pdf_generator.volume_operation_frame(inputs, "highlight", "active_operation"),
+        pdf_generator.volume_operation_frame(inputs, LOW_VOLUME_MODEL_ID, "highlight", "active_operation"),
         inputs,
         "non_mainstream",
     )
@@ -1487,7 +1619,7 @@ def test_pdf_operation_renderer_uses_row_level_buy_eligibility(monkeypatch) -> N
     rows = pd.DataFrame(
         [
             {
-                "model_id": "volume_range_breakout",
+                "model_id": LOW_VOLUME_MODEL_ID,
                 "pdf_view": "highlight",
                 "pdf_section": "confirmed_operation",
                 "operation_asof_date": "20260612",
@@ -1500,7 +1632,7 @@ def test_pdf_operation_renderer_uses_row_level_buy_eligibility(monkeypatch) -> N
                 "entry_price_status_zh": "舊進場價狀態不可出現",
                 "stop_basis_zh": "舊停損基準不可出現",
                 "exit_rule_zh": "舊出場規則不可出現",
-                "selected_trigger_id": "next_day_break_signal_high_confirmed",
+                    "selected_trigger_id": "next_day_continuation_confirmed",
                 "selected_confirmation_date": "20260612",
                 "confirmation_date": "20260612",
                 "entry_rule_id": "confirmation_next_open",
@@ -1529,7 +1661,7 @@ def test_pdf_operation_renderer_uses_row_level_buy_eligibility(monkeypatch) -> N
                 "buy_rank_eligible": "True",
             },
             {
-                "model_id": "volume_range_breakout",
+                "model_id": LOW_VOLUME_MODEL_ID,
                 "pdf_view": "highlight",
                 "pdf_section": "pending_confirmation",
                 "operation_asof_date": "20260612",
@@ -1551,7 +1683,7 @@ def test_pdf_operation_renderer_uses_row_level_buy_eligibility(monkeypatch) -> N
                 "buy_rank_eligible": "False",
             },
             {
-                "model_id": "volume_range_breakout",
+                "model_id": LOW_VOLUME_MODEL_ID,
                 "pdf_view": "highlight",
                 "pdf_section": "active_operation",
                 "operation_asof_date": "20260612",
@@ -1571,6 +1703,7 @@ def test_pdf_operation_renderer_uses_row_level_buy_eligibility(monkeypatch) -> N
     pdf_generator.render_volume_range_breakout_operation_section(
         story,
         {"volume_operation": rows},
+        LOW_VOLUME_MODEL_ID,
         "highlight",
     )
 
@@ -1589,7 +1722,10 @@ def test_pdf_operation_renderer_uses_row_level_buy_eligibility(monkeypatch) -> N
 
     assert len(captured_tables) == 2
     confirmed, active = captured_tables
-    assert confirmed[0][0] == "放量攻擊模型 - 本日可買 / 已確認買入候選"
+    assert confirmed[0][0] == pdf_generator.operation_table_title(
+        pdf_generator.operation_model_display_name(LOW_VOLUME_MODEL_ID),
+        pdf_generator.OPERATION_CONFIRMED_BUY_TABLE_TITLE,
+    )
     assert confirmed[1] == [
         "排名",
         "股票",
@@ -1605,7 +1741,7 @@ def test_pdf_operation_renderer_uses_row_level_buy_eligibility(monkeypatch) -> N
         "排名原因",
     ]
     assert confirmed[2][1] == "1111 測試A"
-    assert confirmed[2][2] == "隔日突破訊號高點"
+    assert confirmed[2][2] == pdf_generator.VOLUME_TRIGGER_LABELS["next_day_continuation_confirmed"]
     assert confirmed[2][3] == "2026/6/12"
     assert confirmed[2][4] == "確認後下一交易日開盤，尚未產生"
     assert confirmed[2][5] == "6/11最低點 10.00"
@@ -1613,7 +1749,10 @@ def test_pdf_operation_renderer_uses_row_level_buy_eligibility(monkeypatch) -> N
     assert confirmed[2][7] == "操作 12.30 / 最終 88.80"
     assert confirmed[2][11] == "正式分數理由"
     assert "2222 測試B" not in " ".join(str(cell) for row in confirmed for cell in row)
-    assert active[0][0] == "放量攻擊模型 - 操作中"
+    assert active[0][0] == pdf_generator.operation_table_title(
+        pdf_generator.operation_model_display_name(LOW_VOLUME_MODEL_ID),
+        pdf_generator.OPERATION_ACTIVE_TABLE_TITLE,
+    )
     assert active[1] == ["股票", "確認方式", "進場日 / 價", "停損基準", "持有天數", "出場規則", "操作 / 最終分數", "備註"]
     assert active[2][7] == "目前無操作中追蹤列"
 
@@ -1641,7 +1780,7 @@ def test_pdf_operation_renderer_full_shows_confirmed_unranked(monkeypatch) -> No
     rows = pd.DataFrame(
         [
             {
-                "model_id": "volume_range_breakout",
+                "model_id": LOW_VOLUME_MODEL_ID,
                 "pdf_view": "full",
                 "pdf_section": "confirmed_operation",
                 "row_type": "empty_state",
@@ -1651,14 +1790,14 @@ def test_pdf_operation_renderer_full_shows_confirmed_unranked(monkeypatch) -> No
                 "buy_rank_eligible": "False",
             },
             {
-                "model_id": "volume_range_breakout",
+                "model_id": LOW_VOLUME_MODEL_ID,
                 "pdf_view": "full",
                 "pdf_section": "confirmed_unranked_operation",
                 "row_type": "data",
                 "display_order": "1",
                 "stock_id": "3333",
                 "stock_display": "3333 測試C",
-                "selected_trigger_id": "next_day_break_signal_high_confirmed",
+                    "selected_trigger_id": "next_day_continuation_confirmed",
                 "selected_confirmation_date": "20260612",
                 "confirmation_date": "20260612",
                 "rank_reason_zh": "已確認但證據未過門檻",
@@ -1670,7 +1809,7 @@ def test_pdf_operation_renderer_full_shows_confirmed_unranked(monkeypatch) -> No
                 "buy_rank_eligible": "False",
             },
             {
-                "model_id": "volume_range_breakout",
+                "model_id": LOW_VOLUME_MODEL_ID,
                 "pdf_view": "full",
                 "pdf_section": "pending_confirmation",
                 "row_type": "empty_state",
@@ -1680,7 +1819,7 @@ def test_pdf_operation_renderer_full_shows_confirmed_unranked(monkeypatch) -> No
                 "buy_rank_eligible": "False",
             },
             {
-                "model_id": "volume_range_breakout",
+                "model_id": LOW_VOLUME_MODEL_ID,
                 "pdf_view": "full",
                 "pdf_section": "active_operation",
                 "row_type": "empty_state",
@@ -1696,12 +1835,16 @@ def test_pdf_operation_renderer_full_shows_confirmed_unranked(monkeypatch) -> No
     pdf_generator.render_volume_range_breakout_operation_section(
         story,
         {"volume_operation": rows},
+        LOW_VOLUME_MODEL_ID,
         "full",
     )
 
     assert len(captured_tables) == 4
     _, unranked, _, _ = captured_tables
-    assert unranked[0][0] == "放量攻擊模型 - 已確認但未通過買入排名門檻"
+    assert unranked[0][0] == pdf_generator.operation_table_title(
+        pdf_generator.operation_model_display_name(LOW_VOLUME_MODEL_ID),
+        "已確認但未通過買入排名門檻",
+    )
     assert unranked[1] == ["股票", "確認方式", "確認日", "未列排名原因", "樣本數", "勝率", "中位數報酬", "證據狀態"]
     assert unranked[2][0] == "3333 測試C"
     assert unranked[2][3] == "已確認但證據未過門檻"
@@ -1722,7 +1865,7 @@ def test_pdf_operation_renderer_keeps_highlight_empty_tables(monkeypatch) -> Non
     rows = pd.DataFrame(
         [
             {
-                "model_id": "volume_range_breakout",
+                "model_id": LOW_VOLUME_MODEL_ID,
                 "pdf_view": "highlight",
                 "pdf_section": "confirmed_operation",
                 "row_type": "empty_state",
@@ -1733,7 +1876,7 @@ def test_pdf_operation_renderer_keeps_highlight_empty_tables(monkeypatch) -> Non
                 "buy_rank_eligible": "False",
             },
             {
-                "model_id": "volume_range_breakout",
+                "model_id": LOW_VOLUME_MODEL_ID,
                 "pdf_view": "highlight",
                 "pdf_section": "pending_confirmation",
                 "row_type": "empty_state",
@@ -1744,7 +1887,7 @@ def test_pdf_operation_renderer_keeps_highlight_empty_tables(monkeypatch) -> Non
                 "buy_rank_eligible": "False",
             },
             {
-                "model_id": "volume_range_breakout",
+                "model_id": LOW_VOLUME_MODEL_ID,
                 "pdf_view": "highlight",
                 "pdf_section": "active_operation",
                 "row_type": "empty_state",
@@ -1758,14 +1901,25 @@ def test_pdf_operation_renderer_keeps_highlight_empty_tables(monkeypatch) -> Non
     )
 
     story: list = []
-    pdf_generator.render_volume_range_breakout_operation_section(story, {"volume_operation": rows}, "highlight")
+    pdf_generator.render_volume_range_breakout_operation_section(
+        story,
+        {"volume_operation": rows},
+        LOW_VOLUME_MODEL_ID,
+        "highlight",
+    )
 
     assert len(captured_tables) == 2
     confirmed, active = captured_tables
-    assert confirmed[0][0] == "放量攻擊模型 - 本日可買 / 已確認買入候選"
+    assert confirmed[0][0] == pdf_generator.operation_table_title(
+        pdf_generator.operation_model_display_name(LOW_VOLUME_MODEL_ID),
+        pdf_generator.OPERATION_CONFIRMED_BUY_TABLE_TITLE,
+    )
     assert confirmed[1][:2] == ["排名", "股票"]
     assert confirmed[2][11] == "本日無股票推薦"
-    assert active[0][0] == "放量攻擊模型 - 操作中"
+    assert active[0][0] == pdf_generator.operation_table_title(
+        pdf_generator.operation_model_display_name(LOW_VOLUME_MODEL_ID),
+        pdf_generator.OPERATION_ACTIVE_TABLE_TITLE,
+    )
     assert active[1][:2] == ["股票", "確認方式"]
     story_text = "\n".join(
         flowable.getPlainText()

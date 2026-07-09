@@ -23,7 +23,8 @@ VALIDATION_MD = LATEST_DIR / "daily_candidate_model_layer_validation_latest.md"
 
 
 REQUIRED_PARAMETER_MODELS = {
-    "volume_range_breakout",
+    "volume_range_breakout_v2_low_position_volume_attack",
+    "volume_range_breakout_v2_mid_position_momentum_attack",
     "price_pullback_23ema",
     "revenue_unreacted_range",
     "w_bottom_right_side",
@@ -202,6 +203,9 @@ def validate() -> dict[str, object]:
         missing_models = sorted(REQUIRED_PARAMETER_MODELS - set(params.get("model_id", pd.Series(dtype=str)).astype(str)))
         if missing_models:
             errors.append(f"missing_parameter_models: {missing_models}")
+        legacy = params[params.get("model_id", pd.Series(dtype=str)).astype(str).eq("volume_range_breakout")]
+        if not legacy.empty and set(legacy.get("pdf_visibility", pd.Series(dtype=str)).astype(str)) & {"pdf_core_model"}:
+            errors.append("legacy volume_range_breakout must not remain an active pdf_core_model parameter")
         if params["main_conditions"].astype(str).str.len().lt(5).any():
             errors.append("parameter rows must include readable main_conditions")
 

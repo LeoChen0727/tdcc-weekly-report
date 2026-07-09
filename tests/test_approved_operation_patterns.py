@@ -76,15 +76,28 @@ def test_build_approval_creates_versioned_daily_guidance() -> None:
     )
 
     approval = build_approval(summary, rank, generated_at="2026-06-15 00:00:00 Asia/Taipei")
-    row = approval[approval["model_id"].eq("volume_range_breakout")].iloc[0]
+    assert approval[approval["model_id"].eq("volume_range_breakout")].empty
 
-    assert row["model_id"] == "volume_range_breakout"
-    assert row["approved_for_daily"] == "True"
-    assert row["operation_directive_level"] == "approved_daily_operation_guidance"
-    assert row["entry_rule_id"] == "confirmation_next_open"
-    assert row["stop_loss_rule_id"] == "signal_low_stop"
-    assert row["exit_rule_id"] == "signal_low_stop_or_fixed_10d_close"
-    assert row["evidence_positive_rank_rows"] == 1
+    low = approval[approval["model_id"].eq("volume_range_breakout_v2_low_position_volume_attack")].iloc[0]
+    assert low["operation_module_id"] == "volume_range_breakout_v2_low_position_operation_v1"
+    assert low["approved_for_daily"] == "True"
+    assert low["operation_directive_level"] == "approved_daily_operation_guidance"
+    assert low["entry_rule_id"] == "confirmation_next_open"
+    assert low["stop_loss_rule_id"] == "sustained_close_below_lower_ma20_ema23_4pct_4d"
+    assert low["exit_rule_id"] == "ema23_close_stop_or_fixed_15d_close"
+    assert low["best_evidence_sample_size"] == "26"
+    assert low["best_evidence_win_rate"] == "80.7692"
+    assert low["volume_v2_loss_rate_pct"] == "19.2308"
+
+    mid = approval[approval["model_id"].eq("volume_range_breakout_v2_mid_position_momentum_attack")].iloc[0]
+    assert mid["operation_module_id"] == "volume_range_breakout_v2_mid_position_operation_v1"
+    assert mid["approved_for_daily"] == "True"
+    assert mid["entry_rule_id"] == "confirmation_next_open"
+    assert mid["stop_loss_rule_id"] == "sustained_close_below_lower_ma20_ema23_4pct_4d"
+    assert mid["exit_rule_id"] == "ema23_close_stop_or_fixed_15d_close"
+    assert mid["best_evidence_sample_size"] == "25"
+    assert mid["best_evidence_win_rate"] == "80.0000"
+    assert mid["volume_v2_loss_rate_pct"] == "20.0000"
 
     w_bottom = approval[approval["model_id"].eq("w_bottom_right_side")].iloc[0]
     assert w_bottom["operation_module_id"] == "w_bottom_early_entry_operation_v2"

@@ -347,7 +347,7 @@ def add_price_structure_features(df: pd.DataFrame) -> pd.DataFrame:
     out["obv_above_ma20"] = out["obv"] > out["obv_ma20"]
     out["obv_slope_5d"] = out["obv"] - obv_groups["obv"].shift(5)
 
-    for window in [10, 20, 23, 30, 45, 60]:
+    for window in [10, 20, 23, 30, 45, 60, 120]:
         high = groups["high"].shift(1).rolling(window, min_periods=max(5, min(window, 20))).max().reset_index(level=0, drop=True)
         low = groups["low"].shift(1).rolling(window, min_periods=max(5, min(window, 20))).min().reset_index(level=0, drop=True)
         out[f"range_high_{window}d_prev"] = high
@@ -358,6 +358,8 @@ def add_price_structure_features(df: pd.DataFrame) -> pd.DataFrame:
 
     range_45d = (out["range_high_45d_prev"] - out["range_low_45d_prev"]).replace(0, pd.NA)
     out["close_position_45d_pct"] = (out["close"] - out["range_low_45d_prev"]) / range_45d * 100.0
+    range_120d = (out["range_high_120d_prev"] - out["range_low_120d_prev"]).replace(0, pd.NA)
+    out["close_position_120d_pct"] = (out["close"] - out["range_low_120d_prev"]) / range_120d * 100.0
 
     for window in [20, 30, 60]:
         high = out[f"range_high_{window}d_prev"]
@@ -925,6 +927,39 @@ def current_volume_range_breakout_baseline(d: pd.DataFrame) -> pd.Series:
     return normal_volume | d["locked_limit_up_breakout"]
 
 
+def volume_v2_base_breakout(d: pd.DataFrame) -> pd.Series:
+    return (
+        (numeric_column(d, "volume_ratio_prev20") >= 2.0)
+        & (numeric_column(d, "range_breakout_60d_pct") >= 0.0)
+        & (numeric_column(d, "volume_ma20_lots") >= 1000)
+        & trueish_column(d, "bullish_attack_candle")
+    ).fillna(False)
+
+
+def volume_v2_shape_bucket(d: pd.DataFrame) -> pd.Series:
+    width60 = numeric_column(d, "range_width_60d_pct")
+    out = pd.Series("non_consolidation", index=d.index, dtype=object)
+    out = out.mask(width60 <= 40.0, "consolidation")
+    out = out.mask(width60 > 80.0, "wide_range")
+    return out
+
+
+def current_volume_v2_low_position_baseline(d: pd.DataFrame) -> pd.Series:
+    position120 = numeric_column(d, "close_position_120d_pct")
+    return (volume_v2_base_breakout(d) & position120.le(40.0)).fillna(False)
+
+
+def current_volume_v2_mid_position_baseline(d: pd.DataFrame) -> pd.Series:
+    position120 = numeric_column(d, "close_position_120d_pct")
+    shape = volume_v2_shape_bucket(d)
+    return (
+        volume_v2_base_breakout(d)
+        & position120.gt(40.0)
+        & position120.le(75.0)
+        & shape.isin({"non_consolidation", "wide_range"})
+    ).fillna(False)
+
+
 def current_price_pullback_baseline_proxy(d: pd.DataFrame) -> pd.Series:
     return price_pullback_near_ema23_or_support(d) & price_pullback_ema23_slope_proxy_up(d)
 
@@ -1397,6 +1432,42 @@ def production_baseline_specs() -> list[RuleSpec]:
     ]
 
 
+_legacy_production_baseline_specs = production_baseline_specs
+
+
+def production_baseline_specs() -> list[RuleSpec]:
+    specs = [spec for spec in _legacy_production_baseline_specs() if spec.model_id != "volume_range_breakout"]
+    v2_specs = [
+        RuleSpec(
+            "volume_range_breakout_v2_low_position_volume_attack",
+            "低位放量攻擊",
+            "volume_range_breakout_v2_low_position_operation_v1",
+            "formal v2 baseline: 120d low-position bucket with all shape buckets, 60d breakout and close-only next-day continuation handled by operation adapter",
+            "pdf_core_model",
+            current_volume_v2_low_position_baseline,
+            "Formal operation evidence comes from volume_range_breakout_v2_candidate_bucket_contract and the model-owned operation adapter; TDCC and MA overlays are score-only.",
+            "production_baseline",
+            "production_parity",
+            "",
+            "production_current",
+        ),
+        RuleSpec(
+            "volume_range_breakout_v2_mid_position_momentum_attack",
+            "中位動能放量攻擊",
+            "volume_range_breakout_v2_mid_position_operation_v1",
+            "formal v2 baseline: 120d mid-position bucket with non-consolidation or wide-range shape, 60d breakout and close-only next-day continuation handled by operation adapter",
+            "pdf_core_model",
+            current_volume_v2_mid_position_baseline,
+            "Formal operation evidence comes from volume_range_breakout_v2_candidate_bucket_contract and the model-owned operation adapter; TDCC and MA overlays are score-only.",
+            "production_baseline",
+            "production_parity",
+            "",
+            "production_current",
+        ),
+    ]
+    return v2_specs + specs
+
+
 def rule_specs() -> list[RuleSpec]:
     specs: list[RuleSpec] = production_baseline_specs()
 
@@ -1664,6 +1735,34 @@ def rule_specs() -> list[RuleSpec]:
         )
 
     return specs
+
+
+_legacy_rule_specs = rule_specs
+
+
+def rule_specs() -> list[RuleSpec]:
+    remapped: list[RuleSpec] = []
+    for spec in _legacy_rule_specs():
+        if spec.model_id == "volume_range_breakout":
+            remapped.append(
+                RuleSpec(
+                    spec.model_id,
+                    spec.model_name_zh,
+                    spec.parameter_set_id,
+                    spec.parameter_summary,
+                    "deprecated_research_only_not_pdf_core",
+                    spec.condition,
+                    spec.notes + " Legacy v1 is isolated after the v2 split and must not be treated as a production PDF core model.",
+                    spec.parameter_role,
+                    spec.production_parity_status,
+                    spec.parity_blocker,
+                    spec.variant_of,
+                )
+            )
+        else:
+            remapped.append(spec)
+    return remapped
+
 
 def summarize_rule(df: pd.DataFrame, spec: RuleSpec) -> tuple[dict[str, object], list[dict[str, object]]]:
     mask = spec.condition(df).fillna(False)

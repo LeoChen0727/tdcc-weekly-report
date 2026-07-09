@@ -1,6 +1,6 @@
 # Research Against Stock Model Contract Parity
 
-- generated_at: `2026-07-06 18:50:58 Asia/Taipei`
+- generated_at: `2026-07-09 22:08:56 Asia/Taipei`
 - production_contract_source: `config/stock_model_contract_registry.csv`
 - production_condition_spec: `config/daily_model_condition_spec.csv`
 - research_parity: `output/latest/research_backtest/daily_model_research_parity_latest.csv`
@@ -17,7 +17,7 @@
 | --- | --- |
 | hard_fail_contract_drift | 0 |
 | missing_research_baseline | 0 |
-| ok | 4 |
+| ok | 5 |
 | warning_research_variant_only | 5 |
 
 ## OK Models
@@ -26,7 +26,8 @@
 | --- | --- | --- | --- | --- | --- |
 | neckline_volume_breakout_confirmation | v1 | v1 | True | True | True |
 | price_pullback_23ema | v3 | v3 | True | True | True |
-| volume_range_breakout | v1 | v1 | True | True | True |
+| volume_range_breakout_v2_low_position_volume_attack | v1 | v1 | False | False | False |
+| volume_range_breakout_v2_mid_position_momentum_attack | v1 | v1 | False | False | False |
 | w_bottom_right_side | v1 | v1 | True | True | True |
 
 ## Research Variant / Proxy Only

@@ -1,29 +1,18 @@
-# Daily Model Research Baseline Parity
+# Daily Model Research Parity
 
-- generated_at: `2026-07-05 19:31:44 Asia/Taipei`
-- purpose: verify that every daily production core model has a research production-baseline row before parameter variants are compared
-- production_parity: historical research fields can replay the production baseline directly
-- production_proxy / proxy_only: baseline exists, but one or more production fields are not fully available point-in-time in the research frame
-- rule: variants must compare against the production_baseline row of the same model_id; proxy rows cannot be promoted without resolving blockers
+- generated_at: `2026-07-09 20:00:25 Asia/Taipei`
+- note: volume_range_breakout v1 is isolated; v2 low/mid formal rows are sourced from volume_range_breakout_v2_candidate_bucket_contract.
 
-## Status Summary
-
-| research_baseline_status | count |
-| --- | --- |
-| production_parity | 4 |
-| production_proxy | 4 |
-| proxy_only | 1 |
-
-## Model Parity Detail
-
-| model_id | research_baseline_status | research_baseline_parameter_set_id | research_variant_count | baseline_selected_stock_days | baseline_selected_unique_stocks | parity_blocker | completion_rule |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| volume_range_breakout | production_parity | production_current | 28 | 4370 | 1225 |  | usable_as_exact_baseline |
-| price_pullback_23ema | production_parity | price_pullback_23ema_prev20_breakout_stop_v1 | 12 | 8795 | 1128 |  | usable_as_exact_baseline |
-| hot_theme_pullback | production_proxy | production_current_proxy | 6 | 4518 | 857 | daily hot-theme labels are not fully backfilled as point-in-time model-layer fields | usable_for_relative_research_only_until_blocker_resolved |
-| revenue_unreacted_range | proxy_only | production_current_proxy | 2 | 341516 | 2127 | strong_revenue gate requires model-specific research matrix, contract update, exact parity, and promotion PR before formal use | usable_for_relative_research_only_until_blocker_resolved |
-| w_bottom_right_side | production_parity | w_bottom_early_entry_operation_v2 | 3 | 44 | 44 |  | usable_as_exact_baseline |
-| neckline_volume_breakout_confirmation | production_parity | neckline_strict_45_signal_90_score_v1 | 0 | 51 | 51 |  | usable_as_exact_baseline |
-| pullback_short_reclaim | production_proxy | production_current_proxy | 3 | 87366 | 1859 | pullback_entry_zone/right_side/ma20_reclaim setup flags are not fully backfilled | usable_for_relative_research_only_until_blocker_resolved |
-| tdcc_stealth_accumulation | production_proxy | production_current_proxy | 3 | 38487 | 1769 | tdcc_price_phase is not fully available historically for every signal date | usable_for_relative_research_only_until_blocker_resolved |
-| tdcc_short_term_continuation_d5_d10 | production_proxy | production_current_proxy | 2 | 3417 | 808 | daily specialty packet fields are not a single core build_specs condition and must be replayed from historical TDCC/technical proxies | usable_for_relative_research_only_until_blocker_resolved |
+| model_id | research_baseline_status | baseline | blocker |
+| --- | --- | --- | --- |
+| volume_range_breakout_v2_low_position_volume_attack | production_parity | volume_range_breakout_v2_low_position_operation_v1 |  |
+| volume_range_breakout_v2_mid_position_momentum_attack | production_parity | volume_range_breakout_v2_mid_position_operation_v1 |  |
+| volume_range_breakout | production_parity | production_current | legacy v1 isolated; retained only for audit/research history after v2 split |
+| hot_theme_pullback | production_proxy | production_current_proxy | daily hot-theme labels are not fully backfilled as point-in-time model-layer fields |
+| neckline_volume_breakout_confirmation | production_parity | neckline_strict_45_signal_90_score_v1 |  |
+| price_pullback_23ema | production_parity | price_pullback_23ema_prev20_breakout_stop_v1 |  |
+| pullback_short_reclaim | production_proxy | production_current_proxy | pullback_entry_zone/right_side/ma20_reclaim setup flags are not fully backfilled |
+| revenue_unreacted_range | proxy_only | production_current_proxy | strong_revenue gate requires model-specific research matrix, contract update, exact parity, and promotion PR before formal use |
+| tdcc_short_term_continuation_d5_d10 | production_proxy | production_current_proxy | daily specialty packet fields are not a single core build_specs condition and must be replayed from historical TDCC/technical proxies |
+| tdcc_stealth_accumulation | production_proxy | production_current_proxy | tdcc_price_phase is not fully available historically for every signal date |
+| w_bottom_right_side | production_parity | w_bottom_early_entry_operation_v2 |  |

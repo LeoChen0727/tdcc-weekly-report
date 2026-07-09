@@ -54,6 +54,8 @@ HIGHLIGHT_ROLE_REPORT_LINES = {
     "non_mainstream_highlight": "non_mainstream",
 }
 OPERATION_MODEL_DISPLAY_NAMES = {
+    "volume_range_breakout_v2_low_position_volume_attack": "低位放量攻擊模型",
+    "volume_range_breakout_v2_mid_position_momentum_attack": "中位動能放量攻擊模型",
     "volume_range_breakout": "放量攻擊模型",
     "w_bottom_right_side": "W底右側模型",
     "neckline_volume_breakout_confirmation": "W底頸線帶量突破確認模型",

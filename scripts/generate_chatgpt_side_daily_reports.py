@@ -68,18 +68,26 @@ TDCC_WINDOW_DIRS = [
 REMOTE_README: dict[str, str] = {}
 REMOTE_LATEST_BASE = "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest"
 REMOTE_DATA_BASE = "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data"
-VOLUME_BREAKOUT_MODEL_ID = "volume_range_breakout"
+LEGACY_VOLUME_BREAKOUT_MODEL_ID = "volume_range_breakout"
+VOLUME_BREAKOUT_V2_LOW_MODEL_ID = "volume_range_breakout_v2_low_position_volume_attack"
+VOLUME_BREAKOUT_V2_MID_MODEL_ID = "volume_range_breakout_v2_mid_position_momentum_attack"
+VOLUME_BREAKOUT_OPERATION_MODEL_IDS = {
+    VOLUME_BREAKOUT_V2_LOW_MODEL_ID,
+    VOLUME_BREAKOUT_V2_MID_MODEL_ID,
+}
 W_BOTTOM_RIGHT_SIDE_MODEL_ID = "w_bottom_right_side"
 W_BOTTOM_NECKLINE_BREAKOUT_MODEL_ID = "neckline_volume_breakout_confirmation"
 PRICE_PULLBACK_MODEL_ID = "price_pullback_23ema"
 OPERATION_MODEL_DISPLAY_NAMES = {
-    VOLUME_BREAKOUT_MODEL_ID: "放量攻擊模型",
+    VOLUME_BREAKOUT_V2_LOW_MODEL_ID: "低位放量攻擊模型",
+    VOLUME_BREAKOUT_V2_MID_MODEL_ID: "中位動能放量攻擊模型",
     W_BOTTOM_RIGHT_SIDE_MODEL_ID: "W底右側模型",
     W_BOTTOM_NECKLINE_BREAKOUT_MODEL_ID: "W底頸線帶量突破確認模型",
     PRICE_PULLBACK_MODEL_ID: "23EMA回檔模型",
 }
 PDF_PRESENTATION_MODEL_ORDER_OVERRIDES = {
-    VOLUME_BREAKOUT_MODEL_ID: 1.0,
+    VOLUME_BREAKOUT_V2_LOW_MODEL_ID: 1.0,
+    VOLUME_BREAKOUT_V2_MID_MODEL_ID: 1.05,
     W_BOTTOM_RIGHT_SIDE_MODEL_ID: 1.1,
     W_BOTTOM_NECKLINE_BREAKOUT_MODEL_ID: 1.2,
     PRICE_PULLBACK_MODEL_ID: 1.3,
@@ -93,7 +101,8 @@ W_BOTTOM_OPERATION_TABLE_MODEL_IDS = {
     W_BOTTOM_NECKLINE_BREAKOUT_MODEL_ID,
 }
 OPERATION_TABLE_MODEL_IDS = {
-    VOLUME_BREAKOUT_MODEL_ID,
+    VOLUME_BREAKOUT_V2_LOW_MODEL_ID,
+    VOLUME_BREAKOUT_V2_MID_MODEL_ID,
     W_BOTTOM_RIGHT_SIDE_MODEL_ID,
     W_BOTTOM_NECKLINE_BREAKOUT_MODEL_ID,
     PRICE_PULLBACK_MODEL_ID,
@@ -110,10 +119,15 @@ OPERATION_MODEL_SUMMARY_REQUIRED_TOKENS = (
     "敗：",
 )
 OPERATION_MODEL_OUTCOME_DEFINITIONS = {
-    VOLUME_BREAKOUT_MODEL_ID: {
-        "win": "勝：確認後依停損與10個交易日收盤出場規則，操作報酬為正。",
-        "neutral": "和：v1無正式和局定義。",
-        "failure": "敗：先觸發訊號K低點停損，或10個交易日收盤結算不為正報酬。",
+    VOLUME_BREAKOUT_V2_LOW_MODEL_ID: {
+        "win": "勝：確認後隔日開盤進場，未觸發收盤停損，D+15 收盤出場報酬大於 0。",
+        "neutral": "和：目前 v2 基準沒有中性定義；統計中和局為 0。",
+        "failure": "敗：觸發 MA20/EMA23 收盤停損，或 D+15 收盤出場報酬小於等於 0。",
+    },
+    VOLUME_BREAKOUT_V2_MID_MODEL_ID: {
+        "win": "勝：確認後隔日開盤進場，未觸發收盤停損，D+15 收盤出場報酬大於 0。",
+        "neutral": "和：目前 v2 基準沒有中性定義；統計中和局為 0。",
+        "failure": "敗：觸發 MA20/EMA23 收盤停損，或 D+15 收盤出場報酬小於等於 0。",
     },
     W_BOTTOM_RIGHT_SIDE_MODEL_ID: {
         "win": "勝：依W結構低點停損與D+20/D+40出場規則，最後操作報酬為正。",
@@ -247,7 +261,7 @@ def should_render_highlight_model_description(model_id: str) -> bool:
     if model_id in OPERATION_TABLE_MODEL_IDS:
         return False
     if DAILY_HIGHLIGHT_DESCRIPTION_POLICY == "program_side_non_volume":
-        return model_id != VOLUME_BREAKOUT_MODEL_ID
+        return model_id not in VOLUME_BREAKOUT_OPERATION_MODEL_IDS
     if DAILY_HIGHLIGHT_DESCRIPTION_POLICY == "none":
         return False
     raise ValueError(f"unsupported daily highlight description policy: {DAILY_HIGHLIGHT_DESCRIPTION_POLICY}")
@@ -305,7 +319,7 @@ def operation_rule_text(value: object) -> str:
 
 
 def operation_model_metric_summary(model_id: str, row: pd.Series) -> str:
-    if model_id == VOLUME_BREAKOUT_MODEL_ID:
+    if model_id in VOLUME_BREAKOUT_OPERATION_MODEL_IDS:
         return (
             f"基礎模型績效：勝率{fmt_pct(row.get('best_evidence_win_rate'))} / "
             "和局未定義 / 敗率未登錄 / "
@@ -716,7 +730,8 @@ PDF_ROLE_RENDER_SPECS = (
     ("non_mainstream_full", "full", "non_mainstream"),
 )
 OPERATION_SOURCE_ARTIFACTS = {
-    VOLUME_BREAKOUT_MODEL_ID: "output/latest/daily_volume_breakout_operation_section_latest.csv",
+    VOLUME_BREAKOUT_V2_LOW_MODEL_ID: "output/latest/daily_volume_breakout_operation_section_latest.csv",
+    VOLUME_BREAKOUT_V2_MID_MODEL_ID: "output/latest/daily_volume_breakout_operation_section_latest.csv",
     W_BOTTOM_RIGHT_SIDE_MODEL_ID: "output/latest/daily_w_bottom_right_side_operation_section_latest.csv",
     W_BOTTOM_NECKLINE_BREAKOUT_MODEL_ID: (
         "output/latest/daily_neckline_volume_breakout_confirmation_operation_section_latest.csv"
@@ -724,7 +739,13 @@ OPERATION_SOURCE_ARTIFACTS = {
     PRICE_PULLBACK_MODEL_ID: "output/latest/daily_price_pullback_23ema_operation_section_latest.csv",
 }
 OPERATION_RENDERED_SECTIONS = {
-    VOLUME_BREAKOUT_MODEL_ID: (
+    VOLUME_BREAKOUT_V2_LOW_MODEL_ID: (
+        "confirmed_operation",
+        "confirmed_unranked_operation",
+        "pending_confirmation",
+        "active_operation",
+    ),
+    VOLUME_BREAKOUT_V2_MID_MODEL_ID: (
         "confirmed_operation",
         "confirmed_unranked_operation",
         "pending_confirmation",
@@ -2251,6 +2272,7 @@ def is_true_text(value) -> bool:
 
 def volume_operation_frame(
     inputs: dict[str, pd.DataFrame],
+    model_id: str,
     pdf_view: str,
     pdf_section: str,
 ) -> pd.DataFrame:
@@ -2259,7 +2281,7 @@ def volume_operation_frame(
     if frame.empty or not required.issubset(frame.columns):
         return pd.DataFrame()
     frame = frame[
-        frame["model_id"].astype(str).eq(VOLUME_BREAKOUT_MODEL_ID)
+        frame["model_id"].astype(str).eq(model_id)
         & frame["pdf_view"].astype(str).eq(pdf_view)
         & frame["pdf_section"].astype(str).eq(pdf_section)
     ].copy()
@@ -2530,12 +2552,13 @@ def limit_operation_rows_for_pdf_view(
 
 def volume_operation_all_rows_for_pdf(
     inputs: dict[str, pd.DataFrame],
+    model_id: str,
     pdf_view: str,
     line: str | None,
     pdf_section: str,
 ) -> pd.DataFrame:
     return filter_volume_operation_rows_for_line(
-        volume_operation_frame(inputs, pdf_view, pdf_section),
+        volume_operation_frame(inputs, model_id, pdf_view, pdf_section),
         inputs,
         line,
     )
@@ -2543,11 +2566,12 @@ def volume_operation_all_rows_for_pdf(
 
 def selected_volume_operation_rows_for_pdf(
     inputs: dict[str, pd.DataFrame],
+    model_id: str,
     pdf_view: str,
     line: str | None,
     pdf_section: str,
 ) -> pd.DataFrame:
-    rows = volume_operation_all_rows_for_pdf(inputs, pdf_view, line, pdf_section)
+    rows = volume_operation_all_rows_for_pdf(inputs, model_id, pdf_view, line, pdf_section)
     if rows.empty:
         return pd.DataFrame()
 
@@ -2827,7 +2851,7 @@ def w_bottom_operation_note_label(row: pd.Series) -> str:
     )
 
 
-def build_volume_confirmed_operation_table(rows: pd.DataFrame) -> Table:
+def build_volume_confirmed_operation_table(rows: pd.DataFrame, model_id: str) -> Table:
     columns = [
         "排名",
         "股票",
@@ -2844,7 +2868,7 @@ def build_volume_confirmed_operation_table(rows: pd.DataFrame) -> Table:
     ]
     data = [
         operation_table_title_row(
-            operation_table_title(operation_model_display_name(VOLUME_BREAKOUT_MODEL_ID), OPERATION_CONFIRMED_BUY_TABLE_TITLE),
+            operation_table_title(operation_model_display_name(model_id), OPERATION_CONFIRMED_BUY_TABLE_TITLE),
             len(columns),
         ),
         columns,
@@ -2879,7 +2903,7 @@ def build_volume_confirmed_operation_table(rows: pd.DataFrame) -> Table:
     )
 
 
-def build_volume_unranked_operation_table(rows: pd.DataFrame) -> Table:
+def build_volume_unranked_operation_table(rows: pd.DataFrame, model_id: str) -> Table:
     columns = [
         "股票",
         "確認方式",
@@ -2892,7 +2916,7 @@ def build_volume_unranked_operation_table(rows: pd.DataFrame) -> Table:
     ]
     data = [
         operation_table_title_row(
-            operation_table_title(operation_model_display_name(VOLUME_BREAKOUT_MODEL_ID), "已確認但未通過買入排名門檻"),
+            operation_table_title(operation_model_display_name(model_id), "已確認但未通過買入排名門檻"),
             len(columns),
         ),
         columns,
@@ -2928,11 +2952,11 @@ def build_volume_unranked_operation_table(rows: pd.DataFrame) -> Table:
     )
 
 
-def build_volume_pending_operation_table(rows: pd.DataFrame) -> Table:
+def build_volume_pending_operation_table(rows: pd.DataFrame, model_id: str) -> Table:
     columns = ["股票", "等待天數", "等待分組", "待確認條件", "模型分數 / 排名原因", "進場 / 停損狀態", "狀態"]
     data = [
         operation_table_title_row(
-            operation_table_title(operation_model_display_name(VOLUME_BREAKOUT_MODEL_ID), "待確認"),
+            operation_table_title(operation_model_display_name(model_id), "待確認"),
             len(columns),
         ),
         columns,
@@ -2966,11 +2990,11 @@ def build_volume_pending_operation_table(rows: pd.DataFrame) -> Table:
     )
 
 
-def build_volume_active_operation_table(rows: pd.DataFrame) -> Table:
+def build_volume_active_operation_table(rows: pd.DataFrame, model_id: str) -> Table:
     columns = ["股票", "確認方式", "進場日 / 價", "停損基準", "持有天數", "出場規則", "操作 / 最終分數", "備註"]
     data = [
         operation_table_title_row(
-            operation_table_title(operation_model_display_name(VOLUME_BREAKOUT_MODEL_ID), OPERATION_ACTIVE_TABLE_TITLE),
+            operation_table_title(operation_model_display_name(model_id), OPERATION_ACTIVE_TABLE_TITLE),
             len(columns),
         ),
         columns,
@@ -3253,23 +3277,24 @@ def render_price_pullback_operation_section(
 def render_volume_range_breakout_operation_section(
     story: list,
     inputs: dict[str, pd.DataFrame],
+    model_id: str,
     pdf_view: str,
     line: str | None = None,
 ) -> None:
-    confirmed_all = volume_operation_all_rows_for_pdf(inputs, pdf_view, line, "confirmed_operation")
-    unranked_all = volume_operation_all_rows_for_pdf(inputs, pdf_view, line, "confirmed_unranked_operation")
-    pending_all = volume_operation_all_rows_for_pdf(inputs, pdf_view, line, "pending_confirmation")
+    confirmed_all = volume_operation_all_rows_for_pdf(inputs, model_id, pdf_view, line, "confirmed_operation")
+    unranked_all = volume_operation_all_rows_for_pdf(inputs, model_id, pdf_view, line, "confirmed_unranked_operation")
+    pending_all = volume_operation_all_rows_for_pdf(inputs, model_id, pdf_view, line, "pending_confirmation")
 
-    confirmed = selected_volume_operation_rows_for_pdf(inputs, pdf_view, line, "confirmed_operation")
-    unranked = selected_volume_operation_rows_for_pdf(inputs, pdf_view, line, "confirmed_unranked_operation")
-    pending = selected_volume_operation_rows_for_pdf(inputs, pdf_view, line, "pending_confirmation")
-    active_rows = selected_volume_operation_rows_for_pdf(inputs, pdf_view, line, "active_operation")
+    confirmed = selected_volume_operation_rows_for_pdf(inputs, model_id, pdf_view, line, "confirmed_operation")
+    unranked = selected_volume_operation_rows_for_pdf(inputs, model_id, pdf_view, line, "confirmed_unranked_operation")
+    pending = selected_volume_operation_rows_for_pdf(inputs, model_id, pdf_view, line, "pending_confirmation")
+    active_rows = selected_volume_operation_rows_for_pdf(inputs, model_id, pdf_view, line, "active_operation")
 
     story.append(Spacer(1, 6))
     append_section_label_with_table(
         story,
         OPERATION_CONFIRMED_BUY_TABLE_TITLE,
-        build_volume_confirmed_operation_table(confirmed),
+        build_volume_confirmed_operation_table(confirmed, model_id),
     )
     story.append(Spacer(1, 5))
     if pdf_view == "full":
@@ -3281,7 +3306,7 @@ def render_volume_range_breakout_operation_section(
         append_section_label_with_table(
             story,
             "已確認但未通過買入排名門檻",
-            build_volume_unranked_operation_table(unranked),
+            build_volume_unranked_operation_table(unranked, model_id),
             *unranked_preface,
         )
         story.append(Spacer(1, 5))
@@ -3293,14 +3318,14 @@ def render_volume_range_breakout_operation_section(
         append_section_label_with_table(
             story,
             "待確認",
-            build_volume_pending_operation_table(pending),
+            build_volume_pending_operation_table(pending, model_id),
             *pending_preface,
         )
         story.append(Spacer(1, 5))
     append_section_label_with_table(
         story,
         OPERATION_ACTIVE_TABLE_TITLE,
-        build_volume_active_operation_table(active_rows),
+        build_volume_active_operation_table(active_rows, model_id),
     )
 
 
@@ -3311,8 +3336,8 @@ def render_model_operation_section_if_applicable(
     pdf_view: str,
     line: str | None = None,
 ) -> bool:
-    if model_id == VOLUME_BREAKOUT_MODEL_ID:
-        render_volume_range_breakout_operation_section(story, inputs, pdf_view, line)
+    if model_id in VOLUME_BREAKOUT_OPERATION_MODEL_IDS:
+        render_volume_range_breakout_operation_section(story, inputs, model_id, pdf_view, line)
         return True
     if model_id in W_BOTTOM_OPERATION_TABLE_MODEL_IDS:
         render_w_bottom_operation_section(story, inputs, model_id, pdf_view, line)
@@ -5020,8 +5045,8 @@ def selected_operation_rows_for_manifest(
     report_line: str,
     pdf_section: str,
 ) -> pd.DataFrame:
-    if model_id == VOLUME_BREAKOUT_MODEL_ID:
-        return selected_volume_operation_rows_for_pdf(inputs, pdf_view, report_line, pdf_section)
+    if model_id in VOLUME_BREAKOUT_OPERATION_MODEL_IDS:
+        return selected_volume_operation_rows_for_pdf(inputs, model_id, pdf_view, report_line, pdf_section)
     if model_id in W_BOTTOM_OPERATION_TABLE_MODEL_IDS:
         return selected_w_bottom_operation_rows_for_pdf(inputs, model_id, pdf_view, report_line, pdf_section)
     if model_id == PRICE_PULLBACK_MODEL_ID:
@@ -5086,9 +5111,9 @@ def operation_section_empty_text(model_id: str, pdf_section: str) -> str:
         return MODEL_EMPTY_STATE_TEXT
     if pdf_section == "active_operation":
         return OPERATION_ACTIVE_EMPTY_STATE_TEXT
-    if model_id == VOLUME_BREAKOUT_MODEL_ID and pdf_section == "confirmed_unranked_operation":
+    if model_id in VOLUME_BREAKOUT_OPERATION_MODEL_IDS and pdf_section == "confirmed_unranked_operation":
         return "no confirmed unranked operation rows"
-    if model_id == VOLUME_BREAKOUT_MODEL_ID and pdf_section == "pending_confirmation":
+    if model_id in VOLUME_BREAKOUT_OPERATION_MODEL_IDS and pdf_section == "pending_confirmation":
         return "no pending confirmation rows"
     return ""
 

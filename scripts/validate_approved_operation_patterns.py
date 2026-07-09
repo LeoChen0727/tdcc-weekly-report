@@ -48,6 +48,15 @@ from build_approved_operation_patterns import (  # noqa: E402
     PRICE_PULLBACK_SPEC_SOURCE,
     PRICE_PULLBACK_STOP_LOSS_RULE_ID,
     STOP_LOSS_RULE_ID,
+    V2_APPROVAL_METRICS,
+    V2_APPROVAL_VERSION,
+    V2_ENTRY_RULE_ID,
+    V2_EXIT_RULE_ID,
+    V2_FORMAL_MODEL_IDS,
+    V2_LOW_MODEL_ID,
+    V2_MID_MODEL_ID,
+    V2_SOURCE_RESEARCH_ID,
+    V2_STOP_LOSS_RULE_ID,
     W_BOTTOM_APPROVAL_METRICS,
     W_BOTTOM_APPROVAL_STATUS,
     W_BOTTOM_APPROVAL_VERSION,
@@ -89,7 +98,13 @@ REQUIRED_COLUMNS = {
     "risk_notes_zh",
 }
 
-EXPECTED_APPROVED_MODELS = {MODEL_ID, W_BOTTOM_MODEL_ID, NECKLINE_MODEL_ID, PRICE_PULLBACK_MODEL_ID}
+EXPECTED_APPROVED_MODELS = {
+    V2_LOW_MODEL_ID,
+    V2_MID_MODEL_ID,
+    W_BOTTOM_MODEL_ID,
+    NECKLINE_MODEL_ID,
+    PRICE_PULLBACK_MODEL_ID,
+}
 
 
 def bool_text(value: object) -> str:
@@ -124,37 +139,46 @@ def validate_approval() -> list[str]:
     if extra_models:
         errors.append(f"approved operation artifact has unexpected models: {extra_models}")
 
-    volume_rows = df[df["model_id"].astype(str).eq(MODEL_ID)]
-    if len(volume_rows) != 1:
-        errors.append(f"approved operation artifact must contain exactly one {MODEL_ID} row")
-        return errors
-    row = volume_rows.iloc[0]
-    expected = {
-        "model_id": MODEL_ID,
-        "operation_module_id": OPERATION_MODULE_ID,
-        "approved_for_daily": "True",
-        "approval_status": "approved_for_daily_v1",
-        "operation_directive_level": "approved_daily_operation_guidance",
-        "entry_rule_id": ENTRY_RULE_ID,
-        "stop_loss_rule_id": STOP_LOSS_RULE_ID,
-        "exit_rule_id": EXIT_RULE_ID,
-        "buy_filter_id": BUY_FILTER_ID,
-        "require_out_of_sample_pass": "True",
-    }
-    for col, value in expected.items():
-        if str(row.get(col, "")) != value:
-            errors.append(f"{col} must be {value!r}, got {row.get(col, '')!r}")
+    legacy_rows = df[df["model_id"].astype(str).eq(MODEL_ID)]
+    if not legacy_rows.empty:
+        errors.append(f"legacy {MODEL_ID} must not remain approved after v2 split")
 
-    if to_number(row.get("min_sample_size")) < MIN_SAMPLE_SIZE:
-        errors.append("approval min_sample_size is weaker than the v1 gate")
-    if to_number(row.get("min_win_rate")) < MIN_WIN_RATE:
-        errors.append("approval min_win_rate is weaker than the v1 gate")
-    if to_number(row.get("min_median_return")) < MIN_MEDIAN_RETURN:
-        errors.append("approval min_median_return is weaker than the v1 gate")
-    if to_number(row.get("min_research_score")) < MIN_RESEARCH_SCORE:
-        errors.append("approval min_research_score is weaker than the v1 gate")
-    if int(to_number(row.get("evidence_positive_rank_rows"), 0)) <= 0:
-        errors.append("approval must have at least one positive confirmed rank row")
+    for model_id in V2_FORMAL_MODEL_IDS:
+        rows = df[df["model_id"].astype(str).eq(model_id)]
+        if len(rows) != 1:
+            errors.append(f"approved operation artifact must contain exactly one {model_id} row")
+            continue
+        row = rows.iloc[0]
+        metrics = V2_APPROVAL_METRICS[model_id]
+        expected = {
+            "model_id": model_id,
+            "operation_module_id": metrics["operation_module_id"],
+            "approval_version": V2_APPROVAL_VERSION,
+            "approved_for_daily": "True",
+            "approval_status": "approved_for_daily_v1",
+            "operation_directive_level": "approved_daily_operation_guidance",
+            "source_research_id": V2_SOURCE_RESEARCH_ID,
+            "entry_rule_id": V2_ENTRY_RULE_ID,
+            "stop_loss_rule_id": V2_STOP_LOSS_RULE_ID,
+            "exit_rule_id": V2_EXIT_RULE_ID,
+            "buy_filter_id": metrics["buy_filter_id"],
+            "evidence_source_kind": "volume_range_breakout_v2_candidate_bucket_contract",
+        }
+        for col, value in expected.items():
+            if str(row.get(col, "")) != value:
+                errors.append(f"{model_id} {col} must be {value!r}, got {row.get(col, '')!r}")
+        if str(row.get("best_evidence_sample_size", "")) != metrics["best_evidence_sample_size"]:
+            errors.append(f"{model_id} sample size must match v2 contract metrics")
+        if str(row.get("best_evidence_win_rate", "")) != metrics["best_evidence_win_rate"]:
+            errors.append(f"{model_id} win rate must match v2 contract metrics")
+        if str(row.get("volume_v2_neutral_rate_pct", "")) != metrics["best_evidence_neutral_rate"]:
+            errors.append(f"{model_id} neutral rate must match v2 contract metrics")
+        if str(row.get("volume_v2_loss_rate_pct", "")) != metrics["best_evidence_loss_rate"]:
+            errors.append(f"{model_id} loss rate must match v2 contract metrics")
+        if str(row.get("volume_v2_avg_return_pct", "")) != metrics["volume_v2_avg_return_pct"]:
+            errors.append(f"{model_id} average return must match v2 contract metrics")
+        if str(row.get("best_evidence_median_return", "")) != metrics["best_evidence_median_return"]:
+            errors.append(f"{model_id} median return must match v2 contract metrics")
 
     w_rows = df[df["model_id"].astype(str).eq(W_BOTTOM_MODEL_ID)]
     if len(w_rows) != 1:
@@ -279,22 +303,18 @@ def validate_positive_rank_source() -> list[str]:
     df = read_csv(OUT_CSV, dtype=str).fillna("")
     if df.empty:
         return errors
-    volume_rows = df[df["model_id"].astype(str).eq(MODEL_ID)]
-    if volume_rows.empty:
-        return [f"approval source must contain {MODEL_ID}: {OUT_CSV}"]
-    row = volume_rows.iloc[0]
-    source = APPROVED_VOLUME_EVIDENCE_DIR / str(row.get("evidence_rank_source", ""))
-    rank = read_csv(source, dtype=str).fillna("")
-    if rank.empty:
-        return [f"missing approval evidence rank source: {source}"]
-    positive = positive_rank_rows(rank)
-    expected_count = int(to_number(row.get("evidence_positive_rank_rows"), 0))
-    if len(positive) != expected_count:
-        errors.append(f"positive rank row count mismatch: artifact={expected_count}, recomputed={len(positive)}")
-    if not positive.empty and "approved_for_daily" in positive.columns:
-        raw_approved = set(positive["approved_for_daily"].astype(str).str.lower())
-        if raw_approved != {"false"}:
-            errors.append(f"raw rank rows should remain research evidence rows, got approved_for_daily={sorted(raw_approved)}")
+    if MODEL_ID in set(df["model_id"].astype(str)):
+        errors.append(f"legacy {MODEL_ID} approval row must be removed from approved operation artifact")
+    for model_id in V2_FORMAL_MODEL_IDS:
+        row = df[df["model_id"].astype(str).eq(model_id)]
+        if row.empty:
+            errors.append(f"missing v2 approved operation row: {model_id}")
+            continue
+        evidence_kind = str(row.iloc[0].get("evidence_source_kind", ""))
+        if evidence_kind != "volume_range_breakout_v2_candidate_bucket_contract":
+            errors.append(f"{model_id} must use v2 candidate bucket contract evidence, got {evidence_kind!r}")
+        if str(row.iloc[0].get("buy_filter_id", "")) == BUY_FILTER_ID:
+            errors.append(f"{model_id} must not reuse legacy hidden evidence buy_filter_id={BUY_FILTER_ID}")
     return errors
 
 

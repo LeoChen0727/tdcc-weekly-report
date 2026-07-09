@@ -27,14 +27,26 @@ W_BOTTOM_OPERATION_ARTIFACTS = {
         ROOT / "output/latest/daily_neckline_volume_breakout_confirmation_operation_section_latest.csv"
     ),
 }
+VOLUME_BREAKOUT_V2_MODEL_IDS = (
+    "volume_range_breakout_v2_low_position_volume_attack",
+    "volume_range_breakout_v2_mid_position_momentum_attack",
+)
 PDF_OPERATION_ADAPTER_ARTIFACTS = {
-    "volume_range_breakout": ROOT / "output/latest/daily_volume_breakout_operation_section_latest.csv",
+    **{
+        model_id: ROOT / "output/latest/daily_volume_breakout_operation_section_latest.csv"
+        for model_id in VOLUME_BREAKOUT_V2_MODEL_IDS
+    },
     **W_BOTTOM_OPERATION_ARTIFACTS,
     "price_pullback_23ema": ROOT / "output/latest/daily_price_pullback_23ema_operation_section_latest.csv",
 }
 PDF_OPERATION_RENDERER_TOKENS = {
-    "volume_range_breakout": (
-        "VOLUME_BREAKOUT_MODEL_ID",
+    "volume_range_breakout_v2_low_position_volume_attack": (
+        "VOLUME_BREAKOUT_V2_LOW_MODEL_ID",
+        "daily_volume_breakout_operation_section_latest.csv",
+        "render_volume_range_breakout_operation_section",
+    ),
+    "volume_range_breakout_v2_mid_position_momentum_attack": (
+        "VOLUME_BREAKOUT_V2_MID_MODEL_ID",
         "daily_volume_breakout_operation_section_latest.csv",
         "render_volume_range_breakout_operation_section",
     ),
@@ -138,22 +150,31 @@ VOLUME_OPERATION_REQUIRED_COLUMNS = {
 PDF_OPERATION_REQUIRED_SECTIONS = {"confirmed_operation", "active_operation"}
 PDF_OPERATION_REQUIRED_VIEWS = {"highlight", "full"}
 PDF_OPERATION_REQUIRED_COLUMNS_BY_MODEL = {
-    "volume_range_breakout": VOLUME_OPERATION_REQUIRED_COLUMNS,
+    **{model_id: VOLUME_OPERATION_REQUIRED_COLUMNS for model_id in VOLUME_BREAKOUT_V2_MODEL_IDS},
     "w_bottom_right_side": W_BOTTOM_OPERATION_REQUIRED_COLUMNS,
     "neckline_volume_breakout_confirmation": W_BOTTOM_OPERATION_REQUIRED_COLUMNS,
     "price_pullback_23ema": PRICE_PULLBACK_OPERATION_REQUIRED_COLUMNS,
 }
 PDF_OPERATION_ALLOWED_SECTIONS_BY_MODEL = {
-    "volume_range_breakout": {
-        "confirmed_operation",
-        "confirmed_unranked_operation",
-        "pending_confirmation",
-        "active_operation",
+    **{
+        model_id: {
+            "confirmed_operation",
+            "confirmed_unranked_operation",
+            "pending_confirmation",
+            "active_operation",
+        }
+        for model_id in VOLUME_BREAKOUT_V2_MODEL_IDS
     },
     "w_bottom_right_side": PDF_OPERATION_REQUIRED_SECTIONS,
     "neckline_volume_breakout_confirmation": PDF_OPERATION_REQUIRED_SECTIONS,
     "price_pullback_23ema": PDF_OPERATION_REQUIRED_SECTIONS,
 }
+
+
+def allowed_model_ids_for_operation_artifact(model_id: str, path: Path) -> set[str]:
+    if model_id in VOLUME_BREAKOUT_V2_MODEL_IDS and path.name == "daily_volume_breakout_operation_section_latest.csv":
+        return set(VOLUME_BREAKOUT_V2_MODEL_IDS)
+    return {model_id}
 
 DAILY_MODEL_OUTPUTS = (
     DAILY_MODEL_SIGNALS,
@@ -228,7 +249,8 @@ FORBIDDEN_OPERATION_HIGHLIGHT_EMPTY_STATE_TOKENS = (
 )
 REQUIRED_RENDERER_MODEL_ORDER_TOKENS = (
     "PDF_PRESENTATION_MODEL_ORDER_OVERRIDES",
-    "VOLUME_BREAKOUT_MODEL_ID: 1.0",
+    "VOLUME_BREAKOUT_V2_LOW_MODEL_ID: 1.0",
+    "VOLUME_BREAKOUT_V2_MID_MODEL_ID: 1.05",
     "W_BOTTOM_RIGHT_SIDE_MODEL_ID: 1.1",
     "W_BOTTOM_NECKLINE_BREAKOUT_MODEL_ID: 1.2",
     "PRICE_PULLBACK_MODEL_ID: 1.3",
@@ -238,6 +260,8 @@ REQUIRED_OPERATION_HIGHLIGHT_CONTRACT_TOKENS = (
     "W_BOTTOM_OPERATION_TABLE_MODEL_IDS",
     "W_BOTTOM_OPERATION_INPUT_KEYS",
     "PRICE_PULLBACK_OPERATION_INPUT_KEY",
+    "VOLUME_BREAKOUT_V2_LOW_MODEL_ID",
+    "VOLUME_BREAKOUT_V2_MID_MODEL_ID",
     "daily_w_bottom_right_side_operation_section_latest.csv",
     "daily_neckline_volume_breakout_confirmation_operation_section_latest.csv",
     "daily_price_pullback_23ema_operation_section_latest.csv",
@@ -646,13 +670,22 @@ def validate_pdf_integrated_operation_adapter_contract(
         if not rows:
             errors.append(f"PDF operation adapter artifact has no rows: {rel(path)}")
             continue
-        other_models = sorted({row.get("model_id", "") for row in rows if row.get("model_id", "") != model_id})
-        if other_models:
+        allowed_artifact_models = allowed_model_ids_for_operation_artifact(model_id, path)
+        present_models = {row.get("model_id", "") for row in rows if row.get("model_id", "")}
+        unexpected_models = sorted(present_models - allowed_artifact_models)
+        if unexpected_models:
             errors.append(
                 f"PDF operation adapter artifact mixes model_ids for {model_id}: "
-                + ";".join(other_models)
+                + ";".join(unexpected_models)
             )
-        sections = {row.get("pdf_section", "") for row in rows if row.get("pdf_section", "")}
+        model_rows = [row for row in rows if row.get("model_id", "") == model_id]
+        if not model_rows:
+            errors.append(
+                f"PDF operation adapter artifact has no rows for required model_id {model_id}: "
+                f"{rel(path)}"
+            )
+            continue
+        sections = {row.get("pdf_section", "") for row in model_rows if row.get("pdf_section", "")}
         extra_sections = sorted(sections - allowed_sections.get(model_id, PDF_OPERATION_REQUIRED_SECTIONS))
         if extra_sections:
             errors.append(
@@ -665,7 +698,7 @@ def validate_pdf_integrated_operation_adapter_contract(
                 f"PDF operation adapter missing required sections for {model_id}: "
                 + ";".join(missing_sections)
             )
-        views = {row.get("pdf_view", "") for row in rows if row.get("pdf_view", "")}
+        views = {row.get("pdf_view", "") for row in model_rows if row.get("pdf_view", "")}
         missing_views = sorted(PDF_OPERATION_REQUIRED_VIEWS - views)
         if missing_views:
             errors.append(

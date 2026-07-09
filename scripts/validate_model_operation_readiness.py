@@ -25,6 +25,9 @@ from build_model_operation_readiness import (  # noqa: E402
     PRICE_PULLBACK_MODEL_ID,
     PRICE_PULLBACK_OPERATION_MODULE_ID,
     PRICE_PULLBACK_SPEC_SOURCE,
+    V2_LOW_MODEL_ID,
+    V2_MID_MODEL_ID,
+    V2_VOLUME_MODEL_IDS,
     VOLUME_MODEL_ID,
     W_BOTTOM_MODEL_ID,
 )
@@ -48,7 +51,13 @@ REQUIRED_COLUMNS = {
     "status_note_zh",
 }
 
-APPROVED_MODEL_IDS = {VOLUME_MODEL_ID, W_BOTTOM_MODEL_ID, NECKLINE_MODEL_ID, PRICE_PULLBACK_MODEL_ID}
+APPROVED_MODEL_IDS = {
+    V2_LOW_MODEL_ID,
+    V2_MID_MODEL_ID,
+    W_BOTTOM_MODEL_ID,
+    NECKLINE_MODEL_ID,
+    PRICE_PULLBACK_MODEL_ID,
+}
 PENDING_CANDIDATE_MODEL_IDS: set[str] = set()
 
 
@@ -103,10 +112,29 @@ def validate_readiness_csv() -> list[str]:
     if approved_ids != sorted(APPROVED_MODEL_IDS):
         errors.append(f"approved_for_daily=True must be limited to {sorted(APPROVED_MODEL_IDS)}, got {approved_ids}")
 
-    volume = df[df["model_id"].astype(str).eq(VOLUME_MODEL_ID)]
-    if len(volume) != 1:
-        errors.append(f"readiness must contain exactly one {VOLUME_MODEL_ID} row")
-    else:
+    legacy_volume = df[df["model_id"].astype(str).eq(VOLUME_MODEL_ID)]
+    if len(legacy_volume) == 1:
+        row = legacy_volume.iloc[0]
+        expected_legacy = {
+            "operation_module_status": "deprecated_replaced_by_volume_range_breakout_v2",
+            "daily_adapter_status": "legacy_isolated",
+            "approved_for_daily": "False",
+            "presentation_allowed": "False",
+            "operation_directive_level": "no_operation_directive",
+            "pdf_integration_status": "deprecated_not_rendered",
+            "packet_integration_status": "deprecated_not_rendered",
+        }
+        for col, value in expected_legacy.items():
+            if str(row.get(col, "")) != value:
+                errors.append(f"{VOLUME_MODEL_ID} readiness {col} must be {value!r}, got {row.get(col, '')!r}")
+    elif len(legacy_volume) > 1:
+        errors.append(f"readiness must contain at most one deprecated legacy {VOLUME_MODEL_ID} row")
+
+    for model_id in V2_VOLUME_MODEL_IDS:
+        volume = df[df["model_id"].astype(str).eq(model_id)]
+        if len(volume) != 1:
+            errors.append(f"readiness must contain exactly one {model_id} row")
+            continue
         row = volume.iloc[0]
         expected = {
             "operation_module_status": "approved_operation_v1",
@@ -119,20 +147,23 @@ def validate_readiness_csv() -> list[str]:
         }
         for col, value in expected.items():
             if str(row.get(col, "")) != value:
-                errors.append(f"{VOLUME_MODEL_ID} readiness {col} must be {value!r}, got {row.get(col, '')!r}")
+                errors.append(f"{model_id} readiness {col} must be {value!r}, got {row.get(col, '')!r}")
         if str(row.get("daily_adapter_status", "")) not in {
-            "ready_pending_approval_metadata",
             "ready_approved_operation_guidance",
             "ready_empty_no_operation_rows",
         }:
             errors.append(
-                f"{VOLUME_MODEL_ID} daily_adapter_status must be renderable pending/ready/empty adapter metadata, "
+                f"{model_id} daily_adapter_status must be ready approved or ready empty, "
                 f"got {row.get('daily_adapter_status', '')!r}"
             )
         if not str(row.get("operation_module_id", "")):
-            errors.append(f"{VOLUME_MODEL_ID} operation_module_id must be populated")
+            errors.append(f"{model_id} operation_module_id must be populated")
         if not str(row.get("approval_version", "")):
-            errors.append(f"{VOLUME_MODEL_ID} approval_version must be populated")
+            errors.append(f"{model_id} approval_version must be populated")
+        if not {"confirmed_operation", "active_operation"}.issubset(
+            set(str(row.get("daily_adapter_sections", "")).split(","))
+        ):
+            errors.append(f"{model_id} daily_adapter_sections must include confirmed_operation and active_operation")
 
     w_bottom = df[df["model_id"].astype(str).eq(W_BOTTOM_MODEL_ID)]
     if len(w_bottom) != 1:
@@ -245,7 +276,9 @@ def validate_readiness_csv() -> list[str]:
         if float(row.get("registry_best_win_rate", 0) or 0) < 60.0:
             errors.append("price pullback approved win rate is weaker than the v1 gate")
 
-    others = df[~df["model_id"].astype(str).isin(APPROVED_MODEL_IDS | PENDING_CANDIDATE_MODEL_IDS)]
+    others = df[
+        ~df["model_id"].astype(str).isin(APPROVED_MODEL_IDS | PENDING_CANDIDATE_MODEL_IDS | {VOLUME_MODEL_ID})
+    ]
     if not others.empty:
         bad_operation = others[~others["operation_module_status"].eq("baseline_only_no_validated_operation_module")]
         if not bad_operation.empty:
@@ -289,8 +322,8 @@ def validate_daily_adapter_boundary() -> list[str]:
     if "model_id" not in adapter.columns:
         return [f"daily volume breakout adapter source missing model_id: {DAILY_VOLUME_ADAPTER_CSV}"]
     models = sorted(set(adapter["model_id"].astype(str)))
-    if models != [VOLUME_MODEL_ID]:
-        errors.append(f"daily volume breakout adapter must contain only {VOLUME_MODEL_ID}, got {models}")
+    if models != sorted(V2_VOLUME_MODEL_IDS):
+        errors.append(f"daily volume breakout adapter must contain only {sorted(V2_VOLUME_MODEL_IDS)}, got {models}")
     required_sections = {
         "confirmed_operation",
         "confirmed_unranked_operation",
@@ -339,7 +372,8 @@ def main() -> int:
     print("model operation readiness validation passed")
     print(f"validated_output={OUT_CSV}")
     print(f"rows={len(df)}")
-    print(f"volume_status={df.loc[df['model_id'].eq(VOLUME_MODEL_ID), 'daily_adapter_status'].iloc[0]}")
+    for model_id in V2_VOLUME_MODEL_IDS:
+        print(f"{model_id}_status={df.loc[df['model_id'].eq(model_id), 'daily_adapter_status'].iloc[0]}")
     print(f"w_bottom_status={df.loc[df['model_id'].eq(W_BOTTOM_MODEL_ID), 'daily_adapter_status'].iloc[0]}")
     print(f"neckline_status={df.loc[df['model_id'].eq(NECKLINE_MODEL_ID), 'daily_adapter_status'].iloc[0]}")
     print(f"price_pullback_status={df.loc[df['model_id'].eq(PRICE_PULLBACK_MODEL_ID), 'daily_adapter_status'].iloc[0]}")

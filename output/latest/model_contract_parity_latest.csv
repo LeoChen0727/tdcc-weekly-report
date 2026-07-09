@@ -6,5 +6,6 @@ pullback_short_reclaim,v1,research:production_current_proxy,warning_research_var
 revenue_unreacted_range,v1,research:production_current_proxy,warning_research_variant_only,True,True,True,True,"strong_revenue gate requires model-specific research matrix, contract update, exact parity, and promotion PR before formal use",True,True,True,research_variant_only_do_not_promote_without_explicit_promotion_pr
 tdcc_short_term_continuation_d5_d10,v1,research:production_current_proxy,warning_research_variant_only,True,True,True,True,daily specialty packet fields are not a single core build_specs condition and must be replayed from historical TDCC/technical proxies,True,True,True,research_variant_only_do_not_promote_without_explicit_promotion_pr
 tdcc_stealth_accumulation,v1,research:production_current_proxy,warning_research_variant_only,True,True,True,True,tdcc_price_phase is not fully available historically for every signal date,True,True,True,research_variant_only_do_not_promote_without_explicit_promotion_pr
-volume_range_breakout,v1,v1,ok,True,True,False,False,,True,True,True,keep_research_advisory_monitoring
+volume_range_breakout_v2_low_position_volume_attack,v1,v1,ok,True,True,False,False,,False,False,False,keep_research_advisory_monitoring
+volume_range_breakout_v2_mid_position_momentum_attack,v1,v1,ok,True,True,False,False,,False,False,False,keep_research_advisory_monitoring
 w_bottom_right_side,v1,v1,ok,True,True,False,False,,True,True,True,keep_research_advisory_monitoring

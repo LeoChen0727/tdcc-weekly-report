@@ -145,14 +145,14 @@ def test_backtest_and_daily_selected_trigger_priority_match_same_day_tie() -> No
     price = pd.DataFrame(
         [
             {"date": "20260101", "open": 10, "high": 11, "low": 9, "close": 10, "ma5": 10, "ma10": 10},
-            {"date": "20260102", "open": 10.3, "high": 10.8, "low": 10.0, "close": 10.6, "ma5": 10.2, "ma10": 10.3},
+            {"date": "20260102", "open": 10.3, "high": 11.4, "low": 10.0, "close": 11.2, "ma5": 10.2, "ma10": 10.3},
         ]
     )
 
     backtest_selected = selected_confirmation_for_signal(price, 0, 1)
     daily_selected = daily_builder.selected_confirmation(price, 0, 1)
 
-    assert backtest_selected["trigger_id"] == "pullback_5ma_confirmed"
+    assert backtest_selected["trigger_id"] == "next_day_continuation_confirmed"
     assert daily_selected["trigger_id"] == backtest_selected["trigger_id"]
     assert daily_selected["confirmation_date"] == backtest_selected["confirmation_date"]
     assert daily_selected["matched_trigger_ids"] == backtest_selected["matched_trigger_ids"]
@@ -162,34 +162,32 @@ def test_backtest_and_daily_select_next_day_signal_high_break() -> None:
     price = pd.DataFrame(
         [
             {"date": "20260101", "open": 10, "high": 11, "low": 9, "close": 10, "ma5": 9.5, "ma10": 9.3},
-            {"date": "20260102", "open": 10.1, "high": 11.2, "low": 10.0, "close": 10.4, "ma5": 9.8, "ma10": 9.6},
+            {"date": "20260102", "open": 10.1, "high": 11.2, "low": 10.0, "close": 11.1, "ma5": 9.8, "ma10": 9.6},
         ]
     )
 
     backtest_selected = selected_confirmation_for_signal(price, 0, 1)
     daily_selected = daily_builder.selected_confirmation(price, 0, 1)
 
-    assert backtest_selected["trigger_id"] == "next_day_break_signal_high_confirmed"
+    assert backtest_selected["trigger_id"] == "next_day_continuation_confirmed"
     assert daily_selected["trigger_id"] == backtest_selected["trigger_id"]
     assert daily_selected["confirmation_date"] == backtest_selected["confirmation_date"]
 
 
-def test_backtest_and_daily_selected_trigger_priority_match_earliest_date_first() -> None:
+def test_backtest_and_daily_do_not_confirm_late_pullback_after_v2_next_day_window() -> None:
     price = pd.DataFrame(
         [
             {"date": "20260101", "open": 10, "high": 11, "low": 9, "close": 10, "ma5": 10, "ma10": 10},
             {"date": "20260102", "open": 10.3, "high": 10.8, "low": 10.1, "close": 10.6, "ma5": 9.9, "ma10": 10.3},
-            {"date": "20260103", "open": 10.5, "high": 10.9, "low": 10.0, "close": 10.7, "ma5": 10.2, "ma10": 10.4},
+            {"date": "20260103", "open": 10.5, "high": 11.3, "low": 10.0, "close": 11.2, "ma5": 10.2, "ma10": 10.4},
         ]
     )
 
     backtest_selected = selected_confirmation_for_signal(price, 0, 2)
     daily_selected = daily_builder.selected_confirmation(price, 0, 2)
 
-    assert backtest_selected["trigger_id"] == "pullback_10ma_confirmed"
-    assert daily_selected["trigger_id"] == backtest_selected["trigger_id"]
-    assert daily_selected["confirmation_date"] == backtest_selected["confirmation_date"]
-    assert daily_selected["matched_trigger_ids"] == backtest_selected["matched_trigger_ids"]
+    assert backtest_selected is None
+    assert daily_selected is None
 
 
 def test_backtest_lifecycle_marks_mature_samples_separately_from_active_state() -> None:
