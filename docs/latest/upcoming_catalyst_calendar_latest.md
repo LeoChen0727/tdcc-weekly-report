@@ -1,7 +1,7 @@
 # Upcoming Catalyst Calendar
 
-- generated_at: `2026-07-09 08:16:47 Asia/Taipei`
-- rows: `352`
+- generated_at: `2026-07-09 18:24:55 Asia/Taipei`
+- rows: `364`
 - note: Calendar proximity is a reminder, not a confirmed bullish catalyst.
 
 ## Company / Stock Calendar
@@ -78,13 +78,13 @@
 | 20260707 | 20260707 | 6591 | 動力-KY | ex_dividend | source_stale_cached | -2 | recent | dividend_calendar;calendar_source_stale;calendar_source_degraded | cash_dividend=4.00000000; ex_right_dividend_flag=息; source_status=stale_ok; cach... |
 | 20260707 | 20260707 | 6862 | 三集瑞-KY | ex_dividend | source_stale_cached | -2 | recent | dividend_calendar;calendar_source_stale;calendar_source_degraded | cash_dividend=5.00000000; ex_right_dividend_flag=息; source_status=stale_ok; cach... |
 | 20260707 | 20260707 | 9945 | 潤泰新 | ex_dividend | source_stale_cached | -2 | recent | dividend_calendar;calendar_source_stale;calendar_source_degraded | cash_dividend=1.10000000; ex_right_dividend_flag=息; source_status=stale_ok; cach... |
-| 20260708 | 20260708 | 1229 | 聯華 | ex_right_dividend | source_stale_cached | -1 | recent | dividend_calendar;calendar_source_stale;calendar_source_degraded | cash_dividend=1.80117200; ex_right_dividend_flag=權息; source_status=stale_ok; cac... |
-| 20260708 | 20260708 | 1303 | 南亞 | ex_dividend | source_stale_cached | -1 | recent | dividend_calendar;calendar_source_stale;calendar_source_degraded | cash_dividend=0.80000000; ex_right_dividend_flag=息; source_status=stale_ok; cach... |
-| 20260708 | 20260708 | 2028 | 威致 | ex_dividend | source_stale_cached | -1 | recent | dividend_calendar;calendar_source_stale;calendar_source_degraded | cash_dividend=0.20000000; ex_right_dividend_flag=息; source_status=stale_ok; cach... |
-| 20260708 | 20260708 | 2049 | 上銀 | ex_dividend | source_stale_cached | -1 | recent | dividend_calendar;calendar_source_stale;calendar_source_degraded | cash_dividend=2.00000000; ex_right_dividend_flag=息; source_status=stale_ok; cach... |
-| 20260708 | 20260708 | 2303 | 聯電 | ex_dividend | source_stale_cached | -1 | recent | dividend_calendar;calendar_source_stale;calendar_source_degraded | cash_dividend=2.60808200; ex_right_dividend_flag=息; source_status=stale_ok; cach... |
-| 20260708 | 20260708 | 2405 | 輔信 | ex_dividend | source_stale_cached | -1 | recent | dividend_calendar;calendar_source_stale;calendar_source_degraded | cash_dividend=0.10000000; ex_right_dividend_flag=息; source_status=stale_ok; cach... |
-| 20260708 | 20260708 | 2545 | 皇翔 | ex_dividend | source_stale_cached | -1 | recent | dividend_calendar;calendar_source_stale;calendar_source_degraded | cash_dividend=2.80000000; ex_right_dividend_flag=息; source_status=stale_ok; cach... |
-| 20260708 | 20260708 | 2618 | 長榮航 | ex_dividend | source_stale_cached | -1 | recent | dividend_calendar;calendar_source_stale;calendar_source_degraded | cash_dividend=2.00000000; ex_right_dividend_flag=息; source_status=stale_ok; cach... |
-| 20260708 | 20260708 | 2634 | 漢翔 | ex_dividend | source_stale_cached | -1 | recent | dividend_calendar;calendar_source_stale;calendar_source_degraded | cash_dividend=0.77800000; ex_right_dividend_flag=息; source_status=stale_ok; cach... |
-| 20260708 | 20260708 | 3231 | 緯創 | ex_dividend | source_stale_cached | -1 | recent | dividend_calendar;calendar_source_stale;calendar_source_degraded | cash_dividend=5.50062200; ex_right_dividend_flag=息; source_status=stale_ok; cach... |
+| 20260708 | 20260708 | 1229 | 聯華 | ex_right_dividend | confirmed | -1 | recent | dividend_calendar | cash_dividend=1.80117200; ex_right_dividend_flag=權息 |
+| 20260708 | 20260708 | 1303 | 南亞 | ex_dividend | confirmed | -1 | recent | dividend_calendar | cash_dividend=0.80000000; ex_right_dividend_flag=息 |
+| 20260708 | 20260708 | 2028 | 威致 | ex_dividend | confirmed | -1 | recent | dividend_calendar | cash_dividend=0.20000000; ex_right_dividend_flag=息 |
+| 20260708 | 20260708 | 2049 | 上銀 | ex_dividend | confirmed | -1 | recent | dividend_calendar | cash_dividend=2.00000000; ex_right_dividend_flag=息 |
+| 20260708 | 20260708 | 2303 | 聯電 | ex_dividend | confirmed | -1 | recent | dividend_calendar | cash_dividend=2.60808200; ex_right_dividend_flag=息 |
+| 20260708 | 20260708 | 2405 | 輔信 | ex_dividend | confirmed | -1 | recent | dividend_calendar | cash_dividend=0.10000000; ex_right_dividend_flag=息 |
+| 20260708 | 20260708 | 2545 | 皇翔 | ex_dividend | confirmed | -1 | recent | dividend_calendar | cash_dividend=2.80000000; ex_right_dividend_flag=息 |
+| 20260708 | 20260708 | 2618 | 長榮航 | ex_dividend | confirmed | -1 | recent | dividend_calendar | cash_dividend=2.00000000; ex_right_dividend_flag=息 |
+| 20260708 | 20260708 | 2634 | 漢翔 | ex_dividend | confirmed | -1 | recent | dividend_calendar | cash_dividend=0.77800000; ex_right_dividend_flag=息 |
+| 20260708 | 20260708 | 3231 | 緯創 | ex_dividend | confirmed | -1 | recent | dividend_calendar | cash_dividend=5.50062200; ex_right_dividend_flag=息 |
