@@ -28,7 +28,7 @@ def test_append_page_break_once_does_not_duplicate_consecutive_breaks() -> None:
 
 def test_highlight_specs_keep_program_side_layout_order() -> None:
     specs = [
-        generator.pd.Series({"model_id": generator.VOLUME_BREAKOUT_MODEL_ID}),
+        generator.pd.Series({"model_id": generator.VOLUME_BREAKOUT_V2_LOW_MODEL_ID}),
         generator.pd.Series({"model_id": "price_pullback_23ema"}),
         generator.pd.Series({"model_id": "tdcc_short_term_continuation_d5_d10"}),
     ]
@@ -36,7 +36,7 @@ def test_highlight_specs_keep_program_side_layout_order() -> None:
     ordered = generator.highlight_specs_in_layout_order(specs)
 
     assert [row["model_id"] for row in ordered] == [
-        generator.VOLUME_BREAKOUT_MODEL_ID,
+        generator.VOLUME_BREAKOUT_V2_LOW_MODEL_ID,
         "price_pullback_23ema",
         "tdcc_short_term_continuation_d5_d10",
     ]

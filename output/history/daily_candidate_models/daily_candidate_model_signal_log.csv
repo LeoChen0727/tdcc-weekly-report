@@ -11162,14 +11162,7 @@ signal_date,report_bucket,stock_id,stock_name,model_id,model_name_zh,model_group
 20260708,non_mainstream,2645,長榮航太,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_core_model,92.5,7,航運業,bb_width_extreme,短線延續專項；用隔日開盤作為研究觀察基準，檢查D+1到D+10收盤/最高價。,,,,,,,
 20260708,non_mainstream,4707,磐亞,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_core_model,81.5,9,化學工業,kd_overheated|bb_width_extreme,短線延續專項；用隔日開盤作為研究觀察基準，檢查D+1到D+10收盤/最高價。,,,,,,,
 20260708,non_mainstream,6753,龍德造船,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_core_model,95.5,5,航運業,bb_width_extreme,短線延續專項；用隔日開盤作為研究觀察基準，檢查D+1到D+10收盤/最高價。,,,,,,,
-20260708,mainstream,2061,風青,volume_range_breakout,放量攻擊模型,pdf_core_model,51.3,3,重電電網_電器電纜待細分,long_upper_shadow_quality_penalty:0.6 | long_upper_shadow_quality_penalty,以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。,51.7,0.0,0.0,0.1,0.6,51.3,突破品質 +0.1 | 上影線風險 -0.6
-20260708,mainstream,2395,研華,volume_range_breakout,放量攻擊模型,pdf_core_model,69.3,1,電腦及週邊設備業_待細分,,以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。,64.2,4.0,0.0,1.1,0.0,69.3,突破品質 +1.1 | 收近高點 +4
-20260708,mainstream,3022,威強電,volume_range_breakout,放量攻擊模型,pdf_core_model,63.3,2,電腦及週邊設備業_待細分,,以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。,62.5,0.0,0.0,0.8,0.0,63.3,突破品質 +0.8
-20260708,non_mainstream,1796,金穎生技,volume_range_breakout,放量攻擊模型,pdf_core_model,89.5,2,食品工業,,以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。,82.2,4.0,0.0,3.3,0.0,89.5,突破品質 +3.3 | 收近高點 +4
-20260708,non_mainstream,2601,益航,volume_range_breakout,放量攻擊模型,pdf_core_model,82.9,3,航運業,continued_overheated,以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。,76.6,4.0,0.0,2.3,0.0,82.9,突破品質 +2.3 | 收近高點 +4
-20260708,non_mainstream,6637,醫影,volume_range_breakout,放量攻擊模型,pdf_core_model,93.6,1,生技醫療業,,以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。,75.8,6.0,0.0,11.8,0.0,93.6,鎖量漲停突破 +16 | 突破品質 +1.8
-20260708,non_mainstream,6712,長聖,volume_range_breakout,放量攻擊模型,pdf_core_model,64.3,5,生技醫療業,continued_overheated,以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。,59.5,4.0,0.0,0.9,0.0,64.3,突破品質 +0.9 | 收近高點 +4
-20260708,non_mainstream,6901,鑽石投資,volume_range_breakout,放量攻擊模型,pdf_core_model,65.0,4,投資控股 / 創投,continued_overheated,以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。,60.9,4.0,0.0,0.1,0.0,65.0,突破品質 +0.1 | 收近高點 +4
+20260708,non_mainstream,6637,醫影,volume_range_breakout_v2_low_position_volume_attack,低位放量攻擊,pdf_core_model,100.0,1,生技醫療業,,以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。,97.7,6.0,0.0,11.8,0.0,100.0,鎖量漲停突破 +16 | 突破品質 +1.8
 20260708,non_mainstream,2101,南港,w_bottom_right_side,W底右側模型,pdf_core_model,62.0,3,橡膠工業,near_neckline_wait_for_breakout_confirmation,後續看頸線突破與右側量價品質；跌回右側低點或頸線攻擊失敗則降級。,,,,,,,
 20260708,non_mainstream,2646,星宇航空,w_bottom_right_side,W底右側模型,pdf_core_model,68.0,1,航運業,near_neckline_wait_for_breakout_confirmation,後續看頸線突破與右側量價品質；跌回右側低點或頸線攻擊失敗則降級。,,,,,,,
 20260708,non_mainstream,2913,農林,w_bottom_right_side,W底右側模型,pdf_core_model,65.0,2,貿易百貨,second_attack_still_weak_watch,後續看頸線突破與右側量價品質；跌回右側低點或頸線攻擊失敗則降級。,,,,,,,
@@ -11615,20 +11608,9 @@ signal_date,report_bucket,stock_id,stock_name,model_id,model_name_zh,model_group
 20260709,non_mainstream,2645,長榮航太,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_core_model,92.5,7,航運業,bb_width_extreme,短線延續專項；用隔日開盤作為研究觀察基準，檢查D+1到D+10收盤/最高價。,,,,,,,
 20260709,non_mainstream,4707,磐亞,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_core_model,81.5,9,化學工業,kd_overheated|bb_width_extreme,短線延續專項；用隔日開盤作為研究觀察基準，檢查D+1到D+10收盤/最高價。,,,,,,,
 20260709,non_mainstream,6753,龍德造船,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_core_model,95.5,5,航運業,bb_width_extreme,短線延續專項；用隔日開盤作為研究觀察基準，檢查D+1到D+10收盤/最高價。,,,,,,,
-20260709,mainstream,2332,友訊,volume_range_breakout,放量攻擊模型,pdf_core_model,90.0,3,通信網路業_待細分,continued_overheated,以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。,65.0,10.0,0.0,15.0,0.0,90.0,鎖量漲停突破 +16 | 鎖量且量比低於2.0 +4 | 突破品質 +5.0
-20260709,mainstream,2465,麗臺,volume_range_breakout,放量攻擊模型,pdf_core_model,92.0,2,電腦及週邊設備業_待細分,continued_overheated,以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。,84.4,4.0,0.0,3.6,0.0,92.0,突破品質 +3.6 | 收近高點 +4
-20260709,mainstream,2949,欣新網,volume_range_breakout,放量攻擊模型,pdf_core_model,93.1,1,數位雲端_待細分,,以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。,84.2,4.0,0.0,4.9,0.0,93.1,突破品質 +4.9 | 收近高點 +4
-20260709,mainstream,5488,松普,volume_range_breakout,放量攻擊模型,pdf_core_model,82.4,5,電子零組件業_待細分,continued_overheated,以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。,76.1,4.0,0.0,2.3,0.0,82.4,突破品質 +2.3 | 收近高點 +4
-20260709,mainstream,6142,友勁,volume_range_breakout,放量攻擊模型,pdf_core_model,82.3,6,通信網路業_待細分,,以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。,73.3,4.0,0.0,5.0,0.0,82.3,突破品質 +5.0 | 收近高點 +4
-20260709,mainstream,7714,創泓科技,volume_range_breakout,放量攻擊模型,pdf_core_model,86.1,4,數位雲端_待細分,,以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。,63.3,10.0,0.0,12.8,0.0,86.1,鎖量漲停突破 +16 | 鎖量且量比低於2.0 +4 | 突破品質 +2.8
-20260709,mainstream,7823,奧義賽博-KY創,volume_range_breakout,放量攻擊模型,pdf_core_model,72.4,8,數位雲端_待細分,,以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。,71.4,0.0,0.0,1.0,0.0,72.4,突破品質 +1.0
-20260709,mainstream,8383,千附,volume_range_breakout,放量攻擊模型,pdf_core_model,76.4,7,半導體業_待細分,,以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。,56.0,10.0,0.0,10.4,0.0,76.4,鎖量漲停突破 +16 | 鎖量且量比低於2.0 +4 | 突破品質 +0.4
-20260709,non_mainstream,2601,益航,volume_range_breakout,放量攻擊模型,pdf_core_model,70.4,3,航運業,long_upper_shadow_quality_penalty:1.1 | continued_overheated | long_upper_shadow_quality_penalty,以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。,68.6,0.0,0.0,3.0,1.1,70.4,突破品質 +3.0 | 上影線風險 -1.1
-20260709,non_mainstream,4198,欣大健康,volume_range_breakout,放量攻擊模型,pdf_core_model,82.0,1,生技醫療業,,以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。,73.0,4.0,0.0,5.0,0.0,82.0,突破品質 +5.0 | 收近高點 +4
-20260709,non_mainstream,4439,冠星-KY,volume_range_breakout,放量攻擊模型,pdf_core_model,78.4,2,紡織纖維,long_upper_shadow_quality_penalty:0.7 | long_upper_shadow_quality_penalty,以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。,76.0,0.0,0.0,3.1,0.7,78.4,突破品質 +3.1 | 上影線風險 -0.7
-20260709,non_mainstream,6574,霈方,volume_range_breakout,放量攻擊模型,pdf_core_model,70.2,4,生技醫療業,,以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。,64.3,4.0,0.0,1.9,0.0,70.2,突破品質 +1.9 | 收近高點 +4
-20260709,non_mainstream,6934,心誠鎂,volume_range_breakout,放量攻擊模型,pdf_core_model,69.3,5,生技醫療業,,以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。,65.9,0.0,0.0,3.4,0.0,69.3,突破品質 +3.4
-20260709,non_mainstream,8929,富堡,volume_range_breakout,放量攻擊模型,pdf_core_model,54.7,6,其他業,long_upper_shadow_quality_penalty:4.5 | long_upper_shadow_quality_penalty,以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。,58.8,0.0,0.0,0.3,4.5,54.7,突破品質 +0.3 | 上影線風險 -4.5
+20260709,mainstream,7823,奧義賽博-KY創,volume_range_breakout_v2_low_position_volume_attack,低位放量攻擊,pdf_core_model,93.9,1,數位雲端_待細分,,以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。,92.9,0.0,0.0,1.0,0.0,93.9,突破品質 +1.0
+20260709,non_mainstream,6934,心誠鎂,volume_range_breakout_v2_low_position_volume_attack,低位放量攻擊,pdf_core_model,92.7,1,生技醫療業,,以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。,89.3,0.0,0.0,3.4,0.0,92.7,突破品質 +3.4
+20260709,non_mainstream,8929,富堡,volume_range_breakout_v2_low_position_volume_attack,低位放量攻擊,pdf_core_model,75.8,2,其他業,long_upper_shadow_quality_penalty:4.5 | long_upper_shadow_quality_penalty,以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。,80.0,0.0,0.0,0.3,4.5,75.8,突破品質 +0.3 | 上影線風險 -4.5
 20260709,mainstream,6191,精成科,w_bottom_right_side,W底右側模型,pdf_core_model,66.0,1,PCB_CCL_ABF材料,second_attack_still_weak_watch,後續看頸線突破與右側量價品質；跌回右側低點或頸線攻擊失敗則降級。,,,,,,,
 20260709,non_mainstream,1477,聚陽,w_bottom_right_side,W底右側模型,pdf_core_model,65.0,2,紡織纖維,second_attack_still_weak_watch,後續看頸線突破與右側量價品質；跌回右側低點或頸線攻擊失敗則降級。,,,,,,,
 20260709,non_mainstream,2101,南港,w_bottom_right_side,W底右側模型,pdf_core_model,62.0,3,橡膠工業,near_neckline_wait_for_breakout_confirmation,後續看頸線突破與右側量價品質；跌回右側低點或頸線攻擊失敗則降級。,,,,,,,

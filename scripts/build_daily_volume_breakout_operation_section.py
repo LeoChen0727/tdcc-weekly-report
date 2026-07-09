@@ -53,7 +53,11 @@ EVIDENCE_AUDIT_CSV = LATEST_DIR / "daily_volume_breakout_operation_evidence_audi
 EVIDENCE_AUDIT_MD = LATEST_DIR / "daily_volume_breakout_operation_evidence_audit_latest.md"
 ALLOW_SNAPSHOT_REWRITE_ENV = "ALLOW_DAILY_MODEL_SNAPSHOT_REWRITE"
 
-MODEL_ID = "volume_range_breakout"
+LEGACY_MODEL_ID = "volume_range_breakout"
+V2_LOW_MODEL_ID = "volume_range_breakout_v2_low_position_volume_attack"
+V2_MID_MODEL_ID = "volume_range_breakout_v2_mid_position_momentum_attack"
+FORMAL_MODEL_IDS = (V2_LOW_MODEL_ID, V2_MID_MODEL_ID)
+MODEL_ID = ",".join(FORMAL_MODEL_IDS)
 LIFECYCLE_ADAPTER_SOURCE = "daily_candidate_model_signal_log+daily_published_model_snapshots+stock_price_history"
 APPROVAL_SOURCE = "approved_operation_patterns_latest.csv"
 PDF_VIEWS = ("highlight", "full")
@@ -67,8 +71,8 @@ HIGHLIGHT_HIDDEN_SECTIONS = {
     "confirmed_unranked_operation",
     "pending_confirmation",
 }
-MAX_CONFIRM_DAYS = 10
-MAX_HOLD_DAYS = 10
+MAX_CONFIRM_DAYS = 1
+MAX_HOLD_DAYS = 15
 
 SECTION_ZH = {
     "confirmed_operation": "已確認操作",
@@ -85,6 +89,29 @@ SECTION_EMPTY_NOTE_ZH = {
 }
 
 
+SECTION_ZH = {
+    "confirmed_operation": "本日可買 / 已確認買入候選",
+    "confirmed_unranked_operation": "已確認但未列買入",
+    "pending_confirmation": "待確認",
+    "active_operation": "操作中",
+}
+
+SECTION_EMPTY_NOTE_ZH = {
+    "confirmed_operation": "本日無股票推薦",
+    "confirmed_unranked_operation": "本日無已確認但未列買入股票",
+    "pending_confirmation": "目前無待確認追蹤列",
+    "active_operation": "目前無操作中追蹤列",
+}
+
+ENTRY_BASIS_ZH = "確認日收盤後成立，下一個交易日開盤買入。"
+CONFIRMED_ENTRY_PRICE_STATUS_ZH = "尚未到進場日，進場價等待下一個交易日開盤。"
+STOP_BASIS_ZH = "收盤連續4天低於MA20/EMA23較低者的4%，隔日開盤停損。"
+EXIT_RULE_ZH = "若未觸發停損，固定第15個交易日收盤出場。"
+STOP_RULE_ID = "sustained_close_below_lower_ma20_ema23_4pct_4d"
+EXIT_RULE_ID = "ema23_close_stop_or_fixed_15d_close"
+PENDING_CONFIRMATION_ZH = "訊號日後等待隔日續攻收盤確認；未確認前不列買入。"
+
+
 def section_allowed_for_pdf_view(pdf_view: str, pdf_section: str) -> bool:
     return not (pdf_view == "highlight" and pdf_section in HIGHLIGHT_HIDDEN_SECTIONS)
 
@@ -98,6 +125,7 @@ TRIGGERS = [
         "ma_col": spec.ma_col,
     }
     for spec in SHARED_TRIGGERS
+    if spec.trigger_id == "next_day_continuation_confirmed"
 ]
 TRIGGER_PRIORITY = dict(SHARED_TRIGGER_PRIORITY)
 TRIGGER_ZH = {item["trigger_id"]: item["trigger_zh"] for item in TRIGGERS}
@@ -222,6 +250,12 @@ APPROVAL_FIELDS = [
     "operation_directive_level",
     "buy_filter_id",
     "approval_note_zh",
+    "best_evidence_sample_size",
+    "best_evidence_win_rate",
+    "best_evidence_median_return",
+    "best_evidence_confidence_status",
+    "best_evidence_out_of_sample_pass",
+    "volume_v2_avg_return_pct",
 ]
 
 OPERATION_SCORE_FIELDS = [
@@ -282,8 +316,8 @@ def prior_operation_snapshot_paths(report_date: str) -> tuple[str, ...]:
 
 
 @lru_cache(maxsize=None)
-def prior_active_snapshot_keys(report_date: str) -> frozenset[tuple[str, str, str]]:
-    keys: set[tuple[str, str, str]] = set()
+def prior_active_snapshot_keys(report_date: str) -> frozenset[tuple[str, str, str, str]]:
+    keys: set[tuple[str, str, str, str]] = set()
     for path_text in prior_operation_snapshot_paths(report_date):
         section = read_snapshot_csv_cached(path_text)
         if section.empty:
@@ -298,6 +332,7 @@ def prior_active_snapshot_keys(report_date: str) -> frozenset[tuple[str, str, st
             keys.add(
                 (
                     stock_id_key(row.get("stock_id")),
+                    safe_str(row.get("model_id")),
                     normalize_date_text(row.get("signal_date")),
                     normalize_date_text(row.get("selected_confirmation_date")),
                 )
@@ -329,9 +364,11 @@ def confirmation_snapshot_buy_ranked(signal: pd.Series, selected: dict[str, Any]
         return False, "empty_confirmation_operation_snapshot"
 
     stock_id = stock_id_key(signal.get("stock_id"))
+    model_id = safe_str(signal.get("model_id"))
     signal_date = normalize_date_text(signal.get("signal_date"))
     matches = section[
         section.get("stock_id", pd.Series(dtype=str)).map(stock_id_key).eq(stock_id)
+        & section.get("model_id", pd.Series(dtype=str)).astype(str).eq(model_id)
         & section.get("signal_date", pd.Series(dtype=str)).map(normalize_date_text).eq(signal_date)
         & section.get("row_type", pd.Series(dtype=str)).astype(str).eq("data")
     ].copy()
@@ -356,6 +393,7 @@ def prior_active_snapshot_tracked(signal: pd.Series, selected: dict[str, Any], r
     confirmation_date = normalize_date_text(selected.get("confirmation_date"))
     key = (
         stock_id_key(signal.get("stock_id")),
+        safe_str(signal.get("model_id")),
         normalize_date_text(signal.get("signal_date")),
         confirmation_date,
     )
@@ -390,14 +428,15 @@ def restore_published_snapshot(report_date: str) -> tuple[pd.DataFrame, pd.DataF
     audit = read_csv(audit_path)
     if section.empty:
         raise RuntimeError(f"published volume breakout operation section snapshot is empty: {section_path.as_posix()}")
-    if audit.empty:
-        raise RuntimeError(f"published volume breakout operation evidence audit snapshot is empty: {audit_path.as_posix()}")
     for col in OUTPUT_COLUMNS:
         if col not in section.columns:
             section[col] = ""
     for col in EVIDENCE_AUDIT_COLUMNS:
         if col not in audit.columns:
             audit[col] = ""
+    snapshot_models = set(section["model_id"].astype(str).str.strip()) - {""}
+    if snapshot_models != set(FORMAL_MODEL_IDS):
+        return None
     return section[OUTPUT_COLUMNS].copy(), audit[EVIDENCE_AUDIT_COLUMNS].copy()
 
 
@@ -473,7 +512,7 @@ def require_latest_signals_match_report_date(signals: pd.DataFrame, report_date:
         )
 
 
-def approval_context(approval: pd.DataFrame) -> dict[str, str]:
+def approval_context(approval: pd.DataFrame, model_id: str) -> dict[str, str]:
     default = {
         "approval_source": APPROVAL_SOURCE,
         "approved_for_daily": "False",
@@ -485,11 +524,18 @@ def approval_context(approval: pd.DataFrame) -> dict[str, str]:
         "row_action_status": "empty_state",
         "buy_rank_eligible": "False",
         "buy_filter_id": "",
+        "best_evidence_sample_size": "",
+        "best_evidence_win_rate": "",
+        "best_evidence_median_return": "",
+        "best_evidence_confidence_status": "",
+        "best_evidence_out_of_sample_pass": "",
+        "volume_v2_avg_return_pct": "",
         "approval_note_zh": "尚未建立放量攻擊 approved operation artifact。",
     }
+    default["approval_note_zh"] = "未找到對應的 approved operation artifact，不得列入正式買入。"
     if approval.empty or "model_id" not in approval.columns:
         return default
-    part = approval[approval["model_id"].astype(str).str.strip().eq(MODEL_ID)].copy()
+    part = approval[approval["model_id"].astype(str).str.strip().eq(model_id)].copy()
     if part.empty:
         return default
     row = part.iloc[0]
@@ -505,6 +551,12 @@ def approval_context(approval: pd.DataFrame) -> dict[str, str]:
         "row_action_status": "",
         "buy_rank_eligible": "False",
         "buy_filter_id": safe_str(row.get("buy_filter_id")),
+        "best_evidence_sample_size": safe_str(row.get("best_evidence_sample_size")),
+        "best_evidence_win_rate": safe_str(row.get("best_evidence_win_rate")),
+        "best_evidence_median_return": safe_str(row.get("best_evidence_median_return")),
+        "best_evidence_confidence_status": safe_str(row.get("best_evidence_confidence_status")),
+        "best_evidence_out_of_sample_pass": safe_str(row.get("best_evidence_out_of_sample_pass")),
+        "volume_v2_avg_return_pct": safe_str(row.get("volume_v2_avg_return_pct")),
         "approval_note_zh": safe_str(row.get("approval_note_zh")),
     }
 
@@ -513,7 +565,7 @@ def daily_signal_context(signals: pd.DataFrame, report_date: str = "") -> tuple[
     report_date = normalize_date_text(report_date)
     if signals.empty or "model_id" not in signals.columns:
         return report_date, 0
-    volume = signals[signals["model_id"].astype(str).str.strip().eq(MODEL_ID)].copy()
+    volume = signals[signals["model_id"].astype(str).str.strip().isin(FORMAL_MODEL_IDS)].copy()
     if volume.empty:
         return report_date, 0
     if report_date and "signal_date" in volume.columns:
@@ -531,7 +583,7 @@ def daily_signal_context(signals: pd.DataFrame, report_date: str = "") -> tuple[
 def daily_volume_signal_rows(signals: pd.DataFrame, daily_signal_date: str) -> pd.DataFrame:
     if signals.empty or "model_id" not in signals.columns:
         return pd.DataFrame()
-    volume = signals[signals["model_id"].astype(str).str.strip().eq(MODEL_ID)].copy()
+    volume = signals[signals["model_id"].astype(str).str.strip().isin(FORMAL_MODEL_IDS)].copy()
     if volume.empty:
         return pd.DataFrame()
     report_date = normalize_date_text(daily_signal_date)
@@ -678,7 +730,27 @@ def selected_confirmation(price: pd.DataFrame, signal_idx: int, report_idx: int)
 
 
 def stop_hit_index(price: pd.DataFrame, entry_idx: int, through_idx: int, signal_low: float) -> int | None:
-    return shared_stop_hit_index(price, entry_idx, through_idx, signal_low)
+    consecutive = 0
+    last_stop_exit_idx: int | None = None
+    latest_idx = min(through_idx, len(price) - 1)
+    for idx in range(entry_idx, latest_idx + 1):
+        row = price.iloc[idx]
+        close = price_at(row, "close")
+        refs = [price_at(row, "ma20"), price_at(row, "ema23")]
+        refs = [value for value in refs if not math.isnan(value) and value > 0]
+        if not refs or math.isnan(close):
+            consecutive = 0
+            continue
+        stop_price = min(refs) * 0.96
+        if close <= stop_price:
+            consecutive += 1
+        else:
+            consecutive = 0
+        if consecutive >= 4:
+            exit_idx = idx + 1
+            last_stop_exit_idx = exit_idx if exit_idx <= latest_idx else None
+            break
+    return last_stop_exit_idx
 
 
 def signal_snapshot_paths(report_date: str) -> list[Path]:
@@ -697,7 +769,7 @@ def load_volume_signal_history(current_signals: pd.DataFrame, report_date: str) 
     signal_log = read_csv(MODEL_SIGNAL_LOG_CSV)
     if not signal_log.empty and {"model_id", "signal_date"}.issubset(signal_log.columns):
         signal_log = signal_log[
-            signal_log["model_id"].astype(str).str.strip().eq(MODEL_ID)
+            signal_log["model_id"].astype(str).str.strip().isin(FORMAL_MODEL_IDS)
             & signal_log["signal_date"].map(normalize_date_text).le(report_date)
         ].copy()
         if not signal_log.empty:
@@ -709,7 +781,7 @@ def load_volume_signal_history(current_signals: pd.DataFrame, report_date: str) 
         frame = read_csv(path)
         if frame.empty or "model_id" not in frame.columns:
             continue
-        frame = frame[frame["model_id"].astype(str).str.strip().eq(MODEL_ID)].copy()
+        frame = frame[frame["model_id"].astype(str).str.strip().isin(FORMAL_MODEL_IDS)].copy()
         if frame.empty:
             continue
         frame["snapshot_report_date"] = normalize_date_text(path.stem.rsplit("_", 1)[-1])
@@ -1018,6 +1090,74 @@ def apply_evidence_fields(
     )
 
 
+def model_level_evidence(
+    signal: pd.Series,
+    selected: dict[str, Any],
+    approval: dict[str, str],
+) -> tuple[pd.Series, pd.Series, list[dict[str, Any]]]:
+    model_id = safe_str(signal.get("model_id"))
+    sample_size = safe_str(approval.get("best_evidence_sample_size"))
+    win_rate = safe_str(approval.get("best_evidence_win_rate"))
+    avg_return = safe_str(approval.get("volume_v2_avg_return_pct"))
+    median_return = safe_str(approval.get("best_evidence_median_return"))
+    evidence = pd.Series(
+        {
+            "tdcc_list_type": "model_level",
+            "rank_bucket": "all",
+            "confluence_scope": "model_contract",
+            "confluence_id": model_id,
+            "sample_size": sample_size,
+            "win_rate": win_rate,
+            "avg_return": avg_return,
+            "median_return": median_return,
+            "out_of_sample_pass": safe_str(approval.get("best_evidence_out_of_sample_pass")) or "not_applicable",
+            "ranking_research_score": "",
+            "confidence_status": safe_str(approval.get("best_evidence_confidence_status")),
+        }
+    )
+    context = pd.Series(
+        {
+            "stock_id": stock_id_key(signal.get("stock_id")),
+            "stock_name": safe_str(signal.get("stock_name")),
+            "signal_date": normalize_date_text(signal.get("signal_date")),
+            "selected_trigger_id": "next_day_continuation_confirmed",
+            "selected_confirmation_date": normalize_date_text(selected.get("confirmation_date")),
+            "tdcc_list_type": "model_level",
+            "tdcc_rank": "",
+        }
+    )
+    audit = {
+        "model_id": model_id,
+        "operation_asof_date": "",
+        "stock_id": stock_id_key(signal.get("stock_id")),
+        "stock_name": safe_str(signal.get("stock_name")),
+        "signal_date": normalize_date_text(signal.get("signal_date")),
+        "selected_trigger_id": "next_day_continuation_confirmed",
+        "selected_confirmation_date": normalize_date_text(selected.get("confirmation_date")),
+        "operation_lifecycle_state": "",
+        "audit_status": "positive_model_contract_evidence",
+        "included_in_daily_adapter": "True",
+        "tdcc_list_type": "model_level",
+        "tdcc_rank": "",
+        "rank_bucket": "all",
+        "classification_id": safe_str(signal.get("volume_shape_bucket")),
+        "attack_method": "volume_range_breakout_v2",
+        "price_position_type": safe_str(signal.get("volume_position_bucket_120d")),
+        "risk_type": "",
+        "evidence_confluence_scope": "model_contract",
+        "evidence_confluence_id": model_id,
+        "evidence_sample_size": sample_size,
+        "evidence_win_rate": win_rate,
+        "evidence_avg_return": avg_return,
+        "evidence_median_return": median_return,
+        "evidence_out_of_sample_pass": safe_str(evidence.get("out_of_sample_pass")),
+        "ranking_research_score": "",
+        "reason": "model_condition_and_confirmation_are_the_buy_gate_no_hidden_evidence_gate",
+        "generated_at": "",
+    }
+    return evidence, context, [audit]
+
+
 def apply_signal_operation_fields(record: dict[str, Any], signal: pd.Series) -> None:
     for col in OPERATION_SCORE_FIELDS:
         record[col] = safe_str(signal.get(col))
@@ -1034,10 +1174,11 @@ def lifecycle_base_record(
 ) -> dict[str, Any]:
     stock_id = stock_id_key(signal.get("stock_id"))
     stock_name = safe_str(signal.get("stock_name"))
+    model_id = safe_str(signal.get("model_id"))
     record = {col: "" for col in OUTPUT_COLUMNS}
     record.update(
         {
-            "model_id": MODEL_ID,
+            "model_id": model_id,
             "pdf_section": pdf_section,
             "pdf_section_zh": SECTION_ZH[pdf_section],
             "row_type": "data",
@@ -1064,7 +1205,44 @@ def lifecycle_base_record(
     for col in APPROVAL_FIELDS:
         record[col] = approval[col]
     apply_signal_operation_fields(record, signal)
+    record["adapter_note_zh"] = "由 v2 正式模型條件與 close-only 確認產生；不使用舊 v1 hidden evidence gate。"
     return record
+
+
+def apply_v2_confirmed_or_active_rules(record: dict[str, Any]) -> None:
+    record.update(
+        {
+            "entry_basis_zh": ENTRY_BASIS_ZH,
+            "stop_basis_zh": STOP_BASIS_ZH,
+            "exit_rule_zh": EXIT_RULE_ZH,
+            "entry_rule_id": "confirmation_next_open",
+            "entry_price_basis": "next_open_after_confirmation",
+            "stop_loss_rule_id": STOP_RULE_ID,
+            "stop_loss_price": "",
+            "stop_loss_label_zh": "MA20/EMA23 4日收盤停損",
+            "exit_rule_id": EXIT_RULE_ID,
+            "planned_holding_days": str(MAX_HOLD_DAYS),
+        }
+    )
+
+
+def apply_v2_pending_rules(record: dict[str, Any]) -> None:
+    record.update(
+        {
+            "entry_basis_zh": PENDING_CONFIRMATION_ZH,
+            "entry_price_status_zh": PENDING_CONFIRMATION_ZH,
+            "stop_basis_zh": "待確認成立後才啟動 MA20/EMA23 4日收盤停損。",
+            "exit_rule_zh": "待確認成立後才啟動 D+15 固定收盤出場規則。",
+            "entry_rule_id": "pending_confirmation",
+            "entry_price_basis": "",
+            "stop_loss_rule_id": f"{STOP_RULE_ID}_after_confirmation",
+            "stop_loss_price": "",
+            "stop_loss_label_zh": "",
+            "exit_rule_id": EXIT_RULE_ID,
+            "planned_holding_days": str(MAX_HOLD_DAYS),
+            "pending_confirmation_zh": PENDING_CONFIRMATION_ZH,
+        }
+    )
 
 
 def confirmed_record(
@@ -1110,10 +1288,10 @@ def confirmed_record(
             "entry_price_basis": "next_open_after_confirmation",
             "entry_date": "",
             "entry_price": "",
-            "stop_loss_rule_id": "signal_low_stop",
+            "stop_loss_rule_id": "sustained_close_below_lower_ma20_ema23_4pct_4d",
             "stop_loss_price": format_price(signal_low),
             "stop_loss_label_zh": f"{format_md_date(signal_date)}最低點",
-            "exit_rule_id": "signal_low_stop_or_fixed_10d_close",
+            "exit_rule_id": "ema23_close_stop_or_fixed_15d_close",
             "planned_holding_days": str(MAX_HOLD_DAYS),
             "operation_age_days": str(report_idx - signal_idx),
             "confirmation_date": safe_str(selected.get("confirmation_date")),
@@ -1121,7 +1299,11 @@ def confirmed_record(
             "buy_rank_eligible": "True",
         }
     )
-    apply_evidence_fields(record, evidence, context)
+    record["operation_status_zh"] = SECTION_ZH["confirmed_operation"]
+    record["quality_status_zh"] = "已通過 v2 模型條件與 close-only 確認"
+    record["entry_price_status_zh"] = CONFIRMED_ENTRY_PRICE_STATUS_ZH
+    apply_v2_confirmed_or_active_rules(record)
+    apply_evidence_fields(record, evidence, context, "positive_model_contract_evidence")
     return record
 
 
@@ -1182,8 +1364,19 @@ def confirmed_unranked_record(
             ),
         }
     )
+    record["operation_status_zh"] = SECTION_ZH["confirmed_unranked_operation"]
+    record["quality_status_zh"] = "已確認但缺少正式 approved operation 合約"
+    record["entry_basis_zh"] = ENTRY_BASIS_ZH
+    record["entry_price_status_zh"] = "未列買入，因 approved operation 合約未通過。"
+    record["stop_basis_zh"] = "未列買入，不啟動停損。"
+    record["exit_rule_zh"] = "未列買入，不啟動出場。"
     if evidence is not None and context is not None:
-        apply_evidence_fields(record, evidence, context, "row_level_evidence_not_buy_ranked")
+        match_status = (
+            "model_contract_evidence_not_buy_ranked"
+            if safe_str(evidence.get("confluence_scope")) == "model_contract"
+            else "row_level_evidence_not_buy_ranked"
+        )
+        apply_evidence_fields(record, evidence, context, match_status)
     else:
         record["evidence_match_status"] = "no_matching_row_level_evidence"
     return record
@@ -1248,7 +1441,10 @@ def active_record(
             "buy_rank_eligible": "False",
         }
     )
-    apply_evidence_fields(record, evidence, context)
+    record["operation_status_zh"] = SECTION_ZH["active_operation"]
+    record["quality_status_zh"] = "已進場追蹤"
+    apply_v2_confirmed_or_active_rules(record)
+    apply_evidence_fields(record, evidence, context, "positive_model_contract_evidence")
     return record
 
 
@@ -1302,6 +1498,9 @@ def pending_record(
             "buy_rank_eligible": "False",
         }
     )
+    record["operation_status_zh"] = SECTION_ZH["pending_confirmation"]
+    record["quality_status_zh"] = "等待 close-only 確認"
+    apply_v2_pending_rules(record)
     return record
 
 
@@ -1387,7 +1586,7 @@ def lifecycle_suppression_audit_payload(
 ) -> dict[str, Any]:
     winner_state = safe_str(winner.get("pdf_section") or winner.get("operation_status"))
     return {
-        "model_id": MODEL_ID,
+        "model_id": safe_str(record.get("model_id")),
         "operation_asof_date": normalize_date_text(record.get("operation_asof_date")),
         "stock_id": stock_id_key(record.get("stock_id")),
         "stock_name": safe_str(record.get("stock_name")),
@@ -1478,13 +1677,8 @@ def lifecycle_state_for_signal(
                 )
                 return 90, None, audit_rows
 
-        evidence, context, is_buy_rank_eligible, evidence_audit = select_row_evidence(
-            price,
-            signal_idx,
-            selected,
-            formal_summary,
-            signal,
-        )
+        evidence, context, evidence_audit = model_level_evidence(signal, selected, approval)
+        is_buy_rank_eligible = true_text(approval.get("approved_for_daily"))
         audit_rows.extend(evidence_audit)
         if confirmation_idx == report_idx:
             if is_buy_rank_eligible and evidence is not None and context is not None:
@@ -1525,7 +1719,7 @@ def lifecycle_state_for_signal(
                 audit["operation_asof_date"] = report_date
                 audit["operation_lifecycle_state"] = lifecycle_state
                 audit["generated_at"] = generated_at
-                if not audit["reason"] and not is_buy_rank_eligible:
+                if not is_buy_rank_eligible:
                     audit["reason"] = "confirmed_but_not_buy_ranked"
             return priority, record, audit_rows
         if not is_buy_rank_eligible or evidence is None or context is None:
@@ -1533,7 +1727,9 @@ def lifecycle_state_for_signal(
                 audit["operation_asof_date"] = report_date
                 audit["operation_lifecycle_state"] = "confirmed_unranked_expired"
                 audit["generated_at"] = generated_at
-                if not audit["reason"]:
+                if not is_buy_rank_eligible:
+                    audit["reason"] = "confirmed_without_buy_rank_eligibility_not_tracked_active"
+                elif not audit["reason"]:
                     audit["reason"] = "confirmed_without_buy_rank_eligibility_not_tracked_active"
             return 90, None, audit_rows
         if entry_idx < len(price) and report_idx >= entry_idx:
@@ -1576,7 +1772,7 @@ def build_lifecycle_rows(
     signals: pd.DataFrame,
     report_date: str,
     daily_volume_count: int,
-    approval: dict[str, str],
+    approvals_by_model: dict[str, dict[str, str]],
     generated_at: str,
     formal_summary: pd.DataFrame,
 ) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
@@ -1587,6 +1783,8 @@ def build_lifecycle_rows(
     candidates_by_stock: dict[str, list[tuple[int, int, dict[str, Any]]]] = {}
     audit_rows: list[dict[str, Any]] = []
     for seq, (_, signal) in enumerate(history.iterrows()):
+        model_id = safe_str(signal.get("model_id"))
+        approval = approvals_by_model.get(model_id, approval_context(pd.DataFrame(), model_id))
         priority, record, signal_audit = lifecycle_state_for_signal(
             signal,
             report_date,
@@ -1612,6 +1810,7 @@ def build_lifecycle_rows(
     base_rows = [item[1] for item in sorted(best_by_stock.values(), key=lambda item: (item[0], number_text(item[1].get("display_order")), item[1].get("stock_id", "")))]
     selected_evidence_keys = {
         (
+            safe_str(row.get("model_id")),
             stock_id_key(row.get("stock_id")),
             normalize_date_text(row.get("signal_date")),
             safe_str(row.get("selected_trigger_id")),
@@ -1622,10 +1821,11 @@ def build_lifecycle_rows(
         )
         for row in base_rows
         if safe_str(row.get("pdf_section")) in {"confirmed_operation", "active_operation"}
-        and safe_str(row.get("evidence_match_status")) == "positive_row_evidence"
+        and safe_str(row.get("evidence_match_status")) == "positive_model_contract_evidence"
     }
     for audit in audit_rows:
         audit_key = (
+            safe_str(audit.get("model_id")),
             stock_id_key(audit.get("stock_id")),
             normalize_date_text(audit.get("signal_date")),
             safe_str(audit.get("selected_trigger_id")),
@@ -1636,7 +1836,7 @@ def build_lifecycle_rows(
         )
         audit["included_in_daily_adapter"] = (
             "True"
-            if safe_str(audit.get("audit_status")) == "positive_row_evidence"
+            if safe_str(audit.get("audit_status")) == "positive_model_contract_evidence"
             and safe_str(audit.get("operation_lifecycle_state")) in {"confirmed_operation", "active_operation"}
             and audit_key in selected_evidence_keys
             else "False"
@@ -1655,6 +1855,7 @@ def build_lifecycle_rows(
 
 
 def empty_row(
+    model_id: str,
     pdf_view: str,
     pdf_section: str,
     source_status: str,
@@ -1667,7 +1868,7 @@ def empty_row(
     section_zh = SECTION_ZH[pdf_section]
     adapter_note = SECTION_EMPTY_NOTE_ZH[pdf_section]
     return {
-        "model_id": MODEL_ID,
+        "model_id": model_id,
         "pdf_view": pdf_view,
         "pdf_section": pdf_section,
         "pdf_section_zh": section_zh,
@@ -1709,6 +1910,9 @@ def empty_row(
         "adapter_source": LIFECYCLE_ADAPTER_SOURCE,
         "adapter_source_status": source_status,
         **approval,
+        "stock_display": adapter_note,
+        "operation_status_zh": section_zh,
+        "quality_status_zh": adapter_note,
         "row_action_status": "empty_state",
         "buy_rank_eligible": "False",
         "adapter_note_zh": adapter_note,
@@ -1840,38 +2044,45 @@ def build() -> tuple[pd.DataFrame, pd.DataFrame]:
     if restored is not None:
         return restored
     generated_at = now_text()
-    approval_info = approval_context(approval)
+    approvals_by_model = {
+        model_id: approval_context(approval, model_id)
+        for model_id in FORMAL_MODEL_IDS
+    }
     rows, audit_rows = build_lifecycle_rows(
         signals,
         daily_signal_date,
         daily_volume_count,
-        approval_info,
+        approvals_by_model,
         generated_at,
         formal_summary,
     )
     existing = {
-        (safe_str(row.get("pdf_view")), safe_str(row.get("pdf_section")))
+        (safe_str(row.get("model_id")), safe_str(row.get("pdf_view")), safe_str(row.get("pdf_section")))
         for row in rows
         if safe_str(row.get("row_type")) == "data"
     }
-    for pdf_view in PDF_VIEWS:
-        for pdf_section in PDF_SECTIONS:
-            if not section_allowed_for_pdf_view(pdf_view, pdf_section):
-                continue
-            if (pdf_view, pdf_section) not in existing:
-                rows.append(
-                    empty_row(
-                        pdf_view,
-                        pdf_section,
-                        "ready",
-                        daily_signal_date,
-                        daily_volume_count,
-                        approval_info,
-                        generated_at,
-                        daily_signal_date,
+    for model_id in FORMAL_MODEL_IDS:
+        approval_info = approvals_by_model[model_id]
+        for pdf_view in PDF_VIEWS:
+            for pdf_section in PDF_SECTIONS:
+                if not section_allowed_for_pdf_view(pdf_view, pdf_section):
+                    continue
+                if (model_id, pdf_view, pdf_section) not in existing:
+                    rows.append(
+                        empty_row(
+                            model_id,
+                            pdf_view,
+                            pdf_section,
+                            "ready",
+                            daily_signal_date,
+                            daily_volume_count,
+                            approval_info,
+                            generated_at,
+                            daily_signal_date,
+                        )
                     )
-                )
     out = pd.DataFrame(rows, columns=OUTPUT_COLUMNS)
+    out["_model_order"] = out["model_id"].map({model_id: idx for idx, model_id in enumerate(FORMAL_MODEL_IDS)}).fillna(9)
     out["_view_order"] = out["pdf_view"].map({"highlight": 0, "full": 1}).fillna(9)
     out["_section_order"] = out["pdf_section"].map(
         {
@@ -1883,8 +2094,8 @@ def build() -> tuple[pd.DataFrame, pd.DataFrame]:
     ).fillna(9)
     out["_row_type_order"] = out["row_type"].map({"data": 0, "empty_state": 1}).fillna(9)
     out["_display_order_num"] = pd.to_numeric(out["display_order"], errors="coerce").fillna(999999)
-    out = out.sort_values(["_view_order", "_section_order", "_row_type_order", "_display_order_num", "stock_id"])
-    section = out.drop(columns=["_view_order", "_section_order", "_row_type_order", "_display_order_num"]).reset_index(drop=True)
+    out = out.sort_values(["_model_order", "_view_order", "_section_order", "_row_type_order", "_display_order_num", "stock_id"])
+    section = out.drop(columns=["_model_order", "_view_order", "_section_order", "_row_type_order", "_display_order_num"]).reset_index(drop=True)
     audit = pd.DataFrame(audit_rows, columns=EVIDENCE_AUDIT_COLUMNS)
     return section, audit
 

@@ -22,6 +22,48 @@ STOP_LOSS_RULE_ID = "signal_low_stop"
 EXIT_RULE_ID = "signal_low_stop_or_fixed_10d_close"
 BUY_FILTER_ID = "positive_evidence_oos_rank_v1"
 
+V2_LOW_MODEL_ID = "volume_range_breakout_v2_low_position_volume_attack"
+V2_MID_MODEL_ID = "volume_range_breakout_v2_mid_position_momentum_attack"
+V2_FORMAL_MODEL_IDS = (V2_LOW_MODEL_ID, V2_MID_MODEL_ID)
+V2_ENTRY_RULE_ID = "confirmation_next_open"
+V2_STOP_LOSS_RULE_ID = "sustained_close_below_lower_ma20_ema23_4pct_4d"
+V2_EXIT_RULE_ID = "ema23_close_stop_or_fixed_15d_close"
+V2_SOURCE_RESEARCH_ID = "volume_range_breakout_v2_candidate_bucket_contract"
+V2_EVIDENCE_SOURCE = "output/latest/research_backtest/volume_range_breakout_v2_candidate_bucket_contract_latest.csv"
+V2_APPROVAL_VERSION = "volume_range_breakout_v2_formal_operation_20260709"
+V2_APPROVAL_METRICS = {
+    V2_LOW_MODEL_ID: {
+        "operation_module_id": "volume_range_breakout_v2_low_position_operation_v1",
+        "buy_filter_id": "pos120_low_all_shapes_next_day_continuation_d15_stop",
+        "model_name_zh": "低位放量攻擊",
+        "best_evidence_sample_size": "26",
+        "best_evidence_win_rate": "80.7692",
+        "best_evidence_neutral_rate": "0.0000",
+        "best_evidence_loss_rate": "19.2308",
+        "best_evidence_median_return": "18.7857",
+        "volume_v2_avg_return_pct": "28.7704",
+        "win_count": "21",
+        "neutral_count": "0",
+        "loss_count": "5",
+        "condition_zh": "120日位階 low_pos_le40，shape 可為 consolidation、non_consolidation 或 wide_range；確認為隔日續攻 close-only。",
+    },
+    V2_MID_MODEL_ID: {
+        "operation_module_id": "volume_range_breakout_v2_mid_position_operation_v1",
+        "buy_filter_id": "pos120_mid_non_consolidation_or_wide_next_day_continuation_d15_stop",
+        "model_name_zh": "中位動能放量攻擊",
+        "best_evidence_sample_size": "25",
+        "best_evidence_win_rate": "80.0000",
+        "best_evidence_neutral_rate": "0.0000",
+        "best_evidence_loss_rate": "20.0000",
+        "best_evidence_median_return": "14.6953",
+        "volume_v2_avg_return_pct": "12.7599",
+        "win_count": "20",
+        "neutral_count": "0",
+        "loss_count": "5",
+        "condition_zh": "120日位階 mid_pos_40_75，shape 僅收 non_consolidation 或 wide_range；確認為隔日續攻 close-only。",
+    },
+}
+
 APPROVED_VOLUME_EVIDENCE_DIR = ROOT / "config" / "approved_operation_evidence"
 CONFIRMED_SUMMARY_CSV = APPROVED_VOLUME_EVIDENCE_DIR / "volume_breakout_operation_v1_20260615_formal_operation_backtest.csv"
 CONFIRMED_RANK_CSV = APPROVED_VOLUME_EVIDENCE_DIR / "volume_breakout_operation_v1_20260615_rank.csv"
@@ -232,6 +274,64 @@ def approval_row(summary: pd.DataFrame, rank: pd.DataFrame, generated_at: str) -
             "這是模型化操作建議，不是無條件買進；confirmed rows 仍須通過正向證據過濾，"
             "pending rows 只追蹤確認，不列買進。"
         ),
+    }
+
+
+def volume_v2_approval_row(model_id: str, generated_at: str) -> dict[str, Any]:
+    metrics = V2_APPROVAL_METRICS[model_id]
+    return {
+        "generated_at": generated_at,
+        "model_id": model_id,
+        "operation_module_id": metrics["operation_module_id"],
+        "approval_version": V2_APPROVAL_VERSION,
+        "approved_for_daily": "True",
+        "approval_status": "approved_for_daily_v1",
+        "operation_directive_level": "approved_daily_operation_guidance",
+        "source_research_id": V2_SOURCE_RESEARCH_ID,
+        "entry_rule_id": V2_ENTRY_RULE_ID,
+        "entry_rule_zh": "確認日收盤後成立，下一個交易日開盤買入。",
+        "stop_loss_rule_id": V2_STOP_LOSS_RULE_ID,
+        "stop_loss_rule_zh": "收盤連續4天低於MA20/EMA23較低者的4%，隔日開盤停損。",
+        "exit_rule_id": V2_EXIT_RULE_ID,
+        "exit_rule_zh": "若未觸發停損，固定第15個交易日收盤出場。",
+        "buy_filter_id": metrics["buy_filter_id"],
+        "buy_filter_zh": metrics["condition_zh"],
+        "pending_rule_zh": "訊號日後等待隔日續攻收盤確認；未確認前不列買入。",
+        "min_sample_size": "0",
+        "min_win_rate": "60.0",
+        "min_median_return": "0.0",
+        "require_out_of_sample_pass": "False",
+        "min_research_score": "0.0",
+        "evidence_summary_source": V2_EVIDENCE_SOURCE,
+        "evidence_rank_source": V2_EVIDENCE_SOURCE,
+        "evidence_source_kind": "volume_range_breakout_v2_candidate_bucket_contract",
+        "evidence_total_rank_rows": "",
+        "evidence_positive_rank_rows": "",
+        "best_evidence_scope": "model_contract",
+        "best_evidence_id": model_id,
+        "best_evidence_sample_size": metrics["best_evidence_sample_size"],
+        "best_evidence_win_rate": metrics["best_evidence_win_rate"],
+        "best_evidence_median_return": metrics["best_evidence_median_return"],
+        "best_evidence_confidence_status": "research_validated_pending_post_merge_monitoring",
+        "best_evidence_out_of_sample_pass": "not_applicable",
+        "data_start_date": "",
+        "data_end_date": "",
+        "out_of_sample_start_date": "",
+        "approval_note_zh": (
+            f"{metrics['model_name_zh']} 升級為正式 daily operation model；模型條件加 close-only 確認就是買入 gate，"
+            "TDCC、MA60/MA120、EMA23 距離只可作分層或加分，不得作 hidden gate。"
+        ),
+        "risk_notes_zh": "樣本數不作否決理由；高位階放量攻擊與舊 v1 放量攻擊保留在 research/audit，不進正式買入。",
+        "volume_v2_model_name_zh": metrics["model_name_zh"],
+        "volume_v2_win_count": metrics["win_count"],
+        "volume_v2_neutral_count": metrics["neutral_count"],
+        "volume_v2_loss_count": metrics["loss_count"],
+        "volume_v2_win_rate_pct": metrics["best_evidence_win_rate"],
+        "volume_v2_neutral_rate_pct": metrics["best_evidence_neutral_rate"],
+        "volume_v2_loss_rate_pct": metrics["best_evidence_loss_rate"],
+        "volume_v2_avg_return_pct": metrics["volume_v2_avg_return_pct"],
+        "volume_v2_median_return_pct": metrics["best_evidence_median_return"],
+        "volume_v2_condition_zh": metrics["condition_zh"],
     }
 
 
@@ -481,13 +581,10 @@ def price_pullback_approval_row(generated_at: str) -> dict[str, Any]:
 
 def build_approval(summary: pd.DataFrame, rank: pd.DataFrame, generated_at: str | None = None) -> pd.DataFrame:
     generated = generated_at or now_text()
-    if summary.empty:
-        raise RuntimeError(f"missing confirmed operation summary: {CONFIRMED_SUMMARY_CSV}")
-    if rank.empty:
-        raise RuntimeError(f"missing confirmed operation rank: {CONFIRMED_RANK_CSV}")
     return pd.DataFrame(
         [
-            approval_row(summary, rank, generated),
+            volume_v2_approval_row(V2_LOW_MODEL_ID, generated),
+            volume_v2_approval_row(V2_MID_MODEL_ID, generated),
             w_bottom_approval_row(generated),
             neckline_approval_row(generated),
             price_pullback_approval_row(generated),

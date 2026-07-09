@@ -4,8 +4,11 @@ from pathlib import Path
 
 from scripts import validate_daily_pdf_contract_consumers as validator
 
+LOW_VOLUME_MODEL_ID = "volume_range_breakout_v2_low_position_volume_attack"
+MID_VOLUME_MODEL_ID = "volume_range_breakout_v2_mid_position_momentum_attack"
 
-def model_row(model_id: str = "volume_range_breakout", approved: str = "true") -> dict[str, str]:
+
+def model_row(model_id: str = LOW_VOLUME_MODEL_ID, approved: str = "true") -> dict[str, str]:
     return {
         "model_id": model_id,
         "approved_for_daily_pdf": approved,
@@ -55,10 +58,10 @@ def test_daily_pdf_contract_consumer_validator_passes() -> None:
 def test_daily_pdf_model_ids_must_exist_and_be_approved() -> None:
     rows = [
         model_row("known_but_not_daily", approved="false"),
-        model_row("volume_range_breakout", approved="true"),
+        model_row(LOW_VOLUME_MODEL_ID, approved="true"),
     ]
 
-    assert validator.validate_model_ids(["volume_range_breakout"], rows) == []
+    assert validator.validate_model_ids([LOW_VOLUME_MODEL_ID], rows) == []
 
     errors = validator.validate_model_ids(["known_but_not_daily", "missing_model"], rows)
     assert any("not approved_for_daily_pdf=true" in error for error in errors)
@@ -130,13 +133,15 @@ def test_presentation_allowed_model_is_part_of_display_roster() -> None:
 
 def renderer_source_with_required_order() -> str:
     return (
-        'VOLUME_BREAKOUT_MODEL_ID = "volume_range_breakout"\n'
+        f'VOLUME_BREAKOUT_V2_LOW_MODEL_ID = "{LOW_VOLUME_MODEL_ID}"\n'
+        f'VOLUME_BREAKOUT_V2_MID_MODEL_ID = "{MID_VOLUME_MODEL_ID}"\n'
         'W_BOTTOM_RIGHT_SIDE_MODEL_ID = "w_bottom_right_side"\n'
         'W_BOTTOM_NECKLINE_BREAKOUT_MODEL_ID = "neckline_volume_breakout_confirmation"\n'
         'PRICE_PULLBACK_MODEL_ID = "price_pullback_23ema"\n'
         'MODEL_EMPTY_STATE_TEXT = "本日無股票推薦"\n'
         "PDF_PRESENTATION_MODEL_ORDER_OVERRIDES = {\n"
-        "    VOLUME_BREAKOUT_MODEL_ID: 1.0,\n"
+        "    VOLUME_BREAKOUT_V2_LOW_MODEL_ID: 1.0,\n"
+        "    VOLUME_BREAKOUT_V2_MID_MODEL_ID: 1.05,\n"
         "    W_BOTTOM_RIGHT_SIDE_MODEL_ID: 1.1,\n"
         "    W_BOTTOM_NECKLINE_BREAKOUT_MODEL_ID: 1.2,\n"
         "    PRICE_PULLBACK_MODEL_ID: 1.3,\n"
@@ -148,12 +153,13 @@ def renderer_source_with_operation_contract() -> str:
     return (
         renderer_source_with_required_order()
         + "W_BOTTOM_OPERATION_TABLE_MODEL_IDS = {W_BOTTOM_RIGHT_SIDE_MODEL_ID, W_BOTTOM_NECKLINE_BREAKOUT_MODEL_ID}\n"
-        + "OPERATION_TABLE_MODEL_IDS = {VOLUME_BREAKOUT_MODEL_ID, W_BOTTOM_RIGHT_SIDE_MODEL_ID, W_BOTTOM_NECKLINE_BREAKOUT_MODEL_ID, PRICE_PULLBACK_MODEL_ID}\n"
+        + "OPERATION_TABLE_MODEL_IDS = {VOLUME_BREAKOUT_V2_LOW_MODEL_ID, VOLUME_BREAKOUT_V2_MID_MODEL_ID, W_BOTTOM_RIGHT_SIDE_MODEL_ID, W_BOTTOM_NECKLINE_BREAKOUT_MODEL_ID, PRICE_PULLBACK_MODEL_ID}\n"
         + "W_BOTTOM_OPERATION_INPUT_KEYS = {\n"
         + "    W_BOTTOM_RIGHT_SIDE_MODEL_ID: 'w_bottom_right_side_operation',\n"
         + "    W_BOTTOM_NECKLINE_BREAKOUT_MODEL_ID: 'w_bottom_neckline_operation',\n"
         + "}\n"
         + "PRICE_PULLBACK_OPERATION_INPUT_KEY = 'price_pullback_operation'\n"
+        + "\"daily_volume_breakout_operation_section_latest.csv\"\n"
         + "\"daily_w_bottom_right_side_operation_section_latest.csv\"\n"
         + "\"daily_neckline_volume_breakout_confirmation_operation_section_latest.csv\"\n"
         + "\"daily_price_pullback_23ema_operation_section_latest.csv\"\n"
@@ -165,6 +171,8 @@ def renderer_source_with_operation_contract() -> str:
         + "    return 'price_pullback_23ema adapter'\n"
         + "def render_price_pullback_operation_section():\n"
         + "    return 'adapter'\n"
+        + "def render_volume_range_breakout_operation_section():\n"
+        + "    return 'volume adapter'\n"
         + 'OPERATION_HIGHLIGHT_TABLE_CONTRACT = "confirmed_buy_then_active_only"\n'
         + "OPERATION_HIGHLIGHT_ACTIVE_MAX_ROWS = 10\n"
         + 'OPERATION_HIGHLIGHT_ROW_LIMITS = {"active_operation": OPERATION_HIGHLIGHT_ACTIVE_MAX_ROWS}\n'

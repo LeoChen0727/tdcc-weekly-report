@@ -54,7 +54,7 @@ def semantic_source_row(
 def test_completion_gate_accepts_semantic_manifest_dedicated_adapter_sources() -> None:
     rows = [
         semantic_source_row(
-            "volume_range_breakout",
+            "volume_range_breakout_v2_low_position_volume_attack",
             "output/latest/daily_volume_breakout_operation_section_latest.csv",
         ),
         semantic_source_row(
@@ -72,7 +72,7 @@ def test_completion_gate_accepts_semantic_manifest_dedicated_adapter_sources() -
 def test_completion_gate_rejects_semantic_manifest_candidate_signal_source() -> None:
     rows = [
         semantic_source_row(
-            "volume_range_breakout",
+            "volume_range_breakout_v2_low_position_volume_attack",
             "output/latest/daily_candidate_model_signals_for_report_latest.csv",
         )
     ]
@@ -151,6 +151,23 @@ def test_completion_gate_requires_operation_table_title_for_active_rows() -> Non
     assert any(
         "missing operation table title for price_pullback_23ema/active_operation" in error
         for error in errors
+    )
+
+
+def test_completion_gate_uses_volume_v2_display_name_fallback() -> None:
+    assert (
+        validator.model_display_name(
+            "volume_range_breakout_v2_low_position_volume_attack",
+            [{"model_name_zh": ""}],
+        )
+        == "低位放量攻擊模型"
+    )
+    assert (
+        validator.model_display_name(
+            "volume_range_breakout_v2_mid_position_momentum_attack",
+            [{"model_name_zh": ""}],
+        )
+        == "中位動能放量攻擊模型"
     )
 
 

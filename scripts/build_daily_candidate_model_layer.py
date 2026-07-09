@@ -125,7 +125,16 @@ CORE_AI_BUCKETS = {
 
 BULLISH_WARRANT = {"call_inflow", "call_strong_inflow", "call_put_bullish"}
 POSITIVE_TDCC = {"strong_accumulation", "mild_accumulation"}
+LEGACY_VOLUME_RANGE_BREAKOUT_MODEL_ID = "volume_range_breakout"
+VOLUME_BREAKOUT_V2_LOW_MODEL_ID = "volume_range_breakout_v2_low_position_volume_attack"
+VOLUME_BREAKOUT_V2_MID_MODEL_ID = "volume_range_breakout_v2_mid_position_momentum_attack"
+VOLUME_BREAKOUT_V2_MODEL_IDS = {
+    VOLUME_BREAKOUT_V2_LOW_MODEL_ID,
+    VOLUME_BREAKOUT_V2_MID_MODEL_ID,
+}
+
 DEPRECATED_DAILY_MODEL_IDS = {
+    LEGACY_VOLUME_RANGE_BREAKOUT_MODEL_ID,
     "near_high_neckline_challenge",
     "platform_strengthening",
 }
@@ -247,6 +256,8 @@ SCORE_COMPONENT_ZH_REPLACEMENTS = {
     "base=50": "基礎分=50",
     "base=35": "基礎分=35",
     "profile=volume_range_breakout": "參數=放量攻擊模型",
+    "profile=volume_range_breakout_v2_low_position_volume_attack": "參數=低位放量攻擊",
+    "profile=volume_range_breakout_v2_mid_position_momentum_attack": "參數=中位動能放量攻擊",
     "profile=price_pullback_23ema": "參數=股價回檔模型",
     "profile=hot_theme_pullback": "參數=熱門族群回檔模型",
     "profile=revenue_unreacted_range": "參數=營收爆發但股價尚未反應模型",
@@ -413,6 +424,31 @@ MODEL_SCORE_PROFILES: dict[str, ScoreProfile] = {
         lower_position_bonus=5.0,
         tdcc_distribution_penalty=6.0,
         false_breakout_penalty=0.0,
+    ),
+    "volume_range_breakout_v2_low_position_volume_attack": ScoreProfile(
+        "volume_range_breakout_v2_low_position_volume_attack",
+        base_score=60.0,
+        volume_ratio_bonus_per_1x=3.0,
+        volume_ratio_bonus_cap=12.0,
+        tdcc_positive_bonus=4.0,
+        warrant_bullish_bonus=2.0,
+        strong_revenue_bonus=2.0,
+        lower_position_bonus=6.0,
+        lower_position_max_off_60d_low_pct=50.0,
+        tdcc_distribution_penalty=6.0,
+        false_breakout_penalty=4.0,
+    ),
+    "volume_range_breakout_v2_mid_position_momentum_attack": ScoreProfile(
+        "volume_range_breakout_v2_mid_position_momentum_attack",
+        base_score=58.0,
+        volume_ratio_bonus_per_1x=3.0,
+        volume_ratio_bonus_cap=12.0,
+        tdcc_positive_bonus=4.0,
+        warrant_bullish_bonus=2.0,
+        strong_revenue_bonus=2.0,
+        lower_position_bonus=0.0,
+        tdcc_distribution_penalty=6.0,
+        false_breakout_penalty=4.0,
     ),
     "price_pullback_23ema": ScoreProfile(
         "price_pullback_23ema",
@@ -1343,7 +1379,11 @@ def score_from_profile(row: pd.Series, profile: ScoreProfile) -> tuple[float, li
 
 
 def score_volume_breakout(row: pd.Series) -> tuple[float, list[str], list[str]]:
-    score, comps, risks = score_from_profile(row, MODEL_SCORE_PROFILES["volume_range_breakout"])
+    return score_volume_breakout_profile(row, "volume_range_breakout")
+
+
+def score_volume_breakout_profile(row: pd.Series, profile_id: str) -> tuple[float, list[str], list[str]]:
+    score, comps, risks = score_from_profile(row, MODEL_SCORE_PROFILES[profile_id])
     breakout_pct = bottom_volume_attack_breakout_pct(row)
     if bottom_volume_attack_locked_limit_up(row):
         score += 8
@@ -1392,6 +1432,14 @@ def score_volume_breakout(row: pd.Series) -> tuple[float, list[str], list[str]]:
         score -= penalty
         risks.append(f"long_upper_shadow_quality_penalty:{penalty:.1f}")
     return score, comps, risks
+
+
+def score_volume_breakout_v2_low_position(row: pd.Series) -> tuple[float, list[str], list[str]]:
+    return score_volume_breakout_profile(row, VOLUME_BREAKOUT_V2_LOW_MODEL_ID)
+
+
+def score_volume_breakout_v2_mid_position(row: pd.Series) -> tuple[float, list[str], list[str]]:
+    return score_volume_breakout_profile(row, VOLUME_BREAKOUT_V2_MID_MODEL_ID)
 
 
 def volume_breakout_operation_score_fields(
@@ -1848,6 +1896,21 @@ def score_tdcc_stealth(row: pd.Series) -> tuple[float, list[str], list[str]]:
 
 def cond_volume_breakout(row: pd.Series) -> bool:
     return bottom_volume_attack_like(row)
+
+
+def cond_volume_breakout_v2_watch_only(row: pd.Series) -> bool:
+    """V2 volume breakout models are sourced from the dedicated volume watch table."""
+    return False
+
+
+def cond_volume_breakout_v2_low_position_watch_only(row: pd.Series) -> bool:
+    """Low-position v2 volume breakout is sourced from the dedicated volume watch table."""
+    return False
+
+
+def cond_volume_breakout_v2_mid_position_watch_only(row: pd.Series) -> bool:
+    """Mid-position v2 volume breakout is sourced from the dedicated volume watch table."""
+    return False
 
 
 def active_price_attack_for_early_models(row: pd.Series) -> bool:
@@ -2792,6 +2855,30 @@ def cond_tdcc_stealth(row: pd.Series) -> bool:
 def build_specs() -> list[ModelSpec]:
     specs = [
         ModelSpec(
+            "volume_range_breakout_v2_low_position_volume_attack",
+            "低位放量攻擊",
+            "pdf_core_model",
+            "confirmation_next_open",
+            "訊號日收盤突破前60日高點，且120日位階<=40；盤整、非盤整、寬幅三種型態都可進入。",
+            "TDCC top20、MA60>MA120、距離EMA23、量比區間只作加分或分層，不是隱藏買入 gate。",
+            "不是低位或未完成隔日續攻確認者不可進正式買入；舊 v1 放量攻擊不得回流 production。",
+            "候選成立後先進 pending；確認日為隔日收盤高於訊號日收盤且不低於訊號日最高價；確認後下一交易日開盤進場，停損為收盤連續4天低於MA20/EMA23較低者的4%後隔日開盤，否則第15個交易日收盤出場。",
+            cond_volume_breakout_v2_low_position_watch_only,
+            score_volume_breakout_v2_low_position,
+        ),
+        ModelSpec(
+            "volume_range_breakout_v2_mid_position_momentum_attack",
+            "中位動能放量攻擊",
+            "pdf_core_model",
+            "confirmation_next_open",
+            "訊號日收盤突破前60日高點，且120日位階>40且<=75，型態只收非盤整或寬幅震盪。",
+            "TDCC top20、MA60>MA120、距離EMA23、量比區間只作加分或分層，不是隱藏買入 gate。",
+            "中位盤整、低位分群、高位階分群與未完成隔日續攻確認者不可進正式買入；舊 v1 放量攻擊不得回流 production。",
+            "候選成立後先進 pending；確認日為隔日收盤高於訊號日收盤且不低於訊號日最高價；確認後下一交易日開盤進場，停損為收盤連續4天低於MA20/EMA23較低者的4%後隔日開盤，否則第15個交易日收盤出場。",
+            cond_volume_breakout_v2_mid_position_watch_only,
+            score_volume_breakout_v2_mid_position,
+        ),
+        ModelSpec(
             "volume_range_breakout",
             "放量攻擊模型",
             "pdf_core_model",
@@ -2949,6 +3036,40 @@ def build_parameter_table(specs: list[ModelSpec]) -> pd.DataFrame:
                         "買入：訊號成立後隔日開盤買入。賣出：收盤突破訊號日前20日高點後，"
                         "隔日開盤賣出。停損：收盤連續4天低於MA20/EMA23較低者的4%，"
                         "隔日開盤停損。"
+                    ),
+                    "parameter_status": "approved_operation_v1_close_confirmed",
+                }
+            )
+        if spec.model_id == VOLUME_BREAKOUT_V2_LOW_MODEL_ID:
+            row.update(
+                {
+                    "model_name_zh": "低位放量攻擊",
+                    "main_conditions": (
+                        "訊號日收盤突破前60日高點，且120日位階<=40；"
+                        "盤整、非盤整、寬幅震盪三種形態皆可進入候選。"
+                    ),
+                    "add_score_items": "TDCC、MA60/MA120、EMA23距離、量比區間只作分層或加分，不作 hidden gate。",
+                    "forbidden_veto": "舊 v1 放量攻擊、高位階分群與未符合低位 v2 桶條件者不得進正式買入模型。",
+                    "operation_guidance": (
+                        "候選成立後等待隔日續攻 close-only 確認；確認後下一交易日開盤進場，"
+                        "收盤連續4天低於MA20/EMA23較低者的4%則隔日開盤停損，否則D+15收盤出場。"
+                    ),
+                    "parameter_status": "approved_operation_v1_close_confirmed",
+                }
+            )
+        if spec.model_id == VOLUME_BREAKOUT_V2_MID_MODEL_ID:
+            row.update(
+                {
+                    "model_name_zh": "中位動能放量攻擊",
+                    "main_conditions": (
+                        "訊號日收盤突破前60日高點，且120日位階>40且<=75；"
+                        "形態只收非盤整或寬幅震盪。"
+                    ),
+                    "add_score_items": "TDCC、MA60/MA120、EMA23距離、量比區間只作分層或加分，不作 hidden gate。",
+                    "forbidden_veto": "低位分群、高位階分群、盤整型中位分群與舊 v1 放量攻擊不得混入本模型。",
+                    "operation_guidance": (
+                        "候選成立後等待隔日續攻 close-only 確認；確認後下一交易日開盤進場，"
+                        "收盤連續4天低於MA20/EMA23較低者的4%則隔日開盤停損，否則D+15收盤出場。"
                     ),
                     "parameter_status": "approved_operation_v1_close_confirmed",
                 }
@@ -3290,6 +3411,11 @@ def snapshot_model_signals(signals: pd.DataFrame) -> pd.DataFrame:
 
 
 def selected_volume_breakout_history_signals(max_signal_date: str = "") -> pd.DataFrame:
+    # V2 formal models intentionally do not backfill legacy v1 selected rows into
+    # the model signal log. Daily operation rows must come from v2 model signals
+    # generated by the current formal candidate classifier.
+    return pd.DataFrame(columns=snapshot_model_signals(pd.DataFrame()).columns)
+
     frames: list[pd.DataFrame] = []
     for path in DAILY_THEME_STATUS_HISTORY_CSVS:
         frame = read_csv(path, dtype=str, keep_default_na=False)
@@ -3657,6 +3783,113 @@ def external_report_bucket(volume_row: pd.Series, candidate_row: pd.Series | Non
     return "non_mainstream"
 
 
+def load_volume_price_history(stock_id: str) -> pd.DataFrame:
+    path = STOCK_PRICE_HISTORY_DIR / f"{normalize_code(stock_id)}.csv"
+    if not path.exists():
+        return pd.DataFrame()
+    price = read_csv(path, dtype=str, keep_default_na=False)
+    if price.empty or "date" not in price.columns:
+        return pd.DataFrame()
+    out = price.copy()
+    out["date"] = out["date"].map(lambda value: safe_str(value).replace("-", "").replace("/", ""))
+    out = out[out["date"].astype(str).str.fullmatch(r"\d{8}", na=False)].copy()
+    for col in ["open", "high", "low", "close", "volume"]:
+        if col in out.columns:
+            out[col] = pd.to_numeric(out[col], errors="coerce")
+    out = out.dropna(subset=["open", "high", "low", "close"]).sort_values("date").reset_index(drop=True)
+    return out
+
+
+def volume_position_features(price: pd.DataFrame, signal_date: str, days: int) -> dict[str, float]:
+    empty = {
+        f"off_{days}d_low_pct": math.nan,
+        f"range_width_{days}_pct": math.nan,
+        f"position_in_{days}d_range_pct": math.nan,
+    }
+    if price.empty:
+        return empty
+    positions = price.index[price["date"].astype(str).eq(signal_date)].tolist()
+    if not positions:
+        return empty
+    signal_idx = int(positions[-1])
+    start = max(0, signal_idx - days + 1)
+    window = price.iloc[start : signal_idx + 1]
+    if len(window) < min(days, 30):
+        return empty
+    signal_close = float(price.iloc[signal_idx]["close"])
+    low = pd.to_numeric(window["low"], errors="coerce").min()
+    high = pd.to_numeric(window["high"], errors="coerce").max()
+    if math.isnan(signal_close) or math.isnan(low) or math.isnan(high) or low <= 0 or high <= low:
+        return empty
+    return {
+        f"off_{days}d_low_pct": (signal_close / low - 1.0) * 100.0,
+        f"range_width_{days}_pct": (high / low - 1.0) * 100.0,
+        f"position_in_{days}d_range_pct": (signal_close - low) / (high - low) * 100.0,
+    }
+
+
+def volume_position_bucket(value: float) -> str:
+    if math.isnan(value):
+        return "unknown_position"
+    if value <= 40:
+        return "low_pos_le40"
+    if value <= 75:
+        return "mid_pos_40_75"
+    return "high_pos_gt75"
+
+
+def volume_shape_bucket(row: pd.Series, price: pd.DataFrame, signal_date: str) -> str:
+    features_60 = volume_position_features(price, signal_date, 60)
+    range_width_60 = to_number(row.get("range_width_60_pct", features_60["range_width_60_pct"]))
+    if math.isnan(range_width_60):
+        range_width_60 = features_60["range_width_60_pct"]
+
+    range_width_40 = to_number(row.get("range_width_40_pct", row.get("range_width_pct", "")))
+    if math.isnan(range_width_40):
+        features_40 = volume_position_features(price, signal_date, 40)
+        range_width_40 = features_40["range_width_40_pct"]
+
+    if not math.isnan(range_width_60) and range_width_60 > 80:
+        return "wide_range"
+    if not math.isnan(range_width_40) and range_width_40 <= 40:
+        return "consolidation"
+    return "non_consolidation"
+
+
+def volume_v2_model_memberships(row: pd.Series, stock_id: str, signal_date: str) -> tuple[list[str], dict[str, Any]]:
+    price = load_volume_price_history(stock_id)
+    features_120 = volume_position_features(price, signal_date, 120)
+    position_120 = features_120["position_in_120d_range_pct"]
+    position_bucket = volume_position_bucket(position_120)
+    shape = volume_shape_bucket(row, price, signal_date)
+    memberships: list[str] = []
+    if position_bucket == "low_pos_le40":
+        memberships.append(VOLUME_BREAKOUT_V2_LOW_MODEL_ID)
+    if position_bucket == "mid_pos_40_75" and shape in {"non_consolidation", "wide_range"}:
+        memberships.append(VOLUME_BREAKOUT_V2_MID_MODEL_ID)
+    return memberships, {
+        "position_bucket_120d": position_bucket,
+        "shape_bucket": shape,
+        **features_120,
+    }
+
+
+def volume_v2_model_name(model_id: str) -> str:
+    if model_id == VOLUME_BREAKOUT_V2_LOW_MODEL_ID:
+        return "低位放量攻擊"
+    if model_id == VOLUME_BREAKOUT_V2_MID_MODEL_ID:
+        return "中位動能放量攻擊"
+    return "放量攻擊"
+
+
+def volume_v2_model_name(model_id: str) -> str:
+    if model_id == VOLUME_BREAKOUT_V2_LOW_MODEL_ID:
+        return "低位放量攻擊"
+    if model_id == VOLUME_BREAKOUT_V2_MID_MODEL_ID:
+        return "中位動能放量攻擊"
+    return "放量攻擊"
+
+
 def append_volume_breakout_signals(signals: pd.DataFrame, candidates: pd.DataFrame, signal_date: str) -> pd.DataFrame:
     df = read_csv(VOLUME_BREAKOUT_WATCH, dtype=str, keep_default_na=False)
     if df.empty:
@@ -3677,7 +3910,15 @@ def append_volume_breakout_signals(signals: pd.DataFrame, candidates: pd.DataFra
         source = candidate_row if candidate_row is not None else taxonomy_or_source(stock_id, row)
         score_source = source.to_dict() if isinstance(source, pd.Series) else {}
         score_source.update(row.to_dict())
-        score, comps, risks = score_volume_breakout(pd.Series(score_source))
+        memberships, v2_features = volume_v2_model_memberships(
+            row,
+            stock_id,
+            signal_date or text(row, "signal_date", "date"),
+        )
+        if not memberships:
+            continue
+        model_id = memberships[0]
+        score, comps, risks = score_volume_breakout_profile(pd.Series(score_source), model_id)
         raw_risks = text(row, "risk_flags", "risk_penalty_tags")
         for risk in re.split(r"[|,;]+", raw_risks):
             item = risk.strip()
@@ -3691,6 +3932,8 @@ def append_volume_breakout_signals(signals: pd.DataFrame, candidates: pd.DataFra
         comps = [f"type={breakout_type}", f"volume_ratio={row.get('volume_ratio','')}".strip(), *comps]
         if not math.isnan(breakout_pct):
             comps.append(f"breakout_pct={breakout_pct:.2f}%")
+        comps.append(f"position_bucket_120d={v2_features['position_bucket_120d']}")
+        comps.append(f"shape_bucket={v2_features['shape_bucket']}")
         if notes:
             comps.append(notes)
         score_fields = volume_breakout_operation_score_fields(pd.Series(score_source), score, risks)
@@ -3714,11 +3957,11 @@ def append_volume_breakout_signals(signals: pd.DataFrame, candidates: pd.DataFra
                 "non_mainstream_report_eligible": non_mainstream_report_eligible_value(source),
                 "dual_report_membership_flag": dual_report_membership_flag_value(source),
                 "report_bucket": external_report_bucket(row, source),
-                "model_id": "volume_range_breakout",
-                "model_name_zh": "放量攻擊模型",
+                "model_id": model_id,
+                "model_name_zh": volume_v2_model_name(model_id),
                 "model_group": "pdf_core_model",
                 "main_condition_met": "True",
-                "entry_basis": "signal_date_next_open",
+                "entry_basis": "confirmation_next_open",
                 "base_model_score": score_fields["base_model_score"],
                 "operation_score": score_fields["operation_score"],
                 "tdcc_score": score_fields["tdcc_score"],
@@ -3735,12 +3978,27 @@ def append_volume_breakout_signals(signals: pd.DataFrame, candidates: pd.DataFra
                 "volume_ratio": num(row, "volume_ratio"),
                 "return_5d": num(row, "return_5d", "return_5d_pct"),
                 "return_20d": num(row, "return_20d", "return_20d_pct"),
+                "volume_position_bucket_120d": v2_features["position_bucket_120d"],
+                "volume_shape_bucket": v2_features["shape_bucket"],
+                "volume_position_in_120d_range_pct": (
+                    round(v2_features["position_in_120d_range_pct"], 4)
+                    if not math.isnan(v2_features["position_in_120d_range_pct"])
+                    else ""
+                ),
+                "volume_range_width_120_pct": (
+                    round(v2_features["range_width_120_pct"], 4)
+                    if not math.isnan(v2_features["range_width_120_pct"])
+                    else ""
+                ),
                 "next_confirmation": text(row, "next_volume_breakout_confirmation") or text(source, "next_confirmation"),
-                "model_main_conditions": VOLUME_RANGE_BREAKOUT_MAIN_CONDITIONS_ZH,
-                "model_add_score_items": "量比越高、突破幅度越大、盤整時間越久、盤整品質越乾淨、TDCC越好、權證偏多、營收越好、位階越低、收盤越接近日高可加分。",
-                "model_forbidden_veto": "不得用60日高點、均線、漲幅過大、高位爆量、同日漲幅過低、watch/risk子狀態直接否決；風險只作扣分與風險提醒。",
-                "model_operation_guidance": "以訊號日隔天開盤作為研究觀察基準；用跌回突破區、支撐失守、量價失敗或長上影品質風險管理。",
-                "selection_semantics": "volume_breakout_condition_met_from_dedicated_table",
+                "model_main_conditions": (
+                    "低位放量攻擊：120日位階<=40且三種shape皆收；"
+                    "中位動能放量攻擊：120日位階>40且<=75，且shape為非盤整或寬幅。"
+                ),
+                "model_add_score_items": "TDCC top20、MA60>MA120、距離EMA23、量比區間只作加分或分層，不作隱藏 gate。",
+                "model_forbidden_veto": "舊 v1 放量攻擊、高位階分群與未符合 v2 桶條件者不得進正式買入模型。",
+                "model_operation_guidance": "候選後等待隔日續攻收盤確認；確認後下一交易日開盤進場，MA20/EMA23 4日收盤停損，否則D+15收盤出場。",
+                "selection_semantics": "volume_range_breakout_v2_candidate_bucket_condition_met",
             }
         )
     if not rows:
@@ -4047,6 +4305,32 @@ MODEL_OPERATION_REMINDER_ZH = {
     "tdcc_short_term_continuation_d5_d10": "以訊號日隔天開盤為進場假設，後續依D+5 / D+10統計結果與價格轉弱條件管理。",
     "short_term_surge_d5_d10": "這是短線研究補充，不是低位買進模型；需用隔天開盤與D+N收盤 / 最高價統計管理。",
 }
+
+MODEL_NAME_ZH_BY_ID.update(
+    {
+        VOLUME_BREAKOUT_V2_LOW_MODEL_ID: "低位放量攻擊",
+        VOLUME_BREAKOUT_V2_MID_MODEL_ID: "中位動能放量攻擊",
+    }
+)
+MODEL_HUMAN_REASON_ZH.update(
+    {
+        VOLUME_BREAKOUT_V2_LOW_MODEL_ID: "符合低位放量攻擊模型，訊號日收盤突破前60日高點，且位於120日低位區。",
+        VOLUME_BREAKOUT_V2_MID_MODEL_ID: "符合中位動能放量攻擊模型，訊號日收盤突破前60日高點，且屬中位非整理或寬幅動能型態。",
+    }
+)
+MODEL_OPERATION_REMINDER_ZH.update(
+    {
+        VOLUME_BREAKOUT_V2_LOW_MODEL_ID: (
+            "等待隔日續攻 close-only 確認；確認後下一交易日開盤買入，"
+            "MA20/EMA23 4日收盤停損，否則D+15收盤出場。"
+        ),
+        VOLUME_BREAKOUT_V2_MID_MODEL_ID: (
+            "等待隔日續攻 close-only 確認；確認後下一交易日開盤買入，"
+            "MA20/EMA23 4日收盤停損，否則D+15收盤出場。"
+        ),
+    }
+)
+
 
 FORBIDDEN_PDF_TOKENS = [
     "call_strong_inflow",

@@ -11,12 +11,15 @@ sys.path.insert(0, str(ROOT / "scripts"))
 
 from build_model_operation_readiness import build_model_operation_readiness  # noqa: E402
 
+LOW_VOLUME_MODEL_ID = "volume_range_breakout_v2_low_position_volume_attack"
+MID_VOLUME_MODEL_ID = "volume_range_breakout_v2_mid_position_momentum_attack"
+
 
 def parity_frame() -> pd.DataFrame:
     return pd.DataFrame(
         [
             {
-                "model_id": "volume_range_breakout",
+                "model_id": LOW_VOLUME_MODEL_ID,
                 "model_name_zh": "放量攻擊",
                 "research_baseline_status": "production_parity",
                 "parity_blocker": "",
@@ -47,7 +50,7 @@ def registry_frame() -> pd.DataFrame:
     return pd.DataFrame(
         [
             {
-                "model_id": "volume_range_breakout",
+                "model_id": LOW_VOLUME_MODEL_ID,
                 "model_hit_status": "current_model_hit",
                 "pattern_id": "pullback_10ma_hold_10d",
                 "sample_size": "2400",
@@ -64,7 +67,7 @@ def approval_frame() -> pd.DataFrame:
     return pd.DataFrame(
         [
             {
-                "model_id": "volume_range_breakout",
+                "model_id": LOW_VOLUME_MODEL_ID,
                 "operation_module_id": "volume_breakout_confirmed_operation_v1",
                 "approval_version": "volume_breakout_operation_v1_20260615",
                 "approved_for_daily": "True",
@@ -215,7 +218,7 @@ def price_pullback_exact_row_parity_frame() -> pd.DataFrame:
 
 def adapter_frame(with_approval_metadata: bool = False) -> pd.DataFrame:
     row = {
-        "model_id": "volume_range_breakout",
+        "model_id": LOW_VOLUME_MODEL_ID,
         "row_type": "data",
         "pdf_section": "confirmed_operation",
         "adapter_source_status": "ready",
@@ -261,7 +264,7 @@ def test_volume_breakout_approval_promotes_only_volume_model() -> None:
         generated_at="2026-06-15 00:00:00 Asia/Taipei",
     )
 
-    volume = readiness[readiness["model_id"].eq("volume_range_breakout")].iloc[0]
+    volume = readiness[readiness["model_id"].eq(LOW_VOLUME_MODEL_ID)].iloc[0]
     assert volume["operation_module_status"] == "approved_operation_v1"
     assert volume["daily_adapter_status"] == "ready_pending_approval_metadata"
     assert volume["presentation_allowed"] == "True"

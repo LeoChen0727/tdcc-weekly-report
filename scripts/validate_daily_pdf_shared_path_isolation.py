@@ -322,7 +322,7 @@ def validate_source_boundaries(source: str, functions: dict[str, ast.FunctionDef
     else:
         body = function_text(source, dispatcher)
         required_tokens = [
-            "model_id == VOLUME_BREAKOUT_MODEL_ID",
+            "model_id in VOLUME_BREAKOUT_OPERATION_MODEL_IDS",
             "model_id in W_BOTTOM_OPERATION_TABLE_MODEL_IDS",
             "model_id == PRICE_PULLBACK_MODEL_ID",
             "render_volume_range_breakout_operation_section",

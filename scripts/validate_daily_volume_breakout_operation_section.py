@@ -37,7 +37,10 @@ PDF_GENERATOR = ROOT / "scripts" / "generate_chatgpt_side_daily_reports.py"
 PACKET_BUILDER = ROOT / "build_chatgpt_daily_report_packet.py"
 CONTRACT_MD = ROOT / "docs" / "specs" / "daily_volume_breakout_operation_section_contract.md"
 
-MODEL_ID = "volume_range_breakout"
+LEGACY_MODEL_ID = "volume_range_breakout"
+V2_LOW_MODEL_ID = "volume_range_breakout_v2_low_position_volume_attack"
+V2_MID_MODEL_ID = "volume_range_breakout_v2_mid_position_momentum_attack"
+FORMAL_MODEL_IDS = {V2_LOW_MODEL_ID, V2_MID_MODEL_ID}
 LIFECYCLE_ADAPTER_SOURCE = "daily_candidate_model_signal_log+daily_published_model_snapshots+stock_price_history"
 REPORT_READY_BUCKETS = {"mainstream", "non_mainstream"}
 PDF_VIEWS = {"highlight", "full"}
@@ -57,7 +60,13 @@ HIGHLIGHT_HIDDEN_SECTIONS = {"confirmed_unranked_operation", "pending_confirmati
 ROW_TYPES = {"data", "empty_state"}
 SOURCE_STATUSES = {"ready"}
 LINEAGE_LOOKBACK_CALENDAR_DAYS = 45
-AUDIT_STATUSES = {"candidate_evaluated", "positive_row_evidence", "source_gap", "lifecycle_suppressed"}
+AUDIT_STATUSES = {
+    "candidate_evaluated",
+    "positive_row_evidence",
+    "positive_model_contract_evidence",
+    "source_gap",
+    "lifecycle_suppressed",
+}
 SOURCE_GAP_REASONS = {
     "missing_signal_identity",
     "missing_stock_price_history_file",
@@ -328,7 +337,7 @@ def validate_latest_signal_log_sync(section: pd.DataFrame) -> None:
     if latest_dates != {report_date}:
         fail(f"latest daily model signals must contain exactly main_price_date={report_date}, observed={sorted(latest_dates)}")
 
-    latest_volume = latest[latest["model_id"].astype(str).str.strip().eq(MODEL_ID)].copy()
+    latest_volume = latest[latest["model_id"].astype(str).str.strip().isin(FORMAL_MODEL_IDS)].copy()
     if latest_volume.empty:
         return
     if not MODEL_SIGNAL_LOG_CSV.exists():
@@ -338,7 +347,7 @@ def validate_latest_signal_log_sync(section: pd.DataFrame) -> None:
     if missing_cols:
         fail(f"formal model signal log missing columns: {missing_cols}")
     log_volume = log[
-        log["model_id"].astype(str).str.strip().eq(MODEL_ID)
+        log["model_id"].astype(str).str.strip().isin(FORMAL_MODEL_IDS)
         & log["signal_date"].map(normalize_date_text).eq(report_date)
     ].copy()
     report_ready_log_volume = log_volume[
@@ -395,6 +404,10 @@ def validate_latest_signal_log_sync(section: pd.DataFrame) -> None:
 
 
 def validate_selected_volume_breakout_model_lineage(section: pd.DataFrame) -> None:
+    # Legacy bottom_volume_attack selected-row lineage belonged to v1. The v2
+    # formal adapter is backed by daily_candidate_model_signal_log rows whose
+    # model_id is one of FORMAL_MODEL_IDS, validated in validate_latest_signal_log_sync().
+    return
     report_date = report_date_from_section(section)
     selected = selected_volume_breakout_history(report_date)
     if selected.empty:
@@ -487,8 +500,21 @@ def validate_row_level_evidence(section: pd.DataFrame, formal_summary: pd.DataFr
         return
 
     for _, row in target.iterrows():
-        if str(row.get("evidence_match_status", "")).strip() != "positive_row_evidence":
-            fail("confirmed/active rows must carry positive_row_evidence")
+        match_status = str(row.get("evidence_match_status", "")).strip()
+        model_id = str(row.get("model_id", "")).strip()
+        if model_id in FORMAL_MODEL_IDS and match_status != "positive_model_contract_evidence":
+            fail("v2 volume breakout confirmed/active rows must use positive_model_contract_evidence")
+        if match_status not in {
+            "positive_row_evidence",
+            "positive_model_contract_evidence",
+        }:
+            fail("confirmed/active rows must carry positive model evidence")
+        if match_status == "positive_model_contract_evidence":
+            if str(row.get("evidence_confluence_scope", "")).strip() != "model_contract":
+                fail("v2 model-contract evidence rows must carry evidence_confluence_scope=model_contract")
+            if str(row.get("evidence_confluence_id", "")).strip() not in FORMAL_MODEL_IDS:
+                fail("v2 model-contract evidence rows must carry its formal model_id as evidence_confluence_id")
+            continue
         evidence = formal_evidence_row(formal_summary, row)
         if evidence is None:
             fail(
@@ -678,7 +704,10 @@ def validate_shape(section: pd.DataFrame, formal_summary: pd.DataFrame, audit: p
     if missing:
         fail(f"daily volume breakout operation section missing columns: {missing}")
 
-    bad_models = sorted(set(section["model_id"].astype(str)) - {MODEL_ID})
+    models = set(section["model_id"].astype(str))
+    if LEGACY_MODEL_ID in models:
+        fail(f"legacy {LEGACY_MODEL_ID} must not appear in v2 operation section")
+    bad_models = sorted(models - FORMAL_MODEL_IDS)
     if bad_models:
         fail(f"daily volume breakout operation section must not include other models: {bad_models}")
 
@@ -771,7 +800,8 @@ def validate_shape(section: pd.DataFrame, formal_summary: pd.DataFrame, audit: p
             fail("pending_confirmation data rows must not carry an entry date")
         if pending_data["entry_price"].astype(str).str.strip().ne("").any():
             fail("pending_confirmation data rows must not carry an entry price")
-        if not pending_data["entry_price_status_zh"].astype(str).str.contains("尚未確認").all():
+        pending_text = pending_data["entry_price_status_zh"].astype(str)
+        if not (pending_text.str.contains("等待").all() or pending_text.str.contains("未列買入").all()):
             fail("pending_confirmation data rows must clearly state that entry price is not available")
     confirmed_ids = {
         stock_id_text(value)
@@ -826,7 +856,10 @@ def validate_shape(section: pd.DataFrame, formal_summary: pd.DataFrame, audit: p
         ]
         if not missing_selected.empty:
             fail("confirmed operation data rows must carry selected trigger metadata")
-        bad_selected_trigger = sorted(set(confirmed_data["selected_trigger_id"].astype(str)) - eligible_triggers)
+        row_evidence_confirmed = confirmed_data[
+            confirmed_data["evidence_match_status"].astype(str).str.strip().eq("positive_row_evidence")
+        ]
+        bad_selected_trigger = sorted(set(row_evidence_confirmed["selected_trigger_id"].astype(str)) - eligible_triggers)
         if bad_selected_trigger:
             fail(f"confirmed operation rows use trigger without eligible formal evidence: {bad_selected_trigger}")
         bad_confirm_date = confirmed_data[
@@ -875,6 +908,12 @@ def validate_shape(section: pd.DataFrame, formal_summary: pd.DataFrame, audit: p
         for _, row in unranked_data.iterrows():
             match_status = str(row.get("evidence_match_status", "")).strip()
             if match_status == "no_matching_row_level_evidence":
+                continue
+            if match_status == "model_contract_evidence_not_buy_ranked":
+                if str(row.get("evidence_confluence_scope", "")).strip() != "model_contract":
+                    fail("v2 unranked model-contract evidence rows must carry evidence_confluence_scope=model_contract")
+                if str(row.get("evidence_confluence_id", "")).strip() not in FORMAL_MODEL_IDS:
+                    fail("v2 unranked model-contract evidence rows must carry its formal model_id as evidence_confluence_id")
                 continue
             if match_status != "row_level_evidence_not_buy_ranked":
                 fail(f"invalid confirmed_unranked_operation evidence status: {match_status}")
@@ -968,8 +1007,10 @@ def validate_display_text(section: pd.DataFrame) -> None:
             fail(f"forbidden raw display token leaked: {token}")
     if "median" in display_text.lower():
         fail("display text must use Chinese wording for median return, not raw 'median'")
-    if section["row_type"].astype(str).eq("empty_state").any() and "目前無資料" not in display_text:
-        fail("empty-state display text must be present for PDF empty tables")
+    if section["row_type"].astype(str).eq("empty_state").any():
+        for expected_empty_text in ["本日無股票推薦", "目前無操作中追蹤列"]:
+            if expected_empty_text not in display_text:
+                fail("empty-state display text must be present for PDF empty tables")
 
 
 def validate_pdf_generator_boundary() -> None:

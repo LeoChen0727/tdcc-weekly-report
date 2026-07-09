@@ -93,9 +93,12 @@ ZH = {
 }
 
 
-# Formal operation trigger order is shared with the daily adapter.
-TRIGGERS = list(SHARED_TRIGGERS)
-TRIGGER_MAP = dict(SHARED_TRIGGER_MAP)
+# Formal v2 operation trigger order is shared with the daily adapter.
+TRIGGERS = [
+    spec for spec in SHARED_TRIGGERS
+    if spec.trigger_id == "next_day_continuation_confirmed"
+]
+TRIGGER_MAP = {spec.trigger_id: spec for spec in TRIGGERS}
 TRIGGER_PRIORITY = dict(SHARED_TRIGGER_PRIORITY)
 SELECTION_COLUMNS = [
     "matched_trigger_ids",
