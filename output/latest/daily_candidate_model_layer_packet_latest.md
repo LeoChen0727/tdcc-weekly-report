@@ -1,6 +1,6 @@
 # DAILY CANDIDATE MODEL LAYER PACKET
 
-- generated_at: `2026-07-09 22:44:17 Asia/Taipei`
+- generated_at: `2026-07-10 00:00:40 Asia/Taipei`
 - signal_date: `20260709`
 - contract: model main condition met means the stock enters that model candidate list.
 - scoring: risk, TDCC, warrant, revenue, position, and structure adjust rank inside the model; mainstream/non-mainstream only splits reports.

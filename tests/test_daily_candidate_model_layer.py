@@ -233,6 +233,29 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
         )
         self.assertNotIn("legacy_common", MODEL_SCORE_PROFILES)
 
+    def test_volume_v2_score_components_zh_hides_raw_contract_slugs(self) -> None:
+        raw = (
+            "type=bottom_volume_attack | volume_ratio=4.4664 | base=60 | "
+            "profile=volume_range_breakout_v2_low_position_volume_attack | "
+            "position_bucket_120d=low_pos_le40 | shape_bucket=non_consolidation"
+        )
+
+        zh = model_layer.score_components_zh(raw)
+
+        for token in [
+            "base=",
+            "profile=",
+            "volume_range_breakout_v2",
+            "position_bucket_120d",
+            "low_pos_le40",
+            "shape_bucket",
+            "non_consolidation",
+        ]:
+            self.assertNotIn(token, zh)
+        self.assertIn("基礎分60", zh)
+        self.assertIn("120日位階=低位", zh)
+        self.assertIn("型態=非盤整", zh)
+
     def test_pdf_models_use_next_open_entry_basis(self) -> None:
         params = build_parameter_table(build_specs())
         pdf_rows = params[params["pdf_visibility"].isin(["pdf_core_model", "pdf_specialty_section"])]

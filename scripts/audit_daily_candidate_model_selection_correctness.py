@@ -9,6 +9,8 @@ from typing import Any
 import pandas as pd
 
 from build_daily_candidate_model_layer import (
+    VOLUME_BREAKOUT_V2_LOW_MODEL_ID,
+    VOLUME_BREAKOUT_V2_MID_MODEL_ID,
     active_price_attack_for_early_models,
     build_signals,
     build_specs,
@@ -20,6 +22,7 @@ from build_daily_candidate_model_layer import (
     price_pullback_obv_above_ma20,
     price_pullback_return20_0_25,
     price_pullback_tdcc_high_thresholds_up,
+    volume_v2_model_memberships,
 )
 from tracking_utils import LATEST_DIR, main_price_date_from_freshness, read_csv, resolve_candidate_signal_date, safe_str
 
@@ -41,6 +44,7 @@ VALID_VOLUME_TYPES = {
 VALID_VOLUME_STATUSES = {
     "selected",
 }
+VOLUME_V2_MODEL_IDS = {VOLUME_BREAKOUT_V2_LOW_MODEL_ID, VOLUME_BREAKOUT_V2_MID_MODEL_ID}
 POSITIVE_TDCC = {"strong_accumulation", "mild_accumulation", "tdcc_price_confirmed", "tdcc_leading_price"}
 CONFIRMED_STAGES = {"breakout_confirmed", "platform_breakout", "neckline_breakout"}
 CONFIRMED_STAGE_TEXT_MARKERS = {"已突破", "突破確認", "平台突破", "頸線突破"}
@@ -264,6 +268,20 @@ def source_volume_breakout_condition(row: pd.Series) -> bool:
     return cond_volume_breakout(row)
 
 
+def volume_v2_memberships_for_watch_row(row: pd.Series | dict[str, Any]) -> tuple[list[str], str]:
+    sid = normalize_code(row.get("stock_id", ""))
+    signal_date = text(row, "signal_date", "date")
+    if not sid:
+        return [], "missing_stock_id"
+    if not signal_date:
+        return [], "missing_signal_date"
+    try:
+        memberships, _features = volume_v2_model_memberships(pd.Series(row), sid, signal_date)
+    except Exception as exc:  # pragma: no cover - surfaced as audit detail in production runs.
+        return [], f"membership_error={exc}"
+    return memberships, ""
+
+
 def locked_limit_up_volume_breakout_row(row: pd.Series | dict[str, Any]) -> bool:
     notes = text(row, "volume_breakout_notes", "score_components").lower()
     return "locked_limit_up_breakout" in notes
@@ -300,6 +318,30 @@ def audit_selected_row(
 
     if not is_true(row.get("main_condition_met", "")):
         errors.append(f"{sid} {model}: main_condition_met is not true")
+
+    if model in VOLUME_V2_MODEL_IDS:
+        vrow = volume_by_stock.get(sid)
+        if vrow is None:
+            if not volume_watch_fresh:
+                warnings.append(
+                    f"{sid}: volume_breakout_watch is stale/unavailable; accepted {model} row "
+                    "without auxiliary-table cross-check"
+                )
+                return errors, warnings
+            errors.append(f"{sid}: selected by {model} but missing from volume_breakout_watch")
+            return errors, warnings
+
+        btype = text(vrow, "volume_breakout_type", "breakout_type").lower()
+        status = text(vrow, "selection_status").lower()
+        if btype not in VALID_VOLUME_TYPES:
+            errors.append(f"{sid}: volume breakout type not valid for selected {model}: {btype}")
+        if status not in VALID_VOLUME_STATUSES:
+            errors.append(f"{sid}: volume selection_status not valid for selected {model}: {status}")
+        memberships, membership_reason = volume_v2_memberships_for_watch_row(vrow)
+        if model not in memberships:
+            detail = f"; {membership_reason}" if membership_reason else ""
+            errors.append(f"{sid}: selected by {model} but source row v2 membership={memberships}{detail}")
+        return errors, warnings
 
     if model == "volume_range_breakout":
         vrow = volume_by_stock.get(sid)
@@ -540,7 +582,7 @@ def audit() -> dict[str, Any]:
     if len(selected_warnings) > 200:
         warnings.append(f"selected condition warnings truncated: {len(selected_warnings) - 200} more")
 
-    raw_volume_stocks = stock_set(raw_signals, "volume_range_breakout")
+    raw_volume_v2_keys = model_stock_key_set(raw_signals, VOLUME_V2_MODEL_IDS)
     if not candidates.empty and not raw_signals.empty:
         specs = build_specs()
         spec_ids = {spec.model_id for spec in specs}
@@ -561,24 +603,31 @@ def audit() -> dict[str, Any]:
                 f"{['/'.join(x) for x in missing_core[:20]]}"
             )
 
-    expected_volume = set()
+    expected_volume_v2: set[tuple[str, str]] = set()
+    volume_v2_membership_warnings: list[str] = []
     if not volume_for_signal_date.empty:
         for _, row in volume_for_signal_date.iterrows():
             sid = normalize_code(row.get("stock_id", ""))
             btype = text(row, "volume_breakout_type", "breakout_type").lower()
             status = text(row, "selection_status").lower()
             if sid and btype in VALID_VOLUME_TYPES and status in VALID_VOLUME_STATUSES:
-                expected_volume.add(sid)
-    if not candidates.empty:
-        for _, row in candidates.iterrows():
-            sid = normalize_code(row.get("stock_id", ""))
-            if sid and source_volume_breakout_condition(row):
-                expected_volume.add(sid)
-    missing_volume = sorted(expected_volume - raw_volume_stocks)
-    details["expected_volume_breakout_stock_count"] = len(expected_volume)
-    details["missing_volume_breakout_model_stocks"] = missing_volume[:50]
-    if missing_volume:
-        errors.append(f"volume breakout source rows missing from volume_range_breakout model: {missing_volume[:20]}")
+                memberships, membership_reason = volume_v2_memberships_for_watch_row(row)
+                if membership_reason:
+                    volume_v2_membership_warnings.append(f"{sid}: {membership_reason}")
+                for model_id in memberships:
+                    if model_id in VOLUME_V2_MODEL_IDS:
+                        expected_volume_v2.add((model_id, sid))
+    missing_volume_v2 = sorted(expected_volume_v2 - raw_volume_v2_keys)
+    details["expected_volume_breakout_stock_count"] = len({sid for _model_id, sid in expected_volume_v2})
+    details["expected_volume_breakout_v2_model_stock_count"] = len(expected_volume_v2)
+    details["missing_volume_breakout_model_stocks"] = ["/".join(x) for x in missing_volume_v2[:50]]
+    details["missing_volume_breakout_v2_model_stocks"] = ["/".join(x) for x in missing_volume_v2[:50]]
+    details["volume_breakout_v2_membership_warnings"] = volume_v2_membership_warnings[:50]
+    if missing_volume_v2:
+        errors.append(
+            "volume breakout v2 source rows missing from v2 model signals: "
+            f"{['/'.join(x) for x in missing_volume_v2[:20]]}"
+        )
 
     raw_tdcc_short_stocks = stock_set(raw_signals, "tdcc_short_term_continuation_d5_d10")
     missing_tdcc_short = sorted(tdcc_edge_stocks - raw_tdcc_short_stocks)
@@ -605,7 +654,7 @@ def audit() -> dict[str, Any]:
                 if (sid, "w_bottom_right_side") not in current_model_keys:
                     review_missing_w.append(sid)
             if source_volume_breakout_condition(row):
-                if (sid, "volume_range_breakout") not in current_model_keys:
+                if not any((sid, model_id) in current_model_keys for model_id in VOLUME_V2_MODEL_IDS):
                     review_missing_breakout.append(sid)
         details["review_missing_w_bottom_candidates"] = sorted(set(review_missing_w))[:50]
         details["review_missing_breakout_candidates"] = sorted(set(review_missing_breakout))[:50]
@@ -637,6 +686,7 @@ def write_report(result: dict[str, Any]) -> None:
         f"- selected_condition_error_count: `{details.get('selected_condition_error_count', 0)}`",
         f"- selected_condition_warning_count: `{details.get('selected_condition_warning_count', 0)}`",
         f"- expected_volume_breakout_stock_count: `{details.get('expected_volume_breakout_stock_count', 0)}`",
+        f"- expected_volume_breakout_v2_model_stock_count: `{details.get('expected_volume_breakout_v2_model_stock_count', 0)}`",
         f"- expected_tdcc_short_stock_count: `{details.get('expected_tdcc_short_stock_count', 0)}`",
         "",
         "## Errors",
@@ -650,6 +700,8 @@ def write_report(result: dict[str, Any]) -> None:
     lines.extend(["", "## Review Details", ""])
     for key in [
         "missing_volume_breakout_model_stocks",
+        "missing_volume_breakout_v2_model_stocks",
+        "volume_breakout_v2_membership_warnings",
         "missing_tdcc_short_model_stocks",
         "review_missing_w_bottom_candidates",
         "review_missing_breakout_candidates",
