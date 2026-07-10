@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-10 18:36:43 Asia/Taipei",
+  "generated_at": "2026-07-10 19:30:18 Asia/Taipei",
   "external_fetch_status": "partial_ok",
   "note": "Official monthly revenue and material-information sources are used when reachable. No unverified news, MOPS pages, or social rumor data is fabricated.",
   "files": {
@@ -41,8 +41,8 @@
       "rows": 890,
       "error": "",
       "http_status": 200,
-      "matched_tracked_rows": 111,
-      "stored_rows": 111,
+      "matched_tracked_rows": 110,
+      "stored_rows": 110,
       "note": "Official monthly revenue rows are stored as fundamental source rows with EPS/margin fields blank. They can flag revenue_good_eps_unconfirmed only; they are not EPS confirmation."
     },
     "TWSE material information OpenAPI": {

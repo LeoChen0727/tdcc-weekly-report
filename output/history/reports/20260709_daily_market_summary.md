@@ -1,7 +1,7 @@
 # 每日全市場候選股監測報告 - 精華版
 
 - 主資料日期：`20260709`
-- 產生時間：`2026-07-10 18:42:00 Asia/Taipei`
+- 產生時間：`2026-07-10 19:35:40 Asia/Taipei`
 - 是否可產出正式每日報告：`True`
 - 判斷說明：core daily data dates match main_price_date
 - 權證資料日期：`20260709`
@@ -20,7 +20,7 @@
 |---|---:|
 | 嚴格突破 | 11 |
 | 區間內轉強 / 挑戰前高觀察 | 54 |
-| 營收爆發低反應股 | 38 |
+| 營收爆發低反應股 | 26 |
 | 營收成長股價回檔 | 210 |
 | 回檔後短線轉強 | 19 |
 | 型態觀察 | 205 |
@@ -33,15 +33,15 @@
 |---|---|---|---|
 | 2356 英業達 | 營收成長股價回檔 | score 40 / theme 100.0/5 / revenue_good_eps_unconfirmed;event_confirmed;low_reaction_after_catalyst;product_certificatio... | 大戶同步增加 |
 | 2610 華航 | 營收成長股價回檔 | score 34 / theme 100.0/5 / revenue_good_eps_unconfirmed;event_confirmed;new_order;航運業;dividend_calendar;calendar_ex_divi... | 大戶溫和增加 |
-| 2913 農林 | 區間內轉強 / 挑戰前高觀察 | score 34 / theme 49.2/5 / event_confirmed;low_reaction_after_catalyst;new_order;貿易百貨 / event_confirmed;low_reaction_afte... | 大戶溫和增加 |
 | 2912 統一超 | 型態觀察 | score 34 / theme 49.2/5 / event_confirmed;low_reaction_after_catalyst;new_order;貿易百貨 / event_confirmed;low_reaction_afte... | 大戶溫和增加 |
-| 2356 英業達 | 區間內轉強 / 挑戰前高觀察 | score 30 / theme 100.0/5 / event_confirmed;low_reaction_after_catalyst;product_certification;電腦及週邊設備業;dividend_calendar;... | 大戶同步增加 |
+| 2913 農林 | 區間內轉強 / 挑戰前高觀察 | score 34 / theme 49.2/5 / event_confirmed;low_reaction_after_catalyst;new_order;貿易百貨 / event_confirmed;low_reaction_afte... | 大戶溫和增加 |
 | 2356 英業達 | 回檔後短線轉強 | score 30 / theme 100.0/5 / event_confirmed;low_reaction_after_catalyst;product_certification;電腦及週邊設備業;dividend_calendar;... | 大戶同步增加 |
+| 2356 英業達 | 區間內轉強 / 挑戰前高觀察 | score 30 / theme 100.0/5 / event_confirmed;low_reaction_after_catalyst;product_certification;電腦及週邊設備業;dividend_calendar;... | 大戶同步增加 |
 | 2347 聯強 | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;material_information;mainstream_grow... | 大戶溫和增加 |
 | 4306 炎洲 | 營收成長股價回檔 | score 28 / theme 60.2/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;material_information;塑膠工業;dividend_ca... | 大戶溫和增加 |
 | 2347 聯強 | 營收爆發低反應股 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;material_information;mainstream_grow... | 大戶同步增加 |
 | 2382 廣達 | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;material_information;mainstream_grow... | 大戶溫和增加 |
-| 2027 大成鋼 | 營收成長股價回檔 | score 28 / theme 95.5/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;shareholder_meeting;鋼鐵工業;dividend_cal... | 大戶同步增加 |
+| 2382 廣達 | 營收爆發低反應股 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;material_information;mainstream_grow... | 大戶溫和增加 |
 | 2404 漢唐 | 營收爆發低反應股 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;shareholder_meeting;mainstream_growt... | 大戶同步增加 |
 
 ## 精華候選股
@@ -186,7 +186,7 @@
 
 ### 2101 南港
 - 族群：景氣循環 / 報價轉機
-- 分數 / 排名：22.0 / 14.0
+- 分數 / 排名：22.0 / 9.0
 - 優先級：B_可觀察
 - 連續上榜：訊號鈍化；近5日 5；近10日 10；多分類 pattern|revenue_breakout_low_response|revenue_pullback
 - TDCC：大戶溫和增加
@@ -198,7 +198,7 @@
 
 ### 2388 威盛
 - 族群：主流成長題材
-- 分數 / 排名：21.0 / 4.0
+- 分數 / 排名：21.0 / 2.0
 - 優先級：A_優先追蹤
 - 連續上榜：訊號鈍化；近5日 5；近10日 10；多分類 pattern|revenue_breakout_low_response|revenue_pullback
 - TDCC：大戶同步增加
@@ -208,28 +208,28 @@
 - 完整原因：A_優先追蹤；近幾週400張與1000張同步累積；call_inflow；認購權證資金升溫；單月營收YoY 80%~100%；累計營收YoY>=30%；單月YoY大幅高於累計YoY，近期明顯加速；近3日漲幅低於5%，股價低反應；近5日漲幅低於8%；股價貼近20MA/23EMA；尚未突破前60日高點；站上20MA/23EMA；TDCC近幾週400張與1000張同步累積；主流成長題材；TDCC近幾週400張與1000張同步累積
 - 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
 
-### 6903 巨漢
+### 2404 漢唐
 - 族群：主流成長題材
-- 分數 / 排名：21.0 / 2.0
+- 分數 / 排名：19.0 / 5.0
 - 優先級：A_優先追蹤
-- 連續上榜：訊號鈍化；近5日 2；近10日 3；多分類 pullback_rebound|range_rebound|revenue_breakout_low_response|revenue_pullback
-- TDCC：大戶溫和增加
-- 權證：
-- 財報 / 事件催化：score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;material_information;mainstream_growth / revenue_good_ep...
-- 摘要：A 優先追蹤 / 營收強 / 低反應 / 貼近均線 / 站上均線
-- 完整原因：A_優先追蹤；近幾週其中一項大戶級距增加；單月營收YoY>=150%；累計營收YoY>=50%；近3日漲幅低於5%，股價低反應；近5日漲幅低於8%；股價貼近20MA/23EMA；尚未突破前60日高點；站上20MA/23EMA；TDCC近幾週大戶溫和增加；主流成長題材；TDCC近幾週大戶溫和增加
+- 連續上榜：訊號鈍化；近5日 5；近10日 10；多分類 pattern|revenue_breakout_low_response|revenue_pullback
+- TDCC：大戶同步增加
+- 權證：call_inflow / 1.0
+- 財報 / 事件催化：score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;shareholder_meeting;mainstream_growth;dividend_calendar;...
+- 摘要：A 優先追蹤 / 營收強 / 低反應 / 貼近均線 / 未過前高
+- 完整原因：A_優先追蹤；近幾週400張與1000張同步累積；call_inflow；認購權證資金升溫；單月營收YoY 80%~100%；累計營收YoY>=50%；近3日漲幅低於5%，股價低反應；近5日漲幅低於8%；股價貼近20MA/23EMA；尚未突破前60日高點；TDCC近幾週400張與1000張同步累積；主流成長題材；TDCC近幾週400張與1000張同步累積
 - 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
 
-### 5302 太欣
+### 2425 承啟
 - 族群：主流成長題材
-- 分數 / 排名：21.0 / 3.0
+- 分數 / 排名：19.0 / 3.0
 - 優先級：A_優先追蹤
-- 連續上榜：訊號鈍化；近5日 5；近10日 7；多分類 pattern|revenue_breakout_low_response|revenue_pullback
-- TDCC：大戶同步增加
+- 連續上榜：訊號鈍化；近5日 5；近10日 10；多分類 pattern|revenue_breakout_low_response|revenue_pullback
+- TDCC：大戶溫和增加
 - 權證：
-- 財報 / 事件催化：score 0 / theme 100.0/5 / revenue_good_eps_unconfirmed;material_information;mainstream_growth / revenue_good_eps_unconfirmed / material_info...
+- 財報 / 事件催化：score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;shareholder_meeting;mainstream_growth / revenue_good_eps...
 - 摘要：A 優先追蹤 / 營收強 / 低反應 / 貼近均線 / 站上均線
-- 完整原因：A_優先追蹤；近幾週400張與1000張同步累積；單月營收YoY>=100%；累計營收YoY>=50%；近3日漲幅低於5%，股價低反應；近5日漲幅低於8%；股價貼近20MA/23EMA；尚未突破前60日高點；站上20MA/23EMA；TDCC近幾週400張與1000張同步累積；主流成長題材；TDCC近幾週400張與1000張同步累積
+- 完整原因：A_優先追蹤；近幾週其中一項大戶級距增加；單月營收YoY 80%~100%；累計營收YoY>=50%；近3日漲幅低於5%，股價低反應；近5日漲幅低於8%；股價貼近20MA/23EMA；尚未突破前60日高點；站上20MA/23EMA；TDCC近幾週大戶溫和增加；主流成長題材；TDCC近幾週大戶溫和增加
 - 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
 
 ## 營收成長股價回檔
