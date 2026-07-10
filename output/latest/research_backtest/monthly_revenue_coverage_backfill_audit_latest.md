@@ -1,6 +1,6 @@
 # Monthly Revenue Coverage / Backfill Audit
 
-- generated_at: `2026-07-10 19:54:50 Asia/Taipei`
+- generated_at: `2026-07-11 01:44:38 Asia/Taipei`
 - audit_id: `monthly_revenue_coverage_backfill_audit`
 - audit_version: `coverage_backfill_audit_v1`
 - formal_model_revenue_gate_ready: `True`
@@ -15,7 +15,7 @@
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | canonical_monthly_revenue_history | history_found | 25 | 202405 | 202605 | 0 |  |  | True | False | signal_scope_not_evaluated_in_history_row |
 | monthly_revenue_point_in_time_panel | panel_found | 1 | 202605 | 202605 | 0 |  |  | False | True | coverage_limited_candidate_snapshot_observed_values_not_full_market_history |
-| daily_model_signal_log_all_models | signal_rows_found | 25 | 202405 | 202605 | 11617 | 99.53 | 99.06 | True | False |  |
+| daily_model_signal_log_all_models | signal_rows_found | 25 | 202405 | 202605 | 11618 | 99.53 | 99.06 | True | False |  |
 | model:price_pullback_23ema | signal_rows_found | 25 | 202405 | 202605 | 3693 | 99.27 | 99.26 | True | False |  |
 | model:revenue_unreacted_range | signal_rows_found | 25 | 202405 | 202605 | 2648 | 100.00 | 100.00 | True | False |  |
 | model:hot_theme_pullback | signal_rows_found | 25 | 202405 | 202605 | 995 | 100.00 | 100.00 | True | False |  |
@@ -25,6 +25,7 @@
 | model:tdcc_short_term_continuation_d5_d10 | signal_rows_found | 25 | 202405 | 202605 | 572 | 100.00 | 100.00 | True | False |  |
 | model:tdcc_stealth_accumulation | signal_rows_found | 25 | 202405 | 202605 | 555 | 100.00 | 100.00 | True | False |  |
 | model:volume_range_breakout | signal_rows_found | 25 | 202405 | 202605 | 995 | 99.10 | 98.94 | True | False |  |
+| model:volume_range_breakout_v2_high_position_volume_attack | signal_rows_found | 25 | 202405 | 202605 | 1 | 100.00 | 100.00 | True | False |  |
 | model:volume_range_breakout_v2_low_position_volume_attack | signal_rows_found | 25 | 202405 | 202605 | 4 | 100.00 | 100.00 | True | False |  |
 | model:w_bottom_right_side | signal_rows_found | 25 | 202405 | 202605 | 86 | 100.00 | 100.00 | True | False |  |
 
@@ -41,6 +42,7 @@
 | tdcc_short_term_continuation_d5_d10 | 572 | 20260529 | 20260709 | 572 | 100.00 | 0 | True | no_backfill_required_for_this_scope |
 | tdcc_stealth_accumulation | 555 | 20260529 | 20260605 | 555 | 100.00 | 0 | True | no_backfill_required_for_this_scope |
 | volume_range_breakout | 995 | 20260529 | 20260707 | 986 | 99.10 | 0 | True | no_backfill_required_for_this_scope |
+| volume_range_breakout_v2_high_position_volume_attack | 1 | 20260709 | 20260709 | 1 | 100.00 | 0 | True | no_backfill_required_for_this_scope |
 | volume_range_breakout_v2_low_position_volume_attack | 4 | 20260708 | 20260709 | 4 | 100.00 | 0 | True | no_backfill_required_for_this_scope |
 | w_bottom_right_side | 86 | 20260529 | 20260709 | 86 | 100.00 | 0 | True | no_backfill_required_for_this_scope |
 
