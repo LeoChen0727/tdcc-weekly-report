@@ -2133,13 +2133,54 @@ def test_price_pullback_pdf_renderer_uses_model_owned_adapter_rows(monkeypatch) 
     assert "隔日開盤賣出" in confirmed[2][4]
     assert "下一個交易日" not in confirmed[2][3]
     assert "下一個交易日" not in confirmed[2][4]
-    assert "66.03%" in confirmed[2][6]
+    assert "66.03%" not in confirmed[2][6]
+    assert "+2.90%" not in confirmed[2][6]
     assert "75.54%" in confirmed[2][6]
+    assert "+2.96%" in confirmed[2][6]
     assert active[0][0] == "23EMA回檔模型 - 操作中"
     assert active[2][6] == pdf_generator.OPERATION_ACTIVE_EMPTY_STATE_TEXT
     visible = "\n".join(str(cell) for table in captured_tables for row in table for cell in row)
     assert "9999" not in visible
     assert "CandidateLeak" not in visible
+
+
+def test_operation_row_performance_label_prefers_combo_metric_over_baseline() -> None:
+    row = pd.Series(
+        {
+            "win_rate_zh": "50.00%",
+            "neutral_rate_zh": "1.00%",
+            "failure_rate_zh": "49.00%",
+            "avg_return_zh": "+1.00%",
+            "pdf_bonus_combo_win_rate_zh": "80.00%",
+            "pdf_bonus_combo_neutral_rate_zh": "0.00%",
+            "pdf_bonus_combo_loss_rate_zh": "20.00%",
+            "pdf_bonus_combo_avg_return_zh": "+4.10%",
+        }
+    )
+
+    label = pdf_generator.operation_row_performance_label(row)
+
+    assert label == "加分組合 80.00% / 0.00% / 20.00% / +4.10%"
+    assert "50.00%" not in label
+    assert "+1.00%" not in label
+
+
+def test_price_pullback_metrics_label_prefers_technical_package_over_baseline() -> None:
+    label = pdf_generator.price_pullback_metrics_label(pd.Series(price_pullback_operation_row("confirmed_operation")))
+
+    assert label == "技術強勢 75.54% / 3.52% / 20.95% / +2.96%"
+    assert "66.03%" not in label
+    assert "+2.90%" not in label
+
+
+def test_price_pullback_metrics_label_keeps_base_metric_for_base_rows() -> None:
+    row = pd.Series(price_pullback_operation_row("confirmed_operation", operation_quality="base"))
+
+    label = pdf_generator.price_pullback_metrics_label(row)
+
+    assert label == "基礎 66.03% / 5.60% / 28.36% / +2.90%"
+    assert "75.54%" not in label
+    assert "+2.96%" not in label
 
 
 def test_w_bottom_pdf_renderer_uses_model_owned_adapter_rows(monkeypatch) -> None:

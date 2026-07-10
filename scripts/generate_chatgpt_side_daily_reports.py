@@ -854,6 +854,64 @@ def first_text(*values, default: str = "") -> str:
     return default
 
 
+def operation_row_performance_label(row: pd.Series) -> str:
+    combo = operation_row_metric_from_prefixes(
+        row,
+        (
+            "pdf_bonus_combo",
+            "pdf_combo",
+            "row_level_combo",
+            "add_score_combo",
+        ),
+        "加分組合",
+    )
+    if combo:
+        return combo
+
+    operation_quality = clean(row.get("operation_quality"))
+    operation_quality_zh = clean(row.get("operation_quality_zh"))
+    if operation_quality == "technical_strength" or operation_quality_zh == "技術強勢":
+        technical = operation_row_metric_from_prefixes(row, ("technical_package",), "技術強勢")
+        if technical:
+            return technical
+
+    return format_operation_metric_label(
+        "基礎",
+        clean(row.get("win_rate_zh"), "-"),
+        clean(row.get("neutral_rate_zh"), "-"),
+        clean(row.get("failure_rate_zh"), "-"),
+        clean(row.get("avg_return_zh"), "-"),
+    )
+
+
+def operation_row_metric_from_prefixes(row: pd.Series, prefixes: tuple[str, ...], label: str) -> str:
+    for prefix in prefixes:
+        win_rate = first_text(row.get(f"{prefix}_win_rate_zh"), row.get(f"{prefix}_win_rate"))
+        avg_return = first_text(row.get(f"{prefix}_avg_return_zh"), row.get(f"{prefix}_avg_return"))
+        if not win_rate or not avg_return:
+            continue
+        neutral_rate = first_text(row.get(f"{prefix}_neutral_rate_zh"), row.get(f"{prefix}_neutral_rate"), default="-")
+        failure_rate = first_text(
+            row.get(f"{prefix}_failure_rate_zh"),
+            row.get(f"{prefix}_failure_rate"),
+            row.get(f"{prefix}_loss_rate_zh"),
+            row.get(f"{prefix}_loss_rate"),
+            default="-",
+        )
+        return format_operation_metric_label(label, win_rate, neutral_rate, failure_rate, avg_return)
+    return ""
+
+
+def format_operation_metric_label(
+    label: str,
+    win_rate: str,
+    neutral_rate: str,
+    failure_rate: str,
+    avg_return: str,
+) -> str:
+    return f"{label} {win_rate} / {neutral_rate} / {failure_rate} / {avg_return}"
+
+
 def short(value, limit: int = 62) -> str:
     s = translate_codes(clean(value))
     s = re.sub(r"\s+", " ", s)
@@ -3118,22 +3176,7 @@ def build_w_bottom_active_operation_table(rows: pd.DataFrame, model_name: str) -
 
 
 def price_pullback_metrics_label(row: pd.Series) -> str:
-    base = (
-        f"基礎 {clean(row.get('win_rate_zh'), '-')} / "
-        f"{clean(row.get('neutral_rate_zh'), '-')} / "
-        f"{clean(row.get('failure_rate_zh'), '-')} / "
-        f"{clean(row.get('avg_return_zh'), '-')}"
-    )
-    quality = clean(row.get("operation_quality"))
-    if quality != "technical_strength":
-        return base
-    technical = (
-        f"技術強勢 {clean(row.get('technical_package_win_rate_zh'), '-')} / "
-        f"{clean(row.get('technical_package_neutral_rate_zh'), '-')} / "
-        f"{clean(row.get('technical_package_failure_rate_zh'), '-')} / "
-        f"{clean(row.get('technical_package_avg_return_zh'), '-')}"
-    )
-    return f"{base}; {technical}"
+    return operation_row_performance_label(row)
 
 
 def price_pullback_note_label(row: pd.Series) -> str:
