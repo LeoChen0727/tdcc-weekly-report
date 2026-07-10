@@ -1,27 +1,27 @@
 # 營收爆發低反應股 Debug Report
 
-- 產生時間：`2026-07-10 19:28:59 Asia/Taipei`
+- 產生時間：`2026-07-10 19:46:43 Asia/Taipei`
 
 ## 診斷統計
 
 | item | value |
 |---|---:|
-| raw_revenue_rows | 1077 |
-| standardized_revenue_rows | 1077 |
+| raw_revenue_rows | 1966 |
+| standardized_revenue_rows | 1966 |
 | price_rows | 622355 |
 | tdcc_rows | 1972 |
 | tdcc_trend_rows | 1972 |
 | tdcc_strong_accumulation_count | 389 |
 | tdcc_mild_accumulation_count | 719 |
 | tdcc_distribution_warning_count | 701 |
-| revenue_condition_pass | 148 |
-| price_metrics_pass | 146 |
-| low_response_pass | 64 |
-| already_priced_in_excluded | 24 |
-| overheat_pass | 40 |
-| score_pass | 40 |
-| theme_priority_pass | 26 |
-| final_rows | 26 |
+| revenue_condition_pass | 300 |
+| price_metrics_pass | 297 |
+| low_response_pass | 93 |
+| already_priced_in_excluded | 40 |
+| overheat_pass | 53 |
+| score_pass | 53 |
+| theme_priority_pass | 38 |
+| final_rows | 38 |
 
 ## 營收欄位狀態
 
@@ -54,11 +54,11 @@
 
 | reason | count |
 |---|---:|
-| fail_revenue_condition | 929 |
-| fail_low_response_condition | 82 |
-| fail_already_priced_in | 24 |
-| fail_defensive_or_traditional_excluded | 14 |
-| missing_or_insufficient_price_metrics | 2 |
+| fail_revenue_condition | 1666 |
+| fail_low_response_condition | 204 |
+| fail_already_priced_in | 40 |
+| fail_defensive_or_traditional_excluded | 15 |
+| missing_or_insufficient_price_metrics | 3 |
 
 ## 樣本資料
 

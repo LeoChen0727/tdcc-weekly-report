@@ -2,7 +2,7 @@
 
 - audit_id: `mature_model_row_level_metric_contract_audit_20260710`
 - audit_version: `v1`
-- generated_at: `2026-07-10 19:32:59 Asia/Taipei`
+- generated_at: `2026-07-10 19:51:11 Asia/Taipei`
 
 ## Contract
 

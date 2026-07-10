@@ -25,8 +25,8 @@
 | 2347 | 聯強 | revenue_breakout_low_response | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/2347_聯強_revenue_breakout_low_response_126d.png` | `data/daily_price` |
 | 2101 | 南港 | revenue_breakout_low_response | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/2101_南港_revenue_breakout_low_response_126d.png` | `data/daily_price` |
 | 2388 | 威盛 | revenue_breakout_low_response | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/2388_威盛_revenue_breakout_low_response_126d.png` | `data/daily_price` |
-| 2404 | 漢唐 | revenue_breakout_low_response | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/2404_漢唐_revenue_breakout_low_response_126d.png` | `data/daily_price` |
-| 2425 | 承啟 | revenue_breakout_low_response | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/2425_承啟_revenue_breakout_low_response_126d.png` | `data/daily_price` |
+| 6903 | 巨漢 | revenue_breakout_low_response | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/6903_巨漢_revenue_breakout_low_response_126d.png` | `data/daily_price` |
+| 5302 | 太欣 | revenue_breakout_low_response | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/5302_太欣_revenue_breakout_low_response_126d.png` | `data/daily_price` |
 | 6531 | 愛普* | revenue_pullback | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/6531_愛普__revenue_pullback_126d.png` | `data/daily_price` |
 | 6209 | 今國光 | revenue_pullback | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/6209_今國光_revenue_pullback_126d.png` | `data/daily_price` |
 | 2404 | 漢唐 | revenue_pullback | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/2404_漢唐_revenue_pullback_126d.png` | `data/daily_price` |
