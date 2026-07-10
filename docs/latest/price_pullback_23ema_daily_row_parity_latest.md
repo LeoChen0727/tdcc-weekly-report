@@ -1,6 +1,6 @@
 # Price Pullback 23EMA Daily Row Parity Audit
 
-- generated_at: `2026-07-05 19:31:45 Asia/Taipei`
+- generated_at: `2026-07-10 17:43:21 Asia/Taipei`
 - model_id: `price_pullback_23ema`
 - scope: compare as-published daily snapshot rows to the research production proxy at `signal_date + stock_id` level
 - rule: any missing or extra stock row keeps the model blocked from daily operation promotion
@@ -12,7 +12,7 @@
 
 | parity_status | count |
 | --- | --- |
-| blocked_not_exact_daily_row_parity | 13 |
+| blocked_not_exact_daily_row_parity | 17 |
 
 ## Snapshot Detail
 
@@ -30,4 +30,8 @@
 | 20260630 | True | True | True | outcome_research_frame;production_all_candidates_source_row_replay | 233 | 0 | 0 | 233 | 0 | 0.0 |  | published_rows_not_reproduced_by_production_candidate_universe_replay | production_all_candidates_source_row_replay | 0 | candidate_universe_replay_row_gap | blocked_not_exact_daily_row_parity | research proxy does not exactly reproduce as-published daily price_pullback_23ema rows; daily candidate-universe/source-row eligibility and report publication scope must be replayed before promotion |
 | 20260701 | True | True | True | outcome_research_frame;production_all_candidates_source_row_replay | 222 | 0 | 0 | 222 | 0 | 0.0 |  | published_rows_not_reproduced_by_production_candidate_universe_replay | production_all_candidates_source_row_replay | 0 | candidate_universe_replay_row_gap | blocked_not_exact_daily_row_parity | research proxy does not exactly reproduce as-published daily price_pullback_23ema rows; daily candidate-universe/source-row eligibility and report publication scope must be replayed before promotion |
 | 20260702 | True | True | True | outcome_research_frame;production_all_candidates_source_row_replay | 236 | 0 | 0 | 236 | 0 | 0.0 |  | published_rows_not_reproduced_by_production_candidate_universe_replay | production_all_candidates_source_row_replay | 0 | candidate_universe_replay_row_gap | blocked_not_exact_daily_row_parity | research proxy does not exactly reproduce as-published daily price_pullback_23ema rows; daily candidate-universe/source-row eligibility and report publication scope must be replayed before promotion |
-| 20260703 | True | False | True | production_all_candidates_source_row_replay | 277 | 0 | 0 | 277 | 0 | 0.0 |  | published_rows_not_reproduced_by_production_candidate_universe_replay | production_all_candidates_source_row_replay | 0 | candidate_universe_replay_row_gap | blocked_not_exact_daily_row_parity | research proxy does not exactly reproduce as-published daily price_pullback_23ema rows; daily candidate-universe/source-row eligibility and report publication scope must be replayed before promotion |
+| 20260703 | True | True | True | outcome_research_frame;production_all_candidates_source_row_replay | 53 | 0 | 0 | 53 | 0 | 0.0 |  | published_rows_not_reproduced_by_production_candidate_universe_replay | production_all_candidates_source_row_replay | 0 | candidate_universe_replay_row_gap | blocked_not_exact_daily_row_parity | research proxy does not exactly reproduce as-published daily price_pullback_23ema rows; daily candidate-universe/source-row eligibility and report publication scope must be replayed before promotion |
+| 20260706 | True | True | True | outcome_research_frame;production_all_candidates_source_row_replay | 50 | 0 | 0 | 50 | 0 | 0.0 |  | published_rows_not_reproduced_by_production_candidate_universe_replay | production_all_candidates_source_row_replay | 0 | candidate_universe_replay_row_gap | blocked_not_exact_daily_row_parity | research proxy does not exactly reproduce as-published daily price_pullback_23ema rows; daily candidate-universe/source-row eligibility and report publication scope must be replayed before promotion |
+| 20260707 | True | True | True | outcome_research_frame;production_all_candidates_source_row_replay | 66 | 0 | 0 | 66 | 0 | 0.0 |  | published_rows_not_reproduced_by_production_candidate_universe_replay | production_all_candidates_source_row_replay | 0 | candidate_universe_replay_row_gap | blocked_not_exact_daily_row_parity | research proxy does not exactly reproduce as-published daily price_pullback_23ema rows; daily candidate-universe/source-row eligibility and report publication scope must be replayed before promotion |
+| 20260708 | True | True | True | outcome_research_frame;production_all_candidates_source_row_replay | 65 | 0 | 0 | 65 | 0 | 0.0 |  | published_rows_not_reproduced_by_production_candidate_universe_replay | production_all_candidates_source_row_replay | 0 | candidate_universe_replay_row_gap | blocked_not_exact_daily_row_parity | research proxy does not exactly reproduce as-published daily price_pullback_23ema rows; daily candidate-universe/source-row eligibility and report publication scope must be replayed before promotion |
+| 20260709 | True | False | True | production_all_candidates_source_row_replay | 55 | 0 | 0 | 55 | 0 | 0.0 |  | published_rows_not_reproduced_by_production_candidate_universe_replay | production_all_candidates_source_row_replay | 0 | candidate_universe_replay_row_gap | blocked_not_exact_daily_row_parity | research proxy does not exactly reproduce as-published daily price_pullback_23ema rows; daily candidate-universe/source-row eligibility and report publication scope must be replayed before promotion |

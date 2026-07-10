@@ -202,6 +202,21 @@ REVENUE_UNREACTED_CONDITION_MATRIX_HISTORY_CSV = (
 )
 DOCS_REVENUE_UNREACTED_CONDITION_MATRIX_CSV = DOCS_LATEST_DIR / REVENUE_UNREACTED_CONDITION_MATRIX_CSV.name
 DOCS_REVENUE_UNREACTED_CONDITION_MATRIX_MD = DOCS_LATEST_DIR / REVENUE_UNREACTED_CONDITION_MATRIX_MD.name
+REVENUE_UNREACTED_OPERATION_CANDIDATE_MATRIX_CSV = (
+    RESEARCH_LATEST_DIR / "revenue_unreacted_range_operation_candidate_matrix_latest.csv"
+)
+REVENUE_UNREACTED_OPERATION_CANDIDATE_MATRIX_MD = (
+    RESEARCH_LATEST_DIR / "revenue_unreacted_range_operation_candidate_matrix_latest.md"
+)
+REVENUE_UNREACTED_OPERATION_CANDIDATE_MATRIX_HISTORY_CSV = (
+    HISTORY_DIR / "revenue_unreacted_range_operation_candidate_matrix.csv"
+)
+DOCS_REVENUE_UNREACTED_OPERATION_CANDIDATE_MATRIX_CSV = (
+    DOCS_LATEST_DIR / REVENUE_UNREACTED_OPERATION_CANDIDATE_MATRIX_CSV.name
+)
+DOCS_REVENUE_UNREACTED_OPERATION_CANDIDATE_MATRIX_MD = (
+    DOCS_LATEST_DIR / REVENUE_UNREACTED_OPERATION_CANDIDATE_MATRIX_MD.name
+)
 
 HORIZONS = list(range(1, 11)) + [20]
 TIME_COST_HORIZON_DAYS = 20
@@ -5184,6 +5199,220 @@ REVENUE_UNREACTED_REVENUE_CONDITION_TESTS = [
 ]
 
 
+def _revenue_latest50_cumulative30_filter(d: pd.DataFrame) -> pd.Series:
+    return (
+        full_monthly_revenue_context_ready_filter(d)
+        & numeric_column(d, "full_monthly_revenue_latest_yoy_pct").ge(50.0)
+        & numeric_column(d, "full_monthly_revenue_cumulative_yoy_pct").ge(30.0)
+    ).fillna(False)
+
+
+def _revenue_strong_range_width_filter(d: pd.DataFrame, max_width_pct: float) -> pd.Series:
+    return (
+        full_monthly_revenue_strong_filter(d)
+        & numeric_column(d, "range_width_23d_pct").le(max_width_pct)
+    ).fillna(False)
+
+
+def _revenue_strong_near_range_high_filter(d: pd.DataFrame) -> pd.Series:
+    return (
+        full_monthly_revenue_strong_filter(d)
+        & numeric_column(d, "distance_to_range_high_23d_pct").ge(-5.0)
+        & numeric_column(d, "distance_to_range_high_23d_pct").le(5.0)
+    ).fillna(False)
+
+
+def _revenue_strong_low_mid_position_filter(d: pd.DataFrame) -> pd.Series:
+    return (
+        full_monthly_revenue_strong_filter(d)
+        & numeric_column(d, "close_position_120d_pct").ge(0.0)
+        & numeric_column(d, "close_position_120d_pct").le(75.0)
+    ).fillna(False)
+
+
+def _revenue_strong_ma20_ema23_support_filter(d: pd.DataFrame) -> pd.Series:
+    return (
+        full_monthly_revenue_strong_filter(d)
+        & trueish_column(d, "close_above_ma20")
+        & trueish_column(d, "close_above_ema23")
+    ).fillna(False)
+
+
+def _revenue_strong_tdcc_high_thresholds_up_filter(d: pd.DataFrame) -> pd.Series:
+    return (
+        full_monthly_revenue_strong_filter(d)
+        & trueish_column(d, "high_thresholds_up")
+    ).fillna(False)
+
+
+REVENUE_UNREACTED_OPERATION_CONDITION_TESTS = [
+    {
+        "test_order": 0,
+        "condition_test_id": "revenue_context_ready",
+        "condition_family": "baseline",
+        "condition_role_candidate": "baseline_revenue_context_anchor",
+        "condition_rule": "price remains inside the recent 23-day range; monthly revenue PIT context is ready",
+        "condition": full_monthly_revenue_context_ready_filter,
+    },
+    {
+        "test_order": 10,
+        "condition_test_id": "revenue_production_strong",
+        "condition_family": "revenue_strength",
+        "condition_role_candidate": "required_gate_candidate",
+        "condition_rule": "latest monthly revenue YoY >= 30% or cumulative monthly revenue YoY >= 20%",
+        "condition": full_monthly_revenue_strong_filter,
+    },
+    {
+        "test_order": 20,
+        "condition_test_id": "latest30_and_cumulative20",
+        "condition_family": "revenue_strength_combo",
+        "condition_role_candidate": "condition_package_candidate",
+        "condition_rule": "latest monthly revenue YoY >= 30% and cumulative monthly revenue YoY >= 20%",
+        "condition": full_monthly_revenue_both_latest30_cumulative20_filter,
+    },
+    {
+        "test_order": 30,
+        "condition_test_id": "latest50_and_cumulative30",
+        "condition_family": "revenue_strength_combo",
+        "condition_role_candidate": "stronger_condition_package_candidate",
+        "condition_rule": "latest monthly revenue YoY >= 50% and cumulative monthly revenue YoY >= 30%",
+        "condition": _revenue_latest50_cumulative30_filter,
+    },
+    {
+        "test_order": 40,
+        "condition_test_id": "strong_revenue_range23_width_le20",
+        "condition_family": "price_unreacted_shape",
+        "condition_role_candidate": "range_tightness_candidate",
+        "condition_rule": "strong monthly revenue and 23-day range width <= 20%",
+        "condition": lambda d: _revenue_strong_range_width_filter(d, 20.0),
+    },
+    {
+        "test_order": 50,
+        "condition_test_id": "strong_revenue_range23_width_le15",
+        "condition_family": "price_unreacted_shape",
+        "condition_role_candidate": "range_tightness_candidate",
+        "condition_rule": "strong monthly revenue and 23-day range width <= 15%",
+        "condition": lambda d: _revenue_strong_range_width_filter(d, 15.0),
+    },
+    {
+        "test_order": 60,
+        "condition_test_id": "strong_revenue_range23_width_le10",
+        "condition_family": "price_unreacted_shape",
+        "condition_role_candidate": "range_tightness_candidate",
+        "condition_rule": "strong monthly revenue and 23-day range width <= 10%",
+        "condition": lambda d: _revenue_strong_range_width_filter(d, 10.0),
+    },
+    {
+        "test_order": 70,
+        "condition_test_id": "strong_revenue_near_range23_high",
+        "condition_family": "price_unreacted_shape",
+        "condition_role_candidate": "near_breakout_candidate",
+        "condition_rule": "strong monthly revenue and close is within -5% to +5% of the previous 23-day range high",
+        "condition": _revenue_strong_near_range_high_filter,
+    },
+    {
+        "test_order": 80,
+        "condition_test_id": "strong_revenue_position120_le75",
+        "condition_family": "position_filter",
+        "condition_role_candidate": "avoid_high_position_candidate",
+        "condition_rule": "strong monthly revenue and close is not above 75% of the previous 120-day range",
+        "condition": _revenue_strong_low_mid_position_filter,
+    },
+    {
+        "test_order": 90,
+        "condition_test_id": "strong_revenue_above_ma20_ema23",
+        "condition_family": "technical_support",
+        "condition_role_candidate": "add_score_or_gate_candidate",
+        "condition_rule": "strong monthly revenue and close is above both MA20 and EMA23",
+        "condition": _revenue_strong_ma20_ema23_support_filter,
+    },
+    {
+        "test_order": 100,
+        "condition_test_id": "strong_revenue_tdcc_high_thresholds_up",
+        "condition_family": "tdcc_confluence",
+        "condition_role_candidate": "add_score_candidate",
+        "condition_rule": "strong monthly revenue and TDCC high thresholds are increasing",
+        "condition": _revenue_strong_tdcc_high_thresholds_up_filter,
+    },
+    {
+        "test_order": 110,
+        "condition_test_id": "latest_yoy_improving_2m",
+        "condition_family": "monthly_revenue_improvement",
+        "condition_role_candidate": "turnaround_add_score_candidate",
+        "condition_rule": "latest monthly revenue YoY improves for two consecutive available months",
+        "condition": full_monthly_revenue_latest_yoy_improving_2m_filter,
+    },
+    {
+        "test_order": 120,
+        "condition_test_id": "cumulative_yoy_improving_2m",
+        "condition_family": "monthly_revenue_improvement",
+        "condition_role_candidate": "turnaround_add_score_candidate",
+        "condition_rule": "cumulative monthly revenue YoY improves for two consecutive available months",
+        "condition": full_monthly_revenue_cumulative_yoy_improving_2m_filter,
+    },
+    {
+        "test_order": 130,
+        "condition_test_id": "turn_positive_and_cumulative_improving",
+        "condition_family": "monthly_revenue_improvement_combo",
+        "condition_role_candidate": "condition_package_candidate",
+        "condition_rule": "latest monthly revenue YoY turns positive and cumulative monthly revenue YoY improves",
+        "condition": full_monthly_revenue_turn_positive_and_cumulative_improving_filter,
+    },
+]
+
+
+REVENUE_UNREACTED_OPERATION_EXIT_SPECS = [
+    {
+        "exit_order": 10,
+        "exit_rule_id": "d10_close_no_stop",
+        "holding_window_days": 10,
+        "stop_rule_id": "no_stop",
+        "exit_rule": "D+10 close-only fixed exit",
+        "stop_rule": "no stop in this research row",
+    },
+    {
+        "exit_order": 20,
+        "exit_rule_id": "d15_close_no_stop",
+        "holding_window_days": 15,
+        "stop_rule_id": "no_stop",
+        "exit_rule": "D+15 close-only fixed exit",
+        "stop_rule": "no stop in this research row",
+    },
+    {
+        "exit_order": 30,
+        "exit_rule_id": "d20_close_no_stop",
+        "holding_window_days": 20,
+        "stop_rule_id": "no_stop",
+        "exit_rule": "D+20 close-only fixed exit",
+        "stop_rule": "no stop in this research row",
+    },
+    {
+        "exit_order": 40,
+        "exit_rule_id": "d10_close_ma20_ema23_4d_stop",
+        "holding_window_days": 10,
+        "stop_rule_id": "close_below_lower_ma20_ema23_4pct_4d_next_open",
+        "exit_rule": "D+10 close-only fixed exit unless close-confirmed stop triggers first",
+        "stop_rule": "four consecutive closes below the lower of MA20 and EMA23 by 4%, then next trading day open stop",
+    },
+    {
+        "exit_order": 50,
+        "exit_rule_id": "d15_close_ma20_ema23_4d_stop",
+        "holding_window_days": 15,
+        "stop_rule_id": "close_below_lower_ma20_ema23_4pct_4d_next_open",
+        "exit_rule": "D+15 close-only fixed exit unless close-confirmed stop triggers first",
+        "stop_rule": "four consecutive closes below the lower of MA20 and EMA23 by 4%, then next trading day open stop",
+    },
+    {
+        "exit_order": 60,
+        "exit_rule_id": "d20_close_ma20_ema23_4d_stop",
+        "holding_window_days": 20,
+        "stop_rule_id": "close_below_lower_ma20_ema23_4pct_4d_next_open",
+        "exit_rule": "D+20 close-only fixed exit unless close-confirmed stop triggers first",
+        "stop_rule": "four consecutive closes below the lower of MA20 and EMA23 by 4%, then next trading day open stop",
+    },
+]
+
+
 def _full_monthly_revenue_anomaly_mask(d: pd.DataFrame, *, include_price_exception: bool = False) -> pd.Series:
     mask = trueish_column(d, "full_monthly_revenue_numerical_anomaly_flag")
     if include_price_exception:
@@ -5584,6 +5813,339 @@ def write_revenue_unreacted_range_revenue_condition_matrix(matrix: pd.DataFrame)
         history_path=REVENUE_UNREACTED_CONDITION_MATRIX_HISTORY_CSV,
         docs_csv_path=DOCS_REVENUE_UNREACTED_CONDITION_MATRIX_CSV,
         docs_md_path=DOCS_REVENUE_UNREACTED_CONDITION_MATRIX_MD,
+    )
+
+
+def _revenue_horizon_close_return(frame: pd.DataFrame, holding_window_days: int) -> pd.Series:
+    direct = f"next_open_to_d{holding_window_days}_close_return_pct"
+    day_close = f"next_open_to_d{holding_window_days}_day_close_return_pct"
+    if direct in frame.columns:
+        return pd.to_numeric(frame[direct], errors="coerce")
+    return pd.to_numeric(frame[day_close], errors="coerce") if day_close in frame.columns else pd.Series(math.nan, index=frame.index)
+
+
+def _revenue_operation_required_columns(exit_spec: dict[str, object]) -> list[str]:
+    holding_window_days = int(exit_spec["holding_window_days"])
+    required = ["next_open", f"next_open_to_d{holding_window_days}_day_close_return_pct"]
+    if exit_spec["stop_rule_id"] != "no_stop":
+        required.extend(f"next_open_to_d{day}_day_close_return_pct" for day in range(1, holding_window_days + 1))
+        required.extend(f"future_d{day}_ma20" for day in range(1, holding_window_days + 1))
+        required.extend(f"future_d{day}_ema23" for day in range(1, holding_window_days + 1))
+        required.extend(f"future_d{day + 1}_open" for day in range(1, holding_window_days + 1))
+    return sorted(set(required))
+
+
+def _available_revenue_operation_frame(frame: pd.DataFrame, exit_spec: dict[str, object]) -> pd.DataFrame:
+    required = _revenue_operation_required_columns(exit_spec)
+    available = [col for col in required if col in frame.columns]
+    if "next_open" not in available:
+        return frame.iloc[0:0].copy()
+    holding_window_days = int(exit_spec["holding_window_days"])
+    if _revenue_horizon_close_return(frame, holding_window_days).isna().all():
+        return frame.iloc[0:0].copy()
+    if len(available) != len(required):
+        return frame.iloc[0:0].copy()
+    return frame.dropna(subset=available).copy()
+
+
+def _revenue_same_stock_non_overlap(frame: pd.DataFrame, *, cooldown_days: int) -> tuple[pd.DataFrame, int]:
+    if frame.empty:
+        return frame.copy(), 0
+    sorted_frame = frame.sort_values(["stock_id", "_revenue_signal_date", "_revenue_stock_sequence_index"]).copy()
+    accepted: list[int] = []
+    suppressed = 0
+    for _, stock_rows in sorted_frame.groupby("stock_id", sort=False, dropna=False):
+        last_accepted_sequence: int | None = None
+        for index, row in stock_rows.iterrows():
+            sequence = int(row["_revenue_stock_sequence_index"])
+            if last_accepted_sequence is not None and sequence <= last_accepted_sequence + cooldown_days:
+                suppressed += 1
+                continue
+            accepted.append(index)
+            last_accepted_sequence = sequence
+    return sorted_frame.loc[accepted].copy(), suppressed
+
+
+def _revenue_same_stock_overlap_pair_count(frame: pd.DataFrame, *, cooldown_days: int) -> int:
+    if frame.empty:
+        return 0
+    count = 0
+    sorted_frame = frame.sort_values(["stock_id", "_revenue_stock_sequence_index"])
+    for _, stock_rows in sorted_frame.groupby("stock_id", sort=False, dropna=False):
+        sequences = pd.to_numeric(stock_rows["_revenue_stock_sequence_index"], errors="coerce").dropna().astype(int).tolist()
+        for left, right in zip(sequences, sequences[1:]):
+            if right <= left + cooldown_days:
+                count += 1
+    return count
+
+
+def _revenue_operation_outcome_metrics(valid: pd.DataFrame, exit_spec: dict[str, object]) -> dict[str, object]:
+    if valid.empty:
+        return {
+            "mature_count": 0,
+            "win_count": 0,
+            "neutral_count": 0,
+            "failure_count": 0,
+            "win_rate_pct": "",
+            "neutral_rate_pct": "",
+            "failure_rate_pct": "",
+            "avg_realized_return_pct": "",
+            "median_realized_return_pct": "",
+            "high_return_8_count": 0,
+            "high_return_8_rate_pct": "",
+            "loss_5_count": 0,
+            "loss_5_rate_pct": "",
+            "stop_trigger_count": 0,
+            "stop_trigger_rate_pct": "",
+            "avg_realized_or_fixed_days": "",
+            "avg_days_to_stop": "",
+            "avg_revenue_latest_yoy_pct": "",
+            "median_revenue_latest_yoy_pct": "",
+            "avg_revenue_cumulative_yoy_pct": "",
+            "median_revenue_cumulative_yoy_pct": "",
+        }
+
+    holding_window_days = int(exit_spec["holding_window_days"])
+    final_close_return = _revenue_horizon_close_return(valid, holding_window_days)
+    realized_return = final_close_return.copy()
+    realized_days = pd.Series(float(holding_window_days), index=valid.index, dtype=float)
+    stop_day = pd.Series(math.nan, index=valid.index, dtype=float)
+
+    if exit_spec["stop_rule_id"] != "no_stop":
+        close_cols = [f"next_open_to_d{day}_day_close_return_pct" for day in range(1, holding_window_days + 1)]
+        close_returns = valid[close_cols].apply(pd.to_numeric, errors="coerce")
+        entry_price = numeric_column(valid, "next_open")
+        close_prices = close_returns.div(100.0).add(1.0).mul(entry_price, axis=0)
+        refs = _future_reference_frame(valid, holding_window_days, "lower_ma20_ema23", close_cols)
+        stop_threshold = refs * 0.96
+        stop_hits = close_prices.le(stop_threshold)
+        stop_day = _first_consecutive_hit_day(stop_hits, 4)
+        stop_day = stop_day.where(stop_day < holding_window_days)
+        stop_return = _value_at_day(_future_open_return_frame(valid, holding_window_days), stop_day)
+        realized_return = realized_return.mask(stop_day.notna(), stop_return)
+        realized_days = realized_days.mask(stop_day.notna(), stop_day.add(1.0))
+
+    clean = pd.to_numeric(realized_return, errors="coerce")
+    valid_result = valid[clean.notna()].copy()
+    realized = clean[clean.notna()]
+    realized_days = realized_days.loc[realized.index]
+    stop_day = stop_day.loc[realized.index]
+    wins = realized.ge(5.0)
+    neutral = realized.ge(0.0) & realized.lt(5.0)
+    failure = realized.lt(0.0)
+    high8 = realized.ge(8.0)
+    loss5 = realized.le(-5.0)
+    latest = numeric_column(valid_result, "full_monthly_revenue_latest_yoy_pct")
+    cumulative = numeric_column(valid_result, "full_monthly_revenue_cumulative_yoy_pct")
+    mature = len(realized)
+    return {
+        "mature_count": mature,
+        "win_count": int(wins.sum()),
+        "neutral_count": int(neutral.sum()),
+        "failure_count": int(failure.sum()),
+        "win_rate_pct": _rate(int(wins.sum()), mature),
+        "neutral_rate_pct": _rate(int(neutral.sum()), mature),
+        "failure_rate_pct": _rate(int(failure.sum()), mature),
+        "avg_realized_return_pct": _mean_or_blank(realized),
+        "median_realized_return_pct": _median_or_blank(realized),
+        "high_return_8_count": int(high8.sum()),
+        "high_return_8_rate_pct": _rate(int(high8.sum()), mature),
+        "loss_5_count": int(loss5.sum()),
+        "loss_5_rate_pct": _rate(int(loss5.sum()), mature),
+        "stop_trigger_count": int(stop_day.notna().sum()),
+        "stop_trigger_rate_pct": _rate(int(stop_day.notna().sum()), mature),
+        "avg_realized_or_fixed_days": _mean_or_blank(realized_days),
+        "avg_days_to_stop": _mean_or_blank(stop_day),
+        "avg_revenue_latest_yoy_pct": _mean_or_blank(latest),
+        "median_revenue_latest_yoy_pct": _median_or_blank(latest),
+        "avg_revenue_cumulative_yoy_pct": _mean_or_blank(cumulative),
+        "median_revenue_cumulative_yoy_pct": _median_or_blank(cumulative),
+    }
+
+
+def _revenue_operation_decision_hint(metrics: dict[str, object]) -> str:
+    win_rate = _numeric_or_nan(metrics.get("win_rate_pct", ""))
+    avg_return = _numeric_or_nan(metrics.get("avg_realized_return_pct", ""))
+    median_return = _numeric_or_nan(metrics.get("median_realized_return_pct", ""))
+    failure_rate = _numeric_or_nan(metrics.get("failure_rate_pct", ""))
+    if win_rate >= 60.0 and avg_return > 0.0 and median_return > 0.0 and failure_rate <= 40.0:
+        return "candidate_metric_met_research_only_needs_model_decision"
+    if win_rate >= 50.0 and avg_return > 0.0 and median_return > 0.0:
+        return "positive_payoff_but_win_rate_below_metric"
+    if avg_return > 0.0 and median_return <= 0.0:
+        return "average_positive_but_median_not_confirmed"
+    return "not_candidate_metric"
+
+
+def build_revenue_unreacted_range_operation_candidate_matrix(df: pd.DataFrame) -> pd.DataFrame:
+    positioned = _price_pullback_positioned_frame(df).sort_values(["stock_id", "_price_pullback_signal_date"]).copy()
+    positioned["_revenue_signal_date"] = positioned["_price_pullback_signal_date"]
+    positioned["_revenue_stock_sequence_index"] = positioned.groupby("stock_id", sort=False).cumcount()
+    research_dates = positioned["_revenue_signal_date"].map(safe_str)
+    research_trading_day_count = int(research_dates[research_dates.ne("")].nunique())
+    base = positioned[current_revenue_unreacted_baseline_proxy(positioned).fillna(False)].copy()
+    rows: list[dict[str, object]] = []
+    generated_at = now_text()
+    non_overlap_cooldown_days = 20
+
+    for anomaly_basis in ["including_numerical_anomalies", "excluding_revenue_numerical_anomalies"]:
+        baseline_exception_mask = _full_monthly_revenue_anomaly_mask(base)
+        basis_base = base[~baseline_exception_mask].copy() if anomaly_basis.startswith("excluding") else base.copy()
+        for spec in REVENUE_UNREACTED_OPERATION_CONDITION_TESTS:
+            condition_mask = spec["condition"](base).fillna(False)
+            picked_raw = base[condition_mask].copy()
+            sample_exception_mask = _full_monthly_revenue_anomaly_mask(picked_raw)
+            picked = picked_raw[~sample_exception_mask].copy() if anomaly_basis.startswith("excluding") else picked_raw
+            source_date_stats = _price_pullback_date_stats(picked)
+            non_overlap, suppressed_count = _revenue_same_stock_non_overlap(
+                picked,
+                cooldown_days=non_overlap_cooldown_days,
+            )
+            for exit_spec in REVENUE_UNREACTED_OPERATION_EXIT_SPECS:
+                valid = _available_revenue_operation_frame(non_overlap, exit_spec)
+                metrics = _revenue_operation_outcome_metrics(valid, exit_spec)
+                accepted_trade_count = int(metrics["mature_count"])
+                decision_hint = _revenue_operation_decision_hint(metrics)
+                rows.append(
+                    {
+                        "generated_at": generated_at,
+                        "model_id": "revenue_unreacted_range",
+                        "model_name_zh": "營收爆發但股價尚未反應模型",
+                        "research_artifact_id": "revenue_unreacted_range_operation_candidate_matrix",
+                        "matrix_scope": "model_specific_operation_candidate_research",
+                        "base_condition_id": "price_range_no_attack_proxy",
+                        "base_condition_rule": "price remains inside the recent 23-day range and active attack has not started",
+                        "test_order": spec["test_order"],
+                        "condition_test_id": spec["condition_test_id"],
+                        "condition_family": spec["condition_family"],
+                        "condition_role_candidate": spec["condition_role_candidate"],
+                        "condition_rule": spec["condition_rule"],
+                        "data_status": "joined_from_full_market_monthly_revenue_history_research_only",
+                        "revenue_join_source": FULL_MONTHLY_REVENUE_HISTORY_CSV.as_posix(),
+                        "point_in_time_rule": "monthly revenue source_table_date must be <= signal_date",
+                        "anomaly_exclusion_basis": anomaly_basis,
+                        "revenue_anomaly_count_in_sample": int(sample_exception_mask.sum()),
+                        "revenue_anomaly_count_in_baseline": int(baseline_exception_mask.sum()),
+                        "entry_rule_id": "signal_date_close_condition_next_open_entry",
+                        "confirmation_rule_id": "signal_date_close_condition_confirmed",
+                        "entry_rule": "candidate condition is evaluated after signal-date close; entry uses next trading day open",
+                        "exit_order": exit_spec["exit_order"],
+                        "exit_rule_id": exit_spec["exit_rule_id"],
+                        "holding_window_days": exit_spec["holding_window_days"],
+                        "exit_rule": exit_spec["exit_rule"],
+                        "stop_rule_id": exit_spec["stop_rule_id"],
+                        "stop_rule": exit_spec["stop_rule"],
+                        "operation_basis": "research_only_close_confirmed_operation_candidate",
+                        "formal_price_rule_status": "research_only_no_formal_operation_contract",
+                        "win_definition": "realized return >= +5%",
+                        "neutral_definition": "0% <= realized return < +5%",
+                        "failure_definition": "realized return < 0%",
+                        "metric_basis": "close-only fixed exit or close-confirmed stop with next trading day open stop execution",
+                        "source_mature_signal_stock_days": len(picked),
+                        "source_unique_stocks": picked["stock_id"].nunique() if "stock_id" in picked.columns else "",
+                        "non_overlap_cooldown_days": non_overlap_cooldown_days,
+                        "non_overlap_applied": True,
+                        "same_stock_overlap_pair_count": _revenue_same_stock_overlap_pair_count(
+                            valid,
+                            cooldown_days=non_overlap_cooldown_days,
+                        ),
+                        "accepted_signal_count_after_non_overlap": len(non_overlap),
+                        "suppressed_signal_count": suppressed_count,
+                        "suppressed_rate_pct": _rate(suppressed_count, len(picked)),
+                        "accepted_trade_count": accepted_trade_count,
+                        "accepted_unique_stocks": valid["stock_id"].nunique() if accepted_trade_count and "stock_id" in valid.columns else "",
+                        "source_signal_day_count": source_date_stats["signal_day_count"],
+                        "source_avg_signals_per_signal_day": source_date_stats["avg_rows_per_signal_day"],
+                        "research_trading_day_count": research_trading_day_count,
+                        "accepted_avg_trades_per_research_day": (
+                            round(accepted_trade_count / research_trading_day_count, 2)
+                            if research_trading_day_count
+                            else ""
+                        ),
+                        "first_signal_date": source_date_stats["first_signal_date"],
+                        "last_signal_date": source_date_stats["last_signal_date"],
+                        "metric_surface_use": "model_lane_research_metric_source_candidate_not_pdf_ready",
+                        "sample_count_context": "reported_not_a_disqualifier_non_overlap_enforced",
+                        "meets_win_return_metric": decision_hint == "candidate_metric_met_research_only_needs_model_decision",
+                        "decision_hint": decision_hint,
+                        "advisory_status": "not_production_ready_research_only",
+                        "approved_for_daily": False,
+                        "production_change": "none",
+                        "promotion_readiness": "research_only_operation_candidate_not_promotion_ready",
+                        "promotion_blocker": (
+                            "revenue_unreacted_range still needs high-return/low-return feature review, explicit "
+                            "buy/sell/stop contract, contract/parity/validator updates, PR merge, and post-merge "
+                            "main validation before any operation candidate can be formal"
+                        ),
+                        **metrics,
+                    }
+                )
+
+    out = pd.DataFrame(rows)
+    if out.empty:
+        return out
+    baseline_counts = (
+        out[out["condition_test_id"].eq("revenue_context_ready")]
+        .set_index(["anomaly_exclusion_basis", "exit_rule_id"])["accepted_trade_count"]
+        .to_dict()
+    )
+    out["baseline_accepted_trade_count"] = out.apply(
+        lambda row: baseline_counts.get((row["anomaly_exclusion_basis"], row["exit_rule_id"]), 0),
+        axis=1,
+    )
+    out["accepted_trade_share_of_baseline_pct"] = out.apply(
+        lambda row: _rate(int(row["accepted_trade_count"]), int(row["baseline_accepted_trade_count"])),
+        axis=1,
+    )
+    return out.sort_values(["anomaly_exclusion_basis", "test_order", "exit_order"]).reset_index(drop=True)
+
+
+def write_revenue_unreacted_range_operation_candidate_matrix(matrix: pd.DataFrame) -> None:
+    write_csv(matrix, REVENUE_UNREACTED_OPERATION_CANDIDATE_MATRIX_CSV)
+    write_csv(matrix, REVENUE_UNREACTED_OPERATION_CANDIDATE_MATRIX_HISTORY_CSV)
+    write_csv(matrix, DOCS_REVENUE_UNREACTED_OPERATION_CANDIDATE_MATRIX_CSV)
+    lines = [
+        "# Revenue Unreacted Range Operation Candidate Matrix",
+        "",
+        f"- generated_at: `{now_text()}`",
+        "- status: `not_production_ready_research_only`",
+        "- production_change: `none`",
+        "- scope: monthly revenue only; quarterly/annual financial statements, EPS, gross margin, operating margin, operating income, non-operating income, and net income are out of scope.",
+        "- entry_basis: signal-date close condition, next trading day open entry.",
+        "- exit_basis: fixed D+10/D+15/D+20 close, optionally with close-confirmed MA20/EMA23 4-day stop and next trading day open stop execution.",
+        "- duplicate_control: same-stock non-overlap enforced with a 20-trading-day cooldown.",
+        "- formal_use: blocked until an explicit model-specific promotion PR updates contract/parity/validators and passes post-merge main validation.",
+        "",
+        markdown_table(
+            matrix[matrix["anomaly_exclusion_basis"].eq("excluding_revenue_numerical_anomalies")],
+            [
+                "condition_test_id",
+                "exit_rule_id",
+                "accepted_trade_count",
+                "suppressed_signal_count",
+                "win_rate_pct",
+                "neutral_rate_pct",
+                "failure_rate_pct",
+                "avg_realized_return_pct",
+                "median_realized_return_pct",
+                "stop_trigger_rate_pct",
+                "accepted_trade_share_of_baseline_pct",
+                "decision_hint",
+            ],
+            limit=120,
+        )
+        if not matrix.empty
+        else "No revenue operation candidate matrix rows.",
+    ]
+    REVENUE_UNREACTED_OPERATION_CANDIDATE_MATRIX_MD.write_text(
+        "\n".join(lines).rstrip() + "\n",
+        encoding="utf-8",
+        newline="\n",
+    )
+    DOCS_REVENUE_UNREACTED_OPERATION_CANDIDATE_MATRIX_MD.write_text(
+        REVENUE_UNREACTED_OPERATION_CANDIDATE_MATRIX_MD.read_text(encoding="utf-8"),
+        encoding="utf-8",
+        newline="\n",
     )
 
 
@@ -8037,6 +8599,8 @@ def main() -> int:
     price_pullback_revenue_condition_matrix_df = build_price_pullback_revenue_condition_matrix(df)
     print("Building revenue_unreacted_range revenue condition matrix", flush=True)
     revenue_unreacted_condition_matrix_df = build_revenue_unreacted_range_revenue_condition_matrix(df)
+    print("Building revenue_unreacted_range operation candidate matrix", flush=True)
+    revenue_unreacted_operation_candidate_matrix_df = build_revenue_unreacted_range_operation_candidate_matrix(df)
     print("Building price_pullback ordered condition matrix", flush=True)
     price_pullback_ordered_condition_matrix_df = build_price_pullback_ordered_condition_matrix(df)
     print("Building price_pullback lifecycle replay", flush=True)
@@ -8076,6 +8640,7 @@ def main() -> int:
     write_price_pullback_high_return_feature_score_grid(price_pullback_high_return_score_grid_df)
     write_price_pullback_revenue_condition_matrix(price_pullback_revenue_condition_matrix_df)
     write_revenue_unreacted_range_revenue_condition_matrix(revenue_unreacted_condition_matrix_df)
+    write_revenue_unreacted_range_operation_candidate_matrix(revenue_unreacted_operation_candidate_matrix_df)
     write_price_pullback_ordered_condition_matrix(price_pullback_ordered_condition_matrix_df)
     write_price_pullback_lifecycle_replay(price_pullback_lifecycle_replay_df)
     write_price_pullback_daily_row_parity_audit(price_pullback_daily_row_parity_df)
@@ -8095,6 +8660,10 @@ def main() -> int:
     print(f"Saved {PRICE_PULLBACK_HIGH_RETURN_SCORE_GRID_CSV} rows={len(price_pullback_high_return_score_grid_df)}")
     print(f"Saved {PRICE_PULLBACK_REVENUE_CONDITION_MATRIX_CSV} rows={len(price_pullback_revenue_condition_matrix_df)}")
     print(f"Saved {REVENUE_UNREACTED_CONDITION_MATRIX_CSV} rows={len(revenue_unreacted_condition_matrix_df)}")
+    print(
+        f"Saved {REVENUE_UNREACTED_OPERATION_CANDIDATE_MATRIX_CSV} "
+        f"rows={len(revenue_unreacted_operation_candidate_matrix_df)}"
+    )
     print(f"Saved {PRICE_PULLBACK_ORDERED_CONDITION_MATRIX_CSV} rows={len(price_pullback_ordered_condition_matrix_df)}")
     print(f"Saved {PRICE_PULLBACK_LIFECYCLE_REPLAY_CSV} rows={len(price_pullback_lifecycle_replay_df)}")
     print(f"Saved {PRICE_PULLBACK_DAILY_ROW_PARITY_CSV} rows={len(price_pullback_daily_row_parity_df)}")
