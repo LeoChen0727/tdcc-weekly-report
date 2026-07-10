@@ -30,6 +30,7 @@ W_BOTTOM_OPERATION_ARTIFACTS = {
 VOLUME_BREAKOUT_V2_MODEL_IDS = (
     "volume_range_breakout_v2_low_position_volume_attack",
     "volume_range_breakout_v2_mid_position_momentum_attack",
+    "volume_range_breakout_v2_high_position_volume_attack",
 )
 PDF_OPERATION_ADAPTER_ARTIFACTS = {
     **{
@@ -47,6 +48,11 @@ PDF_OPERATION_RENDERER_TOKENS = {
     ),
     "volume_range_breakout_v2_mid_position_momentum_attack": (
         "VOLUME_BREAKOUT_V2_MID_MODEL_ID",
+        "daily_volume_breakout_operation_section_latest.csv",
+        "render_volume_range_breakout_operation_section",
+    ),
+    "volume_range_breakout_v2_high_position_volume_attack": (
+        "VOLUME_BREAKOUT_V2_HIGH_MODEL_ID",
         "daily_volume_breakout_operation_section_latest.csv",
         "render_volume_range_breakout_operation_section",
     ),
@@ -146,6 +152,20 @@ VOLUME_OPERATION_REQUIRED_COLUMNS = {
     "planned_holding_days",
     "sample_size",
     "win_rate_zh",
+    "neutral_rate_zh",
+    "loss_rate_zh",
+    "failure_rate_zh",
+    "avg_return_zh",
+    "pdf_bonus_combo_id",
+    "pdf_bonus_combo_label_zh",
+    "pdf_bonus_combo_sample_size",
+    "pdf_bonus_combo_win_rate_zh",
+    "pdf_bonus_combo_neutral_rate_zh",
+    "pdf_bonus_combo_loss_rate_zh",
+    "pdf_bonus_combo_failure_rate_zh",
+    "pdf_bonus_combo_avg_return_zh",
+    "pdf_bonus_combo_median_return_zh",
+    "pdf_bonus_combo_source",
 }
 PDF_OPERATION_REQUIRED_SECTIONS = {"confirmed_operation", "active_operation"}
 PDF_OPERATION_REQUIRED_VIEWS = {"highlight", "full"}
@@ -251,6 +271,7 @@ REQUIRED_RENDERER_MODEL_ORDER_TOKENS = (
     "PDF_PRESENTATION_MODEL_ORDER_OVERRIDES",
     "VOLUME_BREAKOUT_V2_LOW_MODEL_ID: 1.0",
     "VOLUME_BREAKOUT_V2_MID_MODEL_ID: 1.05",
+    "VOLUME_BREAKOUT_V2_HIGH_MODEL_ID] = 1.08",
     "W_BOTTOM_RIGHT_SIDE_MODEL_ID: 1.1",
     "W_BOTTOM_NECKLINE_BREAKOUT_MODEL_ID: 1.2",
     "PRICE_PULLBACK_MODEL_ID: 1.3",
@@ -262,6 +283,7 @@ REQUIRED_OPERATION_HIGHLIGHT_CONTRACT_TOKENS = (
     "PRICE_PULLBACK_OPERATION_INPUT_KEY",
     "VOLUME_BREAKOUT_V2_LOW_MODEL_ID",
     "VOLUME_BREAKOUT_V2_MID_MODEL_ID",
+    "VOLUME_BREAKOUT_V2_HIGH_MODEL_ID",
     "daily_w_bottom_right_side_operation_section_latest.csv",
     "daily_neckline_volume_breakout_confirmation_operation_section_latest.csv",
     "daily_price_pullback_23ema_operation_section_latest.csv",
@@ -427,6 +449,26 @@ def approved_pdf_contract_model_ids(model_rows: Iterable[dict[str, str]]) -> set
     }
 
 
+def readiness_pdf_display_model_ids(
+    parameter_rows: Iterable[dict[str, str]],
+    readiness_rows: Iterable[dict[str, str]],
+) -> set[str]:
+    parameters = rows_by_model_id(parameter_rows)
+    model_ids: set[str] = set()
+    for row in readiness_rows:
+        model_id = row.get("model_id", "")
+        if not model_id:
+            continue
+        visibility = parameters.get(model_id, {}).get("pdf_visibility", "")
+        if visibility not in DISPLAY_MODEL_VISIBILITIES:
+            continue
+        presentation_allowed = row.get("presentation_allowed", "").strip().lower() in {"true", "1", "yes", "y"}
+        pdf_integrated = row.get("pdf_integration_status", "") == "pdf_integrated_daily_adapter"
+        if presentation_allowed or pdf_integrated:
+            model_ids.add(model_id)
+    return model_ids
+
+
 def display_roster_model_ids(
     registry_rows: Iterable[dict[str, str]],
     parameter_rows: Iterable[dict[str, str]],
@@ -466,8 +508,12 @@ def validate_required_display_model_coverage(
     errors: list[str] = []
     available = set(available_model_ids)
     contract_required = approved_pdf_contract_model_ids(model_rows)
+    readiness_required = readiness_pdf_display_model_ids(parameter_rows, readiness_rows)
     roster_required = display_roster_model_ids(registry_rows, parameter_rows, readiness_rows)
-    required = contract_required | roster_required
+    registry_required = contract_required | readiness_required
+    for model_id in sorted(registry_required - roster_required):
+        errors.append(f"Daily PDF display registry missing required model_id: {model_id}")
+    required = contract_required | readiness_required | roster_required
     if not required:
         errors.append("Daily PDF has no contract-approved display model roster")
         return errors

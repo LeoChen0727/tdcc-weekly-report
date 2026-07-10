@@ -71,9 +71,11 @@ REMOTE_DATA_BASE = "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-re
 LEGACY_VOLUME_BREAKOUT_MODEL_ID = "volume_range_breakout"
 VOLUME_BREAKOUT_V2_LOW_MODEL_ID = "volume_range_breakout_v2_low_position_volume_attack"
 VOLUME_BREAKOUT_V2_MID_MODEL_ID = "volume_range_breakout_v2_mid_position_momentum_attack"
+VOLUME_BREAKOUT_V2_HIGH_MODEL_ID = "volume_range_breakout_v2_high_position_volume_attack"
 VOLUME_BREAKOUT_OPERATION_MODEL_IDS = {
     VOLUME_BREAKOUT_V2_LOW_MODEL_ID,
     VOLUME_BREAKOUT_V2_MID_MODEL_ID,
+    VOLUME_BREAKOUT_V2_HIGH_MODEL_ID,
 }
 W_BOTTOM_RIGHT_SIDE_MODEL_ID = "w_bottom_right_side"
 W_BOTTOM_NECKLINE_BREAKOUT_MODEL_ID = "neckline_volume_breakout_confirmation"
@@ -92,6 +94,8 @@ PDF_PRESENTATION_MODEL_ORDER_OVERRIDES = {
     W_BOTTOM_NECKLINE_BREAKOUT_MODEL_ID: 1.2,
     PRICE_PULLBACK_MODEL_ID: 1.3,
 }
+OPERATION_MODEL_DISPLAY_NAMES[VOLUME_BREAKOUT_V2_HIGH_MODEL_ID] = "高位階放量攻擊模型"
+PDF_PRESENTATION_MODEL_ORDER_OVERRIDES[VOLUME_BREAKOUT_V2_HIGH_MODEL_ID] = 1.08
 OPERATION_HIGHLIGHT_ACTIVE_MAX_ROWS = 10
 OPERATION_HIGHLIGHT_ROW_LIMITS: dict[str, int | None] = {
     "active_operation": OPERATION_HIGHLIGHT_ACTIVE_MAX_ROWS,
@@ -107,6 +111,7 @@ OPERATION_TABLE_MODEL_IDS = {
     W_BOTTOM_NECKLINE_BREAKOUT_MODEL_ID,
     PRICE_PULLBACK_MODEL_ID,
 }
+OPERATION_TABLE_MODEL_IDS.add(VOLUME_BREAKOUT_V2_HIGH_MODEL_ID)
 OPERATION_MODEL_SAMPLING_TEXT = "取樣：已確認欄位股票精華版全部列出，操作中欄位股票精華版最多列出十檔股票。"
 OPERATION_MODEL_SUMMARY_REQUIRED_TOKENS = (
     "買入：",
@@ -145,6 +150,9 @@ OPERATION_MODEL_OUTCOME_DEFINITIONS = {
         "failure": "敗：停損先觸發，或D+20內沒有賣出/停損但D+20收盤報酬小於0%。",
     },
 }
+OPERATION_MODEL_OUTCOME_DEFINITIONS[VOLUME_BREAKOUT_V2_HIGH_MODEL_ID] = OPERATION_MODEL_OUTCOME_DEFINITIONS[
+    VOLUME_BREAKOUT_V2_LOW_MODEL_ID
+]
 W_BOTTOM_OPERATION_INPUT_KEYS = {
     W_BOTTOM_RIGHT_SIDE_MODEL_ID: "w_bottom_right_side_operation",
     W_BOTTOM_NECKLINE_BREAKOUT_MODEL_ID: "w_bottom_neckline_operation",
@@ -755,6 +763,12 @@ OPERATION_RENDERED_SECTIONS = {
     W_BOTTOM_NECKLINE_BREAKOUT_MODEL_ID: ("confirmed_operation", "active_operation"),
     PRICE_PULLBACK_MODEL_ID: ("confirmed_operation", "active_operation"),
 }
+OPERATION_SOURCE_ARTIFACTS[
+    VOLUME_BREAKOUT_V2_HIGH_MODEL_ID
+] = "output/latest/daily_volume_breakout_operation_section_latest.csv"
+OPERATION_RENDERED_SECTIONS[VOLUME_BREAKOUT_V2_HIGH_MODEL_ID] = OPERATION_RENDERED_SECTIONS[
+    VOLUME_BREAKOUT_V2_LOW_MODEL_ID
+]
 
 
 def clean(value, default: str = "") -> str:
@@ -2945,14 +2959,14 @@ def build_volume_confirmed_operation_table(rows: pd.DataFrame, model_id: str) ->
                 volume_operation_exit_label(row),
                 volume_operation_score_label(row),
                 clean(row.get("sample_size"), "-"),
-                clean(row.get("win_rate_zh"), "-"),
-                clean(row.get("median_return_zh"), "-"),
+                operation_row_performance_label(row),
+                first_text(row.get("pdf_bonus_combo_median_return_zh"), row.get("median_return_zh"), default="-"),
                 clean(row.get("rank_reason_zh"), "-"),
             ]
         )
     return build_table(
         data,
-        [8 * mm, 18 * mm, 27 * mm, 18 * mm, 31 * mm, 28 * mm, 35 * mm, 28 * mm, 11 * mm, 14 * mm, 17 * mm, 38 * mm],
+        [8 * mm, 18 * mm, 25 * mm, 17 * mm, 29 * mm, 26 * mm, 33 * mm, 24 * mm, 10 * mm, 45 * mm, 16 * mm, 22 * mm],
         12.0,
         header_bg=colors.HexColor("#7f6000"),
         repeat_rows=2,
@@ -2994,14 +3008,14 @@ def build_volume_unranked_operation_table(rows: pd.DataFrame, model_id: str) -> 
                 volume_operation_date_label(first_text(row.get("confirmation_date"), row.get("selected_confirmation_date"))),
                 clean(row.get("rank_reason_zh"), "-"),
                 clean(row.get("sample_size"), "-"),
-                clean(row.get("win_rate_zh"), "-"),
-                clean(row.get("median_return_zh"), "-"),
+                operation_row_performance_label(row),
+                first_text(row.get("pdf_bonus_combo_median_return_zh"), row.get("median_return_zh"), default="-"),
                 evidence_status,
             ]
         )
     return build_table(
         data,
-        [28 * mm, 32 * mm, 18 * mm, 78 * mm, 14 * mm, 16 * mm, 20 * mm, 42 * mm],
+        [26 * mm, 30 * mm, 18 * mm, 58 * mm, 12 * mm, 50 * mm, 18 * mm, 60 * mm],
         12.0,
         header_bg=colors.HexColor("#8064a2"),
         repeat_rows=2,
@@ -5227,6 +5241,8 @@ def required_stock_model_text_missing(inputs: dict[str, pd.DataFrame], line: str
         model_name = clean(spec.get("model_name_zh"), model_id)
         if model_name and model_name not in text:
             missing.append(model_name)
+        if model_id in OPERATION_TABLE_MODEL_IDS:
+            continue
         if len(model_signal_rows(inputs, model_id, line)) == 0:
             zero_candidate_models += 1
     if zero_candidate_models and text.count(MODEL_EMPTY_STATE_TEXT) < zero_candidate_models:

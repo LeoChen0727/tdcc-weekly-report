@@ -21,6 +21,7 @@ def test_builder_covers_all_current_mature_operation_models() -> None:
     assert set(mature) == {
         "volume_range_breakout_v2_low_position_volume_attack",
         "volume_range_breakout_v2_mid_position_momentum_attack",
+        "volume_range_breakout_v2_high_position_volume_attack",
         "w_bottom_right_side",
         "neckline_volume_breakout_confirmation",
         "price_pullback_23ema",
@@ -42,15 +43,16 @@ def test_price_pullback_technical_strength_uses_row_level_package_metrics() -> N
     assert int(price["technical_strength_row_count"]) > 0
 
 
-def test_high_position_combo_rows_remain_research_only_not_mature_pdf_metrics() -> None:
+def test_high_position_combo_rows_are_promoted_to_mature_row_level_policy() -> None:
     rows = builder.build_rows()
     high = next(row for row in rows if row["model_id"] == "volume_range_breakout_v2_high_position_volume_attack")
 
-    assert high["audit_scope"] == "research_only_candidate_not_mature_model"
-    assert high["production_readiness"] == "not_production_ready_research_only"
-    assert high["pdf_row_display_policy_status"] == "pass_not_allowed_for_pdf_operation_rows_without_promotion"
-    assert int(high["research_only_combo_candidate_count"]) > 0
-    assert int(high["research_only_combo_not_candidate_count"]) > 0
+    assert high["audit_scope"] == "mature_model"
+    assert high["production_readiness"] == "production_adapter_contract_checked"
+    assert high["metric_scope"] == "baseline_plus_generic_row_level_combo"
+    assert high["pdf_row_display_policy_status"] == (
+        "pass_pdf_rows_must_use_row_level_metric_when_operation_quality_or_combo_id_matches"
+    )
 
 
 def test_generic_combo_policy_rejects_worse_promoted_combo() -> None:
@@ -72,7 +74,7 @@ def test_generic_combo_policy_rejects_worse_promoted_combo() -> None:
     recompute_status, worse_status, issues = builder.generic_combo_policy_status(rows, ["pdf_bonus_combo"])
 
     assert recompute_status == "pdf_bonus_combo:pass_exact_row_level_metric_fields_present"
-    assert worse_status == "pdf_bonus_combo:fail_combo_worse_than_baseline"
+    assert worse_status == "pdf_bonus_combo:fail_combo_worse_than_baseline=win_rate;avg_return;median_return"
     assert issues == ["pdf_bonus_combo:pdf_combo__bad:combo_worse_than_baseline"]
 
 

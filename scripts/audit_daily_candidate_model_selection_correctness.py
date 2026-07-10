@@ -9,6 +9,7 @@ from typing import Any
 import pandas as pd
 
 from build_daily_candidate_model_layer import (
+    VOLUME_BREAKOUT_V2_HIGH_MODEL_ID,
     VOLUME_BREAKOUT_V2_LOW_MODEL_ID,
     VOLUME_BREAKOUT_V2_MID_MODEL_ID,
     active_price_attack_for_early_models,
@@ -44,7 +45,7 @@ VALID_VOLUME_TYPES = {
 VALID_VOLUME_STATUSES = {
     "selected",
 }
-VOLUME_V2_MODEL_IDS = {VOLUME_BREAKOUT_V2_LOW_MODEL_ID, VOLUME_BREAKOUT_V2_MID_MODEL_ID}
+VOLUME_V2_MODEL_IDS = {VOLUME_BREAKOUT_V2_LOW_MODEL_ID, VOLUME_BREAKOUT_V2_MID_MODEL_ID, VOLUME_BREAKOUT_V2_HIGH_MODEL_ID}
 POSITIVE_TDCC = {"strong_accumulation", "mild_accumulation", "tdcc_price_confirmed", "tdcc_leading_price"}
 CONFIRMED_STAGES = {"breakout_confirmed", "platform_breakout", "neckline_breakout"}
 CONFIRMED_STAGE_TEXT_MARKERS = {"已突破", "突破確認", "平台突破", "頸線突破"}

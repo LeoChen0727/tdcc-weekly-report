@@ -24,13 +24,18 @@ BUY_FILTER_ID = "positive_evidence_oos_rank_v1"
 
 V2_LOW_MODEL_ID = "volume_range_breakout_v2_low_position_volume_attack"
 V2_MID_MODEL_ID = "volume_range_breakout_v2_mid_position_momentum_attack"
-V2_FORMAL_MODEL_IDS = (V2_LOW_MODEL_ID, V2_MID_MODEL_ID)
+V2_HIGH_MODEL_ID = "volume_range_breakout_v2_high_position_volume_attack"
+V2_FORMAL_MODEL_IDS = (V2_LOW_MODEL_ID, V2_MID_MODEL_ID, V2_HIGH_MODEL_ID)
 V2_ENTRY_RULE_ID = "confirmation_next_open"
 V2_STOP_LOSS_RULE_ID = "sustained_close_below_lower_ma20_ema23_4pct_4d"
 V2_EXIT_RULE_ID = "ema23_close_stop_or_fixed_15d_close"
 V2_SOURCE_RESEARCH_ID = "volume_range_breakout_v2_candidate_bucket_contract"
 V2_EVIDENCE_SOURCE = "output/latest/research_backtest/volume_range_breakout_v2_candidate_bucket_contract_latest.csv"
 V2_APPROVAL_VERSION = "volume_range_breakout_v2_formal_operation_20260709"
+V2_HIGH_SOURCE_RESEARCH_ID = "volume_range_breakout_v2_high_position_improvement_audit"
+V2_HIGH_EVIDENCE_SOURCE = (
+    "output/latest/research_backtest/volume_range_breakout_v2_high_position_improvement_audit_latest.csv"
+)
 V2_APPROVAL_METRICS = {
     V2_LOW_MODEL_ID: {
         "operation_module_id": "volume_range_breakout_v2_low_position_operation_v1",
@@ -61,6 +66,33 @@ V2_APPROVAL_METRICS = {
         "neutral_count": "0",
         "loss_count": "5",
         "condition_zh": "120日位階 mid_pos_40_75，shape 僅收 non_consolidation 或 wide_range；確認為隔日續攻 close-only。",
+    },
+    V2_HIGH_MODEL_ID: {
+        "operation_module_id": "volume_range_breakout_v2_high_position_operation_v1",
+        "approval_version": "volume_range_breakout_v2_high_position_operation_20260710",
+        "source_research_id": V2_HIGH_SOURCE_RESEARCH_ID,
+        "evidence_source": V2_HIGH_EVIDENCE_SOURCE,
+        "evidence_source_kind": "volume_range_breakout_v2_high_position_improvement_audit",
+        "buy_filter_id": "pos120_high_nonconsolidation_or_wide_ma60_gt_ma120_next_day_continuation_d15_stop",
+        "model_name_zh": "高位階放量攻擊",
+        "best_evidence_sample_size": "231",
+        "best_evidence_win_rate": "62.3377",
+        "best_evidence_neutral_rate": "0.0000",
+        "best_evidence_loss_rate": "37.6623",
+        "best_evidence_median_return": "6.6055",
+        "volume_v2_avg_return_pct": "9.4824",
+        "win_count": "144",
+        "neutral_count": "0",
+        "loss_count": "87",
+        "condition_zh": (
+            "120日位階 high_pos_gt75，shape 僅收 non_consolidation 或 wide_range，"
+            "訊號日 MA60 > MA120；確認為隔日續攻 close-only。"
+        ),
+        "approval_note_zh": (
+            "高位階放量攻擊升級為正式 daily operation model；模型條件加 close-only 確認就是買入 gate。"
+            "單項加分可顯示其單項統計，多項命中只採真實重算且不變差的 combo 統計。"
+        ),
+        "risk_notes_zh": "目前不採扣分項；舊 v1 放量攻擊與高位階 v2 不得混用。",
     },
 }
 
@@ -279,15 +311,19 @@ def approval_row(summary: pd.DataFrame, rank: pd.DataFrame, generated_at: str) -
 
 def volume_v2_approval_row(model_id: str, generated_at: str) -> dict[str, Any]:
     metrics = V2_APPROVAL_METRICS[model_id]
+    approval_version = metrics.get("approval_version", V2_APPROVAL_VERSION)
+    source_research_id = metrics.get("source_research_id", V2_SOURCE_RESEARCH_ID)
+    evidence_source = metrics.get("evidence_source", V2_EVIDENCE_SOURCE)
+    evidence_source_kind = metrics.get("evidence_source_kind", "volume_range_breakout_v2_candidate_bucket_contract")
     return {
         "generated_at": generated_at,
         "model_id": model_id,
         "operation_module_id": metrics["operation_module_id"],
-        "approval_version": V2_APPROVAL_VERSION,
+        "approval_version": approval_version,
         "approved_for_daily": "True",
         "approval_status": "approved_for_daily_v1",
         "operation_directive_level": "approved_daily_operation_guidance",
-        "source_research_id": V2_SOURCE_RESEARCH_ID,
+        "source_research_id": source_research_id,
         "entry_rule_id": V2_ENTRY_RULE_ID,
         "entry_rule_zh": "確認日收盤後成立，下一個交易日開盤買入。",
         "stop_loss_rule_id": V2_STOP_LOSS_RULE_ID,
@@ -302,9 +338,9 @@ def volume_v2_approval_row(model_id: str, generated_at: str) -> dict[str, Any]:
         "min_median_return": "0.0",
         "require_out_of_sample_pass": "False",
         "min_research_score": "0.0",
-        "evidence_summary_source": V2_EVIDENCE_SOURCE,
-        "evidence_rank_source": V2_EVIDENCE_SOURCE,
-        "evidence_source_kind": "volume_range_breakout_v2_candidate_bucket_contract",
+        "evidence_summary_source": evidence_source,
+        "evidence_rank_source": evidence_source,
+        "evidence_source_kind": evidence_source_kind,
         "evidence_total_rank_rows": "",
         "evidence_positive_rank_rows": "",
         "best_evidence_scope": "model_contract",
@@ -317,11 +353,12 @@ def volume_v2_approval_row(model_id: str, generated_at: str) -> dict[str, Any]:
         "data_start_date": "",
         "data_end_date": "",
         "out_of_sample_start_date": "",
-        "approval_note_zh": (
+        "approval_note_zh": metrics.get("approval_note_zh") or (
             f"{metrics['model_name_zh']} 升級為正式 daily operation model；模型條件加 close-only 確認就是買入 gate，"
             "TDCC、MA60/MA120、EMA23 距離只可作分層或加分，不得作 hidden gate。"
         ),
-        "risk_notes_zh": "樣本數不作否決理由；高位階放量攻擊與舊 v1 放量攻擊保留在 research/audit，不進正式買入。",
+        "risk_notes_zh": metrics.get("risk_notes_zh")
+        or "樣本數不作否決理由；各 v2 模型語意獨立，舊 v1 放量攻擊不得回流 production。",
         "volume_v2_model_name_zh": metrics["model_name_zh"],
         "volume_v2_win_count": metrics["win_count"],
         "volume_v2_neutral_count": metrics["neutral_count"],
@@ -585,6 +622,7 @@ def build_approval(summary: pd.DataFrame, rank: pd.DataFrame, generated_at: str 
         [
             volume_v2_approval_row(V2_LOW_MODEL_ID, generated),
             volume_v2_approval_row(V2_MID_MODEL_ID, generated),
+            volume_v2_approval_row(V2_HIGH_MODEL_ID, generated),
             w_bottom_approval_row(generated),
             neckline_approval_row(generated),
             price_pullback_approval_row(generated),

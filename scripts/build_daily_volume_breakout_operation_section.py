@@ -56,7 +56,8 @@ ALLOW_SNAPSHOT_REWRITE_ENV = "ALLOW_DAILY_MODEL_SNAPSHOT_REWRITE"
 LEGACY_MODEL_ID = "volume_range_breakout"
 V2_LOW_MODEL_ID = "volume_range_breakout_v2_low_position_volume_attack"
 V2_MID_MODEL_ID = "volume_range_breakout_v2_mid_position_momentum_attack"
-FORMAL_MODEL_IDS = (V2_LOW_MODEL_ID, V2_MID_MODEL_ID)
+V2_HIGH_MODEL_ID = "volume_range_breakout_v2_high_position_volume_attack"
+FORMAL_MODEL_IDS = (V2_LOW_MODEL_ID, V2_MID_MODEL_ID, V2_HIGH_MODEL_ID)
 MODEL_ID = ",".join(FORMAL_MODEL_IDS)
 LIFECYCLE_ADAPTER_SOURCE = "daily_candidate_model_signal_log+daily_published_model_snapshots+stock_price_history"
 APPROVAL_SOURCE = "approved_operation_patterns_latest.csv"
@@ -179,8 +180,21 @@ OUTPUT_COLUMNS = [
     "tdcc_status_zh",
     "sample_size",
     "win_rate_zh",
+    "neutral_rate_zh",
+    "loss_rate_zh",
+    "failure_rate_zh",
     "avg_return_zh",
     "median_return_zh",
+    "pdf_bonus_combo_id",
+    "pdf_bonus_combo_label_zh",
+    "pdf_bonus_combo_sample_size",
+    "pdf_bonus_combo_win_rate_zh",
+    "pdf_bonus_combo_neutral_rate_zh",
+    "pdf_bonus_combo_loss_rate_zh",
+    "pdf_bonus_combo_failure_rate_zh",
+    "pdf_bonus_combo_avg_return_zh",
+    "pdf_bonus_combo_median_return_zh",
+    "pdf_bonus_combo_source",
     "confidence_zh",
     "evidence_match_status",
     "evidence_tdcc_list_type",
@@ -252,6 +266,8 @@ APPROVAL_FIELDS = [
     "approval_note_zh",
     "best_evidence_sample_size",
     "best_evidence_win_rate",
+    "volume_v2_neutral_rate_pct",
+    "volume_v2_loss_rate_pct",
     "best_evidence_median_return",
     "best_evidence_confidence_status",
     "best_evidence_out_of_sample_pass",
@@ -266,6 +282,68 @@ OPERATION_SCORE_FIELDS = [
     "final_rank_score",
     "rank_reason_zh",
 ]
+
+HIGH_POSITION_BONUS_FEATURE_ORDER = (
+    "mild_bull",
+    "not_limit_up_like",
+    "breakout_2_5",
+    "volume_lt2",
+    "signal_body_le3",
+    "close_location_le80",
+)
+
+
+def bonus_metric(
+    metric_id: str,
+    label_zh: str,
+    sample_size: int,
+    win_rate: float,
+    neutral_rate: float,
+    loss_rate: float,
+    avg_return: float,
+    median_return: float,
+) -> dict[str, Any]:
+    return {
+        "metric_id": metric_id,
+        "label_zh": label_zh,
+        "sample_size": sample_size,
+        "win_rate": win_rate,
+        "neutral_rate": neutral_rate,
+        "loss_rate": loss_rate,
+        "avg_return": avg_return,
+        "median_return": median_return,
+    }
+
+
+HIGH_POSITION_SINGLE_BONUS_METRICS = {
+    "mild_bull": bonus_metric("high_pos_base_plus_market_mild_bull", "大盤 mild_bull", 24, 66.6667, 0.0, 33.3333, 12.2534, 11.4151),
+    "tdcc_weekly_increase_top20": bonus_metric("high_pos_base_plus_tdcc_weekly_increase_top20", "TDCC weekly increase top20", 9, 77.7778, 0.0, 22.2222, 30.4050, 14.5000),
+    "ma20_gt_ma60": bonus_metric("high_pos_base_plus_ma20_gt_ma60", "MA20 > MA60", 224, 62.9464, 0.0, 37.0536, 9.7519, 6.9390),
+    "volume_lt2": bonus_metric("high_pos_base_plus_volume_lt2", "量比 <= 2", 31, 77.4194, 0.0, 22.5806, 13.7578, 15.8784),
+    "not_limit_up_like": bonus_metric("high_pos_base_plus_not_limit_up_like", "非類漲停", 55, 70.9091, 0.0, 29.0909, 10.3499, 7.1829),
+    "breakout_2_5": bonus_metric("high_pos_base_plus_breakout_2_5", "突破 2%~5%", 98, 67.3469, 0.0, 32.6531, 9.8476, 9.2248),
+    "close_location_le80": bonus_metric("high_pos_base_plus_close_location_le80", "收盤位置 <= 80%", 24, 79.1667, 0.0, 20.8333, 9.2121, 7.7825),
+    "signal_body_le3": bonus_metric("high_pos_base_plus_signal_body_le3", "K棒實體 <= 3%", 66, 72.7273, 0.0, 27.2727, 10.3361, 6.9226),
+    "confirmation_return_3_7": bonus_metric("high_pos_base_plus_confirmation_return_3_7", "確認日漲幅 3%~7%", 53, 66.0377, 0.0, 33.9623, 9.8174, 5.6604),
+    "kdj_overheated": bonus_metric("high_pos_base_plus_kdj_overheated", "KDJ K或D過熱", 125, 66.4000, 0.0, 33.6000, 11.6722, 9.3156),
+    "dist_ema23_0_15": bonus_metric("high_pos_base_plus_dist_ema23_0_15", "距 EMA23 0%~15%", 8, 87.5000, 0.0, 12.5000, 11.8073, 11.4151),
+}
+
+HIGH_POSITION_COMBO_BONUS_METRICS = {
+    "pdf_combo__breakout_2_5__signal_body_le3": bonus_metric("pdf_combo__breakout_2_5__signal_body_le3", "突破 2%~5% + K棒實體 <= 3%", 5, 80.0000, 0.0, 20.0000, 4.1054, 6.6055),
+    "pdf_combo__breakout_2_5__volume_lt2__signal_body_le3": bonus_metric("pdf_combo__breakout_2_5__volume_lt2__signal_body_le3", "突破 2%~5% + 量比 <= 2 + K棒實體 <= 3%", 4, 75.0000, 0.0, 25.0000, 12.4312, 17.0032),
+    "pdf_combo__mild_bull": bonus_metric("pdf_combo__mild_bull", "大盤 mild_bull", 6, 66.6667, 0.0, 33.3333, 12.0565, 11.2278),
+    "pdf_combo__mild_bull__breakout_2_5": bonus_metric("pdf_combo__mild_bull__breakout_2_5", "大盤 mild_bull + 突破 2%~5%", 8, 75.0000, 0.0, 25.0000, 17.4850, 11.0871),
+    "pdf_combo__mild_bull__breakout_2_5__volume_lt2__signal_body_le3": bonus_metric("pdf_combo__mild_bull__breakout_2_5__volume_lt2__signal_body_le3", "大盤 mild_bull + 突破 2%~5% + 量比 <= 2 + K棒實體 <= 3%", 1, 100.0000, 0.0, 0.0000, 19.3133, 19.3133),
+    "pdf_combo__mild_bull__not_limit_up_like__breakout_2_5": bonus_metric("pdf_combo__mild_bull__not_limit_up_like__breakout_2_5", "大盤 mild_bull + 非類漲停 + 突破 2%~5%", 3, 100.0000, 0.0, 0.0000, 23.7866, 16.8207),
+    "pdf_combo__mild_bull__not_limit_up_like__breakout_2_5__signal_body_le3__close_location_le80": bonus_metric("pdf_combo__mild_bull__not_limit_up_like__breakout_2_5__signal_body_le3__close_location_le80", "大盤 mild_bull + 非類漲停 + 突破 2%~5% + K棒實體 <= 3% + 收盤位置 <= 80%", 1, 100.0000, 0.0, 0.0000, 11.6667, 11.6667),
+    "pdf_combo__not_limit_up_like": bonus_metric("pdf_combo__not_limit_up_like", "非類漲停", 7, 85.7143, 0.0, 14.2857, 20.1133, 13.7405),
+    "pdf_combo__not_limit_up_like__breakout_2_5__close_location_le80": bonus_metric("pdf_combo__not_limit_up_like__breakout_2_5__close_location_le80", "非類漲停 + 突破 2%~5% + 收盤位置 <= 80%", 9, 88.8889, 0.0, 11.1111, 8.2677, 5.6604),
+    "pdf_combo__not_limit_up_like__breakout_2_5__signal_body_le3": bonus_metric("pdf_combo__not_limit_up_like__breakout_2_5__signal_body_le3", "非類漲停 + 突破 2%~5% + K棒實體 <= 3%", 2, 100.0000, 0.0, 0.0000, 21.3732, 21.3732),
+    "pdf_combo__not_limit_up_like__breakout_2_5__signal_body_le3__close_location_le80": bonus_metric("pdf_combo__not_limit_up_like__breakout_2_5__signal_body_le3__close_location_le80", "非類漲停 + 突破 2%~5% + K棒實體 <= 3% + 收盤位置 <= 80%", 6, 100.0000, 0.0, 0.0000, 18.2511, 14.0715),
+    "pdf_combo__not_limit_up_like__close_location_le80": bonus_metric("pdf_combo__not_limit_up_like__close_location_le80", "非類漲停 + 收盤位置 <= 80%", 3, 66.6667, 0.0, 33.3333, 8.6097, 6.1966),
+    "pdf_combo__volume_lt2__signal_body_le3": bonus_metric("pdf_combo__volume_lt2__signal_body_le3", "量比 <= 2 + K棒實體 <= 3%", 26, 76.9231, 0.0, 23.0769, 13.7483, 15.0952),
+}
 
 _MARKET_REGIME_MAP: dict[str, str] | None = None
 _TDCC_EVENTS: pd.DataFrame | None = None
@@ -526,6 +604,8 @@ def approval_context(approval: pd.DataFrame, model_id: str) -> dict[str, str]:
         "buy_filter_id": "",
         "best_evidence_sample_size": "",
         "best_evidence_win_rate": "",
+        "volume_v2_neutral_rate_pct": "",
+        "volume_v2_loss_rate_pct": "",
         "best_evidence_median_return": "",
         "best_evidence_confidence_status": "",
         "best_evidence_out_of_sample_pass": "",
@@ -553,6 +633,8 @@ def approval_context(approval: pd.DataFrame, model_id: str) -> dict[str, str]:
         "buy_filter_id": safe_str(row.get("buy_filter_id")),
         "best_evidence_sample_size": safe_str(row.get("best_evidence_sample_size")),
         "best_evidence_win_rate": safe_str(row.get("best_evidence_win_rate")),
+        "volume_v2_neutral_rate_pct": safe_str(row.get("volume_v2_neutral_rate_pct")),
+        "volume_v2_loss_rate_pct": safe_str(row.get("volume_v2_loss_rate_pct")),
         "best_evidence_median_return": safe_str(row.get("best_evidence_median_return")),
         "best_evidence_confidence_status": safe_str(row.get("best_evidence_confidence_status")),
         "best_evidence_out_of_sample_pass": safe_str(row.get("best_evidence_out_of_sample_pass")),
@@ -905,6 +987,178 @@ def pct_display(value: Any) -> str:
     return f"{num:.2f}%"
 
 
+def pct_signed_display(value: Any) -> str:
+    num = number_text(value)
+    if math.isnan(num):
+        return ""
+    return f"{num:+.2f}%"
+
+
+def numeric_price_series(price: pd.DataFrame, col: str) -> pd.Series:
+    if col not in price.columns:
+        return pd.Series([math.nan] * len(price), index=price.index, dtype="float64")
+    return pd.to_numeric(price[col], errors="coerce")
+
+
+def kdj_values_at_signal(price: pd.DataFrame, signal_idx: int) -> dict[str, float]:
+    if price.empty or signal_idx < 0 or signal_idx >= len(price):
+        return {"k": math.nan, "d": math.nan, "j": math.nan}
+    high = numeric_price_series(price, "high")
+    low = numeric_price_series(price, "low")
+    close = numeric_price_series(price, "close")
+    low9 = low.rolling(9, min_periods=9).min()
+    high9 = high.rolling(9, min_periods=9).max()
+    rsv9 = (close - low9) / (high9 - low9).replace(0, pd.NA) * 100.0
+    k_value = rsv9.ewm(alpha=1 / 3, adjust=False, min_periods=3).mean()
+    d_value = k_value.ewm(alpha=1 / 3, adjust=False, min_periods=3).mean()
+    j_value = 3 * k_value - 2 * d_value
+    return {
+        "k": float(k_value.iloc[signal_idx]) if not pd.isna(k_value.iloc[signal_idx]) else math.nan,
+        "d": float(d_value.iloc[signal_idx]) if not pd.isna(d_value.iloc[signal_idx]) else math.nan,
+        "j": float(j_value.iloc[signal_idx]) if not pd.isna(j_value.iloc[signal_idx]) else math.nan,
+    }
+
+
+def row_tdcc_weekly_increase_top20(
+    price: pd.DataFrame,
+    signal_idx: int,
+    selected: dict[str, Any],
+    signal: pd.Series,
+) -> bool:
+    contexts = operation_context_rows(price, signal_idx, selected, signal)
+    if contexts.empty:
+        return False
+    for _, context in contexts.iterrows():
+        list_type = safe_str(context.get("tdcc_list_type"))
+        rank = number_text(context.get("tdcc_rank"))
+        if list_type == "weekly_increase" and not math.isnan(rank) and rank <= 20:
+            return True
+    return False
+
+
+def high_position_bonus_feature_flags(
+    signal: pd.Series,
+    selected: dict[str, Any],
+    price: pd.DataFrame,
+    signal_idx: int,
+) -> dict[str, bool]:
+    if safe_str(signal.get("model_id")) != V2_HIGH_MODEL_ID or signal_idx < 0 or signal_idx >= len(price):
+        return {}
+    signal_row = price.iloc[signal_idx]
+    signal_date = normalize_date_text(signal_row.get("date"))
+    open_price = price_at(signal_row, "open")
+    high_price = price_at(signal_row, "high")
+    low_price = price_at(signal_row, "low")
+    close_price = price_at(signal_row, "close")
+    prev60_high = price_at(signal_row, "previous_60d_high_calc")
+    volume_ratio = price_at(signal_row, "volume_ratio")
+    ma20 = price_at(signal_row, "ma20")
+    ma60 = price_at(signal_row, "ma60")
+    ema23 = price_at(signal_row, "ema23")
+    kdj = kdj_values_at_signal(price, signal_idx)
+
+    breakout_pct = math.nan
+    if not math.isnan(prev60_high) and prev60_high > 0 and not math.isnan(close_price):
+        breakout_pct = (close_price / prev60_high - 1.0) * 100.0
+
+    close_location = math.nan
+    if not any(math.isnan(value) for value in [high_price, low_price, close_price]) and high_price > low_price:
+        close_location = (close_price - low_price) / (high_price - low_price) * 100.0
+
+    body_pct = math.nan
+    if not math.isnan(open_price) and open_price > 0 and not math.isnan(close_price):
+        body_pct = abs(close_price - open_price) / open_price * 100.0
+
+    confirmation_return = math.nan
+    confirmation_idx = int(selected.get("confirmation_idx", -1))
+    if 0 <= confirmation_idx < len(price) and not math.isnan(close_price):
+        confirmation_close = price_at(price.iloc[confirmation_idx], "close")
+        if not math.isnan(confirmation_close) and close_price > 0:
+            confirmation_return = (confirmation_close / close_price - 1.0) * 100.0
+
+    dist_ema23 = math.nan
+    if not math.isnan(ema23) and ema23 > 0 and not math.isnan(close_price):
+        dist_ema23 = (close_price / ema23 - 1.0) * 100.0
+
+    return {
+        "mild_bull": market_regime_map().get(signal_date, "") == "mild_bull",
+        "tdcc_weekly_increase_top20": row_tdcc_weekly_increase_top20(price, signal_idx, selected, signal),
+        "ma20_gt_ma60": not math.isnan(ma20) and not math.isnan(ma60) and ma20 > ma60,
+        "volume_lt2": not math.isnan(volume_ratio) and volume_ratio <= 2.0,
+        "not_limit_up_like": not true_text(signal_row.get("limit_up_like")),
+        "breakout_2_5": not math.isnan(breakout_pct) and 2.0 < breakout_pct <= 5.0,
+        "close_location_le80": not math.isnan(close_location) and close_location <= 80.0,
+        "signal_body_le3": not math.isnan(body_pct) and body_pct <= 3.0,
+        "confirmation_return_3_7": not math.isnan(confirmation_return) and 3.0 < confirmation_return <= 7.0,
+        "kdj_overheated": (not math.isnan(kdj["k"]) and kdj["k"] >= 80.0) or (not math.isnan(kdj["d"]) and kdj["d"] >= 80.0),
+        "dist_ema23_0_15": not math.isnan(dist_ema23) and 0.0 < dist_ema23 <= 15.0,
+    }
+
+
+def metric_rank(metric: dict[str, Any]) -> tuple[float, float, float, float]:
+    return (
+        number_text(metric.get("win_rate")),
+        number_text(metric.get("avg_return")),
+        number_text(metric.get("median_return")),
+        number_text(metric.get("sample_size")),
+    )
+
+
+def combo_metric_not_worse(combo: dict[str, Any], single: dict[str, Any] | None) -> bool:
+    if single is None:
+        return True
+    return (
+        number_text(combo.get("win_rate")) >= number_text(single.get("win_rate"))
+        and number_text(combo.get("avg_return")) >= number_text(single.get("avg_return"))
+        and number_text(combo.get("median_return")) >= number_text(single.get("median_return"))
+    )
+
+
+def select_high_position_bonus_metric(flags: dict[str, bool]) -> tuple[dict[str, Any] | None, str]:
+    matched_single = [
+        metric
+        for feature, metric in HIGH_POSITION_SINGLE_BONUS_METRICS.items()
+        if bool(flags.get(feature))
+    ]
+    best_single = max(matched_single, key=metric_rank) if matched_single else None
+
+    combo_features = [feature for feature in HIGH_POSITION_BONUS_FEATURE_ORDER if bool(flags.get(feature))]
+    combo_id = f"pdf_combo__{'__'.join(combo_features)}" if combo_features else "pdf_combo__none"
+    combo_metric = HIGH_POSITION_COMBO_BONUS_METRICS.get(combo_id)
+    if combo_metric is not None and combo_metric_not_worse(combo_metric, best_single):
+        return combo_metric, "exact_combo_metric"
+    if best_single is not None:
+        return best_single, "single_bonus_metric"
+    return None, ""
+
+
+def apply_high_position_bonus_metric(
+    record: dict[str, Any],
+    signal: pd.Series,
+    selected: dict[str, Any],
+    price: pd.DataFrame,
+    signal_idx: int,
+) -> None:
+    flags = high_position_bonus_feature_flags(signal, selected, price, signal_idx)
+    metric, source = select_high_position_bonus_metric(flags)
+    if metric is None:
+        return
+    record.update(
+        {
+            "pdf_bonus_combo_id": safe_str(metric.get("metric_id")),
+            "pdf_bonus_combo_label_zh": safe_str(metric.get("label_zh")),
+            "pdf_bonus_combo_sample_size": safe_str(metric.get("sample_size")),
+            "pdf_bonus_combo_win_rate_zh": pct_display(metric.get("win_rate")),
+            "pdf_bonus_combo_neutral_rate_zh": pct_display(metric.get("neutral_rate")),
+            "pdf_bonus_combo_loss_rate_zh": pct_display(metric.get("loss_rate")),
+            "pdf_bonus_combo_failure_rate_zh": pct_display(metric.get("loss_rate")),
+            "pdf_bonus_combo_avg_return_zh": pct_signed_display(metric.get("avg_return")),
+            "pdf_bonus_combo_median_return_zh": pct_signed_display(metric.get("median_return")),
+            "pdf_bonus_combo_source": source,
+        }
+    )
+
+
 def rank_bucket_for_context(row: pd.Series) -> str:
     list_type = safe_str(row.get("tdcc_list_type"))
     if list_type == "no_tdcc":
@@ -1078,6 +1332,9 @@ def apply_evidence_fields(
             "evidence_out_of_sample_pass": safe_str(evidence.get("out_of_sample_pass")),
             "sample_size": safe_str(evidence.get("sample_size")),
             "win_rate_zh": pct_display(evidence.get("win_rate")),
+            "neutral_rate_zh": pct_display(evidence.get("neutral_rate")),
+            "loss_rate_zh": pct_display(evidence.get("loss_rate")),
+            "failure_rate_zh": pct_display(evidence.get("loss_rate")),
             "avg_return_zh": pct_display(evidence.get("avg_return")),
             "median_return_zh": pct_display(evidence.get("median_return")),
             "confidence_zh": safe_str(evidence.get("confidence_status")),
@@ -1098,6 +1355,8 @@ def model_level_evidence(
     model_id = safe_str(signal.get("model_id"))
     sample_size = safe_str(approval.get("best_evidence_sample_size"))
     win_rate = safe_str(approval.get("best_evidence_win_rate"))
+    neutral_rate = safe_str(approval.get("volume_v2_neutral_rate_pct"))
+    loss_rate = safe_str(approval.get("volume_v2_loss_rate_pct"))
     avg_return = safe_str(approval.get("volume_v2_avg_return_pct"))
     median_return = safe_str(approval.get("best_evidence_median_return"))
     evidence = pd.Series(
@@ -1108,6 +1367,8 @@ def model_level_evidence(
             "confluence_id": model_id,
             "sample_size": sample_size,
             "win_rate": win_rate,
+            "neutral_rate": neutral_rate,
+            "loss_rate": loss_rate,
             "avg_return": avg_return,
             "median_return": median_return,
             "out_of_sample_pass": safe_str(approval.get("best_evidence_out_of_sample_pass")) or "not_applicable",
@@ -1148,6 +1409,8 @@ def model_level_evidence(
         "evidence_confluence_id": model_id,
         "evidence_sample_size": sample_size,
         "evidence_win_rate": win_rate,
+        "evidence_neutral_rate": neutral_rate,
+        "evidence_loss_rate": loss_rate,
         "evidence_avg_return": avg_return,
         "evidence_median_return": median_return,
         "evidence_out_of_sample_pass": safe_str(evidence.get("out_of_sample_pass")),
@@ -1304,6 +1567,7 @@ def confirmed_record(
     record["entry_price_status_zh"] = CONFIRMED_ENTRY_PRICE_STATUS_ZH
     apply_v2_confirmed_or_active_rules(record)
     apply_evidence_fields(record, evidence, context, "positive_model_contract_evidence")
+    apply_high_position_bonus_metric(record, signal, selected, price, signal_idx)
     return record
 
 
@@ -1445,6 +1709,7 @@ def active_record(
     record["quality_status_zh"] = "已進場追蹤"
     apply_v2_confirmed_or_active_rules(record)
     apply_evidence_fields(record, evidence, context, "positive_model_contract_evidence")
+    apply_high_position_bonus_metric(record, signal, selected, price, signal_idx)
     return record
 
 
@@ -1900,8 +2165,21 @@ def empty_row(
         "tdcc_status_zh": "",
         "sample_size": "",
         "win_rate_zh": "",
+        "neutral_rate_zh": "",
+        "loss_rate_zh": "",
+        "failure_rate_zh": "",
         "avg_return_zh": "",
         "median_return_zh": "",
+        "pdf_bonus_combo_id": "",
+        "pdf_bonus_combo_label_zh": "",
+        "pdf_bonus_combo_sample_size": "",
+        "pdf_bonus_combo_win_rate_zh": "",
+        "pdf_bonus_combo_neutral_rate_zh": "",
+        "pdf_bonus_combo_loss_rate_zh": "",
+        "pdf_bonus_combo_failure_rate_zh": "",
+        "pdf_bonus_combo_avg_return_zh": "",
+        "pdf_bonus_combo_median_return_zh": "",
+        "pdf_bonus_combo_source": "",
         "confidence_zh": "",
         "research_score": "",
         "pdf_note_zh": "",
@@ -1956,7 +2234,15 @@ def write_outputs(df: pd.DataFrame, source_rows: int, source_status: str) -> Non
                 "pending_age_zh",
                 "sample_size",
                 "win_rate_zh",
+                "neutral_rate_zh",
+                "loss_rate_zh",
+                "avg_return_zh",
                 "median_return_zh",
+                "pdf_bonus_combo_id",
+                "pdf_bonus_combo_win_rate_zh",
+                "pdf_bonus_combo_loss_rate_zh",
+                "pdf_bonus_combo_avg_return_zh",
+                "pdf_bonus_combo_median_return_zh",
                 "approved_for_daily",
                 "operation_module_approved_for_daily",
                 "operation_directive_level",

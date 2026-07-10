@@ -99,6 +99,20 @@ def test_build_approval_creates_versioned_daily_guidance() -> None:
     assert mid["best_evidence_win_rate"] == "80.0000"
     assert mid["volume_v2_loss_rate_pct"] == "20.0000"
 
+    high = approval[approval["model_id"].eq("volume_range_breakout_v2_high_position_volume_attack")].iloc[0]
+    assert high["operation_module_id"] == "volume_range_breakout_v2_high_position_operation_v1"
+    assert high["approval_version"] == "volume_range_breakout_v2_high_position_operation_20260710"
+    assert high["approved_for_daily"] == "True"
+    assert high["entry_rule_id"] == "confirmation_next_open"
+    assert high["stop_loss_rule_id"] == "sustained_close_below_lower_ma20_ema23_4pct_4d"
+    assert high["exit_rule_id"] == "ema23_close_stop_or_fixed_15d_close"
+    assert high["buy_filter_id"] == "pos120_high_nonconsolidation_or_wide_ma60_gt_ma120_next_day_continuation_d15_stop"
+    assert high["source_research_id"] == "volume_range_breakout_v2_high_position_improvement_audit"
+    assert high["evidence_source_kind"] == "volume_range_breakout_v2_high_position_improvement_audit"
+    assert high["best_evidence_sample_size"] == "231"
+    assert high["best_evidence_win_rate"] == "62.3377"
+    assert high["volume_v2_loss_rate_pct"] == "37.6623"
+
     w_bottom = approval[approval["model_id"].eq("w_bottom_right_side")].iloc[0]
     assert w_bottom["operation_module_id"] == "w_bottom_early_entry_operation_v2"
     assert w_bottom["approval_version"] == "w_bottom_early_entry_operation_v2_20260629"

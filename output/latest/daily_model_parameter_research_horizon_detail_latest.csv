@@ -21,6 +21,17 @@ volume_range_breakout_v2_mid_position_momentum_attack,中位動能放量攻擊,v
 volume_range_breakout_v2_mid_position_momentum_attack,中位動能放量攻擊,volume_range_breakout_v2_mid_position_operation_v1,D+9,signal_date_next_open,D+9_close,D+9_intraday_high,78,43.59,-1.08,-1.55,12.55,65.38
 volume_range_breakout_v2_mid_position_momentum_attack,中位動能放量攻擊,volume_range_breakout_v2_mid_position_operation_v1,D+10,signal_date_next_open,D+10_close,D+10_intraday_high,78,46.15,-0.83,-1.75,13.49,66.67
 volume_range_breakout_v2_mid_position_momentum_attack,中位動能放量攻擊,volume_range_breakout_v2_mid_position_operation_v1,D+20,signal_date_next_open,D+20_close,D+20_intraday_high,76,48.68,2.52,-0.18,21.72,75.0
+volume_range_breakout_v2_high_position_volume_attack,高位階放量攻擊,volume_range_breakout_v2_high_position_operation_v1,D+1,signal_date_next_open,D+1_close,D+1_intraday_high,0,,,,,
+volume_range_breakout_v2_high_position_volume_attack,高位階放量攻擊,volume_range_breakout_v2_high_position_operation_v1,D+2,signal_date_next_open,D+2_close,D+2_intraday_high,0,,,,,
+volume_range_breakout_v2_high_position_volume_attack,高位階放量攻擊,volume_range_breakout_v2_high_position_operation_v1,D+3,signal_date_next_open,D+3_close,D+3_intraday_high,0,,,,,
+volume_range_breakout_v2_high_position_volume_attack,高位階放量攻擊,volume_range_breakout_v2_high_position_operation_v1,D+4,signal_date_next_open,D+4_close,D+4_intraday_high,0,,,,,
+volume_range_breakout_v2_high_position_volume_attack,高位階放量攻擊,volume_range_breakout_v2_high_position_operation_v1,D+5,signal_date_next_open,D+5_close,D+5_intraday_high,0,,,,,
+volume_range_breakout_v2_high_position_volume_attack,高位階放量攻擊,volume_range_breakout_v2_high_position_operation_v1,D+6,signal_date_next_open,D+6_close,D+6_intraday_high,0,,,,,
+volume_range_breakout_v2_high_position_volume_attack,高位階放量攻擊,volume_range_breakout_v2_high_position_operation_v1,D+7,signal_date_next_open,D+7_close,D+7_intraday_high,0,,,,,
+volume_range_breakout_v2_high_position_volume_attack,高位階放量攻擊,volume_range_breakout_v2_high_position_operation_v1,D+8,signal_date_next_open,D+8_close,D+8_intraday_high,0,,,,,
+volume_range_breakout_v2_high_position_volume_attack,高位階放量攻擊,volume_range_breakout_v2_high_position_operation_v1,D+9,signal_date_next_open,D+9_close,D+9_intraday_high,0,,,,,
+volume_range_breakout_v2_high_position_volume_attack,高位階放量攻擊,volume_range_breakout_v2_high_position_operation_v1,D+10,signal_date_next_open,D+10_close,D+10_intraday_high,0,,,,,
+volume_range_breakout_v2_high_position_volume_attack,高位階放量攻擊,volume_range_breakout_v2_high_position_operation_v1,D+20,signal_date_next_open,D+20_close,D+20_intraday_high,0,,,,,
 price_pullback_23ema,23EMA回檔模型,price_pullback_23ema_prev20_breakout_stop_v1,D+1,signal_date_next_open,D+1_close,D+1_intraday_high,9612,41.92,-0.03,-0.12,1.49,6.36
 price_pullback_23ema,23EMA回檔模型,price_pullback_23ema_prev20_breakout_stop_v1,D+2,signal_date_next_open,D+2_close,D+2_intraday_high,9398,44.36,0.13,-0.12,2.44,13.85
 price_pullback_23ema,23EMA回檔模型,price_pullback_23ema_prev20_breakout_stop_v1,D+3,signal_date_next_open,D+3_close,D+3_intraday_high,9168,45.28,0.29,-0.15,3.22,19.96

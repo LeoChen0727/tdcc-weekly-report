@@ -36,6 +36,10 @@ ADAPTER_BY_MODEL = {
     / "output"
     / "latest"
     / "daily_volume_breakout_operation_section_latest.csv",
+    "volume_range_breakout_v2_high_position_volume_attack": ROOT
+    / "output"
+    / "latest"
+    / "daily_volume_breakout_operation_section_latest.csv",
     "w_bottom_right_side": ROOT / "output" / "latest" / "daily_w_bottom_right_side_operation_section_latest.csv",
     "neckline_volume_breakout_confirmation": ROOT
     / "output"
@@ -48,6 +52,7 @@ BASE_METRIC_COLUMNS = {
     "sample_size",
     "win_rate_zh",
     "neutral_rate_zh",
+    "loss_rate_zh",
     "failure_rate_zh",
     "avg_return_zh",
     "median_return_zh",
@@ -296,14 +301,16 @@ def generic_combo_policy_status(rows: pd.DataFrame, groups: list[str]) -> tuple[
             combo_avg = pct_number(row.get(avg_col))
             combo_median = pct_number(row.get(median_col)) if median_col in row.index else None
             base_median = pct_number(row.get("median_return_zh"))
-            improves_win = base_win is not None and combo_win is not None and combo_win >= base_win
-            improves_avg = base_avg is not None and combo_avg is not None and combo_avg >= base_avg
-            improves_median = (
-                base_median is not None and combo_median is not None and combo_median >= base_median
-            )
-            if not (improves_win or improves_avg or improves_median):
+            worsened = []
+            if base_win is not None and combo_win is not None and combo_win < base_win:
+                worsened.append("win_rate")
+            if base_avg is not None and combo_avg is not None and combo_avg < base_avg:
+                worsened.append("avg_return")
+            if base_median is not None and combo_median is not None and combo_median < base_median:
+                worsened.append("median_return")
+            if worsened:
                 issues.append(f"{prefix}:{row.get(id_col)}:combo_worse_than_baseline")
-                worse_statuses.append(f"{prefix}:fail_combo_worse_than_baseline")
+                worse_statuses.append(f"{prefix}:fail_combo_worse_than_baseline={';'.join(worsened)}")
             else:
                 worse_statuses.append(f"{prefix}:pass_combo_not_worse_than_baseline")
     return "|".join(recompute_statuses), "|".join(worse_statuses), issues
@@ -497,16 +504,13 @@ def build_rows() -> list[dict[str, object]]:
     approved = read_csv(APPROVED_PATTERNS_CSV)
     mature = mature_readiness_rows(readiness)
     rows = [audit_mature_model(row, approved, generated_at) for _, row in mature.iterrows()]
-    high_position = audit_high_position_research(generated_at)
-    if high_position is not None:
-        rows.append(high_position)
     return rows
 
 
 def write_csv(rows: list[dict[str, object]]) -> None:
     LATEST_CSV.parent.mkdir(parents=True, exist_ok=True)
     with LATEST_CSV.open("w", encoding="utf-8-sig", newline="") as fh:
-        writer = csv.DictWriter(fh, fieldnames=OUTPUT_COLUMNS)
+        writer = csv.DictWriter(fh, fieldnames=OUTPUT_COLUMNS, lineterminator="\n")
         writer.writeheader()
         for row in rows:
             writer.writerow({column: row.get(column, "") for column in OUTPUT_COLUMNS})

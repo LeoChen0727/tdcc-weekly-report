@@ -43,6 +43,7 @@ from audit_daily_candidate_model_selection_correctness import (  # noqa: E402
 
 LOW_VOLUME_MODEL_ID = "volume_range_breakout_v2_low_position_volume_attack"
 MID_VOLUME_MODEL_ID = "volume_range_breakout_v2_mid_position_momentum_attack"
+HIGH_VOLUME_MODEL_ID = "volume_range_breakout_v2_high_position_volume_attack"
 
 
 def make_row(**overrides: object) -> pd.Series:
@@ -97,6 +98,25 @@ def volume_v2_price_history(signal_date: str = "20260530") -> pd.DataFrame:
     return pd.DataFrame(rows)
 
 
+def high_position_volume_v2_price_history(signal_date: str = "20260530") -> pd.DataFrame:
+    dates = pd.date_range(end=pd.to_datetime(signal_date), periods=120, freq="D").strftime("%Y%m%d")
+    rows: list[dict[str, str]] = []
+    for index, date in enumerate(dates):
+        close = 90 if index < 60 else 100
+        rows.append(
+            {
+                "date": date,
+                "open": str(close),
+                "high": "110",
+                "low": "80",
+                "close": str(close),
+                "volume": "1000",
+            }
+        )
+    rows[-1].update({"open": "104", "high": "110", "low": "100", "close": "108", "volume": "3000"})
+    return pd.DataFrame(rows)
+
+
 class DailyCandidateModelLayerTest(unittest.TestCase):
     def test_required_models_are_parameterized(self) -> None:
         model_ids = set(build_parameter_table(build_specs())["model_id"])
@@ -104,6 +124,7 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
             {
                 LOW_VOLUME_MODEL_ID,
                 MID_VOLUME_MODEL_ID,
+                HIGH_VOLUME_MODEL_ID,
                 "price_pullback_23ema",
                 "revenue_unreacted_range",
                 "w_bottom_right_side",
@@ -125,6 +146,7 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
         self.assertNotIn("volume_range_breakout", params.index)
         self.assertEqual(params.loc[LOW_VOLUME_MODEL_ID, "pdf_visibility"], "pdf_core_model")
         self.assertEqual(params.loc[MID_VOLUME_MODEL_ID, "pdf_visibility"], "pdf_core_model")
+        self.assertEqual(params.loc[HIGH_VOLUME_MODEL_ID, "pdf_visibility"], "pdf_core_model")
         self.assertEqual(params.loc["tdcc_short_term_continuation_d5_d10", "pdf_visibility"], "pdf_core_model")
         self.assertEqual(params.loc["short_term_surge_d5_d10", "pdf_visibility"], "research_only_not_pdf_core")
         self.assertEqual(params.loc["explosive_volume_red_candle", "pdf_visibility"], "research_only_not_pdf_core")
@@ -151,6 +173,7 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
             {
                 LOW_VOLUME_MODEL_ID,
                 MID_VOLUME_MODEL_ID,
+                HIGH_VOLUME_MODEL_ID,
                 "price_pullback_23ema",
                 "hot_theme_pullback",
                 "revenue_unreacted_range",
@@ -217,6 +240,7 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
         params = build_parameter_table(build_specs()).set_index("model_id")
         self.assertEqual(params.loc[LOW_VOLUME_MODEL_ID, "score_profile_id"], LOW_VOLUME_MODEL_ID)
         self.assertEqual(params.loc[MID_VOLUME_MODEL_ID, "score_profile_id"], MID_VOLUME_MODEL_ID)
+        self.assertEqual(params.loc[HIGH_VOLUME_MODEL_ID, "score_profile_id"], HIGH_VOLUME_MODEL_ID)
         self.assertEqual(params.loc["price_pullback_23ema", "score_profile_id"], "price_pullback_23ema")
         self.assertEqual(
             params.loc["neckline_volume_breakout_confirmation", "score_profile_id"],
@@ -262,6 +286,7 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
         expected = {
             LOW_VOLUME_MODEL_ID: "confirmation_next_open",
             MID_VOLUME_MODEL_ID: "confirmation_next_open",
+            HIGH_VOLUME_MODEL_ID: "confirmation_next_open",
         }
         for _, row in pdf_rows.iterrows():
             self.assertEqual(
@@ -275,10 +300,13 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
         self.assertNotIn("volume_range_breakout", params.index)
         low_condition_text = params.loc[LOW_VOLUME_MODEL_ID, "main_conditions"]
         mid_condition_text = params.loc[MID_VOLUME_MODEL_ID, "main_conditions"]
+        high_condition_text = params.loc[HIGH_VOLUME_MODEL_ID, "main_conditions"]
 
         self.assertIn("60", low_condition_text)
         self.assertIn("120", low_condition_text)
         self.assertIn("120", mid_condition_text)
+        self.assertIn("MA60", high_condition_text)
+        self.assertIn("MA120", high_condition_text)
         self.assertNotEqual(low_condition_text, VOLUME_RANGE_BREAKOUT_MAIN_CONDITIONS_ZH)
 
     def test_volume_breakout_condition_is_bottom_volume_attack_not_60d_only(self) -> None:
@@ -422,6 +450,50 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
         self.assertEqual(float(row["model_score"]), float(row["final_rank_score"]))
         self.assertEqual(row["volume_position_bucket_120d"], "low_pos_le40")
         self.assertNotIn("volume_range_breakout", set(out["model_id"].astype(str)))
+
+    def test_high_position_volume_breakout_requires_ma60_above_ma120(self) -> None:
+        source = pd.DataFrame(
+            [
+                {
+                    "signal_date": "20260530",
+                    "stock_id": "2489",
+                    "stock_name": "HIGH",
+                    "volume_breakout_type": "bottom_volume_attack",
+                    "selection_status": "selected",
+                    "volume_breakout_score": "88",
+                    "volume_breakout_priority": "A_bottom_volume_attack",
+                    "volume_breakout_notes": "close_ge_prior60_high_102pct|volume_ratio_ge_2",
+                    "volume_ratio": "3.0",
+                    "range_width_40_pct": "45",
+                    "next_volume_breakout_confirmation": "next day continuation close-only",
+                }
+            ]
+        )
+        original_path = model_layer.VOLUME_BREAKOUT_WATCH
+        original_price_dir = model_layer.STOCK_PRICE_HISTORY_DIR
+        with tempfile.TemporaryDirectory() as tmpdir:
+            temp_dir = Path(tmpdir)
+            temp_path = temp_dir / "volume_breakout_watch_latest.csv"
+            price_dir = temp_dir / "stock_price_history"
+            price_dir.mkdir()
+            source.to_csv(temp_path, index=False, encoding="utf-8-sig")
+            high_position_volume_v2_price_history().to_csv(price_dir / "2489.csv", index=False)
+            model_layer.VOLUME_BREAKOUT_WATCH = temp_path
+            model_layer.STOCK_PRICE_HISTORY_DIR = price_dir
+            try:
+                out = model_layer.append_volume_breakout_signals(pd.DataFrame(), pd.DataFrame(), "20260530")
+            finally:
+                model_layer.VOLUME_BREAKOUT_WATCH = original_path
+                model_layer.STOCK_PRICE_HISTORY_DIR = original_price_dir
+
+        self.assertEqual(len(out), 1)
+        row = out.iloc[0]
+        self.assertEqual(row["model_id"], HIGH_VOLUME_MODEL_ID)
+        self.assertEqual(row["volume_position_bucket_120d"], "high_pos_gt75")
+        self.assertEqual(row["volume_shape_bucket"], "non_consolidation")
+        self.assertEqual(row["volume_ma60_gt_ma120"], "True")
+        self.assertIn("profile=volume_range_breakout_v2_high_position_volume_attack", row["score_components"])
+        self.assertNotIn("一價鎖漲停放量突破", row["rank_reason_zh"])
 
     def test_pullback_model_does_not_require_breakout(self) -> None:
         row = make_row(

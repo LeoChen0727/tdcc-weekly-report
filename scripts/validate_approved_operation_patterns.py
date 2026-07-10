@@ -53,6 +53,7 @@ from build_approved_operation_patterns import (  # noqa: E402
     V2_ENTRY_RULE_ID,
     V2_EXIT_RULE_ID,
     V2_FORMAL_MODEL_IDS,
+    V2_HIGH_MODEL_ID,
     V2_LOW_MODEL_ID,
     V2_MID_MODEL_ID,
     V2_SOURCE_RESEARCH_ID,
@@ -101,6 +102,7 @@ REQUIRED_COLUMNS = {
 EXPECTED_APPROVED_MODELS = {
     V2_LOW_MODEL_ID,
     V2_MID_MODEL_ID,
+    V2_HIGH_MODEL_ID,
     W_BOTTOM_MODEL_ID,
     NECKLINE_MODEL_ID,
     PRICE_PULLBACK_MODEL_ID,
@@ -153,16 +155,16 @@ def validate_approval() -> list[str]:
         expected = {
             "model_id": model_id,
             "operation_module_id": metrics["operation_module_id"],
-            "approval_version": V2_APPROVAL_VERSION,
+            "approval_version": metrics.get("approval_version", V2_APPROVAL_VERSION),
             "approved_for_daily": "True",
             "approval_status": "approved_for_daily_v1",
             "operation_directive_level": "approved_daily_operation_guidance",
-            "source_research_id": V2_SOURCE_RESEARCH_ID,
+            "source_research_id": metrics.get("source_research_id", V2_SOURCE_RESEARCH_ID),
             "entry_rule_id": V2_ENTRY_RULE_ID,
             "stop_loss_rule_id": V2_STOP_LOSS_RULE_ID,
             "exit_rule_id": V2_EXIT_RULE_ID,
             "buy_filter_id": metrics["buy_filter_id"],
-            "evidence_source_kind": "volume_range_breakout_v2_candidate_bucket_contract",
+            "evidence_source_kind": metrics.get("evidence_source_kind", "volume_range_breakout_v2_candidate_bucket_contract"),
         }
         for col, value in expected.items():
             if str(row.get(col, "")) != value:
@@ -311,8 +313,12 @@ def validate_positive_rank_source() -> list[str]:
             errors.append(f"missing v2 approved operation row: {model_id}")
             continue
         evidence_kind = str(row.iloc[0].get("evidence_source_kind", ""))
-        if evidence_kind != "volume_range_breakout_v2_candidate_bucket_contract":
-            errors.append(f"{model_id} must use v2 candidate bucket contract evidence, got {evidence_kind!r}")
+        expected_kind = V2_APPROVAL_METRICS[model_id].get(
+            "evidence_source_kind",
+            "volume_range_breakout_v2_candidate_bucket_contract",
+        )
+        if evidence_kind != expected_kind:
+            errors.append(f"{model_id} must use {expected_kind} evidence, got {evidence_kind!r}")
         if str(row.iloc[0].get("buy_filter_id", "")) == BUY_FILTER_ID:
             errors.append(f"{model_id} must not reuse legacy hidden evidence buy_filter_id={BUY_FILTER_ID}")
     return errors

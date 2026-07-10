@@ -1,6 +1,6 @@
 # Daily Model Parameter Research - Horizon Detail
 
-- generated_at: `2026-07-10 17:43:21 Asia/Taipei`
+- generated_at: `2026-07-11 00:31:08 Asia/Taipei`
 - entry_basis: `signal_date_next_open`
 
 | model_id | parameter_set_id | horizon | mature_count | close_win_rate_pct | avg_close_return_pct | median_close_return_pct | avg_high_return_pct | high_5pct_hit_rate_pct |
@@ -25,6 +25,16 @@
 | volume_range_breakout_v2_mid_position_momentum_attack | volume_range_breakout_v2_mid_position_operation_v1 | D+8 | 78 | 46.15 | -1.82 | -2.35 | 11.64 | 61.54 |
 | volume_range_breakout_v2_mid_position_momentum_attack | volume_range_breakout_v2_mid_position_operation_v1 | D+9 | 78 | 43.59 | -1.08 | -1.55 | 12.55 | 65.38 |
 | volume_range_breakout_v2_mid_position_momentum_attack | volume_range_breakout_v2_mid_position_operation_v1 | D+10 | 78 | 46.15 | -0.83 | -1.75 | 13.49 | 66.67 |
+| volume_range_breakout_v2_high_position_volume_attack | volume_range_breakout_v2_high_position_operation_v1 | D+1 | 0 |  |  |  |  |  |
+| volume_range_breakout_v2_high_position_volume_attack | volume_range_breakout_v2_high_position_operation_v1 | D+2 | 0 |  |  |  |  |  |
+| volume_range_breakout_v2_high_position_volume_attack | volume_range_breakout_v2_high_position_operation_v1 | D+3 | 0 |  |  |  |  |  |
+| volume_range_breakout_v2_high_position_volume_attack | volume_range_breakout_v2_high_position_operation_v1 | D+4 | 0 |  |  |  |  |  |
+| volume_range_breakout_v2_high_position_volume_attack | volume_range_breakout_v2_high_position_operation_v1 | D+5 | 0 |  |  |  |  |  |
+| volume_range_breakout_v2_high_position_volume_attack | volume_range_breakout_v2_high_position_operation_v1 | D+6 | 0 |  |  |  |  |  |
+| volume_range_breakout_v2_high_position_volume_attack | volume_range_breakout_v2_high_position_operation_v1 | D+7 | 0 |  |  |  |  |  |
+| volume_range_breakout_v2_high_position_volume_attack | volume_range_breakout_v2_high_position_operation_v1 | D+8 | 0 |  |  |  |  |  |
+| volume_range_breakout_v2_high_position_volume_attack | volume_range_breakout_v2_high_position_operation_v1 | D+9 | 0 |  |  |  |  |  |
+| volume_range_breakout_v2_high_position_volume_attack | volume_range_breakout_v2_high_position_operation_v1 | D+10 | 0 |  |  |  |  |  |
 | price_pullback_23ema | price_pullback_23ema_prev20_breakout_stop_v1 | D+1 | 9612 | 41.92 | -0.03 | -0.12 | 1.49 | 6.36 |
 | price_pullback_23ema | price_pullback_23ema_prev20_breakout_stop_v1 | D+2 | 9398 | 44.36 | 0.13 | -0.12 | 2.44 | 13.85 |
 | price_pullback_23ema | price_pullback_23ema_prev20_breakout_stop_v1 | D+3 | 9168 | 45.28 | 0.29 | -0.15 | 3.22 | 19.96 |
@@ -295,13 +305,3 @@
 | volume_range_breakout | prior20x1.03_vol2_minvol500 | D+8 | 3716 | 42.2 | 0.76 | -1.96 | 11.48 | 60.44 |
 | volume_range_breakout | prior20x1.03_vol2_minvol500 | D+9 | 3705 | 42.46 | 1.12 | -2.03 | 12.28 | 62.08 |
 | volume_range_breakout | prior20x1.03_vol2_minvol500 | D+10 | 3696 | 43.1 | 1.43 | -1.84 | 13.03 | 63.56 |
-| volume_range_breakout | prior20x1.03_vol2_minvol1000 | D+1 | 3160 | 38.89 | -0.66 | -0.65 | 3.08 | 23.64 |
-| volume_range_breakout | prior20x1.03_vol2_minvol1000 | D+2 | 3155 | 42.09 | -0.46 | -1.25 | 5.28 | 41.97 |
-| volume_range_breakout | prior20x1.03_vol2_minvol1000 | D+3 | 3150 | 41.65 | -0.29 | -1.39 | 6.84 | 48.19 |
-| volume_range_breakout | prior20x1.03_vol2_minvol1000 | D+4 | 3140 | 41.53 | -0.11 | -1.85 | 8.11 | 52.04 |
-| volume_range_breakout | prior20x1.03_vol2_minvol1000 | D+5 | 3101 | 41.7 | 0.13 | -1.78 | 9.18 | 55.34 |
-| volume_range_breakout | prior20x1.03_vol2_minvol1000 | D+6 | 3088 | 42.26 | 0.43 | -1.74 | 10.13 | 57.67 |
-| volume_range_breakout | prior20x1.03_vol2_minvol1000 | D+7 | 3076 | 42.85 | 0.75 | -1.84 | 10.99 | 59.53 |
-| volume_range_breakout | prior20x1.03_vol2_minvol1000 | D+8 | 3059 | 43.31 | 1.16 | -1.62 | 11.84 | 61.56 |
-| volume_range_breakout | prior20x1.03_vol2_minvol1000 | D+9 | 3050 | 43.67 | 1.59 | -1.52 | 12.68 | 63.11 |
-| volume_range_breakout | prior20x1.03_vol2_minvol1000 | D+10 | 3043 | 44.33 | 1.92 | -1.37 | 13.46 | 64.57 |
