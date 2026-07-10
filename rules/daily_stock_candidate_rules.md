@@ -125,6 +125,28 @@ row-level performance fields blank or show an explicit unavailable state from
 the adapter. It must not infer a combo metric from candidate rows or substitute
 the overall model baseline.
 
+This contract applies to every mature daily operation model, not only the
+model that most recently changed. A single add-score item may use the approved
+single-item metric only when that metric was calculated under the same entry,
+exit, stop, anomaly-exclusion, and non-overlap basis as the model row. When a
+stock row has multiple add-score items at the same time, the adapter must expose
+the exact recomputed combination metric for that feature set; it must not
+combine single-item win rates by averaging, picking the best item, or copying
+the whole-model baseline.
+
+If the exact combination metric is worse than the baseline on all primary
+evidence dimensions, the adapter must not present that combination as an
+add-score metric. It may fall back to the approved single item that actually
+improves the row, or leave the row-level metric unavailable. Sample size must be
+reported but must not by itself disqualify a rare combination; the decision is
+based on whether the exact recomputed win/neutral/failure rates and realized
+return evidence improve the operation row.
+
+Research-only combination tables may retain worse or inconclusive combinations
+for audit, but they must stay labeled research-only and must not become PDF
+operation row metrics until a model-specific promotion PR wires an approved
+operation adapter field.
+
 ## No Daily PDF Action Rating Layer
 
 Daily PDF and packet output must not depend on action-rating or position-sizing fields. The daily report may describe model hits, model score, rank, risk tags, technical state, TDCC/warrant context, and next confirmation. It must not convert those fields into a program-side buy/sell instruction until a separate historical pattern operation module exists.

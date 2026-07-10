@@ -349,6 +349,8 @@ jobs:
           python scripts/validate_daily_w_bottom_operation_sections.py
           python scripts/build_daily_price_pullback_23ema_operation_section.py
           python scripts/validate_daily_price_pullback_23ema_operation_section.py
+          python scripts/build_mature_model_row_level_metric_contract_audit.py
+          python scripts/validate_mature_model_row_level_metric_contract_audit.py
 
       - name: Build theme event watch
         run: |
@@ -489,6 +491,8 @@ jobs:
           cp output/latest/daily_price_pullback_23ema_operation_section_latest.md docs/latest/daily_price_pullback_23ema_operation_section_latest.md || true
           cp output/latest/daily_price_pullback_23ema_operation_evidence_audit_latest.csv docs/latest/daily_price_pullback_23ema_operation_evidence_audit_latest.csv || true
           cp output/latest/daily_price_pullback_23ema_operation_evidence_audit_latest.md docs/latest/daily_price_pullback_23ema_operation_evidence_audit_latest.md || true
+          cp output/latest/mature_model_row_level_metric_contract_audit_latest.csv docs/latest/mature_model_row_level_metric_contract_audit_latest.csv || true
+          cp output/latest/mature_model_row_level_metric_contract_audit_latest.md docs/latest/mature_model_row_level_metric_contract_audit_latest.md || true
           cp output/latest/daily_candidate_model_layer_packet_latest.md docs/latest/daily_candidate_model_layer_packet_latest.md || true
           cp output/latest/daily_candidate_model_layer_validation_latest.json docs/latest/daily_candidate_model_layer_validation_latest.json || true
           cp output/latest/daily_candidate_model_layer_validation_latest.md docs/latest/daily_candidate_model_layer_validation_latest.md || true
@@ -536,6 +540,7 @@ jobs:
           git add docs/latest/daily_theme_status_history_latest.* docs/latest/daily_short_term_specialty_packet_latest.md || true
           git add docs/latest/daily_candidate_*.csv docs/latest/daily_candidate_*.md docs/latest/daily_candidate_*.json || true
           git add docs/latest/daily_price_pullback_23ema_operation_*_latest.* || true
+          git add docs/latest/mature_model_row_level_metric_contract_audit_latest.* || true
           git add docs/latest/daily_report_model_registry_latest.* docs/latest/individual_stock_technical_snapshot_latest.* || true
           git add docs/latest/non_revenue_momentum_watch_latest.* docs/latest/market_abnormal_status_latest.* docs/latest/market_sentiment_context_latest.* || true
           git add docs/latest/monthly_revenue_* || true
