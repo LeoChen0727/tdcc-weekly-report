@@ -974,24 +974,26 @@ UPC_CFI_9/2023, UPC_CFI_752/2025
 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時
   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):
    無。","1d=2.48%, 5d=17.34%, 20d=n/a%",priced_in,True,,,2.48,4.95,17.34,,1.72,False,True,False,False,,0,,,,,
-20260709,20260709,20260709,20260709,20260709,range_rebound,區間內轉強 / 挑戰前高觀察,range_rebound,6903,巨漢,,,,,,,69.0,,,,,,,,,,,,,,,,,,394.0,1072000.0,1072.0,1.37,386.95,395.82,388.24,,,,,445.5,451.5,,-11.56,-12.74,,,,,,,417.5,360.0,15.97,,False,False,True,False,False,True,True,True,True,False,8.84,417.5,previous_20d_high,-5.63,False,False,False,False,True,False,early_entry_watch,417.5,362.0,15.33,False,False,False,,305.0,,20260703.0,,,,,,3.0,-0.46,-1.67,1.0,0.0,distribution_warning,近幾週400張與1000張同步減少,,,,,,,,,data/daily_price,180,區間內轉強；量比1.37x；TDCC近幾週大戶籌碼轉弱,6903,巨漢,TPEx,初步觀察,,,,,370.5,399.0,369.5,1.82,-0.46,1.48,-5.17,1.81,6.49,1.03,56.66,417.5,360.0,355.5,355.5,25.32,-12.74,0.0,0.0,,,,,,,,,,,,,,,,20260709,1,1,2,3,3,20260528,20260709,range_rebound,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。,54,TPEx,,69.0,75,0,0,3,3,27,20,0,0,10,36,27,0,0,57,1.34,0.0,5488,松普,True,100,100,mainstream_overheated,mainstream_overheated,non_mainstream_theme,non_mainstream_overheated,individual_quality_candidate,區間轉強 / 前高挑戰,range_near_high_watch,False,mainstream_overheated；區間轉強 / 前高挑戰,2,0,material_information,0,,material_information,False,False,False,False,False,False,False,False,True,,20260617,https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap05_O; TPEX material information OpenAPI,"1.事實發生日:115/07/08
-2.公司名稱:巨漢系統科技股份有限公司
-3.與公司關係(請輸入本公司或子公司):本公司
-4.相互持股比例:不適用
-5.發生緣由:依據「發行人募集與發行有價證券處理準則」第九條第一項第二款規定辦理
-6.因應措施:不適用
-7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，
-本則重大訊息同時符合證券交易法施行細則第7條第9款所定
-對股東權益或證券價格有重大影響之事項):
-國內第一次無擔保轉換公司債
-訂約日期:115/07/08
-委託代收價款行庫:台北富邦商業銀行敦南分行
-委託存儲專戶行庫:第一商業銀行新竹分行
-國內第二次無擔保轉換公司債
-訂約日期:115/07/08
-委託代收價款行庫:台北富邦商業銀行敦南分行
-委託存儲專戶行庫:第一商業銀行新竹分行","1d=2.21%, 5d=0.65%, 20d=n/a%",none,False,,,2.21,-0.91,0.65,,1.10,False,False,True,False,,0,,,,,
-20260709,20260709,20260709,20260709,20260709,range_rebound,區間內轉強 / 挑戰前高觀察,range_rebound,8038,長園科,,,,,,,69.0,,,,,,,,,,,,,,,,,,44.4,1315000.0,1315.0,2.51,40.8,41.77,41.09,,,,,46.9,50.0,,-5.33,-11.2,,,,,,,46.9,38.45,21.98,,False,False,True,True,False,False,False,True,False,True,11.7,46.9,previous_40d_high,-5.33,False,False,False,True,True,False,platform_right_side,46.9,38.45,21.98,True,True,True,,305.0,,20260703.0,,,,,,3.0,0.0,0.0,0.0,0.0,neutral,近幾週TDCC無明顯累積,,,,,,,,,data/daily_price,180,區間內轉強；量比2.51x；近幾週TDCC無明顯累積,8038,長園科,TPEx,初步觀察,,,,,41.0,45.1,40.3,8.83,6.31,8.06,11.84,9.09,8.29,-4.0,-23.71,46.9,38.45,37.25,37.25,25.91,-11.2,0.0,0.0,,,,,,,,,,,,,,,,20260709,1,1,3,3,3,20260706,20260709,range_rebound,repeated_but_no_breakout,近 10 日上榜 3 次、近 20 日上榜 3 次，但尚未有效突破，需等待攻擊確認。,55,TPEx,,69.0,75,0,0,3,3,27,20,0,0,10,36,27,0,0,57,1.34,0.0,5488,松普,True,100,100,mainstream_overheated,mainstream_overheated,non_mainstream_theme,non_mainstream_overheated,individual_quality_candidate,帶量突破 / 嚴格突破,breakout_attack_stock,False,mainstream_overheated；帶量突破 / 嚴格突破,0,0,,0,,,False,False,False,False,False,False,False,False,False,,20260617,https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap05_O,,"1d=1.49%, 5d=1.24%, 20d=n/a%",none,False,,,1.49,0.00,1.24,,2.09,False,False,True,False,,0,,,,,
+20260709,20260709,20260709,20260709,20260709,range_rebound,區間內轉強 / 挑戰前高觀察,range_rebound,6903,巨漢,,,,,,,69.0,,,,,,,,,,,,,,,,,,394.0,1072000.0,1072.0,1.37,386.95,395.82,388.24,,,,,445.5,451.5,,-11.56,-12.74,,,,,,,417.5,360.0,15.97,,False,False,True,False,False,True,True,True,True,False,8.84,417.5,previous_20d_high,-5.63,False,False,False,False,True,False,early_entry_watch,417.5,362.0,15.33,False,False,False,,305.0,,20260703.0,,,,,,3.0,-0.46,-1.67,1.0,0.0,distribution_warning,近幾週400張與1000張同步減少,,,,,,,,,data/daily_price,180,區間內轉強；量比1.37x；TDCC近幾週大戶籌碼轉弱,6903,巨漢,TPEx,初步觀察,,,,,370.5,399.0,369.5,1.82,-0.46,1.48,-5.17,1.81,6.49,1.03,56.66,417.5,360.0,355.5,355.5,25.32,-12.74,0.0,0.0,,,,,,,,,,,,,,,,20260709,1,1,2,3,3,20260528,20260709,range_rebound,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。,54,TPEx,,69.0,75,0,0,3,3,27,20,0,0,10,36,27,0,0,57,1.34,0.0,5488,松普,True,100,100,mainstream_overheated,mainstream_overheated,non_mainstream_theme,non_mainstream_overheated,individual_quality_candidate,區間轉強 / 前高挑戰,range_near_high_watch,False,mainstream_overheated；區間轉強 / 前高挑戰,2,0,material_information,0,,material_information,False,False,False,False,False,False,False,False,True,,20260617,https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap05_O; TPEX material information OpenAPI,"1.董事會決議或公司決定日期:115/07/09
+2.原現金股利發放日:115/07/13
+3.變更後現金股利發放日:115/07/14
+4.變更原因:本公司現金股利訂於115年7月13日發放，如因受颱風停班影響，
+致部分停止上班地區金融機構作業日程需順延，現金股利發放日將順延
+至下一營業日發放。
+5.其他應敘明事項:如未受颱風停班影響地區，將依原訂日期(115年7月13日)發放。","1d=2.21%, 5d=0.65%, 20d=n/a%",none,False,,,2.21,-0.91,0.65,,1.10,False,False,True,False,,0,,,,,
+20260709,20260709,20260709,20260709,20260709,range_rebound,區間內轉強 / 挑戰前高觀察,range_rebound,8038,長園科,,,,,,,69.0,,,,,,,,,,,,,,,,,,44.4,1315000.0,1315.0,2.51,40.8,41.77,41.09,,,,,46.9,50.0,,-5.33,-11.2,,,,,,,46.9,38.45,21.98,,False,False,True,True,False,False,False,True,False,True,11.7,46.9,previous_40d_high,-5.33,False,False,False,True,True,False,platform_right_side,46.9,38.45,21.98,True,True,True,,305.0,,20260703.0,,,,,,3.0,0.0,0.0,0.0,0.0,neutral,近幾週TDCC無明顯累積,,,,,,,,,data/daily_price,180,區間內轉強；量比2.51x；近幾週TDCC無明顯累積,8038,長園科,TPEx,初步觀察,,,,,41.0,45.1,40.3,8.83,6.31,8.06,11.84,9.09,8.29,-4.0,-23.71,46.9,38.45,37.25,37.25,25.91,-11.2,0.0,0.0,,,,,,,,,,,,,,,,20260709,1,1,3,3,3,20260706,20260709,range_rebound,repeated_but_no_breakout,近 10 日上榜 3 次、近 20 日上榜 3 次，但尚未有效突破，需等待攻擊確認。,55,TPEx,,69.0,75,0,0,3,3,27,20,0,0,10,36,27,0,0,57,1.34,0.0,5488,松普,True,100,100,mainstream_overheated,mainstream_overheated,non_mainstream_theme,non_mainstream_overheated,individual_quality_candidate,帶量突破 / 嚴格突破,breakout_attack_stock,False,mainstream_overheated；帶量突破 / 嚴格突破,2,0,material_information,0,,material_information,False,False,False,False,False,False,False,False,True,,20260617,https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap05_O; TPEX material information OpenAPI,"1.人員變動別（請輸入發言人、代理發言人、重要營運主管
+(如:執行長、營運長、行銷長及策略長等)、財務主管、會計
+主管、公司治理主管、資訊安全長、研發主管、內部稽核主管或訴訟及非
+訟代理人）:財務主管、會計主管、代理發言人
+2.發生變動日期:115/07/09
+3.舊任者姓名、級職及簡歷:不適用
+4.新任者姓名、級職及簡歷:蔡宜東/正峰工業股份有限公司財務會計經理、
+光寶科技股份有限公司財務部副理、國巨股份有限公司稽核主任。
+5.異動情形（請輸入「辭職」、「職務調整」、「資遣」、
+「退休」、「死亡」、「新任」或「解任」）:新任
+6.異動原因:新任
+7.生效日期:115/07/09
+8.其他應敘明事項:無","1d=1.49%, 5d=1.24%, 20d=n/a%",none,False,,,1.49,0.00,1.24,,2.09,False,False,True,False,,0,,,,,
 20260709,20260709,20260709,20260709,20260709,range_rebound,區間內轉強 / 挑戰前高觀察,range_rebound,8039,台虹,,,,,,,69.0,,,,,,,,,,,,,,,,,,154.0,16601516.0,16601.52,1.95,145.45,144.25,145.47,,,,,168.5,170.5,,-8.61,-9.68,,,,,,,160.0,126.5,26.48,,True,False,True,False,False,True,True,True,True,False,12.0,160.0,previous_20d_high,-3.75,True,False,False,True,True,False,neckline_challenge,160.0,135.5,18.08,True,False,False,,305.0,,20260703.0,,,,,,3.0,0.93,0.82,1.0,1.0,mild_accumulation,近幾週400張與1000張合計增加,,,,,,,,,data/daily_price,180,區間內轉強；量比1.95x；TDCC近幾週大戶溫和增加,8039,台虹,TWSE,初步觀察,,,,,143.0,154.0,142.0,5.88,6.76,5.87,4.05,7.32,19.38,7.69,80.96,160.0,126.5,125.5,125.5,34.26,-9.68,0.0,0.0,call_put_bullish,3.0,,16498960.0,157350.0,104.86,183.64,33.25,0.0,國票,認購成交金額明顯大於認售，且認購資金明顯升溫,,,,,20260709,1,1,3,5,12,20260523,20260709,range_rebound,repeated_but_no_breakout,近 10 日上榜 5 次、近 20 日上榜 12 次，但尚未有效突破，需等待攻擊確認。,56,TWSE,,69.0,195,0,0,8,8,40,75,0,0,32,86,76,42,4,114,1.13,0.0,6416,瑞祺電通,True,100,100,mainstream_overheated,mainstream_overheated,non_mainstream_theme,non_mainstream_overheated,individual_quality_candidate,帶量突破 / 嚴格突破,breakout_attack_stock,False,mainstream_overheated；帶量突破 / 嚴格突破,2,0,material_information,0,,material_information,False,False,False,False,False,False,False,False,True,,20260617,https://openapi.twse.com.tw/v1/opendata/t187ap05_L; TWSE material information OpenAPI,"1.人員變動別（請輸入發言人、代理發言人、重要營運主管(如:執行長、營運長、
 行銷長及策略長等)、財務主管、會計主管、公司治理主管、資訊安全長、研發主管、
 內部稽核主管或訴訟及非訟代理人）:財務主管、會計主管
@@ -1049,55 +1051,25 @@ UPC_CFI_9/2023, UPC_CFI_752/2025
 (3)最近四季累計係本公司114年第2季至115年第1季採IFRS編製之合併數，業經
 會計師查核(閱)。","1d=3.67%, 5d=3.67%, 20d=n/a%",priced_in,True,,,3.67,0.33,3.67,,2.10,False,True,False,False,,0,,,,,
 20260709,20260709,20260709,20260709,20260709,range_rebound,區間內轉強 / 挑戰前高觀察,range_rebound,8109,博大,,,,,,,69.0,,,,,,,,,,,,,,,,,,151.0,1026000.0,1026.0,1.6,129.18,123.55,132.79,,,,,166.5,166.5,,-9.31,-9.31,,,,,,,166.5,115.5,44.16,,True,True,False,True,False,False,False,False,False,True,18.9,166.5,previous_60d_high,-9.31,False,False,False,True,False,False,platform_right_side,166.5,115.5,44.16,True,True,True,,305.0,,20260703.0,,,,,,3.0,0.13,0.15,1.0,2.0,mild_accumulation,近幾週400張與1000張合計增加,,,,,,,,,data/daily_price,180,區間內轉強；量比1.6x；TDCC近幾週大戶溫和增加,8109,博大,TPEx,初步觀察,,,,,155.5,155.5,148.0,16.9,22.22,13.71,17.97,26.36,25.83,39.17,41.78,166.5,115.5,112.5,107.5,48.0,-9.31,0.0,0.0,,,,,,,,,,,,,,,,20260709,3,2,3,3,3,20260523,20260709,range_rebound,continued_2_3d,連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。,59,TPEx,,69.0,75,0,0,3,3,27,20,0,0,10,36,27,0,0,57,1.34,0.0,5488,松普,True,100,100,mainstream_overheated,mainstream_overheated,non_mainstream_theme,non_mainstream_overheated,individual_quality_candidate,帶量突破 / 嚴格突破,breakout_attack_stock,False,mainstream_overheated；帶量突破 / 嚴格突破,0,0,,0,,,False,False,False,False,False,False,False,False,False,,20260617,https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap05_O,,"1d=3.80%, 5d=0.84%, 20d=n/a%",priced_in,True,,,3.80,3.38,0.84,,3.17,False,True,False,False,,0,,,,,
-20260709,20260709,20260709,20260709,20260709,range_rebound,區間內轉強 / 挑戰前高觀察,range_rebound,6488,環球晶,,,,,,,63.0,,,,,,,,,,,,,,,,,,1350.0,6614000.0,6614.0,1.09,1076.3,865.42,1079.86,,,,,1380.0,1380.0,,-2.17,-2.17,,,,,,,1380.0,745.0,85.23,,True,True,False,True,False,False,False,False,False,False,16.38,1380.0,previous_60d_high,-2.17,True,False,False,False,True,False,neckline_challenge,1380.0,866.0,59.35,True,True,True,,305.0,,20260703.0,,,,,,3.0,1.81,1.54,2.0,2.0,strong_accumulation,近幾週400張與1000張同步累積,,,,,,,,,data/daily_price,180,區間內轉強；量比1.09x；TDCC近幾週400張與1000張同步累積,6488,環球晶,TPEx,初步觀察,,,,,1315.0,1350.0,1275.0,25.43,55.99,25.02,12.03,29.81,74.19,145.01,186.02,1380.0,745.0,630.0,508.0,119.05,-2.17,0.0,0.0,,,,,,,,,,,,,,,,20260709,6,1,5,7,9,20260528,20260709,range_rebound,continued_overheated,連續上榜但短線過熱，需避免追高並等待量價重新確認。,60,TPEx,,63.0,75,0,0,3,3,27,20,0,0,10,36,27,0,0,57,1.34,0.0,5488,松普,True,100,100,mainstream_overheated,mainstream_overheated,non_mainstream_theme,non_mainstream_overheated,individual_quality_candidate,區間轉強 / 前高挑戰,range_near_high_watch,False,mainstream_overheated；區間轉強 / 前高挑戰,2,0,material_information,0,,material_information,False,False,False,False,False,False,False,False,True,,20260617,https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap05_O; TPEX material information OpenAPI,"1.事實發生日:115/06/18
-2.發生緣由:依財團法人中華民國證券櫃檯買賣中心通知辦理。
-3.財務業務資訊:
-一、基本資料
-(一)單月                     115年5月         114年5月        與去年同期增減
-營業收入(百萬元)              4,842            5,007            -3.30%
-稅前淨利(百萬元)              3,985              403            889.80%
-歸屬母公司業主淨利(百萬元)     3,503              270          1,199.28%
-每股盈餘(元)                   7.33             0.56          1,208.93%
-
-(二)單季                    115年第1季      114年第1季        與去年同期增減
-營業收入(百萬元)             13,985           15,595            -10.32%
-稅前淨利(百萬元)              2,347            2,133             10.03%
-歸屬母公司業主淨利(百萬元)     1,896            1,456             30.22%
-每股盈餘(元)                  3.97              3.05             30.16%
-
-(三)最近四季累計       114年第2季至115年第1季
-營業收入(百萬元)             58,988
-稅前淨利(百萬元)              9,730
-歸屬母公司業主淨利(百萬元)     7,752
-每股盈餘(元)                  16.21
-每股面額：10元
-4.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司
-重大訊息之查證暨公開處理程序 」第4條所列重大訊息之情事（如
-「有」，請說明）:
-無
-5.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司
-重大訊息之查證暨公開處理程序」第11條所列重大訊息說明記者會
-之情事:
-無
-6.其他應敘明事項:
-
-註1：本公司本業營運狀況穩定，115年5月每股盈餘較高，主係因持有之
-Siltronic AG股票價格上升，認列評價損益所致，該等評價損益屬未實現
-之金融資產公允價值變動影響，在未實際處分Siltronic AG股票前，將隨
-該股票價格波動而有所變動，請投資人審慎評估相關風險。
-另每股盈餘亦受本公司德國子公司以Siltronic AG股票為認股標的
-所發行之海外附認股權公司債相關評價損益影響，該等評價損益係依現有
-市場資訊估算之公允價值變動金額，實際數仍應以經會計師查核（核閱）
-之財務報告為準。
-
-註2：以上115年5月及去年同期比較數之財務資料係本公司採IFRS會計準則
-編製之合併數，未經會計師查核(閱)，僅供投資人參考。
-
-註3：最近一季115年第1季係指單季數字，非為最近財務報告中之累計數字，
-且係本公司採IFRS下編製之合併數，業經會計師查核(閱)，僅供投資人參考。
-
-註4：最近四季累計係本公司114年第2季至115年第1季採IFRS編製之合併數，
-業經會計師查核(閱)，僅供投資人參考。","1d=0.91%, 5d=-5.45%, 20d=n/a%",priced_in,True,,,0.91,-8.18,-5.45,,3.51,True,True,False,False,,0,,,,,
+20260709,20260709,20260709,20260709,20260709,range_rebound,區間內轉強 / 挑戰前高觀察,range_rebound,6488,環球晶,,,,,,,63.0,,,,,,,,,,,,,,,,,,1350.0,6614000.0,6614.0,1.09,1076.3,865.42,1079.86,,,,,1380.0,1380.0,,-2.17,-2.17,,,,,,,1380.0,745.0,85.23,,True,True,False,True,False,False,False,False,False,False,16.38,1380.0,previous_60d_high,-2.17,True,False,False,False,True,False,neckline_challenge,1380.0,866.0,59.35,True,True,True,,305.0,,20260703.0,,,,,,3.0,1.81,1.54,2.0,2.0,strong_accumulation,近幾週400張與1000張同步累積,,,,,,,,,data/daily_price,180,區間內轉強；量比1.09x；TDCC近幾週400張與1000張同步累積,6488,環球晶,TPEx,初步觀察,,,,,1315.0,1350.0,1275.0,25.43,55.99,25.02,12.03,29.81,74.19,145.01,186.02,1380.0,745.0,630.0,508.0,119.05,-2.17,0.0,0.0,,,,,,,,,,,,,,,,20260709,6,1,5,7,9,20260528,20260709,range_rebound,continued_overheated,連續上榜但短線過熱，需避免追高並等待量價重新確認。,60,TPEx,,63.0,75,0,0,3,3,27,20,0,0,10,36,27,0,0,57,1.34,0.0,5488,松普,True,100,100,mainstream_overheated,mainstream_overheated,non_mainstream_theme,non_mainstream_overheated,individual_quality_candidate,區間轉強 / 前高挑戰,range_near_high_watch,False,mainstream_overheated；區間轉強 / 前高挑戰,3,0,event_confirmed;customer_win,0,event_confirmed,customer_win,False,False,False,False,False,False,False,False,True,,20260617,https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap05_O; TPEX material information OpenAPI,"1.事實發生日:115/07/09
+2.契約或承諾相對人:Micron Technology, Inc.
+3.與公司關係:本公司之客戶
+4.契約或承諾起迄日期（或解除日期）:不適用
+5.主要內容（解除者不適用）:此次合作預計包含由美光科技提供5億美元之策略性資金
+支持，藉以推動本公司美國業務之發展及供應能力提升，以支援雙方長期合作。
+雙方規劃透過10年期長期供應協議（Long-Term Agreement, LTA），建立長期合作
+架構，相關合作內容將依雙方後續協議及相關程序推動。
+6.限制條款（解除者不適用）:無
+7.承諾事項（解除者不適用）:雙方依合作意向書簽訂10年期長期供應協議
+8.其他重要約定事項（解除者不適用）:無
+9.對公司財務、業務之影響:深化長期策略合作關係，並就長期供應合作及相關合作
+架構達成合作意向，進一步提升先進半導體晶圓供應韌性，支援AI、高效能運算與
+資料中心應用帶動之先進記憶體需求成長，以及未來世代記憶體技術發展所需之關
+鍵材料供應。
+10.具體目的:共同強化美國半導體製造生態系與在地關鍵材料供應能力。
+11.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，
+本則重大訊息同時符合證券交易法施行細則第7條第8款所定
+對股東權益或證券價格有重大影響之事項):無","1d=0.91%, 5d=-5.45%, 20d=n/a%",priced_in,True,confirmed_event,high,0.91,-8.18,-5.45,,3.51,True,True,False,False,,0,,,,,
 20260709,20260709,20260709,20260709,20260709,range_rebound,區間內轉強 / 挑戰前高觀察,range_rebound,8016,矽創,,,,,,,63.0,,,,,,,,,,,,,,,,,,363.0,3446435.0,3446.43,1.05,318.25,288.53,322.16,,,,,365.0,365.0,,-0.55,-0.55,,,,,,,365.0,270.0,35.19,,True,True,True,True,False,False,False,False,False,False,13.44,365.0,previous_60d_high,-0.55,True,False,False,False,False,False,neckline_challenge,365.0,306.5,19.09,True,True,True,,305.0,,20260703.0,,,,,,3.0,3.95,1.25,2.0,1.0,mild_accumulation,近幾週400張與1000張合計增加,,,,,,,,,data/daily_price,180,區間內轉強；量比1.05x；TDCC近幾週大戶溫和增加,8016,矽創,TWSE,初步觀察,,,,,357.0,376.5,351.0,14.06,25.81,12.68,10.84,9.83,26.7,65.75,91.56,365.0,270.0,270.0,212.5,35.19,-0.55,0.0,0.0,call_inflow,1.0,,18092560.0,0.0,,98.64,75.0,0.0,元大,認購權證資金升溫,,,,,20260709,3,2,4,9,18,20260527,20260709,range_rebound,continued_2_3d,連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。,61,TWSE,,63.0,195,0,0,8,8,40,75,0,0,32,86,76,42,4,114,1.13,0.0,6416,瑞祺電通,True,100,100,mainstream_overheated,mainstream_overheated,non_mainstream_theme,non_mainstream_overheated,individual_quality_candidate,區間轉強 / 前高挑戰,range_near_high_watch,False,mainstream_overheated；區間轉強 / 前高挑戰,2,0,investor_conference,0,,investor_conference,False,False,False,False,False,False,False,False,True,,20260617,https://openapi.twse.com.tw/v1/opendata/t187ap05_L; TWSE material information OpenAPI,"符合條款第四條第XX款：12
 事實發生日：115/07/08
 1.召開法人說明會之日期：115/07/08
@@ -2028,67 +2000,68 @@ Inc.)及江蘇領先(Jiangsu Leader Electronics Inc.)之投資。
      並全權處理其相關事項。
   (2)本次現金股利按分配比例計算至元為止(元以下不計)，配發不足1元之畸
      零款合計數，計入本公司其他收入。","1d=6.08%, 5d=8.36%, 20d=n/a%",priced_in,True,,,6.08,4.71,8.36,,2.30,True,True,False,False,,0,,,,,
-20260709,20260709,20260709,20260709,20260709,pattern,型態觀察,pattern_watch,3362,先進光,,,,,,,54.0,,,,,,,,,,,,,,,,,,180.0,6537000.0,6537.0,0.81,185.55,140.14,173.5,,,,,218.0,218.0,,-17.43,-17.43,,,,,,,218.0,158.0,37.97,,False,False,False,False,True,True,False,False,False,False,13.92,211.0,previous_10d_high,-14.69,False,False,False,False,False,False,pullback_right_side,211.0,158.0,33.54,True,False,False,,305.0,,20260703.0,,,,,,3.0,-0.32,-0.01,0.0,0.0,distribution_warning,近幾週400張與1000張同步減少,,,,,,,,,data/daily_price,180,量比0.81x；TDCC近幾週大戶籌碼轉弱,3362,先進光,TPEx,不列入,,,,,169.5,184.5,166.5,-2.99,28.44,3.75,-4.0,-14.69,5.26,48.15,74.76,218.0,158.0,109.5,100.0,99.09,-17.43,0.0,0.0,,,,,,,,,,,,,,,,20260709,2,2,3,3,4,20260523,20260709,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。,112,TPEx,,54.0,75,0,0,3,3,27,20,0,0,10,36,27,0,0,57,1.34,0.0,5488,松普,True,100,100,mainstream_overheated,mainstream_overheated,non_mainstream_theme,non_mainstream_overheated,risk_downgraded_candidate,降級 / 鈍化 / 風險,risk,False,mainstream_overheated；降級 / 鈍化 / 風險；保留風險標籤，不覆蓋主模型,2,0,shareholder_meeting,0,,shareholder_meeting,False,False,False,False,False,False,False,False,True,,20260617,https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap05_O; TPEX material information OpenAPI,"1.事實發生日:115/06/18
-2.發生緣由:依財團法人中華民國證券櫃檯買賣中心通知辦理。
-3.財務業務資訊:
-單月(註1)                  115年5月        114年5月      與去年同期增減%
-----------------------  --------------  --------------  ----------------
-營業收入(百萬元)               315              366       (13.8%)
-稅前淨利(百萬元)              (107)            (133)       19.5% 虧損減少
-歸屬母公司業主淨利(百萬元)    (88)            (115)       23.5% 虧損減少
-每股盈餘(元)                 (0.62)           (0.81)       24.7% 虧損減少
-=========================================================================
-最近一季單季(註2)         115年第1季       114年第1季     與去年同期增減%
-----------------------  --------------  --------------  ------------------
-營業收入(百萬元)               1,108            1,010              9.7%
-稅前淨利(百萬元)                (81)               52           (255.8%)
-歸屬母公司業主淨利(百萬元)     (71)               38           (286.8%)
-每股盈餘(元)                   (0.5)             0.27           (285.2%)
-===========================================================================
-最近四季累計(註3)             114年第2季~115年第1季
------------------------     --------------------------
-營業收入(百萬元)                        4,414
-稅前淨利(百萬元)                         (332)
-歸屬母公司業主淨利(百萬元)                (71)
-每股盈餘(元)                            (1.84)
-===========================================================================
-公司每股面額:10元
-4.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司
-重大訊息之查證暨公開處理程序 」第4條所列重大訊息之情事（如
-「有」，請說明）:有
-115/06/11 代重要子公司公告董事會代行股東會重要決議事項
-115/06/11 代重要子公司公告經董事會決議不分派盈餘
-5.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司
-重大訊息之查證暨公開處理程序」第11條所列重大訊息說明記者會
-之情事:無。
-6.其他應敘明事項:
-註1：以上115年5月及去年同期比較數之財務資料係本公司採IFRS
-會計準則編製之合併數，未經會計師查核(閱)，僅供投資人參考。
-註2：最近一季115年第1季係指單季數字，非為最近財務報告中之累計數字，
-且係本公司採IFRS下編製之合併數，業經會計師查核(閱)，僅供投資人參考。
-註3：最近四季累計係本公司115年第1季至114年第2季採IFRS編製之合併數，
-業經會計師查核(閱)，僅供投資人參考。","1d=1.69%, 5d=1.69%, 20d=n/a%",priced_in,True,,,1.69,-10.36,1.69,,2.73,True,False,False,False,,0,,,,,
-20260709,20260709,20260709,20260709,20260709,pattern,型態觀察,pattern_watch,3498,陽程,,,,,,,54.0,,,,,,,,,,,,,,,,,,126.5,4601000.0,4601.0,2.76,120.6,122.76,123.47,,,,,164.5,164.5,,-23.1,-23.1,,,,,,,136.0,112.0,21.43,,True,True,True,True,False,True,True,False,True,False,8.58,136.0,previous_20d_high,-6.99,False,False,False,True,False,False,platform_right_side,136.0,113.0,20.35,True,True,True,,305.0,,20260703.0,,,,,,3.0,5.84,5.48,1.0,1.0,mild_accumulation,近幾週400張與1000張合計增加,,,,,,,,,data/daily_price,180,量比2.76x；TDCC近幾週大戶溫和增加,3498,陽程,TPEx,不列入,,,,,124.0,131.0,124.0,4.89,3.04,2.46,2.85,6.75,2.85,47.26,132.97,136.0,112.0,112.0,76.1,46.88,-23.1,0.0,0.0,,,,,,,,,,,,,,,,20260709,4,1,4,5,7,20260528,20260709,pattern,repeated_but_no_breakout,近 10 日上榜 5 次、近 20 日上榜 7 次，但尚未有效突破，需等待攻擊確認。,113,TPEx,,54.0,75,0,0,3,3,27,20,0,0,10,36,27,0,0,57,1.34,0.0,5488,松普,True,100,100,mainstream_overheated,mainstream_overheated,non_mainstream_theme,non_mainstream_overheated,individual_quality_candidate,帶量突破 / 嚴格突破,breakout_attack_stock,False,mainstream_overheated；帶量突破 / 嚴格突破,2,0,shareholder_meeting;semiconductor_equipment_theme;automation equipment;automation;equipment,0,,shareholder_meeting;semiconductor_equipment_theme;automation equipment;automation;equipment,False,False,False,False,False,False,False,False,True,semiconductor_equipment_theme;automation equipment;automation;equipment,20260617,https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap05_O; TPEX material information OpenAPI; config/stock_theme_map.csv,"1.股東會決議日:115/06/12
-2.許可從事競業行為之董事姓名及職稱:
-(1)董事：華準投資股份有限公司代表人：李進興
-上頂醫學影像科技股份有限公司 法人董事
-(2)獨立董事：呂正華
-中華民國全國工業總會秘書長
-(3)獨立董事：殷偉雄
-商業總會顧問
-威鋒電子股份有限公司 獨立董事
-3.許可從事競業行為之項目:與本公司營業範圍相同或類似之公司
-4.許可從事競業行為之期間:任職本公司董事之職務期間
-5.決議情形（請依公司法第209條說明表決結果）:
-經出席股東表決結果贊成權數已逾法定數額，本案照案通過
-6.所許可之競業行為如屬大陸地區事業之營業者，董事姓名及職稱
-（非屬大陸地區事業之營業者，以下請輸〝不適用〞）:不適用
-7.所擔任該大陸地區事業之公司名稱及職務:不適用
-8.所擔任該大陸地區事業地址:不適用
-9.所擔任該大陸地區事業營業項目:不適用
-10.對本公司財務業務之影響程度:不適用
-11.董事如有對該大陸地區事業從事投資者，其投資金額及持股比例:不適用
-12.其他應敘明事項:無","1d=3.36%, 5d=-0.42%, 20d=n/a%",priced_in,True,,,3.36,-0.42,-0.42,,1.22,True,True,False,False,,0,,,,,
+20260709,20260709,20260709,20260709,20260709,pattern,型態觀察,pattern_watch,3362,先進光,,,,,,,54.0,,,,,,,,,,,,,,,,,,180.0,6537000.0,6537.0,0.81,185.55,140.14,173.5,,,,,218.0,218.0,,-17.43,-17.43,,,,,,,218.0,158.0,37.97,,False,False,False,False,True,True,False,False,False,False,13.92,211.0,previous_10d_high,-14.69,False,False,False,False,False,False,pullback_right_side,211.0,158.0,33.54,True,False,False,,305.0,,20260703.0,,,,,,3.0,-0.32,-0.01,0.0,0.0,distribution_warning,近幾週400張與1000張同步減少,,,,,,,,,data/daily_price,180,量比0.81x；TDCC近幾週大戶籌碼轉弱,3362,先進光,TPEx,不列入,,,,,169.5,184.5,166.5,-2.99,28.44,3.75,-4.0,-14.69,5.26,48.15,74.76,218.0,158.0,109.5,100.0,99.09,-17.43,0.0,0.0,,,,,,,,,,,,,,,,20260709,2,2,3,3,4,20260523,20260709,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。,112,TPEx,,54.0,75,0,0,3,3,27,20,0,0,10,36,27,0,0,57,1.34,0.0,5488,松普,True,100,100,mainstream_overheated,mainstream_overheated,non_mainstream_theme,non_mainstream_overheated,risk_downgraded_candidate,降級 / 鈍化 / 風險,risk,False,mainstream_overheated；降級 / 鈍化 / 風險；保留風險標籤，不覆蓋主模型,2,0,shareholder_meeting,0,,shareholder_meeting,False,False,False,False,False,False,False,False,True,,20260617,https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap05_O; TPEX material information OpenAPI,"1.重要子公司名稱:科雅光電股份有限公司
+2.發生緣由(降低持股比例（或出資額）或喪失控制力):降低持股比例
+3.降低持股（或出資額）比例之方式(請分別列示各次發生日期、發生原因
+、方式、降低持股比例、交易數量、每單位價格及交易總金額):
+發生日期：115年5月7日及115年7月9日本公司董事會決議。
+發生原因：配合科雅公司股票上(市)櫃規劃，依法令規定辦理股權分散。
+方式：處分科雅光電公司10%股權，共計 3,680,000 股，處分後本公司仍
+持有該子公司90%股權，仍保有實質控制權與經營決策影響力。
+降低持股比例：10%
+交易數量：3,680,000股
+每單位價格：每股新台幣68元
+交易總金額：新台幣250,240千元
+4.喪失控制力之方式(請列示發生日期、發生原因及方式):不適用
+5.股權(或出資額)受讓對象或所洽特定對象(請分別列示各次交易對象):
+大立光電股份有限公司
+6.與交易對象之關係(請分別列示各次交易對象與公司之關係):無
+7.處分利益(或損失)(請分別列示各次處分損益，若無處分損益請填寫不適用):
+不適用
+8.迄目前為止(含本次交易)，對重要子公司累積降低持股比例:10%
+9.迄目前為止(含本次交易)，對重要子公司持股比例:90%
+10.獨立專家姓名及其就歷次價格合理性之意見:
+勝傑會計師事務所塗勝傑會計師/價格尚屬合理。
+11.獨立專家姓名及其就降低持股或喪失控制力對上櫃公司股東權益影響之意見:
+勝傑會計師事務所塗勝傑會計師
+降低持股對本公司之股東權益並無重大影響。
+12.是否影響母公司繼續上櫃:否
+13.審計委員會決議日期:115/05/07及115/07/09
+14.審計委員會決議內容:本案經全體出席委員同意照案通過。
+15.董事會決議日期:115/05/07及115/07/09
+16.董事會決議內容:本案經全體出席董事同意照案通過。
+17.其他應敘明事項:
+1.本次補充公告所洽特定對象、每單位價格及交易總金額。
+2.本次處分案若有其他未盡事宜，擬授權董事長視實際情況
+依相關法令規定辦理及擬授權董事長代表本公司簽署一切有
+關辦理契約及文件，並代表本公司辦理相關事項。
+3.科雅釋股案己經115年6月29日股東會決議通過。","1d=1.69%, 5d=1.69%, 20d=n/a%",priced_in,True,,,1.69,-10.36,1.69,,2.73,True,False,False,False,,0,,,,,
+20260709,20260709,20260709,20260709,20260709,pattern,型態觀察,pattern_watch,3498,陽程,,,,,,,54.0,,,,,,,,,,,,,,,,,,126.5,4601000.0,4601.0,2.76,120.6,122.76,123.47,,,,,164.5,164.5,,-23.1,-23.1,,,,,,,136.0,112.0,21.43,,True,True,True,True,False,True,True,False,True,False,8.58,136.0,previous_20d_high,-6.99,False,False,False,True,False,False,platform_right_side,136.0,113.0,20.35,True,True,True,,305.0,,20260703.0,,,,,,3.0,5.84,5.48,1.0,1.0,mild_accumulation,近幾週400張與1000張合計增加,,,,,,,,,data/daily_price,180,量比2.76x；TDCC近幾週大戶溫和增加,3498,陽程,TPEx,不列入,,,,,124.0,131.0,124.0,4.89,3.04,2.46,2.85,6.75,2.85,47.26,132.97,136.0,112.0,112.0,76.1,46.88,-23.1,0.0,0.0,,,,,,,,,,,,,,,,20260709,4,1,4,5,7,20260528,20260709,pattern,repeated_but_no_breakout,近 10 日上榜 5 次、近 20 日上榜 7 次，但尚未有效突破，需等待攻擊確認。,113,TPEx,,54.0,75,0,0,3,3,27,20,0,0,10,36,27,0,0,57,1.34,0.0,5488,松普,True,100,100,mainstream_overheated,mainstream_overheated,non_mainstream_theme,non_mainstream_overheated,individual_quality_candidate,帶量突破 / 嚴格突破,breakout_attack_stock,False,mainstream_overheated；帶量突破 / 嚴格突破,2,0,material_information;semiconductor_equipment_theme;automation equipment;automation;equipment,0,,material_information;semiconductor_equipment_theme;automation equipment;automation;equipment,False,False,False,False,False,False,False,False,True,semiconductor_equipment_theme;automation equipment;automation;equipment,20260617,https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap05_O; TPEX material information OpenAPI; config/stock_theme_map.csv,"1.法律事件之當事人:上海陽程科技有限公司
+2.法律事件之法院名稱或處分機關:河南省林州市人民法院
+3.法律事件之相關文書案號:河南省林州市人民法院判決書
+                       （2025）豫0581民初7776號
+4.事實發生日:115/07/09
+5.發生原委(含爭訟標的):本公司之子公司上海陽程科技有限公司於2020年9月委由
+北京市道成律師事務所，處理上海陽程科技有限公司與林州致遠電子科技有限公司間
+承攬合同糾紛案說判決說明。
+判決結果：
+我方總計須在判決生效後 15 日內支付給原告人民幣23,998,347.23元，明細如下：
+‧賠償金：人民幣23,163,739.23元（含已維修費、未維修貶值、停產及品質損失）。
+‧鑑定費：人民幣689,900元。
+‧案件受理費：人民幣139,708元。
+‧保全申請費：人民幣5,000元。
+6.處理過程:提出上訴並持續與律師溝通。
+7.對公司財務業務影響及預估影響金額:本案本公司已提列足額損失準備，
+對財務業務無重大影響。因先前對造超額聲請財產保全應付予本公司貨款，
+若依本次判決結果，本公司可聲請發還約人民幣789萬元之款項。
+8.因應措施及改善情形:
+本公司認為，原審裁判結果顯流於地方保護主義，對於本公司提出之多處明顯爭點未予
+審酌，更刻意迴避訴訟時效等重大法律事實，在無法律依據下全盤採納對造主張，其
+認事用法顯失公正。
+為維護本公司權益擬提起上訴。
+9.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，
+本則重大訊息同時符合證券交易法施行細則第7條第2款所定對
+股東權益或證券價格有重大影響之事項):不適用","1d=3.36%, 5d=-0.42%, 20d=n/a%",priced_in,True,,,3.36,-0.42,-0.42,,1.22,True,True,False,False,,0,,,,,
 20260709,20260709,20260709,20260709,20260709,pattern,型態觀察,pattern_watch,3504,揚明光,,,,,,,54.0,,,,,,,,,,,,,,,,,,81.8,1878006.0,1878.01,0.64,81.72,76.62,79.86,,,,,97.8,97.8,,-16.36,-16.36,,,,,,,97.8,72.7,34.53,,True,False,True,False,True,False,False,False,False,False,12.52,92.8,previous_10d_high,-11.85,False,False,False,False,True,False,pullback_entry_zone,92.8,72.7,27.65,False,False,False,,305.0,,20260703.0,,,,,,3.0,-0.38,0.24,1.0,2.0,mild_accumulation,近幾週其中一項大戶級距增加,,,,,,,,,data/daily_price,180,量比0.64x；TDCC近幾週大戶溫和增加,3504,揚明光,TWSE,不列入,,,,,74.9,81.8,74.7,0.09,6.75,2.43,4.2,-5.76,3.54,14.25,57.31,97.8,72.7,72.7,61.5,34.53,-16.36,0.0,0.0,no_signal,0.0,,7300.0,0.0,,110.98,110.98,0.0,國票,權證金流未見明顯高於近期平均的變化,,,,,20260709,1,1,1,5,11,20260601,20260709,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。,114,TWSE,,54.0,195,0,0,8,8,40,75,0,0,32,86,76,42,4,114,1.13,0.0,6416,瑞祺電通,True,100,100,mainstream_overheated,mainstream_overheated,non_mainstream_theme,non_mainstream_overheated,risk_downgraded_candidate,降級 / 鈍化 / 風險,risk,False,mainstream_overheated；降級 / 鈍化 / 風險；保留風險標籤，不覆蓋主模型,0,0,,0,,,False,False,False,False,False,False,False,False,False,,20260617,https://openapi.twse.com.tw/v1/opendata/t187ap05_L,,"1d=5.43%, 5d=0.35%, 20d=n/a%",priced_in,True,,,5.43,0.23,0.35,,1.73,True,True,False,False,,0,,,,,
 20260709,20260709,20260709,20260709,20260709,pattern,型態觀察,pattern_watch,3511,矽瑪,,,,,,,54.0,,,,,,,,,,,,,,,,,,25.15,1594000.0,1594.0,0.92,24.82,22.85,24.76,,,,,30.85,30.85,,-18.48,-18.48,,,,,,,30.85,22.35,38.03,,True,False,False,False,True,True,False,False,True,False,2.44,30.85,previous_60d_high,-18.48,False,False,False,False,False,False,early_entry_watch,30.85,23.0,34.13,True,True,True,,305.0,,20260703.0,,,,,,3.0,-0.34,0.0,0.0,0.0,distribution_warning,近幾週其中一項大戶級距減少,,,,,,,,,data/daily_price,180,量比0.92x；TDCC近幾週大戶籌碼轉弱,3511,矽瑪,TPEx,不列入,,,,,25.85,26.95,25.0,1.33,10.07,1.59,3.29,3.29,7.94,20.91,16.17,30.85,22.35,19.45,19.45,58.61,-18.48,0.0,0.0,,,,,,,,,,,,,,,,20260709,5,2,5,5,5,20260703,20260709,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。,115,TPEx,,54.0,75,0,0,3,3,27,20,0,0,10,36,27,0,0,57,1.34,0.0,5488,松普,True,100,100,mainstream_overheated,mainstream_overheated,non_mainstream_theme,non_mainstream_overheated,risk_downgraded_candidate,降級 / 鈍化 / 風險,risk,False,mainstream_overheated；降級 / 鈍化 / 風險；保留風險標籤，不覆蓋主模型,2,0,shareholder_meeting,0,,shareholder_meeting,False,False,False,False,False,False,False,False,True,,20260617,https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap05_O; TPEX material information OpenAPI,"1.董事會、股東會決議或公司決定日期:115/07/07
 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息
@@ -2457,19 +2430,17 @@ Inc.)及江蘇領先(Jiangsu Leader Electronics Inc.)之投資。
 ，授權董事長先行修正，嗣後再提報董事會追認後始得發行。
 (二)本辦法如有未盡事宜，悉依相關法令規定辦理。","1d=0.13%, 5d=1.88%, 20d=n/a%",priced_in,True,,,0.13,0.40,1.88,,2.69,False,True,False,False,,0,,,,,
 20260709,20260709,20260709,20260709,20260709,pattern,型態觀察,pattern_watch,4127,天良,,,,,,,54.0,,,,,,,,,,,,,,,,,,74.0,1291000.0,1291.0,2.73,68.81,58.34,68.95,,,,,79.5,79.5,,-6.92,-6.92,,,,,,,79.5,60.8,30.76,,True,True,True,True,False,True,False,False,True,False,6.32,79.5,previous_60d_high,-6.92,False,False,False,True,False,False,platform_right_side,79.5,63.2,25.79,True,True,True,,304.0,,20260703.0,,,,,,3.0,2.71,2.36,1.0,1.0,mild_accumulation,近幾週400張與1000張合計增加,,,,,,,,,data/daily_price,180,量比2.73x；TDCC近幾週大戶溫和增加,4127,天良,TPEx,不列入,,,,,79.2,85.4,72.2,7.54,26.85,7.33,6.02,14.73,10.45,97.33,146.67,79.5,60.8,47.3,35.7,68.08,-6.92,0.0,0.0,,,,,,,,,,,,,,,,20260709,2,1,3,3,3,20260706,20260709,pattern,continued_2_3d,連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。,123,TPEx,,54.0,75,0,0,3,3,27,20,0,0,10,36,27,0,0,57,1.34,0.0,5488,松普,True,100,100,mainstream_overheated,mainstream_overheated,non_mainstream_theme,non_mainstream_overheated,individual_quality_candidate,帶量突破 / 嚴格突破,breakout_attack_stock,False,mainstream_overheated；帶量突破 / 嚴格突破,0,0,,0,,,False,False,False,False,False,False,False,False,False,,20260617,https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap05_O,,"1d=-5.76%, 5d=-9.41%, 20d=n/a%",priced_in,True,,,-5.76,-10.11,-9.41,,3.23,True,False,False,False,,0,,,,,
-20260709,20260709,20260709,20260709,20260709,pattern,型態觀察,pattern_watch,4416,三圓,,,,,,,54.0,,,,,,,,,,,,,,,,,,11.45,1548000.0,1548.0,1.61,10.96,11.67,11.18,,,,,13.4,16.55,,-14.55,-30.82,,,,,,,13.4,9.27,44.55,,False,False,False,False,False,True,True,False,True,False,8.02,13.4,previous_40d_high,-14.55,False,False,False,True,False,False,early_entry_watch,13.4,10.6,26.42,True,False,False,,305.0,,20260703.0,,,,,,3.0,0.62,0.07,1.0,1.0,mild_accumulation,近幾週400張與1000張合計增加,,,,,,,,,data/daily_price,180,量比1.61x；TDCC近幾週大戶溫和增加,4416,三圓,TPEx,不列入,,,,,11.8,11.8,11.4,4.48,-1.92,2.46,0.44,-6.15,8.02,-27.07,-61.96,13.4,9.27,9.27,9.27,44.55,-30.82,0.0,0.0,,,,,,,,,,,,,,,,20260709,1,1,1,4,4,20260626,20260709,pattern,repeated_but_no_breakout,近 10 日上榜 4 次、近 20 日上榜 4 次，但尚未有效突破，需等待攻擊確認。,124,TPEx,,54.0,75,0,0,3,3,27,20,0,0,10,36,27,0,0,57,1.34,0.0,5488,松普,True,100,100,mainstream_overheated,mainstream_overheated,non_mainstream_theme,non_mainstream_overheated,individual_quality_candidate,帶量突破 / 嚴格突破,breakout_attack_stock,False,mainstream_overheated；帶量突破 / 嚴格突破,4,0,event_confirmed;new_order,0,event_confirmed,new_order,False,False,False,False,False,False,False,False,True,,20260617,https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap05_O; TPEX material information OpenAPI,"1.關係人或主要債務人或其連帶保證人名稱:源利工程股份有限公司
-2.事實發生日:115/07/08
-3.發生緣由:本公司於115/07/08接獲通知，源利工程(股)公司於115/07/08因存款不足
-發生退票資訊如下:國泰世華銀行之支票1張，金額合計:新台幣200,000元。
-4.債權種類或背書保證金額及其所占資產比例:不適用
-5.債權有無保全措施:不適用
-6.對公司財務、業務之影響及預計可能損失:本公司第一季財報帳列
-(1)其他應收款-其他關係人-源利共計新台幣54,965仟元，提列減損新台幣19,259仟元
-(2)資金融通-其他關係人-源利共計新台幣174,668仟元，提列減損新台幣61,134仟元
-7.因應措施:與持票人協商清償註記。
-8.其他應敘明事項:
-(1)截至本日共有36張支票尚未清償註記，金額共計新台幣44,202,698。
-(2)因期限內超過3張未清償註記，目前為拒絕往來戶。","1d=7.18%, 5d=30.76%, 20d=n/a%",overheated,True,confirmed_event,high,7.18,8.25,30.76,,6.51,False,True,False,True,,0,,,,,
+20260709,20260709,20260709,20260709,20260709,pattern,型態觀察,pattern_watch,4416,三圓,,,,,,,54.0,,,,,,,,,,,,,,,,,,11.45,1548000.0,1548.0,1.61,10.96,11.67,11.18,,,,,13.4,16.55,,-14.55,-30.82,,,,,,,13.4,9.27,44.55,,False,False,False,False,False,True,True,False,True,False,8.02,13.4,previous_40d_high,-14.55,False,False,False,True,False,False,early_entry_watch,13.4,10.6,26.42,True,False,False,,305.0,,20260703.0,,,,,,3.0,0.62,0.07,1.0,1.0,mild_accumulation,近幾週400張與1000張合計增加,,,,,,,,,data/daily_price,180,量比1.61x；TDCC近幾週大戶溫和增加,4416,三圓,TPEx,不列入,,,,,11.8,11.8,11.4,4.48,-1.92,2.46,0.44,-6.15,8.02,-27.07,-61.96,13.4,9.27,9.27,9.27,44.55,-30.82,0.0,0.0,,,,,,,,,,,,,,,,20260709,1,1,1,4,4,20260626,20260709,pattern,repeated_but_no_breakout,近 10 日上榜 4 次、近 20 日上榜 4 次，但尚未有效突破，需等待攻擊確認。,124,TPEx,,54.0,75,0,0,3,3,27,20,0,0,10,36,27,0,0,57,1.34,0.0,5488,松普,True,100,100,mainstream_overheated,mainstream_overheated,non_mainstream_theme,non_mainstream_overheated,individual_quality_candidate,帶量突破 / 嚴格突破,breakout_attack_stock,False,mainstream_overheated；帶量突破 / 嚴格突破,2,0,material_information,0,,material_information,False,False,False,False,False,False,False,False,True,,20260617,https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap05_O; TPEX material information OpenAPI,"1.事實發生日:115/07/09
+2.公司名稱:三圓建設股份有限公司
+3.與公司關係(請輸入本公司或子公司):本公司
+4.相互持股比例:不適用
+5.發生緣由:
+(1)為活化資產並提升資金運用效益，本公司董事會決議擬處分台北之星不動產
+(2)授權董事長於鑑價報告金額差異20%內全權處理後續買賣相關之簽約事宜。
+6.因應措施:將依「取得或處分資產處理程序」辦理。
+7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，
+本則重大訊息同時符合證券交易法施行細則第7條第9款所定
+對股東權益或證券價格有重大影響之事項):無","1d=7.18%, 5d=30.76%, 20d=n/a%",overheated,True,,,7.18,8.25,30.76,,6.51,False,True,False,True,,0,,,,,
 20260709,20260709,20260709,20260709,20260709,pattern,型態觀察,pattern_watch,4541,晟田,,,,,,,54.0,,,,,,,,,,,,,,,,,,61.0,11666000.0,11666.0,2.48,52.98,48.39,53.79,,,,,67.4,67.4,,-9.5,-9.5,,,,,,,67.4,45.6,47.81,,True,True,False,True,False,False,False,False,False,False,10.31,67.4,previous_60d_high,-9.5,False,False,False,True,False,False,platform_right_side,67.4,46.75,44.17,True,True,True,,305.0,,20260703.0,,,,,,3.0,-2.32,-1.76,1.0,0.0,distribution_warning,近幾週400張與1000張同步減少,,,,,,,,,data/daily_price,180,量比2.48x；TDCC近幾週大戶籌碼轉弱,4541,晟田,TPEx,不列入,,,,,62.0,66.4,60.8,15.13,26.07,13.4,10.51,26.95,30.62,23.61,27.75,67.4,45.6,43.15,43.15,56.2,-9.5,0.0,0.0,,,,,,,,,,,,,,,,20260709,9,3,5,9,12,20260528,20260709,pattern,continued_overheated,連續上榜但短線過熱，需避免追高並等待量價重新確認。,125,TPEx,,54.0,75,0,0,3,3,27,20,0,0,10,36,27,0,0,57,1.34,0.0,5488,松普,True,100,100,mainstream_overheated,mainstream_overheated,non_mainstream_theme,non_mainstream_overheated,individual_quality_candidate,帶量突破 / 嚴格突破,breakout_attack_stock,False,mainstream_overheated；帶量突破 / 嚴格突破,2,0,material_information,0,,material_information,False,False,False,False,False,False,False,False,True,,20260617,https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap05_O; TPEX material information OpenAPI,"1.事實發生日:115/07/08
 2.發生緣由:依財團法人中華民國證券櫃檯買賣中心通知辦理。
 3.財務業務資訊:
@@ -4665,25 +4636,46 @@ and Shanghai Banking Corporation Limited and UBS AG Hong Kong Branch
 轉換標的收市價格(4722):301.00(115/06/24收盤價)
 轉債收市價格(47223):210.00(115/06/24收盤價)
 4.其他應敘明事項:無","1d=5.11%, 5d=8.33%, 20d=n/a%",priced_in,True,,,5.11,3.79,8.33,,2.48,True,True,False,False,,0,,,,,
-20260709,20260709,20260709,20260709,20260709,pattern,型態觀察,pattern_watch,5347,世界,,,,,,,35.0,,,,,,,,,,,,,,,,,,173.0,20279000.0,20279.0,0.6,187.4,169.6,183.97,,,,,223.0,223.0,,-22.42,-22.42,,,,,,,223.0,151.5,47.19,,False,False,False,False,True,False,False,False,False,False,2.98,223.0,previous_60d_high,-22.42,False,False,False,False,False,False,pullback_entry_zone,223.0,168.0,32.74,True,False,False,,305.0,,20260703.0,,,,,,3.0,1.05,0.98,1.0,1.0,mild_accumulation,近幾週400張與1000張合計增加,,,,,,,,,data/daily_price,180,量比0.6x；TDCC近幾週大戶溫和增加,5347,世界,TPEx,不列入,,,,,177.5,178.0,170.5,-7.68,2.0,-5.96,-12.63,-21.36,13.44,24.46,45.38,223.0,151.5,145.5,133.5,53.26,-22.42,0.0,0.0,,,,,,,,,,,,,,,,20260709,4,4,4,6,10,20260528,20260709,pattern,continued_overheated,連續上榜但短線過熱，需避免追高並等待量價重新確認。,253,TPEx,,35.0,75,0,0,3,3,27,20,0,0,10,36,27,0,0,57,1.34,0.0,5488,松普,True,100,100,mainstream_overheated,mainstream_overheated,non_mainstream_theme,non_mainstream_overheated,risk_downgraded_candidate,降級 / 鈍化 / 風險,risk,False,mainstream_overheated；降級 / 鈍化 / 風險；保留風險標籤，不覆蓋主模型,2,0,shareholder_meeting,0,,shareholder_meeting,False,False,False,False,False,False,False,False,True,,20260617,https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap05_O; TPEX material information OpenAPI,"1.董事會決議日期:115/06/24
-2.增資資金來源:現金增資
-3.是否採總括申報發行新股(是，請併敘明預定發行期間/否):否
-4.全案發行總金額及股數(如屬盈餘或公積轉增資，發行股數則不含配發給員工部分):
-發行總金額:US$70,000,000
-發行股數:70,000,000股
-5.採總括申報發行新股案件，本次發行金額及股數:不適用
-6.採總括申報發行新股案件，本次發行後，剩餘之金額及股數餘額:不適用
-7.每股面額:US$1
-8.發行價格:US$1
-9.員工認購股數或配發金額:不適用
-10.公開銷售股數:不適用
-11.原股東認購或無償配發比例(請註明暫定每仟股認購或配發股數):
-全數由原股東認購
-12.畸零股及逾期未認購股份之處理方式:不適用
-13.本次發行新股之權利義務:發行之新股權利義務與原已發行普通股股份相同
-14.本次增資資金用途:公司營運需求
-15.其他應敘明事項:VSMC於115/5/29股東會通過，授權董事會於次一年度股東常會前
-辦理現金增資發行新股","1d=4.80%, 5d=32.13%, 20d=n/a%",overheated,True,,,4.80,12.01,32.13,,4.16,True,True,False,True,,0,,,,,
+20260709,20260709,20260709,20260709,20260709,pattern,型態觀察,pattern_watch,5347,世界,,,,,,,35.0,,,,,,,,,,,,,,,,,,173.0,20279000.0,20279.0,0.6,187.4,169.6,183.97,,,,,223.0,223.0,,-22.42,-22.42,,,,,,,223.0,151.5,47.19,,False,False,False,False,True,False,False,False,False,False,2.98,223.0,previous_60d_high,-22.42,False,False,False,False,False,False,pullback_entry_zone,223.0,168.0,32.74,True,False,False,,305.0,,20260703.0,,,,,,3.0,1.05,0.98,1.0,1.0,mild_accumulation,近幾週400張與1000張合計增加,,,,,,,,,data/daily_price,180,量比0.6x；TDCC近幾週大戶溫和增加,5347,世界,TPEx,不列入,,,,,177.5,178.0,170.5,-7.68,2.0,-5.96,-12.63,-21.36,13.44,24.46,45.38,223.0,151.5,145.5,133.5,53.26,-22.42,0.0,0.0,,,,,,,,,,,,,,,,20260709,4,4,4,6,10,20260528,20260709,pattern,continued_overheated,連續上榜但短線過熱，需避免追高並等待量價重新確認。,253,TPEx,,35.0,75,0,0,3,3,27,20,0,0,10,36,27,0,0,57,1.34,0.0,5488,松普,True,100,100,mainstream_overheated,mainstream_overheated,non_mainstream_theme,non_mainstream_overheated,risk_downgraded_candidate,降級 / 鈍化 / 風險,risk,False,mainstream_overheated；降級 / 鈍化 / 風險；保留風險標籤，不覆蓋主模型,2,0,material_information,0,,material_information,False,False,False,False,False,False,False,False,True,,20260617,https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap05_O; TPEX material information OpenAPI,"1.證券名稱:
+Sumitomo Mitsui Financial Group, Inc.之普通公司債
+2.交易日期:115/2/2~115/7/9
+3.董事會通過日期: 不適用
+4.其他核決日期:
+核決層級:副總經理暨財務長
+民國115年01月27日
+5.交易數量、每單位價格及交易總金額:
+(1)US86562MEJ53：40,000單位；每單位約US$99.202元；總金額US$4佰萬元。
+(2)US86562MDM91：80,000單位；每單位約US$102.79元；總金額US$8佰萬元。
+(3)US86562MBP41：60,000單位；每單位約US$96.26元；總金額US$6佰萬元。
+6.處分利益（或損失）（取得有價證券者不適用）:
+不適用
+7.與交易標的公司之關係:
+無
+8.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股
+比例及權利受限情形（如質押情形）:
+(1)數量:180,000單位 
+(2)金額:US$18佰萬元 
+(3)持股比例：不適用 
+(4)權利受限情形: 無
+9.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列之有價證券投
+資（含本次交易）占公司最近期財務報表中總資產及歸屬於母公司業主之權益之比例
+暨最近期財務報表中營運資金數額:
+(1)有價證券投資(含本次交易)占公司最近期財務報表中總資產之比例：5.90%
+(2)占公司最近期財務報表歸屬於母公司業主之權益之比例：10.66%
+(3)最近期財報中營運資金（總資產減總負債）數額:20,206,163仟元
+10.取得或處分之具體目的:
+固定收益投資
+11.本次交易表示異議董事之意見:
+不適用
+12.本次交易為關係人交易:
+否
+13.交易相對人及其與公司之關係:
+無
+14.監察人承認或審計委員會同意日期:
+不適用
+15.前已就同一件事件發布重大訊息日期: 不適用
+16.其他敘明事項:
+無","1d=4.80%, 5d=32.13%, 20d=n/a%",overheated,True,,,4.80,12.01,32.13,,4.16,True,True,False,True,,0,,,,,
 20260709,20260709,20260709,20260709,20260709,pattern,型態觀察,pattern_watch,6116,彩晶,,,,,,,35.0,,,,,,,,,,,,,,,,,,17.2,48644492.0,48644.49,0.4,17.98,14.26,17.6,,,,,22.7,22.7,,-24.23,-24.23,,,,,,,20.9,13.1,59.54,,False,False,False,False,True,False,False,False,False,False,4.24,20.45,previous_10d_high,-15.89,False,False,False,False,False,False,pullback_entry_zone,20.45,16.5,23.94,True,False,False,,305.0,,20260703.0,,,,,,3.0,1.57,1.7,2.0,2.0,strong_accumulation,近幾週400張與1000張同步累積,,,,,,,,,data/daily_price,180,量比0.4x；TDCC近幾週400張與1000張同步累積,6116,彩晶,TWSE,不列入,,,,,17.4,17.75,17.05,-4.36,20.59,-2.25,-7.03,-11.79,19.44,89.22,61.5,20.9,13.1,9.74,8.12,133.06,-24.23,0.0,0.0,call_strong_inflow,2.0,,4834070.0,0.0,,193.16,204.2,0.0,國票,認購權證成交金額明顯升溫,,,,,20260709,5,5,5,8,10,20260525,20260709,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。,254,TWSE,,35.0,195,0,0,8,8,40,75,0,0,32,86,76,42,4,114,1.13,0.0,6416,瑞祺電通,True,100,100,mainstream_overheated,mainstream_overheated,non_mainstream_theme,non_mainstream_overheated,risk_downgraded_candidate,降級 / 鈍化 / 風險,risk,False,mainstream_overheated；降級 / 鈍化 / 風險；保留風險標籤，不覆蓋主模型,2,0,material_information,0,,material_information,False,False,False,False,False,False,False,False,True,,20260617,https://openapi.twse.com.tw/v1/opendata/t187ap05_L; TWSE material information OpenAPI,"1.事實發生日:115/06/22
 2.發生緣由:依臺灣證券交易所股份有限公司通知辦理
 3.財務業務資訊:(IFRS合併)
@@ -4742,50 +4734,24 @@ and Shanghai Banking Corporation Limited and UBS AG Hong Kong Branch
 5.重要決議事項四、董監事選舉:無。
 6.重要決議事項五、其他事項:無。
 7.其他應敘明事項:無。","1d=1.43%, 5d=17.56%, 20d=n/a%",overheated,True,,,1.43,22.58,17.56,,5.87,True,True,False,True,,0,,,,,
-20260709,20260709,20260709,20260709,20260709,pattern,型態觀察,pattern_watch,6175,立敦,,,,,,,35.0,,,,,,,,,,,,,,,,,,105.0,3561000.0,3561.0,0.3,108.93,90.33,106.34,,,,,123.0,123.0,,-14.63,-14.63,,,,,,,123.0,96.6,27.33,,False,False,False,False,True,False,False,False,False,False,1.94,123.0,previous_60d_high,-14.63,False,False,False,False,False,False,pullback_entry_zone,123.0,103.0,19.42,True,False,False,,305.0,,20260703.0,,,,,,3.0,-0.36,-0.84,1.0,0.0,distribution_warning,近幾週400張與1000張同步減少,,,,,,,,,data/daily_price,180,量比0.3x；TDCC近幾週大戶籌碼轉弱,6175,立敦,TPEx,不列入,,,,,108.0,110.5,105.0,-3.61,16.24,-1.26,-4.11,-9.87,5.11,60.06,96.63,123.0,96.6,72.1,60.0,70.6,-14.63,0.0,0.0,,,,,,,,,,,,,,,,20260709,3,2,4,8,11,20260524,20260709,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。,258,TPEx,,35.0,75,0,0,3,3,27,20,0,0,10,36,27,0,0,57,1.34,0.0,5488,松普,True,100,100,mainstream_overheated,mainstream_overheated,non_mainstream_theme,non_mainstream_overheated,risk_downgraded_candidate,降級 / 鈍化 / 風險,risk,False,mainstream_overheated；降級 / 鈍化 / 風險；保留風險標籤，不覆蓋主模型,2,0,material_information,0,,material_information,False,False,False,False,False,False,False,False,True,,20260617,https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap05_O; TPEX material information OpenAPI,"1.事實發生日:115/06/22
-2.發生緣由:依財團法人中華民國證券櫃檯買賣中心通知辦理。
-3.財務業務資訊:
-(1)單月
-                            最近一月單月     去年同月       與去年同期
-                              (115/05)       (114/05)          增減%
-  -----------------------  --------------  --------------  --------------
-   營業收入(百萬元)              473             378          25.13%
-   稅前淨利(百萬元)               78              45          72.68%
-   本期淨利(百萬元)               64              16         300.00%
-   每股盈餘(元)                 0.43            0.11         290.91%
-  =======================  ==============  ==============  ==============
-
-  (2)單季
-                           最近一季單季     去年同期       與去年同期
-                            (115第1季)      (114第1季)        增減%
-  -----------------------  --------------  --------------  --------------
-   營業收入(百萬元)            1,118          1,072           4.29%
-   稅前淨利(損)(百萬元)          171            174          -1.72%
-   本期淨利(損)(百萬元)          111            109           1.83%
-   每股盈餘(元)                 0.74           0.73           1.37%
-  =======================  ==============  ==============  ==============
-
-  (3)最近四季累計
-                              114年第2季至115年第1季
-  -----------------------  -----------------------------
-   營業收入(百萬元)                  4,213
-   稅前淨利(百萬元)                    681
-   本期淨利(百萬元)                    403
-   每股盈餘(元)                       2.69
-  每股面額：10元
-4.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司
-重大訊息之查證暨公開處理程序 」第4條所列重大訊息之情事（如
-「有」，請說明）:無
-5.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司
-重大訊息之查證暨公開處理程序」第11條所列重大訊息說明記者會
-之情事:無
-6.其他應敘明事項:
-(1)以上115年5月及去年同期比較數之財務資料係本公司採IFRS會計準則編製之
-   合併數，未經會計師查核(閱)，僅供投資人參考。
-(2)最近一季115年第1季係指單季數字，非為最近財務報告中之累計數字，且係
-   本公司採IFRS下編製之合併數，業經會計師查核(閱)，僅供投資人參考。
-(3)最近四季累計係本公司114年第2季至115年第1季採IFRS編製之合併數，業經
-   會計師查核(閱)，僅供投資人參考。","1d=6.05%, 5d=8.37%, 20d=n/a%",priced_in,True,,,6.05,2.79,8.37,,3.18,False,True,False,False,,0,,,,,
+20260709,20260709,20260709,20260709,20260709,pattern,型態觀察,pattern_watch,6175,立敦,,,,,,,35.0,,,,,,,,,,,,,,,,,,105.0,3561000.0,3561.0,0.3,108.93,90.33,106.34,,,,,123.0,123.0,,-14.63,-14.63,,,,,,,123.0,96.6,27.33,,False,False,False,False,True,False,False,False,False,False,1.94,123.0,previous_60d_high,-14.63,False,False,False,False,False,False,pullback_entry_zone,123.0,103.0,19.42,True,False,False,,305.0,,20260703.0,,,,,,3.0,-0.36,-0.84,1.0,0.0,distribution_warning,近幾週400張與1000張同步減少,,,,,,,,,data/daily_price,180,量比0.3x；TDCC近幾週大戶籌碼轉弱,6175,立敦,TPEx,不列入,,,,,108.0,110.5,105.0,-3.61,16.24,-1.26,-4.11,-9.87,5.11,60.06,96.63,123.0,96.6,72.1,60.0,70.6,-14.63,0.0,0.0,,,,,,,,,,,,,,,,20260709,3,2,4,8,11,20260524,20260709,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。,258,TPEx,,35.0,75,0,0,3,3,27,20,0,0,10,36,27,0,0,57,1.34,0.0,5488,松普,True,100,100,mainstream_overheated,mainstream_overheated,non_mainstream_theme,non_mainstream_overheated,risk_downgraded_candidate,降級 / 鈍化 / 風險,risk,False,mainstream_overheated；降級 / 鈍化 / 風險；保留風險標籤，不覆蓋主模型,2,0,shareholder_meeting,0,,shareholder_meeting,False,False,False,False,False,False,False,False,True,,20260617,https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap05_O; TPEX material information OpenAPI,"1.董事會、股東會決議或公司決定日期:115/07/09
+2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息
+3.發放普通股股利種類及金額:
+普通股股利配發現金新台幣225,182,718元
+4.除權（息）交易日:115/07/28
+5.最後過戶日:115/07/29
+6.停止過戶起始日期:115/07/30
+7.停止過戶截止日期:115/08/03
+8.除權（息）基準日:115/08/03
+9.債券最後申請轉換日期:不適用
+10.債券停止轉換起始日期:不適用
+11.債券停止轉換截止日期:不適用
+12.普通股現金股利發放日期:115/08/21
+13.以外幣發放現金股利(請填入「是」或「否」):否
+14.外幣現金股利發放幣別:不適用
+15.外幣現金股利發放對象:不適用
+16.外幣現金股利匯率決定方式:不適用
+17.其他應敘明事項:無。","1d=6.05%, 5d=8.37%, 20d=n/a%",priced_in,True,,,6.05,2.79,8.37,,3.18,False,True,False,False,,0,,,,,
 20260709,20260709,20260709,20260709,20260709,pattern,型態觀察,pattern_watch,6191,精成科,,,,,,,35.0,,,,,,,,,,,,,,,,,,101.0,7052905.0,7052.9,0.48,102.08,99.64,102.25,,,,,113.5,116.0,,-11.01,-12.93,,,,,,,113.5,90.0,26.11,,False,False,False,False,True,False,False,False,False,False,0.0,113.5,previous_40d_high,-11.01,False,False,False,False,False,False,pullback_entry_zone,113.5,97.1,16.89,True,False,True,,305.0,,20260703.0,,,,,,3.0,-3.04,-3.16,0.0,0.0,distribution_warning,近幾週400張與1000張同步減少,,,,,,,,,data/daily_price,180,量比0.48x；TDCC近幾週大戶籌碼轉弱,6191,精成科,TWSE,不列入,,,,,105.0,105.5,101.0,-1.06,1.36,-1.22,-8.18,1.71,9.31,-11.79,-13.3,113.5,90.0,90.0,89.3,26.11,-12.93,0.0,0.0,no_signal,0.0,,8525070.0,0.0,,-7.83,-3.29,0.0,元大,權證金流未見明顯高於近期平均的變化,,,,,20260709,3,3,3,7,13,20260523,20260709,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。,259,TWSE,,35.0,195,0,0,8,8,40,75,0,0,32,86,76,42,4,114,1.13,0.0,6416,瑞祺電通,True,100,100,mainstream_overheated,mainstream_overheated,non_mainstream_theme,non_mainstream_overheated,risk_downgraded_candidate,降級 / 鈍化 / 風險,risk,False,mainstream_overheated；降級 / 鈍化 / 風險；保留風險標籤，不覆蓋主模型,2,0,shareholder_meeting;dividend_calendar;calendar_ex_dividend,0,,shareholder_meeting,False,False,False,False,False,False,False,False,True,,20260617,https://openapi.twse.com.tw/v1/opendata/t187ap05_L; TWSE material information OpenAPI,"1.董事會、股東會決議或公司決定日期:115/06/24
 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息
 3.普通股發放股利種類及金額:
@@ -4801,23 +4767,26 @@ and Shanghai Banking Corporation Limited and UBS AG Hong Kong Branch
 12.普通股現金股利發放日期:115/07/29
 13.其他應敘明事項:股利分派計算至新台幣元為止(元以下全捨)，不足一元之畸零款
   合計數轉列公司其他收入。；calendar event: ex_dividend on 20260709; status=confirmed; proximity=recent","1d=0.50%, 5d=-0.70%, 20d=n/a%",priced_in,True,,,0.50,-0.90,-0.70,,1.49,False,True,False,False,dividend_calendar;calendar_ex_dividend,3,20260709,ex_dividend,除息,-1,TWSE ex-right/ex-dividend calendar
-20260709,20260709,20260709,20260709,20260709,pattern,型態觀察,pattern_watch,6274,台燿,,,,,,,35.0,,,,,,,,,,,,,,,,,,1570.0,4825000.0,4825.0,0.81,1654.75,1471.37,1630.96,,,,,1920.0,1920.0,,-18.23,-18.23,,,,,,,1920.0,1400.0,37.14,,False,False,False,False,True,False,False,False,False,False,1.29,1840.0,previous_10d_high,-14.67,False,False,False,False,False,False,pullback_entry_zone,1840.0,1505.0,22.26,True,False,False,,305.0,,20260703.0,,,,,,3.0,0.61,0.79,2.0,1.0,mild_accumulation,近幾週400張與1000張合計增加,,,,,,,,,data/daily_price,180,量比0.81x；TDCC近幾週大戶溫和增加,6274,台燿,TPEx,不列入,,,,,1635.0,1680.0,1565.0,-5.12,6.7,-3.74,-7.1,-7.65,4.67,65.26,230.18,1920.0,1400.0,1190.0,880.0,61.34,-18.23,0.0,0.0,,,,,,,,,,,,,,,,20260709,14,3,5,10,14,20260528,20260709,pattern,repeated_but_no_breakout,近 10 日上榜 10 次、近 20 日上榜 14 次，但尚未有效突破，需等待攻擊確認。,260,TPEx,,35.0,75,0,0,3,3,27,20,0,0,10,36,27,0,0,57,1.34,0.0,5488,松普,True,100,100,mainstream_overheated,mainstream_overheated,non_mainstream_theme,non_mainstream_overheated,risk_downgraded_candidate,降級 / 鈍化 / 風險,risk,False,mainstream_overheated；降級 / 鈍化 / 風險；保留風險標籤，不覆蓋主模型,2,0,material_information,0,,material_information,False,False,False,False,False,False,False,False,True,,20260617,https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap05_O; TPEX material information OpenAPI,"1.事實發生日:115/06/24
-2.發生緣由:依財團法人中華民國證券櫃檯買賣中心通知辦理
-3.財務業務資訊:
-台燿五(代號:62745)相關資訊
-下櫃日期:115/06/29(本公司已於115/04/29公告執行台燿五強制贖回權)
-實際發行總額:4,000,000仟元
-發行餘額:1,221,500仟元(截至115/05/31)
-最新轉(交)換價格:380.8(115/04/23)
-轉換標的收市價格(6274):1,765(115/06/24)
-可轉債收市價格(62745):452(115/06/24)
-4.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司
-重大訊息之查證暨公開處理程序 」第4條所列重大訊息之情事（如
-「有」，請說明）:無
-5.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司
-重大訊息之查證暨公開處理程序」第11條所列重大訊息說明記者會
-之情事:無
-6.其他應敘明事項:無","1d=9.88%, 5d=1.80%, 20d=n/a%",priced_in,True,,,9.88,3.89,1.80,,1.81,True,True,False,False,,0,,,,,
+20260709,20260709,20260709,20260709,20260709,pattern,型態觀察,pattern_watch,6274,台燿,,,,,,,35.0,,,,,,,,,,,,,,,,,,1570.0,4825000.0,4825.0,0.81,1654.75,1471.37,1630.96,,,,,1920.0,1920.0,,-18.23,-18.23,,,,,,,1920.0,1400.0,37.14,,False,False,False,False,True,False,False,False,False,False,1.29,1840.0,previous_10d_high,-14.67,False,False,False,False,False,False,pullback_entry_zone,1840.0,1505.0,22.26,True,False,False,,305.0,,20260703.0,,,,,,3.0,0.61,0.79,2.0,1.0,mild_accumulation,近幾週400張與1000張合計增加,,,,,,,,,data/daily_price,180,量比0.81x；TDCC近幾週大戶溫和增加,6274,台燿,TPEx,不列入,,,,,1635.0,1680.0,1565.0,-5.12,6.7,-3.74,-7.1,-7.65,4.67,65.26,230.18,1920.0,1400.0,1190.0,880.0,61.34,-18.23,0.0,0.0,,,,,,,,,,,,,,,,20260709,14,3,5,10,14,20260528,20260709,pattern,repeated_but_no_breakout,近 10 日上榜 10 次、近 20 日上榜 14 次，但尚未有效突破，需等待攻擊確認。,260,TPEx,,35.0,75,0,0,3,3,27,20,0,0,10,36,27,0,0,57,1.34,0.0,5488,松普,True,100,100,mainstream_overheated,mainstream_overheated,non_mainstream_theme,non_mainstream_overheated,risk_downgraded_candidate,降級 / 鈍化 / 風險,risk,False,mainstream_overheated；降級 / 鈍化 / 風險；保留風險標籤，不覆蓋主模型,2,0,material_information,0,,material_information,False,False,False,False,False,False,False,False,True,,20260617,https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap05_O; TPEX material information OpenAPI,"1.事實發生日:115/07/09
+2.公司名稱:台燿科技
+3.與公司關係(請輸入本公司或子公司):本公司
+4.相互持股比例:不適用
+5.發生緣由:更正本公司115年6月衍生性商品交易資訊
+6.更正資訊項目/報表名稱:6.交換
+7.更正前金額/內容/頁次:
+1001224/未沖銷契約契約總金額
+-6768未沖銷契約公允價值
+-6768未沖銷契約本年度認列未實現損益金額
+1628138已沖銷契約契約總金額
+-8695已沖銷契約本年度認列已實現損益金額
+8.更正後金額/內容/頁次:
+1000776/未沖銷契約契約總金額
+-7312/未沖銷契約公允價值
+-7312/未沖銷契約本年度認列未實現損益金額
+1596748/已沖銷契約契約總金額
+-8156已沖銷契約本年度認列已實現損益金額
+9.因應措施:更正後重新上傳公開資訊觀測站
+10.其他應敘明事項:無","1d=9.88%, 5d=1.80%, 20d=n/a%",priced_in,True,,,9.88,3.89,1.80,,1.81,True,True,False,False,,0,,,,,
 20260709,20260709,20260709,20260709,20260709,pattern,型態觀察,pattern_watch,6282,康舒,,,,,,,35.0,,,,,,,,,,,,,,,,,,57.6,30398205.0,30398.21,0.99,58.33,56.24,58.41,,,,,70.8,70.8,,-18.64,-18.64,,,,,,,67.0,53.7,24.77,,False,False,False,False,True,False,False,False,False,False,3.41,62.9,previous_10d_high,-8.43,False,False,False,False,False,False,pullback_entry_zone,62.9,53.7,17.13,True,False,False,,305.0,,20260703.0,,,,,,3.0,2.09,2.43,2.0,2.0,strong_accumulation,近幾週400張與1000張同步累積,,,,,,,,,data/daily_price,180,量比0.99x；TDCC近幾週400張與1000張同步累積,6282,康舒,TWSE,不列入,,,,,59.6,60.2,57.6,-1.25,2.41,-1.39,-0.86,-1.87,-1.54,15.78,18.15,67.0,53.7,50.0,45.0,41.6,-18.64,0.0,0.0,call_inflow,1.0,,19630520.0,3090.0,6352.92,72.67,61.9,0.0,元大,認購權證資金升溫,,,,,20260709,30,2,5,10,20,20260523,20260709,pattern,repeated_but_no_breakout,近 10 日上榜 10 次、近 20 日上榜 20 次，但尚未有效突破，需等待攻擊確認。,261,TWSE,,35.0,195,0,0,8,8,40,75,0,0,32,86,76,42,4,114,1.13,0.0,6416,瑞祺電通,True,100,100,mainstream_overheated,mainstream_overheated,non_mainstream_theme,non_mainstream_overheated,risk_downgraded_candidate,降級 / 鈍化 / 風險,risk,False,mainstream_overheated；降級 / 鈍化 / 風險；保留風險標籤，不覆蓋主模型,3,0,event_confirmed;product_certification,0,event_confirmed,product_certification,False,False,False,False,False,False,False,False,True,,20260617,https://openapi.twse.com.tw/v1/opendata/t187ap05_L; TWSE material information OpenAPI,"1.董事會決議日期:115/07/08
 2.發行期間:於董事會決議通過本次員工認股權憑證發行及認股辦法後，
 董事會得依實際需求，一次或分次授與認股權憑證。自本計畫生效日起
