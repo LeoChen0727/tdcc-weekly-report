@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2880 華南金
 
 ## Metadata
-- generated_at: 2026-07-09 22:26:44 Asia/Taipei
+- generated_at: 2026-07-10 22:27:03 Asia/Taipei
 - stock_id: 2880
 - stock_name: 華南金
 - packet_status: standard_180d_window_packet
@@ -193,7 +193,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 2880 | 華南金 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | 1. 原公告日期： 115/06/26 2. 簡述原公告申報內容： 金融機構債權(放款)出售 3. 變動緣由及主要內容： 新增加出售對象，交易相對人為廣發銀行股份有限公司澳門分行 4. 變動後對公司財務業務之影響： 無 5. 其他應敘明事項： 交易日為澳門當地時間115/07/02 |
+| 20260709 | 2880 | 華南金 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | 1.發生變動日期:115/07/09 2.法人名稱:華南金融控股股份有限公司 3.舊任者姓名:許素蓉 4.舊任者簡歷:華南銀行兼華南金融控股股份有限公司總機構法令遵循主管暨防制洗錢 及打擊資恐專責主管 5.新任者姓名:無 6.新任者簡歷:無 7.異動原因:辭職 8.原任期（例xx/xx/xx至xx/xx/xx）:114/03/14至117/03/13 9.新任生效日期:無 10.其他應敘明事項:自115年7月16日生效 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

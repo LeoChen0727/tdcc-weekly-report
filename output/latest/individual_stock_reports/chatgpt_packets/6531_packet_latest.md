@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6531 愛普*
 
 ## Metadata
-- generated_at: 2026-07-09 22:27:41 Asia/Taipei
+- generated_at: 2026-07-10 22:28:08 Asia/Taipei
 - stock_id: 6531
 - stock_name: 愛普*
 - packet_status: standard_180d_window_packet
@@ -194,7 +194,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 6531 | 愛普* | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  | call_strong_inflow | stale_signal | 營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260709 | 6531 | 愛普* | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  | call_put_bullish | stale_signal | 1.董事會決議或公司決定日期:115/07/09 2.原現金股利發放日:115/07/10 3.變更後現金股利發放日:115/07/13 4.變更原因:  本公司現金股利訂於115年7月10日發放，如因受巴威颱風影響，致部分停止上班地區  金融機構作業日程需順延，現金股利發放日將順延至下一營業日發放。 5.其他應敘明事項:  如未受颱風停班影響地區，將依原訂日期115年7月10日發放；若颱風影響致部分地區  停止上班期間延長，本公司現金股利發放時間順延。；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
@@ -204,7 +204,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 6531 | 愛普* | 71 | 0 | 20992470.0 | 0.0 |  | call_strong_inflow |
+| 20260709 | 6531 | 愛普* | 71 | 3 | 20992470.0 | 211310.0 | 99.34 | call_put_bullish |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

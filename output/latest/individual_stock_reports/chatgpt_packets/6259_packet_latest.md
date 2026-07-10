@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6259 百徽
 
 ## Metadata
-- generated_at: 2026-07-09 22:27:35 Asia/Taipei
+- generated_at: 2026-07-10 22:28:02 Asia/Taipei
 - stock_id: 6259
 - stock_name: 百徽
 - packet_status: standard_180d_window_packet
@@ -188,7 +188,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 6259 | 百徽 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | 營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260709 | 6259 | 百徽 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | 1.董事會或股東會決議日期:115/07/09 2.原發放股利種類及金額: (1)現金股利新台幣9,784,651元，每股配發0.35元。 3.變更後發放股利種類及金額: (1)現金股利新台幣9,784,651元，每股配發0.34875249元。 4.變更原因:因員工認股權憑證轉換普通股,致流通在外普通股  股數增加，董事會授權董事長依流通在外股數，調整配息率。 5.其他應敘明事項:無。；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

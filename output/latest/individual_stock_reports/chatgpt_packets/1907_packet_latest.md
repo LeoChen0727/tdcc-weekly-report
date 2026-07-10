@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1907 永豐餘
 
 ## Metadata
-- generated_at: 2026-07-09 22:26:24 Asia/Taipei
+- generated_at: 2026-07-10 22:26:39 Asia/Taipei
 - stock_id: 1907
 - stock_name: 永豐餘
 - packet_status: standard_180d_window_packet
@@ -193,7 +193,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 1907 | 永豐餘 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | 1.事實發生日:115/06/24 2.公司名稱:永豐餘投資控股股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:更正114年度第4季及115年度第1季赴大陸投資資訊 6.更正資訊項目/報表名稱:赴大陸投資資訊 7.更正前金額/內容/頁次:投資方式：1 8.更正後金額/內容/頁次:投資方式：2 9.因應措施:於公開資訊觀測站上更正114年度第4季及115年度第1季赴大陸投資資訊 10.其他應敘明事項:無；calendar event: ex_dividend on 20260713; status=confirmed; proximity=within_7d |
+| 20260709 | 1907 | 永豐餘 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | 1.事實發生日:115/06/24 2.公司名稱:永豐餘投資控股股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:更正114年度第4季及115年度第1季赴大陸投資資訊 6.更正資訊項目/報表名稱:赴大陸投資資訊 7.更正前金額/內容/頁次:投資方式：1 8.更正後金額/內容/頁次:投資方式：2 9.因應措施:於公開資訊觀測站上更正114年度第4季及115年度第1季赴大陸投資資訊 10.其他應敘明事項:無；calendar event: ex_dividend on 20260713; status=confirmed; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6214 精誠
 
 ## Metadata
-- generated_at: 2026-07-09 22:27:33 Asia/Taipei
+- generated_at: 2026-07-10 22:28:00 Asia/Taipei
 - stock_id: 6214
 - stock_name: 精誠
 - packet_status: standard_180d_window_packet
@@ -194,7 +194,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 6214 | 精誠 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  | call_inflow | repeated_but_no_breakout |  |
+| 20260709 | 6214 | 精誠 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  | call_inflow | repeated_but_no_breakout | 1.董事會決議或公司決定日期:115/07/09 2.原現金股利發放日:115/07/10 3.變更後現金股利發放日:115/07/13 4.變更原因: 本公司現金股利訂於115年7月10日發放，如因受颱風停班影響，致部分停止上班地區 金融機構作業日程需順延，現金股利發放日將順延至下一營業日115年7月13日發放。 5.其他應敘明事項: 未受颱風停班影響，將依原訂日期115年7月10日發放現金股利。 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00956 中信日經高股息
 
 ## Metadata
-- generated_at: 2026-07-09 22:26:08 Asia/Taipei
+- generated_at: 2026-07-10 22:26:21 Asia/Taipei
 - stock_id: 00956
 - stock_name: 中信日經高股息
 - packet_status: partial_rawdata_packet

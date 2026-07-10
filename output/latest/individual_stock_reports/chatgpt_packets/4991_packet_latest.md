@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4991 環宇-KY
 
 ## Metadata
-- generated_at: 2026-07-09 22:27:18 Asia/Taipei
+- generated_at: 2026-07-10 22:27:42 Asia/Taipei
 - stock_id: 4991
 - stock_name: 環宇-KY
 - packet_status: standard_180d_window_packet
@@ -189,7 +189,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 4991 | 環宇-KY | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | 營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260709 | 4991 | 環宇-KY | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/07/09 2.發生緣由:依櫃買中心通知辦理 3.財務業務資訊: (一)單月                   115年05月        114年05月       與去年同期增減% 營業收入(百萬元)             200               130                53.85% 稅前淨利(百萬元)               9               -38               123.68% 歸屬母公司業主淨利(百萬元)    11               -38               128.95% 每股盈餘(元)                 0.09            -0.34               126.47% (二)單季                  115年第1季      114年第1季      與去年同期增減% 營業收入(百萬元)             715              473               51.16% 稅前淨利(百萬元)             246              -79              411.39% 歸屬母公司業主淨利(百萬元)   196              -79              348.10% 每股盈餘(元)                1.67            -0.70              338.57% (三)最近四季累計                    114年第2季至115年第1季 營業收入(百萬元)                            2,437 稅前淨利(百萬元)                              339 歸屬母公司業主淨利(百萬元)                    292 每股盈餘(元)                                 2.52 4.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序 」第4條所列重大訊息之情事（如 「有」，請說明）:無 5.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序」第11條所列重大訊息說明記者會 之情事:無 6.其他應敘明事項: 註1：115年05月及去年同期比較數之財務資料係本公司採IFRS會計準則 編製之合併自結數，未經會計師查核(閱)，僅供投資人參考。 註2：最近一季115年第1季係指單季數字，非為最近財務報告中之累計數字，且係本公 司採IFRS下編製之合併數，業經會計師查核(閱)，僅供投資人參考。 註3：最近四季累計係本公司114年第2季至115年第1季採IFRS編製之合併數，業經會計 師查核(閱)，僅供投資人參考。；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

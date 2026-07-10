@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7395 中美晶國票59購02
 
 ## Metadata
-- generated_at: 2026-07-09 22:27:59 Asia/Taipei
+- generated_at: 2026-07-10 22:28:28 Asia/Taipei
 - stock_id: 7395
 - stock_name: 中美晶國票59購02
 - packet_status: partial_rawdata_packet

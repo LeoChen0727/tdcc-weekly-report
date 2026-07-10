@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6505 台塑化
 
 ## Metadata
-- generated_at: 2026-07-09 22:27:40 Asia/Taipei
+- generated_at: 2026-07-10 22:28:07 Asia/Taipei
 - stock_id: 6505
 - stock_name: 台塑化
 - packet_status: standard_180d_window_packet
@@ -198,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 6505 | 台塑化 | 42 | 0 | 3419810.0 | 0.0 |  | no_signal |
+| 20260709 | 6505 | 台塑化 | 42 | 1 | 3419810.0 | 2120.0 | 1613.12 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009816 凱基台灣TOP50
 
 ## Metadata
-- generated_at: 2026-07-09 22:26:09 Asia/Taipei
+- generated_at: 2026-07-10 22:26:22 Asia/Taipei
 - stock_id: 009816
 - stock_name: 凱基台灣TOP50
 - packet_status: partial_rawdata_packet

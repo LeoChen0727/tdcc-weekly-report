@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1476 儒鴻
 
 ## Metadata
-- generated_at: 2026-07-09 22:26:16 Asia/Taipei
+- generated_at: 2026-07-10 22:26:30 Asia/Taipei
 - stock_id: 1476
 - stock_name: 儒鴻
 - packet_status: standard_180d_window_packet
@@ -188,7 +188,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 1476 | 儒鴻 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | call_inflow | stale_signal | 1.事實發生日:115/07/07 2.公司名稱:儒鴻企業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:115年07月07日工商時報A05版 6.報導內容:展望全年營運，儒鴻指出，……，內部目標仍希望挑戰2022年時 創下的397.36億元歷史高峰，……。 7.發生緣由:媒體報導有關本公司營運之預測性資訊，本公司不予評論。 由於本公司依規定免公告財務預測，實際財務資訊請參閱公開資訊觀測站 之公告內容。 8.因應措施:無。 9.其他應敘明事項:無。 |
+| 20260709 | 1476 | 儒鴻 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | call_inflow | stale_signal | 1.董事會決議或公司決定日期:115/07/09 2.原現金股利發放日:115/07/10 3.變更後現金股利發放日:115/07/13 4.變更原因:本公司現金股利採匯款轉帳方式發放者，原訂於115年7月10日發放， 如因受颱風停止上班(7月10日)影響，致部分停止上班地區金融機構匯款作業日程 可能需順延至下一個營業日發放。 5.其他應敘明事項:無。 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

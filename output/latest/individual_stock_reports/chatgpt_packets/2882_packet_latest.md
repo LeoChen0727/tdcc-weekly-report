@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2882 國泰金
 
 ## Metadata
-- generated_at: 2026-07-09 22:26:44 Asia/Taipei
+- generated_at: 2026-07-10 22:27:03 Asia/Taipei
 - stock_id: 2882
 - stock_name: 國泰金
 - packet_status: standard_180d_window_packet
@@ -195,7 +195,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 2882 | 國泰金 | revenue_pullback | 營收成長股價回檔 | 83.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/07/08 2.公司名稱:國泰人壽保險股份有限公司 3.與公司關係(請輸入本公司或子公司):子公司 4.相互持股比例:100% 5.傳播媒體名稱:自由時報 6.報導內容:國泰「置地廣場桃園B區」違反航高限制 桃園市府：恐要自砍4層樓 7.發生緣由:澄清媒體報導。 8.因應措施:發佈重大訊息說明。 9.其他應敘明事項:本案係經主管機關審查後，依法核發建造執照予本公司， 並按圖施工。就此事件本公司正積極與相關單位釐清法規適用中， 並在飛安第一的前提下，後續如須辦理工程調整，本公司亦將賡續依法辦理， 相關支出將列入在建工程成本，於完工後作為資產認列，預估對本公司業務面或財務面 尚無重大影響。 |
+| 20260709 | 2882 | 國泰金 | revenue_pullback | 營收成長股價回檔 | 83.0 |  |  |  |  | no_signal | stale_signal | 1.標的物之名稱及性質（屬特別股者，並應標明特別股約定發行條件，如股息率等）: Vertex Growth III (SG) LP   私募基金 2.事實發生日:115/7/9~115/7/9 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:資深副總經理 民國115年7月9日 5.交易單位數量、每單位價格及交易總金額: (1)Vertex Growth III (SG) LP為合夥組織，無交易數量及單位交易價格； (2)認購總金額為20,000,000美元 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之 關係人者，得免揭露其姓名）: (1)Vertex Growth Management Pte. Ltd. (2)不適用。 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移 轉之所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次 移轉日期及移轉金額: 不適用 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係人之取 得及處分日期、價格及交易當時與公司之關係: 不適用 9.本次係處分債權之相關事項（含處分之債權附隨擔保品種類、處分債權 如有屬對關係人債權者尚需公告關係人名稱及本次處分該關係人之債權 帳面金額: 不適用 10.處分利益（或損失）（取得有價證券者不適用）（遞延者應列表說明 認列情形）: 不適用 11.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: (1)依基金撥款通知逐次給付。 (2)依據基金合約約定。 12.本次交易之決定方式、價格決定之參考依據及決策單位: (1)參與認購新設基金。(2)合夥組織基金無單位價格。 (3)依本公司核決權限。 13.取得或處分有價證券標的公司每股淨值: 不適用 14.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: (1)基金為合夥組織，無交易數量；(2)20,000,000美元；(3)約8.0%；(4)無 15.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列 之有價證券投資（含本次交易）占公司最近期財務報表中總資產及歸屬 於母公司業主之權益之比例暨最近期財務報表中營運資金數額: (1)占總資產比率：76.58%；(2)占股東權益比率：1081.65%； (3)最近期財務報告營運資金為新台幣1,482.3億元 16.經紀人及經紀費用: 不適用 17.取得或處分之具體目的或用途: 依保險法之規定,為壽險資金之運用。 18.本次交易表示異議董事之意見: 無 19.本次交易為關係人交易:否 20.監察人承認或審計委員會同意日期: 不適用 21.本次交易會計師出具非合理性意見:否 22.會計師事務所名稱: 誠品聯合會計師事務所 23.會計師姓名: 賴明陽 24.會計師開業證書字號: 北市會證字第二一二三號 25.是否涉及營運模式變更:否 26.營運模式變更說明: 不適用 27.過去一年及預計未來一年內與交易相對人交易情形: 不適用 28.資金來源: 保險業可運用資金 29.前已就同一件事件發布重大訊息日期: 不適用 30.其他敘明事項: USD:TWD=1:32.032 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
@@ -205,7 +205,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 2882 | 國泰金 | 40 | 0 | 3646550.0 | 0.0 |  | no_signal |
+| 20260709 | 2882 | 國泰金 | 40 | 2 | 3646550.0 | 129140.0 | 28.24 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

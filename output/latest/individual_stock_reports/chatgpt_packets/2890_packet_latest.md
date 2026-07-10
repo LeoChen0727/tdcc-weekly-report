@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2890 永豐金
 
 ## Metadata
-- generated_at: 2026-07-09 22:26:45 Asia/Taipei
+- generated_at: 2026-07-10 22:27:03 Asia/Taipei
 - stock_id: 2890
 - stock_name: 永豐金
 - packet_status: standard_180d_window_packet
@@ -193,7 +193,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 2890 | 永豐金 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | call_inflow | stale_signal | 1.事實發生日:115/07/08 2.公司名稱:永豐金控 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:本公司;本公司100%持有之子公司 5.發生緣由:永豐金控公告其與子公司永豐銀行與京城銀行及永豐金證券115年6月 自結損益如下: 　　　　　　　　     稅後     累計稅後    稅後   累計稅後 　　　　　　　　     損益       損益       EPS     EPS 　　　　　　　     (佰萬元)   (佰萬元)    (元)    (元) 永豐金控            4,259      24,550     0.29    1.69 永豐銀行            2,363      13,524     0.21    1.22 京城銀行              924       3,756     0.83    3.38 永豐金證券          1,104       7,348     0.65    4.35 註：永豐金控及永豐銀行為屬母公司業主之稅後損益 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 無；calendar event: ex_right_dividend on 20260723; status=confirmed; proximity=within_14d |
+| 20260709 | 2890 | 永豐金 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | call_inflow | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/09 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除權 3.發放股利種類及金額:普通股股票股利:新臺幣8,409,244,500元 4.除權（息）交易日:NA 5.最後過戶日:NA 6.停止過戶起始日期:NA 7.停止過戶截止日期:NA 8.除權（息）基準日:115/08/10 9.其他應敘明事項:無；calendar event: ex_right_dividend on 20260723; status=confirmed; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

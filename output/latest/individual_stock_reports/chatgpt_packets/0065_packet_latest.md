@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0065 復華香港正2
 
 ## Metadata
-- generated_at: 2026-07-09 22:26:06 Asia/Taipei
+- generated_at: 2026-07-10 22:26:18 Asia/Taipei
 - stock_id: 0065
 - stock_name: 復華香港正2
 - packet_status: insufficient_price_data
@@ -170,7 +170,7 @@ no_rows,True
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 0065 | 復華香港正2 | 57 | 0 | 2216250.0 | 0.0 |  | no_signal |
+| 20260709 | 0065 | 復華香港正2 | 57 | 7 | 2216250.0 | 162170.0 | 13.67 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

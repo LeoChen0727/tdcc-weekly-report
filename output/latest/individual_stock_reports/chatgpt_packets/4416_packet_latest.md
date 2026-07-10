@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4416 三圓
 
 ## Metadata
-- generated_at: 2026-07-09 22:27:09 Asia/Taipei
+- generated_at: 2026-07-10 22:27:32 Asia/Taipei
 - stock_id: 4416
 - stock_name: 三圓
 - packet_status: standard_180d_window_packet
@@ -189,7 +189,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 4416 | 三圓 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | repeated_but_no_breakout | 1.關係人或主要債務人或其連帶保證人名稱:源利工程股份有限公司 2.事實發生日:115/07/08 3.發生緣由:本公司於115/07/08接獲通知，源利工程(股)公司於115/07/08因存款不足 發生退票資訊如下:國泰世華銀行之支票1張，金額合計:新台幣200,000元。 4.債權種類或背書保證金額及其所占資產比例:不適用 5.債權有無保全措施:不適用 6.對公司財務、業務之影響及預計可能損失:本公司第一季財報帳列 (1)其他應收款-其他關係人-源利共計新台幣54,965仟元，提列減損新台幣19,259仟元 (2)資金融通-其他關係人-源利共計新台幣174,668仟元，提列減損新台幣61,134仟元 7.因應措施:與持票人協商清償註記。 8.其他應敘明事項: (1)截至本日共有36張支票尚未清償註記，金額共計新台幣44,202,698。 (2)因期限內超過3張未清償註記，目前為拒絕往來戶。 |
+| 20260709 | 4416 | 三圓 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | repeated_but_no_breakout | 1.事實發生日:115/07/09 2.公司名稱:三圓建設股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: (1)為活化資產並提升資金運用效益，本公司董事會決議擬處分台北之星不動產 (2)授權董事長於鑑價報告金額差異20%內全權處理後續買賣相關之簽約事宜。 6.因應措施:將依「取得或處分資產處理程序」辦理。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項):無 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

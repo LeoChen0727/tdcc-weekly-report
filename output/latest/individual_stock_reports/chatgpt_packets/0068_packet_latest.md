@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0068 元大美債20正2
 
 ## Metadata
-- generated_at: 2026-07-09 22:26:06 Asia/Taipei
+- generated_at: 2026-07-10 22:26:18 Asia/Taipei
 - stock_id: 0068
 - stock_name: 元大美債20正2
 - packet_status: insufficient_price_data
@@ -170,7 +170,7 @@ no_rows,True
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 0068 | 元大美債20正2 | 83 | 0 | 4387890.0 | 0.0 |  | no_signal |
+| 20260709 | 0068 | 元大美債20正2 | 83 | 5 | 4387890.0 | 340.0 | 12905.56 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

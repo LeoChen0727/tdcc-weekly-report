@@ -1,6 +1,6 @@
 # Individual Stock Raw Data Index Slim
 
-- generated_at: 2026-07-09 22:29:16 Asia/Taipei
+- generated_at: 2026-07-10 22:29:46 Asia/Taipei
 - total_stocks: 2399
 - standard_rawdata_report: 1967
 - partial_rawdata_report: 409

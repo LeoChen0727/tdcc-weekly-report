@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5347 世界
 
 ## Metadata
-- generated_at: 2026-07-09 22:27:22 Asia/Taipei
+- generated_at: 2026-07-10 22:27:46 Asia/Taipei
 - stock_id: 5347
 - stock_name: 世界
 - packet_status: standard_180d_window_packet
@@ -188,7 +188,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 5347 | 世界 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | continued_overheated | 1.董事會決議日期:115/06/24 2.增資資金來源:現金增資 3.是否採總括申報發行新股(是，請併敘明預定發行期間/否):否 4.全案發行總金額及股數(如屬盈餘或公積轉增資，發行股數則不含配發給員工部分): 發行總金額:US$70,000,000 發行股數:70,000,000股 5.採總括申報發行新股案件，本次發行金額及股數:不適用 6.採總括申報發行新股案件，本次發行後，剩餘之金額及股數餘額:不適用 7.每股面額:US$1 8.發行價格:US$1 9.員工認購股數或配發金額:不適用 10.公開銷售股數:不適用 11.原股東認購或無償配發比例(請註明暫定每仟股認購或配發股數): 全數由原股東認購 12.畸零股及逾期未認購股份之處理方式:不適用 13.本次發行新股之權利義務:發行之新股權利義務與原已發行普通股股份相同 14.本次增資資金用途:公司營運需求 15.其他應敘明事項:VSMC於115/5/29股東會通過，授權董事會於次一年度股東常會前 辦理現金增資發行新股 |
+| 20260709 | 5347 | 世界 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | continued_overheated | 1.證券名稱: Sumitomo Mitsui Financial Group, Inc.之普通公司債 2.交易日期:115/2/2~115/7/9 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:副總經理暨財務長 民國115年01月27日 5.交易數量、每單位價格及交易總金額: (1)US86562MEJ53：40,000單位；每單位約US$99.202元；總金額US$4佰萬元。 (2)US86562MDM91：80,000單位；每單位約US$102.79元；總金額US$8佰萬元。 (3)US86562MBP41：60,000單位；每單位約US$96.26元；總金額US$6佰萬元。 6.處分利益（或損失）（取得有價證券者不適用）: 不適用 7.與交易標的公司之關係: 無 8.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: (1)數量:180,000單位  (2)金額:US$18佰萬元  (3)持股比例：不適用  (4)權利受限情形: 無 9.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列之有價證券投 資（含本次交易）占公司最近期財務報表中總資產及歸屬於母公司業主之權益之比例 暨最近期財務報表中營運資金數額: (1)有價證券投資(含本次交易)占公司最近期財務報表中總資產之比例：5.90% (2)占公司最近期財務報表歸屬於母公司業主之權益之比例：10.66% (3)最近期財報中營運資金（總資產減總負債）數額:20,206,163仟元 10.取得或處分之具體目的: 固定收益投資 11.本次交易表示異議董事之意見: 不適用 12.本次交易為關係人交易: 否 13.交易相對人及其與公司之關係: 無 14.監察人承認或審計委員會同意日期: 不適用 15.前已就同一件事件發布重大訊息日期: 不適用 16.其他敘明事項: 無 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

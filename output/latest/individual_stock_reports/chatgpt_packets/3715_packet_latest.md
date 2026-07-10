@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3715 定穎投控
 
 ## Metadata
-- generated_at: 2026-07-09 22:27:05 Asia/Taipei
+- generated_at: 2026-07-10 22:27:27 Asia/Taipei
 - stock_id: 3715
 - stock_name: 定穎投控
 - packet_status: standard_180d_window_packet
@@ -189,7 +189,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 3715 | 定穎投控 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.董事會決議日期：115/07/06 2.股東臨時會召開日期：115/09/02 3.股東臨時會召開地點：桃園尊爵天際大飯店B1紫雲廳(桃園市蘆竹區南崁路一段108號B1) 4.股東臨時會召開方式(實體股東會/視訊輔助股東會/視訊股東會)：實體股東會 5.召集事由一：討論事項 (1)：修訂本公司「背書保證管理辦法」案 (2)：本公司之子公司超穎電子電路股份有限公司發行H股股票 並在香港聯合交易所有限公司主板上市案 6.臨時動議： 7.停止過戶起始日期：115/08/04 8.停止過戶截止日期：115/09/02 9.其他應敘明事項：(1)依證券交易法第26條之2，凡持股未滿一仟股之股東， 其股東會之召集通知得以公告方式為之，故不另寄發。 (2)本次股東臨時會股東得以電子方式行使表決權， 行使期間自民國115年8月12日至115年8月30日止 (電子投票平台：台灣集中保管結算所股份有限公司)。 (3)轉換公司債持有人如擬申請轉換為股票以參與本次股東臨時會者， 請於115年7月31日前，向往來證券商辦理轉換手續。；degraded calendar context only: ex_dividend on 20260702; status=source_stale_cached; proximity=recent; model_effect_allowed=False; pdf_effect_allowed=False；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260709 | 3715 | 定穎投控 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.董事會決議日期：115/07/06 2.股東臨時會召開日期：115/09/02 3.股東臨時會召開地點：桃園尊爵天際大飯店B1紫雲廳(桃園市蘆竹區南崁路一段108號B1) 4.股東臨時會召開方式(實體股東會/視訊輔助股東會/視訊股東會)：實體股東會 5.召集事由一：討論事項 (1)：修訂本公司「背書保證管理辦法」案 (2)：本公司之子公司超穎電子電路股份有限公司發行H股股票 並在香港聯合交易所有限公司主板上市案 6.臨時動議： 7.停止過戶起始日期：115/08/04 8.停止過戶截止日期：115/09/02 9.其他應敘明事項：(1)依證券交易法第26條之2，凡持股未滿一仟股之股東， 其股東會之召集通知得以公告方式為之，故不另寄發。 (2)本次股東臨時會股東得以電子方式行使表決權， 行使期間自民國115年8月12日至115年8月30日止 (電子投票平台：台灣集中保管結算所股份有限公司)。 (3)轉換公司債持有人如擬申請轉換為股票以參與本次股東臨時會者， 請於115年7月31日前，向往來證券商辦理轉換手續。；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
@@ -199,7 +199,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 3715 | 定穎投控 | 234 | 0 | 8741550.0 | 0.0 |  | no_signal |
+| 20260709 | 3715 | 定穎投控 | 234 | 8 | 8741550.0 | 195850.0 | 44.63 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

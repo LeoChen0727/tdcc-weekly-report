@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2428 興勤
 
 ## Metadata
-- generated_at: 2026-07-09 22:26:34 Asia/Taipei
+- generated_at: 2026-07-10 22:26:51 Asia/Taipei
 - stock_id: 2428
 - stock_name: 興勤
 - packet_status: standard_180d_window_packet
@@ -188,7 +188,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 2428 | 興勤 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | repeated_but_no_breakout | 1.事實發生日:115/07/08 2.公司名稱:興勤電子工業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:公佈本公司115年06月份自結合併營業收入(已扣除內部交易)。 6.因應措施:本公司115年06月份自結合併營業收入為新台幣973,436仟元，較去年同期 自結合併營收新台幣663,913仟元，增加46.62%。 115年01-06月份累計自結合併營業收入為新台幣4,757,503仟元，較去年同期累計自結 合併營收新台幣3,950,877仟元，增加20.42%。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 自結數尚未經會計師簽證，特此說明。 |
+| 20260709 | 2428 | 興勤 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | repeated_but_no_breakout | 1.證券名稱: 摩根士丹利數字經濟混合型證券投資基金C 2.交易日期:115/7/3~115/7/9 3.董事會通過日期: 民國115年7月9日 4.其他核決日期: 不適用 5.交易數量、每單位價格及交易總金額: 交易數量：8,944,365.00單位；每單位價格：人民幣4.5358元； 交易數量：6,705,073.00單位；每單位價格：人民幣4.6382元； 交易總金額：人民幣71,669仟元 6.處分利益（或損失）（取得有價證券者不適用）: 處分利益人民幣8,664仟元 7.與交易標的公司之關係: 無 8.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 無 9.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列之有價證券投 資（含本次交易）占公司最近期財務報表中總資產及歸屬於母公司業主之權益之比例 暨最近期財務報表中營運資金數額: 占母公司最近期個體財務報表中總資產之比例：1.12％ 占最近期合併財務報表歸屬於母公司業主之權益之比例：1.48％ 母公司最近期個體財務報表中營運資金數額：新台幣992,843仟元 10.取得或處分之具體目的: 投資理財 11.本次交易表示異議董事之意見: 不適用 12.本次交易為關係人交易: 否 13.交易相對人及其與公司之關係: 不適用 14.監察人承認或審計委員會同意日期: 不適用 15.前已就同一件事件發布重大訊息日期: 不適用 16.其他敘明事項: 該基金尚未結算，公告資料之單位價格依115年7月9日 最新估計價格人民幣4.6382元計算。 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

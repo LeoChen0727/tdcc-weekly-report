@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2317 鴻海
 
 ## Metadata
-- generated_at: 2026-07-09 22:26:29 Asia/Taipei
+- generated_at: 2026-07-10 22:26:45 Asia/Taipei
 - stock_id: 2317
 - stock_name: 鴻海
 - packet_status: standard_180d_window_packet
@@ -194,7 +194,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 2317 | 鴻海 | revenue_pullback | 營收成長股價回檔 | 76.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/07/08 2.公司名稱:鴻海精密工業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: 依本公司民國113年度海外第一次無擔保轉換公司債發行辦法之規定，調整民國 113年度海外第一次無擔保轉換公司債之轉換價格 6.因應措施: 民國113年度海外第一次無擔保轉換公司債之轉換價格由新台幣288.86元調整為 新台幣281.09元。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 無；degraded calendar context only: ex_dividend on 20260702; status=source_stale_cached; proximity=recent; model_effect_allowed=False; pdf_effect_allowed=False；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260709 | 2317 | 鴻海 | revenue_pullback | 營收成長股價回檔 | 76.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/07/09 2.公司名稱:富士康工業互聯網股份有限公司 3.與公司關係(請輸入本公司或子公司):子公司 4.相互持股比例:84.16% 5.發生緣由: 富士康工業互聯網股份有限公司於2026年7月9日於上海證券交易所主板公告 2026年半年度主要財務資料為初步核算資料，內容查詢路徑為 https://www.sse.com.cn/disclosure/listedinfo/announcement/ 該數據未經會計師事務所審計，具體以公司2026年半年度報告披露資料為準， 敬請投資者注意投資風險。 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
@@ -204,7 +204,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 2317 | 鴻海 | 516 | 0 | 24833470.0 | 0.0 |  | no_signal |
+| 20260709 | 2317 | 鴻海 | 516 | 40 | 24833470.0 | 236250.0 | 105.12 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

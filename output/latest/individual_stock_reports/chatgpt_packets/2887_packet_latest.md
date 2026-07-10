@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2887 台新新光金
 
 ## Metadata
-- generated_at: 2026-07-09 22:26:45 Asia/Taipei
+- generated_at: 2026-07-10 22:27:03 Asia/Taipei
 - stock_id: 2887
 - stock_name: 台新新光金
 - packet_status: standard_180d_window_packet
@@ -187,7 +187,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 2887 | 台新新光金 | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  | no_signal | continued_many_days | 1.標的物之名稱及性質（屬特別股者，並應標明特別股約定發行條件，如股息率等）: 聯合授信案之授信資產轉讓 2.事實發生日:115/4/8~115/7/8 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:執行長 民國115年7月8日 5.交易單位數量、每單位價格及交易總金額: 115/04/08美金6,500,000.00 / BDO Unibank, Inc.、 115/07/08美金9,500,000.00 / CIMB Bank Berhad。 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之 關係人者，得免揭露其姓名）: KEB Hana Bank之分支機構KEB Hana Bank Offshore Branch，二者皆非實質關係人。 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移 轉之所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次 移轉日期及移轉金額: 不適用 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係人之取 得及處分日期、價格及交易當時與公司之關係: 不適用 9.本次係處分債權之相關事項（含處分之債權附隨擔保品種類、處分債權 如有屬對關係人債權者尚需公告關係人名稱及本次處分該關係人之債權 帳面金額: 處分之債權無隨附擔保品且並無屬對關係人債權，故不適用。 10.處分利益（或損失）（取得有價證券者不適用）（遞延者應列表說明 認列情形）: 無 11.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 依合約相關規定辦理 12.本次交易之決定方式、價格決定之參考依據及決策單位: 相關條件依合約及一般市場慣例為之，為本行內部最終審核單位核准。 13.取得或處分有價證券標的公司每股淨值: 不適用 14.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 不適用 15.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列 之有價證券投資（含本次交易）占公司最近期財務報表中總資產及歸屬 於母公司業主之權益之比例暨最近期財務報表中營運資金數額: 不適用 16.經紀人及經紀費用: 不適用 17.取得或處分之具體目的或用途: 活絡債權資產組合 18.本次交易表示異議董事之意見: 無 19.本次交易為關係人交易:否 20.監察人承認或審計委員會同意日期: 不適用 21.本次交易會計師出具非合理性意見:不適用 22.會計師事務所名稱: 不適用 23.會計師姓名: 不適用 24.會計師開業證書字號: 不適用 25.是否涉及營運模式變更:否 26.營運模式變更說明: 不適用 27.過去一年及預計未來一年內與交易相對人交易情形: 累計至115/07/08之交易金額於一年內與同一相對人 取得或處分同一性質標的交易金額已達新臺幣三億元以上。 28.資金來源: 不適用 29.前已就同一件事件發布重大訊息日期: 不適用 30.其他敘明事項: 民國115年04月08日之交易係以美金/新臺幣兌換匯率31.777表示， 民國115年07月08日之交易係以美金/新臺幣兌換匯率31.885表示。；calendar event: ex_right_dividend on 20260721; status=confirmed; proximity=within_14d |
+| 20260709 | 2887 | 台新新光金 | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  | no_signal | continued_many_days | 1.事實發生日:115/07/09 2.公司名稱:台新國際商業銀行股份有限公司 3.與公司關係(請輸入本公司或子公司):子公司 4.相互持股比例:100% 5.發生緣由:台新銀行董事會決議參與國家發展委員會「企業投資美國融資保證 機制」，規劃出資2,500萬美元 6.因應措施:不適用 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): (1)響應政府政策，支持企業赴美投資，帶動業務發展。 (2)本行參與本機制得以取得融資保證，降低授信風險。 (3)實際內容依正式簽訂契約為準。；calendar event: ex_right_dividend on 20260721; status=confirmed; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

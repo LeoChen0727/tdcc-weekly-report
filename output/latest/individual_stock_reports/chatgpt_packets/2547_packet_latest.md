@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2547 日勝生
 
 ## Metadata
-- generated_at: 2026-07-09 22:26:39 Asia/Taipei
+- generated_at: 2026-07-10 22:26:57 Asia/Taipei
 - stock_id: 2547
 - stock_name: 日勝生
 - packet_status: standard_180d_window_packet
@@ -188,9 +188,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 2547 | 日勝生 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/03 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除權 3.發放股利種類及金額:股票股利新台幣641,800,000元 4.除權（息）交易日:NA 5.最後過戶日:115/07/10 6.停止過戶起始日期:115/07/11 7.停止過戶截止日期:115/07/15 8.除權（息）基準日:115/07/15 9.其他應敘明事項:無。；calendar event: ex_dividend on 20260717; status=confirmed; proximity=within_14d |
-| 20260709 | 2547 | 日勝生 | revenue_pullback | 營收成長股價回檔 | 63.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  |  | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/03 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除權 3.發放股利種類及金額:股票股利新台幣641,800,000元 4.除權（息）交易日:NA 5.最後過戶日:115/07/10 6.停止過戶起始日期:115/07/11 7.停止過戶截止日期:115/07/15 8.除權（息）基準日:115/07/15 9.其他應敘明事項:無。；calendar event: ex_dividend on 20260717; status=confirmed; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
-| 20260709 | 2547 | 日勝生 | revenue_breakout_low_response | 營收爆發低反應股 | 19.0 | 16.0 | B_可觀察 |  |  |  | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/03 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除權 3.發放股利種類及金額:股票股利新台幣641,800,000元 4.除權（息）交易日:NA 5.最後過戶日:115/07/10 6.停止過戶起始日期:115/07/11 7.停止過戶截止日期:115/07/15 8.除權（息）基準日:115/07/15 9.其他應敘明事項:無。；calendar event: ex_dividend on 20260717; status=confirmed; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260709 | 2547 | 日勝生 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/03 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除權 3.發放股利種類及金額:股票股利新台幣641,800,000元 4.除權（息）交易日:NA 5.最後過戶日:115/07/10 6.停止過戶起始日期:115/07/11 7.停止過戶截止日期:115/07/15 8.除權（息）基準日:115/07/15 9.其他應敘明事項:無。；calendar event: ex_dividend on 20260717; status=confirmed; proximity=within_7d |
+| 20260709 | 2547 | 日勝生 | revenue_pullback | 營收成長股價回檔 | 63.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  |  | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/03 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除權 3.發放股利種類及金額:股票股利新台幣641,800,000元 4.除權（息）交易日:NA 5.最後過戶日:115/07/10 6.停止過戶起始日期:115/07/11 7.停止過戶截止日期:115/07/15 8.除權（息）基準日:115/07/15 9.其他應敘明事項:無。；calendar event: ex_dividend on 20260717; status=confirmed; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260709 | 2547 | 日勝生 | revenue_breakout_low_response | 營收爆發低反應股 | 19.0 | 16.0 | B_可觀察 |  |  |  | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/03 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除權 3.發放股利種類及金額:股票股利新台幣641,800,000元 4.除權（息）交易日:NA 5.最後過戶日:115/07/10 6.停止過戶起始日期:115/07/11 7.停止過戶截止日期:115/07/15 8.除權（息）基準日:115/07/15 9.其他應敘明事項:無。；calendar event: ex_dividend on 20260717; status=confirmed; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
