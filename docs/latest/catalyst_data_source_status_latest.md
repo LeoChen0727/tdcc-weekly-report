@@ -1,6 +1,6 @@
 # Catalyst Data Source Status
 
-- generated_at: `2026-07-10 01:33:30 Asia/Taipei`
+- generated_at: `2026-07-10 08:16:53 Asia/Taipei`
 - external_fetch_status: `partial_ok`
 - note: Official monthly revenue and material-information sources are used when reachable. No unverified news, MOPS pages, or social rumor data is fabricated.
 
@@ -9,15 +9,15 @@
 | theme_event_calendar | `data/theme_events/theme_event_calendar.csv` | 1 |
 | company_theme_mapping | `data/theme_events/company_theme_mapping.csv` | 28 |
 | quarterly_catalyst | `data/fundamental_catalysts/quarterly_catalyst.csv` | 986 |
-| event_catalyst_log | `data/event_catalysts/event_catalyst_log.csv` | 2102 |
+| event_catalyst_log | `data/event_catalysts/event_catalyst_log.csv` | 2136 |
 
 ## External Source Status
 
 | source | status | rows | matched_tracked_rows | url | note |
 |---|---|---:|---:|---|---|
-| TWSE monthly revenue OpenAPI | failed | 0 | 0 | https://openapi.twse.com.tw/v1/opendata/t187ap05_L | Official monthly revenue rows are stored as fundamental source rows with EPS/margin fields blank. They can flag revenue_good_eps_unconfirmed only; they are not EPS confirmation. |
+| TWSE monthly revenue OpenAPI | ok | 1082 | 204 | https://openapi.twse.com.tw/v1/opendata/t187ap05_L | Official monthly revenue rows are stored as fundamental source rows with EPS/margin fields blank. They can flag revenue_good_eps_unconfirmed only; they are not EPS confirmation. |
 | TPEX monthly revenue OpenAPI | ok | 890 | 80 | https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap05_O | Official monthly revenue rows are stored as fundamental source rows with EPS/margin fields blank. They can flag revenue_good_eps_unconfirmed only; they are not EPS confirmation. |
-| TWSE material information OpenAPI | failed | 0 | 0 | https://openapi.twse.com.tw/v1/opendata/t187ap04_L | Official material-information rows are filtered to tracked stocks. Only objective order/customer/capacity/production/certification keywords become evidence event types; other rows stay material_information context. |
+| TWSE material information OpenAPI | ok | 161 | 36 | https://openapi.twse.com.tw/v1/opendata/t187ap04_L | Official material-information rows are filtered to tracked stocks. Only objective order/customer/capacity/production/certification keywords become evidence event types; other rows stay material_information context. |
 | TPEX material information OpenAPI | ok | 59 | 6 | https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap04_O | Official material-information rows are filtered to tracked stocks. Only objective order/customer/capacity/production/certification keywords become evidence event types; other rows stay material_information context. |
 
 ## Data Policy

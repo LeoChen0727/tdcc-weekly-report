@@ -1,28 +1,28 @@
 # Catalyst Performance Summary
 
-- generated_at: `2026-07-09 18:25:50 Asia/Taipei`
-- catalyst_event_rows: `2288`
+- generated_at: `2026-07-10 08:17:51 Asia/Taipei`
+- catalyst_event_rows: `2327`
 - note: Empty event rows mean no confirmed catalyst records have been loaded yet. The model does not fabricate news or announcements.
 
 | dimension | bucket | sample_size | avg_return_d5 | avg_return_d10 | avg_return_d20 | avg_relative_return_vs_benchmark_d20 | effective_count | pending_count |
 |---|---|---:|---:|---:|---:|---:|---:|---:|
 | event_type | capacity_expansion | 11 | 1.14 | -6.66 |  |  | 0 | 4 |
-| event_type | investor_conference | 63 | -0.64 | -2.12 |  |  | 10 | 12 |
+| event_type | investor_conference | 64 | -0.68 | -1.82 |  |  | 11 | 12 |
 | event_type | mass_production | 1 | 10.57 | 25.13 |  |  | 1 | 0 |
-| event_type | material_information | 654 | -0.10 | 0.45 | -0.03 | -8.14 | 98 | 179 |
-| event_type | new_order | 114 | -1.38 | -0.70 |  |  | 12 | 16 |
-| event_type | product_certification | 20 | 1.90 | -0.12 |  |  | 5 | 4 |
-| event_type | quarterly_financial | 983 | 2.31 | 3.20 |  |  | 335 | 0 |
-| event_type | shareholder_meeting | 442 | 0.70 | 1.07 | 0.00 | -11.99 | 82 | 61 |
-| catalyst_confidence | high | 2288 | 1.18 | 2.10 | -0.02 | -8.78 | 543 | 276 |
+| event_type | material_information | 680 | -0.20 | 0.45 | 1.27 | -6.28 | 112 | 168 |
+| event_type | new_order | 119 | -1.38 | -0.73 |  |  | 15 | 20 |
+| event_type | product_certification | 21 | 1.90 | 0.53 |  |  | 6 | 5 |
+| event_type | quarterly_financial | 986 | 2.30 | 3.21 |  |  | 336 | 0 |
+| event_type | shareholder_meeting | 445 | 0.64 | 0.76 | 0.00 | -11.99 | 86 | 51 |
+| catalyst_confidence | high | 2327 | 1.11 | 1.99 | 1.09 | -7.09 | 567 | 260 |
 | price_reaction_level | blank | 4 |  |  |  |  | 0 | 0 |
-| price_reaction_level | mild | 383 | 6.58 | 7.99 |  |  | 232 | 0 |
-| price_reaction_level | blank | 1701 | -3.28 | -2.15 | -6.35 | -13.94 | 158 | 276 |
-| price_reaction_level | overheated | 88 | 31.84 | 31.55 | 31.63 | 17.00 | 68 | 0 |
-| price_reaction_level | priced_in | 112 | 15.42 | 16.32 |  |  | 85 | 0 |
-| success_label | effective | 543 | 9.15 | 13.40 | 31.63 | 17.00 | 543 | 0 |
-| success_label | failed | 401 | -6.50 | -8.07 | -11.19 | -20.40 | 0 | 0 |
+| price_reaction_level | mild | 394 | 6.51 | 7.84 | 7.74 | 3.04 | 243 | 0 |
+| price_reaction_level | blank | 1726 | -3.31 | -2.22 | -6.35 | -13.94 | 164 | 260 |
+| price_reaction_level | overheated | 88 | 31.84 | 31.38 | 31.63 | 17.00 | 70 | 0 |
+| price_reaction_level | priced_in | 115 | 15.38 | 16.16 |  |  | 90 | 0 |
+| success_label | effective | 567 | 9.15 | 13.25 | 31.63 | 17.00 | 567 | 0 |
+| success_label | failed | 424 | -6.49 | -8.14 | -4.88 | -12.59 | 0 | 0 |
 | success_label | missing_price_history | 4 |  |  |  |  | 0 | 0 |
-| success_label | mixed_or_pending | 489 | -2.44 | 3.53 | -8.91 | -9.28 | 0 | 0 |
-| success_label | pending | 276 |  |  |  |  | 0 | 276 |
-| success_label | tradable_then_faded | 575 | 2.09 | -5.91 | -0.23 | -9.80 | 0 | 0 |
+| success_label | mixed_or_pending | 489 | -2.29 | 3.47 | -8.91 | -9.28 | 0 | 0 |
+| success_label | pending | 260 |  |  |  |  | 0 | 260 |
+| success_label | tradable_then_faded | 583 | 1.67 | -5.88 | -0.23 | -9.80 | 0 | 0 |
