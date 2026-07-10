@@ -6,6 +6,7 @@ from scripts import validate_daily_pdf_contract_consumers as validator
 
 LOW_VOLUME_MODEL_ID = "volume_range_breakout_v2_low_position_volume_attack"
 MID_VOLUME_MODEL_ID = "volume_range_breakout_v2_mid_position_momentum_attack"
+HIGH_VOLUME_MODEL_ID = "volume_range_breakout_v2_high_position_volume_attack"
 
 
 def model_row(model_id: str = LOW_VOLUME_MODEL_ID, approved: str = "true") -> dict[str, str]:
@@ -118,6 +119,67 @@ def test_required_display_models_cannot_be_inferred_only_from_signal_rows() -> N
     assert errors == []
 
 
+def test_contract_approved_display_model_must_be_in_daily_report_registry() -> None:
+    model_rows = [
+        model_row(LOW_VOLUME_MODEL_ID),
+        model_row(HIGH_VOLUME_MODEL_ID),
+    ]
+    registry_rows = [
+        {
+            "model_id": LOW_VOLUME_MODEL_ID,
+            "model_registry_active": "True",
+            "report_line_applicability": "both",
+        }
+    ]
+    parameter_rows = [
+        {"model_id": LOW_VOLUME_MODEL_ID, "pdf_visibility": "pdf_core_model"},
+        {"model_id": HIGH_VOLUME_MODEL_ID, "pdf_visibility": "pdf_core_model"},
+    ]
+
+    errors = validator.validate_required_display_model_coverage(
+        {LOW_VOLUME_MODEL_ID, HIGH_VOLUME_MODEL_ID},
+        model_rows,
+        registry_rows,
+        parameter_rows,
+        [],
+    )
+
+    assert any("Daily PDF display registry missing required model_id" in error for error in errors)
+    assert any(HIGH_VOLUME_MODEL_ID in error for error in errors)
+
+
+def test_pdf_integrated_presentation_model_must_be_in_daily_report_registry() -> None:
+    registry_rows = [
+        {
+            "model_id": LOW_VOLUME_MODEL_ID,
+            "model_registry_active": "True",
+            "report_line_applicability": "both",
+        }
+    ]
+    parameter_rows = [
+        {"model_id": LOW_VOLUME_MODEL_ID, "pdf_visibility": "pdf_core_model"},
+        {"model_id": HIGH_VOLUME_MODEL_ID, "pdf_visibility": "pdf_core_model"},
+    ]
+    readiness_rows = [
+        {
+            "model_id": HIGH_VOLUME_MODEL_ID,
+            "presentation_allowed": "True",
+            "pdf_integration_status": "pdf_integrated_daily_adapter",
+        }
+    ]
+
+    errors = validator.validate_required_display_model_coverage(
+        {LOW_VOLUME_MODEL_ID, HIGH_VOLUME_MODEL_ID},
+        [],
+        registry_rows,
+        parameter_rows,
+        readiness_rows,
+    )
+
+    assert any("Daily PDF display registry missing required model_id" in error for error in errors)
+    assert any(HIGH_VOLUME_MODEL_ID in error for error in errors)
+
+
 def test_presentation_allowed_model_is_part_of_display_roster() -> None:
     registry_rows = [
         {
@@ -135,6 +197,7 @@ def renderer_source_with_required_order() -> str:
     return (
         f'VOLUME_BREAKOUT_V2_LOW_MODEL_ID = "{LOW_VOLUME_MODEL_ID}"\n'
         f'VOLUME_BREAKOUT_V2_MID_MODEL_ID = "{MID_VOLUME_MODEL_ID}"\n'
+        f'VOLUME_BREAKOUT_V2_HIGH_MODEL_ID = "{HIGH_VOLUME_MODEL_ID}"\n'
         'W_BOTTOM_RIGHT_SIDE_MODEL_ID = "w_bottom_right_side"\n'
         'W_BOTTOM_NECKLINE_BREAKOUT_MODEL_ID = "neckline_volume_breakout_confirmation"\n'
         'PRICE_PULLBACK_MODEL_ID = "price_pullback_23ema"\n'
@@ -142,10 +205,12 @@ def renderer_source_with_required_order() -> str:
         "PDF_PRESENTATION_MODEL_ORDER_OVERRIDES = {\n"
         "    VOLUME_BREAKOUT_V2_LOW_MODEL_ID: 1.0,\n"
         "    VOLUME_BREAKOUT_V2_MID_MODEL_ID: 1.05,\n"
+        "    VOLUME_BREAKOUT_V2_HIGH_MODEL_ID: 1.08,\n"
         "    W_BOTTOM_RIGHT_SIDE_MODEL_ID: 1.1,\n"
         "    W_BOTTOM_NECKLINE_BREAKOUT_MODEL_ID: 1.2,\n"
         "    PRICE_PULLBACK_MODEL_ID: 1.3,\n"
         "}\n"
+        "PDF_PRESENTATION_MODEL_ORDER_OVERRIDES[VOLUME_BREAKOUT_V2_HIGH_MODEL_ID] = 1.08\n"
     )
 
 
@@ -153,7 +218,7 @@ def renderer_source_with_operation_contract() -> str:
     return (
         renderer_source_with_required_order()
         + "W_BOTTOM_OPERATION_TABLE_MODEL_IDS = {W_BOTTOM_RIGHT_SIDE_MODEL_ID, W_BOTTOM_NECKLINE_BREAKOUT_MODEL_ID}\n"
-        + "OPERATION_TABLE_MODEL_IDS = {VOLUME_BREAKOUT_V2_LOW_MODEL_ID, VOLUME_BREAKOUT_V2_MID_MODEL_ID, W_BOTTOM_RIGHT_SIDE_MODEL_ID, W_BOTTOM_NECKLINE_BREAKOUT_MODEL_ID, PRICE_PULLBACK_MODEL_ID}\n"
+        + "OPERATION_TABLE_MODEL_IDS = {VOLUME_BREAKOUT_V2_LOW_MODEL_ID, VOLUME_BREAKOUT_V2_MID_MODEL_ID, VOLUME_BREAKOUT_V2_HIGH_MODEL_ID, W_BOTTOM_RIGHT_SIDE_MODEL_ID, W_BOTTOM_NECKLINE_BREAKOUT_MODEL_ID, PRICE_PULLBACK_MODEL_ID}\n"
         + "W_BOTTOM_OPERATION_INPUT_KEYS = {\n"
         + "    W_BOTTOM_RIGHT_SIDE_MODEL_ID: 'w_bottom_right_side_operation',\n"
         + "    W_BOTTOM_NECKLINE_BREAKOUT_MODEL_ID: 'w_bottom_neckline_operation',\n"

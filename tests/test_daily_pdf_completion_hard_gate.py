@@ -169,6 +169,13 @@ def test_completion_gate_uses_volume_v2_display_name_fallback() -> None:
         )
         == "中位動能放量攻擊模型"
     )
+    assert (
+        validator.model_display_name(
+            "volume_range_breakout_v2_high_position_volume_attack",
+            [{"model_name_zh": ""}],
+        )
+        == "高位階放量攻擊模型"
+    )
 
 
 def test_completion_gate_accepts_operation_empty_state_tables() -> None:

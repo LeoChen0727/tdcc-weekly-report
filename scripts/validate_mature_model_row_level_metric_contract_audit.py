@@ -142,17 +142,21 @@ def validate_adapter_model(model_id: str, approved: pd.DataFrame) -> None:
         fail(f"{model_id}: generic combo metric group is worse than baseline")
 
 
-def validate_research_only_high_position(audit: pd.DataFrame) -> None:
+def validate_promoted_high_position(audit: pd.DataFrame) -> None:
     rows = audit[audit["model_id"].eq("volume_range_breakout_v2_high_position_volume_attack")]
-    if rows.empty:
-        return
+    if len(rows) != 1:
+        fail("high-position volume attack must have exactly one mature-model audit row")
     row = rows.iloc[0]
-    if row["audit_scope"] != "research_only_candidate_not_mature_model":
-        fail("high-position volume attack must remain outside mature-model audit scope")
-    if str(row["approved_for_daily"]).lower() not in {"false", "0", ""}:
-        fail("high-position research row must not be approved_for_daily")
-    if row["production_readiness"] != "not_production_ready_research_only":
-        fail("high-position research row must remain not_production_ready_research_only")
+    if row["audit_scope"] != "mature_model":
+        fail("high-position volume attack must be audited as mature_model after promotion")
+    if str(row["approved_for_daily"]).lower() not in {"true", "1", "yes"}:
+        fail("high-position mature row must be approved_for_daily")
+    if row["production_readiness"] != "production_adapter_contract_checked":
+        fail("high-position mature row must check the production adapter contract")
+    if row["pdf_row_display_policy_status"] != (
+        "pass_pdf_rows_must_use_row_level_metric_when_operation_quality_or_combo_id_matches"
+    ):
+        fail("high-position mature row must enforce row-level metric display policy")
     require_file(HIGH_POSITION_AUDIT_CSV)
     research = read_csv(HIGH_POSITION_AUDIT_CSV)
     combos = research[research["row_type"].eq("pdf_bonus_combo")]
@@ -163,7 +167,7 @@ def validate_research_only_high_position(audit: pd.DataFrame) -> None:
     if not set(combos["approved_for_daily"].astype(str).str.lower()) <= {"false", "0", ""}:
         fail("high-position pdf_bonus_combo rows must not be approved_for_daily")
     if not combos["production_readiness"].astype(str).eq("not_production_ready_research_only").all():
-        fail("high-position pdf_bonus_combo rows must not be production ready")
+        fail("high-position pdf_bonus_combo rows remain promotion evidence and must not be direct production rows")
 
 
 def validate_markdown(audit: pd.DataFrame) -> None:
@@ -188,7 +192,7 @@ def main() -> int:
     approved = read_csv(APPROVED_PATTERNS_CSV)
     for model_id in audit[audit["audit_scope"].eq("mature_model")]["model_id"].astype(str):
         validate_adapter_model(model_id, approved)
-    validate_research_only_high_position(audit)
+    validate_promoted_high_position(audit)
     validate_markdown(audit)
     print(f"mature_model_row_level_metric_contract_audit validation passed rows={len(audit)}")
     return 0

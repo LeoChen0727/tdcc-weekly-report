@@ -27,7 +27,8 @@ DOCS_MD = DOCS_LATEST_DIR / OUT_MD.name
 VOLUME_MODEL_ID = "volume_range_breakout"
 V2_LOW_MODEL_ID = "volume_range_breakout_v2_low_position_volume_attack"
 V2_MID_MODEL_ID = "volume_range_breakout_v2_mid_position_momentum_attack"
-V2_VOLUME_MODEL_IDS = (V2_LOW_MODEL_ID, V2_MID_MODEL_ID)
+V2_HIGH_MODEL_ID = "volume_range_breakout_v2_high_position_volume_attack"
+V2_VOLUME_MODEL_IDS = (V2_LOW_MODEL_ID, V2_MID_MODEL_ID, V2_HIGH_MODEL_ID)
 W_BOTTOM_MODEL_ID = "w_bottom_right_side"
 NECKLINE_MODEL_ID = "neckline_volume_breakout_confirmation"
 PRICE_PULLBACK_MODEL_ID = "price_pullback_23ema"
@@ -878,6 +879,16 @@ def build_model_operation_readiness(
                 }
             )
 
+    if V2_HIGH_MODEL_ID not in parity_by_model:
+        parity_by_model[V2_HIGH_MODEL_ID] = pd.Series(
+            {
+                "model_id": V2_HIGH_MODEL_ID,
+                "model_name_zh": "高位階放量攻擊",
+                "research_baseline_status": "production_parity",
+                "parity_blocker": "",
+            }
+        )
+
     volume_approvals = {
         model_id: summarize_model_approval(approval_frame, model_id)
         for model_id in V2_VOLUME_MODEL_IDS
@@ -1156,10 +1167,11 @@ def build_model_operation_readiness(
     order = {
         V2_LOW_MODEL_ID: 0,
         V2_MID_MODEL_ID: 1,
-        VOLUME_MODEL_ID: 2,
-        W_BOTTOM_MODEL_ID: 3,
-        NECKLINE_MODEL_ID: 4,
-        PRICE_PULLBACK_MODEL_ID: 5,
+        V2_HIGH_MODEL_ID: 2,
+        VOLUME_MODEL_ID: 3,
+        W_BOTTOM_MODEL_ID: 4,
+        NECKLINE_MODEL_ID: 5,
+        PRICE_PULLBACK_MODEL_ID: 6,
     }
     out = pd.DataFrame(rows)
     out["_order"] = out["model_id"].map(order).fillna(99)

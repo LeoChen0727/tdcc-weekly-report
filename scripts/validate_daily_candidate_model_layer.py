@@ -25,6 +25,7 @@ VALIDATION_MD = LATEST_DIR / "daily_candidate_model_layer_validation_latest.md"
 REQUIRED_PARAMETER_MODELS = {
     "volume_range_breakout_v2_low_position_volume_attack",
     "volume_range_breakout_v2_mid_position_momentum_attack",
+    "volume_range_breakout_v2_high_position_volume_attack",
     "price_pullback_23ema",
     "revenue_unreacted_range",
     "w_bottom_right_side",

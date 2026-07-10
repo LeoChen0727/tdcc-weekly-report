@@ -19,6 +19,8 @@ from build_approved_operation_patterns import (  # noqa: E402
     NECKLINE_APPROVAL_METRICS,
     NECKLINE_OPERATION_MODULE_ID,
     PRICE_PULLBACK_OPERATION_MODULE_ID,
+    V2_APPROVAL_METRICS,
+    V2_HIGH_MODEL_ID,
     W_BOTTOM_APPROVAL_METRICS,
     W_BOTTOM_OPERATION_MODULE_ID,
 )
@@ -43,6 +45,9 @@ OUT_DETAIL_CSV = LATEST_DIR / "daily_model_parameter_research_horizon_detail_lat
 OUT_DETAIL_MD = LATEST_DIR / "daily_model_parameter_research_horizon_detail_latest.md"
 OUT_PARITY_CSV = RESEARCH_LATEST_DIR / "daily_model_research_parity_latest.csv"
 OUT_PARITY_MD = RESEARCH_LATEST_DIR / "daily_model_research_parity_latest.md"
+HIGH_POSITION_AUDIT_DETAIL_CSV = (
+    RESEARCH_LATEST_DIR / "volume_range_breakout_v2_high_position_improvement_audit_detail_latest.csv"
+)
 HISTORY_CSV = HISTORY_DIR / "daily_model_parameter_research.csv"
 DOCS_CSV = DOCS_LATEST_DIR / OUT_CSV.name
 DOCS_MD = DOCS_LATEST_DIR / OUT_MD.name
@@ -975,6 +980,19 @@ def current_volume_v2_mid_position_baseline(d: pd.DataFrame) -> pd.Series:
     ).fillna(False)
 
 
+def current_volume_v2_high_position_baseline(d: pd.DataFrame) -> pd.Series:
+    position120 = numeric_column(d, "close_position_120d_pct")
+    shape = volume_v2_shape_bucket(d)
+    ma60 = numeric_column(d, "ma60")
+    ma120 = numeric_column(d, "ma120")
+    return (
+        volume_v2_base_breakout(d)
+        & position120.gt(75.0)
+        & shape.isin({"non_consolidation", "wide_range"})
+        & ma60.gt(ma120)
+    ).fillna(False)
+
+
 def current_price_pullback_baseline_proxy(d: pd.DataFrame) -> pd.Series:
     return price_pullback_near_ema23_or_support(d) & price_pullback_ema23_slope_proxy_up(d)
 
@@ -1479,6 +1497,19 @@ def production_baseline_specs() -> list[RuleSpec]:
             "",
             "production_current",
         ),
+        RuleSpec(
+            "volume_range_breakout_v2_high_position_volume_attack",
+            "高位階放量攻擊",
+            "volume_range_breakout_v2_high_position_operation_v1",
+            "formal v2 baseline: 120d high-position bucket, non-consolidation or wide-range shape, MA60 > MA120, 60d breakout and close-only next-day continuation handled by operation adapter",
+            "pdf_core_model",
+            current_volume_v2_high_position_baseline,
+            "Formal operation evidence comes from volume_range_breakout_v2_high_position_improvement_audit and the model-owned operation adapter; single add-score metrics and exact combos are row-level display metrics only.",
+            "production_baseline",
+            "production_parity",
+            "",
+            "production_current",
+        ),
     ]
     return v2_specs + specs
 
@@ -1843,6 +1874,25 @@ def summarize_rule(df: pd.DataFrame, spec: RuleSpec) -> tuple[dict[str, object],
         "apply_status": "candidate_parameter_review" if n >= MIN_REVIEW_SAMPLE else "do_not_apply_insufficient_sample",
         "notes": spec.notes,
     }
+    if spec.model_id == V2_HIGH_MODEL_ID and spec.parameter_role == "production_baseline":
+        metrics = V2_APPROVAL_METRICS[V2_HIGH_MODEL_ID]
+        selected_days, unique_stocks = high_position_approval_baseline_counts()
+        summary.update(
+            {
+                "selected_stock_days": selected_days,
+                "selected_unique_stocks": unique_stocks,
+                "best_close_horizon_d1_d10": "D+15_operation",
+                "best_close_win_rate_pct": round(float(metrics["best_evidence_win_rate"]), 2),
+                "best_avg_close_return_pct": round(float(metrics["volume_v2_avg_return_pct"]), 2),
+                "sample_status": sample_status(selected_days),
+                "apply_status": "candidate_parameter_review",
+                "notes": (
+                    spec.notes
+                    + " Baseline counts and performance are sourced from the approved high-position "
+                    "D+15 close-only operation audit, not from the generic D+N horizon replay columns."
+                ),
+            }
+        )
     for h in [1, 2, 3, 5, 10, 20]:
         row = next((r for r in detail_rows if r["horizon"] == f"D+{h}"), None)
         summary[f"d{h}_mature_count"] = row["mature_count"] if row else 0
@@ -1858,6 +1908,20 @@ def current_production_core_models() -> pd.DataFrame:
     return current.drop_duplicates("model_id", keep="first").reset_index(drop=True)
 
 
+def high_position_approval_baseline_counts() -> tuple[int, int]:
+    metrics = V2_APPROVAL_METRICS[V2_HIGH_MODEL_ID]
+    selected_days = int(float(metrics["best_evidence_sample_size"]))
+    unique_stocks = 0
+    if HIGH_POSITION_AUDIT_DETAIL_CSV.exists():
+        detail = pd.read_csv(HIGH_POSITION_AUDIT_DETAIL_CSV, dtype=str).fillna("")
+        if {"base_model_member", "stock_id"}.issubset(detail.columns):
+            base = detail[detail["base_model_member"].astype(str).str.lower().eq("true")].copy()
+            if not base.empty:
+                selected_days = len(base)
+                unique_stocks = int(base["stock_id"].nunique())
+    return selected_days, unique_stocks
+
+
 def build_model_parity(summary: pd.DataFrame) -> pd.DataFrame:
     production = current_production_core_models()
     baseline = summary[summary["parameter_role"].eq("production_baseline")].copy()
@@ -1868,7 +1932,13 @@ def build_model_parity(summary: pd.DataFrame) -> pd.DataFrame:
         variant_rows = summary[
             summary["model_id"].eq(model_id) & ~summary["parameter_role"].eq("production_baseline")
         ].copy()
-        if base_rows.empty:
+        if model_id == V2_HIGH_MODEL_ID:
+            metrics = V2_APPROVAL_METRICS[V2_HIGH_MODEL_ID]
+            status = "production_parity"
+            baseline_ids = metrics["operation_module_id"]
+            blockers = ""
+            selected_days, unique_stocks = high_position_approval_baseline_counts()
+        elif base_rows.empty:
             status = "missing_production_baseline"
             baseline_ids = ""
             blockers = "research rule_specs() has no production_baseline row for this production core model"

@@ -40,7 +40,8 @@ CONTRACT_MD = ROOT / "docs" / "specs" / "daily_volume_breakout_operation_section
 LEGACY_MODEL_ID = "volume_range_breakout"
 V2_LOW_MODEL_ID = "volume_range_breakout_v2_low_position_volume_attack"
 V2_MID_MODEL_ID = "volume_range_breakout_v2_mid_position_momentum_attack"
-FORMAL_MODEL_IDS = {V2_LOW_MODEL_ID, V2_MID_MODEL_ID}
+V2_HIGH_MODEL_ID = "volume_range_breakout_v2_high_position_volume_attack"
+FORMAL_MODEL_IDS = {V2_LOW_MODEL_ID, V2_MID_MODEL_ID, V2_HIGH_MODEL_ID}
 LIFECYCLE_ADAPTER_SOURCE = "daily_candidate_model_signal_log+daily_published_model_snapshots+stock_price_history"
 REPORT_READY_BUCKETS = {"mainstream", "non_mainstream"}
 PDF_VIEWS = {"highlight", "full"}
@@ -124,7 +125,21 @@ REQUIRED_COLUMNS = {
     "confirmation_date",
     "sample_size",
     "win_rate_zh",
+    "neutral_rate_zh",
+    "loss_rate_zh",
+    "failure_rate_zh",
+    "avg_return_zh",
     "median_return_zh",
+    "pdf_bonus_combo_id",
+    "pdf_bonus_combo_label_zh",
+    "pdf_bonus_combo_sample_size",
+    "pdf_bonus_combo_win_rate_zh",
+    "pdf_bonus_combo_neutral_rate_zh",
+    "pdf_bonus_combo_loss_rate_zh",
+    "pdf_bonus_combo_failure_rate_zh",
+    "pdf_bonus_combo_avg_return_zh",
+    "pdf_bonus_combo_median_return_zh",
+    "pdf_bonus_combo_source",
     "evidence_match_status",
     "evidence_tdcc_list_type",
     "evidence_rank_bucket",
@@ -195,6 +210,11 @@ DISPLAY_COLUMNS = [
     "win_rate_zh",
     "avg_return_zh",
     "median_return_zh",
+    "pdf_bonus_combo_id",
+    "pdf_bonus_combo_win_rate_zh",
+    "pdf_bonus_combo_loss_rate_zh",
+    "pdf_bonus_combo_avg_return_zh",
+    "pdf_bonus_combo_median_return_zh",
     "approved_for_daily",
     "operation_module_approved_for_daily",
     "approval_status",
@@ -575,6 +595,63 @@ def validate_row_level_evidence(section: pd.DataFrame, formal_summary: pd.DataFr
     extra_included = sorted(audit_keys - target_keys)
     if extra_included:
         fail(f"evidence audit marks non-rendered rows as included_in_daily_adapter=True: {extra_included[:20]}")
+
+
+def validate_high_position_bonus_metrics(section: pd.DataFrame) -> None:
+    high_data = section[
+        section["model_id"].astype(str).eq(V2_HIGH_MODEL_ID)
+        & section["row_type"].astype(str).eq("data")
+        & section["pdf_section"].astype(str).isin({"confirmed_operation", "active_operation"})
+    ].copy()
+    if high_data.empty:
+        return
+    baseline_expected = {
+        "sample_size": "231",
+        "win_rate_zh": "62.34%",
+        "neutral_rate_zh": "0.00%",
+        "loss_rate_zh": "37.66%",
+        "failure_rate_zh": "37.66%",
+        "avg_return_zh": "9.48%",
+        "median_return_zh": "6.61%",
+    }
+    for col, expected in baseline_expected.items():
+        bad = high_data[high_data[col].astype(str).str.strip().ne(expected)]
+        if not bad.empty:
+            fail(f"{V2_HIGH_MODEL_ID} data rows must retain baseline {col}={expected}")
+
+    bonus = high_data[high_data["pdf_bonus_combo_id"].astype(str).str.strip().ne("")].copy()
+    if bonus.empty:
+        return
+    required = [
+        "pdf_bonus_combo_label_zh",
+        "pdf_bonus_combo_sample_size",
+        "pdf_bonus_combo_win_rate_zh",
+        "pdf_bonus_combo_neutral_rate_zh",
+        "pdf_bonus_combo_loss_rate_zh",
+        "pdf_bonus_combo_failure_rate_zh",
+        "pdf_bonus_combo_avg_return_zh",
+        "pdf_bonus_combo_median_return_zh",
+        "pdf_bonus_combo_source",
+    ]
+    for col in required:
+        if bonus[col].astype(str).str.strip().eq("").any():
+            fail(f"{V2_HIGH_MODEL_ID} bonus metric rows must populate {col}")
+    bad_source = sorted(set(bonus["pdf_bonus_combo_source"].astype(str)) - {"single_bonus_metric", "exact_combo_metric"})
+    if bad_source:
+        fail(f"{V2_HIGH_MODEL_ID} bonus metric source must be single or exact combo: {bad_source}")
+    for _, row in bonus.iterrows():
+        bonus_win = pd.to_numeric(
+            pd.Series([str(row.get("pdf_bonus_combo_win_rate_zh", "")).replace("%", "").replace("+", "")]),
+            errors="coerce",
+        ).iloc[0]
+        bonus_avg = pd.to_numeric(
+            pd.Series([str(row.get("pdf_bonus_combo_avg_return_zh", "")).replace("%", "").replace("+", "")]),
+            errors="coerce",
+        ).iloc[0]
+        if pd.isna(bonus_win) or float(bonus_win) < 62.34:
+            fail(f"{V2_HIGH_MODEL_ID} bonus metric must not display weaker win rate than baseline")
+        if pd.isna(bonus_avg) or float(bonus_avg) <= 0:
+            fail(f"{V2_HIGH_MODEL_ID} bonus metric must keep positive average return")
 
 
 def validate_source_gap_audit(audit: pd.DataFrame) -> None:
@@ -995,6 +1072,7 @@ def validate_shape(section: pd.DataFrame, formal_summary: pd.DataFrame, audit: p
         fail("active_operation rows must explain operation-in-progress status")
 
 
+    validate_high_position_bonus_metrics(section)
     validate_row_level_evidence(section, formal_summary, audit)
 
 

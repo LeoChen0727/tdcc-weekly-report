@@ -13,6 +13,7 @@ from build_model_operation_readiness import build_model_operation_readiness  # n
 
 LOW_VOLUME_MODEL_ID = "volume_range_breakout_v2_low_position_volume_attack"
 MID_VOLUME_MODEL_ID = "volume_range_breakout_v2_mid_position_momentum_attack"
+HIGH_VOLUME_MODEL_ID = "volume_range_breakout_v2_high_position_volume_attack"
 
 
 def parity_frame() -> pd.DataFrame:
@@ -217,16 +218,19 @@ def price_pullback_exact_row_parity_frame() -> pd.DataFrame:
 
 
 def adapter_frame(with_approval_metadata: bool = False) -> pd.DataFrame:
-    row = {
-        "model_id": LOW_VOLUME_MODEL_ID,
-        "row_type": "data",
-        "pdf_section": "confirmed_operation",
-        "adapter_source_status": "ready",
-    }
-    if with_approval_metadata:
-        row["approved_for_daily"] = "True"
-        row["operation_directive_level"] = "approved_daily_operation_guidance"
-    return pd.DataFrame([row])
+    rows = []
+    for model_id in (LOW_VOLUME_MODEL_ID, MID_VOLUME_MODEL_ID, HIGH_VOLUME_MODEL_ID):
+        row = {
+            "model_id": model_id,
+            "row_type": "data",
+            "pdf_section": "confirmed_operation",
+            "adapter_source_status": "ready",
+        }
+        if with_approval_metadata:
+            row["approved_for_daily"] = "True"
+            row["operation_directive_level"] = "approved_daily_operation_guidance"
+        rows.append(row)
+    return pd.DataFrame(rows)
 
 
 def w_bottom_adapter_frame(model_id: str) -> pd.DataFrame:

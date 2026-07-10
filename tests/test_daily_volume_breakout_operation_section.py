@@ -18,6 +18,7 @@ import validate_daily_volume_breakout_operation_section as section_validator  # 
 
 LOW_VOLUME_MODEL_ID = "volume_range_breakout_v2_low_position_volume_attack"
 MID_VOLUME_MODEL_ID = "volume_range_breakout_v2_mid_position_momentum_attack"
+HIGH_VOLUME_MODEL_ID = "volume_range_breakout_v2_high_position_volume_attack"
 
 
 def approval_stub(**updates: str) -> dict[str, str]:
@@ -37,6 +38,8 @@ def approval_stub(**updates: str) -> dict[str, str]:
         "best_evidence_median_return": "18.7857",
         "best_evidence_confidence_status": "approved",
         "best_evidence_out_of_sample_pass": "not_applicable",
+        "volume_v2_neutral_rate_pct": "0.0000",
+        "volume_v2_loss_rate_pct": "19.2308",
         "volume_v2_avg_return_pct": "28.7704",
         "approval_note_zh": "approved for test",
     }
@@ -62,6 +65,14 @@ def pdf_summary_approval_rows() -> pd.DataFrame:
                 "stop_loss_rule_zh": "收盤連續4天低於MA20/EMA23較低者的4%，隔日開盤停損。",
                 "best_evidence_win_rate": "80.0000",
                 "best_evidence_median_return": "14.6953",
+            },
+            {
+                "model_id": HIGH_VOLUME_MODEL_ID,
+                "entry_rule_zh": "確認日收盤後成立，下一個交易日開盤買入。",
+                "exit_rule_zh": "收盤停損或 D+15 收盤出場。",
+                "stop_loss_rule_zh": "收盤連續4天低於 MA20/EMA23 較低者 4%，隔日開盤停損。",
+                "best_evidence_win_rate": "62.3377",
+                "best_evidence_median_return": "6.6055",
             },
             {
                 "model_id": "w_bottom_right_side",
@@ -134,6 +145,68 @@ def test_pdf_operation_model_summary_renders_each_contract_token_as_own_line() -
         assert next_token not in line
     assert pdf_generator.OPERATION_MODEL_SAMPLING_TEXT in lines
     assert lines.count(pdf_generator.OPERATION_MODEL_SAMPLING_TEXT) == 1
+
+
+def test_pdf_required_model_text_validation_does_not_infer_operation_empty_rows_from_candidates() -> None:
+    inputs = {
+        "model_registry": pd.DataFrame(
+            [
+                {
+                    "model_id": LOW_VOLUME_MODEL_ID,
+                    "model_name_zh": "Low Operation Model",
+                    "model_registry_order": "1",
+                    "model_registry_active": "True",
+                    "report_line_applicability": "both",
+                },
+                {
+                    "model_id": HIGH_VOLUME_MODEL_ID,
+                    "model_name_zh": "High Operation Model",
+                    "model_registry_order": "2",
+                    "model_registry_active": "True",
+                    "report_line_applicability": "both",
+                },
+                {
+                    "model_id": "tdcc_stealth_accumulation",
+                    "model_name_zh": "Non Operation Model",
+                    "model_registry_order": "3",
+                    "model_registry_active": "True",
+                    "report_line_applicability": "both",
+                },
+            ]
+        ),
+        "model_parameters": pd.DataFrame(
+            [
+                {"model_id": LOW_VOLUME_MODEL_ID, "pdf_visibility": "pdf_core_model"},
+                {"model_id": HIGH_VOLUME_MODEL_ID, "pdf_visibility": "pdf_core_model"},
+                {"model_id": "tdcc_stealth_accumulation", "pdf_visibility": "pdf_core_model"},
+            ]
+        ),
+        "model_readiness": pd.DataFrame(
+            [
+                {
+                    "model_id": LOW_VOLUME_MODEL_ID,
+                    "presentation_allowed": "True",
+                    "pdf_integration_status": "pdf_integrated_daily_adapter",
+                },
+                {
+                    "model_id": HIGH_VOLUME_MODEL_ID,
+                    "presentation_allowed": "True",
+                    "pdf_integration_status": "pdf_integrated_daily_adapter",
+                },
+            ]
+        ),
+        "model_signals": pd.DataFrame(
+            columns=["model_id", "report_line", "stock_id", "model_rank", "display_rank", "model_score"]
+        ),
+    }
+    text = (
+        "Low Operation Model High Operation Model Non Operation Model "
+        f"{pdf_generator.MODEL_EMPTY_STATE_TEXT}"
+    )
+
+    missing = pdf_generator.required_stock_model_text_missing(inputs, "mainstream", text)
+
+    assert missing == []
 
 
 def test_pdf_stock_model_summary_marks_numeric_tokens_red() -> None:
@@ -315,6 +388,102 @@ def build_rows_and_audit_for_test(
     )
 
 
+def high_position_price_rows() -> pd.DataFrame:
+    dates = pd.date_range(end=pd.to_datetime("2026-06-17"), periods=120, freq="D").strftime("%Y%m%d")
+    rows: list[dict[str, object]] = []
+    for idx, date in enumerate(dates):
+        close = 90.0 if idx < 60 else 100.0
+        rows.append(
+            {
+                "date": date,
+                "stock_id": "5678",
+                "stock_name": "HighCo",
+                "open": close,
+                "high": close + 2,
+                "low": close - 2,
+                "close": close,
+                "volume": 1000,
+                "ma20": 100.0,
+                "ma60": 99.0,
+                "ema23": 100.0,
+                "volume_ratio": 3.0,
+                "previous_60d_high_calc": 104.0,
+                "limit_up_like": "False",
+            }
+        )
+    rows[-2].update({"open": 106.0, "high": 110.0, "low": 100.0, "close": 108.0})
+    rows[-1].update({"open": 109.0, "high": 112.0, "low": 107.0, "close": 111.0})
+    return pd.DataFrame(rows)
+
+
+def test_high_position_confirmed_row_uses_exact_bonus_combo_metric(monkeypatch) -> None:
+    monkeypatch.setattr(builder, "tdcc_events", lambda: pd.DataFrame())
+    monkeypatch.setattr(builder, "market_regime_map", lambda: {})
+    price = high_position_price_rows()
+    signal_idx = len(price) - 2
+    report_idx = len(price) - 1
+    selected = {
+        "trigger_id": "next_day_continuation_confirmed",
+        "matched_trigger_ids": "next_day_continuation_confirmed",
+        "confirmation_idx": report_idx,
+        "confirmation_date": "20260617",
+        "trigger_priority": 1,
+        "trigger_zh": "隔日續攻",
+    }
+    signal = pd.Series(
+        {
+            "model_id": HIGH_VOLUME_MODEL_ID,
+            "signal_date": "20260616",
+            "stock_id": "5678",
+            "stock_name": "HighCo",
+            "display_rank": "1",
+            "model_score": "88",
+            "volume_position_bucket_120d": "high_pos_gt75",
+            "volume_shape_bucket": "non_consolidation",
+        }
+    )
+    approval = approval_stub(
+        operation_module_id="volume_range_breakout_v2_high_position_operation_v1",
+        approval_version="volume_range_breakout_v2_high_position_operation_20260710",
+        buy_filter_id="pos120_high_nonconsolidation_or_wide_ma60_gt_ma120_next_day_continuation_d15_stop",
+        best_evidence_sample_size="231",
+        best_evidence_win_rate="62.3377",
+        best_evidence_median_return="6.6055",
+        volume_v2_neutral_rate_pct="0.0000",
+        volume_v2_loss_rate_pct="37.6623",
+        volume_v2_avg_return_pct="9.4824",
+    )
+    evidence, context, _audit = builder.model_level_evidence(signal, selected, approval)
+
+    record = builder.confirmed_record(
+        signal,
+        selected,
+        evidence,
+        context,
+        price,
+        signal_idx,
+        report_idx,
+        approval,
+        "2026-06-17 12:00:00 Asia/Taipei",
+        "20260617",
+        1,
+        "1",
+    )
+
+    assert record["sample_size"] == "231"
+    assert record["win_rate_zh"] == "62.34%"
+    assert record["neutral_rate_zh"] == "0.00%"
+    assert record["loss_rate_zh"] == "37.66%"
+    assert record["failure_rate_zh"] == "37.66%"
+    assert record["avg_return_zh"] == "9.48%"
+    assert record["pdf_bonus_combo_id"] == "pdf_combo__not_limit_up_like__breakout_2_5__signal_body_le3__close_location_le80"
+    assert record["pdf_bonus_combo_source"] == "exact_combo_metric"
+    assert record["pdf_bonus_combo_sample_size"] == "6"
+    assert record["pdf_bonus_combo_win_rate_zh"] == "100.00%"
+    assert record["pdf_bonus_combo_loss_rate_zh"] == "0.00%"
+    assert record["pdf_bonus_combo_avg_return_zh"] == "+18.25%"
+
+
 def output_row(**updates: str) -> dict[str, str]:
     row = {col: "" for col in builder.OUTPUT_COLUMNS}
     row.update(
@@ -382,7 +551,7 @@ def test_build_reuses_existing_published_operation_snapshot(monkeypatch, tmp_pat
         index=False,
     )
     snapshot_rows = []
-    for model_id in [LOW_VOLUME_MODEL_ID, MID_VOLUME_MODEL_ID]:
+    for model_id in [LOW_VOLUME_MODEL_ID, MID_VOLUME_MODEL_ID, HIGH_VOLUME_MODEL_ID]:
         for pdf_view in builder.PDF_VIEWS:
             for pdf_section in builder.PDF_SECTIONS:
                 if not builder.section_allowed_for_pdf_view(pdf_view, pdf_section):
@@ -414,7 +583,7 @@ def test_build_reuses_existing_published_operation_snapshot(monkeypatch, tmp_pat
     section, audit = builder.build()
 
     assert len(section) == len(snapshot_rows)
-    assert set(section["model_id"]) == {LOW_VOLUME_MODEL_ID, MID_VOLUME_MODEL_ID}
+    assert set(section["model_id"]) == {LOW_VOLUME_MODEL_ID, MID_VOLUME_MODEL_ID, HIGH_VOLUME_MODEL_ID}
     assert set(section["stock_id"]) == {""}
     assert set(section["row_type"]) == {"empty_state"}
     assert audit["stock_id"].tolist() == ["1234"]
@@ -444,7 +613,7 @@ def test_build_allows_empty_published_operation_evidence_audit_snapshot(monkeypa
     )
     formal_summary().to_csv(latest_dir / "approved_formal_summary.csv", index=False)
     snapshot_rows = []
-    for model_id in [LOW_VOLUME_MODEL_ID, MID_VOLUME_MODEL_ID]:
+    for model_id in [LOW_VOLUME_MODEL_ID, MID_VOLUME_MODEL_ID, HIGH_VOLUME_MODEL_ID]:
         for pdf_view in builder.PDF_VIEWS:
             for pdf_section in builder.PDF_SECTIONS:
                 if not builder.section_allowed_for_pdf_view(pdf_view, pdf_section):

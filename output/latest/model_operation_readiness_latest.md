@@ -1,6 +1,6 @@
 # Model Operation Readiness
 
-- generated_at: `2026-07-09 22:46:14 Asia/Taipei`
+- generated_at: `2026-07-11 00:31:19 Asia/Taipei`
 - purpose: track model parity, operation-module readiness, daily adapter status, and promotion boundaries
 - rule: `approved_for_daily=True` requires an explicit approved operation artifact
 - rule: raw research evidence rows can remain research-only even after an operation module is approved
@@ -10,9 +10,8 @@
 
 | operation_module_status | count |
 | --- | --- |
+| approved_operation_v1 | 5 |
 | baseline_only_no_validated_operation_module | 5 |
-| approved_operation_v1 | 4 |
-| deprecated_replaced_by_volume_range_breakout_v2 | 1 |
 | approved_operation_v2 | 1 |
 
 ## daily_adapter_status
@@ -20,23 +19,22 @@
 | daily_adapter_status | count |
 | --- | --- |
 | not_started | 5 |
-| ready_approved_operation_guidance | 3 |
+| ready_approved_operation_guidance | 4 |
 | ready_empty_no_operation_rows | 2 |
-| legacy_isolated | 1 |
 
 ## approved_for_daily
 
 | approved_for_daily | count |
 | --- | --- |
-| False | 6 |
-| True | 5 |
+| True | 6 |
+| False | 5 |
 
 ## presentation_allowed
 
 | presentation_allowed | count |
 | --- | --- |
-| False | 6 |
-| True | 5 |
+| True | 6 |
+| False | 5 |
 
 ## Status Table
 
@@ -44,7 +42,7 @@
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | volume_range_breakout_v2_low_position_volume_attack | production_parity | approved_operation_v1 | ready_approved_operation_guidance | True | approved_for_daily_v1 | volume_range_breakout_v2_low_position_operation_v1 | volume_range_breakout_v2_formal_operation_20260709 | True | approved_daily_operation_guidance | pdf_integrated_daily_adapter | packet_integrated_daily_adapter | v2 volume breakout operation adapter is ready | v2 放量攻擊正式模型：模型條件加 close-only 確認就是買入 gate；TDCC、MA60/MA120、EMA23 距離僅能作分層或加分，不得作 hidden gate。 |
 | volume_range_breakout_v2_mid_position_momentum_attack | production_parity | approved_operation_v1 | ready_empty_no_operation_rows | True | approved_for_daily_v1 | volume_range_breakout_v2_mid_position_operation_v1 | volume_range_breakout_v2_formal_operation_20260709 | True | approved_daily_operation_guidance | pdf_integrated_daily_adapter | packet_integrated_daily_adapter | v2 volume breakout operation adapter is ready | v2 放量攻擊正式模型：模型條件加 close-only 確認就是買入 gate；TDCC、MA60/MA120、EMA23 距離僅能作分層或加分，不得作 hidden gate。 |
-| volume_range_breakout | production_parity | deprecated_replaced_by_volume_range_breakout_v2 | legacy_isolated | False | deprecated_replaced_by_volume_range_breakout_v2 |  |  | False | no_operation_directive | deprecated_not_rendered | deprecated_not_rendered | legacy v1 isolated; replaced by low-position and mid-position v2 formal models | 舊放量攻擊 v1 已隔離，不再產生正式買入、操作中或 PDF operation row；歷史 artifact 保留作 audit/research。 |
+| volume_range_breakout_v2_high_position_volume_attack | production_parity | approved_operation_v1 | ready_approved_operation_guidance | True | approved_for_daily_v1 | volume_range_breakout_v2_high_position_operation_v1 | volume_range_breakout_v2_high_position_operation_20260710 | True | approved_daily_operation_guidance | pdf_integrated_daily_adapter | packet_integrated_daily_adapter | v2 volume breakout operation adapter is ready | v2 放量攻擊正式模型：模型條件加 close-only 確認就是買入 gate；TDCC、MA60/MA120、EMA23 距離僅能作分層或加分，不得作 hidden gate。 |
 | w_bottom_right_side | production_parity | approved_operation_v2 | ready_approved_operation_guidance | True | approved_for_daily_v2 | w_bottom_early_entry_operation_v2 | w_bottom_early_entry_operation_v2_20260629 | True | approved_daily_operation_guidance | pdf_integrated_daily_adapter | packet_integrated_daily_adapter | W-bottom operation adapter is ready | W底右側模型已核准為 daily operation guidance，PDF 僅能消費 model-owned operation adapter。 |
 | neckline_volume_breakout_confirmation | production_parity | approved_operation_v1 | ready_empty_no_operation_rows | True | approved_for_daily_v1 | neckline_strict_45_signal_90_score_v1 | neckline_strict_45_signal_90_score_v1_20260629 | True | approved_daily_operation_guidance | pdf_integrated_daily_adapter | packet_integrated_daily_adapter | neckline operation adapter is ready | W底頸線帶量突破確認模型已核准為 daily operation guidance，PDF 僅能消費 model-owned operation adapter。 |
 | price_pullback_23ema | production_parity | approved_operation_v1 | ready_approved_operation_guidance | True | approved_for_daily_v1 | price_pullback_23ema_prev20_breakout_stop_v1 | price_pullback_23ema_operation_v1_20260703 | True | approved_daily_operation_guidance | pdf_integrated_daily_adapter | packet_integrated_daily_adapter | price_pullback_23ema operation adapter is ready | 23EMA回檔模型已核准為 daily operation guidance，PDF 僅能消費 model-owned operation adapter。 |

@@ -38,6 +38,8 @@ REQUIRED_RENDERED_REGRESSION_CONTRACT_IDS = {
     "volume_range_breakout_v2_low_position_non_mainstream_highlight_structure",
     "volume_range_breakout_v2_mid_position_mainstream_highlight_structure",
     "volume_range_breakout_v2_mid_position_non_mainstream_highlight_structure",
+    "volume_range_breakout_v2_high_position_mainstream_highlight_structure",
+    "volume_range_breakout_v2_high_position_non_mainstream_highlight_structure",
     "volume_range_breakout_mainstream_highlight_20260703",
     "volume_range_breakout_non_mainstream_highlight_empty_20260703",
     "volume_range_breakout_mainstream_highlight_confirmed_empty_table_20260703",

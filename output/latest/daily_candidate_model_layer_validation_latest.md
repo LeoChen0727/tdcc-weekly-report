@@ -1,12 +1,12 @@
 # Daily Candidate Model Layer Validation
 
 - status: `pass`
-- parameter_rows: `16`
-- raw_signal_rows: `450`
-- signal_rows: `450`
+- parameter_rows: `17`
+- raw_signal_rows: `451`
+- signal_rows: `451`
 - same_model_repeat_rows: `300`
 - rotation_rows: `1`
-- packet_lines: `206`
+- packet_lines: `208`
 
 ## Errors
 
