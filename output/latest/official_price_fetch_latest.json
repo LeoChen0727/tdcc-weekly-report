@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-10 01:29:30 Asia/Taipei",
+  "generated_at": "2026-07-10 18:31:30 Asia/Taipei",
   "target_date": "20260710",
   "saved_price_date": "20260709",
   "is_target_date": false,
@@ -9,10 +9,14 @@
   "tpex_rows": 0,
   "total_rows": 0,
   "full_market_ok": false,
-  "stale_markets": [],
-  "stale_market_rows": 0,
-  "data_quality_note": "",
-  "market_same_ratios": {},
+  "stale_markets": [
+    "TWSE"
+  ],
+  "stale_market_rows": 1240,
+  "data_quality_note": "partial_market_stale_rejected: TWSE matched previous trading day file daily_price_20260709.csv",
+  "market_same_ratios": {
+    "TWSE": 1.0
+  },
   "attempts": [
     {
       "date": "20260710",
@@ -22,7 +26,12 @@
       "twse_ok": false,
       "tpex_ok": false,
       "full_market_ok": false,
-      "universe_rows": 2132
+      "universe_rows": 2132,
+      "stale_markets": [
+        "TWSE"
+      ],
+      "stale_market_rows": 1240,
+      "data_quality_note": "partial_market_stale_rejected: TWSE matched previous trading day file daily_price_20260709.csv"
     }
   ],
   "paths": {

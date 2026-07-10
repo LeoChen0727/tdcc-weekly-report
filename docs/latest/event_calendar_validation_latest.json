@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-10 18:15:56 Asia/Taipei",
+  "generated_at": "2026-07-10 18:42:41 Asia/Taipei",
   "status": "pass",
   "schema_only": false,
   "issues": [],
@@ -8,7 +8,7 @@
       "path": "data/company_calendar/company_event_calendar.csv",
       "exists": true,
       "rows": 3126,
-      "size_bytes": 1441917
+      "size_bytes": 1441977
     },
     "macro_event_calendar": {
       "path": "data/macro_events/macro_event_calendar.csv",

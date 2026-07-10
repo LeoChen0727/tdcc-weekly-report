@@ -2,9 +2,9 @@
 
 - status: `pass`
 - main_price_date: `20260709`
-- theme_rows: `2`
-- two_line_rows: `270`
-- all_candidate_rows: `270`
+- theme_rows: `31`
+- two_line_rows: `537`
+- all_candidate_rows: `537`
 
 ## Errors
 
@@ -12,4 +12,4 @@
 
 ## Warnings
 
-- 2347 exists but was not found in an expected individual/latent/risk line group
+- none
