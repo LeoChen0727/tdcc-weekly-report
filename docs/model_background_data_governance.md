@@ -209,24 +209,67 @@ not shared objective background data:
 
 - `output/latest/research_backtest/price_pullback_23ema_revenue_condition_matrix_latest.csv`
 - `output/latest/research_backtest/revenue_unreacted_range_revenue_condition_matrix_latest.csv`
+- `output/latest/research_backtest/revenue_unreacted_range_operation_candidate_matrix_latest.csv`
 - `docs/latest/price_pullback_23ema_revenue_condition_matrix_latest.csv`
 - `docs/latest/revenue_unreacted_range_revenue_condition_matrix_latest.csv`
+- `docs/latest/revenue_unreacted_range_operation_candidate_matrix_latest.csv`
 
 The producer and validator are:
 
 ```text
 python scripts/build_daily_model_parameter_research.py
 python scripts/validate_daily_model_revenue_condition_matrix.py
+python scripts/validate_revenue_unreacted_range_operation_candidate_matrix.py
 ```
 
 Allowed use: compare model-specific revenue conditions under the matrix's stated
-buy point, sell rule, anomaly-exclusion basis, and `source_table_date <=
-signal_date` monthly revenue join.
+buy point, sell rule, stop rule, anomaly-exclusion basis, same-stock non-overlap
+basis, and `source_table_date <= signal_date` monthly revenue join.
 
 Forbidden use: do not use these matrix rows as production gates, scores,
 rankings, PDF metrics, or shared cross-model features. `monthly_revenue_history`
 is the reusable objective input; the matrix conclusion is specific to the named
 model and still needs an explicit promotion PR before formal use.
+
+## Volume Breakout V2 High-Position Improvement Audit
+
+`volume_range_breakout_v2_high_position_improvement_audit_latest.csv` is a
+model-specific research-only artifact for the high-position volume attack future
+model discussion. It consumes the existing v2 position-shape matrix detail and
+raw-market rerun detail, then compares TDCC, market-regime, previous-60-day
+shape, and technical features under the same close-only operation basis.
+The audit keeps the pre-filter universe
+`high_pos_gt75_non_consolidation_or_wide` only as `reference_universe`; the
+research baseline is
+`high_pos_gt75_nonconsolidation_or_wide_ma60_gt_ma120`. `mild_bull`,
+TDCC, breakout-size, EMA23-distance, volume, signal-body, close-location, and
+confirmation-return rows are add-score or risk-filter diagnostics only. The
+artifact also computes signal-date KDJ from stock-local price history. New
+discussion and new artifacts must treat `kdj_*` columns as the authoritative
+KDJ display fields; existing `kd_*` columns are legacy compatibility aliases and
+must not be described to users as a KD-only test when `kd_j_signal` /
+`kdj_j_signal` is present. The artifact emits both add-score overlap diagnostics
+and exact PDF add-score combo rows (`row_type=pdf_bonus_combo`,
+`feature_family=pdf_bonus_combo`). An exact combo row recalculates
+win/neutral/loss rates and average/median return for the actual feature set
+matched by a stock, such as
+`pdf_combo__breakout_2_5__signal_body_le3`, instead of reusing the whole-model
+baseline or an individual add-score row.
+
+PDF-facing use: if a future daily operation adapter exposes row-level add-score
+combo performance fields, the PDF table's performance columns must display the
+matched exact combo metric for that row. The whole-model baseline may appear in
+header, summary, or audit context only; it must not be shown inside a stock row
+that is already labeled with a stronger add-score combo. Renderer implementation
+belongs to the daily PDF layout lane after this contract is promoted.
+
+Allowed use: discuss whether high-position volume attack needs an add-score,
+risk tag, or future model-specific condition after comparing both win and loss
+feature shares.
+
+Forbidden use: do not use the audit as a hidden production gate, daily ranking
+rule, PDF metric, operation adapter, or promotion evidence without a dedicated
+model decision and promotion PR.
 
 ## Price Pullback 23EMA Promotion Matrix
 

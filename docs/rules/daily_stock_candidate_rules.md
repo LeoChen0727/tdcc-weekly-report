@@ -108,6 +108,23 @@ Use program-side model-layer fields first:
 
 Do not reorder or upgrade stocks by memory when these fields exist. Daily PDF and packet text must not use a separate trading-action layer as a second conclusion over the model layer.
 
+## Row-Level Performance Metrics
+
+When a model-owned adapter provides row-level add-score or bonus-combo
+performance fields, daily PDF table performance columns must use the matched
+row-level combo metric for that stock row. They must not fall back to the whole
+model baseline win/neutral/loss rates or average return inside the row.
+
+Whole-model baseline performance belongs only in model headers, model summaries,
+audit notes, or research artifacts. A stock row labeled with add-score features
+such as `breakout_2_5` and `signal_body_le3` must display the exact combo
+metric for that feature set when such a metric exists.
+
+If no approved row-level combo metric exists yet, the PDF must leave the
+row-level performance fields blank or show an explicit unavailable state from
+the adapter. It must not infer a combo metric from candidate rows or substitute
+the overall model baseline.
+
 ## No Daily PDF Action Rating Layer
 
 Daily PDF and packet output must not depend on action-rating or position-sizing fields. The daily report may describe model hits, model score, rank, risk tags, technical state, TDCC/warrant context, and next confirmation. It must not convert those fields into a program-side buy/sell instruction until a separate historical pattern operation module exists.

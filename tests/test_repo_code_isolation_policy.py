@@ -75,6 +75,7 @@ def test_research_pipeline_stages_price_pullback_feature_confirmation_outputs() 
     assert "docs/latest/price_pullback_23ema_high_return_feature_score_grid_latest.md" in workflow_text
     assert "output/history/research/price_pullback_23ema_high_return_feature_score_grid.csv" in workflow_text
     assert "python scripts/validate_daily_model_revenue_condition_matrix.py" in workflow_text
+    assert "python scripts/validate_revenue_unreacted_range_operation_candidate_matrix.py" in workflow_text
     assert "output/latest/research_backtest/price_pullback_23ema_revenue_condition_matrix_latest.csv" in workflow_text
     assert "output/latest/research_backtest/price_pullback_23ema_revenue_condition_matrix_latest.md" in workflow_text
     assert "python scripts/validate_price_pullback_promotion_matrix.py" in workflow_text
@@ -82,15 +83,20 @@ def test_research_pipeline_stages_price_pullback_feature_confirmation_outputs() 
     assert "output/latest/research_backtest/price_pullback_23ema_promotion_matrix_latest.md" in workflow_text
     assert "output/latest/research_backtest/revenue_unreacted_range_revenue_condition_matrix_latest.csv" in workflow_text
     assert "output/latest/research_backtest/revenue_unreacted_range_revenue_condition_matrix_latest.md" in workflow_text
+    assert "output/latest/research_backtest/revenue_unreacted_range_operation_candidate_matrix_latest.csv" in workflow_text
+    assert "output/latest/research_backtest/revenue_unreacted_range_operation_candidate_matrix_latest.md" in workflow_text
     assert "docs/latest/price_pullback_23ema_revenue_condition_matrix_latest.csv" in workflow_text
     assert "docs/latest/price_pullback_23ema_revenue_condition_matrix_latest.md" in workflow_text
     assert "docs/latest/price_pullback_23ema_promotion_matrix_latest.csv" in workflow_text
     assert "docs/latest/price_pullback_23ema_promotion_matrix_latest.md" in workflow_text
     assert "docs/latest/revenue_unreacted_range_revenue_condition_matrix_latest.csv" in workflow_text
     assert "docs/latest/revenue_unreacted_range_revenue_condition_matrix_latest.md" in workflow_text
+    assert "docs/latest/revenue_unreacted_range_operation_candidate_matrix_latest.csv" in workflow_text
+    assert "docs/latest/revenue_unreacted_range_operation_candidate_matrix_latest.md" in workflow_text
     assert "output/history/research/price_pullback_23ema_revenue_condition_matrix.csv" in workflow_text
     assert "output/history/research/price_pullback_23ema_promotion_matrix.csv" in workflow_text
     assert "output/history/research/revenue_unreacted_range_revenue_condition_matrix.csv" in workflow_text
+    assert "output/history/research/revenue_unreacted_range_operation_candidate_matrix.csv" in workflow_text
     assert "output/latest/research_backtest/price_pullback_23ema_lifecycle_replay_latest.csv" in workflow_text
     assert "output/latest/research_backtest/price_pullback_23ema_lifecycle_replay_latest.md" in workflow_text
     assert "docs/latest/price_pullback_23ema_lifecycle_replay_latest.csv" in workflow_text
@@ -124,6 +130,8 @@ def test_research_pipeline_runs_volume_range_breakout_v2_overlap_sensitivity_val
     assert "python scripts/validate_volume_range_breakout_v2_promotion_readiness_audit.py" in workflow_text
     assert "python scripts/build_volume_range_breakout_v2_position_shape_matrix.py" in workflow_text
     assert "python scripts/validate_volume_range_breakout_v2_position_shape_matrix.py" in workflow_text
+    assert "python scripts/build_volume_range_breakout_v2_high_position_improvement_audit.py" in workflow_text
+    assert "python scripts/validate_volume_range_breakout_v2_high_position_improvement_audit.py" in workflow_text
     assert "python scripts/build_volume_range_breakout_v2_candidate_bucket_contract.py" in workflow_text
     assert "python scripts/validate_volume_range_breakout_v2_candidate_bucket_contract.py" in workflow_text
     assert "output/latest/research_backtest/volume_range_breakout_v2_*_latest.csv" in workflow_text

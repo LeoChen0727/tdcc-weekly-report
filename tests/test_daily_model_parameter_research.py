@@ -32,6 +32,7 @@ from build_daily_model_parameter_research import (  # noqa: E402
     build_price_pullback_promotion_matrix,
     build_price_pullback_research_score_bucket,
     build_price_pullback_time_cost_backtest,
+    build_revenue_unreacted_range_operation_candidate_matrix,
     build_revenue_unreacted_range_revenue_condition_matrix,
     current_price_pullback_baseline_proxy,
     price_pullback_prior_extension_filter,
@@ -41,6 +42,9 @@ from build_daily_model_parameter_research import (  # noqa: E402
 from validate_daily_model_research_parity import validate_rule_specs  # noqa: E402
 from validate_daily_model_revenue_condition_matrix import validate_price_pullback, validate_revenue_unreacted  # noqa: E402
 from validate_price_pullback_promotion_matrix import validate_matrix as validate_promotion_matrix  # noqa: E402
+from validate_revenue_unreacted_range_operation_candidate_matrix import (  # noqa: E402
+    validate_matrix as validate_revenue_operation_candidate_matrix,
+)
 from validate_research_against_stock_model_contract import build_parity_rows  # noqa: E402
 
 
@@ -1510,6 +1514,69 @@ def test_revenue_unreacted_range_revenue_matrix_stays_advisory_without_operation
     assert strong["accepted_trade_count"] == 1
     assert strong["win_rate_pct"] == 100.0
     assert strong["promotion_readiness"] == "blocked_operation_rule_and_model_specific_promotion_pr_required"
+
+
+def test_revenue_unreacted_range_operation_candidate_matrix_is_research_only_non_overlap() -> None:
+    df = pd.DataFrame(
+        {
+            "stock_id": ["2330", "2330", "2317"],
+            "date": ["20260101", "20260102", "20260101"],
+            "close": [100.0, 101.0, 80.0],
+            "range_low_23d_prev": [95.0, 95.0, 75.0],
+            "range_high_23d_prev": [105.0, 105.0, 85.0],
+            "range_width_23d_pct": [10.0, 10.0, 12.0],
+            "distance_to_range_high_23d_pct": [-4.8, -3.8, -5.9],
+            "close_position_120d_pct": [50.0, 52.0, 40.0],
+            "volume_ratio_prev20": [1.0, 1.0, 1.0],
+            "range_breakout_20d_pct": [0.0, 0.0, 0.0],
+            "volume_ma20_lots": [100.0, 100.0, 100.0],
+            "bullish_attack_candle": [False, False, False],
+            "locked_limit_up_breakout": [False, False, False],
+            "return_5d_pct": [1.0, 1.0, 1.0],
+            "return_20d_pct": [5.0, 5.0, 5.0],
+            "next_open": [100.0, 101.0, 80.0],
+            "close_above_ma20": [True, True, True],
+            "close_above_ema23": [True, True, True],
+            "high_thresholds_up": [True, True, False],
+            "full_monthly_revenue_context_ready": [True, True, True],
+            "full_monthly_revenue_latest_yoy_pct": [60.0, 70.0, 80.0],
+            "full_monthly_revenue_cumulative_yoy_pct": [30.0, 35.0, 40.0],
+            "full_monthly_revenue_prev1_latest_yoy_pct": [50.0, 55.0, 70.0],
+            "full_monthly_revenue_prev2_latest_yoy_pct": [40.0, 50.0, 60.0],
+            "full_monthly_revenue_prev1_cumulative_yoy_pct": [25.0, 30.0, 35.0],
+            "full_monthly_revenue_prev2_cumulative_yoy_pct": [20.0, 25.0, 30.0],
+            "full_monthly_revenue_positive_flag": [True, True, True],
+            "full_monthly_revenue_strong_flag": [True, True, True],
+            "full_monthly_revenue_positive_or_strong": [True, True, True],
+            "full_monthly_revenue_numerical_anomaly_flag": [False, False, False],
+        }
+    )
+    for day in range(1, 21):
+        df[f"next_open_to_d{day}_day_close_return_pct"] = [6.0, 7.0, 8.0]
+        df[f"future_d{day}_ma20"] = [90.0, 91.0, 72.0]
+        df[f"future_d{day}_ema23"] = [92.0, 93.0, 74.0]
+    for day in range(2, 22):
+        df[f"future_d{day}_open"] = [100.0, 101.0, 80.0]
+    df["next_open_to_d10_close_return_pct"] = [6.0, 7.0, 8.0]
+    df["next_open_to_d20_close_return_pct"] = [6.0, 7.0, 8.0]
+
+    matrix = build_revenue_unreacted_range_operation_candidate_matrix(df)
+
+    assert not matrix.empty
+    assert validate_revenue_operation_candidate_matrix(matrix.astype(str)) == []
+    assert matrix["approved_for_daily"].eq(False).all()
+    assert matrix["production_change"].eq("none").all()
+    strong = matrix[
+        matrix["condition_test_id"].eq("revenue_production_strong")
+        & matrix["exit_rule_id"].eq("d10_close_no_stop")
+        & matrix["anomaly_exclusion_basis"].eq("excluding_revenue_numerical_anomalies")
+    ].iloc[0]
+    assert strong["operation_basis"] == "research_only_close_confirmed_operation_candidate"
+    assert strong["accepted_trade_count"] == 2
+    assert strong["suppressed_signal_count"] == 1
+    assert strong["same_stock_overlap_pair_count"] == 0
+    assert strong["win_rate_pct"] == 100.0
+    assert strong["promotion_readiness"] == "research_only_operation_candidate_not_promotion_ready"
 
 
 def test_feature_confirmation_deltas_support_future_string_dtype() -> None:
