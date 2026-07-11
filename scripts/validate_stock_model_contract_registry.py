@@ -46,6 +46,7 @@ SPEC_ALIGNMENT_COLUMNS = [
 BOOL_VALUES = {"true", "false"}
 CONTRACT_VERSION_RE = re.compile(r"^v[0-9]+$")
 DATE_OR_STATUS_RE = re.compile(r"^[0-9]{4}-[0-9]{2}-[0-9]{2}$")
+DEPRECATED_FUNCTION_SENTINEL = "deprecated_no_production_function"
 
 
 def rel(path: Path) -> str:
@@ -110,6 +111,22 @@ def validate_rows(rows: list[dict[str, str]]) -> list[str]:
         deprecated_after = row.get("deprecated_after", "")
         if deprecated_after and deprecated_after not in {"none", "pending_review"} and not DATE_OR_STATUS_RE.match(deprecated_after):
             errors.append(f"{model_id} deprecated_after must be YYYY-MM-DD, none, or pending_review, got {deprecated_after!r}")
+
+        if row.get("pdf_visibility", "") == "deprecated_not_pdf_core":
+            if deprecated_after in {"", "none", "pending_review"}:
+                errors.append(f"{model_id} deprecated_not_pdf_core requires concrete deprecated_after")
+            for col in APPROVAL_COLUMNS:
+                if row.get(col, "") != "false":
+                    errors.append(f"{model_id} deprecated_not_pdf_core requires {col}=false")
+            for col in ("research_baseline_required", "promotion_required"):
+                if row.get(col, "") != "false":
+                    errors.append(f"{model_id} deprecated_not_pdf_core requires {col}=false")
+            for col in SPEC_ALIGNMENT_COLUMNS:
+                if row.get(col, "") != DEPRECATED_FUNCTION_SENTINEL:
+                    errors.append(
+                        f"{model_id} deprecated_not_pdf_core requires {col}={DEPRECATED_FUNCTION_SENTINEL!r}, "
+                        f"got {row.get(col, '')!r}"
+                    )
 
         for source in split_semicolon(row.get("production_source_file", "")):
             if source == "pending_review":

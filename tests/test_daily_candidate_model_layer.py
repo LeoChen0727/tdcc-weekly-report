@@ -23,8 +23,6 @@ from build_daily_candidate_model_layer import (  # noqa: E402
     build_signals,
     build_specs,
     cond_neckline_volume_breakout_confirmation,
-    cond_neckline_challenge,
-    cond_platform_strength,
     cond_pullback,
     cond_revenue_unreacted,
     cond_tdcc_stealth,
@@ -157,6 +155,23 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
 
         self.assertNotIn("def model_score_common(", source)
         self.assertNotIn('"legacy_common"', source)
+
+    def test_deprecated_neckline_and_platform_models_have_no_executable_source(self) -> None:
+        source_path = ROOT / "scripts" / "build_daily_candidate_model_layer.py"
+        source = source_path.read_text(encoding="utf-8")
+
+        forbidden_snippets = {
+            "def cond_neckline_challenge(",
+            "def cond_platform_strength(",
+            "def score_neckline_challenge(",
+            "def score_platform_strength(",
+            '"near_high_neckline_challenge": ScoreProfile',
+            '"platform_strengthening": ScoreProfile',
+            'ModelSpec(\n            "near_high_neckline_challenge"',
+            'ModelSpec(\n            "platform_strengthening"',
+        }
+        for snippet in forbidden_snippets:
+            self.assertNotIn(snippet, source)
 
     def test_pdf_core_models_have_independent_condition_and_score_functions(self) -> None:
         specs = [spec for spec in build_specs() if spec.pdf_visibility == "pdf_core_model"]
@@ -535,25 +550,10 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
             close="105",
             open="100",
         )
-        self.assertFalse(cond_neckline_challenge(breakout))
-        self.assertFalse(cond_platform_strength(breakout))
-
-    def test_platform_strengthening_is_platform_inside_not_breakout(self) -> None:
-        row = make_row(
-            category="range_rebound",
-            volume_breakout_type="",
-            platform_breakout_flag="False",
-            neckline_breakout_flag="False",
-            volume_confirmed_breakout="False",
-            close_above_range_high="False",
-            platform_base_flag="True",
-            platform_width_pct="9",
-            platform_high="105",
-            close="103",
-            open="100",
-            volume_ratio="1.8",
-        )
-        self.assertTrue(cond_platform_strength(row))
+        signals = build_signals(pd.DataFrame([breakout]), build_specs(), "20260709")
+        selected_models = set(signals.get("model_id", pd.Series(dtype=str)).astype(str))
+        self.assertNotIn("near_high_neckline_challenge", selected_models)
+        self.assertNotIn("platform_strengthening", selected_models)
 
     def test_w_bottom_requires_double_bottom_geometry_not_generic_pattern_flag(self) -> None:
         broad_flag = make_row(

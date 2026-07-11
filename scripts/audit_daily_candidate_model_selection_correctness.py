@@ -45,6 +45,11 @@ VALID_VOLUME_STATUSES = {
     "selected",
 }
 VOLUME_V2_MODEL_IDS = {VOLUME_BREAKOUT_V2_LOW_MODEL_ID, VOLUME_BREAKOUT_V2_MID_MODEL_ID, VOLUME_BREAKOUT_V2_HIGH_MODEL_ID}
+DEPRECATED_FORMAL_MODEL_IDS = {
+    "volume_range_breakout",
+    "near_high_neckline_challenge",
+    "platform_strengthening",
+}
 POSITIVE_TDCC = {"strong_accumulation", "mild_accumulation", "tdcc_price_confirmed", "tdcc_leading_price"}
 CONFIRMED_STAGES = {"breakout_confirmed", "platform_breakout", "neckline_breakout"}
 CONFIRMED_STAGE_TEXT_MARKERS = {"已突破", "突破確認", "平台突破", "頸線突破"}
@@ -339,8 +344,8 @@ def audit_selected_row(
             errors.append(f"{sid}: selected by {model} but source row v2 membership={memberships}{detail}")
         return errors, warnings
 
-    if model == "volume_range_breakout":
-        errors.append(f"{sid}: legacy volume_range_breakout v1 must not appear in formal daily model signals")
+    if model in DEPRECATED_FORMAL_MODEL_IDS:
+        errors.append(f"{sid}: deprecated formal model_id {model} must not appear in formal daily model signals")
         return errors, warnings
 
     if model == "tdcc_short_term_continuation_d5_d10":
@@ -363,17 +368,6 @@ def audit_selected_row(
             errors.append(f"{sid}: revenue_unreacted_range without strong revenue")
         if active_attack(source):
             errors.append(f"{sid}: revenue_unreacted_range selected despite active attack/breakout/extended move")
-    elif model == "near_high_neckline_challenge":
-        if already_confirmed_breakout(source):
-            errors.append(f"{sid}: near_high_neckline_challenge selected after confirmed breakout")
-        vol = num(source, "volume_ratio")
-        if math.isnan(vol) or vol < 1.2:
-            warnings.append(f"{sid}: near_high_neckline_challenge volume_ratio below review threshold")
-    elif model == "platform_strengthening":
-        if already_confirmed_breakout(source):
-            errors.append(f"{sid}: platform_strengthening selected after confirmed breakout")
-        if not (flag(source, "platform_base_flag") or not math.isnan(num(source, "platform_width_pct", "short_platform_width_pct"))):
-            warnings.append(f"{sid}: platform_strengthening missing platform/base evidence")
     elif model == "w_bottom_right_side":
         if hard_confirmed_breakout(source):
             errors.append(f"{sid}: w_bottom_right_side selected after confirmed breakout")

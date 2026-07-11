@@ -57,3 +57,22 @@ def test_tdcc_weekly_pdf_approval_is_explicit_allowlist() -> None:
     )
 
     assert approved == ["tdcc_short_term_continuation_d5_d10"]
+
+
+def test_deprecated_models_do_not_point_to_executable_production_functions() -> None:
+    deprecated = [
+        row for row in contract_rows()
+        if row["pdf_visibility"] == "deprecated_not_pdf_core"
+    ]
+
+    assert deprecated
+    for row in deprecated:
+        assert row["deprecated_after"] not in {"", "none", "pending_review"}
+        assert row["approved_for_daily_pdf"] == "false"
+        assert row["approved_for_tdcc_weekly_pdf"] == "false"
+        assert row["approved_for_individual_pdf"] == "false"
+        assert row["research_baseline_required"] == "false"
+        assert row["promotion_required"] == "false"
+        assert row["condition_function"] == validator.DEPRECATED_FUNCTION_SENTINEL
+        assert row["score_function"] == validator.DEPRECATED_FUNCTION_SENTINEL
+        assert row["score_profile_id"] == validator.DEPRECATED_FUNCTION_SENTINEL
