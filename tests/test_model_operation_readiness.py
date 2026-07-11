@@ -69,8 +69,8 @@ def approval_frame() -> pd.DataFrame:
         [
             {
                 "model_id": LOW_VOLUME_MODEL_ID,
-                "operation_module_id": "volume_breakout_confirmed_operation_v1",
-                "approval_version": "volume_breakout_operation_v1_20260615",
+                "operation_module_id": "volume_range_breakout_v2_low_position_operation_v1",
+                "approval_version": "volume_range_breakout_v2_formal_operation_20260709",
                 "approved_for_daily": "True",
                 "approval_status": "approved_for_daily_v1",
                 "operation_directive_level": "approved_daily_operation_guidance",

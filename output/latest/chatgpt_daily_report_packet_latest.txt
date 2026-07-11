@@ -515,7 +515,7 @@ operation_section_md_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc
 operation_readiness_csv_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/model_operation_readiness_latest.csv
 operation_readiness_md_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/model_operation_readiness_latest.md
 status: generated
-model_id: volume_range_breakout
+model_ids: volume_range_breakout_v2_low_position_volume_attack,volume_range_breakout_v2_mid_position_momentum_attack,volume_range_breakout_v2_high_position_volume_attack
 pdf_packet_usage: render the daily adapter artifact only; do not read research operation artifacts directly and do not recalculate entry, stop, exit, ranking, sample size, win rate, or median return.
 
 NON-REVENUE MOMENTUM WATCH

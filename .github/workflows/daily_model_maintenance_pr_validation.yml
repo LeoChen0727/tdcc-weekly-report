@@ -25,6 +25,7 @@ on:
       - "scripts/validate_chatgpt_daily_report_new_conversation_replay.py"
       - "scripts/validate_daily_*.py"
       - "scripts/validate_model_operation_readiness.py"
+      - "scripts/validate_daily_legacy_volume_range_breakout_removed.py"
       - "scripts/validate_research_against_stock_model_contract.py"
       - "scripts/validate_repo_hidden_coupling_audit.py"
       - "scripts/validate_stock_model_contract_registry.py"
@@ -69,6 +70,7 @@ jobs:
           python scripts/validate_daily_pdf_role_manifest_contract.py
           python scripts/validate_daily_pdf_shared_path_isolation.py
           python scripts/validate_daily_pdf_completion_hard_gate.py
+          python scripts/validate_daily_legacy_volume_range_breakout_removed.py
           python scripts/validate_daily_production_boundaries.py
           python scripts/validate_daily_published_model_snapshots.py
           python scripts/build_mature_model_row_level_metric_contract_audit.py

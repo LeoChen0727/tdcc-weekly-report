@@ -16,7 +16,6 @@ from build_daily_candidate_model_layer import (
     build_signals,
     build_specs,
     cond_neckline_volume_breakout_confirmation,
-    cond_volume_breakout,
     cond_w_bottom_right,
     ema23_slope_proxy_up,
     near_ema23_or_support,
@@ -265,10 +264,6 @@ def strong_revenue(row: pd.Series) -> bool:
     return (not math.isnan(yoy) and yoy >= 30) or (not math.isnan(cumulative) and cumulative >= 20)
 
 
-def source_volume_breakout_condition(row: pd.Series) -> bool:
-    return cond_volume_breakout(row)
-
-
 def volume_v2_memberships_for_watch_row(row: pd.Series | dict[str, Any]) -> tuple[list[str], str]:
     sid = normalize_code(row.get("stock_id", ""))
     signal_date = text(row, "signal_date", "date")
@@ -345,30 +340,7 @@ def audit_selected_row(
         return errors, warnings
 
     if model == "volume_range_breakout":
-        vrow = volume_by_stock.get(sid)
-        raw_idx = text(row, "source_row_index")
-        if raw_idx.isdigit() and source is not None and source_volume_breakout_condition(source):
-            return errors, warnings
-        if vrow is None:
-            if source is not None and source_volume_breakout_condition(source):
-                return errors, warnings
-            if not volume_watch_fresh:
-                warnings.append(
-                    f"{sid}: volume_breakout_watch is stale/unavailable; accepted volume_range_breakout row "
-                    "without auxiliary-table cross-check"
-                )
-                return errors, warnings
-            errors.append(f"{sid}: selected by volume_range_breakout but missing from volume_breakout_watch")
-        else:
-            btype = text(vrow, "volume_breakout_type", "breakout_type").lower()
-            status = text(vrow, "selection_status").lower()
-            if btype not in VALID_VOLUME_TYPES:
-                errors.append(f"{sid}: volume breakout type not valid for selected model: {btype}")
-            if status not in VALID_VOLUME_STATUSES:
-                errors.append(f"{sid}: volume selection_status not valid for selected model: {status}")
-            vol = num(vrow, "volume_ratio")
-            if not locked_limit_up_volume_breakout_row(vrow) and (math.isnan(vol) or vol < 2.0):
-                errors.append(f"{sid}: normal bottom volume attack selected but volume_ratio < 2.0")
+        errors.append(f"{sid}: legacy volume_range_breakout v1 must not appear in formal daily model signals")
         return errors, warnings
 
     if model == "tdcc_short_term_continuation_d5_d10":

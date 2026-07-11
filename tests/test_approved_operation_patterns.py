@@ -9,39 +9,7 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
-from build_approved_operation_patterns import build_approval, positive_rank_rows  # noqa: E402
-
-
-def test_positive_rank_rows_use_strict_evidence_gate() -> None:
-    rank = pd.DataFrame(
-        [
-            {
-                "evidence_sample_size": "10",
-                "evidence_win_rate": "50",
-                "evidence_median_return": "0.1",
-                "evidence_out_of_sample_pass": "True",
-                "ranking_research_score": "0.1",
-            },
-            {
-                "evidence_sample_size": "9",
-                "evidence_win_rate": "80",
-                "evidence_median_return": "10",
-                "evidence_out_of_sample_pass": "True",
-                "ranking_research_score": "10",
-            },
-            {
-                "evidence_sample_size": "50",
-                "evidence_win_rate": "70",
-                "evidence_median_return": "-1",
-                "evidence_out_of_sample_pass": "True",
-                "ranking_research_score": "10",
-            },
-        ]
-    )
-
-    out = positive_rank_rows(rank)
-
-    assert len(out) == 1
+from build_approved_operation_patterns import build_approval  # noqa: E402
 
 
 def test_build_approval_creates_versioned_daily_guidance() -> None:
@@ -75,7 +43,7 @@ def test_build_approval_creates_versioned_daily_guidance() -> None:
         ]
     )
 
-    approval = build_approval(summary, rank, generated_at="2026-06-15 00:00:00 Asia/Taipei")
+    approval = build_approval(generated_at="2026-06-15 00:00:00 Asia/Taipei")
     assert approval[approval["model_id"].eq("volume_range_breakout")].empty
 
     low = approval[approval["model_id"].eq("volume_range_breakout_v2_low_position_volume_attack")].iloc[0]

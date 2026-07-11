@@ -13,15 +13,6 @@ from tracking_utils import DOCS_LATEST_DIR, LATEST_DIR, markdown_table, now_text
 
 
 ROOT = Path(__file__).resolve().parents[1]
-MODEL_ID = "volume_range_breakout"
-OPERATION_MODULE_ID = "volume_breakout_confirmed_operation_v1"
-APPROVAL_VERSION = "volume_breakout_operation_v1_20260615"
-SOURCE_RESEARCH_ID = "volume_breakout_confirmed_operation"
-ENTRY_RULE_ID = "confirmation_next_open"
-STOP_LOSS_RULE_ID = "signal_low_stop"
-EXIT_RULE_ID = "signal_low_stop_or_fixed_10d_close"
-BUY_FILTER_ID = "positive_evidence_oos_rank_v1"
-
 V2_LOW_MODEL_ID = "volume_range_breakout_v2_low_position_volume_attack"
 V2_MID_MODEL_ID = "volume_range_breakout_v2_mid_position_momentum_attack"
 V2_HIGH_MODEL_ID = "volume_range_breakout_v2_high_position_volume_attack"
@@ -96,18 +87,10 @@ V2_APPROVAL_METRICS = {
     },
 }
 
-APPROVED_VOLUME_EVIDENCE_DIR = ROOT / "config" / "approved_operation_evidence"
-CONFIRMED_SUMMARY_CSV = APPROVED_VOLUME_EVIDENCE_DIR / "volume_breakout_operation_v1_20260615_formal_operation_backtest.csv"
-CONFIRMED_RANK_CSV = APPROVED_VOLUME_EVIDENCE_DIR / "volume_breakout_operation_v1_20260615_rank.csv"
 OUT_CSV = LATEST_DIR / "approved_operation_patterns_latest.csv"
 OUT_MD = LATEST_DIR / "approved_operation_patterns_latest.md"
 DOCS_CSV = DOCS_LATEST_DIR / OUT_CSV.name
 DOCS_MD = DOCS_LATEST_DIR / OUT_MD.name
-
-MIN_SAMPLE_SIZE = 10
-MIN_WIN_RATE = 50.0
-MIN_MEDIAN_RETURN = 0.0
-MIN_RESEARCH_SCORE = 0.0
 
 W_BOTTOM_MODEL_ID = "w_bottom_right_side"
 W_BOTTOM_OPERATION_MODULE_ID = "w_bottom_early_entry_operation_v2"
@@ -211,102 +194,6 @@ NECKLINE_APPROVAL_METRICS = {
 
 def true_text(value: Any) -> bool:
     return safe_str(value).lower() in {"true", "1", "1.0", "yes", "y"}
-
-
-def positive_rank_rows(rank: pd.DataFrame) -> pd.DataFrame:
-    if rank.empty:
-        return rank.copy()
-    out = rank.copy()
-    sample = out.get("evidence_sample_size", pd.Series(dtype=str)).map(to_number)
-    win = out.get("evidence_win_rate", pd.Series(dtype=str)).map(to_number)
-    median = out.get("evidence_median_return", pd.Series(dtype=str)).map(to_number)
-    score = out.get("ranking_research_score", pd.Series(dtype=str)).map(to_number)
-    oos = out.get("evidence_out_of_sample_pass", pd.Series(dtype=str)).map(true_text)
-    return out[
-        sample.ge(MIN_SAMPLE_SIZE)
-        & win.ge(MIN_WIN_RATE)
-        & median.gt(MIN_MEDIAN_RETURN)
-        & score.gt(MIN_RESEARCH_SCORE)
-        & oos
-    ].copy()
-
-
-def best_evidence(summary: pd.DataFrame) -> pd.Series | None:
-    if summary.empty:
-        return None
-    out = summary.copy()
-    for col in ["sample_size", "win_rate", "median_return", "ranking_research_score"]:
-        out[col] = pd.to_numeric(out.get(col), errors="coerce")
-    eligible = out[
-        out["sample_size"].ge(MIN_SAMPLE_SIZE)
-        & out["win_rate"].ge(MIN_WIN_RATE)
-        & out["median_return"].gt(MIN_MEDIAN_RETURN)
-        & out["ranking_research_score"].gt(MIN_RESEARCH_SCORE)
-        & out.get("out_of_sample_pass", pd.Series(dtype=str)).map(true_text)
-    ].copy()
-    if eligible.empty:
-        return None
-    eligible["_confidence_order"] = eligible.get("confidence_status", "").map({"high": 0, "medium": 1, "low": 2}).fillna(9)
-    return eligible.sort_values(
-        ["_confidence_order", "ranking_research_score", "sample_size"],
-        ascending=[True, False, False],
-    ).iloc[0]
-
-
-def approval_row(summary: pd.DataFrame, rank: pd.DataFrame, generated_at: str) -> dict[str, Any]:
-    positive = positive_rank_rows(rank)
-    selected = best_evidence(summary)
-    if selected is None:
-        raise RuntimeError("volume breakout approval evidence has no eligible best evidence row")
-    return {
-        "generated_at": generated_at,
-        "model_id": MODEL_ID,
-        "operation_module_id": OPERATION_MODULE_ID,
-        "approval_version": APPROVAL_VERSION,
-        "approved_for_daily": "True",
-        "approval_status": "approved_for_daily_v1",
-        "operation_directive_level": "approved_daily_operation_guidance",
-        "source_research_id": SOURCE_RESEARCH_ID,
-        "entry_rule_id": ENTRY_RULE_ID,
-        "entry_rule_zh": "確認日收盤後列入，下一個交易日開盤價進場。",
-        "stop_loss_rule_id": STOP_LOSS_RULE_ID,
-        "stop_loss_rule_zh": "跌破訊號日期最低價停損。",
-        "exit_rule_id": EXIT_RULE_ID,
-        "exit_rule_zh": "先跌破停損基準出場，否則持有 10 個交易日收盤出場。",
-        "buy_filter_id": BUY_FILTER_ID,
-        "buy_filter_zh": (
-            "正式買進排名只採用 evidence_sample_size>=10、evidence_win_rate>=50、"
-            "evidence_median_return>0、evidence_out_of_sample_pass=True、ranking_research_score>0 的 confirmed rows。"
-        ),
-        "pending_rule_zh": "未確認股票只列入待確認；不得列買進價，確認後才啟動進場與出場規則。",
-        "min_sample_size": MIN_SAMPLE_SIZE,
-        "min_win_rate": MIN_WIN_RATE,
-        "min_median_return": MIN_MEDIAN_RETURN,
-        "require_out_of_sample_pass": "True",
-        "min_research_score": MIN_RESEARCH_SCORE,
-        "evidence_summary_source": CONFIRMED_SUMMARY_CSV.name,
-        "evidence_rank_source": CONFIRMED_RANK_CSV.name,
-        "evidence_total_rank_rows": len(rank),
-        "evidence_positive_rank_rows": len(positive),
-        "best_evidence_scope": selected.get("confluence_scope", ""),
-        "best_evidence_id": selected.get("confluence_id", ""),
-        "best_evidence_sample_size": selected.get("sample_size", ""),
-        "best_evidence_win_rate": selected.get("win_rate", ""),
-        "best_evidence_median_return": selected.get("median_return", ""),
-        "best_evidence_confidence_status": selected.get("confidence_status", ""),
-        "best_evidence_out_of_sample_pass": selected.get("out_of_sample_pass", ""),
-        "data_start_date": selected.get("data_start_date", ""),
-        "data_end_date": selected.get("data_end_date", ""),
-        "out_of_sample_start_date": selected.get("out_of_sample_start_date", ""),
-        "approval_note_zh": (
-            "以目前 repo 可用歷史資料批准放量攻擊 v1 操作建議。"
-            "後續固定 research/backtest 可用新版 approval_version 調整參數與條件。"
-        ),
-        "risk_notes_zh": (
-            "這是模型化操作建議，不是無條件買進；confirmed rows 仍須通過正向證據過濾，"
-            "pending rows 只追蹤確認，不列買進。"
-        ),
-    }
 
 
 def volume_v2_approval_row(model_id: str, generated_at: str) -> dict[str, Any]:
@@ -616,7 +503,7 @@ def price_pullback_approval_row(generated_at: str) -> dict[str, Any]:
     }
 
 
-def build_approval(summary: pd.DataFrame, rank: pd.DataFrame, generated_at: str | None = None) -> pd.DataFrame:
+def build_approval(generated_at: str | None = None) -> pd.DataFrame:
     generated = generated_at or now_text()
     return pd.DataFrame(
         [
@@ -668,9 +555,7 @@ def write_markdown(df: pd.DataFrame) -> None:
 
 
 def main() -> int:
-    summary = read_csv(CONFIRMED_SUMMARY_CSV, dtype=str).fillna("")
-    rank = read_csv(CONFIRMED_RANK_CSV, dtype=str).fillna("")
-    approval = build_approval(summary, rank)
+    approval = build_approval()
     write_csv(approval, OUT_CSV)
     DOCS_LATEST_DIR.mkdir(parents=True, exist_ok=True)
     write_csv(approval, DOCS_CSV)

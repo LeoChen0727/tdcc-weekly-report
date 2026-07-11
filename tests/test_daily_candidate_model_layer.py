@@ -14,7 +14,6 @@ sys.path.insert(0, str(ROOT / "scripts"))
 import build_daily_candidate_model_layer as model_layer  # noqa: E402
 from build_daily_candidate_model_layer import (  # noqa: E402
     MODEL_SCORE_PROFILES,
-    VOLUME_RANGE_BREAKOUT_MAIN_CONDITIONS_ZH,
     annotate_frontpage_uniqueness,
     attach_model_recommendations,
     attach_same_model_repeat,
@@ -29,11 +28,9 @@ from build_daily_candidate_model_layer import (  # noqa: E402
     cond_pullback,
     cond_revenue_unreacted,
     cond_tdcc_stealth,
-    cond_volume_breakout,
     cond_w_bottom_right,
     report_bucket,
     score_pullback,
-    score_volume_breakout,
     update_model_signal_log,
 )
 from audit_daily_candidate_model_selection_correctness import (  # noqa: E402
@@ -307,20 +304,23 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
         self.assertIn("120", mid_condition_text)
         self.assertIn("MA60", high_condition_text)
         self.assertIn("MA120", high_condition_text)
-        self.assertNotEqual(low_condition_text, VOLUME_RANGE_BREAKOUT_MAIN_CONDITIONS_ZH)
-
-    def test_volume_breakout_condition_is_bottom_volume_attack_not_60d_only(self) -> None:
-        row = make_row(
-            volume_breakout_type="bottom_volume_attack",
-            close="103",
-            open="100",
-            previous_close="99",
-            previous_20d_high="100",
-            volume_ratio="2.2",
-            volume_ma20="2000",
-            distance_to_previous_60d_high_pct="-8",
+        condition_spec = pd.read_csv(ROOT / "config" / "daily_model_condition_spec.csv")
+        self.assertNotIn("volume_range_breakout", set(condition_spec["model_id"].astype(str)))
+        self.assertNotIn("cond_volume_breakout", set(condition_spec["condition_function"].astype(str)))
+        self.assertNotIn("score_volume_breakout", set(condition_spec["score_function"].astype(str)))
+        self.assertIn(
+            "cond_volume_breakout_v2_low_position_watch_only",
+            set(condition_spec["condition_function"].astype(str)),
         )
-        self.assertTrue(cond_volume_breakout(row))
+        self.assertIn(
+            "cond_volume_breakout_v2_mid_position_watch_only",
+            set(condition_spec["condition_function"].astype(str)),
+        )
+        self.assertIn(
+            "cond_volume_breakout_v2_high_position_watch_only",
+            set(condition_spec["condition_function"].astype(str)),
+        )
+
 
     def test_locked_limit_up_low_volume_ratio_is_volume_breakout(self) -> None:
         row = make_row(
@@ -335,26 +335,11 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
             volume_ma20="7099858.7",
         )
 
-        score, components, _risks = score_volume_breakout(row)
+        score, components, _risks = model_layer.score_volume_breakout_v2_low_position(row)
 
-        self.assertTrue(cond_volume_breakout(row))
         self.assertGreater(score, 0)
         self.assertTrue(any("locked_limit_up_breakout" in item for item in components))
 
-    def test_locked_limit_up_does_not_require_volume_fields(self) -> None:
-        row = make_row(
-            volume_breakout_type="bottom_volume_attack",
-            close="81.8",
-            open="81.8",
-            high="81.8",
-            low="81.8",
-            previous_close="74.4",
-            previous_20d_high="74.4",
-            volume_ratio="",
-            volume_ma20="",
-        )
-
-        self.assertTrue(cond_volume_breakout(row))
 
     def test_locked_limit_up_signal_row_does_not_emit_legacy_v1_model(self) -> None:
         row = make_row(
@@ -373,34 +358,7 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
 
         self.assertNotIn("volume_range_breakout", set(out["model_id"].astype(str)))
 
-    def test_locked_limit_up_watch_row_uses_return_when_previous_close_missing(self) -> None:
-        row = make_row(
-            volume_breakout_type="bottom_volume_attack",
-            close="207",
-            open="207",
-            high="207",
-            low="207",
-            return_1d="9.8143",
-            previous_20d_high="192",
-            volume_ratio="0.43",
-            volume_ma20="5956813.95",
-        )
 
-        self.assertTrue(cond_volume_breakout(row))
-
-    def test_non_locked_low_volume_ratio_breakout_is_not_volume_breakout(self) -> None:
-        row = make_row(
-            close="110",
-            open="101",
-            high="110",
-            low="99",
-            previous_close="98",
-            previous_20d_high="100",
-            volume_ratio="1.5",
-            volume_ma20="2000",
-        )
-
-        self.assertFalse(cond_volume_breakout(row))
 
     def test_dedicated_volume_breakout_table_is_independent_from_candidate_model(self) -> None:
         source = pd.DataFrame(
@@ -579,7 +537,6 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
         )
         self.assertFalse(cond_neckline_challenge(breakout))
         self.assertFalse(cond_platform_strength(breakout))
-        self.assertTrue(cond_volume_breakout(breakout))
 
     def test_platform_strengthening_is_platform_inside_not_breakout(self) -> None:
         row = make_row(
@@ -1084,8 +1041,8 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
             tdcc_judgement="distribution_warning",
             return_20d="85",
         )
-        score, _components, risks = score_volume_breakout(row)
-        self.assertTrue(cond_volume_breakout(row))
+        score, _components, risks = model_layer.score_volume_breakout_v2_low_position(row)
+        self.assertGreater(score, 0)
         self.assertTrue(any(str(risk).startswith("tdcc_distribution_penalty") for risk in risks))
         self.assertFalse(any(str(risk).startswith("false_breakout_risk_penalty") for risk in risks))
 
@@ -1096,7 +1053,7 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
             distance_23ema_pct="1.0",
             ema23_slope_pct="0.8",
         )
-        self.assertTrue(cond_volume_breakout(row))
+        self.assertTrue(model_layer.active_price_attack_for_early_models(row))
         self.assertTrue(cond_pullback(row))
 
     def test_tdcc_stealth_excludes_late_and_overheated_phases(self) -> None:
@@ -1135,7 +1092,7 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
             low_20="49",
             tdcc_price_phase="tdcc_leading_price",
         )
-        self.assertTrue(cond_volume_breakout(row))
+        self.assertTrue(model_layer.active_price_attack_for_early_models(row))
         self.assertFalse(cond_revenue_unreacted(row))
         self.assertFalse(cond_tdcc_stealth(row))
 
@@ -1527,8 +1484,8 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
                     "report_bucket": "mainstream",
                     "stock_id": "2374",
                     "stock_name": "佳能",
-                    "model_id": "volume_breakout_range",
-                    "model_name_zh": "volume_breakout_range",
+                    "model_id": LOW_VOLUME_MODEL_ID,
+                    "model_name_zh": "低位放量攻擊模型",
                     "model_score": "80",
                     "model_rank": "2",
                     "original_category": "range_rebound",
