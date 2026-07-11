@@ -3,8 +3,8 @@
     "market": "listed",
     "source_market_name": "TWSE",
     "source_url": "https://mopsfin.twse.com.tw/opendata/t187ap05_L.csv",
-    "raw_rows": 1082,
-    "standardized_rows": 1082,
+    "raw_rows": 942,
+    "standardized_rows": 942,
     "status": "ok",
     "selected_columns": {
       "source_table_date": "出表日期",
@@ -40,10 +40,10 @@
     },
     "selected_column_mode": "official_position_fallback",
     "revenue_periods": [
-      "202605"
+      "202606"
     ],
     "source_table_dates": [
-      "20260617"
+      "20260711"
     ],
     "fetch_attempts": 3
   },
@@ -51,8 +51,8 @@
     "market": "otc",
     "source_market_name": "TPEX",
     "source_url": "https://mopsfin.twse.com.tw/opendata/t187ap05_O.csv",
-    "raw_rows": 890,
-    "standardized_rows": 890,
+    "raw_rows": 810,
+    "standardized_rows": 810,
     "status": "ok",
     "selected_columns": {
       "source_table_date": "出表日期",
@@ -88,10 +88,10 @@
     },
     "selected_column_mode": "official_position_fallback",
     "revenue_periods": [
-      "202605"
+      "202606"
     ],
     "source_table_dates": [
-      "20260617"
+      "20260711"
     ],
     "fetch_attempts": 3
   }

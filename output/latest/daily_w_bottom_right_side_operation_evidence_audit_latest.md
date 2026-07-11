@@ -95,8 +95,7 @@
 | w_bottom_right_side | 20260709 | 2101 | 南港 | non_mainstream | 20260708 | 20260709 | candidate_evaluated | True | active_operation |  |  |
 | w_bottom_right_side | 20260709 | 2646 | 星宇航空 | non_mainstream | 20260708 | 20260709 | candidate_evaluated | True | active_operation |  |  |
 | w_bottom_right_side | 20260709 | 2913 | 農林 | non_mainstream | 20260708 | 20260709 | candidate_evaluated | True | active_operation |  |  |
-| w_bottom_right_side | 20260709 | 2646 | 星宇航空 | non_mainstream | 20260709 |  | lifecycle_suppressed | False | same_stock_already_active_operation |  |  |
-| w_bottom_right_side | 20260709 | 6191 | 精成科 | mainstream | 20260709 |  | lifecycle_suppressed | False | same_stock_already_active_operation |  |  |
 | w_bottom_right_side | 20260709 | 1477 | 聚陽 | non_mainstream | 20260709 |  | lifecycle_suppressed | False | same_stock_already_active_operation |  |  |
+| w_bottom_right_side | 20260709 | 6191 | 精成科 | mainstream | 20260709 |  | lifecycle_suppressed | False | same_stock_already_active_operation |  |  |
 | w_bottom_right_side | 20260709 | 2101 | 南港 | non_mainstream | 20260709 |  | lifecycle_suppressed | False | same_stock_already_active_operation |  |  |
 | w_bottom_right_side | 20260709 | 4763 | 材料*-KY | non_mainstream | 20260709 |  | candidate_evaluated | True | confirmed_operation |  |  |

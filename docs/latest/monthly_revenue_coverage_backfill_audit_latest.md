@@ -1,6 +1,6 @@
 # Monthly Revenue Coverage / Backfill Audit
 
-- generated_at: `2026-07-11 01:44:38 Asia/Taipei`
+- generated_at: `2026-07-11 09:52:46 Asia/Taipei`
 - audit_id: `monthly_revenue_coverage_backfill_audit`
 - audit_version: `coverage_backfill_audit_v1`
 - formal_model_revenue_gate_ready: `True`
@@ -13,55 +13,37 @@
 
 | scope | source_status | history_revenue_period_count | history_revenue_period_min | history_revenue_period_max | signal_rows | asof_row_coverage_pct | asof_stock_coverage_pct | formal_model_revenue_gate_ready | backfill_required | blocker_reason |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| canonical_monthly_revenue_history | history_found | 25 | 202405 | 202605 | 0 |  |  | True | False | signal_scope_not_evaluated_in_history_row |
+| canonical_monthly_revenue_history | history_found | 26 | 202405 | 202606 | 0 |  |  | True | False | signal_scope_not_evaluated_in_history_row |
 | monthly_revenue_point_in_time_panel | panel_found | 1 | 202605 | 202605 | 0 |  |  | False | True | coverage_limited_candidate_snapshot_observed_values_not_full_market_history |
-| daily_model_signal_log_all_models | signal_rows_found | 25 | 202405 | 202605 | 11618 | 99.53 | 99.06 | True | False |  |
-| model:price_pullback_23ema | signal_rows_found | 25 | 202405 | 202605 | 3693 | 99.27 | 99.26 | True | False |  |
-| model:revenue_unreacted_range | signal_rows_found | 25 | 202405 | 202605 | 2648 | 100.00 | 100.00 | True | False |  |
-| model:hot_theme_pullback | signal_rows_found | 25 | 202405 | 202605 | 995 | 100.00 | 100.00 | True | False |  |
-| model:near_high_neckline_challenge | signal_rows_found | 25 | 202405 | 202605 | 36 | 100.00 | 100.00 | True | False |  |
-| model:platform_strengthening | signal_rows_found | 25 | 202405 | 202605 | 33 | 100.00 | 100.00 | True | False |  |
-| model:pullback_short_reclaim | signal_rows_found | 25 | 202405 | 202605 | 2000 | 99.05 | 99.24 | True | False |  |
-| model:tdcc_short_term_continuation_d5_d10 | signal_rows_found | 25 | 202405 | 202605 | 572 | 100.00 | 100.00 | True | False |  |
-| model:tdcc_stealth_accumulation | signal_rows_found | 25 | 202405 | 202605 | 555 | 100.00 | 100.00 | True | False |  |
-| model:volume_range_breakout | signal_rows_found | 25 | 202405 | 202605 | 995 | 99.10 | 98.94 | True | False |  |
-| model:volume_range_breakout_v2_high_position_volume_attack | signal_rows_found | 25 | 202405 | 202605 | 1 | 100.00 | 100.00 | True | False |  |
-| model:volume_range_breakout_v2_low_position_volume_attack | signal_rows_found | 25 | 202405 | 202605 | 4 | 100.00 | 100.00 | True | False |  |
-| model:w_bottom_right_side | signal_rows_found | 25 | 202405 | 202605 | 86 | 100.00 | 100.00 | True | False |  |
+| daily_model_signal_log_all_models | signal_rows_found | 26 | 202405 | 202606 | 10531 | 99.56 | 99.26 | True | False |  |
+| model:price_pullback_23ema | signal_rows_found | 26 | 202405 | 202606 | 3693 | 99.27 | 99.26 | True | False |  |
+| model:revenue_unreacted_range | signal_rows_found | 26 | 202405 | 202606 | 2627 | 100.00 | 100.00 | True | False |  |
+| model:hot_theme_pullback | signal_rows_found | 26 | 202405 | 202606 | 994 | 100.00 | 100.00 | True | False |  |
+| model:pullback_short_reclaim | signal_rows_found | 26 | 202405 | 202606 | 2000 | 99.05 | 99.24 | True | False |  |
+| model:tdcc_short_term_continuation_d5_d10 | signal_rows_found | 26 | 202405 | 202606 | 572 | 100.00 | 100.00 | True | False |  |
+| model:tdcc_stealth_accumulation | signal_rows_found | 26 | 202405 | 202606 | 555 | 100.00 | 100.00 | True | False |  |
+| model:volume_range_breakout_v2_high_position_volume_attack | signal_rows_found | 26 | 202405 | 202606 | 1 | 100.00 | 100.00 | True | False |  |
+| model:volume_range_breakout_v2_low_position_volume_attack | signal_rows_found | 26 | 202405 | 202606 | 4 | 100.00 | 100.00 | True | False |  |
+| model:w_bottom_right_side | signal_rows_found | 26 | 202405 | 202606 | 85 | 100.00 | 100.00 | True | False |  |
 
 ## Target Models
 
 | model_id | signal_rows | signal_date_min | signal_date_max | asof_covered_rows | asof_row_coverage_pct | missing_asof_rows | formal_model_revenue_gate_ready | backfill_recommendation |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | price_pullback_23ema | 3693 | 20260529 | 20260709 | 3666 | 99.27 | 0 | True | no_backfill_required_for_this_scope |
-| revenue_unreacted_range | 2648 | 20260529 | 20260709 | 2648 | 100.00 | 0 | True | no_backfill_required_for_this_scope |
-| hot_theme_pullback | 995 | 20260601 | 20260709 | 995 | 100.00 | 0 | True | no_backfill_required_for_this_scope |
-| near_high_neckline_challenge | 36 | 20260529 | 20260624 | 36 | 100.00 | 0 | True | no_backfill_required_for_this_scope |
-| platform_strengthening | 33 | 20260529 | 20260624 | 33 | 100.00 | 0 | True | no_backfill_required_for_this_scope |
+| revenue_unreacted_range | 2627 | 20260529 | 20260709 | 2627 | 100.00 | 0 | True | no_backfill_required_for_this_scope |
+| hot_theme_pullback | 994 | 20260601 | 20260709 | 994 | 100.00 | 0 | True | no_backfill_required_for_this_scope |
 | pullback_short_reclaim | 2000 | 20260529 | 20260709 | 1981 | 99.05 | 0 | True | no_backfill_required_for_this_scope |
 | tdcc_short_term_continuation_d5_d10 | 572 | 20260529 | 20260709 | 572 | 100.00 | 0 | True | no_backfill_required_for_this_scope |
 | tdcc_stealth_accumulation | 555 | 20260529 | 20260605 | 555 | 100.00 | 0 | True | no_backfill_required_for_this_scope |
-| volume_range_breakout | 995 | 20260529 | 20260707 | 986 | 99.10 | 0 | True | no_backfill_required_for_this_scope |
 | volume_range_breakout_v2_high_position_volume_attack | 1 | 20260709 | 20260709 | 1 | 100.00 | 0 | True | no_backfill_required_for_this_scope |
 | volume_range_breakout_v2_low_position_volume_attack | 4 | 20260708 | 20260709 | 4 | 100.00 | 0 | True | no_backfill_required_for_this_scope |
-| w_bottom_right_side | 86 | 20260529 | 20260709 | 86 | 100.00 | 0 | True | no_backfill_required_for_this_scope |
+| w_bottom_right_side | 85 | 20260529 | 20260709 | 85 | 100.00 | 0 | True | no_backfill_required_for_this_scope |
 
 ## Detail Sample
 
 | signal_date | model_id | stock_id | coverage_status | matched_revenue_period | matched_source_table_date | blocker_reason |
 | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | near_high_neckline_challenge | 8103 | ready_asof_history_row | 202604 | 20260517 | coverage row exists but formal gate still requires sufficient history coverage audit |
-| 20260529 | near_high_neckline_challenge | 1808 | ready_asof_history_row | 202604 | 20260517 | coverage row exists but formal gate still requires sufficient history coverage audit |
-| 20260529 | near_high_neckline_challenge | 2645 | ready_asof_history_row | 202604 | 20260517 | coverage row exists but formal gate still requires sufficient history coverage audit |
-| 20260529 | near_high_neckline_challenge | 2850 | ready_asof_history_row | 202604 | 20260517 | coverage row exists but formal gate still requires sufficient history coverage audit |
-| 20260529 | near_high_neckline_challenge | 4739 | ready_asof_history_row | 202604 | 20260517 | coverage row exists but formal gate still requires sufficient history coverage audit |
-| 20260529 | platform_strengthening | 2328 | ready_asof_history_row | 202604 | 20260517 | coverage row exists but formal gate still requires sufficient history coverage audit |
-| 20260529 | platform_strengthening | 3023 | ready_asof_history_row | 202604 | 20260517 | coverage row exists but formal gate still requires sufficient history coverage audit |
-| 20260529 | platform_strengthening | 3515 | ready_asof_history_row | 202604 | 20260517 | coverage row exists but formal gate still requires sufficient history coverage audit |
-| 20260529 | platform_strengthening | 1210 | ready_asof_history_row | 202604 | 20260517 | coverage row exists but formal gate still requires sufficient history coverage audit |
-| 20260529 | platform_strengthening | 1808 | ready_asof_history_row | 202604 | 20260517 | coverage row exists but formal gate still requires sufficient history coverage audit |
-| 20260529 | platform_strengthening | 2646 | ready_asof_history_row | 202604 | 20260517 | coverage row exists but formal gate still requires sufficient history coverage audit |
-| 20260529 | platform_strengthening | 4306 | ready_asof_history_row | 202604 | 20260517 | coverage row exists but formal gate still requires sufficient history coverage audit |
 | 20260529 | price_pullback_23ema | 1471 | ready_asof_history_row | 202604 | 20260517 | coverage row exists but formal gate still requires sufficient history coverage audit |
 | 20260529 | price_pullback_23ema | 1514 | ready_asof_history_row | 202604 | 20260517 | coverage row exists but formal gate still requires sufficient history coverage audit |
 | 20260529 | price_pullback_23ema | 1519 | ready_asof_history_row | 202604 | 20260517 | coverage row exists but formal gate still requires sufficient history coverage audit |
@@ -80,3 +62,15 @@
 | 20260529 | price_pullback_23ema | 2365 | ready_asof_history_row | 202604 | 20260517 | coverage row exists but formal gate still requires sufficient history coverage audit |
 | 20260529 | price_pullback_23ema | 2367 | ready_asof_history_row | 202604 | 20260517 | coverage row exists but formal gate still requires sufficient history coverage audit |
 | 20260529 | price_pullback_23ema | 2368 | ready_asof_history_row | 202604 | 20260517 | coverage row exists but formal gate still requires sufficient history coverage audit |
+| 20260529 | price_pullback_23ema | 2371 | ready_asof_history_row | 202604 | 20260517 | coverage row exists but formal gate still requires sufficient history coverage audit |
+| 20260529 | price_pullback_23ema | 2374 | ready_asof_history_row | 202604 | 20260517 | coverage row exists but formal gate still requires sufficient history coverage audit |
+| 20260529 | price_pullback_23ema | 2379 | ready_asof_history_row | 202604 | 20260517 | coverage row exists but formal gate still requires sufficient history coverage audit |
+| 20260529 | price_pullback_23ema | 2385 | ready_asof_history_row | 202604 | 20260517 | coverage row exists but formal gate still requires sufficient history coverage audit |
+| 20260529 | price_pullback_23ema | 2388 | ready_asof_history_row | 202604 | 20260517 | coverage row exists but formal gate still requires sufficient history coverage audit |
+| 20260529 | price_pullback_23ema | 2392 | ready_asof_history_row | 202604 | 20260517 | coverage row exists but formal gate still requires sufficient history coverage audit |
+| 20260529 | price_pullback_23ema | 2402 | ready_asof_history_row | 202604 | 20260517 | coverage row exists but formal gate still requires sufficient history coverage audit |
+| 20260529 | price_pullback_23ema | 2412 | ready_asof_history_row | 202604 | 20260517 | coverage row exists but formal gate still requires sufficient history coverage audit |
+| 20260529 | price_pullback_23ema | 2413 | ready_asof_history_row | 202604 | 20260517 | coverage row exists but formal gate still requires sufficient history coverage audit |
+| 20260529 | price_pullback_23ema | 2417 | ready_asof_history_row | 202604 | 20260517 | coverage row exists but formal gate still requires sufficient history coverage audit |
+| 20260529 | price_pullback_23ema | 2419 | ready_asof_history_row | 202604 | 20260517 | coverage row exists but formal gate still requires sufficient history coverage audit |
+| 20260529 | price_pullback_23ema | 2421 | ready_asof_history_row | 202604 | 20260517 | coverage row exists but formal gate still requires sufficient history coverage audit |

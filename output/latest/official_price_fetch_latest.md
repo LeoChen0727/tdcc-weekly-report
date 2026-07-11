@@ -1,6 +1,6 @@
 # Official Daily Price Fetch Report
 
-- generated_at: `2026-07-11 01:33:00 Asia/Taipei`
+- generated_at: `2026-07-11 09:41:04 Asia/Taipei`
 - target_date: `20260711`
 - saved_price_date: `20260709`
 - is_target_date: `False`
@@ -53,7 +53,8 @@
 - GET https://www.tpex.org.tw/web/stock/aftertrading/otc_quotes_no1430/stk_wn1430_result.php?l=zh-tw&o=csv&d=115/07/11&se=EW -> status=200, chars=219
 - TPEX_OTC_QUOTES_NO1430_CSV: parsed TPEx CSV rows=0
 - Trying TPEx batch source=TPEX_OLD_DAILY_JSON date=20260711
-- GET https://www.tpex.org.tw/web/stock/aftertrading/daily_close_quotes/stk_quote_result.php?l=zh-tw&o=json&d=115/07/11&s=0,asc,0 -> status=520, chars=960
+- GET https://www.tpex.org.tw/web/stock/aftertrading/daily_close_quotes/stk_quote_result.php?l=zh-tw&o=json&d=115/07/11&s=0,asc,0 -> status=200, chars=1413463
+- TPEX_OLD_DAILY_JSON: rejected response dates ['20260709']; target date is 20260711
 - Trying TPEx batch source=TPEX_OLD_DAILY_CSV date=20260711
 - GET https://www.tpex.org.tw/web/stock/aftertrading/daily_close_quotes/stk_quote_result.php?l=zh-tw&o=csv&d=115/07/11&s=0,asc,0 -> status=200, chars=1402838
 - TPEX_OLD_DAILY_CSV: rejected response date 20260709; target date is 20260711

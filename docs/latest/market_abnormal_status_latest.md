@@ -1,6 +1,6 @@
 # Market Abnormal Status Latest
 
-- generated_at: `2026-07-11 01:37:13 Asia/Taipei`
+- generated_at: `2026-07-11 09:45:17 Asia/Taipei`
 - source: TWSE / TPEx official OpenAPI
 - usage: execution-risk flag for daily candidate, short-term research, and backtest segmentation.
 - limitation: historical backtests can only use this flag after daily snapshots accumulate or a verified historical source is backfilled.
@@ -8,7 +8,7 @@
 ## Source Status
 | source              | status   |   rows | url                                                                 |
 |:--------------------|:---------|-------:|:--------------------------------------------------------------------|
-| twse_disposition    | ok       |     26 | https://openapi.twse.com.tw/v1/announcement/punish                  |
+| twse_disposition    | ok       |     24 | https://openapi.twse.com.tw/v1/announcement/punish                  |
 | twse_attention      | ok       |      1 | https://openapi.twse.com.tw/v1/announcement/notice                  |
 | twse_attention_note | ok       |      2 | https://openapi.twse.com.tw/v1/announcement/notetrans               |
 | tpex_disposition    | ok       |     26 | https://www.tpex.org.tw/openapi/v1/tpex_disposal_information        |
@@ -19,7 +19,7 @@
 ## Counts
 | market_abnormal_status                       |   count |
 |:---------------------------------------------|--------:|
-| disposition                                  |      30 |
+| disposition                                  |      29 |
 | altered_trading                              |      13 |
 | attention                                    |      12 |
 | periodic_trading;altered_trading             |       5 |
@@ -63,7 +63,6 @@
 |       6174 | 安碁           | TPEx            | disposition;attention                        | D_disposition_or_periodic    | 1150709~1150722                          | 最近10個營業日內有6個營業日           | 最近六個營業日(自當日之前一個營業日起)之當日沖銷成交量占總成交量比率達62.7%，當日之前一個營業日當日沖銷成交量占總成交量達77.17%（第十三款)                                                                                    |                                 | 處置/分盤或注意交易標的；短線回測需獨立分層，實際進出可能受撮合、保證金或流動性影響。 |
 |       6217 | 中探針          | TPEx            | disposition                                  | D_disposition_or_periodic    | 1150706~1150717                          | 最近10個營業日內有6個營業日           |                                                                                                                                                                 |                                 | 處置/分盤或注意交易標的；短線回測需獨立分層，實際進出可能受撮合、保證金或流動性影響。 |
 |       6226 | 光鼎           | TWSE            | disposition                                  | D_disposition_or_periodic    | 115/06/30～115/07/13; 115/07/03～115/07/16 | 連續三次                      |                                                                                                                                                                 |                                 | 處置/分盤或注意交易標的；短線回測需獨立分層，實際進出可能受撮合、保證金或流動性影響。 |
-|       6243 | 迅杰           | TWSE            | disposition                                  | D_disposition_or_periodic    | 115/06/29～115/07/10                      | 連續三次                      |                                                                                                                                                                 |                                 | 處置/分盤或注意交易標的；短線回測需獨立分層，實際進出可能受撮合、保證金或流動性影響。 |
 |       6617 | 共信-KY        | TPEx            | disposition;attention;attention_accumulation | D_disposition_or_periodic    | 1150708~1150721                          | 因連續3個營業日達本中心作業要點第四條第一項第一款 | 最近六個營業日(含當日)累積之最後成交價漲幅達38.35%(第一款)                                                                                                                              | 115年07月08日至115年07月09日連續二次       | 處置/分盤或注意交易標的；短線回測需獨立分層，實際進出可能受撮合、保證金或流動性影響。 |
 |       6620 | 漢達           | TPEx            | disposition                                  | D_disposition_or_periodic    | 1150626~1150709                          | 因連續3個營業日達本中心作業要點第四條第一項第一款 |                                                                                                                                                                 |                                 | 處置/分盤或注意交易標的；短線回測需獨立分層，實際進出可能受撮合、保證金或流動性影響。 |
 |       6683 | 雍智科技         | TPEx            | disposition                                  | D_disposition_or_periodic    | 1150629~1150710                          | 最近10個營業日內有6個營業日           |                                                                                                                                                                 |                                 | 處置/分盤或注意交易標的；短線回測需獨立分層，實際進出可能受撮合、保證金或流動性影響。 |
