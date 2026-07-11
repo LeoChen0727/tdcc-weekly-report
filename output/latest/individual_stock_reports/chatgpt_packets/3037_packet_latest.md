@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3037 欣興
 
 ## Metadata
-- generated_at: 2026-07-10 22:27:08 Asia/Taipei
+- generated_at: 2026-07-11 22:26:59 Asia/Taipei
 - stock_id: 3037
 - stock_name: 欣興
 - packet_status: standard_180d_window_packet
@@ -193,7 +193,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 3037 | 欣興 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/07/08 2.發生緣由:依據證券櫃檯買賣中心通知辦理重大訊息。 3.公司債相關資訊: 到期日期:119/11/03 實際發行總額: 4,000,000,000元 本月發行餘額: 1,347,300,000元(截至115/07/07未轉換金額) 最新轉(交)換價格:164.1元 轉換標的收市價格(3037):862元(115/7/8收盤價) 轉債收市價格(30371):520元(115/7/8收盤價) 4.其他應敘明事項:無；degraded calendar context only: ex_dividend on 20260706; status=source_stale_cached; proximity=recent; model_effect_allowed=False; pdf_effect_allowed=False；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260709 | 3037 | 欣興 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/07/08 2.發生緣由:依據證券櫃檯買賣中心通知辦理重大訊息。 3.公司債相關資訊: 到期日期:119/11/03 實際發行總額: 4,000,000,000元 本月發行餘額: 1,347,300,000元(截至115/07/07未轉換金額) 最新轉(交)換價格:164.1元 轉換標的收市價格(3037):862元(115/7/8收盤價) 轉債收市價格(30371):520元(115/7/8收盤價) 4.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

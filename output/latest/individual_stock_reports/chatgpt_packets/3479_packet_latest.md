@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3479 安勤
 
 ## Metadata
-- generated_at: 2026-07-10 22:27:19 Asia/Taipei
+- generated_at: 2026-07-11 22:27:11 Asia/Taipei
 - stock_id: 3479
 - stock_name: 安勤
 - packet_status: standard_180d_window_packet
@@ -194,7 +194,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 3479 | 安勤 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | repeated_but_no_breakout | 1.事實發生日:115/07/03 2.公司名稱:安勤科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:本公司股東會紀念品兌換條碼使用日期限制及因應辦法 6.因應措施: 本公司115年股東會開會通知書原載明，由電子投票平台領取之【全家便利商店中杯美式 咖啡兌換條碼 (下稱兌換條碼)】使用期限為118年6月30日。 惟因電子票券系統之設定限制，致該兌換條碼僅可使用至115年11月30日。若股東未及於 115年11月30日前兌換使用，請股東提供以下五項資訊寄至StockAffairs@avalue.com： 1.股東姓名 2.身分證字號或統一編號 3.聯絡電話 4.電子郵件 5.兌換條碼PIN序號(即QR碼下方顯示之PIN序號) 本公司將秉持維護股東權益的一貫立場協助後續處理，並確保股東的兌換使用權益至 118年6月30日 (即股東會開會通知書原載明兌換使用期限)。造成不便敬請見諒，並感謝 股東的理解與支持。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項):無 |
+| 20260709 | 3479 | 安勤 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | repeated_but_no_breakout | 1.事實發生日:115/07/03 2.公司名稱:安勤科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:本公司股東會紀念品兌換條碼使用日期限制及因應辦法 6.因應措施: 本公司115年股東會開會通知書原載明，由電子投票平台領取之【全家便利商店中杯美式 咖啡兌換條碼 (下稱兌換條碼)】使用期限為118年6月30日。 惟因電子票券系統之設定限制，致該兌換條碼僅可使用至115年11月30日。若股東未及於 115年11月30日前兌換使用，請股東提供以下五項資訊寄至StockAffairs@avalue.com： 1.股東姓名 2.身分證字號或統一編號 3.聯絡電話 4.電子郵件 5.兌換條碼PIN序號(即QR碼下方顯示之PIN序號) 本公司將秉持維護股東權益的一貫立場協助後續處理，並確保股東的兌換使用權益至 118年6月30日 (即股東會開會通知書原載明兌換使用期限)。造成不便敬請見諒，並感謝 股東的理解與支持。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

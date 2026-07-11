@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2105 正新
 
 ## Metadata
-- generated_at: 2026-07-10 22:26:42 Asia/Taipei
+- generated_at: 2026-07-11 22:26:31 Asia/Taipei
 - stock_id: 2105
 - stock_name: 正新
 - packet_status: standard_180d_window_packet
@@ -188,7 +188,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 2105 | 正新 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | 1.發生變動日期:115/07/02 2.功能性委員會名稱:薪資報酬委員會 3.舊任者姓名: 陳水金 朱博湧 林(捷)忠 4.舊任者簡歷: 陳水金，元升會計師事務所執業會計師/所長。 朱博湧，中太陽光科技股份有限公司董事長。 林(捷)忠，臺中榮民總醫院兒童胃腸科主治醫師。 5.新任者姓名: 朱博湧 許恩得 林(捷)忠 6.新任者簡歷: 朱博湧，中太陽光科技股份有限公司董事長。 許恩得，車王電子股份有限公司獨立董事。 林(捷)忠，臺中榮民總醫院兒童胃腸科主治醫師。 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 新任 8.異動原因:配合董事暨獨立董事任期屆滿全面改選後重新委任。 9.原任期（例xx/xx/xx ~ xx/xx/xx）:112/07/05/~115/05/30 10.新任生效日期:115/07/02-118/05/25 11.其他應敘明事項:薪酬委員任期與委任之董事會屆期相同。 |
+| 20260709 | 2105 | 正新 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | 1.發生變動日期:115/07/02 2.功能性委員會名稱:薪資報酬委員會 3.舊任者姓名: 陳水金 朱博湧 林(捷)忠 4.舊任者簡歷: 陳水金，元升會計師事務所執業會計師/所長。 朱博湧，中太陽光科技股份有限公司董事長。 林(捷)忠，臺中榮民總醫院兒童胃腸科主治醫師。 5.新任者姓名: 朱博湧 許恩得 林(捷)忠 6.新任者簡歷: 朱博湧，中太陽光科技股份有限公司董事長。 許恩得，車王電子股份有限公司獨立董事。 林(捷)忠，臺中榮民總醫院兒童胃腸科主治醫師。 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 新任 8.異動原因:配合董事暨獨立董事任期屆滿全面改選後重新委任。 9.原任期（例xx/xx/xx ~ xx/xx/xx）:112/07/05/~115/05/30 10.新任生效日期:115/07/02-118/05/25 11.其他應敘明事項:薪酬委員任期與委任之董事會屆期相同。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

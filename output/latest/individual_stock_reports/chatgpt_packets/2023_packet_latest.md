@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2023 燁輝
 
 ## Metadata
-- generated_at: 2026-07-10 22:26:40 Asia/Taipei
+- generated_at: 2026-07-11 22:26:29 Asia/Taipei
 - stock_id: 2023
 - stock_name: 燁輝
 - packet_status: standard_180d_window_packet
@@ -189,7 +189,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 2023 | 燁輝 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | stale_signal | 1.董事會決議日期:115/07/08 2.減資緣由:依證券交易法第二十八條之二規定， 註銷本公司實施第二十三次庫藏股買回之股份。 3.減資金額:200,000,000元 4.消除股份:20,000,000股 5.減資比率:1.09% 6.減資後股本:新台幣18,212,402,140元 7.預定股東會日期:不適用 8.預計減資新股上市後之上市普通股股數:不適用 9.預計減資新股上市後之上市普通股股數占已發行普通股比率 （減資後上市普通股股數/減資後已發行普通股股數）:不適用 10.前二項預計減資後上巿普通股股數未達6000萬股且未達25%者， 請說明股權流通性偏低之因應措施:不適用 11.減資基準日:115/07/13 12.其他應敘明事項:無 |
+| 20260709 | 2023 | 燁輝 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | stale_signal | 1.董事會決議日期:115/07/08 2.減資緣由:依證券交易法第二十八條之二規定， 註銷本公司實施第二十三次庫藏股買回之股份。 3.減資金額:200,000,000元 4.消除股份:20,000,000股 5.減資比率:1.09% 6.減資後股本:新台幣18,212,402,140元 7.預定股東會日期:不適用 8.預計減資新股上市後之上市普通股股數:不適用 9.預計減資新股上市後之上市普通股股數占已發行普通股比率 （減資後上市普通股股數/減資後已發行普通股股數）:不適用 10.前二項預計減資後上巿普通股股數未達6000萬股且未達25%者， 請說明股權流通性偏低之因應措施:不適用 11.減資基準日:115/07/13 12.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

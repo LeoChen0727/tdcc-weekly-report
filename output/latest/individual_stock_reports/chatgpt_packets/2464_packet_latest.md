@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2464 盟立
 
 ## Metadata
-- generated_at: 2026-07-10 22:26:53 Asia/Taipei
+- generated_at: 2026-07-11 22:26:43 Asia/Taipei
 - stock_id: 2464
 - stock_name: 盟立
 - packet_status: standard_180d_window_packet
@@ -188,8 +188,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 2464 | 盟立 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.董事會決議日期:115/07/09 2.減資緣由:因原獲配限制員工權利新股之員工未達既得條件， 將收回之限制員工權利新股辦理註銷減資。 3.減資金額:新台幣500,000元 4.消除股份:50,000股 5.減資比率:0.024% 6.減資後股本:新台幣2,063,812,260元 7.預定股東會日期:不適用 8.預計減資新股上市後之上市普通股股數:不適用 9.預計減資新股上市後之上市普通股股數占已發行普通股比率 （減資後上市普通股股數/減資後已發行普通股股數）:不適用 10.前二項預計減資後上巿普通股股數未達6000萬股且未達25%者， 請說明股權流通性偏低之因應措施:不適用 11.減資基準日:115/07/09 12.其他應敘明事項:無 |
-| 20260709 | 2464 | 盟立 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.董事會決議日期:115/07/09 2.減資緣由:因原獲配限制員工權利新股之員工未達既得條件， 將收回之限制員工權利新股辦理註銷減資。 3.減資金額:新台幣500,000元 4.消除股份:50,000股 5.減資比率:0.024% 6.減資後股本:新台幣2,063,812,260元 7.預定股東會日期:不適用 8.預計減資新股上市後之上市普通股股數:不適用 9.預計減資新股上市後之上市普通股股數占已發行普通股比率 （減資後上市普通股股數/減資後已發行普通股股數）:不適用 10.前二項預計減資後上巿普通股股數未達6000萬股且未達25%者， 請說明股權流通性偏低之因應措施:不適用 11.減資基準日:115/07/09 12.其他應敘明事項:無；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260709 | 2464 | 盟立 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.董事會決議日期:115/07/09 2.減資緣由:因原獲配限制員工權利新股之員工未達既得條件， 將收回之限制員工權利新股辦理註銷減資。 3.減資金額:新台幣500,000元 4.消除股份:50,000股 5.減資比率:0.024% 6.減資後股本:新台幣2,063,812,260元 7.預定股東會日期:不適用 8.預計減資新股上市後之上市普通股股數:不適用 9.預計減資新股上市後之上市普通股股數占已發行普通股比率 （減資後上市普通股股數/減資後已發行普通股股數）:不適用 10.前二項預計減資後上巿普通股股數未達6000萬股且未達25%者， 請說明股權流通性偏低之因應措施:不適用 11.減資基準日:115/07/09 12.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

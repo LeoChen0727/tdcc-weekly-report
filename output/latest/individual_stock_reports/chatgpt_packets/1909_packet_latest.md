@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1909 榮成
 
 ## Metadata
-- generated_at: 2026-07-10 22:26:39 Asia/Taipei
+- generated_at: 2026-07-11 22:26:28 Asia/Taipei
 - stock_id: 1909
 - stock_name: 榮成
 - packet_status: standard_180d_window_packet
@@ -189,7 +189,8 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 1909 | 榮成 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | 1.事實發生日:115/07/06 2.公司名稱:榮成紙業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:不適用 6.報導內容:不適用 7.發生緣由:公告本公司115年6月份及1-6月累計合併自結損益 單位:新台幣/仟元; EPS:新台幣/元 (自結)          6月         1月-6月 -------------------------------------------------------------------- 合併營業損益：                                93,433        225,995 合併稅前損益：                               129,433        343,247 合併稅前淨利歸屬於母公司業主：               123,304        298,671 合併稅前EPS：                                   0.10           0.23 8.因應措施:無。 9.其他應敘明事項:本公司以加權平均流通在外股數13.00億股為稅前EPS計算基礎。 |
+| 20260709 | 1909 | 榮成 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | 1.事實發生日:115/07/06 2.公司名稱:榮成紙業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:不適用 6.報導內容:不適用 7.發生緣由:公告本公司115年6月份及1-6月累計合併自結損益 單位:新台幣/仟元; EPS:新台幣/元 (自結)          6月         1月-6月 -------------------------------------------------------------------- 合併營業損益：                                93,433        225,995 合併稅前損益：                               129,433        343,247 合併稅前淨利歸屬於母公司業主：               123,304        298,671 合併稅前EPS：                                   0.10           0.23 8.因應措施:無。 9.其他應敘明事項:本公司以加權平均流通在外股數13.00億股為稅前EPS計算基礎。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260709 | 1909 | 榮成 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | repeated_but_no_breakout | 1.事實發生日:115/07/06 2.公司名稱:榮成紙業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:不適用 6.報導內容:不適用 7.發生緣由:公告本公司115年6月份及1-6月累計合併自結損益 單位:新台幣/仟元; EPS:新台幣/元 (自結)          6月         1月-6月 -------------------------------------------------------------------- 合併營業損益：                                93,433        225,995 合併稅前損益：                               129,433        343,247 合併稅前淨利歸屬於母公司業主：               123,304        298,671 合併稅前EPS：                                   0.10           0.23 8.因應措施:無。 9.其他應敘明事項:本公司以加權平均流通在外股數13.00億股為稅前EPS計算基礎。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9958 世紀鋼
 
 ## Metadata
-- generated_at: 2026-07-10 22:28:47 Asia/Taipei
+- generated_at: 2026-07-11 22:28:45 Asia/Taipei
 - stock_id: 9958
 - stock_name: 世紀鋼
 - packet_status: standard_180d_window_packet
@@ -190,7 +190,8 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 20260709 | 9958 | 世紀鋼 | pattern | 型態觀察 | 51.0 |  |  | base_building |  | no_signal | stale_signal | 1.事實發生日:115/07/08 2.公司名稱:世紀鋼鐵結構股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:因配發現金股利，本公司國內第八次無擔保轉換公司債轉換價格調整。 6.因應措施:依據本公司國內第八次無擔保轉換公司債發行及轉換辦法第11條規定， 　　　　　轉換價格應予以調整，故自115/07/31除息基準日起，由新台幣232.7元 　　　　　調整為新台幣元223.8。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: ex_dividend on 20260723; status=confirmed; proximity=within_14d |
-| 20260709 | 9958 | 世紀鋼 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/07/08 2.公司名稱:世紀鋼鐵結構股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:因配發現金股利，本公司國內第八次無擔保轉換公司債轉換價格調整。 6.因應措施:依據本公司國內第八次無擔保轉換公司債發行及轉換辦法第11條規定， 　　　　　轉換價格應予以調整，故自115/07/31除息基準日起，由新台幣232.7元 　　　　　調整為新台幣元223.8。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: ex_dividend on 20260723; status=confirmed; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260709 | 9958 | 世紀鋼 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/07/08 2.公司名稱:世紀鋼鐵結構股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:因配發現金股利，本公司國內第八次無擔保轉換公司債轉換價格調整。 6.因應措施:依據本公司國內第八次無擔保轉換公司債發行及轉換辦法第11條規定， 　　　　　轉換價格應予以調整，故自115/07/31除息基準日起，由新台幣232.7元 　　　　　調整為新台幣元223.8。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: ex_dividend on 20260723; status=confirmed; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260709 | 9958 | 世紀鋼 | revenue_breakout_low_response | 營收爆發低反應股 | 14.0 | 22.0 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | 1.事實發生日:115/07/08 2.公司名稱:世紀鋼鐵結構股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:因配發現金股利，本公司國內第八次無擔保轉換公司債轉換價格調整。 6.因應措施:依據本公司國內第八次無擔保轉換公司債發行及轉換辦法第11條規定， 　　　　　轉換價格應予以調整，故自115/07/31除息基準日起，由新台幣232.7元 　　　　　調整為新台幣元223.8。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: ex_dividend on 20260723; status=confirmed; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

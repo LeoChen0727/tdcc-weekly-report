@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2375 凱美
 
 ## Metadata
-- generated_at: 2026-07-10 22:26:48 Asia/Taipei
+- generated_at: 2026-07-11 22:26:38 Asia/Taipei
 - stock_id: 2375
 - stock_name: 凱美
 - packet_status: standard_180d_window_packet
@@ -191,7 +191,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 2375 | 凱美 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | call_inflow | stale_signal | 1.事實發生日:115/06/23 2.發生緣由:依據臺灣證券交易所股份有限公司通知辦理。 3.財務業務資訊: 期間        最近一月    與去年同    最近一季   與去年同    最近四季累計 科目        115年5月    期增減%   115年第1季   期增減% 114年第2季至115年第1季          (IFRS合併自結數)        (IFRS合併核閱數)           (IFRS合併核閱數) ============================================================================ 營業收入       497           2%      1,440         11%          5,691 (百萬元) 稅前淨利        43         491%        130        -27%            589 (百萬元) 歸屬母公司淨利  17         133%         85        -36%            357 (百萬元) 每股盈餘      0.15         131%       0.78        -36%           3.29 (元) 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告: 7.其他應敘明事項: (1)115年5月為本公司自結數，未經會計師查核。 (2)115年5月淨利較去年同期增加主係外幣兌換損失減少。 |
+| 20260709 | 2375 | 凱美 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | call_inflow | stale_signal | 1.事實發生日:115/06/23 2.發生緣由:依據臺灣證券交易所股份有限公司通知辦理。 3.財務業務資訊: 期間        最近一月    與去年同    最近一季   與去年同    最近四季累計 科目        115年5月    期增減%   115年第1季   期增減% 114年第2季至115年第1季          (IFRS合併自結數)        (IFRS合併核閱數)           (IFRS合併核閱數) ============================================================================ 營業收入       497           2%      1,440         11%          5,691 (百萬元) 稅前淨利        43         491%        130        -27%            589 (百萬元) 歸屬母公司淨利  17         133%         85        -36%            357 (百萬元) 每股盈餘      0.15         131%       0.78        -36%           3.29 (元) 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告: 7.其他應敘明事項: (1)115年5月為本公司自結數，未經會計師查核。 (2)115年5月淨利較去年同期增加主係外幣兌換損失減少。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

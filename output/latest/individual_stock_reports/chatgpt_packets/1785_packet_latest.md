@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1785 光洋科
 
 ## Metadata
-- generated_at: 2026-07-10 22:26:37 Asia/Taipei
+- generated_at: 2026-07-11 22:26:26 Asia/Taipei
 - stock_id: 1785
 - stock_name: 光洋科
 - packet_status: standard_180d_window_packet
@@ -193,7 +193,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 1785 | 光洋科 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | 1.董事會或股東會決議日期:NA 2.原發放股利種類及金額: 現金股利每股配發2.0元，共計新臺幣1,191,960,486元。 3.變更後發放股利種類及金額: 現金股利每股配發2.000099元，共計新臺幣1,191,960,486元。 4.變更原因:因本公司執行限制員工權利新股，致影響本公司流通在外股數，爰依 民國115年5月25日股東會決議，授權董事長調整配股配息率。 5.其他應敘明事項: 1.本公司於除息交易日前，如因發行或收回限制員工權利新股及其他因法令等因素 致影響本公司流通在外股份總數，而需配合變更股東配息率時，將另行公告。 2.本次股利發放通知，另委託集保結算所辦理以電子化通知。請股東於除權（息）停止 過戶起始日一營業日前(即115年07月17日前)，逕登入集保結算所「股東e服務」 (網址https://stockservices.tdcc.com.tw)之股務電子通知(eNotice)平台登記同意 接收電子通知，即可以留存之email接收股利發放通知，環保減碳愛地球！ (115年07月17日以後同意者，適用下次股利發放電子通知)；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260709 | 1785 | 光洋科 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | 1.董事會或股東會決議日期:NA 2.原發放股利種類及金額: 現金股利每股配發2.0元，共計新臺幣1,191,960,486元。 3.變更後發放股利種類及金額: 現金股利每股配發2.000099元，共計新臺幣1,191,960,486元。 4.變更原因:因本公司執行限制員工權利新股，致影響本公司流通在外股數，爰依 民國115年5月25日股東會決議，授權董事長調整配股配息率。 5.其他應敘明事項: 1.本公司於除息交易日前，如因發行或收回限制員工權利新股及其他因法令等因素 致影響本公司流通在外股份總數，而需配合變更股東配息率時，將另行公告。 2.本次股利發放通知，另委託集保結算所辦理以電子化通知。請股東於除權（息）停止 過戶起始日一營業日前(即115年07月17日前)，逕登入集保結算所「股東e服務」 (網址https://stockservices.tdcc.com.tw)之股務電子通知(eNotice)平台登記同意 接收電子通知，即可以留存之email接收股利發放通知，環保減碳愛地球！ (115年07月17日以後同意者，適用下次股利發放電子通知)；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

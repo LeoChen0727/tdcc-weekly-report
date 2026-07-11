@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3058 立德
 
 ## Metadata
-- generated_at: 2026-07-10 22:27:09 Asia/Taipei
+- generated_at: 2026-07-11 22:27:01 Asia/Taipei
 - stock_id: 3058
 - stock_name: 立德
 - packet_status: standard_180d_window_packet
@@ -189,7 +189,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 3058 | 立德 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | first_seen | 1.事實發生日:115/07/09 2.公司名稱:立德電子股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:依臺灣證券交易所股份有限公司台證(九一)上字第024660號函辦理 6.因應措施: 本公司申請股票初次上市時所出具之承諾事項暨後續執行情形如下： (一)承諾事項：承諾非經股東會依公司法第一百八十五條規定，不得處分對立德 B.V.I (Leader Electronics (B.V.I.) Inc.)、立德控股(LEI Group Limited)、立德開曼 (Leader International Holding Ltd.)、東莞立德(Dongguan Leader Electronics Inc.)及江蘇領先(Jiangsu Leader Electronics Inc.)之投資。 (二)後續執行情形：截至目前為止，本公司並無處分上述被投資公司股權之情事。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無 |
+| 20260709 | 3058 | 立德 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | first_seen | 1.事實發生日:115/07/09 2.公司名稱:立德電子股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:依臺灣證券交易所股份有限公司台證(九一)上字第024660號函辦理 6.因應措施: 本公司申請股票初次上市時所出具之承諾事項暨後續執行情形如下： (一)承諾事項：承諾非經股東會依公司法第一百八十五條規定，不得處分對立德 B.V.I (Leader Electronics (B.V.I.) Inc.)、立德控股(LEI Group Limited)、立德開曼 (Leader International Holding Ltd.)、東莞立德(Dongguan Leader Electronics Inc.)及江蘇領先(Jiangsu Leader Electronics Inc.)之投資。 (二)後續執行情形：截至目前為止，本公司並無處分上述被投資公司股權之情事。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

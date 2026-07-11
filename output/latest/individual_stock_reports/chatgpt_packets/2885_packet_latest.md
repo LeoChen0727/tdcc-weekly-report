@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2885 元大金
 
 ## Metadata
-- generated_at: 2026-07-10 22:27:03 Asia/Taipei
+- generated_at: 2026-07-11 22:26:54 Asia/Taipei
 - stock_id: 2885
 - stock_name: 元大金
 - packet_status: standard_180d_window_packet
@@ -190,12 +190,11 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 20260709 | 2885 | 元大金 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | repeated_but_no_breakout | 1. 原公告日期： 114/03/31 2. 簡述原公告申報內容： 元大人壽向關係人元大銀行取得台北市大安區仁愛路三段157號18樓部分面積： (1)租賃面積：約32.71坪 (2)每單位價格:每坪每月租金新台幣3,970元(含稅)  (3)租金總金額:每月新台幣129,859元(含稅) (4)使用權資產金額:新台幣765,260元(含稅) (5)租賃期間：自民國114年4月25日至民國118年4月10日 3. 變動緣由及主要內容： 為提升營運效率，將辦理辦公場所遷址，故提前於民國115年7月24日終止租賃契約 4. 變動後對公司財務業務之影響： 無重大影響 5. 其他應敘明事項： 無；calendar event: ex_dividend on 20260721; status=confirmed; proximity=within_14d |
-| 20260709 | 2885 | 元大金 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | repeated_but_no_breakout | 1. 原公告日期： 114/03/31 2. 簡述原公告申報內容： 元大人壽向關係人元大銀行取得台北市大安區仁愛路三段157號18樓部分面積： (1)租賃面積：約32.71坪 (2)每單位價格:每坪每月租金新台幣3,970元(含稅)  (3)租金總金額:每月新台幣129,859元(含稅) (4)使用權資產金額:新台幣765,260元(含稅) (5)租賃期間：自民國114年4月25日至民國118年4月10日 3. 變動緣由及主要內容： 為提升營運效率，將辦理辦公場所遷址，故提前於民國115年7月24日終止租賃契約 4. 變動後對公司財務業務之影響： 無重大影響 5. 其他應敘明事項： 無；calendar event: ex_dividend on 20260721; status=confirmed; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 2885 | 元大金 | 13 | 6 | 5 | 10 | 17 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 17 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260709 | 2885 | 元大金 | 13 | 2 | 5 | 10 | 17 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 17 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5880 合庫金
 
 ## Metadata
-- generated_at: 2026-07-10 22:27:52 Asia/Taipei
+- generated_at: 2026-07-11 22:27:47 Asia/Taipei
 - stock_id: 5880
 - stock_name: 合庫金
 - packet_status: standard_180d_window_packet
@@ -188,13 +188,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 5880 | 合庫金 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | continued_many_days | 1.發生變動日期:115/07/09 2.法人名稱:中華民國農會 3.舊任者姓名: 蕭漢俊 張永成 4.舊任者簡歷: 中華民國農會理事長 中華民國農會總幹事 5.新任者姓名: 曾明瑞 黃偉特 6.新任者簡歷: 南投縣農會總幹事 羅東鎮農會理事長 7.異動原因:改派 8.原任期（例xx/xx/xx至xx/xx/xx）:115/06/18至118/06/17 9.新任生效日期:115/07/15 10.其他應敘明事項:依中華民國農會全農輔訓字第1150006570號函。 |
-| 20260709 | 5880 | 合庫金 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | continued_many_days | 1.發生變動日期:115/07/09 2.法人名稱:中華民國農會 3.舊任者姓名: 蕭漢俊 張永成 4.舊任者簡歷: 中華民國農會理事長 中華民國農會總幹事 5.新任者姓名: 曾明瑞 黃偉特 6.新任者簡歷: 南投縣農會總幹事 羅東鎮農會理事長 7.異動原因:改派 8.原任期（例xx/xx/xx至xx/xx/xx）:115/06/18至118/06/17 9.新任生效日期:115/07/15 10.其他應敘明事項:依中華民國農會全農輔訓字第1150006570號函。 |
+| 20260709 | 5880 | 合庫金 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | continued_many_days | 1.發生變動日期:115/07/09 2.法人名稱:中華民國農會 3.舊任者姓名: 蕭漢俊 張永成 4.舊任者簡歷: 中華民國農會理事長 中華民國農會總幹事 5.新任者姓名: 曾明瑞 黃偉特 6.新任者簡歷: 南投縣農會總幹事 羅東鎮農會理事長 7.異動原因:改派 8.原任期（例xx/xx/xx至xx/xx/xx）:115/06/18至118/06/17 9.新任生效日期:115/07/15 10.其他應敘明事項:依中華民國農會全農輔訓字第1150006570號函。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 5880 | 合庫金 | 30 | 6 | 5 | 10 | 20 | continued_many_days | 連續 30 日上榜，需區分醞釀延續或訊號鈍化。 |
+| 20260709 | 5880 | 合庫金 | 30 | 1 | 5 | 10 | 20 | continued_many_days | 連續 30 日上榜，需區分醞釀延續或訊號鈍化。 |
 
 ## Warrant Context
 | status |

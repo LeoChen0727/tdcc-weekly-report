@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6669 緯穎
 
 ## Metadata
-- generated_at: 2026-07-10 22:28:13 Asia/Taipei
+- generated_at: 2026-07-11 22:28:09 Asia/Taipei
 - stock_id: 6669
 - stock_name: 緯穎
 - packet_status: standard_180d_window_packet
@@ -188,7 +188,8 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 6669 | 緯穎 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | stale_signal | 1.事實發生日:115/07/01 2.捐贈原由:捐贈財團法人緯穎永續基金會115年度營運基金。 3.捐贈金額:新台幣19,018,729元 4.受贈對象:財團法人緯穎永續基金會 5.與公司關係:本公司捐助成立之基金會 6.表示反對或保留意見之獨立董事姓名及簡歷:無。 7.前揭獨立董事表示反對或保留之意見:無。 8.其他應敘明事項:相關捐贈事宜授權董事長全權處理。 |
+| 20260709 | 6669 | 緯穎 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | stale_signal | 1.事實發生日:115/07/01 2.捐贈原由:捐贈財團法人緯穎永續基金會115年度營運基金。 3.捐贈金額:新台幣19,018,729元 4.受贈對象:財團法人緯穎永續基金會 5.與公司關係:本公司捐助成立之基金會 6.表示反對或保留意見之獨立董事姓名及簡歷:無。 7.前揭獨立董事表示反對或保留之意見:無。 8.其他應敘明事項:相關捐贈事宜授權董事長全權處理。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260709 | 6669 | 緯穎 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/07/01 2.捐贈原由:捐贈財團法人緯穎永續基金會115年度營運基金。 3.捐贈金額:新台幣19,018,729元 4.受贈對象:財團法人緯穎永續基金會 5.與公司關係:本公司捐助成立之基金會 6.表示反對或保留意見之獨立董事姓名及簡歷:無。 7.前揭獨立董事表示反對或保留之意見:無。 8.其他應敘明事項:相關捐贈事宜授權董事長全權處理。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

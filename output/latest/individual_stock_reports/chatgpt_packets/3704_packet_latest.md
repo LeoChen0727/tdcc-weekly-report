@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3704 合勤控
 
 ## Metadata
-- generated_at: 2026-07-10 22:27:26 Asia/Taipei
+- generated_at: 2026-07-11 22:27:19 Asia/Taipei
 - stock_id: 3704
 - stock_name: 合勤控
 - packet_status: standard_180d_window_packet
@@ -189,7 +189,8 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 3704 | 合勤控 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.董事會決議或公司決定日期:115/06/30 2.發行股數:27,500,000股。 3.每股面額:新台幣10元。 4.發行總金額:新台幣275,000,000元。 5.發行價格:新台幣10元。 6.員工認股股數:發行股數之10%,即2,750,000股。 7.原股東認購比率:發行股數之90%,即24,750,000股。 8.公開銷售方式及股數:不適用。 9.畸零股及逾期未認購股份之處理方式:不適用。 10.本次發行新股之權利義務:其權利義務與原已發行股份相同。 11.本次增資資金用途:充實營運資金。 12.現金增資認股基準日:115/07/05 13.最後過戶日:115/06/30 14.停止過戶起始日期:115/07/01 15.停止過戶截止日期:115/07/05 16.股款繳納期間:原股東及員工之股款繳納日為民國115年07月06日   ；特定人認股繳款日訂為民國115年07月07日。 17.與代收及專戶存儲價款行庫訂約日期:不適用。 18.委託代收存款機構:不適用。 19.委託存儲款項機構:不適用。 20.其他應敘明事項:因應現增作業實際發行情形，本現金增資   案內容及其他相關事宜，如經主管機關修正、或有未盡事宜   、或因客觀環境而變更時，擬授權董事長全權處理之。；degraded calendar context only: ex_dividend on 20260706; status=source_stale_cached; proximity=recent; model_effect_allowed=False; pdf_effect_allowed=False |
+| 20260709 | 3704 | 合勤控 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.董事會決議或公司決定日期:115/06/30 2.發行股數:27,500,000股。 3.每股面額:新台幣10元。 4.發行總金額:新台幣275,000,000元。 5.發行價格:新台幣10元。 6.員工認股股數:發行股數之10%,即2,750,000股。 7.原股東認購比率:發行股數之90%,即24,750,000股。 8.公開銷售方式及股數:不適用。 9.畸零股及逾期未認購股份之處理方式:不適用。 10.本次發行新股之權利義務:其權利義務與原已發行股份相同。 11.本次增資資金用途:充實營運資金。 12.現金增資認股基準日:115/07/05 13.最後過戶日:115/06/30 14.停止過戶起始日期:115/07/01 15.停止過戶截止日期:115/07/05 16.股款繳納期間:原股東及員工之股款繳納日為民國115年07月06日   ；特定人認股繳款日訂為民國115年07月07日。 17.與代收及專戶存儲價款行庫訂約日期:不適用。 18.委託代收存款機構:不適用。 19.委託存儲款項機構:不適用。 20.其他應敘明事項:因應現增作業實際發行情形，本現金增資   案內容及其他相關事宜，如經主管機關修正、或有未盡事宜   、或因客觀環境而變更時，擬授權董事長全權處理之。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260709 | 3704 | 合勤控 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | 1.董事會決議或公司決定日期:115/06/30 2.發行股數:27,500,000股。 3.每股面額:新台幣10元。 4.發行總金額:新台幣275,000,000元。 5.發行價格:新台幣10元。 6.員工認股股數:發行股數之10%,即2,750,000股。 7.原股東認購比率:發行股數之90%,即24,750,000股。 8.公開銷售方式及股數:不適用。 9.畸零股及逾期未認購股份之處理方式:不適用。 10.本次發行新股之權利義務:其權利義務與原已發行股份相同。 11.本次增資資金用途:充實營運資金。 12.現金增資認股基準日:115/07/05 13.最後過戶日:115/06/30 14.停止過戶起始日期:115/07/01 15.停止過戶截止日期:115/07/05 16.股款繳納期間:原股東及員工之股款繳納日為民國115年07月06日   ；特定人認股繳款日訂為民國115年07月07日。 17.與代收及專戶存儲價款行庫訂約日期:不適用。 18.委託代收存款機構:不適用。 19.委託存儲款項機構:不適用。 20.其他應敘明事項:因應現增作業實際發行情形，本現金增資   案內容及其他相關事宜，如經主管機關修正、或有未盡事宜   、或因客觀環境而變更時，擬授權董事長全權處理之。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

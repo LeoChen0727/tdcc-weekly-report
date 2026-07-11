@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6477 安集
 
 ## Metadata
-- generated_at: 2026-07-10 22:28:06 Asia/Taipei
+- generated_at: 2026-07-11 22:28:02 Asia/Taipei
 - stock_id: 6477
 - stock_name: 安集
 - packet_status: standard_180d_window_packet
@@ -187,7 +187,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 6477 | 安集 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_overheated | 1.事實發生日:115/07/07 2.發生緣由:依據臺灣證券交易所股份有限公司通知辦理。 3.財務業務資訊: 一、本公司之合併財務資料如下： 期間      最近一月   與去年同  最近一季    與去年     最近四季累 科目     (115年05月) 期增減%    (115年     同期增     計(114年第　                                 第1季)     減%        2季至115年                                                       第1季)              (IFRS自結數)          (IFRS核閱數)   (IFRS查核及核閱數) = = = =   = = = = =  = = = =   = = = =   = = = = =    = = = = = = 營業收入     69.76    -1.22%     225.00    54.21%        934.80 (百萬) 稅前淨利      7.06    32.30%       2.48  -125.07%         37.95 (百萬) 歸屬母公      4.31    39.08%      -1.88   -82.53%         11.02 司業主之 淨利(百萬) 每股盈餘      0.03     0.00%      -0.02   -77.78%          0.09 (元) 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無。 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無。 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告: 7.其他應敘明事項:無。；calendar event: ex_dividend on 20260710; status=confirmed; proximity=within_3d |
+| 20260709 | 6477 | 安集 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_overheated | 1.事實發生日:115/07/07 2.發生緣由:依據臺灣證券交易所股份有限公司通知辦理。 3.財務業務資訊: 一、本公司之合併財務資料如下： 期間      最近一月   與去年同  最近一季    與去年     最近四季累 科目     (115年05月) 期增減%    (115年     同期增     計(114年第　                                 第1季)     減%        2季至115年                                                       第1季)              (IFRS自結數)          (IFRS核閱數)   (IFRS查核及核閱數) = = = =   = = = = =  = = = =   = = = =   = = = = =    = = = = = = 營業收入     69.76    -1.22%     225.00    54.21%        934.80 (百萬) 稅前淨利      7.06    32.30%       2.48  -125.07%         37.95 (百萬) 歸屬母公      4.31    39.08%      -1.88   -82.53%         11.02 司業主之 淨利(百萬) 每股盈餘      0.03     0.00%      -0.02   -77.78%          0.09 (元) 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無。 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無。 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告: 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

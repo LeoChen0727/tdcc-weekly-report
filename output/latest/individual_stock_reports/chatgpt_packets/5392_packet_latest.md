@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5392 能率
 
 ## Metadata
-- generated_at: 2026-07-10 22:27:47 Asia/Taipei
+- generated_at: 2026-07-11 22:27:42 Asia/Taipei
 - stock_id: 5392
 - stock_name: 能率
 - packet_status: standard_180d_window_packet
@@ -188,7 +188,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 5392 | 能率 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.股東常會日期:115/06/26 2.重要決議事項一、盈餘分配或盈虧撥補:通過承認本公司114年度盈餘分派案。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表: 通過承認本公司114年度營業報告書及財務報表案。 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項: (1)通過本公司114年度盈餘轉增資發行新股案。 (2)通過擬提請股東會追認集團對宏羚(股)公司綜合持股比例下降案。 (3)通過配合子公司宏羚股份有限公司未來申請股票上市(櫃)計畫,本公司及本公司控制 或從屬公司得分次辦理對該子公司釋股作業暨放棄參與該公司之現金增資計畫。 7.其他應敘明事項:無 |
+| 20260709 | 5392 | 能率 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.股東常會日期:115/06/26 2.重要決議事項一、盈餘分配或盈虧撥補:通過承認本公司114年度盈餘分派案。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表: 通過承認本公司114年度營業報告書及財務報表案。 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項: (1)通過本公司114年度盈餘轉增資發行新股案。 (2)通過擬提請股東會追認集團對宏羚(股)公司綜合持股比例下降案。 (3)通過配合子公司宏羚股份有限公司未來申請股票上市(櫃)計畫,本公司及本公司控制 或從屬公司得分次辦理對該子公司釋股作業暨放棄參與該公司之現金增資計畫。 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

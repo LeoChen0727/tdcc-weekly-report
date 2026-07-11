@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2317 鴻海
 
 ## Metadata
-- generated_at: 2026-07-10 22:26:45 Asia/Taipei
+- generated_at: 2026-07-11 22:26:35 Asia/Taipei
 - stock_id: 2317
 - stock_name: 鴻海
 - packet_status: standard_180d_window_packet
@@ -58,7 +58,7 @@
 - pdf_visible: true
 - action_rating_display_zh: 可分批買進
 - model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
 - action_summary_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。
 - entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
 - position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
@@ -73,7 +73,7 @@
 - internal_use_only: true
 - action_rating: scale_in
 - action_rating_label_zh: 可分批買進
-- confidence_level: medium
+- confidence_level: high
 - thesis_state: healthy_pullback
 - entry_style: pullback_to_23ema
 - position_sizing: half_position
@@ -92,6 +92,7 @@
 
 ### entry_prerequisites
 - model_recommended
+- decision_score_high
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -194,7 +195,8 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 2317 | 鴻海 | revenue_pullback | 營收成長股價回檔 | 76.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/07/09 2.公司名稱:富士康工業互聯網股份有限公司 3.與公司關係(請輸入本公司或子公司):子公司 4.相互持股比例:84.16% 5.發生緣由: 富士康工業互聯網股份有限公司於2026年7月9日於上海證券交易所主板公告 2026年半年度主要財務資料為初步核算資料，內容查詢路徑為 https://www.sse.com.cn/disclosure/listedinfo/announcement/ 該數據未經會計師事務所審計，具體以公司2026年半年度報告披露資料為準， 敬請投資者注意投資風險。 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260709 | 2317 | 鴻海 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  | no_signal | stale_signal | 1.發生變動日期:115/07/10 2.選任或變動人員別（請輸入法人董事、法人監察人、獨立董事、自然人董事   或自然人監察人）:法人董事 3.舊任者職稱及姓名:鴻景國際投資股份有限公司(代表人：劉憶如) 4.舊任者簡歷:本公司法人董事 5.新任者職稱及姓名:不適用 6.新任者簡歷:不適用 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 辭職 8.異動原因:因整體規劃考量，鴻景國際投資股份有限公司辭任由劉憶如女士擔任 法人代表人之董事職務。 9.新任者選任時持股數:不適用 10.原任期（例xx/xx/xx ~ xx/xx/xx）:114/05/29~117/05/28 11.新任生效日期:不適用 12.同任期董事變動比率:2/9 13.同任期獨立董事變動比率:1/5 14.同任期監察人變動比率:不適用 15.屬三分之一以上董事發生變動（請輸入是或否）:否 16.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 鴻景國際投資股份有限公司現擔任本公司董事二席，本次僅辭任前述一席董事 職務，保留其餘一席董事職務，並由原法人代表人繼續擔任。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260709 | 2317 | 鴻海 | revenue_breakout_low_response | 營收爆發低反應股 | 10.0 | 36.0 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | 1.發生變動日期:115/07/10 2.選任或變動人員別（請輸入法人董事、法人監察人、獨立董事、自然人董事   或自然人監察人）:法人董事 3.舊任者職稱及姓名:鴻景國際投資股份有限公司(代表人：劉憶如) 4.舊任者簡歷:本公司法人董事 5.新任者職稱及姓名:不適用 6.新任者簡歷:不適用 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 辭職 8.異動原因:因整體規劃考量，鴻景國際投資股份有限公司辭任由劉憶如女士擔任 法人代表人之董事職務。 9.新任者選任時持股數:不適用 10.原任期（例xx/xx/xx ~ xx/xx/xx）:114/05/29~117/05/28 11.新任生效日期:不適用 12.同任期董事變動比率:2/9 13.同任期獨立董事變動比率:1/5 14.同任期監察人變動比率:不適用 15.屬三分之一以上董事發生變動（請輸入是或否）:否 16.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 鴻景國際投資股份有限公司現擔任本公司董事二席，本次僅辭任前述一席董事 職務，保留其餘一席董事職務，並由原法人代表人繼續擔任。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

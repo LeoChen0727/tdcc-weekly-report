@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5386 青雲
 
 ## Metadata
-- generated_at: 2026-07-10 22:27:47 Asia/Taipei
+- generated_at: 2026-07-11 22:27:41 Asia/Taipei
 - stock_id: 5386
 - stock_name: 青雲
 - packet_status: standard_180d_window_packet
@@ -188,7 +188,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 5386 | 青雲 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/07/06 2.原公告申報日期:115/05/06 3.簡述原公告申報內容:董事會決議現金增資發行新股、發行國內第二次無擔保轉換                       公司債。 4.變動緣由及主要內容:本公司基於營運策略規劃及評估資本市場募資時程，並基於                       維護全體股東權益，擬自行撤回115年度現金增資發行新股                       暨國內第二次無擔保轉換公司債。 5.變動後對公司財務業務之影響:無重大影響。 6.其他應敘明事項:無。；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260709 | 5386 | 青雲 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/07/06 2.原公告申報日期:115/05/06 3.簡述原公告申報內容:董事會決議現金增資發行新股、發行國內第二次無擔保轉換                       公司債。 4.變動緣由及主要內容:本公司基於營運策略規劃及評估資本市場募資時程，並基於                       維護全體股東權益，擬自行撤回115年度現金增資發行新股                       暨國內第二次無擔保轉換公司債。 5.變動後對公司財務業務之影響:無重大影響。 6.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

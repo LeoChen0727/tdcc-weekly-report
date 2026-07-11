@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2883 凱基金
 
 ## Metadata
-- generated_at: 2026-07-10 22:27:03 Asia/Taipei
+- generated_at: 2026-07-11 22:26:54 Asia/Taipei
 - stock_id: 2883
 - stock_name: 凱基金
 - packet_status: standard_180d_window_packet
@@ -189,13 +189,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 2883 | 凱基金 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.發生變動日期:115/07/08 2.選任或變動人員別（請輸入法人董事、法人監察人、獨立董事、自然人董事   或自然人監察人）:法人董事、自然人監察人 3.舊任者職稱及姓名:不適用 4.舊任者簡歷:不適用 5.新任者職稱及姓名:  (1)董事：凱基證券股份有限公司代表人劉靜梅  (2)董事：凱基證券股份有限公司代表人王昭麟  (3)監察人：楊得暉 6.新任者簡歷:  (1)董事：凱基證券股份有限公司代表人劉靜梅/凱基證券副總經理  (2)董事：凱基證券股份有限公司代表人王昭麟/凱基金控副總經理、  凱基證券副總經理、凱基創投董事、孟宗山莊股份有限公司監察人  (3)監察人：楊得暉/凱基證券副總經理、KGI Asia (Holdings) Pte. Ltd.董事、  KGI Securities (Singapore) Pte. Ltd.董事、KGI Securities (Singapore) Pte.  Ltd. COO 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）:  新任 8.異動原因:增選董事二人及監察人一人 9.新任者選任時持股數:  (1)董事：凱基證券股份有限公司(代表人劉靜梅)/231,626,875股  (2)董事：凱基證券股份有限公司(代表人王昭麟)/231,626,875股  (3)監察人：楊得暉/0股 10.原任期（例xx/xx/xx ~ xx/xx/xx）:不適用 11.新任生效日期:115/07/08 12.同任期董事變動比率:2/5 13.同任期獨立董事變動比率:不適用 14.同任期監察人變動比率:1/2 15.屬三分之一以上董事發生變動（請輸入是或否）:是 16.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):  無 |
-| 20260709 | 2883 | 凱基金 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | 1.發生變動日期:115/07/08 2.選任或變動人員別（請輸入法人董事、法人監察人、獨立董事、自然人董事   或自然人監察人）:法人董事、自然人監察人 3.舊任者職稱及姓名:不適用 4.舊任者簡歷:不適用 5.新任者職稱及姓名:  (1)董事：凱基證券股份有限公司代表人劉靜梅  (2)董事：凱基證券股份有限公司代表人王昭麟  (3)監察人：楊得暉 6.新任者簡歷:  (1)董事：凱基證券股份有限公司代表人劉靜梅/凱基證券副總經理  (2)董事：凱基證券股份有限公司代表人王昭麟/凱基金控副總經理、  凱基證券副總經理、凱基創投董事、孟宗山莊股份有限公司監察人  (3)監察人：楊得暉/凱基證券副總經理、KGI Asia (Holdings) Pte. Ltd.董事、  KGI Securities (Singapore) Pte. Ltd.董事、KGI Securities (Singapore) Pte.  Ltd. COO 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）:  新任 8.異動原因:增選董事二人及監察人一人 9.新任者選任時持股數:  (1)董事：凱基證券股份有限公司(代表人劉靜梅)/231,626,875股  (2)董事：凱基證券股份有限公司(代表人王昭麟)/231,626,875股  (3)監察人：楊得暉/0股 10.原任期（例xx/xx/xx ~ xx/xx/xx）:不適用 11.新任生效日期:115/07/08 12.同任期董事變動比率:2/5 13.同任期獨立董事變動比率:不適用 14.同任期監察人變動比率:1/2 15.屬三分之一以上董事發生變動（請輸入是或否）:是 16.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):  無 |
+| 20260709 | 2883 | 凱基金 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.發生變動日期:115/07/08 2.選任或變動人員別（請輸入法人董事、法人監察人、獨立董事、自然人董事   或自然人監察人）:法人董事、自然人監察人 3.舊任者職稱及姓名:不適用 4.舊任者簡歷:不適用 5.新任者職稱及姓名:  (1)董事：凱基證券股份有限公司代表人劉靜梅  (2)董事：凱基證券股份有限公司代表人王昭麟  (3)監察人：楊得暉 6.新任者簡歷:  (1)董事：凱基證券股份有限公司代表人劉靜梅/凱基證券副總經理  (2)董事：凱基證券股份有限公司代表人王昭麟/凱基金控副總經理、  凱基證券副總經理、凱基創投董事、孟宗山莊股份有限公司監察人  (3)監察人：楊得暉/凱基證券副總經理、KGI Asia (Holdings) Pte. Ltd.董事、  KGI Securities (Singapore) Pte. Ltd.董事、KGI Securities (Singapore) Pte.  Ltd. COO 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）:  新任 8.異動原因:增選董事二人及監察人一人 9.新任者選任時持股數:  (1)董事：凱基證券股份有限公司(代表人劉靜梅)/231,626,875股  (2)董事：凱基證券股份有限公司(代表人王昭麟)/231,626,875股  (3)監察人：楊得暉/0股 10.原任期（例xx/xx/xx ~ xx/xx/xx）:不適用 11.新任生效日期:115/07/08 12.同任期董事變動比率:2/5 13.同任期獨立董事變動比率:不適用 14.同任期監察人變動比率:1/2 15.屬三分之一以上董事發生變動（請輸入是或否）:是 16.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):  無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 2883 | 凱基金 | 11 | 6 | 5 | 10 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260709 | 2883 | 凱基金 | 11 | 1 | 5 | 10 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |

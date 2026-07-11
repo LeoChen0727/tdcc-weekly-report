@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3044 健鼎
 
 ## Metadata
-- generated_at: 2026-07-10 22:27:08 Asia/Taipei
+- generated_at: 2026-07-11 22:27:00 Asia/Taipei
 - stock_id: 3044
 - stock_name: 健鼎
 - packet_status: standard_180d_window_packet
@@ -189,7 +189,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 3044 | 健鼎 | revenue_pullback | 營收成長股價回檔 | 60.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/07/09 2.接受資金貸與之: (1)公司名稱:Tripod Overseas Co.,Ltd. (2)與資金貸與他人公司之關係: Tripod Overseas Co., Ltd為J & J Holding Co., Ltd.直接持有百分之百之子公司。 (3)資金貸與之限額(仟元):130,850,979 (4)原資金貸與之餘額(仟元):17,055,038 (5)本次新增資金貸與之金額(仟元):2,659,475 (6)是否為董事會授權董事長對同一貸與對象分次撥貸或循環動用之資金貸與:否 (7)迄事實發生日止資金貸與餘額(仟元):19,714,513 (8)本次新增資金貸與之原因: 短期融通資金需求 3.接受資金貸與公司所提供擔保品之: (1)內容: 無 (2)價值(仟元):0 4.接受資金貸與公司最近期財務報表之: (1)資本(仟元):4,076,800 (2)累積盈虧金額(仟元):45,186,870 5.計息方式: 不計息。 6.還款之: (1)條件: 借款到期之次日，全數清償本金及利息，亦得提前償還。 (2)日期: 116年07月08日 7.迄事實發生日為止，資金貸與餘額(仟元): 32,620,325 8.迄事實發生日為止，資金貸與餘額占公開發行公司最近期財務報表淨值之比率: 55.95 9.公司貸與他人資金之來源: 子公司本身 10.其他應敘明事項: 無；calendar event: ex_dividend on 20260709; status=confirmed; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260709 | 3044 | 健鼎 | revenue_pullback | 營收成長股價回檔 | 67.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/07/09 2.接受資金貸與之: (1)公司名稱:Tripod Overseas Co.,Ltd. (2)與資金貸與他人公司之關係: Tripod Overseas Co., Ltd為J & J Holding Co., Ltd.直接持有百分之百之子公司。 (3)資金貸與之限額(仟元):130,850,979 (4)原資金貸與之餘額(仟元):17,055,038 (5)本次新增資金貸與之金額(仟元):2,659,475 (6)是否為董事會授權董事長對同一貸與對象分次撥貸或循環動用之資金貸與:否 (7)迄事實發生日止資金貸與餘額(仟元):19,714,513 (8)本次新增資金貸與之原因: 短期融通資金需求 3.接受資金貸與公司所提供擔保品之: (1)內容: 無 (2)價值(仟元):0 4.接受資金貸與公司最近期財務報表之: (1)資本(仟元):4,076,800 (2)累積盈虧金額(仟元):45,186,870 5.計息方式: 不計息。 6.還款之: (1)條件: 借款到期之次日，全數清償本金及利息，亦得提前償還。 (2)日期: 116年07月08日 7.迄事實發生日為止，資金貸與餘額(仟元): 32,620,325 8.迄事實發生日為止，資金貸與餘額占公開發行公司最近期財務報表淨值之比率: 55.95 9.公司貸與他人資金之來源: 子公司本身 10.其他應敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

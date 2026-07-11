@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3211 順達
 
 ## Metadata
-- generated_at: 2026-07-10 22:27:13 Asia/Taipei
+- generated_at: 2026-07-11 22:27:05 Asia/Taipei
 - stock_id: 3211
 - stock_name: 順達
 - packet_status: standard_180d_window_packet
@@ -193,7 +193,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 3211 | 順達 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | 1.發生變動日期:115/06/22 2.功能性委員會名稱:提名委員會 3.舊任者姓名:不適用 4.舊任者簡歷:不適用 5.新任者姓名:  董　　事：鹿寮坑(股)公司代表人：鍾聰明  獨立董事：謝漢萍  獨立董事：林政憲  獨立董事：許婉美 6.新任者簡歷:  董　　事 鹿寮坑(股)公司代表人：鍾聰明；順達科技(股)公司董事長  獨立董事 謝漢萍；凱崴電子(股)公司獨立董事  獨立董事 林政憲；律宇國際商務法律事務所主持律師  獨立董事 許婉美；之初創業投資管理顧問(股)公司監察人 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）:  「新任」。 8.異動原因:設置提名委員會。 9.原任期（例xx/xx/xx ~ xx/xx/xx）:不適用。 10.新任生效日期:115/06/22 11.其他應敘明事項:  提名委員會成員推舉謝漢萍獨立董事為召集人。 |
+| 20260709 | 3211 | 順達 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | 1.發生變動日期:115/06/22 2.功能性委員會名稱:提名委員會 3.舊任者姓名:不適用 4.舊任者簡歷:不適用 5.新任者姓名:  董　　事：鹿寮坑(股)公司代表人：鍾聰明  獨立董事：謝漢萍  獨立董事：林政憲  獨立董事：許婉美 6.新任者簡歷:  董　　事 鹿寮坑(股)公司代表人：鍾聰明；順達科技(股)公司董事長  獨立董事 謝漢萍；凱崴電子(股)公司獨立董事  獨立董事 林政憲；律宇國際商務法律事務所主持律師  獨立董事 許婉美；之初創業投資管理顧問(股)公司監察人 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）:  「新任」。 8.異動原因:設置提名委員會。 9.原任期（例xx/xx/xx ~ xx/xx/xx）:不適用。 10.新任生效日期:115/06/22 11.其他應敘明事項:  提名委員會成員推舉謝漢萍獨立董事為召集人。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

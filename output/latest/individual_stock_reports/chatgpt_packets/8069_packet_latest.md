@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8069 元太
 
 ## Metadata
-- generated_at: 2026-07-10 22:28:34 Asia/Taipei
+- generated_at: 2026-07-11 22:28:32 Asia/Taipei
 - stock_id: 8069
 - stock_name: 元太
 - packet_status: standard_180d_window_packet
@@ -189,7 +189,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 8069 | 元太 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/01 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.發放普通股股利種類及金額:  現金股利新台幣6,798,985,118元，每股配發新台幣5.88820682元。 4.除權（息）交易日:115/07/20 5.最後過戶日:115/07/21 6.停止過戶起始日期:115/07/22 7.停止過戶截止日期:115/07/26 8.除權（息）基準日:115/07/26 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/21 13.其他應敘明事項: 本公司因員工認股權執行之股份影響流通在外股數，致配發現金比率發生變動， 原現金股利每股配發新台幣5.9元，調整為每股配發新台幣5.88820682元。 |
+| 20260709 | 8069 | 元太 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/01 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.發放普通股股利種類及金額:  現金股利新台幣6,798,985,118元，每股配發新台幣5.88820682元。 4.除權（息）交易日:115/07/20 5.最後過戶日:115/07/21 6.停止過戶起始日期:115/07/22 7.停止過戶截止日期:115/07/26 8.除權（息）基準日:115/07/26 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/21 13.其他應敘明事項: 本公司因員工認股權執行之股份影響流通在外股數，致配發現金比率發生變動， 原現金股利每股配發新台幣5.9元，調整為每股配發新台幣5.88820682元。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

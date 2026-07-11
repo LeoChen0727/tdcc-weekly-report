@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6488 環球晶
 
 ## Metadata
-- generated_at: 2026-07-10 22:28:06 Asia/Taipei
+- generated_at: 2026-07-11 22:28:02 Asia/Taipei
 - stock_id: 6488
 - stock_name: 環球晶
 - packet_status: standard_180d_window_packet
@@ -188,7 +188,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 6488 | 環球晶 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 63.0 |  |  | neckline_challenge |  |  | continued_overheated | 1.事實發生日:115/07/09 2.契約或承諾相對人:Micron Technology, Inc. 3.與公司關係:本公司之客戶 4.契約或承諾起迄日期（或解除日期）:不適用 5.主要內容（解除者不適用）:此次合作預計包含由美光科技提供5億美元之策略性資金 支持，藉以推動本公司美國業務之發展及供應能力提升，以支援雙方長期合作。 雙方規劃透過10年期長期供應協議（Long-Term Agreement, LTA），建立長期合作 架構，相關合作內容將依雙方後續協議及相關程序推動。 6.限制條款（解除者不適用）:無 7.承諾事項（解除者不適用）:雙方依合作意向書簽訂10年期長期供應協議 8.其他重要約定事項（解除者不適用）:無 9.對公司財務、業務之影響:深化長期策略合作關係，並就長期供應合作及相關合作 架構達成合作意向，進一步提升先進半導體晶圓供應韌性，支援AI、高效能運算與 資料中心應用帶動之先進記憶體需求成長，以及未來世代記憶體技術發展所需之關 鍵材料供應。 10.具體目的:共同強化美國半導體製造生態系與在地關鍵材料供應能力。 11.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第8款所定 對股東權益或證券價格有重大影響之事項):無 |
+| 20260709 | 6488 | 環球晶 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 63.0 |  |  | neckline_challenge |  |  | continued_overheated | 1.事實發生日:115/07/09 2.契約或承諾相對人:Micron Technology, Inc. 3.與公司關係:本公司之客戶 4.契約或承諾起迄日期（或解除日期）:不適用 5.主要內容（解除者不適用）:此次合作預計包含由美光科技提供5億美元之策略性資金 支持，藉以推動本公司美國業務之發展及供應能力提升，以支援雙方長期合作。 雙方規劃透過10年期長期供應協議（Long-Term Agreement, LTA），建立長期合作 架構，相關合作內容將依雙方後續協議及相關程序推動。 6.限制條款（解除者不適用）:無 7.承諾事項（解除者不適用）:雙方依合作意向書簽訂10年期長期供應協議 8.其他重要約定事項（解除者不適用）:無 9.對公司財務、業務之影響:深化長期策略合作關係，並就長期供應合作及相關合作 架構達成合作意向，進一步提升先進半導體晶圓供應韌性，支援AI、高效能運算與 資料中心應用帶動之先進記憶體需求成長，以及未來世代記憶體技術發展所需之關 鍵材料供應。 10.具體目的:共同強化美國半導體製造生態系與在地關鍵材料供應能力。 11.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第8款所定 對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

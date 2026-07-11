@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6414 樺漢
 
 ## Metadata
-- generated_at: 2026-07-10 22:28:04 Asia/Taipei
+- generated_at: 2026-07-11 22:28:00 Asia/Taipei
 - stock_id: 6414
 - stock_name: 樺漢
 - packet_status: standard_180d_window_packet
@@ -189,13 +189,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 6414 | 樺漢 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | repeated_but_no_breakout | 符合條款第四條第XX款：12 事實發生日：115/07/14 1.召開法人說明會之日期：115/07/14 2.召開法人說明會之時間：14 時 20 分  3.召開法人說明會之地點：政大公企中心A棟1034會議室 (台北市金華街187號10樓) 4.法人說明會擇要訊息：本公司受邀參加福邦證券主辦鴻海暨轉投資企業主題系列座談，說明本公司產業概況 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。 |
-| 20260709 | 6414 | 樺漢 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | repeated_but_no_breakout | 符合條款第四條第XX款：12 事實發生日：115/07/14 1.召開法人說明會之日期：115/07/14 2.召開法人說明會之時間：14 時 20 分  3.召開法人說明會之地點：政大公企中心A棟1034會議室 (台北市金華街187號10樓) 4.法人說明會擇要訊息：本公司受邀參加福邦證券主辦鴻海暨轉投資企業主題系列座談，說明本公司產業概況 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260709 | 6414 | 樺漢 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/14 1.召開法人說明會之日期：115/07/14 2.召開法人說明會之時間：14 時 20 分  3.召開法人說明會之地點：政大公企中心A棟1034會議室 (台北市金華街187號10樓) 4.法人說明會擇要訊息：本公司受邀參加福邦證券主辦鴻海暨轉投資企業主題系列座談，說明本公司產業概況 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260709 | 6414 | 樺漢 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/14 1.召開法人說明會之日期：115/07/14 2.召開法人說明會之時間：14 時 20 分  3.召開法人說明會之地點：政大公企中心A棟1034會議室 (台北市金華街187號10樓) 4.法人說明會擇要訊息：本公司受邀參加福邦證券主辦鴻海暨轉投資企業主題系列座談，說明本公司產業概況 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260709 | 6414 | 樺漢 | revenue_breakout_low_response | 營收爆發低反應股 | 14.0 | 23.0 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/14 1.召開法人說明會之日期：115/07/14 2.召開法人說明會之時間：14 時 20 分  3.召開法人說明會之地點：政大公企中心A棟1034會議室 (台北市金華街187號10樓) 4.法人說明會擇要訊息：本公司受邀參加福邦證券主辦鴻海暨轉投資企業主題系列座談，說明本公司產業概況 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 6414 | 樺漢 | 4 | 1 | 4 | 7 | 15 | repeated_but_no_breakout | 近 10 日上榜 7 次、近 20 日上榜 15 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260709 | 6414 | 樺漢 | 4 | 1 | 4 | 7 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |

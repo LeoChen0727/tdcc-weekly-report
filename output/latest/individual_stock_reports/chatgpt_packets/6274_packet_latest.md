@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6274 台燿
 
 ## Metadata
-- generated_at: 2026-07-10 22:28:03 Asia/Taipei
+- generated_at: 2026-07-11 22:27:58 Asia/Taipei
 - stock_id: 6274
 - stock_name: 台燿
 - packet_status: standard_180d_window_packet
@@ -189,8 +189,8 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 6274 | 台燿 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | repeated_but_no_breakout | 1.事實發生日:115/07/09 2.公司名稱:台燿科技 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:更正本公司115年6月衍生性商品交易資訊 6.更正資訊項目/報表名稱:6.交換 7.更正前金額/內容/頁次: 1001224/未沖銷契約契約總金額 -6768未沖銷契約公允價值 -6768未沖銷契約本年度認列未實現損益金額 1628138已沖銷契約契約總金額 -8695已沖銷契約本年度認列已實現損益金額 8.更正後金額/內容/頁次: 1000776/未沖銷契約契約總金額 -7312/未沖銷契約公允價值 -7312/未沖銷契約本年度認列未實現損益金額 1596748/已沖銷契約契約總金額 -8156已沖銷契約本年度認列已實現損益金額 9.因應措施:更正後重新上傳公開資訊觀測站 10.其他應敘明事項:無 |
-| 20260709 | 6274 | 台燿 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  |  | repeated_but_no_breakout | 1.事實發生日:115/07/09 2.公司名稱:台燿科技 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:更正本公司115年6月衍生性商品交易資訊 6.更正資訊項目/報表名稱:6.交換 7.更正前金額/內容/頁次: 1001224/未沖銷契約契約總金額 -6768未沖銷契約公允價值 -6768未沖銷契約本年度認列未實現損益金額 1628138已沖銷契約契約總金額 -8695已沖銷契約本年度認列已實現損益金額 8.更正後金額/內容/頁次: 1000776/未沖銷契約契約總金額 -7312/未沖銷契約公允價值 -7312/未沖銷契約本年度認列未實現損益金額 1596748/已沖銷契約契約總金額 -8156已沖銷契約本年度認列已實現損益金額 9.因應措施:更正後重新上傳公開資訊觀測站 10.其他應敘明事項:無；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260709 | 6274 | 台燿 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | repeated_but_no_breakout | 1.事實發生日:115/07/09 2.公司名稱:台燿科技 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:更正本公司115年6月衍生性商品交易資訊 6.更正資訊項目/報表名稱:6.交換 7.更正前金額/內容/頁次: 1001224/未沖銷契約契約總金額 -6768未沖銷契約公允價值 -6768未沖銷契約本年度認列未實現損益金額 1628138已沖銷契約契約總金額 -8695已沖銷契約本年度認列已實現損益金額 8.更正後金額/內容/頁次: 1000776/未沖銷契約契約總金額 -7312/未沖銷契約公允價值 -7312/未沖銷契約本年度認列未實現損益金額 1596748/已沖銷契約契約總金額 -8156已沖銷契約本年度認列已實現損益金額 9.因應措施:更正後重新上傳公開資訊觀測站 10.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260709 | 6274 | 台燿 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  |  | repeated_but_no_breakout | 1.事實發生日:115/07/09 2.公司名稱:台燿科技 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:更正本公司115年6月衍生性商品交易資訊 6.更正資訊項目/報表名稱:6.交換 7.更正前金額/內容/頁次: 1001224/未沖銷契約契約總金額 -6768未沖銷契約公允價值 -6768未沖銷契約本年度認列未實現損益金額 1628138已沖銷契約契約總金額 -8695已沖銷契約本年度認列已實現損益金額 8.更正後金額/內容/頁次: 1000776/未沖銷契約契約總金額 -7312/未沖銷契約公允價值 -7312/未沖銷契約本年度認列未實現損益金額 1596748/已沖銷契約契約總金額 -8156已沖銷契約本年度認列已實現損益金額 9.因應措施:更正後重新上傳公開資訊觀測站 10.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

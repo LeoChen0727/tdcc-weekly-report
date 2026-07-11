@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4542 科嶠
 
 ## Metadata
-- generated_at: 2026-07-10 22:27:34 Asia/Taipei
+- generated_at: 2026-07-11 22:27:27 Asia/Taipei
 - stock_id: 4542
 - stock_name: 科嶠
 - packet_status: standard_180d_window_packet
@@ -193,7 +193,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 4542 | 科嶠 | revenue_pullback | 營收成長股價回檔 | 68.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/07/02 2.發生緣由:依櫃買中心通知辦理。 3.財務業務資訊:科嶠一(45421)可轉債相關資訊 到期日期：116/09/06 實際發行總額：3億元 本月底發行餘額：45,200,000元(截至115/06/30) 最新轉(交)換價格：85.5 轉換標的收市價格(4542)：470.5(115/07/02) 轉換債收市價格(45421)：600(115/07/02) 4.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序 」第4條所列重大訊息之情事（如 「有」，請說明）:無 5.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序」第11條所列重大訊息說明記者會 之情事:無 6.其他應敘明事項:無。；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260709 | 4542 | 科嶠 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/07/02 2.發生緣由:依櫃買中心通知辦理。 3.財務業務資訊:科嶠一(45421)可轉債相關資訊 到期日期：116/09/06 實際發行總額：3億元 本月底發行餘額：45,200,000元(截至115/06/30) 最新轉(交)換價格：85.5 轉換標的收市價格(4542)：470.5(115/07/02) 轉換債收市價格(45421)：600(115/07/02) 4.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序 」第4條所列重大訊息之情事（如 「有」，請說明）:無 5.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序」第11條所列重大訊息說明記者會 之情事:無 6.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

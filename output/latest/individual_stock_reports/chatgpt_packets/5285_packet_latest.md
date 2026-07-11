@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5285 界霖
 
 ## Metadata
-- generated_at: 2026-07-10 22:27:45 Asia/Taipei
+- generated_at: 2026-07-11 22:27:39 Asia/Taipei
 - stock_id: 5285
 - stock_name: 界霖
 - packet_status: standard_180d_window_packet
@@ -189,7 +189,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 5285 | 界霖 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.事實發生日:115/06/25 2.公司名稱:界霖科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:經濟日報C03報導 6.報導內容:「…，界霖科技股份有限公司(5285)董事長蔡上元指出公司看好指出公司看  好下半年營收可望逐季走揚……今年每股純益可望挑戰4元，明年有機會站上5元。」 7.發生緣由:澄清媒體報導 8.因應措施:報導內容純屬法人預估，本公司並無提供財務預測，有關本公司之財務  與業務資訊，請以本公司於公開資訊觀測站公告為主。 9.其他應敘明事項:無 |
+| 20260709 | 5285 | 界霖 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.事實發生日:115/06/25 2.公司名稱:界霖科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:經濟日報C03報導 6.報導內容:「…，界霖科技股份有限公司(5285)董事長蔡上元指出公司看好指出公司看  好下半年營收可望逐季走揚……今年每股純益可望挑戰4元，明年有機會站上5元。」 7.發生緣由:澄清媒體報導 8.因應措施:報導內容純屬法人預估，本公司並無提供財務預測，有關本公司之財務  與業務資訊，請以本公司於公開資訊觀測站公告為主。 9.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

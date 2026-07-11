@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7080 正淩國票5C購01
 
 ## Metadata
-- generated_at: 2026-07-10 22:28:25 Asia/Taipei
+- generated_at: 2026-07-11 22:28:22 Asia/Taipei
 - stock_id: 7080
 - stock_name: 正淩國票5C購01
 - packet_status: partial_rawdata_packet

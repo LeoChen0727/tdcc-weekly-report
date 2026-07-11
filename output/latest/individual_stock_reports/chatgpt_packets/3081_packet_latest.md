@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3081 聯亞
 
 ## Metadata
-- generated_at: 2026-07-10 22:27:10 Asia/Taipei
+- generated_at: 2026-07-11 22:27:01 Asia/Taipei
 - stock_id: 3081
 - stock_name: 聯亞
 - packet_status: standard_180d_window_packet
@@ -188,7 +188,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 3081 | 聯亞 | revenue_pullback | 營收成長股價回檔 | 57.0 |  |  |  |  |  | stale_signal | 1.董事會或股東會決議日期:115/06/17 2.投資計畫內容:增購生產設備以提升產能 3.預計投資金額:總金額不超過新台幣30.09億元 4.預計投資日期:依各項設備採購合約約定之期程分期執行　 5.資金來源:自有營運資金及發行可轉換公司債等 6.具體目的:因應未來營運發展及產能擴充需求 7.其他應敘明事項:無；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260709 | 3081 | 聯亞 | revenue_pullback | 營收成長股價回檔 | 57.0 |  |  |  |  |  | stale_signal | 1.董事會或股東會決議日期:115/06/17 2.投資計畫內容:增購生產設備以提升產能 3.預計投資金額:總金額不超過新台幣30.09億元 4.預計投資日期:依各項設備採購合約約定之期程分期執行　 5.資金來源:自有營運資金及發行可轉換公司債等 6.具體目的:因應未來營運發展及產能擴充需求 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

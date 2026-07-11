@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3596 智易
 
 ## Metadata
-- generated_at: 2026-07-10 22:27:23 Asia/Taipei
+- generated_at: 2026-07-11 22:27:16 Asia/Taipei
 - stock_id: 3596
 - stock_name: 智易
 - packet_status: standard_180d_window_packet
@@ -189,7 +189,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 3596 | 智易 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | 1.事實發生日:115/07/06 2.公司名稱:智易科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:經濟日報C1版 6.報導內容:法人預估2026年營收可望來到560.58億元，每股純益挑戰14.61元。 7.發生緣由:該項報導係媒體、法人之臆測推估，本公司並未提供財務性預測，有關實際 財務資訊，本公司將依據相關法規揭露於公開資訊觀測站，特此澄清。 8.因應措施:無 9.其他應敘明事項:無 |
+| 20260709 | 3596 | 智易 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | 1.事實發生日:115/07/06 2.公司名稱:智易科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:經濟日報C1版 6.報導內容:法人預估2026年營收可望來到560.58億元，每股純益挑戰14.61元。 7.發生緣由:該項報導係媒體、法人之臆測推估，本公司並未提供財務性預測，有關實際 財務資訊，本公司將依據相關法規揭露於公開資訊觀測站，特此澄清。 8.因應措施:無 9.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5439 高技
 
 ## Metadata
-- generated_at: 2026-07-10 22:27:48 Asia/Taipei
+- generated_at: 2026-07-11 22:27:42 Asia/Taipei
 - stock_id: 5439
 - stock_name: 高技
 - packet_status: standard_180d_window_packet
@@ -189,8 +189,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 5439 | 高技 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  |  | stale_signal | 1.董事會或股東會決議日期:115/07/06 2.原發放股利種類及金額:  現金股利新台幣669,425,414元，每股配發新台幣7.2元 3.變更後發放股利種類及金額:  現金股利新台幣669,425,414元，每股配發新台幣7.19992263元 4.變更原因:  因本公司國內第一次無擔保轉換公司債轉換為普通股，致影響流通在外股份  數量，股東配息率因此發生變動，董事會授權董事長調整配息率。 5.其他應敘明事項:無；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260709 | 5439 | 高技 | revenue_breakout_low_response | 營收爆發低反應股 | 12.0 | 37.0 | D_降級_TDCC轉弱 |  |  |  | stale_signal | 1.董事會或股東會決議日期:115/07/06 2.原發放股利種類及金額:  現金股利新台幣669,425,414元，每股配發新台幣7.2元 3.變更後發放股利種類及金額:  現金股利新台幣669,425,414元，每股配發新台幣7.19992263元 4.變更原因:  因本公司國內第一次無擔保轉換公司債轉換為普通股，致影響流通在外股份  數量，股東配息率因此發生變動，董事會授權董事長調整配息率。 5.其他應敘明事項:無；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260709 | 5439 | 高技 | revenue_pullback | 營收成長股價回檔 | 54.0 |  |  |  |  |  | stale_signal | 1.董事會或股東會決議日期:115/07/06 2.原發放股利種類及金額:  現金股利新台幣669,425,414元，每股配發新台幣7.2元 3.變更後發放股利種類及金額:  現金股利新台幣669,425,414元，每股配發新台幣7.19992263元 4.變更原因:  因本公司國內第一次無擔保轉換公司債轉換為普通股，致影響流通在外股份  數量，股東配息率因此發生變動，董事會授權董事長調整配息率。 5.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

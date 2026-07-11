@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6903 巨漢
 
 ## Metadata
-- generated_at: 2026-07-10 22:28:20 Asia/Taipei
+- generated_at: 2026-07-11 22:28:17 Asia/Taipei
 - stock_id: 6903
 - stock_name: 巨漢
 - packet_status: standard_180d_window_packet
@@ -193,10 +193,10 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 6903 | 巨漢 | pullback_rebound | 回檔後短線轉強 | 70.0 |  |  |  |  |  | stale_signal | 1.董事會決議或公司決定日期:115/07/09 2.原現金股利發放日:115/07/13 3.變更後現金股利發放日:115/07/14 4.變更原因:本公司現金股利訂於115年7月13日發放，如因受颱風停班影響， 致部分停止上班地區金融機構作業日程需順延，現金股利發放日將順延 至下一營業日發放。 5.其他應敘明事項:如未受颱風停班影響地區，將依原訂日期(115年7月13日)發放。 |
-| 20260709 | 6903 | 巨漢 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | 1.董事會決議或公司決定日期:115/07/09 2.原現金股利發放日:115/07/13 3.變更後現金股利發放日:115/07/14 4.變更原因:本公司現金股利訂於115年7月13日發放，如因受颱風停班影響， 致部分停止上班地區金融機構作業日程需順延，現金股利發放日將順延 至下一營業日發放。 5.其他應敘明事項:如未受颱風停班影響地區，將依原訂日期(115年7月13日)發放。；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260709 | 6903 | 巨漢 | revenue_breakout_low_response | 營收爆發低反應股 | 21.0 | 2.0 | A_優先追蹤 |  |  |  | stale_signal | 1.董事會決議或公司決定日期:115/07/09 2.原現金股利發放日:115/07/13 3.變更後現金股利發放日:115/07/14 4.變更原因:本公司現金股利訂於115年7月13日發放，如因受颱風停班影響， 致部分停止上班地區金融機構作業日程需順延，現金股利發放日將順延 至下一營業日發放。 5.其他應敘明事項:如未受颱風停班影響地區，將依原訂日期(115年7月13日)發放。；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260709 | 6903 | 巨漢 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | early_entry_watch |  |  | stale_signal | 1.董事會決議或公司決定日期:115/07/09 2.原現金股利發放日:115/07/13 3.變更後現金股利發放日:115/07/14 4.變更原因:本公司現金股利訂於115年7月13日發放，如因受颱風停班影響， 致部分停止上班地區金融機構作業日程需順延，現金股利發放日將順延 至下一營業日發放。 5.其他應敘明事項:如未受颱風停班影響地區，將依原訂日期(115年7月13日)發放。 |
+| 20260709 | 6903 | 巨漢 | pullback_rebound | 回檔後短線轉強 | 70.0 |  |  |  |  |  | stale_signal | 1.董事會決議或公司決定日期:115/07/09 2.原現金股利發放日:115/07/13 3.變更後現金股利發放日:115/07/14 4.變更原因:本公司現金股利訂於115年7月13日發放，如因受颱風停班影響， 致部分停止上班地區金融機構作業日程需順延，現金股利發放日將順延 至下一營業日發放。 5.其他應敘明事項:如未受颱風停班影響地區，將依原訂日期(115年7月13日)發放。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260709 | 6903 | 巨漢 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | 1.董事會決議或公司決定日期:115/07/09 2.原現金股利發放日:115/07/13 3.變更後現金股利發放日:115/07/14 4.變更原因:本公司現金股利訂於115年7月13日發放，如因受颱風停班影響， 致部分停止上班地區金融機構作業日程需順延，現金股利發放日將順延 至下一營業日發放。 5.其他應敘明事項:如未受颱風停班影響地區，將依原訂日期(115年7月13日)發放。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260709 | 6903 | 巨漢 | revenue_breakout_low_response | 營收爆發低反應股 | 21.0 | 2.0 | A_優先追蹤 |  |  |  | stale_signal | 1.董事會決議或公司決定日期:115/07/09 2.原現金股利發放日:115/07/13 3.變更後現金股利發放日:115/07/14 4.變更原因:本公司現金股利訂於115年7月13日發放，如因受颱風停班影響， 致部分停止上班地區金融機構作業日程需順延，現金股利發放日將順延 至下一營業日發放。 5.其他應敘明事項:如未受颱風停班影響地區，將依原訂日期(115年7月13日)發放。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260709 | 6903 | 巨漢 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | early_entry_watch |  |  | stale_signal | 1.董事會決議或公司決定日期:115/07/09 2.原現金股利發放日:115/07/13 3.變更後現金股利發放日:115/07/14 4.變更原因:本公司現金股利訂於115年7月13日發放，如因受颱風停班影響， 致部分停止上班地區金融機構作業日程需順延，現金股利發放日將順延 至下一營業日發放。 5.其他應敘明事項:如未受颱風停班影響地區，將依原訂日期(115年7月13日)發放。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

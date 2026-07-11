@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1459 聯發
 
 ## Metadata
-- generated_at: 2026-07-10 22:26:29 Asia/Taipei
+- generated_at: 2026-07-11 22:26:17 Asia/Taipei
 - stock_id: 1459
 - stock_name: 聯發
 - packet_status: standard_180d_window_packet

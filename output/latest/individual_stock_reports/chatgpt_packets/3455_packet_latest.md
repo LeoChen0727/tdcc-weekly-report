@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3455 由田
 
 ## Metadata
-- generated_at: 2026-07-10 22:27:19 Asia/Taipei
+- generated_at: 2026-07-11 22:27:11 Asia/Taipei
 - stock_id: 3455
 - stock_name: 由田
 - packet_status: standard_180d_window_packet
@@ -188,7 +188,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 3455 | 由田 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.發生變動日期:115/06/24 2.功能性委員會名稱:薪資報酬委員會 3.舊任者姓名: (1)呂英誠先生 (2)丘邦翰先生 (3)蔡熊光先生 4.舊任者簡歷: (1)呂英誠先生:本公司獨立董事 (2)丘邦翰先生:本公司獨立董事 (3)蔡熊光先生:本公司獨立董事 5.新任者姓名: (1)呂英誠先生 (2)蔡熊光先生 (3)端木玉女士 (4)陳宣文先生 6.新任者簡歷: (1)呂英誠先生:本公司獨立董事 (2)蔡熊光先生:本公司獨立董事 (3)端木玉女士:本公司獨立董事 (4)陳宣文先生:威達高科股份有限公司董事 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 任期屆滿。 8.異動原因:全面改選董事 9.原任期（例xx/xx/xx ~ xx/xx/xx）:112/06/16~115/06/15 10.新任生效日期:115/06/24 11.其他應敘明事項:無。 |
+| 20260709 | 3455 | 由田 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.發生變動日期:115/06/24 2.功能性委員會名稱:薪資報酬委員會 3.舊任者姓名: (1)呂英誠先生 (2)丘邦翰先生 (3)蔡熊光先生 4.舊任者簡歷: (1)呂英誠先生:本公司獨立董事 (2)丘邦翰先生:本公司獨立董事 (3)蔡熊光先生:本公司獨立董事 5.新任者姓名: (1)呂英誠先生 (2)蔡熊光先生 (3)端木玉女士 (4)陳宣文先生 6.新任者簡歷: (1)呂英誠先生:本公司獨立董事 (2)蔡熊光先生:本公司獨立董事 (3)端木玉女士:本公司獨立董事 (4)陳宣文先生:威達高科股份有限公司董事 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 任期屆滿。 8.異動原因:全面改選董事 9.原任期（例xx/xx/xx ~ xx/xx/xx）:112/06/16~115/06/15 10.新任生效日期:115/06/24 11.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

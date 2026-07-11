@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4958 臻鼎-KY
 
 ## Metadata
-- generated_at: 2026-07-10 22:27:41 Asia/Taipei
+- generated_at: 2026-07-11 22:27:35 Asia/Taipei
 - stock_id: 4958
 - stock_name: 臻鼎-KY
 - packet_status: standard_180d_window_packet
@@ -188,8 +188,8 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 4958 | 臻鼎-KY | pattern | 型態觀察 | 54.0 |  |  | pullback_right_side |  | no_signal | stale_signal | 1.董事會決議或公司決定日期:115/07/09 2.原現金股利發放日:115/07/13 3.變更後現金股利發放日:115/07/14 4.變更原因: 本公司原訂115年7月13日發放現金股利，因受巴威颱風影響停止上班，致 票交所及金融機構作業日程需順延至下一營業日，本公司現金股利發放日 將順延至115年7月14日。 5.其他應敘明事項:無 |
-| 20260709 | 4958 | 臻鼎-KY | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.董事會決議或公司決定日期:115/07/09 2.原現金股利發放日:115/07/13 3.變更後現金股利發放日:115/07/14 4.變更原因: 本公司原訂115年7月13日發放現金股利，因受巴威颱風影響停止上班，致 票交所及金融機構作業日程需順延至下一營業日，本公司現金股利發放日 將順延至115年7月14日。 5.其他應敘明事項:無；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260709 | 4958 | 臻鼎-KY | pattern | 型態觀察 | 54.0 |  |  | pullback_right_side |  | no_signal | stale_signal | 1.董事會決議或公司決定日期:115/07/09 2.原現金股利發放日:115/07/13 3.變更後現金股利發放日:115/07/14 4.變更原因: 本公司原訂115年7月13日發放現金股利，因受巴威颱風影響停止上班，致 票交所及金融機構作業日程需順延至下一營業日，本公司現金股利發放日 將順延至115年7月14日。 5.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260709 | 4958 | 臻鼎-KY | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.董事會決議或公司決定日期:115/07/09 2.原現金股利發放日:115/07/13 3.變更後現金股利發放日:115/07/14 4.變更原因: 本公司原訂115年7月13日發放現金股利，因受巴威颱風影響停止上班，致 票交所及金融機構作業日程需順延至下一營業日，本公司現金股利發放日 將順延至115年7月14日。 5.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

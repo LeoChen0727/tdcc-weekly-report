@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6182 合晶
 
 ## Metadata
-- generated_at: 2026-07-10 22:27:57 Asia/Taipei
+- generated_at: 2026-07-11 22:27:53 Asia/Taipei
 - stock_id: 6182
 - stock_name: 合晶
 - packet_status: standard_180d_window_packet
@@ -187,7 +187,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 6182 | 合晶 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_overheated | 1.事實發生日:115/07/08 2.公司名稱:合晶科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: 本公司國內第七次無擔保轉換公司債將於民國115年07月27日到期， 並於到期日之次一營業日(115年07月28日)終止上櫃買賣。 6.因應措施: 依本公司國內第七次無擔保轉換公司債發行及轉換辦法第6條規定 ，債券到期時依債券面額之102.016%以現金一次償還。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項): 本公司預計於115年08月14日將到期償還款項以支票或匯款方式交付 債權人，稅款、補充保費、郵費或匯費將自償還價款中扣除。 |
+| 20260709 | 6182 | 合晶 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_overheated | 1.事實發生日:115/07/08 2.公司名稱:合晶科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: 本公司國內第七次無擔保轉換公司債將於民國115年07月27日到期， 並於到期日之次一營業日(115年07月28日)終止上櫃買賣。 6.因應措施: 依本公司國內第七次無擔保轉換公司債發行及轉換辦法第6條規定 ，債券到期時依債券面額之102.016%以現金一次償還。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項): 本公司預計於115年08月14日將到期償還款項以支票或匯款方式交付 債權人，稅款、補充保費、郵費或匯費將自償還價款中扣除。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

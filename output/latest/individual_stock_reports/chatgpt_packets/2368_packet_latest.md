@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2368 金像電
 
 ## Metadata
-- generated_at: 2026-07-10 22:26:48 Asia/Taipei
+- generated_at: 2026-07-11 22:26:37 Asia/Taipei
 - stock_id: 2368
 - stock_name: 金像電
 - packet_status: standard_180d_window_packet
@@ -189,7 +189,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 2368 | 金像電 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | put_inflow | stale_signal | 1.事實發生日:115/07/07 2.被背書保證之: (1)公司名稱:Gold Circuit Electronics (Thailand) Co.,Ltd. (2)與提供背書保證公司之關係: 本公司直接與間接持股100%之子公司 (3)背書保證之限額(仟元):26,178,417 (4)原背書保證之餘額(仟元):12,980,254 (5)本次新增背書保證之金額(仟元):2,643,550 (6)迄事實發生日止背書保證餘額(仟元):15,623,804 (7)被背書保證公司實際動支金額(仟元):6,221,761 (8)本次新增背書保證之原因: 本公司為新設立子公司融資之目的所為之背書保證 3.被背書保證公司提供擔保品之: (1)內容: 無 (2)價值(仟元):0 4.被背書保證公司最近期財務報表之: (1)資本(仟元):3,033,061 (2)累積盈虧金額(仟元):-534,314 5.解除背書保證責任之: (1)條件: 被背書保證公司之銀行融資額度到期且債務清償 (2)日期: 被背書保證公司之銀行融資額度到期且債務清償 6.背書保證之總限額(仟元): 52,356,834 7.迄事實發生日為止，背書保證餘額(仟元): 17,343,704 8.迄事實發生日為止，A提供背書保證餘額占公開發行公司最近期財務報表淨值之 比率: 49.69 9.迄事實發生日為止，背書保證、長期投資及資金貸與餘額合計數達該公開發行公 司最近期財務報表淨值之比率: 76.37 10.其他應敘明事項: 無；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260709 | 2368 | 金像電 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | put_inflow | stale_signal | 1.事實發生日:115/07/07 2.被背書保證之: (1)公司名稱:Gold Circuit Electronics (Thailand) Co.,Ltd. (2)與提供背書保證公司之關係: 本公司直接與間接持股100%之子公司 (3)背書保證之限額(仟元):26,178,417 (4)原背書保證之餘額(仟元):12,980,254 (5)本次新增背書保證之金額(仟元):2,643,550 (6)迄事實發生日止背書保證餘額(仟元):15,623,804 (7)被背書保證公司實際動支金額(仟元):6,221,761 (8)本次新增背書保證之原因: 本公司為新設立子公司融資之目的所為之背書保證 3.被背書保證公司提供擔保品之: (1)內容: 無 (2)價值(仟元):0 4.被背書保證公司最近期財務報表之: (1)資本(仟元):3,033,061 (2)累積盈虧金額(仟元):-534,314 5.解除背書保證責任之: (1)條件: 被背書保證公司之銀行融資額度到期且債務清償 (2)日期: 被背書保證公司之銀行融資額度到期且債務清償 6.背書保證之總限額(仟元): 52,356,834 7.迄事實發生日為止，背書保證餘額(仟元): 17,343,704 8.迄事實發生日為止，A提供背書保證餘額占公開發行公司最近期財務報表淨值之 比率: 49.69 9.迄事實發生日為止，背書保證、長期投資及資金貸與餘額合計數達該公開發行公 司最近期財務報表淨值之比率: 76.37 10.其他應敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

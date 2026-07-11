@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3209 全科
 
 ## Metadata
-- generated_at: 2026-07-10 22:27:13 Asia/Taipei
+- generated_at: 2026-07-11 22:27:05 Asia/Taipei
 - stock_id: 3209
 - stock_name: 全科
 - packet_status: standard_180d_window_packet
@@ -58,7 +58,7 @@
 - pdf_visible: true
 - action_rating_display_zh: 可分批買進
 - model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
 - action_summary_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。
 - entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
 - position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
@@ -73,7 +73,7 @@
 - internal_use_only: true
 - action_rating: scale_in
 - action_rating_label_zh: 可分批買進
-- confidence_level: medium
+- confidence_level: high
 - thesis_state: healthy_pullback
 - entry_style: pullback_to_23ema
 - position_sizing: half_position
@@ -92,6 +92,7 @@
 
 ### entry_prerequisites
 - model_recommended
+- decision_score_high
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -194,7 +195,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 3209 | 全科 | revenue_pullback | 營收成長股價回檔 | 74.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/06/22 2.接受資金貸與之: (1)公司名稱:全科科技股份有限公司 (2)與資金貸與他人公司之關係: Alltek Group Corp. 為本公司100% 持有之子公司 (3)資金貸與之限額(仟元):1,919,877 (4)原資金貸與之餘額(仟元):0 (5)本次新增資金貸與之金額(仟元):658,455 (6)是否為董事會授權董事長對同一貸與對象分次撥貸或循環動用之資金貸與:是 (7)迄事實發生日止資金貸與餘額(仟元):658,455 (8)本次新增資金貸與之原因: 借款人之營運需要 3.接受資金貸與公司所提供擔保品之: (1)內容: 無 (2)價值(仟元):0 4.接受資金貸與公司最近期財務報表之: (1)資本(仟元):2,353,912 (2)累積盈虧金額(仟元):1,127,518 5.計息方式: 依雙方協議 6.還款之: (1)條件: 依雙方協議 (2)日期: 依雙方協議 7.迄事實發生日為止，資金貸與餘額(仟元): 7,883,337 8.迄事實發生日為止，資金貸與餘額占公開發行公司最近期財務報表淨值之比率: 150.40 9.公司貸與他人資金之來源: 子公司本身 10.其他應敘明事項: 無；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260709 | 3209 | 全科 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/06/22 2.接受資金貸與之: (1)公司名稱:全科科技股份有限公司 (2)與資金貸與他人公司之關係: Alltek Group Corp. 為本公司100% 持有之子公司 (3)資金貸與之限額(仟元):1,919,877 (4)原資金貸與之餘額(仟元):0 (5)本次新增資金貸與之金額(仟元):658,455 (6)是否為董事會授權董事長對同一貸與對象分次撥貸或循環動用之資金貸與:是 (7)迄事實發生日止資金貸與餘額(仟元):658,455 (8)本次新增資金貸與之原因: 借款人之營運需要 3.接受資金貸與公司所提供擔保品之: (1)內容: 無 (2)價值(仟元):0 4.接受資金貸與公司最近期財務報表之: (1)資本(仟元):2,353,912 (2)累積盈虧金額(仟元):1,127,518 5.計息方式: 依雙方協議 6.還款之: (1)條件: 依雙方協議 (2)日期: 依雙方協議 7.迄事實發生日為止，資金貸與餘額(仟元): 7,883,337 8.迄事實發生日為止，資金貸與餘額占公開發行公司最近期財務報表淨值之比率: 150.40 9.公司貸與他人資金之來源: 子公司本身 10.其他應敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

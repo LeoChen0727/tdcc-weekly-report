@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3023 信邦
 
 ## Metadata
-- generated_at: 2026-07-10 22:27:07 Asia/Taipei
+- generated_at: 2026-07-11 22:26:58 Asia/Taipei
 - stock_id: 3023
 - stock_name: 信邦
 - packet_status: standard_180d_window_packet
@@ -188,7 +188,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 3023 | 信邦 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_strong_inflow | stale_signal | 1.事實發生日:115/07/06 2.公司名稱:信邦電子股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:澄清07/06工商時報 B03版 6.報導內容:信邦預期…預估信邦今年上半年每股稅後純益落在7~7.5元，全年應有 機會達14元…可望連六年獲利突破1個股本… 7.發生緣由:應證交所要求澄清上述內容 8.因應措施:本公司未自願公告財測,投資人應以本公司公告之財務數據為準,特此澄清 9.其他應敘明事項:無 |
+| 20260709 | 3023 | 信邦 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_strong_inflow | stale_signal | 1.事實發生日:115/07/06 2.公司名稱:信邦電子股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:澄清07/06工商時報 B03版 6.報導內容:信邦預期…預估信邦今年上半年每股稅後純益落在7~7.5元，全年應有 機會達14元…可望連六年獲利突破1個股本… 7.發生緣由:應證交所要求澄清上述內容 8.因應措施:本公司未自願公告財測,投資人應以本公司公告之財務數據為準,特此澄清 9.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

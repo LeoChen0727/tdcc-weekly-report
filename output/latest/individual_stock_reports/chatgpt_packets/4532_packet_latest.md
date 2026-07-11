@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4532 瑞智
 
 ## Metadata
-- generated_at: 2026-07-10 22:27:33 Asia/Taipei
+- generated_at: 2026-07-11 22:27:27 Asia/Taipei
 - stock_id: 4532
 - stock_name: 瑞智
 - packet_status: standard_180d_window_packet
@@ -188,7 +188,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 4532 | 瑞智 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.事實發生日:115/07/07 2.公司名稱:瑞智精密股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:本公司115年06月自結合併營收情形 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 瑞智精密自結合併海外廠淨銷售量(扣除內部轉銷交易後)115年6月206.36萬台， 較去年同期增加約24.05%。1-6月累計合併淨銷售量約1,347.05萬台， 較去年同期增加約6.25%。 瑞智精密自結合併海外廠營業收入(扣除內部轉銷交易後)115年6月約19.74億， 較去年同期增加約28.80%。1-6月累計合併淨營收約123.65億， 較去年同期增加約1.91%。 |
+| 20260709 | 4532 | 瑞智 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.事實發生日:115/07/07 2.公司名稱:瑞智精密股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:本公司115年06月自結合併營收情形 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 瑞智精密自結合併海外廠淨銷售量(扣除內部轉銷交易後)115年6月206.36萬台， 較去年同期增加約24.05%。1-6月累計合併淨銷售量約1,347.05萬台， 較去年同期增加約6.25%。 瑞智精密自結合併海外廠營業收入(扣除內部轉銷交易後)115年6月約19.74億， 較去年同期增加約28.80%。1-6月累計合併淨營收約123.65億， 較去年同期增加約1.91%。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

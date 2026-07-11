@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7089 安葆國票5C購02
 
 ## Metadata
-- generated_at: 2026-07-10 22:28:25 Asia/Taipei
+- generated_at: 2026-07-11 22:28:22 Asia/Taipei
 - stock_id: 7089
 - stock_name: 安葆國票5C購02
 - packet_status: partial_rawdata_packet

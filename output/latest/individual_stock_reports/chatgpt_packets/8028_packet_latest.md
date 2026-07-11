@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8028 昇陽半導體
 
 ## Metadata
-- generated_at: 2026-07-10 22:28:32 Asia/Taipei
+- generated_at: 2026-07-11 22:28:30 Asia/Taipei
 - stock_id: 8028
 - stock_name: 昇陽半導體
 - packet_status: standard_180d_window_packet
@@ -189,8 +189,8 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 8028 | 昇陽半導體 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal |  |
-| 20260709 | 8028 | 昇陽半導體 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260709 | 8028 | 昇陽半導體 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.原預定買回股份總金額上限(元):2,629,576,020 2.原預定買回之期間:115/05/12~115/07/11 3.原預定買回之數量(股):1,000,000 4.原預定買回區間價格(元):175.00~300.00 5.本次實際買回期間:115/05/13~115/07/08 6.本次已買回股份數量(股):700,000 7.本次已買回股份總金額(元):201,386,312 8.本次平均每股買回價格(元):287.69 9.累積已持有自己公司股份數量(股):700,000 10.累積已持有自己公司股份數量占公司已發行股份總數之比率(%):0.39 11.本次未執行完畢之原因: 維護股東權益並兼顧市場機制，視股價變化及成交量狀況分批買回，故未能執行完畢 12.其他應敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260709 | 8028 | 昇陽半導體 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.原預定買回股份總金額上限(元):2,629,576,020 2.原預定買回之期間:115/05/12~115/07/11 3.原預定買回之數量(股):1,000,000 4.原預定買回區間價格(元):175.00~300.00 5.本次實際買回期間:115/05/13~115/07/08 6.本次已買回股份數量(股):700,000 7.本次已買回股份總金額(元):201,386,312 8.本次平均每股買回價格(元):287.69 9.累積已持有自己公司股份數量(股):700,000 10.累積已持有自己公司股份數量占公司已發行股份總數之比率(%):0.39 11.本次未執行完畢之原因: 維護股東權益並兼顧市場機制，視股價變化及成交量狀況分批買回，故未能執行完畢 12.其他應敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

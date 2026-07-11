@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2409 友達
 
 ## Metadata
-- generated_at: 2026-07-10 22:26:50 Asia/Taipei
+- generated_at: 2026-07-11 22:26:40 Asia/Taipei
 - stock_id: 2409
 - stock_name: 友達
 - packet_status: standard_180d_window_packet
@@ -187,7 +187,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 2409 | 友達 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | mixed_flow | repeated_but_no_breakout | 1.股東常會日期:115/06/25 2.重要決議事項一、盈餘分配或盈虧撥補:無 3.重要決議事項二、章程修訂:核准修訂公司章程案 4.重要決議事項三、營業報告書及財務報表:無 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項:核准股東出資方式及出資時間變更案 7.其他應敘明事項:無 |
+| 20260709 | 2409 | 友達 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | mixed_flow | repeated_but_no_breakout | 1.股東常會日期:115/06/25 2.重要決議事項一、盈餘分配或盈虧撥補:無 3.重要決議事項二、章程修訂:核准修訂公司章程案 4.重要決議事項三、營業報告書及財務報表:無 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項:核准股東出資方式及出資時間變更案 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

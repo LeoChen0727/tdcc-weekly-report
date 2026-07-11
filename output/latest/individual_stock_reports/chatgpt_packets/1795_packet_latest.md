@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1795 美時
 
 ## Metadata
-- generated_at: 2026-07-10 22:26:37 Asia/Taipei
+- generated_at: 2026-07-11 22:26:27 Asia/Taipei
 - stock_id: 1795
 - stock_name: 美時
 - packet_status: standard_180d_window_packet
@@ -188,13 +188,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 1795 | 美時 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | stale_signal | 1.事實發生日:115/07/06 2.公司名稱:Alvogen Korea Co., Ltd. 3.與公司關係(請輸入本公司或子公司):子公司 4.相互持股比例:不適用 5.傳播媒體名稱:工商時報 6.報導內容:美時（1795）腫瘤產品布局再傳捷報，旗下全資子公司Alvogen Korea 與上海復宏漢霖宣布，自主研發的抗PD-1單株抗體SERPLUMAR獲南韓食品藥物安全部 核准，用於廣泛期小細胞肺癌（ES-SCLC）第一線治療，不僅為南韓患者提供全新的 免疫治療選擇，也將進一步推升美時在亞洲腫瘤市場的布局。 7.發生緣由:媒體報導 8.因應措施:SERPLUMAR（serplulimab）為復宏漢霖自主開發的人源化抗PD-1單株抗體。 如本公司於115年7月2日發布之新聞稿「美時製藥（以下簡稱”美時”，台灣證券交易所 股票代碼：1795）旗下全資子公司 Alvogen Korea，與上海復宏漢霖生物技術股份有限 公司（2696.HK，以下簡稱”復宏漢霖”）今日宣布，SERPLUMAR（serplulimab）獲韓國 食品藥物安全部（MFDS）核准，用於廣泛期小細胞肺癌（ES-SCLC）第一線治療。 SERPLUMAR 為復宏漢霖自主開發的人源化抗PD-1單株抗體，將為南韓 ES-SCLC 患者提供 新的免疫腫瘤治療選擇。」 9.其他應敘明事項:無 |
-| 20260709 | 1795 | 美時 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/07/06 2.公司名稱:Alvogen Korea Co., Ltd. 3.與公司關係(請輸入本公司或子公司):子公司 4.相互持股比例:不適用 5.傳播媒體名稱:工商時報 6.報導內容:美時（1795）腫瘤產品布局再傳捷報，旗下全資子公司Alvogen Korea 與上海復宏漢霖宣布，自主研發的抗PD-1單株抗體SERPLUMAR獲南韓食品藥物安全部 核准，用於廣泛期小細胞肺癌（ES-SCLC）第一線治療，不僅為南韓患者提供全新的 免疫治療選擇，也將進一步推升美時在亞洲腫瘤市場的布局。 7.發生緣由:媒體報導 8.因應措施:SERPLUMAR（serplulimab）為復宏漢霖自主開發的人源化抗PD-1單株抗體。 如本公司於115年7月2日發布之新聞稿「美時製藥（以下簡稱”美時”，台灣證券交易所 股票代碼：1795）旗下全資子公司 Alvogen Korea，與上海復宏漢霖生物技術股份有限 公司（2696.HK，以下簡稱”復宏漢霖”）今日宣布，SERPLUMAR（serplulimab）獲韓國 食品藥物安全部（MFDS）核准，用於廣泛期小細胞肺癌（ES-SCLC）第一線治療。 SERPLUMAR 為復宏漢霖自主開發的人源化抗PD-1單株抗體，將為南韓 ES-SCLC 患者提供 新的免疫腫瘤治療選擇。」 9.其他應敘明事項:無；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260709 | 1795 | 美時 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | stale_signal | 1.事實發生日:115/07/06 2.公司名稱:Alvogen Korea Co., Ltd. 3.與公司關係(請輸入本公司或子公司):子公司 4.相互持股比例:不適用 5.傳播媒體名稱:工商時報 6.報導內容:美時（1795）腫瘤產品布局再傳捷報，旗下全資子公司Alvogen Korea 與上海復宏漢霖宣布，自主研發的抗PD-1單株抗體SERPLUMAR獲南韓食品藥物安全部 核准，用於廣泛期小細胞肺癌（ES-SCLC）第一線治療，不僅為南韓患者提供全新的 免疫治療選擇，也將進一步推升美時在亞洲腫瘤市場的布局。 7.發生緣由:媒體報導 8.因應措施:SERPLUMAR（serplulimab）為復宏漢霖自主開發的人源化抗PD-1單株抗體。 如本公司於115年7月2日發布之新聞稿「美時製藥（以下簡稱”美時”，台灣證券交易所 股票代碼：1795）旗下全資子公司 Alvogen Korea，與上海復宏漢霖生物技術股份有限 公司（2696.HK，以下簡稱”復宏漢霖”）今日宣布，SERPLUMAR（serplulimab）獲韓國 食品藥物安全部（MFDS）核准，用於廣泛期小細胞肺癌（ES-SCLC）第一線治療。 SERPLUMAR 為復宏漢霖自主開發的人源化抗PD-1單株抗體，將為南韓 ES-SCLC 患者提供 新的免疫腫瘤治療選擇。」 9.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 1795 | 美時 | 5 | 5 | 5 | 8 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260709 | 1795 | 美時 | 5 | 1 | 5 | 8 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |

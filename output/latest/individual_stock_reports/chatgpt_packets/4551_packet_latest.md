@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4551 智伸科
 
 ## Metadata
-- generated_at: 2026-07-10 22:27:34 Asia/Taipei
+- generated_at: 2026-07-11 22:27:28 Asia/Taipei
 - stock_id: 4551
 - stock_name: 智伸科
 - packet_status: standard_180d_window_packet
@@ -187,7 +187,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 4551 | 智伸科 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  | no_signal | repeated_but_no_breakout | 1.事實發生日:115/06/22 2.公司名稱:智伸科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:2026.06.19 工商時報B01版 6.報導內容:「…法人估前五月 EPS 至少3.5元。智伸科指出…法人估智伸科今年  全年 EPS 最低9.25元，最高12.23元，明年 EPS 估至少13元。」 7.發生緣由:澄清媒體報導 8.因應措施: 關於上述報導，係媒體推測並非本公司發佈之訊息，謹此澄清。 有關財務與業務資訊，應以本公司於公開資訊觀測站公告為主。 9.其他應敘明事項:無。；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260709 | 4551 | 智伸科 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  | no_signal | repeated_but_no_breakout | 1.事實發生日:115/06/22 2.公司名稱:智伸科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:2026.06.19 工商時報B01版 6.報導內容:「…法人估前五月 EPS 至少3.5元。智伸科指出…法人估智伸科今年  全年 EPS 最低9.25元，最高12.23元，明年 EPS 估至少13元。」 7.發生緣由:澄清媒體報導 8.因應措施: 關於上述報導，係媒體推測並非本公司發佈之訊息，謹此澄清。 有關財務與業務資訊，應以本公司於公開資訊觀測站公告為主。 9.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
