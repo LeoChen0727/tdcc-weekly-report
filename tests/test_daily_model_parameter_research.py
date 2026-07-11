@@ -16,6 +16,7 @@ from build_daily_model_parameter_research import (  # noqa: E402
     _revenue_benchmark_index,
     _revenue_feature_context_anomaly_mask,
     _revenue_future_close_path_audit,
+    active_price_attack_proxy,
     add_price_structure_features,
     attach_full_monthly_revenue_history_features,
     attach_signal_background_features,
@@ -40,8 +41,13 @@ from build_daily_model_parameter_research import (  # noqa: E402
     build_revenue_unreacted_range_revenue_condition_matrix,
     current_price_pullback_baseline_proxy,
     price_pullback_prior_extension_filter,
+    revenue_unreacted_active_attack_proxy,
     rule_specs,
     sample_status,
+)
+from revenue_unreacted_range_close_confirmation_timing import (  # noqa: E402
+    DECISION_BASIS as REVENUE_TIMING_DECISION_BASIS,
+    build_close_confirmation_timing_audit,
 )
 from validate_daily_model_research_parity import validate_rule_specs  # noqa: E402
 from validate_daily_model_revenue_condition_matrix import validate_price_pullback, validate_revenue_unreacted  # noqa: E402
@@ -50,6 +56,9 @@ from validate_revenue_unreacted_range_operation_candidate_matrix import (  # noq
     validate_matrix as validate_revenue_operation_candidate_matrix,
 )
 from validate_revenue_unreacted_range_feature_contrast_audit import validate_frames as validate_revenue_feature_contrast  # noqa: E402
+from validate_revenue_unreacted_range_close_confirmation_timing_audit import (  # noqa: E402
+    validate_frames as validate_revenue_close_confirmation_timing,
+)
 from validate_research_against_stock_model_contract import build_parity_rows  # noqa: E402
 
 
@@ -1720,6 +1729,101 @@ def test_revenue_feature_context_anomaly_mask_checks_lagged_values_and_deltas() 
     assert _revenue_feature_context_anomaly_mask(frame).tolist() == [False, True, True]
 
 
+def test_revenue_unreacted_active_attack_proxy_is_behaviorally_isolated_from_legacy_name() -> None:
+    frame = pd.DataFrame(
+        {
+            "volume_ratio_prev20": [1.0, 2.1, 3.0, 1.0],
+            "range_breakout_20d_pct": [0.0, 2.5, 0.0, 0.0],
+            "volume_ma20_lots": [2000.0, 2000.0, 2000.0, 2000.0],
+            "bullish_attack_candle": [False, True, False, False],
+            "locked_limit_up_breakout": [False, False, False, False],
+            "return_5d_pct": [0.0, 0.0, 0.0, 9.0],
+            "return_20d_pct": [0.0, 0.0, 0.0, 0.0],
+        }
+    )
+
+    assert revenue_unreacted_active_attack_proxy(frame).tolist() == active_price_attack_proxy(frame).tolist()
+
+
+def test_revenue_close_confirmation_timing_replays_three_variants_without_overlap() -> None:
+    rows: list[dict[str, object]] = []
+    source_positions = {
+        "2330": {0, 1, 2, 25},
+        "2317": {0, 10, 30},
+    }
+    for stock_id, base_close in (("2330", 100.0), ("2317", 80.0)):
+        for position in range(50):
+            close = base_close + (position % 4) - 1.0
+            rows.append(
+                {
+                    "stock_id": stock_id,
+                    "stock_name": stock_id,
+                    "market": "TWSE",
+                    "date": f"2026{position // 28 + 1:02d}{position % 28 + 1:02d}",
+                    "open": close,
+                    "close": close,
+                    "ma20": base_close - 0.5,
+                    "ema23": base_close - 0.25,
+                    "_revenue_signal_date": f"2026{position // 28 + 1:02d}{position % 28 + 1:02d}",
+                    "_revenue_stock_sequence_index": position,
+                    "_revenue_range23_highest_close_prev": base_close + 1.5,
+                    "_revenue_timing_source_flag": position in source_positions[stock_id],
+                    "_revenue_timing_source_anomaly_flag": False,
+                    "full_monthly_revenue_period": "202512",
+                    "full_monthly_revenue_source_table_date": "20260101",
+                    "full_monthly_revenue_latest_yoy_pct": 60.0,
+                    "full_monthly_revenue_cumulative_yoy_pct": 30.0,
+                }
+            )
+    prepared = pd.DataFrame(rows)
+    summary, detail, anomaly = build_close_confirmation_timing_audit(
+        prepared,
+        expected_control={"basis_source_signal_count": 7, "accepted_trade_count": 3},
+    )
+
+    assert validate_revenue_close_confirmation_timing(
+        summary.astype(str),
+        detail.astype(str),
+        anomaly.astype(str),
+    ) == []
+    generated_at = str(summary["generated_at"].iloc[0])
+    assert validate_revenue_close_confirmation_timing(
+        summary.astype(str),
+        detail.astype(str),
+        anomaly.astype(str),
+        f"- generated_at: `{generated_at}`",
+    ) == []
+    assert "markdown generated_at must match" in " ".join(
+        validate_revenue_close_confirmation_timing(
+            summary.astype(str),
+            detail.astype(str),
+            anomaly.astype(str),
+            "- generated_at: `stale-run`",
+        )
+    )
+    decision = summary[summary["anomaly_exclusion_basis"].eq(REVENUE_TIMING_DECISION_BASIS)]
+    assert set(decision[decision["row_type"].eq("variant_performance")]["confirmation_variant_name_zh"]) == {
+        "隔日續強確認型",
+        "區間突破確認型",
+        "均線站回確認型",
+    }
+    assert decision[decision["row_type"].isin({"control_baseline", "variant_performance"})][
+        "same_stock_overlap_pair_count"
+    ].eq(0).all()
+    assert decision[decision["row_type"].eq("source_partition")]["partition_count"].sum() == 7
+    included = detail[detail["metric_included"].astype(bool)]
+    assert (included["confirmation_sequence_index"].astype(int) < included["entry_sequence_index"].astype(int)).all()
+    assert included["known_before_entry_open"].astype(bool).all()
+
+    tampered = summary.astype(str).copy()
+    partition_index = tampered[tampered["row_type"].eq("source_partition")].index[0]
+    tampered.loc[partition_index, "partition_count"] = "999"
+    assert any(
+        "source partition does not cover all source signals" in error
+        for error in validate_revenue_close_confirmation_timing(tampered, detail.astype(str), anomaly.astype(str))
+    )
+
+
 def test_research_workflow_validates_and_stages_revenue_feature_contrast_artifacts() -> None:
     workflow = (ROOT / ".github" / "workflows" / "research_backtest_pipeline.yml").read_text(encoding="utf-8")
 
@@ -1728,6 +1832,15 @@ def test_research_workflow_validates_and_stages_revenue_feature_contrast_artifac
     assert "revenue_unreacted_range_feature_contrast_anomaly_audit_latest.csv" in workflow
     assert "docs/latest/revenue_unreacted_range_feature_contrast_audit_detail_latest.csv" not in workflow
     assert "output/history/research/revenue_unreacted_range_feature_contrast_audit_detail.csv" not in workflow
+
+
+def test_research_workflow_validates_and_stages_revenue_close_confirmation_timing_artifacts() -> None:
+    workflow = (ROOT / ".github" / "workflows" / "research_backtest_pipeline.yml").read_text(encoding="utf-8")
+
+    assert "python scripts/validate_revenue_unreacted_range_close_confirmation_timing_audit.py" in workflow
+    assert "revenue_unreacted_range_close_confirmation_timing_audit_detail_latest.csv" in workflow
+    assert "docs/latest/revenue_unreacted_range_close_confirmation_timing_audit_detail_latest.csv" not in workflow
+    assert "output/history/research/revenue_unreacted_range_close_confirmation_timing_audit_detail.csv" not in workflow
 
 
 def test_research_workflow_refreshes_published_snapshots_after_operation_adapters() -> None:

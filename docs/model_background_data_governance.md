@@ -213,11 +213,16 @@ not shared objective background data:
 - `output/latest/research_backtest/revenue_unreacted_range_feature_contrast_audit_latest.csv`
 - `output/latest/research_backtest/revenue_unreacted_range_feature_contrast_audit_detail_latest.csv`
 - `output/latest/research_backtest/revenue_unreacted_range_feature_contrast_anomaly_audit_latest.csv`
+- `output/latest/research_backtest/revenue_unreacted_range_close_confirmation_timing_audit_latest.csv`
+- `output/latest/research_backtest/revenue_unreacted_range_close_confirmation_timing_audit_detail_latest.csv`
+- `output/latest/research_backtest/revenue_unreacted_range_close_confirmation_timing_audit_anomaly_audit_latest.csv`
 - `docs/latest/price_pullback_23ema_revenue_condition_matrix_latest.csv`
 - `docs/latest/revenue_unreacted_range_revenue_condition_matrix_latest.csv`
 - `docs/latest/revenue_unreacted_range_operation_candidate_matrix_latest.csv`
 - `docs/latest/revenue_unreacted_range_feature_contrast_audit_latest.csv`
 - `docs/latest/revenue_unreacted_range_feature_contrast_anomaly_audit_latest.csv`
+- `docs/latest/revenue_unreacted_range_close_confirmation_timing_audit_latest.csv`
+- `docs/latest/revenue_unreacted_range_close_confirmation_timing_audit_anomaly_audit_latest.csv`
 
 The producer and validator are:
 
@@ -226,6 +231,7 @@ python scripts/build_daily_model_parameter_research.py
 python scripts/validate_daily_model_revenue_condition_matrix.py
 python scripts/validate_revenue_unreacted_range_operation_candidate_matrix.py
 python scripts/validate_revenue_unreacted_range_feature_contrast_audit.py
+python scripts/validate_revenue_unreacted_range_close_confirmation_timing_audit.py
 ```
 
 Allowed use: compare model-specific revenue conditions under the matrix's stated
@@ -261,6 +267,31 @@ Large-detail policy: the row-level detail is tracked once at
 It is not duplicated under `docs/latest` or `output/history`; Git history plus the
 summary/anomaly history mirrors preserve audit lineage without tripling the large
 CSV on every refresh.
+
+The `revenue_unreacted_range_close_confirmation_timing_audit` family starts
+from the same point-in-time strong-revenue and recent-range candidate source,
+but it does not treat that source as a buyable model. It independently replays
+three Chinese research branches: `隔日續強確認型`, `區間突破確認型`, and
+`均線站回確認型`. Candidate date close enters pending status; every confirmation
+is known at a close and entry is the next trading day open. The audit compares
+the original signal-relative D+20 close with a confirmation-relative D+20 close
+without a stop so confirmation timing is isolated before stop research.
+
+Every branch has its own chronological same-stock pending/active lifecycle.
+Source signals must be fully accounted for as one episode or a suppressed row,
+same-stock accepted overlap must remain zero, and branch performance must never
+be pooled. The source-partition rows report exact overlap among the three
+confirmation branches so a future model-split decision cannot hide unclassified
+signals. Win, neutral, and failure remain `>= +5%`, `0% to < +5%`, and `< 0%`.
+Sample count is disclosed but is not a rejection rule by itself.
+
+The timing detail keeps only confirmed mature trades and price-path anomaly
+evidence. Unconfirmed, not-evaluable, avoided-failure, missed-win, and source
+accounting totals remain complete in the summary. The compact detail is tracked
+once under `output/latest/research_backtest`; it is not copied to `docs/latest`
+or `output/history`. All rows remain research-only and require a separate model
+promotion PR before any production gate, score, ranking, operation adapter, or
+PDF metric use.
 
 ## Volume Breakout V2 High-Position Improvement Audit
 

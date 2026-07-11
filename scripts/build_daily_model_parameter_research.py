@@ -39,6 +39,10 @@ from tracking_utils import (  # noqa: E402
     safe_str,
     write_csv,
 )
+from revenue_unreacted_range_close_confirmation_timing import (  # noqa: E402
+    build_close_confirmation_timing_audit,
+    write_close_confirmation_timing_audit,
+)
 
 
 HISTORY_DIR = Path("output/history/research")
@@ -1261,6 +1265,22 @@ def active_price_attack_proxy(d: pd.DataFrame) -> pd.Series:
     ).fillna(False)
 
 
+def revenue_unreacted_active_attack_proxy(d: pd.DataFrame) -> pd.Series:
+    """Keep the revenue model's not-started test independent from legacy model ids."""
+    revenue_owned_volume_attack = (
+        (numeric_column(d, "volume_ratio_prev20") >= 2.0)
+        & (numeric_column(d, "range_breakout_20d_pct") >= 2.0)
+        & (numeric_column(d, "volume_ma20_lots") >= 1000.0)
+        & trueish_column(d, "bullish_attack_candle")
+    ) | trueish_column(d, "locked_limit_up_breakout")
+    return (
+        revenue_owned_volume_attack
+        | (numeric_column(d, "volume_ratio_prev20") >= 2.5)
+        | (numeric_column(d, "return_5d_pct") >= 8.0)
+        | (numeric_column(d, "return_20d_pct") >= 20.0)
+    ).fillna(False)
+
+
 def current_revenue_unreacted_baseline_proxy(d: pd.DataFrame) -> pd.Series:
     # This intentionally mirrors only the price-range and not-started portions.
     # Full-market revenue conditions are tested in the model-specific revenue
@@ -1269,7 +1289,7 @@ def current_revenue_unreacted_baseline_proxy(d: pd.DataFrame) -> pd.Series:
     return (
         (d["close"] >= d["range_low_23d_prev"] * 0.95)
         & (d["close"] <= d["range_high_23d_prev"] * 1.05)
-        & (~active_price_attack_proxy(d))
+        & (~revenue_unreacted_active_attack_proxy(d))
     )
 
 
@@ -7296,6 +7316,53 @@ def write_revenue_unreacted_range_feature_contrast_audit(
     )
 
 
+def build_revenue_unreacted_range_close_confirmation_timing_audit(
+    df: pd.DataFrame,
+    feature_contrast_anomaly: pd.DataFrame | None = None,
+) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
+    positioned = _price_pullback_positioned_frame(df).sort_values(
+        ["stock_id", "_price_pullback_signal_date", "_price_pullback_source_row_index"],
+        kind="mergesort",
+    ).copy()
+    positioned["_revenue_signal_date"] = positioned["_price_pullback_signal_date"]
+    positioned["_revenue_stock_sequence_index"] = positioned.groupby(
+        "stock_id",
+        sort=False,
+        dropna=False,
+    ).cumcount()
+    positioned["_revenue_range23_highest_close_prev"] = positioned.groupby(
+        "stock_id",
+        sort=False,
+        dropna=False,
+    )["close"].transform(lambda values: values.shift(1).rolling(23, min_periods=20).max())
+    positioned["_revenue_timing_source_flag"] = (
+        current_revenue_unreacted_baseline_proxy(positioned).fillna(False)
+        & full_monthly_revenue_strong_filter(positioned).fillna(False)
+    )
+    positioned["_revenue_timing_source_anomaly_flag"] = _revenue_feature_context_anomaly_mask(
+        positioned,
+        include_price_exception=True,
+    )
+
+    expected_control: dict[str, object] | None = None
+    if feature_contrast_anomaly is not None and not feature_contrast_anomaly.empty:
+        decision = feature_contrast_anomaly[
+            feature_contrast_anomaly["anomaly_exclusion_basis"].eq(
+                "excluding_known_revenue_and_price_anomalies"
+            )
+        ]
+        if len(decision) == 1:
+            row = decision.iloc[0]
+            expected_control = {
+                "basis_source_signal_count": int(row["basis_source_signal_count"]),
+                "accepted_trade_count": int(row["accepted_trade_count"]),
+            }
+    return build_close_confirmation_timing_audit(
+        positioned,
+        expected_control=expected_control,
+    )
+
+
 def _price_pullback_ordered_condition_hint(
     spec: dict[str, object],
     mature_count: int,
@@ -9754,6 +9821,15 @@ def main() -> int:
         revenue_unreacted_feature_contrast_detail_df,
         revenue_unreacted_feature_contrast_anomaly_df,
     ) = build_revenue_unreacted_range_feature_contrast_audit(df)
+    print("Building revenue_unreacted_range close-confirmed timing audit", flush=True)
+    (
+        revenue_unreacted_timing_summary_df,
+        revenue_unreacted_timing_detail_df,
+        revenue_unreacted_timing_anomaly_df,
+    ) = build_revenue_unreacted_range_close_confirmation_timing_audit(
+        df,
+        revenue_unreacted_feature_contrast_anomaly_df,
+    )
     print("Building price_pullback ordered condition matrix", flush=True)
     price_pullback_ordered_condition_matrix_df = build_price_pullback_ordered_condition_matrix(df)
     print("Building price_pullback lifecycle replay", flush=True)
@@ -9799,6 +9875,11 @@ def main() -> int:
         revenue_unreacted_feature_contrast_detail_df,
         revenue_unreacted_feature_contrast_anomaly_df,
     )
+    write_close_confirmation_timing_audit(
+        revenue_unreacted_timing_summary_df,
+        revenue_unreacted_timing_detail_df,
+        revenue_unreacted_timing_anomaly_df,
+    )
     write_price_pullback_ordered_condition_matrix(price_pullback_ordered_condition_matrix_df)
     write_price_pullback_lifecycle_replay(price_pullback_lifecycle_replay_df)
     write_price_pullback_daily_row_parity_audit(price_pullback_daily_row_parity_df)
@@ -9821,6 +9902,11 @@ def main() -> int:
     print(
         f"Saved {REVENUE_UNREACTED_OPERATION_CANDIDATE_MATRIX_CSV} "
         f"rows={len(revenue_unreacted_operation_candidate_matrix_df)}"
+    )
+    print(
+        "Saved output/latest/research_backtest/"
+        "revenue_unreacted_range_close_confirmation_timing_audit_latest.csv "
+        f"rows={len(revenue_unreacted_timing_summary_df)}"
     )
     print(f"Saved {PRICE_PULLBACK_ORDERED_CONDITION_MATRIX_CSV} rows={len(price_pullback_ordered_condition_matrix_df)}")
     print(f"Saved {PRICE_PULLBACK_LIFECYCLE_REPLAY_CSV} rows={len(price_pullback_lifecycle_replay_df)}")
