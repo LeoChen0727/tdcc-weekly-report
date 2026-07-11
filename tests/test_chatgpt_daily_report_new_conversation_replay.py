@@ -190,6 +190,11 @@ def semantic_row(
     rendered_row_type: str = "data",
     empty_state_text: str = "",
 ) -> dict[str, str]:
+    row_metric_status = (
+        "not_applicable_empty_state"
+        if rendered_row_type == "empty_state"
+        else "unavailable_no_approved_add_score_metric"
+    )
     return {
         "manifest_type": "chatgpt_daily_pdf_semantic_manifest",
         "main_price_date": main_price_date,
@@ -202,12 +207,29 @@ def semantic_row(
         "rendered_order": "1",
         "stock_id": stock_id,
         "stock_name": stock_id,
+        "pdf_path": "",
         "empty_state_text": empty_state_text,
         "operation_status": section,
         "row_action_status": "confirmed_buy_candidate" if section == "confirmed_operation" else "active_operation",
         "buy_rank_eligible": "True" if section == "confirmed_operation" else "False",
         "source_artifact": f"output/latest/daily_{model_id}_operation_section_latest.csv",
         "source_sha256": "a" * 64,
+        "row_metric_status": row_metric_status,
+        "row_metric_scope": "",
+        "row_metric_id": "",
+        "row_metric_label_zh": "",
+        "row_metric_display_label_zh": "",
+        "row_metric_sample_size": "",
+        "row_metric_win_rate_zh": "",
+        "row_metric_neutral_rate_zh": "",
+        "row_metric_failure_rate_zh": "",
+        "row_metric_avg_return_zh": "",
+        "row_metric_selection_status": "",
+        "row_metric_display_text": (
+            "無核准加分績效"
+            if rendered_row_type == "data" and section in {"confirmed_operation", "confirmed_unranked_operation"}
+            else ""
+        ),
     }
 
 
@@ -221,6 +243,30 @@ def test_semantic_manifest_schema_rejects_preview_source_artifact() -> None:
     errors = validate_semantic_manifest_schema([row], "20260706")
 
     assert any("preview" in error for error in errors)
+
+
+def test_semantic_manifest_schema_requires_ready_row_metric_display_to_match_payload() -> None:
+    row = semantic_row(V2_LOW_VOLUME_MODEL_ID, "confirmed_operation", "3055")
+    row.update(
+        {
+            "row_metric_status": "ready",
+            "row_metric_scope": "single_add_score",
+            "row_metric_id": "high_pos_base_plus_volume_lt2",
+            "row_metric_label_zh": "量比 <= 2",
+            "row_metric_display_label_zh": "量比 <= 2",
+            "row_metric_sample_size": "31",
+            "row_metric_win_rate_zh": "77.42%",
+            "row_metric_neutral_rate_zh": "0.00%",
+            "row_metric_failure_rate_zh": "22.58%",
+            "row_metric_avg_return_zh": "+13.76%",
+            "row_metric_selection_status": "single_add_score_metric",
+            "row_metric_display_text": "錯誤地顯示基礎績效",
+        }
+    )
+
+    errors = validate_semantic_manifest_schema([row], "20260706")
+
+    assert any("row_metric_display_text does not match adapter payload" in error for error in errors)
 
 
 def test_semantic_golden_cases_accept_known_20260706_accident_rows() -> None:

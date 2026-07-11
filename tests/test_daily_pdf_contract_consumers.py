@@ -498,6 +498,24 @@ def test_private_pdf_rule_detection_blocks_research_direct_inputs(tmp_path: Path
     assert any("research recommendation outputs" in error for error in errors)
 
 
+def test_operation_row_metric_renderer_contract_passes_current_renderer() -> None:
+    assert validator.validate_operation_row_metric_renderer_contract() == []
+
+
+def test_operation_row_metric_renderer_contract_rejects_baseline_fallback(tmp_path: Path) -> None:
+    renderer = tmp_path / "renderer.py"
+    renderer.write_text(
+        "def operation_row_performance_label(row):\n"
+        "    return row.get('win_rate_zh', '-')\n",
+        encoding="utf-8",
+    )
+
+    errors = validator.validate_operation_row_metric_renderer_contract(renderer)
+
+    assert any("model-owned row_metric contract" in error for error in errors)
+    assert any("baseline or legacy metric prefixes" in error for error in errors)
+
+
 def write_w_bottom_adapter(path: Path, model_id: str, extra_section: str | None = None) -> None:
     columns = sorted(validator.W_BOTTOM_OPERATION_REQUIRED_COLUMNS)
     rows: list[dict[str, str]] = []
@@ -678,7 +696,7 @@ def test_pdf_integrated_operation_adapter_must_be_consumed_by_renderer(tmp_path:
 
 def test_price_pullback_operation_adapter_contract_requires_pdf_safe_columns(tmp_path: Path) -> None:
     adapter = tmp_path / "daily_price_pullback_23ema_operation_section_latest.csv"
-    write_price_pullback_adapter(adapter, extra_column_drop="technical_package_win_rate_zh")
+    write_price_pullback_adapter(adapter, extra_column_drop="row_metric_status")
     renderer = tmp_path / "renderer.py"
     renderer.write_text(renderer_source_with_operation_contract(), encoding="utf-8")
     readiness_rows = [
@@ -704,4 +722,4 @@ def test_price_pullback_operation_adapter_contract_requires_pdf_safe_columns(tmp
         allowed_sections_by_model={"price_pullback_23ema": validator.PDF_OPERATION_REQUIRED_SECTIONS},
     )
 
-    assert any("technical_package_win_rate_zh" in error for error in errors)
+    assert any("row_metric_status" in error for error in errors)

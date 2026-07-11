@@ -105,7 +105,6 @@ OPERATION_SHARED_CONTRACT_SYMBOLS = {
     "operation_table_title",
     "operation_model_display_name",
     "operation_row_performance_label",
-    "operation_row_metric_from_prefixes",
     "format_operation_metric_label",
     "operation_cell_text",
     "operation_cell_markup",

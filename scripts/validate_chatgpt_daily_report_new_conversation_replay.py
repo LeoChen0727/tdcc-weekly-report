@@ -362,6 +362,18 @@ SEMANTIC_MANIFEST_REQUIRED_COLUMNS = {
     "buy_rank_eligible",
     "source_artifact",
     "source_sha256",
+    "row_metric_status",
+    "row_metric_scope",
+    "row_metric_id",
+    "row_metric_label_zh",
+    "row_metric_display_label_zh",
+    "row_metric_sample_size",
+    "row_metric_win_rate_zh",
+    "row_metric_neutral_rate_zh",
+    "row_metric_failure_rate_zh",
+    "row_metric_avg_return_zh",
+    "row_metric_selection_status",
+    "row_metric_display_text",
 }
 FORBIDDEN_SEMANTIC_SOURCE_TOKENS = (
     "volume_breakout_operation_pdf_preview",
@@ -385,6 +397,47 @@ def validate_semantic_manifest_schema(rows: list[dict[str, str]], main_price_dat
             errors.append(f"semantic manifest row {index} has invalid rendered_row_type")
         if str(row.get("rendered_row_type", "")).strip() == "data" and not str(row.get("stock_id", "")).strip():
             errors.append(f"semantic manifest data row {index} missing stock_id")
+        if (
+            str(row.get("rendered_row_type", "")).strip() == "data"
+            and str(row.get("pdf_section", "")).strip()
+            in {"confirmed_operation", "confirmed_unranked_operation"}
+        ):
+            status = str(row.get("row_metric_status", "")).strip()
+            display_text = str(row.get("row_metric_display_text", "")).strip()
+            if status == "ready":
+                payload_fields = (
+                    "row_metric_display_label_zh",
+                    "row_metric_sample_size",
+                    "row_metric_win_rate_zh",
+                    "row_metric_neutral_rate_zh",
+                    "row_metric_failure_rate_zh",
+                    "row_metric_avg_return_zh",
+                )
+                missing_payload = [field for field in payload_fields if not str(row.get(field, "")).strip()]
+                if missing_payload:
+                    errors.append(
+                        f"semantic manifest row {index} has incomplete ready row_metric payload: "
+                        + ";".join(missing_payload)
+                    )
+                else:
+                    expected = (
+                        f"{row['row_metric_display_label_zh']} | 樣本數 {row['row_metric_sample_size']} | "
+                        f"{row['row_metric_win_rate_zh']} / {row['row_metric_neutral_rate_zh']} / "
+                        f"{row['row_metric_failure_rate_zh']} / {row['row_metric_avg_return_zh']}"
+                    )
+                    if compact_contract_text(display_text) != compact_contract_text(expected):
+                        errors.append(
+                            f"semantic manifest row {index} row_metric_display_text does not match adapter payload"
+                        )
+            elif status == "unavailable_no_approved_add_score_metric":
+                if display_text != "無核准加分績效":
+                    errors.append(
+                        f"semantic manifest row {index} must display explicit unavailable row_metric text"
+                    )
+            else:
+                errors.append(
+                    f"semantic manifest row {index} has invalid operation row_metric_status: {status or 'blank'}"
+                )
         source_sha = str(row.get("source_sha256", "")).strip()
         if len(source_sha) != 64 and str(row.get("model_id", "")).strip():
             errors.append(f"semantic manifest row {index} source_sha256 must be a sha256 hex digest")
@@ -395,6 +448,38 @@ def validate_semantic_manifest_schema(rows: list[dict[str, str]], main_price_dat
             if token in source_artifact:
                 errors.append(
                     f"semantic manifest row {index} uses forbidden legacy/preview source artifact: {source_artifact}"
+                )
+    return errors
+
+
+def validate_semantic_row_metric_pdf_text(rows: list[dict[str, str]]) -> list[str]:
+    try:
+        from pypdf import PdfReader
+    except Exception as exc:  # pragma: no cover - dependency is installed in CI.
+        return [f"pypdf import failed for semantic row metric validation: {exc}"]
+
+    required_by_path: dict[Path, set[str]] = {}
+    for row in rows:
+        display_text = str(row.get("row_metric_display_text", "")).strip()
+        pdf_path_text = str(row.get("pdf_path", "")).strip()
+        if display_text and pdf_path_text:
+            required_by_path.setdefault(Path(pdf_path_text), set()).add(display_text)
+
+    errors: list[str] = []
+    for pdf_path, required_texts in required_by_path.items():
+        if not pdf_path.exists():
+            errors.append(f"semantic row metric PDF is missing: {pdf_path}")
+            continue
+        try:
+            full_text = "\n".join(page.extract_text() or "" for page in PdfReader(str(pdf_path)).pages)
+        except Exception as exc:
+            errors.append(f"semantic row metric PDF text extraction failed for {pdf_path}: {exc}")
+            continue
+        compact_pdf_text = compact_contract_text(full_text)
+        for required_text in sorted(required_texts):
+            if compact_contract_text(required_text) not in compact_pdf_text:
+                errors.append(
+                    f"semantic row metric text missing from PDF {pdf_path.name}: {required_text}"
                 )
     return errors
 
@@ -476,6 +561,7 @@ def validate_semantic_manifest_contract(output_dir: Path, main_price_date: str) 
     if rows:
         errors.extend(validate_semantic_manifest_schema(rows, main_price_date))
         errors.extend(validate_semantic_golden_cases(rows, main_price_date))
+        errors.extend(validate_semantic_row_metric_pdf_text(rows))
     return errors
 
 

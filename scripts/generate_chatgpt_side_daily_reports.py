@@ -158,6 +158,22 @@ W_BOTTOM_OPERATION_INPUT_KEYS = {
     W_BOTTOM_NECKLINE_BREAKOUT_MODEL_ID: "w_bottom_neckline_operation",
 }
 PRICE_PULLBACK_OPERATION_INPUT_KEY = "price_pullback_operation"
+OPERATION_ROW_METRIC_REQUIRED_COLUMNS = {
+    "row_metric_status",
+    "row_metric_scope",
+    "row_metric_id",
+    "row_metric_label_zh",
+    "row_metric_matched_add_score_ids",
+    "row_metric_sample_size",
+    "row_metric_win_rate_zh",
+    "row_metric_neutral_rate_zh",
+    "row_metric_failure_rate_zh",
+    "row_metric_avg_return_zh",
+    "row_metric_median_return_zh",
+    "row_metric_source",
+    "row_metric_selection_status",
+}
+OPERATION_ROW_METRIC_UNAVAILABLE_TEXT = "無核准加分績效"
 W_BOTTOM_OPERATION_REQUIRED_COLUMNS = {
     "model_id",
     "pdf_view",
@@ -170,7 +186,7 @@ W_BOTTOM_OPERATION_REQUIRED_COLUMNS = {
     "operation_status",
     "row_action_status",
     "buy_rank_eligible",
-}
+} | OPERATION_ROW_METRIC_REQUIRED_COLUMNS
 PRICE_PULLBACK_OPERATION_REQUIRED_COLUMNS = W_BOTTOM_OPERATION_REQUIRED_COLUMNS | {
     "stock_display",
     "operation_quality_zh",
@@ -869,61 +885,38 @@ def first_text(*values, default: str = "") -> str:
 
 
 def operation_row_performance_label(row: pd.Series) -> str:
-    combo = operation_row_metric_from_prefixes(
-        row,
-        (
-            "pdf_bonus_combo",
-            "pdf_combo",
-            "row_level_combo",
-            "add_score_combo",
-        ),
-        "加分組合",
-    )
-    if combo:
-        return combo
+    status = clean(row.get("row_metric_status"))
+    if status == "unavailable_no_approved_add_score_metric":
+        return OPERATION_ROW_METRIC_UNAVAILABLE_TEXT
+    if status == "not_applicable_empty_state":
+        return "-"
+    if status != "ready":
+        raise RuntimeError(f"PDF operation row has invalid row_metric_status: {status or 'blank'}")
 
-    operation_quality = clean(row.get("operation_quality"))
-    operation_quality_zh = clean(row.get("operation_quality_zh"))
-    if operation_quality == "technical_strength" or operation_quality_zh == "技術強勢":
-        technical = operation_row_metric_from_prefixes(row, ("technical_package",), "技術強勢")
-        if technical:
-            return technical
-
-    return format_operation_metric_label(
-        "基礎",
-        clean(row.get("win_rate_zh"), "-"),
-        clean(row.get("neutral_rate_zh"), "-"),
-        clean(row.get("failure_rate_zh"), "-"),
-        clean(row.get("avg_return_zh"), "-"),
-    )
-
-
-def operation_row_metric_from_prefixes(row: pd.Series, prefixes: tuple[str, ...], label: str) -> str:
-    for prefix in prefixes:
-        win_rate = first_text(row.get(f"{prefix}_win_rate_zh"), row.get(f"{prefix}_win_rate"))
-        avg_return = first_text(row.get(f"{prefix}_avg_return_zh"), row.get(f"{prefix}_avg_return"))
-        if not win_rate or not avg_return:
-            continue
-        neutral_rate = first_text(row.get(f"{prefix}_neutral_rate_zh"), row.get(f"{prefix}_neutral_rate"), default="-")
-        failure_rate = first_text(
-            row.get(f"{prefix}_failure_rate_zh"),
-            row.get(f"{prefix}_failure_rate"),
-            row.get(f"{prefix}_loss_rate_zh"),
-            row.get(f"{prefix}_loss_rate"),
-            default="-",
-        )
-        return format_operation_metric_label(label, win_rate, neutral_rate, failure_rate, avg_return)
-    return ""
+    payload = {
+        "label": clean(row.get("row_metric_label_zh")),
+        "sample_size": clean(row.get("row_metric_sample_size")),
+        "win_rate": clean(row.get("row_metric_win_rate_zh")),
+        "neutral_rate": clean(row.get("row_metric_neutral_rate_zh")),
+        "failure_rate": clean(row.get("row_metric_failure_rate_zh")),
+        "avg_return": clean(row.get("row_metric_avg_return_zh")),
+    }
+    missing = [name for name, value in payload.items() if not value]
+    if missing:
+        raise RuntimeError("PDF operation row_metric ready payload is incomplete: " + ",".join(missing))
+    return format_operation_metric_label(**payload)
 
 
 def format_operation_metric_label(
     label: str,
+    sample_size: str,
     win_rate: str,
     neutral_rate: str,
     failure_rate: str,
     avg_return: str,
 ) -> str:
-    return f"{label} {win_rate} / {neutral_rate} / {failure_rate} / {avg_return}"
+    sample_size = re.sub(r"(?<=\d)\.0+$", "", sample_size)
+    return f"{label} | 樣本數 {sample_size} | {win_rate} / {neutral_rate} / {failure_rate} / {avg_return}"
 
 
 def short(value, limit: int = 62) -> str:
@@ -2349,9 +2342,18 @@ def volume_operation_frame(
     pdf_section: str,
 ) -> pd.DataFrame:
     frame = inputs.get("volume_operation", pd.DataFrame()).copy()
-    required = {"model_id", "pdf_view", "pdf_section", "row_type", "display_order"}
-    if frame.empty or not required.issubset(frame.columns):
+    required = {
+        "model_id",
+        "pdf_view",
+        "pdf_section",
+        "row_type",
+        "display_order",
+    } | OPERATION_ROW_METRIC_REQUIRED_COLUMNS
+    if frame.empty:
         return pd.DataFrame()
+    missing = sorted(required - set(frame.columns))
+    if missing:
+        raise RuntimeError("volume breakout PDF operation adapter missing required columns: " + ",".join(missing))
     frame = frame[
         frame["model_id"].astype(str).eq(model_id)
         & frame["pdf_view"].astype(str).eq(pdf_view)
@@ -2933,9 +2935,7 @@ def build_volume_confirmed_operation_table(rows: pd.DataFrame, model_id: str) ->
         "停損基準",
         "出場規則",
         "操作 / 最終分數",
-        "樣本數",
-        "勝率",
-        "中位數報酬",
+        "加分勝/和/敗/報酬",
         "排名原因",
     ]
     data = [
@@ -2946,7 +2946,7 @@ def build_volume_confirmed_operation_table(rows: pd.DataFrame, model_id: str) ->
         columns,
     ]
     if rows.empty:
-        data.append(["-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", MODEL_EMPTY_STATE_TEXT])
+        data.append(["-", "-", "-", "-", "-", "-", "-", "-", "-", MODEL_EMPTY_STATE_TEXT])
     for _, row in rows.iterrows():
         data.append(
             [
@@ -2958,15 +2958,13 @@ def build_volume_confirmed_operation_table(rows: pd.DataFrame, model_id: str) ->
                 volume_operation_stop_label(row, "confirmed_operation"),
                 volume_operation_exit_label(row),
                 volume_operation_score_label(row),
-                clean(row.get("sample_size"), "-"),
                 operation_row_performance_label(row),
-                first_text(row.get("pdf_bonus_combo_median_return_zh"), row.get("median_return_zh"), default="-"),
                 clean(row.get("rank_reason_zh"), "-"),
             ]
         )
     return build_table(
         data,
-        [8 * mm, 18 * mm, 25 * mm, 17 * mm, 29 * mm, 26 * mm, 33 * mm, 24 * mm, 10 * mm, 45 * mm, 16 * mm, 22 * mm],
+        [8 * mm, 18 * mm, 25 * mm, 17 * mm, 29 * mm, 26 * mm, 33 * mm, 24 * mm, 61 * mm, 22 * mm],
         12.0,
         header_bg=colors.HexColor("#7f6000"),
         repeat_rows=2,
@@ -2981,9 +2979,7 @@ def build_volume_unranked_operation_table(rows: pd.DataFrame, model_id: str) -> 
         "確認方式",
         "確認日",
         "未列排名原因",
-        "樣本數",
-        "勝率",
-        "中位數報酬",
+        "加分勝/和/敗/報酬",
         "證據狀態",
     ]
     data = [
@@ -2994,7 +2990,7 @@ def build_volume_unranked_operation_table(rows: pd.DataFrame, model_id: str) -> 
         columns,
     ]
     if rows.empty:
-        data.append(["-", "-", "-", "目前沒有已確認但未通過買入排名門檻的股票。", "-", "-", "-", "-"])
+        data.append(["-", "-", "-", "目前沒有已確認但未通過買入排名門檻的股票。", "-", "-"])
     for _, row in rows.iterrows():
         evidence_status = clean(row.get("evidence_match_status"), "-")
         if evidence_status == "row_level_evidence_not_buy_ranked":
@@ -3007,15 +3003,13 @@ def build_volume_unranked_operation_table(rows: pd.DataFrame, model_id: str) -> 
                 volume_operation_trigger_label(row),
                 volume_operation_date_label(first_text(row.get("confirmation_date"), row.get("selected_confirmation_date"))),
                 clean(row.get("rank_reason_zh"), "-"),
-                clean(row.get("sample_size"), "-"),
                 operation_row_performance_label(row),
-                first_text(row.get("pdf_bonus_combo_median_return_zh"), row.get("median_return_zh"), default="-"),
                 evidence_status,
             ]
         )
     return build_table(
         data,
-        [26 * mm, 30 * mm, 18 * mm, 58 * mm, 12 * mm, 50 * mm, 18 * mm, 60 * mm],
+        [26 * mm, 30 * mm, 18 * mm, 58 * mm, 70 * mm, 70 * mm],
         12.0,
         header_bg=colors.HexColor("#8064a2"),
         repeat_rows=2,
@@ -3112,9 +3106,7 @@ def build_w_bottom_confirmed_operation_table(rows: pd.DataFrame, model_name: str
         "停損基準",
         "出場規則",
         "操作 / 模型分數",
-        "樣本數",
-        "勝率",
-        "中位數報酬",
+        "加分勝/和/敗/報酬",
         "備註",
     ]
     data = [
@@ -3125,7 +3117,7 @@ def build_w_bottom_confirmed_operation_table(rows: pd.DataFrame, model_name: str
         columns,
     ]
     if rows.empty:
-        data.append(["-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", MODEL_EMPTY_STATE_TEXT])
+        data.append(["-", "-", "-", "-", "-", "-", "-", "-", "-", MODEL_EMPTY_STATE_TEXT])
     for _, row in rows.iterrows():
         data.append(
             [
@@ -3137,15 +3129,13 @@ def build_w_bottom_confirmed_operation_table(rows: pd.DataFrame, model_name: str
                 w_bottom_operation_stop_label(row),
                 w_bottom_operation_exit_label(row),
                 w_bottom_operation_score_label(row),
-                clean(row.get("sample_size"), "-"),
-                clean(row.get("win_rate_zh"), "-"),
-                clean(row.get("median_return_zh"), "-"),
+                operation_row_performance_label(row),
                 w_bottom_operation_note_label(row),
             ]
         )
     return build_table(
         data,
-        [8 * mm, 28 * mm, 34 * mm, 18 * mm, 35 * mm, 30 * mm, 40 * mm, 30 * mm, 13 * mm, 15 * mm, 18 * mm, 22 * mm],
+        [8 * mm, 28 * mm, 34 * mm, 18 * mm, 35 * mm, 30 * mm, 40 * mm, 30 * mm, 46 * mm, 22 * mm],
         12.0,
         header_bg=colors.HexColor("#7f6000"),
         repeat_rows=2,
@@ -5121,6 +5111,13 @@ def semantic_manifest_data_row(
     rendered_order: int,
 ) -> dict[str, str]:
     output = dict(base)
+    pdf_section = base.get("pdf_section", "")
+    row_metric_display_label = translate_codes(manifest_value(row, "row_metric_label_zh"))
+    metric_display_text = (
+        translate_codes(operation_row_performance_label(row))
+        if pdf_section in {"confirmed_operation", "confirmed_unranked_operation"}
+        else ""
+    )
     output.update(
         {
             "rendered_row_type": "data",
@@ -5135,6 +5132,20 @@ def semantic_manifest_data_row(
             "confirmation_date": manifest_value(row, "confirmation_date"),
             "entry_date": manifest_value(row, "entry_date"),
             "display_order": manifest_value(row, "display_order"),
+            "row_metric_status": manifest_value(row, "row_metric_status"),
+            "row_metric_scope": manifest_value(row, "row_metric_scope"),
+            "row_metric_id": manifest_value(row, "row_metric_id"),
+            "row_metric_label_zh": manifest_value(row, "row_metric_label_zh"),
+            "row_metric_display_label_zh": row_metric_display_label,
+            "row_metric_sample_size": re.sub(
+                r"(?<=\d)\.0+$", "", manifest_value(row, "row_metric_sample_size")
+            ),
+            "row_metric_win_rate_zh": manifest_value(row, "row_metric_win_rate_zh"),
+            "row_metric_neutral_rate_zh": manifest_value(row, "row_metric_neutral_rate_zh"),
+            "row_metric_failure_rate_zh": manifest_value(row, "row_metric_failure_rate_zh"),
+            "row_metric_avg_return_zh": manifest_value(row, "row_metric_avg_return_zh"),
+            "row_metric_selection_status": manifest_value(row, "row_metric_selection_status"),
+            "row_metric_display_text": metric_display_text,
             "empty_state_text": "",
         }
     )
@@ -5157,6 +5168,18 @@ def semantic_manifest_empty_row(base: dict[str, str], empty_state_text: str) -> 
             "confirmation_date": "",
             "entry_date": "",
             "display_order": "",
+            "row_metric_status": "not_applicable_empty_state",
+            "row_metric_scope": "",
+            "row_metric_id": "",
+            "row_metric_label_zh": "",
+            "row_metric_display_label_zh": "",
+            "row_metric_sample_size": "",
+            "row_metric_win_rate_zh": "",
+            "row_metric_neutral_rate_zh": "",
+            "row_metric_failure_rate_zh": "",
+            "row_metric_avg_return_zh": "",
+            "row_metric_selection_status": "",
+            "row_metric_display_text": "",
             "empty_state_text": empty_state_text,
         }
     )
