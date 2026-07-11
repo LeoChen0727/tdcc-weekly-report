@@ -29,7 +29,6 @@ from build_model_operation_readiness import (  # noqa: E402
     V2_LOW_MODEL_ID,
     V2_MID_MODEL_ID,
     V2_VOLUME_MODEL_IDS,
-    VOLUME_MODEL_ID,
     W_BOTTOM_MODEL_ID,
 )
 from tracking_utils import read_csv  # noqa: E402
@@ -60,6 +59,7 @@ APPROVED_MODEL_IDS = {
     NECKLINE_MODEL_ID,
     PRICE_PULLBACK_MODEL_ID,
 }
+LEGACY_VOLUME_MODEL_ID = "volume_range_breakout"
 PENDING_CANDIDATE_MODEL_IDS: set[str] = set()
 
 
@@ -114,23 +114,9 @@ def validate_readiness_csv() -> list[str]:
     if approved_ids != sorted(APPROVED_MODEL_IDS):
         errors.append(f"approved_for_daily=True must be limited to {sorted(APPROVED_MODEL_IDS)}, got {approved_ids}")
 
-    legacy_volume = df[df["model_id"].astype(str).eq(VOLUME_MODEL_ID)]
-    if len(legacy_volume) == 1:
-        row = legacy_volume.iloc[0]
-        expected_legacy = {
-            "operation_module_status": "deprecated_replaced_by_volume_range_breakout_v2",
-            "daily_adapter_status": "legacy_isolated",
-            "approved_for_daily": "False",
-            "presentation_allowed": "False",
-            "operation_directive_level": "no_operation_directive",
-            "pdf_integration_status": "deprecated_not_rendered",
-            "packet_integration_status": "deprecated_not_rendered",
-        }
-        for col, value in expected_legacy.items():
-            if str(row.get(col, "")) != value:
-                errors.append(f"{VOLUME_MODEL_ID} readiness {col} must be {value!r}, got {row.get(col, '')!r}")
-    elif len(legacy_volume) > 1:
-        errors.append(f"readiness must contain at most one deprecated legacy {VOLUME_MODEL_ID} row")
+    legacy_volume = df[df["model_id"].astype(str).eq(LEGACY_VOLUME_MODEL_ID)]
+    if not legacy_volume.empty:
+        errors.append(f"readiness must not contain retired legacy {LEGACY_VOLUME_MODEL_ID} rows")
 
     for model_id in V2_VOLUME_MODEL_IDS:
         volume = df[df["model_id"].astype(str).eq(model_id)]
@@ -278,9 +264,7 @@ def validate_readiness_csv() -> list[str]:
         if float(row.get("registry_best_win_rate", 0) or 0) < 60.0:
             errors.append("price pullback approved win rate is weaker than the v1 gate")
 
-    others = df[
-        ~df["model_id"].astype(str).isin(APPROVED_MODEL_IDS | PENDING_CANDIDATE_MODEL_IDS | {VOLUME_MODEL_ID})
-    ]
+    others = df[~df["model_id"].astype(str).isin(APPROVED_MODEL_IDS | PENDING_CANDIDATE_MODEL_IDS)]
     if not others.empty:
         bad_operation = others[~others["operation_module_status"].eq("baseline_only_no_validated_operation_module")]
         if not bad_operation.empty:

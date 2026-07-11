@@ -6,6 +6,8 @@ from scripts import validate_daily_pdf_completion_hard_gate as validator
 
 
 ROOT = Path(__file__).resolve().parents[1]
+LOW_VOLUME_MODEL_ID = "volume_range_breakout_v2_low_position_volume_attack"
+LOW_VOLUME_MODEL_NAME = "低位放量攻擊模型"
 OPERATION_SUMMARY_TEXT = (
     "買入：隔日開盤買入。"
     "賣出：依規則出場。"
@@ -218,10 +220,10 @@ def test_completion_gate_accepts_operation_empty_state_tables() -> None:
 
 def test_completion_gate_requires_operation_summary_tokens() -> None:
     rows = {
-        "volume_range_breakout": [
+        LOW_VOLUME_MODEL_ID: [
             {
-                "model_id": "volume_range_breakout",
-                "model_name_zh": "放量攻擊模型",
+                "model_id": LOW_VOLUME_MODEL_ID,
+                "model_name_zh": LOW_VOLUME_MODEL_NAME,
                 "pdf_view": "highlight",
                 "pdf_section": "confirmed_operation",
                 "row_type": "empty_state",
@@ -229,8 +231,8 @@ def test_completion_gate_requires_operation_summary_tokens() -> None:
                 "stock_display": "本日無股票推薦",
             },
             {
-                "model_id": "volume_range_breakout",
-                "model_name_zh": "放量攻擊模型",
+                "model_id": LOW_VOLUME_MODEL_ID,
+                "model_name_zh": LOW_VOLUME_MODEL_NAME,
                 "pdf_view": "highlight",
                 "pdf_section": "active_operation",
                 "row_type": "empty_state",
@@ -240,8 +242,8 @@ def test_completion_gate_requires_operation_summary_tokens() -> None:
         ]
     }
     text = validator.compact_text(
-        "放量攻擊模型 - 本日可買 / 已確認買入候選 本日無股票推薦 "
-        "放量攻擊模型 - 操作中 目前無操作中追蹤列"
+        f"{LOW_VOLUME_MODEL_NAME} - 本日可買 / 已確認買入候選 本日無股票推薦 "
+        f"{LOW_VOLUME_MODEL_NAME} - 操作中 目前無操作中追蹤列"
     )
 
     errors = validator.validate_operation_adapter_pdf_text(
@@ -250,7 +252,7 @@ def test_completion_gate_requires_operation_summary_tokens() -> None:
             "non_mainstream_highlight": text,
         },
         rows,
-        required_model_ids=["volume_range_breakout"],
+        required_model_ids=[LOW_VOLUME_MODEL_ID],
     )
 
     assert any("missing operation model summary token" in error for error in errors)
@@ -314,9 +316,9 @@ def test_completion_gate_requires_rendered_stock_ids_for_operation_rows() -> Non
 
 def test_completion_gate_uses_report_line_membership_for_line_agnostic_rows() -> None:
     rows = {
-        "volume_range_breakout": [
+        LOW_VOLUME_MODEL_ID: [
             {
-                "model_id": "volume_range_breakout",
+                "model_id": LOW_VOLUME_MODEL_ID,
                 "pdf_view": "highlight",
                 "pdf_section": "confirmed_operation",
                 "row_type": "empty_state",
@@ -324,7 +326,7 @@ def test_completion_gate_uses_report_line_membership_for_line_agnostic_rows() ->
                 "stock_display": "本日無股票推薦",
             },
             {
-                "model_id": "volume_range_breakout",
+                "model_id": LOW_VOLUME_MODEL_ID,
                 "pdf_view": "highlight",
                 "pdf_section": "active_operation",
                 "row_type": "data",
@@ -338,19 +340,19 @@ def test_completion_gate_uses_report_line_membership_for_line_agnostic_rows() ->
     }
     role_to_text = {
         "mainstream_highlight": compact_operation_pdf_text(
-            "放量攻擊模型 - 本日可買 / 已確認買入候選 本日無股票推薦 "
-            "放量攻擊模型 - 操作中 3055"
+            f"{LOW_VOLUME_MODEL_NAME} - 本日可買 / 已確認買入候選 本日無股票推薦 "
+            f"{LOW_VOLUME_MODEL_NAME} - 操作中 3055"
         ),
         "non_mainstream_highlight": compact_operation_pdf_text(
-            "放量攻擊模型 - 本日可買 / 已確認買入候選 本日無股票推薦 "
-            "放量攻擊模型 - 操作中 目前無操作中追蹤列"
+            f"{LOW_VOLUME_MODEL_NAME} - 本日可買 / 已確認買入候選 本日無股票推薦 "
+            f"{LOW_VOLUME_MODEL_NAME} - 操作中 目前無操作中追蹤列"
         ),
     }
 
     errors = validator.validate_operation_adapter_pdf_text(
         role_to_text,
         rows,
-        required_model_ids=["volume_range_breakout"],
+        required_model_ids=[LOW_VOLUME_MODEL_ID],
         stock_report_lines={"3055": {"mainstream"}},
     )
 

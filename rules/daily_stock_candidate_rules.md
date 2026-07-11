@@ -308,45 +308,34 @@ Allowed volume-attack theme statuses:
 
 ## Volume Attack Rules
 
-The formal daily `volume_range_breakout` model is the independent `放量攻擊模型`. It replaces the old broad volume-breakout/watch/risk taxonomy for PDF model selection.
+The legacy `volume_range_breakout` v1 model is retired from formal daily operation, PDF, and packet consumption. Do not add it back to `stock_model_contract_registry`, `approved_operation_patterns`, `model_operation_readiness`, PDF semantic golden cases, or daily packet model filters.
 
-Hard selection conditions:
+Formal v2 daily operation models are independent model ids:
 
-- Breakout baseline uses the previous 20 trading days, excluding the signal day.
-- Signal-day close must be at least `previous_20d_high * 1.02`.
-- `volume_ratio >= 2.0`.
-- 20-day average volume must be at least 1000 lots. If raw volume is stored as shares, normalize to lots before applying the threshold.
-- The signal day must be a bullish candle: `close > open`, or `open == close and close > previous_close` for limit-up/flat-candle cases.
-- No moving-average gate.
-- No 60-day-high gate.
-- No same-day fake-breakout gate. A real failed breakout can only be confirmed after later trading days.
+- `volume_range_breakout_v2_low_position_volume_attack`: `低位放量攻擊模型`.
+- `volume_range_breakout_v2_mid_position_momentum_attack`: `中位動能放量攻擊模型`.
+- `volume_range_breakout_v2_high_position_volume_attack`: `高位階放量攻擊模型`.
 
-Official model output:
+Shared v2 candidate basis:
 
-- Use `volume_breakout_type = bottom_volume_attack`.
-- Use `selection_status = selected`.
-- Do not split this model into selected/watch/risk rows. Risk is handled by score deductions and risk tags only.
+- Signal day close must break the previous 60 trading day high.
+- The model row is pending until the next trading day close confirms continuation.
+- Confirmation and operation rules are close/open based: confirmed after close, buy on the next trading day open.
+- Stop rule: after confirmation, if close remains below the lower of MA20 and EMA23 by 4% for 4 consecutive trading days, stop on the next trading day open.
+- Exit rule: if no stop triggers, exit at the fixed D+15 close.
+- TDCC, MA overlays, EMA distance, KDJ/technical overlays, and volume/candle quality are add-score or row-level metric layers only unless a model-specific promotion PR makes them part of the model gate.
 
-Scoring and ranking may use non-conflicting factors:
+Model-specific hard gates:
 
-- Higher volume ratio.
-- Larger breakout magnitude.
-- Longer or cleaner platform/consolidation base.
-- Better TDCC status.
-- Bullish warrant flow.
-- Stronger revenue data.
-- Lower quantified price position if available.
-- Better candle quality. Long upper shadow can deduct attack-quality score once, but must not remove the stock from the model after hard conditions are met.
+- Low-position model: 120-day position bucket is `low_pos_le40`; shape can be `consolidation`, `non_consolidation`, or `wide_range`.
+- Mid-position model: 120-day position bucket is `mid_pos_40_75`; shape must be `non_consolidation` or `wide_range`.
+- High-position model: 120-day position bucket is `high_pos_gt75`; shape must be `non_consolidation` or `wide_range`; signal-day `MA60 > MA120` is required.
 
-Do not use these as hard exclusions for this model:
+Legacy/research boundary:
 
-- "Price already rose too much".
-- "Overheated".
-- Same-day fake breakout.
-- Strict 60-day high breakout.
-- Neckline challenge.
-- MA reclaim / right-side watch.
-- Close only near the breakout level without passing the 2% prior-20-day-high threshold.
+- `output/latest/volume_breakout_*_latest.csv` and old `volume_breakout_confirmed_operation` artifacts are legacy v1 research/backtest owner artifacts only until a separate cleanup PR deletes or quarantines them.
+- Daily model runtime, PDF operation rows, packet guidance, and promotion evidence must consume only v2 formal model ids and model-owned operation adapters.
+- Historical snapshots may contain old v1 rows as replay evidence. Do not rewrite or delete historical snapshots just because the current formal model changed.
 
 ## TDCC Overheated Short-Term Edge
 

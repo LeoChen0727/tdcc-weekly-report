@@ -211,8 +211,11 @@ def semantic_row(
     }
 
 
+V2_LOW_VOLUME_MODEL_ID = "volume_range_breakout_v2_low_position_volume_attack"
+
+
 def test_semantic_manifest_schema_rejects_preview_source_artifact() -> None:
-    row = semantic_row("volume_range_breakout", "confirmed_operation", "3055")
+    row = semantic_row(V2_LOW_VOLUME_MODEL_ID, "confirmed_operation", "3055")
     row["source_artifact"] = "output/latest/volume_breakout_operation_pdf_preview_latest.csv"
 
     errors = validate_semantic_manifest_schema([row], "20260706")
@@ -225,7 +228,6 @@ def test_semantic_golden_cases_accept_known_20260706_accident_rows() -> None:
         semantic_row("w_bottom_right_side", "confirmed_operation", "6176"),
         semantic_row("w_bottom_right_side", "active_operation", "1618"),
         semantic_row("w_bottom_right_side", "active_operation", "3029"),
-        semantic_row("volume_range_breakout", "confirmed_operation", "3055"),
     ]
     case_ids = {
         "w_bottom_20260706_6176_confirmed_present",
@@ -233,10 +235,6 @@ def test_semantic_golden_cases_accept_known_20260706_accident_rows() -> None:
         "w_bottom_20260706_1618_active_present",
         "w_bottom_20260706_3029_active_present",
         "w_bottom_20260706_6134_active_absent",
-        "volume_20260706_3055_confirmed_present",
-        "volume_20260706_3055_active_absent",
-        "volume_20260706_1515_confirmed_absent",
-        "volume_20260706_1515_active_absent",
     }
     cases = [
         case
@@ -254,7 +252,6 @@ def test_semantic_golden_cases_reject_known_20260706_accident_drift() -> None:
         semantic_row("w_bottom_right_side", "confirmed_operation", "1618"),
         semantic_row("w_bottom_right_side", "active_operation", "1618"),
         semantic_row("w_bottom_right_side", "active_operation", "6134"),
-        semantic_row("volume_range_breakout", "active_operation", "3055"),
     ]
     case_ids = {
         "w_bottom_20260706_6176_confirmed_present",
@@ -262,8 +259,6 @@ def test_semantic_golden_cases_reject_known_20260706_accident_drift() -> None:
         "w_bottom_20260706_1618_active_present",
         "w_bottom_20260706_3029_active_present",
         "w_bottom_20260706_6134_active_absent",
-        "volume_20260706_3055_confirmed_present",
-        "volume_20260706_3055_active_absent",
     }
     cases = [
         case
@@ -277,14 +272,12 @@ def test_semantic_golden_cases_reject_known_20260706_accident_drift() -> None:
     assert any("w_bottom_20260706_1618_confirmed_absent" in error for error in errors)
     assert any("w_bottom_20260706_3029_active_present" in error for error in errors)
     assert any("w_bottom_20260706_6134_active_absent" in error for error in errors)
-    assert any("volume_20260706_3055_confirmed_present" in error for error in errors)
-    assert any("volume_20260706_3055_active_absent" in error for error in errors)
 
 
 def test_semantic_golden_cases_support_count_equals() -> None:
     rows = [
-        semantic_row("volume_range_breakout", "confirmed_operation", "3055"),
-        semantic_row("volume_range_breakout", "confirmed_operation", "4989"),
+        semantic_row(V2_LOW_VOLUME_MODEL_ID, "confirmed_operation", "3055"),
+        semantic_row(V2_LOW_VOLUME_MODEL_ID, "confirmed_operation", "4989"),
     ]
     cases = [
         {
@@ -292,7 +285,7 @@ def test_semantic_golden_cases_support_count_equals() -> None:
             "active": "True",
             "report_date": "20260706",
             "pdf_role": "mainstream_highlight",
-            "model_id": "volume_range_breakout",
+            "model_id": V2_LOW_VOLUME_MODEL_ID,
             "pdf_section": "confirmed_operation",
             "rendered_row_type": "data",
             "expectation": "count_equals",
@@ -454,28 +447,6 @@ def test_replay_highlight_layout_contract_rejects_missing_active_table_text() ->
 
     assert any("full text missing required layout text" in error for error in errors)
 
-def test_rendered_model_regression_contract_accepts_as_published_volume_rows() -> None:
-    rows = [
-        {
-            "contract_id": "volume_range_breakout_mainstream_highlight_20260703",
-            "active": "True",
-            "report_date": "20260703",
-            "pdf_role": "mainstream_highlight",
-            "page_scope": "first_page",
-            "model_id": "volume_range_breakout",
-            "required_stock_ids": "6226|2483|6742",
-            "forbidden_stock_ids": "3055|1515|2342",
-        }
-    ]
-    role_to_pages = {
-        "mainstream_highlight": [
-            "2026/7/3 main daily digest\nvolume_range_breakout\n6226 光鼎\n2483 百容\n6742 澤米"
-        ]
-    }
-
-    assert validate_rendered_model_regression_texts(role_to_pages, "20260703", rows) == []
-
-
 def test_rendered_model_regression_contract_checks_required_and_forbidden_text_tokens() -> None:
     rows = [
         {
@@ -564,59 +535,18 @@ def test_rendered_model_regression_contract_checks_formal_exit_rule_text_tokens(
     assert any("required text token='W 結構低點收盤停損' missing" in error for error in errors)
 
 
-def test_rendered_model_regression_contract_rejects_volume_snapshot_drift() -> None:
-    rows = [
-        {
-            "contract_id": "volume_range_breakout_mainstream_highlight_20260703",
-            "active": "True",
-            "report_date": "20260703",
-            "pdf_role": "mainstream_highlight",
-            "page_scope": "first_page",
-            "model_id": "volume_range_breakout",
-            "required_stock_ids": "6226|2483|6742",
-            "forbidden_stock_ids": "3055|1515|2342",
-        }
-    ]
-    role_to_pages = {
-        "mainstream_highlight": [
-            "2026/7/3 main daily digest\nvolume_range_breakout\n3055 蔚華科\n1515 力山\n2342 茂矽"
-        ]
-    }
-
-    errors = validate_rendered_model_regression_texts(role_to_pages, "20260703", rows)
-
-    assert any("required stock_id=6226 missing" in error for error in errors)
-    assert any("forbidden stock_id=3055 appeared" in error for error in errors)
-    assert any("forbidden stock_id=2342 appeared" in error for error in errors)
-
-
-def test_rendered_model_regression_contract_records_20260703_volume_guard() -> None:
-    rows = read_rendered_model_regression_contract(RENDERED_MODEL_REGRESSION_CONTRACT)
-    row_by_id = {row["contract_id"]: row for row in rows}
-
-    guard = row_by_id["volume_range_breakout_mainstream_highlight_20260703"]
-
-    assert guard["active"] == "True"
-    assert guard["report_date"] == "20260703"
-    assert guard["pdf_role"] == "mainstream_highlight"
-    assert guard["page_scope"] == "first_page"
-    assert guard["model_id"] == "volume_range_breakout"
-    assert guard["required_stock_ids"] == "6226|2483|6742"
-    assert guard["forbidden_stock_ids"] == "3055|1515|2342"
-    assert "放量攻擊模型" in guard["required_text_tokens"]
-
-
 def test_rendered_model_regression_contract_records_formal_operation_models() -> None:
     rows = read_rendered_model_regression_contract(RENDERED_MODEL_REGRESSION_CONTRACT)
     row_by_id = {row["contract_id"]: row for row in rows}
     sampling_sentence = "取樣：已確認欄位股票精華版全部列出，操作中欄位股票精華版最多列出十檔股票。"
 
     required_contracts = {
-        "volume_range_breakout_mainstream_highlight_structure",
-        "volume_range_breakout_non_mainstream_highlight_empty_20260703",
-        "volume_range_breakout_mainstream_highlight_confirmed_empty_table_20260703",
-        "volume_range_breakout_mainstream_highlight_active_table_20260703",
-        "volume_range_breakout_non_mainstream_highlight_empty_tables_20260703",
+        "volume_range_breakout_v2_low_position_mainstream_highlight_structure",
+        "volume_range_breakout_v2_low_position_non_mainstream_highlight_structure",
+        "volume_range_breakout_v2_mid_position_mainstream_highlight_structure",
+        "volume_range_breakout_v2_mid_position_non_mainstream_highlight_structure",
+        "volume_range_breakout_v2_high_position_mainstream_highlight_structure",
+        "volume_range_breakout_v2_high_position_non_mainstream_highlight_structure",
         "w_bottom_right_side_mainstream_highlight_structure",
         "w_bottom_right_side_non_mainstream_highlight_structure",
         "w_bottom_right_side_mainstream_highlight_confirmed_table_20260703",
@@ -646,17 +576,18 @@ def test_rendered_model_regression_contract_records_formal_operation_models() ->
     assert row_by_id["price_pullback_23ema_non_mainstream_highlight_20260703"]["required_stock_ids"] == ""
     assert row_by_id["price_pullback_23ema_mainstream_highlight_20260703"]["forbidden_stock_ids"]
     assert row_by_id["price_pullback_23ema_non_mainstream_highlight_20260703"]["forbidden_stock_ids"]
-    assert row_by_id["volume_range_breakout_mainstream_highlight_confirmed_empty_table_20260703"][
-        "required_text_tokens"
-    ]
     assert row_by_id["w_bottom_right_side_mainstream_highlight_active_table_20260703"]["required_stock_ids"]
     assert (
         row_by_id["w_bottom_right_side_mainstream_highlight_active_table_20260706"]["required_stock_ids"]
         == "3029"
     )
     for contract_id in (
-        "volume_range_breakout_mainstream_highlight_structure",
-        "volume_range_breakout_non_mainstream_highlight_structure",
+        "volume_range_breakout_v2_low_position_mainstream_highlight_structure",
+        "volume_range_breakout_v2_low_position_non_mainstream_highlight_structure",
+        "volume_range_breakout_v2_mid_position_mainstream_highlight_structure",
+        "volume_range_breakout_v2_mid_position_non_mainstream_highlight_structure",
+        "volume_range_breakout_v2_high_position_mainstream_highlight_structure",
+        "volume_range_breakout_v2_high_position_non_mainstream_highlight_structure",
         "w_bottom_right_side_mainstream_highlight_structure",
         "w_bottom_right_side_non_mainstream_highlight_structure",
         "neckline_volume_breakout_confirmation_mainstream_highlight_structure",

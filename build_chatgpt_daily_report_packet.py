@@ -99,6 +99,11 @@ DAILY_VOLUME_BREAKOUT_OPERATION_SECTION_CSV = LATEST_DIR / "daily_volume_breakou
 DAILY_VOLUME_BREAKOUT_OPERATION_SECTION_MD = LATEST_DIR / "daily_volume_breakout_operation_section_latest.md"
 MODEL_OPERATION_READINESS_CSV = LATEST_DIR / "model_operation_readiness_latest.csv"
 MODEL_OPERATION_READINESS_MD = LATEST_DIR / "model_operation_readiness_latest.md"
+VOLUME_BREAKOUT_OPERATION_MODEL_IDS = (
+    "volume_range_breakout_v2_low_position_volume_attack",
+    "volume_range_breakout_v2_mid_position_momentum_attack",
+    "volume_range_breakout_v2_high_position_volume_attack",
+)
 
 SUMMARY_LATEST_MD = LATEST_DIR / "daily_market_summary_latest.md"
 FULL_LATEST_MD = LATEST_DIR / "daily_market_full_latest.md"
@@ -380,12 +385,12 @@ def build_volume_operation_packet_lines() -> list[str]:
     lines.append(f"operation_readiness_csv_raw_url: {raw_url(MODEL_OPERATION_READINESS_CSV)}")
     lines.append(f"operation_readiness_md_raw_url: {raw_url(MODEL_OPERATION_READINESS_MD)}")
     lines.append(f"status: {'generated' if not section.empty else 'missing'}")
-    lines.append("model_id: volume_range_breakout")
+    lines.append("model_ids: " + ",".join(VOLUME_BREAKOUT_OPERATION_MODEL_IDS))
     lines.append("pdf_packet_usage: render the daily adapter artifact only; do not read research operation artifacts directly and do not recalculate entry, stop, exit, ranking, sample size, win rate, or median return.")
     if not readiness.empty and "model_id" in readiness.columns:
-        volume = readiness[readiness["model_id"].astype(str).eq("volume_range_breakout")]
-        if not volume.empty:
-            row = volume.iloc[0]
+        volume = readiness[readiness["model_id"].astype(str).isin(VOLUME_BREAKOUT_OPERATION_MODEL_IDS)].copy()
+        for _, row in volume.iterrows():
+            lines.append(f"readiness_model_id: {row.get('model_id', '')}")
             lines.append(f"pdf_integration_status: {row.get('pdf_integration_status', '')}")
             lines.append(f"packet_integration_status: {row.get('packet_integration_status', '')}")
             lines.append(f"operation_directive_level: {row.get('operation_directive_level', '')}")
@@ -394,7 +399,7 @@ def build_volume_operation_packet_lines() -> list[str]:
         lines.append("")
         return lines
 
-    section = section[section.get("model_id", pd.Series(dtype=str)).astype(str).eq("volume_range_breakout")].copy()
+    section = section[section.get("model_id", pd.Series(dtype=str)).astype(str).isin(VOLUME_BREAKOUT_OPERATION_MODEL_IDS)].copy()
     for view in ["highlight", "full"]:
         view_frame = section[section.get("pdf_view", pd.Series(dtype=str)).astype(str).eq(view)].copy()
         if view_frame.empty:
