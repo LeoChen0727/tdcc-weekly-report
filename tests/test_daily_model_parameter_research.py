@@ -13,6 +13,9 @@ if str(SCRIPTS) not in sys.path:
 from build_daily_candidate_model_layer import build_parameter_table, build_specs  # noqa: E402
 from build_daily_model_parameter_research import (  # noqa: E402
     _add_feature_confirmation_deltas,
+    _revenue_benchmark_index,
+    _revenue_feature_context_anomaly_mask,
+    _revenue_future_close_path_audit,
     add_price_structure_features,
     attach_full_monthly_revenue_history_features,
     attach_signal_background_features,
@@ -32,6 +35,7 @@ from build_daily_model_parameter_research import (  # noqa: E402
     build_price_pullback_promotion_matrix,
     build_price_pullback_research_score_bucket,
     build_price_pullback_time_cost_backtest,
+    build_revenue_unreacted_range_feature_contrast_audit,
     build_revenue_unreacted_range_operation_candidate_matrix,
     build_revenue_unreacted_range_revenue_condition_matrix,
     current_price_pullback_baseline_proxy,
@@ -45,6 +49,7 @@ from validate_price_pullback_promotion_matrix import validate_matrix as validate
 from validate_revenue_unreacted_range_operation_candidate_matrix import (  # noqa: E402
     validate_matrix as validate_revenue_operation_candidate_matrix,
 )
+from validate_revenue_unreacted_range_feature_contrast_audit import validate_frames as validate_revenue_feature_contrast  # noqa: E402
 from validate_research_against_stock_model_contract import build_parity_rows  # noqa: E402
 
 
@@ -1577,6 +1582,152 @@ def test_revenue_unreacted_range_operation_candidate_matrix_is_research_only_non
     assert strong["same_stock_overlap_pair_count"] == 0
     assert strong["win_rate_pct"] == 100.0
     assert strong["promotion_readiness"] == "research_only_operation_candidate_not_promotion_ready"
+
+
+def test_revenue_unreacted_feature_contrast_recomputes_success_and_failure_features_without_overlap() -> None:
+    df = pd.DataFrame(
+        {
+            "stock_id": ["2330", "2330", "2317", "2454", "3008"],
+            "stock_name": ["台積電", "台積電", "鴻海", "聯發科", "大立光"],
+            "market": ["TWSE"] * 5,
+            "date": ["20260101", "20260102", "20260101", "20260101", "20260101"],
+            "close": [100.0, 101.0, 80.0, 90.0, 120.0],
+            "range_low_23d_prev": [95.0, 95.0, 75.0, 85.0, 115.0],
+            "range_high_23d_prev": [105.0, 105.0, 85.0, 95.0, 125.0],
+            "range_width_23d_pct": [10.0, 10.0, 12.0, 11.0, 9.0],
+            "distance_to_range_high_23d_pct": [-4.8, -3.8, -5.9, -5.3, -4.0],
+            "close_position_120d_pct": [50.0, 52.0, 40.0, 65.0, 35.0],
+            "volume_ratio_prev20": [1.0, 1.0, 1.2, 1.4, 1.1],
+            "range_breakout_20d_pct": [0.0] * 5,
+            "volume_ma20_lots": [100.0] * 5,
+            "bullish_attack_candle": [True, True, False, True, False],
+            "solid_red_candle": [True, True, False, True, False],
+            "locked_limit_up_breakout": [False] * 5,
+            "return_5d_pct": [1.0, 2.0, -1.0, 3.0, 0.0],
+            "return_20d_pct": [5.0, 6.0, -2.0, 10.0, 1.0],
+            "next_open": [100.0, 101.0, 80.0, 90.0, 120.0],
+            "close_above_ma20": [True, True, False, True, True],
+            "close_above_ema23": [True, True, False, True, True],
+            "high_thresholds_up": [True, True, False, True, False],
+            "all_thresholds_up": [True, True, False, False, False],
+            "four_thresholds_sync_up": [True, True, False, False, False],
+            "tdcc_history_available": [True] * 5,
+            "tdcc_consecutive_up_weeks": [2.0, 2.0, 0.0, 1.0, 0.0],
+            "macd_hist": [1.0, 1.2, -0.5, 0.4, -0.1],
+            "rsi14": [65.0, 68.0, 42.0, 58.0, 50.0],
+            "k_value": [70.0, 72.0, 35.0, 60.0, 50.0],
+            "d_value": [60.0, 62.0, 40.0, 55.0, 52.0],
+            "kd_bullish_not_overheated": [True, True, False, True, False],
+            "bb_width_pct": [12.0, 13.0, 20.0, 15.0, 10.0],
+            "bb_width_not_extreme": [True, True, False, True, True],
+            "ema23_slope_5d_pct": [2.0, 2.1, -1.0, 1.0, 0.5],
+            "distance_to_ema23_pct": [3.0, 3.5, -2.0, 2.0, 1.0],
+            "obv_above_ma20": [True, True, False, True, False],
+            "ma20": [98.0, 99.0, 82.0, 88.0, 118.0],
+            "ma60": [95.0, 96.0, 85.0, 87.0, 119.0],
+            "full_monthly_revenue_context_ready": [True] * 5,
+            "full_monthly_revenue_period": ["202512"] * 5,
+            "full_monthly_revenue_source_table_date": ["20260110"] * 5,
+            "full_monthly_revenue_data_status": ["ready"] * 5,
+            "full_monthly_revenue_latest_yoy_pct": [60.0, 70.0, 40.0, 80.0, 100.0],
+            "full_monthly_revenue_cumulative_yoy_pct": [30.0, 35.0, 25.0, 40.0, 50.0],
+            "full_monthly_revenue_prev1_latest_yoy_pct": [40.0, 50.0, 45.0, 60.0, 80.0],
+            "full_monthly_revenue_prev2_latest_yoy_pct": [30.0, 40.0, 50.0, 50.0, 70.0],
+            "full_monthly_revenue_prev1_cumulative_yoy_pct": [20.0, 25.0, 30.0, 30.0, 40.0],
+            "full_monthly_revenue_prev2_cumulative_yoy_pct": [15.0, 20.0, 35.0, 20.0, 30.0],
+            "full_monthly_revenue_latest_yoy_delta_1m_pct_points": [20.0] * 5,
+            "full_monthly_revenue_cumulative_yoy_delta_1m_pct_points": [10.0] * 5,
+            "full_monthly_revenue_positive_flag": [True] * 5,
+            "full_monthly_revenue_strong_flag": [True] * 5,
+            "full_monthly_revenue_positive_or_strong": [True] * 5,
+            "full_monthly_revenue_numerical_anomaly_flag": [False, False, False, False, True],
+        }
+    )
+    for day in range(1, 21):
+        df[f"next_open_to_d{day}_day_close_return_pct"] = [12.0, 20.0, -4.0, 6.0, 1.0]
+
+    summary, detail, anomaly = build_revenue_unreacted_range_feature_contrast_audit(
+        df,
+        market_history=pd.DataFrame(),
+    )
+
+    assert validate_revenue_feature_contrast(
+        summary.astype(str),
+        detail.astype(str),
+        anomaly.astype(str),
+    ) == []
+    decision = summary[
+        summary["anomaly_exclusion_basis"].eq("excluding_known_revenue_and_price_anomalies")
+    ]
+    baseline = decision[decision["row_type"].eq("baseline")].iloc[0]
+    assert baseline["accepted_trade_count"] == 3
+    assert baseline["same_stock_overlap_pair_count"] == 0
+    macd = decision[decision["feature_id"].eq("technical_macd_hist_gt0")].iloc[0]
+    assert macd["high_return_feature_hit_rate_pct"] == 100.0
+    assert macd["failure_feature_hit_rate_pct"] == 0.0
+    assert macd["win_rate_pct"] == 100.0
+    assert macd["evidence_interpretation"] == "positive_discriminator_single_feature_candidate"
+    tdcc_four = decision[decision["feature_id"].eq("tdcc_four_thresholds_sync_up")].iloc[0]
+    assert tdcc_four["feature_independence_status"] == "duplicate_mask_not_independent_evidence"
+    assert tdcc_four["equivalent_to_feature_id"] == "tdcc_all_thresholds_up"
+    assert set(summary["combination_policy"]) == {
+        "single_features_only_in_this_audit_no_arbitrary_condition_stacking"
+    }
+
+
+def test_revenue_future_close_path_audit_separates_discontinuity_from_continuous_large_return() -> None:
+    frame = pd.DataFrame(index=["discontinuous", "continuous"])
+    discontinuous = [0.0, 100.0] + [100.0] * 18
+    continuous = [10.0 * day for day in range(1, 21)]
+    for day in range(1, 21):
+        frame[f"next_open_to_d{day}_day_close_return_pct"] = [
+            discontinuous[day - 1],
+            continuous[day - 1],
+        ]
+
+    audited = _revenue_future_close_path_audit(frame)
+
+    assert bool(audited.loc["discontinuous", "future_close_discontinuity_flag"]) is True
+    assert audited.loc["discontinuous", "future_close_discontinuity_reason"] == "upward_close_discontinuity_ge_1_5x"
+    assert bool(audited.loc["continuous", "future_close_discontinuity_flag"]) is False
+    assert audited.loc["continuous", "future_close_discontinuity_reason"] == "none"
+
+
+def test_revenue_market_mapping_covers_listed_and_otc_source_labels() -> None:
+    assert _revenue_benchmark_index("listed") == "TWSE"
+    assert _revenue_benchmark_index("TWSE") == "TWSE"
+    assert _revenue_benchmark_index("otc") == "TPEX"
+    assert _revenue_benchmark_index("TPEX") == "TPEX"
+
+
+def test_revenue_feature_context_anomaly_mask_checks_lagged_values_and_deltas() -> None:
+    frame = pd.DataFrame(
+        {
+            "full_monthly_revenue_numerical_anomaly_flag": [False, False, False],
+            "full_monthly_revenue_latest_yoy_pct": [50.0, 50.0, 50.0],
+            "full_monthly_revenue_cumulative_yoy_pct": [30.0, 30.0, 30.0],
+            "full_monthly_revenue_prev1_latest_yoy_pct": [40.0, 800.0, 40.0],
+            "full_monthly_revenue_prev2_latest_yoy_pct": [30.0, 30.0, 30.0],
+            "full_monthly_revenue_prev3_latest_yoy_pct": [20.0, 20.0, 20.0],
+            "full_monthly_revenue_prev1_cumulative_yoy_pct": [25.0, 25.0, 25.0],
+            "full_monthly_revenue_prev2_cumulative_yoy_pct": [20.0, 20.0, 20.0],
+            "full_monthly_revenue_prev3_cumulative_yoy_pct": [15.0, 15.0, 15.0],
+            "full_monthly_revenue_latest_yoy_delta_1m_pct_points": [10.0, -750.0, 400.0],
+            "full_monthly_revenue_cumulative_yoy_delta_1m_pct_points": [5.0, 5.0, 5.0],
+        }
+    )
+
+    assert _revenue_feature_context_anomaly_mask(frame).tolist() == [False, True, True]
+
+
+def test_research_workflow_validates_and_stages_revenue_feature_contrast_artifacts() -> None:
+    workflow = (ROOT / ".github" / "workflows" / "research_backtest_pipeline.yml").read_text(encoding="utf-8")
+
+    assert "python scripts/validate_revenue_unreacted_range_feature_contrast_audit.py" in workflow
+    assert "revenue_unreacted_range_feature_contrast_audit_detail_latest.csv" in workflow
+    assert "revenue_unreacted_range_feature_contrast_anomaly_audit_latest.csv" in workflow
+    assert "docs/latest/revenue_unreacted_range_feature_contrast_audit_detail_latest.csv" not in workflow
+    assert "output/history/research/revenue_unreacted_range_feature_contrast_audit_detail.csv" not in workflow
 
 
 def test_feature_confirmation_deltas_support_future_string_dtype() -> None:

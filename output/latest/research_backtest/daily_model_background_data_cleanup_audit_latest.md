@@ -1,10 +1,10 @@
 # Daily Model Background Data Cleanup Audit
 
-- generated_at: `2026-07-05 04:40:33 Asia/Taipei`
+- generated_at: `2026-07-11 15:35:45 Asia/Taipei`
 - registry: `config/daily_model_background_data_registry.csv`
-- rows: `19`
+- rows: `23`
 - deletion_allowed_rows: `0`
-- deprecated_candidate_rows: `0`
+- deprecated_candidate_rows: `1`
 
 This audit is a deletion gate. It does not delete artifacts. A data family
 can move to a cleanup PR only when the registry marks it
@@ -15,9 +15,10 @@ inventory, lineage, validator, replay, parity, or promotion references.
 
 | deletion_decision | rows |
 | --- | --- |
+| blocked_deprecated_candidate_has_dependencies | 1 |
 | retain_historical_replay_evidence | 2 |
 | retain_latest_only_context | 1 |
-| retain_model_research_evidence | 5 |
+| retain_model_research_evidence | 8 |
 | retain_model_specific_semantics | 2 |
 | retain_shared_objective_source | 9 |
 
@@ -41,30 +42,38 @@ inventory, lineage, validator, replay, parity, or promotion references.
 | price_pullback_23ema_revenue_condition_matrix | model_research_output | active | retain_model_research_evidence | False | keep until superseded by explicit approved operation or cleanup PR |
 | price_pullback_23ema_promotion_matrix | model_research_output | active | retain_model_research_evidence | False | keep until superseded by explicit approved operation or cleanup PR |
 | revenue_unreacted_range_revenue_condition_matrix | model_research_output | active | retain_model_research_evidence | False | keep until superseded by explicit approved operation or cleanup PR |
+| revenue_unreacted_range_operation_candidate_matrix | model_research_output | active | retain_model_research_evidence | False | keep until superseded by explicit approved operation or cleanup PR |
+| revenue_unreacted_range_feature_contrast_audit | model_research_output | active | retain_model_research_evidence | False | keep until superseded by explicit approved operation or cleanup PR |
+| volume_range_breakout_v2_high_position_improvement_audit | model_research_output | active | retain_model_research_evidence | False | keep until superseded by explicit approved operation or cleanup PR |
+| mature_model_row_level_metric_contract_audit | model_research_output | active | retain_model_research_evidence | False | keep until superseded by explicit approved operation or cleanup PR |
 | neckline_context_interpretation | model_specific | active | retain_model_specific_semantics | False | keep with owning model contract; do not reuse across unrelated models |
 | w_bottom_shape_interpretation | model_specific | active | retain_model_specific_semantics | False | keep with owning model contract; do not reuse across unrelated models |
-| volume_breakout_operation_research_outputs | model_research_output | active | retain_model_research_evidence | False | keep until superseded by explicit approved operation or cleanup PR |
+| volume_breakout_operation_research_outputs | model_research_output | deprecated_candidate | blocked_deprecated_candidate_has_dependencies | False | remove or migrate dependencies in a reviewed cleanup PR before deleting artifacts |
 
 ## Dependency Counts
 
 | data_family_id | artifact_match_count | workflow_reference_count | inventory_reference_count | lineage_reference_count | script_test_reference_count | docs_reference_count |
 | --- | --- | --- | --- | --- | --- | --- |
-| stock_price_history | 2376 | 7 | 2 | 1 | 66 | 55 |
+| stock_price_history | 2376 | 9 | 2 | 1 | 85 | 57 |
 | tdcc_stock_history | 1974 | 3 | 2 | 1 | 18 | 33 |
-| market_index_history | 1 | 2 | 2 | 1 | 24 | 18 |
+| market_index_history | 1 | 2 | 2 | 1 | 25 | 18 |
 | market_sentiment_context_history | 1 | 1 | 2 | 1 | 11 | 18 |
-| daily_model_signal_snapshots | 13 | 1 | 2 | 1 | 35 | 19 |
-| daily_all_candidates_snapshots | 13 | 5 | 2 | 1 | 58 | 19 |
-| daily_model_signal_background_feature_panel | 1 | 9 | 2 | 1 | 87 | 63 |
+| daily_model_signal_snapshots | 17 | 2 | 2 | 1 | 43 | 19 |
+| daily_all_candidates_snapshots | 17 | 6 | 2 | 1 | 59 | 19 |
+| daily_model_signal_background_feature_panel | 1 | 9 | 2 | 1 | 94 | 62 |
 | daily_model_background_feature_catalog | 1 | 1 | 2 | 1 | 4 | 2 |
-| monthly_revenue_history | 1 | 1 | 2 | 1 | 13 | 11 |
-| monthly_revenue_coverage_backfill_audit | 1 | 2 | 2 | 1 | 18 | 9 |
+| monthly_revenue_history | 1 | 1 | 2 | 1 | 13 | 12 |
+| monthly_revenue_coverage_backfill_audit | 1 | 2 | 2 | 1 | 20 | 10 |
 | monthly_revenue_point_in_time_panel | 1 | 5 | 2 | 1 | 65 | 22 |
-| theme_taxonomy_latest | 1 | 1 | 2 | 1 | 29 | 17 |
-| price_pullback_23ema_research_outputs | 14 | 1 | 2 | 1 | 18 | 34 |
-| price_pullback_23ema_revenue_condition_matrix | 1 | 1 | 2 | 1 | 7 | 8 |
-| price_pullback_23ema_promotion_matrix | 1 | 1 | 2 | 1 | 5 | 5 |
-| revenue_unreacted_range_revenue_condition_matrix | 1 | 6 | 2 | 1 | 62 | 45 |
-| neckline_context_interpretation | 1 | 6 | 2 | 1 | 79 | 51 |
-| w_bottom_shape_interpretation | 1 | 5 | 2 | 1 | 77 | 52 |
-| volume_breakout_operation_research_outputs | 15 | 8 | 2 | 1 | 242 | 176 |
+| theme_taxonomy_latest | 1 | 1 | 2 | 1 | 30 | 17 |
+| price_pullback_23ema_research_outputs | 14 | 3 | 2 | 1 | 37 | 47 |
+| price_pullback_23ema_revenue_condition_matrix | 1 | 1 | 2 | 1 | 8 | 9 |
+| price_pullback_23ema_promotion_matrix | 1 | 1 | 2 | 1 | 6 | 6 |
+| revenue_unreacted_range_revenue_condition_matrix | 1 | 6 | 2 | 1 | 71 | 45 |
+| revenue_unreacted_range_operation_candidate_matrix | 1 | 9 | 2 | 1 | 78 | 57 |
+| revenue_unreacted_range_feature_contrast_audit | 1 | 9 | 2 | 1 | 85 | 61 |
+| volume_range_breakout_v2_high_position_improvement_audit | 1 | 6 | 2 | 1 | 72 | 46 |
+| mature_model_row_level_metric_contract_audit | 1 | 3 | 2 | 1 | 34 | 28 |
+| neckline_context_interpretation | 1 | 7 | 2 | 1 | 91 | 51 |
+| w_bottom_shape_interpretation | 1 | 6 | 2 | 1 | 89 | 52 |
+| volume_breakout_operation_research_outputs | 15 | 9 | 2 | 1 | 286 | 192 |
