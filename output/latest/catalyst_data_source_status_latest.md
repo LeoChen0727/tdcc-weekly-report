@@ -1,6 +1,6 @@
 # Catalyst Data Source Status
 
-- generated_at: `2026-07-11 12:29:46 Asia/Taipei`
+- generated_at: `2026-07-11 13:46:46 Asia/Taipei`
 - external_fetch_status: `partial_ok`
 - note: Official monthly revenue and material-information sources are used when reachable. No unverified news, MOPS pages, or social rumor data is fabricated.
 
