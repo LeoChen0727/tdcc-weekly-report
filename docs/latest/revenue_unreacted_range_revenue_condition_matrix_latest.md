@@ -1,6 +1,6 @@
 # Revenue Unreacted Range Revenue Condition Matrix
 
-- generated_at: `2026-07-11 23:58:51 Asia/Taipei`
+- generated_at: `2026-07-12 02:22:53 Asia/Taipei`
 - status: `not_production_ready_research_only`
 - production_change: `none`
 - revenue_join_rule: `source_table_date <= signal_date`
@@ -8,17 +8,17 @@
 
 | anomaly_exclusion_basis | condition_test_id | condition_family | source_mature_signal_stock_days | accepted_trade_count | accepted_trade_share_of_baseline_pct | win_rate_pct | neutral_rate_pct | failure_rate_pct | avg_realized_return_pct | median_realized_return_pct | high_return_8_rate_pct | loss_5_rate_pct | avg_revenue_latest_yoy_pct | avg_revenue_cumulative_yoy_pct | promotion_readiness |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| excluding_revenue_numerical_anomalies | price_range_no_attack_without_revenue_gate | baseline | 340453 | 309841 | 100.0 | 23.89 | 23.33 | 52.78 | 1.7 | -0.49 | 17.25 | 23.8 | 4.85 | 6.82 | blocked_operation_rule_and_model_specific_promotion_pr_required |
-| excluding_revenue_numerical_anomalies | revenue_context_ready | revenue_coverage | 336572 | 307789 | 99.34 | 23.83 | 23.28 | 52.89 | 1.7 | -0.5 | 17.2 | 23.84 | 4.85 | 6.82 | blocked_operation_rule_and_model_specific_promotion_pr_required |
-| excluding_revenue_numerical_anomalies | revenue_production_strong | revenue_strength | 83084 | 74499 | 24.04 | 29.4 | 19.57 | 51.02 | 2.82 | -0.31 | 22.57 | 26.89 | 47.36 | 44.99 | blocked_operation_rule_and_model_specific_promotion_pr_required |
-| excluding_revenue_numerical_anomalies | latest_revenue_yoy_ge50 | revenue_strength | 28349 | 24775 | 8.0 | 31.56 | 17.92 | 50.51 | 3.21 | -0.22 | 24.96 | 28.71 | 100.99 | 63.65 | blocked_operation_rule_and_model_specific_promotion_pr_required |
-| excluding_revenue_numerical_anomalies | latest_revenue_yoy_ge100 | revenue_strength | 9972 | 8681 | 2.8 | 29.77 | 18.25 | 51.99 | 2.71 | -0.51 | 23.78 | 29.39 | 159.36 | 99.03 | blocked_operation_rule_and_model_specific_promotion_pr_required |
-| excluding_revenue_numerical_anomalies | cumulative_revenue_yoy_ge30 | revenue_strength | 42656 | 38248 | 12.34 | 31.09 | 18.07 | 50.83 | 3.15 | -0.28 | 24.34 | 28.06 | 58.04 | 72.54 | blocked_operation_rule_and_model_specific_promotion_pr_required |
-| excluding_revenue_numerical_anomalies | latest30_and_cumulative20 | revenue_strength_combo | 37194 | 32615 | 10.53 | 32.3 | 17.89 | 49.81 | 3.44 | 0.0 | 25.59 | 27.73 | 76.62 | 65.9 | blocked_operation_rule_and_model_specific_promotion_pr_required |
-| including_numerical_anomalies | price_range_no_attack_without_revenue_gate | baseline | 348224 | 316652 | 100.0 | 23.88 | 23.21 | 52.91 | 1.67 | -0.51 | 17.26 | 24.02 | 862.89 | 510.66 | blocked_operation_rule_and_model_specific_promotion_pr_required |
-| including_numerical_anomalies | revenue_context_ready | revenue_coverage | 344343 | 314600 | 99.35 | 23.82 | 23.16 | 53.02 | 1.66 | -0.52 | 17.21 | 24.06 | 862.89 | 510.66 | blocked_operation_rule_and_model_specific_promotion_pr_required |
-| including_numerical_anomalies | revenue_production_strong | revenue_strength | 90512 | 80985 | 25.58 | 28.93 | 19.34 | 51.73 | 2.61 | -0.42 | 22.22 | 27.5 | 3374.79 | 1995.3 | blocked_operation_rule_and_model_specific_promotion_pr_required |
-| including_numerical_anomalies | latest_revenue_yoy_ge50 | revenue_strength | 35151 | 30721 | 9.7 | 29.89 | 17.7 | 52.41 | 2.61 | -0.59 | 23.52 | 29.82 | 8845.36 | 5079.35 | blocked_operation_rule_and_model_specific_promotion_pr_required |
-| including_numerical_anomalies | latest_revenue_yoy_ge100 | revenue_strength | 16640 | 14501 | 4.58 | 27.12 | 17.72 | 55.17 | 1.7 | -1.14 | 21.36 | 31.32 | 18661.48 | 10707.9 | blocked_operation_rule_and_model_specific_promotion_pr_required |
-| including_numerical_anomalies | cumulative_revenue_yoy_ge30 | revenue_strength | 49111 | 43853 | 13.85 | 30.11 | 17.83 | 52.07 | 2.74 | -0.51 | 23.55 | 28.98 | 6114.04 | 3672.02 | blocked_operation_rule_and_model_specific_promotion_pr_required |
-| including_numerical_anomalies | latest30_and_cumulative20 | revenue_strength_combo | 43106 | 37763 | 11.93 | 31.03 | 17.68 | 51.29 | 2.96 | -0.36 | 24.52 | 28.71 | 7080.12 | 4148.2 | blocked_operation_rule_and_model_specific_promotion_pr_required |
+| excluding_revenue_numerical_anomalies | price_range_no_attack_without_revenue_gate | baseline | 305604 | 276714 | 100.0 | 24.18 | 23.53 | 52.29 | 1.81 | -0.42 | 17.49 | 23.46 | 4.58 | 6.6 | blocked_operation_rule_and_model_specific_promotion_pr_required |
+| excluding_revenue_numerical_anomalies | revenue_context_ready | revenue_coverage | 303575 | 274961 | 99.37 | 24.13 | 23.48 | 52.39 | 1.81 | -0.43 | 17.45 | 23.5 | 4.58 | 6.6 | blocked_operation_rule_and_model_specific_promotion_pr_required |
+| excluding_revenue_numerical_anomalies | revenue_production_strong | revenue_strength | 74269 | 65732 | 23.75 | 29.44 | 19.56 | 51.0 | 2.86 | -0.31 | 22.73 | 27.0 | 47.88 | 45.4 | blocked_operation_rule_and_model_specific_promotion_pr_required |
+| excluding_revenue_numerical_anomalies | latest_revenue_yoy_ge50 | revenue_strength | 25729 | 22183 | 8.02 | 31.17 | 18.01 | 50.82 | 3.06 | -0.29 | 24.77 | 29.03 | 100.8 | 64.42 | blocked_operation_rule_and_model_specific_promotion_pr_required |
+| excluding_revenue_numerical_anomalies | latest_revenue_yoy_ge100 | revenue_strength | 9039 | 7768 | 2.81 | 29.74 | 18.92 | 51.34 | 2.58 | -0.38 | 23.84 | 28.95 | 158.96 | 101.33 | blocked_operation_rule_and_model_specific_promotion_pr_required |
+| excluding_revenue_numerical_anomalies | cumulative_revenue_yoy_ge30 | revenue_strength | 38252 | 33881 | 12.24 | 31.01 | 18.0 | 51.0 | 3.17 | -0.32 | 24.46 | 28.28 | 58.86 | 73.12 | blocked_operation_rule_and_model_specific_promotion_pr_required |
+| excluding_revenue_numerical_anomalies | latest30_and_cumulative20 | revenue_strength_combo | 33597 | 29052 | 10.5 | 32.08 | 17.86 | 50.06 | 3.4 | -0.12 | 25.56 | 28.02 | 76.82 | 66.53 | blocked_operation_rule_and_model_specific_promotion_pr_required |
+| including_numerical_anomalies | price_range_no_attack_without_revenue_gate | baseline | 312677 | 282838 | 100.0 | 24.17 | 23.41 | 52.42 | 1.78 | -0.44 | 17.5 | 23.68 | 670.73 | 354.96 | blocked_operation_rule_and_model_specific_promotion_pr_required |
+| including_numerical_anomalies | revenue_context_ready | revenue_coverage | 310648 | 281085 | 99.38 | 24.12 | 23.36 | 52.52 | 1.78 | -0.45 | 17.46 | 23.72 | 670.73 | 354.96 | blocked_operation_rule_and_model_specific_promotion_pr_required |
+| including_numerical_anomalies | revenue_production_strong | revenue_strength | 81017 | 71549 | 25.3 | 29.0 | 19.33 | 51.67 | 2.64 | -0.41 | 22.4 | 27.61 | 2661.08 | 1408.28 | blocked_operation_rule_and_model_specific_promotion_pr_required |
+| including_numerical_anomalies | latest_revenue_yoy_ge50 | revenue_strength | 31905 | 27514 | 9.73 | 29.69 | 17.77 | 52.54 | 2.49 | -0.61 | 23.46 | 30.1 | 6871.86 | 3470.54 | blocked_operation_rule_and_model_specific_promotion_pr_required |
+| including_numerical_anomalies | latest_revenue_yoy_ge100 | revenue_strength | 15093 | 12985 | 4.59 | 27.35 | 18.12 | 54.53 | 1.61 | -1.0 | 21.59 | 31.09 | 14483.04 | 7300.49 | blocked_operation_rule_and_model_specific_promotion_pr_required |
+| including_numerical_anomalies | cumulative_revenue_yoy_ge30 | revenue_strength | 44179 | 38958 | 13.77 | 30.15 | 17.77 | 52.08 | 2.75 | -0.51 | 23.74 | 29.15 | 4784.91 | 2573.8 | blocked_operation_rule_and_model_specific_promotion_pr_required |
+| including_numerical_anomalies | latest30_and_cumulative20 | revenue_strength_combo | 39012 | 33703 | 11.92 | 30.96 | 17.67 | 51.37 | 2.92 | -0.39 | 24.59 | 28.96 | 5515.28 | 2849.12 | blocked_operation_rule_and_model_specific_promotion_pr_required |

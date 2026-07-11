@@ -1,6 +1,6 @@
 # Price Pullback 23EMA Model Decision Audit
 
-- generated_at: `2026-07-11 23:58:51 Asia/Taipei`
+- generated_at: `2026-07-12 02:22:56 Asia/Taipei`
 - model_id: `price_pullback_23ema`
 - status: `discussion_ready_research_only`; this does not change production condition, scoring, ranking, or contract registry
 - fixed_operation_module_candidate_id: `next_open_prev20_high_breakout_lower_ma20_ema23_stop4pct_4d_d20_close_exit`
@@ -36,8 +36,8 @@
 | entry_filter | entry_filter:solid_volume_red_k_vol1.2 | entry_filter | 5.31 | 14566 | 60.85 | 19.35 | 31.46 | -14.09 | -0.04 | -0.51 | 9.44 | score_bonus_candidate_winrate_tradeoff | 勝率與失敗率改善，但平均實現報酬低於 baseline；較適合討論加分，不適合直接當硬 gate。 |
 | entry_filter | entry_filter:solid_volume_red_k_vol1.5 | entry_filter | 3.42 | 9344 | 62.99 | 21.49 | 30.09 | -15.46 | -0.18 | -0.65 | 8.93 | score_bonus_candidate_winrate_tradeoff | 勝率與失敗率改善，但平均實現報酬低於 baseline；較適合討論加分，不適合直接當硬 gate。 |
 | entry_filter | entry_filter:prior_ext20_ema10_runup20_pullback5 | entry_filter | 20.21 | 52177 | 28.94 | -12.56 | 56.19 | 10.64 | 1.29 | 0.82 | 12.38 | reject_as_required_gate | 相對 baseline 勝率下降且失敗率上升，不適合升成必要條件。 |
-| entry_filter | entry_filter:prior_ext30_ema12_runup25_pullback8 | entry_filter | 22.16 | 58375 | 30.38 | -11.12 | 55.88 | 10.33 | 1.04 | 0.57 | 12.16 | reject_as_required_gate | 相對 baseline 勝率下降且失敗率上升，不適合升成必要條件。 |
-| entry_filter | entry_filter:prior_ext60_ema15_runup35_pullback10 | entry_filter | 30.68 | 84579 | 35.6 | -5.9 | 51.15 | 5.6 | 0.84 | 0.37 | 12.14 | reject_as_required_gate | 相對 baseline 勝率下降且失敗率上升，不適合升成必要條件。 |
+| entry_filter | entry_filter:prior_ext30_ema12_runup25_pullback8 | entry_filter | 20.35 | 52758 | 29.74 | -11.76 | 56.18 | 10.63 | 1.19 | 0.72 | 12.08 | reject_as_required_gate | 相對 baseline 勝率下降且失敗率上升，不適合升成必要條件。 |
+| entry_filter | entry_filter:prior_ext60_ema15_runup35_pullback10 | entry_filter | 20.37 | 52644 | 34.24 | -7.26 | 53.57 | 8.02 | 1.26 | 0.79 | 11.5 | reject_as_required_gate | 相對 baseline 勝率下降且失敗率上升，不適合升成必要條件。 |
 | feature_filter | feature_filter:prior_ext20_ema10_runup20_pullback5 | prior_extension | 20.21 | 51679 | 28.96 | -12.54 | 56.19 | 10.64 | 1.28 | 0.81 | 12.37 | reject_as_required_gate | 相對 baseline 勝率下降且失敗率上升，不適合升成必要條件。 |
 | feature_filter | feature_filter:macd_hist_gt0 | technical | 42.36 | 117820 | 53.88 | 12.38 | 37.52 | -8.03 | 0.3 | -0.17 | 11.46 | score_bonus_candidate_winrate_tradeoff | 勝率與失敗率改善，但平均實現報酬低於 baseline；較適合討論加分，不適合直接當硬 gate。 |
 | feature_filter | feature_filter:kd_bullish_not_overheated | technical | 43.37 | 118567 | 45.28 | 3.78 | 42.88 | -2.67 | 0.17 | -0.3 | 12.23 | mixed_discussion_candidate | 有部分指標優於 baseline，但改善不夠完整，適合進入討論而非直接升格。 |

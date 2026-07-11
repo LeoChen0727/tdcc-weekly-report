@@ -1,30 +1,30 @@
 # Daily Model Parameter Research - Horizon Detail
 
-- generated_at: `2026-07-11 23:58:50 Asia/Taipei`
+- generated_at: `2026-07-12 02:22:52 Asia/Taipei`
 - entry_basis: `signal_date_next_open`
 
 | model_id | parameter_set_id | horizon | mature_count | close_win_rate_pct | avg_close_return_pct | median_close_return_pct | avg_high_return_pct | high_5pct_hit_rate_pct |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| volume_range_breakout_v2_low_position_volume_attack | volume_range_breakout_v2_low_position_operation_v1 | D+1 | 523 | 38.24 | -0.62 | -0.81 | 2.79 | 21.8 |
-| volume_range_breakout_v2_low_position_volume_attack | volume_range_breakout_v2_low_position_operation_v1 | D+2 | 522 | 43.87 | -0.18 | -0.8 | 4.81 | 37.55 |
-| volume_range_breakout_v2_low_position_volume_attack | volume_range_breakout_v2_low_position_operation_v1 | D+3 | 522 | 42.34 | -0.1 | -1.07 | 6.25 | 42.53 |
-| volume_range_breakout_v2_low_position_volume_attack | volume_range_breakout_v2_low_position_operation_v1 | D+4 | 522 | 39.46 | 0.06 | -1.52 | 7.39 | 45.79 |
-| volume_range_breakout_v2_low_position_volume_attack | volume_range_breakout_v2_low_position_operation_v1 | D+5 | 522 | 39.85 | 0.46 | -1.78 | 8.48 | 49.62 |
-| volume_range_breakout_v2_low_position_volume_attack | volume_range_breakout_v2_low_position_operation_v1 | D+6 | 522 | 39.46 | 0.71 | -1.65 | 9.27 | 51.92 |
-| volume_range_breakout_v2_low_position_volume_attack | volume_range_breakout_v2_low_position_operation_v1 | D+7 | 522 | 42.91 | 1.11 | -1.34 | 10.01 | 53.26 |
-| volume_range_breakout_v2_low_position_volume_attack | volume_range_breakout_v2_low_position_operation_v1 | D+8 | 522 | 43.3 | 1.65 | -1.26 | 10.8 | 55.36 |
-| volume_range_breakout_v2_low_position_volume_attack | volume_range_breakout_v2_low_position_operation_v1 | D+9 | 522 | 46.55 | 1.94 | -0.6 | 11.59 | 57.66 |
-| volume_range_breakout_v2_low_position_volume_attack | volume_range_breakout_v2_low_position_operation_v1 | D+10 | 522 | 45.02 | 2.25 | -1.21 | 12.32 | 59.39 |
-| volume_range_breakout_v2_mid_position_momentum_attack | volume_range_breakout_v2_mid_position_operation_v1 | D+1 | 79 | 31.65 | -1.32 | -1.6 | 3.3 | 21.52 |
-| volume_range_breakout_v2_mid_position_momentum_attack | volume_range_breakout_v2_mid_position_operation_v1 | D+2 | 79 | 37.97 | -1.93 | -3.65 | 5.73 | 41.77 |
-| volume_range_breakout_v2_mid_position_momentum_attack | volume_range_breakout_v2_mid_position_operation_v1 | D+3 | 79 | 36.71 | -1.85 | -2.22 | 7.24 | 45.57 |
-| volume_range_breakout_v2_mid_position_momentum_attack | volume_range_breakout_v2_mid_position_operation_v1 | D+4 | 79 | 39.24 | -1.95 | -3.11 | 8.28 | 46.84 |
-| volume_range_breakout_v2_mid_position_momentum_attack | volume_range_breakout_v2_mid_position_operation_v1 | D+5 | 78 | 41.03 | -1.86 | -3.71 | 9.54 | 52.56 |
-| volume_range_breakout_v2_mid_position_momentum_attack | volume_range_breakout_v2_mid_position_operation_v1 | D+6 | 78 | 38.46 | -2.32 | -3.26 | 10.4 | 57.69 |
-| volume_range_breakout_v2_mid_position_momentum_attack | volume_range_breakout_v2_mid_position_operation_v1 | D+7 | 78 | 39.74 | -2.07 | -3.39 | 11.21 | 60.26 |
-| volume_range_breakout_v2_mid_position_momentum_attack | volume_range_breakout_v2_mid_position_operation_v1 | D+8 | 78 | 46.15 | -1.82 | -2.35 | 11.64 | 61.54 |
-| volume_range_breakout_v2_mid_position_momentum_attack | volume_range_breakout_v2_mid_position_operation_v1 | D+9 | 78 | 43.59 | -1.08 | -1.55 | 12.55 | 65.38 |
-| volume_range_breakout_v2_mid_position_momentum_attack | volume_range_breakout_v2_mid_position_operation_v1 | D+10 | 78 | 46.15 | -0.83 | -1.75 | 13.49 | 66.67 |
+| volume_range_breakout_v2_low_position_volume_attack | volume_range_breakout_v2_low_position_operation_v1 | D+1 | 21 | 47.62 | 0.12 | 0.0 | 2.73 | 14.29 |
+| volume_range_breakout_v2_low_position_volume_attack | volume_range_breakout_v2_low_position_operation_v1 | D+2 | 20 | 50.0 | -0.67 | -0.21 | 4.18 | 25.0 |
+| volume_range_breakout_v2_low_position_volume_attack | volume_range_breakout_v2_low_position_operation_v1 | D+3 | 20 | 40.0 | -0.51 | -1.47 | 5.42 | 30.0 |
+| volume_range_breakout_v2_low_position_volume_attack | volume_range_breakout_v2_low_position_operation_v1 | D+4 | 20 | 40.0 | -0.87 | -1.58 | 5.79 | 35.0 |
+| volume_range_breakout_v2_low_position_volume_attack | volume_range_breakout_v2_low_position_operation_v1 | D+5 | 20 | 30.0 | -1.98 | -1.87 | 5.79 | 35.0 |
+| volume_range_breakout_v2_low_position_volume_attack | volume_range_breakout_v2_low_position_operation_v1 | D+6 | 20 | 45.0 | -2.08 | -1.58 | 5.79 | 35.0 |
+| volume_range_breakout_v2_low_position_volume_attack | volume_range_breakout_v2_low_position_operation_v1 | D+7 | 20 | 45.0 | -1.72 | -2.27 | 5.87 | 35.0 |
+| volume_range_breakout_v2_low_position_volume_attack | volume_range_breakout_v2_low_position_operation_v1 | D+8 | 20 | 25.0 | -2.27 | -4.08 | 5.87 | 35.0 |
+| volume_range_breakout_v2_low_position_volume_attack | volume_range_breakout_v2_low_position_operation_v1 | D+9 | 20 | 30.0 | -1.76 | -1.73 | 6.02 | 35.0 |
+| volume_range_breakout_v2_low_position_volume_attack | volume_range_breakout_v2_low_position_operation_v1 | D+10 | 20 | 25.0 | -3.1 | -3.45 | 6.09 | 35.0 |
+| volume_range_breakout_v2_mid_position_momentum_attack | volume_range_breakout_v2_mid_position_operation_v1 | D+1 | 13 | 23.08 | -0.29 | -1.6 | 4.24 | 23.08 |
+| volume_range_breakout_v2_mid_position_momentum_attack | volume_range_breakout_v2_mid_position_operation_v1 | D+2 | 13 | 38.46 | 0.31 | -2.71 | 6.1 | 30.77 |
+| volume_range_breakout_v2_mid_position_momentum_attack | volume_range_breakout_v2_mid_position_operation_v1 | D+3 | 13 | 46.15 | -0.77 | -2.07 | 6.82 | 30.77 |
+| volume_range_breakout_v2_mid_position_momentum_attack | volume_range_breakout_v2_mid_position_operation_v1 | D+4 | 13 | 53.85 | 0.17 | 0.32 | 7.61 | 30.77 |
+| volume_range_breakout_v2_mid_position_momentum_attack | volume_range_breakout_v2_mid_position_operation_v1 | D+5 | 12 | 58.33 | 1.25 | 1.41 | 10.09 | 41.67 |
+| volume_range_breakout_v2_mid_position_momentum_attack | volume_range_breakout_v2_mid_position_operation_v1 | D+6 | 12 | 58.33 | -0.24 | 2.2 | 11.14 | 58.33 |
+| volume_range_breakout_v2_mid_position_momentum_attack | volume_range_breakout_v2_mid_position_operation_v1 | D+7 | 12 | 58.33 | -0.85 | 1.67 | 12.46 | 58.33 |
+| volume_range_breakout_v2_mid_position_momentum_attack | volume_range_breakout_v2_mid_position_operation_v1 | D+8 | 12 | 58.33 | -0.85 | 1.86 | 12.86 | 58.33 |
+| volume_range_breakout_v2_mid_position_momentum_attack | volume_range_breakout_v2_mid_position_operation_v1 | D+9 | 12 | 58.33 | 0.0 | 7.06 | 13.79 | 66.67 |
+| volume_range_breakout_v2_mid_position_momentum_attack | volume_range_breakout_v2_mid_position_operation_v1 | D+10 | 12 | 58.33 | -0.68 | 4.26 | 14.06 | 66.67 |
 | volume_range_breakout_v2_high_position_volume_attack | volume_range_breakout_v2_high_position_operation_v1 | D+1 | 0 |  |  |  |  |  |
 | volume_range_breakout_v2_high_position_volume_attack | volume_range_breakout_v2_high_position_operation_v1 | D+2 | 0 |  |  |  |  |  |
 | volume_range_breakout_v2_high_position_volume_attack | volume_range_breakout_v2_high_position_operation_v1 | D+3 | 0 |  |  |  |  |  |
@@ -55,16 +55,16 @@
 | hot_theme_pullback | production_current_proxy | D+8 | 3771 | 47.18 | 0.56 | -0.38 | 8.56 | 55.18 |
 | hot_theme_pullback | production_current_proxy | D+9 | 3517 | 48.0 | 0.67 | -0.24 | 9.04 | 57.12 |
 | hot_theme_pullback | production_current_proxy | D+10 | 3276 | 47.16 | 0.54 | -0.42 | 9.4 | 58.21 |
-| revenue_unreacted_range | production_current_proxy | D+1 | 348224 | 39.32 | -0.14 | -0.17 | 1.31 | 4.68 |
-| revenue_unreacted_range | production_current_proxy | D+2 | 346364 | 42.18 | -0.04 | -0.23 | 2.18 | 11.48 |
-| revenue_unreacted_range | production_current_proxy | D+3 | 344586 | 43.11 | 0.05 | -0.27 | 2.87 | 16.9 |
-| revenue_unreacted_range | production_current_proxy | D+4 | 342975 | 43.66 | 0.15 | -0.29 | 3.48 | 21.46 |
-| revenue_unreacted_range | production_current_proxy | D+5 | 341416 | 44.03 | 0.26 | -0.31 | 4.04 | 25.43 |
-| revenue_unreacted_range | production_current_proxy | D+6 | 339598 | 44.09 | 0.34 | -0.34 | 4.55 | 28.64 |
-| revenue_unreacted_range | production_current_proxy | D+7 | 337775 | 44.19 | 0.42 | -0.36 | 5.02 | 31.43 |
-| revenue_unreacted_range | production_current_proxy | D+8 | 335909 | 44.32 | 0.52 | -0.38 | 5.48 | 33.96 |
-| revenue_unreacted_range | production_current_proxy | D+9 | 334010 | 44.4 | 0.61 | -0.4 | 5.91 | 36.17 |
-| revenue_unreacted_range | production_current_proxy | D+10 | 332174 | 44.29 | 0.68 | -0.43 | 6.32 | 38.09 |
+| revenue_unreacted_range | production_current_proxy | D+1 | 312677 | 39.55 | -0.13 | -0.17 | 1.33 | 4.81 |
+| revenue_unreacted_range | production_current_proxy | D+2 | 310964 | 42.39 | -0.03 | -0.23 | 2.21 | 11.78 |
+| revenue_unreacted_range | production_current_proxy | D+3 | 309325 | 43.33 | 0.07 | -0.26 | 2.92 | 17.3 |
+| revenue_unreacted_range | production_current_proxy | D+4 | 307856 | 43.91 | 0.18 | -0.27 | 3.54 | 21.94 |
+| revenue_unreacted_range | production_current_proxy | D+5 | 306436 | 44.4 | 0.29 | -0.29 | 4.11 | 25.99 |
+| revenue_unreacted_range | production_current_proxy | D+6 | 304762 | 44.55 | 0.39 | -0.31 | 4.63 | 29.25 |
+| revenue_unreacted_range | production_current_proxy | D+7 | 303086 | 44.71 | 0.48 | -0.33 | 5.12 | 32.08 |
+| revenue_unreacted_range | production_current_proxy | D+8 | 301366 | 44.87 | 0.59 | -0.34 | 5.59 | 34.64 |
+| revenue_unreacted_range | production_current_proxy | D+9 | 299617 | 45.02 | 0.69 | -0.35 | 6.03 | 36.89 |
+| revenue_unreacted_range | production_current_proxy | D+10 | 297934 | 44.97 | 0.78 | -0.38 | 6.45 | 38.83 |
 | w_bottom_right_side | w_bottom_early_entry_operation_v2 | D+1 | 94984 | 39.16 | -0.22 | -0.27 | 1.67 | 8.36 |
 | w_bottom_right_side | w_bottom_early_entry_operation_v2 | D+2 | 94428 | 41.56 | -0.12 | -0.35 | 2.75 | 17.18 |
 | w_bottom_right_side | w_bottom_early_entry_operation_v2 | D+3 | 93869 | 42.35 | 0.01 | -0.39 | 3.62 | 23.14 |

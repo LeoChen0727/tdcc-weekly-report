@@ -43,6 +43,11 @@ from revenue_unreacted_range_close_confirmation_timing import (  # noqa: E402
     build_close_confirmation_timing_audit,
     write_close_confirmation_timing_audit,
 )
+from revenue_unreacted_range_fixed_confirmation_feature_contrast import (  # noqa: E402
+    SUMMARY_CSV as REVENUE_UNREACTED_FIXED_CONFIRMATION_FEATURE_CONTRAST_CSV,
+    build_fixed_confirmation_feature_contrast,
+    write_fixed_confirmation_feature_contrast,
+)
 
 
 HISTORY_DIR = Path("output/history/research")
@@ -384,12 +389,8 @@ def add_price_structure_features(df: pd.DataFrame) -> pd.DataFrame:
     # 20-day denominator. Keep the alias local to this research script so the
     # parameter rules read consistently.
     out["volume_ratio_prev20"] = out["start_day_volume_ratio_vs_prev20"]
-    volume_ma20 = (
-        groups["volume"]
-        .shift(1)
-        .rolling(20, min_periods=10)
-        .mean()
-        .reset_index(level=0, drop=True)
+    volume_ma20 = groups["volume"].transform(
+        lambda series: series.shift(1).rolling(20, min_periods=10).mean()
     )
     # Some sources store raw shares, others store lots. Normalize only clearly
     # share-denominated values so the liquidity rule remains stable.
@@ -403,8 +404,17 @@ def add_price_structure_features(df: pd.DataFrame) -> pd.DataFrame:
     out["obv_slope_5d"] = out["obv"] - obv_groups["obv"].shift(5)
 
     for window in [10, 20, 23, 30, 45, 60, 120]:
-        high = groups["high"].shift(1).rolling(window, min_periods=max(5, min(window, 20))).max().reset_index(level=0, drop=True)
-        low = groups["low"].shift(1).rolling(window, min_periods=max(5, min(window, 20))).min().reset_index(level=0, drop=True)
+        min_periods = max(5, min(window, 20))
+        high = groups["high"].transform(
+            lambda series, window=window, min_periods=min_periods: series.shift(1)
+            .rolling(window, min_periods=min_periods)
+            .max()
+        )
+        low = groups["low"].transform(
+            lambda series, window=window, min_periods=min_periods: series.shift(1)
+            .rolling(window, min_periods=min_periods)
+            .min()
+        )
         out[f"range_high_{window}d_prev"] = high
         out[f"range_low_{window}d_prev"] = low
         out[f"range_width_{window}d_pct"] = (high / low - 1.0) * 100.0
@@ -5621,8 +5631,9 @@ REVENUE_UNREACTED_FEATURE_CONTRAST_BINARY_SPECS = [
         "feature_order": 270,
         "feature_id": "technical_close_above_ma20_ema23",
         "feature_family": "technical",
-        "feature_rule": "signal close is above both MA20 and EMA23",
-        "condition": lambda d: trueish_column(d, "close_above_ma20") & trueish_column(d, "close_above_ema23"),
+        "feature_rule": "feature-date close is above both MA20 and EMA23",
+        "condition": lambda d: numeric_column(d, "close").gt(numeric_column(d, "ma20"))
+        & numeric_column(d, "close").gt(numeric_column(d, "ema23")),
     },
     {
         "feature_order": 280,
@@ -7316,10 +7327,7 @@ def write_revenue_unreacted_range_feature_contrast_audit(
     )
 
 
-def build_revenue_unreacted_range_close_confirmation_timing_audit(
-    df: pd.DataFrame,
-    feature_contrast_anomaly: pd.DataFrame | None = None,
-) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
+def _revenue_unreacted_timing_prepared_frame(df: pd.DataFrame) -> pd.DataFrame:
     positioned = _price_pullback_positioned_frame(df).sort_values(
         ["stock_id", "_price_pullback_signal_date", "_price_pullback_source_row_index"],
         kind="mergesort",
@@ -7343,6 +7351,14 @@ def build_revenue_unreacted_range_close_confirmation_timing_audit(
         positioned,
         include_price_exception=True,
     )
+    return positioned
+
+
+def build_revenue_unreacted_range_close_confirmation_timing_audit(
+    df: pd.DataFrame,
+    feature_contrast_anomaly: pd.DataFrame | None = None,
+) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
+    positioned = _revenue_unreacted_timing_prepared_frame(df)
 
     expected_control: dict[str, object] | None = None
     if feature_contrast_anomaly is not None and not feature_contrast_anomaly.empty:
@@ -9830,6 +9846,20 @@ def main() -> int:
         df,
         revenue_unreacted_feature_contrast_anomaly_df,
     )
+    print("Building revenue_unreacted_range fixed-confirmation feature contrast", flush=True)
+    revenue_unreacted_timing_prepared_df = _attach_revenue_signal_market_regime(
+        _revenue_unreacted_timing_prepared_frame(df)
+    )
+    (
+        revenue_unreacted_fixed_feature_summary_df,
+        revenue_unreacted_fixed_feature_detail_df,
+        revenue_unreacted_fixed_feature_anomaly_df,
+    ) = build_fixed_confirmation_feature_contrast(
+        revenue_unreacted_timing_prepared_df,
+        revenue_unreacted_timing_summary_df,
+        binary_specs=REVENUE_UNREACTED_FEATURE_CONTRAST_BINARY_SPECS,
+        numeric_specs=REVENUE_UNREACTED_FEATURE_CONTRAST_NUMERIC_SPECS,
+    )
     print("Building price_pullback ordered condition matrix", flush=True)
     price_pullback_ordered_condition_matrix_df = build_price_pullback_ordered_condition_matrix(df)
     print("Building price_pullback lifecycle replay", flush=True)
@@ -9880,6 +9910,11 @@ def main() -> int:
         revenue_unreacted_timing_detail_df,
         revenue_unreacted_timing_anomaly_df,
     )
+    write_fixed_confirmation_feature_contrast(
+        revenue_unreacted_fixed_feature_summary_df,
+        revenue_unreacted_fixed_feature_detail_df,
+        revenue_unreacted_fixed_feature_anomaly_df,
+    )
     write_price_pullback_ordered_condition_matrix(price_pullback_ordered_condition_matrix_df)
     write_price_pullback_lifecycle_replay(price_pullback_lifecycle_replay_df)
     write_price_pullback_daily_row_parity_audit(price_pullback_daily_row_parity_df)
@@ -9907,6 +9942,10 @@ def main() -> int:
         "Saved output/latest/research_backtest/"
         "revenue_unreacted_range_close_confirmation_timing_audit_latest.csv "
         f"rows={len(revenue_unreacted_timing_summary_df)}"
+    )
+    print(
+        f"Saved {REVENUE_UNREACTED_FIXED_CONFIRMATION_FEATURE_CONTRAST_CSV} "
+        f"rows={len(revenue_unreacted_fixed_feature_summary_df)}"
     )
     print(f"Saved {PRICE_PULLBACK_ORDERED_CONDITION_MATRIX_CSV} rows={len(price_pullback_ordered_condition_matrix_df)}")
     print(f"Saved {PRICE_PULLBACK_LIFECYCLE_REPLAY_CSV} rows={len(price_pullback_lifecycle_replay_df)}")

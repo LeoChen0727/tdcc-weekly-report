@@ -216,6 +216,9 @@ not shared objective background data:
 - `output/latest/research_backtest/revenue_unreacted_range_close_confirmation_timing_audit_latest.csv`
 - `output/latest/research_backtest/revenue_unreacted_range_close_confirmation_timing_audit_detail_latest.csv`
 - `output/latest/research_backtest/revenue_unreacted_range_close_confirmation_timing_audit_anomaly_audit_latest.csv`
+- `output/latest/research_backtest/revenue_unreacted_range_fixed_confirmation_feature_contrast_audit_latest.csv`
+- `output/latest/research_backtest/revenue_unreacted_range_fixed_confirmation_feature_contrast_audit_detail_latest.csv`
+- `output/latest/research_backtest/revenue_unreacted_range_fixed_confirmation_feature_contrast_audit_anomaly_audit_latest.csv`
 - `docs/latest/price_pullback_23ema_revenue_condition_matrix_latest.csv`
 - `docs/latest/revenue_unreacted_range_revenue_condition_matrix_latest.csv`
 - `docs/latest/revenue_unreacted_range_operation_candidate_matrix_latest.csv`
@@ -223,6 +226,8 @@ not shared objective background data:
 - `docs/latest/revenue_unreacted_range_feature_contrast_anomaly_audit_latest.csv`
 - `docs/latest/revenue_unreacted_range_close_confirmation_timing_audit_latest.csv`
 - `docs/latest/revenue_unreacted_range_close_confirmation_timing_audit_anomaly_audit_latest.csv`
+- `docs/latest/revenue_unreacted_range_fixed_confirmation_feature_contrast_audit_latest.csv`
+- `docs/latest/revenue_unreacted_range_fixed_confirmation_feature_contrast_audit_anomaly_audit_latest.csv`
 
 The producer and validator are:
 
@@ -232,6 +237,7 @@ python scripts/validate_daily_model_revenue_condition_matrix.py
 python scripts/validate_revenue_unreacted_range_operation_candidate_matrix.py
 python scripts/validate_revenue_unreacted_range_feature_contrast_audit.py
 python scripts/validate_revenue_unreacted_range_close_confirmation_timing_audit.py
+python scripts/validate_revenue_unreacted_range_fixed_confirmation_feature_contrast.py
 ```
 
 Allowed use: compare model-specific revenue conditions under the matrix's stated
@@ -292,6 +298,51 @@ once under `output/latest/research_backtest`; it is not copied to `docs/latest`
 or `output/history`. All rows remain research-only and require a separate model
 promotion PR before any production gate, score, ranking, operation adapter, or
 PDF metric use.
+
+The `revenue_unreacted_range_fixed_confirmation_feature_contrast_audit` family
+fixes one timing branch before interpreting features:
+`range23_highest_close_breakout`, at most three trading days pending,
+confirmation-close information only, next-trading-day open entry, and
+`confirmation_d20_close` with no stop. It publishes signal-date-close and
+confirmation-date-close feature contexts separately. A feature known only at
+confirmation must never be relabeled as signal-date evidence.
+
+The artifact compares monthly-revenue strength, price position/shape, TDCC,
+technical indicators, and market regime in high-return, win, and failure groups.
+Every binary feature must expose observed coverage, high-return and failure hit
+rates within observed rows, and the selected subset's recomputed win/neutral/
+failure/average/median/high-return/large-loss metrics. It tests single features
+only; combinations require a separate exact-intersection recomputation and may
+not reuse single-feature metrics.
+
+Decision rows must have zero same-stock operation overlap and zero repeated
+`stock_id + source_monthly_revenue_period` trades. The numerical anomaly audit
+publishes the including-known-anomaly basis, the excluding-known-revenue/price-
+anomaly decision basis, and an `|return| >= 80%` sensitivity basis. The
+sensitivity basis is not automatic proof of bad data; it shows whether extreme
+continuous price paths change a feature conclusion. Only directionally stable
+decision-basis features may be discussed as future condition candidates.
+
+All rolling price-structure and volume windows used by this research producer
+must be isolated by `stock_id`. A shifted Series must not be rolled globally
+across stock boundaries. Regression coverage must use stocks with materially
+different price and volume scales and prove that 10/20/23/30/45/60/120-day
+high/low windows and volume MA20 consume only the same stock's earlier rows.
+
+Monthly-revenue anomalies are evaluated again at each feature context date, not
+only on the original signal row. A trade remains in the fixed operation
+baseline, but a context row marked `full_monthly_revenue_numerical_anomaly_flag`
+must be `observed=False` for monthly-revenue binary features and excluded from
+monthly-revenue numeric means and medians. The raw value remains in detail and
+the excluded counts must be published in the summary and anomaly audit.
+
+This artifact uses point-in-time monthly revenue only. Quarterly/annual
+financial statements, EPS, gross margin, operating margin, operating income,
+non-operating income, and net income remain excluded until a formal shared
+point-in-time financial-statement data layer exists and passes coverage
+validation. All outputs remain research-only and cannot become a production
+gate, score, ranking, operation adapter, or PDF metric without a separate
+promotion PR.
 
 ## Volume Breakout V2 High-Position Improvement Audit
 
