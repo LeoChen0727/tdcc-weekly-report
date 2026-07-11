@@ -6,6 +6,9 @@ _workspace_quarantine/
 _workspace_retained_outputs/
 workspace_cleanup_reports/
 
+# Codex project approval settings are machine-local runtime metadata.
+/.codex/config.toml
+
 docs/latest/individual_stock_chatgpt_packets/
 docs/latest/individual_stock_price_windows/
 docs/latest/individual_stock_tdcc_windows/

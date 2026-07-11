@@ -106,9 +106,17 @@ def is_generated_delivery_path(path_text: str) -> bool:
     return normalized.startswith("output/latest/") or normalized.startswith("docs/latest/")
 
 
+def is_allowed_untracked_local_metadata(status: str, path_text: str) -> bool:
+    normalized = path_text.replace("\\", "/")
+    return status == "??" and normalized == ".codex/config.toml"
+
+
 def dirty_non_generated_paths(repo_root: Path) -> list[str]:
-    proc = run_command(["git", "status", "--porcelain=v1", "-z"], cwd=repo_root)
-    require_success(proc, "git status --porcelain=v1 -z")
+    proc = run_command(
+        ["git", "status", "--porcelain=v1", "-z", "--untracked-files=all"],
+        cwd=repo_root,
+    )
+    require_success(proc, "git status --porcelain=v1 -z --untracked-files=all")
     parts = [part for part in proc.stdout.split("\0") if part]
     paths: list[str] = []
     index = 0
@@ -118,7 +126,11 @@ def dirty_non_generated_paths(repo_root: Path) -> list[str]:
         path_text = record[3:] if len(record) > 3 else ""
         if status.startswith(("R", "C")) and index + 1 < len(parts):
             index += 1
-        if path_text and not is_generated_delivery_path(path_text):
+        if (
+            path_text
+            and not is_generated_delivery_path(path_text)
+            and not is_allowed_untracked_local_metadata(status, path_text)
+        ):
             paths.append(path_text)
         index += 1
     return sorted(paths)
@@ -246,6 +258,7 @@ def sync_outputs(source_root: Path, target_root: Path) -> list[Path]:
 def write_summary(
     source_ref: str,
     source_commit_sha: str,
+    delivery_root: Path,
     validation: dict[str, Any],
     inspections: list[PdfInspection],
     copied: list[Path],
@@ -254,6 +267,7 @@ def write_summary(
     print("tdcc_weekly_entrypoint_status=pass")
     print(f"source_ref={source_ref}")
     print(f"source_commit_sha={source_commit_sha}")
+    print(f"delivery_root={delivery_root}")
     print(f"signal_date={signal_date}")
     print("date_source=report_ready_csv_signal_date")
     print(f"synced_file_count={len(copied)}")
@@ -269,11 +283,17 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description=(
             "Official TDCC weekly report entrypoint. Builds from a clean source worktree "
-            "at origin/main, validates TDCC weekly PDFs, and syncs deliverables back to "
-            "the configured holder-flow worktree."
+            "at origin/main, validates TDCC weekly PDFs, and syncs deliverables to the "
+            "configured delivery root."
         )
     )
     parser.add_argument("--repo-root", type=Path, default=REPO_ROOT)
+    parser.add_argument(
+        "--delivery-root",
+        type=Path,
+        default=None,
+        help="Final holder-flow delivery worktree; defaults to --repo-root.",
+    )
     parser.add_argument("--source-ref", default=DEFAULT_SOURCE_REF)
     parser.add_argument("--source-gate-only", action="store_true")
     parser.add_argument("--keep-source-worktree", action="store_true")
@@ -284,12 +304,17 @@ def main() -> int:
     configure_stdio()
     args = parse_args()
     repo_root = args.repo_root.expanduser().resolve()
+    delivery_root = (
+        args.delivery_root.expanduser().resolve()
+        if args.delivery_root is not None
+        else repo_root
+    )
     try:
         fetch_source(repo_root)
         blockers = dirty_non_generated_paths(repo_root)
         if blockers:
             raise TDCCWeeklyEntrypointError(
-                "fixed TDCC worktree has non-generated uncommitted changes: " + "; ".join(blockers)
+                "TDCC source worktree has non-generated uncommitted changes: " + "; ".join(blockers)
             )
         source_commit_sha = resolve_commit(repo_root, args.source_ref)
         print(f"tdcc_weekly_source_gate_passed source_ref={args.source_ref} source_commit_sha={source_commit_sha}")
@@ -315,15 +340,22 @@ def main() -> int:
                 source_inspections = inspect_required_pdfs(source_root, signal_date)
                 if root_delivery_pdfs(source_root):
                     raise TDCCWeeklyEntrypointError("TDCC Chinese delivery PDFs remain in source output/latest root")
-                copied = sync_outputs(source_root, repo_root)
-                target_inspections = inspect_required_pdfs(repo_root, signal_date)
-                if root_delivery_pdfs(repo_root):
+                copied = sync_outputs(source_root, delivery_root)
+                target_inspections = inspect_required_pdfs(delivery_root, signal_date)
+                if root_delivery_pdfs(delivery_root):
                     raise TDCCWeeklyEntrypointError("TDCC Chinese delivery PDFs remain in target output/latest root")
                 if [(item.pages, item.size) for item in source_inspections] != [
                     (item.pages, item.size) for item in target_inspections
                 ]:
                     raise TDCCWeeklyEntrypointError("synced TDCC PDF inspection mismatch")
-                write_summary(args.source_ref, source_commit_sha, validation, target_inspections, copied)
+                write_summary(
+                    args.source_ref,
+                    source_commit_sha,
+                    delivery_root,
+                    validation,
+                    target_inspections,
+                    copied,
+                )
             finally:
                 if args.keep_source_worktree:
                     print(f"temporary source worktree kept: {source_root}")
