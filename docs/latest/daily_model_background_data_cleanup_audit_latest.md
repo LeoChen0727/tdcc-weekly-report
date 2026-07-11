@@ -1,8 +1,8 @@
 # Daily Model Background Data Cleanup Audit
 
-- generated_at: `2026-07-11 23:58:58 Asia/Taipei`
+- generated_at: `2026-07-12 01:24:46 Asia/Taipei`
 - registry: `config/daily_model_background_data_registry.csv`
-- rows: `24`
+- rows: `25`
 - deletion_allowed_rows: `0`
 - deprecated_candidate_rows: `1`
 
@@ -18,7 +18,7 @@ inventory, lineage, validator, replay, parity, or promotion references.
 | blocked_deprecated_candidate_has_dependencies | 1 |
 | retain_historical_replay_evidence | 2 |
 | retain_latest_only_context | 1 |
-| retain_model_research_evidence | 9 |
+| retain_model_research_evidence | 10 |
 | retain_model_specific_semantics | 2 |
 | retain_shared_objective_source | 9 |
 
@@ -45,6 +45,7 @@ inventory, lineage, validator, replay, parity, or promotion references.
 | revenue_unreacted_range_operation_candidate_matrix | model_research_output | active | retain_model_research_evidence | False | keep until superseded by explicit approved operation or cleanup PR |
 | revenue_unreacted_range_feature_contrast_audit | model_research_output | active | retain_model_research_evidence | False | keep until superseded by explicit approved operation or cleanup PR |
 | revenue_unreacted_range_close_confirmation_timing_audit | model_research_output | active | retain_model_research_evidence | False | keep until superseded by explicit approved operation or cleanup PR |
+| revenue_unreacted_range_fixed_confirmation_feature_contrast_audit | model_research_output | active | retain_model_research_evidence | False | keep until superseded by explicit approved operation or cleanup PR |
 | volume_range_breakout_v2_high_position_improvement_audit | model_research_output | active | retain_model_research_evidence | False | keep until superseded by explicit approved operation or cleanup PR |
 | mature_model_row_level_metric_contract_audit | model_research_output | active | retain_model_research_evidence | False | keep until superseded by explicit approved operation or cleanup PR |
 | neckline_context_interpretation | model_specific | active | retain_model_specific_semantics | False | keep with owning model contract; do not reuse across unrelated models |
@@ -73,9 +74,10 @@ inventory, lineage, validator, replay, parity, or promotion references.
 | revenue_unreacted_range_revenue_condition_matrix | 1 | 6 | 2 | 1 | 71 | 45 |
 | revenue_unreacted_range_operation_candidate_matrix | 1 | 9 | 2 | 1 | 78 | 57 |
 | revenue_unreacted_range_feature_contrast_audit | 1 | 9 | 2 | 1 | 85 | 61 |
-| revenue_unreacted_range_close_confirmation_timing_audit | 1 | 6 | 2 | 1 | 70 | 48 |
+| revenue_unreacted_range_close_confirmation_timing_audit | 1 | 6 | 2 | 1 | 71 | 50 |
+| revenue_unreacted_range_fixed_confirmation_feature_contrast_audit | 1 | 9 | 2 | 1 | 85 | 63 |
 | volume_range_breakout_v2_high_position_improvement_audit | 1 | 6 | 2 | 1 | 72 | 46 |
 | mature_model_row_level_metric_contract_audit | 1 | 3 | 2 | 1 | 34 | 28 |
 | neckline_context_interpretation | 1 | 7 | 2 | 1 | 91 | 51 |
 | w_bottom_shape_interpretation | 1 | 6 | 2 | 1 | 89 | 52 |
-| volume_breakout_operation_research_outputs | 15 | 9 | 2 | 1 | 288 | 195 |
+| volume_breakout_operation_research_outputs | 15 | 9 | 2 | 1 | 290 | 198 |

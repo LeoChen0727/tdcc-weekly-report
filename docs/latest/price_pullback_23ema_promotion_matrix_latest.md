@@ -1,6 +1,6 @@
 # Price Pullback 23EMA Promotion Matrix
 
-- generated_at: `2026-07-11 23:58:51 Asia/Taipei`
+- generated_at: `2026-07-12 02:22:56 Asia/Taipei`
 - model_id: `price_pullback_23ema`
 - status: `research_only_promotion_decision_matrix`; this does not change production condition, scoring, ranking, PDF, or contract registry.
 - proposed_base: `price_pullback_23ema` signal + `return20_0_25` + `TDCC high thresholds up` + `OBV above MA20`.
@@ -17,7 +17,7 @@
 | chip_technical_package | supporting_gate:obv_above_ma20 | base_gate_component_candidate | +0_required_package_component | ok_first_pass | excluding_known_data_quality_exceptions | 1 | 115002 |  | 44.75 | 43.7 | 1.16 |  |  |  | OBV 高於 MA20 單獨不是完整模型，但與 TDCC/漲幅限制搭配後能改善品質。 |
 | chip_technical_package | technical_package:macd_kd_confirm | reject_as_required_gate_candidate | 0 | ok_first_pass | excluding_known_data_quality_exceptions | 0 | 63307 |  | 45.24 | 43.03 | 0.83 |  |  |  | MACD/KD 確認單獨沒有穩定改善，暫時不能當必要條件，只能留作輔助觀察。 |
 | price_structure_package | structure_package:pattern45_bull_pullback | add_score_package_candidate | +1_review | ok_first_pass | excluding_known_data_quality_exceptions | 0 | 27876 |  | 35.73 | 50.29 | 2.48 |  |  |  | 45 日多頭回檔結構改善勝率與報酬，可作加分包候選，但仍需搭配基礎包討論。 |
-| chip_technical_package | research_score:score_ge6 | strict_add_score_package_review | +2_review | ok_first_pass | excluding_known_data_quality_exceptions | 1 | 12214 |  | 40.04 | 46.64 | 3.26 |  |  |  | 既有技術/籌碼研究分數高分桶有較佳品質，但不能直接取代明確條件包。 |
+| chip_technical_package | research_score:score_ge6 | strict_add_score_package_review | +2_review | ok_first_pass | excluding_known_data_quality_exceptions | 1 | 12208 |  | 40.03 | 46.63 | 3.26 |  |  |  | 既有技術/籌碼研究分數高分桶有較佳品質，但不能直接取代明確條件包。 |
 | revenue_strength_package | revenue_package:latest30_and_cumulative20 | strong_add_score_package_candidate_not_required_gate | +2_review | ok_first_pass | excluding_known_price_or_revenue_anomalies | 136 | 197 | 0.71 | 61.93 | 32.99 | 3.47 | 3.73 | 24.87 | 22.34 | 營收最新 YoY >=30% 且累計 YoY >=20% 表現較好，適合作強加分包候選，不適合先當必要條件。 |
 | revenue_strength_package | revenue_package:latest_revenue_yoy_ge50 | strong_add_score_candidate_small_sample_review | +1_to_+2_review | ok_first_pass | excluding_known_price_or_revenue_anomalies | 142 | 132 | 0.47 | 65.15 | 31.06 | 3.18 | 3.84 | 24.24 | 25.76 | 最新月營收 YoY >=50% 有觀察價值，但樣本較小，先當強加分覆核項。 |
 | revenue_turnaround_package | revenue_package:latest_yoy_delta_ge20 | weak_turnaround_add_score_review | +1_weak_review | ok_first_pass | excluding_known_price_or_revenue_anomalies | 128 | 335 | 1.2 | 58.81 | 33.73 | 3.26 | 2.85 | 21.19 | 19.7 | 營收 YoY 單月改善 20 個百分點有些改善，但不足以當必要條件。 |

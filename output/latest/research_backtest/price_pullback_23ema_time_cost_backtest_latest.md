@@ -1,6 +1,6 @@
 # Price Pullback 23EMA Time Cost Backtest
 
-- generated_at: `2026-07-11 23:58:50 Asia/Taipei`
+- generated_at: `2026-07-12 02:22:52 Asia/Taipei`
 - model_id: `price_pullback_23ema`
 - status: `not_production_ready_research_only`
 - entry_basis: `signal_date_next_open`
@@ -16,5 +16,5 @@
 | solid_volume_red_k_vol1.2 | 16502 | 15124 | 39.41 | 39.08 | 0.14 | 21.37 | 6.23 | 6.95 | 9.45 |
 | solid_volume_red_k_vol1.5 | 10622 | 9696 | 38.81 | 40.37 | 0.11 | 20.71 | 6.13 | 6.79 | 9.26 |
 | prior_ext20_ema10_runup20_pullback5 | 62813 | 52177 | 48.4 | 48.68 | 0.41 | 2.5 | 4.0 | 4.57 | 4.67 |
-| prior_ext30_ema12_runup25_pullback8 | 68881 | 58375 | 47.49 | 48.35 | 0.38 | 3.78 | 4.22 | 4.81 | 5.1 |
-| prior_ext60_ema15_runup35_pullback10 | 95357 | 84579 | 45.8 | 45.5 | 0.3 | 8.4 | 5.1 | 5.54 | 6.55 |
+| prior_ext30_ema12_runup25_pullback8 | 63243 | 52758 | 48.75 | 48.33 | 0.41 | 2.51 | 4.04 | 4.61 | 4.71 |
+| prior_ext60_ema15_runup35_pullback10 | 63303 | 52644 | 49.36 | 47.66 | 0.4 | 2.58 | 4.25 | 4.72 | 4.88 |

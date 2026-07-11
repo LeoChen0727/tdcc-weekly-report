@@ -41,6 +41,8 @@ from build_daily_model_parameter_research import (  # noqa: E402
     build_revenue_unreacted_range_revenue_condition_matrix,
     current_price_pullback_baseline_proxy,
     price_pullback_prior_extension_filter,
+    REVENUE_UNREACTED_FEATURE_CONTRAST_BINARY_SPECS,
+    REVENUE_UNREACTED_FEATURE_CONTRAST_NUMERIC_SPECS,
     revenue_unreacted_active_attack_proxy,
     rule_specs,
     sample_status,
@@ -48,6 +50,10 @@ from build_daily_model_parameter_research import (  # noqa: E402
 from revenue_unreacted_range_close_confirmation_timing import (  # noqa: E402
     DECISION_BASIS as REVENUE_TIMING_DECISION_BASIS,
     build_close_confirmation_timing_audit,
+)
+from revenue_unreacted_range_fixed_confirmation_feature_contrast import (  # noqa: E402
+    EXTREME_SENSITIVITY_BASIS,
+    build_fixed_confirmation_feature_contrast,
 )
 from validate_daily_model_research_parity import validate_rule_specs  # noqa: E402
 from validate_daily_model_revenue_condition_matrix import validate_price_pullback, validate_revenue_unreacted  # noqa: E402
@@ -58,6 +64,9 @@ from validate_revenue_unreacted_range_operation_candidate_matrix import (  # noq
 from validate_revenue_unreacted_range_feature_contrast_audit import validate_frames as validate_revenue_feature_contrast  # noqa: E402
 from validate_revenue_unreacted_range_close_confirmation_timing_audit import (  # noqa: E402
     validate_frames as validate_revenue_close_confirmation_timing,
+)
+from validate_revenue_unreacted_range_fixed_confirmation_feature_contrast import (  # noqa: E402
+    validate_frames as validate_revenue_fixed_feature_contrast,
 )
 from validate_research_against_stock_model_contract import build_parity_rows  # noqa: E402
 
@@ -323,6 +332,41 @@ def test_price_structure_features_add_45d_pattern_and_obv() -> None:
     assert 0.0 <= latest["close_position_45d_pct"] <= 110.0
     assert bool(latest["obv_above_ma20"])
     assert latest["obv_slope_5d"] > 0
+
+
+def test_price_structure_rolling_windows_do_not_cross_stock_boundaries() -> None:
+    rows: list[dict[str, object]] = []
+    dates = pd.date_range("2026-01-01", periods=30, freq="B").strftime("%Y%m%d")
+    for stock_id, base_price, daily_volume in (
+        ("1111", 10.0, 10_000.0),
+        ("2222", 1_000.0, 2_000_000.0),
+    ):
+        for position, date in enumerate(dates):
+            close = base_price + position
+            rows.append(
+                {
+                    "stock_id": stock_id,
+                    "date": date,
+                    "open": close - 0.5,
+                    "high": close + 1.0,
+                    "low": close - 1.0,
+                    "close": close,
+                    "volume": daily_volume,
+                    "ma20": close * 0.98,
+                    "ema23": close * 0.99,
+                    "distance_ema23_pct": close / (close * 0.99) * 100.0 - 100.0,
+                    "start_day_volume_ratio_vs_prev20": 1.0,
+                    "next_open": close + 0.2,
+                }
+            )
+
+    out = add_price_structure_features(pd.DataFrame(rows))
+    second = out[out["stock_id"].eq("2222")].reset_index(drop=True)
+
+    assert second.loc[10, "range_low_10d_prev"] == 999.0
+    assert second.loc[10, "range_high_10d_prev"] == 1_010.0
+    assert second.loc[10, "range_width_10d_pct"] < 1.2
+    assert second.loc[10, "volume_ma20_lots"] == 2_000.0
 
 
 def test_attach_signal_background_features_uses_point_in_time_theme_context(tmp_path: Path) -> None:
@@ -1824,6 +1868,139 @@ def test_revenue_close_confirmation_timing_replays_three_variants_without_overla
     )
 
 
+def test_revenue_fixed_confirmation_feature_contrast_separates_signal_and_confirmation_context() -> None:
+    rows: list[dict[str, object]] = []
+    dates = pd.date_range("2026-01-01", periods=35, freq="B").strftime("%Y%m%d").tolist()
+    for stock_id, base_close, winner in (("2330", 100.0, True), ("2317", 80.0, False)):
+        for position, date in enumerate(dates):
+            close = base_close
+            if position == 1:
+                close = base_close + 2.0
+            elif position >= 2:
+                close = base_close + 3.0
+            if position == 21:
+                close = 115.0 if winner else 72.0
+            open_price = base_close if position < 2 else (103.0 if winner else 83.0)
+            macd = 1.0 if winner or position == 0 else -1.0
+            market_regime = "mild_bull" if winner or position == 0 else "high_risk"
+            rows.append(
+                {
+                    "stock_id": stock_id,
+                    "stock_name": stock_id,
+                    "market": "TWSE",
+                    "date": date,
+                    "open": open_price,
+                    "close": close,
+                    "previous_close": base_close,
+                    "ma20": base_close - 1.0,
+                    "ma60": base_close - (2.0 if winner else 0.5),
+                    "ema23": base_close - 0.5,
+                    "_revenue_signal_date": date,
+                    "_revenue_stock_sequence_index": position,
+                    "_revenue_range23_highest_close_prev": base_close + 1.0,
+                    "_revenue_timing_source_flag": position == 0,
+                    "_revenue_timing_source_anomaly_flag": False,
+                    "range_width_23d_pct": 10.0 if winner else 20.0,
+                    "distance_to_range_high_23d_pct": -1.0,
+                    "close_position_120d_pct": 60.0 if winner else 85.0,
+                    "return_5d_pct": 4.0 if winner else -2.0,
+                    "return_20d_pct": 10.0 if winner else -5.0,
+                    "volume_ratio_prev20": 1.2,
+                    "bullish_attack_candle": winner,
+                    "solid_red_candle": winner,
+                    "macd_hist": macd,
+                    "rsi14": 65.0 if winner else 42.0,
+                    "k_value": 70.0 if winner else 35.0,
+                    "d_value": 60.0 if winner else 45.0,
+                    "kd_bullish_not_overheated": winner,
+                    "bb_width_pct": 12.0,
+                    "bb_width_not_extreme": True,
+                    "ema23_slope_5d_pct": 2.0 if winner else -1.0,
+                    "distance_to_ema23_pct": 2.0,
+                    "obv": 120.0 if winner else 80.0,
+                    "obv_ma20": 100.0,
+                    "obv_above_ma20": winner,
+                    "tdcc_history_available": True,
+                    "tdcc_as_of_date": "20251226",
+                    "tdcc_consecutive_up_weeks": 2.0 if winner else 0.0,
+                    "high_thresholds_up": winner,
+                    "all_thresholds_up": winner,
+                    "four_thresholds_sync_up": winner,
+                    "full_monthly_revenue_context_ready": True,
+                    "full_monthly_revenue_period": "202512",
+                    "full_monthly_revenue_source_table_date": "20251231",
+                    "full_monthly_revenue_latest_yoy_pct": 80.0 if winner else 40.0,
+                    "full_monthly_revenue_cumulative_yoy_pct": 40.0 if winner else 25.0,
+                    "full_monthly_revenue_prev1_latest_yoy_pct": 50.0 if winner else 45.0,
+                    "full_monthly_revenue_prev2_latest_yoy_pct": 30.0 if winner else 50.0,
+                    "full_monthly_revenue_prev3_latest_yoy_pct": 20.0,
+                    "full_monthly_revenue_prev1_cumulative_yoy_pct": 30.0 if winner else 30.0,
+                    "full_monthly_revenue_prev2_cumulative_yoy_pct": 20.0 if winner else 35.0,
+                    "full_monthly_revenue_prev3_cumulative_yoy_pct": 15.0,
+                    "full_monthly_revenue_latest_yoy_delta_1m_pct_points": 30.0 if winner else -5.0,
+                    "full_monthly_revenue_cumulative_yoy_delta_1m_pct_points": 10.0 if winner else -5.0,
+                    "full_monthly_revenue_numerical_anomaly_flag": bool(
+                        not winner and position >= 1
+                    ),
+                    "benchmark_index": "TWSE",
+                    "signal_market_regime": market_regime,
+                }
+            )
+    prepared = pd.DataFrame(rows)
+    timing_summary, _, _ = build_close_confirmation_timing_audit(prepared)
+    summary, detail, anomaly = build_fixed_confirmation_feature_contrast(
+        prepared,
+        timing_summary,
+        binary_specs=REVENUE_UNREACTED_FEATURE_CONTRAST_BINARY_SPECS,
+        numeric_specs=REVENUE_UNREACTED_FEATURE_CONTRAST_NUMERIC_SPECS,
+    )
+
+    assert validate_revenue_fixed_feature_contrast(
+        summary.astype(str),
+        detail.astype(str),
+        anomaly.astype(str),
+        timing_summary.astype(str),
+    ) == []
+    decision = summary[summary["anomaly_exclusion_basis"].eq(REVENUE_TIMING_DECISION_BASIS)]
+    baselines = decision[decision["row_type"].eq("baseline")]
+    assert set(baselines["feature_time_basis"]) == {"signal_date_close", "confirmation_date_close"}
+    assert baselines["accepted_trade_count"].eq(2).all()
+    assert baselines["same_stock_overlap_pair_count"].eq(0).all()
+    assert baselines["same_stock_revenue_period_repeat_count"].eq(0).all()
+    signal_macd = decision[
+        decision["feature_time_basis"].eq("signal_date_close")
+        & decision["feature_id"].eq("technical_macd_hist_gt0")
+    ].iloc[0]
+    confirmation_macd = decision[
+        decision["feature_time_basis"].eq("confirmation_date_close")
+        & decision["feature_id"].eq("technical_macd_hist_gt0")
+    ].iloc[0]
+    assert signal_macd["feature_hit_count"] == 2
+    assert confirmation_macd["feature_hit_count"] == 1
+    assert confirmation_macd["win_rate_pct"] == 100.0
+    close_above_ma_rows = decision[
+        decision["feature_id"].eq("technical_close_above_ma20_ema23")
+    ]
+    assert set(close_above_ma_rows["feature_time_basis"]) == {
+        "signal_date_close",
+        "confirmation_date_close",
+    }
+    assert close_above_ma_rows["feature_hit_count"].eq(2).all()
+    revenue_feature = decision[
+        decision["feature_id"].eq("revenue_latest30_and_cumulative20")
+    ].set_index("feature_time_basis")
+    assert revenue_feature.loc["signal_date_close", "feature_observed_count"] == 2
+    assert revenue_feature.loc["confirmation_date_close", "feature_observed_count"] == 1
+    assert revenue_feature.loc["confirmation_date_close", "feature_hit_count"] == 1
+    revenue_numeric = decision[
+        decision["feature_id"].eq("revenue_latest_yoy_pct")
+    ].set_index("feature_time_basis")
+    assert revenue_numeric.loc["signal_date_close", "failure_feature_value_count"] == 1
+    assert revenue_numeric.loc["confirmation_date_close", "failure_feature_value_count"] == 0
+    sensitivity = summary[summary["anomaly_exclusion_basis"].eq(EXTREME_SENSITIVITY_BASIS)]
+    assert not sensitivity.empty
+
+
 def test_research_workflow_validates_and_stages_revenue_feature_contrast_artifacts() -> None:
     workflow = (ROOT / ".github" / "workflows" / "research_backtest_pipeline.yml").read_text(encoding="utf-8")
 
@@ -1841,6 +2018,15 @@ def test_research_workflow_validates_and_stages_revenue_close_confirmation_timin
     assert "revenue_unreacted_range_close_confirmation_timing_audit_detail_latest.csv" in workflow
     assert "docs/latest/revenue_unreacted_range_close_confirmation_timing_audit_detail_latest.csv" not in workflow
     assert "output/history/research/revenue_unreacted_range_close_confirmation_timing_audit_detail.csv" not in workflow
+
+
+def test_research_workflow_validates_and_stages_revenue_fixed_confirmation_feature_contrast() -> None:
+    workflow = (ROOT / ".github" / "workflows" / "research_backtest_pipeline.yml").read_text(encoding="utf-8")
+
+    assert "python scripts/validate_revenue_unreacted_range_fixed_confirmation_feature_contrast.py" in workflow
+    assert "revenue_unreacted_range_fixed_confirmation_feature_contrast_audit_detail_latest.csv" in workflow
+    assert "docs/latest/revenue_unreacted_range_fixed_confirmation_feature_contrast_audit_detail_latest.csv" not in workflow
+    assert "output/history/research/revenue_unreacted_range_fixed_confirmation_feature_contrast_audit_detail.csv" not in workflow
 
 
 def test_research_workflow_refreshes_published_snapshots_after_operation_adapters() -> None:

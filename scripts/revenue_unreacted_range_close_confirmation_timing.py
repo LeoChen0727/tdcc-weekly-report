@@ -36,6 +36,9 @@ HIGH_RETURN_PCT = 8.0
 LARGE_LOSS_PCT = -5.0
 FIXED_HORIZON_DAYS = 20
 MAX_PENDING_WINDOW_DAYS = 10
+FIXED_FEATURE_CONTRAST_VARIANT_ID = "range23_highest_close_breakout"
+FIXED_FEATURE_CONTRAST_PENDING_WINDOW_DAYS = 3
+FIXED_FEATURE_CONTRAST_EXIT_CLOCK_ID = "confirmation_d20_close"
 
 
 @dataclass(frozen=True)
@@ -1015,6 +1018,71 @@ def _source_partition_rows(
             }
         )
     return rows
+
+
+def build_fixed_confirmation_episode_source(
+    prepared_frame: pd.DataFrame,
+    *,
+    generated_at: str | None = None,
+) -> pd.DataFrame:
+    """Replay the fixed feature-contrast branch under both anomaly bases."""
+    required = {
+        "stock_id",
+        "open",
+        "close",
+        "ma20",
+        "ema23",
+        "_revenue_signal_date",
+        "_revenue_stock_sequence_index",
+        "_revenue_range23_highest_close_prev",
+        "_revenue_timing_source_flag",
+        "_revenue_timing_source_anomaly_flag",
+    }
+    missing = required - set(prepared_frame.columns)
+    if missing:
+        raise ValueError(f"fixed confirmation episode input missing columns: {sorted(missing)}")
+
+    spec = next(
+        item
+        for item in CONFIRMATION_SPECS
+        if item.confirmation_variant_id == FIXED_FEATURE_CONTRAST_VARIANT_ID
+    )
+    exit_clock = next(
+        item for item in EXIT_CLOCK_SPECS if item.exit_clock_id == FIXED_FEATURE_CONTRAST_EXIT_CLOCK_ID
+    )
+    frame = prepared_frame.copy()
+    source_all = frame["_revenue_timing_source_flag"].astype(bool)
+    source_anomaly = frame["_revenue_timing_source_anomaly_flag"].astype(bool) & source_all
+    confirmation_cache: dict[tuple[str, int, str, int], tuple[int | None, bool, bool]] = {}
+    direct_outcome_cache: dict[tuple[str, int], tuple[float | str, str, bool, str]] = {}
+    trade_outcome_cache: dict[
+        tuple[str, int, int],
+        tuple[float | str, float | str, float | str, str, bool, str, float | str, float | str],
+    ] = {}
+    parts: list[pd.DataFrame] = []
+    timestamp = generated_at or now_text()
+    for basis in (INCLUDING_BASIS, DECISION_BASIS):
+        source_mask = source_all if basis == INCLUDING_BASIS else source_all & ~source_anomaly
+        parts.append(
+            _replay_variant(
+                frame,
+                source_mask=source_mask,
+                spec=spec,
+                pending_window_days=FIXED_FEATURE_CONTRAST_PENDING_WINDOW_DAYS,
+                exit_clock=exit_clock,
+                basis=basis,
+                generated_at=timestamp,
+                confirmation_cache=confirmation_cache,
+                direct_outcome_cache=direct_outcome_cache,
+                trade_outcome_cache=trade_outcome_cache,
+            )
+        )
+    if not parts:
+        return pd.DataFrame(columns=EPISODE_COLUMNS)
+    return pd.concat(parts, ignore_index=True, sort=False).sort_values(
+        ["anomaly_exclusion_basis", "stock_id", "signal_sequence_index"],
+        kind="mergesort",
+    ).reset_index(drop=True)
 
 
 def build_close_confirmation_timing_audit(

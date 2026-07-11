@@ -1,6 +1,6 @@
 # Price Pullback 23EMA Exit Rule Comparison
 
-- generated_at: `2026-07-10 17:43:21 Asia/Taipei`
+- generated_at: `2026-07-12 02:22:53 Asia/Taipei`
 - model_id: `price_pullback_23ema`
 - status: `not_production_ready_research_only`
 - scope: advisory exit-rule comparison only; this does not approve daily production use
@@ -43,13 +43,13 @@
 | tdcc_high_thresholds_up_return20_0_25_obv_above_ma20 | close_prev20_break_then_tp5_or_5ma_next_open | close_confirmed_candidate | 5.0 | 9612 | 5047 | 36.26 | 23.64 | 40.1 | 0.0 | 9.13 | 23.46 | 2.92 | 12.35 | -5.16 | 3.34 | 11.85 | blocked_exact_daily_row_parity_and_operation_approval_required |
 | tdcc_high_thresholds_up_return20_0_25_obv_above_ma20 | close_prev20_break_then_tp8_or_5ma_next_open | close_confirmed_candidate | 8.0 | 9612 | 5047 | 25.9 | 32.53 | 41.57 | 0.0 | 9.13 | 33.07 | 2.83 | 15.84 | -5.08 | 3.34 | 12.26 | blocked_exact_daily_row_parity_and_operation_approval_required |
 | tdcc_high_thresholds_up_return20_0_25_obv_above_ma20 | close_prev20_break_then_tp10_or_5ma_next_open | close_confirmed_candidate | 10.0 | 9612 | 5047 | 20.69 | 37.23 | 42.08 | 0.0 | 9.13 | 37.77 | 2.75 | 18.29 | -5.06 | 3.34 | 12.45 | blocked_exact_daily_row_parity_and_operation_approval_required |
-| theme_context_mainstream_supported | intraday_prev20_high_touch_same_day_close | research_only_intraday_trigger |  | 2894 | 0 |  |  |  |  |  |  |  |  |  |  |  | blocked_exact_daily_row_parity_and_operation_approval_required |
-| theme_context_mainstream_supported | close_prev20_high_break_next_open | close_confirmed_candidate |  | 2894 | 0 |  |  |  |  |  |  |  |  |  |  |  | blocked_exact_daily_row_parity_and_operation_approval_required |
-| theme_context_mainstream_supported | close_prev20_break_then_tp5_or_5ma_next_open | close_confirmed_candidate | 5.0 | 2894 | 0 |  |  |  |  |  |  |  |  |  |  |  | blocked_exact_daily_row_parity_and_operation_approval_required |
-| theme_context_mainstream_supported | close_prev20_break_then_tp8_or_5ma_next_open | close_confirmed_candidate | 8.0 | 2894 | 0 |  |  |  |  |  |  |  |  |  |  |  | blocked_exact_daily_row_parity_and_operation_approval_required |
-| theme_context_mainstream_supported | close_prev20_break_then_tp10_or_5ma_next_open | close_confirmed_candidate | 10.0 | 2894 | 0 |  |  |  |  |  |  |  |  |  |  |  | blocked_exact_daily_row_parity_and_operation_approval_required |
-| tdcc_high_thresholds_up_return20_0_25_theme_context_mainstream_supported | intraday_prev20_high_touch_same_day_close | research_only_intraday_trigger |  | 1027 | 0 |  |  |  |  |  |  |  |  |  |  |  | blocked_exact_daily_row_parity_and_operation_approval_required |
-| tdcc_high_thresholds_up_return20_0_25_theme_context_mainstream_supported | close_prev20_high_break_next_open | close_confirmed_candidate |  | 1027 | 0 |  |  |  |  |  |  |  |  |  |  |  | blocked_exact_daily_row_parity_and_operation_approval_required |
-| tdcc_high_thresholds_up_return20_0_25_theme_context_mainstream_supported | close_prev20_break_then_tp5_or_5ma_next_open | close_confirmed_candidate | 5.0 | 1027 | 0 |  |  |  |  |  |  |  |  |  |  |  | blocked_exact_daily_row_parity_and_operation_approval_required |
-| tdcc_high_thresholds_up_return20_0_25_theme_context_mainstream_supported | close_prev20_break_then_tp8_or_5ma_next_open | close_confirmed_candidate | 8.0 | 1027 | 0 |  |  |  |  |  |  |  |  |  |  |  | blocked_exact_daily_row_parity_and_operation_approval_required |
-| tdcc_high_thresholds_up_return20_0_25_theme_context_mainstream_supported | close_prev20_break_then_tp10_or_5ma_next_open | close_confirmed_candidate | 10.0 | 1027 | 0 |  |  |  |  |  |  |  |  |  |  |  | blocked_exact_daily_row_parity_and_operation_approval_required |
+| theme_context_mainstream_supported | intraday_prev20_high_touch_same_day_close | research_only_intraday_trigger |  | 3443 | 0 |  |  |  |  |  |  |  |  |  |  |  | blocked_exact_daily_row_parity_and_operation_approval_required |
+| theme_context_mainstream_supported | close_prev20_high_break_next_open | close_confirmed_candidate |  | 3443 | 0 |  |  |  |  |  |  |  |  |  |  |  | blocked_exact_daily_row_parity_and_operation_approval_required |
+| theme_context_mainstream_supported | close_prev20_break_then_tp5_or_5ma_next_open | close_confirmed_candidate | 5.0 | 3443 | 0 |  |  |  |  |  |  |  |  |  |  |  | blocked_exact_daily_row_parity_and_operation_approval_required |
+| theme_context_mainstream_supported | close_prev20_break_then_tp8_or_5ma_next_open | close_confirmed_candidate | 8.0 | 3443 | 0 |  |  |  |  |  |  |  |  |  |  |  | blocked_exact_daily_row_parity_and_operation_approval_required |
+| theme_context_mainstream_supported | close_prev20_break_then_tp10_or_5ma_next_open | close_confirmed_candidate | 10.0 | 3443 | 0 |  |  |  |  |  |  |  |  |  |  |  | blocked_exact_daily_row_parity_and_operation_approval_required |
+| tdcc_high_thresholds_up_return20_0_25_theme_context_mainstream_supported | intraday_prev20_high_touch_same_day_close | research_only_intraday_trigger |  | 1263 | 0 |  |  |  |  |  |  |  |  |  |  |  | blocked_exact_daily_row_parity_and_operation_approval_required |
+| tdcc_high_thresholds_up_return20_0_25_theme_context_mainstream_supported | close_prev20_high_break_next_open | close_confirmed_candidate |  | 1263 | 0 |  |  |  |  |  |  |  |  |  |  |  | blocked_exact_daily_row_parity_and_operation_approval_required |
+| tdcc_high_thresholds_up_return20_0_25_theme_context_mainstream_supported | close_prev20_break_then_tp5_or_5ma_next_open | close_confirmed_candidate | 5.0 | 1263 | 0 |  |  |  |  |  |  |  |  |  |  |  | blocked_exact_daily_row_parity_and_operation_approval_required |
+| tdcc_high_thresholds_up_return20_0_25_theme_context_mainstream_supported | close_prev20_break_then_tp8_or_5ma_next_open | close_confirmed_candidate | 8.0 | 1263 | 0 |  |  |  |  |  |  |  |  |  |  |  | blocked_exact_daily_row_parity_and_operation_approval_required |
+| tdcc_high_thresholds_up_return20_0_25_theme_context_mainstream_supported | close_prev20_break_then_tp10_or_5ma_next_open | close_confirmed_candidate | 10.0 | 1263 | 0 |  |  |  |  |  |  |  |  |  |  |  | blocked_exact_daily_row_parity_and_operation_approval_required |

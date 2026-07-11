@@ -143,6 +143,7 @@ jobs:
           python scripts/validate_revenue_unreacted_range_operation_candidate_matrix.py
           python scripts/validate_revenue_unreacted_range_feature_contrast_audit.py
           python scripts/validate_revenue_unreacted_range_close_confirmation_timing_audit.py
+          python scripts/validate_revenue_unreacted_range_fixed_confirmation_feature_contrast.py
           python scripts/validate_price_pullback_promotion_matrix.py
           python scripts/build_daily_model_background_data_cleanup_audit.py
           python scripts/validate_daily_model_background_data_cleanup_audit.py
@@ -289,6 +290,7 @@ jobs:
           git add output/latest/research_backtest/revenue_unreacted_range_operation_candidate_matrix_latest.csv output/latest/research_backtest/revenue_unreacted_range_operation_candidate_matrix_latest.md || true
           git add output/latest/research_backtest/revenue_unreacted_range_feature_contrast_audit_latest.csv output/latest/research_backtest/revenue_unreacted_range_feature_contrast_audit_detail_latest.csv output/latest/research_backtest/revenue_unreacted_range_feature_contrast_anomaly_audit_latest.csv output/latest/research_backtest/revenue_unreacted_range_feature_contrast_audit_latest.md || true
           git add output/latest/research_backtest/revenue_unreacted_range_close_confirmation_timing_audit_latest.csv output/latest/research_backtest/revenue_unreacted_range_close_confirmation_timing_audit_detail_latest.csv output/latest/research_backtest/revenue_unreacted_range_close_confirmation_timing_audit_anomaly_audit_latest.csv output/latest/research_backtest/revenue_unreacted_range_close_confirmation_timing_audit_latest.md || true
+          git add output/latest/research_backtest/revenue_unreacted_range_fixed_confirmation_feature_contrast_audit_latest.csv output/latest/research_backtest/revenue_unreacted_range_fixed_confirmation_feature_contrast_audit_detail_latest.csv output/latest/research_backtest/revenue_unreacted_range_fixed_confirmation_feature_contrast_audit_anomaly_audit_latest.csv output/latest/research_backtest/revenue_unreacted_range_fixed_confirmation_feature_contrast_audit_latest.md || true
           git add output/latest/research_backtest/price_pullback_23ema_lifecycle_replay_latest.csv output/latest/research_backtest/price_pullback_23ema_lifecycle_replay_latest.md || true
           git add output/latest/model_operation_readiness_latest.csv output/latest/model_operation_readiness_latest.md || true
           git add output/history/daily_model_snapshots/*.csv || true
@@ -325,6 +327,7 @@ jobs:
           git add docs/latest/revenue_unreacted_range_operation_candidate_matrix_latest.csv docs/latest/revenue_unreacted_range_operation_candidate_matrix_latest.md || true
           git add docs/latest/revenue_unreacted_range_feature_contrast_audit_latest.csv docs/latest/revenue_unreacted_range_feature_contrast_anomaly_audit_latest.csv docs/latest/revenue_unreacted_range_feature_contrast_audit_latest.md || true
           git add docs/latest/revenue_unreacted_range_close_confirmation_timing_audit_latest.csv docs/latest/revenue_unreacted_range_close_confirmation_timing_audit_anomaly_audit_latest.csv docs/latest/revenue_unreacted_range_close_confirmation_timing_audit_latest.md || true
+          git add docs/latest/revenue_unreacted_range_fixed_confirmation_feature_contrast_audit_latest.csv docs/latest/revenue_unreacted_range_fixed_confirmation_feature_contrast_audit_anomaly_audit_latest.csv docs/latest/revenue_unreacted_range_fixed_confirmation_feature_contrast_audit_latest.md || true
           git add docs/latest/price_pullback_23ema_lifecycle_replay_latest.csv docs/latest/price_pullback_23ema_lifecycle_replay_latest.md || true
           git add docs/latest/model_operation_readiness_latest.csv docs/latest/model_operation_readiness_latest.md || true
           git add docs/latest/daily_w_bottom_right_side_operation_section_latest.csv docs/latest/daily_w_bottom_right_side_operation_section_latest.md || true
@@ -346,6 +349,7 @@ jobs:
           git add output/history/research/revenue_unreacted_range_operation_candidate_matrix.csv || true
           git add output/history/research/revenue_unreacted_range_feature_contrast_audit.csv output/history/research/revenue_unreacted_range_feature_contrast_anomaly_audit.csv || true
           git add output/history/research/revenue_unreacted_range_close_confirmation_timing_audit.csv output/history/research/revenue_unreacted_range_close_confirmation_timing_audit_anomaly_audit.csv || true
+          git add output/history/research/revenue_unreacted_range_fixed_confirmation_feature_contrast_audit.csv output/history/research/revenue_unreacted_range_fixed_confirmation_feature_contrast_audit_anomaly_audit.csv || true
           git add output/history/research/price_pullback_23ema_lifecycle_replay.csv || true
           git add output/history/volume_breakout/ || true
           git add output/latest/volume_breakout_*.csv output/latest/volume_breakout_*.md output/latest/volume_breakout_*.pdf || true

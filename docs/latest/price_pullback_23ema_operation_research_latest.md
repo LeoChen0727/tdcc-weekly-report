@@ -1,6 +1,6 @@
 # Price Pullback 23EMA Operation Research
 
-- generated_at: `2026-07-11 23:58:50 Asia/Taipei`
+- generated_at: `2026-07-12 02:22:52 Asia/Taipei`
 - model_id: `price_pullback_23ema`
 - status: `not_production_ready_research_only`
 - entry_basis: `signal_date_next_open` after production proxy replay
@@ -29,11 +29,11 @@
 | prior_ext20_ema10_runup20_pullback5 | d20_close_target5_loss3 | 62813 | 52750 | 33.33 | 27.44 | 39.23 | 0.0 | 3.88 |  |  | requires exact daily candidate row parity plus validated buy/sell/stop operation module |
 | prior_ext20_ema10_runup20_pullback5 | d20_high_target5_low_stop5_order_unresolved | 62813 | 52750 | 30.44 | 2.5 | 28.02 | 39.04 | 3.88 | 16.01 | 69.48 | requires exact daily candidate row parity plus validated buy/sell/stop operation module |
 | prior_ext20_ema10_runup20_pullback5 | d20_high_target8_low_stop5_order_unresolved | 62813 | 52750 | 27.52 | 5.42 | 38.22 | 28.84 | 3.88 | 16.01 | 69.48 | requires exact daily candidate row parity plus validated buy/sell/stop operation module |
-| prior_ext30_ema12_runup25_pullback8 | d10_close_target5_loss3 | 68881 | 63841 | 25.05 | 39.35 | 35.59 | 0.0 | 1.42 |  |  | requires exact daily candidate row parity plus validated buy/sell/stop operation module |
-| prior_ext30_ema12_runup25_pullback8 | d20_close_target5_loss3 | 68881 | 58936 | 30.89 | 29.83 | 39.28 | 0.0 | 3.18 |  |  | requires exact daily candidate row parity plus validated buy/sell/stop operation module |
-| prior_ext30_ema12_runup25_pullback8 | d20_high_target5_low_stop5_order_unresolved | 68881 | 58936 | 30.48 | 3.76 | 28.98 | 36.79 | 3.18 | 14.86 | 67.27 | requires exact daily candidate row parity plus validated buy/sell/stop operation module |
-| prior_ext30_ema12_runup25_pullback8 | d20_high_target8_low_stop5_order_unresolved | 68881 | 58936 | 26.9 | 7.34 | 39.16 | 26.61 | 3.18 | 14.86 | 67.27 | requires exact daily candidate row parity plus validated buy/sell/stop operation module |
-| prior_ext60_ema15_runup35_pullback10 | d10_close_target5_loss3 | 95357 | 90119 | 21.67 | 45.68 | 32.65 | 0.0 | 1.06 |  |  | requires exact daily candidate row parity plus validated buy/sell/stop operation module |
-| prior_ext60_ema15_runup35_pullback10 | d20_close_target5_loss3 | 95357 | 85135 | 28.53 | 34.54 | 36.93 | 0.0 | 2.61 |  |  | requires exact daily candidate row parity plus validated buy/sell/stop operation module |
-| prior_ext60_ema15_runup35_pullback10 | d20_high_target5_low_stop5_order_unresolved | 95357 | 85135 | 32.15 | 8.36 | 29.46 | 30.03 | 2.61 | 12.95 | 62.18 | requires exact daily candidate row parity plus validated buy/sell/stop operation module |
-| prior_ext60_ema15_runup35_pullback10 | d20_high_target8_low_stop5_order_unresolved | 95357 | 85135 | 26.59 | 13.92 | 38.5 | 20.99 | 2.61 | 12.95 | 62.18 | requires exact daily candidate row parity plus validated buy/sell/stop operation module |
+| prior_ext30_ema12_runup25_pullback8 | d10_close_target5_loss3 | 63243 | 58210 | 25.94 | 37.16 | 36.9 | 0.0 | 1.46 |  |  | requires exact daily candidate row parity plus validated buy/sell/stop operation module |
+| prior_ext30_ema12_runup25_pullback8 | d20_close_target5_loss3 | 63243 | 53318 | 32.49 | 28.32 | 39.19 | 0.0 | 3.53 |  |  | requires exact daily candidate row parity plus validated buy/sell/stop operation module |
+| prior_ext30_ema12_runup25_pullback8 | d20_high_target5_low_stop5_order_unresolved | 63243 | 53318 | 30.72 | 2.5 | 28.06 | 38.72 | 3.53 | 15.54 | 69.44 | requires exact daily candidate row parity plus validated buy/sell/stop operation module |
+| prior_ext30_ema12_runup25_pullback8 | d20_high_target8_low_stop5_order_unresolved | 63243 | 53318 | 27.58 | 5.64 | 38.5 | 28.27 | 3.53 | 15.54 | 69.44 | requires exact daily candidate row parity plus validated buy/sell/stop operation module |
+| prior_ext60_ema15_runup35_pullback10 | d10_close_target5_loss3 | 63303 | 58120 | 25.8 | 38.07 | 36.13 | 0.0 | 1.45 |  |  | requires exact daily candidate row parity plus validated buy/sell/stop operation module |
+| prior_ext60_ema15_runup35_pullback10 | d20_close_target5_loss3 | 63303 | 53194 | 33.09 | 28.54 | 38.36 | 0.0 | 3.65 |  |  | requires exact daily candidate row parity plus validated buy/sell/stop operation module |
+| prior_ext60_ema15_runup35_pullback10 | d20_high_target5_low_stop5_order_unresolved | 63303 | 53194 | 32.2 | 2.58 | 27.29 | 37.93 | 3.65 | 15.6 | 70.13 | requires exact daily candidate row parity plus validated buy/sell/stop operation module |
+| prior_ext60_ema15_runup35_pullback10 | d20_high_target8_low_stop5_order_unresolved | 63303 | 53194 | 28.85 | 5.92 | 37.41 | 27.82 | 3.65 | 15.6 | 70.13 | requires exact daily candidate row parity plus validated buy/sell/stop operation module |
