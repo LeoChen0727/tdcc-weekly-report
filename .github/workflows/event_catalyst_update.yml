@@ -36,6 +36,8 @@ jobs:
           python scripts/build_theme_event_watch.py
           python scripts/validate_event_calendar_data.py
           python scripts/validate_catalyst_layer.py
+          python scripts/update_daily_published_model_snapshots.py
+          python scripts/validate_daily_published_model_snapshots.py
           python scripts/sync_catalyst_pages_artifacts.py
           python scripts/build_chatgpt_indicator_usage_guide.py
 
@@ -72,6 +74,7 @@ jobs:
           git add output/latest/catalyst_data_source_status_latest.json || true
           git add output/latest/catalyst_layer_validation_latest.md || true
           git add output/latest/catalyst_layer_validation_latest.json || true
+          git add output/history/daily_model_snapshots/ || true
           git add docs/latest/ || true
           python scripts/validate_no_conflict_markers.py
           git commit -m "Update event catalyst data tables" || echo "No changes to commit"

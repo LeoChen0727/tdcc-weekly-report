@@ -59,7 +59,11 @@ WORKFLOW_ALLOWED_OWNERS = {
         "daily_production",
         "repo_infrastructure",
     },
-    ".github/workflows/event_catalyst_update.yml": {"catalyst_event", "repo_infrastructure"},
+    ".github/workflows/event_catalyst_update.yml": {
+        "catalyst_event",
+        "daily_production",
+        "repo_infrastructure",
+    },
     ".github/workflows/individual_stock_data_refresh.yml": {
         "individual_stock",
         "official_price_data",
@@ -90,7 +94,11 @@ WORKFLOW_ALLOWED_OWNERS = {
     ".github/workflows/tdcc_weekly.yml": {"tdcc_weekly", "repo_infrastructure"},
     ".github/workflows/test_tdcc_trend.yml": {"tdcc_weekly", "diagnostics", "repo_infrastructure"},
     ".github/workflows/warrant_flow.yml": {"warrant", "official_price_data", "repo_infrastructure"},
-    ".github/workflows/weekly_theme_review.yml": {"catalyst_event", "repo_infrastructure"},
+    ".github/workflows/weekly_theme_review.yml": {
+        "catalyst_event",
+        "daily_production",
+        "repo_infrastructure",
+    },
 }
 
 FORBIDDEN_WORKFLOW_SNIPPETS = {
