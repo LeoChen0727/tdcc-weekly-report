@@ -543,6 +543,8 @@ jobs:
           git add docs/latest/calendar_data_source_status_latest.* docs/latest/event_calendar_validation_latest.* || true
           git add docs/latest/daily_theme_status_history_latest.* docs/latest/daily_short_term_specialty_packet_latest.md || true
           git add docs/latest/daily_candidate_*.csv docs/latest/daily_candidate_*.md docs/latest/daily_candidate_*.json || true
+          git add docs/latest/daily_w_bottom_right_side_operation_*_latest.* || true
+          git add docs/latest/daily_neckline_volume_breakout_confirmation_operation_*_latest.* || true
           git add docs/latest/daily_price_pullback_23ema_operation_*_latest.* || true
           git add docs/latest/mature_model_row_level_metric_contract_audit_latest.* || true
           git add docs/latest/mature_model_row_level_metric_row_audit_latest.* || true

@@ -221,3 +221,5 @@ def test_daily_full_pipeline_runs_w_bottom_operation_adapter() -> None:
     workflow = (ROOT / ".github" / "workflows" / "daily_full_pipeline.yml").read_text(encoding="utf-8")
     assert "python scripts/build_daily_w_bottom_operation_sections.py" in workflow
     assert "python scripts/validate_daily_w_bottom_operation_sections.py" in workflow
+    assert "git add docs/latest/daily_w_bottom_right_side_operation_*_latest.*" in workflow
+    assert "git add docs/latest/daily_neckline_volume_breakout_confirmation_operation_*_latest.*" in workflow
