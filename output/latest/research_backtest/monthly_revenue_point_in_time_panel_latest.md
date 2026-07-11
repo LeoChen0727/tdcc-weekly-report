@@ -1,6 +1,6 @@
 # Monthly Revenue Point-In-Time Panel
 
-- generated_at: `2026-07-11 23:27:54 Asia/Taipei`
+- generated_at: `2026-07-12 03:08:44 Asia/Taipei`
 - panel_id: `monthly_revenue_point_in_time_panel`
 - panel_version: `daily_snapshot_observed_revenue_v1`
 - source_kind: `daily_all_candidates_snapshot_observed_asof`

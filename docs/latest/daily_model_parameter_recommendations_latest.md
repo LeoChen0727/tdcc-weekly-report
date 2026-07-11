@@ -1,6 +1,6 @@
 # DAILY MODEL PARAMETER RECOMMENDATIONS
 
-- generated_at: 2026-07-11 23:59:03 Asia/Taipei
+- generated_at: 2026-07-12 03:48:16 Asia/Taipei
 - purpose: convert parameter backtests into program-side reporting recommendations
 - entry_basis: signal date next trading day open
 - close_return: D+n close divided by next open minus 1
@@ -11,8 +11,8 @@
 
 | recommended_usage | count |
 | --- | --- |
-| intraday_target_watch | 56 |
-| research_only | 29 |
+| intraday_target_watch | 55 |
+| research_only | 30 |
 | promote_to_pdf_core | 3 |
 
 ## Top Recommendations
@@ -24,7 +24,6 @@
 | neckline_volume_breakout_confirmation | neckline_strict_45_signal_90_score_v1 | promote_to_pdf_core | D+20 | 63.8889 | 4.3784 |  |  | 51 | Approved operation neckline_strict_45_signal_90_score_v1_20260629; pure win rate 63.8889 uses win/(win+loss). Inclusive success 74.5098 includes neutral rows and must not be labeled as pure win rate. buy_filter_id=broad_45_non_bearish_with_90_warning; 90d bearish context remains eligible as score/risk adjustment. |
 | tdcc_short_term_continuation_d5_d10 | high_thresholds_ret5_10_30_ret10_20_50_kd | intraday_target_watch | D+10 | 47.38 | 2.84 | D+20 | 80.22 | 371 | 盤中最高價命中率/高點報酬較好，但收盤勝率不足；只能作短線目標價或移動停利研究，不可寫成收盤持有勝率。 |
 | tdcc_short_term_continuation_d5_d10 | all_thresholds_up_ret5_10_30_macd | intraday_target_watch | D+10 | 45.02 | 2.36 | D+20 | 76.74 | 2163 | 盤中最高價命中率/高點報酬較好，但收盤勝率不足；只能作短線目標價或移動停利研究，不可寫成收盤持有勝率。 |
-| volume_range_breakout_v2_low_position_volume_attack | volume_range_breakout_v2_low_position_operation_v1 | intraday_target_watch | D+10 | 45.02 | 2.25 | D+20 | 68.79 | 523 | 盤中最高價命中率/高點報酬較好，但收盤勝率不足；只能作短線目標價或移動停利研究，不可寫成收盤持有勝率。 |
 | volume_range_breakout | prior20x1.03_vol2_minvol1000 | intraday_target_watch | D+10 | 44.33 | 1.92 | D+20 | 73.0 | 3160 | 盤中最高價命中率/高點報酬較好，但收盤勝率不足；只能作短線目標價或移動停利研究，不可寫成收盤持有勝率。 |
 | pullback_short_reclaim | prior20up_reclaim_vol1.2 | intraday_target_watch | D+10 | 47.99 | 1.84 | D+20 | 68.95 | 2185 | 盤中最高價命中率/高點報酬較好，但收盤勝率不足；只能作短線目標價或移動停利研究，不可寫成收盤持有勝率。 |
 | pullback_short_reclaim | production_current_proxy | intraday_target_watch | D+10 | 45.73 | 1.78 | D+20 | 69.11 | 89287 | 盤中最高價命中率/高點報酬較好，但收盤勝率不足；只能作短線目標價或移動停利研究，不可寫成收盤持有勝率。 |
@@ -44,12 +43,14 @@
 | tdcc_stealth_accumulation | tdcc_up2_range10 | intraday_target_watch | D+10 | 51.23 | 1.54 | D+20 | 63.22 | 30805 | 盤中最高價命中率/高點報酬較好，但收盤勝率不足；只能作短線目標價或移動停利研究，不可寫成收盤持有勝率。 |
 | volume_range_breakout | prior20x1.01_vol3_minvol2000 | intraday_target_watch | D+10 | 42.74 | 1.52 | D+20 | 69.7 | 2615 | 盤中最高價命中率/高點報酬較好，但收盤勝率不足；只能作短線目標價或移動停利研究，不可寫成收盤持有勝率。 |
 | tdcc_stealth_accumulation | tdcc_up1_range10 | intraday_target_watch | D+10 | 49.76 | 1.47 | D+20 | 64.11 | 47726 | 盤中最高價命中率/高點報酬較好，但收盤勝率不足；只能作短線目標價或移動停利研究，不可寫成收盤持有勝率。 |
+| volume_range_breakout | prior20x1.02_vol2_minvol500 | intraday_target_watch | D+10 | 43.42 | 1.43 | D+20 | 71.29 | 4794 | 盤中最高價命中率/高點報酬較好，但收盤勝率不足；只能作短線目標價或移動停利研究，不可寫成收盤持有勝率。 |
 
 ## Research Only / Not Yet Promoted
 
 | model_id | parameter_set_id | recommended_usage | recommended_close_exit_horizon | best_close_win_rate_pct | best_avg_close_return_pct | recommended_high_exit_horizon | best_high_5pct_hit_rate_pct | selected_stock_days | model_revision_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | short_term_surge_d5_d10 | ret5_10_30_vol5_ge1_5_macd | research_only | D+10 | 43.56 | 1.65 | D+20 | 72.31 | 12521 | 此模型目前定義為研究型，不進每日 PDF 核心名單；持續累積資料與調參。 |
+| volume_range_breakout_v2_mid_position_momentum_attack | volume_range_breakout_v2_mid_position_operation_v1 | research_only | D+5 | 58.33 | 1.25 | D+20 | 80.0 | 13 | 樣本不足，只能保留研究觀察，不可放入 PDF 核心選股或調整權重。 |
 | price_pullback_23ema | ema-4_7_volmax1.2 | research_only | D+10 | 44.86 | 1.03 | D+20 | 56.13 | 89480 | 此模型目前定義為研究型，不進每日 PDF 核心名單；持續累積資料與調參。 |
 | price_pullback_23ema | ema-4_7_volmax1 | research_only | D+10 | 44.77 | 1.03 | D+20 | 56.09 | 77683 | 此模型目前定義為研究型，不進每日 PDF 核心名單；持續累積資料與調參。 |
 | price_pullback_23ema | ema-4_7_volmax1.5 | research_only | D+10 | 44.86 | 1.02 | D+20 | 56.01 | 100803 | 此模型目前定義為研究型，不進每日 PDF 核心名單；持續累積資料與調參。 |
@@ -70,7 +71,6 @@
 | price_pullback_23ema | volume_red_k_vol1.2 | research_only | D+10 | 42.42 | 0.38 | D+20 | 49.07 | 31433 | 此模型目前定義為研究型，不進每日 PDF 核心名單；持續累積資料與調參。 |
 | platform_strengthening | w20_near3_vol1.2 | research_only | D+10 | 42.51 | 0.34 | D+20 | 44.92 | 8902 | 此模型目前定義為研究型，不進每日 PDF 核心名單；持續累積資料與調參。 |
 | platform_strengthening | w20_near3_vol1.5 | research_only | D+10 | 42.26 | 0.34 | D+20 | 46.41 | 6331 | 此模型目前定義為研究型，不進每日 PDF 核心名單；持續累積資料與調參。 |
-| price_pullback_23ema | solid_volume_red_k_vol1.5 | research_only | D+10 | 42.07 | 0.24 | D+20 | 47.6 | 10622 | 此模型目前定義為研究型，不進每日 PDF 核心名單；持續累積資料與調參。 |
-| platform_strengthening | w30_near5_vol1.2 | research_only | D+10 | 41.78 | 0.21 | D+20 | 42.23 | 8365 | 此模型目前定義為研究型，不進每日 PDF 核心名單；持續累積資料與調參。 |
-| platform_strengthening | w30_near3_vol1.2 | research_only | D+10 | 41.64 | 0.21 | D+20 | 41.94 | 6033 | 此模型目前定義為研究型，不進每日 PDF 核心名單；持續累積資料與調參。 |
-| platform_strengthening | w30_near5_vol1.5 | research_only | D+10 | 41.82 | 0.19 | D+20 | 43.55 | 5887 | 此模型目前定義為研究型，不進每日 PDF 核心名單；持續累積資料與調參。 |
+| platform_strengthening | w30_near5_vol1.5 | research_only | D+10 | 42.45 | 0.28 | D+20 | 43.66 | 6277 | 此模型目前定義為研究型，不進每日 PDF 核心名單；持續累積資料與調參。 |
+| platform_strengthening | w30_near3_vol1.2 | research_only | D+10 | 42.22 | 0.28 | D+20 | 41.99 | 6401 | 此模型目前定義為研究型，不進每日 PDF 核心名單；持續累積資料與調參。 |
+| platform_strengthening | w30_near3_vol1.5 | research_only | D+10 | 42.42 | 0.27 | D+20 | 43.48 | 4617 | 此模型目前定義為研究型，不進每日 PDF 核心名單；持續累積資料與調參。 |

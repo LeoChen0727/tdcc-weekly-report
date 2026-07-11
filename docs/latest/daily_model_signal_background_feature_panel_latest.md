@@ -1,6 +1,6 @@
 # Daily Model Signal Background Feature Panel
 
-- generated_at: `2026-07-11 23:29:18 Asia/Taipei`
+- generated_at: `2026-07-12 03:10:34 Asia/Taipei`
 - feature_panel_id: `daily_model_signal_background_features_v1`
 - owner: `research_backtest`
 - scope: shared objective point-in-time background features for model research discussion.

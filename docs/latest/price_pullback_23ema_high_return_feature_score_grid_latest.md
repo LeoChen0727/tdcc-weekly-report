@@ -1,6 +1,6 @@
 # Price Pullback 23EMA High-Return Feature Score Grid
 
-- generated_at: `2026-07-11 23:58:51 Asia/Taipei`
+- generated_at: `2026-07-12 03:47:28 Asia/Taipei`
 - model_id: `price_pullback_23ema`
 - status: `not_production_ready_research_only`
 - scope: score grid for the current research base `v1_gate_return20_tdcc_high_obv`; this does not approve production scoring.
