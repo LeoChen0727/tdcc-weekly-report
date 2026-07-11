@@ -482,6 +482,12 @@ def test_high_position_confirmed_row_uses_exact_bonus_combo_metric(monkeypatch) 
     assert record["pdf_bonus_combo_win_rate_zh"] == "100.00%"
     assert record["pdf_bonus_combo_loss_rate_zh"] == "0.00%"
     assert record["pdf_bonus_combo_avg_return_zh"] == "+18.25%"
+    assert record["row_metric_status"] == "ready"
+    assert record["row_metric_scope"] == "exact_combo"
+    assert record["row_metric_id"] == record["pdf_bonus_combo_id"]
+    assert record["row_metric_win_rate_zh"] == record["pdf_bonus_combo_win_rate_zh"]
+    assert record["row_metric_failure_rate_zh"] == record["pdf_bonus_combo_failure_rate_zh"]
+    assert record["row_metric_avg_return_zh"] == record["pdf_bonus_combo_avg_return_zh"]
 
 
 def output_row(**updates: str) -> dict[str, str]:

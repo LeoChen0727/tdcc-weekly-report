@@ -61,6 +61,10 @@ def test_current_price_pullback_signal_becomes_confirmed_operation_rows() -> Non
     assert set(confirmed["row_action_status"]) == {"confirmed_buy_candidate"}
     assert set(confirmed["buy_rank_eligible"]) == {"True"}
     assert set(confirmed["operation_quality"]) == {"technical_strength"}
+    assert set(confirmed["row_metric_status"]) == {"ready"}
+    assert set(confirmed["row_metric_scope"]) == {"exact_combo"}
+    assert set(confirmed["row_metric_win_rate_zh"]) == {builder.TECHNICAL_WIN_RATE}
+    assert set(confirmed["row_metric_avg_return_zh"]) == {builder.TECHNICAL_AVG_RETURN}
     assert set(confirmed["entry_rule_id"]) == {builder.ENTRY_RULE_ID}
     assert set(confirmed["entry_basis_zh"]) == {builder.ENTRY_BASIS_ZH}
     assert set(confirmed["exit_rule_id"]) == {builder.EXIT_RULE_ID}
