@@ -1,6 +1,6 @@
 # Daily Volume Breakout Operation Evidence Audit
 
-- generated_at: `2026-07-11 09:48:52 Asia/Taipei`
+- generated_at: `2026-07-11 10:43:15 Asia/Taipei`
 - model_id: `volume_range_breakout_v2_low_position_volume_attack,volume_range_breakout_v2_mid_position_momentum_attack,volume_range_breakout_v2_high_position_volume_attack`
 - purpose: row-level audit proving daily adapter evidence is attributed to each stock's own TDCC/trigger/pattern context.
 - rule: buy-ranked confirmed/active daily rows must use `positive_row_evidence`; confirmed rows without buy-ranking evidence are tracked separately as `confirmed_unranked_operation`.
