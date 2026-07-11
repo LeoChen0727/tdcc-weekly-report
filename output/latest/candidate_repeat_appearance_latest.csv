@@ -63,7 +63,7 @@ signal_date,stock_id,stock_name,consecutive_appear_days_any_category,consecutive
 20260709,8926,台汽電,13,6,5,10,18,20260525,20260709,pattern|revenue_pullback,repeated_but_no_breakout,近 10 日上榜 10 次、近 20 日上榜 18 次，但尚未有效突破，需等待攻擊確認。
 20260709,2885,元大金,13,2,5,10,17,20260523,20260709,pattern,repeated_but_no_breakout,近 10 日上榜 10 次、近 20 日上榜 17 次，但尚未有效突破，需等待攻擊確認。
 20260709,4739,康普,13,6,5,10,16,20260523,20260709,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20260709,1815,富喬,13,13,5,10,13,20260523,20260709,revenue_pullback,continued_overheated,連續上榜但短線過熱，需避免追高並等待量價重新確認。
+20260709,1815,富喬,13,13,5,10,13,20260523,20260709,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
 20260709,3149,正達,13,7,5,10,13,20260523,20260709,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
 20260709,4931,新盛力,13,13,5,10,13,20260523,20260709,pattern|revenue_pullback,repeated_but_no_breakout,近 10 日上榜 10 次、近 20 日上榜 13 次，但尚未有效突破，需等待攻擊確認。
 20260709,5314,世紀*,13,13,5,10,13,20260524,20260709,revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
@@ -102,7 +102,7 @@ signal_date,stock_id,stock_name,consecutive_appear_days_any_category,consecutive
 20260709,2332,友訊,7,2,5,9,17,20260523,20260709,true_breakout,continued_overheated,連續上榜但短線過熱，需避免追高並等待量價重新確認。
 20260709,6168,宏齊,7,7,5,9,16,20260523,20260709,pattern,continued_overheated,連續上榜但短線過熱，需避免追高並等待量價重新確認。
 20260709,3374,精材,7,1,5,9,13,20260523,20260709,true_breakout,continued_overheated,連續上榜但短線過熱，需避免追高並等待量價重新確認。
-20260709,8040,九暘,7,7,5,9,12,20260622,20260709,revenue_pullback,continued_overheated,連續上榜但短線過熱，需避免追高並等待量價重新確認。
+20260709,8040,九暘,7,7,5,9,12,20260622,20260709,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
 20260709,3060,銘異,7,5,5,8,16,20260526,20260709,pattern|revenue_pullback,repeated_but_no_breakout,近 10 日上榜 8 次、近 20 日上榜 16 次，但尚未有效突破，需等待攻擊確認。
 20260709,6138,茂達,7,3,5,8,12,20260524,20260709,pattern,repeated_but_no_breakout,近 10 日上榜 8 次、近 20 日上榜 12 次，但尚未有效突破，需等待攻擊確認。
 20260709,3290,東浦,7,7,5,8,11,20260618,20260709,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
@@ -140,7 +140,7 @@ signal_date,stock_id,stock_name,consecutive_appear_days_any_category,consecutive
 20260709,1216,統一,6,3,5,8,17,20260601,20260709,range_rebound,repeated_but_no_breakout,近 10 日上榜 8 次、近 20 日上榜 17 次，但尚未有效突破，需等待攻擊確認。
 20260709,6155,鈞寶,6,6,5,8,15,20260523,20260709,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
 20260709,6901,鑽石投資,6,1,5,8,15,20260523,20260709,range_rebound,continued_overheated,連續上榜但短線過熱，需避免追高並等待量價重新確認。
-20260709,6129,普誠,6,2,5,8,11,20260622,20260709,pattern|revenue_pullback,continued_overheated,連續上榜但短線過熱，需避免追高並等待量價重新確認。
+20260709,6129,普誠,6,2,5,8,11,20260622,20260709,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
 20260709,4576,大銀微系統,6,6,5,7,17,20260526,20260709,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
 20260709,6285,啟碁,6,6,5,7,17,20260529,20260709,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
 20260709,6757,台灣虎航,6,6,5,7,17,20260523,20260709,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
@@ -193,7 +193,7 @@ signal_date,stock_id,stock_name,consecutive_appear_days_any_category,consecutive
 20260709,8182,加高,4,4,4,8,11,20260528,20260709,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
 20260709,6414,樺漢,4,1,4,7,15,20260523,20260709,pattern|revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
 20260709,2618,長榮航,4,4,4,6,11,20260526,20260709,pattern|revenue_pullback,repeated_but_no_breakout,近 10 日上榜 6 次、近 20 日上榜 11 次，但尚未有效突破，需等待攻擊確認。
-20260709,5347,世界,4,4,4,6,10,20260528,20260709,pattern|revenue_pullback,continued_overheated,連續上榜但短線過熱，需避免追高並等待量價重新確認。
+20260709,5347,世界,4,4,4,6,10,20260528,20260709,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
 20260709,1909,榮成,4,1,4,5,12,20260601,20260709,pattern|revenue_pullback,repeated_but_no_breakout,近 10 日上榜 5 次、近 20 日上榜 12 次，但尚未有效突破，需等待攻擊確認。
 20260709,2327,國巨*,4,4,4,5,12,20260525,20260709,pattern|revenue_pullback,repeated_but_no_breakout,近 10 日上榜 5 次、近 20 日上榜 12 次，但尚未有效突破，需等待攻擊確認。
 20260709,2379,瑞昱,4,1,4,5,12,20260523,20260709,range_rebound,continued_overheated,連續上榜但短線過熱，需避免追高並等待量價重新確認。

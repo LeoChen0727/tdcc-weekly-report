@@ -2,7 +2,7 @@
 
 - audit_id: `mature_model_row_level_metric_contract_audit_20260711`
 - audit_version: `v2`
-- generated_at: `2026-07-11 13:49:20 Asia/Taipei`
+- generated_at: `2026-07-11 17:13:34 Asia/Taipei`
 - stock operation rows audited: `366`
 
 ## Model Counts

@@ -6,10 +6,10 @@
     "latest_tdcc_signal_date": "20260703",
     "date_notes": [],
     "all_candidates_rows": 515,
-    "raw_model_signal_rows": 428,
-    "report_model_signal_rows": 428,
+    "raw_model_signal_rows": 422,
+    "report_model_signal_rows": 422,
     "volume_watch_rows": 14,
-    "tdcc_short_edge_rows": 39,
+    "tdcc_short_edge_rows": 33,
     "taxonomy_rows": 2374,
     "all_candidates_dates": [
       "20260709"
@@ -148,7 +148,7 @@
     "missing_volume_breakout_model_stocks": [],
     "missing_volume_breakout_v2_model_stocks": [],
     "volume_breakout_v2_membership_warnings": [],
-    "expected_tdcc_short_stock_count": 27,
+    "expected_tdcc_short_stock_count": 21,
     "missing_tdcc_short_model_stocks": [],
     "review_missing_w_bottom_candidates": []
   },

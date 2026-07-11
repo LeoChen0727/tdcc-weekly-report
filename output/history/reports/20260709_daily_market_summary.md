@@ -1,7 +1,7 @@
 # 每日全市場候選股監測報告 - 精華版
 
 - 主資料日期：`20260709`
-- 產生時間：`2026-07-11 13:51:53 Asia/Taipei`
+- 產生時間：`2026-07-11 17:15:17 Asia/Taipei`
 - 是否可產出正式每日報告：`True`
 - 判斷說明：core daily data dates match main_price_date
 - 權證資料日期：`20260709`
@@ -31,17 +31,17 @@
 
 | 股票 | 原始分類 | 催化標籤 / 反應程度 | TDCC |
 |---|---|---|---|
+| 8936 國統 | 營收成長股價回檔 | score 44 / theme 65.0/5 / revenue_good_eps_unconfirmed;event_confirmed;low_reaction_after_catalyst;new_order;其他;monthly_... | 大戶溫和增加 |
 | 2356 英業達 | 營收成長股價回檔 | score 40 / theme 100.0/5 / revenue_good_eps_unconfirmed;event_confirmed;low_reaction_after_catalyst;product_certificatio... | 大戶同步增加 |
 | 2913 農林 | 區間內轉強 / 挑戰前高觀察 | score 34 / theme 52.1/5 / event_confirmed;low_reaction_after_catalyst;new_order;貿易百貨;monthly_revenue_calendar;calendar_m... | 大戶溫和增加 |
+| 2912 統一超 | 型態觀察 | score 34 / theme 100.0/5 / event_confirmed;low_reaction_after_catalyst;new_order;monthly_revenue_calendar;calendar_month... | 大戶溫和增加 |
 | 2891 中信金 | 型態觀察 | score 34 / theme 100.0/5 / event_confirmed;low_reaction_after_catalyst;new_order;monthly_revenue_calendar;calendar_month... | 大戶溫和增加 |
 | 2610 華航 | 營收成長股價回檔 | score 34 / theme 100.0/5 / revenue_good_eps_unconfirmed;event_confirmed;new_order;航運業;monthly_revenue_calendar;calendar_... | 大戶溫和增加 |
-| 2912 統一超 | 型態觀察 | score 34 / theme 100.0/5 / event_confirmed;low_reaction_after_catalyst;new_order;monthly_revenue_calendar;calendar_month... | 大戶溫和增加 |
 | 2356 英業達 | 回檔後短線轉強 | score 30 / theme 100.0/5 / event_confirmed;low_reaction_after_catalyst;product_certification;電腦及週邊設備業;dividend_calendar;... | 大戶同步增加 |
 | 2356 英業達 | 區間內轉強 / 挑戰前高觀察 | score 30 / theme 100.0/5 / event_confirmed;low_reaction_after_catalyst;product_certification;電腦及週邊設備業;dividend_calendar;... | 大戶同步增加 |
 | 2347 聯強 | 營收爆發低反應股 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;material_information;mainstream_grow... | 大戶同步增加 |
-| 2027 大成鋼 | 營收成長股價回檔 | score 28 / theme 65.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;shareholder_meeting;鋼鐵工業;dividend_cal... | 大戶同步增加 |
 | 2347 聯強 | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;material_information;mainstream_grow... | 大戶溫和增加 |
-| 2382 廣達 | 營收爆發低反應股 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;material_information;mainstream_grow... | 大戶溫和增加 |
+| 2027 大成鋼 | 營收成長股價回檔 | score 28 / theme 65.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;shareholder_meeting;鋼鐵工業;dividend_cal... | 大戶同步增加 |
 | 2382 廣達 | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;material_information;mainstream_grow... | 大戶溫和增加 |
 
 ## 精華候選股
