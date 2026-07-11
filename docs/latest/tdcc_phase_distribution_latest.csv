@@ -98,9 +98,9 @@ condition_x_phase,insufficient_price_context,,,,3.0,overheated,,,,,,,,,,,
 condition_x_phase,tdcc_price_divergence,,,,3.0,overheated,,,,,,,,,,,
 condition_x_phase,tdcc_price_confirmed,,,,1.0,overheated,,,,,,,,,,,
 phase_performance,failed_after_tdcc,,,,,,0.0,,,0.0,,,0.0,,,,
-phase_performance,insufficient_price_context,,,,,,93.0,2.52,0.24,81.0,2.66,0.62,27.0,6.21,1.98,15.57,-8.75
-phase_performance,overheated_after_tdcc,,,,,,104.0,4.36,2.42,96.0,6.95,4.21,59.0,13.84,8.84,19.68,-9.90
-phase_performance,price_leading_tdcc,,,,,,76.0,7.14,4.35,59.0,4.49,2.60,26.0,2.32,-0.97,17.92,-8.36
-phase_performance,tdcc_leading_price,,,,,,19.0,-0.10,0.30,17.0,2.43,-2.67,6.0,-0.39,-3.95,10.73,-9.31
-phase_performance,tdcc_price_confirmed,,,,,,6.0,-3.57,-3.78,4.0,-0.94,-6.69,0.0,,,6.37,-14.03
-phase_performance,tdcc_price_divergence,,,,,,9.0,-3.54,-4.26,7.0,-1.49,-4.62,1.0,5.57,3.50,10.05,-12.95
+phase_performance,insufficient_price_context,,,,,,93.0,2.52,0.24,82.0,3.00,1.00,40.0,3.00,-0.77,15.99,-8.76
+phase_performance,overheated_after_tdcc,,,,,,104.0,4.36,2.42,96.0,6.95,4.21,65.0,12.72,7.98,19.68,-9.90
+phase_performance,price_leading_tdcc,,,,,,76.0,7.14,4.35,59.0,4.49,2.60,35.0,6.95,3.87,17.92,-8.36
+phase_performance,tdcc_leading_price,,,,,,19.0,-0.10,0.30,17.0,2.43,-2.67,14.0,1.85,-1.37,10.73,-9.31
+phase_performance,tdcc_price_confirmed,,,,,,6.0,-3.57,-3.78,4.0,-0.94,-6.69,4.0,-4.97,-7.95,6.37,-14.03
+phase_performance,tdcc_price_divergence,,,,,,9.0,-3.54,-4.26,7.0,-1.49,-4.62,2.0,2.49,0.44,10.05,-12.95
