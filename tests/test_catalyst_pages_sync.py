@@ -46,6 +46,9 @@ def test_event_and_weekly_workflows_publish_pages_and_use_full_validation() -> N
         assert "tabulate lxml html5lib beautifulsoup4" in text
         assert "python scripts/build_theme_event_watch.py" in text
         assert "python scripts/sync_catalyst_pages_artifacts.py" in text
+        assert "python scripts/update_daily_published_model_snapshots.py" in text
+        assert "python scripts/validate_daily_published_model_snapshots.py" in text
+        assert "git add output/history/daily_model_snapshots/" in text
         assert "git add docs/latest/" in text
         assert "gh workflow run pages.yml --ref main" in text
         assert "timeout-minutes: 40" in text
@@ -54,6 +57,13 @@ def test_event_and_weekly_workflows_publish_pages_and_use_full_validation() -> N
         assert "GitHub Pages deploy did not succeed after" in text
         assert "validate_event_calendar_data.py --schema-only" not in text
         assert "validate_catalyst_layer.py --schema-only" not in text
+
+        catalyst_index = text.index("python scripts/apply_fundamental_catalyst_layer.py")
+        snapshot_update_index = text.index("python scripts/update_daily_published_model_snapshots.py")
+        snapshot_validate_index = text.index("python scripts/validate_daily_published_model_snapshots.py")
+        pages_sync_index = text.index("python scripts/sync_catalyst_pages_artifacts.py")
+        commit_index = text.index("git commit -m")
+        assert catalyst_index < snapshot_update_index < snapshot_validate_index < pages_sync_index < commit_index
 
 
 def test_pages_deploy_timeout_stays_within_action_limit() -> None:
