@@ -1692,6 +1692,22 @@ def test_daily_packet_builder_uses_daily_adapter_not_research_operation_artifact
     assert "volume_breakout_pending_operation_queue_latest.csv" not in source
     assert "historical_pattern_operation_registry_latest.csv" not in source
     assert "approved_operation_patterns_latest.csv" not in source
+    assert 'operation-row performance must consume row_metric_* only' in source
+    for field in (
+        "row_metric_status",
+        "row_metric_scope",
+        "row_metric_id",
+        "row_metric_label_zh",
+        "row_metric_sample_size",
+        "row_metric_win_rate_zh",
+        "row_metric_neutral_rate_zh",
+        "row_metric_failure_rate_zh",
+        "row_metric_avg_return_zh",
+        "row_metric_median_return_zh",
+        "row_metric_source",
+        "row_metric_selection_status",
+    ):
+        assert field in source
 
 
 def operation_rows_for_limit_test(
