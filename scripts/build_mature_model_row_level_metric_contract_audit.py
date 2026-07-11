@@ -41,6 +41,7 @@ ROW_AUDIT_MD = ROOT / "output" / "latest" / "mature_model_row_level_metric_row_a
 
 AUDIT_ID = "mature_model_row_level_metric_contract_audit_20260711"
 AUDIT_VERSION = "v2"
+INTEGRATED_CONSUMER_READINESS = "adapter_contract_ready_pdf_packet_consumers_integrated"
 
 MATURE_OPERATION_SECTIONS = {"confirmed_operation", "active_operation"}
 TRUTHY = {"true", "1", "yes", "y"}
@@ -879,7 +880,7 @@ def audit_mature_model(row: pd.Series, approved: pd.DataFrame, generated_at: str
         "research_only_combo_candidate_count": "",
         "research_only_combo_not_candidate_count": "",
         "research_only_combo_positive_but_below_threshold_count": "",
-        "production_readiness": "adapter_contract_ready_pending_pdf_layout_consumer",
+        "production_readiness": INTEGRATED_CONSUMER_READINESS,
         "issues": ";".join(sorted(set(issues))),
     }
 

@@ -18,6 +18,10 @@ def test_daily_model_maintenance_pr_workflow_exists_for_model_pdf_paths() -> Non
     assert "config/daily_pdf_semantic_golden_cases.csv" in text
     assert "tests/test_chatgpt_daily_report_new_conversation_replay.py" in text
     assert "tests/test_chatgpt_daily_report_entrypoint.py" in text
+    assert "docs/specs/daily_mature_model_row_level_metric_contract.md" in text
+    assert "scripts/build_mature_model_row_level_metric_contract_audit.py" in text
+    assert "scripts/validate_mature_model_row_level_metric_contract_audit.py" in text
+    assert "tests/test_mature_model_row_level_metric_contract_audit.py" in text
 
 
 def test_daily_model_maintenance_pr_workflow_runs_contract_validators() -> None:
