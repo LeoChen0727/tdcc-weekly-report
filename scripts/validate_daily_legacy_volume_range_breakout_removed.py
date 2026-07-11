@@ -53,6 +53,10 @@ FORBIDDEN_SOURCE_SNIPPETS = {
         "deprecated_replaced_by_volume_range_breakout_v2",
         "legacy_isolated",
     ),
+    ROOT / "scripts" / "audit_daily_candidate_model_selection_correctness.py": (
+        "source_volume_breakout_condition",
+        "review_missing_breakout_candidates",
+    ),
     ROOT / "build_chatgpt_daily_report_packet.py": (
         "model_id: volume_range_breakout",
         '.eq("volume_range_breakout")',

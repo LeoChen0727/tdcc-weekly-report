@@ -26,4 +26,3 @@
 - volume_breakout_v2_membership_warnings: `[]`
 - missing_tdcc_short_model_stocks: `[]`
 - review_missing_w_bottom_candidates: `[]`
-- review_missing_breakout_candidates: `[]`

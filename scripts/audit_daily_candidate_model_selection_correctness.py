@@ -618,7 +618,6 @@ def audit() -> dict[str, Any]:
             for _, row in raw_signals.iterrows()
         }
         review_missing_w: list[str] = []
-        review_missing_breakout: list[str] = []
         for _, row in candidates.iterrows():
             sid = normalize_code(row.get("stock_id", ""))
             if not sid:
@@ -626,15 +625,9 @@ def audit() -> dict[str, Any]:
             if cond_w_bottom_right(row) and not already_confirmed_breakout(row):
                 if (sid, "w_bottom_right_side") not in current_model_keys:
                     review_missing_w.append(sid)
-            if source_volume_breakout_condition(row):
-                if not any((sid, model_id) in current_model_keys for model_id in VOLUME_V2_MODEL_IDS):
-                    review_missing_breakout.append(sid)
         details["review_missing_w_bottom_candidates"] = sorted(set(review_missing_w))[:50]
-        details["review_missing_breakout_candidates"] = sorted(set(review_missing_breakout))[:50]
         if review_missing_w:
             warnings.append(f"W-bottom flagged candidate rows not in W model, review formula: {sorted(set(review_missing_w))[:20]}")
-        if review_missing_breakout:
-            warnings.append(f"Confirmed breakout candidate rows not in volume model, review formula/source table: {sorted(set(review_missing_breakout))[:20]}")
 
     result = {
         "status": "pass" if not errors else "fail",
@@ -677,7 +670,6 @@ def write_report(result: dict[str, Any]) -> None:
         "volume_breakout_v2_membership_warnings",
         "missing_tdcc_short_model_stocks",
         "review_missing_w_bottom_candidates",
-        "review_missing_breakout_candidates",
     ]:
         lines.append(f"- {key}: `{details.get(key, [])}`")
     lines.append("")

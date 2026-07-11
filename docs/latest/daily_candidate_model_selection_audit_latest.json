@@ -150,8 +150,7 @@
     "volume_breakout_v2_membership_warnings": [],
     "expected_tdcc_short_stock_count": 27,
     "missing_tdcc_short_model_stocks": [],
-    "review_missing_w_bottom_candidates": [],
-    "review_missing_breakout_candidates": []
+    "review_missing_w_bottom_candidates": []
   },
   "errors": [],
   "warnings": []
