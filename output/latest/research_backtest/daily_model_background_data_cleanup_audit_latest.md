@@ -1,6 +1,6 @@
 # Daily Model Background Data Cleanup Audit
 
-- generated_at: `2026-07-11 21:39:42 Asia/Taipei`
+- generated_at: `2026-07-11 23:58:58 Asia/Taipei`
 - registry: `config/daily_model_background_data_registry.csv`
 - rows: `24`
 - deletion_allowed_rows: `0`
@@ -59,9 +59,9 @@ inventory, lineage, validator, replay, parity, or promotion references.
 | tdcc_stock_history | 1974 | 3 | 2 | 1 | 18 | 33 |
 | market_index_history | 1 | 2 | 2 | 1 | 25 | 18 |
 | market_sentiment_context_history | 1 | 1 | 2 | 1 | 11 | 18 |
-| daily_model_signal_snapshots | 17 | 3 | 2 | 1 | 44 | 19 |
-| daily_all_candidates_snapshots | 17 | 6 | 2 | 1 | 59 | 19 |
-| daily_model_signal_background_feature_panel | 1 | 9 | 2 | 1 | 94 | 62 |
+| daily_model_signal_snapshots | 17 | 5 | 2 | 1 | 45 | 19 |
+| daily_all_candidates_snapshots | 17 | 6 | 2 | 1 | 60 | 19 |
+| daily_model_signal_background_feature_panel | 1 | 11 | 2 | 1 | 95 | 62 |
 | daily_model_background_feature_catalog | 1 | 1 | 2 | 1 | 4 | 2 |
 | monthly_revenue_history | 1 | 1 | 2 | 1 | 13 | 12 |
 | monthly_revenue_coverage_backfill_audit | 1 | 2 | 2 | 1 | 20 | 10 |

@@ -1,6 +1,6 @@
 # Price Pullback 23EMA Revenue Condition Matrix
 
-- generated_at: `2026-07-11 16:08:09 Asia/Taipei`
+- generated_at: `2026-07-11 23:58:51 Asia/Taipei`
 - status: `not_production_ready_research_only`
 - production_change: `none`
 - revenue_join_rule: `source_table_date <= signal_date`

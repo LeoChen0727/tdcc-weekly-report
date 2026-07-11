@@ -1,6 +1,6 @@
 # Daily Model Signal Background Feature Panel
 
-- generated_at: `2026-07-11 15:54:10 Asia/Taipei`
+- generated_at: `2026-07-11 23:29:18 Asia/Taipei`
 - feature_panel_id: `daily_model_signal_background_features_v1`
 - owner: `research_backtest`
 - scope: shared objective point-in-time background features for model research discussion.
@@ -12,18 +12,18 @@
 
 | point_in_time_status | rows |
 | --- | --- |
-| exact_signal_date | 5432 |
+| exact_signal_date | 5427 |
 
 | tdcc_data_status | rows |
 | --- | --- |
 | missing_tdcc_history | 28 |
-| ready | 5404 |
+| ready | 5399 |
 
 | theme_context_data_status | rows |
 | --- | --- |
 | no_theme_on_or_before_signal | 21 |
-| ready_exact_signal_date | 5227 |
-| ready_previous_signal_date | 184 |
+| ready_exact_signal_date | 5226 |
+| ready_previous_signal_date | 180 |
 
 ## Feature Families
 
