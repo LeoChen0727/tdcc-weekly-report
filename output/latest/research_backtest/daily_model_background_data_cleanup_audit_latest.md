@@ -1,6 +1,6 @@
 # Daily Model Background Data Cleanup Audit
 
-- generated_at: `2026-07-11 15:35:45 Asia/Taipei`
+- generated_at: `2026-07-11 16:08:15 Asia/Taipei`
 - registry: `config/daily_model_background_data_registry.csv`
 - rows: `23`
 - deletion_allowed_rows: `0`

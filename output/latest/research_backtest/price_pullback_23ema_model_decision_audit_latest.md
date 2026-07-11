@@ -1,6 +1,6 @@
 # Price Pullback 23EMA Model Decision Audit
 
-- generated_at: `2026-07-10 17:43:21 Asia/Taipei`
+- generated_at: `2026-07-11 16:08:10 Asia/Taipei`
 - model_id: `price_pullback_23ema`
 - status: `discussion_ready_research_only`; this does not change production condition, scoring, ranking, or contract registry
 - fixed_operation_module_candidate_id: `next_open_prev20_high_breakout_lower_ma20_ema23_stop4pct_4d_d20_close_exit`
@@ -56,12 +56,12 @@
 | feature_filter | feature_filter:tdcc_high_thresholds_up_obv_above_ma20 | combo_chip_technical_volume | 4.49 | 7376 | 63.6 | 22.1 | 29.38 | -16.17 | 1.4 | 0.93 | 9.88 | score_bonus_candidate | 相對 baseline 改善勝率與失敗率，可優先討論作為加分或 ranking 權重。 |
 | feature_filter | feature_filter:tdcc_high_thresholds_up_macd_kd_confirm | combo_chip_technical | 2.49 | 4948 | 64.98 | 23.48 | 26.68 | -18.87 | 1.42 | 0.95 | 9.91 | score_bonus_candidate | 相對 baseline 改善勝率與失敗率，可優先討論作為加分或 ranking 權重。 |
 | feature_filter | feature_filter:tdcc_high_thresholds_up_return20_0_25_obv_above_ma20 | combo_chip_risk_control_technical_volume | 3.09 | 5047 | 69.45 | 27.95 | 25.42 | -20.13 | 1.27 | 0.8 | 8.98 | score_bonus_candidate_not_required_gate | OBV above MA20 對已篩出的 TDCC/20日報酬條件有加分討論價值，但目前定位是加分項，不是必要條件。 |
-| feature_filter | feature_filter:theme_context_available | theme_context | 0.94 | 0 |  |  |  |  |  |  |  | insufficient_sample_review_only | 樣本不足，只能列為觀察，不能當必要條件。 |
-| feature_filter | feature_filter:theme_context_mainstream_supported | theme_context | 0.93 | 0 |  |  |  |  |  |  |  | insufficient_sample_review_only | 樣本不足，只能列為觀察，不能當必要條件。 |
-| feature_filter | feature_filter:theme_context_leadership_not_overheated | theme_context | 0.14 | 0 |  |  |  |  |  |  |  | insufficient_sample_review_only | 樣本不足，只能列為觀察，不能當必要條件。 |
+| feature_filter | feature_filter:theme_context_available | theme_context | 1.12 | 0 |  |  |  |  |  |  |  | insufficient_sample_review_only | 樣本不足，只能列為觀察，不能當必要條件。 |
+| feature_filter | feature_filter:theme_context_mainstream_supported | theme_context | 1.11 | 0 |  |  |  |  |  |  |  | insufficient_sample_review_only | 樣本不足，只能列為觀察，不能當必要條件。 |
+| feature_filter | feature_filter:theme_context_leadership_not_overheated | theme_context | 0.15 | 0 |  |  |  |  |  |  |  | insufficient_sample_review_only | 樣本不足，只能列為觀察，不能當必要條件。 |
 | feature_filter | feature_filter:theme_context_volume_attack_selected | theme_context | 0.0 | 0 |  |  |  |  |  |  |  | insufficient_sample_review_only | 樣本不足，只能列為觀察，不能當必要條件。 |
-| feature_filter | feature_filter:tdcc_high_thresholds_up_return20_0_25_theme_context_mainstream_supported | combo_chip_risk_control_theme_context | 0.33 | 0 |  |  |  |  |  |  |  | insufficient_sample_review_only | 樣本不足，只能列為觀察，不能當必要條件。 |
-| feature_filter | feature_filter:tdcc_high_thresholds_up_return20_0_25_theme_context_leadership_not_overheated | combo_chip_risk_control_theme_context | 0.06 | 0 |  |  |  |  |  |  |  | insufficient_sample_review_only | 樣本不足，只能列為觀察，不能當必要條件。 |
-| feature_filter | feature_filter:revenue_positive_or_strong | revenue | 0.79 | 0 |  |  |  |  |  |  |  | coverage_limited_score_discussion_not_required_gate | 營收資料已可做 coverage-limited research-only 觀察；因不是完整 release-date 歷史 panel，暫時只能當加分討論，不能升正式必要條件。 |
-| feature_filter | feature_filter:tdcc_high_thresholds_up_return20_0_25_obv_above_ma20_revenue_positive_or_strong | combo_chip_risk_control_technical_volume_revenue | 0.22 | 0 |  |  |  |  |  |  |  | coverage_limited_score_discussion_not_required_gate | 營收資料已可做 coverage-limited research-only 觀察；因不是完整 release-date 歷史 panel，暫時只能當加分討論，不能升正式必要條件。 |
+| feature_filter | feature_filter:tdcc_high_thresholds_up_return20_0_25_theme_context_mainstream_supported | combo_chip_risk_control_theme_context | 0.41 | 0 |  |  |  |  |  |  |  | insufficient_sample_review_only | 樣本不足，只能列為觀察，不能當必要條件。 |
+| feature_filter | feature_filter:tdcc_high_thresholds_up_return20_0_25_theme_context_leadership_not_overheated | combo_chip_risk_control_theme_context | 0.07 | 0 |  |  |  |  |  |  |  | insufficient_sample_review_only | 樣本不足，只能列為觀察，不能當必要條件。 |
+| feature_filter | feature_filter:revenue_positive_or_strong | revenue | 0.97 | 0 |  |  |  |  |  |  |  | coverage_limited_score_discussion_not_required_gate | 營收資料已可做 coverage-limited research-only 觀察；因不是完整 release-date 歷史 panel，暫時只能當加分討論，不能升正式必要條件。 |
+| feature_filter | feature_filter:tdcc_high_thresholds_up_return20_0_25_obv_above_ma20_revenue_positive_or_strong | combo_chip_risk_control_technical_volume_revenue | 0.27 | 0 |  |  |  |  |  |  |  | coverage_limited_score_discussion_not_required_gate | 營收資料已可做 coverage-limited research-only 觀察；因不是完整 release-date 歷史 panel，暫時只能當加分討論，不能升正式必要條件。 |
 | feature_filter | feature_filter:market_background_regime | market_background |  | 0 |  |  |  |  |  |  |  | blocked_market_join_required | 大盤背景方向合理，但需要把 market regime 依 signal_date 接到個股 research frame 後才能評估。 |

@@ -1,6 +1,6 @@
 # Price Pullback 23EMA Promotion Matrix
 
-- generated_at: `2026-07-10 17:43:21 Asia/Taipei`
+- generated_at: `2026-07-11 16:08:10 Asia/Taipei`
 - model_id: `price_pullback_23ema`
 - status: `research_only_promotion_decision_matrix`; this does not change production condition, scoring, ranking, PDF, or contract registry.
 - proposed_base: `price_pullback_23ema` signal + `return20_0_25` + `TDCC high thresholds up` + `OBV above MA20`.
