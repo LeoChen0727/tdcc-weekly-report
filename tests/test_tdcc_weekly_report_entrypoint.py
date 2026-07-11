@@ -1,4 +1,6 @@
+import subprocess
 from pathlib import Path
+from types import SimpleNamespace
 
 from scripts import run_tdcc_weekly_report_entrypoint as entrypoint
 
@@ -15,6 +17,87 @@ def test_entrypoint_rejects_non_generated_dirty_paths() -> None:
     assert not entrypoint.is_generated_delivery_path("scripts/build_tdcc_weekly_candidate_reports.py")
     assert not entrypoint.is_generated_delivery_path(".github/workflows/tdcc_weekly.yml")
     assert not entrypoint.is_generated_delivery_path("config/repo_file_lifecycle_inventory.csv")
+
+
+def test_entrypoint_allows_only_untracked_codex_local_config() -> None:
+    assert entrypoint.is_allowed_untracked_local_metadata("??", ".codex/config.toml")
+    assert entrypoint.is_allowed_untracked_local_metadata("??", ".codex\\config.toml")
+    assert not entrypoint.is_allowed_untracked_local_metadata(" M", ".codex/config.toml")
+    assert not entrypoint.is_allowed_untracked_local_metadata("??", ".codex/other.toml")
+
+
+def test_entrypoint_dirty_gate_ignores_only_codex_local_config(tmp_path: Path) -> None:
+    subprocess.run(
+        ["git", "init"],
+        cwd=tmp_path,
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+    codex_dir = tmp_path / ".codex"
+    codex_dir.mkdir()
+    (codex_dir / "config.toml").write_text('approval_policy = "never"\n', encoding="utf-8")
+
+    assert entrypoint.dirty_non_generated_paths(tmp_path) == []
+
+    (codex_dir / "unexpected.toml").write_text("unexpected = true\n", encoding="utf-8")
+    assert entrypoint.dirty_non_generated_paths(tmp_path) == [".codex/unexpected.toml"]
+
+
+def test_repo_ignores_exact_codex_local_config_only() -> None:
+    repo_root = Path(__file__).resolve().parents[1]
+    ignore_lines = {
+        line.strip()
+        for line in (repo_root / ".gitignore").read_text(encoding="utf-8").splitlines()
+    }
+
+    assert "/.codex/config.toml" in ignore_lines
+    assert "/.codex/" not in ignore_lines
+
+
+def test_entrypoint_does_not_apply_source_dirty_gate_to_delivery_root(
+    tmp_path: Path,
+    monkeypatch,
+) -> None:
+    repo_root = tmp_path / "automation-source"
+    delivery_root = tmp_path / "fixed-delivery"
+    repo_root.mkdir()
+    delivery_root.mkdir()
+    inspected_roots: list[Path] = []
+
+    monkeypatch.setattr(
+        entrypoint,
+        "parse_args",
+        lambda: SimpleNamespace(
+            repo_root=repo_root,
+            delivery_root=delivery_root,
+            source_ref="origin/main",
+            source_gate_only=True,
+            keep_source_worktree=False,
+        ),
+    )
+    monkeypatch.setattr(entrypoint, "fetch_source", lambda root: None)
+    monkeypatch.setattr(entrypoint, "resolve_commit", lambda root, ref: "source-sha")
+
+    def record_dirty_check(root: Path) -> list[str]:
+        resolved = Path(root).resolve()
+        inspected_roots.append(resolved)
+        if resolved == delivery_root.resolve():
+            return ["scripts/local_delivery_change.py"]
+        return []
+
+    def add_clean_source(root: Path, source_ref: str, temp_root: Path) -> Path:
+        clean_source = temp_root / "clean-source"
+        clean_source.mkdir()
+        return clean_source
+
+    monkeypatch.setattr(entrypoint, "dirty_non_generated_paths", record_dirty_check)
+    monkeypatch.setattr(entrypoint, "add_source_worktree", add_clean_source)
+    monkeypatch.setattr(entrypoint, "remove_source_worktree", lambda root, source: None)
+
+    assert entrypoint.main() == 0
+    assert repo_root.resolve() in inspected_roots
+    assert delivery_root.resolve() not in inspected_roots
 
 
 def test_entrypoint_delivery_paths_use_report_ready_signal_date() -> None:
