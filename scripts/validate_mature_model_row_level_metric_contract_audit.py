@@ -10,6 +10,7 @@ from build_mature_model_row_level_metric_contract_audit import (
     AUDIT_VERSION,
     GENERIC_COMBO_PREFIXES,
     HIGH_POSITION_AUDIT_CSV,
+    INTEGRATED_CONSUMER_READINESS,
     LATEST_CSV,
     LATEST_MD,
     MATURE_OPERATION_SECTIONS,
@@ -33,6 +34,12 @@ from build_mature_model_row_level_metric_contract_audit import (
     row_metric_audit_rows,
     technical_package_worse_status,
     truthy,
+)
+from validate_daily_pdf_contract_consumers import (
+    validate_operation_row_metric_renderer_contract,
+)
+from validate_daily_production_boundaries import (
+    validate_daily_operation_packet_row_metric_contract,
 )
 
 
@@ -231,8 +238,14 @@ def validate_promoted_high_position(audit: pd.DataFrame) -> None:
         fail("high-position volume attack must be audited as mature_model after promotion")
     if str(row["approved_for_daily"]).lower() not in {"true", "1", "yes"}:
         fail("high-position mature row must be approved_for_daily")
-    if row["production_readiness"] != "adapter_contract_ready_pending_pdf_layout_consumer":
-        fail("high-position mature row must remain pending until the PDF layout consumer uses row_metric fields")
+    if row["production_readiness"] != INTEGRATED_CONSUMER_READINESS:
+        fail("high-position mature row must record integrated PDF and packet row_metric consumers")
+    pdf_consumer_errors = validate_operation_row_metric_renderer_contract()
+    if pdf_consumer_errors:
+        fail(f"integrated PDF row_metric consumer validation failed: {pdf_consumer_errors}")
+    packet_consumer_errors = validate_daily_operation_packet_row_metric_contract()
+    if packet_consumer_errors:
+        fail(f"integrated packet row_metric consumer validation failed: {packet_consumer_errors}")
     if row["pdf_row_display_policy_status"] != (
         "pass_adapter_exposes_row_metric_and_forbids_baseline_substitution"
     ):

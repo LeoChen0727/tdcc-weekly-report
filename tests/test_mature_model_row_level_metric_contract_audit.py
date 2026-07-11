@@ -4,6 +4,7 @@ from pathlib import Path
 import sys
 
 import pandas as pd
+import pytest
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -12,6 +13,7 @@ if str(SCRIPTS) not in sys.path:
     sys.path.insert(0, str(SCRIPTS))
 
 import build_mature_model_row_level_metric_contract_audit as builder  # noqa: E402
+import validate_mature_model_row_level_metric_contract_audit as validator  # noqa: E402
 
 
 def test_builder_covers_all_current_mature_operation_models() -> None:
@@ -52,7 +54,7 @@ def test_high_position_combo_rows_are_promoted_to_mature_row_level_policy() -> N
     high = next(row for row in rows if row["model_id"] == "volume_range_breakout_v2_high_position_volume_attack")
 
     assert high["audit_scope"] == "mature_model"
-    assert high["production_readiness"] == "adapter_contract_ready_pending_pdf_layout_consumer"
+    assert high["production_readiness"] == builder.INTEGRATED_CONSUMER_READINESS
     assert high["metric_scope"] == "no_current_formal_row_metric"
     assert high["pdf_row_display_policy_status"] == (
         "pass_adapter_exposes_row_metric_and_forbids_baseline_substitution"
@@ -63,6 +65,23 @@ def test_high_position_combo_rows_are_promoted_to_mature_row_level_policy() -> N
     assert high["combo_worse_policy_status"] == "pass_exact_combo_or_best_single_fallback_policy"
     assert str(high["non_overlap_status"]).startswith("pass_")
     assert str(high["numerical_anomaly_status"]).startswith("pass_")
+
+
+@pytest.mark.parametrize(
+    "guard_name",
+    [
+        "validate_operation_row_metric_renderer_contract",
+        "validate_daily_operation_packet_row_metric_contract",
+    ],
+)
+def test_integrated_consumer_readiness_fails_closed_on_consumer_regression(
+    monkeypatch: pytest.MonkeyPatch,
+    guard_name: str,
+) -> None:
+    monkeypatch.setattr(validator, guard_name, lambda: ["forced row_metric consumer regression"])
+
+    with pytest.raises(SystemExit):
+        validator.validate_promoted_high_position(pd.DataFrame(builder.build_rows()))
 
 
 def test_row_audit_blocks_baseline_substitution_and_uses_only_formal_metrics() -> None:

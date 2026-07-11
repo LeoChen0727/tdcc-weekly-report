@@ -90,5 +90,11 @@ python scripts/build_mature_model_row_level_metric_contract_audit.py
 python scripts/validate_mature_model_row_level_metric_contract_audit.py
 ```
 
+Mature-model audit rows use
+`production_readiness=adapter_contract_ready_pdf_packet_consumers_integrated`.
+That status is valid only while the audit validator also passes both the PDF
+renderer `row_metric_*` consumer guard and the daily packet baseline-fallback
+guard. A model adapter alone cannot claim integrated consumer readiness.
+
 Its row artifact is
 `output/latest/mature_model_row_level_metric_row_audit_latest.csv`.
