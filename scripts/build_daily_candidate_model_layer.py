@@ -270,8 +270,6 @@ SCORE_COMPONENT_ZH_REPLACEMENTS = {
     "profile=hot_theme_pullback": "參數=熱門族群回檔模型",
     "profile=revenue_unreacted_range": "參數=營收爆發但股價尚未反應模型",
     "profile=w_bottom_right_side": "參數=W底右側模型",
-    "profile=near_high_neckline_challenge": "參數=接近前高/頸線挑戰模型",
-    "profile=platform_strengthening": "參數=平台整理轉強模型",
     "profile=pullback_short_reclaim": "參數=回檔後短線轉強模型",
     "profile=tdcc_stealth_accumulation": "參數=TDCC潛伏吸籌模型",
     "platform/neckline breakout": "平台/頸線突破",
@@ -493,28 +491,6 @@ MODEL_SCORE_PROFILES: dict[str, ScoreProfile] = {
         warrant_bullish_bonus=4.0,
         strong_revenue_bonus=4.0,
         lower_position_bonus=2.0,
-        tdcc_distribution_penalty=6.0,
-        false_breakout_penalty=6.0,
-    ),
-    "near_high_neckline_challenge": ScoreProfile(
-        "near_high_neckline_challenge",
-        volume_ratio_bonus_per_1x=3.0,
-        volume_ratio_bonus_cap=12.0,
-        tdcc_positive_bonus=6.0,
-        warrant_bullish_bonus=5.0,
-        strong_revenue_bonus=4.0,
-        lower_position_bonus=0.0,
-        tdcc_distribution_penalty=6.0,
-        false_breakout_penalty=6.0,
-    ),
-    "platform_strengthening": ScoreProfile(
-        "platform_strengthening",
-        volume_ratio_bonus_per_1x=2.5,
-        volume_ratio_bonus_cap=10.0,
-        tdcc_positive_bonus=7.0,
-        warrant_bullish_bonus=4.0,
-        strong_revenue_bonus=4.0,
-        lower_position_bonus=4.0,
         tdcc_distribution_penalty=6.0,
         false_breakout_penalty=6.0,
     ),
@@ -1880,44 +1856,6 @@ def score_revenue_unreacted(row: pd.Series) -> tuple[float, list[str], list[str]
     return score, comps, risks
 
 
-def score_neckline_challenge(row: pd.Series) -> tuple[float, list[str], list[str]]:
-    score, comps, risks = score_from_profile(row, MODEL_SCORE_PROFILES["near_high_neckline_challenge"])
-    distance = num(row, "distance_to_neckline_pct", "distance_to_prior_high_pct", "distance_to_previous_60d_high_pct")
-    if not math.isnan(distance):
-        if -2 <= distance <= 0:
-            score += 10
-            comps.append("pressure distance 0-2% +10")
-        elif -5 <= distance < -2:
-            score += 6
-            comps.append("pressure distance 2-5% +6")
-    if ema23_slope_proxy_up(row):
-        score += 5
-        comps.append("EMA23 slope proxy up +5")
-    if num(row, "volume_ratio") >= 1.2:
-        score += 4
-        comps.append("volume started expanding +4")
-    return score, comps, risks
-
-
-def score_platform_strength(row: pd.Series) -> tuple[float, list[str], list[str]]:
-    score, comps, risks = score_from_profile(row, MODEL_SCORE_PROFILES["platform_strengthening"])
-    width = num(row, "platform_width_pct", "short_platform_width_pct")
-    days = num(row, "days_in_range", "platform_days", "range_window")
-    if not math.isnan(width) and 3 <= width <= 18:
-        score += 8
-        comps.append("controlled platform width +8")
-    if not math.isnan(days) and days >= 15:
-        score += 6
-        comps.append("longer platform duration +6")
-    if near_range_high(row, 5):
-        score += 5
-        comps.append("near range high +5")
-    if flag(row, "red_candle_flag") or flag(row, "solid_red_candle_flag"):
-        score += 4
-        comps.append("solid red candle +4")
-    return score, comps, risks
-
-
 def score_pullback_short_reclaim(row: pd.Series) -> tuple[float, list[str], list[str]]:
     score, comps, risks = score_from_profile(row, MODEL_SCORE_PROFILES["pullback_short_reclaim"])
     if ema23_slope_proxy_up(row):
@@ -2864,28 +2802,6 @@ def cond_neckline_volume_breakout_confirmation(row: pd.Series) -> bool:
     return w_bottom_neckline_breakout_confirmation_ok(row, context_for_use)
 
 
-def cond_neckline_challenge(row: pd.Series) -> bool:
-    if already_confirmed_breakout(row):
-        return False
-    vol = num(row, "volume_ratio")
-    return near_neckline_or_prior_high(row) and not math.isnan(vol) and vol >= 1.2 and ema23_slope_proxy_up(row)
-
-
-def cond_platform_strength(row: pd.Series) -> bool:
-    if already_confirmed_breakout(row):
-        return False
-    width = num(row, "platform_width_pct", "short_platform_width_pct")
-    vol = num(row, "volume_ratio")
-    return (
-        (flag(row, "platform_base_flag") or not math.isnan(width))
-        and (math.isnan(width) or width <= 18)
-        and near_range_high(row, 5)
-        and not math.isnan(vol)
-        and vol >= 1.2
-        and red_solid_candle(row)
-    )
-
-
 def cond_pullback_short_strength(row: pd.Series) -> bool:
     ret20 = num(row, "return_20d", "return_20d_pct")
     return (
@@ -3010,30 +2926,6 @@ def build_specs() -> list[ModelSpec]:
             "定位為W底頸線帶量突破確認；訊號日後下一個交易日開盤作為進場基準。不涵蓋倒頭肩底、三重底或其他頸線型態。",
             cond_neckline_volume_breakout_confirmation,
             score_neckline_volume_breakout_confirmation,
-        ),
-        ModelSpec(
-            "near_high_neckline_challenge",
-            "接近前高 / 頸線挑戰模型",
-            "pdf_core_model",
-            "signal_date_next_open",
-            "距離前高或頸線約0%至5%，量能開始放大，均線轉正，用於提前抓突破前1至5日。",
-            "量能回升、收盤接近壓力、TDCC正向、權證偏多、族群支持可加分。",
-            "已有效突破者應歸入突破模型；本模型主要處理突破前的挑戰階段。",
-            "後續看是否放量突破壓力；若碰壓回落或量價背離，則不追。",
-            cond_neckline_challenge,
-            score_neckline_challenge,
-        ),
-        ModelSpec(
-            "platform_strengthening",
-            "平台整理轉強模型",
-            "pdf_core_model",
-            "signal_date_next_open",
-            "盤整區間形成、波動收斂、接近平台上緣、量能回升，且出現帶量實體紅K。",
-            "盤整時間長、回測不破、TDCC溫和增加、族群或權證支持可加分。",
-            "本模型偏向平台內轉強或接近上緣，不應把已明確突破後的股票長期留在此模型。",
-            "後續看平台上緣是否被有效突破；跌回平台中下緣或量價失敗需降級。",
-            cond_platform_strength,
-            score_platform_strength,
         ),
         ModelSpec(
             "pullback_short_reclaim",
@@ -4316,8 +4208,6 @@ MODEL_NAME_ZH_BY_ID = {
     "revenue_unreacted_range": "營收爆發但股價尚未反應模型",
     "w_bottom_right_side": "W底右側模型",
     "neckline_volume_breakout_confirmation": "W底頸線帶量突破確認模型",
-    "near_high_neckline_challenge": "接近前高 / 頸線挑戰模型",
-    "platform_strengthening": "平台整理轉強模型",
     "pullback_short_reclaim": "回檔後短線轉強模型",
     "tdcc_stealth_accumulation": "TDCC潛伏吸籌模型",
     "tdcc_short_continuation": "TDCC短線延續模型 D+5/D+10",
@@ -4332,8 +4222,6 @@ MODEL_HUMAN_REASON_ZH = {
     "revenue_unreacted_range": "符合營收爆發但股價尚未反應模型，營收動能較強且股價仍在整理區。",
     "w_bottom_right_side": "符合W底右側模型，右側低點墊高並接近頸線或轉強區。",
     "neckline_volume_breakout_confirmation": "符合W底頸線帶量突破確認模型，股價已站上頸線且第二弧量能高於第一弧基準。",
-    "near_high_neckline_challenge": "符合接近前高 / 頸線挑戰模型，距離關鍵壓力不遠且量能開始回升。",
-    "platform_strengthening": "符合平台整理轉強模型，盤整區間形成後量能回升並接近上緣。",
     "pullback_short_reclaim": "符合回檔後短線轉強模型，前段漲勢後回檔未破結構並重新轉強。",
     "tdcc_stealth_accumulation": "符合TDCC潛伏吸籌模型，大戶籌碼改善，股價尚未完全反應。",
     "tdcc_short_continuation": "符合TDCC短線延續模型，歷史短線延續樣本具參考性，適合作D+5/D+10短線延續觀察。",
