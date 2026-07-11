@@ -386,7 +386,7 @@ def build_volume_operation_packet_lines() -> list[str]:
     lines.append(f"operation_readiness_md_raw_url: {raw_url(MODEL_OPERATION_READINESS_MD)}")
     lines.append(f"status: {'generated' if not section.empty else 'missing'}")
     lines.append("model_ids: " + ",".join(VOLUME_BREAKOUT_OPERATION_MODEL_IDS))
-    lines.append("pdf_packet_usage: render the daily adapter artifact only; do not read research operation artifacts directly and do not recalculate entry, stop, exit, ranking, sample size, win rate, or median return.")
+    lines.append("pdf_packet_usage: render the daily adapter artifact only; operation-row performance must consume row_metric_* only and must not fall back to whole-model baseline metrics.")
     if not readiness.empty and "model_id" in readiness.columns:
         volume = readiness[readiness["model_id"].astype(str).isin(VOLUME_BREAKOUT_OPERATION_MODEL_IDS)].copy()
         for _, row in volume.iterrows():
@@ -426,10 +426,18 @@ def build_volume_operation_packet_lines() -> list[str]:
                         ("entry_price_status", "entry_price_status_zh"),
                         ("stop", "stop_basis_zh"),
                         ("exit", "exit_rule_zh"),
-                        ("sample_size", "sample_size"),
-                        ("win_rate", "win_rate_zh"),
-                        ("avg_return", "avg_return_zh"),
-                        ("median_return", "median_return_zh"),
+                        ("row_metric_status", "row_metric_status"),
+                        ("row_metric_scope", "row_metric_scope"),
+                        ("row_metric_id", "row_metric_id"),
+                        ("row_metric_label", "row_metric_label_zh"),
+                        ("row_metric_sample_size", "row_metric_sample_size"),
+                        ("row_metric_win_rate", "row_metric_win_rate_zh"),
+                        ("row_metric_neutral_rate", "row_metric_neutral_rate_zh"),
+                        ("row_metric_failure_rate", "row_metric_failure_rate_zh"),
+                        ("row_metric_avg_return", "row_metric_avg_return_zh"),
+                        ("row_metric_median_return", "row_metric_median_return_zh"),
+                        ("row_metric_source", "row_metric_source"),
+                        ("row_metric_selection_status", "row_metric_selection_status"),
                         ("confidence", "confidence_zh"),
                     ],
                 )

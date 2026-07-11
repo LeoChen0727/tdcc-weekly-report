@@ -12,6 +12,7 @@ DAILY_MODEL_MAINTENANCE_PR_WORKFLOW = ROOT / ".github" / "workflows" / "daily_mo
 CANONICAL_CHATGPT_PDF_ENTRYPOINT = ROOT / "scripts" / "run_chatgpt_daily_report_entrypoint.py"
 CANONICAL_CHATGPT_PDF_GENERATOR = ROOT / "scripts" / "generate_chatgpt_side_daily_reports.py"
 DAILY_MARKET_ARTIFACT_BUILDER = ROOT / "build_daily_market_report_artifacts.py"
+DAILY_PACKET_BUILDER = ROOT / "build_chatgpt_daily_report_packet.py"
 THEME_EVENT_WATCH_BUILDER = ROOT / "scripts" / "build_theme_event_watch.py"
 WARRANT_FLOW_BUILDER = ROOT / "build_warrant_flow_latest.py"
 DAILY_REPORT_SOURCE_RESOLVER = ROOT / "scripts" / "resolve_daily_report_source_state.py"
@@ -30,6 +31,28 @@ REPO_PRODUCTION_INVENTORY_VALIDATOR = ROOT / "scripts" / "validate_repo_producti
 REPO_FILE_LIFECYCLE_INVENTORY_VALIDATOR = ROOT / "scripts" / "validate_repo_file_lifecycle_inventory.py"
 REPO_SEMANTIC_INTEGRITY_VALIDATOR = ROOT / "scripts" / "validate_repo_semantic_integrity.py"
 REPO_ADVANCED_INTEGRITY_VALIDATOR = ROOT / "scripts" / "validate_repo_advanced_integrity.py"
+
+PACKET_ROW_METRIC_REQUIRED_LITERALS = {
+    'operation-row performance must consume row_metric_* only',
+    '("row_metric_status", "row_metric_status")',
+    '("row_metric_scope", "row_metric_scope")',
+    '("row_metric_id", "row_metric_id")',
+    '("row_metric_label", "row_metric_label_zh")',
+    '("row_metric_sample_size", "row_metric_sample_size")',
+    '("row_metric_win_rate", "row_metric_win_rate_zh")',
+    '("row_metric_neutral_rate", "row_metric_neutral_rate_zh")',
+    '("row_metric_failure_rate", "row_metric_failure_rate_zh")',
+    '("row_metric_avg_return", "row_metric_avg_return_zh")',
+    '("row_metric_median_return", "row_metric_median_return_zh")',
+    '("row_metric_source", "row_metric_source")',
+    '("row_metric_selection_status", "row_metric_selection_status")',
+}
+PACKET_ROW_METRIC_FORBIDDEN_BASELINE_LITERALS = {
+    '("sample_size", "sample_size")',
+    '("win_rate", "win_rate_zh")',
+    '("avg_return", "avg_return_zh")',
+    '("median_return", "median_return_zh")',
+}
 
 
 FORBIDDEN_DAILY_SCRIPT_PATTERNS = {
@@ -229,6 +252,33 @@ def validate_model_operation_price_confirmation_rules() -> list[str]:
     return errors
 
 
+def validate_daily_operation_packet_row_metric_contract() -> list[str]:
+    if not DAILY_PACKET_BUILDER.exists():
+        return [f"missing daily packet builder: {display_path(DAILY_PACKET_BUILDER)}"]
+    text = read_text(DAILY_PACKET_BUILDER)
+    start = text.find("def build_volume_operation_packet_lines()")
+    if start < 0:
+        return ["daily packet builder missing build_volume_operation_packet_lines"]
+    next_function = text.find("\ndef ", start + 1)
+    body = text[start : next_function if next_function >= 0 else len(text)]
+    errors: list[str] = []
+    missing = sorted(literal for literal in PACKET_ROW_METRIC_REQUIRED_LITERALS if literal not in body)
+    if missing:
+        errors.append(
+            "daily operation packet must consume the model-owned row_metric contract: missing "
+            + ";".join(missing)
+        )
+    forbidden = sorted(
+        literal for literal in PACKET_ROW_METRIC_FORBIDDEN_BASELINE_LITERALS if literal in body
+    )
+    if forbidden:
+        errors.append(
+            "daily operation packet must not display whole-model baseline metrics in stock rows: "
+            + ";".join(forbidden)
+        )
+    return errors
+
+
 def require_workflow_order(text: str, labels: list[str]) -> list[str]:
     errors: list[str] = []
     last_index = -1
@@ -321,6 +371,7 @@ def main() -> int:
     errors.extend(run_repo_semantic_integrity_validation())
     errors.extend(run_repo_advanced_integrity_validation())
     errors.extend(validate_model_operation_price_confirmation_rules())
+    errors.extend(validate_daily_operation_packet_row_metric_contract())
 
     for path, required_literals in FORMAL_REPORT_DATE_HARD_GATE_FILES.items():
         if not path.exists():

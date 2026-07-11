@@ -36,6 +36,10 @@ def test_daily_production_boundary_validator_passes_current_repo() -> None:
     assert boundaries.main() == 0
 
 
+def test_daily_operation_packet_uses_row_metric_contract_without_baseline_fallback() -> None:
+    assert boundaries.validate_daily_operation_packet_row_metric_contract() == []
+
+
 def test_research_production_boundary_validator_passes_current_repo() -> None:
     assert validate_research_production_boundaries.main() == 0
 
