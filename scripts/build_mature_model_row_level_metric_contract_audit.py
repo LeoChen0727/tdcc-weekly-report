@@ -7,6 +7,15 @@ from zoneinfo import ZoneInfo
 
 import pandas as pd
 
+from build_daily_volume_breakout_operation_section import (
+    HIGH_POSITION_BONUS_FEATURE_ORDER,
+    HIGH_POSITION_COMBO_BONUS_METRICS,
+    HIGH_POSITION_SINGLE_BONUS_METRICS,
+    combo_metric_not_worse,
+    metric_rank,
+    select_high_position_bonus_metric,
+)
+
 
 ROOT = Path(__file__).resolve().parents[1]
 READINESS_CSV = ROOT / "output" / "latest" / "model_operation_readiness_latest.csv"
@@ -18,11 +27,20 @@ HIGH_POSITION_AUDIT_CSV = (
     / "research_backtest"
     / "volume_range_breakout_v2_high_position_improvement_audit_latest.csv"
 )
+HIGH_POSITION_DETAIL_CSV = (
+    ROOT
+    / "output"
+    / "latest"
+    / "research_backtest"
+    / "volume_range_breakout_v2_high_position_improvement_audit_detail_latest.csv"
+)
 LATEST_CSV = ROOT / "output" / "latest" / "mature_model_row_level_metric_contract_audit_latest.csv"
 LATEST_MD = ROOT / "output" / "latest" / "mature_model_row_level_metric_contract_audit_latest.md"
+ROW_AUDIT_CSV = ROOT / "output" / "latest" / "mature_model_row_level_metric_row_audit_latest.csv"
+ROW_AUDIT_MD = ROOT / "output" / "latest" / "mature_model_row_level_metric_row_audit_latest.md"
 
-AUDIT_ID = "mature_model_row_level_metric_contract_audit_20260710"
-AUDIT_VERSION = "v1"
+AUDIT_ID = "mature_model_row_level_metric_contract_audit_20260711"
+AUDIT_VERSION = "v2"
 
 MATURE_OPERATION_SECTIONS = {"confirmed_operation", "active_operation"}
 TRUTHY = {"true", "1", "yes", "y"}
@@ -73,6 +91,69 @@ GENERIC_COMBO_PREFIXES = (
     "add_score_combo",
 )
 
+ROW_METRIC_COLUMNS = {
+    "row_metric_status",
+    "row_metric_scope",
+    "row_metric_id",
+    "row_metric_label_zh",
+    "row_metric_matched_add_score_ids",
+    "row_metric_sample_size",
+    "row_metric_win_rate_zh",
+    "row_metric_neutral_rate_zh",
+    "row_metric_failure_rate_zh",
+    "row_metric_avg_return_zh",
+    "row_metric_median_return_zh",
+    "row_metric_source",
+    "row_metric_selection_status",
+}
+
+ROW_METRIC_REQUIRED_WHEN_READY = {
+    "row_metric_scope",
+    "row_metric_id",
+    "row_metric_label_zh",
+    "row_metric_matched_add_score_ids",
+    "row_metric_sample_size",
+    "row_metric_win_rate_zh",
+    "row_metric_neutral_rate_zh",
+    "row_metric_failure_rate_zh",
+    "row_metric_avg_return_zh",
+    "row_metric_source",
+    "row_metric_selection_status",
+}
+
+SCORE_ADD_ITEM_POLICY = {
+    "w_bottom_right_side": {
+        "score_add_item_ids": "second_low_quality|right_side_volume|right_side_rebound|second_attack_strength|second_arc_volume|red_candle_ratio|low_position",
+        "validated_row_metric_add_item_ids": "",
+        "policy": "ranking_only_unvalidated_not_performance_metric",
+    },
+    "neckline_volume_breakout_confirmation": {
+        "score_add_item_ids": "context90|second_arc_volume|locked_limit_up|volume_confirmation|red_candle_ratio|breakout_distance|close_location|red_body",
+        "validated_row_metric_add_item_ids": "",
+        "policy": "ranking_only_unvalidated_not_performance_metric",
+    },
+    "price_pullback_23ema": {
+        "score_add_item_ids": "technical_strength_rsi60_macd_positive",
+        "validated_row_metric_add_item_ids": "rsi14_ge60|macd_hist_gt0",
+        "policy": "approved_exact_combo_only",
+    },
+    "volume_range_breakout_v2_low_position_volume_attack": {
+        "score_add_item_ids": "volume_ratio|breakout_magnitude|close_position|red_body|base_width|base_duration",
+        "validated_row_metric_add_item_ids": "",
+        "policy": "ranking_only_unvalidated_not_performance_metric",
+    },
+    "volume_range_breakout_v2_mid_position_momentum_attack": {
+        "score_add_item_ids": "volume_ratio|breakout_magnitude|close_position|red_body|base_width|base_duration",
+        "validated_row_metric_add_item_ids": "",
+        "policy": "ranking_only_unvalidated_not_performance_metric",
+    },
+    "volume_range_breakout_v2_high_position_volume_attack": {
+        "score_add_item_ids": "mild_bull|tdcc_weekly_increase_top20|ma20_gt_ma60|volume_lt2|not_limit_up_like|breakout_2_5|close_location_le80|signal_body_le3|confirmation_return_3_7|kdj_overheated|dist_ema23_0_15",
+        "validated_row_metric_add_item_ids": "mild_bull|tdcc_weekly_increase_top20|ma20_gt_ma60|volume_lt2|not_limit_up_like|breakout_2_5|close_location_le80|signal_body_le3|confirmation_return_3_7|kdj_overheated|dist_ema23_0_15",
+        "policy": "approved_single_or_exact_combo_with_best_single_fallback",
+    },
+}
+
 OUTPUT_COLUMNS = [
     "generated_at",
     "audit_id",
@@ -88,6 +169,7 @@ OUTPUT_COLUMNS = [
     "adapter_row_count",
     "adapter_data_row_count",
     "mature_operation_data_row_count",
+    "unique_stock_lifecycle_count",
     "metric_scope",
     "baseline_metric_status",
     "row_level_metric_status",
@@ -99,10 +181,56 @@ OUTPUT_COLUMNS = [
     "base_row_count",
     "generic_combo_metric_group_count",
     "approved_metric_source_status",
+    "production_score_add_item_ids",
+    "validated_row_metric_add_item_ids",
+    "score_add_item_governance_status",
+    "row_metric_contract_columns_status",
+    "row_metric_ready_count",
+    "row_metric_unavailable_count",
+    "row_metric_invalid_count",
+    "row_metric_baseline_misuse_count",
+    "row_metric_duplicate_key_count",
+    "metric_source_parity_status",
+    "non_overlap_status",
+    "numerical_anomaly_status",
     "research_only_combo_candidate_count",
     "research_only_combo_not_candidate_count",
     "research_only_combo_positive_but_below_threshold_count",
     "production_readiness",
+    "issues",
+]
+
+ROW_AUDIT_COLUMNS = [
+    "generated_at",
+    "audit_id",
+    "audit_version",
+    "model_id",
+    "pdf_view",
+    "pdf_section",
+    "report_line",
+    "operation_asof_date",
+    "stock_id",
+    "stock_name",
+    "signal_date",
+    "operation_quality",
+    "baseline_metric_present",
+    "formal_bonus_metric_present",
+    "row_metric_status",
+    "row_metric_scope",
+    "row_metric_id",
+    "row_metric_label_zh",
+    "row_metric_matched_add_score_ids",
+    "row_metric_sample_size",
+    "row_metric_win_rate_zh",
+    "row_metric_neutral_rate_zh",
+    "row_metric_failure_rate_zh",
+    "row_metric_avg_return_zh",
+    "row_metric_median_return_zh",
+    "row_metric_source",
+    "row_metric_selection_status",
+    "metric_rate_sum_pct",
+    "baseline_misuse_status",
+    "validation_status",
     "issues",
 ]
 
@@ -126,7 +254,7 @@ def truthy(value: object) -> bool:
 
 
 def clean_text(value: object) -> str:
-    return str(value or "").strip()
+    return "" if value is None else str(value).strip()
 
 
 def pct_number(value: object) -> float | None:
@@ -196,6 +324,212 @@ def status_from_missing(frame: pd.DataFrame, columns: set[str], pass_status: str
     if blank:
         return f"{missing_status}:blank_columns={';'.join(blank)}"
     return pass_status
+
+
+def high_position_metric_source_parity() -> tuple[str, list[str]]:
+    research = read_csv(HIGH_POSITION_AUDIT_CSV)
+    if research.empty:
+        return "fail_missing_high_position_research_audit", ["missing_high_position_research_audit"]
+    issues: list[str] = []
+    mappings = [
+        ("sample_size", "sample_size"),
+        ("win_rate", "win_rate_pct"),
+        ("neutral_rate", "neutral_rate_pct"),
+        ("loss_rate", "loss_rate_pct"),
+        ("avg_return", "avg_return_pct"),
+        ("median_return", "median_return_pct"),
+    ]
+    metric_groups = [
+        ("candidate_condition", HIGH_POSITION_SINGLE_BONUS_METRICS),
+        ("pdf_bonus_combo", HIGH_POSITION_COMBO_BONUS_METRICS),
+    ]
+    for row_type, metrics in metric_groups:
+        for metric in metrics.values():
+            metric_id = clean_text(metric.get("metric_id"))
+            matched = research[
+                research["row_type"].eq(row_type)
+                & research["feature_id"].eq(metric_id)
+            ]
+            if len(matched) != 1:
+                issues.append(f"{metric_id}:research_row_count={len(matched)}")
+                continue
+            source = matched.iloc[0]
+            if clean_text(source.get("candidate_status")) != "research_only_candidate_metric_met":
+                issues.append(f"{metric_id}:source_not_candidate_metric_met")
+            for metric_key, source_column in mappings:
+                expected = pct_number(metric.get(metric_key))
+                actual = pct_number(source.get(source_column))
+                tolerance = 0.0001 if metric_key != "sample_size" else 0.0
+                if expected is None or actual is None or abs(expected - actual) > tolerance:
+                    issues.append(f"{metric_id}:{metric_key}_mismatch={expected}!={actual}")
+    if issues:
+        return "fail_high_position_metric_source_mismatch", issues
+    return "pass_all_promoted_high_position_metrics_match_research_source", []
+
+
+def high_position_selection_policy_status() -> tuple[str, list[str]]:
+    issues: list[str] = []
+    feature_order = list(HIGH_POSITION_BONUS_FEATURE_ORDER)
+    for mask in range(1 << len(feature_order)):
+        flags = {feature: bool(mask & (1 << index)) for index, feature in enumerate(feature_order)}
+        metric, source = select_high_position_bonus_metric(flags)
+        matched_singles = [
+            candidate
+            for feature, candidate in HIGH_POSITION_SINGLE_BONUS_METRICS.items()
+            if flags.get(feature)
+        ]
+        best_single = max(matched_singles, key=metric_rank) if matched_singles else None
+        combo_id = "pdf_combo__" + "__".join(feature for feature in feature_order if flags.get(feature))
+        combo = HIGH_POSITION_COMBO_BONUS_METRICS.get(combo_id)
+        if combo is not None and combo_metric_not_worse(combo, best_single):
+            if metric is not combo or source != "exact_combo_metric":
+                issues.append(f"{combo_id}:exact_combo_not_selected")
+        elif best_single is not None:
+            if metric is not best_single or source != "single_bonus_metric":
+                issues.append(f"{combo_id}:best_single_fallback_not_selected")
+        elif metric is not None or source:
+            issues.append(f"{combo_id}:unexpected_metric_without_match")
+    if issues:
+        return "fail_high_position_combo_selection_policy", issues
+    return "pass_exact_combo_or_best_single_fallback_policy", []
+
+
+def high_position_detail_quality_status() -> tuple[str, str, list[str]]:
+    detail = read_csv(HIGH_POSITION_DETAIL_CSV)
+    if detail.empty:
+        return (
+            "fail_missing_high_position_detail",
+            "fail_missing_high_position_detail",
+            ["missing_high_position_detail"],
+        )
+    rows = detail[detail["base_model_member"].map(truthy)].copy()
+    issues: list[str] = []
+    duplicate_count = int(rows.duplicated(subset=["source_event_key"], keep=False).sum())
+    if len(rows) != 231:
+        issues.append(f"base_member_count={len(rows)}!=231")
+    if duplicate_count:
+        issues.append(f"duplicate_source_event_key_rows={duplicate_count}")
+    returns = pd.to_numeric(rows["return_pct"], errors="coerce")
+    if returns.isna().any():
+        issues.append(f"non_numeric_return_rows={int(returns.isna().sum())}")
+    outcome_count = int(rows["return_outcome"].isin({"win", "neutral", "loss"}).sum())
+    if outcome_count != len(rows):
+        issues.append(f"invalid_outcome_rows={len(rows) - outcome_count}")
+    if returns.dropna().empty:
+        anomaly_status = "fail_no_numeric_returns"
+        issues.append("no_numeric_returns")
+    else:
+        total = float(returns.sum())
+        top = float(returns.max())
+        mean_all = float(returns.mean())
+        mean_without_top = float(returns[returns.ne(top)].mean()) if len(returns) > 1 else mean_all
+        top_share = abs(top / total) if total else 0.0
+        if top_share > 0.10 or abs(mean_all - mean_without_top) > 1.0:
+            anomaly_status = (
+                f"fail_dominant_return_top={top:.4f};top_share={top_share:.4f};"
+                f"mean={mean_all:.4f};mean_without_top={mean_without_top:.4f}"
+            )
+            issues.append("dominant_return_changes_conclusion")
+        else:
+            anomaly_status = (
+                f"pass_no_single_return_dominates_top={top:.4f};top_share={top_share:.4f};"
+                f"mean={mean_all:.4f};mean_without_top={mean_without_top:.4f}"
+            )
+    non_overlap_status = (
+        "pass_source_event_key_unique_same_stock_non_overlap_basis"
+        if not duplicate_count
+        else f"fail_duplicate_source_event_key_rows={duplicate_count}"
+    )
+    return non_overlap_status, anomaly_status, issues
+
+
+def row_metric_audit_rows(
+    model_id: str,
+    operation_rows: pd.DataFrame,
+    generated_at: str,
+) -> list[dict[str, object]]:
+    rows: list[dict[str, object]] = []
+    for _, source in operation_rows.iterrows():
+        issues: list[str] = []
+        missing_contract_columns = sorted(ROW_METRIC_COLUMNS - set(operation_rows.columns))
+        status = clean_text(source.get("row_metric_status"))
+        formal_bonus_present = bool(
+            clean_text(source.get("pdf_bonus_combo_id"))
+            or clean_text(source.get("row_metric_id"))
+            or clean_text(source.get("operation_quality")) == "technical_strength"
+        )
+        rate_sum: float | None = None
+        if missing_contract_columns:
+            issues.append("missing_contract_columns=" + "|".join(missing_contract_columns))
+        elif status == "ready":
+            blank = sorted(
+                column
+                for column in ROW_METRIC_REQUIRED_WHEN_READY
+                if not clean_text(source.get(column))
+            )
+            if blank:
+                issues.append("blank_ready_columns=" + "|".join(blank))
+            rates = [
+                pct_number(source.get("row_metric_win_rate_zh")),
+                pct_number(source.get("row_metric_neutral_rate_zh")),
+                pct_number(source.get("row_metric_failure_rate_zh")),
+            ]
+            if any(value is None for value in rates):
+                issues.append("non_numeric_ready_rates")
+            else:
+                rate_sum = sum(value for value in rates if value is not None)
+                if abs(rate_sum - 100.0) > 0.05:
+                    issues.append(f"ready_rate_sum={rate_sum:.4f}")
+            baseline_misuse_status = "pass_formal_row_metric_selected"
+        elif status == "unavailable_no_approved_add_score_metric":
+            payload_columns = ROW_METRIC_COLUMNS - {"row_metric_status", "row_metric_selection_status"}
+            populated = sorted(column for column in payload_columns if clean_text(source.get(column)))
+            if populated:
+                issues.append("unavailable_row_has_metric_payload=" + "|".join(populated))
+            if formal_bonus_present:
+                issues.append("formal_bonus_present_but_row_metric_unavailable")
+                baseline_misuse_status = "fail_formal_bonus_would_fall_back_to_baseline"
+            else:
+                baseline_misuse_status = "pass_adapter_explicitly_blocks_baseline_fallback"
+        else:
+            baseline_misuse_status = "fail_missing_explicit_row_metric_status"
+            issues.append(f"invalid_row_metric_status={status or 'blank'}")
+        rows.append(
+            {
+                "generated_at": generated_at,
+                "audit_id": AUDIT_ID,
+                "audit_version": AUDIT_VERSION,
+                "model_id": model_id,
+                "pdf_view": clean_text(source.get("pdf_view")),
+                "pdf_section": clean_text(source.get("pdf_section")),
+                "report_line": clean_text(source.get("report_line")),
+                "operation_asof_date": clean_text(source.get("operation_asof_date")),
+                "stock_id": clean_text(source.get("stock_id")),
+                "stock_name": clean_text(source.get("stock_name")),
+                "signal_date": clean_text(source.get("signal_date")),
+                "operation_quality": clean_text(source.get("operation_quality")),
+                "baseline_metric_present": str(bool(clean_text(source.get("win_rate_zh")))),
+                "formal_bonus_metric_present": str(formal_bonus_present),
+                "row_metric_status": status,
+                "row_metric_scope": clean_text(source.get("row_metric_scope")),
+                "row_metric_id": clean_text(source.get("row_metric_id")),
+                "row_metric_label_zh": clean_text(source.get("row_metric_label_zh")),
+                "row_metric_matched_add_score_ids": clean_text(source.get("row_metric_matched_add_score_ids")),
+                "row_metric_sample_size": clean_text(source.get("row_metric_sample_size")),
+                "row_metric_win_rate_zh": clean_text(source.get("row_metric_win_rate_zh")),
+                "row_metric_neutral_rate_zh": clean_text(source.get("row_metric_neutral_rate_zh")),
+                "row_metric_failure_rate_zh": clean_text(source.get("row_metric_failure_rate_zh")),
+                "row_metric_avg_return_zh": clean_text(source.get("row_metric_avg_return_zh")),
+                "row_metric_median_return_zh": clean_text(source.get("row_metric_median_return_zh")),
+                "row_metric_source": clean_text(source.get("row_metric_source")),
+                "row_metric_selection_status": clean_text(source.get("row_metric_selection_status")),
+                "metric_rate_sum_pct": "" if rate_sum is None else f"{rate_sum:.4f}",
+                "baseline_misuse_status": baseline_misuse_status,
+                "validation_status": "pass" if not issues else "fail",
+                "issues": ";".join(sorted(set(issues))),
+            }
+        )
+    return rows
 
 
 def approved_pattern_for(model_id: str, approved: pd.DataFrame) -> pd.Series | None:
@@ -331,6 +665,56 @@ def audit_mature_model(row: pd.Series, approved: pd.DataFrame, generated_at: str
     elif not adapter_path.exists():
         issues.append("adapter_file_missing")
 
+    missing_row_metric_columns = sorted(ROW_METRIC_COLUMNS - set(adapter.columns))
+    row_metric_columns_status = (
+        "pass_adapter_row_metric_contract_columns_present"
+        if not missing_row_metric_columns
+        else "fail_missing_row_metric_columns=" + ";".join(missing_row_metric_columns)
+    )
+    if missing_row_metric_columns:
+        issues.append(row_metric_columns_status)
+    row_audit = row_metric_audit_rows(model_id, operation_rows, generated_at)
+    invalid_row_count = sum(1 for item in row_audit if item["validation_status"] != "pass")
+    ready_row_count = sum(1 for item in row_audit if item["row_metric_status"] == "ready")
+    unavailable_row_count = sum(
+        1
+        for item in row_audit
+        if item["row_metric_status"] == "unavailable_no_approved_add_score_metric"
+    )
+    baseline_misuse_count = sum(
+        1
+        for item in row_audit
+        if clean_text(item.get("baseline_misuse_status")).startswith("fail")
+    )
+    duplicate_key_count = 0
+    unique_stock_lifecycle_count = 0
+    if not operation_rows.empty:
+        duplicate_key_columns = [
+            column
+            for column in [
+                "model_id",
+                "pdf_view",
+                "pdf_section",
+                "report_line",
+                "operation_asof_date",
+                "stock_id",
+            ]
+            if column in operation_rows.columns
+        ]
+        duplicate_key_count = int(operation_rows.duplicated(subset=duplicate_key_columns, keep=False).sum())
+        unique_columns = [
+            column
+            for column in ["model_id", "pdf_section", "report_line", "operation_asof_date", "stock_id"]
+            if column in operation_rows.columns
+        ]
+        unique_stock_lifecycle_count = len(operation_rows.drop_duplicates(subset=unique_columns))
+    if invalid_row_count:
+        issues.append(f"invalid_row_metric_rows={invalid_row_count}")
+    if baseline_misuse_count:
+        issues.append(f"row_metric_baseline_misuse_rows={baseline_misuse_count}")
+    if duplicate_key_count:
+        issues.append(f"duplicate_operation_row_keys={duplicate_key_count}")
+
     if operation_rows.empty:
         baseline_status = "no_current_confirmed_or_active_data_rows"
     else:
@@ -402,11 +786,56 @@ def audit_mature_model(row: pd.Series, approved: pd.DataFrame, generated_at: str
             combo_worse = generic_worse
         metric_scope = "baseline_plus_generic_row_level_combo"
 
-    display_status = (
-        "pass_pdf_rows_must_use_row_level_metric_when_operation_quality_or_combo_id_matches"
-        if technical_rows.shape[0] > 0 or groups
-        else "pass_pdf_rows_have_no_formal_add_score_metric_to_override_baseline"
+    policy = SCORE_ADD_ITEM_POLICY.get(
+        model_id,
+        {"score_add_item_ids": "", "validated_row_metric_add_item_ids": "", "policy": "missing_policy"},
     )
+    if policy["policy"] == "missing_policy":
+        issues.append("missing_score_add_item_policy")
+    if policy["policy"] == "ranking_only_unvalidated_not_performance_metric":
+        score_governance_status = (
+            "pass_unvalidated_ranking_items_cannot_populate_row_metric"
+            if ready_row_count == 0
+            else "fail_unvalidated_ranking_items_populated_row_metric"
+        )
+        if score_governance_status.startswith("fail"):
+            issues.append(score_governance_status)
+        single_status = "not_available_unvalidated_ranking_score_components"
+        combo_status = "not_available_unvalidated_ranking_score_components"
+        combo_worse = "not_applicable_no_approved_combo_metric"
+    else:
+        score_governance_status = "pass_only_approved_performance_add_score_items_may_populate_row_metric"
+
+    metric_source_status = approved_status
+    non_overlap_status = "not_applicable_no_high_position_detail_scope"
+    anomaly_status = "not_applicable_no_high_position_detail_scope"
+    if model_id == "volume_range_breakout_v2_high_position_volume_attack":
+        metric_source_status, source_issues = high_position_metric_source_parity()
+        selection_status, selection_issues = high_position_selection_policy_status()
+        non_overlap_status, anomaly_status, detail_issues = high_position_detail_quality_status()
+        issues.extend(source_issues + selection_issues + detail_issues)
+        single_status = "pass_promoted_single_item_metrics_match_research_source"
+        combo_status = "pass_exact_recomputed_combo_metrics_match_research_source"
+        combo_worse = selection_status
+    elif model_id != "price_pullback_23ema":
+        metric_source_status = "not_applicable_no_approved_row_metric"
+
+    if invalid_row_count:
+        row_level_status = f"fail_invalid_row_metric_rows={invalid_row_count}"
+    elif ready_row_count:
+        row_level_status = "pass_ready_rows_use_formal_row_metric"
+    else:
+        row_level_status = "pass_explicit_unavailable_no_baseline_substitution"
+
+    ready_scopes = sorted(
+        {
+            clean_text(item.get("row_metric_scope"))
+            for item in row_audit
+            if item.get("row_metric_status") == "ready" and clean_text(item.get("row_metric_scope"))
+        }
+    )
+    metric_scope = "|".join(ready_scopes) if ready_scopes else "no_current_formal_row_metric"
+    display_status = "pass_adapter_exposes_row_metric_and_forbids_baseline_substitution"
 
     return {
         "generated_at": generated_at,
@@ -423,9 +852,10 @@ def audit_mature_model(row: pd.Series, approved: pd.DataFrame, generated_at: str
         "adapter_row_count": len(model_adapter_rows),
         "adapter_data_row_count": len(all_data_rows),
         "mature_operation_data_row_count": len(operation_rows),
+        "unique_stock_lifecycle_count": unique_stock_lifecycle_count,
         "metric_scope": metric_scope,
         "baseline_metric_status": baseline_status,
-        "row_level_metric_status": technical_status,
+        "row_level_metric_status": row_level_status,
         "single_add_score_metric_status": single_status,
         "combo_recompute_policy_status": combo_status,
         "combo_worse_policy_status": combo_worse,
@@ -434,10 +864,22 @@ def audit_mature_model(row: pd.Series, approved: pd.DataFrame, generated_at: str
         "base_row_count": len(base_rows),
         "generic_combo_metric_group_count": len(groups),
         "approved_metric_source_status": approved_status,
+        "production_score_add_item_ids": policy["score_add_item_ids"],
+        "validated_row_metric_add_item_ids": policy["validated_row_metric_add_item_ids"],
+        "score_add_item_governance_status": score_governance_status,
+        "row_metric_contract_columns_status": row_metric_columns_status,
+        "row_metric_ready_count": ready_row_count,
+        "row_metric_unavailable_count": unavailable_row_count,
+        "row_metric_invalid_count": invalid_row_count,
+        "row_metric_baseline_misuse_count": baseline_misuse_count,
+        "row_metric_duplicate_key_count": duplicate_key_count,
+        "metric_source_parity_status": metric_source_status,
+        "non_overlap_status": non_overlap_status,
+        "numerical_anomaly_status": anomaly_status,
         "research_only_combo_candidate_count": "",
         "research_only_combo_not_candidate_count": "",
         "research_only_combo_positive_but_below_threshold_count": "",
-        "production_readiness": "production_adapter_contract_checked",
+        "production_readiness": "adapter_contract_ready_pending_pdf_layout_consumer",
         "issues": ";".join(sorted(set(issues))),
     }
 
@@ -498,12 +940,23 @@ def audit_high_position_research(generated_at: str) -> dict[str, object] | None:
     }
 
 
-def build_rows() -> list[dict[str, object]]:
-    generated_at = now_taipei()
+def build_rows(generated_at: str | None = None) -> list[dict[str, object]]:
+    generated_at = generated_at or now_taipei()
     readiness = read_csv(READINESS_CSV)
     approved = read_csv(APPROVED_PATTERNS_CSV)
     mature = mature_readiness_rows(readiness)
     rows = [audit_mature_model(row, approved, generated_at) for _, row in mature.iterrows()]
+    return rows
+
+
+def build_row_rows(generated_at: str | None = None) -> list[dict[str, object]]:
+    generated_at = generated_at or now_taipei()
+    readiness = mature_readiness_rows(read_csv(READINESS_CSV))
+    rows: list[dict[str, object]] = []
+    for model_id in readiness["model_id"].astype(str):
+        adapter_path = ADAPTER_BY_MODEL.get(model_id)
+        adapter = read_csv(adapter_path) if adapter_path else pd.DataFrame()
+        rows.extend(row_metric_audit_rows(model_id, mature_operation_rows(adapter, model_id), generated_at))
     return rows
 
 
@@ -514,6 +967,15 @@ def write_csv(rows: list[dict[str, object]]) -> None:
         writer.writeheader()
         for row in rows:
             writer.writerow({column: row.get(column, "") for column in OUTPUT_COLUMNS})
+
+
+def write_row_csv(rows: list[dict[str, object]]) -> None:
+    ROW_AUDIT_CSV.parent.mkdir(parents=True, exist_ok=True)
+    with ROW_AUDIT_CSV.open("w", encoding="utf-8-sig", newline="") as fh:
+        writer = csv.DictWriter(fh, fieldnames=ROW_AUDIT_COLUMNS, lineterminator="\n")
+        writer.writeheader()
+        for row in rows:
+            writer.writerow({column: row.get(column, "") for column in ROW_AUDIT_COLUMNS})
 
 
 def write_md(rows: list[dict[str, object]]) -> None:
@@ -528,21 +990,35 @@ def write_md(rows: list[dict[str, object]]) -> None:
         "",
         "- Single add-score item may use the approved single-item metric.",
         "- Multi-item add-score combinations must use the exact recomputed combination metric.",
-        "- A promoted row-level combination must not be worse than the baseline on all primary metrics.",
-        "- PDF operation rows must use the matched row-level metric when the model-owned adapter provides one.",
+        "- A promoted exact combination may be used only when it is not worse than the best matching single item on win rate, average return, and median return; otherwise use that best single item.",
+        "- Whole-model baseline performance is header-only and must never substitute for a stock-row add-score metric.",
+        "- PDF and packet operation rows must consume only adapter `row_metric_*` fields.",
         "- Research-only combo rows must remain unavailable to PDF operation rows until a model-specific promotion PR wires an approved adapter metric.",
+        "",
+        "## Findings",
+        "",
+        f"- Mature operation stock rows audited: `{sum(int(row.get('mature_operation_data_row_count', 0) or 0) for row in rows)}`.",
+        f"- Unique stock lifecycle rows after removing highlight/full view duplication: `{sum(int(row.get('unique_stock_lifecycle_count', 0) or 0) for row in rows)}`.",
+        f"- Ready row-level metrics: `{sum(int(row.get('row_metric_ready_count', 0) or 0) for row in rows)}`; explicit unavailable rows: `{sum(int(row.get('row_metric_unavailable_count', 0) or 0) for row in rows)}`.",
+        f"- Invalid row metrics: `{sum(int(row.get('row_metric_invalid_count', 0) or 0) for row in rows)}`; baseline misuse rows: `{sum(int(row.get('row_metric_baseline_misuse_count', 0) or 0) for row in rows)}`; duplicate adapter keys: `{sum(int(row.get('row_metric_duplicate_key_count', 0) or 0) for row in rows)}`.",
+        "- W-bottom, W-bottom neckline, low-position volume attack, and mid-position momentum score components remain ranking-only until same-basis performance packages are promoted.",
+        "- PDF layout integration remains pending; this artifact validates the model-owned adapter contract and does not claim final PDF rendering completion.",
         "",
         "## Audit Rows",
         "",
-        "| scope | model_id | metric_scope | row_level_metric_status | combo_policy | production_readiness | issues |",
-        "| --- | --- | --- | --- | --- | --- | --- |",
+        "| scope | model_id | consumer rows | unique stock lifecycle | ready | unavailable | metric_scope | row_level_metric_status | combo_policy | production_readiness | issues |",
+        "| --- | --- | ---: | ---: | ---: | ---: | --- | --- | --- | --- | --- |",
     ]
     for row in rows:
         issues = clean_text(row.get("issues")) or "none"
         lines.append(
-            "| {audit_scope} | `{model_id}` | {metric_scope} | {row_level_metric_status} | {combo_recompute_policy_status} / {combo_worse_policy_status} | {production_readiness} | {issues} |".format(
+            "| {audit_scope} | `{model_id}` | {operation_rows} | {unique_rows} | {ready_rows} | {unavailable_rows} | {metric_scope} | {row_level_metric_status} | {combo_recompute_policy_status} / {combo_worse_policy_status} | {production_readiness} | {issues} |".format(
                 audit_scope=row.get("audit_scope", ""),
                 model_id=row.get("model_id", ""),
+                operation_rows=row.get("mature_operation_data_row_count", ""),
+                unique_rows=row.get("unique_stock_lifecycle_count", ""),
+                ready_rows=row.get("row_metric_ready_count", ""),
+                unavailable_rows=row.get("row_metric_unavailable_count", ""),
                 metric_scope=row.get("metric_scope", ""),
                 row_level_metric_status=row.get("row_level_metric_status", ""),
                 combo_recompute_policy_status=row.get("combo_recompute_policy_status", ""),
@@ -554,12 +1030,76 @@ def write_md(rows: list[dict[str, object]]) -> None:
     LATEST_MD.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
+def write_row_md(rows: list[dict[str, object]]) -> None:
+    model_counts: dict[str, dict[str, int]] = {}
+    for row in rows:
+        counts = model_counts.setdefault(
+            clean_text(row.get("model_id")),
+            {"rows": 0, "ready": 0, "unavailable": 0, "invalid": 0, "baseline_misuse": 0},
+        )
+        counts["rows"] += 1
+        if row.get("row_metric_status") == "ready":
+            counts["ready"] += 1
+        elif row.get("row_metric_status") == "unavailable_no_approved_add_score_metric":
+            counts["unavailable"] += 1
+        if row.get("validation_status") != "pass":
+            counts["invalid"] += 1
+        if clean_text(row.get("baseline_misuse_status")).startswith("fail"):
+            counts["baseline_misuse"] += 1
+    lines = [
+        "# Mature Model Row-Level Metric Row Audit",
+        "",
+        f"- audit_id: `{AUDIT_ID}`",
+        f"- audit_version: `{AUDIT_VERSION}`",
+        f"- generated_at: `{rows[0]['generated_at'] if rows else now_taipei()}`",
+        f"- stock operation rows audited: `{len(rows)}`",
+        "",
+        "## Model Counts",
+        "",
+        "| model_id | rows | ready metric | explicit unavailable | invalid | baseline misuse |",
+        "| --- | ---: | ---: | ---: | ---: | ---: |",
+    ]
+    for model_id, counts in sorted(model_counts.items()):
+        lines.append(
+            f"| `{model_id}` | {counts['rows']} | {counts['ready']} | {counts['unavailable']} | {counts['invalid']} | {counts['baseline_misuse']} |"
+        )
+    lines.extend(
+        [
+            "",
+            "## Row Evidence",
+            "",
+            "| model_id | section | stock | row metric | scope | validation | baseline policy |",
+            "| --- | --- | --- | --- | --- | --- | --- |",
+        ]
+    )
+    for row in rows:
+        stock = f"{row.get('stock_id', '')} {row.get('stock_name', '')}".strip()
+        lines.append(
+            "| `{model_id}` | {section} | {stock} | `{metric_id}` | {scope} | {validation} | {baseline} |".format(
+                model_id=row.get("model_id", ""),
+                section=row.get("pdf_section", ""),
+                stock=stock,
+                metric_id=row.get("row_metric_id", "") or row.get("row_metric_status", ""),
+                scope=row.get("row_metric_scope", ""),
+                validation=row.get("validation_status", ""),
+                baseline=row.get("baseline_misuse_status", ""),
+            )
+        )
+    ROW_AUDIT_MD.write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+
 def main() -> int:
-    rows = build_rows()
+    generated_at = now_taipei()
+    rows = build_rows(generated_at)
+    row_rows = build_row_rows(generated_at)
     write_csv(rows)
     write_md(rows)
+    write_row_csv(row_rows)
+    write_row_md(row_rows)
     print(f"wrote {rel(LATEST_CSV)} rows={len(rows)}")
     print(f"wrote {rel(LATEST_MD)}")
+    print(f"wrote {rel(ROW_AUDIT_CSV)} rows={len(row_rows)}")
+    print(f"wrote {rel(ROW_AUDIT_MD)}")
     return 0
 
 

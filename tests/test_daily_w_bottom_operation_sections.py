@@ -79,6 +79,9 @@ def test_current_signal_becomes_confirmed_buy_rows() -> None:
     assert set(confirmed["pdf_view"]) == {"highlight", "full"}
     assert set(confirmed["row_action_status"]) == {"confirmed_buy_candidate"}
     assert set(confirmed["buy_rank_eligible"]) == {"True"}
+    assert set(confirmed["row_metric_status"]) == {"unavailable_no_approved_add_score_metric"}
+    assert set(confirmed["row_metric_id"]) == {""}
+    assert set(confirmed["row_metric_win_rate_zh"]) == {""}
     assert set(confirmed["entry_rule_id"]) == {"right_low_signal_next_open"}
     assert set(confirmed["exit_rule_id"]) == {"d20_gain10_else_d40_close"}
     assert "active_operation" in set(section["pdf_section"])

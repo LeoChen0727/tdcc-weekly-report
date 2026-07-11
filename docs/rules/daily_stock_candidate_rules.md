@@ -134,13 +134,22 @@ the exact recomputed combination metric for that feature set; it must not
 combine single-item win rates by averaging, picking the best item, or copying
 the whole-model baseline.
 
-If the exact combination metric is worse than the baseline on all primary
-evidence dimensions, the adapter must not present that combination as an
-add-score metric. It may fall back to the approved single item that actually
-improves the row, or leave the row-level metric unavailable. Sample size must be
-reported but must not by itself disqualify a rare combination; the decision is
-based on whether the exact recomputed win/neutral/failure rates and realized
-return evidence improve the operation row.
+If the exact combination is worse than the best matching approved single item
+on any of win rate, average realized return, or median realized return, the
+adapter must not present the combination as an improvement. It must fall back
+to that best matching single-item metric, or leave the row-level metric
+unavailable when no approved single item exists. Sample size must be reported
+but must not by itself disqualify a rare combination.
+
+Every mature operation adapter must expose the model-owned `row_metric_*`
+contract. `row_metric_status=ready` requires the exact metric id, label, matched
+add-score ids, sample size, win/neutral/failure rates, average return, evidence
+source, and selection status. When no approved performance-backed add-score
+metric applies, the adapter must set
+`row_metric_status=unavailable_no_approved_add_score_metric` and leave the
+row-level metric payload blank. Production ranking score components without a
+same-basis performance backtest remain ranking-only; they must not silently
+become row-level performance claims.
 
 Research-only combination tables may retain worse or inconclusive combinations
 for audit, but they must stay labeled research-only and must not become PDF

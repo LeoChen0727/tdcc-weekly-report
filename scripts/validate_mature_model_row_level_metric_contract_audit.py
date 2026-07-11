@@ -14,15 +14,23 @@ from build_mature_model_row_level_metric_contract_audit import (
     LATEST_MD,
     MATURE_OPERATION_SECTIONS,
     OUTPUT_COLUMNS,
+    ROW_AUDIT_COLUMNS,
+    ROW_AUDIT_CSV,
+    ROW_AUDIT_MD,
+    ROW_METRIC_COLUMNS,
     READINESS_CSV,
     TECHNICAL_PACKAGE_COLUMNS,
     approved_pattern_for,
     generic_combo_policy_status,
+    high_position_detail_quality_status,
+    high_position_metric_source_parity,
+    high_position_selection_policy_status,
     mature_operation_rows,
     mature_readiness_rows,
     pct_number,
     price_pullback_source_status,
     read_csv,
+    row_metric_audit_rows,
     technical_package_worse_status,
     truthy,
 )
@@ -67,6 +75,33 @@ def load_audit() -> pd.DataFrame:
     return audit
 
 
+def load_row_audit() -> pd.DataFrame:
+    require_file(ROW_AUDIT_CSV)
+    require_file(ROW_AUDIT_MD)
+    audit = read_csv(ROW_AUDIT_CSV)
+    missing = sorted(set(ROW_AUDIT_COLUMNS) - set(audit.columns))
+    if missing:
+        fail(f"row audit CSV missing columns: {missing}")
+    if not audit.empty:
+        if set(audit["audit_id"].astype(str)) != {AUDIT_ID}:
+            fail(f"row audit_id must be {AUDIT_ID}")
+        if set(audit["audit_version"].astype(str)) != {AUDIT_VERSION}:
+            fail(f"row audit_version must be {AUDIT_VERSION}")
+        failed = audit[audit["validation_status"].ne("pass")]
+        if not failed.empty:
+            fail(
+                "row audit contains invalid operation rows: "
+                + "; ".join(
+                    f"{row.model_id}:{row.stock_id}:{row.pdf_section}={row.issues}"
+                    for row in failed[["model_id", "stock_id", "pdf_section", "issues"]].itertuples(index=False)
+                )
+            )
+        baseline_misuse = audit[audit["baseline_misuse_status"].astype(str).str.startswith("fail")]
+        if not baseline_misuse.empty:
+            fail(f"row audit detected baseline substitution risk rows={len(baseline_misuse)}")
+    return audit
+
+
 def validate_mature_model_coverage(audit: pd.DataFrame) -> pd.DataFrame:
     readiness = read_csv(READINESS_CSV)
     mature = mature_readiness_rows(readiness)
@@ -82,6 +117,40 @@ def validate_mature_model_coverage(audit: pd.DataFrame) -> pd.DataFrame:
     return mature
 
 
+def validate_row_audit_matches_adapters(row_audit: pd.DataFrame, mature: pd.DataFrame) -> None:
+    recomputed_rows: list[dict[str, object]] = []
+    for model_id in mature["model_id"].astype(str):
+        adapter_path = ADAPTER_BY_MODEL.get(model_id)
+        if adapter_path is None:
+            fail(f"{model_id}: missing adapter mapping while recomputing row audit")
+        adapter = read_csv(adapter_path)
+        recomputed_rows.extend(
+            row_metric_audit_rows(model_id, mature_operation_rows(adapter, model_id), "recomputed")
+        )
+    recomputed = pd.DataFrame(recomputed_rows, columns=ROW_AUDIT_COLUMNS).fillna("")
+    if len(recomputed) != len(row_audit):
+        fail(f"row audit row count is stale: artifact={len(row_audit)} recomputed={len(recomputed)}")
+    key_columns = [
+        "model_id",
+        "pdf_view",
+        "pdf_section",
+        "report_line",
+        "operation_asof_date",
+        "stock_id",
+    ]
+    for label, frame in [("artifact", row_audit), ("recomputed", recomputed)]:
+        duplicated = frame.duplicated(subset=key_columns, keep=False)
+        if duplicated.any():
+            fail(f"{label} row audit has duplicate keys rows={int(duplicated.sum())}")
+    compare_columns = [column for column in ROW_AUDIT_COLUMNS if column != "generated_at"]
+    artifact_sorted = row_audit.sort_values(key_columns)[compare_columns].reset_index(drop=True).astype(str)
+    recomputed_sorted = recomputed.sort_values(key_columns)[compare_columns].reset_index(drop=True).astype(str)
+    if not artifact_sorted.equals(recomputed_sorted):
+        mismatch = (artifact_sorted != recomputed_sorted).any(axis=1)
+        first = int(mismatch[mismatch].index[0]) if mismatch.any() else -1
+        fail(f"row audit artifact does not match current adapters first_mismatch_row={first}")
+
+
 def combo_groups(columns: list[str]) -> list[str]:
     return [prefix for prefix in GENERIC_COMBO_PREFIXES if any(column.startswith(prefix) for column in columns)]
 
@@ -92,6 +161,9 @@ def validate_adapter_model(model_id: str, approved: pd.DataFrame) -> None:
         fail(f"{model_id}: missing adapter mapping")
     require_file(adapter_path)
     adapter = read_csv(adapter_path)
+    missing_row_metric_columns = sorted(ROW_METRIC_COLUMNS - set(adapter.columns))
+    if missing_row_metric_columns:
+        fail(f"{model_id}: adapter missing row_metric contract columns: {missing_row_metric_columns}")
     rows = mature_operation_rows(adapter, model_id)
     if rows.empty:
         return
@@ -99,6 +171,14 @@ def validate_adapter_model(model_id: str, approved: pd.DataFrame) -> None:
         fail(f"{model_id}: operation data rows must carry baseline win_rate_zh")
     if rows["win_rate_zh"].astype(str).str.strip().eq("").any():
         fail(f"{model_id}: operation data rows must not have blank baseline win_rate_zh")
+
+    row_audit = row_metric_audit_rows(model_id, rows, "validator_recompute")
+    invalid = [row for row in row_audit if row["validation_status"] != "pass"]
+    if invalid:
+        fail(
+            f"{model_id}: row_metric contract errors: "
+            + "; ".join(f"{row['stock_id']}:{row['pdf_section']}={row['issues']}" for row in invalid)
+        )
 
     if "operation_quality" in rows.columns:
         technical = rows[rows["operation_quality"].astype(str).eq("technical_strength")]
@@ -151,12 +231,12 @@ def validate_promoted_high_position(audit: pd.DataFrame) -> None:
         fail("high-position volume attack must be audited as mature_model after promotion")
     if str(row["approved_for_daily"]).lower() not in {"true", "1", "yes"}:
         fail("high-position mature row must be approved_for_daily")
-    if row["production_readiness"] != "production_adapter_contract_checked":
-        fail("high-position mature row must check the production adapter contract")
+    if row["production_readiness"] != "adapter_contract_ready_pending_pdf_layout_consumer":
+        fail("high-position mature row must remain pending until the PDF layout consumer uses row_metric fields")
     if row["pdf_row_display_policy_status"] != (
-        "pass_pdf_rows_must_use_row_level_metric_when_operation_quality_or_combo_id_matches"
+        "pass_adapter_exposes_row_metric_and_forbids_baseline_substitution"
     ):
-        fail("high-position mature row must enforce row-level metric display policy")
+        fail("high-position mature row must enforce adapter row-level metric policy")
     require_file(HIGH_POSITION_AUDIT_CSV)
     research = read_csv(HIGH_POSITION_AUDIT_CSV)
     combos = research[research["row_type"].eq("pdf_bonus_combo")]
@@ -168,6 +248,18 @@ def validate_promoted_high_position(audit: pd.DataFrame) -> None:
         fail("high-position pdf_bonus_combo rows must not be approved_for_daily")
     if not combos["production_readiness"].astype(str).eq("not_production_ready_research_only").all():
         fail("high-position pdf_bonus_combo rows remain promotion evidence and must not be direct production rows")
+    source_status, source_issues = high_position_metric_source_parity()
+    if source_issues or not source_status.startswith("pass"):
+        fail(f"high-position promoted metric source parity failed: {source_issues}")
+    selection_status, selection_issues = high_position_selection_policy_status()
+    if selection_issues or selection_status != "pass_exact_combo_or_best_single_fallback_policy":
+        fail(f"high-position combo fallback policy failed: {selection_issues}")
+    non_overlap_status, anomaly_status, detail_issues = high_position_detail_quality_status()
+    if detail_issues or not non_overlap_status.startswith("pass") or not anomaly_status.startswith("pass"):
+        fail(
+            "high-position detail quality failed: "
+            f"non_overlap={non_overlap_status} anomaly={anomaly_status} issues={detail_issues}"
+        )
 
 
 def validate_markdown(audit: pd.DataFrame) -> None:
@@ -175,7 +267,9 @@ def validate_markdown(audit: pd.DataFrame) -> None:
     required = [
         "Single add-score item may use the approved single-item metric.",
         "Multi-item add-score combinations must use the exact recomputed combination metric.",
-        "A promoted row-level combination must not be worse than the baseline",
+        "not worse than the best matching single item",
+        "Whole-model baseline performance is header-only",
+        "consume only adapter `row_metric_*` fields",
         "Research-only combo rows must remain unavailable to PDF operation rows",
     ]
     for token in required:
@@ -188,13 +282,18 @@ def validate_markdown(audit: pd.DataFrame) -> None:
 
 def main() -> int:
     audit = load_audit()
-    validate_mature_model_coverage(audit)
+    row_audit = load_row_audit()
+    mature = validate_mature_model_coverage(audit)
+    validate_row_audit_matches_adapters(row_audit, mature)
     approved = read_csv(APPROVED_PATTERNS_CSV)
     for model_id in audit[audit["audit_scope"].eq("mature_model")]["model_id"].astype(str):
         validate_adapter_model(model_id, approved)
     validate_promoted_high_position(audit)
     validate_markdown(audit)
-    print(f"mature_model_row_level_metric_contract_audit validation passed rows={len(audit)}")
+    print(
+        "mature_model_row_level_metric_contract_audit validation passed "
+        f"summary_rows={len(audit)} operation_rows={len(row_audit)}"
+    )
     return 0
 
 

@@ -195,6 +195,19 @@ OUTPUT_COLUMNS = [
     "pdf_bonus_combo_avg_return_zh",
     "pdf_bonus_combo_median_return_zh",
     "pdf_bonus_combo_source",
+    "row_metric_status",
+    "row_metric_scope",
+    "row_metric_id",
+    "row_metric_label_zh",
+    "row_metric_matched_add_score_ids",
+    "row_metric_sample_size",
+    "row_metric_win_rate_zh",
+    "row_metric_neutral_rate_zh",
+    "row_metric_failure_rate_zh",
+    "row_metric_avg_return_zh",
+    "row_metric_median_return_zh",
+    "row_metric_source",
+    "row_metric_selection_status",
     "confidence_zh",
     "evidence_match_status",
     "evidence_tdcc_list_type",
@@ -1143,9 +1156,27 @@ def apply_high_position_bonus_metric(
     metric, source = select_high_position_bonus_metric(flags)
     if metric is None:
         return
+    metric_id = safe_str(metric.get("metric_id"))
+    if metric_id.startswith("pdf_combo__"):
+        matched_add_score_ids = "|".join(part for part in metric_id.removeprefix("pdf_combo__").split("__") if part)
+        row_metric_scope = "exact_combo"
+        selection_status = "exact_recomputed_combo_metric"
+    else:
+        matched_feature = next(
+            (
+                feature
+                for feature, candidate in HIGH_POSITION_SINGLE_BONUS_METRICS.items()
+                if safe_str(candidate.get("metric_id")) == metric_id
+            ),
+            "",
+        )
+        matched_add_score_ids = matched_feature
+        row_metric_scope = "single_add_score"
+        matched_count = sum(1 for value in flags.values() if bool(value))
+        selection_status = "best_single_fallback" if matched_count > 1 else "single_add_score_metric"
     record.update(
         {
-            "pdf_bonus_combo_id": safe_str(metric.get("metric_id")),
+            "pdf_bonus_combo_id": metric_id,
             "pdf_bonus_combo_label_zh": safe_str(metric.get("label_zh")),
             "pdf_bonus_combo_sample_size": safe_str(metric.get("sample_size")),
             "pdf_bonus_combo_win_rate_zh": pct_display(metric.get("win_rate")),
@@ -1155,6 +1186,19 @@ def apply_high_position_bonus_metric(
             "pdf_bonus_combo_avg_return_zh": pct_signed_display(metric.get("avg_return")),
             "pdf_bonus_combo_median_return_zh": pct_signed_display(metric.get("median_return")),
             "pdf_bonus_combo_source": source,
+            "row_metric_status": "ready",
+            "row_metric_scope": row_metric_scope,
+            "row_metric_id": metric_id,
+            "row_metric_label_zh": safe_str(metric.get("label_zh")),
+            "row_metric_matched_add_score_ids": matched_add_score_ids,
+            "row_metric_sample_size": safe_str(metric.get("sample_size")),
+            "row_metric_win_rate_zh": pct_display(metric.get("win_rate")),
+            "row_metric_neutral_rate_zh": pct_display(metric.get("neutral_rate")),
+            "row_metric_failure_rate_zh": pct_display(metric.get("loss_rate")),
+            "row_metric_avg_return_zh": pct_signed_display(metric.get("avg_return")),
+            "row_metric_median_return_zh": pct_signed_display(metric.get("median_return")),
+            "row_metric_source": "volume_range_breakout_v2_high_position_improvement_audit_20260710",
+            "row_metric_selection_status": selection_status,
         }
     )
 
@@ -1461,6 +1505,8 @@ def lifecycle_base_record(
             "daily_volume_model_signal_count": daily_volume_count,
             "adapter_source": LIFECYCLE_ADAPTER_SOURCE,
             "adapter_source_status": "ready",
+            "row_metric_status": "unavailable_no_approved_add_score_metric",
+            "row_metric_selection_status": "baseline_not_permitted_in_operation_row",
             "adapter_note_zh": "由已發布模型快照與價格資料重建 D0-D10 操作狀態。",
             "generated_at": generated_at,
         }
@@ -2180,6 +2226,19 @@ def empty_row(
         "pdf_bonus_combo_avg_return_zh": "",
         "pdf_bonus_combo_median_return_zh": "",
         "pdf_bonus_combo_source": "",
+        "row_metric_status": "not_applicable_empty_state",
+        "row_metric_scope": "",
+        "row_metric_id": "",
+        "row_metric_label_zh": "",
+        "row_metric_matched_add_score_ids": "",
+        "row_metric_sample_size": "",
+        "row_metric_win_rate_zh": "",
+        "row_metric_neutral_rate_zh": "",
+        "row_metric_failure_rate_zh": "",
+        "row_metric_avg_return_zh": "",
+        "row_metric_median_return_zh": "",
+        "row_metric_source": "",
+        "row_metric_selection_status": "empty_state",
         "confidence_zh": "",
         "research_score": "",
         "pdf_note_zh": "",
