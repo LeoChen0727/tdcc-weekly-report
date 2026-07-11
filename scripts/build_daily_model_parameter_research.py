@@ -28,7 +28,11 @@ from tracking_utils import (  # noqa: E402
     DOCS_LATEST_DIR,
     LATEST_DIR,
     RESEARCH_LATEST_DIR,
+    classify_market_regime,
+    infer_benchmark_index,
+    load_market_index_history,
     markdown_table,
+    market_row_on_or_before,
     normalize_code,
     normalize_date,
     now_text,
@@ -221,6 +225,33 @@ DOCS_REVENUE_UNREACTED_OPERATION_CANDIDATE_MATRIX_CSV = (
 )
 DOCS_REVENUE_UNREACTED_OPERATION_CANDIDATE_MATRIX_MD = (
     DOCS_LATEST_DIR / REVENUE_UNREACTED_OPERATION_CANDIDATE_MATRIX_MD.name
+)
+REVENUE_UNREACTED_FEATURE_CONTRAST_CSV = (
+    RESEARCH_LATEST_DIR / "revenue_unreacted_range_feature_contrast_audit_latest.csv"
+)
+REVENUE_UNREACTED_FEATURE_CONTRAST_DETAIL_CSV = (
+    RESEARCH_LATEST_DIR / "revenue_unreacted_range_feature_contrast_audit_detail_latest.csv"
+)
+REVENUE_UNREACTED_FEATURE_CONTRAST_ANOMALY_CSV = (
+    RESEARCH_LATEST_DIR / "revenue_unreacted_range_feature_contrast_anomaly_audit_latest.csv"
+)
+REVENUE_UNREACTED_FEATURE_CONTRAST_MD = (
+    RESEARCH_LATEST_DIR / "revenue_unreacted_range_feature_contrast_audit_latest.md"
+)
+REVENUE_UNREACTED_FEATURE_CONTRAST_HISTORY_CSV = (
+    HISTORY_DIR / "revenue_unreacted_range_feature_contrast_audit.csv"
+)
+REVENUE_UNREACTED_FEATURE_CONTRAST_ANOMALY_HISTORY_CSV = (
+    HISTORY_DIR / "revenue_unreacted_range_feature_contrast_anomaly_audit.csv"
+)
+DOCS_REVENUE_UNREACTED_FEATURE_CONTRAST_CSV = (
+    DOCS_LATEST_DIR / REVENUE_UNREACTED_FEATURE_CONTRAST_CSV.name
+)
+DOCS_REVENUE_UNREACTED_FEATURE_CONTRAST_ANOMALY_CSV = (
+    DOCS_LATEST_DIR / REVENUE_UNREACTED_FEATURE_CONTRAST_ANOMALY_CSV.name
+)
+DOCS_REVENUE_UNREACTED_FEATURE_CONTRAST_MD = (
+    DOCS_LATEST_DIR / REVENUE_UNREACTED_FEATURE_CONTRAST_MD.name
 )
 
 HORIZONS = list(range(1, 11)) + [20]
@@ -5431,6 +5462,326 @@ REVENUE_UNREACTED_OPERATION_CONDITION_TESTS = [
 ]
 
 
+def _revenue_kdj_j_value(d: pd.DataFrame) -> pd.Series:
+    return 3.0 * numeric_column(d, "k_value") - 2.0 * numeric_column(d, "d_value")
+
+
+REVENUE_UNREACTED_FEATURE_CONTRAST_BINARY_SPECS = [
+    {
+        "feature_order": 10,
+        "feature_id": "revenue_latest30_and_cumulative20",
+        "feature_family": "monthly_revenue",
+        "feature_rule": "latest monthly revenue YoY >= 30% and cumulative monthly revenue YoY >= 20%",
+        "condition": full_monthly_revenue_both_latest30_cumulative20_filter,
+    },
+    {
+        "feature_order": 20,
+        "feature_id": "revenue_latest50_and_cumulative30",
+        "feature_family": "monthly_revenue",
+        "feature_rule": "latest monthly revenue YoY >= 50% and cumulative monthly revenue YoY >= 30%",
+        "condition": _revenue_latest50_cumulative30_filter,
+    },
+    {
+        "feature_order": 30,
+        "feature_id": "revenue_latest_yoy_ge100",
+        "feature_family": "monthly_revenue",
+        "feature_rule": "latest monthly revenue YoY >= 100%",
+        "condition": lambda d: numeric_column(d, "full_monthly_revenue_latest_yoy_pct").ge(100.0),
+    },
+    {
+        "feature_order": 40,
+        "feature_id": "revenue_latest_yoy_improving_2m",
+        "feature_family": "monthly_revenue",
+        "feature_rule": "latest monthly revenue YoY improves for two consecutive available months",
+        "condition": full_monthly_revenue_latest_yoy_improving_2m_filter,
+    },
+    {
+        "feature_order": 50,
+        "feature_id": "revenue_cumulative_yoy_improving_2m",
+        "feature_family": "monthly_revenue",
+        "feature_rule": "cumulative monthly revenue YoY improves for two consecutive available months",
+        "condition": full_monthly_revenue_cumulative_yoy_improving_2m_filter,
+    },
+    {
+        "feature_order": 60,
+        "feature_id": "revenue_latest_yoy_delta_ge20",
+        "feature_family": "monthly_revenue",
+        "feature_rule": "latest monthly revenue YoY improves by at least 20 percentage points month over month",
+        "condition": lambda d: numeric_column(d, "full_monthly_revenue_latest_yoy_delta_1m_pct_points").ge(20.0),
+    },
+    {
+        "feature_order": 100,
+        "feature_id": "tdcc_high_thresholds_up",
+        "feature_family": "tdcc",
+        "feature_rule": "TDCC history is available and high thresholds are increasing",
+        "condition": lambda d: trueish_column(d, "tdcc_history_available") & trueish_column(d, "high_thresholds_up"),
+    },
+    {
+        "feature_order": 110,
+        "feature_id": "tdcc_all_thresholds_up",
+        "feature_family": "tdcc",
+        "feature_rule": "TDCC history is available and all thresholds are increasing",
+        "condition": lambda d: trueish_column(d, "tdcc_history_available") & trueish_column(d, "all_thresholds_up"),
+    },
+    {
+        "feature_order": 120,
+        "feature_id": "tdcc_four_thresholds_sync_up",
+        "feature_family": "tdcc",
+        "feature_rule": "TDCC history is available and four thresholds increase together",
+        "condition": lambda d: trueish_column(d, "tdcc_history_available") & trueish_column(d, "four_thresholds_sync_up"),
+    },
+    {
+        "feature_order": 130,
+        "feature_id": "tdcc_consecutive_up_ge1",
+        "feature_family": "tdcc",
+        "feature_rule": "TDCC consecutive up weeks >= 1",
+        "condition": lambda d: trueish_column(d, "tdcc_history_available")
+        & numeric_column(d, "tdcc_consecutive_up_weeks").ge(1.0),
+    },
+    {
+        "feature_order": 140,
+        "feature_id": "tdcc_consecutive_up_ge2",
+        "feature_family": "tdcc",
+        "feature_rule": "TDCC consecutive up weeks >= 2",
+        "condition": lambda d: trueish_column(d, "tdcc_history_available")
+        & numeric_column(d, "tdcc_consecutive_up_weeks").ge(2.0),
+    },
+    {
+        "feature_order": 200,
+        "feature_id": "technical_macd_hist_gt0",
+        "feature_family": "technical",
+        "feature_rule": "MACD histogram > 0 on signal date",
+        "condition": lambda d: numeric_column(d, "macd_hist").gt(0.0),
+    },
+    {
+        "feature_order": 210,
+        "feature_id": "technical_rsi14_ge60",
+        "feature_family": "technical",
+        "feature_rule": "RSI14 >= 60 on signal date",
+        "condition": lambda d: numeric_column(d, "rsi14").ge(60.0),
+    },
+    {
+        "feature_order": 220,
+        "feature_id": "technical_rsi14_40_70",
+        "feature_family": "technical",
+        "feature_rule": "40 <= RSI14 <= 70 on signal date",
+        "condition": lambda d: between(numeric_column(d, "rsi14"), 40.0, 70.0),
+    },
+    {
+        "feature_order": 230,
+        "feature_id": "technical_kd_bullish_not_overheated",
+        "feature_family": "technical",
+        "feature_rule": "K > D and K < 80 on signal date",
+        "condition": lambda d: trueish_column(d, "kd_bullish_not_overheated"),
+    },
+    {
+        "feature_order": 240,
+        "feature_id": "technical_kdj_bullish_not_extreme",
+        "feature_family": "technical",
+        "feature_rule": "K > D, J > K, and J < 100 on signal date; J = 3K - 2D",
+        "condition": lambda d: numeric_column(d, "k_value").gt(numeric_column(d, "d_value"))
+        & _revenue_kdj_j_value(d).gt(numeric_column(d, "k_value"))
+        & _revenue_kdj_j_value(d).lt(100.0),
+    },
+    {
+        "feature_order": 250,
+        "feature_id": "technical_kdj_j_ge100",
+        "feature_family": "technical_risk",
+        "feature_rule": "KDJ J >= 100 on signal date; J = 3K - 2D",
+        "condition": lambda d: _revenue_kdj_j_value(d).ge(100.0),
+    },
+    {
+        "feature_order": 260,
+        "feature_id": "technical_bb_width_not_extreme",
+        "feature_family": "technical",
+        "feature_rule": "Bollinger Band width rank over 120 days <= 80%",
+        "condition": lambda d: trueish_column(d, "bb_width_not_extreme"),
+    },
+    {
+        "feature_order": 270,
+        "feature_id": "technical_close_above_ma20_ema23",
+        "feature_family": "technical",
+        "feature_rule": "signal close is above both MA20 and EMA23",
+        "condition": lambda d: trueish_column(d, "close_above_ma20") & trueish_column(d, "close_above_ema23"),
+    },
+    {
+        "feature_order": 280,
+        "feature_id": "technical_ema23_slope_positive",
+        "feature_family": "technical",
+        "feature_rule": "EMA23 five-day slope is positive",
+        "condition": lambda d: numeric_column(d, "ema23_slope_5d_pct").gt(0.0),
+    },
+    {
+        "feature_order": 290,
+        "feature_id": "technical_obv_above_ma20",
+        "feature_family": "technical",
+        "feature_rule": "OBV is above its MA20",
+        "condition": lambda d: trueish_column(d, "obv_above_ma20"),
+    },
+    {
+        "feature_order": 300,
+        "feature_id": "technical_ma20_above_ma60",
+        "feature_family": "technical",
+        "feature_rule": "MA20 > MA60 on signal date",
+        "condition": lambda d: numeric_column(d, "ma20").gt(numeric_column(d, "ma60")),
+    },
+    {
+        "feature_order": 400,
+        "feature_id": "shape_range23_width_le10",
+        "feature_family": "price_shape",
+        "feature_rule": "previous 23-day range width <= 10%",
+        "condition": lambda d: numeric_column(d, "range_width_23d_pct").le(10.0),
+    },
+    {
+        "feature_order": 410,
+        "feature_id": "shape_range23_width_le15",
+        "feature_family": "price_shape",
+        "feature_rule": "previous 23-day range width <= 15%",
+        "condition": lambda d: numeric_column(d, "range_width_23d_pct").le(15.0),
+    },
+    {
+        "feature_order": 420,
+        "feature_id": "shape_range23_width_le20",
+        "feature_family": "price_shape",
+        "feature_rule": "previous 23-day range width <= 20%",
+        "condition": lambda d: numeric_column(d, "range_width_23d_pct").le(20.0),
+    },
+    {
+        "feature_order": 430,
+        "feature_id": "shape_near_range23_high",
+        "feature_family": "price_shape",
+        "feature_rule": "signal close is within -5% to +5% of the previous 23-day high",
+        "condition": lambda d: between(numeric_column(d, "distance_to_range_high_23d_pct"), -5.0, 5.0),
+    },
+    {
+        "feature_order": 440,
+        "feature_id": "position120_low_le40",
+        "feature_family": "price_position",
+        "feature_rule": "signal close is at or below 40% of the previous 120-day range",
+        "condition": lambda d: numeric_column(d, "close_position_120d_pct").le(40.0),
+    },
+    {
+        "feature_order": 450,
+        "feature_id": "position120_mid_40_75",
+        "feature_family": "price_position",
+        "feature_rule": "signal close is above 40% and at or below 75% of the previous 120-day range",
+        "condition": lambda d: numeric_column(d, "close_position_120d_pct").gt(40.0)
+        & numeric_column(d, "close_position_120d_pct").le(75.0),
+    },
+    {
+        "feature_order": 460,
+        "feature_id": "position120_high_gt75",
+        "feature_family": "price_position",
+        "feature_rule": "signal close is above 75% of the previous 120-day range",
+        "condition": lambda d: numeric_column(d, "close_position_120d_pct").gt(75.0),
+    },
+    {
+        "feature_order": 470,
+        "feature_id": "momentum_return20_0_25",
+        "feature_family": "price_momentum",
+        "feature_rule": "20-day close return is between 0% and 25%",
+        "condition": lambda d: between(numeric_column(d, "return_20d_pct"), 0.0, 25.0),
+    },
+    {
+        "feature_order": 480,
+        "feature_id": "volume_ratio_le1_5",
+        "feature_family": "volume",
+        "feature_rule": "signal-day volume / previous 20-day average volume <= 1.5",
+        "condition": lambda d: numeric_column(d, "volume_ratio_prev20").le(1.5),
+    },
+    {
+        "feature_order": 490,
+        "feature_id": "volume_ratio_le2",
+        "feature_family": "volume",
+        "feature_rule": "signal-day volume / previous 20-day average volume <= 2.0",
+        "condition": lambda d: numeric_column(d, "volume_ratio_prev20").le(2.0),
+    },
+    {
+        "feature_order": 500,
+        "feature_id": "candle_bullish_attack",
+        "feature_family": "candle",
+        "feature_rule": "signal-day candle is bullish or closes unchanged above the prior close",
+        "condition": lambda d: trueish_column(d, "bullish_attack_candle"),
+    },
+    {
+        "feature_order": 510,
+        "feature_id": "candle_solid_red",
+        "feature_family": "candle",
+        "feature_rule": "signal-day candle is a solid red candle",
+        "condition": lambda d: trueish_column(d, "solid_red_candle"),
+    },
+    {
+        "feature_order": 600,
+        "feature_id": "market_strong_bull",
+        "feature_family": "market_regime",
+        "feature_rule": "signal-date benchmark market regime is strong_bull",
+        "condition": lambda d: d.get("signal_market_regime", pd.Series("unknown", index=d.index)).astype(str).eq("strong_bull"),
+    },
+    {
+        "feature_order": 610,
+        "feature_id": "market_mild_bull",
+        "feature_family": "market_regime",
+        "feature_rule": "signal-date benchmark market regime is mild_bull",
+        "condition": lambda d: d.get("signal_market_regime", pd.Series("unknown", index=d.index)).astype(str).eq("mild_bull"),
+    },
+    {
+        "feature_order": 620,
+        "feature_id": "market_bull",
+        "feature_family": "market_regime",
+        "feature_rule": "signal-date benchmark market regime is strong_bull or mild_bull",
+        "condition": lambda d: d.get("signal_market_regime", pd.Series("unknown", index=d.index))
+        .astype(str)
+        .isin({"strong_bull", "mild_bull"}),
+    },
+    {
+        "feature_order": 630,
+        "feature_id": "market_correction_or_high_risk",
+        "feature_family": "market_regime_risk",
+        "feature_rule": "signal-date benchmark market regime is correction or high_risk",
+        "condition": lambda d: d.get("signal_market_regime", pd.Series("unknown", index=d.index))
+        .astype(str)
+        .isin({"correction", "high_risk"}),
+    },
+    {
+        "feature_order": 640,
+        "feature_id": "market_range_bound",
+        "feature_family": "market_regime",
+        "feature_rule": "signal-date benchmark market regime is range_bound",
+        "condition": lambda d: d.get("signal_market_regime", pd.Series("unknown", index=d.index)).astype(str).eq("range_bound"),
+    },
+    {
+        "feature_order": 650,
+        "feature_id": "market_unknown",
+        "feature_family": "market_regime_coverage",
+        "feature_rule": "signal-date benchmark market regime is unknown",
+        "condition": lambda d: d.get("signal_market_regime", pd.Series("unknown", index=d.index)).astype(str).eq("unknown"),
+    },
+]
+
+
+REVENUE_UNREACTED_FEATURE_CONTRAST_NUMERIC_SPECS = [
+    (10, "revenue_latest_yoy_pct", "monthly_revenue", "full_monthly_revenue_latest_yoy_pct"),
+    (20, "revenue_cumulative_yoy_pct", "monthly_revenue", "full_monthly_revenue_cumulative_yoy_pct"),
+    (30, "revenue_latest_yoy_delta_1m", "monthly_revenue", "full_monthly_revenue_latest_yoy_delta_1m_pct_points"),
+    (40, "revenue_cumulative_yoy_delta_1m", "monthly_revenue", "full_monthly_revenue_cumulative_yoy_delta_1m_pct_points"),
+    (100, "range23_width_pct", "price_shape", "range_width_23d_pct"),
+    (110, "distance_to_range23_high_pct", "price_shape", "distance_to_range_high_23d_pct"),
+    (120, "close_position_120d_pct", "price_position", "close_position_120d_pct"),
+    (130, "return_5d_pct", "price_momentum", "return_5d_pct"),
+    (140, "return_20d_pct", "price_momentum", "return_20d_pct"),
+    (150, "volume_ratio_prev20", "volume", "volume_ratio_prev20"),
+    (200, "rsi14", "technical", "rsi14"),
+    (210, "macd_hist", "technical", "macd_hist"),
+    (220, "kd_k_value", "technical", "k_value"),
+    (230, "kd_d_value", "technical", "d_value"),
+    (240, "kdj_j_value", "technical", "kdj_j_value"),
+    (250, "bb_width_pct", "technical", "bb_width_pct"),
+    (260, "ema23_slope_5d_pct", "technical", "ema23_slope_5d_pct"),
+    (270, "distance_to_ema23_pct", "technical", "distance_to_ema23_pct"),
+    (300, "tdcc_consecutive_up_weeks", "tdcc", "tdcc_consecutive_up_weeks"),
+]
+
+
 REVENUE_UNREACTED_OPERATION_EXIT_SPECS = [
     {
         "exit_order": 10,
@@ -6214,6 +6565,732 @@ def write_revenue_unreacted_range_operation_candidate_matrix(matrix: pd.DataFram
     )
     DOCS_REVENUE_UNREACTED_OPERATION_CANDIDATE_MATRIX_MD.write_text(
         REVENUE_UNREACTED_OPERATION_CANDIDATE_MATRIX_MD.read_text(encoding="utf-8"),
+        encoding="utf-8",
+        newline="\n",
+    )
+
+
+def _revenue_benchmark_index(value: object) -> str:
+    market = safe_str(value).upper()
+    if market in {"LISTED", "TWSE"}:
+        return "TWSE"
+    if market in {"OTC", "TPEX"}:
+        return "TPEX"
+    return infer_benchmark_index(value)
+
+
+def _attach_revenue_signal_market_regime(
+    frame: pd.DataFrame,
+    market_history: pd.DataFrame | None = None,
+) -> pd.DataFrame:
+    out = frame.copy()
+    out["benchmark_index"] = out.get("market", pd.Series("", index=out.index)).map(_revenue_benchmark_index)
+    history = load_market_index_history(update_if_missing=False) if market_history is None else market_history.copy()
+    if history.empty:
+        out["signal_market_regime"] = "unknown"
+        return out
+
+    if "date" in history.columns:
+        history["date"] = history["date"].map(normalize_date)
+    for col in ["close", "ma20", "ma60", "return_20d"]:
+        if col in history.columns:
+            history[col] = pd.to_numeric(history[col], errors="coerce")
+    for col in ["above_ma20", "above_ma60"]:
+        if col in history.columns:
+            history[col] = history[col].astype(str).str.lower().isin({"true", "1", "yes"})
+
+    signal_dates = out.get("_revenue_signal_date", out.get("date", pd.Series("", index=out.index))).map(
+        normalize_date
+    )
+    keys = pd.DataFrame({"benchmark_index": out["benchmark_index"], "signal_date": signal_dates}).drop_duplicates()
+    regime_map: dict[tuple[str, str], str] = {}
+    for _, key in keys.iterrows():
+        benchmark = safe_str(key.get("benchmark_index"))
+        signal_date = safe_str(key.get("signal_date"))
+        if benchmark not in {"TWSE", "TPEX"} or not signal_date:
+            regime_map[(benchmark, signal_date)] = "unknown"
+            continue
+        regime_map[(benchmark, signal_date)] = classify_market_regime(
+            market_row_on_or_before(history, benchmark, signal_date)
+        )
+    out["signal_market_regime"] = [
+        regime_map.get((safe_str(benchmark), safe_str(signal_date)), "unknown")
+        for benchmark, signal_date in zip(out["benchmark_index"], signal_dates)
+    ]
+    return out
+
+
+def _revenue_feature_contrast_outcome_metrics(frame: pd.DataFrame) -> dict[str, object]:
+    realized = numeric_column(frame, "realized_return_pct").dropna()
+    mature = len(realized)
+    if mature == 0:
+        return {
+            "accepted_trade_count": 0,
+            "win_count": 0,
+            "neutral_count": 0,
+            "failure_count": 0,
+            "win_rate_pct": "",
+            "neutral_rate_pct": "",
+            "failure_rate_pct": "",
+            "avg_realized_return_pct": "",
+            "median_realized_return_pct": "",
+            "high_return_8_count": 0,
+            "high_return_8_rate_pct": "",
+            "loss_5_count": 0,
+            "loss_5_rate_pct": "",
+        }
+    wins = realized.ge(5.0)
+    neutral = realized.ge(0.0) & realized.lt(5.0)
+    failure = realized.lt(0.0)
+    high8 = realized.ge(8.0)
+    loss5 = realized.le(-5.0)
+    return {
+        "accepted_trade_count": mature,
+        "win_count": int(wins.sum()),
+        "neutral_count": int(neutral.sum()),
+        "failure_count": int(failure.sum()),
+        "win_rate_pct": _rate(int(wins.sum()), mature),
+        "neutral_rate_pct": _rate(int(neutral.sum()), mature),
+        "failure_rate_pct": _rate(int(failure.sum()), mature),
+        "avg_realized_return_pct": _mean_or_blank(realized),
+        "median_realized_return_pct": _median_or_blank(realized),
+        "high_return_8_count": int(high8.sum()),
+        "high_return_8_rate_pct": _rate(int(high8.sum()), mature),
+        "loss_5_count": int(loss5.sum()),
+        "loss_5_rate_pct": _rate(int(loss5.sum()), mature),
+    }
+
+
+def _revenue_feature_context_anomaly_mask(
+    frame: pd.DataFrame,
+    *,
+    include_price_exception: bool = False,
+) -> pd.Series:
+    mask = _full_monthly_revenue_anomaly_mask(
+        frame,
+        include_price_exception=include_price_exception,
+    )
+    latest_columns = [
+        "full_monthly_revenue_latest_yoy_pct",
+        "full_monthly_revenue_prev1_latest_yoy_pct",
+        "full_monthly_revenue_prev2_latest_yoy_pct",
+        "full_monthly_revenue_prev3_latest_yoy_pct",
+    ]
+    cumulative_columns = [
+        "full_monthly_revenue_cumulative_yoy_pct",
+        "full_monthly_revenue_prev1_cumulative_yoy_pct",
+        "full_monthly_revenue_prev2_cumulative_yoy_pct",
+        "full_monthly_revenue_prev3_cumulative_yoy_pct",
+    ]
+    for column in latest_columns:
+        mask = mask | numeric_column(frame, column).abs().ge(300.0)
+    for column in cumulative_columns:
+        mask = mask | numeric_column(frame, column).abs().ge(500.0)
+    mask = mask | numeric_column(frame, "full_monthly_revenue_latest_yoy_delta_1m_pct_points").abs().ge(300.0)
+    mask = mask | numeric_column(frame, "full_monthly_revenue_cumulative_yoy_delta_1m_pct_points").abs().ge(500.0)
+    return mask.fillna(False)
+
+
+def _revenue_future_close_path_audit(frame: pd.DataFrame, holding_window_days: int = 20) -> pd.DataFrame:
+    out = frame.copy()
+    columns = [f"next_open_to_d{day}_day_close_return_pct" for day in range(1, holding_window_days + 1)]
+    if any(column not in out.columns for column in columns):
+        out["future_close_max_step_ratio"] = math.nan
+        out["future_close_max_step_day"] = ""
+        out["future_close_min_step_ratio"] = math.nan
+        out["future_close_min_step_day"] = ""
+        out["future_close_discontinuity_flag"] = False
+        out["future_close_discontinuity_reason"] = "missing_daily_close_path"
+        return out
+
+    levels = out[columns].apply(pd.to_numeric, errors="coerce").div(100.0).add(1.0)
+    prior_levels = levels.shift(1, axis=1)
+    prior_levels.iloc[:, 0] = 1.0
+    step_ratios = levels.div(prior_levels)
+    maximum = step_ratios.max(axis=1, skipna=True)
+    minimum = step_ratios.min(axis=1, skipna=True)
+    max_column = step_ratios.idxmax(axis=1, skipna=True)
+    min_column = step_ratios.idxmin(axis=1, skipna=True)
+    max_day = max_column.astype(str).str.extract(r"d(\d+)", expand=False).fillna("")
+    min_day = min_column.astype(str).str.extract(r"d(\d+)", expand=False).fillna("")
+    upward = maximum.ge(1.5)
+    downward = minimum.le(0.67)
+    out["future_close_max_step_ratio"] = maximum
+    out["future_close_max_step_day"] = max_day
+    out["future_close_min_step_ratio"] = minimum
+    out["future_close_min_step_day"] = min_day
+    out["future_close_discontinuity_flag"] = (upward | downward).fillna(False)
+    out["future_close_discontinuity_reason"] = np.select(
+        [upward & downward, upward, downward],
+        [
+            "upward_and_downward_close_discontinuity",
+            "upward_close_discontinuity_ge_1_5x",
+            "downward_close_discontinuity_le_0_67x",
+        ],
+        default="none",
+    )
+    return out
+
+
+def _revenue_feature_contrast_detail(
+    df: pd.DataFrame,
+    market_history: pd.DataFrame | None = None,
+) -> tuple[pd.DataFrame, dict[str, dict[str, int]]]:
+    positioned = _price_pullback_positioned_frame(df).sort_values(
+        ["stock_id", "_price_pullback_signal_date", "_price_pullback_source_row_index"]
+    ).copy()
+    positioned["_revenue_signal_date"] = positioned["_price_pullback_signal_date"]
+    positioned["_revenue_stock_sequence_index"] = positioned.groupby("stock_id", sort=False).cumcount()
+    source = positioned[
+        current_revenue_unreacted_baseline_proxy(positioned).fillna(False)
+        & full_monthly_revenue_strong_filter(positioned).fillna(False)
+    ].copy()
+    known_exception = _revenue_feature_context_anomaly_mask(source, include_price_exception=True)
+    stats: dict[str, dict[str, int]] = {}
+    details: list[pd.DataFrame] = []
+    exit_spec = next(
+        spec for spec in REVENUE_UNREACTED_OPERATION_EXIT_SPECS if spec["exit_rule_id"] == "d20_close_no_stop"
+    )
+
+    for basis in ["including_known_anomalies", "excluding_known_revenue_and_price_anomalies"]:
+        basis_source = source.copy() if basis.startswith("including") else source[~known_exception].copy()
+        accepted, suppressed_count = _revenue_same_stock_non_overlap(basis_source, cooldown_days=20)
+        valid = _available_revenue_operation_frame(accepted, exit_spec).copy()
+        valid["realized_return_pct"] = _revenue_horizon_close_return(valid, 20)
+        valid = valid[valid["realized_return_pct"].notna()].copy()
+        valid = _revenue_future_close_path_audit(valid, 20)
+        return_path_discontinuity_count = int(trueish_column(valid, "future_close_discontinuity_flag").sum())
+        if basis == "excluding_known_revenue_and_price_anomalies":
+            valid = valid[~trueish_column(valid, "future_close_discontinuity_flag")].copy()
+        valid = _attach_revenue_signal_market_regime(valid, market_history)
+        valid["kdj_j_value"] = _revenue_kdj_j_value(valid)
+        valid["generated_at"] = now_text()
+        valid["model_id"] = "revenue_unreacted_range"
+        valid["research_artifact_id"] = "revenue_unreacted_range_feature_contrast_audit"
+        valid["anomaly_exclusion_basis"] = basis
+        valid["decision_basis"] = basis == "excluding_known_revenue_and_price_anomalies"
+        valid["entry_rule_id"] = "signal_date_close_condition_next_open_entry"
+        valid["exit_rule_id"] = "d20_close_no_stop"
+        valid["same_stock_non_overlap_included"] = True
+        valid["non_overlap_cooldown_days"] = 20
+        valid["feature_context_revenue_anomaly_flag"] = _revenue_feature_context_anomaly_mask(valid)
+        valid["known_revenue_or_price_anomaly_flag"] = (
+            _revenue_feature_context_anomaly_mask(valid, include_price_exception=True)
+            | trueish_column(valid, "future_close_discontinuity_flag")
+        )
+        realized = numeric_column(valid, "realized_return_pct")
+        valid["outcome_label"] = np.select(
+            [realized.ge(5.0), realized.ge(0.0) & realized.lt(5.0)],
+            ["win", "neutral"],
+            default="failure",
+        )
+        valid["high_return_8_flag"] = realized.ge(8.0)
+        valid["loss_5_flag"] = realized.le(-5.0)
+        for spec in REVENUE_UNREACTED_FEATURE_CONTRAST_BINARY_SPECS:
+            valid[f"feature__{spec['feature_id']}"] = spec["condition"](valid).fillna(False).astype(bool)
+
+        stats[basis] = {
+            "source_strong_signal_count": len(source),
+            "known_anomaly_count_in_source": int(known_exception.sum()),
+            "basis_source_signal_count": len(basis_source),
+            "accepted_signal_count_after_non_overlap": len(accepted),
+            "suppressed_signal_count": suppressed_count,
+            "return_path_discontinuity_count_after_non_overlap": return_path_discontinuity_count,
+            "mature_trade_count": len(valid),
+        }
+        details.append(valid)
+
+    if not details:
+        return pd.DataFrame(), stats
+    detail = pd.concat(details, ignore_index=True, sort=False)
+    identity_columns = [
+        "generated_at",
+        "model_id",
+        "research_artifact_id",
+        "anomaly_exclusion_basis",
+        "decision_basis",
+        "stock_id",
+        "stock_name",
+        "market",
+        "_revenue_signal_date",
+        "_revenue_stock_sequence_index",
+        "benchmark_index",
+        "signal_market_regime",
+        "entry_rule_id",
+        "exit_rule_id",
+        "next_open",
+        "realized_return_pct",
+        "outcome_label",
+        "high_return_8_flag",
+        "loss_5_flag",
+        "same_stock_non_overlap_included",
+        "non_overlap_cooldown_days",
+        "known_revenue_or_price_anomaly_flag",
+        "feature_context_revenue_anomaly_flag",
+        "future_close_max_step_ratio",
+        "future_close_max_step_day",
+        "future_close_min_step_ratio",
+        "future_close_min_step_day",
+        "future_close_discontinuity_flag",
+        "future_close_discontinuity_reason",
+        "full_monthly_revenue_period",
+        "full_monthly_revenue_source_table_date",
+        "full_monthly_revenue_data_status",
+        "full_monthly_revenue_latest_yoy_pct",
+        "full_monthly_revenue_cumulative_yoy_pct",
+        "full_monthly_revenue_latest_yoy_delta_1m_pct_points",
+        "full_monthly_revenue_cumulative_yoy_delta_1m_pct_points",
+        "range_width_23d_pct",
+        "distance_to_range_high_23d_pct",
+        "close_position_120d_pct",
+        "return_5d_pct",
+        "return_20d_pct",
+        "volume_ratio_prev20",
+        "rsi14",
+        "macd_hist",
+        "k_value",
+        "d_value",
+        "kdj_j_value",
+        "bb_width_pct",
+        "ema23_slope_5d_pct",
+        "distance_to_ema23_pct",
+        "ma20",
+        "ma60",
+        "tdcc_consecutive_up_weeks",
+    ]
+    feature_columns = [f"feature__{spec['feature_id']}" for spec in REVENUE_UNREACTED_FEATURE_CONTRAST_BINARY_SPECS]
+    keep = [column for column in identity_columns + feature_columns if column in detail.columns]
+    return detail[keep].sort_values(["anomaly_exclusion_basis", "stock_id", "_revenue_signal_date"]).reset_index(
+        drop=True
+    ), stats
+
+
+def _revenue_feature_contrast_anomaly_audit(
+    detail: pd.DataFrame,
+    stats: dict[str, dict[str, int]],
+) -> pd.DataFrame:
+    rows: list[dict[str, object]] = []
+    for basis, part in detail.groupby("anomaly_exclusion_basis", sort=False):
+        realized = numeric_column(part, "realized_return_pct").dropna().sort_values()
+        if realized.empty:
+            continue
+        max_index = realized.idxmax()
+        min_index = realized.idxmin()
+        absolute = realized.abs().sort_values(ascending=False)
+        absolute_total = float(absolute.sum())
+        trim_count = max(1, int(math.ceil(len(realized) * 0.01))) if len(realized) >= 20 else 0
+        trimmed = realized.iloc[trim_count : len(realized) - trim_count] if trim_count else realized
+        without_extremes = realized.drop(index=list(dict.fromkeys([max_index, min_index])))
+        top1_share = round(float(absolute.iloc[:1].sum()) / absolute_total * 100.0, 2) if absolute_total else 0.0
+        top5_share = round(float(absolute.iloc[:5].sum()) / absolute_total * 100.0, 2) if absolute_total else 0.0
+        return_outlier_count = int(realized.abs().ge(80.0).sum())
+        return_path_discontinuity_count = stats[basis]["return_path_discontinuity_count_after_non_overlap"]
+        remaining_return_path_discontinuity_count = int(
+            trueish_column(part, "future_close_discontinuity_flag").sum()
+        )
+        excluded_return_path_discontinuity_count = (
+            return_path_discontinuity_count - remaining_return_path_discontinuity_count
+        )
+        dominance_flag = (
+            remaining_return_path_discontinuity_count > 0 or top1_share >= 10.0 or top5_share >= 30.0
+        )
+        decision_basis = basis == "excluding_known_revenue_and_price_anomalies"
+        if not decision_basis:
+            interpretation_status = "not_decision_basis_known_anomalies_included"
+        elif dominance_flag:
+            interpretation_status = "blocked_pending_extreme_return_row_review"
+        else:
+            interpretation_status = "anomaly_check_pass"
+        rows.append(
+            {
+                "generated_at": now_text(),
+                "model_id": "revenue_unreacted_range",
+                "research_artifact_id": "revenue_unreacted_range_feature_contrast_anomaly_audit",
+                "anomaly_exclusion_basis": basis,
+                "decision_basis": decision_basis,
+                "source_strong_signal_count": stats[basis]["source_strong_signal_count"],
+                "known_anomaly_count_in_source": stats[basis]["known_anomaly_count_in_source"],
+                "basis_source_signal_count": stats[basis]["basis_source_signal_count"],
+                "accepted_signal_count_after_non_overlap": stats[basis]["accepted_signal_count_after_non_overlap"],
+                "suppressed_signal_count": stats[basis]["suppressed_signal_count"],
+                "return_path_discontinuity_count_after_non_overlap": return_path_discontinuity_count,
+                "return_path_discontinuity_count_excluded": excluded_return_path_discontinuity_count,
+                "return_path_discontinuity_count_in_metric_sample": remaining_return_path_discontinuity_count,
+                "accepted_trade_count": len(realized),
+                "same_stock_overlap_pair_count": _revenue_same_stock_overlap_pair_count(
+                    part.rename(columns={"_revenue_stock_sequence_index": "_revenue_stock_sequence_index"}),
+                    cooldown_days=20,
+                ),
+                "max_realized_return_pct": round(float(realized.loc[max_index]), 4),
+                "max_return_stock_id": safe_str(part.loc[max_index].get("stock_id")),
+                "max_return_signal_date": safe_str(part.loc[max_index].get("_revenue_signal_date")),
+                "min_realized_return_pct": round(float(realized.loc[min_index]), 4),
+                "min_return_stock_id": safe_str(part.loc[min_index].get("stock_id")),
+                "min_return_signal_date": safe_str(part.loc[min_index].get("_revenue_signal_date")),
+                "return_abs_ge80_count": return_outlier_count,
+                "return_ge50_count": int(realized.ge(50.0).sum()),
+                "return_le_minus50_count": int(realized.le(-50.0).sum()),
+                "top1_abs_return_share_pct": top1_share,
+                "top5_abs_return_share_pct": top5_share,
+                "avg_realized_return_pct": round(float(realized.mean()), 4),
+                "median_realized_return_pct": round(float(realized.median()), 4),
+                "avg_without_max_min_pct": round(float(without_extremes.mean()), 4) if not without_extremes.empty else "",
+                "trimmed_1pct_avg_return_pct": round(float(trimmed.mean()), 4) if not trimmed.empty else "",
+                "potential_return_dominance_flag": dominance_flag,
+                "interpretation_status": interpretation_status,
+                "approved_for_daily": False,
+                "production_change": "none",
+            }
+        )
+    return pd.DataFrame(rows)
+
+
+def _revenue_feature_interpretation(
+    metrics: dict[str, object],
+    baseline: dict[str, object],
+    discrimination_delta: float | str,
+) -> str:
+    if int(metrics.get("accepted_trade_count", 0)) == 0:
+        return "no_feature_hits"
+    discrimination = _numeric_or_nan(discrimination_delta)
+    avg_delta = _numeric_or_nan(_delta_or_blank(metrics.get("avg_realized_return_pct"), baseline.get("avg_realized_return_pct")))
+    failure_delta = _numeric_or_nan(_delta_or_blank(metrics.get("failure_rate_pct"), baseline.get("failure_rate_pct")))
+    high8_delta = _numeric_or_nan(_delta_or_blank(metrics.get("high_return_8_rate_pct"), baseline.get("high_return_8_rate_pct")))
+    if discrimination > 0 and avg_delta > 0 and failure_delta <= 0 and high8_delta > 0:
+        return "positive_discriminator_single_feature_candidate"
+    if discrimination < 0 and avg_delta < 0 and failure_delta > 0:
+        return "failure_associated_risk_feature_candidate"
+    return "mixed_or_low_discrimination_research_only"
+
+
+def _revenue_numeric_group_stats(part: pd.DataFrame, column: str) -> dict[str, object]:
+    values = numeric_column(part, column)
+    realized = numeric_column(part, "realized_return_pct")
+    masks = {
+        "high_return": realized.ge(8.0),
+        "win": realized.ge(5.0),
+        "failure": realized.lt(0.0),
+    }
+    out: dict[str, object] = {}
+    for group_id, mask in masks.items():
+        group_values = values[mask].dropna()
+        out[f"{group_id}_group_count"] = int(mask.sum())
+        out[f"{group_id}_feature_value_count"] = len(group_values)
+        out[f"{group_id}_feature_mean"] = _mean_or_blank(group_values)
+        out[f"{group_id}_feature_median"] = _median_or_blank(group_values)
+    out["high_return_minus_failure_feature_mean"] = _delta_or_blank(
+        out["high_return_feature_mean"],
+        out["failure_feature_mean"],
+    )
+    out["high_return_minus_failure_feature_median"] = _delta_or_blank(
+        out["high_return_feature_median"],
+        out["failure_feature_median"],
+    )
+    return out
+
+
+def _revenue_feature_contrast_summary(
+    detail: pd.DataFrame,
+    anomaly: pd.DataFrame,
+    stats: dict[str, dict[str, int]],
+) -> pd.DataFrame:
+    rows: list[dict[str, object]] = []
+    interpretation_by_basis = anomaly.set_index("anomaly_exclusion_basis")["interpretation_status"].to_dict()
+    for basis, part in detail.groupby("anomaly_exclusion_basis", sort=False):
+        baseline = _revenue_feature_contrast_outcome_metrics(part)
+        common = {
+            "generated_at": now_text(),
+            "model_id": "revenue_unreacted_range",
+            "model_name_zh": "營收爆發但股價尚未反應模型",
+            "research_artifact_id": "revenue_unreacted_range_feature_contrast_audit",
+            "artifact_scope": "research_only_high_return_failure_feature_contrast",
+            "anomaly_exclusion_basis": basis,
+            "decision_basis": basis == "excluding_known_revenue_and_price_anomalies",
+            "source_condition_id": "revenue_production_strong",
+            "source_condition_rule": "latest monthly revenue YoY >= 30% or cumulative monthly revenue YoY >= 20%; price remains inside the recent 23-day range and active attack has not started",
+            "entry_rule_id": "signal_date_close_condition_next_open_entry",
+            "exit_rule_id": "d20_close_no_stop",
+            "win_definition": "realized return >= +5%",
+            "neutral_definition": "0% <= realized return < +5%",
+            "failure_definition": "realized return < 0%",
+            "high_return_definition": "realized return >= +8%",
+            "non_overlap_cooldown_days": 20,
+            "non_overlap_applied": True,
+            "same_stock_overlap_pair_count": _revenue_same_stock_overlap_pair_count(part, cooldown_days=20),
+            "source_strong_signal_count": stats[basis]["source_strong_signal_count"],
+            "known_anomaly_count_in_source": stats[basis]["known_anomaly_count_in_source"],
+            "basis_source_signal_count": stats[basis]["basis_source_signal_count"],
+            "accepted_signal_count_after_non_overlap": stats[basis]["accepted_signal_count_after_non_overlap"],
+            "suppressed_signal_count": stats[basis]["suppressed_signal_count"],
+            "return_path_discontinuity_count_after_non_overlap": stats[basis][
+                "return_path_discontinuity_count_after_non_overlap"
+            ],
+            "anomaly_interpretation_status": interpretation_by_basis.get(basis, "missing_anomaly_audit"),
+            "sample_count_context": "reported_not_a_disqualifier_non_overlap_enforced",
+            "combination_policy": "single_features_only_in_this_audit_no_arbitrary_condition_stacking",
+            "approved_for_daily": False,
+            "production_change": "none",
+            "promotion_readiness": "research_only_feature_contrast_not_promotion_ready",
+        }
+        rows.append(
+            {
+                **common,
+                "row_type": "baseline",
+                "feature_order": 0,
+                "feature_id": "baseline_revenue_production_strong",
+                "feature_family": "baseline",
+                "feature_rule": "strong monthly revenue baseline under the fixed D+20 close-only operation basis",
+                "feature_column": "",
+                "feature_independence_status": "baseline_not_applicable",
+                "equivalent_to_feature_id": "",
+                "feature_hit_count": baseline["accepted_trade_count"],
+                "feature_coverage_pct": 100.0 if baseline["accepted_trade_count"] else "",
+                "evidence_interpretation": "baseline_anchor",
+                **baseline,
+            }
+        )
+        realized = numeric_column(part, "realized_return_pct")
+        high_return_mask = realized.ge(8.0)
+        win_mask = realized.ge(5.0)
+        failure_mask = realized.lt(0.0)
+        prior_feature_masks: list[tuple[str, pd.Series]] = []
+        for spec in REVENUE_UNREACTED_FEATURE_CONTRAST_BINARY_SPECS:
+            feature_column = f"feature__{spec['feature_id']}"
+            feature_mask = trueish_column(part, feature_column)
+            has_hits = bool(feature_mask.any())
+            equivalent_to = (
+                next(
+                    (
+                        prior_feature_id
+                        for prior_feature_id, prior_mask in prior_feature_masks
+                        if feature_mask.equals(prior_mask)
+                    ),
+                    "",
+                )
+                if has_hits
+                else ""
+            )
+            if has_hits:
+                prior_feature_masks.append((safe_str(spec["feature_id"]), feature_mask))
+            selected = part[feature_mask].copy()
+            metrics = _revenue_feature_contrast_outcome_metrics(selected)
+            high_hits = int((feature_mask & high_return_mask).sum())
+            win_hits = int((feature_mask & win_mask).sum())
+            failure_hits = int((feature_mask & failure_mask).sum())
+            high_share = _rate(high_hits, int(high_return_mask.sum()))
+            win_share = _rate(win_hits, int(win_mask.sum()))
+            failure_share = _rate(failure_hits, int(failure_mask.sum()))
+            discrimination = _delta_or_blank(high_share, failure_share)
+            rows.append(
+                {
+                    **common,
+                    "row_type": "binary_feature",
+                    "feature_order": spec["feature_order"],
+                    "feature_id": spec["feature_id"],
+                    "feature_family": spec["feature_family"],
+                    "feature_rule": spec["feature_rule"],
+                    "feature_column": feature_column,
+                    "feature_independence_status": (
+                        "no_observed_hits_not_evaluable"
+                        if not has_hits
+                        else "duplicate_mask_not_independent_evidence"
+                        if equivalent_to
+                        else "distinct_observed_mask"
+                    ),
+                    "equivalent_to_feature_id": equivalent_to,
+                    "feature_hit_count": int(feature_mask.sum()),
+                    "feature_coverage_pct": _rate(int(feature_mask.sum()), len(part)),
+                    "high_return_group_count": int(high_return_mask.sum()),
+                    "high_return_feature_hit_count": high_hits,
+                    "high_return_feature_hit_rate_pct": high_share,
+                    "win_group_count": int(win_mask.sum()),
+                    "win_feature_hit_count": win_hits,
+                    "win_feature_hit_rate_pct": win_share,
+                    "failure_group_count": int(failure_mask.sum()),
+                    "failure_feature_hit_count": failure_hits,
+                    "failure_feature_hit_rate_pct": failure_share,
+                    "high_return_minus_failure_hit_rate_pct": discrimination,
+                    "delta_vs_baseline_win_rate_pct": _delta_or_blank(metrics["win_rate_pct"], baseline["win_rate_pct"]),
+                    "delta_vs_baseline_failure_rate_pct": _delta_or_blank(
+                        metrics["failure_rate_pct"], baseline["failure_rate_pct"]
+                    ),
+                    "delta_vs_baseline_avg_return_pct": _delta_or_blank(
+                        metrics["avg_realized_return_pct"], baseline["avg_realized_return_pct"]
+                    ),
+                    "delta_vs_baseline_median_return_pct": _delta_or_blank(
+                        metrics["median_realized_return_pct"], baseline["median_realized_return_pct"]
+                    ),
+                    "delta_vs_baseline_high_return_8_rate_pct": _delta_or_blank(
+                        metrics["high_return_8_rate_pct"], baseline["high_return_8_rate_pct"]
+                    ),
+                    "delta_vs_baseline_loss_5_rate_pct": _delta_or_blank(
+                        metrics["loss_5_rate_pct"], baseline["loss_5_rate_pct"]
+                    ),
+                    "evidence_interpretation": _revenue_feature_interpretation(metrics, baseline, discrimination),
+                    **metrics,
+                }
+            )
+        for order, feature_id, family, column in REVENUE_UNREACTED_FEATURE_CONTRAST_NUMERIC_SPECS:
+            rows.append(
+                {
+                    **common,
+                    "row_type": "numeric_feature",
+                    "feature_order": order,
+                    "feature_id": feature_id,
+                    "feature_family": family,
+                    "feature_rule": f"compare {column} between high-return, win, and failure groups",
+                    "feature_column": column,
+                    "feature_independence_status": "numeric_contrast_not_binary_mask",
+                    "equivalent_to_feature_id": "",
+                    "feature_hit_count": "",
+                    "feature_coverage_pct": _rate(int(numeric_column(part, column).notna().sum()), len(part)),
+                    "evidence_interpretation": "numeric_high_return_vs_failure_contrast_only",
+                    **_revenue_numeric_group_stats(part, column),
+                }
+            )
+    return pd.DataFrame(rows).sort_values(
+        ["anomaly_exclusion_basis", "row_type", "feature_order", "feature_id"],
+        kind="mergesort",
+    ).reset_index(drop=True)
+
+
+def build_revenue_unreacted_range_feature_contrast_audit(
+    df: pd.DataFrame,
+    market_history: pd.DataFrame | None = None,
+) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
+    detail, stats = _revenue_feature_contrast_detail(df, market_history)
+    if detail.empty:
+        return pd.DataFrame(), pd.DataFrame(), pd.DataFrame()
+    anomaly = _revenue_feature_contrast_anomaly_audit(detail, stats)
+    summary = _revenue_feature_contrast_summary(detail, anomaly, stats)
+    return summary, detail, anomaly
+
+
+def write_revenue_unreacted_range_feature_contrast_audit(
+    summary: pd.DataFrame,
+    detail: pd.DataFrame,
+    anomaly: pd.DataFrame,
+) -> None:
+    for frame, latest, history, docs in [
+        (
+            summary,
+            REVENUE_UNREACTED_FEATURE_CONTRAST_CSV,
+            REVENUE_UNREACTED_FEATURE_CONTRAST_HISTORY_CSV,
+            DOCS_REVENUE_UNREACTED_FEATURE_CONTRAST_CSV,
+        ),
+        (
+            anomaly,
+            REVENUE_UNREACTED_FEATURE_CONTRAST_ANOMALY_CSV,
+            REVENUE_UNREACTED_FEATURE_CONTRAST_ANOMALY_HISTORY_CSV,
+            DOCS_REVENUE_UNREACTED_FEATURE_CONTRAST_ANOMALY_CSV,
+        ),
+    ]:
+        write_csv(frame, latest)
+        write_csv(frame, history)
+        write_csv(frame, docs)
+    # The row-level detail is the canonical recomputation source. Keep one
+    # tracked copy to avoid tripling a multi-megabyte file on every refresh.
+    write_csv(detail, REVENUE_UNREACTED_FEATURE_CONTRAST_DETAIL_CSV)
+
+    decision_summary = summary[
+        summary["anomaly_exclusion_basis"].eq("excluding_known_revenue_and_price_anomalies")
+    ]
+    binary = decision_summary[decision_summary["row_type"].eq("binary_feature")].sort_values(
+        ["evidence_interpretation", "high_return_minus_failure_hit_rate_pct"],
+        ascending=[True, False],
+    )
+    numeric = decision_summary[decision_summary["row_type"].eq("numeric_feature")]
+    lines = [
+        "# Revenue Unreacted Range Feature Contrast Audit",
+        "",
+        f"- generated_at: `{now_text()}`",
+        "- status: `research_only_feature_contrast_not_promotion_ready`",
+        "- baseline: strong monthly revenue plus recent 23-day range/no-active-attack proxy; signal-date close confirmation, next trading day open entry, D+20 close exit, no stop.",
+        "- duplicate_control: same-stock 20-trading-day non-overlap; overlap_pair_count must be zero.",
+        "- anomaly_basis: both including known anomalies and excluding known revenue/price anomalies are published; only the excluding basis may support interpretation after the return-dominance audit passes.",
+        "- feature_method: every binary feature reports its hit rate in high-return and failure groups plus the feature subset's true win/neutral/failure/return metrics.",
+        "- combination_policy: this audit tests single features only. It does not stack conditions or claim a combination benefit.",
+        "- sample_policy: sample count is reported but is not used by itself to reject a feature.",
+        "- scope: monthly revenue only. Quarterly/annual financial statements, EPS, gross margin, operating margin, operating income, non-operating income, and net income remain out of scope until a formal shared point-in-time financial-statement layer exists.",
+        "- production_change: `none`",
+        "",
+        "## Anomaly Check",
+        "",
+        markdown_table(
+            anomaly,
+            [
+                "anomaly_exclusion_basis",
+                "accepted_trade_count",
+                "max_realized_return_pct",
+                "max_return_stock_id",
+                "max_return_signal_date",
+                "min_realized_return_pct",
+                "min_return_stock_id",
+                "min_return_signal_date",
+                "return_path_discontinuity_count_after_non_overlap",
+                "return_path_discontinuity_count_excluded",
+                "return_path_discontinuity_count_in_metric_sample",
+                "top1_abs_return_share_pct",
+                "top5_abs_return_share_pct",
+                "trimmed_1pct_avg_return_pct",
+                "interpretation_status",
+            ],
+            limit=10,
+        ),
+        "",
+        "## Baseline And Binary Feature Matrix",
+        "",
+        markdown_table(
+            pd.concat(
+                [decision_summary[decision_summary["row_type"].eq("baseline")], binary],
+                ignore_index=True,
+                sort=False,
+            ),
+            [
+                "feature_id",
+                "feature_family",
+                "feature_independence_status",
+                "equivalent_to_feature_id",
+                "feature_hit_count",
+                "high_return_feature_hit_rate_pct",
+                "failure_feature_hit_rate_pct",
+                "high_return_minus_failure_hit_rate_pct",
+                "win_rate_pct",
+                "neutral_rate_pct",
+                "failure_rate_pct",
+                "avg_realized_return_pct",
+                "median_realized_return_pct",
+                "high_return_8_rate_pct",
+                "loss_5_rate_pct",
+                "evidence_interpretation",
+            ],
+            limit=100,
+        ),
+        "",
+        "## Numeric High-Return Versus Failure Contrast",
+        "",
+        markdown_table(
+            numeric,
+            [
+                "feature_id",
+                "feature_family",
+                "high_return_feature_mean",
+                "high_return_feature_median",
+                "failure_feature_mean",
+                "failure_feature_median",
+                "high_return_minus_failure_feature_mean",
+                "high_return_minus_failure_feature_median",
+            ],
+            limit=100,
+        ),
+    ]
+    REVENUE_UNREACTED_FEATURE_CONTRAST_MD.write_text(
+        "\n".join(lines).rstrip() + "\n",
+        encoding="utf-8",
+        newline="\n",
+    )
+    DOCS_REVENUE_UNREACTED_FEATURE_CONTRAST_MD.write_text(
+        REVENUE_UNREACTED_FEATURE_CONTRAST_MD.read_text(encoding="utf-8"),
         encoding="utf-8",
         newline="\n",
     )
@@ -8671,6 +9748,12 @@ def main() -> int:
     revenue_unreacted_condition_matrix_df = build_revenue_unreacted_range_revenue_condition_matrix(df)
     print("Building revenue_unreacted_range operation candidate matrix", flush=True)
     revenue_unreacted_operation_candidate_matrix_df = build_revenue_unreacted_range_operation_candidate_matrix(df)
+    print("Building revenue_unreacted_range high-return/failure feature contrast audit", flush=True)
+    (
+        revenue_unreacted_feature_contrast_df,
+        revenue_unreacted_feature_contrast_detail_df,
+        revenue_unreacted_feature_contrast_anomaly_df,
+    ) = build_revenue_unreacted_range_feature_contrast_audit(df)
     print("Building price_pullback ordered condition matrix", flush=True)
     price_pullback_ordered_condition_matrix_df = build_price_pullback_ordered_condition_matrix(df)
     print("Building price_pullback lifecycle replay", flush=True)
@@ -8711,6 +9794,11 @@ def main() -> int:
     write_price_pullback_revenue_condition_matrix(price_pullback_revenue_condition_matrix_df)
     write_revenue_unreacted_range_revenue_condition_matrix(revenue_unreacted_condition_matrix_df)
     write_revenue_unreacted_range_operation_candidate_matrix(revenue_unreacted_operation_candidate_matrix_df)
+    write_revenue_unreacted_range_feature_contrast_audit(
+        revenue_unreacted_feature_contrast_df,
+        revenue_unreacted_feature_contrast_detail_df,
+        revenue_unreacted_feature_contrast_anomaly_df,
+    )
     write_price_pullback_ordered_condition_matrix(price_pullback_ordered_condition_matrix_df)
     write_price_pullback_lifecycle_replay(price_pullback_lifecycle_replay_df)
     write_price_pullback_daily_row_parity_audit(price_pullback_daily_row_parity_df)

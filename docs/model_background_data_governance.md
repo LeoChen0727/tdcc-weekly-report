@@ -210,9 +210,14 @@ not shared objective background data:
 - `output/latest/research_backtest/price_pullback_23ema_revenue_condition_matrix_latest.csv`
 - `output/latest/research_backtest/revenue_unreacted_range_revenue_condition_matrix_latest.csv`
 - `output/latest/research_backtest/revenue_unreacted_range_operation_candidate_matrix_latest.csv`
+- `output/latest/research_backtest/revenue_unreacted_range_feature_contrast_audit_latest.csv`
+- `output/latest/research_backtest/revenue_unreacted_range_feature_contrast_audit_detail_latest.csv`
+- `output/latest/research_backtest/revenue_unreacted_range_feature_contrast_anomaly_audit_latest.csv`
 - `docs/latest/price_pullback_23ema_revenue_condition_matrix_latest.csv`
 - `docs/latest/revenue_unreacted_range_revenue_condition_matrix_latest.csv`
 - `docs/latest/revenue_unreacted_range_operation_candidate_matrix_latest.csv`
+- `docs/latest/revenue_unreacted_range_feature_contrast_audit_latest.csv`
+- `docs/latest/revenue_unreacted_range_feature_contrast_anomaly_audit_latest.csv`
 
 The producer and validator are:
 
@@ -220,6 +225,7 @@ The producer and validator are:
 python scripts/build_daily_model_parameter_research.py
 python scripts/validate_daily_model_revenue_condition_matrix.py
 python scripts/validate_revenue_unreacted_range_operation_candidate_matrix.py
+python scripts/validate_revenue_unreacted_range_feature_contrast_audit.py
 ```
 
 Allowed use: compare model-specific revenue conditions under the matrix's stated
@@ -230,6 +236,31 @@ Forbidden use: do not use these matrix rows as production gates, scores,
 rankings, PDF metrics, or shared cross-model features. `monthly_revenue_history`
 is the reusable objective input; the matrix conclusion is specific to the named
 model and still needs an explicit promotion PR before formal use.
+
+The `revenue_unreacted_range_feature_contrast_audit` family fixes one common
+operation basis before comparing high-return and failure samples: strong monthly
+revenue, signal-date close confirmation, next-trading-day open entry, D+20 close
+exit, no stop, and a 20-trading-day same-stock non-overlap rule. Its summary rows
+must publish each binary feature's prevalence in both the high-return and failure
+groups and must recompute the selected subset's true win, neutral, failure,
+average-return, median-return, high-return, and large-loss metrics. Single-feature
+results are not combination evidence. Future combinations must be recomputed on
+the actual intersection and rejected when they perform worse than the best
+applicable single feature.
+
+The anomaly audit publishes both including-known-anomaly and
+excluding-known-revenue-and-price-anomaly bases. Only the excluding basis may be
+interpreted, and it remains blocked if extreme-return dominance requires row-level
+review. Revenue anomaly exclusion covers the current PIT row, the prior three
+monthly YoY/cumulative YoY values used by the feature audit, and extreme one-month
+delta values; a clean current row must not hide an anomalous lagged input. Sample
+count is always reported but is not, by itself, a reason to reject a rare feature.
+
+Large-detail policy: the row-level detail is tracked once at
+`output/latest/research_backtest/revenue_unreacted_range_feature_contrast_audit_detail_latest.csv`.
+It is not duplicated under `docs/latest` or `output/history`; Git history plus the
+summary/anomaly history mirrors preserve audit lineage without tripling the large
+CSV on every refresh.
 
 ## Volume Breakout V2 High-Position Improvement Audit
 
