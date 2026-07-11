@@ -32,6 +32,21 @@ VOLUME_BREAKOUT_V2_MODEL_IDS = (
     "volume_range_breakout_v2_mid_position_momentum_attack",
     "volume_range_breakout_v2_high_position_volume_attack",
 )
+OPERATION_ROW_METRIC_REQUIRED_COLUMNS = {
+    "row_metric_status",
+    "row_metric_scope",
+    "row_metric_id",
+    "row_metric_label_zh",
+    "row_metric_matched_add_score_ids",
+    "row_metric_sample_size",
+    "row_metric_win_rate_zh",
+    "row_metric_neutral_rate_zh",
+    "row_metric_failure_rate_zh",
+    "row_metric_avg_return_zh",
+    "row_metric_median_return_zh",
+    "row_metric_source",
+    "row_metric_selection_status",
+}
 PDF_OPERATION_ADAPTER_ARTIFACTS = {
     **{
         model_id: ROOT / "output/latest/daily_volume_breakout_operation_section_latest.csv"
@@ -90,10 +105,7 @@ W_BOTTOM_OPERATION_REQUIRED_COLUMNS = {
     "stop_loss_rule_id",
     "exit_rule_id",
     "planned_holding_days",
-    "sample_size",
-    "win_rate_zh",
-    "median_return_zh",
-}
+} | OPERATION_ROW_METRIC_REQUIRED_COLUMNS
 W_BOTTOM_OPERATION_REQUIRED_SECTIONS = {"confirmed_operation", "active_operation"}
 W_BOTTOM_OPERATION_REQUIRED_VIEWS = {"highlight", "full"}
 PRICE_PULLBACK_OPERATION_REQUIRED_COLUMNS = {
@@ -119,19 +131,10 @@ PRICE_PULLBACK_OPERATION_REQUIRED_COLUMNS = {
     "exit_rule_id",
     "exit_rule_zh",
     "planned_holding_days",
-    "sample_size",
-    "win_rate_zh",
-    "neutral_rate_zh",
-    "failure_rate_zh",
-    "avg_return_zh",
-    "technical_package_win_rate_zh",
-    "technical_package_neutral_rate_zh",
-    "technical_package_failure_rate_zh",
-    "technical_package_avg_return_zh",
     "operation_age_days",
     "rank_reason_zh",
     "risk_tags_zh",
-}
+} | OPERATION_ROW_METRIC_REQUIRED_COLUMNS
 VOLUME_OPERATION_REQUIRED_COLUMNS = {
     "model_id",
     "pdf_view",
@@ -150,23 +153,7 @@ VOLUME_OPERATION_REQUIRED_COLUMNS = {
     "exit_rule_id",
     "exit_rule_zh",
     "planned_holding_days",
-    "sample_size",
-    "win_rate_zh",
-    "neutral_rate_zh",
-    "loss_rate_zh",
-    "failure_rate_zh",
-    "avg_return_zh",
-    "pdf_bonus_combo_id",
-    "pdf_bonus_combo_label_zh",
-    "pdf_bonus_combo_sample_size",
-    "pdf_bonus_combo_win_rate_zh",
-    "pdf_bonus_combo_neutral_rate_zh",
-    "pdf_bonus_combo_loss_rate_zh",
-    "pdf_bonus_combo_failure_rate_zh",
-    "pdf_bonus_combo_avg_return_zh",
-    "pdf_bonus_combo_median_return_zh",
-    "pdf_bonus_combo_source",
-}
+} | OPERATION_ROW_METRIC_REQUIRED_COLUMNS
 PDF_OPERATION_REQUIRED_SECTIONS = {"confirmed_operation", "active_operation"}
 PDF_OPERATION_REQUIRED_VIEWS = {"highlight", "full"}
 PDF_OPERATION_REQUIRED_COLUMNS_BY_MODEL = {
@@ -522,6 +509,67 @@ def validate_required_display_model_coverage(
     return errors
 
 
+def function_string_literals(path: Path, function_name: str) -> set[str]:
+    if not path.exists():
+        return set()
+    try:
+        tree = ast.parse(path.read_text(encoding="utf-8-sig", errors="replace"), filename=str(path))
+    except SyntaxError:
+        return set()
+    for node in ast.walk(tree):
+        if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)) and node.name == function_name:
+            return {
+                child.value
+                for child in ast.walk(node)
+                if isinstance(child, ast.Constant) and isinstance(child.value, str)
+            }
+    return set()
+
+
+def validate_operation_row_metric_renderer_contract(path: Path = RENDERER) -> list[str]:
+    errors: list[str] = []
+    function_name = "operation_row_performance_label"
+    literals = function_string_literals(path, function_name)
+    if not literals:
+        return [f"daily PDF renderer missing {function_name}: {rel(path)}"]
+
+    required = {
+        "row_metric_status",
+        "row_metric_label_zh",
+        "row_metric_sample_size",
+        "row_metric_win_rate_zh",
+        "row_metric_neutral_rate_zh",
+        "row_metric_failure_rate_zh",
+        "row_metric_avg_return_zh",
+        "unavailable_no_approved_add_score_metric",
+        "ready",
+    }
+    forbidden = {
+        "win_rate_zh",
+        "neutral_rate_zh",
+        "failure_rate_zh",
+        "avg_return_zh",
+        "technical_package",
+        "pdf_bonus_combo",
+        "pdf_combo",
+        "row_level_combo",
+        "add_score_combo",
+    }
+    missing = sorted(required - literals)
+    if missing:
+        errors.append(
+            "daily PDF operation row metric renderer must consume the model-owned row_metric contract: missing "
+            + ";".join(missing)
+        )
+    legacy = sorted(forbidden & literals)
+    if legacy:
+        errors.append(
+            "daily PDF operation row metric renderer must not fall back to baseline or legacy metric prefixes: "
+            + ";".join(legacy)
+        )
+    return errors
+
+
 def validate_renderer_fixed_model_table_contract(source_paths: Iterable[Path] = (RENDERER,)) -> list[str]:
     errors: list[str] = []
     skip_re = re.compile(r"if\s+not\s+(?:ranked_rows|line_rows)\s*:\s*\n\s*continue")
@@ -731,6 +779,32 @@ def validate_pdf_integrated_operation_adapter_contract(
                 f"{rel(path)}"
             )
             continue
+        metric_sections = {"confirmed_operation", "confirmed_unranked_operation", "active_operation"}
+        for row_index, row in enumerate(model_rows, start=2):
+            if row.get("row_type", "") != "data" or row.get("pdf_section", "") not in metric_sections:
+                continue
+            status = row.get("row_metric_status", "")
+            if status not in {"ready", "unavailable_no_approved_add_score_metric"}:
+                errors.append(
+                    f"PDF operation adapter row {row_index} has invalid row_metric_status for {model_id}: "
+                    f"{status or 'blank'}"
+                )
+                continue
+            if status == "ready":
+                required_payload = {
+                    "row_metric_label_zh",
+                    "row_metric_sample_size",
+                    "row_metric_win_rate_zh",
+                    "row_metric_neutral_rate_zh",
+                    "row_metric_failure_rate_zh",
+                    "row_metric_avg_return_zh",
+                }
+                missing_payload = sorted(column for column in required_payload if not row.get(column, ""))
+                if missing_payload:
+                    errors.append(
+                        f"PDF operation adapter ready row {row_index} has incomplete row_metric payload for "
+                        f"{model_id}: " + ";".join(missing_payload)
+                    )
         sections = {row.get("pdf_section", "") for row in model_rows if row.get("pdf_section", "")}
         extra_sections = sorted(sections - allowed_sections.get(model_id, PDF_OPERATION_REQUIRED_SECTIONS))
         if extra_sections:
@@ -997,6 +1071,7 @@ def validate() -> tuple[
     errors.extend(validate_event_field_usages(event_usages, event_rows))
     errors.extend(validate_private_pdf_rules())
     errors.extend(validate_renderer_fixed_model_table_contract())
+    errors.extend(validate_operation_row_metric_renderer_contract())
     errors.extend(
         validate_pdf_integrated_operation_adapter_contract(
             readiness_rows,

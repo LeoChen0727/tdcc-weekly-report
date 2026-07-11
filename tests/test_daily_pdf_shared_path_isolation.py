@@ -16,6 +16,16 @@ def test_daily_pdf_shared_path_isolation_validator_passes() -> None:
     assert validator.main() == 0
 
 
+def test_daily_pdf_shared_path_inventory_removes_legacy_metric_prefix_fallback() -> None:
+    renderer_source = (ROOT / "scripts" / "generate_chatgpt_side_daily_reports.py").read_text(
+        encoding="utf-8"
+    )
+    inventory = (ROOT / "config" / "daily_pdf_shared_path_inventory.csv").read_text(encoding="utf-8")
+
+    assert "def operation_row_metric_from_prefixes" not in renderer_source
+    assert "operation_row_metric_from_prefixes" not in inventory
+
+
 def test_price_pullback_operation_renderer_uses_model_owned_line_filter() -> None:
     source = (ROOT / "scripts" / "generate_chatgpt_side_daily_reports.py").read_text(
         encoding="utf-8",

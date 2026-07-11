@@ -1719,6 +1719,23 @@ def operation_rows_for_limit_test(
                     else "active_operation"
                 ),
                 "buy_rank_eligible": "True" if pdf_section == "confirmed_operation" else "False",
+                "row_metric_status": (
+                    "" if pdf_section == "pending_confirmation" else "unavailable_no_approved_add_score_metric"
+                ),
+                "row_metric_scope": "",
+                "row_metric_id": "",
+                "row_metric_label_zh": "",
+                "row_metric_matched_add_score_ids": "",
+                "row_metric_sample_size": "",
+                "row_metric_win_rate_zh": "",
+                "row_metric_neutral_rate_zh": "",
+                "row_metric_failure_rate_zh": "",
+                "row_metric_avg_return_zh": "",
+                "row_metric_median_return_zh": "",
+                "row_metric_source": "",
+                "row_metric_selection_status": (
+                    "" if pdf_section == "pending_confirmation" else "baseline_not_permitted_in_operation_row"
+                ),
             }
         )
     return pd.DataFrame(rows)
@@ -1830,6 +1847,19 @@ def test_pdf_operation_renderer_uses_row_level_buy_eligibility(monkeypatch) -> N
                 "win_rate_zh": "66.67%",
                 "avg_return_zh": "+21.67%",
                 "median_return_zh": "+21.09%",
+                "row_metric_status": "unavailable_no_approved_add_score_metric",
+                "row_metric_scope": "",
+                "row_metric_id": "",
+                "row_metric_label_zh": "",
+                "row_metric_matched_add_score_ids": "",
+                "row_metric_sample_size": "",
+                "row_metric_win_rate_zh": "",
+                "row_metric_neutral_rate_zh": "",
+                "row_metric_failure_rate_zh": "",
+                "row_metric_avg_return_zh": "",
+                "row_metric_median_return_zh": "",
+                "row_metric_source": "",
+                "row_metric_selection_status": "baseline_not_permitted_in_operation_row",
                 "confidence_zh": "低",
                 "operation_status_zh": "已確認",
                 "row_action_status": "confirmed_buy_candidate",
@@ -1910,9 +1940,7 @@ def test_pdf_operation_renderer_uses_row_level_buy_eligibility(monkeypatch) -> N
         "停損基準",
         "出場規則",
         "操作 / 最終分數",
-        "樣本數",
-        "勝率",
-        "中位數報酬",
+        "加分勝/和/敗/報酬",
         "排名原因",
     ]
     assert confirmed[2][1] == "1111 測試A"
@@ -1922,7 +1950,8 @@ def test_pdf_operation_renderer_uses_row_level_buy_eligibility(monkeypatch) -> N
     assert confirmed[2][5] == "6/11最低點 10.00"
     assert confirmed[2][6] == "跌破停損基準，否則最多第 10 個交易日收盤"
     assert confirmed[2][7] == "操作 12.30 / 最終 88.80"
-    assert confirmed[2][11] == "正式分數理由"
+    assert confirmed[2][8] == pdf_generator.OPERATION_ROW_METRIC_UNAVAILABLE_TEXT
+    assert confirmed[2][9] == "正式分數理由"
     assert "2222 測試B" not in " ".join(str(cell) for row in confirmed for cell in row)
     assert active[0][0] == pdf_generator.operation_table_title(
         pdf_generator.operation_model_display_name(LOW_VOLUME_MODEL_ID),
@@ -1979,6 +2008,19 @@ def test_pdf_operation_renderer_full_shows_confirmed_unranked(monkeypatch) -> No
                 "sample_size": "2098",
                 "win_rate_zh": "38.13%",
                 "median_return_zh": "-3.28%",
+                "row_metric_status": "unavailable_no_approved_add_score_metric",
+                "row_metric_scope": "",
+                "row_metric_id": "",
+                "row_metric_label_zh": "",
+                "row_metric_matched_add_score_ids": "",
+                "row_metric_sample_size": "",
+                "row_metric_win_rate_zh": "",
+                "row_metric_neutral_rate_zh": "",
+                "row_metric_failure_rate_zh": "",
+                "row_metric_avg_return_zh": "",
+                "row_metric_median_return_zh": "",
+                "row_metric_source": "",
+                "row_metric_selection_status": "baseline_not_permitted_in_operation_row",
                 "evidence_match_status": "row_level_evidence_not_buy_ranked",
                 "row_action_status": "confirmed_not_buy_ranked",
                 "buy_rank_eligible": "False",
@@ -2020,10 +2062,11 @@ def test_pdf_operation_renderer_full_shows_confirmed_unranked(monkeypatch) -> No
         pdf_generator.operation_model_display_name(LOW_VOLUME_MODEL_ID),
         "已確認但未通過買入排名門檻",
     )
-    assert unranked[1] == ["股票", "確認方式", "確認日", "未列排名原因", "樣本數", "勝率", "中位數報酬", "證據狀態"]
+    assert unranked[1] == ["股票", "確認方式", "確認日", "未列排名原因", "加分勝/和/敗/報酬", "證據狀態"]
     assert unranked[2][0] == "3333 測試C"
     assert unranked[2][3] == "已確認但證據未過門檻"
-    assert unranked[2][7] == "歷史證據未過門檻"
+    assert unranked[2][4] == pdf_generator.OPERATION_ROW_METRIC_UNAVAILABLE_TEXT
+    assert unranked[2][5] == "歷史證據未過門檻"
     visible = "\n".join(str(cell) for table in captured_tables for row in table for cell in row)
     assert "confirmed_not_buy_ranked" not in visible
     assert "row_level_evidence_not_buy_ranked" not in visible
@@ -2039,39 +2082,27 @@ def test_pdf_operation_renderer_keeps_highlight_empty_tables(monkeypatch) -> Non
     monkeypatch.setattr(pdf_generator, "build_table", capture_table)
     rows = pd.DataFrame(
         [
-            {
-                "model_id": LOW_VOLUME_MODEL_ID,
-                "pdf_view": "highlight",
-                "pdf_section": "confirmed_operation",
-                "row_type": "empty_state",
-                "stock_id": "",
-                "stock_display": "目前無資料",
-                "adapter_note_zh": "已確認操作：來源日期不符，今日不顯示舊操作列；不重新計算操作規則。",
-                "row_action_status": "empty_state",
-                "buy_rank_eligible": "False",
-            },
-            {
-                "model_id": LOW_VOLUME_MODEL_ID,
-                "pdf_view": "highlight",
-                "pdf_section": "pending_confirmation",
-                "row_type": "empty_state",
-                "stock_id": "",
-                "stock_display": "目前無資料",
-                "adapter_note_zh": "待確認：來源日期不符，今日不顯示舊操作列；不重新計算操作規則。",
-                "row_action_status": "empty_state",
-                "buy_rank_eligible": "False",
-            },
-            {
-                "model_id": LOW_VOLUME_MODEL_ID,
-                "pdf_view": "highlight",
-                "pdf_section": "active_operation",
-                "row_type": "empty_state",
-                "stock_id": "",
-                "stock_display": "目前無資料",
-                "adapter_note_zh": "操作中：來源日期不符，今日不顯示舊操作列；不重新計算操作規則。",
-                "row_action_status": "empty_state",
-                "buy_rank_eligible": "False",
-            },
+            output_row(
+                pdf_view="highlight",
+                pdf_section="confirmed_operation",
+                stock_display="目前無資料",
+                adapter_note_zh="已確認操作：來源日期不符，今日不顯示舊操作列；不重新計算操作規則。",
+                row_metric_status="not_applicable_empty_state",
+            ),
+            output_row(
+                pdf_view="highlight",
+                pdf_section="pending_confirmation",
+                stock_display="目前無資料",
+                adapter_note_zh="待確認：來源日期不符，今日不顯示舊操作列；不重新計算操作規則。",
+                row_metric_status="not_applicable_empty_state",
+            ),
+            output_row(
+                pdf_view="highlight",
+                pdf_section="active_operation",
+                stock_display="目前無資料",
+                adapter_note_zh="操作中：來源日期不符，今日不顯示舊操作列；不重新計算操作規則。",
+                row_metric_status="not_applicable_empty_state",
+            ),
         ]
     )
 
@@ -2090,7 +2121,7 @@ def test_pdf_operation_renderer_keeps_highlight_empty_tables(monkeypatch) -> Non
         pdf_generator.OPERATION_CONFIRMED_BUY_TABLE_TITLE,
     )
     assert confirmed[1][:2] == ["排名", "股票"]
-    assert confirmed[2][11] == "本日無股票推薦"
+    assert confirmed[2][9] == "本日無股票推薦"
     assert active[0][0] == pdf_generator.operation_table_title(
         pdf_generator.operation_model_display_name(LOW_VOLUME_MODEL_ID),
         pdf_generator.OPERATION_ACTIVE_TABLE_TITLE,
@@ -2127,6 +2158,9 @@ def w_bottom_operation_row(
     row_action_status: str = "confirmed_buy_candidate",
     buy_rank_eligible: str = "True",
 ) -> dict[str, str]:
+    row_metric_status = (
+        "not_applicable_empty_state" if row_type == "empty_state" else "unavailable_no_approved_add_score_metric"
+    )
     return {
         "model_id": model_id,
         "model_name_zh": model_id,
@@ -2162,6 +2196,21 @@ def w_bottom_operation_row(
         "sample_size": "31",
         "win_rate_zh": "58.06%",
         "median_return_zh": "6.24%",
+        "row_metric_status": row_metric_status,
+        "row_metric_scope": "",
+        "row_metric_id": "",
+        "row_metric_label_zh": "",
+        "row_metric_matched_add_score_ids": "",
+        "row_metric_sample_size": "",
+        "row_metric_win_rate_zh": "",
+        "row_metric_neutral_rate_zh": "",
+        "row_metric_failure_rate_zh": "",
+        "row_metric_avg_return_zh": "",
+        "row_metric_median_return_zh": "",
+        "row_metric_source": "",
+        "row_metric_selection_status": (
+            "" if row_type == "empty_state" else "baseline_not_permitted_in_operation_row"
+        ),
         "pdf_note_zh": "model-owned adapter row",
         "adapter_note_zh": "PDF must not infer lifecycle",
     }
@@ -2205,6 +2254,12 @@ def price_pullback_operation_row(
     row_action_status: str = "confirmed_buy_candidate",
     buy_rank_eligible: str = "True",
 ) -> dict[str, str]:
+    row_metric_ready = row_type == "data" and operation_quality == "technical_strength"
+    row_metric_status = (
+        "not_applicable_empty_state"
+        if row_type == "empty_state"
+        else "ready" if row_metric_ready else "unavailable_no_approved_add_score_metric"
+    )
     return {
         "model_id": pdf_generator.PRICE_PULLBACK_MODEL_ID,
         "model_name_zh": "23EMA回檔模型",
@@ -2244,6 +2299,23 @@ def price_pullback_operation_row(
         "technical_package_neutral_rate_zh": "3.52%",
         "technical_package_failure_rate_zh": "20.95%",
         "technical_package_avg_return_zh": "+2.96%",
+        "row_metric_status": row_metric_status,
+        "row_metric_scope": "exact_combo" if row_metric_ready else "",
+        "row_metric_id": "price_pullback_23ema__technical_strength_rsi60_macd_positive" if row_metric_ready else "",
+        "row_metric_label_zh": "RSI14 >= 60 + MACD histogram > 0" if row_metric_ready else "",
+        "row_metric_matched_add_score_ids": "rsi14_ge60|macd_hist_gt0" if row_metric_ready else "",
+        "row_metric_sample_size": "654" if row_metric_ready else "",
+        "row_metric_win_rate_zh": "75.54%" if row_metric_ready else "",
+        "row_metric_neutral_rate_zh": "3.52%" if row_metric_ready else "",
+        "row_metric_failure_rate_zh": "20.95%" if row_metric_ready else "",
+        "row_metric_avg_return_zh": "+2.96%" if row_metric_ready else "",
+        "row_metric_median_return_zh": "",
+        "row_metric_source": "price_pullback_23ema_feature_confirmation_research_latest.csv" if row_metric_ready else "",
+        "row_metric_selection_status": (
+            "exact_recomputed_combo_metric"
+            if row_metric_ready
+            else "" if row_type == "empty_state" else "baseline_not_permitted_in_operation_row"
+        ),
         "rank_reason_zh": "技術強勢；20日漲幅0~25%、TDCC高門檻增加、OBV站上MA20",
         "risk_tags_zh": "",
     }
@@ -2319,7 +2391,7 @@ def test_price_pullback_pdf_renderer_uses_model_owned_adapter_rows(monkeypatch) 
     assert "CandidateLeak" not in visible
 
 
-def test_operation_row_performance_label_prefers_combo_metric_over_baseline() -> None:
+def test_operation_row_performance_label_uses_model_owned_row_metric_only() -> None:
     row = pd.Series(
         {
             "win_rate_zh": "50.00%",
@@ -2330,12 +2402,21 @@ def test_operation_row_performance_label_prefers_combo_metric_over_baseline() ->
             "pdf_bonus_combo_neutral_rate_zh": "0.00%",
             "pdf_bonus_combo_loss_rate_zh": "20.00%",
             "pdf_bonus_combo_avg_return_zh": "+4.10%",
+            "row_metric_status": "ready",
+            "row_metric_scope": "exact_combo",
+            "row_metric_id": "pdf_combo__breakout_2_5__signal_body_le3",
+            "row_metric_label_zh": "突破 2%~5% + K棒實體 <= 3%",
+            "row_metric_sample_size": "5",
+            "row_metric_win_rate_zh": "80.00%",
+            "row_metric_neutral_rate_zh": "0.00%",
+            "row_metric_failure_rate_zh": "20.00%",
+            "row_metric_avg_return_zh": "+4.10%",
         }
     )
 
     label = pdf_generator.operation_row_performance_label(row)
 
-    assert label == "加分組合 80.00% / 0.00% / 20.00% / +4.10%"
+    assert label == "突破 2%~5% + K棒實體 <= 3% | 樣本數 5 | 80.00% / 0.00% / 20.00% / +4.10%"
     assert "50.00%" not in label
     assert "+1.00%" not in label
 
@@ -2343,17 +2424,19 @@ def test_operation_row_performance_label_prefers_combo_metric_over_baseline() ->
 def test_price_pullback_metrics_label_prefers_technical_package_over_baseline() -> None:
     label = pdf_generator.price_pullback_metrics_label(pd.Series(price_pullback_operation_row("confirmed_operation")))
 
-    assert label == "技術強勢 75.54% / 3.52% / 20.95% / +2.96%"
+    assert label == "RSI14 >= 60 + MACD histogram > 0 | 樣本數 654 | 75.54% / 3.52% / 20.95% / +2.96%"
     assert "66.03%" not in label
     assert "+2.90%" not in label
 
 
-def test_price_pullback_metrics_label_keeps_base_metric_for_base_rows() -> None:
+def test_price_pullback_metrics_label_blocks_baseline_for_base_rows() -> None:
     row = pd.Series(price_pullback_operation_row("confirmed_operation", operation_quality="base"))
 
     label = pdf_generator.price_pullback_metrics_label(row)
 
-    assert label == "基礎 66.03% / 5.60% / 28.36% / +2.90%"
+    assert label == pdf_generator.OPERATION_ROW_METRIC_UNAVAILABLE_TEXT
+    assert "66.03%" not in label
+    assert "+2.90%" not in label
     assert "75.54%" not in label
     assert "+2.96%" not in label
 
@@ -2409,6 +2492,8 @@ def test_w_bottom_pdf_renderer_uses_model_owned_adapter_rows(monkeypatch) -> Non
     confirmed, active = captured_tables
     assert confirmed[0][0] == "W底右側模型 - 本日可買 / 已確認買入候選"
     assert confirmed[2][1] == "1111 WBuy"
+    assert confirmed[2][8] == pdf_generator.OPERATION_ROW_METRIC_UNAVAILABLE_TEXT
+    assert "58.06%" not in confirmed[2][8]
     assert active[0][0] == "W底右側模型 - 操作中"
     assert active[2][0] == "2222 WActive"
     visible = "\n".join(str(cell) for table in captured_tables for row in table for cell in row)
