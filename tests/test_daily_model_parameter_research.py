@@ -1730,6 +1730,20 @@ def test_research_workflow_validates_and_stages_revenue_feature_contrast_artifac
     assert "output/history/research/revenue_unreacted_range_feature_contrast_audit_detail.csv" not in workflow
 
 
+def test_research_workflow_refreshes_published_snapshots_after_operation_adapters() -> None:
+    workflow = (ROOT / ".github" / "workflows" / "research_backtest_pipeline.yml").read_text(encoding="utf-8")
+
+    w_bottom_index = workflow.index("python scripts/build_daily_w_bottom_operation_sections.py")
+    price_pullback_index = workflow.index("python scripts/build_daily_price_pullback_23ema_operation_section.py")
+    readiness_index = workflow.index("python scripts/validate_model_operation_readiness.py")
+    snapshot_update_index = workflow.index("python scripts/update_daily_published_model_snapshots.py")
+    snapshot_validate_index = workflow.index("python scripts/validate_daily_published_model_snapshots.py")
+
+    assert w_bottom_index < price_pullback_index < readiness_index
+    assert readiness_index < snapshot_update_index < snapshot_validate_index
+    assert "git add output/history/daily_model_snapshots/*.csv || true" in workflow
+
+
 def test_feature_confirmation_deltas_support_future_string_dtype() -> None:
     rows = [
         {
