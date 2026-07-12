@@ -28,16 +28,35 @@ def test_extreme_return_path_audit_is_complete_and_reproducible() -> None:
     assert validate() == []
 
 
-def test_extreme_return_rows_are_real_paths_not_duplicate_or_impossible_jumps() -> None:
+def test_threshold_rows_remain_unresolved_candidates_after_partial_price_path_checks() -> None:
     detail = pd.read_csv(SOURCE, dtype={"stock_id": str}, low_memory=False)
     audit = build_extreme_return_path_audit(detail)
-    assert len(audit) == 14
+    realized = pd.to_numeric(detail["realized_return_pct"], errors="coerce")
+    expected = detail[
+        detail["decision_basis"].astype(str).str.lower().isin({"true", "1", "yes"})
+        & ~detail["sensitivity_basis"].astype(str).str.lower().isin({"true", "1", "yes"})
+        & detail["feature_time_basis"].eq("signal_date_close")
+        & realized.abs().ge(80.0)
+    ].drop_duplicates("episode_key")
+    assert len(audit) == len(expected)
+    assert set(audit["episode_key"]) == set(expected["episode_key"])
     assert not audit["episode_key"].duplicated().any()
     assert audit["price_path_trading_rows"].eq(20).all()
     assert audit["market_limit_violation_count"].eq(0).all()
     assert audit["all_ohlc_raw_match"].all()
     assert not audit["impossible_return_flag"].any()
-    assert set(audit["price_path_classification"]) == {"plausible_extreme_continuous_gain"}
+    assert set(audit["statistical_trigger_status"]) == {"anomaly_candidate"}
+    assert set(audit["price_path_classification"]) == {
+        "candidate_continuous_price_path_repo_source_matched"
+    }
+    assert set(audit["root_cause_verification_status"]) == {
+        "partial_root_checks_incomplete"
+    }
+    assert set(audit["final_disposition"]) == {"unresolved_anomaly_candidate"}
+    assert audit["root_cause_checks_missing"].ne("").all()
+    assert set(audit["primary_metric_handling"]) == {
+        "retain_observed_candidate_and_block_promotion_until_resolved"
+    }
 
 
 def test_raw_price_source_hash_uses_only_the_consumed_stock_ohlc_row() -> None:

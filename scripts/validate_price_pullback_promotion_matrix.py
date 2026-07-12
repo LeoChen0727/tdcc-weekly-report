@@ -12,6 +12,7 @@ from build_daily_model_parameter_research import (  # noqa: E402
     DOCS_PRICE_PULLBACK_PROMOTION_MATRIX_MD,
     PRICE_PULLBACK_PROMOTION_MATRIX_CSV,
     PRICE_PULLBACK_PROMOTION_MATRIX_MD,
+    PRIMARY_ANOMALY_BASIS,
 )
 
 
@@ -34,9 +35,9 @@ REQUIRED_COLUMNS = {
     "data_status",
     "sample_status",
     "anomaly_exclusion_basis",
-    "known_metric_exception_count_in_sample",
-    "known_metric_exception_count_in_baseline",
-    "known_metric_exception_ids",
+    "unresolved_anomaly_candidate_count_in_sample",
+    "unresolved_anomaly_candidate_count_in_baseline",
+    "unresolved_anomaly_candidate_ids",
     "exit_rule_id",
     "formal_price_rule_status",
     "entry_rule_id",
@@ -78,8 +79,6 @@ REQUIRED_CANDIDATE_IDS = {
     "deferred_context:theme_leadership",
 }
 EXPECTED_EXIT_RULE_ID = "close_prev20_high_break_next_open"
-PRICE_PULLBACK_EXCLUDING_EXCEPTION_BASIS = "excluding_known_data_quality_exceptions"
-REVENUE_EXCLUDING_EXCEPTION_BASIS = "excluding_known_price_or_revenue_anomalies"
 FORBIDDEN_PROMOTION_BASIS_TEXT = {
     "close_prev20_break_then_tp5_or_5ma_next_open",
     "close_prev20_break_then_tp8_or_5ma_next_open",
@@ -133,28 +132,24 @@ def validate_matrix(df: pd.DataFrame) -> list[str]:
     if df["proposed_contract_role"].astype(str).str.strip().eq("").any():
         errors.append("promotion matrix has empty proposed_contract_role")
     metric_rows = df["accepted_trade_count"].astype(str).str.strip().ne("")
-    allowed_exception_basis = {
-        PRICE_PULLBACK_EXCLUDING_EXCEPTION_BASIS,
-        REVENUE_EXCLUDING_EXCEPTION_BASIS,
-    }
     unexpected_basis = sorted(
-        set(df.loc[metric_rows, "anomaly_exclusion_basis"].astype(str)) - allowed_exception_basis
+        set(df.loc[metric_rows, "anomaly_exclusion_basis"].astype(str)) - {PRIMARY_ANOMALY_BASIS}
     )
     if unexpected_basis:
         errors.append(
-            "promotion matrix metric rows must use excluding anomaly basis only; "
+            "promotion matrix metric rows must retain unresolved candidates in the primary basis; "
             f"unexpected anomaly_exclusion_basis values: {unexpected_basis}"
         )
-    forbidden_basis_rows = df["anomaly_exclusion_basis"].astype(str).isin(
-        {
-            "including_data_quality_exceptions",
-            "including_numerical_anomalies",
-        }
-    )
-    if forbidden_basis_rows.any():
-        errors.append("promotion matrix must not use including-anomaly metric rows")
-    if df.loc[metric_rows, "known_metric_exception_count_in_baseline"].astype(str).str.strip().eq("").any():
-        errors.append("promotion matrix metric rows must expose baseline exception counts")
+    if df.loc[metric_rows, "unresolved_anomaly_candidate_count_in_baseline"].astype(str).str.strip().eq("").any():
+        errors.append("promotion matrix metric rows must expose baseline anomaly-candidate counts")
+    candidate_count = pd.to_numeric(
+        df["unresolved_anomaly_candidate_count_in_sample"], errors="coerce"
+    ).fillna(0)
+    unresolved_rows = candidate_count.gt(0)
+    if not df.loc[unresolved_rows, "promotion_readiness"].eq(
+        "blocked_pending_root_cause_anomaly_candidate_review"
+    ).all():
+        errors.append("unresolved anomaly candidates must block promotion readiness")
     if not df["exit_rule_id"].astype(str).eq(EXPECTED_EXIT_RULE_ID).all():
         unexpected_mask = ~df["exit_rule_id"].astype(str).eq(EXPECTED_EXIT_RULE_ID)
         unexpected = sorted(set(df.loc[unexpected_mask, "exit_rule_id"].astype(str)))

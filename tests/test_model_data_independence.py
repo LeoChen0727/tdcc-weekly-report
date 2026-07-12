@@ -118,6 +118,12 @@ def test_data_sharing_registry_uses_model_owned_research_entrypoints() -> None:
     assert by_family["revenue_unreacted_range_feature_contrast_audit"]["registered_producers"] == (
         "scripts/build_revenue_unreacted_range_research.py"
     )
+    assert by_family["revenue_unreacted_range_extreme_return_path_audit"]["registered_producers"] == (
+        "scripts/build_revenue_unreacted_range_research.py"
+    )
+    assert by_family["revenue_unreacted_range_lag_strength_matrix"]["registered_producers"] == (
+        "scripts/build_revenue_unreacted_range_research.py"
+    )
     assert by_family["volume_range_breakout_v2_high_position_improvement_audit"][
         "registered_producers"
     ] == "scripts/build_volume_range_breakout_v2_research.py"
@@ -125,12 +131,26 @@ def test_data_sharing_registry_uses_model_owned_research_entrypoints() -> None:
 
 def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
     rows = read_csv("config/daily_model_data_sharing_migrations.csv")
-    assert len(rows) == 1
+    assert len(rows) == 2
     baseline = rows[0]
     assert tuple(baseline) == DATA_SHARING_MIGRATION_COLUMNS
     assert data_migration_row_sha256(baseline) == BASELINE_DATA_MIGRATION_ROW_SHA256
     assert len(baseline["changed_data_families"].split(";")) == 25
     assert set(baseline["previous_contract_sha256s"].split(";")) == {"BASELINE"}
+
+    anomaly_migration = rows[1]
+    assert anomaly_migration["migration_id"] == "anomaly_candidate_primary_metrics_20260712"
+    assert anomaly_migration["migration_status"] == "validated_user_approved_migration"
+    assert len(anomaly_migration["changed_data_families"].split(";")) == 12
+    assert anomaly_migration["previous_contract_sha256s"].split(";")[-2:] == ["NEW", "NEW"]
+    assert set(anomaly_migration["affected_models"].split(";")) == {
+        "all_models",
+        "price_pullback_23ema",
+        "revenue_unreacted_range",
+    }
+    assert anomaly_migration["user_approval_reference"] == (
+        "user_approved_anomaly_root_cause_governance_20260712"
+    )
 
 
 def test_data_contract_hash_detects_point_in_time_or_forbidden_use_drift() -> None:

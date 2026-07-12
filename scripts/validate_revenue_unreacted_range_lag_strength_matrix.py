@@ -67,8 +67,17 @@ def validate() -> list[str]:
         errors.append("lag strength matrix summary version drift")
     if set(detail["artifact_version"].astype(str)) != {ARTIFACT_VERSION}:
         errors.append("lag strength matrix detail version drift")
-    if len(detail) != 1530:
-        errors.append(f"lag strength detail source count drift: expected=1530 actual={len(detail)}")
+    source = pd.read_csv(SOURCE_DETAIL, dtype={"stock_id": str}, low_memory=False)
+    source_mask = (
+        source["decision_basis"].astype(str).str.lower().isin({"true", "1", "yes"})
+        & ~source["sensitivity_basis"].astype(str).str.lower().isin({"true", "1", "yes"})
+        & source["feature_time_basis"].astype(str).eq("signal_date_close")
+    )
+    expected_source_count = len(source.loc[source_mask].drop_duplicates("episode_key"))
+    if len(detail) != expected_source_count:
+        errors.append(
+            f"lag strength detail source count drift: expected={expected_source_count} actual={len(detail)}"
+        )
     if detail["episode_key"].duplicated().any():
         errors.append("lag strength detail contains duplicate episodes")
     repeats = detail.groupby(["stock_id", "source_monthly_revenue_period"]).size()
@@ -80,13 +89,24 @@ def validate() -> list[str]:
         errors.append("lag strength detail has unbucketed current revenue lags")
     if set(detail["availability_date_semantics"].astype(str)) != {EXPECTED_AVAILABILITY_SEMANTICS}:
         errors.append("lag strength detail availability-date semantics drift")
-    if detail["source_revenue_or_price_anomaly_flag"].astype(str).str.lower().isin({"true", "1", "yes"}).any():
-        errors.append("lag strength decision detail includes known revenue or price anomalies")
     baseline = summary[summary["condition_test_id"].eq("all_confirmed_non_overlap")]
-    if len(baseline) != 1 or int(baseline.iloc[0]["accepted_trade_count"]) != 1530:
+    if len(baseline) != 1 or int(baseline.iloc[0]["accepted_trade_count"]) != len(detail):
         errors.append("lag strength baseline count drift")
-    if len(baseline) == 1 and int(baseline.iloc[0]["abs_ge80_return_count"]) != 14:
-        errors.append("lag strength baseline extreme-return count drift")
+    candidate_flags = detail["abs_ge80_anomaly_candidate_flag"].astype(str).str.lower().isin(
+        {"true", "1", "yes"}
+    )
+    source_candidate_flags = detail[
+        "source_revenue_or_price_anomaly_candidate_flag"
+    ].astype(str).str.lower().isin({"true", "1", "yes"})
+    if len(baseline) == 1:
+        if int(baseline.iloc[0]["abs_ge80_anomaly_candidate_count"]) != int(candidate_flags.sum()):
+            errors.append("lag strength baseline return-candidate count drift")
+        if int(baseline.iloc[0]["source_anomaly_candidate_count"]) != int(source_candidate_flags.sum()):
+            errors.append("lag strength baseline source-candidate count drift")
+    if set(summary["promotion_readiness"].astype(str)) != {
+        "blocked_pending_root_cause_anomaly_candidate_review"
+    }:
+        errors.append("lag strength matrix must remain blocked pending root-cause review")
     required_families = {
         "baseline",
         "current_revenue_trading_day_lag",
@@ -106,7 +126,15 @@ def validate() -> list[str]:
                 errors.append(f"lag strength outcome rates do not sum to 100: {row.condition_test_id}")
         if int(row.same_stock_overlap_pair_count) != 0 or int(row.same_stock_revenue_period_repeat_count) != 0:
             errors.append(f"lag strength non-overlap contract failed: {row.condition_test_id}")
-    source = pd.read_csv(SOURCE_DETAIL, dtype={"stock_id": str}, low_memory=False)
+        if (
+            int(row.abs_ge80_anomaly_candidate_count) > 0
+            or int(row.source_anomaly_candidate_count) > 0
+        ) and row.interpretation_status != (
+            "blocked_pending_root_cause_anomaly_candidate_review"
+        ):
+            errors.append(
+                f"lag strength row with unresolved candidates is not blocked: {row.condition_test_id}"
+            )
     rebuilt_summary, rebuilt_detail = build_lag_strength_matrix(source)
     rebuilt_summary = _serialized(rebuilt_summary)
     rebuilt_detail = _serialized(rebuilt_detail, detail=True)
@@ -131,7 +159,14 @@ def main() -> int:
         for error in errors:
             print(f"ERROR: {error}")
         return 1
-    print("revenue lag strength matrix validation passed: source_trades=1530 abs_ge80=14")
+    summary = _read(LATEST_CSV)
+    baseline = summary[summary["condition_test_id"].eq("all_confirmed_non_overlap")].iloc[0]
+    print(
+        "revenue lag strength matrix validation passed: "
+        f"source_trades={int(baseline['accepted_trade_count'])} "
+        f"return_candidates={int(baseline['abs_ge80_anomaly_candidate_count'])} "
+        f"source_candidates={int(baseline['source_anomaly_candidate_count'])}"
+    )
     return 0
 
 

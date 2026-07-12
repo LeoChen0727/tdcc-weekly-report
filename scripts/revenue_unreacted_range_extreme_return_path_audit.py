@@ -11,10 +11,20 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parents[1]
 MODEL_ID = "revenue_unreacted_range"
 ARTIFACT_ID = "revenue_unreacted_range_extreme_return_path_audit"
-ARTIFACT_VERSION = "extreme_return_path_raw_price_row_hash_v2_20260712"
+ARTIFACT_VERSION = "anomaly_candidate_root_cause_partial_v3_20260712"
 RAW_PRICE_SOURCE_HASH_BASIS = "date_stock_id_ohlc_canonical_rows_v1"
-EXTREME_ABS_RETURN_PCT = 80.0
+ANOMALY_CANDIDATE_ABS_RETURN_PCT = 80.0
 MARKET_LIMIT_AUDIT_THRESHOLD_PCT = 11.0
+ROOT_CAUSE_CHECKS = (
+    "identity_dedup_non_overlap",
+    "formal_operation_replay",
+    "point_in_time_and_trading_calendar",
+    "raw_source_lineage_and_hash",
+    "units_formula_and_adjustment_basis",
+    "authoritative_business_event_history",
+    "independent_source_corroboration",
+    "reproducible_evidence_reference",
+)
 
 LATEST_CSV = ROOT / f"output/latest/research_backtest/{ARTIFACT_ID}_latest.csv"
 LATEST_MD = ROOT / f"output/latest/research_backtest/{ARTIFACT_ID}_latest.md"
@@ -50,7 +60,8 @@ COLUMNS = [
     "exit_date",
     "exit_close",
     "realized_return_pct",
-    "extreme_threshold_abs_pct",
+    "anomaly_candidate_threshold_abs_pct",
+    "statistical_trigger_status",
     "price_path_trading_rows",
     "raw_source_rows_expected",
     "raw_source_rows_matched",
@@ -70,8 +81,12 @@ COLUMNS = [
     "raw_price_source_sha256_basis",
     "price_path_classification",
     "impossible_return_flag",
-    "decision_basis_handling",
-    "sensitivity_basis_handling",
+    "root_cause_verification_status",
+    "root_cause_checks_completed",
+    "root_cause_checks_missing",
+    "final_disposition",
+    "primary_metric_handling",
+    "candidate_threshold_sensitivity_handling",
     "production_change",
     "promotion_readiness",
 ]
@@ -156,7 +171,7 @@ def _target_episodes(detail: pd.DataFrame) -> pd.DataFrame:
         _boolish(detail["decision_basis"])
         & ~_boolish(detail["sensitivity_basis"])
         & detail["feature_time_basis"].astype(str).eq("signal_date_close")
-        & realized.abs().ge(EXTREME_ABS_RETURN_PCT)
+        & realized.abs().ge(ANOMALY_CANDIDATE_ABS_RETURN_PCT)
     )
     return detail.loc[mask].drop_duplicates("episode_key").sort_values(
         ["realized_return_pct", "stock_id"], ascending=[False, True]
@@ -239,6 +254,14 @@ def build_extreme_return_path_audit(detail: pd.DataFrame) -> pd.DataFrame:
             or violation_count > 0
         )
         raw_source_sha = hashlib.sha256("\n".join(raw_hashes).encode("utf-8")).hexdigest()
+        completed_root_checks = ["identity_dedup_non_overlap", "reproducible_evidence_reference"]
+        if entry_open_raw_match and exit_close_raw_match:
+            completed_root_checks.append("formal_operation_replay")
+        if not missing_raw_dates and all_ohlc_match and raw_match_count == len(path_rows):
+            completed_root_checks.append("raw_source_lineage_and_hash")
+        missing_root_checks = [
+            check for check in ROOT_CAUSE_CHECKS if check not in completed_root_checks
+        ]
         stock_names = path_rows["stock_name"].dropna().astype(str)
         rows.append(
             {
@@ -256,7 +279,8 @@ def build_extreme_return_path_audit(detail: pd.DataFrame) -> pd.DataFrame:
                 "exit_date": exit_date,
                 "exit_close": round(float(episode.exit_price), 4),
                 "realized_return_pct": round(float(episode.realized_return_pct), 4),
-                "extreme_threshold_abs_pct": EXTREME_ABS_RETURN_PCT,
+                "anomaly_candidate_threshold_abs_pct": ANOMALY_CANDIDATE_ABS_RETURN_PCT,
+                "statistical_trigger_status": "anomaly_candidate",
                 "price_path_trading_rows": int(len(path_rows)),
                 "raw_source_rows_expected": int(len(path_rows)),
                 "raw_source_rows_matched": raw_match_count,
@@ -275,17 +299,23 @@ def build_extreme_return_path_audit(detail: pd.DataFrame) -> pd.DataFrame:
                 "raw_price_source_sha256": raw_source_sha,
                 "raw_price_source_sha256_basis": RAW_PRICE_SOURCE_HASH_BASIS,
                 "price_path_classification": (
-                    "requires_data_quality_exception_review"
+                    "candidate_repo_price_path_mismatch_requires_source_repair"
                     if impossible
-                    else "plausible_extreme_continuous_gain"
+                    else "candidate_continuous_price_path_repo_source_matched"
                 ),
                 "impossible_return_flag": impossible,
-                "decision_basis_handling": (
-                    "exclude_until_resolved" if impossible else "retain_as_observed_trade"
+                "root_cause_verification_status": "partial_root_checks_incomplete",
+                "root_cause_checks_completed": ";".join(completed_root_checks),
+                "root_cause_checks_missing": ";".join(missing_root_checks),
+                "final_disposition": "unresolved_anomaly_candidate",
+                "primary_metric_handling": (
+                    "retain_observed_candidate_and_block_promotion_until_resolved"
                 ),
-                "sensitivity_basis_handling": "exclude_abs_ge80_to_show_tail_dependence",
+                "candidate_threshold_sensitivity_handling": (
+                    "threshold_sensitivity_only_not_anomaly_disposition"
+                ),
                 "production_change": False,
-                "promotion_readiness": "research_only_anomaly_evidence_not_promotion",
+                "promotion_readiness": "blocked_pending_root_cause_not_promotion_evidence",
             }
         )
     return pd.DataFrame(rows, columns=COLUMNS)
@@ -309,15 +339,16 @@ def _markdown(audit: pd.DataFrame) -> str:
         ]
     ]
     lines = [
-        "# 營收低反應模型極端報酬價格路徑稽核",
+        "# 營收低反應模型候選異常報酬根因稽核",
         "",
         f"- artifact_version: `{ARTIFACT_VERSION}`",
-        f"- extreme threshold: `abs(realized_return_pct) >= {EXTREME_ABS_RETURN_PCT:.0f}%`",
+        f"- candidate trigger only: `abs(realized_return_pct) >= {ANOMALY_CANDIDATE_ABS_RETURN_PCT:.0f}%`",
         "- operation basis: 確認後下一交易日開盤進場，確認日後第 20 個交易日收盤出場。",
         "- raw verification: 每個持有交易日的 OHLC 均逐列對照 `data/daily_price/YYYYMMDD.csv`。",
-        "- interpretation: `plausible_extreme_continuous_gain` 表示價格路徑可實現且 raw 資料一致，不表示適合直接用於 promotion。",
-        "- calendar limitation: 現有 company calendar 不是完整歷史公司行動 PIT 層，因此公司行動欄只作輔助揭露。",
-        "- decision: 可實現極端值保留於主樣本，同時另列排除 `abs >= 80%` 的敏感度結果。",
+        "- interpretation: 數字門檻只產生 anomaly candidate；repo raw OHLC 一致只完成部分根因查核。",
+        "- unresolved checks: 尚缺完整歷史公司行動 PIT、獨立權威價格來源、完整調整基準與交易日底層確認。",
+        "- decision: 全部列維持 `unresolved_anomaly_candidate`；保留於包含基準，但 promotion 必須阻擋。",
+        "- sensitivity: 排除 `abs >= 80%` 只能顯示門檻敏感度，不是異常定案或修正後績效。",
         "- financial statement scope: EPS、毛利率、營益率、營業利益、業外與淨利均未納入。",
         "",
         display.to_markdown(index=False),

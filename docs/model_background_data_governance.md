@@ -260,13 +260,14 @@ results are not combination evidence. Future combinations must be recomputed on
 the actual intersection and rejected when they perform worse than the best
 applicable single feature.
 
-The anomaly audit publishes both including-known-anomaly and
-excluding-known-revenue-and-price-anomaly bases. Only the excluding basis may be
-interpreted, and it remains blocked if extreme-return dominance requires row-level
-review. Revenue anomaly exclusion covers the current PIT row, the prior three
-monthly YoY/cumulative YoY values used by the feature audit, and extreme one-month
-delta values; a clean current row must not hide an anomalous lagged input. Sample
-count is always reported but is not, by itself, a reason to reject a rare feature.
+The anomaly audit publishes a primary basis that retains every unresolved
+anomaly candidate and a separately labeled candidate-exclusion sensitivity
+basis. Only the primary basis is the model result; the sensitivity basis cannot
+replace or be described as corrected performance. Threshold checks cover the
+current PIT row, the prior three monthly YoY/cumulative YoY values used by the
+feature audit, and large one-month delta values so a clean current row cannot
+hide a lagged candidate. Any unresolved candidate blocks promotion. Sample count
+is always reported but is not, by itself, a reason to reject a rare feature.
 
 Large-detail policy: the row-level detail is tracked once at
 `output/latest/research_backtest/revenue_unreacted_range_feature_contrast_audit_detail_latest.csv`.
@@ -291,7 +292,7 @@ confirmation branches so a future model-split decision cannot hide unclassified
 signals. Win, neutral, and failure remain `>= +5%`, `0% to < +5%`, and `< 0%`.
 Sample count is disclosed but is not a rejection rule by itself.
 
-The timing detail keeps only confirmed mature trades and price-path anomaly
+The timing detail keeps only confirmed mature trades and price-path anomaly-candidate
 evidence. Unconfirmed, not-evaluable, avoided-failure, missed-win, and source
 accounting totals remain complete in the summary. The compact detail is tracked
 once under `output/latest/research_backtest`; it is not copied to `docs/latest`
@@ -316,12 +317,15 @@ only; combinations require a separate exact-intersection recomputation and may
 not reuse single-feature metrics.
 
 Decision rows must have zero same-stock operation overlap and zero repeated
-`stock_id + source_monthly_revenue_period` trades. The numerical anomaly audit
-publishes the including-known-anomaly basis, the excluding-known-revenue/price-
-anomaly decision basis, and an `|return| >= 80%` sensitivity basis. The
-sensitivity basis is not automatic proof of bad data; it shows whether extreme
-continuous price paths change a feature conclusion. Only directionally stable
-decision-basis features may be discussed as future condition candidates.
+`stock_id + source_monthly_revenue_period` trades. An `|return| >= 80%` cutoff
+creates only an anomaly candidate and a threshold-exclusion sensitivity view.
+It does not classify an extreme value and cannot produce corrected performance.
+The current raw-OHLC replay is only a partial root-cause check because the repo
+does not yet provide complete historical corporate-action PIT coverage or an
+independent authoritative price-source confirmation for every row. Such rows
+remain `unresolved_anomaly_candidate`, stay in the primary basis, and block
+promotion conclusions until every root-cause check in
+`config/daily_model_numerical_anomaly_disposition_contract.csv` is complete.
 
 All rolling price-structure and volume windows used by this research producer
 must be isolated by `stock_id`. A shifted Series must not be rolled globally
@@ -329,12 +333,13 @@ across stock boundaries. Regression coverage must use stocks with materially
 different price and volume scales and prove that 10/20/23/30/45/60/120-day
 high/low windows and volume MA20 consume only the same stock's earlier rows.
 
-Monthly-revenue anomalies are evaluated again at each feature context date, not
-only on the original signal row. A trade remains in the fixed operation
-baseline, but a context row marked `full_monthly_revenue_numerical_anomaly_flag`
-must be `observed=False` for monthly-revenue binary features and excluded from
-monthly-revenue numeric means and medians. The raw value remains in detail and
-the excluded counts must be published in the summary and anomaly audit.
+Monthly-revenue anomaly candidates are evaluated again at each feature context
+date, not only on the original signal row. A legacy
+`full_monthly_revenue_numerical_anomaly_flag` is a threshold-generated candidate
+only. Until root-cause disposition is complete, the trade and its observed
+monthly-revenue values remain in the primary binary and numeric feature evidence.
+Candidate counts must be published in the summary and anomaly audit; any
+candidate-excluded feature result must be a separately named sensitivity view.
 
 This artifact uses point-in-time monthly revenue only. Quarterly/annual
 financial statements, EPS, gross margin, operating margin, operating income,
@@ -406,10 +411,12 @@ rule, lifecycle suppression, and anomaly-exclusion basis.
 Current approved discussion basis: `close_prev20_high_break_next_open`, meaning
 the signal is close-confirmed, entry is the next trading day open, exit is only
 after the close breaks the signal-day previous 20-day high, and the realized exit
-price is the next trading day open. The main promotion-matrix statistics must
-use `excluding_known_data_quality_exceptions` or the revenue equivalent
-`excluding_known_price_or_revenue_anomalies`; including-anomaly rows are audit
-comparisons only and cannot be cited as promotion evidence. Continuation variants such as
+price is the next trading day open. Primary promotion-matrix statistics must
+retain every unresolved numerical anomaly candidate. A candidate-excluded basis
+is sensitivity analysis only and cannot replace primary performance. The model
+promotion conclusion remains blocked until each candidate receives a complete
+root-cause disposition under
+`config/daily_model_numerical_anomaly_disposition_contract.csv`. Continuation variants such as
 `close_prev20_break_then_tp5_or_5ma_next_open`,
 `close_prev20_break_then_tp8_or_5ma_next_open`, and
 `close_prev20_break_then_tp10_or_5ma_next_open` remain research-only comparison

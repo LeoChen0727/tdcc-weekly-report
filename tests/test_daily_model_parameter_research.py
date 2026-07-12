@@ -12,9 +12,10 @@ if str(SCRIPTS) not in sys.path:
 
 from build_daily_candidate_model_layer import build_parameter_table, build_specs  # noqa: E402
 from build_daily_model_parameter_research import (  # noqa: E402
+    ANOMALY_CANDIDATE_SENSITIVITY_BASIS,
     _add_feature_confirmation_deltas,
     _revenue_benchmark_index,
-    _revenue_feature_context_anomaly_mask,
+    _revenue_feature_context_anomaly_candidate_mask,
     _revenue_future_close_path_audit,
     active_price_attack_proxy,
     add_price_structure_features,
@@ -40,6 +41,7 @@ from build_daily_model_parameter_research import (  # noqa: E402
     build_revenue_unreacted_range_operation_candidate_matrix,
     build_revenue_unreacted_range_revenue_condition_matrix,
     current_price_pullback_baseline_proxy,
+    PRIMARY_ANOMALY_BASIS,
     price_pullback_prior_extension_filter,
     REVENUE_UNREACTED_FEATURE_CONTRAST_BINARY_SPECS,
     REVENUE_UNREACTED_FEATURE_CONTRAST_NUMERIC_SPECS,
@@ -48,11 +50,12 @@ from build_daily_model_parameter_research import (  # noqa: E402
     sample_status,
 )
 from revenue_unreacted_range_close_confirmation_timing import (  # noqa: E402
+    ANOMALY_CANDIDATE_SENSITIVITY_BASIS as REVENUE_TIMING_SOURCE_SENSITIVITY_BASIS,
     DECISION_BASIS as REVENUE_TIMING_DECISION_BASIS,
     build_close_confirmation_timing_audit,
 )
 from revenue_unreacted_range_fixed_confirmation_feature_contrast import (  # noqa: E402
-    EXTREME_SENSITIVITY_BASIS,
+    RETURN_ANOMALY_CANDIDATE_SENSITIVITY_BASIS,
     build_fixed_confirmation_feature_contrast,
 )
 from validate_daily_model_research_parity import validate_rule_specs  # noqa: E402
@@ -1047,7 +1050,7 @@ def test_price_pullback_exit_rule_comparison_separates_intraday_and_close_confir
     assert high_return_grid["approved_for_daily"].eq(False).all()
     assert high_return_grid["production_change"].eq("none").all()
     assert "research_high_return_feature_score_v1" in set(high_return_grid["score_draft_id"])
-    assert {"including_data_quality_exceptions", "excluding_known_data_quality_exceptions"} <= set(
+    assert {PRIMARY_ANOMALY_BASIS, ANOMALY_CANDIDATE_SENSITIVITY_BASIS} <= set(
         high_return_grid["anomaly_exclusion_basis"]
     )
     assert "score_threshold" in set(high_return_grid["score_bucket_type"])
@@ -1055,7 +1058,7 @@ def test_price_pullback_exit_rule_comparison_separates_intraday_and_close_confir
     threshold = high_return_grid[
         high_return_grid["score_bucket"].eq("score_ge_4")
         & high_return_grid["exit_rule_id"].eq("close_prev20_high_break_next_open")
-        & high_return_grid["anomaly_exclusion_basis"].eq("excluding_known_data_quality_exceptions")
+        & high_return_grid["anomaly_exclusion_basis"].eq(PRIMARY_ANOMALY_BASIS)
     ].iloc[0]
     assert threshold["score_use"] == "research_only_not_production_score"
     assert threshold["accepted_trade_count"] >= 1
@@ -1342,7 +1345,7 @@ def test_price_pullback_revenue_condition_matrix_is_research_only_and_uses_lifec
     assert "revenue_production_strong" in set(matrix["condition_test_id"])
     strong = matrix[
         matrix["condition_test_id"].eq("revenue_production_strong")
-        & matrix["anomaly_exclusion_basis"].eq("excluding_known_price_or_revenue_anomalies")
+        & matrix["anomaly_exclusion_basis"].eq(PRIMARY_ANOMALY_BASIS)
     ].iloc[0]
     assert strong["lifecycle_replay_scope"] == "trade_level_same_stock_active_position_suppressed_after_condition"
     assert strong["source_mature_signal_stock_days"] == 2
@@ -1351,14 +1354,14 @@ def test_price_pullback_revenue_condition_matrix_is_research_only_and_uses_lifec
     assert strong["promotion_readiness"] == "blocked_model_specific_promotion_pr_required"
     turnaround = matrix[
         matrix["condition_test_id"].eq("latest_yoy_turn_positive_after_2_negative")
-        & matrix["anomaly_exclusion_basis"].eq("excluding_known_price_or_revenue_anomalies")
+        & matrix["anomaly_exclusion_basis"].eq(PRIMARY_ANOMALY_BASIS)
     ].iloc[0]
     assert turnaround["source_mature_signal_stock_days"] == 2
     assert turnaround["accepted_trade_count"] == 1
     assert turnaround["suppressed_signal_count"] == 1
     combo = matrix[
         matrix["condition_test_id"].eq("latest_improving_2m_and_cumulative_improving")
-        & matrix["anomaly_exclusion_basis"].eq("excluding_known_price_or_revenue_anomalies")
+        & matrix["anomaly_exclusion_basis"].eq(PRIMARY_ANOMALY_BASIS)
     ].iloc[0]
     assert combo["accepted_trade_count"] == 1
     assert combo["avg_revenue_latest_yoy_delta_1m_pct_points"] == 45.0
@@ -1376,10 +1379,10 @@ def test_price_pullback_promotion_matrix_keeps_research_decisions_separated() ->
                 "exit_rule_id": exit_rule_id,
                 "condition_rule": "production proxy replay only",
                 "data_status": "available_point_in_time_research_frame",
-                "anomaly_exclusion_basis": "excluding_known_data_quality_exceptions",
-                "known_data_quality_exception_count_in_sample": 1,
-                "known_data_quality_exception_count_in_baseline": 1,
-                "known_data_quality_exception_ids": "fixture_exception",
+                "anomaly_exclusion_basis": PRIMARY_ANOMALY_BASIS,
+                "unresolved_data_quality_candidate_count_in_sample": 1,
+                "unresolved_data_quality_candidate_count_in_baseline": 1,
+                "unresolved_data_quality_candidate_ids": "fixture_candidate",
                 "formal_price_rule_status": "close_confirmed_candidate",
                 "entry_rule_id": "signal_date_next_open",
                 "source_mature_signal_stock_days": 1000,
@@ -1397,10 +1400,10 @@ def test_price_pullback_promotion_matrix_keeps_research_decisions_separated() ->
                 "exit_rule_id": exit_rule_id,
                 "condition_rule": "return20_0_25 plus TDCC high thresholds up plus OBV above MA20",
                 "data_status": "available_point_in_time_research_frame",
-                "anomaly_exclusion_basis": "excluding_known_data_quality_exceptions",
-                "known_data_quality_exception_count_in_sample": 1,
-                "known_data_quality_exception_count_in_baseline": 1,
-                "known_data_quality_exception_ids": "fixture_exception",
+                "anomaly_exclusion_basis": PRIMARY_ANOMALY_BASIS,
+                "unresolved_data_quality_candidate_count_in_sample": 1,
+                "unresolved_data_quality_candidate_count_in_baseline": 1,
+                "unresolved_data_quality_candidate_ids": "fixture_candidate",
                 "formal_price_rule_status": "close_confirmed_candidate",
                 "entry_rule_id": "signal_date_next_open",
                 "source_mature_signal_stock_days": 100,
@@ -1422,10 +1425,10 @@ def test_price_pullback_promotion_matrix_keeps_research_decisions_separated() ->
                 "exit_rule_id": exit_rule_id,
                 "condition_rule": f"rule for {condition_id}",
                 "data_status": "available_point_in_time_research_frame",
-                "anomaly_exclusion_basis": "excluding_known_data_quality_exceptions",
-                "known_data_quality_exception_count_in_sample": 1,
-                "known_data_quality_exception_count_in_baseline": 1,
-                "known_data_quality_exception_ids": "fixture_exception",
+                "anomaly_exclusion_basis": PRIMARY_ANOMALY_BASIS,
+                "unresolved_data_quality_candidate_count_in_sample": 1,
+                "unresolved_data_quality_candidate_count_in_baseline": 1,
+                "unresolved_data_quality_candidate_ids": "fixture_candidate",
                 "formal_price_rule_status": "close_confirmed_candidate",
                 "entry_rule_id": "signal_date_next_open",
                 "mature_count": 50,
@@ -1452,12 +1455,12 @@ def test_price_pullback_promotion_matrix_keeps_research_decisions_separated() ->
             {
                 "score_bucket": score_bucket,
                 "exit_rule_id": exit_rule_id,
-                "anomaly_exclusion_basis": "excluding_known_data_quality_exceptions",
+                "anomaly_exclusion_basis": PRIMARY_ANOMALY_BASIS,
                 "score_rule_summary": "score rule",
                 "formal_price_rule_status": "close_confirmed_candidate",
-                "known_data_quality_exception_count_in_bucket": 1,
-                "known_data_quality_exception_count_in_baseline": 1,
-                "known_data_quality_exception_ids": "fixture_exception",
+                "unresolved_data_quality_candidate_count_in_bucket": 1,
+                "unresolved_data_quality_candidate_count_in_baseline": 1,
+                "unresolved_data_quality_candidate_ids": "fixture_candidate",
                 "entry_rule_id": "signal_date_next_open",
                 "source_mature_signal_stock_days": 40,
                 "accepted_trade_count": 40,
@@ -1476,11 +1479,11 @@ def test_price_pullback_promotion_matrix_keeps_research_decisions_separated() ->
         [
             {
                 "condition_test_id": condition_id,
-                "anomaly_exclusion_basis": "excluding_known_price_or_revenue_anomalies",
+                "anomaly_exclusion_basis": PRIMARY_ANOMALY_BASIS,
                 "condition_rule": f"revenue rule for {condition_id}",
                 "data_status": "joined_from_full_market_monthly_revenue_history_research_only",
-                "revenue_or_price_anomaly_count_in_sample": 1,
-                "revenue_or_price_anomaly_count_in_baseline": 1,
+                "revenue_or_price_anomaly_candidate_count_in_sample": 1,
+                "revenue_or_price_anomaly_candidate_count_in_baseline": 1,
                 "formal_price_rule_status": "close_confirmed_candidate",
                 "entry_rule_id": "signal_date_next_open",
                 "source_mature_signal_stock_days": 30,
@@ -1527,8 +1530,8 @@ def test_price_pullback_promotion_matrix_keeps_research_decisions_separated() ->
     tampered_anomaly.loc[
         tampered_anomaly["promotion_candidate_id"].eq("base_package:v1_gate_return20_tdcc_high_obv"),
         "anomaly_exclusion_basis",
-    ] = "including_data_quality_exceptions"
-    assert any("excluding anomaly basis" in error for error in validate_promotion_matrix(tampered_anomaly))
+    ] = ANOMALY_CANDIDATE_SENSITIVITY_BASIS
+    assert any("primary basis" in error for error in validate_promotion_matrix(tampered_anomaly))
 
 
 def test_revenue_unreacted_range_revenue_matrix_stays_advisory_without_operation_contract() -> None:
@@ -1565,7 +1568,7 @@ def test_revenue_unreacted_range_revenue_matrix_stays_advisory_without_operation
     assert matrix["production_change"].eq("none").all()
     strong = matrix[
         matrix["condition_test_id"].eq("revenue_production_strong")
-        & matrix["anomaly_exclusion_basis"].eq("excluding_revenue_numerical_anomalies")
+        & matrix["anomaly_exclusion_basis"].eq(PRIMARY_ANOMALY_BASIS)
     ].iloc[0]
     assert strong["formal_price_rule_status"] == "research_only_no_formal_operation_contract"
     assert strong["operation_basis"] == "research_only_d20_close_not_operation_contract"
@@ -1627,7 +1630,7 @@ def test_revenue_unreacted_range_operation_candidate_matrix_is_research_only_non
     strong = matrix[
         matrix["condition_test_id"].eq("revenue_production_strong")
         & matrix["exit_rule_id"].eq("d10_close_no_stop")
-        & matrix["anomaly_exclusion_basis"].eq("excluding_revenue_numerical_anomalies")
+        & matrix["anomaly_exclusion_basis"].eq(PRIMARY_ANOMALY_BASIS)
     ].iloc[0]
     assert strong["operation_basis"] == "research_only_close_confirmed_operation_candidate"
     assert strong["accepted_trade_count"] == 2
@@ -1710,11 +1713,17 @@ def test_revenue_unreacted_feature_contrast_recomputes_success_and_failure_featu
         anomaly.astype(str),
     ) == []
     decision = summary[
-        summary["anomaly_exclusion_basis"].eq("excluding_known_revenue_and_price_anomalies")
+        summary["anomaly_exclusion_basis"].eq(PRIMARY_ANOMALY_BASIS)
     ]
     baseline = decision[decision["row_type"].eq("baseline")].iloc[0]
-    assert baseline["accepted_trade_count"] == 3
+    assert baseline["accepted_trade_count"] == 4
+    assert baseline["unresolved_anomaly_candidate_count_in_source"] == 1
     assert baseline["same_stock_overlap_pair_count"] == 0
+    sensitivity_baseline = summary[
+        summary["anomaly_exclusion_basis"].eq(ANOMALY_CANDIDATE_SENSITIVITY_BASIS)
+        & summary["row_type"].eq("baseline")
+    ].iloc[0]
+    assert sensitivity_baseline["accepted_trade_count"] == 3
     macd = decision[decision["feature_id"].eq("technical_macd_hist_gt0")].iloc[0]
     assert macd["high_return_feature_hit_rate_pct"] == 100.0
     assert macd["failure_feature_hit_rate_pct"] == 0.0
@@ -1753,7 +1762,7 @@ def test_revenue_market_mapping_covers_listed_and_otc_source_labels() -> None:
     assert _revenue_benchmark_index("TPEX") == "TPEX"
 
 
-def test_revenue_feature_context_anomaly_mask_checks_lagged_values_and_deltas() -> None:
+def test_revenue_feature_context_anomaly_candidate_mask_checks_lagged_values_and_deltas() -> None:
     frame = pd.DataFrame(
         {
             "full_monthly_revenue_numerical_anomaly_flag": [False, False, False],
@@ -1770,7 +1779,7 @@ def test_revenue_feature_context_anomaly_mask_checks_lagged_values_and_deltas() 
         }
     )
 
-    assert _revenue_feature_context_anomaly_mask(frame).tolist() == [False, True, True]
+    assert _revenue_feature_context_anomaly_candidate_mask(frame).tolist() == [False, True, True]
 
 
 def test_revenue_unreacted_active_attack_proxy_is_behaviorally_isolated_from_legacy_name() -> None:
@@ -1812,7 +1821,7 @@ def test_revenue_close_confirmation_timing_replays_three_variants_without_overla
                     "_revenue_stock_sequence_index": position,
                     "_revenue_range23_highest_close_prev": base_close + 1.5,
                     "_revenue_timing_source_flag": position in source_positions[stock_id],
-                    "_revenue_timing_source_anomaly_flag": False,
+                    "_revenue_timing_source_anomaly_candidate_flag": False,
                     "full_monthly_revenue_period": "202512",
                     "full_monthly_revenue_source_table_date": "20260101",
                     "full_monthly_revenue_latest_yoy_pct": 60.0,
@@ -1899,7 +1908,7 @@ def test_revenue_fixed_confirmation_feature_contrast_separates_signal_and_confir
                     "_revenue_stock_sequence_index": position,
                     "_revenue_range23_highest_close_prev": base_close + 1.0,
                     "_revenue_timing_source_flag": position == 0,
-                    "_revenue_timing_source_anomaly_flag": False,
+                    "_revenue_timing_source_anomaly_candidate_flag": False,
                     "range_width_23d_pct": 10.0 if winner else 20.0,
                     "distance_to_range_high_23d_pct": -1.0,
                     "close_position_120d_pct": 60.0 if winner else 85.0,
@@ -1990,15 +1999,21 @@ def test_revenue_fixed_confirmation_feature_contrast_separates_signal_and_confir
         decision["feature_id"].eq("revenue_latest30_and_cumulative20")
     ].set_index("feature_time_basis")
     assert revenue_feature.loc["signal_date_close", "feature_observed_count"] == 2
-    assert revenue_feature.loc["confirmation_date_close", "feature_observed_count"] == 1
-    assert revenue_feature.loc["confirmation_date_close", "feature_hit_count"] == 1
+    assert revenue_feature.loc["confirmation_date_close", "feature_observed_count"] == 2
+    assert revenue_feature.loc["confirmation_date_close", "feature_hit_count"] == 2
     revenue_numeric = decision[
         decision["feature_id"].eq("revenue_latest_yoy_pct")
     ].set_index("feature_time_basis")
     assert revenue_numeric.loc["signal_date_close", "failure_feature_value_count"] == 1
-    assert revenue_numeric.loc["confirmation_date_close", "failure_feature_value_count"] == 0
-    sensitivity = summary[summary["anomaly_exclusion_basis"].eq(EXTREME_SENSITIVITY_BASIS)]
-    assert not sensitivity.empty
+    assert revenue_numeric.loc["confirmation_date_close", "failure_feature_value_count"] == 1
+    source_sensitivity = summary[
+        summary["anomaly_exclusion_basis"].eq(REVENUE_TIMING_SOURCE_SENSITIVITY_BASIS)
+    ]
+    return_sensitivity = summary[
+        summary["anomaly_exclusion_basis"].eq(RETURN_ANOMALY_CANDIDATE_SENSITIVITY_BASIS)
+    ]
+    assert not source_sensitivity.empty
+    assert not return_sensitivity.empty
 
 
 def test_research_workflow_routes_revenue_feature_contrast_through_model_owned_producer() -> None:

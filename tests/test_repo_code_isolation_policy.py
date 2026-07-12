@@ -2,6 +2,8 @@ from __future__ import annotations
 
 from pathlib import Path
 
+import pandas as pd
+
 from scripts import validate_repo_code_isolation_policy as validator
 
 
@@ -38,11 +40,44 @@ def test_model_research_isolation_policy_is_machine_enforced() -> None:
         ROOT / "scripts/model_data_independence.py",
         ROOT / "scripts/validate_model_data_independence.py",
         ROOT / "scripts/build_model_data_independence_audit.py",
+        ROOT / "config/daily_model_numerical_anomaly_disposition_contract.csv",
     ):
         assert path.is_file()
     assert "New formal daily models must use a model-owned production module" in agents
     assert "daily_model_data_sharing_registry.csv" in rules
     assert "Independent promotion evidence validators must not import" in rules
+    assert "Numerical magnitude is an investigation trigger, not an anomaly disposition." in rules
+
+
+def test_numerical_anomaly_disposition_requires_bottom_level_evidence() -> None:
+    assert validator.validate_numerical_anomaly_governance() == []
+
+    contract = (ROOT / "config/daily_model_numerical_anomaly_disposition_contract.csv").read_text(
+        encoding="utf-8"
+    )
+    assert "unresolved_anomaly_candidate" in contract
+    assert "retain_in_primary_metrics_and_allow_exclusion_sensitivity_only" in contract
+    assert "verified_real_extreme,True,False,retain_in_primary_metrics" in contract
+    assert "independent_source_corroboration" in contract
+
+    artifact = pd.read_csv(
+        ROOT
+        / "output/latest/research_backtest/"
+        "revenue_unreacted_range_extreme_return_path_audit_latest.csv",
+        dtype={"stock_id": str},
+        keep_default_na=False,
+    )
+    assert set(artifact["statistical_trigger_status"]) == {"anomaly_candidate"}
+    assert set(artifact["final_disposition"]) == {"unresolved_anomaly_candidate"}
+    assert artifact["root_cause_checks_missing"].ne("").all()
+
+    formal_pins = (ROOT / "config/formal_model_evidence_pins.csv").read_text(encoding="utf-8")
+    for legacy_threshold_artifact in (
+        "volume_range_breakout_v2_semantic_audit",
+        "volume_range_breakout_v2_raw_market_rerun",
+        "volume_range_breakout_v2_condition_matrix",
+    ):
+        assert legacy_threshold_artifact not in formal_pins
 
 
 def test_daily_full_pipeline_runs_code_isolation_gates() -> None:

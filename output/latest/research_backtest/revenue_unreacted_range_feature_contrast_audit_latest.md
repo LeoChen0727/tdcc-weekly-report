@@ -1,10 +1,10 @@
 # Revenue Unreacted Range Feature Contrast Audit
 
-- generated_at: `2026-07-12 18:22:31 Asia/Taipei`
+- generated_at: `2026-07-13 02:01:50 Asia/Taipei`
 - status: `research_only_feature_contrast_not_promotion_ready`
 - baseline: strong monthly revenue plus recent 23-day range/no-active-attack proxy; signal-date close confirmation, next trading day open entry, D+20 close exit, no stop.
 - duplicate_control: same-stock 20-trading-day non-overlap; overlap_pair_count must be zero.
-- anomaly_basis: both including known anomalies and excluding known revenue/price anomalies are published; only the excluding basis may support interpretation after the return-dominance audit passes.
+- anomaly_basis: primary metrics retain unresolved anomaly candidates; the candidate-exclusion basis is sensitivity-only and cannot replace primary performance.
 - feature_method: every binary feature reports its hit rate in high-return and failure groups plus the feature subset's true win/neutral/failure/return metrics.
 - combination_policy: this audit tests single features only. It does not stack conditions or claim a combination benefit.
 - sample_policy: sample count is reported but is not used by itself to reject a feature.
@@ -15,75 +15,75 @@
 
 | anomaly_exclusion_basis | accepted_trade_count | max_realized_return_pct | max_return_stock_id | max_return_signal_date | min_realized_return_pct | min_return_stock_id | min_return_signal_date | return_path_discontinuity_count_after_non_overlap | return_path_discontinuity_count_excluded | return_path_discontinuity_count_in_metric_sample | top1_abs_return_share_pct | top5_abs_return_share_pct | trimmed_1pct_avg_return_pct | interpretation_status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| excluding_known_revenue_and_price_anomalies | 4144 | 152.5 | 8042 | 20260429 | -48.7869 | 1589 | 20260223 | 5 | 5 | 0 | 0.34 | 1.54 | 2.7145 | anomaly_check_pass |
-| including_known_anomalies | 4750 | 220.1893 | 4414 | 20250609 | -91.0164 | 4763 | 20250609 | 7 | 0 | 7 | 0.43 | 1.54 | 2.413 | not_decision_basis_known_anomalies_included |
+| excluding_unresolved_anomaly_candidates_sensitivity_only | 4144 | 152.5 | 8042 | 20260429 | -48.7869 | 1589 | 20260223 | 5 | 5 | 0 | 0.34 | 1.54 | 2.7145 | sensitivity_only_not_anomaly_disposition |
+| including_unresolved_anomaly_candidates_primary | 4750 | 220.1893 | 4414 | 20250609 | -91.0164 | 4763 | 20250609 | 7 | 0 | 7 | 0.43 | 1.54 | 2.413 | blocked_pending_root_cause_anomaly_candidate_review |
 
 ## Baseline And Binary Feature Matrix
 
 | feature_id | feature_family | feature_independence_status | equivalent_to_feature_id | feature_hit_count | high_return_feature_hit_rate_pct | failure_feature_hit_rate_pct | high_return_minus_failure_hit_rate_pct | win_rate_pct | neutral_rate_pct | failure_rate_pct | avg_realized_return_pct | median_realized_return_pct | high_return_8_rate_pct | loss_5_rate_pct | evidence_interpretation |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| baseline_revenue_production_strong | baseline | baseline_not_applicable |  | 4144 |  |  |  | 31.23 | 18.58 | 50.19 | 3.27 | -0.12 | 24.95 | 28.69 | baseline_anchor |
-| volume_ratio_le2 | volume | distinct_observed_mask |  | 3975 | 95.26 | 96.01 | -0.75 | 31.02 | 18.74 | 50.24 | 3.2 | -0.13 | 24.78 | 28.6 | failure_associated_risk_feature_candidate |
-| technical_macd_hist_gt0 | technical | distinct_observed_mask |  | 1725 | 41.88 | 43.12 | -1.24 | 30.78 | 17.22 | 52.0 | 2.92 | -0.67 | 25.1 | 30.03 | failure_associated_risk_feature_candidate |
-| candle_bullish_attack | candle | distinct_observed_mask |  | 1500 | 35.01 | 36.25 | -1.24 | 30.2 | 19.53 | 50.27 | 3.02 | -0.14 | 24.13 | 29.0 | failure_associated_risk_feature_candidate |
-| revenue_latest_yoy_ge100 | monthly_revenue | distinct_observed_mask |  | 425 | 9.57 | 10.96 | -1.39 | 30.12 | 16.24 | 53.65 | 2.86 | -0.94 | 23.29 | 31.53 | failure_associated_risk_feature_candidate |
-| revenue_cumulative_yoy_improving_2m | monthly_revenue | distinct_observed_mask |  | 1541 | 36.27 | 37.93 | -1.66 | 30.63 | 18.17 | 51.2 | 2.87 | -0.34 | 24.33 | 31.15 | failure_associated_risk_feature_candidate |
-| candle_solid_red | candle | distinct_observed_mask |  | 779 | 17.31 | 18.99 | -1.68 | 28.88 | 20.41 | 50.71 | 2.71 | -0.33 | 22.98 | 28.37 | failure_associated_risk_feature_candidate |
-| technical_kdj_j_ge100 | technical_risk | distinct_observed_mask |  | 136 | 1.93 | 3.89 | -1.96 | 19.12 | 21.32 | 59.56 | -0.73 | -2.24 | 14.71 | 33.09 | failure_associated_risk_feature_candidate |
-| revenue_latest_yoy_improving_2m | monthly_revenue | distinct_observed_mask |  | 1132 | 25.44 | 28.46 | -3.02 | 29.59 | 18.11 | 52.3 | 2.63 | -0.42 | 23.23 | 31.1 | failure_associated_risk_feature_candidate |
-| revenue_latest_yoy_delta_ge20 | monthly_revenue | distinct_observed_mask |  | 1606 | 35.3 | 41.73 | -6.43 | 28.52 | 17.43 | 54.05 | 2.41 | -0.78 | 22.73 | 31.01 | failure_associated_risk_feature_candidate |
-| shape_near_range23_high | price_shape | distinct_observed_mask |  | 1058 | 20.12 | 27.31 | -7.19 | 24.95 | 21.36 | 53.69 | 2.16 | -0.62 | 19.66 | 25.61 | failure_associated_risk_feature_candidate |
-| market_strong_bull | market_regime | distinct_observed_mask |  | 2327 | 53.68 | 61.01 | -7.33 | 29.27 | 16.2 | 54.53 | 2.44 | -1.16 | 23.85 | 33.35 | failure_associated_risk_feature_candidate |
-| market_bull | market_regime | distinct_observed_mask |  | 3463 | 79.21 | 87.88 | -8.67 | 29.63 | 17.59 | 52.79 | 2.52 | -0.76 | 23.65 | 31.16 | failure_associated_risk_feature_candidate |
-| shape_range23_width_le10 | price_shape | distinct_observed_mask |  | 652 | 7.93 | 16.73 | -8.8 | 17.94 | 28.68 | 53.37 | 0.6 | -0.38 | 12.58 | 18.4 | failure_associated_risk_feature_candidate |
-| technical_kdj_bullish_not_extreme | technical | distinct_observed_mask |  | 1672 | 34.53 | 44.71 | -10.18 | 26.08 | 18.3 | 55.62 | 1.58 | -1.28 | 21.35 | 32.6 | failure_associated_risk_feature_candidate |
-| position120_low_le40 | price_position | distinct_observed_mask |  | 1766 | 32.69 | 44.62 | -11.93 | 25.2 | 22.25 | 52.55 | 1.23 | -0.56 | 19.14 | 27.52 | failure_associated_risk_feature_candidate |
-| technical_kd_bullish_not_overheated | technical | distinct_observed_mask |  | 1657 | 33.17 | 45.14 | -11.97 | 25.35 | 17.98 | 56.67 | 1.3 | -1.52 | 20.7 | 33.55 | failure_associated_risk_feature_candidate |
-| shape_range23_width_le15 | price_shape | distinct_observed_mask |  | 1454 | 21.66 | 36.92 | -15.26 | 21.66 | 25.52 | 52.82 | 1.16 | -0.42 | 15.41 | 22.97 | failure_associated_risk_feature_candidate |
-| shape_range23_width_le20 | price_shape | distinct_observed_mask |  | 2183 | 38.39 | 54.86 | -16.47 | 23.96 | 23.77 | 52.27 | 1.56 | -0.41 | 18.19 | 25.19 | failure_associated_risk_feature_candidate |
-| technical_close_above_ma20_ema23 | technical | distinct_observed_mask |  | 1692 | 46.32 | 41.11 | 5.21 | 33.87 | 15.6 | 50.53 | 4.14 | -0.3 | 28.31 | 30.97 | mixed_or_low_discrimination_research_only |
-| position120_mid_40_75 | price_position | distinct_observed_mask |  | 1654 | 42.84 | 40.05 | 2.79 | 33.13 | 16.51 | 50.36 | 3.91 | -0.19 | 26.78 | 29.87 | mixed_or_low_discrimination_research_only |
-| technical_rsi14_40_70 | technical | distinct_observed_mask |  | 2728 | 68.09 | 65.96 | 2.13 | 32.18 | 17.52 | 50.29 | 3.6 | -0.13 | 25.81 | 29.29 | mixed_or_low_discrimination_research_only |
-| volume_ratio_le1_5 | volume | distinct_observed_mask |  | 3643 | 87.33 | 87.31 | 0.02 | 31.07 | 19.08 | 49.85 | 3.19 | 0.0 | 24.79 | 28.55 | mixed_or_low_discrimination_research_only |
-| market_mild_bull | market_regime | distinct_observed_mask |  | 1136 | 25.53 | 26.88 | -1.35 | 30.37 | 20.42 | 49.21 | 2.7 | 0.0 | 23.24 | 26.67 | mixed_or_low_discrimination_research_only |
+| baseline_revenue_production_strong | baseline | baseline_not_applicable |  | 4750 |  |  |  | 29.94 | 18.76 | 51.31 | 2.94 | -0.35 | 23.87 | 29.41 | baseline_anchor |
+| revenue_cumulative_yoy_improving_2m | monthly_revenue | distinct_observed_mask |  | 1769 | 36.86 | 38.12 | -1.26 | 29.51 | 17.98 | 52.52 | 2.61 | -0.63 | 23.63 | 31.66 | failure_associated_risk_feature_candidate |
+| technical_macd_hist_gt0 | technical | distinct_observed_mask |  | 1957 | 41.27 | 42.76 | -1.49 | 29.33 | 17.42 | 53.24 | 2.4 | -0.9 | 23.91 | 31.02 | failure_associated_risk_feature_candidate |
+| candle_bullish_attack | candle | distinct_observed_mask |  | 1715 | 34.66 | 36.44 | -1.78 | 28.57 | 19.65 | 51.78 | 2.55 | -0.39 | 22.92 | 29.8 | failure_associated_risk_feature_candidate |
+| technical_kdj_j_ge100 | technical_risk | distinct_observed_mask |  | 149 | 1.76 | 3.73 | -1.97 | 17.45 | 21.48 | 61.07 | -1.08 | -2.68 | 13.42 | 34.23 | failure_associated_risk_feature_candidate |
+| candle_solid_red | candle | distinct_observed_mask |  | 889 | 16.93 | 19.2 | -2.27 | 27.11 | 20.25 | 52.64 | 2.24 | -0.55 | 21.6 | 29.58 | failure_associated_risk_feature_candidate |
+| market_mild_bull | market_regime | distinct_observed_mask |  | 1313 | 25.13 | 27.66 | -2.53 | 28.41 | 20.26 | 51.33 | 2.19 | -0.36 | 21.71 | 27.88 | failure_associated_risk_feature_candidate |
+| revenue_latest_yoy_improving_2m | monthly_revenue | distinct_observed_mask |  | 1284 | 25.4 | 28.07 | -2.67 | 28.74 | 17.99 | 53.27 | 2.39 | -0.67 | 22.43 | 32.09 | failure_associated_risk_feature_candidate |
+| revenue_latest_yoy_ge100 | monthly_revenue | distinct_observed_mask |  | 855 | 15.43 | 20.02 | -4.59 | 25.73 | 17.19 | 57.08 | 1.71 | -1.67 | 20.47 | 33.45 | failure_associated_risk_feature_candidate |
+| market_strong_bull | market_regime | distinct_observed_mask |  | 2666 | 53.97 | 60.11 | -6.14 | 28.32 | 16.73 | 54.95 | 2.17 | -1.2 | 22.96 | 33.68 | failure_associated_risk_feature_candidate |
+| revenue_latest_yoy_delta_ge20 | monthly_revenue | distinct_observed_mask |  | 1927 | 36.86 | 43.78 | -6.92 | 27.19 | 17.44 | 55.37 | 2.06 | -1.1 | 21.69 | 32.23 | failure_associated_risk_feature_candidate |
+| shape_near_range23_high | price_shape | distinct_observed_mask |  | 1191 | 19.75 | 26.71 | -6.96 | 23.85 | 21.49 | 54.66 | 1.68 | -0.84 | 18.81 | 25.78 | failure_associated_risk_feature_candidate |
+| shape_range23_width_le10 | price_shape | distinct_observed_mask |  | 752 | 8.55 | 16.66 | -8.11 | 17.95 | 28.06 | 53.99 | 0.48 | -0.39 | 12.9 | 19.02 | failure_associated_risk_feature_candidate |
+| market_bull | market_regime | distinct_observed_mask |  | 3979 | 79.1 | 87.77 | -8.67 | 28.35 | 17.89 | 53.76 | 2.17 | -0.9 | 22.54 | 31.77 | failure_associated_risk_feature_candidate |
+| technical_kdj_bullish_not_extreme | technical | distinct_observed_mask |  | 1911 | 33.95 | 44.28 | -10.33 | 25.12 | 18.42 | 56.46 | 1.14 | -1.43 | 20.15 | 33.02 | failure_associated_risk_feature_candidate |
+| technical_kd_bullish_not_overheated | technical | distinct_observed_mask |  | 1891 | 32.54 | 44.52 | -11.98 | 24.38 | 18.24 | 57.38 | 0.89 | -1.65 | 19.51 | 34.0 | failure_associated_risk_feature_candidate |
+| position120_low_le40 | price_position | distinct_observed_mask |  | 2126 | 33.95 | 47.07 | -13.12 | 24.18 | 21.87 | 53.95 | 0.96 | -0.84 | 18.11 | 28.55 | failure_associated_risk_feature_candidate |
+| shape_range23_width_le15 | price_shape | distinct_observed_mask |  | 1692 | 22.49 | 36.97 | -14.48 | 21.28 | 25.47 | 53.25 | 0.97 | -0.48 | 15.07 | 23.58 | failure_associated_risk_feature_candidate |
+| shape_range23_width_le20 | price_shape | distinct_observed_mask |  | 2533 | 39.59 | 54.86 | -15.27 | 23.61 | 23.61 | 52.78 | 1.45 | -0.48 | 17.73 | 25.7 | failure_associated_risk_feature_candidate |
+| technical_close_above_ma20_ema23 | technical | distinct_observed_mask |  | 1867 | 44.8 | 39.6 | 5.2 | 32.3 | 16.01 | 51.69 | 3.74 | -0.53 | 27.21 | 31.49 | mixed_or_low_discrimination_research_only |
+| revenue_latest30_and_cumulative20 | monthly_revenue | distinct_observed_mask |  | 2310 | 51.59 | 49.45 | 2.14 | 31.0 | 16.84 | 52.16 | 3.1 | -0.54 | 25.32 | 31.04 | mixed_or_low_discrimination_research_only |
+| volume_ratio_le1_5 | volume | distinct_observed_mask |  | 4166 | 87.57 | 87.03 | 0.54 | 29.96 | 19.13 | 50.91 | 2.89 | -0.3 | 23.84 | 29.21 | mixed_or_low_discrimination_research_only |
+| revenue_latest50_and_cumulative30 | monthly_revenue | distinct_observed_mask |  | 1346 | 30.07 | 29.59 | 0.48 | 30.24 | 16.2 | 53.57 | 3.03 | -0.87 | 25.33 | 33.06 | mixed_or_low_discrimination_research_only |
+| volume_ratio_le2 | volume | distinct_observed_mask |  | 4552 | 95.5 | 95.73 | -0.23 | 29.86 | 18.89 | 51.25 | 2.89 | -0.34 | 23.79 | 29.31 | mixed_or_low_discrimination_research_only |
 | market_range_bound | market_regime | no_observed_hits_not_evaluable |  | 0 | 0.0 | 0.0 | 0.0 |  |  |  |  |  |  |  | no_feature_hits |
 | market_unknown | market_regime_coverage | no_observed_hits_not_evaluable |  | 0 | 0.0 | 0.0 | 0.0 |  |  |  |  |  |  |  | no_feature_hits |
-| technical_ema23_slope_positive | technical | distinct_observed_mask |  | 1973 | 56.67 | 45.67 | 11.0 | 36.34 | 15.51 | 48.15 | 4.85 | 0.43 | 29.7 | 29.7 | positive_discriminator_single_feature_candidate |
-| technical_ma20_above_ma60 | technical | distinct_observed_mask |  | 1649 | 47.97 | 37.07 | 10.9 | 37.42 | 15.83 | 46.76 | 5.14 | 1.07 | 30.08 | 28.74 | positive_discriminator_single_feature_candidate |
-| momentum_return20_0_25 | price_momentum | distinct_observed_mask |  | 2221 | 61.32 | 51.88 | 9.44 | 35.03 | 16.39 | 48.58 | 4.45 | 0.29 | 28.55 | 29.76 | positive_discriminator_single_feature_candidate |
-| position120_high_gt75 | price_position | distinct_observed_mask |  | 724 | 24.47 | 15.34 | 9.13 | 41.57 | 14.36 | 44.06 | 6.79 | 1.81 | 34.94 | 28.87 | positive_discriminator_single_feature_candidate |
-| market_correction_or_high_risk | market_regime_risk | distinct_observed_mask |  | 681 | 20.79 | 12.12 | 8.67 | 39.35 | 23.64 | 37.0 | 7.08 | 2.44 | 31.57 | 16.15 | positive_discriminator_single_feature_candidate |
-| technical_rsi14_ge60 | technical | distinct_observed_mask |  | 996 | 30.37 | 22.6 | 7.77 | 37.85 | 14.96 | 47.19 | 5.25 | 0.95 | 31.53 | 28.31 | positive_discriminator_single_feature_candidate |
-| technical_obv_above_ma20 | technical | distinct_observed_mask |  | 2072 | 53.87 | 49.28 | 4.59 | 32.77 | 17.76 | 49.47 | 3.75 | 0.0 | 26.88 | 29.49 | positive_discriminator_single_feature_candidate |
-| revenue_latest30_and_cumulative20 | monthly_revenue | distinct_observed_mask |  | 1895 | 49.81 | 45.53 | 4.28 | 33.19 | 16.83 | 49.97 | 3.83 | 0.0 | 27.18 | 30.03 | positive_discriminator_single_feature_candidate |
-| revenue_latest50_and_cumulative30 | monthly_revenue | distinct_observed_mask |  | 946 | 26.4 | 22.69 | 3.71 | 34.36 | 15.75 | 49.89 | 4.47 | 0.0 | 28.86 | 31.92 | positive_discriminator_single_feature_candidate |
-| tdcc_high_thresholds_up | tdcc | distinct_observed_mask |  | 242 | 7.54 | 4.76 | 2.78 | 43.39 | 15.7 | 40.91 | 5.01 | 3.02 | 32.23 | 28.51 | positive_discriminator_single_feature_candidate |
-| tdcc_consecutive_up_ge1 | tdcc | distinct_observed_mask |  | 335 | 9.67 | 7.07 | 2.6 | 39.4 | 16.72 | 43.88 | 4.11 | 1.43 | 29.85 | 29.85 | positive_discriminator_single_feature_candidate |
-| tdcc_all_thresholds_up | tdcc | distinct_observed_mask |  | 125 | 4.55 | 2.02 | 2.53 | 49.6 | 16.8 | 33.6 | 6.99 | 4.47 | 37.6 | 23.2 | positive_discriminator_single_feature_candidate |
-| tdcc_four_thresholds_sync_up | tdcc | duplicate_mask_not_independent_evidence | tdcc_all_thresholds_up | 125 | 4.55 | 2.02 | 2.53 | 49.6 | 16.8 | 33.6 | 6.99 | 4.47 | 37.6 | 23.2 | positive_discriminator_single_feature_candidate |
-| technical_bb_width_not_extreme | technical | distinct_observed_mask |  | 1957 | 49.42 | 46.92 | 2.5 | 32.09 | 18.04 | 49.87 | 3.45 | 0.0 | 26.11 | 29.54 | positive_discriminator_single_feature_candidate |
-| tdcc_consecutive_up_ge2 | tdcc | distinct_observed_mask |  | 201 | 6.0 | 3.85 | 2.15 | 42.79 | 17.41 | 39.8 | 5.28 | 2.78 | 30.85 | 26.87 | positive_discriminator_single_feature_candidate |
+| technical_ma20_above_ma60 | technical | distinct_observed_mask |  | 1840 | 47.8 | 35.58 | 12.22 | 36.41 | 16.47 | 47.12 | 5.05 | 0.73 | 29.46 | 28.91 | positive_discriminator_single_feature_candidate |
+| technical_ema23_slope_positive | technical | distinct_observed_mask |  | 2187 | 54.94 | 44.52 | 10.42 | 34.61 | 15.78 | 49.61 | 4.42 | 0.1 | 28.49 | 30.64 | positive_discriminator_single_feature_candidate |
+| momentum_return20_0_25 | price_momentum | distinct_observed_mask |  | 2479 | 59.96 | 50.8 | 9.16 | 33.52 | 16.54 | 49.94 | 4.07 | 0.0 | 27.43 | 30.54 | positive_discriminator_single_feature_candidate |
+| position120_high_gt75 | price_position | distinct_observed_mask |  | 791 | 23.46 | 14.57 | 8.89 | 39.7 | 15.42 | 44.88 | 6.19 | 1.54 | 33.63 | 29.46 | positive_discriminator_single_feature_candidate |
+| market_correction_or_high_risk | market_regime_risk | distinct_observed_mask |  | 771 | 20.9 | 12.23 | 8.67 | 38.13 | 23.22 | 38.65 | 6.91 | 2.08 | 30.74 | 17.25 | positive_discriminator_single_feature_candidate |
+| technical_rsi14_ge60 | technical | distinct_observed_mask |  | 1093 | 28.92 | 21.99 | 6.93 | 35.77 | 15.19 | 49.04 | 4.73 | 0.25 | 30.01 | 29.37 | positive_discriminator_single_feature_candidate |
+| position120_mid_40_75 | price_position | distinct_observed_mask |  | 1833 | 42.59 | 38.37 | 4.22 | 32.41 | 16.58 | 51.01 | 3.84 | -0.32 | 26.35 | 30.39 | positive_discriminator_single_feature_candidate |
+| technical_obv_above_ma20 | technical | distinct_observed_mask |  | 2344 | 52.82 | 49.08 | 3.74 | 31.02 | 17.96 | 51.02 | 3.22 | -0.33 | 25.55 | 30.25 | positive_discriminator_single_feature_candidate |
+| technical_bb_width_not_extreme | technical | distinct_observed_mask |  | 2244 | 50.0 | 46.49 | 3.51 | 31.24 | 18.27 | 50.49 | 3.27 | -0.18 | 25.27 | 29.95 | positive_discriminator_single_feature_candidate |
+| tdcc_high_thresholds_up | tdcc | distinct_observed_mask |  | 296 | 8.11 | 4.92 | 3.19 | 40.88 | 18.58 | 40.54 | 5.01 | 2.06 | 31.08 | 26.69 | positive_discriminator_single_feature_candidate |
+| tdcc_consecutive_up_ge1 | tdcc | distinct_observed_mask |  | 406 | 10.41 | 7.3 | 3.11 | 37.68 | 18.47 | 43.84 | 4.06 | 1.25 | 29.06 | 28.82 | positive_discriminator_single_feature_candidate |
+| tdcc_all_thresholds_up | tdcc | distinct_observed_mask |  | 159 | 5.11 | 2.26 | 2.85 | 46.54 | 18.87 | 34.59 | 6.43 | 3.79 | 36.48 | 22.64 | positive_discriminator_single_feature_candidate |
+| tdcc_four_thresholds_sync_up | tdcc | duplicate_mask_not_independent_evidence | tdcc_all_thresholds_up | 159 | 5.11 | 2.26 | 2.85 | 46.54 | 18.87 | 34.59 | 6.43 | 3.79 | 36.48 | 22.64 | positive_discriminator_single_feature_candidate |
+| tdcc_consecutive_up_ge2 | tdcc | distinct_observed_mask |  | 250 | 6.61 | 4.06 | 2.55 | 40.8 | 19.6 | 39.6 | 4.98 | 2.12 | 30.0 | 25.6 | positive_discriminator_single_feature_candidate |
+| technical_rsi14_40_70 | technical | distinct_observed_mask |  | 3092 | 67.55 | 65.0 | 2.55 | 30.89 | 17.88 | 51.23 | 3.35 | -0.32 | 24.77 | 29.85 | positive_discriminator_single_feature_candidate |
 
 ## Numeric High-Return Versus Failure Contrast
 
 | feature_id | feature_family | high_return_feature_mean | high_return_feature_median | failure_feature_mean | failure_feature_median | high_return_minus_failure_feature_mean | high_return_minus_failure_feature_median |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| revenue_latest_yoy_pct | monthly_revenue | 47.94 | 39.3 | 49.06 | 37.77 | -1.12 | 1.53 |
-| revenue_cumulative_yoy_pct | monthly_revenue | 40.73 | 31.02 | 38.83 | 29.79 | 1.9 | 1.23 |
-| revenue_latest_yoy_delta_1m | monthly_revenue | 7.02 | 6.18 | 16.38 | 11.82 | -9.36 | -5.64 |
-| revenue_cumulative_yoy_delta_1m | monthly_revenue | 2.92 | 1.3 | 8.56 | 2.8 | -5.64 | -1.5 |
-| range23_width_pct | price_shape | 28.66 | 24.06 | 23.59 | 18.37 | 5.07 | 5.69 |
-| distance_to_range23_high_pct | price_shape | -10.95 | -10.06 | -9.84 | -8.48 | -1.11 | -1.58 |
-| close_position_120d_pct | price_position | 52.43 | 57.32 | 44.56 | 45.13 | 7.87 | 12.19 |
-| return_5d_pct | price_momentum | -1.43 | -0.99 | -0.6 | 0.0 | -0.83 | -0.99 |
-| return_20d_pct | price_momentum | 3.34 | 3.06 | 1.01 | 0.3 | 2.33 | 2.76 |
-| volume_ratio_prev20 | volume | 0.87 | 0.76 | 0.87 | 0.77 | 0.0 | -0.01 |
-| rsi14 | technical | 51.2 | 52.56 | 48.5 | 48.84 | 2.7 | 3.72 |
-| macd_hist | technical | -0.69 | -0.02 | -0.89 | -0.0 | 0.2 | -0.02 |
-| kd_k_value | technical | 45.24 | 44.71 | 45.02 | 44.83 | 0.22 | -0.12 |
-| kd_d_value | technical | 48.12 | 48.59 | 45.14 | 44.92 | 2.98 | 3.67 |
-| kdj_j_value | technical | 39.49 | 36.91 | 44.79 | 45.66 | -5.3 | -8.75 |
-| bb_width_pct | technical | 20.64 | 18.19 | 16.65 | 14.09 | 3.99 | 4.1 |
-| ema23_slope_5d_pct | technical | 1.21 | 0.78 | 0.46 | 0.08 | 0.75 | 0.7 |
-| distance_to_ema23_pct | technical | 0.82 | 0.76 | 0.09 | 0.12 | 0.73 | 0.64 |
-| tdcc_consecutive_up_weeks | tdcc | 1.31 | 1.0 | 1.06 | 0.5 | 0.25 | 0.5 |
+| revenue_latest_yoy_pct | monthly_revenue | 1073.93 | 41.31 | 3736.55 | 41.57 | -2662.62 | -0.26 |
+| revenue_cumulative_yoy_pct | monthly_revenue | 279.21 | 32.95 | 2103.1 | 32.94 | -1823.89 | 0.01 |
+| revenue_latest_yoy_delta_1m | monthly_revenue | -1108.47 | 6.47 | -812.89 | 13.1 | -295.58 | -6.63 |
+| revenue_cumulative_yoy_delta_1m | monthly_revenue | 21.91 | 1.5 | -612.68 | 3.09 | 634.59 | -1.59 |
+| range23_width_pct | price_shape | 28.92 | 23.97 | 23.86 | 18.4 | 5.06 | 5.57 |
+| distance_to_range23_high_pct | price_shape | -11.14 | -10.15 | -10.07 | -8.63 | -1.07 | -1.52 |
+| close_position_120d_pct | price_position | 51.58 | 56.67 | 43.13 | 42.65 | 8.45 | 14.02 |
+| return_5d_pct | price_momentum | -1.57 | -1.11 | -0.68 | -0.16 | -0.89 | -0.95 |
+| return_20d_pct | price_momentum | 3.19 | 2.94 | 0.73 | 0.0 | 2.46 | 2.94 |
+| volume_ratio_prev20 | volume | 0.86 | 0.75 | 0.87 | 0.77 | -0.01 | -0.02 |
+| rsi14 | technical | 50.86 | 52.19 | 48.09 | 48.53 | 2.77 | 3.66 |
+| macd_hist | technical | -0.7 | -0.02 | -0.79 | -0.0 | 0.09 | -0.02 |
+| kd_k_value | technical | 44.78 | 44.38 | 44.35 | 43.75 | 0.43 | 0.63 |
+| kd_d_value | technical | 47.73 | 48.3 | 44.53 | 44.25 | 3.2 | 4.05 |
+| kdj_j_value | technical | 38.89 | 36.5 | 43.99 | 43.92 | -5.1 | -7.42 |
+| bb_width_pct | technical | 20.57 | 17.94 | 16.85 | 14.04 | 3.72 | 3.9 |
+| ema23_slope_5d_pct | technical | 1.15 | 0.68 | 0.37 | 0.04 | 0.78 | 0.64 |
+| distance_to_ema23_pct | technical | 0.67 | 0.64 | -0.13 | 0.0 | 0.8 | 0.64 |
+| tdcc_consecutive_up_weeks | tdcc | 1.31 | 1.0 | 1.11 | 0.0 | 0.2 | 1.0 |

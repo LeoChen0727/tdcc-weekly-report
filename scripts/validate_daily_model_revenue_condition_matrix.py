@@ -8,10 +8,12 @@ import pandas as pd
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from build_daily_model_parameter_research import (  # noqa: E402
+    ANOMALY_CANDIDATE_SENSITIVITY_BASIS,
     DOCS_PRICE_PULLBACK_REVENUE_CONDITION_MATRIX_CSV,
     DOCS_PRICE_PULLBACK_REVENUE_CONDITION_MATRIX_MD,
     DOCS_REVENUE_UNREACTED_CONDITION_MATRIX_CSV,
     DOCS_REVENUE_UNREACTED_CONDITION_MATRIX_MD,
+    PRIMARY_ANOMALY_BASIS,
     PRICE_PULLBACK_REVENUE_CONDITION_MATRIX_CSV,
     PRICE_PULLBACK_REVENUE_CONDITION_MATRIX_MD,
     REVENUE_UNREACTED_CONDITION_MATRIX_CSV,
@@ -33,6 +35,8 @@ REQUIRED_COLUMNS = {
     "revenue_join_source",
     "point_in_time_rule",
     "anomaly_exclusion_basis",
+    "decision_basis",
+    "sensitivity_basis",
     "exit_rule_id",
     "formal_price_rule_status",
     "entry_rule_id",
@@ -97,6 +101,17 @@ def validate_matrix(df: pd.DataFrame, *, model_id: str, artifact_id: str) -> lis
         errors.append(f"{artifact_id} missing revenue_production_strong row")
     if df["promotion_blocker"].astype(str).str.strip().eq("").any():
         errors.append(f"{artifact_id} has empty promotion_blocker")
+    if set(df["anomaly_exclusion_basis"].astype(str)) != {
+        PRIMARY_ANOMALY_BASIS,
+        ANOMALY_CANDIDATE_SENSITIVITY_BASIS,
+    }:
+        errors.append(f"{artifact_id} must publish primary and candidate-exclusion sensitivity bases")
+    primary = df[df["anomaly_exclusion_basis"].eq(PRIMARY_ANOMALY_BASIS)]
+    sensitivity = df[df["anomaly_exclusion_basis"].eq(ANOMALY_CANDIDATE_SENSITIVITY_BASIS)]
+    if not primary["decision_basis"].astype(str).eq("True").all():
+        errors.append(f"{artifact_id} primary rows must set decision_basis=True")
+    if not sensitivity["sensitivity_basis"].astype(str).eq("True").all():
+        errors.append(f"{artifact_id} sensitivity rows must set sensitivity_basis=True")
     return errors
 
 
@@ -112,6 +127,25 @@ def validate_price_pullback(df: pd.DataFrame) -> list[str]:
         errors.append("price_pullback_23ema revenue matrix must use close-confirmed candidate operation basis")
     if not df["operation_basis"].astype(str).eq("price_pullback_close_confirmed_candidate_lifecycle_replay").all():
         errors.append("price_pullback_23ema revenue matrix must use lifecycle replay operation basis")
+    required_candidate_columns = {
+        "revenue_or_price_anomaly_candidate_count_in_sample",
+        "revenue_or_price_anomaly_candidate_count_in_baseline",
+    }
+    missing_candidate_columns = required_candidate_columns - set(df.columns)
+    if missing_candidate_columns:
+        errors.append(
+            "price_pullback_23ema revenue matrix missing anomaly candidate columns: "
+            + ", ".join(sorted(missing_candidate_columns))
+        )
+    else:
+        primary = df[df["anomaly_exclusion_basis"].eq(PRIMARY_ANOMALY_BASIS)]
+        unresolved = pd.to_numeric(
+            primary["revenue_or_price_anomaly_candidate_count_in_sample"], errors="coerce"
+        ).fillna(0).gt(0)
+        if not primary.loc[unresolved, "promotion_readiness"].eq(
+            "blocked_pending_root_cause_anomaly_candidate_review"
+        ).all():
+            errors.append("price_pullback primary anomaly candidates must block promotion")
     required_turnaround_tests = {
         "latest_yoy_improving_2m",
         "latest_yoy_improving_3m",
@@ -153,6 +187,25 @@ def validate_revenue_unreacted(df: pd.DataFrame) -> list[str]:
         errors.append("revenue_unreacted_range matrix must not claim a formal operation contract")
     if not df["operation_basis"].astype(str).eq("research_only_d20_close_not_operation_contract").all():
         errors.append("revenue_unreacted_range matrix must stay D+20 close advisory")
+    required_candidate_columns = {
+        "revenue_anomaly_candidate_count_in_sample",
+        "revenue_anomaly_candidate_count_in_baseline",
+    }
+    missing_candidate_columns = required_candidate_columns - set(df.columns)
+    if missing_candidate_columns:
+        errors.append(
+            "revenue_unreacted_range matrix missing anomaly candidate columns: "
+            + ", ".join(sorted(missing_candidate_columns))
+        )
+    else:
+        primary = df[df["anomaly_exclusion_basis"].eq(PRIMARY_ANOMALY_BASIS)]
+        unresolved = pd.to_numeric(
+            primary["revenue_anomaly_candidate_count_in_sample"], errors="coerce"
+        ).fillna(0).gt(0)
+        if not primary.loc[unresolved, "promotion_readiness"].eq(
+            "blocked_pending_root_cause_anomaly_candidate_review"
+        ).all():
+            errors.append("revenue_unreacted primary anomaly candidates must block promotion")
     return errors
 
 
@@ -203,3 +256,4 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+    PRIMARY_ANOMALY_BASIS,

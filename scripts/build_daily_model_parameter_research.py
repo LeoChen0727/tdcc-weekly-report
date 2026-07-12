@@ -269,7 +269,12 @@ TIME_COST_TARGET_PCT = 5.0
 TIME_COST_STOP_PCT = -5.0
 MIN_OK_SAMPLE = 100
 MIN_REVIEW_SAMPLE = 30
-PRICE_PULLBACK_KNOWN_DATA_QUALITY_EXCEPTIONS = [
+PRIMARY_ANOMALY_BASIS = "including_unresolved_anomaly_candidates_primary"
+ANOMALY_CANDIDATE_SENSITIVITY_BASIS = (
+    "excluding_unresolved_anomaly_candidates_sensitivity_only"
+)
+
+PRICE_PULLBACK_UNRESOLVED_DATA_QUALITY_CANDIDATES = [
     {
         "stock_id": "2380",
         "signal_date": "20260519",
@@ -277,8 +282,8 @@ PRICE_PULLBACK_KNOWN_DATA_QUALITY_EXCEPTIONS = [
         "exception_note": "unadjusted corporate-action/suspension-resumption price gap; research-only anomaly until adjusted basis is approved",
     },
 ]
-PRICE_PULLBACK_INCLUDE_DATA_QUALITY_EXCEPTIONS = "including_data_quality_exceptions"
-PRICE_PULLBACK_EXCLUDE_KNOWN_DATA_QUALITY_EXCEPTIONS = "excluding_known_data_quality_exceptions"
+PRICE_PULLBACK_PRIMARY_ANOMALY_BASIS = PRIMARY_ANOMALY_BASIS
+PRICE_PULLBACK_ANOMALY_CANDIDATE_SENSITIVITY_BASIS = ANOMALY_CANDIDATE_SENSITIVITY_BASIS
 PRICE_PULLBACK_CANDIDATE_REPLAY_REQUIRED_COLUMNS = {
     "stock_id",
     "candidate_source_type",
@@ -4736,7 +4741,7 @@ def _price_pullback_v1_base_research_filter(d: pd.DataFrame) -> pd.Series:
     ).fillna(False)
 
 
-def _price_pullback_known_data_quality_exception_mask(d: pd.DataFrame) -> pd.Series:
+def _price_pullback_unresolved_data_quality_candidate_mask(d: pd.DataFrame) -> pd.Series:
     if d.empty:
         return bool_series(d, False)
     if "stock_id" in d.columns:
@@ -4750,7 +4755,7 @@ def _price_pullback_known_data_quality_exception_mask(d: pd.DataFrame) -> pd.Ser
     else:
         signal_date = pd.Series("", index=d.index, dtype=object)
     mask = bool_series(d, False)
-    for exception in PRICE_PULLBACK_KNOWN_DATA_QUALITY_EXCEPTIONS:
+    for exception in PRICE_PULLBACK_UNRESOLVED_DATA_QUALITY_CANDIDATES:
         mask = mask | (
             stock.eq(safe_str(exception["stock_id"]))
             & signal_date.eq(safe_str(exception["signal_date"]))
@@ -4758,7 +4763,7 @@ def _price_pullback_known_data_quality_exception_mask(d: pd.DataFrame) -> pd.Ser
     return mask.fillna(False)
 
 
-def _price_pullback_known_data_quality_exception_ids(d: pd.DataFrame) -> list[str]:
+def _price_pullback_unresolved_data_quality_candidate_ids(d: pd.DataFrame) -> list[str]:
     if d.empty:
         return []
     if "stock_id" in d.columns:
@@ -4772,7 +4777,7 @@ def _price_pullback_known_data_quality_exception_ids(d: pd.DataFrame) -> list[st
     else:
         signal_date = pd.Series("", index=d.index, dtype=object)
     ids: list[str] = []
-    for exception in PRICE_PULLBACK_KNOWN_DATA_QUALITY_EXCEPTIONS:
+    for exception in PRICE_PULLBACK_UNRESOLVED_DATA_QUALITY_CANDIDATES:
         matched = (
             stock.eq(safe_str(exception["stock_id"]))
             & signal_date.eq(safe_str(exception["signal_date"]))
@@ -4921,11 +4926,11 @@ def build_price_pullback_high_return_feature_score_grid(df: pd.DataFrame) -> pd.
             continue
 
         for anomaly_basis in [
-            "including_data_quality_exceptions",
-            "excluding_known_data_quality_exceptions",
+            PRICE_PULLBACK_PRIMARY_ANOMALY_BASIS,
+            PRICE_PULLBACK_ANOMALY_CANDIDATE_SENSITIVITY_BASIS,
         ]:
-            exception_mask_all = _price_pullback_known_data_quality_exception_mask(lifecycle_all)
-            if anomaly_basis == "excluding_known_data_quality_exceptions":
+            exception_mask_all = _price_pullback_unresolved_data_quality_candidate_mask(lifecycle_all)
+            if anomaly_basis == PRICE_PULLBACK_ANOMALY_CANDIDATE_SENSITIVITY_BASIS:
                 basis_lifecycle = lifecycle_all[~exception_mask_all].copy()
                 baseline_exception_count = int(exception_mask_all.sum())
             else:
@@ -4938,9 +4943,9 @@ def build_price_pullback_high_return_feature_score_grid(df: pd.DataFrame) -> pd.
             for spec in score_specs:
                 bucket_mask_all = spec["condition"](lifecycle_all).fillna(False)
                 bucket_lifecycle_raw = lifecycle_all[bucket_mask_all].copy()
-                bucket_exception_mask = _price_pullback_known_data_quality_exception_mask(bucket_lifecycle_raw)
+                bucket_exception_mask = _price_pullback_unresolved_data_quality_candidate_mask(bucket_lifecycle_raw)
                 excluded_exception_count = int(bucket_exception_mask.sum())
-                if anomaly_basis == "excluding_known_data_quality_exceptions":
+                if anomaly_basis == PRICE_PULLBACK_ANOMALY_CANDIDATE_SENSITIVITY_BASIS:
                     bucket_lifecycle = bucket_lifecycle_raw[~bucket_exception_mask].copy()
                 else:
                     bucket_lifecycle = bucket_lifecycle_raw
@@ -4972,11 +4977,11 @@ def build_price_pullback_high_return_feature_score_grid(df: pd.DataFrame) -> pd.
                         "+1 weak prior 45d return >=8%; -1/risk for volume red K >=1.2 or solid red candle."
                     ),
                     "anomaly_exclusion_basis": anomaly_basis,
-                    "known_data_quality_exception_count_in_bucket": excluded_exception_count,
-                    "known_data_quality_exception_count_in_baseline": baseline_exception_count,
-                    "known_data_quality_exception_ids": ";".join(
+                    "unresolved_data_quality_candidate_count_in_bucket": excluded_exception_count,
+                    "unresolved_data_quality_candidate_count_in_baseline": baseline_exception_count,
+                    "unresolved_data_quality_candidate_ids": ";".join(
                         safe_str(exception["exception_id"])
-                        for exception in PRICE_PULLBACK_KNOWN_DATA_QUALITY_EXCEPTIONS
+                        for exception in PRICE_PULLBACK_UNRESOLVED_DATA_QUALITY_CANDIDATES
                     ),
                     "exit_rule_id": exit_rule_id,
                     "formal_price_rule_status": candidate["formal_price_rule_status"],
@@ -5013,7 +5018,12 @@ def build_price_pullback_high_return_feature_score_grid(df: pd.DataFrame) -> pd.
                     "advisory_status": "not_production_ready_research_only",
                     "approved_for_daily": False,
                     "production_change": "none",
-                    "promotion_readiness": "blocked_explicit_score_decision_exact_parity_operation_adapter_and_metric_contract_required",
+                    "promotion_readiness": (
+                        "blocked_pending_root_cause_anomaly_candidate_review"
+                        if anomaly_basis == PRICE_PULLBACK_PRIMARY_ANOMALY_BASIS
+                        and excluded_exception_count > 0
+                        else "blocked_explicit_score_decision_exact_parity_operation_adapter_and_metric_contract_required"
+                    ),
                     "promotion_blocker": (
                         "requires explicit score threshold decision, high/low-return feature review, "
                         "model contract update if promoted, exact parity, validators, PR merge, "
@@ -5028,8 +5038,8 @@ def build_price_pullback_high_return_feature_score_grid(df: pd.DataFrame) -> pd.
         return out
     bucket_type_order = {"baseline": 0, "exact_score": 1, "score_threshold": 2}
     anomaly_order = {
-        "including_data_quality_exceptions": 0,
-        "excluding_known_data_quality_exceptions": 1,
+        PRICE_PULLBACK_PRIMARY_ANOMALY_BASIS: 0,
+        PRICE_PULLBACK_ANOMALY_CANDIDATE_SENSITIVITY_BASIS: 1,
     }
     out["_bucket_type_order"] = out["score_bucket_type"].map(bucket_type_order).fillna(99)
     out["_anomaly_order"] = out["anomaly_exclusion_basis"].map(anomaly_order).fillna(99)
@@ -5865,10 +5875,16 @@ REVENUE_UNREACTED_OPERATION_EXIT_SPECS = [
 ]
 
 
-def _full_monthly_revenue_anomaly_mask(d: pd.DataFrame, *, include_price_exception: bool = False) -> pd.Series:
+def _full_monthly_revenue_anomaly_candidate_mask(
+    d: pd.DataFrame,
+    *,
+    include_price_candidate: bool = False,
+) -> pd.Series:
+    # The source column is a legacy threshold flag. Under the repository-wide
+    # anomaly contract it is an unresolved candidate, not a final disposition.
     mask = trueish_column(d, "full_monthly_revenue_numerical_anomaly_flag")
-    if include_price_exception:
-        mask = mask | _price_pullback_known_data_quality_exception_mask(d)
+    if include_price_candidate:
+        mask = mask | _price_pullback_unresolved_data_quality_candidate_mask(d)
     return mask.fillna(False)
 
 
@@ -5946,14 +5962,14 @@ def build_price_pullback_revenue_condition_matrix(df: pd.DataFrame) -> pd.DataFr
     rows: list[dict[str, object]] = []
     generated_at = now_text()
     for anomaly_basis in [
-        "including_numerical_anomalies",
-        "excluding_known_price_or_revenue_anomalies",
+        PRIMARY_ANOMALY_BASIS,
+        ANOMALY_CANDIDATE_SENSITIVITY_BASIS,
     ]:
-        baseline_exception_mask = _full_monthly_revenue_anomaly_mask(
+        baseline_exception_mask = _full_monthly_revenue_anomaly_candidate_mask(
             enriched_base,
-            include_price_exception=True,
+            include_price_candidate=True,
         )
-        if anomaly_basis == "excluding_known_price_or_revenue_anomalies":
+        if anomaly_basis == ANOMALY_CANDIDATE_SENSITIVITY_BASIS:
             basis_base = enriched_base[~baseline_exception_mask].copy()
         else:
             basis_base = enriched_base.copy()
@@ -5964,11 +5980,11 @@ def build_price_pullback_revenue_condition_matrix(df: pd.DataFrame) -> pd.DataFr
         for spec in PRICE_PULLBACK_REVENUE_CONDITION_TESTS:
             condition_mask = spec["condition"](valid_base).fillna(False)
             picked_raw = enriched_base.loc[valid_base.index[condition_mask]].copy()
-            sample_exception_mask = _full_monthly_revenue_anomaly_mask(
+            sample_exception_mask = _full_monthly_revenue_anomaly_candidate_mask(
                 picked_raw,
-                include_price_exception=True,
+                include_price_candidate=True,
             )
-            if anomaly_basis == "excluding_known_price_or_revenue_anomalies":
+            if anomaly_basis == ANOMALY_CANDIDATE_SENSITIVITY_BASIS:
                 picked = picked_raw[~sample_exception_mask].copy()
             else:
                 picked = picked_raw
@@ -5995,8 +6011,10 @@ def build_price_pullback_revenue_condition_matrix(df: pd.DataFrame) -> pd.DataFr
                     "revenue_join_source": FULL_MONTHLY_REVENUE_HISTORY_CSV.as_posix(),
                     "point_in_time_rule": "monthly revenue source_table_date must be <= signal_date",
                     "anomaly_exclusion_basis": anomaly_basis,
-                    "revenue_or_price_anomaly_count_in_sample": int(sample_exception_mask.sum()),
-                    "revenue_or_price_anomaly_count_in_baseline": int(baseline_exception_mask.sum()),
+                    "decision_basis": anomaly_basis == PRIMARY_ANOMALY_BASIS,
+                    "sensitivity_basis": anomaly_basis == ANOMALY_CANDIDATE_SENSITIVITY_BASIS,
+                    "revenue_or_price_anomaly_candidate_count_in_sample": int(sample_exception_mask.sum()),
+                    "revenue_or_price_anomaly_candidate_count_in_baseline": int(baseline_exception_mask.sum()),
                     "exit_rule_id": candidate["exit_rule_id"],
                     "formal_price_rule_status": candidate["formal_price_rule_status"],
                     "profit_target_pct": candidate["profit_target_pct"],
@@ -6030,7 +6048,12 @@ def build_price_pullback_revenue_condition_matrix(df: pd.DataFrame) -> pd.DataFr
                     "advisory_status": "not_production_ready_research_only",
                     "approved_for_daily": False,
                     "production_change": "none",
-                    "promotion_readiness": "blocked_model_specific_promotion_pr_required",
+                    "promotion_readiness": (
+                        "blocked_pending_root_cause_anomaly_candidate_review"
+                        if anomaly_basis == PRIMARY_ANOMALY_BASIS
+                        and int(sample_exception_mask.sum()) > 0
+                        else "blocked_model_specific_promotion_pr_required"
+                    ),
                     "promotion_blocker": (
                         "revenue condition cannot enter price_pullback_23ema production until explicit "
                         "model-rule decision, contract/parity/validator updates, PR merge, and post-merge main validation"
@@ -6113,15 +6136,23 @@ def build_revenue_unreacted_range_revenue_condition_matrix(df: pd.DataFrame) -> 
     base = positioned[current_revenue_unreacted_baseline_proxy(positioned).fillna(False)].copy()
     rows: list[dict[str, object]] = []
     generated_at = now_text()
-    for anomaly_basis in ["including_numerical_anomalies", "excluding_revenue_numerical_anomalies"]:
-        baseline_exception_mask = _full_monthly_revenue_anomaly_mask(base)
-        basis_base = base[~baseline_exception_mask].copy() if anomaly_basis.startswith("excluding") else base.copy()
+    for anomaly_basis in [PRIMARY_ANOMALY_BASIS, ANOMALY_CANDIDATE_SENSITIVITY_BASIS]:
+        baseline_exception_mask = _full_monthly_revenue_anomaly_candidate_mask(base)
+        basis_base = (
+            base[~baseline_exception_mask].copy()
+            if anomaly_basis == ANOMALY_CANDIDATE_SENSITIVITY_BASIS
+            else base.copy()
+        )
         baseline_mature_count = int(_fixed_d20_close_metrics(basis_base)["mature_count"])
         for spec in REVENUE_UNREACTED_REVENUE_CONDITION_TESTS:
             condition_mask = spec["condition"](base).fillna(False)
             picked_raw = base[condition_mask].copy()
-            sample_exception_mask = _full_monthly_revenue_anomaly_mask(picked_raw)
-            picked = picked_raw[~sample_exception_mask].copy() if anomaly_basis.startswith("excluding") else picked_raw
+            sample_exception_mask = _full_monthly_revenue_anomaly_candidate_mask(picked_raw)
+            picked = (
+                picked_raw[~sample_exception_mask].copy()
+                if anomaly_basis == ANOMALY_CANDIDATE_SENSITIVITY_BASIS
+                else picked_raw
+            )
             source_date_stats = _price_pullback_date_stats(picked)
             metrics = _fixed_d20_close_metrics(picked)
             mature_count = int(metrics["mature_count"])
@@ -6143,8 +6174,10 @@ def build_revenue_unreacted_range_revenue_condition_matrix(df: pd.DataFrame) -> 
                     "revenue_join_source": FULL_MONTHLY_REVENUE_HISTORY_CSV.as_posix(),
                     "point_in_time_rule": "monthly revenue source_table_date must be <= signal_date",
                     "anomaly_exclusion_basis": anomaly_basis,
-                    "revenue_anomaly_count_in_sample": int(sample_exception_mask.sum()),
-                    "revenue_anomaly_count_in_baseline": int(baseline_exception_mask.sum()),
+                    "decision_basis": anomaly_basis == PRIMARY_ANOMALY_BASIS,
+                    "sensitivity_basis": anomaly_basis == ANOMALY_CANDIDATE_SENSITIVITY_BASIS,
+                    "revenue_anomaly_candidate_count_in_sample": int(sample_exception_mask.sum()),
+                    "revenue_anomaly_candidate_count_in_baseline": int(baseline_exception_mask.sum()),
                     "exit_rule_id": "d20_close_advisory",
                     "formal_price_rule_status": "research_only_no_formal_operation_contract",
                     "profit_target_pct": 5.0,
@@ -6178,7 +6211,12 @@ def build_revenue_unreacted_range_revenue_condition_matrix(df: pd.DataFrame) -> 
                     "advisory_status": "not_production_ready_research_only",
                     "approved_for_daily": False,
                     "production_change": "none",
-                    "promotion_readiness": "blocked_operation_rule_and_model_specific_promotion_pr_required",
+                    "promotion_readiness": (
+                        "blocked_pending_root_cause_anomaly_candidate_review"
+                        if anomaly_basis == PRIMARY_ANOMALY_BASIS
+                        and int(sample_exception_mask.sum()) > 0
+                        else "blocked_operation_rule_and_model_specific_promotion_pr_required"
+                    ),
                     "promotion_blocker": (
                         "revenue_unreacted_range still needs explicit buy/sell/stop/outcome contract, "
                         "contract/parity/validator updates, PR merge, and post-merge main validation before "
@@ -6440,14 +6478,17 @@ def build_revenue_unreacted_range_operation_candidate_matrix(df: pd.DataFrame) -
     generated_at = now_text()
     non_overlap_cooldown_days = 20
 
-    for anomaly_basis in ["including_numerical_anomalies", "excluding_revenue_numerical_anomalies"]:
-        baseline_exception_mask = _full_monthly_revenue_anomaly_mask(base)
-        basis_base = base[~baseline_exception_mask].copy() if anomaly_basis.startswith("excluding") else base.copy()
+    for anomaly_basis in [PRIMARY_ANOMALY_BASIS, ANOMALY_CANDIDATE_SENSITIVITY_BASIS]:
+        baseline_exception_mask = _full_monthly_revenue_anomaly_candidate_mask(base)
         for spec in REVENUE_UNREACTED_OPERATION_CONDITION_TESTS:
             condition_mask = spec["condition"](base).fillna(False)
             picked_raw = base[condition_mask].copy()
-            sample_exception_mask = _full_monthly_revenue_anomaly_mask(picked_raw)
-            picked = picked_raw[~sample_exception_mask].copy() if anomaly_basis.startswith("excluding") else picked_raw
+            sample_exception_mask = _full_monthly_revenue_anomaly_candidate_mask(picked_raw)
+            picked = (
+                picked_raw[~sample_exception_mask].copy()
+                if anomaly_basis == ANOMALY_CANDIDATE_SENSITIVITY_BASIS
+                else picked_raw
+            )
             source_date_stats = _price_pullback_date_stats(picked)
             non_overlap, suppressed_count = _revenue_same_stock_non_overlap(
                 picked,
@@ -6476,8 +6517,10 @@ def build_revenue_unreacted_range_operation_candidate_matrix(df: pd.DataFrame) -
                         "revenue_join_source": FULL_MONTHLY_REVENUE_HISTORY_CSV.as_posix(),
                         "point_in_time_rule": "monthly revenue source_table_date must be <= signal_date",
                         "anomaly_exclusion_basis": anomaly_basis,
-                        "revenue_anomaly_count_in_sample": int(sample_exception_mask.sum()),
-                        "revenue_anomaly_count_in_baseline": int(baseline_exception_mask.sum()),
+                        "decision_basis": anomaly_basis == PRIMARY_ANOMALY_BASIS,
+                        "sensitivity_basis": anomaly_basis == ANOMALY_CANDIDATE_SENSITIVITY_BASIS,
+                        "revenue_anomaly_candidate_count_in_sample": int(sample_exception_mask.sum()),
+                        "revenue_anomaly_candidate_count_in_baseline": int(baseline_exception_mask.sum()),
                         "entry_rule_id": "signal_date_close_condition_next_open_entry",
                         "confirmation_rule_id": "signal_date_close_condition_confirmed",
                         "entry_rule": "candidate condition is evaluated after signal-date close; entry uses next trading day open",
@@ -6523,7 +6566,12 @@ def build_revenue_unreacted_range_operation_candidate_matrix(df: pd.DataFrame) -
                         "advisory_status": "not_production_ready_research_only",
                         "approved_for_daily": False,
                         "production_change": "none",
-                        "promotion_readiness": "research_only_operation_candidate_not_promotion_ready",
+                        "promotion_readiness": (
+                            "blocked_pending_root_cause_anomaly_candidate_review"
+                            if anomaly_basis == PRIMARY_ANOMALY_BASIS
+                            and int(sample_exception_mask.sum()) > 0
+                            else "research_only_operation_candidate_not_promotion_ready"
+                        ),
                         "promotion_blocker": (
                             "revenue_unreacted_range still needs high-return/low-return feature review, explicit "
                             "buy/sell/stop contract, contract/parity/validator updates, PR merge, and post-merge "
@@ -6569,7 +6617,7 @@ def write_revenue_unreacted_range_operation_candidate_matrix(matrix: pd.DataFram
         "- formal_use: blocked until an explicit model-specific promotion PR updates contract/parity/validators and passes post-merge main validation.",
         "",
         markdown_table(
-            matrix[matrix["anomaly_exclusion_basis"].eq("excluding_revenue_numerical_anomalies")],
+            matrix[matrix["anomaly_exclusion_basis"].eq(PRIMARY_ANOMALY_BASIS)],
             [
                 "condition_test_id",
                 "exit_rule_id",
@@ -6692,14 +6740,14 @@ def _revenue_feature_contrast_outcome_metrics(frame: pd.DataFrame) -> dict[str, 
     }
 
 
-def _revenue_feature_context_anomaly_mask(
+def _revenue_feature_context_anomaly_candidate_mask(
     frame: pd.DataFrame,
     *,
-    include_price_exception: bool = False,
+    include_price_candidate: bool = False,
 ) -> pd.Series:
-    mask = _full_monthly_revenue_anomaly_mask(
+    mask = _full_monthly_revenue_anomaly_candidate_mask(
         frame,
-        include_price_exception=include_price_exception,
+        include_price_candidate=include_price_candidate,
     )
     latest_columns = [
         "full_monthly_revenue_latest_yoy_pct",
@@ -6776,22 +6824,29 @@ def _revenue_feature_contrast_detail(
         current_revenue_unreacted_baseline_proxy(positioned).fillna(False)
         & full_monthly_revenue_strong_filter(positioned).fillna(False)
     ].copy()
-    known_exception = _revenue_feature_context_anomaly_mask(source, include_price_exception=True)
+    unresolved_candidate = _revenue_feature_context_anomaly_candidate_mask(
+        source,
+        include_price_candidate=True,
+    )
     stats: dict[str, dict[str, int]] = {}
     details: list[pd.DataFrame] = []
     exit_spec = next(
         spec for spec in REVENUE_UNREACTED_OPERATION_EXIT_SPECS if spec["exit_rule_id"] == "d20_close_no_stop"
     )
 
-    for basis in ["including_known_anomalies", "excluding_known_revenue_and_price_anomalies"]:
-        basis_source = source.copy() if basis.startswith("including") else source[~known_exception].copy()
+    for basis in [PRIMARY_ANOMALY_BASIS, ANOMALY_CANDIDATE_SENSITIVITY_BASIS]:
+        basis_source = (
+            source.copy()
+            if basis == PRIMARY_ANOMALY_BASIS
+            else source[~unresolved_candidate].copy()
+        )
         accepted, suppressed_count = _revenue_same_stock_non_overlap(basis_source, cooldown_days=20)
         valid = _available_revenue_operation_frame(accepted, exit_spec).copy()
         valid["realized_return_pct"] = _revenue_horizon_close_return(valid, 20)
         valid = valid[valid["realized_return_pct"].notna()].copy()
         valid = _revenue_future_close_path_audit(valid, 20)
         return_path_discontinuity_count = int(trueish_column(valid, "future_close_discontinuity_flag").sum())
-        if basis == "excluding_known_revenue_and_price_anomalies":
+        if basis == ANOMALY_CANDIDATE_SENSITIVITY_BASIS:
             valid = valid[~trueish_column(valid, "future_close_discontinuity_flag")].copy()
         valid = _attach_revenue_signal_market_regime(valid, market_history)
         valid["kdj_j_value"] = _revenue_kdj_j_value(valid)
@@ -6799,14 +6854,16 @@ def _revenue_feature_contrast_detail(
         valid["model_id"] = "revenue_unreacted_range"
         valid["research_artifact_id"] = "revenue_unreacted_range_feature_contrast_audit"
         valid["anomaly_exclusion_basis"] = basis
-        valid["decision_basis"] = basis == "excluding_known_revenue_and_price_anomalies"
+        valid["decision_basis"] = basis == PRIMARY_ANOMALY_BASIS
         valid["entry_rule_id"] = "signal_date_close_condition_next_open_entry"
         valid["exit_rule_id"] = "d20_close_no_stop"
         valid["same_stock_non_overlap_included"] = True
         valid["non_overlap_cooldown_days"] = 20
-        valid["feature_context_revenue_anomaly_flag"] = _revenue_feature_context_anomaly_mask(valid)
-        valid["known_revenue_or_price_anomaly_flag"] = (
-            _revenue_feature_context_anomaly_mask(valid, include_price_exception=True)
+        valid["feature_context_revenue_anomaly_candidate_flag"] = (
+            _revenue_feature_context_anomaly_candidate_mask(valid)
+        )
+        valid["revenue_or_price_anomaly_candidate_flag"] = (
+            _revenue_feature_context_anomaly_candidate_mask(valid, include_price_candidate=True)
             | trueish_column(valid, "future_close_discontinuity_flag")
         )
         realized = numeric_column(valid, "realized_return_pct")
@@ -6822,7 +6879,7 @@ def _revenue_feature_contrast_detail(
 
         stats[basis] = {
             "source_strong_signal_count": len(source),
-            "known_anomaly_count_in_source": int(known_exception.sum()),
+            "unresolved_anomaly_candidate_count_in_source": int(unresolved_candidate.sum()),
             "basis_source_signal_count": len(basis_source),
             "accepted_signal_count_after_non_overlap": len(accepted),
             "suppressed_signal_count": suppressed_count,
@@ -6856,8 +6913,8 @@ def _revenue_feature_contrast_detail(
         "loss_5_flag",
         "same_stock_non_overlap_included",
         "non_overlap_cooldown_days",
-        "known_revenue_or_price_anomaly_flag",
-        "feature_context_revenue_anomaly_flag",
+        "revenue_or_price_anomaly_candidate_flag",
+        "feature_context_revenue_anomaly_candidate_flag",
         "future_close_max_step_ratio",
         "future_close_max_step_day",
         "future_close_min_step_ratio",
@@ -6911,10 +6968,12 @@ def _revenue_feature_contrast_anomaly_audit(
         absolute_total = float(absolute.sum())
         trim_count = max(1, int(math.ceil(len(realized) * 0.01))) if len(realized) >= 20 else 0
         trimmed = realized.iloc[trim_count : len(realized) - trim_count] if trim_count else realized
-        without_extremes = realized.drop(index=list(dict.fromkeys([max_index, min_index])))
+        without_max_min_sensitivity = realized.drop(
+            index=list(dict.fromkeys([max_index, min_index]))
+        )
         top1_share = round(float(absolute.iloc[:1].sum()) / absolute_total * 100.0, 2) if absolute_total else 0.0
         top5_share = round(float(absolute.iloc[:5].sum()) / absolute_total * 100.0, 2) if absolute_total else 0.0
-        return_outlier_count = int(realized.abs().ge(80.0).sum())
+        anomaly_candidate_count = int(realized.abs().ge(80.0).sum())
         return_path_discontinuity_count = stats[basis]["return_path_discontinuity_count_after_non_overlap"]
         remaining_return_path_discontinuity_count = int(
             trueish_column(part, "future_close_discontinuity_flag").sum()
@@ -6925,13 +6984,19 @@ def _revenue_feature_contrast_anomaly_audit(
         dominance_flag = (
             remaining_return_path_discontinuity_count > 0 or top1_share >= 10.0 or top5_share >= 30.0
         )
-        decision_basis = basis == "excluding_known_revenue_and_price_anomalies"
+        decision_basis = basis == PRIMARY_ANOMALY_BASIS
         if not decision_basis:
-            interpretation_status = "not_decision_basis_known_anomalies_included"
+            interpretation_status = "sensitivity_only_not_anomaly_disposition"
+        elif (
+            anomaly_candidate_count > 0
+            or stats[basis]["unresolved_anomaly_candidate_count_in_source"] > 0
+            or remaining_return_path_discontinuity_count > 0
+        ):
+            interpretation_status = "blocked_pending_root_cause_anomaly_candidate_review"
         elif dominance_flag:
-            interpretation_status = "blocked_pending_extreme_return_row_review"
+            interpretation_status = "blocked_pending_non_threshold_anomaly_review"
         else:
-            interpretation_status = "anomaly_check_pass"
+            interpretation_status = "anomaly_check_pass_no_threshold_candidates"
         rows.append(
             {
                 "generated_at": now_text(),
@@ -6940,7 +7005,9 @@ def _revenue_feature_contrast_anomaly_audit(
                 "anomaly_exclusion_basis": basis,
                 "decision_basis": decision_basis,
                 "source_strong_signal_count": stats[basis]["source_strong_signal_count"],
-                "known_anomaly_count_in_source": stats[basis]["known_anomaly_count_in_source"],
+                "unresolved_anomaly_candidate_count_in_source": stats[basis][
+                    "unresolved_anomaly_candidate_count_in_source"
+                ],
                 "basis_source_signal_count": stats[basis]["basis_source_signal_count"],
                 "accepted_signal_count_after_non_overlap": stats[basis]["accepted_signal_count_after_non_overlap"],
                 "suppressed_signal_count": stats[basis]["suppressed_signal_count"],
@@ -6958,14 +7025,18 @@ def _revenue_feature_contrast_anomaly_audit(
                 "min_realized_return_pct": round(float(realized.loc[min_index]), 4),
                 "min_return_stock_id": safe_str(part.loc[min_index].get("stock_id")),
                 "min_return_signal_date": safe_str(part.loc[min_index].get("_revenue_signal_date")),
-                "return_abs_ge80_count": return_outlier_count,
+                "return_abs_ge80_anomaly_candidate_count": anomaly_candidate_count,
                 "return_ge50_count": int(realized.ge(50.0).sum()),
                 "return_le_minus50_count": int(realized.le(-50.0).sum()),
                 "top1_abs_return_share_pct": top1_share,
                 "top5_abs_return_share_pct": top5_share,
                 "avg_realized_return_pct": round(float(realized.mean()), 4),
                 "median_realized_return_pct": round(float(realized.median()), 4),
-                "avg_without_max_min_pct": round(float(without_extremes.mean()), 4) if not without_extremes.empty else "",
+                "avg_without_max_min_pct": (
+                    round(float(without_max_min_sensitivity.mean()), 4)
+                    if not without_max_min_sensitivity.empty
+                    else ""
+                ),
                 "trimmed_1pct_avg_return_pct": round(float(trimmed.mean()), 4) if not trimmed.empty else "",
                 "potential_return_dominance_flag": dominance_flag,
                 "interpretation_status": interpretation_status,
@@ -7036,7 +7107,7 @@ def _revenue_feature_contrast_summary(
             "research_artifact_id": "revenue_unreacted_range_feature_contrast_audit",
             "artifact_scope": "research_only_high_return_failure_feature_contrast",
             "anomaly_exclusion_basis": basis,
-            "decision_basis": basis == "excluding_known_revenue_and_price_anomalies",
+            "decision_basis": basis == PRIMARY_ANOMALY_BASIS,
             "source_condition_id": "revenue_production_strong",
             "source_condition_rule": "latest monthly revenue YoY >= 30% or cumulative monthly revenue YoY >= 20%; price remains inside the recent 23-day range and active attack has not started",
             "entry_rule_id": "signal_date_close_condition_next_open_entry",
@@ -7049,7 +7120,9 @@ def _revenue_feature_contrast_summary(
             "non_overlap_applied": True,
             "same_stock_overlap_pair_count": _revenue_same_stock_overlap_pair_count(part, cooldown_days=20),
             "source_strong_signal_count": stats[basis]["source_strong_signal_count"],
-            "known_anomaly_count_in_source": stats[basis]["known_anomaly_count_in_source"],
+            "unresolved_anomaly_candidate_count_in_source": stats[basis][
+                "unresolved_anomaly_candidate_count_in_source"
+            ],
             "basis_source_signal_count": stats[basis]["basis_source_signal_count"],
             "accepted_signal_count_after_non_overlap": stats[basis]["accepted_signal_count_after_non_overlap"],
             "suppressed_signal_count": stats[basis]["suppressed_signal_count"],
@@ -7223,9 +7296,7 @@ def write_revenue_unreacted_range_feature_contrast_audit(
     # tracked copy to avoid tripling a multi-megabyte file on every refresh.
     write_csv(detail, REVENUE_UNREACTED_FEATURE_CONTRAST_DETAIL_CSV)
 
-    decision_summary = summary[
-        summary["anomaly_exclusion_basis"].eq("excluding_known_revenue_and_price_anomalies")
-    ]
+    decision_summary = summary[summary["anomaly_exclusion_basis"].eq(PRIMARY_ANOMALY_BASIS)]
     binary = decision_summary[decision_summary["row_type"].eq("binary_feature")].sort_values(
         ["evidence_interpretation", "high_return_minus_failure_hit_rate_pct"],
         ascending=[True, False],
@@ -7238,7 +7309,7 @@ def write_revenue_unreacted_range_feature_contrast_audit(
         "- status: `research_only_feature_contrast_not_promotion_ready`",
         "- baseline: strong monthly revenue plus recent 23-day range/no-active-attack proxy; signal-date close confirmation, next trading day open entry, D+20 close exit, no stop.",
         "- duplicate_control: same-stock 20-trading-day non-overlap; overlap_pair_count must be zero.",
-        "- anomaly_basis: both including known anomalies and excluding known revenue/price anomalies are published; only the excluding basis may support interpretation after the return-dominance audit passes.",
+        "- anomaly_basis: primary metrics retain unresolved anomaly candidates; the candidate-exclusion basis is sensitivity-only and cannot replace primary performance.",
         "- feature_method: every binary feature reports its hit rate in high-return and failure groups plus the feature subset's true win/neutral/failure/return metrics.",
         "- combination_policy: this audit tests single features only. It does not stack conditions or claim a combination benefit.",
         "- sample_policy: sample count is reported but is not used by itself to reject a feature.",
@@ -7347,9 +7418,11 @@ def _revenue_unreacted_timing_prepared_frame(df: pd.DataFrame) -> pd.DataFrame:
         current_revenue_unreacted_baseline_proxy(positioned).fillna(False)
         & full_monthly_revenue_strong_filter(positioned).fillna(False)
     )
-    positioned["_revenue_timing_source_anomaly_flag"] = _revenue_feature_context_anomaly_mask(
-        positioned,
-        include_price_exception=True,
+    positioned["_revenue_timing_source_anomaly_candidate_flag"] = (
+        _revenue_feature_context_anomaly_candidate_mask(
+            positioned,
+            include_price_candidate=True,
+        )
     )
     return positioned
 
@@ -7363,9 +7436,7 @@ def build_revenue_unreacted_range_close_confirmation_timing_audit(
     expected_control: dict[str, object] | None = None
     if feature_contrast_anomaly is not None and not feature_contrast_anomaly.empty:
         decision = feature_contrast_anomaly[
-            feature_contrast_anomaly["anomaly_exclusion_basis"].eq(
-                "excluding_known_revenue_and_price_anomalies"
-            )
+            feature_contrast_anomaly["anomaly_exclusion_basis"].eq(PRIMARY_ANOMALY_BASIS)
         ]
         if len(decision) == 1:
             row = decision.iloc[0]
@@ -7476,12 +7547,12 @@ def build_price_pullback_ordered_condition_matrix(df: pd.DataFrame) -> pd.DataFr
             continue
         base_outcome = _price_pullback_exit_rule_outcome_rows(valid_base, candidate)
         enriched_base = valid_base.join(base_outcome)
-        baseline_exception_mask = _price_pullback_known_data_quality_exception_mask(enriched_base)
+        baseline_exception_mask = _price_pullback_unresolved_data_quality_candidate_mask(enriched_base)
         for anomaly_basis in [
-            PRICE_PULLBACK_INCLUDE_DATA_QUALITY_EXCEPTIONS,
-            PRICE_PULLBACK_EXCLUDE_KNOWN_DATA_QUALITY_EXCEPTIONS,
+            PRICE_PULLBACK_PRIMARY_ANOMALY_BASIS,
+            PRICE_PULLBACK_ANOMALY_CANDIDATE_SENSITIVITY_BASIS,
         ]:
-            if anomaly_basis == PRICE_PULLBACK_EXCLUDE_KNOWN_DATA_QUALITY_EXCEPTIONS:
+            if anomaly_basis == PRICE_PULLBACK_ANOMALY_CANDIDATE_SENSITIVITY_BASIS:
                 basis_enriched_base = enriched_base[~baseline_exception_mask].copy()
             else:
                 basis_enriched_base = enriched_base.copy()
@@ -7499,7 +7570,7 @@ def build_price_pullback_ordered_condition_matrix(df: pd.DataFrame) -> pd.DataFr
                     raw_picked_index = base.index[condition_mask]
                 raw_valid_index = raw_picked_index.intersection(enriched_base.index)
                 sample_exception_source = enriched_base.loc[raw_valid_index].copy()
-                sample_exception_mask = _price_pullback_known_data_quality_exception_mask(sample_exception_source)
+                sample_exception_mask = _price_pullback_unresolved_data_quality_candidate_mask(sample_exception_source)
                 valid_picked_index = raw_valid_index.intersection(basis_enriched_base.index)
                 picked = base.loc[valid_picked_index].copy()
                 enriched = basis_enriched_base.loc[valid_picked_index].copy()
@@ -7544,10 +7615,10 @@ def build_price_pullback_ordered_condition_matrix(df: pd.DataFrame) -> pd.DataFr
                     "condition_rule": spec["condition_rule"],
                     "data_status": spec["data_status"],
                     "anomaly_exclusion_basis": anomaly_basis,
-                    "known_data_quality_exception_count_in_sample": int(sample_exception_mask.sum()),
-                    "known_data_quality_exception_count_in_baseline": int(baseline_exception_mask.sum()),
-                    "known_data_quality_exception_ids": ";".join(
-                        _price_pullback_known_data_quality_exception_ids(sample_exception_source)
+                    "unresolved_data_quality_candidate_count_in_sample": int(sample_exception_mask.sum()),
+                    "unresolved_data_quality_candidate_count_in_baseline": int(baseline_exception_mask.sum()),
+                    "unresolved_data_quality_candidate_ids": ";".join(
+                        _price_pullback_unresolved_data_quality_candidate_ids(sample_exception_source)
                     ),
                     "exit_rule_id": exit_rule_id,
                     "formal_price_rule_status": candidate["formal_price_rule_status"],
@@ -7580,7 +7651,12 @@ def build_price_pullback_ordered_condition_matrix(df: pd.DataFrame) -> pd.DataFr
                     "advisory_status": "not_production_ready_research_only",
                     "approved_for_daily": False,
                     "production_change": "none",
-                    "promotion_readiness": "blocked_exact_daily_row_parity_and_operation_approval_required",
+                    "promotion_readiness": (
+                        "blocked_pending_root_cause_anomaly_candidate_review"
+                        if anomaly_basis == PRICE_PULLBACK_PRIMARY_ANOMALY_BASIS
+                        and int(sample_exception_mask.sum()) > 0
+                        else "blocked_exact_daily_row_parity_and_operation_approval_required"
+                    ),
                     "promotion_blocker": (
                         "requires explicit model-rule decision, production contract update if promoted, exact parity, "
                         "validators, PR merge, and post-merge main validation"
@@ -7592,8 +7668,8 @@ def build_price_pullback_ordered_condition_matrix(df: pd.DataFrame) -> pd.DataFr
     if out.empty:
         return out
     anomaly_order = {
-        PRICE_PULLBACK_INCLUDE_DATA_QUALITY_EXCEPTIONS: 0,
-        PRICE_PULLBACK_EXCLUDE_KNOWN_DATA_QUALITY_EXCEPTIONS: 1,
+        PRICE_PULLBACK_PRIMARY_ANOMALY_BASIS: 0,
+        PRICE_PULLBACK_ANOMALY_CANDIDATE_SENSITIVITY_BASIS: 1,
     }
     out["_anomaly_order"] = out["anomaly_exclusion_basis"].map(anomaly_order).fillna(99)
     out = out.sort_values(["exit_rule_id", "_anomaly_order", "test_order"]).drop(columns=["_anomaly_order"])
@@ -7625,7 +7701,7 @@ def write_price_pullback_ordered_condition_matrix(matrix: pd.DataFrame) -> None:
                 "condition_test_id",
                 "condition_role_candidate",
                 "anomaly_exclusion_basis",
-                "known_data_quality_exception_count_in_sample",
+                "unresolved_data_quality_candidate_count_in_sample",
                 "exit_rule_id",
                 "mature_count",
                 "mature_share_of_baseline_pct",
@@ -7895,12 +7971,12 @@ def build_price_pullback_lifecycle_replay(df: pd.DataFrame) -> pd.DataFrame:
         baseline_lifecycle_all = _price_pullback_apply_lifecycle_suppression(
             enriched_base,
         )
-        baseline_exception_mask = _price_pullback_known_data_quality_exception_mask(baseline_lifecycle_all)
+        baseline_exception_mask = _price_pullback_unresolved_data_quality_candidate_mask(baseline_lifecycle_all)
         for anomaly_basis in [
-            PRICE_PULLBACK_INCLUDE_DATA_QUALITY_EXCEPTIONS,
-            PRICE_PULLBACK_EXCLUDE_KNOWN_DATA_QUALITY_EXCEPTIONS,
+            PRICE_PULLBACK_PRIMARY_ANOMALY_BASIS,
+            PRICE_PULLBACK_ANOMALY_CANDIDATE_SENSITIVITY_BASIS,
         ]:
-            if anomaly_basis == PRICE_PULLBACK_EXCLUDE_KNOWN_DATA_QUALITY_EXCEPTIONS:
+            if anomaly_basis == PRICE_PULLBACK_ANOMALY_CANDIDATE_SENSITIVITY_BASIS:
                 baseline_lifecycle = baseline_lifecycle_all[~baseline_exception_mask].copy()
             else:
                 baseline_lifecycle = baseline_lifecycle_all.copy()
@@ -7931,13 +8007,13 @@ def build_price_pullback_lifecycle_replay(df: pd.DataFrame) -> pd.DataFrame:
                     enriched = enriched_base.loc[raw_valid_index].copy()
                     lifecycle_raw = _price_pullback_apply_lifecycle_suppression(enriched)
                     sample_exception_source = lifecycle_raw.copy()
-                    sample_exception_mask = _price_pullback_known_data_quality_exception_mask(sample_exception_source)
-                    if anomaly_basis == PRICE_PULLBACK_EXCLUDE_KNOWN_DATA_QUALITY_EXCEPTIONS:
+                    sample_exception_mask = _price_pullback_unresolved_data_quality_candidate_mask(sample_exception_source)
+                    if anomaly_basis == PRICE_PULLBACK_ANOMALY_CANDIDATE_SENSITIVITY_BASIS:
                         lifecycle = lifecycle_raw[~sample_exception_mask].copy()
                     else:
                         lifecycle = lifecycle_raw.copy()
                     picked_all = _price_pullback_base_rows_for_lifecycle(base, lifecycle)
-                sample_exception_mask = _price_pullback_known_data_quality_exception_mask(sample_exception_source)
+                sample_exception_mask = _price_pullback_unresolved_data_quality_candidate_mask(sample_exception_source)
                 accepted = lifecycle[trueish(lifecycle["lifecycle_accepted_trade"])]
                 outcome = _price_pullback_ordered_outcome_summary(accepted)
                 accepted_trade_count = int(outcome["mature_count"])
@@ -7976,10 +8052,10 @@ def build_price_pullback_lifecycle_replay(df: pd.DataFrame) -> pd.DataFrame:
                     "condition_rule": spec["condition_rule"],
                     "data_status": spec["data_status"],
                     "anomaly_exclusion_basis": anomaly_basis,
-                    "known_data_quality_exception_count_in_sample": int(sample_exception_mask.sum()),
-                    "known_data_quality_exception_count_in_baseline": int(baseline_exception_mask.sum()),
-                    "known_data_quality_exception_ids": ";".join(
-                        _price_pullback_known_data_quality_exception_ids(sample_exception_source)
+                    "unresolved_data_quality_candidate_count_in_sample": int(sample_exception_mask.sum()),
+                    "unresolved_data_quality_candidate_count_in_baseline": int(baseline_exception_mask.sum()),
+                    "unresolved_data_quality_candidate_ids": ";".join(
+                        _price_pullback_unresolved_data_quality_candidate_ids(sample_exception_source)
                     ),
                     "exit_rule_id": exit_rule_id,
                     "formal_price_rule_status": candidate["formal_price_rule_status"],
@@ -8037,7 +8113,12 @@ def build_price_pullback_lifecycle_replay(df: pd.DataFrame) -> pd.DataFrame:
                     "advisory_status": "not_production_ready_research_only",
                     "approved_for_daily": False,
                     "production_change": "none",
-                    "promotion_readiness": "blocked_exact_daily_row_parity_operation_adapter_and_metric_contract_required",
+                    "promotion_readiness": (
+                        "blocked_pending_root_cause_anomaly_candidate_review"
+                        if anomaly_basis == PRICE_PULLBACK_PRIMARY_ANOMALY_BASIS
+                        and int(sample_exception_mask.sum()) > 0
+                        else "blocked_exact_daily_row_parity_operation_adapter_and_metric_contract_required"
+                    ),
                     "promotion_blocker": (
                         "requires explicit model-rule decision, lifecycle/operation adapter contract, exact parity, "
                         "validators, PR merge, post-merge main validation, and PDF metric consumer contract before display"
@@ -8049,8 +8130,8 @@ def build_price_pullback_lifecycle_replay(df: pd.DataFrame) -> pd.DataFrame:
     if out.empty:
         return out
     anomaly_order = {
-        PRICE_PULLBACK_INCLUDE_DATA_QUALITY_EXCEPTIONS: 0,
-        PRICE_PULLBACK_EXCLUDE_KNOWN_DATA_QUALITY_EXCEPTIONS: 1,
+        PRICE_PULLBACK_PRIMARY_ANOMALY_BASIS: 0,
+        PRICE_PULLBACK_ANOMALY_CANDIDATE_SENSITIVITY_BASIS: 1,
     }
     out["_anomaly_order"] = out["anomaly_exclusion_basis"].map(anomaly_order).fillna(99)
     out = out.sort_values(["exit_rule_id", "_anomaly_order", "test_order"]).drop(columns=["_anomaly_order"])
@@ -8080,7 +8161,7 @@ def write_price_pullback_lifecycle_replay(lifecycle: pd.DataFrame) -> None:
                 "test_stage",
                 "condition_test_id",
                 "anomaly_exclusion_basis",
-                "known_data_quality_exception_count_in_sample",
+                "unresolved_data_quality_candidate_count_in_sample",
                 "exit_rule_id",
                 "source_mature_signal_stock_days",
                 "accepted_trade_count",
@@ -8114,7 +8195,7 @@ def write_price_pullback_lifecycle_replay(lifecycle: pd.DataFrame) -> None:
 
 
 PRICE_PULLBACK_PROMOTION_MATRIX_EXIT_RULE_ID = "close_prev20_high_break_next_open"
-PRICE_PULLBACK_PROMOTION_MATRIX_ANOMALY_BASIS = PRICE_PULLBACK_EXCLUDE_KNOWN_DATA_QUALITY_EXCEPTIONS
+PRICE_PULLBACK_PROMOTION_MATRIX_ANOMALY_BASIS = PRICE_PULLBACK_PRIMARY_ANOMALY_BASIS
 PRICE_PULLBACK_PROMOTION_MATRIX_COLUMNS = [
     "generated_at",
     "model_id",
@@ -8134,9 +8215,9 @@ PRICE_PULLBACK_PROMOTION_MATRIX_COLUMNS = [
     "data_status",
     "sample_status",
     "anomaly_exclusion_basis",
-    "known_metric_exception_count_in_sample",
-    "known_metric_exception_count_in_baseline",
-    "known_metric_exception_ids",
+    "unresolved_anomaly_candidate_count_in_sample",
+    "unresolved_anomaly_candidate_count_in_baseline",
+    "unresolved_anomaly_candidate_ids",
     "exit_rule_id",
     "formal_price_rule_status",
     "entry_rule_id",
@@ -8244,6 +8325,25 @@ def _promotion_row(
         ["source_mature_signal_stock_days", "mature_count", "source_signal_stock_days", "selected_stock_days"],
         "",
     )
+    unresolved_candidate_count_in_sample = _row_first_value(
+        source_row,
+        [
+            "unresolved_data_quality_candidate_count_in_sample",
+            "unresolved_data_quality_candidate_count_in_bucket",
+            "revenue_or_price_anomaly_candidate_count_in_sample",
+        ],
+        "",
+    )
+    unresolved_candidate_count_in_baseline = _row_first_value(
+        source_row,
+        [
+            "unresolved_data_quality_candidate_count_in_baseline",
+            "revenue_or_price_anomaly_candidate_count_in_baseline",
+        ],
+        "",
+    )
+    candidate_number = _numeric_or_nan(unresolved_candidate_count_in_sample)
+    has_unresolved_candidate = not math.isnan(candidate_number) and candidate_number > 0
     if source_row.empty:
         data_status = data_status or "missing_source_metric_row"
     else:
@@ -8271,24 +8371,13 @@ def _promotion_row(
             "anomaly_exclusion_basis",
             "definition_row_no_metric_sample",
         ),
-        "known_metric_exception_count_in_sample": _row_first_value(
+        "unresolved_anomaly_candidate_count_in_sample": unresolved_candidate_count_in_sample,
+        "unresolved_anomaly_candidate_count_in_baseline": unresolved_candidate_count_in_baseline,
+        "unresolved_anomaly_candidate_ids": _row_value(
             source_row,
-            [
-                "known_data_quality_exception_count_in_sample",
-                "known_data_quality_exception_count_in_bucket",
-                "revenue_or_price_anomaly_count_in_sample",
-            ],
+            "unresolved_data_quality_candidate_ids",
             "",
         ),
-        "known_metric_exception_count_in_baseline": _row_first_value(
-            source_row,
-            [
-                "known_data_quality_exception_count_in_baseline",
-                "revenue_or_price_anomaly_count_in_baseline",
-            ],
-            "",
-        ),
-        "known_metric_exception_ids": _row_value(source_row, "known_data_quality_exception_ids", ""),
         "exit_rule_id": _row_value(source_row, "exit_rule_id", PRICE_PULLBACK_PROMOTION_MATRIX_EXIT_RULE_ID),
         "formal_price_rule_status": _row_value(source_row, "formal_price_rule_status", "close_confirmed_candidate"),
         "entry_rule_id": _row_value(source_row, "entry_rule_id", "signal_date_next_open"),
@@ -8320,9 +8409,15 @@ def _promotion_row(
         "approved_for_daily": False,
         "production_change": "none",
         "production_decision_status": "research_only_not_approved",
-        "promotion_readiness": "blocked_model_specific_promotion_pr_required",
+        "promotion_readiness": (
+            "blocked_pending_root_cause_anomaly_candidate_review"
+            if has_unresolved_candidate
+            else "blocked_model_specific_promotion_pr_required"
+        ),
         "promotion_blocker": (
-            "promotion matrix is discussion evidence only; production use requires explicit model decision, "
+            "unresolved anomaly candidates remain in primary metrics and block promotion until root-cause disposition"
+            if has_unresolved_candidate
+            else "promotion matrix is discussion evidence only; production use requires explicit model decision, "
             "contract/parity/validator updates, PR merge, post-merge main validation, and PDF operation metric contract"
         ),
     }
@@ -8539,7 +8634,7 @@ def build_price_pullback_promotion_matrix(
         revenue_condition_matrix,
         {
             "condition_test_id": "base_v1_without_revenue_gate",
-            "anomaly_exclusion_basis": "excluding_known_price_or_revenue_anomalies",
+            "anomaly_exclusion_basis": PRIMARY_ANOMALY_BASIS,
         },
     )
     for order, candidate_id, axis, condition_id, role, points, conclusion in revenue_specs:
@@ -8547,7 +8642,7 @@ def build_price_pullback_promotion_matrix(
             revenue_condition_matrix,
             {
                 "condition_test_id": condition_id,
-                "anomaly_exclusion_basis": "excluding_known_price_or_revenue_anomalies",
+                "anomaly_exclusion_basis": PRIMARY_ANOMALY_BASIS,
             },
         )
         rows.append(
@@ -8559,11 +8654,11 @@ def build_price_pullback_promotion_matrix(
                 source_artifact_id="price_pullback_23ema_revenue_condition_matrix",
                 source_selector=(
                     f"condition_test_id={condition_id};"
-                    "anomaly_exclusion_basis=excluding_known_price_or_revenue_anomalies"
+                    f"anomaly_exclusion_basis={PRIMARY_ANOMALY_BASIS}"
                 ),
                 source_metric_basis=(
                     "base v1 lifecycle replay with source_table_date <= signal_date monthly revenue join; "
-                    "known numerical anomalies excluded"
+                    "unresolved numerical anomaly candidates retained in primary metrics"
                 ),
                 proposed_contract_role=role,
                 proposed_score_points=points,
@@ -8608,7 +8703,7 @@ def build_price_pullback_promotion_matrix(
         {
             "score_bucket": "all_scores",
             "exit_rule_id": exit_rule_id,
-            "anomaly_exclusion_basis": "excluding_known_data_quality_exceptions",
+            "anomaly_exclusion_basis": PRICE_PULLBACK_PRIMARY_ANOMALY_BASIS,
         },
     )
     for order, candidate_id, axis, score_bucket, role, points, conclusion in high_return_specs:
@@ -8617,7 +8712,7 @@ def build_price_pullback_promotion_matrix(
             {
                 "score_bucket": score_bucket,
                 "exit_rule_id": exit_rule_id,
-                "anomaly_exclusion_basis": "excluding_known_data_quality_exceptions",
+                "anomaly_exclusion_basis": PRICE_PULLBACK_PRIMARY_ANOMALY_BASIS,
             },
         )
         rows.append(
@@ -8629,9 +8724,11 @@ def build_price_pullback_promotion_matrix(
                 source_artifact_id="price_pullback_23ema_high_return_feature_score_grid",
                 source_selector=(
                     f"score_bucket={score_bucket};exit_rule_id={exit_rule_id};"
-                    "anomaly_exclusion_basis=excluding_known_data_quality_exceptions"
+                    f"anomaly_exclusion_basis={PRICE_PULLBACK_PRIMARY_ANOMALY_BASIS}"
                 ),
-                source_metric_basis="base v1 package with known data-quality exceptions excluded",
+                source_metric_basis=(
+                    "base v1 package with unresolved data-quality candidates retained in primary metrics"
+                ),
                 proposed_contract_role=role,
                 proposed_score_points=points,
                 condition_rule=safe_str(_row_value(source_row, "score_rule_summary", "")),
@@ -8712,7 +8809,7 @@ def write_price_pullback_promotion_matrix(matrix: pd.DataFrame) -> None:
         "- status: `research_only_promotion_decision_matrix`; this does not change production condition, scoring, ranking, PDF, or contract registry.",
         "- proposed_base: `price_pullback_23ema` signal + `return20_0_25` + `TDCC high thresholds up` + `OBV above MA20`.",
         "- operation_basis: signal-date close confirmation, next trading day open entry, close-confirmed previous-20-day-high breakout, next trading day open exit.",
-        "- anomaly_basis: main lifecycle, ordered-condition, and high-return rows use `excluding_known_data_quality_exceptions`; revenue rows use `excluding_known_price_or_revenue_anomalies`.",
+        "- anomaly_basis: primary research metrics retain unresolved anomaly candidates; candidate-excluded rows are sensitivity-only and cannot replace primary performance.",
         "- PDF rule: metrics are not PDF-ready until formal promotion and model-owned operation adapter/metric contract are approved.",
         "",
         markdown_table(
@@ -8724,7 +8821,7 @@ def write_price_pullback_promotion_matrix(matrix: pd.DataFrame) -> None:
                 "proposed_score_points",
                 "sample_status",
                 "anomaly_exclusion_basis",
-                "known_metric_exception_count_in_sample",
+                "unresolved_anomaly_candidate_count_in_sample",
                 "accepted_trade_count",
                 "accepted_avg_trades_per_research_day",
                 "win_rate_pct",

@@ -9,9 +9,11 @@ import pandas as pd
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from build_daily_model_parameter_research import (  # noqa: E402
+    ANOMALY_CANDIDATE_SENSITIVITY_BASIS,
     DOCS_REVENUE_UNREACTED_FEATURE_CONTRAST_ANOMALY_CSV,
     DOCS_REVENUE_UNREACTED_FEATURE_CONTRAST_CSV,
     DOCS_REVENUE_UNREACTED_FEATURE_CONTRAST_MD,
+    PRIMARY_ANOMALY_BASIS,
     REVENUE_UNREACTED_FEATURE_CONTRAST_ANOMALY_CSV,
     REVENUE_UNREACTED_FEATURE_CONTRAST_ANOMALY_HISTORY_CSV,
     REVENUE_UNREACTED_FEATURE_CONTRAST_BINARY_SPECS,
@@ -23,11 +25,8 @@ from build_daily_model_parameter_research import (  # noqa: E402
 )
 
 
-EXPECTED_BASES = {
-    "including_known_anomalies",
-    "excluding_known_revenue_and_price_anomalies",
-}
-DECISION_BASIS = "excluding_known_revenue_and_price_anomalies"
+EXPECTED_BASES = {PRIMARY_ANOMALY_BASIS, ANOMALY_CANDIDATE_SENSITIVITY_BASIS}
+DECISION_BASIS = PRIMARY_ANOMALY_BASIS
 SUMMARY_REQUIRED = {
     "model_id",
     "research_artifact_id",
@@ -82,8 +81,8 @@ DETAIL_REQUIRED = {
     "loss_5_flag",
     "same_stock_non_overlap_included",
     "non_overlap_cooldown_days",
-    "known_revenue_or_price_anomaly_flag",
-    "feature_context_revenue_anomaly_flag",
+    "revenue_or_price_anomaly_candidate_flag",
+    "feature_context_revenue_anomaly_candidate_flag",
     "future_close_max_step_ratio",
     "future_close_max_step_day",
     "future_close_min_step_ratio",
@@ -96,7 +95,7 @@ ANOMALY_REQUIRED = {
     "research_artifact_id",
     "anomaly_exclusion_basis",
     "decision_basis",
-    "known_anomaly_count_in_source",
+    "unresolved_anomaly_candidate_count_in_source",
     "accepted_trade_count",
     "same_stock_overlap_pair_count",
     "max_realized_return_pct",
@@ -105,7 +104,7 @@ ANOMALY_REQUIRED = {
     "min_realized_return_pct",
     "min_return_stock_id",
     "min_return_signal_date",
-    "return_abs_ge80_count",
+    "return_abs_ge80_anomaly_candidate_count",
     "return_path_discontinuity_count_after_non_overlap",
     "return_path_discontinuity_count_excluded",
     "return_path_discontinuity_count_in_metric_sample",
@@ -361,17 +360,11 @@ def validate_detail(detail: pd.DataFrame) -> list[str]:
     if set(detail["exit_rule_id"]) != {"d20_close_no_stop"}:
         errors.append("detail exit rule mismatch")
     decision = detail[detail["anomaly_exclusion_basis"].eq(DECISION_BASIS)]
-    if boolish(decision["known_revenue_or_price_anomaly_flag"]).any():
-        errors.append("decision-basis detail contains a known revenue or price anomaly")
-    if boolish(decision["feature_context_revenue_anomaly_flag"]).any():
-        errors.append("decision-basis detail contains a lagged monthly-revenue context anomaly")
-    if boolish(decision["future_close_discontinuity_flag"]).any():
-        errors.append("decision-basis detail contains a future close-path discontinuity")
     if not boolish(decision["decision_basis"]).all():
         errors.append("decision-basis rows must set decision_basis=True")
     nondecision = detail[~detail["anomaly_exclusion_basis"].eq(DECISION_BASIS)]
     if boolish(nondecision["decision_basis"]).any():
-        errors.append("including-anomaly rows must not be marked as decision basis")
+        errors.append("candidate-exclusion sensitivity rows must not be marked as decision basis")
     realized = pd.to_numeric(detail["realized_return_pct"], errors="coerce")
     expected_labels = pd.Series("failure", index=detail.index)
     expected_labels = expected_labels.mask(realized.ge(0.0) & realized.lt(5.0), "neutral")
@@ -423,15 +416,15 @@ def validate_anomaly(anomaly: pd.DataFrame, detail: pd.DataFrame) -> list[str]:
         if reported_remaining_discontinuities != remaining_discontinuities:
             errors.append(f"basis={basis} return-path discontinuity metric-sample count mismatch")
         if basis == DECISION_BASIS:
-            if reported_remaining_discontinuities != 0:
-                errors.append("decision basis must remove all detected close-path discontinuities")
-            if reported_excluded_discontinuities != reported_total_discontinuities:
-                errors.append("decision basis must report every detected close-path discontinuity as excluded")
-        else:
             if reported_excluded_discontinuities != 0:
-                errors.append("including-anomaly basis must not claim close-path discontinuities were excluded")
+                errors.append("primary basis must retain unresolved close-path candidates")
             if reported_remaining_discontinuities != reported_total_discontinuities:
-                errors.append("including-anomaly basis close-path discontinuity count mismatch")
+                errors.append("primary basis close-path candidate count mismatch")
+        else:
+            if reported_excluded_discontinuities != reported_total_discontinuities:
+                errors.append("sensitivity basis must exclude every detected close-path candidate")
+            if reported_remaining_discontinuities != 0:
+                errors.append("sensitivity basis retains a close-path candidate")
         expected_dominance = remaining_discontinuities > 0 or top1 >= 10.0 or top5 >= 30.0
         if boolish(pd.Series([row["potential_return_dominance_flag"]])).iloc[0] != expected_dominance:
             errors.append(f"basis={basis} potential_return_dominance_flag mismatch")
@@ -439,13 +432,23 @@ def validate_anomaly(anomaly: pd.DataFrame, detail: pd.DataFrame) -> list[str]:
             errors.append(f"basis={basis} anomaly audit overlap_pair_count must be zero")
         status = row["interpretation_status"]
         if basis == DECISION_BASIS:
+            candidate_count = int(
+                pd.to_numeric(
+                    row["return_abs_ge80_anomaly_candidate_count"], errors="coerce"
+                )
+            )
+            source_candidate_count = int(number(row["unresolved_anomaly_candidate_count_in_source"]))
             expected_status = (
-                "blocked_pending_extreme_return_row_review" if expected_dominance else "anomaly_check_pass"
+                "blocked_pending_root_cause_anomaly_candidate_review"
+                if candidate_count > 0 or source_candidate_count > 0 or remaining_discontinuities > 0
+                else "blocked_pending_non_threshold_anomaly_review"
+                if expected_dominance
+                else "anomaly_check_pass_no_threshold_candidates"
             )
             if status != expected_status:
                 errors.append("decision-basis anomaly audit interpretation status mismatch")
-        if basis != DECISION_BASIS and status != "not_decision_basis_known_anomalies_included":
-            errors.append("including-anomaly audit must be explicitly non-decision-basis")
+        if basis != DECISION_BASIS and status != "sensitivity_only_not_anomaly_disposition":
+            errors.append("candidate-exclusion audit must be explicitly sensitivity-only")
     return errors
 
 
@@ -490,3 +493,4 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+    PRIMARY_ANOMALY_BASIS,

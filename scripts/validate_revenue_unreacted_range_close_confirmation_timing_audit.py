@@ -5,6 +5,7 @@ from pathlib import Path
 import pandas as pd
 
 from revenue_unreacted_range_close_confirmation_timing import (
+    ANOMALY_CANDIDATE_SENSITIVITY_BASIS,
     ANOMALY_CSV,
     ARTIFACT_ID,
     CONFIRMATION_SPECS,
@@ -12,7 +13,6 @@ from revenue_unreacted_range_close_confirmation_timing import (
     DECISION_BASIS,
     DETAIL_CSV,
     EXIT_CLOCK_SPECS,
-    INCLUDING_BASIS,
     MODEL_ID,
     SUMMARY_CSV,
     SUMMARY_MD,
@@ -82,7 +82,7 @@ DETAIL_REQUIRED = {
     "realized_return_pct",
     "outcome_label",
     "metric_included",
-    "price_path_anomaly_flag",
+    "price_path_anomaly_candidate_flag",
     "known_before_entry_open",
     "uses_post_entry_information",
     "full_monthly_revenue_source_table_date",
@@ -99,12 +99,13 @@ ANOMALY_REQUIRED = {
     "confirmation_variant_id",
     "pending_window_days",
     "exit_clock_id",
-    "accepted_trade_count_before_path_exclusion",
-    "price_path_anomaly_count",
+    "accepted_trade_count_before_candidate_sensitivity_exclusion",
+    "price_path_anomaly_candidate_count",
     "metric_sample_count",
     "top1_abs_return_share_pct",
     "top5_abs_return_share_pct",
     "trimmed_1pct_avg_return_pct",
+    "return_abs_ge80_anomaly_candidate_count",
     "potential_return_dominance_flag",
     "interpretation_status",
     "approved_for_daily",
@@ -172,10 +173,11 @@ def validate_frames(
         if expected_timestamp_line not in markdown_text:
             errors.append("markdown generated_at must match summary and anomaly artifacts")
 
-    if set(summary["anomaly_exclusion_basis"].astype(str)) != {INCLUDING_BASIS, DECISION_BASIS}:
-        errors.append("summary must publish including and excluding anomaly bases")
-    if set(anomaly["anomaly_exclusion_basis"].astype(str)) != {INCLUDING_BASIS, DECISION_BASIS}:
-        errors.append("anomaly audit must publish including and excluding anomaly bases")
+    expected_bases = {DECISION_BASIS, ANOMALY_CANDIDATE_SENSITIVITY_BASIS}
+    if set(summary["anomaly_exclusion_basis"].astype(str)) != expected_bases:
+        errors.append("summary must publish primary and candidate-exclusion sensitivity bases")
+    if set(anomaly["anomaly_exclusion_basis"].astype(str)) != expected_bases:
+        errors.append("anomaly audit must publish primary and candidate-exclusion sensitivity bases")
     if not _trueish(detail["decision_basis"]).all():
         errors.append("detail rows must all be decision_basis=True")
 
@@ -253,8 +255,6 @@ def validate_frames(
 
     included = detail[_trueish(detail["metric_included"])].copy()
     if not included.empty:
-        if _trueish(included["price_path_anomaly_flag"]).any():
-            errors.append("decision metrics must exclude price-path anomalies")
         confirmation = _numbers(included, "confirmation_sequence_index")
         entry = _numbers(included, "entry_sequence_index")
         exit_sequence = _numbers(included, "exit_sequence_index")
@@ -293,10 +293,39 @@ def validate_frames(
         errors.append("anomaly rows must map one-to-one to performance rows")
     decision_anomaly = anomaly[anomaly["anomaly_exclusion_basis"].eq(DECISION_BASIS)]
     dominance = _trueish(decision_anomaly["potential_return_dominance_flag"])
-    if (dominance & ~decision_anomaly["interpretation_status"].eq("blocked_return_dominance_review")).any():
-        errors.append("return dominance must block interpretation instead of being hidden")
-    if ((~dominance) & ~decision_anomaly["interpretation_status"].eq("anomaly_check_pass")).any():
+    candidate_count = pd.to_numeric(
+        decision_anomaly["return_abs_ge80_anomaly_candidate_count"], errors="coerce"
+    ).fillna(0)
+    candidate_rows = candidate_count.gt(0)
+    if (
+        candidate_rows
+        & ~decision_anomaly["interpretation_status"].eq(
+            "blocked_pending_root_cause_anomaly_candidate_review"
+        )
+    ).any():
+        errors.append("decision-basis threshold candidates must block root-cause review")
+    if (
+        (~candidate_rows)
+        & dominance
+        & ~decision_anomaly["interpretation_status"].eq(
+            "blocked_non_threshold_return_dominance_review"
+        )
+    ).any():
+        errors.append("non-threshold return dominance must block interpretation")
+    if (
+        (~candidate_rows)
+        & (~dominance)
+        & ~decision_anomaly["interpretation_status"].eq("anomaly_check_pass")
+    ).any():
         errors.append("clean decision-basis anomaly rows must report anomaly_check_pass")
+
+    sensitivity_anomaly = anomaly[
+        anomaly["anomaly_exclusion_basis"].eq(ANOMALY_CANDIDATE_SENSITIVITY_BASIS)
+    ]
+    if not sensitivity_anomaly["interpretation_status"].eq(
+        "sensitivity_only_not_anomaly_disposition"
+    ).all():
+        errors.append("candidate-exclusion basis must be labeled sensitivity-only")
 
     return errors
 

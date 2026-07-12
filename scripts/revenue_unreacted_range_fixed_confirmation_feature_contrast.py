@@ -7,11 +7,11 @@ from typing import Any
 import pandas as pd
 
 from revenue_unreacted_range_close_confirmation_timing import (
+    ANOMALY_CANDIDATE_SENSITIVITY_BASIS as SOURCE_ANOMALY_CANDIDATE_SENSITIVITY_BASIS,
     DECISION_BASIS,
     FIXED_FEATURE_CONTRAST_EXIT_CLOCK_ID,
     FIXED_FEATURE_CONTRAST_PENDING_WINDOW_DAYS,
     FIXED_FEATURE_CONTRAST_VARIANT_ID,
-    INCLUDING_BASIS,
     build_fixed_confirmation_episode_source,
 )
 from tracking_utils import (
@@ -27,10 +27,12 @@ from tracking_utils import (
 HISTORY_DIR = Path("output/history/research")
 ARTIFACT_ID = "revenue_unreacted_range_fixed_confirmation_feature_contrast_audit"
 ANOMALY_ARTIFACT_ID = f"{ARTIFACT_ID}_anomaly_audit"
-ARTIFACT_VERSION = "fixed_range23_breakout_3d_confirmation_d20_v1"
+ARTIFACT_VERSION = "fixed_range23_breakout_3d_confirmation_d20_v2_anomaly_candidate_primary"
 MODEL_ID = "revenue_unreacted_range"
 MODEL_NAME_ZH = "營收爆發但股價尚未反應模型"
-EXTREME_SENSITIVITY_BASIS = "excluding_known_revenue_price_and_abs_ge80_return_sensitivity"
+RETURN_ANOMALY_CANDIDATE_SENSITIVITY_BASIS = (
+    "excluding_abs_ge80_anomaly_candidates_sensitivity_only"
+)
 
 SUMMARY_CSV = RESEARCH_LATEST_DIR / f"{ARTIFACT_ID}_latest.csv"
 DETAIL_CSV = RESEARCH_LATEST_DIR / f"{ARTIFACT_ID}_detail_latest.csv"
@@ -212,12 +214,6 @@ def feature_observed_mask(frame: pd.DataFrame, feature_id: str, feature_family: 
         observed &= _boolish(
             frame.get("full_monthly_revenue_context_ready", pd.Series(False, index=frame.index))
         )
-        observed &= ~_boolish(
-            frame.get(
-                "full_monthly_revenue_numerical_anomaly_flag",
-                pd.Series(False, index=frame.index),
-            )
-        )
     elif feature_family == "tdcc":
         observed &= _boolish(frame.get("tdcc_history_available", pd.Series(False, index=frame.index)))
     elif feature_family.startswith("market_regime"):
@@ -243,12 +239,6 @@ def numeric_feature_observed_mask(
     if feature_family == "monthly_revenue":
         observed &= _boolish(
             frame.get("full_monthly_revenue_context_ready", pd.Series(False, index=frame.index))
-        )
-        observed &= ~_boolish(
-            frame.get(
-                "full_monthly_revenue_numerical_anomaly_flag",
-                pd.Series(False, index=frame.index),
-            )
         )
     elif feature_family == "tdcc":
         observed &= _boolish(
@@ -364,9 +354,9 @@ def _build_detail(
     ].copy()
     decision = mature[mature["anomaly_exclusion_basis"].eq(DECISION_BASIS)].copy()
     sensitivity = decision[_numeric(decision, "realized_return_pct").abs().lt(80.0)].copy()
-    sensitivity["anomaly_exclusion_basis"] = EXTREME_SENSITIVITY_BASIS
+    sensitivity["anomaly_exclusion_basis"] = RETURN_ANOMALY_CANDIDATE_SENSITIVITY_BASIS
     sensitivity["decision_basis"] = False
-    mature["sensitivity_basis"] = False
+    mature["sensitivity_basis"] = mature["anomaly_exclusion_basis"].ne(DECISION_BASIS)
     sensitivity["sensitivity_basis"] = True
     trades = pd.concat([mature, sensitivity], ignore_index=True, sort=False)
     trades = trades.rename(
@@ -414,7 +404,7 @@ def _build_detail(
         joined["same_stock_non_overlap_applied"] = True
         joined["approved_for_daily"] = False
         joined["production_change"] = "none"
-        joined["promotion_readiness"] = "research_only_fixed_feature_contrast_not_promotion_ready"
+        joined["promotion_readiness"] = "blocked_pending_root_cause_anomaly_candidate_review"
         details.append(joined)
     detail = pd.concat(details, ignore_index=True, sort=False)
     identity = [
@@ -453,9 +443,9 @@ def _build_detail(
         "outcome_label",
         "high_return_8_flag",
         "loss_5_flag",
-        "price_path_anomaly_flag",
-        "price_path_anomaly_reason",
-        "source_revenue_or_price_anomaly_flag",
+        "price_path_anomaly_candidate_flag",
+        "price_path_anomaly_candidate_reason",
+        "source_revenue_or_price_anomaly_candidate_flag",
         "source_monthly_revenue_period",
         "source_monthly_revenue_source_table_date",
         "source_monthly_revenue_latest_yoy_pct",
@@ -510,17 +500,23 @@ def _anomaly_audit(detail: pd.DataFrame) -> pd.DataFrame:
         without_extremes = realized.drop(index=list(dict.fromkeys([max_index, min_index])))
         top1 = round(float(absolute.iloc[:1].sum()) / absolute_total * 100.0, 4) if absolute_total else 0.0
         top5 = round(float(absolute.iloc[:5].sum()) / absolute_total * 100.0, 4) if absolute_total else 0.0
-        path_count = int(_boolish(part["price_path_anomaly_flag"]).sum())
-        abs80_count = int(realized.abs().ge(80.0).sum())
+        path_count = int(_boolish(part["price_path_anomaly_candidate_flag"]).sum())
+        abs80_candidate_count = int(realized.abs().ge(80.0).sum())
         dominance = path_count > 0 or top1 >= 10.0 or top5 >= 30.0
-        if basis == INCLUDING_BASIS:
-            interpretation = "not_decision_basis_known_anomalies_included"
-        elif basis == EXTREME_SENSITIVITY_BASIS:
-            interpretation = "abs_ge80_return_sensitivity_only_not_automatic_exclusion"
+        source_candidate_count = int(
+            _boolish(part["source_revenue_or_price_anomaly_candidate_flag"]).sum()
+        )
+        if basis in {
+            SOURCE_ANOMALY_CANDIDATE_SENSITIVITY_BASIS,
+            RETURN_ANOMALY_CANDIDATE_SENSITIVITY_BASIS,
+        }:
+            interpretation = "candidate_threshold_sensitivity_only_not_anomaly_disposition"
+        elif abs80_candidate_count > 0 or path_count > 0 or source_candidate_count > 0:
+            interpretation = "blocked_pending_root_cause_anomaly_candidate_review"
         elif dominance:
-            interpretation = "blocked_pending_extreme_return_row_review"
+            interpretation = "blocked_pending_non_threshold_anomaly_review"
         else:
-            interpretation = "anomaly_check_pass_with_abs_ge80_sensitivity_required"
+            interpretation = "anomaly_check_pass_no_threshold_candidates"
         rows.append(
             {
                 "generated_at": safe_str(part["generated_at"].iloc[0]),
@@ -530,15 +526,19 @@ def _anomaly_audit(detail: pd.DataFrame) -> pd.DataFrame:
                 "source_timing_artifact_id": "revenue_unreacted_range_close_confirmation_timing_audit",
                 "anomaly_exclusion_basis": basis,
                 "decision_basis": basis == DECISION_BASIS,
-                "sensitivity_basis": basis == EXTREME_SENSITIVITY_BASIS,
+                "sensitivity_basis": basis in {
+                    SOURCE_ANOMALY_CANDIDATE_SENSITIVITY_BASIS,
+                    RETURN_ANOMALY_CANDIDATE_SENSITIVITY_BASIS,
+                },
                 "accepted_trade_count": len(realized),
                 "same_stock_overlap_pair_count": _same_stock_overlap_pair_count(part),
                 "same_stock_revenue_period_repeat_count": _revenue_period_repeat_count(part),
-                "price_path_anomaly_count": path_count,
-                "return_abs_ge80_count": abs80_count,
-                "signal_feature_context_revenue_anomaly_count": signal_revenue_anomalies,
-                "confirmation_feature_context_revenue_anomaly_count": confirmation_revenue_anomalies,
-                "feature_context_revenue_anomalies_excluded_from_feature_evidence": True,
+                "price_path_anomaly_candidate_count": path_count,
+                "return_abs_ge80_anomaly_candidate_count": abs80_candidate_count,
+                "source_revenue_or_price_anomaly_candidate_count": source_candidate_count,
+                "signal_feature_context_revenue_anomaly_candidate_count": signal_revenue_anomalies,
+                "confirmation_feature_context_revenue_anomaly_candidate_count": confirmation_revenue_anomalies,
+                "feature_context_candidate_values_retained_in_feature_evidence": True,
                 "max_realized_return_pct": round(float(realized.loc[max_index]), 4),
                 "max_return_stock_id": safe_str(part.loc[max_index, "stock_id"]),
                 "max_return_signal_date": safe_str(part.loc[max_index, "signal_date"]),
@@ -631,11 +631,15 @@ def _summary(
         ["anomaly_exclusion_basis", "feature_time_basis"], sort=False
     ):
         baseline = _outcome_metrics(part)
-        source_basis = DECISION_BASIS if basis == EXTREME_SENSITIVITY_BASIS else basis
+        source_basis = (
+            DECISION_BASIS
+            if basis == RETURN_ANOMALY_CANDIDATE_SENSITIVITY_BASIS
+            else basis
+        )
         timing_row = timing_map.get(source_basis, {})
         expected_count = (
             baseline["accepted_trade_count"]
-            if basis == EXTREME_SENSITIVITY_BASIS
+            if basis == RETURN_ANOMALY_CANDIDATE_SENSITIVITY_BASIS
             else int(float(timing_row.get("accepted_trade_count", -1)))
         )
         common = {
@@ -647,7 +651,10 @@ def _summary(
             "source_timing_artifact_id": "revenue_unreacted_range_close_confirmation_timing_audit",
             "anomaly_exclusion_basis": basis,
             "decision_basis": basis == DECISION_BASIS,
-            "sensitivity_basis": basis == EXTREME_SENSITIVITY_BASIS,
+            "sensitivity_basis": basis in {
+                SOURCE_ANOMALY_CANDIDATE_SENSITIVITY_BASIS,
+                RETURN_ANOMALY_CANDIDATE_SENSITIVITY_BASIS,
+            },
             "feature_time_basis": time_basis,
             "feature_time_basis_zh": safe_str(part["feature_time_basis_zh"].iloc[0]),
             "feature_information_cutoff": safe_str(part["feature_information_cutoff"].iloc[0]),
@@ -671,15 +678,15 @@ def _summary(
                 "pass" if baseline["accepted_trade_count"] == expected_count else "fail"
             ),
             "anomaly_interpretation_status": anomaly_map.get(basis, "missing_anomaly_audit"),
-            "feature_context_revenue_anomaly_count": int(
+            "feature_context_revenue_anomaly_candidate_count": int(
                 _boolish(part["full_monthly_revenue_numerical_anomaly_flag"]).sum()
             ),
-            "feature_context_revenue_anomalies_excluded_from_feature_evidence": True,
+            "feature_context_candidate_values_retained_in_feature_evidence": True,
             "sample_count_context": "reported_not_a_disqualifier_non_overlap_and_revenue_period_dedup_enforced",
             "combination_policy": "single_features_only_no_arbitrary_condition_stacking",
             "approved_for_daily": False,
             "production_change": "none",
-            "promotion_readiness": "research_only_fixed_feature_contrast_not_promotion_ready",
+            "promotion_readiness": "blocked_pending_root_cause_anomaly_candidate_review",
         }
         rows.append(
             {
@@ -812,18 +819,22 @@ def _summary(
                 }
             )
     summary = pd.DataFrame(rows)
-    summary["extreme_sensitivity_direction_status"] = "not_applicable"
+    summary["candidate_threshold_sensitivity_direction_status"] = "not_applicable"
     decision_rows = summary[summary["anomaly_exclusion_basis"].eq(DECISION_BASIS)]
-    sensitivity_rows = summary[summary["anomaly_exclusion_basis"].eq(EXTREME_SENSITIVITY_BASIS)]
+    sensitivity_rows = summary[
+        summary["anomaly_exclusion_basis"].eq(RETURN_ANOMALY_CANDIDATE_SENSITIVITY_BASIS)
+    ]
     sensitivity_map = sensitivity_rows.set_index(["feature_time_basis", "row_type", "feature_id"]).to_dict("index")
     for index, row in decision_rows.iterrows():
         counterpart = sensitivity_map.get((row["feature_time_basis"], row["row_type"], row["feature_id"]))
         if counterpart is None:
-            summary.loc[index, "extreme_sensitivity_direction_status"] = "missing_sensitivity_counterpart"
+            summary.loc[index, "candidate_threshold_sensitivity_direction_status"] = (
+                "missing_sensitivity_counterpart"
+            )
         elif row["row_type"] == "binary_feature":
             left = safe_str(row.get("evidence_interpretation"))
             right = safe_str(counterpart.get("evidence_interpretation"))
-            summary.loc[index, "extreme_sensitivity_direction_status"] = (
+            summary.loc[index, "candidate_threshold_sensitivity_direction_status"] = (
                 "stable_positive" if left.startswith("positive_") and right.startswith("positive_")
                 else "stable_risk" if left.startswith("failure_") and right.startswith("failure_")
                 else "mixed_or_unstable"
@@ -833,13 +844,15 @@ def _summary(
             right = pd.to_numeric(
                 pd.Series([counterpart.get("high_return_minus_failure_feature_mean")]), errors="coerce"
             ).iloc[0]
-            summary.loc[index, "extreme_sensitivity_direction_status"] = (
+            summary.loc[index, "candidate_threshold_sensitivity_direction_status"] = (
                 "stable_same_direction"
                 if pd.notna(left) and pd.notna(right) and (left == 0 or right == 0 or (left > 0) == (right > 0))
                 else "mixed_or_unstable"
             )
         else:
-            summary.loc[index, "extreme_sensitivity_direction_status"] = "baseline_sensitivity_published"
+            summary.loc[index, "candidate_threshold_sensitivity_direction_status"] = (
+                "baseline_sensitivity_published"
+            )
     return summary.sort_values(
         ["anomaly_exclusion_basis", "feature_time_basis", "row_type", "feature_order", "feature_id"],
         kind="mergesort",
@@ -878,7 +891,7 @@ def write_fixed_confirmation_feature_contrast(
     positive = decision[
         decision["row_type"].eq("binary_feature")
         & decision["feature_independence_status"].eq("distinct_observed_mask")
-        & decision["extreme_sensitivity_direction_status"].eq("stable_positive")
+        & decision["candidate_threshold_sensitivity_direction_status"].eq("stable_positive")
     ].copy()
     positive["_sort"] = pd.to_numeric(
         positive["high_return_minus_failure_hit_rate_within_observed_pct"], errors="coerce"
@@ -886,20 +899,21 @@ def write_fixed_confirmation_feature_contrast(
     positive = positive.sort_values(["feature_time_basis", "_sort"], ascending=[True, False])
     risk = decision[
         decision["row_type"].eq("binary_feature")
-        & decision["extreme_sensitivity_direction_status"].eq("stable_risk")
+        & decision["candidate_threshold_sensitivity_direction_status"].eq("stable_risk")
     ].copy()
     lines = [
         "# 營收低反應模型：固定確認口徑勝敗特徵比較",
         "",
         f"- generated_at: `{safe_str(summary['generated_at'].iloc[0])}`",
-        "- status: `research_only_fixed_feature_contrast_not_promotion_ready`",
+        "- status: `blocked_pending_root_cause_anomaly_candidate_review`",
         "- 固定候選：強月營收且股價仍在近期 23 日區間、攻擊尚未開始。",
         "- 固定確認：候選後最多三個交易日，收盤突破候選日前 23 日最高收盤價。",
         "- 固定操作：確認後次一交易日開盤進場；確認日 D+20 收盤出場；本輪不加停損。",
         "- 特徵時點：分開比較候選訊號日收盤已知與確認日收盤已知資訊，兩者不得混用。",
         "- 去重：同股操作區間不得重疊；decision basis 同股同月營收期間不得重複計算。",
-        "- 異常敏感度：另列排除 |報酬| >= 80% 的敏感度，不把連續價格路徑的極端報酬直接當成錯價。",
-        "- 月營收異常：交易基準保留，但 feature context 已標記的月營收數字異常不得進 binary 或 numeric feature evidence。",
+        "- 候選異常：|報酬| >= 80% 只產生 anomaly candidate；未完成底層根因查核前不得定名為極端值。",
+        "- 門檻敏感度：另列排除候選列的數字影響，但不得稱為異常排除、修正後績效或 promotion evidence。",
+        "- 月營收候選：未完成底層根因查核前，交易與已觀測 feature value 都保留在 primary evidence；候選排除只能另列 sensitivity。",
         "- 條件政策：本 artifact 只比較單一特徵，不任意疊條件；組合必須另行真實重算。",
         "- 樣本政策：樣本數揭露但不單獨作為否定條件。",
         "- 財務範圍：本輪僅使用 PIT 月營收；EPS、毛利率、營益率、營業利益、業外、淨利及季／年財報全部排除。",
@@ -914,11 +928,12 @@ def write_fixed_confirmation_feature_contrast(
                 "accepted_trade_count",
                 "same_stock_overlap_pair_count",
                 "same_stock_revenue_period_repeat_count",
-                "price_path_anomaly_count",
-                "return_abs_ge80_count",
-                "signal_feature_context_revenue_anomaly_count",
-                "confirmation_feature_context_revenue_anomaly_count",
-                "feature_context_revenue_anomalies_excluded_from_feature_evidence",
+                "price_path_anomaly_candidate_count",
+                "return_abs_ge80_anomaly_candidate_count",
+                "source_revenue_or_price_anomaly_candidate_count",
+                "signal_feature_context_revenue_anomaly_candidate_count",
+                "confirmation_feature_context_revenue_anomaly_candidate_count",
+                "feature_context_candidate_values_retained_in_feature_evidence",
                 "max_realized_return_pct",
                 "max_return_stock_id",
                 "max_return_signal_date",
@@ -973,7 +988,7 @@ def write_fixed_confirmation_feature_contrast(
                 "avg_realized_return_pct",
                 "median_realized_return_pct",
                 "loss_5_rate_pct",
-                "extreme_sensitivity_direction_status",
+                "candidate_threshold_sensitivity_direction_status",
             ],
             limit=40,
         ),
@@ -996,7 +1011,7 @@ def write_fixed_confirmation_feature_contrast(
                 "avg_realized_return_pct",
                 "median_realized_return_pct",
                 "loss_5_rate_pct",
-                "extreme_sensitivity_direction_status",
+                "candidate_threshold_sensitivity_direction_status",
             ],
             limit=40,
         ),
