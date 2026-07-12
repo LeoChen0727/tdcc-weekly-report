@@ -8,6 +8,15 @@ try:
 except ModuleNotFoundError:  # Imported as scripts.validate_repo_code_isolation_policy in pytest.
     from scripts.validate_model_data_independence import validate as validate_model_data_independence
 
+try:
+    from validate_revenue_unreacted_range_launch_timing_feature_audit import (
+        validate as validate_revenue_launch_timing_feature_audit,
+    )
+except ModuleNotFoundError:  # Imported as scripts.validate_repo_code_isolation_policy in pytest.
+    from scripts.validate_revenue_unreacted_range_launch_timing_feature_audit import (
+        validate as validate_revenue_launch_timing_feature_audit,
+    )
+
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -54,6 +63,12 @@ REVENUE_CLOSE_TIMING_MODULE = (
     ROOT / "scripts" / "revenue_unreacted_range_close_confirmation_timing.py"
 )
 REVENUE_LAG_STRENGTH_MODULE = ROOT / "scripts" / "revenue_unreacted_range_lag_strength_matrix.py"
+REVENUE_LAUNCH_TIMING_MODULE = (
+    ROOT / "scripts" / "revenue_unreacted_range_launch_timing_feature_audit.py"
+)
+REVENUE_LAUNCH_TIMING_VALIDATOR = (
+    ROOT / "scripts" / "validate_revenue_unreacted_range_launch_timing_feature_audit.py"
+)
 LEGACY_MODEL_RESEARCH_MODULE = ROOT / "scripts" / "build_daily_model_parameter_research.py"
 REVENUE_ANOMALY_ARTIFACT = (
     ROOT
@@ -61,6 +76,13 @@ REVENUE_ANOMALY_ARTIFACT = (
     / "latest"
     / "research_backtest"
     / "revenue_unreacted_range_extreme_return_path_audit_latest.csv"
+)
+REVENUE_LAUNCH_TIMING_ARTIFACT = (
+    ROOT
+    / "output"
+    / "latest"
+    / "research_backtest"
+    / "revenue_unreacted_range_launch_timing_feature_audit_latest.csv"
 )
 
 ANOMALY_ROOT_CHECKS = (
@@ -427,8 +449,11 @@ def validate() -> list[str]:
         REVENUE_FIXED_FEATURE_MODULE,
         REVENUE_CLOSE_TIMING_MODULE,
         REVENUE_LAG_STRENGTH_MODULE,
+        REVENUE_LAUNCH_TIMING_MODULE,
+        REVENUE_LAUNCH_TIMING_VALIDATOR,
         LEGACY_MODEL_RESEARCH_MODULE,
         REVENUE_ANOMALY_ARTIFACT,
+        REVENUE_LAUNCH_TIMING_ARTIFACT,
     ]
     for path in required_files:
         if not path.exists():
@@ -484,6 +509,10 @@ def validate() -> list[str]:
     errors.extend(
         f"numerical anomaly governance: {error}"
         for error in validate_numerical_anomaly_governance()
+    )
+    errors.extend(
+        f"revenue launch timing feature audit: {error}"
+        for error in validate_revenue_launch_timing_feature_audit()
     )
 
     return errors

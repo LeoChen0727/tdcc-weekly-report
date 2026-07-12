@@ -131,7 +131,7 @@ def test_data_sharing_registry_uses_model_owned_research_entrypoints() -> None:
 
 def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
     rows = read_csv("config/daily_model_data_sharing_migrations.csv")
-    assert len(rows) == 2
+    assert len(rows) == 3
     baseline = rows[0]
     assert tuple(baseline) == DATA_SHARING_MIGRATION_COLUMNS
     assert data_migration_row_sha256(baseline) == BASELINE_DATA_MIGRATION_ROW_SHA256
@@ -150,6 +150,25 @@ def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
     }
     assert anomaly_migration["user_approval_reference"] == (
         "user_approved_anomaly_root_cause_governance_20260712"
+    )
+
+    launch_timing_migration = rows[2]
+    assert launch_timing_migration["migration_id"] == (
+        "revenue_launch_timing_feature_audit_20260713"
+    )
+    assert launch_timing_migration["changed_data_families"] == (
+        "revenue_unreacted_range_launch_timing_feature_audit"
+    )
+    assert launch_timing_migration["previous_contract_sha256s"] == "NEW"
+    assert launch_timing_migration["new_contract_sha256s"] == (
+        "9156f82c9831ba1d0f6b159463eb7571944b9c6fe24cabdf3a068c5ed40aae6e"
+    )
+    assert launch_timing_migration["affected_models"] == "revenue_unreacted_range"
+    assert launch_timing_migration["user_approval_reference"] == (
+        "user_requested_revenue_launch_timing_feature_audit_20260713"
+    )
+    assert launch_timing_migration["migration_status"] == (
+        "validated_user_approved_migration"
     )
 
 
