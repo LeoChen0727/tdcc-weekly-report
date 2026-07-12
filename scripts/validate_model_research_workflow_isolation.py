@@ -10,6 +10,7 @@ ROOT = Path(__file__).resolve().parents[1]
 REGISTRY = ROOT / "config/model_research_workflow_entrypoints.csv"
 OWNERSHIP_REGISTRY = ROOT / "config/model_research_artifact_ownership.csv"
 WORKFLOW = ROOT / ".github/workflows/research_backtest_pipeline.yml"
+PR_VALIDATION_WORKFLOW = ROOT / ".github/workflows/daily_model_maintenance_pr_validation.yml"
 
 REQUIRED_COLUMNS = {
     "workflow_path",
@@ -133,6 +134,22 @@ def workflow_input_defaults(text: str) -> dict[str, str]:
 
 def workflow_step_blocks(text: str) -> list[str]:
     return [block for block in re.split(r"(?m)^      - name: ", text)[1:] if block.strip()]
+
+
+def validate_pr_workflow_text(text: str, rows: list[WorkflowEntrypoint]) -> list[str]:
+    errors: list[str] = []
+    for model_id in sorted({row.model_id for row in rows}):
+        required_patterns = {
+            f'      - "scripts/{model_id}_*.py"',
+            f'      - "tests/test_{model_id}_*.py"',
+        }
+        for pattern in sorted(required_patterns):
+            if pattern not in text:
+                errors.append(
+                    "daily model PR validation path filter missing model research namespace: "
+                    f"{pattern.strip()}"
+                )
+    return errors
 
 
 def validate_workflow_text(
@@ -277,6 +294,10 @@ def validate() -> list[str]:
     if not WORKFLOW.is_file():
         return [f"missing research workflow: {WORKFLOW}"]
     errors.extend(validate_workflow_text(WORKFLOW.read_text(encoding="utf-8"), rows, model_owned_producers))
+    if not PR_VALIDATION_WORKFLOW.is_file():
+        errors.append(f"missing daily model PR validation workflow: {PR_VALIDATION_WORKFLOW}")
+    else:
+        errors.extend(validate_pr_workflow_text(PR_VALIDATION_WORKFLOW.read_text(encoding="utf-8"), rows))
     for row in rows:
         if not (ROOT / row.producer).is_file():
             errors.append(f"missing model-owned workflow producer: {row.producer}")

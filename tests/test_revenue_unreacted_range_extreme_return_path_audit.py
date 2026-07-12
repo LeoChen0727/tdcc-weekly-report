@@ -11,7 +11,10 @@ SCRIPTS = ROOT / "scripts"
 if str(SCRIPTS) not in sys.path:
     sys.path.insert(0, str(SCRIPTS))
 
-from revenue_unreacted_range_extreme_return_path_audit import build_extreme_return_path_audit  # noqa: E402
+from revenue_unreacted_range_extreme_return_path_audit import (  # noqa: E402
+    _canonical_raw_price_row_sha256,
+    build_extreme_return_path_audit,
+)
 from validate_revenue_unreacted_range_extreme_return_path_audit import validate  # noqa: E402
 
 
@@ -35,3 +38,22 @@ def test_extreme_return_rows_are_real_paths_not_duplicate_or_impossible_jumps() 
     assert audit["all_ohlc_raw_match"].all()
     assert not audit["impossible_return_flag"].any()
     assert set(audit["price_path_classification"]) == {"plausible_extreme_continuous_gain"}
+
+
+def test_raw_price_source_hash_uses_only_the_consumed_stock_ohlc_row() -> None:
+    base = pd.Series({"open": 10, "high": 11.0, "low": 9.5, "close": 10.5, "volume": 100})
+    unrelated_change = pd.Series(
+        {
+            "open": 10.0,
+            "high": 11,
+            "low": 9.5,
+            "close": 10.50,
+            "volume": 999999,
+            "stock_name": "changed",
+        }
+    )
+    price_change = pd.Series({"open": 10, "high": 11, "low": 9.5, "close": 10.6})
+
+    base_hash = _canonical_raw_price_row_sha256("1234", "20260701", base)
+    assert base_hash == _canonical_raw_price_row_sha256("1234", "20260701", unrelated_change)
+    assert base_hash != _canonical_raw_price_row_sha256("1234", "20260701", price_change)

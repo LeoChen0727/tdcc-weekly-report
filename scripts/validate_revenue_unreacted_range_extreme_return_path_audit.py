@@ -6,6 +6,7 @@ from revenue_unreacted_range_extreme_return_path_audit import (
     ARTIFACT_VERSION,
     COLUMNS,
     LATEST_CSV,
+    RAW_PRICE_SOURCE_HASH_BASIS,
     build_extreme_return_path_audit,
 )
 
@@ -61,6 +62,10 @@ def validate() -> list[str]:
         errors.append("extreme return path audit contains duplicate episodes")
     if set(audit["artifact_version"].astype(str)) != {ARTIFACT_VERSION}:
         errors.append("extreme return path audit version drift")
+    if set(audit["raw_price_source_sha256_basis"].astype(str)) != {RAW_PRICE_SOURCE_HASH_BASIS}:
+        errors.append("extreme return path raw source hash basis drift")
+    if not audit["raw_price_source_sha256"].astype(str).str.fullmatch(r"[0-9a-f]{64}").all():
+        errors.append("extreme return path raw source hash is malformed")
     for column in ("entry_open_raw_match", "exit_close_raw_match", "all_ohlc_raw_match"):
         if not _boolish(audit[column]).all():
             errors.append(f"extreme return path audit raw match failed: {column}")
