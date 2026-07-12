@@ -24,6 +24,27 @@ def test_daily_model_maintenance_pr_workflow_exists_for_model_pdf_paths() -> Non
     assert "tests/test_mature_model_row_level_metric_contract_audit.py" in text
 
 
+def test_daily_model_maintenance_pr_workflow_triggers_on_independence_guard_changes() -> None:
+    text = WORKFLOW.read_text(encoding="utf-8")
+
+    required_paths = (
+        "config/daily_model_*.csv",
+        "config/runtime_file_lineage_contract.csv",
+        "scripts/build_model_data_independence_audit.py",
+        "scripts/model_data_independence.py",
+        "scripts/validate_model_data_independence.py",
+        "scripts/validate_model_surface_registry.py",
+        "scripts/validate_repo_code_isolation_policy.py",
+        "tests/test_model_data_independence.py",
+        "tests/test_model_surface_registry.py",
+        "tests/test_repo_code_isolation_policy.py",
+        "docs/latest/model_data_independence_audit_latest.*",
+        "output/latest/model_data_independence_audit_latest.*",
+    )
+    for path in required_paths:
+        assert path in text
+
+
 def test_daily_model_maintenance_pr_workflow_runs_contract_validators() -> None:
     text = WORKFLOW.read_text(encoding="utf-8")
 
