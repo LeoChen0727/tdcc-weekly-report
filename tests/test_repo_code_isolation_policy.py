@@ -12,6 +12,25 @@ def test_repo_code_isolation_policy_validator_passes() -> None:
     assert validator.main() == 0
 
 
+def test_model_research_isolation_policy_is_machine_enforced() -> None:
+    agents = (ROOT / "AGENTS.md").read_text(encoding="utf-8")
+    rules = (ROOT / "rules/master_priority_rules.md").read_text(encoding="utf-8")
+    assert "model-owned entrypoints" in agents
+    assert "cross-model utility migration" in agents
+    assert "canonical SHA-256" in rules
+    assert "protected mature-model artifact hashes" in rules
+    for path in (
+        ROOT / "config/model_research_artifact_ownership.csv",
+        ROOT / "config/model_research_protected_sentinels.csv",
+        ROOT / "config/model_research_shared_utility_registry.csv",
+        ROOT / "config/formal_model_evidence_pins.csv",
+        ROOT / "scripts/validate_model_research_artifact_ownership.py",
+        ROOT / "scripts/validate_model_research_shared_utilities.py",
+        ROOT / "scripts/validate_formal_model_evidence_pins.py",
+    ):
+        assert path.is_file()
+
+
 def test_daily_full_pipeline_runs_code_isolation_gates() -> None:
     workflow_text = (ROOT / ".github" / "workflows" / "daily_full_pipeline.yml").read_text(
         encoding="utf-8"

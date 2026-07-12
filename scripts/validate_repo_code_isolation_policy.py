@@ -18,6 +18,14 @@ DOCS_RULES_MASTER = ROOT / "docs" / "rules" / "master_priority_rules.md"
 RULES_DAILY = ROOT / "rules" / "daily_stock_candidate_rules.md"
 DOCS_RULES_DAILY = ROOT / "docs" / "rules" / "daily_stock_candidate_rules.md"
 POLICY_TEST = ROOT / "tests" / "test_repo_code_isolation_policy.py"
+MODEL_RESEARCH_OWNERSHIP_REGISTRY = ROOT / "config" / "model_research_artifact_ownership.csv"
+MODEL_RESEARCH_SENTINEL_REGISTRY = ROOT / "config" / "model_research_protected_sentinels.csv"
+MODEL_RESEARCH_SHARED_UTILITY_REGISTRY = ROOT / "config" / "model_research_shared_utility_registry.csv"
+MODEL_RESEARCH_SHARED_MIGRATION_REGISTRY = ROOT / "config" / "model_research_shared_utility_migrations.csv"
+FORMAL_EVIDENCE_PIN_REGISTRY = ROOT / "config" / "formal_model_evidence_pins.csv"
+MODEL_RESEARCH_OWNERSHIP_VALIDATOR = ROOT / "scripts" / "validate_model_research_artifact_ownership.py"
+MODEL_RESEARCH_SHARED_UTILITY_VALIDATOR = ROOT / "scripts" / "validate_model_research_shared_utilities.py"
+FORMAL_EVIDENCE_PIN_VALIDATOR = ROOT / "scripts" / "validate_formal_model_evidence_pins.py"
 
 
 REQUIRED_POLICY_TEXT = {
@@ -29,6 +37,11 @@ REQUIRED_POLICY_TEXT = {
         "Before editing any shared function, parameter table, helper, or workflow step,",
         "Stock model parameters, thresholds, scoring weights, ranking rules, and gates",
         "Changing A must not silently change B.",
+        "Model research producers must be model-owned entrypoints with model-owned",
+        "Formal model evidence must be bound",
+        "Every cross-model business-semantic utility must be registered",
+        "cross-model utility migration",
+        "protected mature-model artifact hashes",
     ],
     RULES_MASTER: [
         "## Default Code Isolation",
@@ -36,6 +49,11 @@ REQUIRED_POLICY_TEXT = {
         "must not share business-semantic code across unrelated outputs",
         "Shared code is allowed only for low-level technical utilities",
         "A request to adjust one report, model, parameter, or field must not silently change another surface.",
+        "Model research must use model-owned producer entrypoints and artifact allowlists.",
+        "Formal model evidence must identify an immutable artifact version and canonical SHA-256",
+        "Cross-model business-semantic utilities must be registered",
+        "cross-model utility migration record",
+        "protected mature-model artifact hashes",
         "This policy is enforced by `scripts/validate_repo_code_isolation_policy.py`",
     ],
     RULES_DAILY: [
@@ -97,6 +115,14 @@ def validate() -> list[str]:
         RULES_DAILY,
         DOCS_RULES_DAILY,
         POLICY_TEST,
+        MODEL_RESEARCH_OWNERSHIP_REGISTRY,
+        MODEL_RESEARCH_SENTINEL_REGISTRY,
+        MODEL_RESEARCH_SHARED_UTILITY_REGISTRY,
+        MODEL_RESEARCH_SHARED_MIGRATION_REGISTRY,
+        FORMAL_EVIDENCE_PIN_REGISTRY,
+        MODEL_RESEARCH_OWNERSHIP_VALIDATOR,
+        MODEL_RESEARCH_SHARED_UTILITY_VALIDATOR,
+        FORMAL_EVIDENCE_PIN_VALIDATOR,
     ]
     for path in required_files:
         if not path.exists():

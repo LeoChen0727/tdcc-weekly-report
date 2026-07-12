@@ -122,6 +122,10 @@ Shared code is allowed only for low-level technical utilities that do not decide
 
 Before changing any shared function that can affect multiple reports, models, parameters, or workflows, state the affected outputs and either split the code path first or make the coupling explicit in the change. A request to adjust one report, model, parameter, or field must not silently change another surface.
 
+Model research must use model-owned producer entrypoints and artifact allowlists. A research run for one model must fail if it changes another model's research output, formal operation adapter, readiness or approval artifact, or production snapshot. Formal model evidence must identify an immutable artifact version and canonical SHA-256 rather than consume an arbitrarily regenerated generic `latest` file.
+
+Cross-model business-semantic utilities must be registered with their complete consumer-model set, canonical SHA-256, and consumer validators. Any change requires a separate cross-model utility migration record containing the previous hash, new hash, every affected model, and every required validator. Model-only research workflows must preserve protected mature-model artifact hashes exactly before and after execution.
+
 This policy is enforced by `scripts/validate_repo_code_isolation_policy.py`, pytest, and the Daily Full Pipeline. A change that weakens code isolation must update the validator and tests in the same reviewed PR.
 
 ## Daily Model / Presentation Display Fields

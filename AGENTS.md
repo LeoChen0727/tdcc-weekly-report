@@ -100,6 +100,21 @@ relationship is encoded in source rules and tests.
 Changing A must not silently change B. If A and B are intentionally coupled,
 state that coupling before making the change.
 
+Model research producers must be model-owned entrypoints with model-owned
+artifact allowlists. A producer for one model must fail if it changes another
+model's research artifacts, any formal operation adapter, readiness artifact,
+approval artifact, or production snapshot. Formal model evidence must be bound
+to an explicit artifact version and canonical SHA-256; mutable generic `latest`
+files are not sufficient promotion evidence.
+
+Every cross-model business-semantic utility must be registered with its exact
+consumer models, canonical SHA-256, and required validators. Changing one is a
+separate `cross-model utility migration` scope: list every affected model, add a
+migration row with previous and new hashes, and rerun every registered consumer
+validator. A model-only research PR must not silently update the shared-utility
+hash baseline. Model-owned research workflows must also compare
+protected mature-model artifact hashes before and after the run and fail on any drift.
+
 This is a repository-level engineering gate, not a style preference. Daily
 production validation must run `scripts/validate_repo_code_isolation_policy.py`
 and `scripts/validate_chatgpt_side_pdf_layout_independence.py`; weakening these

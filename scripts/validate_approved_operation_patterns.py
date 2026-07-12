@@ -8,17 +8,8 @@ import pandas as pd
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from build_approved_operation_patterns import (  # noqa: E402
-    APPROVED_VOLUME_EVIDENCE_DIR,
-    BUY_FILTER_ID,
     DOCS_CSV,
     DOCS_MD,
-    ENTRY_RULE_ID,
-    EXIT_RULE_ID,
-    MIN_MEDIAN_RETURN,
-    MIN_RESEARCH_SCORE,
-    MIN_SAMPLE_SIZE,
-    MIN_WIN_RATE,
-    MODEL_ID,
     NECKLINE_APPROVAL_METRICS,
     NECKLINE_APPROVAL_VERSION,
     NECKLINE_BUY_FILTER_ID,
@@ -32,7 +23,6 @@ from build_approved_operation_patterns import (  # noqa: E402
     NECKLINE_SOURCE_RESEARCH_ID,
     NECKLINE_SPEC_SOURCE,
     NECKLINE_STOP_LOSS_RULE_ID,
-    OPERATION_MODULE_ID,
     OUT_CSV,
     OUT_MD,
     PRICE_PULLBACK_APPROVAL_METRICS,
@@ -47,7 +37,6 @@ from build_approved_operation_patterns import (  # noqa: E402
     PRICE_PULLBACK_SOURCE_RESEARCH_ID,
     PRICE_PULLBACK_SPEC_SOURCE,
     PRICE_PULLBACK_STOP_LOSS_RULE_ID,
-    STOP_LOSS_RULE_ID,
     V2_APPROVAL_METRICS,
     V2_APPROVAL_VERSION,
     V2_ENTRY_RULE_ID,
@@ -71,9 +60,9 @@ from build_approved_operation_patterns import (  # noqa: E402
     W_BOTTOM_SOURCE_RESEARCH_ID,
     W_BOTTOM_SPEC_SOURCE,
     W_BOTTOM_STOP_LOSS_RULE_ID,
-    positive_rank_rows,
 )
 from tracking_utils import read_csv, to_number  # noqa: E402
+from formal_model_evidence import evidence_pin_for_model  # noqa: E402
 
 
 REQUIRED_COLUMNS = {
@@ -97,6 +86,9 @@ REQUIRED_COLUMNS = {
     "evidence_total_rank_rows",
     "evidence_positive_rank_rows",
     "risk_notes_zh",
+    "evidence_artifact_version",
+    "evidence_canonical_sha256",
+    "evidence_pin_source",
 }
 
 EXPECTED_APPROVED_MODELS = {
@@ -107,6 +99,8 @@ EXPECTED_APPROVED_MODELS = {
     NECKLINE_MODEL_ID,
     PRICE_PULLBACK_MODEL_ID,
 }
+LEGACY_MODEL_ID = "volume_range_breakout"
+LEGACY_HIDDEN_EVIDENCE_BUY_FILTER_ID = "positive_evidence_oos_rank_v1"
 
 
 def bool_text(value: object) -> str:
@@ -141,9 +135,26 @@ def validate_approval() -> list[str]:
     if extra_models:
         errors.append(f"approved operation artifact has unexpected models: {extra_models}")
 
-    legacy_rows = df[df["model_id"].astype(str).eq(MODEL_ID)]
+    legacy_rows = df[df["model_id"].astype(str).eq(LEGACY_MODEL_ID)]
     if not legacy_rows.empty:
-        errors.append(f"legacy {MODEL_ID} must not remain approved after v2 split")
+        errors.append(f"legacy {LEGACY_MODEL_ID} must not remain approved after v2 split")
+
+    for _, row in df.iterrows():
+        model_id = str(row.get("model_id", "")).strip()
+        approval_version = str(row.get("approval_version", "")).strip()
+        try:
+            pin = evidence_pin_for_model(model_id, approval_version)
+        except RuntimeError as exc:
+            errors.append(str(exc))
+            continue
+        expected_pin_fields = {
+            "evidence_artifact_version": pin.evidence_version,
+            "evidence_canonical_sha256": pin.canonical_sha256,
+            "evidence_pin_source": pin.evidence_path,
+        }
+        for column, expected_value in expected_pin_fields.items():
+            if str(row.get(column, "")).strip() != expected_value:
+                errors.append(f"{model_id} {column} must match formal evidence pin")
 
     for model_id in V2_FORMAL_MODEL_IDS:
         rows = df[df["model_id"].astype(str).eq(model_id)]
@@ -305,8 +316,8 @@ def validate_positive_rank_source() -> list[str]:
     df = read_csv(OUT_CSV, dtype=str).fillna("")
     if df.empty:
         return errors
-    if MODEL_ID in set(df["model_id"].astype(str)):
-        errors.append(f"legacy {MODEL_ID} approval row must be removed from approved operation artifact")
+    if LEGACY_MODEL_ID in set(df["model_id"].astype(str)):
+        errors.append(f"legacy {LEGACY_MODEL_ID} approval row must be removed from approved operation artifact")
     for model_id in V2_FORMAL_MODEL_IDS:
         row = df[df["model_id"].astype(str).eq(model_id)]
         if row.empty:
@@ -319,8 +330,11 @@ def validate_positive_rank_source() -> list[str]:
         )
         if evidence_kind != expected_kind:
             errors.append(f"{model_id} must use {expected_kind} evidence, got {evidence_kind!r}")
-        if str(row.iloc[0].get("buy_filter_id", "")) == BUY_FILTER_ID:
-            errors.append(f"{model_id} must not reuse legacy hidden evidence buy_filter_id={BUY_FILTER_ID}")
+        if str(row.iloc[0].get("buy_filter_id", "")) == LEGACY_HIDDEN_EVIDENCE_BUY_FILTER_ID:
+            errors.append(
+                f"{model_id} must not reuse legacy hidden evidence "
+                f"buy_filter_id={LEGACY_HIDDEN_EVIDENCE_BUY_FILTER_ID}"
+            )
     return errors
 
 
