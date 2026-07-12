@@ -11,7 +11,8 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parents[1]
 MODEL_ID = "revenue_unreacted_range"
 ARTIFACT_ID = "revenue_unreacted_range_extreme_return_path_audit"
-ARTIFACT_VERSION = "extreme_return_path_raw_price_v1_20260712"
+ARTIFACT_VERSION = "extreme_return_path_raw_price_row_hash_v2_20260712"
+RAW_PRICE_SOURCE_HASH_BASIS = "date_stock_id_ohlc_canonical_rows_v1"
 EXTREME_ABS_RETURN_PCT = 80.0
 MARKET_LIMIT_AUDIT_THRESHOLD_PCT = 11.0
 
@@ -66,6 +67,7 @@ COLUMNS = [
     "corporate_action_event_types_in_window",
     "company_calendar_coverage_status",
     "raw_price_source_sha256",
+    "raw_price_source_sha256_basis",
     "price_path_classification",
     "impossible_return_flag",
     "decision_basis_handling",
@@ -83,12 +85,23 @@ def _boolish(series: pd.Series) -> pd.Series:
     return series.astype(str).str.strip().str.lower().isin({"true", "1", "yes"})
 
 
-def _sha256(path: Path) -> str:
-    digest = hashlib.sha256()
-    with path.open("rb") as handle:
-        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
-            digest.update(chunk)
-    return digest.hexdigest()
+def _canonical_price_value(value: object) -> str:
+    numeric = pd.to_numeric(pd.Series([value]), errors="coerce").iloc[0]
+    if pd.isna(numeric):
+        return ""
+    text = format(float(numeric), ".12g")
+    return "0" if text == "-0" else text
+
+
+def _canonical_raw_price_row_sha256(stock_id: str, date: str, raw_row: pd.Series) -> str:
+    payload = "\x1f".join(
+        [
+            str(date),
+            str(stock_id).zfill(4),
+            *(_canonical_price_value(raw_row[column]) for column in ("open", "high", "low", "close")),
+        ]
+    )
+    return hashlib.sha256(payload.encode("utf-8")).hexdigest()
 
 
 def _raw_price_row(stock_id: str, date: str) -> tuple[pd.Series | None, Path]:
@@ -184,12 +197,12 @@ def build_extreme_return_path_audit(detail: pd.DataFrame) -> pd.DataFrame:
         exit_close_raw_match = False
         for path_row in path_rows.itertuples(index=False):
             date = str(path_row.date)
-            raw_row, raw_path = _raw_price_row(stock_id, date)
+            raw_row, _raw_path = _raw_price_row(stock_id, date)
             if raw_row is None:
                 missing_raw_dates.append(date)
                 all_ohlc_match = False
                 continue
-            raw_hashes.append(f"{date}:{_sha256(raw_path)}")
+            raw_hashes.append(_canonical_raw_price_row_sha256(stock_id, date, raw_row))
             comparisons = []
             for history_column, raw_column in (("open", "open"), ("high", "high"), ("low", "low"), ("close", "close")):
                 left = float(pd.to_numeric(getattr(path_row, history_column), errors="coerce"))
@@ -260,6 +273,7 @@ def build_extreme_return_path_audit(detail: pd.DataFrame) -> pd.DataFrame:
                 "corporate_action_event_types_in_window": calendar_event_types,
                 "company_calendar_coverage_status": "current_snapshot_not_full_historical_corporate_action_pit_layer",
                 "raw_price_source_sha256": raw_source_sha,
+                "raw_price_source_sha256_basis": RAW_PRICE_SOURCE_HASH_BASIS,
                 "price_path_classification": (
                     "requires_data_quality_exception_review"
                     if impossible

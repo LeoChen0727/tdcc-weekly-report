@@ -70,3 +70,16 @@ def test_research_workflow_rejects_default_true_model_input() -> None:
     errors = validator.validate_workflow_text(text, rows, producers)
 
     assert any("must default false" in error for error in errors)
+
+
+def test_pr_validation_requires_each_registered_model_namespace() -> None:
+    rows = validator.load_registry()
+    text = validator.PR_VALIDATION_WORKFLOW.read_text(encoding="utf-8").replace(
+        '      - "scripts/revenue_unreacted_range_*.py"\n',
+        "",
+        1,
+    )
+
+    errors = validator.validate_pr_workflow_text(text, rows)
+
+    assert any("scripts/revenue_unreacted_range_*.py" in error for error in errors)
