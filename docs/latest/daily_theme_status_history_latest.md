@@ -1,23 +1,23 @@
 # Daily Theme Status History
 
-- generated_at: `2026-07-12 16:50:06 Asia/Taipei`
+- generated_at: `2026-07-12 18:33:51 Asia/Taipei`
 - latest_signal_date: `20260709`
-- latest_rows: `377`
-- history_rows: `11215`
+- latest_rows: `375`
+- history_rows: `11213`
 - purpose: Persist stock-level mainstream/non-mainstream and volume-attack labels by signal date for no-lookahead backtests.
 - caveat: Historical rows begin when this tracker starts unless older snapshots are backfilled from archived artifacts.
 
 ## Theme Status Group Counts
 | theme_status_group | count |
 | --- | --- |
-| mainstream_overheated | 274 |
+| mainstream_overheated | 272 |
 | mainstream_supported | 97 |
 | non_mainstream | 6 |
 
 ## Theme Final Status Counts
 | theme_final_status | count |
 | --- | --- |
-| mainstream_overheated | 274 |
+| mainstream_overheated | 272 |
 | mainstream_follow_through | 69 |
 | mainstream_leader | 24 |
 | single_name_signal | 6 |
@@ -26,7 +26,7 @@
 ## Volume Attack Theme Status Counts
 | theme_volume_attack_status | count |
 | --- | --- |
-| blank | 363 |
+| blank | 361 |
 | non_mainstream_volume_watch | 5 |
 | single_stock_volume_attack | 5 |
 | overheated_volume_theme | 4 |
