@@ -460,7 +460,7 @@ def validate_orphan_code(inventory: dict[str, InventoryRow]) -> list[str]:
             guidance_text += "\n" + read_text(candidate)
 
     for path, row in inventory.items():
-        if row.kind != "python" or row.status == "legacy_deprecated":
+        if row.kind != "python" or row.status in {"legacy_deprecated", "manual_diagnostic"}:
             continue
         if row.owner in {"repo_infrastructure", "diagnostics"}:
             continue

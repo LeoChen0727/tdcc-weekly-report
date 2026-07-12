@@ -49,3 +49,16 @@ def test_chip_flow_orphan_builder_was_removed() -> None:
         rows = {row["path"]: row for row in csv.DictReader(fh)}
 
     assert "scripts/build_chip_flow_positive_streak.py" not in rows
+
+
+def test_manual_diagnostic_script_is_not_reported_as_orphan() -> None:
+    path = "scripts/build_revenue_unreacted_range_research.py"
+    row = validator.InventoryRow(
+        path=path,
+        kind="python",
+        owner="research_backtest",
+        status="manual_diagnostic",
+        purpose="model-owned revenue research producer pending workflow wiring",
+    )
+
+    assert validator.validate_orphan_code({path: row}) == []

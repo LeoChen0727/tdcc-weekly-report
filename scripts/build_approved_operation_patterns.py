@@ -10,6 +10,7 @@ import pandas as pd
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from tracking_utils import DOCS_LATEST_DIR, LATEST_DIR, markdown_table, now_text, read_csv, safe_str, to_number, write_csv  # noqa: E402
+from formal_model_evidence import evidence_pin_for_model  # noqa: E402
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -199,6 +200,7 @@ def true_text(value: Any) -> bool:
 def volume_v2_approval_row(model_id: str, generated_at: str) -> dict[str, Any]:
     metrics = V2_APPROVAL_METRICS[model_id]
     approval_version = metrics.get("approval_version", V2_APPROVAL_VERSION)
+    evidence_pin = evidence_pin_for_model(model_id, approval_version)
     source_research_id = metrics.get("source_research_id", V2_SOURCE_RESEARCH_ID)
     evidence_source = metrics.get("evidence_source", V2_EVIDENCE_SOURCE)
     evidence_source_kind = metrics.get("evidence_source_kind", "volume_range_breakout_v2_candidate_bucket_contract")
@@ -207,6 +209,9 @@ def volume_v2_approval_row(model_id: str, generated_at: str) -> dict[str, Any]:
         "model_id": model_id,
         "operation_module_id": metrics["operation_module_id"],
         "approval_version": approval_version,
+        "evidence_artifact_version": evidence_pin.evidence_version,
+        "evidence_canonical_sha256": evidence_pin.canonical_sha256,
+        "evidence_pin_source": evidence_pin.evidence_path,
         "approved_for_daily": "True",
         "approval_status": "approved_for_daily_v1",
         "operation_directive_level": "approved_daily_operation_guidance",
@@ -270,11 +275,15 @@ def w_bottom_approval_row(generated_at: str) -> dict[str, Any]:
     if positive_return_rate < W_BOTTOM_MIN_POSITIVE_RETURN_RATE:
         raise RuntimeError("W-bottom approval evidence positive-return rate is below the v2 gate")
 
+    evidence_pin = evidence_pin_for_model(W_BOTTOM_MODEL_ID, W_BOTTOM_APPROVAL_VERSION)
     return {
         "generated_at": generated_at,
         "model_id": W_BOTTOM_MODEL_ID,
         "operation_module_id": W_BOTTOM_OPERATION_MODULE_ID,
         "approval_version": W_BOTTOM_APPROVAL_VERSION,
+        "evidence_artifact_version": evidence_pin.evidence_version,
+        "evidence_canonical_sha256": evidence_pin.canonical_sha256,
+        "evidence_pin_source": evidence_pin.evidence_path,
         "approved_for_daily": "True",
         "approval_status": W_BOTTOM_APPROVAL_STATUS,
         "operation_directive_level": "approved_daily_operation_guidance",
@@ -349,11 +358,15 @@ def neckline_approval_row(generated_at: str) -> dict[str, Any]:
     if inclusive_success < NECKLINE_MIN_NEUTRAL_INCLUSIVE_SUCCESS_RATE:
         raise RuntimeError("neckline approval evidence inclusive success rate is below the v1 gate")
 
+    evidence_pin = evidence_pin_for_model(NECKLINE_MODEL_ID, NECKLINE_APPROVAL_VERSION)
     return {
         "generated_at": generated_at,
         "model_id": NECKLINE_MODEL_ID,
         "operation_module_id": NECKLINE_OPERATION_MODULE_ID,
         "approval_version": NECKLINE_APPROVAL_VERSION,
+        "evidence_artifact_version": evidence_pin.evidence_version,
+        "evidence_canonical_sha256": evidence_pin.canonical_sha256,
+        "evidence_pin_source": evidence_pin.evidence_path,
         "approved_for_daily": "True",
         "approval_status": "approved_for_daily_v1",
         "operation_directive_level": "approved_daily_operation_guidance",
@@ -427,11 +440,15 @@ def price_pullback_approval_row(generated_at: str) -> dict[str, Any]:
     if win_rate < PRICE_PULLBACK_MIN_WIN_RATE:
         raise RuntimeError("price_pullback_23ema approval evidence win rate is below the v1 gate")
 
+    evidence_pin = evidence_pin_for_model(PRICE_PULLBACK_MODEL_ID, PRICE_PULLBACK_APPROVAL_VERSION)
     return {
         "generated_at": generated_at,
         "model_id": PRICE_PULLBACK_MODEL_ID,
         "operation_module_id": PRICE_PULLBACK_OPERATION_MODULE_ID,
         "approval_version": PRICE_PULLBACK_APPROVAL_VERSION,
+        "evidence_artifact_version": evidence_pin.evidence_version,
+        "evidence_canonical_sha256": evidence_pin.canonical_sha256,
+        "evidence_pin_source": evidence_pin.evidence_path,
         "approved_for_daily": "True",
         "approval_status": "approved_for_daily_v1",
         "operation_directive_level": "approved_daily_operation_guidance",
