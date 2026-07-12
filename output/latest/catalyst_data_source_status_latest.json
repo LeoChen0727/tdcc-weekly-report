@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-12 16:45:54 Asia/Taipei",
+  "generated_at": "2026-07-12 18:14:54 Asia/Taipei",
   "external_fetch_status": "partial_ok",
   "note": "Official monthly revenue and material-information sources are used when reachable. No unverified news, MOPS pages, or social rumor data is fabricated.",
   "files": {
@@ -27,11 +27,12 @@
   "sources": {
     "TWSE monthly revenue OpenAPI": {
       "url": "https://openapi.twse.com.tw/v1/opendata/t187ap05_L",
-      "status": "failed",
-      "rows": 0,
-      "error": "('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))",
-      "matched_tracked_rows": 0,
-      "stored_rows": 0,
+      "status": "ok",
+      "rows": 942,
+      "error": "",
+      "http_status": 200,
+      "matched_tracked_rows": 227,
+      "stored_rows": 227,
       "note": "Official monthly revenue rows are stored as fundamental source rows with EPS/margin fields blank. They can flag revenue_good_eps_unconfirmed only; they are not EPS confirmation."
     },
     "TPEX monthly revenue OpenAPI": {
