@@ -107,6 +107,14 @@ approval artifact, or production snapshot. Formal model evidence must be bound
 to an explicit artifact version and canonical SHA-256; mutable generic `latest`
 files are not sufficient promotion evidence.
 
+Each model-research workflow input must default to `false` and map to exactly
+one model-owned producer plus that model's explicit stage allowlist. A scheduled
+full research run may explicitly select multiple model inputs, but each producer
+must remain independently guarded. Research workflows must not invoke the
+legacy cross-model aggregate producer or refresh formal operation adapters,
+readiness, approvals, or production snapshots; those require a separate formal
+sync or promotion workflow and PR.
+
 Every cross-model business-semantic utility must be registered with its exact
 consumer models, canonical SHA-256, and required validators. Changing one is a
 separate `cross-model utility migration` scope: list every affected model, add a

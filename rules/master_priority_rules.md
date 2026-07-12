@@ -124,6 +124,8 @@ Before changing any shared function that can affect multiple reports, models, pa
 
 Model research must use model-owned producer entrypoints and artifact allowlists. A research run for one model must fail if it changes another model's research output, formal operation adapter, readiness or approval artifact, or production snapshot. Formal model evidence must identify an immutable artifact version and canonical SHA-256 rather than consume an arbitrarily regenerated generic `latest` file.
 
+Every model-research workflow input must default to `false` and select exactly one model-owned producer plus that model's explicit stage allowlist. Scheduled full research may explicitly select several independent inputs. Research workflows must not invoke the legacy cross-model aggregate producer or refresh formal operation adapters, readiness, approvals, or production snapshots; those changes require a separate formal sync or promotion workflow and PR.
+
 Cross-model business-semantic utilities must be registered with their complete consumer-model set, canonical SHA-256, and consumer validators. Any change requires a separate cross-model utility migration record containing the previous hash, new hash, every affected model, and every required validator. Model-only research workflows must preserve protected mature-model artifact hashes exactly before and after execution.
 
 This policy is enforced by `scripts/validate_repo_code_isolation_policy.py`, pytest, and the Daily Full Pipeline. A change that weakens code isolation must update the validator and tests in the same reviewed PR.

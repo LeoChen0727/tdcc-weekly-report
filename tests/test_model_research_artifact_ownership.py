@@ -16,6 +16,7 @@ from model_research_artifact_guard import (  # noqa: E402
     load_ownership_rules,
     load_protected_sentinels,
     protected_sentinel_snapshot,
+    protected_sentinel_aggregate_sha256,
     validate_changed_paths,
 )
 from validate_model_research_artifact_ownership import validate  # noqa: E402
@@ -104,6 +105,15 @@ def test_protected_sentinel_detects_hash_drift() -> None:
         "protected sentinel hash drift during model research: "
         "output/latest/daily_w_bottom_right_side_operation_section_latest.csv"
     ]
+
+
+def test_protected_sentinel_aggregate_hash_is_order_independent_and_drift_sensitive() -> None:
+    before = {"b.csv": "hash-b", "a.csv": "hash-a"}
+    same = {"a.csv": "hash-a", "b.csv": "hash-b"}
+    after = {"a.csv": "hash-a", "b.csv": "hash-c"}
+
+    assert protected_sentinel_aggregate_sha256(before) == protected_sentinel_aggregate_sha256(same)
+    assert protected_sentinel_aggregate_sha256(before) != protected_sentinel_aggregate_sha256(after)
 
 
 def test_model_owned_guard_fails_when_protected_artifact_changes(tmp_path, monkeypatch) -> None:

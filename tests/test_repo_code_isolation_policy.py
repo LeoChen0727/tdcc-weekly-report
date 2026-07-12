@@ -23,9 +23,11 @@ def test_model_research_isolation_policy_is_machine_enforced() -> None:
         ROOT / "config/model_research_artifact_ownership.csv",
         ROOT / "config/model_research_protected_sentinels.csv",
         ROOT / "config/model_research_shared_utility_registry.csv",
+        ROOT / "config/model_research_workflow_entrypoints.csv",
         ROOT / "config/formal_model_evidence_pins.csv",
         ROOT / "scripts/validate_model_research_artifact_ownership.py",
         ROOT / "scripts/validate_model_research_shared_utilities.py",
+        ROOT / "scripts/validate_model_research_workflow_isolation.py",
         ROOT / "scripts/validate_formal_model_evidence_pins.py",
     ):
         assert path.is_file()
@@ -59,114 +61,73 @@ def test_research_pipeline_runs_model_parity_validator() -> None:
     assert "python scripts/validate_price_pullback_daily_row_parity.py" in workflow_text
 
 
-def test_research_pipeline_runs_model_operation_readiness_validator() -> None:
+def test_research_pipeline_does_not_refresh_formal_operation_state() -> None:
     workflow_text = (ROOT / ".github" / "workflows" / "research_backtest_pipeline.yml").read_text(
         encoding="utf-8"
     )
 
-    assert "python scripts/build_model_operation_readiness.py" in workflow_text
-    assert "python scripts/validate_model_operation_readiness.py" in workflow_text
+    for forbidden in (
+        "python scripts/build_model_operation_readiness.py",
+        "python scripts/build_approved_operation_patterns.py",
+        "python scripts/build_daily_w_bottom_operation_sections.py",
+        "python scripts/build_daily_price_pullback_23ema_operation_section.py",
+        "python scripts/update_daily_published_model_snapshots.py",
+        "git add output/history/daily_model_snapshots/",
+    ):
+        assert forbidden not in workflow_text
 
 
-def test_research_pipeline_stages_price_pullback_feature_confirmation_outputs() -> None:
+def test_research_pipeline_uses_model_owned_entrypoints_and_stage_allowlists() -> None:
     workflow_text = (ROOT / ".github" / "workflows" / "research_backtest_pipeline.yml").read_text(
         encoding="utf-8"
     )
 
-    assert "output/latest/research_backtest/price_pullback_23ema_feature_confirmation_research_latest.csv" in workflow_text
-    assert "output/latest/research_backtest/price_pullback_23ema_feature_confirmation_research_latest.md" in workflow_text
-    assert "docs/latest/price_pullback_23ema_feature_confirmation_research_latest.csv" in workflow_text
-    assert "docs/latest/price_pullback_23ema_feature_confirmation_research_latest.md" in workflow_text
-    assert "output/history/research/price_pullback_23ema_feature_confirmation_research.csv" in workflow_text
-    assert "output/latest/research_backtest/price_pullback_23ema_daily_row_parity_latest.csv" in workflow_text
-    assert "output/latest/research_backtest/price_pullback_23ema_daily_row_parity_latest.md" in workflow_text
-    assert "docs/latest/price_pullback_23ema_daily_row_parity_latest.csv" in workflow_text
-    assert "docs/latest/price_pullback_23ema_daily_row_parity_latest.md" in workflow_text
-    assert "output/history/research/price_pullback_23ema_daily_row_parity.csv" in workflow_text
-    assert "output/latest/research_backtest/price_pullback_23ema_model_decision_audit_latest.csv" in workflow_text
-    assert "output/latest/research_backtest/price_pullback_23ema_model_decision_audit_latest.md" in workflow_text
-    assert "docs/latest/price_pullback_23ema_model_decision_audit_latest.csv" in workflow_text
-    assert "docs/latest/price_pullback_23ema_model_decision_audit_latest.md" in workflow_text
-    assert "output/history/research/price_pullback_23ema_model_decision_audit.csv" in workflow_text
-    assert "output/latest/research_backtest/price_pullback_23ema_high_return_feature_score_grid_latest.csv" in workflow_text
-    assert "output/latest/research_backtest/price_pullback_23ema_high_return_feature_score_grid_latest.md" in workflow_text
-    assert "docs/latest/price_pullback_23ema_high_return_feature_score_grid_latest.csv" in workflow_text
-    assert "docs/latest/price_pullback_23ema_high_return_feature_score_grid_latest.md" in workflow_text
-    assert "output/history/research/price_pullback_23ema_high_return_feature_score_grid.csv" in workflow_text
-    assert "python scripts/validate_daily_model_revenue_condition_matrix.py" in workflow_text
-    assert "python scripts/validate_revenue_unreacted_range_operation_candidate_matrix.py" in workflow_text
-    assert "output/latest/research_backtest/price_pullback_23ema_revenue_condition_matrix_latest.csv" in workflow_text
-    assert "output/latest/research_backtest/price_pullback_23ema_revenue_condition_matrix_latest.md" in workflow_text
-    assert "python scripts/validate_price_pullback_promotion_matrix.py" in workflow_text
-    assert "output/latest/research_backtest/price_pullback_23ema_promotion_matrix_latest.csv" in workflow_text
-    assert "output/latest/research_backtest/price_pullback_23ema_promotion_matrix_latest.md" in workflow_text
-    assert "output/latest/research_backtest/revenue_unreacted_range_revenue_condition_matrix_latest.csv" in workflow_text
-    assert "output/latest/research_backtest/revenue_unreacted_range_revenue_condition_matrix_latest.md" in workflow_text
-    assert "output/latest/research_backtest/revenue_unreacted_range_operation_candidate_matrix_latest.csv" in workflow_text
-    assert "output/latest/research_backtest/revenue_unreacted_range_operation_candidate_matrix_latest.md" in workflow_text
-    assert "docs/latest/price_pullback_23ema_revenue_condition_matrix_latest.csv" in workflow_text
-    assert "docs/latest/price_pullback_23ema_revenue_condition_matrix_latest.md" in workflow_text
-    assert "docs/latest/price_pullback_23ema_promotion_matrix_latest.csv" in workflow_text
-    assert "docs/latest/price_pullback_23ema_promotion_matrix_latest.md" in workflow_text
-    assert "docs/latest/revenue_unreacted_range_revenue_condition_matrix_latest.csv" in workflow_text
-    assert "docs/latest/revenue_unreacted_range_revenue_condition_matrix_latest.md" in workflow_text
-    assert "docs/latest/revenue_unreacted_range_operation_candidate_matrix_latest.csv" in workflow_text
-    assert "docs/latest/revenue_unreacted_range_operation_candidate_matrix_latest.md" in workflow_text
-    assert "output/history/research/price_pullback_23ema_revenue_condition_matrix.csv" in workflow_text
-    assert "output/history/research/price_pullback_23ema_promotion_matrix.csv" in workflow_text
-    assert "output/history/research/revenue_unreacted_range_revenue_condition_matrix.csv" in workflow_text
-    assert "output/history/research/revenue_unreacted_range_operation_candidate_matrix.csv" in workflow_text
-    assert "output/latest/research_backtest/price_pullback_23ema_lifecycle_replay_latest.csv" in workflow_text
-    assert "output/latest/research_backtest/price_pullback_23ema_lifecycle_replay_latest.md" in workflow_text
-    assert "docs/latest/price_pullback_23ema_lifecycle_replay_latest.csv" in workflow_text
-    assert "docs/latest/price_pullback_23ema_lifecycle_replay_latest.md" in workflow_text
-    assert "output/history/research/price_pullback_23ema_lifecycle_replay.csv" in workflow_text
+    expected = {
+        "run_price_pullback_23ema_research": "price_pullback_23ema",
+        "run_revenue_unreacted_range_research": "revenue_unreacted_range",
+        "run_volume_range_breakout_v2_research": "volume_range_breakout_v2",
+    }
+    for workflow_input, artifact_prefix in expected.items():
+        assert workflow_input in workflow_text
+        assert f"python scripts/build_{artifact_prefix}_research.py" in workflow_text
+        assert f"git add output/latest/research_backtest/{artifact_prefix}_*" in workflow_text
+        assert f"git add output/history/research/{artifact_prefix}_*" in workflow_text
+        assert f"git add docs/latest/{artifact_prefix}_*" in workflow_text
+
+    assert 'default: "true"' not in workflow_text
+    assert "run_model_parameter_research" not in workflow_text
+    assert "python scripts/build_daily_model_parameter_research.py" not in workflow_text
+    assert "git add output/history/research/ || true" not in workflow_text
 
 
-def test_research_pipeline_runs_approved_operation_validator() -> None:
+def test_research_workflow_isolation_validator_runs_on_all_required_surfaces() -> None:
+    command = "python scripts/validate_model_research_workflow_isolation.py"
+    for path in (
+        ROOT / ".github" / "workflows" / "research_backtest_pipeline.yml",
+        ROOT / ".github" / "workflows" / "daily_full_pipeline.yml",
+        ROOT / ".github" / "workflows" / "daily_model_maintenance_pr_validation.yml",
+    ):
+        assert command in path.read_text(encoding="utf-8")
+
+
+def test_research_pipeline_routes_volume_v2_through_model_owned_entrypoint() -> None:
     workflow_text = (ROOT / ".github" / "workflows" / "research_backtest_pipeline.yml").read_text(
         encoding="utf-8"
     )
 
-    assert "python scripts/build_approved_operation_patterns.py" in workflow_text
-    assert "python scripts/validate_approved_operation_patterns.py" in workflow_text
+    assert "python scripts/build_volume_range_breakout_v2_research.py" in workflow_text
+    assert "python scripts/build_volume_range_breakout_v2_semantic_audit.py" not in workflow_text
+    assert "python scripts/build_volume_range_breakout_v2_candidate_bucket_contract.py" not in workflow_text
 
 
-def test_research_pipeline_runs_volume_range_breakout_v2_overlap_sensitivity_validator() -> None:
+def test_research_pipeline_does_not_run_w_bottom_research_or_adapters() -> None:
     workflow_text = (ROOT / ".github" / "workflows" / "research_backtest_pipeline.yml").read_text(
         encoding="utf-8"
     )
 
-    assert "python scripts/build_volume_range_breakout_v2_semantic_audit.py" in workflow_text
-    assert "python scripts/validate_volume_range_breakout_v2_semantic_audit.py" in workflow_text
-    assert "python scripts/build_volume_range_breakout_v2_overlap_sensitivity.py" in workflow_text
-    assert "python scripts/validate_volume_range_breakout_v2_overlap_sensitivity.py" in workflow_text
-    assert "python scripts/build_volume_range_breakout_v2_split_feature_audit.py" in workflow_text
-    assert "python scripts/validate_volume_range_breakout_v2_split_feature_audit.py" in workflow_text
-    assert "python scripts/build_volume_range_breakout_v2_research_contract.py" in workflow_text
-    assert "python scripts/validate_volume_range_breakout_v2_research_contract.py" in workflow_text
-    assert "python scripts/build_volume_range_breakout_v2_promotion_readiness_audit.py" in workflow_text
-    assert "python scripts/validate_volume_range_breakout_v2_promotion_readiness_audit.py" in workflow_text
-    assert "python scripts/build_volume_range_breakout_v2_position_shape_matrix.py" in workflow_text
-    assert "python scripts/validate_volume_range_breakout_v2_position_shape_matrix.py" in workflow_text
-    assert "python scripts/build_volume_range_breakout_v2_high_position_improvement_audit.py" in workflow_text
-    assert "python scripts/validate_volume_range_breakout_v2_high_position_improvement_audit.py" in workflow_text
-    assert "python scripts/build_volume_range_breakout_v2_candidate_bucket_contract.py" in workflow_text
-    assert "python scripts/validate_volume_range_breakout_v2_candidate_bucket_contract.py" in workflow_text
-    assert "output/latest/research_backtest/volume_range_breakout_v2_*_latest.csv" in workflow_text
-    assert "output/latest/research_backtest/volume_range_breakout_v2_*_latest.md" in workflow_text
-
-
-def test_research_pipeline_runs_w_bottom_overlap_guardrail_validator() -> None:
-    workflow_text = (ROOT / ".github" / "workflows" / "research_backtest_pipeline.yml").read_text(
-        encoding="utf-8"
-    )
-
-    assert "python scripts/build_w_bottom_research_overlap_guardrails.py" in workflow_text
-    assert "python scripts/validate_w_bottom_research_overlap_guardrails.py" in workflow_text
-    assert "output/latest/research_backtest/w_bottom_research_overlap_guardrails_latest.csv" in workflow_text
-    assert "output/latest/research_backtest/w_bottom_research_overlap_guardrails_latest.md" in workflow_text
-    assert "output/history/research/w_bottom_research_overlap_guardrails.csv" in workflow_text
+    assert "python scripts/build_w_bottom_research_overlap_guardrails.py" not in workflow_text
+    assert "python scripts/build_daily_w_bottom_operation_sections.py" not in workflow_text
+    assert "git add output/latest/research_backtest/w_bottom_" not in workflow_text
 
 
 def test_research_pipeline_does_not_stage_daily_route_files() -> None:

@@ -21,6 +21,11 @@ FORBIDDEN_RESEARCH_STAGE_PATTERNS = {
     "daily recommendation PDF artifacts": r"git add\s+output/latest/(mainstream|non_mainstream)_.*\.pdf",
     "warrant market PDF artifacts": r"git add\s+output/latest/warrant_market_report_.*\.pdf",
     "TDCC weekly PDF artifacts": r"git add\s+output/latest/tdcc_weekly_.*\.pdf",
+    "broad research history root": r"git add\s+output/history/research/\s",
+    "formal daily model snapshots": r"git add\s+output/history/daily_model_snapshots/",
+    "formal model readiness": r"git add\s+output/latest/model_operation_readiness_latest",
+    "formal approved operation evidence": r"git add\s+output/latest/approved_operation_patterns_latest",
+    "formal daily operation adapters": r"git add\s+output/latest/daily_(w_bottom|neckline|price_pullback_23ema|volume_breakout)_",
 }
 
 FORBIDDEN_RESEARCH_RUN_PATTERNS = {
@@ -29,6 +34,12 @@ FORBIDDEN_RESEARCH_RUN_PATTERNS = {
     "ChatGPT-side daily PDF generator": r"python\s+scripts/generate_chatgpt_side_daily_reports\.py",
     "TDCC weekly PDF report builder": r"python\s+scripts/build_tdcc_weekly_candidate_reports\.py",
     "TDCC history backfill": r"python\s+scripts/backfill_tdcc_history\.py",
+    "legacy cross-model parameter producer": r"python\s+scripts/build_daily_model_parameter_research\.py",
+    "formal approved operation producer": r"python\s+scripts/build_approved_operation_patterns\.py",
+    "formal W-bottom operation adapter": r"python\s+scripts/build_daily_w_bottom_operation_sections\.py",
+    "formal 23EMA operation adapter": r"python\s+scripts/build_daily_price_pullback_23ema_operation_section\.py",
+    "formal model readiness producer": r"python\s+scripts/build_model_operation_readiness\.py",
+    "formal daily snapshot publisher": r"python\s+scripts/update_daily_published_model_snapshots\.py",
 }
 
 

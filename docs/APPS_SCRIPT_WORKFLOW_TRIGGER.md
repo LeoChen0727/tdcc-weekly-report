@@ -87,9 +87,10 @@ bounded TDCC report universe.
 `triggerWeeklyThemeReview` dispatches `.github/workflows/weekly_theme_review.yml`.
 
 `triggerResearchBacktestPipeline` dispatches
-`.github/workflows/research_backtest_pipeline.yml` with all research inputs set
-to `true`. It is the function used by the scheduled biweekly research/backtest
-trigger.
+`.github/workflows/research_backtest_pipeline.yml` with every registered
+research input explicitly set to `true`. Workflow inputs default to `false`, so
+a manual run executes only the selected research surfaces. The scheduled
+biweekly trigger remains an explicit full research/backtest run.
 
 ## Recovery Flow
 

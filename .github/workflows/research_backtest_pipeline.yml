@@ -6,51 +6,63 @@ on:
       run_market_timing:
         description: "Run market technical timing backtest"
         required: false
-        default: "true"
+        default: "false"
       run_weekly_surge:
         description: "Run weekly surge parameter research"
         required: false
-        default: "true"
+        default: "false"
       run_explosive_volume:
         description: "Run explosive volume up research"
         required: false
-        default: "true"
+        default: "false"
       run_surge_model:
         description: "Run surge precondition model"
         required: false
-        default: "true"
+        default: "false"
       run_signal_performance:
         description: "Run daily signal performance reports"
         required: false
-        default: "true"
+        default: "false"
       run_volume_breakout:
         description: "Run volume breakout watch backtest"
         required: false
-        default: "true"
+        default: "false"
       run_catalyst_performance:
         description: "Run catalyst performance tracking"
         required: false
-        default: "true"
+        default: "false"
       run_msci_rebalance:
         description: "Run MSCI Taiwan rebalance event backtest"
         required: false
-        default: "true"
+        default: "false"
       run_tdcc_signal_performance:
         description: "Run TDCC weekly ranking formula backtest"
         required: false
-        default: "true"
+        default: "false"
       run_tdcc_short_term_edge:
         description: "Run TDCC overheated short-term edge research"
         required: false
-        default: "true"
+        default: "false"
       run_short_term_specialty_packet:
         description: "Run short-term specialty ChatGPT packet rebuild"
         required: false
-        default: "true"
-      run_model_parameter_research:
-        description: "Run daily candidate model parameter research"
+        default: "false"
+      run_shared_model_research_data_refresh:
+        description: "Refresh shared objective PIT data for selected model research"
         required: false
-        default: "true"
+        default: "false"
+      run_price_pullback_23ema_research:
+        description: "Run model-owned 23EMA research only"
+        required: false
+        default: "false"
+      run_revenue_unreacted_range_research:
+        description: "Run model-owned revenue lag and strength research only"
+        required: false
+        default: "false"
+      run_volume_range_breakout_v2_research:
+        description: "Run model-owned volume breakout v2 research only"
+        required: false
+        default: "false"
 
 permissions:
   contents: write
@@ -65,7 +77,8 @@ jobs:
 
     env:
       TARGET_BRANCH: ${{ github.ref_name }}
-      ANY_RESEARCH_SELECTED: ${{ github.event.inputs.run_market_timing == 'true' || github.event.inputs.run_weekly_surge == 'true' || github.event.inputs.run_explosive_volume == 'true' || github.event.inputs.run_surge_model == 'true' || github.event.inputs.run_signal_performance == 'true' || github.event.inputs.run_volume_breakout == 'true' || github.event.inputs.run_catalyst_performance == 'true' || github.event.inputs.run_msci_rebalance == 'true' || github.event.inputs.run_tdcc_signal_performance == 'true' || github.event.inputs.run_tdcc_short_term_edge == 'true' || github.event.inputs.run_short_term_specialty_packet == 'true' || github.event.inputs.run_model_parameter_research == 'true' }}
+      ANY_RESEARCH_SELECTED: ${{ github.event.inputs.run_market_timing == 'true' || github.event.inputs.run_weekly_surge == 'true' || github.event.inputs.run_explosive_volume == 'true' || github.event.inputs.run_surge_model == 'true' || github.event.inputs.run_signal_performance == 'true' || github.event.inputs.run_volume_breakout == 'true' || github.event.inputs.run_catalyst_performance == 'true' || github.event.inputs.run_msci_rebalance == 'true' || github.event.inputs.run_tdcc_signal_performance == 'true' || github.event.inputs.run_tdcc_short_term_edge == 'true' || github.event.inputs.run_short_term_specialty_packet == 'true' || github.event.inputs.run_shared_model_research_data_refresh == 'true' || github.event.inputs.run_price_pullback_23ema_research == 'true' || github.event.inputs.run_revenue_unreacted_range_research == 'true' || github.event.inputs.run_volume_range_breakout_v2_research == 'true' }}
+      MODEL_RESEARCH_SELECTED: ${{ github.event.inputs.run_price_pullback_23ema_research == 'true' || github.event.inputs.run_revenue_unreacted_range_research == 'true' || github.event.inputs.run_volume_range_breakout_v2_research == 'true' }}
 
     steps:
       - name: Checkout repository
@@ -78,12 +91,20 @@ jobs:
         with:
           python-version: "3.11"
 
+      - name: Synchronize target branch before research
+        run: |
+          git pull --ff-only origin "$TARGET_BRANCH"
+
       - name: Validate Apps Script workflow triggers
         run: |
           python scripts/validate_apps_script_workflow_triggers.py
           python scripts/validate_repo_production_inventory.py
           python scripts/validate_daily_model_background_data_registry.py
           python scripts/validate_research_production_boundaries.py
+          python scripts/validate_model_research_artifact_ownership.py
+          python scripts/validate_model_research_shared_utilities.py
+          python scripts/validate_formal_model_evidence_pins.py
+          python scripts/validate_model_research_workflow_isolation.py
 
       - name: Install dependencies
         if: ${{ env.ANY_RESEARCH_SELECTED == 'true' }}
@@ -131,35 +152,32 @@ jobs:
         run: |
           python scripts/build_daily_short_term_specialty_packet.py
 
-      - name: Build daily model parameter research
-        if: ${{ github.event.inputs.run_model_parameter_research == 'true' }}
+      - name: Refresh shared objective model research data
+        if: ${{ github.event.inputs.run_shared_model_research_data_refresh == 'true' }}
         run: |
           python scripts/build_monthly_revenue_point_in_time_panel.py
           python scripts/validate_monthly_revenue_point_in_time_panel.py
           python scripts/build_daily_model_signal_background_features.py
           python scripts/validate_daily_model_signal_background_features.py
-          python scripts/build_daily_model_parameter_research.py
+
+      - name: Build model-owned 23EMA research
+        if: ${{ github.event.inputs.run_price_pullback_23ema_research == 'true' }}
+        run: |
+          python scripts/build_price_pullback_23ema_research.py
+          python scripts/validate_price_pullback_promotion_matrix.py
+          python scripts/validate_price_pullback_daily_row_parity.py
+
+      - name: Build model-owned revenue lag and strength research
+        if: ${{ github.event.inputs.run_revenue_unreacted_range_research == 'true' }}
+        run: |
+          python scripts/build_revenue_unreacted_range_research.py
           python scripts/validate_daily_model_revenue_condition_matrix.py
           python scripts/validate_revenue_unreacted_range_operation_candidate_matrix.py
           python scripts/validate_revenue_unreacted_range_feature_contrast_audit.py
           python scripts/validate_revenue_unreacted_range_close_confirmation_timing_audit.py
           python scripts/validate_revenue_unreacted_range_fixed_confirmation_feature_contrast.py
-          python scripts/validate_price_pullback_promotion_matrix.py
-          python scripts/build_daily_model_background_data_cleanup_audit.py
-          python scripts/validate_daily_model_background_data_cleanup_audit.py
-          python scripts/validate_daily_model_research_parity.py
-          python scripts/validate_price_pullback_daily_row_parity.py
-          python scripts/build_daily_model_parameter_recommendations.py
-          python scripts/build_daily_w_bottom_operation_sections.py
-          python scripts/validate_daily_w_bottom_operation_sections.py
-          python scripts/build_w_bottom_research_overlap_guardrails.py
-          python scripts/validate_w_bottom_research_overlap_guardrails.py
-          python scripts/build_daily_price_pullback_23ema_operation_section.py
-          python scripts/validate_daily_price_pullback_23ema_operation_section.py
-          python scripts/build_model_operation_readiness.py
-          python scripts/validate_model_operation_readiness.py
-          python scripts/update_daily_published_model_snapshots.py
-          python scripts/validate_daily_published_model_snapshots.py
+          python scripts/validate_revenue_unreacted_range_extreme_return_path_audit.py
+          python scripts/validate_revenue_unreacted_range_lag_strength_matrix.py
 
       - name: Build volume breakout watch backtest
         if: ${{ github.event.inputs.run_volume_breakout == 'true' }}
@@ -178,42 +196,13 @@ jobs:
           python scripts/validate_volume_breakout_tdcc_confluence_backtest.py
           python scripts/build_volume_breakout_confirmed_operation_backtest.py
           python scripts/validate_volume_breakout_confirmed_operation_backtest.py
-          python scripts/build_volume_range_breakout_v2_semantic_audit.py
-          python scripts/validate_volume_range_breakout_v2_semantic_audit.py
-          python scripts/build_volume_range_breakout_v2_next_day_continuation_timing_audit.py
-          python scripts/validate_volume_range_breakout_v2_next_day_continuation_timing_audit.py
-          python scripts/build_volume_range_breakout_v2_raw_market_rerun.py
-          python scripts/validate_volume_range_breakout_v2_raw_market_rerun.py
-          python scripts/build_volume_range_breakout_v2_feature_slice_analysis.py
-          python scripts/validate_volume_range_breakout_v2_feature_slice_analysis.py
-          python scripts/build_volume_range_breakout_v2_deep_low_base_matrix.py
-          python scripts/validate_volume_range_breakout_v2_deep_low_base_matrix.py
-          python scripts/build_volume_range_breakout_v2_condition_matrix.py
-          python scripts/validate_volume_range_breakout_v2_condition_matrix.py
-          python scripts/build_volume_range_breakout_v2_overlap_sensitivity.py
-          python scripts/validate_volume_range_breakout_v2_overlap_sensitivity.py
-          python scripts/build_volume_range_breakout_v2_split_feature_audit.py
-          python scripts/validate_volume_range_breakout_v2_split_feature_audit.py
-          python scripts/build_volume_range_breakout_v2_research_contract.py
-          python scripts/validate_volume_range_breakout_v2_research_contract.py
-          python scripts/build_volume_range_breakout_v2_promotion_readiness_audit.py
-          python scripts/validate_volume_range_breakout_v2_promotion_readiness_audit.py
-          python scripts/build_volume_range_breakout_v2_position_shape_matrix.py
-          python scripts/validate_volume_range_breakout_v2_position_shape_matrix.py
-          python scripts/build_volume_range_breakout_v2_high_position_improvement_audit.py
-          python scripts/validate_volume_range_breakout_v2_high_position_improvement_audit.py
-          python scripts/build_volume_range_breakout_v2_candidate_bucket_contract.py
-          python scripts/validate_volume_range_breakout_v2_candidate_bucket_contract.py
-          python scripts/build_approved_operation_patterns.py
-          python scripts/validate_approved_operation_patterns.py
-          python scripts/build_daily_w_bottom_operation_sections.py
-          python scripts/validate_daily_w_bottom_operation_sections.py
-          python scripts/build_daily_price_pullback_23ema_operation_section.py
-          python scripts/validate_daily_price_pullback_23ema_operation_section.py
-          python scripts/build_model_operation_readiness.py
-          python scripts/validate_model_operation_readiness.py
           python scripts/build_volume_breakout_operation_pdf_preview.py
           python scripts/validate_volume_breakout_operation_pdf_preview.py
+
+      - name: Build model-owned volume breakout v2 research
+        if: ${{ github.event.inputs.run_volume_range_breakout_v2_research == 'true' }}
+        run: |
+          python scripts/build_volume_range_breakout_v2_research.py
 
       - name: Build surge precondition model
         if: ${{ github.event.inputs.run_surge_model == 'true' }}
@@ -240,132 +229,113 @@ jobs:
         run: |
           python scripts/build_msci_taiwan_rebalance_backtest.py
 
+      - name: Validate post-run model research contracts
+        if: ${{ env.MODEL_RESEARCH_SELECTED == 'true' }}
+        run: |
+          python scripts/validate_model_research_artifact_ownership.py
+          python scripts/validate_formal_model_evidence_pins.py
+          python scripts/validate_daily_model_research_parity.py
+
       - name: Commit research and backtest outputs
         if: ${{ env.ANY_RESEARCH_SELECTED == 'true' }}
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-          git pull --rebase --autostash origin "$TARGET_BRANCH" || true
 
-          git add output/history/research/ || true
-          git add output/history/surge_model/ || true
-          git add output/history/market_timing/ || true
-          git add output/history/daily_signals/ || true
-          git add output/history/tdcc_signals/ || true
-          git add output/history/catalyst_performance/ || true
-          git add output/history/msci_index_reviews/ || true
-          git add data/msci_index_reviews/ || true
+          if [[ "${{ github.event.inputs.run_price_pullback_23ema_research }}" == "true" ]]; then
+            git add output/latest/research_backtest/price_pullback_23ema_* || true
+            git add output/history/research/price_pullback_23ema_* || true
+            git add docs/latest/price_pullback_23ema_* || true
+          fi
 
-          git add output/latest/weekly_surge_*.csv output/latest/weekly_surge_*.md || true
-          git add output/latest/explosive_volume_up_*.csv output/latest/explosive_volume_up_*.md || true
-          git add output/history/research/explosive_volume_up_*.csv || true
-          git add output/latest/tdcc_overheated_short_term_edge_latest.csv || true
-          git add output/latest/tdcc_overheated_short_term_edge_latest.md || true
-          git add output/latest/tdcc_overheated_short_term_edge_candidates_latest.csv || true
-          git add output/latest/tdcc_weekly_ranking_backtest_latest.csv output/latest/tdcc_weekly_ranking_backtest_latest.md || true
-          git add output/latest/daily_short_term_specialty_packet_latest.md || true
-          git add docs/latest/weekly_surge_*.csv docs/latest/weekly_surge_*.md || true
-          git add docs/latest/explosive_volume_up_*.csv docs/latest/explosive_volume_up_*.md || true
-          git add docs/latest/tdcc_overheated_short_term_edge_latest.csv docs/latest/tdcc_overheated_short_term_edge_latest.md || true
-          git add docs/latest/tdcc_overheated_short_term_edge_candidates_latest.csv || true
-          git add docs/latest/tdcc_weekly_ranking_backtest_latest.csv docs/latest/tdcc_weekly_ranking_backtest_latest.md || true
-          git add docs/latest/daily_short_term_specialty_packet_latest.md || true
-          git add output/latest/daily_model_parameter_research_*.csv output/latest/daily_model_parameter_research_*.md || true
-          git add output/latest/research_backtest/daily_model_signal_background_feature_panel_latest.csv output/latest/research_backtest/daily_model_signal_background_feature_panel_latest.md || true
-          git add output/latest/research_backtest/daily_model_background_feature_catalog_latest.csv output/latest/research_backtest/daily_model_background_feature_catalog_latest.md || true
-          git add output/latest/research_backtest/monthly_revenue_point_in_time_panel_latest.csv output/latest/research_backtest/monthly_revenue_point_in_time_panel_latest.md || true
-          git add output/latest/research_backtest/daily_model_background_data_cleanup_audit_latest.csv output/latest/research_backtest/daily_model_background_data_cleanup_audit_latest.md || true
-          git add output/latest/daily_model_parameter_recommendations_latest.csv output/latest/daily_model_parameter_recommendations_latest.md || true
-          git add output/latest/research_backtest/daily_model_research_parity_latest.csv output/latest/research_backtest/daily_model_research_parity_latest.md || true
-          git add output/latest/research_backtest/price_pullback_23ema_operation_research_latest.csv output/latest/research_backtest/price_pullback_23ema_operation_research_latest.md || true
-          git add output/latest/research_backtest/price_pullback_23ema_time_cost_backtest_latest.csv output/latest/research_backtest/price_pullback_23ema_time_cost_backtest_latest.md || true
-          git add output/latest/research_backtest/price_pullback_23ema_operation_module_research_latest.csv output/latest/research_backtest/price_pullback_23ema_operation_module_research_latest.md || true
-          git add output/latest/research_backtest/price_pullback_23ema_feature_confirmation_research_latest.csv output/latest/research_backtest/price_pullback_23ema_feature_confirmation_research_latest.md || true
-          git add output/latest/research_backtest/price_pullback_23ema_daily_row_parity_latest.csv output/latest/research_backtest/price_pullback_23ema_daily_row_parity_latest.md || true
-          git add output/latest/research_backtest/price_pullback_23ema_model_decision_audit_latest.csv output/latest/research_backtest/price_pullback_23ema_model_decision_audit_latest.md || true
-          git add output/latest/research_backtest/price_pullback_23ema_high_return_feature_score_grid_latest.csv output/latest/research_backtest/price_pullback_23ema_high_return_feature_score_grid_latest.md || true
-          git add output/latest/research_backtest/price_pullback_23ema_revenue_condition_matrix_latest.csv output/latest/research_backtest/price_pullback_23ema_revenue_condition_matrix_latest.md || true
-          git add output/latest/research_backtest/price_pullback_23ema_promotion_matrix_latest.csv output/latest/research_backtest/price_pullback_23ema_promotion_matrix_latest.md || true
-          git add output/latest/research_backtest/revenue_unreacted_range_revenue_condition_matrix_latest.csv output/latest/research_backtest/revenue_unreacted_range_revenue_condition_matrix_latest.md || true
-          git add output/latest/research_backtest/revenue_unreacted_range_operation_candidate_matrix_latest.csv output/latest/research_backtest/revenue_unreacted_range_operation_candidate_matrix_latest.md || true
-          git add output/latest/research_backtest/revenue_unreacted_range_feature_contrast_audit_latest.csv output/latest/research_backtest/revenue_unreacted_range_feature_contrast_audit_detail_latest.csv output/latest/research_backtest/revenue_unreacted_range_feature_contrast_anomaly_audit_latest.csv output/latest/research_backtest/revenue_unreacted_range_feature_contrast_audit_latest.md || true
-          git add output/latest/research_backtest/revenue_unreacted_range_close_confirmation_timing_audit_latest.csv output/latest/research_backtest/revenue_unreacted_range_close_confirmation_timing_audit_detail_latest.csv output/latest/research_backtest/revenue_unreacted_range_close_confirmation_timing_audit_anomaly_audit_latest.csv output/latest/research_backtest/revenue_unreacted_range_close_confirmation_timing_audit_latest.md || true
-          git add output/latest/research_backtest/revenue_unreacted_range_fixed_confirmation_feature_contrast_audit_latest.csv output/latest/research_backtest/revenue_unreacted_range_fixed_confirmation_feature_contrast_audit_detail_latest.csv output/latest/research_backtest/revenue_unreacted_range_fixed_confirmation_feature_contrast_audit_anomaly_audit_latest.csv output/latest/research_backtest/revenue_unreacted_range_fixed_confirmation_feature_contrast_audit_latest.md || true
-          git add output/latest/research_backtest/price_pullback_23ema_lifecycle_replay_latest.csv output/latest/research_backtest/price_pullback_23ema_lifecycle_replay_latest.md || true
-          git add output/latest/model_operation_readiness_latest.csv output/latest/model_operation_readiness_latest.md || true
-          git add output/history/daily_model_snapshots/*.csv || true
-          git add output/latest/daily_w_bottom_right_side_operation_section_latest.csv output/latest/daily_w_bottom_right_side_operation_section_latest.md || true
-          git add output/latest/daily_w_bottom_right_side_operation_evidence_audit_latest.csv output/latest/daily_w_bottom_right_side_operation_evidence_audit_latest.md || true
-          git add output/latest/research_backtest/w_bottom_research_overlap_guardrails_latest.csv output/latest/research_backtest/w_bottom_research_overlap_guardrails_latest.md || true
-          git add output/history/research/w_bottom_research_overlap_guardrails.csv || true
-          git add output/latest/daily_neckline_volume_breakout_confirmation_operation_section_latest.csv output/latest/daily_neckline_volume_breakout_confirmation_operation_section_latest.md || true
-          git add output/latest/daily_neckline_volume_breakout_confirmation_operation_evidence_audit_latest.csv output/latest/daily_neckline_volume_breakout_confirmation_operation_evidence_audit_latest.md || true
-          git add output/latest/approved_operation_patterns_latest.csv output/latest/approved_operation_patterns_latest.md || true
-          git add output/latest/research_backtest/daily_published_snapshot_ranking_backtest_latest.csv output/latest/research_backtest/daily_published_snapshot_ranking_backtest_latest.md || true
-          git add output/history/research/daily_published_snapshot_ranking_events.csv || true
-          git add output/latest/volume_breakout_formal_operation_backtest_latest.csv output/latest/volume_breakout_formal_operation_backtest_latest.md || true
-          git add output/history/research/volume_breakout_confirmed_operation_backtest.csv output/history/research/volume_breakout_confirmed_operation_events.csv || true
-          git add output/history/research/volume_breakout_formal_operation_events.csv || true
-          git add output/latest/research_backtest/volume_range_breakout_v2_*_latest.csv output/latest/research_backtest/volume_range_breakout_v2_*_latest.md || true
-          git add docs/latest/daily_model_parameter_research_*.csv docs/latest/daily_model_parameter_research_*.md || true
-          git add docs/latest/daily_model_signal_background_feature_panel_latest.csv docs/latest/daily_model_signal_background_feature_panel_latest.md || true
-          git add docs/latest/daily_model_background_feature_catalog_latest.csv docs/latest/daily_model_background_feature_catalog_latest.md || true
-          git add docs/latest/monthly_revenue_point_in_time_panel_latest.csv docs/latest/monthly_revenue_point_in_time_panel_latest.md || true
-          git add docs/latest/daily_model_background_data_cleanup_audit_latest.csv docs/latest/daily_model_background_data_cleanup_audit_latest.md || true
-          git add docs/latest/daily_model_parameter_recommendations_latest.csv docs/latest/daily_model_parameter_recommendations_latest.md || true
-          git add docs/latest/daily_model_research_parity_latest.csv docs/latest/daily_model_research_parity_latest.md || true
-          git add docs/latest/price_pullback_23ema_operation_research_latest.csv docs/latest/price_pullback_23ema_operation_research_latest.md || true
-          git add docs/latest/price_pullback_23ema_time_cost_backtest_latest.csv docs/latest/price_pullback_23ema_time_cost_backtest_latest.md || true
-          git add docs/latest/price_pullback_23ema_operation_module_research_latest.csv docs/latest/price_pullback_23ema_operation_module_research_latest.md || true
-          git add docs/latest/price_pullback_23ema_feature_confirmation_research_latest.csv docs/latest/price_pullback_23ema_feature_confirmation_research_latest.md || true
-          git add docs/latest/price_pullback_23ema_daily_row_parity_latest.csv docs/latest/price_pullback_23ema_daily_row_parity_latest.md || true
-          git add docs/latest/price_pullback_23ema_model_decision_audit_latest.csv docs/latest/price_pullback_23ema_model_decision_audit_latest.md || true
-          git add docs/latest/price_pullback_23ema_high_return_feature_score_grid_latest.csv docs/latest/price_pullback_23ema_high_return_feature_score_grid_latest.md || true
-          git add docs/latest/price_pullback_23ema_revenue_condition_matrix_latest.csv docs/latest/price_pullback_23ema_revenue_condition_matrix_latest.md || true
-          git add docs/latest/price_pullback_23ema_promotion_matrix_latest.csv docs/latest/price_pullback_23ema_promotion_matrix_latest.md || true
-          git add docs/latest/revenue_unreacted_range_revenue_condition_matrix_latest.csv docs/latest/revenue_unreacted_range_revenue_condition_matrix_latest.md || true
-          git add docs/latest/revenue_unreacted_range_operation_candidate_matrix_latest.csv docs/latest/revenue_unreacted_range_operation_candidate_matrix_latest.md || true
-          git add docs/latest/revenue_unreacted_range_feature_contrast_audit_latest.csv docs/latest/revenue_unreacted_range_feature_contrast_anomaly_audit_latest.csv docs/latest/revenue_unreacted_range_feature_contrast_audit_latest.md || true
-          git add docs/latest/revenue_unreacted_range_close_confirmation_timing_audit_latest.csv docs/latest/revenue_unreacted_range_close_confirmation_timing_audit_anomaly_audit_latest.csv docs/latest/revenue_unreacted_range_close_confirmation_timing_audit_latest.md || true
-          git add docs/latest/revenue_unreacted_range_fixed_confirmation_feature_contrast_audit_latest.csv docs/latest/revenue_unreacted_range_fixed_confirmation_feature_contrast_audit_anomaly_audit_latest.csv docs/latest/revenue_unreacted_range_fixed_confirmation_feature_contrast_audit_latest.md || true
-          git add docs/latest/price_pullback_23ema_lifecycle_replay_latest.csv docs/latest/price_pullback_23ema_lifecycle_replay_latest.md || true
-          git add docs/latest/model_operation_readiness_latest.csv docs/latest/model_operation_readiness_latest.md || true
-          git add docs/latest/daily_w_bottom_right_side_operation_section_latest.csv docs/latest/daily_w_bottom_right_side_operation_section_latest.md || true
-          git add docs/latest/daily_w_bottom_right_side_operation_evidence_audit_latest.csv docs/latest/daily_w_bottom_right_side_operation_evidence_audit_latest.md || true
-          git add docs/latest/daily_neckline_volume_breakout_confirmation_operation_section_latest.csv docs/latest/daily_neckline_volume_breakout_confirmation_operation_section_latest.md || true
-          git add docs/latest/daily_neckline_volume_breakout_confirmation_operation_evidence_audit_latest.csv docs/latest/daily_neckline_volume_breakout_confirmation_operation_evidence_audit_latest.md || true
-          git add docs/latest/approved_operation_patterns_latest.csv docs/latest/approved_operation_patterns_latest.md || true
-          git add docs/latest/daily_published_snapshot_ranking_backtest_latest.csv docs/latest/daily_published_snapshot_ranking_backtest_latest.md || true
-          git add output/history/research/daily_model_parameter_research.csv || true
-          git add output/history/research/monthly_revenue_point_in_time_panel.csv || true
-          git add output/history/research/price_pullback_23ema_operation_module_research.csv || true
-          git add output/history/research/price_pullback_23ema_feature_confirmation_research.csv || true
-          git add output/history/research/price_pullback_23ema_daily_row_parity.csv || true
-          git add output/history/research/price_pullback_23ema_model_decision_audit.csv || true
-          git add output/history/research/price_pullback_23ema_high_return_feature_score_grid.csv || true
-          git add output/history/research/price_pullback_23ema_revenue_condition_matrix.csv || true
-          git add output/history/research/price_pullback_23ema_promotion_matrix.csv || true
-          git add output/history/research/revenue_unreacted_range_revenue_condition_matrix.csv || true
-          git add output/history/research/revenue_unreacted_range_operation_candidate_matrix.csv || true
-          git add output/history/research/revenue_unreacted_range_feature_contrast_audit.csv output/history/research/revenue_unreacted_range_feature_contrast_anomaly_audit.csv || true
-          git add output/history/research/revenue_unreacted_range_close_confirmation_timing_audit.csv output/history/research/revenue_unreacted_range_close_confirmation_timing_audit_anomaly_audit.csv || true
-          git add output/history/research/revenue_unreacted_range_fixed_confirmation_feature_contrast_audit.csv output/history/research/revenue_unreacted_range_fixed_confirmation_feature_contrast_audit_anomaly_audit.csv || true
-          git add output/history/research/price_pullback_23ema_lifecycle_replay.csv || true
-          git add output/history/volume_breakout/ || true
-          git add output/latest/volume_breakout_*.csv output/latest/volume_breakout_*.md output/latest/volume_breakout_*.pdf || true
-          git add output/latest/historical_pattern_operation_*.csv output/latest/historical_pattern_operation_*.md || true
-          git add docs/latest/volume_breakout_*.csv docs/latest/volume_breakout_*.md docs/latest/volume_breakout_*.pdf || true
-          git add docs/latest/historical_pattern_operation_*.csv docs/latest/historical_pattern_operation_*.md || true
+          if [[ "${{ github.event.inputs.run_shared_model_research_data_refresh }}" == "true" ]]; then
+            git add output/latest/research_backtest/monthly_revenue_point_in_time_panel_latest.* || true
+            git add output/history/research/monthly_revenue_point_in_time_panel.csv || true
+            git add docs/latest/monthly_revenue_point_in_time_panel_latest.* || true
+            git add output/latest/research_backtest/daily_model_signal_background_feature_panel_latest.* || true
+            git add output/latest/research_backtest/daily_model_background_feature_catalog_latest.* || true
+            git add docs/latest/daily_model_signal_background_feature_panel_latest.* || true
+            git add docs/latest/daily_model_background_feature_catalog_latest.* || true
+          fi
 
-          git add output/latest/surge_model_*.csv output/latest/surge_model_*.md output/latest/surge_precondition_candidates_latest.csv output/latest/surge_precondition_candidates_latest.md || true
-          git add output/latest/market_timing_*.csv output/latest/market_timing_*.md || true
-          git add output/latest/daily_signal_performance_*.csv output/latest/daily_signal_performance_*.md output/latest/daily_signal_performance_*.pdf || true
-          git add output/latest/msci_taiwan_rebalance_*.csv output/latest/msci_taiwan_rebalance_*.md || true
-          git add docs/latest/surge_model_*.csv docs/latest/surge_model_*.md docs/latest/surge_precondition_candidates_latest.csv docs/latest/surge_precondition_candidates_latest.md || true
-          git add docs/latest/market_timing_*.csv docs/latest/market_timing_*.md || true
-          git add docs/latest/daily_signal_performance_*.csv docs/latest/daily_signal_performance_*.md docs/latest/daily_signal_performance_*.pdf || true
-          git add docs/latest/msci_taiwan_rebalance_*.csv docs/latest/msci_taiwan_rebalance_*.md || true
+          if [[ "${{ github.event.inputs.run_revenue_unreacted_range_research }}" == "true" ]]; then
+            git add output/latest/research_backtest/revenue_unreacted_range_* || true
+            git add output/history/research/revenue_unreacted_range_* || true
+            git add docs/latest/revenue_unreacted_range_* || true
+          fi
 
+          if [[ "${{ github.event.inputs.run_volume_range_breakout_v2_research }}" == "true" ]]; then
+            git add output/latest/research_backtest/volume_range_breakout_v2_* || true
+            git add output/history/research/volume_range_breakout_v2_* || true
+            git add docs/latest/volume_range_breakout_v2_* || true
+          fi
+
+          if [[ "${{ github.event.inputs.run_market_timing }}" == "true" ]]; then
+            git add output/history/market_timing/ || true
+            git add output/latest/market_timing_* || true
+            git add docs/latest/market_timing_* || true
+          fi
+
+          if [[ "${{ github.event.inputs.run_weekly_surge }}" == "true" ]]; then
+            git add output/history/research/weekly_* || true
+            git add output/latest/weekly_* || true
+            git add docs/latest/weekly_* || true
+          fi
+
+          if [[ "${{ github.event.inputs.run_explosive_volume }}" == "true" ]]; then
+            git add output/history/research/explosive_volume_up_* || true
+            git add output/latest/explosive_volume_up_* || true
+            git add docs/latest/explosive_volume_up_* || true
+          fi
+
+          if [[ "${{ github.event.inputs.run_surge_model }}" == "true" ]]; then
+            git add output/history/surge_model/ || true
+            git add output/latest/surge_model_* output/latest/surge_precondition_candidates_latest.* || true
+            git add docs/latest/surge_model_* docs/latest/surge_precondition_candidates_latest.* || true
+          fi
+
+          if [[ "${{ github.event.inputs.run_signal_performance }}" == "true" ]]; then
+            git add output/history/daily_signals/ || true
+            git add output/history/research/daily_published_snapshot_ranking_* || true
+            git add output/latest/daily_signal_performance_* || true
+            git add output/latest/research_backtest/daily_published_snapshot_ranking_backtest_latest.* || true
+            git add docs/latest/daily_signal_performance_* || true
+            git add docs/latest/daily_published_snapshot_ranking_backtest_latest.* || true
+          fi
+
+          if [[ "${{ github.event.inputs.run_volume_breakout }}" == "true" ]]; then
+            git add output/history/volume_breakout/ || true
+            git add output/history/research/volume_breakout_* || true
+            git add output/latest/volume_breakout_* output/latest/historical_pattern_operation_* || true
+            git add docs/latest/volume_breakout_* docs/latest/historical_pattern_operation_* || true
+          fi
+
+          if [[ "${{ github.event.inputs.run_catalyst_performance }}" == "true" ]]; then
+            git add output/history/catalyst_performance/ || true
+          fi
+
+          if [[ "${{ github.event.inputs.run_msci_rebalance }}" == "true" ]]; then
+            git add output/history/msci_index_reviews/ data/msci_index_reviews/ || true
+            git add output/latest/msci_taiwan_rebalance_* || true
+            git add docs/latest/msci_taiwan_rebalance_* || true
+          fi
+
+          if [[ "${{ github.event.inputs.run_tdcc_signal_performance }}" == "true" ]]; then
+            git add output/history/research/tdcc_weekly_* || true
+            git add output/latest/tdcc_weekly_ranking_backtest_latest.* || true
+            git add docs/latest/tdcc_weekly_ranking_backtest_latest.* || true
+          fi
+
+          if [[ "${{ github.event.inputs.run_tdcc_short_term_edge }}" == "true" ]]; then
+            git add output/history/tdcc_signals/ || true
+            git add output/latest/tdcc_overheated_short_term_edge* || true
+            git add docs/latest/tdcc_overheated_short_term_edge* || true
+          fi
+
+          if [[ "${{ github.event.inputs.run_short_term_specialty_packet }}" == "true" ]]; then
+            git add output/latest/daily_short_term_specialty_packet_latest.md || true
+            git add docs/latest/daily_short_term_specialty_packet_latest.md || true
+          fi
           git status --short
           git commit -m "Update research backtest outputs" || echo "No changes to commit"
           bash scripts/ci_push_with_retry.sh "$TARGET_BRANCH" 5

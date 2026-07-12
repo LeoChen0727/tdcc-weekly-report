@@ -22,9 +22,11 @@ MODEL_RESEARCH_OWNERSHIP_REGISTRY = ROOT / "config" / "model_research_artifact_o
 MODEL_RESEARCH_SENTINEL_REGISTRY = ROOT / "config" / "model_research_protected_sentinels.csv"
 MODEL_RESEARCH_SHARED_UTILITY_REGISTRY = ROOT / "config" / "model_research_shared_utility_registry.csv"
 MODEL_RESEARCH_SHARED_MIGRATION_REGISTRY = ROOT / "config" / "model_research_shared_utility_migrations.csv"
+MODEL_RESEARCH_WORKFLOW_REGISTRY = ROOT / "config" / "model_research_workflow_entrypoints.csv"
 FORMAL_EVIDENCE_PIN_REGISTRY = ROOT / "config" / "formal_model_evidence_pins.csv"
 MODEL_RESEARCH_OWNERSHIP_VALIDATOR = ROOT / "scripts" / "validate_model_research_artifact_ownership.py"
 MODEL_RESEARCH_SHARED_UTILITY_VALIDATOR = ROOT / "scripts" / "validate_model_research_shared_utilities.py"
+MODEL_RESEARCH_WORKFLOW_VALIDATOR = ROOT / "scripts" / "validate_model_research_workflow_isolation.py"
 FORMAL_EVIDENCE_PIN_VALIDATOR = ROOT / "scripts" / "validate_formal_model_evidence_pins.py"
 
 
@@ -42,6 +44,8 @@ REQUIRED_POLICY_TEXT = {
         "Every cross-model business-semantic utility must be registered",
         "cross-model utility migration",
         "protected mature-model artifact hashes",
+        "Each model-research workflow input must default to `false`",
+        "legacy cross-model aggregate producer",
     ],
     RULES_MASTER: [
         "## Default Code Isolation",
@@ -54,6 +58,8 @@ REQUIRED_POLICY_TEXT = {
         "Cross-model business-semantic utilities must be registered",
         "cross-model utility migration record",
         "protected mature-model artifact hashes",
+        "Every model-research workflow input must default to `false`",
+        "legacy cross-model aggregate producer",
         "This policy is enforced by `scripts/validate_repo_code_isolation_policy.py`",
     ],
     RULES_DAILY: [
@@ -75,6 +81,7 @@ REQUIRED_POLICY_TEXT = {
 
 REQUIRED_WORKFLOW_COMMANDS = [
     "python scripts/validate_repo_code_isolation_policy.py",
+    "python scripts/validate_model_research_workflow_isolation.py",
     "python scripts/validate_chatgpt_side_pdf_layout_independence.py",
     "python scripts/validate_daily_pdf_shared_path_isolation.py",
     "python scripts/validate_daily_pdf_completion_hard_gate.py",
@@ -119,9 +126,11 @@ def validate() -> list[str]:
         MODEL_RESEARCH_SENTINEL_REGISTRY,
         MODEL_RESEARCH_SHARED_UTILITY_REGISTRY,
         MODEL_RESEARCH_SHARED_MIGRATION_REGISTRY,
+        MODEL_RESEARCH_WORKFLOW_REGISTRY,
         FORMAL_EVIDENCE_PIN_REGISTRY,
         MODEL_RESEARCH_OWNERSHIP_VALIDATOR,
         MODEL_RESEARCH_SHARED_UTILITY_VALIDATOR,
+        MODEL_RESEARCH_WORKFLOW_VALIDATOR,
         FORMAL_EVIDENCE_PIN_VALIDATOR,
     ]
     for path in required_files:
