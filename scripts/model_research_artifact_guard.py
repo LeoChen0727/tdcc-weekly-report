@@ -194,6 +194,16 @@ def compare_protected_sentinel_snapshots(
     return errors
 
 
+def protected_sentinel_aggregate_sha256(snapshot: dict[str, str]) -> str:
+    digest = hashlib.sha256()
+    for path, file_hash in sorted(snapshot.items()):
+        digest.update(path.encode("utf-8"))
+        digest.update(b"\0")
+        digest.update(file_hash.encode("ascii"))
+        digest.update(b"\n")
+    return digest.hexdigest()
+
+
 def _dirty_snapshot(root: Path) -> dict[str, str]:
     return {path: _file_sha256(root, path) for path in _git_status_paths(root)}
 
@@ -225,6 +235,7 @@ def model_owned_artifact_guard(
     sentinels = load_protected_sentinels(sentinel_registry_path)
     before = _dirty_snapshot(root)
     sentinel_before, sentinel_before_errors = protected_sentinel_snapshot(root, sentinels)
+    sentinel_before_sha256 = protected_sentinel_aggregate_sha256(sentinel_before)
     if sentinel_before_errors:
         details = "\n".join(f"- {error}" for error in sentinel_before_errors)
         raise RuntimeError(f"protected sentinel preflight failed:\n{details}")
@@ -234,6 +245,7 @@ def model_owned_artifact_guard(
         changed = changed_during_run(root, before)
         errors = validate_changed_paths(model_id, producer, changed, rules)
         sentinel_after, sentinel_after_errors = protected_sentinel_snapshot(root, sentinels)
+        sentinel_after_sha256 = protected_sentinel_aggregate_sha256(sentinel_after)
         errors.extend(sentinel_after_errors)
         errors.extend(compare_protected_sentinel_snapshots(sentinel_before, sentinel_after))
         if errors:
@@ -244,3 +256,5 @@ def model_owned_artifact_guard(
             f"model_id={model_id} producer={_normal_path(producer)} "
             f"changed_paths={len(changed)} protected_sentinels={len(sentinel_after)}"
         )
+        print(f"protected_sentinel_before_sha256={sentinel_before_sha256}")
+        print(f"protected_sentinel_after_sha256={sentinel_after_sha256}")

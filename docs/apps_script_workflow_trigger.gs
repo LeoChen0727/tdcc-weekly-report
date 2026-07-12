@@ -279,7 +279,10 @@ function triggerResearchBacktestPipeline() {
     run_tdcc_signal_performance: "true",
     run_tdcc_short_term_edge: "true",
     run_short_term_specialty_packet: "true",
-    run_model_parameter_research: "true",
+    run_shared_model_research_data_refresh: "true",
+    run_price_pullback_23ema_research: "true",
+    run_revenue_unreacted_range_research: "true",
+    run_volume_range_breakout_v2_research: "true",
   });
   Utilities.sleep(5000);
   logLatestWorkflowRunsSafe_("research_backtest_pipeline.yml");

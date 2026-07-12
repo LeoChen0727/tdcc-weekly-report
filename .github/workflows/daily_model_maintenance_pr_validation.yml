@@ -5,6 +5,9 @@ on:
     paths:
       - ".github/workflows/daily_full_pipeline.yml"
       - ".github/workflows/daily_model_maintenance_pr_validation.yml"
+      - ".github/workflows/research_backtest_pipeline.yml"
+      - "config/formal_model_evidence_pins.csv"
+      - "config/model_research_*.csv"
       - "config/daily_model_*.csv"
       - "config/daily_pdf_rendered_model_regression_contract.csv"
       - "config/daily_pdf_semantic_golden_cases.csv"
@@ -20,6 +23,7 @@ on:
       - "scripts/build_daily_*operation*.py"
       - "scripts/build_daily_report_model_summary.py"
       - "scripts/build_model_operation_readiness.py"
+      - "scripts/build_*_research.py"
       - "scripts/build_mature_model_row_level_metric_contract_audit.py"
       - "scripts/generate_chatgpt_side_daily_reports.py"
       - "scripts/run_chatgpt_daily_report_entrypoint.py"
@@ -27,6 +31,7 @@ on:
       - "scripts/validate_chatgpt_daily_report_new_conversation_replay.py"
       - "scripts/validate_daily_*.py"
       - "scripts/validate_model_operation_readiness.py"
+      - "scripts/validate_model_research_*.py"
       - "scripts/validate_mature_model_row_level_metric_contract_audit.py"
       - "scripts/validate_daily_legacy_volume_range_breakout_removed.py"
       - "scripts/validate_research_against_stock_model_contract.py"
@@ -37,6 +42,7 @@ on:
       - "tests/test_daily_*.py"
       - "tests/test_repo_hidden_coupling_audit.py"
       - "tests/test_model_operation_readiness.py"
+      - "tests/test_model_research_*.py"
       - "tests/test_mature_model_row_level_metric_contract_audit.py"
       - "tests/test_stock_model_contract_registry.py"
   workflow_dispatch:
@@ -84,6 +90,7 @@ jobs:
           python scripts/validate_daily_model_research_parity.py
           python scripts/validate_repo_hidden_coupling_audit.py
           python scripts/validate_repo_code_isolation_policy.py
+          python scripts/validate_model_research_workflow_isolation.py
           python scripts/validate_chatgpt_side_pdf_layout_independence.py
 
       - name: Run focused regression tests
@@ -103,6 +110,7 @@ jobs:
             tests/test_daily_report_model_summary.py \
             tests/test_daily_production_boundaries.py \
             tests/test_repo_hidden_coupling_audit.py \
+            tests/test_model_research_workflow_isolation.py \
             tests/test_stock_model_contract_registry.py
 
       - name: Replay ChatGPT-side daily PDF new conversation

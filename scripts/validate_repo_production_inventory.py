@@ -224,10 +224,12 @@ REQUIRED_WORKFLOW_COMMANDS = {
         "python scripts/validate_daily_pdf_shared_path_isolation.py",
         "python scripts/validate_daily_pdf_completion_hard_gate.py",
         "python scripts/validate_repo_code_isolation_policy.py",
+        "python scripts/validate_model_research_workflow_isolation.py",
     ),
     ".github/workflows/research_backtest_pipeline.yml": (
         "python scripts/validate_repo_production_inventory.py",
         "python scripts/validate_research_production_boundaries.py",
+        "python scripts/validate_model_research_workflow_isolation.py",
     ),
     ".github/workflows/daily_model_maintenance_pr_validation.yml": (
         "python scripts/validate_repo_production_inventory.py",
@@ -235,6 +237,7 @@ REQUIRED_WORKFLOW_COMMANDS = {
         "python scripts/validate_daily_pdf_shared_path_isolation.py",
         "python scripts/validate_daily_pdf_completion_hard_gate.py",
         "python scripts/validate_daily_production_boundaries.py",
+        "python scripts/validate_model_research_workflow_isolation.py",
     ),
     ".github/workflows/tdcc_weekly.yml": (
         "python scripts/validate_repo_production_inventory.py",

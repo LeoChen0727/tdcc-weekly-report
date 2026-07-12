@@ -2001,46 +2001,43 @@ def test_revenue_fixed_confirmation_feature_contrast_separates_signal_and_confir
     assert not sensitivity.empty
 
 
-def test_research_workflow_validates_and_stages_revenue_feature_contrast_artifacts() -> None:
+def test_research_workflow_routes_revenue_feature_contrast_through_model_owned_producer() -> None:
     workflow = (ROOT / ".github" / "workflows" / "research_backtest_pipeline.yml").read_text(encoding="utf-8")
 
+    assert "python scripts/build_revenue_unreacted_range_research.py" in workflow
     assert "python scripts/validate_revenue_unreacted_range_feature_contrast_audit.py" in workflow
-    assert "revenue_unreacted_range_feature_contrast_audit_detail_latest.csv" in workflow
-    assert "revenue_unreacted_range_feature_contrast_anomaly_audit_latest.csv" in workflow
-    assert "docs/latest/revenue_unreacted_range_feature_contrast_audit_detail_latest.csv" not in workflow
-    assert "output/history/research/revenue_unreacted_range_feature_contrast_audit_detail.csv" not in workflow
+    assert "git add output/latest/research_backtest/revenue_unreacted_range_* || true" in workflow
+    assert "git add output/history/research/revenue_unreacted_range_* || true" in workflow
+    assert "git add docs/latest/revenue_unreacted_range_* || true" in workflow
 
 
-def test_research_workflow_validates_and_stages_revenue_close_confirmation_timing_artifacts() -> None:
+def test_research_workflow_validates_revenue_close_confirmation_timing_artifacts() -> None:
     workflow = (ROOT / ".github" / "workflows" / "research_backtest_pipeline.yml").read_text(encoding="utf-8")
 
     assert "python scripts/validate_revenue_unreacted_range_close_confirmation_timing_audit.py" in workflow
-    assert "revenue_unreacted_range_close_confirmation_timing_audit_detail_latest.csv" in workflow
-    assert "docs/latest/revenue_unreacted_range_close_confirmation_timing_audit_detail_latest.csv" not in workflow
-    assert "output/history/research/revenue_unreacted_range_close_confirmation_timing_audit_detail.csv" not in workflow
+    assert "run_revenue_unreacted_range_research" in workflow
+    assert "git add output/history/research/ || true" not in workflow
 
 
-def test_research_workflow_validates_and_stages_revenue_fixed_confirmation_feature_contrast() -> None:
+def test_research_workflow_validates_revenue_fixed_confirmation_and_lag_artifacts() -> None:
     workflow = (ROOT / ".github" / "workflows" / "research_backtest_pipeline.yml").read_text(encoding="utf-8")
 
     assert "python scripts/validate_revenue_unreacted_range_fixed_confirmation_feature_contrast.py" in workflow
-    assert "revenue_unreacted_range_fixed_confirmation_feature_contrast_audit_detail_latest.csv" in workflow
-    assert "docs/latest/revenue_unreacted_range_fixed_confirmation_feature_contrast_audit_detail_latest.csv" not in workflow
-    assert "output/history/research/revenue_unreacted_range_fixed_confirmation_feature_contrast_audit_detail.csv" not in workflow
+    assert "python scripts/validate_revenue_unreacted_range_extreme_return_path_audit.py" in workflow
+    assert "python scripts/validate_revenue_unreacted_range_lag_strength_matrix.py" in workflow
 
 
-def test_research_workflow_refreshes_published_snapshots_after_operation_adapters() -> None:
+def test_research_workflow_does_not_refresh_formal_adapters_or_snapshots() -> None:
     workflow = (ROOT / ".github" / "workflows" / "research_backtest_pipeline.yml").read_text(encoding="utf-8")
 
-    w_bottom_index = workflow.index("python scripts/build_daily_w_bottom_operation_sections.py")
-    price_pullback_index = workflow.index("python scripts/build_daily_price_pullback_23ema_operation_section.py")
-    readiness_index = workflow.index("python scripts/validate_model_operation_readiness.py")
-    snapshot_update_index = workflow.index("python scripts/update_daily_published_model_snapshots.py")
-    snapshot_validate_index = workflow.index("python scripts/validate_daily_published_model_snapshots.py")
-
-    assert w_bottom_index < price_pullback_index < readiness_index
-    assert readiness_index < snapshot_update_index < snapshot_validate_index
-    assert "git add output/history/daily_model_snapshots/*.csv || true" in workflow
+    for forbidden in (
+        "python scripts/build_daily_w_bottom_operation_sections.py",
+        "python scripts/build_daily_price_pullback_23ema_operation_section.py",
+        "python scripts/build_model_operation_readiness.py",
+        "python scripts/update_daily_published_model_snapshots.py",
+        "git add output/history/daily_model_snapshots/",
+    ):
+        assert forbidden not in workflow
 
 
 def test_feature_confirmation_deltas_support_future_string_dtype() -> None:
