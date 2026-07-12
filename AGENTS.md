@@ -123,6 +123,37 @@ validator. A model-only research PR must not silently update the shared-utility
 hash baseline. Model-owned research workflows must also compare
 protected mature-model artifact hashes before and after the run and fail on any drift.
 
+New formal daily models must use a model-owned production module or producer by
+default. The existing `scripts/build_daily_candidate_model_layer.py` monolith is
+a contained legacy surface, not a precedent for adding another model. Every
+active model must have exact runtime entry functions, reachable function/global
+AST ownership, and a canonical semantic SHA in
+`config/daily_model_semantic_ownership.csv`. Every semantic item consumed by
+multiple models must be listed in
+`config/daily_model_shared_semantic_registry.csv` with exact consumers. A new
+consumer or semantic change requires an append-only user-approved migration in
+`config/daily_model_semantic_migrations.csv`; updating a baseline hash alone is
+forbidden.
+
+Every new database, feature panel, snapshot family, and model research artifact
+must be registered before a producer or model may consume it. The registration
+must identify one writer, an exact write scope, point-in-time status, approved
+read consumers, forbidden uses, retention, and the user-approved sharing
+decision in `config/daily_model_data_sharing_registry.csv`. Model-owned data is
+not shared merely because it uses objective source data. Existing shared
+objective data may be read but must not acquire model-specific interpretation in
+the shared producer. Adding a writer, consumer, or cross-model use without a new
+approval reference and append-only
+`config/daily_model_data_sharing_migrations.csv` row must fail validation.
+
+Independent promotion evidence validators must not import the production
+business functions they claim to verify. A validator that imports model
+conditions, scores, ranking, or model-owned feature interpretation is an
+implementation-consistency audit only and cannot be cited as independent
+backtest or promotion evidence. This boundary is registered in
+`config/daily_model_validator_independence.csv` and enforced by
+`scripts/validate_model_data_independence.py`.
+
 This is a repository-level engineering gate, not a style preference. Daily
 production validation must run `scripts/validate_repo_code_isolation_policy.py`
 and `scripts/validate_chatgpt_side_pdf_layout_independence.py`; weakening these

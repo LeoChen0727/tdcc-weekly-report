@@ -1,13 +1,14 @@
 from __future__ import annotations
 
-import csv
 from pathlib import Path
+
+from model_data_independence import strict_csv_rows, validate_data_sharing
 
 
 ROOT = Path(__file__).resolve().parents[1]
 REGISTRY = ROOT / "config" / "daily_model_background_data_registry.csv"
 
-REQUIRED_COLUMNS = {
+REQUIRED_COLUMN_ORDER = (
     "data_family_id",
     "scope",
     "owner_lane",
@@ -23,7 +24,8 @@ REQUIRED_COLUMNS = {
     "retention_policy",
     "cleanup_status",
     "notes",
-}
+)
+REQUIRED_COLUMNS = set(REQUIRED_COLUMN_ORDER)
 
 VALID_SCOPES = {
     "shared_objective",
@@ -75,20 +77,7 @@ def split_list(value: str) -> list[str]:
 
 
 def load_registry(errors: list[str]) -> list[dict[str, str]]:
-    if not REGISTRY.exists():
-        errors.append(f"missing daily model background data registry: {REGISTRY.relative_to(ROOT).as_posix()}")
-        return []
-
-    with REGISTRY.open("r", encoding="utf-8-sig", newline="") as fh:
-        reader = csv.DictReader(fh)
-        if not reader.fieldnames:
-            errors.append("daily model background data registry is empty")
-            return []
-        missing = REQUIRED_COLUMNS - set(reader.fieldnames)
-        if missing:
-            errors.append(f"daily model background data registry missing columns: {sorted(missing)}")
-            return []
-        return [{key: str(value or "").strip() for key, value in row.items()} for row in reader]
+    return strict_csv_rows(REGISTRY, REQUIRED_COLUMN_ORDER, errors)
 
 
 def artifact_exists(pattern: str) -> bool:
@@ -173,6 +162,8 @@ def main() -> int:
     rows = load_registry(errors)
     if rows:
         errors.extend(validate_registry(rows))
+    sharing_errors, _ = validate_data_sharing()
+    errors.extend(sharing_errors)
 
     if errors:
         for error in errors:

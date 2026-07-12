@@ -2,6 +2,11 @@ from __future__ import annotations
 
 from pathlib import Path
 
+try:
+    from validate_model_data_independence import validate as validate_model_data_independence
+except ModuleNotFoundError:  # Imported as scripts.validate_repo_code_isolation_policy in pytest.
+    from scripts.validate_model_data_independence import validate as validate_model_data_independence
+
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -28,6 +33,15 @@ MODEL_RESEARCH_OWNERSHIP_VALIDATOR = ROOT / "scripts" / "validate_model_research
 MODEL_RESEARCH_SHARED_UTILITY_VALIDATOR = ROOT / "scripts" / "validate_model_research_shared_utilities.py"
 MODEL_RESEARCH_WORKFLOW_VALIDATOR = ROOT / "scripts" / "validate_model_research_workflow_isolation.py"
 FORMAL_EVIDENCE_PIN_VALIDATOR = ROOT / "scripts" / "validate_formal_model_evidence_pins.py"
+MODEL_SEMANTIC_OWNERSHIP_REGISTRY = ROOT / "config" / "daily_model_semantic_ownership.csv"
+MODEL_SHARED_SEMANTIC_REGISTRY = ROOT / "config" / "daily_model_shared_semantic_registry.csv"
+MODEL_SEMANTIC_MIGRATION_REGISTRY = ROOT / "config" / "daily_model_semantic_migrations.csv"
+MODEL_DATA_SHARING_REGISTRY = ROOT / "config" / "daily_model_data_sharing_registry.csv"
+MODEL_DATA_SHARING_MIGRATION_REGISTRY = ROOT / "config" / "daily_model_data_sharing_migrations.csv"
+MODEL_VALIDATOR_INDEPENDENCE_REGISTRY = ROOT / "config" / "daily_model_validator_independence.csv"
+MODEL_DATA_INDEPENDENCE_CORE = ROOT / "scripts" / "model_data_independence.py"
+MODEL_DATA_INDEPENDENCE_VALIDATOR = ROOT / "scripts" / "validate_model_data_independence.py"
+MODEL_DATA_INDEPENDENCE_AUDIT_BUILDER = ROOT / "scripts" / "build_model_data_independence_audit.py"
 
 
 REQUIRED_POLICY_TEXT = {
@@ -46,6 +60,11 @@ REQUIRED_POLICY_TEXT = {
         "protected mature-model artifact hashes",
         "Each model-research workflow input must default to `false`",
         "legacy cross-model aggregate producer",
+        "New formal daily models must use a model-owned production module",
+        "daily_model_semantic_ownership.csv",
+        "daily_model_data_sharing_registry.csv",
+        "daily_model_data_sharing_migrations.csv",
+        "Independent promotion evidence validators must not import",
     ],
     RULES_MASTER: [
         "## Default Code Isolation",
@@ -60,6 +79,11 @@ REQUIRED_POLICY_TEXT = {
         "protected mature-model artifact hashes",
         "Every model-research workflow input must default to `false`",
         "legacy cross-model aggregate producer",
+        "New formal daily models must use a model-owned production module",
+        "daily_model_semantic_ownership.csv",
+        "daily_model_data_sharing_registry.csv",
+        "daily_model_data_sharing_migrations.csv",
+        "Independent promotion evidence validators must not import",
         "This policy is enforced by `scripts/validate_repo_code_isolation_policy.py`",
     ],
     RULES_DAILY: [
@@ -132,6 +156,15 @@ def validate() -> list[str]:
         MODEL_RESEARCH_SHARED_UTILITY_VALIDATOR,
         MODEL_RESEARCH_WORKFLOW_VALIDATOR,
         FORMAL_EVIDENCE_PIN_VALIDATOR,
+        MODEL_SEMANTIC_OWNERSHIP_REGISTRY,
+        MODEL_SHARED_SEMANTIC_REGISTRY,
+        MODEL_SEMANTIC_MIGRATION_REGISTRY,
+        MODEL_DATA_SHARING_REGISTRY,
+        MODEL_DATA_SHARING_MIGRATION_REGISTRY,
+        MODEL_VALIDATOR_INDEPENDENCE_REGISTRY,
+        MODEL_DATA_INDEPENDENCE_CORE,
+        MODEL_DATA_INDEPENDENCE_VALIDATOR,
+        MODEL_DATA_INDEPENDENCE_AUDIT_BUILDER,
     ]
     for path in required_files:
         if not path.exists():
@@ -179,6 +212,11 @@ def validate() -> list[str]:
         policy_test_text = read_text(POLICY_TEST)
         if "validate_repo_code_isolation_policy" not in policy_test_text:
             errors.append("pytest coverage must import validate_repo_code_isolation_policy")
+
+    errors.extend(
+        f"model/data independence: {error}"
+        for error in validate_model_data_independence()
+    )
 
     return errors
 

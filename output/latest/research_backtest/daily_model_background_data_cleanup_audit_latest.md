@@ -1,6 +1,6 @@
 # Daily Model Background Data Cleanup Audit
 
-- generated_at: `2026-07-12 03:48:08 Asia/Taipei`
+- generated_at: `2026-07-12 19:17:37 Asia/Taipei`
 - registry: `config/daily_model_background_data_registry.csv`
 - rows: `25`
 - deletion_allowed_rows: `0`
@@ -56,28 +56,28 @@ inventory, lineage, validator, replay, parity, or promotion references.
 
 | data_family_id | artifact_match_count | workflow_reference_count | inventory_reference_count | lineage_reference_count | script_test_reference_count | docs_reference_count |
 | --- | --- | --- | --- | --- | --- | --- |
-| stock_price_history | 2376 | 9 | 2 | 1 | 86 | 57 |
-| tdcc_stock_history | 1974 | 3 | 2 | 1 | 18 | 33 |
-| market_index_history | 1 | 2 | 2 | 1 | 25 | 18 |
-| market_sentiment_context_history | 1 | 1 | 2 | 1 | 11 | 18 |
-| daily_model_signal_snapshots | 17 | 5 | 2 | 1 | 45 | 19 |
-| daily_all_candidates_snapshots | 17 | 6 | 2 | 1 | 60 | 19 |
-| daily_model_signal_background_feature_panel | 1 | 11 | 2 | 1 | 95 | 62 |
-| daily_model_background_feature_catalog | 1 | 1 | 2 | 1 | 4 | 2 |
-| monthly_revenue_history | 1 | 1 | 2 | 1 | 13 | 12 |
-| monthly_revenue_coverage_backfill_audit | 1 | 2 | 2 | 1 | 20 | 10 |
-| monthly_revenue_point_in_time_panel | 1 | 5 | 2 | 1 | 65 | 22 |
-| theme_taxonomy_latest | 1 | 1 | 2 | 1 | 30 | 17 |
-| price_pullback_23ema_research_outputs | 14 | 3 | 2 | 1 | 37 | 49 |
-| price_pullback_23ema_revenue_condition_matrix | 1 | 1 | 2 | 1 | 8 | 9 |
-| price_pullback_23ema_promotion_matrix | 1 | 1 | 2 | 1 | 6 | 6 |
-| revenue_unreacted_range_revenue_condition_matrix | 1 | 6 | 2 | 1 | 71 | 45 |
-| revenue_unreacted_range_operation_candidate_matrix | 1 | 9 | 2 | 1 | 78 | 57 |
-| revenue_unreacted_range_feature_contrast_audit | 1 | 9 | 2 | 1 | 85 | 61 |
-| revenue_unreacted_range_close_confirmation_timing_audit | 1 | 6 | 2 | 1 | 71 | 50 |
-| revenue_unreacted_range_fixed_confirmation_feature_contrast_audit | 1 | 9 | 2 | 1 | 85 | 63 |
-| volume_range_breakout_v2_high_position_improvement_audit | 1 | 6 | 2 | 1 | 72 | 46 |
-| mature_model_row_level_metric_contract_audit | 1 | 3 | 2 | 1 | 34 | 28 |
-| neckline_context_interpretation | 1 | 7 | 2 | 1 | 91 | 51 |
-| w_bottom_shape_interpretation | 1 | 6 | 2 | 1 | 89 | 52 |
-| volume_breakout_operation_research_outputs | 15 | 9 | 2 | 1 | 290 | 198 |
+| stock_price_history | 2376 | 8 | 2 | 1 | 91 | 61 |
+| tdcc_stock_history | 1974 | 3 | 2 | 1 | 18 | 35 |
+| market_index_history | 1 | 2 | 2 | 1 | 25 | 20 |
+| market_sentiment_context_history | 1 | 1 | 2 | 1 | 11 | 20 |
+| daily_model_signal_snapshots | 17 | 4 | 2 | 1 | 47 | 21 |
+| daily_all_candidates_snapshots | 17 | 6 | 2 | 1 | 62 | 21 |
+| daily_model_signal_background_feature_panel | 1 | 11 | 2 | 1 | 101 | 64 |
+| daily_model_background_feature_catalog | 1 | 1 | 2 | 1 | 5 | 4 |
+| monthly_revenue_history | 1 | 1 | 2 | 1 | 14 | 14 |
+| monthly_revenue_coverage_backfill_audit | 1 | 1 | 2 | 1 | 20 | 12 |
+| monthly_revenue_point_in_time_panel | 1 | 5 | 2 | 1 | 68 | 24 |
+| theme_taxonomy_latest | 1 | 1 | 2 | 1 | 30 | 19 |
+| price_pullback_23ema_research_outputs | 14 | 3 | 2 | 1 | 44 | 51 |
+| price_pullback_23ema_revenue_condition_matrix | 1 | 1 | 2 | 1 | 10 | 11 |
+| price_pullback_23ema_promotion_matrix | 1 | 1 | 2 | 1 | 8 | 8 |
+| revenue_unreacted_range_revenue_condition_matrix | 1 | 6 | 2 | 1 | 77 | 47 |
+| revenue_unreacted_range_operation_candidate_matrix | 1 | 9 | 2 | 1 | 85 | 59 |
+| revenue_unreacted_range_feature_contrast_audit | 1 | 9 | 2 | 1 | 93 | 63 |
+| revenue_unreacted_range_close_confirmation_timing_audit | 1 | 6 | 2 | 1 | 78 | 52 |
+| revenue_unreacted_range_fixed_confirmation_feature_contrast_audit | 1 | 9 | 2 | 1 | 94 | 65 |
+| volume_range_breakout_v2_high_position_improvement_audit | 1 | 6 | 2 | 1 | 78 | 48 |
+| mature_model_row_level_metric_contract_audit | 1 | 2 | 2 | 1 | 35 | 30 |
+| neckline_context_interpretation | 1 | 7 | 2 | 1 | 94 | 53 |
+| w_bottom_shape_interpretation | 1 | 6 | 2 | 1 | 91 | 54 |
+| volume_breakout_operation_research_outputs | 15 | 9 | 2 | 1 | 309 | 205 |

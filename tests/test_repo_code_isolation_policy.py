@@ -29,8 +29,20 @@ def test_model_research_isolation_policy_is_machine_enforced() -> None:
         ROOT / "scripts/validate_model_research_shared_utilities.py",
         ROOT / "scripts/validate_model_research_workflow_isolation.py",
         ROOT / "scripts/validate_formal_model_evidence_pins.py",
+        ROOT / "config/daily_model_semantic_ownership.csv",
+        ROOT / "config/daily_model_shared_semantic_registry.csv",
+        ROOT / "config/daily_model_semantic_migrations.csv",
+        ROOT / "config/daily_model_data_sharing_registry.csv",
+        ROOT / "config/daily_model_data_sharing_migrations.csv",
+        ROOT / "config/daily_model_validator_independence.csv",
+        ROOT / "scripts/model_data_independence.py",
+        ROOT / "scripts/validate_model_data_independence.py",
+        ROOT / "scripts/build_model_data_independence_audit.py",
     ):
         assert path.is_file()
+    assert "New formal daily models must use a model-owned production module" in agents
+    assert "daily_model_data_sharing_registry.csv" in rules
+    assert "Independent promotion evidence validators must not import" in rules
 
 
 def test_daily_full_pipeline_runs_code_isolation_gates() -> None:

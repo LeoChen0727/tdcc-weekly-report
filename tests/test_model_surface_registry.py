@@ -94,6 +94,17 @@ def test_script_declared_model_ids_are_registered() -> None:
         assert model_ids <= registered_ids, path
 
 
+def test_volume_v2_research_family_is_not_a_stock_or_pdf_surface() -> None:
+    row = next(row for row in registry_rows() if row["surface_id"] == "volume_range_breakout_v2")
+    assert row["surface_type"] == "model_research_family"
+    assert row["selection_level"] == "research_backtest"
+    assert row["stock_entry_signal"] == "false"
+    assert row["approved_for_daily_pdf"] == "false"
+    assert row["approved_for_tdcc_weekly_pdf"] == "false"
+    assert row["approved_for_individual_pdf"] == "false"
+    assert row["formal_contract_file"] == "config/model_research_artifact_ownership.csv"
+
+
 def test_event_catalyst_overlay_is_not_stock_entry_signal() -> None:
     surfaces = {row["surface_id"]: row for row in registry_rows()}
 
