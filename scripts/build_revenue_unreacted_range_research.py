@@ -1,5 +1,10 @@
 from __future__ import annotations
 
+import argparse
+import gc
+
+import pandas as pd
+
 from build_daily_model_parameter_research import (
     REVENUE_UNREACTED_FEATURE_CONTRAST_BINARY_SPECS,
     REVENUE_UNREACTED_FEATURE_CONTRAST_NUMERIC_SPECS,
@@ -25,8 +30,13 @@ from revenue_unreacted_range_extreme_return_path_audit import (
     write_extreme_return_path_audit,
 )
 from revenue_unreacted_range_lag_strength_matrix import (
+    DETAIL_CSV as LAG_STRENGTH_DETAIL_CSV,
     build_lag_strength_matrix,
     write_lag_strength_matrix,
+)
+from revenue_unreacted_range_launch_timing_feature_audit import (
+    build_launch_timing_feature_audit,
+    write_launch_timing_feature_audit,
 )
 
 
@@ -47,6 +57,8 @@ def build_and_write() -> None:
         feature_anomaly,
     )
     prepared = _attach_revenue_signal_market_regime(_revenue_unreacted_timing_prepared_frame(frame))
+    del frame
+    gc.collect()
     fixed_summary, fixed_detail, fixed_anomaly = build_fixed_confirmation_feature_contrast(
         prepared,
         timing_summary,
@@ -55,6 +67,10 @@ def build_and_write() -> None:
     )
     extreme_return_audit = build_extreme_return_path_audit(fixed_detail)
     lag_strength_summary, lag_strength_detail = build_lag_strength_matrix(fixed_detail)
+    launch_summary, launch_detail, launch_feature = build_launch_timing_feature_audit(
+        prepared,
+        lag_strength_detail,
+    )
 
     write_revenue_unreacted_range_revenue_condition_matrix(condition_matrix)
     write_revenue_unreacted_range_operation_candidate_matrix(operation_matrix)
@@ -63,11 +79,52 @@ def build_and_write() -> None:
     write_fixed_confirmation_feature_contrast(fixed_summary, fixed_detail, fixed_anomaly)
     write_extreme_return_path_audit(extreme_return_audit)
     write_lag_strength_matrix(lag_strength_summary, lag_strength_detail)
+    write_launch_timing_feature_audit(launch_summary, launch_detail, launch_feature)
+
+
+def build_and_write_launch_timing_feature_audit() -> None:
+    if not LAG_STRENGTH_DETAIL_CSV.is_file():
+        raise RuntimeError(
+            "Launch timing stage requires the existing model-owned lag-strength detail artifact: "
+            f"{LAG_STRENGTH_DETAIL_CSV}"
+        )
+    frame = build_research_frame()
+    if frame.empty:
+        raise RuntimeError("No price history available for revenue_unreacted_range launch timing research")
+    prepared = _attach_revenue_signal_market_regime(_revenue_unreacted_timing_prepared_frame(frame))
+    del frame
+    gc.collect()
+    lag_strength_detail = pd.read_csv(
+        LAG_STRENGTH_DETAIL_CSV,
+        dtype={"stock_id": str},
+        keep_default_na=False,
+        low_memory=False,
+    )
+    launch_summary, launch_detail, launch_feature = build_launch_timing_feature_audit(
+        prepared,
+        lag_strength_detail,
+    )
+    write_launch_timing_feature_audit(launch_summary, launch_detail, launch_feature)
+
+
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="Build model-owned revenue_unreacted_range research artifacts.")
+    parser.add_argument(
+        "--stage",
+        choices=("all", "launch_timing_feature_audit"),
+        default="all",
+        help="Run the full producer or only the launch timing feature audit stage.",
+    )
+    return parser.parse_args()
 
 
 def main() -> int:
+    args = parse_args()
     with model_owned_artifact_guard(MODEL_ID, PRODUCER):
-        build_and_write()
+        if args.stage == "launch_timing_feature_audit":
+            build_and_write_launch_timing_feature_audit()
+        else:
+            build_and_write()
     return 0
 
 

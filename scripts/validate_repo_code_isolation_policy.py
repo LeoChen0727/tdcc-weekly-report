@@ -8,7 +8,6 @@ try:
 except ModuleNotFoundError:  # Imported as scripts.validate_repo_code_isolation_policy in pytest.
     from scripts.validate_model_data_independence import validate as validate_model_data_independence
 
-
 ROOT = Path(__file__).resolve().parents[1]
 
 AGENTS = ROOT / "AGENTS.md"
@@ -62,7 +61,6 @@ REVENUE_ANOMALY_ARTIFACT = (
     / "research_backtest"
     / "revenue_unreacted_range_extreme_return_path_audit_latest.csv"
 )
-
 ANOMALY_ROOT_CHECKS = (
     "identity_dedup_non_overlap",
     "formal_operation_replay",
@@ -485,7 +483,6 @@ def validate() -> list[str]:
         f"numerical anomaly governance: {error}"
         for error in validate_numerical_anomaly_governance()
     )
-
     return errors
 
 
