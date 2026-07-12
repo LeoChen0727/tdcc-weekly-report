@@ -1,6 +1,6 @@
 # 營收低反應模型：固定確認口徑勝敗特徵比較
 
-- generated_at: `2026-07-12 03:41:31 Asia/Taipei`
+- generated_at: `2026-07-12 17:20:58 Asia/Taipei`
 - status: `research_only_fixed_feature_contrast_not_promotion_ready`
 - 固定候選：強月營收且股價仍在近期 23 日區間、攻擊尚未開始。
 - 固定確認：候選後最多三個交易日，收盤突破候選日前 23 日最高收盤價。
