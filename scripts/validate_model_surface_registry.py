@@ -56,6 +56,7 @@ ALLOWED_SURFACE_TYPES = {
     "tdcc_weekly_ranking_model",
     "theme_fund_rotation_model",
     "event_catalyst_overlay_surface",
+    "model_research_family",
 }
 
 ALLOWED_SELECTION_LEVELS = {
@@ -63,6 +64,7 @@ ALLOWED_SELECTION_LEVELS = {
     "tdcc_weekly_report",
     "theme_group",
     "candidate_overlay",
+    "research_backtest",
 }
 
 ALLOWED_CONTRACT_SENTINELS = {
@@ -183,6 +185,22 @@ def validate_rows(rows: list[dict[str, str]]) -> list[str]:
             errors.append(f"{surface_id} stock model surface must have stock_entry_signal=true")
         if surface_type not in STOCK_SURFACE_TYPES and row.get("stock_entry_signal") != "false":
             errors.append(f"{surface_id} non-stock model surface must have stock_entry_signal=false")
+        if surface_type == "model_research_family":
+            if selection_level != "research_backtest":
+                errors.append(f"{surface_id} research family must use selection_level=research_backtest")
+            if row.get("consumer_surfaces") != "research_backtest":
+                errors.append(f"{surface_id} research family may be consumed only by research_backtest")
+            if row.get("formal_contract_file") != "config/model_research_artifact_ownership.csv":
+                errors.append(
+                    f"{surface_id} research family must use model_research_artifact_ownership.csv"
+                )
+            for column in (
+                "approved_for_daily_pdf",
+                "approved_for_tdcc_weekly_pdf",
+                "approved_for_individual_pdf",
+            ):
+                if row.get(column) != "false":
+                    errors.append(f"{surface_id} research family must keep {column}=false")
 
     return errors
 

@@ -11,6 +11,7 @@ if str(SCRIPTS) not in sys.path:
     sys.path.insert(0, str(SCRIPTS))
 
 from validate_daily_model_background_data_registry import load_registry, validate_registry  # noqa: E402
+from model_data_independence import strict_csv_rows  # noqa: E402
 
 
 def registry_rows() -> list[dict[str, str]]:
@@ -49,3 +50,12 @@ def test_revenue_panel_must_stay_coverage_limited() -> None:
 
     assert any("monthly_revenue_point_in_time_panel" in error for error in errors)
     assert any("validator path missing" in error for error in errors)
+
+
+def test_registry_loader_fails_on_unquoted_comma_overflow(tmp_path: Path) -> None:
+    path = tmp_path / "background.csv"
+    path.write_text("data_family_id,notes\nexample,first,second\n", encoding="utf-8")
+    errors: list[str] = []
+    rows = strict_csv_rows(path, ("data_family_id", "notes"), errors)
+    assert rows == []
+    assert any("field count 3 does not match header count 2" in error for error in errors)

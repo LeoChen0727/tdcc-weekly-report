@@ -1,0 +1,71 @@
+# 每日股票模型與資料獨立性稽核
+
+- 產生時間：`2026-07-12 19:23:39 Asia/Taipei`
+- 結果：`CONTAINED=22, DISCLOSED_NOT_INDEPENDENT=4, PASS=35`
+- 原則：新模型與新資料 family 預設獨立；跨模型共用商業語意必須先有使用者核准與 migration evidence。
+- `CONTAINED` 代表既有共用已被凍結與精確盤點，不代表已物理拆分。
+- `DISCLOSED_NOT_INDEPENDENT` 代表該 validator 只能做 implementation consistency，不得當成獨立模型正確性證據。
+
+| 領域 | 對象 | 狀態 | ownership | 剩餘缺口 |
+|---|---|---|---|---|
+| production_model_semantics | hot_theme_pullback | CONTAINED | contained_legacy_monolith | existing shared producer/semantic remains frozen; future model must use a model-owned module |
+| production_model_semantics | neckline_volume_breakout_confirmation | CONTAINED | contained_legacy_monolith | existing shared producer/semantic remains frozen; future model must use a model-owned module |
+| production_model_semantics | price_pullback_23ema | CONTAINED | contained_legacy_monolith | existing shared producer/semantic remains frozen; future model must use a model-owned module |
+| production_model_semantics | pullback_short_reclaim | CONTAINED | contained_legacy_monolith | existing shared producer/semantic remains frozen; future model must use a model-owned module |
+| production_model_semantics | revenue_unreacted_range | CONTAINED | contained_legacy_monolith | existing shared producer/semantic remains frozen; future model must use a model-owned module |
+| production_model_semantics | tdcc_short_term_continuation_d5_d10 | CONTAINED | contained_legacy_monolith | existing shared producer/semantic remains frozen; future model must use a model-owned module |
+| production_model_semantics | tdcc_stealth_accumulation | CONTAINED | contained_legacy_monolith | existing shared producer/semantic remains frozen; future model must use a model-owned module |
+| production_model_semantics | volume_range_breakout_v2_high_position_volume_attack | CONTAINED | contained_model_family_dispatcher | existing shared producer/semantic remains frozen; future model must use a model-owned module |
+| production_model_semantics | volume_range_breakout_v2_low_position_volume_attack | CONTAINED | contained_model_family_dispatcher | existing shared producer/semantic remains frozen; future model must use a model-owned module |
+| production_model_semantics | volume_range_breakout_v2_mid_position_momentum_attack | CONTAINED | contained_model_family_dispatcher | existing shared producer/semantic remains frozen; future model must use a model-owned module |
+| production_model_semantics | w_bottom_right_side | CONTAINED | contained_legacy_monolith | existing shared producer/semantic remains frozen; future model must use a model-owned module |
+| shared_production_semantics | contained_legacy_cross_model_semantic | CONTAINED | contained_legacy_cross_model_semantic | legacy sharing is contained but not physically separated |
+| shared_production_semantics | contained_model_family_semantic | CONTAINED | contained_model_family_semantic | legacy sharing is contained but not physically separated |
+| shared_production_semantics | shared_technical | PASS | shared_technical | none |
+| data_family_ownership | stock_price_history | PASS | approved_shared_objective | none |
+| data_family_ownership | tdcc_stock_history | PASS | approved_shared_objective | none |
+| data_family_ownership | market_index_history | PASS | approved_shared_objective | none |
+| data_family_ownership | market_sentiment_context_history | PASS | approved_shared_objective | none |
+| data_family_ownership | daily_model_signal_snapshots | PASS | approved_shared_replay_read_only | none |
+| data_family_ownership | daily_all_candidates_snapshots | PASS | approved_shared_replay_read_only | none |
+| data_family_ownership | daily_model_signal_background_feature_panel | PASS | approved_shared_objective | none |
+| data_family_ownership | daily_model_background_feature_catalog | PASS | approved_shared_objective | none |
+| data_family_ownership | monthly_revenue_history | PASS | approved_shared_objective | none |
+| data_family_ownership | monthly_revenue_coverage_backfill_audit | PASS | approved_shared_objective | none |
+| data_family_ownership | monthly_revenue_point_in_time_panel | PASS | approved_shared_objective | none |
+| data_family_ownership | theme_taxonomy_latest | CONTAINED | latest_context_not_historical | legacy/latest/audit data is barred from formal model evidence |
+| data_family_ownership | price_pullback_23ema_research_outputs | PASS | model_owned_not_shared | none |
+| data_family_ownership | price_pullback_23ema_revenue_condition_matrix | PASS | model_owned_not_shared | none |
+| data_family_ownership | price_pullback_23ema_promotion_matrix | PASS | model_owned_not_shared | none |
+| data_family_ownership | revenue_unreacted_range_revenue_condition_matrix | PASS | model_owned_not_shared | none |
+| data_family_ownership | revenue_unreacted_range_operation_candidate_matrix | PASS | model_owned_not_shared | none |
+| data_family_ownership | revenue_unreacted_range_feature_contrast_audit | PASS | model_owned_not_shared | none |
+| data_family_ownership | revenue_unreacted_range_close_confirmation_timing_audit | PASS | model_owned_not_shared | none |
+| data_family_ownership | revenue_unreacted_range_fixed_confirmation_feature_contrast_audit | PASS | model_owned_not_shared | none |
+| data_family_ownership | volume_range_breakout_v2_high_position_improvement_audit | PASS | model_owned_not_shared | none |
+| data_family_ownership | mature_model_row_level_metric_contract_audit | CONTAINED | cross_model_audit_not_model_evidence | legacy/latest/audit data is barred from formal model evidence |
+| data_family_ownership | neckline_context_interpretation | PASS | model_family_owned_not_shared | none |
+| data_family_ownership | w_bottom_shape_interpretation | PASS | model_family_owned_not_shared | none |
+| data_family_ownership | volume_breakout_operation_research_outputs | CONTAINED | legacy_frozen_no_new_consumers | legacy/latest/audit data is barred from formal model evidence |
+| research_producer_ownership | hot_theme_pullback | CONTAINED | no_enabled_model_owned_research_entrypoint | before reopening research this model needs its own producer artifact allowlist and sentinel test |
+| research_producer_ownership | neckline_volume_breakout_confirmation | CONTAINED | no_enabled_model_owned_research_entrypoint | before reopening research this model needs its own producer artifact allowlist and sentinel test |
+| research_producer_ownership | price_pullback_23ema | PASS | model_owned_write | none |
+| research_producer_ownership | pullback_short_reclaim | CONTAINED | no_enabled_model_owned_research_entrypoint | before reopening research this model needs its own producer artifact allowlist and sentinel test |
+| research_producer_ownership | revenue_unreacted_range | PASS | model_owned_write | none |
+| research_producer_ownership | tdcc_short_term_continuation_d5_d10 | CONTAINED | no_enabled_model_owned_research_entrypoint | before reopening research this model needs its own producer artifact allowlist and sentinel test |
+| research_producer_ownership | tdcc_stealth_accumulation | CONTAINED | no_enabled_model_owned_research_entrypoint | before reopening research this model needs its own producer artifact allowlist and sentinel test |
+| research_producer_ownership | volume_range_breakout_v2_high_position_volume_attack | PASS | model_owned_write | none |
+| research_producer_ownership | volume_range_breakout_v2_low_position_volume_attack | PASS | model_owned_write | none |
+| research_producer_ownership | volume_range_breakout_v2_mid_position_momentum_attack | PASS | model_owned_write | none |
+| research_producer_ownership | w_bottom_right_side | CONTAINED | no_enabled_model_owned_research_entrypoint | before reopening research this model needs its own producer artifact allowlist and sentinel test |
+| formal_evidence_binding | neckline_volume_breakout_confirmation | PASS | pinned_formal_evidence | none |
+| formal_evidence_binding | price_pullback_23ema | PASS | pinned_formal_evidence | none |
+| formal_evidence_binding | volume_range_breakout_v2_high_position_volume_attack | PASS | pinned_formal_evidence | none |
+| formal_evidence_binding | volume_range_breakout_v2_low_position_volume_attack | PASS | pinned_formal_evidence | none |
+| formal_evidence_binding | volume_range_breakout_v2_mid_position_momentum_attack | PASS | pinned_formal_evidence | none |
+| formal_evidence_binding | w_bottom_right_side | PASS | pinned_formal_evidence | none |
+| validator_independence | scripts/audit_daily_candidate_model_selection_correctness.py | DISCLOSED_NOT_INDEPENDENT | implementation_consistency_audit | may verify implementation consistency only; cannot prove model correctness independently |
+| validator_independence | scripts/audit_daily_candidate_pipeline_integrity.py | DISCLOSED_NOT_INDEPENDENT | implementation_consistency_audit | may verify implementation consistency only; cannot prove model correctness independently |
+| validator_independence | scripts/validate_daily_model_research_parity.py | DISCLOSED_NOT_INDEPENDENT | production_research_contract_consistency | may verify implementation consistency only; cannot prove model correctness independently |
+| validator_independence | scripts/validate_model_data_independence.py | PASS | independent_contract_ast_guard | none |
+| validator_independence | scripts/validate_research_against_stock_model_contract.py | DISCLOSED_NOT_INDEPENDENT | production_research_contract_consistency | may verify implementation consistency only; cannot prove model correctness independently |
