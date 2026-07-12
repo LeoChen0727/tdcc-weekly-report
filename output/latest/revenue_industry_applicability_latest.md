@@ -1,9 +1,9 @@
 # 產業營收適用性檢查
 
-- generated_at: `2026-07-12 18:31:00 Asia/Taipei`
+- generated_at: `2026-07-12 20:53:36 Asia/Taipei`
 - source: `output/latest/all_candidates_latest.csv`
-- construction_like_rows: `10`
-- revenue_category_construction_rows: `5`
+- construction_like_rows: `11`
+- revenue_category_construction_rows: `6`
 
 ## 規則
 
@@ -16,6 +16,7 @@
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | 20260709 | 2547 | 日勝生 | 建材營造 | revenue_breakout_low_response | B_可觀察 | 營建認列型 | 營建認列型；月營收 YoY 屬認列型訊號，需 EPS、毛利率、合約負債、在建工程或交屋進度確認；不得只因單月 YoY 暴增列為最優先。 |
 | 20260709 | 2511 | 太子 | 建材營造 | revenue_breakout_low_response | B_可觀察 | 營建認列型 | 營建認列型；月營收 YoY 屬認列型訊號，需 EPS、毛利率、合約負債、在建工程或交屋進度確認；不得只因單月 YoY 暴增列為最優先。 |
+| 20260709 | 4416 | 三圓 | 建材營造 | revenue_breakout_low_response | D_降級_TDCC轉弱 | 營建認列型 | 營建認列型；月營收 YoY 屬認列型訊號，需 EPS、毛利率、合約負債、在建工程或交屋進度確認；不得只因單月 YoY 暴增列為最優先。 |
 | 20260709 | 4416 | 三圓 | 建材營造 | revenue_pullback | C_僅觀察_營建認列型需基本面確認 | 營建認列型 | 營建認列型；月營收 YoY 屬認列型訊號，需 EPS、毛利率、合約負債、在建工程或交屋進度確認；不得只因單月 YoY 暴增列為最優先。 |
 | 20260709 | 2547 | 日勝生 | 建材營造 | revenue_pullback | C_僅觀察_營建認列型需基本面確認 | 營建認列型 | 營建認列型；月營收 YoY 屬認列型訊號，需 EPS、毛利率、合約負債、在建工程或交屋進度確認；不得只因單月 YoY 暴增列為最優先。 |
 | 20260709 | 2511 | 太子 | 建材營造 | revenue_pullback | C_僅觀察_營建認列型需基本面確認 | 營建認列型 | 營建認列型；月營收 YoY 屬認列型訊號，需 EPS、毛利率、合約負債、在建工程或交屋進度確認；不得只因單月 YoY 暴增列為最優先。 |
