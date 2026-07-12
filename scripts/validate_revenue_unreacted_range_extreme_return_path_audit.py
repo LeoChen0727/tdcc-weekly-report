@@ -12,24 +12,6 @@ from revenue_unreacted_range_extreme_return_path_audit import (
 
 
 SOURCE_DETAIL = "output/latest/research_backtest/revenue_unreacted_range_fixed_confirmation_feature_contrast_audit_detail_latest.csv"
-EXPECTED_STOCK_IDS = {
-    "2327",
-    "3090",
-    "3093",
-    "3229",
-    "3339",
-    "3443",
-    "4908",
-    "5464",
-    "5475",
-    "6588",
-    "6658",
-    "6683",
-    "6949",
-    "7750",
-}
-
-
 def _boolish(series: pd.Series) -> pd.Series:
     return series.astype(str).str.strip().str.lower().isin({"true", "1", "yes"})
 
@@ -54,10 +36,21 @@ def validate() -> list[str]:
     if list(audit.columns) != COLUMNS:
         errors.append("extreme return path audit schema drift")
         return errors
-    if len(audit) != 14:
-        errors.append(f"extreme return path audit must contain 14 rows; actual={len(audit)}")
-    if set(audit["stock_id"].astype(str).str.zfill(4)) != EXPECTED_STOCK_IDS:
-        errors.append("extreme return path audit stock membership drift")
+    source = pd.read_csv(SOURCE_DETAIL, dtype={"stock_id": str}, low_memory=False)
+    source_returns = pd.to_numeric(source["realized_return_pct"], errors="coerce")
+    source_target = source[
+        _boolish(source["decision_basis"])
+        & ~_boolish(source["sensitivity_basis"])
+        & source["feature_time_basis"].astype(str).eq("signal_date_close")
+        & source_returns.abs().ge(80.0)
+    ].drop_duplicates("episode_key")
+    if len(audit) != len(source_target):
+        errors.append(
+            f"extreme return path audit source membership count drift: "
+            f"expected={len(source_target)} actual={len(audit)}"
+        )
+    if set(audit["episode_key"].astype(str)) != set(source_target["episode_key"].astype(str)):
+        errors.append("extreme return path audit episode membership drift")
     if audit["episode_key"].duplicated().any():
         errors.append("extreme return path audit contains duplicate episodes")
     if set(audit["artifact_version"].astype(str)) != {ARTIFACT_VERSION}:
@@ -70,17 +63,36 @@ def validate() -> list[str]:
         if not _boolish(audit[column]).all():
             errors.append(f"extreme return path audit raw match failed: {column}")
     if _boolish(audit["impossible_return_flag"]).any():
-        errors.append("a currently audited extreme trade is classified as impossible")
+        errors.append("a currently audited anomaly candidate has a repo price-path mismatch")
     if not audit["price_path_trading_rows"].eq(20).all():
         errors.append("extreme return path must contain exactly 20 entry-to-exit trading rows")
     if not audit["raw_source_rows_matched"].eq(audit["raw_source_rows_expected"]).all():
         errors.append("extreme return path raw row counts do not match")
     if not audit["market_limit_violation_count"].eq(0).all():
         errors.append("extreme return path contains an over-11-percent daily price movement")
-    if set(audit["price_path_classification"].astype(str)) != {"plausible_extreme_continuous_gain"}:
-        errors.append("extreme return path classification drift")
+    if set(audit["statistical_trigger_status"].astype(str)) != {"anomaly_candidate"}:
+        errors.append("return threshold must create anomaly candidates only")
+    if set(audit["price_path_classification"].astype(str)) != {
+        "candidate_continuous_price_path_repo_source_matched"
+    }:
+        errors.append("anomaly candidate price-path classification drift")
+    if set(audit["root_cause_verification_status"].astype(str)) != {
+        "partial_root_checks_incomplete"
+    }:
+        errors.append("anomaly candidate root-cause status drift")
+    if set(audit["final_disposition"].astype(str)) != {"unresolved_anomaly_candidate"}:
+        errors.append("anomaly candidates received a premature final disposition")
+    if audit["root_cause_checks_missing"].astype(str).eq("").any():
+        errors.append("anomaly candidates must disclose missing bottom-level checks")
+    if set(audit["primary_metric_handling"].astype(str)) != {
+        "retain_observed_candidate_and_block_promotion_until_resolved"
+    }:
+        errors.append("anomaly candidate primary metric handling drift")
+    if set(audit["candidate_threshold_sensitivity_handling"].astype(str)) != {
+        "threshold_sensitivity_only_not_anomaly_disposition"
+    }:
+        errors.append("anomaly candidate threshold sensitivity is mislabeled")
 
-    source = pd.read_csv(SOURCE_DETAIL, dtype={"stock_id": str}, low_memory=False)
     rebuilt = build_extreme_return_path_audit(source).drop(columns=["generated_at"]).reset_index(drop=True)
     current = audit.drop(columns=["generated_at"]).reset_index(drop=True)
     try:
@@ -96,7 +108,11 @@ def main() -> int:
         for error in errors:
             print(f"ERROR: {error}")
         return 1
-    print(f"revenue extreme return path audit validation passed: rows=14 artifact_version={ARTIFACT_VERSION}")
+    print(
+        "revenue anomaly candidate root-cause audit validation passed: "
+        f"rows={len(pd.read_csv(LATEST_CSV))} artifact_version={ARTIFACT_VERSION} "
+        "final_disposition=unresolved"
+    )
     return 0
 
 

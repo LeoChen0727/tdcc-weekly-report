@@ -27,7 +27,7 @@ def test_every_shared_utility_lists_multiple_consumers_and_validators() -> None:
 def test_changed_utility_requires_nonbaseline_migration(monkeypatch) -> None:
     utilities = shared.load_shared_utilities()
     migrations = shared.load_shared_utility_migrations()
-    target = utilities[0]
+    target = next(item for item in utilities if item.last_migration_id.startswith("baseline_"))
     monkeypatch.setattr(shared, "load_shared_utilities", lambda: utilities)
     monkeypatch.setattr(shared, "load_shared_utility_migrations", lambda: migrations)
     monkeypatch.setattr(shared, "changed_paths_against", lambda _base_ref, root=ROOT: {target.utility_path})
@@ -38,7 +38,7 @@ def test_changed_utility_requires_nonbaseline_migration(monkeypatch) -> None:
 def test_validated_migration_requires_previous_hash(monkeypatch) -> None:
     utilities = shared.load_shared_utilities()
     migrations = shared.load_shared_utility_migrations()
-    target = utilities[0]
+    target = next(item for item in utilities if item.last_migration_id.startswith("baseline_"))
     patched = [
         replace(item, migration_status="validated_cross_model_migration")
         if item.migration_id == target.last_migration_id and item.utility_path == target.utility_path

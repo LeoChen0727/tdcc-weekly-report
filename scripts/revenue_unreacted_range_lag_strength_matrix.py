@@ -11,7 +11,7 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parents[1]
 MODEL_ID = "revenue_unreacted_range"
 ARTIFACT_ID = "revenue_unreacted_range_lag_strength_matrix"
-ARTIFACT_VERSION = "trading_day_lag_strength_v1_20260712"
+ARTIFACT_VERSION = "trading_day_lag_strength_root_cause_pending_v3_20260712"
 SOURCE_DETAIL = ROOT / "output/latest/research_backtest/revenue_unreacted_range_fixed_confirmation_feature_contrast_audit_detail_latest.csv"
 MONTHLY_REVENUE_HISTORY = ROOT / "output/latest/research_backtest/monthly_revenue_history_latest.csv"
 PRICE_HISTORY_DIR = ROOT / "data/stock_price_history"
@@ -25,7 +25,7 @@ DOCS_MD = ROOT / f"docs/latest/{ARTIFACT_ID}_latest.md"
 WIN_RETURN_PCT = 5.0
 HIGH_RETURN_PCT = 8.0
 LARGE_LOSS_PCT = -5.0
-EXTREME_ABS_RETURN_PCT = 80.0
+ANOMALY_CANDIDATE_ABS_RETURN_PCT = 80.0
 
 CURRENT_LAG_BUCKETS = (
     ("lag_d0_3", "0至3個交易日", 0, 3),
@@ -68,7 +68,8 @@ SUMMARY_COLUMNS = [
     "median_realized_return_pct",
     "high_return_8_rate_pct",
     "loss_5_rate_pct",
-    "abs_ge80_return_count",
+    "abs_ge80_anomaly_candidate_count",
+    "source_anomaly_candidate_count",
     "sensitivity_trade_count",
     "sensitivity_win_rate_pct",
     "sensitivity_neutral_rate_pct",
@@ -142,10 +143,10 @@ DETAIL_COLUMNS = [
     "flag_latest50_consecutive_ge3",
     "realized_return_pct",
     "outcome_label",
-    "abs_ge80_return_flag",
+    "abs_ge80_anomaly_candidate_flag",
     "same_stock_non_overlap_applied",
     "revenue_period_dedup_applied",
-    "source_revenue_or_price_anomaly_flag",
+    "source_revenue_or_price_anomaly_candidate_flag",
     "availability_date_semantics",
     "approved_for_daily",
     "production_change",
@@ -216,6 +217,7 @@ def _source_episodes(source: pd.DataFrame) -> pd.DataFrame:
         "decision_basis",
         "sensitivity_basis",
         "feature_time_basis",
+        "source_revenue_or_price_anomaly_candidate_flag",
     }
     missing = sorted(required - set(source.columns))
     if missing:
@@ -363,10 +365,14 @@ def build_lag_strength_detail(source: pd.DataFrame) -> pd.DataFrame:
             "flag_latest50_consecutive_ge3": bool(pd.notna(latest) and pd.notna(prev1) and pd.notna(prev2) and latest >= 50 and prev1 >= 50 and prev2 >= 50),
             "realized_return_pct": round(realized, 4),
             "outcome_label": "win" if realized >= WIN_RETURN_PCT else "neutral" if realized >= 0 else "failure",
-            "abs_ge80_return_flag": abs(realized) >= EXTREME_ABS_RETURN_PCT,
+            "abs_ge80_anomaly_candidate_flag": (
+                abs(realized) >= ANOMALY_CANDIDATE_ABS_RETURN_PCT
+            ),
             "same_stock_non_overlap_applied": True,
             "revenue_period_dedup_applied": True,
-            "source_revenue_or_price_anomaly_flag": bool(str(episode.source_revenue_or_price_anomaly_flag).lower() == "true"),
+            "source_revenue_or_price_anomaly_candidate_flag": bool(
+                str(episode.source_revenue_or_price_anomaly_candidate_flag).lower() == "true"
+            ),
             "availability_date_semantics": "conservative_next_month_17th_or_first_official_snapshot_not_exact_company_release_timestamp",
             "approved_for_daily": False,
             "production_change": False,
@@ -427,7 +433,12 @@ def _metrics(frame: pd.DataFrame) -> dict[str, object]:
         "median_realized_return_pct": round(float(realized.median()), 4) if count else "",
         "high_return_8_rate_pct": _rate(int(realized.ge(HIGH_RETURN_PCT).sum()), count),
         "loss_5_rate_pct": _rate(int(realized.le(LARGE_LOSS_PCT).sum()), count),
-        "abs_ge80_return_count": int(realized.abs().ge(EXTREME_ABS_RETURN_PCT).sum()),
+        "abs_ge80_anomaly_candidate_count": int(
+            realized.abs().ge(ANOMALY_CANDIDATE_ABS_RETURN_PCT).sum()
+        ),
+        "source_anomaly_candidate_count": int(
+            _boolish(frame.loc[realized.index, "source_revenue_or_price_anomaly_candidate_flag"]).sum()
+        ),
     }
 
 
@@ -447,9 +458,9 @@ def _interpret(metrics: dict[str, object], sensitivity: dict[str, object]) -> tu
     including_meets = all(value is not None for value in base_values) and base_values[0] >= 60 and base_values[1] > 0 and base_values[2] > 0
     excluding_meets = all(value is not None for value in sensitivity_values) and sensitivity_values[0] >= 60 and sensitivity_values[1] > 0 and sensitivity_values[2] > 0
     if including_meets and excluding_meets:
-        return "meets_60pct_positive_return_both_bases_research_only", "not_tail_dependent"
+        return "provisional_meets_60pct_positive_return_both_threshold_bases", "not_tail_dependent"
     if including_meets and not excluding_meets:
-        return "including_extremes_meets_but_sensitivity_fails", "tail_dependent"
+        return "including_candidates_meets_but_threshold_sensitivity_fails", "tail_dependent"
     return "does_not_meet_60pct_positive_return_package", "not_candidate_or_inconclusive"
 
 
@@ -469,8 +480,14 @@ def _summary_row(
 ) -> dict[str, object]:
     selected = detail.loc[mask.fillna(False)]
     metrics = _metrics(selected)
-    sensitivity = _metrics(selected.loc[~_boolish(selected["abs_ge80_return_flag"])])
+    sensitivity = _metrics(selected.loc[~_boolish(selected["abs_ge80_anomaly_candidate_flag"])])
     interpretation, tail_status = _interpret(metrics, sensitivity)
+    if (
+        int(metrics["abs_ge80_anomaly_candidate_count"]) > 0
+        or int(metrics["source_anomaly_candidate_count"]) > 0
+    ):
+        interpretation = "blocked_pending_root_cause_anomaly_candidate_review"
+        tail_status = "source_or_return_candidates_unresolved"
 
     def delta(metric_key: str) -> float | str:
         current = _number(metrics[metric_key])
@@ -509,7 +526,7 @@ def _summary_row(
         "financial_statement_scope": "monthly_revenue_only;EPS_gross_margin_operating_margin_operating_income_non_operating_income_net_income_excluded",
         "approved_for_daily": False,
         "production_change": False,
-        "promotion_readiness": "research_only_pending_source_isolation_and_formal_pit_review",
+        "promotion_readiness": "blocked_pending_root_cause_anomaly_candidate_review",
     }
 
 
@@ -637,8 +654,9 @@ def _markdown(summary: pd.DataFrame) -> str:
     candidate = summary[
         summary["interpretation_status"].isin(
             {
-                "meets_60pct_positive_return_both_bases_research_only",
-                "including_extremes_meets_but_sensitivity_fails",
+                "provisional_meets_60pct_positive_return_both_threshold_bases",
+                "including_candidates_meets_but_threshold_sensitivity_fails",
+                "blocked_pending_root_cause_anomaly_candidate_review",
             }
         )
     ].copy()
@@ -665,7 +683,9 @@ def _markdown(summary: pd.DataFrame) -> str:
         "- dedup: 同股持有區間不得重疊；同股同一營收月份只接受一筆。",
         "- lag basis: 股票本身可交易日，而非曆日。",
         "- availability caveat: 歷史回填採保守次月 17 日，最新資料採第一個官方 snapshot；不是公司實際發布時分。",
-        "- tail sensitivity: 主樣本保留可實現的 abs >= 80% 交易，並同步列出排除後結果。",
+        "- anomaly candidate: abs >= 80% 只觸發待查列，不能直接判定極端值、錯價或非可比事件。",
+        "- threshold sensitivity: 主樣本保留候選列並另列門檻排除結果；排除結果不是修正後績效。",
+        "- promotion gate: 14 筆候選仍缺完整底層根因證據，本矩陣全部維持 blocked。",
         "- sample rule: 樣本少不會自動否決，但樣本數必須完整揭露。",
         "- scope: 僅月營收；EPS、毛利率、營益率、營業利益、業外與淨利未納入。",
         "- status: research-only；不修改 production registry、operation adapter、ranking、PDF 或 snapshots。",

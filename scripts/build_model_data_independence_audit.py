@@ -37,6 +37,9 @@ OUTPUT_CSV = ROOT / "output" / "latest" / "model_data_independence_audit_latest.
 OUTPUT_MD = ROOT / "output" / "latest" / "model_data_independence_audit_latest.md"
 DOCS_CSV = ROOT / "docs" / "latest" / "model_data_independence_audit_latest.csv"
 DOCS_MD = ROOT / "docs" / "latest" / "model_data_independence_audit_latest.md"
+NUMERICAL_ANOMALY_CONTRACT = (
+    ROOT / "config" / "daily_model_numerical_anomaly_disposition_contract.csv"
+)
 
 OUTPUT_COLUMNS = (
     "generated_at",
@@ -148,6 +151,61 @@ def build_rows(generated_at: str) -> list[dict[str, str]]:
                     if row["ownership_mode"] in contained_modes
                     else "none"
                 ),
+            }
+        )
+
+    anomaly_contract_rows = _read(NUMERICAL_ANOMALY_CONTRACT)
+    rows.append(
+        {
+            "generated_at": generated_at,
+            "domain": "numerical_anomaly_governance",
+            "subject": "repo_wide_root_cause_disposition_contract",
+            "status": "PASS",
+            "ownership_mode": "repo_wide_governance_contract",
+            "consumer_count": "all_models",
+            "evidence": (
+                f"contract={NUMERICAL_ANOMALY_CONTRACT.relative_to(ROOT).as_posix()}; "
+                f"dispositions={len(anomaly_contract_rows)}; threshold_only_final_disposition_forbidden"
+            ),
+            "remaining_gap": "none",
+        }
+    )
+    for subject, ownership_mode, evidence, gap in (
+        (
+            "monthly_revenue_history_legacy_threshold_flag",
+            "legacy_threshold_flag_candidate_only",
+            "full_monthly_revenue_numerical_anomaly_flag must not auto-exclude primary model metrics",
+            "source schema still uses a legacy anomaly field name and must be treated as candidate-only",
+        ),
+        (
+            "revenue_unreacted_range",
+            "model_owned_root_cause_pending",
+            "primary metrics retain unresolved source/path/return candidates; exclusion views are sensitivity-only",
+            "corporate-action PIT, independent-source corroboration, and adjustment-basis checks remain incomplete",
+        ),
+        (
+            "price_pullback_23ema",
+            "model_owned_root_cause_pending",
+            "legacy 2380 data-quality row is downgraded to an unresolved candidate and retained in primary metrics",
+            "all root-cause checks must complete before any candidate may be excluded",
+        ),
+        (
+            "volume_range_breakout_v2_legacy_quantile_artifacts",
+            "legacy_threshold_artifacts_contained",
+            "quantile-labelled anomaly artifacts are barred from formal evidence pins",
+            "republish under the root-cause disposition contract before reopening or promotion",
+        ),
+    ):
+        rows.append(
+            {
+                "generated_at": generated_at,
+                "domain": "numerical_anomaly_governance",
+                "subject": subject,
+                "status": "CONTAINED",
+                "ownership_mode": ownership_mode,
+                "consumer_count": "1",
+                "evidence": evidence,
+                "remaining_gap": gap,
             }
         )
 

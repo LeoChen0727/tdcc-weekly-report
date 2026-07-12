@@ -6,8 +6,10 @@ import pandas as pd
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from build_daily_model_parameter_research import (  # noqa: E402
+    ANOMALY_CANDIDATE_SENSITIVITY_BASIS,
     DOCS_REVENUE_UNREACTED_OPERATION_CANDIDATE_MATRIX_CSV,
     DOCS_REVENUE_UNREACTED_OPERATION_CANDIDATE_MATRIX_MD,
+    PRIMARY_ANOMALY_BASIS,
     REVENUE_UNREACTED_OPERATION_CANDIDATE_MATRIX_CSV,
     REVENUE_UNREACTED_OPERATION_CANDIDATE_MATRIX_MD,
 )
@@ -24,6 +26,10 @@ REQUIRED_COLUMNS = {
     "condition_rule",
     "point_in_time_rule",
     "anomaly_exclusion_basis",
+    "decision_basis",
+    "sensitivity_basis",
+    "revenue_anomaly_candidate_count_in_sample",
+    "revenue_anomaly_candidate_count_in_baseline",
     "entry_rule_id",
     "confirmation_rule_id",
     "entry_rule",
@@ -129,10 +135,24 @@ def validate_matrix(df: pd.DataFrame) -> list[str]:
     if not df["point_in_time_rule"].astype(str).str.contains("source_table_date", regex=False).all():
         errors.append("operation candidate matrix must document source_table_date point-in-time joins")
     if set(df["anomaly_exclusion_basis"].astype(str)) != {
-        "including_numerical_anomalies",
-        "excluding_revenue_numerical_anomalies",
+        PRIMARY_ANOMALY_BASIS,
+        ANOMALY_CANDIDATE_SENSITIVITY_BASIS,
     }:
-        errors.append("operation candidate matrix must include both including and excluding anomaly bases")
+        errors.append("operation candidate matrix must include primary and candidate-exclusion sensitivity bases")
+    primary = df[df["anomaly_exclusion_basis"].eq(PRIMARY_ANOMALY_BASIS)]
+    sensitivity = df[df["anomaly_exclusion_basis"].eq(ANOMALY_CANDIDATE_SENSITIVITY_BASIS)]
+    if not primary["decision_basis"].astype(str).eq("True").all():
+        errors.append("primary operation rows must set decision_basis=True")
+    if not sensitivity["sensitivity_basis"].astype(str).eq("True").all():
+        errors.append("candidate-exclusion operation rows must set sensitivity_basis=True")
+    primary_candidate_count = pd.to_numeric(
+        primary["revenue_anomaly_candidate_count_in_sample"], errors="coerce"
+    ).fillna(0)
+    unresolved_primary = primary_candidate_count.gt(0)
+    if not primary.loc[unresolved_primary, "promotion_readiness"].eq(
+        "blocked_pending_root_cause_anomaly_candidate_review"
+    ).all():
+        errors.append("primary rows with unresolved anomaly candidates must block promotion")
     missing_exits = REQUIRED_EXIT_RULES - set(df["exit_rule_id"].astype(str))
     if missing_exits:
         errors.append("operation candidate matrix missing exit rules: " + ", ".join(sorted(missing_exits)))
@@ -201,3 +221,4 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+    PRIMARY_ANOMALY_BASIS,

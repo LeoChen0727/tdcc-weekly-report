@@ -1,7 +1,7 @@
 # 每日股票模型與資料獨立性稽核
 
-- 產生時間：`2026-07-12 19:23:39 Asia/Taipei`
-- 結果：`CONTAINED=22, DISCLOSED_NOT_INDEPENDENT=4, PASS=35`
+- 產生時間：`2026-07-13 02:02:02 Asia/Taipei`
+- 結果：`CONTAINED=26, DISCLOSED_NOT_INDEPENDENT=4, PASS=38`
 - 原則：新模型與新資料 family 預設獨立；跨模型共用商業語意必須先有使用者核准與 migration evidence。
 - `CONTAINED` 代表既有共用已被凍結與精確盤點，不代表已物理拆分。
 - `DISCLOSED_NOT_INDEPENDENT` 代表該 validator 只能做 implementation consistency，不得當成獨立模型正確性證據。
@@ -42,11 +42,18 @@
 | data_family_ownership | revenue_unreacted_range_feature_contrast_audit | PASS | model_owned_not_shared | none |
 | data_family_ownership | revenue_unreacted_range_close_confirmation_timing_audit | PASS | model_owned_not_shared | none |
 | data_family_ownership | revenue_unreacted_range_fixed_confirmation_feature_contrast_audit | PASS | model_owned_not_shared | none |
+| data_family_ownership | revenue_unreacted_range_extreme_return_path_audit | PASS | model_owned_not_shared | none |
+| data_family_ownership | revenue_unreacted_range_lag_strength_matrix | PASS | model_owned_not_shared | none |
 | data_family_ownership | volume_range_breakout_v2_high_position_improvement_audit | PASS | model_owned_not_shared | none |
 | data_family_ownership | mature_model_row_level_metric_contract_audit | CONTAINED | cross_model_audit_not_model_evidence | legacy/latest/audit data is barred from formal model evidence |
 | data_family_ownership | neckline_context_interpretation | PASS | model_family_owned_not_shared | none |
 | data_family_ownership | w_bottom_shape_interpretation | PASS | model_family_owned_not_shared | none |
 | data_family_ownership | volume_breakout_operation_research_outputs | CONTAINED | legacy_frozen_no_new_consumers | legacy/latest/audit data is barred from formal model evidence |
+| numerical_anomaly_governance | repo_wide_root_cause_disposition_contract | PASS | repo_wide_governance_contract | none |
+| numerical_anomaly_governance | monthly_revenue_history_legacy_threshold_flag | CONTAINED | legacy_threshold_flag_candidate_only | source schema still uses a legacy anomaly field name and must be treated as candidate-only |
+| numerical_anomaly_governance | revenue_unreacted_range | CONTAINED | model_owned_root_cause_pending | corporate-action PIT, independent-source corroboration, and adjustment-basis checks remain incomplete |
+| numerical_anomaly_governance | price_pullback_23ema | CONTAINED | model_owned_root_cause_pending | all root-cause checks must complete before any candidate may be excluded |
+| numerical_anomaly_governance | volume_range_breakout_v2_legacy_quantile_artifacts | CONTAINED | legacy_threshold_artifacts_contained | republish under the root-cause disposition contract before reopening or promotion |
 | research_producer_ownership | hot_theme_pullback | CONTAINED | no_enabled_model_owned_research_entrypoint | before reopening research this model needs its own producer artifact allowlist and sentinel test |
 | research_producer_ownership | neckline_volume_breakout_confirmation | CONTAINED | no_enabled_model_owned_research_entrypoint | before reopening research this model needs its own producer artifact allowlist and sentinel test |
 | research_producer_ownership | price_pullback_23ema | PASS | model_owned_write | none |

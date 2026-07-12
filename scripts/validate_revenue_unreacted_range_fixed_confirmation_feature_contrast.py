@@ -13,11 +13,11 @@ from build_daily_model_parameter_research import (  # noqa: E402
     REVENUE_UNREACTED_FEATURE_CONTRAST_NUMERIC_SPECS,
 )
 from revenue_unreacted_range_close_confirmation_timing import (  # noqa: E402
+    ANOMALY_CANDIDATE_SENSITIVITY_BASIS as SOURCE_ANOMALY_CANDIDATE_SENSITIVITY_BASIS,
     DECISION_BASIS,
     FIXED_FEATURE_CONTRAST_EXIT_CLOCK_ID,
     FIXED_FEATURE_CONTRAST_PENDING_WINDOW_DAYS,
     FIXED_FEATURE_CONTRAST_VARIANT_ID,
-    INCLUDING_BASIS,
     SUMMARY_CSV as TIMING_SUMMARY_CSV,
 )
 from revenue_unreacted_range_fixed_confirmation_feature_contrast import (  # noqa: E402
@@ -27,7 +27,7 @@ from revenue_unreacted_range_fixed_confirmation_feature_contrast import (  # noq
     DOCS_ANOMALY_CSV,
     DOCS_SUMMARY_CSV,
     DOCS_SUMMARY_MD,
-    EXTREME_SENSITIVITY_BASIS,
+    RETURN_ANOMALY_CANDIDATE_SENSITIVITY_BASIS,
     FEATURE_TIME_BASES,
     FINANCIAL_STATEMENT_EXCLUSIONS,
     HISTORY_ANOMALY_CSV,
@@ -40,7 +40,11 @@ from revenue_unreacted_range_fixed_confirmation_feature_contrast import (  # noq
 from tracking_utils import DOCS_LATEST_DIR  # noqa: E402
 
 
-EXPECTED_BASES = {INCLUDING_BASIS, DECISION_BASIS, EXTREME_SENSITIVITY_BASIS}
+EXPECTED_BASES = {
+    DECISION_BASIS,
+    SOURCE_ANOMALY_CANDIDATE_SENSITIVITY_BASIS,
+    RETURN_ANOMALY_CANDIDATE_SENSITIVITY_BASIS,
+}
 EXPECTED_TIME_BASES = {str(item["feature_time_basis"]) for item in FEATURE_TIME_BASES}
 SUMMARY_REQUIRED = {
     "model_id",
@@ -82,14 +86,14 @@ SUMMARY_REQUIRED = {
     "same_stock_revenue_period_repeat_count",
     "timing_expected_accepted_trade_count",
     "timing_accepted_trade_count_parity_status",
-    "extreme_sensitivity_direction_status",
+    "candidate_threshold_sensitivity_direction_status",
     "monthly_revenue_scope",
     "financial_statement_scope",
     "financial_statement_fields_excluded",
     "combination_policy",
     "sample_count_context",
-    "feature_context_revenue_anomaly_count",
-    "feature_context_revenue_anomalies_excluded_from_feature_evidence",
+    "feature_context_revenue_anomaly_candidate_count",
+    "feature_context_candidate_values_retained_in_feature_evidence",
     "approved_for_daily",
     "production_change",
 }
@@ -119,8 +123,8 @@ DETAIL_REQUIRED = {
     "exit_sequence_index",
     "realized_return_pct",
     "outcome_label",
-    "price_path_anomaly_flag",
-    "source_revenue_or_price_anomaly_flag",
+    "price_path_anomaly_candidate_flag",
+    "source_revenue_or_price_anomaly_candidate_flag",
     "source_monthly_revenue_period",
     "source_monthly_revenue_source_table_date",
     "full_monthly_revenue_source_table_date",
@@ -142,11 +146,12 @@ ANOMALY_REQUIRED = {
     "accepted_trade_count",
     "same_stock_overlap_pair_count",
     "same_stock_revenue_period_repeat_count",
-    "price_path_anomaly_count",
-    "return_abs_ge80_count",
-    "signal_feature_context_revenue_anomaly_count",
-    "confirmation_feature_context_revenue_anomaly_count",
-    "feature_context_revenue_anomalies_excluded_from_feature_evidence",
+    "price_path_anomaly_candidate_count",
+    "return_abs_ge80_anomaly_candidate_count",
+    "source_revenue_or_price_anomaly_candidate_count",
+    "signal_feature_context_revenue_anomaly_candidate_count",
+    "confirmation_feature_context_revenue_anomaly_candidate_count",
+    "feature_context_candidate_values_retained_in_feature_evidence",
     "max_realized_return_pct",
     "max_return_stock_id",
     "max_return_signal_date",
@@ -270,6 +275,10 @@ def validate_detail(detail: pd.DataFrame) -> list[str]:
         errors.append("detail must enforce same-stock non-overlap")
     if boolish(detail["approved_for_daily"]).any() or set(detail["production_change"]) != {"none"}:
         errors.append("detail must remain research-only")
+    if set(detail["promotion_readiness"]) != {
+        "blocked_pending_root_cause_anomaly_candidate_review"
+    }:
+        errors.append("detail must remain blocked pending anomaly root-cause review")
     if set(detail["monthly_revenue_scope"]) != {"monthly_revenue_point_in_time_only"}:
         errors.append("detail monthly revenue scope mismatch")
     if set(detail["financial_statement_scope"]) != {"excluded_no_formal_point_in_time_layer"}:
@@ -285,21 +294,34 @@ def validate_detail(detail: pd.DataFrame) -> list[str]:
         errors.append("detail outcome labels drifted")
 
     decision = detail[detail["anomaly_exclusion_basis"].eq(DECISION_BASIS)]
-    if boolish(decision["price_path_anomaly_flag"]).any() or boolish(
-        decision["source_revenue_or_price_anomaly_flag"]
-    ).any():
-        errors.append("decision-basis detail contains a known revenue/price/path anomaly")
     if not boolish(decision["decision_basis"]).all() or boolish(decision["sensitivity_basis"]).any():
         errors.append("decision-basis flags mismatch")
-    sensitivity = detail[detail["anomaly_exclusion_basis"].eq(EXTREME_SENSITIVITY_BASIS)]
-    if boolish(sensitivity["decision_basis"]).any() or not boolish(sensitivity["sensitivity_basis"]).all():
-        errors.append("extreme sensitivity flags mismatch")
-    if pd.to_numeric(sensitivity["realized_return_pct"], errors="coerce").abs().ge(80.0).any():
-        errors.append("extreme sensitivity detail still contains |return| >= 80%")
+    source_sensitivity = detail[
+        detail["anomaly_exclusion_basis"].eq(SOURCE_ANOMALY_CANDIDATE_SENSITIVITY_BASIS)
+    ]
+    return_sensitivity = detail[
+        detail["anomaly_exclusion_basis"].eq(RETURN_ANOMALY_CANDIDATE_SENSITIVITY_BASIS)
+    ]
+    for label, sensitivity in (
+        ("source candidate", source_sensitivity),
+        ("return candidate", return_sensitivity),
+    ):
+        if boolish(sensitivity["decision_basis"]).any() or not boolish(
+            sensitivity["sensitivity_basis"]
+        ).all():
+            errors.append(f"{label} sensitivity flags mismatch")
+    if boolish(source_sensitivity["price_path_anomaly_candidate_flag"]).any() or boolish(
+        source_sensitivity["source_revenue_or_price_anomaly_candidate_flag"]
+    ).any():
+        errors.append("source-candidate sensitivity still contains source/path candidates")
+    if pd.to_numeric(return_sensitivity["realized_return_pct"], errors="coerce").abs().ge(80.0).any():
+        errors.append("return-candidate sensitivity still contains |return| >= 80%")
     decision_keys = set(zip(decision["feature_time_basis"], decision["episode_key"]))
-    sensitivity_keys = set(zip(sensitivity["feature_time_basis"], sensitivity["episode_key"]))
-    if not sensitivity_keys.issubset(decision_keys):
-        errors.append("extreme sensitivity is not a strict decision-basis subset")
+    return_sensitivity_keys = set(
+        zip(return_sensitivity["feature_time_basis"], return_sensitivity["episode_key"])
+    )
+    if not return_sensitivity_keys.issubset(decision_keys):
+        errors.append("return candidate sensitivity is not a decision-basis subset")
 
     for _, row in detail.iterrows():
         source_date = str(row["source_monthly_revenue_source_table_date"])
@@ -331,7 +353,7 @@ def validate_detail(detail: pd.DataFrame) -> list[str]:
                 if active_exit is not None and entry <= active_exit:
                     errors.append(f"same-stock overlap: {basis}/{time_basis}/{stock_id}")
                 active_exit = exit_value if active_exit is None else max(active_exit, exit_value)
-        if basis in {DECISION_BASIS, EXTREME_SENSITIVITY_BASIS}:
+        if basis in EXPECTED_BASES:
             repeats = part.groupby(["stock_id", "source_monthly_revenue_period"], dropna=False).size()
             if repeats.gt(1).any():
                 errors.append(f"same stock/revenue period repeated: {basis}/{time_basis}")
@@ -362,9 +384,17 @@ def validate_summary(summary: pd.DataFrame, detail: pd.DataFrame, timing: pd.Dat
         errors.append("summary combination policy drifted")
     if boolish(summary["approved_for_daily"]).any() or set(summary["production_change"]) != {"none"}:
         errors.append("summary must remain research-only")
+    if set(summary["promotion_readiness"]) != {
+        "blocked_pending_root_cause_anomaly_candidate_review"
+    }:
+        errors.append("summary must remain blocked pending anomaly root-cause review")
     if pd.to_numeric(summary["same_stock_overlap_pair_count"], errors="coerce").ne(0).any():
         errors.append("summary same-stock overlap must be zero")
-    decision_or_sensitivity = summary[summary["anomaly_exclusion_basis"].isin({DECISION_BASIS, EXTREME_SENSITIVITY_BASIS})]
+    decision_or_sensitivity = summary[
+        summary["anomaly_exclusion_basis"].isin(
+            EXPECTED_BASES
+        )
+    ]
     if pd.to_numeric(decision_or_sensitivity["same_stock_revenue_period_repeat_count"], errors="coerce").ne(0).any():
         errors.append("decision/sensitivity same stock/revenue period repeat count must be zero")
     if set(summary["financial_statement_fields_excluded"]) != {FINANCIAL_STATEMENT_EXCLUSIONS}:
@@ -401,14 +431,18 @@ def validate_summary(summary: pd.DataFrame, detail: pd.DataFrame, timing: pd.Dat
             boolish(part["full_monthly_revenue_numerical_anomaly_flag"]).sum()
         )
         if pd.to_numeric(
-            part_summary["feature_context_revenue_anomaly_count"], errors="coerce"
+            part_summary["feature_context_revenue_anomaly_candidate_count"], errors="coerce"
         ).ne(expected_revenue_anomaly_count).any():
-            errors.append(f"feature-context revenue anomaly count mismatch: {basis}/{time_basis}")
+            errors.append(f"feature-context revenue candidate count mismatch: {basis}/{time_basis}")
         if not boolish(
-            part_summary["feature_context_revenue_anomalies_excluded_from_feature_evidence"]
+            part_summary["feature_context_candidate_values_retained_in_feature_evidence"]
         ).all():
-            errors.append(f"feature-context revenue anomaly exclusion flag failed: {basis}/{time_basis}")
-        expected_count = len(part) if basis == EXTREME_SENSITIVITY_BASIS else timing_counts.get(basis, -1)
+            errors.append(f"feature-context candidates were removed from feature evidence: {basis}/{time_basis}")
+        expected_count = (
+            len(part)
+            if basis == RETURN_ANOMALY_CANDIDATE_SENSITIVITY_BASIS
+            else timing_counts.get(basis, -1)
+        )
         if int(number(baseline["timing_expected_accepted_trade_count"])) != expected_count:
             errors.append(f"timing expected count mismatch: {basis}/{time_basis}")
         if baseline["timing_accepted_trade_count_parity_status"] != "pass":
@@ -500,10 +534,10 @@ def validate_summary(summary: pd.DataFrame, detail: pd.DataFrame, timing: pd.Dat
                     if not close_enough(row[f"{group_id}_feature_median"], round(float(group.median()), 4)):
                         errors.append(f"numeric median mismatch: {basis}/{time_basis}/{feature_id}/{group_id}")
     decision_rows = summary[summary["anomaly_exclusion_basis"].eq(DECISION_BASIS)]
-    if decision_rows["extreme_sensitivity_direction_status"].isin(
+    if decision_rows["candidate_threshold_sensitivity_direction_status"].isin(
         {"not_applicable", "missing_sensitivity_counterpart"}
     ).any():
-        errors.append("decision rows must have an extreme-return sensitivity direction result")
+        errors.append("decision rows must have a candidate-threshold sensitivity direction result")
     return errors
 
 
@@ -541,8 +575,32 @@ def validate_anomaly(anomaly: pd.DataFrame, detail: pd.DataFrame) -> list[str]:
             errors.append(f"anomaly top1 share mismatch: {basis}")
         if not close_enough(row["top5_abs_return_share_pct"], top5):
             errors.append(f"anomaly top5 share mismatch: {basis}")
-        if int(number(row["return_abs_ge80_count"])) != int(realized.abs().ge(80.0).sum()):
+        if int(number(row["return_abs_ge80_anomaly_candidate_count"])) != int(
+            realized.abs().ge(80.0).sum()
+        ):
             errors.append(f"anomaly abs80 count mismatch: {basis}")
+        source_candidate_count = int(
+            boolish(part["source_revenue_or_price_anomaly_candidate_flag"]).sum()
+        )
+        if int(number(row["source_revenue_or_price_anomaly_candidate_count"])) != source_candidate_count:
+            errors.append(f"source revenue/price candidate count mismatch: {basis}")
+        path_candidate_count = int(boolish(part["price_path_anomaly_candidate_flag"]).sum())
+        decision_has_candidate = (
+            int(realized.abs().ge(80.0).sum()) > 0
+            or source_candidate_count > 0
+            or path_candidate_count > 0
+        )
+        if basis == DECISION_BASIS and decision_has_candidate:
+            if row["interpretation_status"] != "blocked_pending_root_cause_anomaly_candidate_review":
+                errors.append("decision basis must be blocked while anomaly candidates are unresolved")
+        if basis in {
+            SOURCE_ANOMALY_CANDIDATE_SENSITIVITY_BASIS,
+            RETURN_ANOMALY_CANDIDATE_SENSITIVITY_BASIS,
+        }:
+            if row["interpretation_status"] != (
+                "candidate_threshold_sensitivity_only_not_anomaly_disposition"
+            ):
+                errors.append("threshold sensitivity basis is mislabeled as an anomaly disposition")
         basis_detail = detail[detail["anomaly_exclusion_basis"].eq(basis)]
         signal_revenue_anomalies = int(
             boolish(
@@ -560,14 +618,14 @@ def validate_anomaly(anomaly: pd.DataFrame, detail: pd.DataFrame) -> list[str]:
                 ]
             ).sum()
         )
-        if int(number(row["signal_feature_context_revenue_anomaly_count"])) != signal_revenue_anomalies:
-            errors.append(f"signal feature-context revenue anomaly count mismatch: {basis}")
-        if int(number(row["confirmation_feature_context_revenue_anomaly_count"])) != confirmation_revenue_anomalies:
-            errors.append(f"confirmation feature-context revenue anomaly count mismatch: {basis}")
+        if int(number(row["signal_feature_context_revenue_anomaly_candidate_count"])) != signal_revenue_anomalies:
+            errors.append(f"signal feature-context revenue candidate count mismatch: {basis}")
+        if int(number(row["confirmation_feature_context_revenue_anomaly_candidate_count"])) != confirmation_revenue_anomalies:
+            errors.append(f"confirmation feature-context revenue candidate count mismatch: {basis}")
         if not boolish(
-            pd.Series([row["feature_context_revenue_anomalies_excluded_from_feature_evidence"]])
+            pd.Series([row["feature_context_candidate_values_retained_in_feature_evidence"]])
         ).all():
-            errors.append(f"feature-context revenue anomaly exclusion flag failed: {basis}")
+            errors.append(f"feature-context candidates were removed from feature evidence: {basis}")
     return errors
 
 

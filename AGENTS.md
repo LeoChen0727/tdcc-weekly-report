@@ -221,11 +221,41 @@ ex-right/ex-dividend price adjustment gaps, delisting/relisting,
 suspension/resumption windows, missing trading-date gaps, source-file defects,
 column parsing errors, or unadjusted price jumps, but these are examples and
 must not narrow the rule. Until resolved, such rows must be labeled
-research-only data-quality exceptions, excluded from promotion evidence or rerun
-with an approved adjusted basis, and summarized with both including-exception
-and excluding-exception metrics. If the current lane cannot update the needed
+`unresolved_anomaly_candidate`, retained in the primary metrics, and the
+affected model promotion conclusion must remain blocked. An excluding-candidate
+result may be published only as sensitivity analysis and must not replace or be
+described as corrected primary performance. If the current lane cannot update the needed
 rule, validator, or artifact, hand the issue to the project
 governance/model_governance owner instead of silently continuing.
+
+A large or small number, absolute-return cutoff, percentile, IQR, z-score,
+trimmed mean, winsorized result, or contribution to the average is an
+investigation trigger only. These statistical signals may only create an `anomaly_candidate`.
+Statistical magnitude alone must not classify a row as
+an extreme value, data error, or non-comparable event; must not justify removing
+the row from the primary metric; and must not be described as a corrected or
+cleaned performance result.
+
+Before assigning a final anomaly disposition, the investigation must trace the
+row to the lowest available evidence layer: identity and non-overlap, formal
+entry/exit/stop replay, point-in-time dates and trading-calendar continuity,
+raw-source lineage and immutable row hashes, units/formulas/adjustment basis,
+authoritative corporate-action or business-event history, independent-source
+corroboration, and a reproducible evidence reference. A missing required check
+keeps the row `unresolved_anomaly_candidate` and blocks promotion conclusions.
+`verified_real_extreme` rows remain in primary metrics. `verified_data_error`
+rows must be repaired at the source and rerun. `verified_non_comparable` rows
+may be excluded only with an approved reason and rerun.
+Threshold-excluded metrics are sensitivity analysis only. This contract is registered in
+`config/daily_model_numerical_anomaly_disposition_contract.csv` and enforced by
+`scripts/validate_repo_code_isolation_policy.py`.
+
+Legacy research fields or artifacts whose names contain `anomaly`, `outlier`,
+or `extreme` but whose classification was produced only by a numerical cutoff
+or quantile are retroactively treated as `anomaly_candidate`, regardless of the
+old field name. They cannot be cited as final anomaly evidence or pinned formal
+promotion evidence. Before a model is reopened or promoted from such evidence,
+the owner must republish it with the root-cause disposition contract.
 
 Daily model condition development must not default to arbitrary condition
 stacking or win-rate-only tuning. Before promoting a new required condition,
@@ -234,8 +264,9 @@ high-return and low-return trades under the same buy point, sell rule, holding
 window, and anomaly-exclusion basis. Use that comparison to decide whether a
 condition explains better payoff, merely raises win rate without payoff, reduces
 tail loss, or only shrinks sample size. Report sample count, win/neutral/failure
-rates, average and median realized return, high-return hit rate, loss rate, and
-including/excluding-anomaly metrics before treating the condition as model
+rates, average and median realized return, high-return hit rate, loss rate,
+primary metrics retaining unresolved candidates, and separately labeled
+candidate-exclusion sensitivity metrics before treating the condition as model
 evidence. This method applies to future models and to any reopened discussion of
 previously approved models; when an older model is revisited, explicitly remind
 the user to evaluate high-return and low-return feature differences before

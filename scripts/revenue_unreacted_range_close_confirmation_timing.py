@@ -14,7 +14,7 @@ from tracking_utils import DOCS_LATEST_DIR, RESEARCH_LATEST_DIR, markdown_table,
 HISTORY_DIR = Path("output/history/research")
 
 ARTIFACT_ID = "revenue_unreacted_range_close_confirmation_timing_audit"
-ARTIFACT_VERSION = "close_confirmation_timing_v1"
+ARTIFACT_VERSION = "close_confirmation_timing_v2_anomaly_candidate_primary"
 MODEL_ID = "revenue_unreacted_range"
 MODEL_NAME_ZH = "營收爆發但股價尚未反應模型"
 
@@ -28,8 +28,10 @@ DOCS_SUMMARY_CSV = DOCS_LATEST_DIR / SUMMARY_CSV.name
 DOCS_ANOMALY_CSV = DOCS_LATEST_DIR / ANOMALY_CSV.name
 DOCS_SUMMARY_MD = DOCS_LATEST_DIR / SUMMARY_MD.name
 
-DECISION_BASIS = "excluding_known_revenue_and_price_anomalies"
-INCLUDING_BASIS = "including_known_anomalies"
+DECISION_BASIS = "including_unresolved_anomaly_candidates_primary"
+ANOMALY_CANDIDATE_SENSITIVITY_BASIS = (
+    "excluding_unresolved_anomaly_candidates_sensitivity_only"
+)
 
 WIN_RETURN_PCT = 5.0
 HIGH_RETURN_PCT = 8.0
@@ -135,14 +137,14 @@ EPISODE_COLUMNS = [
     "high_return_8_flag",
     "loss_5_flag",
     "metric_included",
-    "price_path_anomaly_flag",
-    "price_path_anomaly_reason",
+    "price_path_anomaly_candidate_flag",
+    "price_path_anomaly_candidate_reason",
     "price_path_max_step_ratio",
     "price_path_min_step_ratio",
     "direct_signal_d20_return_pct",
     "direct_signal_d20_outcome_label",
-    "direct_signal_d20_path_anomaly_flag",
-    "direct_signal_d20_path_anomaly_reason",
+    "direct_signal_d20_path_anomaly_candidate_flag",
+    "direct_signal_d20_path_anomaly_candidate_reason",
     "timing_cost_vs_direct_signal_d20_pct",
     "signal_close",
     "signal_range23_highest_close",
@@ -156,7 +158,7 @@ EPISODE_COLUMNS = [
     "full_monthly_revenue_source_table_date",
     "full_monthly_revenue_latest_yoy_pct",
     "full_monthly_revenue_cumulative_yoy_pct",
-    "source_revenue_or_price_anomaly_flag",
+    "source_revenue_or_price_anomaly_candidate_flag",
     "approved_for_daily",
     "production_change",
     "promotion_readiness",
@@ -186,10 +188,10 @@ DETAIL_COLUMNS = [
     "realized_return_pct",
     "outcome_label",
     "metric_included",
-    "price_path_anomaly_flag",
-    "price_path_anomaly_reason",
+    "price_path_anomaly_candidate_flag",
+    "price_path_anomaly_candidate_reason",
     "direct_signal_d20_return_pct",
-    "direct_signal_d20_path_anomaly_flag",
+    "direct_signal_d20_path_anomaly_candidate_flag",
     "timing_cost_vs_direct_signal_d20_pct",
     "signal_range23_highest_close",
     "signal_already_above_ma20_ema23",
@@ -464,7 +466,7 @@ def _episode_row(
     stock_id = safe_str(signal.get("stock_id"))
     signal_date = safe_str(signal.get("_revenue_signal_date", signal.get("date")))
     signal_sequence = int(signal.get("_revenue_stock_sequence_index", signal_position))
-    source_anomaly = bool(signal.get("_revenue_timing_source_anomaly_flag", False))
+    source_anomaly = bool(signal.get("_revenue_timing_source_anomaly_candidate_flag", False))
     direct_return, direct_outcome, direct_path_flag, direct_path_reason = _direct_signal_d20_outcome(
         part,
         signal_position=signal_position,
@@ -564,7 +566,8 @@ def _episode_row(
             lifecycle_status = "confirmed_immature_exit"
 
     decision_basis = basis == DECISION_BASIS
-    metric_included = lifecycle_status == "confirmed_mature" and not (decision_basis and path_flag)
+    sensitivity_basis = basis == ANOMALY_CANDIDATE_SENSITIVITY_BASIS
+    metric_included = lifecycle_status == "confirmed_mature" and not (sensitivity_basis and path_flag)
     direct_number = _safe_float(direct_return)
     realized_number = _safe_float(realized_return)
     timing_cost = (
@@ -626,14 +629,14 @@ def _episode_row(
         "high_return_8_flag": not math.isnan(realized_number) and realized_number >= HIGH_RETURN_PCT,
         "loss_5_flag": not math.isnan(realized_number) and realized_number <= LARGE_LOSS_PCT,
         "metric_included": metric_included,
-        "price_path_anomaly_flag": path_flag,
-        "price_path_anomaly_reason": path_reason,
+        "price_path_anomaly_candidate_flag": path_flag,
+        "price_path_anomaly_candidate_reason": path_reason,
         "price_path_max_step_ratio": path_max,
         "price_path_min_step_ratio": path_min,
         "direct_signal_d20_return_pct": direct_return,
         "direct_signal_d20_outcome_label": direct_outcome,
-        "direct_signal_d20_path_anomaly_flag": direct_path_flag,
-        "direct_signal_d20_path_anomaly_reason": direct_path_reason,
+        "direct_signal_d20_path_anomaly_candidate_flag": direct_path_flag,
+        "direct_signal_d20_path_anomaly_candidate_reason": direct_path_reason,
         "timing_cost_vs_direct_signal_d20_pct": timing_cost,
         "signal_close": _round(signal_close),
         "signal_range23_highest_close": _round(signal.get("_revenue_range23_highest_close_prev")),
@@ -653,7 +656,7 @@ def _episode_row(
         "full_monthly_revenue_cumulative_yoy_pct": _round(
             signal.get("full_monthly_revenue_cumulative_yoy_pct")
         ),
-        "source_revenue_or_price_anomaly_flag": source_anomaly,
+        "source_revenue_or_price_anomaly_candidate_flag": source_anomaly,
         "approved_for_daily": False,
         "production_change": "none",
         "promotion_readiness": "research_only_not_promotion_ready",
@@ -734,13 +737,17 @@ def _replay_variant(
 def _anomaly_metrics(episodes: pd.DataFrame) -> dict[str, Any]:
     mature = episodes[episodes["lifecycle_status"].eq("confirmed_mature")].copy()
     raw_returns = pd.to_numeric(mature["realized_return_pct"], errors="coerce").dropna()
-    path_anomaly_count = int(mature["price_path_anomaly_flag"].astype(bool).sum()) if not mature.empty else 0
+    path_anomaly_count = (
+        int(mature["price_path_anomaly_candidate_flag"].astype(bool).sum())
+        if not mature.empty
+        else 0
+    )
     metric = episodes[episodes["metric_included"].astype(bool)].copy()
     returns = pd.to_numeric(metric["realized_return_pct"], errors="coerce").dropna()
     if returns.empty:
         return {
-            "accepted_trade_count_before_path_exclusion": len(raw_returns),
-            "price_path_anomaly_count": path_anomaly_count,
+            "accepted_trade_count_before_candidate_sensitivity_exclusion": len(raw_returns),
+            "price_path_anomaly_candidate_count": path_anomaly_count,
             "metric_sample_count": 0,
             "max_realized_return_pct": "",
             "max_return_stock_id": "",
@@ -748,7 +755,7 @@ def _anomaly_metrics(episodes: pd.DataFrame) -> dict[str, Any]:
             "min_realized_return_pct": "",
             "min_return_stock_id": "",
             "min_return_signal_date": "",
-            "return_abs_ge80_count": 0,
+            "return_abs_ge80_anomaly_candidate_count": 0,
             "top1_abs_return_share_pct": "",
             "top5_abs_return_share_pct": "",
             "trimmed_1pct_avg_return_pct": "",
@@ -767,8 +774,8 @@ def _anomaly_metrics(episodes: pd.DataFrame) -> dict[str, Any]:
     top5 = float(abs_returns.iloc[:5].sum()) / abs_total * 100.0 if abs_total else 0.0
     dominance = top1 > 10.0 or top5 > 25.0
     return {
-        "accepted_trade_count_before_path_exclusion": len(raw_returns),
-        "price_path_anomaly_count": path_anomaly_count,
+        "accepted_trade_count_before_candidate_sensitivity_exclusion": len(raw_returns),
+        "price_path_anomaly_candidate_count": path_anomaly_count,
         "metric_sample_count": len(returns),
         "max_realized_return_pct": _round(returns.loc[max_index]),
         "max_return_stock_id": safe_str(metric.loc[max_index, "stock_id"]),
@@ -776,7 +783,7 @@ def _anomaly_metrics(episodes: pd.DataFrame) -> dict[str, Any]:
         "min_realized_return_pct": _round(returns.loc[min_index]),
         "min_return_stock_id": safe_str(metric.loc[min_index, "stock_id"]),
         "min_return_signal_date": safe_str(metric.loc[min_index, "signal_date"]),
-        "return_abs_ge80_count": int(returns.abs().ge(80.0).sum()),
+        "return_abs_ge80_anomaly_candidate_count": int(returns.abs().ge(80.0).sum()),
         "top1_abs_return_share_pct": _round(top1),
         "top5_abs_return_share_pct": _round(top5),
         "trimmed_1pct_avg_return_pct": _mean(trimmed),
@@ -803,9 +810,9 @@ def _performance_summary(
     metrics = _return_metrics(episodes[episodes["metric_included"].astype(bool)])
     confirmation_denominator = len(confirmed) + len(unconfirmed)
     unconfirmed_counterfactual = unconfirmed.copy()
-    if basis == DECISION_BASIS:
+    if basis == ANOMALY_CANDIDATE_SENSITIVITY_BASIS:
         unconfirmed_counterfactual = unconfirmed_counterfactual[
-            ~unconfirmed_counterfactual["direct_signal_d20_path_anomaly_flag"].astype(bool)
+            ~unconfirmed_counterfactual["direct_signal_d20_path_anomaly_candidate_flag"].astype(bool)
         ]
     unconfirmed_counterfactual = unconfirmed_counterfactual[
         pd.to_numeric(unconfirmed_counterfactual["direct_signal_d20_return_pct"], errors="coerce").notna()
@@ -818,15 +825,18 @@ def _performance_summary(
         episodes["metric_included"].astype(bool)
         & pd.to_numeric(episodes["direct_signal_d20_return_pct"], errors="coerce").notna()
     ].copy()
-    if basis == DECISION_BASIS:
-        paired = paired[~paired["direct_signal_d20_path_anomaly_flag"].astype(bool)]
+    if basis == ANOMALY_CANDIDATE_SENSITIVITY_BASIS:
+        paired = paired[~paired["direct_signal_d20_path_anomaly_candidate_flag"].astype(bool)]
     timing_cost = pd.to_numeric(paired["timing_cost_vs_direct_signal_d20_pct"], errors="coerce")
     suppressed = int(pd.to_numeric(episodes["suppressed_source_signal_count"], errors="coerce").fillna(0).sum())
     anomaly = _anomaly_metrics(episodes)
     decision_basis = basis == DECISION_BASIS
     dominance = bool(anomaly["potential_return_dominance_flag"])
+    anomaly_candidate_count = int(anomaly["return_abs_ge80_anomaly_candidate_count"])
     promotion_readiness = (
-        "research_only_blocked_return_dominance_review"
+        "blocked_pending_root_cause_anomaly_candidate_review"
+        if decision_basis and anomaly_candidate_count > 0
+        else "research_only_blocked_return_dominance_review"
         if decision_basis and dominance
         else "research_only_not_promotion_ready"
     )
@@ -853,7 +863,7 @@ def _performance_summary(
         "point_in_time_rule": "monthly revenue source_table_date <= signal_date",
         "source_signal_count": source_signal_count,
         "source_unique_stock_count": source_unique_stock_count,
-        "source_known_anomaly_count": source_anomaly_count,
+        "source_anomaly_candidate_count": source_anomaly_count,
         "pending_episode_count": len(episodes),
         "confirmed_episode_count": len(confirmed),
         "unconfirmed_episode_count": len(unconfirmed),
@@ -896,12 +906,14 @@ def _performance_summary(
     anomaly_row = {
         **{column: row.get(column, "") for column in SUMMARY_REQUIRED_ID_COLUMNS},
         "source_signal_count": source_signal_count,
-        "source_known_anomaly_count": source_anomaly_count,
+        "source_anomaly_candidate_count": source_anomaly_count,
         **anomaly,
         "interpretation_status": (
-            "not_decision_basis_known_anomalies_included"
+            "sensitivity_only_not_anomaly_disposition"
             if not decision_basis
-            else "blocked_return_dominance_review"
+            else "blocked_pending_root_cause_anomaly_candidate_review"
+            if anomaly_candidate_count > 0
+            else "blocked_non_threshold_return_dominance_review"
             if dominance
             else "anomaly_check_pass"
         ),
@@ -1006,7 +1018,7 @@ def _source_partition_rows(
                 "candidate_source_name_zh": "營收爆發但股價尚未反應候選池",
                 "source_signal_count": total,
                 "source_unique_stock_count": int(frame.loc[source_mask, "stock_id"].nunique()),
-                "source_known_anomaly_count": source_anomaly_count,
+                "source_anomaly_candidate_count": source_anomaly_count,
                 "partition_key": key,
                 "partition_count": count,
                 "partition_rate_pct": _rate(count, total),
@@ -1036,7 +1048,7 @@ def build_fixed_confirmation_episode_source(
         "_revenue_stock_sequence_index",
         "_revenue_range23_highest_close_prev",
         "_revenue_timing_source_flag",
-        "_revenue_timing_source_anomaly_flag",
+        "_revenue_timing_source_anomaly_candidate_flag",
     }
     missing = required - set(prepared_frame.columns)
     if missing:
@@ -1052,7 +1064,7 @@ def build_fixed_confirmation_episode_source(
     )
     frame = prepared_frame.copy()
     source_all = frame["_revenue_timing_source_flag"].astype(bool)
-    source_anomaly = frame["_revenue_timing_source_anomaly_flag"].astype(bool) & source_all
+    source_anomaly = frame["_revenue_timing_source_anomaly_candidate_flag"].astype(bool) & source_all
     confirmation_cache: dict[tuple[str, int, str, int], tuple[int | None, bool, bool]] = {}
     direct_outcome_cache: dict[tuple[str, int], tuple[float | str, str, bool, str]] = {}
     trade_outcome_cache: dict[
@@ -1061,8 +1073,8 @@ def build_fixed_confirmation_episode_source(
     ] = {}
     parts: list[pd.DataFrame] = []
     timestamp = generated_at or now_text()
-    for basis in (INCLUDING_BASIS, DECISION_BASIS):
-        source_mask = source_all if basis == INCLUDING_BASIS else source_all & ~source_anomaly
+    for basis in (DECISION_BASIS, ANOMALY_CANDIDATE_SENSITIVITY_BASIS):
+        source_mask = source_all if basis == DECISION_BASIS else source_all & ~source_anomaly
         parts.append(
             _replay_variant(
                 frame,
@@ -1100,7 +1112,7 @@ def build_close_confirmation_timing_audit(
         "_revenue_stock_sequence_index",
         "_revenue_range23_highest_close_prev",
         "_revenue_timing_source_flag",
-        "_revenue_timing_source_anomaly_flag",
+        "_revenue_timing_source_anomaly_candidate_flag",
     }
     missing = required - set(prepared_frame.columns)
     if missing:
@@ -1108,7 +1120,7 @@ def build_close_confirmation_timing_audit(
 
     frame = prepared_frame.copy()
     source_all = frame["_revenue_timing_source_flag"].astype(bool)
-    source_anomaly = frame["_revenue_timing_source_anomaly_flag"].astype(bool) & source_all
+    source_anomaly = frame["_revenue_timing_source_anomaly_candidate_flag"].astype(bool) & source_all
     summary_rows: list[dict[str, Any]] = []
     anomaly_rows: list[dict[str, Any]] = []
     decision_detail: list[pd.DataFrame] = []
@@ -1120,8 +1132,8 @@ def build_close_confirmation_timing_audit(
         tuple[float | str, float | str, float | str, str, bool, str, float | str, float | str],
     ] = {}
 
-    for basis in (INCLUDING_BASIS, DECISION_BASIS):
-        source_mask = source_all if basis == INCLUDING_BASIS else source_all & ~source_anomaly
+    for basis in (DECISION_BASIS, ANOMALY_CANDIDATE_SENSITIVITY_BASIS):
+        source_mask = source_all if basis == DECISION_BASIS else source_all & ~source_anomaly
         source_count = int(source_mask.sum())
         source_unique = int(frame.loc[source_mask, "stock_id"].nunique())
         source_anomaly_count = int(source_anomaly.sum())
@@ -1331,8 +1343,8 @@ def write_close_confirmation_timing_audit(
                 "confirmation_variant_name_zh",
                 "pending_window_days",
                 "exit_clock_id",
-                "accepted_trade_count_before_path_exclusion",
-                "price_path_anomaly_count",
+                "accepted_trade_count_before_candidate_sensitivity_exclusion",
+                "price_path_anomaly_candidate_count",
                 "metric_sample_count",
                 "max_realized_return_pct",
                 "max_return_stock_id",
