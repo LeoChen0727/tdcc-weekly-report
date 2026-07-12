@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2924 宏太-KY
 
 ## Metadata
-- generated_at: 2026-07-11 22:26:56 Asia/Taipei
+- generated_at: 2026-07-12 22:26:53 Asia/Taipei
 - stock_id: 2924
 - stock_name: 宏太-KY
 - packet_status: standard_rawdata_packet

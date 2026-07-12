@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6103 合邦
 
 ## Metadata
-- generated_at: 2026-07-11 22:27:48 Asia/Taipei
+- generated_at: 2026-07-12 22:27:38 Asia/Taipei
 - stock_id: 6103
 - stock_name: 合邦
 - packet_status: standard_rawdata_packet

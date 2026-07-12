@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7081 精材元大61購06
 
 ## Metadata
-- generated_at: 2026-07-11 22:28:22 Asia/Taipei
+- generated_at: 2026-07-12 22:28:07 Asia/Taipei
 - stock_id: 7081
 - stock_name: 精材元大61購06
 - packet_status: partial_rawdata_packet

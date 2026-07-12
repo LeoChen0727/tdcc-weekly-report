@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4417 金洲
 
 ## Metadata
-- generated_at: 2026-07-11 22:27:25 Asia/Taipei
+- generated_at: 2026-07-12 22:27:18 Asia/Taipei
 - stock_id: 4417
 - stock_name: 金洲
 - packet_status: standard_180d_window_packet

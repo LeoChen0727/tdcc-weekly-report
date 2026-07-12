@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3490 單井
 
 ## Metadata
-- generated_at: 2026-07-11 22:27:12 Asia/Taipei
+- generated_at: 2026-07-12 22:27:07 Asia/Taipei
 - stock_id: 3490
 - stock_name: 單井
 - packet_status: standard_180d_window_packet

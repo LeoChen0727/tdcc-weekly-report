@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2109 華豐
 
 ## Metadata
-- generated_at: 2026-07-11 22:26:32 Asia/Taipei
+- generated_at: 2026-07-12 22:26:33 Asia/Taipei
 - stock_id: 2109
 - stock_name: 華豐
 - packet_status: standard_180d_window_packet

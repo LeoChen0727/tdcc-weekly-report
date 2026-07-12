@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6561 是方
 
 ## Metadata
-- generated_at: 2026-07-11 22:28:05 Asia/Taipei
+- generated_at: 2026-07-12 22:27:53 Asia/Taipei
 - stock_id: 6561
 - stock_name: 是方
 - packet_status: standard_180d_window_packet

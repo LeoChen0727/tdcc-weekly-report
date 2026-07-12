@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7792 安葆
 
 ## Metadata
-- generated_at: 2026-07-11 22:28:29 Asia/Taipei
+- generated_at: 2026-07-12 22:28:14 Asia/Taipei
 - stock_id: 7792
 - stock_name: 安葆
 - packet_status: standard_rawdata_packet

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1563 巧新
 
 ## Metadata
-- generated_at: 2026-07-11 22:26:21 Asia/Taipei
+- generated_at: 2026-07-12 22:26:23 Asia/Taipei
 - stock_id: 1563
 - stock_name: 巧新
 - packet_status: standard_180d_window_packet
@@ -191,7 +191,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 1563 | 巧新 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | 1.董事會決議日期:NA 2.減資基準日:115/07/07 3.減資換發股票作業計畫:俟經濟部變更登記核准後，另行公告之。 4.換發股票基準日:NA 5.停止過戶起始日期:NA 6.停止過戶截止日期:NA 7.減資後新股權利義務:與原發行股份相同 8.新股預計上市日:NA 9.預計減資新股上市後之上市普通股股數:169,206,105股 10.預計減資新股上市後之上市普通股股數占已發行普通股比率  （減資後上市普通股股數/減資後已發行普通股股數）:100% 11.前二項預計減資後上巿普通股股數未達6000萬股且未達25%者，   請說明股權流通性偏低之因應措施:不適用 12.其他應敘明事項: (1)本公司於民國115年5月20日經股東常會決議通過現金減資案， 並授權董事長訂定減資基準日。俟呈奉經濟部核准減資變更登記後， 授權董事長全權處理減資換發股票作業計畫，並訂定減資換發股票基準日及 新股預計上市買賣日等相關事宜及公告。 (2)本案業經臺灣證券交易所股份有限公司民國115年07月07日 臺證上一字第1150011772號函核准在案。；calendar event: ex_dividend on 20260715; status=confirmed; proximity=within_7d |
+| 20260709 | 1563 | 巧新 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | 1.董事會決議日期:NA 2.減資基準日:115/07/07 3.減資換發股票作業計畫:俟經濟部變更登記核准後，另行公告之。 4.換發股票基準日:NA 5.停止過戶起始日期:NA 6.停止過戶截止日期:NA 7.減資後新股權利義務:與原發行股份相同 8.新股預計上市日:NA 9.預計減資新股上市後之上市普通股股數:169,206,105股 10.預計減資新股上市後之上市普通股股數占已發行普通股比率  （減資後上市普通股股數/減資後已發行普通股股數）:100% 11.前二項預計減資後上巿普通股股數未達6000萬股且未達25%者，   請說明股權流通性偏低之因應措施:不適用 12.其他應敘明事項: (1)本公司於民國115年5月20日經股東常會決議通過現金減資案， 並授權董事長訂定減資基準日。俟呈奉經濟部核准減資變更登記後， 授權董事長全權處理減資換發股票作業計畫，並訂定減資換發股票基準日及 新股預計上市買賣日等相關事宜及公告。 (2)本案業經臺灣證券交易所股份有限公司民國115年07月07日 臺證上一字第1150011772號函核准在案。；calendar event: ex_dividend on 20260715; status=confirmed; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

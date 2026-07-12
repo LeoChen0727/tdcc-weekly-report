@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6147 頎邦
 
 ## Metadata
-- generated_at: 2026-07-11 22:27:51 Asia/Taipei
+- generated_at: 2026-07-12 22:27:40 Asia/Taipei
 - stock_id: 6147
 - stock_name: 頎邦
 - packet_status: standard_180d_window_packet

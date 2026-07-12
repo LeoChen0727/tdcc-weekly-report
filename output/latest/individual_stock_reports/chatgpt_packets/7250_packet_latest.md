@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7250 雙鴻國票56售01
 
 ## Metadata
-- generated_at: 2026-07-11 22:28:23 Asia/Taipei
+- generated_at: 2026-07-12 22:28:08 Asia/Taipei
 - stock_id: 7250
 - stock_name: 雙鴻國票56售01
 - packet_status: partial_rawdata_packet

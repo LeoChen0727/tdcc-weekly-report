@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4530 宏易
 
 ## Metadata
-- generated_at: 2026-07-11 22:27:27 Asia/Taipei
+- generated_at: 2026-07-12 22:27:20 Asia/Taipei
 - stock_id: 4530
 - stock_name: 宏易
 - packet_status: standard_180d_window_packet

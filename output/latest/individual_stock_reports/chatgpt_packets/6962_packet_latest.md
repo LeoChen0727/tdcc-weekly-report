@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6962 奕力-KY
 
 ## Metadata
-- generated_at: 2026-07-11 22:28:19 Asia/Taipei
+- generated_at: 2026-07-12 22:28:05 Asia/Taipei
 - stock_id: 6962
 - stock_name: 奕力-KY
 - packet_status: standard_180d_window_packet
