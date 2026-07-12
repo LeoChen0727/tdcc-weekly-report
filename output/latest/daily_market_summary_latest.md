@@ -1,7 +1,7 @@
 # 每日全市場候選股監測報告 - 精華版
 
 - 主資料日期：`20260709`
-- 產生時間：`2026-07-11 17:15:17 Asia/Taipei`
+- 產生時間：`2026-07-12 16:00:45 Asia/Taipei`
 - 是否可產出正式每日報告：`True`
 - 判斷說明：core daily data dates match main_price_date
 - 權證資料日期：`20260709`
@@ -32,17 +32,17 @@
 | 股票 | 原始分類 | 催化標籤 / 反應程度 | TDCC |
 |---|---|---|---|
 | 8936 國統 | 營收成長股價回檔 | score 44 / theme 65.0/5 / revenue_good_eps_unconfirmed;event_confirmed;low_reaction_after_catalyst;new_order;其他;monthly_... | 大戶溫和增加 |
+| 2610 華航 | 營收成長股價回檔 | score 44 / theme 100.0/5 / revenue_good_eps_unconfirmed;event_confirmed;low_reaction_after_catalyst;new_order;航運業;monthl... | 大戶溫和增加 |
 | 2356 英業達 | 營收成長股價回檔 | score 40 / theme 100.0/5 / revenue_good_eps_unconfirmed;event_confirmed;low_reaction_after_catalyst;product_certificatio... | 大戶同步增加 |
-| 2913 農林 | 區間內轉強 / 挑戰前高觀察 | score 34 / theme 52.1/5 / event_confirmed;low_reaction_after_catalyst;new_order;貿易百貨;monthly_revenue_calendar;calendar_m... | 大戶溫和增加 |
+| 6282 康舒 | 營收成長股價回檔 | score 40 / theme 100.0/5 / revenue_good_eps_unconfirmed;event_confirmed;low_reaction_after_catalyst;product_certificatio... | 大戶同步增加 |
+| 2383 台光電 | 營收成長股價回檔 | score 40 / theme 100.0/5 / revenue_good_eps_unconfirmed;event_confirmed;low_reaction_after_catalyst;capacity_expansion;電... | 大戶溫和增加 |
+| 2359 所羅門 | 型態觀察 | score 34 / theme 100.0/5 / event_confirmed;low_reaction_after_catalyst;new_order;其他電子業;dividend_calendar;calendar_ex_div... | 大戶溫和增加 |
+| 1304 台聚 | 型態觀察 | score 34 / theme 43.8/5 / event_confirmed;low_reaction_after_catalyst;new_order;塑膠工業;dividend_calendar;calendar_ex_divid... | 大戶同步增加 |
 | 2912 統一超 | 型態觀察 | score 34 / theme 100.0/5 / event_confirmed;low_reaction_after_catalyst;new_order;monthly_revenue_calendar;calendar_month... | 大戶溫和增加 |
+| 3015 全漢 | 型態觀察 | score 34 / theme 100.0/5 / event_confirmed;low_reaction_after_catalyst;new_order;電子零組件業;monthly_revenue_calendar;calenda... | 大戶溫和增加 |
+| 2610 華航 | 型態觀察 | score 34 / theme 100.0/5 / event_confirmed;low_reaction_after_catalyst;new_order;航運業;monthly_revenue_calendar;calendar_m... | 大戶溫和增加 |
+| 2913 農林 | 區間內轉強 / 挑戰前高觀察 | score 34 / theme 52.1/5 / event_confirmed;low_reaction_after_catalyst;new_order;貿易百貨;monthly_revenue_calendar;calendar_m... | 大戶溫和增加 |
 | 2891 中信金 | 型態觀察 | score 34 / theme 100.0/5 / event_confirmed;low_reaction_after_catalyst;new_order;monthly_revenue_calendar;calendar_month... | 大戶溫和增加 |
-| 2610 華航 | 營收成長股價回檔 | score 34 / theme 100.0/5 / revenue_good_eps_unconfirmed;event_confirmed;new_order;航運業;monthly_revenue_calendar;calendar_... | 大戶溫和增加 |
-| 2356 英業達 | 回檔後短線轉強 | score 30 / theme 100.0/5 / event_confirmed;low_reaction_after_catalyst;product_certification;電腦及週邊設備業;dividend_calendar;... | 大戶同步增加 |
-| 2356 英業達 | 區間內轉強 / 挑戰前高觀察 | score 30 / theme 100.0/5 / event_confirmed;low_reaction_after_catalyst;product_certification;電腦及週邊設備業;dividend_calendar;... | 大戶同步增加 |
-| 2347 聯強 | 營收爆發低反應股 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;material_information;mainstream_grow... | 大戶同步增加 |
-| 2347 聯強 | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;material_information;mainstream_grow... | 大戶溫和增加 |
-| 2027 大成鋼 | 營收成長股價回檔 | score 28 / theme 65.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;shareholder_meeting;鋼鐵工業;dividend_cal... | 大戶同步增加 |
-| 2382 廣達 | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;material_information;mainstream_grow... | 大戶溫和增加 |
 
 ## 精華候選股
 
@@ -241,7 +241,7 @@
 - 連續上榜：訊號鈍化；近5日 5；近10日 9；多分類 revenue_pullback
 - TDCC：大戶轉弱
 - 權證：call_put_bullish / 3.0
-- 財報 / 事件催化：score 0 / theme 100.0/5 / revenue_good_eps_unconfirmed;material_information;半導體業;monthly_revenue_calendar;calendar_monthly_revenue_expected_...
+- 財報 / 事件催化：score 0 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;material_information;半導體業;monthly_revenue_calendar;calend...
 - 摘要：TDCC轉弱 / 大戶轉弱 / call_put_bullish / 3.0
 - 完整原因：近幾週400張與1000張同步減少；call_put_bullish；認購成交金額明顯大於認售，且認購資金明顯升溫；量比0.69x；月營收YoY 59.5%；累計YoY 94.7%；TDCC近幾週大戶籌碼轉弱
 - 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
@@ -265,7 +265,7 @@
 - 連續上榜：訊號鈍化；近5日 5；近10日 9；多分類 pattern|revenue_breakout_low_response|revenue_pullback
 - TDCC：大戶溫和增加
 - 權證：call_strong_inflow / 2.0
-- 財報 / 事件催化：score 0 / theme 100.0/5 / revenue_good_eps_unconfirmed;shareholder_meeting;mainstream_growth;monthly_revenue_calendar;calendar_monthly_reven...
+- 財報 / 事件催化：score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;shareholder_meeting;mainstream_growth;monthly_revenue_ca...
 - 摘要：TDCC增加 / 大戶溫和增加 / call_strong_inflow / 2.0
 - 完整原因：近幾週400張與1000張合計增加；call_strong_inflow；認購權證成交金額明顯升溫；量比0.45x；月營收YoY 73.3%；累計YoY 58.8%；TDCC近幾週大戶溫和增加
 - 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
@@ -286,10 +286,10 @@
 - 族群：半導體業
 - 分數 / 排名：90.0 / 
 - 優先級：
-- 連續上榜：連續上榜但過熱；近5日 5；近10日 10；多分類 pattern|revenue_breakout_low_response|revenue_pullback
+- 連續上榜：訊號鈍化；近5日 5；近10日 10；多分類 pattern|revenue_breakout_low_response|revenue_pullback
 - TDCC：大戶溫和增加
 - 權證：
-- 財報 / 事件催化：score 0 / theme 100.0/5 / revenue_good_eps_unconfirmed;monthly_revenue_calendar;calendar_monthly_revenue_expected_window;半導體業 / revenue_good...
+- 財報 / 事件催化：score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_monthly_revenue_expect...
 - 摘要：TDCC增加 / 大戶溫和增加
 - 完整原因：近幾週400張與1000張合計增加；no_signal；權證金流未見明顯高於近期平均的變化；量比0.29x；月營收YoY 74.8%；累計YoY 99.9%；TDCC近幾週大戶溫和增加
 - 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
@@ -377,7 +377,7 @@
 - 連續上榜：連續 2 日；近5日 3；近10日 4；多分類 pattern
 - TDCC：大戶溫和增加
 - 權證：call_strong_inflow / 2.0
-- 財報 / 事件催化：score 0 / theme 100.0/5 / event_confirmed;new_order;其他電子業;dividend_calendar;calendar_ex_dividend / event_confirmed / new_order;其他電子業 / divid...
+- 財報 / 事件催化：score 34 / theme 100.0/5 / event_confirmed;low_reaction_after_catalyst;new_order;其他電子業;dividend_calendar;calendar_ex_dividend / event_confir...
 - 摘要：pattern_watch / 大戶溫和增加 / call_strong_inflow / 2.0
 - 完整原因：近幾週其中一項大戶級距增加；call_strong_inflow；認購權證成交金額明顯升溫；量比0.82x；月營收YoY 35.6%；累計YoY 4.1%；TDCC近幾週大戶溫和增加
 - 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）

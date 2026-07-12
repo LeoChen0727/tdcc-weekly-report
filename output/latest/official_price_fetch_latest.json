@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-11 17:07:41 Asia/Taipei",
-  "target_date": "20260711",
+  "generated_at": "2026-07-12 15:50:02 Asia/Taipei",
+  "target_date": "20260712",
   "saved_price_date": "20260709",
   "is_target_date": false,
   "result": "failed_no_target_data",
@@ -19,7 +19,7 @@
   },
   "attempts": [
     {
-      "date": "20260711",
+      "date": "20260712",
       "twse_rows": 0,
       "tpex_rows": 0,
       "total_rows": 0,

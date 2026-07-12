@@ -1,6 +1,6 @@
 # Volume Attack Theme Stocks
 
-- generated_at: `2026-07-11 17:12:52 Asia/Taipei`
+- generated_at: `2026-07-12 15:57:02 Asia/Taipei`
 - signal_date: `20260709`
 - rule: Every volume attack stock row carries explicit mainstream/non-mainstream status.
 
@@ -15,7 +15,7 @@
 |       4439 | 冠星-KY        | 紡織纖維         | mainstream_follow_through | non_mainstream_theme      | non_mainstream_flow_active | non_mainstream_volume_watch  | bottom_volume_attack   | A_bottom_volume_attack     | selected           | individual_quality_candidate |         8.2598 |               |                       | 以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。 |
 |       7823 | 奧義賽博-KY創     | 數位雲端_待細分     | single_name_signal        | market_theme              | core_mainstream            | single_stock_volume_attack   | bottom_volume_attack   | A_bottom_volume_attack     | selected           | individual_quality_candidate |         4.4664 |               |                       | 以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。 |
 |       7714 | 創泓科技         | 數位雲端_待細分     | single_name_signal        | market_theme              | core_mainstream            | single_stock_volume_attack   | bottom_volume_attack   | A_bottom_volume_attack     | selected           | individual_quality_candidate |         1.8182 |               |                       | 以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。 |
-|       2601 | 益航           | 航運業          | mainstream_overheated     | non_mainstream_theme      | non_mainstream_overheated  | overheated_volume_theme      | bottom_volume_attack   | A_bottom_volume_attack     | selected           | individual_quality_candidate |         5.8251 |               |                       | 以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。 |
+|       2601 | 益航           | 航運業          | mainstream_leader         | non_mainstream_theme      | non_mainstream_flow_active | non_mainstream_volume_watch  | bottom_volume_attack   | A_bottom_volume_attack     | selected           | individual_quality_candidate |         5.8251 |               |                       | 以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。 |
 |       6934 | 心誠鎂          | 生技醫療業        | mainstream_leader         | non_mainstream_theme      | non_mainstream_flow_active | non_mainstream_volume_watch  | bottom_volume_attack   | A_bottom_volume_attack     | selected           | individual_quality_candidate |         2.5884 |               |                       | 以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。 |
 |       6574 | 霈方           | 生技醫療業        | mainstream_leader         | non_mainstream_theme      | non_mainstream_flow_active | non_mainstream_volume_watch  | bottom_volume_attack   | A_bottom_volume_attack     | selected           | individual_quality_candidate |         2.4129 |               |                       | 以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。 |
 |       8383 | 千附           | 半導體業_待細分     | single_name_signal        | market_theme              | core_mainstream            | single_stock_volume_attack   | bottom_volume_attack   | A_bottom_volume_attack     | selected           | individual_quality_candidate |         0.9988 |               |                       | 以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。 |
