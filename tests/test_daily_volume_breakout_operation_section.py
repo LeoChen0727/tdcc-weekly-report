@@ -13,7 +13,6 @@ sys.path.insert(0, str(ROOT / "scripts"))
 import build_daily_volume_breakout_operation_section as builder  # noqa: E402
 import build_volume_breakout_confirmed_operation_backtest as operation_backtest  # noqa: E402
 import generate_chatgpt_side_daily_reports as pdf_generator  # noqa: E402
-import validate_chatgpt_side_volume_operation_pdf_integration as pdf_integration_validator  # noqa: E402
 import validate_daily_volume_breakout_operation_section as section_validator  # noqa: E402
 
 LOW_VOLUME_MODEL_ID = "volume_range_breakout_v2_low_position_volume_attack"
@@ -1629,15 +1628,43 @@ def test_daily_pdf_generator_omits_obsolete_volume_breakout_explanatory_text() -
     assert 'DAILY_HIGHLIGHT_DESCRIPTION_POLICY = "program_side_non_volume"' in source
     assert "should_render_highlight_model_description(model_id)" in source
 
-    forbidden_text = "".join(pdf_integration_validator.FORBIDDEN_VOLUME_EXPLANATORY_TEXT)
-    for token in [
-        "不含今日的前20日最高價",
-        "一般放量突破需收盤價",
-        "鎖量漲停突破不要求量比",
-        "放量攻擊模型操作參考",
-        "PDF不重新計算進場",
+
+
+def test_volume_v2_pdf_validation_has_one_canonical_contract_path() -> None:
+    stale_validator = ROOT / "scripts" / "validate_chatgpt_side_volume_operation_pdf_integration.py"
+    assert not stale_validator.exists()
+
+    stale_name = stale_validator.name
+    for path in [
+        ROOT / "config" / "repo_production_inventory.csv",
+        ROOT / "config" / "repo_file_lifecycle_inventory.csv",
+        ROOT / "docs" / "pdf_production_inventory.md",
     ]:
-        assert token in forbidden_text
+        assert stale_name not in path.read_text(encoding="utf-8-sig")
+
+    workflow_text = "\n".join(
+        path.read_text(encoding="utf-8")
+        for path in [
+            ROOT / ".github" / "workflows" / "daily_full_pipeline.yml",
+            ROOT / ".github" / "workflows" / "daily_model_maintenance_pr_validation.yml",
+        ]
+    )
+    assert "validate_chatgpt_daily_report_new_conversation_replay.py" in workflow_text
+    assert "validate_daily_pdf_completion_hard_gate.py" in workflow_text
+
+    regression_contract = (
+        ROOT / "config" / "daily_pdf_rendered_model_regression_contract.csv"
+    ).read_text(encoding="utf-8-sig")
+    for model_id in [LOW_VOLUME_MODEL_ID, MID_VOLUME_MODEL_ID, HIGH_VOLUME_MODEL_ID]:
+        assert model_id in regression_contract
+    for token in [
+        "本日可買 / 已確認買入候選",
+        "操作中",
+        "低位放量攻擊模型",
+        "中位動能放量攻擊模型",
+        "高位階放量攻擊模型",
+    ]:
+        assert token in regression_contract
 
 
 def test_pdf_chart_renderer_prefers_local_source_worktree_price_window(monkeypatch, tmp_path) -> None:
