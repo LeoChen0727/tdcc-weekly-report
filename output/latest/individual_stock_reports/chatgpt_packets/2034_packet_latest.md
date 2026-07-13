@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2034 允強
 
 ## Metadata
-- generated_at: 2026-07-12 22:26:31 Asia/Taipei
+- generated_at: 2026-07-13 22:27:06 Asia/Taipei
 - stock_id: 2034
 - stock_name: 允強
 - packet_status: standard_180d_window_packet
@@ -188,7 +188,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 2034 | 允強 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | 1.事實發生日:115/07/02 2.公司名稱:允強實業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:本公司發行國內第四次無擔保轉換公司債轉換價格之調整。 6.因應措施:無。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): (1)依據本公司國內第四次無擔保轉換公司債發行及轉換辦法第十一條 規定辦理。 (2)為配合本公司除息基準日，自115年07月23日起本公司發行國內第四次無擔保轉換 公司債轉換之價格依上述辦法計算後調整為22.8元。；calendar event: ex_dividend on 20260716; status=confirmed; proximity=within_7d |
+| 20260709 | 2034 | 允強 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | 1.事實發生日:115/07/02 2.公司名稱:允強實業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:本公司發行國內第四次無擔保轉換公司債轉換價格之調整。 6.因應措施:無。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): (1)依據本公司國內第四次無擔保轉換公司債發行及轉換辦法第十一條 規定辦理。 (2)為配合本公司除息基準日，自115年07月23日起本公司發行國內第四次無擔保轉換 公司債轉換之價格依上述辦法計算後調整為22.8元。；calendar event: ex_dividend on 20260716; status=confirmed; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

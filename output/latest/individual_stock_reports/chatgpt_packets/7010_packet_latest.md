@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7010 營邦元大5A購01
 
 ## Metadata
-- generated_at: 2026-07-12 22:28:06 Asia/Taipei
+- generated_at: 2026-07-13 22:28:53 Asia/Taipei
 - stock_id: 7010
 - stock_name: 營邦元大5A購01
 - packet_status: partial_rawdata_packet
