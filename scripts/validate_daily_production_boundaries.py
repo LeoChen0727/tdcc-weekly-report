@@ -8,6 +8,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 DAILY_WORKFLOW = ROOT / ".github" / "workflows" / "daily_full_pipeline.yml"
+RECENT_PRICE_GAP_WORKFLOW = ROOT / ".github" / "workflows" / "repair_recent_daily_price_gaps.yml"
 DAILY_MODEL_MAINTENANCE_PR_WORKFLOW = ROOT / ".github" / "workflows" / "daily_model_maintenance_pr_validation.yml"
 CANONICAL_CHATGPT_PDF_ENTRYPOINT = ROOT / "scripts" / "run_chatgpt_daily_report_entrypoint.py"
 CANONICAL_CHATGPT_PDF_GENERATOR = ROOT / "scripts" / "generate_chatgpt_side_daily_reports.py"
@@ -476,8 +477,74 @@ def main() -> int:
             errors.append("daily_full_pipeline may run build_volume_breakout_watch.py only with --latest-only")
 
     staged_path_validation_count = daily_text.count("python scripts/validate_daily_staged_paths.py")
-    if staged_path_validation_count < 2:
-        errors.append("daily_full_pipeline must validate staged paths before both daily commit steps")
+    if staged_path_validation_count < 3:
+        errors.append(
+            "daily_full_pipeline must validate staged paths before closure and both daily commit steps"
+        )
+
+    market_session_workflow_literals = {
+        "market-session-preflight:": "daily_full_pipeline must resolve the official market session before production",
+        "Reject non-main production dispatch": "daily_full_pipeline must reject branch workflow_dispatch runs",
+        "github.ref_name != 'main'": "daily_full_pipeline must make the non-main rejection explicit",
+        "python scripts/market_session_calendar.py --phase preflight": (
+            "daily_full_pipeline must run the live official market-session preflight"
+        ),
+        "output/latest/market_session_status_latest.json": (
+            "daily_full_pipeline must preserve the market-session status artifact"
+        ),
+        "data/market_calendar/exceptional_non_trading_days.csv": (
+            "daily_full_pipeline must preserve exceptional closure evidence"
+        ),
+        "should_run_daily_pipeline": "daily_full_pipeline must branch on the market-session decision",
+        "record-market-closure:": "daily_full_pipeline must record closed-market evidence without publishing",
+        "OFFICIAL_PRICE_TARGET_DATE: ${{ needs.market-session-preflight.outputs.expected_main_price_date }}": (
+            "daily_full_pipeline must fetch the exact expected market date"
+        ),
+        "Verify open-confirmed target date": (
+            "daily_full_pipeline must verify open_confirmed before continuing"
+        ),
+    }
+    for literal, message in market_session_workflow_literals.items():
+        if literal not in daily_text:
+            errors.append(f"{message}: missing {literal!r}")
+
+    preflight_block = workflow_job_block(daily_text, "market-session-preflight")
+    for forbidden in ("git commit", "git push", "pages.yml", "generate_chatgpt_side_daily_reports.py"):
+        if forbidden in preflight_block:
+            errors.append(f"market-session-preflight must not publish artifacts: found {forbidden!r}")
+
+    closure_block = workflow_job_block(daily_text, "record-market-closure")
+    for forbidden in (
+        "fetch_official_daily_price.py",
+        "git add data/daily_price/",
+        "build_data_freshness_latest.py",
+        "generate_chatgpt_side_daily_reports.py",
+        "validate_chatgpt_daily_report_new_conversation_replay.py",
+        "pages.yml",
+    ):
+        if forbidden in closure_block:
+            errors.append(f"record-market-closure must not fetch, render, or deploy: found {forbidden!r}")
+
+    if not RECENT_PRICE_GAP_WORKFLOW.exists():
+        errors.append(f"missing recent price-gap workflow: {RECENT_PRICE_GAP_WORKFLOW.relative_to(ROOT).as_posix()}")
+    else:
+        repair_text = read_text(RECENT_PRICE_GAP_WORKFLOW)
+        repair_literals = {
+            "Reject non-main production dispatch": "recent price-gap workflow must reject branch dispatch",
+            "ref: main": "recent price-gap workflow must operate on main",
+            "output/latest/market_session_status_latest.json": (
+                "recent price-gap workflow must persist market-session status"
+            ),
+            "data/market_calendar/exceptional_non_trading_days.csv": (
+                "recent price-gap workflow must persist exceptional closure evidence"
+            ),
+            "MARKET_SESSION_CHANGE_COUNT": (
+                "recent price-gap workflow must commit market evidence even when no price row is repaired"
+            ),
+        }
+        for literal, message in repair_literals.items():
+            if literal not in repair_text:
+                errors.append(f"{message}: missing {literal!r}")
 
     calendar_precheck_literals = {
         "Record calendar source status before integrity gate": "daily_full_pipeline must record calendar status before the external-source hard gate",

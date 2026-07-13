@@ -65,6 +65,23 @@ and is the function used by the scheduled daily stock monitor trigger.
 
 `triggerDailyFullPipeline` is the manual full daily pipeline dispatcher.
 
+## 每日市場狀態與完成語意
+
+`daily_full_pipeline.yml` 是 `main` 正式產出 workflow。若用分支執行
+`workflow_dispatch`，workflow 必須明確失敗；分支執行結果不得當成正式完成證據。
+PR 的 `pull_request` workflow 只代表 `branch_action_passed`，合併後仍須以 `main`
+正式 run 與最終產物驗證才能回報 `complete`。
+
+正式 run 先執行 `market-session-preflight`：
+
+- `closed_scheduled` 或 `closed_emergency`：只提交市場狀態與例外休市證據，摘要回報
+  `休市，無新報告`；不得抓行情、重產前一交易日 PDF 或 dispatch Pages。
+- `unknown`：workflow 必須失敗，不得猜測交易日。
+- 預計開盤：將 `expected_main_price_date` 傳給 `fetch_official_daily_price.py`；只有
+  TWSE 與 TPEx 目標日行情都確認後才能成為 `open_confirmed` 並繼續六份 PDF。
+- `main_price_date`、`market_session_date` 與 `expected_main_price_date` 任一不一致，
+  都不得回報正式產出成功。
+
 `triggerDailyPriceGapRepair` dispatches
 `.github/workflows/repair_recent_daily_price_gaps.yml` with a 7 calendar-day
 lookback and a maximum of 5 automatic repair dates. The workflow excludes the
