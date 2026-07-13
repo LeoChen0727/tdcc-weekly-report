@@ -1,6 +1,6 @@
 # 營收爆發但股價尚未反應模型：收盤確認時點稽核
 
-- generated_at: `2026-07-13 12:14:48 Asia/Taipei`
+- generated_at: `2026-07-13 16:19:51 Asia/Taipei`
 - status: `research_only_not_promotion_ready`
 - 候選池：強月營收條件使用 `source_table_date <= signal_date` 的歷史 as-of join，股價仍在近期 23 日區間且攻擊尚未開始。
 - 三個研究分支分開回放與計算，績效不得混算：隔日續強確認型、區間突破確認型、均線站回確認型。
