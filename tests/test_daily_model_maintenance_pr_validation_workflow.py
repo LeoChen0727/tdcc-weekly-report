@@ -56,6 +56,9 @@ def test_daily_model_maintenance_pr_workflow_runs_contract_validators() -> None:
         "python scripts/validate_daily_pdf_completion_hard_gate.py",
         "python scripts/validate_daily_production_boundaries.py",
         "python scripts/validate_daily_published_model_snapshots.py",
+        "python scripts/validate_daily_model_background_data_registry.py",
+        "python scripts/validate_model_data_independence.py",
+        "python scripts/validate_revenue_unreacted_range_source_first_condition_audit.py",
         "python scripts/build_mature_model_row_level_metric_contract_audit.py",
         "python scripts/validate_mature_model_row_level_metric_contract_audit.py",
         "python scripts/validate_research_against_stock_model_contract.py",
@@ -83,6 +86,8 @@ def test_daily_model_maintenance_pr_workflow_runs_focused_pdf_operation_tests() 
         "tests/test_mature_model_row_level_metric_contract_audit.py",
         "tests/test_daily_report_model_summary.py",
         "tests/test_daily_production_boundaries.py",
+        "tests/test_model_data_independence.py",
+        "tests/test_revenue_unreacted_range_source_first_condition_audit.py",
         "tests/test_repo_hidden_coupling_audit.py",
         "tests/test_stock_model_contract_registry.py",
     )

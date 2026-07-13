@@ -38,6 +38,10 @@ from revenue_unreacted_range_launch_timing_feature_audit import (
     build_launch_timing_feature_audit,
     write_launch_timing_feature_audit,
 )
+from revenue_unreacted_range_source_first_condition_audit import (
+    build_source_first_condition_audit,
+    write_source_first_condition_audit,
+)
 
 
 MODEL_ID = "revenue_unreacted_range"
@@ -71,6 +75,7 @@ def build_and_write() -> None:
         prepared,
         lag_strength_detail,
     )
+    source_first_summary, source_first_detail = build_source_first_condition_audit()
 
     write_revenue_unreacted_range_revenue_condition_matrix(condition_matrix)
     write_revenue_unreacted_range_operation_candidate_matrix(operation_matrix)
@@ -80,6 +85,7 @@ def build_and_write() -> None:
     write_extreme_return_path_audit(extreme_return_audit)
     write_lag_strength_matrix(lag_strength_summary, lag_strength_detail)
     write_launch_timing_feature_audit(launch_summary, launch_detail, launch_feature)
+    write_source_first_condition_audit(source_first_summary, source_first_detail)
 
 
 def build_and_write_launch_timing_feature_audit() -> None:
@@ -107,13 +113,18 @@ def build_and_write_launch_timing_feature_audit() -> None:
     write_launch_timing_feature_audit(launch_summary, launch_detail, launch_feature)
 
 
+def build_and_write_source_first_condition_audit() -> None:
+    summary, detail = build_source_first_condition_audit()
+    write_source_first_condition_audit(summary, detail)
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Build model-owned revenue_unreacted_range research artifacts.")
     parser.add_argument(
         "--stage",
-        choices=("all", "launch_timing_feature_audit"),
+        choices=("all", "launch_timing_feature_audit", "source_first_condition_audit"),
         default="all",
-        help="Run the full producer or only the launch timing feature audit stage.",
+        help="Run the full producer or one model-owned audit stage.",
     )
     return parser.parse_args()
 
@@ -123,6 +134,8 @@ def main() -> int:
     with model_owned_artifact_guard(MODEL_ID, PRODUCER):
         if args.stage == "launch_timing_feature_audit":
             build_and_write_launch_timing_feature_audit()
+        elif args.stage == "source_first_condition_audit":
+            build_and_write_source_first_condition_audit()
         else:
             build_and_write()
     return 0
