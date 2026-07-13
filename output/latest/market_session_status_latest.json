@@ -1,12 +1,11 @@
 {
-  "assessment_date": "20260709",
-  "assessment_mode": "historical_bootstrap_for_source_contract",
+  "assessment_date": "20260714",
   "exceptional_non_trading_days": [
     "20260710"
   ],
-  "expected_main_price_date": "20260709",
-  "generated_at": "2026-07-14T04:24:18+08:00",
-  "market_session_date": "20260709",
+  "expected_main_price_date": "20260713",
+  "generated_at": "2026-07-14T06:18:22+08:00",
+  "market_session_date": "20260713",
   "market_status": "open_confirmed",
   "official_sources": {
     "dgpa_emergency_closure": {
@@ -15,7 +14,7 @@
         "20260710",
         "20260711"
       ],
-      "queried_at": "2026-07-14T04:24:18+08:00",
+      "queried_at": "2026-07-14T06:13:38+08:00",
       "status": "ok",
       "taipei_notice_count": 3,
       "url": "https://alerts.ncdr.nat.gov.tw/RssAtomFeed.ashx?AlertType=33"
@@ -25,7 +24,7 @@
       "covered_years": [
         2026
       ],
-      "queried_at": "2026-07-14T04:24:18+08:00",
+      "queried_at": "2026-07-14T06:13:38+08:00",
       "status": "ok",
       "url": "https://openapi.twse.com.tw/v1/holidaySchedule/holidaySchedule"
     },
@@ -35,11 +34,13 @@
     }
   },
   "phase": "confirm",
+  "preflight_generated_at": "2026-07-14T06:13:38+08:00",
+  "preflight_reused": true,
   "price_confirmation": {
-    "fetch_result": "success",
-    "path": "data/daily_price/daily_price_20260709.csv",
-    "tpex_rows": 892,
-    "twse_rows": 1240,
+    "fetch_result": "success_target_full_market",
+    "path": "data/daily_price/daily_price_20260713.csv",
+    "tpex_rows": 894,
+    "twse_rows": 1239,
     "wrong_date_rows": 0
   },
   "reason": "TWSE and TPEx target-date prices confirmed",

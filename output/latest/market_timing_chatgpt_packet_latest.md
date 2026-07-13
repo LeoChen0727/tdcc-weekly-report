@@ -1,24 +1,24 @@
 # MARKET TIMING CHATGPT PACKET
 
 ## Metadata
-- generated_at: 2026-07-14 00:38:38 Asia/Taipei
-- main_price_date: 20260709
+- generated_at: 2026-07-14 06:33:13 Asia/Taipei
+- main_price_date: 20260713
 - packet_source: daily_market_regime_dashboard
 - packet_status: ready
 - packet_status_note: all source rows aligned with main_price_date
 - tuning_status: not_ready
 
 ## Source Dates
-- market_regime_latest.csv: 20260709
-- futures_options_indicators_latest.csv: 20260709
-- TWSE market index: 20260709
-- TPEx market index: 20260709
+- market_regime_latest.csv: 20260713
+- futures_options_indicators_latest.csv: 20260713
+- TWSE market index: 20260713
+- TPEx market index: 20260713
 
 ## Current Market Technical State
 | index_id | trade_date | close | ret_5d | ret_20d | above_ma20 | above_ma60 | market_regime | risk_level |
 | --- | --- | ---: | ---: | ---: | --- | --- | --- | --- |
-| TWSE | 20260709 | 45,355 | -2.97% | 4.93% | False | True | correction | very_high_risk |
-| TPEx | 20260709 | 424.99 | -3.3% | 4.7% | False | True | correction | very_high_risk |
+| TWSE | 20260713 | 45,381 | -2.99% | 5.17% | False | True | correction | very_high_risk |
+| TPEx | 20260713 | 419.9 | -5.72% | 3.15% | False | True | correction | very_high_risk |
 
 ## Futures Options Context
 | item | value | note |
@@ -26,7 +26,7 @@
 | foreign_tx_futures_net_oi | -81,066 | TX futures direction anchor |
 | foreign_futures_net_oi | -561,082 | broad futures exposure only, not TX direction |
 | put_call_oi_ratio_pct | 124.42% | hedging background only |
-| taiwan_vix | 37.11 | volatility / hedging context only |
+| taiwan_vix | 36.62 | volatility / hedging context only |
 | retail_mtx_net_oi_proxy | 1,318 | contrarian sentiment proxy only |
 | retail_mtx_proxy_method | negative_sum_of_three_institution_mtx_net_oi | source method |
 
@@ -41,8 +41,8 @@
 
 market_sentiment_context:
   taiwan_vix:
-    latest: 37.11
-    percentile_252d: 66.0194
+    latest: 36.62
+    percentile_252d: 57.2816
     percentile_504d: 
     rank_label: middle_range
     context_label: normal_range

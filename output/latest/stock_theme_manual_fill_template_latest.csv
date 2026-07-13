@@ -302,7 +302,7 @@
 1580,新麥,電機機械,電機機械,主流,,,,,,provisional_industry_mapping
 1582,信錦,電子零組件業,電子零組件業,主流,,,,,,provisional_industry_mapping
 1583,程泰,電機機械,電機機械,主流,,,,,,provisional_industry_mapping
-1584,精剛,其他業,其他業,非主流,,,,,,
+1584,精剛,其他,其他,非主流,,,,,,
 1586,和勤,電機機械,電機機械,主流,,,,,,provisional_industry_mapping
 1587,吉茂,汽車工業,汽車工業,非主流,,,,,,provisional_industry_mapping
 1589,永冠-KY,電機機械,電機機械,主流,,,,,,provisional_industry_mapping
@@ -1492,7 +1492,7 @@
 6196,帆宣,其他電子業,其他電子業,主流,半導體設備_CoWoS,,,,,user_authorized_seed_20260530
 6197,佳必琪,電子零組件業,電子零組件業,主流,,,,,,provisional_industry_mapping
 6198,瑞築,建材營造,建材營造,非主流,,,,,,provisional_industry_mapping
-6199,天品,其他業,其他業,非主流,,,,,,
+6199,天品,其他,其他,非主流,,,,,,
 6201,亞弘電,其他電子業,其他電子業,主流,,,,,,provisional_industry_mapping
 6202,盛群,半導體業,半導體業,主流,,,,,,provisional_industry_mapping
 6203,海韻電,電子零組件業,電子零組件業,主流,,,,,,provisional_industry_mapping
@@ -2159,7 +2159,7 @@
 8027,鈦昇,電機機械,電機機械,主流,,,,,,provisional_industry_mapping
 8028,昇陽半導體,半導體業,半導體業,主流,半導體設備_CoWoS,晶圓再生,,,,user_authorized_seed_20260530
 8032,光菱,電子通路業,電子通路業,主流,,,,,,provisional_industry_mapping
-8033,雷虎,其他業,其他業,都有,軍工無人機,,,,,user_authorized_seed_20260530;dual_industry_theme_identity
+8033,雷虎,其他,其他,都有,軍工無人機,,,,,user_authorized_seed_20260530;dual_industry_theme_identity
 8034,榮群,通信網路業,通信網路業,主流,,,,,,provisional_industry_mapping
 8038,長園科,電子零組件業,電子零組件業,主流,,,,,,provisional_industry_mapping
 8039,台虹,電子零組件業,電子零組件業,主流,PCB_CCL_ABF材料,,,,,user_authorized_seed_20260530
@@ -2259,7 +2259,7 @@
 8411,福貞-KY,其他業,其他業,非主流,,,,,,
 8415,大國鋼,鋼鐵工業,鋼鐵工業,非主流,,,,,,provisional_industry_mapping
 8416,實威,資訊服務業,資訊服務業,主流,,,,,,provisional_industry_mapping
-8421,旭源,其他業,其他業,非主流,,,,,,
+8421,旭源,其他,其他,非主流,,,,,,
 8422,可寧衛*,綠能環保,綠能環保,非主流,,,,,,
 8423,保綠-KY,綠能環保,綠能環保,非主流,,,,,,
 8424,惠普,建材營造,建材營造,非主流,,,,,,provisional_industry_mapping
@@ -2322,7 +2322,7 @@
 8996,高力,電機機械,電機機械,主流,散熱液冷,,,,,user_authorized_seed_20260530
 9103,美德醫療-DR,DR / 外國上市,DR / 外國上市,非主流,,,,,,provisional_industry_mapping
 910322,康師傅-DR,DR / 外國上市,DR / 外國上市,非主流,,,,,,provisional_industry_mapping
-9105,泰金寶-DR,DR / 外國上市,DR / 外國上市,非主流,,,,,,provisional_industry_mapping
+9105,泰金寶-DR,存託憑證,存託憑證,非主流,,,,,,
 910861,神州-DR,DR / 外國上市,DR / 外國上市,非主流,,,,,,provisional_industry_mapping
 9110,越南控-DR,DR / 外國上市,DR / 外國上市,非主流,,,,,,provisional_industry_mapping
 911608,明輝-DR,DR / 外國上市,DR / 外國上市,非主流,,,,,,provisional_industry_mapping

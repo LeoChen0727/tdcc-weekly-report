@@ -1,10 +1,10 @@
 # Daily Theme Leadership Layer Validation
 
 - status: `pass`
-- main_price_date: `20260709`
-- theme_rows: `32`
-- two_line_rows: `518`
-- all_candidate_rows: `518`
+- main_price_date: `20260713`
+- theme_rows: `35`
+- two_line_rows: `539`
+- all_candidate_rows: `539`
 
 ## Errors
 
@@ -12,4 +12,4 @@
 
 ## Warnings
 
-- none
+- 2347 exists but was not found in an expected individual/latent/risk line group
