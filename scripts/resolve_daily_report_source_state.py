@@ -26,8 +26,11 @@ DEFAULT_SOURCE_REF = "origin/main"
 FRESHNESS_PATH = "output/latest/data_freshness_latest.csv"
 README_PATH = "output/latest/READ_ME_FIRST_DAILY_REPORT.txt"
 PACKET_PATH = "output/latest/chatgpt_daily_report_packet_latest.txt"
+MARKET_SESSION_STATUS_PATH = "output/latest/market_session_status_latest.json"
 
 DATE_FIELDS_REQUIRED_TO_MATCH_MAIN = (
+    "market_session_date",
+    "expected_main_price_date",
     "actual_stock_price_history_date",
     "stock_monitor_price_date",
     "all_candidates_date",
@@ -75,6 +78,9 @@ PACKET_REQUIRED_MARKERS = (
 )
 
 STATE_FIELDS_REQUIRED_TO_MATCH_LOCAL = (
+    "market_session_status",
+    "market_session_date",
+    "expected_main_price_date",
     "main_price_date",
     "report_ready",
     "warrant_flow_date",
@@ -209,6 +215,71 @@ def validate_freshness_row(row: dict[str, str], source_label: str) -> list[str]:
     if not is_true(row.get("daily_pdf_ready", "")):
         errors.append(f"{source_label}: daily_pdf_ready must be True, got {row.get('daily_pdf_ready', '')!r}")
 
+    return errors
+
+
+def validate_market_session_status(
+    status: dict[str, Any],
+    freshness_row: dict[str, str],
+    source_label: str,
+) -> list[str]:
+    errors: list[str] = []
+    market_status = str(status.get("market_status") or "").strip()
+    phase = str(status.get("phase") or "").strip()
+    session_date = normalize_date(status.get("market_session_date", ""))
+    expected_date = normalize_date(status.get("expected_main_price_date", ""))
+    main_date = normalize_date(freshness_row.get("main_price_date", ""))
+
+    if market_status != "open_confirmed":
+        errors.append(
+            f"{source_label}: market_status must be open_confirmed, got {market_status or '<missing>'}"
+        )
+    if phase != "confirm":
+        errors.append(f"{source_label}: phase must be confirm, got {phase or '<missing>'}")
+    if not expected_date:
+        errors.append(f"{source_label}: expected_main_price_date is missing")
+    elif main_date and expected_date != main_date:
+        errors.append(
+            f"{source_label}: expected_main_price_date={expected_date} "
+            f"does not match main_price_date={main_date}"
+        )
+    if not session_date:
+        errors.append(f"{source_label}: market_session_date is missing")
+    elif expected_date and session_date != expected_date:
+        errors.append(
+            f"{source_label}: market_session_date={session_date} "
+            f"does not match expected_main_price_date={expected_date}"
+        )
+    if status.get("should_run_daily_pipeline") is not True:
+        errors.append(f"{source_label}: should_run_daily_pipeline must be true")
+    return errors
+
+
+def validate_local_market_session_matches_origin(
+    repo_root: Path,
+    origin_status: dict[str, Any],
+) -> list[str]:
+    path = repo_root / MARKET_SESSION_STATUS_PATH
+    if not path.exists():
+        return [f"local {MARKET_SESSION_STATUS_PATH} is missing; cannot mirror {DEFAULT_SOURCE_REF}"]
+    try:
+        local_status = json.loads(path.read_text(encoding="utf-8-sig"))
+    except Exception as exc:
+        return [f"local {MARKET_SESSION_STATUS_PATH} is unreadable: {exc}"]
+    errors: list[str] = []
+    for field in (
+        "phase",
+        "market_status",
+        "market_session_date",
+        "expected_main_price_date",
+        "reason_code",
+        "should_run_daily_pipeline",
+    ):
+        if local_status.get(field) != origin_status.get(field):
+            errors.append(
+                f"local market session {field}={local_status.get(field)!r} does not match "
+                f"{DEFAULT_SOURCE_REF} {field}={origin_status.get(field)!r}"
+            )
     return errors
 
 
@@ -348,17 +419,36 @@ def resolve_daily_report_source_state(
     freshness_text = git_show_text(repo_root, source_ref, FRESHNESS_PATH)
     readme_text = git_show_text(repo_root, source_ref, README_PATH)
     packet_text = git_show_text(repo_root, source_ref, PACKET_PATH)
+    market_session_text = git_show_text(repo_root, source_ref, MARKET_SESSION_STATUS_PATH)
 
     freshness_row = parse_freshness_text(freshness_text, f"{source_ref}:{FRESHNESS_PATH}")
     readme_fields = parse_key_value_text(readme_text)
     packet_fields = parse_key_value_text(packet_text)
+    try:
+        market_session_status = json.loads(market_session_text)
+    except Exception as exc:
+        raise DailyReportSourceError(
+            [f"{source_ref}:{MARKET_SESSION_STATUS_PATH} is unreadable: {exc}"]
+        ) from exc
+    if not isinstance(market_session_status, dict):
+        raise DailyReportSourceError(
+            [f"{source_ref}:{MARKET_SESSION_STATUS_PATH} must contain a JSON object"]
+        )
 
     errors: list[str] = []
     errors.extend(validate_freshness_row(freshness_row, f"{source_ref}:{FRESHNESS_PATH}"))
     errors.extend(validate_readme_matches_freshness(readme_fields, freshness_row, f"{source_ref}:{README_PATH}"))
     errors.extend(validate_packet_matches_freshness(packet_text, packet_fields, freshness_row, f"{source_ref}:{PACKET_PATH}"))
+    errors.extend(
+        validate_market_session_status(
+            market_session_status,
+            freshness_row,
+            f"{source_ref}:{MARKET_SESSION_STATUS_PATH}",
+        )
+    )
     if require_local_match:
         errors.extend(validate_local_matches_origin(repo_root, freshness_row, readme_fields, packet_fields))
+        errors.extend(validate_local_market_session_matches_origin(repo_root, market_session_status))
 
     if errors:
         raise DailyReportSourceError(errors)
@@ -379,6 +469,12 @@ def resolve_daily_report_source_state(
         "freshness_path": f"{source_ref}:{FRESHNESS_PATH}",
         "readme_path": f"{source_ref}:{README_PATH}",
         "packet_path": f"{source_ref}:{PACKET_PATH}",
+        "market_session_status_path": f"{source_ref}:{MARKET_SESSION_STATUS_PATH}",
+        "market_session_status": str(market_session_status.get("market_status") or ""),
+        "market_session_date": normalize_date(market_session_status.get("market_session_date", "")),
+        "expected_main_price_date": normalize_date(
+            market_session_status.get("expected_main_price_date", "")
+        ),
         "main_price_date": main_price_date,
         "report_ready": is_true(freshness_row.get("report_ready", "")),
         "warrant_ready": warrant_ready,
@@ -390,6 +486,7 @@ def resolve_daily_report_source_state(
         "freshness_fields": freshness_row,
         "readme_fields": readme_fields,
         "packet_fields": packet_fields,
+        "market_session_fields": market_session_status,
     }
 
 

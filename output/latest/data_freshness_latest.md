@@ -1,6 +1,10 @@
 # Data Freshness Status
 
-- generated_at: `2026-07-14 00:39:01` Asia/Taipei
+- generated_at: `2026-07-14 04:38:53` Asia/Taipei
+- market_session_status: `open_confirmed`
+- market_session_date: `20260709`
+- expected_main_price_date: `20260709`
+- market_session_reason_code: `twse_tpex_target_date_confirmed`
 - main_price_date: `20260709`
 - actual_stock_price_history_date: `20260709`
 - report_ready: `True`

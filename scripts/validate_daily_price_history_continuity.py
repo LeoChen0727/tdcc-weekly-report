@@ -19,6 +19,8 @@ DATA_FRESHNESS = Path("output/latest/data_freshness_latest.csv")
 DAILY_PRICE_DIR = Path("data/daily_price")
 STOCK_HISTORY_DIR = Path("data/stock_price_history")
 NON_TRADING_DAYS = Path("config/twse_non_trading_days.csv")
+EXCEPTIONAL_NON_TRADING_DAYS = Path("data/market_calendar/exceptional_non_trading_days.csv")
+MARKET_SESSION_STATUS = Path("output/latest/market_session_status_latest.json")
 LATEST_DIR = Path("output/latest")
 REPORT_JSON = LATEST_DIR / "daily_price_history_continuity_latest.json"
 REPORT_MD = LATEST_DIR / "daily_price_history_continuity_latest.md"
@@ -93,8 +95,7 @@ def load_main_price_date(root: Path, freshness_path: Path) -> str:
     return main_date
 
 
-def load_non_trading_days(root: Path, path: Path) -> set[str]:
-    full_path = root / path
+def load_non_trading_days_csv(full_path: Path) -> set[str]:
     if not full_path.exists():
         return set()
     df = read_csv(full_path)
@@ -105,6 +106,51 @@ def load_non_trading_days(root: Path, path: Path) -> set[str]:
     if invalid:
         raise ValueError(f"{full_path.as_posix()} has invalid dates: {invalid[:10]}")
     return {date for date in dates if date}
+
+
+def load_market_session_non_trading_days(root: Path) -> tuple[set[str], set[int]]:
+    status_path = root / MARKET_SESSION_STATUS
+    if not status_path.exists():
+        return set(), set()
+    payload = json.loads(status_path.read_text(encoding="utf-8-sig"))
+    dates: set[str] = set()
+    for field in ("scheduled_non_trading_days", "exceptional_non_trading_days"):
+        values = payload.get(field, [])
+        if not isinstance(values, list):
+            raise ValueError(f"{status_path.as_posix()} {field} must be a list")
+        for value in values:
+            date_text = safe_str(value)
+            if not re.fullmatch(r"\d{8}", date_text):
+                raise ValueError(f"{status_path.as_posix()} {field} has invalid date: {date_text!r}")
+            dates.add(date_text)
+    sources = payload.get("official_sources", {})
+    annual = sources.get("twse_annual_calendar", {}) if isinstance(sources, dict) else {}
+    covered_values = annual.get("covered_years", []) if isinstance(annual, dict) else []
+    if not isinstance(covered_values, list):
+        raise ValueError(f"{status_path.as_posix()} covered_years must be a list")
+    covered_years: set[int] = set()
+    for value in covered_values:
+        try:
+            covered_years.add(int(value))
+        except (TypeError, ValueError) as exc:
+            raise ValueError(f"{status_path.as_posix()} has invalid covered year: {value!r}") from exc
+    return dates, covered_years
+
+
+def load_non_trading_days(root: Path, path: Path) -> set[str]:
+    static_dates = load_non_trading_days_csv(root / path)
+    status_dates, covered_years = load_market_session_non_trading_days(root)
+    if covered_years:
+        dates = {
+            date_text for date_text in static_dates if int(date_text[:4]) not in covered_years
+        }
+        dates.update(status_dates)
+    else:
+        dates = set(static_dates)
+    exceptional_path = root / EXCEPTIONAL_NON_TRADING_DAYS
+    if exceptional_path.resolve() != (root / path).resolve():
+        dates.update(load_non_trading_days_csv(exceptional_path))
+    return dates
 
 
 def expected_trading_dates(main_price_date: str, lookback_days: int, non_trading_days: set[str]) -> list[str]:

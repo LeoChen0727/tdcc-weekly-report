@@ -22,6 +22,8 @@ DEFAULT_FRESHNESS = Path("output/latest/data_freshness_latest.csv")
 DEFAULT_README = Path("output/latest/READ_ME_FIRST_DAILY_REPORT.txt")
 
 DATE_FIELDS_REQUIRED_TO_MATCH_MAIN = (
+    "market_session_date",
+    "expected_main_price_date",
     "actual_stock_price_history_date",
     "stock_monitor_price_date",
     "all_candidates_date",

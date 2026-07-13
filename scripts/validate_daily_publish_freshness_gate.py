@@ -50,11 +50,33 @@ def require_current_ready(row: dict[str, str]) -> list[str]:
     errors: list[str] = []
 
     main_date = normalize_date(row.get("main_price_date", ""))
+    market_session_date = normalize_date(row.get("market_session_date", ""))
+    expected_main_price_date = normalize_date(row.get("expected_main_price_date", ""))
+    market_session_status = str(row.get("market_session_status", "")).strip()
     actual_history_date = normalize_date(row.get("actual_stock_price_history_date", ""))
     raw_official_date = normalize_date(row.get("raw_official_price_fetch_date", ""))
 
     if not main_date:
         errors.append("main_price_date is missing")
+    if market_session_status != "open_confirmed":
+        errors.append(
+            "market_session_status must be open_confirmed before publishing daily artifacts: "
+            f"{market_session_status or '<missing>'}"
+        )
+    if not expected_main_price_date:
+        errors.append("expected_main_price_date is missing")
+    elif main_date and main_date != expected_main_price_date:
+        errors.append(
+            f"main_price_date={main_date} does not match "
+            f"expected_main_price_date={expected_main_price_date}"
+        )
+    if not market_session_date:
+        errors.append("market_session_date is missing")
+    elif expected_main_price_date and market_session_date != expected_main_price_date:
+        errors.append(
+            f"market_session_date={market_session_date} does not match "
+            f"expected_main_price_date={expected_main_price_date}"
+        )
     if not actual_history_date:
         errors.append("actual_stock_price_history_date is missing")
     if raw_official_date and actual_history_date and raw_official_date > actual_history_date:

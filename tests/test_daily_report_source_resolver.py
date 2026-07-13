@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 import subprocess
 from pathlib import Path
 
@@ -34,6 +35,10 @@ def init_repo(tmp_path: Path) -> Path:
 def write_sources(repo: Path, date: str = "20260615", **overrides: str) -> None:
     row = {
         "generated_at": "2026-06-15 20:31:25",
+        "market_session_status": "open_confirmed",
+        "market_session_date": date,
+        "expected_main_price_date": date,
+        "market_session_reason_code": "twse_tpex_target_date_confirmed",
         "main_price_date": date,
         "actual_stock_price_history_date": date,
         "stock_monitor_price_date": date,
@@ -113,6 +118,21 @@ def write_sources(repo: Path, date: str = "20260615", **overrides: str) -> None:
     )
     (repo / "output" / "latest" / "chatgpt_daily_report_packet_latest.txt").write_text(
         packet_text,
+        encoding="utf-8",
+    )
+    market_status = {
+        "schema_version": 1,
+        "generated_at": "2026-06-15T20:31:25+08:00",
+        "phase": "confirm",
+        "assessment_date": row["market_session_date"],
+        "market_session_date": row["market_session_date"],
+        "market_status": row["market_session_status"],
+        "expected_main_price_date": row["expected_main_price_date"],
+        "should_run_daily_pipeline": row["market_session_status"] == "open_confirmed",
+        "reason_code": row["market_session_reason_code"],
+    }
+    (repo / "output" / "latest" / "market_session_status_latest.json").write_text(
+        json.dumps(market_status, ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8",
     )
 
@@ -235,6 +255,32 @@ def test_resolver_rejects_not_ready_origin_main(tmp_path: Path) -> None:
         resolve_daily_report_source_state(repo, fetch=False, require_git_clean=True)
 
     assert any("daily_pdf_ready" in error for error in excinfo.value.errors)
+
+
+def test_resolver_rejects_closed_market_even_when_previous_freshness_is_ready(tmp_path: Path) -> None:
+    repo = init_repo(tmp_path)
+    write_sources(repo, date="20260709")
+    status_path = repo / "output" / "latest" / "market_session_status_latest.json"
+    status = json.loads(status_path.read_text(encoding="utf-8"))
+    status.update(
+        {
+            "phase": "preflight",
+            "assessment_date": "20260710",
+            "market_session_date": "20260710",
+            "market_status": "closed_emergency",
+            "expected_main_price_date": "20260709",
+            "should_run_daily_pipeline": False,
+            "reason_code": "taipei_full_day_or_morning_work_suspension",
+        }
+    )
+    status_path.write_text(json.dumps(status), encoding="utf-8")
+    head = commit_all(repo, "market closed")
+    point_origin_main(repo, head)
+
+    with pytest.raises(DailyReportSourceError) as excinfo:
+        resolve_daily_report_source_state(repo, fetch=False, require_git_clean=True)
+
+    assert any("market_status must be open_confirmed" in error for error in excinfo.value.errors)
 
 
 def test_resolver_rejects_local_latest_that_does_not_match_origin_main(tmp_path: Path) -> None:

@@ -189,3 +189,18 @@ def test_daily_pdf_ready_rejects_warrant_failure_outside_bounded_grace():
 
     assert ready is False
     assert "warrant layer not ready" in note
+
+
+def test_market_session_gate_requires_expected_main_price_date_match() -> None:
+    ready, note = freshness.apply_market_session_gate(
+        report_ready=True,
+        report_ready_note="core daily data dates match main_price_date",
+        market_session_status="open_confirmed",
+        market_session_date="20260713",
+        expected_main_price_date="20260713",
+        main_price_date="20260709",
+    )
+
+    assert ready is False
+    assert "main_price_date=20260709" in note
+    assert "expected_main_price_date=20260713" in note

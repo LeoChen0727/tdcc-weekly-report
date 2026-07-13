@@ -14,6 +14,7 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
+import scripts.market_session_calendar as market_session_calendar
 from scripts import validate_daily_price_history_continuity as continuity
 
 
@@ -142,6 +143,7 @@ def default_repair_func(root: Path, date_text: str, args: argparse.Namespace) ->
         str(args.retries),
         "--sleep-seconds",
         str(args.sleep_seconds),
+        "--market-session-already-refreshed",
     ]
     if args.check_code:
         command.extend(["--check-code", args.check_code])
@@ -314,6 +316,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--retries", type=int, default=2)
     parser.add_argument("--sleep-seconds", type=float, default=5.0)
     parser.add_argument("--check-code", default="")
+    parser.add_argument(
+        "--skip-market-session-refresh",
+        action="store_true",
+        help="Diagnostics/tests only. Production repair must refresh official market-session sources.",
+    )
     parser.add_argument("--no-write-report", action="store_true")
     return parser.parse_args()
 
@@ -321,6 +328,23 @@ def parse_args() -> argparse.Namespace:
 def main() -> int:
     args = parse_args()
     root = Path(args.repo_root).resolve()
+    if not args.skip_market_session_refresh:
+        try:
+            market_status = market_session_calendar.refresh_market_session_status(
+                root,
+                phase="confirm",
+            )
+        except Exception as exc:
+            print(f"ERROR: market session refresh failed before daily price repair: {exc}")
+            return 1
+        if market_status.get("market_status") != market_session_calendar.OPEN_CONFIRMED:
+            print(
+                "ERROR: daily price repair requires market_status=open_confirmed; "
+                f"got {market_status.get('market_status')} "
+                f"reason_code={market_status.get('reason_code')} "
+                f"reason={market_status.get('reason')}"
+            )
+            return 1
     result = recover(
         root,
         freshness_path=Path(args.freshness_csv),

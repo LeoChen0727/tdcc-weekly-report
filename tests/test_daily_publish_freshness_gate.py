@@ -10,6 +10,10 @@ from scripts import validate_daily_publish_freshness_gate as gate
 def write_freshness(path: Path, **overrides: object) -> None:
     row = {
         "generated_at": "2026-06-11 16:13:26",
+        "market_session_status": "open_confirmed",
+        "market_session_date": "20260611",
+        "expected_main_price_date": "20260611",
+        "market_session_reason_code": "twse_tpex_target_date_confirmed",
         "main_price_date": "20260611",
         "actual_stock_price_history_date": "20260611",
         "stock_monitor_price_date": "20260611",
@@ -40,6 +44,11 @@ def write_freshness(path: Path, **overrides: object) -> None:
         "warrant_note": "ready",
     }
     row.update(overrides)
+    if "main_price_date" in overrides:
+        row["market_session_date"] = str(overrides.get("market_session_date", overrides["main_price_date"]))
+        row["expected_main_price_date"] = str(
+            overrides.get("expected_main_price_date", overrides["main_price_date"])
+        )
     pd.DataFrame([row]).to_csv(path, index=False, encoding="utf-8")
 
 
@@ -125,3 +134,26 @@ def test_publish_gate_rejects_baseline_regression(tmp_path):
 
     assert "main_price_date regressed from 20260611 to 20260605" in errors
     assert "actual_stock_price_history_date regressed from 20260611 to 20260605" in errors
+
+
+def test_publish_gate_rejects_stale_main_against_expected_market_session(tmp_path):
+    current = tmp_path / "current.csv"
+    write_freshness(
+        current,
+        main_price_date="20260709",
+        market_session_date="20260713",
+        expected_main_price_date="20260713",
+        actual_stock_price_history_date="20260709",
+        stock_monitor_price_date="20260709",
+        all_candidates_date="20260709",
+        official_price_fetch_date="20260709",
+        warrant_flow_date="20260709",
+        raw_stock_monitor_price_date="20260709",
+        raw_all_candidates_date="20260709",
+        raw_official_price_fetch_date="20260709",
+        raw_warrant_flow_date="20260709",
+    )
+
+    errors = gate.validate_daily_publish_freshness(current, None)
+
+    assert "main_price_date=20260709 does not match expected_main_price_date=20260713" in errors

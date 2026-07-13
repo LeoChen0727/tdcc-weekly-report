@@ -15,6 +15,8 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 import fetch_official_daily_price as fetcher
+import scripts.market_session_calendar as market_session_calendar
+from scripts import validate_daily_price_history_continuity as continuity
 
 
 DATA_DIR = Path("data/daily_price")
@@ -209,19 +211,20 @@ def run(args: argparse.Namespace) -> int:
     LATEST_DIR.mkdir(parents=True, exist_ok=True)
     rows: list[dict[str, Any]] = []
     check_rows: list[dict[str, Any]] = []
+    non_trading_days = continuity.load_non_trading_days(ROOT, continuity.NON_TRADING_DAYS)
 
     current = start_dt
     while current <= end_dt:
         date_text = yyyymmdd(current)
-        if current.weekday() >= 5:
+        if current.weekday() >= 5 or date_text in non_trading_days:
             rows.append(
                 {
                     "date": date_text,
-                    "status": "skipped_weekend",
+                    "status": "skipped_non_trading_day",
                     "twse_rows": 0,
                     "tpex_rows": 0,
                     "total_rows": 0,
-                    "reason": "weekend",
+                    "reason": "weekend" if current.weekday() >= 5 else "shared market calendar",
                     "saved_files": "",
                 }
             )
@@ -286,11 +289,35 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--max-days", type=int, default=120)
     parser.add_argument("--retries", type=int, default=3)
     parser.add_argument("--sleep-seconds", type=float, default=5.0)
+    parser.add_argument(
+        "--market-session-already-refreshed",
+        action="store_true",
+        help="Internal use by shared repair orchestrators after official source refresh.",
+    )
     return parser.parse_args()
 
 
 def main() -> int:
-    return run(parse_args())
+    args = parse_args()
+    if not args.market_session_already_refreshed:
+        try:
+            status = market_session_calendar.refresh_market_session_status(
+                ROOT,
+                phase="preflight",
+            )
+        except Exception as exc:
+            print(f"ERROR: market session refresh failed before range repair: {exc}")
+            return 1
+        if (
+            status.get("market_status") == market_session_calendar.UNKNOWN
+            and status.get("reason_code") != "awaiting_official_price_confirmation"
+        ):
+            print(
+                "ERROR: range repair stopped because market status is unknown: "
+                f"reason_code={status.get('reason_code')} reason={status.get('reason')}"
+            )
+            return 1
+    return run(args)
 
 
 if __name__ == "__main__":

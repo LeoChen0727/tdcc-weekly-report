@@ -18,6 +18,7 @@ from scripts.resolve_daily_report_source_state import (  # noqa: E402
     DailyReportSourceError,
     resolve_daily_report_source_state,
 )
+from scripts import market_session_calendar  # noqa: E402
 
 
 GENERATOR_RELATIVE_PATH = Path("scripts") / "generate_chatgpt_side_daily_reports.py"
@@ -36,6 +37,10 @@ PDF_OUTPUT_ROLES = (
 
 
 class DailyReportEntrypointError(RuntimeError):
+    pass
+
+
+class DailyReportMarketClosed(DailyReportEntrypointError):
     pass
 
 
@@ -72,9 +77,97 @@ def require_success(proc: subprocess.CompletedProcess[str], action: str) -> str:
     return proc.stdout
 
 
-def ensure_entrypoint_can_run(repo_root: Path, source_ref: str, allow_dirty_code: bool) -> dict:
+def resolve_live_market_session_for_entrypoint(
+    repo_root: Path,
+    source_ref: str,
+) -> dict | None:
+    if source_ref != DEFAULT_SOURCE_REF:
+        return None
     try:
-        return resolve_daily_report_source_state(
+        live_status = market_session_calendar.refresh_market_session_status(
+            repo_root,
+            phase="preflight",
+            write_files=False,
+        )
+    except Exception as exc:
+        raise DailyReportEntrypointError(
+            f"live market-session preflight failed; PDF generation is blocked: {exc}"
+        ) from exc
+
+    market_status = str(live_status.get("market_status") or "")
+    reason_code = str(live_status.get("reason_code") or "")
+    if market_status in {
+        market_session_calendar.CLOSED_SCHEDULED,
+        market_session_calendar.CLOSED_EMERGENCY,
+    }:
+        raise DailyReportMarketClosed(
+            f"market_status={market_status} "
+            f"market_session_date={live_status.get('market_session_date', '')} "
+            f"reason_code={reason_code}"
+        )
+    if not (
+        market_status == market_session_calendar.OPEN_CONFIRMED
+        or (
+            market_status == market_session_calendar.UNKNOWN
+            and reason_code == "awaiting_official_price_confirmation"
+        )
+    ):
+        raise DailyReportEntrypointError(
+            "live market-session state is unknown; PDF generation is blocked: "
+            f"market_status={market_status or '<missing>'} "
+            f"reason_code={reason_code or '<missing>'} "
+            f"reason={live_status.get('reason', '')}"
+        )
+    return live_status
+
+
+def require_live_expected_date_match(state: dict, live_status: dict | None) -> dict:
+    if live_status is None:
+        state.update(
+            {
+                "market_session_validation_scope": "branch_source_ref",
+                "live_market_session_status": "",
+                "live_market_session_date": "",
+                "live_expected_main_price_date": "",
+            }
+        )
+        return state
+
+    live_expected = market_session_calendar.normalize_date(
+        live_status.get("expected_main_price_date")
+    )
+    source_expected = market_session_calendar.normalize_date(
+        state.get("expected_main_price_date")
+    )
+    main_price_date = market_session_calendar.normalize_date(state.get("main_price_date"))
+    if not live_expected:
+        raise DailyReportEntrypointError(
+            "live market-session preflight did not produce expected_main_price_date"
+        )
+    if source_expected != live_expected or main_price_date != live_expected:
+        raise DailyReportEntrypointError(
+            "current official market-session expectation does not match origin/main; "
+            f"live_expected_main_price_date={live_expected} "
+            f"source_expected_main_price_date={source_expected or '<missing>'} "
+            f"main_price_date={main_price_date or '<missing>'}"
+        )
+    state.update(
+        {
+            "market_session_validation_scope": "live_origin_main",
+            "live_market_session_status": str(live_status.get("market_status") or ""),
+            "live_market_session_date": market_session_calendar.normalize_date(
+                live_status.get("market_session_date")
+            ),
+            "live_expected_main_price_date": live_expected,
+        }
+    )
+    return state
+
+
+def ensure_entrypoint_can_run(repo_root: Path, source_ref: str, allow_dirty_code: bool) -> dict:
+    live_status = resolve_live_market_session_for_entrypoint(repo_root, source_ref)
+    try:
+        state = resolve_daily_report_source_state(
             repo_root=repo_root,
             source_ref=source_ref,
             fetch=True,
@@ -84,6 +177,7 @@ def ensure_entrypoint_can_run(repo_root: Path, source_ref: str, allow_dirty_code
         )
     except DailyReportSourceError as exc:
         raise DailyReportEntrypointError("\n".join(exc.errors)) from exc
+    return require_live_expected_date_match(state, live_status)
 
 
 def add_source_worktree(repo_root: Path, source_ref: str, temp_root: Path) -> Path:
@@ -180,6 +274,13 @@ def write_runtime_manifest(
         "source_ref": entry_state["source_ref"],
         "source_commit_sha": entry_state["source_commit_sha"],
         "clean_source_commit_sha": source_state["source_commit_sha"],
+        "market_session_status": entry_state["market_session_status"],
+        "market_session_date": entry_state["market_session_date"],
+        "expected_main_price_date": entry_state["expected_main_price_date"],
+        "market_session_validation_scope": entry_state.get("market_session_validation_scope", ""),
+        "live_market_session_status": entry_state.get("live_market_session_status", ""),
+        "live_market_session_date": entry_state.get("live_market_session_date", ""),
+        "live_expected_main_price_date": entry_state.get("live_expected_main_price_date", ""),
         "main_price_date": entry_state["main_price_date"],
         "report_ready": entry_state["report_ready"],
         "warrant_ready": entry_state["warrant_ready"],
@@ -259,6 +360,10 @@ def main() -> int:
             "official daily report source gate passed: "
             f"source_ref={state['source_ref']} "
             f"source_commit_sha={state['source_commit_sha']} "
+            f"market_session_status={state['market_session_status']} "
+            f"expected_main_price_date={state['expected_main_price_date']} "
+            f"market_session_validation_scope={state['market_session_validation_scope']} "
+            f"live_expected_main_price_date={state['live_expected_main_price_date']} "
             f"main_price_date={state['main_price_date']} "
             f"report_ready={state['report_ready']} "
             f"warrant_ready={state['warrant_ready']} "
@@ -295,6 +400,9 @@ def main() -> int:
                     print(f"temporary source worktree kept: {source_root}")
                 else:
                     remove_source_worktree(repo_root, source_root)
+    except DailyReportMarketClosed as exc:
+        print(f"休市，無新報告: {exc}")
+        return 0
     except Exception as exc:
         print(f"ERROR: {exc}", file=sys.stderr)
         return 1

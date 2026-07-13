@@ -13,6 +13,10 @@ GROUP_ROTATION_CSV = LATEST_DIR / "daily_candidate_group_rotation_latest.csv"
 
 REQUIRED_COLUMNS = [
     "generated_at",
+    "market_session_status",
+    "market_session_date",
+    "expected_main_price_date",
+    "market_session_reason_code",
     "main_price_date",
     "actual_stock_price_history_date",
     "stock_monitor_price_date",
@@ -125,6 +129,9 @@ def main() -> int:
 
     row = df.iloc[0].to_dict()
     main_date = str(row.get("main_price_date", "")).strip()
+    market_session_status = str(row.get("market_session_status", "")).strip()
+    market_session_date = str(row.get("market_session_date", "")).strip()
+    expected_main_price_date = str(row.get("expected_main_price_date", "")).strip()
     all_candidates_date = str(row.get("all_candidates_date", "")).strip()
     official_date = str(row.get("official_price_fetch_date", "")).strip()
     warrant_date = str(row.get("warrant_flow_date", "")).strip()
@@ -135,6 +142,9 @@ def main() -> int:
 
     expected_report_ready = bool(
         main_date
+        and market_session_status == "open_confirmed"
+        and market_session_date == expected_main_price_date
+        and main_date == expected_main_price_date
         and all_candidates_date == main_date
         and (not official_date or official_date == main_date)
     )

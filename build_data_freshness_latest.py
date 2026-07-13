@@ -25,6 +25,7 @@ WARRANT_DAILY_FETCH_MD = LATEST_DIR / "warrant_daily_fetch_latest.md"
 WARRANT_SOURCE_STATUS_JSON = LATEST_DIR / "warrant_source_status_latest.json"
 WARRANT_MARKET_REPORT_MD = LATEST_DIR / "warrant_market_report_latest.md"
 GROUP_ROTATION_CSV = LATEST_DIR / "daily_candidate_group_rotation_latest.csv"
+MARKET_SESSION_STATUS_JSON = LATEST_DIR / "market_session_status_latest.json"
 
 OUTPUT_MD = LATEST_DIR / "data_freshness_latest.md"
 OUTPUT_CSV = LATEST_DIR / "data_freshness_latest.csv"
@@ -57,6 +58,18 @@ def read_text(path: Path) -> str:
         except Exception:
             continue
     return ""
+
+
+def read_market_session_status() -> dict[str, str]:
+    if not MARKET_SESSION_STATUS_JSON.exists():
+        return {}
+    try:
+        payload = json.loads(MARKET_SESSION_STATUS_JSON.read_text(encoding="utf-8-sig"))
+    except Exception:
+        return {}
+    if not isinstance(payload, dict):
+        return {}
+    return {str(key): str(value or "") for key, value in payload.items() if not isinstance(value, (dict, list))}
 
 
 def extract_first_date_by_patterns(text: str, patterns: list[str]) -> str:
@@ -451,6 +464,35 @@ def determine_report_ready(
     return True, "core daily data dates match main_price_date"
 
 
+def apply_market_session_gate(
+    *,
+    report_ready: bool,
+    report_ready_note: str,
+    market_session_status: str,
+    market_session_date: str,
+    expected_main_price_date: str,
+    main_price_date: str,
+) -> tuple[bool, str]:
+    if market_session_status != "open_confirmed":
+        return False, (
+            "market session is not open_confirmed: "
+            f"market_session_status={market_session_status or '<missing>'}"
+        )
+    if not expected_main_price_date:
+        return False, "expected_main_price_date is missing"
+    if market_session_date != expected_main_price_date:
+        return False, (
+            f"market_session_date={market_session_date or '<missing>'} does not match "
+            f"expected_main_price_date={expected_main_price_date}"
+        )
+    if main_price_date != expected_main_price_date:
+        return False, (
+            f"main_price_date={main_price_date or '<missing>'} does not match "
+            f"expected_main_price_date={expected_main_price_date}"
+        )
+    return report_ready, report_ready_note
+
+
 def determine_warrant_ready(
     main_price_date: str,
     warrant_flow_date: str,
@@ -521,10 +563,23 @@ def build_status() -> pd.DataFrame:
         actual_price_date=actual_price_date,
     )
 
+    market_session = read_market_session_status()
+    market_session_status = market_session.get("market_status", "").strip()
+    market_session_date = normalize_date(market_session.get("market_session_date", ""))
+    expected_main_price_date = normalize_date(market_session.get("expected_main_price_date", ""))
+
     report_ready, report_ready_note = determine_report_ready(
         main_price_date=main_price_date,
         all_candidates_date=all_candidates_date,
         official_fetch_date=official_fetch_date,
+    )
+    report_ready, report_ready_note = apply_market_session_gate(
+        report_ready=report_ready,
+        report_ready_note=report_ready_note,
+        market_session_status=market_session_status,
+        market_session_date=market_session_date,
+        expected_main_price_date=expected_main_price_date,
+        main_price_date=main_price_date,
     )
     warrant_ready, warrant_ready_note = determine_warrant_ready(
         main_price_date=main_price_date,
@@ -557,6 +612,11 @@ def build_status() -> pd.DataFrame:
 
     row = {
         "generated_at": now_taipei(),
+        "market_session_status": market_session_status,
+        "market_session_date": market_session_date,
+        "expected_main_price_date": expected_main_price_date,
+        "market_session_reason_code": market_session.get("reason_code", ""),
+        "market_session_generated_at": market_session.get("generated_at", ""),
         "main_price_date": main_price_date,
         "actual_stock_price_history_date": actual_price_date,
         "stock_monitor_price_date": stock_monitor_date,
@@ -601,6 +661,10 @@ def write_markdown(df: pd.DataFrame) -> None:
         "# Data Freshness Status",
         "",
         f"- generated_at: `{row.get('generated_at', '')}` Asia/Taipei",
+        f"- market_session_status: `{row.get('market_session_status', '')}`",
+        f"- market_session_date: `{row.get('market_session_date', '')}`",
+        f"- expected_main_price_date: `{row.get('expected_main_price_date', '')}`",
+        f"- market_session_reason_code: `{row.get('market_session_reason_code', '')}`",
         f"- main_price_date: `{row.get('main_price_date', '')}`",
         f"- actual_stock_price_history_date: `{row.get('actual_stock_price_history_date', '')}`",
         f"- report_ready: `{row.get('report_ready', '')}`",

@@ -90,6 +90,29 @@ def test_configured_non_trading_day_is_not_required(tmp_path: Path) -> None:
     assert not any("20260619" in error for error in result.errors)
 
 
+def test_exceptional_non_trading_day_is_not_required(tmp_path: Path) -> None:
+    _write_freshness(tmp_path, "20260713")
+    exceptional = tmp_path / "data" / "market_calendar" / "exceptional_non_trading_days.csv"
+    exceptional.parent.mkdir(parents=True, exist_ok=True)
+    pd.DataFrame(
+        [
+            {
+                "date": "20260710",
+                "market_status": "closed_emergency",
+                "reason": "Taipei City full-day work suspension",
+            }
+        ]
+    ).to_csv(exceptional, index=False)
+    for date_text in ("20260708", "20260709", "20260713"):
+        _write_daily_price(tmp_path, date_text, _market_rows(date_text))
+
+    result = validator.validate(tmp_path, lookback_days=5, min_full_rows=1)
+
+    assert result.status == "pass"
+    assert "20260710" in result.report["non_trading_days_in_window"]
+    assert "20260710" not in result.report["expected_trading_dates"]
+
+
 def test_stock_history_must_cover_daily_price_file_for_target_stocks(tmp_path: Path) -> None:
     _write_freshness(tmp_path, "20260611")
     rows = _market_rows("20260610", stock_ids=["2243"])
