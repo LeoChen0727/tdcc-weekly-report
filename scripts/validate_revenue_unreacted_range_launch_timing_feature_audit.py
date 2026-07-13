@@ -66,7 +66,15 @@ def validate() -> list[str]:
     try:
         resolution = pd.read_csv(
             PRICE_COMPARABILITY_RESOLUTION_CSV,
-            dtype={"stock_id": str},
+            dtype={
+                "resolution_id": str,
+                "model_id": str,
+                "stock_id": str,
+                "pre_event_last_trade_date": str,
+                "suspension_start_date": str,
+                "suspension_end_date": str,
+                "resume_date": str,
+            },
             keep_default_na=False,
         )
     except Exception as exc:
@@ -87,6 +95,28 @@ def validate() -> list[str]:
             "https://www.twse.com.tw/"
         ):
             errors.append("3593 capital-reduction resolution lacks official TWSE evidence")
+    avision = resolution.loc[
+        resolution["resolution_id"].eq("2380_20260629_loss_offset_capital_reduction")
+    ]
+    if len(avision) != 1:
+        errors.append("2380 capital-reduction price comparability resolution is missing")
+    else:
+        row = avision.iloc[0]
+        ratio = pd.to_numeric(row["exchange_ratio"], errors="coerce")
+        pre_close = pd.to_numeric(row["pre_event_close"], errors="coerce")
+        reference = pd.to_numeric(row["resume_reference_price"], errors="coerce")
+        if not pd.notna(ratio) or abs(pre_close / ratio - reference) > 0.005:
+            errors.append("2380 capital-reduction adjustment math drift")
+        if (
+            row["pre_event_last_trade_date"] != "20260616"
+            or row["suspension_start_date"] != "20260617"
+            or row["resume_date"] != "20260629"
+        ):
+            errors.append("2380 capital-reduction lifecycle dates drift")
+        if row["authority"] != "TWSE" or not row["authority_source_url"].startswith(
+            "https://www.twse.com.tw/"
+        ):
+            errors.append("2380 capital-reduction resolution lacks official TWSE evidence")
 
     summary = _read(LATEST_CSV)
     detail = _read(DETAIL_CSV, detail=True)

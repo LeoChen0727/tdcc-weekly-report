@@ -130,6 +130,9 @@ def test_data_sharing_registry_uses_model_owned_research_entrypoints() -> None:
     assert by_family["revenue_unreacted_range_forward_confirmation_feature_audit"][
         "registered_producers"
     ] == "scripts/build_revenue_unreacted_range_research.py"
+    assert by_family["revenue_unreacted_range_rearmed_operation_grid"][
+        "registered_producers"
+    ] == "scripts/build_revenue_unreacted_range_research.py"
     assert by_family["volume_range_breakout_v2_high_position_improvement_audit"][
         "registered_producers"
     ] == "scripts/build_volume_range_breakout_v2_research.py"
@@ -137,7 +140,7 @@ def test_data_sharing_registry_uses_model_owned_research_entrypoints() -> None:
 
 def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
     rows = read_csv("config/daily_model_data_sharing_migrations.csv")
-    assert len(rows) == 5
+    assert len(rows) == 7
     baseline = rows[0]
     assert tuple(baseline) == DATA_SHARING_MIGRATION_COLUMNS
     assert data_migration_row_sha256(baseline) == BASELINE_DATA_MIGRATION_ROW_SHA256
@@ -212,6 +215,46 @@ def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
         "user_requested_forward_confirmation_feature_audit_20260713"
     )
     assert forward_confirmation_migration["migration_status"] == (
+        "validated_user_approved_migration"
+    )
+
+    rearmed_operation_migration = rows[5]
+    assert rearmed_operation_migration["migration_id"] == (
+        "revenue_rearmed_operation_grid_20260713"
+    )
+    assert rearmed_operation_migration["changed_data_families"] == (
+        "revenue_unreacted_range_rearmed_operation_grid"
+    )
+    assert rearmed_operation_migration["previous_contract_sha256s"] == "NEW"
+    assert rearmed_operation_migration["new_contract_sha256s"] == (
+        "1b3915bf2f82c119820a1ae7b545ed74c91dd83fc24c00a0f5f49481206b1189"
+    )
+    assert rearmed_operation_migration["affected_models"] == "revenue_unreacted_range"
+    assert rearmed_operation_migration["user_approval_reference"] == (
+        "user_adopted_rearmed_operation_grid_20260713"
+    )
+    assert rearmed_operation_migration["migration_status"] == (
+        "validated_user_approved_migration"
+    )
+
+    price_comparability_migration = rows[6]
+    assert price_comparability_migration["migration_id"] == (
+        "revenue_price_comparability_2380_20260713"
+    )
+    assert price_comparability_migration["changed_data_families"] == (
+        "revenue_unreacted_range_launch_timing_feature_audit"
+    )
+    assert price_comparability_migration["previous_contract_sha256s"] == (
+        "9156f82c9831ba1d0f6b159463eb7571944b9c6fe24cabdf3a068c5ed40aae6e"
+    )
+    assert price_comparability_migration["new_contract_sha256s"] == (
+        "7fae8b6102f7cac5715ef3845ee6345788bee7d57188c9eff5d754219a632145"
+    )
+    assert price_comparability_migration["affected_models"] == "revenue_unreacted_range"
+    assert price_comparability_migration["user_approval_reference"] == (
+        "user_adopted_rearmed_grid_and_required_bottom_level_2380_review_20260713"
+    )
+    assert price_comparability_migration["migration_status"] == (
         "validated_user_approved_migration"
     )
 

@@ -2043,6 +2043,7 @@ def test_research_workflow_validates_revenue_fixed_confirmation_and_lag_artifact
     assert "python scripts/validate_revenue_unreacted_range_launch_timing_feature_audit.py" in workflow
     assert "python scripts/validate_revenue_unreacted_range_source_first_condition_audit.py" in workflow
     assert "python scripts/validate_revenue_unreacted_range_forward_confirmation_feature_audit.py" in workflow
+    assert "python scripts/validate_revenue_unreacted_range_rearmed_operation_grid.py" in workflow
 
 
 def test_research_workflow_does_not_refresh_formal_adapters_or_snapshots() -> None:

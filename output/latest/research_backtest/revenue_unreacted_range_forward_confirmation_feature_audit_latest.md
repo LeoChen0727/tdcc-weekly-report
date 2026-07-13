@@ -1,6 +1,6 @@
 # 營收改善尚未反應模型：前向確認與特徵稽核
 
-- generated_at: `2026-07-13 16:41:59 Asia/Taipei`
+- generated_at: `2026-07-13 19:20:48 Asia/Taipei`
 - model_id: `revenue_unreacted_range`
 - artifact_version: `forward_confirmation_v1_20260713`
 - 狀態：`research_only`，不可直接升格或進入 PDF 操作列。
@@ -39,7 +39,7 @@
 | prev20_return20_0_25 | trigger_date_close | 1432 | 91.9127 | 5.5101 | 94.4899 | 2.4454 | -1.4943 | 20251209 | mature_failure | 20260527 | strict_success |
 | prev20_market_bull | trigger_date_close | 1421 | 91.2067 | 5.3144 | 94.6856 | 2.4151 | -1.4934 | 20251209 | mature_failure | 20260527 | strict_success |
 | prev20_volume_ge1_5 | trigger_date_close | 1325 | 85.0449 | 5.1303 | 94.8697 | 2.1627 | -1.7361 | 20251209 | mature_failure | 20260527 | strict_success |
-| prev20_next_close_tdcc_high | next_trading_day_close | 362 | 23.2349 | 5.1181 | 94.8819 | 1.9027 | -0.7557 | 20260518 | strict_success |  |  |
+| prev20_next_close_tdcc_high | next_trading_day_close | 361 | 23.1707 | 5.1181 | 94.8819 | 1.9027 | -0.7557 | 20260518 | strict_success |  |  |
 | prev20_volume_ge2 | trigger_date_close | 1220 | 78.3055 | 5.0398 | 94.9602 | 1.9926 | -1.7422 | 20251212 | mature_failure |  |  |
 | prev20_tdcc_high_thresholds_up | trigger_date_close | 564 | 36.2003 | 4.89 | 95.11 | 2.2652 | 0.0 | 20260518 | strict_success | 20260527 | strict_success |
 | first_close_cross_prev40 | trigger_date_close | 1239 | 79.525 | 4.863 | 95.137 | 1.4591 | -1.6043 | 20251212 | mature_failure | 20260527 | strict_success |
