@@ -291,6 +291,67 @@ def require_workflow_order(text: str, labels: list[str]) -> list[str]:
     return errors
 
 
+def workflow_job_block(text: str, job_id: str) -> str:
+    marker = f"  {job_id}:"
+    start = text.find(marker)
+    if start < 0:
+        return ""
+    next_job = re.search(r"(?m)^  [A-Za-z0-9_-]+:\s*$", text[start + len(marker) :])
+    if next_job is None:
+        return text[start:]
+    return text[start : start + len(marker) + next_job.start()]
+
+
+def validate_dfkai_pdf_replay_job(
+    text: str,
+    *,
+    workflow_label: str,
+    needs_job: str,
+    output_dir: str,
+    upload_step: str,
+) -> list[str]:
+    errors: list[str] = []
+    block = workflow_job_block(text, "daily-pdf-dfkai-replay")
+    if not block:
+        return [f"{workflow_label} missing daily-pdf-dfkai-replay job"]
+
+    required = {
+        f"needs: {needs_job}": "DFKai PDF replay must wait for its upstream validation/production job",
+        "runs-on: windows-2025": "DFKai PDF replay must use the pinned Windows 2025 runner",
+        "Language.Fonts.Hant~~~und-HANT~0.0.1.0": "DFKai PDF replay must install the Traditional Chinese supplemental font capability",
+        "DoNotConnectToWindowsUpdateInternetLocations": "DFKai PDF replay must undo the hosted runner policy that blocks Microsoft font capability downloads",
+        "DisableWindowsUpdateAccess": "DFKai PDF replay must enable access to the official Windows Update capability source",
+        "UseWUServer": "DFKai PDF replay must bypass unavailable hosted-runner WSUS for the official capability source",
+        "Set-Service -Name wuauserv -StartupType Manual": "DFKai PDF replay must re-enable the hosted runner Windows Update service",
+        "Start-Service -Name wuauserv": "DFKai PDF replay must start Windows Update before capability installation",
+        "dism.exe": "DFKai PDF replay must install the official font capability with bounded DISM execution",
+        "/Add-Capability": "DFKai PDF replay must install the official Hant font capability",
+        "C:\\Windows\\Fonts\\kaiu.ttf": "DFKai PDF replay must require the canonical kaiu.ttf path",
+        "Prepare Windows long-path PDF replay runtime": "DFKai PDF replay must prepare Windows for the repository's long artifact paths",
+        "git config --global core.longpaths true": "DFKai PDF replay must enable Git long-path worktree checkout",
+        "C:\\tdcc-pdf-temp": "DFKai PDF replay must use a short temporary root for clean replay worktrees",
+        '"TEMP=$shortTemp"': "DFKai PDF replay must route Python temporary worktrees to the short root",
+        '"TMP=$shortTemp"': "DFKai PDF replay must route Windows temporary files to the short root",
+        "CHATGPT_DAILY_DFKAI_FONT_PATH": "DFKai PDF replay must expose the validated font path to the renderer",
+        "from fontTools.ttLib import TTFont": "DFKai PDF replay must inspect the font name table and cmap",
+        "DFKai-SB": "DFKai PDF replay must validate the DFKai-SB font identity",
+        "DFKaiShu-SB-Estd-BF": "DFKai PDF replay must accept the canonical extracted DFKaiShu font identity",
+        "\\u6a19\\u6977\\u9ad4": "DFKai PDF replay must validate a Traditional Chinese glyph canary",
+        "- name: Replay ChatGPT-side daily PDF new conversation": "DFKai Windows job must own the actual six-PDF replay",
+        "shell: bash": "DFKai Windows job must use Git Bash for the bounded replay command",
+        "timeout 20m python scripts/validate_chatgpt_daily_report_new_conversation_replay.py": "DFKai Windows job must hard-timeout the replay command",
+        f"--output-dir {output_dir}": "DFKai Windows job must write the stable replay evidence folder",
+        f"--require-output-dir {output_dir}": "DFKai Windows job must run the generated-output completion gate",
+        f"- name: {upload_step}": "DFKai Windows job must upload the replay evidence",
+        f"{output_dir}/*.pdf": "DFKai Windows job must upload all six PDF files",
+        "if-no-files-found: error": "DFKai Windows job must fail when replay evidence is absent",
+    }
+    for literal, message in required.items():
+        if literal not in block:
+            errors.append(f"{workflow_label}: {message}: missing {literal!r}")
+    return errors
+
+
 def run_code_isolation_policy_validation() -> list[str]:
     spec = importlib.util.spec_from_file_location(
         "validate_repo_code_isolation_policy",
@@ -446,6 +507,18 @@ def main() -> int:
             ],
         )
     )
+    errors.extend(
+        validate_dfkai_pdf_replay_job(
+            daily_text,
+            workflow_label="daily_full_pipeline",
+            needs_job="daily-full-pipeline",
+            output_dir="chatgpt_side_outputs_new_conversation_replay",
+            upload_step="Upload main daily PDF replay evidence",
+        )
+    )
+    daily_pipeline_block = workflow_job_block(daily_text, "daily-full-pipeline")
+    if "- name: Replay ChatGPT-side daily PDF new conversation" in daily_pipeline_block:
+        errors.append("daily_full_pipeline Ubuntu job must not render the six daily PDFs")
 
     if not STAGED_PATH_VALIDATOR.exists():
         errors.append(f"missing daily staged path validator: {STAGED_PATH_VALIDATOR}")
@@ -532,6 +605,21 @@ def main() -> int:
         for literal, message in required_pr_workflow_literals.items():
             if literal not in pr_workflow_text:
                 errors.append(f"{message}: missing {literal!r}")
+        errors.extend(
+            validate_dfkai_pdf_replay_job(
+                pr_workflow_text,
+                workflow_label="daily_model_maintenance_pr_validation",
+                needs_job="daily-model-maintenance-pr-validation",
+                output_dir="chatgpt_side_outputs_pr_validation",
+                upload_step="Upload PR daily PDF replay evidence",
+            )
+        )
+        pr_validation_block = workflow_job_block(
+            pr_workflow_text,
+            "daily-model-maintenance-pr-validation",
+        )
+        if "- name: Replay ChatGPT-side daily PDF new conversation" in pr_validation_block:
+            errors.append("daily model PR Ubuntu validation job must not render the six daily PDFs")
 
     if not CANONICAL_CHATGPT_PDF_ENTRYPOINT.exists():
         errors.append(f"missing canonical ChatGPT-side PDF entrypoint: {CANONICAL_CHATGPT_PDF_ENTRYPOINT}")

@@ -17,6 +17,90 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  daily-pdf-dfkai-replay:
+    needs: daily-full-pipeline
+    runs-on: windows-2025
+
+    steps:
+      - name: Checkout updated daily branch
+        uses: actions/checkout@v6
+        with:
+          ref: ${{ github.ref_name }}
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      - name: Install PDF replay dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pandas requests tabulate matplotlib pillow openpyxl lxml html5lib beautifulsoup4 reportlab pypdf fonttools
+
+      - name: Install and validate DFKai-SB
+        timeout-minutes: 20
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = "Stop"
+          $fontCapability = "Language.Fonts.Hant~~~und-HANT~0.0.1.0"
+          $fontPath = "C:\Windows\Fonts\kaiu.ttf"
+          if (-not (Test-Path -LiteralPath $fontPath)) {
+            $windowsUpdatePolicy = "HKLM:\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate"
+            $windowsUpdateAuPolicy = "$windowsUpdatePolicy\AU"
+            New-Item -Path $windowsUpdateAuPolicy -Force | Out-Null
+            New-ItemProperty -Path $windowsUpdatePolicy -Name DoNotConnectToWindowsUpdateInternetLocations -PropertyType DWord -Value 0 -Force | Out-Null
+            New-ItemProperty -Path $windowsUpdatePolicy -Name DisableWindowsUpdateAccess -PropertyType DWord -Value 0 -Force | Out-Null
+            New-ItemProperty -Path $windowsUpdateAuPolicy -Name UseWUServer -PropertyType DWord -Value 0 -Force | Out-Null
+            Set-Service -Name wuauserv -StartupType Manual
+            Start-Service -Name wuauserv
+            $capability = Get-WindowsCapability -Online -Name $fontCapability
+            Write-Host "font_capability_state_before=$($capability.State)"
+            if ($capability.State -ne "Installed") {
+              & "$env:SystemRoot\System32\dism.exe" /Online /Add-Capability "/CapabilityName:$fontCapability" /NoRestart
+              if ($LASTEXITCODE -ne 0) {
+                throw "DFKai-SB capability installation failed with DISM exit code $LASTEXITCODE"
+              }
+            }
+          }
+          if (-not (Test-Path -LiteralPath $fontPath)) {
+            throw "Required DFKai-SB font file is missing after capability install: $fontPath"
+          }
+          "CHATGPT_DAILY_DFKAI_FONT_PATH=$fontPath" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
+          python -c 'from fontTools.ttLib import TTFont; p=r"C:\Windows\Fonts\kaiu.ttf"; f=TTFont(p); names={n.toUnicode() for n in f["name"].names}; accepted={"DFKai-SB","DFKaiShu-SB-Estd-BF"}; assert names & accepted, f"unexpected font names: {sorted(names)}"; cmap={cp for table in f["cmap"].tables for cp in table.cmap}; canary="\u6a19\u6977\u9ad4\u7e41\u9ad4\u4e2d\u6587\u6e2c\u8a66"; missing=[f"U+{ord(char):04X}" for char in canary if ord(char) not in cmap]; assert not missing, f"missing canary glyphs: {missing}"; print(f"validated_font={p} names={sorted(names & accepted)}")'
+
+      - name: Prepare Windows long-path PDF replay runtime
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = "Stop"
+          git config --global core.longpaths true
+          $shortTemp = "C:\tdcc-pdf-temp"
+          New-Item -ItemType Directory -Path $shortTemp -Force | Out-Null
+          "TEMP=$shortTemp" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
+          "TMP=$shortTemp" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
+          "TMPDIR=$shortTemp" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
+
+      - name: Replay ChatGPT-side daily PDF new conversation
+        timeout-minutes: 20
+        shell: bash
+        run: |
+          echo "PDF replay source_ref=workflow default"
+          echo "PDF replay output_dir=chatgpt_side_outputs_new_conversation_replay"
+          timeout 20m python scripts/validate_chatgpt_daily_report_new_conversation_replay.py \
+            --output-dir chatgpt_side_outputs_new_conversation_replay
+          python scripts/validate_daily_pdf_completion_hard_gate.py --require-output-dir chatgpt_side_outputs_new_conversation_replay
+
+      - name: Upload main daily PDF replay evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: daily-pdf-replay-main
+          path: |
+            chatgpt_side_outputs_new_conversation_replay/*.pdf
+            chatgpt_side_outputs_new_conversation_replay/chatgpt_daily_report_runtime_manifest.json
+            chatgpt_side_outputs_new_conversation_replay/chatgpt_daily_pdf_semantic_manifest.csv
+          if-no-files-found: error
+
   daily-full-pipeline:
     runs-on: ubuntu-latest
 
@@ -58,7 +142,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install pandas requests tabulate matplotlib pillow openpyxl lxml html5lib beautifulsoup4 reportlab pypdf
+          pip install pandas requests tabulate matplotlib pillow openpyxl lxml html5lib beautifulsoup4 reportlab pypdf fonttools
 
       - name: Build monthly revenue history
         run: |
@@ -635,15 +719,6 @@ jobs:
           git commit -m "Publish daily report readme and ChatGPT entries" || echo "No changes to commit"
 
           bash scripts/ci_push_with_retry.sh "$TARGET_BRANCH" 5
-
-      - name: Replay ChatGPT-side daily PDF new conversation
-        timeout-minutes: 20
-        run: |
-          echo "PDF replay source_ref=workflow default"
-          echo "PDF replay output_dir=chatgpt_side_outputs_new_conversation_replay"
-          timeout 20m python scripts/validate_chatgpt_daily_report_new_conversation_replay.py \
-            --output-dir chatgpt_side_outputs_new_conversation_replay
-          python scripts/validate_daily_pdf_completion_hard_gate.py --require-output-dir chatgpt_side_outputs_new_conversation_replay
 
       - name: Dispatch and wait for GitHub Pages deploy
         if: ${{ github.ref == 'refs/heads/main' }}
