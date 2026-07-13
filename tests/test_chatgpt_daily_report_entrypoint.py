@@ -222,6 +222,118 @@ def test_entrypoint_runs_generator_from_clean_source_worktree(tmp_path: Path, mo
     assert env["CHATGPT_DAILY_SOURCE_REF"] == "histlocal/codex/historical-report-source-20260615"
 
 
+def _resolved_state(date: str) -> dict[str, object]:
+    return {
+        "source_ref": "origin/main",
+        "source_commit_sha": "a" * 40,
+        "market_session_status": "open_confirmed",
+        "market_session_date": date,
+        "expected_main_price_date": date,
+        "main_price_date": date,
+    }
+
+
+def _live_preflight(
+    date: str,
+    *,
+    status: str = "unknown",
+    reason_code: str = "awaiting_official_price_confirmation",
+) -> dict[str, object]:
+    return {
+        "market_status": status,
+        "market_session_date": date,
+        "expected_main_price_date": date,
+        "reason_code": reason_code,
+        "reason": "test market-session result",
+    }
+
+
+def test_entrypoint_live_gate_rejects_stale_origin_main_date(tmp_path: Path, monkeypatch) -> None:
+    monkeypatch.setattr(
+        entrypoint.market_session_calendar,
+        "refresh_market_session_status",
+        lambda *args, **kwargs: _live_preflight("20260713"),
+    )
+    monkeypatch.setattr(
+        entrypoint,
+        "resolve_daily_report_source_state",
+        lambda **kwargs: _resolved_state("20260709"),
+    )
+
+    try:
+        entrypoint.ensure_entrypoint_can_run(tmp_path, "origin/main", False)
+    except entrypoint.DailyReportEntrypointError as exc:
+        text = str(exc)
+        assert "live_expected_main_price_date=20260713" in text
+        assert "source_expected_main_price_date=20260709" in text
+        assert "main_price_date=20260709" in text
+    else:
+        raise AssertionError("stale origin/main must not pass the live expected-date gate")
+
+
+def test_entrypoint_live_gate_accepts_matching_origin_main_date(tmp_path: Path, monkeypatch) -> None:
+    monkeypatch.setattr(
+        entrypoint.market_session_calendar,
+        "refresh_market_session_status",
+        lambda *args, **kwargs: _live_preflight("20260713"),
+    )
+    monkeypatch.setattr(
+        entrypoint,
+        "resolve_daily_report_source_state",
+        lambda **kwargs: _resolved_state("20260713"),
+    )
+
+    state = entrypoint.ensure_entrypoint_can_run(tmp_path, "origin/main", False)
+
+    assert state["market_session_validation_scope"] == "live_origin_main"
+    assert state["live_expected_main_price_date"] == "20260713"
+
+
+def test_entrypoint_live_gate_reports_closed_market_without_rendering(tmp_path: Path, monkeypatch) -> None:
+    monkeypatch.setattr(
+        entrypoint.market_session_calendar,
+        "refresh_market_session_status",
+        lambda *args, **kwargs: _live_preflight(
+            "20260710",
+            status="closed_emergency",
+            reason_code="taipei_work_suspension_full_day",
+        ),
+    )
+
+    try:
+        entrypoint.ensure_entrypoint_can_run(tmp_path, "origin/main", False)
+    except entrypoint.DailyReportMarketClosed as exc:
+        assert "market_status=closed_emergency" in str(exc)
+        assert "market_session_date=20260710" in str(exc)
+    else:
+        raise AssertionError("closed market must stop before source resolution and rendering")
+
+
+def test_entrypoint_branch_replay_uses_committed_branch_contract_without_live_gate(
+    tmp_path: Path,
+    monkeypatch,
+) -> None:
+    monkeypatch.setattr(
+        entrypoint.market_session_calendar,
+        "refresh_market_session_status",
+        lambda *args, **kwargs: (_ for _ in ()).throw(AssertionError("live gate must not run")),
+    )
+    monkeypatch.setattr(
+        entrypoint,
+        "resolve_daily_report_source_state",
+        lambda **kwargs: _resolved_state("20260709"),
+    )
+
+    state = entrypoint.ensure_entrypoint_can_run(
+        tmp_path,
+        "origin/codex/source-integrity-test",
+        False,
+    )
+
+    assert state["market_session_validation_scope"] == "branch_source_ref"
+    assert state["live_expected_main_price_date"] == ""
+
+
 def test_entrypoint_writes_runtime_manifest(tmp_path: Path) -> None:
     state = {
         "source_ref": "origin/main",
@@ -229,6 +341,10 @@ def test_entrypoint_writes_runtime_manifest(tmp_path: Path) -> None:
         "market_session_status": "open_confirmed",
         "market_session_date": "20260616",
         "expected_main_price_date": "20260616",
+        "market_session_validation_scope": "live_origin_main",
+        "live_market_session_status": "unknown",
+        "live_market_session_date": "20260616",
+        "live_expected_main_price_date": "20260616",
         "main_price_date": "20260616",
         "report_ready": True,
         "warrant_ready": True,
@@ -254,6 +370,7 @@ def test_entrypoint_writes_runtime_manifest(tmp_path: Path) -> None:
     text = manifest_path.read_text(encoding="utf-8")
     assert "chatgpt_daily_report_runtime_manifest" in text
     assert '"expected_main_price_date": "20260616"' in text
+    assert '"live_expected_main_price_date": "20260616"' in text
     assert '"main_price_date": "20260616"' in text
     assert "chatgpt_daily_report_packet_latest.txt" in text
     assert '"pdf_count": 6' in text

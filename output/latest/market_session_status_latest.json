@@ -1,0 +1,69 @@
+{
+  "assessment_date": "20260709",
+  "assessment_mode": "historical_bootstrap_for_source_contract",
+  "exceptional_non_trading_days": [
+    "20260710"
+  ],
+  "expected_main_price_date": "20260709",
+  "generated_at": "2026-07-14T04:24:18+08:00",
+  "market_session_date": "20260709",
+  "market_status": "open_confirmed",
+  "official_sources": {
+    "dgpa_emergency_closure": {
+      "conflict_dates": [],
+      "latest_taipei_notice_dates": [
+        "20260710",
+        "20260711"
+      ],
+      "queried_at": "2026-07-14T04:24:18+08:00",
+      "status": "ok",
+      "taipei_notice_count": 3,
+      "url": "https://alerts.ncdr.nat.gov.tw/RssAtomFeed.ashx?AlertType=33"
+    },
+    "twse_annual_calendar": {
+      "closed_weekday_count": 18,
+      "covered_years": [
+        2026
+      ],
+      "queried_at": "2026-07-14T04:24:18+08:00",
+      "status": "ok",
+      "url": "https://openapi.twse.com.tw/v1/holidaySchedule/holidaySchedule"
+    },
+    "twse_emergency_rule": {
+      "status": "reference",
+      "url": "https://www.twse.com.tw/zh/about/suspended_faq.html"
+    }
+  },
+  "phase": "confirm",
+  "price_confirmation": {
+    "fetch_result": "success",
+    "path": "data/daily_price/daily_price_20260709.csv",
+    "tpex_rows": 892,
+    "twse_rows": 1240,
+    "wrong_date_rows": 0
+  },
+  "reason": "TWSE and TPEx target-date prices confirmed",
+  "reason_code": "twse_tpex_target_date_confirmed",
+  "scheduled_non_trading_days": [
+    "20260101",
+    "20260212",
+    "20260213",
+    "20260216",
+    "20260217",
+    "20260218",
+    "20260219",
+    "20260220",
+    "20260227",
+    "20260403",
+    "20260406",
+    "20260501",
+    "20260619",
+    "20260925",
+    "20260928",
+    "20261009",
+    "20261026",
+    "20261225"
+  ],
+  "schema_version": 1,
+  "should_run_daily_pipeline": true
+}

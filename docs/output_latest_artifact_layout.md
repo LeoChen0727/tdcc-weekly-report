@@ -14,6 +14,7 @@ or raw-health checks still depend on those exact paths.
 Allowed root examples:
 
 - `output/latest/data_freshness_latest.csv`
+- `output/latest/market_session_status_latest.json`
 - `output/latest/daily_market_summary_latest.pdf`
 - `output/latest/daily_market_full_latest.pdf`
 - `output/latest/chatgpt_daily_report_packet_latest.txt`
@@ -49,6 +50,12 @@ validators, packets, readiness gates, or raw-health checks may remain in
 Do not move a pipeline dependency only because it is human-readable. First
 identify the producer, consumer, validator, packet, workflow, and lifecycle
 inventory entries that depend on the path.
+
+`output/latest/market_session_status_latest.json` is the machine handoff for the
+four-state Taiwan market-session decision and `expected_main_price_date`. The
+official six-PDF entrypoint must also refresh the live official calendar before
+accepting this committed state, so a stale status file and stale freshness file
+cannot validate each other.
 
 ## TDCC Weekly Artifacts
 
