@@ -17,6 +17,7 @@ from scripts.resolve_daily_report_source_state import (  # noqa: E402
     DailyReportSourceError,
     resolve_daily_report_source_state,
 )
+from scripts.validate_chatgpt_side_pdf_contract import validate_daily_six_pdf_font_contract  # noqa: E402
 
 
 DEFAULT_OUTPUT_DIR = REPO_ROOT / "chatgpt_side_outputs_new_conversation_replay"
@@ -767,6 +768,10 @@ def validate_replay(repo_root: Path, source_ref: str, output_dir: Path) -> tuple
     errors.extend(validate_source_gate_echo(stdout, state, source_ref))
     errors.extend(validate_pdf_path_contract(paths, output_dir, main_price_date))
     errors.extend(validate_pdf_files_open(paths))
+    try:
+        validate_daily_six_pdf_font_contract(paths)
+    except RuntimeError as exc:
+        errors.append(str(exc))
     runtime_errors = validate_runtime_manifest(paths, output_dir, state)
     errors.extend(runtime_errors)
     if not runtime_errors:

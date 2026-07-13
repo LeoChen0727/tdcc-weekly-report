@@ -24,7 +24,6 @@ from reportlab.lib.pagesizes import A4, landscape
 from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
 from reportlab.lib.units import mm
 from reportlab.pdfbase import pdfmetrics
-from reportlab.pdfbase.cidfonts import UnicodeCIDFont
 from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.platypus import (
     Image,
@@ -42,6 +41,21 @@ try:
     from scripts.resolve_daily_report_source_state import resolve_daily_report_source_state
 except ImportError:  # pragma: no cover - script execution from scripts/
     from resolve_daily_report_source_state import resolve_daily_report_source_state
+
+try:
+    from scripts.validate_chatgpt_side_pdf_contract import (
+        CHATGPT_DAILY_DFKAI_FONT_PATH_ENV,
+        CHATGPT_DAILY_PDF_FONT_NAME,
+        chatgpt_daily_dfkai_font_path,
+        validate_dfkai_font_file,
+    )
+except ImportError:  # pragma: no cover - script execution from scripts/
+    from validate_chatgpt_side_pdf_contract import (
+        CHATGPT_DAILY_DFKAI_FONT_PATH_ENV,
+        CHATGPT_DAILY_PDF_FONT_NAME,
+        chatgpt_daily_dfkai_font_path,
+        validate_dfkai_font_file,
+    )
 
 
 SCRIPT_DIR = Path(__file__).resolve().parent
@@ -243,13 +257,23 @@ VOLUME_EXIT_RULE_LABELS = {
 REQUEST_DATE = ""
 OUTPUT_SUFFIX = "_current_rules"
 
-FONT_NAME = "DFKai"
-FONT_BOLD = "DFKai-Bold"
-FONT_PATH = Path(r"C:\Windows\Fonts\kaiu.ttf")
-FONT_BOLD_PATH = Path(r"C:\Windows\Fonts\kaiu.ttf")
+FONT_NAME = CHATGPT_DAILY_PDF_FONT_NAME
+FONT_BOLD = CHATGPT_DAILY_PDF_FONT_NAME
+FONT_PATH = chatgpt_daily_dfkai_font_path()
+FONT_BOLD_PATH = FONT_PATH
 MATPLOTLIB_FONT: FontProperties | None = None
 TDCC_WINDOW_CACHE: dict[str, pd.Series] = {}
 SOURCE_STATE: dict[str, object] = {}
+
+# Paragraph parsing needs the family mapping before runtime font registration.
+# This maps names only; it does not register or substitute any font file.
+pdfmetrics.registerFontFamily(
+    FONT_NAME,
+    normal=FONT_NAME,
+    bold=FONT_NAME,
+    italic=FONT_NAME,
+    boldItalic=FONT_NAME,
+)
 
 MAIN_REPORT_MAINSTREAM_LIMIT = 8
 MAIN_REPORT_NON_MAINSTREAM_LIMIT = 2
@@ -547,36 +571,29 @@ REQUEST_DATE_SLASH = ""
 
 
 def setup_fonts() -> None:
-    global FONT_NAME, FONT_BOLD, MATPLOTLIB_FONT
+    global FONT_NAME, FONT_BOLD, FONT_PATH, FONT_BOLD_PATH, MATPLOTLIB_FONT
+    font_path = chatgpt_daily_dfkai_font_path()
     try:
-        if FONT_PATH.exists():
-            try:
-                pdfmetrics.registerFont(TTFont(FONT_NAME, str(FONT_PATH), subfontIndex=0))
-            except TypeError:
-                pdfmetrics.registerFont(TTFont(FONT_NAME, str(FONT_PATH)))
-            if FONT_BOLD_PATH.exists():
-                try:
-                    pdfmetrics.registerFont(TTFont(FONT_BOLD, str(FONT_BOLD_PATH), subfontIndex=0))
-                except TypeError:
-                    pdfmetrics.registerFont(TTFont(FONT_BOLD, str(FONT_BOLD_PATH)))
-            else:
-                FONT_BOLD = FONT_NAME
-            MATPLOTLIB_FONT = FontProperties(fname=str(FONT_PATH))
-            plt.rcParams["font.sans-serif"] = ["DFKai-SB", "Microsoft JhengHei", "Arial Unicode MS", "DejaVu Sans"]
-            plt.rcParams["axes.unicode_minus"] = False
-            return
-    except Exception:
-        pass
+        validate_dfkai_font_file(font_path)
+        try:
+            pdfmetrics.registerFont(TTFont(CHATGPT_DAILY_PDF_FONT_NAME, str(font_path), subfontIndex=0))
+        except TypeError:
+            pdfmetrics.registerFont(TTFont(CHATGPT_DAILY_PDF_FONT_NAME, str(font_path)))
+    except Exception as exc:
+        raise RuntimeError(
+            "ChatGPT-side daily six-PDF renderer requires validated kaiu.ttf / DFKai-SB "
+            "and refuses generic CJK fallback. "
+            f"Set {CHATGPT_DAILY_DFKAI_FONT_PATH_ENV} to the official font path. "
+            f"font_path={font_path}: {exc}"
+        ) from exc
 
-    FONT_NAME = "MSung-Light"
-    FONT_BOLD = "MSung-Light"
-    pdfmetrics.registerFont(UnicodeCIDFont(FONT_NAME))
-    MATPLOTLIB_FONT = None
-    plt.rcParams["font.sans-serif"] = ["Microsoft JhengHei", "Arial Unicode MS", "DejaVu Sans"]
+    FONT_NAME = CHATGPT_DAILY_PDF_FONT_NAME
+    FONT_BOLD = CHATGPT_DAILY_PDF_FONT_NAME
+    FONT_PATH = font_path
+    FONT_BOLD_PATH = font_path
+    MATPLOTLIB_FONT = FontProperties(fname=str(font_path))
+    plt.rcParams["font.sans-serif"] = [CHATGPT_DAILY_PDF_FONT_NAME]
     plt.rcParams["axes.unicode_minus"] = False
-
-
-setup_fonts()
 
 
 styles = getSampleStyleSheet()
@@ -5363,6 +5380,7 @@ def configure_paths(args: argparse.Namespace) -> None:
 
 def main() -> None:
     require_entrypoint_invocation()
+    setup_fonts()
     args = parse_args()
     configure_paths(args)
     enforce_fresh_repo_data()
