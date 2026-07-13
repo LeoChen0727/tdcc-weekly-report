@@ -124,6 +124,9 @@ def test_data_sharing_registry_uses_model_owned_research_entrypoints() -> None:
     assert by_family["revenue_unreacted_range_lag_strength_matrix"]["registered_producers"] == (
         "scripts/build_revenue_unreacted_range_research.py"
     )
+    assert by_family["revenue_unreacted_range_source_first_condition_audit"][
+        "registered_producers"
+    ] == "scripts/build_revenue_unreacted_range_research.py"
     assert by_family["volume_range_breakout_v2_high_position_improvement_audit"][
         "registered_producers"
     ] == "scripts/build_volume_range_breakout_v2_research.py"
@@ -131,7 +134,7 @@ def test_data_sharing_registry_uses_model_owned_research_entrypoints() -> None:
 
 def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
     rows = read_csv("config/daily_model_data_sharing_migrations.csv")
-    assert len(rows) == 3
+    assert len(rows) == 4
     baseline = rows[0]
     assert tuple(baseline) == DATA_SHARING_MIGRATION_COLUMNS
     assert data_migration_row_sha256(baseline) == BASELINE_DATA_MIGRATION_ROW_SHA256
@@ -168,6 +171,25 @@ def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
         "user_requested_revenue_launch_timing_feature_audit_20260713"
     )
     assert launch_timing_migration["migration_status"] == (
+        "validated_user_approved_migration"
+    )
+
+    source_first_migration = rows[3]
+    assert source_first_migration["migration_id"] == (
+        "revenue_source_first_known_success_coverage_20260713"
+    )
+    assert source_first_migration["changed_data_families"] == (
+        "revenue_unreacted_range_source_first_condition_audit"
+    )
+    assert source_first_migration["previous_contract_sha256s"] == "NEW"
+    assert source_first_migration["new_contract_sha256s"] == (
+        "d0af612a7d09bca295f0b56e6b286ab16d69fd05e0330841ff8a94032742f99a"
+    )
+    assert source_first_migration["affected_models"] == "revenue_unreacted_range"
+    assert source_first_migration["user_approval_reference"] == (
+        "user_requested_known_success_coverage_and_condition_adjustment_20260713"
+    )
+    assert source_first_migration["migration_status"] == (
         "validated_user_approved_migration"
     )
 
