@@ -1265,6 +1265,15 @@ def fetch_price_for_date(
 
 def detect_target_date() -> str:
     # 自動化晚上跑，目標就是台北今天
+    override = str(os.environ.get("OFFICIAL_PRICE_TARGET_DATE") or "").strip()
+    if override:
+        if not re.fullmatch(r"20\d{6}", override):
+            raise ValueError(
+                "OFFICIAL_PRICE_TARGET_DATE must be YYYYMMDD, "
+                f"got {override!r}"
+            )
+        datetime.strptime(override, "%Y%m%d")
+        return override
     return ymd(now_taipei())
 
 
@@ -1453,7 +1462,7 @@ def main() -> int:
 
     print("No target-date official price data found.")
     print(f"Report saved: {LATEST_FETCH_MD}")
-    return 0
+    return 1
 
 
 if __name__ == "__main__":

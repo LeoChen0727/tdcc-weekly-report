@@ -3,8 +3,22 @@ from __future__ import annotations
 from pathlib import Path
 
 import pandas as pd
+import pytest
 
 import fetch_official_daily_price as fetcher
+
+
+def test_detect_target_date_uses_market_session_override(monkeypatch) -> None:
+    monkeypatch.setenv("OFFICIAL_PRICE_TARGET_DATE", "20260713")
+
+    assert fetcher.detect_target_date() == "20260713"
+
+
+def test_detect_target_date_rejects_invalid_override(monkeypatch) -> None:
+    monkeypatch.setenv("OFFICIAL_PRICE_TARGET_DATE", "2026-07-13")
+
+    with pytest.raises(ValueError, match="OFFICIAL_PRICE_TARGET_DATE"):
+        fetcher.detect_target_date()
 
 
 def _write_daily_price(path: Path, date_text: str, base_price: float, rows: int = 350) -> None:

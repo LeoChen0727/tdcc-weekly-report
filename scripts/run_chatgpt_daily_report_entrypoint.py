@@ -180,6 +180,9 @@ def write_runtime_manifest(
         "source_ref": entry_state["source_ref"],
         "source_commit_sha": entry_state["source_commit_sha"],
         "clean_source_commit_sha": source_state["source_commit_sha"],
+        "market_session_status": entry_state["market_session_status"],
+        "market_session_date": entry_state["market_session_date"],
+        "expected_main_price_date": entry_state["expected_main_price_date"],
         "main_price_date": entry_state["main_price_date"],
         "report_ready": entry_state["report_ready"],
         "warrant_ready": entry_state["warrant_ready"],
@@ -259,6 +262,8 @@ def main() -> int:
             "official daily report source gate passed: "
             f"source_ref={state['source_ref']} "
             f"source_commit_sha={state['source_commit_sha']} "
+            f"market_session_status={state['market_session_status']} "
+            f"expected_main_price_date={state['expected_main_price_date']} "
             f"main_price_date={state['main_price_date']} "
             f"report_ready={state['report_ready']} "
             f"warrant_ready={state['warrant_ready']} "

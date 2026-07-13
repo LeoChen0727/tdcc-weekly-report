@@ -35,6 +35,10 @@ def init_repo(tmp_path: Path) -> Path:
 def write_ready_sources(repo: Path, date: str = "20260616") -> None:
     row = {
         "generated_at": "2026-06-16 20:31:25",
+        "market_session_status": "open_confirmed",
+        "market_session_date": date,
+        "expected_main_price_date": date,
+        "market_session_reason_code": "twse_tpex_target_date_confirmed",
         "main_price_date": date,
         "actual_stock_price_history_date": date,
         "stock_monitor_price_date": date,
@@ -109,6 +113,23 @@ def write_ready_sources(repo: Path, date: str = "20260616") -> None:
     )
     (repo / "output" / "latest" / "chatgpt_daily_report_packet_latest.txt").write_text(
         packet_text,
+        encoding="utf-8",
+    )
+    (repo / "output" / "latest" / "market_session_status_latest.json").write_text(
+        json.dumps(
+            {
+                "schema_version": 1,
+                "generated_at": "2026-06-16T20:31:25+08:00",
+                "phase": "confirm",
+                "assessment_date": date,
+                "market_session_date": date,
+                "market_status": "open_confirmed",
+                "expected_main_price_date": date,
+                "should_run_daily_pipeline": True,
+                "reason_code": "twse_tpex_target_date_confirmed",
+            }
+        )
+        + "\n",
         encoding="utf-8",
     )
 
@@ -205,6 +226,9 @@ def test_entrypoint_writes_runtime_manifest(tmp_path: Path) -> None:
     state = {
         "source_ref": "origin/main",
         "source_commit_sha": "a" * 40,
+        "market_session_status": "open_confirmed",
+        "market_session_date": "20260616",
+        "expected_main_price_date": "20260616",
         "main_price_date": "20260616",
         "report_ready": True,
         "warrant_ready": True,
@@ -229,6 +253,7 @@ def test_entrypoint_writes_runtime_manifest(tmp_path: Path) -> None:
 
     text = manifest_path.read_text(encoding="utf-8")
     assert "chatgpt_daily_report_runtime_manifest" in text
+    assert '"expected_main_price_date": "20260616"' in text
     assert '"main_price_date": "20260616"' in text
     assert "chatgpt_daily_report_packet_latest.txt" in text
     assert '"pdf_count": 6' in text
@@ -243,6 +268,9 @@ def test_entrypoint_runtime_manifest_requires_semantic_manifest(tmp_path: Path) 
     state = {
         "source_ref": "origin/main",
         "source_commit_sha": "a" * 40,
+        "market_session_status": "open_confirmed",
+        "market_session_date": "20260616",
+        "expected_main_price_date": "20260616",
         "main_price_date": "20260616",
         "report_ready": True,
         "warrant_ready": True,

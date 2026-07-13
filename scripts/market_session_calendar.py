@@ -1,0 +1,852 @@
+from __future__ import annotations
+
+import argparse
+import csv
+import json
+import re
+import sys
+import time
+import urllib.error
+import urllib.request
+import xml.etree.ElementTree as ET
+from collections import defaultdict
+from dataclasses import asdict, dataclass
+from datetime import datetime, timedelta
+from pathlib import Path
+from typing import Any, Callable
+from zoneinfo import ZoneInfo
+
+
+TAIPEI_TZ = ZoneInfo("Asia/Taipei")
+
+OPEN_CONFIRMED = "open_confirmed"
+CLOSED_SCHEDULED = "closed_scheduled"
+CLOSED_EMERGENCY = "closed_emergency"
+UNKNOWN = "unknown"
+MARKET_STATUSES = {OPEN_CONFIRMED, CLOSED_SCHEDULED, CLOSED_EMERGENCY, UNKNOWN}
+
+TWSE_ANNUAL_CALENDAR_URL = "https://openapi.twse.com.tw/v1/holidaySchedule/holidaySchedule"
+DGPA_EMERGENCY_FEED_URL = "https://alerts.ncdr.nat.gov.tw/RssAtomFeed.ashx?AlertType=33"
+TWSE_EMERGENCY_RULE_URL = "https://www.twse.com.tw/zh/about/suspended_faq.html"
+
+STATIC_NON_TRADING_DAYS = Path("config/twse_non_trading_days.csv")
+EXCEPTIONAL_NON_TRADING_DAYS = Path("data/market_calendar/exceptional_non_trading_days.csv")
+MARKET_SESSION_STATUS = Path("output/latest/market_session_status_latest.json")
+OFFICIAL_PRICE_FETCH_STATUS = Path("output/latest/official_price_fetch_latest.json")
+DAILY_PRICE_DIR = Path("data/daily_price")
+
+DEFAULT_DATA_READY_HOUR = 18
+DEFAULT_TIMEOUT_SECONDS = 30
+ATOM_NS = {"atom": "http://www.w3.org/2005/Atom"}
+EXCEPTIONAL_FIELDS = (
+    "date",
+    "market_status",
+    "market",
+    "reason",
+    "government_area",
+    "closure_scope",
+    "source_name",
+    "source_url",
+    "source_record_id",
+    "source_updated_at",
+    "twse_rule_url",
+    "first_observed_at",
+    "last_observed_at",
+)
+
+
+class MarketSessionError(RuntimeError):
+    pass
+
+
+@dataclass(frozen=True)
+class EmergencyNotice:
+    date: str
+    scope: str
+    summary: str
+    source_record_id: str
+    source_url: str
+    source_updated_at: str
+
+
+FetchBytes = Callable[[str, int], bytes]
+
+
+def normalize_date(value: object) -> str:
+    digits = re.sub(r"[^0-9]", "", str(value or "").strip())
+    if re.fullmatch(r"20\d{6}", digits):
+        return digits
+    return ""
+
+
+def parse_date(value: str) -> datetime:
+    return datetime.strptime(value, "%Y%m%d")
+
+
+def now_taipei() -> datetime:
+    return datetime.now(TAIPEI_TZ)
+
+
+def iso_taipei(value: datetime) -> str:
+    if value.tzinfo is None:
+        value = value.replace(tzinfo=TAIPEI_TZ)
+    return value.astimezone(TAIPEI_TZ).replace(microsecond=0).isoformat()
+
+
+def parse_as_of(value: str) -> datetime:
+    if not value:
+        return now_taipei()
+    text = value.strip()
+    if re.fullmatch(r"20\d{6}", text):
+        parsed = datetime.strptime(text, "%Y%m%d")
+    else:
+        parsed = datetime.fromisoformat(text)
+    if parsed.tzinfo is None:
+        parsed = parsed.replace(tzinfo=TAIPEI_TZ)
+    return parsed.astimezone(TAIPEI_TZ)
+
+
+def fetch_url_bytes(url: str, timeout_seconds: int = DEFAULT_TIMEOUT_SECONDS) -> bytes:
+    request = urllib.request.Request(
+        url,
+        headers={
+            "Accept": "application/json, application/atom+xml, application/xml, text/xml, */*",
+            "User-Agent": "tdcc-weekly-report-market-session/1.0",
+        },
+    )
+    for attempt in range(1, 4):
+        try:
+            with urllib.request.urlopen(request, timeout=timeout_seconds) as response:
+                return response.read()
+        except urllib.error.HTTPError as exc:
+            retryable = exc.code == 429 or 500 <= exc.code < 600
+            if not retryable or attempt == 3:
+                raise
+            retry_after = str(exc.headers.get("Retry-After") or "").strip()
+            delay = int(retry_after) if retry_after.isdigit() else 5 * attempt
+            time.sleep(min(max(delay, 1), 30))
+        except (TimeoutError, urllib.error.URLError):
+            if attempt == 3:
+                raise
+            time.sleep(5 * attempt)
+    raise AssertionError("unreachable official source retry loop")
+
+
+def roc_date_to_yyyymmdd(value: object) -> str:
+    digits = re.sub(r"[^0-9]", "", str(value or ""))
+    if not re.fullmatch(r"\d{7}", digits):
+        return ""
+    year = int(digits[:3]) + 1911
+    date_text = f"{year:04d}{digits[3:]}"
+    try:
+        parse_date(date_text)
+    except ValueError:
+        return ""
+    return date_text
+
+
+def parse_twse_annual_calendar(payload: bytes) -> tuple[dict[str, str], set[int]]:
+    data = json.loads(payload.decode("utf-8-sig"))
+    if not isinstance(data, list) or not data:
+        raise MarketSessionError("TWSE annual calendar returned no rows")
+
+    closed: dict[str, str] = {}
+    covered_years: set[int] = set()
+    for row in data:
+        if not isinstance(row, dict):
+            continue
+        date_text = roc_date_to_yyyymmdd(row.get("Date"))
+        if not date_text:
+            continue
+        covered_years.add(int(date_text[:4]))
+        date_value = parse_date(date_text)
+        if date_value.weekday() >= 5:
+            continue
+        name = str(row.get("Name") or "").strip()
+        if "開始交易日" in name or "最後交易日" in name:
+            continue
+        reason = name or str(row.get("Description") or "").strip() or "TWSE scheduled market holiday"
+        closed[date_text] = reason
+
+    if not covered_years:
+        raise MarketSessionError("TWSE annual calendar has no valid ROC dates")
+    return closed, covered_years
+
+
+def infer_notice_year(updated_text: str, month: int) -> int:
+    try:
+        updated = datetime.fromisoformat(updated_text)
+    except ValueError as exc:
+        raise MarketSessionError(f"invalid DGPA notice updated time: {updated_text!r}") from exc
+    year = updated.year
+    if updated.month == 12 and month == 1:
+        year += 1
+    elif updated.month == 1 and month == 12:
+        year -= 1
+    return year
+
+
+def classify_taipei_closure_scope(detail: str) -> str:
+    normalized = re.sub(r"\s+", "", detail)
+    if "照常上班" in normalized or "正常上班" in normalized:
+        return "open"
+    if "停止上班" not in normalized:
+        return "unknown"
+    if "上午" in normalized:
+        return "morning"
+    if re.search(r"下午|晚上|晚間|中午|夜間|\d{1,2}[:：]\d{2}.*起", normalized):
+        return "partial_day"
+    return "full_day"
+
+
+def parse_dgpa_emergency_feed(payload: bytes) -> list[EmergencyNotice]:
+    root = ET.fromstring(payload)
+    notices: list[EmergencyNotice] = []
+    for entry in root.findall("atom:entry", ATOM_NS):
+        record_id = (entry.findtext("atom:id", default="", namespaces=ATOM_NS) or "").strip()
+        summary = (entry.findtext("atom:summary", default="", namespaces=ATOM_NS) or "").strip()
+        updated = (entry.findtext("atom:updated", default="", namespaces=ATOM_NS) or "").strip()
+        if not record_id.startswith("dgpa.gov.tw_") and "行政院人事行政總處" not in summary:
+            continue
+        location_match = re.search(r"臺北市\s*[:：]\s*([^。]+)", summary)
+        if not location_match:
+            continue
+        detail = location_match.group(1).strip()
+        date_match = re.match(r"(?P<month>\d{1,2})/(?P<day>\d{1,2})(?P<decision>.*)", detail)
+        if not date_match:
+            continue
+        month = int(date_match.group("month"))
+        day = int(date_match.group("day"))
+        year = infer_notice_year(updated, month)
+        try:
+            date_text = datetime(year, month, day).strftime("%Y%m%d")
+        except ValueError:
+            continue
+        link = ""
+        for link_node in entry.findall("atom:link", ATOM_NS):
+            if link_node.attrib.get("rel", "alternate") == "alternate":
+                link = str(link_node.attrib.get("href") or "").strip()
+                if link:
+                    break
+        notices.append(
+            EmergencyNotice(
+                date=date_text,
+                scope=classify_taipei_closure_scope(date_match.group("decision")),
+                summary=summary,
+                source_record_id=record_id,
+                source_url=link or DGPA_EMERGENCY_FEED_URL,
+                source_updated_at=updated,
+            )
+        )
+    return notices
+
+
+def consolidate_emergency_notices(
+    notices: list[EmergencyNotice],
+) -> tuple[dict[str, EmergencyNotice], dict[str, str]]:
+    grouped: dict[str, list[EmergencyNotice]] = defaultdict(list)
+    for notice in notices:
+        grouped[notice.date].append(notice)
+
+    latest: dict[str, EmergencyNotice] = {}
+    conflicts: dict[str, str] = {}
+    for date_text, rows in grouped.items():
+        latest_updated = max(row.source_updated_at for row in rows)
+        newest = [row for row in rows if row.source_updated_at == latest_updated]
+        scopes = {row.scope for row in newest}
+        if len(scopes) != 1 or "unknown" in scopes:
+            conflicts[date_text] = (
+                f"conflicting or unrecognized latest DGPA Taipei notices: scopes={sorted(scopes)}"
+            )
+            continue
+        latest[date_text] = sorted(newest, key=lambda row: row.source_record_id)[-1]
+    return latest, conflicts
+
+
+def read_csv_rows(path: Path) -> list[dict[str, str]]:
+    if not path.exists():
+        return []
+    with path.open("r", encoding="utf-8-sig", newline="") as handle:
+        return [
+            {str(key): str(value or "") for key, value in row.items()}
+            for row in csv.DictReader(handle)
+        ]
+
+
+def read_date_set(path: Path) -> set[str]:
+    rows = read_csv_rows(path)
+    dates = {normalize_date(row.get("date")) for row in rows}
+    return {date for date in dates if date}
+
+
+def write_exceptional_evidence(
+    root: Path,
+    latest_notices: dict[str, EmergencyNotice],
+    observed_at: str,
+    observed_notice_dates: set[str] | None = None,
+) -> list[dict[str, str]]:
+    path = root / EXCEPTIONAL_NON_TRADING_DAYS
+    existing = read_csv_rows(path)
+    latest_dates = set(latest_notices) | set(observed_notice_dates or set())
+    preserved = [row for row in existing if normalize_date(row.get("date")) not in latest_dates]
+    existing_by_record = {
+        str(row.get("source_record_id") or ""): row
+        for row in existing
+        if str(row.get("source_record_id") or "").strip()
+    }
+
+    refreshed: list[dict[str, str]] = []
+    for date_text, notice in sorted(latest_notices.items()):
+        if notice.scope not in {"full_day", "morning"} or parse_date(date_text).weekday() >= 5:
+            continue
+        previous = existing_by_record.get(notice.source_record_id, {})
+        refreshed.append(
+            {
+                "date": date_text,
+                "market_status": CLOSED_EMERGENCY,
+                "market": "TWSE_TPEx",
+                "reason": "Taipei City full-day or morning work suspension; TWSE emergency closure rule applies",
+                "government_area": "Taipei City",
+                "closure_scope": notice.scope,
+                "source_name": "DGPA emergency work and school closure feed via NCDR",
+                "source_url": notice.source_url,
+                "source_record_id": notice.source_record_id,
+                "source_updated_at": notice.source_updated_at,
+                "twse_rule_url": TWSE_EMERGENCY_RULE_URL,
+                "first_observed_at": previous.get("first_observed_at") or observed_at,
+                "last_observed_at": observed_at,
+            }
+        )
+
+    rows = sorted([*preserved, *refreshed], key=lambda row: (row.get("date", ""), row.get("source_record_id", "")))
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("w", encoding="utf-8-sig", newline="") as handle:
+        writer = csv.DictWriter(handle, fieldnames=EXCEPTIONAL_FIELDS)
+        writer.writeheader()
+        writer.writerows({field: row.get(field, "") for field in EXCEPTIONAL_FIELDS} for row in rows)
+    return rows
+
+
+def previous_trading_date(
+    date_text: str,
+    scheduled_non_trading_days: set[str],
+    exceptional_non_trading_days: set[str],
+    max_backtrack_days: int = 45,
+) -> str:
+    current = parse_date(date_text) - timedelta(days=1)
+    non_trading = scheduled_non_trading_days | exceptional_non_trading_days
+    for _ in range(max_backtrack_days):
+        candidate = current.strftime("%Y%m%d")
+        if current.weekday() < 5 and candidate not in non_trading:
+            return candidate
+        current -= timedelta(days=1)
+    raise MarketSessionError(
+        f"no prior trading date found before {date_text} within {max_backtrack_days} days"
+    )
+
+
+def read_official_price_confirmation(root: Path, expected_date: str) -> tuple[bool, dict[str, Any], str]:
+    report_path = root / OFFICIAL_PRICE_FETCH_STATUS
+    if not report_path.exists():
+        return False, {}, f"missing {OFFICIAL_PRICE_FETCH_STATUS.as_posix()}"
+    try:
+        report = json.loads(report_path.read_text(encoding="utf-8-sig"))
+    except Exception as exc:
+        return False, {}, f"unreadable official price fetch status: {exc}"
+
+    report_target = normalize_date(report.get("target_date"))
+    report_saved = normalize_date(report.get("saved_price_date"))
+    if report_target != expected_date:
+        return False, report, f"official fetch target_date={report_target or '<missing>'} expected={expected_date}"
+    if report_saved != expected_date:
+        return False, report, f"official fetch saved_price_date={report_saved or '<missing>'} expected={expected_date}"
+    if report.get("is_target_date") is not True or report.get("full_market_ok") is not True:
+        return False, report, "official fetch did not confirm target-date full-market data"
+
+    price_path = root / DAILY_PRICE_DIR / f"daily_price_{expected_date}.csv"
+    if not price_path.exists():
+        return False, report, f"missing {price_path.relative_to(root).as_posix()}"
+
+    market_rows = {"TWSE": 0, "TPEx": 0}
+    wrong_date_rows = 0
+    with price_path.open("r", encoding="utf-8-sig", newline="") as handle:
+        for row in csv.DictReader(handle):
+            row_date = normalize_date(row.get("date"))
+            if row_date != expected_date:
+                wrong_date_rows += 1
+                continue
+            market = str(row.get("market") or "").strip().lower()
+            if market in {"twse", "listed"}:
+                market_rows["TWSE"] += 1
+            elif market in {"tpex", "otc", "emerging"}:
+                market_rows["TPEx"] += 1
+
+    confirmation = {
+        "path": price_path.relative_to(root).as_posix(),
+        "twse_rows": market_rows["TWSE"],
+        "tpex_rows": market_rows["TPEx"],
+        "wrong_date_rows": wrong_date_rows,
+        "fetch_result": str(report.get("result") or ""),
+    }
+    if market_rows["TWSE"] <= 0 or market_rows["TPEx"] <= 0 or wrong_date_rows:
+        return False, confirmation, (
+            "target-date price file does not contain clean TWSE and TPEx rows: "
+            f"TWSE={market_rows['TWSE']} TPEx={market_rows['TPEx']} wrong_date_rows={wrong_date_rows}"
+        )
+    return True, confirmation, "TWSE and TPEx target-date prices confirmed"
+
+
+def build_unknown_status(
+    *,
+    generated_at: str,
+    phase: str,
+    assessment_date: str,
+    reason_code: str,
+    reason: str,
+    official_sources: dict[str, Any],
+    scheduled_days: set[str],
+    exceptional_days: set[str],
+    expected_main_price_date: str = "",
+    market_session_date: str = "",
+    should_run: bool = False,
+) -> dict[str, Any]:
+    return {
+        "schema_version": 1,
+        "generated_at": generated_at,
+        "phase": phase,
+        "assessment_date": assessment_date,
+        "market_session_date": market_session_date,
+        "market_status": UNKNOWN,
+        "expected_main_price_date": expected_main_price_date,
+        "should_run_daily_pipeline": should_run,
+        "reason_code": reason_code,
+        "reason": reason,
+        "official_sources": official_sources,
+        "scheduled_non_trading_days": sorted(scheduled_days),
+        "exceptional_non_trading_days": sorted(exceptional_days),
+        "price_confirmation": {},
+    }
+
+
+def load_reusable_preflight(
+    root: Path,
+    *,
+    assessment_date: str,
+    as_of: datetime,
+    max_age_seconds: int = 1800,
+) -> dict[str, Any] | None:
+    path = root / MARKET_SESSION_STATUS
+    if not path.exists():
+        return None
+    try:
+        status = json.loads(path.read_text(encoding="utf-8-sig"))
+        generated_at = datetime.fromisoformat(str(status.get("generated_at") or ""))
+    except Exception:
+        return None
+    if generated_at.tzinfo is None:
+        generated_at = generated_at.replace(tzinfo=TAIPEI_TZ)
+    age_seconds = (as_of - generated_at.astimezone(TAIPEI_TZ)).total_seconds()
+    sources = status.get("official_sources")
+    if not isinstance(sources, dict):
+        return None
+    annual = sources.get("twse_annual_calendar")
+    emergency = sources.get("dgpa_emergency_closure")
+    if not isinstance(annual, dict) or not isinstance(emergency, dict):
+        return None
+    if not (
+        status.get("phase") == "preflight"
+        and status.get("market_status") == UNKNOWN
+        and status.get("reason_code") == "awaiting_official_price_confirmation"
+        and status.get("assessment_date") == assessment_date
+        and status.get("should_run_daily_pipeline") is True
+        and annual.get("status") == "ok"
+        and emergency.get("status") == "ok"
+        and 0 <= age_seconds <= max_age_seconds
+    ):
+        return None
+    return status
+
+
+def confirm_reusable_preflight(
+    root: Path,
+    preflight: dict[str, Any],
+    *,
+    generated_at: str,
+    write_files: bool,
+) -> dict[str, Any]:
+    expected_date = normalize_date(preflight.get("expected_main_price_date"))
+    confirmed, confirmation, confirmation_reason = read_official_price_confirmation(root, expected_date)
+    status = dict(preflight)
+    status.update(
+        {
+            "generated_at": generated_at,
+            "phase": "confirm",
+            "preflight_reused": True,
+            "preflight_generated_at": preflight.get("generated_at", ""),
+            "price_confirmation": confirmation,
+        }
+    )
+    if confirmed:
+        status.update(
+            {
+                "market_status": OPEN_CONFIRMED,
+                "should_run_daily_pipeline": True,
+                "reason_code": "twse_tpex_target_date_confirmed",
+                "reason": confirmation_reason,
+            }
+        )
+    else:
+        status.update(
+            {
+                "market_status": UNKNOWN,
+                "should_run_daily_pipeline": False,
+                "reason_code": "official_price_not_confirmed",
+                "reason": confirmation_reason,
+            }
+        )
+    if write_files:
+        status_path = root / MARKET_SESSION_STATUS
+        status_path.parent.mkdir(parents=True, exist_ok=True)
+        status_path.write_text(
+            json.dumps(status, ensure_ascii=False, indent=2, sort_keys=True) + "\n",
+            encoding="utf-8",
+        )
+    return status
+
+
+def refresh_market_session_status(
+    root: Path,
+    *,
+    phase: str,
+    as_of: datetime | None = None,
+    assessment_date: str = "",
+    data_ready_hour: int = DEFAULT_DATA_READY_HOUR,
+    timeout_seconds: int = DEFAULT_TIMEOUT_SECONDS,
+    fetch_bytes: FetchBytes = fetch_url_bytes,
+    write_files: bool = True,
+) -> dict[str, Any]:
+    if phase not in {"preflight", "confirm"}:
+        raise ValueError(f"unsupported phase: {phase!r}")
+    if not 0 <= data_ready_hour <= 23:
+        raise ValueError("data_ready_hour must be between 0 and 23")
+
+    root = root.resolve()
+    as_of = (as_of or now_taipei()).astimezone(TAIPEI_TZ)
+    generated_at = iso_taipei(as_of)
+    if assessment_date:
+        normalized_assessment_date = normalize_date(assessment_date)
+        if not normalized_assessment_date:
+            raise ValueError("assessment_date must be YYYYMMDD")
+        assessment_date = normalized_assessment_date
+    else:
+        assessment_date = as_of.strftime("%Y%m%d")
+
+    if phase == "confirm":
+        reusable_preflight = load_reusable_preflight(
+            root,
+            assessment_date=assessment_date,
+            as_of=as_of,
+        )
+        if reusable_preflight is not None:
+            return confirm_reusable_preflight(
+                root,
+                reusable_preflight,
+                generated_at=generated_at,
+                write_files=write_files,
+            )
+    static_days = read_date_set(root / STATIC_NON_TRADING_DAYS)
+
+    official_sources: dict[str, Any] = {
+        "twse_annual_calendar": {
+            "url": TWSE_ANNUAL_CALENDAR_URL,
+            "status": "error",
+            "queried_at": generated_at,
+        },
+        "dgpa_emergency_closure": {
+            "url": DGPA_EMERGENCY_FEED_URL,
+            "status": "error",
+            "queried_at": generated_at,
+        },
+        "twse_emergency_rule": {
+            "url": TWSE_EMERGENCY_RULE_URL,
+            "status": "reference",
+        },
+    }
+
+    scheduled_reasons: dict[str, str] = {}
+    covered_years: set[int] = set()
+    annual_error = ""
+    try:
+        scheduled_reasons, covered_years = parse_twse_annual_calendar(
+            fetch_bytes(TWSE_ANNUAL_CALENDAR_URL, timeout_seconds)
+        )
+        official_sources["twse_annual_calendar"].update(
+            {
+                "status": "ok",
+                "closed_weekday_count": len(scheduled_reasons),
+                "covered_years": sorted(covered_years),
+            }
+        )
+    except Exception as exc:
+        annual_error = str(exc)
+        official_sources["twse_annual_calendar"]["error"] = annual_error
+
+    latest_notices: dict[str, EmergencyNotice] = {}
+    notice_conflicts: dict[str, str] = {}
+    feed_error = ""
+    try:
+        notices = parse_dgpa_emergency_feed(fetch_bytes(DGPA_EMERGENCY_FEED_URL, timeout_seconds))
+        latest_notices, notice_conflicts = consolidate_emergency_notices(notices)
+        official_sources["dgpa_emergency_closure"].update(
+            {
+                "status": "ok",
+                "taipei_notice_count": len(notices),
+                "latest_taipei_notice_dates": sorted(latest_notices),
+                "conflict_dates": sorted(notice_conflicts),
+            }
+        )
+    except Exception as exc:
+        feed_error = str(exc)
+        official_sources["dgpa_emergency_closure"]["error"] = feed_error
+
+    if not feed_error and write_files:
+        evidence_rows = write_exceptional_evidence(
+            root,
+            latest_notices,
+            generated_at,
+            observed_notice_dates=set(latest_notices) | set(notice_conflicts),
+        )
+    else:
+        evidence_rows = read_csv_rows(root / EXCEPTIONAL_NON_TRADING_DAYS)
+    exceptional_days = {
+        normalize_date(row.get("date"))
+        for row in evidence_rows
+        if str(row.get("market_status") or "").strip() == CLOSED_EMERGENCY
+    }
+    exceptional_days.discard("")
+    scheduled_days = set(scheduled_reasons) | {
+        date_text for date_text in static_days if int(date_text[:4]) not in covered_years
+    }
+
+    if annual_error or feed_error:
+        status = build_unknown_status(
+            generated_at=generated_at,
+            phase=phase,
+            assessment_date=assessment_date,
+            reason_code="official_source_unavailable",
+            reason="; ".join(part for part in (annual_error, feed_error) if part),
+            official_sources=official_sources,
+            scheduled_days=scheduled_days,
+            exceptional_days=exceptional_days,
+        )
+    else:
+        assessment_year = int(assessment_date[:4])
+        if assessment_year not in covered_years:
+            status = build_unknown_status(
+                generated_at=generated_at,
+                phase=phase,
+                assessment_date=assessment_date,
+                reason_code="annual_calendar_year_not_covered",
+                reason=f"TWSE annual calendar does not cover {assessment_year}",
+                official_sources=official_sources,
+                scheduled_days=scheduled_days,
+                exceptional_days=exceptional_days,
+            )
+        elif assessment_date in notice_conflicts:
+            status = build_unknown_status(
+                generated_at=generated_at,
+                phase=phase,
+                assessment_date=assessment_date,
+                reason_code="emergency_notice_conflict",
+                reason=notice_conflicts[assessment_date],
+                official_sources=official_sources,
+                scheduled_days=scheduled_days,
+                exceptional_days=exceptional_days,
+            )
+        else:
+            assessment_dt = parse_date(assessment_date)
+            assessment_notice = latest_notices.get(assessment_date)
+            if assessment_dt.weekday() >= 5 or assessment_date in scheduled_reasons:
+                expected_date = previous_trading_date(
+                    assessment_date,
+                    scheduled_days,
+                    exceptional_days,
+                )
+                status = {
+                    "schema_version": 1,
+                    "generated_at": generated_at,
+                    "phase": phase,
+                    "assessment_date": assessment_date,
+                    "market_session_date": assessment_date,
+                    "market_status": CLOSED_SCHEDULED,
+                    "expected_main_price_date": expected_date,
+                    "should_run_daily_pipeline": False,
+                    "reason_code": "weekend" if assessment_dt.weekday() >= 5 else "twse_annual_holiday",
+                    "reason": scheduled_reasons.get(assessment_date, "weekend"),
+                    "official_sources": official_sources,
+                    "scheduled_non_trading_days": sorted(scheduled_days),
+                    "exceptional_non_trading_days": sorted(exceptional_days),
+                    "price_confirmation": {},
+                }
+            elif assessment_notice and assessment_notice.scope in {"full_day", "morning"}:
+                expected_date = previous_trading_date(
+                    assessment_date,
+                    scheduled_days,
+                    exceptional_days,
+                )
+                status = {
+                    "schema_version": 1,
+                    "generated_at": generated_at,
+                    "phase": phase,
+                    "assessment_date": assessment_date,
+                    "market_session_date": assessment_date,
+                    "market_status": CLOSED_EMERGENCY,
+                    "expected_main_price_date": expected_date,
+                    "should_run_daily_pipeline": False,
+                    "reason_code": "taipei_full_day_or_morning_work_suspension",
+                    "reason": assessment_notice.summary,
+                    "official_sources": official_sources,
+                    "scheduled_non_trading_days": sorted(scheduled_days),
+                    "exceptional_non_trading_days": sorted(exceptional_days),
+                    "price_confirmation": {},
+                    "emergency_notice": asdict(assessment_notice),
+                }
+            else:
+                as_of_date = as_of.strftime("%Y%m%d")
+                if assessment_date < as_of_date or (
+                    assessment_date == as_of_date and as_of.hour >= data_ready_hour
+                ):
+                    expected_date = assessment_date
+                else:
+                    expected_date = previous_trading_date(
+                        assessment_date,
+                        scheduled_days,
+                        exceptional_days,
+                    )
+
+                if expected_date in notice_conflicts:
+                    status = build_unknown_status(
+                        generated_at=generated_at,
+                        phase=phase,
+                        assessment_date=assessment_date,
+                        market_session_date=expected_date,
+                        expected_main_price_date=expected_date,
+                        reason_code="expected_session_emergency_notice_conflict",
+                        reason=notice_conflicts[expected_date],
+                        official_sources=official_sources,
+                        scheduled_days=scheduled_days,
+                        exceptional_days=exceptional_days,
+                    )
+                elif phase == "preflight":
+                    status = build_unknown_status(
+                        generated_at=generated_at,
+                        phase=phase,
+                        assessment_date=assessment_date,
+                        market_session_date=expected_date,
+                        expected_main_price_date=expected_date,
+                        reason_code="awaiting_official_price_confirmation",
+                        reason="TWSE and TPEx target-date prices must be fetched before open status is confirmed",
+                        official_sources=official_sources,
+                        scheduled_days=scheduled_days,
+                        exceptional_days=exceptional_days,
+                        should_run=True,
+                    )
+                else:
+                    confirmed, confirmation, confirmation_reason = read_official_price_confirmation(
+                        root,
+                        expected_date,
+                    )
+                    if confirmed:
+                        status = {
+                            "schema_version": 1,
+                            "generated_at": generated_at,
+                            "phase": phase,
+                            "assessment_date": assessment_date,
+                            "market_session_date": expected_date,
+                            "market_status": OPEN_CONFIRMED,
+                            "expected_main_price_date": expected_date,
+                            "should_run_daily_pipeline": True,
+                            "reason_code": "twse_tpex_target_date_confirmed",
+                            "reason": confirmation_reason,
+                            "official_sources": official_sources,
+                            "scheduled_non_trading_days": sorted(scheduled_days),
+                            "exceptional_non_trading_days": sorted(exceptional_days),
+                            "price_confirmation": confirmation,
+                        }
+                    else:
+                        status = build_unknown_status(
+                            generated_at=generated_at,
+                            phase=phase,
+                            assessment_date=assessment_date,
+                            market_session_date=expected_date,
+                            expected_main_price_date=expected_date,
+                            reason_code="official_price_not_confirmed",
+                            reason=confirmation_reason,
+                            official_sources=official_sources,
+                            scheduled_days=scheduled_days,
+                            exceptional_days=exceptional_days,
+                        )
+                        status["price_confirmation"] = confirmation
+
+    if status["market_status"] not in MARKET_STATUSES:
+        raise AssertionError(f"invalid market status: {status['market_status']}")
+    if write_files:
+        status_path = root / MARKET_SESSION_STATUS
+        status_path.parent.mkdir(parents=True, exist_ok=True)
+        status_path.write_text(
+            json.dumps(status, ensure_ascii=False, indent=2, sort_keys=True) + "\n",
+            encoding="utf-8",
+        )
+    return status
+
+
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(
+        description=(
+            "Resolve the official Taiwan market session state from the live TWSE annual calendar, "
+            "DGPA/NCDR emergency closure notices, and target-date TWSE/TPEx price evidence."
+        )
+    )
+    parser.add_argument("--repo-root", type=Path, default=Path("."))
+    parser.add_argument("--phase", choices=("preflight", "confirm"), required=True)
+    parser.add_argument("--as-of", default="", help="Asia/Taipei ISO datetime or YYYYMMDD. Default: now.")
+    parser.add_argument("--assessment-date", default="", help="Optional YYYYMMDD assessment date.")
+    parser.add_argument("--data-ready-hour", type=int, default=DEFAULT_DATA_READY_HOUR)
+    parser.add_argument("--timeout-seconds", type=int, default=DEFAULT_TIMEOUT_SECONDS)
+    parser.add_argument("--no-write", action="store_true", help="Diagnostics/tests only.")
+    return parser.parse_args()
+
+
+def main() -> int:
+    args = parse_args()
+    try:
+        status = refresh_market_session_status(
+            args.repo_root,
+            phase=args.phase,
+            as_of=parse_as_of(args.as_of),
+            assessment_date=args.assessment_date,
+            data_ready_hour=args.data_ready_hour,
+            timeout_seconds=args.timeout_seconds,
+            write_files=not args.no_write,
+        )
+    except Exception as exc:
+        print(f"ERROR: market session resolution failed: {exc}", file=sys.stderr)
+        return 1
+
+    print(
+        "market session resolved: "
+        f"market_status={status['market_status']} "
+        f"assessment_date={status['assessment_date']} "
+        f"market_session_date={status['market_session_date']} "
+        f"expected_main_price_date={status['expected_main_price_date']} "
+        f"should_run_daily_pipeline={status['should_run_daily_pipeline']} "
+        f"reason_code={status['reason_code']}"
+    )
+    if status["market_status"] == UNKNOWN and status["reason_code"] != "awaiting_official_price_confirmation":
+        print(f"ERROR: market session remains unknown: {status['reason']}", file=sys.stderr)
+        return 1
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

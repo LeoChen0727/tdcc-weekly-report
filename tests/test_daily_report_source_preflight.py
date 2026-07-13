@@ -11,6 +11,10 @@ from scripts import validate_daily_report_source_preflight as preflight
 def write_freshness(path: Path, **overrides: object) -> None:
     row = {
         "generated_at": "2026-06-11 20:27:31",
+        "market_session_status": "open_confirmed",
+        "market_session_date": "20260611",
+        "expected_main_price_date": "20260611",
+        "market_session_reason_code": "twse_tpex_target_date_confirmed",
         "main_price_date": "20260611",
         "actual_stock_price_history_date": "20260611",
         "stock_monitor_price_date": "20260611",
@@ -41,6 +45,11 @@ def write_freshness(path: Path, **overrides: object) -> None:
         "warrant_note": "ready",
     }
     row.update(overrides)
+    if "main_price_date" in overrides:
+        row["market_session_date"] = str(overrides.get("market_session_date", overrides["main_price_date"]))
+        row["expected_main_price_date"] = str(
+            overrides.get("expected_main_price_date", overrides["main_price_date"])
+        )
     pd.DataFrame([row]).to_csv(path, index=False, encoding="utf-8")
 
 

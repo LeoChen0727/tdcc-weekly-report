@@ -16,6 +16,7 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from scripts import repair_missing_daily_price_files as recovery
+import scripts.market_session_calendar as market_session_calendar
 from scripts import validate_daily_price_history_continuity as continuity
 
 
@@ -252,6 +253,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--sleep-seconds", type=float, default=5.0)
     parser.add_argument("--check-code", default="")
     parser.add_argument("--rebuild-history-if-repaired", action="store_true")
+    parser.add_argument(
+        "--skip-market-session-refresh",
+        action="store_true",
+        help="Diagnostics/tests only. Production repair must refresh official market-session sources.",
+    )
     parser.add_argument("--no-write-report", action="store_true")
     return parser.parse_args()
 
@@ -259,6 +265,25 @@ def parse_args() -> argparse.Namespace:
 def main() -> int:
     args = parse_args()
     root = Path(args.repo_root).resolve()
+    if not args.skip_market_session_refresh:
+        try:
+            market_status = market_session_calendar.refresh_market_session_status(
+                root,
+                phase="preflight",
+            )
+        except Exception as exc:
+            print(f"ERROR: market session refresh failed before recent gap repair: {exc}")
+            return 1
+        if (
+            market_status.get("market_status") == market_session_calendar.UNKNOWN
+            and market_status.get("reason_code") != "awaiting_official_price_confirmation"
+        ):
+            print(
+                "ERROR: recent gap repair stopped because market status is unknown: "
+                f"reason_code={market_status.get('reason_code')} "
+                f"reason={market_status.get('reason')}"
+            )
+            return 1
     result = repair_recent_gaps(
         root,
         as_of_date=args.as_of_date,
