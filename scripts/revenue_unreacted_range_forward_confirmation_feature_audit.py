@@ -293,8 +293,8 @@ def _pooled_effect(success: pd.Series, failure: pd.Series) -> float | str:
     return round(float((left.mean() - right.mean()) / math.sqrt(variance)), 4)
 
 
-def load_source_detail(path: Path = SOURCE_DETAIL_CSV) -> pd.DataFrame:
-    frame = pd.read_csv(path, dtype={"stock_id": str}, keep_default_na=False, low_memory=False)
+def _normalize_source_detail(frame: pd.DataFrame) -> pd.DataFrame:
+    frame = frame.copy()
     required = {
         "condition_variant_id",
         "episode_key",
@@ -323,6 +323,11 @@ def load_source_detail(path: Path = SOURCE_DETAIL_CSV) -> pd.DataFrame:
     if not frame["same_stock_non_overlap_applied"].map(_bool_value).all():
         raise RuntimeError("forward confirmation source detail is not non-overlap governed")
     return frame.sort_values(["stock_id", "episode_start_trade_date", "episode_key"], kind="mergesort").reset_index(drop=True)
+
+
+def load_source_detail(path: Path = SOURCE_DETAIL_CSV) -> pd.DataFrame:
+    frame = pd.read_csv(path, dtype={"stock_id": str}, keep_default_na=False, low_memory=False)
+    return _normalize_source_detail(frame)
 
 
 def _prepared_feature_frame(prepared: pd.DataFrame) -> pd.DataFrame:
@@ -1327,7 +1332,7 @@ def build_forward_confirmation_feature_audit(
     *,
     daily_by_stock: dict[str, pd.DataFrame] | None = None,
 ) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.DataFrame]:
-    source = load_source_detail() if source_detail is None else source_detail.copy()
+    source = load_source_detail() if source_detail is None else _normalize_source_detail(source_detail)
     if daily_by_stock is None:
         if prepared is None:
             raise ValueError("prepared frame is required when daily_by_stock is not supplied")
