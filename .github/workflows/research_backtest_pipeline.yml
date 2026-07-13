@@ -181,6 +181,7 @@ jobs:
           python scripts/validate_revenue_unreacted_range_launch_timing_feature_audit.py
           python scripts/validate_revenue_unreacted_range_source_first_condition_audit.py
           python scripts/validate_revenue_unreacted_range_forward_confirmation_feature_audit.py
+          python scripts/validate_revenue_unreacted_range_rearmed_operation_grid.py
 
       - name: Build volume breakout watch backtest
         if: ${{ github.event.inputs.run_volume_breakout == 'true' }}

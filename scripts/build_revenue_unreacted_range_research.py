@@ -27,7 +27,12 @@ from revenue_unreacted_range_fixed_confirmation_feature_contrast import (
 )
 from revenue_unreacted_range_forward_confirmation_feature_audit import (
     build_forward_confirmation_feature_audit,
+    prepare_daily_by_stock,
     write_forward_confirmation_feature_audit,
+)
+from revenue_unreacted_range_rearmed_operation_grid import (
+    build_rearmed_operation_grid,
+    write_rearmed_operation_grid,
 )
 from revenue_unreacted_range_extreme_return_path_audit import (
     build_extreme_return_path_audit,
@@ -80,11 +85,16 @@ def build_and_write() -> None:
         lag_strength_detail,
     )
     source_first_summary, source_first_detail = build_source_first_condition_audit()
+    daily_by_stock = prepare_daily_by_stock(prepared, source_first_detail)
     forward_summary, forward_detail, forward_events, forward_feature, forward_return_review = (
         build_forward_confirmation_feature_audit(
-            prepared,
-            source_first_detail,
+            source_detail=source_first_detail,
+            daily_by_stock=daily_by_stock,
         )
+    )
+    rearmed_summary, rearmed_detail, rearmed_return_review = build_rearmed_operation_grid(
+        source_detail=source_first_detail,
+        daily_by_stock=daily_by_stock,
     )
 
     write_revenue_unreacted_range_revenue_condition_matrix(condition_matrix)
@@ -103,6 +113,7 @@ def build_and_write() -> None:
         forward_feature,
         forward_return_review,
     )
+    write_rearmed_operation_grid(rearmed_summary, rearmed_detail, rearmed_return_review)
 
 
 def build_and_write_launch_timing_feature_audit() -> None:
@@ -146,6 +157,17 @@ def build_and_write_forward_confirmation_feature_audit() -> None:
     write_forward_confirmation_feature_audit(summary, detail, events, feature, return_review)
 
 
+def build_and_write_rearmed_operation_grid() -> None:
+    frame = build_research_frame()
+    if frame.empty:
+        raise RuntimeError("No price history available for revenue_unreacted_range rearmed operation grid")
+    prepared = _attach_revenue_signal_market_regime(_revenue_unreacted_timing_prepared_frame(frame))
+    del frame
+    gc.collect()
+    summary, detail, return_review = build_rearmed_operation_grid(prepared=prepared)
+    write_rearmed_operation_grid(summary, detail, return_review)
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Build model-owned revenue_unreacted_range research artifacts.")
     parser.add_argument(
@@ -155,6 +177,7 @@ def parse_args() -> argparse.Namespace:
             "launch_timing_feature_audit",
             "source_first_condition_audit",
             "forward_confirmation_feature_audit",
+            "rearmed_operation_grid",
         ),
         default="all",
         help="Run the full producer or one model-owned audit stage.",
@@ -171,6 +194,8 @@ def main() -> int:
             build_and_write_source_first_condition_audit()
         elif args.stage == "forward_confirmation_feature_audit":
             build_and_write_forward_confirmation_feature_audit()
+        elif args.stage == "rearmed_operation_grid":
+            build_and_write_rearmed_operation_grid()
         else:
             build_and_write()
     return 0
