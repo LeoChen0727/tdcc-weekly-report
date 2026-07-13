@@ -281,9 +281,59 @@ def test_daily_workflow_uses_latest_only_volume_breakout_watch() -> None:
 
     assert "python scripts/build_volume_breakout_watch.py --latest-only" in text
     assert "python scripts/build_volume_breakout_watch.py\n" not in text
-    assert text.count("python scripts/validate_daily_staged_paths.py") == 2
+    assert text.count("python scripts/validate_daily_staged_paths.py") == 3
     assert "git add docs/latest/ || true" not in text
     assert "git add output/latest/ docs/latest/ || true" not in text
+
+
+def test_daily_workflow_market_session_gate_is_main_only_and_fail_closed() -> None:
+    text = (ROOT / ".github" / "workflows" / "daily_full_pipeline.yml").read_text(
+        encoding="utf-8"
+    )
+
+    assert "market-session-preflight:" in text
+    assert "Reject non-main production dispatch" in text
+    assert "github.ref_name != 'main'" in text
+    assert "python scripts/market_session_calendar.py --phase preflight" in text
+    assert "record-market-closure:" in text
+    assert "if: needs.market-session-preflight.outputs.should_run_daily_pipeline == 'true'" in text
+    assert (
+        "OFFICIAL_PRICE_TARGET_DATE: "
+        "${{ needs.market-session-preflight.outputs.expected_main_price_date }}"
+    ) in text
+    assert "Verify open-confirmed target date" in text
+
+    preflight_start = text.index("  market-session-preflight:")
+    closure_start = text.index("  record-market-closure:")
+    replay_start = text.index("  daily-pdf-dfkai-replay:")
+    preflight_block = text[preflight_start:closure_start]
+    closure_block = text[closure_start:replay_start]
+
+    for forbidden in ("git commit", "git push", "pages.yml"):
+        assert forbidden not in preflight_block
+    for forbidden in (
+        "fetch_official_daily_price.py",
+        "git add data/daily_price/",
+        "build_data_freshness_latest.py",
+        "generate_chatgpt_side_daily_reports.py",
+        "validate_chatgpt_daily_report_new_conversation_replay.py",
+        "pages.yml",
+    ):
+        assert forbidden not in closure_block
+
+
+def test_recent_price_gap_workflow_persists_shared_market_session_evidence() -> None:
+    text = (ROOT / ".github" / "workflows" / "repair_recent_daily_price_gaps.yml").read_text(
+        encoding="utf-8"
+    )
+
+    assert "Reject non-main production dispatch" in text
+    assert "github.ref_name != 'main'" in text
+    assert "ref: main" in text
+    assert "data/market_calendar/exceptional_non_trading_days.csv" in text
+    assert "output/latest/market_session_status_latest.json" in text
+    assert "MARKET_SESSION_CHANGE_COUNT" in text
+    assert "bash scripts/ci_push_with_retry.sh main 5" in text
 
 
 def test_daily_workflow_requires_current_usable_warrant_fetch_with_evidence() -> None:

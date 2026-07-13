@@ -17,6 +17,144 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  market-session-preflight:
+    runs-on: ubuntu-latest
+    outputs:
+      market_status: ${{ steps.decision.outputs.market_status }}
+      market_session_date: ${{ steps.decision.outputs.market_session_date }}
+      expected_main_price_date: ${{ steps.decision.outputs.expected_main_price_date }}
+      should_run_daily_pipeline: ${{ steps.decision.outputs.should_run_daily_pipeline }}
+      reason_code: ${{ steps.decision.outputs.reason_code }}
+
+    steps:
+      - name: Reject non-main production dispatch
+        if: github.ref_name != 'main'
+        run: |
+          echo "::error::Daily Full Pipeline is production-only. Use pull_request validation for branch evidence."
+          exit 1
+
+      - name: Checkout main production source
+        uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      - name: Resolve official Taiwan market session
+        run: |
+          python scripts/market_session_calendar.py --phase preflight
+
+      - name: Export market-session decision
+        id: decision
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          path = Path("output/latest/market_session_status_latest.json")
+          payload = json.loads(path.read_text(encoding="utf-8-sig"))
+          market_status = str(payload.get("market_status") or "")
+          market_session_date = str(payload.get("market_session_date") or "")
+          expected_date = str(payload.get("expected_main_price_date") or "")
+          reason_code = str(payload.get("reason_code") or "")
+          should_run = payload.get("should_run_daily_pipeline") is True
+          allowed = {"open_confirmed", "closed_scheduled", "closed_emergency", "unknown"}
+          if market_status not in allowed:
+              raise SystemExit(f"invalid market_status={market_status!r}")
+          if should_run and not expected_date:
+              raise SystemExit("expected_main_price_date is required when the daily pipeline should run")
+          with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as handle:
+              handle.write(f"market_status={market_status}\n")
+              handle.write(f"market_session_date={market_session_date}\n")
+              handle.write(f"expected_main_price_date={expected_date}\n")
+              handle.write(f"should_run_daily_pipeline={'true' if should_run else 'false'}\n")
+              handle.write(f"reason_code={reason_code}\n")
+          PY
+
+      - name: Upload market-session preflight evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: daily-market-session-preflight
+          path: |
+            output/latest/market_session_status_latest.json
+            data/market_calendar/exceptional_non_trading_days.csv
+          if-no-files-found: warn
+          retention-days: 30
+
+  record-market-closure:
+    needs: market-session-preflight
+    if: >-
+      ${{ needs.market-session-preflight.result == 'success' &&
+          (needs.market-session-preflight.outputs.market_status == 'closed_scheduled' ||
+           needs.market-session-preflight.outputs.market_status == 'closed_emergency') }}
+    runs-on: ubuntu-latest
+    env:
+      MARKET_STATUS: ${{ needs.market-session-preflight.outputs.market_status }}
+      MARKET_SESSION_DATE: ${{ needs.market-session-preflight.outputs.market_session_date }}
+      EXPECTED_MAIN_PRICE_DATE: ${{ needs.market-session-preflight.outputs.expected_main_price_date }}
+      REASON_CODE: ${{ needs.market-session-preflight.outputs.reason_code }}
+
+    steps:
+      - name: Checkout main production source
+        uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Synchronize main before closure evidence
+        run: git pull --ff-only origin main
+
+      - name: Download market-session preflight evidence
+        uses: actions/download-artifact@v4
+        with:
+          name: daily-market-session-preflight
+          path: .
+
+      - name: Validate closed market decision
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          payload = json.loads(
+              Path("output/latest/market_session_status_latest.json").read_text(encoding="utf-8-sig")
+          )
+          expected_status = os.environ["MARKET_STATUS"]
+          if payload.get("market_status") != expected_status:
+              raise SystemExit("downloaded market status does not match preflight output")
+          if payload.get("should_run_daily_pipeline") is not False:
+              raise SystemExit("closed market must set should_run_daily_pipeline=false")
+          with open(os.environ["GITHUB_STEP_SUMMARY"], "a", encoding="utf-8") as handle:
+              handle.write("## \u4f11\u5e02\uff0c\u7121\u65b0\u5831\u544a\n\n")
+              handle.write(f"- market_status: `{expected_status}`\n")
+              handle.write(f"- market_session_date: `{os.environ['MARKET_SESSION_DATE']}`\n")
+              handle.write(f"- expected_main_price_date: `{os.environ['EXPECTED_MAIN_PRICE_DATE']}`\n")
+              handle.write(f"- reason_code: `{os.environ['REASON_CODE']}`\n")
+          PY
+
+      - name: Commit closed market evidence only
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add data/market_calendar/exceptional_non_trading_days.csv || true
+          git add output/latest/market_session_status_latest.json || true
+          python scripts/validate_daily_staged_paths.py
+          git status --short
+          if git diff --cached --quiet; then
+            echo "No closed-market evidence changes to commit"
+          else
+            git commit -m "Record closed market session"
+            bash scripts/ci_push_with_retry.sh main 5
+          fi
+
   daily-pdf-dfkai-replay:
     needs: daily-full-pipeline
     runs-on: windows-2025
@@ -25,7 +163,7 @@ jobs:
       - name: Checkout updated daily branch
         uses: actions/checkout@v6
         with:
-          ref: ${{ github.ref_name }}
+          ref: main
           fetch-depth: 0
 
       - name: Set up Python
@@ -102,17 +240,27 @@ jobs:
           if-no-files-found: error
 
   daily-full-pipeline:
+    needs: market-session-preflight
+    if: needs.market-session-preflight.outputs.should_run_daily_pipeline == 'true'
     runs-on: ubuntu-latest
 
     env:
       GH_TOKEN: ${{ github.token }}
-      TARGET_BRANCH: ${{ github.ref_name }}
+      TARGET_BRANCH: main
+      EXPECTED_MAIN_PRICE_DATE: ${{ needs.market-session-preflight.outputs.expected_main_price_date }}
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
         with:
-          ref: ${{ github.ref_name }}
+          ref: main
+          fetch-depth: 0
+
+      - name: Download market-session preflight evidence
+        uses: actions/download-artifact@v4
+        with:
+          name: daily-market-session-preflight
+          path: .
 
       - name: Capture pre-run freshness baseline
         run: |
@@ -152,6 +300,7 @@ jobs:
       - name: Fetch latest official daily price
         timeout-minutes: 9
         env:
+          OFFICIAL_PRICE_TARGET_DATE: ${{ needs.market-session-preflight.outputs.expected_main_price_date }}
           OFFICIAL_PRICE_FETCH_MAX_SECONDS: "480"
           OFFICIAL_PRICE_INDIVIDUAL_FALLBACK_MAX_SECONDS: "180"
           OFFICIAL_PRICE_INDIVIDUAL_REQUEST_TIMEOUT: "8"
@@ -171,6 +320,25 @@ jobs:
             --max-repair-dates 3 \
             --retries 2 \
             --sleep-seconds 5
+
+      - name: Verify open-confirmed target date
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          payload = json.loads(
+              Path("output/latest/market_session_status_latest.json").read_text(encoding="utf-8-sig")
+          )
+          expected = os.environ["EXPECTED_MAIN_PRICE_DATE"]
+          if payload.get("market_status") != "open_confirmed":
+              raise SystemExit(f"market_status={payload.get('market_status')!r} is not open_confirmed")
+          if payload.get("market_session_date") != expected:
+              raise SystemExit("market_session_date does not match expected_main_price_date")
+          if payload.get("expected_main_price_date") != expected:
+              raise SystemExit("confirmed expected_main_price_date changed after fetch")
+          PY
 
       - name: Upload daily price source recovery evidence
         if: always()
@@ -620,6 +788,7 @@ jobs:
           # Daily pipeline only stages daily report outputs and source data.
           # Heavy research/backtest outputs are maintained by research_backtest_pipeline.yml.
           git add data/daily_price/ data/stock_price_history/ || true
+          git add data/market_calendar/ || true
           git add output/latest/ || true
           git add -A -- "docs/latest/READ_ME_FIRST_DAILY_REPORT*.txt" || true
           git add docs/latest/chatgpt_daily_report_packet_latest.txt docs/latest/CHATGPT_DAILY_REPORT_RULES.txt || true

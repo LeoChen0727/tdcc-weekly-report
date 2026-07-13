@@ -36,10 +36,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Reject non-main production dispatch
+        if: github.ref_name != 'main'
+        run: |
+          echo "::error::Repair Recent Daily Price Gaps is production-only on main."
+          exit 1
+
       - name: Checkout repository
         uses: actions/checkout@v6
         with:
-          ref: ${{ github.ref_name }}
+          ref: main
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v6
@@ -90,10 +97,16 @@ jobs:
 
           report = Path("output/latest/recent_daily_price_gap_repair_latest.json")
           payload = json.loads(report.read_text(encoding="utf-8-sig")) if report.exists() else {}
+          market_path = Path("output/latest/market_session_status_latest.json")
+          market = json.loads(market_path.read_text(encoding="utf-8-sig")) if market_path.exists() else {}
           actions = payload.get("actions") or []
           print(f"REPAIR_STATUS={payload.get('status', '')}")
           print(f"REPAIR_ACTION_COUNT={len(actions)}")
+          print(f"MARKET_STATUS={market.get('market_status', '')}")
+          print(f"EXPECTED_MAIN_PRICE_DATE={market.get('expected_main_price_date', '')}")
           PY
+          market_change_count="$(git status --porcelain -- data/market_calendar/exceptional_non_trading_days.csv output/latest/market_session_status_latest.json | wc -l | tr -d ' ')"
+          echo "MARKET_SESSION_CHANGE_COUNT=$market_change_count" >> "$GITHUB_ENV"
 
       - name: Upload recent daily price gap repair evidence
         if: always()
@@ -108,16 +121,20 @@ jobs:
             output/latest/repair_daily_price_range_check_code_latest.csv
             output/latest/stock_price_history_manifest.*
             output/latest/daily_price_history_continuity_latest.*
+            output/latest/market_session_status_latest.json
+            data/market_calendar/exceptional_non_trading_days.csv
           if-no-files-found: ignore
           retention-days: 30
 
       - name: Commit repaired recent daily price gaps
-        if: env.REPAIR_ACTION_COUNT != '0'
+        if: env.REPAIR_ACTION_COUNT != '0' || env.MARKET_SESSION_CHANGE_COUNT != '0'
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
           git add data/daily_price/ || true
           git add data/stock_price_history/ || true
+          git add data/market_calendar/exceptional_non_trading_days.csv || true
+          git add output/latest/market_session_status_latest.json || true
           git add output/latest/recent_daily_price_gap_repair_latest.* || true
           git add output/latest/repair_daily_price_range_latest.* || true
           git add output/latest/repair_daily_price_range_check_code_latest.csv || true
@@ -125,5 +142,5 @@ jobs:
           git add output/latest/daily_price_history_continuity_latest.* || true
           git add docs/latest/stock_price_history_manifest.* || true
           git status --short
-          git commit -m "Repair recent daily price gaps" || echo "No changes to commit"
-          git push
+          git commit -m "Refresh recent price gaps and market session evidence" || echo "No changes to commit"
+          bash scripts/ci_push_with_retry.sh main 5

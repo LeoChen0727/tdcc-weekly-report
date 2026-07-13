@@ -289,7 +289,7 @@ tests/test_warrant_fetch_fallback.py,test_python,warrant,active,warrant test: te
 tests/test_warrant_market_report_fallback.py,test_python,warrant,active,warrant test: test_warrant_market_report_fallback,,
 tests/test_warrant_source_status.py,test_python,warrant,active,warrant source status validator test,,
 .github/workflows/current_holdings_pattern.yml,workflow,current_holdings,active,current holdings workflow boundary,,git add output/latest/current_holdings_pattern_latest.csv
-.github/workflows/daily_full_pipeline.yml,workflow,daily_production,active,daily production workflow boundary,,"git add output/latest/;git add -A -- ""output/latest/READ_ME_FIRST_DAILY_REPORT*.txt"";git add -A -- ""docs/latest/READ_ME_FIRST_DAILY_REPORT*.txt"";git add data/daily_price/"
+.github/workflows/daily_full_pipeline.yml,workflow,daily_production,active,daily production workflow boundary,,"git add output/latest/;git add -A -- ""output/latest/READ_ME_FIRST_DAILY_REPORT*.txt"";git add -A -- ""docs/latest/READ_ME_FIRST_DAILY_REPORT*.txt"";git add data/daily_price/;git add data/market_calendar/"
 .github/workflows/daily_model_maintenance_pr_validation.yml,workflow,daily_production,active,daily model maintenance PR validation workflow boundary,,
 .github/workflows/debug_tpex_fetch.yml,workflow,diagnostics,manual_diagnostic,diagnostics workflow boundary,,
 .github/workflows/diagnose_stock_selection.yml,workflow,diagnostics,manual_diagnostic,diagnostics workflow boundary,,
@@ -301,7 +301,7 @@ tests/test_warrant_source_status.py,test_python,warrant,active,warrant source st
 .github/workflows/pages.yml,workflow,repo_infrastructure,active,repo infrastructure workflow boundary,,
 .github/workflows/repair_daily_price_range.yml,workflow,official_price_data,active,official price data workflow boundary,,git add data/daily_price/
 .github/workflows/repair_one_daily_price.yml,workflow,official_price_data,active,official price data workflow boundary,,git add data/daily_price/
-.github/workflows/repair_recent_daily_price_gaps.yml,workflow,official_price_data,active,official price data proactive recent gap repair workflow,,git add data/daily_price/;git add data/stock_price_history/;git add output/latest/recent_daily_price_gap_repair_latest.*
+.github/workflows/repair_recent_daily_price_gaps.yml,workflow,official_price_data,active,official price data proactive recent gap repair workflow,,git add data/daily_price/;git add data/stock_price_history/;git add output/latest/recent_daily_price_gap_repair_latest.*;git add data/market_calendar/exceptional_non_trading_days.csv;git add output/latest/market_session_status_latest.json
 .github/workflows/repair_tdcc_monthly_history_gaps.yml,workflow,tdcc_weekly,active,TDCC monthly history gap repair workflow,,git add data/tdcc_stock_history/ data/tdcc_stock_history_raw/;git add output/latest/tdcc_monthly_history_gap_repair_latest.*;git add output/latest/tdcc_* output/history/tdcc_signals/ output/history/tdcc/
 .github/workflows/research_backtest_pipeline.yml,workflow,research_backtest,active,research backtest workflow boundary,,git add output/latest/research_backtest/price_pullback_23ema_*;git add output/latest/research_backtest/revenue_unreacted_range_*;git add output/latest/research_backtest/volume_range_breakout_v2_*
 .github/workflows/signal_performance_tracker.yml,workflow,research_backtest,active,research backtest workflow boundary,,
