@@ -1,12 +1,12 @@
 # Monthly Revenue History Data Layer
 
-- generated_at: `2026-07-12 20:48:15 Asia/Taipei`
+- generated_at: `2026-07-14 00:27:25 Asia/Taipei`
 - history_id: `monthly_revenue_history`
 - history_version: `official_mops_monthly_revenue_v1`
 - source_kind: `official_mops_current_monthly_revenue_openapi;official_mops_static_monthly_revenue_html_conservative_available_date_v1`
 - source_fetch_mode: `official_current_sources`
-- latest_build_rows: `1752`
-- total_history_rows: `50777`
+- latest_build_rows: `1755`
+- total_history_rows: `50780`
 - unique_stocks: `1973`
 - revenue_period_min: `202405`
 - revenue_period_max: `202606`
@@ -20,7 +20,7 @@
 
 | market | source_market_name | raw_rows | standardized_rows | status |
 | --- | --- | --- | --- | --- |
-| listed | TWSE | 942 | 942 | ok |
+| listed | TWSE | 945 | 945 | ok |
 | otc | TPEX | 810 | 810 | ok |
 
 ## Period Coverage
@@ -52,7 +52,7 @@
 | 202603 | 1972 | 1972 | 20260417 |
 | 202604 | 1972 | 1972 | 20260517 |
 | 202605 | 1973 | 1973 | 20260617 |
-| 202606 | 1752 | 1752 | 20260712 |
+| 202606 | 1755 | 1755 | 20260713 |
 
 ## Market Coverage
 
@@ -108,14 +108,14 @@
 | 202604 | otc | 891 | 891 |
 | 202605 | listed | 1082 | 1082 |
 | 202605 | otc | 891 | 891 |
-| 202606 | listed | 942 | 942 |
+| 202606 | listed | 945 | 945 |
 | 202606 | otc | 810 | 810 |
 
 ## Numerical Anomaly Labels
 
 | revenue_numerical_anomaly_reason | rows |
 | --- | --- |
-| latest_revenue_yoy_abs_ge_300pct | 717 |
+| latest_revenue_yoy_abs_ge_300pct | 718 |
 | latest_revenue_yoy_abs_ge_300pct;cumulative_revenue_yoy_abs_ge_500pct | 368 |
 | cumulative_revenue_yoy_abs_ge_500pct | 134 |
 | monthly_revenue_negative | 59 |
@@ -127,33 +127,33 @@
 
 | market | stock_id | stock_name | revenue_period | source_table_date | latest_revenue_yoy_pct | cumulative_revenue_yoy_pct | revenue_strong_flag | allowed_for_formal_historical_model_use |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| listed | 1101 | 台泥 | 202606 | 20260712 | 32.398782 | 1.543623 | True | False |
-| listed | 1108 | 幸福 | 202606 | 20260712 | -26.577034 | -19.775325 | False | False |
-| listed | 1109 | 信大 | 202606 | 20260712 | -19.632053 | -16.391429 | False | False |
-| listed | 1110 | 東泥 | 202606 | 20260712 | -4.010288 | -14.886927 | False | False |
-| listed | 1201 | 味全 | 202606 | 20260712 | 5.130475 | -2.668287 | False | False |
-| listed | 1210 | 大成 | 202606 | 20260712 | 12.173234 | 6.358784 | False | False |
-| listed | 1213 | 大飲 | 202606 | 20260712 | 5.661482 | 11.387508 | True | False |
-| listed | 1215 | 卜蜂 | 202606 | 20260712 | 8.691479 | 4.678387 | False | False |
-| listed | 1216 | 統一 | 202606 | 20260712 | 4.598464 | 3.287616 | False | False |
-| listed | 1217 | 愛之味 | 202606 | 20260712 | -2.410799 | -3.05597 | False | False |
-| listed | 1219 | 福壽 | 202606 | 20260712 | 0.404703 | -0.885568 | False | False |
-| listed | 1220 | 台榮 | 202606 | 20260712 | 6.909244 | -3.010892 | False | False |
-| listed | 1225 | 福懋油 | 202606 | 20260712 | 2.28427 | 3.167509 | False | False |
-| listed | 1231 | 聯華食 | 202606 | 20260712 | 6.954929 | 4.382676 | False | False |
-| listed | 1232 | 大統益 | 202606 | 20260712 | 16.299889 | 9.338003 | False | False |
-| listed | 1233 | 天仁 | 202606 | 20260712 | 19.862153 | 4.816271 | False | False |
-| listed | 1234 | 黑松 | 202606 | 20260712 | -5.28873 | -5.537952 | False | False |
-| listed | 1235 | 興泰 | 202606 | 20260712 | -6.83966 | 37.048555 | True | False |
-| listed | 1236 | 宏亞 | 202606 | 20260712 | 14.115905 | 4.151382 | False | False |
-| listed | 1256 | 鮮活果汁-KY | 202606 | 20260712 | 52.27924 | 47.491044 | True | False |
-| listed | 1301 | 台塑 | 202606 | 20260712 | -2.686567 | -3.618362 | False | False |
-| listed | 1303 | 南亞 | 202606 | 20260712 | 31.786107 | 15.979324 | True | False |
-| listed | 1304 | 台聚 | 202606 | 20260712 | -26.33844 | -8.266764 | False | False |
-| listed | 1305 | 華夏 | 202606 | 20260712 | -44.673008 | 5.533798 | False | False |
-| listed | 1307 | 三芳 | 202606 | 20260712 | 11.110185 | 4.768282 | False | False |
-| listed | 1308 | 亞聚 | 202606 | 20260712 | 20.68231 | -0.806108 | True | False |
-| listed | 1309 | 台達化 | 202606 | 20260712 | -51.723017 | -23.606746 | False | False |
-| listed | 1310 | 台苯 | 202606 | 20260712 | -24.844411 | -12.187192 | False | False |
-| listed | 1312 | 國喬 | 202606 | 20260712 | -0.217993 | 15.735171 | True | False |
-| listed | 1313 | 聯成 | 202606 | 20260712 | 2.324252 | 5.199809 | False | False |
+| listed | 1101 | 台泥 | 202606 | 20260713 | 32.398782 | 1.543623 | True | False |
+| listed | 1108 | 幸福 | 202606 | 20260713 | -26.577034 | -19.775325 | False | False |
+| listed | 1109 | 信大 | 202606 | 20260713 | -19.632053 | -16.391429 | False | False |
+| listed | 1110 | 東泥 | 202606 | 20260713 | -4.010288 | -14.886927 | False | False |
+| listed | 1201 | 味全 | 202606 | 20260713 | 5.130475 | -2.668287 | False | False |
+| listed | 1210 | 大成 | 202606 | 20260713 | 12.173234 | 6.358784 | False | False |
+| listed | 1213 | 大飲 | 202606 | 20260713 | 5.661482 | 11.387508 | True | False |
+| listed | 1215 | 卜蜂 | 202606 | 20260713 | 8.691479 | 4.678387 | False | False |
+| listed | 1216 | 統一 | 202606 | 20260713 | 4.598464 | 3.287616 | False | False |
+| listed | 1217 | 愛之味 | 202606 | 20260713 | -2.410799 | -3.05597 | False | False |
+| listed | 1219 | 福壽 | 202606 | 20260713 | 0.404703 | -0.885568 | False | False |
+| listed | 1220 | 台榮 | 202606 | 20260713 | 6.909244 | -3.010892 | False | False |
+| listed | 1225 | 福懋油 | 202606 | 20260713 | 2.28427 | 3.167509 | False | False |
+| listed | 1231 | 聯華食 | 202606 | 20260713 | 6.954929 | 4.382676 | False | False |
+| listed | 1232 | 大統益 | 202606 | 20260713 | 16.299889 | 9.338003 | False | False |
+| listed | 1233 | 天仁 | 202606 | 20260713 | 19.862153 | 4.816271 | False | False |
+| listed | 1234 | 黑松 | 202606 | 20260713 | -5.28873 | -5.537952 | False | False |
+| listed | 1235 | 興泰 | 202606 | 20260713 | -6.83966 | 37.048555 | True | False |
+| listed | 1236 | 宏亞 | 202606 | 20260713 | 14.115905 | 4.151382 | False | False |
+| listed | 1256 | 鮮活果汁-KY | 202606 | 20260713 | 52.27924 | 47.491044 | True | False |
+| listed | 1301 | 台塑 | 202606 | 20260713 | -2.686567 | -3.618362 | False | False |
+| listed | 1303 | 南亞 | 202606 | 20260713 | 31.786107 | 15.979324 | True | False |
+| listed | 1304 | 台聚 | 202606 | 20260713 | -26.33844 | -8.266764 | False | False |
+| listed | 1305 | 華夏 | 202606 | 20260713 | -44.673008 | 5.533798 | False | False |
+| listed | 1307 | 三芳 | 202606 | 20260713 | 11.110185 | 4.768282 | False | False |
+| listed | 1308 | 亞聚 | 202606 | 20260713 | 20.68231 | -0.806108 | True | False |
+| listed | 1309 | 台達化 | 202606 | 20260713 | -51.723017 | -23.606746 | False | False |
+| listed | 1310 | 台苯 | 202606 | 20260713 | -24.844411 | -12.187192 | False | False |
+| listed | 1312 | 國喬 | 202606 | 20260713 | -0.217993 | 15.735171 | True | False |
+| listed | 1313 | 聯成 | 202606 | 20260713 | 2.324252 | 5.199809 | False | False |

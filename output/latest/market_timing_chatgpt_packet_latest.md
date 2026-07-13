@@ -1,7 +1,7 @@
 # MARKET TIMING CHATGPT PACKET
 
 ## Metadata
-- generated_at: 2026-07-12 20:58:10 Asia/Taipei
+- generated_at: 2026-07-14 00:38:38 Asia/Taipei
 - main_price_date: 20260709
 - packet_source: daily_market_regime_dashboard
 - packet_status: ready
@@ -23,11 +23,11 @@
 ## Futures Options Context
 | item | value | note |
 | --- | ---: | --- |
-| foreign_tx_futures_net_oi | -80,730 | TX futures direction anchor |
-| foreign_futures_net_oi | -568,131 | broad futures exposure only, not TX direction |
-| put_call_oi_ratio_pct | 118.81% | hedging background only |
+| foreign_tx_futures_net_oi | -81,066 | TX futures direction anchor |
+| foreign_futures_net_oi | -561,082 | broad futures exposure only, not TX direction |
+| put_call_oi_ratio_pct | 124.42% | hedging background only |
 | taiwan_vix | 37.11 | volatility / hedging context only |
-| retail_mtx_net_oi_proxy | 4,571 | contrarian sentiment proxy only |
+| retail_mtx_net_oi_proxy | 1,318 | contrarian sentiment proxy only |
 | retail_mtx_proxy_method | negative_sum_of_three_institution_mtx_net_oi | source method |
 
 ## Usage Boundary
@@ -42,13 +42,13 @@
 market_sentiment_context:
   taiwan_vix:
     latest: 37.11
-    percentile_252d: 65.6863
+    percentile_252d: 66.0194
     percentile_504d: 
     rank_label: middle_range
     context_label: normal_range
     index_interpretation: vix_context_neutral_observe
   retail_mtx:
-    latest_proxy: 4571.0
+    latest_proxy: 1318.0
     proxy_method: negative_sum_of_three_institution_mtx_net_oi
     percentile_252d: 
     percentile_504d: 

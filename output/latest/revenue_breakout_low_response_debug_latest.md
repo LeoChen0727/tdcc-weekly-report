@@ -1,27 +1,27 @@
 # 營收爆發低反應股 Debug Report
 
-- 產生時間：`2026-07-12 20:52:12 Asia/Taipei`
+- 產生時間：`2026-07-14 00:32:02 Asia/Taipei`
 
 ## 診斷統計
 
 | item | value |
 |---|---:|
-| raw_revenue_rows | 1743 |
-| standardized_revenue_rows | 1743 |
+| raw_revenue_rows | 1746 |
+| standardized_revenue_rows | 1746 |
 | price_rows | 622355 |
 | tdcc_rows | 1972 |
 | tdcc_trend_rows | 1972 |
 | tdcc_strong_accumulation_count | 389 |
 | tdcc_mild_accumulation_count | 719 |
 | tdcc_distribution_warning_count | 701 |
-| revenue_condition_pass | 270 |
-| price_metrics_pass | 269 |
-| low_response_pass | 87 |
-| already_priced_in_excluded | 46 |
-| overheat_pass | 41 |
-| score_pass | 41 |
-| theme_priority_pass | 36 |
-| final_rows | 36 |
+| revenue_condition_pass | 272 |
+| price_metrics_pass | 271 |
+| low_response_pass | 89 |
+| already_priced_in_excluded | 47 |
+| overheat_pass | 42 |
+| score_pass | 42 |
+| theme_priority_pass | 37 |
+| final_rows | 37 |
 
 ## 營收欄位狀態
 
@@ -54,9 +54,9 @@
 
 | reason | count |
 |---|---:|
-| fail_revenue_condition | 1473 |
+| fail_revenue_condition | 1474 |
 | fail_low_response_condition | 182 |
-| fail_already_priced_in | 46 |
+| fail_already_priced_in | 47 |
 | fail_defensive_or_traditional_excluded | 4 |
 | missing_or_insufficient_price_metrics | 1 |
 | fail_non_mainstream_score_lt_11 | 1 |
@@ -100,6 +100,7 @@
 | 2408 | 南亞科 | 半導體業 | mainstream_growth |  | 621.3354284927444 | 643.1170392921229 | 7.0 | 30.78 | 110.39 | 82.22 | 118.84 | 119.4 | True | 近20日漲幅>25%；近60日漲幅>40%；距60日低點反彈>50%；近120日漲幅>70%；距120日低點反彈>80% | mild_accumulation | 1.03 | 1.17 | 1 | 1 | 1.78 | 5.9 | -13.76 |  | fail_already_priced_in |
 | 2414 | 精技 | 電子通路業 | mainstream_growth |  | 87.26211992785133 | 46.19747329391832 | 0.98 | 7.13 | 35.83 | 50.61 | 37.5 | 53.42 | False |  | mild_accumulation | 0.5 | -0.02 | 2 | 0 | 1.05 | 3.92 | -5.23 |  | fail_low_response_condition |
 | 2424 | 隴華 | 通信網路業 | mainstream_growth |  | 94.99032752985124 | -13.789322594792871 | 2.02 | -7.76 | -55.21 | -69.02 | 5.76 | 5.76 | False |  | distribution_warning | -1.23 | -0.08 | 0 | 0 | -2.38 | -8.14 | -63.47 |  | fail_low_response_condition |
+| 2425 | 承啟 | 電腦及週邊設備業 | mainstream_growth | A_優先追蹤 | 375.5658851662359 | 116.51091844759344 | -4.98 | 20.81 | 33.5 | 27.14 | 41.02 | 59.56 | False |  | mild_accumulation | 1.29 | -0.26 | 2 | 2 | -0.55 | 1.07 | -13.87 | 23 | selected |
 | 2434 | 統懋 | 半導體業 | mainstream_growth |  | 117.37116386797916 | 18.628753653999468 | 18.29 | 91.37 | 109.09 | 105.29 | 116.38 | 117.89 | True | 近20日漲幅>25%；近60日漲幅>40%；距60日低點反彈>50%；近120日漲幅>70%；距120日低點反彈>80% | distribution_warning | -0.28 | -0.18 | 0 | 0 | 38.72 | 34.96 | 0.0 |  | fail_low_response_condition |
 | 2440 | 太空梭 | 電子零組件業 | mainstream_growth |  | 55.96076128364229 | 23.255026779465105 | -1.48 | -2.35 | 2.78 | 11.74 | 7.07 | 20.65 | False |  | strong_accumulation | 0.29 | 0.38 | 2 | 2 | -1.87 | -2.5 | -26.16 |  | fail_low_response_condition |
 | 2442 | 新美齊 | 建材營造 | neutral |  | 220.09287723199685 | 399.98004177172845 | -0.52 | -3.75 | 3.77 | -16.85 | 7.54 | 7.54 | False |  | mild_accumulation | 0.08 | -0.13 | 2 | 1 | -1.28 | -0.65 | -5.87 |  | fail_low_response_condition |
@@ -147,6 +148,7 @@
 | 4588 | 玖鼎電力 | 其他電子業 | mainstream_growth |  | 79.3119034787295 | 20.73895703213184 | -3.04 | -0.52 | -4.64 | -6.05 | 8.08 | 8.08 | False |  | distribution_warning | -0.18 | -2.51 | 0 | 0 | -2.24 | -1.96 | -14.18 |  | fail_low_response_condition |
 | 4739 | 康普 | 化學工業 | cyclical_turnaround |  | 113.78698185062235 | 120.05822763884169 | -11.21 | -20.8 | 7.03 | 38.85 | 20.29 | 60.45 | False |  | distribution_warning | -3.16 | -5.47 | 1 | 0 | -14.23 | -11.63 | -26.39 |  | fail_low_response_condition |
 | 4912 | 聯德控股-KY | 電子零組件業 | mainstream_growth |  | 53.33200678435051 | 25.095796515703565 | 0.58 | -6.99 | -4.0 | -5.26 | 9.49 | 9.49 | False |  | distribution_warning | -1.15 | 0.0 | 1 | 0 | -1.66 | -3.66 | -26.07 |  | fail_low_response_condition |
+| 4916 | 事欣科 | 電腦及週邊設備業 | mainstream_growth |  | 80.52350065869514 | 48.63403792846589 | -6.09 | -3.14 | 57.66 | 74.19 | 78.81 | 103.01 | True | 近60日漲幅>40%；距60日低點反彈>50%；近120日漲幅>70%；距120日低點反彈>80% | distribution_warning | -11.47 | -11.35 | 0 | 0 | 2.63 | 1.63 | -15.29 |  | fail_already_priced_in |
 | 4934 | 太極 | 光電業 | mainstream_growth |  | 168.6655162496405 | 156.81600720436765 | -4.7 | 6.15 | 1.17 | 18.97 | 15.77 | 21.91 | False |  | strong_accumulation | 1.85 | 2.88 | 3 | 3 | -1.19 | -0.67 | -12.88 |  | fail_low_response_condition |
 | 4949 | 有成精密 | 光電業 | mainstream_growth |  | 68.69247448786183 | 40.94635505649941 | 0.0 | -14.13 | -11.53 | 107.08 | 12.06 | 105.19 | True | 近120日漲幅>70%；距120日低點反彈>80% | distribution_warning | -0.63 | -0.04 | 1 | 0 | -4.59 | -4.83 | -29.78 |  | fail_low_response_condition |
 | 4989 | 榮科 | 電子零組件業 | mainstream_growth |  | 73.41090827325492 | 63.18019609357152 | -8.66 | 11.81 | -14.21 | 80.0 | 23.06 | 101.98 | True | 近120日漲幅>70%；距120日低點反彈>80% | mild_accumulation | 5.82 | 6.03 | 1 | 2 | 1.44 | -2.37 | -26.56 |  | fail_already_priced_in |
@@ -183,5 +185,3 @@
 | 6934 | 心誠鎂 | 生技醫療業 | defensive_or_traditional |  | 41325.0 | 82.52418240442192 | 20.76 | 14.84 | -8.71 |  | 29.38 |  | False |  | mild_accumulation | 1.56 | 0.0 | 3 | 0 | 15.96 | 13.53 | -11.15 |  | fail_low_response_condition |
 | 6937 | 天虹 | 半導體業 | mainstream_growth |  | 64.17155209836051 | 33.627529532614275 | -11.32 | -5.14 | -23.18 | 8.84 | 4.02 | 29.57 | False |  | strong_accumulation | 0.05 | 0.37 | 2 | 2 | -4.87 | -6.04 | -27.89 |  | fail_low_response_condition |
 | 7610 | 聯友金屬-創 | 綠能環保 | neutral |  | 555.4301993309172 | 461.6331304222786 | 6.21 | 53.62 | 314.06 | 1344.14 | 400.95 | 1360.06 | True | 近20日漲幅>25%；近60日漲幅>40%；距60日低點反彈>50%；近120日漲幅>70%；距120日低點反彈>80% | mild_accumulation | 0.98 | -0.02 | 1 | 2 | 18.66 | 21.19 | -2.93 |  | fail_low_response_condition |
-| 7631 | 聚賢研發-創 | 其他電子業 | mainstream_growth |  | 190.83258436146744 | 114.11277848375384 | -1.92 | 21.34 | 12.04 | 2.68 | 28.99 | 44.81 | False |  | distribution_warning | -0.22 | -0.19 | 1 | 1 | 3.66 | 3.9 | -14.01 |  | fail_low_response_condition |
-| 7711 | 永擎 | 電腦及週邊設備業 | mainstream_growth |  | 140.78849243584202 | 44.46783852433029 | -4.65 | -12.89 | 0.49 | 19.19 | 1.49 | 62.7 | False |  | mild_accumulation | 0.04 | 0.02 | 1 | 1 | -8.67 | -8.89 | -34.71 |  | fail_low_response_condition |

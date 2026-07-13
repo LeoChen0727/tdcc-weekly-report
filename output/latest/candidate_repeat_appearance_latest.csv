@@ -27,7 +27,7 @@ signal_date,stock_id,stock_name,consecutive_appear_days_any_category,consecutive
 20260709,2356,英業達,19,6,5,10,19,20260523,20260709,pullback_rebound|range_rebound|revenue_pullback,repeated_but_no_breakout,近 10 日上榜 10 次、近 20 日上榜 19 次，但尚未有效突破，需等待攻擊確認。
 20260709,2382,廣達,19,13,5,10,19,20260523,20260709,revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
 20260709,3033,威健,19,6,5,10,19,20260526,20260709,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20260709,4916,事欣科,19,3,5,10,19,20260526,20260709,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20260709,4916,事欣科,19,6,5,10,19,20260526,20260709,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
 20260709,8028,昇陽半導體,19,3,5,10,19,20260528,20260709,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
 20260709,2633,台灣高鐵,18,7,5,10,18,20260602,20260709,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
 20260709,2801,彰銀,17,6,5,10,19,20260601,20260709,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
@@ -58,7 +58,7 @@ signal_date,stock_id,stock_name,consecutive_appear_days_any_category,consecutive
 20260709,2886,兆豐金,13,5,5,10,19,20260523,20260709,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
 20260709,5388,中磊,13,9,5,10,19,20260523,20260709,pullback_rebound|range_rebound|revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
 20260709,2404,漢唐,13,4,5,10,18,20260523,20260709,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20260709,2425,承啟,13,3,5,10,18,20260527,20260709,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20260709,2425,承啟,13,6,5,10,18,20260527,20260709,pattern|revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
 20260709,8422,可寧衛*,13,6,5,10,18,20260526,20260709,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
 20260709,8926,台汽電,13,6,5,10,18,20260525,20260709,pattern|revenue_pullback,repeated_but_no_breakout,近 10 日上榜 10 次、近 20 日上榜 18 次，但尚未有效突破，需等待攻擊確認。
 20260709,2885,元大金,13,2,5,10,17,20260523,20260709,pattern,repeated_but_no_breakout,近 10 日上榜 10 次、近 20 日上榜 17 次，但尚未有效突破，需等待攻擊確認。

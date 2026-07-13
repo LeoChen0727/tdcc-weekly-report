@@ -1,6 +1,6 @@
 # 市場風險與大盤期權背景
 
-- generated_at: `2026-07-12 20:58:09 Asia/Taipei`
+- generated_at: `2026-07-14 00:38:37 Asia/Taipei`
 - data_date: `20260709`
 - market_regime: `correction`
 - risk_level: `very_high_risk`
@@ -13,11 +13,11 @@
 
 | source | status | rows | latest_date |
 | --- | --- | ---: | --- |
-| institutional_fo | ok | 3 | 20260709 |
-| futures_contracts | ok | 66 | 20260709 |
-| options_call_put | ok | 30 | 20260709 |
-| put_call_ratio | ok | 18 | 20260709 |
-| taiwan_vix | ok | 68 | 20260709 |
+| institutional_fo | ok | 3 | 20260713 |
+| futures_contracts | ok | 66 | 20260713 |
+| options_call_put | ok | 30 | 20260713 |
+| put_call_ratio | ok | 19 | 20260713 |
+| taiwan_vix | ok | 69 | 20260713 |
 
 ## 大盤指數結構
 
@@ -30,31 +30,31 @@
 
 | indicator | value | state |
 | --- | --- | --- |
-| Foreign TX futures net OI | -80,730 | foreign_heavy_net_short |
-| Dealer TX futures net OI | +2,243 |  |
-| Trust TX futures net OI | +71,689 |  |
-| Retail MTX net OI proxy | +4,571 | neutral |
-| Foreign TXO call net OI | +193 |  |
-| Foreign TXO put net OI | +9,728 |  |
-| TXO put/call OI ratio | 118.81% | neutral |
+| Foreign TX futures net OI | -81,066 | foreign_heavy_net_short |
+| Dealer TX futures net OI | +1,270 |  |
+| Trust TX futures net OI | +71,794 |  |
+| Retail MTX net OI proxy | +1,318 | neutral |
+| Foreign TXO call net OI | +1,159 |  |
+| Foreign TXO put net OI | +9,703 |  |
+| TXO put/call OI ratio | 124.42% | neutral |
 | Taiwan VIX | 37.11 | panic_high |
 
 ## 近期總經事件日曆
 
-- 20260707 US_trade: U.S. International Trade in Goods and Services, May 2026 (days=-5, importance=medium)
-- 20260714 US_CPI: CPI release schedule: June 2026 (days=2, importance=high)
-- 20260729 FOMC: FOMC decision (July 28-29, 2026) (days=17, importance=high)
-- 20260730 US_GDP: GDP (Advance Estimate), 2nd Quarter 2026 (days=18, importance=medium)
-- 20260730 US_PCE_personal_income: Personal Income and Outlays, June 2026 (days=18, importance=high)
-- 20260804 US_trade: U.S. International Trade in Goods and Services, June 2026 (days=23, importance=medium)
-- 20260807 US_employment_situation: Employment Situation release schedule: July 2026 (days=26, importance=high)
-- 20260812 US_CPI: CPI release schedule: July 2026 (days=31, importance=high)
+- 20260707 US_trade: U.S. International Trade in Goods and Services, May 2026 (days=-7, importance=medium)
+- 20260714 US_CPI: CPI release schedule: June 2026 (days=0, importance=high)
+- 20260716 US_PCE_personal_income: Prototype Distribution of State Personal Income, 2024 (days=2, importance=high)
+- 20260729 FOMC: FOMC decision (July 28-29, 2026) (days=15, importance=high)
+- 20260730 US_GDP: GDP (Advance Estimate), 2nd Quarter 2026 (days=16, importance=medium)
+- 20260730 US_PCE_personal_income: Personal Income and Outlays, June 2026 (days=16, importance=high)
+- 20260804 US_trade: U.S. International Trade in Goods and Services, June 2026 (days=21, importance=medium)
+- 20260807 US_employment_situation: Employment Situation release schedule: July 2026 (days=24, importance=high)
 
 ## 半年技術圖表
 
 PDF 固定納入半年圖表，包含指數趨勢、波動/期權指標、外資台指期部位與散戶小台 proxy。若資料不足，圖表或文字會明確標示限制。
 
-Index chart data status: TWSE / TAIEX: standard OHLC K-line data is available with volume/turnover overlay. TPEx / OTC: standard OHLC K-line data is available with volume/turnover overlay.
+Index chart data status: TWSE / TAIEX: standard OHLC K-line data is available with volume/turnover overlay. TPEx / OTC: standard OHLC K-line data is available; volume data is unavailable or partial.
 
 - chart: `output/latest/charts/market_regime/market_index_technical_6m.png`
 - chart: `output/latest/charts/market_regime/risk_indicators_6m.png`
@@ -69,7 +69,7 @@ Index chart data status: TWSE / TAIEX: standard OHLC K-line data is available wi
 ## 散戶小台 proxy
 
 - 這是反向情緒輔助指標，以三大法人小台淨未平倉的反向 proxy 估算。
-- latest_proxy_value: `+4,571`
+- latest_proxy_value: `+1,318`
 - state: `neutral`
 - proxy 為正代表非三大法人帳戶偏多；擁擠偏多只能視為追高風險，不是單獨放空訊號。
 - proxy 為負代表非三大法人帳戶偏空；極端偏空可列反彈觀察，但仍需指數與廣度確認。
@@ -91,7 +91,7 @@ Index chart data status: TWSE / TAIEX: standard OHLC K-line data is available wi
 ## VIX Historical Context
 
 - Taiwan VIX latest: `37.11`
-- 252D high / low / percentile: `44.01` / `25.68` / `65.69%`
+- 252D high / low / percentile: `44.01` / `25.68` / `66.02%`
 - 504D percentile: `-`
 - z-score: `0.46`
 - vix_return_5d / 10d / 20d: `-1.72%` / `-7.94%` / `-15.51%`
@@ -100,7 +100,7 @@ Index chart data status: TWSE / TAIEX: standard OHLC K-line data is available wi
 
 ## Retail MTX Historical Context
 
-- retail_mtx_net_oi_proxy latest: `4,571`
+- retail_mtx_net_oi_proxy latest: `1,318`
 - proxy method: `negative_sum_of_three_institution_mtx_net_oi`
 - 252D high / low / percentile: `-` / `-` / `-`
 - 504D percentile: `-`

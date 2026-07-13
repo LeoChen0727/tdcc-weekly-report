@@ -24,9 +24,9 @@
 | 3005 | 神基 | range_rebound | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/3005_神基_range_rebound_126d.png` | `data/daily_price` |
 | 2347 | 聯強 | revenue_breakout_low_response | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/2347_聯強_revenue_breakout_low_response_126d.png` | `data/daily_price` |
 | 2101 | 南港 | revenue_breakout_low_response | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/2101_南港_revenue_breakout_low_response_126d.png` | `data/daily_price` |
+| 2425 | 承啟 | revenue_breakout_low_response | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/2425_承啟_revenue_breakout_low_response_126d.png` | `data/daily_price` |
 | 2547 | 日勝生 | revenue_breakout_low_response | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/2547_日勝生_revenue_breakout_low_response_126d.png` | `data/daily_price` |
 | 6903 | 巨漢 | revenue_breakout_low_response | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/6903_巨漢_revenue_breakout_low_response_126d.png` | `data/daily_price` |
-| 2382 | 廣達 | revenue_breakout_low_response | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/2382_廣達_revenue_breakout_low_response_126d.png` | `data/daily_price` |
 | 6531 | 愛普* | revenue_pullback | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/6531_愛普__revenue_pullback_126d.png` | `data/daily_price` |
 | 3048 | 益登 | revenue_pullback | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/3048_益登_revenue_pullback_126d.png` | `data/daily_price` |
 | 6209 | 今國光 | revenue_pullback | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/6209_今國光_revenue_pullback_126d.png` | `data/daily_price` |
