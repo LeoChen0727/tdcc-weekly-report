@@ -92,6 +92,7 @@ def _stock_frame(stock_id: str, *, false_index: int | None, launch_index: int) -
 
 def _source_row(stock: pd.DataFrame, stock_id: str, *, start: int, end: int, first: int, launch: int) -> dict[str, object]:
     return {
+        "condition_variant_id": "absolute_or_two_month_yoy_ge15",
         "episode_key": f"episode-{stock_id}",
         "stock_id": stock_id,
         "stock_name": stock_id,
@@ -156,6 +157,23 @@ def test_source_level_reference_preserves_old_first_breakout_parity() -> None:
     assert row["trigger_date"] == daily["4916"].at[25, "date"]
     assert row["outcome_status"] == "mature_failure"
     assert row["rule_trigger_mode"] == "level"
+
+
+def test_direct_source_detail_filters_non_primary_variants_before_expansion() -> None:
+    stock = _stock_frame("4916", false_index=25, launch_index=50)
+    primary = _source_row(stock, "4916", start=20, end=50, first=25, launch=50)
+    alternate = dict(primary)
+    alternate["condition_variant_id"] = "absolute_or_two_month_yoy_ge20"
+    source = pd.DataFrame([primary, alternate])
+
+    summary, detail, events, _, _ = build_forward_confirmation_feature_audit(
+        source_detail=source,
+        daily_by_stock={"4916": stock},
+    )
+
+    assert set(detail["episode_key"]) == {"episode-4916"}
+    assert set(events["episode_key"]) == {"episode-4916"}
+    assert set(summary["source_episode_count"]) == {1}
 
 
 def test_next_day_close_rule_rejects_false_breakout_and_selects_later_launch() -> None:
