@@ -1,0 +1,253 @@
+from __future__ import annotations
+
+import sys
+from pathlib import Path
+
+import numpy as np
+import pandas as pd
+
+
+ROOT = Path(__file__).resolve().parents[1]
+SCRIPTS = ROOT / "scripts"
+if str(SCRIPTS) not in sys.path:
+    sys.path.insert(0, str(SCRIPTS))
+
+from revenue_unreacted_range_forward_confirmation_feature_audit import (  # noqa: E402
+    PRIMARY_ANALYSIS_BASIS,
+    build_forward_confirmation_feature_audit,
+    build_operation_return_review,
+)
+from validate_revenue_unreacted_range_forward_confirmation_feature_audit import (  # noqa: E402
+    validate,
+)
+
+
+def _stock_frame(stock_id: str, *, false_index: int | None, launch_index: int) -> pd.DataFrame:
+    dates = pd.bdate_range("2025-01-02", periods=100).strftime("%Y%m%d")
+    close = np.full(100, 10.0)
+    cross = np.zeros(100, dtype=bool)
+    if false_index is not None:
+        close[false_index] = 10.5
+        close[false_index + 1] = 10.4
+        cross[false_index] = True
+    close[launch_index] = 11.0
+    close[launch_index + 1] = 11.3
+    close[launch_index + 5 :] = 13.3
+    cross[launch_index] = True
+    frame = pd.DataFrame(
+        {
+            "stock_id": stock_id,
+            "date": dates,
+            "open": close,
+            "high": close,
+            "low": close,
+            "close": close,
+            "analysis_open": close + 0.1,
+            "analysis_close": close,
+            "previous_20d_highest_close": 10.0,
+            "close_breakout_prev20": close > 10.0,
+            "cross_breakout_prev20": cross,
+            "cross_breakout_prev40": cross,
+            "cross_breakout_prev60": cross,
+            "close_breakout_prev40": cross,
+            "close_breakout_prev60": cross,
+            "volume_ratio_prev20": 2.0,
+            "ma20": 9.5,
+            "ma60": 10.0,
+            "ma120": 9.0,
+            "ema23": 9.5,
+            "obv_slope_5d": 1.0,
+            "obv_above_ma20": True,
+            "k_value": 60.0,
+            "d_value": 50.0,
+            "kdj_j_value": 80.0,
+            "macd_hist": 1.0,
+            "rsi14": 60.0,
+            "return_5d_pct": 3.0,
+            "return_20d_pct": 10.0,
+            "range_width_23d_pct": 10.0,
+            "range_width_60d_pct": 20.0,
+            "close_position_120d_pct": 60.0,
+            "signal_body_pct": 2.0,
+            "close_location_pct": 75.0,
+            "solid_red_candle": True,
+            "tdcc_history_available": True,
+            "high_thresholds_up": True,
+            "tdcc_consecutive_up_weeks": 2,
+            "signal_market_regime": "mild_bull",
+            "full_monthly_revenue_context_ready": True,
+            "full_monthly_revenue_source_table_date": dates[20],
+            "latest_qualifying_revenue_source_date_asof": dates[20],
+            "full_monthly_revenue_period": "202412",
+            "full_monthly_revenue_latest_yoy_pct": 30.0,
+            "full_monthly_revenue_cumulative_yoy_pct": 20.0,
+            "full_monthly_revenue_prev1_latest_yoy_pct": 20.0,
+            "full_monthly_revenue_latest_yoy_delta_1m_pct_points": 5.0,
+            "ema23_slope_5d_pct": 1.0,
+            "distance_to_ema23_pct": 5.0,
+        }
+    )
+    return frame
+
+
+def _source_row(stock: pd.DataFrame, stock_id: str, *, start: int, end: int, first: int, launch: int) -> dict[str, object]:
+    return {
+        "episode_key": f"episode-{stock_id}",
+        "stock_id": stock_id,
+        "stock_name": stock_id,
+        "episode_start_trade_date": stock.at[start, "date"],
+        "episode_start_source_date": stock.at[start, "date"],
+        "episode_end_date": stock.at[end, "date"],
+        "episode_status": "launch_within_active_horizon",
+        "first_breakout_date": stock.at[first, "date"],
+        "first_breakout_outcome": "mature_failure" if first != launch else "strict_success",
+        "launch_date": stock.at[launch, "date"],
+        "qualifying_source_revenue_anomaly_candidate_flag": False,
+        "unresolved_price_path_candidate_flag": False,
+        "same_stock_non_overlap_applied": True,
+    }
+
+
+def _audit_frames() -> tuple[
+    pd.DataFrame,
+    pd.DataFrame,
+    pd.DataFrame,
+    pd.DataFrame,
+    pd.DataFrame,
+    dict[str, pd.DataFrame],
+]:
+    stock_4916 = _stock_frame("4916", false_index=25, launch_index=50)
+    stock_1303 = _stock_frame("1303", false_index=None, launch_index=30)
+    source = pd.DataFrame(
+        [
+            _source_row(stock_4916, "4916", start=20, end=50, first=25, launch=50),
+            _source_row(stock_1303, "1303", start=20, end=30, first=30, launch=30),
+        ]
+    )
+    daily = {"4916": stock_4916, "1303": stock_1303}
+    return (*build_forward_confirmation_feature_audit(source_detail=source, daily_by_stock=daily), daily)
+
+
+def test_first_match_policy_keeps_4916_false_breakout_in_baseline() -> None:
+    summary, detail, events, _, _, _ = _audit_frames()
+    row = detail.loc[
+        detail["stock_id"].eq("4916")
+        & detail["rule_id"].eq("first_close_cross_prev20")
+    ].iloc[0]
+    assert row["trigger_date"] == events.loc[
+        events["stock_id"].eq("4916")
+        & events["contrast_group"].eq("first_mature_failure_event"),
+        "trigger_date",
+    ].iloc[0]
+    assert row["outcome_status"] == "mature_failure"
+    assert summary.loc[
+        summary["analysis_basis"].eq(PRIMARY_ANALYSIS_BASIS)
+        & summary["rule_id"].eq("first_close_cross_prev20"),
+        "strict_success_count",
+    ].iloc[0] == 1
+
+
+def test_source_level_reference_preserves_old_first_breakout_parity() -> None:
+    _, detail, _, _, _, daily = _audit_frames()
+    row = detail.loc[
+        detail["stock_id"].eq("4916")
+        & detail["rule_id"].eq("source_first_close_above_prev20_reference")
+    ].iloc[0]
+    assert row["trigger_date"] == daily["4916"].at[25, "date"]
+    assert row["outcome_status"] == "mature_failure"
+    assert row["rule_trigger_mode"] == "level"
+
+
+def test_next_day_close_rule_rejects_false_breakout_and_selects_later_launch() -> None:
+    _, detail, events, _, _, daily = _audit_frames()
+    row = detail.loc[
+        detail["stock_id"].eq("4916")
+        & detail["rule_id"].eq("prev20_next_close_continuation")
+    ].iloc[0]
+    launch_event = events.loc[
+        events["stock_id"].eq("4916")
+        & events["contrast_group"].eq("strict_success_launch_event")
+    ].iloc[0]
+    stock = daily["4916"]
+    launch_index = int(stock.index[stock["date"].eq(launch_event["trigger_date"])][0])
+    assert row["trigger_date"] == launch_event["trigger_date"]
+    assert row["outcome_status"] == "strict_success"
+    assert row["confirmation_date"] == stock.at[launch_index + 1, "date"]
+    assert row["entry_date"] == stock.at[launch_index + 2, "date"]
+    assert float(row["entry_open"]) == float(stock.at[launch_index + 2, "analysis_open"])
+
+
+def test_next_day_confirmation_uses_same_boundary_policy_for_all_labels() -> None:
+    _, detail, _, _, _, daily = _audit_frames()
+    row = detail.loc[
+        detail["stock_id"].eq("1303")
+        & detail["rule_id"].eq("prev20_next_close_continuation")
+    ].iloc[0]
+    stock = daily["1303"]
+    trigger_index = int(stock.index[stock["date"].eq(row["trigger_date"])][0])
+    assert row["trigger_date"] == stock.at[30, "date"]
+    assert row["confirmation_date"] == stock.at[trigger_index + 1, "date"]
+    assert row["selection_status"] == "confirmed_first_rule_match"
+
+
+def test_rule_detail_is_nonduplicated_and_event_features_are_normalized() -> None:
+    _, detail, events, feature, return_review, _ = _audit_frames()
+    assert not detail.duplicated(["episode_key", "rule_id"]).any()
+    assert not events.duplicated(["episode_key", "contrast_group"]).any()
+    assert len(events.loc[events["stock_id"].eq("4916")]) == 2
+    assert len(events.loc[events["stock_id"].eq("1303")]) == 1
+    assert "volume_ratio_prev20" not in detail.columns
+    assert "volume_ratio_prev20" in events.columns
+    assert set(feature["row_type"]) == {"binary_feature", "numeric_feature"}
+    assert return_review.empty
+
+
+def test_large_operation_return_is_replayed_and_retained_as_review_candidate() -> None:
+    dates = pd.bdate_range("2025-01-02", periods=22).strftime("%Y%m%d")
+    close = np.geomspace(10.0, 19.0, num=len(dates))
+    entry_index = 1
+    exit_index = len(dates) - 1
+    fixed_return = (close[exit_index] / close[entry_index] - 1.0) * 100.0
+    daily = pd.DataFrame(
+        {
+            "date": dates,
+            "open": close,
+            "close": close,
+            "analysis_open": close,
+            "analysis_close": close,
+            "price_resolution_ids_on_date": "",
+        }
+    )
+    detail = pd.DataFrame(
+        [
+            {
+                "generated_at": "2026-07-13T00:00:00+08:00",
+                "stock_id": "9999",
+                "stock_name": "覆核樣本",
+                "rule_id": "first_close_cross_prev20",
+                "entry_date": dates[entry_index],
+                "entry_open": close[entry_index],
+                "fixed_exit_date": dates[exit_index],
+                "fixed_exit_close": close[exit_index],
+                "fixed_d20_return_pct": fixed_return,
+                "operation_return_review_candidate_flag": True,
+            }
+        ]
+    )
+
+    review = build_operation_return_review(detail, {"9999": daily})
+
+    assert len(review) == 1
+    row = review.iloc[0]
+    assert abs(float(row["replayed_fixed_d20_return_pct"]) - fixed_return) <= 0.0001
+    assert float(row["max_abs_raw_close_return_1d_pct"]) < 20.0
+    assert row["bottom_level_price_path_result"] == "no_single_day_scale_break_observed"
+    assert bool(row["included_in_primary_metrics"])
+    assert bool(row["excluded_in_review_candidate_sensitivity"])
+    assert row["review_disposition"] == (
+        "unresolved_review_candidate_retained_in_primary_not_classified_as_anomaly"
+    )
+
+
+def test_generated_forward_confirmation_artifact_passes() -> None:
+    assert validate() == []

@@ -127,6 +127,9 @@ def test_data_sharing_registry_uses_model_owned_research_entrypoints() -> None:
     assert by_family["revenue_unreacted_range_source_first_condition_audit"][
         "registered_producers"
     ] == "scripts/build_revenue_unreacted_range_research.py"
+    assert by_family["revenue_unreacted_range_forward_confirmation_feature_audit"][
+        "registered_producers"
+    ] == "scripts/build_revenue_unreacted_range_research.py"
     assert by_family["volume_range_breakout_v2_high_position_improvement_audit"][
         "registered_producers"
     ] == "scripts/build_volume_range_breakout_v2_research.py"
@@ -134,7 +137,7 @@ def test_data_sharing_registry_uses_model_owned_research_entrypoints() -> None:
 
 def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
     rows = read_csv("config/daily_model_data_sharing_migrations.csv")
-    assert len(rows) == 4
+    assert len(rows) == 5
     baseline = rows[0]
     assert tuple(baseline) == DATA_SHARING_MIGRATION_COLUMNS
     assert data_migration_row_sha256(baseline) == BASELINE_DATA_MIGRATION_ROW_SHA256
@@ -190,6 +193,25 @@ def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
         "user_requested_known_success_coverage_and_condition_adjustment_20260713"
     )
     assert source_first_migration["migration_status"] == (
+        "validated_user_approved_migration"
+    )
+
+    forward_confirmation_migration = rows[4]
+    assert forward_confirmation_migration["migration_id"] == (
+        "revenue_forward_confirmation_feature_audit_20260713"
+    )
+    assert forward_confirmation_migration["changed_data_families"] == (
+        "revenue_unreacted_range_forward_confirmation_feature_audit"
+    )
+    assert forward_confirmation_migration["previous_contract_sha256s"] == "NEW"
+    assert forward_confirmation_migration["new_contract_sha256s"] == (
+        "995625483248e76a27316420e8de07491158a83f25c3fc443c4f76bb72490dd5"
+    )
+    assert forward_confirmation_migration["affected_models"] == "revenue_unreacted_range"
+    assert forward_confirmation_migration["user_approval_reference"] == (
+        "user_requested_forward_confirmation_feature_audit_20260713"
+    )
+    assert forward_confirmation_migration["migration_status"] == (
         "validated_user_approved_migration"
     )
 
