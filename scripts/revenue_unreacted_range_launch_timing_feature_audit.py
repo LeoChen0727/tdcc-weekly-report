@@ -319,7 +319,7 @@ def _load_price_comparability_resolutions() -> pd.DataFrame:
     if set(frame["model_id"].astype(str)) != {MODEL_ID}:
         raise RuntimeError("price comparability resolutions must remain model-owned")
     if set(frame["approved_scope"].astype(str)) != {
-        "revenue_unreacted_range_launch_timing_feature_audit_only"
+        "revenue_unreacted_range_model_owned_research_only"
     }:
         raise RuntimeError("price comparability resolution scope drift")
     if not frame["authority"].astype(str).eq("TWSE").all():

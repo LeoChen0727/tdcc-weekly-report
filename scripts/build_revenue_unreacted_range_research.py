@@ -25,6 +25,10 @@ from revenue_unreacted_range_fixed_confirmation_feature_contrast import (
     build_fixed_confirmation_feature_contrast,
     write_fixed_confirmation_feature_contrast,
 )
+from revenue_unreacted_range_forward_confirmation_feature_audit import (
+    build_forward_confirmation_feature_audit,
+    write_forward_confirmation_feature_audit,
+)
 from revenue_unreacted_range_extreme_return_path_audit import (
     build_extreme_return_path_audit,
     write_extreme_return_path_audit,
@@ -76,6 +80,12 @@ def build_and_write() -> None:
         lag_strength_detail,
     )
     source_first_summary, source_first_detail = build_source_first_condition_audit()
+    forward_summary, forward_detail, forward_events, forward_feature, forward_return_review = (
+        build_forward_confirmation_feature_audit(
+            prepared,
+            source_first_detail,
+        )
+    )
 
     write_revenue_unreacted_range_revenue_condition_matrix(condition_matrix)
     write_revenue_unreacted_range_operation_candidate_matrix(operation_matrix)
@@ -86,6 +96,13 @@ def build_and_write() -> None:
     write_lag_strength_matrix(lag_strength_summary, lag_strength_detail)
     write_launch_timing_feature_audit(launch_summary, launch_detail, launch_feature)
     write_source_first_condition_audit(source_first_summary, source_first_detail)
+    write_forward_confirmation_feature_audit(
+        forward_summary,
+        forward_detail,
+        forward_events,
+        forward_feature,
+        forward_return_review,
+    )
 
 
 def build_and_write_launch_timing_feature_audit() -> None:
@@ -118,11 +135,27 @@ def build_and_write_source_first_condition_audit() -> None:
     write_source_first_condition_audit(summary, detail)
 
 
+def build_and_write_forward_confirmation_feature_audit() -> None:
+    frame = build_research_frame()
+    if frame.empty:
+        raise RuntimeError("No price history available for revenue_unreacted_range forward confirmation research")
+    prepared = _attach_revenue_signal_market_regime(_revenue_unreacted_timing_prepared_frame(frame))
+    del frame
+    gc.collect()
+    summary, detail, events, feature, return_review = build_forward_confirmation_feature_audit(prepared)
+    write_forward_confirmation_feature_audit(summary, detail, events, feature, return_review)
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Build model-owned revenue_unreacted_range research artifacts.")
     parser.add_argument(
         "--stage",
-        choices=("all", "launch_timing_feature_audit", "source_first_condition_audit"),
+        choices=(
+            "all",
+            "launch_timing_feature_audit",
+            "source_first_condition_audit",
+            "forward_confirmation_feature_audit",
+        ),
         default="all",
         help="Run the full producer or one model-owned audit stage.",
     )
@@ -136,6 +169,8 @@ def main() -> int:
             build_and_write_launch_timing_feature_audit()
         elif args.stage == "source_first_condition_audit":
             build_and_write_source_first_condition_audit()
+        elif args.stage == "forward_confirmation_feature_audit":
+            build_and_write_forward_confirmation_feature_audit()
         else:
             build_and_write()
     return 0
