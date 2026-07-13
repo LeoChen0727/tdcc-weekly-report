@@ -2,9 +2,12 @@ from __future__ import annotations
 
 from pathlib import Path
 
+from scripts import validate_daily_production_boundaries as boundaries
+
 
 ROOT = Path(__file__).resolve().parents[1]
 WORKFLOW = ROOT / ".github" / "workflows" / "daily_model_maintenance_pr_validation.yml"
+DAILY_WORKFLOW = ROOT / ".github" / "workflows" / "daily_full_pipeline.yml"
 
 
 def test_daily_model_maintenance_pr_workflow_exists_for_model_pdf_paths() -> None:
@@ -120,3 +123,60 @@ def test_daily_model_maintenance_pr_workflow_runs_actual_pdf_replay_and_uploads_
     assert "chatgpt_side_outputs_pr_validation/chatgpt_daily_report_runtime_manifest.json" in text
     assert "chatgpt_side_outputs_pr_validation/chatgpt_daily_pdf_semantic_manifest.csv" in text
     assert "if-no-files-found: error" in text
+
+
+def test_daily_pdf_replay_jobs_require_windows_dfkai_runtime() -> None:
+    daily_text = DAILY_WORKFLOW.read_text(encoding="utf-8")
+    pr_text = WORKFLOW.read_text(encoding="utf-8")
+
+    assert boundaries.validate_dfkai_pdf_replay_job(
+        daily_text,
+        workflow_label="daily_full_pipeline",
+        needs_job="daily-full-pipeline",
+        output_dir="chatgpt_side_outputs_new_conversation_replay",
+        upload_step="Upload main daily PDF replay evidence",
+    ) == []
+    assert boundaries.validate_dfkai_pdf_replay_job(
+        pr_text,
+        workflow_label="daily_model_maintenance_pr_validation",
+        needs_job="daily-model-maintenance-pr-validation",
+        output_dir="chatgpt_side_outputs_pr_validation",
+        upload_step="Upload PR daily PDF replay evidence",
+    ) == []
+    assert "Replay ChatGPT-side daily PDF" not in boundaries.workflow_job_block(
+        daily_text,
+        "daily-full-pipeline",
+    )
+    assert "Replay ChatGPT-side daily PDF" not in boundaries.workflow_job_block(
+        pr_text,
+        "daily-model-maintenance-pr-validation",
+    )
+
+
+def test_dfkai_replay_job_validator_rejects_generic_or_ubuntu_job() -> None:
+    invalid = """
+jobs:
+  daily-pdf-dfkai-replay:
+    needs: upstream
+    runs-on: ubuntu-latest
+    steps:
+      - name: Replay ChatGPT-side daily PDF new conversation
+        run: python scripts/validate_chatgpt_daily_report_new_conversation_replay.py
+"""
+
+    errors = boundaries.validate_dfkai_pdf_replay_job(
+        invalid,
+        workflow_label="fixture",
+        needs_job="upstream",
+        output_dir="expected-output",
+        upload_step="Upload evidence",
+    )
+
+    assert any("windows-2025" in error for error in errors)
+    assert any("Language.Fonts.Hant" in error for error in errors)
+    assert any("Windows Update" in error for error in errors)
+    assert any("DISM" in error for error in errors)
+    assert any("long-path" in error for error in errors)
+    assert any("temporary" in error for error in errors)
+    assert any("kaiu.ttf" in error for error in errors)
+    assert any("DFKai-SB" in error for error in errors)
