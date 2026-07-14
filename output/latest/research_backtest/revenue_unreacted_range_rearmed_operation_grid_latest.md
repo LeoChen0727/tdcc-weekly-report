@@ -1,6 +1,6 @@
 # 營收改善尚未反應模型：重新武裝操作矩陣
 
-- generated_at: `2026-07-13 20:57:37 Asia/Taipei`
+- generated_at: `2026-07-14 14:39:13 Asia/Taipei`
 - model_id: `revenue_unreacted_range`
 - artifact_version: `rearmed_operation_grid_v1_20260713`
 - 狀態：`research_only`，不修改 production registry、operation adapter 或 PDF。
@@ -16,22 +16,22 @@
 
 | confirmation_variant_id | holding_days | stop_policy_id | mature_operation_count | win_rate_pct | neutral_rate_pct | failure_rate_pct | avg_return_pct | median_return_pct | realized_return_ge20_rate_pct | rearmed_operation_count | same_stock_overlap_pair_count |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| delayed_next_close_continuation_bonus | 30 | none_no_stop_reference | 952 | 55.9874 | 0.7353 | 43.2773 | 9.1348 | 1.9804 | 21.1134 | 455 | 0 |
-| base_close_confirmed | 30 | none_no_stop_reference | 1405 | 52.9537 | 0.6406 | 46.4057 | 8.6657 | 1.3333 | 21.5658 | 839 | 0 |
-| delayed_next_close_continuation_bonus | 30 | ma20_ema23_close_stop_4d | 960 | 52.9167 | 0.625 | 46.4583 | 8.5782 | 1.0202 | 20.9375 | 467 | 0 |
-| delayed_next_close_continuation_bonus | 20 | none_no_stop_reference | 1131 | 51.7241 | 0.7958 | 47.4801 | 4.857 | 0.9238 | 15.0309 | 581 | 0 |
-| delayed_next_close_continuation_bonus | 20 | ma20_ema23_close_stop_4d | 1132 | 51.0601 | 0.7951 | 48.1449 | 4.6051 | 0.5002 | 15.0177 | 584 | 0 |
-| base_close_confirmed | 30 | ma20_ema23_close_stop_4d | 1432 | 50.9078 | 0.6285 | 48.4637 | 8.0866 | 0.3855 | 21.0894 | 873 | 0 |
-| base_close_confirmed | 20 | none_no_stop_reference | 1756 | 49.6014 | 0.6264 | 49.7722 | 4.1946 | 0.0 | 15.4897 | 1111 | 0 |
-| base_close_confirmed | 20 | ma20_ema23_close_stop_4d | 1758 | 49.033 | 0.6257 | 50.3413 | 3.9523 | -0.2397 | 15.2446 | 1116 | 0 |
-| delayed_next_close_continuation_bonus | 15 | none_no_stop_reference | 1230 | 48.6179 | 0.8943 | 50.4878 | 3.1447 | -0.2294 | 11.5447 | 655 | 0 |
-| delayed_next_close_continuation_bonus | 15 | ma20_ema23_close_stop_4d | 1230 | 48.374 | 0.8943 | 50.7317 | 3.0881 | -0.2736 | 11.5447 | 655 | 0 |
-| base_close_confirmed | 15 | none_no_stop_reference | 1969 | 48.3494 | 0.965 | 50.6856 | 3.0876 | -0.2157 | 11.7318 | 1293 | 0 |
-| base_close_confirmed | 15 | ma20_ema23_close_stop_4d | 1969 | 48.0447 | 0.965 | 50.9904 | 2.9345 | -0.3279 | 11.7318 | 1295 | 0 |
-| base_close_confirmed | 10 | none_no_stop_reference | 2332 | 44.1252 | 1.3722 | 54.5026 | 1.0272 | -0.9259 | 7.1612 | 1608 | 0 |
-| base_close_confirmed | 10 | ma20_ema23_close_stop_4d | 2332 | 44.1252 | 1.3722 | 54.5026 | 1.0119 | -0.9259 | 7.1612 | 1608 | 0 |
-| delayed_next_close_continuation_bonus | 10 | ma20_ema23_close_stop_4d | 1383 | 43.6732 | 0.7954 | 55.5315 | 0.7995 | -1.1538 | 7.086 | 780 | 0 |
-| delayed_next_close_continuation_bonus | 10 | none_no_stop_reference | 1383 | 43.6732 | 0.7954 | 55.5315 | 0.7988 | -1.1538 | 7.086 | 780 | 0 |
+| delayed_next_close_continuation_bonus | 30 | none_no_stop_reference | 955 | 56.0209 | 0.733 | 43.2461 | 9.1232 | 2.0 | 21.0471 | 462 | 0 |
+| base_close_confirmed | 30 | none_no_stop_reference | 1408 | 52.983 | 0.6392 | 46.3778 | 8.6443 | 1.3474 | 21.5199 | 848 | 0 |
+| delayed_next_close_continuation_bonus | 30 | ma20_ema23_close_stop_4d | 963 | 52.9595 | 0.6231 | 46.4174 | 8.5684 | 1.0292 | 20.8723 | 474 | 0 |
+| delayed_next_close_continuation_bonus | 20 | none_no_stop_reference | 1133 | 51.6328 | 0.7944 | 47.5728 | 4.8419 | 0.8759 | 15.0044 | 588 | 0 |
+| delayed_next_close_continuation_bonus | 20 | ma20_ema23_close_stop_4d | 1134 | 50.97 | 0.7937 | 48.2363 | 4.5906 | 0.4685 | 14.9912 | 591 | 0 |
+| base_close_confirmed | 30 | ma20_ema23_close_stop_4d | 1435 | 50.9408 | 0.6272 | 48.4321 | 8.0669 | 0.3922 | 21.0453 | 882 | 0 |
+| base_close_confirmed | 20 | none_no_stop_reference | 1757 | 49.5731 | 0.6261 | 49.8008 | 4.1854 | 0.0 | 15.4809 | 1119 | 0 |
+| base_close_confirmed | 20 | ma20_ema23_close_stop_4d | 1759 | 49.0051 | 0.6254 | 50.3695 | 3.9433 | -0.2632 | 15.2359 | 1124 | 0 |
+| delayed_next_close_continuation_bonus | 15 | none_no_stop_reference | 1237 | 48.5044 | 0.9701 | 50.5255 | 3.1159 | -0.2506 | 11.4794 | 662 | 0 |
+| delayed_next_close_continuation_bonus | 15 | ma20_ema23_close_stop_4d | 1237 | 48.2619 | 0.9701 | 50.768 | 3.0597 | -0.2833 | 11.4794 | 662 | 0 |
+| base_close_confirmed | 15 | none_no_stop_reference | 1979 | 48.2567 | 0.9601 | 50.7832 | 3.0376 | -0.2587 | 11.6726 | 1303 | 0 |
+| base_close_confirmed | 15 | ma20_ema23_close_stop_4d | 1979 | 47.9535 | 0.9601 | 51.0864 | 2.8853 | -0.3529 | 11.6726 | 1305 | 0 |
+| base_close_confirmed | 10 | none_no_stop_reference | 2335 | 44.1542 | 1.3704 | 54.4754 | 1.0467 | -0.9259 | 7.2377 | 1617 | 0 |
+| base_close_confirmed | 10 | ma20_ema23_close_stop_4d | 2335 | 44.1542 | 1.3704 | 54.4754 | 1.0315 | -0.9259 | 7.2377 | 1617 | 0 |
+| delayed_next_close_continuation_bonus | 10 | ma20_ema23_close_stop_4d | 1384 | 43.6416 | 0.7948 | 55.5636 | 0.7851 | -1.1613 | 7.0809 | 788 | 0 |
+| delayed_next_close_continuation_bonus | 10 | none_no_stop_reference | 1384 | 43.6416 | 0.7948 | 55.5636 | 0.7843 | -1.1613 | 7.0809 | 788 | 0 |
 
 ## 事欣科與南亞
 
@@ -41,6 +41,7 @@
 | 4916 | 事欣科 | base_close_confirmed | 20251209 | 20251210 | 20260108 | 13.3462 | win | 1 | False |
 | 4916 | 事欣科 | base_close_confirmed | 20260416 | 20260417 | 20260515 | 1.0448 | win | 2 | True |
 | 4916 | 事欣科 | base_close_confirmed | 20260518 | 20260519 | 20260615 | 21.6381 | win | 3 | True |
+| 4916 | 事欣科 | base_close_confirmed | 20260713 |  |  |  |  | 1 | True |
 | 4916 | 事欣科 | delayed_next_close_continuation_bonus | 20251209 | 20251211 | 20260109 | 11.4943 | win | 1 | False |
 | 4916 | 事欣科 | delayed_next_close_continuation_bonus | 20260416 | 20260420 | 20260518 | 8.4548 | win | 2 | True |
 

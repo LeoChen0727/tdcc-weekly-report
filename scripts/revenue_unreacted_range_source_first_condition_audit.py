@@ -12,7 +12,7 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parents[1]
 MODEL_ID = "revenue_unreacted_range"
 ARTIFACT_ID = "revenue_unreacted_range_source_first_condition_audit"
-ARTIFACT_VERSION = "source_first_condition_v1_20260713"
+ARTIFACT_VERSION = "source_first_condition_v2_20260714"
 
 REVENUE_HISTORY_CSV = ROOT / "data/monthly_revenue_history/monthly_revenue_history.csv"
 PRICE_HISTORY_DIR = ROOT / "data/stock_price_history"
@@ -214,6 +214,10 @@ DETAIL_COLUMNS = [
     "latest_qualifying_trade_date",
     "latest_qualifying_sequence_index",
     "qualifying_update_count",
+    "qualifying_revenue_periods",
+    "qualifying_source_dates",
+    "qualifying_trade_dates",
+    "qualifying_sequence_indices",
     "episode_end_sequence_index",
     "episode_end_date",
     "episode_status",
@@ -655,6 +659,18 @@ def _episode_rows(
                 "latest_qualifying_trade_date": str(price.at[latest_index, "date"]),
                 "latest_qualifying_sequence_index": latest_index,
                 "qualifying_update_count": len(used),
+                "qualifying_revenue_periods": "|".join(
+                    str(event[1]["revenue_period"]) for event in used
+                ),
+                "qualifying_source_dates": "|".join(
+                    str(event[1]["source_table_date"]) for event in used
+                ),
+                "qualifying_trade_dates": "|".join(
+                    str(price.at[event[0], "date"]) for event in used
+                ),
+                "qualifying_sequence_indices": "|".join(
+                    str(event[0]) for event in used
+                ),
                 "episode_end_sequence_index": episode_end_index,
                 "episode_end_date": str(price.at[episode_end_index, "date"]),
                 "episode_status": episode_status,

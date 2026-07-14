@@ -77,3 +77,25 @@ def test_4916_keeps_the_confirmation_gap_visible() -> None:
     ].iloc[0]
     assert row["first_breakout_outcome"] == "mature_failure"
     assert row["launch_date"] == "20260518"
+
+
+def test_source_first_condition_preserves_aligned_qualifying_revenue_lineage() -> None:
+    detail = pd.read_csv(
+        DETAIL_CSV,
+        dtype={"stock_id": str},
+        keep_default_na=False,
+        low_memory=False,
+    )
+    for row in detail.itertuples(index=False):
+        periods = str(row.qualifying_revenue_periods).split("|")
+        source_dates = str(row.qualifying_source_dates).split("|")
+        trade_dates = str(row.qualifying_trade_dates).split("|")
+        sequence_indices = str(row.qualifying_sequence_indices).split("|")
+        assert len(periods) == len(source_dates) == len(trade_dates) == len(sequence_indices)
+        assert len(periods) == int(row.qualifying_update_count)
+        assert periods[0] == str(row.episode_start_revenue_period)
+        assert source_dates[0] == str(row.episode_start_source_date)
+        assert trade_dates[0] == str(row.episode_start_trade_date)
+        assert periods[-1] == str(row.latest_qualifying_revenue_period)
+        assert source_dates[-1] == str(row.latest_qualifying_source_date)
+        assert trade_dates[-1] == str(row.latest_qualifying_trade_date)

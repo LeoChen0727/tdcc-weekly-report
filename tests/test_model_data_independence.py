@@ -133,6 +133,9 @@ def test_data_sharing_registry_uses_model_owned_research_entrypoints() -> None:
     assert by_family["revenue_unreacted_range_rearmed_operation_grid"][
         "registered_producers"
     ] == "scripts/build_revenue_unreacted_range_research.py"
+    assert by_family["revenue_unreacted_range_operation_lag_bucket_audit"][
+        "registered_producers"
+    ] == "scripts/build_revenue_unreacted_range_research.py"
     assert by_family["volume_range_breakout_v2_high_position_improvement_audit"][
         "registered_producers"
     ] == "scripts/build_volume_range_breakout_v2_research.py"
@@ -140,7 +143,7 @@ def test_data_sharing_registry_uses_model_owned_research_entrypoints() -> None:
 
 def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
     rows = read_csv("config/daily_model_data_sharing_migrations.csv")
-    assert len(rows) == 7
+    assert len(rows) == 8
     baseline = rows[0]
     assert tuple(baseline) == DATA_SHARING_MIGRATION_COLUMNS
     assert data_migration_row_sha256(baseline) == BASELINE_DATA_MIGRATION_ROW_SHA256
@@ -255,6 +258,29 @@ def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
         "user_adopted_rearmed_grid_and_required_bottom_level_2380_review_20260713"
     )
     assert price_comparability_migration["migration_status"] == (
+        "validated_user_approved_migration"
+    )
+
+    operation_lag_migration = rows[7]
+    assert operation_lag_migration["migration_id"] == (
+        "revenue_operation_lag_bucket_audit_20260714"
+    )
+    assert operation_lag_migration["changed_data_families"] == (
+        "revenue_unreacted_range_source_first_condition_audit;"
+        "revenue_unreacted_range_operation_lag_bucket_audit"
+    )
+    assert operation_lag_migration["previous_contract_sha256s"] == (
+        "d0af612a7d09bca295f0b56e6b286ab16d69fd05e0330841ff8a94032742f99a;NEW"
+    )
+    assert operation_lag_migration["new_contract_sha256s"] == (
+        "ed1c90dfeba7846f6078c01a116967b2cc42e695d37471c6892402b9e7acb044;"
+        "c204e9e4fe2dfd55da9331272f3084654e9323f025c10950a0cfe92e567af693"
+    )
+    assert operation_lag_migration["affected_models"] == "revenue_unreacted_range"
+    assert operation_lag_migration["user_approval_reference"] == (
+        "user_requested_revenue_operation_lag_bucket_audit_20260714"
+    )
+    assert operation_lag_migration["migration_status"] == (
         "validated_user_approved_migration"
     )
 
