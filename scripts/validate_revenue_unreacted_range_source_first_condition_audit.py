@@ -19,7 +19,9 @@ from revenue_unreacted_range_source_first_condition_audit import (
 DETAIL_DTYPES = {
     "stock_id": str,
     "episode_start_source_date": str,
+    "episode_start_trade_date": str,
     "latest_qualifying_source_date": str,
+    "latest_qualifying_trade_date": str,
     "first_breakout_date": str,
     "launch_date": str,
 }
@@ -158,6 +160,50 @@ def validate() -> list[str]:
         prior_ends = pd.to_numeric(ordered["episode_end_sequence_index"], errors="coerce").shift(1)
         if starts.le(prior_ends).fillna(False).any():
             errors.append(f"source-first episode overlap: {variant_id}/{stock_id}")
+
+    for row in detail.itertuples(index=False):
+        periods = str(row.qualifying_revenue_periods).split("|")
+        source_dates = str(row.qualifying_source_dates).split("|")
+        trade_dates = str(row.qualifying_trade_dates).split("|")
+        try:
+            sequence_indices = [
+                int(value) for value in str(row.qualifying_sequence_indices).split("|")
+            ]
+        except ValueError:
+            errors.append(f"source-first qualifying sequence is not numeric: {row.episode_key}")
+            continue
+        aligned_lengths = {
+            len(periods),
+            len(source_dates),
+            len(trade_dates),
+            len(sequence_indices),
+            int(row.qualifying_update_count),
+        }
+        if len(aligned_lengths) != 1 or not periods or any(
+            not value for values in (periods, source_dates, trade_dates) for value in values
+        ):
+            errors.append(f"source-first qualifying lineage is not aligned: {row.episode_key}")
+            continue
+        if periods[0] != str(row.episode_start_revenue_period):
+            errors.append(f"source-first qualifying lineage start period drift: {row.episode_key}")
+        if source_dates[0] != str(row.episode_start_source_date):
+            errors.append(f"source-first qualifying lineage start source date drift: {row.episode_key}")
+        if trade_dates[0] != str(row.episode_start_trade_date):
+            errors.append(f"source-first qualifying lineage start trade date drift: {row.episode_key}")
+        if sequence_indices[0] != int(row.episode_start_sequence_index):
+            errors.append(f"source-first qualifying lineage start index drift: {row.episode_key}")
+        if periods[-1] != str(row.latest_qualifying_revenue_period):
+            errors.append(f"source-first qualifying lineage latest period drift: {row.episode_key}")
+        if source_dates[-1] != str(row.latest_qualifying_source_date):
+            errors.append(f"source-first qualifying lineage latest source date drift: {row.episode_key}")
+        if trade_dates[-1] != str(row.latest_qualifying_trade_date):
+            errors.append(f"source-first qualifying lineage latest trade date drift: {row.episode_key}")
+        if sequence_indices[-1] != int(row.latest_qualifying_sequence_index):
+            errors.append(f"source-first qualifying lineage latest index drift: {row.episode_key}")
+        if sequence_indices != sorted(sequence_indices) or trade_dates != sorted(trade_dates):
+            errors.append(f"source-first qualifying lineage is not chronological: {row.episode_key}")
+        if any(source_date > trade_date for source_date, trade_date in zip(source_dates, trade_dates)):
+            errors.append(f"source-first qualifying source is after mapped trade date: {row.episode_key}")
 
     selected = summary.loc[summary["condition_variant_id"].eq(PRIMARY_VARIANT_ID)]
     baseline = summary.loc[summary["condition_variant_id"].eq(BASELINE_VARIANT_ID)]

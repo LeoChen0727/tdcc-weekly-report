@@ -47,6 +47,10 @@ from revenue_unreacted_range_launch_timing_feature_audit import (
     build_launch_timing_feature_audit,
     write_launch_timing_feature_audit,
 )
+from revenue_unreacted_range_operation_lag_bucket_audit import (
+    build_operation_lag_bucket_audit,
+    write_operation_lag_bucket_audit,
+)
 from revenue_unreacted_range_source_first_condition_audit import (
     build_source_first_condition_audit,
     write_source_first_condition_audit,
@@ -96,6 +100,10 @@ def build_and_write() -> None:
         source_detail=source_first_detail,
         daily_by_stock=daily_by_stock,
     )
+    operation_lag_summary, operation_lag_detail = build_operation_lag_bucket_audit(
+        operation_detail=rearmed_detail,
+        source_detail=source_first_detail,
+    )
 
     write_revenue_unreacted_range_revenue_condition_matrix(condition_matrix)
     write_revenue_unreacted_range_operation_candidate_matrix(operation_matrix)
@@ -114,6 +122,7 @@ def build_and_write() -> None:
         forward_return_review,
     )
     write_rearmed_operation_grid(rearmed_summary, rearmed_detail, rearmed_return_review)
+    write_operation_lag_bucket_audit(operation_lag_summary, operation_lag_detail)
 
 
 def build_and_write_launch_timing_feature_audit() -> None:
@@ -168,6 +177,11 @@ def build_and_write_rearmed_operation_grid() -> None:
     write_rearmed_operation_grid(summary, detail, return_review)
 
 
+def build_and_write_operation_lag_bucket_audit() -> None:
+    summary, detail = build_operation_lag_bucket_audit()
+    write_operation_lag_bucket_audit(summary, detail)
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Build model-owned revenue_unreacted_range research artifacts.")
     parser.add_argument(
@@ -178,6 +192,7 @@ def parse_args() -> argparse.Namespace:
             "source_first_condition_audit",
             "forward_confirmation_feature_audit",
             "rearmed_operation_grid",
+            "operation_lag_bucket_audit",
         ),
         default="all",
         help="Run the full producer or one model-owned audit stage.",
@@ -196,6 +211,8 @@ def main() -> int:
             build_and_write_forward_confirmation_feature_audit()
         elif args.stage == "rearmed_operation_grid":
             build_and_write_rearmed_operation_grid()
+        elif args.stage == "operation_lag_bucket_audit":
+            build_and_write_operation_lag_bucket_audit()
         else:
             build_and_write()
     return 0
