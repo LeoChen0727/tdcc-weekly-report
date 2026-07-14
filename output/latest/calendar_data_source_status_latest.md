@@ -1,11 +1,11 @@
 # Calendar Data Source Status
 
-- generated_at: `2026-07-14 16:08:15 Asia/Taipei`
+- generated_at: `2026-07-14 18:15:02 Asia/Taipei`
 - policy: Official/known-calendar sources are stored. Missing or blocked sources remain pending instead of being fabricated.
 
 | source | status | rows | url | note |
 |---|---|---:|---|---|
-| twse_ex_right_ex_dividend | ok | 239 | https://www.twse.com.tw/rwd/zh/exRight/TWT48U?response=json |  |
+| twse_ex_right_ex_dividend | ok | 247 | https://www.twse.com.tw/rwd/zh/exRight/TWT48U?response=json |  |
 | twse_shareholder_meeting_from_dividend_distribution | ok | 545 | https://openapi.twse.com.tw/v1/opendata/t187ap45_L | TWSE-listed shareholder meeting dates parsed from official OpenAPI t187ap45_L when available. |
 | monthly_revenue_expected_window | rule_based_expected_window | 395 | https://mops.twse.com.tw/mops/web/t05st10_ifrs | Expected monthly revenue publication window generated for tracked stocks; not a confirmed company catalyst. |
 | federal_reserve_fomc | ok | 12 | https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm |  |
