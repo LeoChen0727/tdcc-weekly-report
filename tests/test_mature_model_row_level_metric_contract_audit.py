@@ -29,8 +29,20 @@ def test_builder_covers_all_current_mature_operation_models() -> None:
         "price_pullback_23ema",
     }
     assert all(row["issues"] == "" for row in mature.values())
-    assert sum(int(row["mature_operation_data_row_count"]) for row in mature.values()) == 366
-    assert sum(int(row["unique_stock_lifecycle_count"]) for row in mature.values()) == 183
+    assert {
+        model_id: (
+            int(row["mature_operation_data_row_count"]),
+            int(row["unique_stock_lifecycle_count"]),
+        )
+        for model_id, row in mature.items()
+    } == {
+        "volume_range_breakout_v2_low_position_volume_attack": (0, 0),
+        "volume_range_breakout_v2_mid_position_momentum_attack": (0, 0),
+        "volume_range_breakout_v2_high_position_volume_attack": (0, 0),
+        "w_bottom_right_side": (86, 43),
+        "neckline_volume_breakout_confirmation": (0, 0),
+        "price_pullback_23ema": (310, 155),
+    }
 
 
 def test_price_pullback_technical_strength_uses_row_level_package_metrics() -> None:
