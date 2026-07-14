@@ -1,7 +1,7 @@
 # MARKET TIMING CHATGPT PACKET
 
 ## Metadata
-- generated_at: 2026-07-14 06:33:13 Asia/Taipei
+- generated_at: 2026-07-14 16:13:21 Asia/Taipei
 - main_price_date: 20260713
 - packet_source: daily_market_regime_dashboard
 - packet_status: ready
@@ -42,7 +42,7 @@
 market_sentiment_context:
   taiwan_vix:
     latest: 36.62
-    percentile_252d: 57.2816
+    percentile_252d: 57.6923
     percentile_504d: 
     rank_label: middle_range
     context_label: normal_range

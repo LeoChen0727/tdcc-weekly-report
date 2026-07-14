@@ -1,6 +1,6 @@
 # DAILY CANDIDATE MODEL LAYER PACKET
 
-- generated_at: `2026-07-14 06:30:19 Asia/Taipei`
+- generated_at: `2026-07-14 16:11:17 Asia/Taipei`
 - signal_date: `20260713`
 - contract: model main condition met means the stock enters that model candidate list.
 - scoring: risk, TDCC, warrant, revenue, position, and structure adjust rank inside the model; mainstream/non-mainstream only splits reports.
@@ -37,7 +37,7 @@
 | hot_theme_pullback                                   | 熱門族群回檔模型            | mainstream      |      48 |
 | hot_theme_pullback                                   | 熱門族群回檔模型            | non_mainstream  |       1 |
 | price_pullback_23ema                                 | 股價回檔模型              | mainstream      |      30 |
-| price_pullback_23ema                                 | 股價回檔模型              | non_mainstream  |      28 |
+| price_pullback_23ema                                 | 股價回檔模型              | non_mainstream  |      27 |
 | pullback_short_reclaim                               | 回檔後短線轉強模型           | mainstream      |      66 |
 | pullback_short_reclaim                               | 回檔後短線轉強模型           | non_mainstream  |      36 |
 | revenue_unreacted_range                              | 營收爆發但股價尚未反應模型       | mainstream      |     144 |

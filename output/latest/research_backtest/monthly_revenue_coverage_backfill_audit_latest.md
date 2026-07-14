@@ -1,6 +1,6 @@
 # Monthly Revenue Coverage / Backfill Audit
 
-- generated_at: `2026-07-14 06:34:24 Asia/Taipei`
+- generated_at: `2026-07-14 16:14:28 Asia/Taipei`
 - audit_id: `monthly_revenue_coverage_backfill_audit`
 - audit_version: `coverage_backfill_audit_v1`
 - formal_model_revenue_gate_ready: `True`
@@ -15,8 +15,8 @@
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | canonical_monthly_revenue_history | history_found | 26 | 202405 | 202606 | 0 |  |  | True | False | signal_scope_not_evaluated_in_history_row |
 | monthly_revenue_point_in_time_panel | panel_found | 2 | 202605 | 202606 | 0 |  |  | False | True | coverage_limited_candidate_snapshot_observed_values_not_full_market_history |
-| daily_model_signal_log_all_models | signal_rows_found | 26 | 202405 | 202606 | 10961 | 99.58 | 99.27 | True | False |  |
-| model:price_pullback_23ema | signal_rows_found | 26 | 202405 | 202606 | 3751 | 99.28 | 99.26 | True | False |  |
+| daily_model_signal_log_all_models | signal_rows_found | 26 | 202405 | 202606 | 10960 | 99.58 | 99.27 | True | False |  |
+| model:price_pullback_23ema | signal_rows_found | 26 | 202405 | 202606 | 3750 | 99.28 | 99.26 | True | False |  |
 | model:revenue_unreacted_range | signal_rows_found | 26 | 202405 | 202606 | 2821 | 100.00 | 100.00 | True | False |  |
 | model:hot_theme_pullback | signal_rows_found | 26 | 202405 | 202606 | 1043 | 100.00 | 100.00 | True | False |  |
 | model:pullback_short_reclaim | signal_rows_found | 26 | 202405 | 202606 | 2102 | 99.10 | 99.26 | True | False |  |
@@ -30,7 +30,7 @@
 
 | model_id | signal_rows | signal_date_min | signal_date_max | asof_covered_rows | asof_row_coverage_pct | missing_asof_rows | formal_model_revenue_gate_ready | backfill_recommendation |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| price_pullback_23ema | 3751 | 20260529 | 20260713 | 3724 | 99.28 | 0 | True | no_backfill_required_for_this_scope |
+| price_pullback_23ema | 3750 | 20260529 | 20260713 | 3723 | 99.28 | 0 | True | no_backfill_required_for_this_scope |
 | revenue_unreacted_range | 2821 | 20260529 | 20260713 | 2821 | 100.00 | 0 | True | no_backfill_required_for_this_scope |
 | hot_theme_pullback | 1043 | 20260601 | 20260713 | 1043 | 100.00 | 0 | True | no_backfill_required_for_this_scope |
 | pullback_short_reclaim | 2102 | 20260529 | 20260713 | 2083 | 99.10 | 0 | True | no_backfill_required_for_this_scope |

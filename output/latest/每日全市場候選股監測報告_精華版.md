@@ -1,7 +1,7 @@
 # 每日全市場候選股監測報告 - 精華版
 
 - 主資料日期：`20260713`
-- 產生時間：`2026-07-14 06:33:38 Asia/Taipei`
+- 產生時間：`2026-07-14 16:13:44 Asia/Taipei`
 - 是否可產出正式每日報告：`True`
 - 判斷說明：core daily data dates match main_price_date
 - 權證資料日期：`20260713`
@@ -31,18 +31,18 @@
 
 | 股票 | 原始分類 | 催化標籤 / 反應程度 | TDCC |
 |---|---|---|---|
-| 2610 華航 | 營收成長股價回檔 | score 44 / theme 100.0/5 / revenue_good_eps_unconfirmed;event_confirmed;low_reaction_after_catalyst;new_order;航運業;monthl... | 大戶溫和增加 |
 | 2376 技嘉 | 營收成長股價回檔 | score 44 / theme 100.0/5 / revenue_good_eps_unconfirmed;event_confirmed;low_reaction_after_catalyst;new_order;mainstream... | 大戶同步增加 |
 | 8936 國統 | 營收成長股價回檔 | score 44 / theme 84.1/5 / revenue_good_eps_unconfirmed;event_confirmed;low_reaction_after_catalyst;new_order;其他;monthly_... | 大戶溫和增加 |
+| 2610 華航 | 營收成長股價回檔 | score 44 / theme 100.0/5 / revenue_good_eps_unconfirmed;event_confirmed;low_reaction_after_catalyst;new_order;航運業;monthl... | 大戶溫和增加 |
 | 2356 英業達 | 營收成長股價回檔 | score 40 / theme 100.0/5 / revenue_good_eps_unconfirmed;event_confirmed;low_reaction_after_catalyst;product_certificatio... | 大戶同步增加 |
 | 6282 康舒 | 營收成長股價回檔 | score 40 / theme 100.0/5 / revenue_good_eps_unconfirmed;event_confirmed;low_reaction_after_catalyst;product_certificatio... | 大戶同步增加 |
 | 2383 台光電 | 營收成長股價回檔 | score 40 / theme 100.0/5 / revenue_good_eps_unconfirmed;event_confirmed;low_reaction_after_catalyst;capacity_expansion;電... | 大戶溫和增加 |
 | 1304 台聚 | 型態觀察 | score 34 / theme 49.8/5 / event_confirmed;low_reaction_after_catalyst;new_order;塑膠工業;dividend_calendar;calendar_ex_divid... | 大戶同步增加 |
-| 2610 華航 | 型態觀察 | score 34 / theme 100.0/5 / event_confirmed;low_reaction_after_catalyst;new_order;航運業;monthly_revenue_calendar;calendar_m... | 大戶溫和增加 |
-| 2912 統一超 | 型態觀察 | score 34 / theme 32.5/5 / event_confirmed;low_reaction_after_catalyst;new_order;貿易百貨;monthly_revenue_calendar;calendar_m... | 大戶溫和增加 |
-| 2359 所羅門 | 區間內轉強 / 挑戰前高觀察 | score 34 / theme 100.0/5 / event_confirmed;low_reaction_after_catalyst;new_order;其他電子業;monthly_revenue_calendar;calendar... | 大戶溫和增加 |
-| 3176 基亞 | 型態觀察 | score 34 / theme 100.0/5 / event_confirmed;low_reaction_after_catalyst;new_order;生技醫療業;monthly_revenue_calendar;calendar... | 大戶溫和增加 |
 | 2913 農林 | 型態觀察 | score 34 / theme 32.5/5 / event_confirmed;low_reaction_after_catalyst;new_order;貿易百貨;monthly_revenue_calendar;calendar_m... | 大戶溫和增加 |
+| 2610 華航 | 型態觀察 | score 34 / theme 100.0/5 / event_confirmed;low_reaction_after_catalyst;new_order;航運業;monthly_revenue_calendar;calendar_m... | 大戶溫和增加 |
+| 7777 能率亞洲 | 型態觀察 | score 34 / theme 84.1/5 / event_confirmed;low_reaction_after_catalyst;new_order;其他;monthly_revenue_calendar;calendar_mon... | 大戶溫和增加 |
+| 3176 基亞 | 型態觀察 | score 34 / theme 100.0/5 / event_confirmed;low_reaction_after_catalyst;new_order;生技醫療業;monthly_revenue_calendar;calendar... | 大戶溫和增加 |
+| 3015 全漢 | 型態觀察 | score 34 / theme 100.0/5 / event_confirmed;low_reaction_after_catalyst;new_order;電子零組件業;monthly_revenue_calendar;calenda... | 大戶溫和增加 |
 
 ## 精華候選股
 
@@ -174,62 +174,62 @@
 
 ### 2101 南港
 - 族群：景氣循環 / 報價轉機
-- 分數 / 排名：24.0 / 8.0
+- 分數 / 排名：24.0 / 10.0
 - 優先級：B_可觀察
 - 連續上榜：訊號鈍化；近5日 5；近10日 10；多分類 pattern|revenue_breakout_low_response|revenue_pullback
 - TDCC：大戶溫和增加
 - 權證：
 - 財報 / 事件催化：score 28 / theme 11.2/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_monthly_revenue_expecte...
 - 摘要：B 可觀察 / 營收強 / 近期加速 / 低反應 / 貼近均線
-- 完整原因：B_可觀察；近幾週其中一項大戶級距增加；no_signal；權證金流未見明顯高於近期平均的變化；單月營收YoY>=150%；累計營收YoY>=50%；單月YoY大幅高於累計YoY，近期明顯加速；近3日漲幅低於5%，股價低反應；近5日漲幅低於8%；股價貼近20MA/23EMA；尚未突破前60日高點；仍在平台整理區；站上20MA/23EMA；接近前高但未大幅過熱；TDCC近幾週大戶溫和增加；景氣循環 / 報價轉機；TDCC近幾週大戶溫和增加
+- 完整原因：B_可觀察；近幾週400張與1000張合計增加；no_signal；權證金流未見明顯高於近期平均的變化；單月營收YoY>=150%；累計營收YoY>=50%；單月YoY大幅高於累計YoY，近期明顯加速；近3日漲幅低於5%，股價低反應；近5日漲幅低於8%；股價貼近20MA/23EMA；尚未突破前60日高點；仍在平台整理區；站上20MA/23EMA；接近前高但未大幅過熱；TDCC近幾週大戶溫和增加；景氣循環 / 報價轉機；TDCC近幾週大戶...
 - 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
 
 ### 6179 亞通
 - 族群：一般產業
-- 分數 / 排名：22.0 / 9.0
+- 分數 / 排名：22.0 / 11.0
 - 優先級：B_可觀察
 - 連續上榜：反覆上榜未突破；近5日 5；近10日 8；多分類 range_rebound|revenue_breakout_low_response|revenue_pullback
 - TDCC：大戶同步增加
 - 權證：
-- 財報 / 事件催化：score 28 / theme 77.2/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;shareholder_meeting;neutral;monthly_revenue_calendar;cale...
+- 財報 / 事件催化：score 28 / theme 73.2/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;shareholder_meeting;neutral;monthly_revenue_calendar;cale...
 - 摘要：B 可觀察 / 營收強 / 近期加速 / 低反應 / 貼近均線
 - 完整原因：B_可觀察；近幾週400張與1000張同步累積；單月營收YoY>=150%；累計營收YoY>=50%；單月YoY大幅高於累計YoY，近期明顯加速；近3日漲幅低於5%，股價低反應；近5日漲幅低於8%；股價貼近20MA/23EMA；尚未突破前60日高點；站上20MA/23EMA；接近前高但未大幅過熱；TDCC近幾週400張與1000張同步累積；一般產業；TDCC近幾週400張與1000張同步累積
 - 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
 
 ### 2547 日勝生
 - 族群：一般產業
-- 分數 / 排名：22.0 / 10.0
+- 分數 / 排名：21.0 / 12.0
 - 優先級：B_可觀察
 - 連續上榜：訊號鈍化；近5日 5；近10日 10；多分類 pattern|revenue_breakout_low_response|revenue_pullback
-- TDCC：大戶同步增加
-- 權證：
-- 財報 / 事件催化：score 15 / theme 77.2/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;material_information;neutral;dividend_calendar;calendar_e...
-- 摘要：B 可觀察 / 營收強 / 近期加速 / 低反應 / 貼近均線
-- 完整原因：B_可觀察；近幾週400張與1000張同步累積；單月營收YoY>=100%；累計營收YoY>=30%；單月YoY大幅高於累計YoY，近期明顯加速；近3日漲幅低於5%，股價低反應；近5日漲幅低於8%；股價貼近20MA/23EMA；尚未突破前60日高點；仍在平台整理區；站上20MA/23EMA；接近前高但未大幅過熱；TDCC近幾週400張與1000張同步累積；一般產業；TDCC近幾週400張與1000張同步累積；營建/交屋認列型營收需基本面...
-- 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
-
-### 3041 揚智
-- 族群：主流成長題材
-- 分數 / 排名：20.0 / 1.0
-- 優先級：A_優先追蹤
-- 連續上榜：訊號鈍化；近5日 5；近10日 10；多分類 revenue_breakout_low_response|revenue_pullback
 - TDCC：大戶溫和增加
 - 權證：
-- 財報 / 事件催化：score 0 / theme 100.0/5 / revenue_good_eps_unconfirmed;material_information;mainstream_growth;monthly_revenue_calendar;calendar_monthly_reve...
-- 摘要：A 優先追蹤 / 營收強 / 近期加速 / 低反應 / 貼近均線
-- 完整原因：A_優先追蹤；近幾週400張與1000張合計增加；單月營收YoY>=150%；累計營收YoY>=30%；單月YoY大幅高於累計YoY，近期明顯加速；近3日漲幅低於5%，股價低反應；近5日漲幅低於8%；股價仍在20MA/23EMA附近；尚未突破前60日高點；TDCC近幾週大戶溫和增加；主流成長題材；TDCC近幾週大戶溫和增加
+- 財報 / 事件催化：score 15 / theme 73.2/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;material_information;neutral;dividend_calendar;calendar_e...
+- 摘要：B 可觀察 / 營收強 / 近期加速 / 低反應 / 貼近均線
+- 完整原因：B_可觀察；近幾週400張與1000張合計增加；單月營收YoY>=100%；累計營收YoY>=30%；單月YoY大幅高於累計YoY，近期明顯加速；近3日漲幅低於5%，股價低反應；近5日漲幅低於8%；股價貼近20MA/23EMA；尚未突破前60日高點；仍在平台整理區；站上20MA/23EMA；接近前高但未大幅過熱；TDCC近幾週大戶溫和增加；一般產業；TDCC近幾週大戶溫和增加；營建/交屋認列型營收需基本面確認
 - 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
 
 ### 2382 廣達
 - 族群：主流成長題材
-- 分數 / 排名：20.0 / 2.0
+- 分數 / 排名：20.0 / 1.0
 - 優先級：A_優先追蹤
 - 連續上榜：反覆上榜未突破；近5日 5；近10日 10；多分類 range_rebound|revenue_breakout_low_response|revenue_pullback
 - TDCC：大戶溫和增加
 - 權證：
 - 財報 / 事件催化：score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;material_information;mainstream_growth;dividend_calendar...
 - 摘要：A 優先追蹤 / 營收強 / 低反應 / 貼近均線 / 站上均線
-- 完整原因：A_優先追蹤；近幾週其中一項大戶級距增加；單月營收YoY>=100%；累計營收YoY>=50%；近3日漲幅低於5%，股價低反應；近5日漲幅低於8%；股價貼近20MA/23EMA；尚未突破前60日高點；站上20MA/23EMA；TDCC近幾週大戶溫和增加；主流成長題材；TDCC近幾週大戶溫和增加
+- 完整原因：A_優先追蹤；近幾週400張與1000張合計增加；單月營收YoY>=100%；累計營收YoY>=50%；近3日漲幅低於5%，股價低反應；近5日漲幅低於8%；股價貼近20MA/23EMA；尚未突破前60日高點；站上20MA/23EMA；TDCC近幾週大戶溫和增加；主流成長題材；TDCC近幾週大戶溫和增加
+- 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
+
+### 3706 神達
+- 族群：主流成長題材
+- 分數 / 排名：20.0 / 2.0
+- 優先級：A_優先追蹤
+- 連續上榜：訊號鈍化；近5日 5；近10日 10；多分類 revenue_breakout_low_response|revenue_pullback
+- TDCC：大戶溫和增加
+- 權證：
+- 財報 / 事件催化：score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;material_information;mainstream_growth;monthly_revenue_c...
+- 摘要：A 優先追蹤 / 營收強 / 近期加速 / 低反應 / 貼近均線
+- 完整原因：A_優先追蹤；近幾週400張與1000張合計增加；no_signal；權證金流未見明顯高於近期平均的變化；單月營收YoY 80%~100%；累計營收YoY>=30%；單月YoY大幅高於累計YoY，近期明顯加速；近3日漲幅低於5%，股價低反應；近5日漲幅低於8%；股價貼近20MA/23EMA；尚未突破前60日高點；站上20MA/23EMA；TDCC近幾週大戶溫和增加；主流成長題材；TDCC近幾週大戶溫和增加
 - 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
 
 ## 營收成長股價回檔

@@ -25,8 +25,8 @@
 | 2101 | 南港 | revenue_breakout_low_response | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/2101_南港_revenue_breakout_low_response_126d.png` | `data/daily_price` |
 | 6179 | 亞通 | revenue_breakout_low_response | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/6179_亞通_revenue_breakout_low_response_126d.png` | `data/daily_price` |
 | 2547 | 日勝生 | revenue_breakout_low_response | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/2547_日勝生_revenue_breakout_low_response_126d.png` | `data/daily_price` |
-| 3041 | 揚智 | revenue_breakout_low_response | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/3041_揚智_revenue_breakout_low_response_126d.png` | `data/daily_price` |
 | 2382 | 廣達 | revenue_breakout_low_response | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/2382_廣達_revenue_breakout_low_response_126d.png` | `data/daily_price` |
+| 3706 | 神達 | revenue_breakout_low_response | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/3706_神達_revenue_breakout_low_response_126d.png` | `data/daily_price` |
 | 2241 | 艾姆勒 | revenue_pullback | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/2241_艾姆勒_revenue_pullback_126d.png` | `data/daily_price` |
 | 2347 | 聯強 | revenue_pullback | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/2347_聯強_revenue_pullback_126d.png` | `data/daily_price` |
 | 2404 | 漢唐 | revenue_pullback | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/2404_漢唐_revenue_pullback_126d.png` | `data/daily_price` |
