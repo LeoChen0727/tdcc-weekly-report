@@ -1,6 +1,6 @@
 # Revenue Unreacted Range Revenue Condition Matrix
 
-- generated_at: `2026-07-14 14:45:44 Asia/Taipei`
+- generated_at: `2026-07-14 18:48:40 Asia/Taipei`
 - status: `not_production_ready_research_only`
 - production_change: `none`
 - revenue_join_rule: `source_table_date <= signal_date`

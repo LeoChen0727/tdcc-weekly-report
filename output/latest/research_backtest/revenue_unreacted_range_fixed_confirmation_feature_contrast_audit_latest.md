@@ -1,6 +1,6 @@
 # 營收低反應模型：固定確認口徑勝敗特徵比較
 
-- generated_at: `2026-07-14 14:26:43 Asia/Taipei`
+- generated_at: `2026-07-14 18:35:51 Asia/Taipei`
 - status: `blocked_pending_root_cause_anomaly_candidate_review`
 - 固定候選：強月營收且股價仍在近期 23 日區間、攻擊尚未開始。
 - 固定確認：候選後最多三個交易日，收盤突破候選日前 23 日最高收盤價。

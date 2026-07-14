@@ -1,6 +1,6 @@
 # Revenue Unreacted Range Feature Contrast Audit
 
-- generated_at: `2026-07-14 14:45:45 Asia/Taipei`
+- generated_at: `2026-07-14 18:48:41 Asia/Taipei`
 - status: `research_only_feature_contrast_not_promotion_ready`
 - baseline: strong monthly revenue plus recent 23-day range/no-active-attack proxy; signal-date close confirmation, next trading day open entry, D+20 close exit, no stop.
 - duplicate_control: same-stock 20-trading-day non-overlap; overlap_pair_count must be zero.

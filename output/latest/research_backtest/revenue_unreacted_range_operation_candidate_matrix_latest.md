@@ -1,6 +1,6 @@
 # Revenue Unreacted Range Operation Candidate Matrix
 
-- generated_at: `2026-07-14 14:45:45 Asia/Taipei`
+- generated_at: `2026-07-14 18:48:40 Asia/Taipei`
 - status: `not_production_ready_research_only`
 - production_change: `none`
 - scope: monthly revenue only; quarterly/annual financial statements, EPS, gross margin, operating margin, operating income, non-operating income, and net income are out of scope.

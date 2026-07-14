@@ -1,6 +1,6 @@
 # 營收改善尚未反應模型：重新武裝操作矩陣
 
-- generated_at: `2026-07-14 14:39:13 Asia/Taipei`
+- generated_at: `2026-07-14 18:44:00 Asia/Taipei`
 - model_id: `revenue_unreacted_range`
 - artifact_version: `rearmed_operation_grid_v1_20260713`
 - 狀態：`research_only`，不修改 production registry、operation adapter 或 PDF。
@@ -41,7 +41,7 @@
 | 4916 | 事欣科 | base_close_confirmed | 20251209 | 20251210 | 20260108 | 13.3462 | win | 1 | False |
 | 4916 | 事欣科 | base_close_confirmed | 20260416 | 20260417 | 20260515 | 1.0448 | win | 2 | True |
 | 4916 | 事欣科 | base_close_confirmed | 20260518 | 20260519 | 20260615 | 21.6381 | win | 3 | True |
-| 4916 | 事欣科 | base_close_confirmed | 20260713 |  |  |  |  | 1 | True |
+| 4916 | 事欣科 | base_close_confirmed | 20260713 | nan | nan | nan | nan | 1 | True |
 | 4916 | 事欣科 | delayed_next_close_continuation_bonus | 20251209 | 20251211 | 20260109 | 11.4943 | win | 1 | False |
 | 4916 | 事欣科 | delayed_next_close_continuation_bonus | 20260416 | 20260420 | 20260518 | 8.4548 | win | 2 | True |
 
