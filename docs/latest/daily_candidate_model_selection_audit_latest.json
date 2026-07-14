@@ -6,8 +6,8 @@
     "latest_tdcc_signal_date": "20260703",
     "date_notes": [],
     "all_candidates_rows": 539,
-    "raw_model_signal_rows": 435,
-    "report_model_signal_rows": 435,
+    "raw_model_signal_rows": 434,
+    "report_model_signal_rows": 434,
     "volume_watch_rows": 18,
     "tdcc_short_edge_rows": 33,
     "taxonomy_rows": 2374,
@@ -39,7 +39,7 @@
     "selected_condition_error_count": 0,
     "selected_condition_warning_count": 0,
     "expected_core_model_signal_rows": 299,
-    "actual_core_model_signal_rows": 414,
+    "actual_core_model_signal_rows": 413,
     "missing_core_model_condition_hits": [],
     "extra_core_model_rows_from_external_sources": [
       "hot_theme_pullback/1514",
@@ -113,7 +113,6 @@
       "price_pullback_23ema/2845",
       "price_pullback_23ema/2867",
       "price_pullback_23ema/2880",
-      "price_pullback_23ema/2886",
       "price_pullback_23ema/2890",
       "price_pullback_23ema/3015",
       "price_pullback_23ema/3023",
@@ -141,7 +140,8 @@
       "price_pullback_23ema/6199",
       "price_pullback_23ema/6209",
       "price_pullback_23ema/6215",
-      "price_pullback_23ema/6257"
+      "price_pullback_23ema/6257",
+      "price_pullback_23ema/6409"
     ],
     "expected_volume_breakout_stock_count": 8,
     "expected_volume_breakout_v2_model_stock_count": 8,

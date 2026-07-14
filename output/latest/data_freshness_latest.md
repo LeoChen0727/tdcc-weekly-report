@@ -1,6 +1,6 @@
 # Data Freshness Status
 
-- generated_at: `2026-07-14 06:33:36` Asia/Taipei
+- generated_at: `2026-07-14 16:13:43` Asia/Taipei
 - market_session_status: `open_confirmed`
 - market_session_date: `20260713`
 - expected_main_price_date: `20260713`

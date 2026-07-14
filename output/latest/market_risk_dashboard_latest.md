@@ -1,6 +1,6 @@
 # 市場風險與大盤期權背景
 
-- generated_at: `2026-07-14 06:33:12 Asia/Taipei`
+- generated_at: `2026-07-14 16:13:20 Asia/Taipei`
 - data_date: `20260713`
 - market_regime: `correction`
 - risk_level: `very_high_risk`
@@ -17,7 +17,7 @@
 | futures_contracts | ok | 66 | 20260713 |
 | options_call_put | ok | 30 | 20260713 |
 | put_call_ratio | ok | 19 | 20260713 |
-| taiwan_vix | ok | 69 | 20260713 |
+| taiwan_vix | ok | 70 | 20260714 |
 
 ## 大盤指數結構
 
@@ -91,7 +91,7 @@ Index chart data status: TWSE / TAIEX: standard OHLC K-line data is available wi
 ## VIX Historical Context
 
 - Taiwan VIX latest: `36.62`
-- 252D high / low / percentile: `44.01` / `25.68` / `57.28%`
+- 252D high / low / percentile: `44.01` / `25.68` / `57.69%`
 - 504D percentile: `-`
 - z-score: `0.34`
 - vix_return_5d / 10d / 20d: `0.11%` / `-16.79%` / `-15.97%`

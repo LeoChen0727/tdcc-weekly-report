@@ -90,7 +90,7 @@ signal_date,stock_id,stock_name,consecutive_appear_days_any_category,consecutive
 20260713,6168,宏齊,8,8,5,9,17,20260523,20260713,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
 20260713,3374,精材,8,2,5,9,14,20260523,20260713,true_breakout,continued_overheated,連續上榜但短線過熱，需避免追高並等待量價重新確認。
 20260713,8040,九暘,8,8,5,9,13,20260622,20260713,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20260713,3290,東浦,8,8,5,9,12,20260618,20260713,pattern|revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20260713,3290,東浦,8,8,5,9,12,20260618,20260713,pattern|revenue_breakout_low_response|revenue_pullback,repeated_but_no_breakout,近 10 日上榜 9 次、近 20 日上榜 12 次，但尚未有效突破，需等待攻擊確認。
 20260713,3060,銘異,8,6,5,8,17,20260526,20260713,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
 20260713,5439,高技,8,8,5,8,12,20260524,20260713,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
 20260713,6164,華興,8,3,5,8,12,20260523,20260713,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
@@ -162,7 +162,7 @@ signal_date,stock_id,stock_name,consecutive_appear_days_any_category,consecutive
 20260713,5471,松翰,5,1,5,8,16,20260523,20260713,pattern,repeated_but_no_breakout,近 10 日上榜 8 次、近 20 日上榜 16 次，但尚未有效突破，需等待攻擊確認。
 20260713,6196,帆宣,5,5,5,8,16,20260525,20260713,pattern|revenue_pullback,repeated_but_no_breakout,近 10 日上榜 8 次、近 20 日上榜 16 次，但尚未有效突破，需等待攻擊確認。
 20260713,6179,亞通,5,5,5,8,13,20260523,20260713,range_rebound|revenue_breakout_low_response|revenue_pullback,repeated_but_no_breakout,近 10 日上榜 8 次、近 20 日上榜 13 次，但尚未有效突破，需等待攻擊確認。
-20260713,6414,樺漢,5,2,5,7,15,20260523,20260713,pattern|revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20260713,6414,樺漢,5,2,5,7,15,20260523,20260713,pattern|revenue_breakout_low_response|revenue_pullback,repeated_but_no_breakout,近 10 日上榜 7 次、近 20 日上榜 15 次，但尚未有效突破，需等待攻擊確認。
 20260713,2618,長榮航,5,5,5,7,11,20260526,20260713,pullback_rebound|revenue_pullback,repeated_but_no_breakout,近 10 日上榜 7 次、近 20 日上榜 11 次，但尚未有效突破，需等待攻擊確認。
 20260713,1909,榮成,5,2,5,6,13,20260601,20260713,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
 20260713,2327,國巨*,5,5,5,6,13,20260525,20260713,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
