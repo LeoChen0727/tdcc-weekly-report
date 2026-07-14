@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6781 AES-KY
 
 ## Metadata
-- generated_at: 2026-07-13 22:28:45 Asia/Taipei
+- generated_at: 2026-07-14 22:27:24 Asia/Taipei
 - stock_id: 6781
 - stock_name: AES-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 301
+- latest_price_date: 20260713
+- price_rows: 302
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 1165
-- high: 1175
-- low: 1130
-- close: 1130
-- volume: 735999
-- ma5: 1189
-- ema23_primary: 1171.14
-- distance_to_ema23_pct: -3.51
-- ma20: 1172.75
-- ma60: 1156.72
-- ma120: 1132.24
-- return_5d: -6.22
-- return_20d: 4.63
-- volume_ratio: 0.57
-- distance_to_ma20_pct_auxiliary: -3.65
-- distance_to_high_60_pct: -17.52
+- date: 20260713
+- open: 1145
+- high: 1165
+- low: 1100
+- close: 1105
+- volume: 652214
+- ma5: 1165
+- ema23_primary: 1165.63
+- distance_to_ema23_pct: -5.2
+- ma20: 1170.25
+- ma60: 1158.75
+- ma120: 1130.87
+- return_5d: -9.8
+- return_20d: -4.33
+- volume_ratio: 0.54
+- distance_to_ma20_pct_auxiliary: -5.58
+- distance_to_high_60_pct: -19.34
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,1080,1155,1065,1155,2197628,1150.9,0.36,1160.5,1108.4,1.43
 20260612,1180,1190,1140,1145,1238632,1150.41,-0.47,1159.75,1110.65,0.82
 20260615,1170,1210,1160,1170,1381309,1152.04,1.56,1159,1113.07,0.9
 20260616,1195,1210,1155,1155,1096151,1152.29,0.24,1160.5,1115.65,0.71
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,1260,1290,1175,1175,1759846,1175.78,-0.07,1169.25,1151.18,1.35
 20260708,1200,1265,1155,1165,2075168,1174.88,-0.84,1170.25,1154.15,1.55
 20260709,1165,1175,1130,1130,735999,1171.14,-3.51,1172.75,1156.72,0.57
+20260713,1145,1165,1100,1105,652214,1165.63,-5.2,1170.25,1158.75,0.54
 ```
 
 ## Latest TDCC Snapshot
@@ -199,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 6781 | AES-KY | 168 | 2 | 23106600.0 | 31160.0 | 741.55 | no_signal |
+| 20260713 | 6781 | AES-KY | 169 | 2 | 12615710.0 | 18170.0 | 694.32 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

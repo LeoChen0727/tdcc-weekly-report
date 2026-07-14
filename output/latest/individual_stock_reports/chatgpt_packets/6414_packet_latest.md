@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6414 樺漢
 
 ## Metadata
-- generated_at: 2026-07-13 22:28:33 Asia/Taipei
+- generated_at: 2026-07-14 22:27:17 Asia/Taipei
 - stock_id: 6414
 - stock_name: 樺漢
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 301
+- latest_price_date: 20260713
+- price_rows: 302
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 405
-- high: 412.5
-- low: 393
-- close: 394
-- volume: 2077639
-- ma5: 391.5
-- ema23_primary: 377.81
-- distance_to_ema23_pct: 4.29
-- ma20: 378.4
-- ma60: 355.48
-- ma120: 318.18
-- return_5d: 5.49
-- return_20d: 1.55
-- volume_ratio: 1.19
-- distance_to_ma20_pct_auxiliary: 4.12
-- distance_to_high_60_pct: -5.74
+- date: 20260713
+- open: 394.5
+- high: 407.5
+- low: 384
+- close: 388.5
+- volume: 1800091
+- ma5: 394.1
+- ema23_primary: 378.7
+- distance_to_ema23_pct: 2.59
+- ma20: 378.07
+- ma60: 357.05
+- ma120: 319.02
+- return_5d: 3.46
+- return_20d: -1.65
+- volume_ratio: 1.04
+- distance_to_ma20_pct_auxiliary: 2.76
+- distance_to_high_60_pct: -7.06
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,391,400.5,385,395,2039301,365.73,8,363.15,322.82,0.93
 20260612,409,409,375.5,375.5,2474722,366.54,2.44,365.95,324.48,1.19
 20260615,382.5,389,378.5,381.5,2657589,367.79,3.73,368.98,326.19,1.28
 20260616,368.5,376,360,367,2815669,367.72,-0.2,370.93,327.78,1.36
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,398.5,418,397,400,3996573,373.82,7,377.95,351.88,2.19
 20260708,404,410,393,404,2230359,376.34,7.35,378.1,353.82,1.27
 20260709,405,412.5,393,394,2077639,377.81,4.29,378.4,355.48,1.19
+20260713,394.5,407.5,384,388.5,1800091,378.7,2.59,378.07,357.05,1.04
 ```
 
 ## Latest TDCC Snapshot
@@ -189,19 +189,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 6414 | 樺漢 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/14 1.召開法人說明會之日期：115/07/14 2.召開法人說明會之時間：14 時 20 分  3.召開法人說明會之地點：政大公企中心A棟1034會議室 (台北市金華街187號10樓) 4.法人說明會擇要訊息：本公司受邀參加福邦證券主辦鴻海暨轉投資企業主題系列座談，說明本公司產業概況 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
-| 20260709 | 6414 | 樺漢 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/14 1.召開法人說明會之日期：115/07/14 2.召開法人說明會之時間：14 時 20 分  3.召開法人說明會之地點：政大公企中心A棟1034會議室 (台北市金華街187號10樓) 4.法人說明會擇要訊息：本公司受邀參加福邦證券主辦鴻海暨轉投資企業主題系列座談，說明本公司產業概況 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260709 | 6414 | 樺漢 | revenue_breakout_low_response | 營收爆發低反應股 | 14.0 | 23.0 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/14 1.召開法人說明會之日期：115/07/14 2.召開法人說明會之時間：14 時 20 分  3.召開法人說明會之地點：政大公企中心A棟1034會議室 (台北市金華街187號10樓) 4.法人說明會擇要訊息：本公司受邀參加福邦證券主辦鴻海暨轉投資企業主題系列座談，說明本公司產業概況 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260713 | 6414 | 樺漢 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | repeated_but_no_breakout | 符合條款第四條第XX款：12 事實發生日：115/07/14 1.召開法人說明會之日期：115/07/14 2.召開法人說明會之時間：14 時 20 分  3.召開法人說明會之地點：政大公企中心A棟1034會議室 (台北市金華街187號10樓) 4.法人說明會擇要訊息：本公司受邀參加福邦證券主辦鴻海暨轉投資企業主題系列座談，說明本公司產業概況 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260713 | 6414 | 樺漢 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | no_signal | repeated_but_no_breakout | 符合條款第四條第XX款：12 事實發生日：115/07/14 1.召開法人說明會之日期：115/07/14 2.召開法人說明會之時間：14 時 20 分  3.召開法人說明會之地點：政大公企中心A棟1034會議室 (台北市金華街187號10樓) 4.法人說明會擇要訊息：本公司受邀參加福邦證券主辦鴻海暨轉投資企業主題系列座談，說明本公司產業概況 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260713 | 6414 | 樺漢 | revenue_breakout_low_response | 營收爆發低反應股 | 19.0 | 4.0 | A_優先追蹤 |  |  | no_signal | repeated_but_no_breakout | 符合條款第四條第XX款：12 事實發生日：115/07/14 1.召開法人說明會之日期：115/07/14 2.召開法人說明會之時間：14 時 20 分  3.召開法人說明會之地點：政大公企中心A棟1034會議室 (台北市金華街187號10樓) 4.法人說明會擇要訊息：本公司受邀參加福邦證券主辦鴻海暨轉投資企業主題系列座談，說明本公司產業概況 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 6414 | 樺漢 | 4 | 1 | 4 | 7 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260713 | 6414 | 樺漢 | 5 | 2 | 5 | 7 | 15 | repeated_but_no_breakout | 近 10 日上榜 7 次、近 20 日上榜 15 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 6414 | 樺漢 | 32 | 0 | 4241700.0 | 0.0 |  | no_signal |
+| 20260713 | 6414 | 樺漢 | 35 | 0 | 3959610.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

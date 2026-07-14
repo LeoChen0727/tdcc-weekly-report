@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1514 亞力
 
 ## Metadata
-- generated_at: 2026-07-13 22:26:55 Asia/Taipei
+- generated_at: 2026-07-14 22:26:22 Asia/Taipei
 - stock_id: 1514
 - stock_name: 亞力
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 301
+- latest_price_date: 20260713
+- price_rows: 302
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 123.5
-- high: 123.5
-- low: 120.5
-- close: 122.5
-- volume: 3529449
-- ma5: 122.9
-- ema23_primary: 122.95
-- distance_to_ema23_pct: -0.37
-- ma20: 122.4
-- ma60: 120.68
-- ma120: 118.48
-- return_5d: 0.82
-- return_20d: 2.94
-- volume_ratio: 0.6
-- distance_to_ma20_pct_auxiliary: 0.08
-- distance_to_high_60_pct: -18.06
+- date: 20260713
+- open: 123
+- high: 123
+- low: 118.5
+- close: 120.5
+- volume: 2748300
+- ma5: 122.4
+- ema23_primary: 122.75
+- distance_to_ema23_pct: -1.83
+- ma20: 122.53
+- ma60: 120.88
+- ma120: 118.68
+- return_5d: -2.03
+- return_20d: 2.12
+- volume_ratio: 0.47
+- distance_to_ma20_pct_auxiliary: -1.65
+- distance_to_high_60_pct: -19.4
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,118,119.5,114,118,4230037,123.89,-4.75,124,116.27,0.49
 20260612,122,122.5,119.5,119.5,3875069,123.52,-3.26,124.15,116.3,0.45
 20260615,121.5,122.5,120,121,3092853,123.31,-1.88,124.42,116.33,0.36
 20260616,122.5,123,118,120,2636871,123.04,-2.47,124.75,116.37,0.31
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,127.5,128.5,120,121,7006389,123.13,-1.73,122.42,120.18,1.1
 20260708,120.5,122,118.5,121.5,2689538,122.99,-1.21,122.22,120.43,0.45
 20260709,123.5,123.5,120.5,122.5,3529449,122.95,-0.37,122.4,120.68,0.6
+20260713,123,123,118.5,120.5,2748300,122.75,-1.83,122.53,120.88,0.47
 ```
 
 ## Latest TDCC Snapshot
@@ -188,17 +188,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 1514 | 亞力 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/06/18 2.公司名稱:亞力電機股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由::本公司依據金融監督管理委員會114年5月5日金管證發 字第1140382105號函規定，修訂「國內第二次無擔保轉換公司債發行　 及轉換辦法」，業經金融監督管理委員會115年6月17日金管證發字 第1150140794號函申報生效在案。 6.因應措施:無。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 本公司「國內第二次無擔保轉換公司債發行及轉換辦法」修訂條文對照內容，請參閱　 本公司115年03月12日發布之重大訊息，申報核准後完整「國內第二次無擔保轉換公司 債發行及轉換辦法」，請至公開資訊觀測站「債券發行資料查詢」。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260713 | 1514 | 亞力 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/06/18 2.公司名稱:亞力電機股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由::本公司依據金融監督管理委員會114年5月5日金管證發 字第1140382105號函規定，修訂「國內第二次無擔保轉換公司債發行　 及轉換辦法」，業經金融監督管理委員會115年6月17日金管證發字 第1150140794號函申報生效在案。 6.因應措施:無。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 本公司「國內第二次無擔保轉換公司債發行及轉換辦法」修訂條文對照內容，請參閱　 本公司115年03月12日發布之重大訊息，申報核准後完整「國內第二次無擔保轉換公司 債發行及轉換辦法」，請至公開資訊觀測站「債券發行資料查詢」。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 1514 | 亞力 | 1 | 1 | 2 | 3 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260713 | 1514 | 亞力 | 2 | 2 | 3 | 4 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 1514 | 亞力 | 65 | 2 | 1628440.0 | 93600.0 | 17.4 | no_signal |
+| 20260713 | 1514 | 亞力 | 67 | 2 | 1704310.0 | 19880.0 | 85.73 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

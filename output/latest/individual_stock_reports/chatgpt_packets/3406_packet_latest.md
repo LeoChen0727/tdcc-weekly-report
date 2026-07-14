@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3406 玉晶光
 
 ## Metadata
-- generated_at: 2026-07-13 22:27:44 Asia/Taipei
+- generated_at: 2026-07-14 22:26:49 Asia/Taipei
 - stock_id: 3406
 - stock_name: 玉晶光
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 301
+- latest_price_date: 20260713
+- price_rows: 302
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 615
-- high: 634
-- low: 615
-- close: 616
-- volume: 1706211
-- ma5: 625.2
-- ema23_primary: 655.63
-- distance_to_ema23_pct: -6.04
-- ma20: 686.8
-- ma60: 602.95
-- ma120: 524.56
-- return_5d: -4.35
-- return_20d: -9.01
-- volume_ratio: 0.44
-- distance_to_ma20_pct_auxiliary: -10.31
-- distance_to_high_60_pct: -22.61
+- date: 20260713
+- open: 634
+- high: 650
+- low: 609
+- close: 609
+- volume: 2579835
+- ma5: 619.8
+- ema23_primary: 651.75
+- distance_to_ema23_pct: -6.56
+- ma20: 682.6
+- ma60: 604.62
+- ma120: 525.98
+- return_5d: -4.25
+- return_20d: -12.12
+- volume_ratio: 0.7
+- distance_to_ma20_pct_auxiliary: -10.78
+- distance_to_high_60_pct: -23.49
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,679,729,672,693,6775271,612.24,13.19,612.6,529.14,1.73
 20260612,730,739,657,662,5151367,616.38,7.4,616.3,532.74,1.37
 20260615,671,728,662,728,5145809,625.68,16.35,623.85,537.41,1.36
 20260616,731,770,729,744,7746559,635.54,17.07,633.2,542.33,1.99
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,653,660,606,609,2286680,663.53,-8.22,695.2,599.13,0.51
 20260708,610,620,598,612,2239496,659.24,-7.17,689.85,601.32,0.5
 20260709,615,634,615,616,1706211,655.63,-6.04,686.8,602.95,0.44
+20260713,634,650,609,609,2579835,651.75,-6.56,682.6,604.62,0.7
 ```
 
 ## Latest TDCC Snapshot
@@ -198,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 3406 | 玉晶光 | 97 | 3 | 9796110.0 | 5640.0 | 1736.9 | no_signal |
+| 20260713 | 3406 | 玉晶光 | 97 | 3 | 11363020.0 | 9400.0 | 1208.83 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

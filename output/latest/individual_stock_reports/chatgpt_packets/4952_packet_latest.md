@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4952 凌通
 
 ## Metadata
-- generated_at: 2026-07-13 22:28:09 Asia/Taipei
+- generated_at: 2026-07-14 22:27:03 Asia/Taipei
 - stock_id: 4952
 - stock_name: 凌通
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 301
+- latest_price_date: 20260713
+- price_rows: 302
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 58.5
-- high: 60.6
-- low: 57.8
-- close: 57.8
-- volume: 2408966
-- ma5: 58.1
-- ema23_primary: 56.16
-- distance_to_ema23_pct: 2.93
-- ma20: 57.13
-- ma60: 52.06
-- ma120: 46.5
-- return_5d: -3.34
-- return_20d: 22.59
-- volume_ratio: 1.05
-- distance_to_ma20_pct_auxiliary: 1.16
-- distance_to_high_60_pct: -6.32
+- date: 20260713
+- open: 58.4
+- high: 58.4
+- low: 54.8
+- close: 55.5
+- volume: 1078918
+- ma5: 57.18
+- ema23_primary: 56.1
+- distance_to_ema23_pct: -1.07
+- ma20: 57.32
+- ma60: 52.29
+- ma120: 46.66
+- return_5d: -7.65
+- return_20d: 7.14
+- volume_ratio: 0.47
+- distance_to_ma20_pct_auxiliary: -3.18
+- distance_to_high_60_pct: -10.05
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,47.5,51.8,47.5,51.8,1522783,50.23,3.13,51.24,46.95,1.07
 20260612,55,56.6,53.5,53.8,4641901,50.52,6.48,51.42,47.11,2.91
 20260615,53.9,59,53.9,58.5,4851326,51.19,14.28,51.85,47.33,2.67
 20260616,59,59,55.5,56,2896170,51.59,8.55,52.26,47.55,1.5
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,59.2,59.5,55.7,56,976394,55.88,0.21,56.19,51.55,0.45
 20260708,56.5,58.6,55.3,57.4,935221,56.01,2.49,56.6,51.8,0.43
 20260709,58.5,60.6,57.8,57.8,2408966,56.16,2.93,57.13,52.06,1.05
+20260713,58.4,58.4,54.8,55.5,1078918,56.1,-1.07,57.32,52.29,0.47
 ```
 
 ## Latest TDCC Snapshot
@@ -189,13 +189,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 4952 | 凌通 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
-| 20260709 | 4952 | 凌通 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260713 | 4952 | 凌通 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260713 | 4952 | 凌通 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 4952 | 凌通 | 1 | 1 | 2 | 5 | 12 | repeated_but_no_breakout | 近 10 日上榜 5 次、近 20 日上榜 12 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260713 | 4952 | 凌通 | 2 | 2 | 2 | 6 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2881 富邦金
 
 ## Metadata
-- generated_at: 2026-07-13 22:27:29 Asia/Taipei
+- generated_at: 2026-07-14 22:26:41 Asia/Taipei
 - stock_id: 2881
 - stock_name: 富邦金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 301
+- latest_price_date: 20260713
+- price_rows: 302
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 129
-- high: 129
-- low: 122.5
-- close: 124.5
-- volume: 25388785
-- ma5: 123.2
-- ema23_primary: 123.81
-- distance_to_ema23_pct: 0.56
-- ma20: 128.85
-- ma60: 108.71
-- ma120: 99.92
-- return_5d: 4.18
-- return_20d: 1.63
-- volume_ratio: 0.69
-- distance_to_ma20_pct_auxiliary: -3.38
-- distance_to_high_60_pct: -11.7
+- date: 20260713
+- open: 125.5
+- high: 127.5
+- low: 124.5
+- close: 127
+- volume: 24403302
+- ma5: 124.4
+- ema23_primary: 124.07
+- distance_to_ema23_pct: 2.36
+- ma20: 128.93
+- ma60: 109.36
+- ma120: 100.18
+- return_5d: 4.96
+- return_20d: 1.2
+- volume_ratio: 0.7
+- distance_to_ma20_pct_auxiliary: -1.49
+- distance_to_high_60_pct: -9.93
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,125,127.5,121.5,125.5,62123741,109.25,14.87,108.23,95.69,0.87
 20260612,127,129,120.5,122,42713760,110.31,10.6,109.53,96.22,0.62
 20260615,126,128,124.5,127.5,25895319,111.74,14.1,111.14,96.86,0.38
 20260616,128.5,132.5,127.5,132,40287477,113.43,16.37,112.89,97.59,0.58
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,121.5,123.5,121,123,21149786,123.54,-0.44,128.7,107.44,0.5
 20260708,124,126,122.5,126,26060066,123.74,1.82,128.75,108.09,0.67
 20260709,129,129,122.5,124.5,25388785,123.81,0.56,128.85,108.71,0.69
+20260713,125.5,127.5,124.5,127,24403302,124.07,2.36,128.93,109.36,0.7
 ```
 
 ## Latest TDCC Snapshot
@@ -189,17 +189,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 2881 | 富邦金 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.董事會決議日期:NA 2.名稱﹝XX公司第X次（有、無）擔保公司債﹞: 富邦銀行（香港）有限公司第二類次順位債券 3.是否採總括申報發行公司債(是/否):否 4.發行總額:美元3億元整 5.每張面額:美元25萬元整 6.發行價格:99.641 7.發行期間:10年期 8.發行利率:第 1-5 年：5.375%； 第 5 年及以後：第 5 年重置為當時的 5 年期美國公債 利率加上固定的初始利差1.23% 9.擔保品之種類、名稱、金額及約定事項:無 10.募得價款之用途及運用計畫:優化銀行資本結構，提升資本實力， 以促進銀行業務的永續成長與發展。 11.承銷方式:依美國聯邦證券法《證券法》Regulation S規定於美國境外銷售。 12.公司債受託人:The Bank of New York Mellon, London Branch 13.承銷或代銷機構:Credit Agricole Corporate and Investment Bank, The Hongkong and Shanghai Banking Corporation Limited and UBS AG Hong Kong Branch 14.發行保證人:無 15.代理還本付息機構:The Bank of New York Mellon, London Branch 16.簽證機構:不適用 17.能轉換股份者，其轉換辦法:不適用 18.賣回條件:無 19.買回條件:可於2031年7月14日作一次性全數贖回。另出於稅務、稅款扣除和監管 原因，可額外選擇贖回。在任何情況下，贖回金額均為未償還本金及截至贖回日 （不含當日）的應計利息，但須根據無法持續經營事件(Non-Viability Event)發生後 的調整情況而定。所有贖回均須事先獲得香港金融管理局的書面同意。 20.附有轉換、交換或認股者，其換股基準日:不適用 21.附有轉換、交換或認股者，對股權可能稀釋情形:不適用 22.現金減資後再行募資之合理性及必要性 (募資當年度及前一年度有辦理現金減資者適用):不適用 23.其他應敘明事項:本票據於發生無法持續經營事件(Non-Viability Event)時， 將依契約約定進行本金減記。本票據之發行條款及條件明定， 票據持有人確認並同意香港《金融機構（處置機制）條例》（香港法例第628章） （及其不時之修訂或替代法規）所賦予相關權力之約束。本票據將向香港聯合 交易所有限公司申請上市，並申請核准僅向專業投資者發行之債務證券買賣。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260713 | 2881 | 富邦金 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.董事會決議日期:NA 2.名稱﹝XX公司第X次（有、無）擔保公司債﹞: 富邦銀行（香港）有限公司第二類次順位債券 3.是否採總括申報發行公司債(是/否):否 4.發行總額:美元3億元整 5.每張面額:美元25萬元整 6.發行價格:99.641 7.發行期間:10年期 8.發行利率:第 1-5 年：5.375%； 第 5 年及以後：第 5 年重置為當時的 5 年期美國公債 利率加上固定的初始利差1.23% 9.擔保品之種類、名稱、金額及約定事項:無 10.募得價款之用途及運用計畫:優化銀行資本結構，提升資本實力， 以促進銀行業務的永續成長與發展。 11.承銷方式:依美國聯邦證券法《證券法》Regulation S規定於美國境外銷售。 12.公司債受託人:The Bank of New York Mellon, London Branch 13.承銷或代銷機構:Credit Agricole Corporate and Investment Bank, The Hongkong and Shanghai Banking Corporation Limited and UBS AG Hong Kong Branch 14.發行保證人:無 15.代理還本付息機構:The Bank of New York Mellon, London Branch 16.簽證機構:不適用 17.能轉換股份者，其轉換辦法:不適用 18.賣回條件:無 19.買回條件:可於2031年7月14日作一次性全數贖回。另出於稅務、稅款扣除和監管 原因，可額外選擇贖回。在任何情況下，贖回金額均為未償還本金及截至贖回日 （不含當日）的應計利息，但須根據無法持續經營事件(Non-Viability Event)發生後 的調整情況而定。所有贖回均須事先獲得香港金融管理局的書面同意。 20.附有轉換、交換或認股者，其換股基準日:不適用 21.附有轉換、交換或認股者，對股權可能稀釋情形:不適用 22.現金減資後再行募資之合理性及必要性 (募資當年度及前一年度有辦理現金減資者適用):不適用 23.其他應敘明事項:本票據於發生無法持續經營事件(Non-Viability Event)時， 將依契約約定進行本金減記。本票據之發行條款及條件明定， 票據持有人確認並同意香港《金融機構（處置機制）條例》（香港法例第628章） （及其不時之修訂或替代法規）所賦予相關權力之約束。本票據將向香港聯合 交易所有限公司申請上市，並申請核准僅向專業投資者發行之債務證券買賣。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 2881 | 富邦金 | 6 | 5 | 5 | 9 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260713 | 2881 | 富邦金 | 7 | 6 | 5 | 9 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 2881 | 富邦金 | 33 | 0 | 3848420.0 | 0.0 |  | no_signal |
+| 20260713 | 2881 | 富邦金 | 35 | 0 | 5046590.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

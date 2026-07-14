@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6669 緯穎
 
 ## Metadata
-- generated_at: 2026-07-13 22:28:42 Asia/Taipei
+- generated_at: 2026-07-14 22:27:21 Asia/Taipei
 - stock_id: 6669
 - stock_name: 緯穎
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 301
+- latest_price_date: 20260713
+- price_rows: 302
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 5020
-- high: 5215
-- low: 4945
-- close: 5040
-- volume: 2293598
-- ma5: 5081
-- ema23_primary: 4971.14
-- distance_to_ema23_pct: 1.39
-- ma20: 4877.75
-- ma60: 4948.83
-- ma120: 4379.58
-- return_5d: -3.08
-- return_20d: -0.49
-- volume_ratio: 1.27
-- distance_to_ma20_pct_auxiliary: 3.33
-- distance_to_high_60_pct: -14.29
+- date: 20260713
+- open: 5170
+- high: 5230
+- low: 4940
+- close: 4960
+- volume: 1106711
+- ma5: 5020
+- ema23_primary: 4970.21
+- distance_to_ema23_pct: -0.21
+- ma20: 4880.75
+- ma60: 4969.5
+- ma120: 4382
+- return_5d: -5.79
+- return_20d: 1.22
+- volume_ratio: 0.65
+- distance_to_ma20_pct_auxiliary: 1.62
+- distance_to_high_60_pct: -15.65
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,5000,5040,4745,4900,2945125,5198.11,-5.74,5279.75,4545,1.41
 20260612,5120,5135,4845,4850,1921274,5169.1,-6.17,5266.5,4559.75,0.93
 20260615,5010,5040,4880,4900,1005218,5146.68,-4.79,5257,4577.67,0.49
 20260616,5030,5085,4880,4880,1814616,5124.45,-4.77,5256.5,4596.25,0.88
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,5025,5235,5010,5015,2053738,4957.14,1.17,4891.5,4904,1.13
 20260708,5075,5085,4900,5050,1002340,4964.88,1.71,4879,4927.42,0.56
 20260709,5020,5215,4945,5040,2293598,4971.14,1.39,4877.75,4948.83,1.27
+20260713,5170,5230,4940,4960,1106711,4970.21,-0.21,4880.75,4969.5,0.65
 ```
 
 ## Latest TDCC Snapshot
@@ -188,18 +188,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 6669 | 緯穎 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | stale_signal | 1.事實發生日:115/07/01 2.捐贈原由:捐贈財團法人緯穎永續基金會115年度營運基金。 3.捐贈金額:新台幣19,018,729元 4.受贈對象:財團法人緯穎永續基金會 5.與公司關係:本公司捐助成立之基金會 6.表示反對或保留意見之獨立董事姓名及簡歷:無。 7.前揭獨立董事表示反對或保留之意見:無。 8.其他應敘明事項:相關捐贈事宜授權董事長全權處理。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
-| 20260709 | 6669 | 緯穎 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/07/01 2.捐贈原由:捐贈財團法人緯穎永續基金會115年度營運基金。 3.捐贈金額:新台幣19,018,729元 4.受贈對象:財團法人緯穎永續基金會 5.與公司關係:本公司捐助成立之基金會 6.表示反對或保留意見之獨立董事姓名及簡歷:無。 7.前揭獨立董事表示反對或保留之意見:無。 8.其他應敘明事項:相關捐贈事宜授權董事長全權處理。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260713 | 6669 | 緯穎 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.事實發生日:115/07/01 2.捐贈原由:捐贈財團法人緯穎永續基金會115年度營運基金。 3.捐贈金額:新台幣19,018,729元 4.受贈對象:財團法人緯穎永續基金會 5.與公司關係:本公司捐助成立之基金會 6.表示反對或保留意見之獨立董事姓名及簡歷:無。 7.前揭獨立董事表示反對或保留之意見:無。 8.其他應敘明事項:相關捐贈事宜授權董事長全權處理。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260713 | 6669 | 緯穎 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/07/01 2.捐贈原由:捐贈財團法人緯穎永續基金會115年度營運基金。 3.捐贈金額:新台幣19,018,729元 4.受贈對象:財團法人緯穎永續基金會 5.與公司關係:本公司捐助成立之基金會 6.表示反對或保留意見之獨立董事姓名及簡歷:無。 7.前揭獨立董事表示反對或保留之意見:無。 8.其他應敘明事項:相關捐贈事宜授權董事長全權處理。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 6669 | 緯穎 | 3 | 3 | 4 | 6 | 8 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260713 | 6669 | 緯穎 | 4 | 4 | 4 | 7 | 8 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 6669 | 緯穎 | 379 | 32 | 64929200.0 | 370330.0 | 175.33 | no_signal |
+| 20260713 | 6669 | 緯穎 | 377 | 30 | 47310930.0 | 524670.0 | 90.17 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

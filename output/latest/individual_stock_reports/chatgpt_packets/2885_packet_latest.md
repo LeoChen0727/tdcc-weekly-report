@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2885 元大金
 
 ## Metadata
-- generated_at: 2026-07-13 22:27:29 Asia/Taipei
+- generated_at: 2026-07-14 22:26:41 Asia/Taipei
 - stock_id: 2885
 - stock_name: 元大金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 301
+- latest_price_date: 20260713
+- price_rows: 302
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 71.9
-- high: 72.3
+- date: 20260713
+- open: 70.1
+- high: 70.3
 - low: 68.3
 - close: 68.3
-- volume: 29448873
-- ma5: 69.04
-- ema23_primary: 65.96
-- distance_to_ema23_pct: 3.55
-- ma20: 66.76
-- ma60: 59.45
-- ma120: 51.84
-- return_5d: 3.8
-- return_20d: 9.63
-- volume_ratio: 1
-- distance_to_ma20_pct_auxiliary: 2.31
+- volume: 19474705
+- ma5: 69.26
+- ema23_primary: 66.15
+- distance_to_ema23_pct: 3.24
+- ma20: 67.09
+- ma60: 59.75
+- ma120: 52.07
+- return_5d: 1.64
+- return_20d: 10.88
+- volume_ratio: 0.68
+- distance_to_ma20_pct_auxiliary: 1.8
 - distance_to_high_60_pct: -5.53
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,62.3,62.3,60.7,61.6,30141911,59.28,3.91,59.13,52.77,0.85
 20260612,63,64.1,62.6,63.9,23267953,59.67,7.09,59.59,53.09,0.66
 20260615,66,66,64.6,65,16187794,60.11,8.13,60.12,53.43,0.46
 20260616,65.6,66.5,64.8,65.4,26712275,60.55,8.01,60.66,53.78,0.77
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,68.2,71.9,68.1,69.8,36328703,65.22,7.02,66.12,58.74,1.23
 20260708,71,71.5,69.9,71.5,27763768,65.75,8.75,66.46,59.14,0.94
 20260709,71.9,72.3,68.3,68.3,29448873,65.96,3.55,66.76,59.45,1
+20260713,70.1,70.3,68.3,68.3,19474705,66.15,3.24,67.09,59.75,0.68
 ```
 
 ## Latest TDCC Snapshot
@@ -189,17 +189,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 2885 | 元大金 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | repeated_but_no_breakout | 1. 原公告日期： 114/03/31 2. 簡述原公告申報內容： 元大人壽向關係人元大銀行取得台北市大安區仁愛路三段157號18樓部分面積： (1)租賃面積：約32.71坪 (2)每單位價格:每坪每月租金新台幣3,970元(含稅)  (3)租金總金額:每月新台幣129,859元(含稅) (4)使用權資產金額:新台幣765,260元(含稅) (5)租賃期間：自民國114年4月25日至民國118年4月10日 3. 變動緣由及主要內容： 為提升營運效率，將辦理辦公場所遷址，故提前於民國115年7月24日終止租賃契約 4. 變動後對公司財務業務之影響： 無重大影響 5. 其他應敘明事項： 無；calendar event: ex_dividend on 20260721; status=confirmed; proximity=within_14d |
+| 20260713 | 2885 | 元大金 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.事實發生日:115/07/13 2.公司名稱:元大金融控股股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:公告本公司及重要子公司自行結算115年6月份獲利情形                      6月份                 累積至6月份 　　　　　　 ------------------ ------------------------------- 　             合併    母公司      合併    母公司 　             稅前    業主稅後    稅前    業主稅後    稅後每股 　　　　　　  (億元)   (億元)     (億元)   (億元)      盈餘(元) 　           -------- ---------- --------- ---------  ---------- 元大金控      86.80     75.12     467.93   365.72       2.74 元大證券      58.85     54.48     309.69   245.28       3.72 元大銀行      16.70     14.80      91.51    76.92       0.88 元大期貨       4.38      3.51      19.61    15.44       4.82 元大人壽       2.24      2.16      27.52    24.41       0.84 元大投信       7.77      6.25      36.82    29.67      13.08 註：累計6月未適用外匯價格變動準備金之EPS(元) 元大金控：2.77 元大人壽：0.96   以上資料係本公司自行結算結果，尚未經會計師查核簽證。  6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: ex_dividend on 20260721; status=confirmed; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 2885 | 元大金 | 13 | 2 | 5 | 10 | 17 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 17 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260713 | 2885 | 元大金 | 14 | 3 | 5 | 10 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 2885 | 元大金 | 15 | 0 | 1590090.0 | 0.0 |  | no_signal |
+| 20260713 | 2885 | 元大金 | 15 | 0 | 1607220.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

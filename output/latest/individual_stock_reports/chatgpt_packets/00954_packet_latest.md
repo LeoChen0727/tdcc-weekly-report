@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00954 中信日本半導體
 
 ## Metadata
-- generated_at: 2026-07-13 22:26:46 Asia/Taipei
+- generated_at: 2026-07-14 22:26:17 Asia/Taipei
 - stock_id: 00954
 - stock_name: 中信日本半導體
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260709
-- price_rows: 34
+- latest_price_date: 20260713
+- price_rows: 35
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 21.04
-- high: 21.35
-- low: 20.92
+- date: 20260713
+- open: 21.64
+- high: 21.83
+- low: 21.02
 - close: 21.02
-- volume: 1745921
-- ma5: 21.27
+- volume: 2587947
+- ma5: 21.07
 - ema23_primary: 20.94
-- distance_to_ema23_pct: 0.39
-- ma20: 21.41
-- ma60: 20.2
-- ma120: 20.2
-- return_5d: -4.19
-- return_20d: 15.37
-- volume_ratio: 0.36
-- distance_to_ma20_pct_auxiliary: -1.84
+- distance_to_ema23_pct: 0.36
+- ma20: 21.54
+- ma60: 20.23
+- ma120: 20.23
+- return_5d: -4.63
+- return_20d: 13.93
+- volume_ratio: 0.56
+- distance_to_ma20_pct_auxiliary: -2.43
 - distance_to_high_60_pct: -10.17
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,17.83,18.52,17.83,18.45,8487897,18.28,0.95,18.47,18.47,1.59
 20260612,19.69,20.03,19.6,19.93,4927841,18.41,8.23,18.57,18.57,0.93
 20260615,20.8,21.12,20.75,21.08,6551283,18.64,13.11,18.71,18.71,1.22
 20260616,21.09,21.2,20.76,21.02,6883589,18.84,11.6,18.84,18.84,1.26
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,21.51,21.55,20.94,20.96,3617134,20.97,-0.05,21.18,20.17,0.69
 20260708,20.96,20.96,20.43,20.5,3545076,20.93,-2.06,21.27,20.18,0.7
 20260709,21.04,21.35,20.92,21.02,1745921,20.94,0.39,21.41,20.2,0.36
+20260713,21.64,21.83,21.02,21.02,2587947,20.94,0.36,21.54,20.23,0.56
 ```
 
 ## Latest TDCC Snapshot

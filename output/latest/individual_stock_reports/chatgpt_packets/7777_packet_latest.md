@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7777 能率亞洲
 
 ## Metadata
-- generated_at: 2026-07-13 22:29:00 Asia/Taipei
+- generated_at: 2026-07-14 22:27:32 Asia/Taipei
 - stock_id: 7777
 - stock_name: 能率亞洲
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 131
+- latest_price_date: 20260713
+- price_rows: 132
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
+- date: 20260713
 - open: 41.1
 - high: 41.65
-- low: 40.5
-- close: 40.6
-- volume: 1263000
-- ma5: 41.53
-- ema23_primary: 40.63
-- distance_to_ema23_pct: -0.06
-- ma20: 41.45
-- ma60: 35.49
-- ma120: 32.52
-- return_5d: -4.81
-- return_20d: 6.28
-- volume_ratio: 0.24
-- distance_to_ma20_pct_auxiliary: -2.04
-- distance_to_high_60_pct: -16.29
+- low: 39.1
+- close: 39.25
+- volume: 1306000
+- ma5: 40.88
+- ema23_primary: 40.51
+- distance_to_ema23_pct: -3.11
+- ma20: 41.53
+- ma60: 35.69
+- ma120: 32.63
+- return_5d: -7.65
+- return_20d: 4.53
+- volume_ratio: 0.25
+- distance_to_ma20_pct_auxiliary: -5.5
+- distance_to_high_60_pct: -19.07
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,37.1,38.15,36.1,37.55,1849000,36.51,2.85,37.42,30.58,0.84
 20260612,40,40.5,38.6,40,3118000,36.8,8.69,37.63,30.77,2.05
 20260615,40.3,41.6,39.25,39.35,3454000,37.01,6.31,37.87,30.94,2.29
 20260616,40,43.25,39.6,43.25,13087000,37.53,15.23,38.3,31.2,7.49
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,42,43.8,40.3,41.8,4379000,40.59,2.97,41.26,34.96,0.81
 20260708,42.15,42.8,40.85,41,1759000,40.63,0.92,41.33,35.25,0.33
 20260709,41.1,41.65,40.5,40.6,1263000,40.63,-0.06,41.45,35.49,0.24
+20260713,41.1,41.65,39.1,39.25,1306000,40.51,-3.11,41.53,35.69,0.25
 ```
 
 ## Latest TDCC Snapshot
@@ -189,12 +189,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 7777 | 能率亞洲 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260713 | 7777 | 能率亞洲 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.標的物之名稱及性質（如坐落台中市北區ＸＸ段ＸＸ小段土地）: 臺北市南京東路三段248號6樓之2 2.事實發生日:115/7/13~115/7/13 3.董事會通過日期: 民國115年7月13日 4.其他核決日期: 不適用 5.交易單位數量（如ＸＸ平方公尺，折合ＸＸ坪）、每單位價格及交易總金額: (1)租賃面積：租賃範圍約65坪。 (2)租期及每月租金：115/7/1-116/8/31，每月租金計新台幣142,857(未稅)元整。 (3)使用權資產總金額：新台幣2,536,644元整。 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之關 係人者，得免揭露其姓名）: (1)交易相對人:英屬維京群島商能率資本管理顧問有限公司台灣分公司 (2)與公司之關係：關係人 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移轉之 所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次移轉日期 及移轉金額: 選定關係人為交易對象之原因：此租賃物件條件符合公司整體營運需求 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係 人之取得及處分日期、價格及交易當時與公司之關係: 不適用 9.預計處分利益（或損失）（取得資產者不適用）（遞延者應列表說明 認列情形）: 不適用 10.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: (1)交付或付款條件：依租賃合約辦理 (2)契約限制條款：無 (3)其他重要約定事項：無 11.本次交易之決定方式（如招標、比價或議價）、價格決定之參考依據及 決策單位: (1)決定方式：雙方議定 (2)價格決定之參考依據：參考鄰近地區租金行情議價 (3)決策單位：董事會 12.專業估價者事務所或公司名稱及其估價金額: 不適用 13.專業估價師姓名: 不適用 14.專業估價師開業證書字號: 不適用 15.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 16.是否尚未取得估價報告:否或不適用 17.尚未取得估價報告之原因: 不適用 18.估價結果有重大差異時，其差異原因及會計師意見: 不適用 19.會計師事務所名稱: 不適用 20.會計師姓名: 不適用 21.會計師開業證書字號: 不適用 22.經紀人及經紀費用: 不適用 23.取得或處分之具體目的或用途: 本公司營運需求。 24.本次交易表示異議之董事之意見: 不適用 25.本次交易為關係人交易:是 26.監察人承認或審計委員會同意日期: 民國115年07月13日 27.本次交易係向關係人取得不動產或其使用權資產:是 28.依「公開發行公司取得或處分資產處理準則」第十六條規定 評估之價格:不適用 29.依前項評估之價格較交易價格為低者，依同準則第十七條規 定評估之價格:不適用 30.前已就同一件事件發布重大訊息日期: 不適用 31.其他敘明事項: 無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 7777 | 能率亞洲 | 14 | 4 | 5 | 10 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260713 | 7777 | 能率亞洲 | 15 | 5 | 5 | 10 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3008 大立光
 
 ## Metadata
-- generated_at: 2026-07-13 22:27:32 Asia/Taipei
+- generated_at: 2026-07-14 22:26:43 Asia/Taipei
 - stock_id: 3008
 - stock_name: 大立光
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 301
+- latest_price_date: 20260713
+- price_rows: 302
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 4025
-- high: 4140
-- low: 3950
-- close: 3950
-- volume: 1659751
-- ma5: 4031
-- ema23_primary: 4222.77
-- distance_to_ema23_pct: -6.46
-- ma20: 4511.25
-- ma60: 3580.17
-- ma120: 2971.96
-- return_5d: -8.03
-- return_20d: -4.36
-- volume_ratio: 0.58
-- distance_to_ma20_pct_auxiliary: -12.44
-- distance_to_high_60_pct: -26.31
+- date: 20260713
+- open: 4345
+- high: 4345
+- low: 4345
+- close: 4345
+- volume: 904164
+- ma5: 4054
+- ema23_primary: 4232.96
+- distance_to_ema23_pct: 2.65
+- ma20: 4520.25
+- ma60: 3605.58
+- ma120: 2986.92
+- return_5d: 2.72
+- return_20d: 4.32
+- volume_ratio: 0.34
+- distance_to_ma20_pct_auxiliary: -3.88
+- distance_to_high_60_pct: -18.94
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,4000,4310,4000,4165,4290350,3558.92,17.03,3657.25,2869.92,1.68
 20260612,4300,4355,4020,4020,3557528,3597.34,11.75,3686,2896.92,1.38
 20260615,4080,4420,4035,4420,3675345,3665.9,20.57,3742.5,2929.92,1.45
 20260616,4480,4860,4450,4860,3306359,3765.41,29.07,3817.25,2972.25,1.38
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,4150,4150,3870,3890,2546061,4274.62,-9,4517,3533.5,0.82
 20260708,3950,4035,3870,3950,1775592,4247.57,-7.01,4520.25,3558.83,0.58
 20260709,4025,4140,3950,3950,1659751,4222.77,-6.46,4511.25,3580.17,0.58
+20260713,4345,4345,4345,4345,904164,4232.96,2.65,4520.25,3605.58,0.34
 ```
 
 ## Latest TDCC Snapshot
@@ -198,7 +199,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 3008 | 大立光 | 255 | 12 | 36200490.0 | 462100.0 | 78.34 | call_inflow |
+| 20260713 | 3008 | 大立光 | 258 | 12 | 16257020.0 | 67220.0 | 241.85 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

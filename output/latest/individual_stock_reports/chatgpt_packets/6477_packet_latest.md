@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6477 安集
 
 ## Metadata
-- generated_at: 2026-07-13 22:28:35 Asia/Taipei
+- generated_at: 2026-07-14 22:27:18 Asia/Taipei
 - stock_id: 6477
 - stock_name: 安集
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 301
+- latest_price_date: 20260713
+- price_rows: 302
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -111,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 40.3
-- high: 41.4
-- low: 39.6
-- close: 39.85
-- volume: 7785136
-- ma5: 37.81
-- ema23_primary: 34.54
-- distance_to_ema23_pct: 15.36
-- ma20: 33.73
-- ma60: 33.97
-- ma120: 34.82
-- return_5d: 18.6
-- return_20d: 24.14
-- volume_ratio: 3.17
-- distance_to_ma20_pct_auxiliary: 18.14
-- distance_to_high_60_pct: -3.74
+- date: 20260713
+- open: 39.85
+- high: 42.8
+- low: 39.2
+- close: 40.55
+- volume: 16101177
+- ma5: 38.54
+- ema23_primary: 35.04
+- distance_to_ema23_pct: 15.71
+- ma20: 34.07
+- ma60: 34.07
+- ma120: 34.87
+- return_5d: 9.89
+- return_20d: 19.79
+- volume_ratio: 5.08
+- distance_to_ma20_pct_auxiliary: 19.03
+- distance_to_high_60_pct: -5.26
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,32.65,34.1,30.85,33.85,1832473,33.72,0.38,33.76,34.28,2.16
 20260612,33.85,35.45,33.5,33.5,2467119,33.7,-0.6,33.78,34.19,2.64
 20260615,34.2,34.65,33.5,33.5,690392,33.69,-0.55,33.75,34.12,0.73
 20260616,33.5,33.65,32,32.05,1298535,33.55,-4.47,33.66,34.02,1.33
@@ -153,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,39.55,39.55,35.15,35.2,3349477,33.7,4.46,33.08,33.78,1.65
 20260708,35.65,38.5,34.8,38.05,3652140,34.06,11.71,33.34,33.86,1.69
 20260709,40.3,41.4,39.6,39.85,7785136,34.54,15.36,33.73,33.97,3.17
+20260713,39.85,42.8,39.2,40.55,16101177,35.04,15.71,34.07,34.07,5.08
 ```
 
 ## Latest TDCC Snapshot
@@ -187,12 +187,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 6477 | 安集 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_overheated | 1.事實發生日:115/07/07 2.發生緣由:依據臺灣證券交易所股份有限公司通知辦理。 3.財務業務資訊: 一、本公司之合併財務資料如下： 期間      最近一月   與去年同  最近一季    與去年     最近四季累 科目     (115年05月) 期增減%    (115年     同期增     計(114年第　                                 第1季)     減%        2季至115年                                                       第1季)              (IFRS自結數)          (IFRS核閱數)   (IFRS查核及核閱數) = = = =   = = = = =  = = = =   = = = =   = = = = =    = = = = = = 營業收入     69.76    -1.22%     225.00    54.21%        934.80 (百萬) 稅前淨利      7.06    32.30%       2.48  -125.07%         37.95 (百萬) 歸屬母公      4.31    39.08%      -1.88   -82.53%         11.02 司業主之 淨利(百萬) 每股盈餘      0.03     0.00%      -0.02   -77.78%          0.09 (元) 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無。 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無。 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告: 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260713 | 6477 | 安集 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | 1.人員變動別（請輸入發言人、代理發言人、重要營運主管(如:執行長、營運長、 行銷長及策略長等)、財務主管、會計主管、公司治理主管、資訊安全長、研發主管、 內部稽核主管或訴訟及非訟代理人）:代理發言人、財務主管、公司治理主管 2.發生變動日期:115/07/13 3.舊任者姓名、級職及簡歷: 張又菁/副總經理/代理發言人、財務主管、公司治理主管 4.新任者姓名、級職及簡歷: 孫梅香/財務部經理/會計主管 5.異動情形（請輸入「辭職」、「職務調整」、「資遣」、「退休」、「死亡」、「新 任」或「解任」）:辭職 6.異動原因:辭職 7.生效日期:115/07/13 8.其他應敘明事項: 新任代理發言人、財務主管及公司治理主管待董事會正式任命後再另行公告。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 6477 | 安集 | 5 | 2 | 5 | 7 | 7 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260713 | 6477 | 安集 | 6 | 3 | 5 | 8 | 8 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

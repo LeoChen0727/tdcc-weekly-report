@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6949 沛爾生醫-創
 
 ## Metadata
-- generated_at: 2026-07-13 22:28:51 Asia/Taipei
+- generated_at: 2026-07-14 22:27:27 Asia/Taipei
 - stock_id: 6949
 - stock_name: 沛爾生醫-創
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 301
+- latest_price_date: 20260713
+- price_rows: 302
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 969
-- high: 972
-- low: 920
-- close: 925
-- volume: 204757
-- ma5: 922.4
-- ema23_primary: 849.67
-- distance_to_ema23_pct: 8.87
-- ma20: 861.8
-- ma60: 765.1
-- ma120: 660.16
-- return_5d: 3.93
-- return_20d: 27.59
-- volume_ratio: 0.76
-- distance_to_ma20_pct_auxiliary: 7.33
-- distance_to_high_60_pct: -5.42
+- date: 20260713
+- open: 931
+- high: 943
+- low: 870
+- close: 900
+- volume: 266304
+- ma5: 919.2
+- ema23_primary: 853.86
+- distance_to_ema23_pct: 5.4
+- ma20: 871.6
+- ma60: 767.18
+- ma120: 664.94
+- return_5d: -1.75
+- return_20d: 27.84
+- volume_ratio: 1
+- distance_to_ma20_pct_auxiliary: 3.26
+- distance_to_high_60_pct: -7.98
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,732,735,700,704,324264,682.02,3.22,671.6,678.02,1.95
 20260612,707,728,707,717,138748,684.94,4.68,673.1,680.6,0.83
 20260615,733,746,705,740,341664,689.52,7.32,676.5,683.22,1.91
 20260616,748,814,743,814,462456,699.9,16.3,683.75,687.07,2.36
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,899,950,884,920,335692,832.17,10.55,839,758.57,1.28
 20260708,930,978,927,960,478368,842.82,13.9,851.8,762.72,1.73
 20260709,969,972,920,925,204757,849.67,8.87,861.8,765.1,0.76
+20260713,931,943,870,900,266304,853.86,5.4,871.6,767.18,1
 ```
 
 ## Latest TDCC Snapshot

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8404 百和興業-KY
 
 ## Metadata
-- generated_at: 2026-07-13 22:29:09 Asia/Taipei
+- generated_at: 2026-07-14 22:27:37 Asia/Taipei
 - stock_id: 8404
 - stock_name: 百和興業-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 301
-- latest_tdcc_date: 20260703
-- tdcc_rows: 10
+- latest_price_date: 20260713
+- price_rows: 302
+- latest_tdcc_date: 20260709
+- tdcc_rows: 11
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 16.7
-- high: 16.85
-- low: 16.6
-- close: 16.8
-- volume: 177094
-- ma5: 16.8
-- ema23_primary: 16.76
-- distance_to_ema23_pct: 0.26
-- ma20: 16.71
-- ma60: 16.92
-- ma120: 19.31
-- return_5d: 1.51
-- return_20d: -3.72
-- volume_ratio: 0.52
-- distance_to_ma20_pct_auxiliary: 0.52
-- distance_to_high_60_pct: -9.19
+- date: 20260713
+- open: 16.9
+- high: 17.85
+- low: 16.7
+- close: 16.9
+- volume: 484475
+- ma5: 16.78
+- ema23_primary: 16.77
+- distance_to_ema23_pct: 0.78
+- ma20: 16.7
+- ma60: 16.89
+- ma120: 19.25
+- return_5d: -0.59
+- return_20d: -2.03
+- volume_ratio: 1.41
+- distance_to_ma20_pct_auxiliary: 1.23
+- distance_to_high_60_pct: -8.65
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,17.45,17.45,17,17.25,444752,17.08,0.97,16.84,17.54,0.84
 20260612,17.5,17.75,17.25,17.35,272056,17.11,1.42,16.88,17.5,0.54
 20260615,17.5,17.5,16.75,16.8,757525,17.08,-1.65,16.89,17.45,1.43
 20260616,17.1,17.1,16.6,16.75,334145,17.05,-1.78,16.91,17.4,0.63
@@ -155,18 +154,19 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,16.95,16.95,16.55,16.6,324532,16.76,-0.94,16.78,16.95,0.87
 20260708,16.8,16.85,16.6,16.7,252127,16.75,-0.32,16.75,16.93,0.7
 20260709,16.7,16.85,16.6,16.8,177094,16.76,0.26,16.71,16.92,0.52
+20260713,16.9,17.85,16.7,16.9,484475,16.77,0.78,16.7,16.89,1.41
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260703
+- as_of_date: 20260709
 - over_400_ratio: 78.68
-- over_600_ratio: 76.44
-- over_800_ratio: 74.66
-- over_1000_ratio: 73.43
-- over_400_change_1w: -0.02
-- over_800_change_1w: 0.04
-- over_1000_change_1w: 0.02
-- tdcc_consecutive_up_weeks: 9
+- over_600_ratio: 76.32
+- over_800_ratio: 74.69
+- over_1000_ratio: 73.47
+- over_400_change_1w: 0
+- over_800_change_1w: 0.03
+- over_1000_change_1w: 0.04
+- tdcc_consecutive_up_weeks: 10
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -184,6 +184,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260618,78.67,-0.14,74.26,0.01,72.77,-0.21,7,False,True
 20260626,78.7,0.03,74.62,0.36,73.41,0.64,8,True,True
 20260703,78.68,-0.02,74.66,0.04,73.43,0.02,9,False,True
+20260709,78.68,0,74.69,0.03,73.47,0.04,10,False,True
 ```
 
 ## Candidate Context

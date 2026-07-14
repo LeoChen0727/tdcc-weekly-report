@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5234 達興材料
 
 ## Metadata
-- generated_at: 2026-07-13 22:28:12 Asia/Taipei
+- generated_at: 2026-07-14 22:27:05 Asia/Taipei
 - stock_id: 5234
 - stock_name: 達興材料
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 301
-- latest_tdcc_date: 20260703
-- tdcc_rows: 10
+- latest_price_date: 20260713
+- price_rows: 302
+- latest_tdcc_date: 20260709
+- tdcc_rows: 11
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 380.5
-- high: 386.5
-- low: 380.5
-- close: 380.5
-- volume: 254170
-- ma5: 390.6
-- ema23_primary: 392.85
-- distance_to_ema23_pct: -3.14
-- ma20: 389.68
-- ma60: 410.23
-- ma120: 390.27
-- return_5d: -4.28
-- return_20d: -0.91
-- volume_ratio: 0.62
-- distance_to_ma20_pct_auxiliary: -2.35
-- distance_to_high_60_pct: -23.82
+- date: 20260713
+- open: 389.5
+- high: 392.5
+- low: 366.5
+- close: 369.5
+- volume: 544140
+- ma5: 384.1
+- ema23_primary: 390.9
+- distance_to_ema23_pct: -5.47
+- ma20: 389.1
+- ma60: 409.38
+- ma120: 390.33
+- return_5d: -8.08
+- return_20d: -3.02
+- volume_ratio: 1.32
+- distance_to_ma20_pct_auxiliary: -5.04
+- distance_to_high_60_pct: -26.03
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,383.5,388.5,368.5,381,452182,404.94,-5.91,407.52,405.05,0.61
 20260612,392,393,387,390.5,237098,403.74,-3.28,407.1,404.87,0.33
 20260615,396,398,386,389,473951,402.51,-3.36,406.32,404.7,0.68
 20260616,393.5,395,388.5,388.5,221625,401.34,-3.2,405.88,404.64,0.32
@@ -155,18 +153,19 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,416,416.5,379.5,379.5,702014,395.24,-3.98,390.43,410.93,1.62
 20260708,382.5,396,376,380,450229,393.97,-3.55,389.85,410.59,1.06
 20260709,380.5,386.5,380.5,380.5,254170,392.85,-3.14,389.68,410.23,0.62
+20260713,389.5,392.5,366.5,369.5,544140,390.9,-5.47,389.1,409.38,1.32
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260703
-- over_400_ratio: 65.18
-- over_600_ratio: 62.1
-- over_800_ratio: 59.48
-- over_1000_ratio: 59.48
-- over_400_change_1w: 0.08
-- over_800_change_1w: 0.13
-- over_1000_change_1w: 0.13
-- tdcc_consecutive_up_weeks: 9
+- as_of_date: 20260709
+- over_400_ratio: 65.24
+- over_600_ratio: 62.15
+- over_800_ratio: 59.53
+- over_1000_ratio: 59.53
+- over_400_change_1w: 0.06
+- over_800_change_1w: 0.05
+- over_1000_change_1w: 0.05
+- tdcc_consecutive_up_weeks: 10
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -184,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260618,65.45,0.04,59.34,0.03,59.34,0.03,7,True,True
 20260626,65.1,-0.35,59.35,0.01,59.35,0.01,8,False,True
 20260703,65.18,0.08,59.48,0.13,59.48,0.13,9,True,True
+20260709,65.24,0.06,59.53,0.05,59.53,0.05,10,True,True
 ```
 
 ## Candidate Context
@@ -199,7 +199,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 5234 | 達興材料 | 58 | 2 | 1195100.0 | 12320.0 | 97.0 | no_signal |
+| 20260713 | 5234 | 達興材料 | 57 | 2 | 798410.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

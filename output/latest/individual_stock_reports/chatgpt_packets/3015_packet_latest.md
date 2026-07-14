@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3015 全漢
 
 ## Metadata
-- generated_at: 2026-07-13 22:27:32 Asia/Taipei
+- generated_at: 2026-07-14 22:26:43 Asia/Taipei
 - stock_id: 3015
 - stock_name: 全漢
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 301
+- latest_price_date: 20260713
+- price_rows: 302
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 65.8
-- high: 66.7
-- low: 63.9
-- close: 64.2
-- volume: 1550816
-- ma5: 68.04
-- ema23_primary: 63.06
-- distance_to_ema23_pct: 1.81
-- ma20: 63.24
-- ma60: 56.17
-- ma120: 54.27
-- return_5d: -4.89
-- return_20d: 7.54
-- volume_ratio: 0.44
-- distance_to_ma20_pct_auxiliary: 1.51
-- distance_to_high_60_pct: -14.17
+- date: 20260713
+- open: 64.1
+- high: 65.7
+- low: 62.6
+- close: 63.2
+- volume: 1251593
+- ma5: 67.08
+- ema23_primary: 63.07
+- distance_to_ema23_pct: 0.2
+- ma20: 63.48
+- ma60: 56.38
+- ma120: 54.36
+- return_5d: -7.06
+- return_20d: 8.03
+- volume_ratio: 0.36
+- distance_to_ma20_pct_auxiliary: -0.44
+- distance_to_high_60_pct: -15.51
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,58.4,59.6,57.4,58.5,1952404,56,4.46,54.98,52.11,0.61
 20260612,60.8,61.8,60.2,60.7,2966687,56.39,7.63,55.54,52.26,0.9
 20260615,60.8,61.3,60.2,60.6,2009823,56.74,6.79,56.12,52.41,0.59
 20260616,59.4,60.3,57,57,1532638,56.77,0.41,56.44,52.51,0.45
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,74,74.3,67.4,67.4,8107608,62.7,7.5,62.81,55.69,2.21
 20260708,66.8,68.6,64.6,65.8,2767301,62.96,4.52,63.02,55.95,0.78
 20260709,65.8,66.7,63.9,64.2,1550816,63.06,1.81,63.24,56.17,0.44
+20260713,64.1,65.7,62.6,63.2,1251593,63.07,0.2,63.48,56.38,0.36
 ```
 
 ## Latest TDCC Snapshot
@@ -189,17 +189,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 3015 | 全漢 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | call_inflow | stale_signal | 1.事實發生日:115/06/22 2.公司名稱:全漢企業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: (A)通過本公司委任第六屆薪資報酬委員會之委員案。 (B)通過本公司推舉第三屆提名委員會之委員案。 (C)通過本公司委任第三屆企業永續發展委員會之委員案。 (D)通過本公司擬對越南子公司增加投資案。 (E)通過本公司銀行綜合授信額度合約案。 6.因應措施:不適用 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260713 | 3015 | 全漢 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.事實發生日:115/06/22 2.公司名稱:全漢企業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: (A)通過本公司委任第六屆薪資報酬委員會之委員案。 (B)通過本公司推舉第三屆提名委員會之委員案。 (C)通過本公司委任第三屆企業永續發展委員會之委員案。 (D)通過本公司擬對越南子公司增加投資案。 (E)通過本公司銀行綜合授信額度合約案。 6.因應措施:不適用 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 3015 | 全漢 | 1 | 1 | 3 | 6 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260713 | 3015 | 全漢 | 2 | 2 | 4 | 7 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 3015 | 全漢 | 7 | 0 | 1838010.0 | 0.0 |  | call_inflow |
+| 20260713 | 3015 | 全漢 | 10 | 1 | 235270.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

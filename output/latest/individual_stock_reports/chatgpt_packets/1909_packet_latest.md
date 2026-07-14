@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1909 榮成
 
 ## Metadata
-- generated_at: 2026-07-13 22:27:04 Asia/Taipei
+- generated_at: 2026-07-14 22:26:27 Asia/Taipei
 - stock_id: 1909
 - stock_name: 榮成
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 301
+- latest_price_date: 20260713
+- price_rows: 302
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 10.65
-- high: 10.75
+- date: 20260713
+- open: 10.25
+- high: 10.45
 - low: 10.15
-- close: 10.3
-- volume: 7473023
-- ma5: 10.58
-- ema23_primary: 9.96
-- distance_to_ema23_pct: 3.46
-- ma20: 9.97
-- ma60: 9.47
+- close: 10.25
+- volume: 4285957
+- ma5: 10.57
+- ema23_primary: 9.98
+- distance_to_ema23_pct: 2.71
+- ma20: 10
+- ma60: 9.48
 - ma120: 9.62
-- return_5d: 4.57
-- return_20d: 5.1
-- volume_ratio: 1.3
-- distance_to_ma20_pct_auxiliary: 3.28
-- distance_to_high_60_pct: -7.62
+- return_5d: -0.49
+- return_20d: 5.13
+- volume_ratio: 0.74
+- distance_to_ma20_pct_auxiliary: 2.52
+- distance_to_high_60_pct: -8.07
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,9.78,9.87,9.64,9.75,2886194,9.35,4.27,9.22,9.39,0.63
 20260612,9.75,9.96,9.75,9.87,3961352,9.39,5.06,9.27,9.4,0.85
 20260615,9.87,10.05,9.87,9.87,4386270,9.43,4.62,9.31,9.41,0.92
 20260616,9.9,10.3,9.82,10.05,9403084,9.49,5.95,9.36,9.42,1.84
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,10.65,10.95,10.55,10.75,10048319,9.84,9.3,9.88,9.44,1.93
 20260708,10.75,11.15,10.75,10.9,14082752,9.92,9.84,9.95,9.46,2.46
 20260709,10.65,10.75,10.15,10.3,7473023,9.96,3.46,9.97,9.47,1.3
+20260713,10.25,10.45,10.15,10.25,4285957,9.98,2.71,10,9.48,0.74
 ```
 
 ## Latest TDCC Snapshot
@@ -189,13 +189,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 1909 | 榮成 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | 1.事實發生日:115/07/06 2.公司名稱:榮成紙業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:不適用 6.報導內容:不適用 7.發生緣由:公告本公司115年6月份及1-6月累計合併自結損益 單位:新台幣/仟元; EPS:新台幣/元 (自結)          6月         1月-6月 -------------------------------------------------------------------- 合併營業損益：                                93,433        225,995 合併稅前損益：                               129,433        343,247 合併稅前淨利歸屬於母公司業主：               123,304        298,671 合併稅前EPS：                                   0.10           0.23 8.因應措施:無。 9.其他應敘明事項:本公司以加權平均流通在外股數13.00億股為稅前EPS計算基礎。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
-| 20260709 | 1909 | 榮成 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | repeated_but_no_breakout | 1.事實發生日:115/07/06 2.公司名稱:榮成紙業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:不適用 6.報導內容:不適用 7.發生緣由:公告本公司115年6月份及1-6月累計合併自結損益 單位:新台幣/仟元; EPS:新台幣/元 (自結)          6月         1月-6月 -------------------------------------------------------------------- 合併營業損益：                                93,433        225,995 合併稅前損益：                               129,433        343,247 合併稅前淨利歸屬於母公司業主：               123,304        298,671 合併稅前EPS：                                   0.10           0.23 8.因應措施:無。 9.其他應敘明事項:本公司以加權平均流通在外股數13.00億股為稅前EPS計算基礎。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260713 | 1909 | 榮成 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.事實發生日:115/07/06 2.公司名稱:榮成紙業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:不適用 6.報導內容:不適用 7.發生緣由:公告本公司115年6月份及1-6月累計合併自結損益 單位:新台幣/仟元; EPS:新台幣/元 (自結)          6月         1月-6月 -------------------------------------------------------------------- 合併營業損益：                                93,433        225,995 合併稅前損益：                               129,433        343,247 合併稅前淨利歸屬於母公司業主：               123,304        298,671 合併稅前EPS：                                   0.10           0.23 8.因應措施:無。 9.其他應敘明事項:本公司以加權平均流通在外股數13.00億股為稅前EPS計算基礎。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260713 | 1909 | 榮成 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/07/06 2.公司名稱:榮成紙業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:不適用 6.報導內容:不適用 7.發生緣由:公告本公司115年6月份及1-6月累計合併自結損益 單位:新台幣/仟元; EPS:新台幣/元 (自結)          6月         1月-6月 -------------------------------------------------------------------- 合併營業損益：                                93,433        225,995 合併稅前損益：                               129,433        343,247 合併稅前淨利歸屬於母公司業主：               123,304        298,671 合併稅前EPS：                                   0.10           0.23 8.因應措施:無。 9.其他應敘明事項:本公司以加權平均流通在外股數13.00億股為稅前EPS計算基礎。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 1909 | 榮成 | 4 | 1 | 4 | 5 | 12 | repeated_but_no_breakout | 近 10 日上榜 5 次、近 20 日上榜 12 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260713 | 1909 | 榮成 | 5 | 2 | 5 | 6 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7819 精誠金融
 
 ## Metadata
-- generated_at: 2026-07-13 22:29:01 Asia/Taipei
+- generated_at: 2026-07-14 22:27:33 Asia/Taipei
 - stock_id: 7819
 - stock_name: 精誠金融
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260709
-- price_rows: 32
+- latest_price_date: 20260713
+- price_rows: 33
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 38.5
-- high: 42.35
-- low: 38.5
-- close: 41.45
-- volume: 305000
-- ma5: 38.87
-- ema23_primary: 41.52
-- distance_to_ema23_pct: -0.16
-- ma20: 41.47
-- ma60: 43.63
-- ma120: 43.63
-- return_5d: 5.74
-- return_20d: -11.81
-- volume_ratio: 3.3
-- distance_to_ma20_pct_auxiliary: -0.05
-- distance_to_high_60_pct: -17.76
+- date: 20260713
+- open: 41.45
+- high: 41.45
+- low: 37.35
+- close: 37.6
+- volume: 218000
+- ma5: 38.59
+- ema23_primary: 41.19
+- distance_to_ema23_pct: -8.72
+- ma20: 41.05
+- ma60: 43.45
+- ma120: 43.45
+- return_5d: -3.59
+- return_20d: -18.26
+- volume_ratio: 2.2
+- distance_to_ma20_pct_auxiliary: -8.4
+- distance_to_high_60_pct: -25.4
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,47.7,47.7,45.8,46,83000,46.73,-1.55,47.13,47.13,1.17
 20260612,46.25,46.4,45.8,45.95,92000,46.66,-1.52,47.05,47.05,1.27
 20260615,46,46.05,45.5,45.55,139000,46.57,-2.19,46.95,46.95,1.81
 20260616,46.4,46.4,45.25,45.4,37000,46.47,-2.3,46.85,46.85,0.5
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,38.05,38.4,37.2,37.25,83000,41.8,-10.88,42.23,43.87,1.04
 20260708,37.25,39,37.25,38.5,79000,41.52,-7.28,41.75,43.7,0.98
 20260709,38.5,42.35,38.5,41.45,305000,41.52,-0.16,41.47,43.63,3.3
+20260713,41.45,41.45,37.35,37.6,218000,41.19,-8.72,41.05,43.45,2.2
 ```
 
 ## Latest TDCC Snapshot

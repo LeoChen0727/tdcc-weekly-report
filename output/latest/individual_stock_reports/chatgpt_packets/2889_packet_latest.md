@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2889 國票金
 
 ## Metadata
-- generated_at: 2026-07-13 22:27:29 Asia/Taipei
+- generated_at: 2026-07-14 22:26:41 Asia/Taipei
 - stock_id: 2889
 - stock_name: 國票金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 301
+- latest_price_date: 20260713
+- price_rows: 302
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 可分批買進
-- model_category_display_zh: 回檔後短線轉強
+- model_category_display_zh: 營收成長股價回檔
 - score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
-- action_summary_zh: 符合 回檔後短線轉強，價格結構尚未破壞，操作評級為「可分批買進」。
+- action_summary_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。
 - entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
 - position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 符合 回檔後短線轉強，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -117,29 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 15.7
-- high: 15.95
-- low: 15.65
-- close: 15.8
-- volume: 24647542
-- ma5: 15.4
-- ema23_primary: 15.1
-- distance_to_ema23_pct: 4.65
-- ma20: 15.08
-- ma60: 14.88
-- ma120: 15.61
-- return_5d: 6.76
-- return_20d: 4.98
-- volume_ratio: 2.78
-- distance_to_ma20_pct_auxiliary: 4.76
-- distance_to_high_60_pct: -0.94
+- date: 20260713
+- open: 15.9
+- high: 16.1
+- low: 15.7
+- close: 15.85
+- volume: 11883776
+- ma5: 15.57
+- ema23_primary: 15.16
+- distance_to_ema23_pct: 4.55
+- ma20: 15.13
+- ma60: 14.89
+- ma120: 15.6
+- return_5d: 5.67
+- return_20d: 6.02
+- volume_ratio: 1.3
+- distance_to_ma20_pct_auxiliary: 4.78
+- distance_to_high_60_pct: -1.55
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,15.1,15.1,14.85,14.95,5710056,14.85,0.68,14.77,15.09,1.27
 20260612,15,15.15,14.9,15,8138925,14.86,0.93,14.79,15.07,1.72
 20260615,15.1,15.2,14.95,15.05,8033924,14.88,1.16,14.82,15.05,1.59
 20260616,15.05,15.2,15,15.1,9157478,14.9,1.37,14.84,15.04,1.7
@@ -159,6 +158,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,15.1,15.3,15.1,15.3,8919366,14.97,2.18,15.01,14.86,1.23
 20260708,15.5,15.95,15.5,15.7,24296189,15.03,4.43,15.04,14.87,3.01
 20260709,15.7,15.95,15.65,15.8,24647542,15.1,4.65,15.08,14.88,2.78
+20260713,15.9,16.1,15.7,15.85,11883776,15.16,4.55,15.13,14.89,1.3
 ```
 
 ## Latest TDCC Snapshot
@@ -193,14 +193,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 2889 | 國票金 | pullback_rebound | 回檔後短線轉強 | 70.0 |  |  |  |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/07 1.召開法人說明會之日期：115/07/07 2.召開法人說明會之時間：14 時 00 分  3.召開法人說明會之地點：本次法說會為線上說明會。 4.法人說明會擇要訊息：本公司自辦說明會，說明公司營運概況。 5.其他應敘明事項：當日webex連線號碼為:1849465878/連結https://mibf.webex.com/meet/ibf.1703 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
-| 20260709 | 2889 | 國票金 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/07 1.召開法人說明會之日期：115/07/07 2.召開法人說明會之時間：14 時 00 分  3.召開法人說明會之地點：本次法說會為線上說明會。 4.法人說明會擇要訊息：本公司自辦說明會，說明公司營運概況。 5.其他應敘明事項：當日webex連線號碼為:1849465878/連結https://mibf.webex.com/meet/ibf.1703 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
-| 20260709 | 2889 | 國票金 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/07 1.召開法人說明會之日期：115/07/07 2.召開法人說明會之時間：14 時 00 分  3.召開法人說明會之地點：本次法說會為線上說明會。 4.法人說明會擇要訊息：本公司自辦說明會，說明公司營運概況。 5.其他應敘明事項：當日webex連線號碼為:1849465878/連結https://mibf.webex.com/meet/ibf.1703 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260713 | 2889 | 國票金 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/07 1.召開法人說明會之日期：115/07/07 2.召開法人說明會之時間：14 時 00 分  3.召開法人說明會之地點：本次法說會為線上說明會。 4.法人說明會擇要訊息：本公司自辦說明會，說明公司營運概況。 5.其他應敘明事項：當日webex連線號碼為:1849465878/連結https://mibf.webex.com/meet/ibf.1703 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 2889 | 國票金 | 6 | 6 | 5 | 9 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260713 | 2889 | 國票金 | 7 | 7 | 5 | 9 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

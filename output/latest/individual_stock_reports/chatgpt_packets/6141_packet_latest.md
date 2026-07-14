@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6141 柏承
 
 ## Metadata
-- generated_at: 2026-07-13 22:28:24 Asia/Taipei
+- generated_at: 2026-07-14 22:27:11 Asia/Taipei
 - stock_id: 6141
 - stock_name: 柏承
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 301
+- latest_price_date: 20260713
+- price_rows: 302
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 - acceptable_risk_reward
@@ -111,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 35.6
-- high: 39.05
-- low: 35.6
-- close: 39.05
-- volume: 1699218
-- ma5: 36.96
-- ema23_primary: 37.05
-- distance_to_ema23_pct: 5.41
-- ma20: 36.76
-- ma60: 35.09
-- ma120: 25.65
-- return_5d: 0.51
-- return_20d: 20.15
-- volume_ratio: 1.15
-- distance_to_ma20_pct_auxiliary: 6.24
-- distance_to_high_60_pct: -17.7
+- date: 20260713
+- open: 39.2
+- high: 40.5
+- low: 37
+- close: 38.05
+- volume: 1802373
+- ma5: 37.02
+- ema23_primary: 37.13
+- distance_to_ema23_pct: 2.48
+- ma20: 37.08
+- ma60: 35.3
+- ma120: 25.88
+- return_5d: 0.79
+- return_20d: 20.41
+- volume_ratio: 1.22
+- distance_to_ma20_pct_auxiliary: 2.62
+- distance_to_high_60_pct: -19.81
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,32.6,32.6,30,31.6,1880791,35.6,-11.24,36.5,30.63,0.48
 20260612,32.5,33,31.5,32.05,1271094,35.31,-9.22,36.69,30.76,0.35
 20260615,35.25,35.25,35.25,35.25,363236,35.3,-0.14,36.9,30.92,0.1
 20260616,38.75,38.75,35.5,35.6,2999237,35.33,0.78,36.98,31.04,0.85
@@ -153,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,37.5,38.6,35,35,664779,36.99,-5.38,36.41,34.63,0.44
 20260708,34.9,35.65,34.4,35.5,424309,36.86,-3.7,36.43,34.83,0.29
 20260709,35.6,39.05,35.6,39.05,1699218,37.05,5.41,36.76,35.09,1.15
+20260713,39.2,40.5,37,38.05,1802373,37.13,2.48,37.08,35.3,1.22
 ```
 
 ## Latest TDCC Snapshot
@@ -187,12 +188,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 6141 | 柏承 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | stale_signal | 1.事實發生日:115/06/25 2.公司名稱:柏承科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:NA 5.發生緣由:本公司業經115年股東常會決議通過，辦理減資彌補虧損案 6.因應措施: (1)依公司法第二八一條準用同法第七十三條、第七十四條規定辦理。 (2)本公司為改善財務結構，辦理減資彌補虧損，本次減資金額為新台幣233,540,050元 整，銷除已發行股份23,354,005股，減資比率為20.6027%，每仟股減少206.02717股， 減資後流通在外股數為90,000,000股，每股面額新台幣10元，實收資本額新台幣 900,000,000元整。惟若本公司因其他情形影響流通在外股份數量，造成減資比例變動 者，則實際減資比例以變動後之實際比率為準。 (3)本公司債權人對於此次減資案如有異議，請於公告日起至民國115年07月31日之期間 內以書面檢附債權證明文件，向本公司提出，逾期未表示異議即視為同意減資案，特此 公告。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):  無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260713 | 6141 | 柏承 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | continued_overheated | 1.事實發生日:115/07/13 2.公司名稱:柏承科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:NA 5.發生緣由:因颱風停班影響本公司發放115年股東常會紀念品予採電子投票之股東 6.因應措施:本公司115年股東常會採電子投票之股東如欲領取紀念品，原定於115年 07月09日起至115年07月13日止至富邦證券股務代理部領取，因受颱風停班影響， 發放截止日將順延至115年07月14日。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):  無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260713 | 6141 | 柏承 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | continued_overheated | 1.事實發生日:115/07/13 2.公司名稱:柏承科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:NA 5.發生緣由:因颱風停班影響本公司發放115年股東常會紀念品予採電子投票之股東 6.因應措施:本公司115年股東常會採電子投票之股東如欲領取紀念品，原定於115年 07月09日起至115年07月13日止至富邦證券股務代理部領取，因受颱風停班影響， 發放截止日將順延至115年07月14日。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):  無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 6141 | 柏承 | 1 | 1 | 1 | 2 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260713 | 6141 | 柏承 | 2 | 2 | 2 | 2 | 11 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

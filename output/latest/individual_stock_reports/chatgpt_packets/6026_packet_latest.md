@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6026 福邦證
 
 ## Metadata
-- generated_at: 2026-07-13 22:28:21 Asia/Taipei
+- generated_at: 2026-07-14 22:27:10 Asia/Taipei
 - stock_id: 6026
 - stock_name: 福邦證
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 166
+- latest_price_date: 20260713
+- price_rows: 167
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -119,29 +119,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 16
-- high: 16
-- low: 15.6
-- close: 15.7
-- volume: 1322000
-- ma5: 15.97
-- ema23_primary: 16.39
-- distance_to_ema23_pct: -4.2
-- ma20: 16.52
-- ma60: 16.18
-- ma120: 15.33
-- return_5d: -0.32
-- return_20d: -5.99
-- volume_ratio: 0.33
-- distance_to_ma20_pct_auxiliary: -4.95
-- distance_to_high_60_pct: -19.69
+- date: 20260713
+- open: 15.75
+- high: 15.85
+- low: 15.25
+- close: 15.3
+- volume: 2208000
+- ma5: 15.82
+- ema23_primary: 16.3
+- distance_to_ema23_pct: -6.12
+- ma20: 16.45
+- ma60: 16.19
+- ma120: 15.35
+- return_5d: -4.67
+- return_20d: -7.55
+- volume_ratio: 0.56
+- distance_to_ma20_pct_auxiliary: -7.02
+- distance_to_high_60_pct: -21.74
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,16.5,16.65,16.25,16.55,4563000,16.81,-1.57,16.65,15.62,2.56
 20260612,17.1,17.5,17.1,17.25,4358000,16.85,2.37,16.75,15.66,2.38
 20260615,17.65,18,17.3,17.35,4030000,16.89,2.71,16.86,15.7,2.09
 20260616,17.5,17.55,17.05,17.05,3978000,16.91,0.85,16.96,15.73,1.97
@@ -161,6 +160,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,16.4,16.55,16.05,16.1,4365000,16.5,-2.43,16.66,16.14,0.96
 20260708,16.2,16.25,15.75,15.9,1872000,16.45,-3.35,16.57,16.16,0.43
 20260709,16,16,15.6,15.7,1322000,16.39,-4.2,16.52,16.18,0.33
+20260713,15.75,15.85,15.25,15.3,2208000,16.3,-6.12,16.45,16.19,0.56
 ```
 
 ## Latest TDCC Snapshot
@@ -195,12 +195,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 6026 | 福邦證 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260713 | 6026 | 福邦證 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 6026 | 福邦證 | 1 | 1 | 1 | 1 | 3 | first_seen | 首次上榜或資料有限，需後續確認。 |
+| 20260713 | 6026 | 福邦證 | 2 | 2 | 2 | 2 | 4 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | status |

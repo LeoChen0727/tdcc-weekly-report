@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2812 台中銀
 
 ## Metadata
-- generated_at: 2026-07-13 22:27:28 Asia/Taipei
+- generated_at: 2026-07-14 22:26:40 Asia/Taipei
 - stock_id: 2812
 - stock_name: 台中銀
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 301
-- latest_tdcc_date: 20260703
-- tdcc_rows: 10
+- latest_price_date: 20260713
+- price_rows: 302
+- latest_tdcc_date: 20260709
+- tdcc_rows: 11
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 20.65
-- high: 20.75
-- low: 20.55
-- close: 20.6
-- volume: 7010244
-- ma5: 20.56
-- ema23_primary: 20
-- distance_to_ema23_pct: 2.98
-- ma20: 20
+- date: 20260713
+- open: 20.6
+- high: 20.8
+- low: 20.5
+- close: 20.65
+- volume: 8851324
+- ma5: 20.61
+- ema23_primary: 20.06
+- distance_to_ema23_pct: 2.96
+- ma20: 20.07
 - ma60: 19.66
 - ma120: 20.12
-- return_5d: 2.23
-- return_20d: 6.19
-- volume_ratio: 0.49
-- distance_to_ma20_pct_auxiliary: 3.03
-- distance_to_high_60_pct: -1.2
+- return_5d: 1.23
+- return_20d: 7.55
+- volume_ratio: 0.62
+- distance_to_ma20_pct_auxiliary: 2.9
+- distance_to_high_60_pct: -0.96
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,19.3,19.3,19.05,19.2,12756792,19.21,-0.07,18.97,19.86,0.62
 20260612,19.35,19.65,19.35,19.5,13229252,19.24,1.36,19,19.85,0.7
 20260615,19.65,19.8,19.6,19.6,14134088,19.27,1.72,19.04,19.83,0.76
 20260616,19.7,19.9,19.55,19.75,20585737,19.31,2.29,19.07,19.82,1.1
@@ -154,19 +153,20 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,20.6,20.8,20.55,20.65,15527585,19.89,3.82,19.89,19.66,0.98
 20260708,20.7,20.75,20.45,20.6,7737126,19.95,3.26,19.93,19.66,0.52
 20260709,20.65,20.75,20.55,20.6,7010244,20,2.98,20,19.66,0.49
+20260713,20.6,20.8,20.5,20.65,8851324,20.06,2.96,20.07,19.66,0.62
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260703
-- over_400_ratio: 58.87
-- over_600_ratio: 56.27
-- over_800_ratio: 54.78
-- over_1000_ratio: 53.77
-- over_400_change_1w: 0
-- over_800_change_1w: 0.05
-- over_1000_change_1w: 0.07
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: False
+- as_of_date: 20260709
+- over_400_ratio: 59.15
+- over_600_ratio: 56.55
+- over_800_ratio: 55.02
+- over_1000_ratio: 54.03
+- over_400_change_1w: 0.28
+- over_800_change_1w: 0.24
+- over_1000_change_1w: 0.26
+- tdcc_consecutive_up_weeks: 4
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -183,17 +183,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260618,58.57,0.02,54.46,-0.02,53.4,-0.03,1,False,False
 20260626,58.87,0.3,54.73,0.27,53.7,0.3,2,True,True
 20260703,58.87,0,54.78,0.05,53.77,0.07,3,False,True
+20260709,59.15,0.28,55.02,0.24,54.03,0.26,4,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 2812 | 台中銀 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | stale_signal | 1.事實發生日:115/07/09 2.公司名稱:台中商業銀行股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:如主旨                               （單位：新臺幣仟元）     項  目            當月份盈餘      當年度累計 --------------     -------------    --------------  合併稅前損益        1,106,868        6,252,781  合併稅後損益          903,847        5,266,510  每股盈餘(稅前)         0.17元           0.97元  每股盈餘(稅後)         0.14元           0.82元 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260713 | 2812 | 台中銀 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | stale_signal | 1.事實發生日:115/07/09 2.公司名稱:台中商業銀行股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:如主旨                               （單位：新臺幣仟元）     項  目            當月份盈餘      當年度累計 --------------     -------------    --------------  合併稅前損益        1,106,868        6,252,781  合併稅後損益          903,847        5,266,510  每股盈餘(稅前)         0.17元           0.97元  每股盈餘(稅後)         0.14元           0.82元 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 2812 | 台中銀 | 13 | 4 | 5 | 10 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260713 | 2812 | 台中銀 | 14 | 5 | 5 | 10 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

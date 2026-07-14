@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8064 東捷
 
 ## Metadata
-- generated_at: 2026-07-13 22:29:03 Asia/Taipei
+- generated_at: 2026-07-14 22:27:34 Asia/Taipei
 - stock_id: 8064
 - stock_name: 東捷
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 166
+- latest_price_date: 20260713
+- price_rows: 167
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 轉弱警訊
+- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -90,6 +90,7 @@
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
+- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -104,7 +105,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- tdcc_distribution_warning
+- none
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 127.5
-- high: 138
-- low: 126
-- close: 138
-- volume: 5447000
-- ma5: 135.5
-- ema23_primary: 140.76
-- distance_to_ema23_pct: -1.96
-- ma20: 143
-- ma60: 127.2
-- ma120: 92.52
-- return_5d: -5.8
-- return_20d: -0.36
-- volume_ratio: 0.66
-- distance_to_ma20_pct_auxiliary: -3.5
-- distance_to_high_60_pct: -27.18
+- date: 20260713
+- open: 138
+- high: 147
+- low: 129
+- close: 134.5
+- volume: 15685000
+- ma5: 133.3
+- ema23_primary: 140.24
+- distance_to_ema23_pct: -4.09
+- ma20: 143.07
+- ma60: 128.19
+- ma120: 93.25
+- return_5d: -7.56
+- return_20d: 1.13
+- volume_ratio: 1.86
+- distance_to_ma20_pct_auxiliary: -5.99
+- distance_to_high_60_pct: -29.02
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,140.5,143,130,133,12462000,138.47,-3.95,143.65,103.83,2.44
 20260612,141.5,143,134,134.5,7994000,138.14,-2.64,144.38,104.97,1.54
 20260615,139,143.5,138.5,139.5,5771000,138.25,0.9,144.75,106.17,1.1
 20260616,143,148.5,138,140,9249000,138.4,1.16,144.9,107.39,1.71
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,139,141,128.5,130,4093000,142.42,-8.72,144.2,125.45,0.43
 20260708,130,131,121,125.5,4657000,141.01,-11,143.03,126.16,0.51
 20260709,127.5,138,126,138,5447000,140.76,-1.96,143,127.2,0.66
+20260713,138,147,129,134.5,15685000,140.24,-4.09,143.07,128.19,1.86
 ```
 
 ## Latest TDCC Snapshot
@@ -186,14 +187,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 8064 | 東捷 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.人員變動別（請輸入發言人、代理發言人、重要營運主管 (如:執行長、營運長、行銷長及策略長等)、財務主管、會計 主管、公司治理主管、資訊安全長、研發主管、內部稽核主管或訴訟及非 訟代理人）:發言人、代理發言人 2.發生變動日期:115/07/10 3.舊任者姓名、級職及簡歷: 發言人:陳贊仁/本公司總經理 代理發言人:王姿惠/本公司財務處 處長 4.新任者姓名、級職及簡歷: 發言人:梁又文/本公司董事長 代理發言人:嚴璐/本公司執行長 代理發言人:蔡志豪/本公司第三事業群 協理 5.異動情形（請輸入「辭職」、「職務調整」、「資遣」、 「退休」、「死亡」、「新任」或「解任」）:職務調整 6.異動原因:營運規劃 7.生效日期:115/07/10 8.其他應敘明事項: (1)本公司於115/06/15 發布重大訊息公告發言人及代理發言人異動。 (2)本公司於115/07/10 經董事會決議通過發言人及代理發言人異動追認案。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 8064 | 東捷 | 1 | 1 | 3 | 6 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

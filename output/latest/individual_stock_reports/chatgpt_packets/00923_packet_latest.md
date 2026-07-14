@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00923 群益台ESG低碳50
 
 ## Metadata
-- generated_at: 2026-07-13 22:26:45 Asia/Taipei
+- generated_at: 2026-07-14 22:26:16 Asia/Taipei
 - stock_id: 00923
 - stock_name: 群益台ESG低碳50
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260709
-- price_rows: 34
+- latest_price_date: 20260713
+- price_rows: 35
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 42.08
-- high: 42.55
-- low: 41.84
-- close: 42.02
-- volume: 2024378
-- ma5: 42.54
-- ema23_primary: 42.36
-- distance_to_ema23_pct: -0.79
-- ma20: 42.65
-- ma60: 42.18
-- ma120: 42.18
-- return_5d: -3.42
-- return_20d: 4.19
-- volume_ratio: 0.45
-- distance_to_ma20_pct_auxiliary: -1.48
-- distance_to_high_60_pct: -6.73
+- date: 20260713
+- open: 42.44
+- high: 42.7
+- low: 41.71
+- close: 41.85
+- volume: 2827748
+- ma5: 42.24
+- ema23_primary: 42.31
+- distance_to_ema23_pct: -1.09
+- ma20: 42.73
+- ma60: 42.17
+- ma120: 42.17
+- return_5d: -3.48
+- return_20d: 4.03
+- volume_ratio: 0.65
+- distance_to_ma20_pct_auxiliary: -2.07
+- distance_to_high_60_pct: -7.1
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,40.23,40.63,39.1,40.23,6440010,40.75,-1.27,41.42,41.42,0.89
 20260612,41.82,41.82,41.01,41.05,4446933,40.77,0.68,41.4,41.4,0.63
 20260615,42.36,42.48,42.08,42.39,7224075,40.91,3.63,41.45,41.45,1.02
 20260616,42.73,42.77,42.39,42.66,4682113,41.05,3.92,41.52,41.52,0.68
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,43.3,43.37,41.99,42.1,2723424,42.42,-0.75,42.56,42.19,0.54
 20260708,42.11,42.25,41.6,42.04,2254563,42.39,-0.82,42.57,42.18,0.46
 20260709,42.08,42.55,41.84,42.02,2024378,42.36,-0.79,42.65,42.18,0.45
+20260713,42.44,42.7,41.71,41.85,2827748,42.31,-1.09,42.73,42.17,0.65
 ```
 
 ## Latest TDCC Snapshot

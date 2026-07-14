@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6967 汎瑋材料
 
 ## Metadata
-- generated_at: 2026-07-13 22:28:52 Asia/Taipei
+- generated_at: 2026-07-14 22:27:27 Asia/Taipei
 - stock_id: 6967
 - stock_name: 汎瑋材料
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 165
+- latest_price_date: 20260713
+- price_rows: 166
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 69.7
-- high: 70.9
-- low: 69.3
-- close: 69.4
-- volume: 36000
-- ma5: 71.34
-- ema23_primary: 71.36
-- distance_to_ema23_pct: -2.75
-- ma20: 71.28
-- ma60: 73
-- ma120: 71.11
-- return_5d: -3.88
-- return_20d: -2.12
-- volume_ratio: 0.65
-- distance_to_ma20_pct_auxiliary: -2.64
-- distance_to_high_60_pct: -22.02
+- date: 20260713
+- open: 73.5
+- high: 75.8
+- low: 72.2
+- close: 75.8
+- volume: 266000
+- ma5: 71.7
+- ema23_primary: 71.73
+- distance_to_ema23_pct: 5.67
+- ma20: 71.57
+- ma60: 73.09
+- ma120: 71.16
+- return_5d: 2.43
+- return_20d: 8.13
+- volume_ratio: 4.09
+- distance_to_ma20_pct_auxiliary: 5.91
+- distance_to_high_60_pct: -14.83
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,68.3,71.5,68.3,70.1,72000,71.66,-2.18,71.38,71.89,1.14
 20260612,70.4,72.4,70.1,70.3,27000,71.55,-1.75,71.29,71.86,0.44
 20260615,70.7,72,70.7,71.5,52000,71.55,-0.06,71.22,71.88,0.83
 20260616,71.7,72.6,70.8,70.9,69000,71.49,-0.83,71.19,71.86,1.13
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,73,73,70.2,70.4,96000,71.72,-1.84,71.36,73,1.67
 20260708,70.2,72,69.6,69.6,53000,71.54,-2.71,71.36,72.99,0.9
 20260709,69.7,70.9,69.3,69.4,36000,71.36,-2.75,71.28,73,0.65
+20260713,73.5,75.8,72.2,75.8,266000,71.73,5.67,71.57,73.09,4.09
 ```
 
 ## Latest TDCC Snapshot

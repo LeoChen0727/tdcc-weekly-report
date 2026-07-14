@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3231 緯創
 
 ## Metadata
-- generated_at: 2026-07-13 22:27:40 Asia/Taipei
+- generated_at: 2026-07-14 22:26:47 Asia/Taipei
 - stock_id: 3231
 - stock_name: 緯創
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 301
+- latest_price_date: 20260713
+- price_rows: 302
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
+- date: 20260713
 - open: 147
 - high: 148
-- low: 144.5
-- close: 144.5
-- volume: 29080046
-- ma5: 152.7
-- ema23_primary: 155.86
-- distance_to_ema23_pct: -7.29
-- ma20: 156.9
-- ma60: 150.82
-- ma120: 142.01
-- return_5d: -8.83
-- return_20d: -8.54
-- volume_ratio: 0.77
-- distance_to_ma20_pct_auxiliary: -7.9
-- distance_to_high_60_pct: -28.11
+- low: 142.5
+- close: 143.5
+- volume: 27031128
+- ma5: 149.6
+- ema23_primary: 154.83
+- distance_to_ema23_pct: -7.32
+- ma20: 156.45
+- ma60: 150.99
+- ma120: 141.89
+- return_5d: -9.75
+- return_20d: -5.9
+- volume_ratio: 0.74
+- distance_to_ma20_pct_auxiliary: -8.28
+- distance_to_high_60_pct: -28.61
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,157,159,150.5,152.5,55231062,156.88,-2.79,155.45,141.92,0.71
 20260612,159,159,156,156,38077913,156.8,-0.51,156.47,142.28,0.5
 20260615,162,166,158.5,161.5,46483201,157.2,2.74,157.78,142.8,0.6
 20260616,162,162,158,158,31462271,157.26,0.47,159.05,143.31,0.41
@@ -160,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,158.5,159.5,155.5,155.5,34773345,157.84,-1.48,158.53,150.48,0.9
 20260708,150,152,145,146.5,59256833,156.9,-6.63,157.57,150.68,1.54
 20260709,147,148,144.5,144.5,29080046,155.86,-7.29,156.9,150.82,0.77
+20260713,147,148,142.5,143.5,27031128,154.83,-7.32,156.45,150.99,0.74
 ```
 
 ## Latest TDCC Snapshot
@@ -194,18 +194,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 3231 | 緯創 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  | no_signal | stale_signal | 1. 原公告日期： 114/09/10 2. 簡述原公告申報內容： 子公司WisLab於114年9月10日公告，擬進行建築物改良及取得機器設備，並於114年 11月5日補充公告與非關係人CoBuild Construction Services, Inc.簽訂合約， 累計交易金額為美金15,708仟元 3. 變動緣由及主要內容： 因應實務需求及追加工程，WisLab與非關係人CoBuild Construction Services, Inc.新增美金10,891仟元，使累計交易金額更新至美金26,599仟元 4. 變動後對公司財務業務之影響： 無 5. 其他應敘明事項： 無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260709 | 3231 | 緯創 | revenue_breakout_low_response | 營收爆發低反應股 | 11.0 | 34.0 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | 1. 原公告日期： 114/09/10 2. 簡述原公告申報內容： 子公司WisLab於114年9月10日公告，擬進行建築物改良及取得機器設備，並於114年 11月5日補充公告與非關係人CoBuild Construction Services, Inc.簽訂合約， 累計交易金額為美金15,708仟元 3. 變動緣由及主要內容： 因應實務需求及追加工程，WisLab與非關係人CoBuild Construction Services, Inc.新增美金10,891仟元，使累計交易金額更新至美金26,599仟元 4. 變動後對公司財務業務之影響： 無 5. 其他應敘明事項： 無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260713 | 3231 | 緯創 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  | no_signal | stale_signal | 1. 原公告日期： 114/09/10 2. 簡述原公告申報內容： 子公司WisLab於114年9月10日公告，擬進行建築物改良及取得機器設備，並於114年 11月5日補充公告與非關係人CoBuild Construction Services, Inc.簽訂合約， 累計交易金額為美金15,708仟元 3. 變動緣由及主要內容： 因應實務需求及追加工程，WisLab與非關係人CoBuild Construction Services, Inc.新增美金10,891仟元，使累計交易金額更新至美金26,599仟元 4. 變動後對公司財務業務之影響： 無 5. 其他應敘明事項： 無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260713 | 3231 | 緯創 | revenue_breakout_low_response | 營收爆發低反應股 | 11.0 | 41.0 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | 1. 原公告日期： 114/09/10 2. 簡述原公告申報內容： 子公司WisLab於114年9月10日公告，擬進行建築物改良及取得機器設備，並於114年 11月5日補充公告與非關係人CoBuild Construction Services, Inc.簽訂合約， 累計交易金額為美金15,708仟元 3. 變動緣由及主要內容： 因應實務需求及追加工程，WisLab與非關係人CoBuild Construction Services, Inc.新增美金10,891仟元，使累計交易金額更新至美金26,599仟元 4. 變動後對公司財務業務之影響： 無 5. 其他應敘明事項： 無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 3231 | 緯創 | 30 | 6 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260713 | 3231 | 緯創 | 31 | 7 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 3231 | 緯創 | 207 | 15 | 5986260.0 | 140850.0 | 42.5 | no_signal |
+| 20260713 | 3231 | 緯創 | 206 | 15 | 7188320.0 | 26000.0 | 276.47 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

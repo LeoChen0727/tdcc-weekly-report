@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7749 意騰-KY
 
 ## Metadata
-- generated_at: 2026-07-13 22:28:59 Asia/Taipei
+- generated_at: 2026-07-14 22:27:32 Asia/Taipei
 - stock_id: 7749
 - stock_name: 意騰-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 256
+- latest_price_date: 20260713
+- price_rows: 257
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 410.5
-- high: 412
-- low: 403.5
-- close: 404
-- volume: 103783
-- ma5: 416.1
-- ema23_primary: 446.17
-- distance_to_ema23_pct: -9.45
-- ma20: 452.88
-- ma60: 468.08
-- ma120: 439.28
-- return_5d: -7.97
-- return_20d: -22.75
-- volume_ratio: 0.28
-- distance_to_ma20_pct_auxiliary: -10.79
-- distance_to_high_60_pct: -27.86
+- date: 20260713
+- open: 407.5
+- high: 407.5
+- low: 390
+- close: 393
+- volume: 210661
+- ma5: 408.2
+- ema23_primary: 441.74
+- distance_to_ema23_pct: -11.03
+- ma20: 447.12
+- ma60: 467.89
+- ma120: 438.63
+- return_5d: -9.13
+- return_20d: -22.64
+- volume_ratio: 0.72
+- distance_to_ma20_pct_auxiliary: -12.11
+- distance_to_high_60_pct: -29.82
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,524,545,501,508,1631192,488.29,4.04,496.62,447.4,1.88
 20260612,523,527,504,505,397527,489.68,3.13,497.48,449.23,0.47
 20260615,511,521,497.5,498.5,515006,490.41,1.65,496.85,450.28,0.62
 20260616,505,505,486,486.5,434929,490.09,-0.73,497.07,451.26,0.53
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,429,429,406,407,237544,453.64,-10.28,462.7,467.4,0.46
 20260708,410,413.5,400.5,410,170415,450.01,-8.89,458.82,467.99,0.34
 20260709,410.5,412,403.5,404,103783,446.17,-9.45,452.88,468.08,0.28
+20260713,407.5,407.5,390,393,210661,441.74,-11.03,447.12,467.89,0.72
 ```
 
 ## Latest TDCC Snapshot
@@ -198,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 7749 | 意騰-KY | 18 | 0 | 59220.0 | 0.0 |  | no_signal |
+| 20260713 | 7749 | 意騰-KY | 18 | 0 | 246810.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7732 金興精密
 
 ## Metadata
-- generated_at: 2026-07-13 22:28:59 Asia/Taipei
+- generated_at: 2026-07-14 22:27:32 Asia/Taipei
 - stock_id: 7732
 - stock_name: 金興精密
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 288
+- latest_price_date: 20260713
+- price_rows: 289
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 35.95
-- high: 35.95
-- low: 35.5
-- close: 35.7
-- volume: 22000
-- ma5: 35.62
+- date: 20260713
+- open: 35.8
+- high: 35.8
+- low: 35.1
+- close: 35.75
+- volume: 15030
+- ma5: 35.64
 - ema23_primary: 35.75
-- distance_to_ema23_pct: -0.14
-- ma20: 35.78
-- ma60: 35.61
-- ma120: 36.58
-- return_5d: -1.11
-- return_20d: -1.52
-- volume_ratio: 0.74
-- distance_to_ma20_pct_auxiliary: -0.24
-- distance_to_high_60_pct: -2.99
+- distance_to_ema23_pct: 0
+- ma20: 35.79
+- ma60: 35.62
+- ma120: 36.55
+- return_5d: 0.28
+- return_20d: 0.42
+- volume_ratio: 0.5
+- distance_to_ma20_pct_auxiliary: -0.12
+- distance_to_high_60_pct: -2.85
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260608,36,36,35.6,35.6,11004,35.71,-0.31,35.52,35.53,0.57
 20260609,35.1,36.3,35.1,35.95,35500,35.73,0.61,35.58,35.52,1.73
 20260610,35.25,35.95,35.1,35.5,52101,35.71,-0.59,35.57,35.5,2.32
 20260611,35.7,35.7,35.7,35.7,3003,35.71,-0.03,35.59,35.49,0.14
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,35.55,36,35.45,35.75,63085,35.77,-0.06,35.85,35.58,2.13
 20260708,35.95,36,35.55,35.55,26006,35.75,-0.57,35.81,35.59,0.86
 20260709,35.95,35.95,35.5,35.7,22000,35.75,-0.14,35.78,35.61,0.74
+20260713,35.8,35.8,35.1,35.75,15030,35.75,0,35.79,35.62,0.5
 ```
 
 ## Latest TDCC Snapshot

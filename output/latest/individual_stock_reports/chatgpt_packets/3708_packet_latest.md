@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3708 上緯投控
 
 ## Metadata
-- generated_at: 2026-07-13 22:27:54 Asia/Taipei
+- generated_at: 2026-07-14 22:26:55 Asia/Taipei
 - stock_id: 3708
 - stock_name: 上緯投控
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 301
+- latest_price_date: 20260713
+- price_rows: 302
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 107
-- high: 109
-- low: 105.5
-- close: 106.5
-- volume: 639211
-- ma5: 110.4
-- ema23_primary: 112.7
-- distance_to_ema23_pct: -5.5
-- ma20: 112.45
-- ma60: 118.32
-- ma120: 118.27
-- return_5d: 0.95
-- return_20d: -10.5
-- volume_ratio: 0.75
-- distance_to_ma20_pct_auxiliary: -5.29
-- distance_to_high_60_pct: -24.2
+- date: 20260713
+- open: 108
+- high: 108
+- low: 103.5
+- close: 105
+- volume: 561370
+- ma5: 109.3
+- ema23_primary: 112.06
+- distance_to_ema23_pct: -6.3
+- ma20: 111.78
+- ma60: 118.17
+- ma120: 118.22
+- return_5d: -4.98
+- return_20d: -11.39
+- volume_ratio: 0.67
+- distance_to_ma20_pct_auxiliary: -6.06
+- distance_to_high_60_pct: -25.27
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,121,121,116,118.5,672706,121.01,-2.07,121.6,120.55,0.44
 20260612,121,121,117,117,613864,120.68,-3.05,121.78,120.38,0.41
 20260615,119.5,119.5,118,119,265264,120.54,-1.27,121.9,120.3,0.18
 20260616,120,121,117,117,538081,120.24,-2.7,121.97,120.27,0.36
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,117,117,110,110.5,1114219,113.93,-3.01,113.8,118.66,1.44
 20260708,111.5,111.5,105,106,2014726,113.27,-6.42,113.08,118.48,2.37
 20260709,107,109,105.5,106.5,639211,112.7,-5.5,112.45,118.32,0.75
+20260713,108,108,103.5,105,561370,112.06,-6.3,111.78,118.17,0.67
 ```
 
 ## Latest TDCC Snapshot
@@ -198,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 3708 | 上緯投控 | 22 | 1 | 147010.0 | 0.0 |  | no_signal |
+| 20260713 | 3708 | 上緯投控 | 21 | 1 | 123840.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

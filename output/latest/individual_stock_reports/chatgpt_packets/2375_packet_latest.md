@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2375 凱美
 
 ## Metadata
-- generated_at: 2026-07-13 22:27:14 Asia/Taipei
+- generated_at: 2026-07-14 22:26:32 Asia/Taipei
 - stock_id: 2375
 - stock_name: 凱美
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 301
+- latest_price_date: 20260713
+- price_rows: 302
 - latest_tdcc_date: 20260703
 - tdcc_rows: 12
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 196.5
-- high: 199.5
-- low: 188.5
-- close: 188.5
-- volume: 9615584
-- ma5: 200.4
-- ema23_primary: 191.41
-- distance_to_ema23_pct: -1.52
-- ma20: 200.95
-- ma60: 142.53
-- ma120: 114.94
-- return_5d: -13.13
-- return_20d: 18.93
-- volume_ratio: 0.5
-- distance_to_ma20_pct_auxiliary: -6.2
-- distance_to_high_60_pct: -20.46
+- date: 20260713
+- open: 190.5
+- high: 200.5
+- low: 180
+- close: 185
+- volume: 14010896
+- ma5: 194.2
+- ema23_primary: 190.87
+- distance_to_ema23_pct: -3.08
+- ma20: 202.15
+- ma60: 144.18
+- ma120: 115.71
+- return_5d: -14.35
+- return_20d: 14.91
+- volume_ratio: 0.71
+- distance_to_ma20_pct_auxiliary: -8.48
+- distance_to_high_60_pct: -21.94
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,164,164,147.5,161,4265213,139.17,15.69,141.84,103.2,0.28
 20260612,173,177,169,172.5,9555736,141.95,21.53,145.5,104.64,0.65
 20260615,183.5,189.5,182,189.5,13570052,145.91,29.88,149.82,106.39,0.92
 20260616,197,202.5,178,181.5,40151634,148.87,21.92,153.82,108.04,2.47
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,208,216,191.5,197,13329079,191.64,2.8,198.1,139.03,0.71
 20260708,197,199.5,185,192,12711118,191.67,0.17,199.45,140.81,0.67
 20260709,196.5,199.5,188.5,188.5,9615584,191.41,-1.52,200.95,142.53,0.5
+20260713,190.5,200.5,180,185,14010896,190.87,-3.08,202.15,144.18,0.71
 ```
 
 ## Latest TDCC Snapshot
@@ -191,17 +191,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 2375 | 凱美 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | call_inflow | stale_signal | 1.事實發生日:115/06/23 2.發生緣由:依據臺灣證券交易所股份有限公司通知辦理。 3.財務業務資訊: 期間        最近一月    與去年同    最近一季   與去年同    最近四季累計 科目        115年5月    期增減%   115年第1季   期增減% 114年第2季至115年第1季          (IFRS合併自結數)        (IFRS合併核閱數)           (IFRS合併核閱數) ============================================================================ 營業收入       497           2%      1,440         11%          5,691 (百萬元) 稅前淨利        43         491%        130        -27%            589 (百萬元) 歸屬母公司淨利  17         133%         85        -36%            357 (百萬元) 每股盈餘      0.15         131%       0.78        -36%           3.29 (元) 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告: 7.其他應敘明事項: (1)115年5月為本公司自結數，未經會計師查核。 (2)115年5月淨利較去年同期增加主係外幣兌換損失減少。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260713 | 2375 | 凱美 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.董事會決議日期:115/07/13 2.發放股利種類及金額:現金股利人民幣50,700,000元 3.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 2375 | 凱美 | 3 | 3 | 4 | 7 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260713 | 2375 | 凱美 | 4 | 4 | 4 | 8 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 2375 | 凱美 | 29 | 0 | 10538730.0 | 0.0 |  | call_inflow |
+| 20260713 | 2375 | 凱美 | 28 | 0 | 9394090.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

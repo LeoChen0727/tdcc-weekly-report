@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6016 康和證
 
 ## Metadata
-- generated_at: 2026-07-13 22:28:21 Asia/Taipei
+- generated_at: 2026-07-14 22:27:10 Asia/Taipei
 - stock_id: 6016
 - stock_name: 康和證
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 166
+- latest_price_date: 20260713
+- price_rows: 167
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 27
-- high: 27.05
-- low: 26.4
-- close: 26.5
-- volume: 6665000
-- ma5: 28.07
-- ema23_primary: 28.06
-- distance_to_ema23_pct: -5.57
-- ma20: 28.36
-- ma60: 25.11
-- ma120: 20.83
-- return_5d: -5.36
-- return_20d: -3.11
-- volume_ratio: 0.76
-- distance_to_ma20_pct_auxiliary: -6.54
-- distance_to_high_60_pct: -27.4
+- date: 20260713
+- open: 26.55
+- high: 26.8
+- low: 25.8
+- close: 26
+- volume: 6609000
+- ma5: 27.46
+- ema23_primary: 27.89
+- distance_to_ema23_pct: -6.78
+- ma20: 28.3
+- ma60: 25.26
+- ma120: 20.93
+- return_5d: -10.5
+- return_20d: -4.06
+- volume_ratio: 0.79
+- distance_to_ma20_pct_auxiliary: -8.13
+- distance_to_high_60_pct: -28.77
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,27,27.55,26.3,27.1,12916000,27.49,-1.41,27.48,21.51,2.31
 20260612,28.5,29.25,28.1,28.45,14075000,27.57,3.2,27.8,21.69,2.4
 20260615,29.6,30,29.25,29.4,12237000,27.72,6.06,28.18,21.88,1.98
 20260616,29.9,30,29,29.1,12014000,27.84,4.54,28.55,22.07,1.83
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,29.35,29.55,28.3,28.45,7368000,28.32,0.48,28.51,24.78,0.67
 20260708,27.6,27.75,26.7,27,15470000,28.21,-4.27,28.4,24.95,1.65
 20260709,27,27.05,26.4,26.5,6665000,28.06,-5.57,28.36,25.11,0.76
+20260713,26.55,26.8,25.8,26,6609000,27.89,-6.78,28.3,25.26,0.79
 ```
 
 ## Latest TDCC Snapshot

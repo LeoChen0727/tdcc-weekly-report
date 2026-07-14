@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2867 三商壽
 
 ## Metadata
-- generated_at: 2026-07-13 22:27:29 Asia/Taipei
+- generated_at: 2026-07-14 22:26:41 Asia/Taipei
 - stock_id: 2867
 - stock_name: 三商壽
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 300
-- latest_tdcc_date: 20260703
-- tdcc_rows: 10
+- latest_price_date: 20260713
+- price_rows: 301
+- latest_tdcc_date: 20260709
+- tdcc_rows: 11
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 8.95
-- high: 8.98
-- low: 8.76
-- close: 8.86
-- volume: 13433974
-- ma5: 8.75
-- ema23_primary: 8.46
-- distance_to_ema23_pct: 4.7
-- ma20: 8.54
-- ma60: 8.04
+- date: 20260713
+- open: 8.86
+- high: 8.9
+- low: 8.77
+- close: 8.83
+- volume: 9959503
+- ma5: 8.8
+- ema23_primary: 8.49
+- distance_to_ema23_pct: 3.97
+- ma20: 8.57
+- ma60: 8.05
 - ma120: 7.95
-- return_5d: 4.24
-- return_20d: 8.58
-- volume_ratio: 0.77
-- distance_to_ma20_pct_auxiliary: 3.72
-- distance_to_high_60_pct: -1.34
+- return_5d: 3.15
+- return_20d: 7.81
+- volume_ratio: 0.57
+- distance_to_ma20_pct_auxiliary: 2.99
+- distance_to_high_60_pct: -1.67
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,8.15,8.2,8.01,8.19,11097862,7.87,4.01,7.8,7.76,0.74
 20260612,8.28,8.43,8.24,8.24,27488206,7.9,4.24,7.82,7.77,1.75
 20260615,8.4,8.48,8.36,8.37,21746252,7.94,5.37,7.86,7.78,1.32
 20260616,8.41,8.62,8.39,8.53,37912671,7.99,6.73,7.9,7.8,2.12
@@ -155,18 +154,19 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,8.76,8.78,8.7,8.73,12595581,8.39,4.09,8.48,8,0.67
 20260708,8.76,8.9,8.72,8.86,21610573,8.43,5.15,8.51,8.02,1.22
 20260709,8.95,8.98,8.76,8.86,13433974,8.46,4.7,8.54,8.04,0.77
+20260713,8.86,8.9,8.77,8.83,9959503,8.49,3.97,8.57,8.05,0.57
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260703
-- over_400_ratio: 85.35
-- over_600_ratio: 83.59
-- over_800_ratio: 82.69
-- over_1000_ratio: 81.85
-- over_400_change_1w: 0.17
-- over_800_change_1w: 0.13
-- over_1000_change_1w: 0.15
-- tdcc_consecutive_up_weeks: 9
+- as_of_date: 20260709
+- over_400_ratio: 85.63
+- over_600_ratio: 83.95
+- over_800_ratio: 83.05
+- over_1000_ratio: 82.26
+- over_400_change_1w: 0.28
+- over_800_change_1w: 0.36
+- over_1000_change_1w: 0.41
+- tdcc_consecutive_up_weeks: 10
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -184,22 +184,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260618,85.01,0.18,82.28,0.19,81.42,0.2,7,True,True
 20260626,85.18,0.17,82.56,0.28,81.7,0.28,8,True,True
 20260703,85.35,0.17,82.69,0.13,81.85,0.15,9,True,True
+20260709,85.63,0.28,83.05,0.36,82.26,0.41,10,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 2867 | 三商壽 | pattern | 型態觀察 | 51.0 |  |  | base_building |  | no_signal | stale_signal | 1.事實發生日:115/07/07 2.公司名稱:三商美邦人壽保險股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: 本公司以股份轉換方式成為玉山金融控股股份有限公司100%持股子公司乙案獲同意， 依金管會於民國115年7月7日官方網站發布之新聞稿，金管會於本日同意此案。 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260713 | 2867 | 三商壽 | pattern | 型態觀察 | 51.0 |  |  | base_building |  | no_signal | stale_signal | 1.事實發生日:115/07/13 2.公司名稱:三商美邦人壽保險股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: 一、本公司與玉山金融控股股份有限公司（下稱「玉山金控」）股份轉換案，業經 金融監督管理委員會115年7月7日金管保壽字第1150492633號函同意及公平交易委員會 115年4月8日公服字第1151260129號函決議不禁止結合在案，股份轉換後本公司將成為 玉山金控百分之百持股之子公司。 二、本公司訂定之股份轉換基準日為115年9月1日，並將依相關法令向臺灣證券交易所 股份有限公司申請於股份轉換基準日終止上市。 三、因玉山金控於115年6月12日之115年度股東常會決議通過114年度盈餘分配案並 公告除息基準日為115年7月7日，故換股比例於玉山金控除息基準日後調整為 三商美邦人壽每1股普通股換發玉山金控0.2596股普通股(原公告為0.2486股)。 四、本股份轉換案相關時程如下： (1)股票最後交易日:115/08/19 (2)股票停止交易日:115/08/20-115/09/01 (3)股票最後過戶日:115/08/21 (4)股票停止過戶日:115/08/22-115/09/01 (5)股份轉換基準日暨終止上市買賣日: 115/09/01 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 2867 | 三商壽 | 6 | 1 | 5 | 9 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260713 | 2867 | 三商壽 | 7 | 2 | 5 | 9 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 2867 | 三商壽 | 2 | 0 | 37520.0 | 0.0 |  | no_signal |
+| 20260713 | 2867 | 三商壽 | 2 | 0 | 35200.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

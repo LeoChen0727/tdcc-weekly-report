@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3055 蔚華科
 
 ## Metadata
-- generated_at: 2026-07-13 22:27:35 Asia/Taipei
+- generated_at: 2026-07-14 22:26:45 Asia/Taipei
 - stock_id: 3055
 - stock_name: 蔚華科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 301
+- latest_price_date: 20260713
+- price_rows: 302
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -111,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 162
-- high: 162
-- low: 154
-- close: 158
-- volume: 1436545
-- ma5: 163.1
-- ema23_primary: 124.23
-- distance_to_ema23_pct: 27.19
-- ma20: 114.54
-- ma60: 101.09
-- ma120: 83.02
-- return_5d: 12.86
-- return_20d: 92.68
-- volume_ratio: 0.44
-- distance_to_ma20_pct_auxiliary: 37.94
-- distance_to_high_60_pct: -10.48
+- date: 20260713
+- open: 160.5
+- high: 163
+- low: 153
+- close: 163
+- volume: 1127856
+- ma5: 165.2
+- ema23_primary: 127.46
+- distance_to_ema23_pct: 27.89
+- ma20: 118.72
+- ma60: 102.76
+- ma120: 83.78
+- return_5d: 6.89
+- return_20d: 105.03
+- volume_ratio: 0.35
+- distance_to_ma20_pct_auxiliary: 37.3
+- distance_to_high_60_pct: -7.65
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,80.2,82.9,78.3,79.5,1649060,97.18,-18.19,105.19,82.89,0.37
 20260612,82.7,82.8,79.9,79.9,1014785,95.74,-16.54,104.03,83.23,0.24
 20260615,84.6,85.4,82.8,83.1,1276941,94.69,-12.24,102.54,83.61,0.32
 20260616,85.2,87.4,83.2,85.1,1485518,93.89,-9.36,100.59,84.04,0.45
@@ -153,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,169,176.5,162.5,176,2405833,116.85,50.62,106.7,97.71,0.73
 20260708,168,169,158.5,168.5,2442168,121.16,39.08,110.74,99.47,0.74
 20260709,162,162,154,158,1436545,124.23,27.19,114.54,101.09,0.44
+20260713,160.5,163,153,163,1127856,127.46,27.89,118.72,102.76,0.35
 ```
 
 ## Latest TDCC Snapshot
@@ -197,7 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 3055 | 蔚華科 | 15 | 0 | 1461800.0 | 0.0 |  | no_signal |
+| 20260713 | 3055 | 蔚華科 | 15 | 0 | 873880.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

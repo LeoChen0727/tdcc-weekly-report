@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6129 普誠
 
 ## Metadata
-- generated_at: 2026-07-13 22:28:23 Asia/Taipei
+- generated_at: 2026-07-14 22:27:11 Asia/Taipei
 - stock_id: 6129
 - stock_name: 普誠
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 166
+- latest_price_date: 20260713
+- price_rows: 167
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 18.65
-- high: 19.05
-- low: 18.5
-- close: 19
-- volume: 1298000
-- ma5: 19.31
-- ema23_primary: 18.03
-- distance_to_ema23_pct: 5.4
-- ma20: 17.83
-- ma60: 16.8
-- ma120: 16.14
-- return_5d: -5
-- return_20d: 25
-- volume_ratio: 0.52
-- distance_to_ma20_pct_auxiliary: 6.55
-- distance_to_high_60_pct: -9.74
+- date: 20260713
+- open: 18.6
+- high: 19.25
+- low: 17.7
+- close: 18
+- volume: 1605000
+- ma5: 19.08
+- ema23_primary: 18.02
+- distance_to_ema23_pct: -0.14
+- ma20: 17.98
+- ma60: 16.83
+- ma120: 16.17
+- return_5d: -6.01
+- return_20d: 20
+- volume_ratio: 0.63
+- distance_to_ma20_pct_auxiliary: 0.1
+- distance_to_high_60_pct: -14.49
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,15.05,15.25,14.7,15,698000,15.92,-5.8,15.75,16.07,2.12
 20260612,15.25,15.65,15.25,15.35,647000,15.88,-3.31,15.76,16.06,2.01
 20260615,15.7,15.95,15.5,15.8,731000,15.87,-0.44,15.8,16.03,2.22
 20260616,15.9,16,15.6,15.7,436000,15.86,-0.98,15.84,16.01,1.36
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,20.15,20.15,18.8,18.9,4826000,17.87,5.74,17.49,16.71,2.01
 20260708,19.15,19.2,18.1,18.65,1482000,17.94,3.97,17.64,16.75,0.6
 20260709,18.65,19.05,18.5,19,1298000,18.03,5.4,17.83,16.8,0.52
+20260713,18.6,19.25,17.7,18,1605000,18.02,-0.14,17.98,16.83,0.63
 ```
 
 ## Latest TDCC Snapshot
@@ -188,13 +189,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 6129 | 普誠 | pattern | 型態觀察 | 46.0 |  |  | base_building |  |  | stale_signal | 1.事實發生日:115/07/03 2.公司名稱:成都啟臣微電子股份有限公司 3.與公司關係(請輸入本公司或子公司):子公司 4.相互持股比例:為本公司持股94%之子公司 5.發生緣由:配合公司整體規劃，成都啟臣微電子股份有限公司變更公司名稱為 成都啟臣微電子有限公司 6.因應措施:依法變更後正式生效 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
-| 20260709 | 6129 | 普誠 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/07/03 2.公司名稱:成都啟臣微電子股份有限公司 3.與公司關係(請輸入本公司或子公司):子公司 4.相互持股比例:為本公司持股94%之子公司 5.發生緣由:配合公司整體規劃，成都啟臣微電子股份有限公司變更公司名稱為 成都啟臣微電子有限公司 6.因應措施:依法變更後正式生效 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260713 | 6129 | 普誠 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.事實發生日:115/07/03 2.公司名稱:成都啟臣微電子股份有限公司 3.與公司關係(請輸入本公司或子公司):子公司 4.相互持股比例:為本公司持股94%之子公司 5.發生緣由:配合公司整體規劃，成都啟臣微電子股份有限公司變更公司名稱為 成都啟臣微電子有限公司 6.因應措施:依法變更後正式生效 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260713 | 6129 | 普誠 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/07/03 2.公司名稱:成都啟臣微電子股份有限公司 3.與公司關係(請輸入本公司或子公司):子公司 4.相互持股比例:為本公司持股94%之子公司 5.發生緣由:配合公司整體規劃，成都啟臣微電子股份有限公司變更公司名稱為 成都啟臣微電子有限公司 6.因應措施:依法變更後正式生效 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 6129 | 普誠 | 6 | 2 | 5 | 8 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260713 | 6129 | 普誠 | 7 | 3 | 5 | 8 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5347 世界
 
 ## Metadata
-- generated_at: 2026-07-13 22:28:14 Asia/Taipei
+- generated_at: 2026-07-14 22:27:06 Asia/Taipei
 - stock_id: 5347
 - stock_name: 世界
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 166
+- latest_price_date: 20260713
+- price_rows: 167
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 177.5
-- high: 178
-- low: 170.5
-- close: 173
-- volume: 20279000
-- ma5: 180.6
-- ema23_primary: 183.82
-- distance_to_ema23_pct: -5.88
-- ma20: 187.4
-- ma60: 167.45
-- ma120: 146.42
-- return_5d: -12.63
-- return_20d: 13.44
-- volume_ratio: 0.6
-- distance_to_ma20_pct_auxiliary: -7.68
-- distance_to_high_60_pct: -22.42
+- date: 20260713
+- open: 181.5
+- high: 187
+- low: 176
+- close: 178.5
+- volume: 28422000
+- ma5: 177.6
+- ema23_primary: 183.37
+- distance_to_ema23_pct: -2.66
+- ma20: 188.25
+- ma60: 168.3
+- ma120: 147.05
+- return_5d: -7.75
+- return_20d: 10.53
+- volume_ratio: 0.85
+- distance_to_ma20_pct_auxiliary: -5.18
+- distance_to_high_60_pct: -19.96
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,153,161.5,151.5,161.5,34997000,161.37,0.08,164.05,145.74,2.01
 20260612,169,173.5,168,169.5,34093000,162.04,4.6,163.7,146.59,2.03
 20260615,174.5,176.5,170.5,174.5,27174000,163.08,7,164.47,147.48,1.57
 20260616,177,177,169,171.5,20378000,163.78,4.71,165.18,148.38,1.54
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,186,186.5,173,175,27650000,185.55,-5.69,185.6,165.79,0.82
 20260708,176,176.5,168,176.5,25030000,184.8,-4.49,186.38,166.64,0.74
 20260709,177.5,178,170.5,173,20279000,183.82,-5.88,187.4,167.45,0.6
+20260713,181.5,187,176,178.5,28422000,183.37,-2.66,188.25,168.3,0.85
 ```
 
 ## Latest TDCC Snapshot
@@ -188,13 +189,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 5347 | 世界 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.證券名稱: Sumitomo Mitsui Financial Group, Inc.之普通公司債 2.交易日期:115/2/2~115/7/9 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:副總經理暨財務長 民國115年01月27日 5.交易數量、每單位價格及交易總金額: (1)US86562MEJ53：40,000單位；每單位約US$99.202元；總金額US$4佰萬元。 (2)US86562MDM91：80,000單位；每單位約US$102.79元；總金額US$8佰萬元。 (3)US86562MBP41：60,000單位；每單位約US$96.26元；總金額US$6佰萬元。 6.處分利益（或損失）（取得有價證券者不適用）: 不適用 7.與交易標的公司之關係: 無 8.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: (1)數量:180,000單位  (2)金額:US$18佰萬元  (3)持股比例：不適用  (4)權利受限情形: 無 9.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列之有價證券投 資（含本次交易）占公司最近期財務報表中總資產及歸屬於母公司業主之權益之比例 暨最近期財務報表中營運資金數額: (1)有價證券投資(含本次交易)占公司最近期財務報表中總資產之比例：5.90% (2)占公司最近期財務報表歸屬於母公司業主之權益之比例：10.66% (3)最近期財報中營運資金（總資產減總負債）數額:20,206,163仟元 10.取得或處分之具體目的: 固定收益投資 11.本次交易表示異議董事之意見: 不適用 12.本次交易為關係人交易: 否 13.交易相對人及其與公司之關係: 無 14.監察人承認或審計委員會同意日期: 不適用 15.前已就同一件事件發布重大訊息日期: 不適用 16.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
-| 20260709 | 5347 | 世界 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  |  | stale_signal | 1.證券名稱: Sumitomo Mitsui Financial Group, Inc.之普通公司債 2.交易日期:115/2/2~115/7/9 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:副總經理暨財務長 民國115年01月27日 5.交易數量、每單位價格及交易總金額: (1)US86562MEJ53：40,000單位；每單位約US$99.202元；總金額US$4佰萬元。 (2)US86562MDM91：80,000單位；每單位約US$102.79元；總金額US$8佰萬元。 (3)US86562MBP41：60,000單位；每單位約US$96.26元；總金額US$6佰萬元。 6.處分利益（或損失）（取得有價證券者不適用）: 不適用 7.與交易標的公司之關係: 無 8.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: (1)數量:180,000單位  (2)金額:US$18佰萬元  (3)持股比例：不適用  (4)權利受限情形: 無 9.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列之有價證券投 資（含本次交易）占公司最近期財務報表中總資產及歸屬於母公司業主之權益之比例 暨最近期財務報表中營運資金數額: (1)有價證券投資(含本次交易)占公司最近期財務報表中總資產之比例：5.90% (2)占公司最近期財務報表歸屬於母公司業主之權益之比例：10.66% (3)最近期財報中營運資金（總資產減總負債）數額:20,206,163仟元 10.取得或處分之具體目的: 固定收益投資 11.本次交易表示異議董事之意見: 不適用 12.本次交易為關係人交易: 否 13.交易相對人及其與公司之關係: 無 14.監察人承認或審計委員會同意日期: 不適用 15.前已就同一件事件發布重大訊息日期: 不適用 16.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260713 | 5347 | 世界 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  |  | repeated_but_no_breakout | 1.證券名稱: Sumitomo Mitsui Financial Group, Inc.之普通公司債 2.交易日期:115/2/2~115/7/9 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:副總經理暨財務長 民國115年01月27日 5.交易數量、每單位價格及交易總金額: (1)US86562MEJ53：40,000單位；每單位約US$99.202元；總金額US$4佰萬元。 (2)US86562MDM91：80,000單位；每單位約US$102.79元；總金額US$8佰萬元。 (3)US86562MBP41：60,000單位；每單位約US$96.26元；總金額US$6佰萬元。 6.處分利益（或損失）（取得有價證券者不適用）: 不適用 7.與交易標的公司之關係: 無 8.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: (1)數量:180,000單位  (2)金額:US$18佰萬元  (3)持股比例：不適用  (4)權利受限情形: 無 9.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列之有價證券投 資（含本次交易）占公司最近期財務報表中總資產及歸屬於母公司業主之權益之比例 暨最近期財務報表中營運資金數額: (1)有價證券投資(含本次交易)占公司最近期財務報表中總資產之比例：5.90% (2)占公司最近期財務報表歸屬於母公司業主之權益之比例：10.66% (3)最近期財報中營運資金（總資產減總負債）數額:20,206,163仟元 10.取得或處分之具體目的: 固定收益投資 11.本次交易表示異議董事之意見: 不適用 12.本次交易為關係人交易: 否 13.交易相對人及其與公司之關係: 無 14.監察人承認或審計委員會同意日期: 不適用 15.前已就同一件事件發布重大訊息日期: 不適用 16.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260713 | 5347 | 世界 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  |  | repeated_but_no_breakout | 1.證券名稱: Sumitomo Mitsui Financial Group, Inc.之普通公司債 2.交易日期:115/2/2~115/7/9 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:副總經理暨財務長 民國115年01月27日 5.交易數量、每單位價格及交易總金額: (1)US86562MEJ53：40,000單位；每單位約US$99.202元；總金額US$4佰萬元。 (2)US86562MDM91：80,000單位；每單位約US$102.79元；總金額US$8佰萬元。 (3)US86562MBP41：60,000單位；每單位約US$96.26元；總金額US$6佰萬元。 6.處分利益（或損失）（取得有價證券者不適用）: 不適用 7.與交易標的公司之關係: 無 8.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: (1)數量:180,000單位  (2)金額:US$18佰萬元  (3)持股比例：不適用  (4)權利受限情形: 無 9.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列之有價證券投 資（含本次交易）占公司最近期財務報表中總資產及歸屬於母公司業主之權益之比例 暨最近期財務報表中營運資金數額: (1)有價證券投資(含本次交易)占公司最近期財務報表中總資產之比例：5.90% (2)占公司最近期財務報表歸屬於母公司業主之權益之比例：10.66% (3)最近期財報中營運資金（總資產減總負債）數額:20,206,163仟元 10.取得或處分之具體目的: 固定收益投資 11.本次交易表示異議董事之意見: 不適用 12.本次交易為關係人交易: 否 13.交易相對人及其與公司之關係: 無 14.監察人承認或審計委員會同意日期: 不適用 15.前已就同一件事件發布重大訊息日期: 不適用 16.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 5347 | 世界 | 4 | 4 | 4 | 6 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260713 | 5347 | 世界 | 5 | 5 | 5 | 6 | 11 | repeated_but_no_breakout | 近 10 日上榜 6 次、近 20 日上榜 11 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

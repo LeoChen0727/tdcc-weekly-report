@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1780 立弘
 
 ## Metadata
-- generated_at: 2026-07-13 22:27:02 Asia/Taipei
+- generated_at: 2026-07-14 22:26:26 Asia/Taipei
 - stock_id: 1780
 - stock_name: 立弘
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260709
-- price_rows: 16
+- latest_price_date: 20260713
+- price_rows: 17
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,23 +112,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 24.7
+- date: 20260713
+- open: 23.1
 - high: 24.7
-- low: 24.25
-- close: 24.7
-- volume: 74000
-- ma5: 24.75
-- ema23_primary: 26.08
-- distance_to_ema23_pct: -5.3
-- ma20: 25.65
-- ma60: 25.65
-- ma120: 25.65
-- return_5d: 0.82
+- low: 23.1
+- close: 23.5
+- volume: 247000
+- ma5: 24.53
+- ema23_primary: 25.87
+- distance_to_ema23_pct: -9.15
+- ma20: 25.53
+- ma60: 25.53
+- ma120: 25.53
+- return_5d: -4.47
 - return_20d:
-- volume_ratio: 0.19
-- distance_to_ma20_pct_auxiliary: -3.72
-- distance_to_high_60_pct: -14.83
+- volume_ratio: 0.65
+- distance_to_ma20_pct_auxiliary: -7.94
+- distance_to_high_60_pct: -18.97
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -151,6 +150,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,24.75,25.2,24.65,25,166000,26.34,-5.1,25.79,25.79,0.39
 20260708,24.8,25.2,24.45,24.7,130000,26.21,-5.75,25.72,25.72,0.32
 20260709,24.7,24.7,24.25,24.7,74000,26.08,-5.3,25.65,25.65,0.19
+20260713,23.1,24.7,23.1,23.5,247000,25.87,-9.15,25.53,25.53,0.65
 ```
 
 ## Latest TDCC Snapshot

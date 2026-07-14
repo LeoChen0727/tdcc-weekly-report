@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3189 景碩
 
 ## Metadata
-- generated_at: 2026-07-13 22:27:39 Asia/Taipei
+- generated_at: 2026-07-14 22:26:46 Asia/Taipei
 - stock_id: 3189
 - stock_name: 景碩
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 301
+- latest_price_date: 20260713
+- price_rows: 302
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -59,14 +59,14 @@
 - action_rating_display_zh: 已持有續抱
 - model_category_display_zh: 單一個股分析
 - score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- risk_control_zh: 股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -74,7 +74,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: unclear
+- thesis_state: high_level_consolidation
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -91,7 +91,6 @@
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
-- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -104,7 +103,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- none
+- price_too_extended
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -112,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 770
-- high: 829
-- low: 770
-- close: 795
-- volume: 2569666
-- ma5: 766.6
-- ema23_primary: 750.08
-- distance_to_ema23_pct: 5.99
-- ma20: 754.2
-- ma60: 626.66
-- ma120: 454.43
-- return_5d: -4.22
-- return_20d: 20.45
-- volume_ratio: 0.1
-- distance_to_ma20_pct_auxiliary: 5.41
-- distance_to_high_60_pct: -15.34
+- date: 20260713
+- open: 838
+- high: 838
+- low: 815
+- close: 819
+- volume: 3480697
+- ma5: 763.8
+- ema23_primary: 755.82
+- distance_to_ema23_pct: 8.36
+- ma20: 764.2
+- ma60: 633.92
+- ma120: 459.79
+- return_5d: -1.68
+- return_20d: 32.31
+- volume_ratio: 0.15
+- distance_to_ma20_pct_auxiliary: 7.17
+- distance_to_high_60_pct: -12.78
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,674,693,594,619,31037944,637.53,-2.91,649.95,498.53,1.7
 20260612,661,664,599,610,27158125,635.23,-3.97,656.15,503.01,1.51
 20260615,631,660,621,660,21349711,637.3,3.56,663.9,507.92,1.19
 20260616,660,688,637,642,26698363,637.69,0.68,670.35,512.23,1.53
@@ -154,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,761,770,687,687,6623269,745.17,-7.81,745.4,613.12,0.26
 20260708,714,755,714,755,4336069,745.99,1.21,747.45,619.59,0.17
 20260709,770,829,770,795,2569666,750.08,5.99,754.2,626.66,0.1
+20260713,838,838,815,819,3480697,755.82,8.36,764.2,633.92,0.15
 ```
 
 ## Latest TDCC Snapshot
@@ -198,7 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 3189 | 景碩 | 119 | 11 | 2559100.0 | 2420.0 | 1057.48 | no_signal |
+| 20260713 | 3189 | 景碩 | 115 | 11 | 4371880.0 | 590.0 | 7409.97 | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

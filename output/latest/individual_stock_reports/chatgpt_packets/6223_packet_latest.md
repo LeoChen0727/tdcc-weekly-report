@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6223 旺矽
 
 ## Metadata
-- generated_at: 2026-07-13 22:28:29 Asia/Taipei
+- generated_at: 2026-07-14 22:27:14 Asia/Taipei
 - stock_id: 6223
 - stock_name: 旺矽
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 166
+- latest_price_date: 20260713
+- price_rows: 167
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 7000
-- high: 7080
-- low: 6760
-- close: 7080
-- volume: 627000
-- ma5: 6817
-- ema23_primary: 6504.16
-- distance_to_ema23_pct: 8.85
-- ma20: 6608
-- ma60: 5840.33
-- ma120: 4460.25
-- return_5d: -2.41
-- return_20d: 22.7
-- volume_ratio: 0.69
-- distance_to_ma20_pct_auxiliary: 7.14
-- distance_to_high_60_pct: -8.05
+- date: 20260713
+- open: 7600
+- high: 7600
+- low: 6640
+- close: 6640
+- volume: 717000
+- ma5: 6669
+- ema23_primary: 6515.48
+- distance_to_ema23_pct: 1.91
+- ma20: 6635.5
+- ma60: 5874.25
+- ma120: 4497.62
+- return_5d: -10.03
+- return_20d: 9.03
+- volume_ratio: 0.83
+- distance_to_ma20_pct_auxiliary: 0.07
+- distance_to_high_60_pct: -13.77
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,5915,6150,5680,6090,1501000,5725.08,6.37,5901,4985.25,0.41
 20260612,6480,6595,6320,6485,1570000,5788.4,12.03,5930.5,5033.67,0.43
 20260615,6945,6950,6355,6435,1081000,5842.29,10.15,5945.5,5078.67,0.3
 20260616,6465,6800,6290,6445,895000,5892.51,9.38,5981.25,5125,0.25
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,6855,7040,6235,6310,868000,6451.06,-2.19,6513.75,5766.42,0.88
 20260708,6500,6540,6250,6460,723000,6451.81,0.13,6542.5,5798.33,0.76
 20260709,7000,7080,6760,7080,627000,6504.16,8.85,6608,5840.33,0.69
+20260713,7600,7600,6640,6640,717000,6515.48,1.91,6635.5,5874.25,0.83
 ```
 
 ## Latest TDCC Snapshot

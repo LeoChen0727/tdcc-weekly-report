@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6199 天品
 
 ## Metadata
-- generated_at: 2026-07-13 22:28:27 Asia/Taipei
+- generated_at: 2026-07-14 22:27:13 Asia/Taipei
 - stock_id: 6199
 - stock_name: 天品
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 166
+- latest_price_date: 20260713
+- price_rows: 167
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -56,33 +56,29 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 可分批買進
-- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
-- action_summary_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。
-- entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
-- position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- action_rating_display_zh: 已持有續抱
+- model_category_display_zh: 營收成長股價回檔
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
+- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: scale_in
-- action_rating_label_zh: 可分批買進
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: healthy_pullback
-- entry_style: pullback_to_23ema
-- position_sizing: half_position
+- thesis_state: unclear
+- entry_style: no_entry_now
+- position_sizing: observe_only
 
 ### management_plan
-- buy_first_tranche_near_support
-- add_on_23ema_hold
-- add_on_reclaim_23ema
-- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -91,7 +87,6 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -117,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 105
-- high: 106.5
-- low: 102
-- close: 105.5
-- volume: 1160000
-- ma5: 105.1
-- ema23_primary: 100.65
-- distance_to_ema23_pct: 4.81
-- ma20: 99.98
-- ma60: 98.4
-- ma120: 101.15
-- return_5d: 1.44
-- return_20d: 9.33
-- volume_ratio: 1.43
+- date: 20260713
+- open: 106.5
+- high: 108.5
+- low: 103.5
+- close: 106
+- volume: 1257000
+- ma5: 105.2
+- ema23_primary: 101.1
+- distance_to_ema23_pct: 4.85
+- ma20: 100.45
+- ma60: 98.31
+- ma120: 101.13
+- return_5d: 0.47
+- return_20d: 9.84
+- volume_ratio: 1.48
 - distance_to_ma20_pct_auxiliary: 5.52
-- distance_to_high_60_pct: -9.05
+- distance_to_high_60_pct: -8.62
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,95.2,97.4,94.5,96.5,561000,95.36,1.2,95.19,100.56,1.65
 20260612,96.5,97.6,95,96.7,194000,95.47,1.29,95.15,100.42,0.62
 20260615,97.9,97.9,87.1,87.1,538000,94.77,-8.09,94.48,100.17,1.77
 20260616,90.4,94.7,88,92.3,898000,94.56,-2.39,94.05,99.99,2.71
@@ -159,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,108,108,103.5,103.5,1031000,99.82,3.68,99.11,98.44,1.34
 20260708,105,105,99.4,104.5,1240000,100.21,4.28,99.53,98.42,1.53
 20260709,105,106.5,102,105.5,1160000,100.65,4.81,99.98,98.4,1.43
+20260713,106.5,108.5,103.5,106,1257000,101.1,4.85,100.45,98.31,1.48
 ```
 
 ## Latest TDCC Snapshot
@@ -193,12 +188,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 6199 | 天品 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | 1.董事會決議日期：115/07/01 2.股東臨時會召開日期：115/07/29 3.股東臨時會召開地點：新北市中和區板南路659號19樓(元隆捷運雙星B棟) 4.股東臨時會召開方式(實體股東會/視訊輔助股東會/視訊股東會)：實體股東會 5.召集事由一：討論事項 (1)：子公司天品國際股份有限公司以自地委建方式與關係人「宏固營造工程股份有限公司」 簽訂「基隆孝光閣」工程承攬契約案 (2)：本公司「公司章程」修訂案 6.臨時動議： 7.停止過戶起始日期：115/06/30 8.停止過戶截止日期：115/07/29 9.其他應敘明事項：(1)本次股東會股東得以電子方式行使表決權，行使期間自民國115年7月14日 至115年7月26日止，電子投票平台為台灣集中保管結算所股東會電子投票平台， 網址：https://stockservices.tdcc.com.tw。 (2)115/7/1董事會新增討論事項第二案。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260713 | 6199 | 天品 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  |  | stale_signal | 1.董事會決議日期：115/07/01 2.股東臨時會召開日期：115/07/29 3.股東臨時會召開地點：新北市中和區板南路659號19樓(元隆捷運雙星B棟) 4.股東臨時會召開方式(實體股東會/視訊輔助股東會/視訊股東會)：實體股東會 5.召集事由一：討論事項 (1)：子公司天品國際股份有限公司以自地委建方式與關係人「宏固營造工程股份有限公司」 簽訂「基隆孝光閣」工程承攬契約案 (2)：本公司「公司章程」修訂案 6.臨時動議： 7.停止過戶起始日期：115/06/30 8.停止過戶截止日期：115/07/29 9.其他應敘明事項：(1)本次股東會股東得以電子方式行使表決權，行使期間自民國115年7月14日 至115年7月26日止，電子投票平台為台灣集中保管結算所股東會電子投票平台， 網址：https://stockservices.tdcc.com.tw。 (2)115/7/1董事會新增討論事項第二案。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260713 | 6199 | 天品 | revenue_breakout_low_response | 營收爆發低反應股 | 20.0 | 13.0 | B_可觀察 |  |  |  | stale_signal | 1.董事會決議日期：115/07/01 2.股東臨時會召開日期：115/07/29 3.股東臨時會召開地點：新北市中和區板南路659號19樓(元隆捷運雙星B棟) 4.股東臨時會召開方式(實體股東會/視訊輔助股東會/視訊股東會)：實體股東會 5.召集事由一：討論事項 (1)：子公司天品國際股份有限公司以自地委建方式與關係人「宏固營造工程股份有限公司」 簽訂「基隆孝光閣」工程承攬契約案 (2)：本公司「公司章程」修訂案 6.臨時動議： 7.停止過戶起始日期：115/06/30 8.停止過戶截止日期：115/07/29 9.其他應敘明事項：(1)本次股東會股東得以電子方式行使表決權，行使期間自民國115年7月14日 至115年7月26日止，電子投票平台為台灣集中保管結算所股東會電子投票平台， 網址：https://stockservices.tdcc.com.tw。 (2)115/7/1董事會新增討論事項第二案。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 6199 | 天品 | 4 | 1 | 4 | 5 | 6 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260713 | 6199 | 天品 | 5 | 1 | 5 | 6 | 7 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

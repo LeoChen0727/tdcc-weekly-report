@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7048 長科*統一61購01
 
 ## Metadata
-- generated_at: 2026-07-13 22:28:53 Asia/Taipei
+- generated_at: 2026-07-14 22:27:28 Asia/Taipei
 - stock_id: 7048
 - stock_name: 長科*統一61購01
 - packet_status: partial_rawdata_packet

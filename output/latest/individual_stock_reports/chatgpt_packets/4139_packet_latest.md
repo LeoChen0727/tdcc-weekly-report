@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4139 馬光-KY
 
 ## Metadata
-- generated_at: 2026-07-13 22:27:56 Asia/Taipei
+- generated_at: 2026-07-14 22:26:56 Asia/Taipei
 - stock_id: 4139
 - stock_name: 馬光-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 163
+- latest_price_date: 20260713
+- price_rows: 164
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 24.8
-- high: 24.9
-- low: 24.75
-- close: 24.9
-- volume: 52000
-- ma5: 24.73
-- ema23_primary: 24.32
-- distance_to_ema23_pct: 2.39
-- ma20: 24.48
-- ma60: 23.94
-- ma120: 24.14
-- return_5d: 1.22
-- return_20d: 0.61
-- volume_ratio: 2.24
-- distance_to_ma20_pct_auxiliary: 1.74
-- distance_to_high_60_pct: -0.2
+- date: 20260713
+- open: 25.2
+- high: 26
+- low: 24.9
+- close: 26
+- volume: 66000
+- ma5: 25.01
+- ema23_primary: 24.46
+- distance_to_ema23_pct: 6.3
+- ma20: 24.55
+- ma60: 23.96
+- ma120: 24.15
+- return_5d: 5.69
+- return_20d: 6.34
+- volume_ratio: 2.55
+- distance_to_ma20_pct_auxiliary: 5.9
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,24.7,24.7,24,24.45,13000,23.36,4.65,23.25,23.99,0.71
 20260612,24.05,24.4,23.7,24.4,20000,23.45,4.05,23.25,24,1.06
 20260615,24.75,24.75,24.4,24.5,31000,23.54,4.09,23.27,23.99,1.56
 20260616,24.4,24.4,24.3,24.3,14000,23.6,2.96,23.32,23.98,0.7
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,24.8,24.8,24.5,24.75,34000,24.23,2.15,24.38,23.95,1.6
 20260708,24.6,24.75,24.6,24.65,35000,24.26,1.59,24.47,23.94,1.55
 20260709,24.8,24.9,24.75,24.9,52000,24.32,2.39,24.48,23.94,2.24
+20260713,25.2,26,24.9,26,66000,24.46,6.3,24.55,23.96,2.55
 ```
 
 ## Latest TDCC Snapshot

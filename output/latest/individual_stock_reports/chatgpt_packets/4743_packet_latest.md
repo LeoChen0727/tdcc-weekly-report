@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4743 合一
 
 ## Metadata
-- generated_at: 2026-07-13 22:28:05 Asia/Taipei
+- generated_at: 2026-07-14 22:27:01 Asia/Taipei
 - stock_id: 4743
 - stock_name: 合一
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 166
+- latest_price_date: 20260713
+- price_rows: 167
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 55.2
-- high: 56.3
-- low: 53.7
-- close: 54.2
-- volume: 2645000
-- ma5: 56.72
-- ema23_primary: 52.37
-- distance_to_ema23_pct: 3.5
-- ma20: 51.16
-- ma60: 51.55
-- ma120: 55.57
-- return_5d: 4.03
-- return_20d: 10.61
-- volume_ratio: 0.71
-- distance_to_ma20_pct_auxiliary: 5.94
-- distance_to_high_60_pct: -13.97
+- date: 20260713
+- open: 54.9
+- high: 54.9
+- low: 51
+- close: 51
+- volume: 4245000
+- ma5: 55.46
+- ema23_primary: 52.25
+- distance_to_ema23_pct: -2.4
+- ma20: 51.32
+- ma60: 51.49
+- ma120: 55.48
+- return_5d: -10.99
+- return_20d: 6.81
+- volume_ratio: 1.11
+- distance_to_ma20_pct_auxiliary: -0.63
+- distance_to_high_60_pct: -19.05
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,49.05,49.25,47.5,47.75,2252000,50.57,-5.58,50.47,52.08,2.26
 20260612,48,48.8,47.95,48.35,1337000,50.39,-4.04,50.37,51.99,1.43
 20260615,49,49.65,48.55,49.15,1257000,50.28,-2.25,50.31,51.9,1.37
 20260616,49.3,49.55,47.85,47.85,1625000,50.08,-4.45,50.2,51.82,1.75
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,58.8,59.4,56.4,56.7,5662000,51.88,9.28,50.6,51.49,1.61
 20260708,58.3,59.1,55,55.7,5436000,52.2,6.7,50.9,51.53,1.48
 20260709,55.2,56.3,53.7,54.2,2645000,52.37,3.5,51.16,51.55,0.71
+20260713,54.9,54.9,51,51,4245000,52.25,-2.4,51.32,51.49,1.11
 ```
 
 ## Latest TDCC Snapshot
@@ -189,12 +189,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 4743 | 合一 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  |  | stale_signal | 1.人員變動別（請輸入發言人、代理發言人、重要營運主管 (如:執行長、營運長、行銷長及策略長等)、財務主管、會計 主管、公司治理主管、資訊安全長、研發主管、內部稽核主管或訴訟及非 訟代理人）:內部稽核主管 2.發生變動日期:115/07/03 3.舊任者姓名、級職及簡歷:郭悅琳/本公司內部稽核主管 4.新任者姓名、級職及簡歷:不適用 5.異動情形（請輸入「辭職」、「職務調整」、「資遣」、 「退休」、「死亡」、「新任」或「解任」）:辭職 6.異動原因:轉任關聯企業。 7.生效日期:115/07/03 8.其他應敘明事項: (1)新任內部稽核主管就任前，暫由本公司稽核代理人代行職務。 (2)新任內部稽核主管待審計委員會及董事會通過後另行公告。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260713 | 4743 | 合一 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  |  | continued_2_3d | 1.人員變動別（請輸入發言人、代理發言人、重要營運主管 (如:執行長、營運長、行銷長及策略長等)、財務主管、會計 主管、公司治理主管、資訊安全長、研發主管、內部稽核主管或訴訟及非 訟代理人）:內部稽核主管 2.發生變動日期:115/07/03 3.舊任者姓名、級職及簡歷:郭悅琳/本公司內部稽核主管 4.新任者姓名、級職及簡歷:不適用 5.異動情形（請輸入「辭職」、「職務調整」、「資遣」、 「退休」、「死亡」、「新任」或「解任」）:辭職 6.異動原因:轉任關聯企業。 7.生效日期:115/07/03 8.其他應敘明事項: (1)新任內部稽核主管就任前，暫由本公司稽核代理人代行職務。 (2)新任內部稽核主管待審計委員會及董事會通過後另行公告。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 4743 | 合一 | 1 | 1 | 4 | 6 | 7 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260713 | 4743 | 合一 | 2 | 2 | 4 | 7 | 8 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | status |

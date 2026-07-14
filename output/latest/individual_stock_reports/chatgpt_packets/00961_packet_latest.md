@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00961 FT臺灣永續高息
 
 ## Metadata
-- generated_at: 2026-07-13 22:26:46 Asia/Taipei
+- generated_at: 2026-07-14 22:26:17 Asia/Taipei
 - stock_id: 00961
 - stock_name: FT臺灣永續高息
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260709
-- price_rows: 34
+- latest_price_date: 20260713
+- price_rows: 35
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 12.78
-- high: 12.78
-- low: 12.64
-- close: 12.69
-- volume: 15709758
-- ma5: 12.77
+- date: 20260713
+- open: 12.79
+- high: 12.82
+- low: 12.66
+- close: 12.67
+- volume: 17829336
+- ma5: 12.75
 - ema23_primary: 12.68
-- distance_to_ema23_pct: 0.12
+- distance_to_ema23_pct: -0.04
 - ma20: 12.75
 - ma60: 12.68
 - ma120: 12.68
-- return_5d: 0.08
-- return_20d: -2.01
-- volume_ratio: 1.66
-- distance_to_ma20_pct_auxiliary: -0.51
-- distance_to_high_60_pct: -6.62
+- return_5d: -0.86
+- return_20d: -1.32
+- volume_ratio: 1.79
+- distance_to_ma20_pct_auxiliary: -0.6
+- distance_to_high_60_pct: -6.77
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,12.93,12.96,12.73,12.84,8779027,12.43,3.29,12.6,12.6,1.04
 20260612,13.03,13.08,12.86,12.86,9950792,12.47,3.15,12.62,12.62,1.17
 20260615,13.1,13.1,12.92,12.94,13770385,12.51,3.46,12.64,12.64,1.56
 20260616,12.72,12.79,12.71,12.76,7272826,12.53,1.85,12.64,12.64,0.83
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,12.92,12.92,12.71,12.75,22242181,12.67,0.62,12.78,12.68,2.5
 20260708,12.84,12.89,12.67,12.71,10866358,12.67,0.28,12.77,12.68,1.19
 20260709,12.78,12.78,12.64,12.69,15709758,12.68,0.12,12.75,12.68,1.66
+20260713,12.79,12.82,12.66,12.67,17829336,12.68,-0.04,12.75,12.68,1.79
 ```
 
 ## Latest TDCC Snapshot

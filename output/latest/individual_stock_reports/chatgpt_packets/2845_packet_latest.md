@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2845 遠東銀
 
 ## Metadata
-- generated_at: 2026-07-13 22:27:28 Asia/Taipei
+- generated_at: 2026-07-14 22:26:41 Asia/Taipei
 - stock_id: 2845
 - stock_name: 遠東銀
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 301
-- latest_tdcc_date: 20260703
-- tdcc_rows: 10
+- latest_price_date: 20260713
+- price_rows: 302
+- latest_tdcc_date: 20260709
+- tdcc_rows: 11
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 13.25
-- high: 13.3
-- low: 13.1
-- close: 13.2
-- volume: 4859566
-- ma5: 13.22
-- ema23_primary: 12.96
-- distance_to_ema23_pct: 1.88
-- ma20: 13.05
-- ma60: 12.52
+- date: 20260713
+- open: 13.2
+- high: 13.35
+- low: 13.2
+- close: 13.35
+- volume: 10309292
+- ma5: 13.26
+- ema23_primary: 12.99
+- distance_to_ema23_pct: 2.78
+- ma20: 13.08
+- ma60: 12.53
 - ma120: 12.54
-- return_5d: 1.54
-- return_20d: 3.12
-- volume_ratio: 0.25
-- distance_to_ma20_pct_auxiliary: 1.11
-- distance_to_high_60_pct: -1.86
+- return_5d: 1.52
+- return_20d: 3.89
+- volume_ratio: 0.56
+- distance_to_ma20_pct_auxiliary: 2.06
+- distance_to_high_60_pct: -0.74
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,12.85,12.95,12.65,12.85,24141136,12.33,4.24,12.2,12.34,1.6
 20260612,12.9,13.05,12.85,12.95,22101786,12.38,4.61,12.24,12.35,1.4
 20260615,13.05,13.05,12.8,12.85,13334385,12.42,3.48,12.29,12.36,0.85
 20260616,12.9,13.05,12.8,12.95,21673681,12.46,3.91,12.34,12.37,1.35
@@ -154,18 +153,19 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,13.3,13.4,13.15,13.2,8093173,12.91,2.28,13.01,12.5,0.38
 20260708,13.2,13.3,13.15,13.25,10025514,12.93,2.44,13.04,12.51,0.51
 20260709,13.25,13.3,13.1,13.2,4859566,12.96,1.88,13.05,12.52,0.25
+20260713,13.2,13.35,13.2,13.35,10309292,12.99,2.78,13.08,12.53,0.56
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260703
-- over_400_ratio: 74.39
-- over_600_ratio: 72.19
-- over_800_ratio: 70.83
-- over_1000_ratio: 69.61
-- over_400_change_1w: 0.13
-- over_800_change_1w: 0.22
-- over_1000_change_1w: 0.26
-- tdcc_consecutive_up_weeks: 5
+- as_of_date: 20260709
+- over_400_ratio: 74.66
+- over_600_ratio: 72.46
+- over_800_ratio: 71.08
+- over_1000_ratio: 69.82
+- over_400_change_1w: 0.27
+- over_800_change_1w: 0.25
+- over_1000_change_1w: 0.21
+- tdcc_consecutive_up_weeks: 6
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -183,18 +183,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260618,74.11,0.46,70.53,0.57,69.27,0.64,3,True,True
 20260626,74.26,0.15,70.61,0.08,69.35,0.08,4,True,True
 20260703,74.39,0.13,70.83,0.22,69.61,0.26,5,True,True
+20260709,74.66,0.27,71.08,0.25,69.82,0.21,6,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 2845 | 遠東銀 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | stale_signal | 1.事實發生日:115/07/09 2.公司名稱:遠東國際商業銀行股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:公佈本公司115年6月份自結合併淨利及每股盈餘 單位:新台幣仟元    當月份淨利  當年度累計數 ---------------  ------------  ------------ 合併稅前淨利         662,263     2,925,514 合併稅後淨利         593,564     2,615,557 每股稅前盈餘(元)        0.14          0.60 每股稅後盈餘(元)        0.12          0.54 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
-| 20260709 | 2845 | 遠東銀 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/07/09 2.公司名稱:遠東國際商業銀行股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:公佈本公司115年6月份自結合併淨利及每股盈餘 單位:新台幣仟元    當月份淨利  當年度累計數 ---------------  ------------  ------------ 合併稅前淨利         662,263     2,925,514 合併稅後淨利         593,564     2,615,557 每股稅前盈餘(元)        0.14          0.60 每股稅後盈餘(元)        0.12          0.54 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260713 | 2845 | 遠東銀 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | stale_signal | 1.事實發生日:115/07/09 2.公司名稱:遠東國際商業銀行股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:公佈本公司115年6月份自結合併淨利及每股盈餘 單位:新台幣仟元    當月份淨利  當年度累計數 ---------------  ------------  ------------ 合併稅前淨利         662,263     2,925,514 合併稅後淨利         593,564     2,615,557 每股稅前盈餘(元)        0.14          0.60 每股稅後盈餘(元)        0.12          0.54 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260713 | 2845 | 遠東銀 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/07/09 2.公司名稱:遠東國際商業銀行股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:公佈本公司115年6月份自結合併淨利及每股盈餘 單位:新台幣仟元    當月份淨利  當年度累計數 ---------------  ------------  ------------ 合併稅前淨利         662,263     2,925,514 合併稅後淨利         593,564     2,615,557 每股稅前盈餘(元)        0.14          0.60 每股稅後盈餘(元)        0.12          0.54 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 2845 | 遠東銀 | 30 | 10 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260713 | 2845 | 遠東銀 | 31 | 11 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

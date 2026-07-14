@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6213 聯茂
 
 ## Metadata
-- generated_at: 2026-07-13 22:28:28 Asia/Taipei
+- generated_at: 2026-07-14 22:27:14 Asia/Taipei
 - stock_id: 6213
 - stock_name: 聯茂
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 301
+- latest_price_date: 20260713
+- price_rows: 302
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -111,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 395
-- high: 404.5
-- low: 381.5
-- close: 385
-- volume: 29762609
-- ma5: 389.5
-- ema23_primary: 334.37
-- distance_to_ema23_pct: 15.14
-- ma20: 326.7
-- ma60: 287.59
-- ma120: 211.8
-- return_5d: 7.39
-- return_20d: 51.57
-- volume_ratio: 1.26
-- distance_to_ma20_pct_auxiliary: 17.85
-- distance_to_high_60_pct: -9.31
+- date: 20260713
+- open: 390
+- high: 407.5
+- low: 357
+- close: 359.5
+- volume: 28776375
+- ma5: 382.6
+- ema23_primary: 336.46
+- distance_to_ema23_pct: 6.85
+- ma20: 332.27
+- ma60: 289.76
+- ma120: 213.85
+- return_5d: -8.76
+- return_20d: 44.96
+- volume_ratio: 1.18
+- distance_to_ma20_pct_auxiliary: 8.19
+- distance_to_high_60_pct: -15.31
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,252.5,260,236.5,248,10874563,259.74,-4.52,259.32,236,0.73
 20260612,260,263.5,249.5,252.5,9064998,259.14,-2.56,259.3,237.64,0.61
 20260615,259.5,269,259,263.5,7633970,259.5,1.54,260.23,239.53,0.52
 20260616,267,270.5,255,258,7694528,259.38,-0.53,261.1,241.3,0.53
@@ -153,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,392,424.5,373,379,44609506,323.97,16.99,313.32,281.75,2.07
 20260708,390,405.5,370,393.5,35982088,329.76,19.33,320.15,284.91,1.57
 20260709,395,404.5,381.5,385,29762609,334.37,15.14,326.7,287.59,1.26
+20260713,390,407.5,357,359.5,28776375,336.46,6.85,332.27,289.76,1.18
 ```
 
 ## Latest TDCC Snapshot
@@ -197,7 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 6213 | 聯茂 | 138 | 8 | 51041100.0 | 632950.0 | 80.64 | no_signal |
+| 20260713 | 6213 | 聯茂 | 133 | 8 | 40685470.0 | 411410.0 | 98.89 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

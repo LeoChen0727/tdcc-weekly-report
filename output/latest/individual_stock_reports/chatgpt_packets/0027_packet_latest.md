@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0027 電子類
 
 ## Metadata
-- generated_at: 2026-07-13 22:26:41 Asia/Taipei
+- generated_at: 2026-07-14 22:26:14 Asia/Taipei
 - stock_id: 0027
 - stock_name: 電子類
 - packet_status: insufficient_price_data
@@ -170,7 +170,7 @@ no_rows,True
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 0027 | 電子類 | 12 | 13 | 857660.0 | 1333740.0 | 0.64 | put_inflow |
+| 20260713 | 0027 | 電子類 | 12 | 13 | 892700.0 | 1504310.0 | 0.59 | put_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

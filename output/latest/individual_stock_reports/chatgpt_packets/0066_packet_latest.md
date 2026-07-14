@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0066 國泰臺灣加權反1
 
 ## Metadata
-- generated_at: 2026-07-13 22:26:42 Asia/Taipei
+- generated_at: 2026-07-14 22:26:15 Asia/Taipei
 - stock_id: 0066
 - stock_name: 國泰臺灣加權反1
 - packet_status: insufficient_price_data
@@ -170,7 +170,7 @@ no_rows,True
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 0066 | 國泰臺灣加權反1 | 109 | 22 | 5881830.0 | 301660.0 | 19.5 | no_signal |
+| 20260713 | 0066 | 國泰臺灣加權反1 | 110 | 23 | 3604350.0 | 229630.0 | 15.7 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

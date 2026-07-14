@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5703 亞都麗緻
 
 ## Metadata
-- generated_at: 2026-07-13 22:28:20 Asia/Taipei
+- generated_at: 2026-07-14 22:27:09 Asia/Taipei
 - stock_id: 5703
 - stock_name: 亞都麗緻
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 123
+- latest_price_date: 20260713
+- price_rows: 124
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
+- date: 20260713
 - open: 13.9
 - high: 14
 - low: 13.9
 - close: 14
-- volume: 16000
-- ma5: 13.88
-- ema23_primary: 13.95
-- distance_to_ema23_pct: 0.33
-- ma20: 14.03
+- volume: 17000
+- ma5: 13.92
+- ema23_primary: 13.96
+- distance_to_ema23_pct: 0.3
+- ma20: 14.04
 - ma60: 14.02
-- ma120: 14.42
-- return_5d: 2.56
+- ma120: 14.41
+- return_5d: 1.45
 - return_20d: 1.08
-- volume_ratio: 1.69
-- distance_to_ma20_pct_auxiliary: -0.2
+- volume_ratio: 1.65
+- distance_to_ma20_pct_auxiliary: -0.25
 - distance_to_high_60_pct: -15.15
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,13.85,13.85,13.85,13.85,14,13.93,-0.58,13.9,14.15,0
 20260603,14.65,14.65,14.65,14.65,14000,13.99,4.72,13.89,14.15,1.56
 20260604,14.6,14.6,13.65,14.45,14000,14.03,3,13.91,14.14,1.73
 20260605,14.45,14.45,14.45,14.45,14000,14.06,2.75,13.93,14.14,1.6
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,13.75,13.95,13.75,13.95,10000,13.95,-0.03,14.02,14.04,1
 20260708,13.85,13.9,13.85,13.9,2000,13.95,-0.36,14.02,14.03,0.21
 20260709,13.9,14,13.9,14,16000,13.95,0.33,14.03,14.02,1.69
+20260713,13.9,14,13.9,14,17000,13.96,0.3,14.04,14.02,1.65
 ```
 
 ## Latest TDCC Snapshot

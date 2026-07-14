@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3705 永信
 
 ## Metadata
-- generated_at: 2026-07-13 22:27:54 Asia/Taipei
+- generated_at: 2026-07-14 22:26:55 Asia/Taipei
 - stock_id: 3705
 - stock_name: 永信
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 301
-- latest_tdcc_date: 20260703
-- tdcc_rows: 32
+- latest_price_date: 20260713
+- price_rows: 302
+- latest_tdcc_date: 20260709
+- tdcc_rows: 33
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 54.3
-- high: 54.7
-- low: 53.9
-- close: 54.6
-- volume: 198226
-- ma5: 54.5
-- ema23_primary: 55.07
-- distance_to_ema23_pct: -0.85
-- ma20: 55.34
+- date: 20260713
+- open: 54.6
+- high: 55.1
+- low: 54.4
+- close: 54.9
+- volume: 99476
+- ma5: 54.6
+- ema23_primary: 55.05
+- distance_to_ema23_pct: -0.28
+- ma20: 55.22
 - ma60: 55.6
-- ma120: 55.42
-- return_5d: 1.87
-- return_20d: -4.21
-- volume_ratio: 0.78
-- distance_to_ma20_pct_auxiliary: -1.34
-- distance_to_high_60_pct: -5.37
+- ma120: 55.41
+- return_5d: 0.92
+- return_20d: -4.19
+- volume_ratio: 0.4
+- distance_to_ma20_pct_auxiliary: -0.58
+- distance_to_high_60_pct: -4.85
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,57.2,57.4,56.4,57.3,213215,56.25,1.87,56.21,55.32,0.97
 20260612,57.1,57.6,57.1,57.2,171531,56.33,1.55,56.27,55.38,0.78
 20260615,57.7,57.7,56.9,57.3,265565,56.41,1.58,56.34,55.44,1.17
 20260616,57.6,57.7,56.8,57,179527,56.46,0.96,56.39,55.5,0.8
@@ -155,26 +154,26 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,54.6,55.1,54.3,54.7,176817,55.18,-0.87,55.59,55.65,0.66
 20260708,54.7,55,54,54.3,175950,55.11,-1.47,55.46,55.62,0.68
 20260709,54.3,54.7,53.9,54.6,198226,55.07,-0.85,55.34,55.6,0.78
+20260713,54.6,55.1,54.4,54.9,99476,55.05,-0.28,55.22,55.6,0.4
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260703
-- over_400_ratio: 68.67
-- over_600_ratio: 66.91
-- over_800_ratio: 64.16
-- over_1000_ratio: 61.19
-- over_400_change_1w: 0.11
-- over_800_change_1w: 0.08
-- over_1000_change_1w: 0.08
-- tdcc_consecutive_up_weeks: 11
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260709
+- over_400_ratio: 68.71
+- over_600_ratio: 67.15
+- over_800_ratio: 63.88
+- over_1000_ratio: 60.91
+- over_400_change_1w: 0.04
+- over_800_change_1w: -0.28
+- over_1000_change_1w: -0.28
+- tdcc_consecutive_up_weeks: 12
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260417,67.81,-0.01,63.25,-0.01,60.67,-0.01,0,False,False
 20260424,67.69,-0.12,63.28,0.03,60.7,0.03,1,False,True
 20260430,67.7,0.01,63.29,0.01,60.71,0.01,2,True,True
 20260508,67.57,-0.13,63.3,0.01,60.72,0.01,3,False,True
@@ -186,6 +185,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260618,68.06,0.04,63.91,0.04,61.01,0.04,9,True,True
 20260626,68.56,0.5,64.08,0.17,61.11,0.1,10,True,True
 20260703,68.67,0.11,64.16,0.08,61.19,0.08,11,True,True
+20260709,68.71,0.04,63.88,-0.28,60.91,-0.28,12,False,False
 ```
 
 ## Candidate Context
@@ -201,7 +201,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 3705 | 永信 | 2 | 0 | 0.0 | 0.0 |  | no_signal |
+| 20260713 | 3705 | 永信 | 2 | 0 | 0.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

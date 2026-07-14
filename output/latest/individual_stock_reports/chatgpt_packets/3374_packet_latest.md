@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3374 精材
 
 ## Metadata
-- generated_at: 2026-07-13 22:27:44 Asia/Taipei
+- generated_at: 2026-07-14 22:26:49 Asia/Taipei
 - stock_id: 3374
 - stock_name: 精材
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 166
+- latest_price_date: 20260713
+- price_rows: 167
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -58,7 +58,7 @@
 - pdf_visible: true
 - action_rating_display_zh: 等待回檔
 - model_category_display_zh: 嚴格突破
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前還沒有新的第一筆買點，需等待回檔或站回條件成立。
+- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前還沒有新的第一筆買點，需等待回檔或站回條件成立。
 - action_summary_zh: 嚴格突破 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。
 - entry_strategy_zh: 目前等待回檔，不建立新部位；回測支撐或 23EMA 不破後再評估。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
@@ -86,6 +86,7 @@
 
 ### entry_prerequisites
 - model_recommended
+- decision_score_high
 - price_structure_not_broken
 - revenue_not_deteriorating
 - no_major_volume_price_failure
@@ -110,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 344.5
-- high: 356.5
-- low: 343.5
-- close: 356.5
-- volume: 13684000
-- ma5: 322.2
-- ema23_primary: 289.53
-- distance_to_ema23_pct: 23.13
-- ma20: 284.85
-- ma60: 247.34
-- ma120: 209.17
-- return_5d: 12.82
-- return_20d: 58.8
-- volume_ratio: 1.07
-- distance_to_ma20_pct_auxiliary: 25.15
-- distance_to_high_60_pct: 0
+- date: 20260713
+- open: 371.5
+- high: 378
+- low: 345
+- close: 358
+- volume: 28028000
+- ma5: 331.2
+- ema23_primary: 295.23
+- distance_to_ema23_pct: 21.26
+- ma20: 291.6
+- ma60: 250.44
+- ma120: 210.75
+- return_5d: 14.38
+- return_20d: 60.54
+- volume_ratio: 2.02
+- distance_to_ma20_pct_auxiliary: 22.77
+- distance_to_high_60_pct: -5.29
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,222,226,215.5,223,5052000,239.77,-7,249.22,207.99,0.77
 20260612,233.5,237,230,233,3774000,239.21,-2.6,246.97,209.04,0.85
 20260615,239.5,245,238,240,3621000,239.28,0.3,246.45,210.12,1.01
 20260616,245.5,245.5,232.5,234.5,3876000,238.88,-1.83,246.32,211.23,1.32
@@ -152,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,325.5,328,292.5,295,16144000,279.71,5.47,274.07,241.75,1.37
 20260708,313,324.5,312,324.5,16578000,283.44,14.49,278.25,244.34,1.35
 20260709,344.5,356.5,343.5,356.5,13684000,289.53,23.13,284.85,247.34,1.07
+20260713,371.5,378,345,358,28028000,295.23,21.26,291.6,250.44,2.02
 ```
 
 ## Latest TDCC Snapshot
@@ -186,12 +187,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 3374 | 精材 | true_breakout | 嚴格突破 | 71.0 |  |  | platform_right_side |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260713 | 3374 | 精材 | true_breakout | 嚴格突破 | 83.0 |  |  | neckline_challenge |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 3374 | 精材 | 7 | 1 | 5 | 9 | 13 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260713 | 3374 | 精材 | 8 | 2 | 5 | 9 | 14 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

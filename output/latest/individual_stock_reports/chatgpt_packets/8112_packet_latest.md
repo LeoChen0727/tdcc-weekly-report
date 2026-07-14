@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8112 至上
 
 ## Metadata
-- generated_at: 2026-07-13 22:29:06 Asia/Taipei
+- generated_at: 2026-07-14 22:27:35 Asia/Taipei
 - stock_id: 8112
 - stock_name: 至上
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 301
+- latest_price_date: 20260713
+- price_rows: 302
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 85.8
-- high: 87.2
-- low: 85
-- close: 85
-- volume: 9128004
-- ma5: 88.6
-- ema23_primary: 90.94
-- distance_to_ema23_pct: -6.53
-- ma20: 93.35
-- ma60: 88.77
-- ma120: 83.51
-- return_5d: -4.49
-- return_20d: -8.21
-- volume_ratio: 0.36
-- distance_to_ma20_pct_auxiliary: -8.94
-- distance_to_high_60_pct: -18.27
+- date: 20260713
+- open: 86.8
+- high: 90.5
+- low: 86.3
+- close: 87.5
+- volume: 15198595
+- ma5: 87.52
+- ema23_primary: 90.65
+- distance_to_ema23_pct: -3.48
+- ma20: 92.95
+- ma60: 88.84
+- ma120: 83.53
+- return_5d: -5.81
+- return_20d: -8.38
+- volume_ratio: 0.65
+- distance_to_ma20_pct_auxiliary: -5.86
+- distance_to_high_60_pct: -15.87
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,95.1,97.6,90.7,95.5,54814646,88.96,7.36,88.24,85.25,1.5
 20260612,98.3,104,98.2,98.8,68028936,89.78,10.05,89.1,85.37,1.75
 20260615,101,101,96.8,97.3,38836098,90.4,7.63,89.76,85.41,0.97
 20260616,98,99.3,95.8,95.8,20881295,90.85,5.44,90.37,85.48,0.52
@@ -160,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,90.5,93,89.8,90.2,20154187,92.03,-1.99,94.02,88.65,0.73
 20260708,91.3,92,84.5,85.4,27276151,91.48,-6.65,93.73,88.73,0.98
 20260709,85.8,87.2,85,85,9128004,90.94,-6.53,93.35,88.77,0.36
+20260713,86.8,90.5,86.3,87.5,15198595,90.65,-3.48,92.95,88.84,0.65
 ```
 
 ## Latest TDCC Snapshot
@@ -194,18 +194,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 8112 | 至上 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/06/29 2.被背書保證之: (1)公司名稱:高拓國際貿易(上海)有限公司 (2)與提供背書保證公司之關係: 本公司間接持有之100%子公司 (3)背書保證之限額(仟元):23,253,740 (4)原背書保證之餘額(仟元):4,332,906 (5)本次新增背書保證之金額(仟元):459,840 (6)迄事實發生日止背書保證餘額(仟元):4,792,746 (7)被背書保證公司實際動支金額(仟元):2,027,330 (8)本次新增背書保證之原因: 本公司向銀行簽具背書保證票據以取得額度，原額度人民幣10,000萬到期續保， 以因應轉投資子公司營運週轉之需求。 3.被背書保證公司提供擔保品之: (1)內容: 無。 (2)價值(仟元):0 4.被背書保證公司最近期財務報表之: (1)資本(仟元):370,095 (2)累積盈虧金額(仟元):159,786 5.解除背書保證責任之: (1)條件: 背書保證到期即解除背書保證責任。 (2)日期: 一年到期。 6.背書保證之總限額(仟元): 48,445,293 7.迄事實發生日為止，背書保證餘額(仟元): 20,608,821 8.迄事實發生日為止，A提供背書保證餘額占公開發行公司最近期財務報表淨值之 比率: 106.35 9.迄事實發生日為止，背書保證、長期投資及資金貸與餘額合計數達該公開發行公 司最近期財務報表淨值之比率: 26.64 10.其他應敘明事項: 無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260709 | 8112 | 至上 | revenue_breakout_low_response | 營收爆發低反應股 | 16.0 | 17.0 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | 1.事實發生日:115/06/29 2.被背書保證之: (1)公司名稱:高拓國際貿易(上海)有限公司 (2)與提供背書保證公司之關係: 本公司間接持有之100%子公司 (3)背書保證之限額(仟元):23,253,740 (4)原背書保證之餘額(仟元):4,332,906 (5)本次新增背書保證之金額(仟元):459,840 (6)迄事實發生日止背書保證餘額(仟元):4,792,746 (7)被背書保證公司實際動支金額(仟元):2,027,330 (8)本次新增背書保證之原因: 本公司向銀行簽具背書保證票據以取得額度，原額度人民幣10,000萬到期續保， 以因應轉投資子公司營運週轉之需求。 3.被背書保證公司提供擔保品之: (1)內容: 無。 (2)價值(仟元):0 4.被背書保證公司最近期財務報表之: (1)資本(仟元):370,095 (2)累積盈虧金額(仟元):159,786 5.解除背書保證責任之: (1)條件: 背書保證到期即解除背書保證責任。 (2)日期: 一年到期。 6.背書保證之總限額(仟元): 48,445,293 7.迄事實發生日為止，背書保證餘額(仟元): 20,608,821 8.迄事實發生日為止，A提供背書保證餘額占公開發行公司最近期財務報表淨值之 比率: 106.35 9.迄事實發生日為止，背書保證、長期投資及資金貸與餘額合計數達該公開發行公 司最近期財務報表淨值之比率: 26.64 10.其他應敘明事項: 無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260713 | 8112 | 至上 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/06/29 2.被背書保證之: (1)公司名稱:高拓國際貿易(上海)有限公司 (2)與提供背書保證公司之關係: 本公司間接持有之100%子公司 (3)背書保證之限額(仟元):23,253,740 (4)原背書保證之餘額(仟元):4,332,906 (5)本次新增背書保證之金額(仟元):459,840 (6)迄事實發生日止背書保證餘額(仟元):4,792,746 (7)被背書保證公司實際動支金額(仟元):2,027,330 (8)本次新增背書保證之原因: 本公司向銀行簽具背書保證票據以取得額度，原額度人民幣10,000萬到期續保， 以因應轉投資子公司營運週轉之需求。 3.被背書保證公司提供擔保品之: (1)內容: 無。 (2)價值(仟元):0 4.被背書保證公司最近期財務報表之: (1)資本(仟元):370,095 (2)累積盈虧金額(仟元):159,786 5.解除背書保證責任之: (1)條件: 背書保證到期即解除背書保證責任。 (2)日期: 一年到期。 6.背書保證之總限額(仟元): 48,445,293 7.迄事實發生日為止，背書保證餘額(仟元): 20,608,821 8.迄事實發生日為止，A提供背書保證餘額占公開發行公司最近期財務報表淨值之 比率: 106.35 9.迄事實發生日為止，背書保證、長期投資及資金貸與餘額合計數達該公開發行公 司最近期財務報表淨值之比率: 26.64 10.其他應敘明事項: 無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260713 | 8112 | 至上 | revenue_breakout_low_response | 營收爆發低反應股 | 17.0 | 21.0 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | 1.事實發生日:115/06/29 2.被背書保證之: (1)公司名稱:高拓國際貿易(上海)有限公司 (2)與提供背書保證公司之關係: 本公司間接持有之100%子公司 (3)背書保證之限額(仟元):23,253,740 (4)原背書保證之餘額(仟元):4,332,906 (5)本次新增背書保證之金額(仟元):459,840 (6)迄事實發生日止背書保證餘額(仟元):4,792,746 (7)被背書保證公司實際動支金額(仟元):2,027,330 (8)本次新增背書保證之原因: 本公司向銀行簽具背書保證票據以取得額度，原額度人民幣10,000萬到期續保， 以因應轉投資子公司營運週轉之需求。 3.被背書保證公司提供擔保品之: (1)內容: 無。 (2)價值(仟元):0 4.被背書保證公司最近期財務報表之: (1)資本(仟元):370,095 (2)累積盈虧金額(仟元):159,786 5.解除背書保證責任之: (1)條件: 背書保證到期即解除背書保證責任。 (2)日期: 一年到期。 6.背書保證之總限額(仟元): 48,445,293 7.迄事實發生日為止，背書保證餘額(仟元): 20,608,821 8.迄事實發生日為止，A提供背書保證餘額占公開發行公司最近期財務報表淨值之 比率: 106.35 9.迄事實發生日為止，背書保證、長期投資及資金貸與餘額合計數達該公開發行公 司最近期財務報表淨值之比率: 26.64 10.其他應敘明事項: 無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 8112 | 至上 | 30 | 13 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260713 | 8112 | 至上 | 31 | 14 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 8112 | 至上 | 143 | 3 | 11239900.0 | 79350.0 | 141.65 | no_signal |
+| 20260713 | 8112 | 至上 | 142 | 3 | 11028460.0 | 14820.0 | 744.16 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

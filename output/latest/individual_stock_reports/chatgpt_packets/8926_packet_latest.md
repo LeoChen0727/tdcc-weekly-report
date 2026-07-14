@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8926 台汽電
 
 ## Metadata
-- generated_at: 2026-07-13 22:29:12 Asia/Taipei
+- generated_at: 2026-07-14 22:27:39 Asia/Taipei
 - stock_id: 8926
 - stock_name: 台汽電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 301
+- latest_price_date: 20260713
+- price_rows: 302
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -56,29 +56,33 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
-- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
-- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- action_rating_display_zh: 可分批買進
+- model_category_display_zh: 營收成長股價回檔
+- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- action_summary_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。
+- entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
+- position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
-- confidence_level: medium
-- thesis_state: unclear
-- entry_style: no_entry_now
-- position_sizing: observe_only
+- action_rating: scale_in
+- action_rating_label_zh: 可分批買進
+- confidence_level: high
+- thesis_state: healthy_pullback
+- entry_style: pullback_to_23ema
+- position_sizing: half_position
 
 ### management_plan
+- buy_first_tranche_near_support
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -87,6 +91,8 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
+- decision_score_high
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -113,29 +119,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 79.8
-- high: 79.9
-- low: 75.3
-- close: 76
-- volume: 11979255
-- ma5: 77.64
-- ema23_primary: 74.93
-- distance_to_ema23_pct: 1.42
-- ma20: 77.17
-- ma60: 63.3
-- ma120: 53.85
-- return_5d: 4.11
-- return_20d: 1.33
-- volume_ratio: 1.15
-- distance_to_ma20_pct_auxiliary: -1.52
-- distance_to_high_60_pct: -9.85
+- date: 20260713
+- open: 76
+- high: 76.4
+- low: 68.9
+- close: 69.3
+- volume: 16051291
+- ma5: 76.5
+- ema23_primary: 74.47
+- distance_to_ema23_pct: -6.94
+- ma20: 76.86
+- ma60: 63.72
+- ma120: 54.09
+- return_5d: -7.6
+- return_20d: -8.21
+- volume_ratio: 1.54
+- distance_to_ma20_pct_auxiliary: -9.84
+- distance_to_high_60_pct: -17.79
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,77,77.3,73.6,75.5,15998730,65.36,15.52,66.64,53.04,1.09
 20260612,76.8,78.3,74,74.2,12637681,66.09,12.26,67.29,53.5,0.88
 20260615,74.7,75,72.2,72.4,11202241,66.62,8.68,68.03,53.93,0.79
 20260616,72.5,78.6,72.5,76.8,14340085,67.47,13.83,69.03,54.42,0.99
@@ -155,6 +160,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,80,82.4,77.7,78.5,10746676,74.58,5.26,76.91,62.2,0.92
 20260708,79,79.1,76.2,77.7,6556322,74.84,3.82,77.12,62.76,0.59
 20260709,79.8,79.9,75.3,76,11979255,74.93,1.42,77.17,63.3,1.15
+20260713,76,76.4,68.9,69.3,16051291,74.47,-6.94,76.86,63.72,1.54
 ```
 
 ## Latest TDCC Snapshot
@@ -189,18 +195,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 8926 | 台汽電 | pattern | 型態觀察 | 54.0 |  |  | pullback_right_side |  | call_inflow | repeated_but_no_breakout | 1.發生變動日期:115/07/01 2.法人名稱:大亞電線電纜股份有限公司 3.舊任者姓名:不適用 4.舊任者簡歷:不適用 5.新任者姓名:李文彬 6.新任者簡歷:大亞電線電纜股份有限公司銅材暨台北管理處執行顧問 7.異動原因:法人董事指派代表人 8.原任期（例xx/xx/xx至xx/xx/xx）:115/06/30~118/06/29 9.新任生效日期:115/07/01 10.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
-| 20260709 | 8926 | 台汽電 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | call_inflow | repeated_but_no_breakout | 1.發生變動日期:115/07/01 2.法人名稱:大亞電線電纜股份有限公司 3.舊任者姓名:不適用 4.舊任者簡歷:不適用 5.新任者姓名:李文彬 6.新任者簡歷:大亞電線電纜股份有限公司銅材暨台北管理處執行顧問 7.異動原因:法人董事指派代表人 8.原任期（例xx/xx/xx至xx/xx/xx）:115/06/30~118/06/29 9.新任生效日期:115/07/01 10.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260713 | 8926 | 台汽電 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  | no_signal | stale_signal | 1.發生變動日期:115/07/01 2.法人名稱:大亞電線電纜股份有限公司 3.舊任者姓名:不適用 4.舊任者簡歷:不適用 5.新任者姓名:李文彬 6.新任者簡歷:大亞電線電纜股份有限公司銅材暨台北管理處執行顧問 7.異動原因:法人董事指派代表人 8.原任期（例xx/xx/xx至xx/xx/xx）:115/06/30~118/06/29 9.新任生效日期:115/07/01 10.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 8926 | 台汽電 | 13 | 6 | 5 | 10 | 18 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 18 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260713 | 8926 | 台汽電 | 14 | 7 | 5 | 10 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 8926 | 台汽電 | 4 | 0 | 1489140.0 | 0.0 |  | call_inflow |
+| 20260713 | 8926 | 台汽電 | 4 | 0 | 961060.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

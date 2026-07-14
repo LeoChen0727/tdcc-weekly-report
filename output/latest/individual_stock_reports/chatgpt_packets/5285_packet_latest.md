@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5285 界霖
 
 ## Metadata
-- generated_at: 2026-07-13 22:28:13 Asia/Taipei
+- generated_at: 2026-07-14 22:27:05 Asia/Taipei
 - stock_id: 5285
 - stock_name: 界霖
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 301
+- latest_price_date: 20260713
+- price_rows: 302
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 100.5
-- high: 101.5
-- low: 96
-- close: 96
-- volume: 2344849
-- ma5: 100.68
-- ema23_primary: 95.66
-- distance_to_ema23_pct: 0.36
-- ma20: 97.04
-- ma60: 79.95
-- ma120: 65.25
-- return_5d: -3.42
-- return_20d: 13.61
-- volume_ratio: 0.45
-- distance_to_ma20_pct_auxiliary: -1.07
-- distance_to_high_60_pct: -16.88
+- date: 20260713
+- open: 98
+- high: 101
+- low: 95
+- close: 96.5
+- volume: 2062596
+- ma5: 100.6
+- ema23_primary: 95.73
+- distance_to_ema23_pct: 0.8
+- ma20: 97.53
+- ma60: 80.7
+- ma120: 65.63
+- return_5d: -0.41
+- return_20d: 11.18
+- volume_ratio: 0.39
+- distance_to_ma20_pct_auxiliary: -1.05
+- distance_to_high_60_pct: -16.45
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,84,88.7,83.4,86.8,2168413,82.65,5.03,85.83,64.59,0.41
 20260612,89,90.7,87.7,89.7,1993099,83.23,7.77,86.61,65.29,0.38
 20260615,91.7,93.3,87.9,88.2,2845610,83.65,5.44,87.23,65.96,0.54
 20260616,89.6,89.9,86.2,87.8,1305154,83.99,4.53,87.82,66.63,0.25
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,104,108.5,102,103,6483750,95.14,8.26,95.78,78.4,1.23
 20260708,103.5,103.5,98.5,101,2835297,95.63,5.62,96.47,79.21,0.54
 20260709,100.5,101.5,96,96,2344849,95.66,0.36,97.04,79.95,0.45
+20260713,98,101,95,96.5,2062596,95.73,0.8,97.53,80.7,0.39
 ```
 
 ## Latest TDCC Snapshot
@@ -189,17 +189,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 5285 | 界霖 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.事實發生日:115/06/25 2.公司名稱:界霖科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:經濟日報C03報導 6.報導內容:「…，界霖科技股份有限公司(5285)董事長蔡上元指出公司看好指出公司看  好下半年營收可望逐季走揚……今年每股純益可望挑戰4元，明年有機會站上5元。」 7.發生緣由:澄清媒體報導 8.因應措施:報導內容純屬法人預估，本公司並無提供財務預測，有關本公司之財務  與業務資訊，請以本公司於公開資訊觀測站公告為主。 9.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260713 | 5285 | 界霖 | pattern | 型態觀察 | 48.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.事實發生日:115/06/25 2.公司名稱:界霖科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:經濟日報C03報導 6.報導內容:「…，界霖科技股份有限公司(5285)董事長蔡上元指出公司看好指出公司看  好下半年營收可望逐季走揚……今年每股純益可望挑戰4元，明年有機會站上5元。」 7.發生緣由:澄清媒體報導 8.因應措施:報導內容純屬法人預估，本公司並無提供財務預測，有關本公司之財務  與業務資訊，請以本公司於公開資訊觀測站公告為主。 9.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 5285 | 界霖 | 1 | 1 | 4 | 7 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260713 | 5285 | 界霖 | 2 | 2 | 4 | 7 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 5285 | 界霖 | 1 | 0 | 1082130.0 | 0.0 |  | no_signal |
+| 20260713 | 5285 | 界霖 | 1 | 0 | 795240.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

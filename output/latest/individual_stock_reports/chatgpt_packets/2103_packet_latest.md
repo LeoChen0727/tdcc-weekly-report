@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2103 台橡
 
 ## Metadata
-- generated_at: 2026-07-13 22:27:07 Asia/Taipei
+- generated_at: 2026-07-14 22:26:29 Asia/Taipei
 - stock_id: 2103
 - stock_name: 台橡
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 301
+- latest_price_date: 20260713
+- price_rows: 302
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 23.7
-- high: 23.7
-- low: 22.5
-- close: 23.05
-- volume: 7574618
-- ma5: 23.84
-- ema23_primary: 22
-- distance_to_ema23_pct: 4.75
-- ma20: 22
-- ma60: 20.68
-- ma120: 19.32
-- return_5d: 7.71
-- return_20d: 9.5
-- volume_ratio: 1.04
-- distance_to_ma20_pct_auxiliary: 4.78
-- distance_to_high_60_pct: -10.83
+- date: 20260713
+- open: 22.95
+- high: 23.4
+- low: 22.9
+- close: 23.3
+- volume: 2983938
+- ma5: 23.8
+- ema23_primary: 22.11
+- distance_to_ema23_pct: 5.37
+- ma20: 22.05
+- ma60: 20.75
+- ma120: 19.39
+- return_5d: -0.85
+- return_20d: 5.19
+- volume_ratio: 0.42
+- distance_to_ma20_pct_auxiliary: 5.64
+- distance_to_high_60_pct: -9.86
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,21.2,22.15,21,22.15,7502660,20.61,7.49,20.41,20.01,1.36
 20260612,22.45,22.7,21.75,22.1,8070019,20.73,6.6,20.48,20.03,1.46
 20260615,22.4,22.6,21.6,22.3,6345977,20.86,6.89,20.58,20.05,1.13
 20260616,22.45,22.45,21.75,22.05,4861671,20.96,5.2,20.67,20.05,0.85
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,24.3,24.95,24.2,24.65,9764817,21.74,13.4,21.76,20.56,1.4
 20260708,24.7,24.85,23.45,23.8,6841219,21.91,8.63,21.9,20.63,0.96
 20260709,23.7,23.7,22.5,23.05,7574618,22,4.75,22,20.68,1.04
+20260713,22.95,23.4,22.9,23.3,2983938,22.11,5.37,22.05,20.75,0.42
 ```
 
 ## Latest TDCC Snapshot
@@ -189,18 +188,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 2103 | 台橡 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | repeated_but_no_breakout | 1.股東常會日期:115/06/24 2.重要決議事項一、盈餘分配或盈虧撥補:無 3.重要決議事項二、章程修訂:無 4.重要決議事項三、營業報告書及財務報表:通過2025年財務報告 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項:通過2026年查核簽證會計師委任案 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
-| 20260709 | 2103 | 台橡 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | repeated_but_no_breakout | 1.股東常會日期:115/06/24 2.重要決議事項一、盈餘分配或盈虧撥補:無 3.重要決議事項二、章程修訂:無 4.重要決議事項三、營業報告書及財務報表:通過2025年財務報告 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項:通過2026年查核簽證會計師委任案 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260713 | 2103 | 台橡 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | no_signal | stale_signal | 1.董事會決議或公司決定日期:115/07/13 2.原現金股利發放日:115/07/13 3.變更後現金股利發放日:115/07/14 4.變更原因:本公司原訂115年7月13日發放現金股利，因受巴威颱風影響致票 交所及金融機構作業日程需順延至下一營業日，部分現金股利發放日將順 延至115年7月14日。 5.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 2103 | 台橡 | 1 | 1 | 4 | 5 | 12 | repeated_but_no_breakout | 近 10 日上榜 5 次、近 20 日上榜 12 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260713 | 2103 | 台橡 | 2 | 2 | 4 | 6 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 2103 | 台橡 | 11 | 0 | 1894340.0 | 0.0 |  | no_signal |
+| 20260713 | 2103 | 台橡 | 11 | 0 | 708700.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

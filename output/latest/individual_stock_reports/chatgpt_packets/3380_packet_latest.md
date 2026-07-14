@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3380 明泰
 
 ## Metadata
-- generated_at: 2026-07-13 22:27:44 Asia/Taipei
+- generated_at: 2026-07-14 22:26:49 Asia/Taipei
 - stock_id: 3380
 - stock_name: 明泰
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 301
+- latest_price_date: 20260713
+- price_rows: 302
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 34.7
-- high: 35.6
-- low: 33.75
-- close: 33.75
-- volume: 2149987
-- ma5: 34.69
-- ema23_primary: 34.47
-- distance_to_ema23_pct: -2.08
-- ma20: 34.24
-- ma60: 35.05
-- ma120: 34.84
-- return_5d: -0.88
-- return_20d: 1.35
-- volume_ratio: 0.68
-- distance_to_ma20_pct_auxiliary: -1.44
-- distance_to_high_60_pct: -19.64
+- date: 20260713
+- open: 34.2
+- high: 34.8
+- low: 33.25
+- close: 33.65
+- volume: 1622084
+- ma5: 34.22
+- ema23_primary: 34.4
+- distance_to_ema23_pct: -2.17
+- ma20: 34.22
+- ma60: 34.96
+- ma120: 34.85
+- return_5d: -6.53
+- return_20d: -1.46
+- volume_ratio: 0.52
+- distance_to_ma20_pct_auxiliary: -1.66
+- distance_to_high_60_pct: -19.88
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,33.7,34.25,32.6,34.15,2818248,35.58,-4.02,35.37,35.91,0.53
 20260612,35.1,35.55,33.85,33.9,2982946,35.44,-4.34,35.51,35.87,0.56
 20260615,35.3,36.3,35,35,5293413,35.4,-1.14,35.67,35.85,0.96
 20260616,35.5,35.6,34.2,34.35,2356884,35.32,-2.73,35.82,35.81,0.43
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,35.65,35.9,33.7,34.05,2601849,34.56,-1.46,34.24,35.2,0.77
 20260708,34.2,34.55,33.2,34.25,1856660,34.53,-0.81,34.22,35.12,0.57
 20260709,34.7,35.6,33.75,33.75,2149987,34.47,-2.08,34.24,35.05,0.68
+20260713,34.2,34.8,33.25,33.65,1622084,34.4,-2.17,34.22,34.96,0.52
 ```
 
 ## Latest TDCC Snapshot
@@ -199,7 +199,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 3380 | 明泰 | 16 | 0 | 503180.0 | 0.0 |  | no_signal |
+| 20260713 | 3380 | 明泰 | 16 | 0 | 253340.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

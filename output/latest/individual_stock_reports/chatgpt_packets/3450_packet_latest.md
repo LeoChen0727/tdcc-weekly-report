@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3450 聯鈞
 
 ## Metadata
-- generated_at: 2026-07-13 22:27:45 Asia/Taipei
+- generated_at: 2026-07-14 22:26:50 Asia/Taipei
 - stock_id: 3450
 - stock_name: 聯鈞
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 301
+- latest_price_date: 20260713
+- price_rows: 302
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 519
-- high: 519
-- low: 501
-- close: 502
-- volume: 1160062
-- ma5: 511.4
-- ema23_primary: 512.29
-- distance_to_ema23_pct: -2.01
-- ma20: 523.6
-- ma60: 453.56
-- ma120: 360.54
-- return_5d: 0.2
-- return_20d: 6.36
-- volume_ratio: 0.14
-- distance_to_ma20_pct_auxiliary: -4.13
-- distance_to_high_60_pct: -17.97
+- date: 20260713
+- open: 516
+- high: 520
+- low: 504
+- close: 515
+- volume: 1357739
+- ma5: 508.4
+- ema23_primary: 512.51
+- distance_to_ema23_pct: 0.49
+- ma20: 526.73
+- ma60: 456.38
+- ma120: 362.68
+- return_5d: -2.83
+- return_20d: 13.81
+- volume_ratio: 0.18
+- distance_to_ma20_pct_auxiliary: -2.23
+- distance_to_high_60_pct: -15.85
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,472,475,426,452.5,11540058,465.71,-2.84,478.15,373.39,1.13
 20260612,480,482,461,461,5563388,465.32,-0.93,481.43,376.41,0.54
 20260615,489,507,489,507,5477784,468.8,8.15,486.27,380.18,0.53
 20260616,518,542,498,499.5,11639076,471.35,5.97,491.62,383.86,1.08
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,534,544,493,495,2036271,513.52,-3.61,521.95,447.09,0.22
 20260708,515,515,495,510,2042020,513.22,-0.63,522.1,450.43,0.22
 20260709,519,519,501,502,1160062,512.29,-2.01,523.6,453.56,0.14
+20260713,516,520,504,515,1357739,512.51,0.49,526.73,456.38,0.18
 ```
 
 ## Latest TDCC Snapshot
@@ -189,17 +189,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 3450 | 聯鈞 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.事實發生日:115/06/29 2.發生緣由:依臺灣證券交易所股份有限公司指示辦理 3.財務業務資訊: 期間            (月)                    (季)             (最近四季累計)            最近一月   與去年同期   最近一季   與去年同期   (114年2季至 科目     (115年05月)    增減％    (115年1季)   增減％       115年1季)             合併                    合併                     合併           自結金額                核閱金額                 核閱金額          ----------  ----------  ----------- ----------  ------------- 營業收入 (百萬)        960          50%        2,087       -24%         7,913 稅前淨利 (百萬)        179         646%          305       -56%         1,268 歸屬母公司業主淨利 (百萬)         83         938%          100       -71%           490 每股盈餘 (元)         0.57       1,040%         0.69       -71%          3.36 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告: 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260713 | 3450 | 聯鈞 | pattern | 型態觀察 | 48.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.人員變動別（請輸入發言人、代理發言人、重要營運主管(如:執行長、營運長、 行銷長及策略長等)、財務主管、會計主管、公司治理主管、資訊安全長、研發主管、 內部稽核主管或訴訟及非訟代理人）:財務主管、會計主管 2.發生變動日期:115/07/13 3.舊任者姓名、級職及簡歷:無 4.新任者姓名、級職及簡歷:張家瑋/資深經理 5.異動情形（請輸入「辭職」、「職務調整」、「資遣」、「退休」、「死亡」、「新 任」或「解任」）:新任 6.異動原因:新任 7.生效日期:115/07/13 8.其他應敘明事項:財務主管及會計主管異動案，業經115年7月13日董事會決議通過；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 3450 | 聯鈞 | 10 | 10 | 5 | 10 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260713 | 3450 | 聯鈞 | 11 | 11 | 5 | 10 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 3450 | 聯鈞 | 133 | 4 | 531150.0 | 0.0 |  | no_signal |
+| 20260713 | 3450 | 聯鈞 | 126 | 4 | 583480.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

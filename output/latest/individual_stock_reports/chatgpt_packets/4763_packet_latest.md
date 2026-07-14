@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4763 材料*-KY
 
 ## Metadata
-- generated_at: 2026-07-13 22:28:06 Asia/Taipei
+- generated_at: 2026-07-14 22:27:01 Asia/Taipei
 - stock_id: 4763
 - stock_name: 材料*-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 294
+- latest_price_date: 20260713
+- price_rows: 295
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 48.9
-- high: 48.9
-- low: 47.2
-- close: 47.6
-- volume: 8290711
-- ma5: 49.4
-- ema23_primary: 46.68
-- distance_to_ema23_pct: 1.96
-- ma20: 46.58
-- ma60: 44.23
-- ma120: 45.72
-- return_5d: -3.84
-- return_20d: 7.57
-- volume_ratio: 0.78
-- distance_to_ma20_pct_auxiliary: 2.2
-- distance_to_high_60_pct: -9.68
+- date: 20260713
+- open: 46.95
+- high: 48.2
+- low: 46.3
+- close: 47.25
+- volume: 5785188
+- ma5: 48.59
+- ema23_primary: 46.73
+- distance_to_ema23_pct: 1.11
+- ma20: 46.75
+- ma60: 44.25
+- ma120: 45.67
+- return_5d: -7.89
+- return_20d: 8
+- volume_ratio: 0.54
+- distance_to_ma20_pct_auxiliary: 1.06
+- distance_to_high_60_pct: -10.34
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,44.1,44.2,42.95,43.75,6061368,43.04,1.64,42.64,43.26,0.78
 20260612,44.4,45.2,44.3,44.45,5362361,43.16,2.98,42.78,43.24,0.69
 20260615,45,45.4,44.65,44.8,4128273,43.3,3.47,42.94,43.2,0.53
 20260616,44.85,45.25,44.6,44.8,3720829,43.42,3.17,43.1,43.17,0.49
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,50,50.6,48.9,49.2,10470391,46.39,6.05,46.23,44.02,0.94
 20260708,49.3,49.8,48,48.9,7184355,46.6,4.93,46.41,44.14,0.67
 20260709,48.9,48.9,47.2,47.6,8290711,46.68,1.96,46.58,44.23,0.78
+20260713,46.95,48.2,46.3,47.25,5785188,46.73,1.11,46.75,44.25,0.54
 ```
 
 ## Latest TDCC Snapshot
@@ -188,17 +188,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 4763 | 材料*-KY | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260713 | 4763 | 材料*-KY | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 4763 | 材料*-KY | 1 | 1 | 3 | 7 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260713 | 4763 | 材料*-KY | 2 | 2 | 3 | 8 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 4763 | 材料*-KY | 48 | 0 | 5391240.0 | 0.0 |  | no_signal |
+| 20260713 | 4763 | 材料*-KY | 48 | 0 | 1685470.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

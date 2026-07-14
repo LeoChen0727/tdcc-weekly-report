@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2357 華碩
 
 ## Metadata
-- generated_at: 2026-07-13 22:27:13 Asia/Taipei
+- generated_at: 2026-07-14 22:26:32 Asia/Taipei
 - stock_id: 2357
 - stock_name: 華碩
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 301
+- latest_price_date: 20260713
+- price_rows: 302
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -119,29 +119,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 688
-- high: 699
-- low: 675
-- close: 684
-- volume: 4811935
-- ma5: 677.8
-- ema23_primary: 719.57
-- distance_to_ema23_pct: -4.94
-- ma20: 732.65
-- ma60: 699.9
-- ma120: 618.84
-- return_5d: 2.55
-- return_20d: -14.07
-- volume_ratio: 0.89
-- distance_to_ma20_pct_auxiliary: -6.64
-- distance_to_high_60_pct: -29.05
+- date: 20260713
+- open: 706
+- high: 725
+- low: 703
+- close: 704
+- volume: 6768399
+- ma5: 683.6
+- ema23_primary: 718.28
+- distance_to_ema23_pct: -1.99
+- ma20: 728.65
+- ma60: 701.9
+- ma120: 620.18
+- return_5d: 4.3
+- return_20d: -10.2
+- volume_ratio: 1.24
+- distance_to_ma20_pct_auxiliary: -3.38
+- distance_to_high_60_pct: -26.97
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,791,802,769,784,5245169,765.57,2.41,760.6,649.42,0.79
 20260612,791,805,780,785,4371037,767.18,2.32,767.8,652.62,0.67
 20260615,803,804,783,792,3780033,769.25,2.96,775.65,655.92,0.58
 20260616,794,800,786,791,4159548,771.06,2.59,783.1,659.47,0.64
@@ -161,6 +160,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,681,681,661,663,3751073,726.06,-8.69,746.4,696.35,0.68
 20260708,675,687,670,687,4853620,722.81,-4.95,738.25,698.17,0.89
 20260709,688,699,675,684,4811935,719.57,-4.94,732.65,699.9,0.89
+20260713,706,725,703,704,6768399,718.28,-1.99,728.65,701.9,1.24
 ```
 
 ## Latest TDCC Snapshot
@@ -195,18 +195,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 2357 | 華碩 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  | no_signal | stale_signal | 1.董事會決議日期:115/07/10 2.減資緣由:考量公司營運需求，調整資本結構並返還股款。 3.減資金額:巴西幣340,000,000元。 4.消除股份:340,000,000股。 5.減資比率:61.88%。 6.減資後股本:巴西幣209,469,000元。 7.預定股東會日期:115/07/10 8.預計減資新股上市後之上市普通股股數:不適用。 9.預計減資新股上市後之上市普通股股數占已發行普通股比率 （減資後上市普通股股數/減資後已發行普通股股數）:不適用。 10.前二項預計減資後上巿普通股股數未達6000萬股且未達25%者， 請說明股權流通性偏低之因應措施:不適用。 11.減資基準日:待當地主管機關核准註冊變更生效後完成。 12.其他應敘明事項: (1)ACBZ以股東會代董事會通過決議。 (2)ACBZ係華碩間接100%持股之重要子公司。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260709 | 2357 | 華碩 | revenue_breakout_low_response | 營收爆發低反應股 | 10.0 | 35.0 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | 1.董事會決議日期:115/07/10 2.減資緣由:考量公司營運需求，調整資本結構並返還股款。 3.減資金額:巴西幣340,000,000元。 4.消除股份:340,000,000股。 5.減資比率:61.88%。 6.減資後股本:巴西幣209,469,000元。 7.預定股東會日期:115/07/10 8.預計減資新股上市後之上市普通股股數:不適用。 9.預計減資新股上市後之上市普通股股數占已發行普通股比率 （減資後上市普通股股數/減資後已發行普通股股數）:不適用。 10.前二項預計減資後上巿普通股股數未達6000萬股且未達25%者， 請說明股權流通性偏低之因應措施:不適用。 11.減資基準日:待當地主管機關核准註冊變更生效後完成。 12.其他應敘明事項: (1)ACBZ以股東會代董事會通過決議。 (2)ACBZ係華碩間接100%持股之重要子公司。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260713 | 2357 | 華碩 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  | no_signal | stale_signal | 1.董事會決議日期:115/07/10 2.減資緣由:考量公司營運需求，調整資本結構並返還股款。 3.減資金額:巴西幣340,000,000元。 4.消除股份:340,000,000股。 5.減資比率:61.88%。 6.減資後股本:巴西幣209,469,000元。 7.預定股東會日期:115/07/10 8.預計減資新股上市後之上市普通股股數:不適用。 9.預計減資新股上市後之上市普通股股數占已發行普通股比率 （減資後上市普通股股數/減資後已發行普通股股數）:不適用。 10.前二項預計減資後上巿普通股股數未達6000萬股且未達25%者， 請說明股權流通性偏低之因應措施:不適用。 11.減資基準日:待當地主管機關核准註冊變更生效後完成。 12.其他應敘明事項: (1)ACBZ以股東會代董事會通過決議。 (2)ACBZ係華碩間接100%持股之重要子公司。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260713 | 2357 | 華碩 | revenue_breakout_low_response | 營收爆發低反應股 | 10.0 | 43.0 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | 1.董事會決議日期:115/07/10 2.減資緣由:考量公司營運需求，調整資本結構並返還股款。 3.減資金額:巴西幣340,000,000元。 4.消除股份:340,000,000股。 5.減資比率:61.88%。 6.減資後股本:巴西幣209,469,000元。 7.預定股東會日期:115/07/10 8.預計減資新股上市後之上市普通股股數:不適用。 9.預計減資新股上市後之上市普通股股數占已發行普通股比率 （減資後上市普通股股數/減資後已發行普通股股數）:不適用。 10.前二項預計減資後上巿普通股股數未達6000萬股且未達25%者， 請說明股權流通性偏低之因應措施:不適用。 11.減資基準日:待當地主管機關核准註冊變更生效後完成。 12.其他應敘明事項: (1)ACBZ以股東會代董事會通過決議。 (2)ACBZ係華碩間接100%持股之重要子公司。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 2357 | 華碩 | 2 | 1 | 2 | 2 | 7 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260713 | 2357 | 華碩 | 3 | 2 | 3 | 3 | 8 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 2357 | 華碩 | 92 | 5 | 7021090.0 | 142740.0 | 49.19 | no_signal |
+| 20260713 | 2357 | 華碩 | 93 | 5 | 7036230.0 | 1170.0 | 6013.87 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

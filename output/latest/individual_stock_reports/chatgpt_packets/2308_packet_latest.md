@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2308 台達電
 
 ## Metadata
-- generated_at: 2026-07-13 22:27:10 Asia/Taipei
+- generated_at: 2026-07-14 22:26:30 Asia/Taipei
 - stock_id: 2308
 - stock_name: 台達電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 301
+- latest_price_date: 20260713
+- price_rows: 302
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 1890
-- high: 1935
-- low: 1870
-- close: 1880
-- volume: 8337141
-- ma5: 1945
-- ema23_primary: 2034.2
-- distance_to_ema23_pct: -7.58
-- ma20: 2034
-- ma60: 2122
-- ma120: 1722.17
-- return_5d: -4.57
-- return_20d: -14.55
-- volume_ratio: 0.63
-- distance_to_ma20_pct_auxiliary: -7.57
-- distance_to_high_60_pct: -27.27
+- date: 20260713
+- open: 1970
+- high: 1980
+- low: 1885
+- close: 1890
+- volume: 9299583
+- ma5: 1908
+- ema23_primary: 2022.18
+- distance_to_ema23_pct: -6.54
+- ma20: 2020.5
+- ma60: 2123.75
+- ma120: 1729.33
+- return_5d: -8.92
+- return_20d: -12.5
+- volume_ratio: 0.72
+- distance_to_ma20_pct_auxiliary: -6.46
+- distance_to_high_60_pct: -26.89
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,2170,2230,2080,2160,15289457,2244.39,-3.76,2251.75,1964.25,1.19
 20260612,2260,2280,2170,2215,9897155,2241.94,-1.2,2258.75,1977.17,0.78
 20260615,2310,2320,2200,2210,9456969,2239.28,-1.31,2268.25,1989.58,0.75
 20260616,2265,2270,2220,2230,9190426,2238.51,-0.38,2284,2002.5,0.75
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,2015,2025,1890,1890,9203478,2063.06,-8.39,2076.5,2117.42,0.66
 20260708,1925,1950,1840,1885,13043190,2048.22,-7.97,2050,2119.83,0.95
 20260709,1890,1935,1870,1880,8337141,2034.2,-7.58,2034,2122,0.63
+20260713,1970,1980,1885,1890,9299583,2022.18,-6.54,2020.5,2123.75,0.72
 ```
 
 ## Latest TDCC Snapshot
@@ -188,17 +188,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 2308 | 台達電 | revenue_pullback | 營收成長股價回檔 | 57.0 |  |  |  |  | call_inflow | stale_signal | 1.契約種類:工程合約 2.事實發生日:115/7/6~115/7/6 3.董事會通過日期: 民國115年7月6日 4.其他核決日期: 不適用 5.契約相對人及其與公司之關係: 工程契約相對人待確定後另行公告。 6.契約主要內容（含契約總金額、預計參與投入之金額及契約起迄日期） 、限制條款及其他重要約定事項: 中達電子(蕪湖)有限公司董事會於民國115年07月06日決議通過及股東決定興建 蕪湖五廠，暫估工程總價款約人民幣4.1億元(含稅)，其他相關事宜待確定後另行 公告。 7.專業估價者事務所或公司名稱及其估價結果: 係租地委建，故不適用 8.不動產估價師姓名: 不適用 9.不動產估價師開業證書字號: 不適用 10.取得之具體目的: 因應未來業務發展所需 11.本次交易表示異議之董事意見: 無 12.本次交易為關係人交易:否 13.監察人承認或審計委員會同意日期: 不適用 14.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 15.是否尚未取得估價報告:否或不適用 16.尚未取得估價報告之原因: 不適用 17.估價結果有重大差異時，其差異原因及會計師意見: 不適用 18.會計師事務所名稱: 不適用 19.會計師姓名: 不適用 20.會計師開業證書字號: 不適用 21.前已就同一件事件發布重大訊息日期: 不適用 22.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260713 | 2308 | 台達電 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.契約種類:工程合約 2.事實發生日:115/7/6~115/7/6 3.董事會通過日期: 民國115年7月6日 4.其他核決日期: 不適用 5.契約相對人及其與公司之關係: 工程契約相對人待確定後另行公告。 6.契約主要內容（含契約總金額、預計參與投入之金額及契約起迄日期） 、限制條款及其他重要約定事項: 中達電子(蕪湖)有限公司董事會於民國115年07月06日決議通過及股東決定興建 蕪湖五廠，暫估工程總價款約人民幣4.1億元(含稅)，其他相關事宜待確定後另行 公告。 7.專業估價者事務所或公司名稱及其估價結果: 係租地委建，故不適用 8.不動產估價師姓名: 不適用 9.不動產估價師開業證書字號: 不適用 10.取得之具體目的: 因應未來業務發展所需 11.本次交易表示異議之董事意見: 無 12.本次交易為關係人交易:否 13.監察人承認或審計委員會同意日期: 不適用 14.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 15.是否尚未取得估價報告:否或不適用 16.尚未取得估價報告之原因: 不適用 17.估價結果有重大差異時，其差異原因及會計師意見: 不適用 18.會計師事務所名稱: 不適用 19.會計師姓名: 不適用 20.會計師開業證書字號: 不適用 21.前已就同一件事件發布重大訊息日期: 不適用 22.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 2308 | 台達電 | 1 | 1 | 3 | 5 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260713 | 2308 | 台達電 | 2 | 2 | 3 | 6 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 2308 | 台達電 | 220 | 27 | 22148860.0 | 157510.0 | 140.62 | call_inflow |
+| 20260713 | 2308 | 台達電 | 209 | 26 | 21103170.0 | 159190.0 | 132.57 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

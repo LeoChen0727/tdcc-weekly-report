@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4806 桂田文創
 
 ## Metadata
-- generated_at: 2026-07-13 22:28:06 Asia/Taipei
+- generated_at: 2026-07-14 22:27:02 Asia/Taipei
 - stock_id: 4806
 - stock_name: 桂田文創
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 155
+- latest_price_date: 20260713
+- price_rows: 156
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 10.1
-- high: 10.2
-- low: 10.1
-- close: 10.2
-- volume: 2000
-- ma5: 10.17
-- ema23_primary: 10.19
-- distance_to_ema23_pct: 0.12
-- ma20: 10.21
-- ma60: 10.24
+- date: 20260713
+- open: 9.83
+- high: 10.05
+- low: 9.83
+- close: 10.05
+- volume: 11000
+- ma5: 10.18
+- ema23_primary: 10.18
+- distance_to_ema23_pct: -1.24
+- ma20: 10.22
+- ma60: 10.22
 - ma120: 10.53
-- return_5d: -1.92
-- return_20d: 2.51
-- volume_ratio: 0.06
-- distance_to_ma20_pct_auxiliary: -0.11
-- distance_to_high_60_pct: -12.45
+- return_5d: 0.5
+- return_20d: 1
+- volume_ratio: 0.35
+- distance_to_ma20_pct_auxiliary: -1.62
+- distance_to_high_60_pct: -13.73
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260609,9.96,10,9.95,9.95,18000,10.15,-2.02,10.1,10.61,1.89
 20260610,9.94,9.96,9.94,9.94,10000,10.14,-1.94,10.05,10.58,1.02
 20260611,10.9,10.9,10.9,10.9,125000,10.2,6.86,10.09,10.57,7.91
 20260612,10.85,10.85,9.95,10.25,139000,10.2,0.45,10.1,10.52,6.21
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,10.3,10.35,10,10.1,4000,10.18,-0.8,10.2,10.26,0.13
 20260707,10.3,10.3,10,10.25,15000,10.19,0.62,10.2,10.25,0.47
 20260709,10.1,10.2,10.1,10.2,2000,10.19,0.12,10.21,10.24,0.06
+20260713,9.83,10.05,9.83,10.05,11000,10.18,-1.24,10.22,10.22,0.35
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2332 友訊
 
 ## Metadata
-- generated_at: 2026-07-13 22:27:11 Asia/Taipei
+- generated_at: 2026-07-14 22:26:31 Asia/Taipei
 - stock_id: 2332
 - stock_name: 友訊
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 301
+- latest_price_date: 20260713
+- price_rows: 302
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -56,25 +56,25 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 已持有續抱
+- action_rating_display_zh: 停利
 - model_category_display_zh: 嚴格突破
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 嚴格突破 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
-- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
+- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前以風險管理為主，不適合新買第一筆。
+- action_summary_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。
+- entry_strategy_zh: 目前進入停利管理，不建議新買第一筆。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 嚴格突破 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
+- final_decision_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。 進場策略：目前進入停利管理，不建議新買第一筆。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
-- confidence_level: medium
-- thesis_state: high_level_consolidation
+- action_rating: take_profit
+- action_rating_label_zh: 停利
+- confidence_level: low
+- thesis_state: breakout_confirmed
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -87,6 +87,8 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
+- decision_score_high
 - price_structure_not_broken
 - revenue_not_deteriorating
 - no_major_tdcc_warning
@@ -111,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 24.05
-- high: 24.05
-- low: 24.05
-- close: 24.05
-- volume: 10403386
-- ma5: 21.08
-- ema23_primary: 18.62
-- distance_to_ema23_pct: 29.17
-- ma20: 18.49
-- ma60: 16.11
-- ma120: 15.85
-- return_5d: 32.14
-- return_20d: 54.17
-- volume_ratio: 0.6
-- distance_to_ma20_pct_auxiliary: 30.09
-- distance_to_high_60_pct: 0
+- date: 20260713
+- open: 24.85
+- high: 26.45
+- low: 23.9
+- close: 25.95
+- volume: 131450187
+- ma5: 22.27
+- ema23_primary: 19.23
+- distance_to_ema23_pct: 34.95
+- ma20: 19
+- ma60: 16.29
+- ma120: 15.94
+- return_5d: 29.75
+- return_20d: 65.29
+- volume_ratio: 5.57
+- distance_to_ma20_pct_auxiliary: 36.58
+- distance_to_high_60_pct: -1.89
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,15.7,15.95,15.35,15.7,3090704,15.54,1.01,15.56,15.03,0.42
 20260612,16,16.2,15.5,15.5,3072165,15.54,-0.25,15.64,15.03,0.42
 20260615,15.8,16.15,15.65,15.95,2869296,15.57,2.42,15.74,15.03,0.39
 20260616,16.2,16.75,15.6,16.6,6831352,15.66,6.01,15.88,15.05,0.91
@@ -153,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,19.5,20.15,18.6,19.95,18363418,17.78,12.19,17.74,15.85,1.16
 20260708,19.6,21.9,18.9,21.9,32491515,18.12,20.83,18.07,15.96,1.9
 20260709,24.05,24.05,24.05,24.05,10403386,18.62,29.17,18.49,16.11,0.6
+20260713,24.85,26.45,23.9,25.95,131450187,19.23,34.95,19,16.29,5.57
 ```
 
 ## Latest TDCC Snapshot
@@ -187,17 +189,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 2332 | 友訊 | true_breakout | 嚴格突破 | 56.0 |  |  |  |  | no_signal | continued_overheated | 1.標的物之名稱及性質（屬特別股者，並應標明特別股約定發行條件， 如股息率等）: 鑫永洋科技股份有限公司私募之普通股 2.事實發生日:115/07/09 3.交易單位數量、每單位價格及交易總金額: 交易單位數量：10,000,000股 每單位價格：17元 交易總金額：新台幣170,000,000元 4.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司 之關係人者，得免揭露其姓名）: 交易相對人：鑫永洋科技股份有限公司 與公司之關係：為本公司之關係人 5.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及 前次移轉之所有人、前次移轉之所有人與公司及交易相對人間相互之 關係、前次移轉日期及移轉金額: 選定關係人為交易對象之原因：策略性投資 前次取得日期：115年2月24日 前次移轉所有人及金額：集中市場交易，金額:253,760元 6.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告 關係人之取得及處分日期、價格及交易當時與公司之關係: 不適用 7.本次係處分債權之相關事項（含處分之債權附隨擔保品種類、處分 債權如有屬對關係人債權者尚需公告關係人名稱及本次處分該關係人 之債權帳面金額: 不適用 8.處分利益（或損失）（取得有價證券者不適用）（遞延者應列表 說明認列情形）: 不適用 9.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要 約定事項: 依認股繳款通知，一次繳足 10.本次交易之決定方式、價格決定之參考依據及決策單位: 決定方式：董事會決議通過 價格參考依據：依鑫永洋科技股份有限公司私募普通股訂定之價格及會計 　　　　　　　師出具之股權價格合理性意見書 決策單位：本公司董事會 11.取得或處分有價證券標的公司每股淨值:10.63 12.有價證券標的公司私募參考價格與每股交易金額差距達20%以上:否 13.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、 持股比例及權利受限情形（如質押情形）: 友訊科技(股)公司 數量：10,020,000股 總金額：新台幣170,253,760元 持股比例：約22.01% 權利受限情形：本次私募持股轉讓依證交法私募相關規定辦理 友勁科技(股)公司 數量：30,000股 持股比例：約0.07% 總金額：新台幣372,716元 權利受限情形：本次私募持股轉讓依證交法私募相關規定辦理 14.迄目前為止，私募有價證券投資（含本次交易）占公司最近期財 務報表中總資產及歸屬於母公司業主之權益之比例暨最近期財務報表中營運資金數額: (1)占總資產之比例：2.17% (2)占歸屬於母公司業主之權益之比例：3.08% (3)營運資金數額：新台幣171,465仟元 15.經理人及經紀費用: 不適用 16.取得或處分之具體目的或用途: 策略性投資 17.本次交易表示異議董事之意見: 無 18.本次交易為關係人交易: 是 19.董事會通過日期: 115年7月9日 20.監察人承認或審計委員會同意日期: 115年7月9日 21.本次交易會計師出具非合理性意見:否 22.會計師事務所名稱: 勤信聯合會計師事務所 23.會計師姓名: 黃勝平 24.會計師開業證書字號: (94)專高會字第000721號 25.其他敘明事項: 本次持股比率計算，係以鑫永洋科技股份有限公司減資後之上櫃普通股股 數35,533,670股及115年6月30日董事會通過預計辦理私募增資普通股 計10,000,000股後之合計已發行普通股股份總數45,533,670股計算， 本公司加上友勁持股約佔22.08%。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260713 | 2332 | 友訊 | true_breakout | 嚴格突破 | 91.0 |  |  | breakout_confirmed |  | no_signal | continued_overheated | 1.事實發生日:115/07/13 2.發生緣由:依臺灣證券交易所股份有限公司通知辦理 3.財務業務資訊: 期間                (  月  )             (   季   )        (最近四季累計)            ===================== =======================  =============== 科目       最近一月  與去年同期  最近一季    與去年同期    114第2季至            115年5月    增減%     115年第1季    增減%        115第1季               合併                  合併                       合併             (自結數)              (核閱數)                   (查核/核閱數)            =========  ========== ============ ==========  =============== 營業收入　   1,189　       13%       3,441         3%         13,471 (百萬) 稅前淨利　      22 　 　  141%          26       130%            (79) (百萬) 歸屬於母公司     3        106%         (29)       82%           (403) 業主本期淨利 (百萬) 每股盈餘      0.01        111%       (0.05)       82%          (0.67) (元) 每股盈餘(元) 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告: 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 2332 | 友訊 | 7 | 2 | 5 | 9 | 17 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260713 | 2332 | 友訊 | 8 | 3 | 5 | 9 | 18 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 2332 | 友訊 | 1 | 0 | 103800.0 | 0.0 |  | no_signal |
+| 20260713 | 2332 | 友訊 | 1 | 0 | 237750.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

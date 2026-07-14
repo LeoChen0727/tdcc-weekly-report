@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00645 富邦日本
 
 ## Metadata
-- generated_at: 2026-07-13 22:26:42 Asia/Taipei
+- generated_at: 2026-07-14 22:26:15 Asia/Taipei
 - stock_id: 00645
 - stock_name: 富邦日本
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260709
-- price_rows: 34
+- latest_price_date: 20260713
+- price_rows: 35
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 56.95
-- high: 56.95
-- low: 56.65
-- close: 56.75
-- volume: 74898
-- ma5: 57.29
+- date: 20260713
+- open: 56.8
+- high: 56.85
+- low: 56.4
+- close: 56.45
+- volume: 433422
+- ma5: 57.09
 - ema23_primary: 56.49
-- distance_to_ema23_pct: 0.46
-- ma20: 56.57
-- ma60: 55.99
-- ma120: 55.99
-- return_5d: -0.7
-- return_20d: 5
-- volume_ratio: 0.28
-- distance_to_ma20_pct_auxiliary: 0.32
-- distance_to_high_60_pct: -2.16
+- distance_to_ema23_pct: -0.07
+- ma20: 56.7
+- ma60: 56
+- ma120: 56
+- return_5d: -1.74
+- return_20d: 4.73
+- volume_ratio: 2.17
+- distance_to_ma20_pct_auxiliary: -0.43
+- distance_to_high_60_pct: -2.67
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,53.65,53.95,53.35,53.9,1797765,54.92,-1.86,55.08,55.08,4.46
 20260612,55,55,54.4,54.8,230383,54.91,-0.2,55.06,55.06,0.59
 20260615,56.2,56.9,56.2,56.35,409353,55.03,2.4,55.14,55.14,1.04
 20260616,56.25,56.4,56,56.25,140600,55.13,2.03,55.2,55.2,0.37
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,57.8,58,57.2,57.3,428765,56.41,1.57,56.32,55.93,1.57
 20260708,57.2,57.4,57,57.1,77854,56.47,1.12,56.43,55.97,0.29
 20260709,56.95,56.95,56.65,56.75,74898,56.49,0.46,56.57,55.99,0.28
+20260713,56.8,56.85,56.4,56.45,433422,56.49,-0.07,56.7,56,2.17
 ```
 
 ## Latest TDCC Snapshot

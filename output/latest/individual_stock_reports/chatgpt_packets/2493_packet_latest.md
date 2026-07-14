@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2493 揚博
 
 ## Metadata
-- generated_at: 2026-07-13 22:27:20 Asia/Taipei
+- generated_at: 2026-07-14 22:26:36 Asia/Taipei
 - stock_id: 2493
 - stock_name: 揚博
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 301
+- latest_price_date: 20260713
+- price_rows: 302
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 271.5
-- high: 288.5
-- low: 265
-- close: 274
-- volume: 3815359
-- ma5: 284.3
-- ema23_primary: 256.68
-- distance_to_ema23_pct: 6.75
-- ma20: 268.77
-- ma60: 184.59
-- ma120: 148.77
-- return_5d: -15.56
-- return_20d: 51.8
-- volume_ratio: 0.94
-- distance_to_ma20_pct_auxiliary: 1.94
-- distance_to_high_60_pct: -18.69
+- date: 20260713
+- open: 283
+- high: 283
+- low: 251
+- close: 257.5
+- volume: 3713230
+- ma5: 273
+- ema23_primary: 256.75
+- distance_to_ema23_pct: 0.29
+- ma20: 272.23
+- ma60: 186.34
+- ma120: 149.91
+- return_5d: -17.99
+- return_20d: 36.6
+- volume_ratio: 1.06
+- distance_to_ma20_pct_auxiliary: -5.41
+- distance_to_high_60_pct: -23.59
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,186.5,192,168,188.5,14278232,157.26,19.86,155.82,134.09,1.98
 20260612,207,207,207,207,2561134,161.41,28.25,159.35,135.69,0.37
 20260615,227.5,227.5,227.5,227.5,711933,166.92,36.3,164,137.54,0.1
 20260616,250,250,240,250,8089645,173.84,43.81,169.93,139.77,1.12
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,277,292,263,280.5,5062642,253.75,10.54,259.05,180.02,1.1
 20260708,290,294.5,267,270,4488042,255.11,5.84,264.1,182.34,0.99
 20260709,271.5,288.5,265,274,3815359,256.68,6.75,268.77,184.59,0.94
+20260713,283,283,251,257.5,3713230,256.75,0.29,272.23,186.34,1.06
 ```
 
 ## Latest TDCC Snapshot
@@ -198,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 2493 | 揚博 | 59 | 2 | 18677820.0 | 331240.0 | 56.39 | call_put_bullish |
+| 20260713 | 2493 | 揚博 | 58 | 2 | 12469240.0 | 383200.0 | 32.54 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

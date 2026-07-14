@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00946 群益科技高息成長
 
 ## Metadata
-- generated_at: 2026-07-13 22:26:45 Asia/Taipei
+- generated_at: 2026-07-14 22:26:17 Asia/Taipei
 - stock_id: 00946
 - stock_name: 群益科技高息成長
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260709
-- price_rows: 34
+- latest_price_date: 20260713
+- price_rows: 35
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
+- date: 20260713
 - open: 15.37
-- high: 15.56
-- low: 15.31
-- close: 15.4
-- volume: 3392659
-- ma5: 15.53
-- ema23_primary: 15.21
-- distance_to_ema23_pct: 1.27
-- ma20: 15.28
-- ma60: 15.08
-- ma120: 15.08
-- return_5d: -0.39
-- return_20d: 4.9
-- volume_ratio: 0.73
-- distance_to_ma20_pct_auxiliary: 0.81
-- distance_to_high_60_pct: -4.35
+- high: 15.41
+- low: 14.92
+- close: 14.97
+- volume: 5746717
+- ma5: 15.38
+- ema23_primary: 15.19
+- distance_to_ema23_pct: -1.43
+- ma20: 15.29
+- ma60: 15.07
+- ma120: 15.07
+- return_5d: -4.65
+- return_20d: 2.11
+- volume_ratio: 1.24
+- distance_to_ma20_pct_auxiliary: -2.11
+- distance_to_high_60_pct: -7.02
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,14.71,14.79,14.35,14.66,5294026,14.49,1.19,14.78,14.78,0.75
 20260612,14.99,15.05,14.8,14.83,4103550,14.52,2.16,14.78,14.78,0.6
 20260615,15.05,15.08,14.82,14.84,3741292,14.54,2.04,14.79,14.79,0.56
 20260616,14.91,14.98,14.71,14.8,2596564,14.57,1.61,14.79,14.79,0.4
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,15.71,15.83,15.38,15.42,4189539,15.17,1.66,15.22,15.05,0.87
 20260708,15.59,15.6,15.25,15.41,1771256,15.19,1.46,15.24,15.07,0.38
 20260709,15.37,15.56,15.31,15.4,3392659,15.21,1.27,15.28,15.08,0.73
+20260713,15.37,15.41,14.92,14.97,5746717,15.19,-1.43,15.29,15.07,1.24
 ```
 
 ## Latest TDCC Snapshot

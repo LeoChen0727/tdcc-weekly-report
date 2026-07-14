@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00892 富邦台灣半導體
 
 ## Metadata
-- generated_at: 2026-07-13 22:26:44 Asia/Taipei
+- generated_at: 2026-07-14 22:26:16 Asia/Taipei
 - stock_id: 00892
 - stock_name: 富邦台灣半導體
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260709
-- price_rows: 34
+- latest_price_date: 20260713
+- price_rows: 35
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 44.13
-- high: 44.91
-- low: 43.95
-- close: 44.32
-- volume: 10376452
-- ma5: 44.72
-- ema23_primary: 44.75
-- distance_to_ema23_pct: -0.96
-- ma20: 45.02
-- ma60: 44.55
-- ma120: 44.55
-- return_5d: -5.38
-- return_20d: 6.82
-- volume_ratio: 2.37
-- distance_to_ma20_pct_auxiliary: -1.55
-- distance_to_high_60_pct: -8.64
+- date: 20260713
+- open: 45.43
+- high: 45.5
+- low: 43.24
+- close: 43.4
+- volume: 12526401
+- ma5: 44.15
+- ema23_primary: 44.64
+- distance_to_ema23_pct: -2.77
+- ma20: 45.09
+- ma60: 44.52
+- ma120: 44.52
+- return_5d: -6.18
+- return_20d: 3.26
+- volume_ratio: 2.59
+- distance_to_ma20_pct_auxiliary: -3.74
+- distance_to_high_60_pct: -10.53
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,41.44,42.07,40.36,42.03,3381457,43.34,-3.03,43.76,43.76,0.93
 20260612,43.67,43.87,43.34,43.34,2471344,43.34,-0,43.73,43.73,0.69
 20260615,44.87,44.98,44.23,44.35,1198785,43.43,2.13,43.77,43.77,0.35
 20260616,44.6,44.99,44.26,44.99,1991307,43.56,3.29,43.84,43.84,0.59
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,45.82,46,43.72,43.91,9525237,44.89,-2.19,44.85,44.59,2.44
 20260708,44.27,44.27,43.22,43.65,5785619,44.79,-2.54,44.88,44.56,1.42
 20260709,44.13,44.91,43.95,44.32,10376452,44.75,-0.96,45.02,44.55,2.37
+20260713,45.43,45.5,43.24,43.4,12526401,44.64,-2.77,45.09,44.52,2.59
 ```
 
 ## Latest TDCC Snapshot

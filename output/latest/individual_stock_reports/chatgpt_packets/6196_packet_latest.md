@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6196 帆宣
 
 ## Metadata
-- generated_at: 2026-07-13 22:28:27 Asia/Taipei
+- generated_at: 2026-07-14 22:27:13 Asia/Taipei
 - stock_id: 6196
 - stock_name: 帆宣
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 301
+- latest_price_date: 20260713
+- price_rows: 302
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 546
-- high: 580
-- low: 546
-- close: 549
-- volume: 1923305
-- ma5: 563
-- ema23_primary: 541.46
-- distance_to_ema23_pct: 1.39
-- ma20: 553.35
-- ma60: 471.4
-- ma120: 379.3
-- return_5d: -6.63
-- return_20d: 9.8
-- volume_ratio: 0.88
-- distance_to_ma20_pct_auxiliary: -0.79
-- distance_to_high_60_pct: -8.19
+- date: 20260713
+- open: 565
+- high: 565
+- low: 542
+- close: 551
+- volume: 1838561
+- ma5: 555.6
+- ema23_primary: 542.25
+- distance_to_ema23_pct: 1.61
+- ma20: 555.7
+- ma60: 474.7
+- ma120: 381.35
+- return_5d: -6.29
+- return_20d: 9.33
+- volume_ratio: 0.85
+- distance_to_ma20_pct_auxiliary: -0.85
+- distance_to_high_60_pct: -7.86
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,508,521,485.5,504,2485493,472.71,6.62,477.65,388.32,0.9
 20260612,523,554,523,548,4102722,478.98,14.41,484.88,392.77,1.57
 20260615,580,597,563,573,4067961,486.82,17.7,493,397.56,1.51
 20260616,575,580,538,541,3679743,491.33,10.11,499.8,401.9,1.32
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,591,591,552,562,2258517,540.29,4.02,549.6,464.01,0.99
 20260708,564,565,532,546,1893827,540.77,0.97,550.9,467.77,0.83
 20260709,546,580,546,549,1923305,541.46,1.39,553.35,471.4,0.88
+20260713,565,565,542,551,1838561,542.25,1.61,555.7,474.7,0.85
 ```
 
 ## Latest TDCC Snapshot
@@ -189,18 +189,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 6196 | 帆宣 | pattern | 型態觀察 | 54.0 |  |  | pullback_right_side |  | no_signal | repeated_but_no_breakout | 1.董事會決議日期:115/06/17 2.發放股利種類及金額:現金股利美金11,420,000元 3.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
-| 20260709 | 6196 | 帆宣 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | repeated_but_no_breakout | 1.董事會決議日期:115/06/17 2.發放股利種類及金額:現金股利美金11,420,000元 3.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260713 | 6196 | 帆宣 | pattern | 型態觀察 | 54.0 |  |  | pullback_right_side |  | no_signal | repeated_but_no_breakout | 1.董事會決議日期:115/06/17 2.發放股利種類及金額:現金股利美金11,420,000元 3.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260713 | 6196 | 帆宣 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | repeated_but_no_breakout | 1.董事會決議日期:115/06/17 2.發放股利種類及金額:現金股利美金11,420,000元 3.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 6196 | 帆宣 | 4 | 4 | 4 | 8 | 15 | repeated_but_no_breakout | 近 10 日上榜 8 次、近 20 日上榜 15 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260713 | 6196 | 帆宣 | 5 | 5 | 5 | 8 | 16 | repeated_but_no_breakout | 近 10 日上榜 8 次、近 20 日上榜 16 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 6196 | 帆宣 | 82 | 1 | 6415620.0 | 5790.0 | 1108.05 | no_signal |
+| 20260713 | 6196 | 帆宣 | 84 | 1 | 7232130.0 | 1380.0 | 5240.67 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

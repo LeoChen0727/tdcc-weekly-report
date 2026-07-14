@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6274 台燿
 
 ## Metadata
-- generated_at: 2026-07-13 22:28:31 Asia/Taipei
+- generated_at: 2026-07-14 22:27:16 Asia/Taipei
 - stock_id: 6274
 - stock_name: 台燿
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 166
+- latest_price_date: 20260713
+- price_rows: 167
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 1635
-- high: 1680
-- low: 1565
-- close: 1570
-- volume: 4825000
-- ma5: 1642
-- ema23_primary: 1624.36
-- distance_to_ema23_pct: -3.35
-- ma20: 1654.75
-- ma60: 1429.9
-- ma120: 988.19
-- return_5d: -7.1
-- return_20d: 4.67
-- volume_ratio: 0.81
-- distance_to_ma20_pct_auxiliary: -5.12
-- distance_to_high_60_pct: -18.23
+- date: 20260713
+- open: 1600
+- high: 1620
+- low: 1525
+- close: 1550
+- volume: 3719000
+- ma5: 1594
+- ema23_primary: 1618.16
+- distance_to_ema23_pct: -4.21
+- ma20: 1658.5
+- ma60: 1439.97
+- ma120: 997.23
+- return_5d: -13.41
+- return_20d: 5.08
+- volume_ratio: 0.65
+- distance_to_ma20_pct_auxiliary: -6.54
+- distance_to_high_60_pct: -19.27
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,1520,1555,1400,1475,8042000,1479.44,-0.3,1511.75,1105.47,2.93
 20260612,1580,1620,1430,1430,8780000,1475.32,-3.07,1518,1120.88,2.82
 20260615,1490,1570,1490,1570,4650000,1483.21,5.85,1533.5,1138.2,1.45
 20260616,1590,1660,1580,1610,5624000,1493.77,7.78,1552.75,1155.3,1.64
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,1630,1715,1560,1575,6384000,1627.88,-3.25,1649.75,1404,1.02
 20260708,1630,1665,1550,1645,5814000,1629.3,0.96,1651.25,1418.07,0.95
 20260709,1635,1680,1565,1570,4825000,1624.36,-3.35,1654.75,1429.9,0.81
+20260713,1600,1620,1525,1550,3719000,1618.16,-4.21,1658.5,1439.97,0.65
 ```
 
 ## Latest TDCC Snapshot
@@ -189,13 +189,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 6274 | 台燿 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | repeated_but_no_breakout | 1.事實發生日:115/07/09 2.公司名稱:台燿科技 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:更正本公司115年6月衍生性商品交易資訊 6.更正資訊項目/報表名稱:6.交換 7.更正前金額/內容/頁次: 1001224/未沖銷契約契約總金額 -6768未沖銷契約公允價值 -6768未沖銷契約本年度認列未實現損益金額 1628138已沖銷契約契約總金額 -8695已沖銷契約本年度認列已實現損益金額 8.更正後金額/內容/頁次: 1000776/未沖銷契約契約總金額 -7312/未沖銷契約公允價值 -7312/未沖銷契約本年度認列未實現損益金額 1596748/已沖銷契約契約總金額 -8156已沖銷契約本年度認列已實現損益金額 9.因應措施:更正後重新上傳公開資訊觀測站 10.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
-| 20260709 | 6274 | 台燿 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  |  | repeated_but_no_breakout | 1.事實發生日:115/07/09 2.公司名稱:台燿科技 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:更正本公司115年6月衍生性商品交易資訊 6.更正資訊項目/報表名稱:6.交換 7.更正前金額/內容/頁次: 1001224/未沖銷契約契約總金額 -6768未沖銷契約公允價值 -6768未沖銷契約本年度認列未實現損益金額 1628138已沖銷契約契約總金額 -8695已沖銷契約本年度認列已實現損益金額 8.更正後金額/內容/頁次: 1000776/未沖銷契約契約總金額 -7312/未沖銷契約公允價值 -7312/未沖銷契約本年度認列未實現損益金額 1596748/已沖銷契約契約總金額 -8156已沖銷契約本年度認列已實現損益金額 9.因應措施:更正後重新上傳公開資訊觀測站 10.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260713 | 6274 | 台燿 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.事實發生日:115/07/09 2.公司名稱:台燿科技 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:更正本公司115年6月衍生性商品交易資訊 6.更正資訊項目/報表名稱:6.交換 7.更正前金額/內容/頁次: 1001224/未沖銷契約契約總金額 -6768未沖銷契約公允價值 -6768未沖銷契約本年度認列未實現損益金額 1628138已沖銷契約契約總金額 -8695已沖銷契約本年度認列已實現損益金額 8.更正後金額/內容/頁次: 1000776/未沖銷契約契約總金額 -7312/未沖銷契約公允價值 -7312/未沖銷契約本年度認列未實現損益金額 1596748/已沖銷契約契約總金額 -8156已沖銷契約本年度認列已實現損益金額 9.因應措施:更正後重新上傳公開資訊觀測站 10.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260713 | 6274 | 台燿 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/07/09 2.公司名稱:台燿科技 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:更正本公司115年6月衍生性商品交易資訊 6.更正資訊項目/報表名稱:6.交換 7.更正前金額/內容/頁次: 1001224/未沖銷契約契約總金額 -6768未沖銷契約公允價值 -6768未沖銷契約本年度認列未實現損益金額 1628138已沖銷契約契約總金額 -8695已沖銷契約本年度認列已實現損益金額 8.更正後金額/內容/頁次: 1000776/未沖銷契約契約總金額 -7312/未沖銷契約公允價值 -7312/未沖銷契約本年度認列未實現損益金額 1596748/已沖銷契約契約總金額 -8156已沖銷契約本年度認列已實現損益金額 9.因應措施:更正後重新上傳公開資訊觀測站 10.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 6274 | 台燿 | 14 | 12 | 5 | 10 | 14 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 14 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260713 | 6274 | 台燿 | 15 | 13 | 5 | 10 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

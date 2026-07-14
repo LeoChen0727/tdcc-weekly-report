@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2327 國巨*
 
 ## Metadata
-- generated_at: 2026-07-13 22:27:11 Asia/Taipei
+- generated_at: 2026-07-14 22:26:31 Asia/Taipei
 - stock_id: 2327
 - stock_name: 國巨*
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 294
+- latest_price_date: 20260713
+- price_rows: 295
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
+- model_category_display_zh: 營收成長股價回檔
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 915
-- high: 948
-- low: 900
-- close: 900
-- volume: 51406489
-- ma5: 949.2
-- ema23_primary: 941.41
-- distance_to_ema23_pct: -4.4
-- ma20: 1002.35
-- ma60: 673.08
-- ma120: 471.52
-- return_5d: -14.69
-- return_20d: 9.89
-- volume_ratio: 0.83
-- distance_to_ma20_pct_auxiliary: -10.21
-- distance_to_high_60_pct: -26.23
+- date: 20260713
+- open: 921
+- high: 921
+- low: 810
+- close: 816
+- volume: 72043684
+- ma5: 903.4
+- ema23_primary: 930.96
+- distance_to_ema23_pct: -12.35
+- ma20: 1001.05
+- ma60: 681.32
+- ma120: 476.21
+- return_5d: -21.91
+- return_20d: -3.09
+- volume_ratio: 1.21
+- distance_to_ma20_pct_auxiliary: -18.49
+- distance_to_high_60_pct: -33.11
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,850,861,761,842,121334804,676.54,24.46,695.67,438.11,2.24
 20260612,919,919,852,855,90466919,691.41,23.66,715.65,447.59,1.71
 20260615,921,940,921,940,42102101,712.13,32,737.6,458.58,0.84
 20260616,970,1000,950,950,79608290,731.95,29.79,760.25,469.83,1.6
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,1000,1025,905,905,65596739,950.1,-4.75,995.05,653.49,1.03
 20260708,906,930,856,891,70899485,945.18,-5.73,998.3,663.28,1.1
 20260709,915,948,900,900,51406489,941.41,-4.4,1002.35,673.08,0.83
+20260713,921,921,810,816,72043684,930.96,-12.35,1001.05,681.32,1.21
 ```
 
 ## Latest TDCC Snapshot
@@ -189,18 +189,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 2327 | 國巨* | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  | no_signal | repeated_but_no_breakout | 1.事實發生日:115/07/08 2.公司名稱:國巨股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: 國巨公司今日公布 2026 年 6 月份自結合併營收為 NT$ 153.59 億元， 單月營收較上月增加 2.0%，較去年同期增加 38.9% (若以美元換算，單月營收 較上月增加 1.7%，較去年同期增加 31.5%) 第二季度自結合併營收為 NT$ 444.56 億元，較上一季增加 16.5%，並較去年同期增加 35.7%，創下單季營收歷史新高紀錄 (若以美元換算，單季營收較上季增加 16.6%，較去年同期增加 32.9%)；累計上半 年度自結合併營收為NT$ 826.22 億元，較去年同期增加 29.4% (若以美元換算，較 去年同期增加 30.4%)。  6 月份合併營收較上月增加，主要受惠於AI相關應用需求持續強勁，標準品及特殊品 亦呈現穩定成長。  展望未來，電子元件產業正因 AI 需求而面臨結構性轉變，公司將持續密切關注相關 發展。儘管地緣政治不確定性仍存在，客戶庫存水位目前維持健康，公司將審慎因應經 濟環境變化，並彈性調整以降低關稅政策及匯率波動帶來的影響。  6.因應措施:不適用 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
-| 20260709 | 2327 | 國巨* | revenue_pullback | 營收成長股價回檔 | 60.0 |  |  |  |  | no_signal | repeated_but_no_breakout | 1.事實發生日:115/07/08 2.公司名稱:國巨股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: 國巨公司今日公布 2026 年 6 月份自結合併營收為 NT$ 153.59 億元， 單月營收較上月增加 2.0%，較去年同期增加 38.9% (若以美元換算，單月營收 較上月增加 1.7%，較去年同期增加 31.5%) 第二季度自結合併營收為 NT$ 444.56 億元，較上一季增加 16.5%，並較去年同期增加 35.7%，創下單季營收歷史新高紀錄 (若以美元換算，單季營收較上季增加 16.6%，較去年同期增加 32.9%)；累計上半 年度自結合併營收為NT$ 826.22 億元，較去年同期增加 29.4% (若以美元換算，較 去年同期增加 30.4%)。  6 月份合併營收較上月增加，主要受惠於AI相關應用需求持續強勁，標準品及特殊品 亦呈現穩定成長。  展望未來，電子元件產業正因 AI 需求而面臨結構性轉變，公司將持續密切關注相關 發展。儘管地緣政治不確定性仍存在，客戶庫存水位目前維持健康，公司將審慎因應經 濟環境變化，並彈性調整以降低關稅政策及匯率波動帶來的影響。  6.因應措施:不適用 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260713 | 2327 | 國巨* | revenue_pullback | 營收成長股價回檔 | 60.0 |  |  |  |  | put_inflow | stale_signal | 1.事實發生日:115/07/08 2.公司名稱:國巨股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: 國巨公司今日公布 2026 年 6 月份自結合併營收為 NT$ 153.59 億元， 單月營收較上月增加 2.0%，較去年同期增加 38.9% (若以美元換算，單月營收 較上月增加 1.7%，較去年同期增加 31.5%) 第二季度自結合併營收為 NT$ 444.56 億元，較上一季增加 16.5%，並較去年同期增加 35.7%，創下單季營收歷史新高紀錄 (若以美元換算，單季營收較上季增加 16.6%，較去年同期增加 32.9%)；累計上半 年度自結合併營收為NT$ 826.22 億元，較去年同期增加 29.4% (若以美元換算，較 去年同期增加 30.4%)。  6 月份合併營收較上月增加，主要受惠於AI相關應用需求持續強勁，標準品及特殊品 亦呈現穩定成長。  展望未來，電子元件產業正因 AI 需求而面臨結構性轉變，公司將持續密切關注相關 發展。儘管地緣政治不確定性仍存在，客戶庫存水位目前維持健康，公司將審慎因應經 濟環境變化，並彈性調整以降低關稅政策及匯率波動帶來的影響。  6.因應措施:不適用 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 2327 | 國巨* | 4 | 4 | 4 | 5 | 12 | repeated_but_no_breakout | 近 10 日上榜 5 次、近 20 日上榜 12 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260713 | 2327 | 國巨* | 5 | 5 | 5 | 6 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 2327 | 國巨* | 245 | 34 | 67559840.0 | 852150.0 | 79.28 | no_signal |
+| 20260713 | 2327 | 國巨* | 244 | 34 | 73475920.0 | 2938390.0 | 25.01 | put_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

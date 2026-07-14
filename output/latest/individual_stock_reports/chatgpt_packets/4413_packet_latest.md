@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4413 飛寶企業
 
 ## Metadata
-- generated_at: 2026-07-13 22:27:59 Asia/Taipei
+- generated_at: 2026-07-14 22:26:58 Asia/Taipei
 - stock_id: 4413
 - stock_name: 飛寶企業
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 147
+- latest_price_date: 20260713
+- price_rows: 148
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 14.9
-- high: 14.9
-- low: 14.9
-- close: 14.9
-- volume: 1000
-- ma5: 14.85
-- ema23_primary: 15.62
-- distance_to_ema23_pct: -4.61
-- ma20: 15.52
-- ma60: 17.17
-- ma120: 17.53
-- return_5d: 4.2
-- return_20d: -11.04
-- volume_ratio: 0.07
-- distance_to_ma20_pct_auxiliary: -4.01
-- distance_to_high_60_pct: -24.94
+- date: 20260713
+- open: 14.85
+- high: 14.95
+- low: 14.7
+- close: 14.7
+- volume: 6000
+- ma5: 14.78
+- ema23_primary: 15.54
+- distance_to_ema23_pct: -5.42
+- ma20: 15.48
+- ma60: 17.12
+- ma120: 17.5
+- return_5d: -2.33
+- return_20d: -5.47
+- volume_ratio: 0.45
+- distance_to_ma20_pct_auxiliary: -5.04
+- distance_to_high_60_pct: -25.94
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,16.4,16.4,15.5,15.55,15000,17.35,-10.39,17.53,17.95,1.12
 20260611,16.15,16.45,16.05,16.15,18000,17.25,-6.39,17.41,17.91,1.3
 20260612,16.45,16.85,16.45,16.8,11000,17.21,-2.41,17.31,17.9,0.79
 20260615,16.9,16.9,16.65,16.65,11000,17.17,-3.01,17.21,17.88,0.78
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,14.8,14.85,14.4,14.85,12000,15.79,-5.94,15.72,17.27,0.78
 20260708,14.55,14.55,14.55,14.55,1000,15.69,-7.24,15.62,17.21,0.07
 20260709,14.9,14.9,14.9,14.9,1000,15.62,-4.61,15.52,17.17,0.07
+20260713,14.85,14.95,14.7,14.7,6000,15.54,-5.42,15.48,17.12,0.45
 ```
 
 ## Latest TDCC Snapshot

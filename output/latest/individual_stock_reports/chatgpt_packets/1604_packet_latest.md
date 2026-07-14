@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1604 聲寶
 
 ## Metadata
-- generated_at: 2026-07-13 22:26:59 Asia/Taipei
+- generated_at: 2026-07-14 22:26:24 Asia/Taipei
 - stock_id: 1604
 - stock_name: 聲寶
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 301
+- latest_price_date: 20260713
+- price_rows: 302
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 23.35
-- high: 23.45
-- low: 23.25
-- close: 23.4
-- volume: 348185
-- ma5: 23.53
+- date: 20260713
+- open: 23.5
+- high: 23.65
+- low: 23.4
+- close: 23.45
+- volume: 420740
+- ma5: 23.52
 - ema23_primary: 23.36
-- distance_to_ema23_pct: 0.19
+- distance_to_ema23_pct: 0.37
 - ma20: 23.32
-- ma60: 23.27
-- ma120: 23.87
-- return_5d: 0.86
-- return_20d: 0.43
-- volume_ratio: 0.73
-- distance_to_ma20_pct_auxiliary: 0.36
-- distance_to_high_60_pct: -7.87
+- ma60: 23.23
+- ma120: 23.86
+- return_5d: -0.21
+- return_20d: 0.86
+- volume_ratio: 0.87
+- distance_to_ma20_pct_auxiliary: 0.54
+- distance_to_high_60_pct: -2.29
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,23.3,23.35,23.05,23.25,303507,23.32,-0.31,23.27,23.88,0.74
 20260612,23.45,23.55,23.2,23.4,315758,23.33,0.3,23.3,23.85,0.78
 20260615,23.5,23.5,23.25,23.35,594529,23.33,0.08,23.32,23.82,1.41
 20260616,23.4,23.4,23.15,23.2,229801,23.32,-0.52,23.32,23.78,0.55
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,23.85,23.85,23.5,23.6,565674,23.35,1.06,23.3,23.32,1.19
 20260708,23.7,23.7,23.35,23.35,258898,23.35,-0.01,23.31,23.3,0.55
 20260709,23.35,23.45,23.25,23.4,348185,23.36,0.19,23.32,23.27,0.73
+20260713,23.5,23.65,23.4,23.45,420740,23.36,0.37,23.32,23.23,0.87
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00947 台新臺灣IC設計
 
 ## Metadata
-- generated_at: 2026-07-13 22:26:45 Asia/Taipei
+- generated_at: 2026-07-14 22:26:17 Asia/Taipei
 - stock_id: 00947
 - stock_name: 台新臺灣IC設計
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260709
-- price_rows: 34
+- latest_price_date: 20260713
+- price_rows: 35
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 36.89
-- high: 37.83
-- low: 36.59
-- close: 37.3
-- volume: 5156783
-- ma5: 37.56
-- ema23_primary: 38.46
-- distance_to_ema23_pct: -3.02
-- ma20: 38.99
-- ma60: 38.61
-- ma120: 38.61
-- return_5d: -4.92
-- return_20d: 6.36
-- volume_ratio: 0.48
-- distance_to_ma20_pct_auxiliary: -4.32
-- distance_to_high_60_pct: -15.03
+- date: 20260713
+- open: 37.61
+- high: 37.81
+- low: 35.89
+- close: 36.19
+- volume: 8112772
+- ma5: 37.04
+- ema23_primary: 38.27
+- distance_to_ema23_pct: -5.44
+- ma20: 39.03
+- ma60: 38.54
+- ma120: 38.54
+- return_5d: -6.73
+- return_20d: 2.35
+- volume_ratio: 0.75
+- distance_to_ma20_pct_auxiliary: -7.27
+- distance_to_high_60_pct: -17.56
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,35.08,35.9,33.88,35.36,7818303,37.29,-5.18,37.9,37.9,0.79
 20260612,36.87,37.3,36.6,37.06,7708772,37.27,-0.57,37.84,37.84,0.79
 20260615,38.29,38.78,38.15,38.66,8381997,37.39,3.4,37.89,37.89,0.86
 20260616,39.52,39.71,38.88,39.52,8308804,37.57,5.2,37.98,37.98,0.86
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,38.49,38.87,36.61,36.88,9755303,38.76,-4.84,38.92,38.72,0.87
 20260708,37.22,37.31,36.02,36.45,6571848,38.57,-5.49,38.87,38.65,0.59
 20260709,36.89,37.83,36.59,37.3,5156783,38.46,-3.02,38.99,38.61,0.48
+20260713,37.61,37.81,35.89,36.19,8112772,38.27,-5.44,39.03,38.54,0.75
 ```
 
 ## Latest TDCC Snapshot

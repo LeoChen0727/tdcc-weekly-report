@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00927 群益半導體收益
 
 ## Metadata
-- generated_at: 2026-07-13 22:26:45 Asia/Taipei
+- generated_at: 2026-07-14 22:26:16 Asia/Taipei
 - stock_id: 00927
 - stock_name: 群益半導體收益
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260709
-- price_rows: 34
+- latest_price_date: 20260713
+- price_rows: 35
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 41.45
-- high: 42.18
-- low: 41.23
-- close: 41.61
-- volume: 29720293
-- ma5: 41.81
+- date: 20260713
+- open: 42.36
+- high: 42.36
+- low: 40.78
+- close: 41.03
+- volume: 74861048
+- ma5: 41.51
 - ema23_primary: 40.97
-- distance_to_ema23_pct: 1.57
-- ma20: 41.16
-- ma60: 40.42
-- ma120: 40.42
-- return_5d: -2.85
-- return_20d: 13.26
-- volume_ratio: 0.85
-- distance_to_ma20_pct_auxiliary: 1.08
-- distance_to_high_60_pct: -6.68
+- distance_to_ema23_pct: 0.14
+- ma20: 41.36
+- ma60: 40.44
+- ma120: 40.44
+- return_5d: -3.5
+- return_20d: 10.62
+- volume_ratio: 1.96
+- distance_to_ma20_pct_auxiliary: -0.8
+- distance_to_high_60_pct: -7.98
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,36.76,37.32,35.76,37.09,13187048,38.28,-3.12,39.22,39.22,0.58
 20260612,38.78,39.11,38.48,38.49,12000442,38.3,0.49,39.17,39.17,0.55
 20260615,39.65,39.85,39.47,39.61,10546886,38.41,3.12,39.2,39.2,0.5
 20260616,40.05,40.1,39.6,39.91,9014286,38.53,3.57,39.24,39.24,0.44
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,42.91,42.92,40.95,41.16,93460889,40.89,0.67,40.79,40.36,2.84
 20260708,41.35,41.46,40.31,41.16,47835327,40.91,0.61,40.92,40.39,1.38
 20260709,41.45,42.18,41.23,41.61,29720293,40.97,1.57,41.16,40.42,0.85
+20260713,42.36,42.36,40.78,41.03,74861048,40.97,0.14,41.36,40.44,1.96
 ```
 
 ## Latest TDCC Snapshot

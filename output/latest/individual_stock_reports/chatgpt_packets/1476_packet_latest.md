@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1476 儒鴻
 
 ## Metadata
-- generated_at: 2026-07-13 22:26:55 Asia/Taipei
+- generated_at: 2026-07-14 22:26:22 Asia/Taipei
 - stock_id: 1476
 - stock_name: 儒鴻
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 301
+- latest_price_date: 20260713
+- price_rows: 302
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 334
-- high: 337
-- low: 330
-- close: 335
-- volume: 1453091
-- ma5: 331.6
-- ema23_primary: 329.35
-- distance_to_ema23_pct: 1.72
-- ma20: 326.7
-- ma60: 336.33
-- ma120: 361.17
-- return_5d: 6.35
-- return_20d: -2.62
-- volume_ratio: 0.75
-- distance_to_ma20_pct_auxiliary: 2.54
-- distance_to_high_60_pct: -8.59
+- date: 20260713
+- open: 335.5
+- high: 347
+- low: 335.5
+- close: 341
+- volume: 1825714
+- ma5: 335.1
+- ema23_primary: 330.32
+- distance_to_ema23_pct: 3.23
+- ma20: 326.55
+- ma60: 336.34
+- ma120: 360.77
+- return_5d: 5.41
+- return_20d: -0.87
+- volume_ratio: 0.93
+- distance_to_ma20_pct_auxiliary: 4.42
+- distance_to_high_60_pct: -6.96
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,347.5,348,340.5,344,1105506,344.49,-0.14,342.25,341.95,0.6
 20260612,354,355.5,343.5,344.5,1118128,344.49,0,342.5,341.51,0.61
 20260615,352,352,342,343.5,2555067,344.4,-0.26,343.27,340.7,1.34
 20260616,341,349.5,335.5,343.5,3659738,344.33,-0.24,344.45,340.22,1.82
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,329,341.5,328.5,340.5,3354423,328.18,3.75,327.77,336.27,1.79
 20260708,340,350,332,336,1872499,328.84,2.18,327.15,336.45,0.98
 20260709,334,337,330,335,1453091,329.35,1.72,326.7,336.33,0.75
+20260713,335.5,347,335.5,341,1825714,330.32,3.23,326.55,336.34,0.93
 ```
 
 ## Latest TDCC Snapshot
@@ -188,17 +188,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 1476 | 儒鴻 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | call_inflow | stale_signal | 1.董事會決議日期:115/07/10 2.發放股利種類及金額:現金股利美金6,600,000元 3.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260713 | 1476 | 儒鴻 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | call_inflow | stale_signal | 1.董事會決議日期:115/07/10 2.發放股利種類及金額:現金股利美金6,600,000元 3.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 1476 | 儒鴻 | 3 | 2 | 3 | 3 | 6 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260713 | 1476 | 儒鴻 | 4 | 3 | 4 | 4 | 6 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 1476 | 儒鴻 | 15 | 0 | 3527610.0 | 0.0 |  | call_inflow |
+| 20260713 | 1476 | 儒鴻 | 15 | 0 | 5189620.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

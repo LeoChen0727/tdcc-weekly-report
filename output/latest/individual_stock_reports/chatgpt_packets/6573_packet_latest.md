@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6573 虹揚-KY
 
 ## Metadata
-- generated_at: 2026-07-13 22:28:38 Asia/Taipei
+- generated_at: 2026-07-14 22:27:20 Asia/Taipei
 - stock_id: 6573
 - stock_name: 虹揚-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 301
+- latest_price_date: 20260713
+- price_rows: 302
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「高位派發風險」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 轉弱警訊、股價乖離過大
+- risk_control_zh: 股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「高位派發風險」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊、股價乖離過大
+- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -74,7 +74,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: high_level_distribution_risk
+- thesis_state: high_level_consolidation
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -89,6 +89,7 @@
 ### entry_prerequisites
 - price_structure_not_broken
 - revenue_not_deteriorating
+- no_major_tdcc_warning
 - no_major_volume_price_failure
 
 ### post_entry_watch_items
@@ -102,7 +103,6 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- tdcc_distribution_warning
 - price_too_extended
 
 ### chatgpt_instruction
@@ -111,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 27
-- high: 29.75
-- low: 26.7
-- close: 27.95
-- volume: 2474448
-- ma5: 26.65
-- ema23_primary: 21.17
-- distance_to_ema23_pct: 32.01
-- ma20: 20.45
-- ma60: 16.03
-- ma120: 15.19
-- return_5d: 21
-- return_20d: 85.71
-- volume_ratio: 1.4
-- distance_to_ma20_pct_auxiliary: 36.69
-- distance_to_high_60_pct: -6.21
+- date: 20260713
+- open: 27.8
+- high: 28.1
+- low: 25.2
+- close: 26
+- volume: 1850371
+- ma5: 26.83
+- ema23_primary: 21.58
+- distance_to_ema23_pct: 20.51
+- ma20: 21
+- ma60: 16.25
+- ma120: 15.28
+- return_5d: 3.59
+- return_20d: 74.5
+- volume_ratio: 1.01
+- distance_to_ma20_pct_auxiliary: 23.79
+- distance_to_high_60_pct: -12.75
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,15,15,14.2,14.9,405056,14.82,0.51,14.82,13.57,0.59
 20260612,15.85,15.85,14.5,14.7,270533,14.81,-0.77,14.88,13.59,0.39
 20260615,14.75,15.55,14.75,15.1,257911,14.84,1.76,14.94,13.6,0.37
 20260616,15.2,15.3,14.6,14.8,292207,14.84,-0.24,15.01,13.62,0.42
@@ -153,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,29.2,29.8,24.85,25.05,3370768,19.92,25.75,19.19,15.51,2.19
 20260708,24.85,27.55,23.4,27.55,2757885,20.56,34.02,19.8,15.77,1.66
 20260709,27,29.75,26.7,27.95,2474448,21.17,32.01,20.45,16.03,1.4
+20260713,27.8,28.1,25.2,26,1850371,21.58,20.51,21,16.25,1.01
 ```
 
 ## Latest TDCC Snapshot
@@ -185,14 +185,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 6573 | 虹揚-KY | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  |  | continued_overheated | 1.事實發生日:115/07/07 2.發生緣由:依據臺灣證券交易所股份有限公司通知辦理。 3.財務業務資訊:    期間　　　　　月　　　　　　　　　　　季　　　　　　  　最近四季累計 ＝＝＝＝＝ ＝＝＝＝＝＝ ＝＝＝＝＝ ＝＝＝＝＝ ＝＝＝＝＝ ＝＝＝＝＝＝＝ 　　 　　　  最近一月　　 與去年　　最近一季　  與去年　　 114年第2季   科目　　   115年5月　  同期增減%　115年第1季  同期增減%　至115年第1季 　　  　   (合併自結數)　   　     (核閱/查核數)           (核閱/查核數) ＝＝＝＝＝ ＝＝＝＝＝＝ ＝＝＝＝＝ ＝＝＝＝＝ ＝＝＝＝＝ ＝＝＝＝＝＝＝ 營業收入　     313      　 -19.74       177       -23.21         780 (百萬) 稅前淨利       (50)  　     22.03       (31)       17.48          41 (百萬) 歸屬母公司     (51)         20.85       (32)       17.32          28 業主淨利 (百萬) 每股盈餘　   (0.63)         21.25     (0.40)       16.67        0.35 (元)  4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告:無 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 6573 | 虹揚-KY | 6 | 1 | 5 | 7 | 9 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

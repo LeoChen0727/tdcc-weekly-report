@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2477 美隆電
 
 ## Metadata
-- generated_at: 2026-07-13 22:27:19 Asia/Taipei
+- generated_at: 2026-07-14 22:26:36 Asia/Taipei
 - stock_id: 2477
 - stock_name: 美隆電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 301
+- latest_price_date: 20260713
+- price_rows: 302
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 21.4
-- high: 21.6
-- low: 21.3
-- close: 21.3
-- volume: 85267
-- ma5: 21.76
-- ema23_primary: 21.81
-- distance_to_ema23_pct: -2.35
-- ma20: 21.8
-- ma60: 21.86
-- ma120: 23.15
-- return_5d: -4.7
-- return_20d: -2.74
-- volume_ratio: 0.37
-- distance_to_ma20_pct_auxiliary: -2.3
-- distance_to_high_60_pct: -14.63
+- date: 20260713
+- open: 21.3
+- high: 21.35
+- low: 20.9
+- close: 21.2
+- volume: 130199
+- ma5: 21.54
+- ema23_primary: 21.76
+- distance_to_ema23_pct: -2.58
+- ma20: 21.78
+- ma60: 21.82
+- ma120: 23.11
+- return_5d: -4.93
+- return_20d: -2.08
+- volume_ratio: 0.57
+- distance_to_ma20_pct_auxiliary: -2.66
+- distance_to_high_60_pct: -15.03
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,21.9,22,21.35,21.65,165031,21.99,-1.55,21.68,22.57,0.54
 20260612,21.8,22.25,21.8,22,138878,21.99,0.03,21.74,22.52,0.47
 20260615,22.15,22.15,21.7,22,103445,21.99,0.03,21.8,22.48,0.34
 20260616,22,22.35,21.85,21.85,232698,21.98,-0.6,21.86,22.43,0.76
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,22.3,22.45,21.5,21.7,218631,21.91,-0.96,21.89,21.94,0.91
 20260708,21.75,21.75,21.2,21.3,152124,21.86,-2.56,21.83,21.9,0.64
 20260709,21.4,21.6,21.3,21.3,85267,21.81,-2.35,21.8,21.86,0.37
+20260713,21.3,21.35,20.9,21.2,130199,21.76,-2.58,21.78,21.82,0.57
 ```
 
 ## Latest TDCC Snapshot

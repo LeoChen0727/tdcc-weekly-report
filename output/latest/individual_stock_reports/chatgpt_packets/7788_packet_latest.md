@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7788 松川精密
 
 ## Metadata
-- generated_at: 2026-07-13 22:29:01 Asia/Taipei
+- generated_at: 2026-07-14 22:27:32 Asia/Taipei
 - stock_id: 7788
 - stock_name: 松川精密
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 175
+- latest_price_date: 20260713
+- price_rows: 176
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 256
-- high: 259.5
+- date: 20260713
+- open: 258.5
+- high: 264.5
 - low: 250
-- close: 250.5
-- volume: 2579844
-- ma5: 242.2
-- ema23_primary: 245.44
-- distance_to_ema23_pct: 2.06
-- ma20: 260.07
-- ma60: 211.12
-- ma120: 184
-- return_5d: 0.8
-- return_20d: -3.09
-- volume_ratio: 1
-- distance_to_ma20_pct_auxiliary: -3.68
-- distance_to_high_60_pct: -18
+- close: 259
+- volume: 2252773
+- ma5: 244.7
+- ema23_primary: 246.57
+- distance_to_ema23_pct: 5.04
+- ma20: 259.48
+- ma60: 212.89
+- ma120: 185.04
+- return_5d: 5.07
+- return_20d: -4.43
+- volume_ratio: 0.97
+- distance_to_ma20_pct_auxiliary: -0.18
+- distance_to_high_60_pct: -15.22
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,263,280.5,256.5,271,7256660,208.95,29.7,207.38,174.5,2.67
 20260612,275,286,263,266,4086024,213.7,24.47,210.38,176.41,1.49
 20260615,274,285,251.5,256,3503632,217.23,17.85,212.35,178.03,1.25
 20260616,256.5,277.5,248,274,3989529,221.96,23.45,215.68,180.05,1.36
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,240.5,250.5,228,232.5,1464445,245.21,-5.18,260.1,207.76,0.51
 20260708,238,244.5,231,242.5,874059,244.98,-1.01,260.48,209.38,0.34
 20260709,256,259.5,250,250.5,2579844,245.44,2.06,260.07,211.12,1
+20260713,258.5,264.5,250,259,2252773,246.57,5.04,259.48,212.89,0.97
 ```
 
 ## Latest TDCC Snapshot
@@ -188,18 +188,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 7788 | 松川精密 | pattern | 型態觀察 | 48.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/07 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:現金股利新台幣159,491,986元，每股配發新台幣2元。 4.除權（息）交易日:115/07/24 5.最後過戶日:115/07/27 6.停止過戶起始日期:115/07/28 7.停止過戶截止日期:115/08/01 8.除權（息）基準日:115/08/01 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/21 13.現金股利之一部或全部是否以外幣發放(請填入「是」或「否」):否 14.外幣現金股利發放幣別:不適用 15.外幣現金股利發放對象:不適用 16.外幣現金股利匯率決定方式:不適用 17.其他應敘明事項:無；calendar event: ex_dividend on 20260724; status=confirmed; proximity=within_14d |
-| 20260709 | 7788 | 松川精密 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/07 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:現金股利新台幣159,491,986元，每股配發新台幣2元。 4.除權（息）交易日:115/07/24 5.最後過戶日:115/07/27 6.停止過戶起始日期:115/07/28 7.停止過戶截止日期:115/08/01 8.除權（息）基準日:115/08/01 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/21 13.現金股利之一部或全部是否以外幣發放(請填入「是」或「否」):否 14.外幣現金股利發放幣別:不適用 15.外幣現金股利發放對象:不適用 16.外幣現金股利匯率決定方式:不適用 17.其他應敘明事項:無；calendar event: ex_dividend on 20260724; status=confirmed; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260713 | 7788 | 松川精密 | pattern | 型態觀察 | 54.0 |  |  | pullback_right_side |  | call_strong_inflow | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/07 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:現金股利新台幣159,491,986元，每股配發新台幣2元。 4.除權（息）交易日:115/07/24 5.最後過戶日:115/07/27 6.停止過戶起始日期:115/07/28 7.停止過戶截止日期:115/08/01 8.除權（息）基準日:115/08/01 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/21 13.現金股利之一部或全部是否以外幣發放(請填入「是」或「否」):否 14.外幣現金股利發放幣別:不適用 15.外幣現金股利發放對象:不適用 16.外幣現金股利匯率決定方式:不適用 17.其他應敘明事項:無；calendar event: ex_dividend on 20260724; status=confirmed; proximity=within_14d |
+| 20260713 | 7788 | 松川精密 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | call_strong_inflow | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/07 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:現金股利新台幣159,491,986元，每股配發新台幣2元。 4.除權（息）交易日:115/07/24 5.最後過戶日:115/07/27 6.停止過戶起始日期:115/07/28 7.停止過戶截止日期:115/08/01 8.除權（息）基準日:115/08/01 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/21 13.現金股利之一部或全部是否以外幣發放(請填入「是」或「否」):否 14.外幣現金股利發放幣別:不適用 15.外幣現金股利發放對象:不適用 16.外幣現金股利匯率決定方式:不適用 17.其他應敘明事項:無；calendar event: ex_dividend on 20260724; status=confirmed; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 7788 | 松川精密 | 1 | 1 | 3 | 5 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260713 | 7788 | 松川精密 | 2 | 2 | 4 | 5 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 7788 | 松川精密 | 28 | 1 | 5653000.0 | 0.0 |  | no_signal |
+| 20260713 | 7788 | 松川精密 | 30 | 1 | 10883000.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

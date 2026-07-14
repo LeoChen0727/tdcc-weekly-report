@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8131 福懋科
 
 ## Metadata
-- generated_at: 2026-07-13 22:29:06 Asia/Taipei
+- generated_at: 2026-07-14 22:27:35 Asia/Taipei
 - stock_id: 8131
 - stock_name: 福懋科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 301
+- latest_price_date: 20260713
+- price_rows: 302
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 75.6
-- high: 78.5
-- low: 74.7
-- close: 76
-- volume: 7508904
-- ma5: 77.4
-- ema23_primary: 73.53
-- distance_to_ema23_pct: 3.36
-- ma20: 74.31
-- ma60: 68.59
-- ma120: 67.87
-- return_5d: 7.95
-- return_20d: 13.6
-- volume_ratio: 0.81
-- distance_to_ma20_pct_auxiliary: 2.27
-- distance_to_high_60_pct: -12.74
+- date: 20260713
+- open: 77.3
+- high: 81
+- low: 76.5
+- close: 77.2
+- volume: 9395404
+- ma5: 77.88
+- ema23_primary: 73.84
+- distance_to_ema23_pct: 4.55
+- ma20: 74.73
+- ma60: 68.86
+- ma120: 67.94
+- return_5d: 3.21
+- return_20d: 12.37
+- volume_ratio: 0.98
+- distance_to_ma20_pct_auxiliary: 3.3
+- distance_to_high_60_pct: -11.37
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,66.9,69.7,64.5,68.7,4251123,67.99,1.04,67.67,64.84,0.6
 20260612,70.8,74,70.7,72,5913477,68.32,5.38,68.02,64.89,0.83
 20260615,73.9,76.9,72.5,75.7,12482850,68.94,9.81,68.64,65.01,1.63
 20260616,77.7,78.8,76,76,16914581,69.53,9.31,69.42,65.16,2.05
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,87.1,87.1,78.3,79,23335093,73.15,7.99,73.61,68.16,2.65
 20260708,79,79.3,74.3,75,13073422,73.31,2.31,73.86,68.36,1.42
 20260709,75.6,78.5,74.7,76,7508904,73.53,3.36,74.31,68.59,0.81
+20260713,77.3,81,76.5,77.2,9395404,73.84,4.55,74.73,68.86,0.98
 ```
 
 ## Latest TDCC Snapshot
@@ -188,19 +188,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 8131 | 福懋科 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_inflow | stale_signal | 1.董事會、股東會決議或公司決定日期: 115/06/25 2.除權、息類別（請填入「除權」、「除息」或「除權息」）: 除息 3.普通股發放股利種類及金額:每股分派新台幣1元 4.除權（息）交易日:115/07/15 5.最後過戶日:115/07/16 6.停止過戶起始日期:115/07/17 7.停止過戶截止日期:115/07/21 8.除權（息）基準日:115/07/21 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/19 13.其他應敘明事項:無；calendar event: ex_dividend on 20260715; status=confirmed; proximity=within_3d |
-| 20260709 | 8131 | 福懋科 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | call_inflow | stale_signal | 1.董事會、股東會決議或公司決定日期: 115/06/25 2.除權、息類別（請填入「除權」、「除息」或「除權息」）: 除息 3.普通股發放股利種類及金額:每股分派新台幣1元 4.除權（息）交易日:115/07/15 5.最後過戶日:115/07/16 6.停止過戶起始日期:115/07/17 7.停止過戶截止日期:115/07/21 8.除權（息）基準日:115/07/21 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/19 13.其他應敘明事項:無；calendar event: ex_dividend on 20260715; status=confirmed; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260709 | 8131 | 福懋科 | revenue_breakout_low_response | 營收爆發低反應股 | 13.0 | 28.0 | D_降級_TDCC轉弱 |  |  | call_inflow | stale_signal | 1.董事會、股東會決議或公司決定日期: 115/06/25 2.除權、息類別（請填入「除權」、「除息」或「除權息」）: 除息 3.普通股發放股利種類及金額:每股分派新台幣1元 4.除權（息）交易日:115/07/15 5.最後過戶日:115/07/16 6.停止過戶起始日期:115/07/17 7.停止過戶截止日期:115/07/21 8.除權（息）基準日:115/07/21 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/19 13.其他應敘明事項:無；calendar event: ex_dividend on 20260715; status=confirmed; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260713 | 8131 | 福懋科 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期: 115/06/25 2.除權、息類別（請填入「除權」、「除息」或「除權息」）: 除息 3.普通股發放股利種類及金額:每股分派新台幣1元 4.除權（息）交易日:115/07/15 5.最後過戶日:115/07/16 6.停止過戶起始日期:115/07/17 7.停止過戶截止日期:115/07/21 8.除權（息）基準日:115/07/21 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/19 13.其他應敘明事項:無；calendar event: ex_dividend on 20260715; status=confirmed; proximity=within_3d |
+| 20260713 | 8131 | 福懋科 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期: 115/06/25 2.除權、息類別（請填入「除權」、「除息」或「除權息」）: 除息 3.普通股發放股利種類及金額:每股分派新台幣1元 4.除權（息）交易日:115/07/15 5.最後過戶日:115/07/16 6.停止過戶起始日期:115/07/17 7.停止過戶截止日期:115/07/21 8.除權（息）基準日:115/07/21 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/19 13.其他應敘明事項:無；calendar event: ex_dividend on 20260715; status=confirmed; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260713 | 8131 | 福懋科 | revenue_breakout_low_response | 營收爆發低反應股 | 13.0 | 34.0 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期: 115/06/25 2.除權、息類別（請填入「除權」、「除息」或「除權息」）: 除息 3.普通股發放股利種類及金額:每股分派新台幣1元 4.除權（息）交易日:115/07/15 5.最後過戶日:115/07/16 6.停止過戶起始日期:115/07/17 7.停止過戶截止日期:115/07/21 8.除權（息）基準日:115/07/21 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/19 13.其他應敘明事項:無；calendar event: ex_dividend on 20260715; status=confirmed; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 8131 | 福懋科 | 30 | 3 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260713 | 8131 | 福懋科 | 31 | 4 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 8131 | 福懋科 | 52 | 1 | 10823430.0 | 19400.0 | 557.91 | call_inflow |
+| 20260713 | 8131 | 福懋科 | 53 | 1 | 9475010.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

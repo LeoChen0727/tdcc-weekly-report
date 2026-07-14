@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2637 慧洋-KY
 
 ## Metadata
-- generated_at: 2026-07-13 22:27:25 Asia/Taipei
+- generated_at: 2026-07-14 22:26:39 Asia/Taipei
 - stock_id: 2637
 - stock_name: 慧洋-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 301
+- latest_price_date: 20260713
+- price_rows: 302
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 80
-- high: 83
-- low: 79.4
-- close: 83
-- volume: 7993726
-- ma5: 78.94
-- ema23_primary: 76.55
-- distance_to_ema23_pct: 8.43
-- ma20: 76.48
-- ma60: 75.24
-- ma120: 72.82
-- return_5d: 15.76
-- return_20d: 9.21
-- volume_ratio: 2.03
-- distance_to_ma20_pct_auxiliary: 8.53
-- distance_to_high_60_pct: -1.19
+- date: 20260713
+- open: 83.4
+- high: 88
+- low: 82.5
+- close: 84.7
+- volume: 6524259
+- ma5: 81.02
+- ema23_primary: 77.23
+- distance_to_ema23_pct: 9.68
+- ma20: 76.8
+- ma60: 75.44
+- ma120: 72.95
+- return_5d: 14
+- return_20d: 8.17
+- volume_ratio: 1.67
+- distance_to_ma20_pct_auxiliary: 10.29
+- distance_to_high_60_pct: -3.75
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,76,78.3,75.9,78.3,7257113,76.24,2.7,75.72,73.09,1.24
 20260612,78.5,79.7,77.4,78.5,6639638,76.43,2.71,76,73.21,1.1
 20260615,79,79.8,77.2,79.2,4322269,76.66,3.32,76.32,73.33,0.7
 20260616,79.2,80.7,77.5,78.4,6026130,76.8,2.08,76.7,73.44,0.95
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,77.8,79.7,77.8,79,4476071,75.59,4.51,76.17,74.87,1.01
 20260708,79.1,81.4,79.1,80,4023583,75.96,5.32,76.13,75.03,0.98
 20260709,80,83,79.4,83,7993726,76.55,8.43,76.48,75.24,2.03
+20260713,83.4,88,82.5,84.7,6524259,77.23,9.68,76.8,75.44,1.67
 ```
 
 ## Latest TDCC Snapshot
@@ -189,19 +189,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 2637 | 慧洋-KY | pullback_rebound | 回檔後短線轉強 | 55.0 |  |  |  |  | call_strong_inflow | repeated_but_no_breakout | 1.董事會決議或公司決定日期:115/07/09 2.原現金股利發放日:115/07/13 3.變更後現金股利發放日:115/07/14 4.變更原因:本公司原訂115年7月13日發放現金股利，如遇颱風停止上班，致 票交所及金融機構作業日程需順延至下一營業日，本公司現金股利發放日將 順延至115年7月14日。 5.其他應敘明事項:如未受颱風影響正常上班，將依原訂日期(115年7月13日) 發放現金股利。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
-| 20260709 | 2637 | 慧洋-KY | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_strong_inflow | repeated_but_no_breakout | 1.董事會決議或公司決定日期:115/07/09 2.原現金股利發放日:115/07/13 3.變更後現金股利發放日:115/07/14 4.變更原因:本公司原訂115年7月13日發放現金股利，如遇颱風停止上班，致 票交所及金融機構作業日程需順延至下一營業日，本公司現金股利發放日將 順延至115年7月14日。 5.其他應敘明事項:如未受颱風影響正常上班，將依原訂日期(115年7月13日) 發放現金股利。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260709 | 2637 | 慧洋-KY | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_breakout |  | call_strong_inflow | repeated_but_no_breakout | 1.董事會決議或公司決定日期:115/07/09 2.原現金股利發放日:115/07/13 3.變更後現金股利發放日:115/07/14 4.變更原因:本公司原訂115年7月13日發放現金股利，如遇颱風停止上班，致 票交所及金融機構作業日程需順延至下一營業日，本公司現金股利發放日將 順延至115年7月14日。 5.其他應敘明事項:如未受颱風影響正常上班，將依原訂日期(115年7月13日) 發放現金股利。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260713 | 2637 | 慧洋-KY | pullback_rebound | 回檔後短線轉強 | 55.0 |  |  |  |  | call_inflow | continued_many_days | 1. 原公告日期： 114/03/17 2. 簡述原公告申報內容： 董事會核准購置內海造船株式會社建造之二艘高規格散裝貨輪案 交易數量：39,000噸散裝貨輪二艘 單位價格：不高於USD 35,375,000 交易總金額：不高於USD 70,750,000 3. 變動緣由及主要內容： 原公告取得資產案因雙方未達共識故終止。 4. 變動後對公司財務業務之影響： 因尚未簽訂契約及支付款項，故對本公司財務業務無重大影響。 5. 其他應敘明事項： 無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260713 | 2637 | 慧洋-KY | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_inflow | continued_many_days | 1. 原公告日期： 114/03/17 2. 簡述原公告申報內容： 董事會核准購置內海造船株式會社建造之二艘高規格散裝貨輪案 交易數量：39,000噸散裝貨輪二艘 單位價格：不高於USD 35,375,000 交易總金額：不高於USD 70,750,000 3. 變動緣由及主要內容： 原公告取得資產案因雙方未達共識故終止。 4. 變動後對公司財務業務之影響： 因尚未簽訂契約及支付款項，故對本公司財務業務無重大影響。 5. 其他應敘明事項： 無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260713 | 2637 | 慧洋-KY | true_breakout | 嚴格突破 | 105.0 |  |  | platform_breakout |  | call_inflow | continued_many_days | 1. 原公告日期： 114/03/17 2. 簡述原公告申報內容： 董事會核准購置內海造船株式會社建造之二艘高規格散裝貨輪案 交易數量：39,000噸散裝貨輪二艘 單位價格：不高於USD 35,375,000 交易總金額：不高於USD 70,750,000 3. 變動緣由及主要內容： 原公告取得資產案因雙方未達共識故終止。 4. 變動後對公司財務業務之影響： 因尚未簽訂契約及支付款項，故對本公司財務業務無重大影響。 5. 其他應敘明事項： 無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 2637 | 慧洋-KY | 6 | 6 | 5 | 9 | 19 | repeated_but_no_breakout | 近 10 日上榜 9 次、近 20 日上榜 19 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260713 | 2637 | 慧洋-KY | 7 | 7 | 5 | 9 | 19 | continued_many_days | 連續 7 日上榜，需區分醞釀延續或訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 2637 | 慧洋-KY | 22 | 0 | 3441710.0 | 0.0 |  | call_strong_inflow |
+| 20260713 | 2637 | 慧洋-KY | 22 | 0 | 3523010.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

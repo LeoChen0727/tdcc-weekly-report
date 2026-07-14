@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3211 順達
 
 ## Metadata
-- generated_at: 2026-07-13 22:27:39 Asia/Taipei
+- generated_at: 2026-07-14 22:26:47 Asia/Taipei
 - stock_id: 3211
 - stock_name: 順達
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 166
+- latest_price_date: 20260713
+- price_rows: 167
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -117,29 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 455
-- high: 470
-- low: 433.5
-- close: 454
-- volume: 27742000
-- ma5: 418.8
-- ema23_primary: 416.12
-- distance_to_ema23_pct: 9.1
-- ma20: 417.88
-- ma60: 401.65
-- ma120: 358.55
-- return_5d: 11.69
-- return_20d: 12.1
-- volume_ratio: 4.09
-- distance_to_ma20_pct_auxiliary: 8.64
-- distance_to_high_60_pct: -7.82
+- date: 20260713
+- open: 490
+- high: 495
+- low: 449.5
+- close: 457.5
+- volume: 15153000
+- ma5: 430.1
+- ema23_primary: 419.57
+- distance_to_ema23_pct: 9.04
+- ma20: 420.82
+- ma60: 403.48
+- ma120: 359.75
+- return_5d: 14.09
+- return_20d: 14.81
+- volume_ratio: 2.11
+- distance_to_ma20_pct_auxiliary: 8.71
+- distance_to_high_60_pct: -7.58
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,396,403,382.5,398.5,6782000,409.88,-2.78,411.48,377.37,2.12
 20260612,417.5,422,408,418,4940000,410.56,1.81,414.4,379.22,1.67
 20260615,429,440,422,428.5,6290000,412.05,3.99,417.45,381.27,2.06
 20260616,434,453,432.5,437.5,8239000,414.18,5.63,421.38,383.51,2.52
@@ -159,6 +158,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,443,458.5,388.5,389,13314000,411.33,-5.43,415.15,398.78,2.21
 20260708,425.5,427.5,425.5,427.5,4310000,412.68,3.59,415.43,399.92,0.75
 20260709,455,470,433.5,454,27742000,416.12,9.1,417.88,401.65,4.09
+20260713,490,495,449.5,457.5,15153000,419.57,9.04,420.82,403.48,2.11
 ```
 
 ## Latest TDCC Snapshot
@@ -193,12 +193,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 3211 | 順達 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | 1.發生變動日期:115/06/22 2.功能性委員會名稱:提名委員會 3.舊任者姓名:不適用 4.舊任者簡歷:不適用 5.新任者姓名:  董　　事：鹿寮坑(股)公司代表人：鍾聰明  獨立董事：謝漢萍  獨立董事：林政憲  獨立董事：許婉美 6.新任者簡歷:  董　　事 鹿寮坑(股)公司代表人：鍾聰明；順達科技(股)公司董事長  獨立董事 謝漢萍；凱崴電子(股)公司獨立董事  獨立董事 林政憲；律宇國際商務法律事務所主持律師  獨立董事 許婉美；之初創業投資管理顧問(股)公司監察人 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）:  「新任」。 8.異動原因:設置提名委員會。 9.原任期（例xx/xx/xx ~ xx/xx/xx）:不適用。 10.新任生效日期:115/06/22 11.其他應敘明事項:  提名委員會成員推舉謝漢萍獨立董事為召集人。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260713 | 3211 | 順達 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | 1.事實發生日:115/07/13 2.原公告申報日期:115/04/30 3.簡述原公告申報內容:  本公司於115年4月30日董事會決議通過發行115年限制員工權利新股一案，業經 115年6月11日股東會通過。 4.變動緣由及主要內容:  (1)依據金融監督管理委員會審案要求，修正本公司115年限制員工權利新股發行　  辦法部分條文，業經115年7月13日董事會通過。  (2)修正前條文:  第五條 限制員工權利新股既得條件及股份權利內容受限情形：  (一)略  (二)略  (三)既得條件分為A、B類兩種  1.A類員工自認購限制員工權利新股後屆滿一年起於各既得期限屆滿仍在職，同時須符  合公司整體財務業務績效及個人績效評核指標，且未曾有違反與本公司簽訂之聘僱契  約書、廉潔承諾書及公司工作規則等情事，可分別達成既得條件之股份比例依本公司  訂定之限制員工權利新股發行辦法分配之，各期可分別達成既得條件之股份比例如下  :  屆滿1年：3分之1  屆滿2年：3分之1  屆滿3年：3分之1  2.B類員工自認購限制員工權利新股後屆滿一年六個月起於各既得期限屆滿仍在職，同  時須符合公司整體財務業務績效及個人績效評核指標，且未曾有違反與本公司簽訂之聘  僱契約書、廉潔承諾書及公司工作規則等情事，可分別達成既得條件之股份比例依本公  司訂定之限制員工權利新股發行辦法分配之，各期可分別達成既得條件之股份比例如下  :  屆滿1年6個月： 4分之1  屆滿2年6個月： 4分之1  屆滿3年6個月： 2分之1  (四)略  (五)略  (六)略  (七)略  (3)修正後條文:  第五條 限制員工權利新股既得條件及股份權利內容受限情形：  (一)略  (二)略  (三)既得條件分為A、B類兩種，B類係指已認購本公司114年發行之限制員工權利新股，  其餘員工屬於A類。  1.A類員工自認購限制員工權利新股後屆滿一年起於各既得期限屆滿仍在職，同時須符  合公司整體財務業務績效即公司營業收入預算達成率70%以上(含)及個人績效在各屆滿  日前最近期個人績效D+以上(含)評核指標，且未曾有違反與本公司簽訂之聘僱契約書  、廉潔承諾書及公司工作規則等情事，可分別達成既得條件之股份比例依本公司訂定  之限制員工權利新股發行辦法分配之，各期可分別達成既得條件之股份比例如下:  屆滿1年： 3分之1  屆滿2年： 3分之1  屆滿3年： 3分之1  2.B類員工自認購限制員工權利新股後屆滿一年六個月起於各既得期限屆滿仍在職，同  時須符合公司整體財務業務績效即公司備援電池模組營業收入預算達成率70%以上(含)  及個人績效在各屆滿日前最近期個人績效D+以上(含)評核指標，且未曾有違反與本公  司簽訂之聘僱契約書、廉潔承諾書及公司工作規則等情事，可分別達成既得條件之股  份比例依本公司訂定之限制員工權利新股發行辦法分配之，各期可分別達成既得條件  之股份比例如下:  屆滿1年6個月： 4分之1  屆滿2年6個月： 4分之1  屆滿3年6個月： 2分之1  (四)略  (五)略  (六)略  (七)略 5.變動後對公司財務業務之影響:無。 6.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 3211 | 順達 | 2 | 1 | 4 | 7 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260713 | 3211 | 順達 | 3 | 2 | 4 | 8 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

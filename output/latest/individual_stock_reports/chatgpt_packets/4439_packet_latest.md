@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4439 冠星-KY
 
 ## Metadata
-- generated_at: 2026-07-13 22:28:00 Asia/Taipei
+- generated_at: 2026-07-14 22:26:58 Asia/Taipei
 - stock_id: 4439
 - stock_name: 冠星-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 301
+- latest_price_date: 20260713
+- price_rows: 302
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 97
-- high: 104.5
-- low: 97
-- close: 101
-- volume: 227141
-- ma5: 94.08
-- ema23_primary: 92.35
-- distance_to_ema23_pct: 9.37
-- ma20: 91.45
-- ma60: 94.14
-- ma120: 95
-- return_5d: 10.02
-- return_20d: 15.03
-- volume_ratio: 8.26
-- distance_to_ma20_pct_auxiliary: 10.44
-- distance_to_high_60_pct: -3.81
+- date: 20260713
+- open: 101
+- high: 104
+- low: 97.8
+- close: 104
+- volume: 105494
+- ma5: 96.52
+- ema23_primary: 93.32
+- distance_to_ema23_pct: 11.45
+- ma20: 92.25
+- ma60: 94.24
+- ma120: 95.03
+- return_5d: 13.29
+- return_20d: 18.18
+- volume_ratio: 3.31
+- distance_to_ma20_pct_auxiliary: 12.73
+- distance_to_high_60_pct: -0.95
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,87.8,89,87.4,88,17720,91.82,-4.16,91.42,92.84,0.97
 20260612,88.9,92,88.4,90.1,22103,91.67,-1.72,91.12,92.91,1.23
 20260615,90.5,91.1,87.8,89.2,30344,91.47,-2.48,90.89,92.95,1.68
 20260616,89.2,90.4,88.8,90.4,19000,91.38,-1.07,90.83,93.06,1.04
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,91,91.8,90.5,91.5,11000,91.25,0.28,90.56,94.09,0.66
 20260708,95.3,95.4,94,95,39557,91.56,3.76,90.8,94.08,2.25
 20260709,97,104.5,97,101,227141,92.35,9.37,91.45,94.14,8.26
+20260713,101,104,97.8,104,105494,93.32,11.45,92.25,94.24,3.31
 ```
 
 ## Latest TDCC Snapshot

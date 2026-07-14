@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6488 環球晶
 
 ## Metadata
-- generated_at: 2026-07-13 22:28:35 Asia/Taipei
+- generated_at: 2026-07-14 22:27:18 Asia/Taipei
 - stock_id: 6488
 - stock_name: 環球晶
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 166
+- latest_price_date: 20260713
+- price_rows: 167
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
+- model_category_display_zh: 嚴格突破
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 區間內轉強 / 挑戰前高觀察 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 嚴格突破 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 區間內轉強 / 挑戰前高觀察 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
+- final_decision_zh: 嚴格突破 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 1315
-- high: 1350
-- low: 1275
-- close: 1350
-- volume: 6614000
-- ma5: 1275
-- ema23_primary: 1075.85
-- distance_to_ema23_pct: 25.48
-- ma20: 1076.3
-- ma60: 842.88
-- ma120: 653.75
-- return_5d: 12.03
-- return_20d: 74.19
-- volume_ratio: 1.09
-- distance_to_ma20_pct_auxiliary: 25.43
-- distance_to_high_60_pct: -2.17
+- date: 20260713
+- open: 1485
+- high: 1485
+- low: 1485
+- close: 1485
+- volume: 1865000
+- ma5: 1321
+- ema23_primary: 1109.95
+- distance_to_ema23_pct: 33.79
+- ma20: 1111.25
+- ma60: 859.03
+- ma120: 662.2
+- return_5d: 18.33
+- return_20d: 88.93
+- volume_ratio: 0.31
+- distance_to_ma20_pct_auxiliary: 33.63
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,773,786,745,786,2364000,798.88,-1.61,815.4,639.96,1.23
 20260612,850,864,850,864,1477000,804.31,7.42,823.1,646.85,0.81
 20260615,950,950,918,950,4834000,816.45,16.36,835.7,654.67,2.61
 20260616,983,1045,981,1045,12604000,835.49,25.08,854.7,664.22,5.55
@@ -154,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,1320,1320,1205,1205,10122000,1034.65,16.46,1026.2,816.56,1.83
 20260708,1205,1235,1160,1230,9230000,1050.93,17.04,1047.55,828.73,1.57
 20260709,1315,1350,1275,1350,6614000,1075.85,25.48,1076.3,842.88,1.09
+20260713,1485,1485,1485,1485,1865000,1109.95,33.79,1111.25,859.03,0.31
 ```
 
 ## Latest TDCC Snapshot
@@ -188,12 +187,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 6488 | 環球晶 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 63.0 |  |  | neckline_challenge |  |  | continued_overheated | 1.事實發生日:115/07/09 2.契約或承諾相對人:Micron Technology, Inc. 3.與公司關係:本公司之客戶 4.契約或承諾起迄日期（或解除日期）:不適用 5.主要內容（解除者不適用）:此次合作預計包含由美光科技提供5億美元之策略性資金 支持，藉以推動本公司美國業務之發展及供應能力提升，以支援雙方長期合作。 雙方規劃透過10年期長期供應協議（Long-Term Agreement, LTA），建立長期合作 架構，相關合作內容將依雙方後續協議及相關程序推動。 6.限制條款（解除者不適用）:無 7.承諾事項（解除者不適用）:雙方依合作意向書簽訂10年期長期供應協議 8.其他重要約定事項（解除者不適用）:無 9.對公司財務、業務之影響:深化長期策略合作關係，並就長期供應合作及相關合作 架構達成合作意向，進一步提升先進半導體晶圓供應韌性，支援AI、高效能運算與 資料中心應用帶動之先進記憶體需求成長，以及未來世代記憶體技術發展所需之關 鍵材料供應。 10.具體目的:共同強化美國半導體製造生態系與在地關鍵材料供應能力。 11.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第8款所定 對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260713 | 6488 | 環球晶 | true_breakout | 嚴格突破 | 66.0 |  |  |  |  |  | continued_overheated | 1.事實發生日:115/07/09 2.契約或承諾相對人:Micron Technology, Inc. 3.與公司關係:本公司之客戶 4.契約或承諾起迄日期（或解除日期）:不適用 5.主要內容（解除者不適用）:此次合作預計包含由美光科技提供5億美元之策略性資金 支持，藉以推動本公司美國業務之發展及供應能力提升，以支援雙方長期合作。 雙方規劃透過10年期長期供應協議（Long-Term Agreement, LTA），建立長期合作 架構，相關合作內容將依雙方後續協議及相關程序推動。 6.限制條款（解除者不適用）:無 7.承諾事項（解除者不適用）:雙方依合作意向書簽訂10年期長期供應協議 8.其他重要約定事項（解除者不適用）:無 9.對公司財務、業務之影響:深化長期策略合作關係，並就長期供應合作及相關合作 架構達成合作意向，進一步提升先進半導體晶圓供應韌性，支援AI、高效能運算與 資料中心應用帶動之先進記憶體需求成長，以及未來世代記憶體技術發展所需之關 鍵材料供應。 10.具體目的:共同強化美國半導體製造生態系與在地關鍵材料供應能力。 11.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第8款所定 對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 6488 | 環球晶 | 6 | 1 | 5 | 7 | 9 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260713 | 6488 | 環球晶 | 7 | 1 | 5 | 8 | 10 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

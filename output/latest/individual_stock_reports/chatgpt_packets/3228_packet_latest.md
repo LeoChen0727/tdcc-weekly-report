@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3228 金麗科
 
 ## Metadata
-- generated_at: 2026-07-13 22:27:40 Asia/Taipei
+- generated_at: 2026-07-14 22:26:47 Asia/Taipei
 - stock_id: 3228
 - stock_name: 金麗科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 166
+- latest_price_date: 20260713
+- price_rows: 167
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 179.5
-- high: 180.5
-- low: 173.5
-- close: 173.5
-- volume: 395000
-- ma5: 179.4
-- ema23_primary: 182.1
-- distance_to_ema23_pct: -4.72
-- ma20: 179.93
-- ma60: 191.82
-- ma120: 160.85
-- return_5d: -6.47
-- return_20d: 7.76
-- volume_ratio: 0.73
-- distance_to_ma20_pct_auxiliary: -3.57
-- distance_to_high_60_pct: -33.78
+- date: 20260713
+- open: 178
+- high: 178
+- low: 170
+- close: 171
+- volume: 251000
+- ma5: 177.3
+- ema23_primary: 181.18
+- distance_to_ema23_pct: -5.62
+- ma20: 180.43
+- ma60: 192.47
+- ma120: 161.23
+- return_5d: -5.79
+- return_20d: 6.21
+- volume_ratio: 0.47
+- distance_to_ma20_pct_auxiliary: -5.22
+- distance_to_high_60_pct: -34.73
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,159,167,158.5,161,424000,188.63,-14.65,193.32,175.5,0.84
 20260612,164,165.5,160.5,160.5,314000,186.28,-13.84,191.4,176,0.69
 20260615,162.5,176.5,161.5,176.5,320000,185.47,-4.83,190.32,176.77,0.73
 20260616,184.5,194,179.5,193,1365000,186.09,3.71,190.97,177.91,3.24
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,185,186.5,177,178,416000,183.19,-2.83,178.88,190.41,0.75
 20260708,177,181,175.5,179.5,239000,182.88,-1.85,179.3,191.16,0.43
 20260709,179.5,180.5,173.5,173.5,395000,182.1,-4.72,179.93,191.82,0.73
+20260713,178,178,170,171,251000,181.18,-5.62,180.43,192.47,0.47
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2331 精英
 
 ## Metadata
-- generated_at: 2026-07-13 22:27:11 Asia/Taipei
+- generated_at: 2026-07-14 22:26:31 Asia/Taipei
 - stock_id: 2331
 - stock_name: 精英
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 301
+- latest_price_date: 20260713
+- price_rows: 302
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 20.6
+- date: 20260713
+- open: 21.05
 - high: 21.1
-- low: 20.55
-- close: 20.55
-- volume: 1494316
-- ma5: 20.83
-- ema23_primary: 21.26
-- distance_to_ema23_pct: -3.33
-- ma20: 21.32
-- ma60: 21.23
-- ma120: 23.06
-- return_5d: -2.61
-- return_20d: -2.84
-- volume_ratio: 0.45
-- distance_to_ma20_pct_auxiliary: -3.62
-- distance_to_high_60_pct: -22.45
+- low: 20.65
+- close: 20.9
+- volume: 1725722
+- ma5: 20.76
+- ema23_primary: 21.23
+- distance_to_ema23_pct: -1.55
+- ma20: 21.34
+- ma60: 21.22
+- ma120: 23.03
+- return_5d: -1.65
+- return_20d: 1.21
+- volume_ratio: 0.53
+- distance_to_ma20_pct_auxiliary: -2.04
+- distance_to_high_60_pct: -21.13
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,20.95,21.1,20.2,20.65,3777736,21.68,-4.75,21.41,21.47,0.53
 20260612,21.3,21.8,21.2,21.3,2774810,21.65,-1.61,21.51,21.42,0.39
 20260615,21.85,21.85,21.4,21.6,2362948,21.64,-0.2,21.64,21.38,0.33
 20260616,21.9,21.95,21,21,2224587,21.59,-2.73,21.74,21.34,0.31
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,21.4,21.4,20.5,20.55,3148321,21.4,-3.96,21.43,21.26,0.83
 20260708,20.55,20.8,20.25,20.5,2302073,21.32,-3.86,21.35,21.25,0.65
 20260709,20.6,21.1,20.55,20.55,1494316,21.26,-3.33,21.32,21.23,0.45
+20260713,21.05,21.1,20.65,20.9,1725722,21.23,-1.55,21.34,21.22,0.53
 ```
 
 ## Latest TDCC Snapshot
@@ -189,17 +189,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 2331 | 精英 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/26 1.召開法人說明會之日期：115/06/26 2.召開法人說明會之時間：14 時 30 分  3.召開法人說明會之地點：線上法說會 4.法人說明會擇要訊息：公司營運概況說明 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260713 | 2331 | 精英 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/26 1.召開法人說明會之日期：115/06/26 2.召開法人說明會之時間：14 時 30 分  3.召開法人說明會之地點：線上法說會 4.法人說明會擇要訊息：公司營運概況說明 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 2331 | 精英 | 1 | 1 | 3 | 4 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260713 | 2331 | 精英 | 2 | 2 | 3 | 5 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 2331 | 精英 | 19 | 0 | 29240.0 | 0.0 |  | no_signal |
+| 20260713 | 2331 | 精英 | 20 | 0 | 45940.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

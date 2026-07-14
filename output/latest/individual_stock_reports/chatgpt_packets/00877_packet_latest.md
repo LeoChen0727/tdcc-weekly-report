@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00877 復華中國5G
 
 ## Metadata
-- generated_at: 2026-07-13 22:26:44 Asia/Taipei
+- generated_at: 2026-07-14 22:26:16 Asia/Taipei
 - stock_id: 00877
 - stock_name: 復華中國5G
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260709
-- price_rows: 34
+- latest_price_date: 20260713
+- price_rows: 35
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 42.98
-- high: 43.9
-- low: 42.53
-- close: 43.88
-- volume: 2218000
-- ma5: 43.49
-- ema23_primary: 45
-- distance_to_ema23_pct: -2.48
-- ma20: 46
-- ma60: 44.65
-- ma120: 44.65
-- return_5d: -2.08
-- return_20d: 3.69
-- volume_ratio: 0.48
-- distance_to_ma20_pct_auxiliary: -4.6
-- distance_to_high_60_pct: -13.62
+- date: 20260713
+- open: 43.93
+- high: 44.2
+- low: 41.88
+- close: 41.88
+- volume: 3889000
+- ma5: 42.83
+- ema23_primary: 44.74
+- distance_to_ema23_pct: -6.38
+- ma20: 45.98
+- ma60: 44.57
+- ma120: 44.57
+- return_5d: -7.24
+- return_20d: -0.52
+- volume_ratio: 0.85
+- distance_to_ma20_pct_auxiliary: -8.93
+- distance_to_high_60_pct: -17.56
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,42.01,43.2,41.98,42.1,4272000,42.07,0.06,42.68,42.68,3.47
 20260612,43.2,43.5,42.42,42.66,3205000,42.12,1.28,42.68,42.68,2.37
 20260615,43.03,44.1,42.2,44.09,3942000,42.29,4.26,42.76,42.76,2.62
 20260616,44.73,45.85,44.5,45.38,3278000,42.54,6.67,42.91,42.91,2.04
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,43.18,43.39,41.66,42.04,5133000,45.29,-7.17,45.94,44.72,1.08
 20260708,42.26,43.74,41.95,43,3209000,45.1,-4.65,45.92,44.67,0.67
 20260709,42.98,43.9,42.53,43.88,2218000,45,-2.48,46,44.65,0.48
+20260713,43.93,44.2,41.88,41.88,3889000,44.74,-6.38,45.98,44.57,0.85
 ```
 
 ## Latest TDCC Snapshot

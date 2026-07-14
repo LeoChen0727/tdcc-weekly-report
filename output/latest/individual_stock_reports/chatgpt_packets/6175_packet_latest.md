@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6175 立敦
 
 ## Metadata
-- generated_at: 2026-07-13 22:28:26 Asia/Taipei
+- generated_at: 2026-07-14 22:27:12 Asia/Taipei
 - stock_id: 6175
 - stock_name: 立敦
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 166
+- latest_price_date: 20260713
+- price_rows: 167
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 108
-- high: 110.5
-- low: 105
-- close: 105
-- volume: 3561000
-- ma5: 110.1
-- ema23_primary: 105.89
-- distance_to_ema23_pct: -0.84
-- ma20: 108.94
-- ma60: 88.22
-- ma120: 68.59
-- return_5d: -4.11
-- return_20d: 5.11
-- volume_ratio: 0.3
-- distance_to_ma20_pct_auxiliary: -3.61
-- distance_to_high_60_pct: -14.63
+- date: 20260713
+- open: 106.5
+- high: 108.5
+- low: 99.8
+- close: 101.5
+- volume: 4345000
+- ma5: 107.4
+- ema23_primary: 105.53
+- distance_to_ema23_pct: -3.82
+- ma20: 108.86
+- ma60: 88.87
+- ma120: 68.99
+- return_5d: -11.74
+- return_20d: -1.46
+- volume_ratio: 0.39
+- distance_to_ma20_pct_auxiliary: -6.76
+- distance_to_high_60_pct: -17.48
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,101.5,106,96.6,103,19824000,90.16,14.24,92.5,69.11,2.31
 20260612,107,109,98.5,98.6,15167000,90.87,8.51,93.73,69.91,1.82
 20260615,101.5,108,101.5,108,12425000,92.29,17.02,95.4,70.89,1.5
 20260616,109,110.5,97.7,98.1,14636000,92.78,5.74,96.6,71.72,1.7
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,116.5,119.5,105.5,107,7592000,105.88,1.06,108.53,86.6,0.55
 20260708,109,110,103,107,4792000,105.97,0.97,108.68,87.42,0.37
 20260709,108,110.5,105,105,3561000,105.89,-0.84,108.94,88.22,0.3
+20260713,106.5,108.5,99.8,101.5,4345000,105.53,-3.82,108.86,88.87,0.39
 ```
 
 ## Latest TDCC Snapshot
@@ -188,13 +188,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 6175 | 立敦 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/09 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.發放普通股股利種類及金額: 普通股股利配發現金新台幣225,182,718元 4.除權（息）交易日:115/07/28 5.最後過戶日:115/07/29 6.停止過戶起始日期:115/07/30 7.停止過戶截止日期:115/08/03 8.除權（息）基準日:115/08/03 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/21 13.以外幣發放現金股利(請填入「是」或「否」):否 14.外幣現金股利發放幣別:不適用 15.外幣現金股利發放對象:不適用 16.外幣現金股利匯率決定方式:不適用 17.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
-| 20260709 | 6175 | 立敦 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  |  | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/09 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.發放普通股股利種類及金額: 普通股股利配發現金新台幣225,182,718元 4.除權（息）交易日:115/07/28 5.最後過戶日:115/07/29 6.停止過戶起始日期:115/07/30 7.停止過戶截止日期:115/08/03 8.除權（息）基準日:115/08/03 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/21 13.以外幣發放現金股利(請填入「是」或「否」):否 14.外幣現金股利發放幣別:不適用 15.外幣現金股利發放對象:不適用 16.外幣現金股利匯率決定方式:不適用 17.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260713 | 6175 | 立敦 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/09 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.發放普通股股利種類及金額: 普通股股利配發現金新台幣225,182,718元 4.除權（息）交易日:115/07/28 5.最後過戶日:115/07/29 6.停止過戶起始日期:115/07/30 7.停止過戶截止日期:115/08/03 8.除權（息）基準日:115/08/03 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/21 13.以外幣發放現金股利(請填入「是」或「否」):否 14.外幣現金股利發放幣別:不適用 15.外幣現金股利發放對象:不適用 16.外幣現金股利匯率決定方式:不適用 17.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260713 | 6175 | 立敦 | revenue_pullback | 營收成長股價回檔 | 68.0 |  |  |  |  |  | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/09 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.發放普通股股利種類及金額: 普通股股利配發現金新台幣225,182,718元 4.除權（息）交易日:115/07/28 5.最後過戶日:115/07/29 6.停止過戶起始日期:115/07/30 7.停止過戶截止日期:115/08/03 8.除權（息）基準日:115/08/03 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/21 13.以外幣發放現金股利(請填入「是」或「否」):否 14.外幣現金股利發放幣別:不適用 15.外幣現金股利發放對象:不適用 16.外幣現金股利匯率決定方式:不適用 17.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 6175 | 立敦 | 3 | 3 | 4 | 8 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260713 | 6175 | 立敦 | 4 | 4 | 4 | 8 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

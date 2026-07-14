@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4973 廣穎電通
 
 ## Metadata
-- generated_at: 2026-07-13 22:28:09 Asia/Taipei
+- generated_at: 2026-07-14 22:27:03 Asia/Taipei
 - stock_id: 4973
 - stock_name: 廣穎電通
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 166
+- latest_price_date: 20260713
+- price_rows: 167
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 162
-- high: 169.5
-- low: 160
-- close: 166.5
-- volume: 2414000
-- ma5: 165.2
-- ema23_primary: 168.03
-- distance_to_ema23_pct: -0.91
-- ma20: 179.03
-- ma60: 137.4
-- ma120: 97.46
-- return_5d: 1.52
-- return_20d: -13.73
-- volume_ratio: 0.76
-- distance_to_ma20_pct_auxiliary: -7
-- distance_to_high_60_pct: -23.97
+- date: 20260713
+- open: 170.5
+- high: 171
+- low: 160.5
+- close: 163
+- volume: 1781000
+- ma5: 163.6
+- ema23_primary: 167.62
+- distance_to_ema23_pct: -2.75
+- ma20: 177.6
+- ma60: 138.81
+- ma120: 98.45
+- return_5d: -4.68
+- return_20d: -14.88
+- volume_ratio: 0.58
+- distance_to_ma20_pct_auxiliary: -8.22
+- distance_to_high_60_pct: -25.57
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,191.5,194,175,191.5,3581000,147.71,29.65,146.43,104.65,1.8
 20260612,198.5,199,191,191,2169000,151.32,26.22,150.12,106.48,1.26
 20260615,195.5,210,192.5,210,3089000,156.21,34.44,154.6,108.5,1.88
 20260616,210,219,189,189.5,9494000,158.98,19.2,158.57,110.02,5.22
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,169.5,170.5,160,162.5,1381000,169.15,-3.93,181.28,134.66,0.42
 20260708,161,163,154,157.5,1764000,168.17,-6.35,180.35,135.95,0.54
 20260709,162,169.5,160,166.5,2414000,168.03,-0.91,179.03,137.4,0.76
+20260713,170.5,171,160.5,163,1781000,167.62,-2.75,177.6,138.81,0.58
 ```
 
 ## Latest TDCC Snapshot
@@ -189,13 +189,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 4973 | 廣穎電通 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.發生變動日期:115/06/18 2.功能性委員會名稱:薪資報酬委員會 3.舊任者姓名: (1)黃清茂 (2)洪敬恒 (3)劉復華 (4)鄭翠玉 4.舊任者簡歷: (1)黃清茂：泰博科技股份有限公司特別助理 (2)洪敬恒：太曼妮企業有限公司代表人 (3)劉復華：頂典有限公司代表人 (4)鄭翠玉：廣展會計師事務所所長 5.新任者姓名: (1)黃清茂 (2)洪敬恒 (3)鄭翠玉 (4)許源卿 6.新任者簡歷: (1)黃清茂：泰博科技股份有限公司特別助理 (2)洪敬恒：太曼妮企業有限公司代表人 (3)鄭翠玉：廣展會計師事務所所長 (4)許源卿：昇佳電子股份有限公司營運長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 任期屆滿 8.異動原因:任期屆滿，全面改選。 9.原任期（例xx/xx/xx ~ xx/xx/xx）:112/06/18~115/06/17 10.新任生效日期:115/06/18 11.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
-| 20260709 | 4973 | 廣穎電通 | revenue_pullback | 營收成長股價回檔 | 83.0 |  |  |  |  |  | stale_signal | 1.發生變動日期:115/06/18 2.功能性委員會名稱:薪資報酬委員會 3.舊任者姓名: (1)黃清茂 (2)洪敬恒 (3)劉復華 (4)鄭翠玉 4.舊任者簡歷: (1)黃清茂：泰博科技股份有限公司特別助理 (2)洪敬恒：太曼妮企業有限公司代表人 (3)劉復華：頂典有限公司代表人 (4)鄭翠玉：廣展會計師事務所所長 5.新任者姓名: (1)黃清茂 (2)洪敬恒 (3)鄭翠玉 (4)許源卿 6.新任者簡歷: (1)黃清茂：泰博科技股份有限公司特別助理 (2)洪敬恒：太曼妮企業有限公司代表人 (3)鄭翠玉：廣展會計師事務所所長 (4)許源卿：昇佳電子股份有限公司營運長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 任期屆滿 8.異動原因:任期屆滿，全面改選。 9.原任期（例xx/xx/xx ~ xx/xx/xx）:112/06/18~115/06/17 10.新任生效日期:115/06/18 11.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260713 | 4973 | 廣穎電通 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.發生變動日期:115/06/18 2.功能性委員會名稱:薪資報酬委員會 3.舊任者姓名: (1)黃清茂 (2)洪敬恒 (3)劉復華 (4)鄭翠玉 4.舊任者簡歷: (1)黃清茂：泰博科技股份有限公司特別助理 (2)洪敬恒：太曼妮企業有限公司代表人 (3)劉復華：頂典有限公司代表人 (4)鄭翠玉：廣展會計師事務所所長 5.新任者姓名: (1)黃清茂 (2)洪敬恒 (3)鄭翠玉 (4)許源卿 6.新任者簡歷: (1)黃清茂：泰博科技股份有限公司特別助理 (2)洪敬恒：太曼妮企業有限公司代表人 (3)鄭翠玉：廣展會計師事務所所長 (4)許源卿：昇佳電子股份有限公司營運長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 任期屆滿 8.異動原因:任期屆滿，全面改選。 9.原任期（例xx/xx/xx ~ xx/xx/xx）:112/06/18~115/06/17 10.新任生效日期:115/06/18 11.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260713 | 4973 | 廣穎電通 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  |  | stale_signal | 1.發生變動日期:115/06/18 2.功能性委員會名稱:薪資報酬委員會 3.舊任者姓名: (1)黃清茂 (2)洪敬恒 (3)劉復華 (4)鄭翠玉 4.舊任者簡歷: (1)黃清茂：泰博科技股份有限公司特別助理 (2)洪敬恒：太曼妮企業有限公司代表人 (3)劉復華：頂典有限公司代表人 (4)鄭翠玉：廣展會計師事務所所長 5.新任者姓名: (1)黃清茂 (2)洪敬恒 (3)鄭翠玉 (4)許源卿 6.新任者簡歷: (1)黃清茂：泰博科技股份有限公司特別助理 (2)洪敬恒：太曼妮企業有限公司代表人 (3)鄭翠玉：廣展會計師事務所所長 (4)許源卿：昇佳電子股份有限公司營運長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 任期屆滿 8.異動原因:任期屆滿，全面改選。 9.原任期（例xx/xx/xx ~ xx/xx/xx）:112/06/18~115/06/17 10.新任生效日期:115/06/18 11.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 4973 | 廣穎電通 | 14 | 13 | 5 | 10 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260713 | 4973 | 廣穎電通 | 15 | 14 | 5 | 10 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

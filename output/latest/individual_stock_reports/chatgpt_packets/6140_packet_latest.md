@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6140 訊達電腦
 
 ## Metadata
-- generated_at: 2026-07-13 22:28:24 Asia/Taipei
+- generated_at: 2026-07-14 22:27:11 Asia/Taipei
 - stock_id: 6140
 - stock_name: 訊達電腦
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 166
+- latest_price_date: 20260713
+- price_rows: 167
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 20.05
-- high: 20.8
-- low: 19.85
-- close: 19.85
-- volume: 108000
-- ma5: 20.35
-- ema23_primary: 20.67
-- distance_to_ema23_pct: -3.98
-- ma20: 20.75
-- ma60: 20.51
-- ma120: 21.41
-- return_5d: -7.89
-- return_20d: -9.77
-- volume_ratio: 0.72
-- distance_to_ma20_pct_auxiliary: -4.35
-- distance_to_high_60_pct: -23.65
+- date: 20260713
+- open: 19.85
+- high: 19.85
+- low: 19.1
+- close: 19.1
+- volume: 137000
+- ma5: 19.96
+- ema23_primary: 20.54
+- distance_to_ema23_pct: -7.02
+- ma20: 20.59
+- ma60: 20.53
+- ma120: 21.35
+- return_5d: -9.26
+- return_20d: -14.16
+- volume_ratio: 0.94
+- distance_to_ma20_pct_auxiliary: -7.26
+- distance_to_high_60_pct: -26.54
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,22.1,22.65,21.6,22.25,225000,21.5,3.49,21.1,20.07,1.53
 20260612,22.7,23.2,21.9,22.2,249000,21.56,2.98,21.22,20.07,1.64
 20260615,22.1,22.5,21.8,22.15,189000,21.61,2.51,21.36,20.09,1.22
 20260616,22.2,22.2,21.35,21.35,148000,21.59,-1.09,21.44,20.09,0.94
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,21.2,21.5,20,20,146000,20.83,-3.98,21.04,20.44,0.74
 20260708,20.15,20.15,19.75,19.85,36000,20.75,-4.33,20.86,20.48,0.21
 20260709,20.05,20.8,19.85,19.85,108000,20.67,-3.98,20.75,20.51,0.72
+20260713,19.85,19.85,19.1,19.1,137000,20.54,-7.02,20.59,20.53,0.94
 ```
 
 ## Latest TDCC Snapshot

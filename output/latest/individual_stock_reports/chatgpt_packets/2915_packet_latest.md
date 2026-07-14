@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2915 潤泰全
 
 ## Metadata
-- generated_at: 2026-07-13 22:27:31 Asia/Taipei
+- generated_at: 2026-07-14 22:26:42 Asia/Taipei
 - stock_id: 2915
 - stock_name: 潤泰全
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 301
+- latest_price_date: 20260713
+- price_rows: 302
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 51.6
-- high: 52.4
-- low: 51.4
-- close: 52
-- volume: 2462764
-- ma5: 51.94
-- ema23_primary: 51.01
-- distance_to_ema23_pct: 1.94
-- ma20: 52.08
-- ma60: 47.23
-- ma120: 48.91
-- return_5d: 0
-- return_20d: 5.8
-- volume_ratio: 0.58
-- distance_to_ma20_pct_auxiliary: -0.16
-- distance_to_high_60_pct: -3.7
+- date: 20260713
+- open: 52
+- high: 52.5
+- low: 50.4
+- close: 50.4
+- volume: 3559869
+- ma5: 51.66
+- ema23_primary: 50.96
+- distance_to_ema23_pct: -1.1
+- ma20: 52.15
+- ma60: 47.3
+- ma120: 48.88
+- return_5d: -2.7
+- return_20d: 2.54
+- volume_ratio: 0.86
+- distance_to_ma20_pct_auxiliary: -3.35
+- distance_to_high_60_pct: -6.67
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,48.8,49.2,47.95,49.15,5054281,46.31,6.13,45.69,45.78,1.43
 20260612,49.55,51.8,49.55,51,4164921,46.7,9.2,46.08,45.79,1.17
 20260615,51.4,53.6,51.2,53.4,5877842,47.26,12.99,46.52,45.85,1.6
 20260616,53.7,54,51.9,52.2,6188908,47.67,9.5,46.89,45.9,1.59
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,52.7,52.9,51.9,51.9,1787374,50.86,2.05,51.79,47.06,0.42
 20260708,52,52.2,51.4,51.6,1365016,50.92,1.34,51.94,47.14,0.32
 20260709,51.6,52.4,51.4,52,2462764,51.01,1.94,52.08,47.23,0.58
+20260713,52,52.5,50.4,50.4,3559869,50.96,-1.1,52.15,47.3,0.86
 ```
 
 ## Latest TDCC Snapshot
@@ -189,12 +189,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 2915 | 潤泰全 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/02 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:現金股利新台幣2,098,205,667元， 每股新台幣1.9元 4.除權（息）交易日:115/07/17 5.最後過戶日:115/07/20 6.停止過戶起始日期:115/07/21 7.停止過戶截止日期:115/07/25 8.除權（息）基準日:115/07/25 9.債券最後申請轉換日期:NA 10.債券停止轉換起始日期:NA 11.債券停止轉換截止日期:NA 12.普通股現金股利發放日期:115/08/10 13.其他應敘明事項:無。；calendar event: ex_dividend on 20260717; status=confirmed; proximity=within_7d |
+| 20260713 | 2915 | 潤泰全 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | repeated_but_no_breakout | 1.董事會、股東會決議或公司決定日期:115/07/02 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:現金股利新台幣2,098,205,667元， 每股新台幣1.9元 4.除權（息）交易日:115/07/17 5.最後過戶日:115/07/20 6.停止過戶起始日期:115/07/21 7.停止過戶截止日期:115/07/25 8.除權（息）基準日:115/07/25 9.債券最後申請轉換日期:NA 10.債券停止轉換起始日期:NA 11.債券停止轉換截止日期:NA 12.普通股現金股利發放日期:115/08/10 13.其他應敘明事項:無。；calendar event: ex_dividend on 20260717; status=confirmed; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 2915 | 潤泰全 | 8 | 8 | 5 | 8 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260713 | 2915 | 潤泰全 | 9 | 9 | 5 | 9 | 15 | repeated_but_no_breakout | 近 10 日上榜 9 次、近 20 日上榜 15 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

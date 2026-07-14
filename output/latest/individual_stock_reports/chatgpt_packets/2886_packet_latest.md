@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2886 兆豐金
 
 ## Metadata
-- generated_at: 2026-07-13 22:27:29 Asia/Taipei
+- generated_at: 2026-07-14 22:26:41 Asia/Taipei
 - stock_id: 2886
 - stock_name: 兆豐金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 301
-- latest_tdcc_date: 20260703
-- tdcc_rows: 10
+- latest_price_date: 20260713
+- price_rows: 302
+- latest_tdcc_date: 20260709
+- tdcc_rows: 11
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 46.85
-- high: 47.15
-- low: 46.4
-- close: 46.7
-- volume: 13674110
-- ma5: 46.42
-- ema23_primary: 45.04
-- distance_to_ema23_pct: 3.68
-- ma20: 45.49
-- ma60: 41.95
-- ma120: 40.76
-- return_5d: 1.52
-- return_20d: 7.6
-- volume_ratio: 0.32
-- distance_to_ma20_pct_auxiliary: 2.67
-- distance_to_high_60_pct: -1.48
+- date: 20260713
+- open: 46.7
+- high: 47.3
+- low: 46.55
+- close: 47
+- volume: 26920661
+- ma5: 46.72
+- ema23_primary: 45.2
+- distance_to_ema23_pct: 3.97
+- ma20: 45.67
+- ma60: 42.07
+- ma120: 40.82
+- return_5d: 3.3
+- return_20d: 8.29
+- volume_ratio: 0.63
+- distance_to_ma20_pct_auxiliary: 2.92
+- distance_to_high_60_pct: -0.84
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,43.55,43.6,42.65,43.4,30307283,41.18,5.39,40.93,39.89,0.71
 20260612,43.45,43.95,43.1,43.4,36267595,41.37,4.92,41.13,39.96,0.83
 20260615,44.95,44.95,43.4,44,30155084,41.59,5.8,41.35,40.04,0.69
 20260616,43.85,44.85,43.5,44.5,21732920,41.83,6.39,41.54,40.13,0.52
@@ -155,20 +154,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,46.25,47.2,46.25,46.8,36302702,44.72,4.66,45.16,41.7,0.79
 20260708,46.8,47.25,46.5,46.8,21778784,44.89,4.25,45.32,41.82,0.49
 20260709,46.85,47.15,46.4,46.7,13674110,45.04,3.68,45.49,41.95,0.32
+20260713,46.7,47.3,46.55,47,26920661,45.2,3.97,45.67,42.07,0.63
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260703
-- over_400_ratio: 83.07
-- over_600_ratio: 82.49
-- over_800_ratio: 81.97
-- over_1000_ratio: 81.6
-- over_400_change_1w: 0.13
-- over_800_change_1w: 0.13
-- over_1000_change_1w: 0.12
-- tdcc_consecutive_up_weeks: 8
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260709
+- over_400_ratio: 83.04
+- over_600_ratio: 82.47
+- over_800_ratio: 81.93
+- over_1000_ratio: 81.56
+- over_400_change_1w: -0.03
+- over_800_change_1w: -0.04
+- over_1000_change_1w: -0.04
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -184,22 +184,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260618,82.75,0.13,81.63,0.14,81.28,0.14,6,True,True
 20260626,82.94,0.19,81.84,0.21,81.48,0.2,7,True,True
 20260703,83.07,0.13,81.97,0.13,81.6,0.12,8,True,True
+20260709,83.04,-0.03,81.93,-0.04,81.56,-0.04,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 2886 | 兆豐金 | pattern | 型態觀察 | 51.0 |  |  | base_building |  | no_signal | stale_signal | 1.董事會決議日期或發生變動日期:115/07/01 2.人員別（請輸入董事長或總經理）:總經理 3.舊任者姓名:無 4.舊任者簡歷:無 5.新任者姓名:陳文雄(代理總經理) 6.新任者簡歷:兆豐國際證券投資信託股份有限公司副總經理 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:職務調整 8.異動原因:董事會決議通過 9.新任生效日期:115/07/01 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260713 | 2886 | 兆豐金 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/08/31 1.召開法人說明會之日期：115/08/31 ~ 115/09/02 2.召開法人說明會之時間：09 時 00 分  3.召開法人說明會之地點：香港 4.法人說明會擇要訊息：揭露本公司2026年第2季營運概況 5.其他應敘明事項：本公司受邀參與高盛證券於香港舉辦之外資法人投資說明會 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 2886 | 兆豐金 | 13 | 5 | 5 | 10 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260713 | 2886 | 兆豐金 | 14 | 6 | 5 | 10 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 2886 | 兆豐金 | 4 | 0 | 44410.0 | 0.0 |  | no_signal |
+| 20260713 | 2886 | 兆豐金 | 4 | 0 | 552380.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

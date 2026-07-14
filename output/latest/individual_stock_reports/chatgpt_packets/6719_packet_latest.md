@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6719 力智
 
 ## Metadata
-- generated_at: 2026-07-13 22:28:43 Asia/Taipei
+- generated_at: 2026-07-14 22:27:22 Asia/Taipei
 - stock_id: 6719
 - stock_name: 力智
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 301
+- latest_price_date: 20260713
+- price_rows: 302
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 - acceptable_risk_reward
@@ -112,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 275.5
-- high: 281
-- low: 266.5
-- close: 266.5
-- volume: 2723539
-- ma5: 285.9
-- ema23_primary: 268.03
-- distance_to_ema23_pct: -0.57
-- ma20: 269.55
-- ma60: 227.48
-- ma120: 203.64
-- return_5d: -11.17
-- return_20d: 25.12
-- volume_ratio: 0.47
-- distance_to_ma20_pct_auxiliary: -1.13
-- distance_to_high_60_pct: -18.38
+- date: 20260713
+- open: 270
+- high: 273.5
+- low: 247.5
+- close: 252.5
+- volume: 3298235
+- ma5: 278.6
+- ema23_primary: 266.74
+- distance_to_ema23_pct: -5.34
+- ma20: 271.48
+- ma60: 228.99
+- ma120: 204.19
+- return_5d: -12.63
+- return_20d: 17.99
+- volume_ratio: 0.56
+- distance_to_ma20_pct_auxiliary: -6.99
+- distance_to_high_60_pct: -22.66
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,212.5,217,207.5,214,1016108,223.61,-4.3,233.85,193.27,0.32
 20260612,222,224.5,219,219,842057,223.22,-1.89,234.8,194.01,0.27
 20260615,224.5,240.5,224.5,240.5,1482620,224.66,7.05,235.82,195.12,0.49
 20260616,249,254,238,239.5,2840072,225.9,6.02,237.25,196.3,0.95
@@ -154,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,312,312,282,284.5,7045885,267.37,6.41,264.2,223.74,1.27
 20260708,282,283.5,269.5,277,3711978,268.17,3.29,266.88,225.72,0.65
 20260709,275.5,281,266.5,266.5,2723539,268.03,-0.57,269.55,227.48,0.47
+20260713,270,273.5,247.5,252.5,3298235,266.74,-5.34,271.48,228.99,0.56
 ```
 
 ## Latest TDCC Snapshot
@@ -188,17 +187,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 6719 | 力智 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.董事會或股東會決議日期:NA 2.原發放股利種類及金額: 現金股利：新台幣485,203,349元(每股配發新台幣4.6元) 3.變更後發放股利種類及金額: 現金股利：新台幣485,203,349元(每股配發新台幣4.59834339元) 4.變更原因: 因員工行使員工認股權，致使流通在外股數總額變更，依股東會決議授權董事長 調整現金股利配息率。 5.其他應敘明事項:無。；calendar event: ex_dividend on 20260721; status=confirmed; proximity=within_14d |
+| 20260713 | 6719 | 力智 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/08/07 1.召開法人說明會之日期：115/08/07 2.召開法人說明會之時間：14 時 30 分  3.召開法人說明會之地點：線上 4.法人說明會擇要訊息：本公司受邀參加福邦證券舉辦之線上法人說明會 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: ex_dividend on 20260721; status=confirmed; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 6719 | 力智 | 1 | 1 | 3 | 7 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260713 | 6719 | 力智 | 2 | 2 | 4 | 7 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 6719 | 力智 | 53 | 2 | 6638490.0 | 133200.0 | 49.84 | no_signal |
+| 20260713 | 6719 | 力智 | 54 | 2 | 8638440.0 | 31080.0 | 277.94 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

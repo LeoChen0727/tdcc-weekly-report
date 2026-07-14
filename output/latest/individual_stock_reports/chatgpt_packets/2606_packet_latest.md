@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2606 裕民
 
 ## Metadata
-- generated_at: 2026-07-13 22:27:23 Asia/Taipei
+- generated_at: 2026-07-14 22:26:38 Asia/Taipei
 - stock_id: 2606
 - stock_name: 裕民
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 301
+- latest_price_date: 20260713
+- price_rows: 302
 - latest_tdcc_date: 20260703
 - tdcc_rows: 32
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 62.8
-- high: 63.7
-- low: 62.2
-- close: 63.1
-- volume: 2721051
-- ma5: 62.46
-- ema23_primary: 62.97
-- distance_to_ema23_pct: 0.21
-- ma20: 62.33
-- ma60: 64.43
-- ma120: 63.04
-- return_5d: 5.17
-- return_20d: -8.02
-- volume_ratio: 0.46
-- distance_to_ma20_pct_auxiliary: 1.24
-- distance_to_high_60_pct: -13.56
+- date: 20260713
+- open: 63.6
+- high: 64.9
+- low: 63.2
+- close: 63.9
+- volume: 4727723
+- ma5: 62.88
+- ema23_primary: 63.05
+- distance_to_ema23_pct: 1.35
+- ma20: 62.14
+- ma60: 64.44
+- ma120: 63.07
+- return_5d: 3.4
+- return_20d: -5.61
+- volume_ratio: 0.81
+- distance_to_ma20_pct_auxiliary: 2.83
+- distance_to_high_60_pct: -12.47
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,68.6,68.9,66.4,67.7,5943701,67.86,-0.24,68.21,63.66,0.87
 20260612,67.9,69.5,67.8,68.3,3980754,67.9,0.59,68.48,63.77,0.65
 20260615,69.1,69.1,66.8,67.2,9042610,67.84,-0.94,68.67,63.88,1.42
 20260616,63.1,64.7,60.6,61.1,22777598,67.28,-9.18,68.56,63.88,3.11
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,62.8,62.8,61.7,62.2,2519995,62.95,-1.2,62.91,64.34,0.42
 20260708,62.5,63.2,61.7,63,3561359,62.96,0.07,62.6,64.38,0.59
 20260709,62.8,63.7,62.2,63.1,2721051,62.97,0.21,62.33,64.43,0.46
+20260713,63.6,64.9,63.2,63.9,4727723,63.05,1.35,62.14,64.44,0.81
 ```
 
 ## Latest TDCC Snapshot
@@ -191,18 +191,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 2606 | 裕民 | pattern | 型態觀察 | 51.0 |  |  | base_building |  | call_inflow | stale_signal | 1.董事會召集通知日:115/07/06 2.董事會預計召開日期:115/08/11 3.預計提報董事會或經董事會決議之財務報告或 年度自結財務資訊年季:115年度第2季 4.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
-| 20260709 | 2606 | 裕民 | revenue_pullback | 營收成長股價回檔 | 67.0 |  |  |  |  | call_inflow | stale_signal | 1.董事會召集通知日:115/07/06 2.董事會預計召開日期:115/08/11 3.預計提報董事會或經董事會決議之財務報告或 年度自結財務資訊年季:115年度第2季 4.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260713 | 2606 | 裕民 | pattern | 型態觀察 | 51.0 |  |  | base_building |  | no_signal | stale_signal | 1.董事會召集通知日:115/07/06 2.董事會預計召開日期:115/08/11 3.預計提報董事會或經董事會決議之財務報告或 年度自結財務資訊年季:115年度第2季 4.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260713 | 2606 | 裕民 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.董事會召集通知日:115/07/06 2.董事會預計召開日期:115/08/11 3.預計提報董事會或經董事會決議之財務報告或 年度自結財務資訊年季:115年度第2季 4.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 2606 | 裕民 | 6 | 6 | 5 | 9 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260713 | 2606 | 裕民 | 7 | 7 | 5 | 9 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 2606 | 裕民 | 24 | 1 | 2322880.0 | 0.0 |  | call_inflow |
+| 20260713 | 2606 | 裕民 | 24 | 1 | 2632880.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

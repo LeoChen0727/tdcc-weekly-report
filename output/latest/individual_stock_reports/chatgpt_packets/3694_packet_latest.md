@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3694 海華
 
 ## Metadata
-- generated_at: 2026-07-13 22:27:53 Asia/Taipei
+- generated_at: 2026-07-14 22:26:54 Asia/Taipei
 - stock_id: 3694
 - stock_name: 海華
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 301
+- latest_price_date: 20260713
+- price_rows: 302
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -117,29 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 62
-- high: 67.3
-- low: 61.7
-- close: 65
-- volume: 3929841
-- ma5: 64.1
-- ema23_primary: 62.77
-- distance_to_ema23_pct: 3.56
-- ma20: 61.6
-- ma60: 62.79
-- ma120: 60.71
-- return_5d: 0.78
-- return_20d: 6.91
-- volume_ratio: 1.72
-- distance_to_ma20_pct_auxiliary: 5.52
-- distance_to_high_60_pct: -10.84
+- date: 20260713
+- open: 65.8
+- high: 67.7
+- low: 64.5
+- close: 67.6
+- volume: 5465902
+- ma5: 64.22
+- ema23_primary: 63.17
+- distance_to_ema23_pct: 7.02
+- ma20: 62.02
+- ma60: 62.91
+- ma120: 60.77
+- return_5d: 0.9
+- return_20d: 14.19
+- volume_ratio: 2.2
+- distance_to_ma20_pct_auxiliary: 9
+- distance_to_high_60_pct: -7.27
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,60.2,60.7,57.8,59.2,1556235,64.55,-8.29,66.53,61.11,0.37
 20260612,60.4,61,59.9,60,921027,64.17,-6.5,66.58,61.13,0.23
 20260615,61.4,62.1,60.6,61.8,820976,63.98,-3.4,66.66,61.19,0.21
 20260616,62.6,62.6,60.6,61.8,928321,63.79,-3.13,66.5,61.27,0.25
@@ -159,6 +158,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,65.7,66.1,61.2,61.4,1964395,62.65,-1.99,61.45,62.72,0.91
 20260708,62.4,62.4,60,61.6,1092699,62.56,-1.54,61.39,62.72,0.51
 20260709,62,67.3,61.7,65,3929841,62.77,3.56,61.6,62.79,1.72
+20260713,65.8,67.7,64.5,67.6,5465902,63.17,7.02,62.02,62.91,2.2
 ```
 
 ## Latest TDCC Snapshot
@@ -193,17 +193,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 3694 | 海華 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_inflow | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/08 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:現金股利共計新台幣356,337,178元,每股配發 2.30057169元 4.除權（息）交易日:115/07/24 5.最後過戶日:115/07/27 6.停止過戶起始日期:115/07/28 7.停止過戶截止日期:115/08/01 8.除權（息）基準日:115/08/01 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/18 13.現金股利之一部或全部是否以外幣發放(請填入「是」或「否」):否 14.外幣現金股利發放幣別:不適用 15.外幣現金股利發放對象:不適用 16.外幣現金股利匯率決定方式:不適用 17.其他應敘明事項: 1.因依「限制員工權利新股」發行辦法收回已發行之限制員工權利新股， 致影響流通在外股數。 2.本次現金股利按分配比例計算至元為止，元以下捨去， 分配未滿一元之畸零款合計數列入本公司之其他收入項下。；calendar event: ex_dividend on 20260724; status=confirmed; proximity=within_14d |
+| 20260713 | 3694 | 海華 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_inflow | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/08 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:現金股利共計新台幣356,337,178元,每股配發 2.30057169元 4.除權（息）交易日:115/07/24 5.最後過戶日:115/07/27 6.停止過戶起始日期:115/07/28 7.停止過戶截止日期:115/08/01 8.除權（息）基準日:115/08/01 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/18 13.現金股利之一部或全部是否以外幣發放(請填入「是」或「否」):否 14.外幣現金股利發放幣別:不適用 15.外幣現金股利發放對象:不適用 16.外幣現金股利匯率決定方式:不適用 17.其他應敘明事項: 1.因依「限制員工權利新股」發行辦法收回已發行之限制員工權利新股， 致影響流通在外股數。 2.本次現金股利按分配比例計算至元為止，元以下捨去， 分配未滿一元之畸零款合計數列入本公司之其他收入項下。；calendar event: ex_dividend on 20260724; status=confirmed; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 3694 | 海華 | 1 | 1 | 2 | 5 | 6 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260713 | 3694 | 海華 | 2 | 2 | 2 | 6 | 6 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 3694 | 海華 | 6 | 0 | 1051450.0 | 0.0 |  | call_inflow |
+| 20260713 | 3694 | 海華 | 6 | 0 | 1748110.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

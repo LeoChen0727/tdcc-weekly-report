@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3550 聯穎
 
 ## Metadata
-- generated_at: 2026-07-13 22:27:49 Asia/Taipei
+- generated_at: 2026-07-14 22:26:52 Asia/Taipei
 - stock_id: 3550
 - stock_name: 聯穎
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 301
+- latest_price_date: 20260713
+- price_rows: 302
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 29.5
-- high: 29.5
-- low: 28
-- close: 28.2
-- volume: 2142545
-- ma5: 30.39
-- ema23_primary: 30.21
-- distance_to_ema23_pct: -6.66
-- ma20: 32.16
-- ma60: 24.9
-- ma120: 21.19
-- return_5d: -23.16
-- return_20d: -0.88
-- volume_ratio: 0.23
-- distance_to_ma20_pct_auxiliary: -12.32
-- distance_to_high_60_pct: -28.97
+- date: 20260713
+- open: 28.55
+- high: 28.6
+- low: 26.7
+- close: 27
+- volume: 3402594
+- ma5: 29.11
+- ema23_primary: 29.94
+- distance_to_ema23_pct: -9.83
+- ma20: 32.08
+- ma60: 25.02
+- ma120: 21.28
+- return_5d: -19.16
+- return_20d: -5.59
+- volume_ratio: 0.4
+- distance_to_ma20_pct_auxiliary: -15.84
+- distance_to_high_60_pct: -31.99
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,30,30.1,27,28.6,22256002,22.91,24.83,22.3,20.6,3.81
 20260612,30.2,30.5,28.35,29.05,11919158,23.42,24.03,22.7,20.75,1.92
 20260615,30.1,30.4,27.9,28.05,9298925,23.81,17.82,23.07,20.89,1.41
 20260616,28,30.85,27.6,30.85,10939707,24.39,26.46,23.6,21.08,1.56
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,32.45,32.7,29,29.35,6302607,30.54,-3.89,32.03,24.62,0.59
 20260708,29.5,30.35,28.2,28.8,3204290,30.39,-5.24,32.17,24.76,0.31
 20260709,29.5,29.5,28,28.2,2142545,30.21,-6.66,32.16,24.9,0.23
+20260713,28.55,28.6,26.7,27,3402594,29.94,-9.83,32.08,25.02,0.4
 ```
 
 ## Latest TDCC Snapshot
@@ -189,12 +189,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 3550 | 聯穎 | revenue_pullback | 營收成長股價回檔 | 60.0 |  |  |  |  |  | stale_signal | 1.發生變動日期:115/07/09 2.選任或變動人員別（請輸入法人董事、法人監察人、獨立董事、自然人董事   或自然人監察人）:自然人董事 3.舊任者職稱及姓名:董事-王世宗、陳弘堯 4.舊任者簡歷:王世宗、陳弘堯：百鴻金屬科技(安福)有限公司董事 5.新任者職稱及姓名:不適用 6.新任者簡歷:不適用 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）:解任 8.異動原因:法人股東決定不設董事會，改設一名董事。 9.新任者選任時持股數:不適用 10.原任期（例xx/xx/xx ~ xx/xx/xx）:不適用 11.新任生效日期:115/07/09 12.同任期董事變動比率:2/3 13.同任期獨立董事變動比率:不適用 14.同任期監察人變動比率:不適用 15.屬三分之一以上董事發生變動（請輸入是或否）:是 16.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260713 | 3550 | 聯穎 | revenue_pullback | 營收成長股價回檔 | 60.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/07/13 2.公司名稱:昆山廣穎電線有限公司 3.與公司關係(請輸入本公司或子公司):子公司 4.相互持股比例:不適用 5.發生緣由: (1)依據金融監督管理委員會115年7月6日金管證審字第1150347406號函示辦理。 (2)本公司之子公司昆山廣穎電線有限公司因盈餘分配致財報淨值下降， 造成資金貸與超限，應訂定改善計畫。 6.因應措施: (1)本案已訂定改善計畫，並已依規定將相關改善計畫送獨立董事備查。 (2)本公司已督促子公司於6月底前還款將資金貸與餘額降至限額內， 至此改善計畫已執行完成。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 本公司擬於近期董事會報告本案，並報告改善計畫已執行完成， 且會依函示於下一次股東會報告。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 3550 | 聯穎 | 5 | 5 | 5 | 5 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260713 | 3550 | 聯穎 | 6 | 6 | 5 | 6 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

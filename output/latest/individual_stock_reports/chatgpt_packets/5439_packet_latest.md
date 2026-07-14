@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5439 高技
 
 ## Metadata
-- generated_at: 2026-07-13 22:28:16 Asia/Taipei
+- generated_at: 2026-07-14 22:27:07 Asia/Taipei
 - stock_id: 5439
 - stock_name: 高技
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 166
+- latest_price_date: 20260713
+- price_rows: 167
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 340
-- high: 348
-- low: 325.5
-- close: 325.5
-- volume: 1937000
-- ma5: 338.7
-- ema23_primary: 336.92
-- distance_to_ema23_pct: -3.39
-- ma20: 328.05
-- ma60: 366.92
-- ma120: 331.38
-- return_5d: -6.47
-- return_20d: -8.44
-- volume_ratio: 0.74
-- distance_to_ma20_pct_auxiliary: -0.78
-- distance_to_high_60_pct: -29.77
+- date: 20260713
+- open: 332.5
+- high: 332.5
+- low: 309
+- close: 310.5
+- volume: 2325000
+- ma5: 330.6
+- ema23_primary: 334.72
+- distance_to_ema23_pct: -7.24
+- ma20: 326.27
+- ma60: 365.48
+- ma120: 331.34
+- return_5d: -11.54
+- return_20d: -10.26
+- volume_ratio: 0.91
+- distance_to_ma20_pct_auxiliary: -4.83
+- distance_to_high_60_pct: -33.01
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,362,366,331.5,346,3292000,370.54,-6.62,373.57,358.03,1.58
 20260612,356,360,324.5,327,5650000,366.91,-10.88,370.38,358.94,3.28
 20260615,334.5,338,328,332,2593000,364,-8.79,367.93,359.89,1.66
 20260616,337,338.5,321,322.5,2286000,360.54,-10.55,365.1,360.41,1.48
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,349.5,353,325,331,2282000,337.96,-2.06,330.82,367.86,0.86
 20260708,333,338.5,328.5,338,1727000,337.96,0.01,329.55,367.5,0.65
 20260709,340,348,325.5,325.5,1937000,336.92,-3.39,328.05,366.92,0.74
+20260713,332.5,332.5,309,310.5,2325000,334.72,-7.24,326.27,365.48,0.91
 ```
 
 ## Latest TDCC Snapshot
@@ -189,12 +189,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 5439 | 高技 | revenue_pullback | 營收成長股價回檔 | 54.0 |  |  |  |  |  | stale_signal | 1.董事會或股東會決議日期:115/07/06 2.原發放股利種類及金額:  現金股利新台幣669,425,414元，每股配發新台幣7.2元 3.變更後發放股利種類及金額:  現金股利新台幣669,425,414元，每股配發新台幣7.19992263元 4.變更原因:  因本公司國內第一次無擔保轉換公司債轉換為普通股，致影響流通在外股份  數量，股東配息率因此發生變動，董事會授權董事長調整配息率。 5.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260713 | 5439 | 高技 | revenue_pullback | 營收成長股價回檔 | 54.0 |  |  |  |  |  | stale_signal | 1.董事會或股東會決議日期:115/07/06 2.原發放股利種類及金額:  現金股利新台幣669,425,414元，每股配發新台幣7.2元 3.變更後發放股利種類及金額:  現金股利新台幣669,425,414元，每股配發新台幣7.19992263元 4.變更原因:  因本公司國內第一次無擔保轉換公司債轉換為普通股，致影響流通在外股份  數量，股東配息率因此發生變動，董事會授權董事長調整配息率。 5.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 5439 | 高技 | 7 | 7 | 5 | 8 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260713 | 5439 | 高技 | 8 | 8 | 5 | 8 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

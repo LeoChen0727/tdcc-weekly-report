@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00922 國泰台灣領袖50
 
 ## Metadata
-- generated_at: 2026-07-13 22:26:45 Asia/Taipei
+- generated_at: 2026-07-14 22:26:16 Asia/Taipei
 - stock_id: 00922
 - stock_name: 國泰台灣領袖50
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260709
-- price_rows: 34
+- latest_price_date: 20260713
+- price_rows: 35
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 40.57
-- high: 40.91
-- low: 40.25
-- close: 40.39
-- volume: 3891276
-- ma5: 40.95
-- ema23_primary: 40.52
-- distance_to_ema23_pct: -0.31
-- ma20: 40.8
+- date: 20260713
+- open: 40.86
+- high: 41.05
+- low: 40.15
+- close: 40.35
+- volume: 5964390
+- ma5: 40.66
+- ema23_primary: 40.5
+- distance_to_ema23_pct: -0.38
+- ma20: 40.91
 - ma60: 40.14
 - ma120: 40.14
-- return_5d: -3.51
-- return_20d: 5.35
-- volume_ratio: 0.36
-- distance_to_ma20_pct_auxiliary: -1.01
-- distance_to_high_60_pct: -6.16
+- return_5d: -3.38
+- return_20d: 5.71
+- volume_ratio: 0.57
+- distance_to_ma20_pct_auxiliary: -1.37
+- distance_to_high_60_pct: -6.25
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,38.04,38.48,37.23,38.17,14780205,38.54,-0.97,39.12,39.12,1.02
 20260612,39.54,39.61,38.9,38.97,6263646,38.58,1.02,39.11,39.11,0.45
 20260615,40.14,40.36,39.99,40.17,10400132,38.71,3.77,39.17,39.17,0.76
 20260616,40.42,40.55,40.19,40.48,7501204,38.86,4.17,39.25,39.25,0.56
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,41.73,41.79,40.42,40.53,10807494,40.53,-0.01,40.66,40.12,0.93
 20260708,40.64,40.72,40.1,40.48,6497878,40.53,-0.12,40.7,40.13,0.56
 20260709,40.57,40.91,40.25,40.39,3891276,40.52,-0.31,40.8,40.14,0.36
+20260713,40.86,41.05,40.15,40.35,5964390,40.5,-0.38,40.91,40.14,0.57
 ```
 
 ## Latest TDCC Snapshot

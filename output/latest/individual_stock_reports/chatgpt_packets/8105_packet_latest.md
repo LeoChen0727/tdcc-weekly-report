@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8105 凌巨
 
 ## Metadata
-- generated_at: 2026-07-13 22:29:05 Asia/Taipei
+- generated_at: 2026-07-14 22:27:35 Asia/Taipei
 - stock_id: 8105
 - stock_name: 凌巨
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 301
+- latest_price_date: 20260713
+- price_rows: 302
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 20.55
-- high: 20.8
-- low: 19.9
-- close: 20.25
-- volume: 5040578
-- ma5: 20.97
-- ema23_primary: 21.13
-- distance_to_ema23_pct: -4.14
-- ma20: 21.96
-- ma60: 17.96
-- ma120: 15.55
-- return_5d: -8.58
-- return_20d: -2.17
-- volume_ratio: 0.28
-- distance_to_ma20_pct_auxiliary: -7.81
-- distance_to_high_60_pct: -21.36
+- date: 20260713
+- open: 20.25
+- high: 20.4
+- low: 18.65
+- close: 18.9
+- volume: 8754847
+- ma5: 20.4
+- ema23_primary: 20.94
+- distance_to_ema23_pct: -9.74
+- ma20: 21.89
+- ma60: 18.04
+- ma120: 15.59
+- return_5d: -13.1
+- return_20d: -7.58
+- volume_ratio: 0.49
+- distance_to_ma20_pct_auxiliary: -13.65
+- distance_to_high_60_pct: -26.6
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,20.05,21.45,19.8,20.45,17391598,18.27,11.92,18.27,15.2,1.01
 20260612,20.95,22.45,20.95,22.45,41332909,18.62,20.57,18.61,15.36,2.22
 20260615,22.8,22.95,21.3,21.4,33846926,18.85,13.52,18.89,15.48,1.69
 20260616,21.55,21.8,20.9,21.7,15874652,19.09,13.68,19.19,15.62,0.77
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,22.2,22.2,20.25,20.55,8406391,21.28,-3.44,22.05,17.76,0.4
 20260708,20.65,20.75,19.9,20.35,5394230,21.2,-4.03,21.99,17.86,0.27
 20260709,20.55,20.8,19.9,20.25,5040578,21.13,-4.14,21.96,17.96,0.28
+20260713,20.25,20.4,18.65,18.9,8754847,20.94,-9.74,21.89,18.04,0.49
 ```
 
 ## Latest TDCC Snapshot
@@ -199,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 8105 | 凌巨 | 5 | 0 | 0.0 | 0.0 |  | no_signal |
+| 20260713 | 8105 | 凌巨 | 5 | 0 | 0.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

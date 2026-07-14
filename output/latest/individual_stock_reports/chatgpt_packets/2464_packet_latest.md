@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2464 盟立
 
 ## Metadata
-- generated_at: 2026-07-13 22:27:19 Asia/Taipei
+- generated_at: 2026-07-14 22:26:35 Asia/Taipei
 - stock_id: 2464
 - stock_name: 盟立
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 301
+- latest_price_date: 20260713
+- price_rows: 302
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 160
-- high: 166.5
-- low: 158
-- close: 161.5
-- volume: 7582607
-- ma5: 164.7
-- ema23_primary: 164.8
-- distance_to_ema23_pct: -2
-- ma20: 167.32
-- ma60: 141.53
-- ma120: 105.78
-- return_5d: -11.99
-- return_20d: 10.62
-- volume_ratio: 0.49
-- distance_to_ma20_pct_auxiliary: -3.48
-- distance_to_high_60_pct: -21.79
+- date: 20260713
+- open: 164.5
+- high: 176
+- low: 163.5
+- close: 166
+- volume: 13922325
+- ma5: 163.4
+- ema23_primary: 164.9
+- distance_to_ema23_pct: 0.67
+- ma20: 168.53
+- ma60: 143.05
+- ma120: 106.59
+- return_5d: -3.77
+- return_20d: 16.9
+- volume_ratio: 0.88
+- distance_to_ma20_pct_auxiliary: -1.5
+- distance_to_high_60_pct: -19.61
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,148,148.5,135,142,10575713,149.29,-4.88,157.35,110.81,0.48
 20260612,149.5,153,145,149,10717398,149.26,-0.18,158.47,111.98,0.5
 20260615,163.5,163.5,163.5,163.5,2402887,150.45,8.67,159.7,113.38,0.13
 20260616,179.5,179.5,179.5,179.5,3275902,152.87,17.42,161.93,115.09,0.2
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,170,171.5,159,161,9025724,165.6,-2.78,166.07,138.59,0.54
 20260708,161,161.5,156,159.5,5360678,165.09,-3.39,166.55,140.09,0.34
 20260709,160,166.5,158,161.5,7582607,164.8,-2,167.32,141.53,0.49
+20260713,164.5,176,163.5,166,13922325,164.9,0.67,168.53,143.05,0.88
 ```
 
 ## Latest TDCC Snapshot
@@ -188,17 +188,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 2464 | 盟立 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.董事會決議日期:115/07/09 2.減資緣由:因原獲配限制員工權利新股之員工未達既得條件， 將收回之限制員工權利新股辦理註銷減資。 3.減資金額:新台幣500,000元 4.消除股份:50,000股 5.減資比率:0.024% 6.減資後股本:新台幣2,063,812,260元 7.預定股東會日期:不適用 8.預計減資新股上市後之上市普通股股數:不適用 9.預計減資新股上市後之上市普通股股數占已發行普通股比率 （減資後上市普通股股數/減資後已發行普通股股數）:不適用 10.前二項預計減資後上巿普通股股數未達6000萬股且未達25%者， 請說明股權流通性偏低之因應措施:不適用 11.減資基準日:115/07/09 12.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260713 | 2464 | 盟立 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | call_inflow | stale_signal | 1.董事會決議日期:115/07/09 2.減資緣由:因原獲配限制員工權利新股之員工未達既得條件， 將收回之限制員工權利新股辦理註銷減資。 3.減資金額:新台幣500,000元 4.消除股份:50,000股 5.減資比率:0.024% 6.減資後股本:新台幣2,063,812,260元 7.預定股東會日期:不適用 8.預計減資新股上市後之上市普通股股數:不適用 9.預計減資新股上市後之上市普通股股數占已發行普通股比率 （減資後上市普通股股數/減資後已發行普通股股數）:不適用 10.前二項預計減資後上巿普通股股數未達6000萬股且未達25%者， 請說明股權流通性偏低之因應措施:不適用 11.減資基準日:115/07/09 12.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260713 | 2464 | 盟立 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_inflow | stale_signal | 1.董事會決議日期:115/07/09 2.減資緣由:因原獲配限制員工權利新股之員工未達既得條件， 將收回之限制員工權利新股辦理註銷減資。 3.減資金額:新台幣500,000元 4.消除股份:50,000股 5.減資比率:0.024% 6.減資後股本:新台幣2,063,812,260元 7.預定股東會日期:不適用 8.預計減資新股上市後之上市普通股股數:不適用 9.預計減資新股上市後之上市普通股股數占已發行普通股比率 （減資後上市普通股股數/減資後已發行普通股股數）:不適用 10.前二項預計減資後上巿普通股股數未達6000萬股且未達25%者， 請說明股權流通性偏低之因應措施:不適用 11.減資基準日:115/07/09 12.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 2464 | 盟立 | 5 | 5 | 5 | 9 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260713 | 2464 | 盟立 | 6 | 6 | 5 | 9 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 2464 | 盟立 | 113 | 4 | 11125740.0 | 289650.0 | 38.41 | no_signal |
+| 20260713 | 2464 | 盟立 | 112 | 4 | 17859940.0 | 130710.0 | 136.64 | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

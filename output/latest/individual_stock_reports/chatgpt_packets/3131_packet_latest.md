@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3131 弘塑
 
 ## Metadata
-- generated_at: 2026-07-13 22:27:38 Asia/Taipei
+- generated_at: 2026-07-14 22:26:46 Asia/Taipei
 - stock_id: 3131
 - stock_name: 弘塑
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 166
+- latest_price_date: 20260713
+- price_rows: 167
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 3145
-- high: 3420
-- low: 3110
-- close: 3305
-- volume: 505000
-- ma5: 3362
-- ema23_primary: 3388.29
-- distance_to_ema23_pct: -2.46
-- ma20: 3435.5
-- ma60: 3198.33
-- ma120: 2643.25
-- return_5d: -15.36
-- return_20d: 6.44
-- volume_ratio: 1.14
-- distance_to_ma20_pct_auxiliary: -3.8
-- distance_to_high_60_pct: -18.29
+- date: 20260713
+- open: 3300
+- high: 3360
+- low: 3190
+- close: 3210
+- volume: 317000
+- ma5: 3247
+- ema23_primary: 3373.43
+- distance_to_ema23_pct: -4.84
+- ma20: 3444.25
+- ma60: 3198.17
+- ma120: 2654.79
+- return_5d: -15.19
+- return_20d: 5.77
+- volume_ratio: 0.71
+- distance_to_ma20_pct_auxiliary: -6.8
+- distance_to_high_60_pct: -20.64
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,3105,3120,2860,3035,311000,3101.06,-2.13,3066.75,2994.25,0.17
 20260612,3220,3310,3150,3230,489000,3111.81,3.8,3084.75,3012.58,0.27
 20260615,3300,3385,3215,3215,360000,3120.4,3.03,3106.75,3028.25,0.2
 20260616,3295,3320,3230,3315,195000,3136.62,5.69,3143.5,3045.83,0.11
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,3425,3455,3160,3185,503000,3421.84,-6.92,3428.25,3204.25,1.17
 20260708,3140,3180,3045,3110,653000,3395.86,-8.42,3425.5,3198,1.48
 20260709,3145,3420,3110,3305,505000,3388.29,-2.46,3435.5,3198.33,1.14
+20260713,3300,3360,3190,3210,317000,3373.43,-4.84,3444.25,3198.17,0.71
 ```
 
 ## Latest TDCC Snapshot

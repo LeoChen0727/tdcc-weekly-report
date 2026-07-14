@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0083 國泰費城半導體
 
 ## Metadata
-- generated_at: 2026-07-13 22:26:43 Asia/Taipei
+- generated_at: 2026-07-14 22:26:16 Asia/Taipei
 - stock_id: 0083
 - stock_name: 國泰費城半導體
 - packet_status: insufficient_price_data
@@ -170,7 +170,7 @@ no_rows,True
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 0083 | 國泰費城半導體 | 24 | 14 | 1890860.0 | 1536480.0 | 1.23 | put_inflow |
+| 20260713 | 0083 | 國泰費城半導體 | 24 | 14 | 3254690.0 | 1416380.0 | 2.3 | mixed_flow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

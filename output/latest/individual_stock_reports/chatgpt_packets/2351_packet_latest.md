@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2351 順德
 
 ## Metadata
-- generated_at: 2026-07-13 22:27:12 Asia/Taipei
+- generated_at: 2026-07-14 22:26:31 Asia/Taipei
 - stock_id: 2351
 - stock_name: 順德
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 301
+- latest_price_date: 20260713
+- price_rows: 302
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 204.5
-- high: 208
-- low: 198
-- close: 200
-- volume: 3947186
-- ma5: 210.5
-- ema23_primary: 202.04
-- distance_to_ema23_pct: -1.01
-- ma20: 200.72
-- ma60: 183.91
-- ma120: 137.19
-- return_5d: -6.1
-- return_20d: 14.29
-- volume_ratio: 0.47
-- distance_to_ma20_pct_auxiliary: -0.36
-- distance_to_high_60_pct: -14.16
+- date: 20260713
+- open: 213
+- high: 215
+- low: 207
+- close: 210.5
+- volume: 8160783
+- ma5: 211.1
+- ema23_primary: 202.75
+- distance_to_ema23_pct: 3.82
+- ma20: 202.25
+- ma60: 185.4
+- ma120: 138.3
+- return_5d: 1.45
+- return_20d: 16.94
+- volume_ratio: 0.94
+- distance_to_ma20_pct_auxiliary: 4.08
+- distance_to_high_60_pct: -9.66
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,180,183,173.5,180,4492925,188.27,-4.39,195.65,153.12,0.59
 20260612,189.5,189.5,181.5,183,2501051,187.83,-2.57,195.8,154.6,0.33
 20260615,186.5,188,182,184,2273644,187.51,-1.87,195.97,156.04,0.31
 20260616,185,185.5,174.5,176,3194349,186.55,-5.66,196.1,157.41,0.45
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,231.5,233,211.5,213.5,14718441,202.11,5.64,198.93,181.28,1.69
 20260708,216.5,216.5,199.5,203.5,6609701,202.23,0.63,199.47,182.62,0.76
 20260709,204.5,208,198,200,3947186,202.04,-1.01,200.72,183.91,0.47
+20260713,213,215,207,210.5,8160783,202.75,3.82,202.25,185.4,0.94
 ```
 
 ## Latest TDCC Snapshot
@@ -189,18 +189,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 2351 | 順德 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.事實發生日:115/06/26 2.發生緣由:依櫃買中心通知辦理 3.公司債相關資訊: 到期日期:117/06/17 實際發行總額:1,200,000,000 本月發行餘額:361,700,000 (截至115/06/26未轉換金額) 最新轉(交)換價格:72.4 轉換標的收市價格(2351):196.5(115/06/26 收盤價) 可轉債收市價格(23511):276(115/06/26 收盤價) 4.其他應敘明事項: 「櫃買中心對有價證券上櫃公司重大訊息之查證暨公開處理程序」 第四條所列重大訊息之情事:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
-| 20260709 | 2351 | 順德 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/06/26 2.發生緣由:依櫃買中心通知辦理 3.公司債相關資訊: 到期日期:117/06/17 實際發行總額:1,200,000,000 本月發行餘額:361,700,000 (截至115/06/26未轉換金額) 最新轉(交)換價格:72.4 轉換標的收市價格(2351):196.5(115/06/26 收盤價) 可轉債收市價格(23511):276(115/06/26 收盤價) 4.其他應敘明事項: 「櫃買中心對有價證券上櫃公司重大訊息之查證暨公開處理程序」 第四條所列重大訊息之情事:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260713 | 2351 | 順德 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_inflow | repeated_but_no_breakout | 1.事實發生日:115/06/26 2.發生緣由:依櫃買中心通知辦理 3.公司債相關資訊: 到期日期:117/06/17 實際發行總額:1,200,000,000 本月發行餘額:361,700,000 (截至115/06/26未轉換金額) 最新轉(交)換價格:72.4 轉換標的收市價格(2351):196.5(115/06/26 收盤價) 可轉債收市價格(23511):276(115/06/26 收盤價) 4.其他應敘明事項: 「櫃買中心對有價證券上櫃公司重大訊息之查證暨公開處理程序」 第四條所列重大訊息之情事:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260713 | 2351 | 順德 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | call_inflow | repeated_but_no_breakout | 1.事實發生日:115/06/26 2.發生緣由:依櫃買中心通知辦理 3.公司債相關資訊: 到期日期:117/06/17 實際發行總額:1,200,000,000 本月發行餘額:361,700,000 (截至115/06/26未轉換金額) 最新轉(交)換價格:72.4 轉換標的收市價格(2351):196.5(115/06/26 收盤價) 可轉債收市價格(23511):276(115/06/26 收盤價) 4.其他應敘明事項: 「櫃買中心對有價證券上櫃公司重大訊息之查證暨公開處理程序」 第四條所列重大訊息之情事:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 2351 | 順德 | 4 | 3 | 4 | 9 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260713 | 2351 | 順德 | 5 | 4 | 5 | 9 | 19 | repeated_but_no_breakout | 近 10 日上榜 9 次、近 20 日上榜 19 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 2351 | 順德 | 83 | 0 | 10176300.0 | 0.0 |  | no_signal |
+| 20260713 | 2351 | 順德 | 86 | 0 | 20099090.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

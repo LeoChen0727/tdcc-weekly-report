@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7086 臺慶科台新5B購02
 
 ## Metadata
-- generated_at: 2026-07-13 22:28:54 Asia/Taipei
+- generated_at: 2026-07-14 22:27:29 Asia/Taipei
 - stock_id: 7086
 - stock_name: 臺慶科台新5B購02
 - packet_status: partial_rawdata_packet

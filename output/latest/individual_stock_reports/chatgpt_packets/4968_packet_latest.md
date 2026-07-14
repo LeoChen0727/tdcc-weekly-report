@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4968 立積
 
 ## Metadata
-- generated_at: 2026-07-13 22:28:09 Asia/Taipei
+- generated_at: 2026-07-14 22:27:03 Asia/Taipei
 - stock_id: 4968
 - stock_name: 立積
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 301
-- latest_tdcc_date: 20260703
-- tdcc_rows: 10
+- latest_price_date: 20260713
+- price_rows: 302
+- latest_tdcc_date: 20260709
+- tdcc_rows: 11
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 115
-- high: 115
-- low: 111
-- close: 111.5
-- volume: 630948
-- ma5: 114.7
-- ema23_primary: 114.02
-- distance_to_ema23_pct: -2.21
-- ma20: 113.17
-- ma60: 115.4
-- ma120: 115.33
-- return_5d: -3.88
-- return_20d: 5.19
-- volume_ratio: 0.64
-- distance_to_ma20_pct_auxiliary: -1.48
-- distance_to_high_60_pct: -16.79
+- date: 20260713
+- open: 110.5
+- high: 112
+- low: 108
+- close: 108.5
+- volume: 417261
+- ma5: 112.9
+- ema23_primary: 113.56
+- distance_to_ema23_pct: -4.45
+- ma20: 113.4
+- ma60: 115.44
+- ma120: 115.17
+- return_5d: -7.66
+- return_20d: 4.33
+- volume_ratio: 0.43
+- distance_to_ma20_pct_auxiliary: -4.32
+- distance_to_high_60_pct: -19.03
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,105,107.5,103,104,582402,113.51,-8.38,114.03,112.95,0.51
 20260612,107,109.5,106.5,107,582215,112.97,-5.28,113.8,112.97,0.52
 20260615,109.5,110.5,108,109.5,676713,112.68,-2.82,113.72,113,0.61
 20260616,110,111,107,107,440851,112.2,-4.64,113.58,113.03,0.41
@@ -155,19 +154,20 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,119,120,112.5,113,944426,114.31,-1.15,112.72,115.17,0.96
 20260708,114,116,112.5,113.5,630345,114.24,-0.65,112.9,115.31,0.64
 20260709,115,115,111,111.5,630948,114.02,-2.21,113.17,115.4,0.64
+20260713,110.5,112,108,108.5,417261,113.56,-4.45,113.4,115.44,0.43
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260703
-- over_400_ratio: 19.76
-- over_600_ratio: 14.93
-- over_800_ratio: 10.52
-- over_1000_ratio: 10.52
-- over_400_change_1w: 0.38
-- over_800_change_1w: 0.08
-- over_1000_change_1w: 0.08
-- tdcc_consecutive_up_weeks: 8
-- all_thresholds_up: False
+- as_of_date: 20260709
+- over_400_ratio: 20.33
+- over_600_ratio: 15.77
+- over_800_ratio: 10.55
+- over_1000_ratio: 10.55
+- over_400_change_1w: 0.57
+- over_800_change_1w: 0.03
+- over_1000_change_1w: 0.03
+- tdcc_consecutive_up_weeks: 9
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -184,6 +184,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260618,17.32,0.72,10.22,0.23,10.22,0.23,6,False,True
 20260626,19.38,2.06,10.44,0.22,10.44,0.22,7,True,True
 20260703,19.76,0.38,10.52,0.08,10.52,0.08,8,False,True
+20260709,20.33,0.57,10.55,0.03,10.55,0.03,9,True,True
 ```
 
 ## Candidate Context
@@ -199,7 +200,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 4968 | 立積 | 29 | 3 | 454480.0 | 0.0 |  | no_signal |
+| 20260713 | 4968 | 立積 | 30 | 3 | 524420.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

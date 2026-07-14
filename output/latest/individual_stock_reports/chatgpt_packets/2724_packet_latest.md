@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2724 藝舍-KY
 
 ## Metadata
-- generated_at: 2026-07-13 22:27:26 Asia/Taipei
+- generated_at: 2026-07-14 22:26:40 Asia/Taipei
 - stock_id: 2724
 - stock_name: 藝舍-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260708
-- price_rows: 139
+- latest_price_date: 20260713
+- price_rows: 140
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260708
-- open: 11.7
-- high: 11.95
-- low: 11.7
-- close: 11.85
-- volume: 14000
-- ma5: 11.73
-- ema23_primary: 12.35
-- distance_to_ema23_pct: -4.07
-- ma20: 12.19
-- ma60: 14.22
-- ma120: 16.97
-- return_5d: -1.66
-- return_20d: -4.82
-- volume_ratio: 1.25
-- distance_to_ma20_pct_auxiliary: -2.77
-- distance_to_high_60_pct: -38.76
+- date: 20260713
+- open: 11
+- high: 11.85
+- low: 11
+- close: 11.2
+- volume: 11000
+- ma5: 11.57
+- ema23_primary: 12.26
+- distance_to_ema23_pct: -8.62
+- ma20: 12.07
+- ma60: 14.1
+- ma120: 16.9
+- return_5d: -6.67
+- return_20d: -17.04
+- volume_ratio: 1.23
+- distance_to_ma20_pct_auxiliary: -7.23
+- distance_to_high_60_pct: -42.12
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,12.85,13.5,11.7,13.5,56000,13.9,-2.89,13.58,16.49,2.13
 20260611,12.5,12.85,12.3,12.65,6000,13.8,-8.32,13.5,16.38,0.23
 20260612,13.05,13.05,12.4,12.8,6000,13.71,-6.67,13.44,16.27,0.24
 20260615,13.2,13.2,12.1,12.4,7000,13.61,-8.86,13.37,16.17,0.31
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,11.4,11.75,10.7,11.5,18000,12.45,-7.65,12.25,14.44,1.23
 20260707,11.85,11.85,11.8,11.8,2000,12.4,-4.83,12.22,14.33,0.15
 20260708,11.7,11.95,11.7,11.85,14000,12.35,-4.07,12.19,14.22,1.25
+20260713,11,11.85,11,11.2,11000,12.26,-8.62,12.07,14.1,1.23
 ```
 
 ## Latest TDCC Snapshot

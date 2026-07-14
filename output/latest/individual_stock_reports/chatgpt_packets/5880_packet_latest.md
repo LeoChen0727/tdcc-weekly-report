@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5880 合庫金
 
 ## Metadata
-- generated_at: 2026-07-13 22:28:20 Asia/Taipei
+- generated_at: 2026-07-14 22:27:09 Asia/Taipei
 - stock_id: 5880
 - stock_name: 合庫金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 301
+- latest_price_date: 20260713
+- price_rows: 302
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 25.1
-- high: 25.2
-- low: 24.95
-- close: 25.15
-- volume: 16688144
-- ma5: 24.94
-- ema23_primary: 24.49
-- distance_to_ema23_pct: 2.68
-- ma20: 24.66
-- ma60: 23.62
-- ma120: 23.62
-- return_5d: 2.44
-- return_20d: 5.67
-- volume_ratio: 0.74
-- distance_to_ma20_pct_auxiliary: 2
-- distance_to_high_60_pct: -0.2
+- date: 20260713
+- open: 25
+- high: 25.3
+- low: 25
+- close: 25.2
+- volume: 19660420
+- ma5: 25.04
+- ema23_primary: 24.55
+- distance_to_ema23_pct: 2.64
+- ma20: 24.73
+- ma60: 23.64
+- ma120: 23.63
+- return_5d: 2.02
+- return_20d: 5.66
+- volume_ratio: 0.88
+- distance_to_ma20_pct_auxiliary: 1.92
+- distance_to_high_60_pct: -0.4
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,23.9,23.9,23.6,23.85,23269984,23.22,2.71,23.05,23.22,0.88
 20260612,24.25,24.25,23.9,24.05,26503384,23.29,3.26,23.11,23.23,0.99
 20260615,24.3,24.35,24,24.15,21471650,23.36,3.37,23.19,23.25,0.79
 20260616,24.25,24.7,24.1,24.6,41356167,23.46,4.84,23.28,23.27,1.47
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,24.8,25,24.8,24.9,17111947,24.37,2.17,24.53,23.57,0.72
 20260708,24.95,25.1,24.85,25.1,25688089,24.43,2.73,24.59,23.59,1.12
 20260709,25.1,25.2,24.95,25.15,16688144,24.49,2.68,24.66,23.62,0.74
+20260713,25,25.3,25,25.2,19660420,24.55,2.64,24.73,23.64,0.88
 ```
 
 ## Latest TDCC Snapshot
@@ -188,12 +188,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 5880 | 合庫金 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | continued_many_days | 1.發生變動日期:115/07/09 2.法人名稱:中華民國農會 3.舊任者姓名: 蕭漢俊 張永成 4.舊任者簡歷: 中華民國農會理事長 中華民國農會總幹事 5.新任者姓名: 曾明瑞 黃偉特 6.新任者簡歷: 南投縣農會總幹事 羅東鎮農會理事長 7.異動原因:改派 8.原任期（例xx/xx/xx至xx/xx/xx）:115/06/18至118/06/17 9.新任生效日期:115/07/15 10.其他應敘明事項:依中華民國農會全農輔訓字第1150006570號函。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260713 | 5880 | 合庫金 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | stale_signal | 1.發生變動日期:115/07/09 2.法人名稱:中華民國農會 3.舊任者姓名: 蕭漢俊 張永成 4.舊任者簡歷: 中華民國農會理事長 中華民國農會總幹事 5.新任者姓名: 曾明瑞 黃偉特 6.新任者簡歷: 南投縣農會總幹事 羅東鎮農會理事長 7.異動原因:改派 8.原任期（例xx/xx/xx至xx/xx/xx）:115/06/18至118/06/17 9.新任生效日期:115/07/15 10.其他應敘明事項:依中華民國農會全農輔訓字第1150006570號函。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 5880 | 合庫金 | 30 | 1 | 5 | 10 | 20 | continued_many_days | 連續 30 日上榜，需區分醞釀延續或訊號鈍化。 |
+| 20260713 | 5880 | 合庫金 | 31 | 2 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

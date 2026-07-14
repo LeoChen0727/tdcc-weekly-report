@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8424 惠普
 
 ## Metadata
-- generated_at: 2026-07-13 22:29:09 Asia/Taipei
+- generated_at: 2026-07-14 22:27:37 Asia/Taipei
 - stock_id: 8424
 - stock_name: 惠普
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 160
+- latest_price_date: 20260713
+- price_rows: 161
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 68.9
+- date: 20260713
+- open: 68.6
 - high: 68.9
-- low: 68.9
+- low: 68.5
 - close: 68.9
-- volume: 2000
-- ma5: 68.94
-- ema23_primary: 69.71
-- distance_to_ema23_pct: -1.16
-- ma20: 69.03
-- ma60: 72.09
-- ma120: 73.06
+- volume: 3000
+- ma5: 68.92
+- ema23_primary: 69.64
+- distance_to_ema23_pct: -1.07
+- ma20: 69
+- ma60: 72
+- ma120: 73.03
 - return_5d: -0.14
-- return_20d: -5.75
-- volume_ratio: 0.09
-- distance_to_ma20_pct_auxiliary: -0.19
+- return_20d: -1.01
+- volume_ratio: 0.17
+- distance_to_ma20_pct_auxiliary: -0.14
 - distance_to_high_60_pct: -8.13
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,68.1,69.7,67.8,69.6,84000,72.87,-4.49,72.81,73.84,1.39
 20260612,69.7,69.9,69.4,69.7,55000,72.61,-4,72.64,73.74,0.87
 20260615,69,69.2,68.8,69.2,42000,72.32,-4.32,72.44,73.65,0.66
 20260616,69.2,69.2,68.8,68.9,36000,72.04,-4.36,72.22,73.55,0.55
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,69.4,69.4,68.7,68.9,17000,69.86,-1.38,69.44,72.27,0.5
 20260708,68.9,68.9,68.9,68.9,1000,69.78,-1.27,69.24,72.18,0.04
 20260709,68.9,68.9,68.9,68.9,2000,69.71,-1.16,69.03,72.09,0.09
+20260713,68.6,68.9,68.5,68.9,3000,69.64,-1.07,69,72,0.17
 ```
 
 ## Latest TDCC Snapshot

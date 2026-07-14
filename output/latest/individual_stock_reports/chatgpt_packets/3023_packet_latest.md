@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3023 信邦
 
 ## Metadata
-- generated_at: 2026-07-13 22:27:33 Asia/Taipei
+- generated_at: 2026-07-14 22:26:43 Asia/Taipei
 - stock_id: 3023
 - stock_name: 信邦
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 301
-- latest_tdcc_date: 20260703
-- tdcc_rows: 10
+- latest_price_date: 20260713
+- price_rows: 302
+- latest_tdcc_date: 20260709
+- tdcc_rows: 11
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 321
-- high: 333
-- low: 320.5
-- close: 326
-- volume: 1797993
-- ma5: 327.6
-- ema23_primary: 321.72
-- distance_to_ema23_pct: 1.33
-- ma20: 322.2
-- ma60: 306.99
-- ma120: 270.09
-- return_5d: -1.21
-- return_20d: 6.36
-- volume_ratio: 0.83
-- distance_to_ma20_pct_auxiliary: 1.18
-- distance_to_high_60_pct: -7.78
+- date: 20260713
+- open: 328
+- high: 332
+- low: 318
+- close: 324
+- volume: 1294551
+- ma5: 325.1
+- ema23_primary: 321.91
+- distance_to_ema23_pct: 0.65
+- ma20: 323
+- ma60: 307.92
+- ma120: 271.18
+- return_5d: -3.71
+- return_20d: 5.19
+- volume_ratio: 0.6
+- distance_to_ma20_pct_auxiliary: 0.31
+- distance_to_high_60_pct: -8.35
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,306.5,310.5,297,308,1486028,309.35,-0.44,311.52,287.31,0.61
 20260612,315.5,317,310.5,314,711992,309.73,1.38,313.18,288.46,0.3
 20260615,316,319,314,319,975813,310.51,2.74,314.43,289.6,0.43
 20260616,320,323,312,313,1198684,310.71,0.74,314.7,290.73,0.56
@@ -154,19 +153,20 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,345,349,325,325,3846533,321.49,1.09,321.7,305.25,1.67
 20260708,324.5,327.5,319,319.5,1403833,321.33,-0.57,321.23,306.02,0.63
 20260709,321,333,320.5,326,1797993,321.72,1.33,322.2,306.99,0.83
+20260713,328,332,318,324,1294551,321.91,0.65,323,307.92,0.6
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260703
-- over_400_ratio: 68.69
-- over_600_ratio: 62.21
-- over_800_ratio: 58
-- over_1000_ratio: 54.68
-- over_400_change_1w: 0.43
-- over_800_change_1w: 0.5
-- over_1000_change_1w: 1.27
-- tdcc_consecutive_up_weeks: 7
-- all_thresholds_up: True
+- as_of_date: 20260709
+- over_400_ratio: 68.54
+- over_600_ratio: 62.31
+- over_800_ratio: 58.4
+- over_1000_ratio: 55.4
+- over_400_change_1w: -0.15
+- over_800_change_1w: 0.4
+- over_1000_change_1w: 0.72
+- tdcc_consecutive_up_weeks: 8
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -183,22 +183,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260618,68.39,-0.06,57.27,-0.13,52.86,-0.47,5,False,False
 20260626,68.26,-0.13,57.5,0.23,53.41,0.55,6,False,True
 20260703,68.69,0.43,58,0.5,54.68,1.27,7,True,True
+20260709,68.54,-0.15,58.4,0.4,55.4,0.72,8,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 3023 | 信邦 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_strong_inflow | stale_signal | 1.事實發生日:115/07/06 2.公司名稱:信邦電子股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:澄清07/06工商時報 B03版 6.報導內容:信邦預期…預估信邦今年上半年每股稅後純益落在7~7.5元，全年應有 機會達14元…可望連六年獲利突破1個股本… 7.發生緣由:應證交所要求澄清上述內容 8.因應措施:本公司未自願公告財測,投資人應以本公司公告之財務數據為準,特此澄清 9.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260713 | 3023 | 信邦 | pattern | 型態觀察 | 51.0 |  |  | base_building |  | no_signal | stale_signal | 1.事實發生日:115/07/06 2.公司名稱:信邦電子股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:澄清07/06工商時報 B03版 6.報導內容:信邦預期…預估信邦今年上半年每股稅後純益落在7~7.5元，全年應有 機會達14元…可望連六年獲利突破1個股本… 7.發生緣由:應證交所要求澄清上述內容 8.因應措施:本公司未自願公告財測,投資人應以本公司公告之財務數據為準,特此澄清 9.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 3023 | 信邦 | 9 | 4 | 5 | 9 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260713 | 3023 | 信邦 | 10 | 5 | 5 | 10 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 3023 | 信邦 | 17 | 0 | 4004320.0 | 0.0 |  | call_strong_inflow |
+| 20260713 | 3023 | 信邦 | 17 | 0 | 1440600.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

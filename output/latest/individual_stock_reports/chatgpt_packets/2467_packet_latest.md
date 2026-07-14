@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2467 志聖
 
 ## Metadata
-- generated_at: 2026-07-13 22:27:19 Asia/Taipei
+- generated_at: 2026-07-14 22:26:35 Asia/Taipei
 - stock_id: 2467
 - stock_name: 志聖
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 301
+- latest_price_date: 20260713
+- price_rows: 302
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 552
-- high: 575
-- low: 537
-- close: 556
-- volume: 1829197
-- ma5: 598.2
-- ema23_primary: 595.6
-- distance_to_ema23_pct: -6.65
-- ma20: 592.25
-- ma60: 586.02
-- ma120: 459.4
-- return_5d: -15.5
-- return_20d: 2.96
-- volume_ratio: 0.99
-- distance_to_ma20_pct_auxiliary: -6.12
-- distance_to_high_60_pct: -19.65
+- date: 20260713
+- open: 580
+- high: 609
+- low: 577
+- close: 595
+- volume: 2269356
+- ma5: 594.2
+- ema23_primary: 595.55
+- distance_to_ema23_pct: -0.09
+- ma20: 594.9
+- ma60: 587.44
+- ma120: 462.16
+- return_5d: -3.25
+- return_20d: 9.78
+- volume_ratio: 1.2
+- distance_to_ma20_pct_auxiliary: 0.02
+- distance_to_high_60_pct: -14.02
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,530,553,520,542,1427345,585.36,-7.41,599.65,532.02,0.59
 20260612,573,573,548,552,989861,582.58,-5.25,597.9,534.94,0.42
 20260615,570,580,568,576,957211,582.03,-1.04,597,537.86,0.41
 20260616,590,594,564,564,1204735,580.53,-2.85,596.4,541.07,0.52
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,655,671,607,613,2312038,603.49,1.58,592.55,585.84,1.31
 20260708,625,625,552,552,3439277,599.2,-7.88,591.45,585.89,1.87
 20260709,552,575,537,556,1829197,595.6,-6.65,592.25,586.02,0.99
+20260713,580,609,577,595,2269356,595.55,-0.09,594.9,587.44,1.2
 ```
 
 ## Latest TDCC Snapshot
@@ -188,18 +189,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 2467 | 志聖 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | repeated_but_no_breakout | 1.董事會決議或公司決定日期:115/07/09 2.原現金股利發放日:115/07/13 3.變更後現金股利發放日:115/07/14 4.變更原因: 本公司現金股利原訂於115年7月13日發放，因受颱風停班影響， 致金融機構作業日程需順延，現金股利發放日將依停班天數順延發放。 5.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
-| 20260709 | 2467 | 志聖 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | repeated_but_no_breakout | 1.董事會決議或公司決定日期:115/07/09 2.原現金股利發放日:115/07/13 3.變更後現金股利發放日:115/07/14 4.變更原因: 本公司現金股利原訂於115年7月13日發放，因受颱風停班影響， 致金融機構作業日程需順延，現金股利發放日將依停班天數順延發放。 5.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260713 | 2467 | 志聖 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | call_inflow | repeated_but_no_breakout | 1.事實發生日:115/07/13 2.公司名稱:志聖工業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:本公司115年Q2累計合併稅後自結損益，其中歸屬於本公司業主之 稅後淨利為11.06億元，每股盈餘7.16元。                                    115年Q2            115年Q2累計                                 ---------------      --------------- 合併營業收入：                       27.83億              50.44億 合併稅前淨利：                        8.78億              14.92億 合併本期淨利：                        6.69億              11.51億 本期淨利歸屬於母公司業主:              6.40億              11.06億 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260713 | 2467 | 志聖 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | call_inflow | repeated_but_no_breakout | 1.事實發生日:115/07/13 2.公司名稱:志聖工業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:本公司115年Q2累計合併稅後自結損益，其中歸屬於本公司業主之 稅後淨利為11.06億元，每股盈餘7.16元。                                    115年Q2            115年Q2累計                                 ---------------      --------------- 合併營業收入：                       27.83億              50.44億 合併稅前淨利：                        8.78億              14.92億 合併本期淨利：                        6.69億              11.51億 本期淨利歸屬於母公司業主:              6.40億              11.06億 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 2467 | 志聖 | 10 | 5 | 5 | 10 | 17 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 17 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260713 | 2467 | 志聖 | 11 | 6 | 5 | 10 | 17 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 17 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 2467 | 志聖 | 55 | 0 | 5850520.0 | 0.0 |  | no_signal |
+| 20260713 | 2467 | 志聖 | 55 | 0 | 9602390.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

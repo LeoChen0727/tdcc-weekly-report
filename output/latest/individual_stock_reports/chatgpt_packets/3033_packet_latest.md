@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3033 威健
 
 ## Metadata
-- generated_at: 2026-07-13 22:27:34 Asia/Taipei
+- generated_at: 2026-07-14 22:26:44 Asia/Taipei
 - stock_id: 3033
 - stock_name: 威健
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 301
-- latest_tdcc_date: 20260703
-- tdcc_rows: 10
+- latest_price_date: 20260713
+- price_rows: 302
+- latest_tdcc_date: 20260709
+- tdcc_rows: 11
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 49.9
-- high: 50.6
-- low: 49.3
-- close: 49.6
-- volume: 3135282
-- ma5: 49.88
-- ema23_primary: 49.42
-- distance_to_ema23_pct: 0.36
-- ma20: 49.68
-- ma60: 45.84
-- ma120: 38.73
-- return_5d: -1.59
-- return_20d: -1.2
-- volume_ratio: 0.5
-- distance_to_ma20_pct_auxiliary: -0.16
-- distance_to_high_60_pct: -10.31
+- date: 20260713
+- open: 51.3
+- high: 54.3
+- low: 50.4
+- close: 50.9
+- volume: 25713816
+- ma5: 49.98
+- ema23_primary: 49.55
+- distance_to_ema23_pct: 2.73
+- ma20: 49.74
+- ma60: 46.12
+- ma120: 38.88
+- return_5d: 0.99
+- return_20d: 2.41
+- volume_ratio: 3.62
+- distance_to_ma20_pct_auxiliary: 2.34
+- distance_to_high_60_pct: -7.96
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,49.9,50.4,48.25,49.7,9290157,48.17,3.18,50.13,40.67,0.44
 20260612,51,51.5,49.6,49.6,7972925,48.29,2.72,50.22,40.94,0.4
 20260615,50.6,50.8,49.5,49.6,6504894,48.4,2.49,50.26,41.19,0.35
 20260616,49.9,49.9,48.7,48.8,5422270,48.43,0.77,50.26,41.42,0.31
@@ -155,19 +154,20 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,50.8,51.1,49.3,49.4,4374999,49.39,0.02,49.78,45.33,0.54
 20260708,49.8,49.95,48.85,49.6,2526868,49.41,0.39,49.71,45.58,0.35
 20260709,49.9,50.6,49.3,49.6,3135282,49.42,0.36,49.68,45.84,0.5
+20260713,51.3,54.3,50.4,50.9,25713816,49.55,2.73,49.74,46.12,3.62
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260703
-- over_400_ratio: 42.16
-- over_600_ratio: 39.42
-- over_800_ratio: 37.33
-- over_1000_ratio: 35.77
-- over_400_change_1w: 0.85
-- over_800_change_1w: 1
-- over_1000_change_1w: 0.98
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: True
+- as_of_date: 20260709
+- over_400_ratio: 42.47
+- over_600_ratio: 39.41
+- over_800_ratio: 37.9
+- over_1000_ratio: 36.2
+- over_400_change_1w: 0.31
+- over_800_change_1w: 0.57
+- over_1000_change_1w: 0.43
+- tdcc_consecutive_up_weeks: 4
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -184,22 +184,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260618,41.08,0,36.24,0.43,34.35,0.09,1,False,True
 20260626,41.31,0.23,36.33,0.09,34.79,0.44,2,True,True
 20260703,42.16,0.85,37.33,1,35.77,0.98,3,True,True
+20260709,42.47,0.31,37.9,0.57,36.2,0.43,4,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 3033 | 威健 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | no_signal | stale_signal | 1.股東常會日期:115/06/18 2.重要決議事項一、盈餘分配或盈虧撥補:通過本公司114年度盈餘分配案 3.重要決議事項二、章程修訂:通過修訂本公司「公司章程」部分條文案 4.重要決議事項三、營業報告書及財務報表:通過本公司114年度營業報告書及財務報告案 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項:無 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260713 | 3033 | 威健 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | call_strong_inflow | repeated_but_no_breakout | 1.事實發生日:115/07/13 2.被背書保證之: (1)公司名稱:Weikeng International Co., Ltd.(WKI) (2)與提供背書保證公司之關係: 母子公司 (3)背書保證之限額(仟元):15,974,337 (4)原背書保證之餘額(仟元):10,332,950 (5)本次新增背書保證之金額(仟元):321,500 (6)迄事實發生日止背書保證餘額(仟元):10,654,450 (7)被背書保證公司實際動支金額(仟元):8,076,872 (8)本次新增背書保證之原因: 因子公司WKI營運資金需求下,向台中銀行申請融資 額度(續約+新約),該銀行要求母公司威健實業股份有 限公司為子公司擔保,故背書保證金額增加. (1)公司名稱:WEIKENG TECHNOLOGY PTE LTD. (WTP) (2)與提供背書保證公司之關係: 母子公司 (3)背書保證之限額(仟元):15,974,337 (4)原背書保證之餘額(仟元):1,221,700 (5)本次新增背書保證之金額(仟元):578,700 (6)迄事實發生日止背書保證餘額(仟元):1,800,400 (7)被背書保證公司實際動支金額(仟元):992,637 (8)本次新增背書保證之原因: 因子公司WTP營運資金需求下,向匯豐銀行等申請 融資額度(續約+新約),該銀行要求母公司威健實業 股份有限公司為子公司擔保,故背書保證金額增加. 3.被背書保證公司提供擔保品之: (1)內容: 無 (2)價值(仟元):0 4.被背書保證公司最近期財務報表之: (1)資本(仟元):2,506,772 (2)累積盈虧金額(仟元):5,653,175 5.解除背書保證責任之: (1)條件: 子公司與銀行之授信契約到期,已無任何借貸行為且不續約, 即背書保證責任之解除. (2)日期: 解除日期：115/5   USD38,500,000.00    NTD500,000,000             115/6   USD10,000,000.00 6.背書保證之總限額(仟元): 31,948,674 7.迄事實發生日為止，背書保證餘額(仟元): 17,097,020 8.迄事實發生日為止，A提供背書保證餘額占公開發行公司最近期財務報表淨值之 比率: 160.54 9.迄事實發生日為止，背書保證、長期投資及資金貸與餘額合計數達該公開發行公 司最近期財務報表淨值之比率: 160.54 10.其他應敘明事項: WKI資本額：2,171,313仟元  WKI累積盈虧：5,512,109仟元 WTP資本額：335,459仟元    WTP累積盈虧：141,066仟元 新約(係指原舊約續展)董事會已先行通過,致舊約尚未到期之銀行背書保證額度重疊 其金額分別為：WKI：803,750仟元(115/7到期NTD160,750仟元,                              115/8到期NTD385,800仟元,                              115/10到期NTD257,200仟元)              WTP：160,750仟元(115/8到期NTD64,300仟元,                               115/10到期NTD96,450仟元)              WKS：661,780仟元(115/7到期NTD330,890仟元,                              115/9到期NTD330,890仟元)；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 3033 | 威健 | 19 | 6 | 5 | 10 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260713 | 3033 | 威健 | 20 | 7 | 5 | 10 | 20 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 20 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 3033 | 威健 | 32 | 0 | 2435700.0 | 0.0 |  | no_signal |
+| 20260713 | 3033 | 威健 | 32 | 0 | 8326730.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

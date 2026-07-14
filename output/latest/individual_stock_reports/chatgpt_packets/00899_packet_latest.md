@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00899 FT潔淨能源
 
 ## Metadata
-- generated_at: 2026-07-13 22:26:44 Asia/Taipei
+- generated_at: 2026-07-14 22:26:16 Asia/Taipei
 - stock_id: 00899
 - stock_name: FT潔淨能源
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260709
-- price_rows: 34
+- latest_price_date: 20260713
+- price_rows: 35
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 25.26
-- high: 25.4
-- low: 25.26
-- close: 25.33
-- volume: 34935
-- ma5: 25.84
-- ema23_primary: 26.58
-- distance_to_ema23_pct: -4.71
-- ma20: 26.31
-- ma60: 27.37
-- ma120: 27.37
-- return_5d: -3.98
-- return_20d: -5.84
-- volume_ratio: 0.23
-- distance_to_ma20_pct_auxiliary: -3.73
-- distance_to_high_60_pct: -15.88
+- date: 20260713
+- open: 25
+- high: 25.1
+- low: 25
+- close: 25
+- volume: 132755
+- ma5: 25.61
+- ema23_primary: 26.45
+- distance_to_ema23_pct: -5.48
+- ma20: 26.25
+- ma60: 27.3
+- ma120: 27.3
+- return_5d: -4.47
+- return_20d: -4.91
+- volume_ratio: 0.88
+- distance_to_ma20_pct_auxiliary: -4.75
+- distance_to_high_60_pct: -16.97
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,26.36,26.36,26.16,26.29,168364,28.39,-7.41,28.71,28.71,1.05
 20260612,26.56,26.75,26.56,26.7,76573,28.25,-5.49,28.58,28.58,0.49
 20260615,26.96,27.12,26.8,27.12,64160,28.16,-3.68,28.5,28.5,0.43
 20260616,27.08,27.08,26.82,26.88,85422,28.05,-4.17,28.41,28.41,0.58
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,26.13,26.23,26.13,26.18,203249,26.8,-2.33,26.49,27.49,1.17
 20260708,25.78,25.78,25.5,25.51,84653,26.7,-4.44,26.39,27.43,0.49
 20260709,25.26,25.4,25.26,25.33,34935,26.58,-4.71,26.31,27.37,0.23
+20260713,25,25.1,25,25,132755,26.45,-5.48,26.25,27.3,0.88
 ```
 
 ## Latest TDCC Snapshot

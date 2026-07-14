@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6791 虎門科技
 
 ## Metadata
-- generated_at: 2026-07-13 22:28:46 Asia/Taipei
+- generated_at: 2026-07-14 22:27:24 Asia/Taipei
 - stock_id: 6791
 - stock_name: 虎門科技
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 166
+- latest_price_date: 20260713
+- price_rows: 167
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 110
-- high: 110.5
-- low: 107.5
-- close: 108.5
-- volume: 68000
+- date: 20260713
+- open: 112
+- high: 113
+- low: 107
+- close: 107.5
+- volume: 91000
 - ma5: 111.5
-- ema23_primary: 108.05
-- distance_to_ema23_pct: 0.41
-- ma20: 105.38
-- ma60: 114.78
-- ma120: 109.23
-- return_5d: 1.4
-- return_20d: 5.85
-- volume_ratio: 0.89
-- distance_to_ma20_pct_auxiliary: 2.97
-- distance_to_high_60_pct: -25.17
+- ema23_primary: 108.01
+- distance_to_ema23_pct: -0.47
+- ma20: 105.62
+- ma60: 114.51
+- ma120: 109.25
+- return_5d: 0
+- return_20d: 4.88
+- volume_ratio: 1.17
+- distance_to_ma20_pct_auxiliary: 1.78
+- distance_to_high_60_pct: -25.86
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,101.5,102.5,99.8,102.5,69000,112.57,-8.94,112.9,112.95,0.71
 20260612,103,104.5,102.5,102.5,35000,111.73,-8.26,112.15,112.94,0.37
 20260615,103,104.5,102,104.5,50000,111.13,-5.96,111.38,112.99,0.54
 20260616,106,106,102,102.5,34000,110.41,-7.16,110.88,113.03,0.37
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,118.5,118.5,111.5,113,187000,107.79,4.84,104.8,114.71,2.47
 20260708,114,114.5,110,110.5,78000,108.01,2.3,105.08,114.84,1.03
 20260709,110,110.5,107.5,108.5,68000,108.05,0.41,105.38,114.78,0.89
+20260713,112,113,107,107.5,91000,108.01,-0.47,105.62,114.51,1.17
 ```
 
 ## Latest TDCC Snapshot

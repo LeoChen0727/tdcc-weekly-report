@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2492 華新科
 
 ## Metadata
-- generated_at: 2026-07-13 22:27:20 Asia/Taipei
+- generated_at: 2026-07-14 22:26:36 Asia/Taipei
 - stock_id: 2492
 - stock_name: 華新科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 301
+- latest_price_date: 20260713
+- price_rows: 302
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 481
-- high: 505
-- low: 462
-- close: 465.5
-- volume: 13817712
-- ma5: 512.3
-- ema23_primary: 497.43
-- distance_to_ema23_pct: -6.42
-- ma20: 530.02
-- ma60: 339.98
-- ma120: 236.5
-- return_5d: -17.02
-- return_20d: 14.23
-- volume_ratio: 1.28
-- distance_to_ma20_pct_auxiliary: -12.17
-- distance_to_high_60_pct: -27.83
+- date: 20260713
+- open: 473.5
+- high: 478.5
+- low: 419
+- close: 419
+- volume: 16911261
+- ma5: 483.5
+- ema23_primary: 490.89
+- distance_to_ema23_pct: -14.64
+- ma20: 530.1
+- ma60: 344.55
+- ma120: 238.89
+- return_5d: -25.58
+- return_20d: 0.36
+- volume_ratio: 1.48
+- distance_to_ma20_pct_auxiliary: -20.96
+- distance_to_high_60_pct: -35.04
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,408,417.5,371.5,417.5,4237024,342.36,21.95,350.35,210.65,0.62
 20260612,457.5,457.5,409,409,4205903,347.91,17.56,360.5,215.07,0.66
 20260615,445,449.5,445,449.5,2578977,356.38,26.13,372.1,220.21,0.42
 20260616,460,494,460,494,6902708,367.84,34.3,385.8,226.16,1.16
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,557,565,502,502,1961509,502.72,-0.14,525.42,328.97,0.21
 20260708,510,511,452.5,474,23886204,500.33,-5.26,527.12,334.6,2.31
 20260709,481,505,462,465.5,13817712,497.43,-6.42,530.02,339.98,1.28
+20260713,473.5,478.5,419,419,16911261,490.89,-14.64,530.1,344.55,1.48
 ```
 
 ## Latest TDCC Snapshot
@@ -189,17 +189,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 2492 | 華新科 | revenue_pullback | 營收成長股價回檔 | 60.0 |  |  |  |  | call_strong_inflow | repeated_but_no_breakout | 1.董事會決議日期:115/06/25 2.發放股利種類及金額: 華科香港控股有限公司董事會決議盈餘分配人民幣67,261,661.34 開曼華新科技有限公司董事會決議盈餘分配人民幣67,264,500.26 3.其他應敘明事項:華科香港控股有限公司盈餘分配予其投資方開曼華新科技有限公司， 再由開曼華新科技有限公司依投資架構分配回母公司。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260713 | 2492 | 華新科 | revenue_pullback | 營收成長股價回檔 | 60.0 |  |  |  |  | call_strong_inflow | continued_2_3d | 1.董事會決議日期:115/06/25 2.發放股利種類及金額: 華科香港控股有限公司董事會決議盈餘分配人民幣67,261,661.34 開曼華新科技有限公司董事會決議盈餘分配人民幣67,264,500.26 3.其他應敘明事項:華科香港控股有限公司盈餘分配予其投資方開曼華新科技有限公司， 再由開曼華新科技有限公司依投資架構分配回母公司。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 2492 | 華新科 | 1 | 1 | 1 | 1 | 6 | repeated_but_no_breakout | 近 10 日上榜 1 次、近 20 日上榜 6 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260713 | 2492 | 華新科 | 2 | 2 | 2 | 2 | 7 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 2492 | 華新科 | 92 | 0 | 11546330.0 | 0.0 |  | call_strong_inflow |
+| 20260713 | 2492 | 華新科 | 92 | 0 | 11814850.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

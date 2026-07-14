@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00913 兆豐台灣晶圓製造
 
 ## Metadata
-- generated_at: 2026-07-13 22:26:45 Asia/Taipei
+- generated_at: 2026-07-14 22:26:16 Asia/Taipei
 - stock_id: 00913
 - stock_name: 兆豐台灣晶圓製造
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260709
-- price_rows: 34
+- latest_price_date: 20260713
+- price_rows: 35
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 51.65
-- high: 52.85
-- low: 51.65
-- close: 51.8
-- volume: 1523383
-- ma5: 52.69
-- ema23_primary: 52.22
-- distance_to_ema23_pct: -0.8
-- ma20: 52.94
-- ma60: 51.48
-- ma120: 51.48
-- return_5d: -4.69
-- return_20d: 12.49
-- volume_ratio: 0.55
-- distance_to_ma20_pct_auxiliary: -2.16
-- distance_to_high_60_pct: -10.3
+- date: 20260713
+- open: 52.95
+- high: 53.05
+- low: 51.4
+- close: 51.85
+- volume: 1596330
+- ma5: 52.22
+- ema23_primary: 52.19
+- distance_to_ema23_pct: -0.65
+- ma20: 53.2
+- ma60: 51.49
+- ma120: 51.49
+- return_5d: -4.34
+- return_20d: 10.86
+- volume_ratio: 0.57
+- distance_to_ma20_pct_auxiliary: -2.53
+- distance_to_high_60_pct: -10.22
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,46.21,47.15,45,46.77,1226347,47.93,-2.42,49.21,49.21,0.52
 20260612,49.17,49.79,48.99,49.42,2052636,48.05,2.84,49.22,49.22,0.87
 20260615,51,51.7,50.8,51.55,3880014,48.35,6.63,49.36,49.36,1.59
 20260616,52.45,52.45,51.8,52,2780191,48.65,6.88,49.51,49.51,1.13
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,54.2,54.25,51.2,51.7,2738986,52.32,-1.18,52.51,51.47,1
 20260708,51.9,52,50,51.55,2990002,52.26,-1.35,52.66,51.47,1.07
 20260709,51.65,52.85,51.65,51.8,1523383,52.22,-0.8,52.94,51.48,0.55
+20260713,52.95,53.05,51.4,51.85,1596330,52.19,-0.65,53.2,51.49,0.57
 ```
 
 ## Latest TDCC Snapshot

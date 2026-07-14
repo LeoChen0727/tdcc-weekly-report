@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2065 世豐
 
 ## Metadata
-- generated_at: 2026-07-13 22:27:07 Asia/Taipei
+- generated_at: 2026-07-14 22:26:28 Asia/Taipei
 - stock_id: 2065
 - stock_name: 世豐
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 166
+- latest_price_date: 20260713
+- price_rows: 167
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 32.45
-- high: 32.55
-- low: 32.4
+- date: 20260713
+- open: 32.35
+- high: 32.5
+- low: 32.25
 - close: 32.5
-- volume: 25000
-- ma5: 32.61
-- ema23_primary: 33.23
-- distance_to_ema23_pct: -2.19
-- ma20: 33.47
-- ma60: 32.68
-- ma120: 32.12
-- return_5d: -0.61
-- return_20d: -4.13
-- volume_ratio: 0.49
-- distance_to_ma20_pct_auxiliary: -2.88
+- volume: 39000
+- ma5: 32.59
+- ema23_primary: 33.17
+- distance_to_ema23_pct: -2.01
+- ma20: 33.36
+- ma60: 32.71
+- ma120: 32.15
+- return_5d: -0.31
+- return_20d: -6.07
+- volume_ratio: 0.83
+- distance_to_ma20_pct_auxiliary: -2.58
 - distance_to_high_60_pct: -10.96
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,33.9,34.85,33.8,34.6,123000,33.91,2.05,34.65,32.05,2.1
 20260612,34.65,34.9,33.4,34.5,104000,33.95,1.61,34.7,32.11,1.93
 20260615,34.1,35.2,34,35,79000,34.04,2.81,34.78,32.18,1.43
 20260616,35,35,34.65,34.8,20000,34.1,2.04,34.84,32.24,0.38
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,32.8,32.8,32.55,32.55,28000,33.36,-2.42,33.59,32.61,0.54
 20260708,32.5,32.7,32.25,32.6,50000,33.29,-2.08,33.53,32.65,0.96
 20260709,32.45,32.55,32.4,32.5,25000,33.23,-2.19,33.47,32.68,0.49
+20260713,32.35,32.5,32.25,32.5,39000,33.17,-2.01,33.36,32.71,0.83
 ```
 
 ## Latest TDCC Snapshot

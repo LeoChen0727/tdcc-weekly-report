@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3224 三顧
 
 ## Metadata
-- generated_at: 2026-07-13 22:27:40 Asia/Taipei
+- generated_at: 2026-07-14 22:26:47 Asia/Taipei
 - stock_id: 3224
 - stock_name: 三顧
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 165
+- latest_price_date: 20260713
+- price_rows: 166
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 37.55
-- high: 37.55
-- low: 37.05
-- close: 37.05
-- volume: 50000
-- ma5: 37.92
-- ema23_primary: 38.17
-- distance_to_ema23_pct: -2.92
-- ma20: 37.78
-- ma60: 40.94
-- ma120: 42.44
-- return_5d: -2.37
-- return_20d: 0.41
-- volume_ratio: 0.65
-- distance_to_ma20_pct_auxiliary: -1.93
-- distance_to_high_60_pct: -30.09
+- date: 20260713
+- open: 36.75
+- high: 36.8
+- low: 35.75
+- close: 36.45
+- volume: 116000
+- ma5: 37.53
+- ema23_primary: 38.02
+- distance_to_ema23_pct: -4.14
+- ma20: 37.76
+- ma60: 40.88
+- ma120: 42.37
+- return_5d: -5.08
+- return_20d: -1.22
+- volume_ratio: 1.5
+- distance_to_ma20_pct_auxiliary: -3.46
+- distance_to_high_60_pct: -31.23
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,37,37.15,36.6,36.9,100000,39.75,-7.16,39.46,42.32,1.34
 20260612,37.6,37.6,36.9,37.25,76000,39.54,-5.79,39.23,42.17,1.06
 20260615,37.7,37.7,37,37.45,59000,39.37,-4.87,39.03,42.03,0.92
 20260616,37.8,38.25,37.45,37.9,78000,39.24,-3.42,38.88,41.9,1.23
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,38.75,38.75,38,38,50000,38.31,-0.82,37.76,40.99,0.63
 20260708,38.7,38.7,37.6,37.75,34000,38.27,-1.35,37.77,40.98,0.44
 20260709,37.55,37.55,37.05,37.05,50000,38.17,-2.92,37.78,40.94,0.65
+20260713,36.75,36.8,35.75,36.45,116000,38.02,-4.14,37.76,40.88,1.5
 ```
 
 ## Latest TDCC Snapshot

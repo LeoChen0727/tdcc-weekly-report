@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3290 東浦
 
 ## Metadata
-- generated_at: 2026-07-13 22:27:42 Asia/Taipei
+- generated_at: 2026-07-14 22:26:48 Asia/Taipei
 - stock_id: 3290
 - stock_name: 東浦
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 166
+- latest_price_date: 20260713
+- price_rows: 167
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 69.5
-- high: 70.6
-- low: 67.8
-- close: 68.4
-- volume: 1362000
-- ma5: 68.62
-- ema23_primary: 64.7
-- distance_to_ema23_pct: 5.72
-- ma20: 67.36
-- ma60: 54.77
-- ma120: 50.3
-- return_5d: -2.56
-- return_20d: 18.13
-- volume_ratio: 0.47
-- distance_to_ma20_pct_auxiliary: 1.54
-- distance_to_high_60_pct: -8.56
+- date: 20260713
+- open: 69.3
+- high: 69.9
+- low: 63.3
+- close: 65.2
+- volume: 2482000
+- ma5: 67.58
+- ema23_primary: 64.74
+- distance_to_ema23_pct: 0.71
+- ma20: 67.44
+- ma60: 55.02
+- ma120: 50.45
+- return_5d: -7.39
+- return_20d: 2.52
+- volume_ratio: 0.94
+- distance_to_ma20_pct_auxiliary: -3.33
+- distance_to_high_60_pct: -12.83
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,59.5,63.6,57.1,63.6,7049000,50.63,25.61,49.52,47.45,5.77
 20260612,63.6,64.5,60,61.4,7024000,51.53,19.15,50.34,47.72,4.93
 20260615,63.5,64.2,60.6,62.5,3495000,52.45,19.17,51.13,48,2.23
 20260616,62.4,66.2,60.2,66,3891000,53.57,23.19,52.12,48.36,2.24
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,68.5,71.2,66.5,66.5,1541000,64.09,3.76,66.17,54.12,0.47
 20260708,67.1,68.9,65.3,67.4,1450000,64.37,4.72,66.84,54.47,0.47
 20260709,69.5,70.6,67.8,68.4,1362000,64.7,5.72,67.36,54.77,0.47
+20260713,69.3,69.9,63.3,65.2,2482000,64.74,0.71,67.44,55.02,0.94
 ```
 
 ## Latest TDCC Snapshot
@@ -189,13 +189,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 3290 | 東浦 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/18 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.發放普通股股利種類及金額:  盈餘分配現金股利，每股配發1.5元，計新台幣135,322,551 4.除權（息）交易日:115/07/07 5.最後過戶日:115/07/08 6.停止過戶起始日期:115/07/09 7.停止過戶截止日期:115/07/13 8.除權（息）基準日:115/07/13 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/07/28 13.其他應敘明事項:   (1)除息基準日前，本公司若因增資、買回股份、辦理庫藏股、員工認股權      憑證或公司債之轉讓、轉換、註銷等事項，致影響流通在外股份數量，      致股東配息率因此發生變動時，由董事會授權董事長為該項必要之調整      並全權處理其相關事項。   (2)本次現金股利按分配比例計算至元為止(元以下不計)，配發不足1元之畸      零款合計數，計入本公司其他收入。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
-| 20260709 | 3290 | 東浦 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/18 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.發放普通股股利種類及金額:  盈餘分配現金股利，每股配發1.5元，計新台幣135,322,551 4.除權（息）交易日:115/07/07 5.最後過戶日:115/07/08 6.停止過戶起始日期:115/07/09 7.停止過戶截止日期:115/07/13 8.除權（息）基準日:115/07/13 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/07/28 13.其他應敘明事項:   (1)除息基準日前，本公司若因增資、買回股份、辦理庫藏股、員工認股權      憑證或公司債之轉讓、轉換、註銷等事項，致影響流通在外股份數量，      致股東配息率因此發生變動時，由董事會授權董事長為該項必要之調整      並全權處理其相關事項。   (2)本次現金股利按分配比例計算至元為止(元以下不計)，配發不足1元之畸      零款合計數，計入本公司其他收入。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260713 | 3290 | 東浦 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  |  | repeated_but_no_breakout | 1.董事會、股東會決議或公司決定日期:115/06/18 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.發放普通股股利種類及金額:  盈餘分配現金股利，每股配發1.5元，計新台幣135,322,551 4.除權（息）交易日:115/07/07 5.最後過戶日:115/07/08 6.停止過戶起始日期:115/07/09 7.停止過戶截止日期:115/07/13 8.除權（息）基準日:115/07/13 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/07/28 13.其他應敘明事項:   (1)除息基準日前，本公司若因增資、買回股份、辦理庫藏股、員工認股權      憑證或公司債之轉讓、轉換、註銷等事項，致影響流通在外股份數量，      致股東配息率因此發生變動時，由董事會授權董事長為該項必要之調整      並全權處理其相關事項。   (2)本次現金股利按分配比例計算至元為止(元以下不計)，配發不足1元之畸      零款合計數，計入本公司其他收入。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260713 | 3290 | 東浦 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | repeated_but_no_breakout | 1.董事會、股東會決議或公司決定日期:115/06/18 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.發放普通股股利種類及金額:  盈餘分配現金股利，每股配發1.5元，計新台幣135,322,551 4.除權（息）交易日:115/07/07 5.最後過戶日:115/07/08 6.停止過戶起始日期:115/07/09 7.停止過戶截止日期:115/07/13 8.除權（息）基準日:115/07/13 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/07/28 13.其他應敘明事項:   (1)除息基準日前，本公司若因增資、買回股份、辦理庫藏股、員工認股權      憑證或公司債之轉讓、轉換、註銷等事項，致影響流通在外股份數量，      致股東配息率因此發生變動時，由董事會授權董事長為該項必要之調整      並全權處理其相關事項。   (2)本次現金股利按分配比例計算至元為止(元以下不計)，配發不足1元之畸      零款合計數，計入本公司其他收入。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260713 | 3290 | 東浦 | revenue_breakout_low_response | 營收爆發低反應股 | 19.0 | 3.0 | A_優先追蹤 |  |  |  | repeated_but_no_breakout | 1.董事會、股東會決議或公司決定日期:115/06/18 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.發放普通股股利種類及金額:  盈餘分配現金股利，每股配發1.5元，計新台幣135,322,551 4.除權（息）交易日:115/07/07 5.最後過戶日:115/07/08 6.停止過戶起始日期:115/07/09 7.停止過戶截止日期:115/07/13 8.除權（息）基準日:115/07/13 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/07/28 13.其他應敘明事項:   (1)除息基準日前，本公司若因增資、買回股份、辦理庫藏股、員工認股權      憑證或公司債之轉讓、轉換、註銷等事項，致影響流通在外股份數量，      致股東配息率因此發生變動時，由董事會授權董事長為該項必要之調整      並全權處理其相關事項。   (2)本次現金股利按分配比例計算至元為止(元以下不計)，配發不足1元之畸      零款合計數，計入本公司其他收入。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 3290 | 東浦 | 7 | 7 | 5 | 8 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260713 | 3290 | 東浦 | 8 | 8 | 5 | 9 | 12 | repeated_but_no_breakout | 近 10 日上榜 9 次、近 20 日上榜 12 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

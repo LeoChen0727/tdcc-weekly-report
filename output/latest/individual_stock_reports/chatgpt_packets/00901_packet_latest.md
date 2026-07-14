@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00901 永豐智能車供應鏈
 
 ## Metadata
-- generated_at: 2026-07-13 22:26:44 Asia/Taipei
+- generated_at: 2026-07-14 22:26:16 Asia/Taipei
 - stock_id: 00901
 - stock_name: 永豐智能車供應鏈
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260709
-- price_rows: 34
+- latest_price_date: 20260713
+- price_rows: 35
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 45.48
-- high: 46.2
-- low: 45.45
-- close: 45.55
-- volume: 275917
-- ma5: 46.31
-- ema23_primary: 46.42
-- distance_to_ema23_pct: -1.87
-- ma20: 46.74
-- ma60: 46.44
-- ma120: 46.44
-- return_5d: -4.73
-- return_20d: 3.17
-- volume_ratio: 0.61
-- distance_to_ma20_pct_auxiliary: -2.55
-- distance_to_high_60_pct: -7.98
+- date: 20260713
+- open: 46.48
+- high: 46.48
+- low: 45.14
+- close: 45.36
+- volume: 488650
+- ma5: 45.82
+- ema23_primary: 46.33
+- distance_to_ema23_pct: -2.09
+- ma20: 46.81
+- ma60: 46.41
+- ma120: 46.41
+- return_5d: -5.12
+- return_20d: 3.09
+- volume_ratio: 1.19
+- distance_to_ma20_pct_auxiliary: -3.1
+- distance_to_high_60_pct: -8.36
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,44.11,44.25,42.6,44,1377028,45,-2.22,45.88,45.88,1.36
 20260612,45.77,45.77,45.15,45.23,309391,45.02,0.47,45.84,45.84,0.32
 20260615,46.39,46.85,46.39,46.6,417175,45.15,3.21,45.89,45.89,0.45
 20260616,46.8,47.21,46.6,46.81,316413,45.29,3.36,45.94,45.94,0.35
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,47.35,47.35,45.43,45.47,358896,46.6,-2.42,46.71,46.51,0.7
 20260708,45.53,45.62,44.85,45.37,222441,46.5,-2.42,46.67,46.47,0.45
 20260709,45.48,46.2,45.45,45.55,275917,46.42,-1.87,46.74,46.44,0.61
+20260713,46.48,46.48,45.14,45.36,488650,46.33,-2.09,46.81,46.41,1.19
 ```
 
 ## Latest TDCC Snapshot

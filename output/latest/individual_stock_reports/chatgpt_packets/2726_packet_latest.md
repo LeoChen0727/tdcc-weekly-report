@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2726 雅茗-KY
 
 ## Metadata
-- generated_at: 2026-07-13 22:27:26 Asia/Taipei
+- generated_at: 2026-07-14 22:26:40 Asia/Taipei
 - stock_id: 2726
 - stock_name: 雅茗-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 166
+- latest_price_date: 20260713
+- price_rows: 167
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 9.16
-- high: 9.5
-- low: 8.71
-- close: 9
-- volume: 58000
-- ma5: 9.06
-- ema23_primary: 9.5
-- distance_to_ema23_pct: -5.25
-- ma20: 9.56
-- ma60: 9.86
-- ma120: 10.51
-- return_5d: -3.95
-- return_20d: -7.22
-- volume_ratio: 0.66
-- distance_to_ma20_pct_auxiliary: -5.89
-- distance_to_high_60_pct: -23.08
+- date: 20260713
+- open: 9.1
+- high: 9.2
+- low: 8.7
+- close: 8.99
+- volume: 79000
+- ma5: 8.97
+- ema23_primary: 9.46
+- distance_to_ema23_pct: -4.93
+- ma20: 9.52
+- ma60: 9.84
+- ma120: 10.48
+- return_5d: -5.07
+- return_20d: -8.17
+- volume_ratio: 0.88
+- distance_to_ma20_pct_auxiliary: -5.6
+- distance_to_high_60_pct: -23.16
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,9.62,9.8,9.62,9.79,23000,9.95,-1.57,9.87,10.03,0.86
 20260612,9.86,9.98,9.76,9.98,51000,9.95,0.31,9.9,10.03,2.04
 20260615,9.84,9.99,9.8,9.98,44000,9.95,0.29,9.93,10.03,1.73
 20260616,9.98,9.99,9.92,9.98,6000,9.95,0.26,9.95,10.02,0.24
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,9.58,9.58,8.6,8.6,126000,9.59,-10.35,9.64,9.9,1.48
 20260708,9.05,9.07,8.79,9,27000,9.54,-5.7,9.6,9.88,0.32
 20260709,9.16,9.5,8.71,9,58000,9.5,-5.25,9.56,9.86,0.66
+20260713,9.1,9.2,8.7,8.99,79000,9.46,-4.93,9.52,9.84,0.88
 ```
 
 ## Latest TDCC Snapshot

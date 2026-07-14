@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9941 裕融
 
 ## Metadata
-- generated_at: 2026-07-13 22:29:16 Asia/Taipei
+- generated_at: 2026-07-14 22:27:41 Asia/Taipei
 - stock_id: 9941
 - stock_name: 裕融
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 301
+- latest_price_date: 20260713
+- price_rows: 302
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
+- date: 20260713
 - open: 81
-- high: 81.5
-- low: 80.8
-- close: 81
-- volume: 841138
-- ma5: 81.88
-- ema23_primary: 80.82
-- distance_to_ema23_pct: 0.22
-- ma20: 81.66
-- ma60: 78.42
+- high: 81.6
+- low: 80.5
+- close: 81.6
+- volume: 988666
+- ma5: 81.72
+- ema23_primary: 80.89
+- distance_to_ema23_pct: 0.88
+- ma20: 81.35
+- ma60: 78.49
 - ma120: 77.88
-- return_5d: 0.12
-- return_20d: -6.25
-- volume_ratio: 0.48
-- distance_to_ma20_pct_auxiliary: -0.8
-- distance_to_high_60_pct: -8.99
+- return_5d: -0.97
+- return_20d: -6.96
+- volume_ratio: 0.66
+- distance_to_ma20_pct_auxiliary: 0.31
+- distance_to_high_60_pct: -8.31
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,87,87.7,85.7,87.7,5846401,78.96,11.07,77.19,77.03,1.41
 20260612,87.1,87.2,84.3,84.3,3093668,79.4,6.17,77.75,77.16,0.73
 20260615,83.6,83.7,81.2,83,2848199,79.7,4.14,78.19,77.24,0.66
 20260616,83.1,83.2,81.3,81.6,2174784,79.86,2.18,78.59,77.33,0.5
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,83.1,83.1,81.7,81.9,675461,80.79,1.38,82.08,78.23,0.27
 20260708,82.6,82.6,80.8,81,1083619,80.8,0.24,81.92,78.33,0.5
 20260709,81,81.5,80.8,81,841138,80.82,0.22,81.66,78.42,0.48
+20260713,81,81.6,80.5,81.6,988666,80.89,0.88,81.35,78.49,0.66
 ```
 
 ## Latest TDCC Snapshot
@@ -199,7 +199,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 9941 | 裕融 | 2 | 0 | 105790.0 | 0.0 |  | no_signal |
+| 20260713 | 9941 | 裕融 | 2 | 0 | 74050.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

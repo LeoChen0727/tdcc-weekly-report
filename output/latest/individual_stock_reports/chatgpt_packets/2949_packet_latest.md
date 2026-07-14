@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2949 欣新網
 
 ## Metadata
-- generated_at: 2026-07-13 22:27:31 Asia/Taipei
+- generated_at: 2026-07-14 22:26:42 Asia/Taipei
 - stock_id: 2949
 - stock_name: 欣新網
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 136
-- latest_tdcc_date: 20260703
-- tdcc_rows: 10
+- latest_price_date: 20260713
+- price_rows: 137
+- latest_tdcc_date: 20260709
+- tdcc_rows: 11
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -59,14 +59,14 @@
 - action_rating_display_zh: 已持有續抱
 - model_category_display_zh: 單一個股分析
 - score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 股價乖離過大
+- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -74,7 +74,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: high_level_consolidation
+- thesis_state: unclear
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -91,6 +91,7 @@
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
+- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -103,7 +104,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- price_too_extended
+- none
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -111,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 76.6
-- high: 83.8
-- low: 76.6
-- close: 83.8
-- volume: 120000
-- ma5: 76.06
-- ema23_primary: 70.1
-- distance_to_ema23_pct: 19.54
-- ma20: 69.81
-- ma60: 62.81
-- ma120: 63.77
-- return_5d: 19.71
-- return_20d: 29.32
-- volume_ratio: 5.54
-- distance_to_ma20_pct_auxiliary: 20.03
-- distance_to_high_60_pct: 0
+- date: 20260713
+- open: 84
+- high: 84
+- low: 75.5
+- close: 75.7
+- volume: 22000
+- ma5: 77.02
+- ema23_primary: 70.57
+- distance_to_ema23_pct: 7.27
+- ma20: 70.35
+- ma60: 63.09
+- ma120: 63.82
+- return_5d: 6.77
+- return_20d: 16.46
+- volume_ratio: 0.99
+- distance_to_ma20_pct_auxiliary: 7.6
+- distance_to_high_60_pct: -9.88
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,66.9,66.9,65,65,9000,62.39,4.18,63.01,59.88,0.24
 20260612,66.3,66.3,64.9,65,5000,62.61,3.82,63.2,59.92,0.14
 20260615,65,65,64.9,64.9,4000,62.8,3.34,63.34,59.97,0.11
 20260616,65.7,69,65.2,65.2,15000,63,3.49,63.61,60.02,0.42
@@ -153,18 +153,19 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,74.5,75.3,73.1,73.9,39000,68.15,8.44,68.28,62.09,2.57
 20260708,75,77.5,74.1,76.7,33000,68.86,11.39,68.86,62.4,2.04
 20260709,76.6,83.8,76.6,83.8,120000,70.1,19.54,69.81,62.81,5.54
+20260713,84,84,75.5,75.7,22000,70.57,7.27,70.35,63.09,0.99
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260703
-- over_400_ratio: 82.55
-- over_600_ratio: 79.23
-- over_800_ratio: 79.23
-- over_1000_ratio: 67.5
-- over_400_change_1w: 0.22
-- over_800_change_1w: 1.98
-- over_1000_change_1w: 1.98
-- tdcc_consecutive_up_weeks: 7
+- as_of_date: 20260709
+- over_400_ratio: 82.72
+- over_600_ratio: 79.4
+- over_800_ratio: 79.4
+- over_1000_ratio: 67.67
+- over_400_change_1w: 0.17
+- over_800_change_1w: 0.17
+- over_1000_change_1w: 0.17
+- tdcc_consecutive_up_weeks: 8
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -182,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260618,82.21,0.04,77.13,0.04,65.4,3.3,5,True,True
 20260626,82.33,0.12,77.25,0.12,65.52,0.12,6,True,True
 20260703,82.55,0.22,79.23,1.98,67.5,1.98,7,True,True
+20260709,82.72,0.17,79.4,0.17,67.67,0.17,8,True,True
 ```
 
 ## Candidate Context

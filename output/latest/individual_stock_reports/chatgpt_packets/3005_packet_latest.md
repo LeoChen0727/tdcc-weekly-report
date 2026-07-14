@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3005 神基
 
 ## Metadata
-- generated_at: 2026-07-13 22:27:32 Asia/Taipei
+- generated_at: 2026-07-14 22:26:43 Asia/Taipei
 - stock_id: 3005
 - stock_name: 神基
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 301
+- latest_price_date: 20260713
+- price_rows: 302
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -117,29 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
+- date: 20260713
 - open: 114
-- high: 116.5
+- high: 117.5
 - low: 112
-- close: 112
-- volume: 12453355
-- ma5: 108.7
-- ema23_primary: 104.47
-- distance_to_ema23_pct: 7.21
-- ma20: 103.28
-- ma60: 101.97
-- ma120: 108.84
-- return_5d: 9.27
-- return_20d: 7.69
-- volume_ratio: 1.98
-- distance_to_ma20_pct_auxiliary: 8.44
-- distance_to_high_60_pct: -3.86
+- close: 115
+- volume: 10075428
+- ma5: 110.3
+- ema23_primary: 105.34
+- distance_to_ema23_pct: 9.17
+- ma20: 103.81
+- ma60: 102.27
+- ma120: 108.83
+- return_5d: 7.48
+- return_20d: 10.05
+- volume_ratio: 1.53
+- distance_to_ma20_pct_auxiliary: 10.78
+- distance_to_high_60_pct: -2.13
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,104,105,103,104.5,4462776,104.35,0.14,104.16,104.45,0.72
 20260612,106,109,105.5,105.5,6710580,104.45,1.01,104.45,103.91,1.09
 20260615,107,107,104,104,5276419,104.41,-0.39,104.67,103.38,0.86
 20260616,104.5,105,101,101.5,5191436,104.17,-2.56,104.83,102.88,0.85
@@ -159,6 +158,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,110.5,111,106,107,3968097,103.44,3.44,102.78,101.59,0.66
 20260708,107,108.5,106,107.5,2570252,103.78,3.58,102.89,101.74,0.43
 20260709,114,116.5,112,112,12453355,104.47,7.21,103.28,101.97,1.98
+20260713,114,117.5,112,115,10075428,105.34,9.17,103.81,102.27,1.53
 ```
 
 ## Latest TDCC Snapshot
@@ -193,17 +193,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 3005 | 神基 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_strong_inflow | stale_signal | 1.事實發生日:115/07/08 2.公司名稱:神基控股股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: 神基控股股份有限公司(股票代碼：3005)今日(2026/07/08)公佈一百一十五年 六月份自結合併營收為新台幣42.54億元，與去年同期的33.08億元成長28.59%。 累計營收方面，一月至六月份為止，累計合併營收為新台幣208.21億元，較去年 同期的193.61億元成長7.54%。 6.因應措施:無。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260713 | 3005 | 神基 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_inflow | stale_signal | 1.事實發生日:115/07/08 2.公司名稱:神基控股股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: 神基控股股份有限公司(股票代碼：3005)今日(2026/07/08)公佈一百一十五年 六月份自結合併營收為新台幣42.54億元，與去年同期的33.08億元成長28.59%。 累計營收方面，一月至六月份為止，累計合併營收為新台幣208.21億元，較去年 同期的193.61億元成長7.54%。 6.因應措施:無。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 3005 | 神基 | 7 | 1 | 5 | 7 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260713 | 3005 | 神基 | 8 | 2 | 5 | 8 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 3005 | 神基 | 37 | 0 | 8154410.0 | 0.0 |  | call_strong_inflow |
+| 20260713 | 3005 | 神基 | 37 | 0 | 8857170.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

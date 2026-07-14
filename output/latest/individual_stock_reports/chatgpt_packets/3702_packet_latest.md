@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3702 大聯大
 
 ## Metadata
-- generated_at: 2026-07-13 22:27:53 Asia/Taipei
+- generated_at: 2026-07-14 22:26:55 Asia/Taipei
 - stock_id: 3702
 - stock_name: 大聯大
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 301
+- latest_price_date: 20260713
+- price_rows: 302
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -56,33 +56,29 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 可分批買進
-- model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
-- action_summary_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。
-- entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
-- position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- action_rating_display_zh: 已持有續抱
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
+- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: scale_in
-- action_rating_label_zh: 可分批買進
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: healthy_pullback
-- entry_style: pullback_to_23ema
-- position_sizing: half_position
+- thesis_state: unclear
+- entry_style: no_entry_now
+- position_sizing: observe_only
 
 ### management_plan
-- buy_first_tranche_near_support
-- add_on_23ema_hold
-- add_on_reclaim_23ema
-- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -91,9 +87,7 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -118,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 106.5
-- high: 109.5
-- low: 106.5
-- close: 106.5
-- volume: 6821826
-- ma5: 108.2
-- ema23_primary: 108.81
-- distance_to_ema23_pct: -2.12
-- ma20: 108
-- ma60: 108.93
-- ma120: 91.71
-- return_5d: -1.39
-- return_20d: -2.29
-- volume_ratio: 0.52
-- distance_to_ma20_pct_auxiliary: -1.39
-- distance_to_high_60_pct: -16.47
+- date: 20260713
+- open: 113
+- high: 117
+- low: 113
+- close: 117
+- volume: 11343796
+- ma5: 109.6
+- ema23_primary: 109.49
+- distance_to_ema23_pct: 6.86
+- ma20: 108.42
+- ma60: 109.25
+- ma120: 92.17
+- return_5d: 6.36
+- return_20d: 7.83
+- volume_ratio: 0.89
+- distance_to_ma20_pct_auxiliary: 7.91
+- distance_to_high_60_pct: -8.24
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,111,111.5,105.5,108.5,18045469,112.63,-3.66,115.83,103.82,1.18
 20260612,111.5,111.5,104,105,20657601,111.99,-6.24,115.58,104.07,1.3
 20260615,107,108.5,103.5,107.5,12127021,111.62,-3.69,115.42,104.31,0.76
 20260616,109,109.5,106.5,109,10028040,111.4,-2.15,115.45,104.58,0.63
@@ -160,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,111.5,112.5,109,109,9681413,109.34,-0.31,108.38,108.61,0.7
 20260708,109,110,104.5,105.5,6789094,109.02,-3.23,108.12,108.76,0.51
 20260709,106.5,109.5,106.5,106.5,6821826,108.81,-2.12,108,108.93,0.52
+20260713,113,117,113,117,11343796,109.49,6.86,108.42,109.25,0.89
 ```
 
 ## Latest TDCC Snapshot
@@ -194,18 +188,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 3702 | 大聯大 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | 1.證券名稱: 深圳中電港技術股份有限公司普通股 2.交易日期:115/3/30~115/7/10 3.董事會通過日期: 民國115年6月4日 4.其他核決日期: 不適用 5.交易數量、每單位價格及交易總金額: 交易期間交易數量：4,521,098股 每股交易金額：人民幣28.75元 交易期間交易總金額：人民幣129,997仟元 6.處分利益（或損失）（取得有價證券者不適用）: 處分利益約人民幣109,855仟元 7.與交易標的公司之關係: 非本公司關係人 8.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 股數：普通股7,208,202股 持有金額：人民幣223,671仟元 持股比例：占普通股0.95% 權利受限情形：無 9.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列之有價證券投 資（含本次交易）占公司最近期財務報表中總資產及歸屬於母公司業主之權益之比例 暨最近期財務報表中營運資金數額: 占公司最近期財務報表中總資產之比例：1.05% 占公司最近期財務報表中歸屬於母公司業主權益之比例：1.33% 營運資金數額：-14,481,673仟元 10.取得或處分之具體目的: 提升資金運用效益及投資獲利 11.本次交易表示異議董事之意見: 無 12.本次交易為關係人交易: 否 13.交易相對人及其與公司之關係: 不適用 14.監察人承認或審計委員會同意日期: 不適用 15.前已就同一件事件發布重大訊息日期: 115年6月4日 16.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260709 | 3702 | 大聯大 | revenue_breakout_low_response | 營收爆發低反應股 | 16.0 | 19.0 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | 1.證券名稱: 深圳中電港技術股份有限公司普通股 2.交易日期:115/3/30~115/7/10 3.董事會通過日期: 民國115年6月4日 4.其他核決日期: 不適用 5.交易數量、每單位價格及交易總金額: 交易期間交易數量：4,521,098股 每股交易金額：人民幣28.75元 交易期間交易總金額：人民幣129,997仟元 6.處分利益（或損失）（取得有價證券者不適用）: 處分利益約人民幣109,855仟元 7.與交易標的公司之關係: 非本公司關係人 8.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 股數：普通股7,208,202股 持有金額：人民幣223,671仟元 持股比例：占普通股0.95% 權利受限情形：無 9.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列之有價證券投 資（含本次交易）占公司最近期財務報表中總資產及歸屬於母公司業主之權益之比例 暨最近期財務報表中營運資金數額: 占公司最近期財務報表中總資產之比例：1.05% 占公司最近期財務報表中歸屬於母公司業主權益之比例：1.33% 營運資金數額：-14,481,673仟元 10.取得或處分之具體目的: 提升資金運用效益及投資獲利 11.本次交易表示異議董事之意見: 無 12.本次交易為關係人交易: 否 13.交易相對人及其與公司之關係: 不適用 14.監察人承認或審計委員會同意日期: 不適用 15.前已就同一件事件發布重大訊息日期: 115年6月4日 16.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260713 | 3702 | 大聯大 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_inflow | repeated_but_no_breakout | 1.事實發生日:115/07/13 2.公司名稱:WPG Korea Co., Ltd. 3.與公司關係(請輸入本公司或子公司):子公司 4.相互持股比例:100% 5.發生緣由:更正子公司WPG Korea Co., Ltd.115年6月衍生性商品交易資訊 6.更正資訊項目/報表名稱:WPG Korea Co., Ltd.115年6月 衍生性商品交易資訊－遠期契約 7.更正前金額/內容/頁次: 已沖銷契約契約總金額: 新台幣24,054仟元 已沖銷契約本年度認列已實現損益金額: 新台幣379仟元 8.更正後金額/內容/頁次: 已沖銷契約契約總金額: 新台幣23,868仟元 已沖銷契約本年度認列已實現損益金額: 新台幣376仟元 9.因應措施:更正後重新上傳公開資訊觀測站 10.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260713 | 3702 | 大聯大 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | call_inflow | repeated_but_no_breakout | 1.事實發生日:115/07/13 2.公司名稱:WPG Korea Co., Ltd. 3.與公司關係(請輸入本公司或子公司):子公司 4.相互持股比例:100% 5.發生緣由:更正子公司WPG Korea Co., Ltd.115年6月衍生性商品交易資訊 6.更正資訊項目/報表名稱:WPG Korea Co., Ltd.115年6月 衍生性商品交易資訊－遠期契約 7.更正前金額/內容/頁次: 已沖銷契約契約總金額: 新台幣24,054仟元 已沖銷契約本年度認列已實現損益金額: 新台幣379仟元 8.更正後金額/內容/頁次: 已沖銷契約契約總金額: 新台幣23,868仟元 已沖銷契約本年度認列已實現損益金額: 新台幣376仟元 9.因應措施:更正後重新上傳公開資訊觀測站 10.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 3702 | 大聯大 | 27 | 6 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260713 | 3702 | 大聯大 | 28 | 7 | 5 | 10 | 20 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 20 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 3702 | 大聯大 | 28 | 0 | 1250310.0 | 0.0 |  | no_signal |
+| 20260713 | 3702 | 大聯大 | 28 | 0 | 2256410.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

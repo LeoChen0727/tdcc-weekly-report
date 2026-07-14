@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3556 禾瑞亞
 
 ## Metadata
-- generated_at: 2026-07-13 22:27:49 Asia/Taipei
+- generated_at: 2026-07-14 22:26:52 Asia/Taipei
 - stock_id: 3556
 - stock_name: 禾瑞亞
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 166
+- latest_price_date: 20260713
+- price_rows: 167
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 76.1
-- high: 78.7
-- low: 74.7
-- close: 75.9
-- volume: 3827000
-- ma5: 73.56
-- ema23_primary: 71.12
-- distance_to_ema23_pct: 6.72
-- ma20: 72.36
-- ma60: 62.41
-- ma120: 52.42
-- return_5d: 4.55
-- return_20d: 11.62
-- volume_ratio: 2.34
-- distance_to_ma20_pct_auxiliary: 4.88
-- distance_to_high_60_pct: -6.3
+- date: 20260713
+- open: 76.2
+- high: 77.1
+- low: 69.6
+- close: 70.4
+- volume: 2283000
+- ma5: 73.18
+- ema23_primary: 71.06
+- distance_to_ema23_pct: -0.93
+- ma20: 72.56
+- ma60: 62.77
+- ma120: 52.7
+- return_5d: -2.63
+- return_20d: 5.71
+- volume_ratio: 1.32
+- distance_to_ma20_pct_auxiliary: -2.97
+- distance_to_high_60_pct: -13.09
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,67.5,67.9,64.5,66.6,473000,64.01,4.04,63.26,53.36,1.88
 20260612,68.1,71,68.1,69.6,401000,64.48,7.94,64.13,53.81,1.6
 20260615,69.9,72.2,69.5,72.1,627000,65.11,10.73,65.17,54.3,2.42
 20260616,75.6,75.6,73.5,74,650000,65.85,12.37,66.36,54.83,2.36
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,73.9,79.7,73.1,73.8,6294000,70.45,4.76,71.88,61.54,4.47
 20260708,73.8,74.1,70.5,73.3,1782000,70.69,3.7,71.97,61.95,1.21
 20260709,76.1,78.7,74.7,75.9,3827000,71.12,6.72,72.36,62.41,2.34
+20260713,76.2,77.1,69.6,70.4,2283000,71.06,-0.93,72.56,62.77,1.32
 ```
 
 ## Latest TDCC Snapshot
@@ -189,12 +189,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 3556 | 禾瑞亞 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  |  | continued_2_3d | 1.董事會決議或公司決定日期:115/07/09 2.原現金股利發放日:115/07/10 3.變更後現金股利發放日:115/07/13 4.變更原因: 本公司現金股利訂於115年07月10日發放，如因受颱風停班影響，致部分停止上班 地區金融機構作業日程需順延，現金股利發放日將順延至下一營業日發放。 5.其他應敘明事項: 如未受颱風停班影響地區，將依原訂日期(115年07月10日)發放。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260713 | 3556 | 禾瑞亞 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  |  | repeated_but_no_breakout | 1.董事會決議或公司決定日期:115/07/09 2.原現金股利發放日:115/07/10 3.變更後現金股利發放日:115/07/13 4.變更原因: 本公司現金股利訂於115年07月10日發放，如因受颱風停班影響，致部分停止上班 地區金融機構作業日程需順延，現金股利發放日將順延至下一營業日發放。 5.其他應敘明事項: 如未受颱風停班影響地區，將依原訂日期(115年07月10日)發放。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 3556 | 禾瑞亞 | 3 | 3 | 3 | 6 | 9 | continued_2_3d | 連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| 20260713 | 3556 | 禾瑞亞 | 4 | 4 | 4 | 7 | 10 | repeated_but_no_breakout | 近 10 日上榜 7 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

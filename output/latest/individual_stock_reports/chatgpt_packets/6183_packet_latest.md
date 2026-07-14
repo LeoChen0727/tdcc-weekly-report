@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6183 關貿
 
 ## Metadata
-- generated_at: 2026-07-13 22:28:26 Asia/Taipei
+- generated_at: 2026-07-14 22:27:13 Asia/Taipei
 - stock_id: 6183
 - stock_name: 關貿
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 301
+- latest_price_date: 20260713
+- price_rows: 302
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 90
-- high: 90.5
-- low: 89.8
+- date: 20260713
+- open: 90.1
+- high: 90.2
+- low: 88.6
 - close: 90.2
-- volume: 11651
+- volume: 51871
 - ma5: 90.14
 - ema23_primary: 90.11
 - distance_to_ema23_pct: 0.1
-- ma20: 89.92
-- ma60: 91.42
-- ma120: 92.92
-- return_5d: 0.67
-- return_20d: 1.81
-- volume_ratio: 0.42
-- distance_to_ma20_pct_auxiliary: 0.32
+- ma20: 89.99
+- ma60: 91.35
+- ma120: 92.88
+- return_5d: 0
+- return_20d: 1.69
+- volume_ratio: 1.87
+- distance_to_ma20_pct_auxiliary: 0.23
 - distance_to_high_60_pct: -6.04
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,88.6,88.7,88,88.7,46841,90.74,-2.25,90.81,92.26,0.96
 20260612,88.7,89.7,88.7,89.7,20394,90.66,-1.05,90.7,92.21,0.42
 20260615,91,91,89.4,91,53942,90.68,0.35,90.66,92.17,1.09
 20260616,91.6,91.6,90.1,90.4,26706,90.66,-0.29,90.59,92.13,0.53
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,90.2,90.2,89.2,90.1,19623,90.11,-0.01,89.78,91.51,0.56
 20260708,90,91.3,89.8,90,25666,90.1,-0.11,89.83,91.47,0.8
 20260709,90,90.5,89.8,90.2,11651,90.11,0.1,89.92,91.42,0.42
+20260713,90.1,90.2,88.6,90.2,51871,90.11,0.1,89.99,91.35,1.87
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6166 凌華
 
 ## Metadata
-- generated_at: 2026-07-13 22:28:25 Asia/Taipei
+- generated_at: 2026-07-14 22:27:12 Asia/Taipei
 - stock_id: 6166
 - stock_name: 凌華
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 301
+- latest_price_date: 20260713
+- price_rows: 302
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 135
-- high: 140.5
-- low: 134
+- date: 20260713
+- open: 135.5
+- high: 139.5
+- low: 131
 - close: 134.5
-- volume: 1603158
-- ma5: 132.6
-- ema23_primary: 134.83
-- distance_to_ema23_pct: -0.24
-- ma20: 139.88
-- ma60: 115.58
-- ma120: 88.75
-- return_5d: -0.37
-- return_20d: 7.17
-- volume_ratio: 0.65
-- distance_to_ma20_pct_auxiliary: -3.84
+- volume: 1363465
+- ma5: 132.7
+- ema23_primary: 134.8
+- distance_to_ema23_pct: -0.22
+- ma20: 140.2
+- ma60: 116.63
+- ma120: 89.31
+- return_5d: 0.37
+- return_20d: 5.08
+- volume_ratio: 0.58
+- distance_to_ma20_pct_auxiliary: -4.07
 - distance_to_high_60_pct: -18.48
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,125,131,120,128,3348897,120.56,6.17,126.4,90.33,0.85
 20260612,132,134.5,127,128.5,2238962,121.22,6,127.22,91.44,0.59
 20260615,131.5,141,130.5,141,3680739,122.87,14.76,128.6,92.77,1.04
 20260616,144,149,135,138,3910311,124.13,11.17,129.82,94.06,1.1
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,134,135.5,127,128.5,1143713,134.8,-4.67,139.53,113.38,0.41
 20260708,131,139,128.5,135.5,2128510,134.86,0.48,139.43,114.54,0.78
 20260709,135,140.5,134,134.5,1603158,134.83,-0.24,139.88,115.58,0.65
+20260713,135.5,139.5,131,134.5,1363465,134.8,-0.22,140.2,116.63,0.58
 ```
 
 ## Latest TDCC Snapshot
@@ -189,18 +189,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 6166 | 凌華 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.股東常會日期:115/06/18 2.重要決議事項一、盈餘分配或盈虧撥補:通過承認114年度盈餘分派案 3.重要決議事項二、章程修訂:無 4.重要決議事項三、營業報告書及財務報表:通過承認114年度營業報告書及財務報表案 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項:  通過解除董事及其代表人競業行為之限制案 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
-| 20260709 | 6166 | 凌華 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  | no_signal | stale_signal | 1.股東常會日期:115/06/18 2.重要決議事項一、盈餘分配或盈虧撥補:通過承認114年度盈餘分派案 3.重要決議事項二、章程修訂:無 4.重要決議事項三、營業報告書及財務報表:通過承認114年度營業報告書及財務報表案 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項:  通過解除董事及其代表人競業行為之限制案 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260713 | 6166 | 凌華 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.股東常會日期:115/06/18 2.重要決議事項一、盈餘分配或盈虧撥補:通過承認114年度盈餘分派案 3.重要決議事項二、章程修訂:無 4.重要決議事項三、營業報告書及財務報表:通過承認114年度營業報告書及財務報表案 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項:  通過解除董事及其代表人競業行為之限制案 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260713 | 6166 | 凌華 | revenue_pullback | 營收成長股價回檔 | 76.0 |  |  |  |  | no_signal | stale_signal | 1.股東常會日期:115/06/18 2.重要決議事項一、盈餘分配或盈虧撥補:通過承認114年度盈餘分派案 3.重要決議事項二、章程修訂:無 4.重要決議事項三、營業報告書及財務報表:通過承認114年度營業報告書及財務報表案 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項:  通過解除董事及其代表人競業行為之限制案 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 6166 | 凌華 | 3 | 3 | 3 | 7 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260713 | 6166 | 凌華 | 4 | 4 | 4 | 7 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 6166 | 凌華 | 4 | 0 | 133450.0 | 0.0 |  | no_signal |
+| 20260713 | 6166 | 凌華 | 4 | 0 | 725080.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

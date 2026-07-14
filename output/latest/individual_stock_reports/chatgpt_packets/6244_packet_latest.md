@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6244 茂迪
 
 ## Metadata
-- generated_at: 2026-07-13 22:28:30 Asia/Taipei
+- generated_at: 2026-07-14 22:27:15 Asia/Taipei
 - stock_id: 6244
 - stock_name: 茂迪
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 166
+- latest_price_date: 20260713
+- price_rows: 167
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 27.5
-- high: 27.8
-- low: 26.9
-- close: 27
-- volume: 2709000
-- ma5: 27
-- ema23_primary: 27.79
-- distance_to_ema23_pct: -2.85
-- ma20: 28.06
-- ma60: 28.58
-- ma120: 27.92
-- return_5d: 0.37
-- return_20d: -13.46
-- volume_ratio: 0.29
-- distance_to_ma20_pct_auxiliary: -3.78
-- distance_to_high_60_pct: -20.24
+- date: 20260713
+- open: 27.3
+- high: 27.4
+- low: 26.3
+- close: 26.3
+- volume: 2458000
+- ma5: 26.82
+- ema23_primary: 27.67
+- distance_to_ema23_pct: -4.95
+- ma20: 27.81
+- ma60: 28.53
+- ma120: 27.95
+- return_5d: -3.31
+- return_20d: -15.84
+- volume_ratio: 0.32
+- distance_to_ma20_pct_auxiliary: -5.44
+- distance_to_high_60_pct: -22.3
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,29.8,31.8,29.1,31.25,36181000,29.36,6.42,29.37,28.69,7.55
 20260612,32.25,33.8,30.9,31.1,31859000,29.51,5.39,29.55,28.65,5.2
 20260615,32.1,33.85,31.3,31.9,21736000,29.71,7.38,29.75,28.63,3.08
 20260616,32.15,32.25,29.05,29.1,16407000,29.66,-1.88,29.76,28.57,2.22
@@ -160,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,27.65,27.8,26,26.15,3931000,27.94,-6.39,28.34,28.56,0.38
 20260708,26.5,27.55,26.5,27.1,4271000,27.87,-2.75,28.27,28.58,0.42
 20260709,27.5,27.8,26.9,27,2709000,27.79,-2.85,28.06,28.58,0.29
+20260713,27.3,27.4,26.3,26.3,2458000,27.67,-4.95,27.81,28.53,0.32
 ```
 
 ## Latest TDCC Snapshot
@@ -194,12 +194,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 6244 | 茂迪 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260713 | 6244 | 茂迪 | revenue_pullback | 營收成長股價回檔 | 68.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 6244 | 茂迪 | 1 | 1 | 1 | 2 | 4 | first_seen | 首次上榜或資料有限，需後續確認。 |
+| 20260713 | 6244 | 茂迪 | 2 | 2 | 2 | 3 | 5 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4909 新復興
 
 ## Metadata
-- generated_at: 2026-07-13 22:28:07 Asia/Taipei
+- generated_at: 2026-07-14 22:27:02 Asia/Taipei
 - stock_id: 4909
 - stock_name: 新復興
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 166
+- latest_price_date: 20260713
+- price_rows: 167
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 43.5
-- high: 43.55
-- low: 42.1
-- close: 42.1
-- volume: 387000
-- ma5: 44.03
-- ema23_primary: 46.63
-- distance_to_ema23_pct: -9.71
-- ma20: 46.51
-- ma60: 52.16
-- ma120: 55.8
-- return_5d: -5.18
-- return_20d: -13.02
-- volume_ratio: 0.59
-- distance_to_ma20_pct_auxiliary: -9.47
-- distance_to_high_60_pct: -38.45
+- date: 20260713
+- open: 42.5
+- high: 43.5
+- low: 42.25
+- close: 42.4
+- volume: 517000
+- ma5: 43.27
+- ema23_primary: 46.27
+- distance_to_ema23_pct: -8.37
+- ma20: 46.22
+- ma60: 51.8
+- ma120: 55.69
+- return_5d: -8.23
+- return_20d: -11.85
+- volume_ratio: 0.8
+- distance_to_ma20_pct_auxiliary: -8.26
+- distance_to_high_60_pct: -38.01
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,48.3,49.6,48.05,48.1,616000,52.06,-7.6,51.83,55.88,1.29
 20260612,49.5,50.5,49.2,49.2,718000,51.82,-5.06,51.83,55.64,1.65
 20260615,49.95,50.5,49.5,49.8,533000,51.65,-3.58,51.69,55.44,1.4
 20260616,51.1,52.7,49.8,49.8,1742000,51.5,-3.3,51.6,55.27,4.25
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,46.4,46.4,42.75,43.1,794000,47.41,-9.1,47.1,52.82,1.16
 20260708,43.1,43.9,42.35,42.9,481000,47.04,-8.8,46.82,52.54,0.71
 20260709,43.5,43.55,42.1,42.1,387000,46.63,-9.71,46.51,52.16,0.59
+20260713,42.5,43.5,42.25,42.4,517000,46.27,-8.37,46.22,51.8,0.8
 ```
 
 ## Latest TDCC Snapshot

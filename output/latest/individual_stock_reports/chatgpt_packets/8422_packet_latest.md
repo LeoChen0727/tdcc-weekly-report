@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8422 可寧衛*
 
 ## Metadata
-- generated_at: 2026-07-13 22:29:09 Asia/Taipei
+- generated_at: 2026-07-14 22:27:37 Asia/Taipei
 - stock_id: 8422
 - stock_name: 可寧衛*
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 294
+- latest_price_date: 20260713
+- price_rows: 295
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 27.2
-- high: 27.2
-- low: 26.85
-- close: 27
-- volume: 6712946
-- ma5: 27.81
-- ema23_primary: 27.91
-- distance_to_ema23_pct: -3.27
-- ma20: 28.16
-- ma60: 27.99
-- ma120: 31.21
-- return_5d: 0.75
-- return_20d: -10.74
-- volume_ratio: 0.46
-- distance_to_ma20_pct_auxiliary: -4.1
-- distance_to_high_60_pct: -14.69
+- date: 20260713
+- open: 27.1
+- high: 27.15
+- low: 26.4
+- close: 26.55
+- volume: 11249130
+- ma5: 27.45
+- ema23_primary: 27.8
+- distance_to_ema23_pct: -4.49
+- ma20: 28.02
+- ma60: 27.94
+- ma120: 31.14
+- return_5d: -6.35
+- return_20d: -9.23
+- volume_ratio: 0.82
+- distance_to_ma20_pct_auxiliary: -5.25
+- distance_to_high_60_pct: -16.11
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,30.4,30.4,28.8,29.25,31527886,27.99,4.51,27.36,28.39,1.93
 20260612,29.5,29.95,29,29,14803601,28.07,3.3,27.51,28.36,0.9
 20260615,29.5,29.5,28.7,28.75,12999388,28.13,2.21,27.66,28.34,0.78
 20260616,29,29,28.05,28.05,12345193,28.12,-0.26,27.79,28.31,0.73
@@ -160,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,28.6,28.8,27.8,27.8,13947173,28.06,-0.92,28.43,28.05,0.71
 20260708,28,28.15,27.2,27.3,9729554,28,-2.48,28.32,28.02,0.51
 20260709,27.2,27.2,26.85,27,6712946,27.91,-3.27,28.16,27.99,0.46
+20260713,27.1,27.15,26.4,26.55,11249130,27.8,-4.49,28.02,27.94,0.82
 ```
 
 ## Latest TDCC Snapshot
@@ -194,17 +194,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 8422 | 可寧衛* | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  | no_signal | stale_signal | 1.董事會決議日期: 115/07/02 2.名稱﹝XX公司第X次（有、無）擔保公司債﹞: 可寧衛股份有限公司國內第三次無擔保轉換公司債 3.是否採總括申報發行公司債(是/否): 否 4.發行總額: 發行總面額上限為新台幣25億元整 5.每張面額: 新台幣10萬元整 6.發行價格: 底標不低於面額之100%發行，實際發行價格依競價拍賣結果而定。 7.發行期間: 5年 8.發行利率: 票面年利率0% 9.擔保品之種類、名稱、金額及約定事項: 不適用 10.募得價款之用途及運用計畫: 轉投資子公司及償還銀行借款 11.承銷方式: 以競價拍賣方式辦理公開銷售，授權董事長或其指定人員與主辦承銷商共同議定。 12.公司債受託人: 中國信託商業銀行股份有限公司 13.承銷或代銷機構: 中國信託綜合證券股份有限公司 14.發行保證人: 不適用 15.代理還本付息機構: 本公司股務代理機構台新綜合證券股份有限公司股務代理部 16.簽證機構: 本次國內第三次無擔保轉換公司債採無實體發行，故不適用。 17.能轉換股份者，其轉換辦法: 相關辦法將依有關法令規定辦理，並報奉主管機關核准後另行公告。 18.賣回條件: 相關辦法將依有關法令規定辦理，並報奉主管機關核准後另行公告。 19.買回條件: 相關辦法將依有關法令規定辦理，並報奉主管機關核准後另行公告。 20.附有轉換、交換或認股者，其換股基準日: 相關辦法將依有關法令規定辦理，並報奉主管機關核准後另行公告。 21.附有轉換、交換或認股者，對股權可能稀釋情形: 相關辦法將依有關法令規定辦理，並報奉主管機關核准後另行公告。 22.現金減資後再行募資之合理性及必要性 (募資當年度及前一年度有辦理現金減資者適用): 不適用 23.其他應敘明事項: (1)國內第三次無擔保轉換公司債於主管機關申報生效後，授權董事長另訂發行日，    並向財團法人中華民國證券櫃檯買賣中心申請櫃檯買賣。 (2)因資本市場籌資環境變化快速，為掌握訂定發行條件與實際發行作業時效，    國內第三次無擔保轉換公司債等籌資計畫有關之發行金額、發行條件、    發行及轉換辦法之訂定，以及計畫所需資金總額、資金來源、計畫項目、    資金運用進度、預計可能產生效益及其他相關事宜，如經主管機關指示，    相關法令規則修正，或因應客觀環境需修訂或修正時，授權董事長或    其指定人員全權處理之。 (3)為配合國內第三次無擔保轉換公司債籌資計畫之發行作業，授權本公司董事長    或其指定人員核可並代表本公司簽署一切有關發行國內第三次無擔保轉換公司債    之契約文件，並代表本公司辦理相關發行事宜。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260713 | 8422 | 可寧衛* | revenue_pullback | 營收成長股價回檔 | 77.0 |  |  |  |  | no_signal | stale_signal | 1.董事會決議日期: 115/07/02 2.名稱﹝XX公司第X次（有、無）擔保公司債﹞: 可寧衛股份有限公司國內第三次無擔保轉換公司債 3.是否採總括申報發行公司債(是/否): 否 4.發行總額: 發行總面額上限為新台幣25億元整 5.每張面額: 新台幣10萬元整 6.發行價格: 底標不低於面額之100%發行，實際發行價格依競價拍賣結果而定。 7.發行期間: 5年 8.發行利率: 票面年利率0% 9.擔保品之種類、名稱、金額及約定事項: 不適用 10.募得價款之用途及運用計畫: 轉投資子公司及償還銀行借款 11.承銷方式: 以競價拍賣方式辦理公開銷售，授權董事長或其指定人員與主辦承銷商共同議定。 12.公司債受託人: 中國信託商業銀行股份有限公司 13.承銷或代銷機構: 中國信託綜合證券股份有限公司 14.發行保證人: 不適用 15.代理還本付息機構: 本公司股務代理機構台新綜合證券股份有限公司股務代理部 16.簽證機構: 本次國內第三次無擔保轉換公司債採無實體發行，故不適用。 17.能轉換股份者，其轉換辦法: 相關辦法將依有關法令規定辦理，並報奉主管機關核准後另行公告。 18.賣回條件: 相關辦法將依有關法令規定辦理，並報奉主管機關核准後另行公告。 19.買回條件: 相關辦法將依有關法令規定辦理，並報奉主管機關核准後另行公告。 20.附有轉換、交換或認股者，其換股基準日: 相關辦法將依有關法令規定辦理，並報奉主管機關核准後另行公告。 21.附有轉換、交換或認股者，對股權可能稀釋情形: 相關辦法將依有關法令規定辦理，並報奉主管機關核准後另行公告。 22.現金減資後再行募資之合理性及必要性 (募資當年度及前一年度有辦理現金減資者適用): 不適用 23.其他應敘明事項: (1)國內第三次無擔保轉換公司債於主管機關申報生效後，授權董事長另訂發行日，    並向財團法人中華民國證券櫃檯買賣中心申請櫃檯買賣。 (2)因資本市場籌資環境變化快速，為掌握訂定發行條件與實際發行作業時效，    國內第三次無擔保轉換公司債等籌資計畫有關之發行金額、發行條件、    發行及轉換辦法之訂定，以及計畫所需資金總額、資金來源、計畫項目、    資金運用進度、預計可能產生效益及其他相關事宜，如經主管機關指示，    相關法令規則修正，或因應客觀環境需修訂或修正時，授權董事長或    其指定人員全權處理之。 (3)為配合國內第三次無擔保轉換公司債籌資計畫之發行作業，授權本公司董事長    或其指定人員核可並代表本公司簽署一切有關發行國內第三次無擔保轉換公司債    之契約文件，並代表本公司辦理相關發行事宜。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 8422 | 可寧衛* | 13 | 6 | 5 | 10 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260713 | 8422 | 可寧衛* | 14 | 7 | 5 | 10 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 8422 | 可寧衛* | 70 | 10 | 87330.0 | 339760.0 | 0.26 | no_signal |
+| 20260713 | 8422 | 可寧衛* | 71 | 10 | 577340.0 | 2960.0 | 195.05 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

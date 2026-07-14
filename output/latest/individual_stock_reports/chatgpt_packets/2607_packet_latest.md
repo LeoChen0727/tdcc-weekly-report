@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2607 榮運
 
 ## Metadata
-- generated_at: 2026-07-13 22:27:23 Asia/Taipei
+- generated_at: 2026-07-14 22:26:38 Asia/Taipei
 - stock_id: 2607
 - stock_name: 榮運
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 295
+- latest_price_date: 20260713
+- price_rows: 296
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 46.5
-- high: 46.55
-- low: 45.9
-- close: 46.35
-- volume: 203386
-- ma5: 46.33
-- ema23_primary: 47.86
-- distance_to_ema23_pct: -3.15
-- ma20: 48.38
-- ma60: 48.36
-- ma120: 51.68
-- return_5d: 1.87
-- return_20d: -6.17
-- volume_ratio: 0.39
-- distance_to_ma20_pct_auxiliary: -4.19
-- distance_to_high_60_pct: -9.3
+- date: 20260713
+- open: 46.45
+- high: 46.75
+- low: 46.35
+- close: 46.75
+- volume: 283085
+- ma5: 46.43
+- ema23_primary: 47.76
+- distance_to_ema23_pct: -2.12
+- ma20: 48.23
+- ma60: 48.3
+- ma120: 51.59
+- return_5d: 1.08
+- return_20d: -5.94
+- volume_ratio: 0.55
+- distance_to_ma20_pct_auxiliary: -3.06
+- distance_to_high_60_pct: -8.33
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,49.7,49.7,49.05,49.7,475746,48.67,2.12,48.26,49.43,0.66
 20260612,50,50.1,49.6,49.75,509623,48.76,2.03,48.43,49.36,0.71
 20260615,50.3,50.3,49.75,50.1,445946,48.87,2.52,48.58,49.3,0.66
 20260616,50.4,50.4,49.3,49.6,560902,48.93,1.37,48.68,49.25,0.86
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,46.75,46.95,45.7,45.9,719002,48.14,-4.65,48.68,48.5,1.3
 20260708,46.1,46.4,45.8,46.4,272754,47.99,-3.32,48.53,48.43,0.51
 20260709,46.5,46.55,45.9,46.35,203386,47.86,-3.15,48.38,48.36,0.39
+20260713,46.45,46.75,46.35,46.75,283085,47.76,-2.12,48.23,48.3,0.55
 ```
 
 ## Latest TDCC Snapshot

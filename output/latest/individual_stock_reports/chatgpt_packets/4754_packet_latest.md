@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4754 國碳科
 
 ## Metadata
-- generated_at: 2026-07-13 22:28:05 Asia/Taipei
+- generated_at: 2026-07-14 22:27:01 Asia/Taipei
 - stock_id: 4754
 - stock_name: 國碳科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 164
+- latest_price_date: 20260713
+- price_rows: 165
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 36.8
-- high: 36.95
+- date: 20260713
+- open: 37
+- high: 37
 - low: 36.75
 - close: 36.75
-- volume: 13000
-- ma5: 36.96
-- ema23_primary: 37.34
-- distance_to_ema23_pct: -1.59
-- ma20: 37.49
-- ma60: 37.68
-- ma120: 37.94
-- return_5d: -0.27
+- volume: 43000
+- ma5: 36.87
+- ema23_primary: 37.29
+- distance_to_ema23_pct: -1.46
+- ma20: 37.39
+- ma60: 37.67
+- ma120: 37.93
+- return_5d: -1.21
 - return_20d: -5.41
-- volume_ratio: 0.3
-- distance_to_ma20_pct_auxiliary: -1.99
+- volume_ratio: 0.96
+- distance_to_ma20_pct_auxiliary: -1.71
 - distance_to_high_60_pct: -8.12
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,38.55,39,38.5,38.85,28000,38.17,1.77,38.21,37.72,0.69
 20260612,38.85,39.1,38.5,39.1,45000,38.25,2.22,38.24,37.74,1.1
 20260615,39.1,39.45,38.95,39.4,54000,38.35,2.74,38.3,37.76,1.26
 20260616,39.85,39.85,39.2,39.3,72000,38.43,2.27,38.36,37.78,1.62
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,37.1,37.1,36.9,36.9,16000,37.45,-1.48,37.73,37.7,0.3
 20260708,37.1,37.1,36.75,36.8,13000,37.4,-1.6,37.6,37.69,0.28
 20260709,36.8,36.95,36.75,36.75,13000,37.34,-1.59,37.49,37.68,0.3
+20260713,37,37,36.75,36.75,43000,37.29,-1.46,37.39,37.67,0.96
 ```
 
 ## Latest TDCC Snapshot

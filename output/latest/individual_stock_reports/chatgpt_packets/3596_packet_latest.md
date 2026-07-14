@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3596 智易
 
 ## Metadata
-- generated_at: 2026-07-13 22:27:50 Asia/Taipei
+- generated_at: 2026-07-14 22:26:53 Asia/Taipei
 - stock_id: 3596
 - stock_name: 智易
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 301
-- latest_tdcc_date: 20260703
-- tdcc_rows: 10
+- latest_price_date: 20260713
+- price_rows: 302
+- latest_tdcc_date: 20260709
+- tdcc_rows: 11
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
+- date: 20260713
 - open: 198
-- high: 200
-- low: 194
-- close: 194
-- volume: 1063301
-- ma5: 195.5
-- ema23_primary: 190.49
-- distance_to_ema23_pct: 1.84
-- ma20: 190.2
-- ma60: 182.5
-- ma120: 182.59
-- return_5d: 1.31
-- return_20d: 5.15
-- volume_ratio: 0.45
-- distance_to_ma20_pct_auxiliary: 2
-- distance_to_high_60_pct: -4.2
+- high: 198
+- low: 194.5
+- close: 197
+- volume: 805130
+- ma5: 195.4
+- ema23_primary: 191.04
+- distance_to_ema23_pct: 3.12
+- ma20: 191
+- ma60: 182.85
+- ma120: 182.75
+- return_5d: -0.25
+- return_20d: 8.84
+- volume_ratio: 0.35
+- distance_to_ma20_pct_auxiliary: 3.14
+- distance_to_high_60_pct: -2.72
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,184,184,177.5,181,2087981,184.1,-1.69,186.32,177.88,1.15
 20260612,185.5,186.5,181.5,182.5,1325836,183.97,-0.8,186.28,177.46,0.76
 20260615,186,191.5,184,190.5,1923766,184.51,3.24,186.65,177.28,1.09
 20260616,191,191,184.5,186.5,2197819,184.68,0.99,187.03,177.1,1.25
@@ -155,18 +154,19 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,199.5,202.5,192,193.5,2059077,189.69,2.01,189.22,181.77,0.85
 20260708,196,198,193,195.5,1097032,190.17,2.8,189.72,182.12,0.45
 20260709,198,200,194,194,1063301,190.49,1.84,190.2,182.5,0.45
+20260713,198,198,194.5,197,805130,191.04,3.12,191,182.85,0.35
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260703
-- over_400_ratio: 73.81
-- over_600_ratio: 68.04
-- over_800_ratio: 65.8
-- over_1000_ratio: 61.44
-- over_400_change_1w: 0.39
-- over_800_change_1w: 0.69
-- over_1000_change_1w: 0.36
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260709
+- over_400_ratio: 74.47
+- over_600_ratio: 68.85
+- over_800_ratio: 66.69
+- over_1000_ratio: 61.96
+- over_400_change_1w: 0.66
+- over_800_change_1w: 0.89
+- over_1000_change_1w: 0.52
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -184,22 +184,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260618,73.67,0.16,64.85,-0.41,60.85,-1.22,1,False,False
 20260626,73.42,-0.25,65.11,0.26,61.08,0.23,2,False,True
 20260703,73.81,0.39,65.8,0.69,61.44,0.36,3,True,True
+20260709,74.47,0.66,66.69,0.89,61.96,0.52,4,True,True
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 3596 | 智易 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | 1.事實發生日:115/07/06 2.公司名稱:智易科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:經濟日報C1版 6.報導內容:法人預估2026年營收可望來到560.58億元，每股純益挑戰14.61元。 7.發生緣由:該項報導係媒體、法人之臆測推估，本公司並未提供財務性預測，有關實際 財務資訊，本公司將依據相關法規揭露於公開資訊觀測站，特此澄清。 8.因應措施:無 9.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 3596 | 智易 | 9 | 7 | 5 | 9 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 3596 | 智易 | 14 | 0 | 1636940.0 | 0.0 |  | no_signal |
+| 20260713 | 3596 | 智易 | 16 | 0 | 2177110.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

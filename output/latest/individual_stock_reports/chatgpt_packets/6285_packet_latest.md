@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6285 啟碁
 
 ## Metadata
-- generated_at: 2026-07-13 22:28:32 Asia/Taipei
+- generated_at: 2026-07-14 22:27:16 Asia/Taipei
 - stock_id: 6285
 - stock_name: 啟碁
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 301
+- latest_price_date: 20260713
+- price_rows: 302
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 271.5
-- high: 276.5
-- low: 260.5
-- close: 260.5
-- volume: 26813426
-- ma5: 254.4
-- ema23_primary: 260.47
-- distance_to_ema23_pct: 0.01
-- ma20: 258.55
-- ma60: 263.6
-- ma120: 215.39
-- return_5d: 0.97
-- return_20d: -3.52
-- volume_ratio: 2.05
-- distance_to_ma20_pct_auxiliary: 0.75
-- distance_to_high_60_pct: -22.59
+- date: 20260713
+- open: 265
+- high: 271.5
+- low: 248
+- close: 259
+- volume: 15146700
+- ma5: 254.6
+- ema23_primary: 260.35
+- distance_to_ema23_pct: -0.52
+- ma20: 257.88
+- ma60: 263.87
+- ma120: 216.67
+- return_5d: 0.39
+- return_20d: -4.95
+- volume_ratio: 1.17
+- distance_to_ma20_pct_auxiliary: 0.44
+- distance_to_high_60_pct: -23.03
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,271,286,264.5,272.5,17629497,281.57,-3.22,292.35,242.18,0.73
 20260612,291,296,269,270,24730157,280.6,-3.78,292.85,243.74,1.02
 20260615,277.5,280.5,264.5,274.5,18980668,280.1,-2,292.27,245.43,0.81
 20260616,279.5,281,265.5,265.5,19542693,278.88,-4.8,290.95,246.97,0.91
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,259.5,261,242,243.5,7373682,261.28,-6.81,260.77,262.93,0.56
 20260708,246,254.5,237.5,251.5,4489947,260.47,-3.44,259.02,262.99,0.36
 20260709,271.5,276.5,260.5,260.5,26813426,260.47,0.01,258.55,263.6,2.05
+20260713,265,271.5,248,259,15146700,260.35,-0.52,257.88,263.87,1.17
 ```
 
 ## Latest TDCC Snapshot
@@ -189,17 +189,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 6285 | 啟碁 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | call_put_bullish | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/15 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額: (1)原發放股利種類及金額: 每仟股配發新台幣4,300元，計新台幣2,079,753,991元。 (2)變更後發放股利種類及金額: 每仟股配發新台幣4,301.76904元，計新台幣2,079,753,991元。 4.除權（息）交易日:115/07/01 5.最後過戶日:115/07/02 6.停止過戶起始日期:115/07/03 7.停止過戶截止日期:115/07/07 8.除權（息）基準日:115/07/07 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/07/23 13.其他應敘明事項: 本公司因辦理收回已發行之限制員工權利新股註銷， 致使流通在外股份總數產生變動，故現金股利之發放比率隨之調整。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260713 | 6285 | 啟碁 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/15 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額: (1)原發放股利種類及金額: 每仟股配發新台幣4,300元，計新台幣2,079,753,991元。 (2)變更後發放股利種類及金額: 每仟股配發新台幣4,301.76904元，計新台幣2,079,753,991元。 4.除權（息）交易日:115/07/01 5.最後過戶日:115/07/02 6.停止過戶起始日期:115/07/03 7.停止過戶截止日期:115/07/07 8.除權（息）基準日:115/07/07 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/07/23 13.其他應敘明事項: 本公司因辦理收回已發行之限制員工權利新股註銷， 致使流通在外股份總數產生變動，故現金股利之發放比率隨之調整。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 6285 | 啟碁 | 6 | 6 | 5 | 7 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260713 | 6285 | 啟碁 | 7 | 7 | 5 | 8 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 6285 | 啟碁 | 213 | 19 | 23938430.0 | 279170.0 | 85.75 | call_put_bullish |
+| 20260713 | 6285 | 啟碁 | 216 | 19 | 15082790.0 | 162890.0 | 92.59 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

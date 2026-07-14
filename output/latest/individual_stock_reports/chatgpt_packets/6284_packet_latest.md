@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6284 佳邦
 
 ## Metadata
-- generated_at: 2026-07-13 22:28:32 Asia/Taipei
+- generated_at: 2026-07-14 22:27:16 Asia/Taipei
 - stock_id: 6284
 - stock_name: 佳邦
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 166
+- latest_price_date: 20260713
+- price_rows: 167
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
+- date: 20260713
 - open: 100.5
-- high: 103
-- low: 99.1
-- close: 99.5
-- volume: 3144000
-- ma5: 102.4
-- ema23_primary: 101.7
-- distance_to_ema23_pct: -2.17
-- ma20: 101.81
-- ma60: 95.52
-- ma120: 89.61
-- return_5d: -6.57
-- return_20d: 1.53
-- volume_ratio: 0.61
-- distance_to_ma20_pct_auxiliary: -2.27
-- distance_to_high_60_pct: -24.05
+- high: 101
+- low: 95
+- close: 97.9
+- volume: 3129000
+- ma5: 100.38
+- ema23_primary: 101.39
+- distance_to_ema23_pct: -3.44
+- ma20: 101.87
+- ma60: 95.73
+- ma120: 89.72
+- return_5d: -9.35
+- return_20d: 1.24
+- volume_ratio: 0.63
+- distance_to_ma20_pct_auxiliary: -3.9
+- distance_to_high_60_pct: -25.27
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,98.3,100.5,93.2,96.7,5655000,100.56,-3.84,103.44,89.44,1.84
 20260612,100,103.5,97.5,98.6,6175000,100.4,-1.79,104.14,89.75,1.94
 20260615,101.5,107,101.5,104,9360000,100.7,3.28,105.08,90.09,2.62
 20260616,109,109.5,99.9,100.5,8328000,100.68,-0.18,105.86,90.37,2.13
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,107,107.5,99,99.5,3593000,102.08,-2.52,101.98,95.05,0.58
 20260708,99.7,102,97.7,100,3395000,101.9,-1.87,101.73,95.29,0.6
 20260709,100.5,103,99.1,99.5,3144000,101.7,-2.17,101.81,95.52,0.61
+20260713,100.5,101,95,97.9,3129000,101.39,-3.44,101.87,95.73,0.63
 ```
 
 ## Latest TDCC Snapshot
@@ -189,12 +189,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 6284 | 佳邦 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.董事會或股東會決議日期:NA 2.原發放股利種類及金額: 普通股現金股利新台幣279,623,648元，每股配發新台幣 1.9 元。 3.變更後發放股利種類及金額: 普通股現金股利新台幣279,623,648元，每股配發新台幣1.88959997元。 4.變更原因:因辦理庫藏股轉讓員工，致使流通在外股數增加810,000股， 故依實際流通在外股數調整現金股利配息率 5.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260713 | 6284 | 佳邦 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.董事會或股東會決議日期:NA 2.原發放股利種類及金額: 普通股現金股利新台幣279,623,648元，每股配發新台幣 1.9 元。 3.變更後發放股利種類及金額: 普通股現金股利新台幣279,623,648元，每股配發新台幣1.88959997元。 4.變更原因:因辦理庫藏股轉讓員工，致使流通在外股數增加810,000股， 故依實際流通在外股數調整現金股利配息率 5.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260709 | 6284 | 佳邦 | 8 | 4 | 5 | 8 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260713 | 6284 | 佳邦 | 9 | 5 | 5 | 9 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |
