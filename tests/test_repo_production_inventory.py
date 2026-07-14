@@ -34,6 +34,22 @@ def test_inventory_covers_tests_and_non_python_executables() -> None:
     assert rows["docs/apps_script_workflow_trigger.gs"]["kind"] == "executable_script"
 
 
+def test_inventory_covers_revenue_operation_lag_bucket_audit() -> None:
+    manifest = ROOT / "config" / "repo_production_inventory.csv"
+    with manifest.open("r", encoding="utf-8-sig", newline="") as fh:
+        rows = {row["path"]: row for row in csv.DictReader(fh)}
+
+    expected = {
+        "scripts/revenue_unreacted_range_operation_lag_bucket_audit.py": "python",
+        "scripts/validate_revenue_unreacted_range_operation_lag_bucket_audit.py": "python",
+        "tests/test_revenue_unreacted_range_operation_lag_bucket_audit.py": "test_python",
+    }
+    for path, kind in expected.items():
+        assert rows[path]["kind"] == kind
+        assert rows[path]["owner"] == "research_backtest"
+        assert rows[path]["status"] == "active"
+
+
 def test_all_lane_workflows_run_repo_inventory_gate() -> None:
     for workflow_path in inventory.REQUIRED_WORKFLOW_COMMANDS:
         workflow_text = (ROOT / workflow_path).read_text(encoding="utf-8")
