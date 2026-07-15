@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2236 百達-KY
 
 ## Metadata
-- generated_at: 2026-07-14 22:26:30 Asia/Taipei
+- generated_at: 2026-07-15 22:26:35 Asia/Taipei
 - stock_id: 2236
 - stock_name: 百達-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 302
+- latest_price_date: 20260715
+- price_rows: 304
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 175
-- high: 177
-- low: 169
-- close: 174
-- volume: 737545
-- ma5: 178.8
-- ema23_primary: 157.08
-- distance_to_ema23_pct: 10.77
-- ma20: 152.72
-- ma60: 141.38
-- ma120: 127.26
-- return_5d: -5.43
-- return_20d: 29.85
-- volume_ratio: 0.9
-- distance_to_ma20_pct_auxiliary: 13.93
-- distance_to_high_60_pct: -8.18
+- date: 20260715
+- open: 171
+- high: 171
+- low: 163
+- close: 165.5
+- volume: 420280
+- ma5: 171.8
+- ema23_primary: 158.62
+- distance_to_ema23_pct: 4.34
+- ma20: 156.12
+- ma60: 142.68
+- ma120: 128.16
+- return_5d: -10.3
+- return_20d: 23.97
+- volume_ratio: 0.5
+- distance_to_ma20_pct_auxiliary: 6
+- distance_to_high_60_pct: -12.66
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,134,135,126,132,950963,135.87,-2.85,137.4,128.68,2.06
-20260615,132,137,132,133.5,288229,135.67,-1.6,137.3,129.07,0.63
 20260616,133.5,135.5,133,134,161321,135.53,-1.13,137.4,129.51,0.36
 20260617,133,136.5,133,134,105712,135.4,-1.04,137.57,129.94,0.24
 20260618,133.5,137,133,136.5,318916,135.5,0.74,137.5,130.48,0.75
@@ -145,15 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,136.5,136.5,134,135.5,118977,135.56,-0.04,135.9,132.14,0.36
 20260626,135.5,144.5,135.5,141.5,988133,136.05,4,136.1,132.64,2.87
 20260629,142.5,150,141.5,147,864193,136.97,7.33,136.62,133.24,2.34
-20260630,149,149.5,141,146.5,1000000,137.76,6.34,136.93,133.82,2.5
-20260701,148.5,161,143.5,161,1703000,139.7,15.25,138.03,134.63,3.65
-20260702,158,171,156.5,167.5,1690000,142.01,17.95,139.47,135.55,3.14
-20260703,167.5,184,167.5,184,2157207,145.51,26.45,141.88,136.68,3.42
-20260706,188,189,180.5,184,1652000,148.72,23.72,144.07,137.8,2.37
-20260707,186,189.5,181,184.5,1462876,151.7,21.62,146.55,138.95,1.98
-20260708,185,186,170.5,175.5,1255345,153.68,14.19,148.62,139.76,1.59
+20260630,149,149.5,141,146.5,1008105,137.76,6.34,136.93,133.82,2.52
+20260701,148.5,161,143.5,161,1739403,139.7,15.25,138.03,134.63,3.71
+20260702,158,171,156.5,167.5,1708208,142.01,17.95,139.47,135.55,3.15
+20260703,167.5,184,167.5,184,2157207,145.51,26.45,141.88,136.68,3.41
+20260706,188,189,180.5,184,1665511,148.72,23.72,144.07,137.8,2.37
+20260707,186,189.5,181,184.5,1462876,151.7,21.62,146.55,138.95,1.97
+20260708,185,186,170.5,175.5,1255345,153.68,14.19,148.62,139.76,1.58
 20260709,177,179.5,174,176,406948,155.54,13.15,150.72,140.57,0.51
-20260713,175,177,169,174,737545,157.08,10.77,152.72,141.38,0.9
+20260713,175,177,169,174,737545,157.08,10.77,152.72,141.38,0.89
+20260714,173,173.5,159,168,1021161,157.99,6.33,154.53,142.03,1.23
+20260715,171,171,163,165.5,420280,158.62,4.34,156.12,142.68,0.5
 ```
 
 ## Latest TDCC Snapshot
@@ -198,7 +199,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 2236 | 百達-KY | 2 | 0 | 268760.0 | 0.0 |  | no_signal |
+| 20260715 | 2236 | 百達-KY | 2 | 0 | 63020.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

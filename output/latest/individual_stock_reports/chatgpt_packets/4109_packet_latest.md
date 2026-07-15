@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4109 加捷生醫
 
 ## Metadata
-- generated_at: 2026-07-14 22:26:56 Asia/Taipei
+- generated_at: 2026-07-15 22:27:06 Asia/Taipei
 - stock_id: 4109
 - stock_name: 加捷生醫
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 167
+- latest_price_date: 20260715
+- price_rows: 169
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 12.1
-- high: 12.15
-- low: 11.85
-- close: 11.9
-- volume: 190000
-- ma5: 12.12
-- ema23_primary: 11.92
-- distance_to_ema23_pct: -0.2
-- ma20: 11.94
-- ma60: 11.77
-- ma120: 12.72
-- return_5d: -7.03
-- return_20d: -0.83
-- volume_ratio: 0.59
-- distance_to_ma20_pct_auxiliary: -0.34
-- distance_to_high_60_pct: -9.16
+- date: 20260715
+- open: 12
+- high: 12.35
+- low: 12
+- close: 12.2
+- volume: 254000
+- ma5: 12.02
+- ema23_primary: 11.95
+- distance_to_ema23_pct: 2.1
+- ma20: 11.93
+- ma60: 11.76
+- ma120: 12.67
+- return_5d: 0.41
+- return_20d: -0.41
+- volume_ratio: 0.77
+- distance_to_ma20_pct_auxiliary: 2.31
+- distance_to_high_60_pct: -6.87
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,12.2,12.25,12.1,12.2,161000,11.82,3.22,11.68,12.05,0.79
-20260615,12.2,12.35,12.15,12.25,188000,11.86,3.33,11.72,12.03,0.99
 20260616,12.35,12.35,12.1,12.1,169000,11.88,1.89,11.76,12.01,0.91
 20260617,12.1,12.3,12.05,12.15,137000,11.9,2.11,11.78,11.99,0.74
 20260618,12.15,12.3,12.1,12.15,165000,11.92,1.93,11.8,11.97,0.88
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260708,12.1,12.3,12,12.05,211000,11.92,1.1,11.95,11.78,0.63
 20260709,12.15,12.2,11.9,12,156000,11.93,0.62,11.95,11.78,0.48
 20260713,12.1,12.15,11.85,11.9,190000,11.92,-0.2,11.94,11.77,0.59
+20260714,11.95,11.95,11.8,11.95,243000,11.93,0.2,11.93,11.77,0.74
+20260715,12,12.35,12,12.2,254000,11.95,2.1,11.93,11.76,0.77
 ```
 
 ## Latest TDCC Snapshot

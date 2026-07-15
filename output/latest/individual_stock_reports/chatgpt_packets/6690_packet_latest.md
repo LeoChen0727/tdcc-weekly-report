@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6690 安碁資訊
 
 ## Metadata
-- generated_at: 2026-07-14 22:27:22 Asia/Taipei
+- generated_at: 2026-07-15 22:27:36 Asia/Taipei
 - stock_id: 6690
 - stock_name: 安碁資訊
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 167
+- latest_price_date: 20260715
+- price_rows: 169
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 166.5
-- high: 166.5
-- low: 163.5
-- close: 165
-- volume: 78000
-- ma5: 166.1
-- ema23_primary: 168.75
-- distance_to_ema23_pct: -2.22
-- ma20: 169.68
-- ma60: 170.72
-- ma120: 168.6
-- return_5d: -2.08
-- return_20d: -6.78
-- volume_ratio: 0.56
-- distance_to_ma20_pct_auxiliary: -2.76
-- distance_to_high_60_pct: -14.73
+- date: 20260715
+- open: 164.5
+- high: 165
+- low: 163
+- close: 163.5
+- volume: 49000
+- ma5: 164.8
+- ema23_primary: 167.84
+- distance_to_ema23_pct: -2.58
+- ma20: 168.2
+- ma60: 170.48
+- ma120: 168.47
+- return_5d: -1.51
+- return_20d: -9.17
+- volume_ratio: 0.48
+- distance_to_ma20_pct_auxiliary: -2.79
+- distance_to_high_60_pct: -15.5
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,179,184,175.5,175.5,266000,174.41,0.62,174.4,170.26,1.65
-20260615,183.5,183.5,178.5,180,623000,174.88,2.93,175,170.41,3.28
 20260616,181,181.5,177,177.5,206000,175.1,1.37,175.45,170.47,1.04
 20260617,176.5,178.5,174,178,92000,175.34,1.52,176.03,170.58,0.46
 20260618,178,179.5,177.5,179,87000,175.64,1.91,176.55,170.73,0.43
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260708,166,167,165,166.5,30000,169.33,-1.67,170.55,170.83,0.18
 20260709,166.5,168,166.5,166.5,50000,169.09,-1.53,170.28,170.79,0.32
 20260713,166.5,166.5,163.5,165,78000,168.75,-2.22,169.68,170.72,0.56
+20260714,165,165,160,162.5,95000,168.23,-3.41,169.03,170.59,0.73
+20260715,164.5,165,163,163.5,49000,167.84,-2.58,168.2,170.48,0.48
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6259 百徽
 
 ## Metadata
-- generated_at: 2026-07-14 22:27:15 Asia/Taipei
+- generated_at: 2026-07-15 22:27:29 Asia/Taipei
 - stock_id: 6259
 - stock_name: 百徽
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 166
+- latest_price_date: 20260715
+- price_rows: 168
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 38.3
-- high: 40.25
-- low: 36.85
-- close: 37.6
-- volume: 1769000
-- ma5: 39.35
-- ema23_primary: 35.85
-- distance_to_ema23_pct: 4.87
-- ma20: 36.85
-- ma60: 28.36
-- ma120: 23.04
-- return_5d: -6.12
-- return_20d: 26.39
-- volume_ratio: 0.52
-- distance_to_ma20_pct_auxiliary: 2.04
-- distance_to_high_60_pct: -13.16
+- date: 20260715
+- open: 38
+- high: 39.7
+- low: 36.65
+- close: 36.65
+- volume: 2652000
+- ma5: 37.91
+- ema23_primary: 36.05
+- distance_to_ema23_pct: 1.68
+- ma20: 37.66
+- ma60: 28.8
+- ma120: 23.36
+- return_5d: -13.97
+- return_20d: 20.76
+- volume_ratio: 0.78
+- distance_to_ma20_pct_auxiliary: -2.68
+- distance_to_high_60_pct: -15.36
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,29.2,29.65,27.5,27.6,2516000,25.93,6.43,26.18,22.26,4.37
-20260615,28.05,30.35,28.05,30.35,2902000,26.3,15.4,26.54,22.47,4.15
 20260616,32,33.35,30.15,31.8,5860000,26.76,18.84,27,22.71,6.07
 20260617,31.5,33.7,30.4,32.6,3976000,27.25,19.65,27.48,22.96,3.45
 20260618,32.5,35.85,32.5,35.85,3620000,27.96,28.21,28.03,23.27,2.81
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260708,42.6,43.3,38.75,39.35,4804000,35.44,11.02,35.89,27.8,1.37
 20260709,39.35,41.85,38.05,38.45,2310000,35.69,7.72,36.46,28.1,0.65
 20260713,38.3,40.25,36.85,37.6,1769000,35.85,4.87,36.85,28.36,0.52
+20260714,38.1,40.1,37,37.5,2423000,35.99,4.2,37.34,28.58,0.71
+20260715,38,39.7,36.65,36.65,2652000,36.05,1.68,37.66,28.8,0.78
 ```
 
 ## Latest TDCC Snapshot
@@ -189,13 +189,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 6259 | 百徽 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.董事會或股東會決議日期:115/07/09 2.原發放股利種類及金額: (1)現金股利新台幣9,784,651元，每股配發0.35元。 3.變更後發放股利種類及金額: (1)現金股利新台幣9,784,651元，每股配發0.34875249元。 4.變更原因:因員工認股權憑證轉換普通股,致流通在外普通股  股數增加，董事會授權董事長依流通在外股數，調整配息率。 5.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
-| 20260713 | 6259 | 百徽 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  |  | stale_signal | 1.董事會或股東會決議日期:115/07/09 2.原發放股利種類及金額: (1)現金股利新台幣9,784,651元，每股配發0.35元。 3.變更後發放股利種類及金額: (1)現金股利新台幣9,784,651元，每股配發0.34875249元。 4.變更原因:因員工認股權憑證轉換普通股,致流通在外普通股  股數增加，董事會授權董事長依流通在外股數，調整配息率。 5.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260715 | 6259 | 百徽 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.董事會或股東會決議日期:115/07/09 2.原發放股利種類及金額: (1)現金股利新台幣9,784,651元，每股配發0.35元。 3.變更後發放股利種類及金額: (1)現金股利新台幣9,784,651元，每股配發0.34875249元。 4.變更原因:因員工認股權憑證轉換普通股,致流通在外普通股  股數增加，董事會授權董事長依流通在外股數，調整配息率。 5.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260715 | 6259 | 百徽 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | 1.董事會或股東會決議日期:115/07/09 2.原發放股利種類及金額: (1)現金股利新台幣9,784,651元，每股配發0.35元。 3.變更後發放股利種類及金額: (1)現金股利新台幣9,784,651元，每股配發0.34875249元。 4.變更原因:因員工認股權憑證轉換普通股,致流通在外普通股  股數增加，董事會授權董事長依流通在外股數，調整配息率。 5.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 6259 | 百徽 | 1 | 1 | 2 | 5 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260715 | 6259 | 百徽 | 3 | 3 | 3 | 7 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

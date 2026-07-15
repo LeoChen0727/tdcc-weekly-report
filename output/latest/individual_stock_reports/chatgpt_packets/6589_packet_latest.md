@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6589 台康生技
 
 ## Metadata
-- generated_at: 2026-07-14 22:27:20 Asia/Taipei
+- generated_at: 2026-07-15 22:27:34 Asia/Taipei
 - stock_id: 6589
 - stock_name: 台康生技
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 231
+- latest_price_date: 20260715
+- price_rows: 233
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 49.7
-- high: 50.6
-- low: 48.65
-- close: 50.6
-- volume: 1494720
-- ma5: 50.07
-- ema23_primary: 47.76
-- distance_to_ema23_pct: 5.95
-- ma20: 47.66
-- ma60: 45.85
-- ma120: 52.79
-- return_5d: 1.81
-- return_20d: 15.39
-- volume_ratio: 1.13
-- distance_to_ma20_pct_auxiliary: 6.17
-- distance_to_high_60_pct: -5.6
+- date: 20260715
+- open: 46.4
+- high: 47.35
+- low: 46.3
+- close: 47.3
+- volume: 559060
+- ma5: 48.43
+- ema23_primary: 47.63
+- distance_to_ema23_pct: -0.69
+- ma20: 47.85
+- ma60: 45.71
+- ma120: 52.52
+- return_5d: -6.71
+- return_20d: 4.76
+- volume_ratio: 0.41
+- distance_to_ma20_pct_auxiliary: -1.15
+- distance_to_high_60_pct: -11.75
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,44.5,45.35,44.2,44.85,954825,44.42,0.98,43.59,48.32,0.59
-20260615,45.45,45.45,44.45,45.15,655541,44.48,1.51,43.63,48.08,0.45
 20260616,45.25,45.25,44.35,45,660927,44.52,1.07,43.69,47.89,0.46
 20260617,46,46.2,44.9,45.45,1249091,44.6,1.91,43.78,47.7,0.85
 20260618,45.5,46.45,45.35,46.45,1186411,44.75,3.79,43.92,47.54,0.8
@@ -145,15 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,47.2,47.95,46.6,46.7,987230,45.32,3.05,44.85,46.83,0.72
 20260626,46.65,47.15,46.1,46.1,903974,45.38,1.58,45.08,46.67,0.67
 20260629,46.3,48.8,46.3,48.2,1520190,45.62,5.66,45.38,46.56,1.33
-20260630,48.5,50.3,48.5,49.9,1953000,45.97,8.54,45.68,46.44,1.69
-20260701,50.5,53,48.45,48.5,2770000,46.18,5.01,45.9,46.29,2.24
-20260702,48.5,49,46.85,46.9,1393000,46.24,1.42,46.01,46.15,1.11
+20260630,48.5,50.3,48.5,49.9,1972586,45.97,8.54,45.68,46.44,1.7
+20260701,50.5,53,48.45,48.5,2793045,46.18,5.01,45.9,46.29,2.25
+20260702,48.5,49,46.85,46.9,1404591,46.24,1.42,46.01,46.15,1.11
 20260703,46.9,50,46.9,49.7,1611002,46.53,6.81,46.25,46.04,1.28
-20260706,51.2,53.6,50.5,51.4,2275000,46.94,9.51,46.6,45.99,1.72
-20260707,51.4,51.9,50.3,50.7,1502393,47.25,7.3,46.96,45.96,1.14
-20260708,50.4,51.5,49.4,49.4,993597,47.43,4.15,47.18,45.91,0.75
+20260706,51.2,53.6,50.5,51.4,2302317,46.94,9.51,46.6,45.99,1.73
+20260707,51.4,51.9,50.3,50.7,1502393,47.25,7.3,46.96,45.96,1.13
+20260708,50.4,51.5,49.4,49.4,993597,47.43,4.15,47.18,45.91,0.74
 20260709,49.5,49.55,48.25,48.25,721110,47.5,1.58,47.32,45.86,0.55
 20260713,49.7,50.6,48.65,50.6,1494720,47.76,5.95,47.66,45.85,1.13
+20260714,49.6,49.6,45.85,46.6,1866362,47.66,-2.23,47.74,45.77,1.36
+20260715,46.4,47.35,46.3,47.3,559060,47.63,-0.69,47.85,45.71,0.41
 ```
 
 ## Latest TDCC Snapshot
@@ -186,15 +187,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 6589 | 台康生技 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | 1.原預定買回股份總金額上限(元):5,154,754,000 2.原預定買回之期間:115/05/15~115/07/13 3.原預定買回之數量(股):5,000,000 4.原預定買回區間價格(元):40.00~74.00 5.本次實際買回期間:115/05/18~115/07/13 6.本次已買回股份數量(股):5,000,000 7.本次已買回股份總金額(元):230,003,463 8.本次平均每股買回價格(元):46.00 9.累積已持有自己公司股份數量(股):9,000,000 10.累積已持有自己公司股份數量占公司已發行股份總數之比率(%):2.93 11.本次未執行完畢之原因:  12.其他應敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
-| 20260713 | 6589 | 台康生技 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  |  | repeated_but_no_breakout | 1.原預定買回股份總金額上限(元):5,154,754,000 2.原預定買回之期間:115/05/15~115/07/13 3.原預定買回之數量(股):5,000,000 4.原預定買回區間價格(元):40.00~74.00 5.本次實際買回期間:115/05/18~115/07/13 6.本次已買回股份數量(股):5,000,000 7.本次已買回股份總金額(元):230,003,463 8.本次平均每股買回價格(元):46.00 9.累積已持有自己公司股份數量(股):9,000,000 10.累積已持有自己公司股份數量占公司已發行股份總數之比率(%):2.93 11.本次未執行完畢之原因:  12.其他應敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 6589 | 台康生技 | 1 | 1 | 3 | 7 | 13 | repeated_but_no_breakout | 近 10 日上榜 7 次、近 20 日上榜 13 次，但尚未有效突破，需等待攻擊確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

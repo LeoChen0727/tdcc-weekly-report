@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3673 TPK-KY
 
 ## Metadata
-- generated_at: 2026-07-14 22:26:54 Asia/Taipei
+- generated_at: 2026-07-15 22:27:04 Asia/Taipei
 - stock_id: 3673
 - stock_name: TPK-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 302
+- latest_price_date: 20260715
+- price_rows: 304
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 - acceptable_risk_reward
@@ -112,30 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 79.6
-- high: 82.7
-- low: 77.4
-- close: 78
-- volume: 8662321
-- ma5: 78.22
-- ema23_primary: 79.81
-- distance_to_ema23_pct: -2.27
-- ma20: 80.7
-- ma60: 75.14
-- ma120: 59.11
-- return_5d: -5.34
-- return_20d: -0.89
-- volume_ratio: 0.53
-- distance_to_ma20_pct_auxiliary: -3.35
-- distance_to_high_60_pct: -21.13
+- date: 20260715
+- open: 73.8
+- high: 74.7
+- low: 72.2
+- close: 74.2
+- volume: 5627395
+- ma5: 76.06
+- ema23_primary: 78.76
+- distance_to_ema23_pct: -5.79
+- ma20: 80.06
+- ma60: 75.24
+- ma120: 59.65
+- return_5d: -2.37
+- return_20d: -6.67
+- volume_ratio: 0.36
+- distance_to_ma20_pct_auxiliary: -7.31
+- distance_to_high_60_pct: -24.97
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,81.6,83.4,79.5,79.8,11378485,79.36,0.56,82.36,64.92,0.32
-20260615,82,83.5,78.8,79.5,12910194,79.37,0.16,82.9,65.54,0.37
 20260616,80.5,81.5,78.5,78.8,13953797,79.32,-0.66,83.07,66.11,0.41
 20260617,79.5,86.6,78.3,86.6,32111416,79.93,8.35,83.81,66.78,0.97
 20260618,88.5,88.6,85.4,86.2,32118735,80.45,7.15,84.42,67.46,0.99
@@ -145,15 +142,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,84.3,84.7,80.8,81.9,12347195,81.45,0.55,84.64,70.02,0.43
 20260626,81.1,82,76.3,76.5,14505535,81.04,-5.6,84.41,70.55,0.54
 20260629,76.5,78.5,74.5,76.5,9270291,80.66,-5.16,83.92,71.1,0.36
-20260630,79.5,81.5,78.6,80.4,8800000,80.64,-0.3,83.47,71.72,0.37
-20260701,82,82.4,75.7,76.2,12574000,80.27,-5.07,82.67,72.25,0.58
-20260702,75.2,83.8,74.1,83.8,12228000,80.56,4.02,82.17,72.83,0.63
-20260703,83.6,88.8,81.9,82.4,32803793,80.72,2.09,81.91,73.34,1.68
-20260706,83,85.6,81.1,81.2,10516000,80.76,0.55,81.67,73.84,0.56
+20260630,79.5,81.5,78.6,80.4,8887280,80.64,-0.3,83.47,71.72,0.38
+20260701,82,82.4,75.7,76.2,12779374,80.27,-5.07,82.67,72.25,0.59
+20260702,75.2,83.8,74.1,83.8,12382845,80.56,4.02,82.17,72.83,0.63
+20260703,83.6,88.8,81.9,82.4,32803793,80.72,2.09,81.91,73.34,1.67
+20260706,83,85.6,81.1,81.2,10622153,80.76,0.55,81.67,73.84,0.56
 20260707,81.9,83.2,76,76,9944649,80.36,-5.43,81.33,74.28,0.54
 20260708,77,79.6,75,78.1,7316864,80.17,-2.58,80.89,74.66,0.42
 20260709,78.5,79.3,76.6,77.8,6422611,79.97,-2.72,80.73,74.95,0.39
 20260713,79.6,82.7,77.4,78,8662321,79.81,-2.27,80.7,75.14,0.53
+20260714,77.8,77.8,70.2,72.2,9482750,79.18,-8.81,80.32,75.2,0.59
+20260715,73.8,74.7,72.2,74.2,5627395,78.76,-5.79,80.06,75.24,0.36
 ```
 
 ## Latest TDCC Snapshot
@@ -188,17 +187,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 3673 | TPK-KY | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  | call_inflow | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/01 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額: 普通股現金股利新台幣731,994,766元 (每股配發現金新台幣1.8元) 4.除權（息）交易日:115/07/16 5.最後過戶日:115/07/17 6.停止過戶起始日期:115/07/18 7.停止過戶截止日期:115/07/22 8.除權（息）基準日:115/07/22 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/10 13.其他應敘明事項:無；calendar event: ex_dividend on 20260716; status=confirmed; proximity=within_3d |
+| 20260715 | 3673 | TPK-KY | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/01 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額: 普通股現金股利新台幣731,994,766元 (每股配發現金新台幣1.8元) 4.除權（息）交易日:115/07/16 5.最後過戶日:115/07/17 6.停止過戶起始日期:115/07/18 7.停止過戶截止日期:115/07/22 8.除權（息）基準日:115/07/22 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/10 13.其他應敘明事項:無；calendar event: ex_dividend on 20260716; status=confirmed; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 3673 | TPK-KY | 1 | 1 | 3 | 6 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260715 | 3673 | TPK-KY | 1 | 1 | 3 | 6 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 3673 | TPK-KY | 67 | 0 | 8391280.0 | 0.0 |  | call_inflow |
+| 20260715 | 3673 | TPK-KY | 67 | 0 | 5117930.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

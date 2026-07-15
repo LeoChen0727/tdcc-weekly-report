@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4979 華星光
 
 ## Metadata
-- generated_at: 2026-07-14 22:27:03 Asia/Taipei
+- generated_at: 2026-07-15 22:27:15 Asia/Taipei
 - stock_id: 4979
 - stock_name: 華星光
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 167
+- latest_price_date: 20260715
+- price_rows: 169
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 443
-- high: 451
-- low: 413.5
-- close: 419
-- volume: 4362000
-- ma5: 434.2
-- ema23_primary: 485.65
-- distance_to_ema23_pct: -13.72
-- ma20: 485.45
-- ma60: 568.43
-- ma120: 465.97
-- return_5d: -10.57
-- return_20d: -11.42
-- volume_ratio: 0.76
-- distance_to_ma20_pct_auxiliary: -13.69
-- distance_to_high_60_pct: -45.01
+- date: 20260715
+- open: 415.5
+- high: 419
+- low: 401.5
+- close: 410
+- volume: 4120000
+- ma5: 419.8
+- ema23_primary: 473.03
+- distance_to_ema23_pct: -13.32
+- ma20: 473.55
+- ma60: 561.48
+- ma120: 467.69
+- return_5d: -4.21
+- return_20d: -25.45
+- volume_ratio: 0.67
+- distance_to_ma20_pct_auxiliary: -13.42
+- distance_to_high_60_pct: -46.19
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,497,510,475,501,1109000,574.83,-12.84,586.4,545.74,1.36
-20260615,522,550,516,550,871000,572.76,-3.97,586.35,548.52,1.1
 20260616,552,575,552,568,1127000,572.37,-0.76,588.6,551.47,1.4
 20260617,540,563,532,546,6613000,570.17,-4.24,587.8,553.83,6.11
 20260618,549,586,531,567,7413000,569.9,-0.51,586.5,556.94,5.29
@@ -154,6 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260708,432,451.5,424.5,434.5,7033000,497.09,-12.59,491.73,571.21,1.27
 20260709,439,443,429.5,432.5,2905000,491.71,-12.04,488.15,570.33,0.52
 20260713,443,451,413.5,419,4362000,485.65,-13.72,485.45,568.43,0.76
+20260714,420,442,382.5,403,6469000,478.76,-15.82,480.55,565.38,1.08
+20260715,415.5,419,401.5,410,4120000,473.03,-13.32,473.55,561.48,0.67
 ```
 
 ## Latest TDCC Snapshot

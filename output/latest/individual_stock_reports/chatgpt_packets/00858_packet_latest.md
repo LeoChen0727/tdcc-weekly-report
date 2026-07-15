@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00858 永豐美國500大
 
 ## Metadata
-- generated_at: 2026-07-14 22:26:16 Asia/Taipei
+- generated_at: 2026-07-15 22:26:18 Asia/Taipei
 - stock_id: 00858
 - stock_name: 永豐美國500大
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260713
-- price_rows: 35
+- latest_price_date: 20260715
+- price_rows: 37
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 36.8
-- high: 37.04
-- low: 36.8
-- close: 36.85
-- volume: 434000
-- ma5: 36.73
-- ema23_primary: 36.27
-- distance_to_ema23_pct: 1.61
-- ma20: 36.23
-- ma60: 36.04
-- ma120: 36.04
-- return_5d: 0.96
-- return_20d: 5.14
-- volume_ratio: 0.76
-- distance_to_ma20_pct_auxiliary: 1.71
-- distance_to_high_60_pct: -0.51
+- date: 20260715
+- open: 36.93
+- high: 37.13
+- low: 36.93
+- close: 37.11
+- volume: 227000
+- ma5: 36.84
+- ema23_primary: 36.38
+- distance_to_ema23_pct: 2
+- ma20: 36.34
+- ma60: 36.09
+- ma120: 36.09
+- return_5d: 0.92
+- return_20d: 2.91
+- volume_ratio: 0.4
+- distance_to_ma20_pct_auxiliary: 2.11
+- distance_to_high_60_pct: -0.05
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,35.6,35.72,35.55,35.65,492000,35.72,-0.2,35.78,35.78,2.36
-20260615,35.97,36.07,35.95,36.06,455000,35.75,0.86,35.8,35.8,2.04
 20260616,36.24,36.35,36.21,36.3,1071000,35.8,1.41,35.83,35.83,3.96
 20260617,36.03,36.24,36.03,36.15,580000,35.83,0.9,35.84,35.84,2.02
 20260618,36.15,36.15,35.97,36.01,913000,35.84,0.47,35.85,35.85,2.87
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260708,36.77,36.84,36.62,36.63,448000,36.17,1.28,36.06,36,0.76
 20260709,36.63,36.77,36.61,36.74,421000,36.21,1.45,36.14,36.02,0.73
 20260713,36.8,37.04,36.8,36.85,434000,36.27,1.61,36.23,36.04,0.76
+20260714,36.85,36.91,36.69,36.86,537000,36.32,1.5,36.29,36.06,0.93
+20260715,36.93,37.13,36.93,37.11,227000,36.38,2,36.34,36.09,0.4
 ```
 
 ## Latest TDCC Snapshot

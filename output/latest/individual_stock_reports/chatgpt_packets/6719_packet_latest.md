@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6719 力智
 
 ## Metadata
-- generated_at: 2026-07-14 22:27:22 Asia/Taipei
+- generated_at: 2026-07-15 22:27:37 Asia/Taipei
 - stock_id: 6719
 - stock_name: 力智
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 302
+- latest_price_date: 20260715
+- price_rows: 304
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -111,30 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 270
-- high: 273.5
-- low: 247.5
-- close: 252.5
-- volume: 3298235
-- ma5: 278.6
-- ema23_primary: 266.74
-- distance_to_ema23_pct: -5.34
-- ma20: 271.48
-- ma60: 228.99
-- ma120: 204.19
-- return_5d: -12.63
-- return_20d: 17.99
-- volume_ratio: 0.56
-- distance_to_ma20_pct_auxiliary: -6.99
-- distance_to_high_60_pct: -22.66
+- date: 20260715
+- open: 247
+- high: 248.5
+- low: 240.5
+- close: 248
+- volume: 1338069
+- ma5: 257.6
+- ema23_primary: 263.44
+- distance_to_ema23_pct: -5.86
+- ma20: 273.1
+- ma60: 231.63
+- ma120: 205.26
+- return_5d: -12.83
+- return_20d: 3.12
+- volume_ratio: 0.22
+- distance_to_ma20_pct_auxiliary: -9.19
+- distance_to_high_60_pct: -24.04
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,222,224.5,219,219,842057,223.22,-1.89,234.8,194.01,0.27
-20260615,224.5,240.5,224.5,240.5,1482620,224.66,7.05,235.82,195.12,0.49
 20260616,249,254,238,239.5,2840072,225.9,6.02,237.25,196.3,0.95
 20260617,239,239,232,237,1002142,226.82,4.49,237.5,197.46,0.36
 20260618,245,260.5,245,260.5,4105995,229.63,13.44,238.85,199.09,1.51
@@ -144,15 +142,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,301,301,282.5,295.5,6795817,247.27,19.5,245.9,207.28,1.97
 20260626,289.5,291.5,266,266,5744774,248.83,6.9,246.78,208.91,1.62
 20260629,262,268,256,261.5,3358278,249.89,4.65,247.5,210.57,0.94
-20260630,265.5,279,262,270,4007000,251.57,7.33,248.82,212.36,1.09
-20260701,285,297,283,297,7366000,255.35,16.31,251.65,214.65,1.87
-20260702,297,326.5,292,300,17153000,259.07,15.8,254.53,216.99,3.63
-20260703,292.5,305,286.5,289,5598646,261.57,10.49,257.25,219.07,1.13
-20260706,298,317.5,296,312.5,8711000,265.81,17.56,260.95,221.66,1.64
-20260707,312,312,282,284.5,7045885,267.37,6.41,264.2,223.74,1.27
+20260630,265.5,279,262,270,4096037,251.57,7.33,248.82,212.36,1.11
+20260701,285,297,283,297,7554471,255.35,16.31,251.65,214.65,1.91
+20260702,297,326.5,292,300,17525994,259.07,15.8,254.53,216.99,3.68
+20260703,292.5,305,286.5,289,5598646,261.57,10.49,257.25,219.07,1.12
+20260706,298,317.5,296,312.5,8973507,265.81,17.56,260.95,221.66,1.68
+20260707,312,312,282,284.5,7045885,267.37,6.41,264.2,223.74,1.26
 20260708,282,283.5,269.5,277,3711978,268.17,3.29,266.88,225.72,0.65
 20260709,275.5,281,266.5,266.5,2723539,268.03,-0.57,269.55,227.48,0.47
 20260713,270,273.5,247.5,252.5,3298235,266.74,-5.34,271.48,228.99,0.56
+20260714,252.5,256,231,244,3323981,264.84,-7.87,272.73,230.29,0.55
+20260715,247,248.5,240.5,248,1338069,263.44,-5.86,273.1,231.63,0.22
 ```
 
 ## Latest TDCC Snapshot
@@ -187,17 +187,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 6719 | 力智 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/08/07 1.召開法人說明會之日期：115/08/07 2.召開法人說明會之時間：14 時 30 分  3.召開法人說明會之地點：線上 4.法人說明會擇要訊息：本公司受邀參加福邦證券舉辦之線上法人說明會 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: ex_dividend on 20260721; status=confirmed; proximity=within_7d |
+| 20260715 | 6719 | 力智 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/08/07 1.召開法人說明會之日期：115/08/07 2.召開法人說明會之時間：14 時 30 分  3.召開法人說明會之地點：線上 4.法人說明會擇要訊息：本公司受邀參加福邦證券舉辦之線上法人說明會 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: ex_dividend on 20260721; status=confirmed; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 6719 | 力智 | 2 | 2 | 4 | 7 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260715 | 6719 | 力智 | 4 | 4 | 4 | 8 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 6719 | 力智 | 54 | 2 | 8638440.0 | 31080.0 | 277.94 | no_signal |
+| 20260715 | 6719 | 力智 | 55 | 2 | 2223620.0 | 35870.0 | 61.99 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

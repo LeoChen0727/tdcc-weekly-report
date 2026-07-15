@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4931 新盛力
 
 ## Metadata
-- generated_at: 2026-07-14 22:27:02 Asia/Taipei
+- generated_at: 2026-07-15 22:27:14 Asia/Taipei
 - stock_id: 4931
 - stock_name: 新盛力
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 167
+- latest_price_date: 20260715
+- price_rows: 169
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -58,7 +58,7 @@
 - pdf_visible: true
 - action_rating_display_zh: 可分批買進
 - model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
 - action_summary_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。
 - entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
 - position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
@@ -73,7 +73,7 @@
 - internal_use_only: true
 - action_rating: scale_in
 - action_rating_label_zh: 可分批買進
-- confidence_level: medium
+- confidence_level: high
 - thesis_state: healthy_pullback
 - entry_style: pullback_to_23ema
 - position_sizing: half_position
@@ -92,6 +92,7 @@
 
 ### entry_prerequisites
 - model_recommended
+- decision_score_high
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -118,30 +119,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 260.5
-- high: 264.5
-- low: 233.5
-- close: 237
-- volume: 8318000
-- ma5: 254.5
-- ema23_primary: 244.33
-- distance_to_ema23_pct: -3
-- ma20: 249.05
-- ma60: 212.91
-- ma120: 178.53
-- return_5d: -0.21
-- return_20d: 1.28
-- volume_ratio: 1.13
-- distance_to_ma20_pct_auxiliary: -4.84
-- distance_to_high_60_pct: -17.42
+- date: 20260715
+- open: 225
+- high: 228.5
+- low: 220
+- close: 224
+- volume: 3363000
+- ma5: 241.8
+- ema23_primary: 240.85
+- distance_to_ema23_pct: -7
+- ma20: 246.9
+- ma60: 215.57
+- ma120: 179.42
+- return_5d: -9.49
+- return_20d: -11.11
+- volume_ratio: 0.48
+- distance_to_ma20_pct_auxiliary: -9.28
+- distance_to_high_60_pct: -21.95
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,246,249.5,235,236,6483000,225.07,4.86,227.15,177.55,1
-20260615,248.5,258.5,240.5,252,10242000,227.31,10.86,230.38,179.42,1.56
 20260616,254.5,262,248,250.5,8529000,229.24,9.27,233.75,181.32,1.28
 20260617,252.5,257,250,253,4391000,231.22,9.42,236.93,183.21,0.66
 20260618,255,268.5,254,261.5,7486000,233.75,11.87,240.35,185.39,1.15
@@ -160,6 +159,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260708,260,272,259,272,16430000,244.09,11.44,248.75,209.33,2.27
 20260709,274.5,275,255,255,19300000,245,4.08,248.9,211.26,2.6
 20260713,260.5,264.5,233.5,237,8318000,244.33,-3,249.05,212.91,1.13
+20260714,233.5,235.5,213.5,221,5787000,242.39,-8.82,248.3,214.25,0.79
+20260715,225,228.5,220,224,3363000,240.85,-7,246.9,215.57,0.48
 ```
 
 ## Latest TDCC Snapshot
@@ -194,12 +195,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 4931 | 新盛力 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260715 | 4931 | 新盛力 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 4931 | 新盛力 | 14 | 14 | 5 | 10 | 14 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 14 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260715 | 4931 | 新盛力 | 16 | 16 | 5 | 10 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

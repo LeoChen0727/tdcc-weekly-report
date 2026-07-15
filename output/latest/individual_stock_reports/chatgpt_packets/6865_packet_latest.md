@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6865 偉康科技
 
 ## Metadata
-- generated_at: 2026-07-14 22:27:25 Asia/Taipei
+- generated_at: 2026-07-15 22:27:40 Asia/Taipei
 - stock_id: 6865
 - stock_name: 偉康科技
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 163
+- latest_price_date: 20260715
+- price_rows: 165
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 26.9
-- high: 27.15
-- low: 26.6
-- close: 27.15
-- volume: 5000
-- ma5: 27.56
-- ema23_primary: 27.81
-- distance_to_ema23_pct: -2.37
-- ma20: 27.28
-- ma60: 30.5
-- ma120: 35.67
-- return_5d: -3.89
-- return_20d: -1.27
-- volume_ratio: 0.13
-- distance_to_ma20_pct_auxiliary: -0.48
-- distance_to_high_60_pct: -28.65
+- date: 20260715
+- open: 27.15
+- high: 27.4
+- low: 25.05
+- close: 25.8
+- volume: 148000
+- ma5: 26.79
+- ema23_primary: 27.59
+- distance_to_ema23_pct: -6.5
+- ma20: 27.26
+- ma60: 30.17
+- ma120: 35.33
+- return_5d: -8.83
+- return_20d: -0.77
+- volume_ratio: 3.5
+- distance_to_ma20_pct_auxiliary: -5.36
+- distance_to_high_60_pct: -32.19
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,27.3,27.35,26.6,27.35,9000,29.13,-6.11,27.86,33.41,0.27
-20260612,26.85,26.85,25.8,26,91000,28.87,-9.94,27.59,33.25,2.85
 20260615,26,26,25.65,25.65,25000,28.6,-10.32,27.38,33.1,0.85
 20260616,25.6,28.2,25.6,26.6,275000,28.43,-6.45,27.3,32.95,6.96
 20260617,26.1,26.5,25.75,25.75,31000,28.21,-8.72,27.2,32.79,0.79
@@ -155,6 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260707,27.5,28.35,26.85,26.85,19000,27.95,-3.93,27.34,30.81,0.48
 20260708,27,27,27,27,2000,27.87,-3.12,27.3,30.64,0.05
 20260713,26.9,27.15,26.6,27.15,5000,27.81,-2.37,27.28,30.5,0.13
+20260714,26.6,27.25,26.5,27.15,8000,27.76,-2.18,27.27,30.34,0.2
+20260715,27.15,27.4,25.05,25.8,148000,27.59,-6.5,27.26,30.17,3.5
 ```
 
 ## Latest TDCC Snapshot

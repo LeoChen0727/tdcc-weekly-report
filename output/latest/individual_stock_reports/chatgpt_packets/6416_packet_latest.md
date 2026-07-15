@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6416 瑞祺電通
 
 ## Metadata
-- generated_at: 2026-07-14 22:27:17 Asia/Taipei
+- generated_at: 2026-07-15 22:27:30 Asia/Taipei
 - stock_id: 6416
 - stock_name: 瑞祺電通
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 302
+- latest_price_date: 20260715
+- price_rows: 304
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -56,33 +56,29 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 可分批買進
+- action_rating_display_zh: 已持有續抱
 - model_category_display_zh: 區間內轉強 / 挑戰前高觀察
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
-- action_summary_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。
-- entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
-- position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 區間內轉強 / 挑戰前高觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
+- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 區間內轉強 / 挑戰前高觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: scale_in
-- action_rating_label_zh: 可分批買進
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: healthy_pullback
-- entry_style: pullback_to_23ema
-- position_sizing: half_position
+- thesis_state: unclear
+- entry_style: no_entry_now
+- position_sizing: observe_only
 
 ### management_plan
-- buy_first_tranche_near_support
-- add_on_23ema_hold
-- add_on_reclaim_23ema
-- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -91,7 +87,6 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -118,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 102
-- high: 102.5
-- low: 95.3
-- close: 96.7
-- volume: 1650833
-- ma5: 93.22
-- ema23_primary: 86.73
-- distance_to_ema23_pct: 11.5
-- ma20: 84.75
-- ma60: 85.42
-- ma120: 84.07
-- return_5d: 17.78
-- return_20d: 18.22
-- volume_ratio: 2.67
-- distance_to_ma20_pct_auxiliary: 14.09
-- distance_to_high_60_pct: -5.66
+- date: 20260715
+- open: 98.9
+- high: 102
+- low: 97
+- close: 101.5
+- volume: 1010756
+- ma5: 98.34
+- ema23_primary: 88.81
+- distance_to_ema23_pct: 14.29
+- ma20: 86.33
+- ma60: 86.04
+- ma120: 84.26
+- return_5d: 11.54
+- return_20d: 19.41
+- volume_ratio: 1.42
+- distance_to_ma20_pct_auxiliary: 17.58
+- distance_to_high_60_pct: -0.98
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,82.5,84.1,82.5,83,135013,86.34,-3.87,88.22,83.82,0.36
-20260615,84.8,85.9,84,85,251387,86.23,-1.42,88.06,83.86,0.7
 20260616,86,86,83.2,83.9,180407,86.03,-2.48,87.89,83.89,0.52
 20260617,83.1,84,83.1,83.8,76796,85.85,-2.39,87.64,83.92,0.23
 20260618,83.7,84.8,83.5,83.7,205487,85.67,-2.3,87.28,83.98,0.63
@@ -151,15 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,81.8,82.1,80.8,81.2,243134,84.63,-4.05,85.38,84.16,0.85
 20260626,80.4,81,78.8,78.9,439805,84.15,-6.24,84.89,84.14,1.62
 20260629,80,80.2,79,79,169330,83.72,-5.64,84.39,84.16,0.64
-20260630,80.1,80.4,79.2,80.1,175000,83.42,-3.98,83.83,84.17,0.7
-20260701,80.5,80.5,79.5,79.8,100000,83.12,-3.99,83.22,84.19,0.42
-20260702,79.5,81.6,79.5,80.9,172000,82.93,-2.45,82.72,84.24,0.74
+20260630,80.1,80.4,79.2,80.1,176054,83.42,-3.98,83.83,84.17,0.71
+20260701,80.5,80.5,79.5,79.8,101843,83.12,-3.99,83.22,84.19,0.43
+20260702,79.5,81.6,79.5,80.9,173348,82.93,-2.45,82.72,84.24,0.74
 20260703,81.1,82.3,81.1,82.1,143069,82.86,-0.92,82.36,84.28,0.63
-20260706,83,84.1,82.7,82.8,239000,82.86,-0.07,82.12,84.31,1.05
-20260707,91,91,91,91,1214796,83.54,8.93,82.56,84.52,4.73
-20260708,92.8,97.8,90.4,97.2,4450482,84.68,14.79,83.17,84.83,9.53
+20260706,83,84.1,82.7,82.8,241246,82.86,-0.07,82.12,84.31,1.06
+20260707,91,91,91,91,1214796,83.54,8.93,82.56,84.52,4.72
+20260708,92.8,97.8,90.4,97.2,4450482,84.68,14.79,83.17,84.83,9.52
 20260709,94,99,93.9,98.4,1934828,85.82,14.66,84.01,85.15,3.54
 20260713,102,102.5,95.3,96.7,1650833,86.73,11.5,84.75,85.42,2.67
+20260714,98.1,98.1,92.3,97.9,1238285,87.66,11.68,85.5,85.71,1.84
+20260715,98.9,102,97,101.5,1010756,88.81,14.29,86.33,86.04,1.42
 ```
 
 ## Latest TDCC Snapshot
@@ -194,12 +189,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 6416 | 瑞祺電通 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | repeated_but_no_breakout | 1.董事會、股東會決議或公司決定日期:115/07/07 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:現金股利新台幣205,375,688元 4.除權（息）交易日:115/07/28 5.最後過戶日:115/07/29 6.停止過戶起始日期:115/07/30 7.停止過戶截止日期:115/08/03 8.除權（息）基準日:115/08/03 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/28 13.其他應敘明事項:無；calendar event: ex_dividend on 20260728; status=confirmed; proximity=within_14d |
+| 20260715 | 6416 | 瑞祺電通 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 63.0 |  |  | neckline_challenge |  |  | repeated_but_no_breakout | 1.董事會、股東會決議或公司決定日期:115/07/07 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:現金股利新台幣205,375,688元 4.除權（息）交易日:115/07/28 5.最後過戶日:115/07/29 6.停止過戶起始日期:115/07/30 7.停止過戶截止日期:115/08/03 8.除權（息）基準日:115/08/03 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/28 13.其他應敘明事項:無；calendar event: ex_dividend on 20260728; status=confirmed; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 6416 | 瑞祺電通 | 4 | 1 | 4 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 次、近 20 日上榜 4 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260715 | 6416 | 瑞祺電通 | 6 | 3 | 5 | 6 | 6 | repeated_but_no_breakout | 近 10 日上榜 6 次、近 20 日上榜 6 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

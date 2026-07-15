@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3712 永崴投控
 
 ## Metadata
-- generated_at: 2026-07-14 22:26:55 Asia/Taipei
+- generated_at: 2026-07-15 22:27:05 Asia/Taipei
 - stock_id: 3712
 - stock_name: 永崴投控
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 300
+- latest_price_date: 20260715
+- price_rows: 302
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 17.1
-- high: 17.3
-- low: 16.55
-- close: 16.85
-- volume: 1259665
-- ma5: 17.72
-- ema23_primary: 17.95
-- distance_to_ema23_pct: -6.13
-- ma20: 17.94
-- ma60: 18.46
-- ma120: 21.18
-- return_5d: -11.08
-- return_20d: -3.99
-- volume_ratio: 1
-- distance_to_ma20_pct_auxiliary: -6.06
-- distance_to_high_60_pct: -28.45
+- date: 20260715
+- open: 16.4
+- high: 16.7
+- low: 16
+- close: 16.15
+- volume: 1142829
+- ma5: 16.79
+- ema23_primary: 17.67
+- distance_to_ema23_pct: -8.58
+- ma20: 17.8
+- ma60: 18.38
+- ma120: 21.04
+- return_5d: -7.98
+- return_20d: -10.03
+- volume_ratio: 0.91
+- distance_to_ma20_pct_auxiliary: -9.26
+- distance_to_high_60_pct: -31.42
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,18,18,17.2,17.2,1480976,18.09,-4.9,17.3,19.46,0.86
-20260615,17.35,17.95,17.35,17.95,884867,18.08,-0.69,17.42,19.35,0.65
 20260616,17.8,18.35,17.8,17.85,914690,18.06,-1.14,17.53,19.25,0.7
 20260617,17.95,18.25,17.7,17.9,383814,18.04,-0.79,17.68,19.16,0.32
 20260618,18,18.05,17.65,17.65,522909,18.01,-2,17.77,19.07,0.45
@@ -145,15 +143,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,18.2,18.9,18.2,18.55,676337,18.05,2.77,18.18,18.73,0.64
 20260626,18.3,18.3,17.3,17.35,834850,17.99,-3.56,18.22,18.63,0.82
 20260629,17.35,18.2,17.35,18.1,636451,18,0.56,18.21,18.56,0.67
-20260630,18.15,18.65,18.15,18.4,646000,18.03,2.03,18.14,18.5,0.79
-20260701,18.6,18.6,18.1,18.2,307000,18.05,0.85,18.09,18.44,0.4
-20260702,18.2,18.5,17.9,18.1,629000,18.05,0.27,18.01,18.42,0.86
+20260630,18.15,18.65,18.15,18.4,649511,18.03,2.03,18.14,18.5,0.79
+20260701,18.6,18.6,18.1,18.2,317473,18.05,0.85,18.09,18.44,0.42
+20260702,18.2,18.5,17.9,18.1,633235,18.05,0.27,18.01,18.42,0.87
 20260703,17.95,19,17.95,18.95,842364,18.13,4.54,18.04,18.44,1.17
-20260706,19.1,19.9,18.95,19.45,1091000,18.24,6.65,18.09,18.46,1.5
-20260707,17.55,18.05,17.55,17.55,4934919,18.18,-3.46,18.06,18.46,5.31
+20260706,19.1,19.9,18.95,19.45,1104043,18.24,6.65,18.09,18.46,1.52
+20260707,17.55,18.05,17.55,17.55,4934919,18.18,-3.46,18.06,18.46,5.3
 20260708,16.8,17.7,16.7,17.55,5501109,18.13,-3.18,18.01,18.47,4.68
 20260709,17.5,17.5,16.95,17.2,1883388,18.05,-4.71,17.97,18.47,1.52
 20260713,17.1,17.3,16.55,16.85,1259665,17.95,-6.13,17.94,18.46,1
+20260714,16.9,16.9,16.15,16.2,1157220,17.8,-9.01,17.89,18.43,0.93
+20260715,16.4,16.7,16,16.15,1142829,17.67,-8.58,17.8,18.38,0.91
 ```
 
 ## Latest TDCC Snapshot
@@ -198,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 3712 | 永崴投控 | 1 | 0 | 0.0 | 0.0 |  | no_signal |
+| 20260715 | 3712 | 永崴投控 | 1 | 0 | 0.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

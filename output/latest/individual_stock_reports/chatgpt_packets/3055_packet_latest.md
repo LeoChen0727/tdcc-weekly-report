@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3055 蔚華科
 
 ## Metadata
-- generated_at: 2026-07-14 22:26:45 Asia/Taipei
+- generated_at: 2026-07-15 22:26:53 Asia/Taipei
 - stock_id: 3055
 - stock_name: 蔚華科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 302
+- latest_price_date: 20260715
+- price_rows: 304
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -56,40 +56,38 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
-- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
+- action_rating_display_zh: 等待回檔
+- model_category_display_zh: 嚴格突破
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前還沒有新的第一筆買點，需等待回檔或站回條件成立。
+- action_summary_zh: 嚴格突破 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。
+- entry_strategy_zh: 目前等待回檔，不建立新部位；回測支撐或 23EMA 不破後再評估。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- add_position_strategy_zh: 跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 股價乖離過大
+- risk_control_zh: TDCC 轉弱警訊、股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
+- final_decision_zh: 嚴格突破 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。 進場策略：目前等待回檔，不建立新部位；回測支撐或 23EMA 不破後再評估。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊、股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
+- action_rating: wait_pullback
+- action_rating_label_zh: 等待回檔
 - confidence_level: medium
-- thesis_state: high_level_consolidation
-- entry_style: no_entry_now
+- thesis_state: high_level_distribution_risk
+- entry_style: pullback_to_support
 - position_sizing: observe_only
 
 ### management_plan
-- take_profit_near_prior_high
-- take_profit_on_volume_price_failure
 - exit_if_lost_23ema
 - exit_if_lost_recent_low
 - exit_if_revenue_breaks
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
 - price_structure_not_broken
 - revenue_not_deteriorating
-- no_major_tdcc_warning
 - no_major_volume_price_failure
 
 ### post_entry_watch_items
@@ -103,6 +101,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
+- tdcc_distribution_warning
 - price_too_extended
 
 ### chatgpt_instruction
@@ -111,30 +110,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 160.5
-- high: 163
-- low: 153
-- close: 163
-- volume: 1127856
-- ma5: 165.2
-- ema23_primary: 127.46
-- distance_to_ema23_pct: 27.89
-- ma20: 118.72
-- ma60: 102.76
-- ma120: 83.78
-- return_5d: 6.89
-- return_20d: 105.03
-- volume_ratio: 0.35
-- distance_to_ma20_pct_auxiliary: 37.3
-- distance_to_high_60_pct: -7.65
+- date: 20260715
+- open: 175.5
+- high: 193
+- low: 175.5
+- close: 193
+- volume: 1264219
+- ma5: 171.6
+- ema23_primary: 136.59
+- distance_to_ema23_pct: 41.3
+- ma20: 128.99
+- ma60: 106.73
+- ma120: 85.66
+- return_5d: 9.66
+- return_20d: 132.25
+- volume_ratio: 0.39
+- distance_to_ma20_pct_auxiliary: 49.62
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,82.7,82.8,79.9,79.9,1014785,95.74,-16.54,104.03,83.23,0.24
-20260615,84.6,85.4,82.8,83.1,1276941,94.69,-12.24,102.54,83.61,0.32
 20260616,85.2,87.4,83.2,85.1,1485518,93.89,-9.36,100.59,84.04,0.45
 20260617,84.9,87.5,83.2,86.8,1068061,93.3,-6.96,99.33,84.49,0.36
 20260618,89.8,95,86.8,91.1,2907958,93.11,-2.16,98.06,85.04,1.06
@@ -144,15 +141,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,104,104.5,95.4,102,6103663,94.15,8.34,93.93,87.55,2.58
 20260626,99,103.5,95.3,96,2369515,94.3,1.8,93.45,88.2,1.05
 20260629,96,105.5,93.6,105.5,2857928,95.23,10.78,93.33,89.03,1.24
-20260630,116,116,116,116,1433000,96.96,19.63,93.7,89.99,0.65
-20260701,127.5,127.5,126,127.5,4518000,99.51,28.13,94.98,91.16,2.02
-20260702,129,140,129,140,5832000,102.88,36.08,96.95,92.55,2.41
-20260703,142,154,140,152.5,17863228,107.02,42.5,99.41,94.09,5.52
-20260706,163,163,150.5,160.5,2202000,111.47,43.98,102.45,95.76,0.67
-20260707,169,176.5,162.5,176,2405833,116.85,50.62,106.7,97.71,0.73
+20260630,116,116,116,116,1481273,96.96,19.63,93.7,89.99,0.67
+20260701,127.5,127.5,126,127.5,4736561,99.51,28.13,94.98,91.16,2.11
+20260702,129,140,129,140,6024426,102.88,36.08,96.95,92.55,2.47
+20260703,142,154,140,152.5,17863228,107.02,42.5,99.41,94.09,5.48
+20260706,163,163,150.5,160.5,2265468,111.47,43.98,102.45,95.76,0.69
+20260707,169,176.5,162.5,176,2405833,116.85,50.62,106.7,97.71,0.72
 20260708,168,169,158.5,168.5,2442168,121.16,39.08,110.74,99.47,0.74
 20260709,162,162,154,158,1436545,124.23,27.19,114.54,101.09,0.44
 20260713,160.5,163,153,163,1127856,127.46,27.89,118.72,102.76,0.35
+20260714,166,175.5,157.5,175.5,1033361,131.46,33.5,123.5,104.65,0.32
+20260715,175.5,193,175.5,193,1264219,136.59,41.3,128.99,106.73,0.39
 ```
 
 ## Latest TDCC Snapshot
@@ -185,19 +184,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260715 | 3055 | 蔚華科 | true_breakout | 嚴格突破 | 81.0 |  |  |  |  | call_inflow | first_seen | 1.事實發生日:115/07/02 2.發生緣由:依臺灣證券交易所股份有限公司通知辦理 3.財務業務資訊:           最近一月  與去年同期   最近一季    與去年同期      114年第二季           (115/05)    增減%    (115年第一季)    增減%       至115年第一季           IFRS合併               IFRS合併                     IFRS合併            自結數                 查核數                       查核數  營業收入      23     -75.19%          84        26.42%           477 (百萬元) 稅前淨利     -15       6.04%         -16        80.28%          -270 (百萬元) 歸屬母公司 業主淨利     -12       2.01%         -17        76.73%          -246 (百萬元) 每股盈餘   -0.10       1.71%       -0.15        77.27%         -2.17 (元) 115年5月”營業收入”減少主係客製化設備銷售減少所致。 115年第一季”稅前淨利”、”歸屬母公司業主淨利”及”每股盈餘”虧損減少皆主係營業費用 減少所致。 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告:無 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260715 | 3055 | 蔚華科 | 1 | 1 | 1 | 5 | 11 | first_seen | 首次上榜或資料有限，需後續確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 3055 | 蔚華科 | 15 | 0 | 873880.0 | 0.0 |  | no_signal |
+| 20260715 | 3055 | 蔚華科 | 15 | 0 | 1823290.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

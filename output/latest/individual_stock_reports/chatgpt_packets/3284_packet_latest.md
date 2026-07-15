@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3284 太普高
 
 ## Metadata
-- generated_at: 2026-07-14 22:26:48 Asia/Taipei
+- generated_at: 2026-07-15 22:26:57 Asia/Taipei
 - stock_id: 3284
 - stock_name: 太普高
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 167
+- latest_price_date: 20260715
+- price_rows: 169
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -59,14 +59,14 @@
 - action_rating_display_zh: 已持有續抱
 - model_category_display_zh: 單一個股分析
 - score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 股價乖離過大
+- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -74,7 +74,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: high_level_consolidation
+- thesis_state: unclear
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -92,6 +92,7 @@
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
+- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -104,7 +105,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- price_too_extended
+- none
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -112,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 28.6
-- high: 28.6
-- low: 25.55
-- close: 25.65
-- volume: 1504000
-- ma5: 28.55
-- ema23_primary: 25.9
-- distance_to_ema23_pct: -0.97
-- ma20: 26.49
-- ma60: 20.21
-- ma120: 20.09
-- return_5d: -14.93
-- return_20d: 34.65
-- volume_ratio: 0.9
-- distance_to_ma20_pct_auxiliary: -3.16
-- distance_to_high_60_pct: -22.04
+- date: 20260715
+- open: 25.6
+- high: 26.8
+- low: 25.2
+- close: 25.8
+- volume: 555000
+- ma5: 26.85
+- ema23_primary: 25.86
+- distance_to_ema23_pct: -0.22
+- ma20: 27.06
+- ma60: 20.44
+- ma120: 20.19
+- return_5d: -10.73
+- return_20d: 27.41
+- volume_ratio: 0.33
+- distance_to_ma20_pct_auxiliary: -4.66
+- distance_to_high_60_pct: -21.58
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,19.6,20.8,19.5,19.55,842000,17.89,9.28,17.39,17.84,3.38
-20260615,20.2,20.55,20,20.25,624000,18.09,11.96,17.63,17.85,2.32
 20260616,20.7,20.7,19.8,20.2,444000,18.26,10.61,17.87,17.87,1.54
 20260617,20.2,22.2,20.15,22.2,1144000,18.59,19.42,18.14,17.92,3.45
 20260618,23.5,23.75,22.2,22.7,2502000,18.93,19.9,18.43,17.98,5.77
@@ -154,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260708,29.2,29.5,28.15,29,631000,25.7,12.83,25.72,19.94,0.39
 20260709,28.8,29.45,28.2,28.35,506000,25.92,9.36,26.16,20.1,0.31
 20260713,28.6,28.6,25.55,25.65,1504000,25.9,-0.97,26.49,20.21,0.9
+20260714,25.2,25.8,24.2,25.45,907000,25.86,-1.6,26.78,20.33,0.54
+20260715,25.6,26.8,25.2,25.8,555000,25.86,-0.22,27.06,20.44,0.33
 ```
 
 ## Latest TDCC Snapshot

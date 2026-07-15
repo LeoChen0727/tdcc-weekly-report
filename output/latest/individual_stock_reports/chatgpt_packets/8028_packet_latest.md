@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8028 昇陽半導體
 
 ## Metadata
-- generated_at: 2026-07-14 22:27:33 Asia/Taipei
+- generated_at: 2026-07-15 22:27:49 Asia/Taipei
 - stock_id: 8028
 - stock_name: 昇陽半導體
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 302
+- latest_price_date: 20260715
+- price_rows: 304
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 315.5
-- high: 318.5
-- low: 296.5
-- close: 303
-- volume: 5128197
-- ma5: 312.2
-- ema23_primary: 309.68
-- distance_to_ema23_pct: -2.16
-- ma20: 311.68
-- ma60: 283.26
-- ma120: 232.07
-- return_5d: -9.42
-- return_20d: -0.33
-- volume_ratio: 0.72
-- distance_to_ma20_pct_auxiliary: -2.78
-- distance_to_high_60_pct: -16.99
+- date: 20260715
+- open: 299
+- high: 320.5
+- low: 296
+- close: 318.5
+- volume: 7518665
+- ma5: 306.2
+- ema23_primary: 309.03
+- distance_to_ema23_pct: 3.06
+- ma20: 310.5
+- ma60: 287.12
+- ma120: 233.97
+- return_5d: 2.91
+- return_20d: 0
+- volume_ratio: 1.04
+- distance_to_ma20_pct_auxiliary: 2.58
+- distance_to_high_60_pct: -12.74
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,320,328,310,315,5171505,301.34,4.53,310.7,244.3,0.47
-20260615,324.5,327.5,313.5,318.5,6151855,302.77,5.19,312.7,246.32,0.6
 20260616,325,337,314,314,9730955,303.71,3.39,315.3,248.43,0.99
 20260617,314.5,314.5,302.5,311.5,6617586,304.36,2.35,317.95,250.53,0.68
 20260618,311,317.5,305,311.5,7052137,304.95,2.15,320.15,252.69,0.74
@@ -146,15 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,313.5,314.5,302,302,4031323,306.53,-1.48,321.12,260.62,0.47
 20260626,300,306,284,285.5,5008991,304.78,-6.33,318.68,262.24,0.64
 20260629,287.5,300.5,284.5,288.5,4339222,303.42,-4.92,316.75,264.03,0.6
-20260630,305,317,303,317,11383000,304.56,4.09,314.77,266.36,1.61
-20260701,315,319,307,312,6971000,305.18,2.24,313.62,268.73,0.99
-20260702,306,321,300.5,320.5,5056000,306.45,4.58,312.43,271.11,0.74
-20260703,315.5,339,314.5,334.5,11321993,308.79,8.33,312.1,273.57,1.6
-20260706,342,364,330,330.5,12624000,310.6,6.41,311.75,275.65,1.71
+20260630,305,317,303,317,11598708,304.56,4.09,314.77,266.36,1.64
+20260701,315,319,307,312,7117107,305.18,2.24,313.62,268.73,1.01
+20260702,306,321,300.5,320.5,5180919,306.45,4.58,312.43,271.11,0.76
+20260703,315.5,339,314.5,334.5,11321993,308.79,8.33,312.1,273.57,1.59
+20260706,342,364,330,330.5,12888402,310.6,6.41,311.75,275.65,1.74
 20260707,335,340,299.5,309.5,8990086,310.51,-0.32,312.02,277.49,1.18
-20260708,309.5,312,298.5,305.5,5493445,310.09,-1.48,311.85,279.31,0.73
+20260708,309.5,312,298.5,305.5,5493445,310.09,-1.48,311.85,279.31,0.72
 20260709,312,321,307.5,312.5,4399047,310.29,0.71,311.73,281.32,0.6
 20260713,315.5,318.5,296.5,303,5128197,309.68,-2.16,311.68,283.26,0.72
+20260714,298.5,302.5,276,291.5,4719000,308.17,-5.41,310.5,284.93,0.66
+20260715,299,320.5,296,318.5,7518665,309.03,3.06,310.5,287.12,1.04
 ```
 
 ## Latest TDCC Snapshot
@@ -189,18 +189,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 8028 | 昇陽半導體 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.原預定買回股份總金額上限(元):2,629,576,020 2.原預定買回之期間:115/05/12~115/07/11 3.原預定買回之數量(股):1,000,000 4.原預定買回區間價格(元):175.00~300.00 5.本次實際買回期間:115/05/13~115/07/08 6.本次已買回股份數量(股):700,000 7.本次已買回股份總金額(元):201,386,312 8.本次平均每股買回價格(元):287.69 9.累積已持有自己公司股份數量(股):700,000 10.累積已持有自己公司股份數量占公司已發行股份總數之比率(%):0.39 11.本次未執行完畢之原因: 維護股東權益並兼顧市場機制，視股價變化及成交量狀況分批買回，故未能執行完畢 12.其他應敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
-| 20260713 | 8028 | 昇陽半導體 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.原預定買回股份總金額上限(元):2,629,576,020 2.原預定買回之期間:115/05/12~115/07/11 3.原預定買回之數量(股):1,000,000 4.原預定買回區間價格(元):175.00~300.00 5.本次實際買回期間:115/05/13~115/07/08 6.本次已買回股份數量(股):700,000 7.本次已買回股份總金額(元):201,386,312 8.本次平均每股買回價格(元):287.69 9.累積已持有自己公司股份數量(股):700,000 10.累積已持有自己公司股份數量占公司已發行股份總數之比率(%):0.39 11.本次未執行完畢之原因: 維護股東權益並兼顧市場機制，視股價變化及成交量狀況分批買回，故未能執行完畢 12.其他應敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260715 | 8028 | 昇陽半導體 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_put_bullish | repeated_but_no_breakout | 1.原預定買回股份總金額上限(元):2,629,576,020 2.原預定買回之期間:115/05/12~115/07/11 3.原預定買回之數量(股):1,000,000 4.原預定買回區間價格(元):175.00~300.00 5.本次實際買回期間:115/05/13~115/07/08 6.本次已買回股份數量(股):700,000 7.本次已買回股份總金額(元):201,386,312 8.本次平均每股買回價格(元):287.69 9.累積已持有自己公司股份數量(股):700,000 10.累積已持有自己公司股份數量占公司已發行股份總數之比率(%):0.39 11.本次未執行完畢之原因: 維護股東權益並兼顧市場機制，視股價變化及成交量狀況分批買回，故未能執行完畢 12.其他應敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260715 | 8028 | 昇陽半導體 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_put_bullish | repeated_but_no_breakout | 1.原預定買回股份總金額上限(元):2,629,576,020 2.原預定買回之期間:115/05/12~115/07/11 3.原預定買回之數量(股):1,000,000 4.原預定買回區間價格(元):175.00~300.00 5.本次實際買回期間:115/05/13~115/07/08 6.本次已買回股份數量(股):700,000 7.本次已買回股份總金額(元):201,386,312 8.本次平均每股買回價格(元):287.69 9.累積已持有自己公司股份數量(股):700,000 10.累積已持有自己公司股份數量占公司已發行股份總數之比率(%):0.39 11.本次未執行完畢之原因: 維護股東權益並兼顧市場機制，視股價變化及成交量狀況分批買回，故未能執行完畢 12.其他應敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 8028 | 昇陽半導體 | 20 | 4 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260715 | 8028 | 昇陽半導體 | 22 | 6 | 5 | 10 | 20 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 20 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 8028 | 昇陽半導體 | 130 | 2 | 12126140.0 | 4110.0 | 2950.4 | no_signal |
+| 20260715 | 8028 | 昇陽半導體 | 126 | 2 | 15395930.0 | 10720.0 | 1436.19 | call_put_bullish |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

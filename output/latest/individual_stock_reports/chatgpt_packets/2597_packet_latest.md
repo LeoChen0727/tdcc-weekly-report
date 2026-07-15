@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2597 潤弘
 
 ## Metadata
-- generated_at: 2026-07-14 22:26:38 Asia/Taipei
+- generated_at: 2026-07-15 22:26:45 Asia/Taipei
 - stock_id: 2597
 - stock_name: 潤弘
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 302
+- latest_price_date: 20260715
+- price_rows: 304
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 168.5
-- high: 169
-- low: 166
-- close: 168.5
-- volume: 201572
-- ma5: 168.4
-- ema23_primary: 171.12
-- distance_to_ema23_pct: -1.53
-- ma20: 173.15
-- ma60: 166.88
-- ma120: 166.26
-- return_5d: -0.88
-- return_20d: -17.4
-- volume_ratio: 0.37
-- distance_to_ma20_pct_auxiliary: -2.69
-- distance_to_high_60_pct: -17.8
+- date: 20260715
+- open: 163.5
+- high: 166
+- low: 162.5
+- close: 164.5
+- volume: 236246
+- ma5: 166.4
+- ema23_primary: 169.98
+- distance_to_ema23_pct: -3.23
+- ma20: 170.5
+- ma60: 167.07
+- ma120: 166.02
+- return_5d: -1.5
+- return_20d: -13.65
+- volume_ratio: 0.57
+- distance_to_ma20_pct_auxiliary: -3.52
+- distance_to_high_60_pct: -19.76
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,200,200,187.5,190.5,1809152,175.32,8.66,172.78,160.72,0.9
-20260615,190.5,190.5,181.5,190.5,1485486,176.58,7.88,174.18,161.3,0.73
 20260616,190,190,184.5,187.5,732907,177.49,5.64,175.43,161.89,0.36
 20260617,185,186.5,183,183.5,843711,177.99,3.09,176.57,162.34,0.41
 20260618,172,178.5,172,178,794034,177.99,0,177.35,162.77,0.38
@@ -146,15 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,171.5,172.5,169,170,338052,176.33,-3.59,179.88,164.08,0.17
 20260626,169,169,164,164,514561,175.3,-6.45,180.22,164.31,0.25
 20260629,166.5,166.5,163.5,163.5,247154,174.32,-6.21,180.1,164.53,0.12
-20260630,165,165.5,160.5,163.5,385000,173.42,-5.72,179.95,164.72,0.2
-20260701,165,173,162.5,171,605000,173.22,-1.28,179.82,165.03,0.34
-20260702,171.5,172,168.5,169,222000,172.87,-2.24,179.47,165.33,0.14
+20260630,165,165.5,160.5,163.5,403640,173.42,-5.72,179.95,164.72,0.21
+20260701,165,173,162.5,171,622257,173.22,-1.28,179.82,165.03,0.35
+20260702,171.5,172,168.5,169,228940,172.87,-2.24,179.47,165.33,0.14
 20260703,168,170,167,170,247751,172.63,-1.52,179,165.61,0.17
-20260706,169.5,171.5,168,171,416000,172.49,-0.86,178.32,165.92,0.32
+20260706,169.5,171.5,168,171,423969,172.49,-0.86,178.32,165.92,0.33
 20260707,171,171.5,167,167,245994,172.03,-2.93,177.45,166.1,0.23
 20260708,167.5,168.5,166,167,199573,171.61,-2.69,176.25,166.33,0.21
 20260709,167.5,168.5,164.5,168.5,190117,171.35,-1.67,174.93,166.59,0.26
 20260713,168.5,169,166,168.5,201572,171.12,-1.53,173.15,166.88,0.37
+20260714,168.5,168.5,162,163.5,451887,170.48,-4.1,171.8,167.09,0.94
+20260715,163.5,166,162.5,164.5,236246,169.98,-3.23,170.5,167.07,0.57
 ```
 
 ## Latest TDCC Snapshot
@@ -199,7 +199,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 2597 | 潤弘 | 1 | 0 | 0.0 | 0.0 |  | no_signal |
+| 20260715 | 2597 | 潤弘 | 1 | 0 | 0.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

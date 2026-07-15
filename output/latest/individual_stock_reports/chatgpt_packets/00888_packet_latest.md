@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00888 永豐台灣ESG
 
 ## Metadata
-- generated_at: 2026-07-14 22:26:16 Asia/Taipei
+- generated_at: 2026-07-15 22:26:19 Asia/Taipei
 - stock_id: 00888
 - stock_name: 永豐台灣ESG
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260713
-- price_rows: 35
+- latest_price_date: 20260715
+- price_rows: 37
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 37.24
-- high: 37.54
-- low: 36.6
-- close: 36.89
-- volume: 10199000
-- ma5: 36.95
-- ema23_primary: 36.5
-- distance_to_ema23_pct: 1.07
-- ma20: 37.04
-- ma60: 35.76
-- ma120: 35.76
-- return_5d: -2.33
-- return_20d: 12.13
-- volume_ratio: 0.98
-- distance_to_ma20_pct_auxiliary: -0.42
-- distance_to_high_60_pct: -6.8
+- date: 20260715
+- open: 36.8
+- high: 37.56
+- low: 36.65
+- close: 37.53
+- volume: 9465000
+- ma5: 36.85
+- ema23_primary: 36.57
+- distance_to_ema23_pct: 2.63
+- ma20: 37.26
+- ma60: 35.82
+- ma120: 35.82
+- return_5d: 2.63
+- return_20d: 6.41
+- volume_ratio: 0.81
+- distance_to_ma20_pct_auxiliary: 0.72
+- distance_to_high_60_pct: -5.18
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,34.28,34.62,34.18,34.21,4189000,33.39,2.44,34.05,34.05,2.73
-20260615,35.49,35.53,35.03,35.27,3541000,33.55,5.12,34.12,34.12,2.14
 20260616,35.5,35.69,35.3,35.56,4571000,33.72,5.46,34.2,34.2,2.52
 20260617,35.2,35.65,35.1,35.64,3206000,33.88,5.2,34.28,34.28,1.7
 20260618,36,36.67,35.98,36.67,5092000,34.11,7.5,34.4,34.4,2.49
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260708,36.68,36.98,35.85,36.68,13161000,36.43,0.69,36.62,35.69,1.29
 20260709,36.74,37.27,36.51,36.87,6597000,36.47,1.11,36.84,35.72,0.65
 20260713,37.24,37.54,36.6,36.89,10199000,36.5,1.07,37.04,35.76,0.98
+20260714,36.7,36.73,35.11,36.27,23973000,36.48,-0.58,37.15,35.77,2.1
+20260715,36.8,37.56,36.65,37.53,9465000,36.57,2.63,37.26,35.82,0.81
 ```
 
 ## Latest TDCC Snapshot

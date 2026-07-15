@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4968 立積
 
 ## Metadata
-- generated_at: 2026-07-14 22:27:03 Asia/Taipei
+- generated_at: 2026-07-15 22:27:15 Asia/Taipei
 - stock_id: 4968
 - stock_name: 立積
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 302
+- latest_price_date: 20260715
+- price_rows: 304
 - latest_tdcc_date: 20260709
 - tdcc_rows: 11
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 110.5
-- high: 112
-- low: 108
-- close: 108.5
-- volume: 417261
-- ma5: 112.9
-- ema23_primary: 113.56
-- distance_to_ema23_pct: -4.45
-- ma20: 113.4
-- ma60: 115.44
-- ma120: 115.17
-- return_5d: -7.66
-- return_20d: 4.33
-- volume_ratio: 0.43
-- distance_to_ma20_pct_auxiliary: -4.32
-- distance_to_high_60_pct: -19.03
+- date: 20260715
+- open: 107.5
+- high: 107.5
+- low: 105.5
+- close: 105.5
+- volume: 485150
+- ma5: 109
+- ema23_primary: 112.31
+- distance_to_ema23_pct: -6.06
+- ma20: 113.15
+- ma60: 115.26
+- ma120: 114.87
+- return_5d: -6.64
+- return_20d: -3.65
+- volume_ratio: 0.49
+- distance_to_ma20_pct_auxiliary: -6.76
+- distance_to_high_60_pct: -21.27
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,107,109.5,106.5,107,582215,112.97,-5.28,113.8,112.97,0.52
-20260615,109.5,110.5,108,109.5,676713,112.68,-2.82,113.72,113,0.61
 20260616,110,111,107,107,440851,112.2,-4.64,113.58,113.03,0.41
 20260617,106,109.5,106,108,361372,111.85,-3.45,113.33,112.95,0.34
 20260618,109,114,108.5,113.5,1018206,111.99,1.35,113.2,113.08,0.94
@@ -146,15 +143,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,121.5,124,117,117,1975710,113.93,2.69,113.12,113.86,1.68
 20260626,116,116,110.5,110.5,1042674,113.65,-2.77,112.88,113.95,0.92
 20260629,110.5,113,109,110.5,635832,113.39,-2.55,112.6,114.11,0.57
-20260630,111.5,117,110.5,115.5,844000,113.56,1.71,112.53,114.28,0.77
-20260701,117.5,118.5,114,114,777000,113.6,0.35,112.22,114.48,0.79
-20260702,112,117.5,112,116,629000,113.8,1.93,112.15,114.66,0.66
+20260630,111.5,117,110.5,115.5,864682,113.56,1.71,112.53,114.28,0.79
+20260701,117.5,118.5,114,114,795953,113.6,0.35,112.22,114.48,0.8
+20260702,112,117.5,112,116,641384,113.8,1.93,112.15,114.66,0.67
 20260703,116.5,119,115.5,117.5,514784,114.11,2.97,112.2,114.82,0.55
-20260706,119.5,123.5,117,118,2277000,114.43,3.12,112.42,115.03,2.27
-20260707,119,120,112.5,113,944426,114.31,-1.15,112.72,115.17,0.96
+20260706,119.5,123.5,117,118,2307300,114.43,3.12,112.42,115.03,2.29
+20260707,119,120,112.5,113,944426,114.31,-1.15,112.72,115.17,0.95
 20260708,114,116,112.5,113.5,630345,114.24,-0.65,112.9,115.31,0.64
 20260709,115,115,111,111.5,630948,114.02,-2.21,113.17,115.4,0.64
-20260713,110.5,112,108,108.5,417261,113.56,-4.45,113.4,115.44,0.43
+20260713,110.5,112,108,108.5,417261,113.56,-4.45,113.4,115.44,0.42
+20260714,110,110,103,106,932115,112.93,-6.13,113.35,115.37,0.93
+20260715,107.5,107.5,105.5,105.5,485150,112.31,-6.06,113.15,115.26,0.49
 ```
 
 ## Latest TDCC Snapshot
@@ -200,7 +199,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 4968 | 立積 | 30 | 3 | 524420.0 | 0.0 |  | no_signal |
+| 20260715 | 4968 | 立積 | 30 | 3 | 59310.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

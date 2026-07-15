@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2515 中工
 
 ## Metadata
-- generated_at: 2026-07-14 22:26:37 Asia/Taipei
+- generated_at: 2026-07-15 22:26:44 Asia/Taipei
 - stock_id: 2515
 - stock_name: 中工
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 302
+- latest_price_date: 20260715
+- price_rows: 304
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 13.8
-- high: 13.8
-- low: 13.3
-- close: 13.5
-- volume: 13007108
-- ma5: 13.97
-- ema23_primary: 13.49
-- distance_to_ema23_pct: 0.11
-- ma20: 13.44
-- ma60: 13.21
-- ma120: 13.82
-- return_5d: -5.59
-- return_20d: 6.3
-- volume_ratio: 1.18
-- distance_to_ma20_pct_auxiliary: 0.43
-- distance_to_high_60_pct: -11.76
+- date: 20260715
+- open: 13.4
+- high: 13.95
+- low: 13.35
+- close: 13.9
+- volume: 10851623
+- ma5: 13.77
+- ema23_primary: 13.51
+- distance_to_ema23_pct: 2.89
+- ma20: 13.51
+- ma60: 13.2
+- ma120: 13.83
+- return_5d: -0.71
+- return_20d: 6.11
+- volume_ratio: 0.97
+- distance_to_ma20_pct_auxiliary: 2.91
+- distance_to_high_60_pct: -9.15
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,12.85,13.1,12.85,12.85,8173608,12.96,-0.85,12.89,13.24,0.8
-20260615,12.95,13.15,12.9,13.1,9793112,12.97,0.98,12.94,13.21,0.93
 20260616,13.05,13.15,12.95,13.1,7894025,12.98,0.9,12.98,13.2,0.74
 20260617,13.1,13.5,13,13.3,12948395,13.01,2.23,13.02,13.18,1.19
 20260618,13.3,13.5,13.2,13.35,18611379,13.04,2.39,12.99,13.17,1.72
@@ -145,15 +143,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,13.25,13.35,13,13.05,8197869,13.1,-0.4,13.04,13.14,0.8
 20260626,13.05,13.1,12.8,12.95,6945292,13.09,-1.07,13.06,13.13,0.68
 20260629,13,13.3,12.85,12.95,9782090,13.08,-0.98,13.05,13.13,0.95
-20260630,13,13.2,12.95,13.05,6804000,13.08,-0.2,13.07,13.12,0.67
-20260701,13.1,13.6,13.1,13.3,10144000,13.09,1.57,13.1,13.13,0.98
-20260702,13.3,13.8,13.2,13.65,10610000,13.14,3.88,13.11,13.14,1.04
-20260703,13.65,14.45,13.6,14.3,20518527,13.24,8.03,13.16,13.15,1.91
-20260706,14.5,14.5,14,14.25,12673000,13.32,6.97,13.22,13.17,1.14
+20260630,13,13.2,12.95,13.05,6826872,13.08,-0.2,13.07,13.12,0.67
+20260701,13.1,13.6,13.1,13.3,10203998,13.09,1.57,13.1,13.13,0.99
+20260702,13.3,13.8,13.2,13.65,10665886,13.14,3.88,13.11,13.14,1.05
+20260703,13.65,14.45,13.6,14.3,20518527,13.24,8.03,13.16,13.15,1.9
+20260706,14.5,14.5,14,14.25,12747369,13.32,6.97,13.22,13.17,1.15
 20260707,14.25,14.35,14,14,7449672,13.38,4.65,13.27,13.18,0.69
 20260708,14.4,15.3,14.15,14.2,19516084,13.45,5.6,13.35,13.2,1.71
 20260709,14.15,14.2,13.75,13.9,7660601,13.48,3.08,13.4,13.2,0.7
 20260713,13.8,13.8,13.3,13.5,13007108,13.49,0.11,13.44,13.21,1.18
+20260714,13.45,13.65,13.2,13.35,9557164,13.47,-0.92,13.47,13.2,0.86
+20260715,13.4,13.95,13.35,13.9,10851623,13.51,2.89,13.51,13.2,0.97
 ```
 
 ## Latest TDCC Snapshot
@@ -188,17 +188,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 2515 | 中工 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | stale_signal | 1.事實發生日：115/07/08 2.事實發生主體：本公司 3.發生緣由(事件說明)：本公司承攬之「台塑大樓都更案」於今日(7/8)上午約10點30分發現工區南側外側道路 (敦化北路)路面坍塌，現場無人傷亡。 4.處理過程：現場工務人員巡視發現後，立即停止相關施工作業， 並通知警察、消防及相關公用事業單位到場處理， 同時實施現場交通管制及安全警戒。 5.處分情形：依臺北市政府都市發展局北市都建字第11561428933號，本案道路塌陷事件違反建築法 第58、63條規定，並依同法第89條處新台幣9萬元罰鍰並勒令停工。 6.是否遭裁處罰鍰：是 7.裁罰金額(元)：新台幣 90,000 元 8.預計可能損失或影響：初步評估對整體營運及財務尚無重大影響，實際損失待判定。 9.可能獲得保險理賠之金額(元)：尚未確定 10.改善情形及未來因應措施：因坑洞下方有埋設瓦斯管線，現場已實施警戒管制， 並啟動連續壁計畫應變機制且暫停施工， 待瓦斯管線修復完成後，再進行混凝土澆置作業，填補路面塌陷之問題。 11.是否前已就同一事件發布重大訊息：否 12.其他應述明事項：無；calendar event: ex_right on 20260716; status=confirmed; proximity=within_3d |
+| 20260715 | 2515 | 中工 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_inflow | stale_signal | 1.事實發生日：115/07/08 2.事實發生主體：本公司 3.發生緣由(事件說明)：本公司承攬之「台塑大樓都更案」於今日(7/8)上午約10點30分發現工區南側外側道路 (敦化北路)路面坍塌，現場無人傷亡。 4.處理過程：現場工務人員巡視發現後，立即停止相關施工作業， 並通知警察、消防及相關公用事業單位到場處理， 同時實施現場交通管制及安全警戒。 5.處分情形：依臺北市政府都市發展局北市都建字第11561428933號，本案道路塌陷事件違反建築法 第58、63條規定，並依同法第89條處新台幣9萬元罰鍰並勒令停工。 6.是否遭裁處罰鍰：是 7.裁罰金額(元)：新台幣 90,000 元 8.預計可能損失或影響：初步評估對整體營運及財務尚無重大影響，實際損失待判定。 9.可能獲得保險理賠之金額(元)：尚未確定 10.改善情形及未來因應措施：因坑洞下方有埋設瓦斯管線，現場已實施警戒管制， 並啟動連續壁計畫應變機制且暫停施工， 待瓦斯管線修復完成後，再進行混凝土澆置作業，填補路面塌陷之問題。 11.是否前已就同一事件發布重大訊息：否 12.其他應述明事項：無；calendar event: ex_right on 20260716; status=confirmed; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 2515 | 中工 | 1 | 1 | 4 | 9 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260715 | 2515 | 中工 | 1 | 1 | 3 | 8 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 2515 | 中工 | 9 | 0 | 129860.0 | 0.0 |  | no_signal |
+| 20260715 | 2515 | 中工 | 9 | 0 | 1709900.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

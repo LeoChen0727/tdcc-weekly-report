@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2633 台灣高鐵
 
 ## Metadata
-- generated_at: 2026-07-14 22:26:39 Asia/Taipei
+- generated_at: 2026-07-15 22:26:46 Asia/Taipei
 - stock_id: 2633
 - stock_name: 台灣高鐵
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 302
+- latest_price_date: 20260715
+- price_rows: 304
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 26.75
-- high: 26.85
-- low: 26.4
-- close: 26.45
-- volume: 14795672
-- ma5: 26.55
-- ema23_primary: 26.24
-- distance_to_ema23_pct: 0.79
-- ma20: 26.24
-- ma60: 26.07
-- ma120: 26.46
-- return_5d: -1.31
-- return_20d: 4.34
-- volume_ratio: 1.23
-- distance_to_ma20_pct_auxiliary: 0.79
-- distance_to_high_60_pct: -2.04
+- date: 20260715
+- open: 25.5
+- high: 26.05
+- low: 25.45
+- close: 25.95
+- volume: 6953738
+- ma5: 26.24
+- ema23_primary: 26.16
+- distance_to_ema23_pct: -0.81
+- ma20: 26.27
+- ma60: 26.03
+- ma120: 26.42
+- return_5d: -1.7
+- return_20d: 1.57
+- volume_ratio: 0.54
+- distance_to_ma20_pct_auxiliary: -1.2
+- distance_to_high_60_pct: -3.53
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,25.4,25.6,25.35,25.45,4363760,25.59,-0.55,25.43,26.14,0.2
-20260615,25.7,25.7,25.5,25.55,5520875,25.59,-0.14,25.43,26.13,0.26
 20260616,25.65,26.25,25.55,26.15,17820495,25.63,2.02,25.44,26.13,0.82
 20260617,26.15,26.6,26,26.15,16103853,25.68,1.84,25.46,26.12,0.72
 20260618,26.15,26.45,26.15,26.15,18795601,25.72,1.69,25.47,26.13,0.81
@@ -146,15 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,26.05,26.75,26,26.25,21130175,25.8,1.76,25.59,26.11,0.89
 20260626,26.2,26.4,26.05,26.05,16660749,25.82,0.9,25.66,26.1,0.71
 20260629,26.35,26.5,26.05,26.5,12792404,25.87,2.42,25.74,26.11,0.98
-20260630,26.5,26.65,26.35,26.5,13431000,25.93,2.21,25.81,26.1,1.03
-20260701,26.5,26.6,26.15,26.5,10224000,25.97,2.03,25.87,26.1,0.8
-20260702,26.35,26.5,26.2,26.4,6127000,26.01,1.5,25.9,26.1,0.49
+20260630,26.5,26.65,26.35,26.5,14290837,25.93,2.21,25.81,26.1,1.1
+20260701,26.5,26.6,26.15,26.5,10251149,25.97,2.03,25.87,26.1,0.8
+20260702,26.35,26.5,26.2,26.4,6142974,26.01,1.5,25.9,26.1,0.49
 20260703,26.2,26.85,26.2,26.8,8110900,26.08,2.78,25.96,26.1,0.64
-20260706,26.8,26.9,26.6,26.6,5298000,26.12,1.84,26.02,26.1,0.42
+20260706,26.8,26.9,26.6,26.6,5322173,26.12,1.84,26.02,26.1,0.42
 20260707,26.6,26.7,26.3,26.4,6679573,26.14,0.99,26.08,26.09,0.55
 20260708,26.4,26.75,26.35,26.6,5022721,26.18,1.6,26.14,26.08,0.42
-20260709,26.6,26.7,26.5,26.7,5344368,26.22,1.82,26.19,26.08,0.46
-20260713,26.75,26.85,26.4,26.45,14795672,26.24,0.79,26.24,26.07,1.23
+20260709,26.6,26.7,26.5,26.7,5344368,26.22,1.82,26.19,26.08,0.45
+20260713,26.75,26.85,26.4,26.45,14795672,26.24,0.79,26.24,26.07,1.22
+20260714,25.55,25.6,25.2,25.5,18826250,26.18,-2.6,26.25,26.05,1.47
+20260715,25.5,26.05,25.45,25.95,6953738,26.16,-0.81,26.27,26.03,0.54
 ```
 
 ## Latest TDCC Snapshot
@@ -199,7 +199,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 2633 | 台灣高鐵 | 2 | 0 | 0.0 | 0.0 |  | no_signal |
+| 20260715 | 2633 | 台灣高鐵 | 2 | 0 | 0.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2254 巨鎧精密-創
 
 ## Metadata
-- generated_at: 2026-07-14 22:26:30 Asia/Taipei
+- generated_at: 2026-07-15 22:26:36 Asia/Taipei
 - stock_id: 2254
 - stock_name: 巨鎧精密-創
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260709
-- price_rows: 296
+- latest_price_date: 20260715
+- price_rows: 298
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260709
-- open: 59.4
-- high: 59.4
-- low: 59.4
-- close: 59.4
-- volume: 1000
-- ma5: 59.46
-- ema23_primary: 60.44
-- distance_to_ema23_pct: -1.73
-- ma20: 59.84
-- ma60: 64.66
-- ma120: 64.65
-- return_5d: -0.5
-- return_20d: -1.33
-- volume_ratio: 0.14
-- distance_to_ma20_pct_auxiliary: -0.74
-- distance_to_high_60_pct: -36.61
+- date: 20260715
+- open: 58.6
+- high: 59.5
+- low: 58.5
+- close: 59.5
+- volume: 6525
+- ma5: 59.44
+- ema23_primary: 60.28
+- distance_to_ema23_pct: -1.29
+- ma20: 59.8
+- ma60: 64.32
+- ma120: 64.64
+- return_5d: -0.17
+- return_20d: -0.34
+- volume_ratio: 0.94
+- distance_to_ma20_pct_auxiliary: -0.49
+- distance_to_high_60_pct: -36.5
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,60.3,60.3,60,60,3000,63.82,-5.98,62.16,67.82,0.09
-20260612,60.2,60.2,58.8,59.7,13000,63.48,-5.95,62.23,67.66,0.45
 20260615,59.8,59.8,59.8,59.8,2001,63.17,-5.33,62.3,67.5,0.08
 20260616,60.5,62.4,60.5,62.4,33000,63.11,-1.12,62.47,67.38,1.18
 20260617,62.1,62.1,61.9,61.9,7000,63,-1.75,62.66,67.25,0.26
@@ -147,14 +145,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,58.7,58.7,58.7,58.7,2010,61.78,-4.98,62.62,66.3,0.09
 20260626,59.3,59.3,59.3,59.3,2002,61.57,-3.69,62.33,66.1,0.09
 20260629,59.3,59.5,59.3,59.5,2000,61.4,-3.09,61.76,65.92,0.1
-20260630,59.4,59.4,59.4,59.4,1000,61.23,-2.99,61.38,65.74,0.05
+20260630,59.4,59.4,59.4,59.4,1200,61.23,-2.99,61.38,65.74,0.06
 20260701,59.6,59.6,59.6,59.6,3000,61.1,-2.45,61.08,65.59,0.17
-20260702,60.1,60.1,58.2,59.7,14000,60.98,-2.1,60.76,65.43,0.77
+20260702,60.1,60.1,58.2,59.7,14051,60.98,-2.1,60.76,65.43,0.77
 20260703,60,60.5,59.3,59.3,12000,60.84,-2.53,60.53,65.27,0.67
 20260706,59.1,59.6,59.1,59.6,10000,60.74,-1.87,60.29,65.13,0.6
 20260707,59.6,59.6,59.6,59.6,2000,60.64,-1.72,60.08,64.98,0.15
 20260708,59.1,59.4,59.1,59.4,4001,60.54,-1.88,59.88,64.82,0.35
 20260709,59.4,59.4,59.4,59.4,1000,60.44,-1.73,59.84,64.66,0.14
+20260714,59.4,59.4,58.6,59.3,3000,60.35,-1.74,59.8,64.48,0.41
+20260715,58.6,59.5,58.5,59.5,6525,60.28,-1.29,59.8,64.32,0.94
 ```
 
 ## Latest TDCC Snapshot

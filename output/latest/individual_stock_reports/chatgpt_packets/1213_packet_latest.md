@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1213 大飲
 
 ## Metadata
-- generated_at: 2026-07-14 22:26:18 Asia/Taipei
+- generated_at: 2026-07-15 22:26:21 Asia/Taipei
 - stock_id: 1213
 - stock_name: 大飲
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 285
+- latest_price_date: 20260715
+- price_rows: 287
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 7.52
-- high: 7.53
-- low: 7.39
-- close: 7.53
-- volume: 6001
-- ma5: 7.56
-- ema23_primary: 7.94
-- distance_to_ema23_pct: -5.21
-- ma20: 7.96
-- ma60: 8.48
-- ma120: 9.21
-- return_5d: -4.68
-- return_20d: -10.36
-- volume_ratio: 0.18
-- distance_to_ma20_pct_auxiliary: -5.34
-- distance_to_high_60_pct: -20.65
+- date: 20260715
+- open: 7.7
+- high: 7.7
+- low: 7.5
+- close: 7.7
+- volume: 3000
+- ma5: 7.57
+- ema23_primary: 7.89
+- distance_to_ema23_pct: -2.38
+- ma20: 7.87
+- ma60: 8.42
+- ma120: 9.16
+- return_5d: 1.85
+- return_20d: -10.47
+- volume_ratio: 0.09
+- distance_to_ma20_pct_auxiliary: -2.14
+- distance_to_high_60_pct: -18.43
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,8.39,8.4,8.3,8.32,7001,8.53,-2.41,8.44,9.05,0.41
-20260612,8.31,8.6,8.31,8.6,13174,8.53,0.81,8.42,9.03,0.77
 20260616,9.44,9.44,8.5,8.5,8000,8.53,-0.34,8.4,9,0.47
 20260617,8.47,8.5,8.47,8.5,2117,8.53,-0.31,8.4,8.98,0.13
 20260618,8.49,8.5,8.33,8.33,12104,8.51,-2.11,8.41,8.95,0.83
@@ -145,15 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,7.99,8.09,7.98,8.09,18028,8.37,-3.32,8.33,8.83,0.91
 20260626,8.08,8.09,7.56,7.56,13392,8.3,-8.92,8.3,8.79,0.72
 20260629,7.81,8,7.5,7.5,63616,8.23,-8.91,8.26,8.75,3.01
-20260630,7.5,8.2,7.5,8.19,21000,8.23,-0.49,8.26,8.72,0.98
-20260701,8.02,8.02,7.9,7.9,7000,8.2,-3.69,8.24,8.69,0.33
-20260702,7.9,7.9,7.89,7.9,6000,8.18,-3.39,8.21,8.66,0.3
+20260630,7.5,8.2,7.5,8.19,21885,8.23,-0.49,8.26,8.72,1.02
+20260701,8.02,8.02,7.9,7.9,7002,8.2,-3.69,8.24,8.69,0.33
+20260702,7.9,7.9,7.89,7.9,6002,8.18,-3.39,8.21,8.66,0.3
 20260703,8,8,7.5,7.9,79097,8.15,-3.12,8.18,8.64,3.34
-20260706,7.5,7.67,7.39,7.58,89000,8.11,-6.49,8.13,8.61,3.18
-20260707,7.56,7.56,7.39,7.56,118280,8.06,-6.21,8.08,8.58,3.62
-20260708,7.65,7.65,7.45,7.6,4102,8.02,-5.27,8.04,8.55,0.13
+20260706,7.5,7.67,7.39,7.58,90322,8.11,-6.49,8.13,8.61,3.21
+20260707,7.56,7.56,7.39,7.56,118280,8.06,-6.21,8.08,8.58,3.61
+20260708,7.65,7.65,7.45,7.6,4102,8.02,-5.27,8.04,8.55,0.12
 20260709,7.39,7.55,7.39,7.53,10224,7.98,-5.66,8,8.52,0.31
 20260713,7.52,7.53,7.39,7.53,6001,7.94,-5.21,7.96,8.48,0.18
+20260714,7.3,7.48,7.3,7.48,6286,7.91,-5.38,7.91,8.45,0.19
+20260715,7.7,7.7,7.5,7.7,3000,7.89,-2.38,7.87,8.42,0.09
 ```
 
 ## Latest TDCC Snapshot

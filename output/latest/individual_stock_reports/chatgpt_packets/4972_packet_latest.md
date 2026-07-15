@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4972 湯石照明
 
 ## Metadata
-- generated_at: 2026-07-14 22:27:03 Asia/Taipei
+- generated_at: 2026-07-15 22:27:15 Asia/Taipei
 - stock_id: 4972
 - stock_name: 湯石照明
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 167
+- latest_price_date: 20260715
+- price_rows: 169
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 16.95
-- high: 16.95
+- date: 20260715
+- open: 16.85
+- high: 16.9
 - low: 16.85
 - close: 16.9
-- volume: 36000
-- ma5: 17.03
-- ema23_primary: 16.9
-- distance_to_ema23_pct: -0.01
-- ma20: 16.92
-- ma60: 16.69
-- ma120: 17.26
-- return_5d: -3.15
-- return_20d: 1.81
-- volume_ratio: 1.13
-- distance_to_ma20_pct_auxiliary: -0.13
+- volume: 10000
+- ma5: 16.91
+- ema23_primary: 16.89
+- distance_to_ema23_pct: 0.04
+- ma20: 16.94
+- ma60: 16.68
+- ma120: 17.24
+- return_5d: -0.59
+- return_20d: 1.2
+- volume_ratio: 0.32
+- distance_to_ma20_pct_auxiliary: -0.22
 - distance_to_high_60_pct: -6.11
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,16.5,16.7,16.5,16.7,25000,16.61,0.53,16.55,16.88,1.25
-20260615,16.6,16.7,16.4,16.7,39000,16.62,0.48,16.56,16.86,1.94
 20260616,16.7,16.9,16.7,16.85,30000,16.64,1.27,16.59,16.84,1.5
 20260617,16.85,16.85,16.85,16.85,16000,16.66,1.16,16.61,16.83,0.83
 20260618,16.8,17,16.8,16.9,36000,16.68,1.34,16.63,16.82,1.8
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260708,17,17,16.95,16.95,9000,16.89,0.34,16.89,16.69,0.29
 20260709,16.95,17,16.95,17,13000,16.9,0.58,16.91,16.69,0.42
 20260713,16.95,16.95,16.85,16.9,36000,16.9,-0.01,16.92,16.69,1.13
+20260714,16.9,16.9,16.8,16.8,35000,16.89,-0.55,16.93,16.68,1.08
+20260715,16.85,16.9,16.85,16.9,10000,16.89,0.04,16.94,16.68,0.32
 ```
 
 ## Latest TDCC Snapshot

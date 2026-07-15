@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6142 友勁
 
 ## Metadata
-- generated_at: 2026-07-14 22:27:11 Asia/Taipei
+- generated_at: 2026-07-15 22:27:24 Asia/Taipei
 - stock_id: 6142
 - stock_name: 友勁
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 302
+- latest_price_date: 20260715
+- price_rows: 304
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 12
-- high: 12.05
-- low: 10.5
-- close: 10.65
-- volume: 11564779
-- ma5: 10.24
-- ema23_primary: 9.51
-- distance_to_ema23_pct: 11.98
-- ma20: 9.47
-- ma60: 8.89
-- ma120: 9.32
-- return_5d: 6.61
-- return_20d: 28.62
-- volume_ratio: 6.01
-- distance_to_ma20_pct_auxiliary: 12.42
-- distance_to_high_60_pct: -11.62
+- date: 20260715
+- open: 10.4
+- high: 10.55
+- low: 10
+- close: 10.15
+- volume: 2081006
+- ma5: 10.48
+- ema23_primary: 9.61
+- distance_to_ema23_pct: 5.63
+- ma20: 9.63
+- ma60: 8.92
+- ma120: 9.33
+- return_5d: 8.91
+- return_20d: 16.13
+- volume_ratio: 0.95
+- distance_to_ma20_pct_auxiliary: 5.43
+- distance_to_high_60_pct: -15.77
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,8.35,8.61,8.33,8.43,377473,8.46,-0.31,8.29,8.92,0.6
-20260615,8.43,8.89,8.43,8.74,516965,8.48,3.07,8.34,8.9,0.81
 20260616,8.74,8.82,8.41,8.54,474955,8.48,0.65,8.37,8.88,0.76
 20260617,8.54,9.39,8.54,9.39,1930082,8.56,9.69,8.45,8.86,2.73
 20260618,9.69,9.9,9.41,9.61,4571590,8.65,11.13,8.53,8.86,5.05
@@ -145,15 +143,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,9.51,9.51,9.18,9.27,454361,8.84,4.87,8.77,8.81,0.49
 20260626,9.2,9.32,9.06,9.07,664348,8.86,2.39,8.81,8.8,0.73
 20260629,9.29,9.39,9.13,9.2,367814,8.89,3.52,8.86,8.8,0.4
-20260630,9.37,9.45,9.2,9.4,452000,8.93,5.27,8.9,8.79,0.52
-20260701,9.58,9.58,9.12,9.17,495000,8.95,2.46,8.93,8.79,0.59
-20260702,9.17,9.57,9.06,9.48,677000,8.99,5.4,8.95,8.79,0.81
+20260630,9.37,9.45,9.2,9.4,457517,8.93,5.27,8.9,8.79,0.53
+20260701,9.58,9.58,9.12,9.17,500918,8.95,2.46,8.93,8.79,0.6
+20260702,9.17,9.57,9.06,9.48,682478,8.99,5.4,8.95,8.79,0.81
 20260703,9.6,10.2,9.45,9.99,2412841,9.08,10.06,9.01,8.8,2.6
-20260706,10.2,10.25,9.71,9.74,1319000,9.13,6.66,9.06,8.81,1.35
+20260706,10.2,10.25,9.71,9.74,1328653,9.13,6.66,9.06,8.81,1.36
 20260707,9.41,9.69,9.25,9.32,800791,9.15,1.88,9.11,8.81,0.8
 20260708,9.37,10.25,9.23,10.25,3575059,9.24,10.93,9.21,8.83,3.1
 20260709,11,11.25,10.8,11.25,4512835,9.41,19.59,9.35,8.86,3.32
 20260713,12,12.05,10.5,10.65,11564779,9.51,11.98,9.47,8.89,6.01
+20260714,10.05,10.6,9.9,10.1,3951011,9.56,5.65,9.56,8.9,1.88
+20260715,10.4,10.55,10,10.15,2081006,9.61,5.63,9.63,8.92,0.95
 ```
 
 ## Latest TDCC Snapshot
@@ -188,12 +188,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 6142 | 友勁 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260715 | 6142 | 友勁 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 6142 | 友勁 | 2 | 1 | 2 | 3 | 6 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| 20260715 | 6142 | 友勁 | 4 | 3 | 4 | 5 | 8 | repeated_but_no_breakout | 近 10 日上榜 5 次、近 20 日上榜 8 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

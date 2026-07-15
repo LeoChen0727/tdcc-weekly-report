@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1618 合機
 
 ## Metadata
-- generated_at: 2026-07-14 22:26:24 Asia/Taipei
+- generated_at: 2026-07-15 22:26:29 Asia/Taipei
 - stock_id: 1618
 - stock_name: 合機
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 302
+- latest_price_date: 20260715
+- price_rows: 304
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 38.9
-- high: 39
-- low: 38.2
-- close: 38.65
-- volume: 999997
-- ma5: 40.22
-- ema23_primary: 40.91
-- distance_to_ema23_pct: -5.52
-- ma20: 41.15
-- ma60: 40.54
-- ma120: 41.67
-- return_5d: -7.31
-- return_20d: -8.3
-- volume_ratio: 0.95
-- distance_to_ma20_pct_auxiliary: -6.08
-- distance_to_high_60_pct: -16.88
+- date: 20260715
+- open: 38.15
+- high: 38.5
+- low: 37.9
+- close: 38.5
+- volume: 564812
+- ma5: 38.87
+- ema23_primary: 40.48
+- distance_to_ema23_pct: -4.88
+- ma20: 40.75
+- ma60: 40.51
+- ma120: 41.62
+- return_5d: -5.98
+- return_20d: -9.31
+- volume_ratio: 0.63
+- distance_to_ma20_pct_auxiliary: -5.52
+- distance_to_high_60_pct: -17.2
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,42.25,43.1,41.95,41.95,3140318,41.6,0.83,41.5,40,1.29
-20260615,42.3,43,42.2,42.45,1587027,41.68,1.86,41.71,40.01,0.64
 20260616,43.1,43.1,42.05,42.05,864764,41.71,0.82,41.91,40.02,0.34
 20260617,42.05,42.5,41.75,41.9,853142,41.72,0.43,42.09,40.04,0.34
 20260618,42.15,42.35,41.75,41.8,835814,41.73,0.17,42.23,40.07,0.33
@@ -145,15 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,42.4,42.45,39.65,41,919643,41.74,-1.78,42.43,40.19,0.41
 20260626,40.7,40.95,39.05,39.6,1264033,41.56,-4.72,42.35,40.2,0.57
 20260629,39.6,40.8,39.6,40.55,505555,41.48,-2.24,42.27,40.24,0.23
-20260630,40.8,41.3,40.55,41.15,489000,41.45,-0.73,42.2,40.27,0.23
-20260701,41.5,41.85,40.65,40.75,623000,41.39,-1.55,42.11,40.31,0.3
-20260702,41,41.1,40.5,40.75,430000,41.34,-1.42,41.89,40.36,0.24
+20260630,40.8,41.3,40.55,41.15,493862,41.45,-0.73,42.2,40.27,0.23
+20260701,41.5,41.85,40.65,40.75,632001,41.39,-1.55,42.11,40.31,0.3
+20260702,41,41.1,40.5,40.75,435336,41.34,-1.42,41.89,40.36,0.24
 20260703,40.75,42.15,40.6,41.7,865377,41.37,0.8,41.76,40.41,0.55
-20260706,42.3,43.15,42.15,42.2,1300000,41.44,1.84,41.77,40.47,0.84
+20260706,42.3,43.15,42.15,42.2,1310472,41.44,1.84,41.77,40.47,0.85
 20260707,42.55,42.55,40.8,40.95,981646,41.4,-1.08,41.77,40.52,0.65
 20260708,41,41.15,40.05,40.5,538042,41.32,-1.99,41.55,40.55,0.39
 20260709,39.8,39.8,38.2,38.8,2375703,41.11,-5.62,41.33,40.55,2.04
 20260713,38.9,39,38.2,38.65,999997,40.91,-5.52,41.15,40.54,0.95
+20260714,38.7,38.7,37.25,37.9,1077517,40.66,-6.78,40.95,40.52,1.13
+20260715,38.15,38.5,37.9,38.5,564812,40.48,-4.88,40.75,40.51,0.63
 ```
 
 ## Latest TDCC Snapshot
@@ -198,7 +199,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 1618 | 合機 | 4 | 0 | 41800.0 | 0.0 |  | no_signal |
+| 20260715 | 1618 | 合機 | 4 | 0 | 56420.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

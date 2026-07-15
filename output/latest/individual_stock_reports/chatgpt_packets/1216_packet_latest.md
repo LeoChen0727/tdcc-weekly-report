@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1216 統一
 
 ## Metadata
-- generated_at: 2026-07-14 22:26:18 Asia/Taipei
+- generated_at: 2026-07-15 22:26:21 Asia/Taipei
 - stock_id: 1216
 - stock_name: 統一
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 302
+- latest_price_date: 20260715
+- price_rows: 304
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -118,30 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 78
+- date: 20260715
+- open: 78.5
 - high: 79.4
 - low: 78
-- close: 78.5
-- volume: 20557092
-- ma5: 78.26
-- ema23_primary: 75.94
-- distance_to_ema23_pct: 3.36
-- ma20: 76.04
-- ma60: 73.64
-- ma120: 73.13
-- return_5d: 2.88
-- return_20d: 3.84
-- volume_ratio: 1.3
-- distance_to_ma20_pct_auxiliary: 3.24
-- distance_to_high_60_pct: -1.13
+- close: 78.6
+- volume: 24165181
+- ma5: 78.52
+- ema23_primary: 76.36
+- distance_to_ema23_pct: 2.93
+- ma20: 76.25
+- ma60: 73.82
+- ma120: 73.18
+- return_5d: 0.77
+- return_20d: 3.01
+- volume_ratio: 1.47
+- distance_to_ma20_pct_auxiliary: 3.08
+- distance_to_high_60_pct: -1.01
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,75.6,76.7,75.6,76.5,14052495,73.43,4.19,73.22,72.22,0.81
-20260615,77.6,77.7,75.6,76.3,15439964,73.67,3.58,73.3,72.3,0.88
 20260616,76.4,76.4,75.4,75.6,8209466,73.83,2.4,73.34,72.38,0.47
 20260617,75.6,76,74.7,76,10987636,74.01,2.69,73.47,72.48,0.64
 20260618,76.3,76.4,74.5,74.5,28281863,74.05,0.61,73.54,72.56,1.57
@@ -151,15 +149,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,75,76.4,74.6,75.6,17674455,74.35,1.68,74.36,72.83,0.99
 20260626,74.9,75.7,74.6,74.6,9813989,74.37,0.31,74.55,72.88,0.57
 20260629,75.5,75.9,74.9,75.7,9580653,74.48,1.64,74.75,72.95,0.61
-20260630,76.3,76.3,74.5,74.5,11770000,74.48,0.02,74.78,73,0.78
-20260701,74.5,74.7,73.8,74.5,7545000,74.48,0.02,74.8,73.03,0.53
-20260702,74.5,75.4,74.4,74.9,10330000,74.52,0.51,74.88,73.07,0.74
+20260630,76.3,76.3,74.5,74.5,11851049,74.48,0.02,74.78,73,0.78
+20260701,74.5,74.7,73.8,74.5,8877021,74.48,0.02,74.8,73.03,0.62
+20260702,74.5,75.4,74.4,74.9,10376910,74.52,0.51,74.88,73.07,0.74
 20260703,74.6,77.2,74.6,76.3,16111988,74.67,2.19,75.02,73.13,1.15
-20260706,76.4,78.4,76.4,77.8,22406000,74.93,3.83,75.22,73.23,1.53
-20260707,77.8,78.7,77.7,78,20179662,75.18,3.75,75.47,73.33,1.35
-20260708,78,79,77.9,78.6,21797605,75.47,4.15,75.69,73.44,1.42
-20260709,78.3,79,78.2,78.4,18981792,75.71,3.55,75.89,73.55,1.23
+20260706,76.4,78.4,76.4,77.8,22603259,74.93,3.83,75.22,73.23,1.54
+20260707,77.8,78.7,77.7,78,20179662,75.18,3.75,75.47,73.33,1.34
+20260708,78,79,77.9,78.6,21797605,75.47,4.15,75.69,73.44,1.41
+20260709,78.3,79,78.2,78.4,18981792,75.71,3.55,75.89,73.55,1.22
 20260713,78,79.4,78,78.5,20557092,75.94,3.36,76.04,73.64,1.3
+20260714,78.6,78.6,77.5,78.5,18044589,76.16,3.08,76.14,73.74,1.12
+20260715,78.5,79.4,78,78.6,24165181,76.36,2.93,76.25,73.82,1.47
 ```
 
 ## Latest TDCC Snapshot
@@ -194,17 +194,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 1216 | 統一 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | repeated_but_no_breakout | 1.發生變動日期:115/07/07 2.選任或變動人員別（請輸入法人董事、法人監察人、獨立董事、自然人董事   或自然人監察人）:法人董事 3.舊任者職稱及姓名:Uni-President Asia Holdings Ltd.代表人 王志強先生 4.舊任者簡歷:王志強先生:統一企業香港控股有限公司董事 5.新任者職稱及姓名:不適用 6.新任者簡歷:不適用 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）:逝世 8.異動原因:逝世 9.新任者選任時持股數:不適用 10.原任期（例xx/xx/xx ~ xx/xx/xx）:NA 11.新任生效日期:不適用 12.同任期董事變動比率:1/8 13.同任期獨立董事變動比率:不適用 14.同任期監察人變動比率:不適用 15.屬三分之一以上董事發生變動（請輸入是或否）:否 16.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 待法人董事改派代表人再另行公告；calendar event: ex_dividend on 20260730; status=confirmed; proximity=within_30d |
+| 20260715 | 1216 | 統一 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | repeated_but_no_breakout | 1.發生變動日期:115/07/07 2.選任或變動人員別（請輸入法人董事、法人監察人、獨立董事、自然人董事   或自然人監察人）:法人董事 3.舊任者職稱及姓名:Uni-President Asia Holdings Ltd.代表人 王志強先生 4.舊任者簡歷:王志強先生:統一企業香港控股有限公司董事 5.新任者職稱及姓名:不適用 6.新任者簡歷:不適用 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）:逝世 8.異動原因:逝世 9.新任者選任時持股數:不適用 10.原任期（例xx/xx/xx ~ xx/xx/xx）:NA 11.新任生效日期:不適用 12.同任期董事變動比率:1/8 13.同任期獨立董事變動比率:不適用 14.同任期監察人變動比率:不適用 15.屬三分之一以上董事發生變動（請輸入是或否）:否 16.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 待法人董事改派代表人再另行公告；calendar event: ex_dividend on 20260730; status=confirmed; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 1216 | 統一 | 7 | 4 | 5 | 8 | 17 | repeated_but_no_breakout | 近 10 日上榜 8 次、近 20 日上榜 17 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260715 | 1216 | 統一 | 1 | 1 | 4 | 8 | 16 | repeated_but_no_breakout | 近 10 日上榜 8 次、近 20 日上榜 16 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 1216 | 統一 | 10 | 0 | 1033120.0 | 0.0 |  | no_signal |
+| 20260715 | 1216 | 統一 | 10 | 0 | 535630.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

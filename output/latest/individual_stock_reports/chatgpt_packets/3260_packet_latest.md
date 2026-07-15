@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3260 威剛
 
 ## Metadata
-- generated_at: 2026-07-14 22:26:47 Asia/Taipei
+- generated_at: 2026-07-15 22:26:56 Asia/Taipei
 - stock_id: 3260
 - stock_name: 威剛
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 167
+- latest_price_date: 20260715
+- price_rows: 169
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -117,30 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 416.5
-- high: 417
-- low: 402
-- close: 405
-- volume: 6146000
-- ma5: 406.7
-- ema23_primary: 410.58
-- distance_to_ema23_pct: -1.36
-- ma20: 410.52
-- ma60: 418.9
-- ma120: 378.7
-- return_5d: -1.58
-- return_20d: 2.66
-- volume_ratio: 0.62
-- distance_to_ma20_pct_auxiliary: -1.35
-- distance_to_high_60_pct: -18.02
+- date: 20260715
+- open: 409
+- high: 419.5
+- low: 408
+- close: 408
+- volume: 9540000
+- ma5: 406
+- ema23_primary: 409.79
+- distance_to_ema23_pct: -0.44
+- ma20: 409.65
+- ma60: 420.27
+- ma120: 380.93
+- return_5d: 0.99
+- return_20d: -3.55
+- volume_ratio: 1.02
+- distance_to_ma20_pct_auxiliary: -0.4
+- distance_to_high_60_pct: -17.41
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,416,422,405.5,405.5,11982000,418.65,-3.14,417.27,413.15,2
-20260615,414.5,435,413,423,16112000,419.01,0.95,417.52,412.24,2.59
 20260616,430,434,417,417,13924000,418.84,-0.44,418.88,410.44,2.24
 20260617,412,417,405.5,416,8232000,418.61,-0.62,419.4,409.75,1.4
 20260618,420,425,412,423,12103000,418.97,0.96,419.9,409.93,2.07
@@ -159,6 +157,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260708,408,413,397,404,5808000,411.19,-1.75,409,417.73,0.55
 20260709,408,418,405.5,410,7745000,411.09,-0.26,410,418.29,0.75
 20260713,416.5,417,402,405,6146000,410.58,-1.36,410.52,418.9,0.62
+20260714,406,409,389,403,7366000,409.95,-1.69,410.4,419.61,0.76
+20260715,409,419.5,408,408,9540000,409.79,-0.44,409.65,420.27,1.02
 ```
 
 ## Latest TDCC Snapshot
@@ -193,13 +193,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 3260 | 威剛 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | 1.事實發生日: 115年7月8日  2.發生緣由:  威剛科技股份有限公司公開收購琉園股份有限公司（以下簡稱琉園） 普通股，截至民國115年7月8日止下午3點30分止累積應賣股數總計 為10,133,986股，已達最低收購數量10,000,000股，本次公開收 購條件已成就，爰依公開收購公開發行公司有價證券管理辦法第19條 第2項第2款規定公告。  3.因應措施:如有任何問題，請洽本次公開收購委任機構福邦證券 股份有限公司，應賣諮詢專線：02-2383-6888 4.其他金融監督管理委員會證券期貨局規定事項:  (1)依公開收購公開發行公司有價證券管理辦法第19條第6項  規定，應賣人於公開收購人為本公告後，除法律另有規定外，  不得撤銷其應賣。  (2)本次公開收購之條件已成就，應賣股數如無因假扣押、假處分  等保全程序或強制執行程序，或出現其他轉讓之限制，使已應賣  股份視為自始未提出應賣，且無其他經主管機關核准後得停止公  開收購之情事，本次公開收購將於公開收購期間屆滿日(如經延長  則為延長期間屆滿日)次日起算五個營業日(含第五個營業日)以內  辦理應賣有價證券交割及收購對價支付事宜。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260713 | 3260 | 威剛 | revenue_breakout_low_response | 營收爆發低反應股 | 16.0 | 25.0 | D_降級_TDCC轉弱 |  |  |  | stale_signal | 1.事實發生日: 115年7月8日  2.發生緣由:  威剛科技股份有限公司公開收購琉園股份有限公司（以下簡稱琉園） 普通股，截至民國115年7月8日止下午3點30分止累積應賣股數總計 為10,133,986股，已達最低收購數量10,000,000股，本次公開收 購條件已成就，爰依公開收購公開發行公司有價證券管理辦法第19條 第2項第2款規定公告。  3.因應措施:如有任何問題，請洽本次公開收購委任機構福邦證券 股份有限公司，應賣諮詢專線：02-2383-6888 4.其他金融監督管理委員會證券期貨局規定事項:  (1)依公開收購公開發行公司有價證券管理辦法第19條第6項  規定，應賣人於公開收購人為本公告後，除法律另有規定外，  不得撤銷其應賣。  (2)本次公開收購之條件已成就，應賣股數如無因假扣押、假處分  等保全程序或強制執行程序，或出現其他轉讓之限制，使已應賣  股份視為自始未提出應賣，且無其他經主管機關核准後得停止公  開收購之情事，本次公開收購將於公開收購期間屆滿日(如經延長  則為延長期間屆滿日)次日起算五個營業日(含第五個營業日)以內  辦理應賣有價證券交割及收購對價支付事宜。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260715 | 3260 | 威剛 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | 1.事實發生日: 115年7月8日  2.發生緣由:  威剛科技股份有限公司公開收購琉園股份有限公司（以下簡稱琉園） 普通股，截至民國115年7月8日止下午3點30分止累積應賣股數總計 為10,133,986股，已達最低收購數量10,000,000股，本次公開收 購條件已成就，爰依公開收購公開發行公司有價證券管理辦法第19條 第2項第2款規定公告。  3.因應措施:如有任何問題，請洽本次公開收購委任機構福邦證券 股份有限公司，應賣諮詢專線：02-2383-6888 4.其他金融監督管理委員會證券期貨局規定事項:  (1)依公開收購公開發行公司有價證券管理辦法第19條第6項  規定，應賣人於公開收購人為本公告後，除法律另有規定外，  不得撤銷其應賣。  (2)本次公開收購之條件已成就，應賣股數如無因假扣押、假處分  等保全程序或強制執行程序，或出現其他轉讓之限制，使已應賣  股份視為自始未提出應賣，且無其他經主管機關核准後得停止公  開收購之情事，本次公開收購將於公開收購期間屆滿日(如經延長  則為延長期間屆滿日)次日起算五個營業日(含第五個營業日)以內  辦理應賣有價證券交割及收購對價支付事宜。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260715 | 3260 | 威剛 | revenue_breakout_low_response | 營收爆發低反應股 | 16.0 | 22.0 | D_降級_TDCC轉弱 |  |  |  | stale_signal | 1.事實發生日: 115年7月8日  2.發生緣由:  威剛科技股份有限公司公開收購琉園股份有限公司（以下簡稱琉園） 普通股，截至民國115年7月8日止下午3點30分止累積應賣股數總計 為10,133,986股，已達最低收購數量10,000,000股，本次公開收 購條件已成就，爰依公開收購公開發行公司有價證券管理辦法第19條 第2項第2款規定公告。  3.因應措施:如有任何問題，請洽本次公開收購委任機構福邦證券 股份有限公司，應賣諮詢專線：02-2383-6888 4.其他金融監督管理委員會證券期貨局規定事項:  (1)依公開收購公開發行公司有價證券管理辦法第19條第6項  規定，應賣人於公開收購人為本公告後，除法律另有規定外，  不得撤銷其應賣。  (2)本次公開收購之條件已成就，應賣股數如無因假扣押、假處分  等保全程序或強制執行程序，或出現其他轉讓之限制，使已應賣  股份視為自始未提出應賣，且無其他經主管機關核准後得停止公  開收購之情事，本次公開收購將於公開收購期間屆滿日(如經延長  則為延長期間屆滿日)次日起算五個營業日(含第五個營業日)以內  辦理應賣有價證券交割及收購對價支付事宜。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 3260 | 威剛 | 15 | 14 | 5 | 10 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260715 | 3260 | 威剛 | 17 | 16 | 5 | 10 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

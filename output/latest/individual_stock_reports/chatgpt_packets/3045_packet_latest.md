@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3045 台灣大
 
 ## Metadata
-- generated_at: 2026-07-14 22:26:44 Asia/Taipei
+- generated_at: 2026-07-15 22:26:52 Asia/Taipei
 - stock_id: 3045
 - stock_name: 台灣大
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 302
+- latest_price_date: 20260715
+- price_rows: 304
 - latest_tdcc_date: 20260703
 - tdcc_rows: 32
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 111
-- high: 111.5
+- date: 20260715
+- open: 109
+- high: 110
 - low: 108.5
-- close: 109.5
-- volume: 19694998
-- ma5: 113
-- ema23_primary: 115.64
-- distance_to_ema23_pct: -5.31
-- ma20: 117.28
-- ma60: 114.4
-- ma120: 111.09
-- return_5d: -6.01
-- return_20d: -7.98
-- volume_ratio: 1.31
-- distance_to_ma20_pct_auxiliary: -6.63
-- distance_to_high_60_pct: -9.88
+- close: 109
+- volume: 6935880
+- ma5: 109.8
+- ema23_primary: 114.58
+- distance_to_ema23_pct: -4.87
+- ma20: 116.22
+- ma60: 114.33
+- ma120: 111.12
+- return_5d: -6.44
+- return_20d: -8.79
+- volume_ratio: 0.45
+- distance_to_ma20_pct_auxiliary: -6.22
+- distance_to_high_60_pct: -10.29
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,119,120.5,118.5,119.5,11457132,114.82,4.08,114.58,111.97,0.72
-20260615,120.5,120.5,119,119.5,7645156,115.21,3.73,114.85,112.13,0.49
 20260616,119.5,121.5,119.5,120.5,10988105,115.65,4.2,115.05,112.32,0.74
 20260617,120,120.5,118,119,7710655,115.93,2.65,115.25,112.48,0.52
 20260618,119,119.5,118.5,119,8119704,116.18,2.42,115.53,112.65,0.57
@@ -145,15 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,119.5,120.5,119,120,8439622,117.1,2.48,117.17,113.32,0.67
 20260626,119.5,120.5,118.5,118.5,9856214,117.22,1.09,117.55,113.47,0.82
 20260629,119.5,120,118,118,13774394,117.28,0.61,117.88,113.62,1.18
-20260630,118,119,116,116.5,20189000,117.22,-0.61,118,113.74,1.69
-20260701,116.5,120,116.5,118,20242000,117.28,0.61,118.12,113.88,1.69
-20260702,118,120,118,118.5,16602000,117.38,0.95,118.25,114.03,1.36
+20260630,118,119,116,116.5,20275506,117.22,-0.61,118,113.74,1.7
+20260701,116.5,120,116.5,118,20262334,117.28,0.61,118.12,113.88,1.69
+20260702,118,120,118,118.5,16629109,117.38,0.95,118.25,114.03,1.36
 20260703,119,120,116.5,116.5,18180447,117.31,-0.69,118.28,114.15,1.43
-20260706,117.5,119,117,117.5,12323000,117.33,0.15,118.35,114.28,0.95
-20260707,118,119.5,116.5,116.5,16573200,117.26,-0.65,118.42,114.38,1.28
+20260706,117.5,119,117,117.5,12347700,117.33,0.15,118.35,114.28,0.95
+20260707,118,119.5,116.5,116.5,16737200,117.26,-0.65,118.42,114.38,1.3
 20260708,117.5,117.5,113,113,21669211,116.9,-3.34,118.22,114.43,1.66
 20260709,107,108.5,106,108.5,50181639,116.2,-6.63,117.75,114.41,3.35
 20260713,111,111.5,108.5,109.5,19694998,115.64,-5.31,117.28,114.4,1.31
+20260714,110,110,107.5,109,21872631,115.09,-5.29,116.75,114.38,1.41
+20260715,109,110,108.5,109,6935880,114.58,-4.87,116.22,114.33,0.45
 ```
 
 ## Latest TDCC Snapshot
@@ -200,7 +201,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 3045 | 台灣大 | 1 | 0 | 0.0 | 0.0 |  | no_signal |
+| 20260715 | 3045 | 台灣大 | 1 | 0 | 0.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

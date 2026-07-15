@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7799 禾榮科
 
 ## Metadata
-- generated_at: 2026-07-14 22:27:33 Asia/Taipei
+- generated_at: 2026-07-15 22:27:48 Asia/Taipei
 - stock_id: 7799
 - stock_name: 禾榮科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 193
+- latest_price_date: 20260715
+- price_rows: 195
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 439
-- high: 441
-- low: 397
-- close: 402.5
-- volume: 1332154
-- ma5: 435.2
-- ema23_primary: 397.7
-- distance_to_ema23_pct: 1.21
-- ma20: 397.75
-- ma60: 366.42
-- ma120: 395.99
-- return_5d: 2.94
-- return_20d: 20.33
-- volume_ratio: 1.19
-- distance_to_ma20_pct_auxiliary: 1.19
-- distance_to_high_60_pct: -14.9
+- date: 20260715
+- open: 405.5
+- high: 423
+- low: 393
+- close: 418.5
+- volume: 626665
+- ma5: 418.9
+- ema23_primary: 399.3
+- distance_to_ema23_pct: 4.81
+- ma20: 403.57
+- ma60: 366.93
+- ma120: 396.34
+- return_5d: -10.19
+- return_20d: 18.89
+- volume_ratio: 0.54
+- distance_to_ma20_pct_auxiliary: 3.7
+- distance_to_high_60_pct: -11.52
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,335.5,348,335.5,346,255553,343.94,0.6,334.07,358.7,0.5
-20260615,352.5,357,350,352,230898,344.61,2.14,336.15,357.61,0.46
 20260616,361,378.5,355.5,355.5,667268,345.52,2.89,338.77,356.73,1.28
 20260617,353.5,361,350.5,357,160327,346.48,3.04,341.27,355.84,0.31
 20260618,358.5,373,358,362,964303,347.77,4.09,343.52,355.28,1.72
@@ -146,15 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,409.5,416,391.5,393,764796,364.35,7.86,358.48,356.17,1
 20260626,393,401.5,378,379,546701,365.57,3.67,361.38,356.53,0.71
 20260629,385.5,416.5,381.5,416.5,831462,369.81,12.62,366.3,358,1.04
-20260630,408.5,432.5,408.5,410,1289000,373.16,9.87,370.3,359.03,1.53
-20260701,414,416.5,395.5,395.5,491000,375.02,5.46,373.77,359.94,0.57
-20260702,406.5,415,394.5,398,535000,376.94,5.59,377.5,361.04,0.61
+20260630,408.5,432.5,408.5,410,1354323,373.16,9.87,370.3,359.03,1.6
+20260701,414,416.5,395.5,395.5,514792,375.02,5.46,373.77,359.94,0.6
+20260702,406.5,415,394.5,398,552634,376.94,5.59,377.5,361.04,0.63
 20260703,399.5,415.5,390,391,853651,378.11,3.41,379.27,361.76,0.97
-20260706,405,430,405,430,1084000,382.44,12.44,381.27,362.73,1.3
-20260707,454.5,473,442.5,466,4150006,389.4,19.67,385.7,364.11,4.31
-20260708,473,473,438.5,442,2026878,393.78,12.24,389.6,365.37,1.99
-20260709,440,459,430,435.5,1584515,397.26,9.63,394.35,366.21,1.49
-20260713,439,441,397,402.5,1332154,397.7,1.21,397.75,366.42,1.19
+20260706,405,430,405,430,1137236,382.44,12.44,381.27,362.73,1.35
+20260707,454.5,473,442.5,466,4150006,389.4,19.67,385.7,364.11,4.27
+20260708,473,473,438.5,442,2026878,393.78,12.24,389.6,365.37,1.97
+20260709,440,459,430,435.5,1584515,397.26,9.63,394.35,366.21,1.48
+20260713,439,441,397,402.5,1332154,397.7,1.21,397.75,366.42,1.18
+20260714,402.5,408,380,396,670172,397.55,-0.39,400.25,366.43,0.58
+20260715,405.5,423,393,418.5,626665,399.3,4.81,403.57,366.93,0.54
 ```
 
 ## Latest TDCC Snapshot
@@ -187,14 +187,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 7799 | 禾榮科 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | 1.事實發生日:115/06/25 2.契約或承諾相對人:B dot Medical Inc. 3.與公司關係:無 4.契約或承諾起迄日期（或解除日期）:115/06/25 5.主要內容（解除者不適用）: 本公司與B dot Medical Inc.簽署合作意向書，雙方將針對AB-BNCT系統日本市場拓展、 潛在粒子治療中心建置、醫療設備技術整合及日本市場法規與取證支援之合作可行性 展開進一步評估。此合作藉由雙方於先進粒子醫療領域之技術與市場互補，共同開拓 日本及亞洲醫療市場。 6.限制條款（解除者不適用）:無 7.承諾事項（解除者不適用）:無 8.其他重要約定事項（解除者不適用）:無 9.對公司財務、業務之影響: 此合作有助於本公司持續以穩健方式深化海外布局，推動公司業務拓展與長期成長。 10.具體目的: 擴展本公司在AB-BNCT領域之潛在市場發展。 11.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第8款所定對股東權益或證券價格有重大影響之事項): 無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 7799 | 禾榮科 | 1 | 1 | 4 | 5 | 7 | repeated_but_no_breakout | 近 10 日上榜 5 次、近 20 日上榜 7 次，但尚未有效突破，需等待攻擊確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

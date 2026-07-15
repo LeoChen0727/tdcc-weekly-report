@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8091 翔名
 
 ## Metadata
-- generated_at: 2026-07-14 22:27:35 Asia/Taipei
+- generated_at: 2026-07-15 22:27:51 Asia/Taipei
 - stock_id: 8091
 - stock_name: 翔名
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 167
+- latest_price_date: 20260715
+- price_rows: 169
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 298.5
-- high: 299
-- low: 273.5
-- close: 277.5
-- volume: 1925000
-- ma5: 280.7
-- ema23_primary: 269.48
-- distance_to_ema23_pct: 2.97
-- ma20: 271.68
-- ma60: 238.04
-- ma120: 190.04
-- return_5d: -5.45
-- return_20d: 17.09
-- volume_ratio: 1.03
-- distance_to_ma20_pct_auxiliary: 2.14
-- distance_to_high_60_pct: -8.57
+- date: 20260715
+- open: 277
+- high: 285
+- low: 274
+- close: 283.5
+- volume: 1282000
+- ma5: 281.9
+- ema23_primary: 271.07
+- distance_to_ema23_pct: 4.58
+- ma20: 274.98
+- ma60: 241.35
+- ma120: 192.73
+- return_5d: 5.78
+- return_20d: 12.95
+- volume_ratio: 0.65
+- distance_to_ma20_pct_auxiliary: 3.1
+- distance_to_high_60_pct: -6.59
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,245,248.5,240,241.5,559000,239.18,0.97,254,201.8,0.58
-20260615,250,252,243.5,251,723000,240.17,4.51,253.53,203.68,1.06
 20260616,255,256,241.5,248,1253000,240.82,2.98,252.75,205.55,2.55
 20260617,250,272.5,246.5,260.5,3957000,242.46,7.44,253.1,207.62,6.05
 20260618,260,285,253,281,2786000,245.67,14.38,254.85,209.97,3.73
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260708,276,279.5,267,278.5,1500000,266.37,4.55,266.65,234.57,0.86
 20260709,281,303.5,275.5,295,2630000,268.76,9.77,269.65,236.5,1.46
 20260713,298.5,299,273.5,277.5,1925000,269.48,2.97,271.68,238.04,1.03
+20260714,277.5,278.5,254,275,1807000,269.94,1.87,273.35,239.65,0.93
+20260715,277,285,274,283.5,1282000,271.07,4.58,274.98,241.35,0.65
 ```
 
 ## Latest TDCC Snapshot
@@ -189,13 +189,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 8091 | 翔名 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
-| 20260713 | 8091 | 翔名 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260715 | 8091 | 翔名 | pattern | 型態觀察 | 46.0 |  |  | base_building |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260715 | 8091 | 翔名 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 8091 | 翔名 | 5 | 5 | 5 | 9 | 14 | repeated_but_no_breakout | 近 10 日上榜 9 次、近 20 日上榜 14 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260715 | 8091 | 翔名 | 7 | 7 | 5 | 9 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

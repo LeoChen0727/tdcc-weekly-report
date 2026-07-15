@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2409 友達
 
 ## Metadata
-- generated_at: 2026-07-14 22:26:33 Asia/Taipei
+- generated_at: 2026-07-15 22:26:39 Asia/Taipei
 - stock_id: 2409
 - stock_name: 友達
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 302
+- latest_price_date: 20260715
+- price_rows: 304
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 31.7
-- high: 32.5
-- low: 29.2
-- close: 29.25
-- volume: 492027398
-- ma5: 30.26
-- ema23_primary: 28.53
-- distance_to_ema23_pct: 2.51
-- ma20: 29.02
-- ma60: 23.51
-- ma120: 19.63
-- return_5d: -2.5
-- return_20d: 26.35
-- volume_ratio: 0.96
-- distance_to_ma20_pct_auxiliary: 0.78
-- distance_to_high_60_pct: -15.09
+- date: 20260715
+- open: 28.2
+- high: 28.75
+- low: 27.7
+- close: 28.3
+- volume: 203146154
+- ma5: 29.22
+- ema23_primary: 28.44
+- distance_to_ema23_pct: -0.49
+- ma20: 29.44
+- ma60: 23.77
+- ma120: 19.85
+- return_5d: -3.58
+- return_20d: 17.43
+- volume_ratio: 0.39
+- distance_to_ma20_pct_auxiliary: -3.86
+- distance_to_high_60_pct: -17.85
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,24.6,25,23.45,23.5,300437623,22.97,2.33,23.25,19.41,0.68
-20260615,24.45,25,24.1,24.1,234168728,23.06,4.51,23.49,19.54,0.53
 20260616,24.5,24.75,23.9,23.9,203629435,23.13,3.33,23.73,19.68,0.46
 20260617,23.6,26.25,23.35,26.25,559042864,23.39,12.23,24.11,19.85,1.2
 20260618,27.45,28.6,26.05,28.15,828311957,23.79,18.34,24.5,20.08,1.7
@@ -146,15 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,30.9,31.1,29.3,30.4,416200717,25.68,18.38,26.03,21.11,0.8
 20260626,30,30.15,27.95,27.95,367297098,25.87,8.05,26.36,21.34,0.71
 20260629,28.1,30.7,27.6,30.6,748906413,26.26,16.52,26.75,21.61,1.42
-20260630,31,33.25,30.4,32.7,894554000,26.8,22.02,27.19,21.89,1.64
-20260701,33.6,34.45,30.5,30.65,725551000,27.12,13.02,27.41,22.11,1.33
-20260702,29.95,31.5,29.9,30.5,369821000,27.4,11.31,27.5,22.35,0.7
+20260630,31,33.25,30.4,32.7,898082876,26.8,22.02,27.19,21.89,1.65
+20260701,33.6,34.45,30.5,30.65,728574837,27.12,13.02,27.41,22.11,1.34
+20260702,29.95,31.5,29.9,30.5,371274327,27.4,11.31,27.5,22.35,0.7
 20260703,30.05,30.5,29.6,30,231040275,27.62,8.62,27.54,22.57,0.47
-20260706,30.4,32,30.15,31.7,408698000,27.96,13.38,27.77,22.78,0.84
+20260706,30.4,32,30.15,31.7,410630157,27.96,13.38,27.77,22.78,0.85
 20260707,31.9,33,29.05,29.35,505399029,28.07,4.54,28.02,22.97,1
 20260708,30.1,30.3,28.5,29.55,263664460,28.2,4.8,28.3,23.16,0.53
 20260709,30,32.35,29.4,31.45,585706614,28.47,10.47,28.72,23.36,1.16
 20260713,31.7,32.5,29.2,29.25,492027398,28.53,2.51,29.02,23.51,0.96
+20260714,29.05,29.4,26.5,27.55,356616406,28.45,-3.17,29.23,23.62,0.69
+20260715,28.2,28.75,27.7,28.3,203146154,28.44,-0.49,29.44,23.77,0.39
 ```
 
 ## Latest TDCC Snapshot
@@ -189,17 +189,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 2409 | 友達 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | continued_2_3d | 1.董事會、股東會決議或公司決定日期:115/07/13 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額: 普通股現金股利新台幣3,018,839,589元(每股配發新台幣0.4元) 4.除權（息）交易日:115/07/30 5.最後過戶日:115/08/01 6.停止過戶起始日期:115/08/02 7.停止過戶截止日期:115/08/06 8.除權（息）基準日:115/08/06 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/28 13.現金股利之一部或全部是否以外幣發放(請填入「是」或「否」):否 14.外幣現金股利發放幣別:不適用 15.外幣現金股利發放對象:不適用 16.外幣現金股利匯率決定方式:不適用 17.其他應敘明事項: 美國存託憑證之除息交易日為115年7月30日;美國存託憑證之配息 基準日為115年8月1日。有關本公司美國存託憑證配息之問題，請洽 本公司美國存託憑證存託銀行Citibank, N.A.(電話:+ 1-877-248-4237； 電子郵件：citibank@shareholders-online.com)；calendar event: ex_dividend on 20260730; status=confirmed; proximity=within_30d |
+| 20260715 | 2409 | 友達 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/13 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額: 普通股現金股利新台幣3,018,839,589元(每股配發新台幣0.4元) 4.除權（息）交易日:115/07/30 5.最後過戶日:115/08/01 6.停止過戶起始日期:115/08/02 7.停止過戶截止日期:115/08/06 8.除權（息）基準日:115/08/06 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/28 13.現金股利之一部或全部是否以外幣發放(請填入「是」或「否」):否 14.外幣現金股利發放幣別:不適用 15.外幣現金股利發放對象:不適用 16.外幣現金股利匯率決定方式:不適用 17.其他應敘明事項: 美國存託憑證之除息交易日為115年7月30日;美國存託憑證之配息 基準日為115年8月1日。有關本公司美國存託憑證配息之問題，請洽 本公司美國存託憑證存託銀行Citibank, N.A.(電話:+ 1-877-248-4237； 電子郵件：citibank@shareholders-online.com)；calendar event: ex_dividend on 20260730; status=confirmed; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 2409 | 友達 | 2 | 2 | 4 | 6 | 13 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| 20260715 | 2409 | 友達 | 4 | 4 | 4 | 6 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 2409 | 友達 | 267 | 13 | 64951930.0 | 1023700.0 | 63.45 | no_signal |
+| 20260715 | 2409 | 友達 | 272 | 13 | 41717480.0 | 2685970.0 | 15.53 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

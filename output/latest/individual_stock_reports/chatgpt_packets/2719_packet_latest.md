@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2719 燦星旅
 
 ## Metadata
-- generated_at: 2026-07-14 22:26:39 Asia/Taipei
+- generated_at: 2026-07-15 22:26:46 Asia/Taipei
 - stock_id: 2719
 - stock_name: 燦星旅
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 165
+- latest_price_date: 20260715
+- price_rows: 167
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 24
-- high: 24
-- low: 23.3
-- close: 23.35
-- volume: 13000
-- ma5: 24.09
-- ema23_primary: 24.63
-- distance_to_ema23_pct: -5.2
-- ma20: 24.64
-- ma60: 25.93
-- ma120: 27.02
-- return_5d: -3.91
-- return_20d: -6.41
-- volume_ratio: 0.62
-- distance_to_ma20_pct_auxiliary: -5.25
-- distance_to_high_60_pct: -22.68
+- date: 20260715
+- open: 22
+- high: 23.75
+- low: 22
+- close: 23.75
+- volume: 140000
+- ma5: 23.4
+- ema23_primary: 24.33
+- distance_to_ema23_pct: -2.37
+- ma20: 24.43
+- ma60: 25.71
+- ma120: 26.89
+- return_5d: -1.45
+- return_20d: -4.62
+- volume_ratio: 5.09
+- distance_to_ma20_pct_auxiliary: -2.76
+- distance_to_high_60_pct: -21.36
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,24.9,24.95,24.7,24.8,17000,25.55,-2.92,25.37,26.63,0.98
-20260615,24.75,24.9,24.6,24.9,30000,25.49,-2.32,25.34,26.6,1.64
 20260616,24.9,25,24.9,25,5000,25.45,-1.77,25.3,26.57,0.28
 20260617,25.15,25.7,25,25.7,32000,25.47,0.9,25.3,26.55,1.71
 20260618,26,26,25.05,25.2,26000,25.45,-0.98,25.28,26.54,1.31
@@ -154,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260708,24.05,24.05,24,24,15000,24.79,-3.18,24.75,26.11,0.71
 20260709,23.9,24.35,23.9,24.3,12000,24.75,-1.81,24.72,26.03,0.57
 20260713,24,24,23.3,23.35,13000,24.63,-5.2,24.64,25.93,0.62
+20260714,23,23.05,21.5,21.6,39000,24.38,-11.4,24.48,25.8,1.77
+20260715,22,23.75,22,23.75,140000,24.33,-2.37,24.43,25.71,5.09
 ```
 
 ## Latest TDCC Snapshot

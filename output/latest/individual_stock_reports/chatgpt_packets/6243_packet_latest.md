@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6243 迅杰
 
 ## Metadata
-- generated_at: 2026-07-14 22:27:15 Asia/Taipei
+- generated_at: 2026-07-15 22:27:28 Asia/Taipei
 - stock_id: 6243
 - stock_name: 迅杰
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 302
+- latest_price_date: 20260715
+- price_rows: 304
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -59,14 +59,14 @@
 - action_rating_display_zh: 已持有續抱
 - model_category_display_zh: 單一個股分析
 - score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- risk_control_zh: 股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -74,7 +74,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: unclear
+- thesis_state: high_level_consolidation
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -91,7 +91,6 @@
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
-- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -104,7 +103,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- none
+- price_too_extended
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -112,30 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 39.55
-- high: 40.45
-- low: 36.05
-- close: 36.05
-- volume: 465847
-- ma5: 39.21
-- ema23_primary: 38.07
-- distance_to_ema23_pct: -5.3
-- ma20: 38.47
-- ma60: 35.19
-- ma120: 34.07
-- return_5d: -10.1
-- return_20d: 19.57
-- volume_ratio: 0.33
-- distance_to_ma20_pct_auxiliary: -6.29
-- distance_to_high_60_pct: -21.03
+- date: 20260715
+- open: 43.6
+- high: 43.6
+- low: 43.6
+- close: 43.6
+- volume: 965798
+- ma5: 39.77
+- ema23_primary: 38.65
+- distance_to_ema23_pct: 12.81
+- ma20: 39.51
+- ma60: 35.53
+- ma120: 34.18
+- return_5d: 11.08
+- return_20d: 37.97
+- volume_ratio: 0.62
+- distance_to_ma20_pct_auxiliary: 10.37
+- distance_to_high_60_pct: -4.49
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,30.6,31.2,30.45,30.95,171542,32.61,-5.09,33.2,32.36,0.45
-20260615,30.8,31.9,30.8,31.6,213502,32.52,-2.84,33.06,32.35,0.56
 20260616,31.85,32,31.1,31.2,149701,32.41,-3.75,32.96,32.36,0.4
 20260617,31.7,32,31.1,31.75,263106,32.36,-1.88,32.87,32.36,0.7
 20260618,31.8,34.9,31.55,34.9,990524,32.57,7.15,32.9,32.43,2.43
@@ -145,15 +142,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,45.65,45.65,43,44.2,3990466,35.53,24.38,34.29,33.26,3
 20260626,43.05,44.6,41.65,43,2312014,36.16,18.93,34.76,33.49,1.62
 20260629,40.15,41.3,39.15,39.25,541265,36.41,7.79,35.03,33.68,0.38
-20260630,40.3,40.3,39.35,39.9,344000,36.71,8.7,35.34,33.86,0.24
-20260701,40.45,41.4,40.2,40.9,397000,37.05,10.38,35.7,34.06,0.28
-20260702,41,41.2,39.65,40.1,345000,37.31,7.48,36,34.25,0.24
+20260630,40.3,40.3,39.35,39.9,355316,36.71,8.7,35.34,33.86,0.25
+20260701,40.45,41.4,40.2,40.9,406284,37.05,10.38,35.7,34.06,0.28
+20260702,41,41.2,39.65,40.1,351901,37.31,7.48,36,34.25,0.25
 20260703,40.3,40.3,39.7,40.1,242265,37.54,6.82,36.32,34.43,0.17
-20260706,40.1,42.75,40.1,41.2,404000,37.85,8.86,36.76,34.62,0.28
-20260707,41,41.85,39.05,39.25,320960,37.96,3.39,37.2,34.78,0.23
+20260706,40.1,42.75,40.1,41.2,413181,37.85,8.86,36.76,34.62,0.29
+20260707,41,41.85,39.05,39.25,320960,37.96,3.39,37.2,34.78,0.22
 20260708,38.7,40.2,38.05,40,166216,38.13,4.9,37.67,34.95,0.12
 20260709,39.5,40,39.15,39.55,133598,38.25,3.4,38.17,35.1,0.09
 20260713,39.55,40.45,36.05,36.05,465847,38.07,-5.3,38.47,35.19,0.33
+20260714,38,39.65,37,39.65,1855825,38.2,3.8,38.91,35.32,1.22
+20260715,43.6,43.6,43.6,43.6,965798,38.65,12.81,39.51,35.53,0.62
 ```
 
 ## Latest TDCC Snapshot

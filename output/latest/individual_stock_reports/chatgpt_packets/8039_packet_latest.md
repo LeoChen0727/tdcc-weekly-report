@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8039 台虹
 
 ## Metadata
-- generated_at: 2026-07-14 22:27:33 Asia/Taipei
+- generated_at: 2026-07-15 22:27:49 Asia/Taipei
 - stock_id: 8039
 - stock_name: 台虹
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 302
+- latest_price_date: 20260715
+- price_rows: 304
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -56,43 +56,41 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 已持有續抱
+- action_rating_display_zh: 等待回檔
 - model_category_display_zh: 區間內轉強 / 挑戰前高觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 區間內轉強 / 挑戰前高觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
-- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前還沒有新的第一筆買點，需等待回檔或站回條件成立。
+- action_summary_zh: 區間內轉強 / 挑戰前高觀察 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。
+- entry_strategy_zh: 目前等待回檔，不建立新部位；回測支撐或 23EMA 不破後再評估。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- add_position_strategy_zh: 跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- risk_control_zh: 股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 區間內轉強 / 挑戰前高觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 區間內轉強 / 挑戰前高觀察 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。 進場策略：目前等待回檔，不建立新部位；回測支撐或 23EMA 不破後再評估。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
+- action_rating: wait_pullback
+- action_rating_label_zh: 等待回檔
 - confidence_level: medium
-- thesis_state: unclear
-- entry_style: no_entry_now
+- thesis_state: healthy_pullback
+- entry_style: pullback_to_support
 - position_sizing: observe_only
 
 ### management_plan
-- take_profit_near_prior_high
-- take_profit_on_volume_price_failure
 - exit_if_lost_23ema
 - exit_if_lost_recent_low
 - exit_if_revenue_breaks
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
-- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -105,7 +103,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- none
+- price_too_extended
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -113,30 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 169
-- high: 169
-- low: 169
-- close: 169
-- volume: 8932894
-- ma5: 150.7
-- ema23_primary: 147.1
-- distance_to_ema23_pct: 14.88
-- ma20: 147.1
-- ma60: 143.72
-- ma120: 123.22
-- return_5d: 11.92
-- return_20d: 24.26
-- volume_ratio: 1.05
-- distance_to_ma20_pct_auxiliary: 14.89
-- distance_to_high_60_pct: -0.88
+- date: 20260715
+- open: 186
+- high: 194
+- low: 180
+- close: 181.5
+- volume: 47034147
+- ma5: 166
+- ema23_primary: 152.9
+- distance_to_ema23_pct: 18.7
+- ma20: 150.6
+- ma60: 145.13
+- ma120: 124.88
+- return_5d: 28.72
+- return_20d: 23.05
+- volume_ratio: 3.96
+- distance_to_ma20_pct_auxiliary: 20.52
+- distance_to_high_60_pct: -6.44
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,141,149.5,141,149.5,17954505,141.79,5.43,144.05,135.26,1.12
-20260615,153,153.5,147.5,147.5,11405166,142.27,3.68,144.4,135.72,0.71
 20260616,150,151,141,141.5,7347964,142.21,-0.5,144.8,136.12,0.47
 20260617,141.5,150,139,146,8123638,142.52,2.44,145.78,136.6,0.52
 20260618,147,149,143.5,145.5,5310715,142.77,1.91,146.1,137.2,0.34
@@ -146,15 +142,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,150,153,143.5,143.5,4179041,144.08,-0.4,144.8,139.6,0.33
 20260626,143,146.5,137.5,137.5,4154535,143.53,-4.2,144,140.03,0.35
 20260629,141.5,143.5,135.5,137.5,3554368,143.03,-3.86,142.78,140.55,0.35
-20260630,140,149,140,149,8565000,143.53,3.81,142.57,141.18,0.96
-20260701,149,157.5,144.5,145.5,12417000,143.69,1.26,142.5,141.57,1.44
-20260702,143.5,149.5,143,148,5004000,144.05,2.74,142.38,142.01,0.62
+20260630,140,149,140,149,8771527,143.53,3.81,142.57,141.18,0.99
+20260701,149,157.5,144.5,145.5,12536967,143.69,1.26,142.5,141.57,1.45
+20260702,143.5,149.5,143,148,5057850,144.05,2.74,142.38,142.01,0.63
 20260703,147,156,146.5,151,8260903,144.63,4.41,142.9,142.46,1.05
-20260706,151,160,149.5,149.5,11647000,145.03,3.08,143.35,142.68,1.45
-20260707,148.5,149.5,140,141,10111068,144.7,-2.56,143.88,142.75,1.25
+20260706,151,160,149.5,149.5,11804442,145.03,3.08,143.35,142.68,1.47
+20260707,148.5,149.5,140,141,10111068,144.7,-2.56,143.88,142.75,1.24
 20260708,143.5,146.5,137.5,140,4634026,144.31,-2.98,144.2,142.85,0.58
-20260709,143,154,142,154,16601516,145.11,6.12,145.45,143.13,1.96
-20260713,169,169,169,169,8932894,147.1,14.88,147.1,143.72,1.05
+20260709,143,154,142,154,16601516,145.11,6.12,145.45,143.13,1.95
+20260713,169,169,169,169,8932894,147.1,14.88,147.1,143.72,1.04
+20260714,173,185.5,169,185.5,48874130,150.3,23.42,148.9,144.5,4.84
+20260715,186,194,180,181.5,47034147,152.9,18.7,150.6,145.13,3.96
 ```
 
 ## Latest TDCC Snapshot
@@ -189,17 +187,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 8039 | 台虹 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 58.0 |  |  | neckline_challenge |  | no_signal | continued_2_3d | 1.人員變動別（請輸入發言人、代理發言人、重要營運主管(如:執行長、營運長、 行銷長及策略長等)、財務主管、會計主管、公司治理主管、資訊安全長、研發主管、 內部稽核主管或訴訟及非訟代理人）:財務主管、會計主管 2.發生變動日期:115/07/01 3.舊任者姓名、級職及簡歷:涂家銘/財務主管、會計主管 4.新任者姓名、級職及簡歷:賴威伸/財務主管、會計主管 5.異動情形（請輸入「辭職」、「職務調整」、「資遣」、「退休」、「死亡」、「新 任」或「解任」）:逝世 6.異動原因:逝世 7.生效日期:115/07/01 8.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260715 | 8039 | 台虹 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_inflow | continued_overheated | 1.人員變動別（請輸入發言人、代理發言人、重要營運主管(如:執行長、營運長、 行銷長及策略長等)、財務主管、會計主管、公司治理主管、資訊安全長、研發主管、 內部稽核主管或訴訟及非訟代理人）:財務主管、會計主管 2.發生變動日期:115/07/01 3.舊任者姓名、級職及簡歷:涂家銘/財務主管、會計主管 4.新任者姓名、級職及簡歷:賴威伸/財務主管、會計主管 5.異動情形（請輸入「辭職」、「職務調整」、「資遣」、「退休」、「死亡」、「新 任」或「解任」）:逝世 6.異動原因:逝世 7.生效日期:115/07/01 8.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 8039 | 台虹 | 2 | 2 | 3 | 6 | 12 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| 20260715 | 8039 | 台虹 | 4 | 1 | 4 | 7 | 13 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 8039 | 台虹 | 113 | 4 | 5235650.0 | 1970.0 | 2657.69 | no_signal |
+| 20260715 | 8039 | 台虹 | 108 | 4 | 23370750.0 | 164320.0 | 142.23 | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

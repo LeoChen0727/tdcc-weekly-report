@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2739 寒舍
 
 ## Metadata
-- generated_at: 2026-07-14 22:26:40 Asia/Taipei
+- generated_at: 2026-07-15 22:26:47 Asia/Taipei
 - stock_id: 2739
 - stock_name: 寒舍
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 302
+- latest_price_date: 20260715
+- price_rows: 304
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
+- date: 20260715
 - open: 34.25
-- high: 34.3
-- low: 33.5
-- close: 34.05
-- volume: 162635
-- ma5: 36.12
-- ema23_primary: 36.46
-- distance_to_ema23_pct: -6.6
-- ma20: 36.78
-- ma60: 35.64
-- ma120: 34.9
-- return_5d: -10.28
-- return_20d: -4.22
-- volume_ratio: 0.7
-- distance_to_ma20_pct_auxiliary: -7.43
-- distance_to_high_60_pct: -13.03
+- high: 35
+- low: 34.05
+- close: 34.75
+- volume: 112930
+- ma5: 34.88
+- ema23_primary: 36.15
+- distance_to_ema23_pct: -3.86
+- ma20: 36.63
+- ma60: 35.56
+- ma120: 34.89
+- return_5d: -7.21
+- return_20d: -3.87
+- volume_ratio: 0.48
+- distance_to_ma20_pct_auxiliary: -5.14
+- distance_to_high_60_pct: -11.24
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,35.85,36,35.55,35.85,94365,35.37,1.36,35.3,34.87,0.67
-20260615,36.1,36.35,35.9,36.15,104380,35.43,2.02,35.34,34.9,0.79
 20260616,36.15,36.9,36,36.5,244865,35.52,2.75,35.43,34.94,1.74
 20260617,36.55,36.65,36.3,36.4,170451,35.6,2.26,35.52,34.98,1.16
 20260618,36.4,36.9,35.8,35.8,257534,35.61,0.52,35.59,35.02,1.66
@@ -145,15 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,36.7,39.15,36.7,38.4,840754,36.02,6.6,36.02,35.21,4.14
 20260626,37.95,39.15,37.25,37.5,306452,36.15,3.75,36.16,35.27,1.44
 20260629,37.7,38.1,36.9,37.8,266555,36.28,4.18,36.3,35.35,1.21
-20260630,37.85,38,37.4,37.9,130000,36.42,4.07,36.42,35.41,0.59
-20260701,38.1,38.1,37.3,37.75,186000,36.53,3.34,36.55,35.47,0.84
-20260702,37.3,37.75,37.3,37.75,114000,36.63,3.06,36.63,35.54,0.54
+20260630,37.85,38,37.4,37.9,131581,36.42,4.07,36.42,35.41,0.6
+20260701,38.1,38.1,37.3,37.75,189001,36.53,3.34,36.55,35.47,0.86
+20260702,37.3,37.75,37.3,37.75,116113,36.63,3.06,36.63,35.54,0.55
 20260703,37.6,38.2,37.6,37.95,79785,36.74,3.29,36.71,35.6,0.38
-20260706,37.95,38.2,37.65,37.75,308000,36.82,2.51,36.8,35.66,1.43
+20260706,37.95,38.2,37.65,37.75,310887,36.82,2.51,36.8,35.66,1.44
 20260707,37.75,37.75,37.4,37.45,239968,36.88,1.55,36.88,35.71,1.09
 20260708,37.5,37.6,37.05,37.1,366434,36.9,0.55,36.95,35.7,1.57
 20260709,34.7,34.8,34.05,34.25,229866,36.67,-6.61,36.86,35.67,0.99
 20260713,34.25,34.3,33.5,34.05,162635,36.46,-6.6,36.78,35.64,0.7
+20260714,34.55,34.55,33.8,34.25,139748,36.27,-5.58,36.7,35.6,0.59
+20260715,34.25,35,34.05,34.75,112930,36.15,-3.86,36.63,35.56,0.48
 ```
 
 ## Latest TDCC Snapshot

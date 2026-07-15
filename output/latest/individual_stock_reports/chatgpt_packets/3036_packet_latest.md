@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3036 文曄
 
 ## Metadata
-- generated_at: 2026-07-14 22:26:44 Asia/Taipei
+- generated_at: 2026-07-15 22:26:52 Asia/Taipei
 - stock_id: 3036
 - stock_name: 文曄
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 301
+- latest_price_date: 20260715
+- price_rows: 303
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 213
-- high: 221.5
-- low: 209
-- close: 211
-- volume: 8848448
-- ma5: 213.2
-- ema23_primary: 224.37
-- distance_to_ema23_pct: -5.96
-- ma20: 217.82
-- ma60: 240.18
-- ma120: 216.68
-- return_5d: -4.74
-- return_20d: -9.25
-- volume_ratio: 0.84
-- distance_to_ma20_pct_auxiliary: -3.13
-- distance_to_high_60_pct: -31.49
+- date: 20260715
+- open: 205
+- high: 205.5
+- low: 199
+- close: 200
+- volume: 8572027
+- ma5: 207.3
+- ema23_primary: 220.74
+- distance_to_ema23_pct: -9.4
+- ma20: 215.28
+- ma60: 239.15
+- ma120: 217.61
+- return_5d: -6.54
+- return_20d: -11.5
+- volume_ratio: 0.85
+- distance_to_ma20_pct_auxiliary: -7.1
+- distance_to_high_60_pct: -35.06
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,239.5,240,228.5,228.5,12663837,261.26,-12.54,274.55,244.93,0.87
-20260615,236.5,236.5,225,226,14730403,258.32,-12.51,272.68,244.43,0.99
 20260616,227,229,218,219,10161761,255.05,-14.13,270.38,243.91,0.68
 20260617,216,225.5,214.5,224,11356401,252.46,-11.27,267.62,243.41,0.8
 20260618,224.5,229,220.5,222.5,17383768,249.96,-10.99,264.18,243.1,1.22
@@ -146,15 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,221,224,216,217.5,8741671,241.23,-9.84,249.28,242.38,0.61
 20260626,217.5,218,211,215.5,10427756,239.08,-9.86,245.57,242.22,0.72
 20260629,216,216,207,209,11053112,236.58,-11.66,241.6,242.08,0.75
-20260630,213.5,215.5,209,214,6586000,234.69,-8.82,237.93,241.9,0.45
-20260701,217,219,210,211,17813000,232.72,-9.33,233.95,241.68,1.22
-20260702,210.5,219,209,217.5,8507000,231.45,-6.03,230.2,241.52,0.6
+20260630,213.5,215.5,209,214,6678208,234.69,-8.82,237.93,241.9,0.46
+20260701,217,219,210,211,18000890,232.72,-9.33,233.95,241.68,1.24
+20260702,210.5,219,209,217.5,8637249,231.45,-6.03,230.2,241.52,0.61
 20260703,215.5,222,214,221.5,7714695,230.62,-3.96,227.18,241.32,0.56
-20260706,221,223,216.5,219,7010000,229.65,-4.64,224.07,241.23,0.52
-20260707,220,223.5,211,214,10731745,228.35,-6.28,222.28,241.04,0.85
+20260706,221,223,216.5,219,7175331,229.65,-4.64,224.07,241.23,0.53
+20260707,220,223.5,211,214,10942745,228.35,-6.28,222.28,241.04,0.87
 20260708,216,216,208.5,210.5,6387898,226.86,-7.21,220.3,240.75,0.53
 20260709,212.5,216,211.5,211.5,4220966,225.58,-6.24,218.9,240.48,0.37
 20260713,213,221.5,209,211,8848448,224.37,-5.96,217.82,240.18,0.84
+20260714,209,210,200.5,203.5,9868333,222.63,-8.59,216.57,239.65,0.95
+20260715,205,205.5,199,200,8572027,220.74,-9.4,215.28,239.15,0.85
 ```
 
 ## Latest TDCC Snapshot
@@ -189,18 +189,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 3036 | 文曄 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/07/09 2.公司名稱:文曄科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:不適用 6.因應措施:不適用 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 　本公司公佈2026年6月份自結合併營收約新台幣1,817億元，較去年同期合併營收 　增加約188%。今年第二季累計合併營收約新台幣5,907億元，與去年同期相較成長 　約128%，較上一季增加約20%。今年上半年累計合併營收約新台幣1.08兆元， 　與去年同期相較成長約114%。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260713 | 3036 | 文曄 | revenue_breakout_low_response | 營收爆發低反應股 | 17.0 | 22.0 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | 1.事實發生日:115/07/09 2.公司名稱:文曄科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:不適用 6.因應措施:不適用 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 　本公司公佈2026年6月份自結合併營收約新台幣1,817億元，較去年同期合併營收 　增加約188%。今年第二季累計合併營收約新台幣5,907億元，與去年同期相較成長 　約128%，較上一季增加約20%。今年上半年累計合併營收約新台幣1.08兆元， 　與去年同期相較成長約114%。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260715 | 3036 | 文曄 | revenue_pullback | 營收成長股價回檔 | 57.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/07/09 2.公司名稱:文曄科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:不適用 6.因應措施:不適用 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 　本公司公佈2026年6月份自結合併營收約新台幣1,817億元，較去年同期合併營收 　增加約188%。今年第二季累計合併營收約新台幣5,907億元，與去年同期相較成長 　約128%，較上一季增加約20%。今年上半年累計合併營收約新台幣1.08兆元， 　與去年同期相較成長約114%。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260715 | 3036 | 文曄 | revenue_breakout_low_response | 營收爆發低反應股 | 16.0 | 23.0 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | 1.事實發生日:115/07/09 2.公司名稱:文曄科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:不適用 6.因應措施:不適用 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 　本公司公佈2026年6月份自結合併營收約新台幣1,817億元，較去年同期合併營收 　增加約188%。今年第二季累計合併營收約新台幣5,907億元，與去年同期相較成長 　約128%，較上一季增加約20%。今年上半年累計合併營收約新台幣1.08兆元， 　與去年同期相較成長約114%。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 3036 | 文曄 | 7 | 7 | 5 | 8 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260715 | 3036 | 文曄 | 9 | 9 | 5 | 9 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 3036 | 文曄 | 73 | 1 | 3371850.0 | 0.0 |  | no_signal |
+| 20260715 | 3036 | 文曄 | 74 | 1 | 2699210.0 | 5520.0 | 488.99 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

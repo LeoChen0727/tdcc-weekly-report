@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5223 安力-KY
 
 ## Metadata
-- generated_at: 2026-07-14 22:27:04 Asia/Taipei
+- generated_at: 2026-07-15 22:27:16 Asia/Taipei
 - stock_id: 5223
 - stock_name: 安力-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 166
+- latest_price_date: 20260715
+- price_rows: 168
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 25.35
-- high: 25.35
-- low: 24.05
-- close: 24.25
-- volume: 65000
-- ma5: 24.96
-- ema23_primary: 25.2
-- distance_to_ema23_pct: -3.78
-- ma20: 25.28
-- ma60: 25.27
-- ma120: 26.77
-- return_5d: -4.34
-- return_20d: -3.39
-- volume_ratio: 1.13
-- distance_to_ma20_pct_auxiliary: -4.08
-- distance_to_high_60_pct: -11.33
+- date: 20260715
+- open: 23.7
+- high: 24.6
+- low: 23.7
+- close: 24.6
+- volume: 13000
+- ma5: 24.5
+- ema23_primary: 25.03
+- distance_to_ema23_pct: -1.71
+- ma20: 25.13
+- ma60: 25.19
+- ma120: 26.68
+- return_5d: -1.8
+- return_20d: -3.91
+- volume_ratio: 0.22
+- distance_to_ma20_pct_auxiliary: -2.11
+- distance_to_high_60_pct: -10.05
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,25.2,25.8,25.2,25.6,22000,25.41,0.74,25.23,25.71,0.84
-20260615,25.7,26,25.6,25.6,28000,25.43,0.68,25.3,25.66,1.04
 20260616,25.85,25.95,25.55,25.55,35000,25.44,0.44,25.38,25.62,1.28
 20260617,25.5,26.2,25.5,25.9,49000,25.48,1.66,25.47,25.59,1.8
 20260618,26.15,26.55,25.1,25.6,117000,25.49,0.45,25.55,25.56,3.84
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260708,24.9,25.1,24.75,25,50000,25.31,-1.21,25.33,25.28,0.92
 20260709,25,25.1,24.9,25.1,37000,25.29,-0.75,25.32,25.28,0.67
 20260713,25.35,25.35,24.05,24.25,65000,25.2,-3.78,25.28,25.27,1.13
+20260714,24.3,24.3,23.2,23.55,75000,25.07,-6.05,25.18,25.22,1.25
+20260715,23.7,24.6,23.7,24.6,13000,25.03,-1.71,25.13,25.19,0.22
 ```
 
 ## Latest TDCC Snapshot

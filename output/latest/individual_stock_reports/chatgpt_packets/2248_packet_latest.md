@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2248 華勝-KY
 
 ## Metadata
-- generated_at: 2026-07-14 22:26:30 Asia/Taipei
+- generated_at: 2026-07-15 22:26:35 Asia/Taipei
 - stock_id: 2248
 - stock_name: 華勝-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 300
+- latest_price_date: 20260715
+- price_rows: 302
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 57.2
-- high: 57.2
-- low: 55.8
-- close: 55.9
-- volume: 52063
-- ma5: 58.16
-- ema23_primary: 56.53
-- distance_to_ema23_pct: -1.11
-- ma20: 56.37
-- ma60: 55.95
-- ma120: 52.52
-- return_5d: -2.44
-- return_20d: 0.9
-- volume_ratio: 0.98
-- distance_to_ma20_pct_auxiliary: -0.83
-- distance_to_high_60_pct: -9.98
+- date: 20260715
+- open: 62.7
+- high: 66
+- low: 61.4
+- close: 66
+- volume: 936599
+- ma5: 60.1
+- ema23_primary: 57.69
+- distance_to_ema23_pct: 14.41
+- ma20: 57.08
+- ma60: 56.29
+- ma120: 52.76
+- return_5d: 12.24
+- return_20d: 16.61
+- volume_ratio: 5.92
+- distance_to_ma20_pct_auxiliary: 15.64
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,55.3,56.8,55.3,56.7,67142,55.64,1.9,55.51,53.89,0.98
-20260615,56.7,56.9,56.3,56.6,47070,55.72,1.58,55.6,53.96,0.67
 20260616,56.7,56.7,56.1,56.3,56027,55.77,0.95,55.67,54.07,0.85
 20260617,56.3,56.3,55.8,56.3,19269,55.81,0.87,55.73,54.18,0.29
 20260618,56,56.3,55.8,56.3,10006,55.85,0.8,55.79,54.3,0.15
@@ -146,15 +143,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,54.7,54.7,54.2,54.7,32517,55.62,-1.65,55.93,54.69,0.5
 20260626,55.1,55.2,54.1,54.7,34533,55.54,-1.52,55.93,54.79,0.59
 20260629,55,55.5,54.7,55,23020,55.5,-0.9,55.92,54.9,0.41
-20260630,54.7,55.4,54.7,55,22000,55.46,-0.82,55.92,55.01,0.41
-20260701,55.1,56,55,55.3,51000,55.44,-0.26,55.91,55.13,0.92
+20260630,54.7,55.4,54.7,55,22151,55.46,-0.82,55.92,55.01,0.41
+20260701,55.1,56,55,55.3,51356,55.44,-0.26,55.91,55.13,0.92
 20260702,55.9,57.5,55.9,56.7,72000,55.55,2.07,55.91,55.26,1.37
 20260703,56.7,57.6,56.7,57.3,103550,55.69,2.88,55.89,55.39,1.93
-20260706,57.9,60,57.3,58.9,146000,55.96,5.25,55.96,55.55,2.53
+20260706,57.9,60,57.3,58.9,146328,55.96,5.25,55.96,55.55,2.53
 20260707,60,60.1,58.8,58.8,68040,56.2,4.63,56.12,55.73,1.2
 20260708,58.5,58.8,58.1,58.2,33170,56.36,3.26,56.22,55.81,0.61
 20260709,58.4,60,58.4,59,84636,56.58,4.27,56.34,55.9,1.51
 20260713,57.2,57.2,55.8,55.9,52063,56.53,-1.11,56.37,55.95,0.98
+20260714,61.4,61.4,58.4,61.4,1277417,56.93,7.85,56.6,56.09,11.24
+20260715,62.7,66,61.4,66,936599,57.69,14.41,57.08,56.29,5.92
 ```
 
 ## Latest TDCC Snapshot

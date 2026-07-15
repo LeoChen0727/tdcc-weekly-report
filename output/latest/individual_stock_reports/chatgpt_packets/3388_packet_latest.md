@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3388 崇越電
 
 ## Metadata
-- generated_at: 2026-07-14 22:26:49 Asia/Taipei
+- generated_at: 2026-07-15 22:26:59 Asia/Taipei
 - stock_id: 3388
 - stock_name: 崇越電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 167
+- latest_price_date: 20260715
+- price_rows: 169
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 82.8
-- high: 82.8
-- low: 79.1
-- close: 79.1
-- volume: 332000
-- ma5: 81
-- ema23_primary: 86.93
-- distance_to_ema23_pct: -9.01
-- ma20: 86.19
-- ma60: 98.91
-- ma120: 81.54
-- return_5d: -7.92
-- return_20d: -10.62
-- volume_ratio: 0.72
-- distance_to_ma20_pct_auxiliary: -8.23
-- distance_to_high_60_pct: -39.85
+- date: 20260715
+- open: 78.2
+- high: 79.8
+- low: 78
+- close: 79.4
+- volume: 183000
+- ma5: 79.58
+- ema23_primary: 85.62
+- distance_to_ema23_pct: -7.27
+- ma20: 84.75
+- ma60: 98.38
+- ma120: 81.83
+- return_5d: -1.49
+- return_20d: -14.07
+- volume_ratio: 0.42
+- distance_to_ma20_pct_auxiliary: -6.32
+- distance_to_high_60_pct: -39.62
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,91,93.9,89.5,93.7,626000,98.95,-5.31,99.25,93.27,1.32
-20260615,95,95.8,92.4,92.4,510000,98.41,-6.11,98.92,93.7,1.24
 20260616,95,95,90.1,90.2,343000,97.72,-7.7,98.66,94.11,0.94
 20260617,91,91,89.1,89.3,305000,97.02,-7.96,98.48,94.5,0.9
 20260618,90.8,92.8,90.5,92.4,437000,96.64,-4.38,98.25,94.95,1.43
@@ -154,6 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260708,81,81.1,78.6,79.7,426000,88.19,-9.62,87.17,98.85,0.85
 20260709,80.4,82.3,79.4,81.7,373000,87.65,-6.78,86.66,98.96,0.76
 20260713,82.8,82.8,79.1,79.1,332000,86.93,-9.01,86.19,98.91,0.72
+20260714,79.6,79.9,75,78,464000,86.19,-9.5,85.41,98.71,1.02
+20260715,78.2,79.8,78,79.4,183000,85.62,-7.27,84.75,98.38,0.42
 ```
 
 ## Latest TDCC Snapshot

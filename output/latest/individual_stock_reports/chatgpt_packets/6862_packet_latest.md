@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6862 三集瑞-KY
 
 ## Metadata
-- generated_at: 2026-07-14 22:27:25 Asia/Taipei
+- generated_at: 2026-07-15 22:27:40 Asia/Taipei
 - stock_id: 6862
 - stock_name: 三集瑞-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 302
+- latest_price_date: 20260715
+- price_rows: 304
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 186
-- high: 186
-- low: 171
-- close: 172.5
-- volume: 531970
-- ma5: 182.5
-- ema23_primary: 191.13
-- distance_to_ema23_pct: -9.75
-- ma20: 195.62
-- ma60: 187.2
-- ma120: 186.78
-- return_5d: -11.54
-- return_20d: -8.24
-- volume_ratio: 0.45
-- distance_to_ma20_pct_auxiliary: -11.82
-- distance_to_high_60_pct: -30.44
+- date: 20260715
+- open: 168
+- high: 173
+- low: 167
+- close: 170
+- volume: 232426
+- ma5: 174.1
+- ema23_primary: 187.52
+- distance_to_ema23_pct: -9.34
+- ma20: 192.88
+- ma60: 186.43
+- ma120: 186.8
+- return_5d: -7.61
+- return_20d: -15.84
+- volume_ratio: 0.22
+- distance_to_ma20_pct_auxiliary: -11.86
+- distance_to_high_60_pct: -31.45
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,198.5,201,190,190,1335771,190.11,-0.06,190.78,182.51,0.66
-20260615,196.5,209,196.5,202,1791027,191.1,5.71,192.45,182.39,0.87
 20260616,205,207,188,188,1622402,190.84,-1.49,193.78,182.18,0.76
 20260617,186.5,206.5,185,206.5,1737124,192.14,7.47,195.8,182.39,0.8
 20260618,227,227,225.5,227,1106835,195.05,16.38,198.03,183.11,0.51
@@ -145,15 +143,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,205,210,198,198.5,1120864,198.55,-0.02,202.47,184.68,0.5
 20260626,196.5,200,186,188,952390,197.67,-4.89,201.65,184.92,0.45
 20260629,188,192,182.5,183.5,539426,196.49,-6.61,199.6,185.3,0.26
-20260630,190,201.5,186.5,201.5,708000,196.91,2.33,198.97,185.97,0.39
-20260701,204,211,194,195.5,1470000,196.79,-0.65,198.78,186.57,0.84
-20260702,195.5,197,191.5,192,441000,196.39,-2.23,198.65,187.11,0.26
-20260703,189.5,200.5,189,195,703443,196.27,-0.65,199.1,187.53,0.42
-20260706,199,207.5,194,195,792000,196.17,-0.59,198.62,187.93,0.48
+20260630,190,201.5,186.5,201.5,724930,196.91,2.33,198.97,185.97,0.4
+20260701,204,211,194,195.5,1504327,196.79,-0.65,198.78,186.57,0.86
+20260702,195.5,197,191.5,192,459607,196.39,-2.23,198.65,187.11,0.27
+20260703,189.5,200.5,189,195,703443,196.27,-0.65,199.1,187.53,0.41
+20260706,199,207.5,194,195,815701,196.17,-0.59,198.62,187.93,0.49
 20260707,192,199.5,183.5,184,681960,195.15,-5.72,198.25,187.98,0.43
 20260708,184.5,189.5,178.5,179.5,464963,193.85,-7.4,197.05,187.67,0.32
 20260709,182,190.5,181,181.5,414825,192.82,-5.87,196.4,187.48,0.33
 20260713,186,186,171,172.5,531970,191.13,-9.75,195.62,187.2,0.45
+20260714,171.5,174,160,167,650324,189.12,-11.69,194.47,186.74,0.57
+20260715,168,173,167,170,232426,187.52,-9.34,192.88,186.43,0.22
 ```
 
 ## Latest TDCC Snapshot
@@ -198,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 6862 | 三集瑞-KY | 28 | 1 | 837570.0 | 32080.0 | 26.11 | no_signal |
+| 20260715 | 6862 | 三集瑞-KY | 28 | 1 | 564100.0 | 5200.0 | 108.48 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

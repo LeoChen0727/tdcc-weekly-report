@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2891 中信金
 
 ## Metadata
-- generated_at: 2026-07-14 22:26:41 Asia/Taipei
+- generated_at: 2026-07-15 22:26:49 Asia/Taipei
 - stock_id: 2891
 - stock_name: 中信金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 302
+- latest_price_date: 20260715
+- price_rows: 304
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 70.1
-- high: 70.2
-- low: 66.1
-- close: 66.5
-- volume: 108347523
-- ma5: 69.86
-- ema23_primary: 68.77
-- distance_to_ema23_pct: -3.3
-- ma20: 70.34
-- ma60: 61.92
-- ma120: 56.97
-- return_5d: -5.81
-- return_20d: -1.48
-- volume_ratio: 2.06
-- distance_to_ma20_pct_auxiliary: -5.46
-- distance_to_high_60_pct: -9.65
+- date: 20260715
+- open: 64.6
+- high: 65.3
+- low: 62.9
+- close: 63.5
+- volume: 79455534
+- ma5: 67.24
+- ema23_primary: 68.04
+- distance_to_ema23_pct: -6.68
+- ma20: 69.88
+- ma60: 62.29
+- ma120: 57.22
+- return_5d: -9.54
+- return_20d: -9.42
+- volume_ratio: 1.46
+- distance_to_ma20_pct_auxiliary: -9.13
+- distance_to_high_60_pct: -13.72
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,67.8,69.2,66.9,67.6,83389953,62.65,7.9,62.31,56.45,1.25
-20260615,71.7,72.6,69,70.1,42928285,63.27,10.79,63.08,56.73,0.64
 20260616,70.4,71.7,69.6,70.8,40981294,63.9,10.8,63.84,57.05,0.62
 20260617,70.7,72.7,69.9,71,36670620,64.49,10.09,64.5,57.37,0.59
 20260618,71.3,72.7,70.9,71.9,59339401,65.11,10.43,65.22,57.71,0.96
@@ -146,15 +143,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,69.9,71.2,69.8,70.6,38035136,66.79,5.71,67.81,58.92,0.61
 20260626,70.5,71,69.9,70.3,43250077,67.08,4.8,68.36,59.23,0.71
 20260629,71.3,71.8,69.7,70.3,40574544,67.35,4.38,68.85,59.54,0.71
-20260630,70.9,71.5,69.8,71,47454000,67.65,4.95,69.3,59.83,0.83
-20260701,71.6,72.2,70.1,70.6,47919000,67.9,3.98,69.62,60.1,0.85
-20260702,71.1,71.8,69.7,69.9,50154000,68.07,2.69,69.59,60.34,0.92
+20260630,70.9,71.5,69.8,71,48564978,67.65,4.95,69.3,59.83,0.85
+20260701,71.6,72.2,70.1,70.6,49008303,67.9,3.98,69.62,60.1,0.87
+20260702,71.1,71.8,69.7,69.9,51374867,68.07,2.69,69.59,60.34,0.94
 20260703,69.8,71.4,69.7,70.6,40938670,68.28,3.4,69.72,60.57,0.79
-20260706,71,72,70.7,71.4,31508000,68.54,4.18,69.96,60.85,0.63
-20260707,71.3,72.2,70.2,70.2,57251759,68.68,2.22,70.2,61.12,1.13
+20260706,71,72,70.7,71.4,31967629,68.54,4.18,69.96,60.85,0.64
+20260707,71.3,72.2,70.2,70.2,57622759,68.68,2.22,70.2,61.12,1.14
 20260708,71.2,71.3,69.8,71.3,54774917,68.89,3.49,70.31,61.42,1.08
 20260709,71.7,71.7,69.9,69.9,59414195,68.98,1.34,70.39,61.7,1.18
-20260713,70.1,70.2,66.1,66.5,108347523,68.77,-3.3,70.34,61.92,2.06
+20260713,70.1,70.2,66.1,66.5,108347523,68.77,-3.3,70.34,61.92,2.05
+20260714,67.5,67.5,63.5,65,80377413,68.46,-5.05,70.21,62.12,1.53
+20260715,64.6,65.3,62.9,63.5,79455534,68.04,-6.68,69.88,62.29,1.46
 ```
 
 ## Latest TDCC Snapshot
@@ -199,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 2891 | 中信金 | 26 | 0 | 3260490.0 | 0.0 |  | call_strong_inflow |
+| 20260715 | 2891 | 中信金 | 26 | 0 | 978880.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

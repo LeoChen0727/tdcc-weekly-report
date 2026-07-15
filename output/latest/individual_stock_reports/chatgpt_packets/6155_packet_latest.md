@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6155 鈞寶
 
 ## Metadata
-- generated_at: 2026-07-14 22:27:12 Asia/Taipei
+- generated_at: 2026-07-15 22:27:25 Asia/Taipei
 - stock_id: 6155
 - stock_name: 鈞寶
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 302
+- latest_price_date: 20260715
+- price_rows: 304
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -118,30 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 74
-- high: 74.2
-- low: 69.4
-- close: 70.2
-- volume: 2809944
-- ma5: 75.58
-- ema23_primary: 80.03
-- distance_to_ema23_pct: -12.28
-- ma20: 85.56
-- ma60: 66.87
-- ma120: 58.04
-- return_5d: -19.31
-- return_20d: -16.53
+- date: 20260715
+- open: 68.6
+- high: 68.6
+- low: 65.2
+- close: 67.5
+- volume: 2216812
+- ma5: 70.76
+- ema23_primary: 77.96
+- distance_to_ema23_pct: -13.42
+- ma20: 83.66
+- ma60: 67.39
+- ma120: 58.38
+- return_5d: -10.6
+- return_20d: -25.17
 - volume_ratio: 0.22
-- distance_to_ma20_pct_auxiliary: -17.95
-- distance_to_high_60_pct: -31.84
+- distance_to_ma20_pct_auxiliary: -19.31
+- distance_to_high_60_pct: -34.47
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,88.6,89.5,80.7,82,35767260,68.27,20.11,67.72,54.17,1.73
-20260615,83.6,90.2,83.6,90.2,18777210,70.1,28.68,69.62,54.84,0.88
 20260616,92.5,95,87.5,87.6,35156345,71.56,22.42,71.46,55.48,1.53
 20260617,88.2,91.5,87.4,89.6,19222493,73.06,22.64,73.14,56.16,0.82
 20260618,90.2,98.5,90.1,98.5,22494851,75.18,31.02,75.1,57.06,0.97
@@ -151,15 +149,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,89.2,94.2,87.8,90.5,12579638,79.67,13.59,81.21,60.18,0.53
 20260626,88.8,92.6,85.4,86.1,9224845,80.21,7.34,82.29,60.88,0.39
 20260629,85,87.1,81.8,84.2,4002697,80.54,4.54,83.36,61.55,0.18
-20260630,85,92,84.2,91.9,8666000,81.49,12.78,84.5,62.34,0.39
-20260701,93.6,98.5,88,88,15912000,82.03,7.28,85.11,63.1,0.74
-20260702,87.4,91.8,85.5,85.5,4361000,82.32,3.86,85.81,63.84,0.21
+20260630,85,92,84.2,91.9,8766460,81.49,12.78,84.5,62.34,0.4
+20260701,93.6,98.5,88,88,16044445,82.03,7.28,85.11,63.1,0.75
+20260702,87.4,91.8,85.5,85.5,4414722,82.32,3.86,85.81,63.84,0.21
 20260703,85.6,91.5,83.6,87,5552859,82.71,5.19,86.56,64.55,0.27
-20260706,88,89.2,82.7,82.7,3341000,82.71,-0.01,86.73,65.2,0.17
+20260706,88,89.2,82.7,82.7,3400982,82.71,-0.01,86.73,65.2,0.17
 20260707,83.4,85,74.5,75.5,3824548,82.11,-8.05,86.64,65.69,0.22
 20260708,76.9,77.1,72,76.3,3259281,81.62,-6.52,86.42,66.13,0.21
 20260709,76.7,77.5,73,73.2,3150742,80.92,-9.54,86.25,66.52,0.23
 20260713,74,74.2,69.4,70.2,2809944,80.03,-12.28,85.56,66.87,0.22
+20260714,68.8,71.3,63.5,66.6,2847694,78.91,-15.6,84.79,67.11,0.26
+20260715,68.6,68.6,65.2,67.5,2216812,77.96,-13.42,83.66,67.39,0.22
 ```
 
 ## Latest TDCC Snapshot
@@ -194,17 +194,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 6155 | 鈞寶 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/16 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額: 現金股利分配總金額：新台幣70,419,190元，每股配發0.8元 4.除權（息）交易日:115/07/06 5.最後過戶日:115/07/07 6.停止過戶起始日期:115/07/08 7.停止過戶截止日期:115/07/12 8.除權（息）基準日:115/07/12 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/07/31 13.其他應敘明事項: 現金股利預計於115年7月31日以匯款或掛號郵寄支票方式發放。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260715 | 6155 | 鈞寶 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/16 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額: 現金股利分配總金額：新台幣70,419,190元，每股配發0.8元 4.除權（息）交易日:115/07/06 5.最後過戶日:115/07/07 6.停止過戶起始日期:115/07/08 7.停止過戶截止日期:115/07/12 8.除權（息）基準日:115/07/12 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/07/31 13.其他應敘明事項: 現金股利預計於115年7月31日以匯款或掛號郵寄支票方式發放。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 6155 | 鈞寶 | 7 | 7 | 5 | 8 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260715 | 6155 | 鈞寶 | 9 | 9 | 5 | 9 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 6155 | 鈞寶 | 6 | 0 | 760270.0 | 0.0 |  | no_signal |
+| 20260715 | 6155 | 鈞寶 | 6 | 0 | 316210.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

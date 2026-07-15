@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2427 三商電
 
 ## Metadata
-- generated_at: 2026-07-14 22:26:34 Asia/Taipei
+- generated_at: 2026-07-15 22:26:40 Asia/Taipei
 - stock_id: 2427
 - stock_name: 三商電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 302
+- latest_price_date: 20260715
+- price_rows: 304
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -117,30 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 24.75
-- high: 26.25
-- low: 24.5
-- close: 25.4
-- volume: 5153220
-- ma5: 25.4
-- ema23_primary: 23.66
-- distance_to_ema23_pct: 7.33
-- ma20: 23.36
-- ma60: 22.22
-- ma120: 23.63
-- return_5d: -4.69
-- return_20d: 15.45
-- volume_ratio: 1.84
-- distance_to_ma20_pct_auxiliary: 8.71
-- distance_to_high_60_pct: -6.27
+- date: 20260715
+- open: 26.2
+- high: 26.5
+- low: 25.35
+- close: 25.8
+- volume: 5465455
+- ma5: 25.55
+- ema23_primary: 24
+- distance_to_ema23_pct: 7.49
+- ma20: 23.68
+- ma60: 22.34
+- ma120: 23.62
+- return_5d: 3.61
+- return_20d: 14.67
+- volume_ratio: 1.73
+- distance_to_ma20_pct_auxiliary: 8.93
+- distance_to_high_60_pct: -4.8
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,22.3,22.8,22.3,22.65,811218,22.2,2.03,21.8,22.15,0.5
-20260615,22.9,22.9,22.5,22.5,562868,22.22,1.24,21.91,22.12,0.35
 20260616,22.5,22.55,22,22.05,963433,22.21,-0.72,22,22.09,0.59
 20260617,22.05,23,22,22.75,990201,22.25,2.22,22.12,22.07,0.59
 20260618,22.95,22.95,22.2,22.3,628602,22.26,0.19,22.22,22.05,0.37
@@ -150,15 +148,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,22.5,22.6,22.2,22.35,389941,22.26,0.41,22.56,21.97,0.24
 20260626,22.5,22.5,21.75,21.75,692830,22.22,-2.1,22.63,21.95,0.42
 20260629,21.95,22.3,21.9,22.2,307264,22.21,-0.07,22.71,21.94,0.19
-20260630,22.25,22.4,22.05,22.15,535000,22.21,-0.27,22.72,21.92,0.35
-20260701,22.25,22.35,22.05,22.05,410000,22.2,-0.66,22.61,21.9,0.32
-20260702,23,24.25,22.25,24.25,4285000,22.37,8.42,22.64,21.92,3.48
-20260703,24.25,26.65,23.75,26.65,15242152,22.72,17.28,22.79,21.98,8.02
-20260706,26.85,27.1,25.55,25.9,11549000,22.99,12.66,22.91,22.03,4.85
-20260707,26.1,26.2,24.6,24.9,6080723,23.15,7.57,22.95,22.06,2.43
-20260708,25.05,25.95,24.9,25.55,3747128,23.35,9.43,23.05,22.12,1.44
+20260630,22.25,22.4,22.05,22.15,538938,22.21,-0.27,22.72,21.92,0.35
+20260701,22.25,22.35,22.05,22.05,414871,22.2,-0.66,22.61,21.9,0.32
+20260702,23,24.25,22.25,24.25,4308065,22.37,8.42,22.64,21.92,3.49
+20260703,24.25,26.65,23.75,26.65,15242152,22.72,17.28,22.79,21.98,8.01
+20260706,26.85,27.1,25.55,25.9,11731589,22.99,12.66,22.91,22.03,4.91
+20260707,26.1,26.2,24.6,24.9,6080723,23.15,7.57,22.95,22.06,2.42
+20260708,25.05,25.95,24.9,25.55,3747128,23.35,9.43,23.05,22.12,1.43
 20260709,25.45,25.8,24.65,25.25,1912755,23.51,7.42,23.2,22.17,0.74
-20260713,24.75,26.25,24.5,25.4,5153220,23.66,7.33,23.36,22.22,1.84
+20260713,24.75,26.25,24.5,25.4,5153220,23.66,7.33,23.36,22.22,1.83
+20260714,25.4,25.75,24.5,25.75,3006870,23.84,8.02,23.52,22.28,1.03
+20260715,26.2,26.5,25.35,25.8,5465455,24,7.49,23.68,22.34,1.73
 ```
 
 ## Latest TDCC Snapshot
@@ -193,12 +193,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 2427 | 三商電 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  |  | stale_signal | 1.發生變動日期:115/07/02 2.功能性委員會名稱:薪資報酬委員會。 3.舊任者姓名:不適用。 4.舊任者簡歷:不適用。 5.新任者姓名:郭雅慧。 6.新任者簡歷:本公司獨立董事。 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 新任。 8.異動原因:董事會決議聘任。 9.原任期（例xx/xx/xx ~ xx/xx/xx）:114/07/03~117/06/08。 10.新任生效日期:115/07/02 11.其他應敘明事項:本公司115/06/09補選一席獨立董事，並於115/07/02董事會通過增 聘一席薪資報酬委員會委員，第六屆薪資報酬委員會委員由原本5席，增聘為6席委員。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260715 | 2427 | 三商電 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | 1.發生變動日期:115/07/02 2.功能性委員會名稱:薪資報酬委員會。 3.舊任者姓名:不適用。 4.舊任者簡歷:不適用。 5.新任者姓名:郭雅慧。 6.新任者簡歷:本公司獨立董事。 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 新任。 8.異動原因:董事會決議聘任。 9.原任期（例xx/xx/xx ~ xx/xx/xx）:114/07/03~117/06/08。 10.新任生效日期:115/07/02 11.其他應敘明事項:本公司115/06/09補選一席獨立董事，並於115/07/02董事會通過增 聘一席薪資報酬委員會委員，第六屆薪資報酬委員會委員由原本5席，增聘為6席委員。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 2427 | 三商電 | 1 | 1 | 4 | 6 | 6 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260715 | 2427 | 三商電 | 3 | 3 | 4 | 8 | 8 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

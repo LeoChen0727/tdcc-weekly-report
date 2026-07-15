@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2605 新興
 
 ## Metadata
-- generated_at: 2026-07-14 22:26:38 Asia/Taipei
+- generated_at: 2026-07-15 22:26:45 Asia/Taipei
 - stock_id: 2605
 - stock_name: 新興
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 302
+- latest_price_date: 20260715
+- price_rows: 304
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -117,30 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 30.55
-- high: 30.85
-- low: 30.25
-- close: 30.6
-- volume: 2765146
-- ma5: 30.54
-- ema23_primary: 30.75
-- distance_to_ema23_pct: -0.49
-- ma20: 30.77
-- ma60: 31.93
-- ma120: 33.01
-- return_5d: -0.65
-- return_20d: 0.66
-- volume_ratio: 0.45
-- distance_to_ma20_pct_auxiliary: -0.54
-- distance_to_high_60_pct: -17.3
+- date: 20260715
+- open: 30.3
+- high: 31.75
+- low: 30.1
+- close: 31.65
+- volume: 6897461
+- ma5: 30.77
+- ema23_primary: 30.78
+- distance_to_ema23_pct: 2.83
+- ma20: 30.67
+- ma60: 31.78
+- ma120: 33.07
+- return_5d: 6.03
+- return_20d: -1.4
+- volume_ratio: 1.14
+- distance_to_ma20_pct_auxiliary: 3.2
+- distance_to_high_60_pct: -12.57
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,30.5,32.45,30.5,31.6,8251022,31.81,-0.67,31.27,35.06,1.27
-20260615,32.1,32.7,31.45,32.1,6665847,31.84,0.83,31.37,34.91,1
 20260616,32.7,32.7,31.7,31.8,4918383,31.83,-0.1,31.45,34.72,0.73
 20260617,32,32.95,31.85,32.45,8266473,31.88,1.77,31.57,34.59,1.2
 20260618,32.65,32.65,30.85,31,13595519,31.81,-2.55,31.59,34.45,1.84
@@ -150,15 +148,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,31.85,31.85,30.95,30.95,5122824,31.72,-2.44,31.65,33.72,0.66
 20260626,30.8,31.15,29.2,29.3,11508866,31.52,-7.05,31.55,33.51,1.42
 20260629,29.3,30.15,29.3,29.9,4888219,31.39,-4.74,31.53,33.31,0.63
-20260630,28.65,29.6,28.65,29.5,6781000,31.23,-5.54,31.34,33.12,0.93
-20260701,29.8,29.8,28.85,28.9,3213000,31.04,-6.88,31.13,32.91,0.45
-20260702,29.1,29.25,28.8,29.05,3012000,30.87,-5.9,30.93,32.7,0.45
+20260630,28.65,29.6,28.65,29.5,6807176,31.23,-5.54,31.34,33.12,0.93
+20260701,29.8,29.8,28.85,28.9,3257153,31.04,-6.88,31.13,32.91,0.46
+20260702,29.1,29.25,28.8,29.05,3033017,30.87,-5.9,30.93,32.7,0.45
 20260703,29.5,31.1,29.4,30.8,8430425,30.86,-0.21,30.85,32.57,1.24
-20260706,31.2,31.7,30.75,30.8,3816000,30.86,-0.19,30.79,32.43,0.58
+20260706,31.2,31.7,30.75,30.8,3845538,30.86,-0.19,30.79,32.43,0.59
 20260707,31,31,29.6,29.85,4483427,30.77,-3,30.73,32.27,0.69
 20260708,30.1,31,29.65,31,5326949,30.79,0.67,30.75,32.12,0.83
 20260709,31,31,30.2,30.45,2810947,30.76,-1.02,30.75,32.02,0.45
 20260713,30.55,30.85,30.25,30.6,2765146,30.75,-0.49,30.77,31.93,0.45
+20260714,30.95,31.2,29.8,30.15,4962258,30.7,-1.79,30.69,31.84,0.82
+20260715,30.3,31.75,30.1,31.65,6897461,30.78,2.83,30.67,31.78,1.14
 ```
 
 ## Latest TDCC Snapshot
@@ -193,17 +193,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 2605 | 新興 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260715 | 2605 | 新興 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260715 | 2605 | 新興 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 2605 | 新興 | 1 | 1 | 2 | 2 | 5 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260715 | 2605 | 新興 | 3 | 3 | 4 | 4 | 7 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 2605 | 新興 | 67 | 3 | 788690.0 | 4500.0 | 175.26 | no_signal |
+| 20260715 | 2605 | 新興 | 66 | 3 | 3815400.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

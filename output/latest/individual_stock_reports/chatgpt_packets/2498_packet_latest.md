@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2498 宏達電
 
 ## Metadata
-- generated_at: 2026-07-14 22:26:36 Asia/Taipei
+- generated_at: 2026-07-15 22:26:43 Asia/Taipei
 - stock_id: 2498
 - stock_name: 宏達電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 302
+- latest_price_date: 20260715
+- price_rows: 304
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 45.4
-- high: 45.95
-- low: 43.65
-- close: 43.8
-- volume: 6722401
-- ma5: 44.63
-- ema23_primary: 44.74
-- distance_to_ema23_pct: -2.09
-- ma20: 45.15
-- ma60: 43.7
-- ma120: 43.53
-- return_5d: -1.46
-- return_20d: 4.29
-- volume_ratio: 0.76
-- distance_to_ma20_pct_auxiliary: -2.99
-- distance_to_high_60_pct: -16.41
+- date: 20260715
+- open: 43.3
+- high: 44.45
+- low: 42.85
+- close: 44.3
+- volume: 5636789
+- ma5: 44.24
+- ema23_primary: 44.57
+- distance_to_ema23_pct: -0.6
+- ma20: 45.06
+- ma60: 43.77
+- ma120: 43.49
+- return_5d: 0.11
+- return_20d: -3.49
+- volume_ratio: 0.64
+- distance_to_ma20_pct_auxiliary: -1.68
+- distance_to_high_60_pct: -15.46
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,42.9,43.7,42.75,43.25,5457397,44.13,-1.99,45.17,42.18,0.31
-20260615,44.8,46,44.2,45.9,8425537,44.28,3.67,45.26,42.23,0.53
 20260616,46.5,46.5,44.1,44.1,6326401,44.26,-0.37,45.18,42.28,0.43
 20260617,44,47.8,44,47.5,9206317,44.53,6.67,45.28,42.38,0.67
 20260618,47.7,47.8,46.4,46.4,9514067,44.69,3.83,45.33,42.47,0.71
@@ -146,15 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,47.7,47.8,45.9,45.9,8027517,45.46,0.97,45.74,42.92,0.6
 20260626,45.9,45.9,42.9,42.9,11224697,45.25,-5.19,45.69,42.97,0.83
 20260629,43.3,43.7,42.9,43.2,5093698,45.08,-4.16,45.59,43.04,0.39
-20260630,44,46.7,43.7,45.35,7796000,45.1,0.56,45.58,43.13,0.59
-20260701,46.05,46.05,43.45,43.45,6910000,44.96,-3.36,45.25,43.19,0.6
-20260702,43.3,44,43,43.5,4069000,44.84,-2.99,44.93,43.27,0.41
+20260630,44,46.7,43.7,45.35,7856529,45.1,0.56,45.58,43.13,0.6
+20260701,46.05,46.05,43.45,43.45,6993189,44.96,-3.36,45.25,43.19,0.6
+20260702,43.3,44,43,43.5,4097001,44.84,-2.99,44.93,43.27,0.42
 20260703,43.55,45.1,43.55,44.45,5070543,44.81,-0.8,44.77,43.33,0.55
-20260706,45.3,46.35,44.95,45,7198000,44.82,0.39,44.72,43.41,0.8
+20260706,45.3,46.35,44.95,45,7262300,44.82,0.39,44.72,43.41,0.81
 20260707,46,47.2,43.85,44.25,9653565,44.78,-1.17,44.8,43.48,1.09
 20260708,44.8,45.3,43.7,44.95,4652098,44.79,0.36,44.89,43.57,0.53
 20260709,45.2,45.65,44.65,45.15,4637900,44.82,0.74,45.06,43.65,0.53
 20260713,45.4,45.95,43.65,43.8,6722401,44.74,-2.09,45.15,43.7,0.76
+20260714,44.15,44.7,41.7,43,7242123,44.59,-3.57,45.14,43.72,0.81
+20260715,43.3,44.45,42.85,44.3,5636789,44.57,-0.6,45.06,43.77,0.64
 ```
 
 ## Latest TDCC Snapshot
@@ -199,7 +199,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 2498 | 宏達電 | 66 | 6 | 2305720.0 | 21910.0 | 105.24 | no_signal |
+| 20260715 | 2498 | 宏達電 | 64 | 4 | 2084040.0 | 1560.0 | 1335.92 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

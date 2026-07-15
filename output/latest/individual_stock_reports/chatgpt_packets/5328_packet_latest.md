@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5328 華容
 
 ## Metadata
-- generated_at: 2026-07-14 22:27:06 Asia/Taipei
+- generated_at: 2026-07-15 22:27:18 Asia/Taipei
 - stock_id: 5328
 - stock_name: 華容
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 167
+- latest_price_date: 20260715
+- price_rows: 169
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -111,30 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 70.9
-- high: 72.6
-- low: 64.8
-- close: 65.4
-- volume: 20265000
-- ma5: 72.84
-- ema23_primary: 63.21
-- distance_to_ema23_pct: 3.46
-- ma20: 64.68
-- ma60: 42.58
-- ma120: 34.42
-- return_5d: -20.63
-- return_20d: 51.39
-- volume_ratio: 0.5
-- distance_to_ma20_pct_auxiliary: 1.11
-- distance_to_high_60_pct: -26.35
+- date: 20260715
+- open: 63.2
+- high: 66.2
+- low: 60
+- close: 66.2
+- volume: 18770000
+- ma5: 67.58
+- ema23_primary: 63.52
+- distance_to_ema23_pct: 4.22
+- ma20: 66.75
+- ma60: 43.85
+- ma120: 35.16
+- return_5d: -12.78
+- return_20d: 42.21
+- volume_ratio: 0.48
+- distance_to_ma20_pct_auxiliary: -0.82
+- distance_to_high_60_pct: -25.45
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,45.5,46.7,42.25,42.35,39766000,37.12,14.1,37.4,29.73,2.44
-20260615,43.5,46.55,43.5,46.55,26206000,37.9,22.81,38.29,30.03,1.54
 20260616,49.8,51.2,48.2,51.2,37159000,39.01,31.24,39.44,30.41,2.02
 20260617,53,53.3,48.25,51.4,62017000,40.04,28.36,40.47,30.81,3
 20260618,51.8,56.5,51.8,56.5,42917000,41.42,36.42,41.59,31.32,2.03
@@ -153,6 +151,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260708,79.8,79.8,70.2,71.8,28710000,62.33,15.19,62.29,41.2,0.64
 20260709,72.4,74.7,70.5,70.5,21383000,63.01,11.88,63.57,41.93,0.5
 20260713,70.9,72.6,64.8,65.4,20265000,63.21,3.46,64.68,42.58,0.5
+20260714,65.2,67.4,60.5,64,23510000,63.28,1.14,65.76,43.19,0.6
+20260715,63.2,66.2,60,66.2,18770000,63.52,4.22,66.75,43.85,0.48
 ```
 
 ## Latest TDCC Snapshot
@@ -187,12 +187,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 5328 | 華容 | revenue_pullback | 營收成長股價回檔 | 77.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260715 | 5328 | 華容 | revenue_pullback | 營收成長股價回檔 | 77.0 |  |  |  |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 5328 | 華容 | 1 | 1 | 1 | 5 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260715 | 5328 | 華容 | 3 | 3 | 3 | 6 | 11 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

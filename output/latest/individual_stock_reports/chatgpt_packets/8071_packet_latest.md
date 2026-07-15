@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8071 能率網通
 
 ## Metadata
-- generated_at: 2026-07-14 22:27:34 Asia/Taipei
+- generated_at: 2026-07-15 22:27:50 Asia/Taipei
 - stock_id: 8071
 - stock_name: 能率網通
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 167
+- latest_price_date: 20260715
+- price_rows: 169
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 30.5
-- high: 31.45
-- low: 28.5
-- close: 28.85
-- volume: 2812000
-- ma5: 30.85
-- ema23_primary: 28.66
-- distance_to_ema23_pct: 0.65
-- ma20: 29.76
-- ma60: 22.51
-- ma120: 19.81
-- return_5d: -11.37
-- return_20d: 15.63
-- volume_ratio: 0.39
-- distance_to_ma20_pct_auxiliary: -3.07
-- distance_to_high_60_pct: -17.81
+- date: 20260715
+- open: 28.75
+- high: 29.75
+- low: 27.05
+- close: 27.65
+- volume: 2151000
+- ma5: 28.98
+- ema23_primary: 28.48
+- distance_to_ema23_pct: -2.9
+- ma20: 29.94
+- ma60: 22.88
+- ma120: 19.97
+- return_5d: -17.09
+- return_20d: 2.6
+- volume_ratio: 0.33
+- distance_to_ma20_pct_auxiliary: -7.64
+- distance_to_high_60_pct: -21.23
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,26.05,27.4,24.4,24.5,11181000,21.1,16.13,21.43,18.15,4.45
-20260615,25.55,26.95,25.2,26.95,5038000,21.58,24.86,21.77,18.32,1.98
 20260616,28.7,29.6,28.25,29.6,9716000,22.25,33.02,22.2,18.54,3.65
 20260617,29.6,31,29,30.2,12218000,22.91,31.79,22.73,18.76,3.89
 20260618,29.45,29.8,28.4,29.4,4735000,23.46,25.35,23.21,18.98,1.43
@@ -154,6 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260708,33.95,35.1,30.7,30.8,10523000,28.5,8.08,29.19,22.08,1.33
 20260709,31.05,31.65,30.2,30.3,2420000,28.65,5.77,29.57,22.31,0.32
 20260713,30.5,31.45,28.5,28.85,2812000,28.66,0.65,29.76,22.51,0.39
+20260714,28.3,28.75,26.5,27.3,2685000,28.55,-4.38,29.9,22.69,0.4
+20260715,28.75,29.75,27.05,27.65,2151000,28.48,-2.9,29.94,22.88,0.33
 ```
 
 ## Latest TDCC Snapshot
@@ -188,13 +188,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 8071 | 能率網通 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.事實發生日:115/06/24 2.公司名稱:能率網通股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: (1)通過董事長選舉案。 (2)通過選舉第六屆薪資報酬委員案。 (3)通過追認本公司處分股權案。 (4)通過本公司預計處分股權案。 6.因應措施:無。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項):無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
-| 20260713 | 8071 | 能率網通 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/06/24 2.公司名稱:能率網通股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: (1)通過董事長選舉案。 (2)通過選舉第六屆薪資報酬委員案。 (3)通過追認本公司處分股權案。 (4)通過本公司預計處分股權案。 6.因應措施:無。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項):無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260715 | 8071 | 能率網通 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.事實發生日:115/06/24 2.公司名稱:能率網通股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: (1)通過董事長選舉案。 (2)通過選舉第六屆薪資報酬委員案。 (3)通過追認本公司處分股權案。 (4)通過本公司預計處分股權案。 6.因應措施:無。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項):無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260715 | 8071 | 能率網通 | revenue_pullback | 營收成長股價回檔 | 68.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/06/24 2.公司名稱:能率網通股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: (1)通過董事長選舉案。 (2)通過選舉第六屆薪資報酬委員案。 (3)通過追認本公司處分股權案。 (4)通過本公司預計處分股權案。 6.因應措施:無。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項):無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 8071 | 能率網通 | 2 | 2 | 3 | 4 | 6 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260715 | 8071 | 能率網通 | 4 | 4 | 4 | 6 | 8 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

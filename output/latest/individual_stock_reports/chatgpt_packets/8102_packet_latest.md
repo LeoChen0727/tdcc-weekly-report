@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8102 傑霖科技
 
 ## Metadata
-- generated_at: 2026-07-14 22:27:35 Asia/Taipei
+- generated_at: 2026-07-15 22:27:51 Asia/Taipei
 - stock_id: 8102
 - stock_name: 傑霖科技
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 127
+- latest_price_date: 20260715
+- price_rows: 129
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 68.4
-- high: 75.2
-- low: 68.4
-- close: 75
-- volume: 86000
-- ma5: 69.08
-- ema23_primary: 69.66
-- distance_to_ema23_pct: 7.67
-- ma20: 69.72
-- ma60: 69.45
-- ma120: 62.74
-- return_5d: 10.62
-- return_20d: 4.17
-- volume_ratio: 4.07
-- distance_to_ma20_pct_auxiliary: 7.58
-- distance_to_high_60_pct: -8.42
+- date: 20260715
+- open: 74.8
+- high: 78
+- low: 74.2
+- close: 74.3
+- volume: 123000
+- ma5: 71.96
+- ema23_primary: 70.38
+- distance_to_ema23_pct: 5.56
+- ma20: 69.96
+- ma60: 69.77
+- ma120: 62.87
+- return_5d: 11.56
+- return_20d: 4.06
+- volume_ratio: 4.2
+- distance_to_ma20_pct_auxiliary: 6.2
+- distance_to_high_60_pct: -9.28
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,72.8,74,71,72.1,28000,70.88,1.73,69.68,64.93,0.55
-20260615,71.4,72.1,71.3,71.4,27000,70.92,0.68,70.23,65.33,0.53
 20260616,71.4,71.4,70,70,17000,70.84,-1.19,70.72,65.65,0.33
 20260617,70,70,69.8,69.8,6000,70.76,-1.35,71.05,65.96,0.12
 20260618,69.1,72,69.1,71.9,41000,70.85,1.48,71.39,66.31,0.81
@@ -154,6 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260708,68.6,68.6,66.5,68,42000,69.24,-1.79,69.81,69.03,2.19
 20260709,68.5,68.5,66.2,68.4,9000,69.17,-1.12,69.56,69.19,0.5
 20260713,68.4,75.2,68.4,75,86000,69.66,7.67,69.72,69.45,4.07
+20260714,75.5,77,71.7,74.1,95000,70.03,5.82,69.81,69.66,3.88
+20260715,74.8,78,74.2,74.3,123000,70.38,5.56,69.96,69.77,4.2
 ```
 
 ## Latest TDCC Snapshot

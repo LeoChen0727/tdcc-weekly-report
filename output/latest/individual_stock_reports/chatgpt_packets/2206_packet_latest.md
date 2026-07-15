@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2206 三陽工業
 
 ## Metadata
-- generated_at: 2026-07-14 22:26:29 Asia/Taipei
+- generated_at: 2026-07-15 22:26:35 Asia/Taipei
 - stock_id: 2206
 - stock_name: 三陽工業
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 302
+- latest_price_date: 20260715
+- price_rows: 304
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 63.9
-- high: 63.9
-- low: 63.3
-- close: 63.7
-- volume: 983078
-- ma5: 63.86
-- ema23_primary: 62.32
-- distance_to_ema23_pct: 2.22
-- ma20: 62.28
-- ma60: 60.09
-- ma120: 59.82
-- return_5d: -0.47
-- return_20d: 4.08
-- volume_ratio: 0.81
-- distance_to_ma20_pct_auxiliary: 2.27
-- distance_to_high_60_pct: -1.55
+- date: 20260715
+- open: 63.3
+- high: 64
+- low: 63.2
+- close: 63.9
+- volume: 1052017
+- ma5: 63.88
+- ema23_primary: 62.55
+- distance_to_ema23_pct: 2.16
+- ma20: 62.38
+- ma60: 60.26
+- ma120: 59.88
+- return_5d: 0.16
+- return_20d: 1.91
+- volume_ratio: 0.91
+- distance_to_ma20_pct_auxiliary: 2.44
+- distance_to_high_60_pct: -1.24
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,61.5,63.2,61.3,63,2005726,60.8,3.63,60.8,59.01,1.28
-20260615,63.3,63.3,62.1,62.7,1240186,60.95,2.86,61.02,59.08,0.78
 20260616,62.8,62.8,61.6,61.6,941272,61.01,0.97,61.16,59.13,0.58
 20260617,61.1,62,61.1,61.9,693930,61.08,1.34,61.34,59.2,0.43
 20260618,61.5,62.4,61.2,61.6,1160667,61.13,0.78,61.44,59.25,0.72
@@ -146,15 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,61,62.2,61,61.5,1384429,61.12,0.63,61.69,59.44,0.92
 20260626,61.3,61.8,61,61.5,992513,61.15,0.58,61.77,59.48,0.69
 20260629,61.5,62.2,61.5,62,899657,61.22,1.28,61.84,59.55,0.67
-20260630,62.2,62.5,60.5,61.1,2813000,61.21,-0.18,61.84,59.58,1.98
-20260701,60.9,61.3,60.4,60.8,1507000,61.17,-0.61,61.8,59.59,1.05
-20260702,60.9,62.2,60.6,62,828000,61.24,1.24,61.79,59.63,0.59
+20260630,62.2,62.5,60.5,61.1,2822953,61.21,-0.18,61.84,59.58,1.99
+20260701,60.9,61.3,60.4,60.8,1512319,61.17,-0.61,61.8,59.59,1.06
+20260702,60.9,62.2,60.6,62,833321,61.24,1.24,61.79,59.63,0.59
 20260703,61.3,64,61.3,64,2736810,61.47,4.11,61.84,59.7,1.87
-20260706,63.8,64.7,63.6,63.6,776000,61.65,3.16,61.86,59.78,0.55
+20260706,63.8,64.7,63.6,63.6,787360,61.65,3.16,61.86,59.78,0.55
 20260707,63.6,63.8,63.3,63.8,638121,61.83,3.19,61.88,59.85,0.5
 20260708,63.8,64.5,63.8,64,1080781,62.01,3.21,62.02,59.92,0.88
 20260709,64,64.5,63.8,64.2,708674,62.19,3.23,62.16,60.01,0.58
 20260713,63.9,63.9,63.3,63.7,983078,62.32,2.22,62.28,60.09,0.81
+20260714,63.7,63.8,63.2,63.6,959671,62.43,1.88,62.31,60.17,0.82
+20260715,63.3,64,63.2,63.9,1052017,62.55,2.16,62.38,60.26,0.91
 ```
 
 ## Latest TDCC Snapshot
@@ -187,14 +187,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260715 | 2206 | 三陽工業 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | repeated_but_no_breakout | 1.本次買回股份數量累積達公司已發行股份總額百分之二或金額達新台幣三億元以上之日期:115/07/03 2.本次買回股份數量(股):4,811,000 3.本次買回股份總金額(元):299,181,464 4.本次平均每股買回價格(元):62.19 5.於買回期間內累積已持有自己公司股份數量(股):9,833,000 6.於買回期間內累積已持有自己公司股份數量占公司已發行股份總數之比率(%):1.25 7.其他應敘明事項: 無。；calendar event: ex_dividend on 20260722; status=confirmed; proximity=within_7d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260715 | 2206 | 三陽工業 | 1 | 1 | 2 | 3 | 5 | repeated_but_no_breakout | 近 10 日上榜 3 次、近 20 日上榜 5 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

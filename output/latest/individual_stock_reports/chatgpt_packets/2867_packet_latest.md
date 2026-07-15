@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2867 三商壽
 
 ## Metadata
-- generated_at: 2026-07-14 22:26:41 Asia/Taipei
+- generated_at: 2026-07-15 22:26:48 Asia/Taipei
 - stock_id: 2867
 - stock_name: 三商壽
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 301
+- latest_price_date: 20260715
+- price_rows: 303
 - latest_tdcc_date: 20260709
 - tdcc_rows: 11
 - tdcc_history_status: tdcc_history_ready
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 8.86
-- high: 8.9
-- low: 8.77
-- close: 8.83
-- volume: 9959503
-- ma5: 8.8
-- ema23_primary: 8.49
-- distance_to_ema23_pct: 3.97
-- ma20: 8.57
-- ma60: 8.05
-- ma120: 7.95
-- return_5d: 3.15
-- return_20d: 7.81
-- volume_ratio: 0.57
-- distance_to_ma20_pct_auxiliary: 2.99
-- distance_to_high_60_pct: -1.67
+- date: 20260715
+- open: 8.83
+- high: 8.95
+- low: 8.82
+- close: 8.85
+- volume: 10985213
+- ma5: 8.85
+- ema23_primary: 8.55
+- distance_to_ema23_pct: 3.53
+- ma20: 8.63
+- ma60: 8.08
+- ma120: 7.97
+- return_5d: 1.37
+- return_20d: 5.73
+- volume_ratio: 0.67
+- distance_to_ma20_pct_auxiliary: 2.58
+- distance_to_high_60_pct: -1.45
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,8.28,8.43,8.24,8.24,27488206,7.9,4.24,7.82,7.77,1.75
-20260615,8.4,8.48,8.36,8.37,21746252,7.94,5.37,7.86,7.78,1.32
 20260616,8.41,8.62,8.39,8.53,37912671,7.99,6.73,7.9,7.8,2.12
 20260617,8.53,8.75,8.51,8.62,19212309,8.04,7.15,7.94,7.81,1.03
 20260618,8.65,8.78,8.62,8.74,18362750,8.1,7.87,8,7.83,0.95
@@ -146,15 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,8.6,8.67,8.48,8.59,12569366,8.26,4.06,8.21,7.9,0.6
 20260626,8.54,8.59,8.39,8.4,11469909,8.27,1.61,8.26,7.91,0.55
 20260629,8.54,8.55,8.38,8.4,9651922,8.28,1.47,8.3,7.92,0.46
-20260630,8.47,8.51,8.34,8.34,12155000,8.28,0.68,8.34,7.93,0.59
-20260701,8.44,8.49,8.25,8.25,32134000,8.28,-0.37,8.36,7.94,1.51
-20260702,8.36,8.52,8.31,8.5,11522000,8.3,2.42,8.38,7.96,0.59
+20260630,8.47,8.51,8.34,8.34,12407132,8.28,0.68,8.34,7.93,0.6
+20260701,8.44,8.49,8.25,8.25,32158634,8.28,-0.37,8.36,7.94,1.52
+20260702,8.36,8.52,8.31,8.5,11554198,8.3,2.42,8.38,7.96,0.59
 20260703,8.5,8.73,8.5,8.56,11202448,8.32,2.88,8.41,7.97,0.59
-20260706,8.56,8.75,8.56,8.74,12358000,8.36,4.6,8.44,7.99,0.65
+20260706,8.56,8.75,8.56,8.74,12403540,8.36,4.6,8.44,7.99,0.66
 20260707,8.76,8.78,8.7,8.73,12595581,8.39,4.09,8.48,8,0.67
 20260708,8.76,8.9,8.72,8.86,21610573,8.43,5.15,8.51,8.02,1.22
 20260709,8.95,8.98,8.76,8.86,13433974,8.46,4.7,8.54,8.04,0.77
 20260713,8.86,8.9,8.77,8.83,9959503,8.49,3.97,8.57,8.05,0.57
+20260714,8.83,8.85,8.65,8.83,14830041,8.52,3.62,8.6,8.07,0.88
+20260715,8.83,8.95,8.82,8.85,10985213,8.55,3.53,8.63,8.08,0.67
 ```
 
 ## Latest TDCC Snapshot
@@ -190,17 +190,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 2867 | 三商壽 | pattern | 型態觀察 | 51.0 |  |  | base_building |  | no_signal | stale_signal | 1.事實發生日:115/07/13 2.公司名稱:三商美邦人壽保險股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: 一、本公司與玉山金融控股股份有限公司（下稱「玉山金控」）股份轉換案，業經 金融監督管理委員會115年7月7日金管保壽字第1150492633號函同意及公平交易委員會 115年4月8日公服字第1151260129號函決議不禁止結合在案，股份轉換後本公司將成為 玉山金控百分之百持股之子公司。 二、本公司訂定之股份轉換基準日為115年9月1日，並將依相關法令向臺灣證券交易所 股份有限公司申請於股份轉換基準日終止上市。 三、因玉山金控於115年6月12日之115年度股東常會決議通過114年度盈餘分配案並 公告除息基準日為115年7月7日，故換股比例於玉山金控除息基準日後調整為 三商美邦人壽每1股普通股換發玉山金控0.2596股普通股(原公告為0.2486股)。 四、本股份轉換案相關時程如下： (1)股票最後交易日:115/08/19 (2)股票停止交易日:115/08/20-115/09/01 (3)股票最後過戶日:115/08/21 (4)股票停止過戶日:115/08/22-115/09/01 (5)股份轉換基準日暨終止上市買賣日: 115/09/01 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260715 | 2867 | 三商壽 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | 1.事實發生日:115/07/13 2.公司名稱:三商美邦人壽保險股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: 一、本公司與玉山金融控股股份有限公司（下稱「玉山金控」）股份轉換案，業經 金融監督管理委員會115年7月7日金管保壽字第1150492633號函同意及公平交易委員會 115年4月8日公服字第1151260129號函決議不禁止結合在案，股份轉換後本公司將成為 玉山金控百分之百持股之子公司。 二、本公司訂定之股份轉換基準日為115年9月1日，並將依相關法令向臺灣證券交易所 股份有限公司申請於股份轉換基準日終止上市。 三、因玉山金控於115年6月12日之115年度股東常會決議通過114年度盈餘分配案並 公告除息基準日為115年7月7日，故換股比例於玉山金控除息基準日後調整為 三商美邦人壽每1股普通股換發玉山金控0.2596股普通股(原公告為0.2486股)。 四、本股份轉換案相關時程如下： (1)股票最後交易日:115/08/19 (2)股票停止交易日:115/08/20-115/09/01 (3)股票最後過戶日:115/08/21 (4)股票停止過戶日:115/08/22-115/09/01 (5)股份轉換基準日暨終止上市買賣日: 115/09/01 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 2867 | 三商壽 | 7 | 2 | 5 | 9 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260715 | 2867 | 三商壽 | 9 | 4 | 5 | 9 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 2867 | 三商壽 | 2 | 0 | 35200.0 | 0.0 |  | no_signal |
+| 20260715 | 2867 | 三商壽 | 2 | 0 | 51630.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

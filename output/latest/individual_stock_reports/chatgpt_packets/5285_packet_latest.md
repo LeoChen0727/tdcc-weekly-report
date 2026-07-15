@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5285 界霖
 
 ## Metadata
-- generated_at: 2026-07-14 22:27:05 Asia/Taipei
+- generated_at: 2026-07-15 22:27:17 Asia/Taipei
 - stock_id: 5285
 - stock_name: 界霖
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 302
+- latest_price_date: 20260715
+- price_rows: 304
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 98
-- high: 101
-- low: 95
-- close: 96.5
-- volume: 2062596
-- ma5: 100.6
-- ema23_primary: 95.73
-- distance_to_ema23_pct: 0.8
-- ma20: 97.53
-- ma60: 80.7
-- ma120: 65.63
-- return_5d: -0.41
-- return_20d: 11.18
-- volume_ratio: 0.39
-- distance_to_ma20_pct_auxiliary: -1.05
-- distance_to_high_60_pct: -16.45
+- date: 20260715
+- open: 89.7
+- high: 94.7
+- low: 89.4
+- close: 93.8
+- volume: 2017848
+- ma5: 95.24
+- ema23_primary: 95.05
+- distance_to_ema23_pct: -1.31
+- ma20: 97.77
+- ma60: 81.97
+- ma120: 66.33
+- return_5d: -8.93
+- return_20d: 6.35
+- volume_ratio: 0.38
+- distance_to_ma20_pct_auxiliary: -4.06
+- distance_to_high_60_pct: -18.79
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,89,90.7,87.7,89.7,1993099,83.23,7.77,86.61,65.29,0.38
-20260615,91.7,93.3,87.9,88.2,2845610,83.65,5.44,87.23,65.96,0.54
 20260616,89.6,89.9,86.2,87.8,1305154,83.99,4.53,87.82,66.63,0.25
 20260617,87.8,90.7,86.2,90,1343823,84.49,6.52,88.3,67.34,0.26
 20260618,93,97.5,92.5,93.7,4165955,85.26,9.9,88.89,68.13,0.86
@@ -146,15 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,115,115.5,101,101.5,12682625,90.64,11.98,92.58,71.8,2.2
 20260626,101.5,105,98.5,99.8,4723495,91.41,9.18,93.06,72.67,0.83
 20260629,99.8,101,96,98.8,4493019,92.02,7.37,93.5,73.53,0.8
-20260630,100.5,101.5,95.2,96.3,5273000,92.38,4.24,93.84,74.32,0.92
-20260701,97.6,98.7,92.3,92.9,3652000,92.42,0.52,93.95,75.07,0.66
-20260702,91.6,100.5,91.5,99.4,3940000,93,6.88,94.39,75.9,0.72
+20260630,100.5,101.5,95.2,96.3,5321696,92.38,4.24,93.84,74.32,0.93
+20260701,97.6,98.7,92.3,92.9,3716097,92.42,0.52,93.95,75.07,0.67
+20260702,91.6,100.5,91.5,99.4,3982716,93,6.88,94.39,75.9,0.72
 20260703,98.1,99.1,95.2,96.9,2566954,93.33,3.83,94.28,76.66,0.5
-20260706,99,106.5,99,106.5,7298000,94.43,12.79,95.01,77.58,1.43
-20260707,104,108.5,102,103,6483750,95.14,8.26,95.78,78.4,1.23
+20260706,99,106.5,99,106.5,7377242,94.43,12.79,95.01,77.58,1.45
+20260707,104,108.5,102,103,6483750,95.14,8.26,95.78,78.4,1.22
 20260708,103.5,103.5,98.5,101,2835297,95.63,5.62,96.47,79.21,0.54
 20260709,100.5,101.5,96,96,2344849,95.66,0.36,97.04,79.95,0.45
 20260713,98,101,95,96.5,2062596,95.73,0.8,97.53,80.7,0.39
+20260714,96,96,86.9,88.9,3149028,95.16,-6.58,97.48,81.31,0.59
+20260715,89.7,94.7,89.4,93.8,2017848,95.05,-1.31,97.77,81.97,0.38
 ```
 
 ## Latest TDCC Snapshot
@@ -189,17 +189,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 5285 | 界霖 | pattern | 型態觀察 | 48.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.事實發生日:115/06/25 2.公司名稱:界霖科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:經濟日報C03報導 6.報導內容:「…，界霖科技股份有限公司(5285)董事長蔡上元指出公司看好指出公司看  好下半年營收可望逐季走揚……今年每股純益可望挑戰4元，明年有機會站上5元。」 7.發生緣由:澄清媒體報導 8.因應措施:報導內容純屬法人預估，本公司並無提供財務預測，有關本公司之財務  與業務資訊，請以本公司於公開資訊觀測站公告為主。 9.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260715 | 5285 | 界霖 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  | call_strong_inflow | stale_signal | 1.事實發生日:115/06/25 2.公司名稱:界霖科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:經濟日報C03報導 6.報導內容:「…，界霖科技股份有限公司(5285)董事長蔡上元指出公司看好指出公司看  好下半年營收可望逐季走揚……今年每股純益可望挑戰4元，明年有機會站上5元。」 7.發生緣由:澄清媒體報導 8.因應措施:報導內容純屬法人預估，本公司並無提供財務預測，有關本公司之財務  與業務資訊，請以本公司於公開資訊觀測站公告為主。 9.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 5285 | 界霖 | 2 | 2 | 4 | 7 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260715 | 5285 | 界霖 | 1 | 1 | 3 | 7 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 5285 | 界霖 | 1 | 0 | 795240.0 | 0.0 |  | no_signal |
+| 20260715 | 5285 | 界霖 | 1 | 0 | 3822930.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

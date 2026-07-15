@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8050 廣積
 
 ## Metadata
-- generated_at: 2026-07-14 22:27:34 Asia/Taipei
+- generated_at: 2026-07-15 22:27:50 Asia/Taipei
 - stock_id: 8050
 - stock_name: 廣積
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 167
+- latest_price_date: 20260715
+- price_rows: 169
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -89,7 +89,6 @@
 ### entry_prerequisites
 - price_structure_not_broken
 - revenue_not_deteriorating
-- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -104,7 +103,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- none
+- tdcc_distribution_warning
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -112,30 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 63
-- high: 63
-- low: 60.4
-- close: 60.9
-- volume: 4156000
-- ma5: 58.7
-- ema23_primary: 55.91
-- distance_to_ema23_pct: 8.93
-- ma20: 55.66
-- ma60: 51.64
-- ma120: 46.76
-- return_5d: 8.94
-- return_20d: 4.1
-- volume_ratio: 3.7
-- distance_to_ma20_pct_auxiliary: 9.41
-- distance_to_high_60_pct: -7.87
+- date: 20260715
+- open: 62
+- high: 63.6
+- low: 60.5
+- close: 61.1
+- volume: 3000000
+- ma5: 60
+- ema23_primary: 56.65
+- distance_to_ema23_pct: 7.85
+- ma20: 55.97
+- ma60: 52.27
+- ma120: 47.06
+- return_5d: 6.08
+- return_20d: 6.63
+- volume_ratio: 2.28
+- distance_to_ma20_pct_auxiliary: 9.18
+- distance_to_high_60_pct: -7.56
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,59.3,59.9,57.7,57.7,1625000,54.73,5.43,56.06,46.95,2.07
-20260615,57.7,58.2,57,57.3,990000,54.94,4.29,56.51,47.2,1.25
 20260616,58,58.1,54.9,55.2,906000,54.96,0.43,56.8,47.43,1.21
 20260617,55.3,55.3,53.9,54.9,1014000,54.96,-0.11,56.98,47.65,1.49
 20260618,55.1,56,55,55.7,684000,55.02,1.24,57.2,47.89,1.05
@@ -154,6 +151,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260708,58.3,59.9,57.8,59.8,2698000,55.21,8.32,55.47,51.01,2.53
 20260709,59.6,59.9,58.1,58.2,1244000,55.45,4.95,55.54,51.31,1.28
 20260713,63,63,60.4,60.9,4156000,55.91,8.93,55.66,51.64,3.7
+20260714,65,65,57.5,60,3543000,56.25,6.67,55.77,51.96,2.91
+20260715,62,63.6,60.5,61.1,3000000,56.65,7.85,55.97,52.27,2.28
 ```
 
 ## Latest TDCC Snapshot
@@ -186,14 +185,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260715 | 8050 | 廣積 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/08 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.發放普通股股利種類及金額: (1)盈餘分配現金股利新台幣288,847,092元，每股配發1.42848716元。 (2)資本公積發放現金新台幣145,419,571元，每股發放0.71916940元。 4.除權（息）交易日:115/07/24 5.最後過戶日:115/07/27 6.停止過戶起始日期:115/07/28 7.停止過戶截止日期:115/08/01 8.除權（息）基準日:115/08/01 9.債券最後申請轉換日期:115/07/03 10.債券停止轉換起始日期:115/07/07 11.債券停止轉換截止日期:115/08/01 12.普通股現金股利發放日期:115/08/14 13.以外幣發放現金股利(請填入「是」或「否」):否 14.外幣現金股利發放幣別:不適用 15.外幣現金股利發放對象:不適用 16.外幣現金股利匯率決定方式:不適用 17.其他應敘明事項: (1)因本公司庫藏股轉讓予員工，致使流通在外股數發生變動， 依董事會之決議，授權董事長調整配息率；每壹股配發現金(股利) 2.14765656(即每壹股盈餘分配1.42848716元，每壹股資本公積發 放0.71916940元)。 (2)本公司國內第六次無擔保轉換公司債轉換價格從63.3元調整為 60.9元，並自115年8月1日開始適用。 (3)本次以超過票面金額發行股票所得溢額之資本公積發放現金 不須課稅。 (4)凡持有本公司股票而尚未辦理過戶之股東，務請股東於民國 115年07月27日(星期一)辦理過戶手續。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260715 | 8050 | 廣積 | 2 | 1 | 4 | 5 | 5 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

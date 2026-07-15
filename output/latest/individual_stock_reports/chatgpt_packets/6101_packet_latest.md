@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6101 寬魚國際
 
 ## Metadata
-- generated_at: 2026-07-14 22:27:10 Asia/Taipei
+- generated_at: 2026-07-15 22:27:23 Asia/Taipei
 - stock_id: 6101
 - stock_name: 寬魚國際
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 167
+- latest_price_date: 20260715
+- price_rows: 169
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 41
-- high: 41
-- low: 38.2
-- close: 39.4
-- volume: 356000
-- ma5: 40.97
-- ema23_primary: 42.44
-- distance_to_ema23_pct: -7.16
-- ma20: 43.23
-- ma60: 40.82
-- ma120: 39.51
-- return_5d: -10.15
-- return_20d: 0.38
-- volume_ratio: 0.39
-- distance_to_ma20_pct_auxiliary: -8.85
-- distance_to_high_60_pct: -22.13
+- date: 20260715
+- open: 39.7
+- high: 40.55
+- low: 39
+- close: 40.05
+- volume: 593000
+- ma5: 40.17
+- ema23_primary: 42.02
+- distance_to_ema23_pct: -4.68
+- ma20: 43.2
+- ma60: 40.81
+- ma120: 39.57
+- return_5d: -3.61
+- return_20d: -1.72
+- volume_ratio: 0.62
+- distance_to_ma20_pct_auxiliary: -7.28
+- distance_to_high_60_pct: -20.85
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,39.4,39.45,39,39.45,139000,39.9,-1.12,39.94,39.29,1.89
-20260615,39.85,41.05,39.85,40.75,260000,39.97,1.96,40.05,39.35,3.1
 20260616,40.7,40.7,39.9,40.45,159000,40.01,1.1,40.14,39.4,1.77
 20260617,40.4,40.9,40.2,40.5,150000,40.05,1.13,40.23,39.45,1.56
 20260618,40.5,42.6,40.05,41.65,703000,40.18,3.65,40.39,39.52,5.55
@@ -154,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260708,41.95,42.2,40.05,40.9,377000,42.87,-4.6,43.15,40.81,0.42
 20260709,41.35,41.35,39.5,41,369000,42.71,-4.01,43.22,40.83,0.41
 20260713,41,41,38.2,39.4,356000,42.44,-7.16,43.23,40.82,0.39
+20260714,38.65,40.25,38.65,39.5,530000,42.19,-6.38,43.23,40.81,0.57
+20260715,39.7,40.55,39,40.05,593000,42.02,-4.68,43.2,40.81,0.62
 ```
 
 ## Latest TDCC Snapshot

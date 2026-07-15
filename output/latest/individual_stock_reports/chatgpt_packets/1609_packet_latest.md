@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1609 大亞
 
 ## Metadata
-- generated_at: 2026-07-14 22:26:24 Asia/Taipei
+- generated_at: 2026-07-15 22:26:29 Asia/Taipei
 - stock_id: 1609
 - stock_name: 大亞
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 302
+- latest_price_date: 20260715
+- price_rows: 304
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 39.6
-- high: 40.75
-- low: 38.9
-- close: 40.1
-- volume: 9296519
-- ma5: 40.88
-- ema23_primary: 38.7
-- distance_to_ema23_pct: 3.62
-- ma20: 38.53
-- ma60: 36.4
-- ma120: 37.01
-- return_5d: 0.75
-- return_20d: 10.47
-- volume_ratio: 0.85
-- distance_to_ma20_pct_auxiliary: 4.06
-- distance_to_high_60_pct: -10.19
+- date: 20260715
+- open: 38.65
+- high: 39.85
+- low: 38.65
+- close: 39.25
+- volume: 4812379
+- ma5: 39.32
+- ema23_primary: 38.74
+- distance_to_ema23_pct: 1.31
+- ma20: 38.65
+- ma60: 36.55
+- ma120: 37.02
+- return_5d: -6.44
+- return_20d: 2.48
+- volume_ratio: 0.44
+- distance_to_ma20_pct_auxiliary: 1.55
+- distance_to_high_60_pct: -12.09
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,36.9,37.8,36.9,37.3,5971219,36.98,0.86,37.13,34.66,0.41
-20260615,38.3,38.5,37.8,38.3,5680150,37.09,3.26,37.34,34.71,0.39
 20260616,38.95,38.95,37.6,37.75,4337078,37.15,1.63,37.55,34.77,0.3
 20260617,37.8,38.45,37.45,38.1,3707409,37.23,2.35,37.76,34.84,0.25
 20260618,38.4,38.95,38.05,38.15,5527227,37.3,2.27,37.91,34.93,0.38
@@ -145,15 +143,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,37.9,37.9,36.7,36.7,4145632,37.34,-1.7,38.2,35.26,0.29
 20260626,36.7,36.7,35.3,35.3,5768090,37.17,-5.02,38.16,35.3,0.42
 20260629,35.7,37.2,35.55,36.85,4260227,37.14,-0.78,38.05,35.39,0.35
-20260630,39,39.05,37.6,38,11279000,37.21,2.12,37.99,35.48,0.96
-20260701,39,40,38.55,38.7,20040000,37.34,3.65,38.01,35.59,1.64
-20260702,38.45,38.7,37.95,38.15,6477000,37.4,2,37.81,35.69,0.59
-20260703,38.1,40.45,37.85,39.8,16418464,37.6,5.84,37.65,35.79,1.97
-20260706,42.35,43.75,42.3,43.75,27056000,38.12,14.78,37.88,35.98,3.17
-20260707,43.9,44.25,41.55,41.95,44384258,38.43,9.15,38.13,36.12,4.38
-20260708,42.45,42.45,38.9,39.5,18900749,38.52,2.53,38.22,36.22,1.78
-20260709,39.55,40.2,39.1,39.1,8557139,38.57,1.37,38.34,36.3,0.8
+20260630,39,39.05,37.6,38,11369166,37.21,2.12,37.99,35.48,0.97
+20260701,39,40,38.55,38.7,20232892,37.34,3.65,38.01,35.59,1.65
+20260702,38.45,38.7,37.95,38.15,6536296,37.4,2,37.81,35.69,0.6
+20260703,38.1,40.45,37.85,39.8,16418464,37.6,5.84,37.65,35.79,1.96
+20260706,42.35,43.75,42.3,43.75,27412935,38.12,14.78,37.88,35.98,3.2
+20260707,43.9,44.25,41.55,41.95,44384258,38.43,9.15,38.13,36.12,4.37
+20260708,42.45,42.45,38.9,39.5,18900749,38.52,2.53,38.22,36.22,1.77
+20260709,39.55,40.2,39.1,39.1,8557139,38.57,1.37,38.34,36.3,0.79
 20260713,39.6,40.75,38.9,40.1,9296519,38.7,3.62,38.53,36.4,0.85
+20260714,39.35,39.8,37.55,38.65,7981971,38.69,-0.12,38.6,36.47,0.72
+20260715,38.65,39.85,38.65,39.25,4812379,38.74,1.31,38.65,36.55,0.44
 ```
 
 ## Latest TDCC Snapshot
@@ -188,18 +188,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 1609 | 大亞 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
-| 20260713 | 1609 | 大亞 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260715 | 1609 | 大亞 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260715 | 1609 | 大亞 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 1609 | 大亞 | 7 | 3 | 5 | 9 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260715 | 1609 | 大亞 | 9 | 5 | 5 | 9 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 1609 | 大亞 | 34 | 1 | 3471030.0 | 0.0 |  | call_strong_inflow |
+| 20260715 | 1609 | 大亞 | 34 | 1 | 618470.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

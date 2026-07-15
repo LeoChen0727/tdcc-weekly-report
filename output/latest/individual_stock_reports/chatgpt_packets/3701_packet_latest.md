@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3701 大眾控
 
 ## Metadata
-- generated_at: 2026-07-14 22:26:55 Asia/Taipei
+- generated_at: 2026-07-15 22:27:05 Asia/Taipei
 - stock_id: 3701
 - stock_name: 大眾控
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 302
+- latest_price_date: 20260715
+- price_rows: 304
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 42.3
-- high: 42.3
-- low: 40
-- close: 40.65
-- volume: 834363
-- ma5: 42.4
-- ema23_primary: 46.19
-- distance_to_ema23_pct: -12
-- ma20: 45.35
-- ma60: 55.16
-- ma120: 56.17
-- return_5d: -10.56
-- return_20d: -14.78
-- volume_ratio: 0.88
-- distance_to_ma20_pct_auxiliary: -10.37
-- distance_to_high_60_pct: -49.06
+- date: 20260715
+- open: 41.5
+- high: 42.65
+- low: 40.95
+- close: 42.65
+- volume: 575883
+- ma5: 41.75
+- ema23_primary: 45.54
+- distance_to_ema23_pct: -6.34
+- ma20: 44.73
+- ma60: 54.4
+- ma120: 56.03
+- return_5d: 0.12
+- return_20d: -12.51
+- volume_ratio: 0.63
+- distance_to_ma20_pct_auxiliary: -4.65
+- distance_to_high_60_pct: -46.55
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,49,49.5,47.9,47.9,1247115,54.75,-12.51,54.13,59.54,0.58
-20260615,49.1,49.55,48.75,48.75,1087909,54.25,-10.14,53.8,59.26,0.51
 20260616,49.85,50.3,47.85,47.85,941404,53.72,-10.92,53.45,58.96,0.45
 20260617,48.45,48.45,47.3,47.45,790717,53.19,-10.8,53.26,58.65,0.41
 20260618,47.8,49.35,47.8,48.45,884345,52.8,-8.24,52.94,58.47,0.48
@@ -145,15 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,48.9,48.9,46.7,46.7,757170,51.25,-8.87,51.09,57.7,0.47
 20260626,46.1,46.1,43.45,43.5,1501943,50.6,-14.04,50.63,57.44,0.97
 20260629,44.1,45,43.5,44.1,817331,50.06,-11.91,50.15,57.24,0.54
-20260630,45.1,45.1,44.4,44.75,590000,49.62,-9.81,49.6,57.05,0.41
-20260701,45.8,45.8,43.45,43.6,788000,49.12,-11.23,48.95,56.88,0.56
-20260702,43.6,43.6,42.3,43,663000,48.61,-11.53,48.18,56.71,0.52
+20260630,45.1,45.1,44.4,44.75,598090,49.62,-9.81,49.6,57.05,0.41
+20260701,45.8,45.8,43.45,43.6,801022,49.12,-11.23,48.95,56.88,0.57
+20260702,43.6,43.6,42.3,43,678540,48.61,-11.53,48.18,56.71,0.53
 20260703,43.6,46.2,43.35,45.45,1536055,48.34,-5.99,47.53,56.52,1.31
-20260706,46,46.45,44.5,44.8,948000,48.05,-6.76,46.97,56.36,0.85
+20260706,46,46.45,44.5,44.8,959156,48.05,-6.76,46.97,56.36,0.86
 20260707,45.8,46.15,42.5,42.6,990084,47.59,-10.49,46.52,56.13,0.91
 20260708,43.8,43.8,41.25,42.3,667597,47.15,-10.29,46.03,55.89,0.62
 20260709,42.75,42.75,41.65,41.65,451916,46.69,-10.8,45.71,55.55,0.45
 20260713,42.3,42.3,40,40.65,834363,46.19,-12,45.35,55.16,0.88
+20260714,41.45,41.95,39,41.5,1126650,45.8,-9.39,45.03,54.79,1.19
+20260715,41.5,42.65,40.95,42.65,575883,45.54,-6.34,44.73,54.4,0.63
 ```
 
 ## Latest TDCC Snapshot
@@ -198,7 +199,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 3701 | 大眾控 | 2 | 0 | 0.0 | 0.0 |  | no_signal |
+| 20260715 | 3701 | 大眾控 | 2 | 0 | 0.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

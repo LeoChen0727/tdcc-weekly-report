@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8016 矽創
 
 ## Metadata
-- generated_at: 2026-07-14 22:27:33 Asia/Taipei
+- generated_at: 2026-07-15 22:27:49 Asia/Taipei
 - stock_id: 8016
 - stock_name: 矽創
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 302
+- latest_price_date: 20260715
+- price_rows: 304
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 367.5
-- high: 368
-- low: 327
-- close: 327
-- volume: 3354086
-- ma5: 345.2
-- ema23_primary: 321.92
-- distance_to_ema23_pct: 1.58
-- ma20: 320.27
-- ma60: 284.79
-- ma120: 239.72
-- return_5d: -2.1
-- return_20d: 14.14
-- volume_ratio: 0.99
-- distance_to_ma20_pct_auxiliary: 2.1
-- distance_to_high_60_pct: -13.15
+- date: 20260715
+- open: 318
+- high: 319
+- low: 302
+- close: 302
+- volume: 1719691
+- ma5: 330.7
+- ema23_primary: 319.31
+- distance_to_ema23_pct: -5.42
+- ma20: 322.68
+- ma60: 287.89
+- ma120: 241.7
+- return_5d: -14.2
+- return_20d: 10.22
+- volume_ratio: 0.5
+- distance_to_ma20_pct_auxiliary: -6.41
+- distance_to_high_60_pct: -19.79
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,293,298,287,289.5,1835683,285.77,1.3,294.15,245.81,0.77
-20260615,278.5,287,274,274,2195793,284.79,-3.79,294.1,247.02,0.91
 20260616,278,281,270,278.5,1982276,284.27,-2.03,294,248.34,0.84
 20260617,277.5,297,277.5,295.5,2695775,285.2,3.61,294.5,249.92,1.17
 20260618,301,305,298,300.5,2607613,286.48,4.89,294.65,251.67,1.14
@@ -146,15 +143,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,318,344,318,330.5,4537703,296.54,11.45,300.02,259.86,1.73
 20260626,326,335,310.5,311,3270541,297.74,4.45,300.57,261.73,1.25
 20260629,313,328.5,306.5,317,3834179,299.35,5.9,301.12,263.83,1.47
-20260630,321,341,313,332,4437000,302.07,9.91,302.27,266.12,1.67
-20260701,338,347.5,334.5,339,4366000,305.15,11.09,304.12,268.59,1.6
-20260702,330.5,335.5,320.5,327.5,2959000,307.01,6.67,305.3,270.82,1.06
+20260630,321,341,313,332,4532941,302.07,9.91,302.27,266.12,1.7
+20260701,338,347.5,334.5,339,4456706,305.15,11.09,304.12,268.59,1.62
+20260702,330.5,335.5,320.5,327.5,3051242,307.01,6.67,305.3,270.82,1.09
 20260703,320.5,336.5,320,334,1511014,309.26,8,306.82,273.02,0.54
-20260706,338,347.5,330.5,332,1575000,311.15,6.7,308.25,275.17,0.57
-20260707,332,365,332,352,7633149,314.56,11.9,311.6,277.66,2.48
+20260706,338,347.5,330.5,332,1625875,311.15,6.7,308.25,275.17,0.58
+20260707,332,365,332,352,7633149,314.56,11.9,311.6,277.66,2.46
 20260708,346,354.5,334,352,3379642,317.68,10.8,314.43,280.17,1.06
 20260709,357,376.5,351,363,3446435,321.45,12.92,318.25,282.83,1.05
 20260713,367.5,368,327,327,3354086,321.92,1.58,320.27,284.79,0.99
+20260714,323.5,324,296,309.5,3199611,320.88,-3.55,321.27,286.44,0.92
+20260715,318,319,302,302,1719691,319.31,-5.42,322.68,287.89,0.5
 ```
 
 ## Latest TDCC Snapshot
@@ -189,18 +188,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 8016 | 矽創 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | repeated_but_no_breakout | 符合條款第四條第XX款：12 事實發生日：115/07/08 1.召開法人說明會之日期：115/07/08 2.召開法人說明會之時間：14 時 00 分  3.召開法人說明會之地點：線上會議 4.法人說明會擇要訊息：矽創受邀參加富邦證券舉辦之線上法人座談，說明營運概況。 5.其他應敘明事項：無。 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
-| 20260713 | 8016 | 矽創 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | repeated_but_no_breakout | 符合條款第四條第XX款：12 事實發生日：115/07/08 1.召開法人說明會之日期：115/07/08 2.召開法人說明會之時間：14 時 00 分  3.召開法人說明會之地點：線上會議 4.法人說明會擇要訊息：矽創受邀參加富邦證券舉辦之線上法人座談，說明營運概況。 5.其他應敘明事項：無。 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260715 | 8016 | 矽創 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/08 1.召開法人說明會之日期：115/07/08 2.召開法人說明會之時間：14 時 00 分  3.召開法人說明會之地點：線上會議 4.法人說明會擇要訊息：矽創受邀參加富邦證券舉辦之線上法人座談，說明營運概況。 5.其他應敘明事項：無。 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260715 | 8016 | 矽創 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/08 1.召開法人說明會之日期：115/07/08 2.召開法人說明會之時間：14 時 00 分  3.召開法人說明會之地點：線上會議 4.法人說明會擇要訊息：矽創受邀參加富邦證券舉辦之線上法人座談，說明營運概況。 5.其他應敘明事項：無。 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 8016 | 矽創 | 4 | 1 | 4 | 9 | 18 | repeated_but_no_breakout | 近 10 日上榜 9 次、近 20 日上榜 18 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260715 | 8016 | 矽創 | 6 | 3 | 5 | 9 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 8016 | 矽創 | 43 | 0 | 7490510.0 | 0.0 |  | no_signal |
+| 20260715 | 8016 | 矽創 | 45 | 0 | 4562220.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

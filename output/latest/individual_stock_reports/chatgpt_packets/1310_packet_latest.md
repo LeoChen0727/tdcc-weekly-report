@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1310 台苯
 
 ## Metadata
-- generated_at: 2026-07-14 22:26:19 Asia/Taipei
+- generated_at: 2026-07-15 22:26:22 Asia/Taipei
 - stock_id: 1310
 - stock_name: 台苯
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 302
+- latest_price_date: 20260715
+- price_rows: 304
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 10.45
-- high: 10.75
+- date: 20260715
+- open: 10.6
+- high: 10.6
 - low: 10.3
-- close: 10.35
-- volume: 5550773
-- ma5: 10.93
-- ema23_primary: 10.06
-- distance_to_ema23_pct: 2.85
-- ma20: 10.02
-- ma60: 9.21
-- ma120: 9.6
-- return_5d: -9.21
-- return_20d: 22.78
-- volume_ratio: 0.47
-- distance_to_ma20_pct_auxiliary: 3.28
-- distance_to_high_60_pct: -16.87
+- close: 10.5
+- volume: 4090387
+- ma5: 10.51
+- ema23_primary: 10.12
+- distance_to_ema23_pct: 3.78
+- ma20: 10.21
+- ma60: 9.22
+- ma120: 9.63
+- return_5d: -5.41
+- return_20d: 24.26
+- volume_ratio: 0.34
+- distance_to_ma20_pct_auxiliary: 2.82
+- distance_to_high_60_pct: -15.66
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,8.54,8.6,8.5,8.54,2373944,8.62,-0.97,8.37,9.52,0.51
-20260615,8.58,8.6,8.44,8.45,2521308,8.61,-1.84,8.39,9.47,0.55
 20260616,8.5,8.71,8.44,8.5,3165942,8.6,-1.16,8.42,9.41,0.68
 20260617,9,9.06,8.6,8.71,6543759,8.61,1.17,8.45,9.35,1.34
 20260618,8.75,9.34,8.72,9.26,12944781,8.66,6.89,8.51,9.31,2.38
@@ -145,15 +143,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,9.95,10.25,9.84,10.1,11270053,9.05,11.6,8.93,9.24,1.5
 20260626,10.1,10.25,9.89,9.91,6964457,9.12,8.64,9.02,9.21,0.92
 20260629,10.15,10.35,9.95,10,7365104,9.19,8.76,9.12,9.19,0.95
-20260630,10.15,10.6,9.96,10.55,12964000,9.31,13.35,9.23,9.18,1.6
-20260701,10.55,10.9,10.05,10.15,12628000,9.38,8.23,9.3,9.17,1.5
-20260702,10.1,10.6,9.99,10.4,9072000,9.46,9.9,9.35,9.15,1.09
+20260630,10.15,10.6,9.96,10.55,13054238,9.31,13.35,9.23,9.18,1.61
+20260701,10.55,10.9,10.05,10.15,12660159,9.38,8.23,9.3,9.17,1.5
+20260702,10.1,10.6,9.99,10.4,9115371,9.46,9.9,9.35,9.15,1.1
 20260703,10.8,11.4,10.75,11.4,25050677,9.62,18.45,9.46,9.17,2.86
-20260706,12.05,12.45,11.65,11.8,38389000,9.81,20.34,9.6,9.19,3.71
+20260706,12.05,12.45,11.65,11.8,38501497,9.81,20.34,9.6,9.19,3.71
 20260707,11.75,11.8,11,11.1,12547988,9.91,11.97,9.72,9.21,1.16
 20260708,11.25,11.75,10.8,11.05,11232822,10.01,10.41,9.84,9.22,1
 20260709,10.9,10.9,10.25,10.35,9014580,10.04,3.12,9.93,9.21,0.78
 20260713,10.45,10.75,10.3,10.35,5550773,10.06,2.85,10.02,9.21,0.47
+20260714,10.35,10.7,10,10.3,6219668,10.08,2.16,10.11,9.21,0.52
+20260715,10.6,10.6,10.3,10.5,4090387,10.12,3.78,10.21,9.22,0.34
 ```
 
 ## Latest TDCC Snapshot
@@ -188,12 +188,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 1310 | 台苯 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.發生變動日期:115/06/18 2.選任或變動人員別（請輸入法人董事、法人監察人、獨立董事、自然人董事   或自然人監察人）:法人董事 3.舊任者職稱及姓名: (1)法人董事安慶開發(股)公司(代表人：徐定睿) (2)法人董事開疆(股)公司(代表人：張國欽) 4.舊任者簡歷:台灣苯乙烯工業(股)公司法人董事 5.新任者職稱及姓名:不適用 6.新任者簡歷:不適用 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）:辭職 8.異動原因:法人董事辭任 9.新任者選任時持股數:不適用 10.原任期（例xx/xx/xx ~ xx/xx/xx）:113/05/31~116/05/30 11.新任生效日期:不適用 12.同任期董事變動比率:2/11 13.同任期獨立董事變動比率:不適用 14.同任期監察人變動比率:無 15.屬三分之一以上董事發生變動（請輸入是或否）:否 16.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 本公司於115年6月18日接獲法人董事辭職書，辭任生效日為115年6月18日。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260715 | 1310 | 台苯 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.發生變動日期:115/06/18 2.選任或變動人員別（請輸入法人董事、法人監察人、獨立董事、自然人董事   或自然人監察人）:法人董事 3.舊任者職稱及姓名: (1)法人董事安慶開發(股)公司(代表人：徐定睿) (2)法人董事開疆(股)公司(代表人：張國欽) 4.舊任者簡歷:台灣苯乙烯工業(股)公司法人董事 5.新任者職稱及姓名:不適用 6.新任者簡歷:不適用 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）:辭職 8.異動原因:法人董事辭任 9.新任者選任時持股數:不適用 10.原任期（例xx/xx/xx ~ xx/xx/xx）:113/05/31~116/05/30 11.新任生效日期:不適用 12.同任期董事變動比率:2/11 13.同任期獨立董事變動比率:不適用 14.同任期監察人變動比率:無 15.屬三分之一以上董事發生變動（請輸入是或否）:否 16.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 本公司於115年6月18日接獲法人董事辭職書，辭任生效日為115年6月18日。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 1310 | 台苯 | 1 | 1 | 2 | 5 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260715 | 1310 | 台苯 | 3 | 3 | 3 | 6 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

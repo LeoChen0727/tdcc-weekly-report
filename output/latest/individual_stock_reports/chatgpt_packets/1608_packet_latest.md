@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1608 華榮
 
 ## Metadata
-- generated_at: 2026-07-14 22:26:24 Asia/Taipei
+- generated_at: 2026-07-15 22:26:28 Asia/Taipei
 - stock_id: 1608
 - stock_name: 華榮
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 302
+- latest_price_date: 20260715
+- price_rows: 304
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 34.35
-- high: 34.35
-- low: 33.25
-- close: 33.6
-- volume: 2520380
-- ma5: 34.3
-- ema23_primary: 34.19
-- distance_to_ema23_pct: -1.73
-- ma20: 34.25
-- ma60: 33.93
-- ma120: 34.43
-- return_5d: -3.45
-- return_20d: 0.15
-- volume_ratio: 0.81
-- distance_to_ma20_pct_auxiliary: -1.9
-- distance_to_high_60_pct: -14.72
+- date: 20260715
+- open: 32.9
+- high: 33.75
+- low: 32.9
+- close: 33.55
+- volume: 2055097
+- ma5: 33.57
+- ema23_primary: 34.02
+- distance_to_ema23_pct: -1.39
+- ma20: 34.08
+- ma60: 33.92
+- ma120: 34.36
+- return_5d: -2.75
+- return_20d: -4.82
+- volume_ratio: 0.7
+- distance_to_ma20_pct_auxiliary: -1.56
+- distance_to_high_60_pct: -14.85
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,33.95,34.95,33.9,34.4,5703731,34.35,0.16,34.21,33.31,0.75
-20260615,35,35.4,34.8,35.25,3779860,34.42,2.41,34.4,33.33,0.49
 20260616,35.5,35.6,34.55,34.55,2626805,34.43,0.34,34.55,33.35,0.34
 20260617,34.55,35.1,34.4,34.75,2151141,34.46,0.84,34.72,33.38,0.28
 20260618,34.9,35.1,34.55,34.65,3243881,34.47,0.51,34.81,33.42,0.42
@@ -146,15 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,35.1,35.2,34,34,3084214,34.48,-1.4,34.99,33.59,0.41
 20260626,33.8,33.8,32.8,32.8,3743985,34.34,-4.49,34.96,33.6,0.51
 20260629,32.8,33.45,32.8,32.95,1525952,34.23,-3.73,34.88,33.63,0.22
-20260630,33.5,33.75,33.1,33.65,1880000,34.18,-1.54,34.83,33.66,0.27
-20260701,34,34.5,33.75,33.75,2661000,34.14,-1.15,34.72,33.71,0.43
-20260702,33.7,33.95,33.4,33.8,1647000,34.11,-0.92,34.44,33.75,0.35
+20260630,33.5,33.75,33.1,33.65,1897958,34.18,-1.54,34.83,33.66,0.28
+20260701,34,34.5,33.75,33.75,2678814,34.14,-1.15,34.72,33.71,0.43
+20260702,33.7,33.95,33.4,33.8,1659143,34.11,-0.92,34.44,33.75,0.36
 20260703,33.65,35.15,33.6,34.8,4011348,34.17,1.84,34.24,33.79,1.02
-20260706,35.4,36.55,35.4,35.4,7469000,34.27,3.29,34.2,33.85,2.1
-20260707,35.8,35.9,34.25,34.5,3818891,34.29,0.61,34.24,33.88,1.1
+20260706,35.4,36.55,35.4,35.4,7533979,34.27,3.29,34.2,33.85,2.11
+20260707,35.8,35.9,34.25,34.5,3818891,34.29,0.61,34.24,33.88,1.09
 20260708,34.55,34.7,33.65,33.95,2187774,34.26,-0.92,34.23,33.91,0.66
 20260709,34.2,34.45,33.95,34.05,1395370,34.25,-0.57,34.25,33.93,0.44
 20260713,34.35,34.35,33.25,33.6,2520380,34.19,-1.73,34.25,33.93,0.81
+20260714,33.65,33.7,32.25,32.7,3560407,34.07,-4.01,34.16,33.92,1.18
+20260715,32.9,33.75,32.9,33.55,2055097,34.02,-1.39,34.08,33.92,0.7
 ```
 
 ## Latest TDCC Snapshot
@@ -199,7 +199,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 1608 | 華榮 | 8 | 0 | 60980.0 | 0.0 |  | no_signal |
+| 20260715 | 1608 | 華榮 | 8 | 0 | 245290.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

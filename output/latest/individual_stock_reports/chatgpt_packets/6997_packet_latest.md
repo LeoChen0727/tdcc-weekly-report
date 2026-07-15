@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6997 博弘
 
 ## Metadata
-- generated_at: 2026-07-14 22:27:27 Asia/Taipei
+- generated_at: 2026-07-15 22:27:43 Asia/Taipei
 - stock_id: 6997
 - stock_name: 博弘
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 139
+- latest_price_date: 20260715
+- price_rows: 141
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 75
-- high: 75
-- low: 75
-- close: 75
-- volume: 1000
-- ma5: 72.86
-- ema23_primary: 73.31
-- distance_to_ema23_pct: 2.31
-- ma20: 73.72
-- ma60: 74.73
-- ma120: 81.25
-- return_5d: 4.17
-- return_20d: 0.81
-- volume_ratio: 0.21
-- distance_to_ma20_pct_auxiliary: 1.74
-- distance_to_high_60_pct: -10.18
+- date: 20260715
+- open: 77.6
+- high: 77.6
+- low: 76.7
+- close: 76.7
+- volume: 3000
+- ma5: 73.76
+- ema23_primary: 73.51
+- distance_to_ema23_pct: 4.34
+- ma20: 73.47
+- ma60: 74.45
+- ma120: 80.96
+- return_5d: 5.94
+- return_20d: 0.92
+- volume_ratio: 0.67
+- distance_to_ma20_pct_auxiliary: 4.4
+- distance_to_high_60_pct: -8.14
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260611,78.3,78.6,78,78,9000,74.03,5.36,71.78,77.92,0.23
-20260615,74.4,76,74.4,76,6000,74.19,2.44,71.98,77.72,0.16
 20260616,75.1,75.1,75.1,75.1,1000,74.27,1.12,72.33,77.52,0.03
 20260617,75.3,75.3,75,75,5000,74.33,0.9,72.72,77.34,0.13
 20260618,77.6,77.6,74.7,75,6000,74.39,0.83,73.11,77.16,0.16
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260708,72.5,72.5,72.4,72.4,5000,73.22,-1.12,73.8,74.99,0.95
 20260709,72.4,72.4,72.4,72.4,1000,73.15,-1.03,73.69,74.85,0.19
 20260713,75,75,75,75,1000,73.31,2.31,73.72,74.73,0.21
+20260714,72,72.3,72,72.3,5000,73.22,-1.26,73.44,74.54,1.08
+20260715,77.6,77.6,76.7,76.7,3000,73.51,4.34,73.47,74.45,0.67
 ```
 
 ## Latest TDCC Snapshot

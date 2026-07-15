@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6944 兆聯實業
 
 ## Metadata
-- generated_at: 2026-07-14 22:27:27 Asia/Taipei
+- generated_at: 2026-07-15 22:27:42 Asia/Taipei
 - stock_id: 6944
 - stock_name: 兆聯實業
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 268
+- latest_price_date: 20260715
+- price_rows: 270
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 1005
-- high: 1060
-- low: 1005
-- close: 1045
-- volume: 731671
-- ma5: 986.8
-- ema23_primary: 983.56
-- distance_to_ema23_pct: 6.25
-- ma20: 1001.6
-- ma60: 951.88
-- ma120: 857.24
-- return_5d: 5.34
-- return_20d: 11.53
-- volume_ratio: 1.04
-- distance_to_ma20_pct_auxiliary: 4.33
-- distance_to_high_60_pct: -6.28
+- date: 20260715
+- open: 1000
+- high: 1040
+- low: 988
+- close: 1035
+- volume: 585483
+- ma5: 1000.8
+- ema23_primary: 987.96
+- distance_to_ema23_pct: 4.76
+- ma20: 1002.8
+- ma60: 955.23
+- ma120: 861.92
+- return_5d: 6.81
+- return_20d: 2.99
+- volume_ratio: 0.93
+- distance_to_ma20_pct_auxiliary: 3.21
+- distance_to_high_60_pct: -7.17
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,950,1015,949,991,2060580,927.87,6.8,926.6,899.3,2.55
-20260615,1020,1030,995,1005,832223,934.3,7.57,930.65,902.2,1.05
 20260616,1005,1010,981,998,1025581,939.61,6.21,935.65,904.85,1.27
 20260617,996,1025,987,1025,736946,946.72,8.27,942.6,908.17,0.9
 20260618,1025,1045,1010,1045,680017,954.91,9.43,948.9,912.43,0.83
@@ -146,15 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,1010,1035,1000,1000,347565,976.78,2.38,968.25,928.95,0.42
 20260626,1000,1005,973,976,541258,976.72,-0.07,970.85,932.4,0.66
 20260629,994,998,962,984,469831,977.32,0.68,972.75,936.15,0.58
-20260630,998,998,970,977,486000,977.3,-0.03,975,938.93,0.61
-20260701,993,995,966,966,369000,976.36,-1.06,978.3,942.03,0.47
-20260702,952,1010,948,1010,493000,979.16,3.15,983.1,945.28,0.63
+20260630,998,998,970,977,531689,977.3,-0.03,975,938.93,0.66
+20260701,993,995,966,966,400067,976.36,-1.06,978.3,942.03,0.51
+20260702,952,1010,948,1010,519070,979.16,3.15,983.1,945.28,0.66
 20260703,1000,1005,985,992,341926,980.23,1.2,986,946.88,0.45
-20260706,992,992,968,981,310000,980.29,0.07,988.1,947.47,0.42
-20260707,986,997,962,969,669668,979.35,-1.06,991,947.95,0.93
+20260706,992,992,968,981,327357,980.29,0.07,988.1,947.47,0.44
+20260707,986,997,962,969,669668,979.35,-1.06,991,947.95,0.92
 20260708,972,979,940,941,783913,976.16,-3.6,991.7,948.48,1.07
-20260709,958,1015,950,998,670154,977.98,2.05,996.2,949.92,0.94
+20260709,958,1015,950,998,670154,977.98,2.05,996.2,949.92,0.93
 20260713,1005,1060,1005,1045,731671,983.56,6.25,1001.6,951.88,1.04
+20260714,1020,1030,950,985,717984,983.68,0.13,1001.3,953.27,1.12
+20260715,1000,1040,988,1035,585483,987.96,4.76,1002.8,955.23,0.93
 ```
 
 ## Latest TDCC Snapshot
@@ -199,7 +199,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 6944 | 兆聯實業 | 85 | 5 | 22813580.0 | 13150.0 | 1734.87 | call_put_bullish |
+| 20260715 | 6944 | 兆聯實業 | 83 | 5 | 22732360.0 | 18290.0 | 1242.88 | call_put_bullish |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

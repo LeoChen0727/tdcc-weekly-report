@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2441 超豐
 
 ## Metadata
-- generated_at: 2026-07-14 22:26:34 Asia/Taipei
+- generated_at: 2026-07-15 22:26:41 Asia/Taipei
 - stock_id: 2441
 - stock_name: 超豐
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 302
+- latest_price_date: 20260715
+- price_rows: 304
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 148
-- high: 152
-- low: 134.5
-- close: 137.5
-- volume: 13592390
-- ma5: 139.7
-- ema23_primary: 134.73
-- distance_to_ema23_pct: 2.05
-- ma20: 135.9
-- ma60: 117.39
-- ma120: 104.43
-- return_5d: -3.17
-- return_20d: 13.17
-- volume_ratio: 1.14
-- distance_to_ma20_pct_auxiliary: 1.18
-- distance_to_high_60_pct: -11.86
+- date: 20260715
+- open: 132.5
+- high: 138
+- low: 132
+- close: 136.5
+- volume: 5350680
+- ma5: 137.1
+- ema23_primary: 134.44
+- distance_to_ema23_pct: 1.53
+- ma20: 136.65
+- ma60: 118.85
+- ma120: 105.15
+- return_5d: 2.25
+- return_20d: 7.48
+- volume_ratio: 0.45
+- distance_to_ma20_pct_auxiliary: -0.11
+- distance_to_high_60_pct: -12.5
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,126.5,127,123.5,123.5,6472984,121.1,1.98,125.25,103.13,0.47
-20260615,126,129,123.5,127,9391489,121.59,4.45,126.42,103.75,0.71
 20260616,128.5,129,125,125.5,8138840,121.92,2.94,127.6,104.25,0.63
 20260617,125,128,124.5,126.5,5884226,122.3,3.44,128.8,104.78,0.46
 20260618,127.5,137,127.5,135,13883255,123.36,9.44,130.22,105.51,1.1
@@ -145,15 +143,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,144.5,146.5,139.5,141.5,12693485,128.28,10.3,132.35,108.61,1.17
 20260626,140.5,146.5,134.5,134.5,15150689,128.8,4.42,132.03,109.29,1.43
 20260629,135,135.5,128,129,8997312,128.82,0.14,131.4,110.03,0.88
-20260630,131.5,138.5,131,136.5,7286000,129.46,5.44,131.35,110.83,0.74
-20260701,138,140,136.5,138,5882000,130.17,6.01,131.55,111.71,0.61
-20260702,135.5,142,134,142,5648000,131.16,8.27,131.8,112.65,0.6
+20260630,131.5,138.5,131,136.5,7399095,129.46,5.44,131.35,110.83,0.75
+20260701,138,140,136.5,138,6006267,130.17,6.01,131.55,111.71,0.62
+20260702,135.5,142,134,142,5775180,131.16,8.27,131.8,112.65,0.61
 20260703,140,142.5,138.5,142,5021972,132.06,7.53,132.07,113.44,0.53
-20260706,156,156,144,145,34365000,133.14,8.91,132.75,114.29,3.17
-20260707,145,147.5,132,133.5,17013805,133.17,0.25,133.25,114.97,1.52
-20260708,136.5,138.5,132.5,138,7255521,133.57,3.32,133.9,115.68,0.65
+20260706,156,156,144,145,34916639,133.14,8.91,132.75,114.29,3.21
+20260707,145,147.5,132,133.5,17013805,133.17,0.25,133.25,114.97,1.51
+20260708,136.5,138.5,132.5,138,7255521,133.57,3.32,133.9,115.68,0.64
 20260709,140,148,138.5,144.5,14019955,134.48,7.45,135.1,116.58,1.22
 20260713,148,152,134.5,137.5,13592390,134.73,2.05,135.9,117.39,1.14
+20260714,137.5,138,124,129,9490596,134.26,-3.91,136.18,118.05,0.79
+20260715,132.5,138,132,136.5,5350680,134.44,1.53,136.65,118.85,0.45
 ```
 
 ## Latest TDCC Snapshot
@@ -188,18 +188,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 2441 | 超豐 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
-| 20260713 | 2441 | 超豐 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260715 | 2441 | 超豐 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | call_inflow | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/28 1.召開法人說明會之日期：115/07/28 2.召開法人說明會之時間：14 時 30 分  3.召開法人說明會之地點：線上法人說明會 4.法人說明會擇要訊息：報告2026年上半年度營運成果及未來之營運展望 5.其他應敘明事項：直播連結 https://videoweb.zucast.com/webcast/9LeStAFH 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260715 | 2441 | 超豐 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_inflow | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/28 1.召開法人說明會之日期：115/07/28 2.召開法人說明會之時間：14 時 30 分  3.召開法人說明會之地點：線上法人說明會 4.法人說明會擇要訊息：報告2026年上半年度營運成果及未來之營運展望 5.其他應敘明事項：直播連結 https://videoweb.zucast.com/webcast/9LeStAFH 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 2441 | 超豐 | 5 | 4 | 5 | 8 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260715 | 2441 | 超豐 | 1 | 1 | 4 | 7 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 2441 | 超豐 | 75 | 0 | 11151620.0 | 0.0 |  | no_signal |
+| 20260715 | 2441 | 超豐 | 77 | 0 | 8848340.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

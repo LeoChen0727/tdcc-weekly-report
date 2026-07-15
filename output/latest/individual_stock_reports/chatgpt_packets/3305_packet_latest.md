@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3305 昇貿
 
 ## Metadata
-- generated_at: 2026-07-14 22:26:48 Asia/Taipei
+- generated_at: 2026-07-15 22:26:57 Asia/Taipei
 - stock_id: 3305
 - stock_name: 昇貿
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 302
+- latest_price_date: 20260715
+- price_rows: 304
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 128.5
-- high: 129.5
-- low: 122
-- close: 123.5
-- volume: 2350121
-- ma5: 129.8
-- ema23_primary: 135.86
-- distance_to_ema23_pct: -9.1
-- ma20: 136.68
-- ma60: 133.93
-- ma120: 122.61
-- return_5d: -9.19
-- return_20d: -11.79
-- volume_ratio: 0.8
-- distance_to_ma20_pct_auxiliary: -9.64
-- distance_to_high_60_pct: -27.14
+- date: 20260715
+- open: 119
+- high: 121.5
+- low: 117
+- close: 119
+- volume: 1556180
+- ma5: 124.1
+- ema23_primary: 133.21
+- distance_to_ema23_pct: -10.67
+- ma20: 134.18
+- ma60: 133.88
+- ma120: 122.77
+- return_5d: -8.81
+- return_20d: -17.36
+- volume_ratio: 0.57
+- distance_to_ma20_pct_auxiliary: -11.31
+- distance_to_high_60_pct: -29.79
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,145.5,149,143,144.5,6238423,144.14,0.25,150.32,124.92,0.52
-20260615,147,148,143,144,3612818,144.13,-0.09,150.68,125.45,0.33
 20260616,145,146.5,140,140.5,2987359,143.83,-2.31,150.8,125.98,0.32
 20260617,140,143,138,142.5,1762137,143.72,-0.85,151.18,126.62,0.2
 20260618,143,146,141,146,2759767,143.91,1.45,151.53,127.39,0.33
@@ -146,15 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,140,140.5,135,135,1954494,142.57,-5.31,147.97,129.84,0.32
 20260626,134,137,128.5,129.5,3338157,141.48,-8.47,146.55,130.27,0.58
 20260629,130.5,138,129,133.5,2620424,140.81,-5.19,145.35,130.71,0.48
-20260630,136,140.5,135,139,2642000,140.66,-1.18,143.93,131.28,0.53
-20260701,140.5,143,135.5,135.5,2287000,140.23,-3.38,142.82,131.84,0.51
-20260702,134.5,138.5,131.5,134.5,1861000,139.76,-3.76,141.4,132.38,0.45
+20260630,136,140.5,135,139,2679561,140.66,-1.18,143.93,131.28,0.54
+20260701,140.5,143,135.5,135.5,2326203,140.23,-3.38,142.82,131.84,0.52
+20260702,134.5,138.5,131.5,134.5,1892637,139.76,-3.76,141.4,132.38,0.45
 20260703,133,136.5,132,136,1331411,139.44,-2.47,140.2,132.82,0.33
-20260706,137,141,134,136.5,1947000,139.2,-1.94,139.22,133.28,0.51
+20260706,137,141,134,136.5,1980843,139.2,-1.94,139.22,133.28,0.52
 20260707,138.5,142.5,130,130.5,4275683,138.47,-5.76,138.5,133.52,1.14
 20260708,133,140.5,128,131,5128880,137.85,-4.97,137.95,133.72,1.51
 20260709,131,134,127,127.5,2480876,136.99,-6.93,137.5,133.85,0.78
-20260713,128.5,129.5,122,123.5,2350121,135.86,-9.1,136.68,133.93,0.8
+20260713,128.5,129.5,122,123.5,2350121,135.86,-9.1,136.68,133.93,0.79
+20260714,121.5,124,114,119.5,3541825,134.5,-11.15,135.43,133.9,1.25
+20260715,119,121.5,117,119,1556180,133.21,-10.67,134.18,133.88,0.57
 ```
 
 ## Latest TDCC Snapshot
@@ -189,17 +189,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 3305 | 昇貿 | revenue_pullback | 營收成長股價回檔 | 67.0 |  |  |  |  | no_signal | stale_signal | 1.董事會或股東會決議日期:NA 2.原發放股利種類及金額: 盈餘分配現金股利新台幣320,543,870元，每股配發新台幣2.3元。 3.變更後發放股利種類及金額: 盈餘分配現金股利新台幣320,543,870元，每股配發新台幣2.28330410元。 4.變更原因:因本公司可轉換公司債轉換普通股影響流通在外普通股股數總數， 故調整配息率。 5.其他應敘明事項:依115年03月12日董事會決議，授權董事長調整配息率相關事宜。；calendar event: ex_dividend on 20260715; status=confirmed; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260715 | 3305 | 昇貿 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.董事會或股東會決議日期:NA 2.原發放股利種類及金額: 盈餘分配現金股利新台幣320,543,870元，每股配發新台幣2.3元。 3.變更後發放股利種類及金額: 盈餘分配現金股利新台幣320,543,870元，每股配發新台幣2.28330410元。 4.變更原因:因本公司可轉換公司債轉換普通股影響流通在外普通股股數總數， 故調整配息率。 5.其他應敘明事項:依115年03月12日董事會決議，授權董事長調整配息率相關事宜。；calendar event: ex_dividend on 20260715; status=confirmed; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 3305 | 昇貿 | 23 | 7 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260715 | 3305 | 昇貿 | 25 | 9 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 3305 | 昇貿 | 94 | 1 | 3777460.0 | 94230.0 | 40.09 | no_signal |
+| 20260715 | 3305 | 昇貿 | 91 | 1 | 5068900.0 | 8100.0 | 625.79 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

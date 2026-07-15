@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5880 合庫金
 
 ## Metadata
-- generated_at: 2026-07-14 22:27:09 Asia/Taipei
+- generated_at: 2026-07-15 22:27:22 Asia/Taipei
 - stock_id: 5880
 - stock_name: 合庫金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 302
+- latest_price_date: 20260715
+- price_rows: 304
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 25
-- high: 25.3
-- low: 25
-- close: 25.2
-- volume: 19660420
-- ma5: 25.04
-- ema23_primary: 24.55
-- distance_to_ema23_pct: 2.64
-- ma20: 24.73
-- ma60: 23.64
-- ma120: 23.63
-- return_5d: 2.02
-- return_20d: 5.66
-- volume_ratio: 0.88
-- distance_to_ma20_pct_auxiliary: 1.92
-- distance_to_high_60_pct: -0.4
+- date: 20260715
+- open: 25.25
+- high: 25.7
+- low: 25.25
+- close: 25.35
+- volume: 19993845
+- ma5: 25.2
+- ema23_primary: 24.67
+- distance_to_ema23_pct: 2.77
+- ma20: 24.84
+- ma60: 23.68
+- ma120: 23.65
+- return_5d: 1.81
+- return_20d: 4.97
+- volume_ratio: 0.91
+- distance_to_ma20_pct_auxiliary: 2.04
+- distance_to_high_60_pct: -1.36
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,24.25,24.25,23.9,24.05,26503384,23.29,3.26,23.11,23.23,0.99
-20260615,24.3,24.35,24,24.15,21471650,23.36,3.37,23.19,23.25,0.79
 20260616,24.25,24.7,24.1,24.6,41356167,23.46,4.84,23.28,23.27,1.47
 20260617,24.55,25,24.5,24.75,28807379,23.57,5,23.38,23.3,1
 20260618,24.75,25,24.7,24.75,33174894,23.67,4.56,23.48,23.34,1.11
@@ -145,15 +143,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,24.4,25.1,24.35,25.1,47340824,23.96,4.77,23.87,23.43,1.47
 20260626,24.95,25.05,24.7,24.7,19431632,24.02,2.84,23.97,23.45,0.6
 20260629,24.9,25.05,24.7,24.85,17812295,24.09,3.16,24.07,23.48,0.6
-20260630,24.85,25,24.75,24.85,17074000,24.15,2.89,24.17,23.5,0.59
-20260701,24.85,25,24.65,24.85,12495000,24.21,2.64,24.26,23.52,0.45
-20260702,24.8,24.85,24.55,24.55,12814000,24.24,1.29,24.32,23.53,0.48
+20260630,24.85,25,24.75,24.85,17504216,24.15,2.89,24.17,23.5,0.61
+20260701,24.85,25,24.65,24.85,12599683,24.21,2.64,24.26,23.52,0.45
+20260702,24.8,24.85,24.55,24.55,12972010,24.24,1.29,24.32,23.53,0.48
 20260703,24.4,24.9,24.4,24.7,11076724,24.28,1.74,24.36,23.54,0.44
-20260706,24.7,24.95,24.7,24.85,11440000,24.32,2.16,24.43,23.56,0.47
+20260706,24.7,24.95,24.7,24.85,11628374,24.32,2.16,24.43,23.56,0.48
 20260707,24.8,25,24.8,24.9,17111947,24.37,2.17,24.53,23.57,0.72
 20260708,24.95,25.1,24.85,25.1,25688089,24.43,2.73,24.59,23.59,1.12
 20260709,25.1,25.2,24.95,25.15,16688144,24.49,2.68,24.66,23.62,0.74
 20260713,25,25.3,25,25.2,19660420,24.55,2.64,24.73,23.64,0.88
+20260714,25.3,25.3,24.85,25.2,20420218,24.61,2.42,24.78,23.66,0.93
+20260715,25.25,25.7,25.25,25.35,19993845,24.67,2.77,24.84,23.68,0.91
 ```
 
 ## Latest TDCC Snapshot
@@ -188,12 +188,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 5880 | 合庫金 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | stale_signal | 1.發生變動日期:115/07/09 2.法人名稱:中華民國農會 3.舊任者姓名: 蕭漢俊 張永成 4.舊任者簡歷: 中華民國農會理事長 中華民國農會總幹事 5.新任者姓名: 曾明瑞 黃偉特 6.新任者簡歷: 南投縣農會總幹事 羅東鎮農會理事長 7.異動原因:改派 8.原任期（例xx/xx/xx至xx/xx/xx）:115/06/18至118/06/17 9.新任生效日期:115/07/15 10.其他應敘明事項:依中華民國農會全農輔訓字第1150006570號函。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260715 | 5880 | 合庫金 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | continued_many_days | 1.事實發生日:115/07/14 2.公司名稱:合作金庫金融控股股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:無 5.發生緣由:同主旨 6.因應措施:不適用 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):                 當月自結  當月自結  累計稅前  累計稅後  累計每股                 稅前淨利  稅後淨利    淨利      淨利    稅後淨利                  (億元)    (億元)    (億元)    (億元)     (元) 合庫金控(合併)    31.84     21.81    170.04    134.00     0.82 合庫銀行(合併)    27.87     22.76    142.69    115.04     0.88 合庫資產(合併)     0.50      0.39      2.52      1.98     0.63 合庫票券(個別)     0.84      0.77      3.91      3.23     0.66 合庫證券(合併)     2.29      2.00     15.28     13.88     2.67 合庫人壽(個別)     2.06      1.73     12.05     10.34     1.50 合庫投信(個別)     0.01      0.01      0.02      0.02     0.06 註：上述集團獲利資料係屬自結數字，未經會計師查核或核閱；金控合併累計稅後 淨利歸屬於母公司業主為128.89億元、非控制權益為5.11億元。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 5880 | 合庫金 | 31 | 2 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260715 | 5880 | 合庫金 | 33 | 4 | 5 | 10 | 20 | continued_many_days | 連續 33 日上榜，需區分醞釀延續或訊號鈍化。 |
 
 ## Warrant Context
 | status |

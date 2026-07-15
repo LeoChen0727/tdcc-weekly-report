@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8033 雷虎
 
 ## Metadata
-- generated_at: 2026-07-14 22:27:33 Asia/Taipei
+- generated_at: 2026-07-15 22:27:49 Asia/Taipei
 - stock_id: 8033
 - stock_name: 雷虎
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 302
+- latest_price_date: 20260715
+- price_rows: 304
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 嚴格突破
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 嚴格突破 目前屬於「高位派發風險」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 轉弱警訊、股價乖離過大
+- risk_control_zh: 股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 嚴格突破 目前屬於「高位派發風險」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊、股價乖離過大
+- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -74,7 +74,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: high_level_distribution_risk
+- thesis_state: high_level_consolidation
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -89,6 +89,7 @@
 ### entry_prerequisites
 - price_structure_not_broken
 - revenue_not_deteriorating
+- no_major_tdcc_warning
 - no_major_volume_price_failure
 
 ### post_entry_watch_items
@@ -102,7 +103,6 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- tdcc_distribution_warning
 - price_too_extended
 
 ### chatgpt_instruction
@@ -111,30 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 235
-- high: 249.5
-- low: 235
-- close: 249.5
-- volume: 6454071
-- ma5: 226.6
-- ema23_primary: 178.83
-- distance_to_ema23_pct: 39.52
-- ma20: 168.8
-- ma60: 150.98
-- ma120: 148.7
-- return_5d: 22
-- return_20d: 97.23
-- volume_ratio: 0.6
-- distance_to_ma20_pct_auxiliary: 47.81
-- distance_to_high_60_pct: 0
+- date: 20260715
+- open: 264
+- high: 272
+- low: 249
+- close: 269.5
+- volume: 5353704
+- ma5: 247.5
+- ema23_primary: 192.89
+- distance_to_ema23_pct: 39.71
+- ma20: 182.55
+- ma60: 154.99
+- ma120: 150.57
+- return_5d: 30.19
+- return_20d: 108.91
+- volume_ratio: 0.47
+- distance_to_ma20_pct_auxiliary: 47.63
+- distance_to_high_60_pct: -0.92
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,129,131.5,128,129.5,1752824,135.4,-4.36,134.5,141.32,0.52
-20260615,131,131,128,129,1397156,134.87,-4.35,134.07,141.03,0.43
 20260616,129,129,124.5,125,2913921,134.04,-6.75,133.7,140.59,0.91
 20260617,125,131,124,127.5,1646216,133.5,-4.49,133.43,140.18,0.55
 20260618,128,130,125.5,129.5,2842463,133.17,-2.75,133.12,139.81,0.94
@@ -144,15 +142,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,142,143.5,137.5,138.5,2779702,135.25,2.4,133.8,139.57,0.75
 20260626,139,143,136.5,140.5,4620133,135.69,3.55,134.07,139.51,1.22
 20260629,146,154.5,144.5,154.5,11574293,137.25,12.57,134.65,139.82,2.9
-20260630,156,169.5,153,169.5,36613000,139.94,21.12,136.07,140.32,6.68
-20260701,177,186,175.5,186,25308000,143.78,29.37,138.57,141.19,3.88
-20260702,185.5,198,179.5,186,52545000,147.3,26.28,141.15,142.06,5.81
-20260703,188,204.5,188,204.5,10966815,152.06,34.48,144.72,143.18,1.16
-20260706,217,224.5,215.5,222,9418000,157.89,40.6,149.1,144.7,0.96
-20260707,222,222,200,207,8165973,161.98,27.79,153,145.98,0.81
-20260708,223,227.5,213,227.5,7654968,167.44,35.87,157.75,147.61,0.74
-20260709,225,239,225,227,6201224,172.41,31.66,162.65,149.11,0.59
-20260713,235,249.5,235,249.5,6454071,178.83,39.52,168.8,150.98,0.6
+20260630,156,169.5,153,169.5,37042097,139.94,21.12,136.07,140.32,6.74
+20260701,177,186,175.5,186,25951532,143.78,29.37,138.57,141.19,3.94
+20260702,185.5,198,179.5,186,53062536,147.3,26.28,141.15,142.06,5.82
+20260703,188,204.5,188,204.5,10966815,152.06,34.48,144.72,143.18,1.15
+20260706,217,224.5,215.5,222,9733990,157.89,40.6,149.1,144.7,0.98
+20260707,222,222,200,207,8165973,161.98,27.79,153,145.98,0.8
+20260708,223,227.5,213,227.5,7654968,167.44,35.87,157.75,147.61,0.73
+20260709,225,239,225,227,6201224,172.41,31.66,162.65,149.11,0.58
+20260713,235,249.5,235,249.5,6454071,178.83,39.52,168.8,150.98,0.59
+20260714,256,265.5,235,264,9545030,185.93,41.99,175.53,152.97,0.85
+20260715,264,272,249,269.5,5353704,192.89,39.71,182.55,154.99,0.47
 ```
 
 ## Latest TDCC Snapshot
@@ -185,19 +185,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 8033 | 雷虎 | true_breakout | 嚴格突破 | 58.0 |  |  |  |  | no_signal | first_seen | 1.事實發生日:115/07/03 2.公司名稱:雷虎科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:本公司115年度現金增資認股繳款催繳期間自115年06月03日至 115年07月03日15點30分截止。 6.因應措施:未於催繳期間繳納股款之原股東及員工，自115年07月03日15點30分起 停止繳納並喪失其權利。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): (1)本公司現金增資已於115年06月05日收足股款，並於115年06月10日    以股款繳納憑證上市買賣。 (2)貴股東於催繳期間(115年06月03日至115年07月03日15點30分)繳足股款者，    所認購之股數將由台灣集中保管結算所股份有限公司於115年7月23日劃撥    至  貴股東指定之集保帳戶。 (3)若  貴股東有任何疑問，敬請向福邦證券股份有限公司股務代理部(台北市　    中正區忠孝西路一段6號6樓，電話：(02)2371-1658)洽詢。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 8033 | 雷虎 | 1 | 1 | 3 | 7 | 10 | first_seen | 首次上榜或資料有限，需後續確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 8033 | 雷虎 | 4 | 0 | 1342420.0 | 0.0 |  | no_signal |
+| 20260715 | 8033 | 雷虎 | 3 | 0 | 694740.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

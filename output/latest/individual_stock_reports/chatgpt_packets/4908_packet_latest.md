@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4908 前鼎
 
 ## Metadata
-- generated_at: 2026-07-14 22:27:02 Asia/Taipei
+- generated_at: 2026-07-15 22:27:13 Asia/Taipei
 - stock_id: 4908
 - stock_name: 前鼎
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 167
+- latest_price_date: 20260715
+- price_rows: 169
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 169
-- high: 169
-- low: 155.5
-- close: 159
-- volume: 1064000
-- ma5: 166
-- ema23_primary: 187.24
-- distance_to_ema23_pct: -15.08
-- ma20: 186.12
-- ma60: 210.78
-- ma120: 151.51
-- return_5d: -12.15
-- return_20d: -17.4
-- volume_ratio: 0.56
-- distance_to_ma20_pct_auxiliary: -14.57
-- distance_to_high_60_pct: -49.12
+- date: 20260715
+- open: 158.5
+- high: 158.5
+- low: 153.5
+- close: 155.5
+- volume: 874000
+- ma5: 160.6
+- ema23_primary: 182.1
+- distance_to_ema23_pct: -14.61
+- ma20: 181.88
+- ma60: 210.53
+- ma120: 152.86
+- return_5d: -4.01
+- return_20d: -20.66
+- volume_ratio: 0.47
+- distance_to_ma20_pct_auxiliary: -14.5
+- distance_to_high_60_pct: -50.24
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,205,205,194,199,1367000,222.77,-10.67,236.2,188.22,1.42
-20260615,205,208,194,196,1520000,220.54,-11.13,234.25,189.78,1.48
 20260616,200.5,209.5,197.5,198,1868000,218.66,-9.45,232.57,191.19,1.71
 20260617,195,198,191.5,193,1221000,216.52,-10.86,229.88,192.5,1.09
 20260618,196,212,192,212,1862000,216.15,-1.92,228.32,194.26,2.08
@@ -154,6 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260708,164.5,171.5,162.5,170,1654000,192.16,-11.53,189.6,210.12,0.81
 20260709,169.5,169.5,164,164,1186000,189.81,-13.6,187.8,210.48,0.6
 20260713,169,169,155.5,159,1064000,187.24,-15.08,186.12,210.78,0.56
+20260714,159,164,143.5,154.5,1690000,184.51,-16.27,183.9,210.78,0.88
+20260715,158.5,158.5,153.5,155.5,874000,182.1,-14.61,181.88,210.53,0.47
 ```
 
 ## Latest TDCC Snapshot

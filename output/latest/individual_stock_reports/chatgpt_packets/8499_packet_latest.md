@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8499 鼎炫-KY
 
 ## Metadata
-- generated_at: 2026-07-14 22:27:39 Asia/Taipei
+- generated_at: 2026-07-15 22:27:55 Asia/Taipei
 - stock_id: 8499
 - stock_name: 鼎炫-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 302
+- latest_price_date: 20260715
+- price_rows: 304
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 293
-- high: 293
-- low: 283.5
-- close: 284.5
-- volume: 43621
-- ma5: 302.4
-- ema23_primary: 301.25
-- distance_to_ema23_pct: -5.56
-- ma20: 303.7
-- ma60: 291.78
-- ma120: 287.5
-- return_5d: -9.68
-- return_20d: -0.87
-- volume_ratio: 0.5
-- distance_to_ma20_pct_auxiliary: -6.32
-- distance_to_high_60_pct: -16.32
+- date: 20260715
+- open: 295
+- high: 306
+- low: 290.5
+- close: 302
+- volume: 122551
+- ma5: 295.3
+- ema23_primary: 300.23
+- distance_to_ema23_pct: 0.59
+- ma20: 304.48
+- ma60: 292.6
+- ma120: 287.06
+- return_5d: 1
+- return_20d: 4.5
+- volume_ratio: 1.39
+- distance_to_ma20_pct_auxiliary: -0.81
+- distance_to_high_60_pct: -11.18
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,291,301.5,284.5,284.5,97036,290.28,-1.99,296.1,278.13,0.64
-20260615,288,295,287,289,69209,290.17,-0.4,296.7,278.32,0.47
 20260616,292.5,305,290,300,129907,290.99,3.1,298.43,278.93,0.88
 20260617,300,304.5,299,303.5,77441,292.03,3.93,299.68,279.49,0.53
 20260618,304,305,300,304,57297,293.03,3.74,300.43,280.36,0.4
@@ -145,15 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,314.5,314.5,305.5,305.5,70158,298.3,2.41,298.02,284.14,0.71
 20260626,309,309,292,300,130494,298.44,0.52,297.32,285.04,1.33
 20260629,301.5,312.5,296,309,102084,299.32,3.23,296.73,286.17,1.05
-20260630,307,312,303,312,26000,300.38,3.87,297.25,287.03,0.29
-20260701,312,312,300.5,300.5,44000,300.39,0.04,297.35,287.81,0.5
-20260702,300.5,304,295,298,30000,300.19,-0.73,297.43,288.48,0.36
-20260703,298,315,298,315,80199,301.42,4.5,298.32,289.23,0.94
-20260706,334,334,317.5,325.5,173000,303.43,7.27,299.98,290.17,1.9
+20260630,307,312,303,312,28828,300.38,3.87,297.25,287.03,0.32
+20260701,312,312,300.5,300.5,45760,300.39,0.04,297.35,287.81,0.52
+20260702,300.5,304,295,298,33930,300.19,-0.73,297.43,288.48,0.4
+20260703,298,315,298,315,80199,301.42,4.5,298.32,289.23,0.93
+20260706,334,334,317.5,325.5,184173,303.43,7.27,299.98,290.17,2
 20260707,325.5,325.5,299,299,65017,303.06,-1.34,301.25,290.6,0.72
-20260708,297,306.5,293,306.5,51572,303.35,1.04,302.5,291.31,0.58
-20260709,294,302.5,291,296.5,50297,302.78,-2.07,303.82,291.78,0.57
+20260708,297,306.5,293,306.5,51572,303.35,1.04,302.5,291.31,0.57
+20260709,294,302.5,291,296.5,50297,302.78,-2.07,303.82,291.78,0.56
 20260713,293,293,283.5,284.5,43621,301.25,-5.56,303.7,291.78,0.5
+20260714,290.5,297.5,277,287,59239,300.07,-4.35,303.82,292.07,0.69
+20260715,295,306,290.5,302,122551,300.23,0.59,304.48,292.6,1.39
 ```
 
 ## Latest TDCC Snapshot
@@ -198,7 +199,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 8499 | 鼎炫-KY | 10 | 1 | 105730.0 | 0.0 |  | no_signal |
+| 20260715 | 8499 | 鼎炫-KY | 8 | 0 | 52460.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6189 豐藝
 
 ## Metadata
-- generated_at: 2026-07-14 22:27:13 Asia/Taipei
+- generated_at: 2026-07-15 22:27:26 Asia/Taipei
 - stock_id: 6189
 - stock_name: 豐藝
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 302
+- latest_price_date: 20260715
+- price_rows: 304
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 50.9
-- high: 51.6
-- low: 49.85
-- close: 49.9
-- volume: 689392
-- ma5: 51.14
-- ema23_primary: 51.89
-- distance_to_ema23_pct: -3.83
-- ma20: 52.62
-- ma60: 50.71
-- ma120: 48.33
-- return_5d: -6.38
-- return_20d: -4.59
-- volume_ratio: 0.29
-- distance_to_ma20_pct_auxiliary: -5.16
-- distance_to_high_60_pct: -17.52
+- date: 20260715
+- open: 48.8
+- high: 49.65
+- low: 48.8
+- close: 49.6
+- volume: 421067
+- ma5: 49.96
+- ema23_primary: 51.45
+- distance_to_ema23_pct: -3.6
+- ma20: 52.05
+- ma60: 50.78
+- ma120: 48.41
+- return_5d: -3.69
+- return_20d: -10.63
+- volume_ratio: 0.21
+- distance_to_ma20_pct_auxiliary: -4.71
+- distance_to_high_60_pct: -18.02
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,54.7,56.5,53.8,54.1,5307842,51.73,4.57,51.88,48.7,1.98
-20260615,55.1,55.9,54.2,55.5,3699018,52.05,6.63,52.26,48.84,1.3
 20260616,57.9,60.5,56.6,56.6,13177954,52.43,7.96,52.66,49.01,3.83
 20260617,55.5,55.5,53.5,54.4,4325027,52.59,3.44,52.83,49.13,1.25
 20260618,54.5,55.1,54,54.9,2026169,52.78,4.01,52.99,49.27,0.59
@@ -146,15 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,51.1,51.5,50.2,50.5,1646809,52.82,-4.4,53.34,49.67,0.47
 20260626,50.2,51.6,49.85,50.5,1542497,52.63,-4.04,53.37,49.75,0.44
 20260629,50.3,50.5,49.15,49.25,1224700,52.35,-5.92,53.31,49.83,0.35
-20260630,49.6,50.5,49.3,50.2,676000,52.17,-3.77,53.33,49.92,0.19
-20260701,51,54.6,50.7,53.2,3202000,52.25,1.81,53.43,50.06,0.9
-20260702,52.3,52.7,51.8,52.5,1165000,52.27,0.43,53.25,50.19,0.34
+20260630,49.6,50.5,49.3,50.2,693040,52.17,-3.77,53.33,49.92,0.2
+20260701,51,54.6,50.7,53.2,3265560,52.25,1.81,53.43,50.06,0.91
+20260702,52.3,52.7,51.8,52.5,1181690,52.27,0.43,53.25,50.19,0.34
 20260703,52.5,53.3,52.1,53.3,796147,52.36,1.8,53.27,50.31,0.25
-20260706,53.3,53.7,52.3,52.7,724000,52.39,0.6,53.19,50.44,0.24
+20260706,53.3,53.7,52.3,52.7,741223,52.39,0.6,53.19,50.44,0.24
 20260707,53.1,53.1,51.4,51.5,867996,52.31,-1.56,53.11,50.54,0.3
 20260708,51.5,52.1,50.7,51.2,599623,52.22,-1.96,52.87,50.61,0.23
 20260709,50.8,51.1,50,50.4,737451,52.07,-3.21,52.74,50.67,0.3
 20260713,50.9,51.6,49.85,49.9,689392,51.89,-3.83,52.62,50.71,0.29
+20260714,50.1,50.1,48,48.7,943869,51.62,-5.66,52.35,50.74,0.43
+20260715,48.8,49.65,48.8,49.6,421067,51.45,-3.6,52.05,50.78,0.21
 ```
 
 ## Latest TDCC Snapshot
@@ -199,7 +199,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 6189 | 豐藝 | 4 | 0 | 0.0 | 0.0 |  | no_signal |
+| 20260715 | 6189 | 豐藝 | 4 | 0 | 570.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

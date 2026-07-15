@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3715 定穎投控
 
 ## Metadata
-- generated_at: 2026-07-14 22:26:55 Asia/Taipei
+- generated_at: 2026-07-15 22:27:05 Asia/Taipei
 - stock_id: 3715
 - stock_name: 定穎投控
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 302
+- latest_price_date: 20260715
+- price_rows: 304
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 153
-- high: 154.5
-- low: 143.5
-- close: 144
-- volume: 7377863
-- ma5: 153.4
-- ema23_primary: 166.55
-- distance_to_ema23_pct: -13.54
-- ma20: 169.47
-- ma60: 175.04
-- ma120: 166.01
-- return_5d: -16.28
-- return_20d: -13.25
-- volume_ratio: 0.74
-- distance_to_ma20_pct_auxiliary: -15.03
-- distance_to_high_60_pct: -28.36
+- date: 20260715
+- open: 143
+- high: 147
+- low: 141.5
+- close: 142.5
+- volume: 4552766
+- ma5: 146
+- ema23_primary: 162.59
+- distance_to_ema23_pct: -12.36
+- ma20: 166.88
+- ma60: 173.36
+- ma120: 166.15
+- return_5d: -8.36
+- return_20d: -15.68
+- volume_ratio: 0.45
+- distance_to_ma20_pct_auxiliary: -14.61
+- distance_to_high_60_pct: -28.75
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,172,173,166.5,166.5,5842203,172.43,-3.44,171.38,179.18,0.52
-20260615,170,173,168.5,169,5117879,172.14,-1.82,171.3,179.1,0.47
 20260616,171.5,174,170,171,6412210,172.04,-0.61,171.6,178.78,0.6
 20260617,169.5,177.5,168.5,176,7864272,172.37,2.1,172.35,178.73,0.73
 20260618,176.5,185,176.5,179,11155279,172.93,3.51,173.1,178.88,1.01
@@ -145,15 +143,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,183.5,185.5,177,177,8598596,175.65,0.77,173.72,178.76,0.76
 20260626,176.5,180,168,168.5,8957639,175.05,-3.74,173.6,178.48,0.79
 20260629,170,171.5,165,166,5656135,174.3,-4.76,173.22,178.33,0.51
-20260630,169,176.5,168.5,176,5657000,174.44,0.89,172.93,178.27,0.53
-20260701,177.5,186.5,172,172,9571000,174.24,-1.28,172.85,178.27,0.91
-20260702,170.5,179,169,175.5,5179000,174.34,0.66,172.93,178.17,0.5
+20260630,169,176.5,168.5,176,5782696,174.44,0.89,172.93,178.27,0.54
+20260701,177.5,186.5,172,172,9801658,174.24,-1.28,172.85,178.27,0.93
+20260702,170.5,179,169,175.5,5270970,174.34,0.66,172.93,178.17,0.5
 20260703,173.5,176.5,172,172,3878539,174.15,-1.23,173.07,177.79,0.38
-20260706,174.5,174.5,164,165,10196000,173.38,-4.84,172.82,177.43,0.98
+20260706,174.5,174.5,164,165,10609683,173.38,-4.84,172.82,177.43,1.01
 20260707,166.5,166.5,154.5,155.5,11550106,171.89,-9.54,172.3,176.91,1.09
 20260708,155.5,157,146,151.5,11061563,170.19,-10.98,171.15,176.32,1.07
 20260709,151.5,155,149.5,151,7496918,168.59,-10.44,170.57,175.73,0.74
 20260713,153,154.5,143.5,144,7377863,166.55,-13.54,169.47,175.04,0.74
+20260714,144,147,133.5,141,8961148,164.42,-14.24,168.2,174.28,0.89
+20260715,143,147,141.5,142.5,4552766,162.59,-12.36,166.88,173.36,0.45
 ```
 
 ## Latest TDCC Snapshot
@@ -198,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 3715 | 定穎投控 | 229 | 8 | 11818070.0 | 220060.0 | 53.7 | no_signal |
+| 20260715 | 3715 | 定穎投控 | 224 | 8 | 7767420.0 | 180650.0 | 43.0 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

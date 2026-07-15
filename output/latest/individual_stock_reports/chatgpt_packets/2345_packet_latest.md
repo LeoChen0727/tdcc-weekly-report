@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2345 智邦
 
 ## Metadata
-- generated_at: 2026-07-14 22:26:31 Asia/Taipei
+- generated_at: 2026-07-15 22:26:37 Asia/Taipei
 - stock_id: 2345
 - stock_name: 智邦
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 302
+- latest_price_date: 20260715
+- price_rows: 304
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -58,7 +58,7 @@
 - pdf_visible: true
 - action_rating_display_zh: 可分批買進
 - model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
 - action_summary_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。
 - entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
 - position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
@@ -73,7 +73,7 @@
 - internal_use_only: true
 - action_rating: scale_in
 - action_rating_label_zh: 可分批買進
-- confidence_level: medium
+- confidence_level: high
 - thesis_state: healthy_pullback
 - entry_style: pullback_to_23ema
 - position_sizing: half_position
@@ -92,6 +92,7 @@
 
 ### entry_prerequisites
 - model_recommended
+- decision_score_high
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -118,30 +119,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 2565
-- high: 2565
-- low: 2400
-- close: 2405
-- volume: 2111638
-- ma5: 2478
-- ema23_primary: 2485.71
-- distance_to_ema23_pct: -3.25
-- ma20: 2487.5
-- ma60: 2424.5
-- ma120: 1918.04
-- return_5d: -12.07
-- return_20d: 5.71
-- volume_ratio: 0.62
-- distance_to_ma20_pct_auxiliary: -3.32
-- distance_to_high_60_pct: -14.87
+- date: 20260715
+- open: 2395
+- high: 2420
+- low: 2315
+- close: 2340
+- volume: 2058964
+- ma5: 2382
+- ema23_primary: 2457.86
+- distance_to_ema23_pct: -4.8
+- ma20: 2480.25
+- ma60: 2433.08
+- ma120: 1935.88
+- return_5d: -4.68
+- return_20d: -3.7
+- volume_ratio: 0.6
+- distance_to_ma20_pct_auxiliary: -5.65
+- distance_to_high_60_pct: -17.17
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,2365,2390,2270,2335,2814268,2415.15,-3.32,2461.25,2164.92,0.76
-20260615,2435,2475,2335,2430,3350938,2416.38,0.56,2458,2178.75,0.9
 20260616,2495,2555,2410,2520,3072890,2425.02,3.92,2464.5,2194.25,0.84
 20260617,2555,2600,2470,2495,2648670,2430.85,2.64,2471.5,2209,0.74
 20260618,2480,2490,2415,2435,4237239,2431.2,0.16,2469.25,2223.5,1.2
@@ -151,15 +150,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,2485,2545,2375,2380,4634360,2433.42,-2.2,2446,2277.42,1.28
 20260626,2395,2520,2335,2380,4874059,2428.97,-2.02,2443.25,2289.83,1.35
 20260629,2395,2430,2290,2340,3066800,2421.55,-3.37,2438.75,2303.67,0.89
-20260630,2445,2525,2420,2495,3274000,2427.67,2.77,2438,2317.58,0.95
-20260701,2600,2695,2540,2660,4245000,2447.03,8.7,2449.75,2335.42,1.22
-20260702,2660,2780,2610,2750,4000000,2472.28,11.23,2458,2354.33,1.15
-20260703,2750,2800,2675,2735,3021446,2494.17,9.66,2469.25,2371.42,0.86
-20260706,2825,2825,2600,2645,2184000,2506.74,5.52,2477,2387.33,0.63
-20260707,2700,2700,2450,2455,3972983,2502.43,-1.9,2478.75,2397.67,1.13
-20260708,2440,2525,2370,2415,3644265,2495.15,-3.21,2475.75,2407.58,1.02
-20260709,2485,2540,2465,2470,2856685,2493.05,-0.92,2481,2417.25,0.82
-20260713,2565,2565,2400,2405,2111638,2485.71,-3.25,2487.5,2424.5,0.62
+20260630,2445,2525,2420,2495,3513262,2427.67,2.77,2438,2317.58,1.02
+20260701,2600,2695,2540,2660,4593489,2447.03,8.7,2449.75,2335.42,1.31
+20260702,2660,2780,2610,2750,4236718,2472.28,11.23,2458,2354.33,1.21
+20260703,2750,2800,2675,2735,3021446,2494.17,9.66,2469.25,2371.42,0.85
+20260706,2825,2825,2600,2645,2283004,2506.74,5.52,2477,2387.33,0.65
+20260707,2700,2700,2450,2455,3972983,2502.43,-1.9,2478.75,2397.67,1.12
+20260708,2440,2525,2370,2415,3644265,2495.15,-3.21,2475.75,2407.58,1.01
+20260709,2485,2540,2465,2470,2856685,2493.05,-0.92,2481,2417.25,0.81
+20260713,2565,2565,2400,2405,2111638,2485.71,-3.25,2487.5,2424.5,0.61
+20260714,2350,2415,2195,2280,3090709,2468.57,-7.64,2484.75,2428.58,0.89
+20260715,2395,2420,2315,2340,2058964,2457.86,-4.8,2480.25,2433.08,0.6
 ```
 
 ## Latest TDCC Snapshot
@@ -194,17 +195,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 2345 | 智邦 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | calendar event: ex_dividend on 20260730; status=confirmed; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260715 | 2345 | 智邦 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  | put_inflow | stale_signal | calendar event: ex_dividend on 20260730; status=confirmed; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 2345 | 智邦 | 14 | 7 | 5 | 10 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260715 | 2345 | 智邦 | 16 | 9 | 5 | 10 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 2345 | 智邦 | 268 | 29 | 23411600.0 | 672820.0 | 34.8 | no_signal |
+| 20260715 | 2345 | 智邦 | 268 | 28 | 22716390.0 | 1678070.0 | 13.54 | put_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

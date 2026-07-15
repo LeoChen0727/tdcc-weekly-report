@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4139 馬光-KY
 
 ## Metadata
-- generated_at: 2026-07-14 22:26:56 Asia/Taipei
+- generated_at: 2026-07-15 22:27:07 Asia/Taipei
 - stock_id: 4139
 - stock_name: 馬光-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 164
+- latest_price_date: 20260715
+- price_rows: 166
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -59,14 +59,14 @@
 - action_rating_display_zh: 已持有續抱
 - model_category_display_zh: 單一個股分析
 - score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- risk_control_zh: 股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -74,7 +74,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: unclear
+- thesis_state: high_level_consolidation
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -91,7 +91,6 @@
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
-- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -104,7 +103,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- none
+- price_too_extended
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -112,30 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 25.2
-- high: 26
-- low: 24.9
-- close: 26
-- volume: 66000
-- ma5: 25.01
-- ema23_primary: 24.46
-- distance_to_ema23_pct: 6.3
-- ma20: 24.55
-- ma60: 23.96
-- ma120: 24.15
-- return_5d: 5.69
-- return_20d: 6.34
-- volume_ratio: 2.55
-- distance_to_ma20_pct_auxiliary: 5.9
+- date: 20260715
+- open: 30
+- high: 31.45
+- low: 30
+- close: 31.45
+- volume: 92000
+- ma5: 27.12
+- ema23_primary: 25.36
+- distance_to_ema23_pct: 24.03
+- ma20: 25.11
+- ma60: 24.13
+- ma120: 24.24
+- return_5d: 27.07
+- return_20d: 28.37
+- volume_ratio: 2.7
+- distance_to_ma20_pct_auxiliary: 25.25
 - distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,24.05,24.4,23.7,24.4,20000,23.45,4.05,23.25,24,1.06
-20260615,24.75,24.75,24.4,24.5,31000,23.54,4.09,23.27,23.99,1.56
 20260616,24.4,24.4,24.3,24.3,14000,23.6,2.96,23.32,23.98,0.7
 20260617,24.3,24.3,24,24.25,26000,23.66,2.51,23.36,23.98,1.24
 20260618,24.25,24.75,24.2,24.75,7000,23.75,4.22,23.45,23.98,0.34
@@ -154,6 +151,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260708,24.6,24.75,24.6,24.65,35000,24.26,1.59,24.47,23.94,1.55
 20260709,24.8,24.9,24.75,24.9,52000,24.32,2.39,24.48,23.94,2.24
 20260713,25.2,26,24.9,26,66000,24.46,6.3,24.55,23.96,2.55
+20260714,26.35,28.6,26.35,28.6,123000,24.8,15.31,24.76,24.02,3.96
+20260715,30,31.45,30,31.45,92000,25.36,24.03,25.11,24.13,2.7
 ```
 
 ## Latest TDCC Snapshot

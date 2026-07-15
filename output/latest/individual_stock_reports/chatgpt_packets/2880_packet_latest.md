@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2880 華南金
 
 ## Metadata
-- generated_at: 2026-07-14 22:26:41 Asia/Taipei
+- generated_at: 2026-07-15 22:26:48 Asia/Taipei
 - stock_id: 2880
 - stock_name: 華南金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 302
+- latest_price_date: 20260715
+- price_rows: 304
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 38.85
-- high: 39.45
-- low: 38.75
-- close: 39
-- volume: 15365069
-- ma5: 38.95
-- ema23_primary: 37.27
-- distance_to_ema23_pct: 4.65
-- ma20: 37.73
-- ma60: 34.85
-- ma120: 34.39
-- return_5d: 3.59
-- return_20d: 9.4
-- volume_ratio: 0.53
-- distance_to_ma20_pct_auxiliary: 3.36
-- distance_to_high_60_pct: -2.26
+- date: 20260715
+- open: 39.1
+- high: 39.65
+- low: 38.4
+- close: 38.85
+- volume: 20014232
+- ma5: 39.13
+- ema23_primary: 37.55
+- distance_to_ema23_pct: 3.46
+- ma20: 38
+- ma60: 34.95
+- ma120: 34.52
+- return_5d: -0.26
+- return_20d: 5.86
+- volume_ratio: 0.7
+- distance_to_ma20_pct_auxiliary: 2.23
+- distance_to_high_60_pct: -2.63
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,35.9,37,35.75,36,38300652,33.88,6.26,33.13,33.59,0.64
-20260615,37.5,37.5,36.1,36.7,18966806,34.11,7.58,33.37,33.64,0.32
 20260616,36.7,37.6,36.55,37.45,27840857,34.39,8.89,33.63,33.71,0.47
 20260617,36.95,38.6,36.95,38.1,32919856,34.7,9.79,33.94,33.79,0.55
 20260618,38.15,39.2,38,38.35,67936605,35.01,9.55,34.25,33.88,1.11
@@ -145,15 +143,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,36.55,38,36.5,38,52957611,35.75,6.29,35.63,34.14,0.9
 20260626,36.9,37.75,36.9,36.9,28094453,35.85,2.94,35.99,34.2,0.51
 20260629,37.55,37.8,37,37.3,24107283,35.97,3.7,36.34,34.27,0.48
-20260630,37.35,38.15,37.2,38,16627000,36.14,5.15,36.59,34.34,0.36
-20260701,37.85,38.4,36.7,36.7,18191000,36.19,1.42,36.73,34.39,0.44
-20260702,36.35,36.95,36.35,36.6,16009000,36.22,1.05,36.73,34.44,0.42
+20260630,37.35,38.15,37.2,38,17104220,36.14,5.15,36.59,34.34,0.37
+20260701,37.85,38.4,36.7,36.7,19928767,36.19,1.42,36.73,34.39,0.48
+20260702,36.35,36.95,36.35,36.6,16110899,36.22,1.05,36.73,34.44,0.42
 20260703,36.1,37.95,36.1,37.65,16407923,36.34,3.61,36.73,34.5,0.48
-20260706,37.8,38.5,37.7,38.25,11974000,36.5,4.8,36.91,34.56,0.37
+20260706,37.8,38.5,37.7,38.25,12149156,36.5,4.8,36.91,34.56,0.37
 20260707,38,39,38,38.95,21077808,36.7,6.12,37.18,34.64,0.66
 20260708,39.1,39.7,38.8,39.7,16149020,36.95,7.44,37.39,34.73,0.53
-20260709,39.7,39.9,38.85,38.85,9966544,37.11,4.69,37.56,34.8,0.34
+20260709,39.7,39.9,38.85,38.85,9966544,37.11,4.69,37.56,34.8,0.33
 20260713,38.85,39.45,38.75,39,15365069,37.27,4.65,37.73,34.85,0.53
+20260714,39.25,39.3,38.35,39.25,23428900,37.43,4.85,37.9,34.9,0.83
+20260715,39.1,39.65,38.4,38.85,20014232,37.55,3.46,38,34.95,0.7
 ```
 
 ## Latest TDCC Snapshot
@@ -188,17 +188,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 2880 | 華南金 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | no_signal | stale_signal | 1.發生變動日期:115/07/09 2.法人名稱:華南金融控股股份有限公司 3.舊任者姓名:許素蓉 4.舊任者簡歷:華南銀行兼華南金融控股股份有限公司總機構法令遵循主管暨防制洗錢 及打擊資恐專責主管 5.新任者姓名:無 6.新任者簡歷:無 7.異動原因:辭職 8.原任期（例xx/xx/xx至xx/xx/xx）:114/03/14至117/03/13 9.新任生效日期:無 10.其他應敘明事項:自115年7月16日生效；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260715 | 2880 | 華南金 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.發生變動日期:115/07/14 2.法人名稱:臺灣銀行股份有限公司 3.舊任者姓名:無 4.舊任者簡歷:無 5.新任者姓名:李杏芬 6.新任者簡歷:財政部國庫署組長 7.異動原因:新任 8.原任期（例xx/xx/xx至xx/xx/xx）:114/06/13至117/06/12 9.新任生效日期:115/07/14 10.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 2880 | 華南金 | 1 | 1 | 4 | 9 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260715 | 2880 | 華南金 | 3 | 3 | 4 | 9 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 2880 | 華南金 | 2 | 0 | 0.0 | 0.0 |  | no_signal |
+| 20260715 | 2880 | 華南金 | 2 | 0 | 28480.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

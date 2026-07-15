@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5258 虹堡
 
 ## Metadata
-- generated_at: 2026-07-14 22:27:05 Asia/Taipei
+- generated_at: 2026-07-15 22:27:17 Asia/Taipei
 - stock_id: 5258
 - stock_name: 虹堡
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 302
+- latest_price_date: 20260715
+- price_rows: 304
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 回檔後短線轉強
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 回檔後短線轉強 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 轉弱警訊
+- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 回檔後短線轉強 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -88,8 +88,8 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
+- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -104,7 +104,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- tdcc_distribution_warning
+- none
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -112,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 53
-- high: 54.6
-- low: 53
+- date: 20260715
+- open: 53.3
+- high: 54.7
+- low: 52.5
 - close: 54.6
-- volume: 1033550
-- ma5: 52.32
-- ema23_primary: 51.09
-- distance_to_ema23_pct: 6.86
-- ma20: 50.44
-- ma60: 51.47
-- ma120: 52.11
-- return_5d: 5
-- return_20d: 7.91
-- volume_ratio: 1.93
-- distance_to_ma20_pct_auxiliary: 8.25
+- volume: 578260
+- ma5: 53.22
+- ema23_primary: 51.49
+- distance_to_ema23_pct: 6.04
+- ma20: 50.77
+- ma60: 51.54
+- ma120: 51.96
+- return_5d: 7.06
+- return_20d: 8.33
+- volume_ratio: 1.04
+- distance_to_ma20_pct_auxiliary: 7.54
 - distance_to_high_60_pct: -13.33
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,51,51.4,50,50,564448,51.55,-3.01,53.21,50.25,0.36
-20260615,50.8,51.2,50.2,50.4,416781,51.45,-2.05,52.79,50.32,0.28
 20260616,51.2,51.2,49.1,49.25,603573,51.27,-3.94,52.25,50.4,0.47
 20260617,49.35,50.9,49.35,50.4,343581,51.2,-1.56,51.87,50.48,0.29
 20260618,50.4,50.9,49.95,50.6,419921,51.15,-1.07,51.54,50.57,0.4
@@ -145,15 +143,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,49.8,49.95,48.5,48.5,542035,50.75,-4.43,50.27,50.76,0.73
 20260626,48.5,48.9,46.55,46.55,624944,50.4,-7.63,50.05,50.75,0.89
 20260629,47.45,48.1,47.05,48,296768,50.2,-4.38,49.95,50.78,0.48
-20260630,48.6,49,48.1,48.85,241000,50.08,-2.46,49.77,50.8,0.42
-20260701,52,53.4,50.7,51,1185000,50.16,1.67,49.72,50.87,2.02
-20260702,50.5,51.6,50.1,50.6,461000,50.2,0.8,49.63,50.96,0.8
+20260630,48.6,49,48.1,48.85,243570,50.08,-2.46,49.77,50.8,0.43
+20260701,52,53.4,50.7,51,1199801,50.16,1.67,49.72,50.87,2.05
+20260702,50.5,51.6,50.1,50.6,465400,50.2,0.8,49.63,50.96,0.81
 20260703,50.6,52.2,50.6,52,563719,50.35,3.28,49.68,51.05,0.99
-20260706,52.8,53.3,51.6,51.6,497000,50.45,2.28,49.75,51.14,0.88
+20260706,52.8,53.3,51.6,51.6,502212,50.45,2.28,49.75,51.14,0.89
 20260707,51.7,52.3,50.7,51,399370,50.5,0.99,49.9,51.21,0.73
 20260708,51.6,51.7,50.5,51.6,245676,50.59,2,50.04,51.27,0.46
 20260709,51.5,53,51.5,52.8,598191,50.77,3.99,50.24,51.36,1.12
-20260713,53,54.6,53,54.6,1033550,51.09,6.86,50.44,51.47,1.93
+20260713,53,54.6,53,54.6,1033550,51.09,6.86,50.44,51.47,1.92
+20260714,54.6,54.6,51.1,52.5,812917,51.21,2.52,50.56,51.5,1.48
+20260715,53.3,54.7,52.5,54.6,578260,51.49,6.04,50.77,51.54,1.04
 ```
 
 ## Latest TDCC Snapshot
@@ -186,16 +186,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 5258 | 虹堡 | pullback_rebound | 回檔後短線轉強 | 55.0 |  |  |  |  |  | first_seen | 1.發生變動日期:115/06/30 2.選任或變動人員別（請輸入法人董事、法人監察人、獨立董事、自然人董事   或自然人監察人）:自然人董事 3.舊任者職稱及姓名:董事 黃佳華 4.舊任者簡歷:虹堡科技股份有限公司 營運長 5.新任者職稱及姓名:不適用 6.新任者簡歷:不適用 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 辭職 8.異動原因:辭職 9.新任者選任時持股數:不適用 10.原任期（例xx/xx/xx ~ xx/xx/xx）:113/06/18~116/06/17 11.新任生效日期:不適用 12.同任期董事變動比率:1/7 13.同任期獨立董事變動比率:不適用 14.同任期監察人變動比率:不適用 15.屬三分之一以上董事發生變動（請輸入是或否）:否 16.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 本公司於115年6月30日接獲其辭任書，自即日起辭任。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
-| 20260713 | 5258 | 虹堡 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | first_seen | 1.發生變動日期:115/06/30 2.選任或變動人員別（請輸入法人董事、法人監察人、獨立董事、自然人董事   或自然人監察人）:自然人董事 3.舊任者職稱及姓名:董事 黃佳華 4.舊任者簡歷:虹堡科技股份有限公司 營運長 5.新任者職稱及姓名:不適用 6.新任者簡歷:不適用 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 辭職 8.異動原因:辭職 9.新任者選任時持股數:不適用 10.原任期（例xx/xx/xx ~ xx/xx/xx）:113/06/18~116/06/17 11.新任生效日期:不適用 12.同任期董事變動比率:1/7 13.同任期獨立董事變動比率:不適用 14.同任期監察人變動比率:不適用 15.屬三分之一以上董事發生變動（請輸入是或否）:否 16.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 本公司於115年6月30日接獲其辭任書，自即日起辭任。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260713 | 5258 | 虹堡 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_breakout |  |  | first_seen | 1.發生變動日期:115/06/30 2.選任或變動人員別（請輸入法人董事、法人監察人、獨立董事、自然人董事   或自然人監察人）:自然人董事 3.舊任者職稱及姓名:董事 黃佳華 4.舊任者簡歷:虹堡科技股份有限公司 營運長 5.新任者職稱及姓名:不適用 6.新任者簡歷:不適用 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 辭職 8.異動原因:辭職 9.新任者選任時持股數:不適用 10.原任期（例xx/xx/xx ~ xx/xx/xx）:113/06/18~116/06/17 11.新任生效日期:不適用 12.同任期董事變動比率:1/7 13.同任期獨立董事變動比率:不適用 14.同任期監察人變動比率:不適用 15.屬三分之一以上董事發生變動（請輸入是或否）:否 16.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 本公司於115年6月30日接獲其辭任書，自即日起辭任。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 5258 | 虹堡 | 1 | 1 | 1 | 1 | 2 | first_seen | 首次上榜或資料有限，需後續確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

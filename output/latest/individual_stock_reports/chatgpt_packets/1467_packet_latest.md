@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1467 南緯
 
 ## Metadata
-- generated_at: 2026-07-14 22:26:22 Asia/Taipei
+- generated_at: 2026-07-15 22:26:25 Asia/Taipei
 - stock_id: 1467
 - stock_name: 南緯
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 302
+- latest_price_date: 20260715
+- price_rows: 304
 - latest_tdcc_date: 20260703
 - tdcc_rows: 32
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 8.59
-- high: 8.64
-- low: 8.11
-- close: 8.21
-- volume: 481102
-- ma5: 8.63
-- ema23_primary: 7.97
-- distance_to_ema23_pct: 2.95
-- ma20: 7.82
-- ma60: 7.44
-- ma120: 7.42
-- return_5d: -15.45
-- return_20d: 8.74
-- volume_ratio: 0.59
-- distance_to_ma20_pct_auxiliary: 4.96
-- distance_to_high_60_pct: -20.68
+- date: 20260715
+- open: 8.5
+- high: 9.28
+- low: 8.45
+- close: 9
+- volume: 1238241
+- ma5: 8.5
+- ema23_primary: 8.1
+- distance_to_ema23_pct: 11.12
+- ma20: 7.95
+- ma60: 7.5
+- ma120: 7.43
+- return_5d: 2.04
+- return_20d: 21.62
+- volume_ratio: 1.39
+- distance_to_ma20_pct_auxiliary: 13.19
+- distance_to_high_60_pct: -13.04
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,7.7,7.7,7.49,7.5,207490,7.39,1.47,7.29,7.2,0.5
-20260615,7.67,7.67,7.4,7.4,290793,7.39,0.11,7.31,7.2,0.72
 20260616,7.4,7.46,7.32,7.33,145282,7.39,-0.77,7.33,7.21,0.36
 20260617,7.3,7.34,7.3,7.3,123699,7.38,-1.08,7.35,7.21,0.31
 20260618,7.3,7.36,7.27,7.28,230070,7.37,-1.24,7.37,7.21,0.58
@@ -146,15 +143,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,7.09,7.13,7.06,7.07,88508,7.29,-3.06,7.4,7.22,0.24
 20260626,7.05,7.12,6.97,7,327967,7.27,-3.69,7.4,7.22,0.89
 20260629,7,7.28,7,7.17,377022,7.26,-1.24,7.42,7.22,1
-20260630,7.32,7.32,7.18,7.3,261000,7.26,0.5,7.41,7.22,0.75
-20260701,7.35,8.03,7.25,8.03,1227000,7.33,9.59,7.45,7.24,3.17
-20260702,8.75,8.83,8.5,8.83,1490000,7.45,18.48,7.49,7.27,3.73
-20260703,9.71,9.71,9.71,9.71,1329626,7.64,27.08,7.59,7.31,3
-20260706,10.35,10.35,9.03,9.31,5752000,7.78,19.67,7.67,7.35,8
-20260707,9.26,9.31,8.75,8.82,1810139,7.87,12.12,7.72,7.38,2.39
+20260630,7.32,7.32,7.18,7.3,263422,7.26,0.5,7.41,7.22,0.75
+20260701,7.35,8.03,7.25,8.03,1237718,7.33,9.59,7.45,7.24,3.2
+20260702,8.75,8.83,8.5,8.83,1501265,7.45,18.48,7.49,7.27,3.74
+20260703,9.71,9.71,9.71,9.71,1329626,7.64,27.08,7.59,7.31,2.99
+20260706,10.35,10.35,9.03,9.31,5797832,7.78,19.67,7.67,7.35,8.03
+20260707,9.26,9.31,8.75,8.82,1810139,7.87,12.12,7.72,7.38,2.37
 20260708,8.95,9,8.4,8.41,806498,7.91,6.3,7.75,7.4,1.03
 20260709,8.45,8.74,8.31,8.41,633524,7.95,5.74,7.79,7.42,0.79
 20260713,8.59,8.64,8.11,8.21,481102,7.97,2.95,7.82,7.44,0.59
+20260714,8.23,8.58,8.11,8.49,687349,8.02,5.89,7.87,7.47,0.81
+20260715,8.5,9.28,8.45,9,1238241,8.1,11.12,7.95,7.5,1.39
 ```
 
 ## Latest TDCC Snapshot

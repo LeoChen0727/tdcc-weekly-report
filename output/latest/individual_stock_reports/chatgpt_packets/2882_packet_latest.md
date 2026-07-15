@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2882 國泰金
 
 ## Metadata
-- generated_at: 2026-07-14 22:26:41 Asia/Taipei
+- generated_at: 2026-07-15 22:26:48 Asia/Taipei
 - stock_id: 2882
 - stock_name: 國泰金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 302
+- latest_price_date: 20260715
+- price_rows: 304
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
+- date: 20260715
 - open: 96.9
-- high: 97.8
+- high: 98.7
 - low: 95.9
-- close: 96.7
-- volume: 20949390
-- ma5: 96.28
-- ema23_primary: 98.32
-- distance_to_ema23_pct: -1.65
-- ma20: 103.02
-- ma60: 89.04
-- ma120: 81.72
-- return_5d: 3.31
-- return_20d: -3.78
+- close: 96.6
+- volume: 20519327
+- ma5: 96.74
+- ema23_primary: 98.01
+- distance_to_ema23_pct: -1.44
+- ma20: 102.42
+- ma60: 89.77
+- ma120: 82.06
+- return_5d: -0.41
+- return_20d: -7.12
 - volume_ratio: 0.46
-- distance_to_ma20_pct_auxiliary: -6.13
-- distance_to_high_60_pct: -17.7
+- distance_to_ma20_pct_auxiliary: -5.69
+- distance_to_high_60_pct: -17.79
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,102,105.5,99.7,100.5,32131390,89.94,11.74,88.75,79.15,0.64
-20260615,105,105.5,103,104,25382726,91.11,14.14,90.11,79.66,0.5
 20260616,104.5,109.5,104,109.5,54388852,92.65,18.19,91.69,80.29,1.07
 20260617,110,117,108,113.5,49607947,94.38,20.25,93.47,80.98,0.96
 20260618,115,117.5,114,115.5,48383199,96.14,20.13,95.31,81.72,0.93
@@ -146,15 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,110,113,109,111.5,29350842,100.78,10.64,101.22,84.45,0.61
 20260626,110.5,111.5,105,106,57625079,101.21,4.73,102.28,85.05,1.21
 20260629,105,105.5,100.5,101.5,68446464,101.24,0.26,103.08,85.57,1.44
-20260630,96.8,99,94.4,98.3,102686000,100.99,-2.67,103.58,86.01,2.06
-20260701,100,101,94.3,95,78426000,100.49,-5.47,103.87,86.39,1.54
-20260702,95.3,95.9,92.6,93.5,64381000,99.91,-6.42,103.95,86.75,1.26
+20260630,96.8,99,94.4,98.3,103774696,100.99,-2.67,103.58,86.01,2.08
+20260701,100,101,94.3,95,79877648,100.49,-5.47,103.87,86.39,1.57
+20260702,95.3,95.9,92.6,93.5,65125802,99.91,-6.42,103.95,86.75,1.27
 20260703,92.8,94.8,92.8,93.6,38336316,99.39,-5.82,103.92,87.08,0.76
-20260706,94.2,94.9,93.1,93.4,44123000,98.89,-5.55,103.58,87.42,0.9
+20260706,94.2,94.9,93.1,93.4,44484601,98.89,-5.55,103.58,87.42,0.9
 20260707,94,97.5,94,97,45192689,98.73,-1.75,103.69,87.82,0.93
 20260708,97,98.2,95,98,31336489,98.67,-0.68,103.39,88.25,0.66
 20260709,98,98.3,94.4,96.3,23118031,98.47,-2.2,103.2,88.64,0.5
 20260713,96.9,97.8,95.9,96.7,20949390,98.32,-1.65,103.02,89.04,0.46
+20260714,97.6,97.6,94,96.1,22353776,98.14,-2.08,102.8,89.41,0.49
+20260715,96.9,98.7,95.9,96.6,20519327,98.01,-1.44,102.42,89.77,0.46
 ```
 
 ## Latest TDCC Snapshot
@@ -199,7 +199,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 2882 | 國泰金 | 40 | 2 | 2072990.0 | 202630.0 | 10.23 | no_signal |
+| 20260715 | 2882 | 國泰金 | 40 | 2 | 1350080.0 | 98750.0 | 13.67 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

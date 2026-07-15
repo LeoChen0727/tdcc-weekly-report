@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8921 沈氏
 
 ## Metadata
-- generated_at: 2026-07-14 22:27:39 Asia/Taipei
+- generated_at: 2026-07-15 22:27:56 Asia/Taipei
 - stock_id: 8921
 - stock_name: 沈氏
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 123
+- latest_price_date: 20260714
+- price_rows: 124
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
+- date: 20260714
 - open: 17.8
-- high: 17.8
+- high: 17.9
 - low: 17.8
-- close: 17.8
+- close: 17.9
 - volume: 2000
-- ma5: 17.71
+- ma5: 17.75
 - ema23_primary: 17.95
-- distance_to_ema23_pct: -0.85
-- ma20: 17.96
+- distance_to_ema23_pct: -0.26
+- ma20: 17.95
 - ma60: 18
-- ma120: 17.88
-- return_5d: -1.11
-- return_20d: -2.73
-- volume_ratio: 0.57
-- distance_to_ma20_pct_auxiliary: -0.92
-- distance_to_high_60_pct: -6.07
+- ma120: 17.89
+- return_5d: 1.13
+- return_20d: -1.65
+- volume_ratio: 0.58
+- distance_to_ma20_pct_auxiliary: -0.28
+- distance_to_high_60_pct: -5.54
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,17.8,18.2,17.8,18.2,3000,18.2,0.01,18.21,17.94,0.35
 20260615,18.4,18.4,17.4,17.8,6000,18.17,-2.01,18.21,17.93,0.67
 20260616,18.2,18.2,18.2,18.2,1000,18.17,0.17,18.23,17.93,0.11
 20260617,18.35,18.35,18.35,18.35,1000,18.18,0.91,18.25,17.92,0.12
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260708,17.9,17.9,17.5,17.5,2000,17.98,-2.67,18.01,17.99,0.58
 20260709,17.5,17.8,17.5,17.8,4000,17.97,-0.92,17.99,17.99,1.13
 20260713,17.8,17.8,17.8,17.8,2000,17.95,-0.85,17.96,18,0.57
+20260714,17.8,17.9,17.8,17.9,2000,17.95,-0.26,17.95,18,0.58
 ```
 
 ## Latest TDCC Snapshot

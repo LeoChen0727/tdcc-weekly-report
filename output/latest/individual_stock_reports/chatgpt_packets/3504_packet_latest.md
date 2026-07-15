@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3504 揚明光
 
 ## Metadata
-- generated_at: 2026-07-14 22:26:51 Asia/Taipei
+- generated_at: 2026-07-15 22:27:00 Asia/Taipei
 - stock_id: 3504
 - stock_name: 揚明光
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 302
+- latest_price_date: 20260715
+- price_rows: 304
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 80.1
-- high: 82.9
-- low: 74.7
-- close: 76.4
-- volume: 3614190
-- ma5: 76.84
-- ema23_primary: 79.43
-- distance_to_ema23_pct: -3.82
-- ma20: 81.75
-- ma60: 75.86
-- ma120: 66.02
-- return_5d: -2.8
-- return_20d: 0.79
-- volume_ratio: 1.19
-- distance_to_ma20_pct_auxiliary: -6.55
-- distance_to_high_60_pct: -21.88
+- date: 20260715
+- open: 72.8
+- high: 72.8
+- low: 69
+- close: 69.2
+- volume: 1626689
+- ma5: 74.6
+- ema23_primary: 77.95
+- distance_to_ema23_pct: -11.23
+- ma20: 80.94
+- ma60: 76.06
+- ma120: 66.34
+- return_5d: -5.72
+- return_20d: -15.71
+- volume_ratio: 0.54
+- distance_to_ma20_pct_auxiliary: -14.5
+- distance_to_high_60_pct: -29.24
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,76.7,78.6,74.7,74.7,1081880,76.31,-2.11,79.3,67.37,0.32
-20260615,76.8,82.1,76.7,82.1,2329942,76.8,6.91,79.64,67.75,0.73
 20260616,83.5,89.8,83.5,89.4,9166123,77.85,14.84,80.19,68.24,2.72
 20260617,89.5,97.8,85.5,86.5,15344294,78.57,10.1,80.41,68.71,4.27
 20260618,87.8,91.5,85.7,91.2,6086004,79.62,14.54,80.67,69.31,1.73
@@ -146,15 +143,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,88.9,92.8,86.6,86.8,3653575,82.1,5.72,82.11,71.46,1.02
 20260626,86.8,87.1,82.3,82.4,1891677,82.13,0.33,82.38,71.94,0.53
 20260629,82,83.1,77.3,77.8,1550538,81.77,-4.85,82.38,72.4,0.43
-20260630,78.5,81.9,78.1,80.2,1020000,81.64,-1.76,82.47,72.85,0.28
-20260701,81.6,82.4,76.6,76.7,1020000,81.22,-5.57,82.33,73.28,0.29
-20260702,76.6,79.6,75.8,78.5,599000,81,-3.08,82.08,73.74,0.18
+20260630,78.5,81.9,78.1,80.2,1033564,81.64,-1.76,82.47,72.85,0.29
+20260701,81.6,82.4,76.6,76.7,1038703,81.22,-5.57,82.33,73.28,0.29
+20260702,76.6,79.6,75.8,78.5,609916,81,-3.08,82.08,73.74,0.18
 20260703,78.2,80.4,77.1,78.6,533881,80.8,-2.72,81.98,74.18,0.16
-20260706,79.6,80.9,77.5,78.2,645000,80.58,-2.95,81.84,74.62,0.2
+20260706,79.6,80.9,77.5,78.2,657381,80.58,-2.95,81.84,74.62,0.21
 20260707,78.3,78.7,73.1,73.4,843194,79.98,-8.23,81.87,74.97,0.27
 20260708,73.7,75.2,72.7,74.4,595592,79.52,-6.44,81.58,75.26,0.19
 20260709,74.9,81.8,74.7,81.8,1878006,79.71,2.63,81.72,75.61,0.64
 20260713,80.1,82.9,74.7,76.4,3614190,79.43,-3.82,81.75,75.86,1.19
+20260714,76.6,77.3,68.8,71.2,1400069,78.75,-9.58,81.58,76.03,0.46
+20260715,72.8,72.8,69,69.2,1626689,77.95,-11.23,80.94,76.06,0.54
 ```
 
 ## Latest TDCC Snapshot
@@ -199,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 3504 | 揚明光 | 1 | 0 | 24520.0 | 0.0 |  | no_signal |
+| 20260715 | 3504 | 揚明光 | 1 | 0 | 0.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

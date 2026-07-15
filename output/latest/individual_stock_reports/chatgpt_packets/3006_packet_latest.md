@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3006 晶豪科
 
 ## Metadata
-- generated_at: 2026-07-14 22:26:43 Asia/Taipei
+- generated_at: 2026-07-15 22:26:50 Asia/Taipei
 - stock_id: 3006
 - stock_name: 晶豪科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 302
+- latest_price_date: 20260715
+- price_rows: 304
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 238
-- high: 243.5
-- low: 222.5
-- close: 228
-- volume: 20108316
-- ma5: 223.7
-- ema23_primary: 225.21
-- distance_to_ema23_pct: 1.24
-- ma20: 227.47
-- ma60: 214.66
-- ma120: 188.05
-- return_5d: 7.8
-- return_20d: 11.49
-- volume_ratio: 1.5
-- distance_to_ma20_pct_auxiliary: 0.23
-- distance_to_high_60_pct: -16.64
+- date: 20260715
+- open: 225
+- high: 239
+- low: 224.5
+- close: 239
+- volume: 12710343
+- ma5: 227.4
+- ema23_primary: 225.77
+- distance_to_ema23_pct: 5.86
+- ma20: 228.32
+- ma60: 217.1
+- ma120: 189.5
+- return_5d: 9.13
+- return_20d: 7.42
+- volume_ratio: 0.91
+- distance_to_ma20_pct_auxiliary: 4.68
+- distance_to_high_60_pct: -12.61
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,217,221.5,215,217,9024259,221.98,-2.24,232.5,196.02,0.38
-20260615,223,227.5,219,222.5,8721614,222.02,0.22,231.03,196.17,0.38
 20260616,227,233.5,221,224.5,11455613,222.23,1.02,230.45,196.29,0.52
 20260617,221.5,232.5,218,225,10614621,222.46,1.14,230.57,196.78,0.51
 20260618,228,237.5,227.5,237.5,14324334,223.71,6.16,231.35,197.74,0.71
@@ -146,15 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,258.5,264,240,240,15652821,230.24,4.24,233.68,202.83,0.85
 20260626,242,248,225.5,227,11221511,229.97,-1.29,232.9,203.84,0.64
 20260629,228,231.5,219,223.5,6992258,229.43,-2.59,231.75,205.07,0.42
-20260630,227,227.5,217.5,226,8022000,229.15,-1.37,230.55,206.22,0.51
-20260701,226.5,228,206,213,10359000,227.8,-6.5,227.82,207.27,0.72
-20260702,205,218.5,202,218,6330000,226.99,-3.96,225.75,208.28,0.49
+20260630,227,227.5,217.5,226,8155426,229.15,-1.37,230.55,206.22,0.51
+20260701,226.5,228,206,213,10575515,227.8,-6.5,227.82,207.27,0.74
+20260702,205,218.5,202,218,6452945,226.99,-3.96,225.75,208.28,0.49
 20260703,221.5,223,211,211.5,12658927,225.7,-6.29,224.07,209.13,1.01
-20260706,216.5,227,216.5,219,12200000,225.14,-2.73,223.9,210.2,1
+20260706,216.5,227,216.5,219,12356900,225.14,-2.73,223.9,210.2,1.01
 20260707,220.5,232,216.5,219,15996495,224.63,-2.5,224.5,211.25,1.29
 20260708,219,225,208.5,215.5,11497485,223.87,-3.74,224.55,212.18,0.93
 20260709,219,237,219,237,21296640,224.96,5.35,226.3,213.46,1.64
-20260713,238,243.5,222.5,228,20108316,225.21,1.24,227.47,214.66,1.5
+20260713,238,243.5,222.5,228,20108316,225.21,1.24,227.47,214.66,1.49
+20260714,227,231,205.5,217.5,13473555,224.57,-3.15,227.5,215.67,0.98
+20260715,225,239,224.5,239,12710343,225.77,5.86,228.32,217.1,0.91
 ```
 
 ## Latest TDCC Snapshot
@@ -189,18 +189,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 3006 | 晶豪科 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | repeated_but_no_breakout | 1.事實發生日:115/06/17 2.公司名稱:晶豪科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: 依據「發行人募集與發行有價證券處理準則」第九條第一項第二款規定辦理， 公告本公司國內第二次有擔保轉換公司債之代收價款行庫及存儲專戶行庫等 相關事宜。 6.因應措施:不適用 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): (1)訂約日期：民國115年6月17日。 (2)委託代收價款行庫：凱基商業銀行敦北分行。 (3)委託存儲專戶行庫：凱基商業銀行市政分行。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
-| 20260713 | 3006 | 晶豪科 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | repeated_but_no_breakout | 1.事實發生日:115/06/17 2.公司名稱:晶豪科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: 依據「發行人募集與發行有價證券處理準則」第九條第一項第二款規定辦理， 公告本公司國內第二次有擔保轉換公司債之代收價款行庫及存儲專戶行庫等 相關事宜。 6.因應措施:不適用 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): (1)訂約日期：民國115年6月17日。 (2)委託代收價款行庫：凱基商業銀行敦北分行。 (3)委託存儲專戶行庫：凱基商業銀行市政分行。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260715 | 3006 | 晶豪科 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | repeated_but_no_breakout | 1.事實發生日:115/06/17 2.公司名稱:晶豪科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: 依據「發行人募集與發行有價證券處理準則」第九條第一項第二款規定辦理， 公告本公司國內第二次有擔保轉換公司債之代收價款行庫及存儲專戶行庫等 相關事宜。 6.因應措施:不適用 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): (1)訂約日期：民國115年6月17日。 (2)委託代收價款行庫：凱基商業銀行敦北分行。 (3)委託存儲專戶行庫：凱基商業銀行市政分行。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260715 | 3006 | 晶豪科 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | repeated_but_no_breakout | 1.事實發生日:115/06/17 2.公司名稱:晶豪科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: 依據「發行人募集與發行有價證券處理準則」第九條第一項第二款規定辦理， 公告本公司國內第二次有擔保轉換公司債之代收價款行庫及存儲專戶行庫等 相關事宜。 6.因應措施:不適用 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): (1)訂約日期：民國115年6月17日。 (2)委託代收價款行庫：凱基商業銀行敦北分行。 (3)委託存儲專戶行庫：凱基商業銀行市政分行。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 3006 | 晶豪科 | 22 | 7 | 5 | 10 | 20 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 20 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260715 | 3006 | 晶豪科 | 24 | 9 | 5 | 10 | 20 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 20 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 3006 | 晶豪科 | 154 | 13 | 32153860.0 | 93100.0 | 345.37 | no_signal |
+| 20260715 | 3006 | 晶豪科 | 156 | 13 | 19178280.0 | 82380.0 | 232.8 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

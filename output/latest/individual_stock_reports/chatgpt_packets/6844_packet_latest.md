@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6844 諾貝兒
 
 ## Metadata
-- generated_at: 2026-07-14 22:27:25 Asia/Taipei
+- generated_at: 2026-07-15 22:27:40 Asia/Taipei
 - stock_id: 6844
 - stock_name: 諾貝兒
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 161
+- latest_price_date: 20260715
+- price_rows: 163
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 62.2
-- high: 62.6
-- low: 61.5
-- close: 62.6
-- volume: 41000
-- ma5: 62.52
-- ema23_primary: 63.89
-- distance_to_ema23_pct: -2.02
-- ma20: 64.37
-- ma60: 64.32
-- ma120: 65.45
-- return_5d: 0.97
-- return_20d: -3.99
-- volume_ratio: 1.21
-- distance_to_ma20_pct_auxiliary: -2.75
-- distance_to_high_60_pct: -6.29
+- date: 20260715
+- open: 61.5
+- high: 62.1
+- low: 61.3
+- close: 62.1
+- volume: 25000
+- ma5: 62.56
+- ema23_primary: 63.61
+- distance_to_ema23_pct: -2.38
+- ma20: 63.97
+- ma60: 64.3
+- ma120: 65.24
+- return_5d: 0.32
+- return_20d: -5.77
+- volume_ratio: 0.79
+- distance_to_ma20_pct_auxiliary: -2.92
+- distance_to_high_60_pct: -7.04
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,64.7,66.5,64.5,66.5,53000,64.91,2.45,65.27,64.21,1.11
-20260615,65.1,65.9,65,65.9,52000,64.99,1.39,65.3,64.23,1.05
 20260616,66.1,66.1,65.2,65.9,28000,65.07,1.28,65.33,64.26,0.56
 20260617,65.5,65.9,65.3,65.9,20000,65.14,1.17,65.33,64.29,0.41
 20260618,65.5,65.8,65,65.8,40000,65.19,0.93,65.28,64.31,0.81
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260708,62.2,65.1,62,62.9,14000,64.1,-1.87,64.59,64.34,0.42
 20260709,62.2,63,61.7,63,39000,64.01,-1.57,64.5,64.33,1.17
 20260713,62.2,62.6,61.5,62.6,41000,63.89,-2.02,64.37,64.32,1.21
+20260714,61.8,62.2,61.1,62.2,33000,63.75,-2.43,64.16,64.31,1
+20260715,61.5,62.1,61.3,62.1,25000,63.61,-2.38,63.97,64.3,0.79
 ```
 
 ## Latest TDCC Snapshot

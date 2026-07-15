@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5471 松翰
 
 ## Metadata
-- generated_at: 2026-07-14 22:27:07 Asia/Taipei
+- generated_at: 2026-07-15 22:27:20 Asia/Taipei
 - stock_id: 5471
 - stock_name: 松翰
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 302
+- latest_price_date: 20260715
+- price_rows: 304
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 68
-- high: 69.1
-- low: 64.7
-- close: 65
-- volume: 10565999
-- ma5: 64.08
-- ema23_primary: 60.26
-- distance_to_ema23_pct: 7.87
-- ma20: 61.41
-- ma60: 52.67
-- ma120: 45.8
-- return_5d: 4
-- return_20d: 25.73
-- volume_ratio: 1.39
-- distance_to_ma20_pct_auxiliary: 5.85
-- distance_to_high_60_pct: -5.93
+- date: 20260715
+- open: 63
+- high: 65.3
+- low: 62.4
+- close: 63.1
+- volume: 4836748
+- ma5: 64.22
+- ema23_primary: 60.67
+- distance_to_ema23_pct: 4.01
+- ma20: 62.11
+- ma60: 53.39
+- ma120: 46.29
+- return_5d: 3.27
+- return_20d: 9.93
+- volume_ratio: 0.66
+- distance_to_ma20_pct_auxiliary: 1.59
+- distance_to_high_60_pct: -8.68
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,53.1,55.5,52.8,54.2,7007896,50.73,6.84,52.04,45.8,1.81
-20260615,55.4,58.7,54.5,57.4,9347367,51.29,11.92,52.39,46.03,2.2
 20260616,58.5,59.6,57.3,57.5,16347110,51.8,11,52.89,46.3,3.28
 20260617,57,63,56.4,62.6,16230644,52.7,18.78,53.4,46.63,2.96
 20260618,61.3,62.3,60.1,60.9,10384518,53.39,14.07,53.82,46.96,1.84
@@ -145,15 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,64.4,64.9,61.2,62.3,4469912,56.1,11.04,55.61,48.44,0.7
 20260626,61.5,62.3,58.3,58.5,3621183,56.3,3.9,55.75,48.77,0.63
 20260629,58,60.4,57.5,58.6,2505516,56.5,3.73,55.98,49.12,0.44
-20260630,59.9,62.5,59.2,61.6,3554000,56.92,8.22,56.4,49.51,0.63
-20260701,62,63.2,59.4,59.8,3694000,57.16,4.62,56.76,49.89,0.64
-20260702,59.5,65.3,58.8,63.5,4258000,57.69,10.07,57.3,50.33,0.73
+20260630,59.9,62.5,59.2,61.6,3593036,56.92,8.22,56.4,49.51,0.63
+20260701,62,63.2,59.4,59.8,3736037,57.16,4.62,56.76,49.89,0.65
+20260702,59.5,65.3,58.8,63.5,4311175,57.69,10.07,57.3,50.33,0.73
 20260703,63.4,66,62,62.5,5905482,58.09,7.59,57.84,50.71,0.97
-20260706,62.5,65.9,62.2,63.8,6690000,58.57,8.94,58.47,51.11,1.06
+20260706,62.5,65.9,62.2,63.8,6748148,58.57,8.94,58.47,51.11,1.06
 20260707,65.3,65.4,60.9,61.1,4345044,58.78,3.95,59.13,51.47,0.67
 20260708,61.9,63.2,60.9,62.9,3230253,59.12,6.39,59.79,51.84,0.49
 20260709,63.6,68.8,62.5,67.6,16996328,59.83,12.99,60.74,52.28,2.33
-20260713,68,69.1,64.7,65,10565999,60.26,7.87,61.41,52.67,1.39
+20260713,68,69.1,64.7,65,10565999,60.26,7.87,61.41,52.67,1.38
+20260714,63.8,66.2,58.6,62.5,6558491,60.45,3.4,61.83,53.02,0.86
+20260715,63,65.3,62.4,63.1,4836748,60.67,4.01,62.11,53.39,0.66
 ```
 
 ## Latest TDCC Snapshot
@@ -188,17 +189,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 5471 | 松翰 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | call_strong_inflow | repeated_but_no_breakout | 符合條款第四條第XX款：12 事實發生日：115/06/23 1.召開法人說明會之日期：115/06/23 2.召開法人說明會之時間：14 時 00 分  3.召開法人說明會之地點：國票證券(台北市松山區南京東路五段188號15樓) 4.法人說明會擇要訊息：本公司受邀參加國票證券舉辦之法人座談會，報告本公司營運狀況。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: ex_dividend on 20260714; status=confirmed; proximity=within_3d |
+| 20260715 | 5471 | 松翰 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/23 1.召開法人說明會之日期：115/06/23 2.召開法人說明會之時間：14 時 00 分  3.召開法人說明會之地點：國票證券(台北市松山區南京東路五段188號15樓) 4.法人說明會擇要訊息：本公司受邀參加國票證券舉辦之法人座談會，報告本公司營運狀況。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260715 | 5471 | 松翰 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/23 1.召開法人說明會之日期：115/06/23 2.召開法人說明會之時間：14 時 00 分  3.召開法人說明會之地點：國票證券(台北市松山區南京東路五段188號15樓) 4.法人說明會擇要訊息：本公司受邀參加國票證券舉辦之法人座談會，報告本公司營運狀況。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 5471 | 松翰 | 5 | 1 | 5 | 8 | 16 | repeated_but_no_breakout | 近 10 日上榜 8 次、近 20 日上榜 16 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260715 | 5471 | 松翰 | 7 | 3 | 5 | 8 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 5471 | 松翰 | 7 | 0 | 3008020.0 | 0.0 |  | call_strong_inflow |
+| 20260715 | 5471 | 松翰 | 8 | 0 | 1348410.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

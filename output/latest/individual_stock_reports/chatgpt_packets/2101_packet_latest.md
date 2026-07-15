@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2101 南港
 
 ## Metadata
-- generated_at: 2026-07-14 22:26:29 Asia/Taipei
+- generated_at: 2026-07-15 22:26:34 Asia/Taipei
 - stock_id: 2101
 - stock_name: 南港
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 297
+- latest_price_date: 20260715
+- price_rows: 299
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
+- date: 20260715
 - open: 34.3
-- high: 34.7
-- low: 34.3
-- close: 34.55
-- volume: 2313785
-- ma5: 34.1
-- ema23_primary: 32.82
-- distance_to_ema23_pct: 5.26
-- ma20: 32.72
-- ma60: 32.67
-- ma120: 34.06
-- return_5d: 3.44
-- return_20d: 4.7
-- volume_ratio: 0.74
-- distance_to_ma20_pct_auxiliary: 5.59
-- distance_to_high_60_pct: -6.24
+- high: 34.55
+- low: 33.85
+- close: 34.1
+- volume: 1523930
+- ma5: 34.11
+- ema23_primary: 33.03
+- distance_to_ema23_pct: 3.22
+- ma20: 32.78
+- ma60: 32.61
+- ma120: 34.01
+- return_5d: 0
+- return_20d: 1.34
+- volume_ratio: 0.45
+- distance_to_ma20_pct_auxiliary: 4.01
+- distance_to_high_60_pct: -5.28
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,32.9,34.1,32.9,33.35,2905698,32.19,3.59,31.38,33.56,1.02
-20260615,33.9,33.9,33.05,33.65,3147582,32.32,4.13,31.55,33.55,1.11
 20260616,33.9,33.9,33.1,33.45,1613727,32.41,3.21,31.72,33.55,0.59
 20260617,33.3,33.35,32.8,33.3,1715178,32.48,2.51,31.84,33.52,0.63
 20260618,33.25,33.85,32.4,32.45,8666059,32.48,-0.1,31.91,33.48,2.84
@@ -145,15 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,31.6,32.3,31.5,31.6,1312439,32.22,-1.92,32.18,33.27,0.38
 20260626,31.35,31.5,30.95,31.15,1172352,32.13,-3.05,32.25,33.21,0.35
 20260629,31.15,32.2,31.15,31.85,3579344,32.11,-0.8,32.34,33.16,1.04
-20260630,31.85,32.05,31.2,31.4,1959000,32.05,-2.02,32.31,33.08,0.62
-20260701,31.4,31.55,31,31.2,1584000,31.98,-2.43,32.26,32.97,0.52
-20260702,31.2,32.3,31.1,32.3,1790000,32,0.93,32.23,32.92,0.6
+20260630,31.85,32.05,31.2,31.4,1979190,32.05,-2.02,32.31,33.08,0.62
+20260701,31.4,31.55,31,31.2,1602743,31.98,-2.43,32.26,32.97,0.52
+20260702,31.2,32.3,31.1,32.3,1816707,32,0.93,32.23,32.92,0.61
 20260703,32,34.2,32,33.4,3856634,32.12,3.98,32.28,32.87,1.26
-20260706,33.75,34.6,33.5,34.15,3290000,32.29,5.76,32.39,32.83,1.05
+20260706,33.75,34.6,33.5,34.15,3323909,32.29,5.76,32.39,32.83,1.06
 20260707,34.15,34.85,33.75,34.1,2742521,32.44,5.12,32.52,32.8,0.86
 20260708,34.5,34.55,33.5,33.7,1508470,32.55,3.55,32.58,32.75,0.48
 20260709,34.5,35.1,33.9,34,2305189,32.67,4.08,32.64,32.7,0.74
 20260713,34.3,34.7,34.3,34.55,2313785,32.82,5.26,32.72,32.67,0.74
+20260714,34.95,34.95,33.9,34.2,10271012,32.94,3.83,32.76,32.63,2.93
+20260715,34.3,34.55,33.85,34.1,1523930,33.03,3.22,32.78,32.61,0.45
 ```
 
 ## Latest TDCC Snapshot
@@ -188,19 +189,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 2101 | 南港 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
-| 20260713 | 2101 | 南港 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260713 | 2101 | 南港 | revenue_breakout_low_response | 營收爆發低反應股 | 24.0 | 10.0 | B_可觀察 |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260715 | 2101 | 南港 | pattern | 型態觀察 | 51.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260715 | 2101 | 南港 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260715 | 2101 | 南港 | revenue_breakout_low_response | 營收爆發低反應股 | 24.0 | 9.0 | B_可觀察 |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 2101 | 南港 | 14 | 7 | 5 | 10 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260715 | 2101 | 南港 | 16 | 9 | 5 | 10 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 2101 | 南港 | 3 | 0 | 68220.0 | 0.0 |  | no_signal |
+| 20260715 | 2101 | 南港 | 3 | 0 | 47200.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2436 偉詮電
 
 ## Metadata
-- generated_at: 2026-07-14 22:26:34 Asia/Taipei
+- generated_at: 2026-07-15 22:26:41 Asia/Taipei
 - stock_id: 2436
 - stock_name: 偉詮電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 302
+- latest_price_date: 20260715
+- price_rows: 304
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 67.9
-- high: 68.4
-- low: 64.2
-- close: 65
-- volume: 3856284
-- ma5: 69.82
-- ema23_primary: 71.56
-- distance_to_ema23_pct: -9.17
-- ma20: 72.09
-- ma60: 72.61
-- ma120: 64.71
-- return_5d: -14.36
-- return_20d: 0
-- volume_ratio: 0.71
-- distance_to_ma20_pct_auxiliary: -9.84
-- distance_to_high_60_pct: -22.99
+- date: 20260715
+- open: 63.4
+- high: 64.2
+- low: 62.6
+- close: 62.8
+- volume: 2216641
+- ma5: 65.16
+- ema23_primary: 70.1
+- distance_to_ema23_pct: -10.41
+- ma20: 71.45
+- ma60: 72.58
+- ma120: 64.95
+- return_5d: -10.67
+- return_20d: -9.9
+- volume_ratio: 0.41
+- distance_to_ma20_pct_auxiliary: -12.11
+- distance_to_high_60_pct: -25.59
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,66.5,69.3,66.5,67.8,3969803,71.07,-4.6,72.69,69.48,0.58
-20260615,69.4,70.4,68.4,69.7,3638949,70.95,-1.77,72.62,69.48,0.53
 20260616,71,71.1,67.1,67.3,3763016,70.65,-4.74,72.51,69.5,0.55
 20260617,66.9,70.6,66.7,70.3,2503319,70.62,-0.45,72.44,69.58,0.37
 20260618,70.1,73.8,70.1,73.4,5189825,70.85,3.6,72.36,69.72,0.78
@@ -145,15 +143,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,77.1,77.9,75.3,75.9,4834747,72.64,4.48,71.98,70.69,0.85
 20260626,76.5,76.7,70.4,70.8,4964899,72.49,-2.33,71.69,70.84,0.91
 20260629,71.3,73,70,71.5,3640016,72.41,-1.25,71.4,71.06,0.7
-20260630,71.4,71.5,69.7,70.8,2272000,72.27,-2.04,71.14,71.22,0.46
-20260701,71.5,75.3,70.7,70.9,4579000,72.16,-1.75,71,71.41,0.93
-20260702,70.2,76.7,69.9,76.2,5226000,72.5,5.11,71.14,71.71,1.05
+20260630,71.4,71.5,69.7,70.8,2307277,72.27,-2.04,71.14,71.22,0.46
+20260701,71.5,75.3,70.7,70.9,4638536,72.16,-1.75,71,71.41,0.94
+20260702,70.2,76.7,69.9,76.2,5310617,72.5,5.11,71.14,71.71,1.07
 20260703,75,77.4,75,75.9,4223031,72.78,4.29,71.34,71.93,0.84
-20260706,76.4,79.3,76.2,77.7,8462000,73.19,6.16,71.66,72.2,1.62
-20260707,77.1,77.1,70.2,70.3,7458429,72.95,-3.63,71.89,72.35,1.4
+20260706,76.4,79.3,76.2,77.7,8588800,73.19,6.16,71.66,72.2,1.64
+20260707,77.1,77.1,70.2,70.3,7458429,72.95,-3.63,71.89,72.35,1.39
 20260708,70.6,71.3,68,68.9,3859724,72.61,-5.11,71.95,72.47,0.72
 20260709,69.5,71.1,67.1,67.2,4885069,72.16,-6.87,72.09,72.53,0.9
-20260713,67.9,68.4,64.2,65,3856284,71.56,-9.17,72.09,72.61,0.71
+20260713,67.9,68.4,64.2,65,3856284,71.56,-9.17,72.09,72.61,0.7
+20260714,65,66.1,59,61.9,4741029,70.76,-12.52,71.8,72.58,0.86
+20260715,63.4,64.2,62.6,62.8,2216641,70.1,-10.41,71.45,72.58,0.41
 ```
 
 ## Latest TDCC Snapshot
@@ -198,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 2436 | 偉詮電 | 44 | 0 | 1353110.0 | 0.0 |  | no_signal |
+| 20260715 | 2436 | 偉詮電 | 46 | 0 | 576510.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

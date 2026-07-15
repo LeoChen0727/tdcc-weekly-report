@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2317 鴻海
 
 ## Metadata
-- generated_at: 2026-07-14 22:26:30 Asia/Taipei
+- generated_at: 2026-07-15 22:26:36 Asia/Taipei
 - stock_id: 2317
 - stock_name: 鴻海
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 301
+- latest_price_date: 20260715
+- price_rows: 303
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -58,7 +58,7 @@
 - pdf_visible: true
 - action_rating_display_zh: 可分批買進
 - model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
 - action_summary_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。
 - entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
 - position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
@@ -73,7 +73,7 @@
 - internal_use_only: true
 - action_rating: scale_in
 - action_rating_label_zh: 可分批買進
-- confidence_level: medium
+- confidence_level: high
 - thesis_state: healthy_pullback
 - entry_style: pullback_to_23ema
 - position_sizing: half_position
@@ -92,6 +92,7 @@
 
 ### entry_prerequisites
 - model_recommended
+- decision_score_high
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -118,30 +119,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 242
-- high: 242.5
-- low: 236.5
-- close: 236.5
-- volume: 37504587
-- ma5: 238.1
-- ema23_primary: 250.03
-- distance_to_ema23_pct: -5.41
-- ma20: 252.15
-- ma60: 250.43
-- ma120: 233.29
-- return_5d: -1.66
-- return_20d: -8.51
-- volume_ratio: 0.67
-- distance_to_ma20_pct_auxiliary: -6.21
-- distance_to_high_60_pct: -24.68
+- date: 20260715
+- open: 236
+- high: 241
+- low: 235.5
+- close: 239
+- volume: 36108846
+- ma5: 237.2
+- ema23_primary: 248
+- distance_to_ema23_pct: -3.63
+- ma20: 249.47
+- ma60: 251.45
+- ma120: 233.41
+- return_5d: 0.84
+- return_20d: -10.65
+- volume_ratio: 0.66
+- distance_to_ma20_pct_auxiliary: -4.2
+- distance_to_high_60_pct: -23.89
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,266.5,269,260,260.5,60260948,265.23,-1.78,268.88,233.88,0.59
-20260615,271,272.5,265,267.5,54689024,265.42,0.78,269.82,234.83,0.54
 20260616,270,271,265.5,269,56878574,265.72,1.24,271.02,235.9,0.56
 20260617,266,272,264,272,42755242,266.24,2.16,272.62,237.05,0.43
 20260618,270.5,271.5,268.5,268.5,68996866,266.43,0.78,273.68,238.26,0.68
@@ -151,15 +150,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,260.5,262.5,257.5,257.5,43578494,264.54,-2.66,274.05,242.37,0.44
 20260626,255.5,255.5,248,248.5,80450955,263.2,-5.58,273.32,243.28,0.81
 20260629,250,252,246,246.5,49210311,261.81,-5.85,271.2,244.26,0.57
-20260630,251.5,255.5,249,251,51113000,260.91,-3.8,269.07,245.16,0.65
-20260701,255,255.5,248,248,63410000,259.83,-4.55,266.4,246.07,0.83
-20260702,239,243,238,239,64466000,258.1,-7.4,262.9,246.86,0.89
-20260703,237,241,236,240.5,51008242,256.63,-6.29,260.27,247.51,0.74
-20260706,243.5,247.5,240.5,242,42156000,255.41,-5.25,258.15,248.21,0.63
-20260707,243,243,236,237,51778760,253.88,-6.65,256.52,248.82,0.82
-20260708,240,240.5,234,237.5,37939126,252.51,-5.94,254.53,249.44,0.62
-20260709,238,240,234.5,237.5,40528079,251.26,-5.48,253.25,249.94,0.69
-20260713,242,242.5,236.5,236.5,37504587,250.03,-5.41,252.15,250.43,0.67
+20260630,251.5,255.5,249,251,52952173,260.91,-3.8,269.07,245.16,0.67
+20260701,255,255.5,248,248,65880617,259.83,-4.55,266.4,246.07,0.86
+20260702,239,243,238,239,67897136,258.1,-7.4,262.9,246.86,0.93
+20260703,237,241,236,240.5,51008242,256.63,-6.29,260.27,247.51,0.73
+20260706,243.5,247.5,240.5,242,43693584,255.41,-5.25,258.15,248.21,0.65
+20260707,243,243,236,237,51778760,253.88,-6.65,256.52,248.82,0.81
+20260708,240,240.5,234,237.5,37939126,252.51,-5.94,254.53,249.44,0.61
+20260709,238,240,234.5,237.5,40528079,251.26,-5.48,253.25,249.94,0.68
+20260713,242,242.5,236.5,236.5,37504587,250.03,-5.41,252.15,250.43,0.66
+20260714,236,237,230,235.5,48112076,248.82,-5.35,250.9,250.9,0.86
+20260715,236,241,235.5,239,36108846,248,-3.63,249.47,251.45,0.66
 ```
 
 ## Latest TDCC Snapshot
@@ -194,18 +195,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 2317 | 鴻海 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/16 1.召開法人說明會之日期：115/07/16 ~ 115/07/17 2.召開法人說明會之時間：08 時 00 分  3.召開法人說明會之地點：日本 4.法人說明會擇要訊息：115年7月16-17日受大和證券邀請參加投資人會議，說明本公司營運概況。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260713 | 2317 | 鴻海 | revenue_breakout_low_response | 營收爆發低反應股 | 10.0 | 44.0 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/16 1.召開法人說明會之日期：115/07/16 ~ 115/07/17 2.召開法人說明會之時間：08 時 00 分  3.召開法人說明會之地點：日本 4.法人說明會擇要訊息：115年7月16-17日受大和證券邀請參加投資人會議，說明本公司營運概況。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260715 | 2317 | 鴻海 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  | call_inflow | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/16 1.召開法人說明會之日期：115/07/16 ~ 115/07/17 2.召開法人說明會之時間：08 時 00 分  3.召開法人說明會之地點：日本 4.法人說明會擇要訊息：115年7月16-17日受大和證券邀請參加投資人會議，說明本公司營運概況。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260715 | 2317 | 鴻海 | revenue_breakout_low_response | 營收爆發低反應股 | 11.0 | 41.0 | D_降級_TDCC轉弱 |  |  | call_inflow | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/16 1.召開法人說明會之日期：115/07/16 ~ 115/07/17 2.召開法人說明會之時間：08 時 00 分  3.召開法人說明會之地點：日本 4.法人說明會擇要訊息：115年7月16-17日受大和證券邀請參加投資人會議，說明本公司營運概況。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 2317 | 鴻海 | 7 | 7 | 5 | 9 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260715 | 2317 | 鴻海 | 9 | 9 | 5 | 9 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 2317 | 鴻海 | 519 | 40 | 19306370.0 | 61720.0 | 312.81 | no_signal |
+| 20260715 | 2317 | 鴻海 | 515 | 38 | 45699360.0 | 206310.0 | 221.51 | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

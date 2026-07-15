@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6706 惠特
 
 ## Metadata
-- generated_at: 2026-07-14 22:27:22 Asia/Taipei
+- generated_at: 2026-07-15 22:27:37 Asia/Taipei
 - stock_id: 6706
 - stock_name: 惠特
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 302
+- latest_price_date: 20260715
+- price_rows: 304
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 141
-- high: 141
-- low: 128.5
-- close: 131
-- volume: 2103810
-- ma5: 139.5
-- ema23_primary: 153.73
-- distance_to_ema23_pct: -14.78
-- ma20: 153.3
-- ma60: 164.16
-- ma120: 142.88
-- return_5d: -14.94
-- return_20d: -18.63
-- volume_ratio: 0.82
-- distance_to_ma20_pct_auxiliary: -14.55
-- distance_to_high_60_pct: -41.78
+- date: 20260715
+- open: 130
+- high: 130
+- low: 126
+- close: 128.5
+- volume: 960562
+- ma5: 133.3
+- ema23_primary: 149.51
+- distance_to_ema23_pct: -14.05
+- ma20: 149.5
+- ma60: 163.43
+- ma120: 142.95
+- return_5d: -7.22
+- return_20d: -21.41
+- volume_ratio: 0.45
+- distance_to_ma20_pct_auxiliary: -14.05
+- distance_to_high_60_pct: -42.89
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,170,177,163.5,167,8979831,178.46,-6.42,185.82,155.86,1.01
-20260615,169.5,172,163.5,163.5,4160966,177.21,-7.74,185.3,156.5,0.48
 20260616,167.5,178,165.5,165.5,5451483,176.24,-6.09,184.93,157.23,0.67
 20260617,165.5,167,162.5,167,2112776,175.47,-4.82,185.25,158,0.27
 20260618,168,177.5,167.5,172,3437660,175.18,-1.81,185.43,158.97,0.46
@@ -145,15 +143,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,162.5,163.5,155,155,1653488,171.19,-9.46,178.95,161.28,0.3
 20260626,153.5,155.5,143,143.5,2444525,168.88,-15.03,176,161.62,0.51
 20260629,144,147,139,140.5,1886380,166.51,-15.62,172.75,162.09,0.44
-20260630,144,153,142.5,149.5,2097000,165.1,-9.45,169.4,162.67,0.56
-20260701,152,155.5,148,148,1446000,163.67,-9.57,166.45,163.14,0.43
-20260702,143,149.5,143,149.5,1041000,162.49,-7.99,163.62,163.7,0.33
+20260630,144,153,142.5,149.5,2130055,165.1,-9.45,169.4,162.67,0.57
+20260701,152,155.5,148,148,1476455,163.67,-9.57,166.45,163.14,0.43
+20260702,143,149.5,143,149.5,1062038,162.49,-7.99,163.62,163.7,0.33
 20260703,148,159,147,154,1790585,161.78,-4.81,161.6,164.17,0.58
-20260706,156,156,146,147,1383000,160.55,-8.44,159.45,164.49,0.47
+20260706,156,156,146,147,1421278,160.55,-8.44,159.45,164.49,0.48
 20260707,146,153.5,136.5,138.5,1902576,158.71,-12.74,157.72,164.47,0.66
 20260708,139.5,143,136.5,142,1491970,157.32,-9.74,156,164.47,0.53
 20260709,142,144,139,139,735889,155.79,-10.78,154.8,164.47,0.28
-20260713,141,141,128.5,131,2103810,153.73,-14.78,153.3,164.16,0.82
+20260713,141,141,128.5,131,2103810,153.73,-14.78,153.3,164.16,0.81
+20260714,130,132.5,118.5,126,2955216,151.42,-16.79,151.25,163.81,1.29
+20260715,130,130,126,128.5,960562,149.51,-14.05,149.5,163.43,0.45
 ```
 
 ## Latest TDCC Snapshot
@@ -198,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 6706 | 惠特 | 88 | 3 | 1462680.0 | 86890.0 | 16.83 | no_signal |
+| 20260715 | 6706 | 惠特 | 90 | 3 | 2477590.0 | 854180.0 | 2.9 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3511 矽瑪
 
 ## Metadata
-- generated_at: 2026-07-14 22:26:51 Asia/Taipei
+- generated_at: 2026-07-15 22:27:00 Asia/Taipei
 - stock_id: 3511
 - stock_name: 矽瑪
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 167
+- latest_price_date: 20260715
+- price_rows: 169
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 25.25
-- high: 25.35
-- low: 23.85
-- close: 23.85
-- volume: 967000
-- ma5: 26.26
-- ema23_primary: 24.67
-- distance_to_ema23_pct: -3.34
-- ma20: 24.84
-- ma60: 22.86
-- ma120: 21.45
-- return_5d: -6.47
-- return_20d: 1.27
-- volume_ratio: 0.55
-- distance_to_ma20_pct_auxiliary: -3.97
-- distance_to_high_60_pct: -22.69
+- date: 20260715
+- open: 23
+- high: 23
+- low: 22.4
+- close: 22.6
+- volume: 630000
+- ma5: 24.09
+- ema23_primary: 24.35
+- distance_to_ema23_pct: -7.2
+- ma20: 24.66
+- ma60: 22.94
+- ma120: 21.48
+- return_5d: -19.72
+- return_20d: -10.32
+- volume_ratio: 0.36
+- distance_to_ma20_pct_auxiliary: -8.35
+- distance_to_high_60_pct: -26.74
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,24.45,24.45,23.5,23.65,541000,22.82,3.62,22.38,21,2.27
-20260615,24.05,25.3,23.95,25.2,1156000,23.02,9.46,22.64,21.1,4.04
 20260616,25.5,25.7,24.2,24.6,870000,23.15,6.24,22.9,21.2,2.72
 20260617,24.6,26.8,24.6,24.65,1170000,23.28,5.89,23.16,21.29,3.14
 20260618,24.8,25.25,24.35,24.95,623000,23.42,6.54,23.41,21.39,1.58
@@ -155,6 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260708,27.75,27.75,26,26.1,2186000,24.71,5.62,24.73,22.69,1.28
 20260709,25.85,26.95,25,25.15,1594000,24.75,1.62,24.82,22.79,0.92
 20260713,25.25,25.35,23.85,23.85,967000,24.67,-3.34,24.84,22.86,0.55
+20260714,23.4,23.8,21.65,22.75,1089000,24.51,-7.19,24.79,22.92,0.61
+20260715,23,23,22.4,22.6,630000,24.35,-7.2,24.66,22.94,0.36
 ```
 
 ## Latest TDCC Snapshot

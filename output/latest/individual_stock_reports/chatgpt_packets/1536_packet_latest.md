@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1536 和大
 
 ## Metadata
-- generated_at: 2026-07-14 22:26:23 Asia/Taipei
+- generated_at: 2026-07-15 22:26:27 Asia/Taipei
 - stock_id: 1536
 - stock_name: 和大
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 302
+- latest_price_date: 20260715
+- price_rows: 304
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -56,33 +56,29 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 可分批買進
-- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
-- action_summary_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。
-- entry_strategy_zh: 突破後順勢追蹤；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
-- position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- action_rating_display_zh: 已持有續抱
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
+- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：突破後順勢追蹤；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: scale_in
-- action_rating_label_zh: 可分批買進
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: breakout_initial
-- entry_style: breakout_follow
-- position_sizing: half_position
+- thesis_state: unclear
+- entry_style: no_entry_now
+- position_sizing: observe_only
 
 ### management_plan
-- buy_first_tranche_near_support
-- add_on_23ema_hold
-- add_on_reclaim_23ema
-- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -91,7 +87,6 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -118,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 55.4
-- high: 57.2
-- low: 54
-- close: 56.1
-- volume: 13299989
-- ma5: 53.08
-- ema23_primary: 50.89
-- distance_to_ema23_pct: 10.24
-- ma20: 50.06
-- ma60: 51.01
-- ma120: 53.64
-- return_5d: 7.47
-- return_20d: 15.55
-- volume_ratio: 3.46
-- distance_to_ma20_pct_auxiliary: 12.05
-- distance_to_high_60_pct: -2.09
+- date: 20260715
+- open: 53.3
+- high: 55
+- low: 52
+- close: 53.2
+- volume: 4023471
+- ma5: 53.5
+- ema23_primary: 51.26
+- distance_to_ema23_pct: 3.79
+- ma20: 50.44
+- ma60: 51.08
+- ma120: 53.62
+- return_5d: 3.91
+- return_20d: 6.51
+- volume_ratio: 0.95
+- distance_to_ma20_pct_auxiliary: 5.48
+- distance_to_high_60_pct: -7.16
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,49.2,49.85,48.95,49,1194447,50.68,-3.32,50.55,51.01,0.34
-20260615,49.85,50.5,49.5,49.95,1100921,50.62,-1.32,50.64,50.96,0.34
 20260616,50,50.3,48.65,48.9,1312002,50.48,-3.12,50.58,50.92,0.42
 20260617,48.6,49.35,48.5,48.75,1119552,50.33,-3.15,50.56,50.89,0.36
 20260618,48.75,49.2,48.4,48.7,1341598,50.2,-2.98,50.49,50.84,0.44
@@ -151,15 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,48.8,49.25,48.05,48.05,1660335,49.91,-3.72,50.12,50.72,0.56
 20260626,48.1,48.15,47,47.1,2177537,49.67,-5.18,49.91,50.67,0.79
 20260629,47.6,48.2,47.1,47.6,879212,49.5,-3.84,49.66,50.64,0.39
-20260630,47.6,48.1,47.5,47.7,815000,49.35,-3.34,49.34,50.62,0.42
-20260701,48.15,48.7,47.75,47.8,1157000,49.22,-2.89,49.11,50.61,0.63
-20260702,48.25,51.4,47.5,50.9,9172000,49.36,3.12,49.05,50.67,4.22
-20260703,50.5,53.5,50.5,52.2,8190757,49.6,5.25,49.12,50.73,3.32
-20260706,52.4,53.9,52.2,53.1,4740000,49.89,6.44,49.24,50.81,1.83
+20260630,47.6,48.1,47.5,47.7,828949,49.35,-3.34,49.34,50.62,0.42
+20260701,48.15,48.7,47.75,47.8,1164654,49.22,-2.89,49.11,50.61,0.63
+20260702,48.25,51.4,47.5,50.9,9250012,49.36,3.12,49.05,50.67,4.25
+20260703,50.5,53.5,50.5,52.2,8190757,49.6,5.25,49.12,50.73,3.31
+20260706,52.4,53.9,52.2,53.1,4806185,49.89,6.44,49.24,50.81,1.85
 20260707,54.5,54.7,50.8,51.2,3588860,50,2.4,49.37,50.86,1.36
 20260708,50.5,51.3,49.4,50,2144237,50,0,49.4,50.86,0.8
-20260709,50.5,55,50.3,55,13866421,50.42,9.09,49.69,50.92,4.25
+20260709,50.5,55,50.3,55,13866421,50.42,9.09,49.69,50.92,4.24
 20260713,55.4,57.2,54,56.1,13299989,50.89,10.24,50.06,51.01,3.46
+20260714,55.4,56.7,52.2,53.2,5643130,51.08,4.15,50.27,51.05,1.39
+20260715,53.3,55,52,53.2,4023471,51.26,3.79,50.44,51.08,0.95
 ```
 
 ## Latest TDCC Snapshot
@@ -194,17 +189,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 1536 | 和大 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  | call_inflow | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260715 | 1536 | 和大 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | repeated_but_no_breakout | 1.發生變動日期:115/07/14 2.選任或變動人員別（請輸入法人董事、法人監察人、獨立董事、自然人董事   或自然人監察人）:獨立董事 3.舊任者職稱及姓名:獨立董事 莊柏年 4.舊任者簡歷:台灣精銳科技(股)公司獨立董事 5.新任者職稱及姓名:尚未補選 6.新任者簡歷:無 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 辭職 8.異動原因:個人因素請辭 9.新任者選任時持股數:無 10.原任期（例xx/xx/xx ~ xx/xx/xx）:115/05/29~118/05/28 11.新任生效日期:無 12.同任期董事變動比率:1/13 13.同任期獨立董事變動比率:1/4 14.同任期監察人變動比率:不適用 15.屬三分之一以上董事發生變動（請輸入是或否）:否 16.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 獨立董事莊柏年先生於115年7月14日辭任。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 1536 | 和大 | 2 | 2 | 4 | 6 | 7 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| 20260715 | 1536 | 和大 | 4 | 2 | 4 | 8 | 9 | repeated_but_no_breakout | 近 10 日上榜 8 次、近 20 日上榜 9 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 1536 | 和大 | 22 | 0 | 1773190.0 | 0.0 |  | call_inflow |
+| 20260715 | 1536 | 和大 | 26 | 0 | 647090.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

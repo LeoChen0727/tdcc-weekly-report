@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5536 聖暉*
 
 ## Metadata
-- generated_at: 2026-07-14 22:27:08 Asia/Taipei
+- generated_at: 2026-07-15 22:27:21 Asia/Taipei
 - stock_id: 5536
 - stock_name: 聖暉*
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 167
+- latest_price_date: 20260715
+- price_rows: 169
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 1245
-- high: 1255
-- low: 1170
-- close: 1180
-- volume: 1078000
-- ma5: 1297
-- ema23_primary: 1249.61
-- distance_to_ema23_pct: -5.57
-- ma20: 1289
-- ma60: 1066.48
-- ma120: 884.68
-- return_5d: -17.48
-- return_20d: 9.77
+- date: 20260715
+- open: 1150
+- high: 1265
+- low: 1130
+- close: 1250
+- volume: 1065000
+- ma5: 1212
+- ema23_primary: 1242.41
+- distance_to_ema23_pct: 0.61
+- ma20: 1287.5
+- ma60: 1079.65
+- ma120: 891.78
+- return_5d: -10.39
+- return_20d: -0.4
 - volume_ratio: 1.11
-- distance_to_ma20_pct_auxiliary: -8.46
-- distance_to_high_60_pct: -20.81
+- distance_to_ma20_pct_auxiliary: -2.91
+- distance_to_high_60_pct: -16.11
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,1135,1180,1120,1180,1101000,1029.08,14.67,1031.55,887.6,0.94
-20260615,1220,1280,1200,1255,959000,1047.91,19.76,1045.05,897.13,0.86
 20260616,1255,1290,1145,1175,1085000,1058.5,11.01,1056.6,905.38,1.04
 20260617,1170,1190,1140,1190,433000,1069.46,11.27,1070.3,913.35,0.43
 20260618,1190,1270,1185,1265,1092000,1085.75,16.51,1087.1,922.38,1.11
@@ -154,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260708,1360,1365,1260,1260,1608000,1259.66,0.03,1277.5,1053.4,1.65
 20260709,1270,1270,1205,1215,802000,1255.93,-3.26,1283.75,1060.52,0.84
 20260713,1245,1255,1170,1180,1078000,1249.61,-5.57,1289,1066.48,1.11
+20260714,1180,1200,1110,1155,801000,1241.72,-6.98,1287.75,1072.57,0.84
+20260715,1150,1265,1130,1250,1065000,1242.41,0.61,1287.5,1079.65,1.11
 ```
 
 ## Latest TDCC Snapshot
@@ -188,13 +189,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 5536 | 聖暉* | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | repeated_but_no_breakout | 1.申請海外證券市場掛牌交易之子公司名稱:蘇州冠禮科技股份有限公司 2.與公司關係及持股(或出資額)比例:本公司48.07%間接持有之子公司 3.申請海外證券市場掛牌交易之送件日期:115/06/30 4.申請海外證券市場掛牌之交易所:深圳證券交易所創業板 5.其他應敘明事項:本案業經本公司115年5月28日股東常會決議通過；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
-| 20260713 | 5536 | 聖暉* | revenue_pullback | 營收成長股價回檔 | 60.0 |  |  |  |  |  | repeated_but_no_breakout | 1.申請海外證券市場掛牌交易之子公司名稱:蘇州冠禮科技股份有限公司 2.與公司關係及持股(或出資額)比例:本公司48.07%間接持有之子公司 3.申請海外證券市場掛牌交易之送件日期:115/06/30 4.申請海外證券市場掛牌之交易所:深圳證券交易所創業板 5.其他應敘明事項:本案業經本公司115年5月28日股東常會決議通過；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260715 | 5536 | 聖暉* | pattern | 型態觀察 | 54.0 |  |  | pullback_right_side |  |  | repeated_but_no_breakout | 1.申請海外證券市場掛牌交易之子公司名稱:蘇州冠禮科技股份有限公司 2.與公司關係及持股(或出資額)比例:本公司48.07%間接持有之子公司 3.申請海外證券市場掛牌交易之送件日期:115/06/30 4.申請海外證券市場掛牌之交易所:深圳證券交易所創業板 5.其他應敘明事項:本案業經本公司115年5月28日股東常會決議通過；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260715 | 5536 | 聖暉* | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | repeated_but_no_breakout | 1.申請海外證券市場掛牌交易之子公司名稱:蘇州冠禮科技股份有限公司 2.與公司關係及持股(或出資額)比例:本公司48.07%間接持有之子公司 3.申請海外證券市場掛牌交易之送件日期:115/06/30 4.申請海外證券市場掛牌之交易所:深圳證券交易所創業板 5.其他應敘明事項:本案業經本公司115年5月28日股東常會決議通過；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 5536 | 聖暉* | 1 | 1 | 2 | 4 | 6 | repeated_but_no_breakout | 近 10 日上榜 4 次、近 20 日上榜 6 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260715 | 5536 | 聖暉* | 1 | 1 | 3 | 4 | 7 | repeated_but_no_breakout | 近 10 日上榜 4 次、近 20 日上榜 7 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

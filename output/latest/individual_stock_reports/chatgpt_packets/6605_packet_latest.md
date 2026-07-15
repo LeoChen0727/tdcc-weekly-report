@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6605 帝寶
 
 ## Metadata
-- generated_at: 2026-07-14 22:27:20 Asia/Taipei
+- generated_at: 2026-07-15 22:27:34 Asia/Taipei
 - stock_id: 6605
 - stock_name: 帝寶
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 302
+- latest_price_date: 20260715
+- price_rows: 304
 - latest_tdcc_date: 20260703
 - tdcc_rows: 32
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
+- date: 20260715
 - open: 127
-- high: 129
-- low: 125.5
-- close: 127.5
-- volume: 394310
-- ma5: 132.2
-- ema23_primary: 135.95
-- distance_to_ema23_pct: -6.21
-- ma20: 137.32
-- ma60: 134.42
-- ma120: 138.49
-- return_5d: -7.27
-- return_20d: -9.57
-- volume_ratio: 0.58
-- distance_to_ma20_pct_auxiliary: -7.15
-- distance_to_high_60_pct: -15.28
+- high: 129.5
+- low: 127
+- close: 128.5
+- volume: 249208
+- ma5: 128.9
+- ema23_primary: 134.76
+- distance_to_ema23_pct: -4.64
+- ma20: 135.95
+- ma60: 134.38
+- ma120: 138.31
+- return_5d: -5.86
+- return_20d: -10.45
+- volume_ratio: 0.37
+- distance_to_ma20_pct_auxiliary: -5.48
+- distance_to_high_60_pct: -14.62
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,141.5,143,141,141,434280,138.88,1.53,138.15,133.72,0.49
-20260615,142,144,141.5,143.5,540498,139.26,3.04,138.82,133.86,0.6
 20260616,144.5,144.5,141,141.5,461548,139.45,1.47,139.4,133.96,0.5
 20260617,141,143,141,142.5,369813,139.71,2,140.05,134.08,0.4
 20260618,143,145,141,141.5,592139,139.85,1.18,140.57,134.18,0.63
@@ -145,15 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,140,143,139,142,1038244,139.85,1.54,142.7,134.31,1.03
 20260626,142,142,137,137,709691,139.61,-1.87,142.53,134.35,0.71
 20260629,137,139.5,136.5,139,856045,139.56,-0.4,142.18,134.46,1.02
-20260630,139,139,135,136,927000,139.27,-2.34,141.9,134.47,1.15
-20260701,137,137,134,134,515000,138.83,-3.48,141.47,134.5,0.67
-20260702,134,134.5,131.5,133,610000,138.34,-3.86,140.93,134.51,0.82
+20260630,139,139,135,136,945463,139.27,-2.34,141.9,134.47,1.18
+20260701,137,137,134,134,531351,138.83,-3.48,141.47,134.5,0.69
+20260702,134,134.5,131.5,133,633076,138.34,-3.86,140.93,134.51,0.84
 20260703,132.5,139.5,131.5,137.5,690003,138.27,-0.56,140.62,134.56,0.92
-20260706,137.5,139.5,137,137,403000,138.17,-0.84,140.18,134.58,0.56
-20260707,137,137.5,135.5,136.5,823746,138.03,-1.11,139.75,134.58,1.18
+20260706,137.5,139.5,137,137,410169,138.17,-0.84,140.18,134.58,0.57
+20260707,137,137.5,135.5,136.5,823746,138.03,-1.11,139.75,134.58,1.17
 20260708,136.5,138,133,134,799830,137.69,-2.68,139.07,134.57,1.16
-20260709,128.5,131,125.5,126,1782197,136.72,-7.84,138,134.47,2.46
-20260713,127,129,125.5,127.5,394310,135.95,-6.21,137.32,134.42,0.58
+20260709,128.5,131,125.5,126,1782197,136.72,-7.84,138,134.47,2.45
+20260713,127,129,125.5,127.5,394310,135.95,-6.21,137.32,134.42,0.57
+20260714,128.5,128.5,125,128.5,487955,135.33,-5.05,136.7,134.39,0.71
+20260715,127,129.5,127,128.5,249208,134.76,-4.64,135.95,134.38,0.37
 ```
 
 ## Latest TDCC Snapshot
@@ -200,7 +201,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 6605 | 帝寶 | 6 | 0 | 68790.0 | 0.0 |  | no_signal |
+| 20260715 | 6605 | 帝寶 | 6 | 0 | 41440.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

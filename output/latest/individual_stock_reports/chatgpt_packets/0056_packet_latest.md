@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0056 元大高股息
 
 ## Metadata
-- generated_at: 2026-07-14 22:26:15 Asia/Taipei
+- generated_at: 2026-07-15 22:26:17 Asia/Taipei
 - stock_id: 0056
 - stock_name: 元大高股息
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 166
+- latest_price_date: 20260715
+- price_rows: 168
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 53.1
-- high: 53.45
-- low: 52.15
-- close: 52.4
-- volume: 49611568
-- ma5: 52.56
-- ema23_primary: 51.87
-- distance_to_ema23_pct: 1.02
-- ma20: 52.49
-- ma60: 48
-- ma120: 43.21
-- return_5d: -0.85
-- return_20d: 5.67
-- volume_ratio: 1.09
-- distance_to_ma20_pct_auxiliary: -0.18
-- distance_to_high_60_pct: -4.55
+- date: 20260715
+- open: 52.5
+- high: 53.05
+- low: 52.35
+- close: 53
+- volume: 31702521
+- ma5: 52.43
+- ema23_primary: 51.95
+- distance_to_ema23_pct: 2.01
+- ma20: 52.63
+- ma60: 48.38
+- ma120: 43.46
+- return_5d: 1.63
+- return_20d: 2.91
+- volume_ratio: 0.63
+- distance_to_ma20_pct_auxiliary: 0.71
+- distance_to_high_60_pct: -3.46
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,51.05,51.65,50.5,50.6,43124385,48.75,3.79,49.16,43.59,0.7
-20260615,51.85,52,51.3,51.5,33706671,48.98,5.14,49.51,43.79,0.56
 20260616,51.8,51.9,51.4,51.55,30454587,49.2,4.78,49.88,44,0.52
 20260617,51.15,51.95,50.85,51.95,29771585,49.43,5.11,50.28,44.22,0.5
 20260618,52.4,52.85,52.4,52.8,33652479,49.71,6.22,50.65,44.47,0.58
@@ -146,15 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,53.7,53.8,52.95,53.2,29133924,50.81,4.7,51.71,45.48,0.52
 20260626,52.8,52.95,51.35,51.45,75502054,50.87,1.15,51.85,45.7,1.34
 20260629,51.75,52.35,51.6,51.8,36288209,50.94,1.68,51.93,45.95,0.66
-20260630,52.6,53.25,52.15,53.25,41346000,51.14,4.13,51.99,46.2,0.76
-20260701,53.55,53.55,52.55,52.75,48061000,51.27,2.89,51.99,46.45,0.9
-20260702,51.85,52.65,51.75,52.6,54880000,51.38,2.37,51.93,46.69,1.02
+20260630,52.6,53.25,52.15,53.25,42298690,51.14,4.13,51.99,46.2,0.78
+20260701,53.55,53.55,52.55,52.75,50422170,51.27,2.89,51.99,46.45,0.94
+20260702,51.85,52.65,51.75,52.6,57875127,51.38,2.37,51.93,46.69,1.07
 20260703,52.1,52.95,52.1,52.85,33981422,51.5,2.61,51.94,46.92,0.65
-20260706,53.4,53.95,53.1,53.25,53814000,51.65,3.1,52.01,47.16,1.05
-20260707,53.25,53.6,51.95,52.15,90628906,51.69,0.89,52.15,47.37,1.84
-20260708,52.6,52.65,51.65,52.35,49809291,51.75,1.17,52.2,47.58,1.02
-20260709,52.55,53.05,52.3,52.65,26405830,51.82,1.6,52.35,47.79,0.57
-20260713,53.1,53.45,52.15,52.4,49611568,51.87,1.02,52.49,48,1.09
+20260706,53.4,53.95,53.1,53.25,55408378,51.65,3.1,52.01,47.16,1.08
+20260707,53.25,53.6,51.95,52.15,90628906,51.69,0.89,52.15,47.37,1.82
+20260708,52.6,52.65,51.65,52.35,49809291,51.75,1.17,52.2,47.58,1.01
+20260709,52.55,53.05,52.3,52.65,26405830,51.82,1.6,52.35,47.79,0.56
+20260713,53.1,53.45,52.15,52.4,49611568,51.87,1.02,52.49,48,1.08
+20260714,52.3,52.35,50.5,51.75,129993435,51.86,-0.21,52.55,48.18,2.58
+20260715,52.5,53.05,52.35,53,31702521,51.95,2.01,52.63,48.38,0.63
 ```
 
 ## Latest TDCC Snapshot
@@ -178,19 +178,19 @@ no_rows,True
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260715 | 0056 | 元大高股息 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: ex_dividend on 20260721; status=confirmed; proximity=within_7d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260715 | 0056 | 元大高股息 | 1 | 1 | 2 | 6 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 0056 | 元大高股息 | 2 | 0 | 51760.0 | 0.0 |  | no_signal |
+| 20260715 | 0056 | 元大高股息 | 2 | 0 | 3290.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

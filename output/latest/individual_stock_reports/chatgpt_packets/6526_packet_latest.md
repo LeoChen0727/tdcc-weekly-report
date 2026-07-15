@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6526 達發
 
 ## Metadata
-- generated_at: 2026-07-14 22:27:19 Asia/Taipei
+- generated_at: 2026-07-15 22:27:33 Asia/Taipei
 - stock_id: 6526
 - stock_name: 達發
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 302
+- latest_price_date: 20260715
+- price_rows: 304
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 673
-- high: 694
-- low: 650
-- close: 682
-- volume: 1039458
-- ma5: 664.8
-- ema23_primary: 671.28
-- distance_to_ema23_pct: 1.6
-- ma20: 674
-- ma60: 654.88
-- ma120: 565.2
-- return_5d: -3.4
-- return_20d: 10.36
-- volume_ratio: 1.3
-- distance_to_ma20_pct_auxiliary: 1.19
-- distance_to_high_60_pct: -13.34
+- date: 20260715
+- open: 661
+- high: 661
+- low: 635
+- close: 643
+- volume: 461585
+- ma5: 655.8
+- ema23_primary: 666.99
+- distance_to_ema23_pct: -3.6
+- ma20: 674.05
+- ma60: 659.55
+- ma120: 568.62
+- return_5d: -0.77
+- return_20d: -1.83
+- volume_ratio: 0.57
+- distance_to_ma20_pct_auxiliary: -4.61
+- distance_to_high_60_pct: -18.3
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,646,646,630,633,381008,656.23,-3.54,673.3,595.03,0.29
-20260615,659,675,642,655,940207,656.13,-0.17,671.6,597.35,0.71
 20260616,659,671,646,660,560801,656.45,0.54,672.25,599.98,0.45
 20260617,650,678,650,666,517204,657.25,1.33,672.7,602.72,0.42
 20260618,671,696,670,696,988525,660.48,5.38,672.3,606.23,0.84
@@ -146,15 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,717,720,690,692,765480,672,2.98,669.65,620.02,0.82
 20260626,684,686,625,626,1169286,668.16,-6.31,667.95,622.54,1.27
 20260629,627,646,624,636,559108,665.48,-4.43,666.8,625.41,0.61
-20260630,651,681,646,670,952000,665.86,0.62,666.65,628.52,1.03
-20260701,687,715,677,703,1479000,668.96,5.09,666.1,632.29,1.7
-20260702,688,714,688,705,672000,671.96,4.92,665.75,635.99,0.83
-20260703,697,719,696,706,733986,674.8,4.62,666.7,639.62,0.91
-20260706,710,715,684,686,573000,675.73,1.52,667.55,643.09,0.71
-20260707,685,691,647,648,994041,673.42,-3.77,668.6,645.98,1.22
+20260630,651,681,646,670,990869,665.86,0.62,666.65,628.52,1.07
+20260701,687,715,677,703,1576124,668.96,5.09,666.1,632.29,1.79
+20260702,688,714,688,705,714634,671.96,4.92,665.75,635.99,0.87
+20260703,697,719,696,706,733986,674.8,4.62,666.7,639.62,0.9
+20260706,710,715,684,686,609979,675.73,1.52,667.55,643.09,0.75
+20260707,685,691,647,648,994041,673.42,-3.77,668.6,645.98,1.2
 20260708,658,658,635,656,397069,671.97,-2.38,668.95,648.98,0.49
 20260709,663,663,648,652,252755,670.3,-2.73,670.8,651.63,0.32
-20260713,673,694,650,682,1039458,671.28,1.6,674,654.88,1.3
+20260713,673,694,650,682,1039458,671.28,1.6,674,654.88,1.29
+20260714,675,680,616,646,858207,669.17,-3.46,674.65,657.27,1.03
+20260715,661,661,635,643,461585,666.99,-3.6,674.05,659.55,0.57
 ```
 
 ## Latest TDCC Snapshot
@@ -187,19 +187,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 6526 | 達發 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | call_strong_inflow | first_seen | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 6526 | 達發 | 1 | 1 | 1 | 2 | 2 | first_seen | 首次上榜或資料有限，需後續確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 6526 | 達發 | 41 | 1 | 7644080.0 | 0.0 |  | call_strong_inflow |
+| 20260715 | 6526 | 達發 | 41 | 1 | 1864910.0 | 2940.0 | 634.32 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

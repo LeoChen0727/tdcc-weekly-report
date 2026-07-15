@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2495 普安
 
 ## Metadata
-- generated_at: 2026-07-14 22:26:36 Asia/Taipei
+- generated_at: 2026-07-15 22:26:43 Asia/Taipei
 - stock_id: 2495
 - stock_name: 普安
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 302
+- latest_price_date: 20260715
+- price_rows: 304
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -58,7 +58,7 @@
 - pdf_visible: true
 - action_rating_display_zh: 可分批買進
 - model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
 - action_summary_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。
 - entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
 - position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
@@ -92,6 +92,7 @@
 
 ### entry_prerequisites
 - model_recommended
+- decision_score_high
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -117,30 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 52.8
-- high: 52.8
-- low: 47.25
-- close: 47.4
-- volume: 15621209
-- ma5: 50.88
-- ema23_primary: 50.18
-- distance_to_ema23_pct: -5.53
-- ma20: 51.2
-- ma60: 45.91
-- ma120: 39.73
-- return_5d: -8.49
-- return_20d: -4.53
-- volume_ratio: 1.43
-- distance_to_ma20_pct_auxiliary: -7.42
-- distance_to_high_60_pct: -14.75
+- date: 20260715
+- open: 45.55
+- high: 46
+- low: 44.35
+- close: 45.05
+- volume: 2946764
+- ma5: 48.18
+- ema23_primary: 49.33
+- distance_to_ema23_pct: -8.68
+- ma20: 50.65
+- ma60: 45.97
+- ma120: 39.93
+- return_5d: -11.14
+- return_20d: -10.79
+- volume_ratio: 0.3
+- distance_to_ma20_pct_auxiliary: -11.06
+- distance_to_high_60_pct: -18.97
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,50.6,51.4,49.3,50.3,14663418,46.66,7.8,46.86,41.21,1.03
-20260615,51.4,52.2,50.4,50.5,18666222,46.98,7.49,47.55,41.46,1.24
 20260616,51.8,52,49.5,49.5,11374241,47.19,4.89,48.24,41.62,0.74
 20260617,49.5,54.3,49.35,53.8,20093517,47.74,12.69,49.05,41.86,1.25
 20260618,52.6,53.5,51.2,52.1,12721654,48.1,8.31,49.62,42.12,0.79
@@ -150,15 +149,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,53.6,54.3,52,53.5,17828126,49.51,8.06,50.84,43.27,1.24
 20260626,53.5,53.9,49.95,50.3,11304892,49.57,1.47,50.99,43.54,0.83
 20260629,50.3,51.5,49.1,49.8,4423754,49.59,0.42,50.9,43.82,0.35
-20260630,50,51,49.55,50.3,5104000,49.65,1.31,50.87,44.08,0.42
-20260701,51,51.9,49.8,49.8,5025000,49.66,0.27,50.78,44.38,0.43
-20260702,49.7,50.5,48.4,50.1,3761000,49.7,0.8,50.65,44.68,0.35
+20260630,50,51,49.55,50.3,5145107,49.65,1.31,50.87,44.08,0.42
+20260701,51,51.9,49.8,49.8,5069331,49.66,0.27,50.78,44.38,0.43
+20260702,49.7,50.5,48.4,50.1,3804907,49.7,0.8,50.65,44.68,0.36
 20260703,49.95,52.4,49.8,51.8,7749768,49.88,3.86,50.69,44.98,0.73
-20260706,52.6,53.7,52,52.6,6368000,50.1,4.99,50.84,45.26,0.6
+20260706,52.6,53.7,52,52.6,6425046,50.1,4.99,50.84,45.26,0.6
 20260707,52.8,53.3,50.5,50.7,5097000,50.15,1.09,51.05,45.49,0.48
 20260708,51.4,52.8,50.4,51.2,7076515,50.24,1.91,51.09,45.68,0.67
 20260709,51.4,55.6,51,52.5,17848677,50.43,4.11,51.31,45.87,1.65
 20260713,52.8,52.8,47.25,47.4,15621209,50.18,-5.53,51.2,45.91,1.43
+20260714,46,46.3,42.7,44.75,7371919,49.72,-10,50.92,45.93,0.7
+20260715,45.55,46,44.35,45.05,2946764,49.33,-8.68,50.65,45.97,0.3
 ```
 
 ## Latest TDCC Snapshot
@@ -193,17 +194,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 2495 | 普安 | revenue_pullback | 營收成長股價回檔 | 76.0 |  |  |  |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/02 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:現金股利新台幣218,841,230元，每股配發0.8元 4.除權（息）交易日:115/07/24 5.最後過戶日:115/07/27 6.停止過戶起始日期:115/07/28 7.停止過戶截止日期:115/08/01 8.除權（息）基準日:115/08/01 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/27 13.其他應敘明事項:無；calendar event: ex_dividend on 20260724; status=confirmed; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260715 | 2495 | 普安 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  | call_strong_inflow | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/02 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:現金股利新台幣218,841,230元，每股配發0.8元 4.除權（息）交易日:115/07/24 5.最後過戶日:115/07/27 6.停止過戶起始日期:115/07/28 7.停止過戶截止日期:115/08/01 8.除權（息）基準日:115/08/01 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/27 13.其他應敘明事項:無；calendar event: ex_dividend on 20260724; status=confirmed; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 2495 | 普安 | 14 | 7 | 5 | 10 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260715 | 2495 | 普安 | 16 | 9 | 5 | 10 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 2495 | 普安 | 29 | 0 | 3611330.0 | 0.0 |  | no_signal |
+| 20260715 | 2495 | 普安 | 31 | 0 | 4833940.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

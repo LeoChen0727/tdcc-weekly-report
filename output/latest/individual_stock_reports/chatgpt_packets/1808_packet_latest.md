@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1808 潤隆
 
 ## Metadata
-- generated_at: 2026-07-14 22:26:27 Asia/Taipei
+- generated_at: 2026-07-15 22:26:31 Asia/Taipei
 - stock_id: 1808
 - stock_name: 潤隆
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 295
+- latest_price_date: 20260715
+- price_rows: 297
 - latest_tdcc_date: 20260703
 - tdcc_rows: 32
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 30.7
-- high: 31.1
-- low: 30.35
-- close: 30.8
-- volume: 804207
-- ma5: 30.54
-- ema23_primary: 30.51
-- distance_to_ema23_pct: 0.95
-- ma20: 30.86
-- ma60: 29.98
-- ma120: 30.68
-- return_5d: 1.32
-- return_20d: -1.28
-- volume_ratio: 0.53
-- distance_to_ma20_pct_auxiliary: -0.19
-- distance_to_high_60_pct: -7.09
+- date: 20260715
+- open: 30.9
+- high: 31.4
+- low: 30.7
+- close: 31.2
+- volume: 1134449
+- ma5: 30.57
+- ema23_primary: 30.58
+- distance_to_ema23_pct: 2.02
+- ma20: 30.73
+- ma60: 30.01
+- ma120: 30.61
+- return_5d: 3.14
+- return_20d: -4.29
+- volume_ratio: 0.87
+- distance_to_ma20_pct_auxiliary: 1.54
+- distance_to_high_60_pct: -5.88
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,31.35,32.4,31.25,31.9,3093757,30.21,5.58,29.91,29.93,1.56
-20260615,32,32.7,31.15,32.6,3256278,30.41,7.19,30.07,29.95,1.55
 20260616,32.65,32.9,31.85,31.9,2028589,30.54,4.47,30.22,29.98,0.94
 20260617,32.2,32.45,31.75,32.4,1115414,30.69,5.57,30.38,30,0.52
 20260618,32.6,33.15,32,32.25,3879544,30.82,4.63,30.52,30.04,1.69
@@ -146,15 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,31.2,31.35,30.8,31.05,1082517,30.8,0.81,30.92,30.02,0.47
 20260626,30.65,30.85,30.35,30.6,994646,30.78,-0.6,31.04,30.02,0.43
 20260629,30.6,30.9,29.85,29.9,1058114,30.71,-2.64,31.06,30.01,0.47
-20260630,30,30.2,29.6,30,889000,30.65,-2.13,31.11,29.99,0.41
-20260701,30.1,30.15,29.8,29.95,456000,30.59,-2.1,31.14,29.99,0.22
-20260702,30.3,30.3,29.65,29.65,711000,30.51,-2.83,31.08,29.97,0.37
+20260630,30,30.2,29.6,30,903414,30.65,-2.13,31.11,29.99,0.42
+20260701,30.1,30.15,29.8,29.95,467112,30.59,-2.1,31.14,29.99,0.22
+20260702,30.3,30.3,29.65,29.65,725520,30.51,-2.83,31.08,29.97,0.38
 20260703,29.65,30.45,29.65,30.4,935507,30.51,-0.34,31.02,29.96,0.51
-20260706,30.5,31.5,30.5,31.5,1586000,30.59,2.98,31.01,29.98,0.87
-20260707,31.65,31.7,30.15,30.25,777101,30.56,-1.01,30.99,29.96,0.44
+20260706,30.5,31.5,30.5,31.5,1621026,30.59,2.98,31.01,29.98,0.89
+20260707,31.65,31.7,30.15,30.25,777101,30.56,-1.01,30.99,29.96,0.43
 20260708,30.3,30.6,29.95,30.05,498460,30.52,-1.53,30.95,29.96,0.29
 20260709,30.05,30.25,29.95,30.1,299357,30.48,-1.26,30.88,29.97,0.19
 20260713,30.7,31.1,30.35,30.8,804207,30.51,0.95,30.86,29.98,0.53
+20260714,31,31,30.4,30.7,1103216,30.52,0.57,30.8,29.99,0.78
+20260715,30.9,31.4,30.7,31.2,1134449,30.58,2.02,30.73,30.01,0.87
 ```
 
 ## Latest TDCC Snapshot
@@ -189,14 +189,16 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260715 | 1808 | 潤隆 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260715 | 1808 | 潤隆 | revenue_pullback | 營收成長股價回檔 | 70.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260715 | 1808 | 潤隆 | revenue_breakout_low_response | 營收爆發低反應股 | 18.0 | 17.0 | D_降級_TDCC轉弱 |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260715 | 1808 | 潤隆 | 2 | 2 | 2 | 3 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

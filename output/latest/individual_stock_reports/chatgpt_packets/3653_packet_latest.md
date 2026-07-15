@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3653 健策
 
 ## Metadata
-- generated_at: 2026-07-14 22:26:54 Asia/Taipei
+- generated_at: 2026-07-15 22:27:04 Asia/Taipei
 - stock_id: 3653
 - stock_name: 健策
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 302
+- latest_price_date: 20260715
+- price_rows: 304
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 3200
-- high: 3280
-- low: 3080
-- close: 3195
-- volume: 803353
-- ma5: 3223
-- ema23_primary: 3482.37
-- distance_to_ema23_pct: -8.25
-- ma20: 3527
-- ma60: 3928.33
-- ma120: 3594.08
-- return_5d: -6.58
-- return_20d: -11.74
-- volume_ratio: 0.63
-- distance_to_ma20_pct_auxiliary: -9.41
-- distance_to_high_60_pct: -43.8
+- date: 20260715
+- open: 3140
+- high: 3310
+- low: 3085
+- close: 3280
+- volume: 970413
+- ma5: 3190
+- ema23_primary: 3434.01
+- distance_to_ema23_pct: -4.48
+- ma20: 3468.25
+- ma60: 3885.08
+- ma120: 3605.25
+- return_5d: 2.66
+- return_20d: -14.47
+- volume_ratio: 0.79
+- distance_to_ma20_pct_auxiliary: -5.43
+- distance_to_high_60_pct: -42.3
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,3755,3820,3495,3690,1850384,3785.52,-2.52,3624.25,4066.42,1.06
-20260615,3800,3970,3775,3835,1451242,3789.64,1.2,3652.5,4064,0.82
 20260616,3940,3950,3765,3785,1083519,3789.25,-0.11,3687.25,4062.08,0.62
 20260617,3730,3990,3720,3990,1554824,3805.98,4.83,3735.25,4064.42,0.88
 20260618,3990,4230,3935,3965,2001751,3819.23,3.82,3767,4066.33,1.09
@@ -145,15 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,3685,3690,3375,3390,2805528,3772.56,-10.14,3764,4046.92,1.43
 20260626,3385,3525,3380,3405,1905135,3741.93,-9,3759.25,4038.83,0.98
 20260629,3470,3480,3280,3320,1116741,3706.77,-10.43,3748,4030.92,0.59
-20260630,3400,3485,3370,3430,725000,3683.71,-6.89,3727.5,4022.25,0.4
-20260701,3540,3580,3395,3400,700000,3660.06,-7.11,3698,4017.08,0.42
-20260702,3320,3495,3245,3475,564000,3644.64,-4.65,3676.5,4012.33,0.35
+20260630,3400,3485,3370,3430,768655,3683.71,-6.89,3727.5,4022.25,0.43
+20260701,3540,3580,3395,3400,745081,3660.06,-7.11,3698,4017.08,0.44
+20260702,3320,3495,3245,3475,600976,3644.64,-4.65,3676.5,4012.33,0.37
 20260703,3360,3475,3310,3420,1138823,3625.92,-5.68,3661,4002.5,0.71
-20260706,3475,3475,3320,3320,693000,3600.43,-7.79,3646,3987.17,0.44
-20260707,3315,3355,3170,3195,1091256,3566.64,-10.42,3614.75,3971.67,0.72
+20260706,3475,3475,3320,3320,756812,3600.43,-7.79,3646,3987.17,0.48
+20260707,3315,3355,3170,3195,1091256,3566.64,-10.42,3614.75,3971.67,0.71
 20260708,3305,3340,3120,3200,749763,3536.09,-9.5,3578,3957.58,0.52
-20260709,3280,3290,3180,3205,527813,3508.5,-8.65,3548.25,3944.33,0.39
-20260713,3200,3280,3080,3195,803353,3482.37,-8.25,3527,3928.33,0.63
+20260709,3280,3290,3180,3205,527813,3508.5,-8.65,3548.25,3944.33,0.38
+20260713,3200,3280,3080,3195,803353,3482.37,-8.25,3527,3928.33,0.62
+20260714,3205,3250,2990,3070,1077017,3448.01,-10.96,3496,3906.5,0.86
+20260715,3140,3310,3085,3280,970413,3434.01,-4.48,3468.25,3885.08,0.79
 ```
 
 ## Latest TDCC Snapshot
@@ -198,7 +199,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 3653 | 健策 | 30 | 5 | 2518060.0 | 1451960.0 | 1.73 | put_inflow |
+| 20260715 | 3653 | 健策 | 30 | 5 | 6173920.0 | 385520.0 | 16.01 | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

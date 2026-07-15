@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6669 緯穎
 
 ## Metadata
-- generated_at: 2026-07-14 22:27:21 Asia/Taipei
+- generated_at: 2026-07-15 22:27:36 Asia/Taipei
 - stock_id: 6669
 - stock_name: 緯穎
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 302
+- latest_price_date: 20260715
+- price_rows: 304
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 轉弱警訊
+- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -90,6 +90,7 @@
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
+- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -104,7 +105,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- tdcc_distribution_warning
+- none
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -112,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 5170
-- high: 5230
-- low: 4940
-- close: 4960
-- volume: 1106711
-- ma5: 5020
-- ema23_primary: 4970.21
-- distance_to_ema23_pct: -0.21
-- ma20: 4880.75
-- ma60: 4969.5
-- ma120: 4382
-- return_5d: -5.79
-- return_20d: 1.22
-- volume_ratio: 0.65
-- distance_to_ma20_pct_auxiliary: 1.62
-- distance_to_high_60_pct: -15.65
+- date: 20260715
+- open: 4950
+- high: 5160
+- low: 4870
+- close: 5095
+- volume: 931011
+- ma5: 5010
+- ema23_primary: 4975.63
+- distance_to_ema23_pct: 2.4
+- ma20: 4893.25
+- ma60: 5011.08
+- ma120: 4391.25
+- return_5d: 1.6
+- return_20d: 3.98
+- volume_ratio: 0.54
+- distance_to_ma20_pct_auxiliary: 4.12
+- distance_to_high_60_pct: -13.35
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,5120,5135,4845,4850,1921274,5169.1,-6.17,5266.5,4559.75,0.93
-20260615,5010,5040,4880,4900,1005218,5146.68,-4.79,5257,4577.67,0.49
 20260616,5030,5085,4880,4880,1814616,5124.45,-4.77,5256.5,4596.25,0.88
 20260617,4880,5085,4805,5080,1225155,5120.75,-0.8,5265,4617.5,0.6
 20260618,5150,5250,5085,5130,1753502,5121.52,0.17,5254.25,4642.25,0.88
@@ -145,15 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,4655,4745,4535,4545,1366220,4985.65,-8.84,5113.75,4714.5,0.72
 20260626,4485,4505,4250,4280,1720890,4926.84,-13.13,5080.25,4729.67,0.92
 20260629,4350,4705,4335,4580,1872365,4897.94,-6.49,5037,4751,1.04
-20260630,4695,4720,4520,4635,1905000,4876.03,-4.94,4993,4771.25,1.06
-20260701,4740,5050,4655,5035,2538000,4889.27,2.98,4971,4798.33,1.4
-20260702,4905,5200,4865,5200,2628000,4915.17,5.79,4951,4828.42,1.41
-20260703,5180,5280,5110,5265,1563793,4944.32,6.49,4935.75,4856.67,0.84
-20260706,5325,5325,4995,5035,1143000,4951.88,1.68,4904.5,4880.92,0.63
-20260707,5025,5235,5010,5015,2053738,4957.14,1.17,4891.5,4904,1.13
-20260708,5075,5085,4900,5050,1002340,4964.88,1.71,4879,4927.42,0.56
-20260709,5020,5215,4945,5040,2293598,4971.14,1.39,4877.75,4948.83,1.27
-20260713,5170,5230,4940,4960,1106711,4970.21,-0.21,4880.75,4969.5,0.65
+20260630,4695,4720,4520,4635,1995332,4876.03,-4.94,4993,4771.25,1.11
+20260701,4740,5050,4655,5035,2872601,4889.27,2.98,4971,4798.33,1.56
+20260702,4905,5200,4865,5200,2817565,4915.17,5.79,4951,4828.42,1.49
+20260703,5180,5280,5110,5265,1563793,4944.32,6.49,4935.75,4856.67,0.83
+20260706,5325,5325,4995,5035,1255424,4951.88,1.68,4904.5,4880.92,0.68
+20260707,5025,5235,5010,5015,2201738,4957.14,1.17,4891.5,4904,1.18
+20260708,5075,5085,4900,5050,1002340,4964.88,1.71,4879,4927.42,0.54
+20260709,5020,5215,4945,5040,2293598,4971.14,1.39,4877.75,4948.83,1.24
+20260713,5170,5230,4940,4960,1106711,4970.21,-0.21,4880.75,4969.5,0.63
+20260714,4930,4985,4755,4905,1096965,4964.77,-1.2,4883.5,4989.58,0.64
+20260715,4950,5160,4870,5095,931011,4975.63,2.4,4893.25,5011.08,0.54
 ```
 
 ## Latest TDCC Snapshot
@@ -186,20 +187,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 6669 | 緯穎 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.事實發生日:115/07/01 2.捐贈原由:捐贈財團法人緯穎永續基金會115年度營運基金。 3.捐贈金額:新台幣19,018,729元 4.受贈對象:財團法人緯穎永續基金會 5.與公司關係:本公司捐助成立之基金會 6.表示反對或保留意見之獨立董事姓名及簡歷:無。 7.前揭獨立董事表示反對或保留之意見:無。 8.其他應敘明事項:相關捐贈事宜授權董事長全權處理。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
-| 20260713 | 6669 | 緯穎 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/07/01 2.捐贈原由:捐贈財團法人緯穎永續基金會115年度營運基金。 3.捐贈金額:新台幣19,018,729元 4.受贈對象:財團法人緯穎永續基金會 5.與公司關係:本公司捐助成立之基金會 6.表示反對或保留意見之獨立董事姓名及簡歷:無。 7.前揭獨立董事表示反對或保留之意見:無。 8.其他應敘明事項:相關捐贈事宜授權董事長全權處理。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 6669 | 緯穎 | 4 | 4 | 4 | 7 | 8 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 6669 | 緯穎 | 377 | 30 | 47310930.0 | 524670.0 | 90.17 | no_signal |
+| 20260715 | 6669 | 緯穎 | 374 | 29 | 75923470.0 | 730200.0 | 103.98 | call_put_bullish |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

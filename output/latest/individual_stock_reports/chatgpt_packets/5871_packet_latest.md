@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5871 中租-KY
 
 ## Metadata
-- generated_at: 2026-07-14 22:27:09 Asia/Taipei
+- generated_at: 2026-07-15 22:27:22 Asia/Taipei
 - stock_id: 5871
 - stock_name: 中租-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 302
+- latest_price_date: 20260715
+- price_rows: 304
 - latest_tdcc_date: 20260709
 - tdcc_rows: 11
 - tdcc_history_status: tdcc_history_ready
@@ -117,30 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 116
-- high: 117.5
-- low: 115.5
-- close: 116.5
-- volume: 9489413
-- ma5: 115.2
-- ema23_primary: 115.34
-- distance_to_ema23_pct: 1.01
-- ma20: 115.8
-- ma60: 114.7
-- ma120: 110.22
-- return_5d: 0
-- return_20d: -5.28
-- volume_ratio: 1.1
-- distance_to_ma20_pct_auxiliary: 0.6
-- distance_to_high_60_pct: -5.28
+- date: 20260715
+- open: 118
+- high: 119.5
+- low: 116.5
+- close: 119
+- volume: 8470376
+- ma5: 116.7
+- ema23_primary: 115.85
+- distance_to_ema23_pct: 2.72
+- ma20: 115.65
+- ma60: 114.74
+- ma120: 110.44
+- return_5d: 4.39
+- return_20d: 0.42
+- volume_ratio: 1
+- distance_to_ma20_pct_auxiliary: 2.9
+- distance_to_high_60_pct: -3.25
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,122,122,119.5,121.5,10460646,115.02,5.63,113.4,112.59,0.69
-20260615,122.5,122.5,117,118.5,10845697,115.31,2.77,113.83,112.78,0.72
 20260616,118.5,118.5,114,116.5,14094585,115.41,0.94,114.15,112.95,0.92
 20260617,117,117,114,115,6191665,115.38,-0.33,114.35,113.09,0.41
 20260618,115,116.5,114,114,16134724,115.26,-1.09,114.45,113.25,1.03
@@ -150,15 +148,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,114.5,116.5,114,115.5,7009824,115.3,0.17,115.85,113.72,0.46
 20260626,114.5,114.5,113,113.5,9918811,115.15,-1.44,116.17,113.77,0.66
 20260629,115,116,114.5,115,6604239,115.14,-0.12,116.55,113.86,0.45
-20260630,115.5,117.5,115,117.5,11821000,115.34,1.88,117,114,0.81
-20260701,116.5,116.5,114,114.5,8846000,115.27,-0.67,117,114.12,0.64
-20260702,114,116.5,113.5,115.5,7764000,115.29,0.18,116.9,114.23,0.6
+20260630,115.5,117.5,115,117.5,13239738,115.34,1.88,117,114,0.9
+20260701,116.5,116.5,114,114.5,8930687,115.27,-0.67,117,114.12,0.64
+20260702,114,116.5,113.5,115.5,7805765,115.29,0.18,116.9,114.23,0.6
 20260703,114.5,117,114.5,116.5,5773649,115.39,0.96,116.78,114.35,0.48
-20260706,117,118,115.5,115.5,5211000,115.4,0.09,116.65,114.47,0.47
+20260706,117,118,115.5,115.5,5270689,115.4,0.09,116.65,114.47,0.47
 20260707,115.5,116,114,114,5706484,115.28,-1.11,116.58,114.58,0.54
 20260708,115,116,114,115.5,4271244,115.3,0.17,116.38,114.67,0.43
 20260709,115.5,116.5,114.5,114.5,5600001,115.23,-0.64,116.12,114.7,0.61
-20260713,116,117.5,115.5,116.5,9489413,115.34,1.01,115.8,114.7,1.1
+20260713,116,117.5,115.5,116.5,9489413,115.34,1.01,115.8,114.7,1.09
+20260714,117,118.5,115.5,118,7944831,115.56,2.11,115.62,114.72,0.93
+20260715,118,119.5,116.5,119,8470376,115.85,2.72,115.65,114.74,1
 ```
 
 ## Latest TDCC Snapshot
@@ -194,17 +194,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 5871 | 中租-KY | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | stale_signal | 1.事實發生日:115/07/10 2.公司名稱:中租控股股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:公告本公司115年6月自結合併損益 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 公告本公司115年6月自結合併損益 	                             (單位:新台幣百萬元) ------------------------6月合併損益---------------------------------                                           未追溯調整    追溯調整後    稅前       稅後     歸屬母公司股東       EPS(元)       EPS(元)   2,454.5    1,717.3     1,633.7            0.95           0.94  ---------------------累積1-6月合併損益------------------------------                                           未追溯調整    追溯調整後    稅前       稅後      歸屬母公司股東      EPS(元)       EPS(元)   16,362.4    11,428.4     10,826.7           5.96         5.84  註： EPS計算已扣除特別股股利計新台幣626,919仟元，並已追 溯調整股票股利每股新台幣0.2元之影響。；calendar event: ex_dividend on 20260729; status=confirmed; proximity=within_30d |
+| 20260715 | 5871 | 中租-KY | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/14 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除權 3.發放股利種類及金額: 發放股票股利新台幣1,400,000,000元(每股配發新台幣約0.25944276元) 4.除權（息）交易日:NA 5.最後過戶日:NA 6.停止過戶起始日期:NA 7.停止過戶截止日期:NA 8.除權（息）基準日:115/07/15 9.其他應敘明事項:NA；calendar event: ex_dividend on 20260729; status=confirmed; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 5871 | 中租-KY | 1 | 1 | 1 | 2 | 8 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260715 | 5871 | 中租-KY | 3 | 1 | 3 | 3 | 8 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 5871 | 中租-KY | 8 | 0 | 429510.0 | 0.0 |  | no_signal |
+| 20260715 | 5871 | 中租-KY | 8 | 0 | 586500.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2390 云辰
 
 ## Metadata
-- generated_at: 2026-07-14 22:26:33 Asia/Taipei
+- generated_at: 2026-07-15 22:26:39 Asia/Taipei
 - stock_id: 2390
 - stock_name: 云辰
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 302
+- latest_price_date: 20260715
+- price_rows: 304
 - latest_tdcc_date: 20260709
 - tdcc_rows: 11
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 轉弱警訊
+- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -90,6 +90,7 @@
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
+- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -104,7 +105,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- tdcc_distribution_warning
+- none
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -112,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 12.85
-- high: 12.85
-- low: 12.1
-- close: 12.15
-- volume: 1478292
-- ma5: 12.83
-- ema23_primary: 12.25
-- distance_to_ema23_pct: -0.79
-- ma20: 12.36
-- ma60: 11.11
-- ma120: 10.71
-- return_5d: -8.3
-- return_20d: -0.41
-- volume_ratio: 1
-- distance_to_ma20_pct_auxiliary: -1.7
-- distance_to_high_60_pct: -14.74
+- date: 20260715
+- open: 11.8
+- high: 12.15
+- low: 11.75
+- close: 12.1
+- volume: 776030
+- ma5: 12.32
+- ema23_primary: 12.2
+- distance_to_ema23_pct: -0.8
+- ma20: 12.31
+- ma60: 11.17
+- ma120: 10.74
+- return_5d: -6.56
+- return_20d: -1.63
+- volume_ratio: 0.55
+- distance_to_ma20_pct_auxiliary: -1.75
+- distance_to_high_60_pct: -15.09
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,12.4,12.65,12.2,12.45,1600890,11.31,10.05,11.26,10.48,0.78
-20260615,12.65,12.7,12.15,12.3,1508633,11.4,7.94,11.36,10.5,0.73
 20260616,12.45,12.55,11.85,11.85,1109485,11.43,3.65,11.46,10.51,0.53
 20260617,12,12.45,11.9,12.3,1106501,11.51,6.91,11.57,10.54,0.52
 20260618,12.3,12.4,12.1,12.35,738608,11.58,6.69,11.68,10.56,0.35
@@ -145,15 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,12.55,12.55,12,12.2,937829,11.75,3.84,12,10.68,0.46
 20260626,12.25,12.25,11.65,11.65,985201,11.74,-0.77,12.05,10.7,0.5
 20260629,11.85,11.9,11.6,11.85,444424,11.75,0.85,12.1,10.73,0.23
-20260630,11.85,12.2,11.8,12.2,615000,11.79,3.5,12.15,10.76,0.33
-20260701,12.3,12.4,12.05,12.15,983000,11.82,2.81,12.17,10.8,0.54
-20260702,12.1,12.2,11.95,12.05,720000,11.84,1.8,12.13,10.83,0.48
+20260630,11.85,12.2,11.8,12.2,627861,11.79,3.5,12.15,10.76,0.33
+20260701,12.3,12.4,12.05,12.15,993717,11.82,2.81,12.17,10.8,0.55
+20260702,12.1,12.2,11.95,12.05,726618,11.84,1.8,12.13,10.83,0.48
 20260703,12.15,13.25,12.1,13.25,3896133,11.95,10.83,12.14,10.88,2.82
-20260706,14.1,14.25,13.35,13.45,5092000,12.08,11.35,12.21,10.94,3.41
+20260706,14.1,14.25,13.35,13.45,5142030,12.08,11.35,12.21,10.94,3.43
 20260707,13.45,13.5,12.65,12.95,2081048,12.15,6.57,12.26,10.98,1.38
 20260708,13,13,12.4,12.7,1398474,12.2,4.12,12.29,11.03,0.93
 20260709,12.75,13.15,12.6,12.9,1597390,12.26,5.25,12.36,11.07,1.07
 20260713,12.85,12.85,12.1,12.15,1478292,12.25,-0.79,12.36,11.11,1
+20260714,12.2,12.2,11.45,11.75,1169679,12.21,-3.74,12.32,11.13,0.8
+20260715,11.8,12.15,11.75,12.1,776030,12.2,-0.8,12.31,11.17,0.55
 ```
 
 ## Latest TDCC Snapshot
@@ -187,14 +188,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 2390 | 云辰 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 2390 | 云辰 | 6 | 4 | 5 | 6 | 8 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

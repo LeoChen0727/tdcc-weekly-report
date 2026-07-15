@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2363 矽統
 
 ## Metadata
-- generated_at: 2026-07-14 22:26:32 Asia/Taipei
+- generated_at: 2026-07-15 22:26:38 Asia/Taipei
 - stock_id: 2363
 - stock_name: 矽統
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 302
+- latest_price_date: 20260715
+- price_rows: 304
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 67.4
-- high: 69.2
-- low: 64.5
-- close: 65.5
-- volume: 10939349
-- ma5: 66.42
-- ema23_primary: 66.32
-- distance_to_ema23_pct: -1.24
-- ma20: 66.73
-- ma60: 62.07
-- ma120: 56.48
-- return_5d: -7.22
-- return_20d: 16.13
-- volume_ratio: 0.44
-- distance_to_ma20_pct_auxiliary: -1.84
-- distance_to_high_60_pct: -13.93
+- date: 20260715
+- open: 63.2
+- high: 66.2
+- low: 63.1
+- close: 65
+- volume: 11498615
+- ma5: 65.04
+- ema23_primary: 65.89
+- distance_to_ema23_pct: -1.35
+- ma20: 67.09
+- ma60: 62.39
+- ma120: 56.73
+- return_5d: -1.07
+- return_20d: 6.04
+- volume_ratio: 0.45
+- distance_to_ma20_pct_auxiliary: -3.12
+- distance_to_high_60_pct: -14.59
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,58,60.6,58,58.5,8624921,60.72,-3.65,62.85,56.17,0.5
-20260615,60,61.8,59.6,61.3,7424010,60.77,0.88,62.84,56.31,0.43
 20260616,61.9,61.9,59,59,5529917,60.62,-2.67,62.77,56.45,0.34
 20260617,58.3,59.5,58.2,59,3076882,60.48,-2.45,62.72,56.59,0.2
 20260618,59.5,63.4,59.3,62.9,9034781,60.69,3.65,62.72,56.82,0.59
@@ -146,15 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,72,76.1,70.9,76.1,74310774,63.53,19.79,63.22,58.22,4.46
 20260626,74,74.2,68.5,68.6,64633167,63.95,7.27,63.41,58.55,3.4
 20260629,67,70,66.3,68.7,18166588,64.34,6.77,63.51,58.92,0.95
-20260630,70.1,71,68.2,69,23098000,64.73,6.59,63.6,59.28,1.19
-20260701,71.2,75.9,71.2,73.5,82113000,65.46,12.28,63.94,59.73,3.63
-20260702,72.5,72.9,70,71.1,29261000,65.93,7.84,64.22,60.13,1.25
+20260630,70.1,71,68.2,69,23281538,64.73,6.59,63.6,59.28,1.2
+20260701,71.2,75.9,71.2,73.5,82848711,65.46,12.28,63.94,59.73,3.66
+20260702,72.5,72.9,70,71.1,29609183,65.93,7.84,64.22,60.13,1.26
 20260703,70.2,71.7,69.2,70.6,13028756,66.32,6.45,64.59,60.5,0.55
-20260706,71.5,72.2,68,68.3,19866000,66.49,2.73,64.89,60.85,0.82
-20260707,68.6,69.9,65.6,65.7,14371951,66.42,-1.09,65.31,61.16,0.59
+20260706,71.5,72.2,68,68.3,20148848,66.49,2.73,64.89,60.85,0.83
+20260707,68.6,69.9,65.6,65.7,14371951,66.42,-1.09,65.31,61.16,0.58
 20260708,66.2,67.2,64.6,67,11967719,66.47,0.8,65.75,61.49,0.48
 20260709,67.4,67.5,65.2,65.6,7284656,66.4,-1.2,66.28,61.78,0.29
 20260713,67.4,69.2,64.5,65.5,10939349,66.32,-1.24,66.73,62.07,0.44
+20260714,65,65.2,59.1,62.1,12840585,65.97,-5.87,66.91,62.22,0.51
+20260715,63.2,66.2,63.1,65,11498615,65.89,-1.35,67.09,62.39,0.45
 ```
 
 ## Latest TDCC Snapshot
@@ -189,19 +189,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 2363 | 矽統 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
-| 20260713 | 2363 | 矽統 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260713 | 2363 | 矽統 | revenue_breakout_low_response | 營收爆發低反應股 | 17.0 | 6.0 | A_優先追蹤 |  |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260715 | 2363 | 矽統 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260715 | 2363 | 矽統 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260715 | 2363 | 矽統 | revenue_breakout_low_response | 營收爆發低反應股 | 17.0 | 7.0 | A_優先追蹤 |  |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 2363 | 矽統 | 31 | 7 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260715 | 2363 | 矽統 | 33 | 9 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 2363 | 矽統 | 86 | 5 | 4572670.0 | 34320.0 | 133.24 | call_inflow |
+| 20260715 | 2363 | 矽統 | 86 | 5 | 9050610.0 | 66920.0 | 135.25 | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

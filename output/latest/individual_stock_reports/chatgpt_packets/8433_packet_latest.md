@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8433 弘帆
 
 ## Metadata
-- generated_at: 2026-07-14 22:27:38 Asia/Taipei
+- generated_at: 2026-07-15 22:27:54 Asia/Taipei
 - stock_id: 8433
 - stock_name: 弘帆
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 167
+- latest_price_date: 20260715
+- price_rows: 169
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 53.2
-- high: 57.9
-- low: 53.2
-- close: 55.8
-- volume: 212000
-- ma5: 53.34
-- ema23_primary: 53.08
-- distance_to_ema23_pct: 5.12
-- ma20: 53.02
-- ma60: 53.66
-- ma120: 55.66
-- return_5d: 5.68
-- return_20d: 5.08
-- volume_ratio: 5.7
-- distance_to_ma20_pct_auxiliary: 5.25
-- distance_to_high_60_pct: -6.22
+- date: 20260715
+- open: 54.5
+- high: 55.3
+- low: 54.4
+- close: 55.3
+- volume: 7000
+- ma5: 54.2
+- ema23_primary: 53.38
+- distance_to_ema23_pct: 3.6
+- ma20: 53.13
+- ma60: 53.54
+- ma120: 55.73
+- return_5d: 4.93
+- return_20d: 2.6
+- volume_ratio: 0.19
+- distance_to_ma20_pct_auxiliary: 4.07
+- distance_to_high_60_pct: -5.47
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,53.3,53.5,53.3,53.5,14000,53.21,0.55,52.69,56.44,0.35
-20260615,53.6,53.9,53.2,53.9,26000,53.26,1.19,52.73,56.33,0.64
 20260616,53.9,53.9,52.9,53.6,15000,53.29,0.58,52.79,56.22,0.37
 20260617,53.5,54.2,53.3,53.3,62000,53.29,0.01,52.83,56.08,1.44
 20260618,53.6,54,53.6,54,31000,53.35,1.22,52.87,55.98,0.73
@@ -154,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260708,52.7,53,52.6,52.6,14000,52.84,-0.46,52.93,53.9,0.45
 20260709,52.6,52.9,52.6,52.8,14000,52.84,-0.07,52.88,53.75,0.5
 20260713,53.2,57.9,53.2,55.8,212000,53.08,5.12,53.02,53.66,5.7
+20260714,54.1,54.5,53.7,54.5,19000,53.2,2.44,53.06,53.59,0.51
+20260715,54.5,55.3,54.4,55.3,7000,53.38,3.6,53.13,53.54,0.19
 ```
 
 ## Latest TDCC Snapshot

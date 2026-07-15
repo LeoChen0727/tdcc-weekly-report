@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2482 連宇
 
 ## Metadata
-- generated_at: 2026-07-14 22:26:36 Asia/Taipei
+- generated_at: 2026-07-15 22:26:42 Asia/Taipei
 - stock_id: 2482
 - stock_name: 連宇
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 302
+- latest_price_date: 20260715
+- price_rows: 304
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -56,27 +56,27 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 可分批買進
-- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
-- action_summary_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。
-- entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
-- position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
+- action_rating_display_zh: 可小量試單
+- model_category_display_zh: 嚴格突破
+- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- action_summary_zh: 符合 嚴格突破，價格結構尚未破壞，操作評級為「可小量試單」。
+- entry_strategy_zh: 突破後順勢追蹤；可依「試單 1/3 部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
+- position_sizing_zh: 試單 1/3 部位；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 符合 嚴格突破，價格結構尚未破壞，操作評級為「可小量試單」。 進場策略：突破後順勢追蹤；可依「試單 1/3 部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: scale_in
-- action_rating_label_zh: 可分批買進
+- action_rating: starter_position
+- action_rating_label_zh: 可小量試單
 - confidence_level: medium
-- thesis_state: healthy_pullback
-- entry_style: pullback_to_23ema
-- position_sizing: half_position
+- thesis_state: breakout_confirmed
+- entry_style: breakout_follow
+- position_sizing: starter_1_3
 
 ### management_plan
 - buy_first_tranche_near_support
@@ -92,8 +92,8 @@
 
 ### entry_prerequisites
 - model_recommended
+- decision_score_high
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -118,30 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 17.8
-- high: 19
-- low: 17.75
-- close: 18.2
-- volume: 1094975
-- ma5: 17.65
-- ema23_primary: 17.17
-- distance_to_ema23_pct: 5.97
-- ma20: 17.17
-- ma60: 16.94
-- ma120: 17.16
-- return_5d: 7.06
-- return_20d: 11.31
-- volume_ratio: 2.78
-- distance_to_ma20_pct_auxiliary: 6.01
-- distance_to_high_60_pct: -4.21
+- date: 20260715
+- open: 18.2
+- high: 20
+- low: 18.05
+- close: 20
+- volume: 2041575
+- ma5: 18.3
+- ema23_primary: 17.49
+- distance_to_ema23_pct: 14.36
+- ma20: 17.4
+- ma60: 17
+- ma120: 17.19
+- return_5d: 13.31
+- return_20d: 18.34
+- volume_ratio: 4.03
+- distance_to_ma20_pct_auxiliary: 14.93
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,16.45,16.65,16.45,16.6,95821,16.71,-0.67,16.65,16.83,0.45
-20260615,16.6,17,16.55,16.9,286862,16.73,1.03,16.68,16.84,1.3
 20260616,17,17.15,16.8,16.85,103999,16.74,0.67,16.7,16.85,0.47
 20260617,16.85,17.85,16.85,17.4,487955,16.79,3.61,16.77,16.88,2
 20260618,17.5,17.7,17.35,17.35,206148,16.84,3.03,16.82,16.9,0.83
@@ -151,15 +149,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,17.65,17.65,17.2,17.25,284114,17.02,1.38,16.97,16.91,0.93
 20260626,17.2,17.2,16.65,16.8,262615,17,-1.16,17,16.91,0.86
 20260629,16.95,17,16.4,16.4,300799,16.95,-3.23,17,16.9,0.97
-20260630,16.5,16.6,16.2,16.6,124000,16.92,-1.89,17,16.89,0.42
-20260701,16.7,16.75,16.45,16.55,112000,16.89,-2,16.97,16.89,0.39
-20260702,16.7,17.2,16.7,16.9,249000,16.89,0.06,16.95,16.89,0.9
-20260703,16.8,17.15,16.8,17,118551,16.9,0.6,16.94,16.89,0.44
-20260706,17.25,17.85,17.25,17.3,325000,16.93,2.17,16.94,16.9,1.19
-20260707,17.5,18.95,17.5,17.65,1462396,16.99,3.87,16.98,16.91,4.41
+20260630,16.5,16.6,16.2,16.6,127498,16.92,-1.89,17,16.89,0.43
+20260701,16.7,16.75,16.45,16.55,115015,16.89,-2,16.97,16.89,0.4
+20260702,16.7,17.2,16.7,16.9,252075,16.89,0.06,16.95,16.89,0.91
+20260703,16.8,17.15,16.8,17,118551,16.9,0.6,16.94,16.89,0.43
+20260706,17.25,17.85,17.25,17.3,330561,16.93,2.17,16.94,16.9,1.21
+20260707,17.5,18.95,17.5,17.65,1462396,16.99,3.87,16.98,16.91,4.4
 20260708,17.9,17.95,17.2,17.45,464735,17.03,2.47,17.02,16.92,1.33
 20260709,17.4,17.8,17.4,17.65,187987,17.08,3.33,17.07,16.93,0.54
 20260713,17.8,19,17.75,18.2,1094975,17.17,5.97,17.17,16.94,2.78
+20260714,18.2,18.2,17.5,18.2,587526,17.26,5.44,17.25,16.96,1.4
+20260715,18.2,20,18.05,20,2041575,17.49,14.36,17.4,17,4.03
 ```
 
 ## Latest TDCC Snapshot
@@ -194,12 +194,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 2482 | 連宇 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: ex_dividend on 20260729; status=confirmed; proximity=within_30d |
+| 20260715 | 2482 | 連宇 | true_breakout | 嚴格突破 | 134.0 |  |  | breakout_confirmed |  |  | first_seen | calendar event: ex_dividend on 20260729; status=confirmed; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 2482 | 連宇 | 1 | 1 | 2 | 2 | 3 | first_seen | 首次上榜或資料有限，需後續確認。 |
+| 20260715 | 2482 | 連宇 | 1 | 1 | 2 | 3 | 4 | first_seen | 首次上榜或資料有限，需後續確認。 |
 
 ## Warrant Context
 | status |

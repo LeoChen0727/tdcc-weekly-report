@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6116 彩晶
 
 ## Metadata
-- generated_at: 2026-07-14 22:27:10 Asia/Taipei
+- generated_at: 2026-07-15 22:27:23 Asia/Taipei
 - stock_id: 6116
 - stock_name: 彩晶
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 302
+- latest_price_date: 20260715
+- price_rows: 304
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 17.55
-- high: 17.75
-- low: 16.4
-- close: 16.6
-- volume: 44957729
-- ma5: 17.28
-- ema23_primary: 17.43
-- distance_to_ema23_pct: -4.75
-- ma20: 18.11
-- ma60: 14.03
-- ma120: 11.47
-- return_5d: -8.54
-- return_20d: 16.9
-- volume_ratio: 0.37
-- distance_to_ma20_pct_auxiliary: -8.31
-- distance_to_high_60_pct: -26.87
+- date: 20260715
+- open: 16.05
+- high: 16.7
+- low: 15.85
+- close: 16.7
+- volume: 36051825
+- ma5: 16.69
+- ema23_primary: 17.24
+- distance_to_ema23_pct: -3.11
+- ma20: 18.12
+- ma60: 14.27
+- ma120: 11.56
+- return_5d: -2.62
+- return_20d: 1.21
+- volume_ratio: 0.29
+- distance_to_ma20_pct_auxiliary: -7.84
+- distance_to_high_60_pct: -26.43
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,15.55,15.6,15.55,15.6,21523290,14.84,5.13,15.21,10.94,0.18
-20260615,16.2,16.95,16.2,16.5,25407342,14.98,10.16,15.52,11.06,0.22
 20260616,17,17,16.5,16.6,17784477,15.11,9.84,15.85,11.19,0.15
 20260617,16.6,18.25,16.6,18.25,31780126,15.37,18.71,16.27,11.35,0.28
 20260618,19.4,19.9,17.8,18.8,362004002,15.66,20.05,16.66,11.52,2.81
@@ -146,15 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,19.65,19.85,18.9,19.5,127091882,16.77,16.25,17.91,12.26,0.94
 20260626,19.35,19.55,18.1,18.25,89561746,16.9,8,18.04,12.43,0.73
 20260629,18.3,20,17.85,19.25,154865927,17.09,12.61,18.15,12.62,1.33
-20260630,19.4,20.1,19.3,19.6,158189000,17.3,13.28,18.19,12.81,1.3
-20260701,19.85,20.45,18.35,18.35,135718000,17.39,5.52,18.07,12.98,1.15
-20260702,18,18.7,18,18.5,57055000,17.48,5.82,17.86,13.15,0.49
+20260630,19.4,20.1,19.3,19.6,158852171,17.3,13.28,18.19,12.81,1.3
+20260701,19.85,20.45,18.35,18.35,136601802,17.39,5.52,18.07,12.98,1.15
+20260702,18,18.7,18,18.5,57429784,17.48,5.82,17.86,13.15,0.5
 20260703,18.4,18.55,18,18.15,39872173,17.54,3.49,17.75,13.32,0.34
-20260706,18.4,18.85,18.15,18.2,53318000,17.59,3.45,17.74,13.47,0.45
+20260706,18.4,18.85,18.15,18.2,53665480,17.59,3.45,17.74,13.47,0.46
 20260707,18.3,19.1,17.1,17.15,81022973,17.56,-2.31,17.76,13.62,0.67
 20260708,17.45,17.65,16.5,17.25,48963579,17.53,-1.6,17.84,13.76,0.41
 20260709,17.4,17.75,17.05,17.2,48644492,17.5,-1.73,17.98,13.9,0.4
 20260713,17.55,17.75,16.4,16.6,44957729,17.43,-4.75,18.11,14.03,0.37
+20260714,16.3,16.5,15.15,15.7,53515465,17.28,-9.16,18.11,14.14,0.44
+20260715,16.05,16.7,15.85,16.7,36051825,17.24,-3.11,18.12,14.27,0.29
 ```
 
 ## Latest TDCC Snapshot
@@ -189,17 +189,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 6116 | 彩晶 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.事實發生日:115/06/22 2.發生緣由:依臺灣證券交易所股份有限公司通知辦理 3.財務業務資訊:(IFRS合併)  期間      最近一月     與去年同期    最近一季    與去年同期  最近四季累積 科目     (115年5月)     增減%       (115年第1季)     增減%    (114年第2季                                                              至115年第1季)            自結數                    核閱數                     核閱數 --------------------------------------------------------------------------- 營業收入        960       -10          3,015           4         11,553 (百萬元) 稅前淨利        100       131           (174)         76         (1,528) (百萬元) 本期淨利        103       133           (183)         75         (1,593) (百萬元) 每股盈餘       0.04       133          (0.06)         75          (0.55) (元) 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告:季申報 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260715 | 6116 | 彩晶 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.事實發生日:115/06/22 2.發生緣由:依臺灣證券交易所股份有限公司通知辦理 3.財務業務資訊:(IFRS合併)  期間      最近一月     與去年同期    最近一季    與去年同期  最近四季累積 科目     (115年5月)     增減%       (115年第1季)     增減%    (114年第2季                                                              至115年第1季)            自結數                    核閱數                     核閱數 --------------------------------------------------------------------------- 營業收入        960       -10          3,015           4         11,553 (百萬元) 稅前淨利        100       131           (174)         76         (1,528) (百萬元) 本期淨利        103       133           (183)         75         (1,593) (百萬元) 每股盈餘       0.04       133          (0.06)         75          (0.55) (元) 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告:季申報 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 6116 | 彩晶 | 6 | 6 | 5 | 9 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260715 | 6116 | 彩晶 | 1 | 1 | 4 | 8 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 6116 | 彩晶 | 26 | 1 | 1834000.0 | 2750.0 | 666.91 | no_signal |
+| 20260715 | 6116 | 彩晶 | 26 | 1 | 1844380.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

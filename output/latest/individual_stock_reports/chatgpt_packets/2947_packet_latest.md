@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2947 振宇五金
 
 ## Metadata
-- generated_at: 2026-07-14 22:26:42 Asia/Taipei
+- generated_at: 2026-07-15 22:26:50 Asia/Taipei
 - stock_id: 2947
 - stock_name: 振宇五金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 158
+- latest_price_date: 20260715
+- price_rows: 160
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 69.4
-- high: 69.8
+- date: 20260715
+- open: 70
+- high: 70
 - low: 69.4
-- close: 69.8
-- volume: 3000
-- ma5: 70.46
-- ema23_primary: 75.38
-- distance_to_ema23_pct: -7.41
-- ma20: 76.28
-- ma60: 77.27
-- ma120: 78.73
-- return_5d: -12.2
-- return_20d: -8.52
-- volume_ratio: 0.21
-- distance_to_ma20_pct_auxiliary: -8.49
-- distance_to_high_60_pct: -13.29
+- close: 69.4
+- volume: 6000
+- ma5: 69.14
+- ema23_primary: 74.36
+- distance_to_ema23_pct: -6.67
+- ma20: 75.49
+- ma60: 76.96
+- ma120: 78.52
+- return_5d: -1.56
+- return_20d: -9.87
+- volume_ratio: 0.42
+- distance_to_ma20_pct_auxiliary: -8.07
+- distance_to_high_60_pct: -13.79
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,76.4,77,76.3,76.7,8000,77.3,-0.77,77.41,77.84,0.18
-20260615,76.9,77,76.9,77,6000,77.27,-0.35,77.33,77.83,0.13
 20260616,76.6,76.9,76.3,76.9,55000,77.24,-0.44,77.26,77.81,1.16
 20260617,76.6,77,76.6,77,4000,77.22,-0.29,77.19,77.8,0.09
 20260618,77,79.4,77,79.1,16000,77.38,2.22,77.25,77.83,0.34
@@ -154,6 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260708,69.9,70.9,69,69,17000,76.52,-9.82,76.97,77.55,1.1
 20260709,68.9,69,68.4,69,17000,75.89,-9.08,76.61,77.4,1.14
 20260713,69.4,69.8,69.4,69.8,3000,75.38,-7.41,76.28,77.27,0.21
+20260714,70,70,68.2,68.5,14000,74.81,-8.43,75.87,77.1,0.97
+20260715,70,70,69.4,69.4,6000,74.36,-6.67,75.49,76.96,0.42
 ```
 
 ## Latest TDCC Snapshot

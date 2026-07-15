@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2726 雅茗-KY
 
 ## Metadata
-- generated_at: 2026-07-14 22:26:40 Asia/Taipei
+- generated_at: 2026-07-15 22:26:47 Asia/Taipei
 - stock_id: 2726
 - stock_name: 雅茗-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 167
+- latest_price_date: 20260715
+- price_rows: 169
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 9.1
-- high: 9.2
-- low: 8.7
-- close: 8.99
-- volume: 79000
-- ma5: 8.97
-- ema23_primary: 9.46
-- distance_to_ema23_pct: -4.93
-- ma20: 9.52
-- ma60: 9.84
-- ma120: 10.48
-- return_5d: -5.07
-- return_20d: -8.17
-- volume_ratio: 0.88
-- distance_to_ma20_pct_auxiliary: -5.6
-- distance_to_high_60_pct: -23.16
+- date: 20260715
+- open: 9.16
+- high: 9.19
+- low: 9.09
+- close: 9.09
+- volume: 3000
+- ma5: 9.01
+- ema23_primary: 9.39
+- distance_to_ema23_pct: -3.19
+- ma20: 9.43
+- ma60: 9.81
+- ma120: 10.42
+- return_5d: 5.7
+- return_20d: -8.92
+- volume_ratio: 0.03
+- distance_to_ma20_pct_auxiliary: -3.59
+- distance_to_high_60_pct: -22.31
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,9.86,9.98,9.76,9.98,51000,9.95,0.31,9.9,10.03,2.04
-20260615,9.84,9.99,9.8,9.98,44000,9.95,0.29,9.93,10.03,1.73
 20260616,9.98,9.99,9.92,9.98,6000,9.95,0.26,9.95,10.02,0.24
 20260617,9.98,10,9.8,9.81,44000,9.94,-1.33,9.97,10.01,1.7
 20260618,9.85,10.2,9.8,9.8,44000,9.93,-1.31,9.96,10.01,2.14
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260708,9.05,9.07,8.79,9,27000,9.54,-5.7,9.6,9.88,0.32
 20260709,9.16,9.5,8.71,9,58000,9.5,-5.25,9.56,9.86,0.66
 20260713,9.1,9.2,8.7,8.99,79000,9.46,-4.93,9.52,9.84,0.88
+20260714,8.99,8.99,8.7,8.98,22000,9.42,-4.64,9.47,9.83,0.25
+20260715,9.16,9.19,9.09,9.09,3000,9.39,-3.19,9.43,9.81,0.03
 ```
 
 ## Latest TDCC Snapshot

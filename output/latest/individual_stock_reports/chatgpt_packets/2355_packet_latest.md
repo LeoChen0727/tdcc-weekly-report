@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2355 敬鵬
 
 ## Metadata
-- generated_at: 2026-07-14 22:26:31 Asia/Taipei
+- generated_at: 2026-07-15 22:26:37 Asia/Taipei
 - stock_id: 2355
 - stock_name: 敬鵬
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 302
+- latest_price_date: 20260715
+- price_rows: 304
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 50.8
-- high: 50.9
-- low: 48.2
-- close: 49.05
-- volume: 7105005
-- ma5: 50.99
-- ema23_primary: 53.9
-- distance_to_ema23_pct: -9
-- ma20: 54.62
-- ma60: 55.54
-- ma120: 48.92
-- return_5d: -7.63
-- return_20d: -16.44
+- date: 20260715
+- open: 47.9
+- high: 48.35
+- low: 47.2
+- close: 47.7
+- volume: 4947839
+- ma5: 49.17
+- ema23_primary: 52.87
+- distance_to_ema23_pct: -9.78
+- ma20: 53.27
+- ma60: 55.39
+- ma120: 49.19
+- return_5d: -6.29
+- return_20d: -20.9
 - volume_ratio: 0.72
-- distance_to_ma20_pct_auxiliary: -10.19
-- distance_to_high_60_pct: -30.92
+- distance_to_ma20_pct_auxiliary: -10.45
+- distance_to_high_60_pct: -32.82
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,62.8,64.4,61.4,61.6,44439984,57.76,6.65,60.23,54.08,1.39
-20260615,63.9,64,60.3,60.3,27181142,57.97,4.02,60.37,54.28,0.85
 20260616,60.9,62.8,57.1,57.1,23270684,57.9,-1.38,60.05,54.45,0.75
 20260617,57,58.5,56.1,58,10181483,57.91,0.16,59.99,54.66,0.38
 20260618,58.2,58.8,57.2,57.9,9455146,57.91,-0.01,59.64,54.9,0.38
@@ -145,15 +143,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,56.4,56.4,55,55,4715134,57.44,-4.24,57.93,55.54,0.27
 20260626,54,55.3,51.6,51.7,8097190,56.96,-9.23,57.43,55.55,0.48
 20260629,51.8,54,51.2,52.8,5579348,56.61,-6.73,56.8,55.58,0.35
-20260630,53.9,54.7,53.2,54.2,3907000,56.41,-3.92,56.51,55.6,0.27
-20260701,55,55,52.1,52.1,5313000,56.05,-7.05,56.1,55.6,0.39
-20260702,51.5,53,51.2,52.9,3191000,55.79,-5.18,55.78,55.65,0.24
+20260630,53.9,54.7,53.2,54.2,3959874,56.41,-3.92,56.51,55.6,0.28
+20260701,55,55,52.1,52.1,5417921,56.05,-7.05,56.1,55.6,0.4
+20260702,51.5,53,51.2,52.9,3233006,55.79,-5.18,55.78,55.65,0.24
 20260703,52.3,53.5,51.9,53.1,3265968,55.56,-4.44,55.62,55.66,0.26
-20260706,53.7,54.2,52.2,53.1,4342000,55.36,-4.08,55.51,55.67,0.36
+20260706,53.7,54.2,52.2,53.1,4385043,55.36,-4.08,55.51,55.67,0.36
 20260707,53.3,53.4,50.3,50.9,5464465,54.99,-7.43,55.41,55.62,0.46
 20260708,50.9,51.3,50,51.2,3284951,54.67,-6.35,55.23,55.59,0.29
 20260709,51.5,52.2,50.6,50.7,2659752,54.34,-6.7,55.1,55.58,0.24
 20260713,50.8,50.9,48.2,49.05,7105005,53.9,-9,54.62,55.54,0.72
+20260714,49,49.25,45.4,47.2,7247490,53.34,-11.51,53.9,55.46,0.91
+20260715,47.9,48.35,47.2,47.7,4947839,52.87,-9.78,53.27,55.39,0.72
 ```
 
 ## Latest TDCC Snapshot
@@ -198,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 2355 | 敬鵬 | 80 | 0 | 2025980.0 | 0.0 |  | no_signal |
+| 20260715 | 2355 | 敬鵬 | 79 | 0 | 564420.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

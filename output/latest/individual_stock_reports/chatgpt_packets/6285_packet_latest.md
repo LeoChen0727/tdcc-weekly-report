@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6285 啟碁
 
 ## Metadata
-- generated_at: 2026-07-14 22:27:16 Asia/Taipei
+- generated_at: 2026-07-15 22:27:30 Asia/Taipei
 - stock_id: 6285
 - stock_name: 啟碁
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 302
+- latest_price_date: 20260715
+- price_rows: 304
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 265
-- high: 271.5
-- low: 248
-- close: 259
-- volume: 15146700
-- ma5: 254.6
-- ema23_primary: 260.35
-- distance_to_ema23_pct: -0.52
-- ma20: 257.88
-- ma60: 263.87
-- ma120: 216.67
-- return_5d: 0.39
-- return_20d: -4.95
-- volume_ratio: 1.17
-- distance_to_ma20_pct_auxiliary: 0.44
-- distance_to_high_60_pct: -23.03
+- date: 20260715
+- open: 253.5
+- high: 269.5
+- low: 253.5
+- close: 267
+- volume: 12892534
+- ma5: 257.1
+- ema23_primary: 259.92
+- distance_to_ema23_pct: 2.72
+- ma20: 256.38
+- ma60: 263.58
+- ma120: 219.24
+- return_5d: 9.65
+- return_20d: -2.73
+- volume_ratio: 1.08
+- distance_to_ma20_pct_auxiliary: 4.14
+- distance_to_high_60_pct: -20.65
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,291,296,269,270,24730157,280.6,-3.78,292.85,243.74,1.02
-20260615,277.5,280.5,264.5,274.5,18980668,280.1,-2,292.27,245.43,0.81
 20260616,279.5,281,265.5,265.5,19542693,278.88,-4.8,290.95,246.97,0.91
 20260617,263,276.5,258,270.5,22513084,278.18,-2.76,290.52,248.58,1.1
 20260618,271,281,268.5,274,15485699,277.83,-1.38,290.2,250.38,0.77
@@ -146,15 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,257,259.5,252,256.5,8162458,272.01,-5.7,281.38,255.82,0.49
 20260626,253,254.5,236,236,8935679,269.01,-12.27,277.98,256.77,0.57
 20260629,238.5,244,233.5,236,5227168,266.26,-11.36,273.82,257.87,0.36
-20260630,241,259.5,241,259.5,10166000,265.7,-2.33,271.1,259.23,0.72
-20260701,260,261,249,249,11370000,264.3,-5.79,268.25,260.38,0.81
-20260702,245.5,258,245.5,258,5478000,263.78,-2.19,265.85,261.4,0.4
+20260630,241,259.5,241,259.5,10399408,265.7,-2.33,271.1,259.23,0.73
+20260701,260,261,249,249,11749151,264.3,-5.79,268.25,260.38,0.83
+20260702,245.5,258,245.5,258,5624891,263.78,-2.19,265.85,261.4,0.41
 20260703,256.5,262.5,254,258,5950569,263.3,-2.01,263.95,262.09,0.44
-20260706,261,263,253,258.5,6990000,262.9,-1.67,262.27,262.63,0.53
+20260706,261,263,253,258.5,7192146,262.9,-1.67,262.27,262.63,0.54
 20260707,259.5,261,242,243.5,7373682,261.28,-6.81,260.77,262.93,0.56
 20260708,246,254.5,237.5,251.5,4489947,260.47,-3.44,259.02,262.99,0.36
-20260709,271.5,276.5,260.5,260.5,26813426,260.47,0.01,258.55,263.6,2.05
+20260709,271.5,276.5,260.5,260.5,26813426,260.47,0.01,258.55,263.6,2.04
 20260713,265,271.5,248,259,15146700,260.35,-0.52,257.88,263.87,1.17
+20260714,254.5,261.5,238.5,247.5,10133675,259.28,-4.54,256.75,263.54,0.83
+20260715,253.5,269.5,253.5,267,12892534,259.92,2.72,256.38,263.58,1.08
 ```
 
 ## Latest TDCC Snapshot
@@ -189,17 +189,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 6285 | 啟碁 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/15 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額: (1)原發放股利種類及金額: 每仟股配發新台幣4,300元，計新台幣2,079,753,991元。 (2)變更後發放股利種類及金額: 每仟股配發新台幣4,301.76904元，計新台幣2,079,753,991元。 4.除權（息）交易日:115/07/01 5.最後過戶日:115/07/02 6.停止過戶起始日期:115/07/03 7.停止過戶截止日期:115/07/07 8.除權（息）基準日:115/07/07 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/07/23 13.其他應敘明事項: 本公司因辦理收回已發行之限制員工權利新股註銷， 致使流通在外股份總數產生變動，故現金股利之發放比率隨之調整。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260715 | 6285 | 啟碁 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | call_put_bullish | repeated_but_no_breakout | 1.董事會、股東會決議或公司決定日期:115/06/15 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額: (1)原發放股利種類及金額: 每仟股配發新台幣4,300元，計新台幣2,079,753,991元。 (2)變更後發放股利種類及金額: 每仟股配發新台幣4,301.76904元，計新台幣2,079,753,991元。 4.除權（息）交易日:115/07/01 5.最後過戶日:115/07/02 6.停止過戶起始日期:115/07/03 7.停止過戶截止日期:115/07/07 8.除權（息）基準日:115/07/07 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/07/23 13.其他應敘明事項: 本公司因辦理收回已發行之限制員工權利新股註銷， 致使流通在外股份總數產生變動，故現金股利之發放比率隨之調整。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260715 | 6285 | 啟碁 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 67.0 |  |  | neckline_challenge |  | call_put_bullish | repeated_but_no_breakout | 1.董事會、股東會決議或公司決定日期:115/06/15 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額: (1)原發放股利種類及金額: 每仟股配發新台幣4,300元，計新台幣2,079,753,991元。 (2)變更後發放股利種類及金額: 每仟股配發新台幣4,301.76904元，計新台幣2,079,753,991元。 4.除權（息）交易日:115/07/01 5.最後過戶日:115/07/02 6.停止過戶起始日期:115/07/03 7.停止過戶截止日期:115/07/07 8.除權（息）基準日:115/07/07 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/07/23 13.其他應敘明事項: 本公司因辦理收回已發行之限制員工權利新股註銷， 致使流通在外股份總數產生變動，故現金股利之發放比率隨之調整。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 6285 | 啟碁 | 7 | 7 | 5 | 8 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260715 | 6285 | 啟碁 | 9 | 9 | 5 | 9 | 17 | repeated_but_no_breakout | 近 10 日上榜 9 次、近 20 日上榜 17 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 6285 | 啟碁 | 216 | 19 | 15082790.0 | 162890.0 | 92.59 | no_signal |
+| 20260715 | 6285 | 啟碁 | 216 | 19 | 33117910.0 | 101460.0 | 326.41 | call_put_bullish |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

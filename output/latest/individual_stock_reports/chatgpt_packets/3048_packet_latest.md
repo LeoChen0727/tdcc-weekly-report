@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3048 益登
 
 ## Metadata
-- generated_at: 2026-07-14 22:26:44 Asia/Taipei
+- generated_at: 2026-07-15 22:26:52 Asia/Taipei
 - stock_id: 3048
 - stock_name: 益登
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 302
+- latest_price_date: 20260715
+- price_rows: 304
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -58,7 +58,7 @@
 - pdf_visible: true
 - action_rating_display_zh: 可分批買進
 - model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
 - action_summary_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。
 - entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
 - position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
@@ -73,7 +73,7 @@
 - internal_use_only: true
 - action_rating: scale_in
 - action_rating_label_zh: 可分批買進
-- confidence_level: high
+- confidence_level: medium
 - thesis_state: healthy_pullback
 - entry_style: pullback_to_23ema
 - position_sizing: half_position
@@ -92,7 +92,6 @@
 
 ### entry_prerequisites
 - model_recommended
-- decision_score_high
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -119,30 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 60.6
-- high: 61.6
-- low: 56.6
-- close: 57.4
-- volume: 3203977
-- ma5: 60.4
-- ema23_primary: 64.17
-- distance_to_ema23_pct: -10.55
-- ma20: 66.27
-- ma60: 58.58
-- ma120: 48.62
-- return_5d: -10.87
-- return_20d: -23.47
-- volume_ratio: 0.41
-- distance_to_ma20_pct_auxiliary: -13.38
-- distance_to_high_60_pct: -29.91
+- date: 20260715
+- open: 56.5
+- high: 57.5
+- low: 55.2
+- close: 57.1
+- volume: 2784662
+- ma5: 57.92
+- ema23_primary: 62.92
+- distance_to_ema23_pct: -9.26
+- ma20: 64.58
+- ma60: 59.15
+- ma120: 48.87
+- return_5d: -5.62
+- return_20d: -22.31
+- volume_ratio: 0.53
+- distance_to_ma20_pct_auxiliary: -11.58
+- distance_to_high_60_pct: -30.28
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,76,77.9,72.5,73,35966873,65.58,11.32,69.22,49.59,1.57
-20260615,73.5,76.7,72.6,73.5,21406739,66.24,10.96,70.03,50.13,1
 20260616,74.2,75,71.1,71.1,10550107,66.64,6.69,70.78,50.6,0.5
 20260617,70.5,73.2,69,72.6,6509417,67.14,8.13,71.32,51.15,0.32
 20260618,72,75.5,71.8,73.5,11027285,67.67,8.62,71.61,51.73,0.53
@@ -152,15 +149,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,69.7,70.1,66.2,67,5322986,68.13,-1.66,70.95,53.85,0.3
 20260626,66.1,67.2,62.9,63,4947214,67.71,-6.95,70.49,54.31,0.3
 20260629,63,63.9,61.2,61.6,3225243,67.2,-8.33,69.97,54.76,0.2
-20260630,62.6,63.6,61.4,62.9,3318000,66.84,-5.89,69.69,55.23,0.22
-20260701,64.3,68.8,64.2,65.7,11844000,66.74,-1.56,69.22,55.76,0.8
-20260702,64,64.7,63.2,64.3,3074000,66.54,-3.37,68.97,56.26,0.23
+20260630,62.6,63.6,61.4,62.9,3351951,66.84,-5.89,69.69,55.23,0.22
+20260701,64.3,68.8,64.2,65.7,11941805,66.74,-1.56,69.22,55.76,0.81
+20260702,64,64.7,63.2,64.3,3114893,66.54,-3.37,68.97,56.26,0.23
 20260703,63.8,64.9,63.3,64.4,2022463,66.36,-2.96,68.81,56.74,0.15
-20260706,66,66.8,63.6,64.6,3881000,66.22,-2.44,68.72,57.23,0.3
+20260706,66,66.8,63.6,64.6,3959725,66.22,-2.44,68.72,57.23,0.31
 20260707,64.2,64.6,60,60.5,3435576,65.74,-7.97,68.42,57.61,0.27
 20260708,60.5,62.5,58.9,59.5,2932631,65.22,-8.77,67.81,57.94,0.26
 20260709,61,61.3,59.6,60,1897212,64.78,-7.38,67.14,58.29,0.21
 20260713,60.6,61.6,56.6,57.4,3203977,64.17,-10.55,66.27,58.58,0.41
+20260714,57,58,52.2,55.6,3881361,63.45,-12.38,65.39,58.85,0.63
+20260715,56.5,57.5,55.2,57.1,2784662,62.92,-9.26,64.58,59.15,0.53
 ```
 
 ## Latest TDCC Snapshot
@@ -195,17 +194,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 3048 | 益登 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  | no_signal | stale_signal | 1.證券名稱: 蜜望實企業股份有限公司普通股(8043) 2.交易日期:115/7/2~115/7/7 3.董事會通過日期: 民國115年5月13日 4.其他核決日期: 不適用 5.交易數量、每單位價格及交易總金額: 交易數量(股):1,546,000  每股平均價格(新台幣元): 202.88 交易總金額(新台幣元):313,650,500 6.處分利益（或損失）（取得有價證券者不適用）: 本次處分為出售透過其他綜合損益按公允價值衡量之金融資產， 處分結果將計入資產負債表之權益項下，不影響本公司當期損益。 7.與交易標的公司之關係: 無。 8.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 數量：4,102,398股 金額：284,296仟元 持股比例：5.13% 權利受限情形：無。 9.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列之有價證券投 資（含本次交易）占公司最近期財務報表中總資產及歸屬於母公司業主之權益之比例 暨最近期財務報表中營運資金數額: 占總資產比例：3.52%    占母公司業主權益比例：21.27%     營運資金：6,603,994仟元 10.取得或處分之具體目的: 財務投資。 11.本次交易表示異議董事之意見: 無。 12.本次交易為關係人交易: 否 13.交易相對人及其與公司之關係: 不適用。 14.監察人承認或審計委員會同意日期: 民國 115年 5月 13日 15.前已就同一件事件發布重大訊息日期: 不適用 16.其他敘明事項: 無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260715 | 3048 | 益登 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  | no_signal | stale_signal | 1.證券名稱: 蜜望實企業股份有限公司普通股(8043) 2.交易日期:115/7/2~115/7/7 3.董事會通過日期: 民國115年5月13日 4.其他核決日期: 不適用 5.交易數量、每單位價格及交易總金額: 交易數量(股):1,546,000  每股平均價格(新台幣元): 202.88 交易總金額(新台幣元):313,650,500 6.處分利益（或損失）（取得有價證券者不適用）: 本次處分為出售透過其他綜合損益按公允價值衡量之金融資產， 處分結果將計入資產負債表之權益項下，不影響本公司當期損益。 7.與交易標的公司之關係: 無。 8.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 數量：4,102,398股 金額：284,296仟元 持股比例：5.13% 權利受限情形：無。 9.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列之有價證券投 資（含本次交易）占公司最近期財務報表中總資產及歸屬於母公司業主之權益之比例 暨最近期財務報表中營運資金數額: 占總資產比例：3.52%    占母公司業主權益比例：21.27%     營運資金：6,603,994仟元 10.取得或處分之具體目的: 財務投資。 11.本次交易表示異議董事之意見: 無。 12.本次交易為關係人交易: 否 13.交易相對人及其與公司之關係: 不適用。 14.監察人承認或審計委員會同意日期: 民國 115年 5月 13日 15.前已就同一件事件發布重大訊息日期: 不適用 16.其他敘明事項: 無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 3048 | 益登 | 22 | 7 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260715 | 3048 | 益登 | 24 | 9 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 3048 | 益登 | 29 | 1 | 1929420.0 | 188000.0 | 10.26 | no_signal |
+| 20260715 | 3048 | 益登 | 30 | 1 | 670660.0 | 212000.0 | 3.16 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

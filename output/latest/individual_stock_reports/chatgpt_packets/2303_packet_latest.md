@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2303 聯電
 
 ## Metadata
-- generated_at: 2026-07-14 22:26:30 Asia/Taipei
+- generated_at: 2026-07-15 22:26:36 Asia/Taipei
 - stock_id: 2303
 - stock_name: 聯電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 302
+- latest_price_date: 20260715
+- price_rows: 304
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 156
-- high: 158
-- low: 151.5
-- close: 153.5
-- volume: 68418819
-- ma5: 158.7
-- ema23_primary: 153.64
-- distance_to_ema23_pct: -0.09
-- ma20: 158.95
-- ma60: 122.89
-- ma120: 92.05
-- return_5d: -9.97
-- return_20d: 22.8
-- volume_ratio: 0.29
-- distance_to_ma20_pct_auxiliary: -3.43
-- distance_to_high_60_pct: -17.25
+- date: 20260715
+- open: 158.5
+- high: 166
+- low: 156
+- close: 166
+- volume: 111015473
+- ma5: 157.9
+- ema23_primary: 154.47
+- distance_to_ema23_pct: 7.46
+- ma20: 161.05
+- ma60: 125.81
+- ma120: 93.79
+- return_5d: 7.1
+- return_20d: 17.31
+- volume_ratio: 0.53
+- distance_to_ma20_pct_auxiliary: 3.07
+- distance_to_high_60_pct: -10.51
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,134,137.5,132.5,133.5,393604121,121.12,10.22,127.38,90.67,1.22
-20260615,139.5,143.5,137,141.5,328881762,122.82,15.21,128.9,92.02,1.01
 20260616,144,144.5,138.5,141,256468191,124.34,13.4,130.3,93.39,0.79
 20260617,138.5,142,136,140,171758079,125.64,11.43,131.9,94.76,0.53
 20260618,141,146,138.5,145.5,307999583,127.3,14.3,133.38,96.24,0.94
@@ -146,15 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,183.5,185.5,173,178.5,397685486,140.53,27.02,142.05,103.82,1.13
 20260626,175,176,162,164,382690528,142.48,15.1,143.15,105.6,1.09
 20260629,164.5,167,160,164,222684902,144.28,13.67,144.12,107.39,0.65
-20260630,169,173.5,164.5,164.5,297224000,145.96,12.7,145.05,109.18,0.87
-20260701,170,173,166.5,169,242644000,147.88,14.28,146.43,111.1,0.72
-20260702,164,168,158,165.5,80950000,149.35,10.81,148.18,112.89,0.25
+20260630,169,173.5,164.5,164.5,300680863,145.96,12.7,145.05,109.18,0.88
+20260701,170,173,166.5,169,244699836,147.88,14.28,146.43,111.1,0.73
+20260702,164,168,158,165.5,83488559,149.35,10.81,148.18,112.89,0.26
 20260703,159,170.5,158.5,170.5,75996283,151.11,12.83,150.45,114.72,0.25
-20260706,171.5,171.5,164,166,53544000,152.35,8.96,152.18,116.49,0.18
+20260706,171.5,171.5,164,166,55004854,152.35,8.96,152.18,116.49,0.19
 20260707,167,167.5,152,155,91482176,152.57,1.59,153.88,118.04,0.33
 20260708,156,163,149,163,88907493,153.44,6.23,155.65,119.76,0.34
 20260709,161,161,154,156,59926265,153.66,1.53,157.53,121.36,0.24
 20260713,156,158,151.5,153.5,68418819,153.64,-0.09,158.95,122.89,0.29
+20260714,150.5,151,140,151,87772753,153.42,-1.58,159.82,124.26,0.4
+20260715,158.5,166,156,166,111015473,154.47,7.46,161.05,125.81,0.53
 ```
 
 ## Latest TDCC Snapshot
@@ -189,18 +189,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 2303 | 聯電 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/23 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額: 普通股現金股利新台幣32,704,164,009元，每股配發新台幣2.60808262元。 4.除權（息）交易日:115/07/08 5.最後過戶日:115/07/09 6.停止過戶起始日期:115/07/10 7.停止過戶截止日期:115/07/14 8.除權（息）基準日:115/07/14 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/07/30 13.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
-| 20260713 | 2303 | 聯電 | revenue_pullback | 營收成長股價回檔 | 69.0 |  |  |  |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/23 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額: 普通股現金股利新台幣32,704,164,009元，每股配發新台幣2.60808262元。 4.除權（息）交易日:115/07/08 5.最後過戶日:115/07/09 6.停止過戶起始日期:115/07/10 7.停止過戶截止日期:115/07/14 8.除權（息）基準日:115/07/14 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/07/30 13.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260715 | 2303 | 聯電 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | put_inflow | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/29 1.召開法人說明會之日期：115/07/29 2.召開法人說明會之時間：17 時 00 分  3.召開法人說明會之地點：線上法說會 4.法人說明會擇要訊息：本公司2026年第二季財務暨營運報告。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260715 | 2303 | 聯電 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | put_inflow | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/29 1.召開法人說明會之日期：115/07/29 2.召開法人說明會之時間：17 時 00 分  3.召開法人說明會之地點：線上法說會 4.法人說明會擇要訊息：本公司2026年第二季財務暨營運報告。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 2303 | 聯電 | 3 | 3 | 3 | 3 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260715 | 2303 | 聯電 | 5 | 5 | 5 | 5 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 2303 | 聯電 | 312 | 26 | 24508660.0 | 228590.0 | 107.22 | no_signal |
+| 20260715 | 2303 | 聯電 | 312 | 26 | 52274300.0 | 1388260.0 | 37.65 | put_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

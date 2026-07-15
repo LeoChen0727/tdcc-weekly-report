@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4976 佳凌
 
 ## Metadata
-- generated_at: 2026-07-14 22:27:03 Asia/Taipei
+- generated_at: 2026-07-15 22:27:15 Asia/Taipei
 - stock_id: 4976
 - stock_name: 佳凌
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 302
+- latest_price_date: 20260715
+- price_rows: 304
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 38.3
-- high: 40.35
-- low: 36.85
-- close: 37
-- volume: 2349886
-- ma5: 37.7
-- ema23_primary: 37.2
-- distance_to_ema23_pct: -0.54
-- ma20: 38.4
-- ma60: 33.5
-- ma120: 31.77
-- return_5d: -8.07
-- return_20d: 12.63
-- volume_ratio: 0.41
-- distance_to_ma20_pct_auxiliary: -3.65
-- distance_to_high_60_pct: -17.59
+- date: 20260715
+- open: 36.55
+- high: 36.8
+- low: 35.3
+- close: 35.45
+- volume: 913772
+- ma5: 36.72
+- ema23_primary: 36.97
+- distance_to_ema23_pct: -4.11
+- ma20: 38.62
+- ma60: 33.69
+- ma120: 31.87
+- return_5d: -4.32
+- return_20d: 2.46
+- volume_ratio: 0.16
+- distance_to_ma20_pct_auxiliary: -8.21
+- distance_to_high_60_pct: -21.05
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,33.8,34.05,32.55,32.55,1162502,32.32,0.71,32.55,30.29,0.56
-20260615,33.1,35.2,32.8,34.6,2920638,32.51,6.43,32.71,30.37,1.34
 20260616,34.6,38.05,34.5,38.05,6809301,32.97,15.4,33.07,30.51,2.8
 20260617,38.05,41.85,37,41.7,27817865,33.7,23.74,33.61,30.71,7.36
 20260618,44.6,44.9,42.2,43.9,18480906,34.55,27.06,34.16,30.96,4.04
@@ -146,15 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,39.25,42.7,38.45,42.35,9937784,36.26,16.79,35.8,31.73,1.78
 20260626,42,42.5,38.15,38.25,5665754,36.43,5.01,36.17,31.9,0.97
 20260629,38.25,39.95,37.2,37.6,2256755,36.52,2.94,36.48,32.07,0.38
-20260630,38.1,38.5,37.5,37.5,1639000,36.61,2.44,36.74,32.23,0.28
-20260701,38.15,38.45,36.1,36.15,2043000,36.57,-1.14,36.95,32.38,0.34
-20260702,35.9,38.65,35.6,37.7,2496000,36.66,2.83,37.1,32.55,0.42
+20260630,38.1,38.5,37.5,37.5,1660579,36.61,2.44,36.74,32.23,0.28
+20260701,38.15,38.45,36.1,36.15,2071399,36.57,-1.14,36.95,32.38,0.35
+20260702,35.9,38.65,35.6,37.7,2515986,36.66,2.83,37.1,32.55,0.42
 20260703,37.65,41.4,37,40.25,7382679,36.96,8.9,37.39,32.76,1.19
-20260706,40.4,41.05,39.05,39.4,2570000,37.16,6.02,37.67,32.95,0.41
+20260706,40.4,41.05,39.05,39.4,2587082,37.16,6.02,37.67,32.95,0.42
 20260707,39.4,39.8,37,37.05,1673610,37.15,-0.28,37.91,33.1,0.27
 20260708,37.25,37.6,36.25,36.75,1107966,37.12,-1,37.97,33.23,0.18
 20260709,37.8,39.15,36.9,38.3,2527040,37.22,2.9,38.2,33.38,0.44
 20260713,38.3,40.35,36.85,37,2349886,37.2,-0.54,38.4,33.5,0.41
+20260714,36.7,37.5,34.65,36.1,1525643,37.11,-2.72,38.58,33.6,0.26
+20260715,36.55,36.8,35.3,35.45,913772,36.97,-4.11,38.62,33.69,0.16
 ```
 
 ## Latest TDCC Snapshot
@@ -187,14 +187,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 4976 | 佳凌 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.董事會決議日期或發生變動日期:115/07/02 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:劉嘉彬 4.舊任者簡歷:佳凌科技股份有限公司董事長 5.新任者姓名:劉嘉彬 6.新任者簡歷:佳凌科技股份有限公司董事長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因:任期屆滿改選 9.新任生效日期:115/07/02 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 4976 | 佳凌 | 4 | 4 | 4 | 9 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

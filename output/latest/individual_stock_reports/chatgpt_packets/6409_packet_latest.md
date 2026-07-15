@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6409 旭隼
 
 ## Metadata
-- generated_at: 2026-07-14 22:27:16 Asia/Taipei
+- generated_at: 2026-07-15 22:27:30 Asia/Taipei
 - stock_id: 6409
 - stock_name: 旭隼
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 302
+- latest_price_date: 20260715
+- price_rows: 304
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 轉弱警訊
+- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -90,6 +90,7 @@
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
+- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -104,7 +105,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- tdcc_distribution_warning
+- none
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -112,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 1110
-- high: 1115
-- low: 1035
-- close: 1055
-- volume: 1304505
-- ma5: 1155
-- ema23_primary: 1033.29
-- distance_to_ema23_pct: 2.1
-- ma20: 1041.05
-- ma60: 858.02
-- ma120: 857.6
-- return_5d: -15.94
-- return_20d: 24.7
-- volume_ratio: 0.89
-- distance_to_ma20_pct_auxiliary: 1.34
-- distance_to_high_60_pct: -23.55
+- date: 20260715
+- open: 1090
+- high: 1130
+- low: 1075
+- close: 1080
+- volume: 712070
+- ma5: 1092
+- ema23_primary: 1040.75
+- distance_to_ema23_pct: 3.77
+- ma20: 1055.7
+- ma60: 867.8
+- ma120: 858.77
+- return_5d: -8.86
+- return_20d: 15.26
+- volume_ratio: 0.5
+- distance_to_ma20_pct_auxiliary: 2.3
+- distance_to_high_60_pct: -21.74
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,863,930,861,930,1641731,801.74,16,768.85,762.23,1.01
-20260615,976,982,931,937,1661151,813.01,15.25,780.3,764.78,0.98
 20260616,933,933,903,903,871211,820.51,10.05,790.75,767.5,0.52
 20260617,900,935,900,930,551715,829.63,12.1,803.85,770.47,0.33
 20260618,927,939,914,926,577945,837.66,10.55,817,773.28,0.35
@@ -145,15 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,918,1000,918,1000,2063236,868.91,15.09,865.65,786.43,1.28
 20260626,1005,1025,977,977,1801286,877.92,11.29,879.55,790.22,1.1
 20260629,999,1070,991,1020,1906119,889.76,14.64,895.1,795.15,1.14
-20260630,1045,1120,1035,1085,2265000,906.03,19.75,913.7,800.27,1.3
-20260701,1090,1185,1090,1130,2209000,924.69,22.2,933.1,806.78,1.26
-20260702,1105,1235,1105,1185,2308000,946.39,25.21,953.95,814.52,1.3
-20260703,1180,1300,1170,1255,2265319,972.1,29.1,974.5,823.12,1.26
-20260706,1285,1380,1275,1290,1994000,998.6,29.18,992.6,832.62,1.11
-20260707,1290,1325,1180,1185,2066045,1014.13,16.85,1006.85,840.47,1.34
-20260708,1175,1175,1110,1140,1391147,1024.62,11.26,1018.1,847.52,0.93
+20260630,1045,1120,1035,1085,2352447,906.03,19.75,913.7,800.27,1.35
+20260701,1090,1185,1090,1130,2313655,924.69,22.2,933.1,806.78,1.31
+20260702,1105,1235,1105,1185,2418968,946.39,25.21,953.95,814.52,1.35
+20260703,1180,1300,1170,1255,2265319,972.1,29.1,974.5,823.12,1.25
+20260706,1285,1380,1275,1290,2093128,998.6,29.18,992.6,832.62,1.15
+20260707,1290,1325,1180,1185,2066045,1014.13,16.85,1006.85,840.47,1.32
+20260708,1175,1175,1110,1140,1391147,1024.62,11.26,1018.1,847.52,0.91
 20260709,1135,1145,1105,1105,744568,1031.32,7.14,1030.6,853.78,0.51
-20260713,1110,1115,1035,1055,1304505,1033.29,2.1,1041.05,858.02,0.89
+20260713,1110,1115,1035,1055,1304505,1033.29,2.1,1041.05,858.02,0.88
+20260714,1055,1090,1045,1080,1207542,1037.18,4.13,1048.55,862.82,0.83
+20260715,1090,1130,1075,1080,712070,1040.75,3.77,1055.7,867.8,0.5
 ```
 
 ## Latest TDCC Snapshot
@@ -186,19 +187,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 6409 | 旭隼 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | stale_signal | 1.事實發生日:115/07/03 2.發生緣由:本公司接獲證券交易所通知辦理 3.財務業務資訊: 期間　　　　　　 　(月)                    (季)            (最近四季累計) ＝＝＝＝  ＝＝＝＝＝＝＝＝＝＝＝　＝＝＝＝＝＝＝＝＝＝＝ 　＝＝＝＝＝＝＝ 　　　　　最近一月　  與去年同期　 最近一季　 與去年同期　  (114年第2季至 科目　　　(115年5月)　　增減%　  (115年第1季)　 增減% 　    115年第1季) 　　　　       (合併自結數)  　        (合併核閱數)       (合併查核/核閱數) ＝＝＝＝　＝＝＝＝＝  ＝＝＝＝＝  ＝＝＝＝＝  ＝＝＝＝＝   ＝＝＝＝＝＝＝ 營業收入 　 1,850       0.27%          4,205    -15.82%          19,731 （百萬） 稅前淨利      379     -47.07%            498    -52.66%           3,763 （百萬） 歸屬母公司 業主淨利      342     -46.48%            392    -53.94%           3,062 （百萬） 每股盈餘     3.90     -46.65%           4.46    -54.16%           34.96 （元） 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無。 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無。 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告: 7.其他應敘明事項:無。；calendar event: ex_dividend on 20260723; status=confirmed; proximity=within_14d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 6409 | 旭隼 | 1 | 1 | 2 | 6 | 7 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 6409 | 旭隼 | 98 | 3 | 10323210.0 | 267670.0 | 38.57 | no_signal |
+| 20260715 | 6409 | 旭隼 | 97 | 3 | 21654490.0 | 156380.0 | 138.47 | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

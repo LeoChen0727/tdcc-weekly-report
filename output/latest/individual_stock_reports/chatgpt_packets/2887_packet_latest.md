@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2887 台新新光金
 
 ## Metadata
-- generated_at: 2026-07-14 22:26:41 Asia/Taipei
+- generated_at: 2026-07-15 22:26:49 Asia/Taipei
 - stock_id: 2887
 - stock_name: 台新新光金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 302
+- latest_price_date: 20260715
+- price_rows: 304
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -89,7 +89,6 @@
 ### entry_prerequisites
 - price_structure_not_broken
 - revenue_not_deteriorating
-- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -104,7 +103,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- none
+- tdcc_distribution_warning
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -112,30 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 37.3
-- high: 37.75
-- low: 35.6
-- close: 35.75
-- volume: 86952795
-- ma5: 35.53
-- ema23_primary: 32.53
-- distance_to_ema23_pct: 9.91
-- ma20: 33.16
-- ma60: 27.5
-- ma120: 25.57
-- return_5d: 4.69
-- return_20d: 24.35
-- volume_ratio: 1.02
-- distance_to_ma20_pct_auxiliary: 7.83
-- distance_to_high_60_pct: -5.3
+- date: 20260715
+- open: 36
+- high: 36.8
+- low: 35.5
+- close: 36.15
+- volume: 78283271
+- ma5: 36.01
+- ema23_primary: 33.05
+- distance_to_ema23_pct: 9.37
+- ma20: 33.65
+- ma60: 27.87
+- ma120: 25.82
+- return_5d: 3.58
+- return_20d: 14.4
+- volume_ratio: 0.98
+- distance_to_ma20_pct_auxiliary: 7.45
+- distance_to_high_60_pct: -4.24
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,29.2,30.8,29.15,30.2,157917202,26.41,14.35,25.82,24.64,1.03
-20260615,30.8,31.75,30.55,31.6,124423007,26.84,17.73,26.23,24.75,0.8
 20260616,31.8,32.6,31.65,32.3,109048462,27.3,18.33,26.66,24.88,0.7
 20260617,31.95,33.55,31.8,32.6,102012360,27.74,17.52,27.1,25.02,0.65
 20260618,32.95,33.55,32.1,32.45,109574168,28.13,15.35,27.53,25.16,0.7
@@ -145,15 +142,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,31.6,32.3,31.6,31.85,49495606,29.24,8.93,29.21,25.67,0.35
 20260626,31.75,32.15,31.3,31.9,52875362,29.46,8.28,29.66,25.81,0.39
 20260629,32.4,33.3,32.1,33,84652109,29.76,10.9,30.14,25.97,0.66
-20260630,33.45,33.5,32.8,33.25,77961000,30.05,10.66,30.57,26.13,0.64
-20260701,33.5,34.1,32.75,33.35,85549000,30.32,9.99,30.93,26.28,0.75
-20260702,33.3,33.8,32.95,33,50616000,30.55,8.04,31.17,26.42,0.5
-20260703,32.95,34.9,32.95,34.15,108841693,30.85,10.71,31.45,26.58,1.16
-20260706,34.15,34.8,34.15,34.3,33724000,31.13,10.17,31.73,26.74,0.38
+20260630,33.45,33.5,32.8,33.25,79205481,30.05,10.66,30.57,26.13,0.65
+20260701,33.5,34.1,32.75,33.35,91312723,30.32,9.99,30.93,26.28,0.8
+20260702,33.3,33.8,32.95,33,51063157,30.55,8.04,31.17,26.42,0.5
+20260703,32.95,34.9,32.95,34.15,108841693,30.85,10.71,31.45,26.58,1.15
+20260706,34.15,34.8,34.15,34.3,34036658,31.13,10.17,31.73,26.74,0.38
 20260707,34.3,35.5,34.3,34.9,85489406,31.45,10.98,32.09,26.91,0.98
-20260708,35.45,36,35.2,35.85,77134233,31.81,12.68,32.41,27.11,0.92
-20260709,36.45,37.15,36.3,36.85,111661117,32.23,14.32,32.8,27.31,1.33
+20260708,35.45,36,35.2,35.85,77134233,31.81,12.68,32.41,27.11,0.91
+20260709,36.45,37.15,36.3,36.85,111661117,32.23,14.32,32.8,27.31,1.32
 20260713,37.3,37.75,35.6,35.75,86952795,32.53,9.91,33.16,27.5,1.02
+20260714,36.15,36.15,34.4,35.45,87083713,32.77,8.18,33.42,27.67,1.06
+20260715,36,36.8,35.5,36.15,78283271,33.05,9.37,33.65,27.87,0.98
 ```
 
 ## Latest TDCC Snapshot
@@ -186,19 +185,20 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260715 | 2887 | 台新新光金 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | stale_signal | 1.事實發生日:115/07/14 2.公司名稱:新光金國際創業投資股份有限公司 3.與公司關係(請輸入本公司或子公司):子公司 4.相互持股比例:不適用 5.發生緣由: (1)台新創業投資股份有限公司（簡稱「台新創投」）與 新光金國際創業投資股份有限公司（簡稱「新光金創投」）於民國115年07月14日， 分別經其董事會(代行股東會)決議通過合併，並以台新創投為存續公司， 新光金創投為消滅公司（下稱「本合併案」），合併基準日暫定為115年09月01日。 (2)自合併基準日起，新光金創投之帳列資產、負債及一切權利義務， 均由台新創投概括承受。 6.因應措施: 謹依公司法第319條準用第73條及企業併購法第23條之規定辦理公告本合併案， 如債權人對本合併案有異議者，請於公告日起31日內，檢附債權證明文件， 以書面方式郵寄掛號（以郵戳日為憑）向新光金創投提出，逾期即視為無異議。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: ex_right_dividend on 20260721; status=confirmed; proximity=within_7d |
+| 20260715 | 2887 | 台新新光金 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/07/14 2.公司名稱:新光金國際創業投資股份有限公司 3.與公司關係(請輸入本公司或子公司):子公司 4.相互持股比例:不適用 5.發生緣由: (1)台新創業投資股份有限公司（簡稱「台新創投」）與 新光金國際創業投資股份有限公司（簡稱「新光金創投」）於民國115年07月14日， 分別經其董事會(代行股東會)決議通過合併，並以台新創投為存續公司， 新光金創投為消滅公司（下稱「本合併案」），合併基準日暫定為115年09月01日。 (2)自合併基準日起，新光金創投之帳列資產、負債及一切權利義務， 均由台新創投概括承受。 6.因應措施: 謹依公司法第319條準用第73條及企業併購法第23條之規定辦理公告本合併案， 如債權人對本合併案有異議者，請於公告日起31日內，檢附債權證明文件， 以書面方式郵寄掛號（以郵戳日為憑）向新光金創投提出，逾期即視為無異議。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: ex_right_dividend on 20260721; status=confirmed; proximity=within_7d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260715 | 2887 | 台新新光金 | 2 | 2 | 4 | 9 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 2887 | 台新新光金 | 28 | 0 | 13446460.0 | 0.0 |  | call_strong_inflow |
+| 20260715 | 2887 | 台新新光金 | 29 | 0 | 1829160.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

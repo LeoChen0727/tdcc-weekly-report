@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3312 弘憶股
 
 ## Metadata
-- generated_at: 2026-07-14 22:26:48 Asia/Taipei
+- generated_at: 2026-07-15 22:26:57 Asia/Taipei
 - stock_id: 3312
 - stock_name: 弘憶股
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 302
+- latest_price_date: 20260715
+- price_rows: 304
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -56,33 +56,29 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 可分批買進
-- model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
-- action_summary_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。
-- entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
-- position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- action_rating_display_zh: 已持有續抱
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
+- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: scale_in
-- action_rating_label_zh: 可分批買進
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: healthy_pullback
-- entry_style: pullback_to_23ema
-- position_sizing: half_position
+- thesis_state: unclear
+- entry_style: no_entry_now
+- position_sizing: observe_only
 
 ### management_plan
-- buy_first_tranche_near_support
-- add_on_23ema_hold
-- add_on_reclaim_23ema
-- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -91,9 +87,7 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -118,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 56.9
-- high: 57
-- low: 54.8
-- close: 55.5
-- volume: 1055373
-- ma5: 56.96
-- ema23_primary: 58.12
-- distance_to_ema23_pct: -4.51
-- ma20: 59.5
-- ma60: 52.46
-- ma120: 45.12
-- return_5d: -7.35
-- return_20d: -3.98
-- volume_ratio: 0.21
-- distance_to_ma20_pct_auxiliary: -6.72
-- distance_to_high_60_pct: -24.18
+- date: 20260715
+- open: 54.6
+- high: 54.8
+- low: 53.3
+- close: 54.2
+- volume: 1032310
+- ma5: 55.06
+- ema23_primary: 57.44
+- distance_to_ema23_pct: -5.63
+- ma20: 59.12
+- ma60: 52.84
+- ma120: 45.31
+- return_5d: -5.08
+- return_20d: -5.57
+- volume_ratio: 0.22
+- distance_to_ma20_pct_auxiliary: -8.33
+- distance_to_high_60_pct: -25.96
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,59.2,60.2,57.4,57.7,4567488,55.27,4.39,55.27,45.14,0.72
-20260615,58.6,59.2,57.3,57.4,3357313,55.45,3.52,55.82,45.48,0.53
 20260616,58,58.2,55.9,56,3122978,55.49,0.91,56.36,45.8,0.49
 20260617,56.4,61.6,55.8,61.6,5643787,56,9.99,57.15,46.21,0.86
 20260618,61.2,67.7,60,62.8,22887831,56.57,11.01,57.95,46.65,3.02
@@ -151,15 +143,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,63,64,60.7,62,3696687,58.63,5.74,60.66,48.53,0.47
 20260626,61.8,62.8,59,59.1,5188586,58.67,0.73,61.16,48.94,0.66
 20260629,59.5,59.9,56.9,58,3366345,58.62,-1.05,61.55,49.34,0.43
-20260630,60.5,61.4,59.4,59.6,2897000,58.7,1.53,61.77,49.74,0.38
-20260701,60.1,60.8,57.2,57.2,2719000,58.57,-2.35,61.6,50.11,0.35
-20260702,57.2,61.3,56.6,60.8,2949000,58.76,3.47,61.31,50.54,0.38
+20260630,60.5,61.4,59.4,59.6,2926332,58.7,1.53,61.77,49.74,0.38
+20260701,60.1,60.8,57.2,57.2,2757322,58.57,-2.35,61.6,50.11,0.36
+20260702,57.2,61.3,56.6,60.8,2981116,58.76,3.47,61.31,50.54,0.38
 20260703,59.7,60.9,59.5,59.9,2004884,58.85,1.78,60.65,50.92,0.28
-20260706,60.4,61.4,58.6,60,2547000,58.95,1.78,60.27,51.32,0.41
+20260706,60.4,61.4,58.6,60,2568588,58.95,1.78,60.27,51.32,0.41
 20260707,60.5,60.6,57,57.1,2215520,58.8,-2.88,60.09,51.67,0.37
 20260708,57.1,57.4,54.8,56.6,1908643,58.61,-3.43,59.8,51.95,0.34
 20260709,57,57.5,55.6,55.6,945055,58.36,-4.73,59.62,52.21,0.18
 20260713,56.9,57,54.8,55.5,1055373,58.12,-4.51,59.5,52.46,0.21
+20260714,56.1,56.1,50.5,53.4,1878253,57.73,-7.5,59.28,52.65,0.39
+20260715,54.6,54.8,53.3,54.2,1032310,57.44,-5.63,59.12,52.84,0.22
 ```
 
 ## Latest TDCC Snapshot
@@ -194,17 +188,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 3312 | 弘憶股 | revenue_pullback | 營收成長股價回檔 | 69.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260715 | 3312 | 弘憶股 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260715 | 3312 | 弘憶股 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 3312 | 弘憶股 | 1 | 1 | 2 | 6 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260715 | 3312 | 弘憶股 | 3 | 3 | 3 | 6 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 3312 | 弘憶股 | 10 | 0 | 21750.0 | 0.0 |  | no_signal |
+| 20260715 | 3312 | 弘憶股 | 11 | 0 | 36270.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

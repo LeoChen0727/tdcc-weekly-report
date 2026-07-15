@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2031 新光鋼
 
 ## Metadata
-- generated_at: 2026-07-14 22:26:28 Asia/Taipei
+- generated_at: 2026-07-15 22:26:33 Asia/Taipei
 - stock_id: 2031
 - stock_name: 新光鋼
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 302
+- latest_price_date: 20260715
+- price_rows: 304
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -60,13 +60,13 @@
 - model_category_display_zh: 區間內轉強 / 挑戰前高觀察
 - score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
 - action_summary_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。
-- entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
+- entry_strategy_zh: 突破後順勢追蹤；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
 - position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：突破後順勢追蹤；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -74,8 +74,8 @@
 - action_rating: scale_in
 - action_rating_label_zh: 可分批買進
 - confidence_level: medium
-- thesis_state: healthy_pullback
-- entry_style: pullback_to_23ema
+- thesis_state: breakout_initial
+- entry_style: breakout_follow
 - position_sizing: half_position
 
 ### management_plan
@@ -118,30 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 38.55
-- high: 39.6
-- low: 38.55
-- close: 39.6
-- volume: 1477109
-- ma5: 38.7
-- ema23_primary: 39.03
-- distance_to_ema23_pct: 1.46
-- ma20: 38.83
-- ma60: 39.54
-- ma120: 39.47
-- return_5d: 1.41
-- return_20d: -5.38
-- volume_ratio: 1.46
-- distance_to_ma20_pct_auxiliary: 1.98
-- distance_to_high_60_pct: -9.49
+- date: 20260715
+- open: 39.7
+- high: 40.3
+- low: 39.55
+- close: 40.25
+- volume: 1290647
+- ma5: 39.16
+- ema23_primary: 39.16
+- distance_to_ema23_pct: 2.79
+- ma20: 38.77
+- ma60: 39.5
+- ma120: 39.49
+- return_5d: 4.68
+- return_20d: 3.21
+- volume_ratio: 1.51
+- distance_to_ma20_pct_auxiliary: 3.8
+- distance_to_high_60_pct: -8
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,42,42.4,41.55,41.75,2719962,40.64,2.73,40.15,40.09,1.66
-20260615,39.5,39.5,38.65,39,2586079,40.5,-3.71,40.2,40.07,1.51
 20260616,39.05,39.05,38.3,38.45,1323263,40.33,-4.67,40.21,40.05,0.75
 20260617,38.55,39.35,38.3,39.1,1129858,40.23,-2.81,40.25,40.03,0.64
 20260618,39.4,39.7,38.95,39.05,762134,40.13,-2.69,40.28,40,0.43
@@ -151,15 +149,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,39.15,39.55,38.8,38.95,727696,39.8,-2.13,40.31,39.93,0.44
 20260626,38.8,38.9,38.5,38.55,742650,39.69,-2.88,40.3,39.9,0.45
 20260629,38.55,38.95,38.25,38.3,443412,39.58,-3.23,40.25,39.88,0.27
-20260630,38.5,38.5,37.75,37.85,1091000,39.43,-4.02,40.15,39.85,0.68
-20260701,38,38,37.4,37.7,752000,39.29,-4.05,40.05,39.81,0.47
-20260702,37.85,38.3,37.5,38.3,499000,39.21,-2.31,39.86,39.77,0.35
+20260630,38.5,38.5,37.75,37.85,1104105,39.43,-4.02,40.15,39.85,0.68
+20260701,38,38,37.4,37.7,760059,39.29,-4.05,40.05,39.81,0.47
+20260702,37.85,38.3,37.5,38.3,502265,39.21,-2.31,39.86,39.77,0.35
 20260703,38,39.15,38,39.05,1008064,39.19,-0.37,39.66,39.73,0.76
-20260706,39.1,39.6,38.8,38.9,730000,39.17,-0.69,39.44,39.7,0.58
+20260706,39.1,39.6,38.8,38.9,735193,39.17,-0.69,39.44,39.7,0.59
 20260707,39.25,39.25,38.35,38.45,496644,39.11,-1.69,39.29,39.66,0.43
 20260708,38.7,38.7,38,38.2,641967,39.03,-2.14,39.11,39.61,0.59
 20260709,38.2,38.55,37.95,38.35,492857,38.98,-1.61,38.94,39.56,0.48
-20260713,38.55,39.6,38.55,39.6,1477109,39.03,1.46,38.83,39.54,1.46
+20260713,38.55,39.6,38.55,39.6,1477109,39.03,1.46,38.83,39.54,1.45
+20260714,39.65,39.85,38.8,39.4,748175,39.06,0.87,38.71,39.51,0.82
+20260715,39.7,40.3,39.55,40.25,1290647,39.16,2.79,38.77,39.5,1.51
 ```
 
 ## Latest TDCC Snapshot
@@ -194,17 +194,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 2031 | 新光鋼 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | first_seen | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260715 | 2031 | 新光鋼 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_breakout |  | no_signal | first_seen | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 2031 | 新光鋼 | 1 | 1 | 1 | 1 | 3 | first_seen | 首次上榜或資料有限，需後續確認。 |
+| 20260715 | 2031 | 新光鋼 | 1 | 1 | 2 | 2 | 2 | first_seen | 首次上榜或資料有限，需後續確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 2031 | 新光鋼 | 1 | 0 | 172950.0 | 0.0 |  | no_signal |
+| 20260715 | 2031 | 新光鋼 | 2 | 0 | 185340.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

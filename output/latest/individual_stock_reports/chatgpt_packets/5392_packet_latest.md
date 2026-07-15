@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5392 能率
 
 ## Metadata
-- generated_at: 2026-07-14 22:27:07 Asia/Taipei
+- generated_at: 2026-07-15 22:27:19 Asia/Taipei
 - stock_id: 5392
 - stock_name: 能率
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 167
+- latest_price_date: 20260715
+- price_rows: 169
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 47.35
-- high: 48.5
-- low: 45.4
-- close: 45.65
-- volume: 3984000
-- ma5: 47.6
-- ema23_primary: 45.77
-- distance_to_ema23_pct: -0.27
-- ma20: 45.57
-- ma60: 43.12
-- ma120: 42.88
-- return_5d: -5.97
-- return_20d: 8.05
-- volume_ratio: 0.53
-- distance_to_ma20_pct_auxiliary: 0.18
-- distance_to_high_60_pct: -9.6
+- date: 20260715
+- open: 45
+- high: 46.2
+- low: 44.55
+- close: 45.8
+- volume: 1720000
+- ma5: 46.08
+- ema23_primary: 45.68
+- distance_to_ema23_pct: 0.27
+- ma20: 45.73
+- ma60: 43.33
+- ma120: 42.85
+- return_5d: -7.19
+- return_20d: 2
+- volume_ratio: 0.24
+- distance_to_ma20_pct_auxiliary: 0.15
+- distance_to_high_60_pct: -9.31
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,43,43.8,42.15,42.15,1558000,43.23,-2.5,43.68,40.48,1.04
-20260615,43,45.5,42.7,44.9,6923000,43.37,3.52,43.81,40.55,4.29
 20260616,44.85,45.9,43.9,43.9,9329000,43.42,1.12,43.89,40.63,5.13
 20260617,44.7,46.6,44.35,44.85,7597000,43.54,3.02,44.07,40.75,3.62
 20260618,44.55,44.85,43.2,43.3,4265000,43.52,-0.5,44.16,40.84,1.97
@@ -154,6 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260708,49.35,49.9,47.4,48.1,4168000,45.73,5.18,45.21,42.88,0.56
 20260709,47.8,48.25,46.1,46.35,2661000,45.78,1.24,45.4,43.02,0.36
 20260713,47.35,48.5,45.4,45.65,3984000,45.77,-0.27,45.57,43.12,0.53
+20260714,45.7,46,42.7,44.5,2232000,45.67,-2.55,45.69,43.21,0.3
+20260715,45,46.2,44.55,45.8,1720000,45.68,0.27,45.73,43.33,0.24
 ```
 
 ## Latest TDCC Snapshot
@@ -188,12 +188,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 5392 | 能率 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.股東常會日期:115/06/26 2.重要決議事項一、盈餘分配或盈虧撥補:通過承認本公司114年度盈餘分派案。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表: 通過承認本公司114年度營業報告書及財務報表案。 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項: (1)通過本公司114年度盈餘轉增資發行新股案。 (2)通過擬提請股東會追認集團對宏羚(股)公司綜合持股比例下降案。 (3)通過配合子公司宏羚股份有限公司未來申請股票上市(櫃)計畫,本公司及本公司控制 或從屬公司得分次辦理對該子公司釋股作業暨放棄參與該公司之現金增資計畫。 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260715 | 5392 | 能率 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.股東常會日期:115/06/26 2.重要決議事項一、盈餘分配或盈虧撥補:通過承認本公司114年度盈餘分派案。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表: 通過承認本公司114年度營業報告書及財務報表案。 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項: (1)通過本公司114年度盈餘轉增資發行新股案。 (2)通過擬提請股東會追認集團對宏羚(股)公司綜合持股比例下降案。 (3)通過配合子公司宏羚股份有限公司未來申請股票上市(櫃)計畫,本公司及本公司控制 或從屬公司得分次辦理對該子公司釋股作業暨放棄參與該公司之現金增資計畫。 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 5392 | 能率 | 2 | 2 | 4 | 9 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260715 | 5392 | 能率 | 4 | 4 | 4 | 9 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

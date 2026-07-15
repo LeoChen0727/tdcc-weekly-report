@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6218 豪勉
 
 ## Metadata
-- generated_at: 2026-07-14 22:27:14 Asia/Taipei
+- generated_at: 2026-07-15 22:27:27 Asia/Taipei
 - stock_id: 6218
 - stock_name: 豪勉
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 167
+- latest_price_date: 20260715
+- price_rows: 169
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 38.2
-- high: 39.7
-- low: 36.2
-- close: 36.6
-- volume: 2755000
-- ma5: 35.9
-- ema23_primary: 36.51
-- distance_to_ema23_pct: 0.24
-- ma20: 36.44
-- ma60: 37.37
-- ma120: 31.38
-- return_5d: 1.1
-- return_20d: 15.82
-- volume_ratio: 2.06
-- distance_to_ma20_pct_auxiliary: 0.45
-- distance_to_high_60_pct: -21.46
+- date: 20260715
+- open: 35.35
+- high: 37.9
+- low: 35.35
+- close: 36.45
+- volume: 1461000
+- ma5: 36.06
+- ema23_primary: 36.42
+- distance_to_ema23_pct: 0.09
+- ma20: 36.69
+- ma60: 37.3
+- ma120: 31.56
+- return_5d: 5.81
+- return_20d: 4.29
+- volume_ratio: 1.06
+- distance_to_ma20_pct_auxiliary: -0.65
+- distance_to_high_60_pct: -21.78
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,32.75,32.75,31.65,31.8,371000,36.31,-12.42,37.51,34.79,0.74
-20260615,32.3,34.95,32.2,34.95,677000,36.2,-3.44,37.21,34.97,1.54
 20260616,37,37,35.05,35.3,1726000,36.12,-2.28,37.01,35.15,3.99
 20260617,35.3,36.2,34.45,34.7,752000,36,-3.62,36.82,35.32,1.78
 20260618,35.3,36.25,34.7,35.15,645000,35.93,-2.18,36.6,35.51,1.64
@@ -154,6 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260708,34.5,34.9,33.8,34.25,258000,36.4,-5.9,35.94,37.32,0.21
 20260709,36.05,37.65,35.8,37.65,955000,36.5,3.14,36.19,37.34,0.78
 20260713,38.2,39.7,36.2,36.6,2755000,36.51,0.24,36.44,37.37,2.06
+20260714,36.15,36.45,33.9,35.35,556000,36.41,-2.92,36.61,37.32,0.41
+20260715,35.35,37.9,35.35,36.45,1461000,36.42,0.09,36.69,37.3,1.06
 ```
 
 ## Latest TDCC Snapshot
@@ -188,12 +188,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 6218 | 豪勉 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260715 | 6218 | 豪勉 | pattern | 型態觀察 | 54.0 |  |  | pullback_right_side |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 6218 | 豪勉 | 1 | 1 | 1 | 1 | 5 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260715 | 6218 | 豪勉 | 1 | 1 | 2 | 2 | 6 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

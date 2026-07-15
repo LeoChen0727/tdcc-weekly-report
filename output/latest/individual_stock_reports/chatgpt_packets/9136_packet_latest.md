@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9136 巨騰-DR
 
 ## Metadata
-- generated_at: 2026-07-14 22:27:40 Asia/Taipei
+- generated_at: 2026-07-15 22:27:57 Asia/Taipei
 - stock_id: 9136
 - stock_name: 巨騰-DR
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 285
+- latest_price_date: 20260715
+- price_rows: 287
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 12.85
-- high: 13.3
-- low: 12.75
-- close: 12.8
-- volume: 399038
-- ma5: 12.84
-- ema23_primary: 13.91
-- distance_to_ema23_pct: -8.01
-- ma20: 14.8
-- ma60: 12.49
-- ma120: 10.27
-- return_5d: -5.88
-- return_20d: -18.99
-- volume_ratio: 0.34
-- distance_to_ma20_pct_auxiliary: -13.54
-- distance_to_high_60_pct: -32.28
+- date: 20260715
+- open: 12.75
+- high: 12.75
+- low: 12.4
+- close: 12.4
+- volume: 116110
+- ma5: 12.56
+- ema23_primary: 13.68
+- distance_to_ema23_pct: -9.36
+- ma20: 14.35
+- ma60: 12.54
+- ma120: 10.36
+- return_5d: -3.5
+- return_20d: -25.53
+- volume_ratio: 0.16
+- distance_to_ma20_pct_auxiliary: -13.59
+- distance_to_high_60_pct: -34.39
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,15.9,17.35,15.85,17.35,5684445,13.52,28.34,13.33,10.53,1.33
-20260615,17.1,18.1,16.5,16.65,4061034,13.78,20.83,13.55,10.68,0.99
 20260616,16.85,16.9,16.4,16.45,1060088,14,17.48,13.79,10.83,0.28
 20260617,16.45,16.75,16.2,16.65,864001,14.22,17.06,14.07,10.98,0.24
 20260618,16.5,16.9,16.25,16.7,1392688,14.43,15.73,14.38,11.14,0.4
@@ -145,15 +143,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,16.1,16.1,15.45,15.9,635615,14.89,6.79,15.35,11.69,0.19
 20260626,15.5,15.7,14.5,14.65,1153517,14.87,-1.48,15.52,11.8,0.34
 20260629,14.7,14.95,13.8,14.1,908426,14.81,-4.76,15.67,11.9,0.26
-20260630,14.1,14.55,13.8,14.1,745000,14.75,-4.39,15.77,11.99,0.22
-20260701,14.45,14.45,13.9,14,246000,14.68,-4.66,15.8,12.07,0.08
-20260702,13.85,14,13.5,13.65,428000,14.6,-6.5,15.76,12.15,0.15
+20260630,14.1,14.55,13.8,14.1,747655,14.75,-4.39,15.77,11.99,0.22
+20260701,14.45,14.45,13.9,14,247417,14.68,-4.66,15.8,12.07,0.08
+20260702,13.85,14,13.5,13.65,430810,14.6,-6.5,15.76,12.15,0.15
 20260703,14.15,14.15,13.2,13.6,490456,14.52,-6.3,15.63,12.22,0.18
-20260706,13.75,13.8,13.3,13.45,730000,14.43,-6.77,15.5,12.29,0.33
+20260706,13.75,13.8,13.3,13.45,730749,14.43,-6.77,15.5,12.29,0.33
 20260707,13.6,13.6,12.75,12.85,668192,14.29,-10.11,15.25,12.35,0.34
 20260708,13,13,12.3,12.55,453726,14.15,-11.3,15.07,12.4,0.31
 20260709,12.45,12.75,12.15,12.55,405263,14.02,-10.46,14.96,12.45,0.32
 20260713,12.85,13.3,12.75,12.8,399038,13.91,-8.01,14.8,12.49,0.34
+20260714,13,13,12.3,12.5,342180,13.8,-9.4,14.56,12.52,0.38
+20260715,12.75,12.75,12.4,12.4,116110,13.68,-9.36,14.35,12.54,0.16
 ```
 
 ## Latest TDCC Snapshot
@@ -198,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 9136 | 巨騰-DR | 1 | 0 | 0.0 | 0.0 |  | no_signal |
+| 20260715 | 9136 | 巨騰-DR | 1 | 0 | 0.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

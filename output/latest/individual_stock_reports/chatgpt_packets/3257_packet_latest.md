@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3257 虹冠電
 
 ## Metadata
-- generated_at: 2026-07-14 22:26:47 Asia/Taipei
+- generated_at: 2026-07-15 22:26:56 Asia/Taipei
 - stock_id: 3257
 - stock_name: 虹冠電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 302
+- latest_price_date: 20260715
+- price_rows: 304
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 65.3
-- high: 65.4
-- low: 61
-- close: 61.3
-- volume: 767962
-- ma5: 65.9
-- ema23_primary: 64.34
-- distance_to_ema23_pct: -4.73
-- ma20: 64.75
-- ma60: 59.24
-- ma120: 59.7
-- return_5d: -13.9
-- return_20d: 14.79
-- volume_ratio: 0.3
-- distance_to_ma20_pct_auxiliary: -5.33
-- distance_to_high_60_pct: -21.61
+- date: 20260715
+- open: 59.1
+- high: 59.1
+- low: 57.4
+- close: 58.1
+- volume: 632027
+- ma5: 61.56
+- ema23_primary: 63.36
+- distance_to_ema23_pct: -8.3
+- ma20: 65.03
+- ma60: 59.36
+- ma120: 59.58
+- return_5d: -11.84
+- return_20d: 4.5
+- volume_ratio: 0.24
+- distance_to_ma20_pct_auxiliary: -10.66
+- distance_to_high_60_pct: -25.7
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,54.3,56,54.2,55.2,286889,57.61,-4.19,58.51,55.66,0.18
-20260615,55.3,56.4,54.7,55.6,592375,57.44,-3.21,58.59,55.62,0.37
 20260616,56.9,56.9,54.6,55.1,247008,57.25,-3.75,58.64,55.59,0.15
 20260617,55.1,55.7,54.8,55.6,243206,57.11,-2.65,58.69,55.59,0.15
 20260618,56,61.1,56,61.1,1935181,57.44,6.36,58.91,55.71,1.19
@@ -146,15 +143,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,71.5,72.1,67.6,68,2753300,61.15,11.21,61.52,56.73,1.25
 20260626,66.9,70.3,64.4,65.3,2362474,61.49,6.19,61.51,56.92,1.15
 20260629,63.4,64.7,62.1,62.7,841268,61.59,1.8,61.2,57.1,0.46
-20260630,63,68.8,63,67.7,1392000,62.1,9.02,61.25,57.34,0.77
-20260701,68.5,70,66.4,67.1,1927000,62.52,7.33,61.45,57.58,1.06
-20260702,67.3,69.7,66.4,68.7,1377000,63.03,8.99,61.78,57.84,0.75
+20260630,63,68.8,63,67.7,1410645,62.1,9.02,61.25,57.34,0.78
+20260701,68.5,70,66.4,67.1,1945605,62.52,7.33,61.45,57.58,1.07
+20260702,67.3,69.7,66.4,68.7,1394286,63.03,8.99,61.78,57.84,0.76
 20260703,67.9,72,67.3,71.2,2725528,63.71,11.75,62.23,58.15,1.4
-20260706,71.2,78.2,71,72.2,10475000,64.42,12.08,62.8,58.48,4.3
+20260706,71.2,78.2,71,72.2,10549833,64.42,12.08,62.8,58.48,4.32
 20260707,73.3,74.6,65.9,65.9,3384155,64.54,2.1,63.3,58.7,1.32
 20260708,66,66.8,64.2,65.9,841533,64.66,1.92,63.8,58.93,0.33
 20260709,67.2,67.4,64,64.2,660251,64.62,-0.65,64.36,59.11,0.26
 20260713,65.3,65.4,61,61.3,767962,64.34,-4.73,64.75,59.24,0.3
+20260714,61.3,61.3,56.2,58.3,967286,63.84,-8.68,64.91,59.31,0.37
+20260715,59.1,59.1,57.4,58.1,632027,63.36,-8.3,65.03,59.36,0.24
 ```
 
 ## Latest TDCC Snapshot

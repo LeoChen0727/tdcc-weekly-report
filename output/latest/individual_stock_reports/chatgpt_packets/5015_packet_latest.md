@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5015 華祺
 
 ## Metadata
-- generated_at: 2026-07-14 22:27:04 Asia/Taipei
+- generated_at: 2026-07-15 22:27:16 Asia/Taipei
 - stock_id: 5015
 - stock_name: 華祺
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 166
+- latest_price_date: 20260715
+- price_rows: 168
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 21.8
+- date: 20260715
+- open: 21.15
 - high: 21.8
-- low: 21.45
-- close: 21.45
-- volume: 15000
-- ma5: 21.92
-- ema23_primary: 22.85
-- distance_to_ema23_pct: -6.11
-- ma20: 23
-- ma60: 23.36
-- ma120: 25.36
-- return_5d: -7.14
-- return_20d: -9.11
-- volume_ratio: 0.61
-- distance_to_ma20_pct_auxiliary: -6.75
-- distance_to_high_60_pct: -19.36
+- low: 21.15
+- close: 21.55
+- volume: 31000
+- ma5: 21.56
+- ema23_primary: 22.61
+- distance_to_ema23_pct: -4.67
+- ma20: 22.75
+- ma60: 23.25
+- ma120: 25.25
+- return_5d: -2.05
+- return_20d: -9.26
+- volume_ratio: 1.27
+- distance_to_ma20_pct_auxiliary: -5.3
+- distance_to_high_60_pct: -18.98
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,23.8,24,23.3,23.85,33000,23.86,-0.05,23.73,24.25,1.41
-20260615,23.9,23.95,23.75,23.75,16000,23.85,-0.43,23.81,24.21,0.7
 20260616,23.65,23.7,23.65,23.7,18000,23.84,-0.59,23.89,24.17,0.8
 20260617,23.5,25.7,23.3,24,42000,23.85,0.61,23.98,24.13,1.76
 20260618,23.85,24,23.8,23.85,23000,23.85,-0.01,24.08,24.09,1.01
@@ -154,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260708,21.85,22.2,21.85,22,25000,23.09,-4.72,23.2,23.48,1.03
 20260709,21.95,21.95,21.7,21.7,12000,22.97,-5.55,23.11,23.41,0.5
 20260713,21.8,21.8,21.45,21.45,15000,22.85,-6.11,23,23.36,0.61
+20260714,21.45,21.45,21,21.1,18000,22.7,-7.05,22.86,23.3,0.76
+20260715,21.15,21.8,21.15,21.55,31000,22.61,-4.67,22.75,23.25,1.27
 ```
 
 ## Latest TDCC Snapshot

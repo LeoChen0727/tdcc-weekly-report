@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6509 聚和
 
 ## Metadata
-- generated_at: 2026-07-14 22:27:18 Asia/Taipei
+- generated_at: 2026-07-15 22:27:32 Asia/Taipei
 - stock_id: 6509
 - stock_name: 聚和
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 167
+- latest_price_date: 20260715
+- price_rows: 169
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 52.7
-- high: 52.7
-- low: 50.2
-- close: 51.2
-- volume: 2336000
-- ma5: 54.1
-- ema23_primary: 50.94
-- distance_to_ema23_pct: 0.51
-- ma20: 50.22
-- ma60: 47.58
-- ma120: 43.52
-- return_5d: -7.91
-- return_20d: 10.34
-- volume_ratio: 0.67
-- distance_to_ma20_pct_auxiliary: 1.96
-- distance_to_high_60_pct: -13.51
+- date: 20260715
+- open: 51
+- high: 51.9
+- low: 50.5
+- close: 51.1
+- volume: 1068000
+- ma5: 51.94
+- ema23_primary: 50.96
+- distance_to_ema23_pct: 0.28
+- ma20: 50.67
+- ma60: 47.8
+- ma120: 43.83
+- return_5d: -7.76
+- return_20d: 9.07
+- volume_ratio: 0.31
+- distance_to_ma20_pct_auxiliary: 0.85
+- distance_to_high_60_pct: -13.68
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,46.65,47.3,46.1,46.25,1817000,48.29,-4.22,49.48,45.88,0.94
-20260615,46.4,48.05,46.3,46.85,2202000,48.17,-2.73,49.45,45.89,1.23
 20260616,47.45,48.4,47.2,47.5,2163000,48.11,-1.27,49.48,45.91,1.28
 20260617,47.5,48.1,47.05,47.3,1077000,48.04,-1.55,49.46,45.97,0.67
 20260618,47.5,47.95,47.1,47.95,2526000,48.04,-0.18,49.4,46.04,1.88
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260708,55.7,55.8,51.6,54.2,4761000,50.8,6.7,49.79,47.36,1.27
 20260709,54.4,54.7,52.1,52.2,2310000,50.91,2.53,49.98,47.47,0.63
 20260713,52.7,52.7,50.2,51.2,2336000,50.94,0.51,50.22,47.58,0.67
+20260714,50.8,51.1,49.1,51,2465000,50.94,0.11,50.45,47.69,0.7
+20260715,51,51.9,50.5,51.1,1068000,50.96,0.28,50.67,47.8,0.31
 ```
 
 ## Latest TDCC Snapshot
@@ -189,12 +189,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 6509 | 聚和 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/02 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.發放普通股股利種類及金額:   發放普通股現金股利新台幣275,160,656元(每股配發新台幣1.40元) 4.除權（息）交易日:115/07/30 5.最後過戶日:115/07/31 6.停止過戶起始日期:115/08/01 7.停止過戶截止日期:115/08/05 8.除權（息）基準日:115/08/05 9.債券最後申請轉換日期:最遲應於停止受理轉換登記之   始日(115年07月13日)之前一營業日前(115年07月09日)，   向往來證券商辦理轉換手續。 10.債券停止轉換起始日期:115/07/13 11.債券停止轉換截止日期:115/08/05 12.普通股現金股利發放日期:115/08/26 13.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260715 | 6509 | 聚和 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.董事會或股東會決議日期:115/07/14 2.原發放股利種類及金額: 普通股現金股利新台幣275,160,656元，每股配發新台幣1.40元。 3.變更後發放股利種類及金額: 普通股現金股利新台幣275,160,656元，每股配發新台幣1.39368235元。 4.變更原因:本公司已發行之可轉換公司債經持有人請求轉換成普通股，致本公司 流通在外股份總數增加890,942股，故需調整配息率，依115年3月11日董事會決議通過 授權董事長調整現金股利配息率。 5.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 6509 | 聚和 | 2 | 2 | 3 | 7 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260715 | 6509 | 聚和 | 4 | 4 | 4 | 8 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

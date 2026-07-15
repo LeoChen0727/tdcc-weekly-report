@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2501 國建
 
 ## Metadata
-- generated_at: 2026-07-14 22:26:36 Asia/Taipei
+- generated_at: 2026-07-15 22:26:43 Asia/Taipei
 - stock_id: 2501
 - stock_name: 國建
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 302
+- latest_price_date: 20260715
+- price_rows: 304
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 23.95
-- high: 24.1
-- low: 23
-- close: 23.5
-- volume: 10751431
-- ma5: 24.04
-- ema23_primary: 24.28
-- distance_to_ema23_pct: -3.22
-- ma20: 24.83
-- ma60: 23.89
-- ma120: 23.43
-- return_5d: -3.09
-- return_20d: -8.74
-- volume_ratio: 1.85
-- distance_to_ma20_pct_auxiliary: -5.36
-- distance_to_high_60_pct: -17.25
+- date: 20260715
+- open: 21.65
+- high: 22.55
+- low: 21.65
+- close: 22.45
+- volume: 6022266
+- ma5: 23.06
+- ema23_primary: 23.92
+- distance_to_ema23_pct: -6.16
+- ma20: 24.36
+- ma60: 23.81
+- ma120: 23.39
+- return_5d: -7.23
+- return_20d: -16.85
+- volume_ratio: 1.07
+- distance_to_ma20_pct_auxiliary: -7.83
+- distance_to_high_60_pct: -20.95
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,25.85,27.35,25.8,26.5,12355496,23.79,11.38,23.23,23.49,2.14
-20260615,26.85,27.15,25.75,27,8222268,24.06,12.22,23.48,23.55,1.35
 20260616,27.05,27.05,25.7,25.75,6627336,24.2,6.4,23.66,23.59,1.04
 20260617,26,27.15,25.75,27,10354050,24.43,10.5,23.89,23.64,1.52
 20260618,27.15,28.4,26.6,26.85,12652565,24.64,8.99,24.11,23.7,1.72
@@ -146,15 +143,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,24.5,24.55,24.1,24.55,2675157,24.59,-0.14,24.64,23.74,0.34
 20260626,24.5,24.55,23.95,24.15,2827573,24.55,-1.63,24.73,23.76,0.36
 20260629,24.15,24.2,23.8,24.2,2093641,24.52,-1.31,24.81,23.79,0.27
-20260630,24.3,24.75,23.5,24.7,5608000,24.54,0.67,24.9,23.82,0.73
-20260701,24.6,24.6,23.9,24,3711000,24.49,-2,24.96,23.85,0.48
-20260702,24.2,24.25,23.95,24.1,1507000,24.46,-1.46,25.01,23.88,0.2
+20260630,24.3,24.75,23.5,24.7,5629784,24.54,0.67,24.9,23.82,0.73
+20260701,24.6,24.6,23.9,24,3730458,24.49,-2,24.96,23.85,0.48
+20260702,24.2,24.25,23.95,24.1,1514390,24.46,-1.46,25.01,23.88,0.2
 20260703,24,24.5,24,24.25,1649957,24.44,-0.78,25.05,23.89,0.22
-20260706,24.4,24.9,24.2,24.75,5247000,24.47,1.16,25.08,23.92,0.7
+20260706,24.4,24.9,24.2,24.75,5260157,24.47,1.16,25.08,23.92,0.7
 20260707,24.55,24.65,23.95,24.2,4879161,24.44,-1,25.09,23.93,0.65
 20260708,24.2,24.3,23.85,23.85,3113511,24.39,-2.23,25.08,23.93,0.42
 20260709,23.9,24.1,23.9,23.9,2229091,24.35,-1.86,24.94,23.92,0.34
 20260713,23.95,24.1,23,23.5,10751431,24.28,-3.22,24.83,23.89,1.85
+20260714,22.2,22.6,21.5,21.6,10901506,24.06,-10.22,24.59,23.84,1.9
+20260715,21.65,22.55,21.65,22.45,6022266,23.92,-6.16,24.36,23.81,1.07
 ```
 
 ## Latest TDCC Snapshot
@@ -199,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 2501 | 國建 | 1 | 0 | 207640.0 | 0.0 |  | no_signal |
+| 20260715 | 2501 | 國建 | 1 | 0 | 224820.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

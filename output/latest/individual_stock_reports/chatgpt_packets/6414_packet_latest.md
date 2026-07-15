@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6414 樺漢
 
 ## Metadata
-- generated_at: 2026-07-14 22:27:17 Asia/Taipei
+- generated_at: 2026-07-15 22:27:30 Asia/Taipei
 - stock_id: 6414
 - stock_name: 樺漢
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 302
+- latest_price_date: 20260715
+- price_rows: 304
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 394.5
-- high: 407.5
-- low: 384
-- close: 388.5
-- volume: 1800091
-- ma5: 394.1
-- ema23_primary: 378.7
-- distance_to_ema23_pct: 2.59
-- ma20: 378.07
-- ma60: 357.05
-- ma120: 319.02
-- return_5d: 3.46
-- return_20d: -1.65
-- volume_ratio: 1.04
-- distance_to_ma20_pct_auxiliary: 2.76
-- distance_to_high_60_pct: -7.06
+- date: 20260715
+- open: 380
+- high: 395.5
+- low: 377.5
+- close: 394.5
+- volume: 1791614
+- ma5: 391.7
+- ema23_primary: 379.92
+- distance_to_ema23_pct: 3.84
+- ma20: 378.82
+- ma60: 359.85
+- ma120: 320.63
+- return_5d: -1.38
+- return_20d: 3.41
+- volume_ratio: 1.08
+- distance_to_ma20_pct_auxiliary: 4.14
+- distance_to_high_60_pct: -5.62
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,409,409,375.5,375.5,2474722,366.54,2.44,365.95,324.48,1.19
-20260615,382.5,389,378.5,381.5,2657589,367.79,3.73,368.98,326.19,1.28
 20260616,368.5,376,360,367,2815669,367.72,-0.2,370.93,327.78,1.36
 20260617,364.5,371.5,362.5,370.5,1709978,367.95,0.69,372.88,329.46,0.82
 20260618,373,384.5,370,383,2030785,369.21,3.74,374.65,331.44,0.97
@@ -146,15 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,374.5,380,370,373.5,1489768,371.04,0.66,378.32,338.76,0.74
 20260626,370,375,360.5,361.5,1606254,370.24,-2.36,378.77,340.3,0.79
 20260629,361.5,370,358,360,1203232,369.39,-2.54,378.75,341.78,0.6
-20260630,365,372.5,365,369.5,1337000,369.4,0.03,378.45,343.37,0.69
-20260701,374.5,376.5,368.5,370.5,870000,369.49,0.27,377.82,345,0.47
-20260702,365.5,374.5,365.5,373.5,607000,369.83,0.99,377.25,346.62,0.33
+20260630,365,372.5,365,369.5,1361016,369.4,0.03,378.45,343.37,0.7
+20260701,374.5,376.5,368.5,370.5,892411,369.49,0.27,377.82,345,0.48
+20260702,365.5,374.5,365.5,373.5,620030,369.83,0.99,377.25,346.62,0.34
 20260703,369,377.5,369,375.5,566207,370.3,1.4,376.55,348.16,0.32
-20260706,378.5,391.5,378.5,384,1198000,371.44,3.38,376.55,349.93,0.7
+20260706,378.5,391.5,378.5,384,1236975,371.44,3.38,376.55,349.93,0.72
 20260707,398.5,418,397,400,3996573,373.82,7,377.95,351.88,2.19
-20260708,404,410,393,404,2230359,376.34,7.35,378.1,353.82,1.27
+20260708,404,410,393,404,2230359,376.34,7.35,378.1,353.82,1.26
 20260709,405,412.5,393,394,2077639,377.81,4.29,378.4,355.48,1.19
 20260713,394.5,407.5,384,388.5,1800091,378.7,2.59,378.07,357.05,1.04
+20260714,384,386,366,377.5,1917049,378.6,-0.29,378.18,358.34,1.12
+20260715,380,395.5,377.5,394.5,1791614,379.92,3.84,378.82,359.85,1.08
 ```
 
 ## Latest TDCC Snapshot
@@ -189,19 +189,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 6414 | 樺漢 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | repeated_but_no_breakout | 符合條款第四條第XX款：12 事實發生日：115/07/14 1.召開法人說明會之日期：115/07/14 2.召開法人說明會之時間：14 時 20 分  3.召開法人說明會之地點：政大公企中心A棟1034會議室 (台北市金華街187號10樓) 4.法人說明會擇要訊息：本公司受邀參加福邦證券主辦鴻海暨轉投資企業主題系列座談，說明本公司產業概況 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
-| 20260713 | 6414 | 樺漢 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | no_signal | repeated_but_no_breakout | 符合條款第四條第XX款：12 事實發生日：115/07/14 1.召開法人說明會之日期：115/07/14 2.召開法人說明會之時間：14 時 20 分  3.召開法人說明會之地點：政大公企中心A棟1034會議室 (台北市金華街187號10樓) 4.法人說明會擇要訊息：本公司受邀參加福邦證券主辦鴻海暨轉投資企業主題系列座談，說明本公司產業概況 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260713 | 6414 | 樺漢 | revenue_breakout_low_response | 營收爆發低反應股 | 19.0 | 4.0 | A_優先追蹤 |  |  | no_signal | repeated_but_no_breakout | 符合條款第四條第XX款：12 事實發生日：115/07/14 1.召開法人說明會之日期：115/07/14 2.召開法人說明會之時間：14 時 20 分  3.召開法人說明會之地點：政大公企中心A棟1034會議室 (台北市金華街187號10樓) 4.法人說明會擇要訊息：本公司受邀參加福邦證券主辦鴻海暨轉投資企業主題系列座談，說明本公司產業概況 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260715 | 6414 | 樺漢 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | repeated_but_no_breakout | 符合條款第四條第XX款：12 事實發生日：115/07/14 1.召開法人說明會之日期：115/07/14 2.召開法人說明會之時間：14 時 20 分  3.召開法人說明會之地點：政大公企中心A棟1034會議室 (台北市金華街187號10樓) 4.法人說明會擇要訊息：本公司受邀參加福邦證券主辦鴻海暨轉投資企業主題系列座談，說明本公司產業概況 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260715 | 6414 | 樺漢 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | no_signal | repeated_but_no_breakout | 符合條款第四條第XX款：12 事實發生日：115/07/14 1.召開法人說明會之日期：115/07/14 2.召開法人說明會之時間：14 時 20 分  3.召開法人說明會之地點：政大公企中心A棟1034會議室 (台北市金華街187號10樓) 4.法人說明會擇要訊息：本公司受邀參加福邦證券主辦鴻海暨轉投資企業主題系列座談，說明本公司產業概況 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260715 | 6414 | 樺漢 | revenue_breakout_low_response | 營收爆發低反應股 | 19.0 | 4.0 | A_優先追蹤 |  |  | no_signal | repeated_but_no_breakout | 符合條款第四條第XX款：12 事實發生日：115/07/14 1.召開法人說明會之日期：115/07/14 2.召開法人說明會之時間：14 時 20 分  3.召開法人說明會之地點：政大公企中心A棟1034會議室 (台北市金華街187號10樓) 4.法人說明會擇要訊息：本公司受邀參加福邦證券主辦鴻海暨轉投資企業主題系列座談，說明本公司產業概況 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 6414 | 樺漢 | 5 | 2 | 5 | 7 | 15 | repeated_but_no_breakout | 近 10 日上榜 7 次、近 20 日上榜 15 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260715 | 6414 | 樺漢 | 7 | 4 | 5 | 7 | 16 | repeated_but_no_breakout | 近 10 日上榜 7 次、近 20 日上榜 16 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 6414 | 樺漢 | 35 | 0 | 3959610.0 | 0.0 |  | no_signal |
+| 20260715 | 6414 | 樺漢 | 35 | 0 | 4133000.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

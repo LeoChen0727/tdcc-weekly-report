@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8077 洛碁
 
 ## Metadata
-- generated_at: 2026-07-14 22:27:34 Asia/Taipei
+- generated_at: 2026-07-15 22:27:50 Asia/Taipei
 - stock_id: 8077
 - stock_name: 洛碁
 - packet_status: standard_rawdata_packet
-- latest_price_date: 20260713
-- price_rows: 91
+- latest_price_date: 20260715
+- price_rows: 93
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 46.2
-- high: 46.2
-- low: 45.15
-- close: 45.15
-- volume: 9000
-- ma5: 46.9
-- ema23_primary: 48.28
-- distance_to_ema23_pct: -6.48
-- ma20: 50.05
-- ma60: 45.98
-- ma120: 45.55
-- return_5d: -4.04
-- return_20d: -7.86
-- volume_ratio: 0.65
-- distance_to_ma20_pct_auxiliary: -9.8
-- distance_to_high_60_pct: -19.8
+- date: 20260715
+- open: 46.85
+- high: 46.85
+- low: 46.85
+- close: 46.85
+- volume: 1000
+- ma5: 46.68
+- ema23_primary: 48.05
+- distance_to_ema23_pct: -2.5
+- ma20: 49.49
+- ma60: 46.04
+- ma120: 45.58
+- return_5d: -2.29
+- return_20d: -13.56
+- volume_ratio: 0.11
+- distance_to_ma20_pct_auxiliary: -5.33
+- distance_to_high_60_pct: -16.79
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260603,49,51,49,50.8,50000,45.34,12.04,44.21,44.06,2.34
-20260604,51.5,54.9,50,54.2,53000,46.08,17.62,44.81,44.19,2.22
 20260605,54.6,56.3,53.5,54,54000,46.74,15.53,45.43,44.32,2.03
 20260608,53,53,53,53,2000,47.26,12.14,45.98,44.46,0.08
 20260610,53,53,52.9,52.9,2000,47.73,10.83,46.52,44.61,0.08
@@ -154,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260706,46.35,47.1,45.45,47.1,7000,48.66,-3.21,50.31,45.87,0.46
 20260707,47.35,47.95,47.35,47.45,9000,48.56,-2.29,50.25,45.93,0.67
 20260713,46.2,46.2,45.15,45.15,9000,48.28,-6.48,50.05,45.98,0.65
+20260714,46.45,46.95,46.45,46.85,12000,48.16,-2.72,49.86,46.02,1.01
+20260715,46.85,46.85,46.85,46.85,1000,48.05,-2.5,49.49,46.04,0.11
 ```
 
 ## Latest TDCC Snapshot

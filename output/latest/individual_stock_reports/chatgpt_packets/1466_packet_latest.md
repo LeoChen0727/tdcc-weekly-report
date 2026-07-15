@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1466 聚隆
 
 ## Metadata
-- generated_at: 2026-07-14 22:26:21 Asia/Taipei
+- generated_at: 2026-07-15 22:26:25 Asia/Taipei
 - stock_id: 1466
 - stock_name: 聚隆
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 302
+- latest_price_date: 20260715
+- price_rows: 304
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 轉弱警訊
+- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -88,8 +88,8 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
+- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -104,7 +104,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- tdcc_distribution_warning
+- none
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -112,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 16.6
-- high: 17.45
-- low: 16.3
-- close: 16.85
-- volume: 1786056
-- ma5: 17.78
-- ema23_primary: 16.08
-- distance_to_ema23_pct: 4.82
-- ma20: 15.71
-- ma60: 15.41
-- ma120: 15.89
-- return_5d: -8.42
-- return_20d: 16.21
-- volume_ratio: 0.95
-- distance_to_ma20_pct_auxiliary: 7.27
-- distance_to_high_60_pct: -16.17
+- date: 20260715
+- open: 19.75
+- high: 20.1
+- low: 18.1
+- close: 18.3
+- volume: 6098862
+- ma5: 17.6
+- ema23_primary: 16.45
+- distance_to_ema23_pct: 11.27
+- ma20: 16.07
+- ma60: 15.47
+- ma120: 15.96
+- return_5d: -5.67
+- return_20d: 24.49
+- volume_ratio: 2.43
+- distance_to_ma20_pct_auxiliary: 13.84
+- distance_to_high_60_pct: -8.96
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,14.55,14.9,14.45,14.75,945849,14.65,0.67,14.42,15.81,3.48
-20260615,14.8,15.2,14.55,14.7,278867,14.66,0.3,14.43,15.75,1
 20260616,14.7,14.7,14,14,333462,14.6,-4.12,14.38,15.69,1.14
 20260617,14.05,14.4,13.85,14,535263,14.55,-3.79,14.35,15.62,1.71
 20260618,14.1,14.85,13.8,14.3,817196,14.53,-1.59,14.33,15.57,2.34
@@ -145,15 +143,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,14.15,14.25,14.05,14.2,116003,14.46,-1.83,14.31,15.39,0.32
 20260626,14.2,14.2,13.8,14.1,148849,14.43,-2.32,14.32,15.35,0.43
 20260629,14,14.8,14,14.8,197523,14.46,2.32,14.37,15.33,0.6
-20260630,14.7,14.9,14.25,14.8,616000,14.49,2.12,14.39,15.29,1.79
-20260701,16.25,16.25,16.25,16.25,648000,14.64,11,14.49,15.29,1.76
-20260702,17,17.85,15.85,17.85,3086000,14.91,19.74,14.65,15.3,6.02
-20260703,17.65,18.6,17.3,18.4,4527009,15.2,21.07,14.85,15.32,6.19
-20260706,18.4,18.9,17.5,18.3,5764000,15.46,18.4,15.04,15.35,5.7
-20260707,19.8,20.1,19.25,19.4,8675134,15.79,22.9,15.29,15.39,6.05
-20260708,20,20,17.5,17.5,6145523,15.93,9.87,15.46,15.4,3.6
-20260709,17.75,18.2,16.7,16.85,2081519,16,5.28,15.59,15.41,1.16
-20260713,16.6,17.45,16.3,16.85,1786056,16.08,4.82,15.71,15.41,0.95
+20260630,14.7,14.9,14.25,14.8,617115,14.49,2.12,14.39,15.29,1.8
+20260701,16.25,16.25,16.25,16.25,2702092,14.64,11,14.49,15.29,5.75
+20260702,17,17.85,15.85,17.85,4158740,14.91,19.74,14.65,15.3,6.21
+20260703,17.65,18.6,17.3,18.4,4527009,15.2,21.07,14.85,15.32,5.1
+20260706,18.4,18.9,17.5,18.3,5769261,15.46,18.4,15.04,15.35,4.94
+20260707,19.8,20.1,19.25,19.4,8675134,15.79,22.9,15.29,15.39,5.46
+20260708,20,20,17.5,17.5,6145523,15.93,9.87,15.46,15.4,3.3
+20260709,17.75,18.2,16.7,16.85,2081519,16,5.28,15.59,15.41,1.06
+20260713,16.6,17.45,16.3,16.85,1786056,16.08,4.82,15.71,15.41,0.88
+20260714,16.95,18.5,16.5,18.5,4697975,16.28,13.66,15.89,15.44,2.11
+20260715,19.75,20.1,18.1,18.3,6098862,16.45,11.27,16.07,15.47,2.43
 ```
 
 ## Latest TDCC Snapshot
@@ -186,14 +186,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 1466 | 聚隆 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | stale_signal | 1.事實發生日:115/07/06 2.發生緣由:依據臺灣證券交易所股份有限公司通知辦理。 3.財務業務資訊: 期間                 (月)                  (季)              (最近四季累計)             最近一月  與去年同期      最近一季 與去年同期           ( 115年5月)   增減％    (115年第1季) 增減％    (114年Q2至115年Q1)             (IFRS合併自結數)        (IFRS合併核閱數)       (IFRS合併核閱數)  科目 營業收入	 192 	    5%	       548 	 -20%	            2,471 (百萬) 稅前淨利(損)	  10	  163%	        19	  12%	             (141) (百萬) 本期淨利(損)	  10	  163%	        21        13%	             (114) (百萬) 每股盈餘       0.09	  163%	      0.17	  13%	            (1.05) (元) 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無。 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無。 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告: 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 1466 | 聚隆 | 1 | 1 | 4 | 7 | 7 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

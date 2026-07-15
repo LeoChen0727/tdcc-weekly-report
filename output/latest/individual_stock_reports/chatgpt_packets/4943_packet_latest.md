@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4943 康控-KY
 
 ## Metadata
-- generated_at: 2026-07-14 22:27:03 Asia/Taipei
+- generated_at: 2026-07-15 22:27:14 Asia/Taipei
 - stock_id: 4943
 - stock_name: 康控-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 298
+- latest_price_date: 20260715
+- price_rows: 300
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 8.6
-- high: 8.6
-- low: 8.5
-- close: 8.6
-- volume: 14642
-- ma5: 8.66
-- ema23_primary: 8.95
-- distance_to_ema23_pct: -3.9
-- ma20: 8.96
-- ma60: 9.26
-- ma120: 10.48
-- return_5d: -4.44
-- return_20d: -4.34
-- volume_ratio: 0.29
-- distance_to_ma20_pct_auxiliary: -3.98
-- distance_to_high_60_pct: -22.87
+- date: 20260715
+- open: 8.15
+- high: 8.58
+- low: 8.15
+- close: 8.33
+- volume: 26541
+- ma5: 8.53
+- ema23_primary: 8.86
+- distance_to_ema23_pct: -6.01
+- ma20: 8.89
+- ma60: 9.19
+- ma120: 10.41
+- return_5d: -3.48
+- return_20d: -8.16
+- volume_ratio: 0.56
+- distance_to_ma20_pct_auxiliary: -6.31
+- distance_to_high_60_pct: -25.29
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,9.62,9.65,9.06,9.06,119707,9.15,-0.97,9,9.94,2.18
-20260615,9.23,9.23,8.89,9.07,48096,9.14,-0.79,9,9.9,0.9
 20260616,9.08,9.08,9.07,9.07,27077,9.14,-0.72,9,9.86,0.51
 20260617,9.05,9.1,9,9,25181,9.12,-1.37,9,9.82,0.47
 20260618,9.08,9.08,8.91,9.06,52799,9.12,-0.65,9.01,9.78,1
@@ -146,15 +143,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,8.65,8.75,8.61,8.61,66529,9,-4.34,8.97,9.61,1.21
 20260626,8.5,9.3,8.5,9.19,58941,9.02,1.93,8.98,9.57,1.04
 20260629,9.62,9.62,8.8,9.4,73705,9.05,3.89,8.99,9.54,1.4
-20260630,9.4,9.4,9.37,9.37,113000,9.08,3.25,9,9.51,2.05
-20260701,9.37,9.37,9.37,9.37,39000,9.1,2.97,9.02,9.49,0.72
-20260702,8.97,9.36,8.97,9.35,20000,9.12,2.52,9.04,9.46,0.38
+20260630,9.4,9.4,9.37,9.37,115933,9.08,3.25,9,9.51,2.09
+20260701,9.37,9.37,9.37,9.37,39492,9.1,2.97,9.02,9.49,0.72
+20260702,8.97,9.36,8.97,9.35,22212,9.12,2.52,9.04,9.46,0.42
 20260703,9,9,9,9,26656,9.11,-1.21,9.04,9.43,0.51
-20260706,9,9,8.88,8.88,34000,9.09,-2.32,9.04,9.4,0.64
-20260707,8.6,8.87,8.6,8.63,31117,9.05,-4.67,9.03,9.36,0.58
-20260708,8.99,8.99,8.6,8.6,65412,9.02,-4.6,9,9.32,1.18
+20260706,9,9,8.88,8.88,35675,9.09,-2.32,9.04,9.4,0.67
+20260707,8.6,8.87,8.6,8.63,31117,9.05,-4.67,9.03,9.36,0.57
+20260708,8.99,8.99,8.6,8.6,65412,9.02,-4.6,9,9.32,1.17
 20260709,8.6,8.6,8.6,8.6,7167,8.98,-4.24,8.98,9.29,0.13
-20260713,8.6,8.6,8.5,8.6,14642,8.95,-3.9,8.96,9.26,0.29
+20260713,8.6,8.6,8.5,8.6,14642,8.95,-3.9,8.96,9.26,0.28
+20260714,8.6,8.6,8.5,8.5,64948,8.91,-4.62,8.93,9.23,1.33
+20260715,8.15,8.58,8.15,8.33,26541,8.86,-6.01,8.89,9.19,0.56
 ```
 
 ## Latest TDCC Snapshot

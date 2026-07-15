@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6672 騰輝電子-KY
 
 ## Metadata
-- generated_at: 2026-07-14 22:27:22 Asia/Taipei
+- generated_at: 2026-07-15 22:27:36 Asia/Taipei
 - stock_id: 6672
 - stock_name: 騰輝電子-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 302
+- latest_price_date: 20260715
+- price_rows: 304
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -56,33 +56,29 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 可分批買進
-- model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
-- action_summary_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。
-- entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
-- position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- action_rating_display_zh: 已持有續抱
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
+- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: scale_in
-- action_rating_label_zh: 可分批買進
-- confidence_level: high
-- thesis_state: healthy_pullback
-- entry_style: pullback_to_23ema
-- position_sizing: half_position
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
+- confidence_level: medium
+- thesis_state: unclear
+- entry_style: no_entry_now
+- position_sizing: observe_only
 
 ### management_plan
-- buy_first_tranche_near_support
-- add_on_23ema_hold
-- add_on_reclaim_23ema
-- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -91,8 +87,6 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
-- decision_score_high
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -119,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 300.5
-- high: 303.5
-- low: 273
-- close: 275
-- volume: 3858200
-- ma5: 297.4
-- ema23_primary: 271.53
-- distance_to_ema23_pct: 1.28
-- ma20: 273.57
-- ma60: 227.78
-- ma120: 167.94
-- return_5d: -12.7
-- return_20d: 28.81
-- volume_ratio: 0.6
-- distance_to_ma20_pct_auxiliary: 0.52
-- distance_to_high_60_pct: -16.67
+- date: 20260715
+- open: 264
+- high: 268
+- low: 259.5
+- close: 268
+- volume: 2442974
+- ma5: 281.7
+- ema23_primary: 270.47
+- distance_to_ema23_pct: -0.91
+- ma20: 277.23
+- ma60: 231
+- ma120: 170.86
+- return_5d: -10.67
+- return_20d: 13.8
+- volume_ratio: 0.39
+- distance_to_ma20_pct_auxiliary: -3.33
+- distance_to_high_60_pct: -18.79
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,219,228,218.5,221,3491154,210.36,5.06,208.7,182.22,0.65
-20260615,229,242,225,235.5,6884755,212.46,10.84,211.45,184.45,1.23
 20260616,237,237.5,220.5,222,5826183,213.25,4.1,213.6,186.28,1.01
 20260617,221,229,221,226.5,2599479,214.36,5.66,216.1,188.01,0.45
 20260618,231.5,249,231.5,245.5,7230125,216.95,13.16,219.45,190.13,1.19
@@ -152,15 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,265.5,289.5,258.5,289.5,9435634,231.27,25.18,230.9,199.1,1.64
 20260626,289,311.5,284,292,16711228,236.33,23.55,234.75,201.82,2.73
 20260629,290,294,276,281.5,6114801,240.1,17.24,237.7,204.43,1.01
-20260630,289.5,304,285.5,300,5015000,245.09,22.4,241.7,207.26,0.83
-20260701,302.5,330,290.5,290.5,12367000,248.87,16.73,245.45,209.94,1.92
-20260702,287.5,300,287,297.5,5038000,252.93,17.62,249.47,212.75,0.77
+20260630,289.5,304,285.5,300,5109751,245.09,22.4,241.7,207.26,0.85
+20260701,302.5,330,290.5,290.5,12667207,248.87,16.73,245.45,209.94,1.96
+20260702,287.5,300,287,297.5,5145546,252.93,17.62,249.47,212.75,0.79
 20260703,297,316.5,293,315,5750657,258.1,22.05,254.12,215.64,0.89
-20260706,317.5,317.5,304.5,308,4265000,262.26,17.44,258.57,218.21,0.66
-20260707,315,324.5,296,300,7412931,265.4,13.04,262.73,220.71,1.11
+20260706,317.5,317.5,304.5,308,4407424,262.26,17.44,258.57,218.21,0.68
+20260707,315,324.5,296,300,7412931,265.4,13.04,262.73,220.71,1.1
 20260708,304,306,290,306,4768619,268.79,13.85,266.52,223.33,0.72
 20260709,307,309.5,298,298,2642578,271.22,9.87,270.5,225.78,0.41
-20260713,300.5,303.5,273,275,3858200,271.53,1.28,273.57,227.78,0.6
+20260713,300.5,303.5,273,275,3858200,271.53,1.28,273.57,227.78,0.59
+20260714,276,280,250.5,261.5,3517356,270.7,-3.4,275.6,229.47,0.54
+20260715,264,268,259.5,268,2442974,270.47,-0.91,277.23,231,0.39
 ```
 
 ## Latest TDCC Snapshot
@@ -195,17 +189,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 6672 | 騰輝電子-KY | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/06/26 2.發生緣由:依臺灣證券交易所股份有限公司通知辦理 3.財務業務資訊:  期間           (  月  )           (   季   )          (最近四季累計) ========  ==================   ===================== ======================             最近一月  與去年     最近一季    與去年  科目     115年05月 同期增減%  115年第1季  同期增減% 114年第2季至115年第1季             (合併自結數)           (合併核閱數)            (合併核閱數) ========  ======   =========   ========  ==========  ====================== 營業收入     530      34.96%      1,246     21.86%              4,488 (百萬) 稅前淨利      77     187.75%        148     51.61%                455 (百萬) 本期淨利      71     128.21%        124     64.98%                395 (百萬) 每股盈餘    0.87     102.33%       1.73     64.76%               5.52 (元)  4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告:無 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260715 | 6672 | 騰輝電子-KY | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.事實發生日:115/06/26 2.發生緣由:依臺灣證券交易所股份有限公司通知辦理 3.財務業務資訊:  期間           (  月  )           (   季   )          (最近四季累計) ========  ==================   ===================== ======================             最近一月  與去年     最近一季    與去年  科目     115年05月 同期增減%  115年第1季  同期增減% 114年第2季至115年第1季             (合併自結數)           (合併核閱數)            (合併核閱數) ========  ======   =========   ========  ==========  ====================== 營業收入     530      34.96%      1,246     21.86%              4,488 (百萬) 稅前淨利      77     187.75%        148     51.61%                455 (百萬) 本期淨利      71     128.21%        124     64.98%                395 (百萬) 每股盈餘    0.87     102.33%       1.73     64.76%               5.52 (元)  4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告:無 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260715 | 6672 | 騰輝電子-KY | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/06/26 2.發生緣由:依臺灣證券交易所股份有限公司通知辦理 3.財務業務資訊:  期間           (  月  )           (   季   )          (最近四季累計) ========  ==================   ===================== ======================             最近一月  與去年     最近一季    與去年  科目     115年05月 同期增減%  115年第1季  同期增減% 114年第2季至115年第1季             (合併自結數)           (合併核閱數)            (合併核閱數) ========  ======   =========   ========  ==========  ====================== 營業收入     530      34.96%      1,246     21.86%              4,488 (百萬) 稅前淨利      77     187.75%        148     51.61%                455 (百萬) 本期淨利      71     128.21%        124     64.98%                395 (百萬) 每股盈餘    0.87     102.33%       1.73     64.76%               5.52 (元)  4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告:無 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 6672 | 騰輝電子-KY | 2 | 2 | 2 | 3 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260715 | 6672 | 騰輝電子-KY | 4 | 4 | 4 | 5 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 6672 | 騰輝電子-KY | 35 | 1 | 7375580.0 | 0.0 |  | no_signal |
+| 20260715 | 6672 | 騰輝電子-KY | 36 | 1 | 4550410.0 | 33250.0 | 136.85 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

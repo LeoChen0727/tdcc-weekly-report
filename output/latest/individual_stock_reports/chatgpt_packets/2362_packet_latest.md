@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2362 藍天
 
 ## Metadata
-- generated_at: 2026-07-14 22:26:32 Asia/Taipei
+- generated_at: 2026-07-15 22:26:38 Asia/Taipei
 - stock_id: 2362
 - stock_name: 藍天
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 302
+- latest_price_date: 20260715
+- price_rows: 304
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 43.15
-- high: 43.25
-- low: 41.7
-- close: 42.15
-- volume: 1345177
-- ma5: 43.5
-- ema23_primary: 43.77
-- distance_to_ema23_pct: -3.71
-- ma20: 44.53
-- ma60: 42.47
-- ma120: 40.43
-- return_5d: 1.57
-- return_20d: -13.09
-- volume_ratio: 0.73
-- distance_to_ma20_pct_auxiliary: -5.36
-- distance_to_high_60_pct: -19.1
+- date: 20260715
+- open: 41.7
+- high: 42.3
+- low: 41.35
+- close: 42.1
+- volume: 468227
+- ma5: 42.47
+- ema23_primary: 43.46
+- distance_to_ema23_pct: -3.14
+- ma20: 43.87
+- ma60: 42.59
+- ma120: 40.5
+- return_5d: -3.99
+- return_20d: -13.99
+- volume_ratio: 0.31
+- distance_to_ma20_pct_auxiliary: -4.03
+- distance_to_high_60_pct: -19.19
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,49,50.2,47,48,5383135,44.66,7.47,44.38,40.56,1.39
-20260615,48.9,49.4,48.25,48.95,2320538,45.02,8.73,44.88,40.72,0.59
 20260616,49.2,50,48.6,48.6,2323127,45.32,7.24,45.38,40.89,0.58
 20260617,48.4,48.4,47.6,48.05,1518527,45.55,5.5,45.85,41.05,0.37
 20260618,48.3,48.9,47.55,47.55,2071302,45.71,4.02,46.23,41.21,0.5
@@ -146,15 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,44.55,45.4,43.6,43.75,2062209,45.7,-4.26,47.09,41.7,0.51
 20260626,43.85,43.85,42.1,42.1,2388430,45.4,-7.27,47.15,41.76,0.58
 20260629,42.4,42.5,41.2,41.2,1308527,45.05,-8.54,47,41.82,0.34
-20260630,41.8,42.15,41.4,41.65,1058000,44.77,-6.96,46.72,41.89,0.3
-20260701,42.1,42.5,41,41,1505000,44.45,-7.77,46.18,41.95,0.52
-20260702,41,42.1,40.9,41.5,1133000,44.21,-6.12,45.73,42.01,0.46
-20260703,41.25,42.4,41.25,41.5,1061546,43.98,-5.64,45.39,42.06,0.47
-20260706,42.2,45.2,42.2,44.95,2644000,44.06,2.02,45.29,42.17,1.15
+20260630,41.8,42.15,41.4,41.65,1072551,44.77,-6.96,46.72,41.89,0.31
+20260701,42.1,42.5,41,41,1515064,44.45,-7.77,46.18,41.95,0.52
+20260702,41,42.1,40.9,41.5,1139399,44.21,-6.12,45.73,42.01,0.46
+20260703,41.25,42.4,41.25,41.5,1061546,43.98,-5.64,45.39,42.06,0.46
+20260706,42.2,45.2,42.2,44.95,2666567,44.06,2.02,45.29,42.17,1.15
 20260707,45.25,46.1,43.55,43.85,2088858,44.04,-0.44,45.24,42.25,0.91
 20260708,43.85,44.2,42.8,43.15,823778,43.97,-1.86,44.99,42.33,0.38
 20260709,43.15,44.15,43.15,43.4,625372,43.92,-1.19,44.85,42.41,0.3
 20260713,43.15,43.25,41.7,42.15,1345177,43.77,-3.71,44.53,42.47,0.73
+20260714,42.7,42.7,40.5,41.55,820728,43.59,-4.68,44.21,42.53,0.51
+20260715,41.7,42.3,41.35,42.1,468227,43.46,-3.14,43.87,42.59,0.31
 ```
 
 ## Latest TDCC Snapshot
@@ -187,19 +187,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 2362 | 藍天 | revenue_pullback | 營收成長股價回檔 | 67.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 2362 | 藍天 | 1 | 1 | 2 | 2 | 7 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 2362 | 藍天 | 1 | 0 | 0.0 | 0.0 |  | no_signal |
+| 20260715 | 2362 | 藍天 | 1 | 0 | 0.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

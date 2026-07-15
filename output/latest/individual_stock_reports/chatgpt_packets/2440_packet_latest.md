@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2440 太空梭
 
 ## Metadata
-- generated_at: 2026-07-14 22:26:34 Asia/Taipei
+- generated_at: 2026-07-15 22:26:41 Asia/Taipei
 - stock_id: 2440
 - stock_name: 太空梭
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 302
+- latest_price_date: 20260715
+- price_rows: 304
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 16.5
-- high: 16.95
-- low: 16.5
-- close: 16.75
-- volume: 420460
-- ma5: 16.91
-- ema23_primary: 17.04
-- distance_to_ema23_pct: -1.7
-- ma20: 16.94
-- ma60: 17.27
-- ma120: 16.19
-- return_5d: -3.74
-- return_20d: -2.9
-- volume_ratio: 0.66
-- distance_to_ma20_pct_auxiliary: -1.14
-- distance_to_high_60_pct: -25.72
+- date: 20260715
+- open: 15.95
+- high: 17.25
+- low: 15.7
+- close: 16.95
+- volume: 1039337
+- ma5: 16.51
+- ema23_primary: 16.94
+- distance_to_ema23_pct: 0.05
+- ma20: 16.85
+- ma60: 17.31
+- ma120: 16.22
+- return_5d: 0.89
+- return_20d: -1.45
+- volume_ratio: 1.6
+- distance_to_ma20_pct_auxiliary: 0.59
+- distance_to_high_60_pct: -24.83
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,17.45,17.8,17.3,17.45,599397,17.67,-1.22,17.87,16.54,0.33
-20260615,17.8,17.85,17.05,17.2,971636,17.63,-2.42,17.83,16.57,0.56
 20260616,17.25,17.5,16.8,16.8,746488,17.56,-4.31,17.77,16.6,0.44
 20260617,16.7,17.05,16.65,16.95,394069,17.51,-3.18,17.75,16.64,0.23
 20260618,17.05,17.05,16.8,16.95,480093,17.46,-2.92,17.73,16.68,0.29
@@ -146,15 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,17.3,17.4,17,17,292437,17.36,-2.05,17.57,16.86,0.18
 20260626,17,17,16.05,16.05,626005,17.25,-6.94,17.54,16.89,0.39
 20260629,16.2,16.85,16,16.75,794755,17.2,-2.64,17.49,16.93,0.49
-20260630,16.95,16.95,16.55,16.7,443000,17.16,-2.7,17.42,16.97,0.28
-20260701,16.75,16.9,16.6,16.75,308000,17.13,-2.21,17.35,17.02,0.2
-20260702,16.75,17,16.6,16.9,264000,17.11,-1.22,17.26,17.06,0.18
+20260630,16.95,16.95,16.55,16.7,446812,17.16,-2.7,17.42,16.97,0.28
+20260701,16.75,16.9,16.6,16.75,310706,17.13,-2.21,17.35,17.02,0.2
+20260702,16.75,17,16.6,16.9,266409,17.11,-1.22,17.26,17.06,0.18
 20260703,16.9,17.7,16.9,17.4,645873,17.13,1.55,17.11,17.11,0.46
-20260706,17.6,18.2,17.45,18,1194000,17.21,4.62,17.09,17.17,1.48
+20260706,17.6,18.2,17.45,18,1201237,17.21,4.62,17.09,17.17,1.49
 20260707,17.8,17.95,16.7,16.8,996073,17.17,-2.17,17.05,17.2,1.32
-20260708,16.8,16.85,16.3,16.35,550092,17.1,-4.41,16.99,17.22,0.78
+20260708,16.8,16.85,16.3,16.35,550092,17.1,-4.41,16.99,17.22,0.77
 20260709,16.5,16.8,16.45,16.65,450862,17.07,-2.44,16.97,17.25,0.67
 20260713,16.5,16.95,16.5,16.75,420460,17.04,-1.7,16.94,17.27,0.66
+20260714,16.9,16.9,15.5,15.85,721293,16.94,-6.44,16.86,17.28,1.11
+20260715,15.95,17.25,15.7,16.95,1039337,16.94,0.05,16.85,17.31,1.6
 ```
 
 ## Latest TDCC Snapshot
@@ -187,14 +187,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260715 | 2440 | 太空梭 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260715 | 2440 | 太空梭 | pullback_rebound | 回檔後短線轉強 | 63.0 |  |  |  |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260715 | 2440 | 太空梭 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260715 | 2440 | 太空梭 | revenue_breakout_low_response | 營收爆發低反應股 | 19.0 | 5.0 | A_優先追蹤 |  |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260715 | 2440 | 太空梭 | 1 | 1 | 1 | 2 | 2 | first_seen | 首次上榜或資料有限，需後續確認。 |
 
 ## Warrant Context
 | status |

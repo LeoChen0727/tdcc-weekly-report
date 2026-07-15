@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6533 晶心科
 
 ## Metadata
-- generated_at: 2026-07-14 22:27:19 Asia/Taipei
+- generated_at: 2026-07-15 22:27:33 Asia/Taipei
 - stock_id: 6533
 - stock_name: 晶心科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 302
+- latest_price_date: 20260715
+- price_rows: 304
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 回檔後短線轉強
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 回檔後短線轉強 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 回檔後短線轉強 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -90,7 +90,6 @@
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
-- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -105,7 +104,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- none
+- tdcc_distribution_warning
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -113,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 210.5
-- high: 210.5
-- low: 210.5
-- close: 210.5
-- volume: 617268
-- ma5: 197.3
-- ema23_primary: 202.7
-- distance_to_ema23_pct: 3.85
-- ma20: 199.8
-- ma60: 220.08
-- ma120: 215.63
-- return_5d: 5.25
-- return_20d: 7.12
-- volume_ratio: 1.69
-- distance_to_ma20_pct_auxiliary: 5.36
-- distance_to_high_60_pct: -24.14
+- date: 20260715
+- open: 225
+- high: 234.5
+- low: 220.5
+- close: 227
+- volume: 1752744
+- ma5: 209.3
+- ema23_primary: 206.43
+- distance_to_ema23_pct: 9.97
+- ma20: 202.03
+- ma60: 220.06
+- ma120: 215.22
+- return_5d: 18.23
+- return_20d: 9.93
+- volume_ratio: 3.05
+- distance_to_ma20_pct_auxiliary: 12.36
+- distance_to_high_60_pct: -18.2
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,204.5,205,201,201,301803,218.92,-8.19,221.2,214.83,0.34
-20260615,205,209.5,202.5,206.5,456939,217.88,-5.22,220.35,215.16,0.52
 20260616,209.5,209.5,201.5,201.5,349136,216.52,-6.94,219.7,215.62,0.41
 20260617,198,202,197.5,201.5,325971,215.27,-6.4,218.95,215.79,0.39
 20260618,201,204.5,201,201.5,287777,214.12,-5.89,217.53,215.84,0.37
@@ -146,15 +143,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,205,211,202,202.5,421913,211.43,-4.22,211.2,217.22,0.63
 20260626,201.5,201.5,192,192,588371,209.81,-8.49,209.82,217.43,0.9
 20260629,193,195.5,189,191,329810,208.24,-8.28,208.43,217.75,0.51
-20260630,192.5,197.5,192.5,197,208000,207.3,-4.97,207.22,218.05,0.33
-20260701,197.5,199,194,195,241000,206.28,-5.47,204.93,218.39,0.48
-20260702,195.5,202,191.5,202,289000,205.92,-1.9,203.2,218.81,0.65
+20260630,192.5,197.5,192.5,197,218231,207.3,-4.97,207.22,218.05,0.35
+20260701,197.5,199,194,195,251471,206.28,-5.47,204.93,218.39,0.5
+20260702,195.5,202,191.5,202,300755,205.92,-1.9,203.2,218.81,0.67
 20260703,200,205,200,200,325335,205.43,-2.64,201.95,219.08,0.78
-20260706,201.5,210.5,200,200,460000,204.98,-2.43,200.88,219.44,1.12
+20260706,201.5,210.5,200,200,472020,204.98,-2.43,200.88,219.44,1.15
 20260707,203.5,203.5,191.5,192,367677,203.89,-5.83,200.35,219.72,0.93
 20260708,192.5,194.5,189.5,192.5,215677,202.94,-5.15,199.5,219.89,0.56
 20260709,193,195,191,191.5,151112,201.99,-5.19,199.1,219.89,0.41
-20260713,210.5,210.5,210.5,210.5,617268,202.7,3.85,199.8,220.08,1.69
+20260713,210.5,210.5,210.5,210.5,617268,202.7,3.85,199.8,220.08,1.68
+20260714,216,228,211,225,3124829,204.56,9.99,201,220.19,6.14
+20260715,225,234.5,220.5,227,1752744,206.43,9.97,202.03,220.06,3.05
 ```
 
 ## Latest TDCC Snapshot
@@ -187,19 +186,21 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260715 | 6533 | 晶心科 | pullback_rebound | 回檔後短線轉強 | 55.0 |  |  |  |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260715 | 6533 | 晶心科 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260715 | 6533 | 晶心科 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260715 | 6533 | 晶心科 | 2 | 2 | 2 | 2 | 2 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 6533 | 晶心科 | 4 | 0 | 165840.0 | 0.0 |  | no_signal |
+| 20260715 | 6533 | 晶心科 | 4 | 0 | 110490.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

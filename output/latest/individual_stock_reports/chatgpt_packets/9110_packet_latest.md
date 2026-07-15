@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9110 越南控-DR
 
 ## Metadata
-- generated_at: 2026-07-14 22:27:40 Asia/Taipei
+- generated_at: 2026-07-15 22:27:57 Asia/Taipei
 - stock_id: 9110
 - stock_name: 越南控-DR
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 275
+- latest_price_date: 20260715
+- price_rows: 277
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 3.15
+- date: 20260715
+- open: 3
 - high: 3.15
-- low: 3.13
-- close: 3.13
-- volume: 12000
-- ma5: 3.21
-- ema23_primary: 3.27
-- distance_to_ema23_pct: -4.14
-- ma20: 3.33
+- low: 2.9
+- close: 3.15
+- volume: 50000
+- ma5: 3.15
+- ema23_primary: 3.25
+- distance_to_ema23_pct: -3.05
+- ma20: 3.31
 - ma60: 3.11
 - ma120: 3.11
-- return_5d: -2.19
-- return_20d: -16.31
-- volume_ratio: 0.43
-- distance_to_ma20_pct_auxiliary: -6.09
-- distance_to_high_60_pct: -20.96
+- return_5d: -4.55
+- return_20d: -8.43
+- volume_ratio: 1.66
+- distance_to_ma20_pct_auxiliary: -4.76
+- distance_to_high_60_pct: -20.45
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260610,3.74,3.74,3.4,3.4,28000,3.2,6.4,3.03,3.03,0.22
-20260611,3.4,3.55,3.3,3.44,34223,3.22,6.97,3.07,3.04,0.28
 20260612,3.42,3.5,3.42,3.5,39200,3.24,8.04,3.11,3.05,0.32
 20260615,3.55,3.55,3.54,3.55,8000,3.27,8.71,3.16,3.05,0.07
 20260616,3.55,3.55,3.31,3.5,23200,3.29,6.55,3.19,3.06,0.2
@@ -150,11 +148,13 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260701,3.49,3.49,3.37,3.37,11000,3.3,2.02,3.47,3.09,0.13
 20260702,3.06,3.39,3.06,3.39,7000,3.31,2.4,3.49,3.09,0.08
 20260703,3.15,3.39,3.15,3.2,14000,3.3,-3.07,3.48,3.1,0.18
-20260706,3,3.38,2.95,3.36,24000,3.31,1.62,3.47,3.1,0.35
+20260706,3,3.38,2.95,3.36,24401,3.31,1.62,3.47,3.1,0.35
 20260707,3.3,3.3,3.06,3.3,53200,3.31,-0.17,3.44,3.1,1.13
-20260708,3.06,3.28,3.06,3.27,28000,3.3,-0.99,3.4,3.11,0.89
+20260708,3.06,3.28,3.06,3.27,28000,3.3,-0.99,3.4,3.11,0.88
 20260709,3.27,3.27,3,3,99000,3.28,-8.47,3.36,3.11,3.26
 20260713,3.15,3.15,3.13,3.13,12000,3.27,-4.14,3.33,3.11,0.43
+20260714,2.98,3.18,2.98,3.18,52000,3.26,-2.4,3.32,3.11,1.77
+20260715,3,3.15,2.9,3.15,50000,3.25,-3.05,3.31,3.11,1.66
 ```
 
 ## Latest TDCC Snapshot

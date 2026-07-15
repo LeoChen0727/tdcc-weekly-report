@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1240 茂生農經
 
 ## Metadata
-- generated_at: 2026-07-14 22:26:19 Asia/Taipei
+- generated_at: 2026-07-15 22:26:22 Asia/Taipei
 - stock_id: 1240
 - stock_name: 茂生農經
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 167
+- latest_price_date: 20260715
+- price_rows: 169
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 57.8
-- high: 58.3
-- low: 57.8
-- close: 58.3
-- volume: 33000
-- ma5: 58.06
-- ema23_primary: 58
-- distance_to_ema23_pct: 0.52
-- ma20: 58.07
-- ma60: 58.25
-- ma120: 58.94
-- return_5d: 0.17
-- return_20d: 0.87
-- volume_ratio: 2.26
-- distance_to_ma20_pct_auxiliary: 0.4
-- distance_to_high_60_pct: -2.67
+- date: 20260715
+- open: 55.1
+- high: 55.3
+- low: 54.6
+- close: 55.1
+- volume: 22000
+- ma5: 57.42
+- ema23_primary: 57.76
+- distance_to_ema23_pct: -4.61
+- ma20: 57.91
+- ma60: 58.15
+- ma120: 58.89
+- return_5d: -4.84
+- return_20d: -5
+- volume_ratio: 1.33
+- distance_to_ma20_pct_auxiliary: -4.84
+- distance_to_high_60_pct: -8.01
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,57.9,58.5,57.9,58.5,12000,57.88,1.07,57.69,58.64,0.37
-20260615,58.1,58.1,57.6,58,24000,57.89,0.19,57.66,58.6,0.72
 20260616,58.1,58.3,58.1,58.2,7000,57.92,0.49,57.67,58.59,0.21
 20260617,58.2,58.4,58.2,58.3,12000,57.95,0.61,57.69,58.57,0.36
 20260618,58.5,58.5,58.3,58.4,10000,57.99,0.71,57.7,58.56,0.29
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260708,58.4,58.5,56.7,57.8,28000,57.98,-0.32,58.04,58.3,2.2
 20260709,57.8,58,57.7,57.8,19000,57.97,-0.29,58.05,58.27,1.45
 20260713,57.8,58.3,57.8,58.3,33000,58,0.52,58.07,58.25,2.26
+20260714,58.4,58.4,57.6,58.1,54000,58,0.16,58.05,58.23,3.23
+20260715,55.1,55.3,54.6,55.1,22000,57.76,-4.61,57.91,58.15,1.33
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4419 皇家美食
 
 ## Metadata
-- generated_at: 2026-07-14 22:26:58 Asia/Taipei
+- generated_at: 2026-07-15 22:27:08 Asia/Taipei
 - stock_id: 4419
 - stock_name: 皇家美食
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 163
+- latest_price_date: 20260715
+- price_rows: 165
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 46.25
-- high: 46.25
-- low: 46.25
-- close: 46.25
-- volume: 1000
-- ma5: 46.67
-- ema23_primary: 46.99
-- distance_to_ema23_pct: -1.58
-- ma20: 47.24
-- ma60: 46.33
-- ma120: 46.66
-- return_5d: -1.7
-- return_20d: 1.54
-- volume_ratio: 0.02
-- distance_to_ma20_pct_auxiliary: -2.1
-- distance_to_high_60_pct: -10.37
+- date: 20260715
+- open: 46.95
+- high: 46.95
+- low: 45.1
+- close: 46.45
+- volume: 3000
+- ma5: 46.37
+- ema23_primary: 46.89
+- distance_to_ema23_pct: -0.94
+- ma20: 47.26
+- ma60: 46.35
+- ma120: 46.67
+- return_5d: -1.06
+- return_20d: 1.2
+- volume_ratio: 0.07
+- distance_to_ma20_pct_auxiliary: -1.72
+- distance_to_high_60_pct: -9.98
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,45.7,47.05,45.7,46.4,20000,45.89,1.1,45.76,46.6,0.63
-20260615,46.2,46.2,45.1,45.9,97000,45.9,0.01,45.79,46.61,2.74
 20260616,45.5,45.55,45.1,45.55,13000,45.87,-0.69,45.77,46.61,0.36
 20260617,46.35,46.35,45.35,45.9,23000,45.87,0.07,45.77,46.61,0.62
 20260618,46.7,46.7,45.5,46.2,22000,45.9,0.66,45.77,46.62,0.58
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260708,46.95,46.95,46.95,46.95,1000,47.16,-0.44,47.19,46.3,0.02
 20260709,45.55,45.95,45.2,45.95,6000,47.06,-2.35,47.21,46.31,0.12
 20260713,46.25,46.25,46.25,46.25,1000,46.99,-1.58,47.24,46.33,0.02
+20260714,46.25,46.25,45.25,46.25,3000,46.93,-1.45,47.23,46.35,0.06
+20260715,46.95,46.95,45.1,46.45,3000,46.89,-0.94,47.26,46.35,0.07
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3035 智原
 
 ## Metadata
-- generated_at: 2026-07-14 22:26:44 Asia/Taipei
+- generated_at: 2026-07-15 22:26:52 Asia/Taipei
 - stock_id: 3035
 - stock_name: 智原
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 302
+- latest_price_date: 20260715
+- price_rows: 304
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 219
-- high: 220.5
-- low: 211
-- close: 213
-- volume: 5197217
-- ma5: 211
-- ema23_primary: 209.95
-- distance_to_ema23_pct: 1.45
-- ma20: 213.07
-- ma60: 196.54
-- ma120: 178.2
-- return_5d: -4.27
-- return_20d: 19.66
-- volume_ratio: 0.49
-- distance_to_ma20_pct_auxiliary: -0.04
-- distance_to_high_60_pct: -13.06
+- date: 20260715
+- open: 210.5
+- high: 210.5
+- low: 203.5
+- close: 207
+- volume: 4955010
+- ma5: 211.8
+- ema23_primary: 209.48
+- distance_to_ema23_pct: -1.18
+- ma20: 214.47
+- ma60: 198.18
+- ma120: 178.83
+- return_5d: 4.02
+- return_20d: 2.48
+- volume_ratio: 0.47
+- distance_to_ma20_pct_auxiliary: -3.49
+- distance_to_high_60_pct: -15.51
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,185,191,184,184,4770456,190.49,-3.41,197,176.06,0.36
-20260615,190.5,202,190,202,13753200,191.45,5.51,197.45,176.69,1.02
 20260616,202,206,198.5,201,10273849,192.24,4.56,198.07,177.37,0.76
 20260617,198.5,204.5,197,202,6145388,193.06,4.63,198.7,178.11,0.46
 20260618,203,209.5,201.5,209,9212415,194.38,7.52,198.75,179.07,0.73
@@ -146,15 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,237,245,224,229,16967764,204.99,11.72,202.85,184.43,1.45
 20260626,225.5,225.5,206.5,206.5,14764389,205.11,0.68,202.75,185.43,1.26
 20260629,204.5,213,200,210.5,7268934,205.56,2.4,202.93,186.58,0.64
-20260630,216.5,216.5,210.5,211,6954000,206.01,2.42,202.93,187.69,0.62
-20260701,214.5,221,211,212,7999000,206.51,2.66,203.05,188.91,0.74
-20260702,208,225,205.5,224,7578000,207.97,7.71,204.1,190.31,0.71
+20260630,216.5,216.5,210.5,211,7115558,206.01,2.42,202.93,187.69,0.64
+20260701,214.5,221,211,212,8177549,206.51,2.66,203.05,188.91,0.76
+20260702,208,225,205.5,224,7772559,207.97,7.71,204.1,190.31,0.72
 20260703,220,225,217.5,222.5,6612662,209.18,6.37,205.65,191.51,0.63
-20260706,223.5,224,209,211,8000000,209.33,0.8,206.6,192.49,0.77
+20260706,223.5,224,209,211,8262400,209.33,0.8,206.6,192.49,0.79
 20260707,212.5,214.5,197.5,199,6520270,208.47,-4.54,207.75,193.32,0.63
-20260708,211,218.5,210,216,11637498,209.1,3.3,209.25,194.43,1.1
+20260708,211,218.5,210,216,11637498,209.1,3.3,209.25,194.43,1.09
 20260709,218.5,220,214,216,7366243,209.67,3.02,211.32,195.48,0.69
-20260713,219,220.5,211,213,5197217,209.95,1.45,213.07,196.54,0.49
+20260713,219,220.5,211,213,5197217,209.95,1.45,213.07,196.54,0.48
+20260714,212,214,194,207,7975462,209.71,-1.29,214.22,197.38,0.73
+20260715,210.5,210.5,203.5,207,4955010,209.48,-1.18,214.47,198.18,0.47
 ```
 
 ## Latest TDCC Snapshot
@@ -189,17 +189,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 3035 | 智原 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/28 1.召開法人說明會之日期：115/07/28 2.召開法人說明會之時間：14 時 30 分  3.召開法人說明會之地點：線上法說會 4.法人說明會擇要訊息：115年第二季線上法人說明會 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260715 | 3035 | 智原 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/28 1.召開法人說明會之日期：115/07/28 2.召開法人說明會之時間：14 時 30 分  3.召開法人說明會之地點：線上法說會 4.法人說明會擇要訊息：115年第二季線上法人說明會 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 3035 | 智原 | 5 | 5 | 5 | 9 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260715 | 3035 | 智原 | 7 | 7 | 5 | 9 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 3035 | 智原 | 143 | 1 | 10183560.0 | 0.0 |  | no_signal |
+| 20260715 | 3035 | 智原 | 142 | 1 | 12436720.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

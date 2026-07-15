@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7828 創新服務
 
 ## Metadata
-- generated_at: 2026-07-14 22:27:33 Asia/Taipei
+- generated_at: 2026-07-15 22:27:49 Asia/Taipei
 - stock_id: 7828
 - stock_name: 創新服務
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260713
-- price_rows: 57
+- latest_price_date: 20260715
+- price_rows: 59
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 2230
-- high: 2280
-- low: 1975
-- close: 1975
-- volume: 528000
-- ma5: 1977
-- ema23_primary: 1954.86
-- distance_to_ema23_pct: 1.03
-- ma20: 2072
-- ma60: 1599.91
-- ma120: 1599.91
-- return_5d: -10.23
-- return_20d: 10.34
-- volume_ratio: 1.85
-- distance_to_ma20_pct_auxiliary: -4.68
-- distance_to_high_60_pct: -21.31
+- date: 20260715
+- open: 2055
+- high: 2075
+- low: 1990
+- close: 2015
+- volume: 160000
+- ma5: 2011
+- ema23_primary: 1965.23
+- distance_to_ema23_pct: 2.53
+- ma20: 2074
+- ma60: 1614.15
+- ma120: 1614.15
+- return_5d: 9.81
+- return_20d: -3.12
+- volume_ratio: 0.61
+- distance_to_ma20_pct_auxiliary: -2.84
+- distance_to_high_60_pct: -19.72
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,1920,1965,1850,1920,419000,1493.33,28.57,1434.5,1359.87,0.5
-20260615,1915,2105,1885,2080,543000,1542.22,34.87,1479.25,1378.33,0.63
 20260616,2155,2155,1930,2000,403000,1580.37,26.55,1524.25,1393.88,0.46
 20260617,1935,2070,1935,2070,243000,1621.17,27.69,1574.5,1410.37,0.28
 20260618,2100,2110,1980,2000,80000,1652.74,21.01,1621.5,1424.4,0.09
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260708,1855,2000,1850,1925,442000,1938.3,-0.69,2038.5,1583.73,1.52
 20260709,2000,2115,2000,2115,248000,1953.03,8.29,2062.75,1593.21,0.87
 20260713,2230,2280,1975,1975,528000,1954.86,1.03,2072,1599.91,1.85
+20260714,1915,2045,1835,2025,358000,1960.7,3.28,2077.25,1607.24,1.27
+20260715,2055,2075,1990,2015,160000,1965.23,2.53,2074,1614.15,0.61
 ```
 
 ## Latest TDCC Snapshot

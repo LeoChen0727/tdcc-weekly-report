@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7714 創泓科技
 
 ## Metadata
-- generated_at: 2026-07-14 22:27:31 Asia/Taipei
+- generated_at: 2026-07-15 22:27:47 Asia/Taipei
 - stock_id: 7714
 - stock_name: 創泓科技
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 167
+- latest_price_date: 20260715
+- price_rows: 169
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -74,7 +74,7 @@
 - action_rating: take_profit
 - action_rating_label_zh: 停利
 - confidence_level: low
-- thesis_state: breakout_initial
+- thesis_state: breakout_confirmed
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 180.5
-- high: 189.5
-- low: 173
-- close: 184.5
-- volume: 2878000
-- ma5: 161.6
-- ema23_primary: 145.58
-- distance_to_ema23_pct: 26.73
-- ma20: 141.85
-- ma60: 132.97
-- ma120: 138.85
-- return_5d: 15.67
-- return_20d: 45.28
-- volume_ratio: 7.73
-- distance_to_ma20_pct_auxiliary: 30.07
-- distance_to_high_60_pct: -2.64
+- date: 20260715
+- open: 205
+- high: 208.5
+- low: 191.5
+- close: 207.5
+- volume: 1849000
+- ma5: 184.7
+- ema23_primary: 155.05
+- distance_to_ema23_pct: 33.83
+- ma20: 149.5
+- ma60: 135.32
+- ma120: 139.48
+- return_5d: 45.1
+- return_20d: 62.75
+- volume_ratio: 3.22
+- distance_to_ma20_pct_auxiliary: 38.8
+- distance_to_high_60_pct: -0.48
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,129,131,128,129,61000,128.58,0.33,126.3,129.18,0.37
-20260615,130,130,127.5,127.5,46000,128.49,-0.77,126.38,129.07,0.29
 20260616,128,134.5,128,128,91000,128.45,-0.35,126.6,129,0.56
 20260617,129,129,126.5,127.5,27000,128.37,-0.68,126.8,128.94,0.17
 20260618,129.5,129.5,126,126.5,44000,128.21,-1.34,126.88,128.87,0.27
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260708,144,157,140,157,460000,139.27,12.73,136.88,131.32,2.07
 20260709,172.5,172.5,172.5,172.5,425000,142.04,21.44,138.97,132.05,1.82
 20260713,180.5,189.5,173,184.5,2878000,145.58,26.73,141.85,132.97,7.73
+20260714,190,202,181,202,2294000,150.28,34.41,145.5,134.1,4.74
+20260715,205,208.5,191.5,207.5,1849000,155.05,33.83,149.5,135.32,3.22
 ```
 
 ## Latest TDCC Snapshot
@@ -189,12 +189,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 7714 | 創泓科技 | true_breakout | 嚴格突破 | 99.0 |  |  | platform_breakout |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260715 | 7714 | 創泓科技 | true_breakout | 嚴格突破 | 88.0 |  |  | breakout_confirmed |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 7714 | 創泓科技 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬新訊號，需確認量價、TDCC 與 benchmark 表現。 |
+| 20260715 | 7714 | 創泓科技 | 3 | 3 | 3 | 3 | 3 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

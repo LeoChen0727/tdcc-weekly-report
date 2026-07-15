@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2838 聯邦銀
 
 ## Metadata
-- generated_at: 2026-07-14 22:26:41 Asia/Taipei
+- generated_at: 2026-07-15 22:26:48 Asia/Taipei
 - stock_id: 2838
 - stock_name: 聯邦銀
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260713
-- price_rows: 302
+- latest_price_date: 20260715
+- price_rows: 304
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 轉弱警訊
+- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -88,8 +88,8 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
+- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -104,7 +104,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- tdcc_distribution_warning
+- none
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -112,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260713
-- open: 24
-- high: 24.05
-- low: 23.25
-- close: 23.45
-- volume: 3999683
-- ma5: 24.01
-- ema23_primary: 22.76
-- distance_to_ema23_pct: 3.03
-- ma20: 22.86
-- ma60: 21.32
-- ma120: 20.49
-- return_5d: 2.4
-- return_20d: 8.31
-- volume_ratio: 1.47
-- distance_to_ma20_pct_auxiliary: 2.6
-- distance_to_high_60_pct: -5.82
+- date: 20260715
+- open: 21.4
+- high: 21.7
+- low: 20.95
+- close: 21.05
+- volume: 5467538
+- ma5: 23.19
+- ema23_primary: 22.63
+- distance_to_ema23_pct: -6.99
+- ma20: 22.87
+- ma60: 21.35
+- ma120: 20.54
+- return_5d: -14.08
+- return_20d: -3.88
+- volume_ratio: 1.82
+- distance_to_ma20_pct_auxiliary: -7.97
+- distance_to_high_60_pct: -15.46
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,21.7,22,21.6,21.75,1666969,20.93,3.93,20.76,20.6,0.84
-20260615,22,22.1,21.75,21.9,3872062,21.01,4.25,20.84,20.63,1.84
 20260616,21.9,22.3,21.8,22.05,2315772,21.09,4.53,20.92,20.66,1.08
 20260617,22.1,22.55,22,22.45,2893588,21.21,5.86,21.04,20.7,1.33
 20260618,22.6,22.8,22.35,22.75,7573267,21.34,6.63,21.18,20.75,3
@@ -145,15 +143,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260625,22.7,23,22.5,22.8,1188429,21.72,4.98,21.65,20.88,0.46
 20260626,22.55,22.7,22.3,22.45,1901302,21.78,3.08,21.76,20.91,0.73
 20260629,23,23,22.05,22.25,3410371,21.82,1.98,21.85,20.94,1.29
-20260630,22.3,22.65,22.05,22.65,1677000,21.89,3.48,21.96,20.97,0.65
-20260701,22.8,22.8,22.45,22.6,2395000,21.95,2.98,22.06,21,0.91
-20260702,22.6,22.85,22.5,22.8,1660000,22.02,3.55,22.14,21.04,0.65
+20260630,22.3,22.65,22.05,22.65,1698667,21.89,3.48,21.96,20.97,0.65
+20260701,22.8,22.8,22.45,22.6,2409038,21.95,2.98,22.06,21,0.92
+20260702,22.6,22.85,22.5,22.8,1673520,22.02,3.55,22.14,21.04,0.66
 20260703,22.5,23.15,22.5,22.9,2259121,22.09,3.66,22.22,21.07,0.89
-20260706,22.9,23.65,22.9,23.6,2270000,22.22,6.22,22.32,21.11,0.9
+20260706,22.9,23.65,22.9,23.6,2302565,22.22,6.22,22.32,21.11,0.91
 20260707,23.6,24.8,23.6,24.5,4317232,22.41,9.34,22.51,21.17,1.65
 20260708,24.5,24.9,24.35,24.7,2690548,22.6,9.3,22.66,21.24,1.05
 20260709,24.55,24.7,23.8,23.8,3309879,22.7,4.85,22.77,21.28,1.26
-20260713,24,24.05,23.25,23.45,3999683,22.76,3.03,22.86,21.32,1.47
+20260713,24,24.05,23.25,23.45,3999683,22.76,3.03,22.86,21.32,1.46
+20260714,24.05,24.05,22.8,22.95,5462461,22.78,0.76,22.91,21.35,1.87
+20260715,21.4,21.7,20.95,21.05,5467538,22.63,-6.99,22.87,21.35,1.82
 ```
 
 ## Latest TDCC Snapshot
@@ -186,14 +186,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 2838 | 聯邦銀 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | stale_signal | 1.事實發生日:115/07/06 2.公司名稱:聯邦商業銀行股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:自願公告自結盈餘                    　　     6月份盈餘                  累積盈餘      項目           ------------------------  --------------------------- 　　　　　　　　       稅前         稅後          稅前          稅後 ------------------  -----------  -----------  -------------  ------------ 歸屬母公司業主        862,919       715,205       4,241,995     3,540,125 之權益(仟元) 非控制權益(仟元)           64            64             211           211 合併損益(仟元)        862,983       715,269       4,242,206     3,540,336 每股盈餘(元)             0.19          0.16            0.80          0.65 註:上述資料均係自結數字，未經會計師查核或核閱。 6.因應措施:無。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): (1)6月底逾放比率為0.25% ；呆帳覆蓋率為510.97%。 (2)本年度累積至6月份之合併稅前盈餘較去年同期增加30.65%。；calendar event: ex_right_dividend on 20260715; status=confirmed; proximity=within_3d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 2838 | 聯邦銀 | 1 | 1 | 4 | 9 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |
