@@ -694,7 +694,8 @@ def main() -> int:
         entrypoint_text = read_text(CANONICAL_CHATGPT_PDF_ENTRYPOINT)
         required_entrypoint_literals = {
             "resolve_daily_report_source_state": "official PDF entrypoint must use the origin/main resolver",
-            '"worktree", "add", "--detach"': "official PDF entrypoint must use a clean temporary source worktree",
+            "create_registered_full_temp_worktree": "official PDF entrypoint must use the guarded clean temporary source worktree helper",
+            'consumer_id="chatgpt_daily_report_entrypoint"': "official PDF entrypoint must use its registered full-checkout consumer id",
             "CHATGPT_DAILY_REPORT_ENTRYPOINT": "official PDF entrypoint must be the only allowed renderer caller",
             "SEMANTIC_MANIFEST_NAME": "official PDF entrypoint must require semantic PDF manifest output",
             "semantic_manifest_path": "official PDF entrypoint runtime manifest must record semantic PDF manifest path",

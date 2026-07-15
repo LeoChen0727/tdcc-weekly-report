@@ -73,6 +73,44 @@ paths, commands, branch names, workflow/check names, repository names,
 filenames, code symbols, quoted logs, validator names, and PR titles. Explain
 their meaning in Traditional Chinese around those identifiers.
 
+## Fixed Worktree Ref Transition Safety Rule
+
+Registered production, research, and maintenance lane worktrees are fixed
+worktrees. Fetching refs and reading objects are allowed. Do not run `git
+switch`, `git checkout`, `git pull`, `git reset --hard`, or `git rebase` in a
+fixed worktree when the command can move it to another commit. A fixed
+worktree may contain thousands of tracked market-data, packet, signal, history,
+and output files; an in-place ref transition can rewrite them and make the
+workstation unresponsive.
+
+For read-only latest-main preflight, use `git fetch origin main`, `git show`,
+`git diff`, `git rev-parse`, and `git rev-list` without changing the checked-out
+commit. Before any user-approved in-place exception, run:
+
+```text
+python scripts/git_worktree_safety.py audit --repo-root . --target-ref origin/main
+```
+
+A protected-path change or more than 250 changed paths is a hard block. A
+smaller transition still requires the user's explicit approval in the current
+task. The default edit, PR, and code-only post-merge validation path is a
+temporary sparse worktree created from the required ref:
+
+```text
+python scripts/git_worktree_safety.py create-sparse --repo-root . --source-ref origin/main --destination <system-temp-path> --branch codex/<lane-task-name> --include .github --include AGENTS.md --include config --include docs --include rules --include scripts --include tests
+```
+
+Do not replace that helper with a raw full checkout. Only consumers registered
+in `config/git_worktree_materialization_contract.csv` may materialize a full
+temporary source worktree. Registered full materialization must stay under the
+system temp root, use `checkout.workers=1`, and hold the per-repository
+serialization lock. Details are in
+`docs/rules/git_worktree_materialization_safety.md`.
+
+Validators that require protected production data or output artifacts must run
+in the official remote main workflow or through a registered official
+entrypoint. They must not make an ordinary sparse task include protected roots.
+
 ## Default Engineering Rule
 
 All business-facing code in this repository defaults to independent ownership.

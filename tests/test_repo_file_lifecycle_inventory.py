@@ -2,12 +2,25 @@ from __future__ import annotations
 
 import csv
 import re
+import subprocess
 from pathlib import Path
 
 from scripts import validate_repo_file_lifecycle_inventory as validator
 
 
 ROOT = Path(__file__).resolve().parents[1]
+
+
+def run_git(repo: Path, *args: str) -> str:
+    proc = subprocess.run(
+        ["git", "-C", str(repo), *args],
+        check=True,
+        capture_output=True,
+        text=True,
+        encoding="utf-8",
+        errors="replace",
+    )
+    return proc.stdout.strip()
 
 
 def test_repo_file_lifecycle_inventory_validator_passes() -> None:
@@ -71,7 +84,7 @@ def test_active_guidance_does_not_point_to_retired_daily_pdf_artifacts() -> None
     for path, row in validator.load_lifecycle_inventory([]).items():
         if row.type not in {"guidance_doc", "generated_guidance"} or row.status == "historical_artifact":
             continue
-        text = (ROOT / path).read_text(encoding="utf-8-sig", errors="replace")
+        text = validator.read_text(ROOT / path)
         assert "daily_market_curated_report_latest.pdf" not in text
         assert "daily_market_full_table_report_latest.pdf" not in text
 
@@ -86,3 +99,31 @@ def test_lifecycle_gate_is_hooked_into_daily_pipeline() -> None:
 
     assert "python scripts/validate_repo_file_lifecycle_inventory.py" in workflow
     assert "validate_repo_file_lifecycle_inventory.py" in boundary
+
+
+def test_read_text_reads_skip_worktree_file_from_head(tmp_path: Path, monkeypatch) -> None:
+    repo = tmp_path / "repo"
+    repo.mkdir()
+    run_git(repo, "init")
+    run_git(repo, "config", "user.email", "tests@example.com")
+    run_git(repo, "config", "user.name", "Lifecycle Tests")
+    (repo / "scripts").mkdir()
+    (repo / "scripts" / "keep.py").write_text("KEEP = True\n", encoding="utf-8")
+    omitted = repo / "docs" / "latest" / "omitted.md"
+    omitted.parent.mkdir(parents=True)
+    omitted.write_text("canonical sparse text\n", encoding="utf-8")
+    run_git(repo, "add", "-A")
+    run_git(repo, "commit", "-m", "sparse source")
+
+    sparse = tmp_path / "sparse"
+    run_git(repo, "worktree", "add", "--no-checkout", "--detach", str(sparse), "HEAD")
+    try:
+        run_git(sparse, "sparse-checkout", "init", "--cone")
+        run_git(sparse, "sparse-checkout", "set", "scripts")
+        run_git(sparse, "reset", "--hard", "HEAD")
+        assert not (sparse / "docs" / "latest" / "omitted.md").exists()
+
+        monkeypatch.setattr(validator, "ROOT", sparse)
+        assert validator.read_text(sparse / "docs" / "latest" / "omitted.md") == "canonical sparse text\n"
+    finally:
+        run_git(repo, "worktree", "remove", "--force", str(sparse))

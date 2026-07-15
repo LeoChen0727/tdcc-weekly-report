@@ -18,6 +18,10 @@ from scripts.resolve_daily_report_source_state import (  # noqa: E402
     DailyReportSourceError,
     resolve_daily_report_source_state,
 )
+from scripts.git_worktree_safety import (  # noqa: E402
+    GitWorktreeSafetyError,
+    create_registered_full_temp_worktree,
+)
 from scripts import market_session_calendar  # noqa: E402
 
 
@@ -182,13 +186,16 @@ def ensure_entrypoint_can_run(repo_root: Path, source_ref: str, allow_dirty_code
 
 def add_source_worktree(repo_root: Path, source_ref: str, temp_root: Path) -> Path:
     temp_root.mkdir(parents=True, exist_ok=True)
-    source_root = temp_root / "origin_main_daily_report_source"
-    proc = run_command(
-        ["git", "worktree", "add", "--detach", str(source_root), source_ref],
-        cwd=repo_root,
-    )
-    require_success(proc, f"git worktree add --detach {source_root} {source_ref}")
-    return source_root
+    try:
+        return create_registered_full_temp_worktree(
+            repo_root,
+            source_ref,
+            temp_root,
+            leaf_name="origin_main_daily_report_source",
+            consumer_id="chatgpt_daily_report_entrypoint",
+        )
+    except GitWorktreeSafetyError as exc:
+        raise DailyReportEntrypointError(str(exc)) from exc
 
 
 def remove_source_worktree(repo_root: Path, source_root: Path) -> None:

@@ -94,7 +94,8 @@ def test_canonical_chatgpt_side_generator_is_tracked_and_not_legacy_six_category
 
     assert entrypoint.exists()
     assert "resolve_daily_report_source_state" in entrypoint_text
-    assert '"worktree", "add", "--detach"' in entrypoint_text
+    assert "create_registered_full_temp_worktree" in entrypoint_text
+    assert 'consumer_id="chatgpt_daily_report_entrypoint"' in entrypoint_text
     assert "CHATGPT_DAILY_REPORT_ENTRYPOINT" in entrypoint_text
     assert "CHATGPT_DAILY_SOURCE_REF" in entrypoint_text
     assert "PYTHONIOENCODING" in entrypoint_text
