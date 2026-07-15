@@ -489,3 +489,6 @@ tests/test_revenue_unreacted_range_rearmed_operation_grid.py,test_python,researc
 scripts/revenue_unreacted_range_operation_lag_bucket_audit.py,python,research_backtest,active,revenue adopted-grid as-of-trigger operation lag bucket audit module,.github/workflows/research_backtest_pipeline.yml,
 scripts/validate_revenue_unreacted_range_operation_lag_bucket_audit.py,python,research_backtest,active,revenue operation lag bucket time-travel partition non-overlap and metric validator,.github/workflows/daily_model_maintenance_pr_validation.yml;.github/workflows/research_backtest_pipeline.yml,
 tests/test_revenue_unreacted_range_operation_lag_bucket_audit.py,test_python,research_backtest,active,revenue operation lag bucket as-of lineage partition and future-update regression tests,,
+scripts/build_financial_statement_pit.py,python,daily_production,active,independent shared-objective financial-statement PIT snapshot builder,,
+scripts/validate_financial_statement_pit.py,python,daily_production,active,independent financial-statement PIT source revision coverage and formal-use validator,.github/workflows/daily_model_maintenance_pr_validation.yml,
+tests/test_financial_statement_pit.py,test_python,daily_production,active,financial-statement PIT source schema revision anomaly isolation and validator regression tests,,
