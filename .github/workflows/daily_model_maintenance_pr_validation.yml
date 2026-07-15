@@ -41,6 +41,7 @@ on:
       - "scripts/generate_chatgpt_side_daily_reports.py"
       - "scripts/git_worktree_safety.py"
       - "scripts/run_chatgpt_daily_report_entrypoint.py"
+      - "scripts/validate_chatgpt_side_pdf_contract.py"
       - "scripts/update_daily_published_model_snapshots.py"
       - "scripts/validate_chatgpt_daily_report_new_conversation_replay.py"
       - "scripts/validate_daily_*.py"
@@ -57,6 +58,7 @@ on:
       - "scripts/validate_stock_model_contract_registry.py"
       - "tests/test_chatgpt_daily_report_new_conversation_replay.py"
       - "tests/test_chatgpt_daily_report_entrypoint.py"
+      - "tests/test_chatgpt_side_pdf_contract.py"
       - "tests/test_daily_*.py"
       - "tests/test_repo_hidden_coupling_audit.py"
       - "tests/test_git_worktree_safety.py"
@@ -121,6 +123,7 @@ jobs:
           python scripts/validate_daily_model_research_parity.py
           python scripts/validate_repo_hidden_coupling_audit.py
           python scripts/validate_git_worktree_safety.py
+          python scripts/validate_chatgpt_side_pdf_contract.py
           python scripts/validate_repo_code_isolation_policy.py
           python scripts/validate_model_research_workflow_isolation.py
           python scripts/validate_chatgpt_side_pdf_layout_independence.py
@@ -130,6 +133,7 @@ jobs:
           python -m pytest \
             tests/test_chatgpt_daily_report_new_conversation_replay.py \
             tests/test_chatgpt_daily_report_entrypoint.py \
+            tests/test_chatgpt_side_pdf_contract.py \
             tests/test_daily_pdf_contract_consumers.py \
             tests/test_daily_pdf_completion_hard_gate.py \
             tests/test_daily_pdf_shared_path_isolation.py \
