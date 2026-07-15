@@ -10,6 +10,7 @@ on:
       - "config/git_worktree_materialization_contract.csv"
       - "config/model_research_*.csv"
       - "config/daily_model_*.csv"
+      - "data/financial_statement_history/*.csv"
       - "config/daily_pdf_rendered_model_regression_contract.csv"
       - "config/daily_pdf_semantic_golden_cases.csv"
       - "config/daily_pdf_shared_path_inventory.csv"
@@ -22,7 +23,9 @@ on:
       - "rules/master_priority_rules.md"
       - "docs/rules/master_priority_rules.md"
       - "docs/latest/model_data_independence_audit_latest.*"
+      - "docs/latest/financial_statement_pit_coverage_latest.*"
       - "output/latest/model_data_independence_audit_latest.*"
+      - "output/latest/research_backtest/financial_statement_pit_coverage_latest.*"
       - "docs/specs/*operation*.md"
       - "docs/specs/daily_mature_model_row_level_metric_contract.md"
       - "docs/repo_hidden_coupling_audit.md"
@@ -32,6 +35,7 @@ on:
       - "scripts/build_daily_report_model_summary.py"
       - "scripts/build_model_operation_readiness.py"
       - "scripts/build_model_data_independence_audit.py"
+      - "scripts/build_financial_statement_pit.py"
       - "scripts/model_data_independence.py"
       - "scripts/build_*_research.py"
       - "scripts/price_pullback_23ema_*.py"
@@ -47,6 +51,7 @@ on:
       - "scripts/validate_daily_*.py"
       - "scripts/validate_model_operation_readiness.py"
       - "scripts/validate_model_data_independence.py"
+      - "scripts/validate_financial_statement_pit.py"
       - "scripts/validate_model_surface_registry.py"
       - "scripts/validate_model_research_*.py"
       - "scripts/validate_mature_model_row_level_metric_contract_audit.py"
@@ -64,6 +69,7 @@ on:
       - "tests/test_git_worktree_safety.py"
       - "tests/test_model_operation_readiness.py"
       - "tests/test_model_data_independence.py"
+      - "tests/test_financial_statement_pit.py"
       - "tests/test_model_surface_registry.py"
       - "tests/test_repo_code_isolation_policy.py"
       - "tests/test_model_research_*.py"
@@ -113,6 +119,7 @@ jobs:
           python scripts/validate_daily_published_model_snapshots.py
           python scripts/validate_daily_model_background_data_registry.py
           python scripts/validate_model_data_independence.py
+          python scripts/validate_financial_statement_pit.py
           python scripts/validate_revenue_unreacted_range_source_first_condition_audit.py
           python scripts/validate_revenue_unreacted_range_forward_confirmation_feature_audit.py
           python scripts/validate_revenue_unreacted_range_rearmed_operation_grid.py
@@ -147,6 +154,7 @@ jobs:
             tests/test_daily_report_model_summary.py \
             tests/test_daily_production_boundaries.py \
             tests/test_model_data_independence.py \
+            tests/test_financial_statement_pit.py \
             tests/test_revenue_unreacted_range_source_first_condition_audit.py \
             tests/test_revenue_unreacted_range_forward_confirmation_feature_audit.py \
             tests/test_revenue_unreacted_range_rearmed_operation_grid.py \
