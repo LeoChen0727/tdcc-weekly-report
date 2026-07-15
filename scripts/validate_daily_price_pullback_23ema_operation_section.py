@@ -22,6 +22,7 @@ from build_daily_price_pullback_23ema_operation_section import (  # noqa: E402
     STOP_LOSS_RULE_ID,
 )
 from tracking_utils import DOCS_LATEST_DIR, read_csv  # noqa: E402
+from validate_daily_operation_adapter_protected_fields import validate_adapter_frame  # noqa: E402
 
 
 REQUIRED_COLUMNS = {
@@ -105,6 +106,7 @@ def validate_section(df: pd.DataFrame) -> list[str]:
     models = sorted(set(df["model_id"].astype(str)))
     if models != [MODEL_ID]:
         errors.append(f"price_pullback adapter must contain only {MODEL_ID}, got {models}")
+    errors.extend(validate_adapter_frame(df, MODEL_ID))
     views = set(df["pdf_view"].astype(str))
     if views != {"highlight", "full"}:
         errors.append(f"price_pullback adapter must contain highlight and full views, got {sorted(views)}")

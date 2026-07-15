@@ -41,12 +41,17 @@ def test_model_research_isolation_policy_is_machine_enforced() -> None:
         ROOT / "scripts/validate_model_data_independence.py",
         ROOT / "scripts/build_model_data_independence_audit.py",
         ROOT / "config/daily_model_numerical_anomaly_disposition_contract.csv",
+        ROOT / "config/daily_operation_adapter_protected_field_contract.csv",
+        ROOT / "scripts/validate_daily_operation_adapter_protected_fields.py",
+        ROOT / "tests/test_daily_operation_adapter_protected_fields.py",
     ):
         assert path.is_file()
     assert "New formal daily models must use a model-owned production module" in agents
     assert "daily_model_data_sharing_registry.csv" in rules
     assert "Independent promotion evidence validators must not import" in rules
     assert "Numerical magnitude is an investigation trigger, not an anomaly disposition." in rules
+    assert "Formal operation-adapter status fields are protected contracts" in rules
+    assert "An empty-state workflow run cannot prove non-empty lifecycle coverage." in rules
 
 
 def test_numerical_anomaly_disposition_requires_bottom_level_evidence() -> None:

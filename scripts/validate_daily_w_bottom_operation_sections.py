@@ -16,6 +16,7 @@ from build_daily_w_bottom_operation_sections import (  # noqa: E402
     SECTION_EMPTY_NOTE_ZH,
     output_paths,
 )
+from validate_daily_operation_adapter_protected_fields import validate_adapter_frame  # noqa: E402
 from tracking_utils import read_csv, safe_str  # noqa: E402
 
 
@@ -81,20 +82,28 @@ def validate_active_exit_rule_tokens(active: pd.DataFrame, csv_name: str, model_
     return errors
 
 
-def validate_section(model_id: str) -> list[str]:
+def validate_section(
+    model_id: str,
+    section_override: pd.DataFrame | None = None,
+    audit_override: pd.DataFrame | None = None,
+    expected_signal_count_override: int | None = None,
+) -> list[str]:
     config = MODEL_CONFIGS[model_id]
     csv_path, md_path, audit_csv_path, audit_md_path = output_paths(config)
     errors: list[str] = []
-    for path in (csv_path, md_path, audit_csv_path, audit_md_path):
-        if not path.exists():
-            errors.append(f"missing W-bottom operation artifact: {path.relative_to(ROOT).as_posix()}")
-        else:
-            check_docs_copy(path, errors)
-    if errors:
-        return errors
-
-    section = read_csv(csv_path, dtype=str).fillna("")
-    audit = read_csv(audit_csv_path, dtype=str).fillna("")
+    if section_override is None or audit_override is None:
+        for path in (csv_path, md_path, audit_csv_path, audit_md_path):
+            if not path.exists():
+                errors.append(f"missing W-bottom operation artifact: {path.relative_to(ROOT).as_posix()}")
+            else:
+                check_docs_copy(path, errors)
+        if errors:
+            return errors
+        section = read_csv(csv_path, dtype=str).fillna("")
+        audit = read_csv(audit_csv_path, dtype=str).fillna("")
+    else:
+        section = section_override.fillna("").copy()
+        audit = audit_override.fillna("").copy()
     if section.empty:
         errors.append(f"{csv_path.name} must not be empty")
         return errors
@@ -109,6 +118,7 @@ def validate_section(model_id: str) -> list[str]:
     model_ids = sorted(set(section["model_id"].astype(str)))
     if model_ids != [model_id]:
         errors.append(f"{csv_path.name} must contain only {model_id}, got {model_ids}")
+    errors.extend(validate_adapter_frame(section, model_id))
 
     views = sorted(set(section["pdf_view"].astype(str)))
     if views != sorted(PDF_VIEWS):
@@ -158,7 +168,11 @@ def validate_section(model_id: str) -> list[str]:
     data = section[section["row_type"].astype(str).eq("data")].copy()
     confirmed = data[data["pdf_section"].astype(str).eq("confirmed_operation")]
     active = data[data["pdf_section"].astype(str).eq("active_operation")]
-    expected_signal_count = expected_current_signal_count(model_id)
+    expected_signal_count = (
+        expected_current_signal_count(model_id)
+        if expected_signal_count_override is None
+        else expected_signal_count_override
+    )
     confirmed_highlight = confirmed[confirmed["pdf_view"].astype(str).eq("highlight")]
     suppressed_current = pd.DataFrame()
     if not audit.empty and "reason" in audit.columns:

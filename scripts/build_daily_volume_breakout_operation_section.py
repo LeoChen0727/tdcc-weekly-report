@@ -76,21 +76,6 @@ MAX_CONFIRM_DAYS = 1
 MAX_HOLD_DAYS = 15
 
 SECTION_ZH = {
-    "confirmed_operation": "已確認操作",
-    "confirmed_unranked_operation": "已確認但未通過買入排名門檻",
-    "pending_confirmation": "待確認",
-    "active_operation": "操作中",
-}
-
-SECTION_EMPTY_NOTE_ZH = {
-    "confirmed_operation": "目前沒有符合研究證據門檻的已確認操作列。",
-    "confirmed_unranked_operation": "目前沒有已確認但未通過買入排名門檻的股票。",
-    "pending_confirmation": "目前沒有待確認的放量攻擊訊號。",
-    "active_operation": "目前沒有操作中追蹤列。",
-}
-
-
-SECTION_ZH = {
     "confirmed_operation": "本日可買 / 已確認買入候選",
     "confirmed_unranked_operation": "已確認但未列買入",
     "pending_confirmation": "待確認",
@@ -1508,14 +1493,13 @@ def lifecycle_base_record(
             "adapter_source_status": "ready",
             "row_metric_status": "unavailable_no_approved_add_score_metric",
             "row_metric_selection_status": "baseline_not_permitted_in_operation_row",
-            "adapter_note_zh": "由已發布模型快照與價格資料重建 D0-D10 操作狀態。",
+            "adapter_note_zh": "由 v2 正式模型條件與 close-only 確認產生；不使用舊 v1 hidden evidence gate。",
             "generated_at": generated_at,
         }
     )
     for col in APPROVAL_FIELDS:
         record[col] = approval[col]
     apply_signal_operation_fields(record, signal)
-    record["adapter_note_zh"] = "由 v2 正式模型條件與 close-only 確認產生；不使用舊 v1 hidden evidence gate。"
     return record
 
 
@@ -1583,7 +1567,7 @@ def confirmed_record(
     )
     record.update(
         {
-            "operation_status_zh": "已確認操作",
+            "operation_status_zh": SECTION_ZH["confirmed_operation"],
             "quality_status_zh": CONFIRMED_QUALITY_STATUS_ZH,
             "matched_trigger_ids": safe_str(selected.get("matched_trigger_ids")),
             "selected_trigger_id": safe_str(selected.get("trigger_id")),
@@ -1609,7 +1593,6 @@ def confirmed_record(
             "buy_rank_eligible": "True",
         }
     )
-    record["operation_status_zh"] = SECTION_ZH["confirmed_operation"]
     record["entry_price_status_zh"] = CONFIRMED_ENTRY_PRICE_STATUS_ZH
     apply_v2_confirmed_or_active_rules(record)
     apply_evidence_fields(record, evidence, context, "positive_model_contract_evidence")
@@ -1645,8 +1628,8 @@ def confirmed_unranked_record(
     )
     record.update(
         {
-            "operation_status_zh": "已確認但未通過買入排名門檻",
-            "quality_status_zh": "未通過買入排名門檻",
+            "operation_status_zh": SECTION_ZH["confirmed_unranked_operation"],
+            "quality_status_zh": "已確認但缺少正式 approved operation 合約",
             "matched_trigger_ids": safe_str(selected.get("matched_trigger_ids")),
             "selected_trigger_id": safe_str(selected.get("trigger_id")),
             "selected_confirmation_date": safe_str(selected.get("confirmation_date")),
@@ -1674,8 +1657,6 @@ def confirmed_unranked_record(
             ),
         }
     )
-    record["operation_status_zh"] = SECTION_ZH["confirmed_unranked_operation"]
-    record["quality_status_zh"] = "已確認但缺少正式 approved operation 合約"
     record["entry_basis_zh"] = ENTRY_BASIS_ZH
     record["entry_price_status_zh"] = "未列買入，因 approved operation 合約未通過。"
     record["stop_basis_zh"] = "未列買入，不啟動停損。"
@@ -1722,7 +1703,7 @@ def active_record(
     )
     record.update(
         {
-            "operation_status_zh": "操作中",
+            "operation_status_zh": SECTION_ZH["active_operation"],
             "quality_status_zh": "已進場追蹤",
             "matched_trigger_ids": safe_str(selected.get("matched_trigger_ids")),
             "selected_trigger_id": safe_str(selected.get("trigger_id")),
@@ -1751,8 +1732,6 @@ def active_record(
             "buy_rank_eligible": "False",
         }
     )
-    record["operation_status_zh"] = SECTION_ZH["active_operation"]
-    record["quality_status_zh"] = "已進場追蹤"
     apply_v2_confirmed_or_active_rules(record)
     apply_evidence_fields(record, evidence, context, "positive_model_contract_evidence")
     apply_high_position_bonus_metric(record, signal, selected, price, signal_idx)
@@ -1780,8 +1759,8 @@ def pending_record(
     age_text = "今日訊號" if signal_age <= 0 else f"D+{signal_age} 待確認"
     record.update(
         {
-            "operation_status_zh": "待確認",
-            "quality_status_zh": "模型已命中，尚未確認",
+            "operation_status_zh": SECTION_ZH["pending_confirmation"],
+            "quality_status_zh": "等待 close-only 確認",
             "entry_basis_zh": "尚未確認，不列進場價",
             "entry_price_status_zh": "尚未確認，不列進場價",
             "stop_basis_zh": "尚未確認，不列停損價",
@@ -1809,8 +1788,6 @@ def pending_record(
             "buy_rank_eligible": "False",
         }
     )
-    record["operation_status_zh"] = SECTION_ZH["pending_confirmation"]
-    record["quality_status_zh"] = "等待 close-only 確認"
     apply_v2_pending_rules(record)
     return record
 
@@ -2189,10 +2166,7 @@ def empty_row(
         "display_order": 0,
         "stock_id": "",
         "stock_name": "",
-        "stock_display": "目前無資料",
         "operation_status": pdf_section,
-        "operation_status_zh": section_zh,
-        "quality_status_zh": "目前無資料",
         "matched_trigger_ids": "",
         "selected_trigger_id": "",
         "selected_confirmation_date": "",

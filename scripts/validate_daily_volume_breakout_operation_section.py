@@ -4,6 +4,8 @@ from pathlib import Path
 
 import pandas as pd
 
+from validate_daily_operation_adapter_protected_fields import validate_adapter_frame
+
 
 ROOT = Path(__file__).resolve().parents[1]
 LATEST_DIR = ROOT / "output" / "latest"
@@ -1169,6 +1171,10 @@ def validate_operation_artifacts(
     validate_source_gap_audit(audit)
     validate_lifecycle_suppression_audit(audit)
     validate_display_text(section)
+    for model_id in sorted(FORMAL_MODEL_IDS):
+        protected_errors = validate_adapter_frame(section, model_id)
+        if protected_errors:
+            fail("; ".join(protected_errors))
 
 
 def main() -> int:
