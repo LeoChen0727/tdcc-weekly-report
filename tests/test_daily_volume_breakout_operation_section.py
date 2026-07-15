@@ -46,6 +46,35 @@ def approval_stub(**updates: str) -> dict[str, str]:
     return row
 
 
+def model_approval_stub(model_id: str, **updates: str) -> dict[str, str]:
+    model_updates = {
+        LOW_VOLUME_MODEL_ID: {},
+        MID_VOLUME_MODEL_ID: {
+            "operation_module_id": "volume_range_breakout_v2_mid_position_operation_v1",
+            "buy_filter_id": "pos120_mid_non_consolidation_or_wide_next_day_continuation_d15_stop",
+            "best_evidence_sample_size": "25",
+            "best_evidence_win_rate": "80.0000",
+            "best_evidence_median_return": "14.6953",
+            "volume_v2_neutral_rate_pct": "0.0000",
+            "volume_v2_loss_rate_pct": "20.0000",
+            "volume_v2_avg_return_pct": "12.7599",
+        },
+        HIGH_VOLUME_MODEL_ID: {
+            "operation_module_id": "volume_range_breakout_v2_high_position_operation_v1",
+            "approval_version": "volume_range_breakout_v2_high_position_operation_20260710",
+            "buy_filter_id": "pos120_high_nonconsolidation_or_wide_ma60_gt_ma120_next_day_continuation_d15_stop",
+            "best_evidence_sample_size": "231",
+            "best_evidence_win_rate": "62.3377",
+            "best_evidence_median_return": "6.6055",
+            "volume_v2_neutral_rate_pct": "0.0000",
+            "volume_v2_loss_rate_pct": "37.6623",
+            "volume_v2_avg_return_pct": "9.4824",
+        },
+    }[model_id]
+    model_updates.update(updates)
+    return approval_stub(**model_updates)
+
+
 def pdf_summary_approval_rows() -> pd.DataFrame:
     return pd.DataFrame(
         [
@@ -261,9 +290,14 @@ def test_operation_section_label_helper_uses_short_room_for_empty_tables() -> No
     assert story[-1] is table_flowable
 
 
-def volume_signal(stock_id: str = "1234", signal_date: str = "20260616", rank: str = "1") -> dict[str, str]:
+def volume_signal(
+    stock_id: str = "1234",
+    signal_date: str = "20260616",
+    rank: str = "1",
+    model_id: str = LOW_VOLUME_MODEL_ID,
+) -> dict[str, str]:
     return {
-        "model_id": LOW_VOLUME_MODEL_ID,
+        "model_id": model_id,
         "signal_date": signal_date,
         "stock_id": stock_id,
         "stock_name": "測試股",
@@ -289,11 +323,12 @@ def formal_summary(
     oos: str = "True",
     approved_for_daily: str = "True",
     risk_notes_zh: str = "approved formal daily evidence",
+    model_id: str = LOW_VOLUME_MODEL_ID,
 ) -> pd.DataFrame:
     return pd.DataFrame(
         [
             {
-                "model_id": LOW_VOLUME_MODEL_ID,
+                "model_id": model_id,
                 "tdcc_list_type": tdcc_list_type,
                 "rank_bucket": rank_bucket,
                 "trigger_id": trigger_id,
@@ -308,6 +343,7 @@ def formal_summary(
                 "approved_for_daily": approved_for_daily,
                 "risk_notes_zh": risk_notes_zh,
                 "confidence_status": "中",
+                "metric_sample_scope": "mature_selected_operation_only",
             }
         ]
     )
@@ -337,13 +373,14 @@ def write_operation_snapshot(
     row_action_status: str = "confirmed_buy_candidate",
     buy_rank_eligible: str = "True",
     selected_confirmation_date: str | None = None,
+    model_id: str = LOW_VOLUME_MODEL_ID,
 ) -> None:
     selected_confirmation_date = selected_confirmation_date or snapshot_date
     pd.DataFrame(
         [
             {
                 "stock_id": stock_id,
-                "model_id": LOW_VOLUME_MODEL_ID,
+                "model_id": model_id,
                 "stock_name": "TestCo",
                 "signal_date": signal_date,
                 "selected_confirmation_date": selected_confirmation_date,
@@ -361,8 +398,15 @@ def build_rows_for_test(
     report_date: str,
     summary: pd.DataFrame,
     approval_overrides: dict[str, str] | None = None,
+    model_id: str = LOW_VOLUME_MODEL_ID,
 ) -> pd.DataFrame:
-    rows, _audit = build_rows_and_audit_for_test(signals, report_date, summary, approval_overrides)
+    rows, _audit = build_rows_and_audit_for_test(
+        signals,
+        report_date,
+        summary,
+        approval_overrides,
+        model_id,
+    )
     return rows
 
 
@@ -371,13 +415,14 @@ def build_rows_and_audit_for_test(
     report_date: str,
     summary: pd.DataFrame,
     approval_overrides: dict[str, str] | None = None,
+    model_id: str = LOW_VOLUME_MODEL_ID,
 ) -> tuple[pd.DataFrame, pd.DataFrame]:
-    approval = approval_stub(**(approval_overrides or {}))
+    approval = model_approval_stub(model_id, **(approval_overrides or {}))
     rows, audit = builder.build_lifecycle_rows(
         signals,
         report_date,
         int(signals["stock_id"].nunique()) if not signals.empty else 0,
-        {LOW_VOLUME_MODEL_ID: approval},
+        {model_id: approval},
         "2026-06-17 12:00:00 Asia/Taipei",
         summary,
     )
@@ -385,6 +430,37 @@ def build_rows_and_audit_for_test(
         pd.DataFrame(rows, columns=builder.OUTPUT_COLUMNS),
         pd.DataFrame(audit, columns=builder.EVIDENCE_AUDIT_COLUMNS),
     )
+
+
+def complete_section_for_validator(rows: pd.DataFrame, report_date: str) -> pd.DataFrame:
+    completed = rows.to_dict("records")
+    existing = {
+        (str(row.get("model_id", "")), str(row.get("pdf_view", "")), str(row.get("pdf_section", "")))
+        for row in completed
+        if str(row.get("row_type", "")) == "data"
+    }
+    for model_id in (LOW_VOLUME_MODEL_ID, MID_VOLUME_MODEL_ID, HIGH_VOLUME_MODEL_ID):
+        approval = model_approval_stub(model_id)
+        for pdf_view in builder.PDF_VIEWS:
+            for pdf_section in builder.PDF_SECTIONS:
+                if not builder.section_allowed_for_pdf_view(pdf_view, pdf_section):
+                    continue
+                if (model_id, pdf_view, pdf_section) in existing:
+                    continue
+                completed.append(
+                    builder.empty_row(
+                        model_id,
+                        pdf_view,
+                        pdf_section,
+                        "ready",
+                        report_date,
+                        1,
+                        approval,
+                        "2026-06-17 12:00:00 Asia/Taipei",
+                        report_date,
+                    )
+                )
+    return pd.DataFrame(completed, columns=builder.OUTPUT_COLUMNS)
 
 
 def high_position_price_rows() -> pd.DataFrame:
@@ -469,6 +545,10 @@ def test_high_position_confirmed_row_uses_exact_bonus_combo_metric(monkeypatch) 
         "1",
     )
 
+    assert record["quality_status_zh"] == "正向證據"
+    assert record["adapter_note_zh"] == (
+        "由 v2 正式模型條件與 close-only 確認產生；不使用舊 v1 hidden evidence gate。"
+    )
     assert record["sample_size"] == "231"
     assert record["win_rate_zh"] == "62.34%"
     assert record["neutral_rate_zh"] == "0.00%"
@@ -721,6 +801,141 @@ def test_lifecycle_confirms_signal_on_report_date(monkeypatch, tmp_path) -> None
     assert set(confirmed["confirmation_date"]) == {"20260617"}
     assert pending.empty
     assert backtest_lifecycle_state("1234", "20260616", "20260617") == "confirmed_operation"
+
+
+@pytest.mark.parametrize(
+    "model_id",
+    [LOW_VOLUME_MODEL_ID, MID_VOLUME_MODEL_ID, HIGH_VOLUME_MODEL_ID],
+)
+def test_each_v2_model_covers_pending_confirmed_active_lifecycle(monkeypatch, tmp_path, model_id: str) -> None:
+    snapshot_dir = patch_lifecycle_sources(
+        monkeypatch,
+        tmp_path,
+        "1234",
+        [
+            {
+                "date": "20260616",
+                "open": "10",
+                "high": "11",
+                "low": "9",
+                "close": "10",
+                "volume": "1000",
+                "ma20": "10",
+                "ma60": "9",
+                "ma120": "8",
+                "ema23": "10",
+            },
+            {
+                "date": "20260617",
+                "open": "10.6",
+                "high": "12",
+                "low": "10.9",
+                "close": "11.5",
+                "volume": "1200",
+                "ma20": "10.2",
+                "ma60": "9.2",
+                "ma120": "8.2",
+                "ema23": "10.1",
+            },
+            {
+                "date": "20260618",
+                "open": "11.7",
+                "high": "12.5",
+                "low": "11.2",
+                "close": "12",
+                "volume": "1100",
+                "ma20": "10.4",
+                "ma60": "9.4",
+                "ma120": "8.4",
+                "ema23": "10.3",
+            },
+        ],
+    )
+    pd.DataFrame([volume_signal("1234", "20260616", model_id=model_id)]).to_csv(
+        snapshot_dir / "daily_candidate_model_signals_for_report_20260616.csv",
+        index=False,
+    )
+    summary = formal_summary(model_id=model_id)
+
+    pending_rows = build_rows_for_test(pd.DataFrame(), "20260616", summary, model_id=model_id)
+    pending = pending_rows[
+        pending_rows["pdf_section"].eq("pending_confirmation")
+        & pending_rows["row_type"].eq("data")
+    ]
+    assert pending["stock_id"].tolist() == ["1234"]
+
+    confirmed_rows = build_rows_for_test(pd.DataFrame(), "20260617", summary, model_id=model_id)
+    confirmed = confirmed_rows[
+        confirmed_rows["pdf_section"].eq("confirmed_operation")
+        & confirmed_rows["row_type"].eq("data")
+    ]
+    assert confirmed["stock_id"].tolist() == ["1234", "1234"]
+    assert set(confirmed["quality_status_zh"]) == {"正向證據"}
+    assert set(confirmed["adapter_note_zh"]) == {
+        "由 v2 正式模型條件與 close-only 確認產生；不使用舊 v1 hidden evidence gate。"
+    }
+
+    write_operation_snapshot(
+        snapshot_dir,
+        "20260617",
+        "20260616",
+        model_id=model_id,
+    )
+    active_rows = build_rows_for_test(pd.DataFrame(), "20260618", summary, model_id=model_id)
+    active = active_rows[
+        active_rows["pdf_section"].eq("active_operation")
+        & active_rows["row_type"].eq("data")
+    ]
+    assert active["stock_id"].tolist() == ["1234", "1234"]
+    assert set(active["entry_date"]) == {"20260618"}
+    assert set(active["entry_price"]) == {"11.7"}
+
+
+@pytest.mark.parametrize(
+    "model_id",
+    [LOW_VOLUME_MODEL_ID, MID_VOLUME_MODEL_ID, HIGH_VOLUME_MODEL_ID],
+)
+def test_builder_confirmed_rows_pass_complete_operation_artifact_validator(
+    monkeypatch,
+    tmp_path,
+    capsys,
+    model_id: str,
+) -> None:
+    snapshot_dir = patch_lifecycle_sources(
+        monkeypatch,
+        tmp_path,
+        "1234",
+        [
+            {"date": "20260616", "open": "10", "high": "11", "low": "9", "close": "10", "volume": "1000"},
+            {"date": "20260617", "open": "10.6", "high": "12", "low": "10.9", "close": "11.5", "volume": "1200"},
+        ],
+    )
+    pd.DataFrame([volume_signal("1234", "20260616", model_id=model_id)]).to_csv(
+        snapshot_dir / "daily_candidate_model_signals_for_report_20260616.csv",
+        index=False,
+    )
+    summary = formal_summary(model_id=model_id)
+    rows, audit = build_rows_and_audit_for_test(
+        pd.DataFrame(),
+        "20260617",
+        summary,
+        model_id=model_id,
+    )
+    section = complete_section_for_validator(rows, "20260617")
+    taxonomy_path = tmp_path / "stock_theme_taxonomy_latest.csv"
+    pd.DataFrame(
+        [{"stock_id": "1234", "report_line_memberships": "mainstream|non_mainstream"}]
+    ).to_csv(taxonomy_path, index=False)
+    monkeypatch.setattr(section_validator, "TAXONOMY_CSV", taxonomy_path)
+
+    section_validator.validate_operation_artifacts(section, summary, audit)
+
+    invalid = section.copy()
+    confirmed_mask = invalid["pdf_section"].eq("confirmed_operation") & invalid["row_type"].eq("data")
+    invalid.loc[confirmed_mask, "quality_status_zh"] = "已通過 v2 模型條件與 close-only 確認"
+    with pytest.raises(SystemExit):
+        section_validator.validate_operation_artifacts(invalid, summary, audit)
+    assert "confirmed operation rows must be positive evidence only" in capsys.readouterr().out
 
 
 def test_lifecycle_reads_published_signal_log_when_snapshot_is_missing(monkeypatch, tmp_path) -> None:

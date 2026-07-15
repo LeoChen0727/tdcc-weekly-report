@@ -60,6 +60,7 @@ EXPECTED_OPERATION_STATUS = {
 HIGHLIGHT_HIDDEN_SECTIONS = {"confirmed_unranked_operation", "pending_confirmation"}
 ROW_TYPES = {"data", "empty_state"}
 SOURCE_STATUSES = {"ready"}
+CONFIRMED_QUALITY_STATUS_ZH = "正向證據"
 LINEAGE_LOOKBACK_CALENDAR_DAYS = 45
 AUDIT_STATUSES = {
     "candidate_evaluated",
@@ -98,6 +99,7 @@ REQUIRED_COLUMNS = {
     "stock_display",
     "operation_status",
     "operation_status_zh",
+    "quality_status_zh",
     "entry_basis_zh",
     "stop_basis_zh",
     "exit_rule_zh",
@@ -920,7 +922,9 @@ def validate_shape(section: pd.DataFrame, formal_summary: pd.DataFrame, audit: p
         if unrouted:
             fail(f"operation data rows have invalid stock taxonomy report routing: {unrouted}")
     if not confirmed_data.empty:
-        bad_quality = sorted(set(confirmed_data["quality_status_zh"].astype(str)) - {"正向證據"})
+        bad_quality = sorted(
+            set(confirmed_data["quality_status_zh"].astype(str)) - {CONFIRMED_QUALITY_STATUS_ZH}
+        )
         if bad_quality:
             fail(f"confirmed operation rows must be positive evidence only: {bad_quality}")
         if set(confirmed_data["row_action_status"].astype(str)) != {"confirmed_buy_candidate"}:
@@ -1155,6 +1159,18 @@ def validate_packet_builder_boundary() -> None:
             fail(f"packet builder must not read research artifact directly: {token}")
 
 
+def validate_operation_artifacts(
+    section: pd.DataFrame,
+    formal_summary: pd.DataFrame,
+    audit: pd.DataFrame,
+) -> None:
+    """Run the complete row-level contract shared by production and regression tests."""
+    validate_shape(section, formal_summary, audit)
+    validate_source_gap_audit(audit)
+    validate_lifecycle_suppression_audit(audit)
+    validate_display_text(section)
+
+
 def main() -> int:
     validate_file_presence()
     formal_summary = require_nonempty_csv(
@@ -1178,12 +1194,9 @@ def main() -> int:
     )
     section = read_csv(SECTION_CSV)
     audit = read_csv(EVIDENCE_AUDIT_CSV)
-    validate_shape(section, formal_summary, audit)
-    validate_source_gap_audit(audit)
-    validate_lifecycle_suppression_audit(audit)
+    validate_operation_artifacts(section, formal_summary, audit)
     validate_latest_signal_log_sync(section)
     validate_selected_volume_breakout_model_lineage(section)
-    validate_display_text(section)
     validate_pdf_generator_boundary()
     validate_packet_builder_boundary()
     print(

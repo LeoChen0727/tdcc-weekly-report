@@ -106,6 +106,7 @@ SECTION_EMPTY_NOTE_ZH = {
 
 ENTRY_BASIS_ZH = "確認日收盤後成立，下一個交易日開盤買入。"
 CONFIRMED_ENTRY_PRICE_STATUS_ZH = "尚未到進場日，進場價等待下一個交易日開盤。"
+CONFIRMED_QUALITY_STATUS_ZH = "正向證據"
 STOP_BASIS_ZH = "收盤連續4天低於MA20/EMA23較低者的4%，隔日開盤停損。"
 EXIT_RULE_ZH = "若未觸發停損，固定第15個交易日收盤出場。"
 STOP_RULE_ID = "sustained_close_below_lower_ma20_ema23_4pct_4d"
@@ -1583,7 +1584,7 @@ def confirmed_record(
     record.update(
         {
             "operation_status_zh": "已確認操作",
-            "quality_status_zh": "正向證據",
+            "quality_status_zh": CONFIRMED_QUALITY_STATUS_ZH,
             "matched_trigger_ids": safe_str(selected.get("matched_trigger_ids")),
             "selected_trigger_id": safe_str(selected.get("trigger_id")),
             "selected_confirmation_date": safe_str(selected.get("confirmation_date")),
@@ -1609,7 +1610,6 @@ def confirmed_record(
         }
     )
     record["operation_status_zh"] = SECTION_ZH["confirmed_operation"]
-    record["quality_status_zh"] = "已通過 v2 模型條件與 close-only 確認"
     record["entry_price_status_zh"] = CONFIRMED_ENTRY_PRICE_STATUS_ZH
     apply_v2_confirmed_or_active_rules(record)
     apply_evidence_fields(record, evidence, context, "positive_model_contract_evidence")
