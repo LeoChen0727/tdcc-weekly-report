@@ -135,47 +135,94 @@ Monthly revenue official-source fallback policy:
 - A stale cache must fail closed instead of silently treating old revenue data
   as current.
 
-## Future Quarterly Financial Statement Data Layer
+## Quarterly Financial Statement Point-In-Time Data Layer
 
-The repository does not currently have a formal full-market quarterly or annual
-financial statement history data layer equivalent to `monthly_revenue_history`.
-Existing catalyst files may contain columns such as EPS or margin fields, but
-they must not be treated as a complete point-in-time EPS, gross margin,
-operating income, non-operating income, net income, or annual financial
-statement history.
+The repository now has an independent shared-objective financial-statement PIT
+governance skeleton. Its currently published data is a 2026 Q1 snapshot, not a
+completed historical PIT series. It is separate from monthly revenue and from
+every model-owned research producer:
 
-Future work should create a separate shared objective data family before any
-model uses those fundamentals as gates, scores, ranking features, PDF metrics,
-or promotion evidence. The expected scope is:
+- `data/financial_statement_history/financial_statement_history.csv`
+- `data/financial_statement_history/financial_statement_source_manifest.csv`
+- `output/latest/research_backtest/financial_statement_pit_coverage_latest.csv`
+- `docs/latest/financial_statement_pit_coverage_latest.csv`
 
-- quarterly and annual statement rows for all available listed and OTC stocks;
-- point-in-time source availability date per filing or conservative source-date
-  policy when exact filing timestamps are unavailable;
-- EPS, gross margin, operating margin, operating income, non-operating income,
-  net income, recurring/non-recurring flags where source data supports them;
-- validated history artifacts, raw source retention, source-status artifacts,
-  and freshness/fallback policy;
-- registry entry in `config/daily_model_background_data_registry.csv`;
-- validator and coverage audit before model-specific research matrices consume
-  the data.
+The producer and independent validator are:
 
-Until that data family exists, any `needs_eps_confirmation`,
-`revenue_good_eps_unconfirmed`, EPS surprise, margin improvement, or
-non-operating income interpretation remains disclosure/advisory context only
-and must not be promoted into production model rules.
+```text
+python scripts/build_financial_statement_pit.py --fetch-current --raw-archive-dir <external-directory>
+python scripts/validate_financial_statement_pit.py
+```
 
-Revenue-model discussion trigger:
+The source and metric contracts are:
 
-- Any future discussion of a revenue-driven model, revenue condition, or
-  revenue interpretation must explicitly ask whether quarterly/annual financial
-  statement fundamentals belong in scope.
-- If the answer is yes, the next step is to design and build the formal
-  financial-statement data layer before using those fields in backtest
-  matrices, promotion decisions, model contracts, ranking, scoring, packets, or
-  PDFs.
-- If the answer is no, document that the current discussion is monthly-revenue
-  only and do not use EPS, margin, operating/non-operating income, net income,
-  or annual statement fields as implied evidence.
+- `config/daily_model_financial_statement_pit_sources.csv`
+- `config/daily_model_financial_statement_metric_mapping.csv`
+
+The current source layer consumes twelve official TWSE / TPEx income-statement
+OpenAPI endpoints: listed and OTC markets crossed with general, banking,
+securities, financial holding, insurance, and other schemas. It preserves the
+industry schema instead of forcing financial-company statements into the
+general-industry formula set.
+
+Current validated snapshot coverage is 2026 Q1: twelve captured sources, 1,972
+raw rows, 1,968 normalized company rows, and four TPEx blank placeholder rows.
+EPS and net-income fields are present on every normalized row. Gross margin,
+operating margin, and net margin are derived only for the general schema from
+cumulative reported values; they remain blank for financial and other schemas.
+Quarterly income-statement values remain `cumulative_ytd`. Standalone quarterly
+EPS must not be derived by subtracting cumulative EPS.
+
+The current snapshot has 36 numerical anomaly candidates triggered only by
+large EPS or absolute margin thresholds. They remain in primary data with
+`anomaly_disposition=unresolved_anomaly_candidate`. The source payload and
+formula lineage are recorded, but independent corroboration and complete
+root-cause disposition are still required. A threshold cannot classify a row as
+a data error or justify exclusion.
+
+Point-in-time boundary:
+
+- The current OpenAPI global table date is not a company filing date.
+- Current rows use `first_observed_at` as their earliest safe availability and
+  have `pit_status=current_snapshot_first_observed_only`.
+- Every source payload and row is bound to SHA-256. Raw JSON and future XBRL
+  archives remain outside the repository in a content-addressed archive.
+- Revisions are append-only. A new filing version receives a new `revision_id`
+  and links to the prior version through `supersedes_revision_id`; old versions
+  are not overwritten.
+- `allowed_for_formal_model_use=False` is mandatory in this data-layer scope.
+- `--capture-manifest` may replay payloads only under their registered source
+  contract. A current OpenAPI source cannot self-declare
+  `historical_pit_eligible=True`; a future historical source requires its own
+  registry entry, exact filing-availability semantics, parser, validator, and
+  user-approved data-sharing migration.
+
+Allowed use: objective research-only as-of joins where
+`source_available_at <= signal_date` and the row's industry schema supports the
+requested field.
+
+Forbidden use: EPS, gross margin, operating margin, operating income,
+non-operating income, net income, or annual-statement fields must not become a
+production gate, score, ranking rule, packet field, PDF metric, or promotion
+evidence from the current snapshot layer.
+
+Remaining historical PIT work:
+
+1. Ingest official MOPS/XBRL filing history with exact company filing
+   availability and explicit consolidated or individual statement scope.
+2. Cover the IFRS-comparable listed and OTC baseline from 2013 Q1 forward and
+   preserve every later revision.
+3. Validate fiscal-period continuity, units, formulas, statement scope, and
+   market / industry / quarter coverage.
+4. Keep raw archives external and content-addressed while retaining immutable
+   source manifest hashes in the repository.
+5. Open a separate model-specific research and promotion decision before any
+   financial field is used formally.
+
+Revenue-model discussion trigger remains mandatory. Monthly revenue and
+quarterly or annual financial statements must always be named separately. A
+monthly-revenue conclusion cannot imply EPS, margin, operating income,
+non-operating income, or net-income evidence.
 
 ## Monthly Revenue Coverage / Backfill Audit
 

@@ -1,0 +1,58 @@
+industry_schema,canonical_metric,source_label_aliases,required_for_schema,derive_ratio_from_revenue,notes
+general,operating_revenue,營業收入,True,False,General-industry operating revenue denominator.
+general,operating_cost,營業成本,False,False,General-industry operating cost.
+general,gross_profit,營業毛利（毛損）淨額;營業毛利（毛損）,True,True,Gross margin may be derived only for the general schema.
+general,operating_expenses,營業費用,False,False,General-industry operating expenses.
+general,operating_income,營業利益（損失）,True,True,Operating margin may be derived only for the general schema.
+general,non_operating_income_expense,營業外收入及支出,True,False,Preserve signed non-operating income and expense.
+general,pretax_income,稅前淨利（淨損）,False,False,General-industry pretax income.
+general,income_tax_expense,所得稅費用（利益）,False,False,General-industry income tax expense or benefit.
+general,net_income,本期淨利（淨損）,True,True,Net margin may be derived only for the general schema.
+general,parent_net_income,淨利（淨損）歸屬於母公司業主,False,False,Parent-attributable net income is retained separately.
+general,basic_eps,基本每股盈餘（元）;基本每股盈餘,True,False,Cumulative reported basic EPS; never derive standalone quarterly EPS by subtraction.
+banking,operating_revenue,淨收益;利息淨收益,False,False,Financial schema proxy retained without general-industry margin interpretation.
+banking,operating_expenses,營業費用,False,False,Banking operating expenses.
+banking,pretax_income,繼續營業單位稅前淨利（淨損）;繼續營業單位稅前淨利,False,False,Banking pretax income.
+banking,income_tax_expense,所得稅費用（利益）;所得稅費用,False,False,Banking income tax expense or benefit.
+banking,net_income,本期淨利（淨損）;本期淨利,True,False,Banking net income.
+banking,parent_net_income,淨利歸屬於母公司業主;淨利（淨損）歸屬於母公司業主,False,False,Parent-attributable banking net income.
+banking,basic_eps,基本每股盈餘（元）;基本每股盈餘,True,False,Banking basic EPS.
+securities,operating_revenue,收益;營業收入,False,False,Securities revenue proxy retained without general-industry margin interpretation.
+securities,operating_expenses,支出及費用;營業費用,False,False,Securities expenses.
+securities,operating_income,營業利益（損失）;營業利益,False,False,Securities operating income.
+securities,non_operating_income_expense,營業外收入及支出;營業外損益,False,False,Securities non-operating result.
+securities,pretax_income,稅前淨利（淨損）;稅前淨利,False,False,Securities pretax income.
+securities,income_tax_expense,所得稅費用（利益）;所得稅費用,False,False,Securities income tax expense or benefit.
+securities,net_income,本期淨利（淨損）;本期淨利;稅後淨利,True,False,Securities net income.
+securities,parent_net_income,淨利（淨損）歸屬於母公司業主;淨利歸屬於母公司業主,False,False,Parent-attributable securities net income.
+securities,basic_eps,基本每股盈餘（元）;基本每股盈餘,True,False,Securities basic EPS.
+financial_holding,operating_revenue,淨收益;收益;營業收入;營業收益,False,False,Financial-holding revenue proxy retained without general-industry margin interpretation.
+financial_holding,operating_expenses,營業費用;支出及費用,False,False,Financial-holding expenses.
+financial_holding,operating_income,營業利益（損失）;營業利益,False,False,Financial-holding operating income when reported.
+financial_holding,non_operating_income_expense,營業外收入及支出;營業外損益,False,False,Financial-holding non-operating result when reported.
+financial_holding,pretax_income,繼續營業單位稅前損益;繼續營業單位稅前淨利（淨損）;稅前淨利（淨損）;稅前淨利,False,False,Financial-holding pretax income.
+financial_holding,income_tax_expense,所得稅費用（利益）;所得稅費用,False,False,Financial-holding income tax expense or benefit.
+financial_holding,net_income,本期稅後淨利（淨損）;本期淨利（淨損）;本期淨利,True,False,Financial-holding net income.
+financial_holding,parent_net_income,淨利（淨損）歸屬於母公司業主;淨利歸屬於母公司業主,False,False,Parent-attributable financial-holding net income.
+financial_holding,basic_eps,基本每股盈餘（元）;基本每股盈餘,True,False,Financial-holding basic EPS.
+insurance,operating_revenue,營業收入,False,False,Insurance revenue retained without general-industry margin interpretation.
+insurance,operating_cost,營業成本,False,False,Insurance operating cost.
+insurance,operating_expenses,營業費用,False,False,Insurance operating expenses.
+insurance,operating_income,營業利益（損失）;營業利益,False,False,Insurance operating income.
+insurance,non_operating_income_expense,營業外收入及支出;營業外損益,False,False,Insurance non-operating result.
+insurance,pretax_income,稅前淨利（淨損）;稅前淨利,False,False,Insurance pretax income.
+insurance,income_tax_expense,所得稅費用（利益）;所得稅費用,False,False,Insurance income tax expense or benefit.
+insurance,net_income,本期淨利（淨損）;本期淨利,True,False,Insurance net income.
+insurance,parent_net_income,淨利（淨損）歸屬於母公司業主;淨利歸屬於母公司業主,False,False,Parent-attributable insurance net income.
+insurance,basic_eps,基本每股盈餘（元）;基本每股盈餘,True,False,Insurance basic EPS.
+other,operating_revenue,收入;營業收入;收益,False,False,Other-industry revenue retained without automatic margin derivation.
+other,operating_cost,支出;營業成本,False,False,Other-industry operating cost.
+other,gross_profit,營業毛利（毛損）淨額;營業毛利（毛損）,False,False,No automatic gross-margin interpretation for other schema.
+other,operating_expenses,營業費用;支出及費用,False,False,Other-industry expenses.
+other,operating_income,營業利益（損失）;營業利益,False,False,Other-industry operating income.
+other,non_operating_income_expense,營業外收入及支出;營業外損益,False,False,Other-industry non-operating result.
+other,pretax_income,繼續營業單位稅前淨利（淨損）;稅前淨利（淨損）;稅前淨利,False,False,Other-industry pretax income.
+other,income_tax_expense,所得稅費用（利益）;所得稅費用,False,False,Other-industry income tax expense or benefit.
+other,net_income,本期淨利（淨損）;本期淨利,True,False,Other-industry net income.
+other,parent_net_income,淨利（淨損）歸屬於母公司業主;淨利歸屬於母公司業主,False,False,Parent-attributable other-industry net income.
+other,basic_eps,基本每股盈餘（元）;基本每股盈餘,True,False,Other-industry basic EPS.

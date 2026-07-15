@@ -139,11 +139,17 @@ def test_data_sharing_registry_uses_model_owned_research_entrypoints() -> None:
     assert by_family["volume_range_breakout_v2_high_position_improvement_audit"][
         "registered_producers"
     ] == "scripts/build_volume_range_breakout_v2_research.py"
+    assert by_family["financial_statement_point_in_time_history"]["registered_producers"] == (
+        "scripts/build_financial_statement_pit.py"
+    )
+    assert by_family["financial_statement_point_in_time_history"]["ownership_mode"] == (
+        "approved_shared_objective"
+    )
 
 
 def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
     rows = read_csv("config/daily_model_data_sharing_migrations.csv")
-    assert len(rows) == 8
+    assert len(rows) == 9
     baseline = rows[0]
     assert tuple(baseline) == DATA_SHARING_MIGRATION_COLUMNS
     assert data_migration_row_sha256(baseline) == BASELINE_DATA_MIGRATION_ROW_SHA256
@@ -281,6 +287,24 @@ def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
         "user_requested_revenue_operation_lag_bucket_audit_20260714"
     )
     assert operation_lag_migration["migration_status"] == (
+        "validated_user_approved_migration"
+    )
+
+    financial_statement_migration = rows[8]
+    assert financial_statement_migration["migration_id"] == (
+        "financial_statement_pit_data_layer_20260716"
+    )
+    assert financial_statement_migration["previous_contract_sha256s"] == "NEW;NEW;NEW"
+    assert financial_statement_migration["new_contract_sha256s"] == (
+        "ddc0c0a54d0374f8622fb3dbe51a88ca1aa841d2955ca5f1432e81aec9e08f63;"
+        "8cccd88ec43a1b8d51577e3776e866881c661e9811746da4e4a5c142af5529f0;"
+        "35fc38ac95271dee3ad7aa3fa7671f52dfbdfd4ff26646e43f4bc62a4c2d8aae"
+    )
+    assert financial_statement_migration["affected_models"] == "all_models"
+    assert financial_statement_migration["user_approval_reference"] == (
+        "user_requested_financial_statement_pit_data_layer_20260716"
+    )
+    assert financial_statement_migration["migration_status"] == (
         "validated_user_approved_migration"
     )
 

@@ -52,6 +52,24 @@ def test_revenue_panel_must_stay_coverage_limited() -> None:
     assert any("validator path missing" in error for error in errors)
 
 
+def test_financial_statement_data_families_are_registered_and_formal_use_is_blocked() -> None:
+    by_id = {row["data_family_id"]: row for row in registry_rows()}
+    required = {
+        "financial_statement_point_in_time_history",
+        "financial_statement_source_manifest",
+        "financial_statement_pit_coverage_audit",
+    }
+
+    assert required <= set(by_id)
+    assert by_id["financial_statement_point_in_time_history"]["scope"] == "shared_objective"
+    assert "exact company filing availability" in by_id[
+        "financial_statement_point_in_time_history"
+    ]["forbidden_use"]
+    assert by_id["financial_statement_pit_coverage_audit"]["point_in_time_status"] == (
+        "coverage_gate_current_snapshot_only"
+    )
+
+
 def test_registry_loader_fails_on_unquoted_comma_overflow(tmp_path: Path) -> None:
     path = tmp_path / "background.csv"
     path.write_text("data_family_id,notes\nexample,first,second\n", encoding="utf-8")

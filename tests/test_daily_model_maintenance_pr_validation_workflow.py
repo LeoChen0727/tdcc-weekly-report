@@ -32,6 +32,7 @@ def test_daily_model_maintenance_pr_workflow_triggers_on_independence_guard_chan
 
     required_paths = (
         "config/daily_model_*.csv",
+        "data/financial_statement_history/*.csv",
         "config/runtime_file_lineage_contract.csv",
         "scripts/build_model_data_independence_audit.py",
         "scripts/model_data_independence.py",
@@ -43,6 +44,10 @@ def test_daily_model_maintenance_pr_workflow_triggers_on_independence_guard_chan
         "tests/test_repo_code_isolation_policy.py",
         "docs/latest/model_data_independence_audit_latest.*",
         "output/latest/model_data_independence_audit_latest.*",
+        "output/latest/research_backtest/financial_statement_pit_coverage_latest.*",
+        "scripts/build_financial_statement_pit.py",
+        "scripts/validate_financial_statement_pit.py",
+        "tests/test_financial_statement_pit.py",
     )
     for path in required_paths:
         assert path in text
@@ -61,6 +66,7 @@ def test_daily_model_maintenance_pr_workflow_runs_contract_validators() -> None:
         "python scripts/validate_daily_published_model_snapshots.py",
         "python scripts/validate_daily_model_background_data_registry.py",
         "python scripts/validate_model_data_independence.py",
+        "python scripts/validate_financial_statement_pit.py",
         "python scripts/validate_revenue_unreacted_range_source_first_condition_audit.py",
         "python scripts/validate_revenue_unreacted_range_forward_confirmation_feature_audit.py",
         "python scripts/validate_revenue_unreacted_range_rearmed_operation_grid.py",
@@ -94,6 +100,7 @@ def test_daily_model_maintenance_pr_workflow_runs_focused_pdf_operation_tests() 
         "tests/test_daily_report_model_summary.py",
         "tests/test_daily_production_boundaries.py",
         "tests/test_model_data_independence.py",
+        "tests/test_financial_statement_pit.py",
         "tests/test_revenue_unreacted_range_source_first_condition_audit.py",
         "tests/test_revenue_unreacted_range_forward_confirmation_feature_audit.py",
         "tests/test_revenue_unreacted_range_rearmed_operation_grid.py",
