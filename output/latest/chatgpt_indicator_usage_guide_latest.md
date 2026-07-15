@@ -1,6 +1,6 @@
 # ChatGPT Indicator Usage Guide
 
-- generated_at: `2026-07-14 10:16:03 UTC`
+- generated_at: `2026-07-15 00:18:03 UTC`
 - main_price_date: `20260713`
 - purpose: Use program-side classifications first. ChatGPT should explain and synthesize, not re-rank from memory.
 - rule: If memory, PDF, or ad-hoc interpretation conflicts with program-side fields, use the structured program-side fields.
