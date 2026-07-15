@@ -14,6 +14,14 @@ from typing import Any
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
+if str(REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPO_ROOT))
+
+from scripts.git_worktree_safety import (  # noqa: E402
+    GitWorktreeSafetyError,
+    create_registered_full_temp_worktree,
+)
+
 DEFAULT_SOURCE_REF = "origin/main"
 VALIDATION_JSON = Path("output/latest/tdcc_weekly_candidate_report_validation_latest.json")
 DELIVERY_DIR = Path("output/latest/published_reports/tdcc_weekly")
@@ -138,10 +146,16 @@ def dirty_non_generated_paths(repo_root: Path) -> list[str]:
 
 def add_source_worktree(repo_root: Path, source_ref: str, temp_root: Path) -> Path:
     temp_root.mkdir(parents=True, exist_ok=True)
-    source_root = temp_root / "origin_main_tdcc_weekly_source"
-    proc = run_command(["git", "worktree", "add", "--detach", str(source_root), source_ref], cwd=repo_root)
-    require_success(proc, f"git worktree add --detach {source_root} {source_ref}")
-    return source_root
+    try:
+        return create_registered_full_temp_worktree(
+            repo_root,
+            source_ref,
+            temp_root,
+            leaf_name="origin_main_tdcc_weekly_source",
+            consumer_id="tdcc_weekly_report_entrypoint",
+        )
+    except GitWorktreeSafetyError as exc:
+        raise TDCCWeeklyEntrypointError(str(exc)) from exc
 
 
 def remove_source_worktree(repo_root: Path, source_root: Path) -> None:

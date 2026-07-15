@@ -17,6 +17,10 @@ from scripts.resolve_daily_report_source_state import (  # noqa: E402
     DailyReportSourceError,
     resolve_daily_report_source_state,
 )
+from scripts.git_worktree_safety import (  # noqa: E402
+    GitWorktreeSafetyError,
+    create_registered_full_temp_worktree,
+)
 from scripts.validate_chatgpt_side_pdf_contract import validate_daily_six_pdf_font_contract  # noqa: E402
 
 
@@ -86,13 +90,16 @@ def require_success(proc: subprocess.CompletedProcess[str], action: str) -> str:
 
 
 def add_clean_entrypoint_worktree(repo_root: Path, source_ref: str, temp_root: Path) -> Path:
-    source_root = temp_root / "new_conversation_clean_source"
-    proc = run_command(
-        ["git", "worktree", "add", "--detach", str(source_root), source_ref],
-        cwd=repo_root,
-    )
-    require_success(proc, f"git worktree add --detach {source_root} {source_ref}")
-    return source_root
+    try:
+        return create_registered_full_temp_worktree(
+            repo_root,
+            source_ref,
+            temp_root,
+            leaf_name="new_conversation_clean_source",
+            consumer_id="chatgpt_daily_report_new_conversation_replay",
+        )
+    except GitWorktreeSafetyError as exc:
+        raise ReplayValidationError(str(exc)) from exc
 
 
 def remove_clean_entrypoint_worktree(repo_root: Path, source_root: Path) -> None:

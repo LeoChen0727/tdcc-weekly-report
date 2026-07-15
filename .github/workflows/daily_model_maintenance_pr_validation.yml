@@ -7,6 +7,7 @@ on:
       - ".github/workflows/daily_model_maintenance_pr_validation.yml"
       - ".github/workflows/research_backtest_pipeline.yml"
       - "config/formal_model_evidence_pins.csv"
+      - "config/git_worktree_materialization_contract.csv"
       - "config/model_research_*.csv"
       - "config/daily_model_*.csv"
       - "config/daily_pdf_rendered_model_regression_contract.csv"
@@ -25,6 +26,7 @@ on:
       - "docs/specs/*operation*.md"
       - "docs/specs/daily_mature_model_row_level_metric_contract.md"
       - "docs/repo_hidden_coupling_audit.md"
+      - "docs/rules/git_worktree_materialization_safety.md"
       - "scripts/build_daily_*model*.py"
       - "scripts/build_daily_*operation*.py"
       - "scripts/build_daily_report_model_summary.py"
@@ -37,6 +39,7 @@ on:
       - "scripts/volume_range_breakout_v2_*.py"
       - "scripts/build_mature_model_row_level_metric_contract_audit.py"
       - "scripts/generate_chatgpt_side_daily_reports.py"
+      - "scripts/git_worktree_safety.py"
       - "scripts/run_chatgpt_daily_report_entrypoint.py"
       - "scripts/update_daily_published_model_snapshots.py"
       - "scripts/validate_chatgpt_daily_report_new_conversation_replay.py"
@@ -49,12 +52,14 @@ on:
       - "scripts/validate_daily_legacy_volume_range_breakout_removed.py"
       - "scripts/validate_research_against_stock_model_contract.py"
       - "scripts/validate_repo_hidden_coupling_audit.py"
+      - "scripts/validate_git_worktree_safety.py"
       - "scripts/validate_repo_code_isolation_policy.py"
       - "scripts/validate_stock_model_contract_registry.py"
       - "tests/test_chatgpt_daily_report_new_conversation_replay.py"
       - "tests/test_chatgpt_daily_report_entrypoint.py"
       - "tests/test_daily_*.py"
       - "tests/test_repo_hidden_coupling_audit.py"
+      - "tests/test_git_worktree_safety.py"
       - "tests/test_model_operation_readiness.py"
       - "tests/test_model_data_independence.py"
       - "tests/test_model_surface_registry.py"
@@ -115,6 +120,7 @@ jobs:
           python scripts/validate_research_against_stock_model_contract.py
           python scripts/validate_daily_model_research_parity.py
           python scripts/validate_repo_hidden_coupling_audit.py
+          python scripts/validate_git_worktree_safety.py
           python scripts/validate_repo_code_isolation_policy.py
           python scripts/validate_model_research_workflow_isolation.py
           python scripts/validate_chatgpt_side_pdf_layout_independence.py
@@ -142,6 +148,7 @@ jobs:
             tests/test_revenue_unreacted_range_rearmed_operation_grid.py \
             tests/test_revenue_unreacted_range_operation_lag_bucket_audit.py \
             tests/test_repo_hidden_coupling_audit.py \
+            tests/test_git_worktree_safety.py \
             tests/test_model_research_workflow_isolation.py \
             tests/test_stock_model_contract_registry.py
 
