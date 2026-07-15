@@ -24,8 +24,10 @@ on:
       - "docs/rules/master_priority_rules.md"
       - "docs/latest/model_data_independence_audit_latest.*"
       - "docs/latest/financial_statement_pit_coverage_latest.*"
+      - "docs/latest/financial_statement_historical_pit_source_audit_latest.*"
       - "output/latest/model_data_independence_audit_latest.*"
       - "output/latest/research_backtest/financial_statement_pit_coverage_latest.*"
+      - "output/latest/research_backtest/financial_statement_historical_pit_source_audit_latest.*"
       - "docs/specs/*operation*.md"
       - "docs/specs/daily_mature_model_row_level_metric_contract.md"
       - "docs/repo_hidden_coupling_audit.md"
@@ -36,6 +38,7 @@ on:
       - "scripts/build_model_operation_readiness.py"
       - "scripts/build_model_data_independence_audit.py"
       - "scripts/build_financial_statement_pit.py"
+      - "scripts/build_financial_statement_historical_pit_source_audit.py"
       - "scripts/model_data_independence.py"
       - "scripts/build_*_research.py"
       - "scripts/price_pullback_23ema_*.py"
@@ -52,6 +55,7 @@ on:
       - "scripts/validate_model_operation_readiness.py"
       - "scripts/validate_model_data_independence.py"
       - "scripts/validate_financial_statement_pit.py"
+      - "scripts/validate_financial_statement_historical_pit_source_audit.py"
       - "scripts/validate_model_surface_registry.py"
       - "scripts/validate_model_research_*.py"
       - "scripts/validate_mature_model_row_level_metric_contract_audit.py"
@@ -70,6 +74,7 @@ on:
       - "tests/test_model_operation_readiness.py"
       - "tests/test_model_data_independence.py"
       - "tests/test_financial_statement_pit.py"
+      - "tests/test_financial_statement_historical_pit_source_audit.py"
       - "tests/test_model_surface_registry.py"
       - "tests/test_repo_code_isolation_policy.py"
       - "tests/test_model_research_*.py"
@@ -120,6 +125,8 @@ jobs:
           python scripts/validate_daily_model_background_data_registry.py
           python scripts/validate_model_data_independence.py
           python scripts/validate_financial_statement_pit.py
+          python scripts/build_financial_statement_historical_pit_source_audit.py
+          python scripts/validate_financial_statement_historical_pit_source_audit.py
           python scripts/validate_revenue_unreacted_range_source_first_condition_audit.py
           python scripts/validate_revenue_unreacted_range_forward_confirmation_feature_audit.py
           python scripts/validate_revenue_unreacted_range_rearmed_operation_grid.py
@@ -155,6 +162,7 @@ jobs:
             tests/test_daily_production_boundaries.py \
             tests/test_model_data_independence.py \
             tests/test_financial_statement_pit.py \
+            tests/test_financial_statement_historical_pit_source_audit.py \
             tests/test_revenue_unreacted_range_source_first_condition_audit.py \
             tests/test_revenue_unreacted_range_forward_confirmation_feature_audit.py \
             tests/test_revenue_unreacted_range_rearmed_operation_grid.py \

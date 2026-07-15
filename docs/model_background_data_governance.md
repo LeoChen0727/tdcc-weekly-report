@@ -154,6 +154,29 @@ python scripts/build_financial_statement_pit.py --fetch-current --raw-archive-di
 python scripts/validate_financial_statement_pit.py
 ```
 
+Historical source qualification is a separate fail-closed gate:
+
+```text
+python scripts/build_financial_statement_historical_pit_source_audit.py
+python scripts/validate_financial_statement_historical_pit_source_audit.py
+```
+
+The committed pilot uses `2013Q1` as the earliest IFRS source-contract probe and
+`2025Q1` as the first modern quarter near the currently tracked price-history
+window. The tracked pilot stocks currently begin at `2025-04-07`; therefore
+2013-2024 source retention is not current backtest evidence. Official MOPS bulk
+ZIPs, single-company downloads, financial-report announcements, correction
+queries, and taxonomy packages prove payload, scope, industry, and correction
+event coverage, but not exact initial `filed_at` plus every prior revision
+payload. `ReviewAuditDate`, ZIP member times, statutory deadlines, and local
+first-observed times must not be substituted for filing availability.
+
+Until that source blocker is resolved, `pit_eligible=False` and
+`formal_model_use_allowed=False` remain mandatory. EPS, gross margin, operating
+margin, operating income, non-operating income, and net income must not enter
+`revenue_unreacted_range`, production gates, scores, rankings, PDFs, packets,
+or promotion evidence.
+
 The source and metric contracts are:
 
 - `config/daily_model_financial_statement_pit_sources.csv`
