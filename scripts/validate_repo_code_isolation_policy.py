@@ -5,8 +5,14 @@ from pathlib import Path
 
 try:
     from validate_model_data_independence import validate as validate_model_data_independence
+    from validate_daily_operation_adapter_protected_fields import (
+        validate as validate_daily_operation_adapter_protected_fields,
+    )
 except ModuleNotFoundError:  # Imported as scripts.validate_repo_code_isolation_policy in pytest.
     from scripts.validate_model_data_independence import validate as validate_model_data_independence
+    from scripts.validate_daily_operation_adapter_protected_fields import (
+        validate as validate_daily_operation_adapter_protected_fields,
+    )
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -42,6 +48,15 @@ MODEL_VALIDATOR_INDEPENDENCE_REGISTRY = ROOT / "config" / "daily_model_validator
 MODEL_DATA_INDEPENDENCE_CORE = ROOT / "scripts" / "model_data_independence.py"
 MODEL_DATA_INDEPENDENCE_VALIDATOR = ROOT / "scripts" / "validate_model_data_independence.py"
 MODEL_DATA_INDEPENDENCE_AUDIT_BUILDER = ROOT / "scripts" / "build_model_data_independence_audit.py"
+OPERATION_ADAPTER_PROTECTED_FIELD_CONTRACT = (
+    ROOT / "config" / "daily_operation_adapter_protected_field_contract.csv"
+)
+OPERATION_ADAPTER_PROTECTED_FIELD_VALIDATOR = (
+    ROOT / "scripts" / "validate_daily_operation_adapter_protected_fields.py"
+)
+OPERATION_ADAPTER_PROTECTED_FIELD_TEST = (
+    ROOT / "tests" / "test_daily_operation_adapter_protected_fields.py"
+)
 NUMERICAL_ANOMALY_DISPOSITION_CONTRACT = (
     ROOT / "config" / "daily_model_numerical_anomaly_disposition_contract.csv"
 )
@@ -126,6 +141,10 @@ REQUIRED_POLICY_TEXT = {
         "daily_model_semantic_ownership.csv",
         "daily_model_data_sharing_registry.csv",
         "daily_model_data_sharing_migrations.csv",
+        "Formal operation-adapter status fields are protected contracts",
+        "daily_operation_adapter_protected_field_contract.csv",
+        "Duplicate protected dict keys",
+        "An empty-state workflow run is not",
         "Independent promotion evidence validators must not import",
         "may only create an `anomaly_candidate`",
         "lowest available evidence layer",
@@ -154,6 +173,10 @@ REQUIRED_POLICY_TEXT = {
         "daily_model_semantic_ownership.csv",
         "daily_model_data_sharing_registry.csv",
         "daily_model_data_sharing_migrations.csv",
+        "Formal operation-adapter status fields are protected contracts",
+        "daily_operation_adapter_protected_field_contract.csv",
+        "Duplicate protected dict keys",
+        "An empty-state workflow run cannot prove non-empty lifecycle coverage.",
         "Independent promotion evidence validators must not import",
         "Numerical magnitude is an investigation trigger, not an anomaly disposition.",
         "unresolved_anomaly_candidate",
@@ -420,6 +443,9 @@ def validate() -> list[str]:
         MODEL_DATA_INDEPENDENCE_CORE,
         MODEL_DATA_INDEPENDENCE_VALIDATOR,
         MODEL_DATA_INDEPENDENCE_AUDIT_BUILDER,
+        OPERATION_ADAPTER_PROTECTED_FIELD_CONTRACT,
+        OPERATION_ADAPTER_PROTECTED_FIELD_VALIDATOR,
+        OPERATION_ADAPTER_PROTECTED_FIELD_TEST,
         NUMERICAL_ANOMALY_DISPOSITION_CONTRACT,
         REVENUE_ANOMALY_MODULE,
         REVENUE_FIXED_FEATURE_MODULE,
@@ -480,6 +506,10 @@ def validate() -> list[str]:
         for error in validate_model_data_independence()
     )
     errors.extend(
+        f"operation adapter protected fields: {error}"
+        for error in validate_daily_operation_adapter_protected_fields()
+    )
+    errors.extend(
         f"numerical anomaly governance: {error}"
         for error in validate_numerical_anomaly_governance()
     )
@@ -503,6 +533,10 @@ def main() -> int:
     print(
         "validated_numerical_anomaly_contract="
         f"{NUMERICAL_ANOMALY_DISPOSITION_CONTRACT.relative_to(ROOT).as_posix()}"
+    )
+    print(
+        "validated_operation_adapter_protected_fields="
+        f"{OPERATION_ADAPTER_PROTECTED_FIELD_CONTRACT.relative_to(ROOT).as_posix()}"
     )
     return 0
 

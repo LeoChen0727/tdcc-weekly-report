@@ -146,6 +146,22 @@ the shared producer. Adding a writer, consumer, or cross-model use without a new
 approval reference and append-only
 `config/daily_model_data_sharing_migrations.csv` row must fail validation.
 
+Formal operation-adapter status fields are protected contracts, not free-form
+description fields. Each mature model must register its canonical lifecycle
+states and allowed values in
+`config/daily_operation_adapter_protected_field_contract.csv`. Producers must
+write `quality_status_zh` or `operation_quality`, `operation_status`,
+`operation_status_zh`, `row_action_status`, `buy_rank_eligible`, and
+`adapter_note_zh` exactly once per row-construction function. A model-specific
+explanation belongs in `adapter_note_zh`; it must not overwrite a canonical
+quality or lifecycle field. Duplicate protected dict keys, repeated protected
+field writes, and repeated protected module constants must fail AST validation.
+Every supported lifecycle state must have synthetic non-empty regression
+coverage, and actual builder rows must pass both the model validator and the
+independent protected-field validator. An empty-state workflow run is not
+evidence that non-empty lifecycle transitions were validated. This contract is
+enforced by `scripts/validate_daily_operation_adapter_protected_fields.py`.
+
 Independent promotion evidence validators must not import the production
 business functions they claim to verify. A validator that imports model
 conditions, scores, ranking, or model-owned feature interpretation is an

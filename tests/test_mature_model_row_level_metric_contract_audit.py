@@ -29,20 +29,14 @@ def test_builder_covers_all_current_mature_operation_models() -> None:
         "price_pullback_23ema",
     }
     assert all(row["issues"] == "" for row in mature.values())
-    assert {
-        model_id: (
-            int(row["mature_operation_data_row_count"]),
-            int(row["unique_stock_lifecycle_count"]),
-        )
-        for model_id, row in mature.items()
-    } == {
-        "volume_range_breakout_v2_low_position_volume_attack": (0, 0),
-        "volume_range_breakout_v2_mid_position_momentum_attack": (0, 0),
-        "volume_range_breakout_v2_high_position_volume_attack": (0, 0),
-        "w_bottom_right_side": (86, 43),
-        "neckline_volume_breakout_confirmation": (0, 0),
-        "price_pullback_23ema": (310, 155),
-    }
+    for row in mature.values():
+        operation_row_count = int(row["mature_operation_data_row_count"])
+        unique_lifecycle_count = int(row["unique_stock_lifecycle_count"])
+
+        # Each formal lifecycle row is represented once in highlight and once
+        # in full-view semantic evidence. Daily market data changes the row
+        # count, so the contract test must protect view parity, not a snapshot.
+        assert operation_row_count == unique_lifecycle_count * 2
 
 
 def test_price_pullback_technical_strength_uses_row_level_package_metrics() -> None:
@@ -67,7 +61,15 @@ def test_high_position_combo_rows_are_promoted_to_mature_row_level_policy() -> N
 
     assert high["audit_scope"] == "mature_model"
     assert high["production_readiness"] == builder.INTEGRATED_CONSUMER_READINESS
-    assert high["metric_scope"] == "no_current_formal_row_metric"
+    ready_count = int(high["row_metric_ready_count"])
+    if ready_count:
+        assert high["metric_scope"] in {
+            "single_add_score",
+            "exact_combo",
+            "exact_combo|single_add_score",
+        }
+    else:
+        assert high["metric_scope"] == "no_current_formal_row_metric"
     assert high["pdf_row_display_policy_status"] == (
         "pass_adapter_exposes_row_metric_and_forbids_baseline_substitution"
     )

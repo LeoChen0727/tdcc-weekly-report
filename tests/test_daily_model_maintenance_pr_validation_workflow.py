@@ -86,6 +86,7 @@ def test_daily_model_maintenance_pr_workflow_runs_focused_pdf_operation_tests() 
         "tests/test_daily_pdf_contract_consumers.py",
         "tests/test_daily_pdf_completion_hard_gate.py",
         "tests/test_daily_published_model_snapshots.py",
+        "tests/test_daily_operation_adapter_protected_fields.py",
         "tests/test_daily_volume_breakout_operation_section.py",
         "tests/test_daily_w_bottom_operation_sections.py",
         "tests/test_daily_price_pullback_23ema_operation_section.py",

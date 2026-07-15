@@ -10,6 +10,8 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
 import build_daily_price_pullback_23ema_operation_section as builder  # noqa: E402
+import validate_daily_operation_adapter_protected_fields as protected_fields  # noqa: E402
+import validate_daily_price_pullback_23ema_operation_section as validator  # noqa: E402
 
 
 def approval_frame() -> pd.DataFrame:
@@ -111,6 +113,48 @@ def test_prior_price_pullback_signal_can_become_active_tracking_row(monkeypatch)
     assert set(active["buy_rank_eligible"]) == {"False"}
     assert set(active["entry_date"]) == {"20260706"}
     assert "active_operation" in set(audit["audit_status"])
+
+
+def test_price_pullback_supported_states_pass_protected_contract(monkeypatch) -> None:
+    monkeypatch.setattr(builder, "load_signal_history", lambda *_args: pd.DataFrame())
+    confirmed_section, _ = builder.build_section(
+        pd.DataFrame([signal_row("20260703")]),
+        approval_frame(),
+        "20260703",
+        "2026-07-03 18:00:00 Asia/Taipei",
+    )
+
+    price = pd.DataFrame(
+        [
+            {"date": "20260701", "open": 10.0, "high": 12.0, "low": 9.8, "close": 10.0},
+            {"date": "20260702", "open": 10.0, "high": 11.8, "low": 9.7, "close": 10.1},
+            {"date": "20260703", "open": 10.0, "high": 10.5, "low": 9.9, "close": 10.0},
+            {"date": "20260706", "open": 10.1, "high": 10.6, "low": 9.9, "close": 10.2},
+            {"date": "20260707", "open": 10.2, "high": 10.7, "low": 10.0, "close": 10.3},
+            {"date": "20260708", "open": 10.3, "high": 10.8, "low": 10.1, "close": 10.4},
+        ]
+    )
+    monkeypatch.setattr(builder, "price_for_stock", lambda _stock_id: price)
+    monkeypatch.setattr(
+        builder,
+        "load_signal_history",
+        lambda *_args: pd.DataFrame([signal_row("20260703")]),
+    )
+    active_section, _ = builder.build_section(
+        pd.DataFrame(columns=["model_id", "signal_date", "stock_id"]),
+        approval_frame(),
+        "20260708",
+        "2026-07-08 18:00:00 Asia/Taipei",
+    )
+
+    combined = pd.concat([confirmed_section, active_section], ignore_index=True)
+    assert protected_fields.validate_adapter_frame(
+        combined,
+        builder.MODEL_ID,
+        required_states={"confirmed", "active", "empty"},
+    ) == []
+    assert validator.validate_section(confirmed_section) == []
+    assert validator.validate_section(active_section) == []
 
 
 def test_daily_full_pipeline_runs_price_pullback_operation_adapter() -> None:
