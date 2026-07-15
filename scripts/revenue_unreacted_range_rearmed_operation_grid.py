@@ -22,6 +22,7 @@ ROOT = Path(__file__).resolve().parents[1]
 MODEL_ID = "revenue_unreacted_range"
 ARTIFACT_ID = "revenue_unreacted_range_rearmed_operation_grid"
 ARTIFACT_VERSION = "rearmed_operation_grid_v1_20260713"
+PRICE_HISTORY_CUTOFF_DATE = "20260713"
 SOURCE_ARTIFACT_ID = "revenue_unreacted_range_source_first_condition_audit"
 SOURCE_VARIANT_ID = "absolute_or_two_month_yoy_ge15"
 
@@ -181,6 +182,28 @@ def _normalize_stock_frame(frame: pd.DataFrame) -> pd.DataFrame:
     if "price_resolution_ids_on_date" not in stock.columns:
         stock["price_resolution_ids_on_date"] = ""
     return stock
+
+
+def _apply_price_history_cutoff(
+    daily_by_stock: dict[str, pd.DataFrame],
+) -> dict[str, pd.DataFrame]:
+    # This artifact version is immutable; newer sessions require a new version.
+    pinned: dict[str, pd.DataFrame] = {}
+    for stock_id, frame in daily_by_stock.items():
+        stock = frame.copy()
+        dates = stock["date"].astype(str).str.replace(r"\D", "", regex=True).str[:8]
+        pinned[stock_id] = stock.loc[dates.le(PRICE_HISTORY_CUTOFF_DATE)].reset_index(drop=True)
+    return pinned
+
+
+def _assert_source_within_price_history_cutoff(source: pd.DataFrame) -> None:
+    for column in ("episode_start_trade_date", "episode_end_date"):
+        dates = source[column].astype(str).str.replace(r"\D", "", regex=True).str[:8]
+        if dates.loc[dates.str.fullmatch(r"\d{8}")].gt(PRICE_HISTORY_CUTOFF_DATE).any():
+            raise RuntimeError(
+                f"{ARTIFACT_VERSION} source {column} exceeds pinned price cutoff "
+                f"{PRICE_HISTORY_CUTOFF_DATE}"
+            )
 
 
 def _episode_bounds(stock: pd.DataFrame, episode: pd.Series) -> tuple[int, int] | None:
@@ -840,10 +863,12 @@ def build_rearmed_operation_grid(
     daily_by_stock: dict[str, pd.DataFrame] | None = None,
 ) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     source = load_source_detail() if source_detail is None else _normalize_source_detail(source_detail)
+    _assert_source_within_price_history_cutoff(source)
     if daily_by_stock is None:
         if prepared is None:
             raise RuntimeError("prepared research frame is required when daily_by_stock is not supplied")
         daily_by_stock = prepare_daily_by_stock(prepared, source)
+    daily_by_stock = _apply_price_history_cutoff(daily_by_stock)
     generated_at = _now_text()
     detail = build_operation_detail(source, daily_by_stock, generated_at)
     review = build_operation_return_review(detail, daily_by_stock)

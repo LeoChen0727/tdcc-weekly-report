@@ -14,10 +14,13 @@ if str(SCRIPTS) not in sys.path:
 
 from revenue_unreacted_range_rearmed_operation_grid import (  # noqa: E402
     NO_STOP_POLICY_ID,
+    PRICE_HISTORY_CUTOFF_DATE,
     PRIMARY_ANALYSIS_BASIS,
     SENSITIVITY_ANALYSIS_BASIS,
     STOP_POLICY_ID,
     STOP_RULE_ID,
+    _apply_price_history_cutoff,
+    _assert_source_within_price_history_cutoff,
     _overlap_pair_count,
     build_operation_detail,
     build_operation_return_review,
@@ -31,6 +34,7 @@ from revenue_unreacted_range_source_first_condition_audit import (  # noqa: E402
 from validate_revenue_unreacted_range_rearmed_operation_grid import (  # noqa: E402
     validate,
 )
+import validate_revenue_unreacted_range_rearmed_operation_grid as grid_validator  # noqa: E402
 
 
 def _stock_frame(
@@ -243,6 +247,48 @@ def test_all_grid_rows_are_research_only_and_all_summary_grids_are_nonoverlappin
         "monthly_revenue_only;EPS_gross_margin_operating_margin_operating_income_"
         "non_operating_income_net_income_excluded"
     }
+
+
+def test_producer_pins_price_history_to_artifact_cutoff() -> None:
+    stock = pd.DataFrame(
+        {
+            "date": [PRICE_HISTORY_CUTOFF_DATE, "20260714"],
+            "analysis_close": [100.0, 101.0],
+        }
+    )
+
+    pinned = _apply_price_history_cutoff({"3694": stock})["3694"]
+
+    assert list(pinned["date"]) == [PRICE_HISTORY_CUTOFF_DATE]
+
+
+def test_producer_rejects_source_dates_after_artifact_cutoff() -> None:
+    source = pd.DataFrame(
+        {
+            "episode_start_trade_date": [PRICE_HISTORY_CUTOFF_DATE],
+            "episode_end_date": ["20260714"],
+        }
+    )
+
+    with np.testing.assert_raises_regex(RuntimeError, "exceeds pinned price cutoff"):
+        _assert_source_within_price_history_cutoff(source)
+
+
+def test_validator_ignores_price_dates_after_artifact_cutoff(
+    monkeypatch,
+    tmp_path: Path,
+) -> None:
+    pd.DataFrame({"date": [PRICE_HISTORY_CUTOFF_DATE, "20260714"]}).to_csv(
+        tmp_path / "3694.csv",
+        index=False,
+    )
+    monkeypatch.setattr(grid_validator, "PRICE_HISTORY_DIR", tmp_path)
+    errors: list[str] = []
+
+    indices = grid_validator._date_indices({"3694"}, errors)
+
+    assert errors == []
+    assert grid_validator._offset_date(indices["3694"], PRICE_HISTORY_CUTOFF_DATE, 1) == ""
 
 
 def test_2380_capital_reduction_is_replayed_on_a_comparable_price_scale() -> None:

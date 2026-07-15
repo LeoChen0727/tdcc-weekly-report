@@ -36,6 +36,7 @@ from revenue_unreacted_range_rearmed_operation_grid import (
     MODEL_ID,
     NO_STOP_POLICY_ID,
     OPERATION_RETURN_REVIEW_POLICY,
+    PRICE_HISTORY_CUTOFF_DATE,
     PRIMARY_ANALYSIS_BASIS,
     RETURN_REVIEW_COLUMNS,
     RETURN_REVIEW_CSV,
@@ -198,6 +199,7 @@ def _date_indices(stock_ids: set[str], errors: list[str]) -> dict[str, DateIndex
         dates = dates.loc[dates.str.fullmatch(r"\d{8}")].drop_duplicates().sort_values(
             kind="mergesort"
         )
+        dates = dates.loc[dates.le(PRICE_HISTORY_CUTOFF_DATE)]
         ordered_dates = tuple(dates.tolist())
         output[stock_id] = (
             {date: index for index, date in enumerate(ordered_dates)},
@@ -269,6 +271,8 @@ def _validate_timing(detail: pd.DataFrame, errors: list[str]) -> None:
 
 def validate() -> list[str]:
     errors: list[str] = []
+    if not ARTIFACT_VERSION.endswith(PRICE_HISTORY_CUTOFF_DATE):
+        errors.append("rearmed operation grid artifact version does not encode its price cutoff")
     paths = (
         LATEST_CSV,
         DETAIL_CSV,
