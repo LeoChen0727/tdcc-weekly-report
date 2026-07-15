@@ -5,4 +5,4 @@
 
 | model_id | operation_asof_date | stock_id | stock_name | report_line | signal_date | entry_date | audit_status | included_in_daily_adapter | operation_lifecycle_state | exit_date | exit_reason |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| neckline_volume_breakout_confirmation | 20260714 |  |  | both |  |  | empty_state | True | empty_state |  |  |
+| neckline_volume_breakout_confirmation | 20260715 |  |  | both |  |  | empty_state | True | empty_state |  |  |

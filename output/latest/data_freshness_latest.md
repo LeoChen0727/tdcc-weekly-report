@@ -1,12 +1,12 @@
 # Data Freshness Status
 
-- generated_at: `2026-07-15 14:12:14` Asia/Taipei
+- generated_at: `2026-07-15 21:40:17` Asia/Taipei
 - market_session_status: `open_confirmed`
-- market_session_date: `20260714`
-- expected_main_price_date: `20260714`
+- market_session_date: `20260715`
+- expected_main_price_date: `20260715`
 - market_session_reason_code: `twse_tpex_target_date_confirmed`
-- main_price_date: `20260714`
-- actual_stock_price_history_date: `20260714`
+- main_price_date: `20260715`
+- actual_stock_price_history_date: `20260715`
 - report_ready: `True`
 - report_ready_note: core daily data dates match main_price_date
 - warrant_ready: `True`
@@ -25,10 +25,10 @@
 
 | source | effective_date | raw_date | note |
 |---|---:|---:|---|
-| all_candidates_latest.csv | 20260714 | 20260714 | ready |
-| official_price_fetch_latest | 20260714 | 20260714 | ready |
-| stock_monitor_latest.md | 20260714 | 20260714 | ready |
-| warrant_flow_latest.csv | 20260714 | 20260714 | ready |
+| all_candidates_latest.csv | 20260715 | 20260715 | ready |
+| official_price_fetch_latest | 20260715 | 20260715 | ready |
+| stock_monitor_latest.md | 20260715 | 20260715 | ready |
+| warrant_flow_latest.csv | 20260715 | 20260715 | ready |
 
 ## Rule
 
