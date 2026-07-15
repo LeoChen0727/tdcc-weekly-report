@@ -1,1 +1,2 @@
-﻿
+﻿date,stock_id,found,stock_name,market,open,high,low,close,volume,trading_value
+20260714,5291,True,邑昇,TPEx,54.0,54.4,50.9,53.6,445000,23259300
