@@ -938,6 +938,66 @@ def test_builder_confirmed_rows_pass_complete_operation_artifact_validator(
     assert "confirmed operation rows must be positive evidence only" in capsys.readouterr().out
 
 
+@pytest.mark.parametrize(
+    "model_id",
+    [LOW_VOLUME_MODEL_ID, MID_VOLUME_MODEL_ID, HIGH_VOLUME_MODEL_ID],
+)
+def test_builder_active_model_contract_rows_pass_complete_validator_without_legacy_trigger_evidence(
+    monkeypatch,
+    tmp_path,
+    capsys,
+    model_id: str,
+) -> None:
+    snapshot_dir = patch_lifecycle_sources(
+        monkeypatch,
+        tmp_path,
+        "1234",
+        [
+            {"date": "20260616", "open": "10", "high": "11", "low": "9", "close": "10", "volume": "1000"},
+            {"date": "20260617", "open": "10.6", "high": "12", "low": "10.9", "close": "11.5", "volume": "1200"},
+            {"date": "20260618", "open": "11.7", "high": "12.5", "low": "11.2", "close": "12", "volume": "1100"},
+        ],
+    )
+    pd.DataFrame([volume_signal("1234", "20260616", model_id=model_id)]).to_csv(
+        snapshot_dir / "daily_candidate_model_signals_for_report_20260616.csv",
+        index=False,
+    )
+    write_operation_snapshot(
+        snapshot_dir,
+        "20260617",
+        "20260616",
+        model_id=model_id,
+    )
+
+    producer_summary = formal_summary(model_id=model_id)
+    rows, audit = build_rows_and_audit_for_test(
+        pd.DataFrame(),
+        "20260618",
+        producer_summary,
+        model_id=model_id,
+    )
+    section = complete_section_for_validator(rows, "20260618")
+    taxonomy_path = tmp_path / "stock_theme_taxonomy_latest.csv"
+    pd.DataFrame(
+        [{"stock_id": "1234", "report_line_memberships": "mainstream|non_mainstream"}]
+    ).to_csv(taxonomy_path, index=False)
+    monkeypatch.setattr(section_validator, "TAXONOMY_CSV", taxonomy_path)
+    monkeypatch.setattr(section_validator, "MODEL_SNAPSHOT_DIR", snapshot_dir)
+
+    legacy_row_evidence = formal_summary(
+        trigger_id="next_day_break_signal_high_confirmed",
+        model_id=model_id,
+    )
+    section_validator.validate_operation_artifacts(section, legacy_row_evidence, audit)
+
+    invalid = section.copy()
+    active_mask = invalid["pdf_section"].eq("active_operation") & invalid["row_type"].eq("data")
+    invalid.loc[active_mask, "evidence_match_status"] = "positive_row_evidence"
+    with pytest.raises(SystemExit):
+        section_validator.validate_operation_artifacts(invalid, legacy_row_evidence, audit)
+    assert "active_operation rows use trigger without eligible formal evidence" in capsys.readouterr().out
+
+
 def test_lifecycle_reads_published_signal_log_when_snapshot_is_missing(monkeypatch, tmp_path) -> None:
     snapshot_dir = patch_lifecycle_sources(
         monkeypatch,

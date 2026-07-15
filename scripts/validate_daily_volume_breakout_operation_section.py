@@ -1054,7 +1054,12 @@ def validate_shape(section: pd.DataFrame, formal_summary: pd.DataFrame, audit: p
         ]
         if not missing_active_selected.empty:
             fail("active_operation data rows must carry selected trigger metadata")
-        bad_active_trigger = sorted(set(active_data["selected_trigger_id"].astype(str)) - eligible_triggers)
+        row_evidence_active = active_data[
+            active_data["evidence_match_status"].astype(str).str.strip().eq("positive_row_evidence")
+        ]
+        bad_active_trigger = sorted(
+            set(row_evidence_active["selected_trigger_id"].astype(str)) - eligible_triggers
+        )
         if bad_active_trigger:
             fail(f"active_operation rows use trigger without eligible formal evidence: {bad_active_trigger}")
         bad_active_dates = active_data[
