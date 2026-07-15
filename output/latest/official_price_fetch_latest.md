@@ -1,6 +1,6 @@
 # Official Daily Price Fetch Report
 
-- generated_at: `2026-07-15 12:37:44 Asia/Taipei`
+- generated_at: `2026-07-15 14:01:19 Asia/Taipei`
 - target_date: `20260714`
 - saved_price_date: `20260714`
 - is_target_date: `True`
@@ -25,7 +25,7 @@
 
 - Start official daily price fetch target_date=20260714 max_seconds=480
 - ===== Fetch price for date 20260714 =====
-- Loaded universe rows=2145
+- Loaded universe rows=2124
 - Trying TWSE batch source=TWSE_RWD_JSON_MI_INDEX date=20260714
 - GET https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20260714&type=ALLBUT0999&response=json -> status=200, chars=233553
 - TWSE_RWD_JSON_MI_INDEX: parsed TWSE rows=1234

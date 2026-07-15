@@ -1,7 +1,7 @@
 # 每日全市場候選股監測報告 - 精華版
 
 - 主資料日期：`20260714`
-- 產生時間：`2026-07-15 12:47:43 Asia/Taipei`
+- 產生時間：`2026-07-15 14:12:15 Asia/Taipei`
 - 是否可產出正式每日報告：`True`
 - 判斷說明：core daily data dates match main_price_date
 - 權證資料日期：`20260714`
@@ -31,18 +31,18 @@
 
 | 股票 | 原始分類 | 催化標籤 / 反應程度 | TDCC |
 |---|---|---|---|
-| 6834 天二科技 | 營收成長股價回檔 | score 44 / theme 100.0/5 / revenue_good_eps_unconfirmed;event_confirmed;low_reaction_after_catalyst;new_order;電子零組件業;mon... | 大戶溫和增加 |
-| 2376 技嘉 | 營收成長股價回檔 | score 44 / theme 100.0/5 / revenue_good_eps_unconfirmed;event_confirmed;low_reaction_after_catalyst;new_order;mainstream... | 大戶同步增加 |
-| 8936 國統 | 營收成長股價回檔 | score 44 / theme 95.7/5 / revenue_good_eps_unconfirmed;event_confirmed;low_reaction_after_catalyst;new_order;其他;monthly_... | 大戶溫和增加 |
-| 1342 八貫 | 營收成長股價回檔 | score 44 / theme 95.7/5 / revenue_good_eps_unconfirmed;event_confirmed;low_reaction_after_catalyst;new_order;其他;monthly_... | 大戶溫和增加 |
-| 2610 華航 | 營收成長股價回檔 | score 44 / theme 100.0/5 / revenue_good_eps_unconfirmed;event_confirmed;low_reaction_after_catalyst;new_order;航運業;monthl... | 大戶溫和增加 |
 | 3189 景碩 | 營收成長股價回檔 | score 44 / theme 100.0/5 / revenue_good_eps_unconfirmed;event_confirmed;low_reaction_after_catalyst;new_order;半導體業;month... | 大戶溫和增加 |
+| 2376 技嘉 | 營收成長股價回檔 | score 44 / theme 100.0/5 / revenue_good_eps_unconfirmed;event_confirmed;low_reaction_after_catalyst;new_order;mainstream... | 大戶同步增加 |
 | 2408 南亞科 | 營收成長股價回檔 | score 44 / theme 100.0/5 / revenue_good_eps_unconfirmed;event_confirmed;low_reaction_after_catalyst;new_order;半導體業;month... | 大戶同步增加 |
+| 2610 華航 | 營收成長股價回檔 | score 44 / theme 100.0/5 / revenue_good_eps_unconfirmed;event_confirmed;low_reaction_after_catalyst;new_order;航運業;monthl... | 大戶溫和增加 |
+| 1342 八貫 | 營收成長股價回檔 | score 44 / theme 95.7/5 / revenue_good_eps_unconfirmed;event_confirmed;low_reaction_after_catalyst;new_order;其他;monthly_... | 大戶溫和增加 |
+| 6834 天二科技 | 營收成長股價回檔 | score 44 / theme 100.0/5 / revenue_good_eps_unconfirmed;event_confirmed;low_reaction_after_catalyst;new_order;電子零組件業;mon... | 大戶溫和增加 |
+| 8936 國統 | 營收成長股價回檔 | score 44 / theme 95.7/5 / revenue_good_eps_unconfirmed;event_confirmed;low_reaction_after_catalyst;new_order;其他;monthly_... | 大戶溫和增加 |
 | 2356 英業達 | 營收成長股價回檔 | score 40 / theme 100.0/5 / revenue_good_eps_unconfirmed;event_confirmed;low_reaction_after_catalyst;product_certificatio... | 大戶同步增加 |
-| 2383 台光電 | 營收成長股價回檔 | score 40 / theme 100.0/5 / revenue_good_eps_unconfirmed;event_confirmed;low_reaction_after_catalyst;capacity_expansion;電... | 大戶溫和增加 |
 | 6282 康舒 | 營收成長股價回檔 | score 40 / theme 100.0/5 / revenue_good_eps_unconfirmed;event_confirmed;low_reaction_after_catalyst;product_certificatio... | 大戶同步增加 |
+| 2383 台光電 | 營收成長股價回檔 | score 40 / theme 100.0/5 / revenue_good_eps_unconfirmed;event_confirmed;low_reaction_after_catalyst;capacity_expansion;電... | 大戶溫和增加 |
 | 1304 台聚 | 型態觀察 | score 34 / theme 87.0/5 / event_confirmed;low_reaction_after_catalyst;new_order;塑膠工業;dividend_calendar;calendar_ex_divid... | 大戶同步增加 |
-| 2359 所羅門 | 型態觀察 | score 34 / theme 100.0/5 / event_confirmed;low_reaction_after_catalyst;new_order;其他電子業;monthly_revenue_calendar;calendar... | 大戶溫和增加 |
+| 3015 全漢 | 型態觀察 | score 34 / theme 100.0/5 / event_confirmed;low_reaction_after_catalyst;new_order;電子零組件業;monthly_revenue_calendar;calenda... | 大戶溫和增加 |
 
 ## 精華候選股
 

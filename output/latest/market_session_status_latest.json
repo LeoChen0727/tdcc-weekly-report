@@ -4,7 +4,7 @@
     "20260710"
   ],
   "expected_main_price_date": "20260714",
-  "generated_at": "2026-07-15T12:37:45+08:00",
+  "generated_at": "2026-07-15T14:01:21+08:00",
   "market_session_date": "20260714",
   "market_status": "open_confirmed",
   "official_sources": {
@@ -14,7 +14,7 @@
         "20260710",
         "20260711"
       ],
-      "queried_at": "2026-07-15T12:33:19+08:00",
+      "queried_at": "2026-07-15T13:56:37+08:00",
       "status": "ok",
       "taipei_notice_count": 3,
       "url": "https://alerts.ncdr.nat.gov.tw/RssAtomFeed.ashx?AlertType=33"
@@ -24,7 +24,7 @@
       "covered_years": [
         2026
       ],
-      "queried_at": "2026-07-15T12:33:19+08:00",
+      "queried_at": "2026-07-15T13:56:37+08:00",
       "status": "ok",
       "url": "https://openapi.twse.com.tw/v1/holidaySchedule/holidaySchedule"
     },
@@ -34,7 +34,7 @@
     }
   },
   "phase": "confirm",
-  "preflight_generated_at": "2026-07-15T12:33:19+08:00",
+  "preflight_generated_at": "2026-07-15T13:56:37+08:00",
   "preflight_reused": true,
   "price_confirmation": {
     "fetch_result": "success_target_full_market",
