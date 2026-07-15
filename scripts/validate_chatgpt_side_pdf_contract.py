@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import ast
 from dataclasses import dataclass
 import os
 import re
@@ -9,11 +10,16 @@ from typing import Iterable
 
 ROOT = Path(__file__).resolve().parents[1]
 WORKFLOW = ROOT / ".github" / "workflows" / "daily_full_pipeline.yml"
+PR_VALIDATION_WORKFLOW = ROOT / ".github" / "workflows" / "daily_model_maintenance_pr_validation.yml"
 ENTRYPOINT = ROOT / "scripts" / "run_chatgpt_daily_report_entrypoint.py"
+WORKTREE_SAFETY = ROOT / "scripts" / "git_worktree_safety.py"
 RENDERER = ROOT / "scripts" / "generate_chatgpt_side_daily_reports.py"
 PACKET_BUILDER = ROOT / "build_chatgpt_daily_report_packet.py"
 README_PUBLISHER = ROOT / "publish_chatgpt_report_readme_and_check.py"
 REPLAY_VALIDATOR = ROOT / "scripts" / "validate_chatgpt_daily_report_new_conversation_replay.py"
+
+OFFICIAL_ENTRYPOINT_WORKTREE_HELPER = "create_registered_full_temp_worktree"
+OFFICIAL_ENTRYPOINT_WORKTREE_CONSUMER = "chatgpt_daily_report_entrypoint"
 
 CHATGPT_DAILY_DFKAI_FONT_PATH_ENV = "CHATGPT_DAILY_DFKAI_FONT_PATH"
 CHATGPT_DAILY_DEFAULT_DFKAI_FONT_PATH = Path(r"C:\Windows\Fonts\kaiu.ttf")
@@ -75,6 +81,67 @@ def read_text(path: Path) -> str:
     if not path.exists():
         raise FileNotFoundError(path)
     return path.read_text(encoding="utf-8", errors="replace")
+
+
+def official_entrypoint_worktree_contract_errors(source: str) -> list[str]:
+    errors: list[str] = []
+    try:
+        tree = ast.parse(source)
+    except SyntaxError as exc:
+        return [f"official entrypoint is not valid Python: {exc}"]
+
+    helper_imported = any(
+        isinstance(node, ast.ImportFrom)
+        and node.module == "scripts.git_worktree_safety"
+        and any(alias.name == OFFICIAL_ENTRYPOINT_WORKTREE_HELPER for alias in node.names)
+        for node in tree.body
+    )
+    if not helper_imported:
+        errors.append(
+            "official entrypoint must import registered full-temp worktree helper: "
+            f"{OFFICIAL_ENTRYPOINT_WORKTREE_HELPER}"
+        )
+
+    add_source_worktree = next(
+        (
+            node
+            for node in tree.body
+            if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)) and node.name == "add_source_worktree"
+        ),
+        None,
+    )
+    if add_source_worktree is None:
+        errors.append("official entrypoint must define add_source_worktree()")
+        return errors
+
+    helper_calls = [
+        node
+        for node in ast.walk(add_source_worktree)
+        if isinstance(node, ast.Call)
+        and isinstance(node.func, ast.Name)
+        and node.func.id == OFFICIAL_ENTRYPOINT_WORKTREE_HELPER
+    ]
+    if len(helper_calls) != 1:
+        errors.append(
+            "official entrypoint add_source_worktree() must call registered full-temp worktree helper exactly once: "
+            f"observed={len(helper_calls)}"
+        )
+        return errors
+
+    consumer_keyword = next(
+        (keyword for keyword in helper_calls[0].keywords if keyword.arg == "consumer_id"),
+        None,
+    )
+    consumer_value = consumer_keyword.value if consumer_keyword is not None else None
+    if not (
+        isinstance(consumer_value, ast.Constant)
+        and consumer_value.value == OFFICIAL_ENTRYPOINT_WORKTREE_CONSUMER
+    ):
+        errors.append(
+            "official entrypoint must bind the registered full-temp worktree helper to exact consumer_id: "
+            f"{OFFICIAL_ENTRYPOINT_WORKTREE_CONSUMER}"
+        )
+    return errors
 
 
 def function_text(text: str, name: str) -> str:
@@ -360,7 +427,16 @@ def validate_daily_six_pdf_font_contract(paths: Iterable[Path]) -> dict[str, lis
 def validate() -> list[str]:
     errors: list[str] = []
 
-    for path in (WORKFLOW, ENTRYPOINT, RENDERER, PACKET_BUILDER, README_PUBLISHER, REPLAY_VALIDATOR):
+    for path in (
+        WORKFLOW,
+        PR_VALIDATION_WORKFLOW,
+        ENTRYPOINT,
+        WORKTREE_SAFETY,
+        RENDERER,
+        PACKET_BUILDER,
+        README_PUBLISHER,
+        REPLAY_VALIDATOR,
+    ):
         if not path.exists():
             errors.append(f"missing required ChatGPT-side contract file: {path.relative_to(ROOT).as_posix()}")
 
@@ -368,6 +444,7 @@ def validate() -> list[str]:
         return errors
 
     workflow = read_text(WORKFLOW)
+    pr_validation_workflow = read_text(PR_VALIDATION_WORKFLOW)
     entrypoint = read_text(ENTRYPOINT)
     renderer = read_text(RENDERER)
     packet = read_text(PACKET_BUILDER)
@@ -376,12 +453,26 @@ def validate() -> list[str]:
 
     for literal in (
         "resolve_daily_report_source_state",
-        '"worktree", "add", "--detach"',
         "CHATGPT_DAILY_REPORT_ENTRYPOINT",
         "CHATGPT_DAILY_OUTPUT_DIR",
     ):
         if literal not in entrypoint:
             errors.append(f"official entrypoint missing required source gate literal: {literal}")
+    errors.extend(official_entrypoint_worktree_contract_errors(entrypoint))
+
+    pr_trigger = pr_validation_workflow.split("\njobs:", 1)[0]
+    for path_literal in (
+        '"scripts/validate_chatgpt_side_pdf_contract.py"',
+        '"tests/test_chatgpt_side_pdf_contract.py"',
+    ):
+        if path_literal not in pr_trigger:
+            errors.append(f"daily model PR validation trigger missing PDF contract path: {path_literal}")
+    for command_literal in (
+        "python scripts/validate_chatgpt_side_pdf_contract.py",
+        "tests/test_chatgpt_side_pdf_contract.py",
+    ):
+        if command_literal not in pr_validation_workflow:
+            errors.append(f"daily model PR validation missing PDF contract check: {command_literal}")
 
     for name in CHATGPT_SIDE_BUILDERS:
         if f"def {name}(" not in renderer:

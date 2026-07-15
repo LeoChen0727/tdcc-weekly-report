@@ -23,6 +23,46 @@ def test_contract_validator_passes() -> None:
     assert contract.main() == 0
 
 
+def test_official_entrypoint_uses_registered_worktree_helper() -> None:
+    source = _source(contract.ENTRYPOINT)
+
+    assert contract.official_entrypoint_worktree_contract_errors(source) == []
+
+
+def test_official_entrypoint_worktree_contract_rejects_direct_raw_git_add() -> None:
+    source = '''
+def add_source_worktree(repo_root, source_ref, temp_root):
+    return run_command(["git", "worktree", "add", "--detach", str(temp_root), source_ref])
+'''
+
+    errors = contract.official_entrypoint_worktree_contract_errors(source)
+
+    assert any("must import registered full-temp worktree helper" in error for error in errors)
+    assert any("must call registered full-temp worktree helper exactly once" in error for error in errors)
+
+
+def test_official_entrypoint_worktree_contract_rejects_wrong_consumer() -> None:
+    source = '''
+from scripts.git_worktree_safety import create_registered_full_temp_worktree
+
+def add_source_worktree(repo_root, source_ref, temp_root):
+    return create_registered_full_temp_worktree(
+        repo_root,
+        source_ref,
+        temp_root,
+        leaf_name="origin_main_daily_report_source",
+        consumer_id="unregistered_consumer",
+    )
+'''
+
+    errors = contract.official_entrypoint_worktree_contract_errors(source)
+
+    assert errors == [
+        "official entrypoint must bind the registered full-temp worktree helper to exact consumer_id: "
+        "chatgpt_daily_report_entrypoint"
+    ]
+
+
 def test_renderer_import_does_not_require_runtime_font_registration() -> None:
     assert renderer.FONT_NAME == contract.CHATGPT_DAILY_PDF_FONT_NAME
     assert renderer.Paragraph("標楷體繁體中文", renderer.BODY)
