@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4167 松瑞藥
 
 ## Metadata
-- generated_at: 2026-07-15 22:27:07 Asia/Taipei
+- generated_at: 2026-07-16 22:27:32 Asia/Taipei
 - stock_id: 4167
 - stock_name: 松瑞藥
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 169
+- latest_price_date: 20260716
+- price_rows: 170
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -117,29 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 20.65
-- high: 21.35
-- low: 20.6
-- close: 21.3
-- volume: 1360000
-- ma5: 20.88
-- ema23_primary: 20.38
-- distance_to_ema23_pct: 4.5
-- ma20: 20.25
-- ma60: 19.68
-- ma120: 19.99
-- return_5d: 0.24
-- return_20d: 6.77
-- volume_ratio: 1.11
-- distance_to_ma20_pct_auxiliary: 5.21
-- distance_to_high_60_pct: -4.48
+- date: 20260716
+- open: 21.5
+- high: 21.75
+- low: 21.2
+- close: 21.55
+- volume: 1964000
+- ma5: 21.01
+- ema23_primary: 20.48
+- distance_to_ema23_pct: 5.22
+- ma20: 20.33
+- ma60: 19.71
+- ma120: 20.01
+- return_5d: 3.11
+- return_20d: 8.56
+- volume_ratio: 1.51
+- distance_to_ma20_pct_auxiliary: 6
+- distance_to_high_60_pct: -3.36
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,20.05,20.05,19.8,19.85,417000,19.77,0.38,19.75,19.8,0.99
 20260617,19.85,20.05,19.65,19.85,582000,19.78,0.35,19.79,19.78,1.33
 20260618,20,20.05,19.75,19.95,609000,19.8,0.78,19.82,19.77,1.41
 20260622,20.15,20.15,19.65,19.7,1049000,19.79,-0.44,19.85,19.75,2.17
@@ -159,6 +158,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,21,21,20.55,20.65,739000,20.27,1.86,20.14,19.64,0.63
 20260714,20.5,20.9,20.2,20.6,885000,20.3,1.48,20.18,19.65,0.74
 20260715,20.65,21.35,20.6,21.3,1360000,20.38,4.5,20.25,19.68,1.11
+20260716,21.5,21.75,21.2,21.55,1964000,20.48,5.22,20.33,19.71,1.51
 ```
 
 ## Latest TDCC Snapshot
@@ -193,12 +193,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 4167 | 松瑞藥 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260716 | 4167 | 松瑞藥 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 4167 | 松瑞藥 | 1 | 1 | 2 | 4 | 6 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260716 | 4167 | 松瑞藥 | 2 | 2 | 2 | 5 | 7 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

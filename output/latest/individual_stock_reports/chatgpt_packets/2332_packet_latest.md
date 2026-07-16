@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2332 友訊
 
 ## Metadata
-- generated_at: 2026-07-15 22:26:37 Asia/Taipei
+- generated_at: 2026-07-16 22:26:45 Asia/Taipei
 - stock_id: 2332
 - stock_name: 友訊
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 304
+- latest_price_date: 20260716
+- price_rows: 305
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -111,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 24.35
-- high: 25.65
-- low: 23.4
-- close: 23.55
-- volume: 56510090
-- ma5: 23.9
-- ema23_primary: 19.96
-- distance_to_ema23_pct: 18
-- ma20: 19.81
-- ma60: 16.57
-- ma120: 16.09
-- return_5d: 18.05
-- return_20d: 47.65
-- volume_ratio: 1.94
-- distance_to_ma20_pct_auxiliary: 18.89
-- distance_to_high_60_pct: -10.96
+- date: 20260716
+- open: 23.35
+- high: 24.5
+- low: 22
+- close: 22.5
+- volume: 51991735
+- ma5: 24.02
+- ema23_primary: 20.17
+- distance_to_ema23_pct: 11.55
+- ma20: 20.1
+- ma60: 16.69
+- ma120: 16.15
+- return_5d: 2.74
+- return_20d: 35.54
+- volume_ratio: 1.65
+- distance_to_ma20_pct_auxiliary: 11.93
+- distance_to_high_60_pct: -14.93
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,16.2,16.75,15.6,16.6,6831352,15.66,6.01,15.88,15.05,0.91
 20260617,17.45,18.25,16.95,18.25,35055219,15.87,14.96,16.09,15.1,3.81
 20260618,19.5,20.05,19.5,20.05,16857466,16.22,23.59,16.36,15.19,1.73
 20260622,20.8,20.8,18.35,18.95,62717537,16.45,15.2,16.54,15.26,5.11
@@ -153,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,24.85,26.45,23.9,25.95,131450187,19.23,34.95,19,16.29,5.56
 20260714,25.9,25.9,23.4,24.05,60823904,19.63,22.51,19.43,16.43,2.29
 20260715,24.35,25.65,23.4,23.55,56510090,19.96,18,19.81,16.57,1.94
+20260716,23.35,24.5,22,22.5,51991735,20.17,11.55,20.1,16.69,1.65
 ```
 
 ## Latest TDCC Snapshot
@@ -187,17 +187,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 2332 | 友訊 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | continued_overheated | 1.事實發生日:115/07/13 2.發生緣由:依臺灣證券交易所股份有限公司通知辦理 3.財務業務資訊: 期間                (  月  )             (   季   )        (最近四季累計)            ===================== =======================  =============== 科目       最近一月  與去年同期  最近一季    與去年同期    114第2季至            115年5月    增減%     115年第1季    增減%        115第1季               合併                  合併                       合併             (自結數)              (核閱數)                   (查核/核閱數)            =========  ========== ============ ==========  =============== 營業收入　   1,189　       13%       3,441         3%         13,471 (百萬) 稅前淨利　      22 　 　  141%          26       130%            (79) (百萬) 歸屬於母公司     3        106%         (29)       82%           (403) 業主本期淨利 (百萬) 每股盈餘      0.01        111%       (0.05)       82%          (0.67) (元) 每股盈餘(元) 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告: 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260716 | 2332 | 友訊 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | continued_overheated | 1.事實發生日:115/07/13 2.發生緣由:依臺灣證券交易所股份有限公司通知辦理 3.財務業務資訊: 期間                (  月  )             (   季   )        (最近四季累計)            ===================== =======================  =============== 科目       最近一月  與去年同期  最近一季    與去年同期    114第2季至            115年5月    增減%     115年第1季    增減%        115第1季               合併                  合併                       合併             (自結數)              (核閱數)                   (查核/核閱數)            =========  ========== ============ ==========  =============== 營業收入　   1,189　       13%       3,441         3%         13,471 (百萬) 稅前淨利　      22 　 　  141%          26       130%            (79) (百萬) 歸屬於母公司     3        106%         (29)       82%           (403) 業主本期淨利 (百萬) 每股盈餘      0.01        111%       (0.05)       82%          (0.67) (元) 每股盈餘(元) 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告: 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 2332 | 友訊 | 10 | 2 | 5 | 10 | 18 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260716 | 2332 | 友訊 | 11 | 3 | 5 | 10 | 18 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 2332 | 友訊 | 1 | 0 | 4300.0 | 0.0 |  | no_signal |
+| 20260716 | 2332 | 友訊 | 1 | 0 | 350.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00712 復華富時不動產
 
 ## Metadata
-- generated_at: 2026-07-15 22:26:18 Asia/Taipei
+- generated_at: 2026-07-16 22:26:16 Asia/Taipei
 - stock_id: 00712
 - stock_name: 復華富時不動產
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260715
-- price_rows: 37
+- latest_price_date: 20260716
+- price_rows: 38
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 8.93
-- high: 8.95
-- low: 8.91
-- close: 8.95
-- volume: 33562857
-- ma5: 8.85
-- ema23_primary: 8.79
-- distance_to_ema23_pct: 1.87
-- ma20: 8.75
-- ma60: 8.75
-- ma120: 8.75
-- return_5d: 0.9
-- return_20d: 1.02
-- volume_ratio: 0.98
-- distance_to_ma20_pct_auxiliary: 2.29
-- distance_to_high_60_pct: 0
+- date: 20260716
+- open: 8.98
+- high: 9.03
+- low: 8.98
+- close: 9.02
+- volume: 36824141
+- ma5: 8.89
+- ema23_primary: 8.81
+- distance_to_ema23_pct: 2.44
+- ma20: 8.76
+- ma60: 8.76
+- ma120: 8.76
+- return_5d: 1.92
+- return_20d: 2.04
+- volume_ratio: 1.1
+- distance_to_ma20_pct_auxiliary: 2.98
+- distance_to_high_60_pct: -0.11
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,8.86,8.86,8.83,8.84,51928298,8.77,0.86,8.76,8.76,1.3
 20260617,8.68,8.7,8.65,8.69,34660183,8.76,-0.79,8.75,8.75,0.87
 20260618,8.64,8.65,8.59,8.6,70456220,8.75,-1.66,8.75,8.75,1.7
 20260622,8.6,8.6,8.56,8.57,39183720,8.73,-1.84,8.74,8.74,0.93
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,8.81,8.92,8.81,8.87,22524362,8.77,1.16,8.75,8.74,0.65
 20260714,8.82,8.84,8.79,8.8,26273384,8.77,0.33,8.75,8.75,0.77
 20260715,8.93,8.95,8.91,8.95,33562857,8.79,1.87,8.75,8.75,0.98
+20260716,8.98,9.03,8.98,9.02,36824141,8.81,2.44,8.76,8.76,1.1
 ```
 
 ## Latest TDCC Snapshot

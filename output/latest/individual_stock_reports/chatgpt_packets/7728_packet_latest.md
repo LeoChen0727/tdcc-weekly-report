@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7728 光焱科技
 
 ## Metadata
-- generated_at: 2026-07-15 22:27:47 Asia/Taipei
+- generated_at: 2026-07-16 22:28:33 Asia/Taipei
 - stock_id: 7728
 - stock_name: 光焱科技
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 169
+- latest_price_date: 20260716
+- price_rows: 170
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 684
-- high: 687
-- low: 650
-- close: 674
-- volume: 16000
-- ma5: 660.2
-- ema23_primary: 680.33
-- distance_to_ema23_pct: -0.93
-- ma20: 676.45
-- ma60: 718.1
-- ma120: 733.92
-- return_5d: 6.14
-- return_20d: -5.2
-- volume_ratio: 0.44
-- distance_to_ma20_pct_auxiliary: -0.36
-- distance_to_high_60_pct: -20.71
+- date: 20260716
+- open: 674
+- high: 688
+- low: 674
+- close: 688
+- volume: 10000
+- ma5: 670.6
+- ema23_primary: 680.97
+- distance_to_ema23_pct: 1.03
+- ma20: 675.85
+- ma60: 716.23
+- ma120: 734.17
+- return_5d: 8.18
+- return_20d: -1.71
+- volume_ratio: 0.3
+- distance_to_ma20_pct_auxiliary: 1.8
+- distance_to_high_60_pct: -18.96
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,722,722,700,700,73000,731.75,-4.34,733.95,754.52,0.18
 20260617,705,710,694,707,50000,729.69,-3.11,734.55,752.8,0.12
 20260618,710,712,705,712,41000,728.21,-2.23,734.25,749.82,0.1
 20260622,775,775,715,732,45000,728.53,0.48,734.85,748.65,0.12
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,719,719,663,673,55000,682.44,-1.38,680.8,722.9,1.36
 20260714,673,673,642,664,28000,680.9,-2.48,678.3,720.45,0.74
 20260715,684,687,650,674,16000,680.33,-0.93,676.45,718.1,0.44
+20260716,674,688,674,688,10000,680.97,1.03,675.85,716.23,0.3
 ```
 
 ## Latest TDCC Snapshot

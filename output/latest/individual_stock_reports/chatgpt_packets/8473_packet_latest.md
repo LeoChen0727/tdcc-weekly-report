@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8473 山林水
 
 ## Metadata
-- generated_at: 2026-07-15 22:27:55 Asia/Taipei
+- generated_at: 2026-07-16 22:28:45 Asia/Taipei
 - stock_id: 8473
 - stock_name: 山林水
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 304
+- latest_price_date: 20260716
+- price_rows: 305
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 43.5
-- high: 45.95
-- low: 43.5
-- close: 45.15
-- volume: 758963
-- ma5: 44.95
-- ema23_primary: 47.31
-- distance_to_ema23_pct: -4.56
-- ma20: 48.19
-- ma60: 44.04
-- ma120: 41.1
-- return_5d: -0.99
-- return_20d: -12.33
-- volume_ratio: 0.64
-- distance_to_ma20_pct_auxiliary: -6.3
-- distance_to_high_60_pct: -21.07
+- date: 20260716
+- open: 45.05
+- high: 47.3
+- low: 44.95
+- close: 46.7
+- volume: 794469
+- ma5: 45.21
+- ema23_primary: 47.26
+- distance_to_ema23_pct: -1.18
+- ma20: 48.05
+- ma60: 44.2
+- ma120: 41.17
+- return_5d: 2.86
+- return_20d: -5.66
+- volume_ratio: 0.7
+- distance_to_ma20_pct_auxiliary: -2.8
+- distance_to_high_60_pct: -18.36
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,52.1,52.1,49.45,49.5,1810417,47.99,3.16,48.99,40.89,0.4
 20260617,49.2,50.9,49.1,50.3,1144889,48.18,4.4,49.52,41.06,0.26
 20260618,50,50.7,49.3,50,1363503,48.33,3.46,49.98,41.24,0.32
 20260622,50,51,49.15,50.8,2389618,48.54,4.66,50.53,41.43,0.56
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,45.65,46,44.85,45.1,612000,47.87,-5.78,48.92,43.82,0.45
 20260714,45.35,45.35,42.8,43.5,987766,47.5,-8.43,48.5,43.91,0.78
 20260715,43.5,45.95,43.5,45.15,758963,47.31,-4.56,48.19,44.04,0.64
+20260716,45.05,47.3,44.95,46.7,794469,47.26,-1.18,48.05,44.2,0.7
 ```
 
 ## Latest TDCC Snapshot
@@ -199,7 +199,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 8473 | 山林水 | 1 | 0 | 0.0 | 0.0 |  | no_signal |
+| 20260716 | 8473 | 山林水 | 1 | 0 | 17800.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

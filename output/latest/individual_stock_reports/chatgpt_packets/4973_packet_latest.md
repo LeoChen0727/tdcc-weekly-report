@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4973 廣穎電通
 
 ## Metadata
-- generated_at: 2026-07-15 22:27:15 Asia/Taipei
+- generated_at: 2026-07-16 22:27:43 Asia/Taipei
 - stock_id: 4973
 - stock_name: 廣穎電通
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 169
+- latest_price_date: 20260716
+- price_rows: 170
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -56,29 +56,33 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
-- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
-- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- action_rating_display_zh: 可分批買進
+- model_category_display_zh: 營收成長股價回檔
+- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- action_summary_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。
+- entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
+- position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
-- confidence_level: medium
-- thesis_state: unclear
-- entry_style: no_entry_now
-- position_sizing: observe_only
+- action_rating: scale_in
+- action_rating_label_zh: 可分批買進
+- confidence_level: high
+- thesis_state: healthy_pullback
+- entry_style: pullback_to_23ema
+- position_sizing: half_position
 
 ### management_plan
+- buy_first_tranche_near_support
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -87,6 +91,8 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
+- decision_score_high
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -113,29 +119,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 158.5
-- high: 164.5
-- low: 157.5
-- close: 159.5
-- volume: 1558000
-- ma5: 160.2
-- ema23_primary: 165.94
-- distance_to_ema23_pct: -3.88
-- ma20: 173.25
-- ma60: 141.47
-- ma120: 100.26
-- return_5d: -1.85
-- return_20d: -24.05
-- volume_ratio: 0.52
-- distance_to_ma20_pct_auxiliary: -7.94
-- distance_to_high_60_pct: -27.17
+- date: 20260716
+- open: 155.5
+- high: 156
+- low: 150.5
+- close: 151
+- volume: 1383000
+- ma5: 158.9
+- ema23_primary: 164.69
+- distance_to_ema23_pct: -8.31
+- ma20: 171.32
+- ma60: 142.67
+- ma120: 101.11
+- return_5d: -4.13
+- return_20d: -20.32
+- volume_ratio: 0.53
+- distance_to_ma20_pct_auxiliary: -11.86
+- distance_to_high_60_pct: -31.05
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,210,219,189,189.5,9494000,158.98,19.2,158.57,110.02,5.22
 20260617,185,191.5,180.5,191.5,4196000,161.69,18.43,162.7,111.73,2.29
 20260618,192.5,197.5,188,193.5,3896000,164.34,17.74,166.97,113.63,2.13
 20260622,195.5,197,190,191.5,3803000,166.61,14.94,170.8,115.63,1.88
@@ -155,6 +160,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,170.5,171,160.5,163,1781000,167.62,-2.75,177.6,138.81,0.58
 20260714,158,160,147,154.5,2657000,166.52,-7.22,175.78,140.11,0.86
 20260715,158.5,164.5,157.5,159.5,1558000,165.94,-3.88,173.25,141.47,0.52
+20260716,155.5,156,150.5,151,1383000,164.69,-8.31,171.32,142.67,0.53
 ```
 
 ## Latest TDCC Snapshot
@@ -189,13 +195,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 4973 | 廣穎電通 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.發生變動日期:115/06/18 2.功能性委員會名稱:薪資報酬委員會 3.舊任者姓名: (1)黃清茂 (2)洪敬恒 (3)劉復華 (4)鄭翠玉 4.舊任者簡歷: (1)黃清茂：泰博科技股份有限公司特別助理 (2)洪敬恒：太曼妮企業有限公司代表人 (3)劉復華：頂典有限公司代表人 (4)鄭翠玉：廣展會計師事務所所長 5.新任者姓名: (1)黃清茂 (2)洪敬恒 (3)鄭翠玉 (4)許源卿 6.新任者簡歷: (1)黃清茂：泰博科技股份有限公司特別助理 (2)洪敬恒：太曼妮企業有限公司代表人 (3)鄭翠玉：廣展會計師事務所所長 (4)許源卿：昇佳電子股份有限公司營運長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 任期屆滿 8.異動原因:任期屆滿，全面改選。 9.原任期（例xx/xx/xx ~ xx/xx/xx）:112/06/18~115/06/17 10.新任生效日期:115/06/18 11.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
-| 20260715 | 4973 | 廣穎電通 | revenue_pullback | 營收成長股價回檔 | 83.0 |  |  |  |  |  | stale_signal | 1.發生變動日期:115/06/18 2.功能性委員會名稱:薪資報酬委員會 3.舊任者姓名: (1)黃清茂 (2)洪敬恒 (3)劉復華 (4)鄭翠玉 4.舊任者簡歷: (1)黃清茂：泰博科技股份有限公司特別助理 (2)洪敬恒：太曼妮企業有限公司代表人 (3)劉復華：頂典有限公司代表人 (4)鄭翠玉：廣展會計師事務所所長 5.新任者姓名: (1)黃清茂 (2)洪敬恒 (3)鄭翠玉 (4)許源卿 6.新任者簡歷: (1)黃清茂：泰博科技股份有限公司特別助理 (2)洪敬恒：太曼妮企業有限公司代表人 (3)鄭翠玉：廣展會計師事務所所長 (4)許源卿：昇佳電子股份有限公司營運長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 任期屆滿 8.異動原因:任期屆滿，全面改選。 9.原任期（例xx/xx/xx ~ xx/xx/xx）:112/06/18~115/06/17 10.新任生效日期:115/06/18 11.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260716 | 4973 | 廣穎電通 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  |  | stale_signal | 1.發生變動日期:115/06/18 2.功能性委員會名稱:薪資報酬委員會 3.舊任者姓名: (1)黃清茂 (2)洪敬恒 (3)劉復華 (4)鄭翠玉 4.舊任者簡歷: (1)黃清茂：泰博科技股份有限公司特別助理 (2)洪敬恒：太曼妮企業有限公司代表人 (3)劉復華：頂典有限公司代表人 (4)鄭翠玉：廣展會計師事務所所長 5.新任者姓名: (1)黃清茂 (2)洪敬恒 (3)鄭翠玉 (4)許源卿 6.新任者簡歷: (1)黃清茂：泰博科技股份有限公司特別助理 (2)洪敬恒：太曼妮企業有限公司代表人 (3)鄭翠玉：廣展會計師事務所所長 (4)許源卿：昇佳電子股份有限公司營運長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 任期屆滿 8.異動原因:任期屆滿，全面改選。 9.原任期（例xx/xx/xx ~ xx/xx/xx）:112/06/18~115/06/17 10.新任生效日期:115/06/18 11.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 4973 | 廣穎電通 | 17 | 16 | 5 | 10 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260716 | 4973 | 廣穎電通 | 18 | 1 | 5 | 10 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6190 萬泰科
 
 ## Metadata
-- generated_at: 2026-07-15 22:27:26 Asia/Taipei
+- generated_at: 2026-07-16 22:28:01 Asia/Taipei
 - stock_id: 6190
 - stock_name: 萬泰科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 169
+- latest_price_date: 20260716
+- price_rows: 170
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 75.7
-- high: 79.8
-- low: 75.7
-- close: 78.1
-- volume: 2651000
-- ma5: 79.48
-- ema23_primary: 81.23
-- distance_to_ema23_pct: -3.85
-- ma20: 81.84
-- ma60: 78.95
-- ma120: 65.66
-- return_5d: -5.45
-- return_20d: -1.51
-- volume_ratio: 0.67
-- distance_to_ma20_pct_auxiliary: -4.58
-- distance_to_high_60_pct: -21.59
+- date: 20260716
+- open: 75.9
+- high: 76.8
+- low: 74.3
+- close: 75.2
+- volume: 1819000
+- ma5: 77.9
+- ema23_primary: 80.72
+- distance_to_ema23_pct: -6.84
+- ma20: 81.8
+- ma60: 79.14
+- ma120: 65.87
+- return_5d: -9.51
+- return_20d: -1.31
+- volume_ratio: 0.47
+- distance_to_ma20_pct_auxiliary: -8.06
+- distance_to_high_60_pct: -24.5
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,80.4,80.6,76.1,76.2,4036000,79.41,-4.04,81.33,71.26,1.95
 20260617,76.2,79.4,75.7,78.3,2825000,79.32,-1.29,81.36,71.66,1.45
 20260618,78.9,83.2,78.4,82.9,5408000,79.62,4.12,81.56,72.13,2.84
 20260622,83.5,85.5,82.3,83.7,8767000,79.96,4.68,81.74,72.65,3.75
@@ -160,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,83.1,83.5,78,78.4,2536000,82.04,-4.44,82.14,78.49,0.63
 20260714,78,79.1,73,75.7,2742000,81.51,-7.13,81.91,78.7,0.69
 20260715,75.7,79.8,75.7,78.1,2651000,81.23,-3.85,81.84,78.95,0.67
+20260716,75.9,76.8,74.3,75.2,1819000,80.72,-6.84,81.8,79.14,0.47
 ```
 
 ## Latest TDCC Snapshot
@@ -194,12 +194,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 6190 | 萬泰科 | revenue_pullback | 營收成長股價回檔 | 69.0 |  |  |  |  |  | stale_signal | 1.原預定買回股份總金額上限(元):1,303,686,388 2.原預定買回之期間:115/05/13~115/07/10 3.原預定買回之數量(股):2,000,000 4.原預定買回區間價格(元):60.00~110.00 5.本次實際買回期間:115/05/13~115/06/25 6.本次已買回股份數量(股):1,536,000 7.本次已買回股份總金額(元):123,190,630 8.本次平均每股買回價格(元):80.20 9.累積已持有自己公司股份數量(股):6,600,000 10.累積已持有自己公司股份數量占公司已發行股份總數之比率(%):3.54 11.本次未執行完畢之原因: 考量後續整體資金運用之效益，故未予以執行完畢 12.其他應敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260716 | 6190 | 萬泰科 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  |  | stale_signal | 1.原預定買回股份總金額上限(元):1,303,686,388 2.原預定買回之期間:115/05/13~115/07/10 3.原預定買回之數量(股):2,000,000 4.原預定買回區間價格(元):60.00~110.00 5.本次實際買回期間:115/05/13~115/06/25 6.本次已買回股份數量(股):1,536,000 7.本次已買回股份總金額(元):123,190,630 8.本次平均每股買回價格(元):80.20 9.累積已持有自己公司股份數量(股):6,600,000 10.累積已持有自己公司股份數量占公司已發行股份總數之比率(%):3.54 11.本次未執行完畢之原因: 考量後續整體資金運用之效益，故未予以執行完畢 12.其他應敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 6190 | 萬泰科 | 17 | 6 | 5 | 10 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260716 | 6190 | 萬泰科 | 1 | 1 | 4 | 9 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

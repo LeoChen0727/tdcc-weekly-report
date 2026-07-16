@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6241 鑫永洋
 
 ## Metadata
-- generated_at: 2026-07-15 22:27:28 Asia/Taipei
+- generated_at: 2026-07-16 22:28:04 Asia/Taipei
 - stock_id: 6241
 - stock_name: 鑫永洋
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 169
+- latest_price_date: 20260716
+- price_rows: 170
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -111,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 18.45
-- high: 18.9
-- low: 17.5
-- close: 18.8
-- volume: 1642000
-- ma5: 16.97
-- ema23_primary: 15.04
-- distance_to_ema23_pct: 25.02
-- ma20: 15.33
-- ma60: 12.08
-- ma120: 12.07
-- return_5d: 24.92
-- return_20d: 31.93
-- volume_ratio: 2.41
-- distance_to_ma20_pct_auxiliary: 22.62
-- distance_to_high_60_pct: -0.79
+- date: 20260716
+- open: 19
+- high: 19.1
+- low: 17.7
+- close: 17.7
+- volume: 1196000
+- ma5: 17.45
+- ema23_primary: 15.26
+- distance_to_ema23_pct: 15.99
+- ma20: 15.53
+- ma60: 12.21
+- ma120: 12.1
+- return_5d: 15.69
+- return_20d: 28.73
+- volume_ratio: 1.7
+- distance_to_ma20_pct_auxiliary: 13.97
+- distance_to_high_60_pct: -7.33
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,15,15.15,13.55,13.75,690000,11.37,20.93,11.09,10.73,2.24
 20260617,13.75,13.75,13.35,13.6,166000,11.56,17.68,11.23,10.75,0.53
 20260618,14.75,14.75,14.05,14.35,543000,11.79,21.72,11.41,10.79,1.63
 20260622,14.5,14.5,14.05,14.3,303000,12,19.18,11.59,10.83,0.87
@@ -153,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,15.25,17.3,15,17.3,2183000,14.42,19.95,14.91,11.81,3.45
 20260714,18.15,18.95,15.7,17.7,2500000,14.7,20.45,15.11,11.94,3.81
 20260715,18.45,18.9,17.5,18.8,1642000,15.04,25.02,15.33,12.08,2.41
+20260716,19,19.1,17.7,17.7,1196000,15.26,15.99,15.53,12.21,1.7
 ```
 
 ## Latest TDCC Snapshot
@@ -187,12 +187,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 6241 | 鑫永洋 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_overheated | 1.事實發生日:115/07/14 2.公司名稱:鑫永洋科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:更正私募專區申報訊息誤植 6.更正資訊項目/報表名稱:應募人預計取得董事或監察人席次 及私募對象之前十大股東與公司之關係 7.更正前金額/內容/頁次:應募人預計取得董事或監察人席次： 1席。 私募對象之前十大股東金智洋科技股份有限公司與公司之關係： 無。 8.更正後金額/內容/頁次:應募人預計取得董事或監察人席次： 2席。 私募對象之前十大股東金智洋科技股份有限公司與公司之關係： 同一集團之其他關係人。 9.因應措施:更正後重新上傳至公開資訊觀測站 10.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260716 | 6241 | 鑫永洋 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  |  | stale_signal | 1.事實發生日:115/07/14 2.公司名稱:鑫永洋科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:更正私募專區申報訊息誤植 6.更正資訊項目/報表名稱:應募人預計取得董事或監察人席次 及私募對象之前十大股東與公司之關係 7.更正前金額/內容/頁次:應募人預計取得董事或監察人席次： 1席。 私募對象之前十大股東金智洋科技股份有限公司與公司之關係： 無。 8.更正後金額/內容/頁次:應募人預計取得董事或監察人席次： 2席。 私募對象之前十大股東金智洋科技股份有限公司與公司之關係： 同一集團之其他關係人。 9.因應措施:更正後重新上傳至公開資訊觀測站 10.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 6241 | 鑫永洋 | 3 | 1 | 3 | 3 | 3 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260716 | 6241 | 鑫永洋 | 4 | 2 | 4 | 4 | 4 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

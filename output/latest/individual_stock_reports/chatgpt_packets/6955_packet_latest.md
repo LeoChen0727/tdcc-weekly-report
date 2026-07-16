@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6955 邦睿生技-創
 
 ## Metadata
-- generated_at: 2026-07-15 22:27:42 Asia/Taipei
+- generated_at: 2026-07-16 22:28:25 Asia/Taipei
 - stock_id: 6955
 - stock_name: 邦睿生技-創
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 267
+- latest_price_date: 20260716
+- price_rows: 268
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 111
-- high: 115
-- low: 111
-- close: 115
-- volume: 14600
-- ma5: 114.9
-- ema23_primary: 125.17
-- distance_to_ema23_pct: -8.12
-- ma20: 123.58
-- ma60: 144.6
-- ma120: 154.87
-- return_5d: -4.17
-- return_20d: -16.67
-- volume_ratio: 0.8
-- distance_to_ma20_pct_auxiliary: -6.94
-- distance_to_high_60_pct: -32.75
+- date: 20260716
+- open: 114
+- high: 114.5
+- low: 113
+- close: 113
+- volume: 8129
+- ma5: 113.9
+- ema23_primary: 124.15
+- distance_to_ema23_pct: -8.98
+- ma20: 122.38
+- ma60: 143.73
+- ma120: 154.55
+- return_5d: -4.24
+- return_20d: -17.52
+- volume_ratio: 0.44
+- distance_to_ma20_pct_auxiliary: -7.66
+- distance_to_high_60_pct: -33.92
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260615,137,137,137,137,9472,146.88,-6.73,146.05,158.32,0.9
 20260616,136.5,136.5,134.5,135.5,20430,145.93,-7.15,145.18,157.82,1.87
 20260617,134,134.5,133,133,20331,144.85,-8.18,144.28,157.28,1.79
 20260618,133,133,132.5,132.5,4590,143.82,-7.87,143.3,156.59,0.42
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,117,117,114,114,17234,127.51,-10.6,126.15,146.39,1
 20260714,113.5,113.5,109.5,110.5,24190,126.09,-12.37,124.72,145.43,1.33
 20260715,111,115,111,115,14600,125.17,-8.12,123.58,144.6,0.8
+20260716,114,114.5,113,113,8129,124.15,-8.98,122.38,143.73,0.44
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6719 力智
 
 ## Metadata
-- generated_at: 2026-07-15 22:27:37 Asia/Taipei
+- generated_at: 2026-07-16 22:28:17 Asia/Taipei
 - stock_id: 6719
 - stock_name: 力智
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 304
+- latest_price_date: 20260716
+- price_rows: 305
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -111,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 247
-- high: 248.5
-- low: 240.5
-- close: 248
-- volume: 1338069
-- ma5: 257.6
-- ema23_primary: 263.44
-- distance_to_ema23_pct: -5.86
-- ma20: 273.1
-- ma60: 231.63
-- ma120: 205.26
-- return_5d: -12.83
-- return_20d: 3.12
-- volume_ratio: 0.22
-- distance_to_ma20_pct_auxiliary: -9.19
-- distance_to_high_60_pct: -24.04
+- date: 20260716
+- open: 243.5
+- high: 249.5
+- low: 238
+- close: 244
+- volume: 1191626
+- ma5: 251
+- ema23_primary: 261.82
+- distance_to_ema23_pct: -6.81
+- ma20: 273.32
+- ma60: 232.87
+- ma120: 205.76
+- return_5d: -11.91
+- return_20d: 1.88
+- volume_ratio: 0.2
+- distance_to_ma20_pct_auxiliary: -10.73
+- distance_to_high_60_pct: -25.27
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,249,254,238,239.5,2840072,225.9,6.02,237.25,196.3,0.95
 20260617,239,239,232,237,1002142,226.82,4.49,237.5,197.46,0.36
 20260618,245,260.5,245,260.5,4105995,229.63,13.44,238.85,199.09,1.51
 20260622,279.5,286.5,278,286,8709729,234.33,22.05,241.55,201.13,2.86
@@ -153,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,270,273.5,247.5,252.5,3298235,266.74,-5.34,271.48,228.99,0.56
 20260714,252.5,256,231,244,3323981,264.84,-7.87,272.73,230.29,0.55
 20260715,247,248.5,240.5,248,1338069,263.44,-5.86,273.1,231.63,0.22
+20260716,243.5,249.5,238,244,1191626,261.82,-6.81,273.32,232.87,0.2
 ```
 
 ## Latest TDCC Snapshot
@@ -187,17 +187,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 6719 | 力智 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/08/07 1.召開法人說明會之日期：115/08/07 2.召開法人說明會之時間：14 時 30 分  3.召開法人說明會之地點：線上 4.法人說明會擇要訊息：本公司受邀參加福邦證券舉辦之線上法人說明會 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: ex_dividend on 20260721; status=confirmed; proximity=within_7d |
+| 20260716 | 6719 | 力智 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/08/07 1.召開法人說明會之日期：115/08/07 2.召開法人說明會之時間：14 時 30 分  3.召開法人說明會之地點：線上 4.法人說明會擇要訊息：本公司受邀參加福邦證券舉辦之線上法人說明會 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: ex_dividend on 20260721; status=confirmed; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 6719 | 力智 | 4 | 4 | 4 | 8 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260716 | 6719 | 力智 | 5 | 5 | 5 | 8 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 6719 | 力智 | 55 | 2 | 2223620.0 | 35870.0 | 61.99 | no_signal |
+| 20260716 | 6719 | 力智 | 55 | 0 | 1676330.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

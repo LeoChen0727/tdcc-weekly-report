@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1471 首利
 
 ## Metadata
-- generated_at: 2026-07-15 22:26:26 Asia/Taipei
+- generated_at: 2026-07-16 22:26:28 Asia/Taipei
 - stock_id: 1471
 - stock_name: 首利
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 304
+- latest_price_date: 20260716
+- price_rows: 305
 - latest_tdcc_date: 20260703
 - tdcc_rows: 32
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 10.15
-- high: 10.2
-- low: 10.05
-- close: 10.2
-- volume: 352520
-- ma5: 10.26
-- ema23_primary: 10.68
-- distance_to_ema23_pct: -4.5
-- ma20: 10.73
-- ma60: 11.04
+- date: 20260716
+- open: 10.2
+- high: 10.4
+- low: 10
+- close: 10.05
+- volume: 463641
+- ma5: 10.19
+- ema23_primary: 10.63
+- distance_to_ema23_pct: -5.44
+- ma20: 10.7
+- ma60: 10.99
 - ma120: 11.62
-- return_5d: -4.23
-- return_20d: -7.69
-- volume_ratio: 0.44
-- distance_to_ma20_pct_auxiliary: -4.98
-- distance_to_high_60_pct: -27.14
+- return_5d: -3.37
+- return_20d: -6.07
+- volume_ratio: 0.58
+- distance_to_ma20_pct_auxiliary: -6.1
+- distance_to_high_60_pct: -28.21
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,11.1,11.1,10.7,10.7,449629,11.05,-3.17,11,11.59,0.42
 20260617,10.55,11.75,10.55,11.6,2691383,11.1,4.54,11.06,11.55,2.31
 20260618,10.9,11.2,10.8,10.95,1502138,11.08,-1.21,11.08,11.5,1.24
 20260622,11.1,11.25,10.85,11.15,807719,11.09,0.54,11.1,11.47,0.66
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,10.5,10.65,10.25,10.25,585398,10.79,-4.97,10.81,11.1,0.73
 20260714,10.2,10.25,9.92,10.05,860252,10.72,-6.29,10.78,11.07,1.06
 20260715,10.15,10.2,10.05,10.2,352520,10.68,-4.5,10.73,11.04,0.44
+20260716,10.2,10.4,10,10.05,463641,10.63,-5.44,10.7,10.99,0.58
 ```
 
 ## Latest TDCC Snapshot

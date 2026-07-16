@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6525 捷敏-KY
 
 ## Metadata
-- generated_at: 2026-07-15 22:27:32 Asia/Taipei
+- generated_at: 2026-07-16 22:28:10 Asia/Taipei
 - stock_id: 6525
 - stock_name: 捷敏-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 304
+- latest_price_date: 20260716
+- price_rows: 305
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -111,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 186
-- high: 193
-- low: 177.5
-- close: 188.5
-- volume: 5582780
-- ma5: 192.2
-- ema23_primary: 167.45
-- distance_to_ema23_pct: 12.57
-- ma20: 168.47
-- ma60: 129.67
-- ma120: 105.49
-- return_5d: -14.71
-- return_20d: 43.35
-- volume_ratio: 0.91
-- distance_to_ma20_pct_auxiliary: 11.89
-- distance_to_high_60_pct: -14.71
+- date: 20260716
+- open: 182.5
+- high: 199.5
+- low: 176.5
+- close: 191.5
+- volume: 4931862
+- ma5: 190.7
+- ema23_primary: 169.46
+- distance_to_ema23_pct: 13.01
+- ma20: 171.7
+- ma60: 131.35
+- ma120: 106.44
+- return_5d: -3.77
+- return_20d: 50.79
+- volume_ratio: 0.8
+- distance_to_ma20_pct_auxiliary: 11.53
+- distance_to_high_60_pct: -13.35
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,130.5,131.5,124.5,127,4405839,118.3,7.35,121.38,102.04,1.91
 20260617,125.5,134.5,124,130,5791651,119.28,8.99,122.2,102.81,2.3
 20260618,136,143,135,143,4186904,121.25,17.94,123.65,103.84,1.57
 20260622,157,157,145.5,155,9125433,124.06,24.93,125.6,105.07,2.97
@@ -153,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,203,203.5,183,192.5,6380726,164.09,17.31,162.82,126.49,1.06
 20260714,194,194,173.5,181.5,5412647,165.54,9.64,165.62,128.04,0.88
 20260715,186,193,177.5,188.5,5582780,167.45,12.57,168.47,129.67,0.91
+20260716,182.5,199.5,176.5,191.5,4931862,169.46,13.01,171.7,131.35,0.8
 ```
 
 ## Latest TDCC Snapshot
@@ -197,7 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 6525 | 捷敏-KY | 16 | 0 | 4034380.0 | 0.0 |  | call_strong_inflow |
+| 20260716 | 6525 | 捷敏-KY | 16 | 0 | 6563070.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

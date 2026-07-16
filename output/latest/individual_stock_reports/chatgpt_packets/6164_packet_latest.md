@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6164 華興
 
 ## Metadata
-- generated_at: 2026-07-15 22:27:25 Asia/Taipei
+- generated_at: 2026-07-16 22:27:59 Asia/Taipei
 - stock_id: 6164
 - stock_name: 華興
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 304
+- latest_price_date: 20260716
+- price_rows: 305
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 14
-- high: 14.4
-- low: 13.6
-- close: 13.9
-- volume: 1036901
-- ma5: 14.41
-- ema23_primary: 14.05
-- distance_to_ema23_pct: -1.07
-- ma20: 14.13
-- ma60: 12.99
-- ma120: 12.66
-- return_5d: -6.08
-- return_20d: 5.7
-- volume_ratio: 0.38
-- distance_to_ma20_pct_auxiliary: -1.61
-- distance_to_high_60_pct: -20.11
+- date: 20260716
+- open: 13.7
+- high: 14.45
+- low: 13.5
+- close: 13.65
+- volume: 1333665
+- ma5: 14.11
+- ema23_primary: 14.02
+- distance_to_ema23_pct: -2.62
+- ma20: 14.17
+- ma60: 13
+- ma120: 12.67
+- return_5d: -9.9
+- return_20d: 6.23
+- volume_ratio: 0.48
+- distance_to_ma20_pct_auxiliary: -3.65
+- distance_to_high_60_pct: -21.55
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,13.2,13.2,12.8,12.85,511727,12.6,1.95,12.6,12.4,0.56
 20260617,12.85,13.65,12.85,13.6,1588394,12.69,7.19,12.69,12.41,1.61
 20260618,13.6,13.65,13.2,13.35,870154,12.74,4.77,12.75,12.42,0.86
 20260622,13.5,13.8,13.4,13.7,1543118,12.82,6.84,12.81,12.45,1.5
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,15.05,15.4,14.15,14.35,2130776,14.1,1.79,14.04,12.96,0.8
 20260714,14.35,14.55,12.95,13.7,2633260,14.06,-2.59,14.09,12.98,0.96
 20260715,14,14.4,13.6,13.9,1036901,14.05,-1.07,14.13,12.99,0.38
+20260716,13.7,14.45,13.5,13.65,1333665,14.02,-2.62,14.17,13,0.48
 ```
 
 ## Latest TDCC Snapshot
@@ -188,12 +188,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 6164 | 華興 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.事實發生日:115/07/09 2.公司名稱:華興電子工業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:公告本公司115年06月份合併自結損益 (1)本月合併營業損益(仟元)：2,354 (2)本年累計合併營業損益(仟元)：3,430 (3)本月合併稅前損益(仟元)：8,170 (4)本年累計合併稅前損益(仟元)：18,470 6.因應措施:無。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): (1).115年06月合併營收淨額69,942仟元 ,115年01-06月合併累計營收淨額     398,491仟元。 (2).前述各項數字係公司自結數,尚未經會計師查核簽證,未來相關財務報告     經會計師查核簽證後, 將依法令規定期限公告申報。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260716 | 6164 | 華興 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.事實發生日:115/07/09 2.公司名稱:華興電子工業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:公告本公司115年06月份合併自結損益 (1)本月合併營業損益(仟元)：2,354 (2)本年累計合併營業損益(仟元)：3,430 (3)本月合併稅前損益(仟元)：8,170 (4)本年累計合併稅前損益(仟元)：18,470 6.因應措施:無。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): (1).115年06月合併營收淨額69,942仟元 ,115年01-06月合併累計營收淨額     398,491仟元。 (2).前述各項數字係公司自結數,尚未經會計師查核簽證,未來相關財務報告     經會計師查核簽證後, 將依法令規定期限公告申報。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 6164 | 華興 | 10 | 5 | 5 | 10 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260716 | 6164 | 華興 | 11 | 6 | 5 | 10 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

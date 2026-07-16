@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2328 廣宇
 
 ## Metadata
-- generated_at: 2026-07-15 22:26:36 Asia/Taipei
+- generated_at: 2026-07-16 22:26:45 Asia/Taipei
 - stock_id: 2328
 - stock_name: 廣宇
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 304
+- latest_price_date: 20260716
+- price_rows: 305
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 47.7
-- high: 51
-- low: 47.7
-- close: 50.1
-- volume: 4301338
-- ma5: 48.68
-- ema23_primary: 50.55
-- distance_to_ema23_pct: -0.9
-- ma20: 50.49
-- ma60: 51.65
-- ma120: 49.88
-- return_5d: 2.24
-- return_20d: -5.83
-- volume_ratio: 0.92
-- distance_to_ma20_pct_auxiliary: -0.77
-- distance_to_high_60_pct: -22.33
+- date: 20260716
+- open: 49.95
+- high: 50.1
+- low: 48.85
+- close: 49.35
+- volume: 2079540
+- ma5: 48.78
+- ema23_primary: 50.45
+- distance_to_ema23_pct: -2.19
+- ma20: 50.36
+- ma60: 51.71
+- ma120: 49.89
+- return_5d: 1.02
+- return_20d: -5.1
+- volume_ratio: 0.46
+- distance_to_ma20_pct_auxiliary: -2
+- distance_to_high_60_pct: -23.49
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,53.9,53.9,52,52,3827483,53.4,-2.62,54.56,49.88,0.25
 20260617,52,52.8,51.5,52.6,4663360,53.33,-1.37,54.66,50,0.31
 20260618,53,53.9,52.6,53.4,5450831,53.34,0.12,54.73,50.15,0.36
 20260622,54,54.5,53.4,53.4,6071086,53.34,0.11,54.66,50.3,0.42
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,49.35,50.2,48.35,48.5,2752615,50.88,-4.68,50.86,51.54,0.59
 20260714,49.15,49.15,45.3,47.45,4164767,50.6,-6.22,50.65,51.57,0.89
 20260715,47.7,51,47.7,50.1,4301338,50.55,-0.9,50.49,51.65,0.92
+20260716,49.95,50.1,48.85,49.35,2079540,50.45,-2.19,50.36,51.71,0.46
 ```
 
 ## Latest TDCC Snapshot
@@ -199,7 +199,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 2328 | 廣宇 | 52 | 1 | 1546530.0 | 0.0 |  | call_inflow |
+| 20260716 | 2328 | 廣宇 | 52 | 0 | 2921250.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

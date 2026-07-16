@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8926 台汽電
 
 ## Metadata
-- generated_at: 2026-07-15 22:27:56 Asia/Taipei
+- generated_at: 2026-07-16 22:28:46 Asia/Taipei
 - stock_id: 8926
 - stock_name: 台汽電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 304
+- latest_price_date: 20260716
+- price_rows: 305
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -119,29 +119,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 69
-- high: 69
-- low: 66.9
-- close: 67.7
-- volume: 5421363
-- ma5: 71.6
-- ema23_primary: 73.35
-- distance_to_ema23_pct: -7.71
-- ma20: 76.28
-- ma60: 64.47
-- ma120: 54.53
-- return_5d: -13.76
-- return_20d: -6.49
-- volume_ratio: 0.54
-- distance_to_ma20_pct_auxiliary: -11.25
-- distance_to_high_60_pct: -19.69
+- date: 20260716
+- open: 67.2
+- high: 67.9
+- low: 65.7
+- close: 67
+- volume: 3506153
+- ma5: 69.46
+- ema23_primary: 72.82
+- distance_to_ema23_pct: -8
+- ma20: 75.79
+- ma60: 64.81
+- ma120: 54.75
+- return_5d: -13.77
+- return_20d: -12.76
+- volume_ratio: 0.37
+- distance_to_ma20_pct_auxiliary: -11.6
+- distance_to_high_60_pct: -20.52
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,72.5,78.6,72.5,76.8,14340085,67.47,13.83,69.03,54.42,0.99
 20260617,76.9,79.8,75.6,79.4,12526055,68.46,15.98,70,54.98,0.86
 20260618,79.7,82,78.4,79,12774581,69.34,13.93,70.9,55.53,0.87
 20260622,80,80.7,79,79,7788449,70.15,12.62,71.81,56.09,0.53
@@ -161,6 +160,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,76,76.4,68.9,69.3,16051291,74.47,-6.94,76.86,63.72,1.53
 20260714,68.6,69,65.3,67.3,10981607,73.87,-8.89,76.52,64.09,1.06
 20260715,69,69,66.9,67.7,5421363,73.35,-7.71,76.28,64.47,0.54
+20260716,67.2,67.9,65.7,67,3506153,72.82,-8,75.79,64.81,0.37
 ```
 
 ## Latest TDCC Snapshot
@@ -195,17 +195,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 8926 | 台汽電 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  | no_signal | stale_signal | 1.發生變動日期:115/07/01 2.法人名稱:大亞電線電纜股份有限公司 3.舊任者姓名:不適用 4.舊任者簡歷:不適用 5.新任者姓名:李文彬 6.新任者簡歷:大亞電線電纜股份有限公司銅材暨台北管理處執行顧問 7.異動原因:法人董事指派代表人 8.原任期（例xx/xx/xx至xx/xx/xx）:115/06/30~118/06/29 9.新任生效日期:115/07/01 10.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260716 | 8926 | 台汽電 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  | no_signal | stale_signal | 1.發生變動日期:115/07/01 2.法人名稱:大亞電線電纜股份有限公司 3.舊任者姓名:不適用 4.舊任者簡歷:不適用 5.新任者姓名:李文彬 6.新任者簡歷:大亞電線電纜股份有限公司銅材暨台北管理處執行顧問 7.異動原因:法人董事指派代表人 8.原任期（例xx/xx/xx至xx/xx/xx）:115/06/30~118/06/29 9.新任生效日期:115/07/01 10.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 8926 | 台汽電 | 16 | 9 | 5 | 10 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260716 | 8926 | 台汽電 | 1 | 1 | 4 | 9 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 8926 | 台汽電 | 4 | 0 | 208930.0 | 0.0 |  | no_signal |
+| 20260716 | 8926 | 台汽電 | 4 | 0 | 355680.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

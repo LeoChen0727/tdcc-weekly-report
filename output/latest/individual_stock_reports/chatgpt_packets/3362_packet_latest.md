@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3362 先進光
 
 ## Metadata
-- generated_at: 2026-07-15 22:26:58 Asia/Taipei
+- generated_at: 2026-07-16 22:27:18 Asia/Taipei
 - stock_id: 3362
 - stock_name: 先進光
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 169
+- latest_price_date: 20260716
+- price_rows: 170
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 176
-- high: 177.5
-- low: 169
-- close: 171
-- volume: 2368000
-- ma5: 175.9
-- ema23_primary: 174.19
-- distance_to_ema23_pct: -1.83
-- ma20: 187.07
-- ma60: 143.36
-- ma120: 123.36
-- return_5d: 5.88
-- return_20d: -3.12
-- volume_ratio: 0.32
-- distance_to_ma20_pct_auxiliary: -8.59
-- distance_to_high_60_pct: -21.56
+- date: 20260716
+- open: 168
+- high: 181
+- low: 164
+- close: 169.5
+- volume: 4973000
+- ma5: 176.2
+- ema23_primary: 173.8
+- distance_to_ema23_pct: -2.47
+- ma20: 185.85
+- ma60: 144.16
+- ma120: 123.91
+- return_5d: 0.89
+- return_20d: -12.63
+- volume_ratio: 0.71
+- distance_to_ma20_pct_auxiliary: -8.8
+- distance_to_high_60_pct: -22.25
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,184.5,194,178,194,14361000,141.81,36.81,137.3,115.7,3.94
 20260617,197,213,196,207.5,21999000,147.28,40.89,142,117.55,4.81
 20260618,206,218,203.5,211,14029000,152.59,38.28,146.5,119.49,2.73
 20260622,211,211,201.5,205,6644000,156.96,30.61,150.75,121.31,1.22
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,187.5,198,185,188.5,12009000,174.7,7.9,186.78,141.42,1.52
 20260714,187.5,189.5,170,172,6370000,174.48,-1.42,187.35,142.39,0.83
 20260715,176,177.5,169,171,2368000,174.19,-1.83,187.07,143.36,0.32
+20260716,168,181,164,169.5,4973000,173.8,-2.47,185.85,144.16,0.71
 ```
 
 ## Latest TDCC Snapshot
@@ -188,12 +188,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 3362 | 先進光 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.重要子公司名稱:科雅光電股份有限公司 2.發生緣由(降低持股比例（或出資額）或喪失控制力):降低持股比例 3.降低持股（或出資額）比例之方式(請分別列示各次發生日期、發生原因 、方式、降低持股比例、交易數量、每單位價格及交易總金額): 發生日期：115年5月7日及115年7月9日本公司董事會決議。 發生原因：配合科雅公司股票上(市)櫃規劃，依法令規定辦理股權分散。 方式：處分科雅光電公司10%股權，共計 3,680,000 股，處分後本公司仍 持有該子公司90%股權，仍保有實質控制權與經營決策影響力。 降低持股比例：10% 交易數量：3,680,000股 每單位價格：每股新台幣68元 交易總金額：新台幣250,240千元 4.喪失控制力之方式(請列示發生日期、發生原因及方式):不適用 5.股權(或出資額)受讓對象或所洽特定對象(請分別列示各次交易對象): 大立光電股份有限公司 6.與交易對象之關係(請分別列示各次交易對象與公司之關係):無 7.處分利益(或損失)(請分別列示各次處分損益，若無處分損益請填寫不適用): 不適用 8.迄目前為止(含本次交易)，對重要子公司累積降低持股比例:10% 9.迄目前為止(含本次交易)，對重要子公司持股比例:90% 10.獨立專家姓名及其就歷次價格合理性之意見: 勝傑會計師事務所塗勝傑會計師/價格尚屬合理。 11.獨立專家姓名及其就降低持股或喪失控制力對上櫃公司股東權益影響之意見: 勝傑會計師事務所塗勝傑會計師 降低持股對本公司之股東權益並無重大影響。 12.是否影響母公司繼續上櫃:否 13.審計委員會決議日期:115/05/07及115/07/09 14.審計委員會決議內容:本案經全體出席委員同意照案通過。 15.董事會決議日期:115/05/07及115/07/09 16.董事會決議內容:本案經全體出席董事同意照案通過。 17.其他應敘明事項: 1.本次補充公告所洽特定對象、每單位價格及交易總金額。 2.本次處分案若有其他未盡事宜，擬授權董事長視實際情況 依相關法令規定辦理及擬授權董事長代表本公司簽署一切有 關辦理契約及文件，並代表本公司辦理相關事項。 3.科雅釋股案己經115年6月29日股東會決議通過。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260716 | 3362 | 先進光 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.重要子公司名稱:科雅光電股份有限公司 2.發生緣由(降低持股比例（或出資額）或喪失控制力):降低持股比例 3.降低持股（或出資額）比例之方式(請分別列示各次發生日期、發生原因 、方式、降低持股比例、交易數量、每單位價格及交易總金額): 發生日期：115年5月7日及115年7月9日本公司董事會決議。 發生原因：配合科雅公司股票上(市)櫃規劃，依法令規定辦理股權分散。 方式：處分科雅光電公司10%股權，共計 3,680,000 股，處分後本公司仍 持有該子公司90%股權，仍保有實質控制權與經營決策影響力。 降低持股比例：10% 交易數量：3,680,000股 每單位價格：每股新台幣68元 交易總金額：新台幣250,240千元 4.喪失控制力之方式(請列示發生日期、發生原因及方式):不適用 5.股權(或出資額)受讓對象或所洽特定對象(請分別列示各次交易對象): 大立光電股份有限公司 6.與交易對象之關係(請分別列示各次交易對象與公司之關係):無 7.處分利益(或損失)(請分別列示各次處分損益，若無處分損益請填寫不適用): 不適用 8.迄目前為止(含本次交易)，對重要子公司累積降低持股比例:10% 9.迄目前為止(含本次交易)，對重要子公司持股比例:90% 10.獨立專家姓名及其就歷次價格合理性之意見: 勝傑會計師事務所塗勝傑會計師/價格尚屬合理。 11.獨立專家姓名及其就降低持股或喪失控制力對上櫃公司股東權益影響之意見: 勝傑會計師事務所塗勝傑會計師 降低持股對本公司之股東權益並無重大影響。 12.是否影響母公司繼續上櫃:否 13.審計委員會決議日期:115/05/07及115/07/09 14.審計委員會決議內容:本案經全體出席委員同意照案通過。 15.董事會決議日期:115/05/07及115/07/09 16.董事會決議內容:本案經全體出席董事同意照案通過。 17.其他應敘明事項: 1.本次補充公告所洽特定對象、每單位價格及交易總金額。 2.本次處分案若有其他未盡事宜，擬授權董事長視實際情況 依相關法令規定辦理及擬授權董事長代表本公司簽署一切有 關辦理契約及文件，並代表本公司辦理相關事項。 3.科雅釋股案己經115年6月29日股東會決議通過。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 3362 | 先進光 | 1 | 1 | 4 | 5 | 6 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260716 | 3362 | 先進光 | 2 | 2 | 4 | 6 | 7 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

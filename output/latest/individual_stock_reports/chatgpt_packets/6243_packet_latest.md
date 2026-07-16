@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6243 迅杰
 
 ## Metadata
-- generated_at: 2026-07-15 22:27:28 Asia/Taipei
+- generated_at: 2026-07-16 22:28:04 Asia/Taipei
 - stock_id: 6243
 - stock_name: 迅杰
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 304
+- latest_price_date: 20260716
+- price_rows: 305
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -56,25 +56,25 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
-- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
+- action_rating_display_zh: 停利
+- model_category_display_zh: 嚴格突破
+- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前以風險管理為主，不適合新買第一筆。
+- action_summary_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。
+- entry_strategy_zh: 目前進入停利管理，不建議新買第一筆。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
+- final_decision_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。 進場策略：目前進入停利管理，不建議新買第一筆。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
-- confidence_level: medium
-- thesis_state: high_level_consolidation
+- action_rating: take_profit
+- action_rating_label_zh: 停利
+- confidence_level: low
+- thesis_state: breakout_confirmed
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -87,6 +87,8 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
+- decision_score_high
 - price_structure_not_broken
 - revenue_not_deteriorating
 - no_major_tdcc_warning
@@ -111,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 43.6
-- high: 43.6
-- low: 43.6
-- close: 43.6
-- volume: 965798
-- ma5: 39.77
-- ema23_primary: 38.65
-- distance_to_ema23_pct: 12.81
-- ma20: 39.51
-- ma60: 35.53
-- ma120: 34.18
-- return_5d: 11.08
-- return_20d: 37.97
-- volume_ratio: 0.62
-- distance_to_ma20_pct_auxiliary: 10.37
-- distance_to_high_60_pct: -4.49
+- date: 20260716
+- open: 47.95
+- high: 47.95
+- low: 47.05
+- close: 47.95
+- volume: 4214723
+- ma5: 41.36
+- ema23_primary: 39.42
+- distance_to_ema23_pct: 21.62
+- ma20: 40.34
+- ma60: 35.83
+- ma120: 34.29
+- return_5d: 19.88
+- return_20d: 53.69
+- volume_ratio: 2.4
+- distance_to_ma20_pct_auxiliary: 18.86
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,31.85,32,31.1,31.2,149701,32.41,-3.75,32.96,32.36,0.4
 20260617,31.7,32,31.1,31.75,263106,32.36,-1.88,32.87,32.36,0.7
 20260618,31.8,34.9,31.55,34.9,990524,32.57,7.15,32.9,32.43,2.43
 20260622,36.1,38.35,35.7,38.35,2144454,33.05,16.03,33,32.57,4.74
@@ -153,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,39.55,40.45,36.05,36.05,465847,38.07,-5.3,38.47,35.19,0.33
 20260714,38,39.65,37,39.65,1855825,38.2,3.8,38.91,35.32,1.22
 20260715,43.6,43.6,43.6,43.6,965798,38.65,12.81,39.51,35.53,0.62
+20260716,47.95,47.95,47.05,47.95,4214723,39.42,21.62,40.34,35.83,2.4
 ```
 
 ## Latest TDCC Snapshot
@@ -185,14 +187,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260716 | 6243 | 迅杰 | true_breakout | 嚴格突破 | 99.0 |  |  | breakout_confirmed |  |  | first_seen | 1.發生變動日期:115/06/24 2.功能性委員會名稱:審計委員會、薪酬委員會及永續發展委員會 3.舊任者姓名:石國揚 4.舊任者簡歷:迅杰科技(股)公司獨立董事 5.新任者姓名:不適用 6.新任者簡歷:不適用 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）:辭職 8.異動原因:個人規劃。 9.原任期（例xx/xx/xx ~ xx/xx/xx）:114/04/15~117/04/14 10.新任生效日期:不適用 11.其他應敘明事項: (1)審計委員會之原任期為:114/04/15~117/04/14。 (2)薪酬委員會及永續發展委員會之原任期為:114/04/28~117/04/14。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260716 | 6243 | 迅杰 | 1 | 1 | 2 | 2 | 6 | first_seen | 首次上榜或資料有限，需後續確認。 |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6517 保勝光學
 
 ## Metadata
-- generated_at: 2026-07-15 22:27:32 Asia/Taipei
+- generated_at: 2026-07-16 22:28:10 Asia/Taipei
 - stock_id: 6517
 - stock_name: 保勝光學
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 169
+- latest_price_date: 20260716
+- price_rows: 170
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 72.4
-- high: 74
-- low: 69.6
-- close: 69.8
-- volume: 1204000
-- ma5: 68.84
-- ema23_primary: 69.09
-- distance_to_ema23_pct: 1.02
-- ma20: 71.5
-- ma60: 64.37
+- date: 20260716
+- open: 69.1
+- high: 75.8
+- low: 68.8
+- close: 71
+- volume: 1542000
+- ma5: 70.02
+- ema23_primary: 69.25
+- distance_to_ema23_pct: 2.52
+- ma20: 71.22
+- ma60: 64.55
 - ma120: 63.8
-- return_5d: 5.92
-- return_20d: 0.14
-- volume_ratio: 0.54
-- distance_to_ma20_pct_auxiliary: -2.38
-- distance_to_high_60_pct: -15.9
+- return_5d: 9.06
+- return_20d: -7.31
+- volume_ratio: 0.77
+- distance_to_ma20_pct_auxiliary: -0.32
+- distance_to_high_60_pct: -14.46
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,70.2,76.6,69.3,76.6,6186000,64.43,18.89,63.75,60,5.16
 20260617,76,83,75,78.6,11124000,65.61,19.8,64.66,60.35,6.43
 20260618,78.3,80.7,75.8,78.1,3404000,66.65,17.18,65.47,60.7,1.81
 20260622,78.1,79.1,72.6,77.1,3059000,67.52,14.18,66.21,61.05,1.5
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,67.1,72,66.9,72,1376000,68.78,4.68,71.24,64.02,0.61
 20260714,73.1,75.6,70.1,71.8,3919000,69.03,4.01,71.5,64.2,1.72
 20260715,72.4,74,69.6,69.8,1204000,69.09,1.02,71.5,64.37,0.54
+20260716,69.1,75.8,68.8,71,1542000,69.25,2.52,71.22,64.55,0.77
 ```
 
 ## Latest TDCC Snapshot
@@ -189,12 +189,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 6517 | 保勝光學 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260716 | 6517 | 保勝光學 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 6517 | 保勝光學 | 3 | 3 | 3 | 4 | 6 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260716 | 6517 | 保勝光學 | 4 | 4 | 4 | 4 | 7 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

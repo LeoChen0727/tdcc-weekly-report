@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6005 群益證
 
 ## Metadata
-- generated_at: 2026-07-15 22:27:22 Asia/Taipei
+- generated_at: 2026-07-16 22:27:55 Asia/Taipei
 - stock_id: 6005
 - stock_name: 群益證
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 304
+- latest_price_date: 20260716
+- price_rows: 305
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -119,29 +119,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 34.5
-- high: 34.75
-- low: 34.35
-- close: 34.4
-- volume: 4952639
-- ma5: 35.3
-- ema23_primary: 37.07
-- distance_to_ema23_pct: -7.19
-- ma20: 37.77
-- ma60: 34.97
-- ma120: 31.79
-- return_5d: -9.59
-- return_20d: -14.11
-- volume_ratio: 0.38
-- distance_to_ma20_pct_auxiliary: -8.93
-- distance_to_high_60_pct: -24.48
+- date: 20260716
+- open: 34.25
+- high: 34.8
+- low: 34.1
+- close: 34.65
+- volume: 3993186
+- ma5: 34.98
+- ema23_primary: 36.86
+- distance_to_ema23_pct: -6.01
+- ma20: 37.52
+- ma60: 35.07
+- ma120: 31.86
+- return_5d: -4.41
+- return_20d: -12.83
+- volume_ratio: 0.32
+- distance_to_ma20_pct_auxiliary: -7.65
+- distance_to_high_60_pct: -23.93
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,41,41.1,39.7,39.75,18181610,37.51,5.96,37.95,31.91,0.79
 20260617,39.25,40.35,39.15,39.45,15937295,37.67,4.71,38.39,32.11,0.68
 20260618,39.45,40.2,39.35,39.65,20145609,37.84,4.79,38.79,32.31,0.84
 20260622,40.2,40.35,39.65,39.8,16939884,38,4.73,39.19,32.52,0.7
@@ -161,6 +160,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,36.15,36.8,35.05,35.35,11541213,37.6,-5.98,38.3,34.75,0.85
 20260714,35.5,35.5,33.55,34.1,13010648,37.31,-8.6,38.06,34.85,0.96
 20260715,34.5,34.75,34.35,34.4,4952639,37.07,-7.19,37.77,34.97,0.38
+20260716,34.25,34.8,34.1,34.65,3993186,36.86,-6.01,37.52,35.07,0.32
 ```
 
 ## Latest TDCC Snapshot
@@ -195,12 +195,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 6005 | 群益證 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/07/07 2.公司名稱:群益金鼎證券股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:公告本公司115年6月份合併自結損益: (1)6月份稅前淨利1,264,386仟元、每股淨利0.51元。 (2)6月份稅後淨利937,758仟元、每股淨利0.38元。 (3)1至6月份累計稅前淨利9,541,695仟元、每股淨利4.07元。 (4)1至6月份累計稅後淨利8,430,239仟元、每股淨利3.66元。 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):  上述損益金額為本公司自結數，尚未經會計師查核或核閱。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260716 | 6005 | 群益證 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/07/07 2.公司名稱:群益金鼎證券股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:公告本公司115年6月份合併自結損益: (1)6月份稅前淨利1,264,386仟元、每股淨利0.51元。 (2)6月份稅後淨利937,758仟元、每股淨利0.38元。 (3)1至6月份累計稅前淨利9,541,695仟元、每股淨利4.07元。 (4)1至6月份累計稅後淨利8,430,239仟元、每股淨利3.66元。 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):  上述損益金額為本公司自結數，尚未經會計師查核或核閱。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 6005 | 群益證 | 3 | 3 | 4 | 8 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260716 | 6005 | 群益證 | 1 | 1 | 3 | 8 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

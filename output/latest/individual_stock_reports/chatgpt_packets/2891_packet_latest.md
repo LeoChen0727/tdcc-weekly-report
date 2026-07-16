@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2891 中信金
 
 ## Metadata
-- generated_at: 2026-07-15 22:26:49 Asia/Taipei
+- generated_at: 2026-07-16 22:27:04 Asia/Taipei
 - stock_id: 2891
 - stock_name: 中信金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 304
+- latest_price_date: 20260716
+- price_rows: 305
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 64.6
-- high: 65.3
-- low: 62.9
-- close: 63.5
-- volume: 79455534
-- ma5: 67.24
-- ema23_primary: 68.04
-- distance_to_ema23_pct: -6.68
-- ma20: 69.88
-- ma60: 62.29
-- ma120: 57.22
-- return_5d: -9.54
-- return_20d: -9.42
-- volume_ratio: 1.46
-- distance_to_ma20_pct_auxiliary: -9.13
-- distance_to_high_60_pct: -13.72
+- date: 20260716
+- open: 63.5
+- high: 64
+- low: 62.5
+- close: 63
+- volume: 50699897
+- ma5: 65.58
+- ema23_primary: 67.62
+- distance_to_ema23_pct: -6.84
+- ma20: 69.49
+- ma60: 62.46
+- ma120: 57.32
+- return_5d: -11.64
+- return_20d: -11.02
+- volume_ratio: 0.92
+- distance_to_ma20_pct_auxiliary: -9.34
+- distance_to_high_60_pct: -14.4
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,70.4,71.7,69.6,70.8,40981294,63.9,10.8,63.84,57.05,0.62
 20260617,70.7,72.7,69.9,71,36670620,64.49,10.09,64.5,57.37,0.59
 20260618,71.3,72.7,70.9,71.9,59339401,65.11,10.43,65.22,57.71,0.96
 20260622,71.9,71.9,70.1,70.5,52760387,65.56,7.54,65.87,58.02,0.85
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,70.1,70.2,66.1,66.5,108347523,68.77,-3.3,70.34,61.92,2.05
 20260714,67.5,67.5,63.5,65,80377413,68.46,-5.05,70.21,62.12,1.53
 20260715,64.6,65.3,62.9,63.5,79455534,68.04,-6.68,69.88,62.29,1.46
+20260716,63.5,64,62.5,63,50699897,67.62,-6.84,69.49,62.46,0.92
 ```
 
 ## Latest TDCC Snapshot
@@ -198,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 2891 | 中信金 | 26 | 0 | 978880.0 | 0.0 |  | no_signal |
+| 20260716 | 2891 | 中信金 | 25 | 0 | 719670.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

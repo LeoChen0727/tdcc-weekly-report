@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4576 大銀微系統
 
 ## Metadata
-- generated_at: 2026-07-15 22:27:11 Asia/Taipei
+- generated_at: 2026-07-16 22:27:37 Asia/Taipei
 - stock_id: 4576
 - stock_name: 大銀微系統
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 304
+- latest_price_date: 20260716
+- price_rows: 305
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 206
-- high: 210
-- low: 204
-- close: 206
-- volume: 703854
-- ma5: 211.3
-- ema23_primary: 217.95
-- distance_to_ema23_pct: -5.48
-- ma20: 216.72
-- ma60: 226.15
-- ma120: 177.43
-- return_5d: -7.62
-- return_20d: -4.19
-- volume_ratio: 0.35
-- distance_to_ma20_pct_auxiliary: -4.95
-- distance_to_high_60_pct: -29.21
+- date: 20260716
+- open: 202
+- high: 213.5
+- low: 200
+- close: 211
+- volume: 908937
+- ma5: 209.4
+- ema23_primary: 217.37
+- distance_to_ema23_pct: -2.93
+- ma20: 216.95
+- ma60: 226.37
+- ma120: 178.27
+- return_5d: -4.31
+- return_20d: 2.18
+- volume_ratio: 0.45
+- distance_to_ma20_pct_auxiliary: -2.74
+- distance_to_high_60_pct: -27.49
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,218,218,205,206.5,1196757,225.05,-8.24,236.55,205.02,0.35
 20260617,206.5,208.5,197,201,1949602,223.05,-9.89,234.78,206.39,0.59
 20260618,204,221,202,221,2189250,222.88,-0.84,233.43,208.07,0.67
 20260622,226.5,237,225.5,236,3565364,223.97,5.37,232.15,210.03,1.11
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,220.5,227.5,208,209.5,1805319,220.54,-5,217.15,225.82,0.89
 20260714,208.5,210.5,190,202.5,2102957,219.03,-7.55,217.18,225.98,1.02
 20260715,206,210,204,206,703854,217.95,-5.48,216.72,226.15,0.35
+20260716,202,213.5,200,211,908937,217.37,-2.93,216.95,226.37,0.45
 ```
 
 ## Latest TDCC Snapshot
@@ -199,7 +199,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 4576 | 大銀微系統 | 62 | 0 | 844990.0 | 0.0 |  | no_signal |
+| 20260716 | 4576 | 大銀微系統 | 62 | 0 | 3843170.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

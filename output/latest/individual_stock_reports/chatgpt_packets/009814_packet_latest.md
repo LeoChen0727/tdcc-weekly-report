@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009814 富邦標普500
 
 ## Metadata
-- generated_at: 2026-07-15 22:26:20 Asia/Taipei
+- generated_at: 2026-07-16 22:26:20 Asia/Taipei
 - stock_id: 009814
 - stock_name: 富邦標普500
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260715
-- price_rows: 37
+- latest_price_date: 20260716
+- price_rows: 38
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 11.28
-- high: 11.33
+- date: 20260716
+- open: 11.32
+- high: 11.32
 - low: 11.27
-- close: 11.32
-- volume: 1068000
-- ma5: 11.24
-- ema23_primary: 11.11
-- distance_to_ema23_pct: 1.91
-- ma20: 11.09
-- ma60: 11.04
-- ma120: 11.04
-- return_5d: 0.98
-- return_20d: 2.72
-- volume_ratio: 0.87
-- distance_to_ma20_pct_auxiliary: 2.09
-- distance_to_high_60_pct: -0.09
+- close: 11.3
+- volume: 584000
+- ma5: 11.26
+- ema23_primary: 11.12
+- distance_to_ema23_pct: 1.58
+- ma20: 11.1
+- ma60: 11.05
+- ma120: 11.05
+- return_5d: 1.07
+- return_20d: 1.8
+- volume_ratio: 0.48
+- distance_to_ma20_pct_auxiliary: 1.82
+- distance_to_high_60_pct: -0.26
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,11.09,11.11,11.06,11.1,1091000,10.97,1.17,10.99,10.99,1.17
 20260617,11.04,11.09,11.04,11.06,1356000,10.98,0.74,10.99,10.99,1.42
 20260618,11.06,11.06,10.98,10.99,1888000,10.98,0.09,10.99,10.99,1.88
 20260622,10.99,11.03,10.99,11.01,2331000,10.98,0.25,10.99,10.99,2.08
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,11.22,11.28,11.22,11.23,607000,11.07,1.41,11.05,11.02,0.49
 20260714,11.26,11.26,11.21,11.25,1156000,11.09,1.46,11.07,11.03,0.92
 20260715,11.28,11.33,11.27,11.32,1068000,11.11,1.91,11.09,11.04,0.87
+20260716,11.32,11.32,11.27,11.3,584000,11.12,1.58,11.1,11.05,0.48
 ```
 
 ## Latest TDCC Snapshot

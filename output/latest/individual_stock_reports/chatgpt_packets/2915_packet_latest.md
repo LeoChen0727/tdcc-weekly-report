@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2915 潤泰全
 
 ## Metadata
-- generated_at: 2026-07-15 22:26:50 Asia/Taipei
+- generated_at: 2026-07-16 22:27:05 Asia/Taipei
 - stock_id: 2915
 - stock_name: 潤泰全
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 304
+- latest_price_date: 20260716
+- price_rows: 305
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 51.2
-- high: 52.5
-- low: 51.2
-- close: 52.2
-- volume: 9103610
-- ma5: 51.46
-- ema23_primary: 51.07
-- distance_to_ema23_pct: 2.21
-- ma20: 52.09
-- ma60: 47.51
+- date: 20260716
+- open: 52.2
+- high: 53.2
+- low: 52.1
+- close: 52.8
+- volume: 6757519
+- ma5: 51.7
+- ema23_primary: 51.22
+- distance_to_ema23_pct: 3.09
+- ma20: 52.12
+- ma60: 47.65
 - ma120: 48.87
-- return_5d: 0.58
-- return_20d: -2.25
-- volume_ratio: 2.11
-- distance_to_ma20_pct_auxiliary: 0.21
-- distance_to_high_60_pct: -3.33
+- return_5d: 2.33
+- return_20d: 1.15
+- volume_ratio: 1.56
+- distance_to_ma20_pct_auxiliary: 1.3
+- distance_to_high_60_pct: -2.22
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,53.7,54,51.9,52.2,6188908,47.67,9.5,46.89,45.9,1.59
 20260617,51.5,53.1,51.4,52.4,2851140,48.07,9.02,47.31,45.97,0.73
 20260618,52.4,53.5,52.4,53.3,25797125,48.5,9.89,47.78,46.08,5.09
 20260622,53.9,53.9,52.5,52.6,4028458,48.84,7.69,48.24,46.18,0.79
@@ -160,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,52,52.5,50.4,50.4,3559869,50.96,-1.1,52.15,47.3,0.86
 20260714,51,51.3,50.3,51.1,4346018,50.97,0.25,52.15,47.39,1.05
 20260715,51.2,52.5,51.2,52.2,9103610,51.07,2.21,52.09,47.51,2.11
+20260716,52.2,53.2,52.1,52.8,6757519,51.22,3.09,52.12,47.65,1.56
 ```
 
 ## Latest TDCC Snapshot
@@ -194,12 +194,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 2915 | 潤泰全 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | repeated_but_no_breakout | 1.事實發生日:115/07/14 2.公司名稱:潤泰全球股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:本公司中和店近年因受整體量販零售市場環境變遷影響，經營 面臨嚴峻挑戰，經審慎評估後，為維護股東權益並優化公司資產運用，擬 於115年9月30日終止該店之營運。 針對後續的自有資產與員工安置問題，本公司已研擬完善的方案因應， 營業資產如目前經營場所、設備、存貨等將洽詢有意的廠商出租或出售。 現有編制同仁將依據勞基法之規定全數辦理資遣或退休。本公司亦將秉持 負責任態度，全面協助同仁媒合、轉調相關產業。 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: ex_dividend on 20260717; status=confirmed; proximity=within_3d |
+| 20260716 | 2915 | 潤泰全 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_2_3d | 1.事實發生日:115/07/14 2.公司名稱:潤泰全球股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:本公司中和店近年因受整體量販零售市場環境變遷影響，經營 面臨嚴峻挑戰，經審慎評估後，為維護股東權益並優化公司資產運用，擬 於115年9月30日終止該店之營運。 針對後續的自有資產與員工安置問題，本公司已研擬完善的方案因應， 營業資產如目前經營場所、設備、存貨等將洽詢有意的廠商出租或出售。 現有編制同仁將依據勞基法之規定全數辦理資遣或退休。本公司亦將秉持 負責任態度，全面協助同仁媒合、轉調相關產業。 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: ex_dividend on 20260717; status=confirmed; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 2915 | 潤泰全 | 1 | 1 | 4 | 9 | 15 | repeated_but_no_breakout | 近 10 日上榜 9 次、近 20 日上榜 15 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260716 | 2915 | 潤泰全 | 2 | 2 | 4 | 9 | 15 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | status |

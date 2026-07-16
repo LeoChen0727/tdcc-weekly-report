@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2941 米斯特
 
 ## Metadata
-- generated_at: 2026-07-15 22:26:50 Asia/Taipei
+- generated_at: 2026-07-16 22:27:06 Asia/Taipei
 - stock_id: 2941
 - stock_name: 米斯特
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260714
-- price_rows: 120
+- latest_price_date: 20260716
+- price_rows: 121
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260714
-- open: 31.8
-- high: 31.8
-- low: 31.45
-- close: 31.45
-- volume: 2000
-- ma5: 33.3
-- ema23_primary: 33.26
-- distance_to_ema23_pct: -5.44
-- ma20: 33.22
-- ma60: 32.91
-- ma120: 37.77
-- return_5d: -12.88
-- return_20d: 3.11
-- volume_ratio: 0.18
-- distance_to_ma20_pct_auxiliary: -5.33
-- distance_to_high_60_pct: -21.57
+- date: 20260716
+- open: 31.5
+- high: 33.95
+- low: 31
+- close: 33.95
+- volume: 5000
+- ma5: 33.07
+- ema23_primary: 33.32
+- distance_to_ema23_pct: 1.9
+- ma20: 33.39
+- ma60: 32.82
+- ma120: 37.79
+- return_5d: -3.28
+- return_20d: 11.31
+- volume_ratio: 0.52
+- distance_to_ma20_pct_auxiliary: 1.67
+- distance_to_high_60_pct: -15.34
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260604,30.5,30.6,30.5,30.5,31000,31.61,-3.51,31.05,35.04,1.72
 20260605,29.85,29.85,29.85,29.85,30000,31.46,-5.13,31.04,34.86,1.58
 20260609,29.95,29.95,29.95,29.95,1000,31.34,-4.43,31.03,34.69,0.05
 20260610,30,30,30,30,2000,31.23,-3.93,31.03,34.53,0.11
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260708,32.2,32.45,32.2,32.45,7000,33.51,-3.17,33.09,33.24,0.57
 20260709,32.45,32.45,32.45,32.45,2000,33.42,-2.91,33.17,33.08,0.16
 20260714,31.8,31.8,31.45,31.45,2000,33.26,-5.44,33.22,32.91,0.18
+20260716,31.5,33.95,31,33.95,5000,33.32,1.9,33.39,32.82,0.52
 ```
 
 ## Latest TDCC Snapshot

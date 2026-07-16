@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009818 華南永昌NASDAQxT
 
 ## Metadata
-- generated_at: 2026-07-15 22:26:20 Asia/Taipei
+- generated_at: 2026-07-16 22:26:20 Asia/Taipei
 - stock_id: 009818
 - stock_name: 華南永昌NASDAQxT
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260715
-- price_rows: 37
+- latest_price_date: 20260716
+- price_rows: 38
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 20.06
-- high: 20.32
-- low: 20.06
+- date: 20260716
+- open: 20.23
+- high: 20.31
+- low: 20.13
 - close: 20.29
-- volume: 890661
-- ma5: 19.91
-- ema23_primary: 19.76
-- distance_to_ema23_pct: 2.7
-- ma20: 19.8
-- ma60: 19.67
-- ma120: 19.67
-- return_5d: 3.26
-- return_20d: 2.79
-- volume_ratio: 2.06
-- distance_to_ma20_pct_auxiliary: 2.49
+- volume: 334116
+- ma5: 20.05
+- ema23_primary: 19.8
+- distance_to_ema23_pct: 2.47
+- ma20: 19.81
+- ma60: 19.69
+- ma120: 19.69
+- return_5d: 3.52
+- return_20d: 1.3
+- volume_ratio: 0.8
+- distance_to_ma20_pct_auxiliary: 2.43
 - distance_to_high_60_pct: -0.54
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,20.03,20.04,19.98,20.03,568149,19.46,2.95,19.55,19.55,1.07
 20260617,19.78,19.78,19.71,19.78,87305,19.48,1.53,19.56,19.56,0.17
 20260618,19.78,19.84,19.72,19.76,322287,19.51,1.3,19.57,19.57,0.64
 20260622,20.05,20.07,20,20.06,674747,19.55,2.6,19.62,19.6,1.34
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,20.04,20.04,19.88,19.88,533318,19.69,0.98,19.74,19.65,1.32
 20260714,19.84,19.97,19.7,19.93,341411,19.71,1.13,19.77,19.65,0.86
 20260715,20.06,20.32,20.06,20.29,890661,19.76,2.7,19.8,19.67,2.06
+20260716,20.23,20.31,20.13,20.29,334116,19.8,2.47,19.81,19.69,0.8
 ```
 
 ## Latest TDCC Snapshot

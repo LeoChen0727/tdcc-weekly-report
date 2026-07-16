@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5009 榮剛
 
 ## Metadata
-- generated_at: 2026-07-15 22:27:16 Asia/Taipei
+- generated_at: 2026-07-16 22:27:44 Asia/Taipei
 - stock_id: 5009
 - stock_name: 榮剛
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 169
+- latest_price_date: 20260716
+- price_rows: 170
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 34.85
-- high: 35.25
-- low: 34.3
-- close: 34.9
-- volume: 3120000
-- ma5: 34.2
-- ema23_primary: 34.33
-- distance_to_ema23_pct: 1.65
-- ma20: 34.1
-- ma60: 34.93
-- ma120: 34.21
-- return_5d: 4.65
-- return_20d: -5.29
-- volume_ratio: 0.66
-- distance_to_ma20_pct_auxiliary: 2.33
-- distance_to_high_60_pct: -14.77
+- date: 20260716
+- open: 35.1
+- high: 35.6
+- low: 34.6
+- close: 34.95
+- volume: 3032000
+- ma5: 34.47
+- ema23_primary: 34.39
+- distance_to_ema23_pct: 1.64
+- ma20: 34.13
+- ma60: 34.95
+- ma120: 34.23
+- return_5d: 4.02
+- return_20d: 1.3
+- volume_ratio: 0.67
+- distance_to_ma20_pct_auxiliary: 2.41
+- distance_to_high_60_pct: -14.65
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,36.65,36.7,34.5,34.5,6704000,35.79,-3.61,35.97,34.36,4.49
 20260617,34.8,35.5,34.3,35,2401000,35.72,-2.03,35.95,34.37,1.58
 20260618,35.25,35.25,34.65,34.75,2182000,35.64,-2.51,35.91,34.4,1.46
 20260622,34.75,37.85,34.7,37,8815000,35.76,3.48,35.98,34.47,4.56
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,33.65,35.75,33.6,34.95,6981000,34.27,1.99,34.3,34.82,1.55
 20260714,34.3,35.9,33.7,34.45,5952000,34.28,0.49,34.2,34.87,1.27
 20260715,34.85,35.25,34.3,34.9,3120000,34.33,1.65,34.1,34.93,0.66
+20260716,35.1,35.6,34.6,34.95,3032000,34.39,1.64,34.13,34.95,0.67
 ```
 
 ## Latest TDCC Snapshot
@@ -189,12 +189,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 5009 | 榮剛 | pattern | 型態觀察 | 51.0 |  |  | base_building |  |  | stale_signal | 1.事實發生日:115/07/14 2.公司名稱:榮剛材料科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:本公司國內第七次無擔保轉換公司債將於115年7月31日發行屆滿三年到期。 6.因應措施:債券到期時依債券面額之101.51%以現金一次償還。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項): (1)本公司國內第七次無擔保轉換公司債將於115年07月31日到期，並於到期日之次一    營業日(115年08月03日)終止上櫃買賣。 (2)依本公司國內第七次無擔保轉換公司債發行及轉換辦法第六條規定，到期時依債券    面額之101.51%以現金一次償還。 (3)本公司預計於115年08月07日將到期償還款項以匯款或郵寄支票方式交付予各債券    持有人，郵匯費、補充保費及稅款等將自償還價款中扣除。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260716 | 5009 | 榮剛 | pattern | 型態觀察 | 46.0 |  |  | base_building |  |  | stale_signal | 1.事實發生日:115/07/14 2.公司名稱:榮剛材料科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:本公司國內第七次無擔保轉換公司債將於115年7月31日發行屆滿三年到期。 6.因應措施:債券到期時依債券面額之101.51%以現金一次償還。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項): (1)本公司國內第七次無擔保轉換公司債將於115年07月31日到期，並於到期日之次一    營業日(115年08月03日)終止上櫃買賣。 (2)依本公司國內第七次無擔保轉換公司債發行及轉換辦法第六條規定，到期時依債券    面額之101.51%以現金一次償還。 (3)本公司預計於115年08月07日將到期償還款項以匯款或郵寄支票方式交付予各債券    持有人，郵匯費、補充保費及稅款等將自償還價款中扣除。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 5009 | 榮剛 | 3 | 1 | 3 | 4 | 5 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260716 | 5009 | 榮剛 | 4 | 2 | 4 | 5 | 6 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

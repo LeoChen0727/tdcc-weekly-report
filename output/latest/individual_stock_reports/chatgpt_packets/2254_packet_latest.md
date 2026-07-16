@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2254 巨鎧精密-創
 
 ## Metadata
-- generated_at: 2026-07-15 22:26:36 Asia/Taipei
+- generated_at: 2026-07-16 22:26:44 Asia/Taipei
 - stock_id: 2254
 - stock_name: 巨鎧精密-創
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 298
+- latest_price_date: 20260716
+- price_rows: 299
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 58.6
-- high: 59.5
-- low: 58.5
+- date: 20260716
+- open: 59.6
+- high: 60.3
+- low: 59.2
 - close: 59.5
-- volume: 6525
-- ma5: 59.44
-- ema23_primary: 60.28
-- distance_to_ema23_pct: -1.29
-- ma20: 59.8
-- ma60: 64.32
+- volume: 8001
+- ma5: 59.42
+- ema23_primary: 60.21
+- distance_to_ema23_pct: -1.18
+- ma20: 59.78
+- ma60: 64.13
 - ma120: 64.64
 - return_5d: -0.17
-- return_20d: -0.34
-- volume_ratio: 0.94
-- distance_to_ma20_pct_auxiliary: -0.49
+- return_20d: -0.5
+- volume_ratio: 1.11
+- distance_to_ma20_pct_auxiliary: -0.47
 - distance_to_high_60_pct: -36.5
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260615,59.8,59.8,59.8,59.8,2001,63.17,-5.33,62.3,67.5,0.08
 20260616,60.5,62.4,60.5,62.4,33000,63.11,-1.12,62.47,67.38,1.18
 20260617,62.1,62.1,61.9,61.9,7000,63,-1.75,62.66,67.25,0.26
 20260618,62.2,62.2,62.2,62.2,1051,62.94,-1.17,62.85,67.11,0.04
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260709,59.4,59.4,59.4,59.4,1000,60.44,-1.73,59.84,64.66,0.14
 20260714,59.4,59.4,58.6,59.3,3000,60.35,-1.74,59.8,64.48,0.41
 20260715,58.6,59.5,58.5,59.5,6525,60.28,-1.29,59.8,64.32,0.94
+20260716,59.6,60.3,59.2,59.5,8001,60.21,-1.18,59.78,64.13,1.11
 ```
 
 ## Latest TDCC Snapshot

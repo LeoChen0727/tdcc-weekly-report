@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2303 聯電
 
 ## Metadata
-- generated_at: 2026-07-15 22:26:36 Asia/Taipei
+- generated_at: 2026-07-16 22:26:44 Asia/Taipei
 - stock_id: 2303
 - stock_name: 聯電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 304
+- latest_price_date: 20260716
+- price_rows: 305
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 158.5
-- high: 166
-- low: 156
-- close: 166
-- volume: 111015473
-- ma5: 157.9
-- ema23_primary: 154.47
-- distance_to_ema23_pct: 7.46
-- ma20: 161.05
-- ma60: 125.81
-- ma120: 93.79
-- return_5d: 7.1
-- return_20d: 17.31
-- volume_ratio: 0.53
-- distance_to_ma20_pct_auxiliary: 3.07
-- distance_to_high_60_pct: -10.51
+- date: 20260716
+- open: 161.5
+- high: 168
+- low: 159
+- close: 160
+- volume: 88319859
+- ma5: 157.3
+- ema23_primary: 154.93
+- distance_to_ema23_pct: 3.27
+- ma20: 162
+- ma60: 127.2
+- ma120: 94.67
+- return_5d: -1.84
+- return_20d: 13.48
+- volume_ratio: 0.44
+- distance_to_ma20_pct_auxiliary: -1.23
+- distance_to_high_60_pct: -13.75
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,144,144.5,138.5,141,256468191,124.34,13.4,130.3,93.39,0.79
 20260617,138.5,142,136,140,171758079,125.64,11.43,131.9,94.76,0.53
 20260618,141,146,138.5,145.5,307999583,127.3,14.3,133.38,96.24,0.94
 20260622,160,160,160,160,66171376,130.02,23.06,135.68,97.96,0.21
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,156,158,151.5,153.5,68418819,153.64,-0.09,158.95,122.89,0.29
 20260714,150.5,151,140,151,87772753,153.42,-1.58,159.82,124.26,0.4
 20260715,158.5,166,156,166,111015473,154.47,7.46,161.05,125.81,0.53
+20260716,161.5,168,159,160,88319859,154.93,3.27,162,127.2,0.44
 ```
 
 ## Latest TDCC Snapshot
@@ -189,18 +189,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 2303 | 聯電 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | put_inflow | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/29 1.召開法人說明會之日期：115/07/29 2.召開法人說明會之時間：17 時 00 分  3.召開法人說明會之地點：線上法說會 4.法人說明會擇要訊息：本公司2026年第二季財務暨營運報告。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
-| 20260715 | 2303 | 聯電 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | put_inflow | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/29 1.召開法人說明會之日期：115/07/29 2.召開法人說明會之時間：17 時 00 分  3.召開法人說明會之地點：線上法說會 4.法人說明會擇要訊息：本公司2026年第二季財務暨營運報告。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260716 | 2303 | 聯電 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/29 1.召開法人說明會之日期：115/07/29 2.召開法人說明會之時間：17 時 00 分  3.召開法人說明會之地點：線上法說會 4.法人說明會擇要訊息：本公司2026年第二季財務暨營運報告。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260716 | 2303 | 聯電 | revenue_pullback | 營收成長股價回檔 | 69.0 |  |  |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/29 1.召開法人說明會之日期：115/07/29 2.召開法人說明會之時間：17 時 00 分  3.召開法人說明會之地點：線上法說會 4.法人說明會擇要訊息：本公司2026年第二季財務暨營運報告。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 2303 | 聯電 | 5 | 5 | 5 | 5 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260716 | 2303 | 聯電 | 6 | 6 | 5 | 6 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 2303 | 聯電 | 312 | 26 | 52274300.0 | 1388260.0 | 37.65 | put_inflow |
+| 20260716 | 2303 | 聯電 | 311 | 0 | 48873110.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

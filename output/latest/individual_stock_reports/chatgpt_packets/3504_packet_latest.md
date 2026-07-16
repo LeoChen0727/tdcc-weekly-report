@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3504 揚明光
 
 ## Metadata
-- generated_at: 2026-07-15 22:27:00 Asia/Taipei
+- generated_at: 2026-07-16 22:27:21 Asia/Taipei
 - stock_id: 3504
 - stock_name: 揚明光
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 304
+- latest_price_date: 20260716
+- price_rows: 305
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 72.8
-- high: 72.8
-- low: 69
-- close: 69.2
-- volume: 1626689
-- ma5: 74.6
-- ema23_primary: 77.95
-- distance_to_ema23_pct: -11.23
-- ma20: 80.94
-- ma60: 76.06
-- ma120: 66.34
-- return_5d: -5.72
-- return_20d: -15.71
-- volume_ratio: 0.54
-- distance_to_ma20_pct_auxiliary: -14.5
-- distance_to_high_60_pct: -29.24
+- date: 20260716
+- open: 69.8
+- high: 72
+- low: 67.2
+- close: 69.6
+- volume: 1048433
+- ma5: 73.64
+- ema23_primary: 77.25
+- distance_to_ema23_pct: -9.91
+- ma20: 79.94
+- ma60: 76.03
+- ma120: 66.49
+- return_5d: -6.45
+- return_20d: -22.15
+- volume_ratio: 0.4
+- distance_to_ma20_pct_auxiliary: -12.94
+- distance_to_high_60_pct: -28.83
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,83.5,89.8,83.5,89.4,9166123,77.85,14.84,80.19,68.24,2.72
 20260617,89.5,97.8,85.5,86.5,15344294,78.57,10.1,80.41,68.71,4.27
 20260618,87.8,91.5,85.7,91.2,6086004,79.62,14.54,80.67,69.31,1.73
 20260622,92.4,92.8,87.9,91.5,4221586,80.61,13.51,81.08,69.91,1.2
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,80.1,82.9,74.7,76.4,3614190,79.43,-3.82,81.75,75.86,1.19
 20260714,76.6,77.3,68.8,71.2,1400069,78.75,-9.58,81.58,76.03,0.46
 20260715,72.8,72.8,69,69.2,1626689,77.95,-11.23,80.94,76.06,0.54
+20260716,69.8,72,67.2,69.6,1048433,77.25,-9.91,79.94,76.03,0.4
 ```
 
 ## Latest TDCC Snapshot
@@ -198,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 3504 | 揚明光 | 1 | 0 | 0.0 | 0.0 |  | no_signal |
+| 20260716 | 3504 | 揚明光 | 1 | 0 | 0.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

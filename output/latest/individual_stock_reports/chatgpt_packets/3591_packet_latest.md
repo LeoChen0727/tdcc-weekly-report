@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3591 艾笛森
 
 ## Metadata
-- generated_at: 2026-07-15 22:27:02 Asia/Taipei
+- generated_at: 2026-07-16 22:27:24 Asia/Taipei
 - stock_id: 3591
 - stock_name: 艾笛森
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 304
+- latest_price_date: 20260716
+- price_rows: 305
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 24.35
-- high: 24.5
-- low: 23.95
-- close: 24.15
-- volume: 736074
-- ma5: 24.89
-- ema23_primary: 25.37
-- distance_to_ema23_pct: -4.8
-- ma20: 25.72
-- ma60: 24.84
-- ma120: 22.45
-- return_5d: -7.29
-- return_20d: 3.87
-- volume_ratio: 0.19
-- distance_to_ma20_pct_auxiliary: -6.1
-- distance_to_high_60_pct: -19.23
+- date: 20260716
+- open: 24.1
+- high: 24.1
+- low: 23.05
+- close: 23.35
+- volume: 1385539
+- ma5: 24.34
+- ema23_primary: 25.2
+- distance_to_ema23_pct: -7.34
+- ma20: 25.75
+- ma60: 24.77
+- ma120: 22.5
+- return_5d: -10.54
+- return_20d: 3.09
+- volume_ratio: 0.36
+- distance_to_ma20_pct_auxiliary: -9.34
+- distance_to_high_60_pct: -21.91
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,23.55,23.7,22.65,22.65,463342,23.9,-5.22,24.6,23.52,0.26
 20260617,22.65,23.3,22.5,23.15,382673,23.83,-2.87,24.46,23.55,0.24
 20260618,23.6,24.6,23.25,23.95,1459231,23.84,0.45,24.36,23.62,0.96
 20260622,24.2,26.3,24.2,25.95,2864473,24.02,8.04,24.32,23.7,1.94
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,25.95,26.3,24.5,24.5,1503245,25.6,-4.29,25.61,24.84,0.41
 20260714,24.85,24.9,23.15,24.15,1594902,25.48,-5.21,25.68,24.85,0.42
 20260715,24.35,24.5,23.95,24.15,736074,25.37,-4.8,25.72,24.84,0.19
+20260716,24.1,24.1,23.05,23.35,1385539,25.2,-7.34,25.75,24.77,0.36
 ```
 
 ## Latest TDCC Snapshot

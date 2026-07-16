@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5871 中租-KY
 
 ## Metadata
-- generated_at: 2026-07-15 22:27:22 Asia/Taipei
+- generated_at: 2026-07-16 22:27:54 Asia/Taipei
 - stock_id: 5871
 - stock_name: 中租-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 304
+- latest_price_date: 20260716
+- price_rows: 305
 - latest_tdcc_date: 20260709
 - tdcc_rows: 11
 - tdcc_history_status: tdcc_history_ready
@@ -117,29 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 118
-- high: 119.5
-- low: 116.5
-- close: 119
-- volume: 8470376
-- ma5: 116.7
-- ema23_primary: 115.85
-- distance_to_ema23_pct: 2.72
-- ma20: 115.65
-- ma60: 114.74
-- ma120: 110.44
-- return_5d: 4.39
-- return_20d: 0.42
-- volume_ratio: 1
-- distance_to_ma20_pct_auxiliary: 2.9
-- distance_to_high_60_pct: -3.25
+- date: 20260716
+- open: 118.5
+- high: 121
+- low: 118.5
+- close: 120.5
+- volume: 9307242
+- ma5: 117.7
+- ema23_primary: 116.23
+- distance_to_ema23_pct: 3.67
+- ma20: 115.85
+- ma60: 114.75
+- ma120: 110.58
+- return_5d: 4.33
+- return_20d: 3.43
+- volume_ratio: 1.14
+- distance_to_ma20_pct_auxiliary: 4.01
+- distance_to_high_60_pct: -2.03
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,118.5,118.5,114,116.5,14094585,115.41,0.94,114.15,112.95,0.92
 20260617,117,117,114,115,6191665,115.38,-0.33,114.35,113.09,0.41
 20260618,115,116.5,114,114,16134724,115.26,-1.09,114.45,113.25,1.03
 20260622,116,119,116,118,13013815,115.49,2.17,114.8,113.47,0.83
@@ -159,6 +158,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,116,117.5,115.5,116.5,9489413,115.34,1.01,115.8,114.7,1.09
 20260714,117,118.5,115.5,118,7944831,115.56,2.11,115.62,114.72,0.93
 20260715,118,119.5,116.5,119,8470376,115.85,2.72,115.65,114.74,1
+20260716,118.5,121,118.5,120.5,9307242,116.23,3.67,115.85,114.75,1.14
 ```
 
 ## Latest TDCC Snapshot
@@ -194,17 +194,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 5871 | 中租-KY | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/14 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除權 3.發放股利種類及金額: 發放股票股利新台幣1,400,000,000元(每股配發新台幣約0.25944276元) 4.除權（息）交易日:NA 5.最後過戶日:NA 6.停止過戶起始日期:NA 7.停止過戶截止日期:NA 8.除權（息）基準日:115/07/15 9.其他應敘明事項:NA；calendar event: ex_dividend on 20260729; status=confirmed; proximity=within_14d |
+| 20260716 | 5871 | 中租-KY | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_inflow | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/14 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除權 3.發放股利種類及金額: 發放股票股利新台幣1,400,000,000元(每股配發新台幣約0.25944276元) 4.除權（息）交易日:NA 5.最後過戶日:NA 6.停止過戶起始日期:NA 7.停止過戶截止日期:NA 8.除權（息）基準日:115/07/15 9.其他應敘明事項:NA；calendar event: ex_dividend on 20260729; status=confirmed; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 5871 | 中租-KY | 3 | 1 | 3 | 3 | 8 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260716 | 5871 | 中租-KY | 4 | 2 | 4 | 4 | 8 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 5871 | 中租-KY | 8 | 0 | 586500.0 | 0.0 |  | no_signal |
+| 20260716 | 5871 | 中租-KY | 8 | 0 | 1171260.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

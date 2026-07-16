@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4971 IET-KY
 
 ## Metadata
-- generated_at: 2026-07-15 22:27:15 Asia/Taipei
+- generated_at: 2026-07-16 22:27:43 Asia/Taipei
 - stock_id: 4971
 - stock_name: IET-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 169
+- latest_price_date: 20260716
+- price_rows: 170
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 413
-- high: 428
-- low: 407
-- close: 424.5
-- volume: 562000
-- ma5: 421.8
-- ema23_primary: 497.34
-- distance_to_ema23_pct: -14.65
-- ma20: 486.18
-- ma60: 644.56
-- ma120: 553.97
-- return_5d: -4.28
-- return_20d: -22.96
-- volume_ratio: 0.58
-- distance_to_ma20_pct_auxiliary: -12.69
-- distance_to_high_60_pct: -55.74
+- date: 20260716
+- open: 422.5
+- high: 422.5
+- low: 406
+- close: 416.5
+- volume: 375000
+- ma5: 417.6
+- ema23_primary: 490.6
+- distance_to_ema23_pct: -15.1
+- ma20: 479.65
+- ma60: 637.45
+- ma120: 554.87
+- return_5d: -4.8
+- return_20d: -23.86
+- volume_ratio: 0.41
+- distance_to_ma20_pct_auxiliary: -13.17
+- distance_to_high_60_pct: -56.57
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,564,590,546,547,1543000,646.08,-15.34,666.95,680.27,1.75
 20260617,531,548,520,526,938000,636.07,-17.3,658.25,681.09,1.03
 20260618,528,578,516,578,1402000,631.23,-8.43,651.25,683.41,1.44
 20260622,605,610,565,571,1588000,626.21,-8.82,643.15,685.67,1.57
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,426,443,416,428,985000,513.59,-16.67,499.5,655.27,1.02
 20260714,428,439,385.5,398,1287000,503.96,-21.03,492.5,650.27,1.31
 20260715,413,428,407,424.5,562000,497.34,-14.65,486.18,644.56,0.58
+20260716,422.5,422.5,406,416.5,375000,490.6,-15.1,479.65,637.45,0.41
 ```
 
 ## Latest TDCC Snapshot

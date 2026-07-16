@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1513 中興電
 
 ## Metadata
-- generated_at: 2026-07-15 22:26:26 Asia/Taipei
+- generated_at: 2026-07-16 22:26:29 Asia/Taipei
 - stock_id: 1513
 - stock_name: 中興電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 304
+- latest_price_date: 20260716
+- price_rows: 305
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 163.5
-- high: 171.5
-- low: 162.5
-- close: 171
-- volume: 5291779
-- ma5: 168.6
-- ema23_primary: 172.17
-- distance_to_ema23_pct: -0.68
-- ma20: 175.22
-- ma60: 164.78
-- ma120: 162.61
-- return_5d: -2.29
-- return_20d: 0.59
-- volume_ratio: 0.61
-- distance_to_ma20_pct_auxiliary: -2.41
-- distance_to_high_60_pct: -14.93
+- date: 20260716
+- open: 170.5
+- high: 170.5
+- low: 167
+- close: 167
+- volume: 2792262
+- ma5: 167.7
+- ema23_primary: 171.74
+- distance_to_ema23_pct: -2.76
+- ma20: 175.15
+- ma60: 165
+- ma120: 162.79
+- return_5d: -2.62
+- return_20d: -0.89
+- volume_ratio: 0.33
+- distance_to_ma20_pct_auxiliary: -4.65
+- distance_to_high_60_pct: -16.92
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,171.5,171.5,168,168.5,3931089,165.64,1.73,166.85,156.97,0.2
 20260617,171,172.5,168,172,10715307,166.17,3.51,168.03,157.21,0.55
 20260618,173,176.5,171,176.5,17875474,167.03,5.67,169.12,157.58,0.89
 20260622,181,181,176,181,17056003,168.19,7.61,170.35,157.99,0.83
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,170,170,166.5,168,2378452,173.03,-2.91,175.32,164.32,0.27
 20260714,168,168,159,164,4762366,172.28,-4.81,175.18,164.47,0.55
 20260715,163.5,171.5,162.5,171,5291779,172.17,-0.68,175.22,164.78,0.61
+20260716,170.5,170.5,167,167,2792262,171.74,-2.76,175.15,165,0.33
 ```
 
 ## Latest TDCC Snapshot
@@ -199,7 +199,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 1513 | 中興電 | 98 | 2 | 7059320.0 | 0.0 |  | call_inflow |
+| 20260716 | 1513 | 中興電 | 98 | 0 | 5668890.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

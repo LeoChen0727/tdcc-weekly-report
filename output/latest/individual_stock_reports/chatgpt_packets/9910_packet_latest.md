@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9910 豐泰
 
 ## Metadata
-- generated_at: 2026-07-15 22:27:57 Asia/Taipei
+- generated_at: 2026-07-16 22:28:48 Asia/Taipei
 - stock_id: 9910
 - stock_name: 豐泰
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 304
+- latest_price_date: 20260716
+- price_rows: 305
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 67
-- high: 67.5
-- low: 66.8
-- close: 66.8
-- volume: 781494
-- ma5: 67.32
-- ema23_primary: 70.61
-- distance_to_ema23_pct: -5.4
-- ma20: 69.77
-- ma60: 73
-- ma120: 81.17
-- return_5d: -2.2
-- return_20d: -15.55
-- volume_ratio: 0.23
-- distance_to_ma20_pct_auxiliary: -4.26
-- distance_to_high_60_pct: -32.53
+- date: 20260716
+- open: 66.9
+- high: 68
+- low: 66.9
+- close: 67.8
+- volume: 852769
+- ma5: 67.28
+- ema23_primary: 70.38
+- distance_to_ema23_pct: -3.66
+- ma20: 69.26
+- ma60: 72.83
+- ma120: 80.87
+- return_5d: -0.29
+- return_20d: -13.08
+- volume_ratio: 0.33
+- distance_to_ma20_pct_auxiliary: -2.11
+- distance_to_high_60_pct: -31.52
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,79.5,79.5,71.2,78,16751571,79.22,-1.53,77.22,76.19,2.13
 20260617,76.6,76.7,72.8,72.8,5618590,78.68,-7.47,77.35,76.05,0.7
 20260618,72.7,74.3,72.2,72.6,4796301,78.17,-7.13,77.52,75.94,0.59
 20260622,72.6,72.9,70.2,70.7,5319463,77.55,-8.83,77.62,75.76,0.64
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,67.6,68.2,66.8,67.4,1228571,71.33,-5.5,71.64,73.37,0.31
 20260714,67.9,67.9,66.5,66.9,1596738,70.96,-5.72,70.39,73.18,0.44
 20260715,67,67.5,66.8,66.8,781494,70.61,-5.4,69.77,73,0.23
+20260716,66.9,68,66.9,67.8,852769,70.38,-3.66,69.26,72.83,0.33
 ```
 
 ## Latest TDCC Snapshot
@@ -199,7 +199,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 9910 | 豐泰 | 2 | 0 | 1090.0 | 0.0 |  | no_signal |
+| 20260716 | 9910 | 豐泰 | 2 | 0 | 14230.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

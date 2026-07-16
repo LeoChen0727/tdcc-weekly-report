@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8121 越峰
 
 ## Metadata
-- generated_at: 2026-07-15 22:27:52 Asia/Taipei
+- generated_at: 2026-07-16 22:28:40 Asia/Taipei
 - stock_id: 8121
 - stock_name: 越峰
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 169
+- latest_price_date: 20260716
+- price_rows: 170
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 40.9
-- high: 41.6
-- low: 39.4
-- close: 40.1
-- volume: 2716000
-- ma5: 42.17
-- ema23_primary: 44.6
-- distance_to_ema23_pct: -10.09
-- ma20: 47.3
-- ma60: 39.46
-- ma120: 33.14
-- return_5d: -7.28
-- return_20d: -17.83
-- volume_ratio: 0.73
-- distance_to_ma20_pct_auxiliary: -15.22
-- distance_to_high_60_pct: -29.9
+- date: 20260716
+- open: 40.1
+- high: 40.45
+- low: 39.2
+- close: 39.45
+- volume: 1115000
+- ma5: 41.07
+- ema23_primary: 44.17
+- distance_to_ema23_pct: -10.69
+- ma20: 46.76
+- ma60: 39.65
+- ma120: 33.22
+- return_5d: -12.24
+- return_20d: -21.57
+- volume_ratio: 0.32
+- distance_to_ma20_pct_auxiliary: -15.63
+- distance_to_high_60_pct: -31.03
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,48.8,52,47.15,50.3,5939000,40.69,23.63,41.42,32.36,2.68
 20260617,48.5,51,48.3,49.65,2539000,41.43,19.83,42.15,32.77,1.18
 20260618,51.9,54.6,48.7,53.4,5924000,42.43,25.85,42.95,33.24,2.68
 20260622,54.2,57.2,52.7,54.4,6141000,43.43,25.26,43.69,33.74,2.44
@@ -160,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,43.2,44.4,41.2,41.8,2027000,45.39,-7.91,47.91,39.06,0.52
 20260714,41.1,42.05,39.1,40.8,2403000,45.01,-9.35,47.73,39.28,0.61
 20260715,40.9,41.6,39.4,40.1,2716000,44.6,-10.09,47.3,39.46,0.73
+20260716,40.1,40.45,39.2,39.45,1115000,44.17,-10.69,46.76,39.65,0.32
 ```
 
 ## Latest TDCC Snapshot
@@ -194,12 +194,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 8121 | 越峰 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260716 | 8121 | 越峰 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 8121 | 越峰 | 5 | 4 | 5 | 8 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260716 | 8121 | 越峰 | 1 | 1 | 4 | 8 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

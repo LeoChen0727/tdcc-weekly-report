@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1904 正隆
 
 ## Metadata
-- generated_at: 2026-07-15 22:26:32 Asia/Taipei
+- generated_at: 2026-07-16 22:26:38 Asia/Taipei
 - stock_id: 1904
 - stock_name: 正隆
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 304
+- latest_price_date: 20260716
+- price_rows: 305
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 22.15
-- high: 22.5
-- low: 22.1
-- close: 22.3
-- volume: 1571261
-- ma5: 22.66
-- ema23_primary: 22.19
-- distance_to_ema23_pct: 0.5
-- ma20: 22.41
-- ma60: 20.39
-- ma120: 19.32
-- return_5d: -5.71
-- return_20d: -2.19
-- volume_ratio: 0.48
-- distance_to_ma20_pct_auxiliary: -0.49
-- distance_to_high_60_pct: -9.72
+- date: 20260716
+- open: 22.3
+- high: 22.75
+- low: 22.05
+- close: 22.4
+- volume: 1573159
+- ma5: 22.46
+- ema23_primary: 22.21
+- distance_to_ema23_pct: 0.87
+- ma20: 22.38
+- ma60: 20.46
+- ma120: 19.36
+- return_5d: -4.27
+- return_20d: -2.82
+- volume_ratio: 0.51
+- distance_to_ma20_pct_auxiliary: 0.1
+- distance_to_high_60_pct: -9.31
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,22.8,23.2,22.55,23.05,4579059,20.99,9.82,20.72,19.31,0.8
 20260617,23.1,23.35,22.95,23,4965288,21.16,8.71,20.95,19.4,0.85
 20260618,23.05,23.55,22.85,23.1,4402801,21.32,8.36,21.16,19.48,0.73
 20260622,23,23.2,22.5,22.55,3642000,21.42,5.27,21.34,19.55,0.6
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,23.05,23.3,21.9,21.9,3584438,22.17,-1.21,22.46,20.27,1.03
 20260714,22,22.35,21.75,22.3,2108280,22.18,0.55,22.43,20.33,0.63
 20260715,22.15,22.5,22.1,22.3,1571261,22.19,0.5,22.41,20.39,0.48
+20260716,22.3,22.75,22.05,22.4,1573159,22.21,0.87,22.38,20.46,0.51
 ```
 
 ## Latest TDCC Snapshot
@@ -189,12 +189,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 1904 | 正隆 | pattern | 型態觀察 | 48.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260716 | 1904 | 正隆 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 1904 | 正隆 | 2 | 2 | 3 | 7 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260716 | 1904 | 正隆 | 3 | 3 | 4 | 7 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |
