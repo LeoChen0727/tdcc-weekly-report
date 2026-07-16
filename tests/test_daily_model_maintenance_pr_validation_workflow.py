@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import subprocess
 from pathlib import Path
 
 from scripts import validate_daily_production_boundaries as boundaries
@@ -8,6 +9,17 @@ from scripts import validate_daily_production_boundaries as boundaries
 ROOT = Path(__file__).resolve().parents[1]
 WORKFLOW = ROOT / ".github" / "workflows" / "daily_model_maintenance_pr_validation.yml"
 DAILY_WORKFLOW = ROOT / ".github" / "workflows" / "daily_full_pipeline.yml"
+
+
+def run_git(repo: Path, *args: str) -> str:
+    proc = subprocess.run(
+        ["git", *args],
+        cwd=repo,
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+    return proc.stdout.strip()
 
 
 def test_daily_model_maintenance_pr_workflow_exists_for_model_pdf_paths() -> None:
@@ -114,6 +126,7 @@ def test_daily_model_maintenance_pr_workflow_runs_focused_pdf_operation_tests() 
 
 def test_daily_model_maintenance_pr_workflow_runs_actual_pdf_replay_and_uploads_evidence() -> None:
     text = WORKFLOW.read_text(encoding="utf-8")
+    replay_job = boundaries.workflow_job_block(text, "daily-pdf-dfkai-replay")
 
     assert "Replay ChatGPT-side daily PDF new conversation" in text
     assert "python scripts/validate_chatgpt_daily_report_new_conversation_replay.py" in text
@@ -124,8 +137,22 @@ def test_daily_model_maintenance_pr_workflow_runs_actual_pdf_replay_and_uploads_
     assert "--source-ref \"$source_ref\"" in text
     assert "--output-dir chatgpt_side_outputs_pr_validation" in text
     assert "--require-output-dir chatgpt_side_outputs_pr_validation" in text
-    assert "GITHUB_HEAD_REF" in text
-    assert "source_ref=\"origin/${GITHUB_HEAD_REF}\"" in text
+    assert 'source_sha="$(git rev-parse HEAD)"' in replay_job
+    assert 'if [ "$source_sha" != "$GITHUB_SHA" ]; then' in replay_job
+    assert 'pinned_remote="pinned-replay"' in replay_job
+    assert 'pinned_branch="workflow-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"' in replay_job
+    assert 'git branch --force "$pinned_branch" "$source_sha"' in replay_job
+    assert 'git remote add "$pinned_remote" "$PWD"' in replay_job
+    assert 'git fetch "$pinned_remote" "$pinned_branch"' in replay_job
+    assert 'source_ref="$pinned_remote/$pinned_branch"' in replay_job
+    assert 'resolved_source_sha="$(git rev-parse "$source_ref")"' in replay_job
+    assert 'if [ "$resolved_source_sha" != "$source_sha" ]; then' in replay_job
+    assert "PDF replay workflow_head_sha=$GITHUB_SHA" in replay_job
+    assert "PDF replay source_sha=$source_sha" in replay_job
+    assert "GITHUB_HEAD_REF" not in replay_job
+    assert "GITHUB_REF_NAME" not in replay_job
+    assert "git fetch origin" not in replay_job
+    assert 'source_ref="origin/' not in replay_job
     assert "Upload PR daily PDF replay evidence" in text
     assert "actions/upload-artifact@v4" in text
     assert "daily-pdf-replay-pr-validation" in text
@@ -133,6 +160,36 @@ def test_daily_model_maintenance_pr_workflow_runs_actual_pdf_replay_and_uploads_
     assert "chatgpt_side_outputs_pr_validation/chatgpt_daily_report_runtime_manifest.json" in text
     assert "chatgpt_side_outputs_pr_validation/chatgpt_daily_pdf_semantic_manifest.csv" in text
     assert "if-no-files-found: error" in text
+
+
+def test_pdf_replay_local_remote_ref_stays_pinned_when_checked_out_branch_advances(
+    tmp_path: Path,
+) -> None:
+    repo = tmp_path / "repo"
+    repo.mkdir()
+    run_git(repo, "init", "--initial-branch=main")
+    run_git(repo, "config", "user.email", "workflow-test@example.invalid")
+    run_git(repo, "config", "user.name", "Workflow Test")
+    marker = repo / "marker.txt"
+    marker.write_text("pinned\n", encoding="utf-8")
+    run_git(repo, "add", "marker.txt")
+    run_git(repo, "commit", "-m", "pinned source")
+
+    source_sha = run_git(repo, "rev-parse", "HEAD")
+    pinned_remote = "pinned-replay"
+    pinned_branch = "workflow-123-1"
+    run_git(repo, "branch", "--force", pinned_branch, source_sha)
+    run_git(repo, "remote", "add", pinned_remote, str(repo))
+    run_git(repo, "fetch", pinned_remote, pinned_branch)
+    source_ref = f"{pinned_remote}/{pinned_branch}"
+    assert run_git(repo, "rev-parse", source_ref) == source_sha
+
+    marker.write_text("moving main\n", encoding="utf-8")
+    run_git(repo, "add", "marker.txt")
+    run_git(repo, "commit", "-m", "advance main")
+    assert run_git(repo, "rev-parse", "HEAD") != source_sha
+    run_git(repo, "fetch", pinned_remote, pinned_branch)
+    assert run_git(repo, "rev-parse", source_ref) == source_sha
 
 
 def test_daily_pdf_replay_jobs_require_windows_dfkai_runtime() -> None:

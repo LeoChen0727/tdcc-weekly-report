@@ -236,14 +236,29 @@ jobs:
         timeout-minutes: 20
         shell: bash
         run: |
-          if [ -n "${GITHUB_HEAD_REF:-}" ]; then
-            source_ref="origin/${GITHUB_HEAD_REF}"
-          else
-            source_ref="origin/${GITHUB_REF_NAME}"
+          source_sha="$(git rev-parse HEAD)"
+          if [ "$source_sha" != "$GITHUB_SHA" ]; then
+            echo "ERROR: checked-out HEAD does not match immutable workflow SHA: head=$source_sha workflow=$GITHUB_SHA" >&2
+            exit 1
           fi
+
+          pinned_remote="pinned-replay"
+          pinned_branch="workflow-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          git branch --force "$pinned_branch" "$source_sha"
+          git remote remove "$pinned_remote" 2>/dev/null || true
+          git remote add "$pinned_remote" "$PWD"
+          git fetch "$pinned_remote" "$pinned_branch"
+          source_ref="$pinned_remote/$pinned_branch"
+          resolved_source_sha="$(git rev-parse "$source_ref")"
+          if [ "$resolved_source_sha" != "$source_sha" ]; then
+            echo "ERROR: pinned PDF replay ref drifted: expected=$source_sha resolved=$resolved_source_sha" >&2
+            exit 1
+          fi
+
+          echo "PDF replay workflow_head_sha=$GITHUB_SHA"
           echo "PDF replay source_ref=$source_ref"
+          echo "PDF replay source_sha=$source_sha"
           echo "PDF replay output_dir=chatgpt_side_outputs_pr_validation"
-          git fetch origin "${source_ref#origin/}"
           timeout 20m python scripts/validate_chatgpt_daily_report_new_conversation_replay.py \
             --source-ref "$source_ref" \
             --output-dir chatgpt_side_outputs_pr_validation
