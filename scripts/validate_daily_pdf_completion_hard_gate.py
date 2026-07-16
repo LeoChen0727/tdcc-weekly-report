@@ -15,6 +15,7 @@ from scripts import validate_chatgpt_daily_report_new_conversation_replay as rep
 from scripts import validate_daily_pdf_contract_consumers as pdf_consumers  # noqa: E402
 DAILY_FULL_WORKFLOW = ROOT / ".github" / "workflows" / "daily_full_pipeline.yml"
 DAILY_MODEL_PR_WORKFLOW = ROOT / ".github" / "workflows" / "daily_model_maintenance_pr_validation.yml"
+DAILY_PDF_REPLAY_PR_WORKFLOW = ROOT / ".github" / "workflows" / "daily_pdf_replay_pr_validation.yml"
 COMPLETION_GATE = ROOT / "scripts" / "validate_daily_pdf_completion_hard_gate.py"
 REPLAY_VALIDATOR = ROOT / "scripts" / "validate_chatgpt_daily_report_new_conversation_replay.py"
 RENDERED_MODEL_REGRESSION_CONTRACT = ROOT / "config" / "daily_pdf_rendered_model_regression_contract.csv"
@@ -384,7 +385,13 @@ def require_ordered(text: str, literals: Iterable[str], context: str) -> list[st
 
 def validate_workflow_gates() -> list[str]:
     errors: list[str] = []
-    for path in (DAILY_FULL_WORKFLOW, DAILY_MODEL_PR_WORKFLOW, COMPLETION_GATE, REPLAY_VALIDATOR):
+    for path in (
+        DAILY_FULL_WORKFLOW,
+        DAILY_MODEL_PR_WORKFLOW,
+        DAILY_PDF_REPLAY_PR_WORKFLOW,
+        COMPLETION_GATE,
+        REPLAY_VALIDATOR,
+    ):
         if not path.exists():
             errors.append(f"missing required daily PDF completion hard-gate file: {rel(path)}")
 
@@ -426,6 +433,22 @@ def validate_workflow_gates() -> list[str]:
                 (
                     STATIC_COMPLETION_GATE_COMMAND,
                     "tests/test_daily_pdf_completion_hard_gate.py",
+                ),
+                rel(DAILY_MODEL_PR_WORKFLOW),
+            )
+        )
+
+    if DAILY_PDF_REPLAY_PR_WORKFLOW.exists():
+        text = read_text(DAILY_PDF_REPLAY_PR_WORKFLOW)
+        errors.extend(
+            require_literals(
+                text,
+                (
+                    "python scripts/validate_repo_production_inventory.py",
+                    "python scripts/validate_daily_pdf_contract_consumers.py",
+                    "python scripts/validate_daily_pdf_shared_path_isolation.py",
+                    "python scripts/validate_daily_production_boundaries.py",
+                    STATIC_COMPLETION_GATE_COMMAND,
                     REPLAY_COMMAND,
                     "PDF replay output_dir=chatgpt_side_outputs_pr_validation",
                     "--output-dir chatgpt_side_outputs_pr_validation",
@@ -435,7 +458,7 @@ def validate_workflow_gates() -> list[str]:
                     "chatgpt_side_outputs_pr_validation/chatgpt_daily_pdf_semantic_manifest.csv",
                     "if-no-files-found: error",
                 ),
-                rel(DAILY_MODEL_PR_WORKFLOW),
+                rel(DAILY_PDF_REPLAY_PR_WORKFLOW),
             )
         )
         errors.extend(
@@ -447,7 +470,7 @@ def validate_workflow_gates() -> list[str]:
                     PR_OUTPUT_GATE_COMMAND,
                     "- name: Upload PR daily PDF replay evidence",
                 ),
-                rel(DAILY_MODEL_PR_WORKFLOW),
+                rel(DAILY_PDF_REPLAY_PR_WORKFLOW),
             )
         )
     return errors
@@ -646,7 +669,12 @@ def main() -> int:
             print(f"ERROR: {error}")
         return 1
     print("daily PDF completion hard-gate validation passed")
-    print(f"validated_workflows={rel(DAILY_FULL_WORKFLOW)};{rel(DAILY_MODEL_PR_WORKFLOW)}")
+    print(
+        "validated_workflows="
+        f"{rel(DAILY_FULL_WORKFLOW)};"
+        f"{rel(DAILY_MODEL_PR_WORKFLOW)};"
+        f"{rel(DAILY_PDF_REPLAY_PR_WORKFLOW)}"
+    )
     print(f"validated_readiness={rel(DAILY_MODEL_READINESS)}")
     if args.require_output_dir:
         print("validated_output_dirs=" + ";".join(str(path) for path in args.require_output_dir))

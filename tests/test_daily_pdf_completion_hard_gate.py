@@ -364,6 +364,7 @@ def test_completion_gate_rejects_pr_workflow_without_post_replay_gate(
 ) -> None:
     full_workflow = tmp_path / "daily_full_pipeline.yml"
     pr_workflow = tmp_path / "daily_model_maintenance_pr_validation.yml"
+    pdf_replay_workflow = tmp_path / "daily_pdf_replay_pr_validation.yml"
     gate_file = tmp_path / "validate_daily_pdf_completion_hard_gate.py"
     replay_file = tmp_path / "validate_chatgpt_daily_report_new_conversation_replay.py"
     gate_file.write_text("# gate\n", encoding="utf-8")
@@ -390,6 +391,18 @@ def test_completion_gate_rejects_pr_workflow_without_post_replay_gate(
                 *validator.REQUIRED_PR_VALIDATORS,
                 validator.STATIC_COMPLETION_GATE_COMMAND,
                 "tests/test_daily_pdf_completion_hard_gate.py",
+            ]
+        ),
+        encoding="utf-8",
+    )
+    pdf_replay_workflow.write_text(
+        "\n".join(
+            [
+                "python scripts/validate_repo_production_inventory.py",
+                "python scripts/validate_daily_pdf_contract_consumers.py",
+                "python scripts/validate_daily_pdf_shared_path_isolation.py",
+                "python scripts/validate_daily_production_boundaries.py",
+                validator.STATIC_COMPLETION_GATE_COMMAND,
                 "- name: Replay ChatGPT-side daily PDF new conversation",
                 validator.REPLAY_COMMAND,
                 "PDF replay output_dir=chatgpt_side_outputs_pr_validation",
@@ -406,6 +419,7 @@ def test_completion_gate_rejects_pr_workflow_without_post_replay_gate(
 
     monkeypatch.setattr(validator, "DAILY_FULL_WORKFLOW", full_workflow)
     monkeypatch.setattr(validator, "DAILY_MODEL_PR_WORKFLOW", pr_workflow)
+    monkeypatch.setattr(validator, "DAILY_PDF_REPLAY_PR_WORKFLOW", pdf_replay_workflow)
     monkeypatch.setattr(validator, "COMPLETION_GATE", gate_file)
     monkeypatch.setattr(validator, "REPLAY_VALIDATOR", replay_file)
 
