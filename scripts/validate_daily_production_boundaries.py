@@ -736,11 +736,54 @@ def main() -> int:
             'scripts/generate_chatgpt_side_daily_reports.py': (
                 "PDF replay workflow must trigger on the formal daily PDF renderer"
             ),
-            'scripts/*dfkai*': "PDF replay workflow must trigger on local or hosted DFKai infrastructure",
-            'scripts/build_daily_*operation_section*.py': (
-                "PDF replay workflow must trigger on formal operation adapter producers"
+            'config/daily_pdf_rendered_model_regression_contract.csv': (
+                "PDF replay workflow must trigger on the rendered-model PDF contract"
             ),
-            'config/daily_pdf_*.csv': "PDF replay workflow must trigger on daily PDF contracts",
+            'config/daily_pdf_semantic_golden_cases.csv': (
+                "PDF replay workflow must trigger on PDF semantic golden cases"
+            ),
+            'config/git_worktree_materialization_contract.csv': (
+                "PDF replay workflow must trigger on its temp-worktree runtime contract"
+            ),
+            'scripts/resolve_daily_report_source_state.py': (
+                "PDF replay workflow must trigger on its source-state runtime"
+            ),
+            'scripts/git_worktree_safety.py': (
+                "PDF replay workflow must trigger on its temp-worktree runtime"
+            ),
+            'scripts/market_session_calendar.py': (
+                "PDF replay workflow must trigger on its market-session runtime"
+            ),
+            'scripts/run_chatgpt_daily_report_entrypoint.py': (
+                "PDF replay workflow must trigger on the official PDF entrypoint"
+            ),
+            'scripts/validate_chatgpt_daily_report_new_conversation_replay.py': (
+                "PDF replay workflow must trigger on the replay runtime"
+            ),
+            'scripts/validate_daily_publish_freshness_gate.py': (
+                "PDF replay workflow must trigger on its freshness-gate runtime"
+            ),
+            'scripts/validate_chatgpt_side_pdf_contract.py': (
+                "PDF replay workflow must trigger on its font and PDF contract runtime"
+            ),
+            'output/latest/approved_operation_patterns_latest.csv': (
+                "PDF replay workflow must trigger on formal operation pattern input"
+            ),
+            'output/latest/daily_neckline_volume_breakout_confirmation_operation_section_latest.csv': (
+                "PDF replay workflow must trigger on neckline operation adapter input"
+            ),
+            'output/latest/daily_price_pullback_23ema_operation_section_latest.csv': (
+                "PDF replay workflow must trigger on 23EMA operation adapter input"
+            ),
+            'output/latest/daily_volume_breakout_operation_section_latest.csv': (
+                "PDF replay workflow must trigger on volume-breakout operation adapter input"
+            ),
+            'output/latest/daily_w_bottom_right_side_operation_section_latest.csv': (
+                "PDF replay workflow must trigger on W-bottom operation adapter input"
+            ),
+            'output/latest/model_operation_readiness_latest.csv': (
+                "PDF replay workflow must trigger on formal operation readiness input"
+            ),
             "daily-pdf-replay-contract-validation:": (
                 "PDF replay workflow must run a cheap contract gate before the Windows job"
             ),
