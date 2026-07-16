@@ -18,6 +18,14 @@ see `docs/output_latest_artifact_layout.md`.
 | Daily signal performance reports | `scripts/generate_daily_signal_performance_report.py` | `scripts/validate_daily_signal_performance.py` | Research/backtest-owned performance output. It is not a daily recommendation PDF. |
 | Individual stock report | `scripts/generate_individual_stock_report.py` | `scripts/validate_individual_stock_outputs.py` | `docs/latest/individual_stock_reports/` through individual-stock workflows. It is not a daily full-market report. |
 
+## DFKai Font Execution Boundary
+
+- The official local daily PDF entrypoint validates and reuses an existing `C:\Windows\Fonts\kaiu.ttf`; an existing valid font never invokes DISM.
+- `--source-gate-only` never validates or installs a font because it does not render PDFs.
+- Only an unconfigured canonical font path that is actually missing on Windows may invoke one bounded 20-minute `DISM /Add-Capability` attempt. Timeout or process-start failure fails immediately. After a completed DISM attempt, its exit code is diagnostic only: the final decision requires the canonical `kaiu.ttf` file plus exact DFKai name identity, file-size, and Traditional Chinese cmap-glyph validation. A completed nonzero result may continue only when every final-state check passes; a configured missing path, non-Windows host, invalid existing font, missing post-install file, or invalid post-install font fails closed without another attempt in that entrypoint invocation. If the font remains missing, a later formal PDF run may make its own single bounded attempt.
+- The local entrypoint must not change Windows Update registry policy or Windows services, and it never requests or performs automatic elevation. A missing-font install therefore requires the invoking Windows session to already have sufficient permission; otherwise it fails closed with installation guidance. Hosted-runner policy and service accommodations remain isolated to the GitHub Windows replay job.
+- GitHub Windows DFKai replay runs only in formal `daily_full_pipeline.yml`, PDF-impact pull requests through `daily_pdf_replay_pr_validation.yml`, or an explicit manual dispatch. General model research and financial-statement source-audit changes do not trigger it.
+
 ## Publisher Inventory
 
 | Publisher | Owns | Must Not Do |

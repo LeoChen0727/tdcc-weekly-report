@@ -5,12 +5,18 @@ import subprocess
 import sys
 from pathlib import Path
 
+import pytest
+
 from scripts import run_chatgpt_daily_report_entrypoint as entrypoint
 from scripts.resolve_daily_report_source_state import resolve_daily_report_source_state
 from scripts.run_chatgpt_daily_report_entrypoint import add_source_worktree, remove_source_worktree
 
 
 ROOT = Path(__file__).resolve().parents[1]
+
+
+def _runner_must_not_run(*args: object, **kwargs: object) -> subprocess.CompletedProcess[str]:
+    raise AssertionError(f"DFKai installer must not run: args={args} kwargs={kwargs}")
 
 
 def run_git(repo: Path, *args: str) -> str:
@@ -144,6 +150,330 @@ def point_origin_main(repo: Path, commit: str) -> None:
     run_git(repo, "update-ref", "refs/remotes/origin/main", commit)
 
 
+@pytest.mark.parametrize("configured_font_path", [False, True])
+def test_local_dfkai_preflight_reuses_valid_existing_font_without_install(
+    tmp_path: Path,
+    configured_font_path: bool,
+) -> None:
+    font_path = tmp_path / "kaiu.ttf"
+    font_path.write_bytes(b"valid-for-mocked-validator")
+    validated: list[Path] = []
+
+    def fake_validator(path: Path) -> Path:
+        validated.append(path)
+        return path
+
+    result = entrypoint.ensure_local_dfkai_font_for_pdf_rendering(
+        font_path=font_path,
+        configured_font_path=configured_font_path,
+        platform_name="win32",
+        default_font_path=font_path,
+        runner=_runner_must_not_run,
+        validator=fake_validator,
+    )
+
+    assert result == font_path
+    assert validated == [font_path]
+
+
+def test_local_dfkai_preflight_rejects_invalid_existing_font_without_install(tmp_path: Path) -> None:
+    font_path = tmp_path / "kaiu.ttf"
+    font_path.write_bytes(b"invalid")
+
+    def reject_font(path: Path) -> Path:
+        raise RuntimeError(f"invalid font: {path}")
+
+    with pytest.raises(entrypoint.DailyReportEntrypointError, match="automatic install is forbidden"):
+        entrypoint.ensure_local_dfkai_font_for_pdf_rendering(
+            font_path=font_path,
+            configured_font_path=False,
+            platform_name="win32",
+            default_font_path=font_path,
+            runner=_runner_must_not_run,
+            validator=reject_font,
+        )
+
+
+def test_local_dfkai_preflight_rejects_missing_configured_path_without_install(tmp_path: Path) -> None:
+    font_path = tmp_path / "configured" / "kaiu.ttf"
+
+    with pytest.raises(entrypoint.DailyReportEntrypointError, match="configured DFKai font path is missing"):
+        entrypoint.ensure_local_dfkai_font_for_pdf_rendering(
+            font_path=font_path,
+            configured_font_path=True,
+            platform_name="win32",
+            default_font_path=font_path,
+            runner=_runner_must_not_run,
+        )
+
+
+def test_local_dfkai_preflight_derives_missing_configured_path_from_environment(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    font_path = tmp_path / "configured" / "kaiu.ttf"
+    monkeypatch.setenv(entrypoint.CHATGPT_DAILY_DFKAI_FONT_PATH_ENV, str(font_path))
+
+    with pytest.raises(entrypoint.DailyReportEntrypointError, match="configured DFKai font path is missing"):
+        entrypoint.ensure_local_dfkai_font_for_pdf_rendering(
+            font_path=font_path,
+            platform_name="win32",
+            default_font_path=font_path,
+            runner=_runner_must_not_run,
+        )
+
+
+def test_local_dfkai_preflight_rejects_missing_font_off_windows_without_install(tmp_path: Path) -> None:
+    font_path = tmp_path / "kaiu.ttf"
+
+    with pytest.raises(entrypoint.DailyReportEntrypointError, match="supported only on Windows"):
+        entrypoint.ensure_local_dfkai_font_for_pdf_rendering(
+            font_path=font_path,
+            configured_font_path=False,
+            platform_name="linux",
+            default_font_path=font_path,
+            runner=_runner_must_not_run,
+        )
+
+
+def test_local_dfkai_preflight_rejects_unconfigured_noncanonical_target_without_install(
+    tmp_path: Path,
+) -> None:
+    font_path = tmp_path / "other-fonts" / "kaiu.ttf"
+    canonical_path = tmp_path / "Windows" / "Fonts" / "kaiu.ttf"
+
+    with pytest.raises(entrypoint.DailyReportEntrypointError, match="refuses a non-canonical target path"):
+        entrypoint.ensure_local_dfkai_font_for_pdf_rendering(
+            font_path=font_path,
+            configured_font_path=False,
+            platform_name="win32",
+            default_font_path=canonical_path,
+            runner=_runner_must_not_run,
+        )
+
+
+def test_local_dfkai_preflight_installs_missing_windows_default_once(tmp_path: Path) -> None:
+    font_path = tmp_path / "Fonts" / "kaiu.ttf"
+    captured: list[tuple[list[str], dict[str, object]]] = []
+    validated: list[Path] = []
+
+    def fake_runner(command: list[str], **kwargs: object) -> subprocess.CompletedProcess[str]:
+        captured.append((list(command), dict(kwargs)))
+        font_path.parent.mkdir(parents=True)
+        font_path.write_bytes(b"installed-for-mocked-validator")
+        return subprocess.CompletedProcess(command, 0, stdout="installed", stderr="")
+
+    def fake_validator(path: Path) -> Path:
+        validated.append(path)
+        return path
+
+    system_root = tmp_path / "Windows"
+    result = entrypoint.ensure_local_dfkai_font_for_pdf_rendering(
+        font_path=font_path,
+        configured_font_path=False,
+        platform_name="win32",
+        default_font_path=font_path,
+        system_root=system_root,
+        runner=fake_runner,
+        validator=fake_validator,
+    )
+
+    assert result == font_path
+    assert validated == [font_path]
+    assert len(captured) == 1
+    command, kwargs = captured[0]
+    assert command == [
+        str(system_root / "System32" / "dism.exe"),
+        "/Online",
+        "/Add-Capability",
+        "/CapabilityName:Language.Fonts.Hant~~~und-HANT~0.0.1.0",
+        "/NoRestart",
+    ]
+    assert kwargs["timeout"] == 1200
+    assert kwargs["check"] is False
+    assert kwargs["shell"] is False
+
+
+def test_local_dfkai_preflight_accepts_nonzero_when_final_font_is_valid(
+    tmp_path: Path,
+    capsys: pytest.CaptureFixture[str],
+) -> None:
+    font_path = tmp_path / "Fonts" / "kaiu.ttf"
+    runner_calls = 0
+    validated: list[Path] = []
+
+    def completed_nonzero_runner(
+        command: list[str],
+        **kwargs: object,
+    ) -> subprocess.CompletedProcess[str]:
+        nonlocal runner_calls
+        runner_calls += 1
+        font_path.parent.mkdir(parents=True)
+        font_path.write_bytes(b"installed-for-mocked-validator")
+        return subprocess.CompletedProcess(
+            command,
+            183,
+            stdout="The file already exists",
+            stderr="",
+        )
+
+    def fake_validator(path: Path) -> Path:
+        validated.append(path)
+        return path
+
+    result = entrypoint.ensure_local_dfkai_font_for_pdf_rendering(
+        font_path=font_path,
+        configured_font_path=False,
+        platform_name="win32",
+        default_font_path=font_path,
+        system_root=tmp_path / "Windows",
+        runner=completed_nonzero_runner,
+        validator=fake_validator,
+    )
+
+    captured = capsys.readouterr()
+    assert result == font_path
+    assert runner_calls == 1
+    assert validated == [font_path]
+    assert "dfkai_preflight_warning=nonzero_but_final_state_valid" in captured.err
+    assert "exit_code=183" in captured.err
+    assert "dfkai_preflight_action=installed_and_validated" in captured.out
+
+
+def test_local_dfkai_preflight_fails_closed_on_dism_error(tmp_path: Path) -> None:
+    font_path = tmp_path / "Fonts" / "kaiu.ttf"
+    calls = 0
+
+    def failed_runner(command: list[str], **kwargs: object) -> subprocess.CompletedProcess[str]:
+        nonlocal calls
+        calls += 1
+        return subprocess.CompletedProcess(command, 5, stdout="", stderr="access denied")
+
+    with pytest.raises(entrypoint.DailyReportEntrypointError, match="exit_code=5") as exc_info:
+        entrypoint.ensure_local_dfkai_font_for_pdf_rendering(
+            font_path=font_path,
+            configured_font_path=False,
+            platform_name="win32",
+            default_font_path=font_path,
+            system_root=tmp_path / "Windows",
+            runner=failed_runner,
+            validator=_runner_must_not_run,
+        )
+    assert calls == 1
+    assert "detail=access denied" in str(exc_info.value)
+
+
+def test_local_dfkai_preflight_fails_closed_on_dism_timeout(tmp_path: Path) -> None:
+    font_path = tmp_path / "Fonts" / "kaiu.ttf"
+
+    def timeout_runner(command: list[str], **kwargs: object) -> subprocess.CompletedProcess[str]:
+        raise subprocess.TimeoutExpired(command, kwargs["timeout"])
+
+    with pytest.raises(entrypoint.DailyReportEntrypointError, match="will not be retried"):
+        entrypoint.ensure_local_dfkai_font_for_pdf_rendering(
+            font_path=font_path,
+            configured_font_path=False,
+            platform_name="win32",
+            default_font_path=font_path,
+            system_root=tmp_path / "Windows",
+            runner=timeout_runner,
+        )
+
+
+def test_local_dfkai_preflight_fails_closed_when_dism_cannot_start(tmp_path: Path) -> None:
+    font_path = tmp_path / "Fonts" / "kaiu.ttf"
+    calls = 0
+
+    def missing_dism_runner(command: list[str], **kwargs: object) -> subprocess.CompletedProcess[str]:
+        nonlocal calls
+        calls += 1
+        raise OSError("dism unavailable")
+
+    with pytest.raises(entrypoint.DailyReportEntrypointError, match="could not start"):
+        entrypoint.ensure_local_dfkai_font_for_pdf_rendering(
+            font_path=font_path,
+            configured_font_path=False,
+            platform_name="win32",
+            default_font_path=font_path,
+            system_root=tmp_path / "Windows",
+            runner=missing_dism_runner,
+        )
+    assert calls == 1
+
+
+def test_local_dfkai_preflight_rejects_dism_success_without_font_file(tmp_path: Path) -> None:
+    font_path = tmp_path / "Fonts" / "kaiu.ttf"
+
+    def no_file_runner(command: list[str], **kwargs: object) -> subprocess.CompletedProcess[str]:
+        return subprocess.CompletedProcess(command, 0, stdout="success", stderr="")
+
+    with pytest.raises(entrypoint.DailyReportEntrypointError, match="font file is still missing"):
+        entrypoint.ensure_local_dfkai_font_for_pdf_rendering(
+            font_path=font_path,
+            configured_font_path=False,
+            platform_name="win32",
+            default_font_path=font_path,
+            system_root=tmp_path / "Windows",
+            runner=no_file_runner,
+        )
+
+
+def test_local_dfkai_preflight_rejects_invalid_font_after_install(tmp_path: Path) -> None:
+    font_path = tmp_path / "Fonts" / "kaiu.ttf"
+
+    def install_invalid_font(command: list[str], **kwargs: object) -> subprocess.CompletedProcess[str]:
+        font_path.parent.mkdir(parents=True)
+        font_path.write_bytes(b"invalid")
+        return subprocess.CompletedProcess(command, 0, stdout="success", stderr="")
+
+    def reject_font(path: Path) -> Path:
+        raise RuntimeError(f"invalid font: {path}")
+
+    with pytest.raises(entrypoint.DailyReportEntrypointError, match="failed validation after"):
+        entrypoint.ensure_local_dfkai_font_for_pdf_rendering(
+            font_path=font_path,
+            configured_font_path=False,
+            platform_name="win32",
+            default_font_path=font_path,
+            system_root=tmp_path / "Windows",
+            runner=install_invalid_font,
+            validator=reject_font,
+        )
+
+
+def test_local_dfkai_preflight_rejects_nonzero_when_final_font_is_invalid(tmp_path: Path) -> None:
+    font_path = tmp_path / "Fonts" / "kaiu.ttf"
+    runner_calls = 0
+    validator_calls = 0
+
+    def install_invalid_font(command: list[str], **kwargs: object) -> subprocess.CompletedProcess[str]:
+        nonlocal runner_calls
+        runner_calls += 1
+        font_path.parent.mkdir(parents=True)
+        font_path.write_bytes(b"invalid")
+        return subprocess.CompletedProcess(command, 183, stdout="already exists", stderr="")
+
+    def reject_font(path: Path) -> Path:
+        nonlocal validator_calls
+        validator_calls += 1
+        raise RuntimeError(f"invalid font identity or cmap: {path}")
+
+    with pytest.raises(entrypoint.DailyReportEntrypointError, match="exit_code=183") as exc_info:
+        entrypoint.ensure_local_dfkai_font_for_pdf_rendering(
+            font_path=font_path,
+            configured_font_path=False,
+            platform_name="win32",
+            default_font_path=font_path,
+            system_root=tmp_path / "Windows",
+            runner=install_invalid_font,
+            validator=reject_font,
+        )
+
+    assert runner_calls == 1
+    assert validator_calls == 1
+    assert "validation_error=invalid font identity or cmap" in str(exc_info.value)
+
+
 def test_direct_chatgpt_side_pdf_generator_cli_is_blocked() -> None:
     proc = subprocess.run(
         [sys.executable, "scripts/generate_chatgpt_side_daily_reports.py", "--help"],
@@ -231,6 +561,175 @@ def _resolved_state(date: str) -> dict[str, object]:
         "expected_main_price_date": date,
         "main_price_date": date,
     }
+
+
+def test_source_gate_only_skips_dfkai_preflight_and_pdf_rendering(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    source_ref = "origin/main"
+    date = "20260616"
+    state = {
+        "source_ref": source_ref,
+        "source_commit_sha": "a" * 40,
+        "market_session_status": "open_confirmed",
+        "expected_main_price_date": date,
+        "market_session_validation_scope": "test",
+        "live_expected_main_price_date": date,
+        "main_price_date": date,
+        "report_ready": True,
+        "warrant_ready": True,
+        "daily_pdf_ready": True,
+    }
+    args = entrypoint.argparse.Namespace(
+        repo_root=tmp_path,
+        source_ref=source_ref,
+        output_dir=None,
+        source_gate_only=True,
+        allow_dirty_code=True,
+        keep_source_worktree=False,
+    )
+    source_root = tmp_path / "verified-source"
+
+    monkeypatch.setattr(entrypoint, "parse_args", lambda: args)
+    monkeypatch.setattr(entrypoint, "ensure_entrypoint_can_run", lambda **kwargs: state)
+    monkeypatch.setattr(entrypoint, "add_source_worktree", lambda *args, **kwargs: source_root)
+    monkeypatch.setattr(entrypoint, "resolve_daily_report_source_state", lambda **kwargs: state)
+    monkeypatch.setattr(entrypoint, "remove_source_worktree", lambda *args, **kwargs: None)
+    monkeypatch.setattr(entrypoint, "ensure_local_dfkai_font_for_pdf_rendering", _runner_must_not_run)
+    monkeypatch.setattr(entrypoint, "run_generator", _runner_must_not_run)
+
+    assert entrypoint.main() == 0
+
+
+def test_normal_render_calls_dfkai_preflight_once_before_generator(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    source_ref = "origin/main"
+    date = "20260616"
+    state = {
+        "source_ref": source_ref,
+        "source_commit_sha": "a" * 40,
+        "market_session_status": "open_confirmed",
+        "expected_main_price_date": date,
+        "market_session_validation_scope": "test",
+        "live_expected_main_price_date": date,
+        "main_price_date": date,
+        "report_ready": True,
+        "warrant_ready": True,
+        "daily_pdf_ready": True,
+    }
+    output_dir = tmp_path / "official-output"
+    args = entrypoint.argparse.Namespace(
+        repo_root=tmp_path,
+        source_ref=source_ref,
+        output_dir=output_dir,
+        source_gate_only=False,
+        allow_dirty_code=True,
+        keep_source_worktree=False,
+    )
+    source_root = tmp_path / "verified-source"
+    events: list[str] = []
+
+    monkeypatch.setattr(entrypoint, "parse_args", lambda: args)
+    monkeypatch.setattr(
+        entrypoint,
+        "ensure_entrypoint_can_run",
+        lambda **kwargs: events.append("source_gate") or state,
+    )
+    monkeypatch.setattr(
+        entrypoint,
+        "ensure_local_dfkai_font_for_pdf_rendering",
+        lambda: events.append("preflight") or Path(r"C:\Windows\Fonts\kaiu.ttf"),
+    )
+    monkeypatch.setattr(
+        entrypoint,
+        "add_source_worktree",
+        lambda *args, **kwargs: events.append("worktree") or source_root,
+    )
+    monkeypatch.setattr(entrypoint, "resolve_daily_report_source_state", lambda **kwargs: state)
+    monkeypatch.setattr(
+        entrypoint,
+        "run_generator",
+        lambda *args, **kwargs: events.append("generator") or [output_dir / f"report_{idx}.pdf" for idx in range(6)],
+    )
+    monkeypatch.setattr(
+        entrypoint,
+        "write_runtime_manifest",
+        lambda *args, **kwargs: output_dir / entrypoint.RUNTIME_MANIFEST_NAME,
+    )
+    monkeypatch.setattr(entrypoint, "remove_source_worktree", lambda *args, **kwargs: None)
+
+    assert entrypoint.main() == 0
+    assert events.count("preflight") == 1
+    assert events == ["source_gate", "preflight", "worktree", "generator"]
+
+
+def test_dfkai_preflight_failure_stops_before_temp_worktree_and_generator(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    source_ref = "origin/main"
+    date = "20260616"
+    state = {
+        "source_ref": source_ref,
+        "source_commit_sha": "a" * 40,
+        "market_session_status": "open_confirmed",
+        "expected_main_price_date": date,
+        "market_session_validation_scope": "test",
+        "live_expected_main_price_date": date,
+        "main_price_date": date,
+        "report_ready": True,
+        "warrant_ready": True,
+        "daily_pdf_ready": True,
+    }
+    args = entrypoint.argparse.Namespace(
+        repo_root=tmp_path,
+        source_ref=source_ref,
+        output_dir=tmp_path / "official-output",
+        source_gate_only=False,
+        allow_dirty_code=True,
+        keep_source_worktree=False,
+    )
+
+    def fail_preflight() -> Path:
+        raise entrypoint.DailyReportEntrypointError("DFKai preflight test failure")
+
+    monkeypatch.setattr(entrypoint, "parse_args", lambda: args)
+    monkeypatch.setattr(entrypoint, "ensure_entrypoint_can_run", lambda **kwargs: state)
+    monkeypatch.setattr(entrypoint, "ensure_local_dfkai_font_for_pdf_rendering", fail_preflight)
+    monkeypatch.setattr(entrypoint.tempfile, "TemporaryDirectory", _runner_must_not_run)
+    monkeypatch.setattr(entrypoint, "add_source_worktree", _runner_must_not_run)
+    monkeypatch.setattr(entrypoint, "run_generator", _runner_must_not_run)
+
+    assert entrypoint.main() == 1
+
+
+def test_source_gate_failure_stops_before_dfkai_preflight_and_temp_worktree(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    args = entrypoint.argparse.Namespace(
+        repo_root=tmp_path,
+        source_ref="origin/main",
+        output_dir=tmp_path / "official-output",
+        source_gate_only=False,
+        allow_dirty_code=False,
+        keep_source_worktree=False,
+    )
+
+    def fail_source_gate(**kwargs: object) -> dict[str, object]:
+        raise entrypoint.DailyReportEntrypointError("source gate test failure")
+
+    monkeypatch.setattr(entrypoint, "parse_args", lambda: args)
+    monkeypatch.setattr(entrypoint, "ensure_entrypoint_can_run", fail_source_gate)
+    monkeypatch.setattr(entrypoint, "ensure_local_dfkai_font_for_pdf_rendering", _runner_must_not_run)
+    monkeypatch.setattr(entrypoint.tempfile, "TemporaryDirectory", _runner_must_not_run)
+    monkeypatch.setattr(entrypoint, "add_source_worktree", _runner_must_not_run)
+    monkeypatch.setattr(entrypoint, "run_generator", _runner_must_not_run)
+
+    assert entrypoint.main() == 1
 
 
 def _live_preflight(
