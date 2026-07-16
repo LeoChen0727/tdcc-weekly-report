@@ -90,8 +90,10 @@ jobs:
         shell: pwsh
         run: |
           $ErrorActionPreference = "Stop"
+          $PSNativeCommandUseErrorActionPreference = $false
           $fontCapability = "Language.Fonts.Hant~~~und-HANT~0.0.1.0"
           $fontPath = "C:\Windows\Fonts\kaiu.ttf"
+          $dismExitCode = 0
           if (-not (Test-Path -LiteralPath $fontPath)) {
             $windowsUpdatePolicy = "HKLM:\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate"
             $windowsUpdateAuPolicy = "$windowsUpdatePolicy\AU"
@@ -105,16 +107,22 @@ jobs:
             Write-Host "font_capability_state_before=$($capability.State)"
             if ($capability.State -ne "Installed") {
               & "$env:SystemRoot\System32\dism.exe" /Online /Add-Capability "/CapabilityName:$fontCapability" /NoRestart
-              if ($LASTEXITCODE -ne 0) {
-                throw "DFKai-SB capability installation failed with DISM exit code $LASTEXITCODE"
-              }
+              $dismExitCode = $LASTEXITCODE
+              Write-Host "font_capability_install_exit_code=$dismExitCode"
             }
           }
           if (-not (Test-Path -LiteralPath $fontPath)) {
-            throw "Required DFKai-SB font file is missing after capability install: $fontPath"
+            throw "Required DFKai-SB font file is missing after capability install: $fontPath (DISM exit code $dismExitCode)"
           }
           "CHATGPT_DAILY_DFKAI_FONT_PATH=$fontPath" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
           python -c 'from fontTools.ttLib import TTFont; p=r"C:\Windows\Fonts\kaiu.ttf"; f=TTFont(p); names={n.toUnicode() for n in f["name"].names}; accepted={"DFKai-SB","DFKaiShu-SB-Estd-BF"}; assert names & accepted, f"unexpected font names: {sorted(names)}"; cmap={cp for table in f["cmap"].tables for cp in table.cmap}; canary="\u6a19\u6977\u9ad4\u7e41\u9ad4\u4e2d\u6587\u6e2c\u8a66"; missing=[f"U+{ord(char):04X}" for char in canary if ord(char) not in cmap]; assert not missing, f"missing canary glyphs: {missing}"; print(f"validated_font={p} names={sorted(names & accepted)}")'
+          $fontValidationExitCode = $LASTEXITCODE
+          if ($fontValidationExitCode -ne 0) {
+            throw "DFKai-SB final font validation failed with exit code $fontValidationExitCode (DISM exit code $dismExitCode)"
+          }
+          if ($dismExitCode -ne 0) {
+            Write-Warning "DISM returned exit code $dismExitCode, but canonical DFKai-SB passed final file, identity, and glyph validation"
+          }
 
       - name: Prepare Windows long-path PDF replay runtime
         shell: pwsh

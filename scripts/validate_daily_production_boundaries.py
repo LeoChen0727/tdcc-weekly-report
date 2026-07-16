@@ -304,6 +304,17 @@ def workflow_job_block(text: str, job_id: str) -> str:
     return text[start : start + len(marker) + next_job.start()]
 
 
+def workflow_step_block(text: str, step_name: str) -> str:
+    marker = f"      - name: {step_name}"
+    start = text.find(marker)
+    if start < 0:
+        return ""
+    next_step = text.find("\n      - name:", start + len(marker))
+    if next_step < 0:
+        return text[start:]
+    return text[start:next_step]
+
+
 def validate_dfkai_pdf_replay_job(
     text: str,
     *,
@@ -320,6 +331,9 @@ def validate_dfkai_pdf_replay_job(
     required = {
         f"needs: {needs_job}": "DFKai PDF replay must wait for its upstream validation/production job",
         "runs-on: windows-2025": "DFKai PDF replay must use the pinned Windows 2025 runner",
+        "$PSNativeCommandUseErrorActionPreference = $false": (
+            "DFKai PDF replay must preserve native DISM exit codes for final-state validation"
+        ),
         "Language.Fonts.Hant~~~und-HANT~0.0.1.0": "DFKai PDF replay must install the Traditional Chinese supplemental font capability",
         "DoNotConnectToWindowsUpdateInternetLocations": "DFKai PDF replay must undo the hosted runner policy that blocks Microsoft font capability downloads",
         "DisableWindowsUpdateAccess": "DFKai PDF replay must enable access to the official Windows Update capability source",
@@ -328,7 +342,13 @@ def validate_dfkai_pdf_replay_job(
         "Start-Service -Name wuauserv": "DFKai PDF replay must start Windows Update before capability installation",
         "dism.exe": "DFKai PDF replay must install the official font capability with bounded DISM execution",
         "/Add-Capability": "DFKai PDF replay must install the official Hant font capability",
+        "$dismExitCode = 0": "DFKai PDF replay must initialize a final-state installation result",
+        "$dismExitCode = $LASTEXITCODE": "DFKai PDF replay must preserve the DISM result for audit",
+        "font_capability_install_exit_code=$dismExitCode": "DFKai PDF replay must log the DISM result",
         "C:\\Windows\\Fonts\\kaiu.ttf": "DFKai PDF replay must require the canonical kaiu.ttf path",
+        'throw "Required DFKai-SB font file is missing after capability install: $fontPath (DISM exit code $dismExitCode)"': (
+            "DFKai PDF replay must fail closed when the canonical font file remains missing"
+        ),
         "Prepare Windows long-path PDF replay runtime": "DFKai PDF replay must prepare Windows for the repository's long artifact paths",
         "git config --global core.longpaths true": "DFKai PDF replay must enable Git long-path worktree checkout",
         "C:\\tdcc-pdf-temp": "DFKai PDF replay must use a short temporary root for clean replay worktrees",
@@ -338,7 +358,17 @@ def validate_dfkai_pdf_replay_job(
         "from fontTools.ttLib import TTFont": "DFKai PDF replay must inspect the font name table and cmap",
         "DFKai-SB": "DFKai PDF replay must validate the DFKai-SB font identity",
         "DFKaiShu-SB-Estd-BF": "DFKai PDF replay must accept the canonical extracted DFKaiShu font identity",
+        "assert names & accepted": "DFKai PDF replay must fail closed on an unexpected font identity",
         "\\u6a19\\u6977\\u9ad4": "DFKai PDF replay must validate a Traditional Chinese glyph canary",
+        "assert not missing": "DFKai PDF replay must fail closed when canary glyphs are missing",
+        "$fontValidationExitCode = $LASTEXITCODE": "DFKai PDF replay must preserve final font validation status",
+        "if ($fontValidationExitCode -ne 0)": "DFKai PDF replay must fail closed when final font validation fails",
+        'throw "DFKai-SB final font validation failed with exit code $fontValidationExitCode (DISM exit code $dismExitCode)"': (
+            "DFKai PDF replay must throw when final font identity or glyph validation fails"
+        ),
+        "passed final file, identity, and glyph validation": (
+            "DFKai PDF replay may recover a nonzero DISM result only after final font validation"
+        ),
         "- name: Replay ChatGPT-side daily PDF new conversation": "DFKai Windows job must own the actual six-PDF replay",
         "shell: bash": "DFKai Windows job must use Git Bash for the bounded replay command",
         "timeout 20m python scripts/validate_chatgpt_daily_report_new_conversation_replay.py": "DFKai Windows job must hard-timeout the replay command",
@@ -351,6 +381,33 @@ def validate_dfkai_pdf_replay_job(
     for literal, message in required.items():
         if literal not in block:
             errors.append(f"{workflow_label}: {message}: missing {literal!r}")
+
+    ordered_final_state_literals = (
+        'dism.exe" /Online /Add-Capability',
+        "$dismExitCode = $LASTEXITCODE",
+        "if (-not (Test-Path -LiteralPath $fontPath))",
+        "python -c 'from fontTools.ttLib import TTFont",
+        "$fontValidationExitCode = $LASTEXITCODE",
+        "if ($fontValidationExitCode -ne 0)",
+        "if ($dismExitCode -ne 0)",
+        "passed final file, identity, and glyph validation",
+    )
+    cursor = -1
+    for literal in ordered_final_state_literals:
+        cursor = block.find(literal, cursor + 1)
+        if cursor < 0:
+            errors.append(
+                f"{workflow_label}: DFKai final-state validation order is incomplete at {literal!r}"
+            )
+            break
+
+    immediate_exit_failure = (
+        'throw "DFKai-SB capability installation failed with DISM exit code $LASTEXITCODE"'
+    )
+    if immediate_exit_failure in block:
+        errors.append(
+            f"{workflow_label}: DFKai replay must validate the final font state before rejecting a DISM exit code"
+        )
     return errors
 
 
@@ -828,6 +885,15 @@ def main() -> int:
             )
         )
         errors.extend(validate_pr_pdf_replay_source_pin(pdf_replay_workflow_text))
+        daily_dfkai_step = workflow_step_block(daily_text, "Install and validate DFKai-SB")
+        pr_dfkai_step = workflow_step_block(
+            pdf_replay_workflow_text,
+            "Install and validate DFKai-SB",
+        )
+        if daily_dfkai_step and pr_dfkai_step and daily_dfkai_step != pr_dfkai_step:
+            errors.append(
+                "daily_full_pipeline and daily_pdf_replay_pr_validation must use identical DFKai install and final-validation steps"
+            )
 
     if not CANONICAL_CHATGPT_PDF_ENTRYPOINT.exists():
         errors.append(f"missing canonical ChatGPT-side PDF entrypoint: {CANONICAL_CHATGPT_PDF_ENTRYPOINT}")
