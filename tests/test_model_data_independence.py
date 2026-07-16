@@ -149,7 +149,7 @@ def test_data_sharing_registry_uses_model_owned_research_entrypoints() -> None:
 
 def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
     rows = read_csv("config/daily_model_data_sharing_migrations.csv")
-    assert len(rows) == 10
+    assert len(rows) == 11
     baseline = rows[0]
     assert tuple(baseline) == DATA_SHARING_MIGRATION_COLUMNS
     assert data_migration_row_sha256(baseline) == BASELINE_DATA_MIGRATION_ROW_SHA256
@@ -324,6 +324,27 @@ def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
         "user_requested_historical_financial_statement_pit_source_audit_20260716"
     )
     assert historical_source_audit_migration["migration_status"] == (
+        "validated_user_approved_migration"
+    )
+
+    historical_source_retention_migration = rows[10]
+    assert historical_source_retention_migration["migration_id"] == (
+        "historical_financial_statement_pit_evidence_retention_20260716"
+    )
+    assert historical_source_retention_migration["changed_data_families"] == (
+        "financial_statement_historical_pit_source_audit"
+    )
+    assert historical_source_retention_migration["previous_contract_sha256s"] == (
+        "8da21eb04ed9fce3ffe4c8f1338e78db0736a5e1bee75b35d5eee11ad933f260"
+    )
+    assert historical_source_retention_migration["new_contract_sha256s"] == (
+        "c24fb7342cfdf7e628e049d9d465f5d0b59373607d4448bab1ac9a2227e98d13"
+    )
+    assert historical_source_retention_migration["affected_models"] == "all_models"
+    assert historical_source_retention_migration["user_approval_reference"] == (
+        "user_requested_historical_financial_statement_pit_source_audit_continuation_20260716"
+    )
+    assert historical_source_retention_migration["migration_status"] == (
         "validated_user_approved_migration"
     )
 

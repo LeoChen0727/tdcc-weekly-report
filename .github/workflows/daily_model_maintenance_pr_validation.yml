@@ -127,6 +127,11 @@ jobs:
           python scripts/validate_financial_statement_pit.py
           python scripts/build_financial_statement_historical_pit_source_audit.py
           python scripts/validate_financial_statement_historical_pit_source_audit.py
+          git diff --exit-code -- \
+            docs/latest/financial_statement_historical_pit_source_audit_latest.csv \
+            docs/latest/financial_statement_historical_pit_source_audit_latest.md \
+            output/latest/research_backtest/financial_statement_historical_pit_source_audit_latest.csv \
+            output/latest/research_backtest/financial_statement_historical_pit_source_audit_latest.md
           python scripts/validate_revenue_unreacted_range_source_first_condition_audit.py
           python scripts/validate_revenue_unreacted_range_forward_confirmation_feature_audit.py
           python scripts/validate_revenue_unreacted_range_rearmed_operation_grid.py
