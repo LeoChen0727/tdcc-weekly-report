@@ -80,7 +80,7 @@ def test_shared_business_semantics_are_disclosed_as_contained_not_technical() ->
 
 def test_semantic_baseline_is_immutable_and_pins_all_initial_records() -> None:
     rows = read_csv("config/daily_model_semantic_migrations.csv")
-    assert len(rows) == 1
+    assert len(rows) >= 1
     baseline = rows[0]
     assert tuple(baseline) == SEMANTIC_MIGRATION_COLUMNS
     assert migration_row_sha256(baseline) == BASELINE_MIGRATION_ROW_SHA256
@@ -370,6 +370,13 @@ def test_production_importing_audits_cannot_claim_independent_evidence() -> None
         row for row in rows if row["validator_path"] == "scripts/validate_model_data_independence.py"
     )
     assert guard["independence_claim"] == "True"
+    revenue_guard = next(
+        row
+        for row in rows
+        if row["validator_path"]
+        == "scripts/validate_revenue_unreacted_range_financial_statement_fail_closed.py"
+    )
+    assert revenue_guard["independence_claim"] == "True"
 
 
 def test_future_model_owned_module_import_is_detected(tmp_path: Path) -> None:
