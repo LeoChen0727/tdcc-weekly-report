@@ -164,12 +164,25 @@ python scripts/validate_financial_statement_historical_pit_source_audit.py
 The committed pilot uses `2013Q1` as the earliest IFRS source-contract probe and
 `2025Q1` as the first modern quarter near the currently tracked price-history
 window. The tracked pilot stocks currently begin at `2025-04-07`; therefore
-2013-2024 source retention is not current backtest evidence. Official MOPS bulk
-ZIPs, single-company downloads, financial-report announcements, correction
-queries, and taxonomy packages prove payload, scope, industry, and correction
-event coverage, but not exact initial `filed_at` plus every prior revision
-payload. `ReviewAuditDate`, ZIP member times, statutory deadlines, and local
-first-observed times must not be substituted for filing availability.
+2013-2024 source retention is not current backtest evidence. Audit v3 also
+retains a two-revision `2348 2026Q1` witness and a TWSE OpenAPI current-snapshot
+witness. The two exact t05 announcement times are
+`2026-05-25T15:59:11+08:00` and `2026-06-03T15:38:46+08:00`; they are
+`revision_announced_at_local`, not XBRL `filed_at`. The t57
+`2026-05-15T16:02:11+08:00` value is `pdf_uploaded_at_local`, not fact
+availability. t56 SKEY attachments for 2816, 4552, and both 2348 revisions are
+selected correction or replacement pages rather than complete before/after
+reports. After the two 2348 corrections, the bulk archive still has exactly one
+2348 member and its SHA-256 equals the direct current payload.
+
+Official MOPS bulk ZIPs, single-company downloads, financial-report
+announcements, correction queries, and taxonomy packages therefore prove
+payload, scope, industry, and correction-event coverage, but not exact initial
+`filed_at` plus every prior revision payload. The t05-to-t56 crosswalk is based
+on company, period, date, and text because no official common immutable key is
+exposed. `ReviewAuditDate`, OpenAPI `出表日期`, ZIP member times, PDF metadata,
+statutory deadlines, and local first-observed times must not be substituted for
+filing availability.
 
 Until that source blocker is resolved, `pit_eligible=False` and
 `formal_model_use_allowed=False` remain mandatory. EPS, gross margin, operating

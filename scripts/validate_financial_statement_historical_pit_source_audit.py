@@ -4,8 +4,9 @@ import argparse
 import csv
 import hashlib
 import re
+import zipfile
 from datetime import datetime
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -19,6 +20,45 @@ OUTPUT_CSV = ROOT / "output/latest/research_backtest/financial_statement_histori
 OUTPUT_MD = ROOT / "output/latest/research_backtest/financial_statement_historical_pit_source_audit_latest.md"
 DOCS_CSV = ROOT / "docs/latest/financial_statement_historical_pit_source_audit_latest.csv"
 DOCS_MD = ROOT / "docs/latest/financial_statement_historical_pit_source_audit_latest.md"
+
+EXPECTED_ARCHIVE_SHA256_BY_ID = {
+    "bulk_xbrl_2013Q1": "f6974e00aec749a3486d7944871fbe299129bdfe4107f1f4453699272b266f16",
+    "bulk_xbrl_2025Q1": "975c3439879d92bb336476f0691cc0547108b19603d06940439963c5fba1cb11",
+    "t57_2330_2013Q1": "8521042ec753b3d2395f6afdf5c38e0e135734c031c27db67c8022c16fab33d9",
+    "t57_5347_2013Q1": "4cd786421ee144e80e5e274fc7e895dd57b119f21b21d138c7d2306682690622",
+    "t57_2881_2013Q1": "e3c4b9abe341f0391a1f41afc1fbe9b853970c30875fea49a0fb9e395c0d84af",
+    "t57_2816_2013Q1": "83fc61b4a444c132ba9e4c5ea7c7af4d1cbadcff97905bc63a1c9a9bdd2e2b74",
+    "t05_2816_2013Q1_correction": "cdeda2e1ae85b03409a2025f58d23c06d27b5e5647e5e0cacf9bf90a793035b1",
+    "t56_2816_2013Q1_correction": "eb101c71b11be2e79fccba32c22843f5b4f224bed9e9ea86ffe08f3c96af0f23",
+    "t57_pdf_2816_2013Q1": "df3bd64b27dfc2bf53a75f1560a152aed7361d2ba8ee9605715ed81709470e0b",
+    "t57_2330_2025Q1": "cfe39d9ba137ca012caf74ebddfdb30aba1f00b7d34e9141941a8649036f3878",
+    "t57_5347_2025Q1": "dcd2cc6710219df67a31c34f34c91938423e17a18c31f09baa6a0bfcaa0d23cf",
+    "t57_2881_2025Q1": "4e17588aff0088db3a3ea6546b6f4d4001b61310aad4fc354ec9994ea6d18e7e",
+    "t57_2816_2025Q1": "71ef7f2d5c6e637943e4936467b4101556738850bc96469ceb90a3bd9c15221a",
+    "t05_4552_2025Q1_initial": "21aab3bf2402bd1ebf4dfdaf6eb3f7aa2b6ddb19e42e5baa635aa41ba45ed16a",
+    "t05_4552_2025Q1_correction": "beed0b027b4b677f63d2c61ee713032d85adcfca0e5c70ede7bd2cca62fc07c7",
+    "t56_4552_2025Q1_correction": "ec66623bbe9d3ed2975317743339acaa5a26dc1ce72976193195244a565832b0",
+    "t57_4552_2025Q1": "34d6b6a44dab3dc1f2b1beb27ffef5b4243c70cd62c22a9ebc404d9a2eaff91e",
+    "t57_pdf_4552_2025Q1": "99a7320d1c22d35c0b88166655f6912b6da26f53869ca1f0276afaa42cd20fd4",
+    "xbrl_4552_2025Q1_current": "8d23008d8565964acf1c784102411a5e7217d86849ed239001740448c611f277",
+    "twse_correction_guidance": "7c5502cbcd4eab7f391c40e24a5375b1b8f9a4cea8e3aa345c674623d595cd1e",
+    "t56_attachment_2816_2013Q1": "899a2483f1d50277e5f4967aa45bd971b7cf373de57d672b62f9a6af467348be",
+    "t56_attachment_4552_2025Q1": "24382f38ae0fb50a6894d82495b519b69ce0174c6e5ce783f83223a70b89e325",
+    "twse_openapi_swagger": "2c2cecccb7a220ac9e263228a7659aa49b1ada5aea397650e601ad3dfcc48043",
+    "twse_openapi_L_ci_2026Q1": "31c1e47fd73e5c3597638d0f596e900bee09b41bc96c54c6eea6a2b95f0eef52",
+    "t05_api_2348_2026Q1_may": "0dbb39dd202f85c5ac07297e74b4abcdd6f0898870538622e77afe5f7c50b94e",
+    "t05_api_2348_2026Q1_june": "908fd10b49709f985bbd287de9ef605a38a2fb93b8243183d653c0f415ca150f",
+    "t05_api_2348_2026Q1_revision1": "1df555073fa7fcd00322e4c7c9d727708a7785346d0554b3b4b7b3f289db0f02",
+    "t05_api_2348_2026Q1_revision2": "c0890a8ce48fe442c7b9a5d730e922512e5fc7443c318eb372a6ea57536ddcd7",
+    "t163_api_2348_2026Q1_current": "dacb680b6ef561f7e54d77a526d29d6033935d0573864ad5bf1961e5c9c13fb7",
+    "t57_2348_2026Q1": "3104c04f8010c23025ada1a1a7ec52aa7bf6ef3f2e78d3d4eb6422eb1f0cb270",
+    "t56_2348_2026Q1_skey1": "b7409343461930b00d4ce1084e3eb398c66ea25fcd74cce2b079c9c96b0b0d47",
+    "t56_2348_2026Q1_skey2": "8bca6f829d136a5455697c47a85449ff8cff2db527c1cd86b4dfce708029974c",
+    "t56_attachment_2348_2026Q1_skey1": "a1ab34ca2649193ebde5c717657fd0d471ef299525fe089a283ca9c9737822ca",
+    "t56_attachment_2348_2026Q1_skey2": "0ffcb2b64dd452aea6d3a20119a2e03a45ad76fbb38e9ba1fc1de9fd5548067e",
+    "xbrl_2348_2026Q1_current": "b2e2852b47d751bfe352925c75882d016124ed6a5bff6fd4d6964b4741efd534",
+    "bulk_xbrl_2026Q1": "6d1423056561dfcff07b7f720c0f1d4416fce3f0b11bcd47c254ed88557d0e10",
+}
 
 
 def read_rows(path: Path) -> list[dict[str, str]]:
@@ -53,6 +93,93 @@ def validate_external_archive_files(
             errors.append(f"{archive_id}: external raw byte count drift")
         if _sha256_path(raw_path) != row["raw_payload_sha256"]:
             errors.append(f"{archive_id}: external raw SHA-256 drift")
+
+    raw_by_id = {row["archive_id"]: row for row in raw_archives}
+    bulk = raw_by_id.get("bulk_xbrl_2026Q1")
+    direct = raw_by_id.get("xbrl_2348_2026Q1_current")
+    if bulk is not None and direct is not None:
+        bulk_path = external_archive_root / bulk["external_archive_relative_path"]
+        direct_path = external_archive_root / direct["external_archive_relative_path"]
+        if bulk_path.is_file() and direct_path.is_file():
+            expected_member_name = "tifrs-fr1-m1-ci-cr-2348-2026Q1.html"
+            try:
+                with zipfile.ZipFile(bulk_path) as archive:
+                    matching = [
+                        info
+                        for info in archive.infolist()
+                        if PurePosixPath(info.filename).name == expected_member_name
+                    ]
+                    if len(matching) != 1 or matching[0].filename != expected_member_name:
+                        errors.append(
+                            "bulk_xbrl_2026Q1: expected exactly one 2348 2026Q1 member"
+                        )
+                    else:
+                        member_bytes = archive.read(matching[0])
+                        member_sha256 = hashlib.sha256(member_bytes).hexdigest()
+                        if len(member_bytes) != int(direct["raw_byte_count"]):
+                            errors.append(
+                                "bulk_xbrl_2026Q1: 2348 member byte count differs from direct payload"
+                            )
+                        if member_sha256 != direct["raw_payload_sha256"]:
+                            errors.append(
+                                "bulk_xbrl_2026Q1: 2348 member SHA-256 differs from direct payload"
+                            )
+                        if member_bytes != direct_path.read_bytes():
+                            errors.append(
+                                "bulk_xbrl_2026Q1: 2348 member bytes differ from direct payload"
+                            )
+            except (OSError, ValueError, zipfile.BadZipFile) as exc:
+                errors.append(f"bulk_xbrl_2026Q1: cannot verify 2348 member: {exc}")
+    return errors
+
+
+def _evidence_lineage_hashes(row: dict[str, str]) -> set[str]:
+    hashes = {row["primary_response_sha256"]}
+    hashes.update(re.findall(r"=([0-9a-f]{64})(?:;|$)", row["corroborating_sha256s"]))
+    if row["current_payload_sha256"]:
+        hashes.add(row["current_payload_sha256"])
+    return hashes
+
+
+def validate_archive_lineage_bindings(
+    pilots: list[dict[str, str]],
+    evidence: list[dict[str, str]],
+    raw_archives: list[dict[str, str]],
+) -> list[str]:
+    errors: list[str] = []
+    lineage_rows: dict[str, list[dict[str, str]]] = {}
+    for archive in raw_archives:
+        expected_sha256 = EXPECTED_ARCHIVE_SHA256_BY_ID.get(archive["archive_id"])
+        if expected_sha256 is None:
+            errors.append(f"{archive['archive_id']}: archive id has no pinned SHA-256 lineage")
+        elif archive["raw_payload_sha256"] != expected_sha256:
+            errors.append(f"{archive['archive_id']}: archive id to SHA-256 lineage drift")
+        for related_id in archive["related_record_ids"].split(";"):
+            lineage_rows.setdefault(related_id, []).append(archive)
+
+    for pilot in pilots:
+        record_id = pilot["archive_file"]
+        related = lineage_rows.get(record_id, [])
+        actual_hashes = {row["raw_payload_sha256"] for row in related}
+        expected_hashes = {pilot["raw_payload_sha256"]}
+        if actual_hashes != expected_hashes or len(related) != 1:
+            errors.append(f"{record_id}: pilot archive payload lineage does not match manifest row")
+            continue
+        archive = related[0]
+        if (
+            archive["raw_byte_count"] != pilot["archive_bytes"]
+            or archive["captured_at"] != pilot["captured_at"]
+            or archive["period"] != pilot["period"]
+        ):
+            errors.append(f"{record_id}: pilot archive metadata lineage does not match manifest row")
+
+    for witness in evidence:
+        witness_id = witness["witness_id"]
+        related = lineage_rows.get(witness_id, [])
+        actual_hashes = {row["raw_payload_sha256"] for row in related}
+        expected_hashes = _evidence_lineage_hashes(witness)
+        if actual_hashes != expected_hashes or len(related) != len(expected_hashes):
+            errors.append(f"{witness_id}: evidence payload lineage does not match manifest rows")
     return errors
 
 
@@ -73,6 +200,7 @@ def validate(root: Path = ROOT, external_archive_root: Path | None = None) -> li
         "mops_financial_report_document_index",
         "twse_financial_report_correction_guidance",
         "mops_taxonomy_download",
+        "twse_openapi_financial_statement_current_snapshot",
     }
     if {row["source_id"] for row in sources} != required_sources:
         errors.append("historical PIT source surface registry is incomplete")
@@ -84,7 +212,12 @@ def validate(root: Path = ROOT, external_archive_root: Path | None = None) -> li
         if row["raw_archive_policy"] != "external_content_addressed_archive_required":
             errors.append(f"{row['source_id']}: official source evidence must be archived externally")
         if not row["official_url"].startswith(
-            ("https://mopsov.twse.com.tw/", "https://www.twse.com.tw/")
+            (
+                "https://mopsov.twse.com.tw/",
+                "https://mops.twse.com.tw/",
+                "https://www.twse.com.tw/",
+                "https://openapi.twse.com.tw/",
+            )
         ):
             errors.append(f"{row['source_id']}: source must be an official MOPS or TWSE URL")
         if not row["blocker"]:
@@ -153,7 +286,13 @@ def validate(root: Path = ROOT, external_archive_root: Path | None = None) -> li
         witness_id = row["witness_id"]
         if row["pit_eligible"] != "False" or row["formal_model_use_allowed"] != "False":
             errors.append(f"{witness_id}: evidence witness must remain fail closed")
-        if not row["public_version_visibility"].startswith("one_current_canonical_filename"):
+        if not row["public_version_visibility"].startswith(
+            (
+                "one_current_canonical_filename",
+                "one_current_bulk_member",
+                "one_current_dataset_snapshot",
+            )
+        ):
             errors.append(f"{witness_id}: public version visibility must remain explicit")
         try:
             datetime.fromisoformat(row["captured_at"])
@@ -186,43 +325,30 @@ def validate(root: Path = ROOT, external_archive_root: Path | None = None) -> li
     raw_by_id = {row["archive_id"]: row for row in raw_archives}
     if len(raw_by_id) != len(raw_archives):
         errors.append("historical PIT raw archive ids must be unique")
-    required_archive_ids = {
-        "bulk_xbrl_2013Q1",
-        "bulk_xbrl_2025Q1",
-        "t57_2330_2013Q1",
-        "t57_5347_2013Q1",
-        "t57_2881_2013Q1",
-        "t57_2816_2013Q1",
-        "t05_2816_2013Q1_correction",
-        "t56_2816_2013Q1_correction",
-        "t57_pdf_2816_2013Q1",
-        "t57_2330_2025Q1",
-        "t57_5347_2025Q1",
-        "t57_2881_2025Q1",
-        "t57_2816_2025Q1",
-        "t05_4552_2025Q1_initial",
-        "t05_4552_2025Q1_correction",
-        "t56_4552_2025Q1_correction",
-        "t57_4552_2025Q1",
-        "t57_pdf_4552_2025Q1",
-        "xbrl_4552_2025Q1_current",
-        "twse_correction_guidance",
-    }
+    required_archive_ids = set(EXPECTED_ARCHIVE_SHA256_BY_ID)
     if set(raw_by_id) != required_archive_ids:
-        errors.append("historical PIT raw archive manifest must retain all 20 source payloads")
+        errors.append("historical PIT raw archive manifest must retain all 36 source payloads")
     expected_payload_hashes = {row["raw_payload_sha256"] for row in pilots}
     for row in evidence:
-        expected_payload_hashes.add(row["primary_response_sha256"])
-        expected_payload_hashes.update(
-            re.findall(r"=([0-9a-f]{64})(?:;|$)", row["corroborating_sha256s"])
-        )
-        if row["current_payload_sha256"]:
-            expected_payload_hashes.add(row["current_payload_sha256"])
+        expected_payload_hashes.update(_evidence_lineage_hashes(row))
     guidance_sha = "7c5502cbcd4eab7f391c40e24a5375b1b8f9a4cea8e3aa345c674623d595cd1e"
     expected_payload_hashes.add(guidance_sha)
     manifest_payload_hashes = {row["raw_payload_sha256"] for row in raw_archives}
     if manifest_payload_hashes != expected_payload_hashes:
         errors.append("raw archive SHA set must equal pilot evidence and guidance payload lineage")
+    errors.extend(validate_archive_lineage_bindings(pilots, evidence, raw_archives))
+    guidance_rows = [
+        row
+        for row in raw_archives
+        if "twse_financial_report_correction_guidance"
+        in row["related_record_ids"].split(";")
+    ]
+    if (
+        len(guidance_rows) != 1
+        or guidance_rows[0]["archive_id"] != "twse_correction_guidance"
+        or guidance_rows[0]["raw_payload_sha256"] != guidance_sha
+    ):
+        errors.append("official correction guidance payload lineage does not match manifest row")
     source_ids = {row["source_id"] for row in sources}
     related_ids = (
         {row["archive_file"] for row in pilots}
@@ -239,8 +365,10 @@ def validate(root: Path = ROOT, external_archive_root: Path | None = None) -> li
         if not row["official_url"].startswith(
             (
                 "https://mopsov.twse.com.tw/",
+                "https://mops.twse.com.tw/",
                 "https://doc.twse.com.tw/",
                 "https://www.twse.com.tw/",
+                "https://openapi.twse.com.tw/",
             )
         ):
             errors.append(f"{archive_id}: raw archive must reference an official URL")
@@ -276,6 +404,162 @@ def validate(root: Path = ROOT, external_archive_root: Path | None = None) -> li
             errors.append(f"{archive_id}: retained raw evidence cannot authorize formal use")
     if external_archive_root is not None:
         errors.extend(validate_external_archive_files(raw_archives, external_archive_root))
+
+    expected_correction_attachments = {
+        "t56_attachment_2816_2013Q1": (
+            "899a2483f1d50277e5f4967aa45bd971b7cf373de57d672b62f9a6af467348be",
+            "300050",
+            "Eleven nonconsecutive selected report pages",
+        ),
+        "t56_attachment_4552_2025Q1": (
+            "24382f38ae0fb50a6894d82495b519b69ce0174c6e5ce783f83223a70b89e325",
+            "734170",
+            "Two selected corrected report pages",
+        ),
+        "t56_attachment_2348_2026Q1_skey1": (
+            "a1ab34ca2649193ebde5c717657fd0d471ef299525fe089a283ca9c9737822ca",
+            "537872",
+            "One replacement page numbered 42",
+        ),
+        "t56_attachment_2348_2026Q1_skey2": (
+            "0ffcb2b64dd452aea6d3a20119a2e03a45ad76fbb38e9ba1fc1de9fd5548067e",
+            "79988",
+            "Two replacement pages numbered 42 and 45",
+        ),
+    }
+    for archive_id, (digest, byte_count, note_token) in expected_correction_attachments.items():
+        row = raw_by_id.get(archive_id)
+        if row is None:
+            errors.append(f"{archive_id}: missing correction attachment archive")
+            continue
+        if (
+            row["raw_payload_sha256"] != digest
+            or row["raw_byte_count"] != byte_count
+            or row["media_type"] != "application/pdf"
+        ):
+            errors.append(f"{archive_id}: pinned correction attachment contract drift")
+        if (
+            row["payload_role"] != "financial_report_correction_attachment_selected_pages"
+            or row["availability_precision"] != "correction_attachment_link_date_only_not_filed_at"
+            or note_token not in row["notes"]
+        ):
+            errors.append(f"{archive_id}: correction attachment must remain selected-page evidence only")
+
+    openapi_source = next(
+        (
+            row
+            for row in sources
+            if row["source_id"] == "twse_openapi_financial_statement_current_snapshot"
+        ),
+        None,
+    )
+    if openapi_source is None:
+        errors.append("missing TWSE OpenAPI current-snapshot source contract")
+    elif (
+        openapi_source["status"] != "current_snapshot_only_not_historical_pit"
+        or "not company filed_at" not in openapi_source["availability_semantics"]
+        or "no company revision id or version selector" not in openapi_source["revision_semantics"]
+    ):
+        errors.append("TWSE OpenAPI source must remain current-snapshot-only")
+
+    openapi_witness = witness_by_id.get("2026Q1_twse_openapi_L_ci_snapshot")
+    if openapi_witness is None:
+        errors.append("missing TWSE OpenAPI current-snapshot witness")
+    else:
+        if (
+            openapi_witness["primary_response_sha256"]
+            != "31c1e47fd73e5c3597638d0f596e900bee09b41bc96c54c6eea6a2b95f0eef52"
+            or openapi_witness["corroborating_sha256s"]
+            != "swagger=2c2cecccb7a220ac9e263228a7659aa49b1ada5aea397650e601ad3dfcc48043"
+        ):
+            errors.append("TWSE OpenAPI payload and Swagger hashes drift")
+        if (
+            openapi_witness["company_id"],
+            openapi_witness["industry_schema"],
+            openapi_witness["report_scope"],
+        ) != ("all_listed", "ci", "cr_current_snapshot"):
+            errors.append("TWSE OpenAPI witness scope drift")
+        if openapi_witness["conclusion"] != (
+            "dataset_output_date_is_not_company_fact_availability_or_revision_lineage"
+        ):
+            errors.append("TWSE OpenAPI witness must remain fail closed")
+
+    expected_2348_revisions = {
+        "2026Q1_2348_cr_revision_1": (
+            "2026-05-25T15:59:11+08:00",
+            "1df555073fa7fcd00322e4c7c9d727708a7785346d0554b3b4b7b3f289db0f02",
+            "t05_list=0dbb39dd202f85c5ac07297e74b4abcdd6f0898870538622e77afe5f7c50b94e;"
+            "t56=b7409343461930b00d4ce1084e3eb398c66ea25fcd74cce2b079c9c96b0b0d47;"
+            "t56_attachment=a1ab34ca2649193ebde5c717657fd0d471ef299525fe089a283ca9c9737822ca",
+            "SKEY=1",
+        ),
+        "2026Q1_2348_cr_revision_2": (
+            "2026-06-03T15:38:46+08:00",
+            "c0890a8ce48fe442c7b9a5d730e922512e5fc7443c318eb372a6ea57536ddcd7",
+            "t05_list=908fd10b49709f985bbd287de9ef605a38a2fb93b8243183d653c0f415ca150f;"
+            "t56=8bca6f829d136a5455697c47a85449ff8cff2db527c1cd86b4dfce708029974c;"
+            "t56_attachment=0ffcb2b64dd452aea6d3a20119a2e03a45ad76fbb38e9ba1fc1de9fd5548067e",
+            "SKEY=2",
+        ),
+    }
+    for witness_id, (revision_time, primary_sha, corroborating, skey) in expected_2348_revisions.items():
+        row = witness_by_id.get(witness_id)
+        if row is None:
+            errors.append(f"missing 2348 revision witness: {witness_id}")
+            continue
+        if (
+            row["company_id"],
+            row["market"],
+            row["industry_schema"],
+            row["report_scope"],
+        ) != ("2348", "sii", "ci", "cr"):
+            errors.append(f"{witness_id}: market scope or schema drift")
+        if (
+            row["document_visible_upload_at"] != "2026-05-15T16:02:11+08:00"
+            or row["revision_public_at"] != revision_time
+            or row["primary_response_sha256"] != primary_sha
+            or row["corroborating_sha256s"] != corroborating
+        ):
+            errors.append(f"{witness_id}: pinned revision time or payload lineage drift")
+        if skey not in row["request_contracts"] or "t05_detail:POST JSON" not in row["request_contracts"]:
+            errors.append(f"{witness_id}: reproducible t05 and t56 requests are required")
+
+    current_2348 = witness_by_id.get(
+        "2026Q1_2348_cr_current_snapshot_after_two_revisions"
+    )
+    if current_2348 is None:
+        errors.append("missing 2348 post-revision current-snapshot witness")
+    else:
+        if current_2348["primary_response_sha256"] != (
+            "dacb680b6ef561f7e54d77a526d29d6033935d0573864ad5bf1961e5c9c13fb7"
+        ):
+            errors.append("2348 current t163 response hash drift")
+        if current_2348["corroborating_sha256s"] != (
+            "t57=3104c04f8010c23025ada1a1a7ec52aa7bf6ef3f2e78d3d4eb6422eb1f0cb270;"
+            "bulk=6d1423056561dfcff07b7f720c0f1d4416fce3f0b11bcd47c254ed88557d0e10"
+        ):
+            errors.append("2348 current t57 or bulk lineage hash drift")
+        if current_2348["current_payload_sha256"] != (
+            "b2e2852b47d751bfe352925c75882d016124ed6a5bff6fd4d6964b4741efd534"
+        ):
+            errors.append("2348 direct current XBRL hash drift")
+        if current_2348["conclusion"] != (
+            "bulk_and_direct_are_identical_current_snapshot_bytes_after_two_revisions_not_version_history"
+        ):
+            errors.append("2348 bulk/direct witness must remain current-snapshot-only")
+
+    bulk_2348 = raw_by_id.get("bulk_xbrl_2026Q1")
+    direct_2348 = raw_by_id.get("xbrl_2348_2026Q1_current")
+    if bulk_2348 is not None and direct_2348 is not None:
+        if (
+            direct_2348["raw_payload_sha256"]
+            != "b2e2852b47d751bfe352925c75882d016124ed6a5bff6fd4d6964b4741efd534"
+            or direct_2348["raw_byte_count"] != "686961"
+            or "exactly one 2348 member" not in bulk_2348["notes"]
+            or "SHA match the direct current payload" not in bulk_2348["notes"]
+        ):
+            errors.append("2348 bulk/direct single-current-payload evidence drift")
+
     historical_revision = witness_by_id.get("2013Q1_2816_ir_revision")
     if historical_revision is None:
         errors.append("missing 2816 2013Q1 revision witness")
@@ -299,7 +583,8 @@ def validate(root: Path = ROOT, external_archive_root: Path | None = None) -> li
         expected_corroborating = (
             "t57=83fc61b4a444c132ba9e4c5ea7c7af4d1cbadcff97905bc63a1c9a9bdd2e2b74;"
             "t56=eb101c71b11be2e79fccba32c22843f5b4f224bed9e9ea86ffe08f3c96af0f23;"
-            "pdf=df3bd64b27dfc2bf53a75f1560a152aed7361d2ba8ee9605715ed81709470e0b"
+            "pdf=df3bd64b27dfc2bf53a75f1560a152aed7361d2ba8ee9605715ed81709470e0b;"
+            "t56_attachment=899a2483f1d50277e5f4967aa45bd971b7cf373de57d672b62f9a6af467348be"
         )
         if historical_revision["corroborating_sha256s"] != expected_corroborating:
             errors.append("2013Q1_2816_ir_revision: corroborating lineage SHA-256 drift")
@@ -367,18 +652,27 @@ def validate(root: Path = ROOT, external_archive_root: Path | None = None) -> li
             "t05_revision=beed0b027b4b677f63d2c61ee713032d85adcfca0e5c70ede7bd2cca62fc07c7;"
             "t56=ec66623bbe9d3ed2975317743339acaa5a26dc1ce72976193195244a565832b0;"
             "t57=34d6b6a44dab3dc1f2b1beb27ffef5b4243c70cd62c22a9ebc404d9a2eaff91e;"
-            "pdf=99a7320d1c22d35c0b88166655f6912b6da26f53869ca1f0276afaa42cd20fd4"
+            "pdf=99a7320d1c22d35c0b88166655f6912b6da26f53869ca1f0276afaa42cd20fd4;"
+            "t56_attachment=24382f38ae0fb50a6894d82495b519b69ce0174c6e5ce783f83223a70b89e325"
         )
         if leakage["corroborating_sha256s"] != expected_corroborating:
             errors.append("4552 revision-leakage corroborating lineage SHA-256 drift")
         corroborating = re.findall(r"=([0-9a-f]{64})(?:;|$)", leakage["corroborating_sha256s"])
-        if len(corroborating) != 4:
-            errors.append("4552 revision-leakage witness requires t05 revision t56 t57 and PDF hashes")
+        if len(corroborating) != 5:
+            errors.append(
+                "4552 revision-leakage witness requires t05 revision t56 t57 PDF and correction-attachment hashes"
+            )
     expected_records = len(sources) + len(pilots) + len(evidence) + len(raw_archives)
     if len(audit) != expected_records:
         errors.append("generated source audit row count mismatch")
-    if {row["audit_id"] for row in audit} != {"financial_statement_historical_pit_source_audit_v2"}:
-        errors.append("generated source audit must use the v2 availability and revision contract")
+    if {row["audit_id"] for row in audit} != {"financial_statement_historical_pit_source_audit_v3"}:
+        errors.append("generated source audit must use the v3 acquisition and revision contract")
+    for row in audit:
+        record_label = f"{row['record_type']}:{row['record_id']}"
+        if row["pit_eligible"] != "False" or row["formal_model_use_allowed"] != "False":
+            errors.append(f"{record_label}: generated source audit must remain fail closed")
+        if not row["blocker"]:
+            errors.append(f"{record_label}: generated source audit blocker is required")
     audit_by_type = {
         record_type: {row["record_id"]: row for row in audit if row["record_type"] == record_type}
         for record_type in (
@@ -396,6 +690,44 @@ def validate(root: Path = ROOT, external_archive_root: Path | None = None) -> li
         errors.append("generated evidence rows drift from the witness registry")
     if set(audit_by_type["raw_archive"]) != set(raw_by_id):
         errors.append("generated raw archive rows drift from the archive manifest")
+    for source in sources:
+        generated = audit_by_type["source_surface"].get(source["source_id"])
+        if generated is None:
+            continue
+        expected = {
+            "period": source["coverage_start"],
+            "source_role": source["source_role"],
+            "official_url": source["official_url"],
+            "scope_evidence": source["scope_semantics"],
+            "taxonomy_evidence": source["taxonomy_semantics"],
+            "availability_evidence": source["availability_semantics"],
+            "revision_evidence": source["revision_semantics"],
+            "raw_payload_sha256": "",
+            "member_count": "",
+            "audit_status": source["status"],
+            "blocker": source["blocker"],
+        }
+        if any(generated[key] != value for key, value in expected.items()):
+            errors.append(f"{source['source_id']}: generated source-surface projection drift")
+    for pilot in pilots:
+        generated = audit_by_type["pilot_archive"].get(pilot["archive_file"])
+        if generated is None:
+            continue
+        expected = {
+            "period": pilot["period"],
+            "source_role": "quarter_archive_pilot",
+            "official_url": "https://mopsov.twse.com.tw/server-java/FileDownLoad",
+            "scope_evidence": f"{pilot['scope_counts']};{pilot['market_scope_evidence']}",
+            "taxonomy_evidence": pilot["taxonomy_evidence"],
+            "availability_evidence": pilot["initial_filed_at_evidence"],
+            "revision_evidence": pilot["revision_payload_evidence"],
+            "raw_payload_sha256": pilot["raw_payload_sha256"],
+            "member_count": pilot["member_count"],
+            "audit_status": "pilot_payload_and_scope_verified_pit_blocked",
+            "blocker": pilot["blocker"],
+        }
+        if any(generated[key] != value for key, value in expected.items()):
+            errors.append(f"{pilot['archive_file']}: generated pilot projection drift")
     for witness_id, witness in witness_by_id.items():
         generated = audit_by_type["evidence_witness"].get(witness_id)
         if generated is None:
@@ -406,6 +738,41 @@ def validate(root: Path = ROOT, external_archive_root: Path | None = None) -> li
         for required in (witness["request_contracts"], witness["primary_response_sha256"], witness["captured_at"]):
             if required not in generated["revision_evidence"]:
                 errors.append(f"{witness_id}: generated witness lineage is incomplete")
+        expected_availability = (
+            f"metric_initial_public_at={witness['metric_initial_public_at'] or 'none'};"
+            f"document_visible_upload_at={witness['document_visible_upload_at'] or 'none'};"
+            f"revision_public_at={witness['revision_public_at'] or 'none'}"
+        )
+        expected_scope = (
+            f"company_id={witness['company_id']};market={witness['market']};"
+            f"scope={witness['report_scope']};filename={witness['canonical_filename']}"
+        )
+        expected_revision = (
+            f"metric={witness['metric_name'] or 'none'};"
+            f"initial={witness['initial_value'] or 'none'};"
+            f"revision={witness['revision_value'] or 'none'};"
+            f"current_visible={witness['current_visible_value'] or 'none'};"
+            f"visibility={witness['public_version_visibility']};"
+            f"requests={witness['request_contracts']};"
+            f"primary_response_sha256={witness['primary_response_sha256']};"
+            f"corroborating_sha256s={witness['corroborating_sha256s'] or 'none'};"
+            f"current_payload_sha256={witness['current_payload_sha256'] or 'none'};"
+            f"captured_at={witness['captured_at']}"
+        )
+        if (
+            generated["period"] != witness["period"]
+            or generated["source_role"] != witness["witness_type"]
+            or generated["official_url"] != witness["official_url"]
+            or generated["scope_evidence"] != expected_scope
+            or generated["taxonomy_evidence"] != f"industry_schema={witness['industry_schema']}"
+            or generated["availability_evidence"] != expected_availability
+            or generated["revision_evidence"] != expected_revision
+            or generated["member_count"] != ""
+            or generated["audit_status"] != witness["conclusion"]
+            or generated["blocker"]
+            != "exact_xbrl_fact_availability_and_complete_revision_payload_lineage_unavailable"
+        ):
+            errors.append(f"{witness_id}: generated witness projection drift")
     for archive_id, archive in raw_by_id.items():
         generated = audit_by_type["raw_archive"].get(archive_id)
         if generated is None:
@@ -430,6 +797,39 @@ def validate(root: Path = ROOT, external_archive_root: Path | None = None) -> li
         }
         if generated_availability.get("raw_byte_count") != archive["raw_byte_count"]:
             errors.append(f"{archive_id}: generated raw archive byte count drift")
+        expected_scope = (
+            f"related_record_ids={archive['related_record_ids']};"
+            f"external_archive_relative_path={archive['external_archive_relative_path']}"
+        )
+        expected_availability = (
+            f"captured_at={archive['captured_at']};"
+            f"official_public_at={archive['official_public_at'] or 'none'};"
+            f"availability_precision={archive['availability_precision']};"
+            f"archive_root_id={archive['external_archive_root_id']};"
+            f"raw_archive_ref={archive['raw_archive_ref']};"
+            f"raw_byte_count={archive['raw_byte_count']}"
+        )
+        expected_revision = (
+            f"request={archive['request_contract']};"
+            f"archive_status={archive['archive_status']};notes={archive['notes']}"
+        )
+        if (
+            generated["period"] != archive["period"]
+            or generated["source_role"] != archive["payload_role"]
+            or generated["official_url"] != archive["official_url"]
+            or generated["scope_evidence"] != expected_scope
+            or generated["taxonomy_evidence"] != f"source_id={archive['source_id']}"
+            or generated["availability_evidence"] != expected_availability
+            or generated["revision_evidence"] != expected_revision
+            or generated["member_count"] != ""
+            or generated["audit_status"] != archive["archive_status"]
+            or generated["blocker"]
+            != (
+                "raw_retained_but_exact_xbrl_fact_availability_and_complete_revision_"
+                "payload_lineage_unavailable"
+            )
+        ):
+            errors.append(f"{archive_id}: generated raw archive projection drift")
     for relative in (OUTPUT_CSV, OUTPUT_MD, DOCS_CSV, DOCS_MD):
         if not (root / relative.relative_to(ROOT)).is_file():
             errors.append(f"missing generated source audit artifact: {relative.relative_to(ROOT).as_posix()}")
@@ -455,6 +855,21 @@ def validate(root: Path = ROOT, external_archive_root: Path | None = None) -> li
         "external_content_addressed_archive_verified",
         "codex_data_archives_taiwan_stock_financial_statement_historical_pit_source_audit_v1",
         guidance_sha,
+        "document_visible_upload_at",
+        "revision_public_at",
+        "selected corrected or replacement pages",
+        "company_period_date_text",
+        "matched_not_officially_keyed",
+        "exactly one 2348 member",
+        "686961 bytes",
+        "TWSE OpenAPI",
+        "1043 rows",
+        "出表日期=1150716",
+        "no company filed_at, revision id, or version selector",
+        "t56_attachment_2816_2013Q1",
+        "t56_attachment_4552_2025Q1",
+        "t56_attachment_2348_2026Q1_skey1",
+        "t56_attachment_2348_2026Q1_skey2",
     ):
         if required not in md:
             errors.append(f"source audit Markdown missing fail-closed evidence: {required}")
