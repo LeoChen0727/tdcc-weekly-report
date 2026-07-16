@@ -1209,11 +1209,11 @@ def validate_validator_independence() -> tuple[list[str], list[dict[str, str]]]:
                 discovered[path.relative_to(ROOT).as_posix()] = (sources, symbols)
     independent_guard = "scripts/validate_model_data_independence.py"
     required_paths = set(discovered) | {independent_guard}
-    if set(registered) != required_paths:
+    missing_paths = required_paths - set(registered)
+    if missing_paths:
         errors.append(
-            "validator independence registry must match production-importing audits plus the independent guard: "
-            f"missing={sorted(required_paths - set(registered))}; "
-            f"extra={sorted(set(registered) - required_paths)}"
+            "validator independence registry must include all production-importing audits plus the core "
+            f"independent guard: missing={sorted(missing_paths)}"
         )
     for path, (sources, symbols) in discovered.items():
         row = registered.get(path)
@@ -1227,15 +1227,35 @@ def validate_validator_independence() -> tuple[list[str], list[dict[str, str]]]:
             errors.append(f"{path}: a validator importing production business logic cannot claim independence")
         if "independent" in row["allowed_evidence_use"].lower():
             errors.append(f"{path}: implementation consistency audit cannot be cited as independent evidence")
-    independent_row = registered.get(independent_guard)
-    if independent_row:
-        if independent_row["independence_claim"].lower() != "true":
-            errors.append(f"{independent_guard}: independent guard must claim independence")
-        _guard_sources, guard_symbols = _production_imports(
-            ROOT / independent_guard, production_modules
-        )
+    independent_paths = {
+        path
+        for path, row in registered.items()
+        if row["independence_claim"].lower() == "true"
+    }
+    if independent_guard not in independent_paths:
+        errors.append(f"{independent_guard}: independent guard must claim independence")
+    active_production_sources = set(production_modules.values())
+    for path in sorted(independent_paths):
+        row = registered[path]
+        validator_file = ROOT / path
+        if not validator_file.is_file():
+            errors.append(f"{path}: registered independent validator does not exist")
+            continue
+        if row["validator_role"] != "independent_contract_ast_guard":
+            errors.append(f"{path}: independent validator must use independent_contract_ast_guard role")
+        declared_sources = set(split_list(row["production_source_file"]))
+        if not declared_sources or not declared_sources <= active_production_sources:
+            errors.append(f"{path}: independent validator target source is not an active production module")
+        _guard_sources, guard_symbols = _production_imports(validator_file, production_modules)
         if guard_symbols:
-            errors.append(f"{independent_guard}: independent guard must parse contracts, not import production logic")
+            errors.append(f"{path}: independent guard must parse contracts, not import production logic")
+        if "independent" not in row["allowed_evidence_use"].lower():
+            errors.append(f"{path}: independent validator evidence policy must remain explicit")
+    for path in sorted(set(registered) - set(discovered) - independent_paths):
+        errors.append(
+            f"{path}: registry row is neither a discovered implementation-consistency audit "
+            "nor a validated independent AST guard"
+        )
     return errors, rows
 
 

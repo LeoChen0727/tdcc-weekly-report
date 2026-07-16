@@ -1,7 +1,7 @@
 # 每日股票模型與資料獨立性稽核
 
-- 產生時間：`2026-07-16 15:36:59 Asia/Taipei`
-- 結果：`CONTAINED=26, DISCLOSED_NOT_INDEPENDENT=4, PASS=47`
+- 產生時間：`2026-07-16 17:19:25 Asia/Taipei`
+- 結果：`CONTAINED=26, DISCLOSED_NOT_INDEPENDENT=4, PASS=48`
 - 原則：新模型與新資料 family 預設獨立；跨模型共用商業語意必須先有使用者核准與 migration evidence。
 - `CONTAINED` 代表既有共用已被凍結與精確盤點，不代表已物理拆分。
 - `DISCLOSED_NOT_INDEPENDENT` 代表該 validator 只能做 implementation consistency，不得當成獨立模型正確性證據。
@@ -84,4 +84,5 @@
 | validator_independence | scripts/audit_daily_candidate_pipeline_integrity.py | DISCLOSED_NOT_INDEPENDENT | implementation_consistency_audit | may verify implementation consistency only; cannot prove model correctness independently |
 | validator_independence | scripts/validate_daily_model_research_parity.py | DISCLOSED_NOT_INDEPENDENT | production_research_contract_consistency | may verify implementation consistency only; cannot prove model correctness independently |
 | validator_independence | scripts/validate_model_data_independence.py | PASS | independent_contract_ast_guard | none |
+| validator_independence | scripts/validate_revenue_unreacted_range_financial_statement_fail_closed.py | PASS | independent_contract_ast_guard | none |
 | validator_independence | scripts/validate_research_against_stock_model_contract.py | DISCLOSED_NOT_INDEPENDENT | production_research_contract_consistency | may verify implementation consistency only; cannot prove model correctness independently |

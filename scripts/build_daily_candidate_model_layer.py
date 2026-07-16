@@ -1844,15 +1844,22 @@ def score_revenue_unreacted(row: pd.Series) -> tuple[float, list[str], list[str]
     if near_range_high(row, 5):
         score += 6
         comps.append("near platform breakout +6")
-    if text(row, "fundamental_catalyst_tags").lower().find("eps") >= 0:
-        score += 5
-        comps.append("EPS confirmation tag +5")
-    if text(row, "fundamental_catalyst_tags").lower().find("gross_margin") >= 0:
-        score += 5
-        comps.append("gross margin confirmation tag +5")
-    if text(row, "event_catalyst_tags", "fundamental_catalyst_tags"):
+    approved_non_financial_event_types = {
+        "new_order",
+        "customer_win",
+        "capacity_expansion",
+        "mass_production",
+        "technology_validation",
+        "product_certification",
+        "policy_tailwind",
+        "exhibition_catalyst",
+        "sector_rotation",
+        "international_peer_momentum",
+    }
+    event_type = text(row, "event_catalyst_tags").split(";", 1)[0].strip().lower()
+    if event_type in approved_non_financial_event_types:
         score += 3
-        comps.append("catalyst tag +3")
+        comps.append("核准非財務事件 +3")
     return score, comps, risks
 
 
@@ -2897,9 +2904,9 @@ def build_specs() -> list[ModelSpec]:
             "pdf_core_model",
             "signal_date_next_open",
             "營收YoY或累計YoY強，且股價仍位於23日盤整區間內；區間用近期最高/最低價加緩衝判斷。",
-            "接近平台突破、TDCC溫和增加、EPS或毛利確認、有新聞利多或轉型題材可加分。",
-            "不因尚未突破而否決；但若只有營收且缺少獲利品質或量價確認，分數不可過度放大。",
-            "用於找營收已改善但市場尚未完全反應的股票；後續觀察平台突破、EPS/毛利與量價確認。",
+            "接近平台突破、TDCC溫和增加、量價確認，以及明確核准的非財務事件類型可加分。",
+            "EPS、毛利率、營益率、營業利益、業外、淨利及未知事件類型一律不得加分；歷史財報PIT未完整前維持fail closed。",
+            "用於找月營收已改善但市場尚未完全反應的股票；後續只觀察平台突破、量價與核准非財務事件，季／年財報維持獨立。",
             cond_revenue_unreacted,
             score_revenue_unreacted,
         ),

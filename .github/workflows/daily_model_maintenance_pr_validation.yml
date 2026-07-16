@@ -43,6 +43,7 @@ on:
       - "scripts/build_*_research.py"
       - "scripts/price_pullback_23ema_*.py"
       - "scripts/revenue_unreacted_range_*.py"
+      - "scripts/validate_revenue_unreacted_range_*.py"
       - "scripts/volume_range_breakout_v2_*.py"
       - "scripts/build_mature_model_row_level_metric_contract_audit.py"
       - "scripts/generate_chatgpt_side_daily_reports.py"
@@ -136,6 +137,7 @@ jobs:
           python scripts/validate_revenue_unreacted_range_forward_confirmation_feature_audit.py
           python scripts/validate_revenue_unreacted_range_rearmed_operation_grid.py
           python scripts/validate_revenue_unreacted_range_operation_lag_bucket_audit.py
+          python scripts/validate_revenue_unreacted_range_financial_statement_fail_closed.py
           python scripts/build_mature_model_row_level_metric_contract_audit.py
           python scripts/validate_mature_model_row_level_metric_contract_audit.py
           python scripts/validate_research_against_stock_model_contract.py
@@ -172,6 +174,7 @@ jobs:
             tests/test_revenue_unreacted_range_forward_confirmation_feature_audit.py \
             tests/test_revenue_unreacted_range_rearmed_operation_grid.py \
             tests/test_revenue_unreacted_range_operation_lag_bucket_audit.py \
+            tests/test_revenue_unreacted_range_financial_statement_fail_closed.py \
             tests/test_repo_hidden_coupling_audit.py \
             tests/test_git_worktree_safety.py \
             tests/test_model_research_workflow_isolation.py \
