@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6756 威鋒電子
 
 ## Metadata
-- generated_at: 2026-07-15 22:27:38 Asia/Taipei
+- generated_at: 2026-07-16 22:28:19 Asia/Taipei
 - stock_id: 6756
 - stock_name: 威鋒電子
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 304
+- latest_price_date: 20260716
+- price_rows: 305
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 98.2
+- date: 20260716
+- open: 101
 - high: 101
-- low: 97.3
-- close: 101
-- volume: 152379
-- ma5: 100.06
-- ema23_primary: 99.24
-- distance_to_ema23_pct: 1.78
-- ma20: 100.03
-- ma60: 96.73
-- ma120: 87.13
-- return_5d: 3.48
-- return_20d: 0
-- volume_ratio: 0.55
-- distance_to_ma20_pct_auxiliary: 0.97
-- distance_to_high_60_pct: -12.55
+- low: 96
+- close: 96
+- volume: 137128
+- ma5: 98.86
+- ema23_primary: 98.97
+- distance_to_ema23_pct: -3
+- ma20: 99.94
+- ma60: 97.01
+- ma120: 87.25
+- return_5d: -5.88
+- return_20d: -1.74
+- volume_ratio: 0.52
+- distance_to_ma20_pct_auxiliary: -3.95
+- distance_to_high_60_pct: -16.88
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,101.5,103,97,97.7,336540,96.78,0.95,99.44,88.26,0.75
 20260617,97.7,100.5,97,99,216327,96.96,2.1,99.58,88.62,0.49
 20260618,99.9,105.5,99.9,103.5,476003,97.51,6.14,99.67,89.1,1.08
 20260622,106.5,110,105,108,717323,98.38,9.77,99.83,89.67,1.63
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,102,102,97.7,100.5,171856,99.26,1.25,100,95.98,0.61
 20260714,100.5,100.5,92,97.1,349868,99.08,-2,100.03,96.31,1.23
 20260715,98.2,101,97.3,101,152379,99.24,1.78,100.03,96.73,0.55
+20260716,101,101,96,96,137128,98.97,-3,99.94,97.01,0.52
 ```
 
 ## Latest TDCC Snapshot

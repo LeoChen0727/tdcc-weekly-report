@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2324 仁寶
 
 ## Metadata
-- generated_at: 2026-07-15 22:26:36 Asia/Taipei
+- generated_at: 2026-07-16 22:26:45 Asia/Taipei
 - stock_id: 2324
 - stock_name: 仁寶
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 304
+- latest_price_date: 20260716
+- price_rows: 305
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 35.75
-- high: 36.65
-- low: 35.4
-- close: 36.15
-- volume: 33170793
-- ma5: 36.09
+- date: 20260716
+- open: 36
+- high: 36.5
+- low: 35.6
+- close: 35.95
+- volume: 28718535
+- ma5: 36.18
 - ema23_primary: 35.95
-- distance_to_ema23_pct: 0.57
-- ma20: 36.07
-- ma60: 34.18
-- ma120: 32.52
-- return_5d: 2.41
-- return_20d: -4.49
-- volume_ratio: 0.6
-- distance_to_ma20_pct_auxiliary: 0.23
-- distance_to_high_60_pct: -24.29
+- distance_to_ema23_pct: 0.01
+- ma20: 35.99
+- ma60: 34.28
+- ma120: 32.57
+- return_5d: 1.27
+- return_20d: -3.88
+- volume_ratio: 0.53
+- distance_to_ma20_pct_auxiliary: -0.12
+- distance_to_high_60_pct: -24.71
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,38.3,38.3,37.35,37.4,59724965,36.34,2.91,36.94,32.09,0.32
 20260617,37,37.9,36.4,37.3,47028206,36.42,2.41,37.42,32.16,0.25
 20260618,37.8,38.45,37.25,37.75,71745861,36.53,3.33,37.79,32.25,0.39
 20260622,38.1,39.2,37.5,37.5,92199498,36.61,2.42,38.09,32.35,0.51
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,37.95,38.2,36.2,36.65,64219539,35.96,1.91,36.19,33.98,1.08
 20260714,36.8,36.85,34.7,35.55,45695887,35.93,-1.05,36.15,34.09,0.79
 20260715,35.75,36.65,35.4,36.15,33170793,35.95,0.57,36.07,34.18,0.6
+20260716,36,36.5,35.6,35.95,28718535,35.95,0.01,35.99,34.28,0.53
 ```
 
 ## Latest TDCC Snapshot
@@ -188,18 +188,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 2324 | 仁寶 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
-| 20260715 | 2324 | 仁寶 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260716 | 2324 | 仁寶 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260716 | 2324 | 仁寶 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 2324 | 仁寶 | 4 | 4 | 4 | 5 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260716 | 2324 | 仁寶 | 5 | 2 | 5 | 6 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 2324 | 仁寶 | 97 | 4 | 5519650.0 | 0.0 |  | call_inflow |
+| 20260716 | 2324 | 仁寶 | 97 | 0 | 7219670.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

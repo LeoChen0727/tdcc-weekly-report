@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6239 力成
 
 ## Metadata
-- generated_at: 2026-07-15 22:27:28 Asia/Taipei
+- generated_at: 2026-07-16 22:28:04 Asia/Taipei
 - stock_id: 6239
 - stock_name: 力成
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 304
+- latest_price_date: 20260716
+- price_rows: 305
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 309.5
-- high: 321
-- low: 308.5
-- close: 314
-- volume: 16550410
-- ma5: 313.7
-- ema23_primary: 323.21
-- distance_to_ema23_pct: -2.85
-- ma20: 331.75
-- ma60: 291.73
-- ma120: 259.5
-- return_5d: -2.94
-- return_20d: -3.98
-- volume_ratio: 0.51
-- distance_to_ma20_pct_auxiliary: -5.35
-- distance_to_high_60_pct: -18.86
+- date: 20260716
+- open: 314
+- high: 323.5
+- low: 305
+- close: 316.5
+- volume: 12796352
+- ma5: 313.4
+- ema23_primary: 322.65
+- distance_to_ema23_pct: -1.91
+- ma20: 330.25
+- ma60: 293.53
+- ma120: 260.3
+- return_5d: -0.47
+- return_20d: -8.66
+- volume_ratio: 0.42
+- distance_to_ma20_pct_auxiliary: -4.16
+- distance_to_high_60_pct: -18.22
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,329,357,321,346.5,52667088,313.19,10.63,327,251.18,1.66
 20260617,343,363,340,345,42824859,315.85,9.23,332.52,253.57,1.3
 20260618,344,369.5,337.5,363.5,62259885,319.82,13.66,337.82,256.43,1.79
 20260622,365,377.5,359,366,62661099,323.67,13.08,341.98,259.32,1.67
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,326.5,332,310.5,312.5,14834355,325.87,-4.1,334.57,288.43,0.4
 20260714,308.5,316.5,287,304,25028861,324.04,-6.19,332.4,289.95,0.73
 20260715,309.5,321,308.5,314,16550410,323.21,-2.85,331.75,291.73,0.51
+20260716,314,323.5,305,316.5,12796352,322.65,-1.91,330.25,293.53,0.42
 ```
 
 ## Latest TDCC Snapshot
@@ -188,18 +188,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 6239 | 力成 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/28 1.召開法人說明會之日期：115/07/28 2.召開法人說明會之時間：14 時 30 分  3.召開法人說明會之地點：線上法說會 4.法人說明會擇要訊息：報告115年第二季營運成果及未來之營運展望 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: ex_dividend on 20260730; status=confirmed; proximity=within_30d |
-| 20260715 | 6239 | 力成 | revenue_pullback | 營收成長股價回檔 | 76.0 |  |  |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/28 1.召開法人說明會之日期：115/07/28 2.召開法人說明會之時間：14 時 30 分  3.召開法人說明會之地點：線上法說會 4.法人說明會擇要訊息：報告115年第二季營運成果及未來之營運展望 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: ex_dividend on 20260730; status=confirmed; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260716 | 6239 | 力成 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  | call_inflow | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/28 1.召開法人說明會之日期：115/07/28 2.召開法人說明會之時間：14 時 30 分  3.召開法人說明會之地點：線上法說會 4.法人說明會擇要訊息：報告115年第二季營運成果及未來之營運展望 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: ex_dividend on 20260730; status=confirmed; proximity=within_14d |
+| 20260716 | 6239 | 力成 | revenue_pullback | 營收成長股價回檔 | 76.0 |  |  |  |  | call_inflow | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/28 1.召開法人說明會之日期：115/07/28 2.召開法人說明會之時間：14 時 30 分  3.召開法人說明會之地點：線上法說會 4.法人說明會擇要訊息：報告115年第二季營運成果及未來之營運展望 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: ex_dividend on 20260730; status=confirmed; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 6239 | 力成 | 23 | 9 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260716 | 6239 | 力成 | 24 | 2 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 6239 | 力成 | 187 | 8 | 20256750.0 | 69020.0 | 293.49 | no_signal |
+| 20260716 | 6239 | 力成 | 202 | 0 | 28803670.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

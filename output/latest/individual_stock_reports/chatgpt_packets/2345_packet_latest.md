@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2345 智邦
 
 ## Metadata
-- generated_at: 2026-07-15 22:26:37 Asia/Taipei
+- generated_at: 2026-07-16 22:26:46 Asia/Taipei
 - stock_id: 2345
 - stock_name: 智邦
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 304
+- latest_price_date: 20260716
+- price_rows: 305
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -119,29 +119,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 2395
-- high: 2420
-- low: 2315
-- close: 2340
-- volume: 2058964
-- ma5: 2382
-- ema23_primary: 2457.86
-- distance_to_ema23_pct: -4.8
-- ma20: 2480.25
-- ma60: 2433.08
-- ma120: 1935.88
-- return_5d: -4.68
-- return_20d: -3.7
-- volume_ratio: 0.6
-- distance_to_ma20_pct_auxiliary: -5.65
-- distance_to_high_60_pct: -17.17
+- date: 20260716
+- open: 2350
+- high: 2350
+- low: 2255
+- close: 2320
+- volume: 1274880
+- ma5: 2363
+- ema23_primary: 2446.37
+- distance_to_ema23_pct: -5.17
+- ma20: 2470.25
+- ma60: 2438.33
+- ma120: 1945.17
+- return_5d: -3.93
+- return_20d: -7.94
+- volume_ratio: 0.38
+- distance_to_ma20_pct_auxiliary: -6.08
+- distance_to_high_60_pct: -17.88
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,2495,2555,2410,2520,3072890,2425.02,3.92,2464.5,2194.25,0.84
 20260617,2555,2600,2470,2495,2648670,2430.85,2.64,2471.5,2209,0.74
 20260618,2480,2490,2415,2435,4237239,2431.2,0.16,2469.25,2223.5,1.2
 20260622,2495,2605,2485,2595,3410352,2444.85,6.14,2475.5,2241.17,0.96
@@ -161,6 +160,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,2565,2565,2400,2405,2111638,2485.71,-3.25,2487.5,2424.5,0.61
 20260714,2350,2415,2195,2280,3090709,2468.57,-7.64,2484.75,2428.58,0.89
 20260715,2395,2420,2315,2340,2058964,2457.86,-4.8,2480.25,2433.08,0.6
+20260716,2350,2350,2255,2320,1274880,2446.37,-5.17,2470.25,2438.33,0.38
 ```
 
 ## Latest TDCC Snapshot
@@ -195,17 +195,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 2345 | 智邦 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  | put_inflow | stale_signal | calendar event: ex_dividend on 20260730; status=confirmed; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260716 | 2345 | 智邦 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  | no_signal | stale_signal | calendar event: ex_dividend on 20260730; status=confirmed; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 2345 | 智邦 | 16 | 9 | 5 | 10 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260716 | 2345 | 智邦 | 1 | 1 | 4 | 9 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 2345 | 智邦 | 268 | 28 | 22716390.0 | 1678070.0 | 13.54 | put_inflow |
+| 20260716 | 2345 | 智邦 | 267 | 0 | 20172240.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2301 光寶科
 
 ## Metadata
-- generated_at: 2026-07-15 22:26:36 Asia/Taipei
+- generated_at: 2026-07-16 22:26:44 Asia/Taipei
 - stock_id: 2301
 - stock_name: 光寶科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 304
+- latest_price_date: 20260716
+- price_rows: 305
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 215.5
-- high: 221
-- low: 212
-- close: 216
-- volume: 13899015
-- ma5: 215.6
-- ema23_primary: 216.59
-- distance_to_ema23_pct: -0.27
-- ma20: 216.25
-- ma60: 209.28
-- ma120: 186.25
-- return_5d: 1.41
-- return_20d: 4.1
-- volume_ratio: 0.56
-- distance_to_ma20_pct_auxiliary: -0.12
-- distance_to_high_60_pct: -17.56
+- date: 20260716
+- open: 218
+- high: 222
+- low: 211
+- close: 218
+- volume: 18009278
+- ma5: 216.4
+- ema23_primary: 216.7
+- distance_to_ema23_pct: 0.6
+- ma20: 216.75
+- ma60: 210.17
+- ma120: 186.69
+- return_5d: 1.87
+- return_20d: 4.81
+- volume_ratio: 0.73
+- distance_to_ma20_pct_auxiliary: 0.58
+- distance_to_high_60_pct: -16.79
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,210,211.5,207.5,208,17759204,216.38,-3.87,224.03,189.36,0.46
 20260617,208,210.5,205,210,14892794,215.84,-2.71,224.32,190.19,0.39
 20260618,210,215.5,209.5,210.5,21209294,215.4,-2.27,224.62,191.13,0.56
 20260622,216,231.5,215,231.5,45443527,216.74,6.81,225.85,192.44,1.16
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,219,232,218.5,222,33486483,217.01,2.3,216.05,207.53,1.29
 20260714,221.5,222.5,203.5,212.5,24669910,216.64,-1.91,215.82,208.38,0.93
 20260715,215.5,221,212,216,13899015,216.59,-0.27,216.25,209.28,0.56
+20260716,218,222,211,218,18009278,216.7,0.6,216.75,210.17,0.73
 ```
 
 ## Latest TDCC Snapshot
@@ -189,17 +189,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 2301 | 光寶科 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/13 1.召開法人說明會之日期：115/07/13 ~ 115/07/14 2.召開法人說明會之時間：09 時 00 分  3.召開法人說明會之地點：美國紐約 4.法人說明會擇要訊息：券商安排之美國投資人海外會議 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260716 | 2301 | 光寶科 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/13 1.召開法人說明會之日期：115/07/13 ~ 115/07/14 2.召開法人說明會之時間：09 時 00 分  3.召開法人說明會之地點：美國紐約 4.法人說明會擇要訊息：券商安排之美國投資人海外會議 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 2301 | 光寶科 | 9 | 9 | 5 | 9 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260716 | 2301 | 光寶科 | 1 | 1 | 4 | 9 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 2301 | 光寶科 | 219 | 3 | 16416330.0 | 15300.0 | 1072.96 | no_signal |
+| 20260716 | 2301 | 光寶科 | 217 | 0 | 20634210.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

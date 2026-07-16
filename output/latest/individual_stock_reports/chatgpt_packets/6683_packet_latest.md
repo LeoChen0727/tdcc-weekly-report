@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6683 雍智科技
 
 ## Metadata
-- generated_at: 2026-07-15 22:27:36 Asia/Taipei
+- generated_at: 2026-07-16 22:28:16 Asia/Taipei
 - stock_id: 6683
 - stock_name: 雍智科技
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 169
+- latest_price_date: 20260716
+- price_rows: 170
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 1510
-- high: 1570
-- low: 1410
-- close: 1470
-- volume: 1123000
-- ma5: 1609
-- ema23_primary: 1679.69
-- distance_to_ema23_pct: -12.48
-- ma20: 1709.5
-- ma60: 1800.83
-- ma120: 1390.62
-- return_5d: -11.45
-- return_20d: -7.26
-- volume_ratio: 0.94
-- distance_to_ma20_pct_auxiliary: -14.01
-- distance_to_high_60_pct: -42.69
+- date: 20260716
+- open: 1410
+- high: 1425
+- low: 1345
+- close: 1350
+- volume: 1066000
+- ma5: 1546
+- ema23_primary: 1652.22
+- distance_to_ema23_pct: -18.29
+- ma20: 1690.75
+- ma60: 1791.08
+- ma120: 1398.61
+- return_5d: -18.92
+- return_20d: -21.74
+- volume_ratio: 0.96
+- distance_to_ma20_pct_auxiliary: -20.15
+- distance_to_high_60_pct: -47.37
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,1635,1740,1565,1725,2597000,1663.56,3.69,1645,1739,1.72
 20260617,1705,1780,1600,1640,2255000,1661.59,-1.3,1638,1744.92,1.4
 20260618,1650,1680,1620,1650,897000,1660.63,-0.64,1636.25,1753.08,0.6
 20260622,1665,1700,1585,1605,959000,1655.99,-3.08,1634,1761.5,0.65
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,1740,1755,1655,1675,282000,1715.91,-2.38,1712,1813.83,0.23
 20260714,1630,1720,1510,1510,709000,1698.75,-11.11,1715.25,1807.5,0.59
 20260715,1510,1570,1410,1470,1123000,1679.69,-12.48,1709.5,1800.83,0.94
+20260716,1410,1425,1345,1350,1066000,1652.22,-18.29,1690.75,1791.08,0.96
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6962 奕力-KY
 
 ## Metadata
-- generated_at: 2026-07-15 22:27:42 Asia/Taipei
+- generated_at: 2026-07-16 22:28:26 Asia/Taipei
 - stock_id: 6962
 - stock_name: 奕力-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 304
+- latest_price_date: 20260716
+- price_rows: 305
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 34.5
-- high: 35.2
-- low: 34.35
-- close: 35.05
-- volume: 1865906
-- ma5: 35.41
-- ema23_primary: 37.02
-- distance_to_ema23_pct: -5.31
-- ma20: 37.73
+- date: 20260716
+- open: 34.9
+- high: 34.95
+- low: 34.25
+- close: 34.3
+- volume: 1226807
+- ma5: 34.82
+- ema23_primary: 36.79
+- distance_to_ema23_pct: -6.77
+- ma20: 37.59
 - ma60: 37.11
-- ma120: 36.1
-- return_5d: -7.64
-- return_20d: -7.03
-- volume_ratio: 0.44
-- distance_to_ma20_pct_auxiliary: -7.1
-- distance_to_high_60_pct: -15.34
+- ma120: 36.07
+- return_5d: -7.92
+- return_20d: -7.3
+- volume_ratio: 0.3
+- distance_to_ma20_pct_auxiliary: -8.76
+- distance_to_high_60_pct: -17.15
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,37.8,37.9,36.9,37,3411650,36.55,1.22,37.21,35.61,0.62
 20260617,37.05,39.75,36.65,38.55,7407438,36.72,4.99,37.23,35.73,1.35
 20260618,39,39.8,38.65,38.9,6052241,36.9,5.42,37.2,35.87,1.23
 20260622,39.7,41.4,39.65,40.05,9748938,37.16,7.77,37.21,36.03,1.95
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,36.75,36.75,34.5,34.9,3543010,37.49,-6.92,37.96,37.12,0.81
 20260714,35.2,35.2,33.05,33.9,3058417,37.19,-8.86,37.86,37.1,0.69
 20260715,34.5,35.2,34.35,35.05,1865906,37.02,-5.31,37.73,37.11,0.44
+20260716,34.9,34.95,34.25,34.3,1226807,36.79,-6.77,37.59,37.11,0.3
 ```
 
 ## Latest TDCC Snapshot
@@ -198,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 6962 | 奕力-KY | 8 | 0 | 83500.0 | 0.0 |  | no_signal |
+| 20260716 | 6962 | 奕力-KY | 8 | 0 | 114420.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

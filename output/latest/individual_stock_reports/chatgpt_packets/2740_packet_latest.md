@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2740 華軒
 
 ## Metadata
-- generated_at: 2026-07-15 22:26:47 Asia/Taipei
+- generated_at: 2026-07-16 22:27:01 Asia/Taipei
 - stock_id: 2740
 - stock_name: 華軒
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 169
+- latest_price_date: 20260716
+- price_rows: 170
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -59,14 +59,14 @@
 - action_rating_display_zh: 已持有續抱
 - model_category_display_zh: 單一個股分析
 - score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- risk_control_zh: 股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -74,7 +74,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: unclear
+- thesis_state: high_level_consolidation
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -91,7 +91,6 @@
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
-- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -104,7 +103,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- none
+- price_too_extended
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -112,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 34.1
-- high: 34.35
-- low: 34.1
-- close: 34.35
-- volume: 2000
-- ma5: 33.97
-- ema23_primary: 32.08
-- distance_to_ema23_pct: 7.08
-- ma20: 30.88
-- ma60: 34.55
-- ma120: 36.5
-- return_5d: 5.86
-- return_20d: 24.46
-- volume_ratio: 0.31
-- distance_to_ma20_pct_auxiliary: 11.23
-- distance_to_high_60_pct: -21.93
+- date: 20260716
+- open: 34.3
+- high: 34.3
+- low: 34.3
+- close: 34.3
+- volume: 1000
+- ma5: 34.19
+- ema23_primary: 32.26
+- distance_to_ema23_pct: 6.31
+- ma20: 31.32
+- ma60: 34.43
+- ma120: 36.55
+- return_5d: 3.31
+- return_20d: 33.98
+- volume_ratio: 0.2
+- distance_to_ma20_pct_auxiliary: 9.52
+- distance_to_high_60_pct: -22.05
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,27.4,27.4,24.85,25.6,28000,31.93,-19.83,32.18,36.75,1.28
 20260617,24.9,26.8,23.9,26.1,11000,31.45,-17,31.66,36.49,0.49
 20260618,26,28.45,26,27.45,5000,31.11,-11.78,31.2,36.25,0.22
 20260622,27.9,28.65,27.9,28.65,2000,30.91,-7.31,30.84,36.06,0.1
@@ -154,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,34.1,34.1,34.1,34.1,1000,31.67,7.68,30.3,34.64,0.12
 20260714,34.1,34.1,34.1,34.1,1000,31.87,6.99,30.55,34.62,0.14
 20260715,34.1,34.35,34.1,34.35,2000,32.08,7.08,30.88,34.55,0.31
+20260716,34.3,34.3,34.3,34.3,1000,32.26,6.31,31.32,34.43,0.2
 ```
 
 ## Latest TDCC Snapshot

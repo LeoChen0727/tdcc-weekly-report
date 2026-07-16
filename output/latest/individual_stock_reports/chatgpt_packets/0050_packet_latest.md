@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0050 元大台灣50
 
 ## Metadata
-- generated_at: 2026-07-15 22:26:17 Asia/Taipei
+- generated_at: 2026-07-16 22:26:15 Asia/Taipei
 - stock_id: 0050
 - stock_name: 元大台灣50
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 168
+- latest_price_date: 20260716
+- price_rows: 169
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 105.3
-- high: 106.45
-- low: 104.65
-- close: 106.3
-- volume: 110911495
-- ma5: 105.71
-- ema23_primary: 105.61
-- distance_to_ema23_pct: 0.66
-- ma20: 106.98
-- ma60: 100.39
-- ma120: 88.04
-- return_5d: 0.09
-- return_20d: 1
-- volume_ratio: 0.94
-- distance_to_ma20_pct_auxiliary: -0.64
-- distance_to_high_60_pct: -5.34
+- date: 20260716
+- open: 105.35
+- high: 106.75
+- low: 104.55
+- close: 106.4
+- volume: 73088988
+- ma5: 105.78
+- ema23_primary: 105.67
+- distance_to_ema23_pct: 0.69
+- ma20: 107.01
+- ma60: 100.75
+- ma120: 88.34
+- return_5d: 0.33
+- return_20d: 0.47
+- volume_ratio: 0.62
+- distance_to_ma20_pct_auxiliary: -0.57
+- distance_to_high_60_pct: -5.25
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,106.05,106.05,104.85,105.9,70824506,100.93,4.93,102.08,91.14,0.44
 20260617,105,106,104.5,106,100331952,101.35,4.59,102.76,91.64,0.62
 20260618,107,107.45,106.65,107.3,78557448,101.84,5.36,103.33,92.19,0.49
 20260622,109.45,111.2,109.45,111.15,116042256,102.62,8.31,104.03,92.8,0.71
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,107,107.55,105.7,106,71523037,105.65,0.33,106.81,99.69,0.66
 20260714,105.5,105.5,102.25,104.4,259927533,105.54,-1.08,106.93,100.02,2.21
 20260715,105.3,106.45,104.65,106.3,110911495,105.61,0.66,106.98,100.39,0.94
+20260716,105.35,106.75,104.55,106.4,73088988,105.67,0.69,107.01,100.75,0.62
 ```
 
 ## Latest TDCC Snapshot
@@ -178,19 +178,19 @@ no_rows,True
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 0050 | 元大台灣50 | pattern | 型態觀察 | 54.0 |  |  | pullback_right_side |  | no_signal | repeated_but_no_breakout | calendar event: ex_dividend on 20260721; status=confirmed; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 0050 | 元大台灣50 | 1 | 1 | 1 | 6 | 12 | repeated_but_no_breakout | 近 10 日上榜 6 次、近 20 日上榜 12 次，但尚未有效突破，需等待攻擊確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 0050 | 元大台灣50 | 255 | 187 | 47115560.0 | 10852710.0 | 4.34 | no_signal |
+| 20260716 | 0050 | 元大台灣50 | 256 | 0 | 47100840.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

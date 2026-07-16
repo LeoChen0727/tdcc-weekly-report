@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5371 中光電
 
 ## Metadata
-- generated_at: 2026-07-15 22:27:19 Asia/Taipei
+- generated_at: 2026-07-16 22:27:49 Asia/Taipei
 - stock_id: 5371
 - stock_name: 中光電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 169
+- latest_price_date: 20260716
+- price_rows: 170
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -111,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 95.4
-- high: 96.4
-- low: 91.4
-- close: 94.9
-- volume: 24849000
-- ma5: 95.1
-- ema23_primary: 85.61
-- distance_to_ema23_pct: 10.85
-- ma20: 84.2
-- ma60: 76.07
-- ma120: 79.65
-- return_5d: 3.38
-- return_20d: 37.14
-- volume_ratio: 0.84
-- distance_to_ma20_pct_auxiliary: 12.71
-- distance_to_high_60_pct: -8.75
+- date: 20260716
+- open: 94.3
+- high: 98.3
+- low: 89.6
+- close: 89.6
+- volume: 32582000
+- ma5: 93.46
+- ema23_primary: 85.94
+- distance_to_ema23_pct: 4.26
+- ma20: 85.29
+- ma60: 76.25
+- ma120: 79.66
+- return_5d: -8.38
+- return_20d: 32.15
+- volume_ratio: 1.04
+- distance_to_ma20_pct_auxiliary: 5.05
+- distance_to_high_60_pct: -13.85
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,69.9,70.2,67.8,67.8,2445000,70.96,-4.46,71.44,72.91,1.68
 20260617,67.5,69.8,67,68.9,2832000,70.79,-2.67,71.36,72.78,2.05
 20260618,69,70.2,68.4,70,2009000,70.73,-1.03,71.27,72.69,1.61
 20260622,71.7,76.3,71.7,74.6,9118000,71.05,5,71.39,72.68,5.37
@@ -153,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,94.1,100,93.5,95.3,48218000,83.9,13.59,81.6,75.53,1.85
 20260714,97,99.3,91.1,94.3,49836000,84.76,11.25,82.92,75.79,1.75
 20260715,95.4,96.4,91.4,94.9,24849000,85.61,10.85,84.2,76.07,0.84
+20260716,94.3,98.3,89.6,89.6,32582000,85.94,4.26,85.29,76.25,1.04
 ```
 
 ## Latest TDCC Snapshot

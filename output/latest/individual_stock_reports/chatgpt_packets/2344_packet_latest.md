@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2344 華邦電
 
 ## Metadata
-- generated_at: 2026-07-15 22:26:37 Asia/Taipei
+- generated_at: 2026-07-16 22:26:46 Asia/Taipei
 - stock_id: 2344
 - stock_name: 華邦電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 304
+- latest_price_date: 20260716
+- price_rows: 305
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 175.5
+- date: 20260716
+- open: 176
 - high: 180.5
-- low: 173.5
-- close: 180.5
-- volume: 95140846
-- ma5: 171.4
-- ema23_primary: 179.58
-- distance_to_ema23_pct: 0.51
-- ma20: 193.07
-- ma60: 150.04
-- ma120: 128.13
-- return_5d: 3.74
-- return_20d: -4.5
-- volume_ratio: 0.45
-- distance_to_ma20_pct_auxiliary: -6.51
-- distance_to_high_60_pct: -22.7
+- low: 171
+- close: 172
+- volume: 150613446
+- ma5: 172.1
+- ema23_primary: 178.95
+- distance_to_ema23_pct: -3.88
+- ma20: 191.82
+- ma60: 151.48
+- ma120: 128.72
+- return_5d: 2.08
+- return_20d: -12.69
+- volume_ratio: 0.75
+- distance_to_ma20_pct_auxiliary: -10.33
+- distance_to_high_60_pct: -26.34
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,198.5,201,191.5,197,355003301,154.84,27.23,156.32,118.91,1.35
 20260617,195,199,186.5,199,226916174,158.52,25.54,160.5,120.39,0.85
 20260618,203.5,218.5,201.5,218.5,338003801,163.52,33.62,165.72,122.25,1.24
 20260622,229.5,233.5,219,222,403194761,168.39,31.83,170.57,124.29,1.42
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,181.5,183,166,167,149251061,180.86,-7.66,193.88,147.25,0.67
 20260714,170,172.5,156,164.5,135442057,179.5,-8.35,193.5,148.5,0.62
 20260715,175.5,180.5,173.5,180.5,95140846,179.58,0.51,193.07,150.04,0.45
+20260716,176,180.5,171,172,150613446,178.95,-3.88,191.82,151.48,0.75
 ```
 
 ## Latest TDCC Snapshot
@@ -189,18 +189,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 2344 | 華邦電 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.事實發生日:115/07/13 2.公司名稱:華邦電子股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:依本公司海外第四次無擔保轉換公司債發行及轉換辦法第十二(一)條規定， 本債券發行之日起屆滿三個月之翌日至到期日前，如本公司普通股於台灣證券交易所之 收盤價格，連續三十個營業日中有二十個交易日(如遇除權或除息者，於除權或除息交 易日至除權或除息基準日之間，採用之收盤價格，應先設算為除權或除息前之價格)達 提前贖回金額(定義於後)除以本債券面額再乘以當時轉換價格後所得之總數120%時，本 公司得以提前贖回金額贖回全部或部份本債券。 「提前贖回金額」係指公司依本債券面額加計年利率為-1.5%之利息補償金，且以每半 年為計算基礎所得之金額。 提前贖回金額將按固定匯率換算為新臺幣，並以該新臺幣金額按贖回當時匯率(參考上 午十一時Taipei Forex Inc.所顯示之定盤匯率)換算為美金償還。 6.因應措施:本公司將於115年8月12日提前贖回全部海外第四次無擔保轉換公司債。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
-| 20260715 | 2344 | 華邦電 | revenue_pullback | 營收成長股價回檔 | 83.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/07/13 2.公司名稱:華邦電子股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:依本公司海外第四次無擔保轉換公司債發行及轉換辦法第十二(一)條規定， 本債券發行之日起屆滿三個月之翌日至到期日前，如本公司普通股於台灣證券交易所之 收盤價格，連續三十個營業日中有二十個交易日(如遇除權或除息者，於除權或除息交 易日至除權或除息基準日之間，採用之收盤價格，應先設算為除權或除息前之價格)達 提前贖回金額(定義於後)除以本債券面額再乘以當時轉換價格後所得之總數120%時，本 公司得以提前贖回金額贖回全部或部份本債券。 「提前贖回金額」係指公司依本債券面額加計年利率為-1.5%之利息補償金，且以每半 年為計算基礎所得之金額。 提前贖回金額將按固定匯率換算為新臺幣，並以該新臺幣金額按贖回當時匯率(參考上 午十一時Taipei Forex Inc.所顯示之定盤匯率)換算為美金償還。 6.因應措施:本公司將於115年8月12日提前贖回全部海外第四次無擔保轉換公司債。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260716 | 2344 | 華邦電 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | call_strong_inflow | stale_signal | 1.事實發生日:115/07/13 2.公司名稱:華邦電子股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:依本公司海外第四次無擔保轉換公司債發行及轉換辦法第十二(一)條規定， 本債券發行之日起屆滿三個月之翌日至到期日前，如本公司普通股於台灣證券交易所之 收盤價格，連續三十個營業日中有二十個交易日(如遇除權或除息者，於除權或除息交 易日至除權或除息基準日之間，採用之收盤價格，應先設算為除權或除息前之價格)達 提前贖回金額(定義於後)除以本債券面額再乘以當時轉換價格後所得之總數120%時，本 公司得以提前贖回金額贖回全部或部份本債券。 「提前贖回金額」係指公司依本債券面額加計年利率為-1.5%之利息補償金，且以每半 年為計算基礎所得之金額。 提前贖回金額將按固定匯率換算為新臺幣，並以該新臺幣金額按贖回當時匯率(參考上 午十一時Taipei Forex Inc.所顯示之定盤匯率)換算為美金償還。 6.因應措施:本公司將於115年8月12日提前贖回全部海外第四次無擔保轉換公司債。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260716 | 2344 | 華邦電 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  | call_strong_inflow | stale_signal | 1.事實發生日:115/07/13 2.公司名稱:華邦電子股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:依本公司海外第四次無擔保轉換公司債發行及轉換辦法第十二(一)條規定， 本債券發行之日起屆滿三個月之翌日至到期日前，如本公司普通股於台灣證券交易所之 收盤價格，連續三十個營業日中有二十個交易日(如遇除權或除息者，於除權或除息交 易日至除權或除息基準日之間，採用之收盤價格，應先設算為除權或除息前之價格)達 提前贖回金額(定義於後)除以本債券面額再乘以當時轉換價格後所得之總數120%時，本 公司得以提前贖回金額贖回全部或部份本債券。 「提前贖回金額」係指公司依本債券面額加計年利率為-1.5%之利息補償金，且以每半 年為計算基礎所得之金額。 提前贖回金額將按固定匯率換算為新臺幣，並以該新臺幣金額按贖回當時匯率(參考上 午十一時Taipei Forex Inc.所顯示之定盤匯率)換算為美金償還。 6.因應措施:本公司將於115年8月12日提前贖回全部海外第四次無擔保轉換公司債。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 2344 | 華邦電 | 12 | 9 | 5 | 10 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260716 | 2344 | 華邦電 | 13 | 2 | 5 | 10 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 2344 | 華邦電 | 248 | 25 | 18344470.0 | 1973020.0 | 9.3 | no_signal |
+| 20260716 | 2344 | 華邦電 | 247 | 0 | 40215340.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

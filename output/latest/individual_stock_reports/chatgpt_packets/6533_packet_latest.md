@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6533 晶心科
 
 ## Metadata
-- generated_at: 2026-07-15 22:27:33 Asia/Taipei
+- generated_at: 2026-07-16 22:28:11 Asia/Taipei
 - stock_id: 6533
 - stock_name: 晶心科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 304
+- latest_price_date: 20260716
+- price_rows: 305
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 225
-- high: 234.5
-- low: 220.5
-- close: 227
-- volume: 1752744
-- ma5: 209.3
-- ema23_primary: 206.43
-- distance_to_ema23_pct: 9.97
-- ma20: 202.03
-- ma60: 220.06
-- ma120: 215.22
-- return_5d: 18.23
-- return_20d: 9.93
-- volume_ratio: 3.05
-- distance_to_ma20_pct_auxiliary: 12.36
-- distance_to_high_60_pct: -18.2
+- date: 20260716
+- open: 223
+- high: 247
+- low: 223
+- close: 228
+- volume: 3514719
+- ma5: 216.4
+- ema23_primary: 208.23
+- distance_to_ema23_pct: 9.5
+- ma20: 203.35
+- ma60: 219.94
+- ma120: 215.07
+- return_5d: 18.44
+- return_20d: 13.15
+- volume_ratio: 4.8
+- distance_to_ma20_pct_auxiliary: 12.12
+- distance_to_high_60_pct: -17.84
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,209.5,209.5,201.5,201.5,349136,216.52,-6.94,219.7,215.62,0.41
 20260617,198,202,197.5,201.5,325971,215.27,-6.4,218.95,215.79,0.39
 20260618,201,204.5,201,201.5,287777,214.12,-5.89,217.53,215.84,0.37
 20260622,203,209.5,203,207,539728,213.53,-3.06,215.88,216.18,0.71
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,210.5,210.5,210.5,210.5,617268,202.7,3.85,199.8,220.08,1.68
 20260714,216,228,211,225,3124829,204.56,9.99,201,220.19,6.14
 20260715,225,234.5,220.5,227,1752744,206.43,9.97,202.03,220.06,3.05
+20260716,223,247,223,228,3514719,208.23,9.5,203.35,219.94,4.8
 ```
 
 ## Latest TDCC Snapshot
@@ -188,19 +188,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 6533 | 晶心科 | pullback_rebound | 回檔後短線轉強 | 55.0 |  |  |  |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
-| 20260715 | 6533 | 晶心科 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260715 | 6533 | 晶心科 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260716 | 6533 | 晶心科 | pullback_rebound | 回檔後短線轉強 | 55.0 |  |  |  |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260716 | 6533 | 晶心科 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260716 | 6533 | 晶心科 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 6533 | 晶心科 | 2 | 2 | 2 | 2 | 2 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260716 | 6533 | 晶心科 | 3 | 3 | 3 | 3 | 3 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 6533 | 晶心科 | 4 | 0 | 110490.0 | 0.0 |  | no_signal |
+| 20260716 | 6533 | 晶心科 | 4 | 0 | 247610.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

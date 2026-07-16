@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3042 晶技
 
 ## Metadata
-- generated_at: 2026-07-15 22:26:52 Asia/Taipei
+- generated_at: 2026-07-16 22:27:09 Asia/Taipei
 - stock_id: 3042
 - stock_name: 晶技
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 304
+- latest_price_date: 20260716
+- price_rows: 305
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 190
-- high: 191
-- low: 183.5
-- close: 189.5
-- volume: 9836240
-- ma5: 194.8
-- ema23_primary: 202.68
-- distance_to_ema23_pct: -6.5
-- ma20: 204.55
-- ma60: 187.42
-- ma120: 140.91
-- return_5d: -9.76
-- return_20d: -22.18
-- volume_ratio: 0.31
-- distance_to_ma20_pct_auxiliary: -7.36
-- distance_to_high_60_pct: -24.2
+- date: 20260716
+- open: 189.5
+- high: 198
+- low: 185.5
+- close: 186.5
+- volume: 26324600
+- ma5: 190.9
+- ema23_primary: 201.33
+- distance_to_ema23_pct: -7.37
+- ma20: 202.43
+- ma60: 187.75
+- ma120: 141.79
+- return_5d: -9.47
+- return_20d: -18.56
+- volume_ratio: 0.85
+- distance_to_ma20_pct_auxiliary: -7.87
+- distance_to_high_60_pct: -25.4
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,240.5,247,222,229,39929930,203.8,12.36,207.32,156.71,1.05
 20260617,226,234,218,224,28679705,205.49,9.01,211.12,158.9,0.75
 20260618,225,229,215,216,32055902,206.36,4.67,213.93,160.98,0.84
 20260622,212.5,212.5,195.5,198,46094673,205.67,-3.73,215.03,162.75,1.18
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,200.5,204.5,193.5,193.5,12544973,205.6,-5.88,209.22,186.03,0.34
 20260714,193,194.5,179,185,13985165,203.88,-9.26,207.25,186.78,0.42
 20260715,190,191,183.5,189.5,9836240,202.68,-6.5,204.55,187.42,0.31
+20260716,189.5,198,185.5,186.5,26324600,201.33,-7.37,202.43,187.75,0.85
 ```
 
 ## Latest TDCC Snapshot
@@ -198,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 3042 | 晶技 | 78 | 2 | 9825670.0 | 177370.0 | 55.4 | no_signal |
+| 20260716 | 3042 | 晶技 | 78 | 0 | 10879240.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

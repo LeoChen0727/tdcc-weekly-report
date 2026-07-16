@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2308 台達電
 
 ## Metadata
-- generated_at: 2026-07-15 22:26:36 Asia/Taipei
+- generated_at: 2026-07-16 22:26:44 Asia/Taipei
 - stock_id: 2308
 - stock_name: 台達電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 304
+- latest_price_date: 20260716
+- price_rows: 305
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 1930
-- high: 1930
-- low: 1865
-- close: 1890
-- volume: 8792634
-- ma5: 1880
-- ema23_primary: 1998.4
-- distance_to_ema23_pct: -5.42
-- ma20: 1986.5
-- ma60: 2124.75
-- ma120: 1743.67
-- return_5d: 0
-- return_20d: -14.48
-- volume_ratio: 0.67
-- distance_to_ma20_pct_auxiliary: -4.86
-- distance_to_high_60_pct: -26.89
+- date: 20260716
+- open: 1865
+- high: 1935
+- low: 1820
+- close: 1905
+- volume: 8661820
+- ma5: 1884
+- ema23_primary: 1990.62
+- distance_to_ema23_pct: -4.3
+- ma20: 1970.25
+- ma60: 2124.83
+- ma120: 1750.75
+- return_5d: 1.06
+- return_20d: -14.57
+- volume_ratio: 0.66
+- distance_to_ma20_pct_auxiliary: -3.31
+- distance_to_high_60_pct: -26.31
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,2265,2270,2220,2230,9190426,2238.51,-0.38,2284,2002.5,0.75
 20260617,2220,2220,2140,2155,11613654,2231.55,-3.43,2296,2013.83,0.94
 20260618,2190,2210,2150,2150,12882319,2224.75,-3.36,2302,2026.17,1.04
 20260622,2170,2195,2135,2150,16874717,2218.52,-3.09,2304.75,2038.42,1.31
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,1970,1980,1885,1890,9299583,2022.18,-6.54,2020.5,2123.75,0.71
 20260714,1900,1905,1780,1855,10864234,2008.25,-7.63,2002.5,2123.92,0.83
 20260715,1930,1930,1865,1890,8792634,1998.4,-5.42,1986.5,2124.75,0.67
+20260716,1865,1935,1820,1905,8661820,1990.62,-4.3,1970.25,2124.83,0.66
 ```
 
 ## Latest TDCC Snapshot
@@ -188,17 +188,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 2308 | 台達電 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/30 1.召開法人說明會之日期：115/07/30 2.召開法人說明會之時間：15 時 00 分  3.召開法人說明會之地點：台達電子台北總部 4.法人說明會擇要訊息：本公司自辦法人說明會，說明115年第2季財務報告相關資訊 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260716 | 2308 | 台達電 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | call_inflow | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/30 1.召開法人說明會之日期：115/07/30 2.召開法人說明會之時間：15 時 00 分  3.召開法人說明會之地點：台達電子台北總部 4.法人說明會擇要訊息：本公司自辦法人說明會，說明115年第2季財務報告相關資訊 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260716 | 2308 | 台達電 | revenue_breakout_low_response | 營收爆發低反應股 | 11.0 | 39.0 | D_降級_TDCC轉弱 |  |  | call_inflow | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/30 1.召開法人說明會之日期：115/07/30 2.召開法人說明會之時間：15 時 00 分  3.召開法人說明會之地點：台達電子台北總部 4.法人說明會擇要訊息：本公司自辦法人說明會，說明115年第2季財務報告相關資訊 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 2308 | 台達電 | 4 | 4 | 4 | 7 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260716 | 2308 | 台達電 | 1 | 1 | 4 | 7 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 2308 | 台達電 | 198 | 25 | 15774880.0 | 123570.0 | 127.66 | no_signal |
+| 20260716 | 2308 | 台達電 | 198 | 0 | 25430500.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

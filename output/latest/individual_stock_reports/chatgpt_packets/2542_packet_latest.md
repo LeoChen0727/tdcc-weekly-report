@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2542 興富發
 
 ## Metadata
-- generated_at: 2026-07-15 22:26:44 Asia/Taipei
+- generated_at: 2026-07-16 22:26:57 Asia/Taipei
 - stock_id: 2542
 - stock_name: 興富發
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 304
+- latest_price_date: 20260716
+- price_rows: 305
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 43.3
-- high: 43.45
-- low: 42.75
-- close: 43.45
-- volume: 6380509
-- ma5: 43.44
-- ema23_primary: 43.43
-- distance_to_ema23_pct: 0.05
-- ma20: 43.57
-- ma60: 42.19
-- ma120: 39.61
-- return_5d: -1.25
-- return_20d: -4.4
-- volume_ratio: 0.67
-- distance_to_ma20_pct_auxiliary: -0.28
-- distance_to_high_60_pct: -7.75
+- date: 20260716
+- open: 43.4
+- high: 43.75
+- low: 43.1
+- close: 43.35
+- volume: 6689965
+- ma5: 43.41
+- ema23_primary: 43.42
+- distance_to_ema23_pct: -0.17
+- ma20: 43.48
+- ma60: 42.34
+- ma120: 39.64
+- return_5d: -0.34
+- return_20d: -3.77
+- volume_ratio: 0.71
+- distance_to_ma20_pct_auxiliary: -0.31
+- distance_to_high_60_pct: -7.96
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,45.45,45.85,44.9,45.05,10473379,43.2,4.29,43.4,39.73,0.56
 20260617,44.95,45.85,44.8,45.45,10905865,43.38,4.76,43.48,39.88,0.58
 20260618,45.65,47,44.75,44.75,19814060,43.5,2.88,43.54,40.03,1.02
 20260622,44.1,44.1,42.6,42.7,24903981,43.43,-1.68,43.51,40.15,1.23
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,44.35,44.35,43.1,43.25,5065808,43.43,-0.41,43.75,41.91,0.46
 20260714,42.95,43.4,42.6,43.4,7896072,43.43,-0.06,43.67,42.04,0.8
 20260715,43.3,43.45,42.75,43.45,6380509,43.43,0.05,43.57,42.19,0.67
+20260716,43.4,43.75,43.1,43.35,6689965,43.42,-0.17,43.48,42.34,0.71
 ```
 
 ## Latest TDCC Snapshot
@@ -199,7 +199,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 2542 | 興富發 | 6 | 0 | 739730.0 | 0.0 |  | no_signal |
+| 20260716 | 2542 | 興富發 | 6 | 0 | 543090.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

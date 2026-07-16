@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6177 達麗
 
 ## Metadata
-- generated_at: 2026-07-15 22:27:26 Asia/Taipei
+- generated_at: 2026-07-16 22:28:00 Asia/Taipei
 - stock_id: 6177
 - stock_name: 達麗
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 304
+- latest_price_date: 20260716
+- price_rows: 305
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 46.5
-- high: 47
-- low: 46.2
-- close: 46.9
-- volume: 1368867
-- ma5: 45.9
-- ema23_primary: 45.86
-- distance_to_ema23_pct: 2.28
-- ma20: 46.17
-- ma60: 45.45
-- ma120: 46.68
-- return_5d: 3.42
-- return_20d: -0.64
-- volume_ratio: 0.72
-- distance_to_ma20_pct_auxiliary: 1.57
-- distance_to_high_60_pct: -9.28
+- date: 20260716
+- open: 47.1
+- high: 48.2
+- low: 46.85
+- close: 48
+- volume: 1732910
+- ma5: 46.46
+- ema23_primary: 46.03
+- distance_to_ema23_pct: 4.27
+- ma20: 46.23
+- ma60: 45.5
+- ma120: 46.64
+- return_5d: 6.19
+- return_20d: 2.35
+- volume_ratio: 0.89
+- distance_to_ma20_pct_auxiliary: 3.83
+- distance_to_high_60_pct: -7.16
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,46.75,47.45,46.75,46.9,762658,45.37,3.36,44.55,45.77,0.35
 20260617,47.25,48.4,46.9,48.25,2954979,45.61,5.78,44.73,45.77,1.31
 20260618,48.85,51.7,48.8,50.4,8039039,46.01,9.54,45.01,45.82,3.07
 20260622,48,48,45.6,45.9,7130141,46,-0.22,45.09,45.8,2.47
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,45.9,46.45,45.8,46.1,1401766,45.74,0.79,46.25,45.43,0.7
 20260714,46.4,46.4,45.55,46,1605975,45.76,0.52,46.19,45.43,0.83
 20260715,46.5,47,46.2,46.9,1368867,45.86,2.28,46.17,45.45,0.72
+20260716,47.1,48.2,46.85,48,1732910,46.03,4.27,46.23,45.5,0.89
 ```
 
 ## Latest TDCC Snapshot
@@ -188,19 +188,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 6177 | 達麗 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/07 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額: 現金股利：新台幣1,415,674,278元（每股配發3.0元）。 4.除權（息）交易日:115/08/20 5.最後過戶日:115/08/21 6.停止過戶起始日期:115/08/22 7.停止過戶截止日期:115/08/26 8.除權（息）基準日:115/08/26 9.債券最後申請轉換日期:115/07/30 10.債券停止轉換起始日期:115/08/03 11.債券停止轉換截止日期:115/08/26 12.普通股現金股利發放日期:115/09/15 13.現金股利之一部或全部是否以外幣發放(請填入「是」或「否」):否 14.外幣現金股利發放幣別:不適用 15.外幣現金股利發放對象:不適用 16.外幣現金股利匯率決定方式:不適用 17.其他應敘明事項:參與除息最後買進日：115/08/19；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
-| 20260715 | 6177 | 達麗 | revenue_pullback | 營收成長股價回檔 | 70.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/07 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額: 現金股利：新台幣1,415,674,278元（每股配發3.0元）。 4.除權（息）交易日:115/08/20 5.最後過戶日:115/08/21 6.停止過戶起始日期:115/08/22 7.停止過戶截止日期:115/08/26 8.除權（息）基準日:115/08/26 9.債券最後申請轉換日期:115/07/30 10.債券停止轉換起始日期:115/08/03 11.債券停止轉換截止日期:115/08/26 12.普通股現金股利發放日期:115/09/15 13.現金股利之一部或全部是否以外幣發放(請填入「是」或「否」):否 14.外幣現金股利發放幣別:不適用 15.外幣現金股利發放對象:不適用 16.外幣現金股利匯率決定方式:不適用 17.其他應敘明事項:參與除息最後買進日：115/08/19；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
-| 20260715 | 6177 | 達麗 | revenue_breakout_low_response | 營收爆發低反應股 | 18.0 | 18.0 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/07 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額: 現金股利：新台幣1,415,674,278元（每股配發3.0元）。 4.除權（息）交易日:115/08/20 5.最後過戶日:115/08/21 6.停止過戶起始日期:115/08/22 7.停止過戶截止日期:115/08/26 8.除權（息）基準日:115/08/26 9.債券最後申請轉換日期:115/07/30 10.債券停止轉換起始日期:115/08/03 11.債券停止轉換截止日期:115/08/26 12.普通股現金股利發放日期:115/09/15 13.現金股利之一部或全部是否以外幣發放(請填入「是」或「否」):否 14.外幣現金股利發放幣別:不適用 15.外幣現金股利發放對象:不適用 16.外幣現金股利匯率決定方式:不適用 17.其他應敘明事項:參與除息最後買進日：115/08/19；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260716 | 6177 | 達麗 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | stale_signal | 1.契約種類: 混合契約股票連結債券 2.事實發生日:115/7/15 3.契約金額: 單筆契約金額共1筆，合約金額計US$ 1,000仟元(折合NT$ 31,640仟元) 4.支付保證金或權利金金額: 無 5.處理程序所訂之全部或個別契約損失上限金額: 衍生性商品單筆損失上限達個別契約20% 6.從事衍生性商品交易原因: 以交易為目的 7.被避險項目: 無 8.被避險項目部位之金額: 無 9.被避險項目之損益狀況: 無 10.依公平價值評估(含已實現及未實現)之損失金額: 個別契約：共1筆契約累積未實現損失US$ 213仟元(折合NT$ 6,310仟元) 11.損失發生原因及對公司之影響: 持有該混合商品產生之未實現評價損失；該損失對公司營運無重大影響 12.契約期間: 2026/6/09至2026/11/16 13.限制條款: 無 14.其他重要約定事項: 無 15.其他敘明事項: 代子公司寶信營造(股)公司公告從事衍生性商品交易達所訂個別契約損失金額上限；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260716 | 6177 | 達麗 | revenue_pullback | 營收成長股價回檔 | 70.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  | no_signal | stale_signal | 1.契約種類: 混合契約股票連結債券 2.事實發生日:115/7/15 3.契約金額: 單筆契約金額共1筆，合約金額計US$ 1,000仟元(折合NT$ 31,640仟元) 4.支付保證金或權利金金額: 無 5.處理程序所訂之全部或個別契約損失上限金額: 衍生性商品單筆損失上限達個別契約20% 6.從事衍生性商品交易原因: 以交易為目的 7.被避險項目: 無 8.被避險項目部位之金額: 無 9.被避險項目之損益狀況: 無 10.依公平價值評估(含已實現及未實現)之損失金額: 個別契約：共1筆契約累積未實現損失US$ 213仟元(折合NT$ 6,310仟元) 11.損失發生原因及對公司之影響: 持有該混合商品產生之未實現評價損失；該損失對公司營運無重大影響 12.契約期間: 2026/6/09至2026/11/16 13.限制條款: 無 14.其他重要約定事項: 無 15.其他敘明事項: 代子公司寶信營造(股)公司公告從事衍生性商品交易達所訂個別契約損失金額上限；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260716 | 6177 | 達麗 | revenue_breakout_low_response | 營收爆發低反應股 | 18.0 | 18.0 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | 1.契約種類: 混合契約股票連結債券 2.事實發生日:115/7/15 3.契約金額: 單筆契約金額共1筆，合約金額計US$ 1,000仟元(折合NT$ 31,640仟元) 4.支付保證金或權利金金額: 無 5.處理程序所訂之全部或個別契約損失上限金額: 衍生性商品單筆損失上限達個別契約20% 6.從事衍生性商品交易原因: 以交易為目的 7.被避險項目: 無 8.被避險項目部位之金額: 無 9.被避險項目之損益狀況: 無 10.依公平價值評估(含已實現及未實現)之損失金額: 個別契約：共1筆契約累積未實現損失US$ 213仟元(折合NT$ 6,310仟元) 11.損失發生原因及對公司之影響: 持有該混合商品產生之未實現評價損失；該損失對公司營運無重大影響 12.契約期間: 2026/6/09至2026/11/16 13.限制條款: 無 14.其他重要約定事項: 無 15.其他敘明事項: 代子公司寶信營造(股)公司公告從事衍生性商品交易達所訂個別契約損失金額上限；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 6177 | 達麗 | 3 | 3 | 3 | 6 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260716 | 6177 | 達麗 | 4 | 2 | 4 | 6 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 6177 | 達麗 | 6 | 0 | 3520.0 | 0.0 |  | no_signal |
+| 20260716 | 6177 | 達麗 | 6 | 0 | 47140.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

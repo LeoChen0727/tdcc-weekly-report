@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2883 凱基金
 
 ## Metadata
-- generated_at: 2026-07-15 22:26:49 Asia/Taipei
+- generated_at: 2026-07-16 22:27:03 Asia/Taipei
 - stock_id: 2883
 - stock_name: 凱基金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 304
+- latest_price_date: 20260716
+- price_rows: 305
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 30.2
-- high: 31
-- low: 30.05
-- close: 30.15
-- volume: 53145417
-- ma5: 30.04
-- ema23_primary: 28.85
-- distance_to_ema23_pct: 4.51
-- ma20: 29.68
-- ma60: 25.25
-- ma120: 22.4
-- return_5d: 0.17
-- return_20d: 4.69
-- volume_ratio: 0.64
-- distance_to_ma20_pct_auxiliary: 1.58
-- distance_to_high_60_pct: -3.37
+- date: 20260716
+- open: 30.1
+- high: 30.55
+- low: 29.7
+- close: 30.55
+- volume: 45149452
+- ma5: 30.01
+- ema23_primary: 28.99
+- distance_to_ema23_pct: 5.38
+- ma20: 29.72
+- ma60: 25.41
+- ma120: 22.51
+- return_5d: -0.49
+- return_20d: 2.86
+- volume_ratio: 0.57
+- distance_to_ma20_pct_auxiliary: 2.78
+- distance_to_high_60_pct: -2.08
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,29,30.2,28.75,29.7,127013439,25.48,16.55,24.96,22.3,0.83
 20260617,30.2,31.15,29.4,30.2,145559581,25.88,16.71,25.39,22.47,0.92
 20260618,31,31.2,30.2,30.75,127489583,26.28,17,25.86,22.66,0.79
 20260622,30.6,30.95,30.1,30.35,85250985,26.62,14.01,26.3,22.83,0.52
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,30.1,30.65,29.7,29.8,36468752,28.66,3.97,29.51,24.96,0.42
 20260714,30.1,30.1,28.9,29.5,49240296,28.73,2.67,29.61,25.1,0.58
 20260715,30.2,31,30.05,30.15,53145417,28.85,4.51,29.68,25.25,0.64
+20260716,30.1,30.55,29.7,30.55,45149452,28.99,5.38,29.72,25.41,0.57
 ```
 
 ## Latest TDCC Snapshot
@@ -189,17 +189,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 2883 | 凱基金 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.事實發生日:115/07/14 2.公司名稱:凱基金融控股股份有限公司(原名稱：中華開發金融控股股份有限公司) 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:公告本公司暨主要子公司115年6月份自結合併盈餘 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):                                  合併稅後(億元) -------------------------------------------------------------------------- 　                     6月份                 累計 1 至 6 月份 -------------------------------------------------------------------------- 　           總損益   母公司  非控制   總損益   母公司  非控制  稅後每股 　　　　               業主    權益              業主    權益    盈餘(元) -------------------------------------------------------------------------- 凱基金控      61.14    61.10   0.04    284.48   284.40    0.08    1.64 凱基人壽      15.16    15.16   0.00     92.03    92.03    0.00    1.76 凱基銀行       6.86     6.86   0.00     42.76    42.76    0.00    0.91 中華開發資本  -0.88    -0.89   0.01      7.51     7.49    0.02    0.37 凱基證券      50.34    50.30   0.04    179.42   179.36    0.06    9.87 上述資料均係公司自結數。 註1：凱基人壽累計6月未適用外匯價格變動準備金之EPS(元)：2.63 註2：金控累計6月淨利加計透過其他綜合損益按公允價值衡量之股票累計處分利益 為677.75億元。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260716 | 2883 | 凱基金 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | call_inflow | stale_signal | 1.事實發生日:115/07/14 2.公司名稱:凱基金融控股股份有限公司(原名稱：中華開發金融控股股份有限公司) 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:公告本公司暨主要子公司115年6月份自結合併盈餘 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):                                  合併稅後(億元) -------------------------------------------------------------------------- 　                     6月份                 累計 1 至 6 月份 -------------------------------------------------------------------------- 　           總損益   母公司  非控制   總損益   母公司  非控制  稅後每股 　　　　               業主    權益              業主    權益    盈餘(元) -------------------------------------------------------------------------- 凱基金控      61.14    61.10   0.04    284.48   284.40    0.08    1.64 凱基人壽      15.16    15.16   0.00     92.03    92.03    0.00    1.76 凱基銀行       6.86     6.86   0.00     42.76    42.76    0.00    0.91 中華開發資本  -0.88    -0.89   0.01      7.51     7.49    0.02    0.37 凱基證券      50.34    50.30   0.04    179.42   179.36    0.06    9.87 上述資料均係公司自結數。 註1：凱基人壽累計6月未適用外匯價格變動準備金之EPS(元)：2.63 註2：金控累計6月淨利加計透過其他綜合損益按公允價值衡量之股票累計處分利益 為677.75億元。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 2883 | 凱基金 | 14 | 4 | 5 | 10 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260716 | 2883 | 凱基金 | 15 | 5 | 5 | 10 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 2883 | 凱基金 | 26 | 0 | 789860.0 | 0.0 |  | no_signal |
+| 20260716 | 2883 | 凱基金 | 26 | 0 | 2698730.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

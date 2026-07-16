@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4198 欣大健康
 
 ## Metadata
-- generated_at: 2026-07-15 22:27:08 Asia/Taipei
+- generated_at: 2026-07-16 22:27:32 Asia/Taipei
 - stock_id: 4198
 - stock_name: 欣大健康
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 157
+- latest_price_date: 20260716
+- price_rows: 158
 - latest_tdcc_date: 20260709
 - tdcc_rows: 11
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 43.6
-- high: 43.6
-- low: 43.6
-- close: 43.6
-- volume: 1000
-- ma5: 43.77
-- ema23_primary: 40.77
-- distance_to_ema23_pct: 6.94
-- ma20: 40.3
-- ma60: 39.01
-- ma120: 37.44
-- return_5d: 4.43
-- return_20d: 15.8
-- volume_ratio: 0.05
-- distance_to_ma20_pct_auxiliary: 8.19
-- distance_to_high_60_pct: -4.18
+- date: 20260716
+- open: 42.2
+- high: 42.3
+- low: 40.1
+- close: 40.1
+- volume: 7000
+- ma5: 43.44
+- ema23_primary: 40.72
+- distance_to_ema23_pct: -1.51
+- ma20: 40.34
+- ma60: 39.02
+- ma120: 37.48
+- return_5d: -3.95
+- return_20d: 2.3
+- volume_ratio: 0.37
+- distance_to_ma20_pct_auxiliary: -0.61
+- distance_to_high_60_pct: -11.87
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,39.2,39.2,39.2,39.2,1000,38.03,3.08,38.12,38.47,0.04
 20260617,37.5,39.2,37.5,38.2,31000,38.04,0.41,38.16,38.45,1.27
 20260618,38.5,38.5,37.35,38.5,15000,38.08,1.1,38.18,38.46,0.6
 20260622,36.95,38.25,36.95,38,22000,38.07,-0.2,38.16,38.44,0.84
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,44.85,45.3,42.05,45.3,24000,40.31,12.39,39.71,38.88,1.25
 20260714,41.95,44.35,41.95,42.8,9000,40.51,5.64,40,38.94,0.47
 20260715,43.6,43.6,43.6,43.6,1000,40.77,6.94,40.3,39.01,0.05
+20260716,42.2,42.3,40.1,40.1,7000,40.72,-1.51,40.34,39.02,0.37
 ```
 
 ## Latest TDCC Snapshot

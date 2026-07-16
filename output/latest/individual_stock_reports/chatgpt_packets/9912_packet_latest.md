@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9912 偉聯
 
 ## Metadata
-- generated_at: 2026-07-15 22:27:57 Asia/Taipei
+- generated_at: 2026-07-16 22:28:48 Asia/Taipei
 - stock_id: 9912
 - stock_name: 偉聯
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 300
+- latest_price_date: 20260716
+- price_rows: 301
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 12.6
-- high: 12.7
-- low: 12.5
+- date: 20260716
+- open: 12.85
+- high: 12.85
+- low: 12.65
 - close: 12.7
-- volume: 67039
+- volume: 9998
 - ma5: 12.68
-- ema23_primary: 12.6
-- distance_to_ema23_pct: 0.81
-- ma20: 12.59
+- ema23_primary: 12.61
+- distance_to_ema23_pct: 0.74
+- ma20: 12.6
 - ma60: 12.53
 - ma120: 12.4
 - return_5d: 0
-- return_20d: 1.2
-- volume_ratio: 0.44
-- distance_to_ma20_pct_auxiliary: 0.91
+- return_20d: 1.6
+- volume_ratio: 0.07
+- distance_to_ma20_pct_auxiliary: 0.83
 - distance_to_high_60_pct: -2.68
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,12.5,12.65,12.5,12.5,68515,12.51,-0.1,12.51,12.54,0.4
 20260617,12.55,12.7,12.45,12.6,44574,12.52,0.64,12.52,12.54,0.26
 20260618,12.75,12.75,12.5,12.65,25481,12.53,0.96,12.53,12.54,0.15
 20260622,12.65,12.7,12.5,12.55,25303,12.53,0.14,12.53,12.54,0.15
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,12.75,12.75,12.55,12.55,20495,12.58,-0.23,12.57,12.52,0.11
 20260714,12.85,12.9,12.35,12.7,57468,12.59,0.89,12.58,12.52,0.3
 20260715,12.6,12.7,12.5,12.7,67039,12.6,0.81,12.59,12.53,0.44
+20260716,12.85,12.85,12.65,12.7,9998,12.61,0.74,12.6,12.53,0.07
 ```
 
 ## Latest TDCC Snapshot

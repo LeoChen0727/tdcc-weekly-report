@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2069 運錩
 
 ## Metadata
-- generated_at: 2026-07-15 22:26:34 Asia/Taipei
+- generated_at: 2026-07-16 22:26:41 Asia/Taipei
 - stock_id: 2069
 - stock_name: 運錩
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 304
+- latest_price_date: 20260716
+- price_rows: 305
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 18
-- high: 18.6
-- low: 17.85
+- date: 20260716
+- open: 18.6
+- high: 18.65
+- low: 18.4
 - close: 18.6
-- volume: 292694
-- ma5: 18.15
+- volume: 182700
+- ma5: 18.25
 - ema23_primary: 18.6
 - distance_to_ema23_pct: 0.01
-- ma20: 18.5
+- ma20: 18.48
 - ma60: 19.1
-- ma120: 19.05
-- return_5d: 1.92
-- return_20d: -7.69
-- volume_ratio: 0.98
-- distance_to_ma20_pct_auxiliary: 0.55
+- ma120: 19.04
+- return_5d: 2.76
+- return_20d: -1.59
+- volume_ratio: 0.65
+- distance_to_ma20_pct_auxiliary: 0.64
 - distance_to_high_60_pct: -11.22
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,19.5,19.5,18.85,18.9,540168,19.58,-3.48,19.59,19.14,1.07
 20260617,18.75,19.1,18.7,19,229471,19.53,-2.73,19.57,19.14,0.45
 20260618,19,19.2,18.7,18.8,447733,19.47,-3.45,19.54,19.15,0.86
 20260622,18.65,19.1,18.65,19.05,680018,19.44,-1.99,19.53,19.16,1.31
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,18.2,18.2,17.95,18,411465,18.67,-3.56,18.68,19.11,1.21
 20260714,17.8,18,17.6,17.85,371601,18.6,-4.02,18.57,19.1,1.12
 20260715,18,18.6,17.85,18.6,292694,18.6,0.01,18.5,19.1,0.98
+20260716,18.6,18.65,18.4,18.6,182700,18.6,0.01,18.48,19.1,0.65
 ```
 
 ## Latest TDCC Snapshot

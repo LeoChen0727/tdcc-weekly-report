@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2382 廣達
 
 ## Metadata
-- generated_at: 2026-07-15 22:26:38 Asia/Taipei
+- generated_at: 2026-07-16 22:26:48 Asia/Taipei
 - stock_id: 2382
 - stock_name: 廣達
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 304
+- latest_price_date: 20260716
+- price_rows: 305
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -58,7 +58,7 @@
 - pdf_visible: true
 - action_rating_display_zh: 可分批買進
 - model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
 - action_summary_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。
 - entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
 - position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
@@ -73,7 +73,7 @@
 - internal_use_only: true
 - action_rating: scale_in
 - action_rating_label_zh: 可分批買進
-- confidence_level: medium
+- confidence_level: high
 - thesis_state: healthy_pullback
 - entry_style: pullback_to_23ema
 - position_sizing: half_position
@@ -92,6 +92,7 @@
 
 ### entry_prerequisites
 - model_recommended
+- decision_score_high
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -118,29 +119,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 383.5
-- high: 384
-- low: 376
-- close: 381
-- volume: 24915093
-- ma5: 377.9
-- ema23_primary: 371.41
-- distance_to_ema23_pct: 2.58
-- ma20: 372.95
-- ma60: 350.81
-- ma120: 319.89
-- return_5d: 2.14
-- return_20d: 2.97
-- volume_ratio: 1.45
-- distance_to_ma20_pct_auxiliary: 2.16
-- distance_to_high_60_pct: -13.01
+- date: 20260716
+- open: 360.5
+- high: 360.5
+- low: 349
+- close: 352
+- volume: 33111611
+- ma5: 372.9
+- ema23_primary: 369.79
+- distance_to_ema23_pct: -4.81
+- ma20: 372.43
+- ma60: 351.19
+- ma120: 320.49
+- return_5d: -6.63
+- return_20d: -2.9
+- volume_ratio: 1.86
+- distance_to_ma20_pct_auxiliary: -5.48
+- distance_to_high_60_pct: -19.63
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,371.5,372.5,362,362.5,20112630,357.55,1.38,354.88,326.93,0.35
 20260617,361,374,358,374,21858689,358.92,4.2,359.07,328.43,0.39
 20260618,374.5,379.5,372.5,376,22566584,360.35,4.34,362.48,330.03,0.41
 20260622,378.5,385,376.5,380,20023542,361.99,4.98,365.68,331.68,0.37
@@ -160,6 +160,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,377,385,374,378,17625716,369.67,2.25,372,348.82,1.04
 20260714,378,380,368,380,25976500,370.53,2.55,372.4,349.84,1.52
 20260715,383.5,384,376,381,24915093,371.41,2.58,372.95,350.81,1.45
+20260716,360.5,360.5,349,352,33111611,369.79,-4.81,372.43,351.19,1.86
 ```
 
 ## Latest TDCC Snapshot
@@ -194,13 +195,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 2382 | 廣達 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | repeated_but_no_breakout | 1.事實發生日: 115/07/08 2.公司名稱: 廣達 3.與公司關係(請輸入本公司或子公司): 本公司 4.相互持股比例: 不適用 5.傳播媒體名稱:工商時報 6.報導內容:  …全年營收年增三位數目標不變… 7.發生緣由: 媒體報導 8.因應措施: 不適用 9.其他應敘明事項:  本公司並未提供財務預測，實際財務暨營運狀況，  均已遵循法令規範揭露於公開資訊觀測站。；calendar event: ex_dividend on 20260716; status=confirmed; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260715 | 2382 | 廣達 | revenue_breakout_low_response | 營收爆發低反應股 | 20.0 | 2.0 | A_優先追蹤 |  |  |  | repeated_but_no_breakout | 1.事實發生日: 115/07/08 2.公司名稱: 廣達 3.與公司關係(請輸入本公司或子公司): 本公司 4.相互持股比例: 不適用 5.傳播媒體名稱:工商時報 6.報導內容:  …全年營收年增三位數目標不變… 7.發生緣由: 媒體報導 8.因應措施: 不適用 9.其他應敘明事項:  本公司並未提供財務預測，實際財務暨營運狀況，  均已遵循法令規範揭露於公開資訊觀測站。；calendar event: ex_dividend on 20260716; status=confirmed; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260716 | 2382 | 廣達 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  |  | repeated_but_no_breakout | 1.事實發生日: 115/07/08 2.公司名稱: 廣達 3.與公司關係(請輸入本公司或子公司): 本公司 4.相互持股比例: 不適用 5.傳播媒體名稱:工商時報 6.報導內容:  …全年營收年增三位數目標不變… 7.發生緣由: 媒體報導 8.因應措施: 不適用 9.其他應敘明事項:  本公司並未提供財務預測，實際財務暨營運狀況，  均已遵循法令規範揭露於公開資訊觀測站。；calendar event: ex_dividend on 20260716; status=confirmed; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260716 | 2382 | 廣達 | revenue_breakout_low_response | 營收爆發低反應股 | 19.0 | 4.0 | A_優先追蹤 |  |  |  | repeated_but_no_breakout | 1.事實發生日: 115/07/08 2.公司名稱: 廣達 3.與公司關係(請輸入本公司或子公司): 本公司 4.相互持股比例: 不適用 5.傳播媒體名稱:工商時報 6.報導內容:  …全年營收年增三位數目標不變… 7.發生緣由: 媒體報導 8.因應措施: 不適用 9.其他應敘明事項:  本公司並未提供財務預測，實際財務暨營運狀況，  均已遵循法令規範揭露於公開資訊觀測站。；calendar event: ex_dividend on 20260716; status=confirmed; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 2382 | 廣達 | 22 | 16 | 5 | 10 | 20 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 20 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260716 | 2382 | 廣達 | 1 | 1 | 4 | 9 | 19 | repeated_but_no_breakout | 近 10 日上榜 9 次、近 20 日上榜 19 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

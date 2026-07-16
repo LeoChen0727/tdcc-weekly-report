@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5386 青雲
 
 ## Metadata
-- generated_at: 2026-07-15 22:27:19 Asia/Taipei
+- generated_at: 2026-07-16 22:27:49 Asia/Taipei
 - stock_id: 5386
 - stock_name: 青雲
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 169
+- latest_price_date: 20260716
+- price_rows: 170
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 353.5
-- high: 379.5
-- low: 343
-- close: 373.5
-- volume: 1167000
-- ma5: 371.1
-- ema23_primary: 438.4
-- distance_to_ema23_pct: -14.8
-- ma20: 453.2
-- ma60: 460.62
-- ma120: 342.39
-- return_5d: -13.24
-- return_20d: -24.47
-- volume_ratio: 0.8
-- distance_to_ma20_pct_auxiliary: -17.59
-- distance_to_high_60_pct: -40.53
+- date: 20260716
+- open: 371
+- high: 391.5
+- low: 365
+- close: 383
+- volume: 1317000
+- ma5: 365.2
+- ema23_primary: 433.78
+- distance_to_ema23_pct: -11.71
+- ma20: 447.4
+- ma60: 461.47
+- ma120: 344.89
+- return_5d: -7.15
+- return_20d: -23.25
+- volume_ratio: 0.89
+- distance_to_ma20_pct_auxiliary: -14.39
+- distance_to_high_60_pct: -39.01
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,501,505,487.5,499,959000,499.32,-0.06,524.67,420.36,1.06
 20260617,498,503,489,500,553000,499.37,0.13,528.2,422.07,0.6
 20260618,507,525,505,521,1162000,501.18,3.96,530.85,424.76,1.22
 20260622,536,544,523,529,1344000,503.49,5.07,532.45,428.18,1.35
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,360,360,340.5,351,2300000,453.14,-22.54,466.18,460.4,1.59
 20260714,357,360.5,330,347,1464000,444.3,-21.9,459.25,460.27,1.01
 20260715,353.5,379.5,343,373.5,1167000,438.4,-14.8,453.2,460.62,0.8
+20260716,371,391.5,365,383,1317000,433.78,-11.71,447.4,461.47,0.89
 ```
 
 ## Latest TDCC Snapshot
@@ -188,12 +188,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 5386 | 青雲 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/07/06 2.原公告申報日期:115/05/06 3.簡述原公告申報內容:董事會決議現金增資發行新股、發行國內第二次無擔保轉換                       公司債。 4.變動緣由及主要內容:本公司基於營運策略規劃及評估資本市場募資時程，並基於                       維護全體股東權益，擬自行撤回115年度現金增資發行新股                       暨國內第二次無擔保轉換公司債。 5.變動後對公司財務業務之影響:無重大影響。 6.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260716 | 5386 | 青雲 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/07/06 2.原公告申報日期:115/05/06 3.簡述原公告申報內容:董事會決議現金增資發行新股、發行國內第二次無擔保轉換                       公司債。 4.變動緣由及主要內容:本公司基於營運策略規劃及評估資本市場募資時程，並基於                       維護全體股東權益，擬自行撤回115年度現金增資發行新股                       暨國內第二次無擔保轉換公司債。 5.變動後對公司財務業務之影響:無重大影響。 6.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 5386 | 青雲 | 8 | 8 | 5 | 9 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260716 | 5386 | 青雲 | 1 | 1 | 4 | 8 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

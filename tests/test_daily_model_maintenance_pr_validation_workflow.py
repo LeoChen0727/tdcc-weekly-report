@@ -40,29 +40,38 @@ def test_daily_model_maintenance_pr_workflow_exists_for_model_pdf_paths() -> Non
     assert "tests/test_mature_model_row_level_metric_contract_audit.py" in text
 
 
-def test_pdf_replay_pr_workflow_is_pdf_impact_only_and_manually_dispatchable() -> None:
+def test_pdf_replay_pr_workflow_is_runtime_or_operation_impact_only_and_manually_dispatchable() -> None:
     text = PDF_REPLAY_WORKFLOW.read_text(encoding="utf-8")
+    pull_request_trigger = text.split("  workflow_dispatch:", 1)[0]
 
-    for required in (
-        "pull_request:",
-        "workflow_dispatch:",
-        ".github/workflows/daily_pdf_replay_pr_validation.yml",
+    observed_paths = {
+        line.strip()[2:].strip().strip('"')
+        for line in pull_request_trigger.splitlines()
+        if line.strip().startswith("- ")
+    }
+    expected_paths = {
+        "config/daily_pdf_rendered_model_regression_contract.csv",
+        "config/daily_pdf_semantic_golden_cases.csv",
+        "config/git_worktree_materialization_contract.csv",
         "scripts/generate_chatgpt_side_daily_reports.py",
-        "scripts/*dfkai*",
-        "scripts/build_daily_*operation_section*.py",
-        "scripts/build_model_operation_readiness.py",
-        "config/daily_pdf_*.csv",
-        "config/pdf_golden_regression_contract.csv",
-        "output/latest/daily_*operation_section_latest.csv",
-    ):
-        assert required in text
+        "scripts/git_worktree_safety.py",
+        "scripts/market_session_calendar.py",
+        "scripts/resolve_daily_report_source_state.py",
+        "scripts/run_chatgpt_daily_report_entrypoint.py",
+        "scripts/validate_chatgpt_daily_report_new_conversation_replay.py",
+        "scripts/validate_daily_publish_freshness_gate.py",
+        "scripts/validate_chatgpt_side_pdf_contract.py",
+        "output/latest/approved_operation_patterns_latest.csv",
+        "output/latest/daily_neckline_volume_breakout_confirmation_operation_section_latest.csv",
+        "output/latest/daily_price_pullback_23ema_operation_section_latest.csv",
+        "output/latest/daily_volume_breakout_operation_section_latest.csv",
+        "output/latest/daily_w_bottom_right_side_operation_section_latest.csv",
+        "output/latest/model_operation_readiness_latest.csv",
+    }
 
-    for research_only in (
-        "data/financial_statement_history/*.csv",
-        "scripts/build_financial_statement_pit.py",
-        "tests/test_revenue_unreacted_range_*.py",
-    ):
-        assert research_only not in text
+    assert "pull_request:" in text
+    assert "workflow_dispatch:" in text
+    assert observed_paths == expected_paths
 
 
 def test_daily_model_pr_workflow_does_not_install_dfkai_or_render_pdfs() -> None:
@@ -270,6 +279,13 @@ def test_daily_pdf_replay_jobs_require_windows_dfkai_runtime() -> None:
         output_dir="chatgpt_side_outputs_pr_validation",
         upload_step="Upload PR daily PDF replay evidence",
     ) == []
+    assert boundaries.workflow_step_block(
+        daily_text,
+        "Install and validate DFKai-SB",
+    ) == boundaries.workflow_step_block(
+        pr_text,
+        "Install and validate DFKai-SB",
+    )
     assert "Replay ChatGPT-side daily PDF" not in boundaries.workflow_job_block(
         daily_text,
         "daily-full-pipeline",
@@ -307,3 +323,125 @@ jobs:
     assert any("temporary" in error for error in errors)
     assert any("kaiu.ttf" in error for error in errors)
     assert any("DFKai-SB" in error for error in errors)
+
+
+def test_dfkai_replay_job_validator_requires_post_validation_dism_recovery() -> None:
+    text = PDF_REPLAY_WORKFLOW.read_text(encoding="utf-8")
+    recovery_block = """          if ($dismExitCode -ne 0) {
+            Write-Warning "DISM returned exit code $dismExitCode, but canonical DFKai-SB passed final file, identity, and glyph validation"
+          }
+"""
+    env_line = (
+        '          "CHATGPT_DAILY_DFKAI_FONT_PATH=$fontPath" | '
+        "Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8\n"
+    )
+    assert recovery_block in text
+    assert env_line in text
+
+    reordered = text.replace(recovery_block, "", 1).replace(
+        env_line,
+        recovery_block + env_line,
+        1,
+    )
+    errors = boundaries.validate_dfkai_pdf_replay_job(
+        reordered,
+        workflow_label="fixture",
+        needs_job="daily-pdf-replay-contract-validation",
+        output_dir="chatgpt_side_outputs_pr_validation",
+        upload_step="Upload PR daily PDF replay evidence",
+    )
+
+    assert any("final-state validation order" in error for error in errors)
+
+
+def test_dfkai_replay_job_validator_rejects_immediate_dism_exit_failure() -> None:
+    text = PDF_REPLAY_WORKFLOW.read_text(encoding="utf-8")
+    capture = "              $dismExitCode = $LASTEXITCODE\n"
+    assert capture in text
+    immediate_failure = (
+        capture
+        + '              throw "DFKai-SB capability installation failed with DISM exit code $LASTEXITCODE"\n'
+    )
+    mutated = text.replace(capture, immediate_failure, 1)
+
+    errors = boundaries.validate_dfkai_pdf_replay_job(
+        mutated,
+        workflow_label="fixture",
+        needs_job="daily-pdf-replay-contract-validation",
+        output_dir="chatgpt_side_outputs_pr_validation",
+        upload_step="Upload PR daily PDF replay evidence",
+    )
+
+    assert any("before rejecting a DISM exit code" in error for error in errors)
+
+
+def test_dfkai_replay_job_validator_rejects_missing_font_warning_only() -> None:
+    text = PDF_REPLAY_WORKFLOW.read_text(encoding="utf-8")
+    fail_closed = (
+        'throw "Required DFKai-SB font file is missing after capability install: '
+        '$fontPath (DISM exit code $dismExitCode)"'
+    )
+    assert fail_closed in text
+    mutated = text.replace(fail_closed, fail_closed.replace("throw", "Write-Warning"), 1)
+
+    errors = boundaries.validate_dfkai_pdf_replay_job(
+        mutated,
+        workflow_label="fixture",
+        needs_job="daily-pdf-replay-contract-validation",
+        output_dir="chatgpt_side_outputs_pr_validation",
+        upload_step="Upload PR daily PDF replay evidence",
+    )
+
+    assert any("canonical font file remains missing" in error for error in errors)
+
+
+def test_dfkai_replay_job_validator_rejects_font_validation_warning_only() -> None:
+    text = PDF_REPLAY_WORKFLOW.read_text(encoding="utf-8")
+    fail_closed = (
+        'throw "DFKai-SB final font validation failed with exit code '
+        '$fontValidationExitCode (DISM exit code $dismExitCode)"'
+    )
+    assert fail_closed in text
+    mutated = text.replace(fail_closed, fail_closed.replace("throw", "Write-Warning"), 1)
+
+    errors = boundaries.validate_dfkai_pdf_replay_job(
+        mutated,
+        workflow_label="fixture",
+        needs_job="daily-pdf-replay-contract-validation",
+        output_dir="chatgpt_side_outputs_pr_validation",
+        upload_step="Upload PR daily PDF replay evidence",
+    )
+
+    assert any("font identity or glyph validation fails" in error for error in errors)
+
+
+def test_dfkai_replay_job_validator_rejects_disabled_font_identity_assertion() -> None:
+    text = PDF_REPLAY_WORKFLOW.read_text(encoding="utf-8")
+    assert "assert names & accepted" in text
+    mutated = text.replace("assert names & accepted", "print(names & accepted)", 1)
+
+    errors = boundaries.validate_dfkai_pdf_replay_job(
+        mutated,
+        workflow_label="fixture",
+        needs_job="daily-pdf-replay-contract-validation",
+        output_dir="chatgpt_side_outputs_pr_validation",
+        upload_step="Upload PR daily PDF replay evidence",
+    )
+
+    assert any("unexpected font identity" in error for error in errors)
+
+
+def test_dfkai_replay_job_validator_rejects_disabled_glyph_assertion() -> None:
+    text = PDF_REPLAY_WORKFLOW.read_text(encoding="utf-8")
+    assert "assert not missing" in text
+    mutated = text.replace("assert not missing", "print(missing)", 1)
+
+    errors = boundaries.validate_dfkai_pdf_replay_job(
+        mutated,
+        workflow_label="fixture",
+        needs_job="daily-pdf-replay-contract-validation",
+        output_dir="chatgpt_side_outputs_pr_validation",
+        upload_step="Upload PR daily PDF replay evidence",
+    )
+
+    assert any("canary glyphs are missing" in error for error in errors)

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6573 虹揚-KY
 
 ## Metadata
-- generated_at: 2026-07-15 22:27:34 Asia/Taipei
+- generated_at: 2026-07-16 22:28:12 Asia/Taipei
 - stock_id: 6573
 - stock_name: 虹揚-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 304
+- latest_price_date: 20260716
+- price_rows: 305
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -111,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 23.95
-- high: 24.45
-- low: 22
-- close: 23.35
-- volume: 1082113
-- ma5: 25.76
-- ema23_primary: 21.9
-- distance_to_ema23_pct: 6.6
-- ma20: 21.88
-- ma60: 16.62
-- ma120: 15.42
-- return_5d: -6.79
-- return_20d: 54.64
-- volume_ratio: 0.55
-- distance_to_ma20_pct_auxiliary: 6.73
-- distance_to_high_60_pct: -21.64
+- date: 20260716
+- open: 22.65
+- high: 23.2
+- low: 21.2
+- close: 22.05
+- volume: 990925
+- ma5: 24.66
+- ema23_primary: 21.92
+- distance_to_ema23_pct: 0.61
+- ma20: 22.24
+- ma60: 16.79
+- ma120: 15.48
+- return_5d: -19.96
+- return_20d: 48.99
+- volume_ratio: 0.5
+- distance_to_ma20_pct_auxiliary: -0.85
+- distance_to_high_60_pct: -26.01
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,15.2,15.3,14.6,14.8,292207,14.84,-0.24,15.01,13.62,0.42
 20260617,14.8,15.1,14.15,14.75,262826,14.83,-0.53,15.09,13.64,0.37
 20260618,15.3,16.2,15.3,16.2,627682,14.94,8.42,15.24,13.68,0.86
 20260622,17.8,17.8,17.8,17.8,881547,15.18,17.26,15.47,13.75,1.15
@@ -153,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,27.8,28.1,25.2,26,1850371,21.58,20.51,21,16.25,1
 20260714,25.5,25.5,23.4,23.95,1785000,21.77,10,21.46,16.44,0.93
 20260715,23.95,24.45,22,23.35,1082113,21.9,6.6,21.88,16.62,0.55
+20260716,22.65,23.2,21.2,22.05,990925,21.92,0.61,22.24,16.79,0.5
 ```
 
 ## Latest TDCC Snapshot

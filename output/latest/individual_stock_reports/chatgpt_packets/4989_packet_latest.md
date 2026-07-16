@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4989 榮科
 
 ## Metadata
-- generated_at: 2026-07-15 22:27:15 Asia/Taipei
+- generated_at: 2026-07-16 22:27:44 Asia/Taipei
 - stock_id: 4989
 - stock_name: 榮科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 304
+- latest_price_date: 20260716
+- price_rows: 305
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 80.8
-- high: 81.6
-- low: 79.3
-- close: 80
-- volume: 5173016
-- ma5: 86.58
-- ema23_primary: 90.89
-- distance_to_ema23_pct: -11.98
-- ma20: 90.68
-- ma60: 95.36
-- ma120: 80.43
-- return_5d: -19.92
-- return_20d: -0.99
-- volume_ratio: 0.39
-- distance_to_ma20_pct_auxiliary: -11.78
-- distance_to_high_60_pct: -36
+- date: 20260716
+- open: 79.1
+- high: 80.6
+- low: 77.7
+- close: 78.2
+- volume: 4441435
+- ma5: 82.54
+- ema23_primary: 89.83
+- distance_to_ema23_pct: -12.95
+- ma20: 90.66
+- ma60: 94.89
+- ma120: 80.66
+- return_5d: -20.53
+- return_20d: -0.64
+- volume_ratio: 0.33
+- distance_to_ma20_pct_auxiliary: -13.74
+- distance_to_high_60_pct: -37.44
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,82,83.9,78.4,78.7,4639117,89.93,-12.49,92.98,90.27,0.41
 20260617,78.3,81.7,77.4,80.6,3231517,89.15,-9.59,92.37,90.37,0.3
 20260618,81,85.5,81,85.5,5929756,88.85,-3.77,91.83,90.65,0.58
 20260622,87.1,94,86.1,94,11160142,89.28,5.29,91.56,91.11,1.12
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,92.8,93.1,82.7,82.7,13411924,92.96,-11.04,90.7,96.16,1.03
 20260714,83,83.5,74.8,80,10748547,91.88,-12.93,90.72,95.74,0.81
 20260715,80.8,81.6,79.3,80,5173016,90.89,-11.98,90.68,95.36,0.39
+20260716,79.1,80.6,77.7,78.2,4441435,89.83,-12.95,90.66,94.89,0.33
 ```
 
 ## Latest TDCC Snapshot
@@ -188,17 +188,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 4989 | 榮科 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/07/07 2.發生緣由:依據臺灣證券交易所股份有限公司通知辦理。 3.財務業務資訊:  期間        最近一月  與去年同  最近一季    與去年     最近四季累計              115年06月  期增減%  115年第1季  同期增減%    114年第2季至                                                            115年第1季             (IFRS-母公司         (IFRS查核數             (查核數               自結財務資訊)                 )                       )             ==================== ===================== ==================    科目        (金額)      (%)      (金額)       (%)       (金額)  ========   ============ ======= ============ ======== ==================  營業收入     370.18     73.41%    977.05      92.75%      3,131.80   (百萬)  稅前淨利(損)  18.73    115.40%     22.87     124.48%       (361.29)   (百萬)  歸屬母公司  業主淨利(損)  18.30    117.67%     18.29     119.99%       (369.76)   (百萬)  每股盈餘       0.13    117.67%      0.13     119.99%         (2.69)    (元) 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無。 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無。 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告: 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260716 | 4989 | 榮科 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/07/07 2.發生緣由:依據臺灣證券交易所股份有限公司通知辦理。 3.財務業務資訊:  期間        最近一月  與去年同  最近一季    與去年     最近四季累計              115年06月  期增減%  115年第1季  同期增減%    114年第2季至                                                            115年第1季             (IFRS-母公司         (IFRS查核數             (查核數               自結財務資訊)                 )                       )             ==================== ===================== ==================    科目        (金額)      (%)      (金額)       (%)       (金額)  ========   ============ ======= ============ ======== ==================  營業收入     370.18     73.41%    977.05      92.75%      3,131.80   (百萬)  稅前淨利(損)  18.73    115.40%     22.87     124.48%       (361.29)   (百萬)  歸屬母公司  業主淨利(損)  18.30    117.67%     18.29     119.99%       (369.76)   (百萬)  每股盈餘       0.13    117.67%      0.13     119.99%         (2.69)    (元) 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無。 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無。 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告: 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 4989 | 榮科 | 1 | 1 | 3 | 8 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260716 | 4989 | 榮科 | 1 | 1 | 2 | 7 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 4989 | 榮科 | 10 | 1 | 289700.0 | 2000.0 | 144.85 | no_signal |
+| 20260716 | 4989 | 榮科 | 10 | 0 | 231840.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

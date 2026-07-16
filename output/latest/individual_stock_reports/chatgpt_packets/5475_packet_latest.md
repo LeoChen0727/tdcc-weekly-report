@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5475 德宏
 
 ## Metadata
-- generated_at: 2026-07-15 22:27:20 Asia/Taipei
+- generated_at: 2026-07-16 22:27:51 Asia/Taipei
 - stock_id: 5475
 - stock_name: 德宏
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 169
+- latest_price_date: 20260716
+- price_rows: 170
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 183
-- high: 185
-- low: 175.5
-- close: 178
-- volume: 2314000
-- ma5: 188.4
-- ema23_primary: 227.71
-- distance_to_ema23_pct: -21.83
-- ma20: 230.03
-- ma60: 284.26
-- ma120: 234.63
-- return_5d: -14.01
-- return_20d: -25.37
-- volume_ratio: 0.93
-- distance_to_ma20_pct_auxiliary: -22.62
-- distance_to_high_60_pct: -56
+- date: 20260716
+- open: 179
+- high: 179
+- low: 170
+- close: 175.5
+- volume: 1679000
+- ma5: 180.8
+- ema23_primary: 223.36
+- distance_to_ema23_pct: -21.43
+- ma20: 227.28
+- ma60: 280.52
+- ma120: 235.35
+- return_5d: -17.8
+- return_20d: -23.86
+- volume_ratio: 0.69
+- distance_to_ma20_pct_auxiliary: -22.78
+- distance_to_high_60_pct: -56.61
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,239.5,251,227.5,230.5,2502000,274.26,-15.96,274.57,292.82,2.31
 20260617,221,234.5,219,229.5,1560000,270.53,-15.17,272.15,293.21,1.5
 20260618,230,252,230,252,1834000,268.99,-6.31,270.4,294.12,1.77
 20260622,277,277,267.5,277,3679000,269.65,2.72,269.4,295.52,3.05
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,173.5,193.5,173.5,179.5,7411000,237.12,-24.3,236.12,290.04,3.18
 20260714,177,186,166,178.5,3996000,232.23,-23.14,233.05,287.43,1.62
 20260715,183,185,175.5,178,2314000,227.71,-21.83,230.03,284.26,0.93
+20260716,179,179,170,175.5,1679000,223.36,-21.43,227.28,280.52,0.69
 ```
 
 ## Latest TDCC Snapshot
@@ -188,12 +188,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 5475 | 德宏 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260716 | 5475 | 德宏 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 5475 | 德宏 | 6 | 6 | 5 | 6 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260716 | 5475 | 德宏 | 1 | 1 | 4 | 6 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

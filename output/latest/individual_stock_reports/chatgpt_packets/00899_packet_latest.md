@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00899 FT潔淨能源
 
 ## Metadata
-- generated_at: 2026-07-15 22:26:19 Asia/Taipei
+- generated_at: 2026-07-16 22:26:17 Asia/Taipei
 - stock_id: 00899
 - stock_name: FT潔淨能源
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260715
-- price_rows: 37
+- latest_price_date: 20260716
+- price_rows: 38
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 25.09
-- high: 25.38
-- low: 25.09
-- close: 25.27
-- volume: 63071
-- ma5: 25.13
-- ema23_primary: 26.2
-- distance_to_ema23_pct: -3.57
-- ma20: 26.05
-- ma60: 27.17
-- ma120: 27.17
-- return_5d: -3.48
-- return_20d: -6.82
-- volume_ratio: 0.41
-- distance_to_ma20_pct_auxiliary: -2.98
-- distance_to_high_60_pct: -16.07
+- date: 20260716
+- open: 25.27
+- high: 25.27
+- low: 25.12
+- close: 25.16
+- volume: 20321
+- ma5: 25.06
+- ema23_primary: 26.12
+- distance_to_ema23_pct: -3.67
+- ma20: 25.96
+- ma60: 27.12
+- ma120: 27.12
+- return_5d: -1.37
+- return_20d: -6.4
+- volume_ratio: 0.14
+- distance_to_ma20_pct_auxiliary: -3.09
+- distance_to_high_60_pct: -16.44
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,27.08,27.08,26.82,26.88,85422,28.05,-4.17,28.41,28.41,0.58
 20260617,26.68,26.68,26.5,26.56,88493,27.93,-4.89,28.31,28.31,0.62
 20260618,26.09,26.2,26.09,26.13,172037,27.78,-5.93,28.2,28.2,1.19
 20260622,26.4,26.65,26.4,26.61,376956,27.68,-3.86,28.12,28.13,2.49
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,25,25.1,25,25,132755,26.45,-5.48,26.25,27.3,0.88
 20260714,24.71,24.71,24.44,24.53,117014,26.29,-6.69,26.14,27.23,0.76
 20260715,25.09,25.38,25.09,25.27,63071,26.2,-3.57,26.05,27.17,0.41
+20260716,25.27,25.27,25.12,25.16,20321,26.12,-3.67,25.96,27.12,0.14
 ```
 
 ## Latest TDCC Snapshot

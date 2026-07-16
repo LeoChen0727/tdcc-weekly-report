@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7610 聯友金屬-創
 
 ## Metadata
-- generated_at: 2026-07-15 22:27:46 Asia/Taipei
+- generated_at: 2026-07-16 22:28:31 Asia/Taipei
 - stock_id: 7610
 - stock_name: 聯友金屬-創
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 198
+- latest_price_date: 20260716
+- price_rows: 199
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 2430
-- high: 2585
-- low: 2430
-- close: 2430
-- volume: 532978
-- ma5: 2484
-- ema23_primary: 2234.96
-- distance_to_ema23_pct: 8.73
-- ma20: 2353
-- ma60: 1526.7
-- ma120: 919.55
-- return_5d: 1.25
-- return_20d: 39.26
-- volume_ratio: 0.98
-- distance_to_ma20_pct_auxiliary: 3.27
-- distance_to_high_60_pct: -10.99
+- date: 20260716
+- open: 2440
+- high: 2640
+- low: 2440
+- close: 2600
+- volume: 762473
+- ma5: 2507
+- ema23_primary: 2265.38
+- distance_to_ema23_pct: 14.77
+- ma20: 2387.25
+- ma60: 1559.37
+- ma120: 939.69
+- return_5d: 4.63
+- return_20d: 35.77
+- volume_ratio: 1.34
+- distance_to_ma20_pct_auxiliary: 8.91
+- distance_to_high_60_pct: -4.76
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,1915,1915,1915,1915,212232,1481.14,29.29,1541.25,915.5,0.5
 20260617,1945,2105,1945,2105,673205,1533.12,37.3,1590.5,945.25,1.61
 20260618,2290,2315,2055,2315,1985805,1598.28,44.84,1644.75,978.42,4.22
 20260622,2480,2545,2335,2505,974501,1673.84,49.66,1707.5,1014.23,2.29
@@ -154,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,2380,2425,2290,2425,567676,2197.88,10.33,2276.75,1467.12,1.11
 20260714,2465,2530,2345,2430,869056,2217.23,9.6,2318.75,1496.83,1.62
 20260715,2430,2585,2430,2430,532978,2234.96,8.73,2353,1526.7,0.98
+20260716,2440,2640,2440,2600,762473,2265.38,14.77,2387.25,1559.37,1.34
 ```
 
 ## Latest TDCC Snapshot

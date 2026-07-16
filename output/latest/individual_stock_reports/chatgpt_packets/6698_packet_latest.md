@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6698 旭暉應材
 
 ## Metadata
-- generated_at: 2026-07-15 22:27:37 Asia/Taipei
+- generated_at: 2026-07-16 22:28:17 Asia/Taipei
 - stock_id: 6698
 - stock_name: 旭暉應材
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 304
+- latest_price_date: 20260716
+- price_rows: 305
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 38.6
-- high: 40
+- date: 20260716
+- open: 39.15
+- high: 39.55
 - low: 38.25
-- close: 39.15
-- volume: 203743
-- ma5: 39.67
-- ema23_primary: 40.64
-- distance_to_ema23_pct: -3.67
-- ma20: 41.88
-- ma60: 36.96
-- ma120: 34.8
-- return_5d: -5.21
-- return_20d: 1.82
-- volume_ratio: 0.2
-- distance_to_ma20_pct_auxiliary: -6.53
-- distance_to_high_60_pct: -19.2
+- close: 38.4
+- volume: 330054
+- ma5: 39.21
+- ema23_primary: 40.45
+- distance_to_ema23_pct: -5.08
+- ma20: 41.85
+- ma60: 37.07
+- ma120: 34.84
+- return_5d: -5.65
+- return_20d: -1.54
+- volume_ratio: 0.33
+- distance_to_ma20_pct_auxiliary: -8.25
+- distance_to_high_60_pct: -20.74
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,38.65,39.8,38.5,39,652080,37.67,3.54,38.26,33.39,0.3
 20260617,38.8,39.45,37.9,38.35,709746,37.72,1.66,38.61,33.48,0.33
 20260618,38.5,42.1,38.5,41.95,1515518,38.08,10.17,39.12,33.66,0.68
 20260622,42.05,46.05,42,44.55,2896599,38.62,15.37,39.64,33.88,1.25
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,40.25,40.35,38.25,39.9,395450,40.98,-2.63,41.84,36.7,0.38
 20260714,39.2,39.4,37.1,38.55,422164,40.78,-5.46,41.85,36.83,0.41
 20260715,38.6,40,38.25,39.15,203743,40.64,-3.67,41.88,36.96,0.2
+20260716,39.15,39.55,38.25,38.4,330054,40.45,-5.08,41.85,37.07,0.33
 ```
 
 ## Latest TDCC Snapshot

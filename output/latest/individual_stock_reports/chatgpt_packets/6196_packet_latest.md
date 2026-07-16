@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6196 帆宣
 
 ## Metadata
-- generated_at: 2026-07-15 22:27:26 Asia/Taipei
+- generated_at: 2026-07-16 22:28:01 Asia/Taipei
 - stock_id: 6196
 - stock_name: 帆宣
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 304
+- latest_price_date: 20260716
+- price_rows: 305
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 營收成長股價回檔
+- model_category_display_zh: 回檔後短線轉強
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 回檔後短線轉強 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 回檔後短線轉強 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 544
-- high: 590
-- low: 540
-- close: 585
-- volume: 2259200
-- ma5: 554
-- ema23_primary: 545.57
-- distance_to_ema23_pct: 7.23
-- ma20: 555.85
-- ma60: 481.78
-- ma120: 386.02
-- return_5d: 4.09
-- return_20d: 2.09
-- volume_ratio: 1.14
-- distance_to_ma20_pct_auxiliary: 5.24
-- distance_to_high_60_pct: -2.17
+- date: 20260716
+- open: 580
+- high: 607
+- low: 569
+- close: 590
+- volume: 2661272
+- ma5: 562.8
+- ema23_primary: 549.27
+- distance_to_ema23_pct: 7.42
+- ma20: 558.3
+- ma60: 485.04
+- ma120: 388.67
+- return_5d: 8.06
+- return_20d: 9.06
+- volume_ratio: 1.38
+- distance_to_ma20_pct_auxiliary: 5.68
+- distance_to_high_60_pct: -2.8
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,575,580,538,541,3679743,491.33,10.11,499.8,401.9,1.32
 20260617,533,544,523,541,1689533,495.47,9.19,506.65,406.12,0.6
 20260618,545,567,539,567,2071505,501.43,13.08,513.52,411.01,0.75
 20260622,575,580,561,562,1496826,506.48,10.96,519.52,415.7,0.56
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,565,565,542,551,1838561,542.25,1.61,555.7,474.7,0.84
 20260714,554,557,510,539,1753187,541.98,-0.55,555.25,478.02,0.85
 20260715,544,590,540,585,2259200,545.57,7.23,555.85,481.78,1.14
+20260716,580,607,569,590,2661272,549.27,7.42,558.3,485.04,1.38
 ```
 
 ## Latest TDCC Snapshot
@@ -189,18 +189,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 6196 | 帆宣 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | call_put_bullish | repeated_but_no_breakout | 1.董事會決議日期:115/06/17 2.發放股利種類及金額:現金股利美金11,420,000元 3.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260715 | 6196 | 帆宣 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_put_bullish | repeated_but_no_breakout | 1.董事會決議日期:115/06/17 2.發放股利種類及金額:現金股利美金11,420,000元 3.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260716 | 6196 | 帆宣 | pullback_rebound | 回檔後短線轉強 | 63.0 |  |  |  |  | call_strong_inflow | repeated_but_no_breakout | 1.標的物之名稱及性質（如坐落台中市北區ＸＸ段ＸＸ小段土地）: 美國亞利桑那州Phoenix市950 West Rose Garden之建物空間 2.事實發生日:115/7/15~115/7/15 3.董事會通過日期: 民國115年7月15日 4.其他核決日期: 不適用 5.交易單位數量（如ＸＸ平方公尺，折合ＸＸ坪）、每單位價格及交易總金額: 租賃面積：151,415平方英尺 每月平均租金：美元193,442元 交易總金額：92個月租期之租金約計美元17,796,642元(含稅) 使用權資產金額：約計美元14,486,097元(含稅) 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之關 係人者，得免揭露其姓名）: 交易相對人：Sunbelt Rose Garden, L.P. 與公司之關係：非關係人 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移轉之 所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次移轉日期 及移轉金額: 不適用 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係 人之取得及處分日期、價格及交易當時與公司之關係: 不適用 9.預計處分利益（或損失）（取得資產者不適用）（遞延者應列表說明 認列情形）: 不適用 10.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 付款金額：每月支付租金美元193,442元 付款條件：月繳 租期：民國115年7月16日至民國123年3月16日，計92個月 契約限制條款及其他重要約定事項：無 11.本次交易之決定方式（如招標、比價或議價）、價格決定之參考依據及 決策單位: 交易決定方式：議價 價格決定之參考依據：參酌市場行情 決策單位：MARKETECH INTERNATIONAL CORPORATION USA董事會 12.專業估價者事務所或公司名稱及其估價金額: (1)事務所名稱：Kidder Mathews, Inc.  (2)每月平均租金：USD 212,955 13.專業估價師姓名: Mike Ciosek 14.專業估價師開業證書字號: BR531679000 15.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 16.是否尚未取得估價報告:否或不適用 17.尚未取得估價報告之原因: 不適用 18.估價結果有重大差異時，其差異原因及會計師意見: 不適用 19.會計師事務所名稱: 不適用 20.會計師姓名: 不適用 21.會計師開業證書字號: 不適用 22.經紀人及經紀費用: 不適用 23.取得或處分之具體目的或用途: 公司營運之規劃與考量 24.本次交易表示異議之董事之意見: 無 25.本次交易為關係人交易:否 26.監察人承認或審計委員會同意日期: 不適用 27.本次交易係向關係人取得不動產或其使用權資產:否 28.依「公開發行公司取得或處分資產處理準則」第十六條規定 評估之價格:不適用 29.依前項評估之價格較交易價格為低者，依同準則第十七條規 定評估之價格:不適用 30.前已就同一件事件發布重大訊息日期: 不適用 31.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260716 | 6196 | 帆宣 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | call_strong_inflow | repeated_but_no_breakout | 1.標的物之名稱及性質（如坐落台中市北區ＸＸ段ＸＸ小段土地）: 美國亞利桑那州Phoenix市950 West Rose Garden之建物空間 2.事實發生日:115/7/15~115/7/15 3.董事會通過日期: 民國115年7月15日 4.其他核決日期: 不適用 5.交易單位數量（如ＸＸ平方公尺，折合ＸＸ坪）、每單位價格及交易總金額: 租賃面積：151,415平方英尺 每月平均租金：美元193,442元 交易總金額：92個月租期之租金約計美元17,796,642元(含稅) 使用權資產金額：約計美元14,486,097元(含稅) 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之關 係人者，得免揭露其姓名）: 交易相對人：Sunbelt Rose Garden, L.P. 與公司之關係：非關係人 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移轉之 所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次移轉日期 及移轉金額: 不適用 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係 人之取得及處分日期、價格及交易當時與公司之關係: 不適用 9.預計處分利益（或損失）（取得資產者不適用）（遞延者應列表說明 認列情形）: 不適用 10.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 付款金額：每月支付租金美元193,442元 付款條件：月繳 租期：民國115年7月16日至民國123年3月16日，計92個月 契約限制條款及其他重要約定事項：無 11.本次交易之決定方式（如招標、比價或議價）、價格決定之參考依據及 決策單位: 交易決定方式：議價 價格決定之參考依據：參酌市場行情 決策單位：MARKETECH INTERNATIONAL CORPORATION USA董事會 12.專業估價者事務所或公司名稱及其估價金額: (1)事務所名稱：Kidder Mathews, Inc.  (2)每月平均租金：USD 212,955 13.專業估價師姓名: Mike Ciosek 14.專業估價師開業證書字號: BR531679000 15.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 16.是否尚未取得估價報告:否或不適用 17.尚未取得估價報告之原因: 不適用 18.估價結果有重大差異時，其差異原因及會計師意見: 不適用 19.會計師事務所名稱: 不適用 20.會計師姓名: 不適用 21.會計師開業證書字號: 不適用 22.經紀人及經紀費用: 不適用 23.取得或處分之具體目的或用途: 公司營運之規劃與考量 24.本次交易表示異議之董事之意見: 無 25.本次交易為關係人交易:否 26.監察人承認或審計委員會同意日期: 不適用 27.本次交易係向關係人取得不動產或其使用權資產:否 28.依「公開發行公司取得或處分資產處理準則」第十六條規定 評估之價格:不適用 29.依前項評估之價格較交易價格為低者，依同準則第十七條規 定評估之價格:不適用 30.前已就同一件事件發布重大訊息日期: 不適用 31.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260716 | 6196 | 帆宣 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_strong_inflow | repeated_but_no_breakout | 1.標的物之名稱及性質（如坐落台中市北區ＸＸ段ＸＸ小段土地）: 美國亞利桑那州Phoenix市950 West Rose Garden之建物空間 2.事實發生日:115/7/15~115/7/15 3.董事會通過日期: 民國115年7月15日 4.其他核決日期: 不適用 5.交易單位數量（如ＸＸ平方公尺，折合ＸＸ坪）、每單位價格及交易總金額: 租賃面積：151,415平方英尺 每月平均租金：美元193,442元 交易總金額：92個月租期之租金約計美元17,796,642元(含稅) 使用權資產金額：約計美元14,486,097元(含稅) 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之關 係人者，得免揭露其姓名）: 交易相對人：Sunbelt Rose Garden, L.P. 與公司之關係：非關係人 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移轉之 所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次移轉日期 及移轉金額: 不適用 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係 人之取得及處分日期、價格及交易當時與公司之關係: 不適用 9.預計處分利益（或損失）（取得資產者不適用）（遞延者應列表說明 認列情形）: 不適用 10.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 付款金額：每月支付租金美元193,442元 付款條件：月繳 租期：民國115年7月16日至民國123年3月16日，計92個月 契約限制條款及其他重要約定事項：無 11.本次交易之決定方式（如招標、比價或議價）、價格決定之參考依據及 決策單位: 交易決定方式：議價 價格決定之參考依據：參酌市場行情 決策單位：MARKETECH INTERNATIONAL CORPORATION USA董事會 12.專業估價者事務所或公司名稱及其估價金額: (1)事務所名稱：Kidder Mathews, Inc.  (2)每月平均租金：USD 212,955 13.專業估價師姓名: Mike Ciosek 14.專業估價師開業證書字號: BR531679000 15.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 16.是否尚未取得估價報告:否或不適用 17.尚未取得估價報告之原因: 不適用 18.估價結果有重大差異時，其差異原因及會計師意見: 不適用 19.會計師事務所名稱: 不適用 20.會計師姓名: 不適用 21.會計師開業證書字號: 不適用 22.經紀人及經紀費用: 不適用 23.取得或處分之具體目的或用途: 公司營運之規劃與考量 24.本次交易表示異議之董事之意見: 無 25.本次交易為關係人交易:否 26.監察人承認或審計委員會同意日期: 不適用 27.本次交易係向關係人取得不動產或其使用權資產:否 28.依「公開發行公司取得或處分資產處理準則」第十六條規定 評估之價格:不適用 29.依前項評估之價格較交易價格為低者，依同準則第十七條規 定評估之價格:不適用 30.前已就同一件事件發布重大訊息日期: 不適用 31.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 6196 | 帆宣 | 7 | 7 | 5 | 8 | 16 | repeated_but_no_breakout | 近 10 日上榜 8 次、近 20 日上榜 16 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260716 | 6196 | 帆宣 | 8 | 2 | 5 | 9 | 17 | repeated_but_no_breakout | 近 10 日上榜 9 次、近 20 日上榜 17 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 6196 | 帆宣 | 86 | 1 | 25888250.0 | 7200.0 | 3595.59 | call_put_bullish |
+| 20260716 | 6196 | 帆宣 | 85 | 0 | 29239180.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

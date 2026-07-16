@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3712 永崴投控
 
 ## Metadata
-- generated_at: 2026-07-15 22:27:05 Asia/Taipei
+- generated_at: 2026-07-16 22:27:28 Asia/Taipei
 - stock_id: 3712
 - stock_name: 永崴投控
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 302
+- latest_price_date: 20260716
+- price_rows: 303
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -88,8 +88,8 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
-- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -104,7 +104,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- none
+- tdcc_distribution_warning
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 16.4
-- high: 16.7
-- low: 16
-- close: 16.15
-- volume: 1142829
-- ma5: 16.79
-- ema23_primary: 17.67
-- distance_to_ema23_pct: -8.58
-- ma20: 17.8
-- ma60: 18.38
-- ma120: 21.04
-- return_5d: -7.98
-- return_20d: -10.03
-- volume_ratio: 0.91
-- distance_to_ma20_pct_auxiliary: -9.26
-- distance_to_high_60_pct: -31.42
+- date: 20260716
+- open: 16.1
+- high: 17.7
+- low: 15.8
+- close: 17.05
+- volume: 1451175
+- ma5: 16.69
+- ema23_primary: 17.61
+- distance_to_ema23_pct: -3.21
+- ma20: 17.76
+- ma60: 18.34
+- ma120: 20.98
+- return_5d: -2.85
+- return_20d: -4.48
+- volume_ratio: 1.13
+- distance_to_ma20_pct_auxiliary: -3.98
+- distance_to_high_60_pct: -27.6
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,17.8,18.35,17.8,17.85,914690,18.06,-1.14,17.53,19.25,0.7
 20260617,17.95,18.25,17.7,17.9,383814,18.04,-0.79,17.68,19.16,0.32
 20260618,18,18.05,17.65,17.65,522909,18.01,-2,17.77,19.07,0.45
 20260622,17.6,18.3,17.6,18.05,697487,18.01,0.2,17.87,18.98,0.62
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,17.1,17.3,16.55,16.85,1259665,17.95,-6.13,17.94,18.46,1
 20260714,16.9,16.9,16.15,16.2,1157220,17.8,-9.01,17.89,18.43,0.93
 20260715,16.4,16.7,16,16.15,1142829,17.67,-8.58,17.8,18.38,0.91
+20260716,16.1,17.7,15.8,17.05,1451175,17.61,-3.21,17.76,18.34,1.13
 ```
 
 ## Latest TDCC Snapshot
@@ -186,19 +186,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260716 | 3712 | 永崴投控 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | first_seen | 1.董事會決議日期:115/07/06 2.解散事由: Shinfox Far East Company Pte. Ltd因目前資產已遠不足以清償債務並面臨債權人求 償，森崴能源考量整體財務結構遭受巨大衝擊，無力支持其繼續營運，已於115年7月6 日召開SFE 董事會並正式決議辦理「自願清算」(CREDITORS' VOLUNTARY LIQUIDATION) 依據新加坡相關法令辦理，並已委任新加坡德勤（Deloitte）會計師事務所擔任清算 人，正式啟動清算程序。 3.預計股東會日期:115/08/04 4.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260716 | 3712 | 永崴投控 | 1 | 1 | 1 | 2 | 2 | first_seen | 首次上榜或資料有限，需後續確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 3712 | 永崴投控 | 1 | 0 | 0.0 | 0.0 |  | no_signal |
+| 20260716 | 3712 | 永崴投控 | 1 | 0 | 0.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

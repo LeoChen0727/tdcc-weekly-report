@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2501 國建
 
 ## Metadata
-- generated_at: 2026-07-15 22:26:43 Asia/Taipei
+- generated_at: 2026-07-16 22:26:55 Asia/Taipei
 - stock_id: 2501
 - stock_name: 國建
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 304
+- latest_price_date: 20260716
+- price_rows: 305
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 21.65
-- high: 22.55
-- low: 21.65
-- close: 22.45
-- volume: 6022266
-- ma5: 23.06
-- ema23_primary: 23.92
-- distance_to_ema23_pct: -6.16
-- ma20: 24.36
-- ma60: 23.81
+- date: 20260716
+- open: 22.4
+- high: 22.95
+- low: 22.35
+- close: 22.9
+- volume: 2330429
+- ma5: 22.87
+- ema23_primary: 23.84
+- distance_to_ema23_pct: -3.94
+- ma20: 24.21
+- ma60: 23.77
 - ma120: 23.39
-- return_5d: -7.23
-- return_20d: -16.85
-- volume_ratio: 1.07
-- distance_to_ma20_pct_auxiliary: -7.83
-- distance_to_high_60_pct: -20.95
+- return_5d: -3.98
+- return_20d: -11.07
+- volume_ratio: 0.43
+- distance_to_ma20_pct_auxiliary: -5.43
+- distance_to_high_60_pct: -19.37
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,27.05,27.05,25.7,25.75,6627336,24.2,6.4,23.66,23.59,1.04
 20260617,26,27.15,25.75,27,10354050,24.43,10.5,23.89,23.64,1.52
 20260618,27.15,28.4,26.6,26.85,12652565,24.64,8.99,24.11,23.7,1.72
 20260622,26.4,26.45,24.65,24.85,9637556,24.65,0.8,24.25,23.72,1.25
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,23.95,24.1,23,23.5,10751431,24.28,-3.22,24.83,23.89,1.85
 20260714,22.2,22.6,21.5,21.6,10901506,24.06,-10.22,24.59,23.84,1.9
 20260715,21.65,22.55,21.65,22.45,6022266,23.92,-6.16,24.36,23.81,1.07
+20260716,22.4,22.95,22.35,22.9,2330429,23.84,-3.94,24.21,23.77,0.43
 ```
 
 ## Latest TDCC Snapshot
@@ -198,7 +199,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 2501 | 國建 | 1 | 0 | 224820.0 | 0.0 |  | no_signal |
+| 20260716 | 2501 | 國建 | 1 | 0 | 503590.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

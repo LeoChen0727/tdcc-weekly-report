@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8081 致新
 
 ## Metadata
-- generated_at: 2026-07-15 22:27:51 Asia/Taipei
+- generated_at: 2026-07-16 22:28:38 Asia/Taipei
 - stock_id: 8081
 - stock_name: 致新
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 304
+- latest_price_date: 20260716
+- price_rows: 305
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 267
-- high: 267
-- low: 258
-- close: 260
-- volume: 893107
-- ma5: 275.8
-- ema23_primary: 292.96
-- distance_to_ema23_pct: -11.25
-- ma20: 304.15
-- ma60: 279.39
-- ma120: 256.85
-- return_5d: -14.33
-- return_20d: -8.45
-- volume_ratio: 0.43
-- distance_to_ma20_pct_auxiliary: -14.52
-- distance_to_high_60_pct: -25.18
+- date: 20260716
+- open: 260
+- high: 260
+- low: 251
+- close: 254
+- volume: 2100937
+- ma5: 267.5
+- ema23_primary: 289.72
+- distance_to_ema23_pct: -12.33
+- ma20: 302.73
+- ma60: 279.66
+- ma120: 257.18
+- return_5d: -14.04
+- return_20d: -10.09
+- volume_ratio: 0.97
+- distance_to_ma20_pct_auxiliary: -16.1
+- distance_to_high_60_pct: -26.91
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,284.5,288,282,282.5,947392,274.29,2.99,279.6,256.45,0.68
 20260617,282.5,295,282.5,293.5,1599050,275.89,6.38,280.68,257.41,1.22
 20260618,295,322,295,319,3986055,279.48,14.14,282.93,258.86,2.81
 20260622,338,347.5,327.5,341.5,3329927,284.65,19.97,286.02,260.67,2.21
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,285,285.5,268.5,276.5,1469847,298.87,-7.48,306.3,278.63,0.7
 20260714,276.5,277.5,252.5,264,1902211,295.96,-10.8,305.35,279.07,0.91
 20260715,267,267,258,260,893107,292.96,-11.25,304.15,279.39,0.43
+20260716,260,260,251,254,2100937,289.72,-12.33,302.73,279.66,0.97
 ```
 
 ## Latest TDCC Snapshot
@@ -198,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 8081 | 致新 | 18 | 0 | 491010.0 | 0.0 |  | no_signal |
+| 20260716 | 8081 | 致新 | 18 | 0 | 256450.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

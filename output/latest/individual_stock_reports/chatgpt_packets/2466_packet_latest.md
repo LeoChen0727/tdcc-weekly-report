@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2466 冠西電
 
 ## Metadata
-- generated_at: 2026-07-15 22:26:42 Asia/Taipei
+- generated_at: 2026-07-16 22:26:53 Asia/Taipei
 - stock_id: 2466
 - stock_name: 冠西電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 304
+- latest_price_date: 20260716
+- price_rows: 305
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 嚴格突破
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 嚴格突破 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 嚴格突破 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
+- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -111,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 106
-- high: 115.5
-- low: 106
-- close: 115.5
-- volume: 1180995
-- ma5: 103.28
-- ema23_primary: 78.45
-- distance_to_ema23_pct: 47.23
-- ma20: 74.86
-- ma60: 58.55
-- ma120: 56.98
-- return_5d: 24.73
-- return_20d: 140.88
-- volume_ratio: 0.49
-- distance_to_ma20_pct_auxiliary: 54.28
-- distance_to_high_60_pct: 0
+- date: 20260716
+- open: 114
+- high: 126.5
+- low: 114
+- close: 121
+- volume: 1729307
+- ma5: 108.1
+- ema23_primary: 81.99
+- distance_to_ema23_pct: 47.57
+- ma20: 78.52
+- ma60: 59.49
+- ma120: 57.44
+- return_5d: 24.87
+- return_20d: 152.87
+- volume_ratio: 0.7
+- distance_to_ma20_pct_auxiliary: 54.1
+- distance_to_high_60_pct: -4.35
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,48.4,48.9,47.5,47.85,513077,47.49,0.77,46.77,51.84,1.45
 20260617,47.7,51,47.5,49.3,646954,47.64,3.49,46.89,51.79,1.72
 20260618,49.5,50.2,49.3,50.1,399857,47.84,4.72,47.01,51.82,1.03
 20260622,51,55.1,51,55.1,1402215,48.45,13.73,47.25,51.85,3.27
@@ -153,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,102,102,99,100.5,2206382,72.36,38.89,68.58,57,0.96
 20260714,105,105,100,105,1391025,75.08,39.85,71.48,57.66,0.59
 20260715,106,115.5,106,115.5,1180995,78.45,47.23,74.86,58.55,0.49
+20260716,114,126.5,114,121,1729307,81.99,47.57,78.52,59.49,0.7
 ```
 
 ## Latest TDCC Snapshot
@@ -185,14 +185,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 2466 | 冠西電 | true_breakout | 嚴格突破 | 61.0 |  |  |  |  |  | first_seen | 1.事實發生日:115/07/06 2.發生緣由:依臺灣證券交易所通知辦理 3.財務業務資訊: 期間              (月)                  (季)                 (最近四季累計)            最近一月  與去年同期  最近一季   與去年同期      114年第2季至           115年05月  增     減% 115年第1季   增     減%      115年第1季  科目        (IFRS-合併自結數)     (IFRS-合併核閱數)      (IFRS-合併查核數) ========   ========= ========== ===========  ==========    ============ 營業收入       46    -33.25%        159        -22.07%            904 (百萬) 稅前淨利      (29)   -11.22%          21         128.07%          184 (百萬) 歸屬母公司 業主淨利      (29)  -11.22%           5          106.4%             129 每股盈餘    (0.17)  -13.33%        0.03        106.31%            0.76 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告:無 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 2466 | 冠西電 | 1 | 1 | 1 | 6 | 11 | first_seen | 首次上榜或資料有限，需後續確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

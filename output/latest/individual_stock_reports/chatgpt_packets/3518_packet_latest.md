@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3518 柏騰
 
 ## Metadata
-- generated_at: 2026-07-15 22:27:01 Asia/Taipei
+- generated_at: 2026-07-16 22:27:21 Asia/Taipei
 - stock_id: 3518
 - stock_name: 柏騰
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 304
+- latest_price_date: 20260716
+- price_rows: 305
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 29.3
-- high: 29.8
-- low: 29.05
-- close: 29.2
-- volume: 298218
-- ma5: 30.03
-- ema23_primary: 31.06
-- distance_to_ema23_pct: -5.98
-- ma20: 30.71
-- ma60: 32.27
-- ma120: 26.89
-- return_5d: -17.28
-- return_20d: 5.23
-- volume_ratio: 0.24
-- distance_to_ma20_pct_auxiliary: -4.91
-- distance_to_high_60_pct: -27
+- date: 20260716
+- open: 28.85
+- high: 29.3
+- low: 28.4
+- close: 28.4
+- volume: 391855
+- ma5: 29.25
+- ema23_primary: 30.84
+- distance_to_ema23_pct: -7.9
+- ma20: 30.74
+- ma60: 32.24
+- ma120: 26.95
+- return_5d: -12.07
+- return_20d: 2.16
+- volume_ratio: 0.31
+- distance_to_ma20_pct_auxiliary: -7.6
+- distance_to_high_60_pct: -29
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,28.5,28.5,27.5,27.8,487896,30.96,-10.22,32.02,29.45,0.36
 20260617,27.6,28.5,27.6,28.3,457149,30.74,-7.95,31.82,29.54,0.35
 20260618,28.3,28.85,28.05,28.35,471912,30.54,-7.18,31.56,29.64,0.37
 20260622,29.3,31.15,29,30.9,1648973,30.57,1.07,31.32,29.79,1.27
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,30.2,30.25,29.4,29.65,708112,31.41,-5.62,30.56,32.18,0.56
 20260714,29.65,29.8,28,29.15,753953,31.23,-6.65,30.64,32.23,0.59
 20260715,29.3,29.8,29.05,29.2,298218,31.06,-5.98,30.71,32.27,0.24
+20260716,28.85,29.3,28.4,28.4,391855,30.84,-7.9,30.74,32.24,0.31
 ```
 
 ## Latest TDCC Snapshot

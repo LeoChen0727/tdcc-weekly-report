@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8429 金麗-KY
 
 ## Metadata
-- generated_at: 2026-07-15 22:27:54 Asia/Taipei
+- generated_at: 2026-07-16 22:28:44 Asia/Taipei
 - stock_id: 8429
 - stock_name: 金麗-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 304
+- latest_price_date: 20260716
+- price_rows: 305
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 6.16
-- high: 6.3
-- low: 6.16
+- date: 20260716
+- open: 6.32
+- high: 6.35
+- low: 6.22
 - close: 6.26
-- volume: 192571
+- volume: 136172
 - ma5: 6.24
 - ema23_primary: 6.33
-- distance_to_ema23_pct: -1.18
-- ma20: 6.33
-- ma60: 6.41
-- ma120: 6.82
-- return_5d: -1.11
-- return_20d: -6.29
-- volume_ratio: 0.72
-- distance_to_ma20_pct_auxiliary: -1.15
+- distance_to_ema23_pct: -1.08
+- ma20: 6.31
+- ma60: 6.4
+- ma120: 6.81
+- return_5d: -0.63
+- return_20d: -6.15
+- volume_ratio: 0.52
+- distance_to_ma20_pct_auxiliary: -0.83
 - distance_to_high_60_pct: -11.71
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,6.68,6.68,6.57,6.67,209500,6.52,2.32,6.43,6.59,0.43
 20260617,6.67,6.72,6.63,6.67,160660,6.53,2.13,6.46,6.58,0.33
 20260618,6.75,6.83,6.47,6.51,703227,6.53,-0.3,6.48,6.58,1.38
 20260622,6.53,6.59,6.37,6.39,623074,6.52,-1.96,6.49,6.57,1.19
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,6.26,6.31,6.21,6.22,160609,6.36,-2.13,6.38,6.43,0.64
 20260714,6.28,6.28,6.15,6.19,519122,6.34,-2.39,6.35,6.42,1.94
 20260715,6.16,6.3,6.16,6.26,192571,6.33,-1.18,6.33,6.41,0.72
+20260716,6.32,6.35,6.22,6.26,136172,6.33,-1.08,6.31,6.4,0.52
 ```
 
 ## Latest TDCC Snapshot

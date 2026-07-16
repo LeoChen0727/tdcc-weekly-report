@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2718 全心投控
 
 ## Metadata
-- generated_at: 2026-07-15 22:26:46 Asia/Taipei
+- generated_at: 2026-07-16 22:27:00 Asia/Taipei
 - stock_id: 2718
 - stock_name: 全心投控
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 169
+- latest_price_date: 20260716
+- price_rows: 170
 - latest_tdcc_date: 20260709
 - tdcc_rows: 11
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 47.75
-- high: 48.1
-- low: 47.7
-- close: 48.05
-- volume: 31000
-- ma5: 48.68
-- ema23_primary: 49.39
-- distance_to_ema23_pct: -2.71
-- ma20: 50.21
-- ma60: 47.08
-- ma120: 48.01
-- return_5d: -4.85
-- return_20d: -0.52
-- volume_ratio: 0.45
-- distance_to_ma20_pct_auxiliary: -4.3
-- distance_to_high_60_pct: -9.34
+- date: 20260716
+- open: 48.15
+- high: 48.15
+- low: 48.15
+- close: 48.15
+- volume: 2000
+- ma5: 48.29
+- ema23_primary: 49.28
+- distance_to_ema23_pct: -2.3
+- ma20: 50.19
+- ma60: 47.09
+- ma120: 47.98
+- return_5d: -3.89
+- return_20d: -0.72
+- volume_ratio: 0.03
+- distance_to_ma20_pct_auxiliary: -4.06
+- distance_to_high_60_pct: -9.15
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,48.9,49.1,48.35,48.5,35000,46.82,3.6,46.74,46.15,0.67
 20260617,48.45,50.7,48.45,50.6,161000,47.13,7.36,46.96,46.19,2.84
 20260618,50.8,51.6,50.8,51,109000,47.45,7.47,47.2,46.23,1.84
 20260622,51,52,49.65,49.9,112000,47.66,4.71,47.39,46.27,1.79
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,49.2,49.2,48.25,48.4,50000,49.68,-2.57,50.23,47.08,0.69
 20260714,48.15,48.15,46.65,47.65,76000,49.51,-3.76,50.22,47.08,1.05
 20260715,47.75,48.1,47.7,48.05,31000,49.39,-2.71,50.21,47.08,0.45
+20260716,48.15,48.15,48.15,48.15,2000,49.28,-2.3,50.19,47.09,0.03
 ```
 
 ## Latest TDCC Snapshot

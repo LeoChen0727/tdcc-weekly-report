@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3666 光耀
 
 ## Metadata
-- generated_at: 2026-07-15 22:27:04 Asia/Taipei
+- generated_at: 2026-07-16 22:27:26 Asia/Taipei
 - stock_id: 3666
 - stock_name: 光耀
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 169
+- latest_price_date: 20260716
+- price_rows: 170
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 25.5
-- high: 25.6
-- low: 25
+- date: 20260716
+- open: 24.95
+- high: 25.25
+- low: 24.65
 - close: 25.25
-- volume: 42000
-- ma5: 25.21
-- ema23_primary: 25.41
-- distance_to_ema23_pct: -0.63
-- ma20: 25.18
-- ma60: 26.29
-- ma120: 26.75
-- return_5d: 0.4
+- volume: 46000
+- ma5: 25.22
+- ema23_primary: 25.4
+- distance_to_ema23_pct: -0.58
+- ma20: 25.16
+- ma60: 26.3
+- ma120: 26.71
+- return_5d: 0.2
 - return_20d: -2.13
-- volume_ratio: 0.53
-- distance_to_ma20_pct_auxiliary: 0.27
+- volume_ratio: 0.59
+- distance_to_ma20_pct_auxiliary: 0.38
 - distance_to_high_60_pct: -15.55
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,25.85,26.7,25.6,25.8,71000,26.72,-3.43,27,26.48,1.53
 20260617,25.8,25.9,25.55,25.8,130000,26.64,-3.15,26.95,26.48,2.61
 20260618,25.7,25.95,25.65,25.9,46000,26.58,-2.55,26.89,26.48,0.92
 20260622,25.95,25.95,25.4,25.45,115000,26.48,-3.9,26.8,26.48,2.11
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,25.4,25.5,24.75,25.25,48000,25.45,-0.79,25.26,26.29,0.6
 20260714,25,25.25,24.1,25.15,48000,25.43,-1.08,25.21,26.28,0.6
 20260715,25.5,25.6,25,25.25,42000,25.41,-0.63,25.18,26.29,0.53
+20260716,24.95,25.25,24.65,25.25,46000,25.4,-0.58,25.16,26.3,0.59
 ```
 
 ## Latest TDCC Snapshot

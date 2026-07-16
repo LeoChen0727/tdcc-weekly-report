@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2365 昆盈
 
 ## Metadata
-- generated_at: 2026-07-15 22:26:38 Asia/Taipei
+- generated_at: 2026-07-16 22:26:47 Asia/Taipei
 - stock_id: 2365
 - stock_name: 昆盈
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 304
+- latest_price_date: 20260716
+- price_rows: 305
 - latest_tdcc_date: 20260709
 - tdcc_rows: 11
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 32.25
-- high: 33.25
-- low: 31.7
-- close: 32.7
-- volume: 6554409
-- ma5: 32.31
-- ema23_primary: 33.57
-- distance_to_ema23_pct: -2.59
-- ma20: 33.34
-- ma60: 35.18
-- ma120: 35.13
-- return_5d: 1.24
-- return_20d: -3.54
-- volume_ratio: 2.03
-- distance_to_ma20_pct_auxiliary: -1.93
-- distance_to_high_60_pct: -19.36
+- date: 20260716
+- open: 32.3
+- high: 32.55
+- low: 31.5
+- close: 31.7
+- volume: 4069254
+- ma5: 32.25
+- ema23_primary: 33.42
+- distance_to_ema23_pct: -5.13
+- ma20: 33.27
+- ma60: 35.12
+- ma120: 35.1
+- return_5d: -0.94
+- return_20d: -4.23
+- volume_ratio: 1.21
+- distance_to_ma20_pct_auxiliary: -4.73
+- distance_to_high_60_pct: -21.82
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,34.1,34.2,33.05,33.1,1638773,35.43,-6.56,36.18,34.93,0.33
 20260617,33.1,33.65,32.8,33.65,1016877,35.28,-4.61,36.11,34.93,0.2
 20260618,33.7,34.6,33.6,34.05,1927960,35.18,-3.2,35.98,34.94,0.4
 20260622,34.2,34.75,33.95,34.4,1993966,35.11,-2.02,35.74,34.96,0.46
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,32.95,33.6,32.35,32.5,4860196,33.81,-3.89,33.49,35.26,1.72
 20260714,32.4,33.2,31,31.85,3620098,33.65,-5.35,33.4,35.22,1.22
 20260715,32.25,33.25,31.7,32.7,6554409,33.57,-2.59,33.34,35.18,2.03
+20260716,32.3,32.55,31.5,31.7,4069254,33.42,-5.13,33.27,35.12,1.21
 ```
 
 ## Latest TDCC Snapshot
@@ -200,7 +200,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 2365 | 昆盈 | 8 | 0 | 210030.0 | 0.0 |  | no_signal |
+| 20260716 | 2365 | 昆盈 | 8 | 0 | 333850.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

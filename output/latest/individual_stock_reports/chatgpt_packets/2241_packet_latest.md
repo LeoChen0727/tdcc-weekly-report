@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2241 艾姆勒
 
 ## Metadata
-- generated_at: 2026-07-15 22:26:35 Asia/Taipei
+- generated_at: 2026-07-16 22:26:43 Asia/Taipei
 - stock_id: 2241
 - stock_name: 艾姆勒
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 304
+- latest_price_date: 20260716
+- price_rows: 305
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 39.45
+- date: 20260716
+- open: 39.55
 - high: 40.35
-- low: 39.35
-- close: 40.3
-- volume: 613162
-- ma5: 41.31
-- ema23_primary: 42.77
-- distance_to_ema23_pct: -5.78
-- ma20: 45.17
-- ma60: 37.89
-- ma120: 34.31
-- return_5d: -6.5
-- return_20d: -9.54
-- volume_ratio: 0.22
-- distance_to_ma20_pct_auxiliary: -10.79
-- distance_to_high_60_pct: -26.73
+- low: 38.75
+- close: 38.95
+- volume: 540657
+- ma5: 40.4
+- ema23_primary: 42.45
+- distance_to_ema23_pct: -8.25
+- ma20: 44.96
+- ma60: 38.05
+- ma120: 34.35
+- return_5d: -10.46
+- return_20d: -10.05
+- volume_ratio: 0.2
+- distance_to_ma20_pct_auxiliary: -13.36
+- distance_to_high_60_pct: -29.18
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,44.25,45.05,43.1,43.3,2920808,37.5,15.46,37.51,32.75,0.62
 20260617,43.55,47.5,43.1,46.05,5044811,38.21,20.51,38.13,32.98,1.02
 20260618,46.05,50.6,46.05,50.6,8362429,39.25,28.93,38.81,33.31,1.62
 20260622,54.1,55,51,51.6,6556715,40.28,28.12,39.5,33.64,1.26
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,43.5,43.65,40,40.5,1640436,43.33,-6.54,45.58,37.5,0.51
 20260714,40.5,41,38.2,39.3,1639961,43,-8.6,45.39,37.69,0.54
 20260715,39.45,40.35,39.35,40.3,613162,42.77,-5.78,45.17,37.89,0.22
+20260716,39.55,40.35,38.75,38.95,540657,42.45,-8.25,44.96,38.05,0.2
 ```
 
 ## Latest TDCC Snapshot

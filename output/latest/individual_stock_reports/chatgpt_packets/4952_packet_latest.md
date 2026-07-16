@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4952 凌通
 
 ## Metadata
-- generated_at: 2026-07-15 22:27:14 Asia/Taipei
+- generated_at: 2026-07-16 22:27:43 Asia/Taipei
 - stock_id: 4952
 - stock_name: 凌通
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 304
+- latest_price_date: 20260716
+- price_rows: 305
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 54.5
-- high: 55.9
-- low: 54
-- close: 54.7
-- volume: 478753
-- ma5: 55.9
-- ema23_primary: 55.83
-- distance_to_ema23_pct: -2.03
-- ma20: 57.15
-- ma60: 52.69
-- ma120: 46.95
-- return_5d: -2.32
-- return_20d: -6.5
-- volume_ratio: 0.25
-- distance_to_ma20_pct_auxiliary: -4.28
-- distance_to_high_60_pct: -11.35
+- date: 20260716
+- open: 54.2
+- high: 54.6
+- low: 52
+- close: 52.2
+- volume: 570403
+- ma5: 54.86
+- ema23_primary: 55.53
+- distance_to_ema23_pct: -6
+- ma20: 56.95
+- ma60: 52.83
+- ma120: 47.08
+- return_5d: -9.06
+- return_20d: -6.79
+- volume_ratio: 0.32
+- distance_to_ma20_pct_auxiliary: -8.35
+- distance_to_high_60_pct: -15.4
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,59,59,55.5,56,2896170,51.59,8.55,52.26,47.55,1.5
 20260617,55,58.3,55,57.4,1901212,52.07,10.23,52.64,47.78,0.96
 20260618,57,58.9,56.2,57.9,1716803,52.56,10.16,52.91,48.07,0.88
 20260622,58.1,61.6,58.1,60.5,3010451,53.22,13.68,53.24,48.4,1.52
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,58.4,58.4,54.8,55.5,1078918,56.1,-1.07,57.32,52.29,0.47
 20260714,55.2,57.1,51.2,54.1,969975,55.94,-3.28,57.34,52.49,0.46
 20260715,54.5,55.9,54,54.7,478753,55.83,-2.03,57.15,52.69,0.25
+20260716,54.2,54.6,52,52.2,570403,55.53,-6,56.95,52.83,0.32
 ```
 
 ## Latest TDCC Snapshot

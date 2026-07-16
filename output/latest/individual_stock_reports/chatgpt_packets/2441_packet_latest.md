@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2441 超豐
 
 ## Metadata
-- generated_at: 2026-07-15 22:26:41 Asia/Taipei
+- generated_at: 2026-07-16 22:26:52 Asia/Taipei
 - stock_id: 2441
 - stock_name: 超豐
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 304
+- latest_price_date: 20260716
+- price_rows: 305
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 132.5
-- high: 138
-- low: 132
-- close: 136.5
-- volume: 5350680
-- ma5: 137.1
-- ema23_primary: 134.44
-- distance_to_ema23_pct: 1.53
-- ma20: 136.65
-- ma60: 118.85
-- ma120: 105.15
-- return_5d: 2.25
-- return_20d: 7.48
-- volume_ratio: 0.45
-- distance_to_ma20_pct_auxiliary: -0.11
-- distance_to_high_60_pct: -12.5
+- date: 20260716
+- open: 135
+- high: 142
+- low: 131
+- close: 139
+- volume: 7197906
+- ma5: 137.3
+- ema23_primary: 134.82
+- distance_to_ema23_pct: 3.1
+- ma20: 137.32
+- ma60: 119.66
+- ma120: 105.52
+- return_5d: 0.72
+- return_20d: 10.76
+- volume_ratio: 0.61
+- distance_to_ma20_pct_auxiliary: 1.22
+- distance_to_high_60_pct: -10.9
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,128.5,129,125,125.5,8138840,121.92,2.94,127.6,104.25,0.63
 20260617,125,128,124.5,126.5,5884226,122.3,3.44,128.8,104.78,0.46
 20260618,127.5,137,127.5,135,13883255,123.36,9.44,130.22,105.51,1.1
 20260622,139,144.5,137.5,140,22168250,124.74,12.23,131.38,106.34,1.72
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,148,152,134.5,137.5,13592390,134.73,2.05,135.9,117.39,1.14
 20260714,137.5,138,124,129,9490596,134.26,-3.91,136.18,118.05,0.79
 20260715,132.5,138,132,136.5,5350680,134.44,1.53,136.65,118.85,0.45
+20260716,135,142,131,139,7197906,134.82,3.1,137.32,119.66,0.61
 ```
 
 ## Latest TDCC Snapshot
@@ -188,18 +188,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 2441 | 超豐 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | call_inflow | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/28 1.召開法人說明會之日期：115/07/28 2.召開法人說明會之時間：14 時 30 分  3.召開法人說明會之地點：線上法人說明會 4.法人說明會擇要訊息：報告2026年上半年度營運成果及未來之營運展望 5.其他應敘明事項：直播連結 https://videoweb.zucast.com/webcast/9LeStAFH 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
-| 20260715 | 2441 | 超豐 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_inflow | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/28 1.召開法人說明會之日期：115/07/28 2.召開法人說明會之時間：14 時 30 分  3.召開法人說明會之地點：線上法人說明會 4.法人說明會擇要訊息：報告2026年上半年度營運成果及未來之營運展望 5.其他應敘明事項：直播連結 https://videoweb.zucast.com/webcast/9LeStAFH 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260716 | 2441 | 超豐 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | call_inflow | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/28 1.召開法人說明會之日期：115/07/28 2.召開法人說明會之時間：14 時 30 分  3.召開法人說明會之地點：線上法人說明會 4.法人說明會擇要訊息：報告2026年上半年度營運成果及未來之營運展望 5.其他應敘明事項：直播連結 https://videoweb.zucast.com/webcast/9LeStAFH 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260716 | 2441 | 超豐 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_inflow | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/28 1.召開法人說明會之日期：115/07/28 2.召開法人說明會之時間：14 時 30 分  3.召開法人說明會之地點：線上法人說明會 4.法人說明會擇要訊息：報告2026年上半年度營運成果及未來之營運展望 5.其他應敘明事項：直播連結 https://videoweb.zucast.com/webcast/9LeStAFH 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 2441 | 超豐 | 1 | 1 | 4 | 7 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260716 | 2441 | 超豐 | 2 | 2 | 4 | 8 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 2441 | 超豐 | 77 | 0 | 8848340.0 | 0.0 |  | call_inflow |
+| 20260716 | 2441 | 超豐 | 77 | 0 | 15315680.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

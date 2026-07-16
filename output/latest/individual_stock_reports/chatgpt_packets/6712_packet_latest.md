@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6712 長聖
 
 ## Metadata
-- generated_at: 2026-07-15 22:27:37 Asia/Taipei
+- generated_at: 2026-07-16 22:28:17 Asia/Taipei
 - stock_id: 6712
 - stock_name: 長聖
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 169
+- latest_price_date: 20260716
+- price_rows: 170
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 162.5
-- high: 164.5
-- low: 161
-- close: 163.5
-- volume: 1027000
-- ma5: 170.4
-- ema23_primary: 157
-- distance_to_ema23_pct: 4.14
-- ma20: 156.47
-- ma60: 142.12
-- ma120: 145.31
-- return_5d: -7.89
-- return_20d: 18.05
-- volume_ratio: 0.73
-- distance_to_ma20_pct_auxiliary: 4.49
-- distance_to_high_60_pct: -11.14
+- date: 20260716
+- open: 163
+- high: 163
+- low: 153.5
+- close: 154.5
+- volume: 1107000
+- ma5: 164.7
+- ema23_primary: 156.79
+- distance_to_ema23_pct: -1.46
+- ma20: 157.28
+- ma60: 142.4
+- ma120: 145.25
+- return_5d: -15.57
+- return_20d: 11.55
+- volume_ratio: 0.77
+- distance_to_ma20_pct_auxiliary: -1.76
+- distance_to_high_60_pct: -16.03
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,139.5,140,137,138.5,249000,136.35,1.57,135.68,137.03,1.32
 20260617,139,141,138,138,291000,136.49,1.11,135.93,136.97,1.49
 20260618,139.5,139.5,138,139,217000,136.7,1.68,136.1,136.94,1.13
 20260622,140,143.5,139.5,142.5,656000,137.18,3.88,136.55,136.95,3.01
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,175.5,175.5,168,168,1562000,155.9,7.76,153.95,141.38,1.21
 20260714,167.5,168,160,162,1569000,156.41,3.57,155.22,141.73,1.15
 20260715,162.5,164.5,161,163.5,1027000,157,4.14,156.47,142.12,0.73
+20260716,163,163,153.5,154.5,1107000,156.79,-1.46,157.28,142.4,0.77
 ```
 
 ## Latest TDCC Snapshot
@@ -189,12 +189,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 6712 | 長聖 | pattern | 型態觀察 | 46.0 |  |  | base_building |  |  | stale_signal | 1.原預定買回股份總金額上限(元):1,721,767,531 2.原預定買回之期間:115/05/18~115/07/14 3.原預定買回之數量(股):2,000,000 4.原預定買回區間價格(元):128.00~180.00 5.本次實際買回期間:115/05/19~115/07/14 6.本次已買回股份數量(股):1,275,000 7.本次已買回股份總金額(元):179,405,436 8.本次平均每股買回價格(元):140.71 9.累積已持有自己公司股份數量(股):1,275,000 10.累積已持有自己公司股份數量占公司已發行股份總數之比率(%):1.25 11.本次未執行完畢之原因: 為兼顧市場機制及維護全體股東權益，視股價變化及成交量狀況分批買回，故未能執行完畢。 12.其他應敘明事項: 無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260716 | 6712 | 長聖 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.原預定買回股份總金額上限(元):1,721,767,531 2.原預定買回之期間:115/05/18~115/07/14 3.原預定買回之數量(股):2,000,000 4.原預定買回區間價格(元):128.00~180.00 5.本次實際買回期間:115/05/19~115/07/14 6.本次已買回股份數量(股):1,275,000 7.本次已買回股份總金額(元):179,405,436 8.本次平均每股買回價格(元):140.71 9.累積已持有自己公司股份數量(股):1,275,000 10.累積已持有自己公司股份數量占公司已發行股份總數之比率(%):1.25 11.本次未執行完畢之原因: 為兼顧市場機制及維護全體股東權益，視股價變化及成交量狀況分批買回，故未能執行完畢。 12.其他應敘明事項: 無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 6712 | 長聖 | 2 | 2 | 4 | 6 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260716 | 6712 | 長聖 | 3 | 3 | 4 | 7 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

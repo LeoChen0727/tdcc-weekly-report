@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7717 萊德光電-KY
 
 ## Metadata
-- generated_at: 2026-07-15 22:27:47 Asia/Taipei
+- generated_at: 2026-07-16 22:28:32 Asia/Taipei
 - stock_id: 7717
 - stock_name: 萊德光電-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 159
+- latest_price_date: 20260716
+- price_rows: 160
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 502
+- date: 20260716
+- open: 536
 - high: 544
-- low: 502
-- close: 532
-- volume: 370000
-- ma5: 468.9
-- ema23_primary: 498.35
-- distance_to_ema23_pct: 6.75
-- ma20: 475.62
-- ma60: 612.12
-- ma120: 636.38
-- return_5d: 21.88
-- return_20d: -7.16
-- volume_ratio: 1.27
-- distance_to_ma20_pct_auxiliary: 11.85
-- distance_to_high_60_pct: -42.17
+- low: 481
+- close: 485
+- volume: 385000
+- ma5: 480.4
+- ema23_primary: 497.24
+- distance_to_ema23_pct: -2.46
+- ma20: 472.32
+- ma60: 605.74
+- ma120: 636.99
+- return_5d: 13.45
+- return_20d: -11.98
+- volume_ratio: 1.35
+- distance_to_ma20_pct_auxiliary: 2.68
+- distance_to_high_60_pct: -46.7
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,581,584,548,551,489000,632.79,-12.92,637.75,709.53,0.82
 20260617,551,562,539,546,301000,625.55,-12.72,631.35,706.73,0.52
 20260618,552,552,539,546,235000,618.92,-11.78,624.3,705.12,0.4
 20260622,555,555,540,544,234000,612.68,-11.21,616.65,704.52,0.42
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,464.5,464.5,464.5,464.5,138000,495.05,-6.17,482.48,623.48,0.46
 20260714,467.5,498,419.5,498,530000,495.29,0.55,477.68,617.84,1.8
 20260715,502,544,502,532,370000,498.35,6.75,475.62,612.12,1.27
+20260716,536,544,481,485,385000,497.24,-2.46,472.32,605.74,1.35
 ```
 
 ## Latest TDCC Snapshot

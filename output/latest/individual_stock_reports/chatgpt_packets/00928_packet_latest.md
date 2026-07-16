@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00928 中信上櫃ESG 30
 
 ## Metadata
-- generated_at: 2026-07-15 22:26:19 Asia/Taipei
+- generated_at: 2026-07-16 22:26:18 Asia/Taipei
 - stock_id: 00928
 - stock_name: 中信上櫃ESG 30
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260715
-- price_rows: 37
+- latest_price_date: 20260716
+- price_rows: 38
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 35.07
-- high: 36
-- low: 35.07
-- close: 35.61
-- volume: 5712000
-- ma5: 36.03
-- ema23_primary: 37.25
-- distance_to_ema23_pct: -4.41
-- ma20: 37.74
-- ma60: 37.86
-- ma120: 37.86
-- return_5d: -2.41
-- return_20d: -6.51
-- volume_ratio: 3.17
-- distance_to_ma20_pct_auxiliary: -5.65
-- distance_to_high_60_pct: -13.57
+- date: 20260716
+- open: 33.06
+- high: 33.06
+- low: 31.5
+- close: 31.52
+- volume: 2262000
+- ma5: 35.04
+- ema23_primary: 36.77
+- distance_to_ema23_pct: -14.29
+- ma20: 37.42
+- ma60: 37.69
+- ma120: 37.69
+- return_5d: -13.6
+- return_20d: -17.21
+- volume_ratio: 1.19
+- distance_to_ma20_pct_auxiliary: -15.76
+- distance_to_high_60_pct: -23.5
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,38.15,38.65,38.02,38.07,350000,37.5,1.53,38,38,1.31
 20260617,37.9,38.2,37.51,38.13,249000,37.55,1.55,38.01,38.01,0.94
 20260618,38.45,40.12,38.45,40.11,905000,37.76,6.22,38.12,38.12,3.03
 20260622,40.16,41.2,40.16,40.69,743000,38.01,7.06,38.32,38.24,2.23
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,38.31,38.31,36.12,36.22,3032000,37.63,-3.74,37.96,38.01,2.28
 20260714,36.17,36.23,33.58,34.91,4420000,37.4,-6.66,37.87,37.92,2.88
 20260715,35.07,36,35.07,35.61,5712000,37.25,-4.41,37.74,37.86,3.17
+20260716,33.06,33.06,31.5,31.52,2262000,36.77,-14.29,37.42,37.69,1.19
 ```
 
 ## Latest TDCC Snapshot

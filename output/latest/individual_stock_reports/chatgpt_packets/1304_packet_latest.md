@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1304 台聚
 
 ## Metadata
-- generated_at: 2026-07-15 22:26:22 Asia/Taipei
+- generated_at: 2026-07-16 22:26:23 Asia/Taipei
 - stock_id: 1304
 - stock_name: 台聚
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 304
+- latest_price_date: 20260716
+- price_rows: 305
 - latest_tdcc_date: 20260709
 - tdcc_rows: 33
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 13.55
-- high: 13.95
-- low: 13.45
-- close: 13.8
-- volume: 5133977
-- ma5: 13.62
-- ema23_primary: 13.61
-- distance_to_ema23_pct: 1.43
-- ma20: 13.64
-- ma60: 13.29
-- ma120: 13.36
-- return_5d: -2.82
-- return_20d: 8.66
-- volume_ratio: 0.56
-- distance_to_ma20_pct_auxiliary: 1.17
-- distance_to_high_60_pct: -12.66
+- date: 20260716
+- open: 13.75
+- high: 14.15
+- low: 13.65
+- close: 14
+- volume: 7348479
+- ma5: 13.66
+- ema23_primary: 13.64
+- distance_to_ema23_pct: 2.65
+- ma20: 13.7
+- ma60: 13.28
+- ma120: 13.39
+- return_5d: 1.45
+- return_20d: 9.8
+- volume_ratio: 0.79
+- distance_to_ma20_pct_auxiliary: 2.17
+- distance_to_high_60_pct: -11.39
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,12.7,12.95,12.6,12.75,3968461,12.91,-1.24,12.7,14.09,0.6
 20260617,12.8,13.1,12.65,12.95,4724951,12.91,0.28,12.74,14.06,0.71
 20260618,13.15,13.95,13.05,13.55,9380424,12.97,4.5,12.81,14.01,1.36
 20260622,13.8,14.05,13.6,13.7,8383029,13.03,5.16,12.88,13.98,1.19
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,13.45,14.15,13.45,13.55,7561377,13.59,-0.31,13.54,13.33,0.86
 20260714,13.8,14.1,13.25,13.55,9415359,13.59,-0.28,13.59,13.3,1.04
 20260715,13.55,13.95,13.45,13.8,5133977,13.61,1.43,13.64,13.29,0.56
+20260716,13.75,14.15,13.65,14,7348479,13.64,2.65,13.7,13.28,0.79
 ```
 
 ## Latest TDCC Snapshot
@@ -191,17 +191,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 1304 | 台聚 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.發生變動日期:115/06/19 2.選任或變動人員別（請輸入法人董事、法人監察人、獨立董事、自然人董事   或自然人監察人）:自然人董事 3.舊任者職稱及姓名:余經壽董事 4.舊任者簡歷:恆凱環球有限公司董事 5.新任者職稱及姓名:不適用 6.新任者簡歷:不適用 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）:逝世 8.異動原因:逝世 9.新任者選任時持股數:不適用 10.原任期（例xx/xx/xx ~ xx/xx/xx）:不適用 11.新任生效日期:不適用 12.同任期董事變動比率:不適用 13.同任期獨立董事變動比率:不適用 14.同任期監察人變動比率:不適用 15.屬三分之一以上董事發生變動（請輸入是或否）:否 16.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):  本公司於115/06/19接獲此訊。；calendar event: ex_dividend on 20260723; status=confirmed; proximity=within_14d |
+| 20260716 | 1304 | 台聚 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.發生變動日期:115/06/19 2.選任或變動人員別（請輸入法人董事、法人監察人、獨立董事、自然人董事   或自然人監察人）:自然人董事 3.舊任者職稱及姓名:余經壽董事 4.舊任者簡歷:恆凱環球有限公司董事 5.新任者職稱及姓名:不適用 6.新任者簡歷:不適用 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）:逝世 8.異動原因:逝世 9.新任者選任時持股數:不適用 10.原任期（例xx/xx/xx ~ xx/xx/xx）:不適用 11.新任生效日期:不適用 12.同任期董事變動比率:不適用 13.同任期獨立董事變動比率:不適用 14.同任期監察人變動比率:不適用 15.屬三分之一以上董事發生變動（請輸入是或否）:否 16.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):  本公司於115/06/19接獲此訊。；calendar event: ex_dividend on 20260723; status=confirmed; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 1304 | 台聚 | 11 | 6 | 5 | 10 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260716 | 1304 | 台聚 | 12 | 7 | 5 | 10 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 1304 | 台聚 | 43 | 4 | 1604910.0 | 30000.0 | 53.5 | no_signal |
+| 20260716 | 1304 | 台聚 | 43 | 0 | 2161060.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

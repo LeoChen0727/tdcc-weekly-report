@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8358 金居
 
 ## Metadata
-- generated_at: 2026-07-15 22:27:53 Asia/Taipei
+- generated_at: 2026-07-16 22:28:42 Asia/Taipei
 - stock_id: 8358
 - stock_name: 金居
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 169
+- latest_price_date: 20260716
+- price_rows: 170
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 474
-- high: 479.5
-- low: 459.5
-- close: 462.5
-- volume: 5223000
-- ma5: 495.3
-- ema23_primary: 549.58
-- distance_to_ema23_pct: -15.84
-- ma20: 580.67
-- ma60: 518.58
-- ma120: 391.14
-- return_5d: -11.57
-- return_20d: -25.88
-- volume_ratio: 0.54
-- distance_to_ma20_pct_auxiliary: -20.35
-- distance_to_high_60_pct: -38.98
+- date: 20260716
+- open: 460
+- high: 461
+- low: 438
+- close: 439
+- volume: 4234000
+- ma5: 478.5
+- ema23_primary: 540.36
+- distance_to_ema23_pct: -18.76
+- ma20: 571.02
+- ma60: 519.16
+- ma120: 392.66
+- return_5d: -16.06
+- return_20d: -30.54
+- volume_ratio: 0.43
+- distance_to_ma20_pct_auxiliary: -23.12
+- distance_to_high_60_pct: -42.08
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,625,638,615,632,2191000,552.87,14.31,573.55,419.56,1.34
 20260617,628,640,625,640,1844000,560.13,14.26,582.55,426.13,1.34
 20260618,657,700,657,700,5038000,571.79,22.42,592.65,434.09,3.6
 20260622,705,758,683,691,25308000,581.72,18.78,601.1,441.92,9.58
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,538,543,496,498,9544000,566.36,-12.07,594.45,514.9,1.06
 20260714,495.5,504,448.5,460,11139000,557.49,-17.49,588.75,516.99,1.17
 20260715,474,479.5,459.5,462.5,5223000,549.58,-15.84,580.67,518.58,0.54
+20260716,460,461,438,439,4234000,540.36,-18.76,571.02,519.16,0.43
 ```
 
 ## Latest TDCC Snapshot

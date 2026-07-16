@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8101 華冠
 
 ## Metadata
-- generated_at: 2026-07-15 22:27:51 Asia/Taipei
+- generated_at: 2026-07-16 22:28:39 Asia/Taipei
 - stock_id: 8101
 - stock_name: 華冠
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 292
+- latest_price_date: 20260716
+- price_rows: 293
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 13.35
+- date: 20260716
+- open: 13.4
 - high: 13.4
-- low: 13.35
+- low: 13.4
 - close: 13.4
-- volume: 6625
-- ma5: 13.17
-- ema23_primary: 13.59
-- distance_to_ema23_pct: -1.41
-- ma20: 13.55
+- volume: 476100
+- ma5: 13.22
+- ema23_primary: 13.58
+- distance_to_ema23_pct: -1.3
+- ma20: 13.47
 - ma60: 13.69
-- ma120: 14.36
-- return_5d: 4.28
+- ma120: 14.33
+- return_5d: 1.9
 - return_20d: -10.67
-- volume_ratio: 0.5
-- distance_to_ma20_pct_auxiliary: -1.14
+- volume_ratio: 12.89
+- distance_to_ma20_pct_auxiliary: -0.56
 - distance_to_high_60_pct: -19.28
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,14.95,15,14.95,15,4452,14.69,2.14,14.65,13.85,0.28
 20260617,14.2,14.2,14.2,14.2,12549,14.65,-3.04,14.7,13.85,0.77
 20260618,14.2,14.45,14.2,14.45,4875,14.63,-1.23,14.78,13.85,0.29
 20260622,13.55,14.45,13.55,13.75,9265,14.56,-5.54,14.81,13.84,0.55
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,13.15,13.15,13.15,13.15,8264,13.66,-3.73,13.73,13.72,0.63
 20260714,13.15,13.2,13.05,13.05,17001,13.61,-4.11,13.63,13.7,1.28
 20260715,13.35,13.4,13.35,13.4,6625,13.59,-1.41,13.55,13.69,0.5
+20260716,13.4,13.4,13.4,13.4,476100,13.58,-1.3,13.47,13.69,12.89
 ```
 
 ## Latest TDCC Snapshot

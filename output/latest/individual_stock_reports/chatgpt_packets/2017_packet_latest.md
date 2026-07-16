@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2017 官田鋼
 
 ## Metadata
-- generated_at: 2026-07-15 22:26:33 Asia/Taipei
+- generated_at: 2026-07-16 22:26:39 Asia/Taipei
 - stock_id: 2017
 - stock_name: 官田鋼
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 304
+- latest_price_date: 20260716
+- price_rows: 305
 - latest_tdcc_date: 20260709
 - tdcc_rows: 11
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 9.02
-- high: 9.13
-- low: 9
-- close: 9.11
-- volume: 389477
+- date: 20260716
+- open: 9.12
+- high: 9.26
+- low: 9.1
+- close: 9.17
+- volume: 343131
 - ma5: 9.08
-- ema23_primary: 9.19
-- distance_to_ema23_pct: -0.83
-- ma20: 9.21
+- ema23_primary: 9.18
+- distance_to_ema23_pct: -0.16
+- ma20: 9.2
 - ma60: 9.05
 - ma120: 9.24
-- return_5d: -0.87
-- return_20d: -5.3
-- volume_ratio: 0.71
-- distance_to_ma20_pct_auxiliary: -1.06
-- distance_to_high_60_pct: -10.25
+- return_5d: 0
+- return_20d: -2.13
+- volume_ratio: 0.63
+- distance_to_ma20_pct_auxiliary: -0.3
+- distance_to_high_60_pct: -9.66
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,9.64,9.73,9.36,9.37,524276,9.23,1.57,9.17,9.27,0.49
 20260617,9.4,9.46,9.27,9.27,434501,9.23,0.44,9.21,9.24,0.41
 20260618,9.27,9.47,9.27,9.33,581869,9.24,1,9.24,9.23,0.54
 20260622,9.33,9.55,9.32,9.36,787353,9.25,1.21,9.29,9.21,0.72
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,9.13,9.19,9,9.03,593544,9.21,-1.98,9.27,9.06,0.98
 20260714,9.1,9.1,8.9,8.98,492425,9.19,-2.32,9.23,9.05,0.87
 20260715,9.02,9.13,9,9.11,389477,9.19,-0.83,9.21,9.05,0.71
+20260716,9.12,9.26,9.1,9.17,343131,9.18,-0.16,9.2,9.05,0.63
 ```
 
 ## Latest TDCC Snapshot

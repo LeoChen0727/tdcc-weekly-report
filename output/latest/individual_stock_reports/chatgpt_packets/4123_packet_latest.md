@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4123 晟德
 
 ## Metadata
-- generated_at: 2026-07-15 22:27:06 Asia/Taipei
+- generated_at: 2026-07-16 22:27:30 Asia/Taipei
 - stock_id: 4123
 - stock_name: 晟德
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 169
+- latest_price_date: 20260716
+- price_rows: 170
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 37.6
-- high: 38.15
-- low: 37.35
-- close: 38.05
-- volume: 1220000
-- ma5: 38.36
-- ema23_primary: 38.3
-- distance_to_ema23_pct: -0.66
-- ma20: 38.12
-- ma60: 38.34
-- ma120: 40.23
-- return_5d: -3.67
-- return_20d: 1.06
-- volume_ratio: 0.49
-- distance_to_ma20_pct_auxiliary: -0.18
-- distance_to_high_60_pct: -6.85
+- date: 20260716
+- open: 37.9
+- high: 38.2
+- low: 37.9
+- close: 38
+- volume: 758000
+- ma5: 38.09
+- ema23_primary: 38.28
+- distance_to_ema23_pct: -0.72
+- ma20: 38.17
+- ma60: 38.31
+- ma120: 40.21
+- return_5d: -3.43
+- return_20d: 2.56
+- volume_ratio: 0.32
+- distance_to_ma20_pct_auxiliary: -0.44
+- distance_to_high_60_pct: -6.98
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,37.7,37.7,37,37.05,2730000,38.08,-2.72,38.01,39.24,3.05
 20260617,37.1,37.45,36.9,37.15,1327000,38.01,-2.25,37.96,39.15,1.47
 20260618,37.2,37.35,37,37.2,1686000,37.94,-1.95,37.88,39.09,1.87
 20260622,37.15,37.15,36.8,36.95,2511000,37.86,-2.4,37.8,39.01,2.45
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,38.75,38.95,37.9,38.05,2279000,38.41,-0.93,38.11,38.45,0.93
 20260714,38.15,38.15,37.05,37.4,2061000,38.32,-2.41,38.1,38.38,0.83
 20260715,37.6,38.15,37.35,38.05,1220000,38.3,-0.66,38.12,38.34,0.49
+20260716,37.9,38.2,37.9,38,758000,38.28,-0.72,38.17,38.31,0.32
 ```
 
 ## Latest TDCC Snapshot

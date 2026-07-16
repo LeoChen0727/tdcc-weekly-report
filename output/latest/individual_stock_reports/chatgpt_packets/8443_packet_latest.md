@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8443 阿瘦
 
 ## Metadata
-- generated_at: 2026-07-15 22:27:54 Asia/Taipei
+- generated_at: 2026-07-16 22:28:44 Asia/Taipei
 - stock_id: 8443
 - stock_name: 阿瘦
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 304
+- latest_price_date: 20260716
+- price_rows: 305
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,21 +113,21 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
+- date: 20260716
 - open: 11.4
 - high: 11.45
-- low: 11.35
+- low: 11.3
 - close: 11.4
-- volume: 34943
-- ma5: 11.41
+- volume: 41212
+- ma5: 11.39
 - ema23_primary: 11.43
-- distance_to_ema23_pct: -0.27
+- distance_to_ema23_pct: -0.25
 - ma20: 11.44
-- ma60: 11.52
-- ma120: 11.61
+- ma60: 11.51
+- ma120: 11.62
 - return_5d: -0.87
 - return_20d: 0
-- volume_ratio: 0.35
+- volume_ratio: 0.41
 - distance_to_ma20_pct_auxiliary: -0.35
 - distance_to_high_60_pct: -5.79
 
@@ -135,7 +135,6 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,11.4,11.45,11.4,11.4,9951,11.41,-0.07,11.32,11.69,0.19
 20260617,11.4,11.45,11.4,11.4,24554,11.41,-0.06,11.32,11.68,0.46
 20260618,11.35,11.4,11.35,11.4,24154,11.41,-0.06,11.32,11.67,0.47
 20260622,11.4,11.5,11.4,11.4,46430,11.41,-0.05,11.32,11.66,0.87
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,11.4,11.45,11.4,11.4,31044,11.44,-0.36,11.44,11.54,0.25
 20260714,11.5,11.5,11.1,11.35,17247,11.43,-0.74,11.44,11.53,0.14
 20260715,11.4,11.45,11.35,11.4,34943,11.43,-0.27,11.44,11.52,0.35
+20260716,11.4,11.45,11.3,11.4,41212,11.43,-0.25,11.44,11.51,0.41
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2485 兆赫
 
 ## Metadata
-- generated_at: 2026-07-15 22:26:43 Asia/Taipei
+- generated_at: 2026-07-16 22:26:54 Asia/Taipei
 - stock_id: 2485
 - stock_name: 兆赫
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 304
+- latest_price_date: 20260716
+- price_rows: 305
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 48
-- high: 50.4
-- low: 47.6
-- close: 49.4
-- volume: 8011346
-- ma5: 49.27
-- ema23_primary: 55.15
-- distance_to_ema23_pct: -10.43
-- ma20: 54.4
-- ma60: 63.53
-- ma120: 59.68
-- return_5d: -1.2
-- return_20d: -22.45
-- volume_ratio: 0.95
-- distance_to_ma20_pct_auxiliary: -9.2
-- distance_to_high_60_pct: -37.15
+- date: 20260716
+- open: 49
+- high: 49.6
+- low: 47.05
+- close: 47.3
+- volume: 4647658
+- ma5: 48.69
+- ema23_primary: 54.5
+- distance_to_ema23_pct: -13.21
+- ma20: 53.74
+- ma60: 63.14
+- ma120: 59.85
+- return_5d: -5.78
+- return_20d: -21.82
+- volume_ratio: 0.58
+- distance_to_ma20_pct_auxiliary: -11.99
+- distance_to_high_60_pct: -39.82
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,64.2,65,60.2,60.5,13734094,67.33,-10.14,68.92,70.92,0.56
 20260617,60,63.3,59.3,63,16859845,66.97,-5.93,68.54,70.73,0.73
 20260618,63,63,61.7,61.7,8343039,66.53,-7.26,68.12,70.46,0.38
 20260622,61.8,62,60.2,60.6,10636712,66.04,-8.23,67.5,70.22,0.51
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,50.5,51.2,49,49.55,5912332,56.44,-12.2,55.99,64.53,0.65
 20260714,49.5,50,45.25,47.3,7548052,55.67,-15.04,55.12,64,0.87
 20260715,48,50.4,47.6,49.4,8011346,55.15,-10.43,54.4,63.53,0.95
+20260716,49,49.6,47.05,47.3,4647658,54.5,-13.21,53.74,63.14,0.58
 ```
 
 ## Latest TDCC Snapshot
@@ -189,17 +189,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 2485 | 兆赫 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260716 | 2485 | 兆赫 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 2485 | 兆赫 | 2 | 2 | 3 | 3 | 4 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260716 | 2485 | 兆赫 | 1 | 1 | 3 | 3 | 4 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 2485 | 兆赫 | 42 | 2 | 596500.0 | 123010.0 | 4.85 | no_signal |
+| 20260716 | 2485 | 兆赫 | 42 | 0 | 330820.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.
