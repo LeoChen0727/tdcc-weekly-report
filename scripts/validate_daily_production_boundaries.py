@@ -360,11 +360,26 @@ def validate_pr_pdf_replay_source_pin(text: str) -> list[str]:
         return ["daily model maintenance PR workflow missing daily-pdf-dfkai-replay job"]
 
     required = {
-        'source_sha="$(git rev-parse HEAD)"': (
-            "PR PDF replay must derive its source from the checked-out immutable commit"
+        "PDF_REPLAY_SOURCE_SHA: ${{ github.event.pull_request.head.sha || github.sha }}": (
+            "PR PDF replay must select the immutable PR head SHA and fall back to the dispatch SHA"
         ),
-        'if [ "$source_sha" != "$GITHUB_SHA" ]; then': (
-            "PR PDF replay must fail when checkout HEAD differs from the workflow SHA"
+        'checkout_sha="$(git rev-parse HEAD)"': (
+            "PR PDF replay must resolve the GitHub checkout commit independently"
+        ),
+        'if [ "$checkout_sha" != "$GITHUB_SHA" ]; then': (
+            "PR PDF replay must fail when checkout HEAD differs from the workflow checkout SHA"
+        ),
+        'source_sha="$PDF_REPLAY_SOURCE_SHA"': (
+            "PR PDF replay must use the event-selected immutable source SHA"
+        ),
+        'git fetch --no-tags --depth=1 origin "$source_sha"': (
+            "PR PDF replay must fetch only the exact immutable source SHA"
+        ),
+        'fetched_source_sha="$(git rev-parse FETCH_HEAD)"': (
+            "PR PDF replay must resolve the exact fetched commit"
+        ),
+        'if [ "$fetched_source_sha" != "$source_sha" ]; then': (
+            "PR PDF replay must fail closed if the exact SHA fetch drifts"
         ),
         'pinned_remote="pinned-replay"': (
             "PR PDF replay must use an isolated runner-local pinned remote"
@@ -390,8 +405,8 @@ def validate_pr_pdf_replay_source_pin(text: str) -> list[str]:
         'if [ "$resolved_source_sha" != "$source_sha" ]; then': (
             "PR PDF replay must fail closed if the pinned ref drifts"
         ),
-        "PDF replay workflow_head_sha=$GITHUB_SHA": (
-            "PR PDF replay must log the immutable workflow SHA"
+        "PDF replay workflow_checkout_sha=$GITHUB_SHA": (
+            "PR PDF replay must log the immutable workflow checkout SHA"
         ),
         "PDF replay source_sha=$source_sha": (
             "PR PDF replay must log the resolved source SHA"
@@ -404,7 +419,6 @@ def validate_pr_pdf_replay_source_pin(text: str) -> list[str]:
     forbidden = {
         "GITHUB_HEAD_REF": "PR PDF replay must not resolve a moving pull-request branch ref",
         "GITHUB_REF_NAME": "PR PDF replay must not resolve a moving workflow branch ref",
-        "git fetch origin": "PR PDF replay must not refetch moving origin refs after checkout",
         'source_ref="origin/': "PR PDF replay must not pass a moving origin ref to the official entrypoint",
         "${source_ref#origin/}": "PR PDF replay must not derive a branch fetch from a moving origin ref",
     }

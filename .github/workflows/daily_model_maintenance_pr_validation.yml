@@ -235,10 +235,20 @@ jobs:
       - name: Replay ChatGPT-side daily PDF new conversation
         timeout-minutes: 20
         shell: bash
+        env:
+          PDF_REPLAY_SOURCE_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
         run: |
-          source_sha="$(git rev-parse HEAD)"
-          if [ "$source_sha" != "$GITHUB_SHA" ]; then
-            echo "ERROR: checked-out HEAD does not match immutable workflow SHA: head=$source_sha workflow=$GITHUB_SHA" >&2
+          checkout_sha="$(git rev-parse HEAD)"
+          if [ "$checkout_sha" != "$GITHUB_SHA" ]; then
+            echo "ERROR: checked-out HEAD does not match workflow checkout SHA: head=$checkout_sha workflow=$GITHUB_SHA" >&2
+            exit 1
+          fi
+
+          source_sha="$PDF_REPLAY_SOURCE_SHA"
+          git fetch --no-tags --depth=1 origin "$source_sha"
+          fetched_source_sha="$(git rev-parse FETCH_HEAD)"
+          if [ "$fetched_source_sha" != "$source_sha" ]; then
+            echo "ERROR: immutable PDF replay source fetch drifted: expected=$source_sha fetched=$fetched_source_sha" >&2
             exit 1
           fi
 
@@ -255,7 +265,7 @@ jobs:
             exit 1
           fi
 
-          echo "PDF replay workflow_head_sha=$GITHUB_SHA"
+          echo "PDF replay workflow_checkout_sha=$GITHUB_SHA"
           echo "PDF replay source_ref=$source_ref"
           echo "PDF replay source_sha=$source_sha"
           echo "PDF replay output_dir=chatgpt_side_outputs_pr_validation"

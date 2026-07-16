@@ -137,8 +137,13 @@ def test_daily_model_maintenance_pr_workflow_runs_actual_pdf_replay_and_uploads_
     assert "--source-ref \"$source_ref\"" in text
     assert "--output-dir chatgpt_side_outputs_pr_validation" in text
     assert "--require-output-dir chatgpt_side_outputs_pr_validation" in text
-    assert 'source_sha="$(git rev-parse HEAD)"' in replay_job
-    assert 'if [ "$source_sha" != "$GITHUB_SHA" ]; then' in replay_job
+    assert "PDF_REPLAY_SOURCE_SHA: ${{ github.event.pull_request.head.sha || github.sha }}" in replay_job
+    assert 'checkout_sha="$(git rev-parse HEAD)"' in replay_job
+    assert 'if [ "$checkout_sha" != "$GITHUB_SHA" ]; then' in replay_job
+    assert 'source_sha="$PDF_REPLAY_SOURCE_SHA"' in replay_job
+    assert 'git fetch --no-tags --depth=1 origin "$source_sha"' in replay_job
+    assert 'fetched_source_sha="$(git rev-parse FETCH_HEAD)"' in replay_job
+    assert 'if [ "$fetched_source_sha" != "$source_sha" ]; then' in replay_job
     assert 'pinned_remote="pinned-replay"' in replay_job
     assert 'pinned_branch="workflow-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"' in replay_job
     assert 'git branch --force "$pinned_branch" "$source_sha"' in replay_job
@@ -147,11 +152,10 @@ def test_daily_model_maintenance_pr_workflow_runs_actual_pdf_replay_and_uploads_
     assert 'source_ref="$pinned_remote/$pinned_branch"' in replay_job
     assert 'resolved_source_sha="$(git rev-parse "$source_ref")"' in replay_job
     assert 'if [ "$resolved_source_sha" != "$source_sha" ]; then' in replay_job
-    assert "PDF replay workflow_head_sha=$GITHUB_SHA" in replay_job
+    assert "PDF replay workflow_checkout_sha=$GITHUB_SHA" in replay_job
     assert "PDF replay source_sha=$source_sha" in replay_job
     assert "GITHUB_HEAD_REF" not in replay_job
     assert "GITHUB_REF_NAME" not in replay_job
-    assert "git fetch origin" not in replay_job
     assert 'source_ref="origin/' not in replay_job
     assert "Upload PR daily PDF replay evidence" in text
     assert "actions/upload-artifact@v4" in text
@@ -210,9 +214,8 @@ jobs:
 """
     errors = boundaries.validate_pr_pdf_replay_source_pin(invalid)
     assert any("moving pull-request branch ref" in error for error in errors)
-    assert any("refetch moving origin refs" in error for error in errors)
     assert any("moving origin ref" in error for error in errors)
-    assert any("checked-out immutable commit" in error for error in errors)
+    assert any("immutable PR head SHA" in error for error in errors)
 
 
 def test_daily_pdf_replay_jobs_require_windows_dfkai_runtime() -> None:
