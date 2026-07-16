@@ -24,6 +24,8 @@ OFFICIAL_ENTRYPOINT_WORKTREE_CONSUMER = "chatgpt_daily_report_entrypoint"
 CHATGPT_DAILY_DFKAI_FONT_PATH_ENV = "CHATGPT_DAILY_DFKAI_FONT_PATH"
 CHATGPT_DAILY_DEFAULT_DFKAI_FONT_PATH = Path(r"C:\Windows\Fonts\kaiu.ttf")
 CHATGPT_DAILY_PDF_FONT_NAME = "DFKai-SB"
+EXPECTED_WINDOWS_DFKAI_CAPABILITY_NAME = "Language.Fonts.Hant~~~und-HANT~0.0.1.0"
+EXPECTED_WINDOWS_DFKAI_INSTALL_DETAIL_LIMIT = 2000
 TRADITIONAL_CHINESE_GLYPH_CANARY = "標楷體繁體中文測試買賣停損勝敗本日無股票推薦"
 DFKAI_NAME_TABLE_TOKENS = {"DFKai-SB", "DFKaiShu-SB-Estd-BF"}
 DFKAI_PDF_BASE_FONTS = {"/DFKai-SB", "/DFKaiShu-SB-Estd-BF"}
@@ -153,6 +155,752 @@ def function_text(text: str, name: str) -> str:
     if not next_match:
         return text[start:]
     return text[start : start + 1 + next_match.start()]
+
+
+def official_entrypoint_dfkai_preflight_contract_errors(source: str) -> list[str]:
+    errors: list[str] = []
+    try:
+        tree = ast.parse(source)
+    except SyntaxError as exc:
+        return [f"official entrypoint is not valid Python: {exc}"]
+
+    helper_definitions = [
+        node
+        for node in tree.body
+        if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef))
+        and node.name == "ensure_local_dfkai_font_for_pdf_rendering"
+    ]
+    if len(helper_definitions) != 1:
+        return [
+            "official entrypoint must define exactly one module-level "
+            "ensure_local_dfkai_font_for_pdf_rendering(): "
+            f"observed={len(helper_definitions)}"
+        ]
+    helper = helper_definitions[0]
+
+    if CHATGPT_DAILY_DEFAULT_DFKAI_FONT_PATH != Path(r"C:\Windows\Fonts\kaiu.ttf"):
+        errors.append("official DFKai canonical font path must remain C:\\Windows\\Fonts\\kaiu.ttf")
+    canonical_font_imported = any(
+        isinstance(node, ast.ImportFrom)
+        and node.module == "scripts.validate_chatgpt_side_pdf_contract"
+        and any(alias.name == "CHATGPT_DAILY_DEFAULT_DFKAI_FONT_PATH" for alias in node.names)
+        for node in tree.body
+    )
+    kwonly_names = [argument.arg for argument in helper.args.kwonlyargs]
+    canonical_default = None
+    if "default_font_path" in kwonly_names:
+        canonical_default = helper.args.kw_defaults[kwonly_names.index("default_font_path")]
+    if not (
+        canonical_font_imported
+        and isinstance(canonical_default, ast.Name)
+        and canonical_default.id == "CHATGPT_DAILY_DEFAULT_DFKAI_FONT_PATH"
+    ):
+        errors.append(
+            "official DFKai local preflight must use the imported canonical C:\\Windows\\Fonts\\kaiu.ttf default"
+        )
+    validator_default = None
+    if "validator" in kwonly_names:
+        validator_default = helper.args.kw_defaults[kwonly_names.index("validator")]
+    validate_dfkai_imported = any(
+        isinstance(node, ast.ImportFrom)
+        and node.module == "scripts.validate_chatgpt_side_pdf_contract"
+        and any(alias.name == "validate_dfkai_font_file" for alias in node.names)
+        for node in tree.body
+    )
+    if not (
+        validate_dfkai_imported
+        and isinstance(validator_default, ast.Name)
+        and validator_default.id == "validate_dfkai_font_file"
+    ):
+        errors.append(
+            "official DFKai local preflight default validator must remain validate_dfkai_font_file"
+        )
+
+    capability_assignments = [
+        node
+        for node in tree.body
+        if isinstance(node, ast.Assign)
+        and len(node.targets) == 1
+        and isinstance(node.targets[0], ast.Name)
+        and node.targets[0].id == "WINDOWS_DFKAI_CAPABILITY_NAME"
+    ]
+    if (
+        len(capability_assignments) != 1
+        or not isinstance(capability_assignments[0].value, ast.Constant)
+        or capability_assignments[0].value.value != EXPECTED_WINDOWS_DFKAI_CAPABILITY_NAME
+    ):
+        errors.append(
+            "official DFKai local preflight must bind WINDOWS_DFKAI_CAPABILITY_NAME to the exact "
+            f"Traditional Chinese font capability: {EXPECTED_WINDOWS_DFKAI_CAPABILITY_NAME}"
+        )
+    detail_limit_assignments = [
+        node
+        for node in tree.body
+        if isinstance(node, ast.Assign)
+        and len(node.targets) == 1
+        and isinstance(node.targets[0], ast.Name)
+        and node.targets[0].id == "WINDOWS_DFKAI_INSTALL_DETAIL_LIMIT"
+    ]
+    if (
+        len(detail_limit_assignments) != 1
+        or not isinstance(detail_limit_assignments[0].value, ast.Constant)
+        or detail_limit_assignments[0].value.value != EXPECTED_WINDOWS_DFKAI_INSTALL_DETAIL_LIMIT
+    ):
+        errors.append(
+            "official DFKai local preflight must keep bounded DISM diagnostic detail at 2000 characters"
+        )
+
+    def named_call(node: ast.AST, name: str) -> bool:
+        return isinstance(node, ast.Call) and isinstance(node.func, ast.Name) and node.func.id == name
+
+    def path_exists_call(node: ast.AST) -> bool:
+        return (
+            isinstance(node, ast.Call)
+            and isinstance(node.func, ast.Attribute)
+            and node.func.attr == "exists"
+            and isinstance(node.func.value, ast.Name)
+            and node.func.value.id == "path"
+            and not node.args
+            and not node.keywords
+        )
+
+    def compare_names(node: ast.AST, left: str, operator: type[ast.cmpop], right: str) -> bool:
+        return (
+            isinstance(node, ast.Compare)
+            and isinstance(node.left, ast.Name)
+            and node.left.id == left
+            and len(node.ops) == 1
+            and isinstance(node.ops[0], operator)
+            and len(node.comparators) == 1
+            and isinstance(node.comparators[0], ast.Name)
+            and node.comparators[0].id == right
+        )
+
+    def compare_name_constant(
+        node: ast.AST,
+        left: str,
+        operator: type[ast.cmpop],
+        right: object,
+    ) -> bool:
+        return (
+            isinstance(node, ast.Compare)
+            and isinstance(node.left, ast.Name)
+            and node.left.id == left
+            and len(node.ops) == 1
+            and isinstance(node.ops[0], operator)
+            and len(node.comparators) == 1
+            and isinstance(node.comparators[0], ast.Constant)
+            and node.comparators[0].value == right
+        )
+
+    def direct_assign_call(statement: ast.stmt, target: str, call_name: str) -> ast.Call | None:
+        if not (
+            isinstance(statement, ast.Assign)
+            and len(statement.targets) == 1
+            and isinstance(statement.targets[0], ast.Name)
+            and statement.targets[0].id == target
+            and named_call(statement.value, call_name)
+        ):
+            return None
+        return statement.value
+
+    def direct_terminal(body: list[ast.stmt], terminal_type: type[ast.stmt]) -> bool:
+        return bool(body) and isinstance(body[-1], terminal_type)
+
+    def statement_suite_positions(root: ast.AST) -> dict[int, tuple[ast.AST, str, int]]:
+        positions: dict[int, tuple[ast.AST, str, int]] = {}
+
+        def visit(owner: ast.AST) -> None:
+            for field, value in ast.iter_fields(owner):
+                if isinstance(value, list):
+                    for index, child in enumerate(value):
+                        if isinstance(child, ast.stmt):
+                            positions[id(child)] = (owner, field, index)
+                            visit(child)
+                        elif isinstance(child, ast.AST):
+                            visit(child)
+                elif isinstance(value, ast.AST):
+                    visit(value)
+
+        visit(root)
+        return positions
+
+    def qualified_name(node: ast.AST | None) -> str:
+        if isinstance(node, ast.Name):
+            return node.id
+        if isinstance(node, ast.Attribute):
+            prefix = qualified_name(node.value)
+            return f"{prefix}.{node.attr}" if prefix else node.attr
+        return ""
+
+    add_capability_literals = [
+        node
+        for node in ast.walk(helper)
+        if isinstance(node, ast.Constant) and node.value == "/Add-Capability"
+    ]
+    if len(add_capability_literals) != 1:
+        errors.append("official DFKai local preflight must contain exactly one DISM Add-Capability command")
+
+    command_assignments = [
+        statement
+        for statement in helper.body
+        if isinstance(statement, ast.Assign)
+        and len(statement.targets) == 1
+        and isinstance(statement.targets[0], ast.Name)
+        and statement.targets[0].id == "command"
+    ]
+    command_elements: list[ast.expr] = []
+    if len(command_assignments) == 1 and isinstance(command_assignments[0].value, ast.List):
+        command_elements = command_assignments[0].value.elts
+    exact_capability_argument = (
+        len(command_elements) == 5
+        and isinstance(command_elements[3], ast.JoinedStr)
+        and len(command_elements[3].values) == 2
+        and isinstance(command_elements[3].values[0], ast.Constant)
+        and command_elements[3].values[0].value == "/CapabilityName:"
+        and isinstance(command_elements[3].values[1], ast.FormattedValue)
+        and isinstance(command_elements[3].values[1].value, ast.Name)
+        and command_elements[3].values[1].value.id == "WINDOWS_DFKAI_CAPABILITY_NAME"
+    )
+    exact_command = (
+        len(command_elements) == 5
+        and isinstance(command_elements[0], ast.Call)
+        and isinstance(command_elements[0].func, ast.Name)
+        and command_elements[0].func.id == "str"
+        and len(command_elements[0].args) == 1
+        and isinstance(command_elements[0].args[0], ast.Name)
+        and command_elements[0].args[0].id == "dism_path"
+        and isinstance(command_elements[1], ast.Constant)
+        and command_elements[1].value == "/Online"
+        and isinstance(command_elements[2], ast.Constant)
+        and command_elements[2].value == "/Add-Capability"
+        and exact_capability_argument
+        and isinstance(command_elements[4], ast.Constant)
+        and command_elements[4].value == "/NoRestart"
+    )
+    if not exact_command:
+        errors.append(
+            "official DFKai installer argv must be the exact absolute DISM Hant capability command"
+        )
+    command_name_nodes = [
+        node
+        for node in ast.walk(helper)
+        if isinstance(node, ast.Name) and node.id == "command"
+    ]
+    if not (
+        len(command_name_nodes) == 2
+        and sum(isinstance(node.ctx, ast.Store) for node in command_name_nodes) == 1
+        and sum(isinstance(node.ctx, ast.Load) for node in command_name_nodes) == 1
+    ):
+        errors.append(
+            "official DFKai installer command must have one construction Store and one runner-only Load"
+        )
+
+    forbidden_process_launchers = {
+        "subprocess.run",
+        "subprocess.Popen",
+        "subprocess.call",
+        "subprocess.check_call",
+        "subprocess.check_output",
+        "os.system",
+        "os.popen",
+        "os.startfile",
+    }
+    unexpected_process_calls = [
+        node
+        for node in ast.walk(helper)
+        if isinstance(node, ast.Call) and qualified_name(node.func) in forbidden_process_launchers
+    ]
+    if unexpected_process_calls:
+        errors.append(
+            "official DFKai local preflight must not contain another direct process-launch path"
+        )
+
+    runner_calls = [node for node in ast.walk(helper) if named_call(node, "runner")]
+    if len(runner_calls) != 1:
+        errors.append(
+            "official DFKai local preflight must invoke its bounded installer exactly once: "
+            f"observed={len(runner_calls)}"
+        )
+
+    top_level_ifs = [node for node in helper.body if isinstance(node, ast.If)]
+    existing_guard = next((node for node in top_level_ifs if path_exists_call(node.test)), None)
+    configured_guard = next(
+        (
+            node
+            for node in top_level_ifs
+            if isinstance(node.test, ast.Name) and node.test.id == "has_configured_path"
+        ),
+        None,
+    )
+    platform_guard = next(
+        (
+            node
+            for node in top_level_ifs
+            if compare_name_constant(node.test, "current_platform", ast.NotEq, "win32")
+        ),
+        None,
+    )
+    canonical_guard = next(
+        (
+            node
+            for node in top_level_ifs
+            if compare_names(node.test, "path", ast.NotEq, "default_font_path")
+        ),
+        None,
+    )
+
+    existing_validator_call: ast.Call | None = None
+    if existing_guard is None:
+        errors.append("official DFKai local preflight must start with an exact existing-path guard")
+    else:
+        existing_validator_tries = [
+            statement
+            for statement in existing_guard.body
+            if isinstance(statement, ast.Try)
+            and len(statement.body) == 1
+            and direct_assign_call(statement.body[0], "validated_path", "validator") is not None
+        ]
+        if (
+            len(existing_validator_tries) != 1
+            or not existing_validator_tries[0].handlers
+            or existing_validator_tries[0].orelse
+            or existing_validator_tries[0].finalbody
+            or not all(direct_terminal(handler.body, ast.Raise) for handler in existing_validator_tries[0].handlers)
+        ):
+            errors.append(
+                "official DFKai existing-path guard must directly validate the font in a fail-closed try block"
+            )
+        else:
+            existing_validator_call = direct_assign_call(
+                existing_validator_tries[0].body[0],
+                "validated_path",
+                "validator",
+            )
+        if (
+            existing_guard.orelse
+            or not direct_terminal(existing_guard.body, ast.Return)
+            or not isinstance(existing_guard.body[-1].value, ast.Name)
+            or existing_guard.body[-1].value.id != "validated_path"
+        ):
+            errors.append("official DFKai existing-path guard must return before any installer path")
+    for guard, message in (
+        (configured_guard, "configured-path"),
+        (platform_guard, "non-Windows"),
+        (canonical_guard, "non-canonical-path"),
+    ):
+        if guard is None:
+            errors.append(f"official DFKai local preflight missing exact {message} fail-closed guard")
+        elif guard.orelse or not direct_terminal(guard.body, ast.Raise):
+            errors.append(f"official DFKai {message} guard must fail closed before installation")
+
+    installer_candidates: list[tuple[int, ast.Try, ast.Call]] = []
+    for index, statement in enumerate(helper.body):
+        if not isinstance(statement, ast.Try) or len(statement.body) != 1:
+            continue
+        direct_runner_call = direct_assign_call(statement.body[0], "proc", "runner")
+        if direct_runner_call is not None:
+            installer_candidates.append((index, statement, direct_runner_call))
+    if len(installer_candidates) != 1 or len(runner_calls) != 1:
+        errors.append(
+            "official DFKai installer must be one direct top-level `proc = runner(...)` try statement"
+        )
+        runner_index = None
+        installer_try = None
+        runner_call = runner_calls[0] if len(runner_calls) == 1 else None
+    else:
+        runner_index, installer_try, runner_call = installer_candidates[0]
+
+    guard_nodes = (existing_guard, configured_guard, platform_guard, canonical_guard)
+    if runner_index is not None and all(node is not None for node in guard_nodes):
+        guard_indices = [helper.body.index(node) for node in guard_nodes if node is not None]
+        if guard_indices != sorted(guard_indices) or len(set(guard_indices)) != len(guard_indices):
+            errors.append(
+                "official DFKai local preflight guards must be ordered existing, configured, non-Windows, canonical"
+            )
+        if any(index >= runner_index for index in guard_indices):
+            errors.append("official DFKai local preflight must run every missing-only guard before the installer")
+        if any(isinstance(node, (ast.Return, ast.Raise)) for node in helper.body[: guard_indices[0]]):
+            errors.append("official DFKai local preflight guards must not be unreachable after an early exit")
+
+    if runner_call is not None:
+        timeout_keyword = next((keyword for keyword in runner_call.keywords if keyword.arg == "timeout"), None)
+        shell_keyword = next((keyword for keyword in runner_call.keywords if keyword.arg == "shell"), None)
+        if not (
+            timeout_keyword is not None
+            and isinstance(timeout_keyword.value, ast.Name)
+            and timeout_keyword.value.id == "WINDOWS_DFKAI_INSTALL_TIMEOUT_SECONDS"
+        ):
+            errors.append("official DFKai installer must use the registered bounded timeout constant")
+        if not (
+            len(runner_call.args) == 1
+            and isinstance(runner_call.args[0], ast.Name)
+            and runner_call.args[0].id == "command"
+            and shell_keyword is not None
+            and isinstance(shell_keyword.value, ast.Constant)
+            and shell_keyword.value.value is False
+        ):
+            errors.append("official DFKai installer must execute only the exact argv with shell=False")
+    if installer_try is not None:
+        handler_names = {qualified_name(handler.type) for handler in installer_try.handlers}
+        if (
+            handler_names != {"subprocess.TimeoutExpired", "OSError"}
+            or installer_try.orelse
+            or installer_try.finalbody
+            or not all(direct_terminal(handler.body, ast.Raise) for handler in installer_try.handlers)
+        ):
+            errors.append("official DFKai installer must fail closed directly on timeout and process-start errors")
+
+    install_exit_code_assignments = [
+        (index, statement)
+        for index, statement in enumerate(helper.body)
+        if isinstance(statement, ast.Assign)
+        and len(statement.targets) == 1
+        and isinstance(statement.targets[0], ast.Name)
+        and statement.targets[0].id == "install_exit_code"
+        and isinstance(statement.value, ast.Attribute)
+        and isinstance(statement.value.value, ast.Name)
+        and statement.value.value.id == "proc"
+        and statement.value.attr == "returncode"
+    ]
+    if len(install_exit_code_assignments) != 1:
+        errors.append(
+            "official DFKai local preflight must directly capture the completed installer exit code exactly once"
+        )
+        install_exit_code_index = None
+        install_exit_code_assignment = None
+    else:
+        install_exit_code_index, install_exit_code_assignment = install_exit_code_assignments[0]
+    proc_returncode_reads = [
+        node
+        for node in ast.walk(helper)
+        if isinstance(node, ast.Attribute)
+        and isinstance(node.value, ast.Name)
+        and node.value.id == "proc"
+        and node.attr == "returncode"
+    ]
+    if (
+        install_exit_code_assignment is None
+        or len(proc_returncode_reads) != 1
+        or proc_returncode_reads[0] is not install_exit_code_assignment.value
+    ):
+        errors.append(
+            "official DFKai installer return code must be diagnostic-only and read only by install_exit_code capture"
+        )
+
+    install_detail_assignments = [
+        (index, statement)
+        for index, statement in enumerate(helper.body)
+        if isinstance(statement, ast.Assign)
+        and len(statement.targets) == 1
+        and isinstance(statement.targets[0], ast.Name)
+        and statement.targets[0].id == "install_detail"
+    ]
+    if len(install_detail_assignments) != 1:
+        errors.append(
+            "official DFKai local preflight must directly capture bounded installer diagnostics exactly once"
+        )
+        install_detail_index = None
+    else:
+        install_detail_index, install_detail_assignment = install_detail_assignments[0]
+        detail_value = install_detail_assignment.value
+        detail_slice = detail_value.slice if isinstance(detail_value, ast.Subscript) else None
+        detail_attributes = {
+            node.attr
+            for node in ast.walk(detail_value)
+            if isinstance(node, ast.Attribute)
+            and isinstance(node.value, ast.Name)
+            and node.value.id == "proc"
+        }
+        detail_literals = {
+            node.value
+            for node in ast.walk(detail_value)
+            if isinstance(node, ast.Constant) and isinstance(node.value, str)
+        }
+        bounded_detail = (
+            isinstance(detail_slice, ast.Slice)
+            and isinstance(detail_slice.lower, ast.UnaryOp)
+            and isinstance(detail_slice.lower.op, ast.USub)
+            and isinstance(detail_slice.lower.operand, ast.Name)
+            and detail_slice.lower.operand.id == "WINDOWS_DFKAI_INSTALL_DETAIL_LIMIT"
+            and detail_slice.upper is None
+            and detail_slice.step is None
+        )
+        strips_detail = any(
+            isinstance(node, ast.Call)
+            and isinstance(node.func, ast.Attribute)
+            and node.func.attr == "strip"
+            for node in ast.walk(detail_value)
+        )
+        if not (
+            bounded_detail
+            and strips_detail
+            and {"stderr", "stdout"}.issubset(detail_attributes)
+            and "no DISM output" in detail_literals
+        ):
+            errors.append(
+                "official DFKai installer diagnostics must retain bounded stderr/stdout detail"
+            )
+
+    missing_after_install_guard = next(
+        (
+            node
+            for node in top_level_ifs
+            if isinstance(node.test, ast.UnaryOp)
+            and isinstance(node.test.op, ast.Not)
+            and path_exists_call(node.test.operand)
+        ),
+        None,
+    )
+    validator_calls = [node for node in ast.walk(helper) if named_call(node, "validator")]
+    if len(validator_calls) != 2:
+        errors.append(
+            "official DFKai local preflight must validate exactly once before reuse and once after install: "
+            f"observed={len(validator_calls)}"
+        )
+    if (
+        missing_after_install_guard is None
+        or missing_after_install_guard.orelse
+        or not direct_terminal(missing_after_install_guard.body, ast.Raise)
+    ):
+        errors.append("official DFKai local preflight must fail closed when the font remains missing")
+
+    post_validator_candidates: list[tuple[int, ast.Try, ast.Call]] = []
+    for index, statement in enumerate(helper.body):
+        if not isinstance(statement, ast.Try) or len(statement.body) != 1:
+            continue
+        direct_validator_call = direct_assign_call(statement.body[0], "validated_path", "validator")
+        if direct_validator_call is not None:
+            post_validator_candidates.append((index, statement, direct_validator_call))
+    if len(post_validator_candidates) != 1:
+        errors.append("official DFKai post-install validation must be one direct top-level try statement")
+        post_validator_index = None
+        post_validator_try = None
+        post_install_validator = None
+    else:
+        post_validator_index, post_validator_try, post_install_validator = post_validator_candidates[0]
+        if (
+            not post_validator_try.handlers
+            or post_validator_try.orelse
+            or post_validator_try.finalbody
+            or not all(direct_terminal(handler.body, ast.Raise) for handler in post_validator_try.handlers)
+        ):
+            errors.append("official DFKai post-install validation must fail closed directly")
+    if (
+        len(validator_calls) == 2
+        and existing_validator_call is not None
+        and post_install_validator is not None
+        and {id(existing_validator_call), id(post_install_validator)} != {id(node) for node in validator_calls}
+    ):
+        errors.append("official DFKai validator calls must stay on the direct reuse and post-install success paths")
+
+    nonzero_diagnostic_guard = next(
+        (
+            node
+            for node in top_level_ifs
+            if compare_name_constant(node.test, "install_exit_code", ast.NotEq, 0)
+        ),
+        None,
+    )
+    if nonzero_diagnostic_guard is None:
+        errors.append(
+            "official DFKai local preflight must report completed nonzero DISM results after final validation"
+        )
+    else:
+        warning_call = (
+            nonzero_diagnostic_guard.body[0].value
+            if len(nonzero_diagnostic_guard.body) == 1
+            and isinstance(nonzero_diagnostic_guard.body[0], ast.Expr)
+            and named_call(nonzero_diagnostic_guard.body[0].value, "print")
+            else None
+        )
+        warning_literals = {
+            node.value
+            for node in ast.walk(nonzero_diagnostic_guard)
+            if isinstance(node, ast.Constant) and isinstance(node.value, str)
+        }
+        stderr_keyword = (
+            next((keyword for keyword in warning_call.keywords if keyword.arg == "file"), None)
+            if warning_call is not None
+            else None
+        )
+        warning_to_stderr = (
+            stderr_keyword is not None
+            and isinstance(stderr_keyword.value, ast.Attribute)
+            and isinstance(stderr_keyword.value.value, ast.Name)
+            and stderr_keyword.value.value.id == "sys"
+            and stderr_keyword.value.attr == "stderr"
+        )
+        if (
+            nonzero_diagnostic_guard.orelse
+            or warning_call is None
+            or not warning_to_stderr
+            or not any(
+                "dfkai_preflight_warning=nonzero_but_final_state_valid" in literal
+                for literal in warning_literals
+            )
+        ):
+            errors.append(
+                "official DFKai completed nonzero result must be a stderr diagnostic, not an early failure or bypass"
+            )
+
+    if (
+        runner_index is not None
+        and install_exit_code_index is not None
+        and install_detail_index is not None
+        and missing_after_install_guard is not None
+        and post_validator_index is not None
+        and nonzero_diagnostic_guard is not None
+    ):
+        post_install_indices = (
+            runner_index,
+            install_exit_code_index,
+            install_detail_index,
+            helper.body.index(missing_after_install_guard),
+            post_validator_index,
+            helper.body.index(nonzero_diagnostic_guard),
+        )
+        if tuple(sorted(post_install_indices)) != post_install_indices or len(set(post_install_indices)) != 6:
+            errors.append(
+                "official DFKai local preflight must capture diagnostics, then validate the final font state, "
+                "then report a completed nonzero result"
+            )
+        final_return = helper.body[-1] if helper.body else None
+        if (
+            not isinstance(final_return, ast.Return)
+            or not isinstance(final_return.value, ast.Name)
+            or final_return.value.id != "validated_path"
+            or helper.body.index(final_return) <= post_validator_index
+        ):
+            errors.append("official DFKai local preflight must return only after post-install validation")
+
+    forbidden_policy_tokens = (
+        "Get-WindowsCapability",
+        "WindowsUpdate",
+        "UseWUServer",
+        "wuauserv",
+        "New-ItemProperty",
+        "Set-Service",
+        "Start-Service",
+        "Start-Process",
+        "Verb RunAs",
+    )
+    for forbidden in forbidden_policy_tokens:
+        forbidden_nodes = [
+            node
+            for node in ast.walk(tree)
+            if (
+                isinstance(node, ast.Name)
+                and node.id == forbidden
+            )
+            or (
+                isinstance(node, ast.Attribute)
+                and node.attr == forbidden
+            )
+        ]
+        if forbidden_nodes:
+            errors.append(
+                "official DFKai local preflight must not mutate Windows Update policy, services, or elevation: "
+                f"{forbidden!r}"
+            )
+
+    main_definitions = [
+        node
+        for node in tree.body
+        if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)) and node.name == "main"
+    ]
+    if len(main_definitions) != 1:
+        errors.append(
+            "official entrypoint must define exactly one module-level main() for DFKai local preflight routing: "
+            f"observed={len(main_definitions)}"
+        )
+        return errors
+    main_function = main_definitions[0]
+
+    main_calls = [
+        node
+        for node in ast.walk(main_function)
+        if named_call(node, "ensure_local_dfkai_font_for_pdf_rendering")
+    ]
+    if len(main_calls) != 1:
+        errors.append(
+            "official entrypoint main() must call the DFKai local preflight exactly once: "
+            f"observed={len(main_calls)}"
+        )
+        return errors
+    main_call = main_calls[0]
+    source_gate_guards = [
+        node
+        for node in ast.walk(main_function)
+        if isinstance(node, ast.If)
+        and isinstance(node.test, ast.UnaryOp)
+        and isinstance(node.test.op, ast.Not)
+        and isinstance(node.test.operand, ast.Attribute)
+        and isinstance(node.test.operand.value, ast.Name)
+        and node.test.operand.value.id == "args"
+        and node.test.operand.attr == "source_gate_only"
+        and not node.orelse
+        and len(node.body) == 1
+        and isinstance(node.body[0], ast.Expr)
+        and node.body[0].value is main_call
+    ]
+    if len(source_gate_guards) != 1:
+        errors.append(
+            "official entrypoint must skip DFKai local preflight for --source-gate-only and keep the call "
+            "as a direct child of that guard"
+        )
+
+    source_gate_assignments = [
+        node
+        for node in ast.walk(main_function)
+        if isinstance(node, ast.Assign)
+        and len(node.targets) == 1
+        and isinstance(node.targets[0], ast.Name)
+        and node.targets[0].id == "state"
+        and named_call(node.value, "ensure_entrypoint_can_run")
+    ]
+    if len(source_gate_assignments) != 1:
+        errors.append(
+            "official DFKai local preflight requires one direct state = ensure_entrypoint_can_run(...) source gate"
+        )
+
+    temp_worktrees = [
+        node
+        for node in ast.walk(main_function)
+        if isinstance(node, ast.With)
+        and any(
+            isinstance(item.context_expr, ast.Call)
+            and isinstance(item.context_expr.func, ast.Attribute)
+            and isinstance(item.context_expr.func.value, ast.Name)
+            and item.context_expr.func.value.id == "tempfile"
+            and item.context_expr.func.attr == "TemporaryDirectory"
+            for item in node.items
+        )
+    ]
+    if len(temp_worktrees) != 1:
+        errors.append("official DFKai local preflight must run before the temporary source worktree is created")
+    if len(source_gate_guards) == 1 and len(temp_worktrees) == 1 and len(source_gate_assignments) == 1:
+        suite_positions = statement_suite_positions(main_function)
+        source_gate_position = suite_positions.get(id(source_gate_assignments[0]))
+        guard_position = suite_positions.get(id(source_gate_guards[0]))
+        temp_position = suite_positions.get(id(temp_worktrees[0]))
+        if (
+            source_gate_position is None
+            or guard_position is None
+            or temp_position is None
+            or source_gate_position[0] is not guard_position[0]
+            or source_gate_position[1] != guard_position[1]
+            or guard_position[0] is not temp_position[0]
+            or guard_position[1] != temp_position[1]
+            or source_gate_position[2] >= guard_position[2]
+            or guard_position[2] >= temp_position[2]
+        ):
+            errors.append(
+                "official DFKai source gate, preflight, and temporary worktree must share one execution suite; "
+                "the source gate must complete before preflight and the preflight must complete before the "
+                "temporary worktree"
+            )
+    return errors
 
 
 def chatgpt_daily_dfkai_font_path() -> Path:
@@ -459,6 +1207,7 @@ def validate() -> list[str]:
         if literal not in entrypoint:
             errors.append(f"official entrypoint missing required source gate literal: {literal}")
     errors.extend(official_entrypoint_worktree_contract_errors(entrypoint))
+    errors.extend(official_entrypoint_dfkai_preflight_contract_errors(entrypoint))
 
     pr_trigger = pr_validation_workflow.split("\njobs:", 1)[0]
     for path_literal in (

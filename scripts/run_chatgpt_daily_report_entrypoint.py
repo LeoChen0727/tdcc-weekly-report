@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+from collections.abc import Callable
 import json
 import os
 import subprocess
@@ -23,6 +24,12 @@ from scripts.git_worktree_safety import (  # noqa: E402
     create_registered_full_temp_worktree,
 )
 from scripts import market_session_calendar  # noqa: E402
+from scripts.validate_chatgpt_side_pdf_contract import (  # noqa: E402
+    CHATGPT_DAILY_DEFAULT_DFKAI_FONT_PATH,
+    CHATGPT_DAILY_DFKAI_FONT_PATH_ENV,
+    chatgpt_daily_dfkai_font_path,
+    validate_dfkai_font_file,
+)
 
 
 GENERATOR_RELATIVE_PATH = Path("scripts") / "generate_chatgpt_side_daily_reports.py"
@@ -38,6 +45,9 @@ PDF_OUTPUT_ROLES = (
     "warrant_market_auxiliary",
     "market_risk_background",
 )
+WINDOWS_DFKAI_CAPABILITY_NAME = "Language.Fonts.Hant~~~und-HANT~0.0.1.0"
+WINDOWS_DFKAI_INSTALL_TIMEOUT_SECONDS = 20 * 60
+WINDOWS_DFKAI_INSTALL_DETAIL_LIMIT = 2000
 
 
 class DailyReportEntrypointError(RuntimeError):
@@ -46,6 +56,116 @@ class DailyReportEntrypointError(RuntimeError):
 
 class DailyReportMarketClosed(DailyReportEntrypointError):
     pass
+
+
+def ensure_local_dfkai_font_for_pdf_rendering(
+    *,
+    font_path: Path | None = None,
+    configured_font_path: bool | None = None,
+    platform_name: str | None = None,
+    default_font_path: Path = CHATGPT_DAILY_DEFAULT_DFKAI_FONT_PATH,
+    system_root: Path | None = None,
+    runner: Callable[..., subprocess.CompletedProcess[str]] = subprocess.run,
+    validator: Callable[[Path], Path] = validate_dfkai_font_file,
+) -> Path:
+    path = font_path or chatgpt_daily_dfkai_font_path()
+    has_configured_path = (
+        bool(os.environ.get(CHATGPT_DAILY_DFKAI_FONT_PATH_ENV, "").strip())
+        if configured_font_path is None
+        else configured_font_path
+    )
+
+    if path.exists():
+        try:
+            validated_path = validator(path)
+        except Exception as exc:
+            raise DailyReportEntrypointError(
+                "existing DFKai font failed validation; automatic install is forbidden when a file exists: "
+                f"font_path={path}: {exc}"
+            ) from exc
+        print(f"dfkai_preflight_action=reuse_existing font_path={validated_path}")
+        return validated_path
+
+    if has_configured_path:
+        raise DailyReportEntrypointError(
+            "configured DFKai font path is missing; automatic install is allowed only for the unconfigured "
+            f"canonical Windows path: env={CHATGPT_DAILY_DFKAI_FONT_PATH_ENV} font_path={path}"
+        )
+
+    current_platform = platform_name or sys.platform
+    if current_platform != "win32":
+        raise DailyReportEntrypointError(
+            "DFKai font is missing and automatic capability install is supported only on Windows: "
+            f"platform={current_platform} font_path={path}"
+        )
+    if path != default_font_path:
+        raise DailyReportEntrypointError(
+            "DFKai automatic install refuses a non-canonical target path: "
+            f"font_path={path} canonical_path={default_font_path}"
+        )
+
+    windows_root = system_root or Path(os.environ.get("SystemRoot", r"C:\Windows"))
+    dism_path = windows_root / "System32" / "dism.exe"
+    command = [
+        str(dism_path),
+        "/Online",
+        "/Add-Capability",
+        f"/CapabilityName:{WINDOWS_DFKAI_CAPABILITY_NAME}",
+        "/NoRestart",
+    ]
+    print(
+        "dfkai_preflight_action=install_missing_windows_capability "
+        f"font_path={path} timeout_seconds={WINDOWS_DFKAI_INSTALL_TIMEOUT_SECONDS}"
+    )
+    try:
+        proc = runner(
+            command,
+            check=False,
+            capture_output=True,
+            encoding="utf-8",
+            errors="replace",
+            text=True,
+            shell=False,
+            timeout=WINDOWS_DFKAI_INSTALL_TIMEOUT_SECONDS,
+        )
+    except subprocess.TimeoutExpired as exc:
+        raise DailyReportEntrypointError(
+            "DFKai Windows capability install exceeded the bounded timeout and will not be retried: "
+            f"timeout_seconds={WINDOWS_DFKAI_INSTALL_TIMEOUT_SECONDS}"
+        ) from exc
+    except OSError as exc:
+        raise DailyReportEntrypointError(
+            "DFKai Windows capability install could not start; use an elevated Windows session or install "
+            f"Traditional Chinese supplemental fonts in Windows Settings: dism_path={dism_path}: {exc}"
+        ) from exc
+
+    install_exit_code = proc.returncode
+    install_detail = (proc.stderr or proc.stdout or "no DISM output").strip()[
+        -WINDOWS_DFKAI_INSTALL_DETAIL_LIMIT:
+    ]
+    if not path.exists():
+        raise DailyReportEntrypointError(
+            "DFKai Windows capability install completed but the canonical font file is still missing: "
+            f"font_path={path} exit_code={install_exit_code} detail={install_detail}"
+        )
+
+    try:
+        validated_path = validator(path)
+    except Exception as exc:
+        raise DailyReportEntrypointError(
+            "DFKai font failed validation after Windows capability install: "
+            f"font_path={path} exit_code={install_exit_code} detail={install_detail} "
+            f"validation_error={exc}"
+        ) from exc
+    if install_exit_code != 0:
+        print(
+            "WARNING: dfkai_preflight_warning=nonzero_but_final_state_valid "
+            "canonical DFKai passed final file, identity, and glyph validation: "
+            f"font_path={validated_path} exit_code={install_exit_code} detail={install_detail}",
+            file=sys.stderr,
+        )
+    print(f"dfkai_preflight_action=installed_and_validated font_path={validated_path}")
+    return validated_path
 
 
 def configure_stdio() -> None:
@@ -376,6 +496,8 @@ def main() -> int:
             f"warrant_ready={state['warrant_ready']} "
             f"daily_pdf_ready={state['daily_pdf_ready']}"
         )
+        if not args.source_gate_only:
+            ensure_local_dfkai_font_for_pdf_rendering()
 
         with tempfile.TemporaryDirectory(prefix="tdcc_daily_report_source_") as temp_name:
             temp_root = Path(temp_name)
