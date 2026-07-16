@@ -2,14 +2,14 @@
 
 - audit_id: `mature_model_row_level_metric_contract_audit_20260711`
 - audit_version: `v2`
-- generated_at: `2026-07-15 21:37:10 Asia/Taipei`
-- stock operation rows audited: `420`
+- generated_at: `2026-07-16 14:10:03 Asia/Taipei`
+- stock operation rows audited: `418`
 
 ## Model Counts
 
 | model_id | rows | ready metric | explicit unavailable | invalid | baseline misuse |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| `price_pullback_23ema` | 332 | 68 | 264 | 0 | 0 |
+| `price_pullback_23ema` | 330 | 66 | 264 | 0 | 0 |
 | `volume_range_breakout_v2_high_position_volume_attack` | 6 | 6 | 0 | 0 | 0 |
 | `w_bottom_right_side` | 82 | 0 | 82 | 0 | 0 |
 
@@ -106,7 +106,6 @@
 | `w_bottom_right_side` | active_operation | 9941 裕融 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `w_bottom_right_side` | active_operation | 9958 世紀鋼 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | confirmed_operation | 3583 辛耘 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
-| `price_pullback_23ema` | confirmed_operation | 3605 宏致 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
 | `price_pullback_23ema` | confirmed_operation | 5443 均豪 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | confirmed_operation | 5471 松翰 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | confirmed_operation | 4105 東洋 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
@@ -272,7 +271,6 @@
 | `price_pullback_23ema` | active_operation | 9914 美利達 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 9938 百和 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
 | `price_pullback_23ema` | confirmed_operation | 3583 辛耘 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
-| `price_pullback_23ema` | confirmed_operation | 3605 宏致 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
 | `price_pullback_23ema` | confirmed_operation | 5443 均豪 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | confirmed_operation | 5471 松翰 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | confirmed_operation | 4105 東洋 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |

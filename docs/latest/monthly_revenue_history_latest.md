@@ -1,10 +1,10 @@
 # Monthly Revenue History Data Layer
 
-- generated_at: `2026-07-15 21:23:55 Asia/Taipei`
+- generated_at: `2026-07-16 14:01:02 Asia/Taipei`
 - history_id: `monthly_revenue_history`
 - history_version: `official_mops_monthly_revenue_v1`
 - source_kind: `official_mops_current_monthly_revenue_openapi;official_mops_static_monthly_revenue_html_conservative_available_date_v1`
-- source_fetch_mode: `official_current_sources`
+- source_fetch_mode: `validated_history_cache_fallback`
 - latest_build_rows: `1962`
 - total_history_rows: `50987`
 - unique_stocks: `1973`
@@ -20,8 +20,9 @@
 
 | market | source_market_name | raw_rows | standardized_rows | status |
 | --- | --- | --- | --- | --- |
-| listed | TWSE | 1071 | 1071 | ok |
-| otc | TPEX | 891 | 891 | ok |
+| listed | TWSE | 0 | 0 | fetch_failed:Error tokenizing data. C error: Expected 1 fields in line 7, saw 2 |
+| otc | TPEX | 0 | 0 | fetch_failed:HTTPSConnectionPool(host='mopsfin.twse.com.tw', port=443): Max retries exceeded with url: /opendata/t187ap05_O.csv (Caused by NameResolutionError("HTTPSConnection(host='mopsfin.twse.com.tw', port=443): Failed to resolve 'mopsfin.twse.com.tw' ([Errno -2] Name or service not known)")) |
+| all | validated_history_cache | 50987 | 50987 | fallback_reused_validated_history |
 
 ## Period Coverage
 

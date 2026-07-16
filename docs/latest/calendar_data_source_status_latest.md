@@ -1,18 +1,18 @@
 # Calendar Data Source Status
 
-- generated_at: `2026-07-16 08:16:57 Asia/Taipei`
+- generated_at: `2026-07-16 14:07:14 Asia/Taipei`
 - policy: Official/known-calendar sources are stored. Missing or blocked sources remain pending instead of being fabricated.
 
 | source | status | rows | url | note |
 |---|---|---:|---|---|
 | twse_ex_right_ex_dividend | ok | 255 | https://www.twse.com.tw/rwd/zh/exRight/TWT48U?response=json |  |
-| twse_shareholder_meeting_from_dividend_distribution | ok | 545 | https://openapi.twse.com.tw/v1/opendata/t187ap45_L | TWSE-listed shareholder meeting dates parsed from official OpenAPI t187ap45_L when available. |
-| monthly_revenue_expected_window | rule_based_expected_window | 400 | https://mops.twse.com.tw/mops/web/t05st10_ifrs | Expected monthly revenue publication window generated for tracked stocks; not a confirmed company catalyst. |
+| twse_shareholder_meeting_from_dividend_distribution | failed | 0 | https://openapi.twse.com.tw/v1/opendata/t187ap45_L | HTTPSConnectionPool(host='openapi.twse.com.tw', port=443): Max retries exceeded with url: /v1/opendata/t187ap45_L (Caused by ConnectTimeoutError(<HTTPSConnection(host='openapi.twse.com.tw', port=443) at 0x7f276d047910>, 'Connection to openapi.twse.com.tw timed out. (connect timeout=30)')) |
+| monthly_revenue_expected_window | rule_based_expected_window | 308 | https://mops.twse.com.tw/mops/web/t05st10_ifrs | Expected monthly revenue publication window generated for tracked stocks; not a confirmed company catalyst. |
 | federal_reserve_fomc | ok | 12 | https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm |  |
 | bea_release_schedule | ok | 20 | https://www.bea.gov/news/schedule |  |
 | bls_cpi_release_schedule | ok | 6 | https://www.bls.gov/schedule/news_release/cpi.htm | Parsed 6 release rows from the official BLS schedule table. |
 | bls_employment_release_schedule | ok | 5 | https://www.bls.gov/schedule/news_release/empsit.htm | Parsed 5 release rows from the official BLS schedule table. |
-| mops_shareholder_meeting_calendar | partial_coverage_twse_only | 545 | https://mops.twse.com.tw/mops/web/t108sb31new | TWSE-listed shareholder meeting dates are stored from t187ap45_L. Direct MOPS shareholder pages are blocked or unavailable from this environment, and OTC coverage still needs a stable official endpoint. |
+| mops_shareholder_meeting_calendar | blocked_or_unavailable | 0 | https://mops.twse.com.tw/mops/web/t108sb31new | TWSE-listed shareholder meeting dates are stored from t187ap45_L. Direct MOPS shareholder pages are blocked or unavailable from this environment, and OTC coverage still needs a stable official endpoint. |
 
 ## What Is Already Stored
 

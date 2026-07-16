@@ -3,96 +3,32 @@
     "market": "listed",
     "source_market_name": "TWSE",
     "source_url": "https://mopsfin.twse.com.tw/opendata/t187ap05_L.csv",
-    "raw_rows": 1071,
-    "standardized_rows": 1071,
-    "status": "ok",
-    "selected_columns": {
-      "source_table_date": "出表日期",
-      "revenue_period": "資料年月",
-      "stock_id": "公司代號",
-      "stock_name": "公司名稱",
-      "industry": "產業別",
-      "monthly_revenue": "營業收入-當月營收",
-      "previous_month_revenue": "營業收入-上月營收",
-      "last_year_month_revenue": "營業收入-去年當月營收",
-      "month_over_month_pct": "營業收入-上月比較增減(%)",
-      "latest_revenue_yoy_pct": "營業收入-去年同月增減(%)",
-      "cumulative_revenue": "累計營業收入-當月累計營收",
-      "last_year_cumulative_revenue": "累計營業收入-去年累計營收",
-      "cumulative_revenue_yoy_pct": "累計營業收入-前期比較增減(%)",
-      "note": "備註"
-    },
-    "selected_column_indexes": {
-      "source_table_date": 0,
-      "revenue_period": 1,
-      "stock_id": 2,
-      "stock_name": 3,
-      "industry": 4,
-      "monthly_revenue": 5,
-      "previous_month_revenue": 6,
-      "last_year_month_revenue": 7,
-      "month_over_month_pct": 8,
-      "latest_revenue_yoy_pct": 9,
-      "cumulative_revenue": 10,
-      "last_year_cumulative_revenue": 11,
-      "cumulative_revenue_yoy_pct": 12,
-      "note": 13
-    },
-    "selected_column_mode": "official_position_fallback",
-    "revenue_periods": [
-      "202606"
-    ],
-    "source_table_dates": [
-      "20260715"
-    ],
+    "raw_rows": 0,
+    "standardized_rows": 0,
+    "status": "fetch_failed:Error tokenizing data. C error: Expected 1 fields in line 7, saw 2\n",
     "fetch_attempts": 3
   },
   {
     "market": "otc",
     "source_market_name": "TPEX",
     "source_url": "https://mopsfin.twse.com.tw/opendata/t187ap05_O.csv",
-    "raw_rows": 891,
-    "standardized_rows": 891,
-    "status": "ok",
-    "selected_columns": {
-      "source_table_date": "出表日期",
-      "revenue_period": "資料年月",
-      "stock_id": "公司代號",
-      "stock_name": "公司名稱",
-      "industry": "產業別",
-      "monthly_revenue": "營業收入-當月營收",
-      "previous_month_revenue": "營業收入-上月營收",
-      "last_year_month_revenue": "營業收入-去年當月營收",
-      "month_over_month_pct": "營業收入-上月比較增減(%)",
-      "latest_revenue_yoy_pct": "營業收入-去年同月增減(%)",
-      "cumulative_revenue": "累計營業收入-當月累計營收",
-      "last_year_cumulative_revenue": "累計營業收入-去年累計營收",
-      "cumulative_revenue_yoy_pct": "累計營業收入-前期比較增減(%)",
-      "note": "備註"
-    },
-    "selected_column_indexes": {
-      "source_table_date": 0,
-      "revenue_period": 1,
-      "stock_id": 2,
-      "stock_name": 3,
-      "industry": 4,
-      "monthly_revenue": 5,
-      "previous_month_revenue": 6,
-      "last_year_month_revenue": 7,
-      "month_over_month_pct": 8,
-      "latest_revenue_yoy_pct": 9,
-      "cumulative_revenue": 10,
-      "last_year_cumulative_revenue": 11,
-      "cumulative_revenue_yoy_pct": 12,
-      "note": 13
-    },
-    "selected_column_mode": "official_position_fallback",
-    "revenue_periods": [
-      "202606"
-    ],
-    "source_table_dates": [
-      "20260715"
-    ],
+    "raw_rows": 0,
+    "standardized_rows": 0,
+    "status": "fetch_failed:HTTPSConnectionPool(host='mopsfin.twse.com.tw', port=443): Max retries exceeded with url: /opendata/t187ap05_O.csv (Caused by NameResolutionError(\"HTTPSConnection(host='mopsfin.twse.com.tw', port=443): Failed to resolve 'mopsfin.twse.com.tw' ([Errno -2] Name or service not known)\"))",
     "fetch_attempts": 3
+  },
+  {
+    "market": "all",
+    "source_market_name": "validated_history_cache",
+    "source_url": "data/monthly_revenue_history/monthly_revenue_history.csv",
+    "raw_rows": 50987,
+    "standardized_rows": 50987,
+    "status": "fallback_reused_validated_history",
+    "source_kind": "official_mops_current_monthly_revenue_openapi_unavailable_reused_validated_history",
+    "fallback_reason": "official_sources_unavailable_or_incomplete",
+    "fallback_fetch_date": "20260716",
+    "fallback_max_source_table_date": "20260715",
+    "fallback_age_days": 1,
+    "fallback_max_age_days": 25
   }
 ]

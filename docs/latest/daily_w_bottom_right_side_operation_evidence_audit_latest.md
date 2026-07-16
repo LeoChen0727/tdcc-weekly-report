@@ -109,7 +109,6 @@
 | w_bottom_right_side | 20260715 | 2646 | 星宇航空 | non_mainstream | 20260714 | 20260715 | candidate_evaluated | True | active_operation |  |  |
 | w_bottom_right_side | 20260715 | 1536 | 和大 | mainstream | 20260715 |  | lifecycle_suppressed | False | same_stock_already_active_operation |  |  |
 | w_bottom_right_side | 20260715 | 2913 | 農林 | non_mainstream | 20260715 |  | lifecycle_suppressed | False | same_stock_already_active_operation |  |  |
-| w_bottom_right_side | 20260715 | 2646 | 星宇航空 | non_mainstream | 20260715 |  | lifecycle_suppressed | False | same_stock_already_active_operation |  |  |
 | w_bottom_right_side | 20260715 | 1536 | 和大 | non_mainstream | 20260715 |  | lifecycle_suppressed | False | same_stock_already_active_operation |  |  |
-| w_bottom_right_side | 20260715 | 6757 | 台灣虎航 | non_mainstream | 20260715 |  | lifecycle_suppressed | False | same_stock_already_active_operation |  |  |
+| w_bottom_right_side | 20260715 | 2646 | 星宇航空 | non_mainstream | 20260715 |  | lifecycle_suppressed | False | same_stock_already_active_operation |  |  |
 | w_bottom_right_side | 20260715 | 2101 | 南港 | non_mainstream | 20260715 |  | lifecycle_suppressed | False | same_stock_already_active_operation |  |  |
