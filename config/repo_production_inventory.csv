@@ -492,3 +492,6 @@ tests/test_revenue_unreacted_range_operation_lag_bucket_audit.py,test_python,res
 scripts/build_financial_statement_pit.py,python,daily_production,active,independent shared-objective financial-statement PIT snapshot builder,,
 scripts/validate_financial_statement_pit.py,python,daily_production,active,independent financial-statement PIT source revision coverage and formal-use validator,.github/workflows/daily_model_maintenance_pr_validation.yml,
 tests/test_financial_statement_pit.py,test_python,daily_production,active,financial-statement PIT source schema revision anomaly isolation and validator regression tests,,
+scripts/build_financial_statement_historical_pit_source_audit.py,python,daily_production,active,historical financial-statement PIT source contract audit builder with protected mature-model sentinel hashes,.github/workflows/daily_model_maintenance_pr_validation.yml,
+scripts/validate_financial_statement_historical_pit_source_audit.py,python,daily_production,active,fail-closed historical financial-statement PIT source scope taxonomy availability revision and pilot validator,.github/workflows/daily_model_maintenance_pr_validation.yml,
+tests/test_financial_statement_historical_pit_source_audit.py,test_python,daily_production,active,historical financial-statement source audit pilot fail-closed workflow and mature-model sentinel regression tests,,
