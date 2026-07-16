@@ -80,7 +80,7 @@ def test_revenue_score_allows_only_exact_first_token_non_financial_events() -> N
 def test_independent_repository_fail_closed_validator_passes() -> None:
     errors, metrics = guard.validate(ROOT)
     assert errors == []
-    assert metrics["historical_pit_audit_rows"] == 41
+    assert metrics["historical_pit_audit_rows"] == 62
     assert metrics["pre_v2_legacy_history_rows"] > 0
     assert metrics["quarantine_control_count"] == 5
 

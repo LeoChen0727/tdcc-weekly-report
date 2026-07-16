@@ -4,6 +4,7 @@ import csv
 import hashlib
 import re
 import sys
+import zipfile
 from pathlib import Path
 
 
@@ -46,6 +47,21 @@ def test_source_registry_includes_official_correction_replacement_guidance() -> 
     assert guidance["formal_model_use_allowed"] == "False"
 
 
+def test_source_registry_keeps_twse_openapi_current_snapshot_only() -> None:
+    rows = validator.read_rows(validator.SOURCE_PATH)
+    source = next(
+        row
+        for row in rows
+        if row["source_id"] == "twse_openapi_financial_statement_current_snapshot"
+    )
+    assert source["official_url"].startswith("https://openapi.twse.com.tw/")
+    assert source["status"] == "current_snapshot_only_not_historical_pit"
+    assert "not company filed_at" in source["availability_semantics"]
+    assert "no company revision id or version selector" in source["revision_semantics"]
+    assert source["pit_eligible"] == "False"
+    assert source["formal_model_use_allowed"] == "False"
+
+
 def test_evidence_registry_pins_upload_times_and_revision_leakage() -> None:
     rows = validator.read_rows(validator.EVIDENCE_PATH)
     uploads = [row for row in rows if row["witness_type"] == "visible_pdf_upload"]
@@ -67,12 +83,36 @@ def test_evidence_registry_pins_upload_times_and_revision_leakage() -> None:
     assert leakage["formal_model_use_allowed"] == "False"
 
 
+def test_evidence_registry_pins_two_2348_revisions_and_one_current_payload() -> None:
+    rows = validator.read_rows(validator.EVIDENCE_PATH)
+    revision_1 = next(row for row in rows if row["witness_id"] == "2026Q1_2348_cr_revision_1")
+    revision_2 = next(row for row in rows if row["witness_id"] == "2026Q1_2348_cr_revision_2")
+    current = next(
+        row
+        for row in rows
+        if row["witness_id"] == "2026Q1_2348_cr_current_snapshot_after_two_revisions"
+    )
+    assert revision_1["revision_public_at"] == "2026-05-25T15:59:11+08:00"
+    assert revision_2["revision_public_at"] == "2026-06-03T15:38:46+08:00"
+    assert "SKEY=1" in revision_1["request_contracts"]
+    assert "SKEY=2" in revision_2["request_contracts"]
+    assert current["current_payload_sha256"] == (
+        "b2e2852b47d751bfe352925c75882d016124ed6a5bff6fd4d6964b4741efd534"
+    )
+    assert "bulk=" in current["corroborating_sha256s"]
+    assert all(row["pit_eligible"] == "False" for row in (revision_1, revision_2, current))
+    assert all(
+        row["formal_model_use_allowed"] == "False"
+        for row in (revision_1, revision_2, current)
+    )
+
+
 def test_raw_archive_manifest_binds_all_source_payload_hashes() -> None:
     archives = validator.read_rows(validator.RAW_ARCHIVE_MANIFEST_PATH)
     pilots = validator.read_rows(validator.PILOT_PATH)
     evidence = validator.read_rows(validator.EVIDENCE_PATH)
-    assert len(archives) == 20
-    assert len({row["archive_id"] for row in archives}) == 20
+    assert len(archives) == 36
+    assert len({row["archive_id"] for row in archives}) == 36
     archived_hashes = {row["raw_payload_sha256"] for row in archives}
     for row in archives:
         assert row["raw_archive_ref"] == f"sha256://{row['raw_payload_sha256']}"
@@ -94,6 +134,73 @@ def test_raw_archive_manifest_binds_all_source_payload_hashes() -> None:
     assert archived_hashes == expected_hashes
 
 
+def test_archive_lineage_binding_rejects_cross_witness_row_swap() -> None:
+    archives = [
+        dict(row) for row in validator.read_rows(validator.RAW_ARCHIVE_MANIFEST_PATH)
+    ]
+    pilots = validator.read_rows(validator.PILOT_PATH)
+    evidence = validator.read_rows(validator.EVIDENCE_PATH)
+    first = next(row for row in archives if row["archive_id"] == "t57_2330_2013Q1")
+    second = next(row for row in archives if row["archive_id"] == "t57_5347_2013Q1")
+    for field in (
+        "raw_payload_sha256",
+        "raw_archive_ref",
+        "external_archive_relative_path",
+        "raw_byte_count",
+    ):
+        first[field], second[field] = second[field], first[field]
+    errors = validator.validate_archive_lineage_bindings(pilots, evidence, archives)
+    assert any("2013Q1_2330_cr_upload" in error for error in errors)
+    assert any("2013Q1_5347_cr_upload" in error for error in errors)
+
+
+def test_archive_lineage_binding_rejects_same_witness_role_swap() -> None:
+    archives = [
+        dict(row) for row in validator.read_rows(validator.RAW_ARCHIVE_MANIFEST_PATH)
+    ]
+    pilots = validator.read_rows(validator.PILOT_PATH)
+    evidence = validator.read_rows(validator.EVIDENCE_PATH)
+    first = next(
+        row for row in archives if row["archive_id"] == "t05_api_2348_2026Q1_revision1"
+    )
+    second = next(
+        row for row in archives if row["archive_id"] == "t56_2348_2026Q1_skey1"
+    )
+    for field in (
+        "raw_payload_sha256",
+        "raw_archive_ref",
+        "external_archive_relative_path",
+        "raw_byte_count",
+    ):
+        first[field], second[field] = second[field], first[field]
+    errors = validator.validate_archive_lineage_bindings(pilots, evidence, archives)
+    assert any("t05_api_2348_2026Q1_revision1" in error for error in errors)
+    assert any("t56_2348_2026Q1_skey1" in error for error in errors)
+
+
+def test_correction_attachments_remain_selected_page_evidence() -> None:
+    archives = {
+        row["archive_id"]: row
+        for row in validator.read_rows(validator.RAW_ARCHIVE_MANIFEST_PATH)
+    }
+    expected = {
+        "t56_attachment_2816_2013Q1",
+        "t56_attachment_4552_2025Q1",
+        "t56_attachment_2348_2026Q1_skey1",
+        "t56_attachment_2348_2026Q1_skey2",
+    }
+    assert expected <= set(archives)
+    for archive_id in expected:
+        row = archives[archive_id]
+        assert row["payload_role"] == "financial_report_correction_attachment_selected_pages"
+        assert row["availability_precision"] == (
+            "correction_attachment_link_date_only_not_filed_at"
+        )
+        assert row["media_type"] == "application/pdf"
+        assert row["pit_eligible"] == "False"
+        assert row["formal_model_use_allowed"] == "False"
+
+
 def test_external_archive_validation_recomputes_bytes_and_sha(tmp_path: Path) -> None:
     payload = b"immutable raw evidence\n"
     raw_path = tmp_path / "evidence.bin"
@@ -109,6 +216,49 @@ def test_external_archive_validation_recomputes_bytes_and_sha(tmp_path: Path) ->
     errors = validator.validate_external_archive_files([row], tmp_path)
     assert any("external raw byte count drift" in error for error in errors)
     assert any("external raw SHA-256 drift" in error for error in errors)
+
+
+def test_external_archive_validation_opens_bulk_and_matches_direct_2348_member(
+    tmp_path: Path,
+) -> None:
+    member_name = "tifrs-fr1-m1-ci-cr-2348-2026Q1.html"
+    direct_payload = b"<html>immutable current 2348 payload</html>\n"
+    direct_path = tmp_path / "direct.html"
+    direct_path.write_bytes(direct_payload)
+    bulk_path = tmp_path / "bulk.zip"
+    with zipfile.ZipFile(bulk_path, "w", compression=zipfile.ZIP_DEFLATED) as archive:
+        archive.writestr(member_name, direct_payload)
+
+    rows = [
+        {
+            "archive_id": "bulk_xbrl_2026Q1",
+            "external_archive_relative_path": bulk_path.name,
+            "raw_byte_count": str(bulk_path.stat().st_size),
+            "raw_payload_sha256": hashlib.sha256(bulk_path.read_bytes()).hexdigest(),
+        },
+        {
+            "archive_id": "xbrl_2348_2026Q1_current",
+            "external_archive_relative_path": direct_path.name,
+            "raw_byte_count": str(len(direct_payload)),
+            "raw_payload_sha256": hashlib.sha256(direct_payload).hexdigest(),
+        },
+    ]
+    assert validator.validate_external_archive_files(rows, tmp_path) == []
+
+    with zipfile.ZipFile(bulk_path, "w", compression=zipfile.ZIP_DEFLATED) as archive:
+        archive.writestr(member_name, direct_payload)
+        archive.writestr(f"duplicate/{member_name}", direct_payload)
+    rows[0]["raw_byte_count"] = str(bulk_path.stat().st_size)
+    rows[0]["raw_payload_sha256"] = hashlib.sha256(bulk_path.read_bytes()).hexdigest()
+    errors = validator.validate_external_archive_files(rows, tmp_path)
+    assert any("expected exactly one 2348 2026Q1 member" in error for error in errors)
+
+    with zipfile.ZipFile(bulk_path, "w", compression=zipfile.ZIP_DEFLATED) as archive:
+        archive.writestr(f"nested/{member_name}", direct_payload)
+    rows[0]["raw_byte_count"] = str(bulk_path.stat().st_size)
+    rows[0]["raw_payload_sha256"] = hashlib.sha256(bulk_path.read_bytes()).hexdigest()
+    errors = validator.validate_external_archive_files(rows, tmp_path)
+    assert any("expected exactly one 2348 2026Q1 member" in error for error in errors)
 
 
 def test_builder_preserves_mature_model_sentinel_hash(tmp_path: Path, monkeypatch) -> None:
@@ -158,6 +308,83 @@ def test_validator_rejects_pilot_that_claims_historical_pit(tmp_path: Path) -> N
         writer.writerows(rows)
     errors = validator.validate(tmp_path)
     assert any("pilot must remain fail closed" in error for error in errors)
+
+
+def test_validator_rejects_generated_audit_that_claims_formal_use(tmp_path: Path) -> None:
+    for relative in (
+        "config/daily_model_financial_statement_historical_pit_sources.csv",
+        "config/daily_model_financial_statement_historical_pit_pilot.csv",
+        "config/daily_model_financial_statement_historical_pit_evidence.csv",
+        "config/daily_model_financial_statement_historical_pit_raw_archive_manifest.csv",
+        "output/latest/research_backtest/financial_statement_historical_pit_source_audit_latest.csv",
+        "output/latest/research_backtest/financial_statement_historical_pit_source_audit_latest.md",
+        "docs/latest/financial_statement_historical_pit_source_audit_latest.csv",
+        "docs/latest/financial_statement_historical_pit_source_audit_latest.md",
+    ):
+        src = ROOT / relative
+        dst = tmp_path / relative
+        dst.parent.mkdir(parents=True, exist_ok=True)
+        dst.write_bytes(src.read_bytes())
+    for relative in (
+        "output/latest/research_backtest/financial_statement_historical_pit_source_audit_latest.csv",
+        "docs/latest/financial_statement_historical_pit_source_audit_latest.csv",
+    ):
+        path = tmp_path / relative
+        rows = validator.read_rows(path)
+        rows[0]["formal_model_use_allowed"] = "True"
+        with path.open("w", encoding="utf-8-sig", newline="") as handle:
+            writer = csv.DictWriter(handle, fieldnames=list(rows[0]))
+            writer.writeheader()
+            writer.writerows(rows)
+    errors = validator.validate(tmp_path)
+    assert any("generated source audit must remain fail closed" in error for error in errors)
+
+
+def test_validator_rejects_generated_witness_and_archive_projection_drift(
+    tmp_path: Path,
+) -> None:
+    for relative in (
+        "config/daily_model_financial_statement_historical_pit_sources.csv",
+        "config/daily_model_financial_statement_historical_pit_pilot.csv",
+        "config/daily_model_financial_statement_historical_pit_evidence.csv",
+        "config/daily_model_financial_statement_historical_pit_raw_archive_manifest.csv",
+        "output/latest/research_backtest/financial_statement_historical_pit_source_audit_latest.csv",
+        "output/latest/research_backtest/financial_statement_historical_pit_source_audit_latest.md",
+        "docs/latest/financial_statement_historical_pit_source_audit_latest.csv",
+        "docs/latest/financial_statement_historical_pit_source_audit_latest.md",
+    ):
+        src = ROOT / relative
+        dst = tmp_path / relative
+        dst.parent.mkdir(parents=True, exist_ok=True)
+        dst.write_bytes(src.read_bytes())
+    for relative in (
+        "output/latest/research_backtest/financial_statement_historical_pit_source_audit_latest.csv",
+        "docs/latest/financial_statement_historical_pit_source_audit_latest.csv",
+    ):
+        path = tmp_path / relative
+        rows = validator.read_rows(path)
+        witness = next(
+            row
+            for row in rows
+            if row["record_type"] == "evidence_witness"
+            and row["record_id"] == "2026Q1_2348_cr_revision_1"
+        )
+        witness["revision_evidence"] += ";tampered=true"
+        witness["blocker"] = "noncanonical_witness_blocker"
+        archive = next(
+            row
+            for row in rows
+            if row["record_type"] == "raw_archive"
+            and row["record_id"] == "t05_api_2348_2026Q1_revision1"
+        )
+        archive["blocker"] = "noncanonical_archive_blocker"
+        with path.open("w", encoding="utf-8-sig", newline="") as handle:
+            writer = csv.DictWriter(handle, fieldnames=list(rows[0]))
+            writer.writeheader()
+            writer.writerows(rows)
+    errors = validator.validate(tmp_path)
+    assert any("generated witness projection drift" in error for error in errors)
+    assert any("generated raw archive projection drift" in error for error in errors)
 
 
 def test_validator_rejects_revision_leakage_state_drift(tmp_path: Path) -> None:
