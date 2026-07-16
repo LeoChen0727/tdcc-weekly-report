@@ -131,6 +131,7 @@ def test_builder_preserves_mature_model_sentinel_hash(tmp_path: Path, monkeypatc
     outputs = builder.build_and_write(tmp_path, registry)
     assert sentinel.read_bytes() == before
     assert all(path.is_file() for path in outputs.values())
+    assert all(b"\r\n" not in path.read_bytes() for path in outputs.values())
 
 
 def test_validator_rejects_pilot_that_claims_historical_pit(tmp_path: Path) -> None:

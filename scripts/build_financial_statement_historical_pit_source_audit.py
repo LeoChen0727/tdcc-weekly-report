@@ -180,7 +180,7 @@ def build_rows() -> list[dict[str, str]]:
 def write_csv(path: Path, rows: list[dict[str, str]]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", encoding="utf-8-sig", newline="") as handle:
-        writer = csv.DictWriter(handle, fieldnames=AUDIT_COLUMNS)
+        writer = csv.DictWriter(handle, fieldnames=AUDIT_COLUMNS, lineterminator="\n")
         writer.writeheader()
         writer.writerows(rows)
 
@@ -372,7 +372,7 @@ def build_and_write(root: Path = ROOT, sentinel_registry_path: Path | None = Non
     text = markdown(rows)
     for key in ("output_md", "docs_md"):
         outputs[key].parent.mkdir(parents=True, exist_ok=True)
-        outputs[key].write_text(text, encoding="utf-8")
+        outputs[key].write_text(text, encoding="utf-8", newline="\n")
     after, after_errors = _sentinel_snapshot(root, sentinels)
     errors = [*after_errors, *compare_protected_sentinel_snapshots(before, after)]
     if errors:
