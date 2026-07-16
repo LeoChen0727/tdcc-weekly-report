@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4119 旭富
 
 ## Metadata
-- generated_at: 2026-07-15 22:27:06 Asia/Taipei
+- generated_at: 2026-07-16 22:27:30 Asia/Taipei
 - stock_id: 4119
 - stock_name: 旭富
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 304
+- latest_price_date: 20260716
+- price_rows: 305
 - latest_tdcc_date: 20260709
 - tdcc_rows: 11
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 44.35
-- high: 46
-- low: 44.35
-- close: 46
-- volume: 152121
-- ma5: 45.27
-- ema23_primary: 44.38
-- distance_to_ema23_pct: 3.64
-- ma20: 44.44
-- ma60: 44.01
-- ma120: 48.18
-- return_5d: 2.79
-- return_20d: 9.13
-- volume_ratio: 0.87
-- distance_to_ma20_pct_auxiliary: 3.52
-- distance_to_high_60_pct: -6.03
+- date: 20260716
+- open: 46
+- high: 47.4
+- low: 46
+- close: 47
+- volume: 209673
+- ma5: 45.72
+- ema23_primary: 44.6
+- distance_to_ema23_pct: 5.38
+- ma20: 44.68
+- ma60: 43.98
+- ma120: 48.15
+- return_5d: 5.03
+- return_20d: 11.64
+- volume_ratio: 1.16
+- distance_to_ma20_pct_auxiliary: 5.19
+- distance_to_high_60_pct: -3.98
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,42.15,42.3,41.9,42.1,92394,42.43,-0.78,41.7,46.15,0.33
 20260617,41.95,43.45,41.95,43.35,259292,42.51,1.98,41.74,46,0.92
 20260618,43.8,44.75,43.7,44.2,242729,42.65,3.63,41.8,45.87,0.84
 20260622,44.3,44.3,42.8,42.8,262588,42.66,0.32,41.83,45.71,0.9
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,46.5,46.5,45.15,45.5,114013,44.2,2.93,44.09,44.14,0.64
 20260714,45.8,45.8,44.5,44.6,137807,44.24,0.82,44.24,44.05,0.77
 20260715,44.35,46,44.35,46,152121,44.38,3.64,44.44,44.01,0.87
+20260716,46,47.4,46,47,209673,44.6,5.38,44.68,43.98,1.16
 ```
 
 ## Latest TDCC Snapshot

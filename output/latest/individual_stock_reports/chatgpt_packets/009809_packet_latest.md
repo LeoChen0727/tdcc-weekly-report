@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009809 富邦淨零ESG50
 
 ## Metadata
-- generated_at: 2026-07-15 22:26:20 Asia/Taipei
+- generated_at: 2026-07-16 22:26:20 Asia/Taipei
 - stock_id: 009809
 - stock_name: 富邦淨零ESG50
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260715
-- price_rows: 37
+- latest_price_date: 20260716
+- price_rows: 38
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 17.67
-- high: 17.99
-- low: 17.65
-- close: 17.95
-- volume: 1876584
-- ma5: 17.83
-- ema23_primary: 17.67
-- distance_to_ema23_pct: 1.61
-- ma20: 17.87
-- ma60: 17.41
-- ma120: 17.41
-- return_5d: 0.96
-- return_20d: 3.1
-- volume_ratio: 1.76
-- distance_to_ma20_pct_auxiliary: 0.47
-- distance_to_high_60_pct: -3.13
+- date: 20260716
+- open: 17.5
+- high: 18.04
+- low: 17.5
+- close: 18.04
+- volume: 1733238
+- ma5: 17.86
+- ema23_primary: 17.7
+- distance_to_ema23_pct: 1.94
+- ma20: 17.9
+- ma60: 17.43
+- ma120: 17.43
+- return_5d: 0.73
+- return_20d: 3.68
+- volume_ratio: 1.51
+- distance_to_ma20_pct_auxiliary: 0.79
+- distance_to_high_60_pct: -2.64
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,17.49,17.49,17.25,17.4,164351,16.72,4.1,16.91,16.91,0.16
 20260617,17.27,17.38,17.2,17.38,226086,16.77,3.63,16.93,16.93,0.23
 20260618,17.52,17.67,17.49,17.67,989415,16.85,4.89,16.97,16.97,1.01
 20260622,18,18.34,18,18.33,1724545,16.97,8.02,17.1,17.03,1.7
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,18.1,18.1,17.79,17.92,179936,17.65,1.56,17.82,17.39,0.19
 20260714,17.78,17.78,17.21,17.59,1521446,17.64,-0.29,17.84,17.4,1.55
 20260715,17.67,17.99,17.65,17.95,1876584,17.67,1.61,17.87,17.41,1.76
+20260716,17.5,18.04,17.5,18.04,1733238,17.7,1.94,17.9,17.43,1.51
 ```
 
 ## Latest TDCC Snapshot

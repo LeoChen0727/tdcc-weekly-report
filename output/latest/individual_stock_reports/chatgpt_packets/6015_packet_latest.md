@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6015 宏遠證
 
 ## Metadata
-- generated_at: 2026-07-15 22:27:23 Asia/Taipei
+- generated_at: 2026-07-16 22:27:55 Asia/Taipei
 - stock_id: 6015
 - stock_name: 宏遠證
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 169
+- latest_price_date: 20260716
+- price_rows: 170
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 17.1
-- high: 17.6
-- low: 16.95
-- close: 17.55
-- volume: 2114000
-- ma5: 17.49
-- ema23_primary: 17.77
-- distance_to_ema23_pct: -1.23
-- ma20: 17.83
-- ma60: 16.98
-- ma120: 15.21
-- return_5d: 0.86
-- return_20d: -6.9
-- volume_ratio: 0.65
-- distance_to_ma20_pct_auxiliary: -1.58
-- distance_to_high_60_pct: -26.88
+- date: 20260716
+- open: 17.4
+- high: 17.75
+- low: 17.2
+- close: 17.3
+- volume: 1472000
+- ma5: 17.32
+- ema23_primary: 17.73
+- distance_to_ema23_pct: -2.43
+- ma20: 17.78
+- ma60: 17.05
+- ma120: 15.25
+- return_5d: -4.68
+- return_20d: -5.98
+- volume_ratio: 0.47
+- distance_to_ma20_pct_auxiliary: -2.69
+- distance_to_high_60_pct: -27.92
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,19.05,19.15,18.4,18.4,3754000,18.27,0.7,18.64,15.59,1.45
 20260617,18.35,18.5,18.05,18.2,2808000,18.27,-0.36,18.82,15.66,1.07
 20260618,18.2,18.4,18.05,18.35,2761000,18.27,0.42,18.97,15.74,1.06
 20260622,18.6,19.05,18.35,19,4538000,18.33,3.64,19.14,15.84,1.61
@@ -160,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,17.8,18,17.15,17.3,3500000,17.88,-3.24,17.98,16.84,1.01
 20260714,17.25,17.35,16.3,16.8,3992000,17.79,-5.56,17.9,16.9,1.17
 20260715,17.1,17.6,16.95,17.55,2114000,17.77,-1.23,17.83,16.98,0.65
+20260716,17.4,17.75,17.2,17.3,1472000,17.73,-2.43,17.78,17.05,0.47
 ```
 
 ## Latest TDCC Snapshot
@@ -194,12 +194,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 6015 | 宏遠證 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/07/07 2.公司名稱:宏遠證券股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:公告本公司自行結算一一五年六月份合併損益：  (1)六月份稅前淨(損)益:345,221仟元，累計至六月底稅前淨(損)益:1,444,858仟元  (2)六月份稅後淨(損)益:309,237仟元，累計至六月底稅後淨(損)益:1,314,455仟元  (3)六月份每股稅後(損)益:0.77元，累計至六月底每股稅後(損)益:3.33元 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260716 | 6015 | 宏遠證 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/07/07 2.公司名稱:宏遠證券股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:公告本公司自行結算一一五年六月份合併損益：  (1)六月份稅前淨(損)益:345,221仟元，累計至六月底稅前淨(損)益:1,444,858仟元  (2)六月份稅後淨(損)益:309,237仟元，累計至六月底稅後淨(損)益:1,314,455仟元  (3)六月份每股稅後(損)益:0.77元，累計至六月底每股稅後(損)益:3.33元 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 6015 | 宏遠證 | 17 | 16 | 5 | 10 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260716 | 6015 | 宏遠證 | 1 | 1 | 4 | 9 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

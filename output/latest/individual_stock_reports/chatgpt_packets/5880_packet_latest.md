@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5880 合庫金
 
 ## Metadata
-- generated_at: 2026-07-15 22:27:22 Asia/Taipei
+- generated_at: 2026-07-16 22:27:54 Asia/Taipei
 - stock_id: 5880
 - stock_name: 合庫金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 304
+- latest_price_date: 20260716
+- price_rows: 305
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 25.25
-- high: 25.7
-- low: 25.25
-- close: 25.35
-- volume: 19993845
-- ma5: 25.2
-- ema23_primary: 24.67
-- distance_to_ema23_pct: 2.77
-- ma20: 24.84
-- ma60: 23.68
-- ma120: 23.65
-- return_5d: 1.81
-- return_20d: 4.97
-- volume_ratio: 0.91
-- distance_to_ma20_pct_auxiliary: 2.04
-- distance_to_high_60_pct: -1.36
+- date: 20260716
+- open: 25.2
+- high: 25.5
+- low: 25.15
+- close: 25.5
+- volume: 17727214
+- ma5: 25.28
+- ema23_primary: 24.74
+- distance_to_ema23_pct: 3.08
+- ma20: 24.89
+- ma60: 23.71
+- ma120: 23.66
+- return_5d: 1.59
+- return_20d: 3.66
+- volume_ratio: 0.85
+- distance_to_ma20_pct_auxiliary: 2.46
+- distance_to_high_60_pct: -0.78
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,24.25,24.7,24.1,24.6,41356167,23.46,4.84,23.28,23.27,1.47
 20260617,24.55,25,24.5,24.75,28807379,23.57,5,23.38,23.3,1
 20260618,24.75,25,24.7,24.75,33174894,23.67,4.56,23.48,23.34,1.11
 20260622,24.75,24.75,24.35,24.45,23219136,23.74,3.01,23.57,23.37,0.77
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,25,25.3,25,25.2,19660420,24.55,2.64,24.73,23.64,0.88
 20260714,25.3,25.3,24.85,25.2,20420218,24.61,2.42,24.78,23.66,0.93
 20260715,25.25,25.7,25.25,25.35,19993845,24.67,2.77,24.84,23.68,0.91
+20260716,25.2,25.5,25.15,25.5,17727214,24.74,3.08,24.89,23.71,0.85
 ```
 
 ## Latest TDCC Snapshot
@@ -188,12 +188,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 5880 | 合庫金 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | continued_many_days | 1.事實發生日:115/07/14 2.公司名稱:合作金庫金融控股股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:無 5.發生緣由:同主旨 6.因應措施:不適用 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):                 當月自結  當月自結  累計稅前  累計稅後  累計每股                 稅前淨利  稅後淨利    淨利      淨利    稅後淨利                  (億元)    (億元)    (億元)    (億元)     (元) 合庫金控(合併)    31.84     21.81    170.04    134.00     0.82 合庫銀行(合併)    27.87     22.76    142.69    115.04     0.88 合庫資產(合併)     0.50      0.39      2.52      1.98     0.63 合庫票券(個別)     0.84      0.77      3.91      3.23     0.66 合庫證券(合併)     2.29      2.00     15.28     13.88     2.67 合庫人壽(個別)     2.06      1.73     12.05     10.34     1.50 合庫投信(個別)     0.01      0.01      0.02      0.02     0.06 註：上述集團獲利資料係屬自結數字，未經會計師查核或核閱；金控合併累計稅後 淨利歸屬於母公司業主為128.89億元、非控制權益為5.11億元。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260716 | 5880 | 合庫金 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | stale_signal | 1.董事會決議日期或發生變動日期:115/07/15 2.人員別（請輸入董事長或總經理）:總經理 3.舊任者姓名:不適用 4.舊任者簡歷:不適用 5.新任者姓名:吳春敏 6.新任者簡歷:合作金庫證券股份有限公司總經理 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:新任 8.異動原因:新任 9.新任生效日期:115/07/15 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 依據金融監督管理委員會115/07/15金管證券字第1150344889號函辦理。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 5880 | 合庫金 | 33 | 4 | 5 | 10 | 20 | continued_many_days | 連續 33 日上榜，需區分醞釀延續或訊號鈍化。 |
+| 20260716 | 5880 | 合庫金 | 34 | 5 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

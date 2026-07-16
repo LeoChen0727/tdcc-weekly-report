@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7291 華星光統一61購02
 
 ## Metadata
-- generated_at: 2026-07-15 22:27:45 Asia/Taipei
+- generated_at: 2026-07-16 22:28:29 Asia/Taipei
 - stock_id: 7291
 - stock_name: 華星光統一61購02
 - packet_status: partial_rawdata_packet

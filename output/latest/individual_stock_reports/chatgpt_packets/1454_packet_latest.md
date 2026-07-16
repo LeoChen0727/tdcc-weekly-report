@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1454 台富
 
 ## Metadata
-- generated_at: 2026-07-15 22:26:25 Asia/Taipei
+- generated_at: 2026-07-16 22:26:27 Asia/Taipei
 - stock_id: 1454
 - stock_name: 台富
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 302
+- latest_price_date: 20260716
+- price_rows: 303
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 12.75
-- high: 13
-- low: 12.75
+- date: 20260716
+- open: 13
+- high: 13.15
+- low: 12.95
 - close: 13
-- volume: 17492
-- ma5: 12.78
-- ema23_primary: 12.87
-- distance_to_ema23_pct: 1.02
-- ma20: 12.84
+- volume: 24439
+- ma5: 12.83
+- ema23_primary: 12.88
+- distance_to_ema23_pct: 0.94
+- ma20: 12.85
 - ma60: 13.08
 - ma120: 13.18
-- return_5d: 0.39
-- return_20d: -0.76
-- volume_ratio: 0.55
-- distance_to_ma20_pct_auxiliary: 1.29
+- return_5d: 1.96
+- return_20d: 2.77
+- volume_ratio: 0.82
+- distance_to_ma20_pct_auxiliary: 1.15
 - distance_to_high_60_pct: -12.46
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,13,13,12.65,12.65,70927,12.97,-2.5,12.84,13.09,0.84
 20260617,12.8,12.85,12.7,12.8,40351,12.96,-1.23,12.84,13.09,0.5
 20260618,12.8,12.9,12.8,12.85,26716,12.95,-0.78,12.84,13.09,0.33
 20260622,12.9,13,12.85,12.95,22012,12.95,-0.01,12.86,13.09,0.28
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,12.65,12.65,12.65,12.65,24050,12.87,-1.71,12.86,13.1,0.74
 20260714,12.85,12.85,12.6,12.7,35540,12.86,-1.22,12.84,13.09,1.09
 20260715,12.75,13,12.75,13,17492,12.87,1.02,12.84,13.08,0.55
+20260716,13,13.15,12.95,13,24439,12.88,0.94,12.85,13.08,0.82
 ```
 
 ## Latest TDCC Snapshot

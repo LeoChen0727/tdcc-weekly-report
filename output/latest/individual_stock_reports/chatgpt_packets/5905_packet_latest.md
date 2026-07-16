@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5905 南仁湖
 
 ## Metadata
-- generated_at: 2026-07-15 22:27:22 Asia/Taipei
+- generated_at: 2026-07-16 22:27:55 Asia/Taipei
 - stock_id: 5905
 - stock_name: 南仁湖
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 169
+- latest_price_date: 20260716
+- price_rows: 170
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 8.65
-- high: 9.17
-- low: 8.57
-- close: 8.99
-- volume: 1936000
-- ma5: 8.59
-- ema23_primary: 8.48
-- distance_to_ema23_pct: 6.08
-- ma20: 8.51
-- ma60: 8.25
+- date: 20260716
+- open: 9
+- high: 9.3
+- low: 8.95
+- close: 9.09
+- volume: 1946000
+- ma5: 8.69
+- ema23_primary: 8.53
+- distance_to_ema23_pct: 6.61
+- ma20: 8.54
+- ma60: 8.26
 - ma120: 8.41
-- return_5d: 4.05
-- return_20d: 7.54
-- volume_ratio: 2.04
-- distance_to_ma20_pct_auxiliary: 5.67
-- distance_to_high_60_pct: -1.96
+- return_5d: 5.7
+- return_20d: 7.96
+- volume_ratio: 1.92
+- distance_to_ma20_pct_auxiliary: 6.42
+- distance_to_high_60_pct: -2.26
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,8.5,8.51,8.33,8.42,713000,8.18,2.99,8.11,8.11,1.87
 20260617,8.42,9.09,8.42,8.9,2335000,8.24,8.06,8.15,8.12,4.85
 20260618,9,9,8.58,8.7,1369000,8.27,5.14,8.18,8.14,2.55
 20260622,8.7,8.77,8.56,8.59,1083000,8.3,3.48,8.21,8.15,1.84
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,8.6,8.6,8.3,8.3,659000,8.42,-1.38,8.47,8.25,0.72
 20260714,8.31,8.78,8.31,8.56,1202000,8.43,1.56,8.48,8.25,1.31
 20260715,8.65,9.17,8.57,8.99,1936000,8.48,6.08,8.51,8.25,2.04
+20260716,9,9.3,8.95,9.09,1946000,8.53,6.61,8.54,8.26,1.92
 ```
 
 ## Latest TDCC Snapshot
@@ -189,14 +189,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 5905 | 南仁湖 | pullback_rebound | 回檔後短線轉強 | 63.0 |  |  |  |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
-| 20260715 | 5905 | 南仁湖 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260715 | 5905 | 南仁湖 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260716 | 5905 | 南仁湖 | pullback_rebound | 回檔後短線轉強 | 63.0 |  |  |  |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260716 | 5905 | 南仁湖 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260716 | 5905 | 南仁湖 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 5905 | 南仁湖 | 2 | 2 | 2 | 5 | 7 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| 20260716 | 5905 | 南仁湖 | 3 | 2 | 3 | 6 | 8 | continued_2_3d | 連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009802 富邦旗艦50
 
 ## Metadata
-- generated_at: 2026-07-15 22:26:20 Asia/Taipei
+- generated_at: 2026-07-16 22:26:19 Asia/Taipei
 - stock_id: 009802
 - stock_name: 富邦旗艦50
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260715
-- price_rows: 37
+- latest_price_date: 20260716
+- price_rows: 38
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 18.61
-- high: 18.87
-- low: 18.49
-- close: 18.84
-- volume: 2438634
-- ma5: 18.76
-- ema23_primary: 19.18
-- distance_to_ema23_pct: -1.78
-- ma20: 19.29
-- ma60: 19.56
-- ma120: 19.56
-- return_5d: -0.26
-- return_20d: -5.42
-- volume_ratio: 0.51
-- distance_to_ma20_pct_auxiliary: -2.32
-- distance_to_high_60_pct: -10.88
+- date: 20260716
+- open: 18.66
+- high: 18.88
+- low: 18.42
+- close: 18.73
+- volume: 2458393
+- ma5: 18.72
+- ema23_primary: 19.14
+- distance_to_ema23_pct: -2.16
+- ma20: 19.23
+- ma60: 19.54
+- ma120: 19.54
+- return_5d: -0.9
+- return_20d: -5.83
+- volume_ratio: 0.53
+- distance_to_ma20_pct_auxiliary: -2.6
+- distance_to_high_60_pct: -11.4
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,19.94,19.97,19.64,19.89,5458572,19.54,1.81,19.89,19.89,0.46
 20260617,19.77,19.82,19.54,19.77,4772949,19.56,1.09,19.88,19.88,0.42
 20260618,19.98,20.03,19.8,19.89,5456416,19.58,1.56,19.88,19.88,0.49
 20260622,20.13,20.33,20.1,20.16,9290150,19.63,2.69,19.98,19.9,0.84
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,19.17,19.41,18.75,18.83,2089751,19.3,-2.44,19.4,19.62,0.42
 20260714,18.83,18.83,17.86,18.24,6480669,19.21,-5.06,19.34,19.58,1.28
 20260715,18.61,18.87,18.49,18.84,2438634,19.18,-1.78,19.29,19.56,0.51
+20260716,18.66,18.88,18.42,18.73,2458393,19.14,-2.16,19.23,19.54,0.53
 ```
 
 ## Latest TDCC Snapshot
@@ -188,9 +188,9 @@ no_rows,True
 | no rows |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 9802 | 鈺齊-KY | 1 | 0 | 0.0 | 0.0 |  | no_signal |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

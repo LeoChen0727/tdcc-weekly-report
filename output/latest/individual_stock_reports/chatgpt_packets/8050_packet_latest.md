@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8050 廣積
 
 ## Metadata
-- generated_at: 2026-07-15 22:27:50 Asia/Taipei
+- generated_at: 2026-07-16 22:28:37 Asia/Taipei
 - stock_id: 8050
 - stock_name: 廣積
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 169
+- latest_price_date: 20260716
+- price_rows: 170
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -111,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 62
-- high: 63.6
-- low: 60.5
+- date: 20260716
+- open: 61.3
+- high: 62.5
+- low: 60
 - close: 61.1
-- volume: 3000000
-- ma5: 60
-- ema23_primary: 56.65
-- distance_to_ema23_pct: 7.85
-- ma20: 55.97
-- ma60: 52.27
-- ma120: 47.06
-- return_5d: 6.08
-- return_20d: 6.63
-- volume_ratio: 2.28
-- distance_to_ma20_pct_auxiliary: 9.18
+- volume: 2296000
+- ma5: 60.26
+- ema23_primary: 57.02
+- distance_to_ema23_pct: 7.15
+- ma20: 56.26
+- ma60: 52.59
+- ma120: 47.21
+- return_5d: 2.17
+- return_20d: 10.69
+- volume_ratio: 1.65
+- distance_to_ma20_pct_auxiliary: 8.6
 - distance_to_high_60_pct: -7.56
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,58,58.1,54.9,55.2,906000,54.96,0.43,56.8,47.43,1.21
 20260617,55.3,55.3,53.9,54.9,1014000,54.96,-0.11,56.98,47.65,1.49
 20260618,55.1,56,55,55.7,684000,55.02,1.24,57.2,47.89,1.05
 20260622,55.9,57,55.2,56.2,932000,55.12,1.96,57.32,48.15,1.34
@@ -153,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,63,63,60.4,60.9,4156000,55.91,8.93,55.66,51.64,3.7
 20260714,65,65,57.5,60,3543000,56.25,6.67,55.77,51.96,2.91
 20260715,62,63.6,60.5,61.1,3000000,56.65,7.85,55.97,52.27,2.28
+20260716,61.3,62.5,60,61.1,2296000,57.02,7.15,56.26,52.59,1.65
 ```
 
 ## Latest TDCC Snapshot
@@ -187,12 +187,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 8050 | 廣積 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/08 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.發放普通股股利種類及金額: (1)盈餘分配現金股利新台幣288,847,092元，每股配發1.42848716元。 (2)資本公積發放現金新台幣145,419,571元，每股發放0.71916940元。 4.除權（息）交易日:115/07/24 5.最後過戶日:115/07/27 6.停止過戶起始日期:115/07/28 7.停止過戶截止日期:115/08/01 8.除權（息）基準日:115/08/01 9.債券最後申請轉換日期:115/07/03 10.債券停止轉換起始日期:115/07/07 11.債券停止轉換截止日期:115/08/01 12.普通股現金股利發放日期:115/08/14 13.以外幣發放現金股利(請填入「是」或「否」):否 14.外幣現金股利發放幣別:不適用 15.外幣現金股利發放對象:不適用 16.外幣現金股利匯率決定方式:不適用 17.其他應敘明事項: (1)因本公司庫藏股轉讓予員工，致使流通在外股數發生變動， 依董事會之決議，授權董事長調整配息率；每壹股配發現金(股利) 2.14765656(即每壹股盈餘分配1.42848716元，每壹股資本公積發 放0.71916940元)。 (2)本公司國內第六次無擔保轉換公司債轉換價格從63.3元調整為 60.9元，並自115年8月1日開始適用。 (3)本次以超過票面金額發行股票所得溢額之資本公積發放現金 不須課稅。 (4)凡持有本公司股票而尚未辦理過戶之股東，務請股東於民國 115年07月27日(星期一)辦理過戶手續。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260716 | 8050 | 廣積 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/08 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.發放普通股股利種類及金額: (1)盈餘分配現金股利新台幣288,847,092元，每股配發1.42848716元。 (2)資本公積發放現金新台幣145,419,571元，每股發放0.71916940元。 4.除權（息）交易日:115/07/24 5.最後過戶日:115/07/27 6.停止過戶起始日期:115/07/28 7.停止過戶截止日期:115/08/01 8.除權（息）基準日:115/08/01 9.債券最後申請轉換日期:115/07/03 10.債券停止轉換起始日期:115/07/07 11.債券停止轉換截止日期:115/08/01 12.普通股現金股利發放日期:115/08/14 13.以外幣發放現金股利(請填入「是」或「否」):否 14.外幣現金股利發放幣別:不適用 15.外幣現金股利發放對象:不適用 16.外幣現金股利匯率決定方式:不適用 17.其他應敘明事項: (1)因本公司庫藏股轉讓予員工，致使流通在外股數發生變動， 依董事會之決議，授權董事長調整配息率；每壹股配發現金(股利) 2.14765656(即每壹股盈餘分配1.42848716元，每壹股資本公積發 放0.71916940元)。 (2)本公司國內第六次無擔保轉換公司債轉換價格從63.3元調整為 60.9元，並自115年8月1日開始適用。 (3)本次以超過票面金額發行股票所得溢額之資本公積發放現金 不須課稅。 (4)凡持有本公司股票而尚未辦理過戶之股東，務請股東於民國 115年07月27日(星期一)辦理過戶手續。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 8050 | 廣積 | 2 | 1 | 4 | 5 | 5 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260716 | 8050 | 廣積 | 3 | 2 | 4 | 6 | 6 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

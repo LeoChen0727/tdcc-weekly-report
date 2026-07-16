@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3357 臺慶科
 
 ## Metadata
-- generated_at: 2026-07-15 22:26:58 Asia/Taipei
+- generated_at: 2026-07-16 22:27:18 Asia/Taipei
 - stock_id: 3357
 - stock_name: 臺慶科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 169
+- latest_price_date: 20260716
+- price_rows: 170
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -58,7 +58,7 @@
 - pdf_visible: true
 - action_rating_display_zh: 可分批買進
 - model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
 - action_summary_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。
 - entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
 - position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
@@ -73,7 +73,7 @@
 - internal_use_only: true
 - action_rating: scale_in
 - action_rating_label_zh: 可分批買進
-- confidence_level: high
+- confidence_level: medium
 - thesis_state: healthy_pullback
 - entry_style: pullback_to_23ema
 - position_sizing: half_position
@@ -92,7 +92,6 @@
 
 ### entry_prerequisites
 - model_recommended
-- decision_score_high
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -119,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 248.5
-- high: 250.5
-- low: 241.5
-- close: 250
-- volume: 2074000
-- ma5: 260.2
-- ema23_primary: 280.93
-- distance_to_ema23_pct: -11.01
-- ma20: 295.8
-- ma60: 253.22
-- ma120: 206.81
-- return_5d: -4.76
-- return_20d: -22.36
-- volume_ratio: 0.37
-- distance_to_ma20_pct_auxiliary: -15.48
-- distance_to_high_60_pct: -32.71
+- date: 20260716
+- open: 248
+- high: 248.5
+- low: 235.5
+- close: 236.5
+- volume: 2053000
+- ma5: 253.1
+- ema23_primary: 277.23
+- distance_to_ema23_pct: -14.69
+- ma20: 292.57
+- ma60: 254.12
+- ma120: 207.45
+- return_5d: -13.05
+- return_20d: -21.43
+- volume_ratio: 0.41
+- distance_to_ma20_pct_auxiliary: -19.17
+- distance_to_high_60_pct: -36.34
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,335.5,341.5,301,301,14552000,272.08,10.63,283.25,208.84,2
 20260617,297,320,297,316.5,9386000,275.78,14.77,287.52,211.47,1.33
 20260618,322,348,322,348,10030000,281.8,23.49,292.23,214.72,1.37
 20260622,366,371.5,336,346.5,11846000,287.19,20.65,295.6,218,1.5
@@ -161,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,276,277,255.5,258,2921000,287.17,-10.16,301.75,250.88,0.44
 20260714,255.5,260,235,246,3152000,283.74,-13.3,299.4,252.07,0.51
 20260715,248.5,250.5,241.5,250,2074000,280.93,-11.01,295.8,253.22,0.37
+20260716,248,248.5,235.5,236.5,2053000,277.23,-14.69,292.57,254.12,0.41
 ```
 
 ## Latest TDCC Snapshot
@@ -195,12 +194,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 3357 | 臺慶科 | revenue_pullback | 營收成長股價回檔 | 83.0 |  |  |  |  |  | stale_signal | 1.證券名稱: 萬潤科技股份有限公司普通股 2.交易日期:115/6/24~116/6/23 3.董事會通過日期: 民國115年6月24日 4.其他核決日期: 不適用 5.交易數量、每單位價格及交易總金額: 交易數量:含115年4月處分180,000股,總數量不超過500,000股  每單位價格：以實際交易日市價及金額辦理 交易總金額：依股票實際成交價格及交割股數為準，處分金額依法另行公告 6.處分利益（或損失）（取得有價證券者不適用）: 本次處分為出售透過其他綜合損益按公允價值衡量之金融資產， 處分結果將計入資產負債表之權益項下，並不影響本公司當期損益 7.與交易標的公司之關係: 無 8.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 435,000股；帳面價值NT$487,200仟元；0.45%；無。 9.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列之有價證券投 資（含本次交易）占公司最近期財務報表中總資產及歸屬於母公司業主之權益之比例 暨最近期財務報表中營運資金數額: 76.38%；114.05%；NT$-362,230仟元。 10.取得或處分之具體目的: 活化資產，充實營運資金。 11.本次交易表示異議董事之意見: 無 12.本次交易為關係人交易: 否 13.交易相對人及其與公司之關係: 不適用 14.監察人承認或審計委員會同意日期: 民國115年6月24日 15.前已就同一件事件發布重大訊息日期: 不適用 16.其他敘明事項: 114年度個體財報,流動負債中含可轉換公司債917,618仟元,導致營運資金為負數。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260716 | 3357 | 臺慶科 | revenue_pullback | 營收成長股價回檔 | 68.0 |  |  |  |  |  | stale_signal | 1.證券名稱: 萬潤科技股份有限公司普通股 2.交易日期:115/6/24~116/6/23 3.董事會通過日期: 民國115年6月24日 4.其他核決日期: 不適用 5.交易數量、每單位價格及交易總金額: 交易數量:含115年4月處分180,000股,總數量不超過500,000股  每單位價格：以實際交易日市價及金額辦理 交易總金額：依股票實際成交價格及交割股數為準，處分金額依法另行公告 6.處分利益（或損失）（取得有價證券者不適用）: 本次處分為出售透過其他綜合損益按公允價值衡量之金融資產， 處分結果將計入資產負債表之權益項下，並不影響本公司當期損益 7.與交易標的公司之關係: 無 8.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 435,000股；帳面價值NT$487,200仟元；0.45%；無。 9.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列之有價證券投 資（含本次交易）占公司最近期財務報表中總資產及歸屬於母公司業主之權益之比例 暨最近期財務報表中營運資金數額: 76.38%；114.05%；NT$-362,230仟元。 10.取得或處分之具體目的: 活化資產，充實營運資金。 11.本次交易表示異議董事之意見: 無 12.本次交易為關係人交易: 否 13.交易相對人及其與公司之關係: 不適用 14.監察人承認或審計委員會同意日期: 民國115年6月24日 15.前已就同一件事件發布重大訊息日期: 不適用 16.其他敘明事項: 114年度個體財報,流動負債中含可轉換公司債917,618仟元,導致營運資金為負數。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 3357 | 臺慶科 | 13 | 13 | 5 | 10 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260716 | 3357 | 臺慶科 | 1 | 1 | 4 | 9 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7823 奧義賽博-KY創
 
 ## Metadata
-- generated_at: 2026-07-15 22:27:49 Asia/Taipei
+- generated_at: 2026-07-16 22:28:35 Asia/Taipei
 - stock_id: 7823
 - stock_name: 奧義賽博-KY創
 - packet_status: standard_rawdata_packet
-- latest_price_date: 20260715
-- price_rows: 102
+- latest_price_date: 20260716
+- price_rows: 103
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 84.2
-- high: 84.8
-- low: 83.6
-- close: 84.8
-- volume: 17040
-- ma5: 85.82
-- ema23_primary: 84.07
-- distance_to_ema23_pct: 0.87
-- ma20: 81.61
-- ma60: 88.08
-- ma120: 88.1
-- return_5d: 6
-- return_20d: 2.17
-- volume_ratio: 0.51
-- distance_to_ma20_pct_auxiliary: 3.91
-- distance_to_high_60_pct: -23.6
+- date: 20260716
+- open: 82
+- high: 84.9
+- low: 82
+- close: 84.9
+- volume: 35244
+- ma5: 86.04
+- ema23_primary: 84.14
+- distance_to_ema23_pct: 0.91
+- ma20: 81.75
+- ma60: 88.19
+- ma120: 88.06
+- return_5d: 1.31
+- return_20d: 3.54
+- volume_ratio: 1.02
+- distance_to_ma20_pct_auxiliary: 3.85
+- distance_to_high_60_pct: -23.51
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,83,83,81,82,18068,90.92,-9.81,95.16,87.92,0.38
 20260617,82,82,82,82,2093,90.18,-9.07,93.91,87.94,0.06
 20260618,82.4,82.5,82,82.1,12160,89.5,-8.27,92.56,87.96,0.37
 20260622,81.5,82,81,81.5,18204,88.84,-8.26,91.29,87.97,0.64
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,89.9,91,85,87.9,48957,84.02,4.62,81.5,87.93,1.5
 20260714,85,86.5,83.5,83.8,36336,84,-0.24,81.52,87.99,1.08
 20260715,84.2,84.8,83.6,84.8,17040,84.07,0.87,81.61,88.08,0.51
+20260716,82,84.9,82,84.9,35244,84.14,0.91,81.75,88.19,1.02
 ```
 
 ## Latest TDCC Snapshot

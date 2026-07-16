@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2801 彰銀
 
 ## Metadata
-- generated_at: 2026-07-15 22:26:48 Asia/Taipei
+- generated_at: 2026-07-16 22:27:02 Asia/Taipei
 - stock_id: 2801
 - stock_name: 彰銀
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 304
+- latest_price_date: 20260716
+- price_rows: 305
 - latest_tdcc_date: 20260709
 - tdcc_rows: 11
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 23.6
-- high: 23.9
-- low: 23.6
-- close: 23.75
-- volume: 12944249
-- ma5: 23.83
-- ema23_primary: 23.18
-- distance_to_ema23_pct: 2.47
-- ma20: 23.43
-- ma60: 21.79
-- ma120: 21.25
-- return_5d: 1.06
-- return_20d: 4.86
-- volume_ratio: 0.43
-- distance_to_ma20_pct_auxiliary: 1.35
-- distance_to_high_60_pct: -2.06
+- date: 20260716
+- open: 23.8
+- high: 24.05
+- low: 23.7
+- close: 23.95
+- volume: 15103001
+- ma5: 23.84
+- ema23_primary: 23.24
+- distance_to_ema23_pct: 3.05
+- ma20: 23.49
+- ma60: 21.83
+- ma120: 21.27
+- return_5d: 0.21
+- return_20d: 5.04
+- volume_ratio: 0.5
+- distance_to_ma20_pct_auxiliary: 1.96
+- distance_to_high_60_pct: -1.24
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,22.75,22.9,22.6,22.8,21365037,21.45,6.29,21.14,20.96,0.58
 20260617,22.95,23.1,22.65,22.95,26548647,21.58,6.37,21.27,21,0.71
 20260618,22.95,23.15,22.65,22.85,38635314,21.68,5.38,21.4,21.04,1.01
 20260622,22.85,22.85,22.65,22.85,20842731,21.78,4.91,21.52,21.08,0.55
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,24.05,24.2,23.85,23.85,22219932,23.08,3.33,23.33,21.72,0.68
 20260714,24,24,23.35,23.6,16497347,23.12,2.05,23.38,21.76,0.53
 20260715,23.6,23.9,23.6,23.75,12944249,23.18,2.47,23.43,21.79,0.43
+20260716,23.8,24.05,23.7,23.95,15103001,23.24,3.05,23.49,21.83,0.5
 ```
 
 ## Latest TDCC Snapshot
@@ -189,12 +189,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 2801 | 彰銀 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | stale_signal | 1.事實發生日:115/07/08 2.公司名稱:彰化銀行　 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:公告本公司115年6月份合併自結盈餘。 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 本公司115年6月份合併稅前盈餘24.01億元，合併稅後盈餘22.04億元，累計合併稅前盈 餘131.13億元，累計合併稅前每股盈餘1.09元，累計合併稅後盈餘113.14億元，累計合 併稅後每股盈餘0.94元。以上數字係本公司自行結算金額。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260716 | 2801 | 彰銀 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | stale_signal | 1.事實發生日:115/07/08 2.公司名稱:彰化銀行　 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:公告本公司115年6月份合併自結盈餘。 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 本公司115年6月份合併稅前盈餘24.01億元，合併稅後盈餘22.04億元，累計合併稅前盈 餘131.13億元，累計合併稅前每股盈餘1.09元，累計合併稅後盈餘113.14億元，累計合 併稅後每股盈餘0.94元。以上數字係本公司自行結算金額。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 2801 | 彰銀 | 20 | 9 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260716 | 2801 | 彰銀 | 21 | 10 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

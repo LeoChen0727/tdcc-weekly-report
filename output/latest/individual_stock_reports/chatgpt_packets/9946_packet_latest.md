@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9946 三發地產
 
 ## Metadata
-- generated_at: 2026-07-15 22:27:58 Asia/Taipei
+- generated_at: 2026-07-16 22:28:50 Asia/Taipei
 - stock_id: 9946
 - stock_name: 三發地產
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 304
+- latest_price_date: 20260716
+- price_rows: 305
 - latest_tdcc_date: 20260703
 - tdcc_rows: 32
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 18.7
-- high: 18.7
-- low: 18.1
-- close: 18.15
-- volume: 470073
-- ma5: 19.02
-- ema23_primary: 19.02
-- distance_to_ema23_pct: -4.55
-- ma20: 19.61
-- ma60: 17.63
+- date: 20260716
+- open: 18.25
+- high: 18.45
+- low: 18
+- close: 18.3
+- volume: 228352
+- ma5: 18.7
+- ema23_primary: 18.96
+- distance_to_ema23_pct: -3.46
+- ma20: 19.53
+- ma60: 17.66
 - ma120: 17.51
-- return_5d: -7.87
-- return_20d: -5.96
-- volume_ratio: 0.43
-- distance_to_ma20_pct_auxiliary: -7.45
-- distance_to_high_60_pct: -16.93
+- return_5d: -8.04
+- return_20d: -8.27
+- volume_ratio: 0.26
+- distance_to_ma20_pct_auxiliary: -6.29
+- distance_to_high_60_pct: -16.25
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,20.1,21,19.5,19.95,4544523,17.38,14.78,17.14,16.98,4.03
 20260617,19.8,20.55,19.6,20.5,1978222,17.64,16.21,17.33,17.01,1.64
 20260618,20.7,21.85,20.4,20.6,3024717,17.89,15.16,17.52,17.04,2.26
 20260622,20.45,20.45,19.3,19.45,2002077,18.02,7.95,17.65,17.06,1.41
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,19.8,19.8,18.7,18.7,927998,19.15,-2.37,19.64,17.59,0.74
 20260714,18.7,18.8,18.2,18.45,590800,19.09,-3.38,19.67,17.61,0.49
 20260715,18.7,18.7,18.1,18.15,470073,19.02,-4.55,19.61,17.63,0.43
+20260716,18.25,18.45,18,18.3,228352,18.96,-3.46,19.53,17.66,0.26
 ```
 
 ## Latest TDCC Snapshot

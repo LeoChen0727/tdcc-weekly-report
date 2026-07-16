@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2467 志聖
 
 ## Metadata
-- generated_at: 2026-07-15 22:26:42 Asia/Taipei
+- generated_at: 2026-07-16 22:26:53 Asia/Taipei
 - stock_id: 2467
 - stock_name: 志聖
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 304
+- latest_price_date: 20260716
+- price_rows: 305
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -58,7 +58,7 @@
 - pdf_visible: true
 - action_rating_display_zh: 可分批買進
 - model_category_display_zh: 回檔後短線轉強
-- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
 - action_summary_zh: 符合 回檔後短線轉強，價格結構尚未破壞，操作評級為「可分批買進」。
 - entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
 - position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
@@ -73,7 +73,7 @@
 - internal_use_only: true
 - action_rating: scale_in
 - action_rating_label_zh: 可分批買進
-- confidence_level: high
+- confidence_level: medium
 - thesis_state: healthy_pullback
 - entry_style: pullback_to_23ema
 - position_sizing: half_position
@@ -92,7 +92,6 @@
 
 ### entry_prerequisites
 - model_recommended
-- decision_score_high
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -119,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 543
-- high: 589
-- low: 535
-- close: 589
-- volume: 2699229
-- ma5: 565.6
-- ema23_primary: 590.45
-- distance_to_ema23_pct: -0.25
-- ma20: 594.75
-- ma60: 588.44
-- ma120: 467.2
-- return_5d: -3.92
-- return_20d: 2.26
-- volume_ratio: 1.31
-- distance_to_ma20_pct_auxiliary: -0.97
-- distance_to_high_60_pct: -14.88
+- date: 20260716
+- open: 589
+- high: 630
+- low: 588
+- close: 620
+- volume: 4531455
+- ma5: 579.2
+- ema23_primary: 592.92
+- distance_to_ema23_pct: 4.57
+- ma20: 597.55
+- ma60: 589.27
+- ma120: 470.25
+- return_5d: 12.32
+- return_20d: 9.93
+- volume_ratio: 2.04
+- distance_to_ma20_pct_auxiliary: 3.76
+- distance_to_high_60_pct: -10.4
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,590,594,564,564,1204735,580.53,-2.85,596.4,541.07,0.52
 20260617,560,590,560,585,1257474,580.9,0.71,597.95,544.69,0.57
 20260618,585,605,576,599,1650001,582.41,2.85,598.65,548.75,0.75
 20260622,617,644,614,630,1743491,586.38,7.44,600,553.12,0.8
@@ -161,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,580,609,577,595,2269356,595.55,-0.09,594.9,587.44,1.18
 20260714,586,586,536,536,1981077,590.59,-9.24,594.1,587.79,1.01
 20260715,543,589,535,589,2699229,590.45,-0.25,594.75,588.44,1.31
+20260716,589,630,588,620,4531455,592.92,4.57,597.55,589.27,2.04
 ```
 
 ## Latest TDCC Snapshot
@@ -195,18 +194,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 2467 | 志聖 | pullback_rebound | 回檔後短線轉強 | 84.0 |  |  |  |  | no_signal | repeated_but_no_breakout | 1.事實發生日:115/07/13 2.公司名稱:志聖工業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:本公司115年Q2累計合併稅後自結損益，其中歸屬於本公司業主之 稅後淨利為11.06億元，每股盈餘7.16元。                                    115年Q2            115年Q2累計                                 ---------------      --------------- 合併營業收入：                       27.83億              50.44億 合併稅前淨利：                        8.78億              14.92億 合併本期淨利：                        6.69億              11.51億 本期淨利歸屬於母公司業主:              6.40億              11.06億 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
-| 20260715 | 2467 | 志聖 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  | no_signal | repeated_but_no_breakout | 1.事實發生日:115/07/13 2.公司名稱:志聖工業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:本公司115年Q2累計合併稅後自結損益，其中歸屬於本公司業主之 稅後淨利為11.06億元，每股盈餘7.16元。                                    115年Q2            115年Q2累計                                 ---------------      --------------- 合併營業收入：                       27.83億              50.44億 合併稅前淨利：                        8.78億              14.92億 合併本期淨利：                        6.69億              11.51億 本期淨利歸屬於母公司業主:              6.40億              11.06億 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260716 | 2467 | 志聖 | pullback_rebound | 回檔後短線轉強 | 70.0 |  |  |  |  | call_strong_inflow | repeated_but_no_breakout | 1.事實發生日:115/07/13 2.公司名稱:志聖工業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:本公司115年Q2累計合併稅後自結損益，其中歸屬於本公司業主之 稅後淨利為11.06億元，每股盈餘7.16元。                                    115年Q2            115年Q2累計                                 ---------------      --------------- 合併營業收入：                       27.83億              50.44億 合併稅前淨利：                        8.78億              14.92億 合併本期淨利：                        6.69億              11.51億 本期淨利歸屬於母公司業主:              6.40億              11.06億 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260716 | 2467 | 志聖 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | call_strong_inflow | repeated_but_no_breakout | 1.事實發生日:115/07/13 2.公司名稱:志聖工業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:本公司115年Q2累計合併稅後自結損益，其中歸屬於本公司業主之 稅後淨利為11.06億元，每股盈餘7.16元。                                    115年Q2            115年Q2累計                                 ---------------      --------------- 合併營業收入：                       27.83億              50.44億 合併稅前淨利：                        8.78億              14.92億 合併本期淨利：                        6.69億              11.51億 本期淨利歸屬於母公司業主:              6.40億              11.06億 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260716 | 2467 | 志聖 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | early_entry_watch |  | call_strong_inflow | repeated_but_no_breakout | 1.事實發生日:115/07/13 2.公司名稱:志聖工業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:本公司115年Q2累計合併稅後自結損益，其中歸屬於本公司業主之 稅後淨利為11.06億元，每股盈餘7.16元。                                    115年Q2            115年Q2累計                                 ---------------      --------------- 合併營業收入：                       27.83億              50.44億 合併稅前淨利：                        8.78億              14.92億 合併本期淨利：                        6.69億              11.51億 本期淨利歸屬於母公司業主:              6.40億              11.06億 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 2467 | 志聖 | 13 | 8 | 5 | 10 | 18 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 18 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260716 | 2467 | 志聖 | 1 | 1 | 4 | 9 | 18 | repeated_but_no_breakout | 近 10 日上榜 9 次、近 20 日上榜 18 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 2467 | 志聖 | 53 | 0 | 2606770.0 | 0.0 |  | no_signal |
+| 20260716 | 2467 | 志聖 | 53 | 0 | 11116510.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

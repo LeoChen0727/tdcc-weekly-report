@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5227 立凱-KY
 
 ## Metadata
-- generated_at: 2026-07-15 22:27:17 Asia/Taipei
+- generated_at: 2026-07-16 22:27:46 Asia/Taipei
 - stock_id: 5227
 - stock_name: 立凱-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 169
+- latest_price_date: 20260716
+- price_rows: 170
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 30.8
-- high: 32.4
-- low: 30.75
-- close: 31.6
-- volume: 934000
-- ma5: 31.5
-- ema23_primary: 32.82
-- distance_to_ema23_pct: -3.73
-- ma20: 35.68
-- ma60: 27.8
-- ma120: 26.46
-- return_5d: -8.01
-- return_20d: -6.92
-- volume_ratio: 1.01
-- distance_to_ma20_pct_auxiliary: -11.43
-- distance_to_high_60_pct: -32.33
+- date: 20260716
+- open: 32.45
+- high: 32.45
+- low: 30
+- close: 31.25
+- volume: 837000
+- ma5: 31.05
+- ema23_primary: 32.69
+- distance_to_ema23_pct: -4.41
+- ma20: 35.38
+- ma60: 27.95
+- ma120: 26.5
+- return_5d: -6.72
+- return_20d: -16.22
+- volume_ratio: 0.89
+- distance_to_ma20_pct_auxiliary: -11.66
+- distance_to_high_60_pct: -33.08
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,37.3,37.3,37.3,37.3,446000,27.06,37.82,26.79,23.83,2.01
 20260617,41,41,38.6,41,4080000,28.23,45.26,27.56,24.09,10.49
 20260618,41.2,41.2,38.8,39.9,2101000,29.2,36.65,28.27,24.35,4.38
 20260622,40,43.6,40,43,1414000,30.35,41.69,29.1,24.67,2.57
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,30,31.5,29.25,31,877000,33.09,-6.31,35.78,27.49,1.03
 20260714,30.95,31.75,30.25,31.25,1041000,32.93,-5.11,35.8,27.64,1.17
 20260715,30.8,32.4,30.75,31.6,934000,32.82,-3.73,35.68,27.8,1.01
+20260716,32.45,32.45,30,31.25,837000,32.69,-4.41,35.38,27.95,0.89
 ```
 
 ## Latest TDCC Snapshot

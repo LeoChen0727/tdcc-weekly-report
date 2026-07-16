@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00911 兆豐洲際半導體
 
 ## Metadata
-- generated_at: 2026-07-15 22:26:19 Asia/Taipei
+- generated_at: 2026-07-16 22:26:18 Asia/Taipei
 - stock_id: 00911
 - stock_name: 兆豐洲際半導體
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260715
-- price_rows: 37
+- latest_price_date: 20260716
+- price_rows: 38
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 62.65
-- high: 62.85
-- low: 62.05
-- close: 62.6
-- volume: 919740
-- ma5: 61.47
-- ema23_primary: 63.19
-- distance_to_ema23_pct: -0.93
-- ma20: 64.71
-- ma60: 63.09
-- ma120: 63.09
-- return_5d: 0.64
-- return_20d: -6.36
-- volume_ratio: 1.15
-- distance_to_ma20_pct_auxiliary: -3.26
-- distance_to_high_60_pct: -9.8
+- date: 20260716
+- open: 58.1
+- high: 58.1
+- low: 56.7
+- close: 57.1
+- volume: 831139
+- ma5: 60.77
+- ema23_primary: 62.68
+- distance_to_ema23_pct: -8.91
+- ma20: 64.23
+- ma60: 62.94
+- ma120: 62.94
+- return_5d: -5.78
+- return_20d: -14.46
+- volume_ratio: 1.06
+- distance_to_ma20_pct_auxiliary: -11.1
+- distance_to_high_60_pct: -17.72
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,67.45,67.45,66.5,66.75,1118053,61.05,9.34,61.5,61.5,1.82
 20260617,64.95,65.1,64.3,64.95,683863,61.37,5.83,61.68,61.68,1.11
 20260618,65.05,65.15,64.3,65.05,711827,61.68,5.47,61.85,61.85,1.15
 20260622,67,67.95,66.3,67.8,696075,62.19,9.02,62.43,62.14,1.09
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,63,63.6,61.75,61.8,1338501,63.46,-2.61,65.03,63.17,1.77
 20260714,63.45,63.45,60.15,60.9,1168021,63.24,-3.7,64.92,63.11,1.48
 20260715,62.65,62.85,62.05,62.6,919740,63.19,-0.93,64.71,63.09,1.15
+20260716,58.1,58.1,56.7,57.1,831139,62.68,-8.91,64.23,62.94,1.06
 ```
 
 ## Latest TDCC Snapshot

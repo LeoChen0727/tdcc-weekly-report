@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6156 松上
 
 ## Metadata
-- generated_at: 2026-07-15 22:27:25 Asia/Taipei
+- generated_at: 2026-07-16 22:27:58 Asia/Taipei
 - stock_id: 6156
 - stock_name: 松上
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 169
+- latest_price_date: 20260716
+- price_rows: 170
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 27.3
-- high: 27.85
-- low: 26.75
-- close: 26.8
-- volume: 1852000
-- ma5: 27.41
+- date: 20260716
+- open: 26.8
+- high: 27.2
+- low: 26.2
+- close: 26.3
+- volume: 1577000
+- ma5: 27.13
 - ema23_primary: 26.25
-- distance_to_ema23_pct: 2.1
-- ma20: 27.12
-- ma60: 22.15
-- ma120: 21.44
-- return_5d: -5.63
-- return_20d: 18.58
-- volume_ratio: 0.31
-- distance_to_ma20_pct_auxiliary: -1.2
-- distance_to_high_60_pct: -22.32
+- distance_to_ema23_pct: 0.18
+- ma20: 27.3
+- ma60: 22.24
+- ma120: 21.47
+- return_5d: -5.05
+- return_20d: 14.85
+- volume_ratio: 0.27
+- distance_to_ma20_pct_auxiliary: -3.65
+- distance_to_high_60_pct: -23.77
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,23.75,24.25,22.45,22.9,5761000,19.89,15.11,19.48,19.69,5.71
 20260617,22.5,23.65,22.25,23.35,2793000,20.18,15.7,19.73,19.75,2.47
 20260618,23.9,24.5,23.6,24.35,4596000,20.53,18.61,20.02,19.84,3.46
 20260622,26.3,26.75,26.05,26.75,2700000,21.05,27.1,20.39,19.96,1.85
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,29.6,29.6,28.05,28.35,7392000,26.1,8.61,26.58,21.93,1.2
 20260714,27.95,27.95,25.9,27.25,3198000,26.2,4.01,26.91,22.05,0.52
 20260715,27.3,27.85,26.75,26.8,1852000,26.25,2.1,27.12,22.15,0.31
+20260716,26.8,27.2,26.2,26.3,1577000,26.25,0.18,27.3,22.24,0.27
 ```
 
 ## Latest TDCC Snapshot
@@ -188,13 +188,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 6156 | 松上 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
-| 20260715 | 6156 | 松上 | revenue_pullback | 營收成長股價回檔 | 77.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260716 | 6156 | 松上 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260716 | 6156 | 松上 | revenue_pullback | 營收成長股價回檔 | 83.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 6156 | 松上 | 4 | 4 | 4 | 7 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260716 | 6156 | 松上 | 5 | 3 | 5 | 7 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

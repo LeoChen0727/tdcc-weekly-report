@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4105 東洋
 
 ## Metadata
-- generated_at: 2026-07-15 22:27:06 Asia/Taipei
+- generated_at: 2026-07-16 22:27:29 Asia/Taipei
 - stock_id: 4105
 - stock_name: 東洋
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 169
+- latest_price_date: 20260716
+- price_rows: 170
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 77.9
-- high: 79
-- low: 77.9
-- close: 78.4
-- volume: 1255000
-- ma5: 77.78
-- ema23_primary: 76.36
-- distance_to_ema23_pct: 2.67
-- ma20: 76.02
-- ma60: 74.73
-- ma120: 77.82
-- return_5d: 0.64
-- return_20d: 5.8
-- volume_ratio: 1.32
-- distance_to_ma20_pct_auxiliary: 3.13
+- date: 20260716
+- open: 78.4
+- high: 79.5
+- low: 78.3
+- close: 78.7
+- volume: 1015000
+- ma5: 78.08
+- ema23_primary: 76.56
+- distance_to_ema23_pct: 2.8
+- ma20: 76.27
+- ma60: 74.81
+- ma120: 77.79
+- return_5d: 1.94
+- return_20d: 6.78
+- volume_ratio: 1.05
+- distance_to_ma20_pct_auxiliary: 3.19
 - distance_to_high_60_pct: -1.01
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,74.3,74.3,73.6,73.7,673000,74.26,-0.76,74.08,74.44,1.75
 20260617,73.8,73.9,73.3,73.7,624000,74.22,-0.7,74.07,74.34,1.59
 20260618,73.7,74.2,73.2,73.5,972000,74.16,-0.89,74.03,74.24,2.27
 20260622,73.6,73.7,73.2,73.7,963000,74.12,-0.56,74.02,74.14,2.04
@@ -160,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,77.9,78.6,77.3,78.4,893000,76.05,3.09,75.63,74.61,0.96
 20260714,78.4,78.4,77.2,77.6,700000,76.18,1.87,75.81,74.67,0.76
 20260715,77.9,79,77.9,78.4,1255000,76.36,2.67,76.02,74.73,1.32
+20260716,78.4,79.5,78.3,78.7,1015000,76.56,2.8,76.27,74.81,1.05
 ```
 
 ## Latest TDCC Snapshot
@@ -194,12 +194,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 4105 | 東洋 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260716 | 4105 | 東洋 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 4105 | 東洋 | 1 | 1 | 1 | 2 | 3 | first_seen | 首次上榜或資料有限，需後續確認。 |
+| 20260716 | 4105 | 東洋 | 2 | 2 | 2 | 2 | 4 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | status |

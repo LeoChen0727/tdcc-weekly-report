@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1529 樂事綠能
 
 ## Metadata
-- generated_at: 2026-07-15 22:26:27 Asia/Taipei
+- generated_at: 2026-07-16 22:26:30 Asia/Taipei
 - stock_id: 1529
 - stock_name: 樂事綠能
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 304
+- latest_price_date: 20260716
+- price_rows: 305
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 21.05
-- high: 21.05
-- low: 20.35
-- close: 20.45
-- volume: 1438776
-- ma5: 21.41
-- ema23_primary: 22.15
-- distance_to_ema23_pct: -7.69
-- ma20: 22.32
-- ma60: 22.26
+- date: 20260716
+- open: 20.45
+- high: 20.65
+- low: 20.2
+- close: 20.55
+- volume: 375967
+- ma5: 21.05
+- ema23_primary: 22.02
+- distance_to_ema23_pct: -6.67
+- ma20: 22.21
+- ma60: 22.21
 - ma120: 23.52
-- return_5d: -9.31
-- return_20d: -11.85
-- volume_ratio: 1.93
-- distance_to_ma20_pct_auxiliary: -8.38
-- distance_to_high_60_pct: -20.74
+- return_5d: -8.05
+- return_20d: -9.67
+- volume_ratio: 0.51
+- distance_to_ma20_pct_auxiliary: -7.47
+- distance_to_high_60_pct: -20.35
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,23.3,23.3,22.65,22.75,480525,22.56,0.83,22.35,22.88,0.34
 20260617,22.9,23.4,22.8,22.9,557399,22.59,1.37,22.48,22.82,0.4
 20260618,23.2,23.4,22.65,22.9,820152,22.62,1.26,22.59,22.77,0.58
 20260622,23,23.1,22.45,22.7,1299557,22.62,0.34,22.67,22.72,0.9
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,22.1,22.1,21.3,21.45,517963,22.42,-4.33,22.56,22.37,0.76
 20260714,21.8,21.8,20.2,21.05,976832,22.31,-5.64,22.46,22.32,1.41
 20260715,21.05,21.05,20.35,20.45,1438776,22.15,-7.69,22.32,22.26,1.93
+20260716,20.45,20.65,20.2,20.55,375967,22.02,-6.67,22.21,22.21,0.51
 ```
 
 ## Latest TDCC Snapshot

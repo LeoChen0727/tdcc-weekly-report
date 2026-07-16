@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7743 金利食安
 
 ## Metadata
-- generated_at: 2026-07-15 22:27:47 Asia/Taipei
+- generated_at: 2026-07-16 22:28:33 Asia/Taipei
 - stock_id: 7743
 - stock_name: 金利食安
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 159
+- latest_price_date: 20260716
+- price_rows: 160
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 20
-- high: 21
+- date: 20260716
+- open: 21
+- high: 21.6
 - low: 20
 - close: 21
-- volume: 6000
-- ma5: 20.46
-- ema23_primary: 20.07
-- distance_to_ema23_pct: 4.65
-- ma20: 20.06
-- ma60: 19.77
+- volume: 19000
+- ma5: 20.58
+- ema23_primary: 20.14
+- distance_to_ema23_pct: 4.24
+- ma20: 20.16
+- ma60: 19.79
 - ma120: 20.14
-- return_5d: 1.94
-- return_20d: 13.51
-- volume_ratio: 0.32
-- distance_to_ma20_pct_auxiliary: 4.7
+- return_5d: 2.94
+- return_20d: 10.24
+- volume_ratio: 1.04
+- distance_to_ma20_pct_auxiliary: 4.19
 - distance_to_high_60_pct: -8.3
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,19.05,19.05,18.95,19.05,23000,19.19,-0.74,19.19,19.88,1.74
 20260615,19.2,19.55,19.1,19.1,10000,19.18,-0.44,19.14,19.87,0.78
 20260616,19.1,19.6,19.1,19.55,8000,19.21,1.75,19.1,19.85,0.62
 20260617,19.55,19.65,19.55,19.6,9000,19.25,1.84,19.11,19.82,0.71
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,20.7,20.7,20.1,20.6,19000,19.98,3.1,19.86,19.77,1.05
 20260714,20.6,20.6,20,20,7000,19.98,0.09,19.93,19.76,0.38
 20260715,20,21,20,21,6000,20.07,4.65,20.06,19.77,0.32
+20260716,21,21.6,20,21,19000,20.14,4.24,20.16,19.79,1.04
 ```
 
 ## Latest TDCC Snapshot

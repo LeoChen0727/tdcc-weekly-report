@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2105 正新
 
 ## Metadata
-- generated_at: 2026-07-15 22:26:34 Asia/Taipei
+- generated_at: 2026-07-16 22:26:41 Asia/Taipei
 - stock_id: 2105
 - stock_name: 正新
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 304
+- latest_price_date: 20260716
+- price_rows: 305
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 32.85
-- high: 32.85
-- low: 32.2
-- close: 32.85
-- volume: 7831565
-- ma5: 32.59
-- ema23_primary: 31.93
-- distance_to_ema23_pct: 2.88
-- ma20: 31.15
-- ma60: 32.08
-- ma120: 31.37
-- return_5d: 1.23
-- return_20d: -3.1
-- volume_ratio: 0.42
-- distance_to_ma20_pct_auxiliary: 5.46
-- distance_to_high_60_pct: -6.94
+- date: 20260716
+- open: 32.95
+- high: 33.6
+- low: 32.9
+- close: 33.55
+- volume: 18591644
+- ma5: 32.86
+- ema23_primary: 32.06
+- distance_to_ema23_pct: 4.63
+- ma20: 31.13
+- ma60: 32.09
+- ma120: 31.39
+- return_5d: 4.19
+- return_20d: -1.18
+- volume_ratio: 0.99
+- distance_to_ma20_pct_auxiliary: 7.77
+- distance_to_high_60_pct: -4.96
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,33.95,34.1,33.2,33.95,21384982,33.36,1.76,33.27,32.18,0.98
 20260617,29.55,30.7,29.45,29.7,86620457,33.06,-10.16,33.15,32.17,3.37
 20260618,29.95,30.4,29.65,29.65,38482794,32.77,-9.53,33.01,32.17,1.42
 20260622,29.9,30.1,29.7,30.05,20028178,32.55,-7.67,32.92,32.17,0.73
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,32.6,33.25,32.6,32.85,10115158,31.77,3.39,31.28,32.08,0.51
 20260714,33,33,32.3,32.65,9671782,31.85,2.52,31.2,32.08,0.49
 20260715,32.85,32.85,32.2,32.85,7831565,31.93,2.88,31.15,32.08,0.42
+20260716,32.95,33.6,32.9,33.55,18591644,32.06,4.63,31.13,32.09,0.99
 ```
 
 ## Latest TDCC Snapshot
@@ -188,17 +188,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 2105 | 正新 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | 1.發生變動日期:115/07/02 2.功能性委員會名稱:薪資報酬委員會 3.舊任者姓名: 陳水金 朱博湧 林(捷)忠 4.舊任者簡歷: 陳水金，元升會計師事務所執業會計師/所長。 朱博湧，中太陽光科技股份有限公司董事長。 林(捷)忠，臺中榮民總醫院兒童胃腸科主治醫師。 5.新任者姓名: 朱博湧 許恩得 林(捷)忠 6.新任者簡歷: 朱博湧，中太陽光科技股份有限公司董事長。 許恩得，車王電子股份有限公司獨立董事。 林(捷)忠，臺中榮民總醫院兒童胃腸科主治醫師。 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 新任 8.異動原因:配合董事暨獨立董事任期屆滿全面改選後重新委任。 9.原任期（例xx/xx/xx ~ xx/xx/xx）:112/07/05/~115/05/30 10.新任生效日期:115/07/02-118/05/25 11.其他應敘明事項:薪酬委員任期與委任之董事會屆期相同。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260716 | 2105 | 正新 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | call_strong_inflow | stale_signal | 1.發生變動日期:115/07/02 2.功能性委員會名稱:薪資報酬委員會 3.舊任者姓名: 陳水金 朱博湧 林(捷)忠 4.舊任者簡歷: 陳水金，元升會計師事務所執業會計師/所長。 朱博湧，中太陽光科技股份有限公司董事長。 林(捷)忠，臺中榮民總醫院兒童胃腸科主治醫師。 5.新任者姓名: 朱博湧 許恩得 林(捷)忠 6.新任者簡歷: 朱博湧，中太陽光科技股份有限公司董事長。 許恩得，車王電子股份有限公司獨立董事。 林(捷)忠，臺中榮民總醫院兒童胃腸科主治醫師。 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 新任 8.異動原因:配合董事暨獨立董事任期屆滿全面改選後重新委任。 9.原任期（例xx/xx/xx ~ xx/xx/xx）:112/07/05/~115/05/30 10.新任生效日期:115/07/02-118/05/25 11.其他應敘明事項:薪酬委員任期與委任之董事會屆期相同。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 2105 | 正新 | 9 | 7 | 5 | 9 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260716 | 2105 | 正新 | 10 | 8 | 5 | 10 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 2105 | 正新 | 9 | 0 | 124400.0 | 0.0 |  | no_signal |
+| 20260716 | 2105 | 正新 | 9 | 0 | 3052650.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

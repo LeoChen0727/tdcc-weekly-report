@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00963 中信全球高股息
 
 ## Metadata
-- generated_at: 2026-07-15 22:26:20 Asia/Taipei
+- generated_at: 2026-07-16 22:26:19 Asia/Taipei
 - stock_id: 00963
 - stock_name: 中信全球高股息
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260715
-- price_rows: 37
+- latest_price_date: 20260716
+- price_rows: 38
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
+- date: 20260716
 - open: 12.95
-- high: 13.01
-- low: 12.95
-- close: 12.99
-- volume: 912467
-- ma5: 12.85
-- ema23_primary: 12.71
-- distance_to_ema23_pct: 2.23
-- ma20: 12.64
-- ma60: 12.65
-- ma120: 12.65
-- return_5d: 1.96
-- return_20d: 0.85
-- volume_ratio: 0.88
-- distance_to_ma20_pct_auxiliary: 2.76
-- distance_to_high_60_pct: -0.15
+- high: 12.96
+- low: 12.91
+- close: 12.94
+- volume: 930817
+- ma5: 12.89
+- ema23_primary: 12.73
+- distance_to_ema23_pct: 1.68
+- ma20: 12.65
+- ma60: 12.66
+- ma120: 12.66
+- return_5d: 1.49
+- return_20d: 2.21
+- volume_ratio: 0.95
+- distance_to_ma20_pct_auxiliary: 2.25
+- distance_to_high_60_pct: -0.54
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,12.79,12.79,12.66,12.66,1968020,12.69,-0.21,12.67,12.67,1.44
 20260617,12.66,12.67,12.63,12.64,1512796,12.68,-0.33,12.67,12.67,1.1
 20260618,12.65,12.65,12.47,12.5,2008536,12.67,-1.32,12.66,12.66,1.42
 20260622,12.5,12.5,12.37,12.42,2473236,12.65,-1.79,12.64,12.65,1.65
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,12.84,12.84,12.77,12.83,1118258,12.66,1.37,12.62,12.64,1.05
 20260714,12.93,12.95,12.88,12.95,1049032,12.68,2.12,12.64,12.65,1
 20260715,12.95,13.01,12.95,12.99,912467,12.71,2.23,12.64,12.65,0.88
+20260716,12.95,12.96,12.91,12.94,930817,12.73,1.68,12.65,12.66,0.95
 ```
 
 ## Latest TDCC Snapshot

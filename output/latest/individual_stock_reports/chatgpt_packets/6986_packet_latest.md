@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6986 和迅
 
 ## Metadata
-- generated_at: 2026-07-15 22:27:43 Asia/Taipei
+- generated_at: 2026-07-16 22:28:26 Asia/Taipei
 - stock_id: 6986
 - stock_name: 和迅
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260715
-- price_rows: 13
+- latest_price_date: 20260716
+- price_rows: 14
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,22 +113,22 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 46.75
-- high: 46.75
+- date: 20260716
+- open: 45.75
+- high: 46.3
 - low: 45.4
 - close: 46
-- volume: 102000
-- ma5: 46.47
-- ema23_primary: 47.61
-- distance_to_ema23_pct: -3.37
-- ma20: 47.57
-- ma60: 47.57
-- ma120: 47.57
-- return_5d: -7.16
+- volume: 65000
+- ma5: 46.16
+- ema23_primary: 47.47
+- distance_to_ema23_pct: -3.1
+- ma20: 47.46
+- ma60: 47.46
+- ma120: 47.46
+- return_5d: -3.26
 - return_20d:
-- volume_ratio: 0.25
-- distance_to_ma20_pct_auxiliary: -3.31
+- volume_ratio: 0.17
+- distance_to_ma20_pct_auxiliary: -3.08
 - distance_to_high_60_pct: -13.04
 
 ## Recent Price Preview
@@ -148,6 +148,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,46.1,47.4,46.1,46.2,78000,47.95,-3.64,47.9,47.9,0.17
 20260714,46,46.35,45,45.6,170000,47.75,-4.51,47.7,47.7,0.39
 20260715,46.75,46.75,45.4,46,102000,47.61,-3.37,47.57,47.57,0.25
+20260716,45.75,46.3,45.4,46,65000,47.47,-3.1,47.46,47.46,0.17
 ```
 
 ## Latest TDCC Snapshot

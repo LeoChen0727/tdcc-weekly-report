@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3587 閎康
 
 ## Metadata
-- generated_at: 2026-07-15 22:27:02 Asia/Taipei
+- generated_at: 2026-07-16 22:27:24 Asia/Taipei
 - stock_id: 3587
 - stock_name: 閎康
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 169
+- latest_price_date: 20260716
+- price_rows: 170
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 272.5
-- high: 279
-- low: 268.5
-- close: 279
-- volume: 444000
-- ma5: 279.7
-- ema23_primary: 293.24
-- distance_to_ema23_pct: -4.86
-- ma20: 292.82
-- ma60: 317.87
-- ma120: 269.51
-- return_5d: -3.79
-- return_20d: -4.94
-- volume_ratio: 0.53
-- distance_to_ma20_pct_auxiliary: -4.72
-- distance_to_high_60_pct: -30.08
+- date: 20260716
+- open: 273.5
+- high: 276.5
+- low: 268
+- close: 272.5
+- volume: 370000
+- ma5: 276.8
+- ema23_primary: 291.52
+- distance_to_ema23_pct: -6.52
+- ma20: 292.18
+- ma60: 316.26
+- ma120: 270.18
+- return_5d: -5.05
+- return_20d: -4.55
+- volume_ratio: 0.45
+- distance_to_ma20_pct_auxiliary: -6.73
+- distance_to_high_60_pct: -31.7
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,296,299,285.5,285.5,577000,309.83,-7.85,313.38,308.45,1
 20260617,287,289.5,283,289.5,399000,308.13,-6.05,311.77,309.45,0.72
 20260618,293.5,307,291,304,1016000,307.79,-1.23,310.73,310.43,1.87
 20260622,324,328,320,323,1975000,309.06,4.51,309.77,311.81,3.16
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,290.5,293,274,276.5,928000,297.13,-6.94,294.9,320.47,1.14
 20260714,272,276.5,252,266,1219000,294.54,-9.69,293.55,319.33,1.43
 20260715,272.5,279,268.5,279,444000,293.24,-4.86,292.82,317.87,0.53
+20260716,273.5,276.5,268,272.5,370000,291.52,-6.52,292.18,316.26,0.45
 ```
 
 ## Latest TDCC Snapshot

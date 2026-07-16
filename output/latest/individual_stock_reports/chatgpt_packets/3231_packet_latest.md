@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3231 緯創
 
 ## Metadata
-- generated_at: 2026-07-15 22:26:56 Asia/Taipei
+- generated_at: 2026-07-16 22:27:14 Asia/Taipei
 - stock_id: 3231
 - stock_name: 緯創
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 304
+- latest_price_date: 20260716
+- price_rows: 305
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 144
-- high: 146.5
-- low: 142.5
-- close: 145.5
-- volume: 26071700
+- date: 20260716
+- open: 144.5
+- high: 148
+- low: 143
+- close: 146.5
+- volume: 30591982
 - ma5: 144.5
-- ema23_primary: 153.11
-- distance_to_ema23_pct: -4.97
-- ma20: 154.97
-- ma60: 151.28
+- ema23_primary: 152.56
+- distance_to_ema23_pct: -3.97
+- ma20: 154.4
+- ma60: 151.38
 - ma120: 141.79
-- return_5d: -6.43
-- return_20d: -9.91
-- volume_ratio: 0.75
-- distance_to_ma20_pct_auxiliary: -6.11
-- distance_to_high_60_pct: -27.61
+- return_5d: 0
+- return_20d: -7.28
+- volume_ratio: 0.88
+- distance_to_ma20_pct_auxiliary: -5.12
+- distance_to_high_60_pct: -27.11
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,162,162,158,158,31462271,157.26,0.47,159.05,143.31,0.41
 20260617,158.5,164.5,158,162.5,49733205,157.7,3.04,160.55,143.85,0.63
 20260618,162,163.5,160.5,161.5,45633029,158.02,2.21,161.62,144.45,0.58
 20260622,164.5,166,161.5,162.5,45905638,158.39,2.6,162.53,145.01,0.59
@@ -160,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,147,148,142.5,143.5,27031128,154.83,-7.32,156.45,150.99,0.74
 20260714,144,145,139,142.5,27925626,153.8,-7.35,155.78,151.13,0.78
 20260715,144,146.5,142.5,145.5,26071700,153.11,-4.97,154.97,151.28,0.75
+20260716,144.5,148,143,146.5,30591982,152.56,-3.97,154.4,151.38,0.88
 ```
 
 ## Latest TDCC Snapshot
@@ -194,18 +194,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 3231 | 緯創 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  | call_inflow | stale_signal | 1. 原公告日期： 115/06/26 2. 簡述原公告申報內容： 子公司Wistron InfoComm (Vietnam) Co., Ltd(WVN)原於2026年6月26日公告 於金榜工業區以租地委建方式於總金額約為美金138,768仟元預算內興建廠房、倉庫 等配套建物 3. 變動緣由及主要內容： WVN現與非關係人建興越南建設發展責任有限公司簽訂土建工程合約，總金額為 越南盾1兆7,718億元 4. 變動後對公司財務業務之影響： 無 5. 其他應敘明事項： 無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260715 | 3231 | 緯創 | revenue_breakout_low_response | 營收爆發低反應股 | 11.0 | 40.0 | D_降級_TDCC轉弱 |  |  | call_inflow | stale_signal | 1. 原公告日期： 115/06/26 2. 簡述原公告申報內容： 子公司Wistron InfoComm (Vietnam) Co., Ltd(WVN)原於2026年6月26日公告 於金榜工業區以租地委建方式於總金額約為美金138,768仟元預算內興建廠房、倉庫 等配套建物 3. 變動緣由及主要內容： WVN現與非關係人建興越南建設發展責任有限公司簽訂土建工程合約，總金額為 越南盾1兆7,718億元 4. 變動後對公司財務業務之影響： 無 5. 其他應敘明事項： 無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260716 | 3231 | 緯創 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  | call_strong_inflow | stale_signal | 1.主管機關核准減資日期:115/07/13 2.辦理資本變更登記完成日期:115/07/13 3.對財務報告之影響（含實收資本額與流通在外股數之差異與對每股淨值之影響）:  (1)收回已發行之限制員工權利新股註銷減資前：     本公司實收資本額為新台幣31,804,122,500元，已發行股數及流通在外股數均     為3,180,412,250股，每股淨值為新台幣59.80元。  (2)本次註銷減資新台幣3,600,000元(360,000股)。  (3)收回已發行之限制員工權利新股註銷減資後：     本公司實收資本額為新台幣31,800,522,500元，已發行股數及流通在外股數均     為3,180,052,250股，每股淨值為新台幣59.81元。 4.預計換股作業計畫:不適用 5.預計減資新股上市後之上市普通股股數:不適用 6.預計減資新股上市後之上市普通股股數占已發行普通股比率  （減資後上市普通股股數/減資後已發行普通股股數）:不適用 7.前二項預計減資後上巿普通股股數未達6000萬股且未達25%者，請說明股權流通性偏低   之因應措施:不適用 8.其他應敘明事項:  (1)每股淨值係依115Q1合併財務報表歸屬於母公司業主之權益為計算依據  (2)本公司於115/07/15接獲主管機關變更登記核准函；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260716 | 3231 | 緯創 | revenue_breakout_low_response | 營收爆發低反應股 | 12.0 | 32.0 | D_降級_TDCC轉弱 |  |  | call_strong_inflow | stale_signal | 1.主管機關核准減資日期:115/07/13 2.辦理資本變更登記完成日期:115/07/13 3.對財務報告之影響（含實收資本額與流通在外股數之差異與對每股淨值之影響）:  (1)收回已發行之限制員工權利新股註銷減資前：     本公司實收資本額為新台幣31,804,122,500元，已發行股數及流通在外股數均     為3,180,412,250股，每股淨值為新台幣59.80元。  (2)本次註銷減資新台幣3,600,000元(360,000股)。  (3)收回已發行之限制員工權利新股註銷減資後：     本公司實收資本額為新台幣31,800,522,500元，已發行股數及流通在外股數均     為3,180,052,250股，每股淨值為新台幣59.81元。 4.預計換股作業計畫:不適用 5.預計減資新股上市後之上市普通股股數:不適用 6.預計減資新股上市後之上市普通股股數占已發行普通股比率  （減資後上市普通股股數/減資後已發行普通股股數）:不適用 7.前二項預計減資後上巿普通股股數未達6000萬股且未達25%者，請說明股權流通性偏低   之因應措施:不適用 8.其他應敘明事項:  (1)每股淨值係依115Q1合併財務報表歸屬於母公司業主之權益為計算依據  (2)本公司於115/07/15接獲主管機關變更登記核准函；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 3231 | 緯創 | 33 | 9 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260716 | 3231 | 緯創 | 1 | 1 | 4 | 9 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 3231 | 緯創 | 206 | 15 | 11489920.0 | 69370.0 | 165.63 | call_inflow |
+| 20260716 | 3231 | 緯創 | 209 | 0 | 21173920.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8401 白紗科
 
 ## Metadata
-- generated_at: 2026-07-15 22:27:53 Asia/Taipei
+- generated_at: 2026-07-16 22:28:43 Asia/Taipei
 - stock_id: 8401
 - stock_name: 白紗科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 169
+- latest_price_date: 20260716
+- price_rows: 170
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,21 +113,21 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 22.8
-- high: 23.05
-- low: 22.8
+- date: 20260716
+- open: 22.9
+- high: 22.95
+- low: 22.85
 - close: 22.95
-- volume: 23000
+- volume: 5000
 - ma5: 22.94
 - ema23_primary: 22.99
-- distance_to_ema23_pct: -0.18
+- distance_to_ema23_pct: -0.16
 - ma20: 22.93
-- ma60: 23.4
-- ma120: 25.53
+- ma60: 23.37
+- ma120: 25.48
 - return_5d: 0
-- return_20d: -0.65
-- volume_ratio: 0.7
+- return_20d: 0
+- volume_ratio: 0.16
 - distance_to_ma20_pct_auxiliary: 0.08
 - distance_to_high_60_pct: -8.57
 
@@ -135,7 +135,6 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,23.2,23.25,22.9,22.95,32000,23.19,-1.04,22.96,24.19,0.9
 20260617,22.8,22.95,22.65,22.95,34000,23.17,-0.95,22.96,24.12,1
 20260618,22.8,23.1,22.8,23,41000,23.16,-0.67,22.96,24.06,1.25
 20260622,23.05,23.05,22.85,22.85,32000,23.13,-1.21,22.96,24,0.96
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,22.95,23,22.85,22.95,17000,23,-0.21,22.93,23.46,0.5
 20260714,22.95,22.95,22.7,22.95,36000,22.99,-0.19,22.94,23.43,1.07
 20260715,22.8,23.05,22.8,22.95,23000,22.99,-0.18,22.93,23.4,0.7
+20260716,22.9,22.95,22.85,22.95,5000,22.99,-0.16,22.93,23.37,0.16
 ```
 
 ## Latest TDCC Snapshot

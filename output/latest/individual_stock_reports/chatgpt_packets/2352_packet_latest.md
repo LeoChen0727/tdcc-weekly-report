@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2352 佳世達
 
 ## Metadata
-- generated_at: 2026-07-15 22:26:37 Asia/Taipei
+- generated_at: 2026-07-16 22:26:46 Asia/Taipei
 - stock_id: 2352
 - stock_name: 佳世達
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 298
+- latest_price_date: 20260716
+- price_rows: 299
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 30.85
-- high: 31.6
-- low: 30.35
-- close: 31.5
-- volume: 9829916
-- ma5: 32.1
-- ema23_primary: 31.64
-- distance_to_ema23_pct: -0.43
-- ma20: 31.84
-- ma60: 28.87
-- ma120: 26.78
-- return_5d: -8.56
-- return_20d: 0.64
-- volume_ratio: 0.44
-- distance_to_ma20_pct_auxiliary: -1.05
-- distance_to_high_60_pct: -13.22
+- date: 20260716
+- open: 31.15
+- high: 32.25
+- low: 30.9
+- close: 31.35
+- volume: 9592772
+- ma5: 31.49
+- ema23_primary: 31.61
+- distance_to_ema23_pct: -0.83
+- ma20: 31.89
+- ma60: 28.97
+- ma120: 26.84
+- return_5d: -8.87
+- return_20d: 3.81
+- volume_ratio: 0.42
+- distance_to_ma20_pct_auxiliary: -1.7
+- distance_to_high_60_pct: -13.64
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,31.65,31.65,30.2,30.2,6928027,29.48,2.44,29.92,26.34,0.42
 20260617,30.2,30.8,30,30.8,5207881,29.59,4.09,30.16,26.45,0.32
 20260618,30.9,31.1,30.6,30.85,4568981,29.7,3.89,30.34,26.57,0.29
 20260622,31.2,31.8,30.75,31.45,8875914,29.84,5.39,30.48,26.7,0.6
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,33,33.4,31,31,17112057,31.74,-2.34,31.84,28.69,0.76
 20260714,30.7,31.05,29.5,30.6,11121253,31.65,-3.31,31.82,28.77,0.49
 20260715,30.85,31.6,30.35,31.5,9829916,31.64,-0.43,31.84,28.87,0.44
+20260716,31.15,32.25,30.9,31.35,9592772,31.61,-0.83,31.89,28.97,0.42
 ```
 
 ## Latest TDCC Snapshot
@@ -189,17 +189,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 2352 | 佳世達 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  | call_inflow | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/07 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:普通股現金股利新台幣1,580,506,505元 （每股配發1元） 4.除權（息）交易日:115/07/23 5.最後過戶日:115/07/26 6.停止過戶起始日期:115/07/27 7.停止過戶截止日期:115/07/31 8.除權（息）基準日:115/07/31 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/21 13.現金股利之一部或全部是否以外幣發放(請填入「是」或「否」):否 14.外幣現金股利發放幣別:不適用 15.外幣現金股利發放對象:不適用 16.外幣現金股利匯率決定方式:不適用 17.其他應敘明事項: (1)因最後過戶日(7/26)為假日，務請股東提前於營業日(7/24)辦理股票過戶手續。 (2)本次股利發放通知，另委託集保結算所辦理電子化通知。 請股東於除息停止過戶起始日一營業日前(即115/7/23前)，逕行登入集保結算所 「股東e服務」(網址https://stockservices.tdcc.com.tw) 之股務事務電子書通知(eNotice)平台同意接收電子通知後，即可以留存之email 接收通知。；calendar event: ex_dividend on 20260723; status=confirmed; proximity=within_14d |
+| 20260716 | 2352 | 佳世達 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  | call_strong_inflow | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/07 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:普通股現金股利新台幣1,580,506,505元 （每股配發1元） 4.除權（息）交易日:115/07/23 5.最後過戶日:115/07/26 6.停止過戶起始日期:115/07/27 7.停止過戶截止日期:115/07/31 8.除權（息）基準日:115/07/31 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/21 13.現金股利之一部或全部是否以外幣發放(請填入「是」或「否」):否 14.外幣現金股利發放幣別:不適用 15.外幣現金股利發放對象:不適用 16.外幣現金股利匯率決定方式:不適用 17.其他應敘明事項: (1)因最後過戶日(7/26)為假日，務請股東提前於營業日(7/24)辦理股票過戶手續。 (2)本次股利發放通知，另委託集保結算所辦理電子化通知。 請股東於除息停止過戶起始日一營業日前(即115/7/23前)，逕行登入集保結算所 「股東e服務」(網址https://stockservices.tdcc.com.tw) 之股務事務電子書通知(eNotice)平台同意接收電子通知後，即可以留存之email 接收通知。；calendar event: ex_dividend on 20260723; status=confirmed; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 2352 | 佳世達 | 1 | 1 | 3 | 8 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260716 | 2352 | 佳世達 | 2 | 2 | 3 | 8 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 2352 | 佳世達 | 27 | 2 | 1548700.0 | 2250.0 | 688.31 | call_inflow |
+| 20260716 | 2352 | 佳世達 | 27 | 0 | 3563270.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

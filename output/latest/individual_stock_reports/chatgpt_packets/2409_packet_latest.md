@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2409 友達
 
 ## Metadata
-- generated_at: 2026-07-15 22:26:39 Asia/Taipei
+- generated_at: 2026-07-16 22:26:50 Asia/Taipei
 - stock_id: 2409
 - stock_name: 友達
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 304
+- latest_price_date: 20260716
+- price_rows: 305
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 28.2
-- high: 28.75
-- low: 27.7
-- close: 28.3
-- volume: 203146154
-- ma5: 29.22
-- ema23_primary: 28.44
-- distance_to_ema23_pct: -0.49
-- ma20: 29.44
-- ma60: 23.77
-- ma120: 19.85
-- return_5d: -3.58
-- return_20d: 17.43
-- volume_ratio: 0.39
-- distance_to_ma20_pct_auxiliary: -3.86
-- distance_to_high_60_pct: -17.85
+- date: 20260716
+- open: 27.75
+- high: 28.2
+- low: 27
+- close: 27.65
+- volume: 160446929
+- ma5: 28.84
+- ema23_primary: 28.37
+- distance_to_ema23_pct: -2.55
+- ma20: 29.62
+- ma60: 23.91
+- ma120: 19.95
+- return_5d: -6.43
+- return_20d: 15.69
+- volume_ratio: 0.31
+- distance_to_ma20_pct_auxiliary: -6.67
+- distance_to_high_60_pct: -19.74
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,24.5,24.75,23.9,23.9,203629435,23.13,3.33,23.73,19.68,0.46
 20260617,23.6,26.25,23.35,26.25,559042864,23.39,12.23,24.11,19.85,1.2
 20260618,27.45,28.6,26.05,28.15,828311957,23.79,18.34,24.5,20.08,1.7
 20260622,29.45,30.95,29.1,30.95,297702512,24.38,26.93,24.94,20.35,0.62
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,31.7,32.5,29.2,29.25,492027398,28.53,2.51,29.02,23.51,0.96
 20260714,29.05,29.4,26.5,27.55,356616406,28.45,-3.17,29.23,23.62,0.69
 20260715,28.2,28.75,27.7,28.3,203146154,28.44,-0.49,29.44,23.77,0.39
+20260716,27.75,28.2,27,27.65,160446929,28.37,-2.55,29.62,23.91,0.31
 ```
 
 ## Latest TDCC Snapshot
@@ -189,17 +189,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 2409 | 友達 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/13 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額: 普通股現金股利新台幣3,018,839,589元(每股配發新台幣0.4元) 4.除權（息）交易日:115/07/30 5.最後過戶日:115/08/01 6.停止過戶起始日期:115/08/02 7.停止過戶截止日期:115/08/06 8.除權（息）基準日:115/08/06 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/28 13.現金股利之一部或全部是否以外幣發放(請填入「是」或「否」):否 14.外幣現金股利發放幣別:不適用 15.外幣現金股利發放對象:不適用 16.外幣現金股利匯率決定方式:不適用 17.其他應敘明事項: 美國存託憑證之除息交易日為115年7月30日;美國存託憑證之配息 基準日為115年8月1日。有關本公司美國存託憑證配息之問題，請洽 本公司美國存託憑證存託銀行Citibank, N.A.(電話:+ 1-877-248-4237； 電子郵件：citibank@shareholders-online.com)；calendar event: ex_dividend on 20260730; status=confirmed; proximity=within_30d |
+| 20260716 | 2409 | 友達 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/13 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額: 普通股現金股利新台幣3,018,839,589元(每股配發新台幣0.4元) 4.除權（息）交易日:115/07/30 5.最後過戶日:115/08/01 6.停止過戶起始日期:115/08/02 7.停止過戶截止日期:115/08/06 8.除權（息）基準日:115/08/06 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/28 13.現金股利之一部或全部是否以外幣發放(請填入「是」或「否」):否 14.外幣現金股利發放幣別:不適用 15.外幣現金股利發放對象:不適用 16.外幣現金股利匯率決定方式:不適用 17.其他應敘明事項: 美國存託憑證之除息交易日為115年7月30日;美國存託憑證之配息 基準日為115年8月1日。有關本公司美國存託憑證配息之問題，請洽 本公司美國存託憑證存託銀行Citibank, N.A.(電話:+ 1-877-248-4237； 電子郵件：citibank@shareholders-online.com)；calendar event: ex_dividend on 20260730; status=confirmed; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 2409 | 友達 | 4 | 4 | 4 | 6 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260716 | 2409 | 友達 | 5 | 5 | 5 | 7 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 2409 | 友達 | 272 | 13 | 41717480.0 | 2685970.0 | 15.53 | no_signal |
+| 20260716 | 2409 | 友達 | 273 | 0 | 26652130.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

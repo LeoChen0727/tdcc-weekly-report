@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1102 亞泥
 
 ## Metadata
-- generated_at: 2026-07-15 22:26:21 Asia/Taipei
+- generated_at: 2026-07-16 22:26:20 Asia/Taipei
 - stock_id: 1102
 - stock_name: 亞泥
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 304
+- latest_price_date: 20260716
+- price_rows: 305
 - latest_tdcc_date: 20260709
 - tdcc_rows: 11
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 34.45
-- high: 34.85
-- low: 34
-- close: 34.8
-- volume: 25410949
-- ma5: 35.08
-- ema23_primary: 35.35
-- distance_to_ema23_pct: -1.55
-- ma20: 35.67
-- ma60: 34.97
-- ma120: 35.14
-- return_5d: -4.13
-- return_20d: -1.83
-- volume_ratio: 1.21
-- distance_to_ma20_pct_auxiliary: -2.45
-- distance_to_high_60_pct: -6.2
+- date: 20260716
+- open: 32.5
+- high: 33.2
+- low: 32
+- close: 33
+- volume: 38052067
+- ma5: 34.52
+- ema23_primary: 35.15
+- distance_to_ema23_pct: -6.12
+- ma20: 35.55
+- ma60: 34.94
+- ma120: 35.1
+- return_5d: -7.82
+- return_20d: -7.3
+- volume_ratio: 1.73
+- distance_to_ma20_pct_auxiliary: -7.16
+- distance_to_high_60_pct: -11.05
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,35.55,35.95,35.25,35.6,19014408,34.51,3.17,34.17,34.81,0.73
 20260617,35.4,35.9,35.35,35.55,15191719,34.59,2.76,34.23,34.82,0.58
 20260618,35.6,36.05,35.5,35.8,19588297,34.69,3.19,34.27,34.85,0.73
 20260622,35.85,36.5,35.7,36.35,19843503,34.83,4.36,34.37,34.87,0.73
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,36,36,34.85,34.9,20417794,35.5,-1.7,35.76,35.01,1.02
 20260714,35,35,34.2,34.2,23864398,35.4,-3.38,35.71,34.99,1.16
 20260715,34.45,34.85,34,34.8,25410949,35.35,-1.55,35.67,34.97,1.21
+20260716,32.5,33.2,32,33,38052067,35.15,-6.12,35.55,34.94,1.73
 ```
 
 ## Latest TDCC Snapshot
@@ -200,7 +199,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 1102 | 亞泥 | 2 | 0 | 68330.0 | 0.0 |  | no_signal |
+| 20260716 | 1102 | 亞泥 | 2 | 0 | 369800.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

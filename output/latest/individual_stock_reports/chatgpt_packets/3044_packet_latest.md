@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3044 健鼎
 
 ## Metadata
-- generated_at: 2026-07-15 22:26:52 Asia/Taipei
+- generated_at: 2026-07-16 22:27:09 Asia/Taipei
 - stock_id: 3044
 - stock_name: 健鼎
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 304
+- latest_price_date: 20260716
+- price_rows: 305
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 428
-- high: 428.5
-- low: 421
-- close: 426
-- volume: 2321460
-- ma5: 441.4
-- ema23_primary: 485.44
-- distance_to_ema23_pct: -12.24
-- ma20: 504.55
-- ma60: 491.98
-- ma120: 428.96
-- return_5d: -10.41
-- return_20d: -18.08
-- volume_ratio: 0.56
-- distance_to_ma20_pct_auxiliary: -15.57
-- distance_to_high_60_pct: -28.76
+- date: 20260716
+- open: 427
+- high: 431.5
+- low: 417.5
+- close: 422
+- volume: 4231150
+- ma5: 431.4
+- ema23_primary: 480.15
+- distance_to_ema23_pct: -12.11
+- ma20: 498.35
+- ma60: 492.12
+- ma120: 429.86
+- return_5d: -10.59
+- return_20d: -22.71
+- volume_ratio: 1.05
+- distance_to_ma20_pct_auxiliary: -15.32
+- distance_to_high_60_pct: -29.43
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,532,558,529,546,7309686,497.01,9.86,501.68,449.19,1.66
 20260617,546,574,538,571,6030813,503.18,13.48,507.1,452.66,1.32
 20260618,580,583,562,573,6881994,509,12.57,511.35,456.29,1.46
 20260622,590,598,565,566,3357117,513.75,10.17,515.12,460.04,0.71
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,455,459,433.5,439,3231388,497.14,-11.7,513.02,491.55,0.78
 20260714,439,439,402,421.5,3886229,490.84,-14.13,509.25,491.73,0.92
 20260715,428,428.5,421,426,2321460,485.44,-12.24,504.55,491.98,0.56
+20260716,427,431.5,417.5,422,4231150,480.15,-12.11,498.35,492.12,1.05
 ```
 
 ## Latest TDCC Snapshot
@@ -198,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 3044 | 健鼎 | 71 | 2 | 2514030.0 | 13000.0 | 193.39 | no_signal |
+| 20260716 | 3044 | 健鼎 | 71 | 0 | 1230960.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

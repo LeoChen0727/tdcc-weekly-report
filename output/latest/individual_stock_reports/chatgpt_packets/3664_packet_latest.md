@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3664 安瑞-KY
 
 ## Metadata
-- generated_at: 2026-07-15 22:27:04 Asia/Taipei
+- generated_at: 2026-07-16 22:27:26 Asia/Taipei
 - stock_id: 3664
 - stock_name: 安瑞-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 169
+- latest_price_date: 20260716
+- price_rows: 170
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 6.4
-- high: 6.59
-- low: 6.4
+- date: 20260716
+- open: 6.01
+- high: 6.58
+- low: 6.01
 - close: 6.58
-- volume: 16000
-- ma5: 7.29
-- ema23_primary: 7.36
-- distance_to_ema23_pct: -10.64
-- ma20: 7.24
-- ma60: 7.49
-- ma120: 10.35
-- return_5d: -7.97
-- return_20d: -3.52
-- volume_ratio: 0.45
-- distance_to_ma20_pct_auxiliary: -9.13
+- volume: 5000
+- ma5: 7.11
+- ema23_primary: 7.3
+- distance_to_ema23_pct: -9.84
+- ma20: 7.26
+- ma60: 7.47
+- ma120: 10.27
+- return_5d: -12.03
+- return_20d: 7.17
+- volume_ratio: 0.16
+- distance_to_ma20_pct_auxiliary: -9.41
 - distance_to_high_60_pct: -42.03
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,6.2,6.4,6.14,6.14,107000,7.52,-18.4,7.67,8.29,6.08
 20260617,6.14,6.14,6.14,6.14,70000,7.41,-17.13,7.56,8.18,3.56
 20260618,6.15,6.75,6.15,6.75,42000,7.35,-8.22,7.46,8.08,2.14
 20260622,7.01,7.42,7.01,7.42,22000,7.36,0.82,7.37,8,1.09
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,8,8,7.32,7.4,21000,7.47,-1,7.24,7.51,0.62
 20260714,6.66,7,6.66,7,64000,7.43,-5.85,7.25,7.5,1.75
 20260715,6.4,6.59,6.4,6.58,16000,7.36,-10.64,7.24,7.49,0.45
+20260716,6.01,6.58,6.01,6.58,5000,7.3,-9.84,7.26,7.47,0.16
 ```
 
 ## Latest TDCC Snapshot

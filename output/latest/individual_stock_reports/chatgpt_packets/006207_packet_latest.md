@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 006207 復華滬深
 
 ## Metadata
-- generated_at: 2026-07-15 22:26:17 Asia/Taipei
+- generated_at: 2026-07-16 22:26:15 Asia/Taipei
 - stock_id: 006207
 - stock_name: 復華滬深
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260715
-- price_rows: 37
+- latest_price_date: 20260716
+- price_rows: 38
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 33.37
-- high: 33.92
-- low: 33.37
-- close: 33.79
-- volume: 732056
-- ma5: 33.26
-- ema23_primary: 33.58
-- distance_to_ema23_pct: 0.63
-- ma20: 33.81
-- ma60: 33.6
-- ma120: 33.6
-- return_5d: 1.32
-- return_20d: 0.66
-- volume_ratio: 1.61
-- distance_to_ma20_pct_auxiliary: -0.06
-- distance_to_high_60_pct: -3.21
+- date: 20260716
+- open: 33.4
+- high: 33.61
+- low: 33.33
+- close: 33.43
+- volume: 298764
+- ma5: 33.27
+- ema23_primary: 33.57
+- distance_to_ema23_pct: -0.4
+- ma20: 33.79
+- ma60: 33.59
+- ma120: 33.59
+- return_5d: 0.12
+- return_20d: -1.09
+- volume_ratio: 0.64
+- distance_to_ma20_pct_auxiliary: -1.07
+- distance_to_high_60_pct: -4.24
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,33.85,33.98,33.8,33.8,126310,33.26,1.62,33.37,33.37,0.42
 20260617,33.82,33.82,33.82,33.82,101806,33.31,1.54,33.39,33.39,0.35
 20260618,33.84,34.3,33.83,34.2,276776,33.38,2.45,33.43,33.43,0.96
 20260622,34.13,34.59,34,34.59,441454,33.48,3.31,33.51,33.49,1.46
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,33.22,33.23,32.6,32.6,323072,33.6,-2.96,33.81,33.6,0.81
 20260714,32.67,33.22,32.53,33.16,1212120,33.56,-1.19,33.8,33.59,2.76
 20260715,33.37,33.92,33.37,33.79,732056,33.58,0.63,33.81,33.6,1.61
+20260716,33.4,33.61,33.33,33.43,298764,33.57,-0.4,33.79,33.59,0.64
 ```
 
 ## Latest TDCC Snapshot
@@ -180,12 +180,12 @@ no_rows,True
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 6207 | 雷科 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.董事會或股東會決議日期:NA 2.原發放股利種類及金額: 盈餘分配之現金股利新台幣55,775,937元 (每股配發0.7元)。 3.變更後發放股利種類及金額: 盈餘分配之現金股利新台幣55,775,937元 (每股配發0.60275886元)。 4.變更原因:本公司因國內第五次及第六次無擔保可轉換公司債轉換， 致影響流通在外股數，爰依民國115年3月10日董事會決議，授權董事長調整配息率。 5.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260716 | 6207 | 雷科 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.董事會或股東會決議日期:NA 2.原發放股利種類及金額: 盈餘分配之現金股利新台幣55,775,937元 (每股配發0.7元)。 3.變更後發放股利種類及金額: 盈餘分配之現金股利新台幣55,775,937元 (每股配發0.60275886元)。 4.變更原因:本公司因國內第五次及第六次無擔保可轉換公司債轉換， 致影響流通在外股數，爰依民國115年3月10日董事會決議，授權董事長調整配息率。 5.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 6207 | 雷科 | 2 | 2 | 4 | 6 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260716 | 6207 | 雷科 | 3 | 3 | 4 | 7 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

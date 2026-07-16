@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6113 亞矽
 
 ## Metadata
-- generated_at: 2026-07-15 22:27:23 Asia/Taipei
+- generated_at: 2026-07-16 22:27:56 Asia/Taipei
 - stock_id: 6113
 - stock_name: 亞矽
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 169
+- latest_price_date: 20260716
+- price_rows: 170
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 25.65
-- high: 26
-- low: 25.45
-- close: 25.6
-- volume: 122000
-- ma5: 26.07
-- ema23_primary: 26.5
-- distance_to_ema23_pct: -3.38
-- ma20: 27.11
-- ma60: 25.68
-- ma120: 23.57
-- return_5d: 1.19
-- return_20d: -6.74
-- volume_ratio: 0.18
-- distance_to_ma20_pct_auxiliary: -5.58
-- distance_to_high_60_pct: -18.21
+- date: 20260716
+- open: 25.2
+- high: 25.35
+- low: 24.6
+- close: 24.6
+- volume: 193000
+- ma5: 25.95
+- ema23_primary: 26.34
+- distance_to_ema23_pct: -6.6
+- ma20: 26.89
+- ma60: 25.71
+- ma120: 23.58
+- return_5d: -2.38
+- return_20d: -15.03
+- volume_ratio: 0.33
+- distance_to_ma20_pct_auxiliary: -8.53
+- distance_to_high_60_pct: -21.41
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,27.9,30.1,27.3,28.95,1924000,26.22,10.41,26.68,23.68,5.08
 20260617,28.75,30.35,28.05,28.7,1438000,26.43,8.6,26.88,23.82,3.35
 20260618,28.8,29.1,28.3,28.4,568000,26.59,6.8,27.03,23.96,1.33
 20260622,29.15,30.5,28.8,29.6,1182000,26.84,10.27,27.13,24.12,2.43
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,27.65,28.5,26.25,26.45,1308000,26.68,-0.88,27.3,25.6,1.81
 20260714,26.35,26.45,24.25,25.4,390000,26.58,-4.43,27.2,25.64,0.57
 20260715,25.65,26,25.45,25.6,122000,26.5,-3.38,27.11,25.68,0.18
+20260716,25.2,25.35,24.6,24.6,193000,26.34,-6.6,26.89,25.71,0.33
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6209 今國光
 
 ## Metadata
-- generated_at: 2026-07-15 22:27:27 Asia/Taipei
+- generated_at: 2026-07-16 22:28:02 Asia/Taipei
 - stock_id: 6209
 - stock_name: 今國光
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 304
+- latest_price_date: 20260716
+- price_rows: 305
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -119,29 +119,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 80.1
-- high: 80.9
-- low: 76.9
-- close: 78.3
-- volume: 4125448
-- ma5: 79.72
-- ema23_primary: 81.53
-- distance_to_ema23_pct: -3.97
-- ma20: 84.47
-- ma60: 77.49
-- ma120: 67.97
-- return_5d: 4.26
-- return_20d: -9.69
-- volume_ratio: 0.26
-- distance_to_ma20_pct_auxiliary: -7.31
-- distance_to_high_60_pct: -25.07
+- date: 20260716
+- open: 78.3
+- high: 79.9
+- low: 76.6
+- close: 76.9
+- volume: 3858464
+- ma5: 79.46
+- ema23_primary: 81.15
+- distance_to_ema23_pct: -5.24
+- ma20: 83.56
+- ma60: 77.67
+- ma120: 68.11
+- return_5d: -1.66
+- return_20d: -19.31
+- volume_ratio: 0.28
+- distance_to_ma20_pct_auxiliary: -7.96
+- distance_to_high_60_pct: -26.41
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,87.2,95.3,86.4,95.3,49724537,80.94,17.75,83.62,68.34,2.09
 20260617,95.5,104.5,93.8,95.7,95741959,82.17,16.47,84.47,68.94,3.46
 20260618,95.8,98.3,93.1,97.1,30951785,83.41,16.41,84.98,69.66,1.16
 20260622,100,101,95.7,97.2,21879361,84.56,14.95,85.56,70.38,0.85
@@ -161,6 +160,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,81.1,84.7,80.7,82.8,9630421,82.13,0.81,85.09,76.93,0.55
 20260714,81.5,82.4,74.6,78.5,6294485,81.83,-4.07,84.89,77.22,0.37
 20260715,80.1,80.9,76.9,78.3,4125448,81.53,-3.97,84.47,77.49,0.26
+20260716,78.3,79.9,76.6,76.9,3858464,81.15,-5.24,83.56,77.67,0.28
 ```
 
 ## Latest TDCC Snapshot
@@ -195,18 +195,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 6209 | 今國光 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/08 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額: 盈餘90,219,695元，暫定每股配發現金股利0.49601908元。 4.除權（息）交易日:115/08/04 5.最後過戶日:115/08/05 6.停止過戶起始日期:115/08/06 7.停止過戶截止日期:115/08/10 8.除權（息）基準日:115/08/10 9.債券最後申請轉換日期:115/07/14 10.債券停止轉換起始日期:115/07/16 11.債券停止轉換截止日期:115/08/10 12.普通股現金股利發放日期:115/08/31 13.現金股利之一部或全部是否以外幣發放(請填入「是」或「否」):否 14.外幣現金股利發放幣別:不適用 15.外幣現金股利發放對象:不適用 16.外幣現金股利匯率決定方式:不適用 17.其他應敘明事項:因本公司股本變動致影響發行在外流通股份數量，致股東配息比率 發生變動而須調整時，授權董事長全權處理。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260715 | 6209 | 今國光 | revenue_breakout_low_response | 營收爆發低反應股 | 12.0 | 34.0 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/08 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額: 盈餘90,219,695元，暫定每股配發現金股利0.49601908元。 4.除權（息）交易日:115/08/04 5.最後過戶日:115/08/05 6.停止過戶起始日期:115/08/06 7.停止過戶截止日期:115/08/10 8.除權（息）基準日:115/08/10 9.債券最後申請轉換日期:115/07/14 10.債券停止轉換起始日期:115/07/16 11.債券停止轉換截止日期:115/08/10 12.普通股現金股利發放日期:115/08/31 13.現金股利之一部或全部是否以外幣發放(請填入「是」或「否」):否 14.外幣現金股利發放幣別:不適用 15.外幣現金股利發放對象:不適用 16.外幣現金股利匯率決定方式:不適用 17.其他應敘明事項:因本公司股本變動致影響發行在外流通股份數量，致股東配息比率 發生變動而須調整時，授權董事長全權處理。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260716 | 6209 | 今國光 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  | call_inflow | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/08 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額: 盈餘90,219,695元，暫定每股配發現金股利0.49601908元。 4.除權（息）交易日:115/08/04 5.最後過戶日:115/08/05 6.停止過戶起始日期:115/08/06 7.停止過戶截止日期:115/08/10 8.除權（息）基準日:115/08/10 9.債券最後申請轉換日期:115/07/14 10.債券停止轉換起始日期:115/07/16 11.債券停止轉換截止日期:115/08/10 12.普通股現金股利發放日期:115/08/31 13.現金股利之一部或全部是否以外幣發放(請填入「是」或「否」):否 14.外幣現金股利發放幣別:不適用 15.外幣現金股利發放對象:不適用 16.外幣現金股利匯率決定方式:不適用 17.其他應敘明事項:因本公司股本變動致影響發行在外流通股份數量，致股東配息比率 發生變動而須調整時，授權董事長全權處理。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260716 | 6209 | 今國光 | revenue_breakout_low_response | 營收爆發低反應股 | 11.0 | 33.0 | D_降級_TDCC轉弱 |  |  | call_inflow | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/08 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額: 盈餘90,219,695元，暫定每股配發現金股利0.49601908元。 4.除權（息）交易日:115/08/04 5.最後過戶日:115/08/05 6.停止過戶起始日期:115/08/06 7.停止過戶截止日期:115/08/10 8.除權（息）基準日:115/08/10 9.債券最後申請轉換日期:115/07/14 10.債券停止轉換起始日期:115/07/16 11.債券停止轉換截止日期:115/08/10 12.普通股現金股利發放日期:115/08/31 13.現金股利之一部或全部是否以外幣發放(請填入「是」或「否」):否 14.外幣現金股利發放幣別:不適用 15.外幣現金股利發放對象:不適用 16.外幣現金股利匯率決定方式:不適用 17.其他應敘明事項:因本公司股本變動致影響發行在外流通股份數量，致股東配息比率 發生變動而須調整時，授權董事長全權處理。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 6209 | 今國光 | 9 | 9 | 5 | 9 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260716 | 6209 | 今國光 | 1 | 1 | 4 | 9 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 6209 | 今國光 | 64 | 0 | 1242110.0 | 0.0 |  | no_signal |
+| 20260716 | 6209 | 今國光 | 65 | 0 | 2121990.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

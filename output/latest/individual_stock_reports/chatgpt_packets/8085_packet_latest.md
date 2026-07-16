@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8085 福華
 
 ## Metadata
-- generated_at: 2026-07-15 22:27:51 Asia/Taipei
+- generated_at: 2026-07-16 22:28:38 Asia/Taipei
 - stock_id: 8085
 - stock_name: 福華
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 169
+- latest_price_date: 20260716
+- price_rows: 170
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 11.3
-- high: 11.5
-- low: 11.15
+- date: 20260716
+- open: 11.35
+- high: 11.45
+- low: 11.3
 - close: 11.3
-- volume: 285000
-- ma5: 11.74
-- ema23_primary: 12.11
-- distance_to_ema23_pct: -6.71
-- ma20: 12.09
-- ma60: 12.49
-- ma120: 14.64
-- return_5d: -4.64
-- return_20d: -11.72
-- volume_ratio: 0.88
-- distance_to_ma20_pct_auxiliary: -6.55
+- volume: 97000
+- ma5: 11.55
+- ema23_primary: 12.05
+- distance_to_ema23_pct: -6.19
+- ma20: 12.03
+- ma60: 12.45
+- ma120: 14.6
+- return_5d: -7.76
+- return_20d: -9.6
+- volume_ratio: 0.31
+- distance_to_ma20_pct_auxiliary: -6.09
 - distance_to_high_60_pct: -35.43
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,12.85,12.85,12.45,12.5,303000,12.89,-3.06,12.64,13.57,1.41
 20260617,12.5,13.2,12.5,13.05,498000,12.91,1.11,12.72,13.51,2.22
 20260618,13.35,13.5,12.85,12.9,375000,12.91,-0.05,12.79,13.45,1.64
 20260622,12.95,12.95,12.6,12.7,295000,12.89,-1.47,12.84,13.39,1.22
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,12.05,12.1,11.75,11.8,262000,12.27,-3.81,12.24,12.62,0.83
 20260714,11.8,11.8,11.05,11.3,516000,12.19,-7.28,12.17,12.56,1.6
 20260715,11.3,11.5,11.15,11.3,285000,12.11,-6.71,12.09,12.49,0.88
+20260716,11.35,11.45,11.3,11.3,97000,12.05,-6.19,12.03,12.45,0.31
 ```
 
 ## Latest TDCC Snapshot

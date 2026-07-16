@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2478 大毅
 
 ## Metadata
-- generated_at: 2026-07-15 22:26:42 Asia/Taipei
+- generated_at: 2026-07-16 22:26:54 Asia/Taipei
 - stock_id: 2478
 - stock_name: 大毅
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 304
+- latest_price_date: 20260716
+- price_rows: 305
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 159
-- high: 173
-- low: 149.5
-- close: 173
-- volume: 7947685
-- ma5: 169.8
-- ema23_primary: 188.83
-- distance_to_ema23_pct: -8.38
-- ma20: 210.35
-- ma60: 142.01
-- ma120: 104.4
-- return_5d: -10.59
-- return_20d: -8.22
-- volume_ratio: 1.1
-- distance_to_ma20_pct_auxiliary: -17.76
-- distance_to_high_60_pct: -32.55
+- date: 20260716
+- open: 168.5
+- high: 172
+- low: 158
+- close: 158
+- volume: 10682363
+- ma5: 165.2
+- ema23_primary: 186.26
+- distance_to_ema23_pct: -15.17
+- ma20: 207.9
+- ma60: 143.38
+- ma120: 105.17
+- return_5d: -12.71
+- return_20d: -23.67
+- volume_ratio: 1.54
+- distance_to_ma20_pct_auxiliary: -24
+- distance_to_high_60_pct: -38.4
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,200,207,200,207,16112836,144.29,43.46,145.95,95.64,1.48
 20260617,205.5,227.5,205.5,227.5,18754227,151.22,50.44,152.05,98.3,1.65
 20260618,236,241,223,234,36381648,158.12,47.99,157.95,101.13,2.81
 20260622,231,237,223,235.5,2583511,164.57,43.1,163.35,104.02,0.2
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,172.5,183.5,163,163.5,7133356,193.24,-15.39,211.82,139.02,0.87
 20260714,162,167.5,148,157.5,7237465,190.27,-17.22,211.12,140.41,0.99
 20260715,159,173,149.5,173,7947685,188.83,-8.38,210.35,142.01,1.1
+20260716,168.5,172,158,158,10682363,186.26,-15.17,207.9,143.38,1.54
 ```
 
 ## Latest TDCC Snapshot
@@ -189,17 +189,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 2478 | 大毅 | revenue_pullback | 營收成長股價回檔 | 60.0 |  |  |  |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260716 | 2478 | 大毅 | revenue_pullback | 營收成長股價回檔 | 60.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 2478 | 大毅 | 4 | 4 | 4 | 4 | 8 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260716 | 2478 | 大毅 | 1 | 1 | 4 | 4 | 7 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 2478 | 大毅 | 17 | 0 | 1568920.0 | 0.0 |  | call_inflow |
+| 20260716 | 2478 | 大毅 | 17 | 0 | 1096450.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2465 麗臺
 
 ## Metadata
-- generated_at: 2026-07-15 22:26:42 Asia/Taipei
+- generated_at: 2026-07-16 22:26:53 Asia/Taipei
 - stock_id: 2465
 - stock_name: 麗臺
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 304
+- latest_price_date: 20260716
+- price_rows: 305
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
+- date: 20260716
 - open: 82.8
 - high: 84.7
-- low: 80.3
-- close: 83.3
-- volume: 2342099
-- ma5: 85
-- ema23_primary: 79.28
-- distance_to_ema23_pct: 5.07
-- ma20: 77.89
-- ma60: 79.02
-- ma120: 67.31
-- return_5d: 12.57
-- return_20d: 0.36
-- volume_ratio: 1.16
-- distance_to_ma20_pct_auxiliary: 6.95
-- distance_to_high_60_pct: -11.19
+- low: 80.2
+- close: 80.8
+- volume: 1230483
+- ma5: 84.88
+- ema23_primary: 79.41
+- distance_to_ema23_pct: 1.75
+- ma20: 77.97
+- ma60: 79.26
+- ma120: 67.49
+- return_5d: -0.74
+- return_20d: 2.15
+- volume_ratio: 0.62
+- distance_to_ma20_pct_auxiliary: 3.63
+- distance_to_high_60_pct: -13.86
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,81.5,82.6,79,79.1,1783296,80.39,-1.61,82.46,72.4,0.78
 20260617,78,82.9,77.9,81.8,1249437,80.51,1.6,82.77,72.72,0.54
 20260618,81.8,82.2,80.4,80.9,990966,80.54,0.44,82.66,73.12,0.45
 20260622,81.1,81.8,79.1,79.4,1523191,80.45,-1.3,82.33,73.54,0.73
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,91.5,93,84.3,85.9,10135081,78.37,9.6,77.45,78.2,5.39
 20260714,88,89.4,79.1,84.9,3964353,78.92,7.58,77.87,78.64,1.97
 20260715,82.8,84.7,80.3,83.3,2342099,79.28,5.07,77.89,79.02,1.16
+20260716,82.8,84.7,80.2,80.8,1230483,79.41,1.75,77.97,79.26,0.62
 ```
 
 ## Latest TDCC Snapshot
@@ -188,13 +189,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 2465 | 麗臺 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
-| 20260715 | 2465 | 麗臺 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260716 | 2465 | 麗臺 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260716 | 2465 | 麗臺 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260716 | 2465 | 麗臺 | revenue_breakout_low_response | 營收爆發低反應股 | 18.0 | 19.0 | D_降級_TDCC轉弱 |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 2465 | 麗臺 | 5 | 3 | 5 | 5 | 12 | repeated_but_no_breakout | 近 10 日上榜 5 次、近 20 日上榜 12 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260716 | 2465 | 麗臺 | 6 | 2 | 5 | 6 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

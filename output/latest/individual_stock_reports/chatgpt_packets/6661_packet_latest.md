@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6661 威健生技
 
 ## Metadata
-- generated_at: 2026-07-15 22:27:36 Asia/Taipei
+- generated_at: 2026-07-16 22:28:15 Asia/Taipei
 - stock_id: 6661
 - stock_name: 威健生技
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 162
+- latest_price_date: 20260716
+- price_rows: 163
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 17.3
-- high: 17.95
-- low: 17.3
-- close: 17.95
-- volume: 6000
-- ma5: 18.03
-- ema23_primary: 17.62
-- distance_to_ema23_pct: 1.85
-- ma20: 17.45
-- ma60: 17.49
+- date: 20260716
+- open: 18.45
+- high: 18.45
+- low: 18.45
+- close: 18.45
+- volume: 1000
+- ma5: 18.09
+- ema23_primary: 17.69
+- distance_to_ema23_pct: 4.28
+- ma20: 17.57
+- ma60: 17.5
 - ma120: 18.16
-- return_5d: -3.23
-- return_20d: 12.19
-- volume_ratio: 0.41
-- distance_to_ma20_pct_auxiliary: 2.85
-- distance_to_high_60_pct: -6.99
+- return_5d: 1.65
+- return_20d: 15.31
+- volume_ratio: 0.07
+- distance_to_ma20_pct_auxiliary: 4.98
+- distance_to_high_60_pct: -4.4
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260612,16,16,16,16,3000,16.84,-5,16.84,17.87,0.25
 20260615,16.7,16.7,16,16,5000,16.77,-4.6,16.77,17.82,0.41
 20260616,16.5,16.5,16,16,3000,16.71,-4.23,16.7,17.78,0.26
 20260617,16,16.2,16,16.2,11000,16.66,-2.79,16.64,17.73,0.94
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260709,17.5,18.65,17.45,18.25,13000,17.56,3.95,17.28,17.51,0.85
 20260713,17.35,18,17.35,18,3000,17.59,2.31,17.36,17.5,0.2
 20260715,17.3,17.95,17.3,17.95,6000,17.62,1.85,17.45,17.49,0.41
+20260716,18.45,18.45,18.45,18.45,1000,17.69,4.28,17.57,17.5,0.07
 ```
 
 ## Latest TDCC Snapshot

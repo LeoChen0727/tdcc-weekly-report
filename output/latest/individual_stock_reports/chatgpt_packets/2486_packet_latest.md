@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2486 一詮
 
 ## Metadata
-- generated_at: 2026-07-15 22:26:43 Asia/Taipei
+- generated_at: 2026-07-16 22:26:54 Asia/Taipei
 - stock_id: 2486
 - stock_name: 一詮
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 304
+- latest_price_date: 20260716
+- price_rows: 305
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 239
-- high: 257
-- low: 238.5
-- close: 257
-- volume: 10902829
-- ma5: 248.5
-- ema23_primary: 249.66
-- distance_to_ema23_pct: 2.94
-- ma20: 249
-- ma60: 255.7
-- ma120: 197.01
-- return_5d: 6.2
-- return_20d: 3.42
-- volume_ratio: 1.31
-- distance_to_ma20_pct_auxiliary: 3.21
-- distance_to_high_60_pct: -19.18
+- date: 20260716
+- open: 257
+- high: 273.5
+- low: 251.5
+- close: 261.5
+- volume: 18965676
+- ma5: 252.5
+- ema23_primary: 250.65
+- distance_to_ema23_pct: 4.33
+- ma20: 249.8
+- ma60: 256.76
+- ma120: 198.44
+- return_5d: 8.28
+- return_20d: 6.52
+- volume_ratio: 2.1
+- distance_to_ma20_pct_auxiliary: 4.68
+- distance_to_high_60_pct: -17.77
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,252,257,244,245.5,4721008,256.61,-4.33,264.48,227.92,0.5
 20260617,241.5,251.5,238,251.5,4632802,256.18,-1.83,264.15,229.53,0.48
 20260618,252,276.5,251,276.5,10684741,257.87,7.22,264.05,231.75,1.11
 20260622,291.5,295,270,272,17859431,259.05,5,264.1,233.85,1.78
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,259,262.5,249.5,251,7094453,250.36,0.26,249.45,253.69,0.91
 20260714,251,253.5,226,234,12823632,249,-6.02,248.57,254.5,1.58
 20260715,239,257,238.5,257,10902829,249.66,2.94,249,255.7,1.31
+20260716,257,273.5,251.5,261.5,18965676,250.65,4.33,249.8,256.76,2.1
 ```
 
 ## Latest TDCC Snapshot
@@ -188,19 +188,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 2486 | 一詮 | pullback_rebound | 回檔後短線轉強 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/07/09 2.公司名稱:一詮精密工業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:  依據「發行人募集與發行有價證券處理準則」第九條第一項第二款規定辦理，公告本公  司國內第七次無擔保轉換公司債之委託代收債款及存儲專戶行庫等相關事宜。 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):  (1)訂約日期：民國115年07月09日  (2)委託代收債款行庫：第一商業銀行仁和分行  (3)委託存儲專戶行庫：兆豐國際商業銀行南三重分行；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
-| 20260715 | 2486 | 一詮 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/07/09 2.公司名稱:一詮精密工業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:  依據「發行人募集與發行有價證券處理準則」第九條第一項第二款規定辦理，公告本公  司國內第七次無擔保轉換公司債之委託代收債款及存儲專戶行庫等相關事宜。 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):  (1)訂約日期：民國115年07月09日  (2)委託代收債款行庫：第一商業銀行仁和分行  (3)委託存儲專戶行庫：兆豐國際商業銀行南三重分行；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260715 | 2486 | 一詮 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | stale_signal | 1.事實發生日:115/07/09 2.公司名稱:一詮精密工業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:  依據「發行人募集與發行有價證券處理準則」第九條第一項第二款規定辦理，公告本公  司國內第七次無擔保轉換公司債之委託代收債款及存儲專戶行庫等相關事宜。 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):  (1)訂約日期：民國115年07月09日  (2)委託代收債款行庫：第一商業銀行仁和分行  (3)委託存儲專戶行庫：兆豐國際商業銀行南三重分行；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260716 | 2486 | 一詮 | pullback_rebound | 回檔後短線轉強 | 55.0 |  |  |  |  | call_strong_inflow | stale_signal | 1.事實發生日:115/07/09 2.公司名稱:一詮精密工業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:  依據「發行人募集與發行有價證券處理準則」第九條第一項第二款規定辦理，公告本公  司國內第七次無擔保轉換公司債之委託代收債款及存儲專戶行庫等相關事宜。 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):  (1)訂約日期：民國115年07月09日  (2)委託代收債款行庫：第一商業銀行仁和分行  (3)委託存儲專戶行庫：兆豐國際商業銀行南三重分行；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260716 | 2486 | 一詮 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_strong_inflow | stale_signal | 1.事實發生日:115/07/09 2.公司名稱:一詮精密工業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:  依據「發行人募集與發行有價證券處理準則」第九條第一項第二款規定辦理，公告本公  司國內第七次無擔保轉換公司債之委託代收債款及存儲專戶行庫等相關事宜。 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):  (1)訂約日期：民國115年07月09日  (2)委託代收債款行庫：第一商業銀行仁和分行  (3)委託存儲專戶行庫：兆豐國際商業銀行南三重分行；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260716 | 2486 | 一詮 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_strong_inflow | stale_signal | 1.事實發生日:115/07/09 2.公司名稱:一詮精密工業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:  依據「發行人募集與發行有價證券處理準則」第九條第一項第二款規定辦理，公告本公  司國內第七次無擔保轉換公司債之委託代收債款及存儲專戶行庫等相關事宜。 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):  (1)訂約日期：民國115年07月09日  (2)委託代收債款行庫：第一商業銀行仁和分行  (3)委託存儲專戶行庫：兆豐國際商業銀行南三重分行；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 2486 | 一詮 | 1 | 1 | 4 | 8 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260716 | 2486 | 一詮 | 2 | 2 | 4 | 9 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 2486 | 一詮 | 30 | 2 | 995650.0 | 20.0 | 49782.5 | no_signal |
+| 20260716 | 2486 | 一詮 | 30 | 0 | 4483970.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

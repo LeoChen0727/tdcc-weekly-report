@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2911 麗嬰房
 
 ## Metadata
-- generated_at: 2026-07-15 22:26:49 Asia/Taipei
+- generated_at: 2026-07-16 22:27:05 Asia/Taipei
 - stock_id: 2911
 - stock_name: 麗嬰房
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 301
+- latest_price_date: 20260716
+- price_rows: 302
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 7.42
-- high: 7.58
-- low: 7.35
-- close: 7.52
-- volume: 203229
-- ma5: 7.65
-- ema23_primary: 7.64
-- distance_to_ema23_pct: -1.54
-- ma20: 7.61
-- ma60: 7.04
-- ma120: 6.07
-- return_5d: -4.69
-- return_20d: -7.39
-- volume_ratio: 0.53
-- distance_to_ma20_pct_auxiliary: -1.18
-- distance_to_high_60_pct: -28.38
+- date: 20260716
+- open: 7.63
+- high: 7.78
+- low: 7.46
+- close: 7.5
+- volume: 94125
+- ma5: 7.55
+- ema23_primary: 7.63
+- distance_to_ema23_pct: -1.65
+- ma20: 7.59
+- ma60: 7.08
+- ma120: 6.09
+- return_5d: -6.25
+- return_20d: -5.66
+- volume_ratio: 0.26
+- distance_to_ma20_pct_auxiliary: -1.15
+- distance_to_high_60_pct: -28.57
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,8.2,8.2,7.93,7.95,429857,7.8,1.89,8.39,6.24,0.51
 20260617,8,8.2,7.9,8.08,539405,7.83,3.25,8.44,6.29,0.68
 20260618,8.29,8.29,8,8.01,347835,7.84,2.16,8.44,6.33,0.45
 20260622,7.95,8.1,7.8,7.88,436691,7.84,0.46,8.4,6.38,0.58
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,8,8,7.46,7.5,342142,7.67,-2.21,7.69,6.95,0.76
 20260714,7.63,7.77,7.29,7.41,182446,7.65,-3.11,7.64,7,0.45
 20260715,7.42,7.58,7.35,7.52,203229,7.64,-1.54,7.61,7.04,0.53
+20260716,7.63,7.78,7.46,7.5,94125,7.63,-1.65,7.59,7.08,0.26
 ```
 
 ## Latest TDCC Snapshot

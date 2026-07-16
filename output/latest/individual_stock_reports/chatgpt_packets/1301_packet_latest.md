@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1301 台塑
 
 ## Metadata
-- generated_at: 2026-07-15 22:26:22 Asia/Taipei
+- generated_at: 2026-07-16 22:26:23 Asia/Taipei
 - stock_id: 1301
 - stock_name: 台塑
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 304
+- latest_price_date: 20260716
+- price_rows: 305
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -56,25 +56,25 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 停利
-- model_category_display_zh: 嚴格突破
-- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前以風險管理為主，不適合新買第一筆。
-- action_summary_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。
-- entry_strategy_zh: 目前進入停利管理，不建議新買第一筆。
+- action_rating_display_zh: 已持有續抱
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
+- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 轉弱警訊、股價乖離過大
+- risk_control_zh: 股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。 進場策略：目前進入停利管理，不建議新買第一筆。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊、股價乖離過大
+- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: take_profit
-- action_rating_label_zh: 停利
-- confidence_level: low
-- thesis_state: high_level_distribution_risk
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
+- confidence_level: medium
+- thesis_state: high_level_consolidation
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -87,10 +87,9 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
-- decision_score_high
 - price_structure_not_broken
 - revenue_not_deteriorating
+- no_major_tdcc_warning
 - no_major_volume_price_failure
 
 ### post_entry_watch_items
@@ -104,7 +103,6 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- tdcc_distribution_warning
 - price_too_extended
 
 ### chatgpt_instruction
@@ -113,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 64
-- high: 66.4
-- low: 63
-- close: 65.7
-- volume: 146834938
-- ma5: 60.46
-- ema23_primary: 55.99
-- distance_to_ema23_pct: 17.35
-- ma20: 55.84
-- ma60: 50.75
-- ma120: 48.93
-- return_5d: 14.66
-- return_20d: 39.05
-- volume_ratio: 1.86
-- distance_to_ma20_pct_auxiliary: 17.65
-- distance_to_high_60_pct: -1.05
+- date: 20260716
+- open: 66.8
+- high: 68.6
+- low: 65
+- close: 65.6
+- volume: 122648333
+- ma5: 61.98
+- ema23_primary: 56.79
+- distance_to_ema23_pct: 15.52
+- ma20: 56.78
+- ma60: 50.97
+- ma120: 49.13
+- return_5d: 13.1
+- return_20d: 40.32
+- volume_ratio: 1.46
+- distance_to_ma20_pct_auxiliary: 15.52
+- distance_to_high_60_pct: -4.37
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,47.3,48.65,46.65,46.75,26097670,47.07,-0.67,46.77,48.24,0.84
 20260617,46.7,48,46.35,47.95,18656628,47.14,1.72,46.9,48.24,0.6
 20260618,48.4,51.8,48.4,51.7,188508912,47.52,8.79,47.19,48.36,4.73
 20260622,52.7,53.5,51.7,52.4,51915785,47.93,9.33,47.55,48.48,1.24
@@ -155,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,56,60.2,56,60.2,52147050,54.33,10.8,54,50.4,0.77
 20260714,61.5,63.6,59.4,63.6,140549256,55.11,15.42,54.92,50.55,1.91
 20260715,64,66.4,63,65.7,146834938,55.99,17.35,55.84,50.75,1.86
+20260716,66.8,68.6,65,65.6,122648333,56.79,15.52,56.78,50.97,1.46
 ```
 
 ## Latest TDCC Snapshot
@@ -187,19 +185,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 1301 | 台塑 | true_breakout | 嚴格突破 | 84.0 |  |  | platform_breakout |  | call_put_bullish | continued_overheated | 1.事實發生日:115/07/09 2.公司名稱:台灣塑膠工業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:公告本公司2026年第2季自結合併損益 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 一、2026年第2季自結合併損益與2026年第1季比較： （一）2026年第2季合併營業額472億元，比上季增加52億元，成長12.5％，說明如下： 1.銷售價差方面，增加127.5億元： 2月底美伊戰爭爆發，荷姆茲海峽遭封鎖，波斯灣原油及輕油供應中斷，推升2026年 第2季布蘭特原油、乙烯及丙烯合約價格，分別比第1季上漲23.3％、36.8％及37.8％， 因此，本公司2026年第2季各主要產品平均價格比第1季上漲，幅度介於27~64％。 2.銷售量差方面，減少74.8億元： 2月底美伊戰爭，中東原油及輕油無法透過荷姆茲海峽出口，中油及台塑石化公司乙烯、 丙烯打折供應，本公司調降各產品開工率，且6月中東局勢趨緩，原油價格走跌，客戶 採購觀望，石化產品需求萎縮，因此，本公司2026年第2季各主要產品銷售量，合計 比第1季減少28萬噸。 （二）2026年第2季本業利益28億元，比上季虧損13億元，增加41億元，合併稅前利益 108億元，比上季增加74億元，每股稅前盈餘為1.71元，合併稅後利益106億元，比上季 增加73億元，歸屬母公司每股稅後盈餘為1.67元，說明如下： 1.受美伊戰爭影響，推升石化產品價格，加上本公司有前期低成本的庫存，產品利差 明顯改善，致使第2季本業轉虧為盈。 2.認列權益法投資收益83.5億元，比上季增加33億元，主要係： A.台塑石化公司：認列59.1億元，比上季增加2.1億元； B.台塑美國公司：認列18.8億元，比上季增加20億元，主要係美伊戰爭導致石化產品 價格大漲，但美國天然氣及能源價格漲幅相對較小，產品利差擴大所致。 C.台塑烯烴美國公司：認列11.1億元，比上季增加9.1億元，主要係原料乙烷價格漲幅 小於產品乙烯漲幅，利差擴大所致。 3.第2季有現金股利收入2.3億元。 4.第2季兌換利益0.3億元，比第1季兌換利益2.3億元，減少利益2億元。 二、2026年上半年自結合併損益與2025年上半年比較： （一）2026年上半年合併營業額892億元，比去年同期減少33億元，衰退3.6％， 說明如下： 1.銷售量差方面，減少114.9億元： 2026年上半年受美伊戰爭，以及中油天然氣管線施工、四輕歲修與新三輕設備故障等 影響，中油及台塑石化公司乙烯、丙烯打折供應，本公司開工率降低，因此，2026年 上半年各主要產品銷售量，合計比去年同期減少39.1萬噸。 2.銷售價差方面，增加81.4億元： 2026年上半年因美伊戰爭，原油及乙烯、丙烯價格大漲，本公司為反應原料成本，調漲 各產品售價，因此，本公司2026年上半年各主要產品平均價格比去年同期上漲，幅度 介於6~19％。 （二）2026年上半年本業利益15億元，比去年同期虧損25億元，增加40億元，合併 稅前利益142億元，比去年同期增加209億元，每股稅前盈餘為2.24元，合併稅後利益 139億元，比去年同期增加204億元，歸屬母公司每股稅後盈餘為2.19元，說明如下： 1.去年上半年因美國實施對等關稅，客戶採購保守，且石化同業新增產能陸續投產， 壓低石化產品市場行情，本業產生虧損，今年受美伊戰爭影響，國際原油及石化產品 價格上漲，利差明顯改善，因此，今年上半年本業轉虧為盈。 2.認列權益法投資收益133.9億元，比去年同期認列虧損12.1億元，增加146億元， 主要係： A.認列台塑石化公司比去年同期增加126億元。 B.認列台塑美國公司比去年同期增加23億元，主要因各產品售價上漲，產品利差擴大。 3.現金股利收入2.3億元，比去年同期增加0.7億元。 4.今年上半年兌換利益2.6億元，比去年同期兌換損失17.1億元，增加利益19.7億元。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 1301 | 台塑 | 4 | 1 | 4 | 6 | 11 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 1301 | 台塑 | 109 | 4 | 39714590.0 | 176470.0 | 225.05 | call_put_bullish |
+| 20260716 | 1301 | 台塑 | 113 | 0 | 39099610.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

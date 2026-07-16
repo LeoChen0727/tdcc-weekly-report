@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8261 富鼎
 
 ## Metadata
-- generated_at: 2026-07-15 22:27:53 Asia/Taipei
+- generated_at: 2026-07-16 22:28:41 Asia/Taipei
 - stock_id: 8261
 - stock_name: 富鼎
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 304
+- latest_price_date: 20260716
+- price_rows: 305
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -111,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 307.5
-- high: 311
-- low: 291.5
-- close: 304
-- volume: 2704217
-- ma5: 315.3
-- ema23_primary: 272.84
-- distance_to_ema23_pct: 11.42
-- ma20: 278.12
-- ma60: 191.07
-- ma120: 145.48
-- return_5d: -11.11
-- return_20d: 63.44
-- volume_ratio: 0.19
-- distance_to_ma20_pct_auxiliary: 9.3
-- distance_to_high_60_pct: -20.11
+- date: 20260716
+- open: 288
+- high: 296.5
+- low: 276
+- close: 278.5
+- volume: 2112487
+- ma5: 301.4
+- ema23_primary: 273.31
+- distance_to_ema23_pct: 1.9
+- ma20: 283.15
+- ma60: 193.61
+- ma120: 147.05
+- return_5d: -19.97
+- return_20d: 56.46
+- volume_ratio: 0.15
+- distance_to_ma20_pct_auxiliary: -1.64
+- distance_to_high_60_pct: -26.81
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,183,187,173.5,178,12202549,163.46,8.89,171.35,135.09,1.08
 20260617,176,195.5,176,195.5,14234109,166.13,17.68,173.68,136.55,1.25
 20260618,215,215,215,215,2912328,170.2,26.32,176.93,138.4,0.28
 20260622,236.5,236.5,236.5,236.5,1392680,175.73,34.58,180.75,140.59,0.14
@@ -153,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,332,332,292.5,292.5,5130684,266.64,9.7,265.55,184.94,0.33
 20260714,278,307,263.5,307,6416190,270,13.7,272.23,188.12,0.42
 20260715,307.5,311,291.5,304,2704217,272.84,11.42,278.12,191.07,0.19
+20260716,288,296.5,276,278.5,2112487,273.31,1.9,283.15,193.61,0.15
 ```
 
 ## Latest TDCC Snapshot
@@ -197,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 8261 | 富鼎 | 121 | 2 | 9575230.0 | 141620.0 | 67.61 | no_signal |
+| 20260716 | 8261 | 富鼎 | 121 | 0 | 7528250.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2476 鉅祥
 
 ## Metadata
-- generated_at: 2026-07-15 22:26:42 Asia/Taipei
+- generated_at: 2026-07-16 22:26:54 Asia/Taipei
 - stock_id: 2476
 - stock_name: 鉅祥
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 304
+- latest_price_date: 20260716
+- price_rows: 305
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 124
-- high: 129.5
-- low: 122
-- close: 129.5
-- volume: 2559740
-- ma5: 127.8
-- ema23_primary: 127.29
-- distance_to_ema23_pct: 1.73
-- ma20: 128.15
-- ma60: 122.57
-- ma120: 104.96
-- return_5d: -1.15
-- return_20d: 1.17
-- volume_ratio: 0.55
-- distance_to_ma20_pct_auxiliary: 1.05
-- distance_to_high_60_pct: -7.5
+- date: 20260716
+- open: 127
+- high: 132
+- low: 125.5
+- close: 131.5
+- volume: 2077928
+- ma5: 127.7
+- ema23_primary: 127.64
+- distance_to_ema23_pct: 3.02
+- ma20: 128.75
+- ma60: 122.73
+- ma120: 105.3
+- return_5d: -0.38
+- return_20d: 10.04
+- volume_ratio: 0.48
+- distance_to_ma20_pct_auxiliary: 2.14
+- distance_to_high_60_pct: -6.07
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,127,128,116.5,119.5,8246534,120.46,-0.79,122,111.18,1.42
 20260617,120.5,123.5,119,122.5,2925439,120.63,1.55,122.42,111.83,0.5
 20260618,123.5,126,122,125,3435420,120.99,3.31,122.67,112.53,0.6
 20260622,126,127,122.5,125.5,4346629,121.37,3.41,122.9,113.22,0.78
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,129,130.5,123.5,126.5,2682604,127.56,-0.83,128.12,122.08,0.56
 20260714,126.5,127,117,122,4919661,127.09,-4.01,128.07,122.33,1
 20260715,124,129.5,122,129.5,2559740,127.29,1.73,128.15,122.57,0.55
+20260716,127,132,125.5,131.5,2077928,127.64,3.02,128.75,122.73,0.48
 ```
 
 ## Latest TDCC Snapshot
@@ -189,19 +189,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 2476 | 鉅祥 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.事實發生日:115/07/07 2.公司名稱:鉅祥企業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: (1)合併營業收入(當月與去年同期比較)(單位：新台幣仟元)   項目     115年06月  114年06月  成長率 --------   ---------  --------- -------- 合併營收    915,039    595,099   53.76% (2)合併營業收入(當月與上月比較)(單位：新台幣仟元)   項目     115年06月  115年05月  成長率 --------   ---------  --------- -------- 合併營收    915,039    838,717    9.10% (3)累計合併營業收入(單位：新台幣仟元)   項目     115年01-06月   114年01-06月  成長率 --------- -------------  ------------- -------- 合併營收    4,734,678      3,457,947    36.92% 上列數字係本公司自結數，未經會計師簽證或核閱。 6.因應措施:發布重大訊息 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):  無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
-| 20260715 | 2476 | 鉅祥 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/07/07 2.公司名稱:鉅祥企業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: (1)合併營業收入(當月與去年同期比較)(單位：新台幣仟元)   項目     115年06月  114年06月  成長率 --------   ---------  --------- -------- 合併營收    915,039    595,099   53.76% (2)合併營業收入(當月與上月比較)(單位：新台幣仟元)   項目     115年06月  115年05月  成長率 --------   ---------  --------- -------- 合併營收    915,039    838,717    9.10% (3)累計合併營業收入(單位：新台幣仟元)   項目     115年01-06月   114年01-06月  成長率 --------- -------------  ------------- -------- 合併營收    4,734,678      3,457,947    36.92% 上列數字係本公司自結數，未經會計師簽證或核閱。 6.因應措施:發布重大訊息 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):  無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260715 | 2476 | 鉅祥 | revenue_breakout_low_response | 營收爆發低反應股 | 18.0 | 6.0 | A_優先追蹤 |  |  | no_signal | stale_signal | 1.事實發生日:115/07/07 2.公司名稱:鉅祥企業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: (1)合併營業收入(當月與去年同期比較)(單位：新台幣仟元)   項目     115年06月  114年06月  成長率 --------   ---------  --------- -------- 合併營收    915,039    595,099   53.76% (2)合併營業收入(當月與上月比較)(單位：新台幣仟元)   項目     115年06月  115年05月  成長率 --------   ---------  --------- -------- 合併營收    915,039    838,717    9.10% (3)累計合併營業收入(單位：新台幣仟元)   項目     115年01-06月   114年01-06月  成長率 --------- -------------  ------------- -------- 合併營收    4,734,678      3,457,947    36.92% 上列數字係本公司自結數，未經會計師簽證或核閱。 6.因應措施:發布重大訊息 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):  無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260716 | 2476 | 鉅祥 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | call_inflow | stale_signal | 1.事實發生日:115/07/07 2.公司名稱:鉅祥企業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: (1)合併營業收入(當月與去年同期比較)(單位：新台幣仟元)   項目     115年06月  114年06月  成長率 --------   ---------  --------- -------- 合併營收    915,039    595,099   53.76% (2)合併營業收入(當月與上月比較)(單位：新台幣仟元)   項目     115年06月  115年05月  成長率 --------   ---------  --------- -------- 合併營收    915,039    838,717    9.10% (3)累計合併營業收入(單位：新台幣仟元)   項目     115年01-06月   114年01-06月  成長率 --------- -------------  ------------- -------- 合併營收    4,734,678      3,457,947    36.92% 上列數字係本公司自結數，未經會計師簽證或核閱。 6.因應措施:發布重大訊息 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):  無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260716 | 2476 | 鉅祥 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | call_inflow | stale_signal | 1.事實發生日:115/07/07 2.公司名稱:鉅祥企業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: (1)合併營業收入(當月與去年同期比較)(單位：新台幣仟元)   項目     115年06月  114年06月  成長率 --------   ---------  --------- -------- 合併營收    915,039    595,099   53.76% (2)合併營業收入(當月與上月比較)(單位：新台幣仟元)   項目     115年06月  115年05月  成長率 --------   ---------  --------- -------- 合併營收    915,039    838,717    9.10% (3)累計合併營業收入(單位：新台幣仟元)   項目     115年01-06月   114年01-06月  成長率 --------- -------------  ------------- -------- 合併營收    4,734,678      3,457,947    36.92% 上列數字係本公司自結數，未經會計師簽證或核閱。 6.因應措施:發布重大訊息 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):  無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 2476 | 鉅祥 | 28 | 9 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260716 | 2476 | 鉅祥 | 29 | 2 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 2476 | 鉅祥 | 57 | 0 | 12895440.0 | 0.0 |  | no_signal |
+| 20260716 | 2476 | 鉅祥 | 58 | 0 | 22588660.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

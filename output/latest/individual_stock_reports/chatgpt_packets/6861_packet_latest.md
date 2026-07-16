@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6861 睿生光電
 
 ## Metadata
-- generated_at: 2026-07-15 22:27:40 Asia/Taipei
+- generated_at: 2026-07-16 22:28:22 Asia/Taipei
 - stock_id: 6861
 - stock_name: 睿生光電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 304
+- latest_price_date: 20260716
+- price_rows: 305
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 237
-- high: 243
-- low: 233.5
-- close: 238.5
-- volume: 906792
-- ma5: 265.6
-- ema23_primary: 311.09
-- distance_to_ema23_pct: -23.33
-- ma20: 318.43
-- ma60: 346.01
-- ma120: 229.33
-- return_5d: -22.44
-- return_20d: -23.31
-- volume_ratio: 1.19
-- distance_to_ma20_pct_auxiliary: -25.1
-- distance_to_high_60_pct: -51.33
+- date: 20260716
+- open: 252
+- high: 258
+- low: 237.5
+- close: 250
+- volume: 1209956
+- ma5: 256.1
+- ema23_primary: 306
+- distance_to_ema23_pct: -18.3
+- ma20: 313.82
+- ma60: 347.22
+- ma120: 230.86
+- return_5d: -15.97
+- return_20d: -26.9
+- volume_ratio: 1.52
+- distance_to_ma20_pct_auxiliary: -20.34
+- distance_to_high_60_pct: -48.98
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,318,342,315,342,520013,354.09,-3.41,378.48,289.92,0.36
 20260617,342,358.5,333,337.5,1395209,352.7,-4.31,375,292.94,0.93
 20260618,335.5,371,335.5,371,1470777,354.23,4.73,372.18,296.78,0.95
 20260622,408,408,375.5,378.5,1385169,356.25,6.25,368.65,300.69,0.99
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,288,288,263,263,1009014,325.02,-19.08,325.4,343.24,1.39
 20260714,247,253,237,237,901827,317.69,-25.4,322.05,344.73,1.21
 20260715,237,243,233.5,238.5,906792,311.09,-23.33,318.43,346.01,1.19
+20260716,252,258,237.5,250,1209956,306,-18.3,313.82,347.22,1.52
 ```
 
 ## Latest TDCC Snapshot
@@ -198,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 6861 | 睿生光電 | 3 | 0 | 215580.0 | 0.0 |  | no_signal |
+| 20260716 | 6861 | 睿生光電 | 3 | 0 | 262420.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

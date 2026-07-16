@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00908 富邦入息REITs+
 
 ## Metadata
-- generated_at: 2026-07-15 22:26:19 Asia/Taipei
+- generated_at: 2026-07-16 22:26:18 Asia/Taipei
 - stock_id: 00908
 - stock_name: 富邦入息REITs+
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260715
-- price_rows: 37
+- latest_price_date: 20260716
+- price_rows: 38
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 15.45
-- high: 15.45
-- low: 15.44
-- close: 15.44
-- volume: 28374
+- date: 20260716
+- open: 15.42
+- high: 15.42
+- low: 15.41
+- close: 15.41
+- volume: 59136
 - ma5: 15.37
-- ema23_primary: 15.13
-- distance_to_ema23_pct: 2.08
-- ma20: 15.14
-- ma60: 14.89
-- ma120: 14.89
-- return_5d: 0.32
-- return_20d: 2.12
-- volume_ratio: 0.19
-- distance_to_ma20_pct_auxiliary: 1.97
-- distance_to_high_60_pct: -0.06
+- ema23_primary: 15.15
+- distance_to_ema23_pct: 1.72
+- ma20: 15.16
+- ma60: 14.9
+- ma120: 14.9
+- return_5d: 0.2
+- return_20d: 2.6
+- volume_ratio: 0.42
+- distance_to_ma20_pct_auxiliary: 1.64
+- distance_to_high_60_pct: -0.26
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,15.02,15.03,15,15.02,228731,14.65,2.52,14.62,14.62,1.23
 20260617,15.03,15.03,15.01,15.03,14509,14.68,2.37,14.64,14.64,0.08
 20260618,14.94,14.94,14.82,14.82,320432,14.69,0.86,14.65,14.65,1.75
 20260622,14.82,14.84,14.78,14.8,242769,14.7,0.66,14.67,14.65,1.26
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,15.3,15.36,15.3,15.36,20656,15.07,1.93,15.11,14.86,0.13
 20260714,15.4,15.42,15.38,15.4,190835,15.1,2.01,15.13,14.87,1.19
 20260715,15.45,15.45,15.44,15.44,28374,15.13,2.08,15.14,14.89,0.19
+20260716,15.42,15.42,15.41,15.41,59136,15.15,1.72,15.16,14.9,0.42
 ```
 
 ## Latest TDCC Snapshot

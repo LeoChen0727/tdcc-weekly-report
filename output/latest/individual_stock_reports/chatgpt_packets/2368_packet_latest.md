@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2368 金像電
 
 ## Metadata
-- generated_at: 2026-07-15 22:26:38 Asia/Taipei
+- generated_at: 2026-07-16 22:26:47 Asia/Taipei
 - stock_id: 2368
 - stock_name: 金像電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 304
+- latest_price_date: 20260716
+- price_rows: 305
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 1040
-- high: 1060
-- low: 1015
-- close: 1025
-- volume: 4764532
-- ma5: 1062
-- ema23_primary: 1193.75
-- distance_to_ema23_pct: -14.14
-- ma20: 1210
-- ma60: 1304.5
-- ma120: 1072.08
-- return_5d: -9.69
-- return_20d: -22.35
-- volume_ratio: 0.88
-- distance_to_ma20_pct_auxiliary: -15.29
-- distance_to_high_60_pct: -35.13
+- date: 20260716
+- open: 998
+- high: 1010
+- low: 981
+- close: 1005
+- volume: 3284092
+- ma5: 1033
+- ema23_primary: 1178.02
+- distance_to_ema23_pct: -14.69
+- ma20: 1193
+- ma60: 1301.08
+- ma120: 1074.9
+- return_5d: -12.61
+- return_20d: -25.28
+- volume_ratio: 0.61
+- distance_to_ma20_pct_auxiliary: -15.76
+- distance_to_high_60_pct: -36.39
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,1330,1370,1320,1345,4085591,1343.52,0.11,1348.75,1240.77,0.64
 20260617,1345,1375,1340,1370,3261807,1345.73,1.8,1355.5,1247.13,0.52
 20260618,1380,1390,1340,1355,3589052,1346.5,0.63,1359,1253.68,0.59
 20260622,1390,1400,1335,1395,5223186,1350.54,3.29,1362.25,1262.13,0.85
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,1085,1105,1040,1045,4210045,1226.74,-14.81,1240,1309.5,0.77
 20260714,1040,1070,955,1015,6200585,1209.09,-16.05,1224.75,1307,1.14
 20260715,1040,1060,1015,1025,4764532,1193.75,-14.14,1210,1304.5,0.88
+20260716,998,1010,981,1005,3284092,1178.02,-14.69,1193,1301.08,0.61
 ```
 
 ## Latest TDCC Snapshot
@@ -189,17 +189,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 2368 | 金像電 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/07/07 2.被背書保證之: (1)公司名稱:Gold Circuit Electronics (Thailand) Co.,Ltd. (2)與提供背書保證公司之關係: 本公司直接與間接持股100%之子公司 (3)背書保證之限額(仟元):26,178,417 (4)原背書保證之餘額(仟元):12,980,254 (5)本次新增背書保證之金額(仟元):2,643,550 (6)迄事實發生日止背書保證餘額(仟元):15,623,804 (7)被背書保證公司實際動支金額(仟元):6,221,761 (8)本次新增背書保證之原因: 本公司為新設立子公司融資之目的所為之背書保證 3.被背書保證公司提供擔保品之: (1)內容: 無 (2)價值(仟元):0 4.被背書保證公司最近期財務報表之: (1)資本(仟元):3,033,061 (2)累積盈虧金額(仟元):-534,314 5.解除背書保證責任之: (1)條件: 被背書保證公司之銀行融資額度到期且債務清償 (2)日期: 被背書保證公司之銀行融資額度到期且債務清償 6.背書保證之總限額(仟元): 52,356,834 7.迄事實發生日為止，背書保證餘額(仟元): 17,343,704 8.迄事實發生日為止，A提供背書保證餘額占公開發行公司最近期財務報表淨值之 比率: 49.69 9.迄事實發生日為止，背書保證、長期投資及資金貸與餘額合計數達該公開發行公 司最近期財務報表淨值之比率: 76.37 10.其他應敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260716 | 2368 | 金像電 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.標的物之名稱及性質（如坐落台中市北區ＸＸ段ＸＸ小段土地）: 土地：蘇新國用(2008)第009250地號 建物：蘇房權證新區字第00094927號 門牌：蘇州高新區馬運路288號 2.事實發生日:115/7/15~115/7/15 3.董事會通過日期: 民國115年7月15日 4.其他核決日期: 不適用 5.交易單位數量（如ＸＸ平方公尺，折合ＸＸ坪）、每單位價格及交易總金額: 土地：共計53,749.20平方公尺，折合16,259.13坪，交易金額：人民幣71,937,000元整。 建物：共計60,103.01平方公尺，折合18,181.16坪，交易金額：人民幣98,063,000元整。 交易總金額：人民幣170,000,000元整。 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之關 係人者，得免揭露其姓名）: 名碩電腦(蘇州)有限公司/非關係人 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移轉之 所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次移轉日期 及移轉金額: 不適用 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係 人之取得及處分日期、價格及交易當時與公司之關係: 不適用 9.預計處分利益（或損失）（取得資產者不適用）（遞延者應列表說明 認列情形）: 不適用 10.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 依議定買賣契約條件付款 11.本次交易之決定方式（如招標、比價或議價）、價格決定之參考依據及 決策單位: 本次交易之決定方式：雙方議定 價格決定之參考依據：參考不動產估價報告 決策單位：董事會 12.專業估價者事務所或公司名稱及其估價金額: 蘇州弘遠眾益土地房地產資產評估諮詢有限公司/人民幣163,450,000 13.專業估價師姓名: 吉健華 姚凱方 14.專業估價師開業證書字號: 吉健華(註冊證號：3220170107) 姚凱方(註冊證號：3220180065) 15.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 16.是否尚未取得估價報告:否或不適用 17.尚未取得估價報告之原因: 不適用 18.估價結果有重大差異時，其差異原因及會計師意見: 不適用 19.會計師事務所名稱: 不適用 20.會計師姓名: 不適用 21.會計師開業證書字號: 不適用 22.經紀人及經紀費用: 不適用 23.取得或處分之具體目的或用途: 為擴建本公司蘇州廠 24.本次交易表示異議之董事之意見: 無 25.本次交易為關係人交易:否 26.監察人承認或審計委員會同意日期: 不適用 27.本次交易係向關係人取得不動產或其使用權資產:否 28.依「公開發行公司取得或處分資產處理準則」第十六條規定 評估之價格:不適用 29.依前項評估之價格較交易價格為低者，依同準則第十七條規 定評估之價格:不適用 30.前已就同一件事件發布重大訊息日期: 不適用 31.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 2368 | 金像電 | 9 | 9 | 5 | 9 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260716 | 2368 | 金像電 | 1 | 1 | 4 | 9 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 2368 | 金像電 | 254 | 21 | 30919640.0 | 1468990.0 | 21.05 | no_signal |
+| 20260716 | 2368 | 金像電 | 259 | 0 | 26271720.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

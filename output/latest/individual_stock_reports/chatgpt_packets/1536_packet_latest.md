@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1536 和大
 
 ## Metadata
-- generated_at: 2026-07-15 22:26:27 Asia/Taipei
+- generated_at: 2026-07-16 22:26:30 Asia/Taipei
 - stock_id: 1536
 - stock_name: 和大
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 304
+- latest_price_date: 20260716
+- price_rows: 305
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 53.3
-- high: 55
-- low: 52
-- close: 53.2
-- volume: 4023471
-- ma5: 53.5
-- ema23_primary: 51.26
-- distance_to_ema23_pct: 3.79
-- ma20: 50.44
-- ma60: 51.08
-- ma120: 53.62
-- return_5d: 3.91
-- return_20d: 6.51
-- volume_ratio: 0.95
-- distance_to_ma20_pct_auxiliary: 5.48
-- distance_to_high_60_pct: -7.16
+- date: 20260716
+- open: 52.9
+- high: 53.5
+- low: 51.9
+- close: 52.8
+- volume: 2051785
+- ma5: 54.06
+- ema23_primary: 51.39
+- distance_to_ema23_pct: 2.75
+- ma20: 50.63
+- ma60: 51.11
+- ma120: 53.61
+- return_5d: 5.6
+- return_20d: 7.98
+- volume_ratio: 0.48
+- distance_to_ma20_pct_auxiliary: 4.28
+- distance_to_high_60_pct: -7.85
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,50,50.3,48.65,48.9,1312002,50.48,-3.12,50.58,50.92,0.42
 20260617,48.6,49.35,48.5,48.75,1119552,50.33,-3.15,50.56,50.89,0.36
 20260618,48.75,49.2,48.4,48.7,1341598,50.2,-2.98,50.49,50.84,0.44
 20260622,49,52.2,48.45,51.6,4328430,50.31,2.56,50.49,50.85,1.37
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,55.4,57.2,54,56.1,13299989,50.89,10.24,50.06,51.01,3.46
 20260714,55.4,56.7,52.2,53.2,5643130,51.08,4.15,50.27,51.05,1.39
 20260715,53.3,55,52,53.2,4023471,51.26,3.79,50.44,51.08,0.95
+20260716,52.9,53.5,51.9,52.8,2051785,51.39,2.75,50.63,51.11,0.48
 ```
 
 ## Latest TDCC Snapshot
@@ -189,17 +189,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 1536 | 和大 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | repeated_but_no_breakout | 1.發生變動日期:115/07/14 2.選任或變動人員別（請輸入法人董事、法人監察人、獨立董事、自然人董事   或自然人監察人）:獨立董事 3.舊任者職稱及姓名:獨立董事 莊柏年 4.舊任者簡歷:台灣精銳科技(股)公司獨立董事 5.新任者職稱及姓名:尚未補選 6.新任者簡歷:無 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 辭職 8.異動原因:個人因素請辭 9.新任者選任時持股數:無 10.原任期（例xx/xx/xx ~ xx/xx/xx）:115/05/29~118/05/28 11.新任生效日期:無 12.同任期董事變動比率:1/13 13.同任期獨立董事變動比率:1/4 14.同任期監察人變動比率:不適用 15.屬三分之一以上董事發生變動（請輸入是或否）:否 16.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 獨立董事莊柏年先生於115年7月14日辭任。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260716 | 1536 | 和大 | pattern | 型態觀察 | 51.0 |  |  | base_building |  | call_inflow | stale_signal | 1.發生變動日期:115/07/14 2.選任或變動人員別（請輸入法人董事、法人監察人、獨立董事、自然人董事   或自然人監察人）:獨立董事 3.舊任者職稱及姓名:獨立董事 莊柏年 4.舊任者簡歷:台灣精銳科技(股)公司獨立董事 5.新任者職稱及姓名:尚未補選 6.新任者簡歷:無 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 辭職 8.異動原因:個人因素請辭 9.新任者選任時持股數:無 10.原任期（例xx/xx/xx ~ xx/xx/xx）:115/05/29~118/05/28 11.新任生效日期:無 12.同任期董事變動比率:1/13 13.同任期獨立董事變動比率:1/4 14.同任期監察人變動比率:不適用 15.屬三分之一以上董事發生變動（請輸入是或否）:否 16.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 獨立董事莊柏年先生於115年7月14日辭任。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 1536 | 和大 | 4 | 2 | 4 | 8 | 9 | repeated_but_no_breakout | 近 10 日上榜 8 次、近 20 日上榜 9 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260716 | 1536 | 和大 | 5 | 3 | 5 | 9 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 1536 | 和大 | 26 | 0 | 647090.0 | 0.0 |  | no_signal |
+| 20260716 | 1536 | 和大 | 26 | 0 | 1022970.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

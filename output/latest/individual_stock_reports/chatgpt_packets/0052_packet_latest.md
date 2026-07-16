@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0052 富邦科技
 
 ## Metadata
-- generated_at: 2026-07-15 22:26:17 Asia/Taipei
+- generated_at: 2026-07-16 22:26:15 Asia/Taipei
 - stock_id: 0052
 - stock_name: 富邦科技
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 163
+- latest_price_date: 20260716
+- price_rows: 164
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 61.45
-- high: 62.35
+- date: 20260716
+- open: 61.75
+- high: 62.45
 - low: 61.1
-- close: 62.25
-- volume: 18375422
-- ma5: 61.93
-- ema23_primary: 61.95
-- distance_to_ema23_pct: 0.49
-- ma20: 62.77
-- ma60: 58.9
-- ma120: 51.89
+- close: 62.2
+- volume: 17870324
+- ma5: 61.94
+- ema23_primary: 61.97
+- distance_to_ema23_pct: 0.37
+- ma20: 62.79
+- ma60: 59.12
+- ma120: 52.07
 - return_5d: 0.08
-- return_20d: 1.06
-- volume_ratio: 0.64
-- distance_to_ma20_pct_auxiliary: -0.83
-- distance_to_high_60_pct: -5.68
+- return_20d: 0.57
+- volume_ratio: 0.63
+- distance_to_ma20_pct_auxiliary: -0.94
+- distance_to_high_60_pct: -5.76
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,61.95,61.95,61.25,61.85,24352613,59.17,4.54,59.94,53.63,0.69
 20260617,61.2,62.15,61.05,62.15,26888610,59.41,4.61,60.33,53.91,0.76
 20260618,62.6,62.9,62.35,62.8,25192808,59.7,5.2,60.65,54.22,0.71
 20260622,64.25,65.55,64.25,65.25,46591322,60.16,8.46,61.02,54.58,1.29
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,62.3,62.95,61.8,62.1,24847266,61.99,0.18,62.66,58.52,0.87
 20260714,61.6,61.8,59.85,61.15,38947848,61.92,-1.24,62.74,58.7,1.32
 20260715,61.45,62.35,61.1,62.25,18375422,61.95,0.49,62.77,58.9,0.64
+20260716,61.75,62.45,61.1,62.2,17870324,61.97,0.37,62.79,59.12,0.63
 ```
 
 ## Latest TDCC Snapshot
@@ -190,7 +190,7 @@ no_rows,True
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 0052 | 富邦科技 | 19 | 3 | 1928590.0 | 0.0 |  | no_signal |
+| 20260716 | 0052 | 富邦科技 | 19 | 0 | 879570.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

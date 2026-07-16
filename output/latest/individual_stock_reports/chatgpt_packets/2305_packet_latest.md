@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2305 全友
 
 ## Metadata
-- generated_at: 2026-07-15 22:26:36 Asia/Taipei
+- generated_at: 2026-07-16 22:26:44 Asia/Taipei
 - stock_id: 2305
 - stock_name: 全友
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 304
+- latest_price_date: 20260716
+- price_rows: 305
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 38.2
-- high: 38.2
-- low: 34.4
-- close: 35.05
-- volume: 5750424
-- ma5: 36.55
+- date: 20260716
+- open: 34.15
+- high: 35.85
+- low: 33.8
+- close: 34.4
+- volume: 3506931
+- ma5: 36.4
 - ema23_primary: 34.45
-- distance_to_ema23_pct: 1.74
-- ma20: 36.67
-- ma60: 25.13
-- ma120: 19.9
-- return_5d: -8.72
-- return_20d: 26.99
-- volume_ratio: 0.93
-- distance_to_ma20_pct_auxiliary: -4.41
-- distance_to_high_60_pct: -17.82
+- distance_to_ema23_pct: -0.13
+- ma20: 36.87
+- ma60: 25.42
+- ma120: 20.08
+- return_5d: -2.13
+- return_20d: 13.34
+- volume_ratio: 0.56
+- distance_to_ma20_pct_auxiliary: -6.7
+- distance_to_high_60_pct: -19.34
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,30.35,30.35,30.35,30.35,1782918,22.6,34.31,22.68,18.67,0.23
 20260617,30,33.35,29.15,30.6,27643707,23.26,31.53,23.38,18.94,3.01
 20260618,30.6,33.65,30.55,33.65,9123312,24.13,39.46,24.18,19.26,1
 20260622,37,37,35.5,37,16289442,25.2,46.81,25.09,19.64,1.71
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,39.45,39.6,39.25,39.6,2536540,34.16,15.91,35.7,24.52,0.43
 20260714,40.35,40.35,35.65,36.95,10557324,34.4,7.43,36.3,24.84,1.78
 20260715,38.2,38.2,34.4,35.05,5750424,34.45,1.74,36.67,25.13,0.93
+20260716,34.15,35.85,33.8,34.4,3506931,34.45,-0.13,36.87,25.42,0.56
 ```
 
 ## Latest TDCC Snapshot
@@ -188,13 +188,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 2305 | 全友 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
-| 20260715 | 2305 | 全友 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260716 | 2305 | 全友 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260716 | 2305 | 全友 | revenue_pullback | 營收成長股價回檔 | 83.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 2305 | 全友 | 5 | 5 | 5 | 6 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260716 | 2305 | 全友 | 6 | 2 | 5 | 7 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

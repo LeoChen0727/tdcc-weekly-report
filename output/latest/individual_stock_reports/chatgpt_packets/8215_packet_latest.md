@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8215 明基材
 
 ## Metadata
-- generated_at: 2026-07-15 22:27:52 Asia/Taipei
+- generated_at: 2026-07-16 22:28:41 Asia/Taipei
 - stock_id: 8215
 - stock_name: 明基材
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 304
+- latest_price_date: 20260716
+- price_rows: 305
 - latest_tdcc_date: 20260703
 - tdcc_rows: 10
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 26.5
-- high: 28.2
-- low: 26.45
-- close: 27.4
-- volume: 1454090
-- ma5: 27.62
-- ema23_primary: 28.84
-- distance_to_ema23_pct: -5
-- ma20: 29.34
-- ma60: 28.57
-- ma120: 25.29
-- return_5d: -4.7
-- return_20d: -10.31
-- volume_ratio: 0.47
-- distance_to_ma20_pct_auxiliary: -6.6
-- distance_to_high_60_pct: -17.96
+- date: 20260716
+- open: 27
+- high: 27.75
+- low: 26.7
+- close: 27.15
+- volume: 515593
+- ma5: 27.34
+- ema23_primary: 28.7
+- distance_to_ema23_pct: -5.4
+- ma20: 29.23
+- ma60: 28.58
+- ma120: 25.35
+- return_5d: -4.9
+- return_20d: -6.86
+- volume_ratio: 0.17
+- distance_to_ma20_pct_auxiliary: -7.13
+- distance_to_high_60_pct: -18.71
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260616,30.5,30.55,29.15,29.15,3043180,29.01,0.47,29.46,27.1,0.6
 20260617,28.95,32.05,28.7,32.05,10968345,29.27,9.51,29.73,27.19,1.96
 20260618,32.05,33.15,31.15,31.15,9801202,29.42,5.87,29.9,27.3,1.64
 20260622,31.3,32.25,31.1,31.3,4604223,29.58,5.82,30,27.43,0.78
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,28.5,28.7,27.15,27.4,1436893,29.2,-6.17,29.6,28.6,0.42
 20260714,27.8,27.8,25.55,26.45,1919968,28.97,-8.71,29.49,28.6,0.56
 20260715,26.5,28.2,26.45,27.4,1454090,28.84,-5,29.34,28.57,0.47
+20260716,27,27.75,26.7,27.15,515593,28.7,-5.4,29.23,28.58,0.17
 ```
 
 ## Latest TDCC Snapshot
@@ -199,7 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260715 | 8215 | 明基材 | 5 | 0 | 418420.0 | 0.0 |  | no_signal |
+| 20260716 | 8215 | 明基材 | 5 | 0 | 104280.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.
