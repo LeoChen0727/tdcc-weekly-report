@@ -295,7 +295,7 @@ tests/test_warrant_market_report_fallback.py,test_python,warrant,active,warrant 
 tests/test_warrant_source_status.py,test_python,warrant,active,warrant source status validator test,,
 .github/workflows/current_holdings_pattern.yml,workflow,current_holdings,active,current holdings workflow boundary,,git add output/latest/current_holdings_pattern_latest.csv
 .github/workflows/daily_full_pipeline.yml,workflow,daily_production,active,daily production workflow boundary,,"git add output/latest/;git add -A -- ""output/latest/READ_ME_FIRST_DAILY_REPORT*.txt"";git add -A -- ""docs/latest/READ_ME_FIRST_DAILY_REPORT*.txt"";git add data/daily_price/;git add data/market_calendar/"
-.github/workflows/daily_pdf_replay_pr_validation.yml,workflow,daily_production,active,PDF-impact-only PR and manual DFKai six-PDF replay workflow boundary,,
+.github/workflows/daily_pdf_replay_pr_validation.yml,workflow,daily_production,active,Renderer-font-runtime and formal operation-input PR replay plus manual DFKai six-PDF replay boundary,,
 .github/workflows/daily_model_maintenance_pr_validation.yml,workflow,daily_production,active,daily model maintenance PR validation workflow boundary,,
 .github/workflows/debug_tpex_fetch.yml,workflow,diagnostics,manual_diagnostic,diagnostics workflow boundary,,
 .github/workflows/diagnose_stock_selection.yml,workflow,diagnostics,manual_diagnostic,diagnostics workflow boundary,,

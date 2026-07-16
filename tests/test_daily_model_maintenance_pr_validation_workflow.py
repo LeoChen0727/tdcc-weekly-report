@@ -40,29 +40,38 @@ def test_daily_model_maintenance_pr_workflow_exists_for_model_pdf_paths() -> Non
     assert "tests/test_mature_model_row_level_metric_contract_audit.py" in text
 
 
-def test_pdf_replay_pr_workflow_is_pdf_impact_only_and_manually_dispatchable() -> None:
+def test_pdf_replay_pr_workflow_is_runtime_or_operation_impact_only_and_manually_dispatchable() -> None:
     text = PDF_REPLAY_WORKFLOW.read_text(encoding="utf-8")
+    pull_request_trigger = text.split("  workflow_dispatch:", 1)[0]
 
-    for required in (
-        "pull_request:",
-        "workflow_dispatch:",
-        ".github/workflows/daily_pdf_replay_pr_validation.yml",
+    observed_paths = {
+        line.strip()[2:].strip().strip('"')
+        for line in pull_request_trigger.splitlines()
+        if line.strip().startswith("- ")
+    }
+    expected_paths = {
+        "config/daily_pdf_rendered_model_regression_contract.csv",
+        "config/daily_pdf_semantic_golden_cases.csv",
+        "config/git_worktree_materialization_contract.csv",
         "scripts/generate_chatgpt_side_daily_reports.py",
-        "scripts/*dfkai*",
-        "scripts/build_daily_*operation_section*.py",
-        "scripts/build_model_operation_readiness.py",
-        "config/daily_pdf_*.csv",
-        "config/pdf_golden_regression_contract.csv",
-        "output/latest/daily_*operation_section_latest.csv",
-    ):
-        assert required in text
+        "scripts/git_worktree_safety.py",
+        "scripts/market_session_calendar.py",
+        "scripts/resolve_daily_report_source_state.py",
+        "scripts/run_chatgpt_daily_report_entrypoint.py",
+        "scripts/validate_chatgpt_daily_report_new_conversation_replay.py",
+        "scripts/validate_daily_publish_freshness_gate.py",
+        "scripts/validate_chatgpt_side_pdf_contract.py",
+        "output/latest/approved_operation_patterns_latest.csv",
+        "output/latest/daily_neckline_volume_breakout_confirmation_operation_section_latest.csv",
+        "output/latest/daily_price_pullback_23ema_operation_section_latest.csv",
+        "output/latest/daily_volume_breakout_operation_section_latest.csv",
+        "output/latest/daily_w_bottom_right_side_operation_section_latest.csv",
+        "output/latest/model_operation_readiness_latest.csv",
+    }
 
-    for research_only in (
-        "data/financial_statement_history/*.csv",
-        "scripts/build_financial_statement_pit.py",
-        "tests/test_revenue_unreacted_range_*.py",
-    ):
-        assert research_only not in text
+    assert "pull_request:" in text
+    assert "workflow_dispatch:" in text
+    assert observed_paths == expected_paths
 
 
 def test_daily_model_pr_workflow_does_not_install_dfkai_or_render_pdfs() -> None:
