@@ -353,6 +353,67 @@ def validate_dfkai_pdf_replay_job(
     return errors
 
 
+def validate_pr_pdf_replay_source_pin(text: str) -> list[str]:
+    errors: list[str] = []
+    block = workflow_job_block(text, "daily-pdf-dfkai-replay")
+    if not block:
+        return ["daily model maintenance PR workflow missing daily-pdf-dfkai-replay job"]
+
+    required = {
+        'source_sha="$(git rev-parse HEAD)"': (
+            "PR PDF replay must derive its source from the checked-out immutable commit"
+        ),
+        'if [ "$source_sha" != "$GITHUB_SHA" ]; then': (
+            "PR PDF replay must fail when checkout HEAD differs from the workflow SHA"
+        ),
+        'pinned_remote="pinned-replay"': (
+            "PR PDF replay must use an isolated runner-local pinned remote"
+        ),
+        'pinned_branch="workflow-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"': (
+            "PR PDF replay must namespace the pinned ref by immutable workflow run identity"
+        ),
+        'git branch --force "$pinned_branch" "$source_sha"': (
+            "PR PDF replay must bind the runner-local branch to the workflow SHA"
+        ),
+        'git remote add "$pinned_remote" "$PWD"': (
+            "PR PDF replay must expose only the runner-local pinned branch to the source resolver"
+        ),
+        'git fetch "$pinned_remote" "$pinned_branch"': (
+            "PR PDF replay must materialize the pinned remote-tracking ref"
+        ),
+        'source_ref="$pinned_remote/$pinned_branch"': (
+            "PR PDF replay must pass the pinned remote-tracking ref to the official entrypoint"
+        ),
+        'resolved_source_sha="$(git rev-parse "$source_ref")"': (
+            "PR PDF replay must resolve the pinned ref before rendering"
+        ),
+        'if [ "$resolved_source_sha" != "$source_sha" ]; then': (
+            "PR PDF replay must fail closed if the pinned ref drifts"
+        ),
+        "PDF replay workflow_head_sha=$GITHUB_SHA": (
+            "PR PDF replay must log the immutable workflow SHA"
+        ),
+        "PDF replay source_sha=$source_sha": (
+            "PR PDF replay must log the resolved source SHA"
+        ),
+    }
+    for literal, message in required.items():
+        if literal not in block:
+            errors.append(f"{message}: missing {literal!r}")
+
+    forbidden = {
+        "GITHUB_HEAD_REF": "PR PDF replay must not resolve a moving pull-request branch ref",
+        "GITHUB_REF_NAME": "PR PDF replay must not resolve a moving workflow branch ref",
+        "git fetch origin": "PR PDF replay must not refetch moving origin refs after checkout",
+        'source_ref="origin/': "PR PDF replay must not pass a moving origin ref to the official entrypoint",
+        "${source_ref#origin/}": "PR PDF replay must not derive a branch fetch from a moving origin ref",
+    }
+    for literal, message in forbidden.items():
+        if literal in block:
+            errors.append(f"{message}: found {literal!r}")
+    return errors
+
+
 def run_code_isolation_policy_validation() -> list[str]:
     spec = importlib.util.spec_from_file_location(
         "validate_repo_code_isolation_policy",
@@ -653,9 +714,6 @@ def main() -> int:
             "chatgpt_side_outputs_pr_validation/chatgpt_daily_pdf_semantic_manifest.csv": (
                 "daily model maintenance PR workflow must preserve semantic PDF manifest evidence"
             ),
-            "GITHUB_HEAD_REF": (
-                "daily model maintenance PR workflow must replay the PR head ref, not origin/main"
-            ),
             "Upload PR daily PDF replay evidence": (
                 "daily model maintenance PR workflow must upload generated PDF replay evidence"
             ),
@@ -681,6 +739,7 @@ def main() -> int:
                 upload_step="Upload PR daily PDF replay evidence",
             )
         )
+        errors.extend(validate_pr_pdf_replay_source_pin(pr_workflow_text))
         pr_validation_block = workflow_job_block(
             pr_workflow_text,
             "daily-model-maintenance-pr-validation",

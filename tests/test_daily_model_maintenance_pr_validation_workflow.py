@@ -192,6 +192,29 @@ def test_pdf_replay_local_remote_ref_stays_pinned_when_checked_out_branch_advanc
     assert run_git(repo, "rev-parse", source_ref) == source_sha
 
 
+def test_daily_production_boundary_accepts_immutable_pr_pdf_replay_source_pin() -> None:
+    text = WORKFLOW.read_text(encoding="utf-8")
+    assert boundaries.validate_pr_pdf_replay_source_pin(text) == []
+
+
+def test_daily_production_boundary_rejects_moving_pr_pdf_replay_source_ref() -> None:
+    invalid = """
+jobs:
+  daily-pdf-dfkai-replay:
+    steps:
+      - name: Replay ChatGPT-side daily PDF new conversation
+        run: |
+          source_ref="origin/${GITHUB_HEAD_REF}"
+          git fetch origin "${source_ref#origin/}"
+          python scripts/validate_chatgpt_daily_report_new_conversation_replay.py --source-ref "$source_ref"
+"""
+    errors = boundaries.validate_pr_pdf_replay_source_pin(invalid)
+    assert any("moving pull-request branch ref" in error for error in errors)
+    assert any("refetch moving origin refs" in error for error in errors)
+    assert any("moving origin ref" in error for error in errors)
+    assert any("checked-out immutable commit" in error for error in errors)
+
+
 def test_daily_pdf_replay_jobs_require_windows_dfkai_runtime() -> None:
     daily_text = DAILY_WORKFLOW.read_text(encoding="utf-8")
     pr_text = WORKFLOW.read_text(encoding="utf-8")
