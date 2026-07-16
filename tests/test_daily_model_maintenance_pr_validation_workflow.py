@@ -9,6 +9,7 @@ from scripts import validate_daily_production_boundaries as boundaries
 ROOT = Path(__file__).resolve().parents[1]
 WORKFLOW = ROOT / ".github" / "workflows" / "daily_model_maintenance_pr_validation.yml"
 DAILY_WORKFLOW = ROOT / ".github" / "workflows" / "daily_full_pipeline.yml"
+PDF_REPLAY_WORKFLOW = ROOT / ".github" / "workflows" / "daily_pdf_replay_pr_validation.yml"
 
 
 def run_git(repo: Path, *args: str) -> str:
@@ -37,6 +38,39 @@ def test_daily_model_maintenance_pr_workflow_exists_for_model_pdf_paths() -> Non
     assert "scripts/build_mature_model_row_level_metric_contract_audit.py" in text
     assert "scripts/validate_mature_model_row_level_metric_contract_audit.py" in text
     assert "tests/test_mature_model_row_level_metric_contract_audit.py" in text
+
+
+def test_pdf_replay_pr_workflow_is_pdf_impact_only_and_manually_dispatchable() -> None:
+    text = PDF_REPLAY_WORKFLOW.read_text(encoding="utf-8")
+
+    for required in (
+        "pull_request:",
+        "workflow_dispatch:",
+        ".github/workflows/daily_pdf_replay_pr_validation.yml",
+        "scripts/generate_chatgpt_side_daily_reports.py",
+        "scripts/*dfkai*",
+        "scripts/build_daily_*operation_section*.py",
+        "scripts/build_model_operation_readiness.py",
+        "config/daily_pdf_*.csv",
+        "config/pdf_golden_regression_contract.csv",
+        "output/latest/daily_*operation_section_latest.csv",
+    ):
+        assert required in text
+
+    for research_only in (
+        "data/financial_statement_history/*.csv",
+        "scripts/build_financial_statement_pit.py",
+        "tests/test_revenue_unreacted_range_*.py",
+    ):
+        assert research_only not in text
+
+
+def test_daily_model_pr_workflow_does_not_install_dfkai_or_render_pdfs() -> None:
+    text = WORKFLOW.read_text(encoding="utf-8")
+
+    assert "daily-pdf-dfkai-replay:" not in text
+    assert "Install and validate DFKai-SB" not in text
+    assert "Replay ChatGPT-side daily PDF new conversation" not in text
 
 
 def test_daily_model_maintenance_pr_workflow_triggers_on_independence_guard_changes() -> None:
@@ -124,8 +158,8 @@ def test_daily_model_maintenance_pr_workflow_runs_focused_pdf_operation_tests() 
         assert path in text
 
 
-def test_daily_model_maintenance_pr_workflow_runs_actual_pdf_replay_and_uploads_evidence() -> None:
-    text = WORKFLOW.read_text(encoding="utf-8")
+def test_pdf_impact_pr_workflow_runs_actual_pdf_replay_and_uploads_evidence() -> None:
+    text = PDF_REPLAY_WORKFLOW.read_text(encoding="utf-8")
     replay_job = boundaries.workflow_job_block(text, "daily-pdf-dfkai-replay")
 
     assert "Replay ChatGPT-side daily PDF new conversation" in text
@@ -197,7 +231,7 @@ def test_pdf_replay_local_remote_ref_stays_pinned_when_checked_out_branch_advanc
 
 
 def test_daily_production_boundary_accepts_immutable_pr_pdf_replay_source_pin() -> None:
-    text = WORKFLOW.read_text(encoding="utf-8")
+    text = PDF_REPLAY_WORKFLOW.read_text(encoding="utf-8")
     assert boundaries.validate_pr_pdf_replay_source_pin(text) == []
 
 
@@ -220,7 +254,7 @@ jobs:
 
 def test_daily_pdf_replay_jobs_require_windows_dfkai_runtime() -> None:
     daily_text = DAILY_WORKFLOW.read_text(encoding="utf-8")
-    pr_text = WORKFLOW.read_text(encoding="utf-8")
+    pr_text = PDF_REPLAY_WORKFLOW.read_text(encoding="utf-8")
 
     assert boundaries.validate_dfkai_pdf_replay_job(
         daily_text,
@@ -231,8 +265,8 @@ def test_daily_pdf_replay_jobs_require_windows_dfkai_runtime() -> None:
     ) == []
     assert boundaries.validate_dfkai_pdf_replay_job(
         pr_text,
-        workflow_label="daily_model_maintenance_pr_validation",
-        needs_job="daily-model-maintenance-pr-validation",
+        workflow_label="daily_pdf_replay_pr_validation",
+        needs_job="daily-pdf-replay-contract-validation",
         output_dir="chatgpt_side_outputs_pr_validation",
         upload_step="Upload PR daily PDF replay evidence",
     ) == []

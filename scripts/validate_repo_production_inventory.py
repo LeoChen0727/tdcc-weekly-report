@@ -48,6 +48,10 @@ WORKFLOW_ALLOWED_OWNERS = {
         "market_risk",
         "repo_infrastructure",
     },
+    ".github/workflows/daily_pdf_replay_pr_validation.yml": {
+        "daily_production",
+        "repo_infrastructure",
+    },
     ".github/workflows/daily_model_maintenance_pr_validation.yml": {
         "daily_production",
         "research_backtest",
@@ -238,6 +242,13 @@ REQUIRED_WORKFLOW_COMMANDS = {
         "python scripts/validate_daily_pdf_completion_hard_gate.py",
         "python scripts/validate_daily_production_boundaries.py",
         "python scripts/validate_model_research_workflow_isolation.py",
+    ),
+    ".github/workflows/daily_pdf_replay_pr_validation.yml": (
+        "python scripts/validate_repo_production_inventory.py",
+        "python scripts/validate_daily_pdf_contract_consumers.py",
+        "python scripts/validate_daily_pdf_shared_path_isolation.py",
+        "python scripts/validate_daily_pdf_completion_hard_gate.py",
+        "python scripts/validate_daily_production_boundaries.py",
     ),
     ".github/workflows/tdcc_weekly.yml": (
         "python scripts/validate_repo_production_inventory.py",

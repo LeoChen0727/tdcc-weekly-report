@@ -10,6 +10,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DAILY_WORKFLOW = ROOT / ".github" / "workflows" / "daily_full_pipeline.yml"
 RECENT_PRICE_GAP_WORKFLOW = ROOT / ".github" / "workflows" / "repair_recent_daily_price_gaps.yml"
 DAILY_MODEL_MAINTENANCE_PR_WORKFLOW = ROOT / ".github" / "workflows" / "daily_model_maintenance_pr_validation.yml"
+DAILY_PDF_REPLAY_PR_WORKFLOW = ROOT / ".github" / "workflows" / "daily_pdf_replay_pr_validation.yml"
 CANONICAL_CHATGPT_PDF_ENTRYPOINT = ROOT / "scripts" / "run_chatgpt_daily_report_entrypoint.py"
 CANONICAL_CHATGPT_PDF_GENERATOR = ROOT / "scripts" / "generate_chatgpt_side_daily_reports.py"
 DAILY_MARKET_ARTIFACT_BUILDER = ROOT / "build_daily_market_report_artifacts.py"
@@ -357,7 +358,7 @@ def validate_pr_pdf_replay_source_pin(text: str) -> list[str]:
     errors: list[str] = []
     block = workflow_job_block(text, "daily-pdf-dfkai-replay")
     if not block:
-        return ["daily model maintenance PR workflow missing daily-pdf-dfkai-replay job"]
+        return ["PDF replay PR workflow missing daily-pdf-dfkai-replay job"]
 
     required = {
         "PDF_REPLAY_SOURCE_SHA: ${{ github.event.pull_request.head.sha || github.sha }}": (
@@ -701,39 +702,6 @@ def main() -> int:
             "tests/test_chatgpt_daily_report_new_conversation_replay.py": (
                 "daily model maintenance PR workflow must run rendered PDF replay regression tests"
             ),
-            "python scripts/validate_chatgpt_daily_report_new_conversation_replay.py": (
-                "daily model maintenance PR workflow must run actual rendered PDF replay validation"
-            ),
-            "timeout-minutes: 20": (
-                "daily model maintenance PR workflow must bound rendered PDF replay runtime"
-            ),
-            "timeout 20m python scripts/validate_chatgpt_daily_report_new_conversation_replay.py": (
-                "daily model maintenance PR workflow must hard-timeout the rendered PDF replay command"
-            ),
-            "PDF replay source_ref=$source_ref": (
-                "daily model maintenance PR workflow must log the replay source ref"
-            ),
-            "PDF replay output_dir=chatgpt_side_outputs_pr_validation": (
-                "daily model maintenance PR workflow must log the replay output directory"
-            ),
-            "--output-dir chatgpt_side_outputs_pr_validation": (
-                "daily model maintenance PR workflow must persist PR replay outputs in a stable folder"
-            ),
-            "--require-output-dir chatgpt_side_outputs_pr_validation": (
-                "daily model maintenance PR workflow must validate generated replay PDFs and runtime manifest"
-            ),
-            "if-no-files-found: error": (
-                "daily model maintenance PR workflow must fail when replay PDF evidence is missing"
-            ),
-            "chatgpt_side_outputs_pr_validation/chatgpt_daily_pdf_semantic_manifest.csv": (
-                "daily model maintenance PR workflow must preserve semantic PDF manifest evidence"
-            ),
-            "Upload PR daily PDF replay evidence": (
-                "daily model maintenance PR workflow must upload generated PDF replay evidence"
-            ),
-            "actions/upload-artifact@v4": (
-                "daily model maintenance PR workflow must preserve generated PDF replay artifacts"
-            ),
             "tests/test_daily_volume_breakout_operation_section.py": (
                 "daily model maintenance PR workflow must run volume operation adapter tests"
             ),
@@ -744,22 +712,79 @@ def main() -> int:
         for literal, message in required_pr_workflow_literals.items():
             if literal not in pr_workflow_text:
                 errors.append(f"{message}: missing {literal!r}")
-        errors.extend(
-            validate_dfkai_pdf_replay_job(
-                pr_workflow_text,
-                workflow_label="daily_model_maintenance_pr_validation",
-                needs_job="daily-model-maintenance-pr-validation",
-                output_dir="chatgpt_side_outputs_pr_validation",
-                upload_step="Upload PR daily PDF replay evidence",
-            )
-        )
-        errors.extend(validate_pr_pdf_replay_source_pin(pr_workflow_text))
+        if "daily-pdf-dfkai-replay:" in pr_workflow_text:
+            errors.append("daily model maintenance PR workflow must not own the Windows DFKai replay job")
+        if "Install and validate DFKai-SB" in pr_workflow_text:
+            errors.append("daily model maintenance PR workflow must not install DFKai")
         pr_validation_block = workflow_job_block(
             pr_workflow_text,
             "daily-model-maintenance-pr-validation",
         )
         if "- name: Replay ChatGPT-side daily PDF new conversation" in pr_validation_block:
             errors.append("daily model PR Ubuntu validation job must not render the six daily PDFs")
+
+    if not DAILY_PDF_REPLAY_PR_WORKFLOW.exists():
+        errors.append(
+            "missing PDF-impact replay PR validation workflow: "
+            f"{DAILY_PDF_REPLAY_PR_WORKFLOW.relative_to(ROOT).as_posix()}"
+        )
+    else:
+        pdf_replay_workflow_text = read_text(DAILY_PDF_REPLAY_PR_WORKFLOW)
+        required_pdf_replay_literals = {
+            "pull_request:": "PDF replay workflow must run automatically for PDF-impact pull requests",
+            "workflow_dispatch:": "PDF replay workflow must support explicit manual replay",
+            'scripts/generate_chatgpt_side_daily_reports.py': (
+                "PDF replay workflow must trigger on the formal daily PDF renderer"
+            ),
+            'scripts/*dfkai*': "PDF replay workflow must trigger on local or hosted DFKai infrastructure",
+            'scripts/build_daily_*operation_section*.py': (
+                "PDF replay workflow must trigger on formal operation adapter producers"
+            ),
+            'config/daily_pdf_*.csv': "PDF replay workflow must trigger on daily PDF contracts",
+            "daily-pdf-replay-contract-validation:": (
+                "PDF replay workflow must run a cheap contract gate before the Windows job"
+            ),
+            "python scripts/validate_repo_production_inventory.py": (
+                "PDF replay workflow must validate repository ownership inventory"
+            ),
+            "python scripts/validate_daily_production_boundaries.py": (
+                "PDF replay workflow must validate production boundaries"
+            ),
+            "tests/test_daily_model_maintenance_pr_validation_workflow.py": (
+                "PDF replay workflow must test its own routing contract"
+            ),
+            "python scripts/validate_chatgpt_daily_report_new_conversation_replay.py": (
+                "PDF replay workflow must run actual rendered PDF replay validation"
+            ),
+            "PDF replay source_ref=$source_ref": "PDF replay workflow must log the immutable source ref",
+            "PDF replay output_dir=chatgpt_side_outputs_pr_validation": (
+                "PDF replay workflow must log the stable replay output directory"
+            ),
+            "actions/upload-artifact@v4": "PDF replay workflow must preserve generated PDF evidence",
+        }
+        for literal, message in required_pdf_replay_literals.items():
+            if literal not in pdf_replay_workflow_text:
+                errors.append(f"{message}: missing {literal!r}")
+        for forbidden in (
+            "data/financial_statement_history/*.csv",
+            "scripts/build_financial_statement_pit.py",
+            "tests/test_revenue_unreacted_range_*.py",
+        ):
+            if forbidden in pdf_replay_workflow_text:
+                errors.append(
+                    "PDF replay workflow must not trigger on research/source-audit-only paths: "
+                    f"{forbidden!r}"
+                )
+        errors.extend(
+            validate_dfkai_pdf_replay_job(
+                pdf_replay_workflow_text,
+                workflow_label="daily_pdf_replay_pr_validation",
+                needs_job="daily-pdf-replay-contract-validation",
+                output_dir="chatgpt_side_outputs_pr_validation",
+                upload_step="Upload PR daily PDF replay evidence",
+            )
+        )
+        errors.extend(validate_pr_pdf_replay_source_pin(pdf_replay_workflow_text))
 
     if not CANONICAL_CHATGPT_PDF_ENTRYPOINT.exists():
         errors.append(f"missing canonical ChatGPT-side PDF entrypoint: {CANONICAL_CHATGPT_PDF_ENTRYPOINT}")

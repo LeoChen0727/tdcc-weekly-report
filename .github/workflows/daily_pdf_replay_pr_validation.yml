@@ -1,0 +1,188 @@
+name: Daily PDF Replay PR Validation
+
+on:
+  pull_request:
+    paths:
+      - ".github/workflows/daily_full_pipeline.yml"
+      - ".github/workflows/daily_model_maintenance_pr_validation.yml"
+      - ".github/workflows/daily_pdf_replay_pr_validation.yml"
+      - "config/daily_pdf_*.csv"
+      - "config/pdf_golden_regression_contract.csv"
+      - "scripts/*dfkai*"
+      - "scripts/build_daily_*operation_section*.py"
+      - "scripts/build_model_operation_readiness.py"
+      - "scripts/generate_chatgpt_side_daily_reports.py"
+      - "scripts/run_chatgpt_daily_report_entrypoint.py"
+      - "scripts/update_daily_published_model_snapshots.py"
+      - "scripts/validate_chatgpt_daily_report_new_conversation_replay.py"
+      - "scripts/validate_chatgpt_side_pdf_*.py"
+      - "scripts/validate_daily_*operation_section*.py"
+      - "scripts/validate_daily_pdf_*.py"
+      - "scripts/validate_daily_production_boundaries.py"
+      - "scripts/validate_daily_published_model_snapshots.py"
+      - "scripts/validate_model_operation_readiness.py"
+      - "output/latest/daily_*operation_section_latest.csv"
+      - "docs/latest/daily_*operation_section_latest.csv"
+      - "tests/test_*dfkai*.py"
+      - "tests/test_chatgpt_daily_report_new_conversation_replay.py"
+      - "tests/test_chatgpt_side_pdf_*.py"
+      - "tests/test_daily_*operation_section*.py"
+      - "tests/test_daily_model_maintenance_pr_validation_workflow.py"
+      - "tests/test_daily_pdf_*.py"
+      - "tests/test_daily_production_boundaries.py"
+      - "tests/test_daily_published_model_snapshots.py"
+      - "tests/test_model_operation_readiness.py"
+  # Formal model promotions that change PDF presentation must touch a path above
+  # or explicitly dispatch this workflow before merge.
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: daily-pdf-replay-pr-validation-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  daily-pdf-replay-contract-validation:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      - name: Install contract-test dependencies
+        run: pip install pytest
+
+      - name: Validate PDF replay workflow contracts
+        run: |
+          python scripts/validate_repo_production_inventory.py
+          python scripts/validate_daily_production_boundaries.py
+          python scripts/validate_chatgpt_side_pdf_contract.py
+          python scripts/validate_daily_pdf_contract_consumers.py
+          python scripts/validate_daily_pdf_shared_path_isolation.py
+          python scripts/validate_daily_pdf_completion_hard_gate.py
+
+      - name: Run PDF replay workflow tests
+        run: |
+          pytest -q \
+            tests/test_daily_model_maintenance_pr_validation_workflow.py \
+            tests/test_daily_production_boundaries.py
+
+  daily-pdf-dfkai-replay:
+    needs: daily-pdf-replay-contract-validation
+    runs-on: windows-2025
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      - name: Install PDF replay dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pandas requests tabulate matplotlib pillow openpyxl lxml html5lib beautifulsoup4 reportlab pypdf pytest fonttools
+
+      - name: Install and validate DFKai-SB
+        timeout-minutes: 20
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = "Stop"
+          $fontCapability = "Language.Fonts.Hant~~~und-HANT~0.0.1.0"
+          $fontPath = "C:\Windows\Fonts\kaiu.ttf"
+          if (-not (Test-Path -LiteralPath $fontPath)) {
+            $windowsUpdatePolicy = "HKLM:\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate"
+            $windowsUpdateAuPolicy = "$windowsUpdatePolicy\AU"
+            New-Item -Path $windowsUpdateAuPolicy -Force | Out-Null
+            New-ItemProperty -Path $windowsUpdatePolicy -Name DoNotConnectToWindowsUpdateInternetLocations -PropertyType DWord -Value 0 -Force | Out-Null
+            New-ItemProperty -Path $windowsUpdatePolicy -Name DisableWindowsUpdateAccess -PropertyType DWord -Value 0 -Force | Out-Null
+            New-ItemProperty -Path $windowsUpdateAuPolicy -Name UseWUServer -PropertyType DWord -Value 0 -Force | Out-Null
+            Set-Service -Name wuauserv -StartupType Manual
+            Start-Service -Name wuauserv
+            $capability = Get-WindowsCapability -Online -Name $fontCapability
+            Write-Host "font_capability_state_before=$($capability.State)"
+            if ($capability.State -ne "Installed") {
+              & "$env:SystemRoot\System32\dism.exe" /Online /Add-Capability "/CapabilityName:$fontCapability" /NoRestart
+              if ($LASTEXITCODE -ne 0) {
+                throw "DFKai-SB capability installation failed with DISM exit code $LASTEXITCODE"
+              }
+            }
+          }
+          if (-not (Test-Path -LiteralPath $fontPath)) {
+            throw "Required DFKai-SB font file is missing after capability install: $fontPath"
+          }
+          "CHATGPT_DAILY_DFKAI_FONT_PATH=$fontPath" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
+          python -c 'from fontTools.ttLib import TTFont; p=r"C:\Windows\Fonts\kaiu.ttf"; f=TTFont(p); names={n.toUnicode() for n in f["name"].names}; accepted={"DFKai-SB","DFKaiShu-SB-Estd-BF"}; assert names & accepted, f"unexpected font names: {sorted(names)}"; cmap={cp for table in f["cmap"].tables for cp in table.cmap}; canary="\u6a19\u6977\u9ad4\u7e41\u9ad4\u4e2d\u6587\u6e2c\u8a66"; missing=[f"U+{ord(char):04X}" for char in canary if ord(char) not in cmap]; assert not missing, f"missing canary glyphs: {missing}"; print(f"validated_font={p} names={sorted(names & accepted)}")'
+
+      - name: Prepare Windows long-path PDF replay runtime
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = "Stop"
+          git config --global core.longpaths true
+          $shortTemp = "C:\tdcc-pdf-temp"
+          New-Item -ItemType Directory -Path $shortTemp -Force | Out-Null
+          "TEMP=$shortTemp" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
+          "TMP=$shortTemp" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
+          "TMPDIR=$shortTemp" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
+
+      - name: Replay ChatGPT-side daily PDF new conversation
+        timeout-minutes: 20
+        shell: bash
+        env:
+          PDF_REPLAY_SOURCE_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: |
+          checkout_sha="$(git rev-parse HEAD)"
+          if [ "$checkout_sha" != "$GITHUB_SHA" ]; then
+            echo "ERROR: checked-out HEAD does not match workflow checkout SHA: head=$checkout_sha workflow=$GITHUB_SHA" >&2
+            exit 1
+          fi
+
+          source_sha="$PDF_REPLAY_SOURCE_SHA"
+          git fetch --no-tags --depth=1 origin "$source_sha"
+          fetched_source_sha="$(git rev-parse FETCH_HEAD)"
+          if [ "$fetched_source_sha" != "$source_sha" ]; then
+            echo "ERROR: immutable PDF replay source fetch drifted: expected=$source_sha fetched=$fetched_source_sha" >&2
+            exit 1
+          fi
+
+          pinned_remote="pinned-replay"
+          pinned_branch="workflow-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          git branch --force "$pinned_branch" "$source_sha"
+          git remote remove "$pinned_remote" 2>/dev/null || true
+          git remote add "$pinned_remote" "$PWD"
+          git fetch "$pinned_remote" "$pinned_branch"
+          source_ref="$pinned_remote/$pinned_branch"
+          resolved_source_sha="$(git rev-parse "$source_ref")"
+          if [ "$resolved_source_sha" != "$source_sha" ]; then
+            echo "ERROR: pinned PDF replay ref drifted: expected=$source_sha resolved=$resolved_source_sha" >&2
+            exit 1
+          fi
+
+          echo "PDF replay workflow_checkout_sha=$GITHUB_SHA"
+          echo "PDF replay source_ref=$source_ref"
+          echo "PDF replay source_sha=$source_sha"
+          echo "PDF replay output_dir=chatgpt_side_outputs_pr_validation"
+          timeout 20m python scripts/validate_chatgpt_daily_report_new_conversation_replay.py \
+            --source-ref "$source_ref" \
+            --output-dir chatgpt_side_outputs_pr_validation
+          python scripts/validate_daily_pdf_completion_hard_gate.py --require-output-dir chatgpt_side_outputs_pr_validation
+
+      - name: Upload PR daily PDF replay evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: daily-pdf-replay-pr-validation
+          path: |
+            chatgpt_side_outputs_pr_validation/*.pdf
+            chatgpt_side_outputs_pr_validation/chatgpt_daily_report_runtime_manifest.json
+            chatgpt_side_outputs_pr_validation/chatgpt_daily_pdf_semantic_manifest.csv
+          if-no-files-found: error
