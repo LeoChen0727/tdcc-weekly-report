@@ -10,6 +10,11 @@ on:
 
 permissions:
   contents: write
+  actions: write
+
+concurrency:
+  group: daily-full-pipeline-${{ github.ref }}
+  cancel-in-progress: false
 
 jobs:
   warrant-flow:
@@ -17,66 +22,348 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v6.0.3
+        with:
+          fetch-depth: 0
+          ref: main
+
+      - name: Enforce main-only mutation
+        run: |
+          if [[ "${GITHUB_REF}" != "refs/heads/main" ]]; then
+            echo "Warrant Flow may mutate formal artifacts only from refs/heads/main" >&2
+            exit 1
+          fi
+          test "$(git branch --show-current)" = "main"
 
       - name: Set up Python
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v6.2.0
         with:
           python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pandas requests openpyxl tabulate lxml html5lib beautifulsoup4
 
       - name: Validate repo production inventory
         run: |
           python scripts/validate_repo_production_inventory.py
 
-      - name: Install dependencies
+      - name: Prepare warrant flow and formal model sync
+        env:
+          REQUESTED_DATE: ${{ github.event.inputs.date || '' }}
         run: |
-          python -m pip install --upgrade pip
-          pip install pandas requests openpyxl lxml html5lib beautifulsoup4
+          build_base_sha="$(git rev-parse HEAD)"
+          echo "BUILD_BASE_SHA=$build_base_sha" >> "$GITHUB_ENV"
+          echo "warrant_formal_sync_build_base_sha=$build_base_sha"
+          mature_sentinel_before="$RUNNER_TEMP/warrant-flow-mature-model-before.sha256"
+          mature_sentinel_after="$RUNNER_TEMP/warrant-flow-mature-model-after.sha256"
+          mature_sentinel_patterns=(
+            "config/stock_model_contract_registry.csv"
+            "config/formal_model_evidence_pins.csv"
+            "output/latest/daily_candidate_model_parameters_latest.csv"
+            "output/latest/daily_candidate_model_parameters_latest.md"
+            "docs/latest/daily_candidate_model_parameters_latest.csv"
+            "docs/latest/daily_candidate_model_parameters_latest.md"
+            "output/latest/daily_report_model_registry_latest.csv"
+            "output/latest/daily_report_model_registry_latest.md"
+            "docs/latest/daily_report_model_registry_latest.csv"
+            "docs/latest/daily_report_model_registry_latest.md"
+            "docs/specs/w_bottom_right_side_early_entry_operation_spec.md"
+            "docs/specs/neckline_volume_breakout_confirmation_model_change_spec.md"
+            "docs/specs/price_pullback_23ema_operation_candidate_spec.md"
+            "output/latest/approved_operation_patterns_latest.*"
+            "docs/latest/approved_operation_patterns_latest.*"
+            "output/latest/model_operation_readiness_latest.*"
+            "docs/latest/model_operation_readiness_latest.*"
+            "output/latest/daily_volume_breakout_operation_*_latest.*"
+            "docs/latest/daily_volume_breakout_operation_*_latest.*"
+            "output/latest/daily_w_bottom_right_side_operation_*_latest.*"
+            "docs/latest/daily_w_bottom_right_side_operation_*_latest.*"
+            "output/latest/daily_neckline_volume_breakout_confirmation_operation_*_latest.*"
+            "docs/latest/daily_neckline_volume_breakout_confirmation_operation_*_latest.*"
+            "output/latest/daily_price_pullback_23ema_operation_*_latest.*"
+            "docs/latest/daily_price_pullback_23ema_operation_*_latest.*"
+            "output/latest/mature_model_row_level_metric_*_latest.*"
+            "docs/latest/mature_model_row_level_metric_*_latest.*"
+            "output/latest/research_backtest/volume_range_breakout_v2_candidate_bucket_contract_latest.csv"
+            "output/latest/research_backtest/volume_range_breakout_v2_high_position_improvement_audit_latest.csv"
+            "output/history/daily_model_snapshots/daily_volume_breakout_operation_section_*.csv"
+            "output/history/daily_model_snapshots/daily_volume_breakout_operation_evidence_audit_*.csv"
+            "output/history/daily_model_snapshots/daily_w_bottom_right_side_operation_section_*.csv"
+            "output/history/daily_model_snapshots/daily_neckline_volume_breakout_confirmation_operation_section_*.csv"
+          )
+          capture_mature_sentinels() {
+            local output_file="$1"
+            local pattern artifact
+            local -a matches
+            : > "$output_file"
+            shopt -s nullglob
+            for pattern in "${mature_sentinel_patterns[@]}"; do
+              matches=( $pattern )
+              if [[ ${#matches[@]} -eq 0 ]]; then
+                echo "missing required mature-model sentinel pattern: $pattern" >&2
+                exit 1
+              fi
+              for artifact in "${matches[@]}"; do
+                sha256sum "$artifact" >> "$output_file"
+              done
+            done
+            shopt -u nullglob
+            python - <<'PY' >> "$output_file"
+          import csv
+          import hashlib
+          import json
 
-      - name: Fetch official warrant daily data
-        run: |
-          if [ -n "${{ github.event.inputs.date }}" ]; then
-            python scripts/fetch_official_warrant_daily.py --date "${{ github.event.inputs.date }}"
+          protected_ids = {
+              "volume_breakout_operation_section",
+              "volume_breakout_operation_evidence_audit",
+              "w_bottom_right_side_operation_section",
+              "neckline_volume_breakout_confirmation_operation_section",
+          }
+          manifest_path = "output/history/daily_model_snapshots/daily_published_model_snapshot_manifest.csv"
+          with open(manifest_path, encoding="utf-8-sig", newline="") as handle:
+              rows = [row for row in csv.DictReader(handle) if row.get("artifact_id") in protected_ids]
+          if not rows:
+              raise SystemExit("missing protected mature-model snapshot manifest rows")
+          for row in sorted(rows, key=lambda item: (item.get("snapshot_report_date", ""), item.get("artifact_id", ""))):
+              payload = json.dumps(row, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
+              digest = hashlib.sha256(payload.encode("utf-8")).hexdigest()
+              print(f"{digest}  manifest:{row.get('snapshot_report_date', '')}:{row.get('artifact_id', '')}")
+          PY
+            LC_ALL=C sort -k2,2 -u "$output_file" -o "$output_file"
+          }
+
+          capture_mature_sentinels "$mature_sentinel_before"
+          warrant_formal_sync_scope_before="$RUNNER_TEMP/warrant-formal-sync-scope-before.json"
+          python scripts/validate_daily_warrant_formal_sync_scope.py \
+            --write-snapshot "$warrant_formal_sync_scope_before"
+
+          if [ -n "$REQUESTED_DATE" ]; then
+            if [[ ! "$REQUESTED_DATE" =~ ^[0-9]{8}$ ]]; then
+              echo "Invalid requested warrant date; expected YYYYMMDD" >&2
+              exit 1
+            fi
+            python scripts/fetch_official_warrant_daily.py \
+              --date "$REQUESTED_DATE" \
+              --require-current-usable
           else
-            python scripts/fetch_official_warrant_daily.py
+            python scripts/fetch_official_warrant_daily.py --require-current-usable
           fi
-
-      - name: Build stock-level warrant flow
-        run: python build_warrant_flow_latest.py
-
-      - name: Merge warrant flow into candidates
-        run: python merge_warrant_flow_into_candidates.py
-
-      - name: Build data freshness status
-        run: |
+          python scripts/validate_warrant_source_status.py --require-formal-current
+          python build_warrant_flow_latest.py
+          python merge_warrant_flow_into_candidates.py
           python build_data_freshness_latest.py
           python scripts/validate_data_freshness_latest.py
+          python scripts/build_daily_candidate_model_layer.py
+          python scripts/validate_daily_candidate_model_layer.py
+          python scripts/validate_revenue_unreacted_range_financial_statement_fail_closed.py
+          python scripts/build_daily_report_model_summary.py
+          python scripts/audit_daily_candidate_model_selection_correctness.py
+          python scripts/audit_daily_candidate_pipeline_integrity.py
+          python scripts/build_theme_event_watch.py
+          python scripts/update_daily_published_model_snapshots.py \
+            --artifact-id data_freshness \
+            --artifact-id model_signals_for_report \
+            --artifact-id all_candidates_source_rows \
+            --artifact-id model_summary_for_report
+          python scripts/validate_daily_published_model_snapshots.py
+          python scripts/build_chatgpt_indicator_usage_guide.py
 
-      - name: Commit warrant flow outputs
+          mkdir -p docs/latest
+          for artifact in \
+            daily_candidate_model_parameters_latest.csv \
+            daily_candidate_model_parameters_latest.md \
+            daily_candidate_model_signals_latest.csv \
+            daily_candidate_model_signals_latest.md \
+            daily_candidate_model_signals_for_report_latest.csv \
+            daily_candidate_model_signals_for_report_latest.md \
+            daily_candidate_frontpage_unique_latest.csv \
+            daily_candidate_frontpage_unique_latest.md \
+            daily_candidate_same_model_repeat_latest.csv \
+            daily_candidate_same_model_repeat_latest.md \
+            daily_candidate_model_layer_packet_latest.md \
+            daily_candidate_model_layer_validation_latest.json \
+            daily_candidate_model_layer_validation_latest.md \
+            daily_candidate_model_selection_audit_latest.json \
+            daily_candidate_model_selection_audit_latest.md \
+            daily_candidate_pipeline_integrity_audit_latest.json \
+            daily_candidate_pipeline_integrity_audit_latest.md \
+            daily_candidate_group_rotation_latest.csv \
+            daily_candidate_group_rotation_latest.md \
+            daily_report_model_registry_latest.csv \
+            daily_report_model_registry_latest.md \
+            daily_candidate_model_summary_for_report_latest.csv \
+            daily_candidate_model_summary_for_report_latest.md \
+            theme_event_watch_latest.csv \
+            theme_event_watch_latest.md \
+            chatgpt_indicator_usage_guide_latest.md \
+            CHATGPT_INDICATOR_USAGE_GUIDE.txt
+          do
+            cp "output/latest/$artifact" "docs/latest/$artifact"
+          done
+
+          python scripts/validate_daily_warrant_formal_sync_scope.py \
+            --compare-snapshot "$warrant_formal_sync_scope_before"
+          capture_mature_sentinels "$mature_sentinel_after"
+          mature_sentinel_before_sha256="$(sha256sum "$mature_sentinel_before" | cut -d' ' -f1)"
+          mature_sentinel_after_sha256="$(sha256sum "$mature_sentinel_after" | cut -d' ' -f1)"
+          echo "mature_model_sentinel_before_sha256=$mature_sentinel_before_sha256"
+          echo "mature_model_sentinel_after_sha256=$mature_sentinel_after_sha256"
+          echo "mature_model_sentinel_artifact_count=$(wc -l < "$mature_sentinel_after")"
+          cmp --silent "$mature_sentinel_before" "$mature_sentinel_after" || {
+            diff -u "$mature_sentinel_before" "$mature_sentinel_after" || true
+            echo "mature-model sentinel hash drift detected" >&2
+            exit 1
+          }
+
+      - name: Commit warrant flow and formal sync outputs
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
 
           git add output/latest/warrant_daily_raw_latest.csv || true
           git add output/latest/warrant_daily_fetch_latest.md || true
-          git add output/latest/warrant_flow_latest.csv || true
-          git add output/latest/warrant_flow_latest.md || true
+          git add output/latest/warrant_source_status_latest.* || true
+          git add output/latest/warrant_flow_latest.* || true
           git add output/latest/warrant_flow_merge_latest.md || true
-
-          git add output/debug/warrant_fetch_debug_latest.md || true
-          git add output/debug/warrant_fetch_debug_latest.csv || true
-
+          git add output/debug/warrant_fetch_debug_latest.* || true
           git add output/history/warrant_daily/ || true
           git add output/history/warrant_flow/ || true
-
-          git add output/latest/all_candidates_latest.csv || true
-          git add output/latest/all_candidates_latest.xlsx || true
-          git add output/latest/all_candidates_latest.md || true
+          git add output/latest/all_candidates_latest.* || true
           git add output/latest/stock_monitor_latest.md || true
+          git add output/latest/data_freshness_latest.* || true
+          git add output/latest/chatgpt_indicator_usage_guide_latest.md || true
+          git add output/latest/CHATGPT_INDICATOR_USAGE_GUIDE.txt || true
+          git add output/latest/theme_event_watch_latest.* || true
+          git add output/latest/daily_candidate_model_parameters_latest.* || true
+          git add output/latest/daily_candidate_model_signals_latest.* || true
+          git add output/latest/daily_candidate_model_signals_for_report_latest.* || true
+          git add output/latest/daily_candidate_frontpage_unique_latest.* || true
+          git add output/latest/daily_candidate_same_model_repeat_latest.* || true
+          git add output/latest/daily_candidate_model_layer_packet_latest.md || true
+          git add output/latest/daily_candidate_model_layer_validation_latest.* || true
+          git add output/latest/daily_candidate_model_selection_audit_latest.* || true
+          git add output/latest/daily_candidate_pipeline_integrity_audit_latest.* || true
+          git add output/latest/daily_candidate_group_rotation_latest.* || true
+          git add output/latest/daily_report_model_registry_latest.* || true
+          git add output/latest/daily_candidate_model_summary_for_report_latest.* || true
+          snapshot_report_date="$(python -c 'import sys; sys.path.insert(0, "scripts"); from tracking_utils import normalize_date; import pandas as pd; print(normalize_date(pd.read_csv("output/latest/data_freshness_latest.csv", dtype=str).iloc[0]["main_price_date"]))')"
+          if [[ ! "$snapshot_report_date" =~ ^[0-9]{8}$ ]]; then
+            echo "Invalid snapshot report date: $snapshot_report_date" >&2
+            exit 1
+          fi
+          git add output/history/daily_candidate_models/daily_candidate_model_signal_log.csv || true
+          git add output/history/daily_model_snapshots/daily_published_model_snapshot_manifest.csv
+          git add "output/history/daily_model_snapshots/data_freshness_${snapshot_report_date}.csv"
+          git add "output/history/daily_model_snapshots/daily_candidate_model_signals_for_report_${snapshot_report_date}.csv"
+          git add "output/history/daily_model_snapshots/all_candidates_${snapshot_report_date}.csv"
+          git add "output/history/daily_model_snapshots/daily_candidate_model_summary_for_report_${snapshot_report_date}.csv"
+          git add docs/latest/daily_candidate_model_* || true
+          git add docs/latest/daily_candidate_frontpage_unique_latest.* || true
+          git add docs/latest/daily_candidate_same_model_repeat_latest.* || true
+          git add docs/latest/daily_candidate_pipeline_integrity_audit_latest.* || true
+          git add docs/latest/daily_candidate_group_rotation_latest.* || true
+          git add docs/latest/daily_report_model_registry_latest.* || true
+          git add docs/latest/theme_event_watch_latest.* || true
+          git add docs/latest/chatgpt_indicator_usage_guide_latest.md || true
+          git add docs/latest/CHATGPT_INDICATOR_USAGE_GUIDE.txt || true
 
-          git add output/latest/data_freshness_latest.md || true
-          git add output/latest/data_freshness_latest.csv || true
+          python scripts/validate_daily_staged_paths.py
+          python scripts/validate_daily_warrant_formal_sync_scope.py --validate-staged
+          python scripts/validate_daily_published_model_snapshots.py
+          python scripts/validate_no_conflict_markers.py
+          if ! git diff --quiet; then
+            echo "Unstaged tracked files remain after warrant formal sync staging" >&2
+            git status --short
+            exit 1
+          fi
+          if [ -n "$(git ls-files --others --exclude-standard)" ]; then
+            echo "Untracked files remain after warrant formal sync staging" >&2
+            git status --short
+            exit 1
+          fi
+          if git diff --cached --quiet; then
+            echo "No staged warrant-flow changes to commit"
+            echo "ARTIFACT_COMMIT_CREATED=false" >> "$GITHUB_ENV"
+          else
+            git commit -m "Update official warrant flow and formal model sync"
+            echo "ARTIFACT_COMMIT_CREATED=true" >> "$GITHUB_ENV"
+          fi
+          pushed_artifact_sha="$(git rev-parse HEAD)"
+          echo "PUSHED_ARTIFACT_SHA=$pushed_artifact_sha" >> "$GITHUB_ENV"
+          test -z "$(git status --porcelain)"
+          git fetch origin main
+          current_origin_main="$(git rev-parse origin/main)"
+          if [ "$current_origin_main" != "$BUILD_BASE_SHA" ]; then
+            echo "origin/main advanced after formal artifact build; refusing to rebase stale artifacts" >&2
+            echo "build_base_sha=$BUILD_BASE_SHA current_origin_main=$current_origin_main" >&2
+            exit 1
+          fi
+          git push origin HEAD:main
 
-          git status --short
-          git commit -m "Update official warrant flow and freshness status" || echo "No changes to commit"
-          git push
+      - name: Dispatch and wait for warrant Pages deploy
+        if: ${{ github.ref == 'refs/heads/main' && env.ARTIFACT_COMMIT_CREATED == 'true' }}
+        timeout-minutes: 40
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          target_sha="$PUSHED_ARTIFACT_SHA"
+          git fetch origin main
+          current_origin_main="$(git rev-parse origin/main)"
+          if [ "$current_origin_main" != "$target_sha" ]; then
+            echo "::error::origin/main advanced before Pages dispatch expected=$target_sha actual=$current_origin_main"
+            exit 1
+          fi
+          previous_pages_run_id="$(gh run list \
+            --workflow pages.yml \
+            --branch main \
+            --event workflow_dispatch \
+            --commit "$target_sha" \
+            --limit 1 \
+            --json databaseId \
+            --jq '.[0].databaseId // ""')"
+          echo "Dispatching GitHub Pages deploy for exact artifact commit $target_sha"
+          gh workflow run pages.yml --ref main
+
+          for poll_attempt in {1..150}; do
+            pages_run="$(gh run list \
+              --workflow pages.yml \
+              --branch main \
+              --event workflow_dispatch \
+              --commit "$target_sha" \
+              --limit 1 \
+              --json databaseId,event,headSha,headBranch,status,conclusion \
+              --jq '.[0] // {}')"
+            pages_run_id="$(jq -r '.databaseId // empty' <<< "$pages_run")"
+            pages_event="$(jq -r '.event // empty' <<< "$pages_run")"
+            pages_head_sha="$(jq -r '.headSha // empty' <<< "$pages_run")"
+            pages_head_branch="$(jq -r '.headBranch // empty' <<< "$pages_run")"
+            status="$(jq -r '.status // empty' <<< "$pages_run")"
+            conclusion="$(jq -r '.conclusion // empty' <<< "$pages_run")"
+
+            if [ -n "$pages_run_id" ] && [ "$pages_run_id" != "$previous_pages_run_id" ]; then
+              if [ "$pages_event" != "workflow_dispatch" ] || [ "$pages_head_branch" != "main" ]; then
+                echo "::error::Pages replay identity mismatch run_id=$pages_run_id event=$pages_event head_branch=$pages_head_branch"
+                exit 1
+              fi
+              if [ "$pages_head_sha" != "$target_sha" ]; then
+                echo "::error::Pages replay head SHA mismatch run_id=$pages_run_id expected=$target_sha actual=$pages_head_sha"
+                exit 1
+              fi
+              echo "Pages run $pages_run_id poll_attempt=$poll_attempt status=$status conclusion=${conclusion:-pending} head_sha=$pages_head_sha"
+              if [ "$status" = "completed" ]; then
+                if [ "$conclusion" = "success" ]; then
+                  exit 0
+                fi
+                echo "::error::GitHub Pages deploy failed conclusion=$conclusion run_id=$pages_run_id"
+                exit 1
+              fi
+            else
+              echo "Waiting for new workflow_dispatch Pages run for target_sha=$target_sha poll_attempt=$poll_attempt previous_run_id=${previous_pages_run_id:-none}"
+            fi
+            sleep 15
+          done
+
+          echo "::error::Timed out waiting for exact-sha GitHub Pages deploy target_sha=$target_sha"
+          exit 1

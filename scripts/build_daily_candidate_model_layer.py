@@ -3838,9 +3838,16 @@ def append_volume_breakout_signals(signals: pd.DataFrame, candidates: pd.DataFra
         if not stock_id:
             continue
         candidate_row = lookup.get(stock_id)
-        source = candidate_row if candidate_row is not None else taxonomy_or_source(stock_id, row)
+        if candidate_row is None:
+            raise RuntimeError(
+                "volume breakout formal signal has no canonical all_candidates source row: "
+                f"stock_id={stock_id}"
+            )
+        source = candidate_row
+        authoritative_warrant_signal = warrant_signal(candidate_row)
         score_source = source.to_dict() if isinstance(source, pd.Series) else {}
         score_source.update(row.to_dict())
+        score_source["warrant_flow_signal"] = authoritative_warrant_signal
         memberships, v2_features = volume_v2_model_memberships(
             row,
             stock_id,
@@ -3909,7 +3916,7 @@ def append_volume_breakout_signals(signals: pd.DataFrame, candidates: pd.DataFra
                 "risk_penalty_tags": " | ".join(dict.fromkeys(risks)),
                 "original_category": category(source),
                 "tdcc_status": text(row, "tdcc_status") or tdcc_status(source),
-                "warrant_flow_signal": text(row, "warrant_flow_signal") or warrant_signal(source),
+                "warrant_flow_signal": authoritative_warrant_signal,
                 "volume_ratio": num(row, "volume_ratio"),
                 "return_5d": num(row, "return_5d", "return_5d_pct"),
                 "return_20d": num(row, "return_20d", "return_20d_pct"),

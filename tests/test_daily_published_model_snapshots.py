@@ -253,6 +253,174 @@ def test_daily_published_model_snapshot_builder_and_validator_use_report_date(
     ) == []
 
 
+def test_warrant_formal_sync_updates_only_selected_snapshot_families(
+    tmp_path: Path,
+) -> None:
+    latest_dir = tmp_path / "output" / "latest"
+    snapshot_dir = tmp_path / "output" / "history" / "daily_model_snapshots"
+    manifest_path = snapshot_dir / "daily_published_model_snapshot_manifest.csv"
+    report_date = "20260615"
+    selected_ids = {
+        "data_freshness",
+        "model_signals_for_report",
+        "all_candidates_source_rows",
+        "model_summary_for_report",
+    }
+    protected_ids = {
+        "model_registry",
+        "model_parameters",
+        "volume_breakout_operation_section",
+        "volume_breakout_operation_evidence_audit",
+        "w_bottom_right_side_operation_section",
+        "neckline_volume_breakout_confirmation_operation_section",
+    }
+    write_minimal_latest_artifacts(latest_dir, report_date=report_date)
+    update_snapshots.build_daily_published_model_snapshots(
+        latest_dir=latest_dir,
+        snapshot_dir=snapshot_dir,
+        manifest_path=manifest_path,
+        generated_at="2026-06-16 08:00:00 Asia/Taipei",
+        commit_sha="full-build-sha",
+    )
+    manifest_before = pd.read_csv(manifest_path, dtype=str).fillna("")
+    protected_before = (
+        manifest_before[manifest_before["artifact_id"].isin(protected_ids)]
+        .sort_values("artifact_id")
+        .reset_index(drop=True)
+    )
+    protected_snapshot_bytes = {
+        row["artifact_id"]: Path(row["snapshot_path"]).read_bytes()
+        for _, row in protected_before.iterrows()
+    }
+
+    freshness = pd.read_csv(latest_dir / "data_freshness_latest.csv", dtype=str)
+    freshness.loc[0, "warrant_source_status"] = "ok_refreshed"
+    freshness.to_csv(
+        latest_dir / "data_freshness_latest.csv",
+        index=False,
+        encoding="utf-8",
+        lineterminator="\n",
+    )
+    signals = pd.read_csv(
+        latest_dir / "daily_candidate_model_signals_for_report_latest.csv", dtype=str
+    )
+    signals.loc[0, "model_score"] = "72.0"
+    signals.to_csv(
+        latest_dir / "daily_candidate_model_signals_for_report_latest.csv",
+        index=False,
+        encoding="utf-8",
+        lineterminator="\n",
+    )
+    candidates = pd.read_csv(latest_dir / "all_candidates_latest.csv", dtype=str)
+    candidates.loc[0, "warrant_flow_signal"] = "call_inflow"
+    candidates.to_csv(
+        latest_dir / "all_candidates_latest.csv",
+        index=False,
+        encoding="utf-8",
+        lineterminator="\n",
+    )
+    summary = pd.read_csv(
+        latest_dir / "daily_candidate_model_summary_for_report_latest.csv", dtype=str
+    )
+    summary.loc[0, "model_name_zh"] = "放量攻擊模型正式同步"
+    summary.to_csv(
+        latest_dir / "daily_candidate_model_summary_for_report_latest.csv",
+        index=False,
+        encoding="utf-8",
+        lineterminator="\n",
+    )
+
+    manifest_rows = update_snapshots.build_daily_published_model_snapshots(
+        latest_dir=latest_dir,
+        snapshot_dir=snapshot_dir,
+        manifest_path=manifest_path,
+        generated_at="2026-06-16 09:00:00 Asia/Taipei",
+        commit_sha="warrant-formal-sync-sha",
+        artifact_ids=selected_ids,
+    )
+
+    assert set(manifest_rows["artifact_id"]) == selected_ids
+    manifest_after = pd.read_csv(manifest_path, dtype=str).fillna("")
+    protected_after = (
+        manifest_after[manifest_after["artifact_id"].isin(protected_ids)]
+        .sort_values("artifact_id")
+        .reset_index(drop=True)
+    )
+    pd.testing.assert_frame_equal(protected_before, protected_after)
+    for _, row in protected_after.iterrows():
+        assert Path(row["snapshot_path"]).read_bytes() == protected_snapshot_bytes[row["artifact_id"]]
+    assert validate_snapshots.validate_current_report_snapshots(
+        latest_dir=latest_dir,
+        snapshot_dir=snapshot_dir,
+        manifest_path=manifest_path,
+    ) == []
+
+
+def test_targeted_snapshot_selection_fails_closed_on_empty_or_unknown_ids(
+    tmp_path: Path,
+) -> None:
+    latest_dir = tmp_path / "output" / "latest"
+    write_minimal_latest_artifacts(latest_dir)
+
+    with pytest.raises(RuntimeError, match="selection must not be empty"):
+        update_snapshots.build_daily_published_model_snapshots(
+            latest_dir=latest_dir,
+            snapshot_dir=tmp_path / "history",
+            manifest_path=tmp_path / "history" / "manifest.csv",
+            artifact_ids=set(),
+        )
+    with pytest.raises(RuntimeError, match="unknown daily snapshot artifact ids"):
+        update_snapshots.build_daily_published_model_snapshots(
+            latest_dir=latest_dir,
+            snapshot_dir=tmp_path / "history",
+            manifest_path=tmp_path / "history" / "manifest.csv",
+            artifact_ids={"not_registered"},
+        )
+
+
+def test_targeted_snapshot_sync_does_not_repair_excluded_operation_drift(
+    tmp_path: Path,
+) -> None:
+    latest_dir = tmp_path / "output" / "latest"
+    snapshot_dir = tmp_path / "output" / "history" / "daily_model_snapshots"
+    manifest_path = snapshot_dir / "daily_published_model_snapshot_manifest.csv"
+    write_minimal_latest_artifacts(latest_dir)
+    update_snapshots.build_daily_published_model_snapshots(
+        latest_dir=latest_dir,
+        snapshot_dir=snapshot_dir,
+        manifest_path=manifest_path,
+        generated_at="2026-06-16 08:00:00 Asia/Taipei",
+        commit_sha="full-build-sha",
+    )
+    target = snapshot_dir / "daily_volume_breakout_operation_section_20260615.csv"
+    target_before = target.read_bytes()
+    operation_source = latest_dir / "daily_volume_breakout_operation_section_latest.csv"
+    operation = pd.read_csv(operation_source, dtype=str)
+    operation.loc[0, "model_id"] = "drifted_operation_model"
+    operation.to_csv(
+        operation_source,
+        index=False,
+        encoding="utf-8",
+        lineterminator="\n",
+    )
+
+    update_snapshots.build_daily_published_model_snapshots(
+        latest_dir=latest_dir,
+        snapshot_dir=snapshot_dir,
+        manifest_path=manifest_path,
+        generated_at="2026-06-16 09:00:00 Asia/Taipei",
+        commit_sha="warrant-formal-sync-sha",
+        artifact_ids={"data_freshness"},
+    )
+
+    assert target.read_bytes() == target_before
+    assert validate_snapshots.validate_current_report_snapshots(
+        latest_dir=latest_dir,
+        snapshot_dir=snapshot_dir,
+        manifest_path=manifest_path,
+    )
+
+
 def test_daily_published_model_snapshot_hashes_tolerate_windows_crlf_checkout(
     tmp_path: Path,
 ) -> None:

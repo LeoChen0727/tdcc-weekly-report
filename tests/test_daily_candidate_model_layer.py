@@ -93,6 +93,23 @@ def volume_v2_price_history(signal_date: str = "20260530") -> pd.DataFrame:
     return pd.DataFrame(rows)
 
 
+def mid_position_volume_v2_price_history(signal_date: str = "20260530") -> pd.DataFrame:
+    dates = pd.date_range(end=pd.to_datetime(signal_date), periods=120, freq="D").strftime("%Y%m%d")
+    rows = [
+        {
+            "date": date,
+            "open": "100",
+            "high": "120",
+            "low": "80",
+            "close": "100",
+            "volume": "1000",
+        }
+        for date in dates
+    ]
+    rows[-1].update({"open": "98", "high": "105", "low": "95", "close": "101", "volume": "3000"})
+    return pd.DataFrame(rows)
+
+
 def high_position_volume_v2_price_history(signal_date: str = "20260530") -> pd.DataFrame:
     dates = pd.date_range(end=pd.to_datetime(signal_date), periods=120, freq="D").strftime("%Y%m%d")
     rows: list[dict[str, str]] = []
@@ -388,6 +405,7 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
                     "volume_breakout_priority": "A_bottom_volume_attack",
                     "volume_breakout_notes": "close_ge_prior20_high_102pct|volume_ratio_ge_2|volume_ma20_lots_ge_1000|bullish_candle",
                     "volume_ratio": "3.17",
+                    "warrant_flow_signal": "no_signal",
                     "return_5d": "7.0",
                     "return_20d": "6.3",
                     "next_volume_breakout_confirmation": "confirm close above MA20/EMA23",
@@ -402,15 +420,24 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
             price_dir = temp_dir / "stock_price_history"
             price_dir.mkdir()
             source.to_csv(temp_path, index=False, encoding="utf-8-sig")
+            source_bytes_before = temp_path.read_bytes()
             volume_v2_price_history().to_csv(price_dir / "1617.csv", index=False)
             model_layer.VOLUME_BREAKOUT_WATCH = temp_path
             model_layer.STOCK_PRICE_HISTORY_DIR = price_dir
             try:
-                out = model_layer.append_volume_breakout_signals(pd.DataFrame(), pd.DataFrame(), "20260530")
+                out = model_layer.append_volume_breakout_signals(
+                    pd.DataFrame(),
+                    pd.DataFrame(
+                        [{"stock_id": "1617", "warrant_flow_signal": "call_inflow"}]
+                    ),
+                    "20260530",
+                )
             finally:
                 model_layer.VOLUME_BREAKOUT_WATCH = original_path
                 model_layer.STOCK_PRICE_HISTORY_DIR = original_price_dir
+            source_bytes_after = temp_path.read_bytes()
 
+        self.assertEqual(source_bytes_before, source_bytes_after)
         self.assertEqual(len(out), 1)
         row = out.iloc[0]
         self.assertEqual(row["stock_id"], "1617")
@@ -422,7 +449,58 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
         self.assertIn("final_rank_score", row.index)
         self.assertEqual(float(row["model_score"]), float(row["final_rank_score"]))
         self.assertEqual(row["volume_position_bucket_120d"], "low_pos_le40")
+        self.assertEqual(row["warrant_flow_signal"], "call_inflow")
+        self.assertIn("warrant bullish +2", row["score_components"])
         self.assertNotIn("volume_range_breakout", set(out["model_id"].astype(str)))
+
+    def test_mid_position_volume_breakout_uses_canonical_candidate_warrant(self) -> None:
+        source = pd.DataFrame(
+            [
+                {
+                    "signal_date": "20260530",
+                    "stock_id": "1618",
+                    "stock_name": "MID",
+                    "volume_breakout_type": "bottom_volume_attack",
+                    "selection_status": "selected",
+                    "volume_breakout_priority": "A_bottom_volume_attack",
+                    "volume_breakout_notes": "close_ge_prior20_high_102pct|volume_ratio_ge_2",
+                    "volume_ratio": "3.0",
+                    "range_width_40_pct": "45",
+                    "warrant_flow_signal": "no_signal",
+                }
+            ]
+        )
+        original_path = model_layer.VOLUME_BREAKOUT_WATCH
+        original_price_dir = model_layer.STOCK_PRICE_HISTORY_DIR
+        with tempfile.TemporaryDirectory() as tmpdir:
+            temp_dir = Path(tmpdir)
+            temp_path = temp_dir / "volume_breakout_watch_latest.csv"
+            price_dir = temp_dir / "stock_price_history"
+            price_dir.mkdir()
+            source.to_csv(temp_path, index=False, encoding="utf-8-sig")
+            source_bytes_before = temp_path.read_bytes()
+            mid_position_volume_v2_price_history().to_csv(price_dir / "1618.csv", index=False)
+            model_layer.VOLUME_BREAKOUT_WATCH = temp_path
+            model_layer.STOCK_PRICE_HISTORY_DIR = price_dir
+            try:
+                out = model_layer.append_volume_breakout_signals(
+                    pd.DataFrame(),
+                    pd.DataFrame(
+                        [{"stock_id": "1618", "warrant_flow_signal": "call_inflow"}]
+                    ),
+                    "20260530",
+                )
+            finally:
+                model_layer.VOLUME_BREAKOUT_WATCH = original_path
+                model_layer.STOCK_PRICE_HISTORY_DIR = original_price_dir
+            source_bytes_after = temp_path.read_bytes()
+
+        self.assertEqual(source_bytes_before, source_bytes_after)
+        self.assertEqual(len(out), 1)
+        row = out.iloc[0]
+        self.assertEqual(row["model_id"], MID_VOLUME_MODEL_ID)
+        self.assertEqual(row["warrant_flow_signal"], "call_inflow")
+        self.assertIn("warrant bullish +2", row["score_components"])
 
     def test_high_position_volume_breakout_requires_ma60_above_ma120(self) -> None:
         source = pd.DataFrame(
@@ -438,6 +516,7 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
                     "volume_breakout_notes": "close_ge_prior60_high_102pct|volume_ratio_ge_2",
                     "volume_ratio": "3.0",
                     "range_width_40_pct": "45",
+                    "warrant_flow_signal": "no_signal",
                     "next_volume_breakout_confirmation": "next day continuation close-only",
                 }
             ]
@@ -450,23 +529,70 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
             price_dir = temp_dir / "stock_price_history"
             price_dir.mkdir()
             source.to_csv(temp_path, index=False, encoding="utf-8-sig")
+            source_bytes_before = temp_path.read_bytes()
             high_position_volume_v2_price_history().to_csv(price_dir / "2489.csv", index=False)
             model_layer.VOLUME_BREAKOUT_WATCH = temp_path
             model_layer.STOCK_PRICE_HISTORY_DIR = price_dir
             try:
-                out = model_layer.append_volume_breakout_signals(pd.DataFrame(), pd.DataFrame(), "20260530")
+                out = model_layer.append_volume_breakout_signals(
+                    pd.DataFrame(),
+                    pd.DataFrame(
+                        [{"stock_id": "2489", "warrant_flow_signal": "call_inflow"}]
+                    ),
+                    "20260530",
+                )
+                out_without_warrant = model_layer.append_volume_breakout_signals(
+                    pd.DataFrame(),
+                    pd.DataFrame(
+                        [{"stock_id": "2489", "warrant_flow_signal": "no_signal"}]
+                    ),
+                    "20260530",
+                )
             finally:
                 model_layer.VOLUME_BREAKOUT_WATCH = original_path
                 model_layer.STOCK_PRICE_HISTORY_DIR = original_price_dir
+            source_bytes_after = temp_path.read_bytes()
 
+        self.assertEqual(source_bytes_before, source_bytes_after)
         self.assertEqual(len(out), 1)
         row = out.iloc[0]
         self.assertEqual(row["model_id"], HIGH_VOLUME_MODEL_ID)
         self.assertEqual(row["volume_position_bucket_120d"], "high_pos_gt75")
         self.assertEqual(row["volume_shape_bucket"], "non_consolidation")
         self.assertEqual(row["volume_ma60_gt_ma120"], "True")
+        self.assertEqual(row["warrant_flow_signal"], "call_inflow")
+        self.assertEqual(row["model_score"], out_without_warrant.iloc[0]["model_score"])
+        self.assertNotIn("warrant bullish", row["score_components"])
         self.assertIn("profile=volume_range_breakout_v2_high_position_volume_attack", row["score_components"])
         self.assertNotIn("一價鎖漲停放量突破", row["rank_reason_zh"])
+
+    def test_volume_breakout_formal_signal_fails_without_canonical_candidate(self) -> None:
+        source = pd.DataFrame(
+            [
+                {
+                    "signal_date": "20260530",
+                    "stock_id": "1617",
+                    "volume_breakout_type": "bottom_volume_attack",
+                    "selection_status": "selected",
+                    "warrant_flow_signal": "call_inflow",
+                }
+            ]
+        )
+        original_path = model_layer.VOLUME_BREAKOUT_WATCH
+        with tempfile.TemporaryDirectory() as tmpdir:
+            temp_path = Path(tmpdir) / "volume_breakout_watch_latest.csv"
+            source.to_csv(temp_path, index=False, encoding="utf-8-sig")
+            model_layer.VOLUME_BREAKOUT_WATCH = temp_path
+            try:
+                with self.assertRaisesRegex(
+                    RuntimeError,
+                    "no canonical all_candidates source row: stock_id=1617",
+                ):
+                    model_layer.append_volume_breakout_signals(
+                        pd.DataFrame(), pd.DataFrame(), "20260530"
+                    )
+            finally:
+                model_layer.VOLUME_BREAKOUT_WATCH = original_path
 
     def test_pullback_model_does_not_require_breakout(self) -> None:
         row = make_row(
