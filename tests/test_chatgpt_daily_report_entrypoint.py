@@ -603,6 +603,66 @@ def test_source_gate_only_skips_dfkai_preflight_and_pdf_rendering(
     assert entrypoint.main() == 0
 
 
+def test_validation_replay_date_is_forwarded_to_clean_source_resolver(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    date = "20260717"
+    state = {
+        "source_ref": "origin/main",
+        "source_commit_sha": "a" * 40,
+        "market_session_status": "closed_scheduled",
+        "market_session_date": "20260718",
+        "expected_main_price_date": date,
+        "market_session_validation_scope": "live_origin_main_validation_replay",
+        "live_expected_main_price_date": date,
+        "validation_replay_main_price_date": date,
+        "main_price_date": date,
+        "report_ready": True,
+        "warrant_ready": True,
+        "daily_pdf_ready": True,
+    }
+    args = entrypoint.argparse.Namespace(
+        repo_root=tmp_path,
+        source_ref="origin/main",
+        output_dir=None,
+        source_gate_only=True,
+        allow_dirty_code=True,
+        keep_source_worktree=False,
+        validation_replay_main_price_date=date,
+    )
+    source_root = tmp_path / "verified-source"
+    resolver_calls: list[dict[str, object]] = []
+
+    def fake_resolve_source_state(**kwargs: object) -> dict[str, object]:
+        resolver_calls.append(kwargs)
+        return dict(state)
+
+    monkeypatch.setattr(entrypoint, "parse_args", lambda: args)
+    monkeypatch.setattr(entrypoint, "ensure_entrypoint_can_run", lambda **kwargs: state)
+    monkeypatch.setattr(entrypoint, "add_source_worktree", lambda *args, **kwargs: source_root)
+    monkeypatch.setattr(
+        entrypoint,
+        "resolve_daily_report_source_state",
+        fake_resolve_source_state,
+    )
+    monkeypatch.setattr(entrypoint, "remove_source_worktree", lambda *args, **kwargs: None)
+    monkeypatch.setattr(entrypoint, "ensure_local_dfkai_font_for_pdf_rendering", _runner_must_not_run)
+    monkeypatch.setattr(entrypoint, "run_generator", _runner_must_not_run)
+
+    assert entrypoint.main() == 0
+    assert resolver_calls == [
+        {
+            "repo_root": source_root,
+            "source_ref": "origin/main",
+            "fetch": False,
+            "require_git_clean": True,
+            "require_local_match": True,
+            "validation_replay_main_price_date": date,
+        }
+    ]
+
+
 def test_normal_render_calls_dfkai_preflight_once_before_generator(
     tmp_path: Path,
     monkeypatch: pytest.MonkeyPatch,
@@ -817,6 +877,12 @@ def test_entrypoint_validation_replay_accepts_exact_prior_date_after_midnight(
     tmp_path: Path,
     monkeypatch,
 ) -> None:
+    resolver_calls: list[dict[str, object]] = []
+
+    def fake_resolve_source_state(**kwargs: object) -> dict[str, object]:
+        resolver_calls.append(kwargs)
+        return _resolved_state("20260717")
+
     monkeypatch.setattr(
         entrypoint.market_session_calendar,
         "refresh_market_session_status",
@@ -830,7 +896,7 @@ def test_entrypoint_validation_replay_accepts_exact_prior_date_after_midnight(
     monkeypatch.setattr(
         entrypoint,
         "resolve_daily_report_source_state",
-        lambda **kwargs: _resolved_state("20260717"),
+        fake_resolve_source_state,
     )
 
     state = entrypoint.ensure_entrypoint_can_run(
@@ -845,6 +911,17 @@ def test_entrypoint_validation_replay_accepts_exact_prior_date_after_midnight(
     assert state["live_market_session_date"] == "20260718"
     assert state["live_expected_main_price_date"] == "20260717"
     assert state["validation_replay_main_price_date"] == "20260717"
+    assert resolver_calls == [
+        {
+            "repo_root": tmp_path,
+            "source_ref": "origin/main",
+            "fetch": True,
+            "require_git_clean": True,
+            "allow_dirty": False,
+            "require_local_match": False,
+            "validation_replay_main_price_date": "20260717",
+        }
+    ]
 
 
 def test_entrypoint_validation_replay_rejects_date_not_matching_live_expectation(
@@ -871,6 +948,33 @@ def test_entrypoint_validation_replay_rejects_date_not_matching_live_expectation
             "origin/main",
             False,
             validation_replay_main_price_date="20260716",
+        )
+
+
+def test_entrypoint_validation_replay_rejects_emergency_closure(
+    tmp_path: Path,
+    monkeypatch,
+) -> None:
+    monkeypatch.setattr(
+        entrypoint.market_session_calendar,
+        "refresh_market_session_status",
+        lambda *args, **kwargs: _live_preflight(
+            "20260710",
+            status="closed_emergency",
+            reason_code="taipei_work_suspension_full_day",
+            expected_date="20260709",
+        ),
+    )
+
+    with pytest.raises(
+        entrypoint.DailyReportEntrypointError,
+        match="allowed only for closed_scheduled",
+    ):
+        entrypoint.ensure_entrypoint_can_run(
+            tmp_path,
+            "origin/main",
+            False,
+            validation_replay_main_price_date="20260709",
         )
 
 

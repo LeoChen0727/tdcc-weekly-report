@@ -6,6 +6,7 @@ import json
 import re
 import subprocess
 import sys
+from datetime import datetime
 from io import StringIO
 from pathlib import Path
 from typing import Any
@@ -98,6 +99,29 @@ class DailyReportSourceError(RuntimeError):
     def __init__(self, errors: list[str]):
         super().__init__("daily_report_source_not_ready: " + " | ".join(errors))
         self.errors = errors
+
+
+def normalize_validation_replay_main_price_date(value: object) -> str:
+    text = str(value or "").strip()
+    if not text:
+        return ""
+    if not re.fullmatch(r"\d{8}", text):
+        raise DailyReportSourceError(
+            [
+                "validation replay date must use exact YYYYMMDD format: "
+                f"validation_replay_main_price_date={text!r}"
+            ]
+        )
+    try:
+        datetime.strptime(text, "%Y%m%d")
+    except ValueError as exc:
+        raise DailyReportSourceError(
+            [
+                "validation replay date is not a valid calendar date: "
+                f"validation_replay_main_price_date={text!r}"
+            ]
+        ) from exc
+    return text
 
 
 def run_git(repo_root: Path, *args: str) -> subprocess.CompletedProcess[str]:
@@ -222,6 +246,7 @@ def validate_market_session_status(
     status: dict[str, Any],
     freshness_row: dict[str, str],
     source_label: str,
+    validation_replay_main_price_date: str = "",
 ) -> list[str]:
     errors: list[str] = []
     market_status = str(status.get("market_status") or "").strip()
@@ -229,6 +254,44 @@ def validate_market_session_status(
     session_date = normalize_date(status.get("market_session_date", ""))
     expected_date = normalize_date(status.get("expected_main_price_date", ""))
     main_date = normalize_date(freshness_row.get("main_price_date", ""))
+    replay_date = normalize_date(validation_replay_main_price_date)
+    closed_validation_replay = bool(replay_date) and market_status == "closed_scheduled"
+
+    if replay_date and main_date != replay_date:
+        errors.append(
+            f"{source_label}: validation_replay_main_price_date={replay_date} "
+            f"does not match main_price_date={main_date or '<missing>'}"
+        )
+
+    if closed_validation_replay:
+        if phase != "preflight":
+            errors.append(
+                f"{source_label}: closed-market validation replay phase must be preflight, "
+                f"got {phase or '<missing>'}"
+            )
+        if expected_date != replay_date:
+            errors.append(
+                f"{source_label}: closed-market expected_main_price_date="
+                f"{expected_date or '<missing>'} does not match "
+                f"validation_replay_main_price_date={replay_date}"
+            )
+        if not session_date:
+            errors.append(f"{source_label}: market_session_date is missing")
+        elif session_date < replay_date:
+            errors.append(
+                f"{source_label}: closed-market market_session_date={session_date} "
+                f"precedes validation_replay_main_price_date={replay_date}"
+            )
+        if status.get("should_run_daily_pipeline") is not False:
+            errors.append(
+                f"{source_label}: closed-market validation replay requires "
+                "should_run_daily_pipeline=false"
+            )
+        if not str(status.get("reason_code") or "").strip():
+            errors.append(
+                f"{source_label}: closed-market validation replay reason_code is missing"
+            )
+        return errors
 
     if market_status != "open_confirmed":
         errors.append(
@@ -404,9 +467,20 @@ def resolve_daily_report_source_state(
     require_git_clean: bool = True,
     allow_dirty: bool = False,
     require_local_match: bool = True,
+    validation_replay_main_price_date: str = "",
 ) -> dict[str, Any]:
     repo_root = repo_root.expanduser().resolve()
     forbid_helper_source(repo_root)
+    validation_replay_date = normalize_validation_replay_main_price_date(
+        validation_replay_main_price_date
+    )
+    if validation_replay_date and source_ref != DEFAULT_SOURCE_REF:
+        raise DailyReportSourceError(
+            [
+                "validation replay date is restricted to the official origin/main source: "
+                f"source_ref={source_ref}"
+            ]
+        )
 
     clean_errors = require_clean_git_checkout(repo_root, allow_dirty=allow_dirty) if require_git_clean else []
     if clean_errors:
@@ -444,6 +518,7 @@ def resolve_daily_report_source_state(
             market_session_status,
             freshness_row,
             f"{source_ref}:{MARKET_SESSION_STATUS_PATH}",
+            validation_replay_date,
         )
     )
     if require_local_match:
@@ -487,6 +562,7 @@ def resolve_daily_report_source_state(
         "readme_fields": readme_fields,
         "packet_fields": packet_fields,
         "market_session_fields": market_session_status,
+        "validation_replay_main_price_date": validation_replay_date,
     }
 
 

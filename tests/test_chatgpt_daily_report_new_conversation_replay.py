@@ -113,11 +113,16 @@ def test_run_replay_passes_exact_origin_main_date_to_entrypoint(
         "main_price_date": "20260717",
     }
     commands: list[list[str]] = []
+    resolver_calls: list[dict[str, object]] = []
+
+    def fake_resolve_source_state(**kwargs: object) -> dict[str, object]:
+        resolver_calls.append(kwargs)
+        return dict(state)
 
     monkeypatch.setattr(
         replay,
         "resolve_daily_report_source_state",
-        lambda **kwargs: dict(state),
+        fake_resolve_source_state,
     )
     monkeypatch.setattr(replay, "create_stale_residue", lambda output_dir: stale_path)
     monkeypatch.setattr(
@@ -148,6 +153,11 @@ def test_run_replay_passes_exact_origin_main_date_to_entrypoint(
     assert len(commands) == 1
     flag_index = commands[0].index("--validation-replay-main-price-date")
     assert commands[0][flag_index + 1] == "20260717"
+    assert len(resolver_calls) == 2
+    assert all(
+        call["validation_replay_main_price_date"] == "20260717"
+        for call in resolver_calls
+    )
 
 
 def test_replay_stdout_pdf_parser_deduplicates_entrypoint_output(tmp_path: Path) -> None:
