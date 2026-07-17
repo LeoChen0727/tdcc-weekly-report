@@ -74,6 +74,9 @@ jobs:
             LC_ALL=C sort -k2,2 -u "$output_file" -o "$output_file"
           }
           capture_mature_sentinels "$mature_sentinel_before"
+          formal_sync_scope_before="$RUNNER_TEMP/event-catalyst-formal-sync-scope-before.json"
+          python scripts/validate_daily_event_catalyst_formal_sync_scope.py \
+            --write-snapshot "$formal_sync_scope_before"
           python scripts/update_event_catalyst_data.py
           python scripts/update_event_calendar_data.py
           python scripts/apply_fundamental_catalyst_layer.py
@@ -119,6 +122,8 @@ jobs:
           do
             cp "output/latest/$artifact" "docs/latest/$artifact"
           done
+          python scripts/validate_daily_event_catalyst_formal_sync_scope.py \
+            --compare-snapshot "$formal_sync_scope_before"
           capture_mature_sentinels "$mature_sentinel_after"
           mature_sentinel_before_sha256="$(sha256sum "$mature_sentinel_before" | cut -d' ' -f1)"
           mature_sentinel_after_sha256="$(sha256sum "$mature_sentinel_after" | cut -d' ' -f1)"
@@ -182,9 +187,12 @@ jobs:
           python scripts/validate_daily_staged_paths.py
           python scripts/validate_daily_published_model_snapshots.py
           python scripts/validate_no_conflict_markers.py
-          git commit -m "Update event catalyst data tables" || echo "No changes to commit"
-          git pull --rebase origin main
-          git push
+          if git diff --cached --quiet; then
+            echo "No staged event-catalyst changes to commit"
+          else
+            git commit -m "Update event catalyst data tables"
+          fi
+          bash scripts/ci_push_with_retry.sh "${GITHUB_REF_NAME}" 5
 
       - name: Dispatch and wait for catalyst Pages deploy
         if: ${{ github.ref == 'refs/heads/main' }}

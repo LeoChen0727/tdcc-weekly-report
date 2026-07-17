@@ -55,6 +55,9 @@ def test_event_and_weekly_workflows_publish_pages_and_use_full_validation() -> N
         assert "python scripts/update_daily_published_model_snapshots.py" in text
         assert "python scripts/validate_daily_published_model_snapshots.py" in text
         assert "python scripts/validate_daily_staged_paths.py" in text
+        assert "python scripts/validate_daily_event_catalyst_formal_sync_scope.py" in text
+        assert '--write-snapshot "$formal_sync_scope_before"' in text
+        assert '--compare-snapshot "$formal_sync_scope_before"' in text
         assert 'capture_mature_sentinels "$mature_sentinel_before"' in text
         assert 'capture_mature_sentinels "$mature_sentinel_after"' in text
         assert 'cmp --silent "$mature_sentinel_before" "$mature_sentinel_after"' in text
@@ -64,6 +67,13 @@ def test_event_and_weekly_workflows_publish_pages_and_use_full_validation() -> N
         assert "git add output/history/daily_candidate_models/" in text
         assert "git add output/history/daily_model_snapshots/" in text
         assert "git add docs/latest/" in text
+        assert "if git diff --cached --quiet; then" in text
+        assert 'bash scripts/ci_push_with_retry.sh "${GITHUB_REF_NAME}" 5' in text
+        assert "git pull --rebase origin main" not in text
+        assert "\n          git push\n" not in text
+        assert 'git commit -m "' in text
+        assert 'git commit -m "Update' in text
+        assert '|| echo "No changes to commit"' not in text
         assert "gh workflow run pages.yml --ref main" in text
         assert "timeout-minutes: 40" in text
         assert "pages_deploy_attempts=3" in text

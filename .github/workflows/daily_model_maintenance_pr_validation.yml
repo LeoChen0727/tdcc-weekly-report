@@ -160,6 +160,7 @@ jobs:
             tests/test_chatgpt_daily_report_entrypoint.py \
             tests/test_chatgpt_side_pdf_contract.py \
             tests/test_catalyst_pages_sync.py \
+            tests/test_daily_event_catalyst_formal_sync_scope.py \
             tests/test_daily_pdf_contract_consumers.py \
             tests/test_daily_pdf_completion_hard_gate.py \
             tests/test_daily_pdf_shared_path_isolation.py \
