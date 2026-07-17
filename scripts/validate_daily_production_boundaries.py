@@ -779,6 +779,15 @@ def main() -> int:
         "daily-pdf-source-gate-main": (
             "closed-day source-gate validation must upload textual evidence"
         ),
+        'source_gate_log="$RUNNER_TEMP/daily_pdf_source_gate_validation.log"': (
+            "closed-day source-gate evidence must be written outside the repository"
+        ),
+        'tee "$source_gate_log"': (
+            "closed-day source-gate validation must capture output in the temporary log"
+        ),
+        "path: ${{ runner.temp }}/daily_pdf_source_gate_validation.log": (
+            "closed-day source-gate artifact must upload the temporary log"
+        ),
     }
     if "validate_latest_daily_pdf_replay:" not in daily_text:
         errors.append(
@@ -795,6 +804,8 @@ def main() -> int:
         "git commit",
         "git push",
         "pages.yml",
+        "tee daily_pdf_source_gate_validation.log",
+        "path: daily_pdf_source_gate_validation.log",
     ):
         if forbidden in source_gate_block:
             errors.append(
