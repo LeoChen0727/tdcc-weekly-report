@@ -293,21 +293,22 @@ jobs:
         shell: bash
         run: |
           set -o pipefail
+          source_gate_log="$RUNNER_TEMP/daily_pdf_source_gate_validation.log"
           python scripts/run_chatgpt_daily_report_entrypoint.py \
             --repo-root . \
             --source-ref origin/main \
             --source-gate-only \
             --validation-replay-main-price-date "$EXPECTED_MAIN_PRICE_DATE" \
-            | tee daily_pdf_source_gate_validation.log
-          grep -F "official daily report source gate passed:" daily_pdf_source_gate_validation.log
-          grep -F "validation_replay_main_price_date=$EXPECTED_MAIN_PRICE_DATE" daily_pdf_source_gate_validation.log
-          grep -F "main_price_date=$EXPECTED_MAIN_PRICE_DATE" daily_pdf_source_gate_validation.log
+            | tee "$source_gate_log"
+          grep -F "official daily report source gate passed:" "$source_gate_log"
+          grep -F "validation_replay_main_price_date=$EXPECTED_MAIN_PRICE_DATE" "$source_gate_log"
+          grep -F "main_price_date=$EXPECTED_MAIN_PRICE_DATE" "$source_gate_log"
 
       - name: Upload main daily PDF source-gate evidence
         uses: actions/upload-artifact@v4
         with:
           name: daily-pdf-source-gate-main
-          path: daily_pdf_source_gate_validation.log
+          path: ${{ runner.temp }}/daily_pdf_source_gate_validation.log
           if-no-files-found: error
 
   daily-full-pipeline:

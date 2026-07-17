@@ -465,6 +465,11 @@ def test_daily_workflow_market_session_gate_is_main_only_and_fail_closed() -> No
     assert "needs.market-session-preflight.outputs.market_status == 'closed_scheduled'" in source_gate_block
     assert "--source-gate-only" in source_gate_block
     assert '--validation-replay-main-price-date "$EXPECTED_MAIN_PRICE_DATE"' in source_gate_block
+    assert 'source_gate_log="$RUNNER_TEMP/daily_pdf_source_gate_validation.log"' in source_gate_block
+    assert 'tee "$source_gate_log"' in source_gate_block
+    assert "path: ${{ runner.temp }}/daily_pdf_source_gate_validation.log" in source_gate_block
+    assert "tee daily_pdf_source_gate_validation.log" not in source_gate_block
+    assert "path: daily_pdf_source_gate_validation.log" not in source_gate_block
     assert "Install and validate DFKai-SB" not in source_gate_block
     assert "validate_chatgpt_daily_report_new_conversation_replay.py" not in source_gate_block
     assert "*.pdf" not in source_gate_block
