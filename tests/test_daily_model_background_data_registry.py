@@ -66,8 +66,14 @@ def test_financial_statement_data_families_are_registered_and_formal_use_is_bloc
         "financial_statement_point_in_time_history"
     ]["forbidden_use"]
     assert by_id["financial_statement_pit_coverage_audit"]["point_in_time_status"] == (
-        "coverage_gate_current_snapshot_only"
+        "coverage_gate_current_snapshot_only_historical_verifier_and_revision_normalizer_unavailable"
     )
+    assert "source-specific official evidence parser" in by_id[
+        "financial_statement_source_manifest"
+    ]["notes"]
+    assert "formal_model_use_allowed=False" in by_id[
+        "financial_statement_pit_coverage_audit"
+    ]["notes"]
 
 
 def test_registry_loader_fails_on_unquoted_comma_overflow(tmp_path: Path) -> None:

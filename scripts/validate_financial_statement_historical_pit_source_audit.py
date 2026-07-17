@@ -58,6 +58,9 @@ EXPECTED_ARCHIVE_SHA256_BY_ID = {
     "t56_attachment_2348_2026Q1_skey2": "0ffcb2b64dd452aea6d3a20119a2e03a45ad76fbb38e9ba1fc1de9fd5548067e",
     "xbrl_2348_2026Q1_current": "b2e2852b47d751bfe352925c75882d016124ed6a5bff6fd4d6964b4741efd534",
     "bulk_xbrl_2026Q1": "6d1423056561dfcff07b7f720c0f1d4416fce3f0b11bcd47c254ed88557d0e10",
+    "twse_data_eshop_s21_product_page": "6fea1b7ff3677d8fb21ec3c320e910eafe5ca872b418e9e93253f749efc58098",
+    "twse_data_eshop_l01_product_page": "9c7936c4bc31dfd954a6d2cb565f14358e52fef805886306fb7200fc772a20d9",
+    "twse_data_eshop_application_page": "7c5cb39eeba722f7fe1dc211caea0655c734aedb28081d40aef02ac09e2c940f",
 }
 
 
@@ -201,6 +204,9 @@ def validate(root: Path = ROOT, external_archive_root: Path | None = None) -> li
         "twse_financial_report_correction_guidance",
         "mops_taxonomy_download",
         "twse_openapi_financial_statement_current_snapshot",
+        "twse_data_eshop_s21_ifrs_active_push",
+        "twse_data_eshop_l01_delivery_list",
+        "twse_data_eshop_application_process",
     }
     if {row["source_id"] for row in sources} != required_sources:
         errors.append("historical PIT source surface registry is incomplete")
@@ -217,6 +223,7 @@ def validate(root: Path = ROOT, external_archive_root: Path | None = None) -> li
                 "https://mops.twse.com.tw/",
                 "https://www.twse.com.tw/",
                 "https://openapi.twse.com.tw/",
+                "https://eshop.twse.com.tw/",
             )
         ):
             errors.append(f"{row['source_id']}: source must be an official MOPS or TWSE URL")
@@ -327,12 +334,18 @@ def validate(root: Path = ROOT, external_archive_root: Path | None = None) -> li
         errors.append("historical PIT raw archive ids must be unique")
     required_archive_ids = set(EXPECTED_ARCHIVE_SHA256_BY_ID)
     if set(raw_by_id) != required_archive_ids:
-        errors.append("historical PIT raw archive manifest must retain all 36 source payloads")
+        errors.append("historical PIT raw archive manifest must retain all 39 source payloads")
     expected_payload_hashes = {row["raw_payload_sha256"] for row in pilots}
     for row in evidence:
         expected_payload_hashes.update(_evidence_lineage_hashes(row))
     guidance_sha = "7c5502cbcd4eab7f391c40e24a5375b1b8f9a4cea8e3aa345c674623d595cd1e"
     expected_payload_hashes.add(guidance_sha)
+    data_eshop_hashes = {
+        "6fea1b7ff3677d8fb21ec3c320e910eafe5ca872b418e9e93253f749efc58098",
+        "9c7936c4bc31dfd954a6d2cb565f14358e52fef805886306fb7200fc772a20d9",
+        "7c5cb39eeba722f7fe1dc211caea0655c734aedb28081d40aef02ac09e2c940f",
+    }
+    expected_payload_hashes.update(data_eshop_hashes)
     manifest_payload_hashes = {row["raw_payload_sha256"] for row in raw_archives}
     if manifest_payload_hashes != expected_payload_hashes:
         errors.append("raw archive SHA set must equal pilot evidence and guidance payload lineage")
@@ -369,6 +382,7 @@ def validate(root: Path = ROOT, external_archive_root: Path | None = None) -> li
                 "https://doc.twse.com.tw/",
                 "https://www.twse.com.tw/",
                 "https://openapi.twse.com.tw/",
+                "https://eshop.twse.com.tw/",
             )
         ):
             errors.append(f"{archive_id}: raw archive must reference an official URL")
@@ -662,11 +676,60 @@ def validate(root: Path = ROOT, external_archive_root: Path | None = None) -> li
             errors.append(
                 "4552 revision-leakage witness requires t05 revision t56 t57 PDF and correction-attachment hashes"
             )
+    data_eshop_expectations = {
+        "twse_data_eshop_s21_product_page": (
+            "twse_data_eshop_s21_ifrs_active_push",
+            "official_subscription_product_page",
+            "9995",
+            "S21 IFRS financial-report active push exists",
+        ),
+        "twse_data_eshop_l01_product_page": (
+            "twse_data_eshop_l01_delivery_list",
+            "official_subscription_product_page",
+            "22677",
+            "L01 daily transmission list exists",
+        ),
+        "twse_data_eshop_application_page": (
+            "twse_data_eshop_application_process",
+            "official_subscription_application_page",
+            "9364",
+            "direct TWSE contact is required",
+        ),
+    }
+    for archive_id, (source_id, role, byte_count, note_token) in data_eshop_expectations.items():
+        row = raw_by_id.get(archive_id)
+        if row is None:
+            errors.append(f"{archive_id}: missing Data E-Shop source-page archive")
+            continue
+        source_page_rows = [
+            candidate
+            for candidate in raw_archives
+            if source_id in candidate["related_record_ids"].split(";")
+        ]
+        if (
+            len(source_page_rows) != 1
+            or source_page_rows[0]["archive_id"] != archive_id
+            or row["related_record_ids"] != source_id
+        ):
+            errors.append(
+                f"{archive_id}: Data E-Shop source must bind exactly one dedicated raw page"
+            )
+        if (
+            row["source_id"] != source_id
+            or row["payload_role"] != role
+            or row["raw_byte_count"] != byte_count
+            or row["availability_precision"]
+            != "capture_time_only_not_product_data_availability"
+            or row["official_public_at"]
+            or note_token not in row["notes"]
+        ):
+            errors.append(f"{archive_id}: Data E-Shop source-page contract drift")
+
     expected_records = len(sources) + len(pilots) + len(evidence) + len(raw_archives)
     if len(audit) != expected_records:
         errors.append("generated source audit row count mismatch")
-    if {row["audit_id"] for row in audit} != {"financial_statement_historical_pit_source_audit_v3"}:
-        errors.append("generated source audit must use the v3 acquisition and revision contract")
+    if {row["audit_id"] for row in audit} != {"financial_statement_historical_pit_source_audit_v4"}:
+        errors.append("generated source audit must use the v4 acquisition and revision contract")
     for row in audit:
         record_label = f"{row['record_type']}:{row['record_id']}"
         if row["pit_eligible"] != "False" or row["formal_model_use_allowed"] != "False":
@@ -870,6 +933,13 @@ def validate(root: Path = ROOT, external_archive_root: Path | None = None) -> li
         "t56_attachment_4552_2025Q1",
         "t56_attachment_2348_2026Q1_skey1",
         "t56_attachment_2348_2026Q1_skey2",
+        "S21 `IFRS財報檔案`",
+        "L01 `每日傳送清單檔`",
+        "TWSE Digital and Cybersecurity Department",
+        "No external contact, registration, purchase, or order has been made",
+        "6fea1b7ff3677d8fb21ec3c320e910eafe5ca872b418e9e93253f749efc58098",
+        "9c7936c4bc31dfd954a6d2cb565f14358e52fef805886306fb7200fc772a20d9",
+        "7c5cb39eeba722f7fe1dc211caea0655c734aedb28081d40aef02ac09e2c940f",
     ):
         if required not in md:
             errors.append(f"source audit Markdown missing fail-closed evidence: {required}")
