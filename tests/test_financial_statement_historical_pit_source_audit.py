@@ -18,6 +18,9 @@ import validate_financial_statement_historical_pit_source_audit as validator  # 
 def test_committed_source_audit_is_fail_closed_and_valid() -> None:
     assert validator.validate() == []
     rows = validator.read_rows(validator.OUTPUT_CSV)
+    assert {row["audit_id"] for row in rows} == {
+        "financial_statement_historical_pit_source_audit_v4"
+    }
     assert {row["pit_eligible"] for row in rows} == {"False"}
     assert {row["formal_model_use_allowed"] for row in rows} == {"False"}
 
@@ -60,6 +63,31 @@ def test_source_registry_keeps_twse_openapi_current_snapshot_only() -> None:
     assert "no company revision id or version selector" in source["revision_semantics"]
     assert source["pit_eligible"] == "False"
     assert source["formal_model_use_allowed"] == "False"
+
+
+def test_source_registry_keeps_data_eshop_candidates_specification_only() -> None:
+    rows = {
+        row["source_id"]: row for row in validator.read_rows(validator.SOURCE_PATH)
+    }
+    s21 = rows["twse_data_eshop_s21_ifrs_active_push"]
+    l01 = rows["twse_data_eshop_l01_delivery_list"]
+    application = rows["twse_data_eshop_application_process"]
+    assert s21["official_url"].startswith("https://eshop.twse.com.tw/")
+    assert l01["official_url"].startswith("https://eshop.twse.com.tw/")
+    assert application["official_url"].endswith("/zh/mops/publicStep")
+    assert "written specification" in s21["notes"]
+    assert "written schema" in l01["notes"]
+    assert (
+        "does not publish whether L01 identifies company period statement scope or S21 payload"
+        in l01["scope_semantics"]
+    )
+    assert "may be a delivery crosswalk only" in l01["notes"]
+    assert application["status"] == "external_coordination_required"
+    assert all(row["pit_eligible"] == "False" for row in (s21, l01, application))
+    assert all(
+        row["formal_model_use_allowed"] == "False"
+        for row in (s21, l01, application)
+    )
 
 
 def test_evidence_registry_pins_upload_times_and_revision_leakage() -> None:
@@ -111,8 +139,8 @@ def test_raw_archive_manifest_binds_all_source_payload_hashes() -> None:
     archives = validator.read_rows(validator.RAW_ARCHIVE_MANIFEST_PATH)
     pilots = validator.read_rows(validator.PILOT_PATH)
     evidence = validator.read_rows(validator.EVIDENCE_PATH)
-    assert len(archives) == 36
-    assert len({row["archive_id"] for row in archives}) == 36
+    assert len(archives) == 39
+    assert len({row["archive_id"] for row in archives}) == 39
     archived_hashes = {row["raw_payload_sha256"] for row in archives}
     for row in archives:
         assert row["raw_archive_ref"] == f"sha256://{row['raw_payload_sha256']}"
@@ -131,7 +159,65 @@ def test_raw_archive_manifest_binds_all_source_payload_hashes() -> None:
     expected_hashes.add(
         "7c5502cbcd4eab7f391c40e24a5375b1b8f9a4cea8e3aa345c674623d595cd1e"
     )
+    expected_hashes.update(
+        {
+            "6fea1b7ff3677d8fb21ec3c320e910eafe5ca872b418e9e93253f749efc58098",
+            "9c7936c4bc31dfd954a6d2cb565f14358e52fef805886306fb7200fc772a20d9",
+            "7c5cb39eeba722f7fe1dc211caea0655c734aedb28081d40aef02ac09e2c940f",
+        }
+    )
     assert archived_hashes == expected_hashes
+    data_eshop_bindings = {
+        "twse_data_eshop_s21_product_page": "twse_data_eshop_s21_ifrs_active_push",
+        "twse_data_eshop_l01_product_page": "twse_data_eshop_l01_delivery_list",
+        "twse_data_eshop_application_page": "twse_data_eshop_application_process",
+    }
+    for archive_id, source_id in data_eshop_bindings.items():
+        matching = [
+            row
+            for row in archives
+            if source_id in row["related_record_ids"].split(";")
+        ]
+        assert len(matching) == 1
+        assert matching[0]["archive_id"] == archive_id
+        assert matching[0]["related_record_ids"] == source_id
+
+
+def test_validator_rejects_data_eshop_cross_source_raw_binding(tmp_path: Path) -> None:
+    for relative in (
+        "config/daily_model_financial_statement_historical_pit_sources.csv",
+        "config/daily_model_financial_statement_historical_pit_pilot.csv",
+        "config/daily_model_financial_statement_historical_pit_evidence.csv",
+        "config/daily_model_financial_statement_historical_pit_raw_archive_manifest.csv",
+        "output/latest/research_backtest/financial_statement_historical_pit_source_audit_latest.csv",
+        "output/latest/research_backtest/financial_statement_historical_pit_source_audit_latest.md",
+        "docs/latest/financial_statement_historical_pit_source_audit_latest.csv",
+        "docs/latest/financial_statement_historical_pit_source_audit_latest.md",
+    ):
+        src = ROOT / relative
+        dst = tmp_path / relative
+        dst.parent.mkdir(parents=True, exist_ok=True)
+        dst.write_bytes(src.read_bytes())
+    manifest_path = (
+        tmp_path
+        / "config/daily_model_financial_statement_historical_pit_raw_archive_manifest.csv"
+    )
+    rows = validator.read_rows(manifest_path)
+    l01 = next(
+        row
+        for row in rows
+        if row["archive_id"] == "twse_data_eshop_l01_product_page"
+    )
+    l01["related_record_ids"] += ";twse_data_eshop_s21_ifrs_active_push"
+    with manifest_path.open("w", encoding="utf-8-sig", newline="") as handle:
+        writer = csv.DictWriter(handle, fieldnames=list(rows[0]))
+        writer.writeheader()
+        writer.writerows(rows)
+    errors = validator.validate(tmp_path)
+    assert any(
+        "Data E-Shop source must bind exactly one dedicated raw page" in error
+        for error in errors
+    )
 
 
 def test_archive_lineage_binding_rejects_cross_witness_row_swap() -> None:

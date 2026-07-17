@@ -164,7 +164,7 @@ python scripts/validate_financial_statement_historical_pit_source_audit.py
 The committed pilot uses `2013Q1` as the earliest IFRS source-contract probe and
 `2025Q1` as the first modern quarter near the currently tracked price-history
 window. The tracked pilot stocks currently begin at `2025-04-07`; therefore
-2013-2024 source retention is not current backtest evidence. Audit v3 also
+2013-2024 source retention is not current backtest evidence. Audit v4 also
 retains a two-revision `2348 2026Q1` witness and a TWSE OpenAPI current-snapshot
 witness. The two exact t05 announcement times are
 `2026-05-25T15:59:11+08:00` and `2026-06-03T15:38:46+08:00`; they are
@@ -174,6 +174,17 @@ availability. t56 SKEY attachments for 2816, 4552, and both 2348 revisions are
 selected correction or replacement pages rather than complete before/after
 reports. After the two 2348 corrections, the bulk archive still has exactly one
 2348 member and its SHA-256 equals the direct current payload.
+
+Audit v4 additionally records the official TWSE Data E-Shop S21 IFRS active
+delivery catalog, L01 daily delivery-list catalog, and application-process page.
+These pages establish a prospective official acquisition path only. They do not
+publish the S21 or L01 schemas, an S21-to-L01 common immutable key, company
+filing or delivery timestamp semantics, complete correction / resend delivery
+rules, immutable revision-payload lineage, or historical replay and retention
+back to 2013 Q1. Their local capture timestamps are audit-observation times and
+must not be treated as official filing, publication, or delivery times. Contact,
+application, registration, terms acceptance, or purchase remains a separate
+user-authorized external action.
 
 Official MOPS bulk ZIPs, single-company downloads, financial-report
 announcements, correction queries, and taxonomy packages therefore prove
@@ -230,8 +241,19 @@ Point-in-time boundary:
 - `--capture-manifest` may replay payloads only under their registered source
   contract. A current OpenAPI source cannot self-declare
   `historical_pit_eligible=True`; a future historical source requires its own
-  registry entry, exact filing-availability semantics, parser, validator, and
-  user-approved data-sharing migration.
+  registry entry, exact filing-availability semantics, explicit statement
+  scope, parser, validator, user-approved data-sharing migration, and either
+  complete official immutable revision-payload lineage or authoritative
+  official proof that no prior revision exists. A pinned external payload and
+  caller-supplied status are not sufficient: a source-specific verifier must
+  parse the official machine-readable evidence, bind its company, period,
+  scope, taxonomy, exact timestamps, ordered revision identifiers, supersedes
+  chain, and every payload hash, and independently derive completeness or the
+  no-prior assertion. Every verified revision payload must then be normalized
+  into the history with its own exact availability and lineage row; validating
+  two payloads while writing only the latest one is forbidden. No historical
+  source-specific verifier or multi-revision normalizer is approved yet, so
+  historical eligibility remains fail-closed.
 
 Allowed use: objective research-only as-of joins where
 `source_available_at <= signal_date` and the row's industry schema supports the
@@ -244,15 +266,25 @@ evidence from the current snapshot layer.
 
 Remaining historical PIT work:
 
-1. Ingest official MOPS/XBRL filing history with exact company filing
+1. With separate user authorization, obtain written S21 / L01 schemas, sample
+   payloads, timestamp semantics, common-key rules, correction completeness,
+   historical replay coverage, retention, and delivery terms from TWSE Data
+   E-Shop before building an acquisition adapter.
+2. Implement and approve a source-specific verifier for the obtained official
+   machine-readable completeness / no-prior evidence; a generic JSON wrapper,
+   URL, local file, byte count, or SHA alone must never enable eligibility.
+3. Implement a multi-revision normalizer that writes every verified payload and
+   independently proves proof revision count equals the actual history lineage
+   count before any row can become historical-PIT eligible.
+4. Ingest official MOPS/XBRL filing history with exact company filing
    availability and explicit consolidated or individual statement scope.
-2. Cover the IFRS-comparable listed and OTC baseline from 2013 Q1 forward and
+5. Cover the IFRS-comparable listed and OTC baseline from 2013 Q1 forward and
    preserve every later revision.
-3. Validate fiscal-period continuity, units, formulas, statement scope, and
+6. Validate fiscal-period continuity, units, formulas, statement scope, and
    market / industry / quarter coverage.
-4. Keep raw archives external and content-addressed while retaining immutable
+7. Keep raw archives external and content-addressed while retaining immutable
    source manifest hashes in the repository.
-5. Open a separate model-specific research and promotion decision before any
+8. Open a separate model-specific research and promotion decision before any
    financial field is used formally.
 
 Revenue-model discussion trigger remains mandatory. Monthly revenue and

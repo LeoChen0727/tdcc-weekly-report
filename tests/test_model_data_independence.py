@@ -178,7 +178,7 @@ def test_data_sharing_registry_uses_model_owned_research_entrypoints() -> None:
 
 def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
     rows = read_csv("config/daily_model_data_sharing_migrations.csv")
-    assert len(rows) == 14
+    assert len(rows) == 15
     baseline = rows[0]
     assert tuple(baseline) == DATA_SHARING_MIGRATION_COLUMNS
     assert data_migration_row_sha256(baseline) == BASELINE_DATA_MIGRATION_ROW_SHA256
@@ -440,6 +440,36 @@ def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
         "validated_user_approved_migration"
     )
 
+    historical_source_acquisition_v4 = rows[14]
+    assert historical_source_acquisition_v4["migration_id"] == (
+        "historical_financial_statement_pit_revision_guard_and_data_eshop_v4_20260717"
+    )
+    assert historical_source_acquisition_v4["changed_data_families"] == (
+        "financial_statement_point_in_time_history;"
+        "financial_statement_source_manifest;"
+        "financial_statement_pit_coverage_audit;"
+        "financial_statement_historical_pit_source_audit"
+    )
+    assert historical_source_acquisition_v4["previous_contract_sha256s"] == (
+        "ddc0c0a54d0374f8622fb3dbe51a88ca1aa841d2955ca5f1432e81aec9e08f63;"
+        "8cccd88ec43a1b8d51577e3776e866881c661e9811746da4e4a5c142af5529f0;"
+        "35fc38ac95271dee3ad7aa3fa7671f52dfbdfd4ff26646e43f4bc62a4c2d8aae;"
+        "04170be9ddccd8b40ae0816ff11d3b8428c8568d80ab4e3385683d6d72d056c8"
+    )
+    assert historical_source_acquisition_v4["new_contract_sha256s"] == (
+        "3392f0a30f9612638a3950d3767211662728c2c55179d1490dff58d22e71e72b;"
+        "4df321fd776c4a1fc4dca350ec2ae16538a101af3e3132328840a961c70f013a;"
+        "a4357224e45bcab9e0c14b2bb8e5b83c231e426db21e1dbe97506c06859c931d;"
+        "975dccb3546cea31bb05f28c3ccd5b5ecf1015898e84abff99b603c784e2bfcb"
+    )
+    assert historical_source_acquisition_v4["affected_models"] == "all_models"
+    assert historical_source_acquisition_v4["user_approval_reference"] == (
+        "user_requested_historical_financial_statement_official_source_continuation_20260717"
+    )
+    assert historical_source_acquisition_v4["migration_status"] == (
+        "validated_user_approved_migration"
+    )
+
 
 def test_data_contract_hash_detects_point_in_time_or_forbidden_use_drift() -> None:
     row = read_csv("config/daily_model_background_data_registry.csv")[0]
@@ -450,6 +480,36 @@ def test_data_contract_hash_detects_point_in_time_or_forbidden_use_drift() -> No
     changed_forbidden["forbidden_use"] = "silently_changed"
     assert data_contract_sha256(changed_pit) != original
     assert data_contract_sha256(changed_forbidden) != original
+
+
+def test_financial_statement_revision_guard_migrates_every_changed_shared_contract() -> None:
+    rows = {
+        row["data_family_id"]: row
+        for row in read_csv("config/daily_model_data_sharing_registry.csv")
+    }
+    migration_id = (
+        "historical_financial_statement_pit_revision_guard_and_data_eshop_v4_20260717"
+    )
+    expected_hashes = {
+        "financial_statement_point_in_time_history": (
+            "3392f0a30f9612638a3950d3767211662728c2c55179d1490dff58d22e71e72b"
+        ),
+        "financial_statement_source_manifest": (
+            "4df321fd776c4a1fc4dca350ec2ae16538a101af3e3132328840a961c70f013a"
+        ),
+        "financial_statement_pit_coverage_audit": (
+            "a4357224e45bcab9e0c14b2bb8e5b83c231e426db21e1dbe97506c06859c931d"
+        ),
+        "financial_statement_historical_pit_source_audit": (
+            "975dccb3546cea31bb05f28c3ccd5b5ecf1015898e84abff99b603c784e2bfcb"
+        ),
+    }
+    for family, expected_hash in expected_hashes.items():
+        assert rows[family]["last_migration_id"] == migration_id
+        assert rows[family]["data_contract_sha256"] == expected_hash
+        assert rows[family]["sharing_decision_reference"] == (
+            "user_requested_historical_financial_statement_official_source_continuation_20260717"
+        )
 
 
 def test_production_importing_audits_cannot_claim_independent_evidence() -> None:

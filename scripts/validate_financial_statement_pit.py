@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import ast
 import csv
 import re
 from datetime import datetime
@@ -11,6 +12,7 @@ import pandas as pd
 
 
 ROOT = Path(__file__).resolve().parents[1]
+BUILDER_PATH = ROOT / "scripts" / "build_financial_statement_pit.py"
 SOURCE_REGISTRY = ROOT / "config" / "daily_model_financial_statement_pit_sources.csv"
 METRIC_MAPPING = ROOT / "config" / "daily_model_financial_statement_metric_mapping.csv"
 HISTORY_PATH = ROOT / "data" / "financial_statement_history" / "financial_statement_history.csv"
@@ -158,6 +160,42 @@ COVERAGE_COLUMNS = (
     "blocker",
 )
 SHA_RE = re.compile(r"^[0-9a-f]{64}$")
+LEGACY_MANIFEST_VERSION = "financial_statement_source_manifest_v1"
+REVISION_PROOF_MANIFEST_VERSION = "financial_statement_source_manifest_v2"
+REVISION_LINEAGE_PROOF_SCHEMA = "financial_statement_revision_lineage_proof_v1"
+REVISION_LINEAGE_SOURCE_SEMANTICS = (
+    "official_immutable_revision_payload_lineage_or_authoritative_no_prior_revision_proof"
+)
+ELIGIBLE_REVISION_LINEAGE_STATUSES = {
+    "complete_official_immutable_revision_payload_lineage",
+    "authoritative_official_no_prior_revision_proof",
+}
+BASE_PROVENANCE_STATUS = "raw_payload_sha_and_source_row_sha_verified"
+BASE_ARCHIVE_STATUS = "external_content_addressed_archive_verified"
+REVISION_METADATA_FIELDS = (
+    "revision_lineage_proof_schema",
+    "revision_lineage_status",
+    "revision_lineage_proof_ref",
+    "revision_lineage_official_evidence_ref",
+    "revision_lineage_revision_count",
+    "revision_lineage_latest_payload_sha256",
+    "revision_lineage_company_id",
+    "revision_lineage_fiscal_period",
+    "revision_lineage_statement_scope",
+    "revision_lineage_taxonomy_version",
+    "revision_lineage_latest_revision_id",
+)
+SAFE_PROOF_VALUE_RE = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._:/-]{0,127}$")
+OFFICIAL_FINANCIAL_STATEMENT_SOURCE_HOSTS = frozenset(
+    {
+        "openapi.twse.com.tw",
+        "mops.twse.com.tw",
+        "mopsov.twse.com.tw",
+        "doc.twse.com.tw",
+        "eshop.twse.com.tw",
+        "www.tpex.org.tw",
+    }
+)
 
 
 def _read_rows(path: Path) -> list[dict[str, str]]:
@@ -166,6 +204,88 @@ def _read_rows(path: Path) -> list[dict[str, str]]:
             {str(key): str(value or "").strip() for key, value in row.items()}
             for row in csv.DictReader(handle)
         ]
+
+
+def validate_historical_source_verifier_registry() -> list[str]:
+    try:
+        tree = ast.parse(BUILDER_PATH.read_text(encoding="utf-8"))
+    except (OSError, SyntaxError) as exc:
+        return [f"cannot inspect historical source verifier registry: {exc}"]
+    assignments: list[ast.expr | None] = []
+    for node in tree.body:
+        if isinstance(node, ast.AnnAssign) and isinstance(node.target, ast.Name):
+            if node.target.id == "APPROVED_HISTORICAL_SOURCE_VERIFIERS":
+                assignments.append(node.value)
+        elif isinstance(node, ast.Assign):
+            if any(
+                isinstance(target, ast.Name)
+                and target.id == "APPROVED_HISTORICAL_SOURCE_VERIFIERS"
+                for target in node.targets
+            ):
+                assignments.append(node.value)
+    if len(assignments) != 1:
+        return [
+            "production must define exactly one APPROVED_HISTORICAL_SOURCE_VERIFIERS registry"
+        ]
+    value = assignments[0]
+    if not isinstance(value, ast.Dict) or value.keys or value.values:
+        return [
+            "historical source-specific verifier registry must remain empty until an official "
+            "machine-readable evidence contract and reviewed parser are approved"
+        ]
+    return []
+
+
+def validate_historical_revision_normalization_gate() -> list[str]:
+    try:
+        tree = ast.parse(BUILDER_PATH.read_text(encoding="utf-8"))
+    except (OSError, SyntaxError) as exc:
+        return [f"cannot inspect historical revision normalization gate: {exc}"]
+    assignments: list[ast.expr | None] = []
+    for node in tree.body:
+        if isinstance(node, ast.Assign):
+            if any(
+                isinstance(target, ast.Name)
+                and target.id == "HISTORICAL_REVISION_NORMALIZATION_ENABLED"
+                for target in node.targets
+            ):
+                assignments.append(node.value)
+        elif isinstance(node, ast.AnnAssign) and isinstance(node.target, ast.Name):
+            if node.target.id == "HISTORICAL_REVISION_NORMALIZATION_ENABLED":
+                assignments.append(node.value)
+    if len(assignments) != 1:
+        return [
+            "production must define exactly one HISTORICAL_REVISION_NORMALIZATION_ENABLED gate"
+        ]
+    value = assignments[0]
+    if not isinstance(value, ast.Constant) or value.value is not False:
+        return [
+            "historical revision normalization must remain disabled until every proof revision "
+            "is normalized and independently validated"
+        ]
+    return []
+
+
+def validate_historical_artifact_verifier_gate(
+    history: pd.DataFrame,
+    manifest: pd.DataFrame,
+) -> list[str]:
+    history_claims = (
+        not history.empty
+        and "historical_pit_eligible" in history
+        and history["historical_pit_eligible"].astype(str).eq("True").any()
+    )
+    manifest_claims = (
+        not manifest.empty
+        and "historical_pit_eligible" in manifest
+        and manifest["historical_pit_eligible"].astype(str).eq("True").any()
+    )
+    if history_claims or manifest_claims:
+        return [
+            "historical PIT artifacts cannot claim eligibility while the production "
+            "source-specific verifier registry is empty"
+        ]
+    return []
 
 
 def _read_frame(path: Path, expected_columns: tuple[str, ...], errors: list[str]) -> pd.DataFrame:
@@ -189,6 +309,61 @@ def _parse_timestamp(value: str) -> datetime | None:
         return None
 
 
+def _parse_revision_metadata(
+    value: str,
+    *,
+    base_status: str,
+) -> tuple[dict[str, str] | None, str | None]:
+    parts = str(value).split(";")
+    if not parts or parts[0] != base_status:
+        return None, f"must start with {base_status}"
+    assignments = parts[1:]
+    if len(assignments) != len(REVISION_METADATA_FIELDS):
+        return None, "must contain the exact revision-lineage metadata field set"
+    metadata: dict[str, str] = {}
+    for assignment in assignments:
+        if assignment.count("=") != 1:
+            return None, "contains malformed revision-lineage metadata"
+        key, field_value = assignment.split("=", 1)
+        if key in metadata:
+            return None, f"contains duplicate revision-lineage metadata field {key}"
+        metadata[key] = field_value
+    if tuple(metadata) != REVISION_METADATA_FIELDS:
+        return None, "revision-lineage metadata fields are missing, extra, or out of order"
+    if metadata["revision_lineage_proof_schema"] != REVISION_LINEAGE_PROOF_SCHEMA:
+        return None, "uses an unsupported revision-lineage proof schema"
+    if metadata["revision_lineage_status"] not in ELIGIBLE_REVISION_LINEAGE_STATUSES:
+        return None, "uses an unsupported revision-lineage status"
+    for field in (
+        "revision_lineage_proof_ref",
+        "revision_lineage_official_evidence_ref",
+    ):
+        if not re.fullmatch(r"sha256://[0-9a-f]{64}", metadata[field]):
+            return None, f"contains invalid {field}"
+    try:
+        revision_count = int(metadata["revision_lineage_revision_count"])
+    except ValueError:
+        return None, "contains a non-integer revision_lineage_revision_count"
+    status = metadata["revision_lineage_status"]
+    if status == "complete_official_immutable_revision_payload_lineage" and revision_count < 2:
+        return None, "complete lineage must contain at least two revisions"
+    if status == "authoritative_official_no_prior_revision_proof" and revision_count != 1:
+        return None, "authoritative no-prior lineage must contain exactly one revision"
+    if not SHA_RE.fullmatch(metadata["revision_lineage_latest_payload_sha256"]):
+        return None, "contains invalid revision_lineage_latest_payload_sha256"
+    if not re.fullmatch(r"[0-9]{4}Q[1-4]", metadata["revision_lineage_fiscal_period"]):
+        return None, "contains invalid revision_lineage_fiscal_period"
+    for field in (
+        "revision_lineage_company_id",
+        "revision_lineage_statement_scope",
+        "revision_lineage_taxonomy_version",
+        "revision_lineage_latest_revision_id",
+    ):
+        if not SAFE_PROOF_VALUE_RE.fullmatch(metadata[field]):
+            return None, f"contains invalid {field}"
+    return metadata, None
+
+
 def _decimal(value: str) -> Decimal | None:
     if str(value).strip() == "":
         return None
@@ -208,13 +383,18 @@ def validate_source_registry(rows: list[dict[str, str]]) -> list[str]:
         )
     for row in rows:
         source_id = row.get("source_id", "<missing>")
-        host = urlparse(row.get("source_url", "")).hostname or ""
-        if host not in {"openapi.twse.com.tw", "www.tpex.org.tw"}:
+        parsed_url = urlparse(row.get("source_url", ""))
+        host = (parsed_url.hostname or "").lower()
+        if parsed_url.scheme != "https" or host not in OFFICIAL_FINANCIAL_STATEMENT_SOURCE_HOSTS:
             errors.append(f"{source_id}: source_url is not an approved official host")
         if row.get("history_mode") != "current_snapshot_only":
             errors.append(f"{source_id}: current OpenAPI must remain current_snapshot_only")
         if row.get("availability_semantics") != "first_observed_at_not_company_filing_time":
             errors.append(f"{source_id}: table date must not be relabeled as company filing time")
+        if row.get("revision_lineage_semantics") != (
+            "no_official_immutable_revision_payload_lineage"
+        ):
+            errors.append(f"{source_id}: current snapshot cannot claim revision lineage")
         if row.get("raw_archive_policy") != "external_content_addressed_archive_required":
             errors.append(f"{source_id}: raw archive must remain external and content-addressed")
         if row.get("period_basis") != "cumulative_ytd":
@@ -266,6 +446,11 @@ def validate_manifest(
         errors.append("source manifest must be unique by source_id + raw_payload_sha256")
     for index, row in manifest.iterrows():
         label = f"manifest row {index + 2}"
+        if row["manifest_version"] not in {
+            LEGACY_MANIFEST_VERSION,
+            REVISION_PROOF_MANIFEST_VERSION,
+        }:
+            errors.append(f"{label}: unsupported manifest_version")
         if row["source_id"] not in source_ids:
             errors.append(f"{label}: unknown source_id={row['source_id']}")
         if not SHA_RE.fullmatch(row["raw_payload_sha256"]):
@@ -289,8 +474,43 @@ def validate_manifest(
                 errors.append(f"{label}: current snapshot cannot claim historical PIT eligibility")
             if row["current_snapshot_only"] != "True":
                 errors.append(f"{label}: current source must be marked current_snapshot_only")
-        if row["archive_status"] != "external_content_addressed_archive_verified":
-            errors.append(f"{label}: archive_status must prove external content-addressed retention")
+        archive_status = row["archive_status"]
+        if row["historical_pit_eligible"] == "True":
+            if row["manifest_version"] != REVISION_PROOF_MANIFEST_VERSION:
+                errors.append(
+                    f"{label}: historical eligibility requires the v2 proof-aware manifest"
+                )
+            if row["current_snapshot_only"] != "False":
+                errors.append(f"{label}: historical proof row cannot be current_snapshot_only")
+            if available is not None and (
+                available.tzinfo is None or available.utcoffset() is None
+            ):
+                errors.append(
+                    f"{label}: historical exact availability must include an explicit UTC offset"
+                )
+            metadata, metadata_error = _parse_revision_metadata(
+                archive_status,
+                base_status=BASE_ARCHIVE_STATUS,
+            )
+            if metadata_error is not None:
+                errors.append(
+                    f"{label}: historical eligibility revision metadata {metadata_error}"
+                )
+            elif metadata is not None and metadata[
+                "revision_lineage_latest_payload_sha256"
+            ] != row["raw_payload_sha256"]:
+                errors.append(
+                    f"{label}: revision proof latest payload SHA does not match manifest raw payload"
+                )
+        else:
+            if row["manifest_version"] != LEGACY_MANIFEST_VERSION:
+                errors.append(
+                    f"{label}: ineligible or current-snapshot rows must remain manifest v1"
+                )
+            if archive_status != BASE_ARCHIVE_STATUS:
+                errors.append(
+                    f"{label}: archive_status must prove external content-addressed retention"
+                )
         try:
             source_count = int(row["source_row_count"])
             normalized_count = int(row["normalized_row_count"])
@@ -346,6 +566,7 @@ def validate_history(
     history: pd.DataFrame,
     manifest: pd.DataFrame,
     source_ids: set[str],
+    source_revision_semantics: dict[str, str] | None = None,
 ) -> list[str]:
     errors: list[str] = []
     if history.empty:
@@ -370,7 +591,11 @@ def validate_history(
             errors.append(f"financial statement history has blank required column: {column}")
     if history.duplicated("revision_id", keep=False).any():
         errors.append("financial statement history revision_id must be unique")
-    manifest_shas = set(manifest["raw_payload_sha256"].astype(str))
+    manifest_keys = {
+        (str(row["source_id"]), str(row["raw_payload_sha256"])): row
+        for _, row in manifest.iterrows()
+    }
+    revision_semantics = source_revision_semantics or {}
     for index, row in history.iterrows():
         label = f"history row {index + 2} stock={row['stock_id']} period={row['fiscal_period']}"
         if row["source_id"] not in source_ids:
@@ -378,8 +603,19 @@ def validate_history(
         for column in ("raw_payload_sha256", "source_row_sha256", "revision_id"):
             if not SHA_RE.fullmatch(row[column]):
                 errors.append(f"{label}: invalid {column}")
-        if row["raw_payload_sha256"] not in manifest_shas:
-            errors.append(f"{label}: raw payload SHA is absent from source manifest")
+        manifest_row = manifest_keys.get((row["source_id"], row["raw_payload_sha256"]))
+        if manifest_row is None:
+            errors.append(f"{label}: source + raw payload SHA is absent from source manifest")
+        else:
+            for column in (
+                "source_url",
+                "source_available_at",
+                "availability_precision",
+                "statement_scope",
+                "period_basis",
+            ):
+                if row[column] != manifest_row[column]:
+                    errors.append(f"{label}: {column} disagrees with source manifest")
         if row["raw_archive_ref"] != f"sha256://{row['raw_payload_sha256']}":
             errors.append(f"{label}: raw archive reference does not match payload SHA")
         observed = _parse_timestamp(row["observed_at"])
@@ -401,23 +637,75 @@ def validate_history(
             if row["historical_pit_eligible"] != "False":
                 errors.append(f"{label}: current snapshot cannot be historical PIT eligible")
         if row["historical_pit_eligible"] == "True":
-            if row["availability_precision"] not in {
-                "exact_company_filing_timestamp",
-                "exact_company_filing_date",
-            }:
+            if row["availability_precision"] != "exact_company_filing_timestamp":
                 errors.append(f"{label}: historical PIT eligibility requires exact filing availability")
             if row["statement_scope"] in {"", "unknown", "official_endpoint_reported_scope"}:
                 errors.append(f"{label}: historical PIT eligibility requires explicit statement_scope")
-            if row["pit_status"] != "historical_pit_exact_company_filing_available":
+            if available is not None and (
+                available.tzinfo is None or available.utcoffset() is None
+            ):
+                errors.append(
+                    f"{label}: historical exact availability must include an explicit UTC offset"
+                )
+            if row["pit_status"] != (
+                "historical_pit_exact_company_filing_and_revision_lineage_verified"
+            ):
                 errors.append(f"{label}: historical PIT row has inconsistent pit_status")
+            if revision_semantics and revision_semantics.get(row["source_id"]) != (
+                REVISION_LINEAGE_SOURCE_SEMANTICS
+            ):
+                errors.append(f"{label}: source registry lacks eligible revision lineage semantics")
+            if manifest_row is not None and manifest_row["historical_pit_eligible"] != "True":
+                errors.append(f"{label}: source manifest does not authorize historical PIT eligibility")
+            provenance_metadata, provenance_error = _parse_revision_metadata(
+                row["provenance_status"],
+                base_status=BASE_PROVENANCE_STATUS,
+            )
+            if provenance_error is not None:
+                errors.append(
+                    f"{label}: historical PIT revision metadata {provenance_error}"
+                )
+            manifest_metadata: dict[str, str] | None = None
+            if manifest_row is not None:
+                manifest_metadata, manifest_metadata_error = _parse_revision_metadata(
+                    manifest_row["archive_status"],
+                    base_status=BASE_ARCHIVE_STATUS,
+                )
+                if manifest_metadata_error is not None:
+                    errors.append(
+                        f"{label}: source manifest revision metadata {manifest_metadata_error}"
+                    )
+                if manifest_row["manifest_version"] != REVISION_PROOF_MANIFEST_VERSION:
+                    errors.append(f"{label}: historical source manifest must use proof-aware v2")
+            if provenance_metadata is not None:
+                if provenance_metadata[
+                    "revision_lineage_latest_payload_sha256"
+                ] != row["raw_payload_sha256"]:
+                    errors.append(f"{label}: revision proof latest SHA differs from history raw SHA")
+                if provenance_metadata["revision_lineage_company_id"] != row["stock_id"]:
+                    errors.append(f"{label}: revision proof company differs from history row")
+                if provenance_metadata["revision_lineage_fiscal_period"] != row["fiscal_period"]:
+                    errors.append(f"{label}: revision proof fiscal period differs from history row")
+                if provenance_metadata["revision_lineage_statement_scope"] != row[
+                    "statement_scope"
+                ]:
+                    errors.append(f"{label}: revision proof statement scope differs from history row")
+            if (
+                provenance_metadata is not None
+                and manifest_metadata is not None
+                and provenance_metadata != manifest_metadata
+            ):
+                errors.append(
+                    f"{label}: history and source manifest revision proof metadata disagree"
+                )
+        elif row["provenance_status"] != BASE_PROVENANCE_STATUS:
+            errors.append(f"{label}: ineligible row cannot claim historical revision proof")
         if row["research_asof_join_allowed"] != "True":
             errors.append(f"{label}: row with source_available_at should allow research as-of joins")
         if row["allowed_for_formal_model_use"] != "False":
             errors.append(f"{label}: data-layer PR must not authorize formal model use")
         if row["period_basis"] != "cumulative_ytd":
             errors.append(f"{label}: period_basis must remain cumulative_ytd")
-        if row["provenance_status"] != "raw_payload_sha_and_source_row_sha_verified":
-            errors.append(f"{label}: provenance_status drift")
         expected_triggers = _expected_anomaly_triggers(row)
         actual_triggers = [
             value for value in row["numerical_anomaly_triggers"].split(";") if value
@@ -472,6 +760,24 @@ def validate_history(
         expected_supersedes = ["", *revisions[:-1]]
         if list(ordered["supersedes_revision_id"].astype(str)) != expected_supersedes:
             errors.append(f"supersedes_revision_id chain mismatch for {key}")
+        proof_revision_counts: list[int] = []
+        historical_rows = ordered[
+            ordered["historical_pit_eligible"].astype(str).eq("True")
+        ]
+        for provenance_status in historical_rows["provenance_status"].astype(str):
+            metadata, metadata_error = _parse_revision_metadata(
+                provenance_status,
+                base_status=BASE_PROVENANCE_STATUS,
+            )
+            if metadata_error is None and metadata is not None:
+                proof_revision_counts.append(
+                    int(metadata["revision_lineage_revision_count"])
+                )
+        if proof_revision_counts and max(proof_revision_counts) != len(ordered):
+            errors.append(
+                f"proof revision count does not match normalized group lineage count for {key}: "
+                f"proof={max(proof_revision_counts)} normalized={len(ordered)}"
+            )
     return errors
 
 
@@ -551,17 +857,26 @@ def validate(
     source_rows: list[dict[str, str]],
     mapping_rows: list[dict[str, str]],
 ) -> list[str]:
-    errors = validate_source_registry(source_rows)
+    errors = validate_historical_source_verifier_registry()
+    errors.extend(validate_historical_revision_normalization_gate())
+    errors.extend(validate_historical_artifact_verifier_gate(history, manifest))
+    errors.extend(validate_source_registry(source_rows))
     errors.extend(validate_metric_mapping(mapping_rows))
     source_ids = {row["source_id"] for row in source_rows}
+    source_revision_semantics = {
+        row["source_id"]: row.get("revision_lineage_semantics", "") for row in source_rows
+    }
     errors.extend(validate_manifest(manifest, source_ids))
-    errors.extend(validate_history(history, manifest, source_ids))
+    errors.extend(
+        validate_history(history, manifest, source_ids, source_revision_semantics)
+    )
     errors.extend(validate_coverage(coverage, history, manifest))
     return errors
 
 
 def main() -> int:
-    errors: list[str] = []
+    errors: list[str] = validate_historical_source_verifier_registry()
+    errors.extend(validate_historical_revision_normalization_gate())
     source_rows = _read_rows(SOURCE_REGISTRY)
     mapping_rows = _read_rows(METRIC_MAPPING)
     history = _read_frame(HISTORY_PATH, HISTORY_COLUMNS, errors)
