@@ -566,33 +566,116 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
         self.assertIn("profile=volume_range_breakout_v2_high_position_volume_attack", row["score_components"])
         self.assertNotIn("一價鎖漲停放量突破", row["rank_reason_zh"])
 
-    def test_volume_breakout_formal_signal_fails_without_canonical_candidate(self) -> None:
+    def test_volume_breakout_without_candidate_cannot_inherit_warrant_from_watch(self) -> None:
         source = pd.DataFrame(
             [
                 {
                     "signal_date": "20260530",
                     "stock_id": "1617",
+                    "stock_name": "LOW",
                     "volume_breakout_type": "bottom_volume_attack",
                     "selection_status": "selected",
                     "warrant_flow_signal": "call_inflow",
+                    "volume_ratio": "3.17",
                 }
             ]
         )
         original_path = model_layer.VOLUME_BREAKOUT_WATCH
+        original_warrant_path = model_layer.WARRANT_FLOW
+        original_price_dir = model_layer.STOCK_PRICE_HISTORY_DIR
+        original_taxonomy_path = model_layer.VOLUME_BREAKOUT_TAXONOMY
         with tempfile.TemporaryDirectory() as tmpdir:
-            temp_path = Path(tmpdir) / "volume_breakout_watch_latest.csv"
+            temp_dir = Path(tmpdir)
+            temp_path = temp_dir / "volume_breakout_watch_latest.csv"
+            warrant_path = temp_dir / "warrant_flow_latest.csv"
+            taxonomy_path = temp_dir / "stock_theme_taxonomy_latest.csv"
+            price_dir = temp_dir / "stock_price_history"
+            price_dir.mkdir()
             source.to_csv(temp_path, index=False, encoding="utf-8-sig")
+            pd.DataFrame(
+                [{"stock_id": "9999", "warrant_flow_signal": "no_signal"}]
+            ).to_csv(warrant_path, index=False, encoding="utf-8-sig")
+            pd.DataFrame(
+                [
+                    {
+                        "stock_id": "1617",
+                        "industry": "electronic",
+                        "effective_primary_theme": "electronic_component_general_theme",
+                        "effective_mainstream_label": "core_mainstream",
+                    }
+                ]
+            ).to_csv(taxonomy_path, index=False, encoding="utf-8-sig")
+            volume_v2_price_history().to_csv(price_dir / "1617.csv", index=False)
             model_layer.VOLUME_BREAKOUT_WATCH = temp_path
+            model_layer.WARRANT_FLOW = warrant_path
+            model_layer.STOCK_PRICE_HISTORY_DIR = price_dir
+            model_layer.VOLUME_BREAKOUT_TAXONOMY = taxonomy_path
             try:
+                out = model_layer.append_volume_breakout_signals(
+                    pd.DataFrame(), pd.DataFrame(), "20260530"
+                )
+                pd.DataFrame(
+                    [{"stock_id": "1617", "warrant_flow_signal": "call_inflow"}]
+                ).to_csv(warrant_path, index=False, encoding="utf-8-sig")
                 with self.assertRaisesRegex(
                     RuntimeError,
-                    "no canonical all_candidates source row: stock_id=1617",
+                    "official warrant projection but no canonical all_candidates row: stock_id=1617",
+                ):
+                    model_layer.append_volume_breakout_signals(
+                        pd.DataFrame(), pd.DataFrame(), "20260530"
+                    )
+                pd.DataFrame(
+                    [{"stock_id": "9999", "warrant_flow_signal": "no_signal"}]
+                ).to_csv(warrant_path, index=False, encoding="utf-8-sig")
+                pd.DataFrame(
+                    [{"stock_id": "9999", "industry": "other"}]
+                ).to_csv(taxonomy_path, index=False, encoding="utf-8-sig")
+                with self.assertRaisesRegex(
+                    RuntimeError,
+                    "no canonical taxonomy source row: stock_id=1617",
                 ):
                     model_layer.append_volume_breakout_signals(
                         pd.DataFrame(), pd.DataFrame(), "20260530"
                     )
             finally:
                 model_layer.VOLUME_BREAKOUT_WATCH = original_path
+                model_layer.WARRANT_FLOW = original_warrant_path
+                model_layer.STOCK_PRICE_HISTORY_DIR = original_price_dir
+                model_layer.VOLUME_BREAKOUT_TAXONOMY = original_taxonomy_path
+
+        self.assertEqual(len(out), 1)
+        self.assertEqual(out.iloc[0]["stock_id"], "1617")
+        self.assertEqual(out.iloc[0]["warrant_flow_signal"], "")
+        self.assertNotIn("warrant bullish", out.iloc[0]["score_components"])
+
+    def test_nonmember_volume_watch_rows_skip_before_provenance_checks(self) -> None:
+        source = pd.DataFrame(
+            [
+                {
+                    "signal_date": "20260716",
+                    "stock_id": stock_id,
+                    "volume_breakout_type": "bottom_volume_attack",
+                    "selection_status": "selected",
+                }
+                for stock_id in ("4139", "1439")
+            ]
+        )
+        original_path = model_layer.VOLUME_BREAKOUT_WATCH
+        original_memberships = model_layer.volume_v2_model_memberships
+        with tempfile.TemporaryDirectory() as tmpdir:
+            temp_path = Path(tmpdir) / "volume_breakout_watch_latest.csv"
+            source.to_csv(temp_path, index=False, encoding="utf-8-sig")
+            model_layer.VOLUME_BREAKOUT_WATCH = temp_path
+            model_layer.volume_v2_model_memberships = lambda *_args, **_kwargs: ([], {})
+            try:
+                out = model_layer.append_volume_breakout_signals(
+                    pd.DataFrame(), pd.DataFrame(), "20260716"
+                )
+            finally:
+                model_layer.VOLUME_BREAKOUT_WATCH = original_path
+                model_layer.volume_v2_model_memberships = original_memberships
+
+        self.assertTrue(out.empty)
 
     def test_pullback_model_does_not_require_breakout(self) -> None:
         row = make_row(

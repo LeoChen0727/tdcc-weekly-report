@@ -57,6 +57,8 @@ FORMAL_SIGNAL_ARTIFACTS = (
 LATEST_SIGNAL_ARTIFACTS = FORMAL_SIGNAL_ARTIFACTS[:2]
 ALL_CANDIDATES_ARTIFACT = "output/latest/all_candidates_latest.csv"
 WARRANT_FLOW_ARTIFACT = "output/latest/warrant_flow_latest.csv"
+VOLUME_BREAKOUT_WATCH_ARTIFACT = "output/latest/volume_breakout_watch_latest.csv"
+STOCK_THEME_TAXONOMY_ARTIFACT = "output/latest/stock_theme_taxonomy_latest.csv"
 MODEL_PARAMETERS_ARTIFACT = "output/latest/daily_candidate_model_parameters_latest.csv"
 FRONTPAGE_UNIQUE_ARTIFACT = "output/latest/daily_candidate_frontpage_unique_latest.csv"
 STAGED_ALLOWED_PATTERNS = (
@@ -1206,6 +1208,65 @@ def validate_current_projection(root: Path) -> tuple[list[str], dict[str, int]]:
                     f"expected={expected_value!r} actual={actual_value!r}"
                 )
 
+    volume_watch_by_source: dict[tuple[str, str], dict[str, str]] = {}
+    volume_watch_path = root / VOLUME_BREAKOUT_WATCH_ARTIFACT
+    if not volume_watch_path.is_file():
+        errors.append(f"missing model-owned volume source artifact: {VOLUME_BREAKOUT_WATCH_ARTIFACT}")
+    else:
+        volume_columns, volume_rows = _read_rows(volume_watch_path)
+        required_volume_columns = {
+            "stock_id",
+            "selection_status",
+            "volume_breakout_type",
+        }
+        missing_volume_columns = sorted(required_volume_columns - set(volume_columns))
+        if missing_volume_columns:
+            errors.append(
+                "model-owned volume source columns missing: "
+                + ",".join(missing_volume_columns)
+            )
+        else:
+            for index, row in enumerate(volume_rows):
+                if _text(row.get("selection_status")).lower() != "selected":
+                    continue
+                if _text(row.get("volume_breakout_type")).lower() != "bottom_volume_attack":
+                    continue
+                raw_stock_id = _text(row.get("stock_id"))
+                stock_id = raw_stock_id.zfill(4) if raw_stock_id else ""
+                if not stock_id:
+                    errors.append(
+                        f"model-owned volume source has blank stock_id at row_index={index}"
+                    )
+                    continue
+                source_key = (f"volume_breakout:{index}", stock_id)
+                if source_key in volume_watch_by_source:
+                    errors.append(
+                        "duplicate model-owned volume source identity: "
+                        f"source_row_index={source_key[0]} stock_id={stock_id}"
+                    )
+                    continue
+                volume_watch_by_source[source_key] = row
+
+    taxonomy_stock_ids: set[str] = set()
+    taxonomy_path = root / STOCK_THEME_TAXONOMY_ARTIFACT
+    if not taxonomy_path.is_file():
+        errors.append(f"missing canonical taxonomy artifact: {STOCK_THEME_TAXONOMY_ARTIFACT}")
+    else:
+        taxonomy_columns, taxonomy_rows = _read_rows(taxonomy_path)
+        if "stock_id" not in taxonomy_columns:
+            errors.append("canonical taxonomy artifact missing stock_id column")
+        else:
+            for row in taxonomy_rows:
+                raw_stock_id = _text(row.get("stock_id"))
+                stock_id = raw_stock_id.zfill(4) if raw_stock_id else ""
+                if stock_id:
+                    if stock_id in taxonomy_stock_ids:
+                        errors.append(
+                            "canonical taxonomy artifact has duplicate normalized stock_id: "
+                            f"{stock_id}"
+                        )
+                    taxonomy_stock_ids.add(stock_id)
+
     signal_rows_by_path: dict[str, dict[tuple[str, str, str, str, str], dict[str, str]]] = {}
     signal_columns_by_path: dict[str, list[str]] = {}
     required_signal_columns = {
@@ -1265,7 +1326,42 @@ def validate_current_projection(root: Path) -> tuple[list[str], dict[str, int]]:
                     model_id in STOCK_LEVEL_CANDIDATE_PROJECTED_MODEL_IDS
                     and re.fullmatch(r"volume_breakout:[0-9]+", source_key[0])
                 ):
-                    expected_signal = candidate_by_stock.get(source_key[1])
+                    stock_level_candidate_signal = candidate_by_stock.get(source_key[1])
+                    if stock_level_candidate_signal is not None:
+                        expected_signal = stock_level_candidate_signal
+                        if actual_signal != expected_signal:
+                            errors.append(
+                                f"formal signal warrant projection mismatch {relative_path}: "
+                                f"{signal_key} expected={expected_signal!r} actual={actual_signal!r}"
+                            )
+                        continue
+                    # A selected model-owned volume row does not have to be a
+                    # general all_candidates row.  It may bypass that table
+                    # only when the official warrant projection is empty.  A
+                    # real official warrant row still produces an exact
+                    # mismatch and fails closed instead of trusting taxonomy
+                    # or a value embedded in volume_breakout_watch.
+                    if source_key not in volume_watch_by_source:
+                        errors.append(
+                            "formal volume signal has no exact model-owned watch lineage "
+                            f"{relative_path}: {signal_key}"
+                        )
+                        continue
+                    if source_key[1] not in taxonomy_stock_ids:
+                        errors.append(
+                            "formal volume signal has no canonical taxonomy lineage "
+                            f"{relative_path}: {signal_key}"
+                        )
+                        continue
+                    official_projection = warrant_by_stock.get(source_key[1])
+                    if official_projection is not None:
+                        errors.append(
+                            "formal volume signal has official warrant data but no canonical "
+                            f"all_candidates projection {relative_path}: {signal_key}"
+                        )
+                        expected_signal = official_projection["warrant_flow_signal"]
+                    else:
+                        expected_signal = ""
                 if expected_signal is None:
                     errors.append(
                         f"formal signal row has no all_candidates warrant source {relative_path}: "

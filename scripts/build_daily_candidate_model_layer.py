@@ -27,6 +27,8 @@ from tracking_utils import (  # noqa: E402
 
 ALL_CANDIDATES = LATEST_DIR / "all_candidates_latest.csv"
 VOLUME_BREAKOUT_WATCH = LATEST_DIR / "volume_breakout_watch_latest.csv"
+VOLUME_BREAKOUT_TAXONOMY = LATEST_DIR / "stock_theme_taxonomy_latest.csv"
+WARRANT_FLOW = LATEST_DIR / "warrant_flow_latest.csv"
 DAILY_THEME_STATUS_HISTORY_CSVS = [
     Path("output/history/daily_signals/daily_theme_status_history.csv"),
     Path("output/history/daily_candidates/daily_theme_status_history.csv"),
@@ -3826,6 +3828,8 @@ def append_volume_breakout_signals(signals: pd.DataFrame, candidates: pd.DataFra
     if df.empty:
         return signals
     lookup = candidate_lookup(candidates)
+    volume_taxonomy_by_stock: dict[str, pd.Series] | None = None
+    official_warrant_stock_ids: set[str] | None = None
     rows: list[dict[str, Any]] = []
     valid_statuses = {"selected"}
     valid_types = {"bottom_volume_attack"}
@@ -3837,17 +3841,6 @@ def append_volume_breakout_signals(signals: pd.DataFrame, candidates: pd.DataFra
         stock_id = normalize_code(text(row, "stock_id"))
         if not stock_id:
             continue
-        candidate_row = lookup.get(stock_id)
-        if candidate_row is None:
-            raise RuntimeError(
-                "volume breakout formal signal has no canonical all_candidates source row: "
-                f"stock_id={stock_id}"
-            )
-        source = candidate_row
-        authoritative_warrant_signal = warrant_signal(candidate_row)
-        score_source = source.to_dict() if isinstance(source, pd.Series) else {}
-        score_source.update(row.to_dict())
-        score_source["warrant_flow_signal"] = authoritative_warrant_signal
         memberships, v2_features = volume_v2_model_memberships(
             row,
             stock_id,
@@ -3855,6 +3848,74 @@ def append_volume_breakout_signals(signals: pd.DataFrame, candidates: pd.DataFra
         )
         if not memberships:
             continue
+        candidate_row = lookup.get(stock_id)
+        taxonomy_row: pd.Series | None = None
+        # volume_breakout_watch is a model-owned producer and can legitimately
+        # contain a selected row that is absent from the general all_candidates
+        # table.  In that case taxonomy may supply presentation fields, but it
+        # must never supply a warrant signal.  The independent formal-sync
+        # validator permits only an empty official warrant projection for this
+        # path; if an official warrant row exists, the workflow fails closed
+        # until all_candidates carries its canonical projection.
+        if candidate_row is None:
+            if volume_taxonomy_by_stock is None:
+                taxonomy = read_csv(
+                    VOLUME_BREAKOUT_TAXONOMY,
+                    dtype=str,
+                    keep_default_na=False,
+                )
+                if taxonomy.empty or "stock_id" not in taxonomy.columns:
+                    raise RuntimeError(
+                        "volume breakout source identity requires current canonical taxonomy rows"
+                    )
+                taxonomy = taxonomy.copy()
+                taxonomy["_normalized_stock_id"] = taxonomy["stock_id"].map(normalize_code)
+                taxonomy = taxonomy[taxonomy["_normalized_stock_id"].astype(str).ne("")]
+                if taxonomy["_normalized_stock_id"].duplicated(keep=False).any():
+                    raise RuntimeError(
+                        "current canonical taxonomy has duplicate normalized stock_id rows"
+                    )
+                volume_taxonomy_by_stock = {
+                    str(taxonomy_stock_id): taxonomy_row
+                    for taxonomy_stock_id, taxonomy_row in taxonomy.set_index(
+                        "_normalized_stock_id", drop=True
+                    ).iterrows()
+                }
+            taxonomy_row = volume_taxonomy_by_stock.get(stock_id)
+            source = taxonomy_row
+            if source is None:
+                raise RuntimeError(
+                    "volume breakout formal signal has no canonical taxonomy source row: "
+                    f"stock_id={stock_id}"
+                )
+            if official_warrant_stock_ids is None:
+                official_warrant = read_csv(WARRANT_FLOW, dtype=str, keep_default_na=False)
+                if official_warrant.empty or "stock_id" not in official_warrant.columns:
+                    raise RuntimeError(
+                        "volume breakout negative warrant projection requires current official "
+                        "warrant_flow rows"
+                    )
+                normalized_ids = [
+                    normalize_code(value) for value in official_warrant["stock_id"].tolist()
+                ]
+                normalized_ids = [value for value in normalized_ids if value]
+                if len(normalized_ids) != len(set(normalized_ids)):
+                    raise RuntimeError(
+                        "current official warrant_flow has duplicate normalized stock_id rows"
+                    )
+                official_warrant_stock_ids = set(normalized_ids)
+            if stock_id in official_warrant_stock_ids:
+                raise RuntimeError(
+                    "volume breakout formal signal has an official warrant projection but no "
+                    f"canonical all_candidates row: stock_id={stock_id}"
+                )
+            authoritative_warrant_signal = ""
+        else:
+            source = candidate_row
+            authoritative_warrant_signal = warrant_signal(candidate_row)
+        score_source = source.to_dict() if isinstance(source, pd.Series) else {}
+        score_source.update(row.to_dict())
+        score_source["warrant_flow_signal"] = authoritative_warrant_signal
         model_id = memberships[0]
         score_source.update(v2_features)
         if model_id == VOLUME_BREAKOUT_V2_HIGH_MODEL_ID:

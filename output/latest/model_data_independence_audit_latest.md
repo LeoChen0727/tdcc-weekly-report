@@ -1,7 +1,7 @@
 # 每日股票模型與資料獨立性稽核
 
-- 產生時間：`2026-07-17 15:22:00 Asia/Taipei`
-- 結果：`CONTAINED=26, DISCLOSED_NOT_INDEPENDENT=4, PASS=49`
+- 產生時間：`2026-07-17 16:58:44 Asia/Taipei`
+- 結果：`CONTAINED=27, DISCLOSED_NOT_INDEPENDENT=4, PASS=49`
 - 原則：新模型與新資料 family 預設獨立；跨模型共用商業語意必須先有使用者核准與 migration evidence。
 - `CONTAINED` 代表既有共用已被凍結與精確盤點，不代表已物理拆分。
 - `DISCLOSED_NOT_INDEPENDENT` 代表該 validator 只能做 implementation consistency，不得當成獨立模型正確性證據。
@@ -59,6 +59,7 @@
 | data_family_ownership | financial_statement_source_manifest | PASS | approved_shared_objective | none |
 | data_family_ownership | financial_statement_pit_coverage_audit | PASS | approved_shared_objective | none |
 | data_family_ownership | financial_statement_historical_pit_source_audit | PASS | approved_shared_objective | none |
+| data_family_ownership | official_warrant_flow_current_snapshot | CONTAINED | latest_context_not_historical | legacy/latest/audit data is barred from formal model evidence |
 | numerical_anomaly_governance | repo_wide_root_cause_disposition_contract | PASS | repo_wide_governance_contract | none |
 | numerical_anomaly_governance | monthly_revenue_history_legacy_threshold_flag | CONTAINED | legacy_threshold_flag_candidate_only | source schema still uses a legacy anomaly field name and must be treated as candidate-only |
 | numerical_anomaly_governance | revenue_unreacted_range | CONTAINED | model_owned_root_cause_pending | corporate-action PIT, independent-source corroboration, and adjustment-basis checks remain incomplete |
