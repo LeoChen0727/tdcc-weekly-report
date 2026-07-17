@@ -13,6 +13,7 @@ sys.path.insert(0, str(ROOT / "scripts"))
 import build_daily_volume_breakout_operation_section as builder  # noqa: E402
 import build_volume_breakout_confirmed_operation_backtest as operation_backtest  # noqa: E402
 import generate_chatgpt_side_daily_reports as pdf_generator  # noqa: E402
+import validate_daily_staged_paths as staged_path_validator  # noqa: E402
 import validate_daily_volume_breakout_operation_section as section_validator  # noqa: E402
 
 LOW_VOLUME_MODEL_ID = "volume_range_breakout_v2_low_position_volume_attack"
@@ -1742,8 +1743,197 @@ def test_pdf_volume_operation_ignores_non_string_membership_values() -> None:
 def test_daily_pipeline_runs_volume_breakout_operation_adapter() -> None:
     workflow = (ROOT / ".github" / "workflows" / "daily_full_pipeline.yml").read_text(encoding="utf-8")
 
-    assert "python scripts/build_daily_volume_breakout_operation_section.py" in workflow
-    assert "python scripts/validate_daily_volume_breakout_operation_section.py" in workflow
+    builder_command = "python scripts/build_daily_volume_breakout_operation_section.py"
+    output_validator_command = (
+        "python scripts/validate_daily_volume_breakout_operation_section.py --output-only"
+    )
+    full_validator_command = "python scripts/validate_daily_volume_breakout_operation_section.py"
+    staged_path_command = "python scripts/validate_daily_staged_paths.py"
+    artifact_names = (
+        "daily_volume_breakout_operation_section_latest.csv",
+        "daily_volume_breakout_operation_section_latest.md",
+        "daily_volume_breakout_operation_evidence_audit_latest.csv",
+        "daily_volume_breakout_operation_evidence_audit_latest.md",
+    )
+    copy_commands = [
+        f"cp output/latest/{name} docs/latest/{name}" for name in artifact_names
+    ]
+    stage_lines = ["          git add -- \\"]
+    for index, name in enumerate(artifact_names):
+        suffix = " \\" if index < len(artifact_names) - 1 else ""
+        stage_lines.append(f"            docs/latest/{name}{suffix}")
+    exact_stage_block = "\n".join(stage_lines)
+
+    builder_index = workflow.index(builder_command)
+    output_validator_index = workflow.index(output_validator_command)
+    copy_indices = [workflow.index(command) for command in copy_commands]
+    stage_index = workflow.index(exact_stage_block)
+    full_validator_index = workflow.index(full_validator_command, output_validator_index + 1)
+    staged_path_index = workflow.index(staged_path_command, full_validator_index + 1)
+
+    assert builder_index < output_validator_index < min(copy_indices)
+    assert max(copy_indices) < stage_index < full_validator_index < staged_path_index
+    assert workflow.count(output_validator_command) == 1
+    assert workflow.count(full_validator_command) == 2
+    for command in copy_commands:
+        assert f"{command} || true" not in workflow
+    assert f"{exact_stage_block} || true" not in workflow
+    assert "git add docs/latest/daily_volume_breakout_operation_*" not in workflow
+
+
+def test_volume_operation_builder_owns_output_only() -> None:
+    source = (ROOT / "scripts" / "build_daily_volume_breakout_operation_section.py").read_text(
+        encoding="utf-8"
+    )
+
+    assert "DOCS_LATEST_DIR" not in source
+    assert "docs/latest" not in source
+
+
+def test_volume_operation_staged_mirror_registry_is_complete() -> None:
+    expected = {
+        "daily_volume_breakout_operation_section_latest.csv",
+        "daily_volume_breakout_operation_section_latest.md",
+        "daily_volume_breakout_operation_evidence_audit_latest.csv",
+        "daily_volume_breakout_operation_evidence_audit_latest.md",
+    }
+
+    assert expected <= set(staged_path_validator.DAILY_CANDIDATE_DOCS_MIRROR_FILES)
+
+
+def test_staged_mirror_validator_rejects_git_index_drift(
+    monkeypatch: pytest.MonkeyPatch,
+    tmp_path: Path,
+) -> None:
+    output_dir = tmp_path / "output" / "latest"
+    docs_dir = tmp_path / "docs" / "latest"
+    output_dir.mkdir(parents=True)
+    docs_dir.mkdir(parents=True)
+    name = "daily_volume_breakout_operation_section_latest.csv"
+    (output_dir / name).write_bytes(b"same-worktree\r\n")
+    (docs_dir / name).write_bytes(b"same-worktree\r\n")
+    indexed = {
+        f"output/latest/{name}": b"canonical-index\n",
+        f"docs/latest/{name}": b"stale-index\n",
+    }
+
+    monkeypatch.setattr(staged_path_validator, "LATEST_DIR", output_dir)
+    monkeypatch.setattr(staged_path_validator, "DOCS_LATEST_DIR", docs_dir)
+    monkeypatch.setattr(staged_path_validator, "DAILY_CANDIDATE_DOCS_MIRROR_FILES", (name,))
+    monkeypatch.setattr(staged_path_validator, "INDICATOR_GUIDE_MIRROR_FILES", ())
+    monkeypatch.setattr(
+        staged_path_validator,
+        "index_file_bytes",
+        lambda relative_path: indexed.get(relative_path),
+    )
+
+    errors = staged_path_validator.validate_docs_latest_mirrors()
+
+    assert errors == [
+        "git index docs/latest mirror differs from git index output/latest: "
+        f"docs/latest/{name}"
+    ]
+
+
+def test_output_only_presence_does_not_require_docs_mirrors(
+    monkeypatch: pytest.MonkeyPatch,
+    tmp_path: Path,
+    capsys: pytest.CaptureFixture[str],
+) -> None:
+    output_dir = tmp_path / "output" / "latest"
+    docs_dir = tmp_path / "docs" / "latest"
+    config_dir = tmp_path / "config"
+    output_dir.mkdir(parents=True)
+    config_dir.mkdir(parents=True)
+    output_paths = [
+        output_dir / "daily_volume_breakout_operation_section_latest.csv",
+        output_dir / "daily_volume_breakout_operation_section_latest.md",
+        output_dir / "daily_volume_breakout_operation_evidence_audit_latest.csv",
+        output_dir / "daily_volume_breakout_operation_evidence_audit_latest.md",
+    ]
+    docs_paths = [docs_dir / path.name for path in output_paths]
+    contract_path = config_dir / "contract.md"
+    summary_path = config_dir / "summary.csv"
+    for path in [*output_paths, contract_path, summary_path]:
+        path.write_bytes(b"present\n")
+
+    monkeypatch.setattr(section_validator, "ROOT", tmp_path)
+    monkeypatch.setattr(section_validator, "SECTION_CSV", output_paths[0])
+    monkeypatch.setattr(section_validator, "SECTION_MD", output_paths[1])
+    monkeypatch.setattr(section_validator, "EVIDENCE_AUDIT_CSV", output_paths[2])
+    monkeypatch.setattr(section_validator, "EVIDENCE_AUDIT_MD", output_paths[3])
+    monkeypatch.setattr(section_validator, "DOCS_SECTION_CSV", docs_paths[0])
+    monkeypatch.setattr(section_validator, "DOCS_SECTION_MD", docs_paths[1])
+    monkeypatch.setattr(section_validator, "DOCS_EVIDENCE_AUDIT_CSV", docs_paths[2])
+    monkeypatch.setattr(section_validator, "DOCS_EVIDENCE_AUDIT_MD", docs_paths[3])
+    monkeypatch.setattr(section_validator, "CONTRACT_MD", contract_path)
+    monkeypatch.setattr(section_validator, "FORMAL_SUMMARY_CSV", summary_path)
+
+    section_validator.validate_file_presence(include_docs_mirrors=False)
+    with pytest.raises(SystemExit) as exc_info:
+        section_validator.validate_file_presence(include_docs_mirrors=True)
+
+    assert exc_info.value.code == 1
+    assert "missing required file: docs/latest" in capsys.readouterr().out
+
+
+def test_volume_operation_docs_mirror_is_byte_exact(
+    monkeypatch: pytest.MonkeyPatch,
+    tmp_path: Path,
+    capsys: pytest.CaptureFixture[str],
+) -> None:
+    output_dir = tmp_path / "output" / "latest"
+    docs_dir = tmp_path / "docs" / "latest"
+    output_dir.mkdir(parents=True)
+    docs_dir.mkdir(parents=True)
+    names = (
+        "daily_volume_breakout_operation_section_latest.csv",
+        "daily_volume_breakout_operation_section_latest.md",
+        "daily_volume_breakout_operation_evidence_audit_latest.csv",
+        "daily_volume_breakout_operation_evidence_audit_latest.md",
+    )
+    output_paths = [output_dir / name for name in names]
+    docs_paths = [docs_dir / name for name in names]
+    for index, (output_path, docs_path) in enumerate(
+        zip(output_paths, docs_paths, strict=True)
+    ):
+        content = f"artifact-{index}\n".encode()
+        output_path.write_bytes(content)
+        docs_path.write_bytes(content)
+
+    monkeypatch.setattr(section_validator, "ROOT", tmp_path)
+    monkeypatch.setattr(section_validator, "SECTION_CSV", output_paths[0])
+    monkeypatch.setattr(section_validator, "SECTION_MD", output_paths[1])
+    monkeypatch.setattr(section_validator, "EVIDENCE_AUDIT_CSV", output_paths[2])
+    monkeypatch.setattr(section_validator, "EVIDENCE_AUDIT_MD", output_paths[3])
+    monkeypatch.setattr(section_validator, "DOCS_SECTION_CSV", docs_paths[0])
+    monkeypatch.setattr(section_validator, "DOCS_SECTION_MD", docs_paths[1])
+    monkeypatch.setattr(
+        section_validator,
+        "DOCS_EVIDENCE_AUDIT_CSV",
+        docs_paths[2],
+    )
+    monkeypatch.setattr(
+        section_validator,
+        "DOCS_EVIDENCE_AUDIT_MD",
+        docs_paths[3],
+    )
+
+    section_validator.validate_docs_mirrors()
+    for index, docs_path in enumerate(docs_paths):
+        original = docs_path.read_bytes()
+        docs_path.write_bytes(f"artifact-{index}\r\n".encode())
+
+        with pytest.raises(SystemExit) as exc_info:
+            section_validator.validate_docs_mirrors()
+
+        assert exc_info.value.code == 1
+        assert "docs mirror byte mismatch" in capsys.readouterr().out
+        docs_path.write_bytes(original)
+
+
+def test_current_volume_operation_docs_mirrors_match_output() -> None:
+    section_validator.validate_docs_mirrors()
 
 
 def test_volume_operation_validator_rejects_unsynced_model_signal_log(monkeypatch, tmp_path) -> None:

@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import argparse
 from pathlib import Path
 
 import pandas as pd
@@ -761,21 +762,43 @@ def validate_active_confirmation_snapshot_gate(active_data: pd.DataFrame) -> Non
         )
 
 
-def validate_file_presence() -> None:
-    for path in [
+def validate_file_presence(*, include_docs_mirrors: bool = True) -> None:
+    required_paths = [
         SECTION_CSV,
         SECTION_MD,
         EVIDENCE_AUDIT_CSV,
         EVIDENCE_AUDIT_MD,
-        DOCS_SECTION_CSV,
-        DOCS_SECTION_MD,
-        DOCS_EVIDENCE_AUDIT_CSV,
-        DOCS_EVIDENCE_AUDIT_MD,
         CONTRACT_MD,
         FORMAL_SUMMARY_CSV,
-    ]:
+    ]
+    if include_docs_mirrors:
+        required_paths.extend(
+            [
+                DOCS_SECTION_CSV,
+                DOCS_SECTION_MD,
+                DOCS_EVIDENCE_AUDIT_CSV,
+                DOCS_EVIDENCE_AUDIT_MD,
+            ]
+        )
+    for path in required_paths:
         if not path.exists():
             fail(f"missing required file: {path.relative_to(ROOT).as_posix()}")
+
+
+def validate_docs_mirrors() -> None:
+    mirror_pairs = (
+        (SECTION_CSV, DOCS_SECTION_CSV),
+        (SECTION_MD, DOCS_SECTION_MD),
+        (EVIDENCE_AUDIT_CSV, DOCS_EVIDENCE_AUDIT_CSV),
+        (EVIDENCE_AUDIT_MD, DOCS_EVIDENCE_AUDIT_MD),
+    )
+    for output_path, docs_path in mirror_pairs:
+        if output_path.read_bytes() != docs_path.read_bytes():
+            fail(
+                "volume breakout operation docs mirror byte mismatch: "
+                f"{output_path.relative_to(ROOT).as_posix()} -> "
+                f"{docs_path.relative_to(ROOT).as_posix()}"
+            )
 
 
 def validate_shape(section: pd.DataFrame, formal_summary: pd.DataFrame, audit: pd.DataFrame) -> None:
@@ -1182,8 +1205,18 @@ def validate_operation_artifacts(
             fail("; ".join(protected_errors))
 
 
-def main() -> int:
-    validate_file_presence()
+def main(argv: list[str] | None = None) -> int:
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--output-only",
+        action="store_true",
+        help="Validate regenerated output artifacts before the docs mirror sync step.",
+    )
+    args = parser.parse_args(argv)
+
+    validate_file_presence(include_docs_mirrors=not args.output_only)
+    if not args.output_only:
+        validate_docs_mirrors()
     formal_summary = require_nonempty_csv(
         FORMAL_SUMMARY_CSV,
         {
@@ -1212,6 +1245,7 @@ def main() -> int:
     validate_packet_builder_boundary()
     print(
         "daily volume breakout operation section validation passed "
+        f"mode={'output_only' if args.output_only else 'output_and_docs'} "
         f"rows={len(section)} "
         f"data_rows={(section['row_type'].astype(str) == 'data').sum()} "
         f"empty_rows={(section['row_type'].astype(str) == 'empty_state').sum()}"

@@ -31,7 +31,6 @@ from volume_breakout_operation_utils import (  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
 LATEST_DIR = ROOT / "output" / "latest"
-DOCS_LATEST_DIR = ROOT / "docs" / "latest"
 
 DAILY_SIGNALS_CSV = LATEST_DIR / "daily_candidate_model_signals_for_report_latest.csv"
 APPROVAL_CSV = LATEST_DIR / "approved_operation_patterns_latest.csv"
@@ -2290,10 +2289,6 @@ def write_outputs(df: pd.DataFrame, source_rows: int, source_status: str) -> Non
             lines.append("")
     OUT_MD.write_text("\n".join(lines), encoding="utf-8", newline="\n")
 
-    DOCS_LATEST_DIR.mkdir(parents=True, exist_ok=True)
-    (DOCS_LATEST_DIR / OUT_CSV.name).write_bytes(OUT_CSV.read_bytes())
-    (DOCS_LATEST_DIR / OUT_MD.name).write_bytes(OUT_MD.read_bytes())
-
 
 def write_evidence_audit(audit: pd.DataFrame) -> None:
     audit = audit.copy()
@@ -2346,10 +2341,6 @@ def write_evidence_audit(audit: pd.DataFrame) -> None:
         except Exception:
             lines.append(audit[display_cols].to_string(index=False))
     EVIDENCE_AUDIT_MD.write_text("\n".join(lines) + "\n", encoding="utf-8", newline="\n")
-
-    DOCS_LATEST_DIR.mkdir(parents=True, exist_ok=True)
-    (DOCS_LATEST_DIR / EVIDENCE_AUDIT_CSV.name).write_bytes(EVIDENCE_AUDIT_CSV.read_bytes())
-    (DOCS_LATEST_DIR / EVIDENCE_AUDIT_MD.name).write_bytes(EVIDENCE_AUDIT_MD.read_bytes())
 
 
 def build() -> tuple[pd.DataFrame, pd.DataFrame]:

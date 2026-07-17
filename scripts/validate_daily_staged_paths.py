@@ -35,6 +35,10 @@ DAILY_CANDIDATE_DOCS_MIRROR_FILES = (
     "daily_report_model_registry_latest.md",
     "daily_candidate_model_summary_for_report_latest.csv",
     "daily_candidate_model_summary_for_report_latest.md",
+    "daily_volume_breakout_operation_section_latest.csv",
+    "daily_volume_breakout_operation_section_latest.md",
+    "daily_volume_breakout_operation_evidence_audit_latest.csv",
+    "daily_volume_breakout_operation_evidence_audit_latest.md",
     "daily_price_pullback_23ema_operation_section_latest.csv",
     "daily_price_pullback_23ema_operation_section_latest.md",
     "daily_price_pullback_23ema_operation_evidence_audit_latest.csv",
@@ -85,6 +89,17 @@ def staged_files() -> list[str]:
     return [line.strip().replace("\\", "/") for line in result.stdout.splitlines() if line.strip()]
 
 
+def index_file_bytes(relative_path: str) -> bytes | None:
+    result = subprocess.run(
+        ["git", "show", f":{relative_path}"],
+        check=False,
+        capture_output=True,
+    )
+    if result.returncode != 0:
+        return None
+    return result.stdout
+
+
 def validate_docs_latest_mirrors() -> list[str]:
     errors: list[str] = []
     for name in DAILY_CANDIDATE_DOCS_MIRROR_FILES + INDICATOR_GUIDE_MIRROR_FILES:
@@ -95,8 +110,20 @@ def validate_docs_latest_mirrors() -> list[str]:
         if not docs_path.exists():
             errors.append(f"missing docs/latest mirror: docs/latest/{name}")
             continue
-        if output_path.read_bytes() != docs_path.read_bytes():
+        output_bytes = output_path.read_bytes()
+        if output_bytes != docs_path.read_bytes():
             errors.append(f"docs/latest mirror differs from output/latest: docs/latest/{name}")
+        indexed_output_bytes = index_file_bytes(f"output/latest/{name}")
+        indexed_docs_bytes = index_file_bytes(f"docs/latest/{name}")
+        if indexed_output_bytes is None:
+            errors.append(f"missing output/latest artifact from git index: output/latest/{name}")
+        elif indexed_docs_bytes is None:
+            errors.append(f"missing docs/latest mirror from git index: docs/latest/{name}")
+        elif indexed_output_bytes != indexed_docs_bytes:
+            errors.append(
+                "git index docs/latest mirror differs from git index output/latest: "
+                f"docs/latest/{name}"
+            )
     return errors
 
 
