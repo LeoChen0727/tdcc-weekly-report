@@ -442,6 +442,20 @@ def test_daily_workflow_market_session_gate_is_main_only_and_fail_closed() -> No
     ):
         assert forbidden not in closure_block
 
+    replay_end = text.index("  daily-full-pipeline:", replay_start)
+    replay_block = text[replay_start:replay_end]
+    assert "needs: [market-session-preflight, record-market-closure, daily-full-pipeline]" in replay_block
+    assert "always()" in replay_block
+    assert "inputs.validate_latest_daily_pdf_replay == true" in replay_block
+    assert "needs.record-market-closure.result == 'success'" in replay_block
+    assert "needs.market-session-preflight.outputs.market_status == 'closed_scheduled'" in replay_block
+    assert "closed_emergency" not in replay_block
+    assert (
+        "EXPECTED_MAIN_PRICE_DATE: "
+        "${{ needs.market-session-preflight.outputs.expected_main_price_date }}"
+    ) in replay_block
+    assert '--expected-main-price-date "$EXPECTED_MAIN_PRICE_DATE"' in replay_block
+
 
 def test_recent_price_gap_workflow_persists_shared_market_session_evidence() -> None:
     text = (ROOT / ".github" / "workflows" / "repair_recent_daily_price_gaps.yml").read_text(

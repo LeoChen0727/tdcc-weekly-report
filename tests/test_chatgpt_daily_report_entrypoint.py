@@ -588,6 +588,7 @@ def test_source_gate_only_skips_dfkai_preflight_and_pdf_rendering(
         source_gate_only=True,
         allow_dirty_code=True,
         keep_source_worktree=False,
+        validation_replay_main_price_date="",
     )
     source_root = tmp_path / "verified-source"
 
@@ -628,6 +629,7 @@ def test_normal_render_calls_dfkai_preflight_once_before_generator(
         source_gate_only=False,
         allow_dirty_code=True,
         keep_source_worktree=False,
+        validation_replay_main_price_date="",
     )
     source_root = tmp_path / "verified-source"
     events: list[str] = []
@@ -691,6 +693,7 @@ def test_dfkai_preflight_failure_stops_before_temp_worktree_and_generator(
         source_gate_only=False,
         allow_dirty_code=True,
         keep_source_worktree=False,
+        validation_replay_main_price_date="",
     )
 
     def fail_preflight() -> Path:
@@ -717,6 +720,7 @@ def test_source_gate_failure_stops_before_dfkai_preflight_and_temp_worktree(
         source_gate_only=False,
         allow_dirty_code=False,
         keep_source_worktree=False,
+        validation_replay_main_price_date="",
     )
 
     def fail_source_gate(**kwargs: object) -> dict[str, object]:
@@ -737,11 +741,12 @@ def _live_preflight(
     *,
     status: str = "unknown",
     reason_code: str = "awaiting_official_price_confirmation",
+    expected_date: str | None = None,
 ) -> dict[str, object]:
     return {
         "market_status": status,
         "market_session_date": date,
-        "expected_main_price_date": date,
+        "expected_main_price_date": expected_date or date,
         "reason_code": reason_code,
         "reason": "test market-session result",
     }
@@ -808,6 +813,80 @@ def test_entrypoint_live_gate_reports_closed_market_without_rendering(tmp_path: 
         raise AssertionError("closed market must stop before source resolution and rendering")
 
 
+def test_entrypoint_validation_replay_accepts_exact_prior_date_after_midnight(
+    tmp_path: Path,
+    monkeypatch,
+) -> None:
+    monkeypatch.setattr(
+        entrypoint.market_session_calendar,
+        "refresh_market_session_status",
+        lambda *args, **kwargs: _live_preflight(
+            "20260718",
+            status="closed_scheduled",
+            reason_code="weekend",
+            expected_date="20260717",
+        ),
+    )
+    monkeypatch.setattr(
+        entrypoint,
+        "resolve_daily_report_source_state",
+        lambda **kwargs: _resolved_state("20260717"),
+    )
+
+    state = entrypoint.ensure_entrypoint_can_run(
+        tmp_path,
+        "origin/main",
+        False,
+        validation_replay_main_price_date="20260717",
+    )
+
+    assert state["market_session_validation_scope"] == "live_origin_main_validation_replay"
+    assert state["live_market_session_status"] == "closed_scheduled"
+    assert state["live_market_session_date"] == "20260718"
+    assert state["live_expected_main_price_date"] == "20260717"
+    assert state["validation_replay_main_price_date"] == "20260717"
+
+
+def test_entrypoint_validation_replay_rejects_date_not_matching_live_expectation(
+    tmp_path: Path,
+    monkeypatch,
+) -> None:
+    monkeypatch.setattr(
+        entrypoint.market_session_calendar,
+        "refresh_market_session_status",
+        lambda *args, **kwargs: _live_preflight(
+            "20260718",
+            status="closed_scheduled",
+            reason_code="weekend",
+            expected_date="20260717",
+        ),
+    )
+
+    with pytest.raises(
+        entrypoint.DailyReportEntrypointError,
+        match="closed-market validation replay date does not match",
+    ):
+        entrypoint.ensure_entrypoint_can_run(
+            tmp_path,
+            "origin/main",
+            False,
+            validation_replay_main_price_date="20260716",
+        )
+
+
+def test_entrypoint_validation_replay_rejects_non_main_source(tmp_path: Path) -> None:
+    with pytest.raises(
+        entrypoint.DailyReportEntrypointError,
+        match="restricted to the official origin/main source",
+    ):
+        entrypoint.ensure_entrypoint_can_run(
+            tmp_path,
+            "origin/codex/test-branch",
+            False,
+            validation_replay_main_price_date="20260717",
+        )
+
+
 def test_entrypoint_branch_replay_uses_committed_branch_contract_without_live_gate(
     tmp_path: Path,
     monkeypatch,
@@ -844,6 +923,7 @@ def test_entrypoint_writes_runtime_manifest(tmp_path: Path) -> None:
         "live_market_session_status": "unknown",
         "live_market_session_date": "20260616",
         "live_expected_main_price_date": "20260616",
+        "validation_replay_main_price_date": "20260616",
         "main_price_date": "20260616",
         "report_ready": True,
         "warrant_ready": True,
@@ -870,6 +950,7 @@ def test_entrypoint_writes_runtime_manifest(tmp_path: Path) -> None:
     assert "chatgpt_daily_report_runtime_manifest" in text
     assert '"expected_main_price_date": "20260616"' in text
     assert '"live_expected_main_price_date": "20260616"' in text
+    assert '"validation_replay_main_price_date": "20260616"' in text
     assert '"main_price_date": "20260616"' in text
     assert "chatgpt_daily_report_packet_latest.txt" in text
     assert '"pdf_count": 6' in text
