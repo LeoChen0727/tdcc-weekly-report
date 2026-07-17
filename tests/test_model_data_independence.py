@@ -149,7 +149,7 @@ def test_data_sharing_registry_uses_model_owned_research_entrypoints() -> None:
 
 def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
     rows = read_csv("config/daily_model_data_sharing_migrations.csv")
-    assert len(rows) == 12
+    assert len(rows) == 13
     baseline = rows[0]
     assert tuple(baseline) == DATA_SHARING_MIGRATION_COLUMNS
     assert data_migration_row_sha256(baseline) == BASELINE_DATA_MIGRATION_ROW_SHA256
@@ -366,6 +366,25 @@ def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
         "user_requested_historical_financial_statement_official_source_acquisition_continuation_20260717"
     )
     assert historical_source_acquisition_v3["migration_status"] == (
+        "validated_user_approved_migration"
+    )
+
+    position_shape_migration = rows[12]
+    assert position_shape_migration["migration_id"] == (
+        "revenue_position_shape_three_anchor_matrix_20260717"
+    )
+    assert position_shape_migration["changed_data_families"] == (
+        "revenue_unreacted_range_position_shape_transition_matrix"
+    )
+    assert position_shape_migration["previous_contract_sha256s"] == "NEW"
+    assert position_shape_migration["new_contract_sha256s"] == (
+        "5c41b1f6314159a580ed1bb54811ba96e8c5193235367d4d8d512314077e37ac"
+    )
+    assert position_shape_migration["affected_models"] == "revenue_unreacted_range"
+    assert position_shape_migration["user_approval_reference"] == (
+        "user_requested_revenue_position_shape_three_anchor_matrix_20260717"
+    )
+    assert position_shape_migration["migration_status"] == (
         "validated_user_approved_migration"
     )
 
