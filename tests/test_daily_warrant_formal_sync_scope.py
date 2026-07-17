@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import csv
 from pathlib import Path
+import re
 import subprocess
 
 import yaml
@@ -17,6 +18,8 @@ from scripts.validate_daily_warrant_formal_sync_scope import (
     WARRANT_CANDIDATE_FIELDS,
     WARRANT_BONUS_BY_MODEL,
     WARRANT_FLOW_ARTIFACT,
+    VOLUME_BREAKOUT_WATCH_ARTIFACT,
+    STOCK_THEME_TAXONOMY_ARTIFACT,
     WARRANT_SOURCE_TO_CANDIDATE_FIELDS,
     BULLISH_WARRANT_SIGNALS,
     build_scope_snapshot,
@@ -147,6 +150,43 @@ def _write_artifacts(root: Path, rows: list[dict[str, str]]) -> None:
         root / WARRANT_FLOW_ARTIFACT,
         list(warrant_rows[0]),
         warrant_rows,
+    )
+    synthetic_rows: dict[int, dict[str, str]] = {}
+    taxonomy_rows: dict[str, dict[str, str]] = {}
+    for row in rows:
+        match = re.fullmatch(r"volume_breakout:([0-9]+)", row.get("source_row_index", ""))
+        if not match:
+            continue
+        index = int(match.group(1))
+        stock_id = row["stock_id"]
+        synthetic_rows[index] = {
+            "stock_id": stock_id,
+            "selection_status": "selected",
+            "volume_breakout_type": "bottom_volume_attack",
+        }
+        taxonomy_rows[stock_id] = {
+            "stock_id": stock_id,
+            "industry": "fixture_industry",
+        }
+    watch_rows = [
+        {
+            "stock_id": "",
+            "selection_status": "not_selected",
+            "volume_breakout_type": "",
+        }
+        for _ in range(max(synthetic_rows, default=-1) + 1)
+    ]
+    for index, row in synthetic_rows.items():
+        watch_rows[index] = row
+    _write_csv(
+        root / VOLUME_BREAKOUT_WATCH_ARTIFACT,
+        ["stock_id", "selection_status", "volume_breakout_type"],
+        watch_rows,
+    )
+    _write_csv(
+        root / STOCK_THEME_TAXONOMY_ARTIFACT,
+        ["stock_id", "industry"],
+        list(taxonomy_rows.values()),
     )
     raw_signal_columns = [
         "signal_date",
@@ -779,17 +819,93 @@ def test_projection_requires_candidate_raw_and_report_consistency(tmp_path: Path
     assert any("raw/report warrant formal sync mismatch" in error for error in errors)
 
 
-def test_projection_rejects_volume_v2_signal_without_canonical_candidate(tmp_path: Path) -> None:
+def test_projection_allows_volume_v2_without_candidate_only_for_empty_official_projection(
+    tmp_path: Path,
+) -> None:
     rows = _signal_rows()
-    rows[1]["source_row_index"] = "999"
+    rows[1]["source_row_index"] = "volume_breakout:999"
     rows[1]["stock_id"] = "9999"
+    rows[1]["warrant_flow_signal"] = ""
     _write_artifacts(tmp_path, rows)
 
     errors, _ = validate_current_projection(tmp_path)
 
+    assert errors == []
+
+
+def test_projection_rejects_volume_v2_without_candidate_when_official_warrant_exists(
+    tmp_path: Path,
+) -> None:
+    rows = _signal_rows()
+    rows[1]["source_row_index"] = "volume_breakout:999"
+    rows[1]["stock_id"] = "9999"
+    rows[1]["warrant_flow_signal"] = ""
+    _write_artifacts(tmp_path, rows)
+
+    warrant_path = tmp_path / WARRANT_FLOW_ARTIFACT
+    columns, warrant_rows = _read_csv_fixture(warrant_path)
+    official = {column: "" for column in columns}
+    official.update(
+        {
+            "date": "20260716",
+            "stock_id": "9999",
+            "warrant_flow_signal": "call_inflow",
+        }
+    )
+    _write_csv(warrant_path, columns, [*warrant_rows, official])
+
+    errors, _ = validate_current_projection(tmp_path)
+
     assert any(
-        "formal signal row has no all_candidates warrant source" in error
+        "formal signal warrant projection mismatch" in error
         and "volume_range_breakout_v2_high_position_volume_attack" in error
+        and "expected='call_inflow' actual=''" in error
+        for error in errors
+    )
+
+
+def test_projection_rejects_volume_v2_without_candidate_or_taxonomy_lineage(
+    tmp_path: Path,
+) -> None:
+    rows = _signal_rows()
+    rows[1]["source_row_index"] = "volume_breakout:999"
+    rows[1]["stock_id"] = "9999"
+    rows[1]["warrant_flow_signal"] = ""
+    _write_artifacts(tmp_path, rows)
+    _write_csv(
+        tmp_path / STOCK_THEME_TAXONOMY_ARTIFACT,
+        ["stock_id", "industry"],
+        [],
+    )
+
+    errors, _ = validate_current_projection(tmp_path)
+
+    assert any(
+        "formal volume signal has no canonical taxonomy lineage" in error
+        and "volume_range_breakout_v2_high_position_volume_attack" in error
+        for error in errors
+    )
+
+
+def test_projection_rejects_duplicate_volume_taxonomy_identity(tmp_path: Path) -> None:
+    rows = _signal_rows()
+    rows[1]["source_row_index"] = "volume_breakout:999"
+    rows[1]["stock_id"] = "9999"
+    rows[1]["warrant_flow_signal"] = ""
+    _write_artifacts(tmp_path, rows)
+    _write_csv(
+        tmp_path / STOCK_THEME_TAXONOMY_ARTIFACT,
+        ["stock_id", "industry"],
+        [
+            {"stock_id": "9999", "industry": "fixture_a"},
+            {"stock_id": "9999", "industry": "fixture_b"},
+        ],
+    )
+
+    errors, _ = validate_current_projection(tmp_path)
+
+    assert any(
+        "canonical taxonomy artifact has duplicate normalized stock_id: 9999" in error
         for error in errors
     )
 

@@ -68,7 +68,7 @@ def test_every_active_model_has_exact_ast_semantic_ownership() -> None:
 def test_shared_business_semantics_are_disclosed_as_contained_not_technical() -> None:
     rows = read_csv("config/daily_model_shared_semantic_registry.csv")
     by_item = {row["semantic_item"]: row for row in rows}
-    assert len(rows) == 77
+    assert len(rows) == 79
     assert by_item["global:MODEL_SCORE_PROFILES"]["semantic_class"] == (
         "contained_legacy_cross_model_semantic"
     )
@@ -81,6 +81,18 @@ def test_shared_business_semantics_are_disclosed_as_contained_not_technical() ->
         "volume_range_breakout_v2_low_position_volume_attack;"
         "volume_range_breakout_v2_mid_position_momentum_attack"
     )
+    for model_family_source in (
+        "global:VOLUME_BREAKOUT_TAXONOMY",
+        "global:WARRANT_FLOW",
+    ):
+        assert by_item[model_family_source]["semantic_class"] == (
+            "contained_model_family_semantic"
+        )
+        assert by_item[model_family_source]["consumer_models"] == (
+            "volume_range_breakout_v2_high_position_volume_attack;"
+            "volume_range_breakout_v2_low_position_volume_attack;"
+            "volume_range_breakout_v2_mid_position_momentum_attack"
+        )
     for no_longer_shared_item in (
         "function:taxonomy_lookup",
         "function:taxonomy_or_source",
@@ -156,11 +168,17 @@ def test_data_sharing_registry_uses_model_owned_research_entrypoints() -> None:
     assert by_family["financial_statement_point_in_time_history"]["ownership_mode"] == (
         "approved_shared_objective"
     )
+    assert by_family["official_warrant_flow_current_snapshot"]["ownership_mode"] == (
+        "latest_context_not_historical"
+    )
+    assert by_family["official_warrant_flow_current_snapshot"]["consumer_access_mode"] == (
+        "current_date_negative_projection_guard_only"
+    )
 
 
 def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
     rows = read_csv("config/daily_model_data_sharing_migrations.csv")
-    assert len(rows) == 13
+    assert len(rows) == 14
     baseline = rows[0]
     assert tuple(baseline) == DATA_SHARING_MIGRATION_COLUMNS
     assert data_migration_row_sha256(baseline) == BASELINE_DATA_MIGRATION_ROW_SHA256
@@ -396,6 +414,29 @@ def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
         "user_requested_revenue_position_shape_three_anchor_matrix_20260717"
     )
     assert position_shape_migration["migration_status"] == (
+        "validated_user_approved_migration"
+    )
+
+    warrant_negative_projection_migration = rows[13]
+    assert warrant_negative_projection_migration["migration_id"] == (
+        "warrant_flow_volume_negative_projection_guard_20260717"
+    )
+    assert warrant_negative_projection_migration["changed_data_families"] == (
+        "official_warrant_flow_current_snapshot"
+    )
+    assert warrant_negative_projection_migration["previous_contract_sha256s"] == "NEW"
+    assert warrant_negative_projection_migration["new_contract_sha256s"] == (
+        "96dc1229637d51e0f026607e88de325033e972b458c0f2aba2de7b6124841f1b"
+    )
+    assert set(warrant_negative_projection_migration["affected_models"].split(";")) == {
+        "volume_range_breakout_v2_high_position_volume_attack",
+        "volume_range_breakout_v2_low_position_volume_attack",
+        "volume_range_breakout_v2_mid_position_momentum_attack",
+    }
+    assert warrant_negative_projection_migration["user_approval_reference"] == (
+        "user_requested_warrant_flow_formal_sync_completion_20260717"
+    )
+    assert warrant_negative_projection_migration["migration_status"] == (
         "validated_user_approved_migration"
     )
 
