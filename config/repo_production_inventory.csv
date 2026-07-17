@@ -480,6 +480,7 @@ scripts/validate_daily_event_catalyst_formal_sync_scope.py,python,repo_infrastru
 tests/test_daily_event_catalyst_formal_sync_scope.py,test_python,repo_infrastructure,active,Regression coverage for event-catalyst formal sync allowed-model scope,,
 scripts/validate_daily_warrant_formal_sync_scope.py,python,repo_infrastructure,active,Fail-closed warrant formal sync scope validator that protects candidate non-warrant content formal membership and warrant-independent model semantics,.github/workflows/warrant_flow.yml,
 tests/test_daily_warrant_formal_sync_scope.py,test_python,repo_infrastructure,active,Regression coverage for warrant formal sync scope projection and workflow contract,,
+tests/test_merge_warrant_flow_into_candidates.py,test_python,warrant,active,Regression coverage for warrant merge schema preservation and idempotency,,
 tests/test_revenue_unreacted_range_financial_statement_fail_closed.py,test_python,repo_infrastructure,active,Mutation and repository regression coverage for the revenue financial-statement fail-closed contract,,
 scripts/revenue_unreacted_range_launch_timing_feature_audit.py,python,research_backtest,active,revenue launch timing right-censor no-fallback feature contrast and price comparability audit module,.github/workflows/research_backtest_pipeline.yml,
 scripts/revenue_unreacted_range_source_first_condition_audit.py,python,research_backtest,active,revenue source-first condition threshold known-success and first-breakout audit module,.github/workflows/research_backtest_pipeline.yml,

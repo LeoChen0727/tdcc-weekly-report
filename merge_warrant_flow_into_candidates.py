@@ -145,6 +145,16 @@ def remove_old_warrant_columns(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
+def restore_candidate_column_order(
+    df: pd.DataFrame,
+    original_columns: list[str],
+) -> pd.DataFrame:
+    """Preserve the published candidate schema while allowing new columns at the end."""
+    preserved_columns = [column for column in original_columns if column in df.columns]
+    appended_columns = [column for column in df.columns if column not in original_columns]
+    return df.reindex(columns=[*preserved_columns, *appended_columns])
+
+
 def prepare_warrant_flow(warrant: pd.DataFrame) -> pd.DataFrame:
     if warrant.empty:
         return pd.DataFrame(columns=["stock_id"] + WARRANT_OUTPUT_COLUMNS)
@@ -208,6 +218,8 @@ def merge_warrant_flow() -> tuple[pd.DataFrame, str]:
     if not candidate_stock_col:
         return candidates, "Cannot find stock_id column in all_candidates_latest.csv."
 
+    original_candidate_columns = list(candidates.columns)
+
     # 重點：先移除舊權證欄位，避免重跑 workflow 時 duplicate columns
     candidates = remove_old_warrant_columns(candidates)
 
@@ -223,6 +235,7 @@ def merge_warrant_flow() -> tuple[pd.DataFrame, str]:
             candidates = candidates.drop(columns=["_stock_id_for_merge"])
 
         candidates = normalize_report_candidate_dates(candidates, main_price_date_from_freshness())
+        candidates = restore_candidate_column_order(candidates, original_candidate_columns)
         candidates.to_csv(ALL_CANDIDATES_CSV, index=False, encoding="utf-8-sig")
         write_excel_and_md(candidates)
 
@@ -238,6 +251,7 @@ def merge_warrant_flow() -> tuple[pd.DataFrame, str]:
             candidates = candidates.drop(columns=["_stock_id_for_merge"])
 
         candidates = normalize_report_candidate_dates(candidates, main_price_date_from_freshness())
+        candidates = restore_candidate_column_order(candidates, original_candidate_columns)
         candidates.to_csv(ALL_CANDIDATES_CSV, index=False, encoding="utf-8-sig")
         write_excel_and_md(candidates)
 
@@ -265,6 +279,7 @@ def merge_warrant_flow() -> tuple[pd.DataFrame, str]:
         merged = merged.drop(columns=suffix_cols)
 
     merged = normalize_report_candidate_dates(merged, main_price_date_from_freshness())
+    merged = restore_candidate_column_order(merged, original_candidate_columns)
     merged.to_csv(ALL_CANDIDATES_CSV, index=False, encoding="utf-8-sig")
     write_excel_and_md(merged)
 
