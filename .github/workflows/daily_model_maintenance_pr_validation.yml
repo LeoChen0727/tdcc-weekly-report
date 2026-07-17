@@ -6,7 +6,9 @@ on:
       - ".github/workflows/daily_full_pipeline.yml"
       - ".github/workflows/daily_model_maintenance_pr_validation.yml"
       - ".github/workflows/daily_pdf_replay_pr_validation.yml"
+      - ".github/workflows/event_catalyst_update.yml"
       - ".github/workflows/research_backtest_pipeline.yml"
+      - ".github/workflows/weekly_theme_review.yml"
       - "config/formal_model_evidence_pins.csv"
       - "config/git_worktree_materialization_contract.csv"
       - "config/model_research_*.csv"
@@ -70,6 +72,7 @@ on:
       - "tests/test_chatgpt_daily_report_new_conversation_replay.py"
       - "tests/test_chatgpt_daily_report_entrypoint.py"
       - "tests/test_chatgpt_side_pdf_contract.py"
+      - "tests/test_catalyst_pages_sync.py"
       - "tests/test_daily_*.py"
       - "tests/test_repo_hidden_coupling_audit.py"
       - "tests/test_git_worktree_safety.py"
@@ -157,6 +160,8 @@ jobs:
             tests/test_chatgpt_daily_report_new_conversation_replay.py \
             tests/test_chatgpt_daily_report_entrypoint.py \
             tests/test_chatgpt_side_pdf_contract.py \
+            tests/test_catalyst_pages_sync.py \
+            tests/test_daily_event_catalyst_formal_sync_scope.py \
             tests/test_daily_pdf_contract_consumers.py \
             tests/test_daily_pdf_completion_hard_gate.py \
             tests/test_daily_pdf_shared_path_isolation.py \
