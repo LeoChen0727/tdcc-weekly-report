@@ -97,7 +97,13 @@ WORKFLOW_ALLOWED_OWNERS = {
     ".github/workflows/tdcc_history_backfill.yml": {"tdcc_weekly", "repo_infrastructure"},
     ".github/workflows/tdcc_weekly.yml": {"tdcc_weekly", "repo_infrastructure"},
     ".github/workflows/test_tdcc_trend.yml": {"tdcc_weekly", "diagnostics", "repo_infrastructure"},
-    ".github/workflows/warrant_flow.yml": {"warrant", "official_price_data", "repo_infrastructure"},
+    ".github/workflows/warrant_flow.yml": {
+        "catalyst_event",
+        "daily_production",
+        "official_price_data",
+        "repo_infrastructure",
+        "warrant",
+    },
     ".github/workflows/weekly_theme_review.yml": {
         "catalyst_event",
         "daily_production",

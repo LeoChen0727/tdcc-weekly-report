@@ -68,7 +68,7 @@ def test_every_active_model_has_exact_ast_semantic_ownership() -> None:
 def test_shared_business_semantics_are_disclosed_as_contained_not_technical() -> None:
     rows = read_csv("config/daily_model_shared_semantic_registry.csv")
     by_item = {row["semantic_item"]: row for row in rows}
-    assert len(rows) == 80
+    assert len(rows) == 77
     assert by_item["global:MODEL_SCORE_PROFILES"]["semantic_class"] == (
         "contained_legacy_cross_model_semantic"
     )
@@ -76,6 +76,17 @@ def test_shared_business_semantics_are_disclosed_as_contained_not_technical() ->
         "revenue_unreacted_range;tdcc_stealth_accumulation"
     )
     assert by_item["function:text"]["semantic_class"] == "shared_technical"
+    assert by_item["function:append_volume_breakout_signals"]["consumer_models"] == (
+        "volume_range_breakout_v2_high_position_volume_attack;"
+        "volume_range_breakout_v2_low_position_volume_attack;"
+        "volume_range_breakout_v2_mid_position_momentum_attack"
+    )
+    for no_longer_shared_item in (
+        "function:taxonomy_lookup",
+        "function:taxonomy_or_source",
+        "global:STOCK_THEME_TAXONOMY",
+    ):
+        assert no_longer_shared_item not in by_item
 
 
 def test_semantic_baseline_is_immutable_and_pins_all_initial_records() -> None:

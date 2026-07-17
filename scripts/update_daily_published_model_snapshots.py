@@ -1,10 +1,12 @@
 from __future__ import annotations
 
+import argparse
 import hashlib
 import os
 import shutil
 import subprocess
 import sys
+from collections.abc import Collection
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -210,6 +212,7 @@ ARTIFACTS: tuple[SnapshotArtifact, ...] = (
         ),
     ),
 )
+ARTIFACTS_BY_ID = {artifact.artifact_id: artifact for artifact in ARTIFACTS}
 
 MANIFEST_COLUMNS = [
     "snapshot_report_date",
@@ -359,12 +362,25 @@ def guard_existing_snapshot(source: Path, target: Path, artifact: SnapshotArtifa
     )
 
 
+def selected_artifacts(artifact_ids: Collection[str] | None) -> tuple[SnapshotArtifact, ...]:
+    if artifact_ids is None:
+        return ARTIFACTS
+    requested = {safe_str(artifact_id) for artifact_id in artifact_ids if safe_str(artifact_id)}
+    if not requested:
+        raise RuntimeError("explicit daily snapshot artifact selection must not be empty")
+    unknown = sorted(requested - set(ARTIFACTS_BY_ID))
+    if unknown:
+        raise RuntimeError(f"unknown daily snapshot artifact ids: {unknown}")
+    return tuple(artifact for artifact in ARTIFACTS if artifact.artifact_id in requested)
+
+
 def build_daily_published_model_snapshots(
     latest_dir: Path = LATEST_DIR,
     snapshot_dir: Path = SNAPSHOT_DIR,
     manifest_path: Path = MANIFEST_PATH,
     generated_at: str | None = None,
     commit_sha: str | None = None,
+    artifact_ids: Collection[str] | None = None,
 ) -> pd.DataFrame:
     state = freshness_state(latest_dir)
     report_date = state["main_price_date"]
@@ -372,14 +388,39 @@ def build_daily_published_model_snapshots(
     commit_sha = commit_sha if commit_sha is not None else git_sha()
     snapshot_dir.mkdir(parents=True, exist_ok=True)
 
+    old_manifest = read_csv(manifest_path, dtype=str)
+    if not old_manifest.empty:
+        for col in MANIFEST_COLUMNS:
+            if col not in old_manifest.columns:
+                old_manifest[col] = ""
+        old_manifest = old_manifest[MANIFEST_COLUMNS]
+
     rows: list[dict[str, str]] = []
-    for artifact in ARTIFACTS:
+    for artifact in selected_artifacts(artifact_ids):
         source = latest_dir / artifact.source_name
         if not source.exists():
             raise RuntimeError(f"required daily published artifact is missing: {source.as_posix()}")
 
         validate_artifact_frame(source, artifact, report_date)
         target = snapshot_dir / snapshot_name(artifact, report_date)
+        existing_rows = (
+            old_manifest[
+                old_manifest["snapshot_report_date"].map(normalize_date).eq(report_date)
+                & old_manifest["artifact_id"].astype(str).eq(artifact.artifact_id)
+            ]
+            if not old_manifest.empty
+            else pd.DataFrame(columns=MANIFEST_COLUMNS)
+        )
+        if len(existing_rows) > 1:
+            raise RuntimeError(
+                "duplicate current daily snapshot manifest rows: "
+                f"report_date={report_date} artifact_id={artifact.artifact_id}"
+            )
+        if target.exists() and sha256_file(source) == sha256_file(target) and len(existing_rows) == 1:
+            rows.append(
+                {column: safe_str(existing_rows.iloc[0].get(column, "")) for column in MANIFEST_COLUMNS}
+            )
+            continue
         guard_existing_snapshot(source, target, artifact, report_date)
         shutil.copyfile(source, target)
         row_count, column_count = csv_shape(target)
@@ -409,14 +450,9 @@ def build_daily_published_model_snapshots(
         )
 
     new_manifest = pd.DataFrame(rows, columns=MANIFEST_COLUMNS)
-    old_manifest = read_csv(manifest_path, dtype=str)
     if old_manifest.empty:
         combined = new_manifest
     else:
-        for col in MANIFEST_COLUMNS:
-            if col not in old_manifest.columns:
-                old_manifest[col] = ""
-        old_manifest = old_manifest[MANIFEST_COLUMNS]
         keys = set(zip(new_manifest["snapshot_report_date"], new_manifest["artifact_id"]))
         keep_mask = [
             (safe_str(row.get("snapshot_report_date", "")), safe_str(row.get("artifact_id", ""))) not in keys
@@ -430,9 +466,21 @@ def build_daily_published_model_snapshots(
     return new_manifest
 
 
-def main() -> int:
+def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="Publish immutable daily model snapshots")
+    parser.add_argument(
+        "--artifact-id",
+        action="append",
+        choices=sorted(ARTIFACTS_BY_ID),
+        help="Publish only the named artifact family; repeat for multiple families",
+    )
+    return parser.parse_args(argv)
+
+
+def main(argv: list[str] | None = None) -> int:
+    args = parse_args(argv)
     try:
-        manifest_rows = build_daily_published_model_snapshots()
+        manifest_rows = build_daily_published_model_snapshots(artifact_ids=args.artifact_id)
     except Exception as exc:
         print(f"ERROR: {exc}")
         return 1

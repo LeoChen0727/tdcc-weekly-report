@@ -357,7 +357,9 @@ def test_daily_workflow_requires_current_usable_warrant_fetch_with_evidence() ->
     assert "output/latest/warrant_source_status_latest.json" in daily_text
     assert "output/debug/warrant_fetch_debug_latest.md" in daily_text
     assert "output/debug/warrant_fetch_debug_latest.csv" in daily_text
-    assert "--require-current-usable" not in warrant_text
+    assert "python scripts/fetch_official_warrant_daily.py --require-current-usable" in warrant_text
+    assert "python scripts/validate_warrant_source_status.py --require-formal-current" in warrant_text
+    assert "validate_warrant_source_status.py --allow-noncritical-grace" not in warrant_text
 
 
 def test_daily_workflow_publishes_as_published_model_snapshots() -> None:
