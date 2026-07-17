@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-17 18:41:04 Asia/Taipei",
+  "generated_at": "2026-07-17 23:40:01 Asia/Taipei",
   "external_fetch_status": "partial_ok",
   "note": "Official monthly revenue and material-information sources are used when reachable. No unverified news, MOPS pages, or social rumor data is fabricated.",
   "files": {
@@ -16,12 +16,12 @@
     "quarterly_catalyst": {
       "path": "data/fundamental_catalysts/quarterly_catalyst.csv",
       "exists": true,
-      "rows": 1585
+      "rows": 1596
     },
     "event_catalyst_log": {
       "path": "data/event_catalysts/event_catalyst_log.csv",
       "exists": true,
-      "rows": 2432
+      "rows": 2434
     }
   },
   "sources": {
@@ -31,18 +31,18 @@
       "rows": 1082,
       "error": "",
       "http_status": 200,
-      "matched_tracked_rows": 262,
-      "stored_rows": 262,
+      "matched_tracked_rows": 243,
+      "stored_rows": 243,
       "note": "Official monthly revenue rows are stored as fundamental source rows with EPS/margin fields blank. They can flag revenue_good_eps_unconfirmed only; they are not EPS confirmation."
     },
     "TPEX monthly revenue OpenAPI": {
       "url": "https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap05_O",
-      "status": "ok",
-      "rows": 891,
-      "error": "",
-      "http_status": 200,
-      "matched_tracked_rows": 100,
-      "stored_rows": 100,
+      "status": "failed",
+      "rows": 0,
+      "error": "520 Server Error: <none> for url: https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap05_O",
+      "http_status": 520,
+      "matched_tracked_rows": 0,
+      "stored_rows": 0,
       "note": "Official monthly revenue rows are stored as fundamental source rows with EPS/margin fields blank. They can flag revenue_good_eps_unconfirmed only; they are not EPS confirmation."
     },
     "TWSE material information OpenAPI": {
@@ -51,18 +51,18 @@
       "rows": 101,
       "error": "",
       "http_status": 200,
-      "matched_tracked_rows": 55,
-      "stored_rows": 55,
+      "matched_tracked_rows": 34,
+      "stored_rows": 34,
       "note": "Official material-information rows are filtered to tracked stocks. Only objective order/customer/capacity/production/certification keywords become evidence event types; other rows stay material_information context."
     },
     "TPEX material information OpenAPI": {
       "url": "https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap04_O",
-      "status": "ok",
-      "rows": 54,
-      "error": "",
-      "http_status": 200,
-      "matched_tracked_rows": 5,
-      "stored_rows": 5,
+      "status": "failed",
+      "rows": 0,
+      "error": "520 Server Error: <none> for url: https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap04_O",
+      "http_status": 520,
+      "matched_tracked_rows": 0,
+      "stored_rows": 0,
       "note": "Official material-information rows are filtered to tracked stocks. Only objective order/customer/capacity/production/certification keywords become evidence event types; other rows stay material_information context."
     }
   }
