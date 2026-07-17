@@ -53,6 +53,7 @@ on:
       - "scripts/generate_chatgpt_side_daily_reports.py"
       - "scripts/git_worktree_safety.py"
       - "scripts/run_chatgpt_daily_report_entrypoint.py"
+      - "scripts/stage_daily_latest_mirrors.py"
       - "scripts/validate_chatgpt_side_pdf_contract.py"
       - "scripts/update_daily_published_model_snapshots.py"
       - "scripts/validate_chatgpt_daily_report_new_conversation_replay.py"
@@ -120,6 +121,7 @@ jobs:
 
       - name: Validate daily model and PDF contracts
         run: |
+          python scripts/validate_repo_file_lifecycle_inventory.py
           python scripts/validate_repo_production_inventory.py
           python scripts/validate_stock_model_contract_registry.py
           python scripts/validate_daily_pdf_contract_consumers.py

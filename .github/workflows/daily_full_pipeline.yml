@@ -837,6 +837,7 @@ jobs:
           git add output/history/daily_candidates/daily_theme_status_history.csv || true
           git add output/history/market_risk/ || true
 
+          python scripts/stage_daily_latest_mirrors.py
           python scripts/validate_daily_staged_paths.py
           python scripts/validate_daily_published_model_snapshots.py
           python scripts/validate_no_conflict_markers.py

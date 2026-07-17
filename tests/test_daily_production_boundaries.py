@@ -3,8 +3,9 @@ from __future__ import annotations
 from pathlib import Path
 import subprocess
 
-from scripts import validate_daily_production_boundaries as boundaries
+from scripts import stage_daily_latest_mirrors
 from scripts import validate_apps_script_workflow_triggers
+from scripts import validate_daily_production_boundaries as boundaries
 from scripts import validate_daily_staged_paths
 from scripts import validate_research_production_boundaries
 
@@ -285,6 +286,125 @@ def test_daily_workflow_uses_latest_only_volume_breakout_watch() -> None:
     assert text.count("python scripts/validate_daily_staged_paths.py") == 3
     assert "git add docs/latest/ || true" not in text
     assert "git add output/latest/ docs/latest/ || true" not in text
+
+
+def test_daily_workflow_stages_complete_mirror_registry_before_first_commit_validation() -> None:
+    text = (ROOT / ".github" / "workflows" / "daily_full_pipeline.yml").read_text(
+        encoding="utf-8"
+    )
+    commit_block = text[
+        text.index("- name: Commit report artifacts, packets, and rules first") :
+        text.index("- name: Wait briefly for GitHub Pages and raw propagation")
+    ]
+
+    stage_command = "python scripts/stage_daily_latest_mirrors.py"
+    validate_command = "python scripts/validate_daily_staged_paths.py"
+    assert commit_block.count(stage_command) == 1
+    assert commit_block.index(stage_command) < commit_block.index(validate_command)
+
+
+def test_complete_mirror_registry_stager_repairs_the_production_index_failure(
+    tmp_path,
+    monkeypatch,
+) -> None:
+    output_dir = tmp_path / "output" / "latest"
+    docs_dir = tmp_path / "docs" / "latest"
+    output_dir.mkdir(parents=True)
+    docs_dir.mkdir(parents=True)
+    mirror_names = validate_daily_staged_paths.registered_mirror_files()
+
+    subprocess.run(["git", "init"], cwd=tmp_path, check=True, capture_output=True)
+    subprocess.run(
+        ["git", "config", "user.name", "mirror-registry-test"],
+        cwd=tmp_path,
+        check=True,
+    )
+    subprocess.run(
+        ["git", "config", "user.email", "mirror-registry-test@example.invalid"],
+        cwd=tmp_path,
+        check=True,
+    )
+    for index, name in enumerate(mirror_names):
+        content = f"old-{index}\n".encode()
+        (output_dir / name).write_bytes(content)
+        (docs_dir / name).write_bytes(content)
+    subprocess.run(
+        ["git", "add", "--", "output/latest", "docs/latest"],
+        cwd=tmp_path,
+        check=True,
+    )
+    subprocess.run(
+        ["git", "commit", "-m", "baseline"],
+        cwd=tmp_path,
+        check=True,
+        capture_output=True,
+    )
+
+    for index, name in enumerate(mirror_names):
+        content = f"new-{index}\n".encode()
+        (output_dir / name).write_bytes(content)
+        (docs_dir / name).write_bytes(content)
+    subprocess.run(["git", "add", "--", "output/latest"], cwd=tmp_path, check=True)
+    non_indicator_docs = [
+        f"docs/latest/{name}"
+        for name in mirror_names
+        if name not in validate_daily_staged_paths.INDICATOR_GUIDE_MIRROR_FILES
+    ]
+    subprocess.run(["git", "add", "--", *non_indicator_docs], cwd=tmp_path, check=True)
+
+    monkeypatch.setattr(validate_daily_staged_paths, "ROOT", tmp_path)
+    monkeypatch.setattr(validate_daily_staged_paths, "LATEST_DIR", output_dir)
+    monkeypatch.setattr(validate_daily_staged_paths, "DOCS_LATEST_DIR", docs_dir)
+    monkeypatch.setattr(stage_daily_latest_mirrors, "ROOT", tmp_path)
+    monkeypatch.setattr(stage_daily_latest_mirrors, "LATEST_DIR", output_dir)
+    monkeypatch.setattr(stage_daily_latest_mirrors, "DOCS_LATEST_DIR", docs_dir)
+
+    errors_before = validate_daily_staged_paths.validate_docs_latest_mirrors()
+    assert errors_before == [
+        "git index docs/latest mirror differs from git index output/latest: "
+        f"docs/latest/{name}"
+        for name in validate_daily_staged_paths.INDICATOR_GUIDE_MIRROR_FILES
+    ]
+
+    assert stage_daily_latest_mirrors.main() == 0
+    assert validate_daily_staged_paths.validate_docs_latest_mirrors() == []
+    staged = subprocess.run(
+        ["git", "diff", "--cached", "--name-only"],
+        cwd=tmp_path,
+        check=True,
+        capture_output=True,
+        text=True,
+    ).stdout.splitlines()
+    expected = {
+        path
+        for name in mirror_names
+        for path in (f"output/latest/{name}", f"docs/latest/{name}")
+    }
+    assert set(staged) == expected
+
+
+def test_complete_mirror_registry_stager_rejects_a_missing_pair(
+    tmp_path,
+    monkeypatch,
+) -> None:
+    output_dir = tmp_path / "output" / "latest"
+    docs_dir = tmp_path / "docs" / "latest"
+    output_dir.mkdir(parents=True)
+    docs_dir.mkdir(parents=True)
+    missing_name = validate_daily_staged_paths.registered_mirror_files()[0]
+
+    monkeypatch.setattr(stage_daily_latest_mirrors, "ROOT", tmp_path)
+    monkeypatch.setattr(stage_daily_latest_mirrors, "LATEST_DIR", output_dir)
+    monkeypatch.setattr(stage_daily_latest_mirrors, "DOCS_LATEST_DIR", docs_dir)
+    monkeypatch.setattr(
+        stage_daily_latest_mirrors,
+        "registered_mirror_files",
+        lambda: (missing_name,),
+    )
+
+    paths, errors = stage_daily_latest_mirrors.collect_mirror_paths()
+    assert paths == []
+    assert errors == [f"missing registered mirror pair: output/latest/{missing_name}"]
 
 
 def test_daily_workflow_market_session_gate_is_main_only_and_fail_closed() -> None:
