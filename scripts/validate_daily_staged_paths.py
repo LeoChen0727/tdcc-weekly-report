@@ -79,9 +79,16 @@ FORBIDDEN_STAGED_PATTERNS = {
 }
 
 
+def registered_mirror_files() -> tuple[str, ...]:
+    return tuple(
+        dict.fromkeys(DAILY_CANDIDATE_DOCS_MIRROR_FILES + INDICATOR_GUIDE_MIRROR_FILES)
+    )
+
+
 def staged_files() -> list[str]:
     result = subprocess.run(
         ["git", "diff", "--cached", "--name-only"],
+        cwd=ROOT,
         check=True,
         capture_output=True,
         text=True,
@@ -92,6 +99,7 @@ def staged_files() -> list[str]:
 def index_file_bytes(relative_path: str) -> bytes | None:
     result = subprocess.run(
         ["git", "show", f":{relative_path}"],
+        cwd=ROOT,
         check=False,
         capture_output=True,
     )
@@ -102,7 +110,7 @@ def index_file_bytes(relative_path: str) -> bytes | None:
 
 def validate_docs_latest_mirrors() -> list[str]:
     errors: list[str] = []
-    for name in DAILY_CANDIDATE_DOCS_MIRROR_FILES + INDICATOR_GUIDE_MIRROR_FILES:
+    for name in registered_mirror_files():
         output_path = LATEST_DIR / name
         docs_path = DOCS_LATEST_DIR / name
         if not output_path.exists():
