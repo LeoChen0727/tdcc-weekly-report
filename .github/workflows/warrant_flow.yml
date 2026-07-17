@@ -62,9 +62,7 @@ jobs:
             "config/stock_model_contract_registry.csv"
             "config/formal_model_evidence_pins.csv"
             "output/latest/daily_candidate_model_parameters_latest.csv"
-            "output/latest/daily_candidate_model_parameters_latest.md"
             "docs/latest/daily_candidate_model_parameters_latest.csv"
-            "docs/latest/daily_candidate_model_parameters_latest.md"
             "output/latest/daily_report_model_registry_latest.csv"
             "output/latest/daily_report_model_registry_latest.md"
             "docs/latest/daily_report_model_registry_latest.csv"
@@ -134,6 +132,8 @@ jobs:
             LC_ALL=C sort -k2,2 -u "$output_file" -o "$output_file"
           }
 
+          python scripts/validate_data_freshness_latest.py
+          python scripts/validate_daily_published_model_snapshots.py
           capture_mature_sentinels "$mature_sentinel_before"
           warrant_formal_sync_scope_before="$RUNNER_TEMP/warrant-formal-sync-scope-before.json"
           python scripts/validate_daily_warrant_formal_sync_scope.py \
@@ -153,7 +153,7 @@ jobs:
           python scripts/validate_warrant_source_status.py --require-formal-current
           python build_warrant_flow_latest.py
           python merge_warrant_flow_into_candidates.py
-          python build_data_freshness_latest.py
+          python scripts/validate_daily_warrant_formal_sync_scope.py --validate-source-date
           python scripts/validate_data_freshness_latest.py
           python scripts/build_daily_candidate_model_layer.py
           python scripts/validate_daily_candidate_model_layer.py

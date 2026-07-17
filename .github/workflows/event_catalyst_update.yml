@@ -42,11 +42,20 @@ jobs:
 
       - name: Prepare catalyst data tables
         run: |
+          build_base_sha="$(git rev-parse HEAD)"
+          echo "BUILD_BASE_SHA=$build_base_sha" >> "$GITHUB_ENV"
+          echo "event_catalyst_formal_sync_base_sha=$build_base_sha"
           mature_sentinel_before="$RUNNER_TEMP/event-catalyst-mature-model-before.sha256"
           mature_sentinel_after="$RUNNER_TEMP/event-catalyst-mature-model-after.sha256"
           mature_sentinel_patterns=(
             "config/stock_model_contract_registry.csv"
             "config/formal_model_evidence_pins.csv"
+            "output/latest/daily_candidate_model_parameters_latest.csv"
+            "docs/latest/daily_candidate_model_parameters_latest.csv"
+            "output/latest/daily_report_model_registry_latest.csv"
+            "output/latest/daily_report_model_registry_latest.md"
+            "docs/latest/daily_report_model_registry_latest.csv"
+            "docs/latest/daily_report_model_registry_latest.md"
             "docs/specs/w_bottom_right_side_early_entry_operation_spec.md"
             "docs/specs/neckline_volume_breakout_confirmation_model_change_spec.md"
             "docs/specs/price_pullback_23ema_operation_candidate_spec.md"
@@ -66,6 +75,10 @@ jobs:
             "docs/latest/mature_model_row_level_metric_*_latest.*"
             "output/latest/research_backtest/volume_range_breakout_v2_candidate_bucket_contract_latest.csv"
             "output/latest/research_backtest/volume_range_breakout_v2_high_position_improvement_audit_latest.csv"
+            "output/history/daily_model_snapshots/daily_volume_breakout_operation_section_*.csv"
+            "output/history/daily_model_snapshots/daily_volume_breakout_operation_evidence_audit_*.csv"
+            "output/history/daily_model_snapshots/daily_w_bottom_right_side_operation_section_*.csv"
+            "output/history/daily_model_snapshots/daily_neckline_volume_breakout_confirmation_operation_section_*.csv"
           )
           capture_mature_sentinels() {
             local output_file="$1"
@@ -84,8 +97,31 @@ jobs:
               done
             done
             shopt -u nullglob
+            python - <<'PY' >> "$output_file"
+          import csv
+          import hashlib
+          import json
+
+          protected_ids = {
+              "volume_breakout_operation_section",
+              "volume_breakout_operation_evidence_audit",
+              "w_bottom_right_side_operation_section",
+              "neckline_volume_breakout_confirmation_operation_section",
+          }
+          manifest_path = "output/history/daily_model_snapshots/daily_published_model_snapshot_manifest.csv"
+          with open(manifest_path, encoding="utf-8-sig", newline="") as handle:
+              rows = [row for row in csv.DictReader(handle) if row.get("artifact_id") in protected_ids]
+          if not rows:
+              raise SystemExit("missing protected mature-model snapshot manifest rows")
+          for row in sorted(rows, key=lambda item: (item.get("snapshot_report_date", ""), item.get("artifact_id", ""))):
+              payload = json.dumps(row, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
+              digest = hashlib.sha256(payload.encode("utf-8")).hexdigest()
+              print(f"{digest}  manifest:{row.get('snapshot_report_date', '')}:{row.get('artifact_id', '')}")
+          PY
             LC_ALL=C sort -k2,2 -u "$output_file" -o "$output_file"
           }
+          python scripts/validate_data_freshness_latest.py
+          python scripts/validate_daily_published_model_snapshots.py
           capture_mature_sentinels "$mature_sentinel_before"
           formal_sync_scope_before="$RUNNER_TEMP/event-catalyst-formal-sync-scope-before.json"
           python scripts/validate_daily_event_catalyst_formal_sync_scope.py \
@@ -103,7 +139,11 @@ jobs:
           python scripts/audit_daily_candidate_model_selection_correctness.py
           python scripts/audit_daily_candidate_pipeline_integrity.py
           python scripts/build_theme_event_watch.py
-          python scripts/update_daily_published_model_snapshots.py
+          python scripts/update_daily_published_model_snapshots.py \
+            --artifact-id data_freshness \
+            --artifact-id model_signals_for_report \
+            --artifact-id all_candidates_source_rows \
+            --artifact-id model_summary_for_report
           python scripts/validate_daily_published_model_snapshots.py
           python scripts/sync_catalyst_pages_artifacts.py
           python scripts/build_chatgpt_indicator_usage_guide.py
@@ -194,68 +234,130 @@ jobs:
           git add output/latest/daily_candidate_group_rotation_latest.* || true
           git add output/latest/daily_report_model_registry_latest.* || true
           git add output/latest/daily_candidate_model_summary_for_report_latest.* || true
-          git add output/history/daily_candidate_models/ || true
-          git add output/history/daily_model_snapshots/ || true
-          git add docs/latest/ || true
+          git add output/history/daily_candidate_models/daily_candidate_model_signal_log.csv || true
+          snapshot_report_date="$(python -c 'import sys; sys.path.insert(0, "scripts"); from tracking_utils import normalize_date; import pandas as pd; print(normalize_date(pd.read_csv("output/latest/data_freshness_latest.csv", dtype=str).iloc[0]["main_price_date"]))')"
+          if [[ ! "$snapshot_report_date" =~ ^[0-9]{8}$ ]]; then
+            echo "Invalid snapshot report date: $snapshot_report_date" >&2
+            exit 1
+          fi
+          git add output/history/daily_model_snapshots/daily_published_model_snapshot_manifest.csv
+          git add "output/history/daily_model_snapshots/data_freshness_${snapshot_report_date}.csv"
+          git add "output/history/daily_model_snapshots/daily_candidate_model_signals_for_report_${snapshot_report_date}.csv"
+          git add "output/history/daily_model_snapshots/all_candidates_${snapshot_report_date}.csv"
+          git add "output/history/daily_model_snapshots/daily_candidate_model_summary_for_report_${snapshot_report_date}.csv"
+          git add docs/latest/fundamental_catalyst_layer_latest.md || true
+          git add docs/latest/theme_event_watch_latest.* || true
+          git add docs/latest/upcoming_catalyst_calendar_latest.* || true
+          git add docs/latest/upcoming_macro_event_calendar_latest.* || true
+          git add docs/latest/catalyst_summary_latest.* || true
+          git add docs/latest/catalyst_needs_review_latest.* || true
+          git add docs/latest/event_calendar_validation_latest.* || true
+          git add docs/latest/catalyst_layer_validation_latest.* || true
+          git add docs/latest/catalyst_data_source_status_latest.* || true
+          git add docs/latest/calendar_data_source_status_latest.* || true
+          git add docs/latest/daily_candidate_model_* || true
+          git add docs/latest/daily_candidate_frontpage_unique_latest.* || true
+          git add docs/latest/daily_candidate_same_model_repeat_latest.* || true
+          git add docs/latest/daily_candidate_pipeline_integrity_audit_latest.* || true
+          git add docs/latest/daily_candidate_group_rotation_latest.* || true
+          git add docs/latest/daily_report_model_registry_latest.* || true
+          git add docs/latest/chatgpt_indicator_usage_guide_latest.md || true
+          git add docs/latest/CHATGPT_INDICATOR_USAGE_GUIDE.txt || true
           python scripts/validate_daily_staged_paths.py
+          python scripts/validate_daily_event_catalyst_formal_sync_scope.py --validate-staged
           python scripts/validate_daily_published_model_snapshots.py
           python scripts/validate_no_conflict_markers.py
+          if ! git diff --quiet; then
+            echo "Unstaged tracked files remain after event-catalyst formal sync staging" >&2
+            git status --short
+            exit 1
+          fi
+          if [ -n "$(git ls-files --others --exclude-standard)" ]; then
+            echo "Untracked files remain after event-catalyst formal sync staging" >&2
+            git status --short
+            exit 1
+          fi
           if git diff --cached --quiet; then
             echo "No staged event-catalyst changes to commit"
+            echo "ARTIFACT_COMMIT_CREATED=false" >> "$GITHUB_ENV"
           else
             git commit -m "Update event catalyst data tables"
+            echo "ARTIFACT_COMMIT_CREATED=true" >> "$GITHUB_ENV"
           fi
-          bash scripts/ci_push_with_retry.sh main 5
+          pushed_artifact_sha="$(git rev-parse HEAD)"
+          echo "PUSHED_ARTIFACT_SHA=$pushed_artifact_sha" >> "$GITHUB_ENV"
+          test -z "$(git status --porcelain)"
+          git fetch origin main
+          current_origin_main="$(git rev-parse origin/main)"
+          if [ "$current_origin_main" != "$BUILD_BASE_SHA" ]; then
+            echo "origin/main advanced after event-catalyst formal artifact build; refusing stale artifacts" >&2
+            echo "build_base_sha=$BUILD_BASE_SHA current_origin_main=$current_origin_main" >&2
+            exit 1
+          fi
+          git push origin HEAD:main
 
       - name: Dispatch and wait for catalyst Pages deploy
-        if: ${{ github.ref == 'refs/heads/main' }}
+        if: ${{ github.ref == 'refs/heads/main' && env.ARTIFACT_COMMIT_CREATED == 'true' }}
         timeout-minutes: 40
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          pages_deploy_attempts=3
-          for deploy_attempt in $(seq 1 "$pages_deploy_attempts"); do
-            previous_pages_run_id="$(gh run list --workflow pages.yml --branch main --limit 1 --json databaseId --jq '.[0].databaseId // ""')"
-            echo "Previous Pages run id: ${previous_pages_run_id:-none}"
-            echo "Dispatching GitHub Pages deploy attempt=${deploy_attempt}/${pages_deploy_attempts}"
+          target_sha="$PUSHED_ARTIFACT_SHA"
+          git fetch origin main
+          current_origin_main="$(git rev-parse origin/main)"
+          if [ "$current_origin_main" != "$target_sha" ]; then
+            echo "::error::origin/main advanced before Pages dispatch expected=$target_sha actual=$current_origin_main"
+            exit 1
+          fi
+          previous_pages_run_id="$(gh run list \
+            --workflow pages.yml \
+            --branch main \
+            --event workflow_dispatch \
+            --commit "$target_sha" \
+            --limit 1 \
+            --json databaseId \
+            --jq '.[0].databaseId // ""')"
+          echo "Dispatching GitHub Pages deploy for exact artifact commit $target_sha"
+          gh workflow run pages.yml --ref main
 
-            gh workflow run pages.yml --ref main
+          for poll_attempt in {1..150}; do
+            pages_run="$(gh run list \
+              --workflow pages.yml \
+              --branch main \
+              --event workflow_dispatch \
+              --commit "$target_sha" \
+              --limit 1 \
+              --json databaseId,event,headSha,headBranch,status,conclusion \
+              --jq '.[0] // {}')"
+            pages_run_id="$(jq -r '.databaseId // empty' <<< "$pages_run")"
+            pages_event="$(jq -r '.event // empty' <<< "$pages_run")"
+            pages_head_sha="$(jq -r '.headSha // empty' <<< "$pages_run")"
+            pages_head_branch="$(jq -r '.headBranch // empty' <<< "$pages_run")"
+            status="$(jq -r '.status // empty' <<< "$pages_run")"
+            conclusion="$(jq -r '.conclusion // empty' <<< "$pages_run")"
 
-            pages_run_id=""
-            attempt_result="timeout"
-            for poll_attempt in {1..44}; do
-              latest_pages_run_id="$(gh run list --workflow pages.yml --branch main --limit 1 --json databaseId --jq '.[0].databaseId // ""')"
-
-              if [ -n "$latest_pages_run_id" ] && [ "$latest_pages_run_id" != "$previous_pages_run_id" ]; then
-                pages_run_id="$latest_pages_run_id"
-                status="$(gh run view "$pages_run_id" --json status --jq '.status')"
-                conclusion="$(gh run view "$pages_run_id" --json conclusion --jq '.conclusion // ""')"
-                echo "Pages run $pages_run_id poll_attempt=$poll_attempt status=$status conclusion=${conclusion:-pending}"
-
-                if [ "$status" = "completed" ]; then
-                  if [ "$conclusion" = "success" ]; then
-                    exit 0
-                  fi
-
-                  attempt_result="$conclusion"
-                  echo "::warning::GitHub Pages deploy attempt ${deploy_attempt}/${pages_deploy_attempts} finished with conclusion=$conclusion run_id=$pages_run_id"
-                  break
-                fi
-              else
-                echo "Waiting for new Pages run to appear, deploy_attempt=$deploy_attempt poll_attempt=$poll_attempt"
+            if [ -n "$pages_run_id" ] && [ "$pages_run_id" != "$previous_pages_run_id" ]; then
+              if [ "$pages_event" != "workflow_dispatch" ] || [ "$pages_head_branch" != "main" ]; then
+                echo "::error::Pages replay identity mismatch run_id=$pages_run_id event=$pages_event head_branch=$pages_head_branch"
+                exit 1
               fi
-
-              sleep 15
-            done
-
-            if [ "$attempt_result" = "timeout" ]; then
-              echo "::warning::Timed out waiting for GitHub Pages deploy attempt ${deploy_attempt}/${pages_deploy_attempts}"
+              if [ "$pages_head_sha" != "$target_sha" ]; then
+                echo "::error::Pages replay head SHA mismatch run_id=$pages_run_id expected=$target_sha actual=$pages_head_sha"
+                exit 1
+              fi
+              echo "Pages run $pages_run_id poll_attempt=$poll_attempt status=$status conclusion=${conclusion:-pending} head_sha=$pages_head_sha"
+              if [ "$status" = "completed" ]; then
+                if [ "$conclusion" = "success" ]; then
+                  exit 0
+                fi
+                echo "::error::GitHub Pages deploy failed conclusion=$conclusion run_id=$pages_run_id"
+                exit 1
+              fi
+            else
+              echo "Waiting for new workflow_dispatch Pages run for target_sha=$target_sha poll_attempt=$poll_attempt previous_run_id=${previous_pages_run_id:-none}"
             fi
-
-            if [ "$deploy_attempt" -lt "$pages_deploy_attempts" ]; then
-              sleep 60
-            fi
+            sleep 15
           done
 
-          echo "::error::GitHub Pages deploy did not succeed after ${pages_deploy_attempts} attempts"
+          echo "::error::Timed out waiting for exact-sha GitHub Pages deploy target_sha=$target_sha"
           exit 1

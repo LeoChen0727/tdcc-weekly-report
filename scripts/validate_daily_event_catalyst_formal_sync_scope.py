@@ -4,6 +4,8 @@ import argparse
 import csv
 import hashlib
 import json
+import subprocess
+from fnmatch import fnmatchcase
 from pathlib import Path
 from typing import Any
 
@@ -15,6 +17,63 @@ FORMAL_SIGNAL_ARTIFACTS = (
     "output/latest/daily_candidate_model_signals_latest.csv",
     "output/latest/daily_candidate_model_signals_for_report_latest.csv",
     "output/history/daily_candidate_models/daily_candidate_model_signal_log.csv",
+)
+STAGED_ALLOWED_PATTERNS = (
+    "data/theme_events/*",
+    "data/company_calendar/*",
+    "data/macro_events/*",
+    "data/fundamental_catalysts/*",
+    "data/event_catalysts/*",
+    "output/latest/upcoming_catalyst_calendar_latest.*",
+    "output/latest/upcoming_macro_event_calendar_latest.*",
+    "output/latest/calendar_data_source_status_latest.*",
+    "output/latest/catalyst_needs_review_latest.*",
+    "output/latest/all_candidates_latest.*",
+    "output/latest/fundamental_catalyst_layer_latest.md",
+    "output/latest/catalyst_summary_latest.*",
+    "output/latest/chatgpt_indicator_usage_guide_latest.md",
+    "output/latest/CHATGPT_INDICATOR_USAGE_GUIDE.txt",
+    "output/latest/theme_event_watch_latest.*",
+    "output/latest/event_calendar_validation_latest.*",
+    "output/latest/catalyst_data_source_status_latest.*",
+    "output/latest/catalyst_layer_validation_latest.*",
+    "output/latest/daily_candidate_model_parameters_latest.*",
+    "output/latest/daily_candidate_model_signals_latest.*",
+    "output/latest/daily_candidate_model_signals_for_report_latest.*",
+    "output/latest/daily_candidate_frontpage_unique_latest.*",
+    "output/latest/daily_candidate_same_model_repeat_latest.*",
+    "output/latest/daily_candidate_model_layer_packet_latest.md",
+    "output/latest/daily_candidate_model_layer_validation_latest.*",
+    "output/latest/daily_candidate_model_selection_audit_latest.*",
+    "output/latest/daily_candidate_pipeline_integrity_audit_latest.*",
+    "output/latest/daily_candidate_group_rotation_latest.*",
+    "output/latest/daily_report_model_registry_latest.*",
+    "output/latest/daily_candidate_model_summary_for_report_latest.*",
+    "output/history/catalyst_performance/*",
+    "output/history/daily_candidate_models/daily_candidate_model_signal_log.csv",
+    "output/history/daily_model_snapshots/daily_published_model_snapshot_manifest.csv",
+    "output/history/daily_model_snapshots/data_freshness_*.csv",
+    "output/history/daily_model_snapshots/daily_candidate_model_signals_for_report_*.csv",
+    "output/history/daily_model_snapshots/all_candidates_*.csv",
+    "output/history/daily_model_snapshots/daily_candidate_model_summary_for_report_*.csv",
+    "docs/latest/fundamental_catalyst_layer_latest.md",
+    "docs/latest/theme_event_watch_latest.*",
+    "docs/latest/upcoming_catalyst_calendar_latest.*",
+    "docs/latest/upcoming_macro_event_calendar_latest.*",
+    "docs/latest/catalyst_summary_latest.*",
+    "docs/latest/catalyst_needs_review_latest.*",
+    "docs/latest/event_calendar_validation_latest.*",
+    "docs/latest/catalyst_layer_validation_latest.*",
+    "docs/latest/catalyst_data_source_status_latest.*",
+    "docs/latest/calendar_data_source_status_latest.*",
+    "docs/latest/daily_candidate_model_*",
+    "docs/latest/daily_candidate_frontpage_unique_latest.*",
+    "docs/latest/daily_candidate_same_model_repeat_latest.*",
+    "docs/latest/daily_candidate_pipeline_integrity_audit_latest.*",
+    "docs/latest/daily_candidate_group_rotation_latest.*",
+    "docs/latest/daily_report_model_registry_latest.*",
+    "docs/latest/chatgpt_indicator_usage_guide_latest.md",
+    "docs/latest/CHATGPT_INDICATOR_USAGE_GUIDE.txt",
 )
 
 
@@ -142,6 +201,27 @@ def _write_snapshot(path: Path, snapshot: dict[str, Any]) -> None:
     )
 
 
+def validate_staged_path_list(paths: list[str]) -> list[str]:
+    errors: list[str] = []
+    for raw_path in paths:
+        path = raw_path.strip().replace("\\", "/")
+        if not path:
+            continue
+        if not any(fnmatchcase(path, pattern) for pattern in STAGED_ALLOWED_PATTERNS):
+            errors.append(f"event-catalyst formal sync staged path is outside allowlist: {path}")
+    return errors
+
+
+def staged_paths(root: Path) -> list[str]:
+    result = subprocess.run(
+        ["git", "diff", "--cached", "--name-only", "-z"],
+        cwd=root,
+        check=True,
+        capture_output=True,
+    )
+    return [item.decode("utf-8") for item in result.stdout.split(b"\0") if item]
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(
         description="Fail closed when event-catalyst formal sync changes non-revenue model rows."
@@ -149,10 +229,26 @@ def main() -> int:
     action = parser.add_mutually_exclusive_group(required=True)
     action.add_argument("--write-snapshot", type=Path)
     action.add_argument("--compare-snapshot", type=Path)
+    action.add_argument("--validate-staged", action="store_true")
     parser.add_argument("--repo-root", type=Path, default=ROOT)
     args = parser.parse_args()
 
-    snapshot, errors = build_scope_snapshot(args.repo_root.resolve())
+    root = args.repo_root.resolve()
+    if args.validate_staged:
+        try:
+            paths = staged_paths(root)
+        except (OSError, subprocess.CalledProcessError) as exc:
+            print(f"ERROR: unable to inspect staged event-catalyst formal sync paths: {exc}")
+            return 1
+        staged_errors = validate_staged_path_list(paths)
+        if staged_errors:
+            for error in staged_errors:
+                print(f"ERROR: {error}")
+            return 1
+        print(f"event-catalyst formal sync staged path validation passed: staged_paths={len(paths)}")
+        return 0
+
+    snapshot, errors = build_scope_snapshot(root)
     if errors:
         for error in errors:
             print(f"ERROR: {error}")

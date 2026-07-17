@@ -3,6 +3,7 @@ from __future__ import annotations
 from pathlib import Path
 
 import pytest
+import yaml
 
 from scripts.sync_catalyst_pages_artifacts import CATALYST_PAGES_ARTIFACTS, sync_artifacts
 
@@ -40,6 +41,8 @@ def test_event_and_weekly_workflows_publish_pages_and_use_full_validation() -> N
         ROOT / ".github" / "workflows" / "weekly_theme_review.yml",
     ]:
         text = workflow.read_text(encoding="utf-8")
+        parsed_workflow = yaml.safe_load(text)
+        assert parsed_workflow["jobs"]
         assert "actions: write" in text
         assert "actions/checkout@v6.0.3" in text
         assert "group: daily-full-pipeline-${{ github.ref }}" in text
@@ -62,6 +65,7 @@ def test_event_and_weekly_workflows_publish_pages_and_use_full_validation() -> N
         assert "python scripts/validate_daily_published_model_snapshots.py" in text
         assert "python scripts/validate_daily_staged_paths.py" in text
         assert "python scripts/validate_daily_event_catalyst_formal_sync_scope.py" in text
+        assert "python scripts/validate_daily_event_catalyst_formal_sync_scope.py --validate-staged" in text
         assert '--write-snapshot "$formal_sync_scope_before"' in text
         assert '--compare-snapshot "$formal_sync_scope_before"' in text
         assert 'capture_mature_sentinels "$mature_sentinel_before"' in text
@@ -70,11 +74,24 @@ def test_event_and_weekly_workflows_publish_pages_and_use_full_validation() -> N
         assert "mature_model_sentinel_before_sha256=" in text
         assert "mature_model_sentinel_after_sha256=" in text
         assert "mature_model_sentinel_artifact_count=" in text
-        assert "git add output/history/daily_candidate_models/" in text
-        assert "git add output/history/daily_model_snapshots/" in text
-        assert "git add docs/latest/" in text
+        assert "git add output/history/daily_candidate_models/daily_candidate_model_signal_log.csv" in text
+        assert "git add output/history/daily_candidate_models/ || true" not in text
+        assert "git add output/history/daily_model_snapshots/ || true" not in text
+        assert "git add docs/latest/ || true" not in text
+        for artifact_id in (
+            "data_freshness",
+            "model_signals_for_report",
+            "all_candidates_source_rows",
+            "model_summary_for_report",
+        ):
+            assert f"--artifact-id {artifact_id}" in text
         assert "if git diff --cached --quiet; then" in text
-        assert "bash scripts/ci_push_with_retry.sh main 5" in text
+        assert "bash scripts/ci_push_with_retry.sh main 5" not in text
+        assert 'echo "BUILD_BASE_SHA=$build_base_sha" >> "$GITHUB_ENV"' in text
+        assert 'if [ "$current_origin_main" != "$BUILD_BASE_SHA" ]; then' in text
+        assert "git push origin HEAD:main" in text
+        assert 'echo "ARTIFACT_COMMIT_CREATED=false" >> "$GITHUB_ENV"' in text
+        assert 'echo "ARTIFACT_COMMIT_CREATED=true" >> "$GITHUB_ENV"' in text
         assert "GITHUB_REF_NAME" not in text
         assert "git pull --rebase origin main" not in text
         assert "\n          git push\n" not in text
@@ -83,9 +100,12 @@ def test_event_and_weekly_workflows_publish_pages_and_use_full_validation() -> N
         assert '|| echo "No changes to commit"' not in text
         assert "gh workflow run pages.yml --ref main" in text
         assert "timeout-minutes: 40" in text
-        assert "pages_deploy_attempts=3" in text
-        assert "for poll_attempt in {1..44}" in text
-        assert "GitHub Pages deploy did not succeed after" in text
+        assert "pages_deploy_attempts=3" not in text
+        assert "for poll_attempt in {1..150}" in text
+        assert 'target_sha="$PUSHED_ARTIFACT_SHA"' in text
+        assert '--commit "$target_sha"' in text
+        assert 'pages_head_sha" != "$target_sha"' in text
+        assert "Timed out waiting for exact-sha GitHub Pages deploy" in text
         assert "validate_event_calendar_data.py --schema-only" not in text
         assert "validate_catalyst_layer.py --schema-only" not in text
         for forbidden in [
@@ -102,6 +122,9 @@ def test_event_and_weekly_workflows_publish_pages_and_use_full_validation() -> N
             assert forbidden not in text
 
         main_guard_index = text.index("Enforce main-only mutation")
+        snapshot_baseline_index = text.index(
+            "python scripts/validate_daily_published_model_snapshots.py"
+        )
         sentinel_before_index = text.index('capture_mature_sentinels "$mature_sentinel_before"')
         catalyst_index = text.index("python scripts/apply_fundamental_catalyst_layer.py")
         catalyst_performance_index = text.index("python scripts/update_catalyst_performance.py")
@@ -121,7 +144,10 @@ def test_event_and_weekly_workflows_publish_pages_and_use_full_validation() -> N
         )
         theme_watch_index = text.index("python scripts/build_theme_event_watch.py")
         snapshot_update_index = text.index("python scripts/update_daily_published_model_snapshots.py")
-        snapshot_validate_index = text.index("python scripts/validate_daily_published_model_snapshots.py")
+        snapshot_validate_index = text.index(
+            "python scripts/validate_daily_published_model_snapshots.py",
+            snapshot_update_index,
+        )
         pages_sync_index = text.index("python scripts/sync_catalyst_pages_artifacts.py")
         indicator_guide_index = text.index("python scripts/build_chatgpt_indicator_usage_guide.py")
         sentinel_after_index = text.index('capture_mature_sentinels "$mature_sentinel_after"')
@@ -129,6 +155,7 @@ def test_event_and_weekly_workflows_publish_pages_and_use_full_validation() -> N
         commit_index = text.index("git commit -m")
         assert (
             main_guard_index
+            < snapshot_baseline_index
             < sentinel_before_index
             < catalyst_index
             < catalyst_performance_index
