@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3003 健和興
 
 ## Metadata
-- generated_at: 2026-07-16 22:27:06 Asia/Taipei
+- generated_at: 2026-07-17 22:26:42 Asia/Taipei
 - stock_id: 3003
 - stock_name: 健和興
 - packet_status: standard_180d_window_packet
@@ -189,8 +189,8 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 3003 | 健和興 | pattern | 型態觀察 | 54.0 |  |  | pullback_right_side |  | call_inflow | repeated_but_no_breakout | 1.事實發生日:115/07/15 2.公司名稱:健和興端子股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:本公司115年06月份自結營收及損益情形 06月營收：5.99億元，114年同期營收：4.40億元。 06月稅前損益：10,915萬元，114年同期稅前損益：1,280萬元， 以實收資本額15.57億元計，單月稅前EPS為0.70元。 06月稅後損益：7,751萬元，114年同期稅後損益：683萬元， 以實收資本額15.57億元計，單月稅後EPS為0.47元。 01-06月營收：28.77億元，114年同期營收：21.88億元。 01-06月稅前損益：34,440萬元，114年同期稅前損益：5,307萬元， 以實收資本額15.57億元計，累計稅前EPS為2.21元。 01-06月稅後損益：23,808萬元，114年同期稅後損益：200萬元， 以實收資本額15.57億元計，累計稅後EPS為1.46元。 6.因應措施:無。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 自結數尚未經會計師查核簽證，正確情形，以本公司公告之會計師 簽證報表為主，特此說明。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
-| 20260716 | 3003 | 健和興 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | call_inflow | repeated_but_no_breakout | 1.事實發生日:115/07/15 2.公司名稱:健和興端子股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:本公司115年06月份自結營收及損益情形 06月營收：5.99億元，114年同期營收：4.40億元。 06月稅前損益：10,915萬元，114年同期稅前損益：1,280萬元， 以實收資本額15.57億元計，單月稅前EPS為0.70元。 06月稅後損益：7,751萬元，114年同期稅後損益：683萬元， 以實收資本額15.57億元計，單月稅後EPS為0.47元。 01-06月營收：28.77億元，114年同期營收：21.88億元。 01-06月稅前損益：34,440萬元，114年同期稅前損益：5,307萬元， 以實收資本額15.57億元計，累計稅前EPS為2.21元。 01-06月稅後損益：23,808萬元，114年同期稅後損益：200萬元， 以實收資本額15.57億元計，累計稅後EPS為1.46元。 6.因應措施:無。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 自結數尚未經會計師查核簽證，正確情形，以本公司公告之會計師 簽證報表為主，特此說明。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260716 | 3003 | 健和興 | pattern | 型態觀察 | 54.0 |  |  | pullback_right_side |  | call_inflow | repeated_but_no_breakout | 1.董事會、股東會決議或公司決定日期:115/07/16 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額: (1)現金股利新台幣155,654,890元整。 4.除權（息）交易日:115/08/06 5.最後過戶日:115/08/07 6.停止過戶起始日期:115/08/08 7.停止過戶截止日期:115/08/12 8.除權（息）基準日:115/08/12 9.債券最後申請轉換日期:無。 10.債券停止轉換起始日期:無。 11.債券停止轉換截止日期:無。 12.普通股現金股利發放日期:115/08/26 13.現金股利之一部或全部是否以外幣發放(請填入「是」或「否」):否 14.外幣現金股利發放幣別:無。 15.外幣現金股利發放對象:無。 16.外幣現金股利匯率決定方式:無。 17.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260716 | 3003 | 健和興 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | call_inflow | repeated_but_no_breakout | 1.董事會、股東會決議或公司決定日期:115/07/16 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額: (1)現金股利新台幣155,654,890元整。 4.除權（息）交易日:115/08/06 5.最後過戶日:115/08/07 6.停止過戶起始日期:115/08/08 7.停止過戶截止日期:115/08/12 8.除權（息）基準日:115/08/12 9.債券最後申請轉換日期:無。 10.債券停止轉換起始日期:無。 11.債券停止轉換截止日期:無。 12.普通股現金股利發放日期:115/08/26 13.現金股利之一部或全部是否以外幣發放(請填入「是」或「否」):否 14.外幣現金股利發放幣別:無。 15.外幣現金股利發放對象:無。 16.外幣現金股利匯率決定方式:無。 17.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

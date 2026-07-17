@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2892 第一金
 
 ## Metadata
-- generated_at: 2026-07-16 22:27:04 Asia/Taipei
+- generated_at: 2026-07-17 22:26:41 Asia/Taipei
 - stock_id: 2892
 - stock_name: 第一金
 - packet_status: standard_180d_window_packet
@@ -189,7 +189,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 2892 | 第一金 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | no_signal | stale_signal | 1.發生變動日期:115/06/29 2.法人名稱:第一金融控股股份有限公司 3.舊任者姓名:甘美珠 4.舊任者簡歷:第一金人壽保險股份有限公司董事 5.新任者姓名:無 6.新任者簡歷:無 7.異動原因:辭任 8.原任期（例xx/xx/xx至xx/xx/xx）:112/07/27~115/07/26 9.新任生效日期:不適用 10.其他應敘明事項:1.依第一金控總事發管字第000342號函辦理，自115/06/30起生效。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260716 | 2892 | 第一金 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | no_signal | stale_signal | 1.證券名稱: 聯友金屬科技股份有限公司 普通股 2.交易日期:114/8/19~115/7/16 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:總經理 民國115年7月16日 5.交易數量、每單位價格及交易總金額: 1.交易數量：590,000股 2.每單位價格：均價543.84元 3.交易總金額：320,866,605元 6.處分利益（或損失）（取得有價證券者不適用）: 處分利益：291,354,353元 7.與交易標的公司之關係: 非關係人 8.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 1.交易數量：233,732 股 2.交易金額：12,971,316元 3.持股比率：0.48% 4.權利受限情形：無 9.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列之有價證券投 資（含本次交易）占公司最近期財務報表中總資產及歸屬於母公司業主之權益之比例 暨最近期財務報表中營運資金數額: 1.有價證券投資（含本次交易）占公司最近期財務報表中總資產比例：0.004% 2.有價證券投資（含本次交易）歸屬於母公司業主之權益之比例：0.004% 3.營運資金：不適用 10.取得或處分之具體目的: 投資組合調整 11.本次交易表示異議董事之意見: 不適用 12.本次交易為關係人交易: 否 13.交易相對人及其與公司之關係: 否 14.監察人承認或審計委員會同意日期: 不適用 15.前已就同一件事件發布重大訊息日期: 不適用 16.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

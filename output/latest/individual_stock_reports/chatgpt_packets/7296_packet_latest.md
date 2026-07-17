@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7296 華星光統一56購01
 
 ## Metadata
-- generated_at: 2026-07-16 22:28:29 Asia/Taipei
+- generated_at: 2026-07-17 22:27:49 Asia/Taipei
 - stock_id: 7296
 - stock_name: 華星光統一56購01
 - packet_status: partial_rawdata_packet

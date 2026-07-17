@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2867 三商壽
 
 ## Metadata
-- generated_at: 2026-07-16 22:27:03 Asia/Taipei
+- generated_at: 2026-07-17 22:26:40 Asia/Taipei
 - stock_id: 2867
 - stock_name: 三商壽
 - packet_status: standard_180d_window_packet
@@ -195,8 +195,8 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 2867 | 三商壽 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | repeated_but_no_breakout | 1.事實發生日:115/07/15 2.公司名稱:三商美邦人壽保險股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:三商美邦人壽公布115年6月自結損益。   (1)單月稅前淨損：-10.30億元   (2)單月稅後淨損：-8.69億元   (3)累積稅前淨利：57.27億元   (4)累積稅後淨利：51.25億元   (5)累積每股稅後盈餘：0.87元   註：115年6月未適用外匯價格變動準備金機制累積每股稅後盈餘為1.02元。 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
-| 20260716 | 2867 | 三商壽 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | repeated_but_no_breakout | 1.事實發生日:115/07/15 2.公司名稱:三商美邦人壽保險股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:三商美邦人壽公布115年6月自結損益。   (1)單月稅前淨損：-10.30億元   (2)單月稅後淨損：-8.69億元   (3)累積稅前淨利：57.27億元   (4)累積稅後淨利：51.25億元   (5)累積每股稅後盈餘：0.87元   註：115年6月未適用外匯價格變動準備金機制累積每股稅後盈餘為1.02元。 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260716 | 2867 | 三商壽 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | repeated_but_no_breakout | 1.發生變動日期:115/07/16 2.功能性委員會名稱:薪資報酬暨提名委員會 3.舊任者姓名: 杜德成(暨召集人) 楊弘毅 柳漢宗 4.舊任者簡歷: 杜德成/三商美邦人壽保險股份有限公司獨立董事 楊弘毅/三商美邦人壽保險股份有限公司獨立董事 柳漢宗/三商美邦人壽保險股份有限公司獨立董事 5.新任者姓名: 杜德成(暨召集人) 楊弘毅 柳漢宗 6.新任者簡歷: 杜德成/三商美邦人壽保險股份有限公司獨立董事 楊弘毅/三商美邦人壽保險股份有限公司獨立董事 柳漢宗/三商美邦人壽保險股份有限公司獨立董事 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 任期屆滿 8.異動原因:任期屆滿，全面改選 9.原任期（例xx/xx/xx ~ xx/xx/xx）:112/06/29 ~ 115/06/14 10.新任生效日期:115/07/16 11.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260716 | 2867 | 三商壽 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | repeated_but_no_breakout | 1.發生變動日期:115/07/16 2.功能性委員會名稱:薪資報酬暨提名委員會 3.舊任者姓名: 杜德成(暨召集人) 楊弘毅 柳漢宗 4.舊任者簡歷: 杜德成/三商美邦人壽保險股份有限公司獨立董事 楊弘毅/三商美邦人壽保險股份有限公司獨立董事 柳漢宗/三商美邦人壽保險股份有限公司獨立董事 5.新任者姓名: 杜德成(暨召集人) 楊弘毅 柳漢宗 6.新任者簡歷: 杜德成/三商美邦人壽保險股份有限公司獨立董事 楊弘毅/三商美邦人壽保險股份有限公司獨立董事 柳漢宗/三商美邦人壽保險股份有限公司獨立董事 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 任期屆滿 8.異動原因:任期屆滿，全面改選 9.原任期（例xx/xx/xx ~ xx/xx/xx）:112/06/29 ~ 115/06/14 10.新任生效日期:115/07/16 11.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

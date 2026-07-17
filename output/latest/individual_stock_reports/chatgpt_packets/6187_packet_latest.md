@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6187 萬潤
 
 ## Metadata
-- generated_at: 2026-07-16 22:28:00 Asia/Taipei
+- generated_at: 2026-07-17 22:27:26 Asia/Taipei
 - stock_id: 6187
 - stock_name: 萬潤
 - packet_status: standard_180d_window_packet
@@ -193,8 +193,8 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 6187 | 萬潤 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/07/04 2.公司名稱:萬潤科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:經本公司115/07/04董事會決議通過 (1)本公司國內第五次無擔保轉換公司債發行新股，並辦理股本變更登記 (2)本公司現金股利分配，訂定除息基準日與停止過戶期間等相關事宜 (3)訂定本公司115年國內第六次可轉換公司債停止轉換日暨轉換價格調整案 (4)修訂本公司「111年第1次買回股份轉讓員工辦法」 (5)本公司庫藏股轉讓員工認股事宜 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260716 | 6187 | 萬潤 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | 1.事實發生日:115/07/04 2.公司名稱:萬潤科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:經本公司115/07/04董事會決議通過 (1)本公司國內第五次無擔保轉換公司債發行新股，並辦理股本變更登記 (2)本公司現金股利分配，訂定除息基準日與停止過戶期間等相關事宜 (3)訂定本公司115年國內第六次可轉換公司債停止轉換日暨轉換價格調整案 (4)修訂本公司「111年第1次買回股份轉讓員工辦法」 (5)本公司庫藏股轉讓員工認股事宜 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260716 | 6187 | 萬潤 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/07/16 2.公司名稱:萬潤科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:依本公司國內第六次無擔保轉換公司債發行及轉換辦法規定調整轉換價格。 6.因應措施:本公司因配發現金股利，依國內115年第六次無擔保轉換公司債發行及轉換 辦法第11條規定，轉換價格應予以調整，故自115年8月9日起，國內第六次無擔保轉換 公司債轉換價格由新臺幣1,150元調整為新臺幣1,136.8元。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項):無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260716 | 6187 | 萬潤 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | 1.事實發生日:115/07/16 2.公司名稱:萬潤科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:依本公司國內第六次無擔保轉換公司債發行及轉換辦法規定調整轉換價格。 6.因應措施:本公司因配發現金股利，依國內115年第六次無擔保轉換公司債發行及轉換 辦法第11條規定，轉換價格應予以調整，故自115年8月9日起，國內第六次無擔保轉換 公司債轉換價格由新臺幣1,150元調整為新臺幣1,136.8元。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項):無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

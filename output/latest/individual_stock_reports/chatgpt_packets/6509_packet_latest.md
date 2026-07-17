@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6509 聚和
 
 ## Metadata
-- generated_at: 2026-07-16 22:28:10 Asia/Taipei
+- generated_at: 2026-07-17 22:27:33 Asia/Taipei
 - stock_id: 6509
 - stock_name: 聚和
 - packet_status: standard_180d_window_packet
@@ -189,7 +189,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 6509 | 聚和 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.事實發生日：115/07/15 2.事實發生主體：代子公司申報：常熟聚和化學有限公司 3.發生緣由(事件說明)：因危險化學品儲存數量及安全設施之正常使用暨安裝不合規、未對用於生產等建設項目 進行安全評價，經常熟市應急管理局依違反中華人民共和國安全生產法及危險化學品 安全管理條例經查屬實，爰依安全生產違法行為行政處罰辦法第72條合併裁罰。 4.處理過程：依規定期限內繳納罰款 5.處分情形：罰款人民幣632,500元 6.是否遭裁處罰鍰：是 7.裁罰金額(元)：新台幣 0 元; 人民幣 632,500 元 8.預計可能損失或影響：罰款人民幣632,500元 9.可能獲得保險理賠之金額(元)：無 10.改善情形及未來因應措施：依法落實生產安全管理及完成改正 11.是否前已就同一事件發布重大訊息：否 12.其他應述明事項：無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260716 | 6509 | 聚和 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.事實發生日:115/07/16 2.公司名稱:聚和國際股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:   依據聚和國際股份有限公司國內第六次無擔保轉換公司債發行及轉換辦法(以下簡稱   ”發行及轉換辦法”)相關規定辦理。 6.因應措施:   (1)依據發行及轉換辦法第十一條規定，轉換價格應予以調整。   (2)依據發行及轉換辦法第九條規定，本轉換公司債停止轉換期間為115年7月13日起      至115年8月5日止。   (3)本公司國內第六次無擔保轉換公司債之轉換價格自115年8月5日起，適用調整後      之轉換價格為36.6元。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項):無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

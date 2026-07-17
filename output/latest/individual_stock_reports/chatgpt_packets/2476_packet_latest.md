@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2476 鉅祥
 
 ## Metadata
-- generated_at: 2026-07-16 22:26:54 Asia/Taipei
+- generated_at: 2026-07-17 22:26:33 Asia/Taipei
 - stock_id: 2476
 - stock_name: 鉅祥
 - packet_status: standard_180d_window_packet
@@ -189,8 +189,8 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 2476 | 鉅祥 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | call_inflow | stale_signal | 1.事實發生日:115/07/07 2.公司名稱:鉅祥企業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: (1)合併營業收入(當月與去年同期比較)(單位：新台幣仟元)   項目     115年06月  114年06月  成長率 --------   ---------  --------- -------- 合併營收    915,039    595,099   53.76% (2)合併營業收入(當月與上月比較)(單位：新台幣仟元)   項目     115年06月  115年05月  成長率 --------   ---------  --------- -------- 合併營收    915,039    838,717    9.10% (3)累計合併營業收入(單位：新台幣仟元)   項目     115年01-06月   114年01-06月  成長率 --------- -------------  ------------- -------- 合併營收    4,734,678      3,457,947    36.92% 上列數字係本公司自結數，未經會計師簽證或核閱。 6.因應措施:發布重大訊息 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):  無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
-| 20260716 | 2476 | 鉅祥 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | call_inflow | stale_signal | 1.事實發生日:115/07/07 2.公司名稱:鉅祥企業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: (1)合併營業收入(當月與去年同期比較)(單位：新台幣仟元)   項目     115年06月  114年06月  成長率 --------   ---------  --------- -------- 合併營收    915,039    595,099   53.76% (2)合併營業收入(當月與上月比較)(單位：新台幣仟元)   項目     115年06月  115年05月  成長率 --------   ---------  --------- -------- 合併營收    915,039    838,717    9.10% (3)累計合併營業收入(單位：新台幣仟元)   項目     115年01-06月   114年01-06月  成長率 --------- -------------  ------------- -------- 合併營收    4,734,678      3,457,947    36.92% 上列數字係本公司自結數，未經會計師簽證或核閱。 6.因應措施:發布重大訊息 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):  無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260716 | 2476 | 鉅祥 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | call_inflow | stale_signal | 1.發生變動日期:115/07/16 2.功能性委員會名稱:薪資報酬委員會 3.舊任者姓名:不適用 4.舊任者簡歷:不適用 5.新任者姓名: 馬淑琴小姐 廖雅苓小姐 陳宏毅先生 劉思敏小姐 6.新任者簡歷: 馬淑琴小姐  佳霖會計師事務所會計師 廖雅苓小姐  美商應用材料股份有限公司供應商品管經理 陳宏毅先生  財政部國有財產局科長 劉思敏小姐  信昌機械廠股份有限公司桃園分公司財務處副理 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）:  新任 8.異動原因:配合本公司115年6月12日股東會董事全面改選，  第5屆薪資報酬委員會委員任期屆滿，故重新委任。 9.原任期（例xx/xx/xx ~ xx/xx/xx）:112/08/04~115/06/08 10.新任生效日期:115/07/16 11.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260716 | 2476 | 鉅祥 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | call_inflow | stale_signal | 1.發生變動日期:115/07/16 2.功能性委員會名稱:薪資報酬委員會 3.舊任者姓名:不適用 4.舊任者簡歷:不適用 5.新任者姓名: 馬淑琴小姐 廖雅苓小姐 陳宏毅先生 劉思敏小姐 6.新任者簡歷: 馬淑琴小姐  佳霖會計師事務所會計師 廖雅苓小姐  美商應用材料股份有限公司供應商品管經理 陳宏毅先生  財政部國有財產局科長 劉思敏小姐  信昌機械廠股份有限公司桃園分公司財務處副理 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）:  新任 8.異動原因:配合本公司115年6月12日股東會董事全面改選，  第5屆薪資報酬委員會委員任期屆滿，故重新委任。 9.原任期（例xx/xx/xx ~ xx/xx/xx）:112/08/04~115/06/08 10.新任生效日期:115/07/16 11.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
