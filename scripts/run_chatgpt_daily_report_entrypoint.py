@@ -251,6 +251,11 @@ def resolve_live_market_session_for_entrypoint(
                 f"market_session_date={live_status.get('market_session_date', '')} "
                 f"reason_code={reason_code}"
             )
+        if market_status != market_session_calendar.CLOSED_SCHEDULED:
+            raise DailyReportEntrypointError(
+                "closed-market validation replay is allowed only for closed_scheduled; "
+                f"market_status={market_status} reason_code={reason_code}"
+            )
         live_expected = market_session_calendar.normalize_date(
             live_status.get("expected_main_price_date")
         )
@@ -367,6 +372,7 @@ def ensure_entrypoint_can_run(
             require_git_clean=True,
             allow_dirty=allow_dirty_code,
             require_local_match=False,
+            validation_replay_main_price_date=validation_replay_date,
         )
     except DailyReportSourceError as exc:
         raise DailyReportEntrypointError("\n".join(exc.errors)) from exc
@@ -596,6 +602,9 @@ def main() -> int:
                     fetch=False,
                     require_git_clean=True,
                     require_local_match=True,
+                    validation_replay_main_price_date=state.get(
+                        "validation_replay_main_price_date", ""
+                    ),
                 )
                 print(
                     "temporary clean source worktree verified: "

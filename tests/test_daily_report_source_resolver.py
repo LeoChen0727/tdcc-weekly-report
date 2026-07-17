@@ -282,6 +282,67 @@ def test_resolver_rejects_closed_market_even_when_previous_freshness_is_ready(tm
 
     assert any("market_status must be open_confirmed" in error for error in excinfo.value.errors)
 
+    with pytest.raises(DailyReportSourceError) as replay_excinfo:
+        resolve_daily_report_source_state(
+            repo,
+            fetch=False,
+            require_git_clean=True,
+            validation_replay_main_price_date="20260709",
+        )
+
+    assert any(
+        "market_status must be open_confirmed" in error
+        for error in replay_excinfo.value.errors
+    )
+
+
+def test_resolver_allows_exact_closed_market_validation_replay_only(tmp_path: Path) -> None:
+    repo = init_repo(tmp_path)
+    write_sources(repo, date="20260717")
+    status_path = repo / "output" / "latest" / "market_session_status_latest.json"
+    status = json.loads(status_path.read_text(encoding="utf-8"))
+    status.update(
+        {
+            "phase": "preflight",
+            "assessment_date": "20260718",
+            "market_session_date": "20260718",
+            "market_status": "closed_scheduled",
+            "expected_main_price_date": "20260717",
+            "should_run_daily_pipeline": False,
+            "reason_code": "weekend",
+        }
+    )
+    status_path.write_text(json.dumps(status), encoding="utf-8")
+    head = commit_all(repo, "scheduled closure after ready data")
+    point_origin_main(repo, head)
+
+    state = resolve_daily_report_source_state(
+        repo,
+        fetch=False,
+        require_git_clean=True,
+        validation_replay_main_price_date="20260717",
+    )
+
+    assert state["market_session_status"] == "closed_scheduled"
+    assert state["market_session_date"] == "20260718"
+    assert state["expected_main_price_date"] == "20260717"
+    assert state["main_price_date"] == "20260717"
+    assert state["validation_replay_main_price_date"] == "20260717"
+
+    with pytest.raises(DailyReportSourceError) as excinfo:
+        resolve_daily_report_source_state(
+            repo,
+            fetch=False,
+            require_git_clean=True,
+            validation_replay_main_price_date="20260716",
+        )
+
+    assert any(
+        "validation_replay_main_price_date=20260716 does not match main_price_date=20260717"
+        in error
+        for error in excinfo.value.errors
+    )
+
 
 def test_resolver_rejects_local_latest_that_does_not_match_origin_main(tmp_path: Path) -> None:
     repo = init_repo(tmp_path)

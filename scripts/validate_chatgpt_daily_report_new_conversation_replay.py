@@ -785,6 +785,9 @@ def run_replay(
             require_git_clean=False,
             allow_dirty=False,
             require_local_match=False,
+            validation_replay_main_price_date=(
+                expected_main_price_date if source_ref == DEFAULT_SOURCE_REF else ""
+            ),
         )
     except DailyReportSourceError as exc:
         raise ReplayValidationError("\n".join(exc.errors)) from exc
@@ -805,6 +808,9 @@ def run_replay(
                 require_git_clean=True,
                 allow_dirty=False,
                 require_local_match=True,
+                validation_replay_main_price_date=(
+                    expected_main_price_date if source_ref == DEFAULT_SOURCE_REF else ""
+                ),
             )
             if state["source_commit_sha"] != current_source_state["source_commit_sha"]:
                 raise ReplayValidationError(
