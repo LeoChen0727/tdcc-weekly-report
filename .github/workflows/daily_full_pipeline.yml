@@ -606,7 +606,7 @@ jobs:
           python scripts/validate_revenue_unreacted_range_financial_statement_fail_closed.py
           python scripts/build_daily_report_model_summary.py
           python scripts/build_daily_volume_breakout_operation_section.py
-          python scripts/validate_daily_volume_breakout_operation_section.py
+          python scripts/validate_daily_volume_breakout_operation_section.py --output-only
           python scripts/validate_daily_legacy_volume_range_breakout_removed.py
           python scripts/validate_daily_legacy_mature_model_paths_removed.py
           python scripts/build_daily_w_bottom_operation_sections.py
@@ -751,6 +751,10 @@ jobs:
           cp output/latest/daily_candidate_frontpage_unique_latest.md docs/latest/daily_candidate_frontpage_unique_latest.md || true
           cp output/latest/daily_candidate_same_model_repeat_latest.csv docs/latest/daily_candidate_same_model_repeat_latest.csv || true
           cp output/latest/daily_candidate_same_model_repeat_latest.md docs/latest/daily_candidate_same_model_repeat_latest.md || true
+          cp output/latest/daily_volume_breakout_operation_section_latest.csv docs/latest/daily_volume_breakout_operation_section_latest.csv
+          cp output/latest/daily_volume_breakout_operation_section_latest.md docs/latest/daily_volume_breakout_operation_section_latest.md
+          cp output/latest/daily_volume_breakout_operation_evidence_audit_latest.csv docs/latest/daily_volume_breakout_operation_evidence_audit_latest.csv
+          cp output/latest/daily_volume_breakout_operation_evidence_audit_latest.md docs/latest/daily_volume_breakout_operation_evidence_audit_latest.md
           cp output/latest/daily_price_pullback_23ema_operation_section_latest.csv docs/latest/daily_price_pullback_23ema_operation_section_latest.csv || true
           cp output/latest/daily_price_pullback_23ema_operation_section_latest.md docs/latest/daily_price_pullback_23ema_operation_section_latest.md || true
           cp output/latest/daily_price_pullback_23ema_operation_evidence_audit_latest.csv docs/latest/daily_price_pullback_23ema_operation_evidence_audit_latest.csv || true
@@ -808,6 +812,12 @@ jobs:
           git add docs/latest/daily_candidate_*.csv docs/latest/daily_candidate_*.md docs/latest/daily_candidate_*.json || true
           git add docs/latest/daily_w_bottom_right_side_operation_*_latest.* || true
           git add docs/latest/daily_neckline_volume_breakout_confirmation_operation_*_latest.* || true
+          git add -- \
+            docs/latest/daily_volume_breakout_operation_section_latest.csv \
+            docs/latest/daily_volume_breakout_operation_section_latest.md \
+            docs/latest/daily_volume_breakout_operation_evidence_audit_latest.csv \
+            docs/latest/daily_volume_breakout_operation_evidence_audit_latest.md
+          python scripts/validate_daily_volume_breakout_operation_section.py
           git add docs/latest/daily_price_pullback_23ema_operation_*_latest.* || true
           git add docs/latest/mature_model_row_level_metric_contract_audit_latest.* || true
           git add docs/latest/mature_model_row_level_metric_row_audit_latest.* || true
