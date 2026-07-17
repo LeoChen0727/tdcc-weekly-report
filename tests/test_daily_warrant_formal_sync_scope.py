@@ -794,6 +794,34 @@ def test_candidate_scope_allows_only_warrant_columns(tmp_path: Path) -> None:
     )
 
 
+def test_candidate_scope_rejects_warrant_column_relocation(tmp_path: Path) -> None:
+    _write_artifacts(tmp_path, _signal_rows())
+    before, errors = build_scope_snapshot(tmp_path)
+    assert errors == []
+
+    candidate_rows = _candidate_rows()
+    original_columns = list(candidate_rows[0])
+    non_warrant_columns = [
+        column for column in original_columns if column not in WARRANT_CANDIDATE_FIELDS
+    ]
+    warrant_columns = [
+        column for column in original_columns if column in WARRANT_CANDIDATE_FIELDS
+    ]
+    relocated_columns = [*warrant_columns, *non_warrant_columns]
+    _write_csv(
+        tmp_path / ALL_CANDIDATES_ARTIFACT,
+        relocated_columns,
+        candidate_rows,
+    )
+    after, errors = build_scope_snapshot(tmp_path)
+
+    assert errors == []
+    assert (
+        "formal signal schema drift outside warrant sync scope: "
+        f"{ALL_CANDIDATES_ARTIFACT}"
+    ) in compare_scope_snapshots(before, after)
+
+
 def test_projection_requires_candidate_raw_and_report_consistency(tmp_path: Path) -> None:
     _write_artifacts(tmp_path, _signal_rows())
     errors, metrics = validate_current_projection(tmp_path)
