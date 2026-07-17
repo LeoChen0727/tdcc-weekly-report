@@ -45,8 +45,16 @@ def test_revenue_producer_accepts_only_revenue_artifacts() -> None:
         REVENUE_PRODUCER,
         [
             "output/latest/research_backtest/revenue_unreacted_range_feature_contrast_audit_latest.csv",
+            "output/latest/research_backtest/revenue_unreacted_range_position_shape_transition_matrix_latest.csv",
+            "output/latest/research_backtest/revenue_unreacted_range_position_shape_transition_matrix_detail_latest.csv",
+            "output/latest/research_backtest/revenue_unreacted_range_position_shape_transition_matrix_transition_latest.csv",
             "output/history/research/revenue_unreacted_range_feature_contrast_audit.csv",
+            "output/history/research/revenue_unreacted_range_position_shape_transition_matrix.csv",
+            "output/history/research/revenue_unreacted_range_position_shape_transition_matrix_transition.csv",
             "docs/latest/revenue_unreacted_range_feature_contrast_audit_latest.md",
+            "docs/latest/revenue_unreacted_range_position_shape_transition_matrix_latest.csv",
+            "docs/latest/revenue_unreacted_range_position_shape_transition_matrix_transition_latest.csv",
+            "docs/latest/revenue_unreacted_range_position_shape_transition_matrix_latest.md",
         ],
         rules,
     )

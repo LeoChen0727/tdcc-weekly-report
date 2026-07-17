@@ -51,6 +51,10 @@ from revenue_unreacted_range_operation_lag_bucket_audit import (
     build_operation_lag_bucket_audit,
     write_operation_lag_bucket_audit,
 )
+from revenue_unreacted_range_position_shape_transition_matrix import (
+    build_position_shape_transition_matrix,
+    write_position_shape_transition_matrix,
+)
 from revenue_unreacted_range_source_first_condition_audit import (
     build_source_first_condition_audit,
     write_source_first_condition_audit,
@@ -123,6 +127,14 @@ def build_and_write() -> None:
     )
     write_rearmed_operation_grid(rearmed_summary, rearmed_detail, rearmed_return_review)
     write_operation_lag_bucket_audit(operation_lag_summary, operation_lag_detail)
+    position_shape_summary, position_shape_detail, position_shape_transition = (
+        build_position_shape_transition_matrix()
+    )
+    write_position_shape_transition_matrix(
+        position_shape_summary,
+        position_shape_detail,
+        position_shape_transition,
+    )
 
 
 def build_and_write_launch_timing_feature_audit() -> None:
@@ -182,6 +194,11 @@ def build_and_write_operation_lag_bucket_audit() -> None:
     write_operation_lag_bucket_audit(summary, detail)
 
 
+def build_and_write_position_shape_transition_matrix() -> None:
+    summary, detail, transition = build_position_shape_transition_matrix()
+    write_position_shape_transition_matrix(summary, detail, transition)
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Build model-owned revenue_unreacted_range research artifacts.")
     parser.add_argument(
@@ -193,6 +210,7 @@ def parse_args() -> argparse.Namespace:
             "forward_confirmation_feature_audit",
             "rearmed_operation_grid",
             "operation_lag_bucket_audit",
+            "position_shape_transition_matrix",
         ),
         default="all",
         help="Run the full producer or one model-owned audit stage.",
@@ -213,6 +231,8 @@ def main() -> int:
             build_and_write_rearmed_operation_grid()
         elif args.stage == "operation_lag_bucket_audit":
             build_and_write_operation_lag_bucket_audit()
+        elif args.stage == "position_shape_transition_matrix":
+            build_and_write_position_shape_transition_matrix()
         else:
             build_and_write()
     return 0
