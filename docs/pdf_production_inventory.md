@@ -33,7 +33,7 @@ see `docs/output_latest_artifact_layout.md`.
 - Validation replay is allowed only when the requested replay date, live `expected_main_price_date`, source `expected_main_price_date`, and source `main_price_date` are identical. Any mismatch fails closed.
 - The source resolver remains open-market-only by default. With the exact validation replay date, it may accept committed `closed_scheduled` preflight evidence only when `should_run_daily_pipeline=false`, `reason_code` is present, and the committed closure date does not precede the replay date. `closed_emergency` remains text-only even when the validation flag is supplied.
 - The runtime manifest records `validation_replay_main_price_date` and `market_session_validation_scope=live_origin_main_validation_replay` so replay evidence cannot be presented as a normal current-day delivery.
-- Routine closed-day Daily Full Pipeline dispatches do not run PDF replay. The explicit `validate_latest_daily_pdf_replay` input may validate the latest exact-date main artifact only on `closed_scheduled`; it does not commit, push, publish, or deploy those replay PDFs. Emergency closures remain text-only for closed-day dispatches.
+- Routine closed-day Daily Full Pipeline dispatches do not run PDF replay. The explicit `validate_latest_daily_pdf_replay` input runs only the exact-date `origin/main` source gate with `--source-gate-only` on `closed_scheduled`; it does not install DFKai, render PDFs, commit, push, publish, or deploy. Emergency closures remain text-only for closed-day dispatches.
 
 ## Publisher Inventory
 

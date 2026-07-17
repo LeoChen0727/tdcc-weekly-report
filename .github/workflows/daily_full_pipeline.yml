@@ -8,7 +8,7 @@ on:
         required: false
         default: "false"
       validate_latest_daily_pdf_replay:
-        description: "Validation only: replay the latest exact-date main PDFs on a scheduled closed day"
+        description: "Validation only: check the latest exact-date main source gate on a scheduled closed day without rendering PDFs"
         required: false
         default: false
         type: boolean
@@ -165,10 +165,7 @@ jobs:
     if: >-
       ${{ always() &&
           needs.market-session-preflight.result == 'success' &&
-          (needs.daily-full-pipeline.result == 'success' ||
-           (inputs.validate_latest_daily_pdf_replay == true &&
-            needs.record-market-closure.result == 'success' &&
-            needs.market-session-preflight.outputs.market_status == 'closed_scheduled')) }}
+          needs.daily-full-pipeline.result == 'success' }}
     runs-on: windows-2025
     env:
       EXPECTED_MAIN_PRICE_DATE: ${{ needs.market-session-preflight.outputs.expected_main_price_date }}
@@ -261,6 +258,56 @@ jobs:
             chatgpt_side_outputs_new_conversation_replay/*.pdf
             chatgpt_side_outputs_new_conversation_replay/chatgpt_daily_report_runtime_manifest.json
             chatgpt_side_outputs_new_conversation_replay/chatgpt_daily_pdf_semantic_manifest.csv
+          if-no-files-found: error
+
+  daily-pdf-source-gate-validation:
+    needs: [market-session-preflight, record-market-closure, daily-full-pipeline]
+    if: >-
+      ${{ always() &&
+          inputs.validate_latest_daily_pdf_replay == true &&
+          needs.market-session-preflight.result == 'success' &&
+          needs.record-market-closure.result == 'success' &&
+          needs.market-session-preflight.outputs.market_status == 'closed_scheduled' }}
+    runs-on: ubuntu-latest
+    env:
+      EXPECTED_MAIN_PRICE_DATE: ${{ needs.market-session-preflight.outputs.expected_main_price_date }}
+
+    steps:
+      - name: Checkout updated daily branch for source-gate validation
+        uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      - name: Install source-gate dependencies only
+        run: |
+          python -m pip install --upgrade pip
+          pip install pandas requests pypdf fonttools
+
+      - name: Validate latest exact-date main source gate without PDF rendering
+        shell: bash
+        run: |
+          set -o pipefail
+          python scripts/run_chatgpt_daily_report_entrypoint.py \
+            --repo-root . \
+            --source-ref origin/main \
+            --source-gate-only \
+            --validation-replay-main-price-date "$EXPECTED_MAIN_PRICE_DATE" \
+            | tee daily_pdf_source_gate_validation.log
+          grep -F "official daily report source gate passed:" daily_pdf_source_gate_validation.log
+          grep -F "validation_replay_main_price_date=$EXPECTED_MAIN_PRICE_DATE" daily_pdf_source_gate_validation.log
+          grep -F "main_price_date=$EXPECTED_MAIN_PRICE_DATE" daily_pdf_source_gate_validation.log
+
+      - name: Upload main daily PDF source-gate evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: daily-pdf-source-gate-main
+          path: daily_pdf_source_gate_validation.log
           if-no-files-found: error
 
   daily-full-pipeline:

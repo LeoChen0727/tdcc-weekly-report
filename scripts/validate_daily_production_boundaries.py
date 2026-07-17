@@ -718,24 +718,12 @@ def main() -> int:
     )
     daily_replay_block = workflow_job_block(daily_text, "daily-pdf-dfkai-replay")
     required_main_replay_literals = {
-        "validate_latest_daily_pdf_replay:": (
-            "daily_full_pipeline must expose an explicit closed-day replay validation input"
-        ),
         "always()": "main PDF replay must evaluate after skipped mutually exclusive jobs",
         "needs.market-session-preflight.result == 'success'": (
             "main PDF replay must require a successful live market-session preflight"
         ),
         "needs.daily-full-pipeline.result == 'success'": (
             "main PDF replay must follow a successful open-market production job"
-        ),
-        "inputs.validate_latest_daily_pdf_replay == true": (
-            "scheduled-closure replay must require explicit workflow input"
-        ),
-        "needs.record-market-closure.result == 'success'": (
-            "scheduled-closure replay must wait for closure evidence handling"
-        ),
-        "needs.market-session-preflight.outputs.market_status == 'closed_scheduled'": (
-            "manual closed-day replay must be limited to scheduled closures"
         ),
         "EXPECTED_MAIN_PRICE_DATE: ${{ needs.market-session-preflight.outputs.expected_main_price_date }}": (
             "main PDF replay must bind to the market-session expected date"
@@ -745,11 +733,77 @@ def main() -> int:
         ),
     }
     for literal, message in required_main_replay_literals.items():
-        if literal not in daily_text:
+        if literal not in daily_replay_block:
             errors.append(f"{message}: missing {literal!r}")
-    if "closed_emergency" in daily_replay_block:
+    for forbidden in (
+        "inputs.validate_latest_daily_pdf_replay",
+        "closed_scheduled",
+        "closed_emergency",
+    ):
+        if forbidden in daily_replay_block:
+            errors.append(
+                "Windows DFKai replay must be limited to successful open-market production; "
+                f"found {forbidden!r}"
+            )
+
+    source_gate_block = workflow_job_block(
+        daily_text,
+        "daily-pdf-source-gate-validation",
+    )
+    required_source_gate_literals = {
+        "needs: [market-session-preflight, record-market-closure, daily-full-pipeline]": (
+            "closed-day source-gate validation must wait for market-session jobs"
+        ),
+        "always()": "closed-day source-gate validation must evaluate after skipped production",
+        "inputs.validate_latest_daily_pdf_replay == true": (
+            "closed-day source-gate validation must require explicit workflow input"
+        ),
+        "needs.market-session-preflight.result == 'success'": (
+            "closed-day source-gate validation must require successful preflight"
+        ),
+        "needs.record-market-closure.result == 'success'": (
+            "closed-day source-gate validation must wait for closure evidence handling"
+        ),
+        "needs.market-session-preflight.outputs.market_status == 'closed_scheduled'": (
+            "closed-day source-gate validation must be limited to scheduled closures"
+        ),
+        "runs-on: ubuntu-latest": (
+            "closed-day source-gate validation must not allocate a Windows font runner"
+        ),
+        "--source-gate-only": (
+            "closed-day source-gate validation must not render PDFs"
+        ),
+        '--validation-replay-main-price-date "$EXPECTED_MAIN_PRICE_DATE"': (
+            "closed-day source-gate validation must bind the exact expected date"
+        ),
+        "daily-pdf-source-gate-main": (
+            "closed-day source-gate validation must upload textual evidence"
+        ),
+    }
+    if "validate_latest_daily_pdf_replay:" not in daily_text:
         errors.append(
-            "manual PDF replay must not regenerate prior-date PDFs for an emergency market closure"
+            "daily_full_pipeline must expose an explicit closed-day source-gate validation input"
+        )
+    for literal, message in required_source_gate_literals.items():
+        if literal not in source_gate_block:
+            errors.append(f"{message}: missing {literal!r}")
+    for forbidden in (
+        "closed_emergency",
+        "Install and validate DFKai-SB",
+        "validate_chatgpt_daily_report_new_conversation_replay.py",
+        "*.pdf",
+        "git commit",
+        "git push",
+        "pages.yml",
+    ):
+        if forbidden in source_gate_block:
+            errors.append(
+                "closed-day source-gate validation must remain no-font, no-render, and no-publish; "
+                f"found {forbidden!r}"
+            )
+    if not source_gate_block:
+        errors.append(
+            "daily_full_pipeline missing daily-pdf-source-gate-validation job"
         )
     daily_pipeline_block = workflow_job_block(daily_text, "daily-full-pipeline")
     if "- name: Replay ChatGPT-side daily PDF new conversation" in daily_pipeline_block:
@@ -773,6 +827,9 @@ def main() -> int:
             "scripts/update_daily_published_model_snapshots.py": (
                 "daily model maintenance PR workflow must trigger on published snapshot changes"
             ),
+            "scripts/resolve_daily_report_source_state.py": (
+                "daily model maintenance PR workflow must trigger on source-gate changes"
+            ),
             "config/daily_pdf_rendered_model_regression_contract.csv": (
                 "daily model maintenance PR workflow must trigger on rendered PDF regression contract changes"
             ),
@@ -793,6 +850,9 @@ def main() -> int:
             ),
             "tests/test_chatgpt_daily_report_new_conversation_replay.py": (
                 "daily model maintenance PR workflow must run rendered PDF replay regression tests"
+            ),
+            "tests/test_daily_report_source_resolver.py": (
+                "daily model maintenance PR workflow must run source resolver regression tests"
             ),
             "tests/test_daily_volume_breakout_operation_section.py": (
                 "daily model maintenance PR workflow must run volume operation adapter tests"
@@ -833,27 +893,6 @@ def main() -> int:
             ),
             'config/daily_pdf_semantic_golden_cases.csv': (
                 "PDF replay workflow must trigger on PDF semantic golden cases"
-            ),
-            'config/git_worktree_materialization_contract.csv': (
-                "PDF replay workflow must trigger on its temp-worktree runtime contract"
-            ),
-            'scripts/resolve_daily_report_source_state.py': (
-                "PDF replay workflow must trigger on its source-state runtime"
-            ),
-            'scripts/git_worktree_safety.py': (
-                "PDF replay workflow must trigger on its temp-worktree runtime"
-            ),
-            'scripts/market_session_calendar.py': (
-                "PDF replay workflow must trigger on its market-session runtime"
-            ),
-            'scripts/run_chatgpt_daily_report_entrypoint.py': (
-                "PDF replay workflow must trigger on the official PDF entrypoint"
-            ),
-            'scripts/validate_chatgpt_daily_report_new_conversation_replay.py': (
-                "PDF replay workflow must trigger on the replay runtime"
-            ),
-            'scripts/validate_daily_publish_freshness_gate.py': (
-                "PDF replay workflow must trigger on its freshness-gate runtime"
             ),
             'scripts/validate_chatgpt_side_pdf_contract.py': (
                 "PDF replay workflow must trigger on its font and PDF contract runtime"
@@ -900,14 +939,25 @@ def main() -> int:
         for literal, message in required_pdf_replay_literals.items():
             if literal not in pdf_replay_workflow_text:
                 errors.append(f"{message}: missing {literal!r}")
+        pdf_replay_pull_request_trigger = pdf_replay_workflow_text.split(
+            "  workflow_dispatch:",
+            1,
+        )[0]
         for forbidden in (
             "data/financial_statement_history/*.csv",
             "scripts/build_financial_statement_pit.py",
             "tests/test_revenue_unreacted_range_*.py",
+            "config/git_worktree_materialization_contract.csv",
+            "scripts/git_worktree_safety.py",
+            "scripts/market_session_calendar.py",
+            "scripts/resolve_daily_report_source_state.py",
+            "scripts/run_chatgpt_daily_report_entrypoint.py",
+            "scripts/validate_chatgpt_daily_report_new_conversation_replay.py",
+            "scripts/validate_daily_publish_freshness_gate.py",
         ):
-            if forbidden in pdf_replay_workflow_text:
+            if forbidden in pdf_replay_pull_request_trigger:
                 errors.append(
-                    "PDF replay workflow must not trigger on research/source-audit-only paths: "
+                    "PDF replay workflow must not trigger on non-renderer validation/source paths: "
                     f"{forbidden!r}"
                 )
         errors.extend(

@@ -52,6 +52,7 @@ on:
       - "scripts/build_mature_model_row_level_metric_contract_audit.py"
       - "scripts/generate_chatgpt_side_daily_reports.py"
       - "scripts/git_worktree_safety.py"
+      - "scripts/resolve_daily_report_source_state.py"
       - "scripts/run_chatgpt_daily_report_entrypoint.py"
       - "scripts/stage_daily_latest_mirrors.py"
       - "scripts/validate_chatgpt_side_pdf_contract.py"
@@ -164,6 +165,7 @@ jobs:
           python -m pytest \
             tests/test_chatgpt_daily_report_new_conversation_replay.py \
             tests/test_chatgpt_daily_report_entrypoint.py \
+            tests/test_daily_report_source_resolver.py \
             tests/test_chatgpt_side_pdf_contract.py \
             tests/test_catalyst_pages_sync.py \
             tests/test_daily_event_catalyst_formal_sync_scope.py \

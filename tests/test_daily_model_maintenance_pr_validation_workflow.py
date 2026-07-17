@@ -52,14 +52,7 @@ def test_pdf_replay_pr_workflow_is_runtime_or_operation_impact_only_and_manually
     expected_paths = {
         "config/daily_pdf_rendered_model_regression_contract.csv",
         "config/daily_pdf_semantic_golden_cases.csv",
-        "config/git_worktree_materialization_contract.csv",
         "scripts/generate_chatgpt_side_daily_reports.py",
-        "scripts/git_worktree_safety.py",
-        "scripts/market_session_calendar.py",
-        "scripts/resolve_daily_report_source_state.py",
-        "scripts/run_chatgpt_daily_report_entrypoint.py",
-        "scripts/validate_chatgpt_daily_report_new_conversation_replay.py",
-        "scripts/validate_daily_publish_freshness_gate.py",
         "scripts/validate_chatgpt_side_pdf_contract.py",
         "output/latest/approved_operation_patterns_latest.csv",
         "output/latest/daily_neckline_volume_breakout_confirmation_operation_section_latest.csv",
@@ -72,6 +65,16 @@ def test_pdf_replay_pr_workflow_is_runtime_or_operation_impact_only_and_manually
     assert "pull_request:" in text
     assert "workflow_dispatch:" in text
     assert observed_paths == expected_paths
+    for source_gate_path in (
+        "config/git_worktree_materialization_contract.csv",
+        "scripts/git_worktree_safety.py",
+        "scripts/market_session_calendar.py",
+        "scripts/resolve_daily_report_source_state.py",
+        "scripts/run_chatgpt_daily_report_entrypoint.py",
+        "scripts/validate_chatgpt_daily_report_new_conversation_replay.py",
+        "scripts/validate_daily_publish_freshness_gate.py",
+    ):
+        assert source_gate_path not in observed_paths
 
 
 def test_daily_model_pr_workflow_does_not_install_dfkai_or_render_pdfs() -> None:
@@ -144,6 +147,7 @@ def test_daily_model_maintenance_pr_workflow_runs_focused_pdf_operation_tests() 
     required_tests = (
         "tests/test_chatgpt_daily_report_new_conversation_replay.py",
         "tests/test_chatgpt_daily_report_entrypoint.py",
+        "tests/test_daily_report_source_resolver.py",
         "tests/test_daily_pdf_contract_consumers.py",
         "tests/test_daily_pdf_completion_hard_gate.py",
         "tests/test_daily_published_model_snapshots.py",
