@@ -8,6 +8,7 @@ from scripts.validate_daily_event_catalyst_formal_sync_scope import (
     FORMAL_SIGNAL_ARTIFACTS,
     build_scope_snapshot,
     compare_scope_snapshots,
+    validate_staged_path_list,
 )
 
 
@@ -95,3 +96,28 @@ def test_scope_requires_model_id_column(tmp_path: Path) -> None:
 
     assert len(errors) == len(FORMAL_SIGNAL_ARTIFACTS)
     assert all("missing model_id" in error for error in errors)
+
+
+def test_staged_path_allowlist_accepts_event_owned_formal_sync_outputs() -> None:
+    assert validate_staged_path_list(
+        [
+            "data/event_catalysts/event_catalyst_log.csv",
+            "output/latest/daily_candidate_model_signals_latest.csv",
+            "output/history/daily_candidate_models/daily_candidate_model_signal_log.csv",
+            "output/history/daily_model_snapshots/all_candidates_20260716.csv",
+            "docs/latest/daily_candidate_model_signals_latest.csv",
+        ]
+    ) == []
+
+
+def test_staged_path_allowlist_rejects_mature_model_and_unowned_outputs() -> None:
+    errors = validate_staged_path_list(
+        [
+            "output/latest/daily_w_bottom_right_side_operation_section_latest.csv",
+            "output/history/daily_model_snapshots/daily_w_bottom_right_side_operation_section_20260716.csv",
+            "docs/latest/unowned_artifact_latest.csv",
+        ]
+    )
+
+    assert len(errors) == 3
+    assert all("outside allowlist" in error for error in errors)

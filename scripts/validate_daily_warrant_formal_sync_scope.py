@@ -57,6 +57,7 @@ FORMAL_SIGNAL_ARTIFACTS = (
 LATEST_SIGNAL_ARTIFACTS = FORMAL_SIGNAL_ARTIFACTS[:2]
 ALL_CANDIDATES_ARTIFACT = "output/latest/all_candidates_latest.csv"
 WARRANT_FLOW_ARTIFACT = "output/latest/warrant_flow_latest.csv"
+DATA_FRESHNESS_ARTIFACT = "output/latest/data_freshness_latest.csv"
 VOLUME_BREAKOUT_WATCH_ARTIFACT = "output/latest/volume_breakout_watch_latest.csv"
 STOCK_THEME_TAXONOMY_ARTIFACT = "output/latest/stock_theme_taxonomy_latest.csv"
 MODEL_PARAMETERS_ARTIFACT = "output/latest/daily_candidate_model_parameters_latest.csv"
@@ -1082,6 +1083,75 @@ def staged_paths(root: Path) -> list[str]:
     return [item.decode("utf-8") for item in result.stdout.split(b"\0") if item]
 
 
+def validate_published_source_date(root: Path) -> tuple[list[str], str]:
+    errors: list[str] = []
+    freshness_path = root / DATA_FRESHNESS_ARTIFACT
+    warrant_path = root / WARRANT_FLOW_ARTIFACT
+    candidate_path = root / ALL_CANDIDATES_ARTIFACT
+    for path, label in (
+        (freshness_path, "published data freshness"),
+        (warrant_path, "official warrant projection"),
+        (candidate_path, "all_candidates source"),
+    ):
+        if not path.is_file():
+            errors.append(f"missing {label} artifact: {path.relative_to(root).as_posix()}")
+    if errors:
+        return errors, ""
+
+    freshness_columns, freshness_rows = _read_rows(freshness_path)
+    if "main_price_date" not in freshness_columns or len(freshness_rows) != 1:
+        errors.append("published data freshness must contain exactly one main_price_date row")
+        published_date = ""
+    else:
+        published_date = _date_text(freshness_rows[0].get("main_price_date"))
+        if not published_date:
+            errors.append("published data freshness main_price_date is invalid")
+
+    warrant_columns, warrant_rows = _read_rows(warrant_path)
+    if "date" not in warrant_columns:
+        errors.append("official warrant projection is missing date")
+        warrant_dates: set[str] = set()
+    else:
+        warrant_dates = {_date_text(row.get("date")) for row in warrant_rows}
+        warrant_dates.discard("")
+        if len(warrant_dates) != 1:
+            errors.append(
+                "official warrant projection must contain exactly one valid date: "
+                f"{sorted(warrant_dates)}"
+            )
+
+    candidate_columns, candidate_rows = _read_rows(candidate_path)
+    candidate_date_column = next(
+        (column for column in ("main_price_date", "signal_date", "date") if column in candidate_columns),
+        "",
+    )
+    if not candidate_date_column:
+        errors.append("all_candidates source is missing a formal date column")
+        candidate_dates: set[str] = set()
+    else:
+        candidate_dates = {
+            _date_text(row.get(candidate_date_column)) for row in candidate_rows
+        }
+        candidate_dates.discard("")
+        if len(candidate_dates) != 1:
+            errors.append(
+                "all_candidates source must contain exactly one valid formal date: "
+                f"{sorted(candidate_dates)}"
+            )
+
+    if published_date and len(warrant_dates) == 1 and warrant_dates != {published_date}:
+        errors.append(
+            "official warrant projection date does not match published report date: "
+            f"published={published_date} warrant={next(iter(warrant_dates))}"
+        )
+    if published_date and len(candidate_dates) == 1 and candidate_dates != {published_date}:
+        errors.append(
+            "all_candidates source date does not match published report date: "
+            f"published={published_date} candidates={next(iter(candidate_dates))}"
+        )
+    return errors, published_date
+
+
 def validate_current_projection(root: Path) -> tuple[list[str], dict[str, int]]:
     errors = validate_warrant_bonus_parameter_contract(root)
     metrics = {
@@ -1525,6 +1595,7 @@ def main() -> int:
     action.add_argument("--write-snapshot", type=Path)
     action.add_argument("--compare-snapshot", type=Path)
     action.add_argument("--validate-staged", action="store_true")
+    action.add_argument("--validate-source-date", action="store_true")
     parser.add_argument("--repo-root", type=Path, default=ROOT)
     args = parser.parse_args()
 
@@ -1541,6 +1612,15 @@ def main() -> int:
                 print(f"ERROR: {error}")
             return 1
         print(f"warrant formal sync staged path validation passed: staged_paths={len(paths)}")
+        return 0
+
+    if args.validate_source_date:
+        source_date_errors, published_date = validate_published_source_date(root)
+        if source_date_errors:
+            for error in source_date_errors:
+                print(f"ERROR: {error}")
+            return 1
+        print(f"warrant formal sync source date validation passed: published_report_date={published_date}")
         return 0
 
     snapshot, errors = build_scope_snapshot(root)

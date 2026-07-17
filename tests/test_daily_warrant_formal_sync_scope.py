@@ -11,6 +11,7 @@ from scripts.build_daily_candidate_model_layer import MODEL_SCORE_PROFILES
 from scripts.validate_daily_warrant_formal_sync_scope import (
     ALLOWED_MUTABLE_MODEL_IDS,
     ALL_CANDIDATES_ARTIFACT,
+    DATA_FRESHNESS_ARTIFACT,
     FORMAL_SIGNAL_ARTIFACTS,
     FRONTPAGE_UNIQUE_ARTIFACT,
     LATEST_SIGNAL_ARTIFACTS,
@@ -27,6 +28,7 @@ from scripts.validate_daily_warrant_formal_sync_scope import (
     validate_current_projection,
     validate_frontpage_uniqueness,
     validate_model_rank_contract,
+    validate_published_source_date,
     validate_staged_path_list,
     validate_warrant_bonus_parameter_contract,
 )
@@ -1165,6 +1167,52 @@ def test_projection_rejects_formal_signal_date_mismatch(tmp_path: Path) -> None:
     )
 
 
+def test_warrant_formal_sync_source_date_matches_published_report(tmp_path: Path) -> None:
+    _write_csv(
+        tmp_path / DATA_FRESHNESS_ARTIFACT,
+        ["main_price_date", "report_ready", "daily_pdf_ready"],
+        [{"main_price_date": "20260716", "report_ready": "True", "daily_pdf_ready": "True"}],
+    )
+    _write_csv(
+        tmp_path / WARRANT_FLOW_ARTIFACT,
+        ["date", "stock_id"],
+        [{"date": "20260716", "stock_id": "2330"}],
+    )
+    _write_csv(
+        tmp_path / ALL_CANDIDATES_ARTIFACT,
+        ["main_price_date", "stock_id"],
+        [{"main_price_date": "20260716", "stock_id": "2330"}],
+    )
+
+    errors, published_date = validate_published_source_date(tmp_path)
+
+    assert errors == []
+    assert published_date == "20260716"
+
+
+def test_warrant_formal_sync_source_date_rejects_newer_unpublished_source(tmp_path: Path) -> None:
+    _write_csv(
+        tmp_path / DATA_FRESHNESS_ARTIFACT,
+        ["main_price_date"],
+        [{"main_price_date": "20260716"}],
+    )
+    _write_csv(
+        tmp_path / WARRANT_FLOW_ARTIFACT,
+        ["date", "stock_id"],
+        [{"date": "20260717", "stock_id": "2330"}],
+    )
+    _write_csv(
+        tmp_path / ALL_CANDIDATES_ARTIFACT,
+        ["main_price_date", "stock_id"],
+        [{"main_price_date": "20260716", "stock_id": "2330"}],
+    )
+
+    errors, published_date = validate_published_source_date(tmp_path)
+
+    assert published_date == "20260716"
+    assert any("warrant projection date does not match published report date" in error for error in errors)
+
+
 def test_warrant_formal_sync_staged_paths_are_positive_allowlisted() -> None:
     assert validate_staged_path_list(
         [
@@ -1222,15 +1270,18 @@ def test_warrant_workflow_rebuilds_formal_consumers_and_fails_closed() -> None:
     assert 'cmp --silent "$mature_sentinel_before" "$mature_sentinel_after"' in workflow
     for protected_static_artifact in (
         "output/latest/daily_candidate_model_parameters_latest.csv",
-        "output/latest/daily_candidate_model_parameters_latest.md",
         "docs/latest/daily_candidate_model_parameters_latest.csv",
-        "docs/latest/daily_candidate_model_parameters_latest.md",
         "output/latest/daily_report_model_registry_latest.csv",
         "output/latest/daily_report_model_registry_latest.md",
         "docs/latest/daily_report_model_registry_latest.csv",
         "docs/latest/daily_report_model_registry_latest.md",
     ):
         assert protected_static_artifact in workflow
+    sentinel_pattern_block = workflow[
+        workflow.index("mature_sentinel_patterns=(") : workflow.index("capture_mature_sentinels()")
+    ]
+    assert "daily_candidate_model_parameters_latest.md" not in sentinel_pattern_block
+    assert "daily_report_model_registry_latest.md" in sentinel_pattern_block
     assert "python scripts/validate_warrant_source_status.py" in workflow
     assert "validate_warrant_source_status.py --allow-noncritical-grace" not in workflow
     assert "fetch_official_warrant_daily.py --require-current-usable" in workflow
@@ -1244,11 +1295,14 @@ def test_warrant_workflow_rebuilds_formal_consumers_and_fails_closed() -> None:
         assert f"--artifact-id {artifact_id}" in workflow
     assert "daily_volume_breakout_operation_section_*.csv" in workflow
     assert "manifest:" in workflow
+    assert "python build_data_freshness_latest.py" not in workflow
 
     expected_order = [
-        "python merge_warrant_flow_into_candidates.py",
-        "python build_data_freshness_latest.py",
         "python scripts/validate_data_freshness_latest.py",
+        "python scripts/validate_daily_published_model_snapshots.py",
+        "python scripts/fetch_official_warrant_daily.py",
+        "python merge_warrant_flow_into_candidates.py",
+        "python scripts/validate_daily_warrant_formal_sync_scope.py --validate-source-date",
         "python scripts/build_daily_candidate_model_layer.py",
         "python scripts/validate_daily_candidate_model_layer.py",
         "python scripts/validate_revenue_unreacted_range_financial_statement_fail_closed.py",
@@ -1257,11 +1311,16 @@ def test_warrant_workflow_rebuilds_formal_consumers_and_fails_closed() -> None:
         "python scripts/audit_daily_candidate_pipeline_integrity.py",
         "python scripts/build_theme_event_watch.py",
         "python scripts/update_daily_published_model_snapshots.py",
-        "python scripts/validate_daily_published_model_snapshots.py",
         "python scripts/build_chatgpt_indicator_usage_guide.py",
     ]
     indexes = [workflow.index(command) for command in expected_order]
     assert indexes == sorted(indexes)
+    snapshot_update_index = workflow.index("python scripts/update_daily_published_model_snapshots.py")
+    snapshot_validate_after_update = workflow.index(
+        "python scripts/validate_daily_published_model_snapshots.py",
+        snapshot_update_index,
+    )
+    assert snapshot_update_index < snapshot_validate_after_update
 
     for forbidden_builder in (
         "build_approved_operation_patterns.py",
