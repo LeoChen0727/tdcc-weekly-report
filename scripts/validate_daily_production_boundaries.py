@@ -711,11 +711,46 @@ def main() -> int:
         validate_dfkai_pdf_replay_job(
             daily_text,
             workflow_label="daily_full_pipeline",
-            needs_job="daily-full-pipeline",
+            needs_job="[market-session-preflight, record-market-closure, daily-full-pipeline]",
             output_dir="chatgpt_side_outputs_new_conversation_replay",
             upload_step="Upload main daily PDF replay evidence",
         )
     )
+    daily_replay_block = workflow_job_block(daily_text, "daily-pdf-dfkai-replay")
+    required_main_replay_literals = {
+        "validate_latest_daily_pdf_replay:": (
+            "daily_full_pipeline must expose an explicit closed-day replay validation input"
+        ),
+        "always()": "main PDF replay must evaluate after skipped mutually exclusive jobs",
+        "needs.market-session-preflight.result == 'success'": (
+            "main PDF replay must require a successful live market-session preflight"
+        ),
+        "needs.daily-full-pipeline.result == 'success'": (
+            "main PDF replay must follow a successful open-market production job"
+        ),
+        "inputs.validate_latest_daily_pdf_replay == true": (
+            "scheduled-closure replay must require explicit workflow input"
+        ),
+        "needs.record-market-closure.result == 'success'": (
+            "scheduled-closure replay must wait for closure evidence handling"
+        ),
+        "needs.market-session-preflight.outputs.market_status == 'closed_scheduled'": (
+            "manual closed-day replay must be limited to scheduled closures"
+        ),
+        "EXPECTED_MAIN_PRICE_DATE: ${{ needs.market-session-preflight.outputs.expected_main_price_date }}": (
+            "main PDF replay must bind to the market-session expected date"
+        ),
+        '--expected-main-price-date "$EXPECTED_MAIN_PRICE_DATE"': (
+            "main PDF replay must pass the exact expected date to the replay validator"
+        ),
+    }
+    for literal, message in required_main_replay_literals.items():
+        if literal not in daily_text:
+            errors.append(f"{message}: missing {literal!r}")
+    if "closed_emergency" in daily_replay_block:
+        errors.append(
+            "manual PDF replay must not regenerate prior-date PDFs for an emergency market closure"
+        )
     daily_pipeline_block = workflow_job_block(daily_text, "daily-full-pipeline")
     if "- name: Replay ChatGPT-side daily PDF new conversation" in daily_pipeline_block:
         errors.append("daily_full_pipeline Ubuntu job must not render the six daily PDFs")

@@ -2,7 +2,9 @@ from __future__ import annotations
 
 from pathlib import Path
 import json
+import subprocess
 
+from scripts import validate_chatgpt_daily_report_new_conversation_replay as replay
 from scripts.validate_chatgpt_daily_report_new_conversation_replay import (
     EXPECTED_PDF_ROLES,
     HIGHLIGHT_FULL_TEXT_FORBIDDEN_TEXT,
@@ -58,6 +60,94 @@ def runtime_manifest(paths: list[Path], state: dict, *, main_price_date: str = "
         "pdf_outputs": pdf_outputs(paths),
         "semantic_manifest_path": str((paths[0].parent / SEMANTIC_MANIFEST_NAME).resolve()),
     }
+
+
+def test_replay_zero_exit_without_completion_marker_reports_child_output() -> None:
+    proc = subprocess.CompletedProcess(
+        args=["python", "entrypoint.py"],
+        returncode=0,
+        stdout="休市，無新報告: market_status=closed_scheduled\n",
+        stderr="",
+    )
+
+    try:
+        replay.require_completed_replay(proc)
+    except replay.ReplayValidationError as exc:
+        text = str(exc)
+        assert "returned exit code 0 without the official completion marker" in text
+        assert "market_status=closed_scheduled" in text
+    else:
+        raise AssertionError("zero-output replay must not be treated as completed")
+
+
+def test_replay_origin_main_date_must_match_source_freshness_contract() -> None:
+    state = {
+        "expected_main_price_date": "20260717",
+        "main_price_date": "20260717",
+    }
+
+    assert (
+        replay.resolve_validation_replay_date(state, "origin/main", "20260717")
+        == "20260717"
+    )
+
+    try:
+        replay.resolve_validation_replay_date(state, "origin/main", "20260716")
+    except replay.ReplayValidationError as exc:
+        assert "does not match the source freshness contract" in str(exc)
+    else:
+        raise AssertionError("mismatched workflow expected date must fail closed")
+
+
+def test_run_replay_passes_exact_origin_main_date_to_entrypoint(
+    tmp_path: Path,
+    monkeypatch,
+) -> None:
+    source_root = tmp_path / "clean-source"
+    source_root.mkdir()
+    stale_path = tmp_path / replay.STALE_RESIDUE_NAME
+    state = {
+        "source_ref": "origin/main",
+        "source_commit_sha": "a" * 40,
+        "expected_main_price_date": "20260717",
+        "main_price_date": "20260717",
+    }
+    commands: list[list[str]] = []
+
+    monkeypatch.setattr(
+        replay,
+        "resolve_daily_report_source_state",
+        lambda **kwargs: dict(state),
+    )
+    monkeypatch.setattr(replay, "create_stale_residue", lambda output_dir: stale_path)
+    monkeypatch.setattr(
+        replay,
+        "add_clean_entrypoint_worktree",
+        lambda *args, **kwargs: source_root,
+    )
+    monkeypatch.setattr(replay, "remove_clean_entrypoint_worktree", lambda *args: None)
+
+    def fake_run_command(args: list[str], cwd: Path) -> subprocess.CompletedProcess[str]:
+        commands.append(args)
+        return subprocess.CompletedProcess(
+            args=args,
+            returncode=0,
+            stdout="official ChatGPT-side daily PDF generation completed\n",
+            stderr="",
+        )
+
+    monkeypatch.setattr(replay, "run_command", fake_run_command)
+
+    replay.run_replay(
+        tmp_path,
+        "origin/main",
+        tmp_path / "output",
+        "20260717",
+    )
+
+    assert len(commands) == 1
+    flag_index = commands[0].index("--validation-replay-main-price-date")
+    assert commands[0][flag_index + 1] == "20260717"
 
 
 def test_replay_stdout_pdf_parser_deduplicates_entrypoint_output(tmp_path: Path) -> None:

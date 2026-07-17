@@ -268,7 +268,7 @@ def test_daily_pdf_replay_jobs_require_windows_dfkai_runtime() -> None:
     assert boundaries.validate_dfkai_pdf_replay_job(
         daily_text,
         workflow_label="daily_full_pipeline",
-        needs_job="daily-full-pipeline",
+        needs_job="[market-session-preflight, record-market-closure, daily-full-pipeline]",
         output_dir="chatgpt_side_outputs_new_conversation_replay",
         upload_step="Upload main daily PDF replay evidence",
     ) == []

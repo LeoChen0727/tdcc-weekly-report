@@ -21,6 +21,7 @@ from scripts.git_worktree_safety import (  # noqa: E402
     GitWorktreeSafetyError,
     create_registered_full_temp_worktree,
 )
+from scripts import market_session_calendar  # noqa: E402
 from scripts.validate_chatgpt_side_pdf_contract import validate_daily_six_pdf_font_contract  # noqa: E402
 
 
@@ -87,6 +88,61 @@ def require_success(proc: subprocess.CompletedProcess[str], action: str) -> str:
         detail = (proc.stderr or proc.stdout or f"{action} failed").strip()
         raise ReplayValidationError(f"{action} failed: {detail}")
     return proc.stdout
+
+
+def require_completed_replay(proc: subprocess.CompletedProcess[str]) -> str:
+    stdout = require_success(proc, "official ChatGPT-side daily PDF replay")
+    completion_marker = "official ChatGPT-side daily PDF generation completed"
+    if completion_marker not in stdout:
+        output = "\n".join(
+            part.strip()
+            for part in (proc.stdout, proc.stderr)
+            if str(part or "").strip()
+        )
+        raise ReplayValidationError(
+            "official ChatGPT-side daily PDF replay returned exit code 0 without the official "
+            f"completion marker; child output:\n{output or '<empty>'}"
+        )
+    return stdout
+
+
+def resolve_validation_replay_date(
+    state: dict,
+    source_ref: str,
+    expected_main_price_date: str = "",
+) -> str:
+    requested_text = str(expected_main_price_date or "").strip()
+    requested = market_session_calendar.normalize_date(requested_text)
+    if requested_text and requested != requested_text:
+        raise ReplayValidationError(
+            "expected replay date must use exact YYYYMMDD format: "
+            f"expected_main_price_date={requested_text!r}"
+        )
+
+    if source_ref != DEFAULT_SOURCE_REF:
+        return ""
+
+    source_expected = market_session_calendar.normalize_date(
+        state.get("expected_main_price_date")
+    )
+    main_price_date = market_session_calendar.normalize_date(state.get("main_price_date"))
+    replay_date = requested or main_price_date
+    if not replay_date:
+        raise ReplayValidationError("origin/main replay did not resolve a main price date")
+    try:
+        market_session_calendar.parse_date(replay_date)
+    except ValueError as exc:
+        raise ReplayValidationError(
+            f"origin/main replay date is not a valid calendar date: {replay_date!r}"
+        ) from exc
+    if source_expected != replay_date or main_price_date != replay_date:
+        raise ReplayValidationError(
+            "origin/main replay date does not match the source freshness contract; "
+            f"expected_main_price_date={replay_date} "
+            f"source_expected_main_price_date={source_expected or '<missing>'} "
+            f"main_price_date={main_price_date or '<missing>'}"
+        )
+    return replay_date
 
 
 def add_clean_entrypoint_worktree(repo_root: Path, source_ref: str, temp_root: Path) -> Path:
@@ -715,7 +771,12 @@ def validate_runtime_manifest(paths: list[Path], output_dir: Path, state: dict) 
     return errors
 
 
-def run_replay(repo_root: Path, source_ref: str, output_dir: Path) -> tuple[str, dict, list[Path], Path]:
+def run_replay(
+    repo_root: Path,
+    source_ref: str,
+    output_dir: Path,
+    expected_main_price_date: str = "",
+) -> tuple[str, dict, list[Path], Path]:
     try:
         current_source_state = resolve_daily_report_source_state(
             repo_root=repo_root,
@@ -727,6 +788,11 @@ def run_replay(repo_root: Path, source_ref: str, output_dir: Path) -> tuple[str,
         )
     except DailyReportSourceError as exc:
         raise ReplayValidationError("\n".join(exc.errors)) from exc
+    validation_replay_date = resolve_validation_replay_date(
+        current_source_state,
+        source_ref,
+        expected_main_price_date,
+    )
 
     stale_path = create_stale_residue(output_dir)
     with tempfile.TemporaryDirectory(prefix="tdcc_new_conversation_replay_") as temp_name:
@@ -745,21 +811,33 @@ def run_replay(repo_root: Path, source_ref: str, output_dir: Path) -> tuple[str,
                     "clean replay source changed unexpectedly: "
                     f"current={current_source_state['source_commit_sha']} clean={state['source_commit_sha']}"
                 )
-            entrypoint = source_root / "scripts" / "run_chatgpt_daily_report_entrypoint.py"
-            proc = run_command(
-                [
-                    sys.executable,
-                    str(entrypoint),
-                    "--repo-root",
-                    str(source_root),
-                    "--source-ref",
-                    source_ref,
-                    "--output-dir",
-                    str(output_dir),
-                ],
-                cwd=source_root,
+            clean_validation_replay_date = resolve_validation_replay_date(
+                state,
+                source_ref,
+                expected_main_price_date,
             )
-            stdout = require_success(proc, "official ChatGPT-side daily PDF replay")
+            if clean_validation_replay_date != validation_replay_date:
+                raise ReplayValidationError(
+                    "clean replay validation date changed unexpectedly: "
+                    f"current={validation_replay_date} clean={clean_validation_replay_date}"
+                )
+            entrypoint = source_root / "scripts" / "run_chatgpt_daily_report_entrypoint.py"
+            command = [
+                sys.executable,
+                str(entrypoint),
+                "--repo-root",
+                str(source_root),
+                "--source-ref",
+                source_ref,
+                "--output-dir",
+                str(output_dir),
+            ]
+            if validation_replay_date:
+                command.extend(
+                    ["--validation-replay-main-price-date", validation_replay_date]
+                )
+            proc = run_command(command, cwd=source_root)
+            stdout = require_completed_replay(proc)
             if proc.stderr.strip():
                 print(proc.stderr.strip(), file=sys.stderr)
             return stdout, state, pdf_paths_from_stdout(stdout), stale_path
@@ -767,8 +845,18 @@ def run_replay(repo_root: Path, source_ref: str, output_dir: Path) -> tuple[str,
             remove_clean_entrypoint_worktree(repo_root, source_root)
 
 
-def validate_replay(repo_root: Path, source_ref: str, output_dir: Path) -> tuple[dict, list[Path], Path]:
-    stdout, state, paths, stale_path = run_replay(repo_root, source_ref, output_dir)
+def validate_replay(
+    repo_root: Path,
+    source_ref: str,
+    output_dir: Path,
+    expected_main_price_date: str = "",
+) -> tuple[dict, list[Path], Path]:
+    stdout, state, paths, stale_path = run_replay(
+        repo_root,
+        source_ref,
+        output_dir,
+        expected_main_price_date,
+    )
     main_price_date = str(state["main_price_date"])
 
     errors: list[str] = []
@@ -803,6 +891,14 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--source-ref", default=DEFAULT_SOURCE_REF)
     parser.add_argument("--output-dir", type=Path, default=DEFAULT_OUTPUT_DIR)
     parser.add_argument(
+        "--expected-main-price-date",
+        default="",
+        help=(
+            "Bind an origin/main replay to the workflow's exact expected YYYYMMDD date. "
+            "The source freshness fields and live market-session expectation must match."
+        ),
+    )
+    parser.add_argument(
         "--keep-stale-residue",
         action="store_true",
         help="Leave the intentionally created stale residue PDF in the output folder for diagnostics.",
@@ -817,7 +913,12 @@ def main() -> int:
     output_dir = args.output_dir.expanduser().resolve()
 
     try:
-        state, paths, stale_path = validate_replay(repo_root, args.source_ref, output_dir)
+        state, paths, stale_path = validate_replay(
+            repo_root,
+            args.source_ref,
+            output_dir,
+            args.expected_main_price_date,
+        )
         if stale_path.exists() and not args.keep_stale_residue:
             stale_path.unlink()
     except Exception as exc:
@@ -828,6 +929,7 @@ def main() -> int:
     print(f"source_ref={args.source_ref}")
     print(f"source_commit_sha={state['source_commit_sha']}")
     print(f"main_price_date={state['main_price_date']}")
+    print(f"expected_main_price_date={state['expected_main_price_date']}")
     print(f"report_date={date_slash(str(state['main_price_date']))}")
     print(f"output_dir={output_dir}")
     for path in paths:

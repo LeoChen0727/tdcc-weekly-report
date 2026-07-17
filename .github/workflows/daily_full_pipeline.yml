@@ -7,6 +7,11 @@ on:
         description: "Run full raw/pages/api health check for all core files"
         required: false
         default: "false"
+      validate_latest_daily_pdf_replay:
+        description: "Validation only: replay the latest exact-date main PDFs on a scheduled closed day"
+        required: false
+        default: false
+        type: boolean
 
 permissions:
   contents: write
@@ -156,8 +161,17 @@ jobs:
           fi
 
   daily-pdf-dfkai-replay:
-    needs: daily-full-pipeline
+    needs: [market-session-preflight, record-market-closure, daily-full-pipeline]
+    if: >-
+      ${{ always() &&
+          needs.market-session-preflight.result == 'success' &&
+          (needs.daily-full-pipeline.result == 'success' ||
+           (inputs.validate_latest_daily_pdf_replay == true &&
+            needs.record-market-closure.result == 'success' &&
+            needs.market-session-preflight.outputs.market_status == 'closed_scheduled')) }}
     runs-on: windows-2025
+    env:
+      EXPECTED_MAIN_PRICE_DATE: ${{ needs.market-session-preflight.outputs.expected_main_price_date }}
 
     steps:
       - name: Checkout updated daily branch
@@ -231,8 +245,10 @@ jobs:
         shell: bash
         run: |
           echo "PDF replay source_ref=workflow default"
+          echo "PDF replay expected_main_price_date=$EXPECTED_MAIN_PRICE_DATE"
           echo "PDF replay output_dir=chatgpt_side_outputs_new_conversation_replay"
           timeout 20m python scripts/validate_chatgpt_daily_report_new_conversation_replay.py \
+            --expected-main-price-date "$EXPECTED_MAIN_PRICE_DATE" \
             --output-dir chatgpt_side_outputs_new_conversation_replay
           python scripts/validate_daily_pdf_completion_hard_gate.py --require-output-dir chatgpt_side_outputs_new_conversation_replay
 

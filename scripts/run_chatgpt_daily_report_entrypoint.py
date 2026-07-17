@@ -201,9 +201,30 @@ def require_success(proc: subprocess.CompletedProcess[str], action: str) -> str:
     return proc.stdout
 
 
+def normalize_validation_replay_main_price_date(value: object) -> str:
+    text = str(value or "").strip()
+    if not text:
+        return ""
+    normalized = market_session_calendar.normalize_date(text)
+    if normalized != text:
+        raise DailyReportEntrypointError(
+            "validation replay date must use exact YYYYMMDD format: "
+            f"validation_replay_main_price_date={text!r}"
+        )
+    try:
+        market_session_calendar.parse_date(normalized)
+    except ValueError as exc:
+        raise DailyReportEntrypointError(
+            "validation replay date is not a valid calendar date: "
+            f"validation_replay_main_price_date={text!r}"
+        ) from exc
+    return normalized
+
+
 def resolve_live_market_session_for_entrypoint(
     repo_root: Path,
     source_ref: str,
+    validation_replay_main_price_date: str = "",
 ) -> dict | None:
     if source_ref != DEFAULT_SOURCE_REF:
         return None
@@ -224,11 +245,23 @@ def resolve_live_market_session_for_entrypoint(
         market_session_calendar.CLOSED_SCHEDULED,
         market_session_calendar.CLOSED_EMERGENCY,
     }:
-        raise DailyReportMarketClosed(
-            f"market_status={market_status} "
-            f"market_session_date={live_status.get('market_session_date', '')} "
-            f"reason_code={reason_code}"
+        if not validation_replay_main_price_date:
+            raise DailyReportMarketClosed(
+                f"market_status={market_status} "
+                f"market_session_date={live_status.get('market_session_date', '')} "
+                f"reason_code={reason_code}"
+            )
+        live_expected = market_session_calendar.normalize_date(
+            live_status.get("expected_main_price_date")
         )
+        if validation_replay_main_price_date != live_expected:
+            raise DailyReportEntrypointError(
+                "closed-market validation replay date does not match the live official expectation; "
+                f"validation_replay_main_price_date={validation_replay_main_price_date} "
+                f"live_expected_main_price_date={live_expected or '<missing>'} "
+                f"market_status={market_status}"
+            )
+        return live_status
     if not (
         market_status == market_session_calendar.OPEN_CONFIRMED
         or (
@@ -245,7 +278,11 @@ def resolve_live_market_session_for_entrypoint(
     return live_status
 
 
-def require_live_expected_date_match(state: dict, live_status: dict | None) -> dict:
+def require_live_expected_date_match(
+    state: dict,
+    live_status: dict | None,
+    validation_replay_main_price_date: str = "",
+) -> dict:
     if live_status is None:
         state.update(
             {
@@ -253,6 +290,7 @@ def require_live_expected_date_match(state: dict, live_status: dict | None) -> d
                 "live_market_session_status": "",
                 "live_market_session_date": "",
                 "live_expected_main_price_date": "",
+                "validation_replay_main_price_date": "",
             }
         )
         return state
@@ -275,21 +313,52 @@ def require_live_expected_date_match(state: dict, live_status: dict | None) -> d
             f"source_expected_main_price_date={source_expected or '<missing>'} "
             f"main_price_date={main_price_date or '<missing>'}"
         )
+    if (
+        validation_replay_main_price_date
+        and validation_replay_main_price_date != live_expected
+    ):
+        raise DailyReportEntrypointError(
+            "validation replay date does not match the live official expectation; "
+            f"validation_replay_main_price_date={validation_replay_main_price_date} "
+            f"live_expected_main_price_date={live_expected}"
+        )
     state.update(
         {
-            "market_session_validation_scope": "live_origin_main",
+            "market_session_validation_scope": (
+                "live_origin_main_validation_replay"
+                if validation_replay_main_price_date
+                else "live_origin_main"
+            ),
             "live_market_session_status": str(live_status.get("market_status") or ""),
             "live_market_session_date": market_session_calendar.normalize_date(
                 live_status.get("market_session_date")
             ),
             "live_expected_main_price_date": live_expected,
+            "validation_replay_main_price_date": validation_replay_main_price_date,
         }
     )
     return state
 
 
-def ensure_entrypoint_can_run(repo_root: Path, source_ref: str, allow_dirty_code: bool) -> dict:
-    live_status = resolve_live_market_session_for_entrypoint(repo_root, source_ref)
+def ensure_entrypoint_can_run(
+    repo_root: Path,
+    source_ref: str,
+    allow_dirty_code: bool,
+    validation_replay_main_price_date: str = "",
+) -> dict:
+    validation_replay_date = normalize_validation_replay_main_price_date(
+        validation_replay_main_price_date
+    )
+    if validation_replay_date and source_ref != DEFAULT_SOURCE_REF:
+        raise DailyReportEntrypointError(
+            "validation replay date is restricted to the official origin/main source: "
+            f"source_ref={source_ref}"
+        )
+    live_status = resolve_live_market_session_for_entrypoint(
+        repo_root,
+        source_ref,
+        validation_replay_date,
+    )
     try:
         state = resolve_daily_report_source_state(
             repo_root=repo_root,
@@ -301,7 +370,11 @@ def ensure_entrypoint_can_run(repo_root: Path, source_ref: str, allow_dirty_code
         )
     except DailyReportSourceError as exc:
         raise DailyReportEntrypointError("\n".join(exc.errors)) from exc
-    return require_live_expected_date_match(state, live_status)
+    return require_live_expected_date_match(
+        state,
+        live_status,
+        validation_replay_date,
+    )
 
 
 def add_source_worktree(repo_root: Path, source_ref: str, temp_root: Path) -> Path:
@@ -408,6 +481,9 @@ def write_runtime_manifest(
         "live_market_session_status": entry_state.get("live_market_session_status", ""),
         "live_market_session_date": entry_state.get("live_market_session_date", ""),
         "live_expected_main_price_date": entry_state.get("live_expected_main_price_date", ""),
+        "validation_replay_main_price_date": entry_state.get(
+            "validation_replay_main_price_date", ""
+        ),
         "main_price_date": entry_state["main_price_date"],
         "report_ready": entry_state["report_ready"],
         "warrant_ready": entry_state["warrant_ready"],
@@ -464,6 +540,15 @@ def parse_args() -> argparse.Namespace:
         action="store_true",
         help="Diagnostics only. Leave the temporary clean source worktree on disk.",
     )
+    parser.add_argument(
+        "--validation-replay-main-price-date",
+        default="",
+        help=(
+            "CI validation only. Permit an exact origin/main report-date replay after the clock "
+            "crosses into a closed market day. The value must equal the live expected date and "
+            "the source expected/main price dates."
+        ),
+    )
     return parser.parse_args()
 
 
@@ -477,6 +562,7 @@ def main() -> int:
             repo_root=repo_root,
             source_ref=args.source_ref,
             allow_dirty_code=args.allow_dirty_code,
+            validation_replay_main_price_date=args.validation_replay_main_price_date,
         )
         output_dir = (
             args.output_dir.expanduser().resolve()
@@ -491,6 +577,7 @@ def main() -> int:
             f"expected_main_price_date={state['expected_main_price_date']} "
             f"market_session_validation_scope={state['market_session_validation_scope']} "
             f"live_expected_main_price_date={state['live_expected_main_price_date']} "
+            f"validation_replay_main_price_date={state.get('validation_replay_main_price_date', '')} "
             f"main_price_date={state['main_price_date']} "
             f"report_ready={state['report_ready']} "
             f"warrant_ready={state['warrant_ready']} "
