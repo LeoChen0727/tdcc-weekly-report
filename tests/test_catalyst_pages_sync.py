@@ -42,6 +42,12 @@ def test_event_and_weekly_workflows_publish_pages_and_use_full_validation() -> N
         text = workflow.read_text(encoding="utf-8")
         assert "actions: write" in text
         assert "actions/checkout@v6.0.3" in text
+        assert "group: daily-full-pipeline-${{ github.ref }}" in text
+        assert "cancel-in-progress: false" in text
+        assert "ref: main" in text
+        assert "Enforce main-only mutation" in text
+        assert 'if [[ "${GITHUB_REF}" != "refs/heads/main" ]]; then' in text
+        assert 'test "$(git branch --show-current)" = "main"' in text
         assert "actions/setup-python@v6.2.0" in text
         assert "tabulate lxml html5lib beautifulsoup4" in text
         assert "python scripts/build_theme_event_watch.py" in text
@@ -68,7 +74,8 @@ def test_event_and_weekly_workflows_publish_pages_and_use_full_validation() -> N
         assert "git add output/history/daily_model_snapshots/" in text
         assert "git add docs/latest/" in text
         assert "if git diff --cached --quiet; then" in text
-        assert 'bash scripts/ci_push_with_retry.sh "${GITHUB_REF_NAME}" 5' in text
+        assert "bash scripts/ci_push_with_retry.sh main 5" in text
+        assert "GITHUB_REF_NAME" not in text
         assert "git pull --rebase origin main" not in text
         assert "\n          git push\n" not in text
         assert 'git commit -m "' in text
@@ -94,6 +101,7 @@ def test_event_and_weekly_workflows_publish_pages_and_use_full_validation() -> N
         ]:
             assert forbidden not in text
 
+        main_guard_index = text.index("Enforce main-only mutation")
         sentinel_before_index = text.index('capture_mature_sentinels "$mature_sentinel_before"')
         catalyst_index = text.index("python scripts/apply_fundamental_catalyst_layer.py")
         catalyst_performance_index = text.index("python scripts/update_catalyst_performance.py")
@@ -120,7 +128,8 @@ def test_event_and_weekly_workflows_publish_pages_and_use_full_validation() -> N
         staged_validate_index = text.index("python scripts/validate_daily_staged_paths.py")
         commit_index = text.index("git commit -m")
         assert (
-            sentinel_before_index
+            main_guard_index
+            < sentinel_before_index
             < catalyst_index
             < catalyst_performance_index
             < event_calendar_validate_index

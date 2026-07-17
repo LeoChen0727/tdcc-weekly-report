@@ -7,6 +7,10 @@ permissions:
   contents: write
   actions: write
 
+concurrency:
+  group: daily-full-pipeline-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   update-event-catalysts:
     runs-on: ubuntu-latest
@@ -16,6 +20,15 @@ jobs:
         uses: actions/checkout@v6.0.3
         with:
           fetch-depth: 0
+          ref: main
+
+      - name: Enforce main-only mutation
+        run: |
+          if [[ "${GITHUB_REF}" != "refs/heads/main" ]]; then
+            echo "Event Catalyst Update may mutate artifacts only from refs/heads/main" >&2
+            exit 1
+          fi
+          test "$(git branch --show-current)" = "main"
 
       - name: Set up Python
         uses: actions/setup-python@v6.2.0
@@ -192,7 +205,7 @@ jobs:
           else
             git commit -m "Update event catalyst data tables"
           fi
-          bash scripts/ci_push_with_retry.sh "${GITHUB_REF_NAME}" 5
+          bash scripts/ci_push_with_retry.sh main 5
 
       - name: Dispatch and wait for catalyst Pages deploy
         if: ${{ github.ref == 'refs/heads/main' }}
