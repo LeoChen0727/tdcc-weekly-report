@@ -2,11 +2,19 @@ from __future__ import annotations
 
 import argparse
 import csv
-import json
+import math
 import re
 from collections import Counter
 from pathlib import Path
 
+import pandas as pd
+
+from individual_tdcc_dataset_consumer import (
+    IndividualTdccDatasetContract,
+    StockTdccAssessment,
+    load_individual_tdcc_dataset_contract,
+    prepare_and_validate_stock_tdcc_history,
+)
 
 LATEST_DIR = Path("output/latest")
 DOCS_LATEST_DIR = Path("docs/latest")
@@ -14,14 +22,33 @@ INDIVIDUAL_STOCK_REPORTS_DIR = LATEST_DIR / "individual_stock_reports"
 DOCS_INDIVIDUAL_STOCK_REPORTS_DIR = DOCS_LATEST_DIR / "individual_stock_reports"
 PACKET_DIR = INDIVIDUAL_STOCK_REPORTS_DIR / "chatgpt_packets"
 PRICE_WINDOW_DIR = INDIVIDUAL_STOCK_REPORTS_DIR / "price_windows"
+TDCC_WINDOW_DIR = INDIVIDUAL_STOCK_REPORTS_DIR / "tdcc_windows"
 DATA_FRESHNESS_CSV = LATEST_DIR / "data_freshness_latest.csv"
 STOCK_PRICE_HISTORY_DIR = Path("data/stock_price_history")
 TDCC_HISTORY_DIR = Path("data/tdcc_stock_history")
-OFFICIAL_TDCC_CONTRACT_JSON = LATEST_DIR / "tdcc_weekly_candidate_report_validation_latest.json"
-OFFICIAL_TDCC_DATE_SOURCE = "report_ready_csv_signal_date"
+OFFICIAL_TDCC_DATASET_MANIFEST_JSON = LATEST_DIR / "tdcc_dataset_manifest_latest.json"
 OFFICIAL_DAILY_PRICE_CSV = LATEST_DIR / "official_daily_price_latest.csv"
 CURRENT_UNIVERSE_SOURCE = "official_daily_price_latest_main_price_date"
 LISTING_STATUS_SOURCE_STATUS = "formal_listing_status_source_unavailable"
+TDCC_WINDOW_VALUE_FIELDS = (
+    "as_of_date",
+    *(
+        field
+        for threshold in (400, 600, 800, 1000)
+        for field in (
+            f"over_{threshold}_ratio",
+            f"over_{threshold}_change_1w",
+            f"over_{threshold}_change_2w",
+            f"over_{threshold}_change_3w",
+        )
+    ),
+    "tdcc_consecutive_up_weeks",
+    "all_thresholds_up",
+    "high_thresholds_up",
+    "four_thresholds_sync_up",
+    "retail_ratio",
+    "total_shareholders",
+)
 
 ACTION_DISPLAY_REQUIRED_FIELDS = [
     "action_rating_display_zh",
@@ -110,33 +137,10 @@ def read_main_price_date() -> str:
 
 
 def read_official_tdcc_signal_date(path: Path | None = None) -> str:
-    contract_path = path or OFFICIAL_TDCC_CONTRACT_JSON
-    if not contract_path.exists():
-        raise SystemExit(f"ERROR: Missing official TDCC date contract: {contract_path}")
     try:
-        payload = json.loads(contract_path.read_text(encoding="utf-8-sig"))
-    except (OSError, json.JSONDecodeError) as exc:
-        raise SystemExit(f"ERROR: Cannot read official TDCC date contract {contract_path}: {exc}") from exc
-    if not isinstance(payload, dict):
-        raise SystemExit(f"ERROR: Official TDCC date contract must be a JSON object: {contract_path}")
-    status = str(payload.get("status", "")).strip()
-    if status != "pass":
-        raise SystemExit(
-            f"ERROR: Official TDCC date contract status must be pass, got {status or 'missing'}: {contract_path}"
-        )
-    date_contract = payload.get("date_contract")
-    if not isinstance(date_contract, dict):
-        raise SystemExit(f"ERROR: Official TDCC date contract missing date_contract object: {contract_path}")
-    date_source = str(date_contract.get("date_source", "")).strip()
-    if date_source != OFFICIAL_TDCC_DATE_SOURCE:
-        raise SystemExit(
-            f"ERROR: Official TDCC date_source must be {OFFICIAL_TDCC_DATE_SOURCE}, got {date_source or 'missing'}: "
-            f"{contract_path}"
-        )
-    signal_date = str(payload.get("signal_date", "")).strip()
-    if not re.fullmatch(r"20[0-9]{6}", signal_date):
-        raise SystemExit(f"ERROR: Official TDCC date contract missing valid signal_date: {contract_path}")
-    return signal_date
+        return load_individual_tdcc_dataset_contract(path or OFFICIAL_TDCC_DATASET_MANIFEST_JSON).signal_date
+    except RuntimeError as exc:
+        raise SystemExit(f"ERROR: Cannot load canonical TDCC dataset contract: {exc}") from exc
 
 
 def read_current_main_price_universe(main_price_date: str, path: Path | None = None) -> set[str]:
@@ -194,6 +198,16 @@ def read_tdcc_source_stats(stock_id: str, path: Path | None = None) -> tuple[int
     return len(rows), latest_date
 
 
+def read_tdcc_source_frame(stock_id: str, path: Path | None = None) -> pd.DataFrame:
+    source_path = path or TDCC_HISTORY_DIR / f"{stock_id}.csv"
+    if not source_path.exists():
+        return pd.DataFrame()
+    try:
+        return pd.read_csv(source_path, dtype=str, encoding="utf-8-sig").fillna("")
+    except Exception as exc:
+        raise RuntimeError(f"{stock_id}: cannot read TDCC materialized history {source_path}: {exc}") from exc
+
+
 def validate_tdcc_packet_freshness(
     stock_id: str,
     packet_path: Path,
@@ -203,6 +217,9 @@ def validate_tdcc_packet_freshness(
     is_current_main_price_universe: bool = True,
     source_tdcc_rows: int | None = None,
     source_latest_tdcc_date: str | None = None,
+    source_tdcc_dataset_id: str = "",
+    source_tdcc_continuity_status: str = "",
+    source_tdcc_missing_official_dates: tuple[str, ...] = (),
 ) -> list[str]:
     errors: list[str] = []
     metadata = read_packet_metadata(packet_path)
@@ -217,6 +234,11 @@ def validate_tdcc_packet_freshness(
     packet_universe_status = metadata.get("current_main_price_universe_status", "")
     packet_universe_source = metadata.get("current_main_price_universe_source", "")
     packet_listing_source_status = metadata.get("listing_status_source_status", "")
+    packet_dataset_id = metadata.get("source_tdcc_dataset_id", "")
+    packet_continuity_status = metadata.get("tdcc_continuity_status", "")
+    packet_missing_dates = tuple(
+        value for value in metadata.get("tdcc_missing_official_dates", "").split("|") if value
+    )
     try:
         packet_tdcc_rows = int(metadata.get("tdcc_rows", ""))
     except ValueError:
@@ -241,6 +263,22 @@ def validate_tdcc_packet_freshness(
         errors.append(
             f"{stock_id}: packet official_tdcc_signal_date mismatch: expected {official_tdcc_signal_date}, "
             f"got {packet_official_date or 'missing'} ({packet_path})"
+        )
+    if source_tdcc_dataset_id and packet_dataset_id != source_tdcc_dataset_id:
+        errors.append(
+            f"{stock_id}: packet source_tdcc_dataset_id mismatch: expected {source_tdcc_dataset_id}, "
+            f"got {packet_dataset_id or 'missing'} ({packet_path})"
+        )
+    if source_tdcc_continuity_status and packet_continuity_status != source_tdcc_continuity_status:
+        errors.append(
+            f"{stock_id}: packet tdcc_continuity_status mismatch: expected {source_tdcc_continuity_status}, "
+            f"got {packet_continuity_status or 'missing'} ({packet_path})"
+        )
+    if source_tdcc_continuity_status and packet_missing_dates != source_tdcc_missing_official_dates:
+        errors.append(
+            f"{stock_id}: packet tdcc_missing_official_dates mismatch: expected "
+            f"{'|'.join(source_tdcc_missing_official_dates) or 'blank'}, "
+            f"got {'|'.join(packet_missing_dates) or 'blank'} ({packet_path})"
         )
     if packet_tdcc_rows < 0:
         errors.append(f"{stock_id}: packet tdcc_rows missing or invalid: {packet_path}")
@@ -276,6 +314,10 @@ def validate_tdcc_packet_freshness(
         expected_freshness_status = "historical_only_noncurrent"
         if not expected_source_latest_date:
             errors.append(f"{stock_id}: historical-only packet must preserve a real latest_tdcc_date: {packet_path}")
+    elif source_tdcc_continuity_status == "accepted_history_exception":
+        expected_latest_date = official_tdcc_signal_date
+        expected_history_status = "tdcc_history_degraded_exception"
+        expected_freshness_status = "tdcc_window_degraded"
     else:
         expected_latest_date = official_tdcc_signal_date
         expected_history_status = "tdcc_history_ready" if expected_tdcc_rows >= 8 else "insufficient_tdcc_history"
@@ -307,6 +349,11 @@ def validate_tdcc_packet_freshness(
             "tdcc_history_status": expected_history_status,
             "tdcc_freshness_status": expected_freshness_status,
         }
+        if source_tdcc_dataset_id:
+            index_checks["source_tdcc_dataset_id"] = source_tdcc_dataset_id
+        if source_tdcc_continuity_status:
+            index_checks["tdcc_continuity_status"] = source_tdcc_continuity_status
+            index_checks["tdcc_missing_official_dates"] = "|".join(source_tdcc_missing_official_dates)
         for field, expected in index_checks.items():
             actual = str(index_row.get(field, "")).strip()
             if field.endswith("_date"):
@@ -321,6 +368,101 @@ def validate_tdcc_packet_freshness(
                 f"{stock_id}: packet index tdcc_rows mismatch: expected source value {expected_tdcc_rows}, "
                 f"got {index_rows or 'missing'}"
             )
+    return errors
+
+
+def validate_tdcc_window(
+    stock_id: str,
+    source_frame: pd.DataFrame,
+    source_assessment: StockTdccAssessment,
+    window_weeks: int = 12,
+) -> list[str]:
+    path = TDCC_WINDOW_DIR / f"{stock_id}_tdcc_window_latest.csv"
+    if not path.exists():
+        return [f"{stock_id}: TDCC window is missing: {path}"]
+    try:
+        window = pd.read_csv(path, dtype=str, encoding="utf-8-sig").fillna("")
+    except Exception as exc:
+        return [f"{stock_id}: cannot read TDCC window {path}: {exc}"]
+
+    expected_window = source_frame.tail(window_weeks).reset_index(drop=True)
+    expected_dates = expected_window["as_of_date"].astype(str).tolist() if not source_frame.empty else []
+    actual_dates = (
+        [normalize_date(value) for value in window.get("as_of_date", pd.Series(dtype=str)).tolist()]
+        if not window.empty
+        else []
+    )
+    errors: list[str] = []
+    if actual_dates != expected_dates:
+        errors.append(
+            f"{stock_id}: TDCC window date sequence mismatch: expected {expected_dates}, got {actual_dates} ({path})"
+        )
+    if source_frame.empty:
+        if not window.empty:
+            errors.append(f"{stock_id}: TDCC window must be empty when materialized history is empty: {path}")
+        return errors
+
+    required_metadata = {
+        "source_tdcc_dataset_id": source_assessment.dataset_id,
+        "tdcc_continuity_status": source_assessment.continuity_status,
+        "tdcc_missing_official_dates": "|".join(source_assessment.missing_official_dates),
+    }
+    for field, expected in required_metadata.items():
+        if field not in window.columns:
+            errors.append(f"{stock_id}: TDCC window missing {field}: {path}")
+            continue
+        values = {str(value).strip() for value in window[field].tolist()}
+        if values != {expected}:
+            errors.append(
+                f"{stock_id}: TDCC window {field} mismatch: expected {expected or 'blank'}, "
+                f"got {sorted(values)} ({path})"
+            )
+    missing_value_fields = sorted(set(TDCC_WINDOW_VALUE_FIELDS) - set(window.columns))
+    if missing_value_fields:
+        errors.append(f"{stock_id}: TDCC window missing required value fields {missing_value_fields}: {path}")
+    numeric_fields = {
+        field
+        for field in TDCC_WINDOW_VALUE_FIELDS
+        if "_ratio" in field or "_change_" in field or field == "tdcc_consecutive_up_weeks"
+    }
+    boolean_fields = {"all_thresholds_up", "high_thresholds_up", "four_thresholds_sync_up"}
+    for field in TDCC_WINDOW_VALUE_FIELDS:
+        if field not in expected_window.columns or field not in window.columns:
+            continue
+        expected_values = expected_window[field].tolist()
+        actual_values = window[field].tolist()
+        if len(expected_values) != len(actual_values):
+            continue
+        for row_number, (expected, actual) in enumerate(zip(expected_values, actual_values), start=1):
+            if field in numeric_fields:
+                try:
+                    expected_number = float(expected) if str(expected).strip() else math.nan
+                    actual_number = float(actual) if str(actual).strip() else math.nan
+                except (TypeError, ValueError):
+                    errors.append(f"{stock_id}: TDCC window {field} row {row_number} is not numeric ({path})")
+                    break
+                if not (
+                    (math.isnan(expected_number) and math.isnan(actual_number))
+                    or math.isclose(expected_number, actual_number, rel_tol=0.0, abs_tol=1e-9)
+                ):
+                    errors.append(
+                        f"{stock_id}: TDCC window {field} row {row_number} source mismatch: "
+                        f"expected {expected}, got {actual} ({path})"
+                    )
+                    break
+            elif field in boolean_fields:
+                if str(expected).strip().lower() != str(actual).strip().lower():
+                    errors.append(
+                        f"{stock_id}: TDCC window {field} row {row_number} source mismatch: "
+                        f"expected {expected}, got {actual} ({path})"
+                    )
+                    break
+            elif str(expected).strip() != str(actual).strip():
+                errors.append(
+                    f"{stock_id}: TDCC window {field} row {row_number} source mismatch: "
+                    f"expected {expected}, got {actual} ({path})"
+                )
+                break
     return errors
 
 
@@ -416,7 +558,7 @@ def validate_report_display_text(stock_id: str, path: Path) -> list[str]:
 def validate_stock(
     stock_id: str,
     main_price_date: str,
-    official_tdcc_signal_date: str,
+    tdcc_contract: IndividualTdccDatasetContract,
     index_row: dict[str, str],
     validate_current_price: bool = True,
     is_current_main_price_universe: bool = True,
@@ -451,19 +593,43 @@ def validate_stock(
                 )
 
     packet_path = PACKET_DIR / f"{stock_id}_packet_latest.md"
-    source_tdcc_rows, source_latest_tdcc_date = read_tdcc_source_stats(stock_id)
+    try:
+        source_frame, source_assessment = prepare_and_validate_stock_tdcc_history(
+            stock_id,
+            read_tdcc_source_frame(stock_id),
+            tdcc_contract,
+        )
+    except RuntimeError as exc:
+        errors.append(str(exc))
+        source_frame = read_tdcc_source_frame(stock_id)
+        source_tdcc_rows, source_latest_tdcc_date = read_tdcc_source_stats(stock_id)
+        source_assessment = StockTdccAssessment(
+            stock_id=stock_id,
+            dataset_id=tdcc_contract.dataset_id,
+            signal_date=tdcc_contract.signal_date,
+            row_count=source_tdcc_rows,
+            latest_date=source_latest_tdcc_date,
+            is_current_tdcc_universe=stock_id in tdcc_contract.current_stock_ids,
+            continuity_status="invalid",
+            missing_official_dates=(),
+        )
     errors.extend(
         validate_tdcc_packet_freshness(
             stock_id,
             packet_path,
             index_row,
-            official_tdcc_signal_date,
+            tdcc_contract.signal_date,
             main_price_date,
             is_current_main_price_universe,
-            source_tdcc_rows,
-            source_latest_tdcc_date,
+            source_assessment.row_count,
+            source_assessment.latest_date,
+            tdcc_contract.dataset_id,
+            source_assessment.continuity_status,
+            source_assessment.missing_official_dates,
         )
     )
+    if source_assessment.continuity_status != "invalid":
+        errors.extend(validate_tdcc_window(stock_id, source_frame, source_assessment))
 
     packet_paths = [
         PACKET_DIR / f"{stock_id}_packet_latest.md",
@@ -494,7 +660,10 @@ def parse_args() -> argparse.Namespace:
 
 def main() -> int:
     args = parse_args()
-    official_tdcc_signal_date = read_official_tdcc_signal_date()
+    try:
+        tdcc_contract = load_individual_tdcc_dataset_contract(OFFICIAL_TDCC_DATASET_MANIFEST_JSON)
+    except RuntimeError as exc:
+        raise SystemExit(f"ERROR: Cannot load canonical TDCC dataset contract: {exc}") from exc
     main_price_date = read_main_price_date()
     current_main_price_universe = read_current_main_price_universe(main_price_date)
     stock_ids = [str(x).strip() for x in args.stock_id if str(x).strip()]
@@ -537,7 +706,7 @@ def main() -> int:
             validate_stock(
                 stock_id,
                 main_price_date,
-                official_tdcc_signal_date,
+                tdcc_contract,
                 index_row,
                 validate_current_price=validate_current_price,
                 is_current_main_price_universe=is_current_main_price_universe,
@@ -563,7 +732,8 @@ def main() -> int:
     )
     print(
         f"Individual stock outputs validated against main_price_date={main_price_date}; "
-        f"official_tdcc_signal_date={official_tdcc_signal_date}; validated={len(stock_ids)} "
+        f"official_tdcc_signal_date={tdcc_contract.signal_date}; "
+        f"source_tdcc_dataset_id={tdcc_contract.dataset_id}; validated={len(stock_ids)} "
         f"current_main_price_universe={len(current_main_price_universe)} "
         f"non_current_price_packets_checked_for_tdcc={non_current_price_count}"
     )

@@ -55,6 +55,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ github.token }}
         run: |
+          python scripts/validate_tdcc_dataset_manifest.py
           python scripts/build_individual_stock_chatgpt_packets.py --stock-id "${{ inputs.stock_id }}"
           python scripts/build_individual_stock_raw_data_index.py
           python scripts/validate_individual_stock_outputs.py --stock-id "${{ inputs.stock_id }}"
@@ -108,6 +109,7 @@ jobs:
         run: |
           STOCK_ID="${{ inputs.stock_id }}"
 
+          python scripts/validate_tdcc_dataset_manifest.py
           python scripts/build_individual_stock_chatgpt_packets.py --stock-id "${{ inputs.stock_id }}"
           python scripts/build_individual_stock_raw_data_index.py
           python scripts/validate_individual_stock_outputs.py --stock-id "${{ inputs.stock_id }}"

@@ -100,14 +100,32 @@ def write_tdcc_contract(
     *,
     status: str = "pass",
     signal_date: str = "20260717",
-    date_source: str = "report_ready_csv_signal_date",
+    dataset_id: str = "tdcc-20260717-0123456789abcdef",
 ) -> None:
+    snapshot = path.parent / "tdcc_holder_ratio_20260717.csv"
+    readiness = path.parent / "readiness.json"
+    snapshot.write_text("code,date\n2330,20260717\n", encoding="utf-8")
+    readiness.write_text(
+        json.dumps({"official_dates": ["20260703", signal_date]}),
+        encoding="utf-8",
+    )
     path.write_text(
         json.dumps(
             {
                 "status": status,
+                "schema_version": "tdcc_dataset_manifest_v1",
+                "dataset_id": dataset_id,
                 "signal_date": signal_date,
-                "date_contract": {"date_source": date_source},
+                "required_dates": ["20260703", signal_date],
+                "current_stock_count": 1,
+                "readiness_path": readiness.as_posix(),
+                "snapshots": [
+                    {
+                        "date": signal_date,
+                        "path": snapshot.as_posix(),
+                    }
+                ],
+                "accepted_history_exceptions": [],
             }
         ),
         encoding="utf-8",
@@ -121,6 +139,9 @@ def packet_text(
     freshness_status: str,
     tdcc_rows: int = 12,
     universe_status: str = "current",
+    dataset_id: str = "tdcc-20260717-0123456789abcdef",
+    continuity_status: str = "complete",
+    missing_official_dates: str = "",
 ) -> str:
     return "\n".join(
         [
@@ -132,11 +153,14 @@ def packet_text(
             f"- current_main_price_universe_status: {universe_status}",
             "- current_main_price_universe_source: official_daily_price_latest_main_price_date",
             "- listing_status_source_status: formal_listing_status_source_unavailable",
+            f"- source_tdcc_dataset_id: {dataset_id}",
             "- official_tdcc_signal_date: 20260717",
             f"- latest_tdcc_date: {latest_tdcc_date}",
             f"- tdcc_rows: {tdcc_rows}",
             f"- tdcc_history_status: {history_status}",
             f"- tdcc_freshness_status: {freshness_status}",
+            f"- tdcc_continuity_status: {continuity_status}",
+            f"- tdcc_missing_official_dates: {missing_official_dates}",
             "",
             "## Stable Read URLs",
         ]
@@ -148,20 +172,25 @@ def test_official_tdcc_contract_loaders_fail_closed(tmp_path):
     validator = load_script("validate_individual_stock_outputs")
     missing = tmp_path / "missing.json"
     for loader in [builder.load_official_tdcc_signal_date, validator.read_official_tdcc_signal_date]:
-        with pytest.raises(SystemExit, match="Missing official TDCC date contract"):
+        with pytest.raises(SystemExit, match="Cannot load canonical TDCC dataset contract"):
             loader(missing)
 
     failed_contract = tmp_path / "failed.json"
     write_tdcc_contract(failed_contract, status="fail")
     for loader in [builder.load_official_tdcc_signal_date, validator.read_official_tdcc_signal_date]:
-        with pytest.raises(SystemExit, match="status must be pass"):
+        with pytest.raises(SystemExit, match="manifest is not pass"):
             loader(failed_contract)
 
-    wrong_source_contract = tmp_path / "wrong-source.json"
-    write_tdcc_contract(wrong_source_contract, date_source="weekly_file_max_date")
+    wrong_identity_contract = tmp_path / "wrong-identity.json"
+    write_tdcc_contract(wrong_identity_contract, dataset_id="wrong")
     for loader in [builder.load_official_tdcc_signal_date, validator.read_official_tdcc_signal_date]:
-        with pytest.raises(SystemExit, match="date_source must be report_ready_csv_signal_date"):
-            loader(wrong_source_contract)
+        with pytest.raises(SystemExit, match="manifest identity is invalid"):
+            loader(wrong_identity_contract)
+
+    valid_contract = tmp_path / "valid.json"
+    write_tdcc_contract(valid_contract)
+    for loader in [builder.load_official_tdcc_signal_date, validator.read_official_tdcc_signal_date]:
+        assert loader(valid_contract) == "20260717"
 
 
 def test_current_main_price_universe_is_dated_and_fail_closed(tmp_path):
@@ -329,6 +358,62 @@ def test_noncurrent_main_price_universe_preserves_historical_tdcc(tmp_path):
         is_current_main_price_universe=False,
         source_tdcc_rows=5,
         source_latest_tdcc_date="20260529",
+    ) == []
+
+
+def test_accepted_canonical_gap_is_degraded_and_disclosed(tmp_path):
+    builder = load_script("build_individual_stock_chatgpt_packets")
+    validator = load_script("validate_individual_stock_outputs")
+    packet_path = tmp_path / "2380_packet_latest.md"
+    dataset_id = "tdcc-20260717-0123456789abcdef"
+    _, history_status, freshness_status, notes = builder.status_from_rows(
+        180,
+        11,
+        "20260717",
+        "20260717",
+        tdcc_continuity_status="accepted_history_exception",
+        missing_official_dates=("20260626",),
+    )
+    assert history_status == "tdcc_history_degraded_exception"
+    assert freshness_status == "tdcc_window_degraded"
+    assert "20260626" in notes
+    packet_path.write_text(
+        packet_text(
+            latest_tdcc_date="20260717",
+            history_status=history_status,
+            freshness_status=freshness_status,
+            tdcc_rows=11,
+            dataset_id=dataset_id,
+            continuity_status="accepted_history_exception",
+            missing_official_dates="20260626",
+        ),
+        encoding="utf-8",
+    )
+    index_row = {
+        "current_main_price_date": "20260717",
+        "current_main_price_universe_status": "current",
+        "current_main_price_universe_source": "official_daily_price_latest_main_price_date",
+        "listing_status_source_status": "formal_listing_status_source_unavailable",
+        "source_tdcc_dataset_id": dataset_id,
+        "official_tdcc_signal_date": "20260717",
+        "latest_tdcc_date": "20260717",
+        "tdcc_rows": "11",
+        "tdcc_history_status": history_status,
+        "tdcc_freshness_status": freshness_status,
+        "tdcc_continuity_status": "accepted_history_exception",
+        "tdcc_missing_official_dates": "20260626",
+    }
+    assert validator.validate_tdcc_packet_freshness(
+        "2380",
+        packet_path,
+        index_row,
+        "20260717",
+        main_price_date="20260717",
+        source_tdcc_rows=11,
+        source_latest_tdcc_date="20260717",
+        source_tdcc_dataset_id=dataset_id,
+        source_tdcc_continuity_status="accepted_history_exception",
+        source_tdcc_missing_official_dates=("20260626",),
     ) == []
 
 

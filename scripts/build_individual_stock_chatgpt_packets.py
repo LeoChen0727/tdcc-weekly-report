@@ -5,12 +5,16 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any
 from zoneinfo import ZoneInfo
-import json
 import re
 
 import pandas as pd
 
 from action_decision_utils import compute_action_decision
+from individual_tdcc_dataset_consumer import (
+    IndividualTdccDatasetContract,
+    load_individual_tdcc_dataset_contract,
+    prepare_and_validate_stock_tdcc_history,
+)
 
 
 VALID_STOCK_ID_RE = re.compile(r"^[0-9]{4,6}$")
@@ -37,8 +41,7 @@ REPEAT_CSV = LATEST_DIR / "candidate_repeat_appearance_latest.csv"
 SELL_DIR = Path("output/history/sell_strategy_backtest")
 DATA_FRESHNESS_CSV = LATEST_DIR / "data_freshness_latest.csv"
 READ_ME_FIRST_TXT = LATEST_DIR / "READ_ME_FIRST_DAILY_REPORT.txt"
-OFFICIAL_TDCC_CONTRACT_JSON = LATEST_DIR / "tdcc_weekly_candidate_report_validation_latest.json"
-OFFICIAL_TDCC_DATE_SOURCE = "report_ready_csv_signal_date"
+OFFICIAL_TDCC_DATASET_MANIFEST_JSON = LATEST_DIR / "tdcc_dataset_manifest_latest.json"
 OFFICIAL_DAILY_PRICE_CSV = LATEST_DIR / "official_daily_price_latest.csv"
 CURRENT_UNIVERSE_SOURCE = "official_daily_price_latest_main_price_date"
 LISTING_STATUS_SOURCE_STATUS = "formal_listing_status_source_unavailable"
@@ -122,33 +125,10 @@ def current_main_price_date() -> str:
 
 
 def load_official_tdcc_signal_date(path: Path | None = None) -> str:
-    contract_path = path or OFFICIAL_TDCC_CONTRACT_JSON
-    if not contract_path.exists():
-        raise SystemExit(f"ERROR: Missing official TDCC date contract: {contract_path}")
     try:
-        payload = json.loads(contract_path.read_text(encoding="utf-8-sig"))
-    except (OSError, json.JSONDecodeError) as exc:
-        raise SystemExit(f"ERROR: Cannot read official TDCC date contract {contract_path}: {exc}") from exc
-    if not isinstance(payload, dict):
-        raise SystemExit(f"ERROR: Official TDCC date contract must be a JSON object: {contract_path}")
-    if safe_str(payload.get("status")) != "pass":
-        raise SystemExit(
-            f"ERROR: Official TDCC date contract status must be pass, got {safe_str(payload.get('status')) or 'missing'}: "
-            f"{contract_path}"
-        )
-    date_contract = payload.get("date_contract")
-    if not isinstance(date_contract, dict):
-        raise SystemExit(f"ERROR: Official TDCC date contract missing date_contract object: {contract_path}")
-    date_source = safe_str(date_contract.get("date_source"))
-    if date_source != OFFICIAL_TDCC_DATE_SOURCE:
-        raise SystemExit(
-            f"ERROR: Official TDCC date_source must be {OFFICIAL_TDCC_DATE_SOURCE}, got {date_source or 'missing'}: "
-            f"{contract_path}"
-        )
-    signal_date = safe_str(payload.get("signal_date"))
-    if not re.fullmatch(r"20[0-9]{6}", signal_date):
-        raise SystemExit(f"ERROR: Official TDCC date contract missing valid signal_date: {contract_path}")
-    return signal_date
+        return load_individual_tdcc_dataset_contract(path or OFFICIAL_TDCC_DATASET_MANIFEST_JSON).signal_date
+    except RuntimeError as exc:
+        raise SystemExit(f"ERROR: Cannot load canonical TDCC dataset contract: {exc}") from exc
 
 
 def load_current_main_price_universe(main_price_date: str, path: Path | None = None) -> set[str]:
@@ -441,6 +421,8 @@ def status_from_rows(
     latest_tdcc_date: str,
     official_tdcc_signal_date: str,
     is_current_main_price_universe: bool = True,
+    tdcc_continuity_status: str = "complete",
+    missing_official_dates: tuple[str, ...] = (),
 ) -> tuple[str, str, str, str]:
     if price_rows >= 120:
         packet_status = "standard_180d_window_packet"
@@ -457,6 +439,9 @@ def status_from_rows(
     elif tdcc_rows > 0 and latest_tdcc_date != official_tdcc_signal_date:
         tdcc_status = "tdcc_window_stale"
         tdcc_freshness_status = "tdcc_window_stale"
+    elif tdcc_rows > 0 and tdcc_continuity_status == "accepted_history_exception":
+        tdcc_status = "tdcc_history_degraded_exception"
+        tdcc_freshness_status = "tdcc_window_degraded"
     elif tdcc_rows >= 8:
         tdcc_status = "tdcc_history_ready"
         tdcc_freshness_status = "tdcc_window_fresh"
@@ -480,6 +465,11 @@ def status_from_rows(
         notes.append(
             f"TDCC window stale: latest_tdcc_date={latest_tdcc_date or 'missing'} does not match "
             f"official_tdcc_signal_date={official_tdcc_signal_date}; do not claim current TDCC history"
+        )
+    if tdcc_status == "tdcc_history_degraded_exception":
+        notes.append(
+            "TDCC history contains canonical accepted stock-level missing dates: "
+            f"{','.join(missing_official_dates) or 'missing'}; disclose the gap and do not treat the window as continuous"
         )
     if tdcc_status == "historical_only_noncurrent":
         notes.append(
@@ -507,11 +497,15 @@ def build_packet(
     repeat_df: pd.DataFrame,
     price_days: int,
     tdcc_weeks: int,
-    official_tdcc_signal_date: str,
+    tdcc_contract: IndividualTdccDatasetContract,
     main_price_date: str,
     is_current_main_price_universe: bool,
 ) -> tuple[str, dict[str, Any]]:
     price_df = sort_by_date(price_df, ["date", "trade_date"])
+    try:
+        tdcc_df, tdcc_assessment = prepare_and_validate_stock_tdcc_history(stock_id, tdcc_df, tdcc_contract)
+    except RuntimeError as exc:
+        raise SystemExit(f"ERROR: {exc}") from exc
     tdcc_df = sort_by_date(tdcc_df, ["as_of_date", "date"])
     candidate_df = sort_by_date(filter_stock_df(all_candidates_df, stock_id), ["date", "signal_date", "report_date"])
     warrant_stock_df = sort_by_date(filter_stock_df(warrant_df, stock_id), ["date"])
@@ -521,13 +515,16 @@ def build_packet(
     price_rows = len(price_df)
     tdcc_rows = len(tdcc_df)
     latest_price_date = latest_date(price_df, ["date", "trade_date"])
-    latest_tdcc_date = latest_date(tdcc_df, ["as_of_date", "date"])
+    latest_tdcc_date = tdcc_assessment.latest_date
+    official_tdcc_signal_date = tdcc_contract.signal_date
     packet_status, tdcc_status, tdcc_freshness_status, notes = status_from_rows(
         price_rows,
         tdcc_rows,
         latest_tdcc_date,
         official_tdcc_signal_date,
         is_current_main_price_universe,
+        tdcc_assessment.continuity_status,
+        tdcc_assessment.missing_official_dates,
     )
 
     packet_path = PACKET_DIR / f"{stock_id}_packet_latest.md"
@@ -558,7 +555,12 @@ def build_packet(
             "tdcc_status": pick_value(latest_tdcc, ["tdcc_status", "tdcc_judgement", "tdcc_accumulation_signal"]),
         }
     )
-    if tdcc_status in {"insufficient_tdcc_history", "tdcc_window_stale", "historical_only_noncurrent"}:
+    if tdcc_status in {
+        "insufficient_tdcc_history",
+        "tdcc_window_stale",
+        "tdcc_history_degraded_exception",
+        "historical_only_noncurrent",
+    }:
         action_source["downgrade_flags"] = "|".join(
             [safe_str(action_source.get("downgrade_flags", "")), tdcc_status]
         ).strip("|")
@@ -594,18 +596,29 @@ def build_packet(
             "as_of_date",
             "over_400_ratio",
             "over_400_change_1w",
+            "over_400_change_2w",
+            "over_400_change_3w",
             "over_600_ratio",
             "over_600_change_1w",
+            "over_600_change_2w",
+            "over_600_change_3w",
             "over_800_ratio",
             "over_800_change_1w",
+            "over_800_change_2w",
+            "over_800_change_3w",
             "over_1000_ratio",
             "over_1000_change_1w",
+            "over_1000_change_2w",
+            "over_1000_change_3w",
             "tdcc_consecutive_up_weeks",
             "all_thresholds_up",
             "high_thresholds_up",
             "four_thresholds_sync_up",
             "retail_ratio",
             "total_shareholders",
+            "source_tdcc_dataset_id",
+            "tdcc_continuity_status",
+            "tdcc_missing_official_dates",
         ],
         limit=tdcc_weeks,
     )
@@ -630,11 +643,14 @@ def build_packet(
         f"- current_main_price_universe_status: {'current' if is_current_main_price_universe else 'historical_only_noncurrent'}",
         f"- current_main_price_universe_source: {CURRENT_UNIVERSE_SOURCE}",
         f"- listing_status_source_status: {LISTING_STATUS_SOURCE_STATUS}",
+        f"- source_tdcc_dataset_id: {tdcc_contract.dataset_id}",
         f"- official_tdcc_signal_date: {official_tdcc_signal_date}",
         f"- latest_tdcc_date: {latest_tdcc_date}",
         f"- tdcc_rows: {tdcc_rows}",
         f"- tdcc_history_status: {tdcc_status}",
         f"- tdcc_freshness_status: {tdcc_freshness_status}",
+        f"- tdcc_continuity_status: {tdcc_assessment.continuity_status}",
+        f"- tdcc_missing_official_dates: {'|'.join(tdcc_assessment.missing_official_dates)}",
         f"- individual_report_md_exists: {report_md.exists()}",
         f"- sell_strategy_summary_exists: {sell_summary.exists()}",
         f"- notes: {notes}".rstrip(),
@@ -676,8 +692,9 @@ def build_packet(
         "- MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.",
         "- The full historical CSV remains available for Python backtests.",
         "- If price_rows < 60, do not produce a standard technical report.",
-        "- Only claim tdcc_history_ready when tdcc_rows >= 8 and latest_tdcc_date equals official_tdcc_signal_date.",
+        "- Only claim tdcc_history_ready when the canonical dataset_id matches, every required official date is present, tdcc_rows >= 8, and latest_tdcc_date equals official_tdcc_signal_date.",
         "- If latest_tdcc_date differs from official_tdcc_signal_date, mark tdcc_window_stale and do not claim current TDCC history.",
+        "- A canonical accepted stock-level missing date must be disclosed as tdcc_history_degraded_exception; it must not be treated as a continuous weekly series.",
         "- If the stock is absent from the official current main-price universe, preserve real TDCC dates and mark historical_only_noncurrent; do not infer a formal delisting status.",
         "- If TDCC is current but tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.",
         "- External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.",
@@ -857,11 +874,14 @@ def build_packet(
         "current_main_price_universe_status": "current" if is_current_main_price_universe else "historical_only_noncurrent",
         "current_main_price_universe_source": CURRENT_UNIVERSE_SOURCE,
         "listing_status_source_status": LISTING_STATUS_SOURCE_STATUS,
+        "source_tdcc_dataset_id": tdcc_contract.dataset_id,
         "tdcc_rows": tdcc_rows,
         "official_tdcc_signal_date": official_tdcc_signal_date,
         "latest_tdcc_date": latest_tdcc_date,
         "tdcc_history_status": tdcc_status,
         "tdcc_freshness_status": tdcc_freshness_status,
+        "tdcc_continuity_status": tdcc_assessment.continuity_status,
+        "tdcc_missing_official_dates": "|".join(tdcc_assessment.missing_official_dates),
         "has_candidate_context": not candidate_df.empty,
         "has_repeat_context": not repeat_stock_df.empty,
         "has_warrant_context": not warrant_stock_df.empty,
@@ -942,6 +962,16 @@ def write_index_md(index: pd.DataFrame) -> None:
         if "official_tdcc_signal_date" in index.columns
         else []
     )
+    tdcc_dataset_ids = (
+        sorted({safe_str(value) for value in index["source_tdcc_dataset_id"].tolist() if safe_str(value)})
+        if "source_tdcc_dataset_id" in index.columns
+        else []
+    )
+    continuity_counts = (
+        index["tdcc_continuity_status"].value_counts().to_dict()
+        if "tdcc_continuity_status" in index.columns
+        else {}
+    )
     lines = [
         "# Individual Stock ChatGPT Packet Index",
         "",
@@ -953,10 +983,14 @@ def write_index_md(index: pd.DataFrame) -> None:
         f"- partial_rawdata_packet: {status_counts.get('partial_rawdata_packet', 0)}",
         f"- insufficient_price_data: {status_counts.get('insufficient_price_data', 0)}",
         f"- official_tdcc_signal_date: {official_tdcc_dates[0] if len(official_tdcc_dates) == 1 else 'mixed_or_missing'}",
+        f"- source_tdcc_dataset_id: {tdcc_dataset_ids[0] if len(tdcc_dataset_ids) == 1 else 'mixed_or_missing'}",
         f"- tdcc_window_fresh: {tdcc_freshness_counts.get('tdcc_window_fresh', 0)}",
+        f"- tdcc_window_degraded: {tdcc_freshness_counts.get('tdcc_window_degraded', 0)}",
         f"- tdcc_window_stale: {tdcc_freshness_counts.get('tdcc_window_stale', 0)}",
         f"- tdcc_missing: {tdcc_freshness_counts.get('tdcc_missing', 0)}",
         f"- historical_only_noncurrent: {tdcc_freshness_counts.get('historical_only_noncurrent', 0)}",
+        f"- tdcc_continuity_complete: {continuity_counts.get('complete', 0)}",
+        f"- tdcc_continuity_accepted_history_exception: {continuity_counts.get('accepted_history_exception', 0)}",
         f"- current_main_price_universe: {universe_status_counts.get('current', 0)}",
         f"- noncurrent_main_price_universe: {universe_status_counts.get('historical_only_noncurrent', 0)}",
         f"- csv_raw_url: {raw_url(PACKET_INDEX_CSV)}",
@@ -988,10 +1022,13 @@ def write_index_md(index: pd.DataFrame) -> None:
                 "current_main_price_date",
                 "current_main_price_universe_status",
                 "tdcc_rows",
+                "source_tdcc_dataset_id",
                 "official_tdcc_signal_date",
                 "latest_tdcc_date",
                 "tdcc_history_status",
                 "tdcc_freshness_status",
+                "tdcc_continuity_status",
+                "tdcc_missing_official_dates",
                 "action_rating_display_zh",
                 "model_category_display_zh",
                 "entry_strategy_zh",
@@ -1032,7 +1069,10 @@ def main() -> int:
     parser.add_argument("--tdcc-weeks", type=int, default=12)
     args = parser.parse_args()
 
-    official_tdcc_signal_date = load_official_tdcc_signal_date()
+    try:
+        tdcc_contract = load_individual_tdcc_dataset_contract(OFFICIAL_TDCC_DATASET_MANIFEST_JSON)
+    except RuntimeError as exc:
+        raise SystemExit(f"ERROR: Cannot load canonical TDCC dataset contract: {exc}") from exc
 
     all_candidates_df = read_csv(ALL_CANDIDATES_CSV)
     warrant_df = read_csv(WARRANT_FLOW_CSV)
@@ -1067,7 +1107,7 @@ def main() -> int:
             repeat_df=repeat_df,
             price_days=args.price_days,
             tdcc_weeks=args.tdcc_weeks,
-            official_tdcc_signal_date=official_tdcc_signal_date,
+            tdcc_contract=tdcc_contract,
             main_price_date=main_date,
             is_current_main_price_universe=stock_id in current_main_price_universe,
         )
@@ -1080,7 +1120,8 @@ def main() -> int:
     print(f"Saved packets: {len(rows)}")
     print(f"Saved: {PACKET_INDEX_CSV} rows={len(index)}")
     print(f"Saved: {PACKET_INDEX_MD}")
-    print(f"Official TDCC signal date: {official_tdcc_signal_date}")
+    print(f"Official TDCC signal date: {tdcc_contract.signal_date}")
+    print(f"Canonical TDCC dataset id: {tdcc_contract.dataset_id}")
     print(f"Current main-price universe date: {main_date} rows={len(current_main_price_universe)}")
     return 0
 
