@@ -1,6 +1,6 @@
 # TDCC Overheated Short-Term Edge
 
-- generated_at: `2026-07-18 21:36:19 Asia/Taipei`
+- generated_at: `2026-07-19 01:56:50 Asia/Taipei`
 - tuning_status: `not_ready`
 - allowed_changes: `reporting_priority_only`
 - forbidden_changes: `core_weight_change`
@@ -18,10 +18,10 @@
 
 | signal_date | stock_id | stock_name | theme | rule_name_zh | price_ret_1w | price_ret_2w | d5_mature_count | d5_win_rate_pct | d5_avg_relative_return_pct | d10_mature_count | d10_win_rate_pct | d10_avg_relative_return_pct | sample_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260717 | 2466 | 冠西電 | other | 四級距同步過熱 + 1週漲10~30% + MACD histogram > 0 | 23.85786802030456 | 55.61224489795917 | 65 | 58.46 | 1.43 | 59 | 62.71 | 2.40 | short-term TDCC overheated edge; reporting-only until more market regimes mature |
 | 20260717 | 6907 | 雅特力-KY | other | 四級距同步過熱 + 1週漲10~30% + MACD histogram > 0 | 21.02564102564102 | 52.258064516129025 | 65 | 58.46 | 1.43 | 59 | 62.71 | 2.40 | short-term TDCC overheated edge; reporting-only until more market regimes mature |
 | 20260717 | 8383 | 千附 | other | 四級距同步過熱 + 1週漲10~30% + MACD histogram > 0 | 27.690100430416067 | 41.49443561208268 | 65 | 58.46 | 1.43 | 59 | 62.71 | 2.40 | short-term TDCC overheated edge; reporting-only until more market regimes mature |
 | 20260717 | 3685 | 元創精密 | other | 四級距同步過熱 + 1週漲10~30% + MACD histogram > 0 | 23.739837398373975 | 31.88908145580587 | 65 | 58.46 | 1.43 | 59 | 62.71 | 2.40 | short-term TDCC overheated edge; reporting-only until more market regimes mature |
+| 20260717 | 4707 | 磐亞 | other | 四級距同步過熱 + 1週漲10~30% + MACD histogram > 0 | 11.724137931034484 | 31.06796116504855 | 65 | 58.46 | 1.43 | 59 | 62.71 | 2.40 | short-term TDCC overheated edge; reporting-only until more market regimes mature |
 | 20260717 | 8039 | 台虹 | other | 四級距同步過熱 + 1週漲10~30% + MACD histogram > 0 | 25.0 | 30.067567567567565 | 65 | 58.46 | 1.43 | 59 | 62.71 | 2.40 | short-term TDCC overheated edge; reporting-only until more market regimes mature |
 | 20260717 | 4534 | 慶騰 | other | 四級距同步過熱 + 1週漲10~30% + MACD histogram > 0 | 24.10714285714286 | 22.287390029325515 | 65 | 58.46 | 1.43 | 59 | 62.71 | 2.40 | short-term TDCC overheated edge; reporting-only until more market regimes mature |
 | 20260717 | 1301 | 台塑 | other | 四級距同步過熱 + 1週漲10~30% + MACD histogram > 0 | 14.598540145985407 | 5.192629815745375 | 65 | 58.46 | 1.43 | 59 | 62.71 | 2.40 | short-term TDCC overheated edge; reporting-only until more market regimes mature |

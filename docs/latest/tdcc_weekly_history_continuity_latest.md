@@ -1,0 +1,128 @@
+# TDCC Weekly History Continuity
+
+- status: `repaired`
+- generated_at: `2026-07-19 01:53:05 Asia/Taipei`
+- signal_date: `20260717`
+- required_dates: `20260430, 20260508, 20260515, 20260522, 20260529, 20260605, 20260612, 20260618, 20260626, 20260703, 20260709, 20260717`
+- current_stock_count: 1972
+- missing_rows_before: 1894
+- repaired_count: 1892
+- accepted_exception_count: 2
+- official_no_data_count: 1
+- invalid_holder_distribution_count: 1
+- unresolved_missing_rows: 0
+
+## Contract
+
+- Required dates come from the official TDCC query form, not filename spacing or computer date.
+- Missing historical rows are fetched before any 1w/2w/3w or consecutive calculation.
+- A systemic or unresolved history gap blocks report production; a confirmed per-stock history exception is recorded explicitly.
+
+## Missing Before
+
+- `20260626`: missing_stock_count=2 existing_rows=1970
+- `20260709`: missing_stock_count=1892 existing_rows=80
+
+## Actions
+
+- `20260626` `2380` invalid_holder_distribution attempts=1: single-holder or placeholder distribution
+- `20260626` `3152` official_no_data attempts=3: official query returned no distribution row
+- `20260709` `1101` repaired attempts=1: 
+- `20260709` `1103` repaired attempts=1: 
+- `20260709` `1104` repaired attempts=1: 
+- `20260709` `1108` repaired attempts=1: 
+- `20260709` `1109` repaired attempts=1: 
+- `20260709` `1110` repaired attempts=1: 
+- `20260709` `1201` repaired attempts=1: 
+- `20260709` `1203` repaired attempts=1: 
+- `20260709` `1210` repaired attempts=1: 
+- `20260709` `1213` repaired attempts=1: 
+- `20260709` `1215` repaired attempts=1: 
+- `20260709` `1216` repaired attempts=1: 
+- `20260709` `1218` repaired attempts=1: 
+- `20260709` `1219` repaired attempts=1: 
+- `20260709` `1220` repaired attempts=1: 
+- `20260709` `1225` repaired attempts=1: 
+- `20260709` `1227` repaired attempts=1: 
+- `20260709` `1229` repaired attempts=1: 
+- `20260709` `1231` repaired attempts=1: 
+- `20260709` `1232` repaired attempts=1: 
+- `20260709` `1234` repaired attempts=1: 
+- `20260709` `1235` repaired attempts=1: 
+- `20260709` `1236` repaired attempts=1: 
+- `20260709` `1240` repaired attempts=1: 
+- `20260709` `1256` repaired attempts=1: 
+- `20260709` `1259` repaired attempts=1: 
+- `20260709` `1264` repaired attempts=1: 
+- `20260709` `1268` repaired attempts=1: 
+- `20260709` `1294` repaired attempts=1: 
+- `20260709` `1295` repaired attempts=1: 
+- `20260709` `1301` repaired attempts=1: 
+- `20260709` `1303` repaired attempts=1: 
+- `20260709` `1305` repaired attempts=1: 
+- `20260709` `1307` repaired attempts=1: 
+- `20260709` `1308` repaired attempts=1: 
+- `20260709` `1309` repaired attempts=1: 
+- `20260709` `1310` repaired attempts=1: 
+- `20260709` `1312` repaired attempts=1: 
+- `20260709` `1313` repaired attempts=1: 
+- `20260709` `1314` repaired attempts=1: 
+- `20260709` `1315` repaired attempts=1: 
+- `20260709` `1316` repaired attempts=1: 
+- `20260709` `1319` repaired attempts=1: 
+- `20260709` `1321` repaired attempts=1: 
+- `20260709` `1324` repaired attempts=1: 
+- `20260709` `1326` repaired attempts=1: 
+- `20260709` `1336` repaired attempts=1: 
+- `20260709` `1337` repaired attempts=1: 
+- `20260709` `1338` repaired attempts=1: 
+- `20260709` `1340` repaired attempts=1: 
+- `20260709` `1341` repaired attempts=1: 
+- `20260709` `1342` repaired attempts=1: 
+- `20260709` `1409` repaired attempts=1: 
+- `20260709` `1413` repaired attempts=1: 
+- `20260709` `1414` repaired attempts=1: 
+- `20260709` `1416` repaired attempts=1: 
+- `20260709` `1417` repaired attempts=1: 
+- `20260709` `1418` repaired attempts=1: 
+- `20260709` `1419` repaired attempts=1: 
+- `20260709` `1432` repaired attempts=1: 
+- `20260709` `1434` repaired attempts=1: 
+- `20260709` `1435` repaired attempts=1: 
+- `20260709` `1436` repaired attempts=1: 
+- `20260709` `1438` repaired attempts=1: 
+- `20260709` `1439` repaired attempts=1: 
+- `20260709` `1440` repaired attempts=1: 
+- `20260709` `1441` repaired attempts=1: 
+- `20260709` `1443` repaired attempts=1: 
+- `20260709` `1444` repaired attempts=1: 
+- `20260709` `1445` repaired attempts=1: 
+- `20260709` `1446` repaired attempts=1: 
+- `20260709` `1447` repaired attempts=1: 
+- `20260709` `1449` repaired attempts=1: 
+- `20260709` `1451` repaired attempts=1: 
+- `20260709` `1452` repaired attempts=1: 
+- `20260709` `1453` repaired attempts=1: 
+- `20260709` `1454` repaired attempts=1: 
+- `20260709` `1455` repaired attempts=1: 
+- `20260709` `1456` repaired attempts=1: 
+- `20260709` `1459` repaired attempts=1: 
+- `20260709` `1460` repaired attempts=1: 
+- `20260709` `1463` repaired attempts=1: 
+- `20260709` `1465` repaired attempts=1: 
+- `20260709` `1466` repaired attempts=1: 
+- `20260709` `1467` repaired attempts=1: 
+- `20260709` `1468` repaired attempts=1: 
+- `20260709` `1470` repaired attempts=1: 
+- `20260709` `1471` repaired attempts=1: 
+- `20260709` `1472` repaired attempts=1: 
+- `20260709` `1473` repaired attempts=1: 
+- `20260709` `1475` repaired attempts=1: 
+- `20260709` `1476` repaired attempts=1: 
+- `20260709` `1477` repaired attempts=1: 
+- `20260709` `1503` repaired attempts=1: 
+- `20260709` `1504` repaired attempts=1: 
+- `20260709` `1506` repaired attempts=1: 
+- `20260709` `1512` repaired attempts=1: 
+- `20260709` `1513` repaired attempts=1: 
+- ... 1794 more actions
