@@ -2,7 +2,7 @@
 
 - TDCC data date: 20260717
 
-- generated_at: 2026-07-18 15:42:13 Asia/Taipei
+- generated_at: 2026-07-18 21:37:21 Asia/Taipei
 - rows: 7
 
 | TDCC名單類型 | TDCC排名 | 資料日 | 代號 | 股票 | 族群 | TDCC階段 | 風險類型 | 風險 | TDCC分數 | 每日模型ID | 每日模型 | 顯示排名 | 模型內排名 | 模型分數 | 模型來源 | 同時命中來源 | 入選原因 | 風險標籤 | 下一確認 | 建議用途 | 報告用途 | 操作提醒 |
