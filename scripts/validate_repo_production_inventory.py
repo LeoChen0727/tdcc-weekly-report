@@ -10,6 +10,25 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 INVENTORY = ROOT / "config" / "repo_production_inventory.csv"
 DAILY_WORKFLOW = ".github/workflows/daily_full_pipeline.yml"
+PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY = "PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY"
+PRODUCTION_ARTIFACT_WRITE_SECRET_EXPRESSION = (
+    "${{ secrets.PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY }}"
+)
+PRODUCTION_ARTIFACT_WRITE_SSH_KEY = (
+    f"ssh-key: {PRODUCTION_ARTIFACT_WRITE_SECRET_EXPRESSION}"
+)
+PRODUCTION_ARTIFACT_PERSIST_CREDENTIALS = "persist-credentials: true"
+PRODUCTION_ARTIFACT_WRITE_PREFLIGHT_NAME = (
+    "Require production artifact write deploy key"
+)
+PRODUCTION_ARTIFACT_WRITE_SECRET_GUARD = (
+    'if [ -z "${PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY}" ]; then'
+)
+ARTIFACT_PUSH_JOB_MARKERS = (
+    "git commit",
+    "git push",
+    "ci_push_with_retry.sh",
+)
 
 REQUIRED_COLUMNS = {
     "path",
@@ -511,6 +530,237 @@ def workflow_invocations(workflow_path: str) -> set[str]:
     return invoked
 
 
+def workflow_job_blocks(text: str) -> dict[str, str]:
+    blocks: dict[str, str] = {}
+    in_jobs = False
+    current_name = ""
+    current_lines: list[str] = []
+
+    for line in text.splitlines(keepends=True):
+        stripped = line.rstrip("\r\n")
+        if not in_jobs:
+            if stripped == "jobs:":
+                in_jobs = True
+            continue
+        if stripped and not line.startswith((" ", "\t")):
+            break
+
+        match = re.match(r"^  ([A-Za-z0-9_-]+):\s*$", stripped)
+        if match:
+            if current_name:
+                blocks[current_name] = "".join(current_lines)
+            current_name = match.group(1)
+            current_lines = [line]
+        elif current_name:
+            current_lines.append(line)
+
+    if current_name:
+        blocks[current_name] = "".join(current_lines)
+    return blocks
+
+
+def workflow_has_pull_request_trigger(text: str) -> bool:
+    lines = text.splitlines()
+    for index, line in enumerate(lines):
+        if re.match(r"^on:\s*(?:pull_request|\[[^]]*\bpull_request\b[^]]*\])\s*$", line):
+            return True
+        if line.strip() != "on:" or line.startswith((" ", "\t")):
+            continue
+        for trigger_line in lines[index + 1 :]:
+            if trigger_line and not trigger_line.startswith((" ", "\t")):
+                break
+            if re.match(r"^  pull_request:\s*$", trigger_line):
+                return True
+        return False
+    return False
+
+
+def workflow_step_blocks(job_block: str) -> list[str]:
+    blocks: list[str] = []
+    in_steps = False
+    current_lines: list[str] = []
+
+    for line in job_block.splitlines(keepends=True):
+        stripped = line.rstrip("\r\n")
+        if not in_steps:
+            if stripped == "    steps:":
+                in_steps = True
+            continue
+
+        if re.match(r"^      -\s+", stripped):
+            if current_lines:
+                blocks.append("".join(current_lines))
+            current_lines = [line]
+        elif current_lines:
+            current_lines.append(line)
+
+    if current_lines:
+        blocks.append("".join(current_lines))
+    return blocks
+
+
+def workflow_step_name(step_block: str) -> str:
+    match = re.search(r"^      - name:\s*(.+?)\s*$", step_block, flags=re.MULTILINE)
+    return match.group(1) if match else ""
+
+
+def workflow_step_mapping(step_block: str, section: str) -> dict[str, str]:
+    lines = step_block.splitlines()
+    section_line = f"        {section}:"
+    mapping: dict[str, str] = {}
+    in_section = False
+
+    for line in lines:
+        if not in_section:
+            if line == section_line:
+                in_section = True
+            continue
+        if not line.strip():
+            continue
+        indent = len(line) - len(line.lstrip(" "))
+        if indent <= 8:
+            break
+        match = re.match(r"^          ([A-Za-z0-9_-]+):\s*(.*?)\s*$", line)
+        if match:
+            mapping[match.group(1)] = match.group(2)
+    return mapping
+
+
+def is_checkout_step(step_block: str) -> bool:
+    return bool(
+        re.search(
+            r"^        uses:\s*actions/checkout@[^\s#]+\s*$",
+            step_block,
+            flags=re.MULTILINE,
+        )
+    )
+
+
+def is_valid_writer_secret_preflight(step_block: str) -> bool:
+    if workflow_step_name(step_block) != PRODUCTION_ARTIFACT_WRITE_PREFLIGHT_NAME:
+        return False
+    if not re.search(r"^        shell:\s*bash\s*$", step_block, flags=re.MULTILINE):
+        return False
+    env = workflow_step_mapping(step_block, "env")
+    if (
+        env.get(PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY)
+        != PRODUCTION_ARTIFACT_WRITE_SECRET_EXPRESSION
+    ):
+        return False
+    stripped_lines = {line.strip() for line in step_block.splitlines()}
+    return (
+        PRODUCTION_ARTIFACT_WRITE_SECRET_GUARD in stripped_lines
+        and "exit 1" in stripped_lines
+    )
+
+
+def is_artifact_push_job(block: str) -> bool:
+    return any(marker in block for marker in ARTIFACT_PUSH_JOB_MARKERS)
+
+
+def validate_artifact_push_job(
+    workflow_path: str,
+    job_name: str,
+    block: str,
+    errors: list[str],
+) -> None:
+    steps = workflow_step_blocks(block)
+    checkout_steps = [
+        (index, step)
+        for index, step in enumerate(steps)
+        if is_checkout_step(step)
+    ]
+    if not checkout_steps:
+        errors.append(f"{workflow_path} writer job {job_name} must checkout the repository")
+
+    keyed_checkout_steps = [
+        (index, step)
+        for index, step in checkout_steps
+        if workflow_step_mapping(step, "with").get("ssh-key")
+        == PRODUCTION_ARTIFACT_WRITE_SECRET_EXPRESSION
+    ]
+    if not keyed_checkout_steps:
+        errors.append(
+            f"{workflow_path} writer job {job_name} must use "
+            f"secrets.{PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY} as actions/checkout ssh-key"
+        )
+
+    authenticated_checkout_steps = [
+        (index, step)
+        for index, step in keyed_checkout_steps
+        if workflow_step_mapping(step, "with").get("persist-credentials") == "true"
+    ]
+    if keyed_checkout_steps and not authenticated_checkout_steps:
+        errors.append(
+            f"{workflow_path} writer job {job_name} must set persist-credentials: true "
+            "in the same actions/checkout step as the deploy key"
+        )
+
+    preflight_indices = [
+        index
+        for index, step in enumerate(steps)
+        if is_valid_writer_secret_preflight(step)
+    ]
+    if not preflight_indices:
+        errors.append(
+            f"{workflow_path} writer job {job_name} must fail closed when "
+            f"secrets.{PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY} is empty"
+        )
+    elif checkout_steps and min(preflight_indices) >= min(index for index, _ in checkout_steps):
+        errors.append(
+            f"{workflow_path} writer job {job_name} must check the deploy key "
+            "before actions/checkout"
+        )
+
+
+def validate_production_artifact_writer_auth(
+    rows_by_path: dict[str, InventoryRow],
+    workflow_paths: set[str],
+    errors: list[str],
+) -> None:
+    for workflow_path in sorted(workflow_paths):
+        row = rows_by_path.get(workflow_path)
+        text = read_text(workflow_path)
+        job_blocks = workflow_job_blocks(text)
+        artifact_push_jobs = {
+            job_name: block
+            for job_name, block in job_blocks.items()
+            if is_artifact_push_job(block)
+        }
+        is_registered_writer = bool(row is not None and row.allowed_stage_patterns)
+        writer_jobs = artifact_push_jobs if is_registered_writer else {}
+
+        if is_registered_writer and not artifact_push_jobs:
+            errors.append(
+                f"{workflow_path} has allowed_stage_patterns but no artifact push job"
+            )
+
+        for job_name, block in writer_jobs.items():
+            validate_artifact_push_job(workflow_path, job_name, block, errors)
+
+        for job_name, block in job_blocks.items():
+            if job_name not in writer_jobs and PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY in block:
+                errors.append(
+                    f"{workflow_path} non-writer job {job_name} must not use "
+                    f"secrets.{PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY}"
+                )
+
+        writer_secret_count = sum(
+            block.count(PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY)
+            for block in writer_jobs.values()
+        )
+        if text.count(PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY) != writer_secret_count:
+            errors.append(
+                f"{workflow_path} must scope secrets.{PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY} "
+                "to artifact push jobs only"
+            )
+        if workflow_has_pull_request_trigger(text) and PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY in text:
+            errors.append(
+                f"{workflow_path} pull_request workflow must not use "
+                f"secrets.{PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY}"
+            )
+
+
 def validate_inventory_coverage(
     rows_by_path: dict[str, InventoryRow],
     python_paths: set[str],
@@ -642,6 +892,7 @@ def validate() -> list[str]:
         validate_inventory_rows(rows_by_path, errors)
         validate_workflow_invocations(rows_by_path, workflow_paths, errors)
         validate_allowed_stage_patterns(rows_by_path, errors)
+        validate_production_artifact_writer_auth(rows_by_path, workflow_paths, errors)
 
     validate_workflow_snippets(errors)
     validate_active_guidance_commands(errors)

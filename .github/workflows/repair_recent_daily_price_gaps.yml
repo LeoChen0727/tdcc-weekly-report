@@ -42,9 +42,21 @@ jobs:
           echo "::error::Repair Recent Daily Price Gaps is production-only on main."
           exit 1
 
+      - name: Require production artifact write deploy key
+        shell: bash
+        env:
+          PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY: ${{ secrets.PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY }}
+        run: |
+          if [ -z "${PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY}" ]; then
+            echo "::error::PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY is required for artifact publishing."
+            exit 1
+          fi
+
       - name: Checkout repository
         uses: actions/checkout@v6
         with:
+          ssh-key: ${{ secrets.PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY }}
+          persist-credentials: true
           ref: main
           fetch-depth: 0
 

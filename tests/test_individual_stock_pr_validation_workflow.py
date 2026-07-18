@@ -18,6 +18,20 @@ PR_404_PATHS = (
     "tests/test_individual_stock_outputs.py",
 )
 
+PRODUCTION_ARTIFACT_WRITER_WORKFLOWS = (
+    ".github/workflows/current_holdings_pattern.yml",
+    ".github/workflows/daily_full_pipeline.yml",
+    ".github/workflows/individual_stock_data_refresh.yml",
+    ".github/workflows/individual_stock_report.yml",
+    ".github/workflows/repair_daily_price_range.yml",
+    ".github/workflows/repair_one_daily_price.yml",
+    ".github/workflows/repair_recent_daily_price_gaps.yml",
+    ".github/workflows/repair_tdcc_monthly_history_gaps.yml",
+    ".github/workflows/research_backtest_pipeline.yml",
+    ".github/workflows/tdcc_history_backfill.yml",
+    ".github/workflows/tdcc_weekly.yml",
+    ".github/workflows/warrant_flow.yml",
+)
 
 def workflow_text() -> str:
     return WORKFLOW.read_text(encoding="utf-8")
@@ -78,6 +92,13 @@ def test_scope_covers_gate_inventories_and_probe_contract_docs() -> None:
     assert not any(scope.is_affected_path(path) for path in unrelated)
 
 
+def test_scope_covers_every_registered_production_artifact_writer() -> None:
+    assert all(
+        scope.is_affected_path(path)
+        for path in PRODUCTION_ARTIFACT_WRITER_WORKFLOWS
+    )
+
+
 def test_individual_stock_history_root_is_affected() -> None:
     assert scope.is_affected_path(
         "output/history/individual_stock_reports/2330/20260717.json"
@@ -92,6 +113,7 @@ def test_workflow_contains_required_affected_validation_commands() -> None:
         "python scripts/validate_repo_file_lifecycle_inventory.py",
         "python scripts/validate_repo_production_inventory.py",
         "python scripts/validate_individual_pdf_contract_consumers.py",
+        "python -m pytest tests/test_repo_production_inventory.py -q",
         "python -m pytest tests/test_individual_stock_outputs.py -q",
         "python -m pytest tests/test_individual_stock_pr_validation_workflow.py -q",
     )

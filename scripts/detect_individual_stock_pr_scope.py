@@ -11,9 +11,19 @@ ROOT = Path(__file__).resolve().parents[1]
 
 AFFECTED_EXACT_PATHS = frozenset(
     {
+        ".github/workflows/current_holdings_pattern.yml",
+        ".github/workflows/daily_full_pipeline.yml",
         ".github/workflows/individual_stock_data_refresh.yml",
         ".github/workflows/individual_stock_pr_validation.yml",
         ".github/workflows/individual_stock_report.yml",
+        ".github/workflows/repair_daily_price_range.yml",
+        ".github/workflows/repair_one_daily_price.yml",
+        ".github/workflows/repair_recent_daily_price_gaps.yml",
+        ".github/workflows/repair_tdcc_monthly_history_gaps.yml",
+        ".github/workflows/research_backtest_pipeline.yml",
+        ".github/workflows/tdcc_history_backfill.yml",
+        ".github/workflows/tdcc_weekly.yml",
+        ".github/workflows/warrant_flow.yml",
         "config/repo_file_lifecycle_inventory.csv",
         "config/repo_production_inventory.csv",
         "docs/APPS_SCRIPT_WORKFLOW_TRIGGER.md",
@@ -85,7 +95,10 @@ def write_github_output(path: Path, matched: list[str]) -> None:
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="Detect whether a pull request affects individual-stock contract validation."
+        description=(
+            "Detect whether a pull request affects individual-stock contracts or "
+            "production artifact-writer authentication."
+        )
     )
     parser.add_argument("--base-sha", required=True)
     parser.add_argument("--head-sha", required=True)
