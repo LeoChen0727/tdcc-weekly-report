@@ -11,6 +11,12 @@ const TDCC_CHAIN_HISTORY_LIMIT = 16;
 const TDCC_CHAIN_CORRELATION_WINDOW_MS = 10 * 60 * 1000;
 const TDCC_CHAIN_MAIN_EVIDENCE_WINDOW_MS = 30 * 60 * 1000;
 const TDCC_CHAIN_POLL_MINUTES = 5;
+const TDCC_DATA_RETRY_DELAY_MS = 30 * 60 * 1000;
+const TDCC_RETRYABLE_DATA_STEPS = [
+  "Wait for expected TDCC period",
+  "Fetch current TDCC snapshot",
+  "Repair TDCC weekly history continuity",
+];
 const TDCC_WEEKLY_WORKFLOW = "tdcc_weekly.yml";
 const INDIVIDUAL_REFRESH_WORKFLOW = "individual_stock_data_refresh.yml";
 const TDCC_RUN_STATUS_PATH = "output/latest/tdcc_weekly_run_status.md";
@@ -174,6 +180,38 @@ function getWorkflowRun_(runId) {
   return githubJson_("get", path, null, "Read workflow run " + runId);
 }
 
+function getWorkflowJobs_(runId) {
+  const path =
+    "/repos/" +
+    GITHUB_OWNER +
+    "/" +
+    GITHUB_REPO +
+    "/actions/runs/" +
+    encodeURIComponent(String(runId)) +
+    "/jobs?per_page=100";
+  return githubJson_("get", path, null, "Read workflow jobs " + runId);
+}
+
+function failedWorkflowStepNames_(runId) {
+  const data = getWorkflowJobs_(runId);
+  const failed = [];
+  (data.jobs || []).forEach(function (job) {
+    (job.steps || []).forEach(function (step) {
+      if (step.conclusion === "failure") {
+        failed.push(step.name);
+      }
+    });
+  });
+  return failed;
+}
+
+function isRetryableTdccDataFailure_(runId) {
+  const failedSteps = failedWorkflowStepNames_(runId);
+  return failedSteps.length > 0 && failedSteps.every(function (stepName) {
+    return TDCC_RETRYABLE_DATA_STEPS.indexOf(stepName) >= 0;
+  });
+}
+
 function getMainRefSha_() {
   const path =
     "/repos/" +
@@ -294,6 +332,10 @@ function nowIso_() {
   return new Date().toISOString();
 }
 
+function taipeiYyyyMmDd_() {
+  return Utilities.formatDate(new Date(), "Asia/Taipei", "yyyyMMdd");
+}
+
 function readTdccChainState_() {
   const raw = PropertiesService.getScriptProperties().getProperty(TDCC_CHAIN_STATE_PROPERTY);
   return raw ? JSON.parse(raw) : null;
@@ -389,6 +431,47 @@ function failTdccChain_(state, phase, message) {
   state.error = message;
   writeTdccChainState_(state);
   throw new Error(message);
+}
+
+function scheduleTdccDataRetry_(state, tdccRun) {
+  state.phase = "tdcc_data_retry_wait";
+  state.retry_count = Number(state.retry_count || 0) + 1;
+  state.last_retryable_run_id = String(tdccRun.id);
+  state.last_retryable_run_url = tdccRun.html_url;
+  state.last_retryable_conclusion = tdccRun.conclusion;
+  state.next_retry_at = new Date(Date.now() + TDCC_DATA_RETRY_DELAY_MS).toISOString();
+  delete state.error;
+  writeTdccChainState_(state);
+}
+
+function dispatchScheduledTdccRetry_(state) {
+  if (!state.next_retry_at || Date.now() < new Date(state.next_retry_at).getTime()) {
+    Logger.log("Waiting for TDCC data retry window: " + state.next_retry_at);
+    return false;
+  }
+  state.tdcc_baseline_run_id = latestWorkflowRunId_(TDCC_WEEKLY_WORKFLOW);
+  state.tdcc_dispatched_at = nowIso_();
+  delete state.tdcc_run_id;
+  delete state.tdcc_head_sha;
+  delete state.tdcc_run_url;
+  delete state.tdcc_status;
+  delete state.tdcc_conclusion;
+  delete state.next_retry_at;
+  state.phase = "tdcc_retry_dispatching";
+  writeTdccChainState_(state);
+  try {
+    dispatchWorkflow_(TDCC_WEEKLY_WORKFLOW, {
+      target_as_of_date: state.target_as_of_date,
+    });
+  } catch (error) {
+    state.phase = "tdcc_retry_dispatch_uncertain";
+    state.error = error.message;
+    writeTdccChainState_(state);
+    throw error;
+  }
+  state.phase = "tdcc_dispatched";
+  writeTdccChainState_(state);
+  return true;
 }
 
 function readTdccPublishedEvidence_(tdccRun) {
@@ -581,12 +664,15 @@ function triggerTdccWeeklyReport() {
       version: 1,
       phase: "tdcc_dispatching",
       tdcc_dispatched_at: nowIso_(),
+      target_as_of_date: taipeiYyyyMmDd_(),
       tdcc_baseline_run_id: latestWorkflowRunId_(TDCC_WEEKLY_WORKFLOW),
       tdcc_base_main_sha: getMainRefSha_(),
     };
     writeTdccChainState_(state);
     try {
-      dispatchWorkflow_(TDCC_WEEKLY_WORKFLOW);
+      dispatchWorkflow_(TDCC_WEEKLY_WORKFLOW, {
+        target_as_of_date: state.target_as_of_date,
+      });
     } catch (error) {
       state.phase = "tdcc_dispatch_failed";
       state.error = error.message;
@@ -608,6 +694,10 @@ function orchestrateTdccIndividualRefresh() {
     }
     if (isTerminalTdccChainPhase_(state.phase)) {
       Logger.log("TDCC-to-individual refresh chain is terminal: " + state.phase);
+      return;
+    }
+    if (state.phase === "tdcc_data_retry_wait") {
+      dispatchScheduledTdccRetry_(state);
       return;
     }
 
@@ -650,6 +740,13 @@ function orchestrateTdccIndividualRefresh() {
       return;
     }
     if (tdccRun.conclusion !== "success") {
+      if (isRetryableTdccDataFailure_(tdccRun.id)) {
+        scheduleTdccDataRetry_(state, tdccRun);
+        Logger.log(
+          "TDCC data is not ready or continuity repair did not finish; retry remains automatic."
+        );
+        return;
+      }
       failTdccChain_(
         state,
         "tdcc_failed",

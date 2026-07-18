@@ -1,0 +1,82 @@
+name: TDCC Weekly PR Validation
+
+on:
+  pull_request:
+    paths:
+      - ".github/workflows/tdcc_weekly.yml"
+      - ".github/workflows/tdcc_weekly_pr_validation.yml"
+      - ".github/workflows/repair_tdcc_monthly_history_gaps.yml"
+      - "config/repo_file_lifecycle_inventory.csv"
+      - "config/repo_production_inventory.csv"
+      - "config/report_artifact_lineage.csv"
+      - "config/runtime_file_lineage_contract.csv"
+      - "docs/APPS_SCRIPT_WORKFLOW_TRIGGER.md"
+      - "docs/apps_script_workflow_trigger.gs"
+      - "docs/tdcc_weekly_data_continuity.md"
+      - "scripts/backfill_tdcc_history.py"
+      - "scripts/build_tdcc_stock_history.py"
+      - "scripts/repair_tdcc_monthly_history_gaps.py"
+      - "scripts/repair_tdcc_weekly_history_continuity.py"
+      - "scripts/tdcc_stock_history_utils.py"
+      - "scripts/tdcc_weekly_data_readiness.py"
+      - "scripts/validate_apps_script_workflow_triggers.py"
+      - "scripts/validate_tdcc_weekly_history_continuity.py"
+      - "scripts/validate_repo_production_inventory.py"
+      - "tdcc_holder_ratio_top10.py"
+      - "tests/test_tdcc_monthly_history_gap_repair.py"
+      - "tests/test_tdcc_weekly_data_readiness.py"
+      - "tests/test_tdcc_weekly_history_continuity.py"
+      - "tests/test_tdcc_weekly_pr_validation_workflow.py"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: tdcc-weekly-pr-validation-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  tdcc-weekly-pr-validation:
+    name: tdcc-weekly-pr-validation
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      - name: Check patch whitespace
+        if: github.event_name == 'pull_request'
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: git diff --check "$BASE_SHA...$HEAD_SHA" --
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --disable-pip-version-check \
+            pandas requests lxml html5lib beautifulsoup4 pytest pyyaml
+
+      - name: Validate TDCC continuity contracts
+        run: |
+          python scripts/validate_apps_script_workflow_triggers.py
+          python scripts/validate_repo_file_lifecycle_inventory.py
+          python scripts/validate_repo_production_inventory.py
+          python scripts/validate_repo_semantic_integrity.py
+          python scripts/validate_daily_production_boundaries.py
+
+      - name: Run TDCC continuity regression tests
+        run: |
+          python -m pytest \
+            tests/test_tdcc_monthly_history_gap_repair.py \
+            tests/test_tdcc_weekly_data_readiness.py \
+            tests/test_tdcc_weekly_history_continuity.py \
+            tests/test_tdcc_weekly_pr_validation_workflow.py \
+            -q

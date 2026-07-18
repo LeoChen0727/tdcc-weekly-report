@@ -118,6 +118,7 @@ WORKFLOW_ALLOWED_OWNERS = {
     },
     ".github/workflows/signal_performance_tracker.yml": {"research_backtest", "repo_infrastructure"},
     ".github/workflows/tdcc_history_backfill.yml": {"tdcc_weekly", "repo_infrastructure"},
+    ".github/workflows/tdcc_weekly_pr_validation.yml": {"tdcc_weekly", "repo_infrastructure"},
     ".github/workflows/tdcc_weekly.yml": {"tdcc_weekly", "repo_infrastructure"},
     ".github/workflows/test_tdcc_trend.yml": {"tdcc_weekly", "diagnostics", "repo_infrastructure"},
     ".github/workflows/warrant_flow.yml": {
@@ -257,6 +258,16 @@ FORBIDDEN_WORKFLOW_SNIPPETS = {
             "actions/deploy-pages",
         ),
     },
+    ".github/workflows/tdcc_weekly_pr_validation.yml": {
+        "TDCC weekly PR validation must remain read-only": (
+            "contents: write",
+            "git add ",
+            "git commit",
+            "git push",
+            "actions/upload-pages-artifact",
+            "actions/deploy-pages",
+        ),
+    },
 }
 
 REQUIRED_WORKFLOW_COMMANDS = {
@@ -294,6 +305,13 @@ REQUIRED_WORKFLOW_COMMANDS = {
         "python scripts/validate_tdcc_report_contract_consumers.py",
     ),
     ".github/workflows/tdcc_history_backfill.yml": ("python scripts/validate_repo_production_inventory.py",),
+    ".github/workflows/tdcc_weekly_pr_validation.yml": (
+        "python scripts/validate_apps_script_workflow_triggers.py",
+        "python scripts/validate_repo_file_lifecycle_inventory.py",
+        "python scripts/validate_repo_production_inventory.py",
+        "python scripts/validate_repo_semantic_integrity.py",
+        "python scripts/validate_daily_production_boundaries.py",
+    ),
     ".github/workflows/repair_tdcc_monthly_history_gaps.yml": (
         "python scripts/validate_apps_script_workflow_triggers.py",
         "python scripts/validate_repo_production_inventory.py",

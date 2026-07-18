@@ -100,7 +100,13 @@ attempting repairs.
 
 `triggerTdccWeeklyReport` dispatches the TDCC weekly report workflow and records
 the pre-dispatch run id, dispatch timestamp, and main SHA in Script Properties.
-It does not use a fixed delay as completion evidence.
+It does not use a fixed delay as completion evidence. If the tracked run fails
+in the allowlisted TDCC period-readiness, current-snapshot, or history-continuity
+steps, `orchestrateTdccIndividualRefresh` persists a nonterminal retry state and
+redispatches `tdcc_weekly.yml` after 30 minutes. The initial dispatch pins
+`target_as_of_date` in Asia/Taipei and every retry reuses it, so a long source
+delay cannot silently move the report to a later week. Other failures remain
+terminal.
 
 `triggerTdccHistoryGapRepair` dispatches
 `.github/workflows/repair_tdcc_monthly_history_gaps.yml`. The workflow checks
@@ -256,7 +262,7 @@ The canonical Apps Script source currently installs:
 | `triggerEventCatalystUpdate` | daily 08:10 and 18:10 Asia/Taipei | `event_catalyst_update.yml` |
 | `triggerTdccHistoryGapRepair` | Tuesday 09:30 Asia/Taipei | `repair_tdcc_monthly_history_gaps.yml` |
 | `triggerTdccWeeklyReport` | Saturday 15:30 Asia/Taipei | `tdcc_weekly.yml` |
-| `orchestrateTdccIndividualRefresh` | every 5 minutes; dispatches only while a TDCC chain is active and all run/main gates pass | conditional `individual_stock_data_refresh.yml` |
+| `orchestrateTdccIndividualRefresh` | every 5 minutes; retries allowlisted TDCC data steps after 30 minutes, then dispatches downstream only after run/main gates pass | conditional `tdcc_weekly.yml` retry or `individual_stock_data_refresh.yml` |
 | `triggerWeeklyThemeReview` | Sunday 19:30 Asia/Taipei | `weekly_theme_review.yml` |
 | `triggerResearchBacktestPipeline` | every 2 weeks, Sunday 21:10 Asia/Taipei | `research_backtest_pipeline.yml` |
 

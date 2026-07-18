@@ -269,7 +269,7 @@ def repair_tdcc_monthly_gaps(
     status = "pass"
     if dry_run:
         status = "dry_run"
-    elif failed_count:
+    elif failed_count or missing_stock_rows_after:
         status = "fail"
     elif repaired_count:
         status = "repaired"
