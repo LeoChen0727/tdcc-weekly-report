@@ -36,6 +36,10 @@ from tracking_utils import (  # noqa: E402
     to_number,
     write_csv,
 )
+from research_tdcc_dataset_consumer import (  # noqa: E402
+    ResearchTdccDatasetContract,
+    load_research_tdcc_dataset_contract,
+)
 
 
 MODEL_ID = "tdcc_weekly_ranking_formula"
@@ -43,7 +47,6 @@ RANKING_MODEL_VERSION = "tdcc_weekly_ranking_formula_20260614"
 HORIZONS = [5, 10, 20]
 RANK_BUCKETS = [10, 20, 50]
 
-TDCC_HISTORY_DIR = HISTORY_DIR / "tdcc"
 THEME_TAXONOMY = LATEST_DIR / "stock_theme_taxonomy_latest.csv"
 
 EVENTS_CSV = HISTORY_DIR / "research" / "tdcc_weekly_ranking_backtest_events.csv"
@@ -66,20 +69,9 @@ def boolish(value: Any) -> bool:
     return safe_str(value).lower() in {"true", "1", "yes", "y"}
 
 
-def snapshot_paths() -> list[Path]:
-    paths = sorted(TDCC_HISTORY_DIR.glob("tdcc_holder_ratio_*.csv"))
-    latest = LATEST_DIR / "tdcc_holder_ratio_latest.csv"
-    if latest.exists():
-        paths.append(latest)
-    by_date: dict[str, Path] = {}
-    for path in paths:
-        df = read_csv(path, dtype=str)
-        if df.empty or "date" not in df.columns:
-            continue
-        date = normalize_date(df["date"].dropna().astype(str).max())
-        if date:
-            by_date[date] = path
-    return [path for _, path in sorted(by_date.items())]
+def snapshot_paths(contract: ResearchTdccDatasetContract | None = None) -> list[Path]:
+    contract = contract or load_research_tdcc_dataset_contract()
+    return [snapshot.path for snapshot in contract.snapshots]
 
 
 def load_snapshot(path: Path) -> pd.DataFrame:
@@ -162,8 +154,9 @@ def stock_return_after_cached(stock_id: Any, signal_date: str, horizon: int) -> 
     return close_h, ret, mfe, mae, available
 
 
-def weekly_delta_rows() -> pd.DataFrame:
-    paths = snapshot_paths()
+def weekly_delta_rows(contract: ResearchTdccDatasetContract | None = None) -> pd.DataFrame:
+    contract = contract or load_research_tdcc_dataset_contract()
+    paths = snapshot_paths(contract)
     if len(paths) < 2:
         return pd.DataFrame()
 
@@ -171,11 +164,13 @@ def weekly_delta_rows() -> pd.DataFrame:
     rows: list[dict[str, Any]] = []
     high_pair_streak_by_stock: dict[str, int] = {}
     previous = load_snapshot(paths[0])
+    previous_date = contract.history_dates[0]
 
-    for path in paths[1:]:
+    for current_date, path in zip(contract.history_dates[1:], paths[1:]):
         current = load_snapshot(path)
         if current.empty or previous.empty:
             previous = current
+            previous_date = current_date
             continue
 
         prev_keep = ["stock_id", *THRESHOLD_MAP.values()]
@@ -194,6 +189,8 @@ def weekly_delta_rows() -> pd.DataFrame:
                 "model_id": MODEL_ID,
                 "ranking_model_version": RANKING_MODEL_VERSION,
                 "signal_date": safe_str(row.get("signal_date")),
+                "source_tdcc_dataset_id": contract.dataset_id,
+                "source_tdcc_prior_date": previous_date,
                 "stock_id": stock_id,
                 "stock_name": safe_str(row.get("stock_name")),
             }
@@ -201,6 +198,12 @@ def weekly_delta_rows() -> pd.DataFrame:
                 cur = to_number(row.get(ratio_col))
                 prev = to_number(row.get(f"{ratio_col}_prev"))
                 item[delta_col] = cur - prev if not math.isnan(cur) and not math.isnan(prev) else math.nan
+
+            item["tdcc_interval_status"] = (
+                "complete_official_period"
+                if all(not math.isnan(to_number(item.get(delta_col))) for delta_col in THRESHOLD_MAP)
+                else "excluded_missing_snapshot_row"
+            )
 
             change_800 = to_number(item.get("tdcc_1w_change_800"))
             change_1000 = to_number(item.get("tdcc_1w_change_1000"))
@@ -221,6 +224,7 @@ def weekly_delta_rows() -> pd.DataFrame:
 
         high_pair_streak_by_stock = current_streaks
         previous = current
+        previous_date = current_date
 
     return pd.DataFrame(rows)
 
@@ -431,6 +435,7 @@ def build_markdown(summary: pd.DataFrame, events: pd.DataFrame) -> str:
         "",
         f"- model_id: `{MODEL_ID}`",
         f"- ranking_model_version: `{RANKING_MODEL_VERSION}`",
+        f"- source_tdcc_dataset_id: `{safe_str(events.iloc[0].get('source_tdcc_dataset_id')) if not events.empty else ''}`",
         f"- generated_at: `{now_text()}`",
         f"- event_rows: `{len(events)}`",
         "- scope: research only; this does not generate TDCC weekly PDFs and does not approve production buy signals.",
@@ -469,7 +474,8 @@ def build_markdown(summary: pd.DataFrame, events: pd.DataFrame) -> str:
 
 
 def build() -> tuple[pd.DataFrame, pd.DataFrame]:
-    deltas = weekly_delta_rows()
+    contract = load_research_tdcc_dataset_contract()
+    deltas = weekly_delta_rows(contract)
     if deltas.empty:
         return pd.DataFrame(), pd.DataFrame()
     prelim = compute_score_columns(deltas)
@@ -480,6 +486,8 @@ def build() -> tuple[pd.DataFrame, pd.DataFrame]:
     scored = compute_score_columns(candidates)
     events = add_return_columns(rank_weekly_models(scored))
     summary = summarize(events)
+    if not summary.empty:
+        summary["source_tdcc_dataset_id"] = contract.dataset_id
     return events, summary
 
 

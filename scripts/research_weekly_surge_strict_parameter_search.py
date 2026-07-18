@@ -9,6 +9,7 @@ import pandas as pd
 from research_weekly_20pct_surge_volume import build_stock_day_frame
 from research_weekly_surge_multifactor_grid import attach_market_context, attach_tdcc_context, write_csv
 from research_weekly_surge_technical_grid import add_technical_features
+from research_tdcc_dataset_consumer import load_research_tdcc_dataset_contract
 
 
 LATEST_DIR = Path("output/latest")
@@ -222,6 +223,8 @@ def build_markdown(summary: pd.DataFrame, df: pd.DataFrame) -> str:
     lines.append("# Next-Open +10pct Touch Strict Parameter Search")
     lines.append("")
     lines.append(f"- generated_at: `{now_text()}`")
+    dataset_ids = sorted({str(value) for value in summary.get("source_tdcc_dataset_id", []) if str(value)})
+    lines.append(f"- source_tdcc_dataset_id: `{dataset_ids[0] if len(dataset_ids) == 1 else 'missing_or_mixed'}`")
     lines.append("- legacy_file_prefix: `weekly_surge` is kept only for backward compatibility.")
     lines.append("- display_name_zh: `短線動能條件參數搜尋：隔日開盤進場，D+1 到 D+10 / D+20 高點觸及 +10%`.")
     lines.append("- not_weekly_candle: `True`.")
@@ -306,6 +309,7 @@ def build_markdown(summary: pd.DataFrame, df: pd.DataFrame) -> str:
 
 
 def main() -> int:
+    contract = load_research_tdcc_dataset_contract()
     df = build_stock_day_frame()
     if df.empty:
         raise RuntimeError("no stock day frame built")
@@ -326,6 +330,7 @@ def main() -> int:
         for window in WINDOWS:
             rows.append(summarize_picked(df, picked, rule_name, family, window, total_hits_by_window[window]))
     summary = pd.DataFrame(rows)
+    summary["source_tdcc_dataset_id"] = contract.dataset_id
     if not summary.empty:
         summary["rank_by_high_touch_in_window"] = (
             summary.groupby("target_window")["hit_rate_pct"].rank(method="first", ascending=False).astype(int)

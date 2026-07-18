@@ -15,6 +15,7 @@ from research_weekly_surge_multifactor_grid import (
 )
 from research_weekly_surge_technical_grid import add_technical_features
 from research_weekly_surge_theme_segments import attach_theme_labels
+from research_tdcc_dataset_consumer import load_research_tdcc_dataset_contract, require_dataset_id
 
 
 LATEST_DIR = Path("output/latest")
@@ -63,6 +64,7 @@ def load_grid() -> pd.DataFrame:
     if not GRID_CSV.exists():
         return pd.DataFrame()
     grid = pd.read_csv(GRID_CSV, dtype=str, keep_default_na=False)
+    require_dataset_id(grid, load_research_tdcc_dataset_contract(), label=GRID_CSV.as_posix())
     for col in [
         "hit_rate_pct",
         "median_next_open_to_high_return_pct",
@@ -197,6 +199,7 @@ def build_candidates(latest: pd.DataFrame, grid: pd.DataFrame) -> pd.DataFrame:
         rows.append(
             {
                 "date": base.get("date", ""),
+                "source_tdcc_dataset_id": base.get("source_tdcc_dataset_id", ""),
                 "stock_id": base.get("stock_id", ""),
                 "stock_name": base.get("stock_name", ""),
                 "market": base.get("market", ""),
@@ -262,6 +265,8 @@ def build_markdown(candidates: pd.DataFrame) -> str:
     lines.append("# Next-Open +10pct Multifactor Candidates")
     lines.append("")
     lines.append(f"- generated_at: `{now_text()}`")
+    dataset_ids = sorted({str(value) for value in candidates.get("source_tdcc_dataset_id", []) if str(value)})
+    lines.append(f"- source_tdcc_dataset_id: `{dataset_ids[0] if len(dataset_ids) == 1 else 'missing_or_mixed'}`")
     lines.append("- use: research watchlist only; do not mix into daily candidate core ranking.")
     lines.append("- entry_basis: D+1 open.")
     lines.append("- target: next-open to D+1 / ... / D+10 / D+20 high >= 10%.")
@@ -304,9 +309,14 @@ def build_markdown(candidates: pd.DataFrame) -> str:
 
 
 def main() -> int:
+    contract = load_research_tdcc_dataset_contract()
     latest = build_latest_stock_frame()
     grid = load_grid()
     candidates = build_candidates(latest, grid)
+    if candidates.empty:
+        candidates["source_tdcc_dataset_id"] = pd.Series(dtype=str)
+    else:
+        require_dataset_id(candidates, contract, label=OUT_CSV.as_posix())
     write_csv(candidates, OUT_CSV)
     write_csv(candidates, HISTORY_CSV)
     OUT_MD.write_text(build_markdown(candidates), encoding="utf-8", newline="\n")

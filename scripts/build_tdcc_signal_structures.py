@@ -28,9 +28,13 @@ from tracking_utils import (  # noqa: E402
     to_number,
     write_csv,
 )
+from research_tdcc_dataset_consumer import (  # noqa: E402
+    ResearchTdccDatasetContract,
+    load_canonical_tdcc_snapshots,
+    load_research_tdcc_dataset_contract,
+)
 
 
-LATEST_TDCC = LATEST_DIR / "tdcc_holder_ratio_latest.csv"
 THEME_MAP = Path("config/stock_theme_map.csv")
 SNAPSHOT_CSV = TDCC_SIGNALS_DIR / "tdcc_signal_snapshot.csv"
 NORMALIZED_LOG = TDCC_SIGNALS_DIR / "tdcc_normalized_signal_log.csv"
@@ -48,24 +52,14 @@ def load_theme_map() -> dict[str, dict[str, str]]:
     return {row["code"]: row.to_dict() for _, row in df.iterrows()}
 
 
-def load_tdcc_snapshots(max_dates: int | None = 26) -> list[tuple[str, pd.DataFrame]]:
-    paths = sorted((HISTORY_DIR / "tdcc").glob("tdcc_holder_ratio_*.csv"))
-    if LATEST_TDCC.exists():
-        paths.append(LATEST_TDCC)
-    unique: dict[str, Path] = {}
-    for path in paths:
-        df = read_csv(path, dtype=str)
-        if df.empty or "date" not in df.columns or "code" not in df.columns:
-            continue
-        date = normalize_date(df["date"].dropna().astype(str).max())
-        if date:
-            unique[date] = path
-    dated_paths = sorted(unique.items())
-    if max_dates and max_dates > 0:
-        dated_paths = dated_paths[-max_dates:]
+def load_tdcc_snapshots(
+    max_dates: int | None = 26,
+    contract: ResearchTdccDatasetContract | None = None,
+) -> list[tuple[str, pd.DataFrame]]:
+    contract = contract or load_research_tdcc_dataset_contract()
     out: list[tuple[str, pd.DataFrame]] = []
-    for date, path in dated_paths:
-        df = read_csv(path, dtype=str)
+    for date, source in load_canonical_tdcc_snapshots(contract, max_dates=max_dates):
+        df = source.copy()
         df["date"] = df["date"].map(normalize_date)
         df["code"] = df["code"].map(normalize_code)
         for th in THRESHOLDS:
@@ -81,8 +75,8 @@ def tdcc_series(snapshots: list[tuple[str, pd.DataFrame]], code: str, threshold:
     out: list[tuple[str, float]] = []
     col = f"over_{threshold}_pct"
     for date, df in snapshots:
-        if col in df.columns and code in df.index:
-            out.append((date, to_number(df.at[code, col])))
+        value = to_number(df.at[code, col]) if col in df.columns and code in df.index else math.nan
+        out.append((date, value))
     return out
 
 
@@ -393,7 +387,8 @@ def build_snapshot_rows_for_date(
 
 
 def build_snapshot(max_dates: int | None = 26, price_metrics_limit: int = 0) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
-    snapshots = load_tdcc_snapshots(max_dates=max_dates)
+    contract = load_research_tdcc_dataset_contract()
+    snapshots = load_tdcc_snapshots(max_dates=max_dates, contract=contract)
     if not snapshots:
         raise FileNotFoundError("Missing TDCC holder ratio snapshots")
     theme_map = load_theme_map()
@@ -406,6 +401,7 @@ def build_snapshot(max_dates: int | None = 26, price_metrics_limit: int = 0) -> 
     snapshot = pd.DataFrame(rows)
     if snapshot.empty:
         return snapshot, pd.DataFrame(), pd.DataFrame()
+    snapshot["source_tdcc_dataset_id"] = contract.dataset_id
 
     breadth = build_theme_breadth(snapshot)
     if not breadth.empty:
@@ -484,7 +480,10 @@ def build_snapshot(max_dates: int | None = 26, price_metrics_limit: int = 0) -> 
         if col not in snapshot.columns:
             snapshot[col] = ""
     normalized = snapshot[normalized_columns].copy()
+    normalized["source_tdcc_dataset_id"] = contract.dataset_id
     normalized["priority_group"] = normalized.apply(priority_group, axis=1)
+    if not breadth.empty:
+        breadth["source_tdcc_dataset_id"] = contract.dataset_id
     return snapshot, normalized, breadth
 
 
@@ -580,9 +579,14 @@ def parse_args() -> argparse.Namespace:
 def main() -> int:
     args = parse_args()
     max_dates = None if args.full_history or args.max_dates <= 0 else args.max_dates
+    contract = load_research_tdcc_dataset_contract()
     TDCC_SIGNALS_DIR.mkdir(parents=True, exist_ok=True)
     snapshot, normalized, breadth = build_snapshot(max_dates=max_dates, price_metrics_limit=args.price_metrics_limit)
-    if not snapshot.empty:
+    if not snapshot.empty and args.full_history:
+        write_csv(snapshot, SNAPSHOT_CSV)
+        write_csv(normalized, NORMALIZED_LOG)
+        write_csv(breadth, THEME_BREADTH)
+    elif not snapshot.empty:
         snapshot = append_update_csv(snapshot, SNAPSHOT_CSV, ["signal_id"], ["signal_date", "code"])
         normalized = append_update_csv(normalized, NORMALIZED_LOG, ["signal_id"], ["signal_date", "code"])
         breadth = append_update_csv(breadth, THEME_BREADTH, ["signal_date", "primary_theme"], ["signal_date", "primary_theme"])
@@ -606,6 +610,7 @@ def main() -> int:
         "# TDCC Normalized Signal Structures",
         "",
         f"- generated_at: `{now_text()}`",
+        f"- source_tdcc_dataset_id: `{contract.dataset_id}`",
         f"- processed_snapshot_window: `{'full_history' if max_dates is None else f'latest_{max_dates}_dates'}`",
         f"- price_metrics_limit: `{args.price_metrics_limit or 'all'}`",
         f"- snapshot_rows: `{len(snapshot)}`",

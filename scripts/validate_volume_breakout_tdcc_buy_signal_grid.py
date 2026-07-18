@@ -27,6 +27,7 @@ from build_volume_breakout_tdcc_buy_signal_grid import (  # noqa: E402
     RESEARCH_ID,
     SIGNAL_UNIVERSE_ID,
 )
+from research_tdcc_dataset_consumer import load_research_tdcc_dataset_contract  # noqa: E402
 
 
 REQUIRED_FEATURE_SCOPES = {
@@ -224,6 +225,12 @@ def main() -> int:
     grid = read_csv(GRID_CSV)
     best = read_csv(BEST_CSV)
     registry = read_csv(REGISTRY_CSV)
+
+    contract = load_research_tdcc_dataset_contract()
+    for label, frame in [("events", events), ("grid", grid), ("best", best), ("registry", registry)]:
+        values = sorted({value for value in frame.get("source_tdcc_dataset_id", pd.Series(dtype=str)).astype(str) if value})
+        if values != [contract.dataset_id]:
+            fail(f"{label} source_tdcc_dataset_id mismatch: expected {contract.dataset_id}, got {values}")
 
     validate_events(events)
     validate_grid(grid, best, registry)

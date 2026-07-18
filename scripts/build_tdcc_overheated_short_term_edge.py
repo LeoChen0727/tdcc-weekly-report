@@ -25,6 +25,11 @@ from tracking_utils import (  # noqa: E402
     to_number,
     write_csv,
 )
+from research_tdcc_dataset_consumer import (  # noqa: E402
+    ResearchTdccDatasetContract,
+    load_research_tdcc_dataset_contract,
+    require_dataset_id,
+)
 
 
 SNAPSHOT_CSV = TDCC_SIGNALS_DIR / "tdcc_signal_snapshot.csv"
@@ -423,7 +428,11 @@ def format_for_md(df: pd.DataFrame) -> pd.DataFrame:
     return out
 
 
-def write_outputs(stats: pd.DataFrame, candidates: pd.DataFrame) -> None:
+def write_outputs(
+    stats: pd.DataFrame,
+    candidates: pd.DataFrame,
+    contract: ResearchTdccDatasetContract,
+) -> None:
     write_csv(stats, LATEST_STATS_CSV)
     write_csv(candidates, LATEST_CANDIDATES_CSV)
     DOCS_LATEST_DIR.mkdir(parents=True, exist_ok=True)
@@ -438,6 +447,7 @@ def write_outputs(stats: pd.DataFrame, candidates: pd.DataFrame) -> None:
         "# TDCC Overheated Short-Term Edge",
         "",
         f"- generated_at: `{now_text()}`",
+        f"- source_tdcc_dataset_id: `{contract.dataset_id}`",
         "- tuning_status: `not_ready`",
         "- allowed_changes: `reporting_priority_only`",
         "- forbidden_changes: `core_weight_change`",
@@ -519,14 +529,19 @@ def write_outputs(stats: pd.DataFrame, candidates: pd.DataFrame) -> None:
 
 
 def main() -> int:
+    contract = load_research_tdcc_dataset_contract()
     base = load_base()
     if base.empty:
-        write_outputs(pd.DataFrame(), pd.DataFrame())
-        return 0
+        raise RuntimeError("TDCC short-term edge source rows are empty")
+    current = base[base["signal_date"].map(normalize_date).isin(contract.history_dates)].copy()
+    require_dataset_id(current, contract, label=SNAPSHOT_CSV.as_posix())
+    base = current
     enriched = add_technical_context(base)
     stats = build_stats(enriched)
     candidates = build_current_candidates(enriched, stats)
-    write_outputs(stats, candidates)
+    stats["source_tdcc_dataset_id"] = contract.dataset_id
+    candidates["source_tdcc_dataset_id"] = contract.dataset_id
+    write_outputs(stats, candidates, contract)
     print(f"Saved: {LATEST_STATS_CSV} rows={len(stats)}")
     print(f"Saved: {LATEST_CANDIDATES_CSV} rows={len(candidates)}")
     print(f"Saved: {LATEST_MD}")

@@ -33,6 +33,7 @@ from build_volume_breakout_buy_signal_grid import (  # noqa: E402
     write_csv,
 )
 from build_historical_pattern_operation_registry import out_of_sample_start_date  # noqa: E402
+from research_tdcc_dataset_consumer import load_research_tdcc_dataset_contract, require_dataset_id  # noqa: E402
 
 
 ROOT = Path(".")
@@ -82,6 +83,7 @@ DIMENSION_SCOPE_MAP = {
 }
 
 EVENT_COLUMNS = [
+    "source_tdcc_dataset_id",
     "model_id",
     "overlay_model_id",
     "research_id",
@@ -129,6 +131,7 @@ EVENT_COLUMNS = [
 ]
 
 GRID_COLUMNS = [
+    "source_tdcc_dataset_id",
     "model_id",
     "overlay_model_id",
     "research_id",
@@ -206,6 +209,11 @@ def read_tdcc_events() -> pd.DataFrame:
     tdcc = pd.read_csv(TDCC_EVENTS_CSV, dtype=str, keep_default_na=False)
     if tdcc.empty:
         return tdcc
+    require_dataset_id(
+        tdcc,
+        load_research_tdcc_dataset_contract(),
+        label=TDCC_EVENTS_CSV.as_posix(),
+    )
     tdcc = tdcc.copy()
     tdcc["model_id"] = tdcc.get("model_id", "").map(safe_str)
     tdcc = tdcc[tdcc["model_id"].eq(OVERLAY_MODEL_ID)].copy()
@@ -520,6 +528,7 @@ def write_markdown(grid: pd.DataFrame, best: pd.DataFrame, events: pd.DataFrame)
         "# Volume Breakout TDCC Buy Signal Grid",
         "",
         f"- generated_at: `{now_text()}`",
+        f"- source_tdcc_dataset_id: `{events['source_tdcc_dataset_id'].iloc[0] if not events.empty else ''}`",
         f"- signal_universe_id: `{SIGNAL_UNIVERSE_ID}`",
         f"- tdcc_asof_rule: `tdcc_signal_date <= event_date and tdcc_signal_age_days <= {MAX_TDCC_SIGNAL_AGE_DAYS}`",
         "- scope: research/backtest only; no production parameter, daily adapter, or PDF ranking is changed.",
@@ -561,6 +570,7 @@ def write_markdown(grid: pd.DataFrame, best: pd.DataFrame, events: pd.DataFrame)
         "# Volume Breakout TDCC Buy Signal Proposal",
         "",
         f"- generated_at: `{now_text()}`",
+        f"- source_tdcc_dataset_id: `{events['source_tdcc_dataset_id'].iloc[0] if not events.empty else ''}`",
         "- decision: research proposal only. Rows with `approved_for_daily_candidate=True` still need a separate production approval PR.",
         "- interpretation: compare `no_tdcc/all` against TDCC top buckets. Prefer positive median return, adequate sample size, and out-of-sample pass.",
         "- data rule: TDCC grouping uses only the latest historical TDCC signal available on or before the volume breakout event date.",
@@ -593,6 +603,7 @@ def write_markdown(grid: pd.DataFrame, best: pd.DataFrame, events: pd.DataFrame)
 
 
 def build() -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.DataFrame]:
+    contract = load_research_tdcc_dataset_contract()
     detail = load_detail_events()
     tdcc = read_tdcc_events()
     events = attach_tdcc_asof(detail, tdcc)
@@ -612,6 +623,8 @@ def build() -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     key_cols = ["tdcc_list_type", "rank_bucket", "tdcc_feature_scope", "tdcc_feature_id", "pattern_id"]
     best = best.drop_duplicates(key_cols, keep="first").reset_index(drop=True)
     registry = grid.copy()
+    for frame in [events, grid, best, registry]:
+        frame["source_tdcc_dataset_id"] = contract.dataset_id
     return events, grid, best, registry
 
 

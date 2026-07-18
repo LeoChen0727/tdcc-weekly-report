@@ -26,6 +26,10 @@ from tracking_utils import (  # noqa: E402
     to_number,
     write_csv,
 )
+from research_tdcc_dataset_consumer import (  # noqa: E402
+    load_research_tdcc_dataset_contract,
+    require_dataset_id,
+)
 
 
 NORMALIZED_LOG = TDCC_SIGNALS_DIR / "tdcc_normalized_signal_log.csv"
@@ -80,6 +84,7 @@ def signal_performance_row(row: pd.Series, price_cache: dict[str, pd.DataFrame],
         "is_consecutive_2w": as_bool(row.get("is_consecutive_2w")) or to_number(row.get("tdcc_consecutive_up_weeks"), 0) >= 2,
         "consecutive_score": row.get("tdcc_consecutive_up_weeks", ""),
         "source_tdcc_date": signal_date,
+        "source_tdcc_dataset_id": safe_str(row.get("source_tdcc_dataset_id")),
         "source_compare_date": "",
         "created_at": now_text(),
         "signal_trade_date": signal_date,
@@ -218,11 +223,14 @@ def parse_args() -> argparse.Namespace:
 
 def main() -> int:
     args = parse_args()
+    contract = load_research_tdcc_dataset_contract()
     normalized = read_csv(NORMALIZED_LOG, dtype=str)
     if normalized.empty:
         raise FileNotFoundError(f"Missing or empty {NORMALIZED_LOG}. Run build_tdcc_signal_structures.py first.")
     normalized["signal_date"] = normalized["signal_date"].map(normalize_date)
     normalized["code"] = normalized["code"].map(normalize_code)
+    normalized = normalized[normalized["signal_date"].isin(contract.history_dates)].copy()
+    require_dataset_id(normalized, contract, label=NORMALIZED_LOG.as_posix())
     normalized = normalized.drop_duplicates(["signal_date", "code"], keep="last")
     index_history = load_market_index_history(update_if_missing=True)
     price_cache: dict[str, pd.DataFrame] = {}
@@ -233,11 +241,17 @@ def main() -> int:
         out = new_perf
     else:
         old = normalize_existing_perf(read_csv(PERFORMANCE_CSV, dtype=str))
+        if not old.empty:
+            old = old[
+                old["signal_date"].isin(contract.history_dates)
+                & old.get("source_tdcc_dataset_id", pd.Series("", index=old.index)).eq(contract.dataset_id)
+            ].copy()
         out = pd.concat([old, new_perf], ignore_index=True, sort=False) if not old.empty else new_perf
         out = normalize_existing_perf(out)
         out = out.drop_duplicates("signal_id", keep="last")
 
     out = out.sort_values(["signal_date", "code"]).reset_index(drop=True)
+    require_dataset_id(out, contract, label=PERFORMANCE_CSV.as_posix())
     write_csv(out, PERFORMANCE_CSV)
     print(f"Saved: {PERFORMANCE_CSV}")
     print(f"normalized_signals: {len(normalized)}")

@@ -16,6 +16,7 @@ from volume_breakout_operation_utils import (
     selected_confirmation_for_signal,
     simulate_confirmed_trade,
 )
+from research_tdcc_dataset_consumer import load_research_tdcc_dataset_contract, require_dataset_id
 
 
 ROOT = Path(".")
@@ -66,6 +67,7 @@ FORBIDDEN_PRODUCTION_FIELDS = {
 }
 
 EVENT_COLUMNS = [
+    "source_tdcc_dataset_id",
     "model_id",
     "confirmation_model_id",
     "overlay_model_id",
@@ -116,6 +118,7 @@ EVENT_COLUMNS = [
 ]
 
 SUMMARY_COLUMNS = [
+    "source_tdcc_dataset_id",
     "model_id",
     "confirmation_model_id",
     "overlay_model_id",
@@ -431,6 +434,11 @@ def load_tdcc_index() -> dict[tuple[str, str], list[TdccRecord]]:
     if not TDCC_EVENTS_CSV.exists():
         return index
     tdcc = pd.read_csv(TDCC_EVENTS_CSV, dtype=str, keep_default_na=False)
+    require_dataset_id(
+        tdcc,
+        load_research_tdcc_dataset_contract(),
+        label=TDCC_EVENTS_CSV.as_posix(),
+    )
     tdcc = tdcc[tdcc.get("model_id", "").astype(str).eq(OVERLAY_MODEL_ID)].copy()
     for _, row in tdcc.iterrows():
         stock_id = normalize_code(row.get("stock_id"))
@@ -785,6 +793,7 @@ def write_markdown(summary: pd.DataFrame, events: pd.DataFrame, generated_at: st
         "# W-Bottom TDCC A/B/C Backtest",
         "",
         f"- generated_at: `{generated_at}`",
+        f"- source_tdcc_dataset_id: `{events['source_tdcc_dataset_id'].iloc[0] if not events.empty else ''}`",
         f"- model_id: `{MODEL_ID}`",
         f"- confirmation_model_id: `{CONFIRMATION_MODEL_ID}`",
         f"- overlay_model_id: `{OVERLAY_MODEL_ID}`",
@@ -845,6 +854,7 @@ def write_markdown(summary: pd.DataFrame, events: pd.DataFrame, generated_at: st
 
 
 def main() -> int:
+    contract = load_research_tdcc_dataset_contract()
     generated_at = now_text()
     tdcc_index = load_tdcc_index()
     all_rows: list[dict[str, Any]] = []
@@ -869,6 +879,8 @@ def main() -> int:
     summary = summarize(events, generated_at)
     if summary.empty:
         raise SystemExit("ERROR: no W-bottom research summary generated")
+    events["source_tdcc_dataset_id"] = contract.dataset_id
+    summary["source_tdcc_dataset_id"] = contract.dataset_id
 
     write_csv(summary, LATEST_SUMMARY_CSV)
     write_csv(summary, HISTORY_SUMMARY_CSV)

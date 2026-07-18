@@ -1,7 +1,9 @@
 path,kind,owner,status,purpose,allowed_workflows,allowed_stage_patterns
 scripts/build_tdcc_dataset_manifest.py,python,tdcc_weekly,active,TDCC canonical content-addressed dataset manifest builder,.github/workflows/tdcc_weekly.yml,
 scripts/tdcc_dataset_contract.py,python,repo_infrastructure,active,shared TDCC canonical dataset identity and snapshot coverage contract,,
-scripts/validate_tdcc_dataset_manifest.py,python,repo_infrastructure,active,shared TDCC canonical dataset manifest validator,.github/workflows/individual_stock_data_refresh.yml;.github/workflows/individual_stock_report.yml;.github/workflows/tdcc_weekly.yml,
+scripts/validate_tdcc_dataset_manifest.py,python,repo_infrastructure,active,shared TDCC canonical dataset manifest validator,.github/workflows/individual_stock_data_refresh.yml;.github/workflows/individual_stock_report.yml;.github/workflows/research_backtest_pipeline.yml;.github/workflows/tdcc_weekly.yml,
+scripts/research_tdcc_dataset_consumer.py,python,repo_infrastructure,active,shared fail-closed canonical full-history TDCC manifest consumer adapter,,
+scripts/validate_research_tdcc_dataset_consumers.py,python,research_backtest,active,research canonical TDCC source and output lineage validator,.github/workflows/research_backtest_pipeline.yml,
 tests/test_tdcc_dataset_contract.py,test_python,tdcc_weekly,active,TDCC canonical dataset identity coverage and gap regression tests,,
 docs/apps_script_workflow_trigger.gs,executable_script,repo_infrastructure,active,Google Apps Script workflow trigger helper documented for external automation,,
 scripts/ci_push_with_retry.sh,executable_script,repo_infrastructure,active,GitHub Actions push retry helper used after generated artifact commits,,
@@ -528,3 +530,6 @@ tests/test_volume_v2_warrant_lineage_history_audit.py,test_python,daily_producti
 tests/test_tdcc_weekly_data_readiness.py,test_python,tdcc_weekly,active,TDCC target-week official-date readiness and stale-snapshot rejection regression tests,,
 tests/test_tdcc_weekly_history_continuity.py,test_python,tdcc_weekly,active,TDCC official-period gap repair ordering and derived-field continuity regression tests,,
 tests/test_tdcc_weekly_pr_validation_workflow.py,test_python,tdcc_weekly,active,TDCC weekly continuity pull request workflow read-only and command coverage tests,,
+tests/test_research_tdcc_dataset_consumer.py,test_python,research_backtest,active,research canonical TDCC full-history hash and gap semantics regression tests,,
+tests/test_research_tdcc_workflow_contract.py,test_python,research_backtest,active,research workflow canonical TDCC contract command coverage tests,,
+tests/test_validate_research_tdcc_dataset_consumers.py,test_python,research_backtest,active,research TDCC secondary-source and artifact-lineage validator regression tests,,
