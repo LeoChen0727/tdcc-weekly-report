@@ -1,8 +1,8 @@
 # TDCC Weekly Run Status
 
-- generated_at: `2026-07-19 02:02:38 Asia/Taipei`
-- github_run: https://github.com/LeoChen0727/tdcc-weekly-report/actions/runs/29654483635
-- commit: `da6c6f3f1979fe38545342b45292a53b7b60dfe5`
+- generated_at: `2026-07-19 02:24:45 Asia/Taipei`
+- github_run: https://github.com/LeoChen0727/tdcc-weekly-report/actions/runs/29655376696
+- commit: `f58e2beff54912b33376fe89182ffe1a192ed498`
 
 ## Outputs
 
@@ -12,8 +12,8 @@
 | `output/latest/tdcc_holder_ratio_latest.csv` | yes | 1973 |
 | `output/latest/tdcc_weekly_data_readiness_latest.json` | yes | 66 |
 | `output/latest/tdcc_weekly_data_readiness_latest.md` | yes | 13 |
-| `output/latest/tdcc_weekly_history_continuity_latest.json` | yes | 17107 |
-| `output/latest/tdcc_weekly_history_continuity_latest.md` | yes | 128 |
+| `output/latest/tdcc_weekly_history_continuity_latest.json` | yes | 72 |
+| `output/latest/tdcc_weekly_history_continuity_latest.md` | yes | 28 |
 | `output/latest/tdcc_invalid_holder_distribution_latest.csv` | yes | 1 |
 | `output/latest/tdcc_signal_performance_latest.md` | yes | 521 |
 | `output/latest/tdcc_signal_structures_latest.md` | yes | 117 |
