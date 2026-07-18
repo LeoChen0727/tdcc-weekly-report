@@ -1,15 +1,21 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2486 一詮
 
 ## Metadata
-- generated_at: 2026-07-17 22:26:33 Asia/Taipei
+- generated_at: 2026-07-18 20:53:40 Asia/Taipei
 - stock_id: 2486
 - stock_name: 一詮
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260716
-- price_rows: 305
-- latest_tdcc_date: 20260703
-- tdcc_rows: 10
+- latest_price_date: 20260717
+- price_rows: 306
+- current_main_price_date: 20260717
+- current_main_price_universe_status: current
+- current_main_price_universe_source: official_daily_price_latest_main_price_date
+- listing_status_source_status: formal_listing_status_source_unavailable
+- official_tdcc_signal_date: 20260717
+- latest_tdcc_date: 20260717
+- tdcc_rows: 11
 - tdcc_history_status: tdcc_history_ready
+- tdcc_freshness_status: tdcc_window_fresh
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
 - notes:
@@ -51,22 +57,25 @@
 - MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
-- If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
+- Only claim tdcc_history_ready when tdcc_rows >= 8 and latest_tdcc_date equals official_tdcc_signal_date.
+- If latest_tdcc_date differs from official_tdcc_signal_date, mark tdcc_window_stale and do not claim current TDCC history.
+- If the stock is absent from the official current main-price universe, preserve real TDCC dates and mark historical_only_noncurrent; do not infer a formal delisting status.
+- If TDCC is current but tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 回檔後短線轉強
+- model_category_display_zh: 營收成長股價回檔
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 回檔後短線轉強 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 回檔後短線轉強 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -112,29 +121,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260716
-- open: 257
-- high: 273.5
-- low: 251.5
-- close: 261.5
-- volume: 18965676
-- ma5: 252.5
-- ema23_primary: 250.65
-- distance_to_ema23_pct: 4.33
-- ma20: 249.8
-- ma60: 256.76
-- ma120: 198.44
-- return_5d: 8.28
-- return_20d: 6.52
-- volume_ratio: 2.1
-- distance_to_ma20_pct_auxiliary: 4.68
-- distance_to_high_60_pct: -17.77
+- date: 20260717
+- open: 250
+- high: 251.5
+- low: 235.5
+- close: 235.5
+- volume: 9630353
+- ma5: 247.8
+- ema23_primary: 249.39
+- distance_to_ema23_pct: -5.57
+- ma20: 249
+- ma60: 257.27
+- ma120: 199.65
+- return_5d: -9.07
+- return_20d: -6.36
+- volume_ratio: 1.04
+- distance_to_ma20_pct_auxiliary: -5.42
+- distance_to_high_60_pct: -25.94
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260617,241.5,251.5,238,251.5,4632802,256.18,-1.83,264.15,229.53,0.48
 20260618,252,276.5,251,276.5,10684741,257.87,7.22,264.05,231.75,1.11
 20260622,291.5,295,270,272,17859431,259.05,5,264.1,233.85,1.78
 20260623,271.5,276.5,264.5,265,6306125,259.55,2.1,262.48,235.69,0.64
@@ -154,20 +162,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260714,251,253.5,226,234,12823632,249,-6.02,248.57,254.5,1.58
 20260715,239,257,238.5,257,10902829,249.66,2.94,249,255.7,1.31
 20260716,257,273.5,251.5,261.5,18965676,250.65,4.33,249.8,256.76,2.1
+20260717,250,251.5,235.5,235.5,9630353,249.39,-5.57,249,257.27,1.04
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260703
-- over_400_ratio: 40.14
-- over_600_ratio: 36.41
-- over_800_ratio: 34.71
-- over_1000_ratio: 32.91
-- over_400_change_1w: 0.41
-- over_800_change_1w: -1.03
-- over_1000_change_1w: -1.05
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260717
+- over_400_ratio: 42.6
+- over_600_ratio: 40.2
+- over_800_ratio: 37.71
+- over_1000_ratio: 35.9
+- over_400_change_1w: 2.46
+- over_800_change_1w: 3
+- over_1000_change_1w: 2.99
+- tdcc_consecutive_up_weeks: 4
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -183,24 +192,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260618,39.89,0.47,35.24,0.69,33.46,1.2,1,True,True
 20260626,39.73,-0.16,35.74,0.5,33.96,0.5,2,False,True
 20260703,40.14,0.41,34.71,-1.03,32.91,-1.05,3,False,False
+20260717,42.6,2.46,37.71,3,35.9,2.99,4,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 2486 | 一詮 | pullback_rebound | 回檔後短線轉強 | 55.0 |  |  |  |  | call_strong_inflow | stale_signal | 1.事實發生日:115/07/09 2.公司名稱:一詮精密工業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:  依據「發行人募集與發行有價證券處理準則」第九條第一項第二款規定辦理，公告本公  司國內第七次無擔保轉換公司債之委託代收債款及存儲專戶行庫等相關事宜。 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):  (1)訂約日期：民國115年07月09日  (2)委託代收債款行庫：第一商業銀行仁和分行  (3)委託存儲專戶行庫：兆豐國際商業銀行南三重分行；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
-| 20260716 | 2486 | 一詮 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_strong_inflow | stale_signal | 1.事實發生日:115/07/09 2.公司名稱:一詮精密工業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:  依據「發行人募集與發行有價證券處理準則」第九條第一項第二款規定辦理，公告本公  司國內第七次無擔保轉換公司債之委託代收債款及存儲專戶行庫等相關事宜。 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):  (1)訂約日期：民國115年07月09日  (2)委託代收債款行庫：第一商業銀行仁和分行  (3)委託存儲專戶行庫：兆豐國際商業銀行南三重分行；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260716 | 2486 | 一詮 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_strong_inflow | stale_signal | 1.事實發生日:115/07/09 2.公司名稱:一詮精密工業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:  依據「發行人募集與發行有價證券處理準則」第九條第一項第二款規定辦理，公告本公  司國內第七次無擔保轉換公司債之委託代收債款及存儲專戶行庫等相關事宜。 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):  (1)訂約日期：民國115年07月09日  (2)委託代收債款行庫：第一商業銀行仁和分行  (3)委託存儲專戶行庫：兆豐國際商業銀行南三重分行；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260717 | 2486 | 一詮 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/07/09 2.公司名稱:一詮精密工業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:  依據「發行人募集與發行有價證券處理準則」第九條第一項第二款規定辦理，公告本公  司國內第七次無擔保轉換公司債之委託代收債款及存儲專戶行庫等相關事宜。 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):  (1)訂約日期：民國115年07月09日  (2)委託代收債款行庫：第一商業銀行仁和分行  (3)委託存儲專戶行庫：兆豐國際商業銀行南三重分行；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 2486 | 一詮 | 2 | 2 | 4 | 9 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260717 | 2486 | 一詮 | 3 | 2 | 4 | 9 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 2486 | 一詮 | 30 | 0 | 4483970.0 | 0.0 |  | call_strong_inflow |
+| 20260717 | 2486 | 一詮 | 29 | 2 | 707290.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,15 +1,21 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4114 健喬
 
 ## Metadata
-- generated_at: 2026-07-17 22:27:01 Asia/Taipei
+- generated_at: 2026-07-18 20:54:15 Asia/Taipei
 - stock_id: 4114
 - stock_name: 健喬
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260716
-- price_rows: 170
-- latest_tdcc_date: 20260703
-- tdcc_rows: 10
+- latest_price_date: 20260717
+- price_rows: 171
+- current_main_price_date: 20260717
+- current_main_price_universe_status: current
+- current_main_price_universe_source: official_daily_price_latest_main_price_date
+- listing_status_source_status: formal_listing_status_source_unavailable
+- official_tdcc_signal_date: 20260717
+- latest_tdcc_date: 20260717
+- tdcc_rows: 11
 - tdcc_history_status: tdcc_history_ready
+- tdcc_freshness_status: tdcc_window_fresh
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
 - notes:
@@ -51,7 +57,10 @@
 - MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
-- If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
+- Only claim tdcc_history_ready when tdcc_rows >= 8 and latest_tdcc_date equals official_tdcc_signal_date.
+- If latest_tdcc_date differs from official_tdcc_signal_date, mark tdcc_window_stale and do not claim current TDCC history.
+- If the stock is absent from the official current main-price universe, preserve real TDCC dates and mark historical_only_noncurrent; do not infer a formal delisting status.
+- If TDCC is current but tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DISPLAY
@@ -112,29 +121,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260716
-- open: 33.75
-- high: 33.75
-- low: 33.25
-- close: 33.25
-- volume: 2798000
-- ma5: 33.37
-- ema23_primary: 32.1
-- distance_to_ema23_pct: 3.58
-- ma20: 31.93
-- ma60: 31.11
-- ma120: 31.48
-- return_5d: -0.89
-- return_20d: 8.48
-- volume_ratio: 1.69
-- distance_to_ma20_pct_auxiliary: 4.13
-- distance_to_high_60_pct: -2.21
+- date: 20260717
+- open: 29.85
+- high: 30.1
+- low: 29.5
+- close: 29.6
+- volume: 3843000
+- ma5: 32.62
+- ema23_primary: 31.89
+- distance_to_ema23_pct: -7.19
+- ma20: 31.87
+- ma60: 31.08
+- ma120: 31.45
+- return_5d: -11.24
+- return_20d: -3.9
+- volume_ratio: 2.11
+- distance_to_ma20_pct_auxiliary: -7.12
+- distance_to_high_60_pct: -12.94
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260617,30.65,30.85,30.6,30.8,556000,30.57,0.76,30.45,30.89,1.47
 20260618,30.8,31.25,30.8,30.95,1038000,30.6,1.15,30.45,30.89,2.58
 20260622,31,31.15,30.85,30.95,890000,30.63,1.05,30.46,30.89,2
 20260623,31.05,31.1,30.9,30.9,1014000,30.65,0.81,30.48,30.89,2.05
@@ -154,19 +162,20 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260714,33.5,33.5,32.85,33.35,2172000,31.85,4.71,31.66,31.06,1.52
 20260715,33.55,33.75,33.35,33.6,2947000,32,5.01,31.8,31.09,1.92
 20260716,33.75,33.75,33.25,33.25,2798000,32.1,3.58,31.93,31.11,1.69
+20260717,29.85,30.1,29.5,29.6,3843000,31.89,-7.19,31.87,31.08,2.11
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260703
-- over_400_ratio: 42.89
-- over_600_ratio: 39.43
-- over_800_ratio: 37.5
-- over_1000_ratio: 36.28
-- over_400_change_1w: -0.08
-- over_800_change_1w: -0.12
-- over_1000_change_1w: 0.04
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: False
+- as_of_date: 20260717
+- over_400_ratio: 43.48
+- over_600_ratio: 39.77
+- over_800_ratio: 38.17
+- over_1000_ratio: 37.14
+- over_400_change_1w: 0.59
+- over_800_change_1w: 0.67
+- over_1000_change_1w: 0.86
+- tdcc_consecutive_up_weeks: 4
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -183,18 +192,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260618,42.89,0.11,37.7,0.06,36.48,0.06,1,True,True
 20260626,42.97,0.08,37.62,-0.08,36.24,-0.24,2,False,False
 20260703,42.89,-0.08,37.5,-0.12,36.28,0.04,3,False,True
+20260717,43.48,0.59,38.17,0.67,37.14,0.86,4,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 4114 | 健喬 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | 1.發生變動日期:115/07/03 2.法人名稱:祐僑股份有限公司 3.舊任者姓名:黃麗文 4.舊任者簡歷:本公司法人董事代表人 5.新任者姓名:張鴻仁 6.新任者簡歷: 美國哈佛大學醫療政策與管理碩士 台灣研發型生技新藥發展協會理事 7.異動原因:法人董事指派代表人 8.原任期（例xx/xx/xx至xx/xx/xx）:114/05/23~117/05/22 9.新任生效日期:115/07/03 10.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260716 | 4114 | 健喬 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | 1.發生變動日期:115/07/03 2.法人名稱:祐僑股份有限公司 3.舊任者姓名:黃麗文 4.舊任者簡歷:本公司法人董事代表人 5.新任者姓名:張鴻仁 6.新任者簡歷: 美國哈佛大學醫療政策與管理碩士 台灣研發型生技新藥發展協會理事 7.異動原因:法人董事指派代表人 8.原任期（例xx/xx/xx至xx/xx/xx）:114/05/23~117/05/22 9.新任生效日期:115/07/03 10.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260717 | 4114 | 健喬 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | 1.發生變動日期:115/07/03 2.法人名稱:祐僑股份有限公司 3.舊任者姓名:黃麗文 4.舊任者簡歷:本公司法人董事代表人 5.新任者姓名:張鴻仁 6.新任者簡歷: 美國哈佛大學醫療政策與管理碩士 台灣研發型生技新藥發展協會理事 7.異動原因:法人董事指派代表人 8.原任期（例xx/xx/xx至xx/xx/xx）:114/05/23~117/05/22 9.新任生效日期:115/07/03 10.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 4114 | 健喬 | 3 | 3 | 3 | 7 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260717 | 4114 | 健喬 | 4 | 2 | 4 | 8 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

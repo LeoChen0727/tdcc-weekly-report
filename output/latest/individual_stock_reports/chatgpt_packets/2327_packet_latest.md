@@ -1,15 +1,21 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2327 國巨*
 
 ## Metadata
-- generated_at: 2026-07-17 22:26:26 Asia/Taipei
+- generated_at: 2026-07-18 20:53:31 Asia/Taipei
 - stock_id: 2327
 - stock_name: 國巨*
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260716
-- price_rows: 298
-- latest_tdcc_date: 20260703
-- tdcc_rows: 10
+- latest_price_date: 20260717
+- price_rows: 299
+- current_main_price_date: 20260717
+- current_main_price_universe_status: current
+- current_main_price_universe_source: official_daily_price_latest_main_price_date
+- listing_status_source_status: formal_listing_status_source_unavailable
+- official_tdcc_signal_date: 20260717
+- latest_tdcc_date: 20260717
+- tdcc_rows: 11
 - tdcc_history_status: tdcc_history_ready
+- tdcc_freshness_status: tdcc_window_fresh
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
 - notes:
@@ -51,7 +57,10 @@
 - MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
-- If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
+- Only claim tdcc_history_ready when tdcc_rows >= 8 and latest_tdcc_date equals official_tdcc_signal_date.
+- If latest_tdcc_date differs from official_tdcc_signal_date, mark tdcc_window_stale and do not claim current TDCC history.
+- If the stock is absent from the official current main-price universe, preserve real TDCC dates and mark historical_only_noncurrent; do not infer a formal delisting status.
+- If TDCC is current but tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DISPLAY
@@ -118,29 +127,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260716
-- open: 775
-- high: 807
-- low: 775
-- close: 776
-- volume: 43167093
-- ma5: 813.6
-- ema23_primary: 897.18
-- distance_to_ema23_pct: -13.51
-- ma20: 981.4
-- ma60: 704.5
-- ma120: 489.75
-- return_5d: -12.91
-- return_20d: -18.32
-- volume_ratio: 0.74
-- distance_to_ma20_pct_auxiliary: -20.93
-- distance_to_high_60_pct: -36.39
+- date: 20260717
+- open: 710
+- high: 724
+- low: 699
+- close: 699
+- volume: 47311948
+- ma5: 773.4
+- ema23_primary: 880.66
+- distance_to_ema23_pct: -20.63
+- ma20: 967.15
+- ma60: 710.77
+- ma120: 493.41
+- return_5d: -22.33
+- return_20d: -28.96
+- volume_ratio: 0.82
+- distance_to_ma20_pct_auxiliary: -27.73
+- distance_to_high_60_pct: -42.7
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260617,936,998,930,984,56180641,752.95,30.69,783.45,481.72,1.16
 20260618,1015,1080,974,1080,93655965,780.21,38.42,808.85,495.5,1.8
 20260622,1115,1120,1040,1065,62351693,803.94,32.47,830.65,509.07,1.22
 20260623,1060,1085,1020,1020,46353029,821.94,24.1,847.1,521.74,0.92
@@ -160,17 +168,18 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260714,798,823,737,778,82779815,918.21,-15.27,997.2,688.87,1.38
 20260715,799,813,773,798,52243302,908.2,-12.13,990.1,696.89,0.87
 20260716,775,807,775,776,43167093,897.18,-13.51,981.4,704.5,0.74
+20260717,710,724,699,699,47311948,880.66,-20.63,967.15,710.77,0.82
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260703
-- over_400_ratio: 73.9
-- over_600_ratio: 71.99
-- over_800_ratio: 70.47
-- over_1000_ratio: 68.96
-- over_400_change_1w: -0.44
-- over_800_change_1w: -0.35
-- over_1000_change_1w: -0.49
+- as_of_date: 20260717
+- over_400_ratio: 72.87
+- over_600_ratio: 70.95
+- over_800_ratio: 69.46
+- over_1000_ratio: 68.1
+- over_400_change_1w: -1.03
+- over_800_change_1w: -1.01
+- over_1000_change_1w: -0.86
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -189,22 +198,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260618,73.87,0.4,70.2,0.4,68.78,0.23,1,True,True
 20260626,74.34,0.47,70.82,0.62,69.45,0.67,2,True,True
 20260703,73.9,-0.44,70.47,-0.35,68.96,-0.49,0,False,False
+20260717,72.87,-1.03,69.46,-1.01,68.1,-0.86,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 2327 | 國巨* | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/07/08 2.公司名稱:國巨股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: 國巨公司今日公布 2026 年 6 月份自結合併營收為 NT$ 153.59 億元， 單月營收較上月增加 2.0%，較去年同期增加 38.9% (若以美元換算，單月營收 較上月增加 1.7%，較去年同期增加 31.5%) 第二季度自結合併營收為 NT$ 444.56 億元，較上一季增加 16.5%，並較去年同期增加 35.7%，創下單季營收歷史新高紀錄 (若以美元換算，單季營收較上季增加 16.6%，較去年同期增加 32.9%)；累計上半 年度自結合併營收為NT$ 826.22 億元，較去年同期增加 29.4% (若以美元換算，較 去年同期增加 30.4%)。  6 月份合併營收較上月增加，主要受惠於AI相關應用需求持續強勁，標準品及特殊品 亦呈現穩定成長。  展望未來，電子元件產業正因 AI 需求而面臨結構性轉變，公司將持續密切關注相關 發展。儘管地緣政治不確定性仍存在，客戶庫存水位目前維持健康，公司將審慎因應經 濟環境變化，並彈性調整以降低關稅政策及匯率波動帶來的影響。  6.因應措施:不適用 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260717 | 2327 | 國巨* | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/07/08 2.公司名稱:國巨股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: 國巨公司今日公布 2026 年 6 月份自結合併營收為 NT$ 153.59 億元， 單月營收較上月增加 2.0%，較去年同期增加 38.9% (若以美元換算，單月營收 較上月增加 1.7%，較去年同期增加 31.5%) 第二季度自結合併營收為 NT$ 444.56 億元，較上一季增加 16.5%，並較去年同期增加 35.7%，創下單季營收歷史新高紀錄 (若以美元換算，單季營收較上季增加 16.6%，較去年同期增加 32.9%)；累計上半 年度自結合併營收為NT$ 826.22 億元，較去年同期增加 29.4% (若以美元換算，較 去年同期增加 30.4%)。  6 月份合併營收較上月增加，主要受惠於AI相關應用需求持續強勁，標準品及特殊品 亦呈現穩定成長。  展望未來，電子元件產業正因 AI 需求而面臨結構性轉變，公司將持續密切關注相關 發展。儘管地緣政治不確定性仍存在，客戶庫存水位目前維持健康，公司將審慎因應經 濟環境變化，並彈性調整以降低關稅政策及匯率波動帶來的影響。  6.因應措施:不適用 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 2327 | 國巨* | 1 | 1 | 4 | 7 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260717 | 2327 | 國巨* | 2 | 2 | 4 | 8 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 2327 | 國巨* | 241 | 0 | 25103280.0 | 0.0 |  | no_signal |
+| 20260717 | 2327 | 國巨* | 230 | 30 | 19928620.0 | 1845510.0 | 10.8 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,15 +1,21 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6243 迅杰
 
 ## Metadata
-- generated_at: 2026-07-17 22:27:29 Asia/Taipei
+- generated_at: 2026-07-18 20:54:50 Asia/Taipei
 - stock_id: 6243
 - stock_name: 迅杰
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260716
-- price_rows: 305
-- latest_tdcc_date: 20260703
-- tdcc_rows: 10
+- latest_price_date: 20260717
+- price_rows: 306
+- current_main_price_date: 20260717
+- current_main_price_universe_status: current
+- current_main_price_universe_source: official_daily_price_latest_main_price_date
+- listing_status_source_status: formal_listing_status_source_unavailable
+- official_tdcc_signal_date: 20260717
+- latest_tdcc_date: 20260717
+- tdcc_rows: 11
 - tdcc_history_status: tdcc_history_ready
+- tdcc_freshness_status: tdcc_window_fresh
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
 - notes:
@@ -51,7 +57,10 @@
 - MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
-- If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
+- Only claim tdcc_history_ready when tdcc_rows >= 8 and latest_tdcc_date equals official_tdcc_signal_date.
+- If latest_tdcc_date differs from official_tdcc_signal_date, mark tdcc_window_stale and do not claim current TDCC history.
+- If the stock is absent from the official current main-price universe, preserve real TDCC dates and mark historical_only_noncurrent; do not infer a formal delisting status.
+- If TDCC is current but tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DISPLAY
@@ -113,29 +122,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260716
-- open: 47.95
-- high: 47.95
-- low: 47.05
-- close: 47.95
-- volume: 4214723
-- ma5: 41.36
-- ema23_primary: 39.42
-- distance_to_ema23_pct: 21.62
-- ma20: 40.34
-- ma60: 35.83
-- ma120: 34.29
-- return_5d: 19.88
-- return_20d: 53.69
-- volume_ratio: 2.4
-- distance_to_ma20_pct_auxiliary: 18.86
-- distance_to_high_60_pct: 0
+- date: 20260717
+- open: 48
+- high: 52.5
+- low: 47.5
+- close: 51.6
+- volume: 15677569
+- ma5: 43.77
+- ema23_primary: 40.44
+- distance_to_ema23_pct: 27.6
+- ma20: 41.34
+- ma60: 36.14
+- ma120: 34.43
+- return_5d: 30.47
+- return_20d: 62.52
+- volume_ratio: 6.2
+- distance_to_ma20_pct_auxiliary: 24.83
+- distance_to_high_60_pct: -1.71
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260617,31.7,32,31.1,31.75,263106,32.36,-1.88,32.87,32.36,0.7
 20260618,31.8,34.9,31.55,34.9,990524,32.57,7.15,32.9,32.43,2.43
 20260622,36.1,38.35,35.7,38.35,2144454,33.05,16.03,33,32.57,4.74
 20260623,40.5,42.15,37.45,41.5,6327185,33.76,22.94,33.28,32.76,8.66
@@ -155,18 +163,19 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260714,38,39.65,37,39.65,1855825,38.2,3.8,38.91,35.32,1.22
 20260715,43.6,43.6,43.6,43.6,965798,38.65,12.81,39.51,35.53,0.62
 20260716,47.95,47.95,47.05,47.95,4214723,39.42,21.62,40.34,35.83,2.4
+20260717,48,52.5,47.5,51.6,15677569,40.44,27.6,41.34,36.14,6.2
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260703
-- over_400_ratio: 23.27
-- over_600_ratio: 17.67
+- as_of_date: 20260717
+- over_400_ratio: 24.56
+- over_600_ratio: 19.34
 - over_800_ratio: 17.67
 - over_1000_ratio: 17.67
-- over_400_change_1w: -0.42
+- over_400_change_1w: 1.29
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -184,17 +193,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260618,23.15,-0.01,17.7,0,17.7,0,0,False,False
 20260626,23.69,0.54,17.67,-0.03,17.67,-0.03,1,False,False
 20260703,23.27,-0.42,17.67,0,17.67,0,0,False,False
+20260717,24.56,1.29,17.67,0,17.67,0,1,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 6243 | 迅杰 | true_breakout | 嚴格突破 | 99.0 |  |  | breakout_confirmed |  |  | first_seen | 1.發生變動日期:115/06/24 2.功能性委員會名稱:審計委員會、薪酬委員會及永續發展委員會 3.舊任者姓名:石國揚 4.舊任者簡歷:迅杰科技(股)公司獨立董事 5.新任者姓名:不適用 6.新任者簡歷:不適用 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）:辭職 8.異動原因:個人規劃。 9.原任期（例xx/xx/xx ~ xx/xx/xx）:114/04/15~117/04/14 10.新任生效日期:不適用 11.其他應敘明事項: (1)審計委員會之原任期為:114/04/15~117/04/14。 (2)薪酬委員會及永續發展委員會之原任期為:114/04/28~117/04/14。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260717 | 6243 | 迅杰 | true_breakout | 嚴格突破 | 91.0 |  |  | breakout_confirmed |  |  | continued_overheated | 1.發生變動日期:115/06/24 2.功能性委員會名稱:審計委員會、薪酬委員會及永續發展委員會 3.舊任者姓名:石國揚 4.舊任者簡歷:迅杰科技(股)公司獨立董事 5.新任者姓名:不適用 6.新任者簡歷:不適用 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）:辭職 8.異動原因:個人規劃。 9.原任期（例xx/xx/xx ~ xx/xx/xx）:114/04/15~117/04/14 10.新任生效日期:不適用 11.其他應敘明事項: (1)審計委員會之原任期為:114/04/15~117/04/14。 (2)薪酬委員會及永續發展委員會之原任期為:114/04/28~117/04/14。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 6243 | 迅杰 | 1 | 1 | 2 | 2 | 6 | first_seen | 首次上榜或資料有限，需後續確認。 |
+| 20260717 | 6243 | 迅杰 | 2 | 2 | 3 | 3 | 7 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

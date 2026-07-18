@@ -1,15 +1,21 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6274 台燿
 
 ## Metadata
-- generated_at: 2026-07-17 22:27:30 Asia/Taipei
+- generated_at: 2026-07-18 20:54:52 Asia/Taipei
 - stock_id: 6274
 - stock_name: 台燿
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260716
-- price_rows: 170
-- latest_tdcc_date: 20260703
-- tdcc_rows: 10
+- latest_price_date: 20260717
+- price_rows: 171
+- current_main_price_date: 20260717
+- current_main_price_universe_status: current
+- current_main_price_universe_source: official_daily_price_latest_main_price_date
+- listing_status_source_status: formal_listing_status_source_unavailable
+- official_tdcc_signal_date: 20260717
+- latest_tdcc_date: 20260717
+- tdcc_rows: 11
 - tdcc_history_status: tdcc_history_ready
+- tdcc_freshness_status: tdcc_window_fresh
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
 - notes:
@@ -51,7 +57,10 @@
 - MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
-- If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
+- Only claim tdcc_history_ready when tdcc_rows >= 8 and latest_tdcc_date equals official_tdcc_signal_date.
+- If latest_tdcc_date differs from official_tdcc_signal_date, mark tdcc_window_stale and do not claim current TDCC history.
+- If the stock is absent from the official current main-price universe, preserve real TDCC dates and mark historical_only_noncurrent; do not infer a formal delisting status.
+- If TDCC is current but tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DISPLAY
@@ -113,29 +122,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260716
-- open: 1410
-- high: 1415
-- low: 1295
-- close: 1295
-- volume: 9065000
-- ma5: 1449
-- ema23_primary: 1561.62
-- distance_to_ema23_pct: -17.07
-- ma20: 1634.25
-- ma60: 1461.12
-- ma120: 1019.87
-- return_5d: -21.28
-- return_20d: -19.57
-- volume_ratio: 1.57
-- distance_to_ma20_pct_auxiliary: -20.76
-- distance_to_high_60_pct: -32.55
+- date: 20260717
+- open: 1195
+- high: 1235
+- low: 1170
+- close: 1170
+- volume: 5560000
+- ma5: 1369
+- ema23_primary: 1528.98
+- distance_to_ema23_pct: -23.48
+- ma20: 1609.25
+- ma60: 1464.57
+- ma120: 1025.63
+- return_5d: -25.48
+- return_20d: -29.94
+- volume_ratio: 0.97
+- distance_to_ma20_pct_auxiliary: -27.3
+- distance_to_high_60_pct: -39.06
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260617,1585,1690,1570,1670,5922000,1508.46,10.71,1576,1173.9,1.63
 20260618,1790,1835,1770,1835,3462000,1535.67,19.49,1601.5,1195.52,0.92
 20260622,1900,1920,1835,1900,7359000,1566.03,21.33,1623.75,1218.17,1.81
 20260623,1905,1905,1715,1735,6126000,1580.11,9.8,1630.5,1237.42,1.42
@@ -155,17 +163,18 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260714,1515,1530,1395,1395,4744000,1599.57,-12.79,1656.75,1447.22,0.86
 20260715,1420,1490,1410,1435,5829000,1585.85,-9.51,1650,1455.37,1.04
 20260716,1410,1415,1295,1295,9065000,1561.62,-17.07,1634.25,1461.12,1.57
+20260717,1195,1235,1170,1170,5560000,1528.98,-23.48,1609.25,1464.57,0.97
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260703
-- over_400_ratio: 66.65
-- over_600_ratio: 63.85
-- over_800_ratio: 58.78
-- over_1000_ratio: 55.78
-- over_400_change_1w: -0.38
-- over_800_change_1w: -0.51
-- over_1000_change_1w: -0.45
+- as_of_date: 20260717
+- over_400_ratio: 66.54
+- over_600_ratio: 63.44
+- over_800_ratio: 57.92
+- over_1000_ratio: 54.97
+- over_400_change_1w: -0.11
+- over_800_change_1w: -0.86
+- over_1000_change_1w: -0.81
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -184,17 +193,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260618,67.35,0.27,59.99,1.24,56.96,1.26,1,True,True
 20260626,67.03,-0.32,59.29,-0.7,56.23,-0.73,0,False,False
 20260703,66.65,-0.38,58.78,-0.51,55.78,-0.45,0,False,False
+20260717,66.54,-0.11,57.92,-0.86,54.97,-0.81,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 6274 | 台燿 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/07/09 2.公司名稱:台燿科技 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:更正本公司115年6月衍生性商品交易資訊 6.更正資訊項目/報表名稱:6.交換 7.更正前金額/內容/頁次: 1001224/未沖銷契約契約總金額 -6768未沖銷契約公允價值 -6768未沖銷契約本年度認列未實現損益金額 1628138已沖銷契約契約總金額 -8695已沖銷契約本年度認列已實現損益金額 8.更正後金額/內容/頁次: 1000776/未沖銷契約契約總金額 -7312/未沖銷契約公允價值 -7312/未沖銷契約本年度認列未實現損益金額 1596748/已沖銷契約契約總金額 -8156已沖銷契約本年度認列已實現損益金額 9.因應措施:更正後重新上傳公開資訊觀測站 10.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260717 | 6274 | 台燿 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/07/09 2.公司名稱:台燿科技 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:更正本公司115年6月衍生性商品交易資訊 6.更正資訊項目/報表名稱:6.交換 7.更正前金額/內容/頁次: 1001224/未沖銷契約契約總金額 -6768未沖銷契約公允價值 -6768未沖銷契約本年度認列未實現損益金額 1628138已沖銷契約契約總金額 -8695已沖銷契約本年度認列已實現損益金額 8.更正後金額/內容/頁次: 1000776/未沖銷契約契約總金額 -7312/未沖銷契約公允價值 -7312/未沖銷契約本年度認列未實現損益金額 1596748/已沖銷契約契約總金額 -8156已沖銷契約本年度認列已實現損益金額 9.因應措施:更正後重新上傳公開資訊觀測站 10.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 6274 | 台燿 | 1 | 1 | 4 | 9 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260717 | 6274 | 台燿 | 2 | 2 | 4 | 9 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

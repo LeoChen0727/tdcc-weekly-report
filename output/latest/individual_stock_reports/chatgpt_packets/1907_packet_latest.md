@@ -1,15 +1,21 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1907 永豐餘
 
 ## Metadata
-- generated_at: 2026-07-17 22:26:20 Asia/Taipei
+- generated_at: 2026-07-18 20:53:25 Asia/Taipei
 - stock_id: 1907
 - stock_name: 永豐餘
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260716
-- price_rows: 305
-- latest_tdcc_date: 20260703
-- tdcc_rows: 10
+- latest_price_date: 20260717
+- price_rows: 306
+- current_main_price_date: 20260717
+- current_main_price_universe_status: current
+- current_main_price_universe_source: official_daily_price_latest_main_price_date
+- listing_status_source_status: formal_listing_status_source_unavailable
+- official_tdcc_signal_date: 20260717
+- latest_tdcc_date: 20260717
+- tdcc_rows: 11
 - tdcc_history_status: tdcc_history_ready
+- tdcc_freshness_status: tdcc_window_fresh
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
 - notes:
@@ -51,7 +57,10 @@
 - MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
-- If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
+- Only claim tdcc_history_ready when tdcc_rows >= 8 and latest_tdcc_date equals official_tdcc_signal_date.
+- If latest_tdcc_date differs from official_tdcc_signal_date, mark tdcc_window_stale and do not claim current TDCC history.
+- If the stock is absent from the official current main-price universe, preserve real TDCC dates and mark historical_only_noncurrent; do not infer a formal delisting status.
+- If TDCC is current but tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DISPLAY
@@ -112,29 +121,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260716
-- open: 29.2
-- high: 29.7
-- low: 28.35
-- close: 28.4
-- volume: 2706466
-- ma5: 28.01
-- ema23_primary: 27.41
-- distance_to_ema23_pct: 3.62
-- ma20: 27.69
-- ma60: 25.69
-- ma120: 25.52
-- return_5d: 1.97
-- return_20d: 5.38
-- volume_ratio: 0.97
-- distance_to_ma20_pct_auxiliary: 2.55
-- distance_to_high_60_pct: -4.38
+- date: 20260717
+- open: 28.4
+- high: 28.8
+- low: 27.95
+- close: 28.15
+- volume: 1878375
+- ma5: 28.09
+- ema23_primary: 27.47
+- distance_to_ema23_pct: 2.48
+- ma20: 27.73
+- ma60: 25.73
+- ma120: 25.54
+- return_5d: 1.44
+- return_20d: 2.36
+- volume_ratio: 0.83
+- distance_to_ma20_pct_auxiliary: 1.53
+- distance_to_high_60_pct: -5.22
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260617,28.15,28.3,27.25,27.5,12935825,25.52,7.78,25.32,25.11,4.96
 20260618,27.6,28.3,27.15,28.2,6038265,25.74,9.56,25.5,25.17,2.1
 20260622,28.3,28.4,27.35,27.4,3013094,25.88,5.88,25.64,25.21,1.01
 20260623,27.4,27.45,26.8,27,1671888,25.97,3.96,25.75,25.24,0.56
@@ -154,19 +162,20 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260714,27.45,27.65,27.1,27.65,1887963,27.15,1.86,27.47,25.57,0.7
 20260715,27.65,29.2,27.65,29.2,4215032,27.32,6.89,27.62,25.63,1.48
 20260716,29.2,29.7,28.35,28.4,2706466,27.41,3.62,27.69,25.69,0.97
+20260717,28.4,28.8,27.95,28.15,1878375,27.47,2.48,27.73,25.73,0.83
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260703
-- over_400_ratio: 84.4
-- over_600_ratio: 82.88
-- over_800_ratio: 81.89
-- over_1000_ratio: 80.74
-- over_400_change_1w: -0.01
-- over_800_change_1w: -0.01
-- over_1000_change_1w: 0.12
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: False
+- as_of_date: 20260717
+- over_400_ratio: 84.75
+- over_600_ratio: 83.38
+- over_800_ratio: 82.34
+- over_1000_ratio: 81.27
+- over_400_change_1w: 0.35
+- over_800_change_1w: 0.45
+- over_1000_change_1w: 0.53
+- tdcc_consecutive_up_weeks: 3
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -183,17 +192,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260618,84.16,-0.15,81.67,-0.17,80.45,-0.28,0,False,False
 20260626,84.41,0.25,81.9,0.23,80.62,0.17,1,True,True
 20260703,84.4,-0.01,81.89,-0.01,80.74,0.12,2,False,True
+20260717,84.75,0.35,82.34,0.45,81.27,0.53,3,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 1907 | 永豐餘 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | stale_signal | 1.事實發生日:115/06/24 2.公司名稱:永豐餘投資控股股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:更正114年度第4季及115年度第1季赴大陸投資資訊 6.更正資訊項目/報表名稱:赴大陸投資資訊 7.更正前金額/內容/頁次:投資方式：1 8.更正後金額/內容/頁次:投資方式：2 9.因應措施:於公開資訊觀測站上更正114年度第4季及115年度第1季赴大陸投資資訊 10.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260717 | 1907 | 永豐餘 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | stale_signal | 1.事實發生日:115/06/24 2.公司名稱:永豐餘投資控股股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:更正114年度第4季及115年度第1季赴大陸投資資訊 6.更正資訊項目/報表名稱:赴大陸投資資訊 7.更正前金額/內容/頁次:投資方式：1 8.更正後金額/內容/頁次:投資方式：2 9.因應措施:於公開資訊觀測站上更正114年度第4季及115年度第1季赴大陸投資資訊 10.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 1907 | 永豐餘 | 1 | 1 | 3 | 7 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260717 | 1907 | 永豐餘 | 2 | 2 | 3 | 7 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

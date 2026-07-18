@@ -1,15 +1,21 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1314 中石化
 
 ## Metadata
-- generated_at: 2026-07-17 22:26:09 Asia/Taipei
+- generated_at: 2026-07-18 20:53:11 Asia/Taipei
 - stock_id: 1314
 - stock_name: 中石化
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260716
-- price_rows: 304
-- latest_tdcc_date: 20260703
-- tdcc_rows: 10
+- latest_price_date: 20260717
+- price_rows: 305
+- current_main_price_date: 20260717
+- current_main_price_universe_status: current
+- current_main_price_universe_source: official_daily_price_latest_main_price_date
+- listing_status_source_status: formal_listing_status_source_unavailable
+- official_tdcc_signal_date: 20260717
+- latest_tdcc_date: 20260717
+- tdcc_rows: 11
 - tdcc_history_status: tdcc_history_ready
+- tdcc_freshness_status: tdcc_window_fresh
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
 - notes:
@@ -51,7 +57,10 @@
 - MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
-- If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
+- Only claim tdcc_history_ready when tdcc_rows >= 8 and latest_tdcc_date equals official_tdcc_signal_date.
+- If latest_tdcc_date differs from official_tdcc_signal_date, mark tdcc_window_stale and do not claim current TDCC history.
+- If the stock is absent from the official current main-price universe, preserve real TDCC dates and mark historical_only_noncurrent; do not infer a formal delisting status.
+- If TDCC is current but tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DISPLAY
@@ -113,29 +122,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260716
-- open: 8.92
-- high: 9.5
-- low: 8.91
-- close: 9.06
-- volume: 99168485
-- ma5: 8.88
+- date: 20260717
+- open: 9.03
+- high: 9.08
+- low: 8.58
+- close: 8.64
+- volume: 61550218
+- ma5: 8.83
 - ema23_primary: 8.66
-- distance_to_ema23_pct: 4.63
-- ma20: 8.66
-- ma60: 7.8
-- ma120: 8.01
-- return_5d: -6.6
-- return_20d: 17.97
-- volume_ratio: 0.96
-- distance_to_ma20_pct_auxiliary: 4.56
-- distance_to_high_60_pct: -15.33
+- distance_to_ema23_pct: -0.2
+- ma20: 8.72
+- ma60: 7.82
+- ma120: 8.02
+- return_5d: -2.92
+- return_20d: 13.39
+- volume_ratio: 0.58
+- distance_to_ma20_pct_auxiliary: -0.87
+- distance_to_high_60_pct: -19.25
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260617,7.7,7.83,7.6,7.62,21622514,7.58,0.47,7.53,7.6,0.56
 20260618,7.64,7.89,7.64,7.78,23805322,7.6,2.36,7.56,7.59,0.61
 20260622,7.85,8.24,7.8,8.04,47178387,7.64,5.27,7.61,7.58,1.17
 20260623,8.14,8.14,7.81,7.85,26737260,7.66,2.55,7.64,7.57,0.66
@@ -155,20 +163,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260714,8.93,9.24,8.53,8.74,79207843,8.6,1.61,8.54,7.76,0.81
 20260715,8.74,9.01,8.69,8.86,45508489,8.62,2.75,8.6,7.78,0.46
 20260716,8.92,9.5,8.91,9.06,99168485,8.66,4.63,8.66,7.8,0.96
+20260717,9.03,9.08,8.58,8.64,61550218,8.66,-0.2,8.72,7.82,0.58
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260703
-- over_400_ratio: 41.97
-- over_600_ratio: 38
-- over_800_ratio: 35.3
-- over_1000_ratio: 33.47
-- over_400_change_1w: 1.82
-- over_800_change_1w: 1.75
-- over_1000_change_1w: 1.8
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260717
+- over_400_ratio: 41.53
+- over_600_ratio: 37.7
+- over_800_ratio: 35.04
+- over_1000_ratio: 33.39
+- over_400_change_1w: -0.44
+- over_800_change_1w: -0.26
+- over_1000_change_1w: -0.08
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -184,17 +193,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260618,39.34,-0.04,32.7,-0.04,30.85,-0.07,0,False,False
 20260626,40.15,0.81,33.55,0.85,31.67,0.82,1,True,True
 20260703,41.97,1.82,35.3,1.75,33.47,1.8,2,True,True
+20260717,41.53,-0.44,35.04,-0.26,33.39,-0.08,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 1314 | 中石化 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | continued_2_3d | 1.事實發生日:115/07/07 2.發生緣由:依臺灣證券交易所股份有限公司通知辦理 3.財務業務資訊: 期間               (月)        (月)        (季)       (季)    (最近四季累計) ==============  =========== ========== ============ ========= ============== 科目             最近一月     與去年     最近一季    與去年    114年第2季至                 115年05月    同期增減   115年第1季  同期增減   115年第1季                 合併自結數         (%)  合併核閱數        (%)   合併核閱數 ==============  =========== ========== ============ ========= ============== 營業收入(百萬)       1,290     -23.97%        4,902   -37.07%        16,806 稅前淨利(百萬)         670     209.92%        (263)    -2.19%        (2,482) 歸屬母公司 業主淨利(百萬)         671     210.72%        (263)    14.39%        (2,922) 每股盈餘(元)          0.18     212.50%       (0.07)    12.50%         (0.77) 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告: 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260717 | 1314 | 中石化 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.事實發生日:115/07/07 2.發生緣由:依臺灣證券交易所股份有限公司通知辦理 3.財務業務資訊: 期間               (月)        (月)        (季)       (季)    (最近四季累計) ==============  =========== ========== ============ ========= ============== 科目             最近一月     與去年     最近一季    與去年    114年第2季至                 115年05月    同期增減   115年第1季  同期增減   115年第1季                 合併自結數         (%)  合併核閱數        (%)   合併核閱數 ==============  =========== ========== ============ ========= ============== 營業收入(百萬)       1,290     -23.97%        4,902   -37.07%        16,806 稅前淨利(百萬)         670     209.92%        (263)    -2.19%        (2,482) 歸屬母公司 業主淨利(百萬)         671     210.72%        (263)    14.39%        (2,922) 每股盈餘(元)          0.18     212.50%       (0.07)    12.50%         (0.77) 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告: 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 1314 | 中石化 | 3 | 3 | 4 | 9 | 19 | continued_2_3d | 連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| 20260717 | 1314 | 中石化 | 4 | 4 | 4 | 9 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

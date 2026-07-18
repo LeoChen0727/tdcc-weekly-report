@@ -1,15 +1,21 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3081 聯亞
 
 ## Metadata
-- generated_at: 2026-07-17 22:26:46 Asia/Taipei
+- generated_at: 2026-07-18 20:53:56 Asia/Taipei
 - stock_id: 3081
 - stock_name: 聯亞
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260716
-- price_rows: 170
-- latest_tdcc_date: 20260703
-- tdcc_rows: 10
+- latest_price_date: 20260717
+- price_rows: 171
+- current_main_price_date: 20260717
+- current_main_price_universe_status: current
+- current_main_price_universe_source: official_daily_price_latest_main_price_date
+- listing_status_source_status: formal_listing_status_source_unavailable
+- official_tdcc_signal_date: 20260717
+- latest_tdcc_date: 20260717
+- tdcc_rows: 11
 - tdcc_history_status: tdcc_history_ready
+- tdcc_freshness_status: tdcc_window_fresh
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
 - notes:
@@ -51,7 +57,10 @@
 - MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
-- If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
+- Only claim tdcc_history_ready when tdcc_rows >= 8 and latest_tdcc_date equals official_tdcc_signal_date.
+- If latest_tdcc_date differs from official_tdcc_signal_date, mark tdcc_window_stale and do not claim current TDCC history.
+- If the stock is absent from the official current main-price universe, preserve real TDCC dates and mark historical_only_noncurrent; do not infer a formal delisting status.
+- If TDCC is current but tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DISPLAY
@@ -112,29 +121,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260716
-- open: 1715
-- high: 1715
-- low: 1615
-- close: 1620
-- volume: 1714000
-- ma5: 1859
-- ema23_primary: 2068.26
-- distance_to_ema23_pct: -21.67
-- ma20: 2051.25
-- ma60: 2458.5
-- ma120: 1929.72
-- return_5d: -22.67
-- return_20d: -28.95
-- volume_ratio: 0.89
-- distance_to_ma20_pct_auxiliary: -21.02
-- distance_to_high_60_pct: -50.98
+- date: 20260717
+- open: 1515
+- high: 1560
+- low: 1460
+- close: 1480
+- volume: 1846000
+- ma5: 1754
+- ema23_primary: 2019.23
+- distance_to_ema23_pct: -26.7
+- ma20: 2013
+- ma60: 2434.25
+- ma120: 1936.57
+- return_5d: -26.18
+- return_20d: -34.08
+- volume_ratio: 0.97
+- distance_to_ma20_pct_auxiliary: -26.48
+- distance_to_high_60_pct: -55.22
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260617,2230,2335,2215,2245,2034000,2485.24,-9.67,2563.75,2441.67,0.79
 20260618,2295,2465,2265,2440,2389000,2481.47,-1.67,2558,2457.67,0.93
 20260622,2480,2480,2365,2375,1883000,2472.6,-3.95,2541.25,2473.92,0.74
 20260623,2405,2440,2285,2285,1716000,2456.97,-7,2509.25,2486.33,0.69
@@ -154,19 +162,20 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260714,1950,2040,1795,1925,1821000,2141.19,-10.1,2113.25,2493.25,0.93
 20260715,1850,1885,1745,1755,1713000,2109.01,-16.79,2084.25,2479.17,0.88
 20260716,1715,1715,1615,1620,1714000,2068.26,-21.67,2051.25,2458.5,0.89
+20260717,1515,1560,1460,1480,1846000,2019.23,-26.7,2013,2434.25,0.97
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260703
-- over_400_ratio: 46.86
-- over_600_ratio: 42.46
-- over_800_ratio: 37.28
-- over_1000_ratio: 34.48
-- over_400_change_1w: 1.61
-- over_800_change_1w: 0.49
-- over_1000_change_1w: 2.46
-- tdcc_consecutive_up_weeks: 8
-- all_thresholds_up: True
+- as_of_date: 20260717
+- over_400_ratio: 45.82
+- over_600_ratio: 41.63
+- over_800_ratio: 38.65
+- over_1000_ratio: 32.71
+- over_400_change_1w: -1.04
+- over_800_change_1w: 1.37
+- over_1000_change_1w: -1.77
+- tdcc_consecutive_up_weeks: 9
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -183,17 +192,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260618,44.41,1.47,37.26,0.51,31.62,1.57,6,True,True
 20260626,45.25,0.84,36.79,-0.47,32.02,0.4,7,False,True
 20260703,46.86,1.61,37.28,0.49,34.48,2.46,8,True,True
+20260717,45.82,-1.04,38.65,1.37,32.71,-1.77,9,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 3081 | 聯亞 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | 1.董事會或股東會決議日期:115/06/17 2.投資計畫內容:增購生產設備以提升產能 3.預計投資金額:總金額不超過新台幣30.09億元 4.預計投資日期:依各項設備採購合約約定之期程分期執行　 5.資金來源:自有營運資金及發行可轉換公司債等 6.具體目的:因應未來營運發展及產能擴充需求 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260717 | 3081 | 聯亞 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | 1.董事會或股東會決議日期:115/06/17 2.投資計畫內容:增購生產設備以提升產能 3.預計投資金額:總金額不超過新台幣30.09億元 4.預計投資日期:依各項設備採購合約約定之期程分期執行　 5.資金來源:自有營運資金及發行可轉換公司債等 6.具體目的:因應未來營運發展及產能擴充需求 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 3081 | 聯亞 | 1 | 1 | 3 | 8 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260717 | 3081 | 聯亞 | 2 | 2 | 3 | 8 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

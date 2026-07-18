@@ -1,15 +1,21 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2890 永豐金
 
 ## Metadata
-- generated_at: 2026-07-17 22:26:41 Asia/Taipei
+- generated_at: 2026-07-18 20:53:50 Asia/Taipei
 - stock_id: 2890
 - stock_name: 永豐金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260716
-- price_rows: 305
-- latest_tdcc_date: 20260703
-- tdcc_rows: 10
+- latest_price_date: 20260717
+- price_rows: 306
+- current_main_price_date: 20260717
+- current_main_price_universe_status: current
+- current_main_price_universe_source: official_daily_price_latest_main_price_date
+- listing_status_source_status: formal_listing_status_source_unavailable
+- official_tdcc_signal_date: 20260717
+- latest_tdcc_date: 20260717
+- tdcc_rows: 11
 - tdcc_history_status: tdcc_history_ready
+- tdcc_freshness_status: tdcc_window_fresh
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
 - notes:
@@ -51,7 +57,10 @@
 - MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
-- If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
+- Only claim tdcc_history_ready when tdcc_rows >= 8 and latest_tdcc_date equals official_tdcc_signal_date.
+- If latest_tdcc_date differs from official_tdcc_signal_date, mark tdcc_window_stale and do not claim current TDCC history.
+- If the stock is absent from the official current main-price universe, preserve real TDCC dates and mark historical_only_noncurrent; do not infer a formal delisting status.
+- If TDCC is current but tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DISPLAY
@@ -112,29 +121,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260716
-- open: 40.2
-- high: 40.4
-- low: 39.65
-- close: 39.85
-- volume: 29736368
-- ma5: 40.02
-- ema23_primary: 38.7
-- distance_to_ema23_pct: 2.96
-- ma20: 39.85
-- ma60: 34.17
-- ma120: 32.61
-- return_5d: -4.89
-- return_20d: 12.89
-- volume_ratio: 0.53
-- distance_to_ma20_pct_auxiliary: -0.01
-- distance_to_high_60_pct: -5.79
+- date: 20260717
+- open: 39.75
+- high: 40.05
+- low: 39.4
+- close: 40
+- volume: 49256681
+- ma5: 39.93
+- ema23_primary: 38.81
+- distance_to_ema23_pct: 3.06
+- ma20: 40.04
+- ma60: 34.31
+- ma120: 32.7
+- return_5d: -1.11
+- return_20d: 10.04
+- volume_ratio: 0.89
+- distance_to_ma20_pct_auxiliary: -0.09
+- distance_to_high_60_pct: -5.44
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260617,35.15,36.8,35.15,36.35,66734157,32.68,11.22,32.01,31.67,1.3
 20260618,37.6,39.9,37.2,39.8,148015065,33.27,19.61,32.51,31.82,2.57
 20260622,40.75,40.75,39.6,39.8,93780276,33.82,17.69,33.05,31.96,1.57
 20260623,40,40.3,39.1,39.8,61232581,34.32,15.98,33.59,32.09,1.01
@@ -154,19 +162,20 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260714,40.6,40.6,39,39.65,35527189,38.48,3.05,39.39,33.93,0.61
 20260715,39.8,40.3,39.45,39.95,32360511,38.6,3.5,39.63,34.05,0.57
 20260716,40.2,40.4,39.65,39.85,29736368,38.7,2.96,39.85,34.17,0.53
+20260717,39.75,40.05,39.4,40,49256681,38.81,3.06,40.04,34.31,0.89
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260703
+- as_of_date: 20260717
 - over_400_ratio: 80.81
-- over_600_ratio: 79.54
-- over_800_ratio: 78.46
-- over_1000_ratio: 77.59
-- over_400_change_1w: 0.09
-- over_800_change_1w: 0.11
-- over_1000_change_1w: 0.1
-- tdcc_consecutive_up_weeks: 5
-- all_thresholds_up: True
+- over_600_ratio: 79.55
+- over_800_ratio: 78.48
+- over_1000_ratio: 77.57
+- over_400_change_1w: 0
+- over_800_change_1w: 0.02
+- over_1000_change_1w: -0.02
+- tdcc_consecutive_up_weeks: 6
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -183,23 +192,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260618,80.48,0.26,78.04,0.23,77.2,0.23,3,True,True
 20260626,80.72,0.24,78.35,0.31,77.49,0.29,4,True,True
 20260703,80.81,0.09,78.46,0.11,77.59,0.1,5,True,True
+20260717,80.81,0,78.48,0.02,77.57,-0.02,6,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 2890 | 永豐金 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.標的物之名稱及性質（屬特別股者，並應標明特別股約定發行條件，如股息率等）: 聯合授信案授信資產之轉讓。 2.事實發生日:115/7/14~115/7/14 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:董事長核決 民國115年7月14日 5.交易單位數量、每單位價格及交易總金額: 英鎊9,462,213元。 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之 關係人者，得免揭露其姓名）: (1)交易相對人：Lloyds Bank Plc或其他潛在交易對手。 (2)與公司之關係：非關係人。 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移 轉之所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次 移轉日期及移轉金額: 不適用。 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係人之取 得及處分日期、價格及交易當時與公司之關係: 不適用。 9.本次係處分債權之相關事項（含處分之債權附隨擔保品種類、處分債權 如有屬對關係人債權者尚需公告關係人名稱及本次處分該關係人之債權 帳面金額: 不適用。 10.處分利益（或損失）（取得有價證券者不適用）（遞延者應列表說明 認列情形）: 無。 11.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 依聯合授信合約相關規定辦理。 12.本次交易之決定方式、價格決定之參考依據及決策單位: 依本行分層負責管理辦法辦理，相關條件 依聯合授信合約及一般聯合授信之市場慣例為之。 13.取得或處分有價證券標的公司每股淨值: 不適用 14.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 不適用。 15.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列 之有價證券投資（含本次交易）占公司最近期財務報表中總資產及歸屬 於母公司業主之權益之比例暨最近期財務報表中營運資金數額: 不適用。 16.經紀人及經紀費用: 不適用。 17.取得或處分之具體目的或用途: 降低授信暴險部位。 18.本次交易表示異議董事之意見: 不適用。 19.本次交易為關係人交易:否 20.監察人承認或審計委員會同意日期: 不適用。 21.本次交易會計師出具非合理性意見:不適用 22.會計師事務所名稱: 不適用。 23.會計師姓名: 不適用。 24.會計師開業證書字號: 不適用。 25.是否涉及營運模式變更:否 26.營運模式變更說明: 不適用。 27.過去一年及預計未來一年內與交易相對人交易情形: 不適用。 28.資金來源: 不適用。 29.前已就同一件事件發布重大訊息日期: 不適用 30.其他敘明事項: 總交易金額依115/7/9 GBP/NTD= 43.1163元換算之。；calendar event: ex_right_dividend on 20260723; status=confirmed; proximity=within_7d |
-| 20260716 | 2890 | 永豐金 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | 1.標的物之名稱及性質（屬特別股者，並應標明特別股約定發行條件，如股息率等）: 聯合授信案授信資產之轉讓。 2.事實發生日:115/7/14~115/7/14 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:董事長核決 民國115年7月14日 5.交易單位數量、每單位價格及交易總金額: 英鎊9,462,213元。 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之 關係人者，得免揭露其姓名）: (1)交易相對人：Lloyds Bank Plc或其他潛在交易對手。 (2)與公司之關係：非關係人。 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移 轉之所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次 移轉日期及移轉金額: 不適用。 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係人之取 得及處分日期、價格及交易當時與公司之關係: 不適用。 9.本次係處分債權之相關事項（含處分之債權附隨擔保品種類、處分債權 如有屬對關係人債權者尚需公告關係人名稱及本次處分該關係人之債權 帳面金額: 不適用。 10.處分利益（或損失）（取得有價證券者不適用）（遞延者應列表說明 認列情形）: 無。 11.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 依聯合授信合約相關規定辦理。 12.本次交易之決定方式、價格決定之參考依據及決策單位: 依本行分層負責管理辦法辦理，相關條件 依聯合授信合約及一般聯合授信之市場慣例為之。 13.取得或處分有價證券標的公司每股淨值: 不適用 14.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 不適用。 15.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列 之有價證券投資（含本次交易）占公司最近期財務報表中總資產及歸屬 於母公司業主之權益之比例暨最近期財務報表中營運資金數額: 不適用。 16.經紀人及經紀費用: 不適用。 17.取得或處分之具體目的或用途: 降低授信暴險部位。 18.本次交易表示異議董事之意見: 不適用。 19.本次交易為關係人交易:否 20.監察人承認或審計委員會同意日期: 不適用。 21.本次交易會計師出具非合理性意見:不適用 22.會計師事務所名稱: 不適用。 23.會計師姓名: 不適用。 24.會計師開業證書字號: 不適用。 25.是否涉及營運模式變更:否 26.營運模式變更說明: 不適用。 27.過去一年及預計未來一年內與交易相對人交易情形: 不適用。 28.資金來源: 不適用。 29.前已就同一件事件發布重大訊息日期: 不適用 30.其他敘明事項: 總交易金額依115/7/9 GBP/NTD= 43.1163元換算之。；calendar event: ex_right_dividend on 20260723; status=confirmed; proximity=within_7d |
+| 20260717 | 2890 | 永豐金 | pattern | 型態觀察 | 54.0 |  |  | pullback_right_side |  | no_signal | stale_signal | 1.標的物之名稱及性質（屬特別股者，並應標明特別股約定發行條件，如股息率等）: 聯合授信案授信資產之轉讓。 2.事實發生日:115/7/14~115/7/14 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:董事長核決 民國115年7月14日 5.交易單位數量、每單位價格及交易總金額: 英鎊9,462,213元。 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之 關係人者，得免揭露其姓名）: (1)交易相對人：Lloyds Bank Plc或其他潛在交易對手。 (2)與公司之關係：非關係人。 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移 轉之所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次 移轉日期及移轉金額: 不適用。 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係人之取 得及處分日期、價格及交易當時與公司之關係: 不適用。 9.本次係處分債權之相關事項（含處分之債權附隨擔保品種類、處分債權 如有屬對關係人債權者尚需公告關係人名稱及本次處分該關係人之債權 帳面金額: 不適用。 10.處分利益（或損失）（取得有價證券者不適用）（遞延者應列表說明 認列情形）: 無。 11.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 依聯合授信合約相關規定辦理。 12.本次交易之決定方式、價格決定之參考依據及決策單位: 依本行分層負責管理辦法辦理，相關條件 依聯合授信合約及一般聯合授信之市場慣例為之。 13.取得或處分有價證券標的公司每股淨值: 不適用 14.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 不適用。 15.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列 之有價證券投資（含本次交易）占公司最近期財務報表中總資產及歸屬 於母公司業主之權益之比例暨最近期財務報表中營運資金數額: 不適用。 16.經紀人及經紀費用: 不適用。 17.取得或處分之具體目的或用途: 降低授信暴險部位。 18.本次交易表示異議董事之意見: 不適用。 19.本次交易為關係人交易:否 20.監察人承認或審計委員會同意日期: 不適用。 21.本次交易會計師出具非合理性意見:不適用 22.會計師事務所名稱: 不適用。 23.會計師姓名: 不適用。 24.會計師開業證書字號: 不適用。 25.是否涉及營運模式變更:否 26.營運模式變更說明: 不適用。 27.過去一年及預計未來一年內與交易相對人交易情形: 不適用。 28.資金來源: 不適用。 29.前已就同一件事件發布重大訊息日期: 不適用 30.其他敘明事項: 總交易金額依115/7/9 GBP/NTD= 43.1163元換算之。；calendar event: ex_right_dividend on 20260723; status=confirmed; proximity=within_7d |
+| 20260717 | 2890 | 永豐金 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | 1.標的物之名稱及性質（屬特別股者，並應標明特別股約定發行條件，如股息率等）: 聯合授信案授信資產之轉讓。 2.事實發生日:115/7/14~115/7/14 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:董事長核決 民國115年7月14日 5.交易單位數量、每單位價格及交易總金額: 英鎊9,462,213元。 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之 關係人者，得免揭露其姓名）: (1)交易相對人：Lloyds Bank Plc或其他潛在交易對手。 (2)與公司之關係：非關係人。 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移 轉之所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次 移轉日期及移轉金額: 不適用。 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係人之取 得及處分日期、價格及交易當時與公司之關係: 不適用。 9.本次係處分債權之相關事項（含處分之債權附隨擔保品種類、處分債權 如有屬對關係人債權者尚需公告關係人名稱及本次處分該關係人之債權 帳面金額: 不適用。 10.處分利益（或損失）（取得有價證券者不適用）（遞延者應列表說明 認列情形）: 無。 11.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 依聯合授信合約相關規定辦理。 12.本次交易之決定方式、價格決定之參考依據及決策單位: 依本行分層負責管理辦法辦理，相關條件 依聯合授信合約及一般聯合授信之市場慣例為之。 13.取得或處分有價證券標的公司每股淨值: 不適用 14.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 不適用。 15.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列 之有價證券投資（含本次交易）占公司最近期財務報表中總資產及歸屬 於母公司業主之權益之比例暨最近期財務報表中營運資金數額: 不適用。 16.經紀人及經紀費用: 不適用。 17.取得或處分之具體目的或用途: 降低授信暴險部位。 18.本次交易表示異議董事之意見: 不適用。 19.本次交易為關係人交易:否 20.監察人承認或審計委員會同意日期: 不適用。 21.本次交易會計師出具非合理性意見:不適用 22.會計師事務所名稱: 不適用。 23.會計師姓名: 不適用。 24.會計師開業證書字號: 不適用。 25.是否涉及營運模式變更:否 26.營運模式變更說明: 不適用。 27.過去一年及預計未來一年內與交易相對人交易情形: 不適用。 28.資金來源: 不適用。 29.前已就同一件事件發布重大訊息日期: 不適用 30.其他敘明事項: 總交易金額依115/7/9 GBP/NTD= 43.1163元換算之。；calendar event: ex_right_dividend on 20260723; status=confirmed; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 2890 | 永豐金 | 14 | 4 | 5 | 10 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260717 | 2890 | 永豐金 | 15 | 5 | 5 | 10 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 2890 | 永豐金 | 21 | 0 | 2009850.0 | 0.0 |  | no_signal |
+| 20260717 | 2890 | 永豐金 | 21 | 0 | 1281380.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

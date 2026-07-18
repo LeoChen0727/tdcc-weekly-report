@@ -1,15 +1,21 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2634 漢翔
 
 ## Metadata
-- generated_at: 2026-07-17 22:26:37 Asia/Taipei
+- generated_at: 2026-07-18 20:53:45 Asia/Taipei
 - stock_id: 2634
 - stock_name: 漢翔
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260716
-- price_rows: 305
-- latest_tdcc_date: 20260703
-- tdcc_rows: 10
+- latest_price_date: 20260717
+- price_rows: 306
+- current_main_price_date: 20260717
+- current_main_price_universe_status: current
+- current_main_price_universe_source: official_daily_price_latest_main_price_date
+- listing_status_source_status: formal_listing_status_source_unavailable
+- official_tdcc_signal_date: 20260717
+- latest_tdcc_date: 20260717
+- tdcc_rows: 11
 - tdcc_history_status: tdcc_history_ready
+- tdcc_freshness_status: tdcc_window_fresh
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
 - notes:
@@ -51,22 +57,25 @@
 - MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
-- If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
+- Only claim tdcc_history_ready when tdcc_rows >= 8 and latest_tdcc_date equals official_tdcc_signal_date.
+- If latest_tdcc_date differs from official_tdcc_signal_date, mark tdcc_window_stale and do not claim current TDCC history.
+- If the stock is absent from the official current main-price universe, preserve real TDCC dates and mark historical_only_noncurrent; do not infer a formal delisting status.
+- If TDCC is current but tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 股價乖離過大
+- risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -74,7 +83,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: high_level_consolidation
+- thesis_state: unclear
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -89,8 +98,8 @@
 ### entry_prerequisites
 - price_structure_not_broken
 - revenue_not_deteriorating
-- no_major_tdcc_warning
 - no_major_volume_price_failure
+- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -103,7 +112,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- price_too_extended
+- tdcc_distribution_warning
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -111,29 +120,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260716
-- open: 67.5
-- high: 68.3
-- low: 63.9
-- close: 64.5
-- volume: 40999764
-- ma5: 64.34
-- ema23_primary: 56.9
-- distance_to_ema23_pct: 13.35
-- ma20: 56.02
-- ma60: 50.18
-- ma120: 51.1
-- return_5d: 8.22
-- return_20d: 37.97
-- volume_ratio: 1.09
-- distance_to_ma20_pct_auxiliary: 15.13
-- distance_to_high_60_pct: -7.19
+- date: 20260717
+- open: 62
+- high: 65
+- low: 60.8
+- close: 61.2
+- volume: 37076047
+- ma5: 64.98
+- ema23_primary: 57.26
+- distance_to_ema23_pct: 6.88
+- ma20: 56.73
+- ma60: 50.38
+- ma120: 51.16
+- return_5d: 5.52
+- return_20d: 29.66
+- volume_ratio: 0.94
+- distance_to_ma20_pct_auxiliary: 7.89
+- distance_to_high_60_pct: -11.94
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260617,46.55,47.65,46.55,47.2,2958169,46.83,0.78,46.57,47.56,0.68
 20260618,47.2,47.25,46.85,47.2,2780692,46.87,0.71,46.62,47.53,0.64
 20260622,48.1,50.8,48.1,50.1,19052628,47.13,6.29,46.8,47.55,3.69
 20260623,51,51.3,49.25,49.7,9851151,47.35,4.97,46.96,47.52,1.82
@@ -153,18 +161,19 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260714,66,69.5,64,67.1,139359123,55.11,21.75,54.09,49.64,4.31
 20260715,66.8,69,63.5,68.3,70649296,56.21,21.51,55.14,49.94,1.98
 20260716,67.5,68.3,63.9,64.5,40999764,56.9,13.35,56.02,50.18,1.09
+20260717,62,65,60.8,61.2,37076047,57.26,6.88,56.73,50.38,0.94
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260703
-- over_400_ratio: 51.27
-- over_600_ratio: 50.06
-- over_800_ratio: 49.42
-- over_1000_ratio: 48.72
-- over_400_change_1w: 1.87
-- over_800_change_1w: 1.87
-- over_1000_change_1w: 1.46
-- tdcc_consecutive_up_weeks: 6
+- as_of_date: 20260717
+- over_400_ratio: 51.42
+- over_600_ratio: 50.5
+- over_800_ratio: 49.53
+- over_1000_ratio: 48.93
+- over_400_change_1w: 0.15
+- over_800_change_1w: 0.11
+- over_1000_change_1w: 0.21
+- tdcc_consecutive_up_weeks: 7
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -182,22 +191,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260618,49,0.53,47.17,0.53,46.79,0.46,4,True,True
 20260626,49.4,0.4,47.55,0.38,47.26,0.47,5,True,True
 20260703,51.27,1.87,49.42,1.87,48.72,1.46,6,True,True
+20260717,51.42,0.15,49.53,0.11,48.93,0.21,7,True,True
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260717 | 2634 | 漢翔 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | stale_signal | 1.人員變動別（請輸入發言人、代理發言人、重要營運主管(如:執行長、營運長、 行銷長及策略長等)、財務主管、會計主管、公司治理主管、資訊安全長、研發主管、 內部稽核主管或訴訟及非訟代理人）:副總經理 2.發生變動日期:115/07/13 3.舊任者姓名、級職及簡歷:杜旭純，漢翔航空工業股份有限公司副總經理 4.新任者姓名、級職及簡歷:待委任 5.異動情形（請輸入「辭職」、「職務調整」、「資遣」、「退休」、「死亡」、「新 任」或「解任」）:退休 6.異動原因:退休 7.生效日期:115/07/13 8.其他應敘明事項:新任副總經理待董事會決議通過委任後另行公告。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260717 | 2634 | 漢翔 | 1 | 1 | 4 | 6 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 2634 | 漢翔 | 57 | 0 | 20425450.0 | 0.0 |  | no_signal |
+| 20260717 | 2634 | 漢翔 | 58 | 0 | 14181940.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

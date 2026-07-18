@@ -1,15 +1,21 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2945 三商家購
 
 ## Metadata
-- generated_at: 2026-07-17 22:26:42 Asia/Taipei
+- generated_at: 2026-07-18 20:53:52 Asia/Taipei
 - stock_id: 2945
 - stock_name: 三商家購
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260716
-- price_rows: 299
-- latest_tdcc_date: 20260703
-- tdcc_rows: 10
+- latest_price_date: 20260717
+- price_rows: 300
+- current_main_price_date: 20260717
+- current_main_price_universe_status: current
+- current_main_price_universe_source: official_daily_price_latest_main_price_date
+- listing_status_source_status: formal_listing_status_source_unavailable
+- official_tdcc_signal_date: 20260717
+- latest_tdcc_date: 20260717
+- tdcc_rows: 11
 - tdcc_history_status: tdcc_history_ready
+- tdcc_freshness_status: tdcc_window_fresh
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
 - notes:
@@ -51,7 +57,10 @@
 - MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
-- If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
+- Only claim tdcc_history_ready when tdcc_rows >= 8 and latest_tdcc_date equals official_tdcc_signal_date.
+- If latest_tdcc_date differs from official_tdcc_signal_date, mark tdcc_window_stale and do not claim current TDCC history.
+- If the stock is absent from the official current main-price universe, preserve real TDCC dates and mark historical_only_noncurrent; do not infer a formal delisting status.
+- If TDCC is current but tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DISPLAY
@@ -113,29 +122,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260716
-- open: 41.9
-- high: 41.9
-- low: 41.1
-- close: 41.15
-- volume: 8141
-- ma5: 41.29
-- ema23_primary: 41.8
-- distance_to_ema23_pct: -1.54
-- ma20: 42.12
-- ma60: 41.62
-- ma120: 41.3
-- return_5d: -0.24
-- return_20d: -5.18
-- volume_ratio: 0.37
-- distance_to_ma20_pct_auxiliary: -2.3
-- distance_to_high_60_pct: -6.05
+- date: 20260717
+- open: 41
+- high: 41
+- low: 40.1
+- close: 40.1
+- volume: 20083
+- ma5: 41.05
+- ema23_primary: 41.65
+- distance_to_ema23_pct: -3.73
+- ma20: 41.97
+- ma60: 41.59
+- ma120: 41.33
+- return_5d: -2.91
+- return_20d: -7.07
+- volume_ratio: 0.91
+- distance_to_ma20_pct_auxiliary: -4.44
+- distance_to_high_60_pct: -8.45
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260617,43.35,43.35,42.45,43.15,14660,41.84,3.13,41.65,41.33,0.55
 20260618,43.1,43.15,41.8,42.9,21263,41.93,2.32,41.79,41.36,0.83
 20260622,43,43,41.5,42.5,21706,41.98,1.25,41.87,41.4,0.83
 20260623,42.5,43.5,42.5,42.95,31225,42.06,2.12,41.95,41.44,1.17
@@ -155,10 +163,11 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260714,40.9,41.5,40.7,41.5,14415,41.88,-0.9,42.3,41.64,0.54
 20260715,41.7,41.7,40.9,41.6,10145,41.85,-0.61,42.23,41.63,0.44
 20260716,41.9,41.9,41.1,41.15,8141,41.8,-1.54,42.12,41.62,0.37
+20260717,41,41,40.1,40.1,20083,41.65,-3.73,41.97,41.59,0.91
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260703
+- as_of_date: 20260717
 - over_400_ratio: 83.48
 - over_600_ratio: 83.48
 - over_800_ratio: 83.48
@@ -184,6 +193,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260618,83.48,0,83.48,0,83.48,0,0,False,False
 20260626,83.48,0,83.48,0,83.48,0,0,False,False
 20260703,83.48,0,83.48,0,83.48,0,0,False,False
+20260717,83.48,0,83.48,0,83.48,0,0,False,False
 ```
 
 ## Candidate Context

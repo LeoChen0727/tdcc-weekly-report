@@ -1,15 +1,21 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5876 上海商銀
 
 ## Metadata
-- generated_at: 2026-07-17 22:27:21 Asia/Taipei
+- generated_at: 2026-07-18 20:54:40 Asia/Taipei
 - stock_id: 5876
 - stock_name: 上海商銀
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260716
-- price_rows: 305
-- latest_tdcc_date: 20260703
-- tdcc_rows: 32
+- latest_price_date: 20260717
+- price_rows: 306
+- current_main_price_date: 20260717
+- current_main_price_universe_status: current
+- current_main_price_universe_source: official_daily_price_latest_main_price_date
+- listing_status_source_status: formal_listing_status_source_unavailable
+- official_tdcc_signal_date: 20260717
+- latest_tdcc_date: 20260717
+- tdcc_rows: 33
 - tdcc_history_status: tdcc_history_ready
+- tdcc_freshness_status: tdcc_window_fresh
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
 - notes:
@@ -51,7 +57,10 @@
 - MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
-- If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
+- Only claim tdcc_history_ready when tdcc_rows >= 8 and latest_tdcc_date equals official_tdcc_signal_date.
+- If latest_tdcc_date differs from official_tdcc_signal_date, mark tdcc_window_stale and do not claim current TDCC history.
+- If the stock is absent from the official current main-price universe, preserve real TDCC dates and mark historical_only_noncurrent; do not infer a formal delisting status.
+- If TDCC is current but tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DISPLAY
@@ -118,29 +127,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260716
-- open: 44.6
-- high: 45.35
-- low: 44.45
-- close: 44.95
-- volume: 13780163
-- ma5: 44.24
-- ema23_primary: 42.74
-- distance_to_ema23_pct: 5.17
-- ma20: 42.7
-- ma60: 40.99
-- ma120: 40.26
-- return_5d: 5.64
-- return_20d: 5.52
-- volume_ratio: 1.03
-- distance_to_ma20_pct_auxiliary: 5.26
-- distance_to_high_60_pct: -0.88
+- date: 20260717
+- open: 44.9
+- high: 45.65
+- low: 44.75
+- close: 45.2
+- volume: 24572743
+- ma5: 44.72
+- ema23_primary: 42.95
+- distance_to_ema23_pct: 5.25
+- ma20: 42.83
+- ma60: 41.08
+- ma120: 40.3
+- return_5d: 5.61
+- return_20d: 5.61
+- volume_ratio: 1.76
+- distance_to_ma20_pct_auxiliary: 5.55
+- distance_to_high_60_pct: -0.99
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260617,42.45,43.3,42.4,42.8,12054495,41.15,4.01,40.9,39.97,0.84
 20260618,42.7,43.25,42.5,42.5,13608079,41.26,3,41.02,40.03,0.93
 20260622,42.55,42.65,41.4,41.45,23506048,41.28,0.41,41.09,40.06,1.53
 20260623,41.5,41.9,41.2,41.8,16696189,41.32,1.16,41.19,40.1,1.08
@@ -160,18 +168,19 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260714,44.4,44.7,43.55,44.7,17257437,42.35,5.54,42.5,40.82,1.29
 20260715,44.7,45.15,44.45,44.6,12646034,42.54,4.84,42.59,40.9,0.95
 20260716,44.6,45.35,44.45,44.95,13780163,42.74,5.17,42.7,40.99,1.03
+20260717,44.9,45.65,44.75,45.2,24572743,42.95,5.25,42.83,41.08,1.76
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260703
-- over_400_ratio: 86.88
-- over_600_ratio: 84.33
-- over_800_ratio: 82.67
-- over_1000_ratio: 81.31
-- over_400_change_1w: 0.09
-- over_800_change_1w: 0.09
-- over_1000_change_1w: 0.19
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260717
+- over_400_ratio: 87.33
+- over_600_ratio: 84.77
+- over_800_ratio: 83.12
+- over_1000_ratio: 81.77
+- over_400_change_1w: 0.45
+- over_800_change_1w: 0.45
+- over_1000_change_1w: 0.46
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -179,7 +188,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260417,86.22,-0.06,81.86,0.01,80.41,-0.08,5,False,True
 20260424,86.23,0.01,81.9,0.04,80.49,0.08,6,False,True
 20260430,86.04,-0.19,81.71,-0.19,80.29,-0.2,0,False,False
 20260508,85.8,-0.24,81.47,-0.24,79.94,-0.35,0,False,False
@@ -191,17 +199,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260618,86.93,0.05,82.64,0.03,81.23,0.02,3,True,True
 20260626,86.79,-0.14,82.58,-0.06,81.12,-0.11,0,False,False
 20260703,86.88,0.09,82.67,0.09,81.31,0.19,1,True,True
+20260717,87.33,0.45,83.12,0.45,81.77,0.46,2,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 5876 | 上海商銀 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | repeated_but_no_breakout | 1.事實發生日:115/07/09 2.公司名稱:上海商業儲蓄銀行股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:無 5.發生緣由:公告本公司115年6月份合併自結損益 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):   公告本公司115年6月份合併自結損益：   單位:億元   ------6月損益-----------------累計1-6月損益---------------    合併    母公司        合併       母公司     基本EPS(元)    稅前   業主稅後       稅前      業主稅後    24.97   19.27        150.72      100.98        2.08   ----------------------------------------------------------；calendar event: ex_right_dividend on 20260728; status=confirmed; proximity=within_14d |
+| 20260717 | 5876 | 上海商銀 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | repeated_but_no_breakout | 1.發生變動日期:115/07/17 2.功能性委員會名稱:風險委員會 3.舊任者姓名:不適用 4.舊任者簡歷:不適用 5.新任者姓名:唐業銓先生 6.新任者簡歷:德勤中國金融服務業審計及核證合夥人 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）:新任 8.異動原因:新任 9.原任期（例xx/xx/xx ~ xx/xx/xx）:不適用 10.新任生效日期:115/07/17 11.其他應敘明事項:無；calendar event: ex_right_dividend on 20260728; status=confirmed; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 5876 | 上海商銀 | 7 | 1 | 5 | 7 | 15 | repeated_but_no_breakout | 近 10 日上榜 7 次、近 20 日上榜 15 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260717 | 5876 | 上海商銀 | 8 | 2 | 5 | 8 | 15 | repeated_but_no_breakout | 近 10 日上榜 8 次、近 20 日上榜 15 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

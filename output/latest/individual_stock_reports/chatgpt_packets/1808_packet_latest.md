@@ -1,15 +1,21 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1808 潤隆
 
 ## Metadata
-- generated_at: 2026-07-17 22:26:20 Asia/Taipei
+- generated_at: 2026-07-18 20:53:24 Asia/Taipei
 - stock_id: 1808
 - stock_name: 潤隆
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260716
-- price_rows: 298
-- latest_tdcc_date: 20260703
-- tdcc_rows: 32
+- latest_price_date: 20260717
+- price_rows: 299
+- current_main_price_date: 20260717
+- current_main_price_universe_status: current
+- current_main_price_universe_source: official_daily_price_latest_main_price_date
+- listing_status_source_status: formal_listing_status_source_unavailable
+- official_tdcc_signal_date: 20260717
+- latest_tdcc_date: 20260717
+- tdcc_rows: 33
 - tdcc_history_status: tdcc_history_ready
+- tdcc_freshness_status: tdcc_window_fresh
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
 - notes:
@@ -51,7 +57,10 @@
 - MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
-- If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
+- Only claim tdcc_history_ready when tdcc_rows >= 8 and latest_tdcc_date equals official_tdcc_signal_date.
+- If latest_tdcc_date differs from official_tdcc_signal_date, mark tdcc_window_stale and do not claim current TDCC history.
+- If the stock is absent from the official current main-price universe, preserve real TDCC dates and mark historical_only_noncurrent; do not infer a formal delisting status.
+- If TDCC is current but tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DISPLAY
@@ -118,29 +127,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260716
-- open: 31.4
-- high: 32.2
-- low: 31.2
-- close: 32.1
-- volume: 2055350
-- ma5: 30.98
-- ema23_primary: 30.71
-- distance_to_ema23_pct: 4.53
-- ma20: 30.74
-- ma60: 30.05
-- ma120: 30.59
-- return_5d: 6.82
-- return_20d: 0.63
-- volume_ratio: 1.57
-- distance_to_ma20_pct_auxiliary: 4.43
-- distance_to_high_60_pct: -3.17
+- date: 20260717
+- open: 32
+- high: 32.3
+- low: 31.7
+- close: 32.2
+- volume: 2530871
+- ma5: 31.4
+- ema23_primary: 30.83
+- distance_to_ema23_pct: 4.44
+- ma20: 30.73
+- ma60: 30.08
+- ma120: 30.57
+- return_5d: 6.98
+- return_20d: -0.62
+- volume_ratio: 1.84
+- distance_to_ma20_pct_auxiliary: 4.79
+- distance_to_high_60_pct: -2.87
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260617,32.2,32.45,31.75,32.4,1115414,30.69,5.57,30.38,30,0.52
 20260618,32.6,33.15,32,32.25,3879544,30.82,4.63,30.52,30.04,1.69
 20260622,31.85,31.85,29.95,30.6,3964049,30.8,-0.66,30.62,30.04,1.68
 20260623,30.55,30.55,30,30,1012658,30.74,-2.4,30.67,30.02,0.44
@@ -160,26 +168,26 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260714,31,31,30.4,30.7,1103216,30.52,0.57,30.8,29.99,0.78
 20260715,30.9,31.4,30.7,31.2,1134449,30.58,2.02,30.73,30.01,0.87
 20260716,31.4,32.2,31.2,32.1,2055350,30.71,4.53,30.74,30.05,1.57
+20260717,32,32.3,31.7,32.2,2530871,30.83,4.44,30.73,30.08,1.84
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260703
-- over_400_ratio: 79.51
-- over_600_ratio: 78.65
-- over_800_ratio: 78.1
-- over_1000_ratio: 77.6
-- over_400_change_1w: -0.14
-- over_800_change_1w: 0
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 8
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260717
+- over_400_ratio: 79.95
+- over_600_ratio: 78.99
+- over_800_ratio: 78.29
+- over_1000_ratio: 77.77
+- over_400_change_1w: 0.44
+- over_800_change_1w: 0.19
+- over_1000_change_1w: 0.17
+- tdcc_consecutive_up_weeks: 9
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260417,78.75,-0.1,77.28,-0.38,76.88,-0.18,0,False,False
 20260424,78.94,0.19,77.47,0.19,77.08,0.2,1,True,True
 20260430,78.96,0.02,77.49,0.02,77.1,0.02,2,False,True
 20260508,78.73,-0.23,77.46,-0.03,77.07,-0.03,0,False,False
@@ -191,20 +199,21 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260618,79.55,0.07,78.01,-0.11,77.7,-0.02,6,False,False
 20260626,79.65,0.1,78.1,0.09,77.6,-0.1,7,False,True
 20260703,79.51,-0.14,78.1,0,77.6,0,8,False,False
+20260717,79.95,0.44,78.29,0.19,77.77,0.17,9,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 1808 | 潤隆 | pullback_rebound | 回檔後短線轉強 | 70.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
-| 20260716 | 1808 | 潤隆 | revenue_pullback | 營收成長股價回檔 | 70.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
-| 20260716 | 1808 | 潤隆 | revenue_breakout_low_response | 營收爆發低反應股 | 18.0 | 17.0 | D_降級_TDCC轉弱 |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
-| 20260716 | 1808 | 潤隆 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260717 | 1808 | 潤隆 | pullback_rebound | 回檔後短線轉強 | 70.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d |
+| 20260717 | 1808 | 潤隆 | revenue_pullback | 營收成長股價回檔 | 70.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260717 | 1808 | 潤隆 | revenue_breakout_low_response | 營收爆發低反應股 | 18.0 | 21.0 | D_降級_TDCC轉弱 |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260717 | 1808 | 潤隆 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 1808 | 潤隆 | 3 | 1 | 3 | 4 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260717 | 1808 | 潤隆 | 4 | 2 | 4 | 5 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

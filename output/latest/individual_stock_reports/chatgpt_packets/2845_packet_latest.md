@@ -1,15 +1,21 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2845 遠東銀
 
 ## Metadata
-- generated_at: 2026-07-17 22:26:40 Asia/Taipei
+- generated_at: 2026-07-18 20:53:48 Asia/Taipei
 - stock_id: 2845
 - stock_name: 遠東銀
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260716
-- price_rows: 305
-- latest_tdcc_date: 20260709
-- tdcc_rows: 11
+- latest_price_date: 20260717
+- price_rows: 306
+- current_main_price_date: 20260717
+- current_main_price_universe_status: current
+- current_main_price_universe_source: official_daily_price_latest_main_price_date
+- listing_status_source_status: formal_listing_status_source_unavailable
+- official_tdcc_signal_date: 20260717
+- latest_tdcc_date: 20260717
+- tdcc_rows: 12
 - tdcc_history_status: tdcc_history_ready
+- tdcc_freshness_status: tdcc_window_fresh
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
 - notes:
@@ -51,7 +57,10 @@
 - MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
-- If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
+- Only claim tdcc_history_ready when tdcc_rows >= 8 and latest_tdcc_date equals official_tdcc_signal_date.
+- If latest_tdcc_date differs from official_tdcc_signal_date, mark tdcc_window_stale and do not claim current TDCC history.
+- If the stock is absent from the official current main-price universe, preserve real TDCC dates and mark historical_only_noncurrent; do not infer a formal delisting status.
+- If TDCC is current but tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DISPLAY
@@ -112,29 +121,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260716
-- open: 13.4
-- high: 13.55
-- low: 13.4
-- close: 13.55
-- volume: 9537437
-- ma5: 13.37
-- ema23_primary: 13.09
-- distance_to_ema23_pct: 3.49
+- date: 20260717
+- open: 13.45
+- high: 13.6
+- low: 13.3
+- close: 13.4
+- volume: 12354336
+- ma5: 13.41
+- ema23_primary: 13.12
+- distance_to_ema23_pct: 2.15
 - ma20: 13.16
-- ma60: 12.57
+- ma60: 12.59
 - ma120: 12.56
-- return_5d: 2.26
-- return_20d: 4.63
-- volume_ratio: 0.53
-- distance_to_ma20_pct_auxiliary: 2.98
-- distance_to_high_60_pct: 0
+- return_5d: 1.52
+- return_20d: 0.75
+- volume_ratio: 0.74
+- distance_to_ma20_pct_auxiliary: 1.8
+- distance_to_high_60_pct: -1.47
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260617,13.1,13.4,13,13.3,37051751,12.53,6.13,12.4,12.38,2.11
 20260618,13.4,13.45,12.95,12.95,37159921,12.57,3.05,12.45,12.39,1.97
 20260622,12.95,13.15,12.8,12.85,32725246,12.59,2.06,12.49,12.4,1.64
 20260623,12.85,13.15,12.8,13.1,24076190,12.63,3.7,12.54,12.41,1.16
@@ -154,18 +162,19 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260714,13.4,13.4,13.1,13.3,11568626,13.02,2.19,13.1,12.54,0.63
 20260715,13.3,13.5,13.25,13.45,15032805,13.05,3.06,13.13,12.56,0.81
 20260716,13.4,13.55,13.4,13.55,9537437,13.09,3.49,13.16,12.57,0.53
+20260717,13.45,13.6,13.3,13.4,12354336,13.12,2.15,13.16,12.59,0.74
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260709
-- over_400_ratio: 74.66
-- over_600_ratio: 72.46
-- over_800_ratio: 71.08
-- over_1000_ratio: 69.82
-- over_400_change_1w: 0.27
-- over_800_change_1w: 0.25
-- over_1000_change_1w: 0.21
-- tdcc_consecutive_up_weeks: 6
+- as_of_date: 20260717
+- over_400_ratio: 74.87
+- over_600_ratio: 72.65
+- over_800_ratio: 71.28
+- over_1000_ratio: 70
+- over_400_change_1w: 0.21
+- over_800_change_1w: 0.2
+- over_1000_change_1w: 0.18
+- tdcc_consecutive_up_weeks: 7
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -184,18 +193,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260626,74.26,0.15,70.61,0.08,69.35,0.08,4,True,True
 20260703,74.39,0.13,70.83,0.22,69.61,0.26,5,True,True
 20260709,74.66,0.27,71.08,0.25,69.82,0.21,6,True,True
+20260717,74.87,0.21,71.28,0.2,70,0.18,7,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 2845 | 遠東銀 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | continued_many_days | 1.事實發生日:115/07/09 2.公司名稱:遠東國際商業銀行股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:公佈本公司115年6月份自結合併淨利及每股盈餘 單位:新台幣仟元    當月份淨利  當年度累計數 ---------------  ------------  ------------ 合併稅前淨利         662,263     2,925,514 合併稅後淨利         593,564     2,615,557 每股稅前盈餘(元)        0.14          0.60 每股稅後盈餘(元)        0.12          0.54 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
-| 20260716 | 2845 | 遠東銀 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | continued_many_days | 1.事實發生日:115/07/09 2.公司名稱:遠東國際商業銀行股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:公佈本公司115年6月份自結合併淨利及每股盈餘 單位:新台幣仟元    當月份淨利  當年度累計數 ---------------  ------------  ------------ 合併稅前淨利         662,263     2,925,514 合併稅後淨利         593,564     2,615,557 每股稅前盈餘(元)        0.14          0.60 每股稅後盈餘(元)        0.12          0.54 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260717 | 2845 | 遠東銀 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | stale_signal | 1.事實發生日:115/07/09 2.公司名稱:遠東國際商業銀行股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:公佈本公司115年6月份自結合併淨利及每股盈餘 單位:新台幣仟元    當月份淨利  當年度累計數 ---------------  ------------  ------------ 合併稅前淨利         662,263     2,925,514 合併稅後淨利         593,564     2,615,557 每股稅前盈餘(元)        0.14          0.60 每股稅後盈餘(元)        0.12          0.54 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d |
+| 20260717 | 2845 | 遠東銀 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/07/09 2.公司名稱:遠東國際商業銀行股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:公佈本公司115年6月份自結合併淨利及每股盈餘 單位:新台幣仟元    當月份淨利  當年度累計數 ---------------  ------------  ------------ 合併稅前淨利         662,263     2,925,514 合併稅後淨利         593,564     2,615,557 每股稅前盈餘(元)        0.14          0.60 每股稅後盈餘(元)        0.12          0.54 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 2845 | 遠東銀 | 34 | 14 | 5 | 10 | 20 | continued_many_days | 連續 34 日上榜，需區分醞釀延續或訊號鈍化。 |
+| 20260717 | 2845 | 遠東銀 | 35 | 15 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

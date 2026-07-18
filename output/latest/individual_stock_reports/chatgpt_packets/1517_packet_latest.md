@@ -1,15 +1,21 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1517 利奇
 
 ## Metadata
-- generated_at: 2026-07-17 22:26:13 Asia/Taipei
+- generated_at: 2026-07-18 20:53:16 Asia/Taipei
 - stock_id: 1517
 - stock_name: 利奇
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260716
-- price_rows: 305
-- latest_tdcc_date: 20260703
-- tdcc_rows: 10
+- latest_price_date: 20260717
+- price_rows: 306
+- current_main_price_date: 20260717
+- current_main_price_universe_status: current
+- current_main_price_universe_source: official_daily_price_latest_main_price_date
+- listing_status_source_status: formal_listing_status_source_unavailable
+- official_tdcc_signal_date: 20260717
+- latest_tdcc_date: 20260717
+- tdcc_rows: 11
 - tdcc_history_status: tdcc_history_ready
+- tdcc_freshness_status: tdcc_window_fresh
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
 - notes:
@@ -51,7 +57,10 @@
 - MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
-- If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
+- Only claim tdcc_history_ready when tdcc_rows >= 8 and latest_tdcc_date equals official_tdcc_signal_date.
+- If latest_tdcc_date differs from official_tdcc_signal_date, mark tdcc_window_stale and do not claim current TDCC history.
+- If the stock is absent from the official current main-price universe, preserve real TDCC dates and mark historical_only_noncurrent; do not infer a formal delisting status.
+- If TDCC is current but tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DISPLAY
@@ -74,7 +83,7 @@
 - action_rating: starter_position
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
-- thesis_state: breakout_confirmed
+- thesis_state: unclear
 - entry_style: breakout_follow
 - position_sizing: starter_1_3
 
@@ -118,29 +127,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260716
-- open: 11.1
-- high: 12.1
-- low: 11.05
-- close: 12.1
-- volume: 4157864
-- ma5: 11
-- ema23_primary: 10.77
-- distance_to_ema23_pct: 12.38
-- ma20: 10.72
-- ma60: 10.43
-- ma120: 11.08
-- return_5d: 11.01
-- return_20d: 15.24
-- volume_ratio: 7.2
-- distance_to_ma20_pct_auxiliary: 12.85
-- distance_to_high_60_pct: 0
+- date: 20260717
+- open: 12.3
+- high: 13.3
+- low: 12
+- close: 12.15
+- volume: 12510836
+- ma5: 11.29
+- ema23_primary: 10.88
+- distance_to_ema23_pct: 11.65
+- ma20: 10.8
+- ma60: 10.45
+- ma120: 11.09
+- return_5d: 13.55
+- return_20d: 14.62
+- volume_ratio: 10.5
+- distance_to_ma20_pct_auxiliary: 12.5
+- distance_to_high_60_pct: -8.65
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260617,10.45,10.6,10.45,10.6,233148,10.35,2.45,10.27,10.59,0.67
 20260618,10.55,10.65,10.35,10.5,324486,10.36,1.36,10.29,10.57,0.91
 20260622,10.5,10.85,10.45,10.5,504649,10.37,1.24,10.31,10.55,1.4
 20260623,10.45,10.55,10.4,10.45,138814,10.38,0.69,10.33,10.54,0.41
@@ -160,20 +168,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260714,10.65,10.8,10.4,10.75,518776,10.61,1.28,10.62,10.41,1.34
 20260715,10.7,11,10.65,11,282923,10.65,3.33,10.64,10.41,0.74
 20260716,11.1,12.1,11.05,12.1,4157864,10.77,12.38,10.72,10.43,7.2
+20260717,12.3,13.3,12,12.15,12510836,10.88,11.65,10.8,10.45,10.5
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260703
-- over_400_ratio: 48.7
-- over_600_ratio: 46.31
-- over_800_ratio: 45.35
-- over_1000_ratio: 44.11
-- over_400_change_1w: 0.03
-- over_800_change_1w: 0
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 4
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260717
+- over_400_ratio: 49.01
+- over_600_ratio: 46.85
+- over_800_ratio: 45.91
+- over_1000_ratio: 44.67
+- over_400_change_1w: 0.31
+- over_800_change_1w: 0.56
+- over_1000_change_1w: 0.56
+- tdcc_consecutive_up_weeks: 5
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -189,17 +198,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260618,48.49,-0.01,45.35,0.01,44.11,0.01,2,False,True
 20260626,48.67,0.18,45.35,0,44.11,0,3,False,False
 20260703,48.7,0.03,45.35,0,44.11,0,4,False,False
+20260717,49.01,0.31,45.91,0.56,44.67,0.56,5,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 1517 | 利奇 | true_breakout | 嚴格突破 | 154.0 |  |  | breakout_confirmed |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260717 | 1517 | 利奇 | true_breakout | 嚴格突破 | 111.0 |  |  | neckline_challenge |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 1517 | 利奇 | 1 | 1 | 1 | 2 | 2 | first_seen | 首次上榜或資料有限，需後續確認。 |
+| 20260717 | 1517 | 利奇 | 2 | 2 | 2 | 3 | 3 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | status |

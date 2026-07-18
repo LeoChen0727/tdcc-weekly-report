@@ -1,15 +1,21 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4989 榮科
 
 ## Metadata
-- generated_at: 2026-07-17 22:27:13 Asia/Taipei
+- generated_at: 2026-07-18 20:54:30 Asia/Taipei
 - stock_id: 4989
 - stock_name: 榮科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260716
-- price_rows: 305
-- latest_tdcc_date: 20260703
-- tdcc_rows: 10
+- latest_price_date: 20260717
+- price_rows: 306
+- current_main_price_date: 20260717
+- current_main_price_universe_status: current
+- current_main_price_universe_source: official_daily_price_latest_main_price_date
+- listing_status_source_status: formal_listing_status_source_unavailable
+- official_tdcc_signal_date: 20260717
+- latest_tdcc_date: 20260717
+- tdcc_rows: 11
 - tdcc_history_status: tdcc_history_ready
+- tdcc_freshness_status: tdcc_window_fresh
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
 - notes:
@@ -51,7 +57,10 @@
 - MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
-- If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
+- Only claim tdcc_history_ready when tdcc_rows >= 8 and latest_tdcc_date equals official_tdcc_signal_date.
+- If latest_tdcc_date differs from official_tdcc_signal_date, mark tdcc_window_stale and do not claim current TDCC history.
+- If the stock is absent from the official current main-price universe, preserve real TDCC dates and mark historical_only_noncurrent; do not infer a formal delisting status.
+- If TDCC is current but tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DISPLAY
@@ -112,29 +121,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260716
-- open: 79.1
-- high: 80.6
-- low: 77.7
-- close: 78.2
-- volume: 4441435
-- ma5: 82.54
-- ema23_primary: 89.83
-- distance_to_ema23_pct: -12.95
-- ma20: 90.66
-- ma60: 94.89
-- ma120: 80.66
-- return_5d: -20.53
-- return_20d: -0.64
-- volume_ratio: 0.33
-- distance_to_ma20_pct_auxiliary: -13.74
-- distance_to_high_60_pct: -37.44
+- date: 20260717
+- open: 75
+- high: 76
+- low: 70.4
+- close: 70.4
+- volume: 7565468
+- ma5: 78.26
+- ema23_primary: 88.21
+- distance_to_ema23_pct: -20.19
+- ma20: 90.14
+- ma60: 94.28
+- ma120: 80.78
+- return_5d: -23.31
+- return_20d: -12.66
+- volume_ratio: 0.55
+- distance_to_ma20_pct_auxiliary: -21.9
+- distance_to_high_60_pct: -43.68
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260617,78.3,81.7,77.4,80.6,3231517,89.15,-9.59,92.37,90.37,0.3
 20260618,81,85.5,81,85.5,5929756,88.85,-3.77,91.83,90.65,0.58
 20260622,87.1,94,86.1,94,11160142,89.28,5.29,91.56,91.11,1.12
 20260623,96.3,98.6,92.5,94,15576410,89.67,4.83,91.28,91.56,1.55
@@ -154,20 +162,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260714,83,83.5,74.8,80,10748547,91.88,-12.93,90.72,95.74,0.81
 20260715,80.8,81.6,79.3,80,5173016,90.89,-11.98,90.68,95.36,0.39
 20260716,79.1,80.6,77.7,78.2,4441435,89.83,-12.95,90.66,94.89,0.33
+20260717,75,76,70.4,70.4,7565468,88.21,-20.19,90.14,94.28,0.55
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260703
-- over_400_ratio: 30.1
-- over_600_ratio: 27.99
-- over_800_ratio: 25.52
-- over_1000_ratio: 23.62
-- over_400_change_1w: 7.05
-- over_800_change_1w: 5.73
-- over_1000_change_1w: 5.68
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260717
+- over_400_ratio: 26.32
+- over_600_ratio: 24.1
+- over_800_ratio: 23.12
+- over_1000_ratio: 20.44
+- over_400_change_1w: -3.78
+- over_800_change_1w: -2.4
+- over_1000_change_1w: -3.18
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -183,22 +192,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260618,23.8,-0.48,17.8,-1.67,17.15,-0.44,0,False,False
 20260626,23.05,-0.75,19.79,1.99,17.94,0.79,1,False,True
 20260703,30.1,7.05,25.52,5.73,23.62,5.68,2,True,True
+20260717,26.32,-3.78,23.12,-2.4,20.44,-3.18,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 4989 | 榮科 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/07/16 2.公司名稱:李長榮科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:本公司現金增資發行新股認股繳款期限已於115年7月16日截止，依公司法 第142條、266條第3項規定，訂定自115年7月17日至115年8月17日下午3時30分止為尚未 繳款之原股東及認股員工之催告繳款期限。 6.因應措施: (1)尚未繳納股款之股東，請於上述期間內持原繳款書至中國信託營業部分行及 全國各地分行辦理繳款事宜，逾期未繳納者即喪失認購新股之權利。 (2)於催繳期間繳款之股東及員工，本公司將於催繳期間屆滿並經集保結算所作業後， 依所認購之股數，撥入所登記之集保帳號。 (3)若有任何疑問，請洽詢本公司股務代理機構：中國信託商業銀行代理部（地址： 台北市中正區重慶南路一段83號5樓，電話：02-6636-5566）。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260717 | 4989 | 榮科 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/07/16 2.公司名稱:李長榮科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:本公司現金增資發行新股認股繳款期限已於115年7月16日截止，依公司法 第142條、266條第3項規定，訂定自115年7月17日至115年8月17日下午3時30分止為尚未 繳款之原股東及認股員工之催告繳款期限。 6.因應措施: (1)尚未繳納股款之股東，請於上述期間內持原繳款書至中國信託營業部分行及 全國各地分行辦理繳款事宜，逾期未繳納者即喪失認購新股之權利。 (2)於催繳期間繳款之股東及員工，本公司將於催繳期間屆滿並經集保結算所作業後， 依所認購之股數，撥入所登記之集保帳號。 (3)若有任何疑問，請洽詢本公司股務代理機構：中國信託商業銀行代理部（地址： 台北市中正區重慶南路一段83號5樓，電話：02-6636-5566）。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 4989 | 榮科 | 1 | 1 | 2 | 7 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260717 | 4989 | 榮科 | 2 | 2 | 2 | 7 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 4989 | 榮科 | 10 | 0 | 231840.0 | 0.0 |  | no_signal |
+| 20260717 | 4989 | 榮科 | 10 | 1 | 186510.0 | 60200.0 | 3.1 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

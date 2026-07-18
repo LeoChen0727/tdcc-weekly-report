@@ -16,8 +16,12 @@ PACKET_DIR = INDIVIDUAL_STOCK_REPORTS_DIR / "chatgpt_packets"
 PRICE_WINDOW_DIR = INDIVIDUAL_STOCK_REPORTS_DIR / "price_windows"
 DATA_FRESHNESS_CSV = LATEST_DIR / "data_freshness_latest.csv"
 STOCK_PRICE_HISTORY_DIR = Path("data/stock_price_history")
+TDCC_HISTORY_DIR = Path("data/tdcc_stock_history")
 OFFICIAL_TDCC_CONTRACT_JSON = LATEST_DIR / "tdcc_weekly_candidate_report_validation_latest.json"
 OFFICIAL_TDCC_DATE_SOURCE = "report_ready_csv_signal_date"
+OFFICIAL_DAILY_PRICE_CSV = LATEST_DIR / "official_daily_price_latest.csv"
+CURRENT_UNIVERSE_SOURCE = "official_daily_price_latest_main_price_date"
+LISTING_STATUS_SOURCE_STATUS = "formal_listing_status_source_unavailable"
 
 ACTION_DISPLAY_REQUIRED_FIELDS = [
     "action_rating_display_zh",
@@ -135,6 +139,28 @@ def read_official_tdcc_signal_date(path: Path | None = None) -> str:
     return signal_date
 
 
+def read_current_main_price_universe(main_price_date: str, path: Path | None = None) -> set[str]:
+    universe_path = path or OFFICIAL_DAILY_PRICE_CSV
+    if not universe_path.exists():
+        raise SystemExit(f"ERROR: Missing current main-price universe artifact: {universe_path}")
+    with universe_path.open("r", encoding="utf-8-sig", newline="") as fh:
+        rows = list(csv.DictReader(fh))
+    if not rows:
+        raise SystemExit(f"ERROR: Current main-price universe artifact is empty: {universe_path}")
+    universe_dates = {normalize_date(row.get("date") or row.get("trade_date")) for row in rows}
+    universe_dates.discard("")
+    if universe_dates != {main_price_date}:
+        raise SystemExit(
+            f"ERROR: Current main-price universe date mismatch: expected only {main_price_date}, "
+            f"got {sorted(universe_dates) or ['missing']} ({universe_path})"
+        )
+    stock_ids = {
+        re.sub(r"[^0-9A-Z]", "", str(row.get("stock_id") or row.get("code") or "").upper())
+        for row in rows
+    }
+    return {stock_id for stock_id in stock_ids if re.fullmatch(r"[0-9]{4,6}", stock_id)}
+
+
 def read_packet_metadata(path: Path) -> dict[str, str]:
     if not path.exists():
         return {}
@@ -154,11 +180,29 @@ def read_packet_metadata(path: Path) -> dict[str, str]:
     return metadata
 
 
+def read_tdcc_source_stats(stock_id: str, path: Path | None = None) -> tuple[int, str]:
+    source_path = path or TDCC_HISTORY_DIR / f"{stock_id}.csv"
+    if not source_path.exists():
+        return 0, ""
+    with source_path.open("r", encoding="utf-8-sig", newline="") as fh:
+        rows = list(csv.DictReader(fh))
+    latest_date = ""
+    for row in rows:
+        value = normalize_date(row.get("as_of_date") or row.get("date"))
+        if value:
+            latest_date = max(latest_date, value)
+    return len(rows), latest_date
+
+
 def validate_tdcc_packet_freshness(
     stock_id: str,
     packet_path: Path,
     index_row: dict[str, str],
     official_tdcc_signal_date: str,
+    main_price_date: str = "",
+    is_current_main_price_universe: bool = True,
+    source_tdcc_rows: int | None = None,
+    source_latest_tdcc_date: str | None = None,
 ) -> list[str]:
     errors: list[str] = []
     metadata = read_packet_metadata(packet_path)
@@ -169,10 +213,29 @@ def validate_tdcc_packet_freshness(
     packet_latest_date = normalize_date(metadata.get("latest_tdcc_date"))
     packet_history_status = metadata.get("tdcc_history_status", "")
     packet_freshness_status = metadata.get("tdcc_freshness_status", "")
+    packet_main_price_date = normalize_date(metadata.get("current_main_price_date"))
+    packet_universe_status = metadata.get("current_main_price_universe_status", "")
+    packet_universe_source = metadata.get("current_main_price_universe_source", "")
+    packet_listing_source_status = metadata.get("listing_status_source_status", "")
     try:
         packet_tdcc_rows = int(metadata.get("tdcc_rows", ""))
     except ValueError:
         packet_tdcc_rows = -1
+
+    expected_tdcc_rows = packet_tdcc_rows if source_tdcc_rows is None else source_tdcc_rows
+    expected_source_latest_date = (
+        packet_latest_date if source_latest_tdcc_date is None else normalize_date(source_latest_tdcc_date)
+    )
+    if source_tdcc_rows is not None and packet_tdcc_rows != source_tdcc_rows:
+        errors.append(
+            f"{stock_id}: packet tdcc_rows source mismatch: expected {source_tdcc_rows}, "
+            f"got {packet_tdcc_rows} ({packet_path})"
+        )
+    if source_latest_tdcc_date is not None and packet_latest_date != expected_source_latest_date:
+        errors.append(
+            f"{stock_id}: packet latest_tdcc_date source mismatch: expected "
+            f"{expected_source_latest_date or 'blank'}, got {packet_latest_date or 'blank'} ({packet_path})"
+        )
 
     if packet_official_date != official_tdcc_signal_date:
         errors.append(
@@ -181,13 +244,41 @@ def validate_tdcc_packet_freshness(
         )
     if packet_tdcc_rows < 0:
         errors.append(f"{stock_id}: packet tdcc_rows missing or invalid: {packet_path}")
-    if packet_tdcc_rows == 0:
+    expected_universe_status = "current" if is_current_main_price_universe else "historical_only_noncurrent"
+    if main_price_date and packet_main_price_date != main_price_date:
+        errors.append(
+            f"{stock_id}: packet current_main_price_date mismatch: expected {main_price_date}, "
+            f"got {packet_main_price_date or 'missing'} ({packet_path})"
+        )
+    if packet_universe_status != expected_universe_status:
+        errors.append(
+            f"{stock_id}: packet current_main_price_universe_status mismatch: expected {expected_universe_status}, "
+            f"got {packet_universe_status or 'missing'} ({packet_path})"
+        )
+    if packet_universe_source != CURRENT_UNIVERSE_SOURCE:
+        errors.append(
+            f"{stock_id}: packet current_main_price_universe_source mismatch: expected {CURRENT_UNIVERSE_SOURCE}, "
+            f"got {packet_universe_source or 'missing'} ({packet_path})"
+        )
+    if packet_listing_source_status != LISTING_STATUS_SOURCE_STATUS:
+        errors.append(
+            f"{stock_id}: packet listing_status_source_status mismatch: expected {LISTING_STATUS_SOURCE_STATUS}, "
+            f"got {packet_listing_source_status or 'missing'} ({packet_path})"
+        )
+
+    if expected_tdcc_rows == 0:
         expected_latest_date = ""
         expected_history_status = "tdcc_missing"
         expected_freshness_status = "tdcc_missing"
+    elif not is_current_main_price_universe:
+        expected_latest_date = expected_source_latest_date
+        expected_history_status = "historical_only_noncurrent"
+        expected_freshness_status = "historical_only_noncurrent"
+        if not expected_source_latest_date:
+            errors.append(f"{stock_id}: historical-only packet must preserve a real latest_tdcc_date: {packet_path}")
     else:
         expected_latest_date = official_tdcc_signal_date
-        expected_history_status = "tdcc_history_ready" if packet_tdcc_rows >= 8 else "insufficient_tdcc_history"
+        expected_history_status = "tdcc_history_ready" if expected_tdcc_rows >= 8 else "insufficient_tdcc_history"
         expected_freshness_status = "tdcc_window_fresh"
     if packet_latest_date != expected_latest_date:
         errors.append(
@@ -209,6 +300,10 @@ def validate_tdcc_packet_freshness(
         index_checks = {
             "official_tdcc_signal_date": official_tdcc_signal_date,
             "latest_tdcc_date": expected_latest_date,
+            "current_main_price_date": main_price_date,
+            "current_main_price_universe_status": expected_universe_status,
+            "current_main_price_universe_source": CURRENT_UNIVERSE_SOURCE,
+            "listing_status_source_status": LISTING_STATUS_SOURCE_STATUS,
             "tdcc_history_status": expected_history_status,
             "tdcc_freshness_status": expected_freshness_status,
         }
@@ -221,9 +316,9 @@ def validate_tdcc_packet_freshness(
                     f"{stock_id}: packet index {field} mismatch: expected {expected}, got {actual or 'missing'}"
                 )
         index_rows = str(index_row.get("tdcc_rows", "")).strip()
-        if index_rows != str(packet_tdcc_rows):
+        if index_rows != str(expected_tdcc_rows):
             errors.append(
-                f"{stock_id}: packet index tdcc_rows mismatch: expected packet value {packet_tdcc_rows}, "
+                f"{stock_id}: packet index tdcc_rows mismatch: expected source value {expected_tdcc_rows}, "
                 f"got {index_rows or 'missing'}"
             )
     return errors
@@ -324,6 +419,7 @@ def validate_stock(
     official_tdcc_signal_date: str,
     index_row: dict[str, str],
     validate_current_price: bool = True,
+    is_current_main_price_universe: bool = True,
 ) -> list[str]:
     errors: list[str] = []
     checks = [
@@ -355,8 +451,18 @@ def validate_stock(
                 )
 
     packet_path = PACKET_DIR / f"{stock_id}_packet_latest.md"
+    source_tdcc_rows, source_latest_tdcc_date = read_tdcc_source_stats(stock_id)
     errors.extend(
-        validate_tdcc_packet_freshness(stock_id, packet_path, index_row, official_tdcc_signal_date)
+        validate_tdcc_packet_freshness(
+            stock_id,
+            packet_path,
+            index_row,
+            official_tdcc_signal_date,
+            main_price_date,
+            is_current_main_price_universe,
+            source_tdcc_rows,
+            source_latest_tdcc_date,
+        )
     )
 
     packet_paths = [
@@ -390,6 +496,7 @@ def main() -> int:
     args = parse_args()
     official_tdcc_signal_date = read_official_tdcc_signal_date()
     main_price_date = read_main_price_date()
+    current_main_price_universe = read_current_main_price_universe(main_price_date)
     stock_ids = [str(x).strip() for x in args.stock_id if str(x).strip()]
     index_path = INDIVIDUAL_STOCK_REPORTS_DIR / "individual_stock_chatgpt_packet_index.csv"
     index_rows_by_stock: dict[str, dict[str, str]] = {}
@@ -422,7 +529,8 @@ def main() -> int:
         index_row = index_rows_by_stock.get(stock_id, {})
         if args.all and not index_row:
             errors.append(f"{stock_id}: packet missing index row: {index_path}")
-        validate_current_price = not index_row or normalize_date(index_row.get("latest_price_date")) == main_price_date
+        is_current_main_price_universe = stock_id in current_main_price_universe
+        validate_current_price = not index_row or is_current_main_price_universe
         if not validate_current_price:
             non_current_price_count += 1
         errors.extend(
@@ -432,6 +540,7 @@ def main() -> int:
                 official_tdcc_signal_date,
                 index_row,
                 validate_current_price=validate_current_price,
+                is_current_main_price_universe=is_current_main_price_universe,
             )
         )
 
@@ -455,6 +564,7 @@ def main() -> int:
     print(
         f"Individual stock outputs validated against main_price_date={main_price_date}; "
         f"official_tdcc_signal_date={official_tdcc_signal_date}; validated={len(stock_ids)} "
+        f"current_main_price_universe={len(current_main_price_universe)} "
         f"non_current_price_packets_checked_for_tdcc={non_current_price_count}"
     )
     print("tdcc_history_status_distribution=" + ",".join(f"{key}:{history_status_counts[key]}" for key in sorted(history_status_counts)))

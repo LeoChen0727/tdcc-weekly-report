@@ -1,15 +1,21 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3293 鈊象
 
 ## Metadata
-- generated_at: 2026-07-17 22:26:50 Asia/Taipei
+- generated_at: 2026-07-18 20:54:02 Asia/Taipei
 - stock_id: 3293
 - stock_name: 鈊象
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260716
-- price_rows: 170
-- latest_tdcc_date: 20260709
-- tdcc_rows: 11
+- latest_price_date: 20260717
+- price_rows: 171
+- current_main_price_date: 20260717
+- current_main_price_universe_status: current
+- current_main_price_universe_source: official_daily_price_latest_main_price_date
+- listing_status_source_status: formal_listing_status_source_unavailable
+- official_tdcc_signal_date: 20260717
+- latest_tdcc_date: 20260717
+- tdcc_rows: 12
 - tdcc_history_status: tdcc_history_ready
+- tdcc_freshness_status: tdcc_window_fresh
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
 - notes:
@@ -51,7 +57,10 @@
 - MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
-- If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
+- Only claim tdcc_history_ready when tdcc_rows >= 8 and latest_tdcc_date equals official_tdcc_signal_date.
+- If latest_tdcc_date differs from official_tdcc_signal_date, mark tdcc_window_stale and do not claim current TDCC history.
+- If the stock is absent from the official current main-price universe, preserve real TDCC dates and mark historical_only_noncurrent; do not infer a formal delisting status.
+- If TDCC is current but tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DISPLAY
@@ -112,29 +121,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260716
-- open: 704
-- high: 708
-- low: 697
-- close: 704
-- volume: 1118000
-- ma5: 718.4
-- ema23_primary: 753.93
-- distance_to_ema23_pct: -6.62
-- ma20: 762.3
-- ma60: 756.7
-- ma120: 743.43
-- return_5d: -5.88
-- return_20d: -8.81
-- volume_ratio: 0.63
-- distance_to_ma20_pct_auxiliary: -7.65
-- distance_to_high_60_pct: -15.49
+- date: 20260717
+- open: 706
+- high: 706
+- low: 686
+- close: 686
+- volume: 1590000
+- ma5: 706.8
+- ema23_primary: 748.27
+- distance_to_ema23_pct: -8.32
+- ma20: 757.85
+- ma60: 755.15
+- ma120: 743.02
+- return_5d: -7.8
+- return_20d: -11.48
+- volume_ratio: 0.88
+- distance_to_ma20_pct_auxiliary: -9.48
+- distance_to_high_60_pct: -17.65
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260617,768,778,766,775,1166000,765.72,1.21,768.2,757.12,0.72
 20260618,779,797,774,793,2801000,767.99,3.26,770.85,758.23,1.66
 20260622,800,800,775,778,1728000,768.82,1.19,772.35,758.95,0.99
 20260623,786,789,760,760,1725000,768.09,-1.05,773.3,759.13,0.97
@@ -154,20 +162,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260714,731,733,701,711,1700000,763.42,-6.87,768.05,759.23,0.95
 20260715,727,727,702,704,1701000,758.47,-7.18,765.7,758.05,0.94
 20260716,704,708,697,704,1118000,753.93,-6.62,762.3,756.7,0.63
+20260717,706,706,686,686,1590000,748.27,-8.32,757.85,755.15,0.88
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260709
-- over_400_ratio: 53.78
-- over_600_ratio: 51.44
-- over_800_ratio: 48.45
-- over_1000_ratio: 44.9
-- over_400_change_1w: 0.01
-- over_800_change_1w: 0.13
-- over_1000_change_1w: -0.5
-- tdcc_consecutive_up_weeks: 9
+- as_of_date: 20260717
+- over_400_ratio: 53.76
+- over_600_ratio: 50.88
+- over_800_ratio: 48.39
+- over_1000_ratio: 44.47
+- over_400_change_1w: -0.02
+- over_800_change_1w: -0.06
+- over_1000_change_1w: -0.43
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -184,6 +193,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260626,52.3,-0.29,46.8,-0.68,44.52,-0.35,7,False,False
 20260703,53.77,1.47,48.32,1.52,45.4,0.88,8,True,True
 20260709,53.78,0.01,48.45,0.13,44.9,-0.5,9,False,True
+20260717,53.76,-0.02,48.39,-0.06,44.47,-0.43,0,False,False
 ```
 
 ## Candidate Context

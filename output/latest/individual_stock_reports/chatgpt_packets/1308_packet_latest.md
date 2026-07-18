@@ -1,15 +1,21 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1308 亞聚
 
 ## Metadata
-- generated_at: 2026-07-17 22:26:09 Asia/Taipei
+- generated_at: 2026-07-18 20:53:10 Asia/Taipei
 - stock_id: 1308
 - stock_name: 亞聚
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260716
-- price_rows: 305
-- latest_tdcc_date: 20260703
-- tdcc_rows: 32
+- latest_price_date: 20260717
+- price_rows: 306
+- current_main_price_date: 20260717
+- current_main_price_universe_status: current
+- current_main_price_universe_source: official_daily_price_latest_main_price_date
+- listing_status_source_status: formal_listing_status_source_unavailable
+- official_tdcc_signal_date: 20260717
+- latest_tdcc_date: 20260717
+- tdcc_rows: 33
 - tdcc_history_status: tdcc_history_ready
+- tdcc_freshness_status: tdcc_window_fresh
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
 - notes:
@@ -51,7 +57,10 @@
 - MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
-- If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
+- Only claim tdcc_history_ready when tdcc_rows >= 8 and latest_tdcc_date equals official_tdcc_signal_date.
+- If latest_tdcc_date differs from official_tdcc_signal_date, mark tdcc_window_stale and do not claim current TDCC history.
+- If the stock is absent from the official current main-price universe, preserve real TDCC dates and mark historical_only_noncurrent; do not infer a formal delisting status.
+- If TDCC is current but tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DISPLAY
@@ -113,29 +122,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260716
-- open: 14.9
-- high: 15.2
-- low: 14.8
-- close: 15.05
-- volume: 3124804
-- ma5: 14.8
-- ema23_primary: 14.48
-- distance_to_ema23_pct: 3.9
-- ma20: 14.46
-- ma60: 14.03
-- ma120: 14.57
-- return_5d: 0.33
-- return_20d: 11.48
-- volume_ratio: 0.74
-- distance_to_ma20_pct_auxiliary: 4.04
-- distance_to_high_60_pct: -11.47
+- date: 20260717
+- open: 15.05
+- high: 15.15
+- low: 14.3
+- close: 14.35
+- volume: 4865528
+- ma5: 14.74
+- ema23_primary: 14.47
+- distance_to_ema23_pct: -0.85
+- ma20: 14.5
+- ma60: 14.01
+- ma120: 14.58
+- return_5d: -2.05
+- return_20d: 4.74
+- volume_ratio: 1.11
+- distance_to_ma20_pct_auxiliary: -1.02
+- distance_to_high_60_pct: -15.59
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260617,13.65,13.8,13.5,13.7,2244153,13.65,0.35,13.49,14.9,0.75
 20260618,13.75,14.3,13.75,13.95,3483109,13.68,2,13.53,14.83,1.13
 20260622,14.1,14.3,13.95,14.15,2989410,13.72,3.16,13.57,14.77,0.96
 20260623,14.2,14.2,13.5,13.6,2920811,13.71,-0.78,13.58,14.72,0.95
@@ -155,18 +163,19 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260714,15.3,15.3,14.4,14.55,3400938,14.39,1.14,14.31,14.04,0.81
 20260715,14.65,15.05,14.6,14.95,2229769,14.43,3.58,14.39,14.04,0.53
 20260716,14.9,15.2,14.8,15.05,3124804,14.48,3.9,14.46,14.03,0.74
+20260717,15.05,15.15,14.3,14.35,4865528,14.47,-0.85,14.5,14.01,1.11
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260703
-- over_400_ratio: 52.49
-- over_600_ratio: 50.61
-- over_800_ratio: 49.65
-- over_1000_ratio: 48.89
-- over_400_change_1w: 0.36
-- over_800_change_1w: 0.11
-- over_1000_change_1w: -0.06
-- tdcc_consecutive_up_weeks: 12
+- as_of_date: 20260717
+- over_400_ratio: 52.48
+- over_600_ratio: 50.44
+- over_800_ratio: 49.72
+- over_1000_ratio: 48.82
+- over_400_change_1w: -0.01
+- over_800_change_1w: 0.07
+- over_1000_change_1w: -0.07
+- tdcc_consecutive_up_weeks: 13
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -174,7 +183,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260417,50.41,0.07,47.92,-0.05,47.48,0.11,1,False,True
 20260424,50.25,-0.16,47.97,0.05,47.35,-0.13,2,False,True
 20260430,50.69,0.44,48.08,0.11,47.76,0.41,3,True,True
 20260508,50.65,-0.04,48.14,0.06,47.82,0.06,4,False,True
@@ -186,22 +194,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260618,51.84,0.02,49.07,0.02,48.45,0.17,10,True,True
 20260626,52.13,0.29,49.54,0.47,48.95,0.5,11,True,True
 20260703,52.49,0.36,49.65,0.11,48.89,-0.06,12,False,True
+20260717,52.48,-0.01,49.72,0.07,48.82,-0.07,13,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 1308 | 亞聚 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/17 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額: 現金股利：每股0.2元，計新台幣118,748,783元。 4.除權（息）交易日:115/07/23 5.最後過戶日:115/07/26 6.停止過戶起始日期:115/07/27 7.停止過戶截止日期:115/07/31 8.除權（息）基準日:115/07/31 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/21 13.其他應敘明事項:無；calendar event: ex_dividend on 20260723; status=confirmed; proximity=within_7d |
+| 20260717 | 1308 | 亞聚 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | repeated_but_no_breakout | 1.董事會、股東會決議或公司決定日期:115/06/17 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額: 現金股利：每股0.2元，計新台幣118,748,783元。 4.除權（息）交易日:115/07/23 5.最後過戶日:115/07/26 6.停止過戶起始日期:115/07/27 7.停止過戶截止日期:115/07/31 8.除權（息）基準日:115/07/31 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/21 13.其他應敘明事項:無；calendar event: ex_dividend on 20260723; status=confirmed; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 1308 | 亞聚 | 12 | 7 | 5 | 10 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260717 | 1308 | 亞聚 | 13 | 8 | 5 | 10 | 17 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 17 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 1308 | 亞聚 | 20 | 0 | 360150.0 | 0.0 |  | no_signal |
+| 20260717 | 1308 | 亞聚 | 19 | 1 | 180290.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

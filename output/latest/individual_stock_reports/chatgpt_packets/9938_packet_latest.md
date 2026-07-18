@@ -1,15 +1,21 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9938 百和
 
 ## Metadata
-- generated_at: 2026-07-17 22:28:06 Asia/Taipei
+- generated_at: 2026-07-18 20:55:38 Asia/Taipei
 - stock_id: 9938
 - stock_name: 百和
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260716
-- price_rows: 305
-- latest_tdcc_date: 20260703
-- tdcc_rows: 10
+- latest_price_date: 20260717
+- price_rows: 306
+- current_main_price_date: 20260717
+- current_main_price_universe_status: current
+- current_main_price_universe_source: official_daily_price_latest_main_price_date
+- listing_status_source_status: formal_listing_status_source_unavailable
+- official_tdcc_signal_date: 20260717
+- latest_tdcc_date: 20260717
+- tdcc_rows: 11
 - tdcc_history_status: tdcc_history_ready
+- tdcc_freshness_status: tdcc_window_fresh
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
 - notes:
@@ -51,7 +57,10 @@
 - MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
-- If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
+- Only claim tdcc_history_ready when tdcc_rows >= 8 and latest_tdcc_date equals official_tdcc_signal_date.
+- If latest_tdcc_date differs from official_tdcc_signal_date, mark tdcc_window_stale and do not claim current TDCC history.
+- If the stock is absent from the official current main-price universe, preserve real TDCC dates and mark historical_only_noncurrent; do not infer a formal delisting status.
+- If TDCC is current but tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DISPLAY
@@ -118,29 +127,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260716
-- open: 46.4
-- high: 47.2
-- low: 46.4
-- close: 46.6
-- volume: 1820837
-- ma5: 46.1
-- ema23_primary: 45.28
-- distance_to_ema23_pct: 2.92
-- ma20: 45.01
-- ma60: 44.55
-- ma120: 47.03
-- return_5d: 1.08
-- return_20d: 5.91
-- volume_ratio: 1.25
-- distance_to_ma20_pct_auxiliary: 3.53
-- distance_to_high_60_pct: -1.27
+- date: 20260717
+- open: 46.5
+- high: 47.1
+- low: 45.75
+- close: 45.85
+- volume: 2428967
+- ma5: 46.04
+- ema23_primary: 45.33
+- distance_to_ema23_pct: 1.15
+- ma20: 45.09
+- ma60: 44.57
+- ma120: 46.97
+- return_5d: -0.65
+- return_20d: 3.27
+- volume_ratio: 1.58
+- distance_to_ma20_pct_auxiliary: 1.7
+- distance_to_high_60_pct: -2.86
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260617,44,44.6,43.9,44.4,794724,44.64,-0.53,44.3,44.94,0.34
 20260618,44.6,44.85,44,44,1332054,44.58,-1.31,44.33,44.89,0.57
 20260622,44.05,44.6,43.85,44.05,1297885,44.54,-1.1,44.38,44.83,0.57
 20260623,44.3,44.35,43.95,43.95,1082966,44.49,-1.21,44.44,44.77,0.49
@@ -160,18 +168,19 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260714,46.1,46.35,45.1,45.5,1077019,45.06,0.99,44.78,44.53,0.72
 20260715,45.85,46.55,45.75,46.3,1049753,45.16,2.53,44.88,44.53,0.74
 20260716,46.4,47.2,46.4,46.6,1820837,45.28,2.92,45.01,44.55,1.25
+20260717,46.5,47.1,45.75,45.85,2428967,45.33,1.15,45.09,44.57,1.58
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260703
-- over_400_ratio: 53.12
-- over_600_ratio: 49.93
-- over_800_ratio: 47.4
-- over_1000_ratio: 45.4
-- over_400_change_1w: 0.01
-- over_800_change_1w: 0.16
-- over_1000_change_1w: 0.5
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260717
+- over_400_ratio: 54.46
+- over_600_ratio: 51.06
+- over_800_ratio: 48.76
+- over_1000_ratio: 46.46
+- over_400_change_1w: 1.34
+- over_800_change_1w: 1.36
+- over_1000_change_1w: 1.06
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -189,22 +198,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260618,53.28,-0.25,47.42,-0.01,44.12,-0.86,0,False,False
 20260626,53.11,-0.17,47.24,-0.18,44.9,0.78,1,False,True
 20260703,53.12,0.01,47.4,0.16,45.4,0.5,2,True,True
+20260717,54.46,1.34,48.76,1.36,46.46,1.06,3,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 9938 | 百和 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | continued_2_3d | 1.董事會決議日期:115/07/14 2.發放股利種類及金額:配發現金股利美金8,000,000元 3.其他應敘明事項:本公司持股100%之重要子公司百和國際有限公司經董事會決議  分配現金股利美金8,000,000元予本公司；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260717 | 9938 | 百和 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | repeated_but_no_breakout | 1.董事會決議日期:115/07/14 2.發放股利種類及金額:配發現金股利美金8,000,000元 3.其他應敘明事項:本公司持股100%之重要子公司百和國際有限公司經董事會決議  分配現金股利美金8,000,000元予本公司；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 9938 | 百和 | 3 | 1 | 3 | 6 | 7 | continued_2_3d | 連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| 20260717 | 9938 | 百和 | 4 | 2 | 4 | 7 | 8 | repeated_but_no_breakout | 近 10 日上榜 7 次、近 20 日上榜 8 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 9938 | 百和 | 5 | 0 | 643370.0 | 0.0 |  | no_signal |
+| 20260717 | 9938 | 百和 | 5 | 0 | 649160.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

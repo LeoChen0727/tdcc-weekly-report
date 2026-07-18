@@ -1,15 +1,21 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2357 華碩
 
 ## Metadata
-- generated_at: 2026-07-17 22:26:27 Asia/Taipei
+- generated_at: 2026-07-18 20:53:33 Asia/Taipei
 - stock_id: 2357
 - stock_name: 華碩
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260716
-- price_rows: 305
-- latest_tdcc_date: 20260703
-- tdcc_rows: 10
+- latest_price_date: 20260717
+- price_rows: 306
+- current_main_price_date: 20260717
+- current_main_price_universe_status: current
+- current_main_price_universe_source: official_daily_price_latest_main_price_date
+- listing_status_source_status: formal_listing_status_source_unavailable
+- official_tdcc_signal_date: 20260717
+- latest_tdcc_date: 20260717
+- tdcc_rows: 11
 - tdcc_history_status: tdcc_history_ready
+- tdcc_freshness_status: tdcc_window_fresh
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
 - notes:
@@ -51,7 +57,10 @@
 - MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
-- If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
+- Only claim tdcc_history_ready when tdcc_rows >= 8 and latest_tdcc_date equals official_tdcc_signal_date.
+- If latest_tdcc_date differs from official_tdcc_signal_date, mark tdcc_window_stale and do not claim current TDCC history.
+- If the stock is absent from the official current main-price universe, preserve real TDCC dates and mark historical_only_noncurrent; do not infer a formal delisting status.
+- If TDCC is current but tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DISPLAY
@@ -119,29 +128,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260716
-- open: 710
-- high: 715
-- low: 698
-- close: 715
-- volume: 2700767
-- ma5: 703.6
-- ema23_primary: 716.45
-- distance_to_ema23_pct: -0.2
-- ma20: 716.75
-- ma60: 707.52
-- ma120: 624.55
-- return_5d: 4.08
-- return_20d: -9.61
-- volume_ratio: 0.49
-- distance_to_ma20_pct_auxiliary: -0.24
-- distance_to_high_60_pct: -25.83
+- date: 20260717
+- open: 705
+- high: 719
+- low: 700
+- close: 700
+- volume: 4776948
+- ma5: 706.8
+- ema23_primary: 715.08
+- distance_to_ema23_pct: -2.11
+- ma20: 711.6
+- ma60: 709.2
+- ma120: 626.07
+- return_5d: 2.34
+- return_20d: -12.83
+- volume_ratio: 0.86
+- distance_to_ma20_pct_auxiliary: -1.63
+- distance_to_high_60_pct: -27.39
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260617,790,803,782,803,3336854,773.73,3.78,791.25,663.15,0.52
 20260618,807,810,789,789,7939182,775,1.81,797.9,666.92,1.2
 20260622,793,806,788,788,3442620,776.08,1.54,803.2,670.63,0.53
 20260623,799,819,783,785,6495537,776.83,1.05,807,674.3,1
@@ -161,18 +169,19 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260714,710,710,690,703,4883592,717,-1.95,724.55,703.8,0.88
 20260715,705,720,705,712,3769668,716.59,-0.64,720.55,705.68,0.68
 20260716,710,715,698,715,2700767,716.45,-0.2,716.75,707.52,0.49
+20260717,705,719,700,700,4776948,715.08,-2.11,711.6,709.2,0.86
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260703
-- over_400_ratio: 72.39
-- over_600_ratio: 68.88
-- over_800_ratio: 65.85
-- over_1000_ratio: 62.72
-- over_400_change_1w: -0.73
-- over_800_change_1w: -1.07
-- over_1000_change_1w: -0.33
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260717
+- over_400_ratio: 72.56
+- over_600_ratio: 68.89
+- over_800_ratio: 65.54
+- over_1000_ratio: 61.91
+- over_400_change_1w: 0.17
+- over_800_change_1w: -0.31
+- over_1000_change_1w: -0.81
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -190,23 +199,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260618,73.92,-0.03,67.75,-0.62,64.01,-0.39,0,False,False
 20260626,73.12,-0.8,66.92,-0.83,63.05,-0.96,0,False,False
 20260703,72.39,-0.73,65.85,-1.07,62.72,-0.33,0,False,False
+20260717,72.56,0.17,65.54,-0.31,61.91,-0.81,1,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 2357 | 華碩 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  | no_signal | stale_signal | 1.董事會決議日期:115/07/10 2.減資緣由:考量公司營運需求，調整資本結構並返還股款。 3.減資金額:巴西幣340,000,000元。 4.消除股份:340,000,000股。 5.減資比率:61.88%。 6.減資後股本:巴西幣209,469,000元。 7.預定股東會日期:115/07/10 8.預計減資新股上市後之上市普通股股數:不適用。 9.預計減資新股上市後之上市普通股股數占已發行普通股比率 （減資後上市普通股股數/減資後已發行普通股股數）:不適用。 10.前二項預計減資後上巿普通股股數未達6000萬股且未達25%者， 請說明股權流通性偏低之因應措施:不適用。 11.減資基準日:待當地主管機關核准註冊變更生效後完成。 12.其他應敘明事項: (1)ACBZ以股東會代董事會通過決議。 (2)ACBZ係華碩間接100%持股之重要子公司。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260716 | 2357 | 華碩 | revenue_breakout_low_response | 營收爆發低反應股 | 11.0 | 38.0 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | 1.董事會決議日期:115/07/10 2.減資緣由:考量公司營運需求，調整資本結構並返還股款。 3.減資金額:巴西幣340,000,000元。 4.消除股份:340,000,000股。 5.減資比率:61.88%。 6.減資後股本:巴西幣209,469,000元。 7.預定股東會日期:115/07/10 8.預計減資新股上市後之上市普通股股數:不適用。 9.預計減資新股上市後之上市普通股股數占已發行普通股比率 （減資後上市普通股股數/減資後已發行普通股股數）:不適用。 10.前二項預計減資後上巿普通股股數未達6000萬股且未達25%者， 請說明股權流通性偏低之因應措施:不適用。 11.減資基準日:待當地主管機關核准註冊變更生效後完成。 12.其他應敘明事項: (1)ACBZ以股東會代董事會通過決議。 (2)ACBZ係華碩間接100%持股之重要子公司。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260717 | 2357 | 華碩 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  | call_inflow | stale_signal | 1.董事會決議日期:115/07/10 2.減資緣由:考量公司營運需求，調整資本結構並返還股款。 3.減資金額:巴西幣340,000,000元。 4.消除股份:340,000,000股。 5.減資比率:61.88%。 6.減資後股本:巴西幣209,469,000元。 7.預定股東會日期:115/07/10 8.預計減資新股上市後之上市普通股股數:不適用。 9.預計減資新股上市後之上市普通股股數占已發行普通股比率 （減資後上市普通股股數/減資後已發行普通股股數）:不適用。 10.前二項預計減資後上巿普通股股數未達6000萬股且未達25%者， 請說明股權流通性偏低之因應措施:不適用。 11.減資基準日:待當地主管機關核准註冊變更生效後完成。 12.其他應敘明事項: (1)ACBZ以股東會代董事會通過決議。 (2)ACBZ係華碩間接100%持股之重要子公司。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260717 | 2357 | 華碩 | revenue_breakout_low_response | 營收爆發低反應股 | 11.0 | 39.0 | D_降級_TDCC轉弱 |  |  | call_inflow | stale_signal | 1.董事會決議日期:115/07/10 2.減資緣由:考量公司營運需求，調整資本結構並返還股款。 3.減資金額:巴西幣340,000,000元。 4.消除股份:340,000,000股。 5.減資比率:61.88%。 6.減資後股本:巴西幣209,469,000元。 7.預定股東會日期:115/07/10 8.預計減資新股上市後之上市普通股股數:不適用。 9.預計減資新股上市後之上市普通股股數占已發行普通股比率 （減資後上市普通股股數/減資後已發行普通股股數）:不適用。 10.前二項預計減資後上巿普通股股數未達6000萬股且未達25%者， 請說明股權流通性偏低之因應措施:不適用。 11.減資基準日:待當地主管機關核准註冊變更生效後完成。 12.其他應敘明事項: (1)ACBZ以股東會代董事會通過決議。 (2)ACBZ係華碩間接100%持股之重要子公司。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 2357 | 華碩 | 1 | 1 | 4 | 5 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260717 | 2357 | 華碩 | 2 | 2 | 4 | 6 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 2357 | 華碩 | 93 | 0 | 3774500.0 | 0.0 |  | no_signal |
+| 20260717 | 2357 | 華碩 | 93 | 5 | 6084950.0 | 126600.0 | 48.06 | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,15 +1,21 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2882 國泰金
 
 ## Metadata
-- generated_at: 2026-07-17 22:26:40 Asia/Taipei
+- generated_at: 2026-07-18 20:53:49 Asia/Taipei
 - stock_id: 2882
 - stock_name: 國泰金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260716
-- price_rows: 305
-- latest_tdcc_date: 20260703
-- tdcc_rows: 10
+- latest_price_date: 20260717
+- price_rows: 306
+- current_main_price_date: 20260717
+- current_main_price_universe_status: current
+- current_main_price_universe_source: official_daily_price_latest_main_price_date
+- listing_status_source_status: formal_listing_status_source_unavailable
+- official_tdcc_signal_date: 20260717
+- latest_tdcc_date: 20260717
+- tdcc_rows: 11
 - tdcc_history_status: tdcc_history_ready
+- tdcc_freshness_status: tdcc_window_fresh
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
 - notes:
@@ -51,22 +57,25 @@
 - MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
-- If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
+- Only claim tdcc_history_ready when tdcc_rows >= 8 and latest_tdcc_date equals official_tdcc_signal_date.
+- If latest_tdcc_date differs from official_tdcc_signal_date, mark tdcc_window_stale and do not claim current TDCC history.
+- If the stock is absent from the official current main-price universe, preserve real TDCC dates and mark historical_only_noncurrent; do not infer a formal delisting status.
+- If TDCC is current but tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -113,29 +122,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260716
-- open: 96.6
-- high: 97.3
-- low: 95.3
-- close: 97.3
-- volume: 15687813
-- ma5: 96.6
-- ema23_primary: 97.95
-- distance_to_ema23_pct: -0.66
-- ma20: 101.81
-- ma60: 90.14
-- ma120: 82.23
-- return_5d: -0.71
-- return_20d: -11.14
-- volume_ratio: 0.36
-- distance_to_ma20_pct_auxiliary: -4.43
-- distance_to_high_60_pct: -17.19
+- date: 20260717
+- open: 97
+- high: 97.4
+- low: 94.3
+- close: 94.3
+- volume: 28465794
+- ma5: 96.2
+- ema23_primary: 97.65
+- distance_to_ema23_pct: -3.43
+- ma20: 100.86
+- ma60: 90.46
+- ma120: 82.38
+- return_5d: -2.08
+- return_20d: -16.92
+- volume_ratio: 0.68
+- distance_to_ma20_pct_auxiliary: -6.5
+- distance_to_high_60_pct: -19.74
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260617,110,117,108,113.5,49607947,94.38,20.25,93.47,80.98,0.96
 20260618,115,117.5,114,115.5,48383199,96.14,20.13,95.31,81.72,0.93
 20260622,117,117.5,112,113,34442840,97.55,15.84,96.97,82.42,0.66
 20260623,113,116.5,113,113.5,29407198,98.88,14.79,98.58,83.12,0.58
@@ -155,17 +163,18 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260714,97.6,97.6,94,96.1,22353776,98.14,-2.08,102.8,89.41,0.49
 20260715,96.9,98.7,95.9,96.6,20519327,98.01,-1.44,102.42,89.77,0.46
 20260716,96.6,97.3,95.3,97.3,15687813,97.95,-0.66,101.81,90.14,0.36
+20260717,97,97.4,94.3,94.3,28465794,97.65,-3.43,100.86,90.46,0.68
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260703
-- over_400_ratio: 85.57
-- over_600_ratio: 84.53
-- over_800_ratio: 83.83
-- over_1000_ratio: 83.21
-- over_400_change_1w: -0.3
-- over_800_change_1w: -0.34
-- over_1000_change_1w: -0.34
+- as_of_date: 20260717
+- over_400_ratio: 85.54
+- over_600_ratio: 84.48
+- over_800_ratio: 83.74
+- over_1000_ratio: 83.14
+- over_400_change_1w: -0.03
+- over_800_change_1w: -0.09
+- over_1000_change_1w: -0.07
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -184,22 +193,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260618,85.86,0.09,84.15,0.09,83.55,0.12,5,True,True
 20260626,85.87,0.01,84.17,0.02,83.55,0,6,False,True
 20260703,85.57,-0.3,83.83,-0.34,83.21,-0.34,0,False,False
+20260717,85.54,-0.03,83.74,-0.09,83.14,-0.07,0,False,False
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 2882 | 國泰金 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.契約種類:工程承攬契約 2.事實發生日:115/07/16~115/07/16 3.董事會通過日期: 民國115年7月16日 4.其他核決日期: 不適用 5.契約相對人及其與公司之關係: 兆申機電有限公司，非利害關係人 6.契約主要內容（含契約總金額、預計參與投入之金額及契約起迄日期） 、限制條款及其他重要約定事項: 工程內容:「桃園高鐵站前第一期開發區域機電工程」之 「電氣、弱電及給排水工程」與「消防及空調工程」 工程契約金額(新臺幣):電氣、弱電及給排水工程4,318,000,000元、 消防及空調工程3,749,000,000元 契約起迄日期:預計自115年07月17日 起至121年03月27日 工程地點:桃園市中壢區青昇段241、241-3、241-4、241-5等地號。 7.專業估價者事務所或公司名稱及其估價結果: 不適用 8.不動產估價師姓名: 不適用 9.不動產估價師開業證書字號: 不適用 10.取得之具體目的: 依保險法之規定，為保險資金之運用 11.本次交易表示異議之董事意見: 不適用 12.本次交易為關係人交易:否 13.監察人承認或審計委員會同意日期: 不適用 14.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 15.是否尚未取得估價報告:否或不適用 16.尚未取得估價報告之原因: 不適用 17.估價結果有重大差異時，其差異原因及會計師意見: 不適用 18.會計師事務所名稱: 不適用 19.會計師姓名: 不適用 20.會計師開業證書字號: 不適用 21.前已就同一件事件發布重大訊息日期: 不適用 22.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 2882 | 國泰金 | 1 | 1 | 1 | 6 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 2882 | 國泰金 | 40 | 0 | 1841290.0 | 0.0 |  | no_signal |
+| 20260717 | 2882 | 國泰金 | 40 | 2 | 5563980.0 | 184600.0 | 30.14 | call_put_bullish |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

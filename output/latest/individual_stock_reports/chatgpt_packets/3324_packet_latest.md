@@ -1,15 +1,21 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3324 雙鴻
 
 ## Metadata
-- generated_at: 2026-07-17 22:26:51 Asia/Taipei
+- generated_at: 2026-07-18 20:54:03 Asia/Taipei
 - stock_id: 3324
 - stock_name: 雙鴻
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260716
-- price_rows: 170
-- latest_tdcc_date: 20260703
-- tdcc_rows: 10
+- latest_price_date: 20260717
+- price_rows: 171
+- current_main_price_date: 20260717
+- current_main_price_universe_status: current
+- current_main_price_universe_source: official_daily_price_latest_main_price_date
+- listing_status_source_status: formal_listing_status_source_unavailable
+- official_tdcc_signal_date: 20260717
+- latest_tdcc_date: 20260717
+- tdcc_rows: 11
 - tdcc_history_status: tdcc_history_ready
+- tdcc_freshness_status: tdcc_window_fresh
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
 - notes:
@@ -51,22 +57,25 @@
 - MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
-- If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
+- Only claim tdcc_history_ready when tdcc_rows >= 8 and latest_tdcc_date equals official_tdcc_signal_date.
+- If latest_tdcc_date differs from official_tdcc_signal_date, mark tdcc_window_stale and do not claim current TDCC history.
+- If the stock is absent from the official current main-price universe, preserve real TDCC dates and mark historical_only_noncurrent; do not infer a formal delisting status.
+- If TDCC is current but tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 營收成長股價回檔
+- model_category_display_zh: 回檔後短線轉強
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 回檔後短線轉強 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 回檔後短線轉強 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -112,29 +121,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260716
-- open: 905
-- high: 922
-- low: 885
-- close: 902
-- volume: 1487000
-- ma5: 897.4
-- ema23_primary: 978.23
-- distance_to_ema23_pct: -7.79
-- ma20: 986.1
-- ma60: 1049.78
-- ma120: 1022.33
-- return_5d: -2.49
-- return_20d: -14.1
-- volume_ratio: 0.82
-- distance_to_ma20_pct_auxiliary: -8.53
-- distance_to_high_60_pct: -30.88
+- date: 20260717
+- open: 879
+- high: 930
+- low: 869
+- close: 913
+- volume: 3759000
+- ma5: 896
+- ema23_primary: 972.79
+- distance_to_ema23_pct: -6.15
+- ma20: 979.25
+- ma60: 1047.5
+- ma120: 1022.01
+- return_5d: -0.76
+- return_20d: -13.05
+- volume_ratio: 1.94
+- distance_to_ma20_pct_auxiliary: -6.77
+- distance_to_high_60_pct: -30.04
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260617,1035,1065,1030,1050,1351000,1068.05,-1.69,1073.65,1048.37,0.8
 20260618,1065,1085,1055,1070,1311000,1068.21,0.17,1077.15,1049.45,0.81
 20260622,1095,1105,1070,1075,2124000,1068.78,0.58,1080.4,1050.62,1.26
 20260623,1075,1080,1025,1025,2171000,1065.13,-3.77,1081.15,1050.45,1.25
@@ -154,17 +162,18 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260714,899,904,819,864,2239000,993.27,-13.01,1001.45,1054.4,1.22
 20260715,872,905,872,896,1014000,985.16,-9.05,993.5,1052.08,0.56
 20260716,905,922,885,902,1487000,978.23,-7.79,986.1,1049.78,0.82
+20260717,879,930,869,913,3759000,972.79,-6.15,979.25,1047.5,1.94
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260703
-- over_400_ratio: 44.93
-- over_600_ratio: 39.54
-- over_800_ratio: 35.13
-- over_1000_ratio: 27.55
-- over_400_change_1w: -0.58
-- over_800_change_1w: -0.21
-- over_1000_change_1w: -1.1
+- as_of_date: 20260717
+- over_400_ratio: 43.13
+- over_600_ratio: 38.21
+- over_800_ratio: 34.6
+- over_1000_ratio: 27.13
+- over_400_change_1w: -1.8
+- over_800_change_1w: -0.53
+- over_1000_change_1w: -0.42
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -183,18 +192,20 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260618,46.82,-0.59,37.65,-0.25,31.83,0.83,1,False,True
 20260626,45.51,-1.31,35.34,-2.31,28.65,-3.18,0,False,False
 20260703,44.93,-0.58,35.13,-0.21,27.55,-1.1,0,False,False
+20260717,43.13,-1.8,34.6,-0.53,27.13,-0.42,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 3324 | 雙鴻 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/22 1.召開法人說明會之日期：115/06/22 ~ 115/06/23 2.召開法人說明會之時間：16 時 00 分  3.召開法人說明會之地點：英國倫敦維多利亞堤道 60 號 4.法人說明會擇要訊息：公告本公司受邀參加 JP Morgan Asia Pacific All Star Forum 5.其他應敘明事項：會議簡報等資料將依規定於期限前揭露於公開資訊觀測站。 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260716 | 3324 | 雙鴻 | revenue_breakout_low_response | 營收爆發低反應股 | 11.0 | 34.0 | D_降級_TDCC轉弱 |  |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/22 1.召開法人說明會之日期：115/06/22 ~ 115/06/23 2.召開法人說明會之時間：16 時 00 分  3.召開法人說明會之地點：英國倫敦維多利亞堤道 60 號 4.法人說明會擇要訊息：公告本公司受邀參加 JP Morgan Asia Pacific All Star Forum 5.其他應敘明事項：會議簡報等資料將依規定於期限前揭露於公開資訊觀測站。 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260717 | 3324 | 雙鴻 | pullback_rebound | 回檔後短線轉強 | 63.0 |  |  |  |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/22 1.召開法人說明會之日期：115/06/22 ~ 115/06/23 2.召開法人說明會之時間：16 時 00 分  3.召開法人說明會之地點：英國倫敦維多利亞堤道 60 號 4.法人說明會擇要訊息：公告本公司受邀參加 JP Morgan Asia Pacific All Star Forum 5.其他應敘明事項：會議簡報等資料將依規定於期限前揭露於公開資訊觀測站。 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d |
+| 20260717 | 3324 | 雙鴻 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/22 1.召開法人說明會之日期：115/06/22 ~ 115/06/23 2.召開法人說明會之時間：16 時 00 分  3.召開法人說明會之地點：英國倫敦維多利亞堤道 60 號 4.法人說明會擇要訊息：公告本公司受邀參加 JP Morgan Asia Pacific All Star Forum 5.其他應敘明事項：會議簡報等資料將依規定於期限前揭露於公開資訊觀測站。 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260717 | 3324 | 雙鴻 | revenue_breakout_low_response | 營收爆發低反應股 | 10.0 | 41.0 | D_降級_TDCC轉弱 |  |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/22 1.召開法人說明會之日期：115/06/22 ~ 115/06/23 2.召開法人說明會之時間：16 時 00 分  3.召開法人說明會之地點：英國倫敦維多利亞堤道 60 號 4.法人說明會擇要訊息：公告本公司受邀參加 JP Morgan Asia Pacific All Star Forum 5.其他應敘明事項：會議簡報等資料將依規定於期限前揭露於公開資訊觀測站。 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 3324 | 雙鴻 | 3 | 1 | 4 | 9 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260717 | 3324 | 雙鴻 | 4 | 2 | 4 | 9 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

@@ -1,15 +1,21 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2892 第一金
 
 ## Metadata
-- generated_at: 2026-07-17 22:26:41 Asia/Taipei
+- generated_at: 2026-07-18 20:53:50 Asia/Taipei
 - stock_id: 2892
 - stock_name: 第一金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260716
-- price_rows: 305
-- latest_tdcc_date: 20260703
-- tdcc_rows: 10
+- latest_price_date: 20260717
+- price_rows: 306
+- current_main_price_date: 20260717
+- current_main_price_universe_status: current
+- current_main_price_universe_source: official_daily_price_latest_main_price_date
+- listing_status_source_status: formal_listing_status_source_unavailable
+- official_tdcc_signal_date: 20260717
+- latest_tdcc_date: 20260717
+- tdcc_rows: 11
 - tdcc_history_status: tdcc_history_ready
+- tdcc_freshness_status: tdcc_window_fresh
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
 - notes:
@@ -51,7 +57,10 @@
 - MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
-- If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
+- Only claim tdcc_history_ready when tdcc_rows >= 8 and latest_tdcc_date equals official_tdcc_signal_date.
+- If latest_tdcc_date differs from official_tdcc_signal_date, mark tdcc_window_stale and do not claim current TDCC history.
+- If the stock is absent from the official current main-price universe, preserve real TDCC dates and mark historical_only_noncurrent; do not infer a formal delisting status.
+- If TDCC is current but tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DISPLAY
@@ -113,29 +122,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260716
-- open: 33.1
-- high: 34.15
-- low: 33.1
-- close: 33.95
-- volume: 37194127
-- ma5: 33.57
-- ema23_primary: 32.54
-- distance_to_ema23_pct: 4.34
-- ma20: 32.96
-- ma60: 30.26
-- ma120: 29.64
-- return_5d: -0.44
-- return_20d: 6.76
-- volume_ratio: 0.79
-- distance_to_ma20_pct_auxiliary: 3.01
-- distance_to_high_60_pct: -0.59
+- date: 20260717
+- open: 33.8
+- high: 34.3
+- low: 33.55
+- close: 34.1
+- volume: 45041190
+- ma5: 33.67
+- ema23_primary: 32.67
+- distance_to_ema23_pct: 4.39
+- ma20: 33.04
+- ma60: 30.35
+- ma120: 29.68
+- return_5d: 1.49
+- return_20d: 4.92
+- volume_ratio: 0.98
+- distance_to_ma20_pct_auxiliary: 3.22
+- distance_to_high_60_pct: -0.58
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260617,31.8,32.75,31.7,32.5,65779573,29.78,9.12,29.2,28.87,1.01
 20260618,32.5,32.8,32.25,32.6,75198702,30.02,8.6,29.45,28.94,1.17
 20260622,32.6,32.75,32.15,32.3,46847145,30.21,6.93,29.68,29,0.75
 20260623,32.3,32.7,32,32.45,54543745,30.39,6.76,29.93,29.07,0.89
@@ -155,18 +163,19 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260714,33.85,33.85,33.1,33.55,24985789,32.34,3.73,32.76,30.1,0.53
 20260715,33.4,33.8,33.1,33.1,54871514,32.41,2.14,32.85,30.17,1.15
 20260716,33.1,34.15,33.1,33.95,37194127,32.54,4.34,32.96,30.26,0.79
+20260717,33.8,34.3,33.55,34.1,45041190,32.67,4.39,33.04,30.35,0.98
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260703
-- over_400_ratio: 71.09
-- over_600_ratio: 69.21
-- over_800_ratio: 68.01
-- over_1000_ratio: 67.17
-- over_400_change_1w: 0.09
-- over_800_change_1w: 0.09
-- over_1000_change_1w: 0.11
-- tdcc_consecutive_up_weeks: 5
+- as_of_date: 20260717
+- over_400_ratio: 71.38
+- over_600_ratio: 69.52
+- over_800_ratio: 68.34
+- over_1000_ratio: 67.46
+- over_400_change_1w: 0.29
+- over_800_change_1w: 0.33
+- over_1000_change_1w: 0.29
+- tdcc_consecutive_up_weeks: 6
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -184,22 +193,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260618,70.73,0.38,67.65,0.41,66.78,0.41,3,True,True
 20260626,71,0.27,67.92,0.27,67.06,0.28,4,True,True
 20260703,71.09,0.09,68.01,0.09,67.17,0.11,5,True,True
+20260717,71.38,0.29,68.34,0.33,67.46,0.29,6,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 2892 | 第一金 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | no_signal | stale_signal | 1.證券名稱: 聯友金屬科技股份有限公司 普通股 2.交易日期:114/8/19~115/7/16 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:總經理 民國115年7月16日 5.交易數量、每單位價格及交易總金額: 1.交易數量：590,000股 2.每單位價格：均價543.84元 3.交易總金額：320,866,605元 6.處分利益（或損失）（取得有價證券者不適用）: 處分利益：291,354,353元 7.與交易標的公司之關係: 非關係人 8.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 1.交易數量：233,732 股 2.交易金額：12,971,316元 3.持股比率：0.48% 4.權利受限情形：無 9.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列之有價證券投 資（含本次交易）占公司最近期財務報表中總資產及歸屬於母公司業主之權益之比例 暨最近期財務報表中營運資金數額: 1.有價證券投資（含本次交易）占公司最近期財務報表中總資產比例：0.004% 2.有價證券投資（含本次交易）歸屬於母公司業主之權益之比例：0.004% 3.營運資金：不適用 10.取得或處分之具體目的: 投資組合調整 11.本次交易表示異議董事之意見: 不適用 12.本次交易為關係人交易: 否 13.交易相對人及其與公司之關係: 否 14.監察人承認或審計委員會同意日期: 不適用 15.前已就同一件事件發布重大訊息日期: 不適用 16.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260717 | 2892 | 第一金 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | continued_2_3d | 1.董事會決議日: 115/07/17 2.許可從事競業行為之經理人姓名及職稱:蔡淑慧(第一銀行副總經理) 3.許可從事競業行為之項目:擔任國票金融控股股份有限公司董事職務 4.許可從事競業行為之期間:任職期間 5.決議情形（請依公司法第32條說明表決結果）:全體出席董事無異議照案通過 6.所許可之競業行為如屬大陸地區事業之營業者，經理人姓名及職稱 （非屬大陸地區事業之營業者，以下請輸〝不適用〞）:不適用 7.所擔任該大陸地區事業之公司名稱及職務:不適用 8.所擔任該大陸地區事業地址:不適用 9.所擔任該大陸地區事業營業項目:不適用 10.對本公司財務業務之影響程度:無 11.經理人如有對該大陸地區事業從事投資者，其投資金額及持股比例: 不適用 12.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 2892 | 第一金 | 1 | 1 | 2 | 7 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260717 | 2892 | 第一金 | 2 | 2 | 3 | 7 | 17 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 2892 | 第一金 | 6 | 0 | 428020.0 | 0.0 |  | no_signal |
+| 20260717 | 2892 | 第一金 | 6 | 0 | 430160.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,15 +1,21 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0051 元大中型100
 
 ## Metadata
-- generated_at: 2026-07-17 22:26:02 Asia/Taipei
+- generated_at: 2026-07-18 20:53:02 Asia/Taipei
 - stock_id: 0051
 - stock_name: 元大中型100
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260716
-- price_rows: 169
+- latest_price_date: 20260717
+- price_rows: 170
+- current_main_price_date: 20260717
+- current_main_price_universe_status: current
+- current_main_price_universe_source: official_daily_price_latest_main_price_date
+- listing_status_source_status: formal_listing_status_source_unavailable
+- official_tdcc_signal_date: 20260717
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
+- tdcc_freshness_status: tdcc_missing
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
 - notes: TDCC history missing
@@ -51,7 +57,10 @@
 - MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
-- If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
+- Only claim tdcc_history_ready when tdcc_rows >= 8 and latest_tdcc_date equals official_tdcc_signal_date.
+- If latest_tdcc_date differs from official_tdcc_signal_date, mark tdcc_window_stale and do not claim current TDCC history.
+- If the stock is absent from the official current main-price universe, preserve real TDCC dates and mark historical_only_noncurrent; do not infer a formal delisting status.
+- If TDCC is current but tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DISPLAY
@@ -88,7 +97,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +121,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260716
-- open: 142.45
-- high: 143.85
-- low: 142.3
-- close: 142.8
-- volume: 51964
-- ma5: 142.93
-- ema23_primary: 144.01
-- distance_to_ema23_pct: -0.84
-- ma20: 146.06
-- ma60: 138.26
-- ma120: 123.35
-- return_5d: -0.66
-- return_20d: -0.42
-- volume_ratio: 0.53
-- distance_to_ma20_pct_auxiliary: -2.24
-- distance_to_high_60_pct: -6.08
+- date: 20260717
+- open: 138.8
+- high: 139.15
+- low: 135.6
+- close: 135.6
+- volume: 230425
+- ma5: 141.2
+- ema23_primary: 143.31
+- distance_to_ema23_pct: -5.38
+- ma20: 145.63
+- ma60: 138.45
+- ma120: 123.66
+- return_5d: -6
+- return_20d: -6.03
+- volume_ratio: 2.16
+- distance_to_ma20_pct_auxiliary: -6.89
+- distance_to_high_60_pct: -10.82
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260617,143.1,144.65,143.1,144.3,73787,138.88,3.9,140.99,127.77,0.61
 20260618,145.5,147.75,145.5,147.7,117696,139.62,5.79,141.74,128.42,0.95
 20260622,150,151.9,149.5,151.5,94689,140.61,7.75,142.5,129.16,0.76
 20260623,152,152.05,147.3,147.3,136888,141.17,4.35,142.83,129.77,1.1
@@ -155,6 +162,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260714,142.2,142.2,136.25,139.4,176843,144.09,-3.26,146,137.54,1.76
 20260715,141.9,144.95,141.9,144.4,103053,144.12,0.2,146.09,137.93,1.02
 20260716,142.45,143.85,142.3,142.8,51964,144.01,-0.84,146.06,138.26,0.53
+20260717,138.8,139.15,135.6,135.6,230425,143.31,-5.38,145.63,138.45,2.16
 ```
 
 ## Latest TDCC Snapshot

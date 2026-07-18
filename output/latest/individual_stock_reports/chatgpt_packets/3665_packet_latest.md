@@ -1,15 +1,21 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3665 貿聯-KY
 
 ## Metadata
-- generated_at: 2026-07-17 22:26:59 Asia/Taipei
+- generated_at: 2026-07-18 20:54:12 Asia/Taipei
 - stock_id: 3665
 - stock_name: 貿聯-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260716
-- price_rows: 304
-- latest_tdcc_date: 20260703
-- tdcc_rows: 10
+- latest_price_date: 20260717
+- price_rows: 305
+- current_main_price_date: 20260717
+- current_main_price_universe_status: current
+- current_main_price_universe_source: official_daily_price_latest_main_price_date
+- listing_status_source_status: formal_listing_status_source_unavailable
+- official_tdcc_signal_date: 20260717
+- latest_tdcc_date: 20260717
+- tdcc_rows: 11
 - tdcc_history_status: tdcc_history_ready
+- tdcc_freshness_status: tdcc_window_fresh
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
 - notes:
@@ -51,7 +57,10 @@
 - MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
-- If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
+- Only claim tdcc_history_ready when tdcc_rows >= 8 and latest_tdcc_date equals official_tdcc_signal_date.
+- If latest_tdcc_date differs from official_tdcc_signal_date, mark tdcc_window_stale and do not claim current TDCC history.
+- If the stock is absent from the official current main-price universe, preserve real TDCC dates and mark historical_only_noncurrent; do not infer a formal delisting status.
+- If TDCC is current but tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DISPLAY
@@ -112,29 +121,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260716
-- open: 1890
-- high: 1985
-- low: 1815
-- close: 1955
-- volume: 2808783
-- ma5: 1874
-- ema23_primary: 1981.17
-- distance_to_ema23_pct: -1.32
-- ma20: 1949.75
-- ma60: 2246.42
-- ma120: 1941.25
-- return_5d: 2.89
-- return_20d: -7.78
-- volume_ratio: 0.98
-- distance_to_ma20_pct_auxiliary: 0.27
-- distance_to_high_60_pct: -35.05
+- date: 20260717
+- open: 1855
+- high: 1915
+- low: 1765
+- close: 1765
+- volume: 3375931
+- ma5: 1854
+- ema23_primary: 1963.15
+- distance_to_ema23_pct: -10.09
+- ma20: 1933.5
+- ma60: 2234.83
+- ma120: 1944.33
+- return_5d: -5.36
+- return_20d: -15.55
+- volume_ratio: 1.17
+- distance_to_ma20_pct_auxiliary: -8.71
+- distance_to_high_60_pct: -41.36
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260617,2145,2150,2060,2090,3227891,2218.41,-5.79,2174,2268.25,1.1
 20260618,2140,2140,2080,2100,7002236,2208.55,-4.91,2180.75,2272.83,2.21
 20260622,2115,2115,1970,1990,5482246,2190.33,-9.15,2172.5,2276.5,1.65
 20260623,1990,2025,1980,2000,1956043,2174.47,-8.02,2161.25,2281,0.59
@@ -154,19 +162,20 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260714,1865,1880,1725,1775,2794369,1990.23,-10.81,1975.75,2261.33,0.97
 20260715,1805,1915,1790,1910,3243903,1983.54,-3.71,1958,2253.25,1.12
 20260716,1890,1985,1815,1955,2808783,1981.17,-1.32,1949.75,2246.42,0.98
+20260717,1855,1915,1765,1765,3375931,1963.15,-10.09,1933.5,2234.83,1.17
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260703
-- over_400_ratio: 58.56
-- over_600_ratio: 52.09
-- over_800_ratio: 46.99
-- over_1000_ratio: 41.89
-- over_400_change_1w: -0.03
-- over_800_change_1w: 0.37
-- over_1000_change_1w: 0.35
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: False
+- as_of_date: 20260717
+- over_400_ratio: 60.91
+- over_600_ratio: 53.76
+- over_800_ratio: 47.63
+- over_1000_ratio: 43.53
+- over_400_change_1w: 2.35
+- over_800_change_1w: 0.64
+- over_1000_change_1w: 1.64
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -183,23 +192,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260618,59.17,-0.43,49.23,1.18,44.71,0.75,2,False,True
 20260626,58.59,-0.58,46.62,-2.61,41.54,-3.17,0,False,False
 20260703,58.56,-0.03,46.99,0.37,41.89,0.35,1,False,True
+20260717,60.91,2.35,47.63,0.64,43.53,1.64,2,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 3665 | 貿聯-KY | revenue_pullback | 營收成長股價回檔 | 50.0 |  |  |  |  | call_strong_inflow | stale_signal | 1.標的物之名稱及性質（如坐落台中市北區ＸＸ段ＸＸ小段土地）: 江蘇省常州市新北區呂墅西路65號部分廠房及辦公樓 2.事實發生日:115/7/13~115/7/13 3.董事會通過日期: 民國115年7月13日 4.其他核決日期: 不適用 5.交易單位數量（如ＸＸ平方公尺，折合ＸＸ坪）、每單位價格及交易總金額: (1)廠房： 10,726.63平方米；CNY 19.96 /月/平方米 (2)車間： 14,253.96平方米；CNY 15.26 /月/平方米 (3)辦公樓： 2,841.40平方米；CNY 19.97 /月/平方米 使用權資產總金額：CNY 23,981 千元 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之關 係人者，得免揭露其姓名）: 貿聯電子(常州)有限公司；關聯企業 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移轉之 所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次移轉日期 及移轉金額: 營業需求 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係 人之取得及處分日期、價格及交易當時與公司之關係: 不適用 9.預計處分利益（或損失）（取得資產者不適用）（遞延者應列表說明 認列情形）: 不適用 10.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 合約期間：2026/07/13~2031/05/31，每季支付一次。 11.本次交易之決定方式（如招標、比價或議價）、價格決定之參考依據及 決策單位: 決策單位:參考當地行情，由子公司議定價格。 12.專業估價者事務所或公司名稱及其估價金額: 不適用 13.專業估價師姓名: 不適用 14.專業估價師開業證書字號: 不適用 15.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 16.是否尚未取得估價報告:否或不適用 17.尚未取得估價報告之原因: 不適用 18.估價結果有重大差異時，其差異原因及會計師意見: 不適用 19.會計師事務所名稱: 不適用 20.會計師姓名: 不適用 21.會計師開業證書字號: 不適用 22.經紀人及經紀費用: 不適用 23.取得或處分之具體目的或用途: 不適用 24.本次交易表示異議之董事之意見: 不適用 25.本次交易為關係人交易:是 26.監察人承認或審計委員會同意日期: 不適用 27.本次交易係向關係人取得不動產或其使用權資產:是 28.依「公開發行公司取得或處分資產處理準則」第十六條規定 評估之價格:不適用 29.依前項評估之價格較交易價格為低者，依同準則第十七條規 定評估之價格:不適用 30.前已就同一件事件發布重大訊息日期: 不適用 31.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260716 | 3665 | 貿聯-KY | revenue_breakout_low_response | 營收爆發低反應股 | 13.0 | 30.0 | D_降級_TDCC轉弱 |  |  | call_strong_inflow | stale_signal | 1.標的物之名稱及性質（如坐落台中市北區ＸＸ段ＸＸ小段土地）: 江蘇省常州市新北區呂墅西路65號部分廠房及辦公樓 2.事實發生日:115/7/13~115/7/13 3.董事會通過日期: 民國115年7月13日 4.其他核決日期: 不適用 5.交易單位數量（如ＸＸ平方公尺，折合ＸＸ坪）、每單位價格及交易總金額: (1)廠房： 10,726.63平方米；CNY 19.96 /月/平方米 (2)車間： 14,253.96平方米；CNY 15.26 /月/平方米 (3)辦公樓： 2,841.40平方米；CNY 19.97 /月/平方米 使用權資產總金額：CNY 23,981 千元 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之關 係人者，得免揭露其姓名）: 貿聯電子(常州)有限公司；關聯企業 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移轉之 所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次移轉日期 及移轉金額: 營業需求 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係 人之取得及處分日期、價格及交易當時與公司之關係: 不適用 9.預計處分利益（或損失）（取得資產者不適用）（遞延者應列表說明 認列情形）: 不適用 10.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 合約期間：2026/07/13~2031/05/31，每季支付一次。 11.本次交易之決定方式（如招標、比價或議價）、價格決定之參考依據及 決策單位: 決策單位:參考當地行情，由子公司議定價格。 12.專業估價者事務所或公司名稱及其估價金額: 不適用 13.專業估價師姓名: 不適用 14.專業估價師開業證書字號: 不適用 15.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 16.是否尚未取得估價報告:否或不適用 17.尚未取得估價報告之原因: 不適用 18.估價結果有重大差異時，其差異原因及會計師意見: 不適用 19.會計師事務所名稱: 不適用 20.會計師姓名: 不適用 21.會計師開業證書字號: 不適用 22.經紀人及經紀費用: 不適用 23.取得或處分之具體目的或用途: 不適用 24.本次交易表示異議之董事之意見: 不適用 25.本次交易為關係人交易:是 26.監察人承認或審計委員會同意日期: 不適用 27.本次交易係向關係人取得不動產或其使用權資產:是 28.依「公開發行公司取得或處分資產處理準則」第十六條規定 評估之價格:不適用 29.依前項評估之價格較交易價格為低者，依同準則第十七條規 定評估之價格:不適用 30.前已就同一件事件發布重大訊息日期: 不適用 31.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260717 | 3665 | 貿聯-KY | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.標的物之名稱及性質（如坐落台中市北區ＸＸ段ＸＸ小段土地）: 江蘇省常州市新北區呂墅西路65號部分廠房及辦公樓 2.事實發生日:115/7/13~115/7/13 3.董事會通過日期: 民國115年7月13日 4.其他核決日期: 不適用 5.交易單位數量（如ＸＸ平方公尺，折合ＸＸ坪）、每單位價格及交易總金額: (1)廠房： 10,726.63平方米；CNY 19.96 /月/平方米 (2)車間： 14,253.96平方米；CNY 15.26 /月/平方米 (3)辦公樓： 2,841.40平方米；CNY 19.97 /月/平方米 使用權資產總金額：CNY 23,981 千元 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之關 係人者，得免揭露其姓名）: 貿聯電子(常州)有限公司；關聯企業 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移轉之 所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次移轉日期 及移轉金額: 營業需求 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係 人之取得及處分日期、價格及交易當時與公司之關係: 不適用 9.預計處分利益（或損失）（取得資產者不適用）（遞延者應列表說明 認列情形）: 不適用 10.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 合約期間：2026/07/13~2031/05/31，每季支付一次。 11.本次交易之決定方式（如招標、比價或議價）、價格決定之參考依據及 決策單位: 決策單位:參考當地行情，由子公司議定價格。 12.專業估價者事務所或公司名稱及其估價金額: 不適用 13.專業估價師姓名: 不適用 14.專業估價師開業證書字號: 不適用 15.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 16.是否尚未取得估價報告:否或不適用 17.尚未取得估價報告之原因: 不適用 18.估價結果有重大差異時，其差異原因及會計師意見: 不適用 19.會計師事務所名稱: 不適用 20.會計師姓名: 不適用 21.會計師開業證書字號: 不適用 22.經紀人及經紀費用: 不適用 23.取得或處分之具體目的或用途: 不適用 24.本次交易表示異議之董事之意見: 不適用 25.本次交易為關係人交易:是 26.監察人承認或審計委員會同意日期: 不適用 27.本次交易係向關係人取得不動產或其使用權資產:是 28.依「公開發行公司取得或處分資產處理準則」第十六條規定 評估之價格:不適用 29.依前項評估之價格較交易價格為低者，依同準則第十七條規 定評估之價格:不適用 30.前已就同一件事件發布重大訊息日期: 不適用 31.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 3665 | 貿聯-KY | 1 | 1 | 3 | 3 | 7 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260717 | 3665 | 貿聯-KY | 2 | 2 | 3 | 4 | 7 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 3665 | 貿聯-KY | 223 | 0 | 38902220.0 | 0.0 |  | call_strong_inflow |
+| 20260717 | 3665 | 貿聯-KY | 222 | 8 | 29699510.0 | 844800.0 | 35.16 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,15 +1,21 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6446 藥華藥
 
 ## Metadata
-- generated_at: 2026-07-17 22:27:32 Asia/Taipei
+- generated_at: 2026-07-18 20:54:54 Asia/Taipei
 - stock_id: 6446
 - stock_name: 藥華藥
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260716
-- price_rows: 305
-- latest_tdcc_date: 20260703
-- tdcc_rows: 10
+- latest_price_date: 20260717
+- price_rows: 306
+- current_main_price_date: 20260717
+- current_main_price_universe_status: current
+- current_main_price_universe_source: official_daily_price_latest_main_price_date
+- listing_status_source_status: formal_listing_status_source_unavailable
+- official_tdcc_signal_date: 20260717
+- latest_tdcc_date: 20260717
+- tdcc_rows: 11
 - tdcc_history_status: tdcc_history_ready
+- tdcc_freshness_status: tdcc_window_fresh
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
 - notes:
@@ -51,7 +57,10 @@
 - MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
-- If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
+- Only claim tdcc_history_ready when tdcc_rows >= 8 and latest_tdcc_date equals official_tdcc_signal_date.
+- If latest_tdcc_date differs from official_tdcc_signal_date, mark tdcc_window_stale and do not claim current TDCC history.
+- If the stock is absent from the official current main-price universe, preserve real TDCC dates and mark historical_only_noncurrent; do not infer a formal delisting status.
+- If TDCC is current but tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DISPLAY
@@ -113,29 +122,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260716
-- open: 1335
-- high: 1365
-- low: 1250
-- close: 1260
-- volume: 4420281
-- ma5: 1263
-- ema23_primary: 1227.68
-- distance_to_ema23_pct: 2.63
-- ma20: 1265.75
-- ma60: 954.78
-- ma120: 807.5
-- return_5d: -17.65
-- return_20d: 27.14
-- volume_ratio: 1.33
-- distance_to_ma20_pct_auxiliary: -0.45
-- distance_to_high_60_pct: -19.75
+- date: 20260717
+- open: 1225
+- high: 1260
+- low: 1190
+- close: 1195
+- volume: 3377763
+- ma5: 1245
+- ema23_primary: 1224.96
+- distance_to_ema23_pct: -2.45
+- ma20: 1275
+- ma60: 963.87
+- ma120: 813.14
+- return_5d: -7
+- return_20d: 18.32
+- volume_ratio: 1
+- distance_to_ma20_pct_auxiliary: -6.27
+- distance_to_high_60_pct: -23.89
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260617,989,1020,984,1010,2486382,902.3,11.94,918.55,751.57,0.78
 20260618,1020,1075,1015,1060,2843156,915.44,15.79,931.65,759,0.88
 20260622,1060,1120,1015,1095,2689147,930.4,17.69,945.9,766.92,0.81
 20260623,1090,1150,1090,1095,2382960,944.12,15.98,958.65,774.5,0.73
@@ -155,20 +163,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260714,1260,1260,1165,1200,4037292,1216.08,-1.32,1233.9,933.63,1.26
 20260715,1235,1320,1210,1320,2157754,1224.74,7.78,1252.3,944.75,0.67
 20260716,1335,1365,1250,1260,4420281,1227.68,2.63,1265.75,954.78,1.33
+20260717,1225,1260,1190,1195,3377763,1224.96,-2.45,1275,963.87,1
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260703
-- over_400_ratio: 57.87
-- over_600_ratio: 51.59
-- over_800_ratio: 46.91
-- over_1000_ratio: 44.14
-- over_400_change_1w: 0.56
-- over_800_change_1w: -0.35
-- over_1000_change_1w: -0.58
-- tdcc_consecutive_up_weeks: 9
+- as_of_date: 20260717
+- over_400_ratio: 57.13
+- over_600_ratio: 51.64
+- over_800_ratio: 46.77
+- over_1000_ratio: 44.16
+- over_400_change_1w: -0.74
+- over_800_change_1w: -0.14
+- over_1000_change_1w: 0.02
+- tdcc_consecutive_up_weeks: 10
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -184,18 +193,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260618,56.49,0.26,47.14,-0.11,43.88,-0.14,7,False,False
 20260626,57.31,0.82,47.26,0.12,44.72,0.84,8,True,True
 20260703,57.87,0.56,46.91,-0.35,44.14,-0.58,9,False,False
+20260717,57.13,-0.74,46.77,-0.14,44.16,0.02,10,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 6446 | 藥華藥 | pattern | 型態觀察 | 51.0 |  |  | early_entry_watch |  |  | repeated_but_no_breakout | 1.事實發生日:115/07/08 2.發生緣由:依據臺灣證券交易所股份有限公司通知辦理 3.財務業務資訊:   期間              (月)                   (季)           (最近四季累計)               (IFRS-合併自結數)      (IFRS-合併核閱數)    (IFRS-合併查核                                                              /核閱數) -------------------------------------------------------------------------             最近一月   與去年同期   最近一季  與去年同期    (114年第2季   科目     (115年5月)     增減﹪     (115年      增減﹪     至115年第1季)                                      第一季) -------------------------------------------------------------------------  營業收入     2,458      108.48       5,121       57.23        17,499 （百萬）  稅前淨利     1,291     -389.46(註)   2,336       60.00         5,859 （百萬）  歸屬母公       993     -337.56(註)   2,150       70.23         5,932  司業主淨  利 （百萬）  每股盈餘      2.66     -335.40(註)    5.79       69.30         16.02 （元） 註：去年同期為負數。 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無。 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無。 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告: 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
-| 20260716 | 6446 | 藥華藥 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  |  | repeated_but_no_breakout | 1.事實發生日:115/07/08 2.發生緣由:依據臺灣證券交易所股份有限公司通知辦理 3.財務業務資訊:   期間              (月)                   (季)           (最近四季累計)               (IFRS-合併自結數)      (IFRS-合併核閱數)    (IFRS-合併查核                                                              /核閱數) -------------------------------------------------------------------------             最近一月   與去年同期   最近一季  與去年同期    (114年第2季   科目     (115年5月)     增減﹪     (115年      增減﹪     至115年第1季)                                      第一季) -------------------------------------------------------------------------  營業收入     2,458      108.48       5,121       57.23        17,499 （百萬）  稅前淨利     1,291     -389.46(註)   2,336       60.00         5,859 （百萬）  歸屬母公       993     -337.56(註)   2,150       70.23         5,932  司業主淨  利 （百萬）  每股盈餘      2.66     -335.40(註)    5.79       69.30         16.02 （元） 註：去年同期為負數。 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無。 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無。 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告: 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260717 | 6446 | 藥華藥 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | continued_2_3d | 1.事實發生日:115/07/08 2.發生緣由:依據臺灣證券交易所股份有限公司通知辦理 3.財務業務資訊:   期間              (月)                   (季)           (最近四季累計)               (IFRS-合併自結數)      (IFRS-合併核閱數)    (IFRS-合併查核                                                              /核閱數) -------------------------------------------------------------------------             最近一月   與去年同期   最近一季  與去年同期    (114年第2季   科目     (115年5月)     增減﹪     (115年      增減﹪     至115年第1季)                                      第一季) -------------------------------------------------------------------------  營業收入     2,458      108.48       5,121       57.23        17,499 （百萬）  稅前淨利     1,291     -389.46(註)   2,336       60.00         5,859 （百萬）  歸屬母公       993     -337.56(註)   2,150       70.23         5,932  司業主淨  利 （百萬）  每股盈餘      2.66     -335.40(註)    5.79       69.30         16.02 （元） 註：去年同期為負數。 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無。 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無。 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告: 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d |
+| 20260717 | 6446 | 藥華藥 | revenue_pullback | 營收成長股價回檔 | 83.0 |  |  |  |  |  | continued_2_3d | 1.事實發生日:115/07/08 2.發生緣由:依據臺灣證券交易所股份有限公司通知辦理 3.財務業務資訊:   期間              (月)                   (季)           (最近四季累計)               (IFRS-合併自結數)      (IFRS-合併核閱數)    (IFRS-合併查核                                                              /核閱數) -------------------------------------------------------------------------             最近一月   與去年同期   最近一季  與去年同期    (114年第2季   科目     (115年5月)     增減﹪     (115年      增減﹪     至115年第1季)                                      第一季) -------------------------------------------------------------------------  營業收入     2,458      108.48       5,121       57.23        17,499 （百萬）  稅前淨利     1,291     -389.46(註)   2,336       60.00         5,859 （百萬）  歸屬母公       993     -337.56(註)   2,150       70.23         5,932  司業主淨  利 （百萬）  每股盈餘      2.66     -335.40(註)    5.79       69.30         16.02 （元） 註：去年同期為負數。 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無。 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無。 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告: 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 6446 | 藥華藥 | 1 | 1 | 4 | 6 | 13 | repeated_but_no_breakout | 近 10 日上榜 6 次、近 20 日上榜 13 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260717 | 6446 | 藥華藥 | 2 | 2 | 4 | 7 | 13 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | status |

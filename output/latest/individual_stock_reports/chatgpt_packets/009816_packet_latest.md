@@ -1,15 +1,21 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009816 凱基台灣TOP50
 
 ## Metadata
-- generated_at: 2026-07-17 22:26:06 Asia/Taipei
+- generated_at: 2026-07-18 20:53:07 Asia/Taipei
 - stock_id: 009816
 - stock_name: 凱基台灣TOP50
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260716
-- price_rows: 38
+- latest_price_date: 20260717
+- price_rows: 39
+- current_main_price_date: 20260717
+- current_main_price_universe_status: current
+- current_main_price_universe_source: official_daily_price_latest_main_price_date
+- listing_status_source_status: formal_listing_status_source_unavailable
+- official_tdcc_signal_date: 20260717
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
+- tdcc_freshness_status: tdcc_missing
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
 - notes: price history shorter than 120 rows; K-line context is partial; TDCC history missing
@@ -51,7 +57,10 @@
 - MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
-- If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
+- Only claim tdcc_history_ready when tdcc_rows >= 8 and latest_tdcc_date equals official_tdcc_signal_date.
+- If latest_tdcc_date differs from official_tdcc_signal_date, mark tdcc_window_stale and do not claim current TDCC history.
+- If the stock is absent from the official current main-price universe, preserve real TDCC dates and mark historical_only_noncurrent; do not infer a formal delisting status.
+- If TDCC is current but tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DISPLAY
@@ -88,7 +97,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +121,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260716
-- open: 15.16
-- high: 15.36
-- low: 15.03
-- close: 15.29
-- volume: 126909803
-- ma5: 15.21
-- ema23_primary: 15.32
-- distance_to_ema23_pct: -0.17
-- ma20: 15.49
-- ma60: 15.28
-- ma120: 15.28
-- return_5d: 0.2
-- return_20d: -1.42
-- volume_ratio: 0.77
-- distance_to_ma20_pct_auxiliary: -1.29
-- distance_to_high_60_pct: -6.31
+- date: 20260717
+- open: 14.77
+- high: 14.81
+- low: 14.28
+- close: 14.28
+- volume: 558225706
+- ma5: 15.02
+- ema23_primary: 15.23
+- distance_to_ema23_pct: -6.24
+- ma20: 15.43
+- ma60: 15.26
+- ma120: 15.26
+- return_5d: -6.24
+- return_20d: -8.17
+- volume_ratio: 2.99
+- distance_to_ma20_pct_auxiliary: -7.43
+- distance_to_high_60_pct: -12.5
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260617,15.35,15.55,15.33,15.55,121793794,14.96,3.98,15.08,15.08,0.63
 20260618,15.69,15.74,15.61,15.68,137362350,15.02,4.43,15.11,15.11,0.72
 20260622,16,16.2,15.99,16.17,162560447,15.11,7,15.21,15.16,0.85
 20260623,16.27,16.32,15.97,15.97,196020423,15.18,5.18,15.27,15.2,1.01
@@ -155,6 +162,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260714,15.19,15.22,14.66,14.97,349991465,15.32,-2.29,15.51,15.28,2.1
 20260715,15.14,15.35,15.07,15.29,93205838,15.32,-0.19,15.5,15.28,0.57
 20260716,15.16,15.36,15.03,15.29,126909803,15.32,-0.17,15.49,15.28,0.77
+20260717,14.77,14.81,14.28,14.28,558225706,15.23,-6.24,15.43,15.26,2.99
 ```
 
 ## Latest TDCC Snapshot

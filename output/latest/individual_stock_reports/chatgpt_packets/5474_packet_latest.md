@@ -1,15 +1,21 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5474 聰泰
 
 ## Metadata
-- generated_at: 2026-07-17 22:27:18 Asia/Taipei
+- generated_at: 2026-07-18 20:54:37 Asia/Taipei
 - stock_id: 5474
 - stock_name: 聰泰
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260716
-- price_rows: 170
-- latest_tdcc_date: 20260703
-- tdcc_rows: 10
+- latest_price_date: 20260717
+- price_rows: 171
+- current_main_price_date: 20260717
+- current_main_price_universe_status: current
+- current_main_price_universe_source: official_daily_price_latest_main_price_date
+- listing_status_source_status: formal_listing_status_source_unavailable
+- official_tdcc_signal_date: 20260717
+- latest_tdcc_date: 20260717
+- tdcc_rows: 11
 - tdcc_history_status: tdcc_history_ready
+- tdcc_freshness_status: tdcc_window_fresh
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
 - notes:
@@ -51,7 +57,10 @@
 - MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
-- If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
+- Only claim tdcc_history_ready when tdcc_rows >= 8 and latest_tdcc_date equals official_tdcc_signal_date.
+- If latest_tdcc_date differs from official_tdcc_signal_date, mark tdcc_window_stale and do not claim current TDCC history.
+- If the stock is absent from the official current main-price universe, preserve real TDCC dates and mark historical_only_noncurrent; do not infer a formal delisting status.
+- If TDCC is current but tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DISPLAY
@@ -112,29 +121,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260716
-- open: 156
-- high: 156
-- low: 151.5
-- close: 151.5
-- volume: 82000
-- ma5: 155.9
-- ema23_primary: 164.55
-- distance_to_ema23_pct: -7.93
-- ma20: 166.75
-- ma60: 165.97
-- ma120: 156.24
-- return_5d: -5.9
-- return_20d: -13.18
-- volume_ratio: 0.25
-- distance_to_ma20_pct_auxiliary: -9.15
-- distance_to_high_60_pct: -24.81
+- date: 20260717
+- open: 151.5
+- high: 151.5
+- low: 142.5
+- close: 144.5
+- volume: 312000
+- ma5: 152.7
+- ema23_primary: 162.88
+- distance_to_ema23_pct: -11.28
+- ma20: 164.93
+- ma60: 165.98
+- ma120: 156.09
+- return_5d: -9.97
+- return_20d: -20.17
+- volume_ratio: 0.97
+- distance_to_ma20_pct_auxiliary: -12.38
+- distance_to_high_60_pct: -28.29
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260617,174.5,181,174,181,509000,172.69,4.81,175.15,156.63,1.5
 20260618,190,191,186,188,1203000,173.97,8.07,176.1,157.56,3.26
 20260622,185.5,188,178,179.5,705000,174.43,2.91,176.45,158.35,1.78
 20260623,179.5,182.5,171,171,409000,174.14,-1.8,176.53,158.96,1
@@ -154,10 +162,11 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260714,159.5,159.5,147,152.5,232000,166.62,-8.48,168.9,165.71,0.64
 20260715,158,158,152.5,156,127000,165.74,-5.88,167.9,165.85,0.36
 20260716,156,156,151.5,151.5,82000,164.55,-7.93,166.75,165.97,0.25
+20260717,151.5,151.5,142.5,144.5,312000,162.88,-11.28,164.93,165.98,0.97
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260703
+- as_of_date: 20260717
 - over_400_ratio: 56.66
 - over_600_ratio: 55.41
 - over_800_ratio: 55.41
@@ -183,6 +192,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260618,56.66,0,55.41,0,48.5,0,0,False,False
 20260626,56.66,0,55.41,0,48.5,0,0,False,False
 20260703,56.66,0,55.41,0,48.5,0,0,False,False
+20260717,56.66,0,55.41,0,48.5,0,0,False,False
 ```
 
 ## Candidate Context

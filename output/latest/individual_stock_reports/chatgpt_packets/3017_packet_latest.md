@@ -1,15 +1,21 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3017 奇鋐
 
 ## Metadata
-- generated_at: 2026-07-17 22:26:43 Asia/Taipei
+- generated_at: 2026-07-18 20:53:53 Asia/Taipei
 - stock_id: 3017
 - stock_name: 奇鋐
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260716
-- price_rows: 305
-- latest_tdcc_date: 20260703
-- tdcc_rows: 10
+- latest_price_date: 20260717
+- price_rows: 306
+- current_main_price_date: 20260717
+- current_main_price_universe_status: current
+- current_main_price_universe_source: official_daily_price_latest_main_price_date
+- listing_status_source_status: formal_listing_status_source_unavailable
+- official_tdcc_signal_date: 20260717
+- latest_tdcc_date: 20260717
+- tdcc_rows: 11
 - tdcc_history_status: tdcc_history_ready
+- tdcc_freshness_status: tdcc_window_fresh
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
 - notes:
@@ -51,7 +57,10 @@
 - MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
-- If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
+- Only claim tdcc_history_ready when tdcc_rows >= 8 and latest_tdcc_date equals official_tdcc_signal_date.
+- If latest_tdcc_date differs from official_tdcc_signal_date, mark tdcc_window_stale and do not claim current TDCC history.
+- If the stock is absent from the official current main-price universe, preserve real TDCC dates and mark historical_only_noncurrent; do not infer a formal delisting status.
+- If TDCC is current but tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DISPLAY
@@ -112,29 +121,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260716
-- open: 2275
-- high: 2290
-- low: 2155
-- close: 2225
-- volume: 4220745
-- ma5: 2217
-- ema23_primary: 2404.3
-- distance_to_ema23_pct: -7.46
-- ma20: 2418.75
-- ma60: 2536.17
-- ma120: 2167.96
-- return_5d: -4.3
-- return_20d: -6.12
-- volume_ratio: 1.02
-- distance_to_ma20_pct_auxiliary: -8.01
-- distance_to_high_60_pct: -26.08
+- date: 20260717
+- open: 2160
+- high: 2335
+- low: 2145
+- close: 2200
+- volume: 5543230
+- ma5: 2187
+- ema23_primary: 2387.28
+- distance_to_ema23_pct: -7.84
+- ma20: 2410.5
+- ma60: 2530.08
+- ma120: 2175.08
+- return_5d: -6.38
+- return_20d: -6.98
+- volume_ratio: 1.32
+- distance_to_ma20_pct_auxiliary: -8.73
+- distance_to_high_60_pct: -26.91
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260617,2365,2440,2330,2365,3829529,2508.56,-5.72,2564.75,2465,0.78
 20260618,2400,2425,2365,2400,3318114,2499.52,-3.98,2560,2471.75,0.68
 20260622,2465,2490,2380,2420,3254412,2492.89,-2.92,2553.75,2479.67,0.68
 20260623,2455,2475,2400,2425,3079821,2487.23,-2.5,2546.25,2485.08,0.66
@@ -154,20 +162,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260714,2185,2220,2015,2120,4396274,2443.84,-13.25,2438.25,2544.5,1.08
 20260715,2140,2200,2120,2165,2129895,2420.6,-10.56,2426,2540.58,0.52
 20260716,2275,2290,2155,2225,4220745,2404.3,-7.46,2418.75,2536.17,1.02
+20260717,2160,2335,2145,2200,5543230,2387.28,-7.84,2410.5,2530.08,1.32
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260703
-- over_400_ratio: 65.59
-- over_600_ratio: 59.65
-- over_800_ratio: 55.49
-- over_1000_ratio: 52.77
-- over_400_change_1w: 0
-- over_800_change_1w: -0.02
-- over_1000_change_1w: 0.48
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260717
+- over_400_ratio: 65.24
+- over_600_ratio: 59.27
+- over_800_ratio: 55.07
+- over_1000_ratio: 52.3
+- over_400_change_1w: -0.35
+- over_800_change_1w: -0.42
+- over_1000_change_1w: -0.47
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -183,23 +192,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260618,65.17,0.4,55.29,-0.05,52.04,0.36,1,False,True
 20260626,65.59,0.42,55.51,0.22,52.29,0.25,2,True,True
 20260703,65.59,0,55.49,-0.02,52.77,0.48,3,False,True
+20260717,65.24,-0.35,55.07,-0.42,52.3,-0.47,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 3017 | 奇鋐 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_inflow | stale_signal | 1.事實發生日:115/07/15 2.發生緣由:依臺灣證券交易所股份有限公司通知辦理。 3.財務業務資訊: 期間              (月)                      (季)             (最近四季累計) -------- -----------------------  ------------------------  --------------- 科目      最近一月    與去年同期  最近一季      與去年同期   114年第2季至 　　　　　(115年5月)  增減%       (115年第1季)  增減%        115年第1季           (IFRS合併               (IFRS合併查                (IFRS合併查核            自結數)                 核數)                      /核閱數) -------- ----------  ----------  ------------  ----------  --------------- 營業收入   15,871       60.64%      49,038        110.17%        165,344 (百萬) -------- ----------  ----------  ------------  ----------  --------------- 稅前淨利    4,486      139.51%      11,979        159.29%         36,145 (百萬) -------- ----------  ----------  ------------  ----------  --------------- 歸屬母公 司業主淨利  3,152      132.28%       7,916        146.30%         23,888 (百萬) -------- ----------  ----------  ------------  ----------  --------------- 每股盈餘     8.03      129.43%       20.17        143.60%          61.06 (元) -------- ----------  ----------  ------------  ----------  --------------- 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無。 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無。 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告: 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260716 | 3017 | 奇鋐 | revenue_breakout_low_response | 營收爆發低反應股 | 16.0 | 8.0 | A_優先追蹤 |  |  | call_inflow | stale_signal | 1.事實發生日:115/07/15 2.發生緣由:依臺灣證券交易所股份有限公司通知辦理。 3.財務業務資訊: 期間              (月)                      (季)             (最近四季累計) -------- -----------------------  ------------------------  --------------- 科目      最近一月    與去年同期  最近一季      與去年同期   114年第2季至 　　　　　(115年5月)  增減%       (115年第1季)  增減%        115年第1季           (IFRS合併               (IFRS合併查                (IFRS合併查核            自結數)                 核數)                      /核閱數) -------- ----------  ----------  ------------  ----------  --------------- 營業收入   15,871       60.64%      49,038        110.17%        165,344 (百萬) -------- ----------  ----------  ------------  ----------  --------------- 稅前淨利    4,486      139.51%      11,979        159.29%         36,145 (百萬) -------- ----------  ----------  ------------  ----------  --------------- 歸屬母公 司業主淨利  3,152      132.28%       7,916        146.30%         23,888 (百萬) -------- ----------  ----------  ------------  ----------  --------------- 每股盈餘     8.03      129.43%       20.17        143.60%          61.06 (元) -------- ----------  ----------  ------------  ----------  --------------- 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無。 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無。 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告: 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260717 | 3017 | 奇鋐 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | mixed_flow | stale_signal | 1.事實發生日:115/07/15 2.發生緣由:依臺灣證券交易所股份有限公司通知辦理。 3.財務業務資訊: 期間              (月)                      (季)             (最近四季累計) -------- -----------------------  ------------------------  --------------- 科目      最近一月    與去年同期  最近一季      與去年同期   114年第2季至 　　　　　(115年5月)  增減%       (115年第1季)  增減%        115年第1季           (IFRS合併               (IFRS合併查                (IFRS合併查核            自結數)                 核數)                      /核閱數) -------- ----------  ----------  ------------  ----------  --------------- 營業收入   15,871       60.64%      49,038        110.17%        165,344 (百萬) -------- ----------  ----------  ------------  ----------  --------------- 稅前淨利    4,486      139.51%      11,979        159.29%         36,145 (百萬) -------- ----------  ----------  ------------  ----------  --------------- 歸屬母公 司業主淨利  3,152      132.28%       7,916        146.30%         23,888 (百萬) -------- ----------  ----------  ------------  ----------  --------------- 每股盈餘     8.03      129.43%       20.17        143.60%          61.06 (元) -------- ----------  ----------  ------------  ----------  --------------- 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無。 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無。 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告: 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 3017 | 奇鋐 | 2 | 1 | 3 | 8 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260717 | 3017 | 奇鋐 | 3 | 2 | 3 | 8 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 3017 | 奇鋐 | 381 | 0 | 39302740.0 | 0.0 |  | call_inflow |
+| 20260717 | 3017 | 奇鋐 | 387 | 26 | 69472990.0 | 3170440.0 | 21.91 | mixed_flow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

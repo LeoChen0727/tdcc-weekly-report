@@ -1,15 +1,21 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2912 統一超
 
 ## Metadata
-- generated_at: 2026-07-17 22:26:42 Asia/Taipei
+- generated_at: 2026-07-18 20:53:51 Asia/Taipei
 - stock_id: 2912
 - stock_name: 統一超
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260716
-- price_rows: 305
-- latest_tdcc_date: 20260703
-- tdcc_rows: 10
+- latest_price_date: 20260717
+- price_rows: 306
+- current_main_price_date: 20260717
+- current_main_price_universe_status: current
+- current_main_price_universe_source: official_daily_price_latest_main_price_date
+- listing_status_source_status: formal_listing_status_source_unavailable
+- official_tdcc_signal_date: 20260717
+- latest_tdcc_date: 20260717
+- tdcc_rows: 11
 - tdcc_history_status: tdcc_history_ready
+- tdcc_freshness_status: tdcc_window_fresh
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
 - notes:
@@ -51,7 +57,10 @@
 - MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
-- If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
+- Only claim tdcc_history_ready when tdcc_rows >= 8 and latest_tdcc_date equals official_tdcc_signal_date.
+- If latest_tdcc_date differs from official_tdcc_signal_date, mark tdcc_window_stale and do not claim current TDCC history.
+- If the stock is absent from the official current main-price universe, preserve real TDCC dates and mark historical_only_noncurrent; do not infer a formal delisting status.
+- If TDCC is current but tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DISPLAY
@@ -118,29 +127,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260716
-- open: 244.5
-- high: 249
-- low: 243
-- close: 245.5
-- volume: 5086551
-- ma5: 242.5
-- ema23_primary: 234
-- distance_to_ema23_pct: 4.91
-- ma20: 231.9
-- ma60: 227.93
-- ma120: 224.35
-- return_5d: 1.87
-- return_20d: 7.68
-- volume_ratio: 1.43
-- distance_to_ma20_pct_auxiliary: 5.86
-- distance_to_high_60_pct: -1.8
+- date: 20260717
+- open: 245
+- high: 246.5
+- low: 240.5
+- close: 243
+- volume: 5619379
+- ma5: 242.9
+- ema23_primary: 234.75
+- distance_to_ema23_pct: 3.51
+- ma20: 232.6
+- ma60: 228.03
+- ma120: 224.52
+- return_5d: 0.83
+- return_20d: 6.11
+- volume_ratio: 1.52
+- distance_to_ma20_pct_auxiliary: 4.47
+- distance_to_high_60_pct: -2.8
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260617,228.5,230,227,229,2555634,226.63,1.04,224.28,226.07,0.3
 20260618,229,229,223.5,223.5,6802212,226.37,-1.27,224.4,226.3,0.8
 20260622,224.5,225.5,221,221,3373046,225.93,-2.18,224.45,226.38,0.4
 20260623,221,228,221,227,4448533,226.01,0.44,225.18,226.57,0.55
@@ -160,20 +168,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260714,242,242,238.5,242,2717449,231.91,4.35,230.2,227.68,0.8
 20260715,242.5,244.5,241,244.5,3740449,232.96,4.95,231.03,227.8,1.1
 20260716,244.5,249,243,245.5,5086551,234,4.91,231.9,227.93,1.43
+20260717,245,246.5,240.5,243,5619379,234.75,3.51,232.6,228.03,1.52
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260703
-- over_400_ratio: 84.3
-- over_600_ratio: 82.55
-- over_800_ratio: 80.4
-- over_1000_ratio: 79.81
-- over_400_change_1w: 0
-- over_800_change_1w: -0.22
-- over_1000_change_1w: -0.14
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260717
+- over_400_ratio: 85.07
+- over_600_ratio: 83.45
+- over_800_ratio: 81.38
+- over_1000_ratio: 80.44
+- over_400_change_1w: 0.77
+- over_800_change_1w: 0.98
+- over_1000_change_1w: 0.63
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -189,22 +198,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260618,84.47,-0.01,80.55,-0.29,80.05,-0.15,0,False,False
 20260626,84.3,-0.17,80.62,0.07,79.95,-0.1,1,False,True
 20260703,84.3,0,80.4,-0.22,79.81,-0.14,0,False,False
+20260717,85.07,0.77,81.38,0.98,80.44,0.63,1,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 2912 | 統一超 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_strong_inflow | repeated_but_no_breakout | 1.標的物之名稱及性質（如坐落台中市北區ＸＸ段ＸＸ小段土地）: 台中市西屯區潮洋里朝富路116號部份之不動產使用權資產 2.事實發生日:115/6/23~115/6/23 3.董事會通過日期: 民國115年6月23日 4.其他核決日期: 不適用 5.交易單位數量（如ＸＸ平方公尺，折合ＸＸ坪）、每單位價格及交易總金額: 交易單位數量：建物租賃面積約 35 坪 每單位價格:  2026/08/01 ~ 2026/09/30：253,333元/月 (未稅) 2026/10/01 ~ 2026/10/31：253,334元/月 (未稅) 2026/11/01 ~ 2028/06/30：190,000元/月 (未稅) 2028/07/01 ~ 2030/06/30：200,000元/月 (未稅) 2030/07/01 ~ 2032/06/30：210,000元/月 (未稅) 2032/07/01 ~ 2034/06/30：220,000元/月 (未稅) 交易總金額：使用權資產金額18,344,339元 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之關 係人者，得免揭露其姓名）: 交易相對人：統一超商股份有限公司 與公司之關係：關係人 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移轉之 所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次移轉日期 及移轉金額: 交易相對人選定關係人之原因：地點符合需求 前次移轉所有人：自然人 前次移轉之所有人與公司及交易相對人間之關係：非關係人 前次移轉日期：於2026年5月15日取得該不動產使用權資產 前次移轉金額：每月租金為460仟元(含稅) 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係 人之取得及處分日期、價格及交易當時與公司之關係: 不適用 9.預計處分利益（或損失）（取得資產者不適用）（遞延者應列表說明 認列情形）: 0元 10.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 付款條件：依合約約定 契約限制條款: 無 其他重要約定事項：無 11.本次交易之決定方式（如招標、比價或議價）、價格決定之參考依據及 決策單位: 交易決定方式: 依市場行情進行議價 價格決定之參考依據: 依市場行情進行議價 決策單位: 董事會 12.專業估價者事務所或公司名稱及其估價金額: 不適用 13.專業估價師姓名: 不適用 14.專業估價師開業證書字號: 不適用 15.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 16.是否尚未取得估價報告:否或不適用 17.尚未取得估價報告之原因: 不適用 18.估價結果有重大差異時，其差異原因及會計師意見: 不適用 19.會計師事務所名稱: 不適用 20.會計師姓名: 不適用 21.會計師開業證書字號: 不適用 22.經紀人及經紀費用: 不適用 23.取得或處分之具體目的或用途: 符合業務上整體發展需求，發揮集團最大效益 24.本次交易表示異議之董事之意見: 無 25.本次交易為關係人交易:是 26.監察人承認或審計委員會同意日期: 民國 115年 6月 23日 27.本次交易係向關係人取得不動產或其使用權資產:否 28.依「公開發行公司取得或處分資產處理準則」第十六條規定 評估之價格:不適用 29.依前項評估之價格較交易價格為低者，依同準則第十七條規 定評估之價格:不適用 30.前已就同一件事件發布重大訊息日期: 不適用 31.其他敘明事項: 無；calendar event: ex_dividend on 20260730; status=confirmed; proximity=within_14d |
+| 20260717 | 2912 | 統一超 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | repeated_but_no_breakout | 1.標的物之名稱及性質（如坐落台中市北區ＸＸ段ＸＸ小段土地）: 台中市西屯區潮洋里朝富路116號部份之不動產使用權資產 2.事實發生日:115/6/23~115/6/23 3.董事會通過日期: 民國115年6月23日 4.其他核決日期: 不適用 5.交易單位數量（如ＸＸ平方公尺，折合ＸＸ坪）、每單位價格及交易總金額: 交易單位數量：建物租賃面積約 35 坪 每單位價格:  2026/08/01 ~ 2026/09/30：253,333元/月 (未稅) 2026/10/01 ~ 2026/10/31：253,334元/月 (未稅) 2026/11/01 ~ 2028/06/30：190,000元/月 (未稅) 2028/07/01 ~ 2030/06/30：200,000元/月 (未稅) 2030/07/01 ~ 2032/06/30：210,000元/月 (未稅) 2032/07/01 ~ 2034/06/30：220,000元/月 (未稅) 交易總金額：使用權資產金額18,344,339元 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之關 係人者，得免揭露其姓名）: 交易相對人：統一超商股份有限公司 與公司之關係：關係人 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移轉之 所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次移轉日期 及移轉金額: 交易相對人選定關係人之原因：地點符合需求 前次移轉所有人：自然人 前次移轉之所有人與公司及交易相對人間之關係：非關係人 前次移轉日期：於2026年5月15日取得該不動產使用權資產 前次移轉金額：每月租金為460仟元(含稅) 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係 人之取得及處分日期、價格及交易當時與公司之關係: 不適用 9.預計處分利益（或損失）（取得資產者不適用）（遞延者應列表說明 認列情形）: 0元 10.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 付款條件：依合約約定 契約限制條款: 無 其他重要約定事項：無 11.本次交易之決定方式（如招標、比價或議價）、價格決定之參考依據及 決策單位: 交易決定方式: 依市場行情進行議價 價格決定之參考依據: 依市場行情進行議價 決策單位: 董事會 12.專業估價者事務所或公司名稱及其估價金額: 不適用 13.專業估價師姓名: 不適用 14.專業估價師開業證書字號: 不適用 15.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 16.是否尚未取得估價報告:否或不適用 17.尚未取得估價報告之原因: 不適用 18.估價結果有重大差異時，其差異原因及會計師意見: 不適用 19.會計師事務所名稱: 不適用 20.會計師姓名: 不適用 21.會計師開業證書字號: 不適用 22.經紀人及經紀費用: 不適用 23.取得或處分之具體目的或用途: 符合業務上整體發展需求，發揮集團最大效益 24.本次交易表示異議之董事之意見: 無 25.本次交易為關係人交易:是 26.監察人承認或審計委員會同意日期: 民國 115年 6月 23日 27.本次交易係向關係人取得不動產或其使用權資產:否 28.依「公開發行公司取得或處分資產處理準則」第十六條規定 評估之價格:不適用 29.依前項評估之價格較交易價格為低者，依同準則第十七條規 定評估之價格:不適用 30.前已就同一件事件發布重大訊息日期: 不適用 31.其他敘明事項: 無；calendar event: ex_dividend on 20260730; status=confirmed; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 2912 | 統一超 | 10 | 2 | 5 | 10 | 13 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 13 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260717 | 2912 | 統一超 | 11 | 3 | 5 | 10 | 13 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 13 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 2912 | 統一超 | 4 | 0 | 10182890.0 | 0.0 |  | call_strong_inflow |
+| 20260717 | 2912 | 統一超 | 4 | 0 | 2537100.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

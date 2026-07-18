@@ -1,15 +1,21 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8043 蜜望實
 
 ## Metadata
-- generated_at: 2026-07-17 22:27:55 Asia/Taipei
+- generated_at: 2026-07-18 20:55:24 Asia/Taipei
 - stock_id: 8043
 - stock_name: 蜜望實
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260716
-- price_rows: 170
-- latest_tdcc_date: 20260703
-- tdcc_rows: 10
+- latest_price_date: 20260717
+- price_rows: 171
+- current_main_price_date: 20260717
+- current_main_price_universe_status: current
+- current_main_price_universe_source: official_daily_price_latest_main_price_date
+- listing_status_source_status: formal_listing_status_source_unavailable
+- official_tdcc_signal_date: 20260717
+- latest_tdcc_date: 20260717
+- tdcc_rows: 11
 - tdcc_history_status: tdcc_history_ready
+- tdcc_freshness_status: tdcc_window_fresh
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
 - notes:
@@ -51,7 +57,10 @@
 - MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
-- If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
+- Only claim tdcc_history_ready when tdcc_rows >= 8 and latest_tdcc_date equals official_tdcc_signal_date.
+- If latest_tdcc_date differs from official_tdcc_signal_date, mark tdcc_window_stale and do not claim current TDCC history.
+- If the stock is absent from the official current main-price universe, preserve real TDCC dates and mark historical_only_noncurrent; do not infer a formal delisting status.
+- If TDCC is current but tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DISPLAY
@@ -119,29 +128,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260716
-- open: 152
-- high: 162
-- low: 151.5
-- close: 153
-- volume: 11479000
-- ma5: 159.8
-- ema23_primary: 175.98
-- distance_to_ema23_pct: -13.06
-- ma20: 189.07
-- ma60: 146.77
-- ma120: 112.49
-- return_5d: -14.53
-- return_20d: -27.49
-- volume_ratio: 0.75
-- distance_to_ma20_pct_auxiliary: -19.08
-- distance_to_high_60_pct: -36.12
+- date: 20260717
+- open: 145
+- high: 147
+- low: 139.5
+- close: 141
+- volume: 6401000
+- ma5: 153.4
+- ema23_primary: 173.07
+- distance_to_ema23_pct: -18.53
+- ma20: 185.12
+- ma60: 147.66
+- ma120: 112.92
+- return_5d: -18.5
+- return_20d: -35.91
+- volume_ratio: 0.46
+- distance_to_ma20_pct_auxiliary: -23.84
+- distance_to_high_60_pct: -41.13
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260617,208,225,205,220,36332000,163.02,34.95,162.5,111.37,2.57
 20260618,219,239.5,218.5,226.5,34165000,168.31,34.57,167.55,113.94,2.36
 20260622,228.5,235,212,213,26213000,172.04,23.81,171.68,116.31,1.66
 20260623,207,211.5,201,202,11121000,174.53,15.74,175.38,118.47,0.68
@@ -161,17 +169,18 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260714,161.5,167,149.5,153.5,6811000,180.21,-14.82,194.38,144.78,0.4
 20260715,157,159,148,154.5,7096000,178.07,-13.24,191.97,145.75,0.42
 20260716,152,162,151.5,153,11479000,175.98,-13.06,189.07,146.77,0.75
+20260717,145,147,139.5,141,6401000,173.07,-18.53,185.12,147.66,0.46
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260703
-- over_400_ratio: 47.55
-- over_600_ratio: 45.98
-- over_800_ratio: 44.26
-- over_1000_ratio: 43.2
-- over_400_change_1w: -1.99
-- over_800_change_1w: -2.66
-- over_1000_change_1w: -3.72
+- as_of_date: 20260717
+- over_400_ratio: 41.01
+- over_600_ratio: 39.23
+- over_800_ratio: 39.23
+- over_1000_ratio: 38.15
+- over_400_change_1w: -6.54
+- over_800_change_1w: -5.03
+- over_1000_change_1w: -5.05
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -190,17 +199,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260618,60.08,-1.09,53.28,-1.14,53.28,0.1,3,False,True
 20260626,49.54,-10.54,46.92,-6.36,46.92,-6.36,0,False,False
 20260703,47.55,-1.99,44.26,-2.66,43.2,-3.72,0,False,False
+20260717,41.01,-6.54,39.23,-5.03,38.15,-5.05,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 8043 | 蜜望實 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/06/18 2.發生緣由:依財團法人中華民國證券櫃檯買賣中心通知辦理公告。 3.財務業務資訊: (1)單月                          最近一月單月       去年同月      與去年同期增減% 期間                          (115/05)      (114/05) -------------------------------------------------------------------------- 營業收入(百萬元)                 616          386               59.59% 稅前淨利(百萬元)                  -1          -23               95.65% 歸屬母公司業主淨利(百萬元)        -1          -15               93.33% 每股盈餘(元)                   -0.01        -0.19               94.74%  (2)單季                          最近一季單季        去年同期      與去年同期增減% 期間                        (115第1季)      (114第1季) -------------------------------------------------------------------------- 營業收入(百萬元)                1,903         1,053             80.72% 稅前淨利(百萬元)                  134           -17            888.24% 歸屬母公司業主淨利(百萬元)        108           -25            532.00% 每股盈餘(元)                     1.35         -0.31            535.48% (3)最近四季累計 期間                       (114年第2季至115年第1季) -------------------------------------------------------------------------- 營業收入(百萬元)                6,276 稅前淨利(百萬元)                  293 歸屬母公司業主淨利(百萬元)        266 每股盈餘(元)                     3.33 -------------------------------------------------------------------------- 公司每股面額10元 4.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序 」第4條所列重大訊息之情事（如 「有」，請說明）:有 5.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序」第11條所列重大訊息說明記者會 之情事:無 6.其他應敘明事項: (1)以上115年05月及去年同期比較數之財務資料係本公司 依IFRS會計準則編製之合併自結數，未經會計師查核(核閱)， 僅供投資人參考。 (2)最近一季115年第1季及去年同期比較數係指單季數字， 係本公司依IFRS下編製之合併數，業係經會計師核閱，僅供投資人參考。 (3)最近四季累計係本公司114年第2季至115年第1季由本公司依IFRS編製之 合併數業經會計師查核(核閱)，僅供投資人參考#欄位說明；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260717 | 8043 | 蜜望實 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/06/18 2.發生緣由:依財團法人中華民國證券櫃檯買賣中心通知辦理公告。 3.財務業務資訊: (1)單月                          最近一月單月       去年同月      與去年同期增減% 期間                          (115/05)      (114/05) -------------------------------------------------------------------------- 營業收入(百萬元)                 616          386               59.59% 稅前淨利(百萬元)                  -1          -23               95.65% 歸屬母公司業主淨利(百萬元)        -1          -15               93.33% 每股盈餘(元)                   -0.01        -0.19               94.74%  (2)單季                          最近一季單季        去年同期      與去年同期增減% 期間                        (115第1季)      (114第1季) -------------------------------------------------------------------------- 營業收入(百萬元)                1,903         1,053             80.72% 稅前淨利(百萬元)                  134           -17            888.24% 歸屬母公司業主淨利(百萬元)        108           -25            532.00% 每股盈餘(元)                     1.35         -0.31            535.48% (3)最近四季累計 期間                       (114年第2季至115年第1季) -------------------------------------------------------------------------- 營業收入(百萬元)                6,276 稅前淨利(百萬元)                  293 歸屬母公司業主淨利(百萬元)        266 每股盈餘(元)                     3.33 -------------------------------------------------------------------------- 公司每股面額10元 4.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序 」第4條所列重大訊息之情事（如 「有」，請說明）:有 5.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序」第11條所列重大訊息說明記者會 之情事:無 6.其他應敘明事項: (1)以上115年05月及去年同期比較數之財務資料係本公司 依IFRS會計準則編製之合併自結數，未經會計師查核(核閱)， 僅供投資人參考。 (2)最近一季115年第1季及去年同期比較數係指單季數字， 係本公司依IFRS下編製之合併數，業係經會計師核閱，僅供投資人參考。 (3)最近四季累計係本公司114年第2季至115年第1季由本公司依IFRS編製之 合併數業經會計師查核(核閱)，僅供投資人參考#欄位說明；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 8043 | 蜜望實 | 1 | 1 | 4 | 9 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260717 | 8043 | 蜜望實 | 2 | 2 | 4 | 9 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |
