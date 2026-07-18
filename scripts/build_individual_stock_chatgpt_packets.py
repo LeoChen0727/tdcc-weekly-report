@@ -5,6 +5,7 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any
 from zoneinfo import ZoneInfo
+import json
 import re
 
 import pandas as pd
@@ -36,6 +37,8 @@ REPEAT_CSV = LATEST_DIR / "candidate_repeat_appearance_latest.csv"
 SELL_DIR = Path("output/history/sell_strategy_backtest")
 DATA_FRESHNESS_CSV = LATEST_DIR / "data_freshness_latest.csv"
 READ_ME_FIRST_TXT = LATEST_DIR / "READ_ME_FIRST_DAILY_REPORT.txt"
+OFFICIAL_TDCC_CONTRACT_JSON = LATEST_DIR / "tdcc_weekly_candidate_report_validation_latest.json"
+OFFICIAL_TDCC_DATE_SOURCE = "report_ready_csv_signal_date"
 
 
 def now_text() -> str:
@@ -113,6 +116,36 @@ def current_main_price_date() -> str:
         if value:
             return value
     return ""
+
+
+def load_official_tdcc_signal_date(path: Path | None = None) -> str:
+    contract_path = path or OFFICIAL_TDCC_CONTRACT_JSON
+    if not contract_path.exists():
+        raise SystemExit(f"ERROR: Missing official TDCC date contract: {contract_path}")
+    try:
+        payload = json.loads(contract_path.read_text(encoding="utf-8-sig"))
+    except (OSError, json.JSONDecodeError) as exc:
+        raise SystemExit(f"ERROR: Cannot read official TDCC date contract {contract_path}: {exc}") from exc
+    if not isinstance(payload, dict):
+        raise SystemExit(f"ERROR: Official TDCC date contract must be a JSON object: {contract_path}")
+    if safe_str(payload.get("status")) != "pass":
+        raise SystemExit(
+            f"ERROR: Official TDCC date contract status must be pass, got {safe_str(payload.get('status')) or 'missing'}: "
+            f"{contract_path}"
+        )
+    date_contract = payload.get("date_contract")
+    if not isinstance(date_contract, dict):
+        raise SystemExit(f"ERROR: Official TDCC date contract missing date_contract object: {contract_path}")
+    date_source = safe_str(date_contract.get("date_source"))
+    if date_source != OFFICIAL_TDCC_DATE_SOURCE:
+        raise SystemExit(
+            f"ERROR: Official TDCC date_source must be {OFFICIAL_TDCC_DATE_SOURCE}, got {date_source or 'missing'}: "
+            f"{contract_path}"
+        )
+    signal_date = safe_str(payload.get("signal_date"))
+    if not re.fullmatch(r"20[0-9]{6}", signal_date):
+        raise SystemExit(f"ERROR: Official TDCC date contract missing valid signal_date: {contract_path}")
+    return signal_date
 
 
 def filter_to_main_price_date(df: pd.DataFrame, main_date: str) -> pd.DataFrame:
@@ -376,7 +409,12 @@ def collect_stock_ids(frames: list[pd.DataFrame]) -> list[str]:
     return sorted(ids)
 
 
-def status_from_rows(price_rows: int, tdcc_rows: int) -> tuple[str, str, str]:
+def status_from_rows(
+    price_rows: int,
+    tdcc_rows: int,
+    latest_tdcc_date: str,
+    official_tdcc_signal_date: str,
+) -> tuple[str, str, str, str]:
     if price_rows >= 120:
         packet_status = "standard_180d_window_packet"
     elif price_rows >= 60:
@@ -386,12 +424,18 @@ def status_from_rows(price_rows: int, tdcc_rows: int) -> tuple[str, str, str]:
     else:
         packet_status = "insufficient_price_data"
 
-    if tdcc_rows >= 8:
+    if tdcc_rows > 0 and latest_tdcc_date != official_tdcc_signal_date:
+        tdcc_status = "tdcc_window_stale"
+        tdcc_freshness_status = "tdcc_window_stale"
+    elif tdcc_rows >= 8:
         tdcc_status = "tdcc_history_ready"
+        tdcc_freshness_status = "tdcc_window_fresh"
     elif tdcc_rows > 0:
         tdcc_status = "insufficient_tdcc_history"
+        tdcc_freshness_status = "tdcc_window_fresh"
     else:
         tdcc_status = "tdcc_missing"
+        tdcc_freshness_status = "tdcc_missing"
 
     notes = []
     if packet_status == "insufficient_price_data":
@@ -402,7 +446,12 @@ def status_from_rows(price_rows: int, tdcc_rows: int) -> tuple[str, str, str]:
         notes.append("TDCC history fewer than 8 weeks; do not make 8-12 week TDCC backtest conclusions")
     if tdcc_status == "tdcc_missing":
         notes.append("TDCC history missing")
-    return packet_status, tdcc_status, "; ".join(notes)
+    if tdcc_status == "tdcc_window_stale":
+        notes.append(
+            f"TDCC window stale: latest_tdcc_date={latest_tdcc_date or 'missing'} does not match "
+            f"official_tdcc_signal_date={official_tdcc_signal_date}; do not claim current TDCC history"
+        )
+    return packet_status, tdcc_status, tdcc_freshness_status, "; ".join(notes)
 
 
 def latest_date(df: pd.DataFrame, candidates: list[str]) -> str:
@@ -423,6 +472,7 @@ def build_packet(
     repeat_df: pd.DataFrame,
     price_days: int,
     tdcc_weeks: int,
+    official_tdcc_signal_date: str,
 ) -> tuple[str, dict[str, Any]]:
     price_df = sort_by_date(price_df, ["date", "trade_date"])
     tdcc_df = sort_by_date(tdcc_df, ["as_of_date", "date"])
@@ -433,9 +483,14 @@ def build_packet(
     stock_name = stock_name_from_frames(stock_id, [price_df, tdcc_df, candidate_df, warrant_stock_df, repeat_stock_df])
     price_rows = len(price_df)
     tdcc_rows = len(tdcc_df)
-    packet_status, tdcc_status, notes = status_from_rows(price_rows, tdcc_rows)
     latest_price_date = latest_date(price_df, ["date", "trade_date"])
     latest_tdcc_date = latest_date(tdcc_df, ["as_of_date", "date"])
+    packet_status, tdcc_status, tdcc_freshness_status, notes = status_from_rows(
+        price_rows,
+        tdcc_rows,
+        latest_tdcc_date,
+        official_tdcc_signal_date,
+    )
 
     packet_path = PACKET_DIR / f"{stock_id}_packet_latest.md"
     price_window_path = PRICE_WINDOW_DIR / f"{stock_id}_price_window_{price_days}_latest.csv"
@@ -465,9 +520,9 @@ def build_packet(
             "tdcc_status": pick_value(latest_tdcc, ["tdcc_status", "tdcc_judgement", "tdcc_accumulation_signal"]),
         }
     )
-    if tdcc_status == "insufficient_tdcc_history":
+    if tdcc_status in {"insufficient_tdcc_history", "tdcc_window_stale"}:
         action_source["downgrade_flags"] = "|".join(
-            [safe_str(action_source.get("downgrade_flags", "")), "insufficient_tdcc_history"]
+            [safe_str(action_source.get("downgrade_flags", "")), tdcc_status]
         ).strip("|")
     action_decision = compute_action_decision(action_source)
 
@@ -533,9 +588,11 @@ def build_packet(
         f"- packet_status: {packet_status}",
         f"- latest_price_date: {latest_price_date}",
         f"- price_rows: {price_rows}",
+        f"- official_tdcc_signal_date: {official_tdcc_signal_date}",
         f"- latest_tdcc_date: {latest_tdcc_date}",
         f"- tdcc_rows: {tdcc_rows}",
         f"- tdcc_history_status: {tdcc_status}",
+        f"- tdcc_freshness_status: {tdcc_freshness_status}",
         f"- individual_report_md_exists: {report_md.exists()}",
         f"- sell_strategy_summary_exists: {sell_summary.exists()}",
         f"- notes: {notes}".rstrip(),
@@ -577,7 +634,9 @@ def build_packet(
         "- MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.",
         "- The full historical CSV remains available for Python backtests.",
         "- If price_rows < 60, do not produce a standard technical report.",
-        "- If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.",
+        "- Only claim tdcc_history_ready when tdcc_rows >= 8 and latest_tdcc_date equals official_tdcc_signal_date.",
+        "- If latest_tdcc_date differs from official_tdcc_signal_date, mark tdcc_window_stale and do not claim current TDCC history.",
+        "- If TDCC is current but tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.",
         "- External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.",
         "",
         "## ACTION_DISPLAY",
@@ -752,8 +811,10 @@ def build_packet(
         "price_rows": price_rows,
         "latest_price_date": latest_price_date,
         "tdcc_rows": tdcc_rows,
+        "official_tdcc_signal_date": official_tdcc_signal_date,
         "latest_tdcc_date": latest_tdcc_date,
         "tdcc_history_status": tdcc_status,
+        "tdcc_freshness_status": tdcc_freshness_status,
         "has_candidate_context": not candidate_df.empty,
         "has_repeat_context": not repeat_stock_df.empty,
         "has_warrant_context": not warrant_stock_df.empty,
@@ -797,7 +858,7 @@ def build_packet(
         "tdcc_window_txt_github_api_url": github_api_url(tdcc_window_txt_path),
         "price_raw_url": raw_url(price_path),
         "tdcc_raw_url": raw_url(tdcc_path),
-        "data_quality_status": packet_status if tdcc_status != "insufficient_tdcc_history" else f"{packet_status}+insufficient_tdcc_history",
+        "data_quality_status": packet_status if tdcc_status == "tdcc_history_ready" else f"{packet_status}+{tdcc_status}",
         "notes": notes,
     }
     return text, index_row
@@ -821,6 +882,14 @@ def write_index(rows: list[dict[str, Any]], merge_existing: bool) -> pd.DataFram
 
 def write_index_md(index: pd.DataFrame) -> None:
     status_counts = index["packet_status"].value_counts().to_dict() if "packet_status" in index.columns else {}
+    tdcc_freshness_counts = (
+        index["tdcc_freshness_status"].value_counts().to_dict() if "tdcc_freshness_status" in index.columns else {}
+    )
+    official_tdcc_dates = (
+        sorted({safe_str(value) for value in index["official_tdcc_signal_date"].tolist() if safe_str(value)})
+        if "official_tdcc_signal_date" in index.columns
+        else []
+    )
     lines = [
         "# Individual Stock ChatGPT Packet Index",
         "",
@@ -831,6 +900,10 @@ def write_index_md(index: pd.DataFrame) -> None:
         f"- standard_rawdata_packet: {status_counts.get('standard_rawdata_packet', 0)}",
         f"- partial_rawdata_packet: {status_counts.get('partial_rawdata_packet', 0)}",
         f"- insufficient_price_data: {status_counts.get('insufficient_price_data', 0)}",
+        f"- official_tdcc_signal_date: {official_tdcc_dates[0] if len(official_tdcc_dates) == 1 else 'mixed_or_missing'}",
+        f"- tdcc_window_fresh: {tdcc_freshness_counts.get('tdcc_window_fresh', 0)}",
+        f"- tdcc_window_stale: {tdcc_freshness_counts.get('tdcc_window_stale', 0)}",
+        f"- tdcc_missing: {tdcc_freshness_counts.get('tdcc_missing', 0)}",
         f"- csv_raw_url: {raw_url(PACKET_INDEX_CSV)}",
         f"- csv_pages_url: {pages_url_for(DOCS_PACKET_INDEX_CSV)}",
         f"- csv_github_api_url: {github_api_url(PACKET_INDEX_CSV)}",
@@ -858,8 +931,10 @@ def write_index_md(index: pd.DataFrame) -> None:
                 "price_rows",
                 "latest_price_date",
                 "tdcc_rows",
+                "official_tdcc_signal_date",
                 "latest_tdcc_date",
                 "tdcc_history_status",
+                "tdcc_freshness_status",
                 "action_rating_display_zh",
                 "model_category_display_zh",
                 "entry_strategy_zh",
@@ -900,6 +975,8 @@ def main() -> int:
     parser.add_argument("--tdcc-weeks", type=int, default=12)
     args = parser.parse_args()
 
+    official_tdcc_signal_date = load_official_tdcc_signal_date()
+
     all_candidates_df = read_csv(ALL_CANDIDATES_CSV)
     warrant_df = read_csv(WARRANT_FLOW_CSV)
     repeat_df = read_csv(REPEAT_CSV)
@@ -932,6 +1009,7 @@ def main() -> int:
             repeat_df=repeat_df,
             price_days=args.price_days,
             tdcc_weeks=args.tdcc_weeks,
+            official_tdcc_signal_date=official_tdcc_signal_date,
         )
         packet_path = PACKET_DIR / f"{stock_id}_packet_latest.md"
         write_text(packet_path, text)
@@ -942,6 +1020,7 @@ def main() -> int:
     print(f"Saved packets: {len(rows)}")
     print(f"Saved: {PACKET_INDEX_CSV} rows={len(index)}")
     print(f"Saved: {PACKET_INDEX_MD}")
+    print(f"Official TDCC signal date: {official_tdcc_signal_date}")
     return 0
 
 

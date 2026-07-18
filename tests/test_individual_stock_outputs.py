@@ -1,10 +1,12 @@
 from __future__ import annotations
 
 import importlib
+import json
 import sys
 from pathlib import Path
 
 import pandas as pd
+import pytest
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -91,3 +93,167 @@ def test_raw_index_stock_id_collection_ignores_report_support_files(tmp_path, mo
     assert "INDIVIDUALSTOCKREADPROTOCOL" not in ids
     assert "1234567" not in ids
     assert ids == {"0123", "1101", "2330", "2353", "2484", "8299"}
+
+
+def write_tdcc_contract(
+    path: Path,
+    *,
+    status: str = "pass",
+    signal_date: str = "20260717",
+    date_source: str = "report_ready_csv_signal_date",
+) -> None:
+    path.write_text(
+        json.dumps(
+            {
+                "status": status,
+                "signal_date": signal_date,
+                "date_contract": {"date_source": date_source},
+            }
+        ),
+        encoding="utf-8",
+    )
+
+
+def packet_text(
+    *,
+    latest_tdcc_date: str,
+    history_status: str,
+    freshness_status: str,
+    tdcc_rows: int = 12,
+) -> str:
+    return "\n".join(
+        [
+            "# packet",
+            "",
+            "## Metadata",
+            "- stock_id: 2330",
+            "- official_tdcc_signal_date: 20260717",
+            f"- latest_tdcc_date: {latest_tdcc_date}",
+            f"- tdcc_rows: {tdcc_rows}",
+            f"- tdcc_history_status: {history_status}",
+            f"- tdcc_freshness_status: {freshness_status}",
+            "",
+            "## Stable Read URLs",
+        ]
+    )
+
+
+def test_official_tdcc_contract_loaders_fail_closed(tmp_path):
+    builder = load_script("build_individual_stock_chatgpt_packets")
+    validator = load_script("validate_individual_stock_outputs")
+    missing = tmp_path / "missing.json"
+    for loader in [builder.load_official_tdcc_signal_date, validator.read_official_tdcc_signal_date]:
+        with pytest.raises(SystemExit, match="Missing official TDCC date contract"):
+            loader(missing)
+
+    failed_contract = tmp_path / "failed.json"
+    write_tdcc_contract(failed_contract, status="fail")
+    for loader in [builder.load_official_tdcc_signal_date, validator.read_official_tdcc_signal_date]:
+        with pytest.raises(SystemExit, match="status must be pass"):
+            loader(failed_contract)
+
+    wrong_source_contract = tmp_path / "wrong-source.json"
+    write_tdcc_contract(wrong_source_contract, date_source="weekly_file_max_date")
+    for loader in [builder.load_official_tdcc_signal_date, validator.read_official_tdcc_signal_date]:
+        with pytest.raises(SystemExit, match="date_source must be report_ready_csv_signal_date"):
+            loader(wrong_source_contract)
+
+
+def test_tdcc_packet_20260703_fails_then_rebuilt_20260717_passes(tmp_path):
+    builder = load_script("build_individual_stock_chatgpt_packets")
+    validator = load_script("validate_individual_stock_outputs")
+    packet_path = tmp_path / "2330_packet_latest.md"
+
+    _, stale_history_status, stale_freshness_status, _ = builder.status_from_rows(
+        180, 12, "20260703", "20260717"
+    )
+    assert stale_history_status == "tdcc_window_stale"
+    assert stale_freshness_status == "tdcc_window_stale"
+    packet_path.write_text(
+        packet_text(
+            latest_tdcc_date="20260703",
+            history_status=stale_history_status,
+            freshness_status=stale_freshness_status,
+        ),
+        encoding="utf-8",
+    )
+    stale_index_row = {
+        "official_tdcc_signal_date": "20260717",
+        "latest_tdcc_date": "20260703",
+        "tdcc_rows": "12",
+        "tdcc_history_status": stale_history_status,
+        "tdcc_freshness_status": stale_freshness_status,
+    }
+    stale_errors = validator.validate_tdcc_packet_freshness(
+        "2330", packet_path, stale_index_row, "20260717"
+    )
+    assert any("packet latest_tdcc_date mismatch" in error for error in stale_errors)
+    assert any("expected tdcc_history_ready" in error for error in stale_errors)
+
+    _, fresh_history_status, fresh_freshness_status, _ = builder.status_from_rows(
+        180, 12, "20260717", "20260717"
+    )
+    assert fresh_history_status == "tdcc_history_ready"
+    assert fresh_freshness_status == "tdcc_window_fresh"
+    packet_path.write_text(
+        packet_text(
+            latest_tdcc_date="20260717",
+            history_status=fresh_history_status,
+            freshness_status=fresh_freshness_status,
+        ),
+        encoding="utf-8",
+    )
+    fresh_index_row = {
+        "official_tdcc_signal_date": "20260717",
+        "latest_tdcc_date": "20260717",
+        "tdcc_rows": "12",
+        "tdcc_history_status": fresh_history_status,
+        "tdcc_freshness_status": fresh_freshness_status,
+    }
+    assert validator.validate_tdcc_packet_freshness(
+        "2330", packet_path, fresh_index_row, "20260717"
+    ) == []
+
+
+@pytest.mark.parametrize(
+    ("tdcc_rows", "latest_tdcc_date", "expected_history_status", "expected_freshness_status"),
+    [
+        (0, "", "tdcc_missing", "tdcc_missing"),
+        (7, "20260717", "insufficient_tdcc_history", "tdcc_window_fresh"),
+        (8, "20260717", "tdcc_history_ready", "tdcc_window_fresh"),
+    ],
+)
+def test_tdcc_missing_and_fresh_history_states_are_accepted(
+    tmp_path,
+    tdcc_rows,
+    latest_tdcc_date,
+    expected_history_status,
+    expected_freshness_status,
+):
+    builder = load_script("build_individual_stock_chatgpt_packets")
+    validator = load_script("validate_individual_stock_outputs")
+    packet_path = tmp_path / "2330_packet_latest.md"
+    _, history_status, freshness_status, _ = builder.status_from_rows(
+        180, tdcc_rows, latest_tdcc_date, "20260717"
+    )
+    assert history_status == expected_history_status
+    assert freshness_status == expected_freshness_status
+    packet_path.write_text(
+        packet_text(
+            latest_tdcc_date=latest_tdcc_date,
+            history_status=history_status,
+            freshness_status=freshness_status,
+            tdcc_rows=tdcc_rows,
+        ),
+        encoding="utf-8",
+    )
+    index_row = {
+        "official_tdcc_signal_date": "20260717",
+        "latest_tdcc_date": latest_tdcc_date,
+        "tdcc_rows": str(tdcc_rows),
+        "tdcc_history_status": history_status,
+        "tdcc_freshness_status": freshness_status,
+    }
+    assert validator.validate_tdcc_packet_freshness(
+        "2330", packet_path, index_row, "20260717"
+    ) == []
