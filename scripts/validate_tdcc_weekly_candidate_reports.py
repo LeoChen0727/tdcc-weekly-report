@@ -12,6 +12,7 @@ import pandas as pd
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from tdcc_weekly_pdf_font_contract import validate_tdcc_weekly_pdf_font_contract  # noqa: E402
+from tdcc_dataset_contract import load_tdcc_dataset_manifest  # noqa: E402
 
 
 LATEST_DIR = Path("output/latest")
@@ -76,6 +77,7 @@ REQUIRED_REPORT_COLUMNS = [
     "tdcc_list_type",
     "tdcc_rank",
     "signal_date",
+    "source_tdcc_dataset_id",
     "stock_id",
     "stock_name",
     "tdcc_score",
@@ -768,6 +770,11 @@ def write_validation(result: dict[str, Any]) -> None:
 def main() -> None:
     errors: list[str] = []
     warnings: list[str] = []
+    try:
+        dataset_manifest = load_tdcc_dataset_manifest()
+    except Exception as exc:
+        errors.append(str(exc))
+        dataset_manifest = {}
 
     weekly = read_csv(WEEKLY_INCREASE_CSV, errors)
     consecutive = read_csv(CONSECUTIVE_CSV, errors)
@@ -791,6 +798,29 @@ def main() -> None:
         errors.append("consecutive accumulation source ranking contains rows below 2-week 800/1000 effective streak")
 
     signal_date = validate_signal_dates(highlight, full, errors)
+    dataset_id = safe_str(dataset_manifest.get("dataset_id"))
+    dataset_signal_date = safe_str(dataset_manifest.get("signal_date"))
+    if signal_date and dataset_signal_date != signal_date:
+        errors.append(
+            "TDCC report signal_date does not match canonical dataset manifest: "
+            f"report={signal_date} dataset={dataset_signal_date}"
+        )
+    if dataset_id:
+        for label, report in (
+            ("highlight report-ready CSV", highlight),
+            ("full report-ready CSV", full),
+        ):
+            values = sorted(
+                {
+                    safe_str(value)
+                    for value in report.get("source_tdcc_dataset_id", pd.Series(dtype=str)).dropna()
+                    if safe_str(value)
+                }
+            )
+            if values != [dataset_id]:
+                errors.append(
+                    f"{label} source_tdcc_dataset_id must be exactly {dataset_id}, got {values}"
+                )
     validate_no_root_delivery_pdfs(errors)
 
     source_date_sets = {
@@ -888,6 +918,11 @@ def main() -> None:
     result: dict[str, Any] = {
         "status": "pass" if not errors else "fail",
         "signal_date": signal_date,
+        "tdcc_dataset_contract": {
+            "dataset_id": dataset_id,
+            "signal_date": dataset_signal_date,
+            "manifest_path": "output/latest/tdcc_dataset_manifest_latest.json",
+        },
         "date_contract": date_contract,
         "row_counts": row_counts,
         "section_counts": section_counts,

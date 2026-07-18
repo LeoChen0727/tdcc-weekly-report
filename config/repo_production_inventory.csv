@@ -1,4 +1,8 @@
 path,kind,owner,status,purpose,allowed_workflows,allowed_stage_patterns
+scripts/build_tdcc_dataset_manifest.py,python,tdcc_weekly,active,TDCC canonical content-addressed dataset manifest builder,.github/workflows/tdcc_weekly.yml,
+scripts/tdcc_dataset_contract.py,python,tdcc_weekly,active,TDCC canonical dataset identity and snapshot coverage contract,,
+scripts/validate_tdcc_dataset_manifest.py,python,tdcc_weekly,active,TDCC canonical dataset manifest validator,.github/workflows/tdcc_weekly.yml,
+tests/test_tdcc_dataset_contract.py,test_python,tdcc_weekly,active,TDCC canonical dataset identity coverage and gap regression tests,,
 docs/apps_script_workflow_trigger.gs,executable_script,repo_infrastructure,active,Google Apps Script workflow trigger helper documented for external automation,,
 scripts/ci_push_with_retry.sh,executable_script,repo_infrastructure,active,GitHub Actions push retry helper used after generated artifact commits,,
 backfill_official_daily_price.py,python,official_price_data,active,official price data script: backfill_official_daily_price,.github/workflows/daily_full_pipeline.yml;.github/workflows/debug_tpex_fetch.yml;.github/workflows/individual_stock_data_refresh.yml;.github/workflows/individual_stock_report.yml;.github/workflows/official_price_backfill.yml;.github/workflows/official_price_fetch.yml;.github/workflows/repair_daily_price_range.yml;.github/workflows/repair_one_daily_price.yml;.github/workflows/warrant_flow.yml,
