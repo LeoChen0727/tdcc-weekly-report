@@ -1,16 +1,52 @@
 {
   "status": "pass",
   "schema_version": "tdcc_dataset_manifest_v1",
-  "dataset_id": "tdcc-20260717-494211df6cae54ae",
-  "dataset_hash": "494211df6cae54ae98120cddd9d796a5114f639b470fafe66514c979a857dcc9",
+  "dataset_id": "tdcc-20260717-98c564c5bc4ab725",
+  "dataset_hash": "98c564c5bc4ab725a75b632950e37f9cbc9f85a9b152bf5b67ae6601c9b89b08",
   "hash_mode": "utf8_text_lf_normalized_sha256",
-  "generated_at": "2026-07-19 04:43:35 Asia/Taipei",
+  "generated_at": "2026-07-19 07:11:25 Asia/Taipei",
   "signal_date": "20260717",
   "official_date_source": "https://www.tdcc.com.tw/portal/zh/smWeb/qryStock",
   "canonical_source_root": "output/history/tdcc",
   "readiness_path": "output/latest/tdcc_weekly_data_readiness_latest.json",
   "continuity_path": "output/latest/tdcc_weekly_history_continuity_latest.json",
   "required_dates": [
+    "20260430",
+    "20260508",
+    "20260515",
+    "20260522",
+    "20260529",
+    "20260605",
+    "20260612",
+    "20260618",
+    "20260626",
+    "20260703",
+    "20260709",
+    "20260717"
+  ],
+  "history_dates": [
+    "20251121",
+    "20251128",
+    "20251205",
+    "20251212",
+    "20251219",
+    "20251226",
+    "20260102",
+    "20260109",
+    "20260116",
+    "20260123",
+    "20260130",
+    "20260206",
+    "20260213",
+    "20260226",
+    "20260306",
+    "20260313",
+    "20260320",
+    "20260327",
+    "20260402",
+    "20260410",
+    "20260417",
+    "20260424",
     "20260430",
     "20260508",
     "20260515",
@@ -163,6 +199,247 @@
       "sha256": "141fe58ff437c0730e3d7d9766a69c6a91fd2364eb65894cae3cd36b9e73be3c"
     }
   ],
+  "history_snapshot_count": 34,
+  "history_snapshots": [
+    {
+      "date": "20251121",
+      "path": "output/history/tdcc/tdcc_holder_ratio_20251121.csv",
+      "row_count": 81,
+      "stock_count": 81,
+      "sha256": "05ab38947a5d31b3be9bd7bfeaef220fdb10cdd36b06a8cf25f5296650aee571"
+    },
+    {
+      "date": "20251128",
+      "path": "output/history/tdcc/tdcc_holder_ratio_20251128.csv",
+      "row_count": 81,
+      "stock_count": 81,
+      "sha256": "1b861fcd51909272f4d242eefc7852640dcf9c176d12a297aeac2b85f3e2b6e5"
+    },
+    {
+      "date": "20251205",
+      "path": "output/history/tdcc/tdcc_holder_ratio_20251205.csv",
+      "row_count": 81,
+      "stock_count": 81,
+      "sha256": "82c862d3dc8b199614acd997d5aef52cb40e5ef4a8bedb55bc7ba465427fdf39"
+    },
+    {
+      "date": "20251212",
+      "path": "output/history/tdcc/tdcc_holder_ratio_20251212.csv",
+      "row_count": 81,
+      "stock_count": 81,
+      "sha256": "dc18095d4e6c256703470e60222a5363cb40dc6c8a15c04af99af106e623e829"
+    },
+    {
+      "date": "20251219",
+      "path": "output/history/tdcc/tdcc_holder_ratio_20251219.csv",
+      "row_count": 81,
+      "stock_count": 81,
+      "sha256": "df7e2b65266209f861fd82ba959872f069c08730286e7685e4e1b4ecd490d5da"
+    },
+    {
+      "date": "20251226",
+      "path": "output/history/tdcc/tdcc_holder_ratio_20251226.csv",
+      "row_count": 81,
+      "stock_count": 81,
+      "sha256": "56fa8f08f13ef7ce86bced237fc56a7b00a9af243f723bf12f17131f0e62e0ad"
+    },
+    {
+      "date": "20260102",
+      "path": "output/history/tdcc/tdcc_holder_ratio_20260102.csv",
+      "row_count": 81,
+      "stock_count": 81,
+      "sha256": "ae9dfec4d90154a3f9204d608059a37adca025b61ae0b0281b4ded7d4b05901a"
+    },
+    {
+      "date": "20260109",
+      "path": "output/history/tdcc/tdcc_holder_ratio_20260109.csv",
+      "row_count": 81,
+      "stock_count": 81,
+      "sha256": "8497f2fd0d21a0c746ca0ab06b9a033b95e121316e4d31d8d5867e726e6ca26a"
+    },
+    {
+      "date": "20260116",
+      "path": "output/history/tdcc/tdcc_holder_ratio_20260116.csv",
+      "row_count": 81,
+      "stock_count": 81,
+      "sha256": "b121c97f73fce27dc70ff674042bc602b8def405efdf3c02d3712368f6d8c7da"
+    },
+    {
+      "date": "20260123",
+      "path": "output/history/tdcc/tdcc_holder_ratio_20260123.csv",
+      "row_count": 81,
+      "stock_count": 81,
+      "sha256": "000a44ff109f1a89264b876b920a851d2722e801307389b06f09e15609bc5d82"
+    },
+    {
+      "date": "20260130",
+      "path": "output/history/tdcc/tdcc_holder_ratio_20260130.csv",
+      "row_count": 81,
+      "stock_count": 81,
+      "sha256": "d28e1f56e70fcd2077fa1bfc4de4ef453d7ed85985dbd84d6f8e734dcf039072"
+    },
+    {
+      "date": "20260206",
+      "path": "output/history/tdcc/tdcc_holder_ratio_20260206.csv",
+      "row_count": 81,
+      "stock_count": 81,
+      "sha256": "752151e6b7b1a25ddf1143eaef2572376211c12c1f0d1235c6f7ebfc0dddeb2d"
+    },
+    {
+      "date": "20260213",
+      "path": "output/history/tdcc/tdcc_holder_ratio_20260213.csv",
+      "row_count": 81,
+      "stock_count": 81,
+      "sha256": "72ae0ee4e50354905d599360e148372cc36fa1319956ab9cc035e690fc17c1ae"
+    },
+    {
+      "date": "20260226",
+      "path": "output/history/tdcc/tdcc_holder_ratio_20260226.csv",
+      "row_count": 81,
+      "stock_count": 81,
+      "sha256": "748ac4076de935041bac18bd4b4fa3a429c89d3e07bbf3ed471ad7b0e1d314dc"
+    },
+    {
+      "date": "20260306",
+      "path": "output/history/tdcc/tdcc_holder_ratio_20260306.csv",
+      "row_count": 81,
+      "stock_count": 81,
+      "sha256": "43aa8c0f8b7fa1eed65e0da373a13c2a81763c1a0856e68c3ec693bbaa398510"
+    },
+    {
+      "date": "20260313",
+      "path": "output/history/tdcc/tdcc_holder_ratio_20260313.csv",
+      "row_count": 81,
+      "stock_count": 81,
+      "sha256": "ebba298223518f033c7a36155806ff81f5788df33ecc6fe3f184a97c72128ad5"
+    },
+    {
+      "date": "20260320",
+      "path": "output/history/tdcc/tdcc_holder_ratio_20260320.csv",
+      "row_count": 81,
+      "stock_count": 81,
+      "sha256": "826f696802ec403278d0632f66f35fa2c81b4a7349e74a16de17bb9f0f5603b7"
+    },
+    {
+      "date": "20260327",
+      "path": "output/history/tdcc/tdcc_holder_ratio_20260327.csv",
+      "row_count": 81,
+      "stock_count": 81,
+      "sha256": "c19ad9e07988e1929948fc3f0b0f64b6e9cedd994febb6d7acad5bbd56647571"
+    },
+    {
+      "date": "20260402",
+      "path": "output/history/tdcc/tdcc_holder_ratio_20260402.csv",
+      "row_count": 81,
+      "stock_count": 81,
+      "sha256": "fbee0856169e401cd5a97591f868d1652bf1292af8f100ef6f12843faedd5107"
+    },
+    {
+      "date": "20260410",
+      "path": "output/history/tdcc/tdcc_holder_ratio_20260410.csv",
+      "row_count": 81,
+      "stock_count": 81,
+      "sha256": "9d147ca1bcac8ab237443643ae5cc920441685f592d5f0bc74b74f66fd13d73e"
+    },
+    {
+      "date": "20260417",
+      "path": "output/history/tdcc/tdcc_holder_ratio_20260417.csv",
+      "row_count": 83,
+      "stock_count": 83,
+      "sha256": "380202e5c8a3969198dd457acbece5285e11a3d946aa39211b5c107318e216b9"
+    },
+    {
+      "date": "20260424",
+      "path": "output/history/tdcc/tdcc_holder_ratio_20260424.csv",
+      "row_count": 83,
+      "stock_count": 83,
+      "sha256": "e18b971eedeee454338c04fb82d02c17db30f7ee6137885a44241c1601cdff8c"
+    },
+    {
+      "date": "20260430",
+      "path": "output/history/tdcc/tdcc_holder_ratio_20260430.csv",
+      "row_count": 1972,
+      "stock_count": 1972,
+      "sha256": "c65b3d0b10a8d5e03a901f981d543d725b72a4206a7a5af8194bbf4e0d58f015"
+    },
+    {
+      "date": "20260508",
+      "path": "output/history/tdcc/tdcc_holder_ratio_20260508.csv",
+      "row_count": 1972,
+      "stock_count": 1972,
+      "sha256": "a64ddf96e7d65c7732379d58d8ab434e6de547d72288460521c31fbe8d08e99c"
+    },
+    {
+      "date": "20260515",
+      "path": "output/history/tdcc/tdcc_holder_ratio_20260515.csv",
+      "row_count": 1972,
+      "stock_count": 1972,
+      "sha256": "360a1aa7bd8a254e2bcabbb4965d2a0e0198afd09aabca9baf955b4b8aff7f66"
+    },
+    {
+      "date": "20260522",
+      "path": "output/history/tdcc/tdcc_holder_ratio_20260522.csv",
+      "row_count": 1972,
+      "stock_count": 1972,
+      "sha256": "f8429acbc0a383338ea5a639d9e1e8838594e7c61a69e94bc7ab707b9ac828b9"
+    },
+    {
+      "date": "20260529",
+      "path": "output/history/tdcc/tdcc_holder_ratio_20260529.csv",
+      "row_count": 1972,
+      "stock_count": 1972,
+      "sha256": "8383ad6d544dd496d33caacd410af252d0d4317a6665db48196810fb0e4480ce"
+    },
+    {
+      "date": "20260605",
+      "path": "output/history/tdcc/tdcc_holder_ratio_20260605.csv",
+      "row_count": 1972,
+      "stock_count": 1972,
+      "sha256": "600ae8d6a193c7bbf78505ddf08dd320d96817f1167c2807599006216653c6d8"
+    },
+    {
+      "date": "20260612",
+      "path": "output/history/tdcc/tdcc_holder_ratio_20260612.csv",
+      "row_count": 1972,
+      "stock_count": 1972,
+      "sha256": "94fd09606358a3e69a37f768695e4a4348e956cd2cec72b0ba187e2c8c18a14f"
+    },
+    {
+      "date": "20260618",
+      "path": "output/history/tdcc/tdcc_holder_ratio_20260618.csv",
+      "row_count": 1972,
+      "stock_count": 1972,
+      "sha256": "ec029bf45025aa46235835c42c7c1471d361d324d28314a3cb1d1837f061abbb"
+    },
+    {
+      "date": "20260626",
+      "path": "output/history/tdcc/tdcc_holder_ratio_20260626.csv",
+      "row_count": 1970,
+      "stock_count": 1970,
+      "sha256": "04203132814e52e154a35c18ff795f2ec49d498644d267bbd313719f58ef6df9"
+    },
+    {
+      "date": "20260703",
+      "path": "output/history/tdcc/tdcc_holder_ratio_20260703.csv",
+      "row_count": 1972,
+      "stock_count": 1972,
+      "sha256": "48c51a42860f530d91f094cae83b03782fcbd5744cb620c177fc5b1ccfbbd900"
+    },
+    {
+      "date": "20260709",
+      "path": "output/history/tdcc/tdcc_holder_ratio_20260709.csv",
+      "row_count": 1972,
+      "stock_count": 1972,
+      "sha256": "063ae4c615aece8656e46627daa8badc11ef07f83cbe1ccc1b138de9af2c9ea6"
+    },
+    {
+      "date": "20260717",
+      "path": "output/history/tdcc/tdcc_holder_ratio_20260717.csv",
+      "row_count": 1972,
+      "stock_count": 1972,
+      "sha256": "141fe58ff437c0730e3d7d9766a69c6a91fd2364eb65894cae3cd36b9e73be3c"
+    }
+  ],
   "accepted_history_exceptions": [
     {
       "date": "20260626",
@@ -175,8 +452,8 @@
   ],
   "producer": {
     "workflow": "TDCC Weekly Report",
-    "run_id": "29660154748",
+    "run_id": "29664695862",
     "source_ref": "main",
-    "source_commit_sha": "9d2155112e93bc29e21308fe096acc43e1a1f308"
+    "source_commit_sha": "8c4f49a7f42ba69f555402bc10836b62e53430df"
   }
 }
