@@ -57,7 +57,7 @@ jobs:
 
       - name: Fetch current TDCC snapshot
         run: |
-          python tdcc_holder_ratio_top10.py --fetch-only
+          python tdcc_holder_ratio_top10.py --fetch-only --use-existing-readiness
 
       - name: Repair TDCC weekly history continuity
         run: |

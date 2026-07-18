@@ -305,6 +305,7 @@ def validate_tdcc_individual_refresh_orchestration(errors: list[str]) -> None:
     for snippet, message in {
         "target_as_of_date:": "TDCC workflow must declare the pinned target date input",
         'args+=(--as-of-date "${{ github.event.inputs.target_as_of_date }}")': "TDCC readiness step must consume the pinned target date",
+        "python tdcc_holder_ratio_top10.py --fetch-only --use-existing-readiness": "TDCC fetch step must preserve the pinned same-run readiness artifact",
     }.items():
         require_text(tdcc_workflow_text, snippet, errors, message)
 
