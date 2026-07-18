@@ -8,6 +8,9 @@ ROOT = Path(__file__).resolve().parents[1]
 APPS_SCRIPT = ROOT / "docs" / "apps_script_workflow_trigger.gs"
 WORKFLOW_DIR = ROOT / ".github" / "workflows"
 MIN_TRIGGER_SPACING_MINUTES = 60
+TDCC_CHAIN_POLL_MINUTES = 5
+TDCC_WORKFLOW = "tdcc_weekly.yml"
+INDIVIDUAL_REFRESH_WORKFLOW = "individual_stock_data_refresh.yml"
 
 EXPECTED_DISPATCHES = {
     "daily_full_pipeline.yml",
@@ -62,12 +65,21 @@ def workflow_inputs(workflow_file: str) -> set[str]:
 def apps_script_dispatches() -> dict[str, dict[str, str]]:
     text = read_text(APPS_SCRIPT)
     dispatches: dict[str, dict[str, str]] = {}
+    string_constants = dict(
+        re.findall(r'^const\s+([A-Z][A-Z0-9_]*)\s*=\s*"([^"]+)";\s*$', text, re.M)
+    )
     pattern = re.compile(
-        r'dispatchWorkflow_\("(?P<workflow>[^"]+)"(?:,\s*\{(?P<inputs>.*?)\})?\);',
+        r'dispatchWorkflow_\('
+        r'(?:(?:"(?P<workflow>[^"]+)")|(?P<workflow_constant>[A-Z][A-Z0-9_]*))'
+        r'(?:,\s*\{(?P<inputs>.*?)\})?\);',
         re.S,
     )
     for match in pattern.finditer(text):
         workflow = match.group("workflow")
+        if not workflow:
+            workflow = string_constants.get(match.group("workflow_constant"), "")
+        if not workflow:
+            continue
         inputs_body = match.group("inputs") or ""
         inputs = dict(
             re.findall(r'^\s*([A-Za-z0-9_]+)\s*:\s*"([^"]*)"', inputs_body, re.M)
@@ -119,6 +131,158 @@ def validate_trigger_spacing(errors: list[str]) -> None:
                     f"day={day} {left_name}->{right_name} spacing_minutes={spacing} "
                     f"minimum={MIN_TRIGGER_SPACING_MINUTES}"
                 )
+
+
+def validate_tdcc_individual_refresh_orchestration(errors: list[str]) -> None:
+    try:
+        tdcc_trigger_body = apps_script_function_body("triggerTdccWeeklyReport")
+        orchestrator_body = apps_script_function_body("orchestrateTdccIndividualRefresh")
+        evidence_body = apps_script_function_body("readTdccPublishedEvidence_")
+        downstream_evidence_body = apps_script_function_body(
+            "readWorkflowOutputEvidence_"
+        )
+        run_correlation_body = apps_script_function_body("findCorrelatedWorkflowRuns_")
+        installer_body = apps_script_function_body(
+            "installTdccIndividualRefreshOrchestratorTrigger_"
+        )
+        install_all_body = apps_script_function_body("installAllWorkflowTriggers")
+    except ValueError as exc:
+        errors.append(str(exc))
+        return
+
+    tdcc_trigger_requirements = {
+        "withScriptLock_": "TDCC dispatch must use a script lock",
+        "tdcc_baseline_run_id": "TDCC dispatch must record the prior run id",
+        "tdcc_dispatched_at": "TDCC dispatch must record its dispatch timestamp",
+        "tdcc_base_main_sha": "TDCC dispatch must record the main SHA before dispatch",
+        "dispatchWorkflow_(TDCC_WEEKLY_WORKFLOW)": "TDCC dispatch must use the external Apps Script dispatcher",
+    }
+    for snippet, message in tdcc_trigger_requirements.items():
+        require_text(tdcc_trigger_body, snippet, errors, message)
+    if "Utilities.sleep" in tdcc_trigger_body:
+        errors.append("TDCC chain must not use a fixed sleep as completion evidence")
+
+    orchestration_requirements = {
+        "getWorkflowRun_(state.tdcc_run_id)": "TDCC chain must read the tracked upstream run",
+        'tdccRun.conclusion !== "success"': "TDCC chain must require upstream conclusion=success",
+        "readTdccPublishedEvidence_(tdccRun)": "TDCC chain must verify published main evidence",
+        "mainEvidenceWindowExpired_(tdccRun.updated_at)": "TDCC chain must bound main-evidence waiting",
+        "tdccDispatchAlreadyRecorded_": "TDCC chain must enforce persistent dispatch idempotency",
+        "state.chain_key": "TDCC chain must persist a run/signal-date chain key",
+        "state.signal_date": "TDCC chain must track the TDCC signal date",
+        "dispatchWorkflow_(INDIVIDUAL_REFRESH_WORKFLOW)": "TDCC chain must dispatch individual refresh externally",
+        "state.downstream_baseline_run_id": "TDCC chain must record the prior downstream run id",
+        "state.downstream_run_id": "TDCC chain must track the downstream run id",
+        "state.tdcc_output_commit_sha": "TDCC chain must require the TDCC output commit in the downstream head",
+        "readWorkflowOutputEvidence_": "TDCC chain must verify downstream outputs reached main",
+    }
+    for snippet, message in orchestration_requirements.items():
+        require_text(orchestrator_body, snippet, errors, message)
+
+    evidence_requirements = {
+        "TDCC_RUN_STATUS_PATH": "TDCC main gate must read the run status artifact",
+        "TDCC_VALIDATION_PATH": "TDCC main gate must read the validation artifact",
+        'validation.status !== "pass"': "TDCC main gate must require validation status=pass",
+        "validation.signal_date": "TDCC main gate must read signal_date",
+        "validation.date_contract.date_source": "TDCC main gate must enforce the registered date source",
+        "TDCC_OFFICIAL_DATE_SOURCE": "TDCC main gate must use the official TDCC date source constant",
+        "tdccRun.head_sha": "TDCC main gate must bind evidence to the upstream head SHA",
+        "getLatestCommitForPath_": "TDCC main gate must identify the TDCC output commit",
+        "getMainRefSha_": "TDCC main gate must read the live main SHA",
+        "assertCommitContained_": "TDCC main gate must prove commit ancestry",
+    }
+    for snippet, message in evidence_requirements.items():
+        require_text(evidence_body, snippet, errors, message)
+
+    downstream_evidence_requirements = {
+        "getRepositoryTextFile_(runStatusPath": "Downstream gate must read its workflow-owned run-status artifact",
+        "runStatus.github_run_id": "Downstream gate must match the tracked run id",
+        "runStatus.github_head_sha": "Downstream gate must match the tracked head SHA",
+        "runStatus.official_signal_date": "Downstream gate must match the official signal date",
+        "runStatus.date_contract.date_source": "Downstream gate must enforce the registered date source",
+        "getLatestCommitForPath_(runStatusPath)": "Downstream gate must resolve the run-status output commit",
+        "assertCommitContained_": "Downstream gate must prove run-status commit ancestry",
+    }
+    for snippet, message in downstream_evidence_requirements.items():
+        require_text(downstream_evidence_body, snippet, errors, message)
+
+    correlation_requirements = {
+        "baselineRunId": "Run correlation must use a baseline run id",
+        "dispatchedAt": "Run correlation must use the dispatch timestamp",
+        'run.event === "workflow_dispatch"': "Run correlation must require workflow_dispatch",
+        "run.head_branch === GITHUB_REF": "Run correlation must require the main branch",
+        "TDCC_CHAIN_CORRELATION_WINDOW_MS": "Run correlation must use a bounded window",
+    }
+    for snippet, message in correlation_requirements.items():
+        require_text(run_correlation_body, snippet, errors, message)
+
+    for snippet in [
+        'ScriptApp.newTrigger("orchestrateTdccIndividualRefresh")',
+        ".timeBased()",
+        ".everyMinutes(TDCC_CHAIN_POLL_MINUTES)",
+    ]:
+        require_text(
+            installer_body,
+            snippet,
+            errors,
+            f"TDCC orchestrator trigger must poll every {TDCC_CHAIN_POLL_MINUTES} minutes",
+        )
+    require_text(
+        install_all_body,
+        "installTdccIndividualRefreshOrchestratorTrigger_();",
+        errors,
+        "installAllWorkflowTriggers must install the TDCC chain orchestrator",
+    )
+
+    apps_script_text = read_text(APPS_SCRIPT)
+    for snippet, message in {
+        "PropertiesService.getScriptProperties()": "TDCC chain state must persist in Script Properties",
+        "LockService.getScriptLock()": "TDCC chain must serialize concurrent trigger executions",
+        "TDCC_CHAIN_DISPATCH_HISTORY_PROPERTY": "TDCC chain must persist dispatch history",
+        "TDCC_CHAIN_MAIN_EVIDENCE_WINDOW_MS": "TDCC chain must not remain active forever while main evidence is missing",
+    }.items():
+        require_text(apps_script_text, snippet, errors, message)
+
+    forbidden_self_trigger_patterns = [
+        r"\bworkflow_run\s*:",
+        r"\brepository_dispatch\s*:",
+        r"\bgh\s+workflow\s+run\b",
+        r"\bcurl\b.*api\.github\.com",
+        r"/actions/workflows/.*/dispatches",
+    ]
+    for workflow_file in [TDCC_WORKFLOW, INDIVIDUAL_REFRESH_WORKFLOW]:
+        workflow_text = read_text(WORKFLOW_DIR / workflow_file)
+        if not re.search(r"^on:\s*\n\s{2}workflow_dispatch:\s*$", workflow_text, re.M):
+            errors.append(f"{workflow_file} must remain workflow_dispatch-only")
+        for pattern in forbidden_self_trigger_patterns:
+            if re.search(pattern, workflow_text, re.I | re.S):
+                errors.append(
+                    f"{workflow_file} contains forbidden in-repo self-trigger pattern: {pattern}"
+                )
+
+    individual_workflow_text = read_text(WORKFLOW_DIR / INDIVIDUAL_REFRESH_WORKFLOW)
+    run_status_requirements = {
+        "Write individual stock refresh run status": "Individual refresh workflow must write run-status evidence",
+        'os.environ["GITHUB_RUN_ID"]': "Individual refresh run status must record GITHUB_RUN_ID",
+        'os.environ["GITHUB_SHA"]': "Individual refresh run status must record GITHUB_SHA",
+        '"official_signal_date": signal_date': "Individual refresh run status must record official signal_date",
+        'expected_date_source = "report_ready_csv_signal_date"': "Individual refresh run status must enforce the official date source",
+        "individual_stock_refresh_run_status_latest.json": "Individual refresh workflow must write the canonical run-status path",
+        "git add output/latest/individual_stock_reports/": "Individual refresh commit must stage the output run-status artifact",
+        "git add docs/latest/individual_stock_reports/": "Individual refresh commit must stage the docs run-status mirror",
+    }
+    for snippet, message in run_status_requirements.items():
+        require_text(individual_workflow_text, snippet, errors, message)
+    step_order = [
+        "Build individual stock packets and windows",
+        "Write individual stock refresh run status",
+        "Commit individual stock refresh outputs",
+    ]
+    step_positions = [individual_workflow_text.find(step) for step in step_order]
+    if any(position < 0 for position in step_positions) or step_positions != sorted(step_positions):
+        errors.append(
+            "Individual refresh run-status must be written after builder/validator and before the output commit"
+        )
 
 
 def main() -> int:
@@ -295,6 +459,7 @@ def main() -> int:
         )
 
     validate_trigger_spacing(errors)
+    validate_tdcc_individual_refresh_orchestration(errors)
 
     research_text = read_text(WORKFLOW_DIR / research_workflow)
     forbidden_research_auto_commit_patterns = [
@@ -316,6 +481,8 @@ def main() -> int:
         "triggerTdccHistoryGapRepair",
         "triggerIndividualStockDataRefresh",
         "triggerTdccWeeklyReport",
+        "orchestrateTdccIndividualRefresh",
+        "diagnoseTdccIndividualRefreshOrchestration",
         "triggerEventCatalystUpdate",
         "triggerWeeklyThemeReview",
         "triggerResearchBacktestPipeline",
@@ -329,6 +496,9 @@ def main() -> int:
         "removeDailyPriceGapRepairTrigger",
         "removeTdccHistoryGapRepairTrigger",
         "installAllWorkflowTriggers",
+        "installTdccIndividualRefreshOrchestratorTrigger",
+        "removeTdccIndividualRefreshOrchestratorTrigger",
+        "installTdccIndividualRefreshOrchestratorTrigger_",
         "installDailyPriceGapRepairTrigger_",
         "installTdccHistoryGapRepairTrigger_",
         "installIndividualStockDataRefreshTrigger_",

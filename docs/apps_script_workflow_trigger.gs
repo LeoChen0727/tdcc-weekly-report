@@ -5,6 +5,19 @@ const GITHUB_API_VERSION = "2022-11-28";
 const GITHUB_PAT_PROPERTY = "GITHUB_PAT";
 const GITHUB_TOKEN_FALLBACK_PROPERTY = "GITHUB_TOKEN";
 const RESPONSE_PREVIEW_MAX_CHARS = 1200;
+const TDCC_CHAIN_STATE_PROPERTY = "TDCC_INDIVIDUAL_REFRESH_CHAIN_STATE";
+const TDCC_CHAIN_DISPATCH_HISTORY_PROPERTY = "TDCC_INDIVIDUAL_REFRESH_DISPATCH_HISTORY";
+const TDCC_CHAIN_HISTORY_LIMIT = 16;
+const TDCC_CHAIN_CORRELATION_WINDOW_MS = 10 * 60 * 1000;
+const TDCC_CHAIN_MAIN_EVIDENCE_WINDOW_MS = 30 * 60 * 1000;
+const TDCC_CHAIN_POLL_MINUTES = 5;
+const TDCC_WEEKLY_WORKFLOW = "tdcc_weekly.yml";
+const INDIVIDUAL_REFRESH_WORKFLOW = "individual_stock_data_refresh.yml";
+const TDCC_RUN_STATUS_PATH = "output/latest/tdcc_weekly_run_status.md";
+const TDCC_VALIDATION_PATH = "output/latest/tdcc_weekly_candidate_report_validation_latest.json";
+const TDCC_OFFICIAL_DATE_SOURCE = "report_ready_csv_signal_date";
+const INDIVIDUAL_REFRESH_RUN_STATUS_PATH =
+  "output/latest/individual_stock_reports/individual_stock_refresh_run_status_latest.json";
 
 function getGithubToken_() {
   const properties = PropertiesService.getScriptProperties();
@@ -17,7 +30,7 @@ function getGithubToken_() {
         GITHUB_PAT_PROPERTY +
         " (preferred) or " +
         GITHUB_TOKEN_FALLBACK_PROPERTY +
-        ". Configure a token with repository Actions read/write permission for " +
+        ". Configure a token with repository Actions read/write and Contents read permissions for " +
         GITHUB_OWNER +
         "/" +
         GITHUB_REPO +
@@ -42,7 +55,7 @@ function githubStatusHint_(statusCode) {
     return "token missing, expired, or invalid";
   }
   if (statusCode === 403) {
-    return "token lacks Actions read/write permission or is blocked by policy";
+    return "token lacks Actions read/write or Contents read permission, or is blocked by policy";
   }
   if (statusCode === 404) {
     return "repo or workflow is not visible to the token";
@@ -121,9 +134,20 @@ function dispatchWorkflow_(workflowFile, inputs) {
   const result = githubApi_("post", path, payload);
   assertGithubSuccess_(result, "Dispatch " + workflowFile);
   Logger.log("Dispatched workflow: " + workflowFile + " ref=" + GITHUB_REF);
+  return result;
 }
 
-function listWorkflowRuns_(workflowFile) {
+function githubJson_(method, path, payload, actionName) {
+  const result = githubApi_(method, path, payload);
+  assertGithubSuccess_(result, actionName);
+  if (!result.responseBody) {
+    return {};
+  }
+  return JSON.parse(result.responseBody);
+}
+
+function listWorkflowRuns_(workflowFile, perPage) {
+  const runLimit = perPage || 5;
   const path =
     "/repos/" +
     GITHUB_OWNER +
@@ -133,11 +157,304 @@ function listWorkflowRuns_(workflowFile) {
     encodeURIComponent(workflowFile) +
     "/runs?branch=" +
     encodeURIComponent(GITHUB_REF) +
-    "&event=workflow_dispatch&per_page=5";
+    "&event=workflow_dispatch&per_page=" +
+    encodeURIComponent(String(runLimit));
 
-  const result = githubApi_("get", path, null);
-  assertGithubSuccess_(result, "List runs " + workflowFile);
-  return JSON.parse(result.responseBody);
+  return githubJson_("get", path, null, "List runs " + workflowFile);
+}
+
+function getWorkflowRun_(runId) {
+  const path =
+    "/repos/" +
+    GITHUB_OWNER +
+    "/" +
+    GITHUB_REPO +
+    "/actions/runs/" +
+    encodeURIComponent(String(runId));
+  return githubJson_("get", path, null, "Read workflow run " + runId);
+}
+
+function getMainRefSha_() {
+  const path =
+    "/repos/" +
+    GITHUB_OWNER +
+    "/" +
+    GITHUB_REPO +
+    "/git/ref/heads/" +
+    encodeURIComponent(GITHUB_REF);
+  const data = githubJson_("get", path, null, "Read main ref");
+  if (!data.object || !data.object.sha) {
+    throw new Error("GitHub main ref response did not contain object.sha");
+  }
+  return data.object.sha;
+}
+
+function encodeRepositoryPath_(filePath) {
+  return filePath
+    .split("/")
+    .map(function (part) {
+      return encodeURIComponent(part);
+    })
+    .join("/");
+}
+
+function getRepositoryTextFile_(filePath, refName) {
+  const path =
+    "/repos/" +
+    GITHUB_OWNER +
+    "/" +
+    GITHUB_REPO +
+    "/contents/" +
+    encodeRepositoryPath_(filePath) +
+    "?ref=" +
+    encodeURIComponent(refName || GITHUB_REF);
+  const data = githubJson_("get", path, null, "Read repository file " + filePath);
+  if (data.type !== "file" || !data.content) {
+    throw new Error("Repository contents response is not a file: " + filePath);
+  }
+  const compactBase64 = data.content.replace(/\s/g, "");
+  return Utilities.newBlob(Utilities.base64Decode(compactBase64)).getDataAsString("UTF-8");
+}
+
+function getLatestCommitForPath_(filePath) {
+  const path =
+    "/repos/" +
+    GITHUB_OWNER +
+    "/" +
+    GITHUB_REPO +
+    "/commits?sha=" +
+    encodeURIComponent(GITHUB_REF) +
+    "&path=" +
+    encodeURIComponent(filePath) +
+    "&per_page=1";
+  const commits = githubJson_("get", path, null, "Read latest commit for " + filePath);
+  if (!Array.isArray(commits) || commits.length !== 1 || !commits[0].sha) {
+    throw new Error("No main commit found for path: " + filePath);
+  }
+  return commits[0].sha;
+}
+
+function compareCommits_(baseSha, headSha) {
+  const path =
+    "/repos/" +
+    GITHUB_OWNER +
+    "/" +
+    GITHUB_REPO +
+    "/compare/" +
+    encodeURIComponent(baseSha) +
+    "..." +
+    encodeURIComponent(headSha);
+  return githubJson_("get", path, null, "Compare commits " + baseSha + "..." + headSha);
+}
+
+function assertCommitContained_(baseSha, headSha, description) {
+  const comparison = compareCommits_(baseSha, headSha);
+  if (comparison.status !== "ahead" && comparison.status !== "identical") {
+    throw new Error(
+      description +
+        " is not contained in the required head: base=" +
+        baseSha +
+        " head=" +
+        headSha +
+        " status=" +
+        comparison.status
+    );
+  }
+}
+
+function latestWorkflowRunId_(workflowFile) {
+  const runs = listWorkflowRuns_(workflowFile, 20).workflow_runs || [];
+  return runs.reduce(function (latest, run) {
+    return Math.max(latest, Number(run.id) || 0);
+  }, 0);
+}
+
+function findCorrelatedWorkflowRuns_(workflowFile, baselineRunId, dispatchedAt) {
+  const dispatchedAtMs = new Date(dispatchedAt).getTime();
+  const earliestMs = dispatchedAtMs - 15000;
+  const latestMs = dispatchedAtMs + TDCC_CHAIN_CORRELATION_WINDOW_MS;
+  const runs = listWorkflowRuns_(workflowFile, 20).workflow_runs || [];
+  return runs
+    .filter(function (run) {
+      const createdAtMs = new Date(run.created_at).getTime();
+      return (
+        Number(run.id) > Number(baselineRunId || 0) &&
+        run.event === "workflow_dispatch" &&
+        run.head_branch === GITHUB_REF &&
+        createdAtMs >= earliestMs &&
+        createdAtMs <= latestMs
+      );
+    })
+    .sort(function (left, right) {
+      return Number(left.id) - Number(right.id);
+    });
+}
+
+function nowIso_() {
+  return new Date().toISOString();
+}
+
+function readTdccChainState_() {
+  const raw = PropertiesService.getScriptProperties().getProperty(TDCC_CHAIN_STATE_PROPERTY);
+  return raw ? JSON.parse(raw) : null;
+}
+
+function writeTdccChainState_(state) {
+  state.updated_at = nowIso_();
+  PropertiesService.getScriptProperties().setProperty(TDCC_CHAIN_STATE_PROPERTY, JSON.stringify(state));
+  Logger.log("TDCC chain state: " + JSON.stringify(state));
+}
+
+function readTdccDispatchHistory_() {
+  const raw = PropertiesService.getScriptProperties().getProperty(
+    TDCC_CHAIN_DISPATCH_HISTORY_PROPERTY
+  );
+  if (!raw) {
+    return [];
+  }
+  const history = JSON.parse(raw);
+  return Array.isArray(history) ? history : [];
+}
+
+function writeTdccDispatchHistory_(history) {
+  PropertiesService.getScriptProperties().setProperty(
+    TDCC_CHAIN_DISPATCH_HISTORY_PROPERTY,
+    JSON.stringify(history.slice(-TDCC_CHAIN_HISTORY_LIMIT))
+  );
+}
+
+function tdccDispatchAlreadyRecorded_(runId, signalDate) {
+  return readTdccDispatchHistory_().some(function (item) {
+    return String(item.tdcc_run_id) === String(runId) || item.signal_date === signalDate;
+  });
+}
+
+function recordTdccDispatch_(state) {
+  const history = readTdccDispatchHistory_();
+  const existingIndex = history.findIndex(function (item) {
+    return item.chain_key === state.chain_key;
+  });
+  const entry = {
+    chain_key: state.chain_key,
+    tdcc_run_id: state.tdcc_run_id,
+    signal_date: state.signal_date,
+    tdcc_head_sha: state.tdcc_head_sha,
+    tdcc_output_commit_sha: state.tdcc_output_commit_sha,
+    downstream_dispatched_at: state.downstream_dispatched_at,
+    downstream_run_id: state.downstream_run_id || null,
+    downstream_head_sha: state.downstream_head_sha || null,
+    downstream_output_commit_sha: state.downstream_output_commit_sha || null,
+    conclusion: state.downstream_conclusion || null,
+  };
+  if (existingIndex >= 0) {
+    history[existingIndex] = entry;
+  } else {
+    history.push(entry);
+  }
+  writeTdccDispatchHistory_(history);
+}
+
+function isTerminalTdccChainPhase_(phase) {
+  return [
+    "complete",
+    "duplicate_skipped",
+    "tdcc_dispatch_failed",
+    "tdcc_failed",
+    "tdcc_run_ambiguous",
+    "tdcc_run_unconfirmed",
+    "tdcc_main_gate_failed",
+    "downstream_run_ambiguous",
+    "downstream_run_unconfirmed",
+    "downstream_failed",
+    "downstream_main_gate_failed",
+  ].indexOf(phase) >= 0;
+}
+
+function failTdccChain_(state, phase, message) {
+  state.phase = phase;
+  state.error = message;
+  writeTdccChainState_(state);
+  throw new Error(message);
+}
+
+function readTdccPublishedEvidence_(tdccRun) {
+  const statusText = getRepositoryTextFile_(TDCC_RUN_STATUS_PATH, GITHUB_REF);
+  const runMatch = statusText.match(/actions\/runs\/(\d+)/);
+  const commitMatch = statusText.match(/- commit: `([0-9a-f]{40})`/);
+  if (!runMatch || !commitMatch) {
+    throw new Error("TDCC main status file is missing github_run or commit evidence");
+  }
+  if (String(runMatch[1]) !== String(tdccRun.id) || commitMatch[1] !== tdccRun.head_sha) {
+    return null;
+  }
+
+  const validation = JSON.parse(getRepositoryTextFile_(TDCC_VALIDATION_PATH, GITHUB_REF));
+  if (validation.status !== "pass" || !/^\d{8}$/.test(String(validation.signal_date || ""))) {
+    throw new Error("TDCC main validation must contain status=pass and an eight-digit signal_date");
+  }
+  if (
+    !validation.date_contract ||
+    validation.date_contract.date_source !== TDCC_OFFICIAL_DATE_SOURCE
+  ) {
+    throw new Error(
+      "TDCC main validation date source must be " + TDCC_OFFICIAL_DATE_SOURCE
+    );
+  }
+
+  const outputCommitSha = getLatestCommitForPath_(TDCC_RUN_STATUS_PATH);
+  const mainSha = getMainRefSha_();
+  assertCommitContained_(tdccRun.head_sha, outputCommitSha, "TDCC workflow head");
+  assertCommitContained_(outputCommitSha, mainSha, "TDCC output commit");
+
+  return {
+    signal_date: String(validation.signal_date),
+    tdcc_output_commit_sha: outputCommitSha,
+    main_sha_at_gate: mainSha,
+  };
+}
+
+function readWorkflowOutputEvidence_(workflowRun, runStatusPath, expectedSignalDate) {
+  const runStatus = JSON.parse(getRepositoryTextFile_(runStatusPath, GITHUB_REF));
+  if (
+    runStatus.status !== "pass" ||
+    runStatus.workflow !== INDIVIDUAL_REFRESH_WORKFLOW ||
+    String(runStatus.github_run_id) !== String(workflowRun.id) ||
+    runStatus.github_head_sha !== workflowRun.head_sha ||
+    runStatus.official_signal_date !== expectedSignalDate ||
+    !runStatus.date_contract ||
+    runStatus.date_contract.date_source !== TDCC_OFFICIAL_DATE_SOURCE
+  ) {
+    throw new Error(
+      "Individual refresh main run-status does not uniquely match the tracked run and signal date"
+    );
+  }
+
+  const outputCommitSha = getLatestCommitForPath_(runStatusPath);
+  const mainSha = getMainRefSha_();
+  assertCommitContained_(workflowRun.head_sha, outputCommitSha, "Workflow output commit");
+  assertCommitContained_(outputCommitSha, mainSha, "Workflow output commit on main");
+  return {
+    output_commit_sha: outputCommitSha,
+    main_sha: mainSha,
+  };
+}
+
+function correlationWindowExpired_(dispatchedAt) {
+  return Date.now() > new Date(dispatchedAt).getTime() + TDCC_CHAIN_CORRELATION_WINDOW_MS;
+}
+
+function mainEvidenceWindowExpired_(runUpdatedAt) {
+  return Date.now() > new Date(runUpdatedAt).getTime() + TDCC_CHAIN_MAIN_EVIDENCE_WINDOW_MS;
+}
+
+function withScriptLock_(callback) {
+  const lock = LockService.getScriptLock();
+  lock.waitLock(30000);
+  try {
+    return callback();
+  } finally {
+    lock.releaseLock();
+  }
 }
 
 function logLatestWorkflowRuns_(workflowFile) {
@@ -238,9 +555,234 @@ function triggerDailyPriceGapRepair() {
 }
 
 function triggerTdccWeeklyReport() {
-  dispatchWorkflow_("tdcc_weekly.yml");
-  Utilities.sleep(5000);
-  logLatestWorkflowRunsSafe_("tdcc_weekly.yml");
+  withScriptLock_(function () {
+    const existing = readTdccChainState_();
+    if (existing && !isTerminalTdccChainPhase_(existing.phase)) {
+      throw new Error(
+        "TDCC-to-individual refresh chain is already active: " + JSON.stringify(existing)
+      );
+    }
+
+    const state = {
+      version: 1,
+      phase: "tdcc_dispatching",
+      tdcc_dispatched_at: nowIso_(),
+      tdcc_baseline_run_id: latestWorkflowRunId_(TDCC_WEEKLY_WORKFLOW),
+      tdcc_base_main_sha: getMainRefSha_(),
+    };
+    writeTdccChainState_(state);
+    try {
+      dispatchWorkflow_(TDCC_WEEKLY_WORKFLOW);
+    } catch (error) {
+      state.phase = "tdcc_dispatch_failed";
+      state.error = error.message;
+      writeTdccChainState_(state);
+      throw error;
+    }
+    state.phase = "tdcc_dispatched";
+    writeTdccChainState_(state);
+  });
+  Logger.log("TDCC weekly dispatch accepted; state-aware orchestration will poll run and main evidence.");
+}
+
+function orchestrateTdccIndividualRefresh() {
+  return withScriptLock_(function () {
+    const state = readTdccChainState_();
+    if (!state) {
+      Logger.log("No TDCC-to-individual refresh chain state exists.");
+      return;
+    }
+    if (isTerminalTdccChainPhase_(state.phase)) {
+      Logger.log("TDCC-to-individual refresh chain is terminal: " + state.phase);
+      return;
+    }
+
+    if (!state.tdcc_run_id) {
+      const candidates = findCorrelatedWorkflowRuns_(
+        TDCC_WEEKLY_WORKFLOW,
+        state.tdcc_baseline_run_id,
+        state.tdcc_dispatched_at
+      );
+      if (candidates.length > 1) {
+        failTdccChain_(
+          state,
+          "tdcc_run_ambiguous",
+          "More than one TDCC run matched the dispatch window: " +
+            candidates.map(function (run) { return run.id; }).join(",")
+        );
+      }
+      if (candidates.length === 0) {
+        if (correlationWindowExpired_(state.tdcc_dispatched_at)) {
+          failTdccChain_(state, "tdcc_run_unconfirmed", "No TDCC run appeared for the accepted dispatch");
+        }
+        Logger.log("Waiting for TDCC workflow run id.");
+        return;
+      }
+      state.tdcc_run_id = String(candidates[0].id);
+      state.tdcc_head_sha = candidates[0].head_sha;
+      state.tdcc_run_url = candidates[0].html_url;
+      state.phase = "tdcc_running";
+      writeTdccChainState_(state);
+    }
+
+    const tdccRun = getWorkflowRun_(state.tdcc_run_id);
+    state.tdcc_status = tdccRun.status;
+    state.tdcc_conclusion = tdccRun.conclusion || null;
+    state.tdcc_head_sha = tdccRun.head_sha;
+    state.tdcc_run_url = tdccRun.html_url;
+    if (tdccRun.status !== "completed") {
+      state.phase = "tdcc_running";
+      writeTdccChainState_(state);
+      return;
+    }
+    if (tdccRun.conclusion !== "success") {
+      failTdccChain_(
+        state,
+        "tdcc_failed",
+        "TDCC workflow did not succeed: run_id=" + tdccRun.id + " conclusion=" + tdccRun.conclusion
+      );
+    }
+
+    if (!state.tdcc_output_commit_sha) {
+      let publishedEvidence;
+      try {
+        publishedEvidence = readTdccPublishedEvidence_(tdccRun);
+      } catch (error) {
+        failTdccChain_(state, "tdcc_main_gate_failed", error.message);
+      }
+      if (!publishedEvidence) {
+        if (mainEvidenceWindowExpired_(tdccRun.updated_at)) {
+          failTdccChain_(
+            state,
+            "tdcc_main_gate_failed",
+            "TDCC run succeeded but matching run/head evidence did not appear on main within 30 minutes"
+          );
+        }
+        Logger.log("TDCC run succeeded but matching status evidence is not yet visible on main.");
+        return;
+      }
+      state.signal_date = publishedEvidence.signal_date;
+      state.tdcc_output_commit_sha = publishedEvidence.tdcc_output_commit_sha;
+      state.main_sha_at_gate = publishedEvidence.main_sha_at_gate;
+      state.chain_key = String(tdccRun.id) + ":" + state.signal_date;
+      state.phase = "tdcc_published_on_main";
+      writeTdccChainState_(state);
+    }
+
+    if (!state.downstream_dispatched_at) {
+      if (tdccDispatchAlreadyRecorded_(state.tdcc_run_id, state.signal_date)) {
+        state.phase = "duplicate_skipped";
+        state.duplicate_reason = "TDCC run id or signal_date already dispatched";
+        writeTdccChainState_(state);
+        return;
+      }
+
+      state.downstream_baseline_run_id = latestWorkflowRunId_(INDIVIDUAL_REFRESH_WORKFLOW);
+      state.downstream_dispatched_at = nowIso_();
+      state.phase = "downstream_dispatching";
+      writeTdccChainState_(state);
+      try {
+        dispatchWorkflow_(INDIVIDUAL_REFRESH_WORKFLOW);
+      } catch (error) {
+        state.phase = "downstream_dispatch_uncertain";
+        state.error = error.message;
+        writeTdccChainState_(state);
+        throw error;
+      }
+      state.phase = "downstream_dispatched";
+      writeTdccChainState_(state);
+      recordTdccDispatch_(state);
+      return;
+    }
+
+    if (!state.downstream_run_id) {
+      const downstreamCandidates = findCorrelatedWorkflowRuns_(
+        INDIVIDUAL_REFRESH_WORKFLOW,
+        state.downstream_baseline_run_id,
+        state.downstream_dispatched_at
+      );
+      if (downstreamCandidates.length > 1) {
+        failTdccChain_(
+          state,
+          "downstream_run_ambiguous",
+          "More than one individual refresh run matched the dispatch window: " +
+            downstreamCandidates.map(function (run) { return run.id; }).join(",")
+        );
+      }
+      if (downstreamCandidates.length === 0) {
+        if (correlationWindowExpired_(state.downstream_dispatched_at)) {
+          failTdccChain_(
+            state,
+            "downstream_run_unconfirmed",
+            "No individual refresh run appeared for the accepted dispatch"
+          );
+        }
+        Logger.log("Waiting for individual refresh workflow run id.");
+        return;
+      }
+      const downstreamCandidate = downstreamCandidates[0];
+      assertCommitContained_(
+        state.tdcc_output_commit_sha,
+        downstreamCandidate.head_sha,
+        "TDCC output commit in individual refresh head"
+      );
+      state.downstream_run_id = String(downstreamCandidate.id);
+      state.downstream_head_sha = downstreamCandidate.head_sha;
+      state.downstream_run_url = downstreamCandidate.html_url;
+      state.phase = "downstream_running";
+      writeTdccChainState_(state);
+      recordTdccDispatch_(state);
+    }
+
+    const downstreamRun = getWorkflowRun_(state.downstream_run_id);
+    state.downstream_status = downstreamRun.status;
+    state.downstream_conclusion = downstreamRun.conclusion || null;
+    state.downstream_head_sha = downstreamRun.head_sha;
+    state.downstream_run_url = downstreamRun.html_url;
+    if (downstreamRun.status !== "completed") {
+      state.phase = "downstream_running";
+      writeTdccChainState_(state);
+      recordTdccDispatch_(state);
+      return;
+    }
+    if (downstreamRun.conclusion !== "success") {
+      state.phase = "downstream_failed";
+      state.error =
+        "Individual refresh workflow did not succeed: run_id=" +
+        downstreamRun.id +
+        " conclusion=" +
+        downstreamRun.conclusion;
+      writeTdccChainState_(state);
+      recordTdccDispatch_(state);
+      throw new Error(state.error);
+    }
+
+    try {
+      const downstreamEvidence = readWorkflowOutputEvidence_(
+        downstreamRun,
+        INDIVIDUAL_REFRESH_RUN_STATUS_PATH,
+        state.signal_date
+      );
+      state.downstream_output_commit_sha = downstreamEvidence.output_commit_sha;
+      state.main_sha_at_completion = downstreamEvidence.main_sha;
+    } catch (error) {
+      failTdccChain_(state, "downstream_main_gate_failed", error.message);
+    }
+    state.phase = "complete";
+    state.completed_at = nowIso_();
+    writeTdccChainState_(state);
+    recordTdccDispatch_(state);
+  });
+}
+
+function diagnoseTdccIndividualRefreshOrchestration() {
+  testGithubTokenAndWorkflowAccess();
+  assertWorkflowAccessible_(TDCC_WEEKLY_WORKFLOW);
+  assertWorkflowAccessible_(INDIVIDUAL_REFRESH_WORKFLOW);
+  Logger.log("chain_state=" + JSON.stringify(readTdccChainState_()));
+  Logger.log("dispatch_history=" + JSON.stringify(readTdccDispatchHistory_()));
+  logLatestWorkflowRuns_(TDCC_WEEKLY_WORKFLOW);
+  logLatestWorkflowRuns_(INDIVIDUAL_REFRESH_WORKFLOW);
 }
 
 function triggerTdccHistoryGapRepair() {
@@ -349,10 +891,27 @@ function installAllWorkflowTriggers() {
   installIndividualStockDataRefreshTrigger_();
   installTdccHistoryGapRepairTrigger_();
   installTdccWeeklyReportTrigger_();
+  installTdccIndividualRefreshOrchestratorTrigger_();
   installEventCatalystUpdateTriggers_();
   installWeeklyThemeReviewTrigger_();
   installBiweeklyResearchBacktestTrigger();
   Logger.log("Installed all workflow triggers.");
+  listAllTriggers();
+}
+
+function installTdccIndividualRefreshOrchestratorTrigger() {
+  installTdccIndividualRefreshOrchestratorTrigger_();
+  Logger.log(
+    "Installed TDCC-to-individual refresh orchestrator: every " +
+      TDCC_CHAIN_POLL_MINUTES +
+      " minutes; dispatch occurs only after run/main gates pass."
+  );
+  listAllTriggers();
+}
+
+function removeTdccIndividualRefreshOrchestratorTrigger() {
+  removeTriggersForFunction_("orchestrateTdccIndividualRefresh");
+  Logger.log("Removed TDCC-to-individual refresh orchestrator trigger.");
   listAllTriggers();
 }
 
@@ -397,6 +956,14 @@ function installTdccWeeklyReportTrigger_() {
     .atHour(15)
     .nearMinute(30)
     .inTimezone("Asia/Taipei")
+    .create();
+}
+
+function installTdccIndividualRefreshOrchestratorTrigger_() {
+  removeTriggersForFunction_("orchestrateTdccIndividualRefresh");
+  ScriptApp.newTrigger("orchestrateTdccIndividualRefresh")
+    .timeBased()
+    .everyMinutes(TDCC_CHAIN_POLL_MINUTES)
     .create();
 }
 

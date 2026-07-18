@@ -87,6 +87,103 @@ def test_apps_script_tdcc_history_gap_repair_trigger_is_tuesday_monthly_guard() 
     assert ".atHour(9)" in install_body
 
 
+def test_apps_script_tdcc_chain_requires_success_main_evidence_before_dispatch() -> None:
+    trigger_body = validate_apps_script_workflow_triggers.apps_script_function_body(
+        "triggerTdccWeeklyReport"
+    )
+    orchestrator_body = validate_apps_script_workflow_triggers.apps_script_function_body(
+        "orchestrateTdccIndividualRefresh"
+    )
+    evidence_body = validate_apps_script_workflow_triggers.apps_script_function_body(
+        "readTdccPublishedEvidence_"
+    )
+
+    assert "tdcc_baseline_run_id" in trigger_body
+    assert "tdcc_dispatched_at" in trigger_body
+    assert "Utilities.sleep" not in trigger_body
+    assert 'tdccRun.conclusion !== "success"' in orchestrator_body
+    assert "readTdccPublishedEvidence_(tdccRun)" in orchestrator_body
+    assert "mainEvidenceWindowExpired_(tdccRun.updated_at)" in orchestrator_body
+    assert "TDCC_RUN_STATUS_PATH" in evidence_body
+    assert "TDCC_VALIDATION_PATH" in evidence_body
+    assert 'validation.status !== "pass"' in evidence_body
+    assert "validation.date_contract.date_source" in evidence_body
+    assert "TDCC_OFFICIAL_DATE_SOURCE" in evidence_body
+    assert "assertCommitContained_" in evidence_body
+    assert "getMainRefSha_" in evidence_body
+
+
+def test_apps_script_tdcc_chain_is_idempotent_and_tracks_one_downstream_run() -> None:
+    orchestrator_body = validate_apps_script_workflow_triggers.apps_script_function_body(
+        "orchestrateTdccIndividualRefresh"
+    )
+    history_body = validate_apps_script_workflow_triggers.apps_script_function_body(
+        "tdccDispatchAlreadyRecorded_"
+    )
+    installer_body = validate_apps_script_workflow_triggers.apps_script_function_body(
+        "installTdccIndividualRefreshOrchestratorTrigger_"
+    )
+    downstream_evidence_body = (
+        validate_apps_script_workflow_triggers.apps_script_function_body(
+            "readWorkflowOutputEvidence_"
+        )
+    )
+
+    assert "tdccDispatchAlreadyRecorded_" in orchestrator_body
+    assert "state.chain_key" in orchestrator_body
+    assert "state.downstream_baseline_run_id" in orchestrator_body
+    assert "state.downstream_run_id" in orchestrator_body
+    assert "state.tdcc_output_commit_sha" in orchestrator_body
+    assert "dispatchWorkflow_(INDIVIDUAL_REFRESH_WORKFLOW)" in orchestrator_body
+    assert "readWorkflowOutputEvidence_" in orchestrator_body
+    assert "item.tdcc_run_id" in history_body
+    assert "item.signal_date" in history_body
+    assert '.everyMinutes(TDCC_CHAIN_POLL_MINUTES)' in installer_body
+    assert "runStatus.github_run_id" in downstream_evidence_body
+    assert "runStatus.github_head_sha" in downstream_evidence_body
+    assert "runStatus.official_signal_date" in downstream_evidence_body
+    assert "runStatus.date_contract.date_source" in downstream_evidence_body
+
+
+def test_individual_refresh_workflow_commits_unique_run_status_evidence() -> None:
+    workflow_text = (
+        ROOT / ".github" / "workflows" / "individual_stock_data_refresh.yml"
+    ).read_text(encoding="utf-8")
+
+    assert "Write individual stock refresh run status" in workflow_text
+    assert "python scripts/validate_apps_script_workflow_triggers.py" in workflow_text
+    assert 'os.environ["GITHUB_RUN_ID"]' in workflow_text
+    assert 'os.environ["GITHUB_SHA"]' in workflow_text
+    assert '"official_signal_date": signal_date' in workflow_text
+    assert 'expected_date_source = "report_ready_csv_signal_date"' in workflow_text
+    assert "individual_stock_refresh_run_status_latest.json" in workflow_text
+    assert "git add output/latest/individual_stock_reports/" in workflow_text
+    assert "git add docs/latest/individual_stock_reports/" in workflow_text
+    assert workflow_text.index("Build individual stock packets and windows") < workflow_text.index(
+        "Write individual stock refresh run status"
+    )
+    assert workflow_text.index("Write individual stock refresh run status") < workflow_text.index(
+        "Commit individual stock refresh outputs"
+    )
+
+
+def test_tdcc_and_individual_workflows_remain_external_dispatch_only() -> None:
+    forbidden = [
+        "workflow_run:",
+        "repository_dispatch:",
+        "gh workflow run",
+        "api.github.com",
+        "/dispatches",
+    ]
+    for workflow_file in ["tdcc_weekly.yml", "individual_stock_data_refresh.yml"]:
+        text = (ROOT / ".github" / "workflows" / workflow_file).read_text(
+            encoding="utf-8"
+        )
+        assert "on:\n  workflow_dispatch:" in text
+        for pattern in forbidden:
+            assert pattern not in text
+
+
 def test_canonical_chatgpt_side_generator_is_tracked_and_not_legacy_six_category() -> None:
     entrypoint = ROOT / "scripts" / "run_chatgpt_daily_report_entrypoint.py"
     entrypoint_text = entrypoint.read_text(encoding="utf-8", errors="replace")

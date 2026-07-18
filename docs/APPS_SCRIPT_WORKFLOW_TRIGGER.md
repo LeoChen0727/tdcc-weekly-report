@@ -9,6 +9,12 @@ Canonical source file:
 docs/apps_script_workflow_trigger.gs
 ```
 
+Canonical contract validator:
+
+```text
+python scripts/validate_apps_script_workflow_triggers.py
+```
+
 Target repository:
 
 ```text
@@ -30,7 +36,7 @@ scripts. Prefer `GITHUB_PAT`.
 Required token access:
 
 - Fine-grained token: select only `LeoChen0727/tdcc-weekly-report`.
-- Repository permissions: Actions = read and write.
+- Repository permissions: Actions = read and write; Contents = read.
 - Metadata: read.
 - Classic token fallback: private repo access requires the `repo` scope.
 
@@ -49,12 +55,16 @@ triggerDailyStockMonitor
 triggerDailyFullPipeline
 triggerDailyPriceGapRepair
 triggerTdccWeeklyReport
+orchestrateTdccIndividualRefresh
+diagnoseTdccIndividualRefreshOrchestration
 triggerTdccHistoryGapRepair
 triggerIndividualStockDataRefresh
 triggerEventCatalystUpdate
 triggerWeeklyThemeReview
 triggerResearchBacktestPipeline
 installBiweeklyResearchBacktestTrigger
+installTdccIndividualRefreshOrchestratorTrigger
+removeTdccIndividualRefreshOrchestratorTrigger
 installAllWorkflowTriggers
 listAllTriggers
 testGithubTokenAndWorkflowAccess
@@ -88,7 +98,9 @@ lookback and a maximum of 5 automatic repair dates. The workflow excludes the
 current Asia/Taipei date and uses the repository non-trading-day calendar before
 attempting repairs.
 
-`triggerTdccWeeklyReport` dispatches the TDCC weekly report workflow.
+`triggerTdccWeeklyReport` dispatches the TDCC weekly report workflow and records
+the pre-dispatch run id, dispatch timestamp, and main SHA in Script Properties.
+It does not use a fixed delay as completion evidence.
 
 `triggerTdccHistoryGapRepair` dispatches
 `.github/workflows/repair_tdcc_monthly_history_gaps.yml`. The workflow checks
@@ -98,6 +110,67 @@ bounded TDCC report universe.
 
 `triggerIndividualStockDataRefresh` dispatches
 `.github/workflows/individual_stock_data_refresh.yml`.
+
+## TDCC To Individual Refresh Orchestration
+
+`orchestrateTdccIndividualRefresh` is an external, state-aware poller. Its
+time-driven trigger runs every 5 minutes, but it dispatches no workflow unless
+an active TDCC chain passes every gate below:
+
+1. Correlate exactly one new `tdcc_weekly.yml` main run by baseline run id and
+   bounded dispatch timestamp.
+2. Require the tracked run to finish with `conclusion=success`.
+3. Read `output/latest/tdcc_weekly_run_status.md` from live `main` and require
+   its run id and head SHA to match the tracked run.
+4. Read
+   `output/latest/tdcc_weekly_candidate_report_validation_latest.json` from
+   live `main` and require `status=pass`, an eight-digit `signal_date`, and
+   `date_contract.date_source=report_ready_csv_signal_date`.
+5. Resolve the TDCC output commit and prove that both the upstream head and the
+   output commit are contained in live `main`.
+   Matching run/head evidence may wait for GitHub propagation for at most 30
+   minutes; after that the chain fails closed instead of remaining active.
+6. Reject a duplicate when either the TDCC run id or `signal_date` already
+   exists in persistent dispatch history.
+7. Dispatch `individual_stock_data_refresh.yml` once, then correlate exactly
+   one downstream main run and require its head to contain the TDCC output
+   commit.
+8. Require the downstream run to succeed. The workflow writes
+   `output/latest/individual_stock_reports/individual_stock_refresh_run_status_latest.json`
+   after its builder and validator pass, and stages that file in the same commit
+   as the refreshed outputs.
+9. Require that run-status file on live `main` to match the tracked
+   `GITHUB_RUN_ID`, `GITHUB_SHA`, official `signal_date`, and registered date
+   source. Its commit must descend from the tracked run head and be contained in
+   live `main` before the chain reaches `phase=complete`.
+
+The persisted Script Properties are:
+
+```text
+TDCC_INDIVIDUAL_REFRESH_CHAIN_STATE
+TDCC_INDIVIDUAL_REFRESH_DISPATCH_HISTORY
+```
+
+`TDCC_INDIVIDUAL_REFRESH_CHAIN_STATE` contains the upstream run id, upstream
+head SHA, TDCC output commit, signal date, downstream run id, downstream head
+SHA, downstream output commit, phase, conclusions, and timestamps. The history
+keeps the latest 16 dispatch records and makes the run-id and signal-date gate
+idempotent across Apps Script executions.
+
+The existing daily 22:20 `triggerIndividualStockDataRefresh` remains installed
+as the normal refresh and fallback. It is independent of the TDCC chain and is
+not used as proof that a TDCC-triggered refresh occurred.
+
+To install or repair only the state-aware poller, run:
+
+```text
+installTdccIndividualRefreshOrchestratorTrigger
+diagnoseTdccIndividualRefreshOrchestration
+```
+
+The diagnostic logs the current state, dispatch history, and recent runs for
+both workflows. A complete audit record must show one TDCC `run_id:signal_date`
+chain key and exactly one correlated individual refresh run id.
 
 `triggerEventCatalystUpdate` dispatches `.github/workflows/event_catalyst_update.yml`.
 
@@ -139,7 +212,7 @@ under the Daily Full Pipeline workflow.
 ```text
 200 / 201 / 202 / 204 = GitHub accepted the request
 401 = token is missing, invalid, expired, or not visible to Apps Script
-403 = token lacks Actions read/write permission
+403 = token lacks Actions read/write or Contents read permission
 404 = token cannot see the repo or the workflow file name is wrong
 422 = ref or dispatch payload is invalid
 ```
@@ -175,6 +248,7 @@ The canonical Apps Script source currently installs:
 | `triggerEventCatalystUpdate` | daily 08:10 and 18:10 Asia/Taipei | `event_catalyst_update.yml` |
 | `triggerTdccHistoryGapRepair` | Tuesday 09:30 Asia/Taipei | `repair_tdcc_monthly_history_gaps.yml` |
 | `triggerTdccWeeklyReport` | Saturday 15:30 Asia/Taipei | `tdcc_weekly.yml` |
+| `orchestrateTdccIndividualRefresh` | every 5 minutes; dispatches only while a TDCC chain is active and all run/main gates pass | conditional `individual_stock_data_refresh.yml` |
 | `triggerWeeklyThemeReview` | Sunday 19:30 Asia/Taipei | `weekly_theme_review.yml` |
 | `triggerResearchBacktestPipeline` | every 2 weeks, Sunday 21:10 Asia/Taipei | `research_backtest_pipeline.yml` |
 
@@ -182,6 +256,11 @@ The trigger times are intentionally staggered. Workflows that may dispatch on
 the same day should have at least a 60-minute gap between their nominal trigger
 times. The daily stock monitor trigger still exists on weekends, but its handler
 self-skips before dispatching GitHub Actions.
+
+The 5-minute orchestrator is not a nominal scheduled workflow dispatch. It is a
+condition poller: most executions only read persisted state and GitHub run/main
+evidence. It must never be replaced with a fixed sleep or fixed post-TDCC clock
+time.
 
 Research/backtest cadence is intentionally external to
 `research_backtest_pipeline.yml`. The GitHub workflow itself is
