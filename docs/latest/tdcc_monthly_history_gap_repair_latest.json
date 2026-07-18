@@ -1,0 +1,678 @@
+{
+  "status": "repaired",
+  "generated_at": "2026-07-14 09:41:00 Asia/Taipei",
+  "as_of_date": "20260714",
+  "current_week_start": "20260713",
+  "universe": "chatgpt-top",
+  "max_stocks": 80,
+  "max_requests": 500,
+  "dry_run": false,
+  "stocks_selected": 80,
+  "target_dates": [
+    "20260703",
+    "20260709"
+  ],
+  "available_dates_in_month_excluding_current_week": [
+    "20260703",
+    "20260709"
+  ],
+  "missing_date_count_before": 1,
+  "missing_stock_rows_before": 80,
+  "missing_before": [
+    {
+      "date": "20260709",
+      "missing_stock_count": 80,
+      "existing_rows": 0,
+      "missing_stock_ids": [
+        "5523",
+        "5278",
+        "2204",
+        "3252",
+        "1402",
+        "2211",
+        "1442",
+        "5234",
+        "2377",
+        "1339",
+        "2812",
+        "1737",
+        "2107",
+        "5533",
+        "6527",
+        "2845",
+        "1457",
+        "1323",
+        "1615",
+        "8404",
+        "6417",
+        "1733",
+        "1906",
+        "2886",
+        "2801",
+        "6115",
+        "2852",
+        "5871",
+        "3033",
+        "2365",
+        "6504",
+        "3023",
+        "2528",
+        "6609",
+        "6020",
+        "4968",
+        "2008",
+        "2017",
+        "2114",
+        "6283",
+        "5203",
+        "3596",
+        "1722",
+        "2701",
+        "3078",
+        "3512",
+        "3029",
+        "3293",
+        "5324",
+        "1102",
+        "1217",
+        "1233",
+        "1304",
+        "1325",
+        "1410",
+        "1423",
+        "1437",
+        "1464",
+        "1474",
+        "1709",
+        "1734",
+        "1784",
+        "2390",
+        "2516",
+        "2540",
+        "2618",
+        "2645",
+        "2718",
+        "2867",
+        "2949",
+        "3092",
+        "3541",
+        "3705",
+        "3713",
+        "4107",
+        "4119",
+        "4121",
+        "4155",
+        "4161",
+        "4198"
+      ]
+    }
+  ],
+  "repair_action_count": 80,
+  "repaired_count": 80,
+  "failed_count": 0,
+  "actions": [
+    {
+      "date": "20260709",
+      "stock_id": "5523",
+      "stock_name": "豐謙",
+      "status": "repaired",
+      "message": ""
+    },
+    {
+      "date": "20260709",
+      "stock_id": "5278",
+      "stock_name": "尚凡*",
+      "status": "repaired",
+      "message": ""
+    },
+    {
+      "date": "20260709",
+      "stock_id": "2204",
+      "stock_name": "中華",
+      "status": "repaired",
+      "message": ""
+    },
+    {
+      "date": "20260709",
+      "stock_id": "3252",
+      "stock_name": "海灣",
+      "status": "repaired",
+      "message": ""
+    },
+    {
+      "date": "20260709",
+      "stock_id": "1402",
+      "stock_name": "遠東新",
+      "status": "repaired",
+      "message": ""
+    },
+    {
+      "date": "20260709",
+      "stock_id": "2211",
+      "stock_name": "長榮鋼",
+      "status": "repaired",
+      "message": ""
+    },
+    {
+      "date": "20260709",
+      "stock_id": "1442",
+      "stock_name": "名軒",
+      "status": "repaired",
+      "message": ""
+    },
+    {
+      "date": "20260709",
+      "stock_id": "5234",
+      "stock_name": "達興材料",
+      "status": "repaired",
+      "message": ""
+    },
+    {
+      "date": "20260709",
+      "stock_id": "2377",
+      "stock_name": "微星",
+      "status": "repaired",
+      "message": ""
+    },
+    {
+      "date": "20260709",
+      "stock_id": "1339",
+      "stock_name": "昭輝",
+      "status": "repaired",
+      "message": ""
+    },
+    {
+      "date": "20260709",
+      "stock_id": "2812",
+      "stock_name": "台中銀",
+      "status": "repaired",
+      "message": ""
+    },
+    {
+      "date": "20260709",
+      "stock_id": "1737",
+      "stock_name": "臺鹽",
+      "status": "repaired",
+      "message": ""
+    },
+    {
+      "date": "20260709",
+      "stock_id": "2107",
+      "stock_name": "厚生",
+      "status": "repaired",
+      "message": ""
+    },
+    {
+      "date": "20260709",
+      "stock_id": "5533",
+      "stock_name": "皇鼎",
+      "status": "repaired",
+      "message": ""
+    },
+    {
+      "date": "20260709",
+      "stock_id": "6527",
+      "stock_name": "明達醫",
+      "status": "repaired",
+      "message": ""
+    },
+    {
+      "date": "20260709",
+      "stock_id": "2845",
+      "stock_name": "遠東銀",
+      "status": "repaired",
+      "message": ""
+    },
+    {
+      "date": "20260709",
+      "stock_id": "1457",
+      "stock_name": "宜進",
+      "status": "repaired",
+      "message": ""
+    },
+    {
+      "date": "20260709",
+      "stock_id": "1323",
+      "stock_name": "永裕",
+      "status": "repaired",
+      "message": ""
+    },
+    {
+      "date": "20260709",
+      "stock_id": "1615",
+      "stock_name": "大山",
+      "status": "repaired",
+      "message": ""
+    },
+    {
+      "date": "20260709",
+      "stock_id": "8404",
+      "stock_name": "百和興業-KY",
+      "status": "repaired",
+      "message": ""
+    },
+    {
+      "date": "20260709",
+      "stock_id": "6417",
+      "stock_name": "韋僑",
+      "status": "repaired",
+      "message": ""
+    },
+    {
+      "date": "20260709",
+      "stock_id": "1733",
+      "stock_name": "五鼎",
+      "status": "repaired",
+      "message": ""
+    },
+    {
+      "date": "20260709",
+      "stock_id": "1906",
+      "stock_name": "寶隆",
+      "status": "repaired",
+      "message": ""
+    },
+    {
+      "date": "20260709",
+      "stock_id": "2886",
+      "stock_name": "兆豐金",
+      "status": "repaired",
+      "message": ""
+    },
+    {
+      "date": "20260709",
+      "stock_id": "2801",
+      "stock_name": "彰銀",
+      "status": "repaired",
+      "message": ""
+    },
+    {
+      "date": "20260709",
+      "stock_id": "6115",
+      "stock_name": "鎰勝",
+      "status": "repaired",
+      "message": ""
+    },
+    {
+      "date": "20260709",
+      "stock_id": "2852",
+      "stock_name": "第一保",
+      "status": "repaired",
+      "message": ""
+    },
+    {
+      "date": "20260709",
+      "stock_id": "5871",
+      "stock_name": "中租-KY",
+      "status": "repaired",
+      "message": ""
+    },
+    {
+      "date": "20260709",
+      "stock_id": "3033",
+      "stock_name": "威健",
+      "status": "repaired",
+      "message": ""
+    },
+    {
+      "date": "20260709",
+      "stock_id": "2365",
+      "stock_name": "昆盈",
+      "status": "repaired",
+      "message": ""
+    },
+    {
+      "date": "20260709",
+      "stock_id": "6504",
+      "stock_name": "南六",
+      "status": "repaired",
+      "message": ""
+    },
+    {
+      "date": "20260709",
+      "stock_id": "3023",
+      "stock_name": "信邦",
+      "status": "repaired",
+      "message": ""
+    },
+    {
+      "date": "20260709",
+      "stock_id": "2528",
+      "stock_name": "皇普",
+      "status": "repaired",
+      "message": ""
+    },
+    {
+      "date": "20260709",
+      "stock_id": "6609",
+      "stock_name": "瀧澤科",
+      "status": "repaired",
+      "message": ""
+    },
+    {
+      "date": "20260709",
+      "stock_id": "6020",
+      "stock_name": "大展證",
+      "status": "repaired",
+      "message": ""
+    },
+    {
+      "date": "20260709",
+      "stock_id": "4968",
+      "stock_name": "立積",
+      "status": "repaired",
+      "message": ""
+    },
+    {
+      "date": "20260709",
+      "stock_id": "2008",
+      "stock_name": "高興昌",
+      "status": "repaired",
+      "message": ""
+    },
+    {
+      "date": "20260709",
+      "stock_id": "2017",
+      "stock_name": "官田鋼",
+      "status": "repaired",
+      "message": ""
+    },
+    {
+      "date": "20260709",
+      "stock_id": "2114",
+      "stock_name": "鑫永銓",
+      "status": "repaired",
+      "message": ""
+    },
+    {
+      "date": "20260709",
+      "stock_id": "6283",
+      "stock_name": "淳安",
+      "status": "repaired",
+      "message": ""
+    },
+    {
+      "date": "20260709",
+      "stock_id": "5203",
+      "stock_name": "訊連",
+      "status": "repaired",
+      "message": ""
+    },
+    {
+      "date": "20260709",
+      "stock_id": "3596",
+      "stock_name": "智易",
+      "status": "repaired",
+      "message": ""
+    },
+    {
+      "date": "20260709",
+      "stock_id": "1722",
+      "stock_name": "台肥",
+      "status": "repaired",
+      "message": ""
+    },
+    {
+      "date": "20260709",
+      "stock_id": "2701",
+      "stock_name": "萬企",
+      "status": "repaired",
+      "message": ""
+    },
+    {
+      "date": "20260709",
+      "stock_id": "3078",
+      "stock_name": "僑威",
+      "status": "repaired",
+      "message": ""
+    },
+    {
+      "date": "20260709",
+      "stock_id": "3512",
+      "stock_name": "皇龍",
+      "status": "repaired",
+      "message": ""
+    },
+    {
+      "date": "20260709",
+      "stock_id": "3029",
+      "stock_name": "零壹",
+      "status": "repaired",
+      "message": ""
+    },
+    {
+      "date": "20260709",
+      "stock_id": "3293",
+      "stock_name": "鈊象",
+      "status": "repaired",
+      "message": ""
+    },
+    {
+      "date": "20260709",
+      "stock_id": "5324",
+      "stock_name": "士開",
+      "status": "repaired",
+      "message": ""
+    },
+    {
+      "date": "20260709",
+      "stock_id": "1102",
+      "stock_name": "亞泥",
+      "status": "repaired",
+      "message": ""
+    },
+    {
+      "date": "20260709",
+      "stock_id": "1217",
+      "stock_name": "愛之味",
+      "status": "repaired",
+      "message": ""
+    },
+    {
+      "date": "20260709",
+      "stock_id": "1233",
+      "stock_name": "天仁",
+      "status": "repaired",
+      "message": ""
+    },
+    {
+      "date": "20260709",
+      "stock_id": "1304",
+      "stock_name": "台聚",
+      "status": "repaired",
+      "message": ""
+    },
+    {
+      "date": "20260709",
+      "stock_id": "1325",
+      "stock_name": "恆大",
+      "status": "repaired",
+      "message": ""
+    },
+    {
+      "date": "20260709",
+      "stock_id": "1410",
+      "stock_name": "南染",
+      "status": "repaired",
+      "message": ""
+    },
+    {
+      "date": "20260709",
+      "stock_id": "1423",
+      "stock_name": "利華",
+      "status": "repaired",
+      "message": ""
+    },
+    {
+      "date": "20260709",
+      "stock_id": "1437",
+      "stock_name": "勤益控",
+      "status": "repaired",
+      "message": ""
+    },
+    {
+      "date": "20260709",
+      "stock_id": "1464",
+      "stock_name": "得力",
+      "status": "repaired",
+      "message": ""
+    },
+    {
+      "date": "20260709",
+      "stock_id": "1474",
+      "stock_name": "弘裕",
+      "status": "repaired",
+      "message": ""
+    },
+    {
+      "date": "20260709",
+      "stock_id": "1709",
+      "stock_name": "和益",
+      "status": "repaired",
+      "message": ""
+    },
+    {
+      "date": "20260709",
+      "stock_id": "1734",
+      "stock_name": "杏輝",
+      "status": "repaired",
+      "message": ""
+    },
+    {
+      "date": "20260709",
+      "stock_id": "1784",
+      "stock_name": "訊聯",
+      "status": "repaired",
+      "message": ""
+    },
+    {
+      "date": "20260709",
+      "stock_id": "2390",
+      "stock_name": "云辰",
+      "status": "repaired",
+      "message": ""
+    },
+    {
+      "date": "20260709",
+      "stock_id": "2516",
+      "stock_name": "新建",
+      "status": "repaired",
+      "message": ""
+    },
+    {
+      "date": "20260709",
+      "stock_id": "2540",
+      "stock_name": "愛山林",
+      "status": "repaired",
+      "message": ""
+    },
+    {
+      "date": "20260709",
+      "stock_id": "2618",
+      "stock_name": "長榮航",
+      "status": "repaired",
+      "message": ""
+    },
+    {
+      "date": "20260709",
+      "stock_id": "2645",
+      "stock_name": "長榮航太",
+      "status": "repaired",
+      "message": ""
+    },
+    {
+      "date": "20260709",
+      "stock_id": "2718",
+      "stock_name": "全心投控",
+      "status": "repaired",
+      "message": ""
+    },
+    {
+      "date": "20260709",
+      "stock_id": "2867",
+      "stock_name": "三商壽",
+      "status": "repaired",
+      "message": ""
+    },
+    {
+      "date": "20260709",
+      "stock_id": "2949",
+      "stock_name": "欣新網",
+      "status": "repaired",
+      "message": ""
+    },
+    {
+      "date": "20260709",
+      "stock_id": "3092",
+      "stock_name": "鴻碩",
+      "status": "repaired",
+      "message": ""
+    },
+    {
+      "date": "20260709",
+      "stock_id": "3541",
+      "stock_name": "西柏",
+      "status": "repaired",
+      "message": ""
+    },
+    {
+      "date": "20260709",
+      "stock_id": "3705",
+      "stock_name": "永信",
+      "status": "repaired",
+      "message": ""
+    },
+    {
+      "date": "20260709",
+      "stock_id": "3713",
+      "stock_name": "新晶投控",
+      "status": "repaired",
+      "message": ""
+    },
+    {
+      "date": "20260709",
+      "stock_id": "4107",
+      "stock_name": "邦特",
+      "status": "repaired",
+      "message": ""
+    },
+    {
+      "date": "20260709",
+      "stock_id": "4119",
+      "stock_name": "旭富",
+      "status": "repaired",
+      "message": ""
+    },
+    {
+      "date": "20260709",
+      "stock_id": "4121",
+      "stock_name": "優盛",
+      "status": "repaired",
+      "message": ""
+    },
+    {
+      "date": "20260709",
+      "stock_id": "4155",
+      "stock_name": "訊映",
+      "status": "repaired",
+      "message": ""
+    },
+    {
+      "date": "20260709",
+      "stock_id": "4161",
+      "stock_name": "聿新科",
+      "status": "repaired",
+      "message": ""
+    },
+    {
+      "date": "20260709",
+      "stock_id": "4198",
+      "stock_name": "欣大健康",
+      "status": "repaired",
+      "message": ""
+    }
+  ],
+  "missing_date_count_after": 0,
+  "missing_stock_rows_after": 0,
+  "missing_after": []
+}
