@@ -238,7 +238,10 @@ def test_individual_refresh_workflow_commits_unique_run_status_evidence() -> Non
     assert 'os.environ["GITHUB_RUN_ID"]' in workflow_text
     assert 'os.environ["GITHUB_SHA"]' in workflow_text
     assert '"official_signal_date": signal_date' in workflow_text
+    assert '"source_tdcc_dataset_id": dataset_id' in workflow_text
     assert 'expected_date_source = "report_ready_csv_signal_date"' in workflow_text
+    assert "python scripts/validate_tdcc_dataset_manifest.py" in workflow_text
+    assert "tdcc_dataset_manifest_latest.json" in workflow_text
     assert "individual_stock_refresh_run_status_latest.json" in workflow_text
     assert "git add output/latest/individual_stock_reports/" in workflow_text
     assert "git add docs/latest/individual_stock_reports/" in workflow_text

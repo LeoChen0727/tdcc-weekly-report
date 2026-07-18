@@ -8,41 +8,60 @@ change the TDCC weekly producer, workflow trigger order, individual-stock PDF
 renderer or layout, stock models, ranking, scoring, daily recommendations, or
 research/backtest outputs.
 
-## Official date source
+## Canonical dataset source
 
-The only official TDCC date for individual-stock packets is read from:
+The only canonical TDCC dataset contract for individual-stock packets is read
+from:
 
 ```text
-output/latest/tdcc_weekly_candidate_report_validation_latest.json
+output/latest/tdcc_dataset_manifest_latest.json
 ```
 
 The contract fails closed unless all of these conditions hold:
 
 - `status=pass`
-- `date_contract.date_source=report_ready_csv_signal_date`
-- root `signal_date` is a valid `YYYYMMDD` date
+- `schema_version=tdcc_dataset_manifest_v1`
+- `dataset_id` matches the manifest `signal_date`
+- `required_dates` is an ordered, unique official-date sequence ending on
+  `signal_date`
+- the signal-date snapshot exists and its stock count matches the manifest
 
-The builder and validator must not infer the date from wall-clock time, TDCC
-window maxima, README text, report filenames, or another latest artifact.
+The builder and validator must not infer the date or dataset identity from
+wall-clock time, TDCC window maxima, README text, report filenames, or another
+latest artifact.
 
 ## Packet and index semantics
 
 Every packet and packet-index row records:
 
+- `source_tdcc_dataset_id`
 - `official_tdcc_signal_date`
 - `latest_tdcc_date`
 - `tdcc_rows`
 - `tdcc_history_status`
 - `tdcc_freshness_status`
+- `tdcc_continuity_status`
+- `tdcc_missing_official_dates`
 
 `tdcc_history_status=tdcc_history_ready` is allowed only when `tdcc_rows >= 8`
-and `latest_tdcc_date == official_tdcc_signal_date`. For stocks present in the
-current main-price universe with `tdcc_rows > 0`, a date mismatch must be
-represented by both `tdcc_history_status=tdcc_window_stale` and
+and all of the following are true: the packet uses the canonical `dataset_id`,
+the stock contains every required official date, its 1w/2w/3w changes and
+consecutive-up streak recompute correctly on that date sequence, and
+`latest_tdcc_date == official_tdcc_signal_date`. For stocks present in the
+current main-price universe with `tdcc_rows > 0`, a latest-date mismatch must
+be represented by both `tdcc_history_status=tdcc_window_stale` and
 `tdcc_freshness_status=tdcc_window_stale`; it must not claim that TDCC history
 is current. Current windows use
 `tdcc_freshness_status=tdcc_window_fresh`, while current windows with fewer than
 eight rows remain `tdcc_history_status=insufficient_tdcc_history`.
+
+An individual stock/date omission explicitly recorded in
+`accepted_history_exceptions` does not fail every stock packet. That stock is
+marked `tdcc_history_status=tdcc_history_degraded_exception`,
+`tdcc_freshness_status=tdcc_window_degraded`, and
+`tdcc_continuity_status=accepted_history_exception`; the missing official dates
+are disclosed. Any unapproved missing date is a hard failure. A change spanning
+two official periods must never be written into a `change_1w` field.
 
 Stocks with no TDCC rows are a separate valid state: `tdcc_rows=0`, blank
 `latest_tdcc_date`, `tdcc_history_status=tdcc_missing`, and
@@ -109,15 +128,17 @@ The machine-enforced status remains `historical_only_noncurrent` rather than
 ## Validation boundary
 
 `python scripts/validate_individual_stock_outputs.py --all` reads the same
-official contract and checks every packet-index row and corresponding packet.
+canonical dataset contract and checks every packet-index row, packet, and TDCC
+window.
 For each stock it independently reads `data/tdcc_stock_history/{stock_id}.csv`
-and recomputes the source row count and latest TDCC date. Packet and index
-metadata must match that source lineage; agreement between two generated
-artifacts is not sufficient. A missing source file is validated as
-`tdcc_missing` with zero rows and a blank latest TDCC date.
-Missing or malformed contracts, non-`pass` status, unexpected date source,
-missing metadata, date mismatch, stale status, or index/packet disagreement are
-hard failures.
+and verifies the exact required official dates, 1w/2w/3w changes, consecutive
+up weeks, source row count, latest date, and `dataset_id`. Packet, index, and
+window metadata must match that source lineage; agreement between generated
+artifacts is not sufficient. A missing source file is accepted as
+`tdcc_missing` only when the stock is absent from the canonical current TDCC
+universe. Missing or malformed contracts, unapproved date gaps, derived-field
+mismatch, missing lineage metadata, date mismatch, stale status, or
+index/packet/window disagreement are hard failures.
 
 Sparse PR worktrees may use fixtures for regression coverage because protected
 `data/` and `output/` are not materialized there. The authoritative whole-set

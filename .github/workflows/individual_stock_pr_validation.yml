@@ -60,6 +60,7 @@ jobs:
           python scripts/validate_repo_production_inventory.py
           python scripts/validate_individual_pdf_contract_consumers.py
           python -m pytest tests/test_repo_production_inventory.py -q
+          python -m pytest tests/test_individual_tdcc_dataset_consumer.py -q
           python -m pytest tests/test_individual_stock_outputs.py -q
 
       - name: Record scope result

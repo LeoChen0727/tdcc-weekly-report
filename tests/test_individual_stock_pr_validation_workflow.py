@@ -78,8 +78,10 @@ def test_scope_covers_gate_inventories_and_probe_contract_docs() -> None:
         "docs/individual_stock_lifecycle_probe.md",
         "output/history/individual_stock_reports/2330/report.pdf",
         "scripts/detect_individual_stock_pr_scope.py",
+        "scripts/individual_tdcc_dataset_consumer.py",
         "scripts/validate_individual_pdf_contract_consumers.py",
         "tests/test_individual_pdf_contract_consumers.py",
+        "tests/test_individual_tdcc_dataset_consumer.py",
         "tests/test_individual_stock_pr_validation_workflow.py",
     )
     unrelated = (
@@ -105,8 +107,14 @@ def test_individual_stock_history_root_is_affected() -> None:
     )
 
 
+def test_individual_tdcc_dataset_consumer_is_affected() -> None:
+    assert scope.is_affected_path("scripts/individual_tdcc_dataset_consumer.py")
+    assert scope.is_affected_path("tests/test_individual_tdcc_dataset_consumer.py")
+
+
 def test_workflow_contains_required_affected_validation_commands() -> None:
     text = workflow_text()
+    assert "tests/test_individual_tdcc_dataset_consumer.py" in text
     commands = (
         "git diff --check",
         "python -m pip install --disable-pip-version-check pandas requests",

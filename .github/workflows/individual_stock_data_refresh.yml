@@ -55,6 +55,7 @@ jobs:
 
       - name: Build individual stock packets and windows
         run: |
+          python scripts/validate_tdcc_dataset_manifest.py
           python scripts/build_individual_stock_chatgpt_packets.py
           python scripts/build_individual_stock_raw_data_index.py
           python scripts/validate_individual_stock_outputs.py --all
@@ -71,9 +72,17 @@ jobs:
           tdcc_validation_path = Path(
               "output/latest/tdcc_weekly_candidate_report_validation_latest.json"
           )
+          tdcc_dataset_manifest_path = Path(
+              "output/latest/tdcc_dataset_manifest_latest.json"
+          )
           tdcc_validation = json.loads(tdcc_validation_path.read_text(encoding="utf-8"))
+          tdcc_dataset_manifest = json.loads(
+              tdcc_dataset_manifest_path.read_text(encoding="utf-8")
+          )
           date_contract = tdcc_validation.get("date_contract") or {}
-          signal_date = str(tdcc_validation.get("signal_date") or "")
+          signal_date = str(tdcc_dataset_manifest.get("signal_date") or "")
+          validation_signal_date = str(tdcc_validation.get("signal_date") or "")
+          dataset_id = str(tdcc_dataset_manifest.get("dataset_id") or "")
           expected_date_source = "report_ready_csv_signal_date"
           if tdcc_validation.get("status") != "pass":
               raise SystemExit("TDCC validation status must be pass before writing refresh run status")
@@ -84,6 +93,15 @@ jobs:
               )
           if len(signal_date) != 8 or not signal_date.isdigit():
               raise SystemExit(f"Invalid official TDCC signal_date: {signal_date!r}")
+          if tdcc_dataset_manifest.get("status") != "pass":
+              raise SystemExit("TDCC dataset manifest status must be pass before writing refresh run status")
+          if validation_signal_date != signal_date:
+              raise SystemExit(
+                  "TDCC dataset/candidate signal_date mismatch: "
+                  f"dataset={signal_date} candidate={validation_signal_date}"
+              )
+          if not dataset_id.startswith(f"tdcc-{signal_date}-"):
+              raise SystemExit(f"Invalid canonical TDCC dataset_id: {dataset_id!r}")
 
           payload = {
               "status": "pass",
@@ -96,9 +114,11 @@ jobs:
               "github_head_sha": os.environ["GITHUB_SHA"],
               "github_ref_name": os.environ["GITHUB_REF_NAME"],
               "official_signal_date": signal_date,
+              "source_tdcc_dataset_id": dataset_id,
               "date_contract": {
                   "date_source": expected_date_source,
                   "tdcc_validation_path": tdcc_validation_path.as_posix(),
+                  "tdcc_dataset_manifest_path": tdcc_dataset_manifest_path.as_posix(),
               },
               "generated_at": datetime.now(ZoneInfo("Asia/Taipei")).isoformat(),
           }
@@ -117,7 +137,8 @@ jobs:
               "individual_refresh_run_status="
               f"run_id={payload['github_run_id']} "
               f"head_sha={payload['github_head_sha']} "
-              f"signal_date={payload['official_signal_date']}"
+              f"signal_date={payload['official_signal_date']} "
+              f"dataset_id={payload['source_tdcc_dataset_id']}"
           )
           PY
 
