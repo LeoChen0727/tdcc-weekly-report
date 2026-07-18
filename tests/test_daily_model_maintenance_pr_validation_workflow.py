@@ -9,6 +9,7 @@ from scripts import validate_daily_production_boundaries as boundaries
 ROOT = Path(__file__).resolve().parents[1]
 WORKFLOW = ROOT / ".github" / "workflows" / "daily_model_maintenance_pr_validation.yml"
 DAILY_WORKFLOW = ROOT / ".github" / "workflows" / "daily_full_pipeline.yml"
+WARRANT_WORKFLOW = ROOT / ".github" / "workflows" / "warrant_flow.yml"
 PDF_REPLAY_WORKFLOW = ROOT / ".github" / "workflows" / "daily_pdf_replay_pr_validation.yml"
 
 
@@ -27,6 +28,7 @@ def test_daily_model_maintenance_pr_workflow_exists_for_model_pdf_paths() -> Non
     text = WORKFLOW.read_text(encoding="utf-8")
 
     assert "pull_request:" in text
+    assert "fetch-depth: 0" in text
     assert "scripts/generate_chatgpt_side_daily_reports.py" in text
     assert "scripts/run_chatgpt_daily_report_entrypoint.py" in text
     assert "scripts/update_daily_published_model_snapshots.py" in text
@@ -38,6 +40,41 @@ def test_daily_model_maintenance_pr_workflow_exists_for_model_pdf_paths() -> Non
     assert "scripts/build_mature_model_row_level_metric_contract_audit.py" in text
     assert "scripts/validate_mature_model_row_level_metric_contract_audit.py" in text
     assert "tests/test_mature_model_row_level_metric_contract_audit.py" in text
+
+
+def test_production_snapshot_updates_are_followed_by_dynamic_lineage_parity() -> None:
+    for workflow_path in (DAILY_WORKFLOW, WARRANT_WORKFLOW):
+        text = workflow_path.read_text(encoding="utf-8")
+        snapshot_update_index = text.index(
+            "python scripts/update_daily_published_model_snapshots.py"
+        )
+        snapshot_validation_index = text.index(
+            "python scripts/validate_daily_published_model_snapshots.py",
+            snapshot_update_index,
+        )
+        canonical_validation_index = text.index(
+            "python scripts/validate_daily_canonical_field_lineage.py",
+            snapshot_validation_index,
+        )
+        history_validation_index = text.index(
+            "python scripts/validate_volume_v2_warrant_lineage_history_audit.py",
+            canonical_validation_index,
+        )
+
+        assert (
+            snapshot_update_index
+            < snapshot_validation_index
+            < canonical_validation_index
+            < history_validation_index
+        )
+
+    pr_workflow = WORKFLOW.read_text(encoding="utf-8")
+    assert "python scripts/update_daily_published_model_snapshots.py" not in pr_workflow
+    assert "Validate production lineage parity ordering contract" in pr_workflow
+    assert (
+        "-k production_snapshot_updates_are_followed_by_dynamic_lineage_parity"
+        in pr_workflow
+    )
 
 
 def test_pdf_replay_pr_workflow_is_renderer_contract_only_and_manually_dispatchable() -> None:
@@ -105,8 +142,21 @@ def test_daily_model_maintenance_pr_workflow_triggers_on_independence_guard_chan
         "output/latest/model_data_independence_audit_latest.*",
         "output/latest/research_backtest/financial_statement_pit_coverage_latest.*",
         "scripts/build_financial_statement_pit.py",
+        "scripts/build_volume_breakout_watch.py",
+        "scripts/build_volume_attack_theme_layer.py",
         "scripts/validate_financial_statement_pit.py",
+        "scripts/validate_volume_breakout_watch.py",
+        "scripts/validate_volume_attack_theme_layer.py",
+        "scripts/validate_daily_canonical_field_lineage.py",
+        "scripts/build_volume_v2_warrant_lineage_history_audit.py",
+        "scripts/build_daily_published_snapshot_ranking_backtest.py",
+        "scripts/validate_volume_v2_warrant_lineage_history_audit.py",
         "tests/test_financial_statement_pit.py",
+        "tests/test_volume_breakout_watch.py",
+        "tests/test_daily_canonical_field_lineage.py",
+        "tests/test_daily_model_maintenance_pr_validation_workflow.py",
+        "tests/test_volume_v2_warrant_lineage_history_audit.py",
+        "tests/test_daily_published_snapshot_ranking_backtest.py",
     )
     for path in required_paths:
         assert path in text
@@ -125,6 +175,11 @@ def test_daily_model_maintenance_pr_workflow_runs_contract_validators() -> None:
         "python scripts/validate_daily_published_model_snapshots.py",
         "python scripts/validate_daily_model_background_data_registry.py",
         "python scripts/validate_model_data_independence.py",
+        "python scripts/validate_volume_breakout_watch.py --latest-only",
+        "python scripts/validate_volume_attack_theme_layer.py",
+        "python scripts/validate_daily_canonical_field_lineage.py",
+        "python scripts/build_volume_v2_warrant_lineage_history_audit.py",
+        "python scripts/validate_volume_v2_warrant_lineage_history_audit.py",
         "python scripts/validate_financial_statement_pit.py",
         "python scripts/validate_revenue_unreacted_range_source_first_condition_audit.py",
         "python scripts/validate_revenue_unreacted_range_forward_confirmation_feature_audit.py",
@@ -152,6 +207,7 @@ def test_daily_model_maintenance_pr_workflow_runs_focused_pdf_operation_tests() 
         "tests/test_daily_pdf_contract_consumers.py",
         "tests/test_daily_pdf_completion_hard_gate.py",
         "tests/test_daily_published_model_snapshots.py",
+        "tests/test_daily_published_snapshot_ranking_backtest.py",
         "tests/test_daily_operation_adapter_protected_fields.py",
         "tests/test_daily_volume_breakout_operation_section.py",
         "tests/test_daily_w_bottom_operation_sections.py",
@@ -160,6 +216,10 @@ def test_daily_model_maintenance_pr_workflow_runs_focused_pdf_operation_tests() 
         "tests/test_daily_report_model_summary.py",
         "tests/test_daily_production_boundaries.py",
         "tests/test_model_data_independence.py",
+        "tests/test_volume_breakout_watch.py",
+        "tests/test_daily_canonical_field_lineage.py",
+        "tests/test_daily_model_maintenance_pr_validation_workflow.py",
+        "tests/test_volume_v2_warrant_lineage_history_audit.py",
         "tests/test_financial_statement_pit.py",
         "tests/test_revenue_unreacted_range_source_first_condition_audit.py",
         "tests/test_revenue_unreacted_range_forward_confirmation_feature_audit.py",

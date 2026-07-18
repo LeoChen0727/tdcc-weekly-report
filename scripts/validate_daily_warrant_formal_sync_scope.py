@@ -74,6 +74,9 @@ STAGED_ALLOWED_PATTERNS = (
     "output/latest/chatgpt_indicator_usage_guide_latest.md",
     "output/latest/CHATGPT_INDICATOR_USAGE_GUIDE.txt",
     "output/latest/theme_event_watch_latest.*",
+    "output/latest/volume_attack_theme_layer_latest.*",
+    "output/latest/volume_attack_theme_stocks_latest.*",
+    "output/latest/volume_attack_theme_layer_validation_latest.*",
     "output/latest/daily_candidate_model_parameters_latest.*",
     "output/latest/daily_candidate_model_signals_latest.*",
     "output/latest/daily_candidate_model_signals_for_report_latest.*",
@@ -102,6 +105,8 @@ STAGED_ALLOWED_PATTERNS = (
     "docs/latest/daily_candidate_group_rotation_latest.*",
     "docs/latest/daily_report_model_registry_latest.*",
     "docs/latest/theme_event_watch_latest.*",
+    "docs/latest/volume_attack_theme_layer_latest.*",
+    "docs/latest/volume_attack_theme_stocks_latest.*",
     "docs/latest/chatgpt_indicator_usage_guide_latest.md",
     "docs/latest/CHATGPT_INDICATOR_USAGE_GUIDE.txt",
 )

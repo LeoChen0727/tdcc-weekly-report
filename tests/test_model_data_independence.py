@@ -68,7 +68,7 @@ def test_every_active_model_has_exact_ast_semantic_ownership() -> None:
 def test_shared_business_semantics_are_disclosed_as_contained_not_technical() -> None:
     rows = read_csv("config/daily_model_shared_semantic_registry.csv")
     by_item = {row["semantic_item"]: row for row in rows}
-    assert len(rows) == 79
+    assert len(rows) == 85
     assert by_item["global:MODEL_SCORE_PROFILES"]["semantic_class"] == (
         "contained_legacy_cross_model_semantic"
     )
@@ -81,6 +81,30 @@ def test_shared_business_semantics_are_disclosed_as_contained_not_technical() ->
         "volume_range_breakout_v2_low_position_volume_attack;"
         "volume_range_breakout_v2_mid_position_momentum_attack"
     )
+    for family_helper in (
+        "function:append_volume_breakout_signals",
+        "function:validate_volume_v2_watch_advisory_lineage",
+        "function:volume_v2_candidate_lookup",
+        "function:volume_v2_canonical_text_sha256",
+    ):
+        assert by_item[family_helper]["semantic_class"] == (
+            "contained_model_family_semantic"
+        )
+        assert by_item[family_helper]["last_migration_id"] == (
+            "volume_v2_formal_lineage_hardening_20260718"
+        )
+    for dispatcher_guard in (
+        "global:VOLUME_V2_CANDIDATE_SCORE_FIELDS",
+        "global:VOLUME_V2_FORMAL_DISPATCH_FORBIDDEN_FIELDS",
+        "global:VOLUME_V2_WATCH_NON_AUTHORITATIVE_COLLISION_FIELDS",
+        "global:VOLUME_V2_WATCH_OVERLAY_FIELDS",
+    ):
+        assert by_item[dispatcher_guard]["semantic_class"] == (
+            "contained_model_family_semantic"
+        )
+        assert by_item[dispatcher_guard]["last_migration_id"] == (
+            "volume_v2_formal_lineage_hardening_20260718"
+        )
     for model_family_source in (
         "global:VOLUME_BREAKOUT_TAXONOMY",
         "global:WARRANT_FLOW",
@@ -94,6 +118,7 @@ def test_shared_business_semantics_are_disclosed_as_contained_not_technical() ->
             "volume_range_breakout_v2_mid_position_momentum_attack"
         )
     for no_longer_shared_item in (
+        "function:candidate_lookup",
         "function:taxonomy_lookup",
         "function:taxonomy_or_source",
         "global:STOCK_THEME_TAXONOMY",
@@ -120,6 +145,34 @@ def test_ast_signature_changes_when_a_referenced_global_changes() -> None:
     before_hash = aggregate_semantic_sha256(before.semantic_items(["gate"]))
     after_hash = aggregate_semantic_sha256(after.semantic_items(["gate"]))
     assert before_hash != after_hash
+
+
+def test_volume_v2_candidate_score_allowlist_ast_is_registry_pinned() -> None:
+    source = (ROOT / "scripts/build_daily_candidate_model_layer.py").read_text(
+        encoding="utf-8-sig"
+    )
+    tampered = source.replace(
+        'VOLUME_V2_CANDIDATE_SCORE_FIELDS = (\n    "open",',
+        'VOLUME_V2_CANDIDATE_SCORE_FIELDS = (\n    "future_candidate_score_semantic",\n    "open",',
+        1,
+    )
+    current_items = SourceSemanticGraph(
+        "scripts/build_daily_candidate_model_layer.py", source
+    ).semantic_items(["append_volume_breakout_signals"])
+    tampered_items = SourceSemanticGraph(
+        "scripts/build_daily_candidate_model_layer.py", tampered
+    ).semantic_items(["append_volume_breakout_signals"])
+    registry = {
+        row["semantic_item"]: row
+        for row in read_csv("config/daily_model_shared_semantic_registry.csv")
+    }
+
+    assert current_items["global:VOLUME_V2_CANDIDATE_SCORE_FIELDS"] == registry[
+        "global:VOLUME_V2_CANDIDATE_SCORE_FIELDS"
+    ]["canonical_ast_sha256"]
+    assert tampered_items["global:VOLUME_V2_CANDIDATE_SCORE_FIELDS"] != registry[
+        "global:VOLUME_V2_CANDIDATE_SCORE_FIELDS"
+    ]["canonical_ast_sha256"]
 
 
 def test_strict_csv_rejects_silent_overflow_fields(tmp_path: Path) -> None:
@@ -172,13 +225,20 @@ def test_data_sharing_registry_uses_model_owned_research_entrypoints() -> None:
         "latest_context_not_historical"
     )
     assert by_family["official_warrant_flow_current_snapshot"]["consumer_access_mode"] == (
-        "current_date_negative_projection_guard_only"
+        "current_date_negative_or_exact_projection_parity_guard_only"
     )
+    background = {
+        row["data_family_id"]: row
+        for row in read_csv("config/daily_model_background_data_registry.csv")
+    }
+    assert "scripts/build_volume_attack_theme_layer.py" in background[
+        "official_warrant_flow_current_snapshot"
+    ]["consumer_surfaces"].split(";")
 
 
 def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
     rows = read_csv("config/daily_model_data_sharing_migrations.csv")
-    assert len(rows) == 15
+    assert len(rows) == 16
     baseline = rows[0]
     assert tuple(baseline) == DATA_SHARING_MIGRATION_COLUMNS
     assert data_migration_row_sha256(baseline) == BASELINE_DATA_MIGRATION_ROW_SHA256
@@ -467,6 +527,26 @@ def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
         "user_requested_historical_financial_statement_official_source_continuation_20260717"
     )
     assert historical_source_acquisition_v4["migration_status"] == (
+        "validated_user_approved_migration"
+    )
+
+    warrant_lineage_hardening = rows[15]
+    assert warrant_lineage_hardening["migration_id"] == (
+        "volume_v2_formal_lineage_hardening_20260718"
+    )
+    assert warrant_lineage_hardening["changed_data_families"] == (
+        "official_warrant_flow_current_snapshot"
+    )
+    assert warrant_lineage_hardening["previous_contract_sha256s"] == (
+        "96dc1229637d51e0f026607e88de325033e972b458c0f2aba2de7b6124841f1b"
+    )
+    assert warrant_lineage_hardening["new_contract_sha256s"] == (
+        "75872e9619017808259ebb41f72655b795ce4154ba128260f4a239ccd5f8b691"
+    )
+    assert warrant_lineage_hardening["user_approval_reference"] == (
+        "user_requested_formal_lineage_hardening_20260718"
+    )
+    assert warrant_lineage_hardening["migration_status"] == (
         "validated_user_approved_migration"
     )
 

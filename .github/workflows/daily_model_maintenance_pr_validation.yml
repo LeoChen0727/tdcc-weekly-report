@@ -29,20 +29,26 @@ on:
       - "docs/latest/model_data_independence_audit_latest.*"
       - "docs/latest/financial_statement_pit_coverage_latest.*"
       - "docs/latest/financial_statement_historical_pit_source_audit_latest.*"
+      - "docs/latest/volume_v2_warrant_lineage_history_audit_latest.*"
       - "output/latest/model_data_independence_audit_latest.*"
       - "output/latest/research_backtest/financial_statement_pit_coverage_latest.*"
       - "output/latest/research_backtest/financial_statement_historical_pit_source_audit_latest.*"
+      - "output/latest/volume_v2_warrant_lineage_history_audit_latest.*"
       - "docs/specs/*operation*.md"
       - "docs/specs/daily_mature_model_row_level_metric_contract.md"
       - "docs/repo_hidden_coupling_audit.md"
       - "docs/rules/git_worktree_materialization_safety.md"
       - "scripts/build_daily_*model*.py"
       - "scripts/build_daily_*operation*.py"
+      - "scripts/build_daily_published_snapshot_ranking_backtest.py"
       - "scripts/build_daily_report_model_summary.py"
       - "scripts/build_model_operation_readiness.py"
       - "scripts/build_model_data_independence_audit.py"
       - "scripts/build_financial_statement_pit.py"
       - "scripts/build_financial_statement_historical_pit_source_audit.py"
+      - "scripts/build_volume_breakout_watch.py"
+      - "scripts/build_volume_attack_theme_layer.py"
+      - "scripts/build_volume_v2_warrant_lineage_history_audit.py"
       - "scripts/model_data_independence.py"
       - "scripts/build_*_research.py"
       - "scripts/price_pullback_23ema_*.py"
@@ -63,6 +69,9 @@ on:
       - "scripts/validate_model_data_independence.py"
       - "scripts/validate_financial_statement_pit.py"
       - "scripts/validate_financial_statement_historical_pit_source_audit.py"
+      - "scripts/validate_volume_breakout_watch.py"
+      - "scripts/validate_volume_attack_theme_layer.py"
+      - "scripts/validate_volume_v2_warrant_lineage_history_audit.py"
       - "scripts/validate_model_surface_registry.py"
       - "scripts/validate_model_research_*.py"
       - "scripts/validate_mature_model_row_level_metric_contract_audit.py"
@@ -85,6 +94,10 @@ on:
       - "tests/test_model_data_independence.py"
       - "tests/test_financial_statement_pit.py"
       - "tests/test_financial_statement_historical_pit_source_audit.py"
+      - "tests/test_volume_breakout_watch.py"
+      - "tests/test_daily_canonical_field_lineage.py"
+      - "tests/test_daily_model_maintenance_pr_validation_workflow.py"
+      - "tests/test_volume_v2_warrant_lineage_history_audit.py"
       - "tests/test_model_surface_registry.py"
       - "tests/test_repo_code_isolation_policy.py"
       - "tests/test_model_research_*.py"
@@ -109,6 +122,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v6
@@ -119,6 +134,11 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install pandas requests tabulate matplotlib pillow openpyxl lxml html5lib beautifulsoup4 reportlab pypdf pytest fonttools pyyaml
+
+      - name: Validate production lineage parity ordering contract
+        run: |
+          python -m pytest -q tests/test_daily_model_maintenance_pr_validation_workflow.py \
+            -k production_snapshot_updates_are_followed_by_dynamic_lineage_parity
 
       - name: Validate daily model and PDF contracts
         run: |
@@ -135,6 +155,16 @@ jobs:
           python scripts/validate_daily_published_model_snapshots.py
           python scripts/validate_daily_model_background_data_registry.py
           python scripts/validate_model_data_independence.py
+          python scripts/validate_volume_breakout_watch.py --latest-only
+          python scripts/validate_volume_attack_theme_layer.py
+          python scripts/validate_daily_canonical_field_lineage.py
+          python scripts/build_volume_v2_warrant_lineage_history_audit.py
+          python scripts/validate_volume_v2_warrant_lineage_history_audit.py
+          git diff --exit-code -- \
+            docs/latest/volume_v2_warrant_lineage_history_audit_latest.csv \
+            docs/latest/volume_v2_warrant_lineage_history_audit_latest.md \
+            output/latest/volume_v2_warrant_lineage_history_audit_latest.csv \
+            output/latest/volume_v2_warrant_lineage_history_audit_latest.md
           python scripts/validate_financial_statement_pit.py
           python scripts/build_financial_statement_historical_pit_source_audit.py
           python scripts/validate_financial_statement_historical_pit_source_audit.py
@@ -172,10 +202,15 @@ jobs:
             tests/test_daily_warrant_formal_sync_scope.py \
             tests/test_warrant_source_status.py \
             tests/test_daily_candidate_model_layer.py \
+            tests/test_volume_breakout_watch.py \
+            tests/test_daily_canonical_field_lineage.py \
+            tests/test_daily_model_maintenance_pr_validation_workflow.py \
+            tests/test_volume_v2_warrant_lineage_history_audit.py \
             tests/test_daily_pdf_contract_consumers.py \
             tests/test_daily_pdf_completion_hard_gate.py \
             tests/test_daily_pdf_shared_path_isolation.py \
             tests/test_daily_published_model_snapshots.py \
+            tests/test_daily_published_snapshot_ranking_backtest.py \
             tests/test_daily_legacy_mature_model_paths_removed.py \
             tests/test_daily_operation_adapter_protected_fields.py \
             tests/test_daily_volume_breakout_operation_section.py \

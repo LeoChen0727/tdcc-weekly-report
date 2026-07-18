@@ -609,6 +609,273 @@ def audit_row(**updates: str) -> dict[str, str]:
     return row
 
 
+def lineage_audit_row(**updates: str) -> dict[str, str]:
+    source_sha = "a" * 64
+    row = {
+        "snapshot_report_date": "20260716",
+        "signal_date": "20260716",
+        "model_id": HIGH_VOLUME_MODEL_ID,
+        "stock_id": "6505",
+        "formal_row_disposition": "verified_clean",
+        "evidence_status": "complete",
+        "paired_source_resolution": "current_worktree_exact_source_files",
+        "production_code_sha256": source_sha,
+        "formal_snapshot_path": "formal.csv",
+        "formal_snapshot_sha256": source_sha,
+        "formal_row_number": "0",
+        "formal_row_sha256": source_sha,
+        "watch_artifact_sha256": source_sha,
+        "candidate_artifact_sha256": source_sha,
+        "official_warrant_artifact_sha256": source_sha,
+    }
+    row.update(updates)
+    return row
+
+
+def lineage_operation_section(**updates: str) -> pd.DataFrame:
+    row = {
+        "signal_date": "20260716",
+        "model_id": HIGH_VOLUME_MODEL_ID,
+        "stock_id": "6505",
+        "row_type": "data",
+        "pdf_section": "confirmed_operation",
+    }
+    row.update(updates)
+    return pd.DataFrame([row])
+
+
+def lineage_formal_signal_row(**updates: str) -> dict[str, str]:
+    row = {
+        "signal_date": "20260716",
+        "report_line": "mainstream",
+        "model_id": HIGH_VOLUME_MODEL_ID,
+        "stock_id": "6505",
+        "source_row_index": "volume_breakout:0",
+        "warrant_flow_signal": "call_strong_inflow",
+        "base_model_score": "72",
+        "operation_score": "10",
+        "tdcc_score": "4",
+        "pattern_score": "6",
+        "risk_penalty": "0",
+        "final_rank_score": "92",
+        "model_rank": "1",
+    }
+    row.update(updates)
+    return row
+
+
+def write_lineage_fixture(
+    tmp_path: Path,
+    *,
+    formal_updates: dict[str, str] | None = None,
+    audit_updates: dict[str, str] | None = None,
+    source_relative_path: str = "formal.csv",
+) -> tuple[Path, Path, pd.DataFrame]:
+    source_path = tmp_path / source_relative_path
+    source_path.parent.mkdir(parents=True, exist_ok=True)
+    formal = pd.DataFrame([lineage_formal_signal_row(**(formal_updates or {}))])
+    formal.to_csv(source_path, index=False)
+    resolved_audit_updates = {
+        "formal_snapshot_path": source_relative_path.replace("\\", "/"),
+        "formal_snapshot_sha256": builder.canonical_text_sha256(source_path.read_bytes()),
+        "formal_row_number": "0",
+        "formal_row_sha256": builder.canonical_row_sha256(formal.iloc[0]),
+    }
+    resolved_audit_updates.update(audit_updates or {})
+    audit = lineage_audit_row(**resolved_audit_updates)
+    audit_path = tmp_path / "lineage.csv"
+    pd.DataFrame([audit]).to_csv(audit_path, index=False)
+    return audit_path, source_path, formal
+
+
+def test_formal_operation_lineage_gate_accepts_only_exact_verified_clean_row(tmp_path: Path) -> None:
+    audit_path, _source_path, formal = write_lineage_fixture(tmp_path)
+
+    evidence = builder.require_verified_clean_volume_v2_lineage(
+        lineage_operation_section(),
+        audit_path=audit_path,
+        formal_signal_rows=formal,
+        source_root=tmp_path,
+    )
+
+    assert evidence["checked_rows"] == 1
+    assert len(evidence["audit_sha256"]) == 64
+    assert evidence["formal_row_disposition"] == "verified_clean"
+    assert evidence["evidence_status"] == "complete"
+
+
+@pytest.mark.parametrize("disposition", ["superseded", "quarantined", "unreplayable"])
+def test_formal_operation_lineage_gate_rejects_non_clean_rows(
+    tmp_path: Path,
+    disposition: str,
+) -> None:
+    audit_path, _source_path, formal = write_lineage_fixture(
+        tmp_path,
+        audit_updates={"formal_row_disposition": disposition},
+    )
+
+    with pytest.raises(RuntimeError, match=disposition):
+        builder.require_verified_clean_volume_v2_lineage(
+            lineage_operation_section(),
+            audit_path=audit_path,
+            formal_signal_rows=formal,
+            source_root=tmp_path,
+        )
+
+
+def test_formal_operation_lineage_gate_rejects_uncovered_row(tmp_path: Path) -> None:
+    audit_path, _source_path, formal = write_lineage_fixture(
+        tmp_path,
+        audit_updates={"stock_id": "6243"},
+    )
+
+    with pytest.raises(RuntimeError, match="uncovered"):
+        builder.require_verified_clean_volume_v2_lineage(
+            lineage_operation_section(),
+            audit_path=audit_path,
+            formal_signal_rows=formal,
+            source_root=tmp_path,
+        )
+
+
+def test_formal_operation_lineage_gate_rejects_incomplete_current_source_hashes(
+    tmp_path: Path,
+) -> None:
+    audit_path, _source_path, formal = write_lineage_fixture(
+        tmp_path,
+        audit_updates={"watch_artifact_sha256": ""},
+    )
+
+    with pytest.raises(RuntimeError, match="missing_or_invalid"):
+        builder.require_verified_clean_volume_v2_lineage(
+            lineage_operation_section(),
+            audit_path=audit_path,
+            formal_signal_rows=formal,
+            source_root=tmp_path,
+        )
+
+
+def test_formal_operation_lineage_gate_does_not_reclassify_legacy_rows(tmp_path: Path) -> None:
+    evidence = builder.require_verified_clean_volume_v2_lineage(
+        lineage_operation_section(model_id=builder.LEGACY_MODEL_ID),
+        audit_path=tmp_path / "missing.csv",
+    )
+
+    assert evidence["checked_rows"] == 0
+
+
+@pytest.mark.parametrize(
+    ("field", "changed_value"),
+    [
+        ("warrant_flow_signal", "watch_only_collision"),
+        ("final_rank_score", "91"),
+        ("model_rank", "2"),
+    ],
+)
+def test_formal_operation_lineage_gate_rejects_same_key_changed_current_row(
+    tmp_path: Path,
+    field: str,
+    changed_value: str,
+) -> None:
+    audit_path, _source_path, formal = write_lineage_fixture(tmp_path)
+    changed = formal.copy()
+    changed.loc[0, field] = changed_value
+
+    with pytest.raises(RuntimeError, match="current_formal_row_exact_hash_mismatch"):
+        builder.require_verified_clean_volume_v2_lineage(
+            lineage_operation_section(),
+            audit_path=audit_path,
+            formal_signal_rows=changed,
+            source_root=tmp_path,
+        )
+
+
+def test_formal_operation_lineage_gate_rejects_stale_formal_snapshot_source(
+    tmp_path: Path,
+) -> None:
+    audit_path, source_path, formal = write_lineage_fixture(tmp_path)
+    changed = formal.copy()
+    changed.loc[0, "final_rank_score"] = "91"
+    changed.to_csv(source_path, index=False)
+
+    with pytest.raises(RuntimeError, match="formal_snapshot_sha256_mismatch"):
+        builder.require_verified_clean_volume_v2_lineage(
+            lineage_operation_section(),
+            audit_path=audit_path,
+            source_root=tmp_path,
+        )
+
+
+def test_formal_operation_lineage_gate_rejects_stale_formal_row_hash(
+    tmp_path: Path,
+) -> None:
+    audit_path, _source_path, _formal = write_lineage_fixture(
+        tmp_path,
+        audit_updates={"formal_row_sha256": "b" * 64},
+    )
+
+    with pytest.raises(RuntimeError, match="formal_row_exact_hash_mismatch"):
+        builder.require_verified_clean_volume_v2_lineage(
+            lineage_operation_section(),
+            audit_path=audit_path,
+            source_root=tmp_path,
+        )
+
+
+def test_restored_operation_snapshot_requires_exact_historical_formal_row(
+    monkeypatch,
+    tmp_path: Path,
+) -> None:
+    audit_path, source_path, _formal = write_lineage_fixture(
+        tmp_path,
+        source_relative_path=(
+            "output/history/daily_model_snapshots/"
+            "daily_candidate_model_signals_for_report_20260716.csv"
+        ),
+        audit_updates={
+            "paired_source_resolution": "snapshot_history_exact_blob_fallback",
+        },
+    )
+    snapshot_dir = tmp_path / "operation_snapshots"
+    snapshot_dir.mkdir()
+    section_rows = [
+        output_row(model_id=LOW_VOLUME_MODEL_ID),
+        output_row(model_id=MID_VOLUME_MODEL_ID),
+        output_row(
+            model_id=HIGH_VOLUME_MODEL_ID,
+            row_type="data",
+            stock_id="6505",
+            signal_date="20260716",
+        ),
+    ]
+    pd.DataFrame(section_rows).to_csv(
+        snapshot_dir / "daily_volume_breakout_operation_section_20260716.csv",
+        index=False,
+    )
+    pd.DataFrame(columns=builder.EVIDENCE_AUDIT_COLUMNS).to_csv(
+        snapshot_dir / "daily_volume_breakout_operation_evidence_audit_20260716.csv",
+        index=False,
+    )
+    monkeypatch.setattr(builder, "MODEL_SNAPSHOT_DIR", snapshot_dir)
+
+    restored = builder.restore_published_snapshot("20260716")
+    assert restored is not None
+    evidence = builder.require_verified_clean_volume_v2_lineage(
+        restored[0],
+        audit_path=audit_path,
+        source_root=tmp_path,
+    )
+    assert evidence["checked_rows"] == 1
+
+    source_path.unlink()
+    with pytest.raises(RuntimeError, match="formal_snapshot_missing"):
+        builder.require_verified_clean_volume_v2_lineage(
+            restored[0],
+            audit_path=audit_path,
+            source_root=tmp_path,
+        )
+
+
 def test_build_reuses_existing_published_operation_snapshot(monkeypatch, tmp_path) -> None:
     latest_dir = tmp_path / "output" / "latest"
     snapshot_dir = tmp_path / "output" / "history" / "daily_model_snapshots"

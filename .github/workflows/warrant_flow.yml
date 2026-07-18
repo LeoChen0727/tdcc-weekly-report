@@ -136,6 +136,7 @@ jobs:
           python scripts/validate_daily_published_model_snapshots.py
           capture_mature_sentinels "$mature_sentinel_before"
           warrant_formal_sync_scope_before="$RUNNER_TEMP/warrant-formal-sync-scope-before.json"
+          warrant_formal_sync_scope_after="$RUNNER_TEMP/warrant-formal-sync-scope-after.json"
           python scripts/validate_daily_warrant_formal_sync_scope.py \
             --write-snapshot "$warrant_formal_sync_scope_before"
 
@@ -155,8 +156,13 @@ jobs:
           python merge_warrant_flow_into_candidates.py
           python scripts/validate_daily_warrant_formal_sync_scope.py --validate-source-date
           python scripts/validate_data_freshness_latest.py
+          python scripts/build_volume_attack_theme_layer.py
+          python scripts/validate_volume_attack_theme_layer.py
           python scripts/build_daily_candidate_model_layer.py
           python scripts/validate_daily_candidate_model_layer.py
+          python scripts/validate_daily_canonical_field_lineage.py
+          python scripts/build_volume_v2_warrant_lineage_history_audit.py
+          python scripts/validate_volume_v2_warrant_lineage_history_audit.py
           python scripts/validate_revenue_unreacted_range_financial_statement_fail_closed.py
           python scripts/build_daily_report_model_summary.py
           python scripts/audit_daily_candidate_model_selection_correctness.py
@@ -168,6 +174,9 @@ jobs:
             --artifact-id all_candidates_source_rows \
             --artifact-id model_summary_for_report
           python scripts/validate_daily_published_model_snapshots.py
+          python scripts/validate_daily_canonical_field_lineage.py
+          python scripts/build_volume_v2_warrant_lineage_history_audit.py
+          python scripts/validate_volume_v2_warrant_lineage_history_audit.py
           python scripts/build_chatgpt_indicator_usage_guide.py
 
           mkdir -p docs/latest
@@ -205,6 +214,8 @@ jobs:
 
           python scripts/validate_daily_warrant_formal_sync_scope.py \
             --compare-snapshot "$warrant_formal_sync_scope_before"
+          python scripts/validate_daily_warrant_formal_sync_scope.py \
+            --write-snapshot "$warrant_formal_sync_scope_after"
           capture_mature_sentinels "$mature_sentinel_after"
           mature_sentinel_before_sha256="$(sha256sum "$mature_sentinel_before" | cut -d' ' -f1)"
           mature_sentinel_after_sha256="$(sha256sum "$mature_sentinel_after" | cut -d' ' -f1)"
@@ -216,6 +227,22 @@ jobs:
             echo "mature-model sentinel hash drift detected" >&2
             exit 1
           }
+
+      - name: Upload warrant formal lineage evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: warrant-formal-lineage-evidence-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            ${{ runner.temp }}/warrant-flow-mature-model-before.sha256
+            ${{ runner.temp }}/warrant-flow-mature-model-after.sha256
+            ${{ runner.temp }}/warrant-formal-sync-scope-before.json
+            ${{ runner.temp }}/warrant-formal-sync-scope-after.json
+            output/latest/volume_v2_warrant_lineage_history_audit_latest.csv
+            output/latest/volume_v2_warrant_lineage_history_audit_latest.md
+            output/history/daily_model_snapshots/daily_published_model_snapshot_manifest.csv
+          if-no-files-found: error
+          retention-days: 90
 
       - name: Commit warrant flow and formal sync outputs
         run: |
@@ -236,6 +263,9 @@ jobs:
           git add output/latest/chatgpt_indicator_usage_guide_latest.md || true
           git add output/latest/CHATGPT_INDICATOR_USAGE_GUIDE.txt || true
           git add output/latest/theme_event_watch_latest.* || true
+          git add output/latest/volume_attack_theme_layer_latest.* || true
+          git add output/latest/volume_attack_theme_stocks_latest.* || true
+          git add output/latest/volume_attack_theme_layer_validation_latest.* || true
           git add output/latest/daily_candidate_model_parameters_latest.* || true
           git add output/latest/daily_candidate_model_signals_latest.* || true
           git add output/latest/daily_candidate_model_signals_for_report_latest.* || true
@@ -245,6 +275,7 @@ jobs:
           git add output/latest/daily_candidate_model_layer_validation_latest.* || true
           git add output/latest/daily_candidate_model_selection_audit_latest.* || true
           git add output/latest/daily_candidate_pipeline_integrity_audit_latest.* || true
+          git add output/latest/volume_v2_warrant_lineage_history_audit_latest.* || true
           git add output/latest/daily_candidate_group_rotation_latest.* || true
           git add output/latest/daily_report_model_registry_latest.* || true
           git add output/latest/daily_candidate_model_summary_for_report_latest.* || true
@@ -266,6 +297,9 @@ jobs:
           git add docs/latest/daily_candidate_group_rotation_latest.* || true
           git add docs/latest/daily_report_model_registry_latest.* || true
           git add docs/latest/theme_event_watch_latest.* || true
+          git add docs/latest/volume_attack_theme_layer_latest.* || true
+          git add docs/latest/volume_attack_theme_stocks_latest.* || true
+          git add docs/latest/volume_v2_warrant_lineage_history_audit_latest.* || true
           git add docs/latest/chatgpt_indicator_usage_guide_latest.md || true
           git add docs/latest/CHATGPT_INDICATOR_USAGE_GUIDE.txt || true
 

@@ -252,6 +252,9 @@ def sha256_file(path: Path) -> str:
     # Published model snapshots are CSV/text artifacts committed from Linux
     # Actions and also validated from Windows worktrees. Normalize line endings
     # so Git checkout CRLF conversion cannot create false hash mismatches.
+    # Do not strip a UTF-8 BOM here: snapshot_sha256 is an established immutable
+    # manifest-v1 identity. The formal-lineage audit records its separate
+    # BOM-insensitive canonical hash without rewriting historical manifests.
     digest = hashlib.sha256()
     data = path.read_bytes().replace(b"\r\n", b"\n").replace(b"\r", b"\n")
     digest.update(data)

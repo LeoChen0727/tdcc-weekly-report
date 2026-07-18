@@ -1791,7 +1791,7 @@ def build_full_markdown(
     lines.append("- 它是完整報告的可見度與回測層，不等於單獨操作依據；仍需搭配 TDCC、連續上榜、過熱與漲幅過低風險。")
     lines.append("")
     volume_cols = [
-        "volume_breakout_rank",
+        "advisory_volume_breakout_rank",
         "stock_id",
         "stock_name",
         "volume_breakout_type",

@@ -204,7 +204,6 @@ def merge_sources() -> pd.DataFrame:
             "volume_breakout_type",
             "volume_breakout_priority",
             "selection_status",
-            "volume_breakout_score",
             "volume_breakout_notes",
             "volume_attack_bucket",
             "is_volume_attack_selected",

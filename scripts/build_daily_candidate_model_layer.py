@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import hashlib
 import math
 import re
 import sys
@@ -136,6 +137,154 @@ VOLUME_BREAKOUT_V2_MODEL_IDS = {
     VOLUME_BREAKOUT_V2_MID_MODEL_ID,
     VOLUME_BREAKOUT_V2_HIGH_MODEL_ID,
 }
+
+VOLUME_V2_FORMAL_DISPATCH_FORBIDDEN_FIELDS = frozenset(
+    {
+        "score",
+        "rank",
+        "advisory_volume_breakout_score",
+        "advisory_volume_breakout_rank",
+        "volume_breakout_score",
+        "volume_breakout_rank",
+    }
+)
+
+# Only these candidate/taxonomy fields may enter the volume-v2 scoring row.
+# Presentation and report-membership fields continue to be read directly from
+# their canonical source row; adding an unrelated candidate column cannot
+# silently create a new scoring input.
+VOLUME_V2_CANDIDATE_SCORE_FIELDS = (
+    "open",
+    "high",
+    "low",
+    "close",
+    "volume_ratio",
+    "return_1d",
+    "return_1d_pct",
+    "daily_return_calc",
+    "return_20d",
+    "return_20d_pct",
+    "previous_close",
+    "prev_close",
+    "close_prev",
+    "close_1d_ago",
+    "previous_20d_high_ex_today",
+    "prior_20d_high",
+    "previous_20d_high",
+    "high_20_ex_today",
+    "platform_high",
+    "short_platform_high",
+    "range_high",
+    "platform_width_pct",
+    "short_platform_width_pct",
+    "range_width_pct",
+    "days_in_range",
+    "platform_days",
+    "range_window",
+    "volume_breakout_priority",
+    "tdcc_status",
+    "tdcc_judgement",
+    "tdcc_judge",
+    "tdcc_accumulation_signal",
+    "tdcc_rank",
+    "weekly_increase_rank",
+    "ranking_rank",
+    "tdcc_ranking_score",
+    "weekly_ranking_score",
+    "downgrade_flags",
+    "false_breakout_risk",
+    "latest_revenue_yoy",
+    "revenue_yoy_pct",
+    "cumulative_revenue_yoy",
+    "cumulative_yoy_pct",
+    "off_60d_low_pct",
+    "low_position_60_pct",
+    "position_in_60d_range_pct",
+    "limit_up_like",
+    "market_regime",
+    "market_regime_bucket",
+    "kdj_overheated",
+    "kd_overheated",
+)
+
+# The volume-v2 dispatcher may consume only watch-owned price/volume structure
+# fields from volume_breakout_watch.  Candidate, taxonomy, TDCC, warrant,
+# revenue, score and ranking semantics remain authoritative in their own
+# producers.  The paired collision set below makes any newly introduced
+# same-name field fail closed instead of silently inheriting dict.update order.
+VOLUME_V2_WATCH_OVERLAY_FIELDS = (
+    "open",
+    "high",
+    "low",
+    "close",
+    "volume",
+    "volume_ma20",
+    "volume_ratio",
+    "return_1d",
+    "return_5d",
+    "return_20d",
+    "distance_to_ma20_pct",
+    "distance_to_ma60_pct",
+    "distance_to_previous_20d_high_pct",
+    "distance_to_previous_60d_high_pct",
+    "ma20",
+    "ma60",
+    "ema23",
+    "previous_20d_high",
+    "previous_60d_high",
+    "previous_20d_low",
+    "previous_60d_low",
+    "range_window",
+    "range_high",
+    "range_low",
+    "range_width_pct",
+    "range_breakout_pct",
+    "close_above_range_high",
+    "high_above_range_high",
+    "volume_breakout_type",
+    "volume_watch_scope",
+    "volume_breakout_notes",
+    "false_breakout_risk_calc",
+    "overheated_breakout",
+    "volume_breakout_priority",
+    "selection_status",
+    "not_selected_reason",
+    "risk_flags",
+    "next_volume_breakout_confirmation",
+)
+
+VOLUME_V2_WATCH_NON_AUTHORITATIVE_COLLISION_FIELDS = frozenset(
+    {
+        "already_priced_in",
+        "appear_count_10d",
+        "appear_count_20d",
+        "appear_count_5d",
+        "breakout_close_near_high_flag",
+        "breakout_type",
+        "category",
+        "category_cn",
+        "consecutive_appear_days_any_category",
+        "consecutive_appear_days_same_category",
+        "false_breakout_risk",
+        "industry",
+        "market",
+        "multi_category_flags",
+        "neckline_breakout_flag",
+        "pattern_stage",
+        "platform_breakout_flag",
+        "repeat_appear_label",
+        "repeat_appear_note",
+        "revaluation_priority",
+        "signal_date",
+        "stock_id",
+        "stock_name",
+        "theme_group",
+        "tdcc_status",
+        "volume_confirmed_breakout",
+        "warrant_flow_signal",
+        "細分族群",
+    }
+)
 
 DEPRECATED_DAILY_MODEL_IDS = {
     LEGACY_VOLUME_RANGE_BREAKOUT_MODEL_ID,
@@ -3621,6 +3770,107 @@ def candidate_lookup(candidates: pd.DataFrame) -> dict[str, pd.Series]:
     return lookup
 
 
+def volume_v2_candidate_lookup(
+    candidates: pd.DataFrame, relevant_stock_ids: set[str]
+) -> dict[str, pd.Series]:
+    lookup: dict[str, pd.Series] = {}
+    normalized_relevant_stock_ids = {
+        normalized
+        for value in relevant_stock_ids
+        if (normalized := normalize_code(value))
+    }
+    if candidates.empty or not normalized_relevant_stock_ids:
+        return lookup
+    comparison_fields = tuple(
+        dict.fromkeys(
+            (
+                *VOLUME_V2_CANDIDATE_SCORE_FIELDS,
+                "signal_date",
+                "date",
+                "warrant_flow_signal",
+            )
+        )
+    )
+    for _, row in candidates.iterrows():
+        stock_id = normalize_code(text(row, "stock_id", "ticker"))
+        if not stock_id or stock_id not in normalized_relevant_stock_ids:
+            continue
+        if stock_id in lookup:
+            previous = lookup[stock_id]
+            conflicting_fields = [
+                field
+                for field in comparison_fields
+                if safe_str(previous.get(field, "")) != safe_str(row.get(field, ""))
+            ]
+            if conflicting_fields:
+                raise RuntimeError(
+                    "volume v2 all_candidates has ambiguous duplicate normalized "
+                    "stock_id rows: "
+                    f"stock_id={stock_id} "
+                    f"conflicting_fields={','.join(conflicting_fields)}"
+                )
+            # Multiple source-category rows are allowed when the score inputs,
+            # warrant projection, date lineage and normalized identity consumed
+            # by this dispatcher are identical. Generic presentation score,
+            # rank, category and theme fields are outside this projection.
+            continue
+        lookup[stock_id] = row
+    return lookup
+
+
+def volume_v2_canonical_text_sha256(path: Path) -> str:
+    text_value = path.read_text(encoding="utf-8-sig")
+    canonical_text = text_value.replace("\r\n", "\n").replace("\r", "\n")
+    return hashlib.sha256(canonical_text.encode("utf-8")).hexdigest()
+
+
+def validate_volume_v2_watch_advisory_lineage(
+    row: pd.Series, current_signal_date: str
+) -> None:
+    def normalized_date(value: Any) -> str:
+        digits = "".join(character for character in safe_str(value) if character.isdigit())
+        return digits[:8] if len(digits) >= 8 and digits.startswith("20") else ""
+
+    stock_id = normalize_code(text(row, "stock_id"))
+    row_signal_date = normalized_date(row.get("signal_date", ""))
+    advisory_score_as_of = normalized_date(row.get("advisory_score_as_of", ""))
+    expected_signal_date = normalized_date(current_signal_date)
+    if (
+        not expected_signal_date
+        or row_signal_date != expected_signal_date
+        or advisory_score_as_of != expected_signal_date
+    ):
+        raise RuntimeError(
+            "volume v2 watch advisory lineage date mismatch: "
+            f"stock_id={stock_id} row_signal_date={row_signal_date!r} "
+            f"advisory_score_as_of={advisory_score_as_of!r} "
+            f"current_signal_date={expected_signal_date!r}"
+        )
+
+    artifact_text = safe_str(row.get("advisory_score_source_artifact", ""))
+    expected_sha256 = safe_str(row.get("advisory_score_source_sha256", "")).lower()
+    if not artifact_text:
+        raise RuntimeError(
+            "volume v2 watch advisory score source artifact is blank: "
+            f"stock_id={stock_id}"
+        )
+    artifact = Path(artifact_text)
+    if not artifact.is_absolute():
+        artifact = ROOT / artifact
+    if not artifact.is_file():
+        raise RuntimeError(
+            "volume v2 watch advisory score source artifact is missing: "
+            f"stock_id={stock_id} artifact={artifact_text}"
+        )
+    actual_sha256 = volume_v2_canonical_text_sha256(artifact)
+    if expected_sha256 != actual_sha256:
+        raise RuntimeError(
+            "volume v2 watch advisory score source SHA-256 mismatch: "
+            f"stock_id={stock_id} artifact={artifact_text} "
+            f"expected={expected_sha256} actual={actual_sha256}"
+        )
+
+
 @lru_cache(maxsize=1)
 def taxonomy_lookup() -> dict[str, pd.Series]:
     df = read_csv(STOCK_THEME_TAXONOMY, dtype=str, keep_default_na=False)
@@ -3827,7 +4077,12 @@ def append_volume_breakout_signals(signals: pd.DataFrame, candidates: pd.DataFra
     df = read_csv(VOLUME_BREAKOUT_WATCH, dtype=str, keep_default_na=False)
     if df.empty:
         return signals
-    lookup = candidate_lookup(candidates)
+    relevant_watch_stock_ids = {
+        normalized
+        for value in df.get("stock_id", pd.Series(dtype=str)).tolist()
+        if (normalized := normalize_code(value))
+    }
+    lookup = volume_v2_candidate_lookup(candidates, relevant_watch_stock_ids)
     volume_taxonomy_by_stock: dict[str, pd.Series] | None = None
     official_warrant_stock_ids: set[str] | None = None
     rows: list[dict[str, Any]] = []
@@ -3848,6 +4103,7 @@ def append_volume_breakout_signals(signals: pd.DataFrame, candidates: pd.DataFra
         )
         if not memberships:
             continue
+        validate_volume_v2_watch_advisory_lineage(row, signal_date)
         candidate_row = lookup.get(stock_id)
         taxonomy_row: pd.Series | None = None
         # volume_breakout_watch is a model-owned producer and can legitimately
@@ -3913,8 +4169,42 @@ def append_volume_breakout_signals(signals: pd.DataFrame, candidates: pd.DataFra
         else:
             source = candidate_row
             authoritative_warrant_signal = warrant_signal(candidate_row)
-        score_source = source.to_dict() if isinstance(source, pd.Series) else {}
-        score_source.update(row.to_dict())
+        # Taxonomy is a presentation fallback only.  When all_candidates has no
+        # row, it must not become an alternate producer for score semantics.
+        candidate_values = (
+            candidate_row.to_dict() if isinstance(candidate_row, pd.Series) else {}
+        )
+        watch_values = row.to_dict()
+        overlapping_fields = set(candidate_values).intersection(watch_values)
+        registered_collisions = set(VOLUME_V2_WATCH_OVERLAY_FIELDS).union(
+            VOLUME_V2_WATCH_NON_AUTHORITATIVE_COLLISION_FIELDS
+        )
+        unregistered_collisions = sorted(overlapping_fields - registered_collisions)
+        if unregistered_collisions:
+            raise RuntimeError(
+                "volume v2 watch has unregistered same-name field collision: "
+                f"stock_id={stock_id} fields={unregistered_collisions}"
+            )
+        score_source = {
+            field: candidate_values[field]
+            for field in VOLUME_V2_CANDIDATE_SCORE_FIELDS
+            if field in candidate_values
+        }
+        score_source.update(
+            {
+                field: watch_values[field]
+                for field in VOLUME_V2_WATCH_OVERLAY_FIELDS
+                if field in watch_values
+            }
+        )
+        forbidden_dispatch_fields = sorted(
+            set(score_source).intersection(VOLUME_V2_FORMAL_DISPATCH_FORBIDDEN_FIELDS)
+        )
+        if forbidden_dispatch_fields:
+            raise RuntimeError(
+                "volume v2 formal dispatcher received advisory/source score-rank fields: "
+                f"stock_id={stock_id} fields={forbidden_dispatch_fields}"
+            )
         score_source["warrant_flow_signal"] = authoritative_warrant_signal
         model_id = memberships[0]
         score_source.update(v2_features)
@@ -3948,7 +4238,7 @@ def append_volume_breakout_signals(signals: pd.DataFrame, candidates: pd.DataFra
                 "signal_date": signal_date or text(row, "signal_date", "date"),
                 "source_row_index": f"volume_breakout:{idx}",
                 "stock_id": stock_id,
-                "stock_name": text(row, "stock_name"),
+                "stock_name": text(source, "stock_name") or text(row, "stock_name"),
                 "industry": text(source, "industry"),
                 "primary_theme": primary_theme(source),
                 "effective_primary_theme": primary_theme(source),
@@ -3976,7 +4266,7 @@ def append_volume_breakout_signals(signals: pd.DataFrame, candidates: pd.DataFra
                 "score_components": " | ".join([c for c in comps if c]),
                 "risk_penalty_tags": " | ".join(dict.fromkeys(risks)),
                 "original_category": category(source),
-                "tdcc_status": text(row, "tdcc_status") or tdcc_status(source),
+                "tdcc_status": tdcc_status(source),
                 "warrant_flow_signal": authoritative_warrant_signal,
                 "volume_ratio": num(row, "volume_ratio"),
                 "return_5d": num(row, "return_5d", "return_5d_pct"),
