@@ -117,6 +117,31 @@ def test_complete_history_gets_canonical_lineage_and_exact_changes() -> None:
     assert int(latest["tdcc_consecutive_up_weeks"]) == 2
 
 
+def test_strict_string_dtypes_are_normalized_before_derived_values_are_recomputed() -> None:
+    strict = history_frame()
+    derived_fields = [
+        *(
+            f"over_{threshold}_change_{weeks}w"
+            for threshold in (400, 600, 800, 1000)
+            for weeks in (1, 2, 3)
+        ),
+        "tdcc_consecutive_up_weeks",
+        "all_thresholds_up",
+        "high_thresholds_up",
+        "four_thresholds_sync_up",
+    ]
+    for field in derived_fields:
+        strict[field] = strict[field].astype("string")
+
+    prepared, assessment = prepare_and_validate_stock_tdcc_history("6409", strict, contract())
+
+    assert assessment.continuity_status == "complete"
+    latest = prepared.iloc[-1]
+    assert float(latest["over_400_change_1w"]) == pytest.approx(-0.42)
+    assert int(latest["tdcc_consecutive_up_weeks"]) == 2
+    assert bool(latest["high_thresholds_up"]) is True
+
+
 def test_canonical_stock_level_exception_degrades_only_that_stock() -> None:
     prepared, assessment = prepare_and_validate_stock_tdcc_history(
         "6409",

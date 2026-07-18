@@ -26,6 +26,25 @@ DERIVED_BOOLEAN_FIELDS = (
 FLOAT_TOLERANCE = 1e-9
 
 
+def _normalize_derived_field_dtypes(frame: pd.DataFrame) -> pd.DataFrame:
+    numeric_fields = [
+        *(f"over_{threshold}_ratio" for threshold in THRESHOLDS),
+        *(
+            f"over_{threshold}_change_{weeks}w"
+            for threshold in THRESHOLDS
+            for weeks in CHANGE_WINDOWS
+        ),
+        "tdcc_consecutive_up_weeks",
+    ]
+    for field in numeric_fields:
+        if field in frame.columns:
+            frame[field] = pd.to_numeric(frame[field], errors="coerce")
+    for field in DERIVED_BOOLEAN_FIELDS:
+        if field in frame.columns:
+            frame[field] = frame[field].map(_as_bool).astype("boolean")
+    return frame
+
+
 @dataclass(frozen=True)
 class IndividualTdccDatasetContract:
     dataset_id: str
@@ -248,6 +267,7 @@ def prepare_and_validate_stock_tdcc_history(
     else:
         result["stock_id"] = stock_id
     result = result.sort_values("as_of_date").reset_index(drop=True)
+    result = _normalize_derived_field_dtypes(result)
 
     actual_dates = set(result["as_of_date"].tolist())
     missing_dates: tuple[str, ...] = ()
