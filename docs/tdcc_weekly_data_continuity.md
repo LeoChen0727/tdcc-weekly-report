@@ -8,6 +8,8 @@ PR 內的 continuity 程式變更由唯讀 workflow `.github/workflows/tdcc_week
 
 - `output/history/tdcc/tdcc_holder_ratio_YYYYMMDD.csv` 是逐期全市場 canonical fact snapshot，回測必須以這一層的正式期別為基礎。
 - `data/tdcc_stock_history_raw/{stock_id}.csv` 保存官方級距原始列；`data/tdcc_stock_history/{stock_id}.csv` 是依 canonical snapshots 重建的個股衍生特徵，不是獨立事實來源。
+- `output/latest/tdcc_dataset_manifest_latest.json` 與 `output/history/tdcc/tdcc_dataset_manifest_YYYYMMDD.json` 是同一份 content-addressed dataset contract。`dataset_id` 由正式期別、逐期 snapshot 正規化雜湊、股票數與已核准例外決定，不含執行時間，因此相同資料必須得到相同 ID，任一 snapshot 內容改變則 ID 必須改變。
+- TDCC weekly、individual stock 與 research/backtest consumer 必須記錄 `source_tdcc_dataset_id`，不得只用 latest date 判斷資料已同步。
 - 目前沒有以 SQLite、DuckDB 或 Parquet 取代上述 canonical history。現有回測可直接讀逐期 snapshot；未來若新增 DuckDB/Parquet，只能是可由 canonical history 重建的分析加速層，不能掩蓋缺期或改寫官方期別。
 
 ## 目的
@@ -21,9 +23,10 @@ TDCC 週報必須先取得該報告週由 TDCC 官方查詢頁公布的資料期
 1. `scripts/tdcc_weekly_data_readiness.py`：依 Asia/Taipei 判定 target week，要求 TDCC 官方查詢頁至少出現一個位於該週的正式日期。
 2. `tdcc_holder_ratio_top10.py --fetch-only`：抓取全市場最新資料，且資料日期必須等於 readiness 選出的正式日期。
 3. `scripts/repair_tdcc_weekly_history_continuity.py`：以最新 snapshot 股票集合檢查自 `20260430` 全市場完整 baseline 起的所有官方期別，逐檔回補缺少的正式歷史列。
-4. `tdcc_holder_ratio_top10.py --build-only`：只使用相鄰官方期別計算週變化與連續增加。
-5. `scripts/build_tdcc_stock_history.py` 與 `scripts/validate_tdcc_weekly_history_continuity.py`：重建個股歷史，驗證 `change_1w` 與 streak 沒有跨過缺期。
-6. 上述 gate 全部通過後，才可繼續建立候選資料、PDF、Pages mirror 與 output commit。
+4. `scripts/build_tdcc_dataset_manifest.py` 與 `scripts/validate_tdcc_dataset_manifest.py`：建立及驗證 content-addressed canonical dataset contract；任一未核准缺列、重複股票、錯誤內嵌日期或 snapshot hash drift 都會 fail closed。
+5. `tdcc_holder_ratio_top10.py --build-only`：只使用相鄰官方期別計算週變化與連續增加。
+6. `scripts/build_tdcc_stock_history.py` 與 `scripts/validate_tdcc_weekly_history_continuity.py`：重建個股歷史，驗證 `change_1w` 與 streak 沒有跨過缺期。
+7. TDCC report-ready CSV 必須帶入與 `signal_date` 一致的 `source_tdcc_dataset_id`；上述 gate 全部通過後，才可繼續建立 PDF、Pages mirror 與 output commit。
 
 ## 延後發布與自動重試
 

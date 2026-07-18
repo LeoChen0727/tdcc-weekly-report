@@ -131,6 +131,22 @@ def test_tdcc_weekly_model_cross_empty_sections_do_not_fail_builder_validation()
     builder.validate_outputs(highlight, full, manifest)
 
 
+def test_tdcc_weekly_builder_rejects_report_ready_dataset_id_mismatch() -> None:
+    manifest = _tdcc_manifest()
+    highlight = _tdcc_report(["weekly_increase", "consecutive_accumulation"], "highlight")
+    full = _tdcc_report(["weekly_increase", "consecutive_accumulation"], "full")
+    highlight["source_tdcc_dataset_id"] = "tdcc-20260626-wrong"
+    full["source_tdcc_dataset_id"] = "tdcc-20260626-wrong"
+
+    with pytest.raises(RuntimeError, match="source_tdcc_dataset_id mismatch"):
+        builder.validate_outputs(
+            highlight,
+            full,
+            manifest,
+            expected_dataset_id="tdcc-20260626-expected",
+        )
+
+
 def test_tdcc_weekly_model_cross_ranks_by_model_score_before_tdcc_rank() -> None:
     weekly = builder.ensure_columns(
         pd.DataFrame(

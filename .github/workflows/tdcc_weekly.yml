@@ -63,6 +63,14 @@ jobs:
         run: |
           python scripts/repair_tdcc_weekly_history_continuity.py
 
+      - name: Build canonical TDCC dataset manifest
+        run: |
+          python scripts/build_tdcc_dataset_manifest.py
+
+      - name: Validate canonical TDCC dataset manifest
+        run: |
+          python scripts/validate_tdcc_dataset_manifest.py
+
       - name: Build TDCC weekly report from continuous history
         run: |
           python tdcc_holder_ratio_top10.py --build-only
@@ -145,6 +153,7 @@ jobs:
               output/latest/tdcc_weekly_data_readiness_latest.md \
               output/latest/tdcc_weekly_history_continuity_latest.json \
               output/latest/tdcc_weekly_history_continuity_latest.md \
+              output/latest/tdcc_dataset_manifest_latest.json \
               output/latest/tdcc_invalid_holder_distribution_latest.csv \
               output/latest/tdcc_signal_performance_latest.md \
               output/latest/tdcc_signal_structures_latest.md \

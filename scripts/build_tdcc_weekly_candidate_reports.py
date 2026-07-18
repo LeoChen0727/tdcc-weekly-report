@@ -28,6 +28,7 @@ from tdcc_weekly_pdf_font_contract import (  # noqa: E402
     register_tdcc_weekly_pdf_font,
     validate_tdcc_weekly_pdf_font_contract,
 )
+from tdcc_dataset_contract import load_tdcc_dataset_manifest  # noqa: E402
 
 
 DAILY_MODEL_SIGNALS = LATEST_DIR / "daily_candidate_model_signals_for_report_latest.csv"
@@ -240,6 +241,7 @@ REPORT_COLUMNS = [
     "tdcc_list_type",
     "tdcc_rank",
     "signal_date",
+    "source_tdcc_dataset_id",
     "stock_id",
     "stock_name",
     "theme",
@@ -1931,12 +1933,30 @@ def append_tracking_packet(fields: dict[str, str]) -> None:
     TRACKING_PACKET_MD.write_text(text, encoding="utf-8")
 
 
-def validate_outputs(highlight: pd.DataFrame, full: pd.DataFrame, manifest: pd.DataFrame) -> None:
+def validate_outputs(
+    highlight: pd.DataFrame,
+    full: pd.DataFrame,
+    manifest: pd.DataFrame,
+    expected_dataset_id: str = "",
+) -> None:
     if highlight.empty:
         raise RuntimeError("TDCC highlight report-ready table is empty.")
     if full.empty:
         raise RuntimeError("TDCC full report-ready table is empty.")
     for report_name, report_df in [("highlight", highlight), ("full", full)]:
+        if expected_dataset_id:
+            dataset_ids = sorted(
+                {
+                    safe_str(value)
+                    for value in report_df.get("source_tdcc_dataset_id", pd.Series(dtype=str)).dropna()
+                    if safe_str(value)
+                }
+            )
+            if dataset_ids != [expected_dataset_id]:
+                raise RuntimeError(
+                    f"{report_name} TDCC report source_tdcc_dataset_id mismatch: "
+                    f"expected={expected_dataset_id} actual={dataset_ids}"
+                )
         counts = report_df.groupby("section_id", dropna=False).size()
         for _, section_row in sections_for_report(manifest, report_name).iterrows():
             section_id = safe_str(section_row.get("section_id"))
@@ -1994,6 +2014,9 @@ def sync_docs_latest(signal_date: str) -> None:
 
 
 def main() -> int:
+    dataset_manifest = load_tdcc_dataset_manifest()
+    dataset_id = safe_str(dataset_manifest.get("dataset_id"))
+    dataset_signal_date = safe_str(dataset_manifest.get("signal_date"))
     latest, meta = prepare_latest_frame()
     if latest.empty:
         raise RuntimeError("No TDCC latest frame available.")
@@ -2011,6 +2034,16 @@ def main() -> int:
     manifest = load_section_manifest(report_source_sections)
     highlight = build_report_ready(report_source_sections, manifest, "highlight")
     full = build_report_ready(report_source_sections, manifest, "full")
+    latest_signal_date = latest_frame_signal_date(latest, meta)
+    if latest_signal_date != dataset_signal_date:
+        raise RuntimeError(
+            "TDCC candidate source date does not match canonical dataset manifest: "
+            f"candidate={latest_signal_date} dataset={dataset_signal_date}"
+        )
+    highlight["source_tdcc_dataset_id"] = dataset_id
+    full["source_tdcc_dataset_id"] = dataset_id
+    highlight = ensure_columns(highlight, REPORT_COLUMNS)
+    full = ensure_columns(full, REPORT_COLUMNS)
 
     write_csv(weekly, WEEKLY_INCREASE_CSV)
     write_csv(consecutive, CONSECUTIVE_CSV)
@@ -2059,7 +2092,12 @@ def main() -> int:
     }
     upsert_readme_fields(fields)
     append_tracking_packet(fields)
-    validate_outputs(highlight_for_render, full_for_render, render_manifest)
+    validate_outputs(
+        highlight_for_render,
+        full_for_render,
+        render_manifest,
+        expected_dataset_id=dataset_id,
+    )
     sync_docs_latest(report_date)
 
     print(f"latest_signal_date={meta.get('latest_signal_date', '')}")
