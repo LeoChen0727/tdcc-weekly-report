@@ -17,9 +17,28 @@ succeed without running the individual-stock data tests.
 
 Affected changes include individual-stock builders, validators, tests,
 contracts, report workflows, generated individual-stock report roots, and the
-repository lifecycle and production inventories. The scope contract and the
-historical PR #404 file set are fixed by
+repository lifecycle and production inventories. Changes to any of the twelve
+registered production artifact-writer workflows are also affected so their
+deploy-key authentication contract always runs in pull requests. The scope
+contract and the historical PR #404 file set are fixed by
 `tests/test_individual_stock_pr_validation_workflow.py`.
+
+The registered artifact-writer workflows are:
+
+```text
+.github/workflows/current_holdings_pattern.yml
+.github/workflows/daily_full_pipeline.yml
+.github/workflows/individual_stock_data_refresh.yml
+.github/workflows/individual_stock_report.yml
+.github/workflows/repair_daily_price_range.yml
+.github/workflows/repair_one_daily_price.yml
+.github/workflows/repair_recent_daily_price_gaps.yml
+.github/workflows/repair_tdcc_monthly_history_gaps.yml
+.github/workflows/research_backtest_pipeline.yml
+.github/workflows/tdcc_history_backfill.yml
+.github/workflows/tdcc_weekly.yml
+.github/workflows/warrant_flow.yml
+```
 
 Affected pull requests run these commands without generating or publishing
 artifacts:
@@ -28,6 +47,7 @@ artifacts:
 python scripts/validate_repo_file_lifecycle_inventory.py
 python scripts/validate_repo_production_inventory.py
 python scripts/validate_individual_pdf_contract_consumers.py
+python -m pytest tests/test_repo_production_inventory.py -q
 python -m pytest tests/test_individual_stock_outputs.py -q
 ```
 
@@ -37,8 +57,19 @@ another repository workflow.
 
 ## Main branch enforcement
 
-The repository main ruleset requires `individual-stock-pr-validation` from the
-GitHub Actions integration. Human changes must enter `main` through a pull
-request. The GitHub Actions integration is the only direct-push bypass actor so
-production workflows can continue committing generated artifacts. Force pushes
-and branch deletion remain blocked for all non-bypass actors.
+Main is protected by two independent repository rulesets:
+
+1. The policy ruleset requires pull requests and the
+   `individual-stock-pr-validation` check from the GitHub Actions integration.
+   Its only bypass actor is the dedicated write deploy key used by registered
+   production artifact writers.
+2. The ref-integrity ruleset blocks branch deletion and non-fast-forward
+   updates without any bypass actor. The deploy key therefore cannot delete or
+   force-push `main`.
+
+Every registered artifact-writer job fails closed before checkout when
+`PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY` is empty. Its writer checkout must use
+that secret as `ssh-key` and set `persist-credentials: true` in the same
+`actions/checkout` step. Non-writer jobs and pull-request workflows must never
+receive the secret. `scripts/validate_repo_production_inventory.py` and its
+regression tests enforce this contract.
