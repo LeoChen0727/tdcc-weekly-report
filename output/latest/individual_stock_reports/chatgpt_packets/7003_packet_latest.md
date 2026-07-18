@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7003 系微凱基57購01
 
 ## Metadata
-- generated_at: 2026-07-18 20:55:13 Asia/Taipei
+- generated_at: 2026-07-18 21:45:40 Asia/Taipei
 - stock_id: 7003
 - stock_name: 系微凱基57購01
 - packet_status: partial_rawdata_packet
