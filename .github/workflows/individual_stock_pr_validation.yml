@@ -1,0 +1,67 @@
+name: Individual Stock PR Validation
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: individual-stock-pr-validation-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  individual-stock-pr-validation:
+    name: individual-stock-pr-validation
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      - name: Detect individual-stock validation scope
+        id: scope
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          python scripts/detect_individual_stock_pr_scope.py \
+            --base-sha "$BASE_SHA" \
+            --head-sha "$HEAD_SHA" \
+            --github-output "$GITHUB_OUTPUT"
+
+      - name: Check patch whitespace
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: git diff --check "$BASE_SHA...$HEAD_SHA" --
+
+      - name: Install workflow test dependency
+        run: python -m pip install --disable-pip-version-check pytest
+
+      - name: Validate workflow and scope contract
+        run: python -m pytest tests/test_individual_stock_pr_validation_workflow.py -q
+
+      - name: Install affected-path dependencies
+        if: steps.scope.outputs.affected == 'true'
+        run: python -m pip install --disable-pip-version-check pandas requests
+
+      - name: Validate affected individual-stock contracts
+        if: steps.scope.outputs.affected == 'true'
+        run: |
+          python scripts/validate_repo_file_lifecycle_inventory.py
+          python scripts/validate_repo_production_inventory.py
+          python scripts/validate_individual_pdf_contract_consumers.py
+          python -m pytest tests/test_individual_stock_outputs.py -q
+
+      - name: Record scope result
+        run: |
+          echo "affected=${{ steps.scope.outputs.affected }}"
+          echo "matched_count=${{ steps.scope.outputs.matched_count }}"
