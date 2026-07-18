@@ -62,7 +62,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --disable-pip-version-check \
-            pandas requests lxml html5lib beautifulsoup4 pytest pyyaml
+            pandas requests lxml html5lib beautifulsoup4 matplotlib pytest pyyaml
 
       - name: Validate TDCC continuity contracts
         run: |
