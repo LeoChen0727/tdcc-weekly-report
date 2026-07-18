@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2832 台產
 
 ## Metadata
-- generated_at: 2026-07-18 21:44:13 Asia/Taipei
+- generated_at: 2026-07-18 22:26:50 Asia/Taipei
 - stock_id: 2832
 - stock_name: 台產
 - packet_status: standard_180d_window_packet

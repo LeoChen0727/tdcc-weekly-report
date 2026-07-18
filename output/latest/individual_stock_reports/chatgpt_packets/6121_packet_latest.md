@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6121 新普
 
 ## Metadata
-- generated_at: 2026-07-18 21:45:09 Asia/Taipei
+- generated_at: 2026-07-18 22:27:36 Asia/Taipei
 - stock_id: 6121
 - stock_name: 新普
 - packet_status: standard_180d_window_packet

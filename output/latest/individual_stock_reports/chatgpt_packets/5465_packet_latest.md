@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5465 富驊
 
 ## Metadata
-- generated_at: 2026-07-18 21:45:03 Asia/Taipei
+- generated_at: 2026-07-18 22:27:31 Asia/Taipei
 - stock_id: 5465
 - stock_name: 富驊
 - packet_status: standard_180d_window_packet

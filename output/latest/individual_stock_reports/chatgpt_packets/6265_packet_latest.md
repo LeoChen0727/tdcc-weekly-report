@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6265 方土昶
 
 ## Metadata
-- generated_at: 2026-07-18 21:45:18 Asia/Taipei
+- generated_at: 2026-07-18 22:27:43 Asia/Taipei
 - stock_id: 6265
 - stock_name: 方土昶
 - packet_status: standard_180d_window_packet

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8080 泰霖
 
 ## Metadata
-- generated_at: 2026-07-18 21:45:52 Asia/Taipei
+- generated_at: 2026-07-18 22:28:11 Asia/Taipei
 - stock_id: 8080
 - stock_name: 泰霖
 - packet_status: standard_180d_window_packet

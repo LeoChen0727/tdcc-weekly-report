@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0064 期元大S&P石油(原名：元大S&P石油)
 
 ## Metadata
-- generated_at: 2026-07-18 21:43:25 Asia/Taipei
+- generated_at: 2026-07-18 22:26:12 Asia/Taipei
 - stock_id: 0064
 - stock_name: 期元大S&P石油(原名：元大S&P石油)
 - packet_status: insufficient_price_data

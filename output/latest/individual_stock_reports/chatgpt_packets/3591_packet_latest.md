@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3591 艾笛森
 
 ## Metadata
-- generated_at: 2026-07-18 21:44:36 Asia/Taipei
+- generated_at: 2026-07-18 22:27:09 Asia/Taipei
 - stock_id: 3591
 - stock_name: 艾笛森
 - packet_status: standard_180d_window_packet

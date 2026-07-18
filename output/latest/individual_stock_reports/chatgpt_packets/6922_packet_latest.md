@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6922 宸曜
 
 ## Metadata
-- generated_at: 2026-07-18 21:45:38 Asia/Taipei
+- generated_at: 2026-07-18 22:27:59 Asia/Taipei
 - stock_id: 6922
 - stock_name: 宸曜
 - packet_status: standard_180d_window_packet

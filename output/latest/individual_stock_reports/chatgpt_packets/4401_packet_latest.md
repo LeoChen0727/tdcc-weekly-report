@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4401 東隆興
 
 ## Metadata
-- generated_at: 2026-07-18 21:44:44 Asia/Taipei
+- generated_at: 2026-07-18 22:27:16 Asia/Taipei
 - stock_id: 4401
 - stock_name: 東隆興
 - packet_status: standard_180d_window_packet

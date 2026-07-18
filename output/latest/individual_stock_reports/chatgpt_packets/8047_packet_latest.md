@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8047 星雲
 
 ## Metadata
-- generated_at: 2026-07-18 21:45:51 Asia/Taipei
+- generated_at: 2026-07-18 22:28:10 Asia/Taipei
 - stock_id: 8047
 - stock_name: 星雲
 - packet_status: standard_180d_window_packet
