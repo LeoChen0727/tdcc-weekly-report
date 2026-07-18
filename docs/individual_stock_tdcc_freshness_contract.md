@@ -36,10 +36,11 @@ Every packet and packet-index row records:
 - `tdcc_freshness_status`
 
 `tdcc_history_status=tdcc_history_ready` is allowed only when `tdcc_rows >= 8`
-and `latest_tdcc_date == official_tdcc_signal_date`. For `tdcc_rows > 0`, a date
-mismatch must be represented by both `tdcc_history_status=tdcc_window_stale`
-and `tdcc_freshness_status=tdcc_window_stale`; it must not claim that TDCC
-history is current. Current windows use
+and `latest_tdcc_date == official_tdcc_signal_date`. For stocks present in the
+current main-price universe with `tdcc_rows > 0`, a date mismatch must be
+represented by both `tdcc_history_status=tdcc_window_stale` and
+`tdcc_freshness_status=tdcc_window_stale`; it must not claim that TDCC history
+is current. Current windows use
 `tdcc_freshness_status=tdcc_window_fresh`, while current windows with fewer than
 eight rows remain `tdcc_history_status=insufficient_tdcc_history`.
 
@@ -89,8 +90,8 @@ universe must never be used to rewrite or fabricate either price or TDCC dates.
 
 ### Known non-runtime audit evidence
 
-The initial `historical_only_noncurrent` cases are auditable without making the
-builder depend on web access:
+Two known stale-date audit cases are auditable without making the builder
+depend on web access:
 
 - `3426` is absent from the `20260717` official current-price artifact; repo
   price history ends `20260601` and TDCC history ends `20260529`. TPEx separately
