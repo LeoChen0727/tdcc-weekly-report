@@ -32,6 +32,10 @@ jobs:
         run: |
           python scripts/validate_repo_production_inventory.py
 
+      - name: Validate Apps Script workflow triggers
+        run: |
+          python scripts/validate_apps_script_workflow_triggers.py
+
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
@@ -42,6 +46,68 @@ jobs:
           python scripts/build_individual_stock_chatgpt_packets.py
           python scripts/build_individual_stock_raw_data_index.py
           python scripts/validate_individual_stock_outputs.py --all
+
+      - name: Write individual stock refresh run status
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from datetime import datetime
+          from pathlib import Path
+          from zoneinfo import ZoneInfo
+
+          tdcc_validation_path = Path(
+              "output/latest/tdcc_weekly_candidate_report_validation_latest.json"
+          )
+          tdcc_validation = json.loads(tdcc_validation_path.read_text(encoding="utf-8"))
+          date_contract = tdcc_validation.get("date_contract") or {}
+          signal_date = str(tdcc_validation.get("signal_date") or "")
+          expected_date_source = "report_ready_csv_signal_date"
+          if tdcc_validation.get("status") != "pass":
+              raise SystemExit("TDCC validation status must be pass before writing refresh run status")
+          if date_contract.get("date_source") != expected_date_source:
+              raise SystemExit(
+                  "TDCC validation date_source mismatch: "
+                  f"expected={expected_date_source} actual={date_contract.get('date_source')}"
+              )
+          if len(signal_date) != 8 or not signal_date.isdigit():
+              raise SystemExit(f"Invalid official TDCC signal_date: {signal_date!r}")
+
+          payload = {
+              "status": "pass",
+              "workflow": "individual_stock_data_refresh.yml",
+              "github_run_id": os.environ["GITHUB_RUN_ID"],
+              "github_run_url": (
+                  f"https://github.com/{os.environ['GITHUB_REPOSITORY']}"
+                  f"/actions/runs/{os.environ['GITHUB_RUN_ID']}"
+              ),
+              "github_head_sha": os.environ["GITHUB_SHA"],
+              "github_ref_name": os.environ["GITHUB_REF_NAME"],
+              "official_signal_date": signal_date,
+              "date_contract": {
+                  "date_source": expected_date_source,
+                  "tdcc_validation_path": tdcc_validation_path.as_posix(),
+              },
+              "generated_at": datetime.now(ZoneInfo("Asia/Taipei")).isoformat(),
+          }
+          content = json.dumps(payload, ensure_ascii=False, indent=2) + "\n"
+          output_path = Path(
+              "output/latest/individual_stock_reports/individual_stock_refresh_run_status_latest.json"
+          )
+          docs_path = Path(
+              "docs/latest/individual_stock_reports/individual_stock_refresh_run_status_latest.json"
+          )
+          output_path.parent.mkdir(parents=True, exist_ok=True)
+          docs_path.parent.mkdir(parents=True, exist_ok=True)
+          output_path.write_text(content, encoding="utf-8")
+          docs_path.write_text(content, encoding="utf-8")
+          print(
+              "individual_refresh_run_status="
+              f"run_id={payload['github_run_id']} "
+              f"head_sha={payload['github_head_sha']} "
+              f"signal_date={payload['official_signal_date']}"
+          )
+          PY
 
       - name: Commit individual stock refresh outputs
         run: |
