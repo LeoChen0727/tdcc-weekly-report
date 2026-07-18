@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3045 台灣大
 
 ## Metadata
-- generated_at: 2026-07-18 23:38:14 Asia/Taipei
+- generated_at: 2026-07-19 06:18:17 Asia/Taipei
 - stock_id: 3045
 - stock_name: 台灣大
 - packet_status: standard_180d_window_packet
@@ -11,11 +11,14 @@
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
+- source_tdcc_dataset_id: tdcc-20260717-494211df6cae54ae
 - official_tdcc_signal_date: 20260717
 - latest_tdcc_date: 20260717
-- tdcc_rows: 33
+- tdcc_rows: 34
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
+- tdcc_continuity_status: complete
+- tdcc_missing_official_dates: 
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
 - notes:
@@ -57,8 +60,9 @@
 - MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
-- Only claim tdcc_history_ready when tdcc_rows >= 8 and latest_tdcc_date equals official_tdcc_signal_date.
+- Only claim tdcc_history_ready when the canonical dataset_id matches, every required official date is present, tdcc_rows >= 8, and latest_tdcc_date equals official_tdcc_signal_date.
 - If latest_tdcc_date differs from official_tdcc_signal_date, mark tdcc_window_stale and do not claim current TDCC history.
+- A canonical accepted stock-level missing date must be disclosed as tdcc_history_degraded_exception; it must not be treated as a continuous weekly series.
 - If the stock is absent from the official current main-price universe, preserve real TDCC dates and mark historical_only_noncurrent; do not infer a formal delisting status.
 - If TDCC is current but tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
@@ -172,9 +176,9 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 - over_600_ratio: 91.43
 - over_800_ratio: 90.75
 - over_1000_ratio: 89.98
-- over_400_change_1w: -0.51
-- over_800_change_1w: -0.5
-- over_1000_change_1w: -0.51
+- over_400_change_1w: -0.32
+- over_800_change_1w: -0.34
+- over_1000_change_1w: -0.37
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -183,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260424,91.87,0.18,90.48,0.23,89.78,0.28,10,True,True
 20260430,91.89,0.02,90.47,-0.01,89.69,-0.09,11,False,False
 20260508,91.68,-0.21,90.24,-0.23,89.52,-0.17,0,False,False
 20260515,91.92,0.24,90.44,0.2,89.73,0.21,1,True,True
@@ -194,7 +197,8 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260618,92.5,0.13,90.95,0.12,90.32,0.21,3,True,True
 20260626,92.66,0.16,91.1,0.15,90.38,0.06,4,True,True
 20260703,92.81,0.15,91.25,0.15,90.49,0.11,5,True,True
-20260717,92.3,-0.51,90.75,-0.5,89.98,-0.51,0,False,False
+20260709,92.62,-0.19,91.09,-0.16,90.35,-0.14,0,False,False
+20260717,92.3,-0.32,90.75,-0.34,89.98,-0.37,0,False,False
 ```
 
 ## Candidate Context

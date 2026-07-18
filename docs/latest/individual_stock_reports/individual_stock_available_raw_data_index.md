@@ -1,6 +1,6 @@
 # Individual Stock Available Raw Data Index
 
-- generated_at: 2026-07-18 23:40:39 Asia/Taipei
+- generated_at: 2026-07-19 06:20:56 Asia/Taipei
 - total_stocks: 2401
 - standard_rawdata_report: 1970
 - partial_rawdata_report: 408
@@ -199,25 +199,25 @@
 | 009824 | 群益美國科技巨頭 | 16 | 0 | 20260717 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
 | 009825 | 聯邦美國金融創新 | 1 | 0 | 20260717 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
 | 0200 | 兆豐半導體氣候N | 1 | 0 | 20250407 |  | False | False | partial_rawdata_report | insufficient_price_history; tdcc_history_missing |
-| 1101 | 台泥 | 305 | 11 | 20260717 | 20260717 | False | False | standard_rawdata_report |  |
+| 1101 | 台泥 | 305 | 12 | 20260717 | 20260717 | False | False | standard_rawdata_report |  |
 | 1102 | 亞泥 | 306 | 12 | 20260717 | 20260717 | False | False | standard_rawdata_report |  |
-| 1103 | 嘉泥 | 306 | 11 | 20260717 | 20260717 | False | False | standard_rawdata_report |  |
-| 1104 | 環泥 | 306 | 11 | 20260717 | 20260717 | False | False | standard_rawdata_report |  |
-| 1108 | 幸福 | 306 | 11 | 20260717 | 20260717 | False | False | standard_rawdata_report |  |
-| 1109 | 信大 | 306 | 11 | 20260717 | 20260717 | False | False | standard_rawdata_report |  |
-| 1110 | 東泥 | 306 | 11 | 20260717 | 20260717 | False | False | standard_rawdata_report |  |
-| 1201 | 味全 | 306 | 11 | 20260717 | 20260717 | False | False | standard_rawdata_report |  |
-| 1203 | 味王 | 305 | 11 | 20260717 | 20260717 | False | False | standard_rawdata_report |  |
-| 1210 | 大成 | 306 | 11 | 20260717 | 20260717 | False | False | standard_rawdata_report |  |
-| 1213 | 大飲 | 287 | 11 | 20260715 | 20260717 | False | False | standard_rawdata_report |  |
-| 1215 | 卜蜂 | 306 | 11 | 20260717 | 20260717 | False | False | standard_rawdata_report |  |
-| 1216 | 統一 | 306 | 11 | 20260717 | 20260717 | False | False | standard_rawdata_report |  |
+| 1103 | 嘉泥 | 306 | 12 | 20260717 | 20260717 | False | False | standard_rawdata_report |  |
+| 1104 | 環泥 | 306 | 12 | 20260717 | 20260717 | False | False | standard_rawdata_report |  |
+| 1108 | 幸福 | 306 | 12 | 20260717 | 20260717 | False | False | standard_rawdata_report |  |
+| 1109 | 信大 | 306 | 12 | 20260717 | 20260717 | False | False | standard_rawdata_report |  |
+| 1110 | 東泥 | 306 | 12 | 20260717 | 20260717 | False | False | standard_rawdata_report |  |
+| 1201 | 味全 | 306 | 12 | 20260717 | 20260717 | False | False | standard_rawdata_report |  |
+| 1203 | 味王 | 305 | 12 | 20260717 | 20260717 | False | False | standard_rawdata_report |  |
+| 1210 | 大成 | 306 | 12 | 20260717 | 20260717 | False | False | standard_rawdata_report |  |
+| 1213 | 大飲 | 287 | 12 | 20260715 | 20260717 | False | False | standard_rawdata_report |  |
+| 1215 | 卜蜂 | 306 | 12 | 20260717 | 20260717 | False | False | standard_rawdata_report |  |
+| 1216 | 統一 | 306 | 12 | 20260717 | 20260717 | False | False | standard_rawdata_report |  |
 | 1217 | 愛之味 | 306 | 34 | 20260717 | 20260717 | False | False | standard_rawdata_report |  |
-| 1218 | 泰山 | 306 | 11 | 20260717 | 20260717 | False | False | standard_rawdata_report |  |
-| 1219 | 福壽 | 306 | 11 | 20260717 | 20260717 | False | False | standard_rawdata_report |  |
-| 1220 | 台榮 | 306 | 11 | 20260717 | 20260717 | False | False | standard_rawdata_report |  |
-| 1225 | 福懋油 | 255 | 11 | 20260717 | 20260717 | False | False | standard_rawdata_report |  |
-| 1227 | 佳格 | 306 | 11 | 20260717 | 20260717 | False | False | standard_rawdata_report |  |
-| 1229 | 聯華 | 306 | 11 | 20260717 | 20260717 | False | False | standard_rawdata_report |  |
+| 1218 | 泰山 | 306 | 12 | 20260717 | 20260717 | False | False | standard_rawdata_report |  |
+| 1219 | 福壽 | 306 | 12 | 20260717 | 20260717 | False | False | standard_rawdata_report |  |
+| 1220 | 台榮 | 306 | 12 | 20260717 | 20260717 | False | False | standard_rawdata_report |  |
+| 1225 | 福懋油 | 255 | 12 | 20260717 | 20260717 | False | False | standard_rawdata_report |  |
+| 1227 | 佳格 | 306 | 12 | 20260717 | 20260717 | False | False | standard_rawdata_report |  |
+| 1229 | 聯華 | 306 | 12 | 20260717 | 20260717 | False | False | standard_rawdata_report |  |
 
 _Only first 200 rows shown. Use the CSV for the full index._
