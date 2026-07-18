@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import hashlib
+import json
 import math
 import sys
 from pathlib import Path
@@ -35,8 +36,41 @@ OUT_MD = RESEARCH_LATEST_DIR / "daily_published_snapshot_ranking_backtest_latest
 EVENTS_CSV = RESEARCH_HISTORY_DIR / "daily_published_snapshot_ranking_events.csv"
 DOCS_CSV = DOCS_LATEST_DIR / OUT_CSV.name
 DOCS_MD = DOCS_LATEST_DIR / OUT_MD.name
+VOLUME_V2_LINEAGE_AUDIT_CSV = LATEST_DIR / "volume_v2_warrant_lineage_history_audit_latest.csv"
 
 HORIZONS = [1, 3, 5, 10]
+VOLUME_V2_MODEL_IDS = {
+    "volume_range_breakout_v2_low_position_volume_attack",
+    "volume_range_breakout_v2_mid_position_momentum_attack",
+    "volume_range_breakout_v2_high_position_volume_attack",
+}
+VOLUME_V2_LINEAGE_AUDIT_REQUIRED_COLUMNS = {
+    "snapshot_report_date",
+    "signal_date",
+    "model_id",
+    "stock_id",
+    "formal_row_sha256",
+    "formal_snapshot_sha256",
+    "paired_source_resolution",
+    "production_code_sha256",
+    "watch_artifact_sha256",
+    "candidate_artifact_sha256",
+    "official_warrant_artifact_sha256",
+    "formal_row_disposition",
+    "evidence_status",
+}
+VOLUME_V2_LINEAGE_SOURCE_SHA_COLUMNS = (
+    "production_code_sha256",
+    "watch_artifact_sha256",
+    "candidate_artifact_sha256",
+    "official_warrant_artifact_sha256",
+)
+VOLUME_V2_EXACT_PAIRED_SOURCE_RESOLUTIONS = {
+    "current_worktree_exact_source_files",
+    "published_snapshot_exact_current_sources_pending_commit",
+    "manifest_pipeline_commit_exact_source_blob",
+    "snapshot_history_exact_blob_fallback",
+}
 REQUIRED_ARTIFACT_IDS = {
     "model_signals_for_report",
     "volume_breakout_operation_section",
@@ -69,20 +103,251 @@ def sha256_file(path: Path) -> str:
     return digest.hexdigest()
 
 
-def sha256_file_lf_normalized(path: Path) -> str:
-    data = path.read_bytes().replace(b"\r\n", b"\n")
-    return hashlib.sha256(data).hexdigest()
+def canonical_text_bytes(payload: bytes) -> bytes:
+    text_payload = payload.decode("utf-8-sig")
+    return text_payload.replace("\r\n", "\n").replace("\r", "\n").encode("utf-8")
 
 
-def sha256_file_crlf_normalized(path: Path) -> str:
-    data = path.read_bytes().replace(b"\r\n", b"\n").replace(b"\n", b"\r\n")
-    return hashlib.sha256(data).hexdigest()
+def canonical_text_sha256(path: Path) -> str:
+    return hashlib.sha256(canonical_text_bytes(path.read_bytes())).hexdigest()
+
+
+def published_manifest_v1_sha256_candidates(path: Path) -> set[str]:
+    """Read-only compatibility for immutable pre-canonical manifest-v1 rows.
+
+    Older publishers pinned raw, LF, or CRLF bytes. These candidates are used
+    only to validate that legacy container manifest; formal lineage eligibility
+    always requires the single BOM-insensitive canonical hash above.
+    """
+
+    raw = path.read_bytes()
+    lf = raw.replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+    crlf = lf.replace(b"\n", b"\r\n")
+    return {hashlib.sha256(payload).hexdigest() for payload in (raw, lf, crlf)}
+
+
+def normalize_lineage_text(value: Any) -> str:
+    if value is None:
+        return ""
+    text_value = str(value).strip()
+    return "" if text_value.lower() == "nan" else text_value
+
+
+def canonical_row_sha256(row: pd.Series | dict[str, Any]) -> str:
+    values = row.to_dict() if isinstance(row, pd.Series) else dict(row)
+    normalized = {
+        str(key): normalize_lineage_text(value) for key, value in values.items()
+    }
+    payload = json.dumps(
+        normalized,
+        ensure_ascii=False,
+        sort_keys=True,
+        separators=(",", ":"),
+    ).encode("utf-8")
+    return hashlib.sha256(canonical_text_bytes(payload)).hexdigest()
+
+
+def is_sha256(value: Any) -> bool:
+    text_value = safe_str(value).lower()
+    return len(text_value) == 64 and all(char in "0123456789abcdef" for char in text_value)
 
 
 def read_csv(path: Path) -> pd.DataFrame:
     if not path.exists():
         return pd.DataFrame()
     return pd.read_csv(path, dtype=str, keep_default_na=False)
+
+
+def load_volume_v2_lineage_audit(
+    path: Path = VOLUME_V2_LINEAGE_AUDIT_CSV,
+) -> tuple[dict[tuple[str, str, str], list[dict[str, str]]], str]:
+    audit = read_csv(path)
+    if audit.empty:
+        return {}, ""
+    missing = sorted(VOLUME_V2_LINEAGE_AUDIT_REQUIRED_COLUMNS - set(audit.columns))
+    if missing:
+        raise RuntimeError(
+            "volume v2 lineage audit missing columns: "
+            f"audit={path.as_posix()} missing={missing}"
+        )
+    work = audit.copy()
+    work["_signal_date"] = work["signal_date"].map(normalize_date)
+    work["_model_id"] = work["model_id"].map(safe_str)
+    work["_stock_id"] = work["stock_id"].map(normalize_code)
+    index: dict[tuple[str, str, str], list[dict[str, str]]] = {}
+    for _, row in work.iterrows():
+        key = (row["_signal_date"], row["_model_id"], row["_stock_id"])
+        evidence = {
+            column: safe_str(row.get(column, "")) for column in audit.columns
+        }
+        index.setdefault(key, []).append(evidence)
+    return index, sha256_file(path)
+
+
+def load_formal_snapshot_lineage_index(
+    manifest: pd.DataFrame,
+) -> dict[tuple[str, str, str], list[dict[str, str]]]:
+    index: dict[tuple[str, str, str], list[dict[str, str]]] = {}
+    formal_manifest = manifest[
+        manifest["artifact_id"].astype(str).eq("model_signals_for_report")
+    ]
+    for _, manifest_row in formal_manifest.iterrows():
+        report_date = normalize_date(manifest_row.get("snapshot_report_date", ""))
+        path = Path(safe_str(manifest_row.get("snapshot_path", "")))
+        formal = read_csv(path)
+        if formal.empty:
+            continue
+        snapshot_sha256 = canonical_text_sha256(path)
+        for _, row in formal.iterrows():
+            model_id = safe_str(row.get("model_id", ""))
+            if model_id not in VOLUME_V2_MODEL_IDS:
+                continue
+            stock_id = normalize_code(row.get("stock_id", ""))
+            signal_date = normalize_date(row.get("signal_date", "")) or report_date
+            if not stock_id or not signal_date:
+                continue
+            key = (signal_date, model_id, stock_id)
+            index.setdefault(key, []).append(
+                {
+                    "formal_row_sha256": canonical_row_sha256(row),
+                    "formal_snapshot_sha256": snapshot_sha256,
+                    "formal_snapshot_path": path.as_posix(),
+                }
+            )
+    return index
+
+
+def volume_v2_lineage_payload(
+    *,
+    signal_date: str,
+    model_id: str,
+    stock_id: str,
+    audit_index: dict[tuple[str, str, str], list[dict[str, str]]],
+    formal_snapshot_index: dict[tuple[str, str, str], list[dict[str, str]]],
+    audit_path: Path,
+    audit_sha256: str,
+) -> dict[str, str]:
+    blank_hash_payload = {
+        "lineage_formal_row_sha256": "",
+        "lineage_observed_formal_row_sha256": "",
+        "lineage_formal_snapshot_sha256": "",
+        "lineage_observed_formal_snapshot_sha256": "",
+        "lineage_paired_source_resolution": "",
+        "lineage_production_code_sha256": "",
+        "lineage_watch_artifact_sha256": "",
+        "lineage_candidate_artifact_sha256": "",
+        "lineage_official_warrant_artifact_sha256": "",
+    }
+    if model_id not in VOLUME_V2_MODEL_IDS:
+        return {
+            "lineage_gate_status": "not_applicable",
+            "lineage_formal_row_disposition": "not_applicable",
+            "lineage_evidence_status": "not_applicable",
+            "lineage_audit_source": "",
+            "lineage_audit_source_sha256": "",
+            "summary_evidence_eligible": "True",
+            "lineage_gate_pass_for_promotion_evidence": "not_applicable",
+            **blank_hash_payload,
+        }
+    key = (normalize_date(signal_date), safe_str(model_id), normalize_code(stock_id))
+    evidence_rows = audit_index.get(key, [])
+    observed_rows = formal_snapshot_index.get(key, [])
+    if not evidence_rows:
+        return {
+            "lineage_gate_status": "uncovered_fail_closed",
+            "lineage_formal_row_disposition": "uncovered",
+            "lineage_evidence_status": "missing",
+            "lineage_audit_source": audit_path.as_posix(),
+            "lineage_audit_source_sha256": audit_sha256,
+            "summary_evidence_eligible": "False",
+            "lineage_gate_pass_for_promotion_evidence": "False",
+            **blank_hash_payload,
+        }
+    exact_matches = [
+        (evidence, observed)
+        for evidence in evidence_rows
+        for observed in observed_rows
+        if safe_str(evidence.get("formal_row_sha256", ""))
+        == safe_str(observed.get("formal_row_sha256", ""))
+        and safe_str(evidence.get("formal_snapshot_sha256", ""))
+        == safe_str(observed.get("formal_snapshot_sha256", ""))
+    ]
+    if len(exact_matches) != 1:
+        return {
+            "lineage_gate_status": "non_clean_excluded",
+            "lineage_formal_row_disposition": "hash_mismatch",
+            "lineage_evidence_status": "incomplete",
+            "lineage_audit_source": audit_path.as_posix(),
+            "lineage_audit_source_sha256": audit_sha256,
+            "summary_evidence_eligible": "False",
+            "lineage_gate_pass_for_promotion_evidence": "False",
+            **blank_hash_payload,
+            "lineage_observed_formal_row_sha256": "|".join(
+                sorted(
+                    {
+                        safe_str(row.get("formal_row_sha256", ""))
+                        for row in observed_rows
+                        if safe_str(row.get("formal_row_sha256", ""))
+                    }
+                )
+            ),
+            "lineage_observed_formal_snapshot_sha256": "|".join(
+                sorted(
+                    {
+                        safe_str(row.get("formal_snapshot_sha256", ""))
+                        for row in observed_rows
+                        if safe_str(row.get("formal_snapshot_sha256", ""))
+                    }
+                )
+            ),
+        }
+    evidence, observed = exact_matches[0]
+    disposition = safe_str(evidence.get("formal_row_disposition", ""))
+    evidence_status = safe_str(evidence.get("evidence_status", ""))
+    paired_resolution = safe_str(evidence.get("paired_source_resolution", ""))
+    source_hashes_complete = all(
+        is_sha256(evidence.get(column, ""))
+        for column in VOLUME_V2_LINEAGE_SOURCE_SHA_COLUMNS
+    )
+    exact_source_pair = paired_resolution in VOLUME_V2_EXACT_PAIRED_SOURCE_RESOLUTIONS
+    clean = (
+        disposition == "verified_clean"
+        and evidence_status == "complete"
+        and exact_source_pair
+        and source_hashes_complete
+    )
+    return {
+        "lineage_gate_status": "verified_clean" if clean else "non_clean_excluded",
+        "lineage_formal_row_disposition": disposition or "missing",
+        "lineage_evidence_status": evidence_status or "missing",
+        "lineage_audit_source": audit_path.as_posix(),
+        "lineage_audit_source_sha256": audit_sha256,
+        "summary_evidence_eligible": "True" if clean else "False",
+        "lineage_gate_pass_for_promotion_evidence": "True" if clean else "False",
+        "lineage_formal_row_sha256": safe_str(evidence.get("formal_row_sha256", "")),
+        "lineage_observed_formal_row_sha256": safe_str(
+            observed.get("formal_row_sha256", "")
+        ),
+        "lineage_formal_snapshot_sha256": safe_str(
+            evidence.get("formal_snapshot_sha256", "")
+        ),
+        "lineage_observed_formal_snapshot_sha256": safe_str(
+            observed.get("formal_snapshot_sha256", "")
+        ),
+        "lineage_paired_source_resolution": paired_resolution,
+        "lineage_production_code_sha256": safe_str(
+            evidence.get("production_code_sha256", "")
+        ),
+        "lineage_watch_artifact_sha256": safe_str(
+            evidence.get("watch_artifact_sha256", "")
+        ),
+        "lineage_candidate_artifact_sha256": safe_str(
+            evidence.get("candidate_artifact_sha256", "")
+        ),
+        "lineage_official_warrant_artifact_sha256": safe_str(
+            evidence.get("official_warrant_artifact_sha256", "")
+        ),
+    }
 
 
 def pct_text(value: Any) -> str:
@@ -140,15 +405,11 @@ def validate_snapshot_row(row: pd.Series, snapshot_root: Path = SNAPSHOT_DIR) ->
     if not snapshot_path.as_posix().startswith(root):
         errors.append(f"{snapshot_path.as_posix()}: snapshot must stay under {root}")
 
-    observed_hash = sha256_file(snapshot_path)
-    observed_lf_hash = sha256_file_lf_normalized(snapshot_path)
-    observed_crlf_hash = sha256_file_crlf_normalized(snapshot_path)
+    # snapshot_sha256 is the established manifest-v1 identity, which preserves
+    # a UTF-8 BOM. Formal row lineage below uses canonical_text_sha256 instead.
     expected_hash = safe_str(row.get("snapshot_sha256", ""))
-    if (
-        expected_hash
-        and observed_hash != expected_hash
-        and observed_lf_hash != expected_hash
-        and observed_crlf_hash != expected_hash
+    if expected_hash and expected_hash not in published_manifest_v1_sha256_candidates(
+        snapshot_path
     ):
         errors.append(f"{snapshot_path.as_posix()}: snapshot_sha256 mismatch")
 
@@ -282,9 +543,15 @@ def forward_metrics(price: pd.DataFrame, anchor_date: str) -> dict[str, Any]:
     return out
 
 
-def build_model_signal_events(manifest: pd.DataFrame, price_dir: Path = STOCK_PRICE_HISTORY_DIR) -> pd.DataFrame:
+def build_model_signal_events(
+    manifest: pd.DataFrame,
+    price_dir: Path = STOCK_PRICE_HISTORY_DIR,
+    lineage_audit_path: Path = VOLUME_V2_LINEAGE_AUDIT_CSV,
+) -> pd.DataFrame:
     rows: list[dict[str, Any]] = []
     price_cache: dict[str, pd.DataFrame] = {}
+    lineage_index, lineage_sha256 = load_volume_v2_lineage_audit(lineage_audit_path)
+    formal_snapshot_index = load_formal_snapshot_lineage_index(manifest)
     for report_date in sorted(manifest["snapshot_report_date"].dropna().unique()):
         path = snapshot_path_for(manifest, report_date, "model_signals_for_report")
         signals = read_csv(path)
@@ -302,12 +569,22 @@ def build_model_signal_events(manifest: pd.DataFrame, price_dir: Path = STOCK_PR
                 price_cache[stock_id] = load_price_frame(stock_id, price_dir=price_dir)
             display_rank = safe_str(row.get("display_rank", "")) or safe_str(row.get("model_rank", ""))
             anchor_date = normalize_date(row.get("signal_date", "")) or report_date
+            model_id = safe_str(row.get("model_id", ""))
+            lineage = volume_v2_lineage_payload(
+                signal_date=anchor_date,
+                model_id=model_id,
+                stock_id=stock_id,
+                audit_index=lineage_index,
+                formal_snapshot_index=formal_snapshot_index,
+                audit_path=lineage_audit_path,
+                audit_sha256=lineage_sha256,
+            )
             event = {
                 "source_artifact": "model_signals_for_report",
                 "snapshot_report_date": report_date,
                 "stock_id": stock_id,
                 "stock_name": safe_str(row.get("stock_name", "")),
-                "model_id": safe_str(row.get("model_id", "")),
+                "model_id": model_id,
                 "model_name_zh": safe_str(row.get("model_name_zh", "")),
                 "report_line": safe_str(row.get("report_line", "")),
                 "report_bucket": safe_str(row.get("report_bucket", "")),
@@ -320,18 +597,28 @@ def build_model_signal_events(manifest: pd.DataFrame, price_dir: Path = STOCK_PR
                 "row_action_status": "",
                 "buy_rank_eligible": "",
                 "anchor_date": anchor_date,
-                "ranking_evaluation_eligible": "True",
+                "ranking_evaluation_eligible": lineage["summary_evidence_eligible"],
                 "trade_eligible": "False",
-                "research_note": "as_published_model_ranking_truth",
+                "research_note": (
+                    "as_published_model_ranking_truth;"
+                    f"lineage_gate={lineage['lineage_gate_status']}"
+                ),
             }
+            event.update(lineage)
             event.update(forward_metrics(price_cache[stock_id], anchor_date))
             rows.append(event)
     return pd.DataFrame(rows)
 
 
-def build_volume_operation_events(manifest: pd.DataFrame, price_dir: Path = STOCK_PRICE_HISTORY_DIR) -> pd.DataFrame:
+def build_volume_operation_events(
+    manifest: pd.DataFrame,
+    price_dir: Path = STOCK_PRICE_HISTORY_DIR,
+    lineage_audit_path: Path = VOLUME_V2_LINEAGE_AUDIT_CSV,
+) -> pd.DataFrame:
     rows: list[dict[str, Any]] = []
     price_cache: dict[str, pd.DataFrame] = {}
+    lineage_index, lineage_sha256 = load_volume_v2_lineage_audit(lineage_audit_path)
+    formal_snapshot_index = load_formal_snapshot_lineage_index(manifest)
     for report_date in sorted(manifest["snapshot_report_date"].dropna().unique()):
         path = snapshot_path_for(manifest, report_date, "volume_breakout_operation_section")
         ops = read_csv(path)
@@ -357,17 +644,28 @@ def build_volume_operation_events(manifest: pd.DataFrame, price_dir: Path = STOC
             anchor_date = confirmation_date if section in {"confirmed_operation", "active_operation"} else signal_date
             if not anchor_date:
                 anchor_date = report_date
+            model_id = safe_str(row.get("model_id", ""))
+            lineage = volume_v2_lineage_payload(
+                signal_date=signal_date,
+                model_id=model_id,
+                stock_id=stock_id,
+                audit_index=lineage_index,
+                formal_snapshot_index=formal_snapshot_index,
+                audit_path=lineage_audit_path,
+                audit_sha256=lineage_sha256,
+            )
             trade_eligible = (
                 section == "confirmed_operation"
                 and safe_str(row.get("row_action_status", "")) == "confirmed_buy_candidate"
                 and normalize_bool_text(row.get("buy_rank_eligible", "")) == "True"
+                and lineage["summary_evidence_eligible"] == "True"
             )
             event = {
                 "source_artifact": "volume_breakout_operation_section",
                 "snapshot_report_date": report_date,
                 "stock_id": stock_id,
                 "stock_name": safe_str(row.get("stock_name", "")),
-                "model_id": safe_str(row.get("model_id", "")),
+                "model_id": model_id,
                 "model_name_zh": "放量攻擊模型",
                 "report_line": "",
                 "report_bucket": "",
@@ -382,8 +680,12 @@ def build_volume_operation_events(manifest: pd.DataFrame, price_dir: Path = STOC
                 "anchor_date": anchor_date,
                 "ranking_evaluation_eligible": "False",
                 "trade_eligible": "True" if trade_eligible else "False",
-                "research_note": "as_published_volume_operation_state",
+                "research_note": (
+                    "as_published_volume_operation_state;"
+                    f"lineage_gate={lineage['lineage_gate_status']}"
+                ),
             }
+            event.update(lineage)
             event.update(forward_metrics(price_cache[stock_id], anchor_date))
             rows.append(event)
     return pd.DataFrame(rows)
@@ -429,6 +731,17 @@ def build_summary(events: pd.DataFrame, generated_at: str | None = None) -> pd.D
     if events.empty:
         return pd.DataFrame()
 
+    if "summary_evidence_eligible" in events.columns:
+        eligible_events = events[
+            events["summary_evidence_eligible"].astype(str).eq("True")
+        ].copy()
+        excluded_events = events[
+            ~events["summary_evidence_eligible"].astype(str).eq("True")
+        ].copy()
+    else:
+        eligible_events = events.copy()
+        excluded_events = pd.DataFrame(columns=events.columns)
+
     rows: list[dict[str, Any]] = []
     group_specs = [
         ("model_overall", ["source_artifact", "model_id"]),
@@ -442,14 +755,62 @@ def build_summary(events: pd.DataFrame, generated_at: str | None = None) -> pd.D
         available = [col for col in cols if col in events.columns]
         if len(available) != len(cols):
             continue
-        for key, part in events.groupby(available, dropna=False):
+        for key, part in eligible_events.groupby(available, dropna=False):
             values = key if isinstance(key, tuple) else (key,)
             if segment_type == "volume_operation_section" and values[0] != "volume_breakout_operation_section":
                 continue
             if segment_type != "volume_operation_section" and values[0] == "volume_breakout_operation_section":
                 continue
             segment_value = "|".join(safe_str(value) for value in values[1:] if safe_str(value))
-            rows.append(summarize_group(part, segment_type, segment_value, generated))
+            summary_row = summarize_group(part, segment_type, segment_value, generated)
+            source_artifact = safe_str(summary_row.get("source_artifact"))
+            model_id = safe_str(summary_row.get("model_id"))
+            if excluded_events.empty:
+                excluded_count = 0
+            else:
+                excluded_count = len(
+                    excluded_events[
+                        excluded_events["source_artifact"].astype(str).eq(source_artifact)
+                        & excluded_events["model_id"].astype(str).eq(model_id)
+                    ]
+                )
+            summary_row["lineage_excluded_count"] = excluded_count
+            rows.append(summary_row)
+
+    if not excluded_events.empty:
+        exclusion_cols = [
+            "source_artifact",
+            "model_id",
+            "lineage_gate_status",
+            "lineage_formal_row_disposition",
+        ]
+        for key, part in excluded_events.groupby(exclusion_cols, dropna=False):
+            source_artifact, model_id, gate_status, disposition = key
+            row: dict[str, Any] = {
+                "segment_type": "lineage_exclusion",
+                "segment_value": "|".join(
+                    [safe_str(model_id), safe_str(gate_status), safe_str(disposition)]
+                ),
+                "source_artifact": safe_str(source_artifact),
+                "model_id": safe_str(model_id),
+                "model_name_zh": safe_str(part["model_name_zh"].iloc[0]),
+                "sample_size": len(part),
+                "report_date_min": safe_str(part["snapshot_report_date"].min()),
+                "report_date_max": safe_str(part["snapshot_report_date"].max()),
+                "snapshot_report_count": part["snapshot_report_date"].nunique(),
+                "generated_at": generated,
+                "confidence_status": "excluded_from_summary_and_promotion_evidence",
+                "advisory_only": "True",
+                "lineage_excluded_count": len(part),
+            }
+            for horizon in HORIZONS:
+                row[f"evaluated_d{horizon}_count"] = 0
+                row[f"win_rate_d{horizon}"] = ""
+                row[f"avg_return_d{horizon}"] = ""
+                row[f"median_return_d{horizon}"] = ""
+                row[f"avg_mfe_d{horizon}"] = ""
+                row[f"avg_mae_d{horizon}"] = ""
+            rows.append(row)
 
     out = pd.DataFrame(rows)
     existing_volume_sections: set[str] = set()
@@ -499,11 +860,17 @@ def build_summary(events: pd.DataFrame, generated_at: str | None = None) -> pd.D
 
 def write_markdown(summary: pd.DataFrame, events: pd.DataFrame, path: Path, generated_at: str) -> None:
     report_dates = sorted(events["snapshot_report_date"].dropna().astype(str).unique()) if not events.empty else []
+    lineage_excluded_count = (
+        int((~events["summary_evidence_eligible"].astype(str).eq("True")).sum())
+        if not events.empty and "summary_evidence_eligible" in events.columns
+        else 0
+    )
     lines = [
         "# Daily Published Snapshot Ranking Backtest",
         "",
         f"generated_at: {generated_at}",
         f"snapshot_report_dates: {', '.join(report_dates) if report_dates else 'none'}",
+        f"lineage_excluded_event_rows: {lineage_excluded_count}",
         "",
         "This research artifact uses date-stamped as-published snapshots only. It does not recalculate historical rankings with today's production model code and it does not mutate production parameters.",
         "",
@@ -535,6 +902,7 @@ def write_markdown(summary: pd.DataFrame, events: pd.DataFrame, path: Path, gene
         "- D+1/D+3/D+5/D+10 returns use close prices; MFE/MAE use high/low versus entry open.",
         "- `model_signals_for_report` rows are ranking-evaluation samples, not trade-eligible operation rows.",
         "- `volume_breakout_operation_section` rows are evaluated separately by `confirmed_operation`, `confirmed_unranked_operation`, `pending_confirmation`, and `active_operation`.",
+        "- Volume-v2 rows require exact historical lineage coverage with `formal_row_disposition=verified_clean` and `evidence_status=complete`; non-clean or uncovered rows remain in the event audit but are excluded from all performance summaries and promotion evidence.",
         "- The artifact is advisory-only and must not directly change daily production parameters.",
     ]
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -545,12 +913,21 @@ def build_daily_published_snapshot_ranking_backtest(
     manifest_path: Path = MANIFEST_CSV,
     snapshot_root: Path = SNAPSHOT_DIR,
     price_dir: Path = STOCK_PRICE_HISTORY_DIR,
+    lineage_audit_path: Path = VOLUME_V2_LINEAGE_AUDIT_CSV,
     generated_at: str | None = None,
 ) -> tuple[pd.DataFrame, pd.DataFrame]:
     generated = generated_at or now_text()
     manifest = load_manifest(manifest_path=manifest_path, snapshot_root=snapshot_root)
-    model_events = build_model_signal_events(manifest, price_dir=price_dir)
-    operation_events = build_volume_operation_events(manifest, price_dir=price_dir)
+    model_events = build_model_signal_events(
+        manifest,
+        price_dir=price_dir,
+        lineage_audit_path=lineage_audit_path,
+    )
+    operation_events = build_volume_operation_events(
+        manifest,
+        price_dir=price_dir,
+        lineage_audit_path=lineage_audit_path,
+    )
     events = pd.concat([model_events, operation_events], ignore_index=True, sort=False)
     if events.empty:
         raise RuntimeError("no ranking or operation events were built from published snapshots")

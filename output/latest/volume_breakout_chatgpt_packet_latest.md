@@ -1,7 +1,7 @@
 # VOLUME ATTACK CHATGPT PACKET
 
 ## Metadata
-- generated_at: `2026-07-17 23:41:32 Asia/Taipei`
+- generated_at: `2026-07-18 17:44:49 Asia/Taipei`
 - main_price_date: `20260717`
 - watch_rows: `4`
 - bottom_volume_attack_count: `4`
@@ -23,7 +23,7 @@
 
 ## Top Volume Attack
 
-| volume_breakout_rank | stock_id | stock_name | volume_breakout_type | volume_watch_scope | volume_breakout_priority | selection_status | category | pattern_stage | repeat_appear_label | volume_ratio | return_5d | return_20d | risk_flags | next_volume_breakout_confirmation |
+| advisory_volume_breakout_rank | stock_id | stock_name | volume_breakout_type | volume_watch_scope | volume_breakout_priority | selection_status | category | pattern_stage | repeat_appear_label | volume_ratio | return_5d | return_20d | risk_flags | next_volume_breakout_confirmation |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 1 | 4139 | 馬光-KY | bottom_volume_attack | bottom_volume_attack | A_bottom_volume_attack | selected |  |  |  | 9.2199 | 52.6104 | 56.701 |  | 以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。 |
 | 2 | 6243 | 迅杰 | bottom_volume_attack | bottom_volume_attack | A_bottom_volume_attack | selected | true_breakout | breakout_confirmed | continued_overheated | 6.2003 | 30.4678 | 62.5197 | continued_overheated | 以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。 |
@@ -42,6 +42,6 @@
 - Do not mix this model with W-bottom, neckline watch, MA reclaim, strict 60D high breakout, or pullback models.
 - Do not use price moved too much, short-term overheat, or not breaking 60D high as hard vetoes for this model.
 - A long upper shadow can reduce attack quality once; avoid duplicate penalties for the same candle issue.
-- TDCC, warrant, revenue, consolidation length, breakout magnitude, and position context are ranking components.
+- The watch artifact does not own warrant semantics. Formal warrant values are resolved later from the canonical all-candidates projection.
 - If the stock falls back below the prior-20D-high breakout threshold after the signal, later reports may tag failure or higher risk.
 

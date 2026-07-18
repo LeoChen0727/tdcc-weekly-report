@@ -129,7 +129,79 @@ def high_position_volume_v2_price_history(signal_date: str = "20260530") -> pd.D
     return pd.DataFrame(rows)
 
 
+def write_volume_v2_watch_fixture(
+    source: pd.DataFrame,
+    watch_path: Path,
+    price_path: Path,
+    price_history: pd.DataFrame,
+) -> None:
+    price_history.to_csv(price_path, index=False)
+    payload = source.copy()
+    payload["advisory_score_as_of"] = payload["signal_date"]
+    payload["advisory_score_source_artifact"] = price_path.as_posix()
+    payload["advisory_score_source_sha256"] = (
+        model_layer.volume_v2_canonical_text_sha256(price_path)
+    )
+    payload.to_csv(watch_path, index=False, encoding="utf-8-sig")
+
+
 class DailyCandidateModelLayerTest(unittest.TestCase):
+    def _dispatch_mid_volume_fixture(
+        self,
+        *,
+        watch_updates: dict[str, str] | None = None,
+        candidates: pd.DataFrame | None = None,
+    ) -> pd.DataFrame:
+        source = pd.DataFrame(
+            [
+                {
+                    "signal_date": "20260530",
+                    "stock_id": "1618",
+                    "stock_name": "TEST",
+                    "volume_breakout_type": "bottom_volume_attack",
+                    "selection_status": "selected",
+                    "volume_breakout_priority": "A_bottom_volume_attack",
+                    "advisory_volume_breakout_score": "70",
+                    "volume_breakout_notes": "close_ge_prior20_high_102pct",
+                    "volume_ratio": "3.0",
+                    "range_width_40_pct": "45",
+                }
+            ]
+        )
+        original_path = model_layer.VOLUME_BREAKOUT_WATCH
+        original_price_dir = model_layer.STOCK_PRICE_HISTORY_DIR
+        with tempfile.TemporaryDirectory() as tmpdir:
+            temp_dir = Path(tmpdir)
+            temp_path = temp_dir / "volume_breakout_watch_latest.csv"
+            price_dir = temp_dir / "stock_price_history"
+            price_dir.mkdir()
+            write_volume_v2_watch_fixture(
+                source,
+                temp_path,
+                price_dir / "1618.csv",
+                mid_position_volume_v2_price_history(),
+            )
+            if watch_updates:
+                payload = pd.read_csv(temp_path, dtype=str, keep_default_na=False)
+                for field, value in watch_updates.items():
+                    payload[field] = value
+                payload.to_csv(temp_path, index=False, encoding="utf-8-sig")
+            model_layer.VOLUME_BREAKOUT_WATCH = temp_path
+            model_layer.STOCK_PRICE_HISTORY_DIR = price_dir
+            try:
+                return model_layer.append_volume_breakout_signals(
+                    pd.DataFrame(),
+                    candidates
+                    if candidates is not None
+                    else pd.DataFrame(
+                        [{"stock_id": "1618", "warrant_flow_signal": "call_inflow"}]
+                    ),
+                    "20260530",
+                )
+            finally:
+                model_layer.VOLUME_BREAKOUT_WATCH = original_path
+                model_layer.STOCK_PRICE_HISTORY_DIR = original_price_dir
+
     def test_required_models_are_parameterized(self) -> None:
         model_ids = set(build_parameter_table(build_specs())["model_id"])
         self.assertTrue(
@@ -406,6 +478,8 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
                     "volume_breakout_notes": "close_ge_prior20_high_102pct|volume_ratio_ge_2|volume_ma20_lots_ge_1000|bullish_candle",
                     "volume_ratio": "3.17",
                     "warrant_flow_signal": "no_signal",
+                    "tdcc_status": "distribution_warning",
+                    "theme_group": "watch_poison_theme",
                     "return_5d": "7.0",
                     "return_20d": "6.3",
                     "next_volume_breakout_confirmation": "confirm close above MA20/EMA23",
@@ -419,16 +493,29 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
             temp_path = temp_dir / "volume_breakout_watch_latest.csv"
             price_dir = temp_dir / "stock_price_history"
             price_dir.mkdir()
-            source.to_csv(temp_path, index=False, encoding="utf-8-sig")
+            write_volume_v2_watch_fixture(
+                source,
+                temp_path,
+                price_dir / "1617.csv",
+                volume_v2_price_history(),
+            )
             source_bytes_before = temp_path.read_bytes()
-            volume_v2_price_history().to_csv(price_dir / "1617.csv", index=False)
             model_layer.VOLUME_BREAKOUT_WATCH = temp_path
             model_layer.STOCK_PRICE_HISTORY_DIR = price_dir
             try:
                 out = model_layer.append_volume_breakout_signals(
                     pd.DataFrame(),
                     pd.DataFrame(
-                        [{"stock_id": "1617", "warrant_flow_signal": "call_inflow"}]
+                        [
+                            {
+                                "stock_id": "1617",
+                                "warrant_flow_signal": "call_inflow",
+                                "tdcc_status": "strong_accumulation",
+                                "theme_group": "canonical_theme",
+                                "score": "1",
+                                "rank": "1",
+                            }
+                        ]
                     ),
                     "20260530",
                 )
@@ -450,7 +537,10 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
         self.assertEqual(float(row["model_score"]), float(row["final_rank_score"]))
         self.assertEqual(row["volume_position_bucket_120d"], "low_pos_le40")
         self.assertEqual(row["warrant_flow_signal"], "call_inflow")
+        self.assertEqual(row["tdcc_status"], "strong_accumulation")
         self.assertIn("warrant bullish +2", row["score_components"])
+        self.assertIn("TDCC positive +4", row["score_components"])
+        self.assertNotIn("watch_poison_theme", row.astype(str).tolist())
         self.assertNotIn("volume_range_breakout", set(out["model_id"].astype(str)))
 
     def test_mid_position_volume_breakout_uses_canonical_candidate_warrant(self) -> None:
@@ -477,9 +567,13 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
             temp_path = temp_dir / "volume_breakout_watch_latest.csv"
             price_dir = temp_dir / "stock_price_history"
             price_dir.mkdir()
-            source.to_csv(temp_path, index=False, encoding="utf-8-sig")
+            write_volume_v2_watch_fixture(
+                source,
+                temp_path,
+                price_dir / "1618.csv",
+                mid_position_volume_v2_price_history(),
+            )
             source_bytes_before = temp_path.read_bytes()
-            mid_position_volume_v2_price_history().to_csv(price_dir / "1618.csv", index=False)
             model_layer.VOLUME_BREAKOUT_WATCH = temp_path
             model_layer.STOCK_PRICE_HISTORY_DIR = price_dir
             try:
@@ -501,6 +595,311 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
         self.assertEqual(row["model_id"], MID_VOLUME_MODEL_ID)
         self.assertEqual(row["warrant_flow_signal"], "call_inflow")
         self.assertIn("warrant bullish +2", row["score_components"])
+
+    def test_volume_v2_dispatcher_fails_on_unregistered_same_name_collision(self) -> None:
+        source = pd.DataFrame(
+            [
+                {
+                    "signal_date": "20260530",
+                    "stock_id": "1618",
+                    "stock_name": "MID",
+                    "volume_breakout_type": "bottom_volume_attack",
+                    "selection_status": "selected",
+                    "volume_breakout_priority": "A_bottom_volume_attack",
+                    "volume_breakout_notes": "close_ge_prior20_high_102pct|volume_ratio_ge_2",
+                    "volume_ratio": "3.0",
+                    "range_width_40_pct": "45",
+                    "future_shared_semantic": "watch_value",
+                }
+            ]
+        )
+        original_path = model_layer.VOLUME_BREAKOUT_WATCH
+        original_price_dir = model_layer.STOCK_PRICE_HISTORY_DIR
+        with tempfile.TemporaryDirectory() as tmpdir:
+            temp_dir = Path(tmpdir)
+            temp_path = temp_dir / "volume_breakout_watch_latest.csv"
+            price_dir = temp_dir / "stock_price_history"
+            price_dir.mkdir()
+            write_volume_v2_watch_fixture(
+                source,
+                temp_path,
+                price_dir / "1618.csv",
+                mid_position_volume_v2_price_history(),
+            )
+            model_layer.VOLUME_BREAKOUT_WATCH = temp_path
+            model_layer.STOCK_PRICE_HISTORY_DIR = price_dir
+            try:
+                with self.assertRaisesRegex(
+                    RuntimeError,
+                    "unregistered same-name field collision.*future_shared_semantic",
+                ):
+                    model_layer.append_volume_breakout_signals(
+                        pd.DataFrame(),
+                        pd.DataFrame(
+                            [
+                                {
+                                    "stock_id": "1618",
+                                    "warrant_flow_signal": "call_inflow",
+                                    "future_shared_semantic": "canonical_value",
+                                }
+                            ]
+                        ),
+                        "20260530",
+                    )
+            finally:
+                model_layer.VOLUME_BREAKOUT_WATCH = original_path
+                model_layer.STOCK_PRICE_HISTORY_DIR = original_price_dir
+
+    def test_volume_v2_dispatcher_ignores_unregistered_candidate_only_field(self) -> None:
+        source = pd.DataFrame(
+            [
+                {
+                    "signal_date": "20260530",
+                    "stock_id": "1618",
+                    "stock_name": "MID",
+                    "volume_breakout_type": "bottom_volume_attack",
+                    "selection_status": "selected",
+                    "volume_breakout_priority": "A_bottom_volume_attack",
+                    "volume_ratio": "3.0",
+                    "range_width_40_pct": "45",
+                }
+            ]
+        )
+        original_path = model_layer.VOLUME_BREAKOUT_WATCH
+        original_price_dir = model_layer.STOCK_PRICE_HISTORY_DIR
+        original_score_profile = model_layer.score_volume_breakout_profile
+        candidate_field_seen: list[bool] = []
+
+        def score_probe(row: pd.Series, profile_id: str):
+            candidate_field_seen.append("future_candidate_only_semantic" in row.index)
+            return original_score_profile(row, profile_id)
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            temp_dir = Path(tmpdir)
+            temp_path = temp_dir / "volume_breakout_watch_latest.csv"
+            price_dir = temp_dir / "stock_price_history"
+            price_dir.mkdir()
+            write_volume_v2_watch_fixture(
+                source,
+                temp_path,
+                price_dir / "1618.csv",
+                mid_position_volume_v2_price_history(),
+            )
+            model_layer.VOLUME_BREAKOUT_WATCH = temp_path
+            model_layer.STOCK_PRICE_HISTORY_DIR = price_dir
+            model_layer.score_volume_breakout_profile = score_probe
+            try:
+                out = model_layer.append_volume_breakout_signals(
+                    pd.DataFrame(),
+                    pd.DataFrame(
+                        [
+                            {
+                                "stock_id": "1618",
+                                "warrant_flow_signal": "call_inflow",
+                                "future_candidate_only_semantic": "injected",
+                            }
+                        ]
+                    ),
+                    "20260530",
+                )
+            finally:
+                model_layer.VOLUME_BREAKOUT_WATCH = original_path
+                model_layer.STOCK_PRICE_HISTORY_DIR = original_price_dir
+                model_layer.score_volume_breakout_profile = original_score_profile
+
+        self.assertEqual(len(out), 1)
+        self.assertEqual(candidate_field_seen, [False])
+
+    def test_volume_v2_dispatcher_rejects_stale_advisory_day(self) -> None:
+        with self.assertRaisesRegex(RuntimeError, "advisory lineage date mismatch"):
+            self._dispatch_mid_volume_fixture(
+                watch_updates={
+                    "signal_date": "20260529",
+                    "advisory_score_as_of": "20260529",
+                }
+            )
+
+    def test_volume_v2_dispatcher_rejects_tampered_advisory_source_sha(self) -> None:
+        with self.assertRaisesRegex(RuntimeError, "source SHA-256 mismatch"):
+            self._dispatch_mid_volume_fixture(
+                watch_updates={"advisory_score_source_sha256": "0" * 64}
+            )
+
+    def test_volume_v2_dispatcher_sha_is_lf_crlf_canonical(self) -> None:
+        with tempfile.TemporaryDirectory() as tmpdir:
+            lf_path = Path(tmpdir) / "lf.csv"
+            crlf_path = Path(tmpdir) / "crlf.csv"
+            lf_path.write_bytes(b"date,stock_id\n20260530,1618\n")
+            crlf_path.write_bytes(b"date,stock_id\r\n20260530,1618\r\n")
+
+            self.assertEqual(
+                model_layer.volume_v2_canonical_text_sha256(lf_path),
+                model_layer.volume_v2_canonical_text_sha256(crlf_path),
+            )
+
+    def test_volume_v2_dispatcher_rejects_ambiguous_candidate_duplicates(self) -> None:
+        candidates = pd.DataFrame(
+            [
+                {
+                    "stock_id": "1618",
+                    "warrant_flow_signal": "call_inflow",
+                    "score": "70",
+                    "rank": "1",
+                },
+                {
+                    "stock_id": "1618",
+                    "warrant_flow_signal": "put_inflow",
+                    "score": "70",
+                    "rank": "1",
+                },
+            ]
+        )
+
+        with self.assertRaisesRegex(
+            RuntimeError,
+            "ambiguous duplicate normalized stock_id.*warrant_flow_signal",
+        ):
+            self._dispatch_mid_volume_fixture(candidates=candidates)
+
+    def test_volume_v2_dispatcher_ignores_non_relevant_ambiguous_duplicates(self) -> None:
+        candidates = pd.DataFrame(
+            [
+                {"stock_id": "1618", "warrant_flow_signal": "call_inflow"},
+                {
+                    "stock_id": "1808",
+                    "warrant_flow_signal": "call_inflow",
+                    "tdcc_status": "accumulation",
+                },
+                {
+                    "stock_id": "1808",
+                    "warrant_flow_signal": "put_inflow",
+                    "tdcc_status": "distribution",
+                },
+            ]
+        )
+
+        out = self._dispatch_mid_volume_fixture(candidates=candidates)
+
+        self.assertEqual(len(out), 1)
+        self.assertEqual(out.iloc[0]["stock_id"], "1618")
+
+    def test_volume_v2_dispatcher_rejects_relevant_consumed_field_conflict(self) -> None:
+        candidates = pd.DataFrame(
+            [
+                {
+                    "stock_id": "1618",
+                    "warrant_flow_signal": "call_inflow",
+                    "tdcc_status": "accumulation",
+                },
+                {
+                    "stock_id": "1618",
+                    "warrant_flow_signal": "call_inflow",
+                    "tdcc_status": "distribution",
+                },
+            ]
+        )
+
+        with self.assertRaisesRegex(RuntimeError, "conflicting_fields=tdcc_status"):
+            self._dispatch_mid_volume_fixture(candidates=candidates)
+
+    def test_volume_v2_dispatcher_dedupes_semantically_equal_candidate_rows(self) -> None:
+        candidates = pd.DataFrame(
+            [
+                {
+                    "stock_id": "1618",
+                    "warrant_flow_signal": "call_inflow",
+                    "score": "70",
+                    "rank": "1",
+                    "theme_group": "theme_a",
+                    "category": "range_rebound",
+                },
+                {
+                    "stock_id": "1618",
+                    "warrant_flow_signal": "call_inflow",
+                    "score": "99",
+                    "rank": "9",
+                    "theme_group": "theme_b",
+                    "category": "pattern",
+                },
+            ]
+        )
+
+        out = self._dispatch_mid_volume_fixture(candidates=candidates)
+
+        self.assertEqual(len(out), 1)
+        self.assertEqual(out.iloc[0]["warrant_flow_signal"], "call_inflow")
+
+    def test_volume_v2_dispatcher_identical_duplicates_are_deterministic(self) -> None:
+        row = {
+            "stock_id": "1618",
+            "signal_date": "20260530",
+            "warrant_flow_signal": "call_inflow",
+            "tdcc_status": "accumulation",
+        }
+        candidates = pd.DataFrame([row, dict(row)])
+
+        first = self._dispatch_mid_volume_fixture(candidates=candidates)
+        second = self._dispatch_mid_volume_fixture(
+            candidates=candidates.iloc[::-1].reset_index(drop=True)
+        )
+
+        pd.testing.assert_frame_equal(first, second)
+
+    def test_volume_v2_dispatcher_fails_on_stale_watch_score_rank_collision(self) -> None:
+        source = pd.DataFrame(
+            [
+                {
+                    "signal_date": "20260530",
+                    "stock_id": "1618",
+                    "stock_name": "MID",
+                    "volume_breakout_type": "bottom_volume_attack",
+                    "selection_status": "selected",
+                    "volume_breakout_priority": "A_bottom_volume_attack",
+                    "volume_breakout_notes": "close_ge_prior20_high_102pct|volume_ratio_ge_2",
+                    "volume_ratio": "3.0",
+                    "range_width_40_pct": "45",
+                    "score": "999",
+                    "rank": "999",
+                }
+            ]
+        )
+        original_path = model_layer.VOLUME_BREAKOUT_WATCH
+        original_price_dir = model_layer.STOCK_PRICE_HISTORY_DIR
+        with tempfile.TemporaryDirectory() as tmpdir:
+            temp_dir = Path(tmpdir)
+            temp_path = temp_dir / "volume_breakout_watch_latest.csv"
+            price_dir = temp_dir / "stock_price_history"
+            price_dir.mkdir()
+            write_volume_v2_watch_fixture(
+                source,
+                temp_path,
+                price_dir / "1618.csv",
+                mid_position_volume_v2_price_history(),
+            )
+            model_layer.VOLUME_BREAKOUT_WATCH = temp_path
+            model_layer.STOCK_PRICE_HISTORY_DIR = price_dir
+            try:
+                with self.assertRaisesRegex(
+                    RuntimeError,
+                    "unregistered same-name field collision.*rank.*score",
+                ):
+                    model_layer.append_volume_breakout_signals(
+                        pd.DataFrame(),
+                        pd.DataFrame(
+                            [
+                                {
+                                    "stock_id": "1618",
+                                    "warrant_flow_signal": "call_inflow",
+                                    "score": "1",
+                                    "rank": "1",
+                                }
+                            ]
+                        ),
+                        "20260530",
+                    )
+            finally:
+                model_layer.VOLUME_BREAKOUT_WATCH = original_path
+                model_layer.STOCK_PRICE_HISTORY_DIR = original_price_dir
 
     def test_high_position_volume_breakout_requires_ma60_above_ma120(self) -> None:
         source = pd.DataFrame(
@@ -528,9 +927,13 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
             temp_path = temp_dir / "volume_breakout_watch_latest.csv"
             price_dir = temp_dir / "stock_price_history"
             price_dir.mkdir()
-            source.to_csv(temp_path, index=False, encoding="utf-8-sig")
+            write_volume_v2_watch_fixture(
+                source,
+                temp_path,
+                price_dir / "2489.csv",
+                high_position_volume_v2_price_history(),
+            )
             source_bytes_before = temp_path.read_bytes()
-            high_position_volume_v2_price_history().to_csv(price_dir / "2489.csv", index=False)
             model_layer.VOLUME_BREAKOUT_WATCH = temp_path
             model_layer.STOCK_PRICE_HISTORY_DIR = price_dir
             try:
@@ -591,7 +994,12 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
             taxonomy_path = temp_dir / "stock_theme_taxonomy_latest.csv"
             price_dir = temp_dir / "stock_price_history"
             price_dir.mkdir()
-            source.to_csv(temp_path, index=False, encoding="utf-8-sig")
+            write_volume_v2_watch_fixture(
+                source,
+                temp_path,
+                price_dir / "1617.csv",
+                volume_v2_price_history(),
+            )
             pd.DataFrame(
                 [{"stock_id": "9999", "warrant_flow_signal": "no_signal"}]
             ).to_csv(warrant_path, index=False, encoding="utf-8-sig")
@@ -605,7 +1013,6 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
                     }
                 ]
             ).to_csv(taxonomy_path, index=False, encoding="utf-8-sig")
-            volume_v2_price_history().to_csv(price_dir / "1617.csv", index=False)
             model_layer.VOLUME_BREAKOUT_WATCH = temp_path
             model_layer.WARRANT_FLOW = warrant_path
             model_layer.STOCK_PRICE_HISTORY_DIR = price_dir

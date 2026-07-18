@@ -1248,6 +1248,11 @@ def test_warrant_formal_sync_staged_paths_are_positive_allowlisted() -> None:
             "output/history/daily_model_snapshots/data_freshness_20260716.csv",
             "output/history/daily_model_snapshots/daily_published_model_snapshot_manifest.csv",
             "docs/latest/daily_candidate_model_signals_latest.csv",
+            "output/latest/volume_attack_theme_layer_latest.csv",
+            "output/latest/volume_attack_theme_stocks_latest.md",
+            "output/latest/volume_attack_theme_layer_validation_latest.json",
+            "docs/latest/volume_attack_theme_layer_latest.md",
+            "docs/latest/volume_attack_theme_stocks_latest.csv",
         ]
     ) == []
 
@@ -1331,8 +1336,12 @@ def test_warrant_workflow_rebuilds_formal_consumers_and_fails_closed() -> None:
         "python scripts/fetch_official_warrant_daily.py",
         "python merge_warrant_flow_into_candidates.py",
         "python scripts/validate_daily_warrant_formal_sync_scope.py --validate-source-date",
+        "python scripts/build_volume_attack_theme_layer.py",
+        "python scripts/validate_volume_attack_theme_layer.py",
         "python scripts/build_daily_candidate_model_layer.py",
         "python scripts/validate_daily_candidate_model_layer.py",
+        "python scripts/validate_daily_canonical_field_lineage.py",
+        "python scripts/validate_volume_v2_warrant_lineage_history_audit.py",
         "python scripts/validate_revenue_unreacted_range_financial_statement_fail_closed.py",
         "python scripts/build_daily_report_model_summary.py",
         "python scripts/audit_daily_candidate_model_selection_correctness.py",
@@ -1348,7 +1357,41 @@ def test_warrant_workflow_rebuilds_formal_consumers_and_fails_closed() -> None:
         "python scripts/validate_daily_published_model_snapshots.py",
         snapshot_update_index,
     )
-    assert snapshot_update_index < snapshot_validate_after_update
+    canonical_validate_after_update = workflow.index(
+        "python scripts/validate_daily_canonical_field_lineage.py",
+        snapshot_validate_after_update,
+    )
+    history_validate_after_update = workflow.index(
+        "python scripts/validate_volume_v2_warrant_lineage_history_audit.py",
+        canonical_validate_after_update,
+    )
+    assert (
+        snapshot_update_index
+        < snapshot_validate_after_update
+        < canonical_validate_after_update
+        < history_validate_after_update
+    )
+
+    assert "Upload warrant formal lineage evidence" in workflow
+    assert "actions/upload-artifact@v4" in workflow
+    assert (
+        "warrant-formal-lineage-evidence-${{ github.run_id }}-${{ github.run_attempt }}"
+        in workflow
+    )
+    assert "${{ runner.temp }}/warrant-flow-mature-model-before.sha256" in workflow
+    assert "${{ runner.temp }}/warrant-flow-mature-model-after.sha256" in workflow
+    assert "${{ runner.temp }}/warrant-formal-sync-scope-before.json" in workflow
+    assert "${{ runner.temp }}/warrant-formal-sync-scope-after.json" in workflow
+    assert (
+        '--write-snapshot "$warrant_formal_sync_scope_after"' in workflow
+    )
+    assert "output/latest/volume_v2_warrant_lineage_history_audit_latest.csv" in workflow
+    assert (
+        "output/history/daily_model_snapshots/daily_published_model_snapshot_manifest.csv"
+        in workflow
+    )
+    assert "if-no-files-found: error" in workflow
+    assert "retention-days: 90" in workflow
 
     for forbidden_builder in (
         "build_approved_operation_patterns.py",
@@ -1378,6 +1421,11 @@ def test_warrant_workflow_rebuilds_formal_consumers_and_fails_closed() -> None:
     assert 'test -z "$(git status --porcelain)"' in commit_block
     assert 'echo "PUSHED_ARTIFACT_SHA=$pushed_artifact_sha" >> "$GITHUB_ENV"' in commit_block
     assert "git add docs/latest/theme_event_watch_latest.*" in commit_block
+    assert "git add output/latest/volume_attack_theme_layer_latest.*" in commit_block
+    assert "git add output/latest/volume_attack_theme_stocks_latest.*" in commit_block
+    assert "git add output/latest/volume_attack_theme_layer_validation_latest.*" in commit_block
+    assert "git add docs/latest/volume_attack_theme_layer_latest.*" in commit_block
+    assert "git add docs/latest/volume_attack_theme_stocks_latest.*" in commit_block
     assert "git add docs/latest/chatgpt_indicator_usage_guide_latest.md" in commit_block
     assert "git add docs/latest/CHATGPT_INDICATOR_USAGE_GUIDE.txt" in commit_block
 

@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import hashlib
 import math
 from pathlib import Path
 from typing import Any
@@ -22,6 +23,7 @@ from tracking_utils import (
 
 VOLUME_WATCH_CSV = LATEST_DIR / "volume_breakout_watch_latest.csv"
 ALL_CANDIDATES_CSV = LATEST_DIR / "all_candidates_latest.csv"
+WARRANT_FLOW_CSV = LATEST_DIR / "warrant_flow_latest.csv"
 THEME_LEADERSHIP_CSV = LATEST_DIR / "daily_theme_leadership_latest.csv"
 TWO_LINE_VIEW_CSV = LATEST_DIR / "daily_candidate_two_line_view_latest.csv"
 STOCK_THEME_TAXONOMY_CSV = LATEST_DIR / "stock_theme_taxonomy_latest.csv"
@@ -66,6 +68,80 @@ WATCH_TYPES = {
 FAILED_TYPES = {"failed_range_breakout_risk"}
 BULLISH_WARRANT_SIGNALS = {"call_inflow", "call_strong_inflow", "call_put_bullish", "low_float_call_spike"}
 
+VOLUME_THEME_WATCH_ALLOWED_FIELDS = frozenset(
+    {
+        "advisory_volume_breakout_rank",
+        "signal_date",
+        "advisory_score_as_of",
+        "advisory_score_source_artifact",
+        "advisory_score_source_sha256",
+        "stock_id",
+        "stock_name",
+        "market",
+        "close",
+        "open",
+        "high",
+        "low",
+        "volume",
+        "volume_ma20",
+        "volume_ratio",
+        "return_1d",
+        "return_5d",
+        "return_20d",
+        "distance_to_ma20_pct",
+        "distance_to_ma60_pct",
+        "distance_to_previous_20d_high_pct",
+        "distance_to_previous_60d_high_pct",
+        "ma20",
+        "ma60",
+        "ema23",
+        "previous_20d_high",
+        "previous_60d_high",
+        "previous_20d_low",
+        "previous_60d_low",
+        "range_window",
+        "range_high",
+        "range_low",
+        "range_width_pct",
+        "range_breakout_pct",
+        "close_above_range_high",
+        "high_above_range_high",
+        "volume_breakout_type",
+        "volume_watch_scope",
+        "advisory_volume_breakout_score",
+        "volume_breakout_notes",
+        "false_breakout_risk_calc",
+        "overheated_breakout",
+        "industry",
+        "category",
+        "pattern_stage",
+        "tdcc_status",
+        "repeat_appear_label",
+        "volume_breakout_priority",
+        "selection_status",
+        "not_selected_reason",
+        "risk_flags",
+        "next_volume_breakout_confirmation",
+    }
+)
+
+VOLUME_THEME_CANDIDATE_ALLOWED_FIELDS = frozenset(
+    {
+        "stock_id",
+        "signal_date",
+        "date",
+        "warrant_flow_signal",
+    }
+)
+
+
+def sha256_file(path: Path) -> str:
+    if not path.is_file():
+        return ""
+    text = path.read_text(encoding="utf-8-sig")
+    canonical_text = text.replace("\r\n", "\n").replace("\r", "\n")
+    return hashlib.sha256(canonical_text.encode("utf-8")).hexdigest()
+
 
 def first_text(row: pd.Series, columns: list[str]) -> str:
     for col in columns:
@@ -99,10 +175,6 @@ def is_distribution_warning(row: pd.Series) -> bool:
         for col in ["tdcc_status", "risk_flags", "risk_tags", "downgrade_flags", "why_downgraded"]
     )
     return "distribution" in text or "overheated" in text or "continued_overheated" in text
-
-
-def is_bullish_warrant(row: pd.Series) -> bool:
-    return safe_str(row.get("warrant_flow_signal", "")).lower() in BULLISH_WARRANT_SIGNALS
 
 
 def is_selected_row(row: pd.Series) -> bool:
@@ -181,40 +253,194 @@ def build_lookup_by_stock(df: pd.DataFrame) -> dict[str, dict[str, Any]]:
     return lookup
 
 
+def build_candidate_projection_lookup(df: pd.DataFrame) -> dict[str, dict[str, Any]]:
+    if df.empty or "stock_id" not in df.columns:
+        return {}
+    lookup: dict[str, dict[str, Any]] = {}
+    for _, row in df.iterrows():
+        stock_id = safe_str(row.get("stock_id", ""))
+        if not stock_id:
+            continue
+        projected = {
+            field: row.get(field, "")
+            for field in VOLUME_THEME_CANDIDATE_ALLOWED_FIELDS
+            if field in row.index
+        }
+        if stock_id in lookup:
+            differing_fields = sorted(
+                field
+                for field in set(lookup[stock_id]).union(projected)
+                if safe_str(lookup[stock_id].get(field, ""))
+                != safe_str(projected.get(field, ""))
+            )
+            if differing_fields:
+                raise RuntimeError(
+                    "volume attack theme all_candidates has ambiguous duplicate "
+                    f"stock_id rows: stock_id={stock_id} "
+                    f"conflicting_fields={','.join(differing_fields)}"
+                )
+            continue
+        lookup[stock_id] = projected
+    return lookup
+
+
+def build_unique_warrant_lookup(df: pd.DataFrame) -> dict[str, dict[str, Any]]:
+    if df.empty or "stock_id" not in df.columns:
+        return {}
+    lookup: dict[str, dict[str, Any]] = {}
+    for _, row in df.iterrows():
+        stock_id = safe_str(row.get("stock_id", ""))
+        if not stock_id:
+            continue
+        if stock_id in lookup:
+            raise RuntimeError(
+                "official warrant projection has duplicate stock_id rows: "
+                f"stock_id={stock_id}"
+            )
+        lookup[stock_id] = row.to_dict()
+    return lookup
+
+
 def enrich_stocks(
     watch: pd.DataFrame,
     theme_df: pd.DataFrame,
     two_line: pd.DataFrame,
     candidates: pd.DataFrame,
     taxonomy: pd.DataFrame,
+    official_warrant: pd.DataFrame | None = None,
+    warrant_as_of: str = "",
+    volume_watch_source_sha256: str = "",
+    candidate_source_sha256: str = "",
+    official_warrant_source_sha256: str = "",
 ) -> pd.DataFrame:
     if watch.empty:
         return pd.DataFrame()
 
     theme_lookup = build_lookup_by_theme(theme_df)
     two_line_lookup = build_lookup_by_stock(two_line)
-    candidate_lookup = build_lookup_by_stock(candidates)
+    candidate_lookup = build_candidate_projection_lookup(candidates)
     taxonomy_lookup = build_lookup_by_stock(taxonomy)
+    official_warrant_lookup = build_unique_warrant_lookup(
+        official_warrant if official_warrant is not None else pd.DataFrame()
+    )
+    volume_watch_source_sha256 = volume_watch_source_sha256 or sha256_file(
+        VOLUME_WATCH_CSV
+    )
+    candidate_source_sha256 = candidate_source_sha256 or sha256_file(ALL_CANDIDATES_CSV)
+    official_warrant_source_sha256 = (
+        official_warrant_source_sha256 or sha256_file(WARRANT_FLOW_CSV)
+    )
+    for source_name, source_sha256 in (
+        ("volume watch", volume_watch_source_sha256),
+        ("all_candidates", candidate_source_sha256),
+        ("official warrant", official_warrant_source_sha256),
+    ):
+        if len(source_sha256) != 64:
+            raise RuntimeError(
+                f"volume attack theme {source_name} source SHA-256 is unavailable"
+            )
     rows: list[dict[str, Any]] = []
 
     for _, row in watch.iterrows():
-        source = row.to_dict()
+        raw_source = row.to_dict()
+        required_advisory_fields = {
+            "advisory_volume_breakout_score",
+            "advisory_volume_breakout_rank",
+            "advisory_score_as_of",
+        }
+        missing_advisory_fields = required_advisory_fields - set(raw_source)
+        if missing_advisory_fields:
+            raise RuntimeError(
+                "volume attack theme watch advisory lineage columns missing: "
+                + ",".join(sorted(missing_advisory_fields))
+            )
+        legacy_score_rank_fields = {
+            "volume_breakout_score",
+            "volume_breakout_rank",
+        }.intersection(raw_source)
+        if legacy_score_rank_fields:
+            raise RuntimeError(
+                "volume attack theme watch contains forbidden legacy score/rank fields: "
+                + ",".join(sorted(legacy_score_rank_fields))
+            )
+        unregistered_sensitive_fields = {
+            field
+            for field in raw_source
+            if field not in VOLUME_THEME_WATCH_ALLOWED_FIELDS
+            and (
+                field.startswith("warrant_")
+                or field
+                in {
+                    "call_warrant_count",
+                    "put_warrant_count",
+                    "score",
+                    "rank",
+                }
+            )
+        }
+        if unregistered_sensitive_fields:
+            raise RuntimeError(
+                "volume attack theme watch contains unregistered sensitive fields: "
+                + ",".join(sorted(unregistered_sensitive_fields))
+            )
+        advisory_score = raw_source["advisory_volume_breakout_score"]
+        advisory_rank = raw_source["advisory_volume_breakout_rank"]
+        advisory_score_as_of = safe_str(raw_source["advisory_score_as_of"])
+        signal_date = safe_str(raw_source.get("signal_date", ""))
+        if not advisory_score_as_of or advisory_score_as_of != signal_date:
+            raise RuntimeError(
+                "volume attack theme watch advisory_score_as_of mismatch: "
+                f"stock_id={safe_str(raw_source.get('stock_id', ''))} "
+                f"signal_date={signal_date!r} advisory_score_as_of={advisory_score_as_of!r}"
+            )
+        source = {
+            key: raw_source[key]
+            for key in VOLUME_THEME_WATCH_ALLOWED_FIELDS
+            if key in raw_source and key not in required_advisory_fields
+        }
         stock_id = safe_str(source.get("stock_id", ""))
-        theme_name = theme_name_of(row)
+        theme_name = theme_name_of(pd.Series(source))
         theme_info = theme_lookup.get(theme_name, {})
         stock_info = two_line_lookup.get(stock_id, {})
         candidate_info = candidate_lookup.get(stock_id, {})
         taxonomy_info = taxonomy_lookup.get(stock_id, {})
+        official_warrant_info = official_warrant_lookup.get(stock_id, {})
+        authoritative_warrant_signal = safe_str(
+            candidate_info.get("warrant_flow_signal", "")
+        )
+        if official_warrant_info:
+            official_warrant_signal = safe_str(
+                official_warrant_info.get("warrant_flow_signal", "")
+            )
+            if not candidate_info:
+                raise RuntimeError(
+                    "volume attack theme row has official warrant projection but no "
+                    f"canonical all_candidates row: stock_id={stock_id}"
+                )
+            if authoritative_warrant_signal != official_warrant_signal:
+                raise RuntimeError(
+                    "volume attack theme canonical warrant projection mismatch: "
+                    f"stock_id={stock_id} candidate={authoritative_warrant_signal!r} "
+                    f"official={official_warrant_signal!r}"
+                )
+        elif authoritative_warrant_signal:
+            raise RuntimeError(
+                "volume attack theme positive all_candidates warrant projection lacks "
+                f"official canonical row: stock_id={stock_id} "
+                f"candidate={authoritative_warrant_signal!r}"
+            )
+        warrant_row_as_of = (
+            safe_str(official_warrant_info.get("date", ""))
+            or safe_str(official_warrant_info.get("signal_date", ""))
+            or safe_str(candidate_info.get("signal_date", ""))
+            or safe_str(candidate_info.get("date", ""))
+            or warrant_as_of
+        )
 
         if theme_name == "other":
             taxonomy_theme = theme_name_of(pd.Series(taxonomy_info)) if taxonomy_info else ""
             if taxonomy_theme and taxonomy_theme != "other":
                 theme_name = taxonomy_theme
-                theme_info = theme_lookup.get(theme_name, {})
-        if theme_name == "other":
-            candidate_theme = theme_name_of(pd.Series(candidate_info)) if candidate_info else ""
-            if candidate_theme and candidate_theme != "other":
-                theme_name = candidate_theme
                 theme_info = theme_lookup.get(theme_name, {})
         if not theme_info and taxonomy_info:
             taxonomy_theme = theme_name_of(pd.Series(taxonomy_info))
@@ -226,23 +452,15 @@ def enrich_stocks(
             if stock_theme and stock_theme != "other":
                 theme_name = stock_theme
                 theme_info = theme_lookup.get(theme_name, {})
-        if not theme_info and candidate_info:
-            candidate_theme = theme_name_of(pd.Series(candidate_info))
-            if candidate_theme and candidate_theme != "other":
-                theme_name = candidate_theme
-                theme_info = theme_lookup.get(theme_name, {})
-
         theme_final_status = normalize_status(
             theme_info.get("theme_final_status")
             or stock_info.get("theme_final_status")
-            or candidate_info.get("theme_final_status")
             or source.get("theme_final_status")
         )
         theme_structural_status = normalize_status(
             theme_info.get("theme_structural_status")
             or taxonomy_info.get("theme_structural_status")
             or stock_info.get("theme_structural_status")
-            or candidate_info.get("theme_structural_status")
             or source.get("theme_structural_status")
         )
         theme_mainstream_label = normalize_status(
@@ -250,7 +468,6 @@ def enrich_stocks(
             or taxonomy_info.get("theme_mainstream_label")
             or taxonomy_info.get("effective_mainstream_label")
             or stock_info.get("theme_mainstream_label")
-            or candidate_info.get("theme_mainstream_label")
             or source.get("theme_mainstream_label")
         )
         candidate_source_type = safe_str(stock_info.get("candidate_source_type", source.get("candidate_source_type", "")))
@@ -279,12 +496,27 @@ def enrich_stocks(
                 "candidate_source_type": candidate_source_type,
                 "candidate_line_group": candidate_line_group,
                 "candidate_line": candidate_line,
+                "volume_breakout_score": advisory_score,
+                "volume_breakout_rank": advisory_rank,
+                "volume_watch_as_of": advisory_score_as_of,
+                "volume_watch_source_artifact": VOLUME_WATCH_CSV.as_posix(),
+                "volume_watch_source_sha256": volume_watch_source_sha256,
+                "warrant_flow_signal": authoritative_warrant_signal,
+                "warrant_flow_as_of": warrant_row_as_of,
+                "warrant_flow_source_artifact": ALL_CANDIDATES_CSV.as_posix(),
+                "warrant_flow_source_sha256": candidate_source_sha256,
+                "warrant_flow_official_source_artifact": WARRANT_FLOW_CSV.as_posix(),
+                "warrant_flow_official_source_sha256": official_warrant_source_sha256,
                 "volume_attack_bucket": bucket,
                 "is_volume_attack_selected": "True" if selected else "False",
                 "is_volume_attack_watch": "True" if watch_row else "False",
                 "is_volume_attack_failed": "True" if failed else "False",
                 "has_tdcc_distribution_warning": "True" if distribution else "False",
-                "has_bullish_warrant_signal": "True" if is_bullish_warrant(pd.Series(source)) else "False",
+                "has_bullish_warrant_signal": (
+                    "True"
+                    if authoritative_warrant_signal.lower() in BULLISH_WARRANT_SIGNALS
+                    else "False"
+                ),
             }
         )
 
@@ -466,6 +698,7 @@ def write_markdown(theme_layer: pd.DataFrame, stock_layer: pd.DataFrame, main_da
         "interpretation",
     ]
     stock_cols = [
+        "volume_breakout_rank",
         "stock_id",
         "stock_name",
         "theme_name",
@@ -476,6 +709,7 @@ def write_markdown(theme_layer: pd.DataFrame, stock_layer: pd.DataFrame, main_da
         "volume_breakout_type",
         "volume_breakout_priority",
         "selection_status",
+        "volume_breakout_score",
         "candidate_source_type",
         "volume_ratio",
         "tdcc_status",
@@ -489,7 +723,12 @@ def write_markdown(theme_layer: pd.DataFrame, stock_layer: pd.DataFrame, main_da
         f"- generated_at: `{now_text()}`",
         f"- signal_date: `{main_date}`",
         f"- source_watch: `{VOLUME_WATCH_CSV.as_posix()}`",
+        f"- source_watch_sha256: `{sha256_file(VOLUME_WATCH_CSV)}`",
         f"- source_theme: `{THEME_LEADERSHIP_CSV.as_posix()}`",
+        f"- warrant_projection_source: `{ALL_CANDIDATES_CSV.as_posix()}`",
+        f"- warrant_projection_source_sha256: `{sha256_file(ALL_CANDIDATES_CSV)}`",
+        f"- warrant_official_parity_source: `{WARRANT_FLOW_CSV.as_posix()}`",
+        f"- warrant_official_parity_source_sha256: `{sha256_file(WARRANT_FLOW_CSV)}`",
         "- rule: Volume-attack sections must show `theme_final_status`, `theme_structural_status`, `theme_mainstream_label`, and `theme_volume_attack_status`; do not show only the theme name.",
         "",
         "## Status Rules",
@@ -528,6 +767,12 @@ def write_markdown(theme_layer: pd.DataFrame, stock_layer: pd.DataFrame, main_da
         "",
         f"- generated_at: `{now_text()}`",
         f"- signal_date: `{main_date}`",
+        f"- source_watch: `{VOLUME_WATCH_CSV.as_posix()}`",
+        f"- source_watch_sha256: `{sha256_file(VOLUME_WATCH_CSV)}`",
+        f"- warrant_projection_source: `{ALL_CANDIDATES_CSV.as_posix()}`",
+        f"- warrant_projection_source_sha256: `{sha256_file(ALL_CANDIDATES_CSV)}`",
+        f"- warrant_official_parity_source: `{WARRANT_FLOW_CSV.as_posix()}`",
+        f"- warrant_official_parity_source_sha256: `{sha256_file(WARRANT_FLOW_CSV)}`",
         "- rule: Every volume attack stock row carries explicit mainstream/non-mainstream status.",
         "",
         md_table(stock_layer, stock_cols, 250),
@@ -550,6 +795,7 @@ def main() -> int:
     main_date = main_price_date_from_freshness()
     watch = read_csv(VOLUME_WATCH_CSV, dtype=str, keep_default_na=False)
     candidates = read_csv(ALL_CANDIDATES_CSV, dtype=str, keep_default_na=False)
+    official_warrant = read_csv(WARRANT_FLOW_CSV, dtype=str, keep_default_na=False)
     theme_df = read_csv(THEME_LEADERSHIP_CSV, dtype=str, keep_default_na=False)
     two_line = read_csv(TWO_LINE_VIEW_CSV, dtype=str, keep_default_na=False)
     taxonomy = read_csv(STOCK_THEME_TAXONOMY_CSV, dtype=str, keep_default_na=False)
@@ -558,7 +804,18 @@ def main() -> int:
         stock_layer = pd.DataFrame()
         theme_layer = pd.DataFrame()
     else:
-        stock_layer = enrich_stocks(watch, theme_df, two_line, candidates, taxonomy)
+        stock_layer = enrich_stocks(
+            watch,
+            theme_df,
+            two_line,
+            candidates,
+            taxonomy,
+            official_warrant,
+            warrant_as_of=main_date,
+            volume_watch_source_sha256=sha256_file(VOLUME_WATCH_CSV),
+            candidate_source_sha256=sha256_file(ALL_CANDIDATES_CSV),
+            official_warrant_source_sha256=sha256_file(WARRANT_FLOW_CSV),
+        )
         theme_layer = build_theme_layer(stock_layer)
         stock_layer = apply_theme_status_to_stocks(stock_layer, theme_layer)
 

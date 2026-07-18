@@ -196,6 +196,16 @@ def test_daily_pdf_packet_and_rules_do_not_depend_on_decision_layer() -> None:
     assert "risk_penalty_tags" in packet_text
 
 
+def test_daily_market_report_consumes_advisory_volume_watch_rank() -> None:
+    source = (ROOT / "build_daily_market_report_artifacts.py").read_text(
+        encoding="utf-8"
+    )
+    volume_columns = source.split("volume_cols = [", 1)[1].split("]", 1)[0]
+
+    assert '"advisory_volume_breakout_rank"' in volume_columns
+    assert '"volume_breakout_rank"' not in volume_columns
+
+
 def test_daily_production_sources_do_not_build_or_depend_on_decision_layer() -> None:
     workflow = (ROOT / ".github" / "workflows" / "daily_full_pipeline.yml").read_text(
         encoding="utf-8",

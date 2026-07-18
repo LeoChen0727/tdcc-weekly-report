@@ -667,6 +667,9 @@ jobs:
         run: |
           python scripts/build_daily_candidate_model_layer.py
           python scripts/validate_daily_candidate_model_layer.py
+          python scripts/validate_daily_canonical_field_lineage.py
+          python scripts/build_volume_v2_warrant_lineage_history_audit.py
+          python scripts/validate_volume_v2_warrant_lineage_history_audit.py
           python scripts/validate_revenue_unreacted_range_financial_statement_fail_closed.py
           python scripts/build_daily_report_model_summary.py
           python scripts/build_daily_volume_breakout_operation_section.py
@@ -771,6 +774,9 @@ jobs:
         run: |
           python scripts/update_daily_published_model_snapshots.py
           python scripts/validate_daily_published_model_snapshots.py
+          python scripts/validate_daily_canonical_field_lineage.py
+          python scripts/build_volume_v2_warrant_lineage_history_audit.py
+          python scripts/validate_volume_v2_warrant_lineage_history_audit.py
 
       - name: Build monthly revenue coverage/backfill audit
         run: |
@@ -887,6 +893,8 @@ jobs:
           git add docs/latest/mature_model_row_level_metric_row_audit_latest.* || true
           git add docs/latest/daily_report_model_registry_latest.* docs/latest/individual_stock_technical_snapshot_latest.* || true
           git add docs/latest/non_revenue_momentum_watch_latest.* docs/latest/market_abnormal_status_latest.* docs/latest/market_sentiment_context_latest.* || true
+          git add docs/latest/volume_attack_theme_layer_latest.* docs/latest/volume_attack_theme_stocks_latest.* || true
+          git add docs/latest/volume_v2_warrant_lineage_history_audit_latest.* || true
           git add docs/latest/monthly_revenue_* || true
           git add docs/latest/fundamental_catalyst_layer_latest.md docs/latest/catalyst_data_source_status_latest.* || true
           git add data/institutional_investor_flow/ data/warrant_daily/ data/warrant_flow_by_stock/ data/futures_options/ || true

@@ -7,6 +7,7 @@ from zoneinfo import ZoneInfo
 from concurrent.futures import ThreadPoolExecutor
 from functools import partial
 import argparse
+import hashlib
 import math
 import os
 from typing import Any
@@ -21,7 +22,6 @@ PRICE_HISTORY_DIR = ROOT / "data" / "stock_price_history"
 
 ALL_CANDIDATES_CSV = LATEST_DIR / "all_candidates_latest.csv"
 REPEAT_CSV = LATEST_DIR / "candidate_repeat_appearance_latest.csv"
-WARRANT_CSV = LATEST_DIR / "warrant_flow_by_stock_latest.csv"
 FRESHNESS_CSV = LATEST_DIR / "data_freshness_latest.csv"
 
 WATCH_CSV = LATEST_DIR / "volume_breakout_watch_latest.csv"
@@ -36,9 +36,23 @@ VOLUME_BREAKOUT_RULE_VERSION = "bottom_volume_attack_v2_locked_limit_up"
 
 HORIZONS = [1, 3, 5, 10, 20]
 
+FORBIDDEN_WATCH_MIRROR_COLUMNS = frozenset(
+    {
+        "call_warrant_count",
+        "put_warrant_count",
+        "score",
+        "rank",
+        "volume_breakout_score",
+        "volume_breakout_rank",
+    }
+)
+
 WATCH_COLUMNS = [
-    "volume_breakout_rank",
+    "advisory_volume_breakout_rank",
     "signal_date",
+    "advisory_score_as_of",
+    "advisory_score_source_artifact",
+    "advisory_score_source_sha256",
     "stock_id",
     "stock_name",
     "market",
@@ -72,7 +86,7 @@ WATCH_COLUMNS = [
     "high_above_range_high",
     "volume_breakout_type",
     "volume_watch_scope",
-    "volume_breakout_score",
+    "advisory_volume_breakout_score",
     "volume_breakout_notes",
     "false_breakout_risk_calc",
     "overheated_breakout",
@@ -81,7 +95,6 @@ WATCH_COLUMNS = [
     "pattern_stage",
     "tdcc_status",
     "repeat_appear_label",
-    "warrant_flow_signal",
     "volume_breakout_priority",
     "selection_status",
     "not_selected_reason",
@@ -165,6 +178,18 @@ def normalize_date(value: Any) -> str:
     if len(digits) >= 8 and digits.startswith("20"):
         return digits[:8]
     return ""
+
+
+def advisory_score_source_lineage(path: Path) -> tuple[str, str]:
+    if not path.is_file():
+        raise RuntimeError(f"advisory score source artifact is missing: {path.as_posix()}")
+    return path.as_posix(), canonical_text_sha256(path)
+
+
+def canonical_text_sha256(path: Path) -> str:
+    text = path.read_text(encoding="utf-8-sig")
+    canonical_text = text.replace("\r\n", "\n").replace("\r", "\n")
+    return hashlib.sha256(canonical_text.encode("utf-8")).hexdigest()
 
 
 def latest_main_date() -> str:
@@ -412,7 +437,6 @@ def merge_context(watch: pd.DataFrame) -> pd.DataFrame:
     out = watch.copy()
     all_candidates = read_csv(ALL_CANDIDATES_CSV)
     repeat = read_csv(REPEAT_CSV)
-    warrant = read_csv(WARRANT_CSV)
 
     if not all_candidates.empty:
         keep = [
@@ -428,8 +452,6 @@ def merge_context(watch: pd.DataFrame) -> pd.DataFrame:
             "false_breakout_risk",
             "tdcc_status",
             "revaluation_priority",
-            "score",
-            "rank",
             "細分族群",
             "theme_group",
             "already_priced_in",
@@ -454,12 +476,6 @@ def merge_context(watch: pd.DataFrame) -> pd.DataFrame:
         existing = [c for c in keep if c in repeat.columns]
         rep = repeat[existing].drop_duplicates("stock_id", keep="first")
         out = out.merge(rep, on="stock_id", how="left")
-
-    if not warrant.empty:
-        keep = ["stock_id", "warrant_flow_signal", "warrant_flow_score", "warrant_flow_warning", "call_warrant_count", "put_warrant_count"]
-        existing = [c for c in keep if c in warrant.columns]
-        war = warrant[existing].drop_duplicates("stock_id", keep="first")
-        out = out.merge(war, on="stock_id", how="left")
 
     return classify_watch(out)
 
@@ -489,6 +505,7 @@ def classify_watch(df: pd.DataFrame) -> pd.DataFrame:
 
         d.update(
             {
+                "advisory_score_as_of": normalize_date(row.get("signal_date")),
                 "volume_breakout_priority": priority,
                 "selection_status": "selected",
                 "not_selected_reason": "",
@@ -502,9 +519,15 @@ def classify_watch(df: pd.DataFrame) -> pd.DataFrame:
         return out
     order = {"A_bottom_volume_attack": 0, "B_bottom_volume_attack_with_risk": 1}
     out["_priority_order"] = out["volume_breakout_priority"].map(order).fillna(9)
-    out["_score"] = pd.to_numeric(out["volume_breakout_score"], errors="coerce").fillna(0)
-    out = out.sort_values(["_priority_order", "_score", "volume_ratio"], ascending=[True, False, False]).drop(columns=["_priority_order", "_score"])
-    out.insert(0, "volume_breakout_rank", range(1, len(out) + 1))
+    out["_score"] = pd.to_numeric(
+        out["advisory_volume_breakout_score"], errors="coerce"
+    ).fillna(0)
+    out["_stock_id_order"] = out["stock_id"].map(normalize_stock_id)
+    out = out.sort_values(
+        ["_priority_order", "_score", "volume_ratio", "_stock_id_order"],
+        ascending=[True, False, False, True],
+    ).drop(columns=["_priority_order", "_score", "_stock_id_order"])
+    out.insert(0, "advisory_volume_breakout_rank", range(1, len(out) + 1))
     return out
 
 
@@ -598,6 +621,7 @@ def _process_price_history_path(path: Path, target_date: str = "") -> tuple[list
     latest_row = _select_latest_signal_row(df, target_date)
     latest_signal = detect_volume_breakout(latest_row) if latest_row is not None else None
     if latest_row is not None and latest_signal is not None:
+        source_artifact, source_sha256 = advisory_score_source_lineage(path)
         latest_rows.append(
             {
                 "signal_date": normalize_date(latest_row.get("date")),
@@ -627,7 +651,9 @@ def _process_price_history_path(path: Path, target_date: str = "") -> tuple[list
                 "previous_60d_low": latest_row.get("previous_60d_low_calc"),
                 "volume_breakout_type": latest_signal.event_type,
                 "volume_watch_scope": latest_signal.scope,
-                "volume_breakout_score": latest_signal.score,
+                "advisory_volume_breakout_score": latest_signal.score,
+                "advisory_score_source_artifact": source_artifact,
+                "advisory_score_source_sha256": source_sha256,
                 "volume_breakout_notes": "|".join(latest_signal.notes),
                 "false_breakout_risk_calc": "False",
                 "overheated_breakout": "False",
@@ -730,6 +756,7 @@ def _process_latest_path(path: Path, target_date: str = "") -> list[dict[str, An
     signal = detect_volume_breakout(row)
     if signal is None:
         return []
+    source_artifact, source_sha256 = advisory_score_source_lineage(path)
     return [
         {
             "signal_date": normalize_date(row.get("date")),
@@ -759,7 +786,9 @@ def _process_latest_path(path: Path, target_date: str = "") -> list[dict[str, An
             "previous_60d_low": row.get("previous_60d_low_calc"),
             "volume_breakout_type": signal.event_type,
             "volume_watch_scope": signal.scope,
-            "volume_breakout_score": signal.score,
+            "advisory_volume_breakout_score": signal.score,
+            "advisory_score_source_artifact": source_artifact,
+            "advisory_score_source_sha256": source_sha256,
             "volume_breakout_notes": "|".join(signal.notes),
             "false_breakout_risk_calc": "False",
             "overheated_breakout": "False",
@@ -810,7 +839,7 @@ def append_latest_events_to_history(events: pd.DataFrame, latest: pd.DataFrame) 
             "volume_breakout_type": safe_str(row.get("volume_breakout_type")),
             "volume_watch_scope": safe_str(row.get("volume_watch_scope")),
             "volume_breakout_rule_version": VOLUME_BREAKOUT_RULE_VERSION,
-            "volume_breakout_score": row.get("volume_breakout_score"),
+            "volume_breakout_score": row.get("advisory_volume_breakout_score"),
             "volume_ratio": row.get("volume_ratio"),
             "return_5d_before": row.get("return_5d"),
             "return_20d_before": row.get("return_20d"),
@@ -886,7 +915,14 @@ def summarize_backtest(events: pd.DataFrame) -> pd.DataFrame:
 
 
 def ensure_watch_schema(df: pd.DataFrame) -> pd.DataFrame:
-    out = df.copy()
+    forbidden_mirrors = [
+        column
+        for column in df.columns
+        if column.startswith("warrant_") or column in FORBIDDEN_WATCH_MIRROR_COLUMNS
+    ]
+    out = df.drop(columns=forbidden_mirrors, errors="ignore").copy()
+    if "signal_date" in out.columns:
+        out["advisory_score_as_of"] = out["signal_date"].map(normalize_date)
     def numeric_series(col: str) -> pd.Series:
         if col in out.columns:
             return pd.to_numeric(out[col], errors="coerce")
@@ -946,7 +982,7 @@ def write_watch_md(watch: pd.DataFrame, main_date: str) -> None:
         "selection": watch["selection_status"].value_counts().to_dict() if "selection_status" in watch.columns else {},
     }
     cols = [
-        "volume_breakout_rank",
+        "advisory_volume_breakout_rank",
         "stock_id",
         "stock_name",
         "volume_breakout_type",
@@ -1063,7 +1099,7 @@ def write_packet(watch: pd.DataFrame, summary: pd.DataFrame, main_date: str) -> 
         *table_lines(
             watch,
             [
-                "volume_breakout_rank",
+                "advisory_volume_breakout_rank",
                 "stock_id",
                 "stock_name",
                 "volume_breakout_type",
@@ -1110,7 +1146,7 @@ def write_packet(watch: pd.DataFrame, summary: pd.DataFrame, main_date: str) -> 
         "- Do not mix this model with W-bottom, neckline watch, MA reclaim, strict 60D high breakout, or pullback models.",
         "- Do not use price moved too much, short-term overheat, or not breaking 60D high as hard vetoes for this model.",
         "- A long upper shadow can reduce attack quality once; avoid duplicate penalties for the same candle issue.",
-        "- TDCC, warrant, revenue, consolidation length, breakout magnitude, and position context are ranking components.",
+        "- The watch artifact does not own warrant semantics. Formal warrant values are resolved later from the canonical all-candidates projection.",
         "- If the stock falls back below the prior-20D-high breakout threshold after the signal, later reports may tag failure or higher risk.",
         "",
     ]
