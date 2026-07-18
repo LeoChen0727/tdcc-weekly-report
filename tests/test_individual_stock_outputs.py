@@ -102,8 +102,10 @@ def write_tdcc_contract(
     signal_date: str = "20260717",
     dataset_id: str = "tdcc-20260717-0123456789abcdef",
 ) -> None:
+    older_snapshot = path.parent / "tdcc_holder_ratio_20260703.csv"
     snapshot = path.parent / "tdcc_holder_ratio_20260717.csv"
     readiness = path.parent / "readiness.json"
+    older_snapshot.write_text("code,date\n2330,20260703\n", encoding="utf-8")
     snapshot.write_text("code,date\n2330,20260717\n", encoding="utf-8")
     readiness.write_text(
         json.dumps({"official_dates": ["20260703", signal_date]}),
@@ -117,13 +119,32 @@ def write_tdcc_contract(
                 "dataset_id": dataset_id,
                 "signal_date": signal_date,
                 "required_dates": ["20260703", signal_date],
+                "history_dates": ["20260703", signal_date],
                 "current_stock_count": 1,
                 "readiness_path": readiness.as_posix(),
+                "snapshot_count": 2,
                 "snapshots": [
+                    {
+                        "date": "20260703",
+                        "path": older_snapshot.as_posix(),
+                    },
                     {
                         "date": signal_date,
                         "path": snapshot.as_posix(),
                     }
+                ],
+                "history_snapshot_count": 2,
+                "history_snapshots": [
+                    {
+                        "date": "20260703",
+                        "path": older_snapshot.as_posix(),
+                        "sha256": "0" * 64,
+                    },
+                    {
+                        "date": signal_date,
+                        "path": snapshot.as_posix(),
+                        "sha256": "1" * 64,
+                    },
                 ],
                 "accepted_history_exceptions": [],
             }
