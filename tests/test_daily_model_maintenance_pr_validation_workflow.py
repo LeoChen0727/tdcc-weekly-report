@@ -40,31 +40,16 @@ def test_daily_model_maintenance_pr_workflow_exists_for_model_pdf_paths() -> Non
     assert "tests/test_mature_model_row_level_metric_contract_audit.py" in text
 
 
-def test_pdf_replay_pr_workflow_is_runtime_or_operation_impact_only_and_manually_dispatchable() -> None:
+def test_pdf_replay_pr_workflow_is_renderer_contract_only_and_manually_dispatchable() -> None:
     text = PDF_REPLAY_WORKFLOW.read_text(encoding="utf-8")
-    pull_request_trigger = text.split("  workflow_dispatch:", 1)[0]
-
-    observed_paths = {
-        line.strip()[2:].strip().strip('"')
-        for line in pull_request_trigger.splitlines()
-        if line.strip().startswith("- ")
-    }
-    expected_paths = {
-        "config/daily_pdf_rendered_model_regression_contract.csv",
-        "config/daily_pdf_semantic_golden_cases.csv",
-        "scripts/generate_chatgpt_side_daily_reports.py",
-        "scripts/validate_chatgpt_side_pdf_contract.py",
-        "output/latest/approved_operation_patterns_latest.csv",
-        "output/latest/daily_neckline_volume_breakout_confirmation_operation_section_latest.csv",
-        "output/latest/daily_price_pullback_23ema_operation_section_latest.csv",
-        "output/latest/daily_volume_breakout_operation_section_latest.csv",
-        "output/latest/daily_w_bottom_right_side_operation_section_latest.csv",
-        "output/latest/model_operation_readiness_latest.csv",
-    }
+    observed_paths = boundaries.workflow_pull_request_paths(text)
 
     assert "pull_request:" in text
     assert "workflow_dispatch:" in text
-    assert observed_paths == expected_paths
+    assert observed_paths == boundaries.DAILY_PDF_REPLAY_AUTOMATIC_PATHS
+    assert not (
+        observed_paths & boundaries.MODEL_OUTPUT_PATHS_FORBIDDEN_FROM_DFKAI_REPLAY
+    )
     for source_gate_path in (
         "config/git_worktree_materialization_contract.csv",
         "scripts/git_worktree_safety.py",
@@ -75,6 +60,22 @@ def test_pdf_replay_pr_workflow_is_runtime_or_operation_impact_only_and_manually
         "scripts/validate_daily_publish_freshness_gate.py",
     ):
         assert source_gate_path not in observed_paths
+
+
+def test_daily_production_boundary_rejects_model_output_dfkai_auto_trigger() -> None:
+    text = PDF_REPLAY_WORKFLOW.read_text(encoding="utf-8")
+    marker = '      - "scripts/validate_chatgpt_side_pdf_contract.py"\n'
+    assert marker in text
+    mutated = text.replace(
+        marker,
+        marker + '      - "output/latest/model_operation_readiness_latest.csv"\n',
+        1,
+    )
+
+    errors = boundaries.validate_pdf_replay_automatic_paths(mutated)
+
+    assert any("model_operation_readiness_latest.csv" in error for error in errors)
+    assert any("no-font model validation" in error for error in errors)
 
 
 def test_daily_model_pr_workflow_does_not_install_dfkai_or_render_pdfs() -> None:

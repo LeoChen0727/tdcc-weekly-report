@@ -11,6 +11,20 @@ DAILY_WORKFLOW = ROOT / ".github" / "workflows" / "daily_full_pipeline.yml"
 RECENT_PRICE_GAP_WORKFLOW = ROOT / ".github" / "workflows" / "repair_recent_daily_price_gaps.yml"
 DAILY_MODEL_MAINTENANCE_PR_WORKFLOW = ROOT / ".github" / "workflows" / "daily_model_maintenance_pr_validation.yml"
 DAILY_PDF_REPLAY_PR_WORKFLOW = ROOT / ".github" / "workflows" / "daily_pdf_replay_pr_validation.yml"
+DAILY_PDF_REPLAY_AUTOMATIC_PATHS = {
+    "config/daily_pdf_rendered_model_regression_contract.csv",
+    "config/daily_pdf_semantic_golden_cases.csv",
+    "scripts/generate_chatgpt_side_daily_reports.py",
+    "scripts/validate_chatgpt_side_pdf_contract.py",
+}
+MODEL_OUTPUT_PATHS_FORBIDDEN_FROM_DFKAI_REPLAY = {
+    "output/latest/approved_operation_patterns_latest.csv",
+    "output/latest/daily_neckline_volume_breakout_confirmation_operation_section_latest.csv",
+    "output/latest/daily_price_pullback_23ema_operation_section_latest.csv",
+    "output/latest/daily_volume_breakout_operation_section_latest.csv",
+    "output/latest/daily_w_bottom_right_side_operation_section_latest.csv",
+    "output/latest/model_operation_readiness_latest.csv",
+}
 CANONICAL_CHATGPT_PDF_ENTRYPOINT = ROOT / "scripts" / "run_chatgpt_daily_report_entrypoint.py"
 CANONICAL_CHATGPT_PDF_GENERATOR = ROOT / "scripts" / "generate_chatgpt_side_daily_reports.py"
 DAILY_MARKET_ARTIFACT_BUILDER = ROOT / "build_daily_market_report_artifacts.py"
@@ -313,6 +327,36 @@ def workflow_step_block(text: str, step_name: str) -> str:
     if next_step < 0:
         return text[start:]
     return text[start:next_step]
+
+
+def workflow_pull_request_paths(text: str) -> set[str]:
+    pull_request_trigger = text.split("  workflow_dispatch:", 1)[0]
+    return {
+        match.group(1)
+        for line in pull_request_trigger.splitlines()
+        if (match := re.fullmatch(r'\s*-\s+"?([^"\s]+)"?\s*', line))
+    }
+
+
+def validate_pdf_replay_automatic_paths(text: str) -> list[str]:
+    observed_paths = workflow_pull_request_paths(text)
+    errors: list[str] = []
+    if observed_paths != DAILY_PDF_REPLAY_AUTOMATIC_PATHS:
+        missing = sorted(DAILY_PDF_REPLAY_AUTOMATIC_PATHS - observed_paths)
+        unexpected = sorted(observed_paths - DAILY_PDF_REPLAY_AUTOMATIC_PATHS)
+        errors.append(
+            "PDF replay automatic paths must be renderer/font-contract only: "
+            f"missing={missing} unexpected={unexpected}"
+        )
+    forbidden_model_outputs = sorted(
+        observed_paths & MODEL_OUTPUT_PATHS_FORBIDDEN_FROM_DFKAI_REPLAY
+    )
+    if forbidden_model_outputs:
+        errors.append(
+            "model-produced operation artifacts must stay on no-font model validation and must not "
+            f"trigger DFKai replay: {forbidden_model_outputs}"
+        )
+    return errors
 
 
 def validate_dfkai_pdf_replay_job(
@@ -908,24 +952,6 @@ def main() -> int:
             'scripts/validate_chatgpt_side_pdf_contract.py': (
                 "PDF replay workflow must trigger on its font and PDF contract runtime"
             ),
-            'output/latest/approved_operation_patterns_latest.csv': (
-                "PDF replay workflow must trigger on formal operation pattern input"
-            ),
-            'output/latest/daily_neckline_volume_breakout_confirmation_operation_section_latest.csv': (
-                "PDF replay workflow must trigger on neckline operation adapter input"
-            ),
-            'output/latest/daily_price_pullback_23ema_operation_section_latest.csv': (
-                "PDF replay workflow must trigger on 23EMA operation adapter input"
-            ),
-            'output/latest/daily_volume_breakout_operation_section_latest.csv': (
-                "PDF replay workflow must trigger on volume-breakout operation adapter input"
-            ),
-            'output/latest/daily_w_bottom_right_side_operation_section_latest.csv': (
-                "PDF replay workflow must trigger on W-bottom operation adapter input"
-            ),
-            'output/latest/model_operation_readiness_latest.csv': (
-                "PDF replay workflow must trigger on formal operation readiness input"
-            ),
             "daily-pdf-replay-contract-validation:": (
                 "PDF replay workflow must run a cheap contract gate before the Windows job"
             ),
@@ -954,6 +980,7 @@ def main() -> int:
             "  workflow_dispatch:",
             1,
         )[0]
+        errors.extend(validate_pdf_replay_automatic_paths(pdf_replay_workflow_text))
         for forbidden in (
             "data/financial_statement_history/*.csv",
             "scripts/build_financial_statement_pit.py",
