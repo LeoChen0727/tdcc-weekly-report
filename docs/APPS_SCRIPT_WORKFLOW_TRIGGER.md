@@ -119,9 +119,16 @@ bounded TDCC report universe.
 
 ## TDCC To Individual Refresh Orchestration
 
-`orchestrateTdccIndividualRefresh` is an external, state-aware poller. Its
-time-driven trigger runs every 5 minutes, but it dispatches no workflow unless
-an active TDCC chain passes every gate below:
+`orchestrateTdccIndividualRefresh` is an external, state-aware poller. It has no
+permanent trigger. The Saturday 15:30 `triggerTdccWeeklyReport` handler creates
+a temporary 5-minute trigger only after it persists a new TDCC chain. When an
+allowlisted official-data/readiness step reports that data is not available,
+the active poller is replaced by a one-time trigger for 30 minutes later. A
+retry dispatch restores the temporary 5-minute poller while workflows are
+active. Complete, duplicate, terminal-failure, missing-state, and terminal-state
+paths remove both temporary trigger handlers.
+
+The event-scoped chain passes every gate below:
 
 1. Correlate exactly one new `tdcc_weekly.yml` main run by baseline run id and
    bounded dispatch timestamp.
@@ -175,15 +182,18 @@ The existing daily 22:20 `triggerIndividualStockDataRefresh` remains installed
 as the normal refresh and fallback. It is independent of the TDCC chain and is
 not used as proof that a TDCC-triggered refresh occurred.
 
-To install or repair only the state-aware poller, run:
+To repair the trigger for an already active state, run:
 
 ```text
 installTdccIndividualRefreshOrchestratorTrigger
 diagnoseTdccIndividualRefreshOrchestration
 ```
 
-The diagnostic logs the current state, dispatch history, and recent runs for
-both workflows. A complete audit record must show one TDCC `run_id:signal_date`
+The repair function reads persisted state. It installs a 5-minute poller only
+for active workflow phases, installs one one-time trigger for
+`tdcc_data_retry_wait`, and installs nothing for missing or terminal state. The
+diagnostic logs the current state, dispatch history, and recent runs for both
+workflows. A complete audit record must show one TDCC `run_id:signal_date`
 chain key and exactly one correlated individual refresh run id.
 
 `triggerEventCatalystUpdate` dispatches `.github/workflows/event_catalyst_update.yml`.
@@ -252,7 +262,9 @@ To recreate all scheduled workflow triggers, run:
 installAllWorkflowTriggers
 ```
 
-The canonical Apps Script source currently installs:
+The canonical Apps Script source currently installs the recurring schedule
+below. Temporary TDCC reconciliation triggers are created only by an active
+Saturday chain:
 
 | handler | cadence | workflow |
 |---|---|---|
@@ -262,7 +274,8 @@ The canonical Apps Script source currently installs:
 | `triggerEventCatalystUpdate` | daily 08:10 and 18:10 Asia/Taipei | `event_catalyst_update.yml` |
 | `triggerTdccHistoryGapRepair` | Tuesday 09:30 Asia/Taipei | `repair_tdcc_monthly_history_gaps.yml` |
 | `triggerTdccWeeklyReport` | Saturday 15:30 Asia/Taipei | `tdcc_weekly.yml` |
-| `orchestrateTdccIndividualRefresh` | every 5 minutes; retries allowlisted TDCC data steps after 30 minutes, then dispatches downstream only after run/main gates pass | conditional `tdcc_weekly.yml` retry or `individual_stock_data_refresh.yml` |
+| `orchestrateTdccIndividualRefresh` | temporary every 5 minutes only while the TDCC/individual chain is active | conditional `individual_stock_data_refresh.yml` after run/main gates pass |
+| `resumeTdccIndividualRefreshRetry` | one-time, 30 minutes after an allowlisted official-data/readiness failure | conditional `tdcc_weekly.yml` retry for the pinned target week |
 | `triggerWeeklyThemeReview` | Sunday 19:30 Asia/Taipei | `weekly_theme_review.yml` |
 | `triggerResearchBacktestPipeline` | every 2 weeks, Sunday 21:10 Asia/Taipei | `research_backtest_pipeline.yml` |
 
@@ -271,10 +284,12 @@ the same day should have at least a 60-minute gap between their nominal trigger
 times. The daily stock monitor trigger still exists on weekends, but its handler
 self-skips before dispatching GitHub Actions.
 
-The 5-minute orchestrator is not a nominal scheduled workflow dispatch. It is a
-condition poller: most executions only read persisted state and GitHub run/main
-evidence. It must never be replaced with a fixed sleep or fixed post-TDCC clock
-time.
+The 5-minute orchestrator is not installed by `installAllWorkflowTriggers` and
+does not run while no TDCC chain exists. It is created by the Saturday TDCC
+event, switches to a one-time 30-minute trigger while official data is absent,
+and removes itself after the TDCC and individual refresh chain completes. It
+must never be replaced with a fixed sleep or fixed post-TDCC clock time. The
+independent daily 22:20 individual refresh remains installed as a safety net.
 
 Research/backtest cadence is intentionally external to
 `research_backtest_pipeline.yml`. The GitHub workflow itself is

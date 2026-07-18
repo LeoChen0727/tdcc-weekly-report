@@ -32,7 +32,9 @@ TDCC 週報必須先取得該報告週由 TDCC 官方查詢頁公布的資料期
 
 週六外部 Apps Script 仍是初次派送來源。若官方新期別尚未公布、全市場 source 尚未切換到該期，或歷史回補遇到暫時性錯誤，workflow 會在命名的資料步驟失敗，不會沿用舊 snapshot。
 
-既有 `orchestrateTdccIndividualRefresh` 每 5 分鐘檢查該 run。它只對以下 allowlist 步驟排定 30 分鐘後重試：
+`triggerTdccWeeklyReport` 只在週六事件啟動後建立暫時的
+`orchestrateTdccIndividualRefresh` 5 分鐘 trigger。它只對以下 allowlist
+步驟切換成 30 分鐘後執行一次的 retry trigger：
 
 - `Wait for expected TDCC period`
 - `Fetch current TDCC snapshot`
@@ -40,7 +42,10 @@ TDCC 週報必須先取得該報告週由 TDCC 官方查詢頁公布的資料期
 
 重試沒有固定次數上限；一旦資料 gate 通過，流程恢復正常並在 main 發布後才派送 downstream individual refresh。其他程式、renderer、validator 或 git publish 失敗仍是 terminal failure，不會被誤當成資料延遲無限重試。
 
-外部 Apps Script 的正式部署內容必須與 `docs/apps_script_workflow_trigger.gs` 一致，並重新執行 `installAllWorkflowTriggers` 或至少確認 `orchestrateTdccIndividualRefresh` 的 5 分鐘 trigger 存在。
+外部 Apps Script 的正式部署內容必須與 `docs/apps_script_workflow_trigger.gs`
+一致。重新執行 `installAllWorkflowTriggers` 時只保留週六 15:30 的入口與每日
+22:20 的 individual safety refresh，不得在沒有 active TDCC chain 時留下
+`orchestrateTdccIndividualRefresh` 的永久 5 分鐘 trigger。
 
 ## 計算契約
 

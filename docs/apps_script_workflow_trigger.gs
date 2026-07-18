@@ -414,6 +414,7 @@ function isTerminalTdccChainPhase_(phase) {
   return [
     "complete",
     "duplicate_skipped",
+    "orchestrator_trigger_failed",
     "tdcc_dispatch_failed",
     "tdcc_failed",
     "tdcc_run_ambiguous",
@@ -430,6 +431,10 @@ function failTdccChain_(state, phase, message) {
   state.phase = phase;
   state.error = message;
   writeTdccChainState_(state);
+  if (state.chain_key) {
+    recordTdccDispatch_(state);
+  }
+  removeTdccIndividualRefreshOrchestratorTriggers_();
   throw new Error(message);
 }
 
@@ -442,11 +447,13 @@ function scheduleTdccDataRetry_(state, tdccRun) {
   state.next_retry_at = new Date(Date.now() + TDCC_DATA_RETRY_DELAY_MS).toISOString();
   delete state.error;
   writeTdccChainState_(state);
+  installTdccDataRetryTrigger_(state.next_retry_at);
 }
 
 function dispatchScheduledTdccRetry_(state) {
   if (!state.next_retry_at || Date.now() < new Date(state.next_retry_at).getTime()) {
     Logger.log("Waiting for TDCC data retry window: " + state.next_retry_at);
+    installTdccDataRetryTrigger_(state.next_retry_at);
     return false;
   }
   state.tdcc_baseline_run_id = latestWorkflowRunId_(TDCC_WEEKLY_WORKFLOW);
@@ -471,6 +478,7 @@ function dispatchScheduledTdccRetry_(state) {
   }
   state.phase = "tdcc_dispatched";
   writeTdccChainState_(state);
+  installTdccActivePollTrigger_();
   return true;
 }
 
@@ -670,6 +678,15 @@ function triggerTdccWeeklyReport() {
     };
     writeTdccChainState_(state);
     try {
+      installTdccActivePollTrigger_();
+    } catch (error) {
+      state.phase = "orchestrator_trigger_failed";
+      state.error = error.message;
+      writeTdccChainState_(state);
+      removeTdccIndividualRefreshOrchestratorTriggers_();
+      throw error;
+    }
+    try {
       dispatchWorkflow_(TDCC_WEEKLY_WORKFLOW, {
         target_as_of_date: state.target_as_of_date,
       });
@@ -677,6 +694,7 @@ function triggerTdccWeeklyReport() {
       state.phase = "tdcc_dispatch_failed";
       state.error = error.message;
       writeTdccChainState_(state);
+      removeTdccIndividualRefreshOrchestratorTriggers_();
       throw error;
     }
     state.phase = "tdcc_dispatched";
@@ -690,10 +708,12 @@ function orchestrateTdccIndividualRefresh() {
     const state = readTdccChainState_();
     if (!state) {
       Logger.log("No TDCC-to-individual refresh chain state exists.");
+      removeTdccIndividualRefreshOrchestratorTriggers_();
       return;
     }
     if (isTerminalTdccChainPhase_(state.phase)) {
       Logger.log("TDCC-to-individual refresh chain is terminal: " + state.phase);
+      removeTdccIndividualRefreshOrchestratorTriggers_();
       return;
     }
     if (state.phase === "tdcc_data_retry_wait") {
@@ -795,6 +815,7 @@ function orchestrateTdccIndividualRefresh() {
         state.phase = "duplicate_skipped";
         state.duplicate_reason = "Exact TDCC run/date/output chain already dispatched";
         writeTdccChainState_(state);
+        removeTdccIndividualRefreshOrchestratorTriggers_();
         return;
       }
 
@@ -867,15 +888,14 @@ function orchestrateTdccIndividualRefresh() {
       return;
     }
     if (downstreamRun.conclusion !== "success") {
-      state.phase = "downstream_failed";
-      state.error =
+      failTdccChain_(
+        state,
+        "downstream_failed",
         "Individual refresh workflow did not succeed: run_id=" +
         downstreamRun.id +
         " conclusion=" +
-        downstreamRun.conclusion;
-      writeTdccChainState_(state);
-      recordTdccDispatch_(state);
-      throw new Error(state.error);
+        downstreamRun.conclusion
+      );
     }
 
     let downstreamEvidence;
@@ -914,7 +934,12 @@ function orchestrateTdccIndividualRefresh() {
     state.completed_at = nowIso_();
     writeTdccChainState_(state);
     recordTdccDispatch_(state);
+    removeTdccIndividualRefreshOrchestratorTriggers_();
   });
+}
+
+function resumeTdccIndividualRefreshRetry() {
+  return orchestrateTdccIndividualRefresh();
 }
 
 function diagnoseTdccIndividualRefreshOrchestration() {
@@ -1033,7 +1058,7 @@ function installAllWorkflowTriggers() {
   installIndividualStockDataRefreshTrigger_();
   installTdccHistoryGapRepairTrigger_();
   installTdccWeeklyReportTrigger_();
-  installTdccIndividualRefreshOrchestratorTrigger_();
+  removeTdccIndividualRefreshOrchestratorTriggers_();
   installEventCatalystUpdateTriggers_();
   installWeeklyThemeReviewTrigger_();
   installBiweeklyResearchBacktestTrigger();
@@ -1042,18 +1067,27 @@ function installAllWorkflowTriggers() {
 }
 
 function installTdccIndividualRefreshOrchestratorTrigger() {
-  installTdccIndividualRefreshOrchestratorTrigger_();
-  Logger.log(
-    "Installed TDCC-to-individual refresh orchestrator: every " +
-      TDCC_CHAIN_POLL_MINUTES +
-      " minutes; dispatch occurs only after run/main gates pass."
-  );
+  const state = readTdccChainState_();
+  if (!state || isTerminalTdccChainPhase_(state.phase)) {
+    removeTdccIndividualRefreshOrchestratorTriggers_();
+    Logger.log("No active TDCC chain; no orchestrator trigger was installed.");
+  } else if (state.phase === "tdcc_data_retry_wait") {
+    installTdccDataRetryTrigger_(state.next_retry_at);
+    Logger.log("Installed one-time TDCC data retry trigger for " + state.next_retry_at + ".");
+  } else {
+    installTdccActivePollTrigger_();
+    Logger.log(
+      "Installed temporary TDCC active poll trigger: every " +
+        TDCC_CHAIN_POLL_MINUTES +
+        " minutes."
+    );
+  }
   listAllTriggers();
 }
 
 function removeTdccIndividualRefreshOrchestratorTrigger() {
-  removeTriggersForFunction_("orchestrateTdccIndividualRefresh");
-  Logger.log("Removed TDCC-to-individual refresh orchestrator trigger.");
+  removeTdccIndividualRefreshOrchestratorTriggers_();
+  Logger.log("Removed all TDCC-to-individual temporary orchestrator triggers.");
   listAllTriggers();
 }
 
@@ -1101,12 +1135,31 @@ function installTdccWeeklyReportTrigger_() {
     .create();
 }
 
-function installTdccIndividualRefreshOrchestratorTrigger_() {
+function installTdccActivePollTrigger_() {
   removeTriggersForFunction_("orchestrateTdccIndividualRefresh");
   ScriptApp.newTrigger("orchestrateTdccIndividualRefresh")
     .timeBased()
     .everyMinutes(TDCC_CHAIN_POLL_MINUTES)
     .create();
+  removeTriggersForFunction_("resumeTdccIndividualRefreshRetry");
+}
+
+function installTdccDataRetryTrigger_(nextRetryAt) {
+  const retryAt = new Date(nextRetryAt);
+  if (isNaN(retryAt.getTime()) || retryAt.getTime() <= Date.now()) {
+    throw new Error("TDCC data retry trigger requires a future next_retry_at value");
+  }
+  removeTriggersForFunction_("resumeTdccIndividualRefreshRetry");
+  ScriptApp.newTrigger("resumeTdccIndividualRefreshRetry")
+    .timeBased()
+    .at(retryAt)
+    .create();
+  removeTriggersForFunction_("orchestrateTdccIndividualRefresh");
+}
+
+function removeTdccIndividualRefreshOrchestratorTriggers_() {
+  removeTriggersForFunction_("orchestrateTdccIndividualRefresh");
+  removeTriggersForFunction_("resumeTdccIndividualRefreshRetry");
 }
 
 function installTdccHistoryGapRepairTrigger_() {

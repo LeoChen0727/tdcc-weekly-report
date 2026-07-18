@@ -126,8 +126,17 @@ def test_apps_script_tdcc_chain_is_idempotent_and_tracks_one_downstream_run() ->
     identity_body = validate_apps_script_workflow_triggers.apps_script_function_body(
         "tdccChainIdentity_"
     )
-    installer_body = validate_apps_script_workflow_triggers.apps_script_function_body(
-        "installTdccIndividualRefreshOrchestratorTrigger_"
+    active_installer_body = validate_apps_script_workflow_triggers.apps_script_function_body(
+        "installTdccActivePollTrigger_"
+    )
+    retry_installer_body = validate_apps_script_workflow_triggers.apps_script_function_body(
+        "installTdccDataRetryTrigger_"
+    )
+    cleanup_body = validate_apps_script_workflow_triggers.apps_script_function_body(
+        "removeTdccIndividualRefreshOrchestratorTriggers_"
+    )
+    install_all_body = validate_apps_script_workflow_triggers.apps_script_function_body(
+        "installAllWorkflowTriggers"
     )
     downstream_evidence_body = (
         validate_apps_script_workflow_triggers.apps_script_function_body(
@@ -150,7 +159,14 @@ def test_apps_script_tdcc_chain_is_idempotent_and_tracks_one_downstream_run() ->
     assert "outputCommitSha" in identity_body
     assert "mainEvidenceWindowExpired_(downstreamRun.updated_at)" in orchestrator_body
     assert 'state.phase = "downstream_main_pending"' in orchestrator_body
-    assert '.everyMinutes(TDCC_CHAIN_POLL_MINUTES)' in installer_body
+    assert '.everyMinutes(TDCC_CHAIN_POLL_MINUTES)' in active_installer_body
+    assert 'ScriptApp.newTrigger("resumeTdccIndividualRefreshRetry")' in retry_installer_body
+    assert ".at(retryAt)" in retry_installer_body
+    assert ".everyMinutes(" not in retry_installer_body
+    assert 'removeTriggersForFunction_("orchestrateTdccIndividualRefresh")' in cleanup_body
+    assert 'removeTriggersForFunction_("resumeTdccIndividualRefreshRetry")' in cleanup_body
+    assert "removeTdccIndividualRefreshOrchestratorTriggers_();" in install_all_body
+    assert "installTdccActivePollTrigger_();" not in install_all_body
     assert "runStatus.github_run_id" in downstream_evidence_body
     assert "runStatus.github_head_sha" in downstream_evidence_body
     assert "runStatus.official_signal_date" in downstream_evidence_body
@@ -226,6 +242,196 @@ process.stdout.write("behavior-pass");
 
     assert result.returncode == 0, result.stderr
     assert result.stdout == "behavior-pass"
+
+
+def test_apps_script_tdcc_reconciliation_trigger_lifecycle_behavior(
+    tmp_path: Path,
+) -> None:
+    node = shutil.which("node")
+    if node is None:
+        pytest.skip("Node.js is required to execute the Apps Script trigger lifecycle test")
+
+    source = (ROOT / "docs" / "apps_script_workflow_trigger.gs").read_text(
+        encoding="utf-8"
+    )
+    harness = r'''
+const properties = {};
+const triggers = [];
+const dispatches = [];
+
+function removeArrayItem(array, item) {
+  const index = array.indexOf(item);
+  if (index >= 0) array.splice(index, 1);
+}
+
+function triggerBuilder(handler) {
+  const spec = { handler: handler };
+  const builder = {
+    timeBased: function () { spec.timeBased = true; return builder; },
+    everyMinutes: function (value) { spec.everyMinutes = value; return builder; },
+    everyDays: function (value) { spec.everyDays = value; return builder; },
+    everyWeeks: function (value) { spec.everyWeeks = value; return builder; },
+    onWeekDay: function (value) { spec.onWeekDay = value; return builder; },
+    atHour: function (value) { spec.atHour = value; return builder; },
+    nearMinute: function (value) { spec.nearMinute = value; return builder; },
+    inTimezone: function (value) { spec.timezone = value; return builder; },
+    at: function (value) { spec.at = value; return builder; },
+    create: function () {
+      const trigger = Object.assign({}, spec, {
+        getHandlerFunction: function () { return handler; },
+        getEventType: function () { return "CLOCK"; },
+        getTriggerSource: function () { return "CLOCK"; },
+      });
+      triggers.push(trigger);
+      return trigger;
+    },
+  };
+  return builder;
+}
+
+global.ScriptApp = {
+  WeekDay: {
+    SUNDAY: "SUNDAY",
+    TUESDAY: "TUESDAY",
+    SATURDAY: "SATURDAY",
+  },
+  newTrigger: triggerBuilder,
+  getProjectTriggers: function () { return triggers.slice(); },
+  deleteTrigger: function (trigger) { removeArrayItem(triggers, trigger); },
+};
+global.PropertiesService = {
+  getScriptProperties: function () {
+    return {
+      getProperty: function (key) { return properties[key] || null; },
+      setProperty: function (key, value) { properties[key] = String(value); },
+    };
+  },
+};
+global.LockService = {
+  getScriptLock: function () {
+    return { waitLock: function () {}, releaseLock: function () {} };
+  },
+};
+global.Logger = { log: function () {} };
+
+latestWorkflowRunId_ = function () { return "100"; };
+getMainRefSha_ = function () { return "a".repeat(40); };
+taipeiYyyyMmDd_ = function () { return "20260718"; };
+nowIso_ = function () { return new Date().toISOString(); };
+dispatchWorkflow_ = function (workflow, inputs) {
+  dispatches.push({ workflow: workflow, inputs: inputs || {} });
+  return { statusCode: 204 };
+};
+
+function requireBehavior(condition, message) {
+  if (!condition) throw new Error(message);
+}
+function triggersFor(handler) {
+  return triggers.filter(function (trigger) { return trigger.handler === handler; });
+}
+
+triggerTdccWeeklyReport();
+requireBehavior(triggers.length === 1, "Saturday start must create exactly one temporary trigger");
+requireBehavior(
+  triggersFor("orchestrateTdccIndividualRefresh").length === 1 &&
+    triggers[0].everyMinutes === 5,
+  "active TDCC work must use the five-minute poller"
+);
+
+let state = readTdccChainState_();
+scheduleTdccDataRetry_(state, {
+  id: "200",
+  html_url: "https://example.invalid/200",
+  conclusion: "failure",
+});
+state = readTdccChainState_();
+requireBehavior(triggers.length === 1, "data wait must replace the active poller");
+requireBehavior(
+  triggersFor("resumeTdccIndividualRefreshRetry").length === 1 &&
+    triggers[0].at instanceof Date &&
+    !Object.prototype.hasOwnProperty.call(triggers[0], "everyMinutes"),
+  "official-data wait must use one one-time retry trigger"
+);
+const retryDelayMs = new Date(state.next_retry_at).getTime() - Date.now();
+requireBehavior(
+  retryDelayMs > 29 * 60 * 1000 && retryDelayMs <= 30 * 60 * 1000,
+  "official-data retry must be approximately 30 minutes"
+);
+
+state.next_retry_at = new Date(Date.now() - 1000).toISOString();
+writeTdccChainState_(state);
+dispatchScheduledTdccRetry_(state);
+requireBehavior(triggers.length === 1, "retry dispatch must leave one active poller");
+requireBehavior(
+  triggersFor("orchestrateTdccIndividualRefresh").length === 1 &&
+    triggers[0].everyMinutes === 5,
+  "retry dispatch must restore five-minute active polling"
+);
+
+try {
+  failTdccChain_(state, "tdcc_failed", "simulated terminal failure");
+} catch (error) {
+  requireBehavior(error.message === "simulated terminal failure", "terminal error must propagate");
+}
+requireBehavior(triggers.length === 0, "terminal failure must remove all temporary triggers");
+
+installTdccActivePollTrigger_();
+state.phase = "complete";
+delete state.error;
+writeTdccChainState_(state);
+orchestrateTdccIndividualRefresh();
+requireBehavior(triggers.length === 0, "completed state must remove all temporary triggers");
+
+installAllWorkflowTriggers();
+requireBehavior(
+  triggersFor("orchestrateTdccIndividualRefresh").length === 0 &&
+    triggersFor("resumeTdccIndividualRefreshRetry").length === 0,
+  "recurring trigger installation must not create an idle TDCC poller"
+);
+const safety = triggersFor("triggerIndividualStockDataRefresh");
+requireBehavior(
+  safety.length === 1 && safety[0].atHour === 22 && safety[0].nearMinute === 20,
+  "daily 22:20 individual refresh safety trigger must remain installed"
+);
+process.stdout.write("trigger-lifecycle-pass");
+'''
+    script = tmp_path / "apps_script_trigger_lifecycle.js"
+    script.write_text(source + "\n" + harness, encoding="utf-8")
+    result = subprocess.run(
+        [node, str(script)],
+        cwd=ROOT,
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+
+    assert result.returncode == 0, result.stderr
+    assert result.stdout == "trigger-lifecycle-pass"
+
+
+def test_apps_script_tdcc_chain_uses_only_event_scoped_temporary_triggers() -> None:
+    trigger_body = validate_apps_script_workflow_triggers.apps_script_function_body(
+        "triggerTdccWeeklyReport"
+    )
+    orchestrator_body = validate_apps_script_workflow_triggers.apps_script_function_body(
+        "orchestrateTdccIndividualRefresh"
+    )
+    retry_scheduler_body = validate_apps_script_workflow_triggers.apps_script_function_body(
+        "scheduleTdccDataRetry_"
+    )
+    retry_dispatch_body = validate_apps_script_workflow_triggers.apps_script_function_body(
+        "dispatchScheduledTdccRetry_"
+    )
+    failure_body = validate_apps_script_workflow_triggers.apps_script_function_body(
+        "failTdccChain_"
+    )
+
+    assert "installTdccActivePollTrigger_();" in trigger_body
+    assert "installTdccDataRetryTrigger_(state.next_retry_at);" in retry_scheduler_body
+    assert "installTdccActivePollTrigger_();" in retry_dispatch_body
+    assert orchestrator_body.count("removeTdccIndividualRefreshOrchestratorTriggers_();") >= 3
+    assert "recordTdccDispatch_(state);" in failure_body
+    assert "removeTdccIndividualRefreshOrchestratorTriggers_();" in failure_body
 
 
 def test_individual_refresh_workflow_commits_unique_run_status_evidence() -> None:
