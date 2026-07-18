@@ -76,6 +76,12 @@ TDCC rows, its real last TDCC date is preserved and both
 source backfill, and does not assert a formal delisting status. The packet is
 historical-only and must not be presented as current TDCC data.
 
+Absence means only that the stock has no current main-price row for this report
+period. It is a fail-closed packet-currentness state, not a formal finding that
+the security is delisted, OTC trading was terminated, or the security is no
+longer legally listed. `historical_only_noncurrent` must not claim either
+current TDCC data or a formal listing-status conclusion.
+
 For a stock present in the current main-price universe, any non-empty TDCC
 window whose last date differs from the official TDCC signal date remains
 `tdcc_window_stale` and fails validation. Absence from the current price
@@ -103,6 +109,11 @@ The machine-enforced status remains `historical_only_noncurrent` rather than
 
 `python scripts/validate_individual_stock_outputs.py --all` reads the same
 official contract and checks every packet-index row and corresponding packet.
+For each stock it independently reads `data/tdcc_stock_history/{stock_id}.csv`
+and recomputes the source row count and latest TDCC date. Packet and index
+metadata must match that source lineage; agreement between two generated
+artifacts is not sufficient. A missing source file is validated as
+`tdcc_missing` with zero rows and a blank latest TDCC date.
 Missing or malformed contracts, non-`pass` status, unexpected date source,
 missing metadata, date mismatch, stale status, or index/packet disagreement are
 hard failures.

@@ -327,4 +327,46 @@ def test_noncurrent_main_price_universe_preserves_historical_tdcc(tmp_path):
         "20260717",
         main_price_date="20260717",
         is_current_main_price_universe=False,
+        source_tdcc_rows=5,
+        source_latest_tdcc_date="20260529",
     ) == []
+
+
+def test_historical_packet_and_index_cannot_share_wrong_tdcc_source_date(tmp_path):
+    validator = load_script("validate_individual_stock_outputs")
+    packet_path = tmp_path / "3426_packet_latest.md"
+    packet_path.write_text(
+        packet_text(
+            latest_tdcc_date="20260530",
+            history_status="historical_only_noncurrent",
+            freshness_status="historical_only_noncurrent",
+            tdcc_rows=6,
+            universe_status="historical_only_noncurrent",
+        ),
+        encoding="utf-8",
+    )
+    wrong_index_row = {
+        "current_main_price_date": "20260717",
+        "current_main_price_universe_status": "historical_only_noncurrent",
+        "current_main_price_universe_source": "official_daily_price_latest_main_price_date",
+        "listing_status_source_status": "formal_listing_status_source_unavailable",
+        "official_tdcc_signal_date": "20260717",
+        "latest_tdcc_date": "20260530",
+        "tdcc_rows": "6",
+        "tdcc_history_status": "historical_only_noncurrent",
+        "tdcc_freshness_status": "historical_only_noncurrent",
+    }
+    errors = validator.validate_tdcc_packet_freshness(
+        "3426",
+        packet_path,
+        wrong_index_row,
+        "20260717",
+        main_price_date="20260717",
+        is_current_main_price_universe=False,
+        source_tdcc_rows=5,
+        source_latest_tdcc_date="20260529",
+    )
+    assert any("packet latest_tdcc_date source mismatch" in error for error in errors)
+    assert any("packet tdcc_rows source mismatch" in error for error in errors)
+    assert any("packet index latest_tdcc_date mismatch" in error for error in errors)
+    assert any("packet index tdcc_rows mismatch" in error for error in errors)

@@ -16,6 +16,7 @@ PACKET_DIR = INDIVIDUAL_STOCK_REPORTS_DIR / "chatgpt_packets"
 PRICE_WINDOW_DIR = INDIVIDUAL_STOCK_REPORTS_DIR / "price_windows"
 DATA_FRESHNESS_CSV = LATEST_DIR / "data_freshness_latest.csv"
 STOCK_PRICE_HISTORY_DIR = Path("data/stock_price_history")
+TDCC_HISTORY_DIR = Path("data/tdcc_stock_history")
 OFFICIAL_TDCC_CONTRACT_JSON = LATEST_DIR / "tdcc_weekly_candidate_report_validation_latest.json"
 OFFICIAL_TDCC_DATE_SOURCE = "report_ready_csv_signal_date"
 OFFICIAL_DAILY_PRICE_CSV = LATEST_DIR / "official_daily_price_latest.csv"
@@ -179,6 +180,20 @@ def read_packet_metadata(path: Path) -> dict[str, str]:
     return metadata
 
 
+def read_tdcc_source_stats(stock_id: str, path: Path | None = None) -> tuple[int, str]:
+    source_path = path or TDCC_HISTORY_DIR / f"{stock_id}.csv"
+    if not source_path.exists():
+        return 0, ""
+    with source_path.open("r", encoding="utf-8-sig", newline="") as fh:
+        rows = list(csv.DictReader(fh))
+    latest_date = ""
+    for row in rows:
+        value = normalize_date(row.get("as_of_date") or row.get("date"))
+        if value:
+            latest_date = max(latest_date, value)
+    return len(rows), latest_date
+
+
 def validate_tdcc_packet_freshness(
     stock_id: str,
     packet_path: Path,
@@ -186,6 +201,8 @@ def validate_tdcc_packet_freshness(
     official_tdcc_signal_date: str,
     main_price_date: str = "",
     is_current_main_price_universe: bool = True,
+    source_tdcc_rows: int | None = None,
+    source_latest_tdcc_date: str | None = None,
 ) -> list[str]:
     errors: list[str] = []
     metadata = read_packet_metadata(packet_path)
@@ -204,6 +221,21 @@ def validate_tdcc_packet_freshness(
         packet_tdcc_rows = int(metadata.get("tdcc_rows", ""))
     except ValueError:
         packet_tdcc_rows = -1
+
+    expected_tdcc_rows = packet_tdcc_rows if source_tdcc_rows is None else source_tdcc_rows
+    expected_source_latest_date = (
+        packet_latest_date if source_latest_tdcc_date is None else normalize_date(source_latest_tdcc_date)
+    )
+    if source_tdcc_rows is not None and packet_tdcc_rows != source_tdcc_rows:
+        errors.append(
+            f"{stock_id}: packet tdcc_rows source mismatch: expected {source_tdcc_rows}, "
+            f"got {packet_tdcc_rows} ({packet_path})"
+        )
+    if source_latest_tdcc_date is not None and packet_latest_date != expected_source_latest_date:
+        errors.append(
+            f"{stock_id}: packet latest_tdcc_date source mismatch: expected "
+            f"{expected_source_latest_date or 'blank'}, got {packet_latest_date or 'blank'} ({packet_path})"
+        )
 
     if packet_official_date != official_tdcc_signal_date:
         errors.append(
@@ -234,19 +266,19 @@ def validate_tdcc_packet_freshness(
             f"got {packet_listing_source_status or 'missing'} ({packet_path})"
         )
 
-    if packet_tdcc_rows == 0:
+    if expected_tdcc_rows == 0:
         expected_latest_date = ""
         expected_history_status = "tdcc_missing"
         expected_freshness_status = "tdcc_missing"
     elif not is_current_main_price_universe:
-        expected_latest_date = packet_latest_date
+        expected_latest_date = expected_source_latest_date
         expected_history_status = "historical_only_noncurrent"
         expected_freshness_status = "historical_only_noncurrent"
-        if not packet_latest_date:
+        if not expected_source_latest_date:
             errors.append(f"{stock_id}: historical-only packet must preserve a real latest_tdcc_date: {packet_path}")
     else:
         expected_latest_date = official_tdcc_signal_date
-        expected_history_status = "tdcc_history_ready" if packet_tdcc_rows >= 8 else "insufficient_tdcc_history"
+        expected_history_status = "tdcc_history_ready" if expected_tdcc_rows >= 8 else "insufficient_tdcc_history"
         expected_freshness_status = "tdcc_window_fresh"
     if packet_latest_date != expected_latest_date:
         errors.append(
@@ -284,9 +316,9 @@ def validate_tdcc_packet_freshness(
                     f"{stock_id}: packet index {field} mismatch: expected {expected}, got {actual or 'missing'}"
                 )
         index_rows = str(index_row.get("tdcc_rows", "")).strip()
-        if index_rows != str(packet_tdcc_rows):
+        if index_rows != str(expected_tdcc_rows):
             errors.append(
-                f"{stock_id}: packet index tdcc_rows mismatch: expected packet value {packet_tdcc_rows}, "
+                f"{stock_id}: packet index tdcc_rows mismatch: expected source value {expected_tdcc_rows}, "
                 f"got {index_rows or 'missing'}"
             )
     return errors
@@ -419,6 +451,7 @@ def validate_stock(
                 )
 
     packet_path = PACKET_DIR / f"{stock_id}_packet_latest.md"
+    source_tdcc_rows, source_latest_tdcc_date = read_tdcc_source_stats(stock_id)
     errors.extend(
         validate_tdcc_packet_freshness(
             stock_id,
@@ -427,6 +460,8 @@ def validate_stock(
             official_tdcc_signal_date,
             main_price_date,
             is_current_main_price_universe,
+            source_tdcc_rows,
+            source_latest_tdcc_date,
         )
     )
 
