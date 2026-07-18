@@ -1,6 +1,11 @@
 {
   "status": "pass",
   "signal_date": "20260717",
+  "tdcc_dataset_contract": {
+    "dataset_id": "tdcc-20260717-494211df6cae54ae",
+    "signal_date": "20260717",
+    "manifest_path": "output/latest/tdcc_dataset_manifest_latest.json"
+  },
   "date_contract": {
     "date_source": "report_ready_csv_signal_date",
     "report_date": "20260717",

@@ -1,8 +1,8 @@
 # TDCC Weekly Run Status
 
-- generated_at: `2026-07-19 02:24:45 Asia/Taipei`
-- github_run: https://github.com/LeoChen0727/tdcc-weekly-report/actions/runs/29655376696
-- commit: `f58e2beff54912b33376fe89182ffe1a192ed498`
+- generated_at: `2026-07-19 04:53:44 Asia/Taipei`
+- github_run: https://github.com/LeoChen0727/tdcc-weekly-report/actions/runs/29660154748
+- commit: `9d2155112e93bc29e21308fe096acc43e1a1f308`
 
 ## Outputs
 
@@ -14,6 +14,7 @@
 | `output/latest/tdcc_weekly_data_readiness_latest.md` | yes | 13 |
 | `output/latest/tdcc_weekly_history_continuity_latest.json` | yes | 72 |
 | `output/latest/tdcc_weekly_history_continuity_latest.md` | yes | 28 |
+| `output/latest/tdcc_dataset_manifest_latest.json` | yes | 182 |
 | `output/latest/tdcc_invalid_holder_distribution_latest.csv` | yes | 1 |
 | `output/latest/tdcc_signal_performance_latest.md` | yes | 521 |
 | `output/latest/tdcc_signal_structures_latest.md` | yes | 117 |
@@ -57,7 +58,7 @@
 | `output/latest/published_reports/tdcc_weekly/TDCC大戶籌碼週報_精華版_20260703.pdf` | yes | 873 |
 | `output/latest/published_reports/tdcc_weekly/TDCC大戶籌碼週報_精華版_20260717.pdf` | yes | 921 |
 | `output/latest/tdcc_weekly_candidate_report_validation_latest.md` | yes | 60 |
-| `output/latest/tdcc_weekly_candidate_report_validation_latest.json` | yes | 107 |
+| `output/latest/tdcc_weekly_candidate_report_validation_latest.json` | yes | 112 |
 | `output/latest/tdcc_chatgpt_tracking_validation_latest.md` | yes | 14 |
 | `output/latest/tdcc_chatgpt_tracking_validation_latest.json` | yes | 5 |
 | `output/history/tdcc_signals/tdcc_signal_log.csv` | yes | 999 |

@@ -66,63 +66,63 @@ signal_date,primary_theme,total_signal_count,increase_400_count,increase_600_cou
 20260529,power discrete/diodes,3,2,3,2,2,2,2,0,,,,,,10,mixed_divergence,B,"5425,8261,2481",2026-07-11 18:23:28 Asia/Taipei,2026-07-11 18:23:28 Asia/Taipei,B
 20260529,semiconductor,2,2,0,1,1,0,0,0,,,,,,3,single_name_concentration,C,"4966,3033",2026-07-11 18:23:28 Asia/Taipei,2026-07-11 18:23:28 Asia/Taipei,C
 20260529,semiconductor equipment/materials,3,3,2,2,2,2,0,0,,,,,,9,mixed_divergence,B,"3131,8028,3498",2026-07-11 18:23:28 Asia/Taipei,2026-07-11 18:23:28 Asia/Taipei,B
-20260605,AI server supply chain,1,0,0,1,1,0,0,0,,,,,,2,single_name_concentration,C,4916,2026-07-19 02:18:28 Asia/Taipei,2026-07-19 02:18:28 Asia/Taipei,C
-20260605,PCB/CCL,2,0,1,2,2,0,0,0,,,,,,4,neutral,Neutral,"5464,5439",2026-07-19 02:18:28 Asia/Taipei,2026-07-19 02:18:28 Asia/Taipei,Neutral
-20260605,consumer electronics,1,1,1,1,1,1,0,0,,,,,,4,single_name_concentration,C,3481,2026-07-19 02:18:28 Asia/Taipei,2026-07-19 02:18:28 Asia/Taipei,C
-20260605,memory,1,1,1,1,1,1,0,0,,,,,,4,single_name_concentration,C,5351,2026-07-19 02:18:28 Asia/Taipei,2026-07-19 02:18:28 Asia/Taipei,C
-20260605,other,1117,858,801,760,686,477,0,0,,,,,,10,synchronized_accumulation,A,"1101,1102,1216,1218,1220,1229,1233,1301",2026-07-19 02:18:28 Asia/Taipei,2026-07-19 02:18:28 Asia/Taipei,A
-20260605,other electronics,1,1,0,1,1,0,0,0,,,,,,2,single_name_concentration,C,3305,2026-07-19 02:18:28 Asia/Taipei,2026-07-19 02:18:28 Asia/Taipei,C
-20260605,passive components,4,3,2,2,1,1,0,0,,,,,,8,mixed_divergence,B,"2492,3357,6173,8042",2026-07-19 02:18:28 Asia/Taipei,2026-07-19 02:18:28 Asia/Taipei,B
-20260605,power discrete/diodes,1,1,1,1,1,1,0,0,,,,,,4,single_name_concentration,C,2481,2026-07-19 02:18:28 Asia/Taipei,2026-07-19 02:18:28 Asia/Taipei,C
-20260605,semiconductor,1,0,1,0,0,0,0,0,,,,,,1,single_name_concentration,C,3033,2026-07-19 02:18:28 Asia/Taipei,2026-07-19 02:18:28 Asia/Taipei,C
-20260605,semiconductor equipment/materials,1,1,1,1,1,1,0,0,,,,,,4,single_name_concentration,C,3131,2026-07-19 02:18:28 Asia/Taipei,2026-07-19 02:18:28 Asia/Taipei,C
-20260612,PCB/CCL,3,2,3,2,2,2,0,0,,,,,,9,mixed_divergence,B,"2355,5464,5439",2026-07-19 02:18:28 Asia/Taipei,2026-07-19 02:18:28 Asia/Taipei,B
-20260612,other,1083,824,723,698,628,386,176,0,,,,,,10,synchronized_accumulation,A,"1101,1210,1216,1220,1229,1231,1233,1236",2026-07-19 02:18:28 Asia/Taipei,2026-07-19 02:18:28 Asia/Taipei,A
-20260612,passive components,4,4,4,4,4,4,1,0,,,,,,10,mixed_divergence,B,"2375,2492,3624,6173",2026-07-19 02:18:28 Asia/Taipei,2026-07-19 02:18:28 Asia/Taipei,B
-20260612,semiconductor,3,2,3,3,2,2,0,0,,,,,,10,mixed_divergence,B,"3048,3707,4966",2026-07-19 02:18:28 Asia/Taipei,2026-07-19 02:18:28 Asia/Taipei,B
-20260612,semiconductor equipment/materials,1,1,1,0,1,0,0,0,,,,,,2,single_name_concentration,C,8028,2026-07-19 02:18:28 Asia/Taipei,2026-07-19 02:18:28 Asia/Taipei,C
-20260618,PCB/CCL,1,1,1,1,1,1,1,0,,,,,,6,single_name_concentration,C,5464,2026-07-19 02:18:28 Asia/Taipei,2026-07-19 02:18:28 Asia/Taipei,C
-20260618,consumer electronics,1,1,1,1,1,1,0,0,,,,,,4,single_name_concentration,C,3481,2026-07-19 02:18:28 Asia/Taipei,2026-07-19 02:18:28 Asia/Taipei,C
-20260618,memory,3,3,3,3,3,3,0,0,,,,,,10,mixed_divergence,B,"2344,3006,5351",2026-07-19 02:18:28 Asia/Taipei,2026-07-19 02:18:28 Asia/Taipei,B
-20260618,networking,1,1,1,1,1,1,0,0,,,,,,4,single_name_concentration,C,4906,2026-07-19 02:18:28 Asia/Taipei,2026-07-19 02:18:28 Asia/Taipei,C
-20260618,optical communication/CPO,1,0,0,0,1,0,0,0,,,,,,2,single_name_concentration,C,3450,2026-07-19 02:18:28 Asia/Taipei,2026-07-19 02:18:28 Asia/Taipei,C
-20260618,other,1102,862,744,712,658,434,165,105,,,,,,10,synchronized_accumulation,A,"1101,1102,1109,1203,1210,1216,1225,1233",2026-07-19 02:18:28 Asia/Taipei,2026-07-19 02:18:28 Asia/Taipei,A
-20260618,passive components,4,3,4,3,4,3,3,1,,,,,,10,mixed_divergence,B,"2375,2492,3624,8042",2026-07-19 02:18:28 Asia/Taipei,2026-07-19 02:18:28 Asia/Taipei,B
-20260618,power discrete/diodes,2,2,2,2,2,2,0,0,,,,,,8,mixed_divergence,B,"5425,8261",2026-07-19 02:18:28 Asia/Taipei,2026-07-19 02:18:28 Asia/Taipei,B
-20260618,semiconductor,3,2,2,2,3,1,1,0,,,,,,10,mixed_divergence,B,"3707,3033,4966",2026-07-19 02:18:28 Asia/Taipei,2026-07-19 02:18:28 Asia/Taipei,B
-20260618,semiconductor equipment/materials,1,0,1,1,1,0,0,0,,,,,,2,single_name_concentration,C,3131,2026-07-19 02:18:28 Asia/Taipei,2026-07-19 02:18:28 Asia/Taipei,C
-20260626,PCB/CCL,2,0,1,1,2,0,0,0,,,,,,4,neutral,Neutral,"5464,5439",2026-07-19 02:18:28 Asia/Taipei,2026-07-19 02:18:28 Asia/Taipei,Neutral
-20260626,memory,1,1,1,1,1,1,1,0,,,,,,6,single_name_concentration,C,3006,2026-07-19 02:18:28 Asia/Taipei,2026-07-19 02:18:28 Asia/Taipei,C
-20260626,optical communication/CPO,1,1,1,1,1,1,0,0,,,,,,4,single_name_concentration,C,3450,2026-07-19 02:18:28 Asia/Taipei,2026-07-19 02:18:28 Asia/Taipei,C
-20260626,other,1088,832,748,686,631,415,196,88,,,,,,10,synchronized_accumulation,A,"1101,1102,1103,1201,1210,1216,1227,1229",2026-07-19 02:18:28 Asia/Taipei,2026-07-19 02:18:28 Asia/Taipei,A
-20260626,other electronics,1,0,1,1,1,0,0,0,,,,,,2,single_name_concentration,C,3305,2026-07-19 02:18:28 Asia/Taipei,2026-07-19 02:18:28 Asia/Taipei,C
-20260626,passive components,4,3,2,3,2,0,0,0,,,,,,8,mixed_divergence,B,"6173,8042,3357,3624",2026-07-19 02:18:28 Asia/Taipei,2026-07-19 02:18:28 Asia/Taipei,B
-20260626,power discrete/diodes,2,2,2,2,2,2,1,0,,,,,,10,mixed_divergence,B,"2481,8261",2026-07-19 02:18:28 Asia/Taipei,2026-07-19 02:18:28 Asia/Taipei,B
-20260626,semiconductor,3,3,3,3,3,3,1,1,,,,,,10,mixed_divergence,B,"3033,3048,3707",2026-07-19 02:18:28 Asia/Taipei,2026-07-19 02:18:28 Asia/Taipei,B
-20260626,semiconductor equipment/materials,2,0,1,2,1,0,0,0,,,,,,4,neutral,Neutral,"3131,3498",2026-07-19 02:18:28 Asia/Taipei,2026-07-19 02:18:28 Asia/Taipei,Neutral
-20260703,PCB/CCL,3,2,0,0,2,0,0,0,,,,,,5,mixed_divergence,B,"5439,2355,5464",2026-07-19 02:18:28 Asia/Taipei,2026-07-19 02:18:28 Asia/Taipei,B
-20260703,other,1101,842,758,710,642,418,170,96,,,,,,10,synchronized_accumulation,A,"1102,1103,1203,1210,1217,1219,1220,1225",2026-07-19 02:18:28 Asia/Taipei,2026-07-19 02:18:28 Asia/Taipei,A
-20260703,other electronics,1,1,0,1,0,0,0,0,,,,,,2,single_name_concentration,C,3305,2026-07-19 02:18:28 Asia/Taipei,2026-07-19 02:18:28 Asia/Taipei,C
-20260703,passive components,5,3,4,4,3,2,0,0,,,,,,10,synchronized_accumulation,A,"2375,3624,2492,6173,8042",2026-07-19 02:18:28 Asia/Taipei,2026-07-19 02:18:28 Asia/Taipei,A
-20260703,power discrete/diodes,3,3,3,3,3,3,2,1,,,,,,10,mixed_divergence,B,"2481,5425,8261",2026-07-19 02:18:28 Asia/Taipei,2026-07-19 02:18:28 Asia/Taipei,B
-20260703,semiconductor,2,1,2,2,1,1,1,0,,,,,,8,mixed_divergence,B,"3033,4966",2026-07-19 02:18:28 Asia/Taipei,2026-07-19 02:18:28 Asia/Taipei,B
-20260703,semiconductor equipment/materials,3,3,1,1,2,1,0,0,,,,,,7,mixed_divergence,B,"3498,8028,3131",2026-07-19 02:18:28 Asia/Taipei,2026-07-19 02:18:28 Asia/Taipei,B
-20260709,PCB/CCL,2,0,1,1,2,0,0,0,,,,,,4,neutral,Neutral,"5439,5464",2026-07-19 02:18:28 Asia/Taipei,2026-07-19 02:18:28 Asia/Taipei,Neutral
-20260709,memory,1,1,1,1,1,1,0,0,,,,,,4,single_name_concentration,C,5351,2026-07-19 02:18:28 Asia/Taipei,2026-07-19 02:18:28 Asia/Taipei,C
-20260709,networking,1,0,1,1,1,0,0,0,,,,,,2,single_name_concentration,C,4906,2026-07-19 02:18:28 Asia/Taipei,2026-07-19 02:18:28 Asia/Taipei,C
-20260709,optical communication/CPO,1,1,0,0,1,0,0,0,,,,,,2,single_name_concentration,C,3450,2026-07-19 02:18:28 Asia/Taipei,2026-07-19 02:18:28 Asia/Taipei,C
-20260709,other,1034,800,718,654,592,393,170,79,,,,,,10,synchronized_accumulation,A,"1101,1102,1201,1203,1210,1216,1217,1219",2026-07-19 02:18:28 Asia/Taipei,2026-07-19 02:18:28 Asia/Taipei,A
-20260709,passive components,2,2,1,0,1,0,0,0,,,,,,3,single_name_concentration,C,"2492,3357",2026-07-19 02:18:28 Asia/Taipei,2026-07-19 02:18:28 Asia/Taipei,C
-20260709,power discrete/diodes,1,1,1,1,1,1,1,0,,,,,,6,single_name_concentration,C,5425,2026-07-19 02:18:28 Asia/Taipei,2026-07-19 02:18:28 Asia/Taipei,C
-20260709,semiconductor,2,1,0,1,2,0,0,0,,,,,,4,neutral,Neutral,"3033,4966",2026-07-19 02:18:28 Asia/Taipei,2026-07-19 02:18:28 Asia/Taipei,Neutral
-20260709,semiconductor equipment/materials,2,1,1,0,1,0,0,0,,,,,,3,single_name_concentration,C,"8028,3131",2026-07-19 02:18:28 Asia/Taipei,2026-07-19 02:18:28 Asia/Taipei,C
-20260717,AI server supply chain,1,0,1,0,0,0,0,0,,,,,,1,single_name_concentration,C,4916,2026-07-19 02:18:28 Asia/Taipei,2026-07-19 02:18:28 Asia/Taipei,C
-20260717,PCB/CCL,2,2,1,1,1,0,0,0,,,,,,3,single_name_concentration,C,"5464,2355",2026-07-19 02:18:28 Asia/Taipei,2026-07-19 02:18:28 Asia/Taipei,C
-20260717,memory,2,2,2,2,2,2,1,0,,,,,,10,mixed_divergence,B,"3006,5351",2026-07-19 02:18:28 Asia/Taipei,2026-07-19 02:18:28 Asia/Taipei,B
-20260717,networking,1,1,1,1,0,0,0,0,,,,,,2,single_name_concentration,C,6285,2026-07-19 02:18:28 Asia/Taipei,2026-07-19 02:18:28 Asia/Taipei,C
-20260717,other,1089,841,732,654,598,385,161,90,,,,,,10,synchronized_accumulation,A,"1104,1109,1210,1213,1216,1219,1227,1229",2026-07-19 02:18:28 Asia/Taipei,2026-07-19 02:18:28 Asia/Taipei,A
-20260717,other electronics,1,0,0,1,1,0,0,0,,,,,,2,single_name_concentration,C,3305,2026-07-19 02:18:28 Asia/Taipei,2026-07-19 02:18:28 Asia/Taipei,C
-20260717,passive components,3,0,1,2,2,0,0,0,,,,,,6,mixed_divergence,B,"3357,2375,6173",2026-07-19 02:18:28 Asia/Taipei,2026-07-19 02:18:28 Asia/Taipei,B
-20260717,power discrete/diodes,1,0,0,1,1,0,0,0,,,,,,2,single_name_concentration,C,8261,2026-07-19 02:18:28 Asia/Taipei,2026-07-19 02:18:28 Asia/Taipei,C
-20260717,semiconductor,3,2,3,3,2,2,0,0,,,,,,10,mixed_divergence,B,"3033,3048,4966",2026-07-19 02:18:28 Asia/Taipei,2026-07-19 02:18:28 Asia/Taipei,B
-20260717,semiconductor equipment/materials,2,2,2,2,1,1,0,0,,,,,,6,mixed_divergence,B,"8028,3131",2026-07-19 02:18:28 Asia/Taipei,2026-07-19 02:18:28 Asia/Taipei,B
+20260605,AI server supply chain,1,0,0,1,1,0,0,0,,,,,,2,single_name_concentration,C,4916,2026-07-19 04:47:26 Asia/Taipei,2026-07-19 04:47:26 Asia/Taipei,C
+20260605,PCB/CCL,2,0,1,2,2,0,0,0,,,,,,4,neutral,Neutral,"5464,5439",2026-07-19 04:47:26 Asia/Taipei,2026-07-19 04:47:26 Asia/Taipei,Neutral
+20260605,consumer electronics,1,1,1,1,1,1,0,0,,,,,,4,single_name_concentration,C,3481,2026-07-19 04:47:26 Asia/Taipei,2026-07-19 04:47:26 Asia/Taipei,C
+20260605,memory,1,1,1,1,1,1,0,0,,,,,,4,single_name_concentration,C,5351,2026-07-19 04:47:26 Asia/Taipei,2026-07-19 04:47:26 Asia/Taipei,C
+20260605,other,1117,858,801,760,686,477,0,0,,,,,,10,synchronized_accumulation,A,"1101,1102,1216,1218,1220,1229,1233,1301",2026-07-19 04:47:26 Asia/Taipei,2026-07-19 04:47:26 Asia/Taipei,A
+20260605,other electronics,1,1,0,1,1,0,0,0,,,,,,2,single_name_concentration,C,3305,2026-07-19 04:47:26 Asia/Taipei,2026-07-19 04:47:26 Asia/Taipei,C
+20260605,passive components,4,3,2,2,1,1,0,0,,,,,,8,mixed_divergence,B,"2492,3357,6173,8042",2026-07-19 04:47:26 Asia/Taipei,2026-07-19 04:47:26 Asia/Taipei,B
+20260605,power discrete/diodes,1,1,1,1,1,1,0,0,,,,,,4,single_name_concentration,C,2481,2026-07-19 04:47:26 Asia/Taipei,2026-07-19 04:47:26 Asia/Taipei,C
+20260605,semiconductor,1,0,1,0,0,0,0,0,,,,,,1,single_name_concentration,C,3033,2026-07-19 04:47:26 Asia/Taipei,2026-07-19 04:47:26 Asia/Taipei,C
+20260605,semiconductor equipment/materials,1,1,1,1,1,1,0,0,,,,,,4,single_name_concentration,C,3131,2026-07-19 04:47:26 Asia/Taipei,2026-07-19 04:47:26 Asia/Taipei,C
+20260612,PCB/CCL,3,2,3,2,2,2,0,0,,,,,,9,mixed_divergence,B,"2355,5464,5439",2026-07-19 04:47:26 Asia/Taipei,2026-07-19 04:47:26 Asia/Taipei,B
+20260612,other,1083,824,723,698,628,386,176,0,,,,,,10,synchronized_accumulation,A,"1101,1210,1216,1220,1229,1231,1233,1236",2026-07-19 04:47:26 Asia/Taipei,2026-07-19 04:47:26 Asia/Taipei,A
+20260612,passive components,4,4,4,4,4,4,1,0,,,,,,10,mixed_divergence,B,"2375,2492,3624,6173",2026-07-19 04:47:26 Asia/Taipei,2026-07-19 04:47:26 Asia/Taipei,B
+20260612,semiconductor,3,2,3,3,2,2,0,0,,,,,,10,mixed_divergence,B,"3048,3707,4966",2026-07-19 04:47:26 Asia/Taipei,2026-07-19 04:47:26 Asia/Taipei,B
+20260612,semiconductor equipment/materials,1,1,1,0,1,0,0,0,,,,,,2,single_name_concentration,C,8028,2026-07-19 04:47:26 Asia/Taipei,2026-07-19 04:47:26 Asia/Taipei,C
+20260618,PCB/CCL,1,1,1,1,1,1,1,0,,,,,,6,single_name_concentration,C,5464,2026-07-19 04:47:26 Asia/Taipei,2026-07-19 04:47:26 Asia/Taipei,C
+20260618,consumer electronics,1,1,1,1,1,1,0,0,,,,,,4,single_name_concentration,C,3481,2026-07-19 04:47:26 Asia/Taipei,2026-07-19 04:47:26 Asia/Taipei,C
+20260618,memory,3,3,3,3,3,3,0,0,,,,,,10,mixed_divergence,B,"2344,3006,5351",2026-07-19 04:47:26 Asia/Taipei,2026-07-19 04:47:26 Asia/Taipei,B
+20260618,networking,1,1,1,1,1,1,0,0,,,,,,4,single_name_concentration,C,4906,2026-07-19 04:47:26 Asia/Taipei,2026-07-19 04:47:26 Asia/Taipei,C
+20260618,optical communication/CPO,1,0,0,0,1,0,0,0,,,,,,2,single_name_concentration,C,3450,2026-07-19 04:47:26 Asia/Taipei,2026-07-19 04:47:26 Asia/Taipei,C
+20260618,other,1102,862,744,712,658,434,165,105,,,,,,10,synchronized_accumulation,A,"1101,1102,1109,1203,1210,1216,1225,1233",2026-07-19 04:47:26 Asia/Taipei,2026-07-19 04:47:26 Asia/Taipei,A
+20260618,passive components,4,3,4,3,4,3,3,1,,,,,,10,mixed_divergence,B,"2375,2492,3624,8042",2026-07-19 04:47:26 Asia/Taipei,2026-07-19 04:47:26 Asia/Taipei,B
+20260618,power discrete/diodes,2,2,2,2,2,2,0,0,,,,,,8,mixed_divergence,B,"5425,8261",2026-07-19 04:47:26 Asia/Taipei,2026-07-19 04:47:26 Asia/Taipei,B
+20260618,semiconductor,3,2,2,2,3,1,1,0,,,,,,10,mixed_divergence,B,"3707,3033,4966",2026-07-19 04:47:26 Asia/Taipei,2026-07-19 04:47:26 Asia/Taipei,B
+20260618,semiconductor equipment/materials,1,0,1,1,1,0,0,0,,,,,,2,single_name_concentration,C,3131,2026-07-19 04:47:26 Asia/Taipei,2026-07-19 04:47:26 Asia/Taipei,C
+20260626,PCB/CCL,2,0,1,1,2,0,0,0,,,,,,4,neutral,Neutral,"5464,5439",2026-07-19 04:47:26 Asia/Taipei,2026-07-19 04:47:26 Asia/Taipei,Neutral
+20260626,memory,1,1,1,1,1,1,1,0,,,,,,6,single_name_concentration,C,3006,2026-07-19 04:47:26 Asia/Taipei,2026-07-19 04:47:26 Asia/Taipei,C
+20260626,optical communication/CPO,1,1,1,1,1,1,0,0,,,,,,4,single_name_concentration,C,3450,2026-07-19 04:47:26 Asia/Taipei,2026-07-19 04:47:26 Asia/Taipei,C
+20260626,other,1088,832,748,686,631,415,196,88,,,,,,10,synchronized_accumulation,A,"1101,1102,1103,1201,1210,1216,1227,1229",2026-07-19 04:47:26 Asia/Taipei,2026-07-19 04:47:26 Asia/Taipei,A
+20260626,other electronics,1,0,1,1,1,0,0,0,,,,,,2,single_name_concentration,C,3305,2026-07-19 04:47:26 Asia/Taipei,2026-07-19 04:47:26 Asia/Taipei,C
+20260626,passive components,4,3,2,3,2,0,0,0,,,,,,8,mixed_divergence,B,"6173,8042,3357,3624",2026-07-19 04:47:26 Asia/Taipei,2026-07-19 04:47:26 Asia/Taipei,B
+20260626,power discrete/diodes,2,2,2,2,2,2,1,0,,,,,,10,mixed_divergence,B,"2481,8261",2026-07-19 04:47:26 Asia/Taipei,2026-07-19 04:47:26 Asia/Taipei,B
+20260626,semiconductor,3,3,3,3,3,3,1,1,,,,,,10,mixed_divergence,B,"3033,3048,3707",2026-07-19 04:47:26 Asia/Taipei,2026-07-19 04:47:26 Asia/Taipei,B
+20260626,semiconductor equipment/materials,2,0,1,2,1,0,0,0,,,,,,4,neutral,Neutral,"3131,3498",2026-07-19 04:47:26 Asia/Taipei,2026-07-19 04:47:26 Asia/Taipei,Neutral
+20260703,PCB/CCL,3,2,0,0,2,0,0,0,,,,,,5,mixed_divergence,B,"5439,2355,5464",2026-07-19 04:47:26 Asia/Taipei,2026-07-19 04:47:26 Asia/Taipei,B
+20260703,other,1101,842,758,710,642,418,170,96,,,,,,10,synchronized_accumulation,A,"1102,1103,1203,1210,1217,1219,1220,1225",2026-07-19 04:47:26 Asia/Taipei,2026-07-19 04:47:26 Asia/Taipei,A
+20260703,other electronics,1,1,0,1,0,0,0,0,,,,,,2,single_name_concentration,C,3305,2026-07-19 04:47:26 Asia/Taipei,2026-07-19 04:47:26 Asia/Taipei,C
+20260703,passive components,5,3,4,4,3,2,0,0,,,,,,10,synchronized_accumulation,A,"2375,3624,2492,6173,8042",2026-07-19 04:47:26 Asia/Taipei,2026-07-19 04:47:26 Asia/Taipei,A
+20260703,power discrete/diodes,3,3,3,3,3,3,2,1,,,,,,10,mixed_divergence,B,"2481,5425,8261",2026-07-19 04:47:26 Asia/Taipei,2026-07-19 04:47:26 Asia/Taipei,B
+20260703,semiconductor,2,1,2,2,1,1,1,0,,,,,,8,mixed_divergence,B,"3033,4966",2026-07-19 04:47:26 Asia/Taipei,2026-07-19 04:47:26 Asia/Taipei,B
+20260703,semiconductor equipment/materials,3,3,1,1,2,1,0,0,,,,,,7,mixed_divergence,B,"3498,8028,3131",2026-07-19 04:47:26 Asia/Taipei,2026-07-19 04:47:26 Asia/Taipei,B
+20260709,PCB/CCL,2,0,1,1,2,0,0,0,,,,,,4,neutral,Neutral,"5439,5464",2026-07-19 04:47:26 Asia/Taipei,2026-07-19 04:47:26 Asia/Taipei,Neutral
+20260709,memory,1,1,1,1,1,1,0,0,,,,,,4,single_name_concentration,C,5351,2026-07-19 04:47:26 Asia/Taipei,2026-07-19 04:47:26 Asia/Taipei,C
+20260709,networking,1,0,1,1,1,0,0,0,,,,,,2,single_name_concentration,C,4906,2026-07-19 04:47:26 Asia/Taipei,2026-07-19 04:47:26 Asia/Taipei,C
+20260709,optical communication/CPO,1,1,0,0,1,0,0,0,,,,,,2,single_name_concentration,C,3450,2026-07-19 04:47:26 Asia/Taipei,2026-07-19 04:47:26 Asia/Taipei,C
+20260709,other,1034,800,718,654,592,393,170,79,,,,,,10,synchronized_accumulation,A,"1101,1102,1201,1203,1210,1216,1217,1219",2026-07-19 04:47:26 Asia/Taipei,2026-07-19 04:47:26 Asia/Taipei,A
+20260709,passive components,2,2,1,0,1,0,0,0,,,,,,3,single_name_concentration,C,"2492,3357",2026-07-19 04:47:26 Asia/Taipei,2026-07-19 04:47:26 Asia/Taipei,C
+20260709,power discrete/diodes,1,1,1,1,1,1,1,0,,,,,,6,single_name_concentration,C,5425,2026-07-19 04:47:26 Asia/Taipei,2026-07-19 04:47:26 Asia/Taipei,C
+20260709,semiconductor,2,1,0,1,2,0,0,0,,,,,,4,neutral,Neutral,"3033,4966",2026-07-19 04:47:26 Asia/Taipei,2026-07-19 04:47:26 Asia/Taipei,Neutral
+20260709,semiconductor equipment/materials,2,1,1,0,1,0,0,0,,,,,,3,single_name_concentration,C,"8028,3131",2026-07-19 04:47:26 Asia/Taipei,2026-07-19 04:47:26 Asia/Taipei,C
+20260717,AI server supply chain,1,0,1,0,0,0,0,0,,,,,,1,single_name_concentration,C,4916,2026-07-19 04:47:26 Asia/Taipei,2026-07-19 04:47:26 Asia/Taipei,C
+20260717,PCB/CCL,2,2,1,1,1,0,0,0,,,,,,3,single_name_concentration,C,"5464,2355",2026-07-19 04:47:26 Asia/Taipei,2026-07-19 04:47:26 Asia/Taipei,C
+20260717,memory,2,2,2,2,2,2,1,0,,,,,,10,mixed_divergence,B,"3006,5351",2026-07-19 04:47:26 Asia/Taipei,2026-07-19 04:47:26 Asia/Taipei,B
+20260717,networking,1,1,1,1,0,0,0,0,,,,,,2,single_name_concentration,C,6285,2026-07-19 04:47:26 Asia/Taipei,2026-07-19 04:47:26 Asia/Taipei,C
+20260717,other,1089,841,732,654,598,385,161,90,,,,,,10,synchronized_accumulation,A,"1104,1109,1210,1213,1216,1219,1227,1229",2026-07-19 04:47:26 Asia/Taipei,2026-07-19 04:47:26 Asia/Taipei,A
+20260717,other electronics,1,0,0,1,1,0,0,0,,,,,,2,single_name_concentration,C,3305,2026-07-19 04:47:26 Asia/Taipei,2026-07-19 04:47:26 Asia/Taipei,C
+20260717,passive components,3,0,1,2,2,0,0,0,,,,,,6,mixed_divergence,B,"3357,2375,6173",2026-07-19 04:47:26 Asia/Taipei,2026-07-19 04:47:26 Asia/Taipei,B
+20260717,power discrete/diodes,1,0,0,1,1,0,0,0,,,,,,2,single_name_concentration,C,8261,2026-07-19 04:47:26 Asia/Taipei,2026-07-19 04:47:26 Asia/Taipei,C
+20260717,semiconductor,3,2,3,3,2,2,0,0,,,,,,10,mixed_divergence,B,"3033,3048,4966",2026-07-19 04:47:26 Asia/Taipei,2026-07-19 04:47:26 Asia/Taipei,B
+20260717,semiconductor equipment/materials,2,2,2,2,1,1,0,0,,,,,,6,mixed_divergence,B,"8028,3131",2026-07-19 04:47:26 Asia/Taipei,2026-07-19 04:47:26 Asia/Taipei,B
