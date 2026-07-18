@@ -73,6 +73,10 @@ WORKFLOW_ALLOWED_OWNERS = {
         "official_price_data",
         "repo_infrastructure",
     },
+    ".github/workflows/individual_stock_pr_validation.yml": {
+        "individual_stock",
+        "repo_infrastructure",
+    },
     ".github/workflows/individual_stock_report.yml": {
         "individual_stock",
         "official_price_data",
@@ -224,6 +228,16 @@ FORBIDDEN_WORKFLOW_SNIPPETS = {
             "git add docs/latest/daily_market_",
         ),
     },
+    ".github/workflows/individual_stock_pr_validation.yml": {
+        "individual stock PR validation must remain read-only": (
+            "contents: write",
+            "git add ",
+            "git commit",
+            "git push",
+            "actions/upload-pages-artifact",
+            "actions/deploy-pages",
+        ),
+    },
 }
 
 REQUIRED_WORKFLOW_COMMANDS = {
@@ -269,6 +283,11 @@ REQUIRED_WORKFLOW_COMMANDS = {
     ),
     ".github/workflows/individual_stock_report.yml": ("python scripts/validate_repo_production_inventory.py",),
     ".github/workflows/individual_stock_data_refresh.yml": ("python scripts/validate_repo_production_inventory.py",),
+    ".github/workflows/individual_stock_pr_validation.yml": (
+        "python scripts/validate_repo_file_lifecycle_inventory.py",
+        "python scripts/validate_repo_production_inventory.py",
+        "python scripts/validate_individual_pdf_contract_consumers.py",
+    ),
     ".github/workflows/warrant_flow.yml": ("python scripts/validate_repo_production_inventory.py",),
     ".github/workflows/repair_recent_daily_price_gaps.yml": (
         "python scripts/validate_apps_script_workflow_triggers.py",
