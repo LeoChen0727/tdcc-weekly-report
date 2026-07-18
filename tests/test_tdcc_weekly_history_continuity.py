@@ -150,6 +150,7 @@ def test_weekly_workflow_repairs_history_before_derived_build() -> None:
     assert positions == sorted(positions)
     assert "target_as_of_date:" in workflow
     assert '--as-of-date "${{ github.event.inputs.target_as_of_date }}"' in workflow
+    assert "python tdcc_holder_ratio_top10.py --fetch-only --use-existing-readiness" in workflow
     assert "python scripts/build_tdcc_stock_history.py --use-existing-readiness" in workflow
     assert "using latest cached TDCC snapshot" not in Path("tdcc_holder_ratio_top10.py").read_text(
         encoding="utf-8"
@@ -187,7 +188,24 @@ def test_non_build_phase_refreshes_readiness_instead_of_reusing_stale_artifact(
         lambda: "20260718",
     )
 
-    assert holder_report.resolve_readiness(build_only=False) == expected
+    assert holder_report.resolve_readiness(build_only=False, use_existing_readiness=False) == expected
+
+
+def test_fetch_phase_uses_pinned_same_run_readiness_artifact(monkeypatch) -> None:
+    expected = {"selected_official_date": "20260717", "official_dates": OFFICIAL_DATES}
+    monkeypatch.setattr(
+        "scripts.tdcc_weekly_data_readiness.load_readiness",
+        lambda: expected,
+    )
+    monkeypatch.setattr(
+        "scripts.tdcc_weekly_data_readiness.ensure_weekly_data_ready",
+        lambda **_kwargs: pytest.fail("fetch phase must preserve the pinned same-run readiness artifact"),
+    )
+
+    assert holder_report.resolve_readiness(
+        build_only=False,
+        use_existing_readiness=True,
+    ) == expected
 
 
 def test_build_only_phase_uses_same_run_readiness_artifact(monkeypatch) -> None:

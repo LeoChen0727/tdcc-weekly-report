@@ -1189,13 +1189,18 @@ def parse_args() -> argparse.Namespace:
     phase = parser.add_mutually_exclusive_group()
     phase.add_argument("--fetch-only", action="store_true", help="Fetch and save the current official snapshot only.")
     phase.add_argument("--build-only", action="store_true", help="Build reports from an already repaired snapshot history.")
+    parser.add_argument(
+        "--use-existing-readiness",
+        action="store_true",
+        help="Use the readiness artifact created earlier in the same official workflow run.",
+    )
     return parser.parse_args()
 
 
-def resolve_readiness(*, build_only: bool) -> dict[str, object]:
+def resolve_readiness(*, build_only: bool, use_existing_readiness: bool = False) -> dict[str, object]:
     from scripts.tdcc_weekly_data_readiness import ensure_weekly_data_ready, load_readiness, taipei_today
 
-    if build_only:
+    if build_only or use_existing_readiness:
         return load_readiness()
     return ensure_weekly_data_ready(as_of_date=taipei_today())
 
@@ -1217,7 +1222,10 @@ def main() -> int:
     bootstrap_history_from_legacy_raw_files(stock_name_map)
 
     try:
-        readiness = resolve_readiness(build_only=args.build_only)
+        readiness = resolve_readiness(
+            build_only=args.build_only,
+            use_existing_readiness=args.use_existing_readiness,
+        )
         expected_date = readiness["selected_official_date"]
         official_dates = readiness["official_dates"]
 
