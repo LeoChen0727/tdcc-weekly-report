@@ -164,9 +164,14 @@ def test_apps_script_retries_only_named_tdcc_data_steps() -> None:
     assert '"Fetch current TDCC snapshot"' in source
     assert '"Repair TDCC weekly history continuity"' in source
     assert 'state.phase = "tdcc_data_retry_wait"' in source
+    assert "installTdccDataRetryTrigger_(state.next_retry_at)" in source
+    assert 'ScriptApp.newTrigger("resumeTdccIndividualRefreshRetry")' in source
+    assert ".at(retryAt)" in source
     assert "failedSteps.length > 0 && failedSteps.every" in source
     assert "isRetryableTdccDataFailure_(tdccRun.id)" in source
     assert "dispatchScheduledTdccRetry_(state)" in source
+    assert "installTdccActivePollTrigger_()" in source
+    assert "removeTdccIndividualRefreshOrchestratorTriggers_()" in source
     assert "target_as_of_date: taipeiYyyyMmDd_()" in source
     assert source.count("target_as_of_date: state.target_as_of_date") >= 2
 

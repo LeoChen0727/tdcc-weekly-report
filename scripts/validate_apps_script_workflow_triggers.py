@@ -146,9 +146,15 @@ def validate_tdcc_individual_refresh_orchestration(errors: list[str]) -> None:
             "tdccDispatchAlreadyRecorded_"
         )
         run_correlation_body = apps_script_function_body("findCorrelatedWorkflowRuns_")
-        installer_body = apps_script_function_body(
-            "installTdccIndividualRefreshOrchestratorTrigger_"
+        active_installer_body = apps_script_function_body("installTdccActivePollTrigger_")
+        retry_installer_body = apps_script_function_body("installTdccDataRetryTrigger_")
+        cleanup_body = apps_script_function_body(
+            "removeTdccIndividualRefreshOrchestratorTriggers_"
         )
+        recovery_installer_body = apps_script_function_body(
+            "installTdccIndividualRefreshOrchestratorTrigger"
+        )
+        failure_body = apps_script_function_body("failTdccChain_")
         install_all_body = apps_script_function_body("installAllWorkflowTriggers")
         retry_detector_body = apps_script_function_body("isRetryableTdccDataFailure_")
         retry_scheduler_body = apps_script_function_body("scheduleTdccDataRetry_")
@@ -163,6 +169,7 @@ def validate_tdcc_individual_refresh_orchestration(errors: list[str]) -> None:
         "tdcc_baseline_run_id": "TDCC dispatch must record the prior run id",
         "tdcc_dispatched_at": "TDCC dispatch must record its dispatch timestamp",
         "tdcc_base_main_sha": "TDCC dispatch must record the main SHA before dispatch",
+        "installTdccActivePollTrigger_()": "TDCC dispatch must start the temporary five-minute poller",
         "dispatchWorkflow_(TDCC_WEEKLY_WORKFLOW,": "TDCC dispatch must use the external Apps Script dispatcher",
     }
     for snippet, message in tdcc_trigger_requirements.items():
@@ -189,6 +196,7 @@ def validate_tdcc_individual_refresh_orchestration(errors: list[str]) -> None:
         "scheduleTdccDataRetry_(state, tdccRun)": "TDCC data/readiness failures must enter retry wait instead of terminal failure",
         'state.phase === "tdcc_data_retry_wait"': "TDCC orchestrator must resume scheduled data retries",
         "dispatchScheduledTdccRetry_(state)": "TDCC orchestrator must redispatch scheduled data retries",
+        "removeTdccIndividualRefreshOrchestratorTriggers_()": "TDCC orchestrator must stop temporary triggers in idle or terminal states",
     }
     for snippet, message in orchestration_requirements.items():
         require_text(orchestrator_body, snippet, errors, message)
@@ -253,17 +261,51 @@ def validate_tdcc_individual_refresh_orchestration(errors: list[str]) -> None:
         ".everyMinutes(TDCC_CHAIN_POLL_MINUTES)",
     ]:
         require_text(
-            installer_body,
+            active_installer_body,
             snippet,
             errors,
-            f"TDCC orchestrator trigger must poll every {TDCC_CHAIN_POLL_MINUTES} minutes",
+            f"Active TDCC orchestrator trigger must poll every {TDCC_CHAIN_POLL_MINUTES} minutes",
         )
+    for snippet, message in {
+        'ScriptApp.newTrigger("resumeTdccIndividualRefreshRetry")': "TDCC data wait must use a dedicated one-time retry handler",
+        ".timeBased()": "TDCC data retry must use a time-driven trigger",
+        ".at(retryAt)": "TDCC data retry must schedule exactly at next_retry_at",
+        'removeTriggersForFunction_("orchestrateTdccIndividualRefresh")': "TDCC data retry scheduling must remove the five-minute poller",
+    }.items():
+        require_text(retry_installer_body, snippet, errors, message)
+    if ".everyMinutes(" in retry_installer_body:
+        errors.append("TDCC data retry trigger must not continue five-minute polling")
+    for snippet in [
+        'removeTriggersForFunction_("orchestrateTdccIndividualRefresh")',
+        'removeTriggersForFunction_("resumeTdccIndividualRefreshRetry")',
+    ]:
+        require_text(
+            cleanup_body,
+            snippet,
+            errors,
+            "TDCC temporary-trigger cleanup must remove active and data-retry handlers",
+        )
+    for snippet, message in {
+        "readTdccChainState_()": "Manual TDCC trigger repair must inspect persisted chain state",
+        "isTerminalTdccChainPhase_(state.phase)": "Manual TDCC trigger repair must not install an idle terminal poller",
+        "installTdccDataRetryTrigger_(state.next_retry_at)": "Manual TDCC trigger repair must restore one-time data waiting",
+        "installTdccActivePollTrigger_()": "Manual TDCC trigger repair must restore active polling",
+    }.items():
+        require_text(recovery_installer_body, snippet, errors, message)
+    for snippet, message in {
+        "if (state.chain_key)": "Terminal TDCC failures with a chain identity must remain auditable",
+        "recordTdccDispatch_(state)": "Terminal TDCC failures must update dispatch history",
+        "removeTdccIndividualRefreshOrchestratorTriggers_()": "Terminal TDCC chain failures must remove temporary triggers",
+    }.items():
+        require_text(failure_body, snippet, errors, message)
     require_text(
         install_all_body,
-        "installTdccIndividualRefreshOrchestratorTrigger_();",
+        "removeTdccIndividualRefreshOrchestratorTriggers_();",
         errors,
-        "installAllWorkflowTriggers must install the TDCC chain orchestrator",
+        "installAllWorkflowTriggers must remove stale TDCC pollers instead of installing an idle poller",
     )
+    if "installTdccActivePollTrigger_();" in install_all_body:
+        errors.append("installAllWorkflowTriggers must not install a permanent five-minute TDCC poller")
 
     apps_script_text = read_text(APPS_SCRIPT)
     for snippet, message in {
@@ -286,6 +328,7 @@ def validate_tdcc_individual_refresh_orchestration(errors: list[str]) -> None:
         'state.phase = "tdcc_data_retry_wait"': "Retry scheduling must persist a nonterminal wait phase",
         "state.next_retry_at": "Retry scheduling must persist the next retry time",
         "TDCC_DATA_RETRY_DELAY_MS": "Retry scheduling must use the configured delay",
+        "installTdccDataRetryTrigger_(state.next_retry_at)": "Retry scheduling must switch to a one-time 30-minute trigger",
     }.items():
         require_text(retry_scheduler_body, snippet, errors, message)
     for snippet, message in {
@@ -293,6 +336,7 @@ def validate_tdcc_individual_refresh_orchestration(errors: list[str]) -> None:
         "dispatchWorkflow_(TDCC_WEEKLY_WORKFLOW,": "Retry dispatch must use the external Apps Script dispatcher",
         "target_as_of_date: state.target_as_of_date": "Retry dispatch must preserve the original target report week",
         'state.phase = "tdcc_dispatched"': "Retry dispatch must return to the normal correlation phase",
+        "installTdccActivePollTrigger_()": "Retry dispatch must resume temporary five-minute active polling",
     }.items():
         require_text(retry_dispatch_body, snippet, errors, message)
     for snippet, message in {
@@ -548,6 +592,7 @@ def main() -> int:
         "triggerIndividualStockDataRefresh",
         "triggerTdccWeeklyReport",
         "orchestrateTdccIndividualRefresh",
+        "resumeTdccIndividualRefreshRetry",
         "diagnoseTdccIndividualRefreshOrchestration",
         "triggerEventCatalystUpdate",
         "triggerWeeklyThemeReview",
@@ -564,7 +609,9 @@ def main() -> int:
         "installAllWorkflowTriggers",
         "installTdccIndividualRefreshOrchestratorTrigger",
         "removeTdccIndividualRefreshOrchestratorTrigger",
-        "installTdccIndividualRefreshOrchestratorTrigger_",
+        "installTdccActivePollTrigger_",
+        "installTdccDataRetryTrigger_",
+        "removeTdccIndividualRefreshOrchestratorTriggers_",
         "installDailyPriceGapRepairTrigger_",
         "installTdccHistoryGapRepairTrigger_",
         "installIndividualStockDataRefreshTrigger_",
