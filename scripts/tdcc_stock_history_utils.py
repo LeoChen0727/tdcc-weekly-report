@@ -13,6 +13,7 @@ import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
+from tdcc_weekly_data_readiness import load_readiness
 from tracking_utils import (
     DATA_DIR,
     HISTORY_DIR,
@@ -116,23 +117,68 @@ def load_tdcc_raw_snapshots() -> list[tuple[str, pd.DataFrame]]:
     return snapshots
 
 
-def threshold_change(rows: pd.DataFrame, ratio_col: str, current_idx: int, weeks: int) -> float:
-    if current_idx - weeks < 0:
+def expected_prior_date(current_date: str, weeks: int, official_dates: list[str]) -> str:
+    current_date = normalize_date(current_date)
+    normalized_dates = sorted({normalize_date(value) for value in official_dates if len(normalize_date(value)) == 8})
+    if current_date not in normalized_dates:
+        return ""
+    current_pos = normalized_dates.index(current_date)
+    if current_pos - weeks < 0:
+        return ""
+    return normalized_dates[current_pos - weeks]
+
+
+def prior_row_index(
+    rows: pd.DataFrame,
+    current_idx: int,
+    weeks: int,
+    official_dates: list[str] | None,
+) -> int | None:
+    if current_idx < 0 or current_idx >= len(rows):
+        return None
+    if official_dates is None:
+        return current_idx - weeks if current_idx - weeks >= 0 else None
+    current_date = normalize_date(rows.iloc[current_idx].get("as_of_date", ""))
+    prior_date = expected_prior_date(current_date, weeks, official_dates)
+    if not prior_date:
+        return None
+    matches = rows.index[rows["as_of_date"].map(normalize_date).eq(prior_date)].tolist()
+    return int(matches[-1]) if matches else None
+
+
+def threshold_change(
+    rows: pd.DataFrame,
+    ratio_col: str,
+    current_idx: int,
+    weeks: int,
+    official_dates: list[str] | None = None,
+) -> float:
+    previous_idx = prior_row_index(rows, current_idx, weeks, official_dates)
+    if previous_idx is None:
         return math.nan
     current = to_number(rows.iloc[current_idx].get(ratio_col))
-    previous = to_number(rows.iloc[current_idx - weeks].get(ratio_col))
+    previous = to_number(rows.iloc[previous_idx].get(ratio_col))
     if math.isnan(current) or math.isnan(previous):
         return math.nan
     return current - previous
 
 
-def consecutive_up_weeks(rows: pd.DataFrame, ratio_cols: list[str], current_idx: int) -> int:
+def consecutive_up_weeks(
+    rows: pd.DataFrame,
+    ratio_cols: list[str],
+    current_idx: int,
+    official_dates: list[str] | None = None,
+) -> int:
     streak = 0
-    for idx in range(current_idx, 0, -1):
+    idx = current_idx
+    while idx > 0:
+        previous_idx = prior_row_index(rows, idx, 1, official_dates)
+        if previous_idx is None:
+            break
         improved = False
         for col in ratio_cols:
             cur = to_number(rows.iloc[idx].get(col))
-            prev = to_number(rows.iloc[idx - 1].get(col))
+            prev = to_number(rows.iloc[previous_idx].get(col))
             if not math.isnan(cur) and not math.isnan(prev) and cur > prev:
                 improved = True
                 break
@@ -140,17 +186,29 @@ def consecutive_up_weeks(rows: pd.DataFrame, ratio_cols: list[str], current_idx:
             streak += 1
         else:
             break
+        idx = previous_idx
     return streak
 
 
-def all_thresholds_up(rows: pd.DataFrame, current_idx: int) -> bool:
-    return all(threshold_change(rows, f"over_{threshold}_ratio", current_idx, 1) > 0 for threshold in THRESHOLDS)
+def all_thresholds_up(
+    rows: pd.DataFrame,
+    current_idx: int,
+    official_dates: list[str] | None = None,
+) -> bool:
+    return all(
+        threshold_change(rows, f"over_{threshold}_ratio", current_idx, 1, official_dates) > 0
+        for threshold in THRESHOLDS
+    )
 
 
-def high_thresholds_up(rows: pd.DataFrame, current_idx: int) -> bool:
+def high_thresholds_up(
+    rows: pd.DataFrame,
+    current_idx: int,
+    official_dates: list[str] | None = None,
+) -> bool:
     return (
-        threshold_change(rows, "over_800_ratio", current_idx, 1) > 0
-        or threshold_change(rows, "over_1000_ratio", current_idx, 1) > 0
+        threshold_change(rows, "over_800_ratio", current_idx, 1, official_dates) > 0
+        or threshold_change(rows, "over_1000_ratio", current_idx, 1, official_dates) > 0
     )
 
 
@@ -158,6 +216,8 @@ def build_tdcc_stock_history_frame() -> pd.DataFrame:
     snapshots = load_tdcc_raw_snapshots()
     if not snapshots:
         return pd.DataFrame()
+    readiness = load_readiness()
+    official_dates = readiness["official_dates"]
     theme_map = read_theme_map()
     breadth_map = read_theme_breadth_map()
     frames: list[pd.DataFrame] = []
@@ -195,18 +255,18 @@ def build_tdcc_stock_history_frame() -> pd.DataFrame:
                 "retail_ratio_change_1w": math.nan,
                 "total_shareholders": source.get("total_shareholders", math.nan),
                 "total_shareholders_change_1w": math.nan,
-                "tdcc_consecutive_up_weeks": consecutive_up_weeks(group, ratio_cols, idx),
-                "all_thresholds_up": all_thresholds_up(group, idx),
-                "high_thresholds_up": high_thresholds_up(group, idx),
-                "four_thresholds_sync_up": all_thresholds_up(group, idx),
+                "tdcc_consecutive_up_weeks": consecutive_up_weeks(group, ratio_cols, idx, official_dates),
+                "all_thresholds_up": all_thresholds_up(group, idx, official_dates),
+                "high_thresholds_up": high_thresholds_up(group, idx, official_dates),
+                "four_thresholds_sync_up": all_thresholds_up(group, idx, official_dates),
                 "theme_breadth_level": breadth_map.get((as_of_date, primary_theme), "Neutral"),
             }
             for threshold in THRESHOLDS:
                 ratio_col = f"over_{threshold}_ratio"
                 item[ratio_col] = source.get(ratio_col, math.nan)
-                item[f"over_{threshold}_change_1w"] = threshold_change(group, ratio_col, idx, 1)
-                item[f"over_{threshold}_change_2w"] = threshold_change(group, ratio_col, idx, 2)
-                item[f"over_{threshold}_change_3w"] = threshold_change(group, ratio_col, idx, 3)
+                item[f"over_{threshold}_change_1w"] = threshold_change(group, ratio_col, idx, 1, official_dates)
+                item[f"over_{threshold}_change_2w"] = threshold_change(group, ratio_col, idx, 2, official_dates)
+                item[f"over_{threshold}_change_3w"] = threshold_change(group, ratio_col, idx, 3, official_dates)
             rows.append(item)
     out = pd.DataFrame(rows)
     return out.sort_values(["stock_id", "as_of_date"]).reset_index(drop=True)

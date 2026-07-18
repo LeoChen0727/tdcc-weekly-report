@@ -150,6 +150,10 @@ def validate_tdcc_individual_refresh_orchestration(errors: list[str]) -> None:
             "installTdccIndividualRefreshOrchestratorTrigger_"
         )
         install_all_body = apps_script_function_body("installAllWorkflowTriggers")
+        retry_detector_body = apps_script_function_body("isRetryableTdccDataFailure_")
+        retry_scheduler_body = apps_script_function_body("scheduleTdccDataRetry_")
+        retry_dispatch_body = apps_script_function_body("dispatchScheduledTdccRetry_")
+        initial_dispatch_body = apps_script_function_body("triggerTdccWeeklyReport")
     except ValueError as exc:
         errors.append(str(exc))
         return
@@ -159,7 +163,7 @@ def validate_tdcc_individual_refresh_orchestration(errors: list[str]) -> None:
         "tdcc_baseline_run_id": "TDCC dispatch must record the prior run id",
         "tdcc_dispatched_at": "TDCC dispatch must record its dispatch timestamp",
         "tdcc_base_main_sha": "TDCC dispatch must record the main SHA before dispatch",
-        "dispatchWorkflow_(TDCC_WEEKLY_WORKFLOW)": "TDCC dispatch must use the external Apps Script dispatcher",
+        "dispatchWorkflow_(TDCC_WEEKLY_WORKFLOW,": "TDCC dispatch must use the external Apps Script dispatcher",
     }
     for snippet, message in tdcc_trigger_requirements.items():
         require_text(tdcc_trigger_body, snippet, errors, message)
@@ -181,6 +185,10 @@ def validate_tdcc_individual_refresh_orchestration(errors: list[str]) -> None:
         "readWorkflowOutputEvidence_": "TDCC chain must verify downstream outputs reached main",
         "mainEvidenceWindowExpired_(downstreamRun.updated_at)": "Downstream main evidence must use a bounded wait",
         'state.phase = "downstream_main_pending"': "Transient downstream main-evidence misses must remain retryable",
+        "isRetryableTdccDataFailure_(tdccRun.id)": "TDCC data/readiness failures must be identified for automatic retry",
+        "scheduleTdccDataRetry_(state, tdccRun)": "TDCC data/readiness failures must enter retry wait instead of terminal failure",
+        'state.phase === "tdcc_data_retry_wait"': "TDCC orchestrator must resume scheduled data retries",
+        "dispatchScheduledTdccRetry_(state)": "TDCC orchestrator must redispatch scheduled data retries",
     }
     for snippet, message in orchestration_requirements.items():
         require_text(orchestrator_body, snippet, errors, message)
@@ -263,8 +271,42 @@ def validate_tdcc_individual_refresh_orchestration(errors: list[str]) -> None:
         "LockService.getScriptLock()": "TDCC chain must serialize concurrent trigger executions",
         "TDCC_CHAIN_DISPATCH_HISTORY_PROPERTY": "TDCC chain must persist dispatch history",
         "TDCC_CHAIN_MAIN_EVIDENCE_WINDOW_MS": "TDCC chain must not remain active forever while main evidence is missing",
+        "TDCC_DATA_RETRY_DELAY_MS": "TDCC data retry must use an explicit retry interval",
+        "TDCC_RETRYABLE_DATA_STEPS": "TDCC retry must be limited to named data/readiness steps",
     }.items():
         require_text(apps_script_text, snippet, errors, message)
+
+    for snippet, message in {
+        "failedWorkflowStepNames_(runId)": "TDCC retry classification must inspect failed workflow steps",
+        "failedSteps.length > 0 && failedSteps.every": "TDCC retry classification must require every failed step to be retryable",
+        "TDCC_RETRYABLE_DATA_STEPS.indexOf(stepName)": "TDCC retry classification must use the allowlisted data steps",
+    }.items():
+        require_text(retry_detector_body, snippet, errors, message)
+    for snippet, message in {
+        'state.phase = "tdcc_data_retry_wait"': "Retry scheduling must persist a nonterminal wait phase",
+        "state.next_retry_at": "Retry scheduling must persist the next retry time",
+        "TDCC_DATA_RETRY_DELAY_MS": "Retry scheduling must use the configured delay",
+    }.items():
+        require_text(retry_scheduler_body, snippet, errors, message)
+    for snippet, message in {
+        "latestWorkflowRunId_(TDCC_WEEKLY_WORKFLOW)": "Retry dispatch must refresh the run correlation baseline",
+        "dispatchWorkflow_(TDCC_WEEKLY_WORKFLOW,": "Retry dispatch must use the external Apps Script dispatcher",
+        "target_as_of_date: state.target_as_of_date": "Retry dispatch must preserve the original target report week",
+        'state.phase = "tdcc_dispatched"': "Retry dispatch must return to the normal correlation phase",
+    }.items():
+        require_text(retry_dispatch_body, snippet, errors, message)
+    for snippet, message in {
+        "target_as_of_date: taipeiYyyyMmDd_()": "Initial TDCC dispatch must pin the target report week",
+        "target_as_of_date: state.target_as_of_date": "Initial TDCC dispatch must send the pinned target date",
+    }.items():
+        require_text(initial_dispatch_body, snippet, errors, message)
+
+    tdcc_workflow_text = read_text(WORKFLOW_DIR / TDCC_WORKFLOW)
+    for snippet, message in {
+        "target_as_of_date:": "TDCC workflow must declare the pinned target date input",
+        'args+=(--as-of-date "${{ github.event.inputs.target_as_of_date }}")': "TDCC readiness step must consume the pinned target date",
+    }.items():
+        require_text(tdcc_workflow_text, snippet, errors, message)
 
     forbidden_self_trigger_patterns = [
         r"\bworkflow_run\s*:",

@@ -2,6 +2,11 @@ name: TDCC Weekly Report
 
 on:
   workflow_dispatch:
+    inputs:
+      target_as_of_date:
+        description: "Pinned YYYYMMDD in Asia/Taipei for the report week; blank uses current date"
+        required: false
+        default: ""
 
 permissions:
   contents: write
@@ -40,11 +45,27 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install pandas requests tabulate matplotlib reportlab pypdf
+          pip install pandas requests tabulate matplotlib reportlab pypdf lxml html5lib
 
-      - name: Run TDCC weekly report
+      - name: Wait for expected TDCC period
         run: |
-          python tdcc_holder_ratio_top10.py
+          args=()
+          if [ -n "${{ github.event.inputs.target_as_of_date }}" ]; then
+            args+=(--as-of-date "${{ github.event.inputs.target_as_of_date }}")
+          fi
+          python scripts/tdcc_weekly_data_readiness.py "${args[@]}"
+
+      - name: Fetch current TDCC snapshot
+        run: |
+          python tdcc_holder_ratio_top10.py --fetch-only
+
+      - name: Repair TDCC weekly history continuity
+        run: |
+          python scripts/repair_tdcc_weekly_history_continuity.py
+
+      - name: Build TDCC weekly report from continuous history
+        run: |
+          python tdcc_holder_ratio_top10.py --build-only
 
       - name: Run TDCC signal tracker
         run: |
@@ -60,7 +81,11 @@ jobs:
 
       - name: Build per-stock TDCC history
         run: |
-          python scripts/build_tdcc_stock_history.py
+          python scripts/build_tdcc_stock_history.py --use-existing-readiness
+
+      - name: Validate TDCC weekly history continuity
+        run: |
+          python scripts/validate_tdcc_weekly_history_continuity.py
 
       - name: Build TDCC pre-move accumulation report
         run: |
@@ -116,6 +141,10 @@ jobs:
             for file in \
               output/latest/tdcc_weekly_report_latest.md \
               output/latest/tdcc_holder_ratio_latest.csv \
+              output/latest/tdcc_weekly_data_readiness_latest.json \
+              output/latest/tdcc_weekly_data_readiness_latest.md \
+              output/latest/tdcc_weekly_history_continuity_latest.json \
+              output/latest/tdcc_weekly_history_continuity_latest.md \
               output/latest/tdcc_invalid_holder_distribution_latest.csv \
               output/latest/tdcc_signal_performance_latest.md \
               output/latest/tdcc_signal_structures_latest.md \

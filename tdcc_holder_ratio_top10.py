@@ -1,3 +1,4 @@
+import argparse
 from io import StringIO
 import re
 from pathlib import Path
@@ -653,7 +654,26 @@ def bootstrap_history_from_legacy_raw_files(stock_name_map: dict[str, str]) -> N
             print(f"Failed to convert legacy file {raw_path}: {exc}")
 
 
-def find_previous_snapshot(current_date: str) -> Optional[Path]:
+def find_previous_snapshot(
+    current_date: str,
+    official_dates: list[str] | None = None,
+) -> Optional[Path]:
+    if official_dates is not None:
+        normalized_dates = sorted(set(official_dates))
+        if current_date not in normalized_dates:
+            raise RuntimeError(f"current TDCC date is not in official date contract: {current_date}")
+        current_index = normalized_dates.index(current_date)
+        if current_index == 0:
+            return None
+        previous_date = normalized_dates[current_index - 1]
+        path = TDCC_HISTORY_DIR / f"tdcc_holder_ratio_{previous_date}.csv"
+        if not path.exists():
+            raise RuntimeError(
+                "previous official TDCC snapshot is missing: "
+                f"current_date={current_date} previous_official_date={previous_date} path={path}"
+            )
+        return path
+
     snapshot_paths = sorted(TDCC_HISTORY_DIR.glob("tdcc_holder_ratio_*.csv"))
 
     previous_paths = []
@@ -675,7 +695,25 @@ def find_previous_snapshot(current_date: str) -> Optional[Path]:
     return previous_paths[-1]
 
 
-def get_recent_snapshot_paths(required_count: int) -> list[Path]:
+def get_recent_snapshot_paths(
+    required_count: int,
+    current_date: str | None = None,
+    official_dates: list[str] | None = None,
+) -> list[Path]:
+    if official_dates is not None:
+        if not current_date or current_date not in official_dates:
+            raise RuntimeError("current TDCC date is required by the official continuity contract")
+        current_index = official_dates.index(current_date)
+        start = current_index - required_count + 1
+        if start < 0:
+            return []
+        required_dates = official_dates[start : current_index + 1]
+        paths = [TDCC_HISTORY_DIR / f"tdcc_holder_ratio_{date}.csv" for date in required_dates]
+        missing = [str(path) for path in paths if not path.exists()]
+        if missing:
+            raise RuntimeError("required official TDCC snapshots are missing: " + "; ".join(missing))
+        return paths
+
     snapshot_paths = []
 
     for path in sorted(TDCC_HISTORY_DIR.glob("tdcc_holder_ratio_*.csv")):
@@ -772,9 +810,12 @@ def build_weekly_change_tables(
     return result
 
 
-def build_consecutive_increase_table() -> tuple[pd.DataFrame, str]:
+def build_consecutive_increase_table(
+    current_date: str | None = None,
+    official_dates: list[str] | None = None,
+) -> tuple[pd.DataFrame, str]:
     required_count = CONSECUTIVE_WEEKS + 1
-    recent_paths = get_recent_snapshot_paths(required_count)
+    recent_paths = get_recent_snapshot_paths(required_count, current_date, official_dates)
 
     if len(recent_paths) < required_count:
         message = (
@@ -1048,7 +1089,121 @@ def write_reports(
     dated_report_path.write_text(report_text, encoding="utf-8")
 
 
+def fetch_current_snapshot(
+    expected_date: str,
+    stock_name_map: dict[str, str],
+) -> tuple[pd.DataFrame, str, Path]:
+    print("Fetching latest TDCC data from multiple sources...")
+    tdcc_df, tdcc_source_url = fetch_tdcc_data()
+    print(f"Loaded TDCC rows: {len(tdcc_df)}")
+    print(f"Selected TDCC source URL: {tdcc_source_url}")
+
+    source_date = normalize_text(tdcc_df["date"].max())
+    if source_date != expected_date:
+        raise RuntimeError(
+            "latest TDCC all-market source does not match the official report period: "
+            f"expected_date={expected_date} source_date={source_date}. "
+            "A stale cached snapshot is forbidden; the external orchestrator must retry later."
+        )
+
+    print("Saving latest TDCC data...")
+    raw_path = save_raw_tdcc(tdcc_df)
+    print(f"Latest data saved: {raw_path}")
+
+    print("Building current snapshot...")
+    current_snapshot = build_holder_ratio_snapshot(tdcc_df, stock_name_map)
+    current_date = get_snapshot_date(current_snapshot)
+    if current_date != expected_date:
+        raise RuntimeError(
+            f"TDCC snapshot date mismatch: expected_date={expected_date} current_date={current_date}"
+        )
+    print(f"Current TDCC date: {current_date}")
+
+    current_snapshot_path = save_current_snapshot(current_snapshot)
+    print(f"Current snapshot saved: {current_snapshot_path}")
+    invalid_distribution_path = save_invalid_holder_distributions(
+        list(current_snapshot.attrs.get("invalid_holder_distributions", [])),
+        current_date,
+    )
+    print(f"Invalid TDCC holder distributions saved: {invalid_distribution_path}")
+    return current_snapshot, tdcc_source_url, current_snapshot_path
+
+
+def build_reports_from_continuous_history(
+    expected_date: str,
+    official_dates: list[str],
+) -> None:
+    from scripts.repair_tdcc_weekly_history_continuity import load_continuity_report
+
+    continuity = load_continuity_report()
+    if continuity.get("signal_date") != expected_date:
+        raise RuntimeError(
+            "TDCC continuity signal_date mismatch: "
+            f"expected={expected_date} actual={continuity.get('signal_date', '')}"
+        )
+
+    current_snapshot_path = TDCC_HISTORY_DIR / f"tdcc_holder_ratio_{expected_date}.csv"
+    if not current_snapshot_path.exists():
+        raise RuntimeError(f"current TDCC snapshot is missing: {current_snapshot_path}")
+    current_snapshot = load_snapshot(current_snapshot_path)
+    current_date = get_snapshot_date(current_snapshot)
+    if current_date != expected_date:
+        raise RuntimeError(
+            f"current TDCC snapshot date mismatch: expected={expected_date} actual={current_date}"
+        )
+
+    previous_snapshot_path = find_previous_snapshot(current_date, official_dates)
+    previous_snapshot = None
+    if previous_snapshot_path is not None:
+        print(f"Previous official snapshot found: {previous_snapshot_path}")
+        previous_snapshot = load_snapshot(previous_snapshot_path)
+    else:
+        print("No previous official snapshot exists. This run will create a baseline report.")
+
+    print("Building weekly change tables from adjacent official periods...")
+    weekly_tables = build_weekly_change_tables(
+        current_snapshot=current_snapshot,
+        previous_snapshot=previous_snapshot,
+    )
+
+    print("Building consecutive increase table from contiguous official periods...")
+    consecutive_table, consecutive_message = build_consecutive_increase_table(
+        current_date=current_date,
+        official_dates=official_dates,
+    )
+    print(consecutive_message)
+
+    print("Writing reports...")
+    write_reports(
+        current_snapshot=current_snapshot,
+        previous_snapshot_path=previous_snapshot_path,
+        weekly_tables=weekly_tables,
+        consecutive_table=consecutive_table,
+        consecutive_message=consecutive_message,
+        tdcc_source_url="official_tdcc_all_market_source_verified_by_weekly_readiness_contract",
+    )
+
+
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="Build the official TDCC weekly holder-ratio report.")
+    phase = parser.add_mutually_exclusive_group()
+    phase.add_argument("--fetch-only", action="store_true", help="Fetch and save the current official snapshot only.")
+    phase.add_argument("--build-only", action="store_true", help="Build reports from an already repaired snapshot history.")
+    return parser.parse_args()
+
+
+def resolve_readiness(*, build_only: bool) -> dict[str, object]:
+    from scripts.tdcc_weekly_data_readiness import ensure_weekly_data_ready, load_readiness, taipei_today
+
+    if build_only:
+        return load_readiness()
+    return ensure_weekly_data_ready(as_of_date=taipei_today())
+
+
 def main() -> int:
+    from scripts.repair_tdcc_weekly_history_continuity import repair_weekly_history_continuity
+
+    args = parse_args()
     ensure_dirs()
 
     print("Loading local stock code/name map...")
@@ -1061,79 +1216,28 @@ def main() -> int:
     print("Bootstrapping history from legacy files...")
     bootstrap_history_from_legacy_raw_files(stock_name_map)
 
-    print("Fetching latest TDCC data from multiple sources...")
     try:
-        tdcc_df, tdcc_source_url = fetch_tdcc_data()
-        print(f"Loaded TDCC rows: {len(tdcc_df)}")
-        print(f"Selected TDCC source URL: {tdcc_source_url}")
+        readiness = resolve_readiness(build_only=args.build_only)
+        expected_date = readiness["selected_official_date"]
+        official_dates = readiness["official_dates"]
 
-        print("Saving latest TDCC data...")
-        raw_path = save_raw_tdcc(tdcc_df)
-        print(f"Latest data saved: {raw_path}")
+        if not args.build_only:
+            fetch_current_snapshot(expected_date, stock_name_map)
+            if args.fetch_only:
+                print("TDCC fetch-only phase completed.")
+                return 0
 
-        print("Building current snapshot...")
-        current_snapshot = build_holder_ratio_snapshot(tdcc_df, stock_name_map)
-        current_date = get_snapshot_date(current_snapshot)
-        print(f"Current TDCC date: {current_date}")
+        if not args.build_only:
+            continuity = repair_weekly_history_continuity()
+            if continuity["status"] not in {"pass", "repaired"}:
+                raise RuntimeError(
+                    f"TDCC weekly history continuity failed: {continuity.get('unresolved_missing_rows', '')} unresolved"
+                )
 
-        print("Saving current snapshot...")
-        current_snapshot_path = save_current_snapshot(current_snapshot)
-        print(f"Current snapshot saved: {current_snapshot_path}")
-
+        build_reports_from_continuous_history(expected_date, official_dates)
     except Exception as exc:
-        latest_snapshot_path = find_latest_snapshot_path()
-        if latest_snapshot_path is None:
-            raise
-
-        print("Live TDCC fetch failed; using latest cached TDCC snapshot.")
-        print(f"Fetch error: {exc}")
-        print(f"Cached snapshot: {latest_snapshot_path}")
-
-        current_snapshot = load_snapshot(latest_snapshot_path)
-        current_date = get_snapshot_date(current_snapshot)
-        current_snapshot_path = save_current_snapshot(current_snapshot)
-        tdcc_source_url = (
-            f"cached_snapshot:{latest_snapshot_path.as_posix()} "
-            f"(live_fetch_failed:{type(exc).__name__})"
-        )
-
-        print(f"Current TDCC date from cached snapshot: {current_date}")
-        print(f"Current snapshot saved: {current_snapshot_path}")
-
-    invalid_distribution_path = save_invalid_holder_distributions(
-        list(current_snapshot.attrs.get("invalid_holder_distributions", [])),
-        current_date,
-    )
-    print(f"Invalid TDCC holder distributions saved: {invalid_distribution_path}")
-
-    previous_snapshot_path = find_previous_snapshot(current_date)
-
-    previous_snapshot = None
-    if previous_snapshot_path is not None:
-        print(f"Previous snapshot found: {previous_snapshot_path}")
-        previous_snapshot = load_snapshot(previous_snapshot_path)
-    else:
-        print("No previous snapshot found. This run will create baseline report.")
-
-    print("Building weekly change tables...")
-    weekly_tables = build_weekly_change_tables(
-        current_snapshot=current_snapshot,
-        previous_snapshot=previous_snapshot,
-    )
-
-    print("Building consecutive increase table...")
-    consecutive_table, consecutive_message = build_consecutive_increase_table()
-    print(consecutive_message)
-
-    print("Writing reports...")
-    write_reports(
-        current_snapshot=current_snapshot,
-        previous_snapshot_path=previous_snapshot_path,
-        weekly_tables=weekly_tables,
-        consecutive_table=consecutive_table,
-        consecutive_message=consecutive_message,
-        tdcc_source_url=tdcc_source_url,
-    )
+        print(f"TDCC weekly report failed: {exc}")
+        return 1
 
     print("Done.")
     return 0

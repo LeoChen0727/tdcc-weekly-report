@@ -124,7 +124,12 @@ def choose_dates(available_dates: list[str], weeks: int, start_date: str | None,
     return dates[:weeks]
 
 
-def fetch_stock_distribution(session: requests.Session, stock_id: str, date: str) -> pd.DataFrame:
+def fetch_stock_distribution(
+    session: requests.Session,
+    stock_id: str,
+    date: str,
+) -> pd.DataFrame:
+    # TDCC synchronizer tokens are single-use; reusing one can return an empty table for a valid stock.
     token, uri, fir_date, _ = fetch_query_form(session)
     payload = {
         "SYNCHRONIZER_TOKEN": token,

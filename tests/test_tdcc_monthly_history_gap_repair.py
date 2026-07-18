@@ -108,3 +108,29 @@ def test_tdcc_monthly_gap_repair_only_repairs_missing_rows(tmp_path, monkeypatch
         ("20260620", "1101"),
         ("20260620", "2330"),
     ]
+
+
+def test_tdcc_monthly_gap_repair_fails_when_missing_rows_remain(tmp_path, monkeypatch) -> None:
+    history_dir = tmp_path / "output" / "history" / "tdcc"
+    monkeypatch.setattr(repair, "TDCC_HISTORY_DIR", history_dir)
+    monkeypatch.setattr(repair.backfill, "load_name_map", lambda: {"6409": "Stock A"})
+    monkeypatch.setattr(
+        repair.backfill,
+        "load_universe",
+        lambda name_map, universe, max_stocks, explicit_ids: ["6409"],
+    )
+
+    result = repair.repair_tdcc_monthly_gaps(
+        as_of_date="20260714",
+        universe="chatgpt-top",
+        max_stocks=80,
+        max_requests=500,
+        sleep_seconds=0,
+        dry_run=False,
+        write_report_file=False,
+        available_dates_func=lambda session: ["20260709", "20260703"],
+        repair_func=lambda *args: [],
+    )
+
+    assert result["status"] == "fail"
+    assert result["missing_stock_rows_after"] == 2
