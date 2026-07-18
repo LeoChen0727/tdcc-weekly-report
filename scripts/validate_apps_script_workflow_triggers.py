@@ -141,6 +141,10 @@ def validate_tdcc_individual_refresh_orchestration(errors: list[str]) -> None:
         downstream_evidence_body = apps_script_function_body(
             "readWorkflowOutputEvidence_"
         )
+        chain_identity_body = apps_script_function_body("tdccChainIdentity_")
+        dispatch_history_body = apps_script_function_body(
+            "tdccDispatchAlreadyRecorded_"
+        )
         run_correlation_body = apps_script_function_body("findCorrelatedWorkflowRuns_")
         installer_body = apps_script_function_body(
             "installTdccIndividualRefreshOrchestratorTrigger_"
@@ -175,9 +179,28 @@ def validate_tdcc_individual_refresh_orchestration(errors: list[str]) -> None:
         "state.downstream_run_id": "TDCC chain must track the downstream run id",
         "state.tdcc_output_commit_sha": "TDCC chain must require the TDCC output commit in the downstream head",
         "readWorkflowOutputEvidence_": "TDCC chain must verify downstream outputs reached main",
+        "mainEvidenceWindowExpired_(downstreamRun.updated_at)": "Downstream main evidence must use a bounded wait",
+        'state.phase = "downstream_main_pending"': "Transient downstream main-evidence misses must remain retryable",
     }
     for snippet, message in orchestration_requirements.items():
         require_text(orchestrator_body, snippet, errors, message)
+
+    for snippet, message in {
+        "runId": "TDCC chain identity must include the upstream run id",
+        "signalDate": "TDCC chain identity must include the official signal date",
+        "outputCommitSha": "TDCC chain identity must include the TDCC output commit",
+        '.join(":")': "TDCC chain identity must be deterministic",
+    }.items():
+        require_text(chain_identity_body, snippet, errors, message)
+    for snippet, message in {
+        "tdccChainIdentity_(runId, signalDate, outputCommitSha)": "Dispatch duplicate checks must use the exact chain identity",
+        "item.chain_key === chainKey": "Dispatch duplicate checks must reject only the exact recorded chain",
+    }.items():
+        require_text(dispatch_history_body, snippet, errors, message)
+    if "||" in dispatch_history_body:
+        errors.append(
+            "Dispatch duplicate checks must not OR-gate run id or signal_date independently"
+        )
 
     evidence_requirements = {
         "TDCC_RUN_STATUS_PATH": "TDCC main gate must read the run status artifact",

@@ -323,9 +323,20 @@ function writeTdccDispatchHistory_(history) {
   );
 }
 
-function tdccDispatchAlreadyRecorded_(runId, signalDate) {
+function tdccChainIdentity_(runId, signalDate, outputCommitSha) {
+  if (!runId || !/^\d{8}$/.test(String(signalDate || ""))) {
+    throw new Error("TDCC chain identity requires a run id and eight-digit signal_date");
+  }
+  if (!/^[0-9a-f]{40}$/.test(String(outputCommitSha || ""))) {
+    throw new Error("TDCC chain identity requires a 40-character output commit SHA");
+  }
+  return [String(runId), String(signalDate), String(outputCommitSha)].join(":");
+}
+
+function tdccDispatchAlreadyRecorded_(runId, signalDate, outputCommitSha) {
+  const chainKey = tdccChainIdentity_(runId, signalDate, outputCommitSha);
   return readTdccDispatchHistory_().some(function (item) {
-    return String(item.tdcc_run_id) === String(runId) || item.signal_date === signalDate;
+    return item.chain_key === chainKey;
   });
 }
 
@@ -344,7 +355,10 @@ function recordTdccDispatch_(state) {
     downstream_run_id: state.downstream_run_id || null,
     downstream_head_sha: state.downstream_head_sha || null,
     downstream_output_commit_sha: state.downstream_output_commit_sha || null,
+    phase: state.phase,
     conclusion: state.downstream_conclusion || null,
+    error: state.error || null,
+    recorded_at: nowIso_(),
   };
   if (existingIndex >= 0) {
     history[existingIndex] = entry;
@@ -664,15 +678,25 @@ function orchestrateTdccIndividualRefresh() {
       state.signal_date = publishedEvidence.signal_date;
       state.tdcc_output_commit_sha = publishedEvidence.tdcc_output_commit_sha;
       state.main_sha_at_gate = publishedEvidence.main_sha_at_gate;
-      state.chain_key = String(tdccRun.id) + ":" + state.signal_date;
+      state.chain_key = tdccChainIdentity_(
+        tdccRun.id,
+        state.signal_date,
+        state.tdcc_output_commit_sha
+      );
       state.phase = "tdcc_published_on_main";
       writeTdccChainState_(state);
     }
 
     if (!state.downstream_dispatched_at) {
-      if (tdccDispatchAlreadyRecorded_(state.tdcc_run_id, state.signal_date)) {
+      if (
+        tdccDispatchAlreadyRecorded_(
+          state.tdcc_run_id,
+          state.signal_date,
+          state.tdcc_output_commit_sha
+        )
+      ) {
         state.phase = "duplicate_skipped";
-        state.duplicate_reason = "TDCC run id or signal_date already dispatched";
+        state.duplicate_reason = "Exact TDCC run/date/output chain already dispatched";
         writeTdccChainState_(state);
         return;
       }
@@ -757,17 +781,38 @@ function orchestrateTdccIndividualRefresh() {
       throw new Error(state.error);
     }
 
+    let downstreamEvidence;
     try {
-      const downstreamEvidence = readWorkflowOutputEvidence_(
+      downstreamEvidence = readWorkflowOutputEvidence_(
         downstreamRun,
         INDIVIDUAL_REFRESH_RUN_STATUS_PATH,
         state.signal_date
       );
-      state.downstream_output_commit_sha = downstreamEvidence.output_commit_sha;
-      state.main_sha_at_completion = downstreamEvidence.main_sha;
     } catch (error) {
-      failTdccChain_(state, "downstream_main_gate_failed", error.message);
+      state.downstream_main_last_error = error.message;
+      if (mainEvidenceWindowExpired_(downstreamRun.updated_at)) {
+        state.phase = "downstream_main_gate_failed";
+        state.error =
+          "Individual refresh succeeded but matching run-status evidence did not reach main " +
+          "within 30 minutes: " +
+          error.message;
+        writeTdccChainState_(state);
+        recordTdccDispatch_(state);
+        throw new Error(state.error);
+      }
+      state.phase = "downstream_main_pending";
+      writeTdccChainState_(state);
+      recordTdccDispatch_(state);
+      Logger.log(
+        "Individual refresh succeeded but matching run-status evidence is not yet visible on main: " +
+          error.message
+      );
+      return;
     }
+    state.downstream_output_commit_sha = downstreamEvidence.output_commit_sha;
+    state.main_sha_at_completion = downstreamEvidence.main_sha;
+    delete state.downstream_main_last_error;
+    delete state.error;
     state.phase = "complete";
     state.completed_at = nowIso_();
     writeTdccChainState_(state);

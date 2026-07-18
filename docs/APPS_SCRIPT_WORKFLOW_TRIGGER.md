@@ -154,8 +154,16 @@ TDCC_INDIVIDUAL_REFRESH_DISPATCH_HISTORY
 `TDCC_INDIVIDUAL_REFRESH_CHAIN_STATE` contains the upstream run id, upstream
 head SHA, TDCC output commit, signal date, downstream run id, downstream head
 SHA, downstream output commit, phase, conclusions, and timestamps. The history
-keeps the latest 16 dispatch records and makes the run-id and signal-date gate
-idempotent across Apps Script executions.
+keeps the latest 16 chain attempts. Duplicate suppression uses the exact
+`tdcc_run_id + signal_date + tdcc_output_commit_sha` identity only. A repeated
+poll of the same chain cannot dispatch twice, while a new TDCC run or corrected
+output commit remains recoverable even when its `signal_date` is unchanged.
+
+After a downstream run succeeds, the orchestrator waits up to 30 minutes for
+its exact run-status artifact and commit to become visible on live `main`.
+Transient Contents API or commit-propagation misses remain
+`downstream_main_pending`; only expiry of that bounded window becomes
+`downstream_main_gate_failed`.
 
 The existing daily 22:20 `triggerIndividualStockDataRefresh` remains installed
 as the normal refresh and fallback. It is independent of the TDCC chain and is

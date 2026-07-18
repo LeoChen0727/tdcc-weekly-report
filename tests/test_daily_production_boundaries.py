@@ -1,7 +1,10 @@
 from __future__ import annotations
 
 from pathlib import Path
+import shutil
 import subprocess
+
+import pytest
 
 from scripts import stage_daily_latest_mirrors
 from scripts import validate_apps_script_workflow_triggers
@@ -120,6 +123,9 @@ def test_apps_script_tdcc_chain_is_idempotent_and_tracks_one_downstream_run() ->
     history_body = validate_apps_script_workflow_triggers.apps_script_function_body(
         "tdccDispatchAlreadyRecorded_"
     )
+    identity_body = validate_apps_script_workflow_triggers.apps_script_function_body(
+        "tdccChainIdentity_"
+    )
     installer_body = validate_apps_script_workflow_triggers.apps_script_function_body(
         "installTdccIndividualRefreshOrchestratorTrigger_"
     )
@@ -136,13 +142,90 @@ def test_apps_script_tdcc_chain_is_idempotent_and_tracks_one_downstream_run() ->
     assert "state.tdcc_output_commit_sha" in orchestrator_body
     assert "dispatchWorkflow_(INDIVIDUAL_REFRESH_WORKFLOW)" in orchestrator_body
     assert "readWorkflowOutputEvidence_" in orchestrator_body
-    assert "item.tdcc_run_id" in history_body
-    assert "item.signal_date" in history_body
+    assert "tdccChainIdentity_(runId, signalDate, outputCommitSha)" in history_body
+    assert "item.chain_key === chainKey" in history_body
+    assert "||" not in history_body
+    assert "runId" in identity_body
+    assert "signalDate" in identity_body
+    assert "outputCommitSha" in identity_body
+    assert "mainEvidenceWindowExpired_(downstreamRun.updated_at)" in orchestrator_body
+    assert 'state.phase = "downstream_main_pending"' in orchestrator_body
     assert '.everyMinutes(TDCC_CHAIN_POLL_MINUTES)' in installer_body
     assert "runStatus.github_run_id" in downstream_evidence_body
     assert "runStatus.github_head_sha" in downstream_evidence_body
     assert "runStatus.official_signal_date" in downstream_evidence_body
     assert "runStatus.date_contract.date_source" in downstream_evidence_body
+
+
+def test_apps_script_tdcc_chain_identity_is_retryable_after_failed_attempt(
+    tmp_path: Path,
+) -> None:
+    node = shutil.which("node")
+    if node is None:
+        pytest.skip("Node.js is required to execute the Apps Script behavioral test")
+
+    source = (ROOT / "docs" / "apps_script_workflow_trigger.gs").read_text(
+        encoding="utf-8"
+    )
+    harness = r'''
+const properties = {};
+global.PropertiesService = {
+  getScriptProperties: function () {
+    return {
+      getProperty: function (key) { return properties[key] || null; },
+      setProperty: function (key, value) { properties[key] = String(value); },
+    };
+  },
+};
+
+function requireBehavior(condition, message) {
+  if (!condition) {
+    throw new Error(message);
+  }
+}
+
+const signalDate = "20260717";
+const firstCommit = "a".repeat(40);
+const correctedCommit = "b".repeat(40);
+const firstChain = {
+  chain_key: tdccChainIdentity_("1001", signalDate, firstCommit),
+  tdcc_run_id: "1001",
+  signal_date: signalDate,
+  tdcc_head_sha: "c".repeat(40),
+  tdcc_output_commit_sha: firstCommit,
+  downstream_dispatched_at: "2026-07-18T08:00:00.000Z",
+  downstream_conclusion: "failure",
+  phase: "downstream_failed",
+  error: "simulated downstream failure",
+};
+recordTdccDispatch_(firstChain);
+
+requireBehavior(
+  tdccDispatchAlreadyRecorded_("1001", signalDate, firstCommit),
+  "the same exact chain must not dispatch twice"
+);
+requireBehavior(
+  !tdccDispatchAlreadyRecorded_("1002", signalDate, firstCommit),
+  "a new TDCC run must remain dispatchable after a failed same-date chain"
+);
+requireBehavior(
+  !tdccDispatchAlreadyRecorded_("1001", signalDate, correctedCommit),
+  "a corrected TDCC output commit must remain dispatchable for the same date"
+);
+process.stdout.write("behavior-pass");
+'''
+    script = tmp_path / "apps_script_chain_behavior.js"
+    script.write_text(source + "\n" + harness, encoding="utf-8")
+    result = subprocess.run(
+        [node, str(script)],
+        cwd=ROOT,
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+
+    assert result.returncode == 0, result.stderr
+    assert result.stdout == "behavior-pass"
 
 
 def test_individual_refresh_workflow_commits_unique_run_status_evidence() -> None:
