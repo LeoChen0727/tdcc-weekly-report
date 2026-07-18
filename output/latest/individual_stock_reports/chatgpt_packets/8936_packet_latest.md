@@ -1,15 +1,21 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8936 國統
 
 ## Metadata
-- generated_at: 2026-07-17 22:28:04 Asia/Taipei
+- generated_at: 2026-07-18 20:55:35 Asia/Taipei
 - stock_id: 8936
 - stock_name: 國統
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260716
-- price_rows: 170
-- latest_tdcc_date: 20260703
-- tdcc_rows: 10
+- latest_price_date: 20260717
+- price_rows: 171
+- current_main_price_date: 20260717
+- current_main_price_universe_status: current
+- current_main_price_universe_source: official_daily_price_latest_main_price_date
+- listing_status_source_status: formal_listing_status_source_unavailable
+- official_tdcc_signal_date: 20260717
+- latest_tdcc_date: 20260717
+- tdcc_rows: 11
 - tdcc_history_status: tdcc_history_ready
+- tdcc_freshness_status: tdcc_window_fresh
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
 - notes:
@@ -51,7 +57,10 @@
 - MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
-- If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
+- Only claim tdcc_history_ready when tdcc_rows >= 8 and latest_tdcc_date equals official_tdcc_signal_date.
+- If latest_tdcc_date differs from official_tdcc_signal_date, mark tdcc_window_stale and do not claim current TDCC history.
+- If the stock is absent from the official current main-price universe, preserve real TDCC dates and mark historical_only_noncurrent; do not infer a formal delisting status.
+- If TDCC is current but tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DISPLAY
@@ -118,29 +127,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260716
-- open: 55.2
-- high: 55.6
-- low: 54.8
-- close: 54.8
-- volume: 1231000
-- ma5: 54.86
-- ema23_primary: 56.43
-- distance_to_ema23_pct: -2.89
-- ma20: 57.6
-- ma60: 54.13
-- ma120: 53.15
-- return_5d: -2.32
-- return_20d: -1.97
-- volume_ratio: 0.19
-- distance_to_ma20_pct_auxiliary: -4.87
-- distance_to_high_60_pct: -15.95
+- date: 20260717
+- open: 54.3
+- high: 54.7
+- low: 52
+- close: 52
+- volume: 3216000
+- ma5: 54.14
+- ema23_primary: 56.06
+- distance_to_ema23_pct: -7.24
+- ma20: 57.45
+- ma60: 54.15
+- ma120: 53.14
+- return_5d: -6.47
+- return_20d: -5.63
+- volume_ratio: 0.49
+- distance_to_ma20_pct_auxiliary: -9.49
+- distance_to_high_60_pct: -20.25
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260617,55.5,55.8,55,55.1,2492000,54.58,0.96,54.41,52.16,0.7
 20260618,55.3,58.8,55.2,58.1,8783000,54.87,5.89,54.82,52.22,2.23
 20260622,58.5,61.5,57.5,60.5,19593000,55.34,9.33,55.34,52.33,3.99
 20260623,59.7,59.7,58,58.2,6670000,55.58,4.72,55.74,52.37,1.27
@@ -160,20 +168,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260714,55.1,55.1,53.2,53.9,2286000,56.73,-4.99,57.81,53.97,0.31
 20260715,54.2,55.1,54.2,54.9,1064000,56.58,-2.97,57.66,54.05,0.16
 20260716,55.2,55.6,54.8,54.8,1231000,56.43,-2.89,57.6,54.13,0.19
+20260717,54.3,54.7,52,52,3216000,56.06,-7.24,57.45,54.15,0.49
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260703
-- over_400_ratio: 33.5
-- over_600_ratio: 30.49
-- over_800_ratio: 26.9
-- over_1000_ratio: 24.88
-- over_400_change_1w: 0.5
-- over_800_change_1w: -0.56
-- over_1000_change_1w: 1.32
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260717
+- over_400_ratio: 32.53
+- over_600_ratio: 29.58
+- over_800_ratio: 26.26
+- over_1000_ratio: 23.48
+- over_400_change_1w: -0.97
+- over_800_change_1w: -0.64
+- over_1000_change_1w: -1.4
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -189,17 +198,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260618,33.26,-0.21,27.33,0.37,24.2,0.42,1,False,True
 20260626,33,-0.26,27.46,0.13,23.56,-0.64,2,False,True
 20260703,33.5,0.5,26.9,-0.56,24.88,1.32,3,False,True
+20260717,32.53,-0.97,26.26,-0.64,23.48,-1.4,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 8936 | 國統 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  |  | stale_signal | 1.標的物之名稱及性質（屬特別股者，並應標明特別股約定發行條件，如股息率等）: 本公司之&#12070;公司國洋環境科技股份有限公司擬與苗栗縣政府 簽訂&#65378;促進&#11936;間參與苗栗縣&#12149;南頭份(包括&#12220;速公路頭份交流 道)污&#12116;下&#12116;道系統建設之興建營運移轉計畫&#65379;第四期增修協議書 2.事實發生日:115/6/30~115/6/30 3.董事會通過日期: 民國115年6月30日 4.其他核決日期: 不適用 5.交易數量、每單位價格及交易總金額: 合約金額為新台幣14.42077億元(未稅) 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之 關係人者，得免揭露其姓名）: 苗栗縣政府，與公司關係：無。 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移 轉之所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次 移轉日期及移轉金額: 不適用。 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係人之取 得及處分日期、價格及交易當時與公司之關係: 不適用。 9.本次係處分債權之相關事項（含處分之債權附隨擔保品種類、處分債權 如有屬對關係人債權者尚需公告關係人名稱及本次處分該關係人之債權 帳面金額: 不適用。 10.處分利益（或損失）（取得有價證券者不適用）（原遞延者應列表說明 認列情形）: 不適用。 11.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 依合約約定按期計價付款。 12.本次交易之決定方式、價格決定之參考依據及決策單位: 依98年3月24日與苗栗縣政府簽訂合約作業。 13.取得或處分有價證券標的公司每股淨值: 不適用 14.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 不適用。 15.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列 之有價證券投資（含本次交易）占公司最近期財務報表中總資產及歸屬 於母公司業主之權益之比例暨最近期財務報表中營運資金數額（註二）: 不適用。 16.經紀人及經紀費用: 不適用。 17.取得或處分之具體目的或用途: 依據苗栗縣政府&#65378;促進&#11936;間參與苗栗縣&#12149;南頭份(包括&#12220;速 公路頭份交流道)污&#12116;下&#12116;道系統建設之興建營運移轉計畫&#65379; 第四期增修協議書興建及營運。 18.本次交易表示異議董事之意見: 無。 19.本次交易為關係人交易:否 20.監察人承認或審計委員會同意日期: 不適用。 21.本次交易會計師出具非合理性意見:不適用 22.會計師事務所名稱: 不適用。 23.會計師姓名: 不適用。 24.會計師開業證書字號: 不適用。 25.是否涉及營運模式變更:否 26.營運模式變更說明: 不適用。 27.過去一年及預計未來一年內與交易相對人交易情形: 不適用。 28.資金來源: 不適用。 29.前已就同一件事件發布重大訊息日期: 不適用 30.其他敘明事項: (1)本案經國洋公司6/30董事會決議通過，後續將與苗栗縣 政府簽訂&#65378;促進&#11936;間參與苗栗縣&#12149;南頭份(包括&#12220;速公路頭份 交流道)污&#12116;下&#12116;道系統建設之興建營運移轉計畫&#65379;第四期增 修協議書。該工程投入成本，根據國際會計準則IFRIC 12  服務特許權協議之規定，完工後帳列無形資產項下。 (2)國洋公司與苗栗縣政府簽訂第四期增修協議書後，擬委由 本公司承攬第四期計畫管網及用戶接管工程合約。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260717 | 8936 | 國統 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  |  | stale_signal | 1.標的物之名稱及性質（屬特別股者，並應標明特別股約定發行條件，如股息率等）: 本公司之&#12070;公司國洋環境科技股份有限公司擬與苗栗縣政府 簽訂&#65378;促進&#11936;間參與苗栗縣&#12149;南頭份(包括&#12220;速公路頭份交流 道)污&#12116;下&#12116;道系統建設之興建營運移轉計畫&#65379;第四期增修協議書 2.事實發生日:115/6/30~115/6/30 3.董事會通過日期: 民國115年6月30日 4.其他核決日期: 不適用 5.交易數量、每單位價格及交易總金額: 合約金額為新台幣14.42077億元(未稅) 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之 關係人者，得免揭露其姓名）: 苗栗縣政府，與公司關係：無。 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移 轉之所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次 移轉日期及移轉金額: 不適用。 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係人之取 得及處分日期、價格及交易當時與公司之關係: 不適用。 9.本次係處分債權之相關事項（含處分之債權附隨擔保品種類、處分債權 如有屬對關係人債權者尚需公告關係人名稱及本次處分該關係人之債權 帳面金額: 不適用。 10.處分利益（或損失）（取得有價證券者不適用）（原遞延者應列表說明 認列情形）: 不適用。 11.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 依合約約定按期計價付款。 12.本次交易之決定方式、價格決定之參考依據及決策單位: 依98年3月24日與苗栗縣政府簽訂合約作業。 13.取得或處分有價證券標的公司每股淨值: 不適用 14.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 不適用。 15.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列 之有價證券投資（含本次交易）占公司最近期財務報表中總資產及歸屬 於母公司業主之權益之比例暨最近期財務報表中營運資金數額（註二）: 不適用。 16.經紀人及經紀費用: 不適用。 17.取得或處分之具體目的或用途: 依據苗栗縣政府&#65378;促進&#11936;間參與苗栗縣&#12149;南頭份(包括&#12220;速 公路頭份交流道)污&#12116;下&#12116;道系統建設之興建營運移轉計畫&#65379; 第四期增修協議書興建及營運。 18.本次交易表示異議董事之意見: 無。 19.本次交易為關係人交易:否 20.監察人承認或審計委員會同意日期: 不適用。 21.本次交易會計師出具非合理性意見:不適用 22.會計師事務所名稱: 不適用。 23.會計師姓名: 不適用。 24.會計師開業證書字號: 不適用。 25.是否涉及營運模式變更:否 26.營運模式變更說明: 不適用。 27.過去一年及預計未來一年內與交易相對人交易情形: 不適用。 28.資金來源: 不適用。 29.前已就同一件事件發布重大訊息日期: 不適用 30.其他敘明事項: (1)本案經國洋公司6/30董事會決議通過，後續將與苗栗縣 政府簽訂&#65378;促進&#11936;間參與苗栗縣&#12149;南頭份(包括&#12220;速公路頭份 交流道)污&#12116;下&#12116;道系統建設之興建營運移轉計畫&#65379;第四期增 修協議書。該工程投入成本，根據國際會計準則IFRIC 12  服務特許權協議之規定，完工後帳列無形資產項下。 (2)國洋公司與苗栗縣政府簽訂第四期增修協議書後，擬委由 本公司承攬第四期計畫管網及用戶接管工程合約。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 8936 | 國統 | 1 | 1 | 4 | 7 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260717 | 8936 | 國統 | 2 | 2 | 4 | 7 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

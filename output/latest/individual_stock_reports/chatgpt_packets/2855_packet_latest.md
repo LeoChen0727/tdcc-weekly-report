@@ -1,15 +1,21 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2855 統一證
 
 ## Metadata
-- generated_at: 2026-07-17 22:26:40 Asia/Taipei
+- generated_at: 2026-07-18 20:53:49 Asia/Taipei
 - stock_id: 2855
 - stock_name: 統一證
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260716
-- price_rows: 305
-- latest_tdcc_date: 20260703
-- tdcc_rows: 10
+- latest_price_date: 20260717
+- price_rows: 306
+- current_main_price_date: 20260717
+- current_main_price_universe_status: current
+- current_main_price_universe_source: official_daily_price_latest_main_price_date
+- listing_status_source_status: formal_listing_status_source_unavailable
+- official_tdcc_signal_date: 20260717
+- latest_tdcc_date: 20260717
+- tdcc_rows: 11
 - tdcc_history_status: tdcc_history_ready
+- tdcc_freshness_status: tdcc_window_fresh
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
 - notes:
@@ -51,7 +57,10 @@
 - MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
-- If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
+- Only claim tdcc_history_ready when tdcc_rows >= 8 and latest_tdcc_date equals official_tdcc_signal_date.
+- If latest_tdcc_date differs from official_tdcc_signal_date, mark tdcc_window_stale and do not claim current TDCC history.
+- If the stock is absent from the official current main-price universe, preserve real TDCC dates and mark historical_only_noncurrent; do not infer a formal delisting status.
+- If TDCC is current but tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DISPLAY
@@ -118,29 +127,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260716
-- open: 46.8
-- high: 47.2
-- low: 45.95
-- close: 46.35
-- volume: 3249572
-- ma5: 47.99
-- ema23_primary: 49.29
-- distance_to_ema23_pct: -5.97
-- ma20: 50.09
-- ma60: 45.58
-- ma120: 38.04
-- return_5d: -8.04
-- return_20d: -11.88
-- volume_ratio: 0.4
-- distance_to_ma20_pct_auxiliary: -7.47
-- distance_to_high_60_pct: -22.49
+- date: 20260717
+- open: 44.85
+- high: 44.95
+- low: 43.9
+- close: 44.15
+- volume: 7363368
+- ma5: 46.74
+- ema23_primary: 48.86
+- distance_to_ema23_pct: -9.65
+- ma20: 49.72
+- ma60: 45.76
+- ma120: 38.18
+- return_5d: -12.4
+- return_20d: -14.44
+- volume_ratio: 0.92
+- distance_to_ma20_pct_auxiliary: -11.2
+- distance_to_high_60_pct: -26.17
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260617,52.2,52.9,51.3,51.6,11556819,48.56,6.27,49.23,39.93,0.65
 20260618,51.6,52.6,51.6,52.2,8962525,48.86,6.84,49.83,40.27,0.5
 20260622,52.9,52.9,51.8,52,17358078,49.12,5.86,50.39,40.62,0.93
 20260623,50.5,51.1,50.1,50.6,12709525,49.24,2.75,50.82,40.93,0.67
@@ -160,18 +168,19 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260714,49.75,49.75,46.2,46.65,11515978,49.8,-6.33,50.63,45.12,1.3
 20260715,47.6,47.95,46.75,46.9,4332580,49.56,-5.37,50.41,45.36,0.51
 20260716,46.8,47.2,45.95,46.35,3249572,49.29,-5.97,50.09,45.58,0.4
+20260717,44.85,44.95,43.9,44.15,7363368,48.86,-9.65,49.72,45.76,0.92
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260703
-- over_400_ratio: 75.71
-- over_600_ratio: 73.4
-- over_800_ratio: 71.88
-- over_1000_ratio: 70.49
-- over_400_change_1w: 0.18
-- over_800_change_1w: -0.03
-- over_1000_change_1w: 0.04
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260717
+- over_400_ratio: 75.7
+- over_600_ratio: 73.39
+- over_800_ratio: 71.89
+- over_1000_ratio: 70.7
+- over_400_change_1w: -0.01
+- over_800_change_1w: 0.01
+- over_1000_change_1w: 0.21
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -189,17 +198,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260618,76.04,-0.61,72.18,-0.49,70.83,-0.19,0,False,False
 20260626,75.53,-0.51,71.91,-0.27,70.45,-0.38,0,False,False
 20260703,75.71,0.18,71.88,-0.03,70.49,0.04,1,False,True
+20260717,75.7,-0.01,71.89,0.01,70.7,0.21,2,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 2855 | 統一證 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/07/06 2.公司名稱:統一綜合證券股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:公告本公司自行結算115年6月份合併損益情形: (1)六月份稅前盈餘：1,899,079       仟元 (2)六月份稅後盈餘：1,629,273       仟元 (3)六月份每股稅前盈餘：1.186   元 (4)六月份每股稅後盈餘：1.017   元 (5)一至六月份累計稅前盈餘：11,872,346     仟元 (6)一至六月份累計稅後盈餘：11,138,988     仟元 (7)一至六月份累計每股稅前盈餘：7.414  元 (8)一至六月份累計每股稅後盈餘：6.956  元 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 以上資訊係本公司初步自行結算結果並未經會計師簽證或核閱。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260717 | 2855 | 統一證 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/07/06 2.公司名稱:統一綜合證券股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:公告本公司自行結算115年6月份合併損益情形: (1)六月份稅前盈餘：1,899,079       仟元 (2)六月份稅後盈餘：1,629,273       仟元 (3)六月份每股稅前盈餘：1.186   元 (4)六月份每股稅後盈餘：1.017   元 (5)一至六月份累計稅前盈餘：11,872,346     仟元 (6)一至六月份累計稅後盈餘：11,138,988     仟元 (7)一至六月份累計每股稅前盈餘：7.414  元 (8)一至六月份累計每股稅後盈餘：6.956  元 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 以上資訊係本公司初步自行結算結果並未經會計師簽證或核閱。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 2855 | 統一證 | 1 | 1 | 3 | 8 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260717 | 2855 | 統一證 | 2 | 2 | 4 | 8 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

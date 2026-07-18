@@ -1,15 +1,21 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2348 海悅
 
 ## Metadata
-- generated_at: 2026-07-17 22:26:27 Asia/Taipei
+- generated_at: 2026-07-18 20:53:32 Asia/Taipei
 - stock_id: 2348
 - stock_name: 海悅
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260716
-- price_rows: 305
-- latest_tdcc_date: 20260703
-- tdcc_rows: 10
+- latest_price_date: 20260717
+- price_rows: 306
+- current_main_price_date: 20260717
+- current_main_price_universe_status: current
+- current_main_price_universe_source: official_daily_price_latest_main_price_date
+- listing_status_source_status: formal_listing_status_source_unavailable
+- official_tdcc_signal_date: 20260717
+- latest_tdcc_date: 20260717
+- tdcc_rows: 11
 - tdcc_history_status: tdcc_history_ready
+- tdcc_freshness_status: tdcc_window_fresh
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
 - notes:
@@ -51,22 +57,25 @@
 - MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
-- If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
+- Only claim tdcc_history_ready when tdcc_rows >= 8 and latest_tdcc_date equals official_tdcc_signal_date.
+- If latest_tdcc_date differs from official_tdcc_signal_date, mark tdcc_window_stale and do not claim current TDCC history.
+- If the stock is absent from the official current main-price universe, preserve real TDCC dates and mark historical_only_noncurrent; do not infer a formal delisting status.
+- If TDCC is current but tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 營收爆發低反應股
+- model_category_display_zh: 型態觀察
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 營收爆發低反應股 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 營收爆發低反應股 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -88,6 +97,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 - acceptable_risk_reward
@@ -111,29 +121,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260716
-- open: 77
-- high: 82.3
-- low: 76.4
-- close: 79.9
-- volume: 1867658
-- ma5: 76.98
-- ema23_primary: 74.55
-- distance_to_ema23_pct: 7.17
-- ma20: 74.23
-- ma60: 72.4
-- ma120: 74.6
-- return_5d: 4.99
-- return_20d: 7.1
-- volume_ratio: 2.18
-- distance_to_ma20_pct_auxiliary: 7.64
-- distance_to_high_60_pct: -2.92
+- date: 20260717
+- open: 79.9
+- high: 79.9
+- low: 77.2
+- close: 78
+- volume: 1027175
+- ma5: 77.4
+- ema23_primary: 74.84
+- distance_to_ema23_pct: 4.22
+- ma20: 74.25
+- ma60: 72.41
+- ma120: 74.58
+- return_5d: 2.77
+- return_20d: 0.52
+- volume_ratio: 1.24
+- distance_to_ma20_pct_auxiliary: 5.05
+- distance_to_high_60_pct: -5.22
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260617,75,77.7,74.1,77.6,1625837,72.55,6.95,71.52,73.78,1.39
 20260618,78,79.8,75.7,76.8,2160283,72.91,5.34,71.89,73.74,1.7
 20260622,74.9,74.9,70.2,72,2659935,72.83,-1.14,72.04,73.63,1.9
 20260623,72,72.5,71.2,71.3,552480,72.71,-1.93,72.19,73.49,0.4
@@ -153,19 +162,20 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260714,77.5,78.4,75,76,730170,73.87,2.88,73.78,72.37,0.85
 20260715,76.6,77,76.1,76.2,340086,74.07,2.88,73.97,72.35,0.41
 20260716,77,82.3,76.4,79.9,1867658,74.55,7.17,74.23,72.4,2.18
+20260717,79.9,79.9,77.2,78,1027175,74.84,4.22,74.25,72.41,1.24
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260703
-- over_400_ratio: 68.17
-- over_600_ratio: 66.53
-- over_800_ratio: 66.07
-- over_1000_ratio: 65.47
-- over_400_change_1w: -0.25
+- as_of_date: 20260717
+- over_400_ratio: 69.04
+- over_600_ratio: 67.03
+- over_800_ratio: 66.08
+- over_1000_ratio: 65.48
+- over_400_change_1w: 0.87
 - over_800_change_1w: 0.01
 - over_1000_change_1w: 0.01
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: False
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -182,22 +192,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260618,69.06,-0.73,66.84,-1.14,66.24,-1.14,0,False,False
 20260626,68.42,-0.64,66.06,-0.78,65.46,-0.78,0,False,False
 20260703,68.17,-0.25,66.07,0.01,65.47,0.01,1,False,True
+20260717,69.04,0.87,66.08,0.01,65.48,0.01,2,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 2348 | 海悅 | revenue_breakout_low_response | 營收爆發低反應股 | 15.0 | 25.0 | D_降級_TDCC轉弱 |  |  | call_inflow | first_seen | 1.股東常會日期:115/06/17 2.重要決議事項一、盈餘分配或盈虧撥補:通過承認一一四年度盈餘分配案。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表: 通過承認一一四年度營業報告書及財務報表案。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項: (1)通過盈餘轉增資發行新股案。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260717 | 2348 | 海悅 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/17 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.發放特別股股利種類及金額: 特別股現金股息每股配發新台幣1.6元，合計為新台幣48,000,000元; 4.除權（息）交易日:115/08/04 5.最後過戶日:115/08/05 6.停止過戶起始日期:115/08/06 7.停止過戶截止日期:115/08/10 8.除權（息）基準日:115/08/10 9.特別股最後申請轉換日期:NA 10.特別股停止轉換起始日期:NA 11.特別股停止轉換截止日期:NA 12.特別股現金股利發放日期:115/09/08 13.其他應敘明事項: (1)擬定115年8月10日為除息基準日，依法自115年8月6日至115年8月10日止停止股票 過戶，凡持有本公司股票而尚未辦理過戶之股東，請於民國115年8月5日16時30分前 親臨本公司股務代理機構「群益金鼎證券股份有限公司股務代理部」(台北市大安區 敦化南路2段97號B2，電話：02-27023999)辦理過戶手續，以憑辦理配息事宜，掛號 郵寄者以民國115年8月5日(最後過戶日)郵戳日期為憑。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d |
+| 20260717 | 2348 | 海悅 | revenue_breakout_low_response | 營收爆發低反應股 | 15.0 | 28.0 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/17 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.發放特別股股利種類及金額: 特別股現金股息每股配發新台幣1.6元，合計為新台幣48,000,000元; 4.除權（息）交易日:115/08/04 5.最後過戶日:115/08/05 6.停止過戶起始日期:115/08/06 7.停止過戶截止日期:115/08/10 8.除權（息）基準日:115/08/10 9.特別股最後申請轉換日期:NA 10.特別股停止轉換起始日期:NA 11.特別股停止轉換截止日期:NA 12.特別股現金股利發放日期:115/09/08 13.其他應敘明事項: (1)擬定115年8月10日為除息基準日，依法自115年8月6日至115年8月10日止停止股票 過戶，凡持有本公司股票而尚未辦理過戶之股東，請於民國115年8月5日16時30分前 親臨本公司股務代理機構「群益金鼎證券股份有限公司股務代理部」(台北市大安區 敦化南路2段97號B2，電話：02-27023999)辦理過戶手續，以憑辦理配息事宜，掛號 郵寄者以民國115年8月5日(最後過戶日)郵戳日期為憑。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 2348 | 海悅 | 1 | 1 | 1 | 2 | 4 | first_seen | 首次上榜或資料有限，需後續確認。 |
+| 20260717 | 2348 | 海悅 | 2 | 2 | 2 | 3 | 4 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 2348 | 海悅 | 8 | 0 | 1732450.0 | 0.0 |  | call_inflow |
+| 20260717 | 2348 | 海悅 | 8 | 0 | 330590.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

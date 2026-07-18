@@ -1,15 +1,21 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2308 台達電
 
 ## Metadata
-- generated_at: 2026-07-17 22:26:25 Asia/Taipei
+- generated_at: 2026-07-18 20:53:31 Asia/Taipei
 - stock_id: 2308
 - stock_name: 台達電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260716
-- price_rows: 305
-- latest_tdcc_date: 20260703
-- tdcc_rows: 10
+- latest_price_date: 20260717
+- price_rows: 306
+- current_main_price_date: 20260717
+- current_main_price_universe_status: current
+- current_main_price_universe_source: official_daily_price_latest_main_price_date
+- listing_status_source_status: formal_listing_status_source_unavailable
+- official_tdcc_signal_date: 20260717
+- latest_tdcc_date: 20260717
+- tdcc_rows: 11
 - tdcc_history_status: tdcc_history_ready
+- tdcc_freshness_status: tdcc_window_fresh
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
 - notes:
@@ -51,7 +57,10 @@
 - MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
-- If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
+- Only claim tdcc_history_ready when tdcc_rows >= 8 and latest_tdcc_date equals official_tdcc_signal_date.
+- If latest_tdcc_date differs from official_tdcc_signal_date, mark tdcc_window_stale and do not claim current TDCC history.
+- If the stock is absent from the official current main-price universe, preserve real TDCC dates and mark historical_only_noncurrent; do not infer a formal delisting status.
+- If TDCC is current but tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DISPLAY
@@ -112,29 +121,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260716
-- open: 1865
-- high: 1935
-- low: 1820
-- close: 1905
-- volume: 8661820
-- ma5: 1884
-- ema23_primary: 1990.62
-- distance_to_ema23_pct: -4.3
-- ma20: 1970.25
-- ma60: 2124.83
-- ma120: 1750.75
-- return_5d: 1.06
-- return_20d: -14.57
-- volume_ratio: 0.66
-- distance_to_ma20_pct_auxiliary: -3.31
-- distance_to_high_60_pct: -26.31
+- date: 20260717
+- open: 1820
+- high: 1825
+- low: 1735
+- close: 1740
+- volume: 14248513
+- ma5: 1856
+- ema23_primary: 1969.73
+- distance_to_ema23_pct: -11.66
+- ma20: 1949.5
+- ma60: 2120.25
+- ma120: 1756.67
+- return_5d: -7.45
+- return_20d: -19.26
+- volume_ratio: 1.08
+- distance_to_ma20_pct_auxiliary: -10.75
+- distance_to_high_60_pct: -32.69
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260617,2220,2220,2140,2155,11613654,2231.55,-3.43,2296,2013.83,0.94
 20260618,2190,2210,2150,2150,12882319,2224.75,-3.36,2302,2026.17,1.04
 20260622,2170,2195,2135,2150,16874717,2218.52,-3.09,2304.75,2038.42,1.31
 20260623,2170,2170,2080,2080,14787242,2206.98,-5.75,2294.25,2047.25,1.14
@@ -154,17 +162,18 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260714,1900,1905,1780,1855,10864234,2008.25,-7.63,2002.5,2123.92,0.83
 20260715,1930,1930,1865,1890,8792634,1998.4,-5.42,1986.5,2124.75,0.67
 20260716,1865,1935,1820,1905,8661820,1990.62,-4.3,1970.25,2124.83,0.66
+20260717,1820,1825,1735,1740,14248513,1969.73,-11.66,1949.5,2120.25,1.08
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260703
-- over_400_ratio: 81.72
-- over_600_ratio: 78.92
-- over_800_ratio: 76.42
-- over_1000_ratio: 74.62
-- over_400_change_1w: -0.4
-- over_800_change_1w: -0.34
-- over_1000_change_1w: -0.45
+- as_of_date: 20260717
+- over_400_ratio: 81.37
+- over_600_ratio: 78.58
+- over_800_ratio: 76.26
+- over_1000_ratio: 74.38
+- over_400_change_1w: -0.35
+- over_800_change_1w: -0.16
+- over_1000_change_1w: -0.24
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -183,23 +192,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260618,82.75,-0.3,77.51,-0.16,75.62,-0.2,0,False,False
 20260626,82.12,-0.63,76.76,-0.75,75.07,-0.55,0,False,False
 20260703,81.72,-0.4,76.42,-0.34,74.62,-0.45,0,False,False
+20260717,81.37,-0.35,76.26,-0.16,74.38,-0.24,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 2308 | 台達電 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | call_inflow | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/30 1.召開法人說明會之日期：115/07/30 2.召開法人說明會之時間：15 時 00 分  3.召開法人說明會之地點：台達電子台北總部 4.法人說明會擇要訊息：本公司自辦法人說明會，說明115年第2季財務報告相關資訊 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260716 | 2308 | 台達電 | revenue_breakout_low_response | 營收爆發低反應股 | 11.0 | 39.0 | D_降級_TDCC轉弱 |  |  | call_inflow | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/30 1.召開法人說明會之日期：115/07/30 2.召開法人說明會之時間：15 時 00 分  3.召開法人說明會之地點：台達電子台北總部 4.法人說明會擇要訊息：本公司自辦法人說明會，說明115年第2季財務報告相關資訊 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260717 | 2308 | 台達電 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_put_bullish | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/30 1.召開法人說明會之日期：115/07/30 2.召開法人說明會之時間：15 時 00 分  3.召開法人說明會之地點：台達電子台北總部 4.法人說明會擇要訊息：本公司自辦法人說明會，說明115年第2季財務報告相關資訊 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 2308 | 台達電 | 1 | 1 | 4 | 7 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260717 | 2308 | 台達電 | 2 | 2 | 4 | 7 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 2308 | 台達電 | 198 | 0 | 25430500.0 | 0.0 |  | call_inflow |
+| 20260717 | 2308 | 台達電 | 193 | 25 | 44552650.0 | 790760.0 | 56.34 | call_put_bullish |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

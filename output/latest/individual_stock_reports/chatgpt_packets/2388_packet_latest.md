@@ -1,15 +1,21 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2388 威盛
 
 ## Metadata
-- generated_at: 2026-07-17 22:26:29 Asia/Taipei
+- generated_at: 2026-07-18 20:53:35 Asia/Taipei
 - stock_id: 2388
 - stock_name: 威盛
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260716
-- price_rows: 305
-- latest_tdcc_date: 20260703
-- tdcc_rows: 10
+- latest_price_date: 20260717
+- price_rows: 306
+- current_main_price_date: 20260717
+- current_main_price_universe_status: current
+- current_main_price_universe_source: official_daily_price_latest_main_price_date
+- listing_status_source_status: formal_listing_status_source_unavailable
+- official_tdcc_signal_date: 20260717
+- latest_tdcc_date: 20260717
+- tdcc_rows: 11
 - tdcc_history_status: tdcc_history_ready
+- tdcc_freshness_status: tdcc_window_fresh
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
 - notes:
@@ -51,22 +57,25 @@
 - MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
-- If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
+- Only claim tdcc_history_ready when tdcc_rows >= 8 and latest_tdcc_date equals official_tdcc_signal_date.
+- If latest_tdcc_date differs from official_tdcc_signal_date, mark tdcc_window_stale and do not claim current TDCC history.
+- If the stock is absent from the official current main-price universe, preserve real TDCC dates and mark historical_only_noncurrent; do not infer a formal delisting status.
+- If TDCC is current but tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 轉弱警訊
+- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -88,8 +97,8 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
+- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -104,7 +113,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- tdcc_distribution_warning
+- none
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -112,29 +121,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260716
-- open: 75
-- high: 77.7
-- low: 72.6
-- close: 72.6
-- volume: 8728761
-- ma5: 72.76
-- ema23_primary: 72.88
-- distance_to_ema23_pct: -0.38
-- ma20: 74.13
-- ma60: 74.72
-- ma120: 63.55
-- return_5d: -2.29
-- return_20d: 6.14
-- volume_ratio: 0.95
-- distance_to_ma20_pct_auxiliary: -2.06
-- distance_to_high_60_pct: -20.48
+- date: 20260717
+- open: 71
+- high: 71
+- low: 65.8
+- close: 65.9
+- volume: 8071677
+- ma5: 71.32
+- ema23_primary: 72.3
+- distance_to_ema23_pct: -8.85
+- ma20: 73.67
+- ma60: 74.61
+- ma120: 63.67
+- return_5d: -9.85
+- return_20d: -12.37
+- volume_ratio: 0.88
+- distance_to_ma20_pct_auxiliary: -10.54
+- distance_to_high_60_pct: -27.82
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260617,68.3,75.2,67.7,75.2,9326444,71.61,5.01,73.52,68.85,0.77
 20260618,76.3,82.7,75.2,81.4,26511874,72.43,12.39,73.29,69.27,2.35
 20260622,83.5,88.6,81.4,84.4,23091050,73.43,14.95,73.11,69.8,2.17
 20260623,85.3,89.8,79.6,79.6,25638885,73.94,7.65,72.88,70.26,2.38
@@ -154,20 +162,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260714,70.3,73.3,70.3,72.2,7786458,72.64,-0.61,73.66,74.44,0.89
 20260715,72.8,77.7,72.6,75.8,10256835,72.91,3.97,73.92,74.61,1.14
 20260716,75,77.7,72.6,72.6,8728761,72.88,-0.38,74.13,74.72,0.95
+20260717,71,71,65.8,65.9,8071677,72.3,-8.85,73.67,74.61,0.88
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260703
-- over_400_ratio: 68.41
-- over_600_ratio: 66.78
-- over_800_ratio: 66.02
-- over_1000_ratio: 64.89
-- over_400_change_1w: -0.48
-- over_800_change_1w: -0.32
-- over_1000_change_1w: -0.02
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260717
+- over_400_ratio: 68.5
+- over_600_ratio: 67.13
+- over_800_ratio: 66.38
+- over_1000_ratio: 64.39
+- over_400_change_1w: 0.09
+- over_800_change_1w: 0.36
+- over_1000_change_1w: -0.5
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -183,22 +192,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260618,67.25,0.92,65.06,0.9,63.76,1.24,1,True,True
 20260626,68.89,1.64,66.34,1.28,64.91,1.15,2,True,True
 20260703,68.41,-0.48,66.02,-0.32,64.89,-0.02,0,False,False
+20260717,68.5,0.09,66.38,0.36,64.39,-0.5,1,False,True
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 2388 | 威盛 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | call_inflow | stale_signal | 1.董事會決議日期:115/07/08 2.買回股份目的:維護公司信用及股東權益 3.買回股份種類:普通股 4.買回股份總金額上限(元):13,905,286,277 5.預定買回之期間:115/07/09~115/09/08 6.預定買回之數量(股):20,000,000 7.買回區間價格(元):48.65~90.00，公司股價低於區間價格下限，將繼續買回 8.買回方式:自集中交易市場買回 9.預定買回股份占公司已發行股份總數之比率(%):3.60 10.申報時已持有本公司股份之累積股數(股):0 11.申報前五年內買回公司股份之情形: 無買回 12.已申報買回但未執行完畢之情形: 不適用 13.董事會決議買回股份之會議紀錄: 案 由： 本公司擬買回庫藏股案，提請 討論。 說 明：  (一) 本公司為維護公司信用及股東權益，依據證券交易法第二十八條之二及「上市上櫃公司買回本 公司股份辦法」規定辦理，擬買回本公司股份，並依據證券交易法規定，預定於買回日起六個月內辦 理銷除股份之變更登記。 (二) 有關本次擬辦理買回股份之相關事項訂定如下： 1. 買回股份之目的：維護公司信用及股東權益。 2. 買回股份之種類：本公司普通股。 3. 買回股份之總金額上限：依法令規範，買回股份總金額上限為不超過 新台幣 13,905,286 仟元。本次買回股份之所需金額上限為新台幣1,800,000 仟元。 4. 預定買回之期間與數量：自 115 年 7月9日起至 115 年9 月 8日 止，買回 20,000 仟股。 5. 買回之區間價格：每股新台幣48.65元至90元之間，惟當公司股價低於所定買回區間價格下限 時，授 權董事長繼續執行買回公司股份。 6. 買回之方式：自集中交易市場買回。 (三) 本案業已委由群益金鼎證券股份有限公司出具針對買回股份價格之合理性評估意見，請詳附件 (三)。 (四) 依據「上市上櫃公司買回本公司股份辦法」之規定，已考慮公司財務狀 況，擬由董事會出具不影響公司資本維持之聲明，請詳附件(四)。 (五) 本案業經審計委員會審查通過。  決 議：本案經主席徵詢全體出席董事同意照案通過。 14.「上市上櫃公司買回本公司股份辦法」第十條規定之轉讓辦法: 不適用 15.「上市上櫃公司買回本公司股份辦法」第十一條規定之轉換或認股辦法: 不適用 16.董事會已考慮公司財務狀況，不影響公司資本維持之聲明: 董事會聲明書 一、本公司經115年7月8日 115年第四次董事會三分之二以上董事之出席及出席董事超過二分之一之 同意通過，自申報日起二個月內於集中交易市場﹙證券商營業處所﹚買回本公司股份20,000,000 股。 二、上述買回股份總數，僅占本公司已發行股份之百分之三點五九七五，且買回股份所需金額上限僅 占本公司流動資產之百分之六點六五九四，茲聲明本公司董事會已考慮公司財務狀況，上述股份之買 回並不影響本公司資本之維持。 三、本聲明書業經本公司上述同次董事會議通過，出席董事7人同意本聲明書之內容，併此聲明。 17.會計師或證券承銷商對買回股份價格之合理性評估意見: 依群益金鼎證券股份有限公司之評估意見，威盛電子股份有限公司所訂股份買回區間價格新台幣每股 48.65元至每股90元，落於規定之買回區間價格上限及下限內，經承銷商核算其引用之依據尚無不符， 故威盛所訂股份買回區間價格應屬合理。 18.其他證期局所規定之事項: 無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 2388 | 威盛 | 25 | 1 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 2388 | 威盛 | 65 | 0 | 7229160.0 | 0.0 |  | call_inflow |
+| 20260717 | 2388 | 威盛 | 64 | 3 | 6685920.0 | 142150.0 | 47.03 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

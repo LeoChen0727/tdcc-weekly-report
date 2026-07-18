@@ -1,15 +1,21 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8067 志旭
 
 ## Metadata
-- generated_at: 2026-07-17 22:27:56 Asia/Taipei
+- generated_at: 2026-07-18 20:55:25 Asia/Taipei
 - stock_id: 8067
 - stock_name: 志旭
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260716
-- price_rows: 151
-- latest_tdcc_date: 20260703
-- tdcc_rows: 10
+- latest_price_date: 20260717
+- price_rows: 152
+- current_main_price_date: 20260717
+- current_main_price_universe_status: current
+- current_main_price_universe_source: official_daily_price_latest_main_price_date
+- listing_status_source_status: formal_listing_status_source_unavailable
+- official_tdcc_signal_date: 20260717
+- latest_tdcc_date: 20260717
+- tdcc_rows: 11
 - tdcc_history_status: tdcc_history_ready
+- tdcc_freshness_status: tdcc_window_fresh
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
 - notes:
@@ -51,7 +57,10 @@
 - MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
-- If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
+- Only claim tdcc_history_ready when tdcc_rows >= 8 and latest_tdcc_date equals official_tdcc_signal_date.
+- If latest_tdcc_date differs from official_tdcc_signal_date, mark tdcc_window_stale and do not claim current TDCC history.
+- If the stock is absent from the official current main-price universe, preserve real TDCC dates and mark historical_only_noncurrent; do not infer a formal delisting status.
+- If TDCC is current but tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DISPLAY
@@ -113,29 +122,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260716
-- open: 13.25
-- high: 13.25
+- date: 20260717
+- open: 13.3
+- high: 13.3
 - low: 13.15
-- close: 13.15
-- volume: 2000
-- ma5: 13.09
-- ema23_primary: 13.21
-- distance_to_ema23_pct: -0.47
-- ma20: 13.22
-- ma60: 13.17
-- ma120: 13.95
-- return_5d: 3.14
-- return_20d: 7.35
-- volume_ratio: 0.2
-- distance_to_ma20_pct_auxiliary: -0.55
-- distance_to_high_60_pct: -12.04
+- close: 13.25
+- volume: 4000
+- ma5: 13.17
+- ema23_primary: 13.22
+- distance_to_ema23_pct: 0.26
+- ma20: 13.26
+- ma60: 13.16
+- ma120: 13.94
+- return_5d: 3.11
+- return_20d: 5.58
+- volume_ratio: 0.4
+- distance_to_ma20_pct_auxiliary: -0.06
+- distance_to_high_60_pct: -11.37
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260617,12.35,12.55,12.35,12.55,6000,13.09,-4.15,13.28,13.56,0.26
 20260618,12.7,12.8,12.5,12.8,14000,13.07,-2.06,13.18,13.53,0.72
 20260622,12.9,12.9,12.4,12.75,15000,13.04,-2.24,13.13,13.5,0.77
 20260623,12.8,13,12.6,13,20000,13.04,-0.3,13.1,13.47,1.01
@@ -155,10 +163,11 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260714,13.45,13.45,13.1,13.1,8000,13.21,-0.8,13.14,13.19,0.66
 20260715,13.35,13.35,13.35,13.35,1000,13.22,1,13.18,13.18,0.09
 20260716,13.25,13.25,13.15,13.15,2000,13.21,-0.47,13.22,13.17,0.2
+20260717,13.3,13.3,13.15,13.25,4000,13.22,0.26,13.26,13.16,0.4
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260703
+- as_of_date: 20260717
 - over_400_ratio: 81.35
 - over_600_ratio: 78.76
 - over_800_ratio: 75.32
@@ -184,6 +193,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260618,81.35,0,75.32,0,56.73,0,0,False,False
 20260626,81.35,0,75.32,0,56.73,0,0,False,False
 20260703,81.35,0,75.32,0,56.73,0,0,False,False
+20260717,81.35,0,75.32,0,56.73,0,0,False,False
 ```
 
 ## Candidate Context

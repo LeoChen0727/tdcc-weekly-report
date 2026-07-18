@@ -1,15 +1,21 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4946 辣椒
 
 ## Metadata
-- generated_at: 2026-07-17 22:27:12 Asia/Taipei
+- generated_at: 2026-07-18 20:54:28 Asia/Taipei
 - stock_id: 4946
 - stock_name: 辣椒
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260716
-- price_rows: 170
-- latest_tdcc_date: 20260703
-- tdcc_rows: 10
+- latest_price_date: 20260717
+- price_rows: 171
+- current_main_price_date: 20260717
+- current_main_price_universe_status: current
+- current_main_price_universe_source: official_daily_price_latest_main_price_date
+- listing_status_source_status: formal_listing_status_source_unavailable
+- official_tdcc_signal_date: 20260717
+- latest_tdcc_date: 20260717
+- tdcc_rows: 11
 - tdcc_history_status: tdcc_history_ready
+- tdcc_freshness_status: tdcc_window_fresh
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
 - notes:
@@ -51,7 +57,10 @@
 - MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
-- If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
+- Only claim tdcc_history_ready when tdcc_rows >= 8 and latest_tdcc_date equals official_tdcc_signal_date.
+- If latest_tdcc_date differs from official_tdcc_signal_date, mark tdcc_window_stale and do not claim current TDCC history.
+- If the stock is absent from the official current main-price universe, preserve real TDCC dates and mark historical_only_noncurrent; do not infer a formal delisting status.
+- If TDCC is current but tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DISPLAY
@@ -88,7 +97,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +121,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260716
-- open: 98.1
-- high: 98.2
-- low: 98.1
-- close: 98.1
-- volume: 8000
-- ma5: 98.8
-- ema23_primary: 102.79
-- distance_to_ema23_pct: -4.56
-- ma20: 103.65
-- ma60: 106.31
-- ma120: 114.72
-- return_5d: -2.39
-- return_20d: -10.82
-- volume_ratio: 0.17
-- distance_to_ma20_pct_auxiliary: -5.35
-- distance_to_high_60_pct: -24.83
+- date: 20260717
+- open: 97
+- high: 97
+- low: 90.2
+- close: 90.2
+- volume: 36000
+- ma5: 96.74
+- ema23_primary: 101.74
+- distance_to_ema23_pct: -11.34
+- ma20: 102.64
+- ma60: 105.96
+- ma120: 114.62
+- return_5d: -10.25
+- return_20d: -18.37
+- volume_ratio: 0.8
+- distance_to_ma20_pct_auxiliary: -12.12
+- distance_to_high_60_pct: -30.88
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260617,108.5,111.5,108,110.5,97000,106.87,3.4,105.67,109.28,0.74
 20260618,111,114,110.5,110.5,99000,107.17,3.11,105.83,109.07,0.73
 20260622,111,111,107.5,108,99000,107.24,0.71,105.78,108.83,0.73
 20260623,108,108,105.5,106,42000,107.14,-1.06,105.83,108.58,0.32
@@ -155,10 +162,11 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260714,99.2,99.2,96.5,97.1,43000,103.58,-6.26,104.54,106.69,0.62
 20260715,99,99.1,99,99.1,5000,103.21,-3.98,104.25,106.46,0.07
 20260716,98.1,98.2,98.1,98.1,8000,102.79,-4.56,103.65,106.31,0.17
+20260717,97,97,90.2,90.2,36000,101.74,-11.34,102.64,105.96,0.8
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260703
+- as_of_date: 20260717
 - over_400_ratio: 42.58
 - over_600_ratio: 42.58
 - over_800_ratio: 42.58
@@ -184,6 +192,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260618,42.58,0,42.58,0,42.58,0,0,False,False
 20260626,42.58,0,42.58,0,42.58,0,0,False,False
 20260703,42.58,0,42.58,0,42.58,0,0,False,False
+20260717,42.58,0,42.58,0,42.58,0,0,False,False
 ```
 
 ## Candidate Context

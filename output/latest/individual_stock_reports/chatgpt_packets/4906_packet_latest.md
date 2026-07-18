@@ -1,15 +1,21 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4906 正文
 
 ## Metadata
-- generated_at: 2026-07-17 22:27:10 Asia/Taipei
+- generated_at: 2026-07-18 20:54:27 Asia/Taipei
 - stock_id: 4906
 - stock_name: 正文
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260716
-- price_rows: 305
-- latest_tdcc_date: 20260703
-- tdcc_rows: 10
+- latest_price_date: 20260717
+- price_rows: 306
+- current_main_price_date: 20260717
+- current_main_price_universe_status: current
+- current_main_price_universe_source: official_daily_price_latest_main_price_date
+- listing_status_source_status: formal_listing_status_source_unavailable
+- official_tdcc_signal_date: 20260717
+- latest_tdcc_date: 20260717
+- tdcc_rows: 11
 - tdcc_history_status: tdcc_history_ready
+- tdcc_freshness_status: tdcc_window_fresh
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
 - notes:
@@ -51,7 +57,10 @@
 - MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
-- If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
+- Only claim tdcc_history_ready when tdcc_rows >= 8 and latest_tdcc_date equals official_tdcc_signal_date.
+- If latest_tdcc_date differs from official_tdcc_signal_date, mark tdcc_window_stale and do not claim current TDCC history.
+- If the stock is absent from the official current main-price universe, preserve real TDCC dates and mark historical_only_noncurrent; do not infer a formal delisting status.
+- If TDCC is current but tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DISPLAY
@@ -112,29 +121,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260716
-- open: 38.3
-- high: 38.75
-- low: 37.65
-- close: 37.75
-- volume: 3231468
-- ma5: 38.56
-- ema23_primary: 41.28
-- distance_to_ema23_pct: -8.55
-- ma20: 41.8
-- ma60: 41.43
-- ma120: 36.18
-- return_5d: -5.74
-- return_20d: -12
-- volume_ratio: 0.35
-- distance_to_ma20_pct_auxiliary: -9.69
-- distance_to_high_60_pct: -32.35
+- date: 20260717
+- open: 37.1
+- high: 37.55
+- low: 35.35
+- close: 35.65
+- volume: 7509331
+- ma5: 37.71
+- ema23_primary: 40.81
+- distance_to_ema23_pct: -12.64
+- ma20: 41.4
+- ma60: 41.35
+- ma120: 36.25
+- return_5d: -10.65
+- return_20d: -18.33
+- volume_ratio: 0.81
+- distance_to_ma20_pct_auxiliary: -13.89
+- distance_to_high_60_pct: -36.11
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260617,42.2,44.45,42.2,43.65,6105269,43.86,-0.48,45.53,40.05,0.22
 20260618,44.25,44.45,43.2,43.8,7362948,43.85,-0.13,45.77,40.26,0.27
 20260622,44.5,47.65,43.9,47.65,23143645,44.17,7.88,46.14,40.55,0.83
 20260623,48.4,48.75,44.45,44.5,21770653,44.2,0.68,46.15,40.73,0.82
@@ -154,17 +162,18 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260714,38.8,39.2,36.15,37.6,8490676,41.85,-10.16,42.34,41.43,0.86
 20260715,37.95,38.95,37.8,38.8,4039423,41.6,-6.73,42.06,41.44,0.42
 20260716,38.3,38.75,37.65,37.75,3231468,41.28,-8.55,41.8,41.43,0.35
+20260717,37.1,37.55,35.35,35.65,7509331,40.81,-12.64,41.4,41.35,0.81
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260703
-- over_400_ratio: 30.23
-- over_600_ratio: 27.03
-- over_800_ratio: 24.9
-- over_1000_ratio: 23.92
-- over_400_change_1w: -0.68
-- over_800_change_1w: -1.35
-- over_1000_change_1w: -1.19
+- as_of_date: 20260717
+- over_400_ratio: 29.33
+- over_600_ratio: 26.66
+- over_800_ratio: 24.35
+- over_1000_ratio: 23.34
+- over_400_change_1w: -0.9
+- over_800_change_1w: -0.55
+- over_1000_change_1w: -0.58
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -183,6 +192,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260618,33.02,0.18,28.88,0.24,27.68,0.21,1,True,True
 20260626,30.91,-2.11,26.25,-2.63,25.11,-2.57,0,False,False
 20260703,30.23,-0.68,24.9,-1.35,23.92,-1.19,0,False,False
+20260717,29.33,-0.9,24.35,-0.55,23.34,-0.58,0,False,False
 ```
 
 ## Candidate Context
@@ -198,7 +208,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 4906 | 正文 | 49 | 0 | 1526910.0 | 0.0 |  | no_signal |
+| 20260717 | 4906 | 正文 | 50 | 0 | 1908980.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

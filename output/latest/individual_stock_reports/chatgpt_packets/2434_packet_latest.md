@@ -1,15 +1,21 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2434 統懋
 
 ## Metadata
-- generated_at: 2026-07-17 22:26:31 Asia/Taipei
+- generated_at: 2026-07-18 20:53:37 Asia/Taipei
 - stock_id: 2434
 - stock_name: 統懋
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260716
-- price_rows: 305
-- latest_tdcc_date: 20260703
-- tdcc_rows: 10
+- latest_price_date: 20260717
+- price_rows: 306
+- current_main_price_date: 20260717
+- current_main_price_universe_status: current
+- current_main_price_universe_source: official_daily_price_latest_main_price_date
+- listing_status_source_status: formal_listing_status_source_unavailable
+- official_tdcc_signal_date: 20260717
+- latest_tdcc_date: 20260717
+- tdcc_rows: 11
 - tdcc_history_status: tdcc_history_ready
+- tdcc_freshness_status: tdcc_window_fresh
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
 - notes:
@@ -51,22 +57,25 @@
 - MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
-- If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
+- Only claim tdcc_history_ready when tdcc_rows >= 8 and latest_tdcc_date equals official_tdcc_signal_date.
+- If latest_tdcc_date differs from official_tdcc_signal_date, mark tdcc_window_stale and do not claim current TDCC history.
+- If the stock is absent from the official current main-price universe, preserve real TDCC dates and mark historical_only_noncurrent; do not infer a formal delisting status.
+- If TDCC is current but tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 嚴格突破
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 嚴格突破 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 嚴格突破 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
+- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -111,29 +120,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260716
-- open: 82.6
-- high: 90.8
-- low: 82.6
-- close: 90.8
-- volume: 1091972
-- ma5: 75.78
-- ema23_primary: 55.93
-- distance_to_ema23_pct: 62.34
-- ma20: 53.73
-- ma60: 39.45
-- ma120: 34.51
-- return_5d: 60.71
-- return_20d: 138.95
-- volume_ratio: 0.91
-- distance_to_ma20_pct_auxiliary: 68.99
-- distance_to_high_60_pct: 0
+- date: 20260717
+- open: 88.5
+- high: 88.5
+- low: 81.8
+- close: 81.8
+- volume: 428072
+- ma5: 79.72
+- ema23_primary: 58.09
+- distance_to_ema23_pct: 40.82
+- ma20: 55.99
+- ma60: 40.31
+- ma120: 34.94
+- return_5d: 31.72
+- return_20d: 124.11
+- volume_ratio: 0.35
+- distance_to_ma20_pct_auxiliary: 46.08
+- distance_to_high_60_pct: -9.91
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260617,38.55,39.5,36.3,36.5,378618,33.9,7.67,34.17,31.4,1.53
 20260618,37,40.05,37,38.85,501748,34.31,13.23,34.65,31.57,1.87
 20260622,40.2,42.7,39.1,42.7,1451272,35.01,21.96,35.28,31.79,4.27
 20260623,45.4,46.95,45.2,46.95,664871,36.01,30.4,36.13,32.09,1.8
@@ -153,17 +161,18 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260714,74.5,75.1,72,75.1,2714137,50.05,50.05,48.69,37.55,2.36
 20260715,82.6,82.6,78.6,82.6,758183,52.76,56.55,51.09,38.43,0.64
 20260716,82.6,90.8,82.6,90.8,1091972,55.93,62.34,53.73,39.45,0.91
+20260717,88.5,88.5,81.8,81.8,428072,58.09,40.82,55.99,40.31,0.35
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260703
-- over_400_ratio: 80.15
-- over_600_ratio: 77.32
-- over_800_ratio: 77.32
-- over_1000_ratio: 77.32
-- over_400_change_1w: -0.2
-- over_800_change_1w: -0.14
-- over_1000_change_1w: -0.14
+- as_of_date: 20260717
+- over_400_ratio: 78.19
+- over_600_ratio: 76.89
+- over_800_ratio: 76.89
+- over_1000_ratio: 74.38
+- over_400_change_1w: -1.96
+- over_800_change_1w: -0.43
+- over_1000_change_1w: -2.94
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -182,17 +191,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260618,80.43,0,77.5,0,77.5,0,0,False,False
 20260626,80.35,-0.08,77.46,-0.04,77.46,-0.04,0,False,False
 20260703,80.15,-0.2,77.32,-0.14,77.32,-0.14,0,False,False
+20260717,78.19,-1.96,76.89,-0.43,74.38,-2.94,0,False,False
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 2434 | 統懋 | true_breakout | 嚴格突破 | 64.0 |  |  | platform_right_side |  |  | first_seen | 1.事實發生日:115/07/06 2.發生緣由:依台灣證券交易所(股)公司指示辦理 3.財務業務資訊: 期間           (月)                 (季)             (最近四季累計)        最近一月   與去年同期  最近一季  與去年同期   (115年1季至114年2季) 科目  (115年05月)  增減％     (115年1季) 增減％        合併自結數             合併核閱數              合併核閱數 ---------- ----------- ---------- ---------- --------------- 營業收入 (百萬)     3.92   - 12.30%     10.86      5.95%         46.16 稅前淨利 (百萬)   -10.34   -258.35%     -1.31   -109.44%        -14.41 歸屬母公司業主淨利 (百萬)   -10.34   -258.35%     -4.73   -134.08%        -17.84 每股盈餘 (元)     -0.28    -255.56%     -0.13   -134.21%         -0.49 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告: 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 2434 | 統懋 | 1 | 1 | 4 | 8 | 12 | first_seen | 首次上榜或資料有限，需後續確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

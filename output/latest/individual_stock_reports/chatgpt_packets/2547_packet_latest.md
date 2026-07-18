@@ -1,15 +1,21 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2547 日勝生
 
 ## Metadata
-- generated_at: 2026-07-17 22:26:35 Asia/Taipei
+- generated_at: 2026-07-18 20:53:43 Asia/Taipei
 - stock_id: 2547
 - stock_name: 日勝生
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260716
-- price_rows: 305
-- latest_tdcc_date: 20260703
-- tdcc_rows: 10
+- latest_price_date: 20260717
+- price_rows: 306
+- current_main_price_date: 20260717
+- current_main_price_universe_status: current
+- current_main_price_universe_source: official_daily_price_latest_main_price_date
+- listing_status_source_status: formal_listing_status_source_unavailable
+- official_tdcc_signal_date: 20260717
+- latest_tdcc_date: 20260717
+- tdcc_rows: 11
 - tdcc_history_status: tdcc_history_ready
+- tdcc_freshness_status: tdcc_window_fresh
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
 - notes:
@@ -51,14 +57,17 @@
 - MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
-- If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
+- Only claim tdcc_history_ready when tdcc_rows >= 8 and latest_tdcc_date equals official_tdcc_signal_date.
+- If latest_tdcc_date differs from official_tdcc_signal_date, mark tdcc_window_stale and do not claim current TDCC history.
+- If the stock is absent from the official current main-price universe, preserve real TDCC dates and mark historical_only_noncurrent; do not infer a formal delisting status.
+- If TDCC is current but tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 可分批買進
 - model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
 - action_summary_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。
 - entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
 - position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
@@ -92,6 +101,7 @@
 
 ### entry_prerequisites
 - model_recommended
+- decision_score_high
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -117,29 +127,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260716
-- open: 11.15
-- high: 11.25
-- low: 11.05
-- close: 11.1
-- volume: 7151321
-- ma5: 11.21
-- ema23_primary: 11.08
-- distance_to_ema23_pct: 0.16
-- ma20: 11.16
-- ma60: 10.61
+- date: 20260717
+- open: 10.3
+- high: 10.45
+- low: 10.2
+- close: 10.3
+- volume: 5348058
+- ma5: 10.98
+- ema23_primary: 11.02
+- distance_to_ema23_pct: -6.51
+- ma20: 11.12
+- ma60: 10.6
 - ma120: 10.75
-- return_5d: -1.33
-- return_20d: 0.45
-- volume_ratio: 1.67
-- distance_to_ma20_pct_auxiliary: -0.54
-- distance_to_high_60_pct: -5.93
+- return_5d: -10.04
+- return_20d: -8.04
+- volume_ratio: 1.22
+- distance_to_ma20_pct_auxiliary: -7.33
+- distance_to_high_60_pct: -12.71
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260617,11.1,11.2,11,11.2,3573031,10.61,5.56,10.46,10.48,0.61
 20260618,11.25,11.35,11.1,11.2,4688438,10.66,5.07,10.51,10.48,0.78
 20260622,11.1,11.15,10.9,10.95,5092862,10.68,2.5,10.56,10.49,0.82
 20260623,10.95,11.05,10.9,10.95,2126249,10.71,2.28,10.61,10.49,0.35
@@ -159,19 +168,20 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260714,11.35,11.35,11.1,11.15,4809524,11.08,0.6,11.15,10.6,1.19
 20260715,11.2,11.3,11,11.05,5749300,11.08,-0.27,11.16,10.6,1.38
 20260716,11.15,11.25,11.05,11.1,7151321,11.08,0.16,11.16,10.61,1.67
+20260717,10.3,10.45,10.2,10.3,5348058,11.02,-6.51,11.12,10.6,1.22
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260703
-- over_400_ratio: 70.02
+- as_of_date: 20260717
+- over_400_ratio: 69.98
 - over_600_ratio: 67.92
-- over_800_ratio: 65.34
-- over_1000_ratio: 63.31
-- over_400_change_1w: 0.47
-- over_800_change_1w: 0.4
-- over_1000_change_1w: 0.48
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: True
+- over_800_ratio: 65.53
+- over_1000_ratio: 63.41
+- over_400_change_1w: -0.04
+- over_800_change_1w: 0.19
+- over_1000_change_1w: 0.1
+- tdcc_consecutive_up_weeks: 4
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -188,18 +198,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260618,69.56,0.44,64.92,0.5,62.9,0.41,1,True,True
 20260626,69.55,-0.01,64.94,0.02,62.83,-0.07,2,False,True
 20260703,70.02,0.47,65.34,0.4,63.31,0.48,3,True,True
+20260717,69.98,-0.04,65.53,0.19,63.41,0.1,4,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 2547 | 日勝生 | revenue_pullback | 營收成長股價回檔 | 70.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  |  | stale_signal | 1.董事會決議日期或發生變動日期:115/07/16 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:林榮顯 4.舊任者簡歷:日勝生活科技(股)公司董事長 5.新任者姓名:林榮顯 6.新任者簡歷:日勝生活科技(股)公司董事長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因:董事會選任 9.新任生效日期:115/07/16 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):無；calendar event: ex_dividend on 20260717; status=confirmed; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
-| 20260716 | 2547 | 日勝生 | revenue_breakout_low_response | 營收爆發低反應股 | 21.0 | 12.0 | B_可觀察 |  |  |  | stale_signal | 1.董事會決議日期或發生變動日期:115/07/16 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:林榮顯 4.舊任者簡歷:日勝生活科技(股)公司董事長 5.新任者姓名:林榮顯 6.新任者簡歷:日勝生活科技(股)公司董事長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因:董事會選任 9.新任生效日期:115/07/16 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):無；calendar event: ex_dividend on 20260717; status=confirmed; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260717 | 2547 | 日勝生 | revenue_pullback | 營收成長股價回檔 | 90.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  |  | stale_signal | 1.董事會決議日期或發生變動日期:115/07/16 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:林榮顯 4.舊任者簡歷:日勝生活科技(股)公司董事長 5.新任者姓名:林榮顯 6.新任者簡歷:日勝生活科技(股)公司董事長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因:董事會選任 9.新任生效日期:115/07/16 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260717 | 2547 | 日勝生 | revenue_breakout_low_response | 營收爆發低反應股 | 18.0 | 13.0 | B_可觀察 |  |  |  | stale_signal | 1.董事會決議日期或發生變動日期:115/07/16 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:林榮顯 4.舊任者簡歷:日勝生活科技(股)公司董事長 5.新任者姓名:林榮顯 6.新任者簡歷:日勝生活科技(股)公司董事長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因:董事會選任 9.新任生效日期:115/07/16 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 2547 | 日勝生 | 1 | 1 | 4 | 9 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260717 | 2547 | 日勝生 | 2 | 2 | 4 | 9 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

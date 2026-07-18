@@ -1,15 +1,21 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2101 南港
 
 ## Metadata
-- generated_at: 2026-07-17 22:26:23 Asia/Taipei
+- generated_at: 2026-07-18 20:53:28 Asia/Taipei
 - stock_id: 2101
 - stock_name: 南港
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260716
-- price_rows: 300
-- latest_tdcc_date: 20260703
-- tdcc_rows: 10
+- latest_price_date: 20260717
+- price_rows: 301
+- current_main_price_date: 20260717
+- current_main_price_universe_status: current
+- current_main_price_universe_source: official_daily_price_latest_main_price_date
+- listing_status_source_status: formal_listing_status_source_unavailable
+- official_tdcc_signal_date: 20260717
+- latest_tdcc_date: 20260717
+- tdcc_rows: 11
 - tdcc_history_status: tdcc_history_ready
+- tdcc_freshness_status: tdcc_window_fresh
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
 - notes:
@@ -51,7 +57,10 @@
 - MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
-- If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
+- Only claim tdcc_history_ready when tdcc_rows >= 8 and latest_tdcc_date equals official_tdcc_signal_date.
+- If latest_tdcc_date differs from official_tdcc_signal_date, mark tdcc_window_stale and do not claim current TDCC history.
+- If the stock is absent from the official current main-price universe, preserve real TDCC dates and mark historical_only_noncurrent; do not infer a formal delisting status.
+- If TDCC is current but tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DISPLAY
@@ -113,29 +122,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260716
-- open: 34.3
-- high: 35.3
-- low: 34.25
-- close: 34.55
-- volume: 2875074
+- date: 20260717
+- open: 34.55
+- high: 35
+- low: 33.75
+- close: 34
+- volume: 3003610
 - ma5: 34.28
-- ema23_primary: 33.16
-- distance_to_ema23_pct: 4.19
-- ma20: 32.84
-- ma60: 32.59
-- ma120: 33.99
-- return_5d: 2.52
-- return_20d: 3.29
-- volume_ratio: 0.83
-- distance_to_ma20_pct_auxiliary: 5.21
-- distance_to_high_60_pct: -4.03
+- ema23_primary: 33.23
+- distance_to_ema23_pct: 2.31
+- ma20: 32.88
+- ma60: 32.57
+- ma120: 33.96
+- return_5d: 0
+- return_20d: 2.1
+- volume_ratio: 0.85
+- distance_to_ma20_pct_auxiliary: 3.42
+- distance_to_high_60_pct: -3.95
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260617,33.3,33.35,32.8,33.3,1715178,32.48,2.51,31.84,33.52,0.63
 20260618,33.25,33.85,32.4,32.45,8666059,32.48,-0.1,31.91,33.48,2.84
 20260622,32.5,32.55,31.8,32.05,10223595,32.45,-1.22,31.98,33.43,2.96
 20260623,32.3,32.3,31.35,31.35,5742443,32.35,-3.1,32.04,33.37,1.62
@@ -155,20 +163,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260714,34.95,34.95,33.9,34.2,10271012,32.94,3.83,32.76,32.63,2.93
 20260715,34.3,34.55,33.85,34.1,1523930,33.03,3.22,32.78,32.61,0.45
 20260716,34.3,35.3,34.25,34.55,2875074,33.16,4.19,32.84,32.59,0.83
+20260717,34.55,35,33.75,34,3003610,33.23,2.31,32.88,32.57,0.85
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260703
-- over_400_ratio: 64.65
-- over_600_ratio: 62.01
-- over_800_ratio: 60.49
-- over_1000_ratio: 58.64
-- over_400_change_1w: 0.2
-- over_800_change_1w: -0.01
-- over_1000_change_1w: -0.04
-- tdcc_consecutive_up_weeks: 6
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260717
+- over_400_ratio: 65.36
+- over_600_ratio: 62.78
+- over_800_ratio: 60.81
+- over_1000_ratio: 59.37
+- over_400_change_1w: 0.71
+- over_800_change_1w: 0.32
+- over_1000_change_1w: 0.73
+- tdcc_consecutive_up_weeks: 7
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -184,24 +193,25 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260618,64.54,0.1,60.59,-0.13,58.4,-0.29,4,False,False
 20260626,64.45,-0.09,60.5,-0.09,58.68,0.28,5,False,True
 20260703,64.65,0.2,60.49,-0.01,58.64,-0.04,6,False,False
+20260717,65.36,0.71,60.81,0.32,59.37,0.73,7,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 2101 | 南港 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
-| 20260716 | 2101 | 南港 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260716 | 2101 | 南港 | revenue_breakout_low_response | 營收爆發低反應股 | 24.0 | 10.0 | B_可觀察 |  |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260717 | 2101 | 南港 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d |
+| 20260717 | 2101 | 南港 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260717 | 2101 | 南港 | revenue_breakout_low_response | 營收爆發低反應股 | 24.0 | 10.0 | B_可觀察 |  |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 2101 | 南港 | 17 | 2 | 5 | 10 | 19 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 19 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260717 | 2101 | 南港 | 18 | 3 | 5 | 10 | 19 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 19 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 2101 | 南港 | 3 | 0 | 359850.0 | 0.0 |  | no_signal |
+| 20260717 | 2101 | 南港 | 3 | 0 | 788830.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

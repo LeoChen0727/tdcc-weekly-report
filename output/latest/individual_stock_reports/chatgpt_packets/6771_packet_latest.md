@@ -1,15 +1,21 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6771 平和環保-創
 
 ## Metadata
-- generated_at: 2026-07-17 22:27:41 Asia/Taipei
+- generated_at: 2026-07-18 20:55:06 Asia/Taipei
 - stock_id: 6771
 - stock_name: 平和環保-創
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260716
-- price_rows: 305
-- latest_tdcc_date: 20260703
-- tdcc_rows: 10
+- latest_price_date: 20260717
+- price_rows: 306
+- current_main_price_date: 20260717
+- current_main_price_universe_status: current
+- current_main_price_universe_source: official_daily_price_latest_main_price_date
+- listing_status_source_status: formal_listing_status_source_unavailable
+- official_tdcc_signal_date: 20260717
+- latest_tdcc_date: 20260717
+- tdcc_rows: 11
 - tdcc_history_status: tdcc_history_ready
+- tdcc_freshness_status: tdcc_window_fresh
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
 - notes:
@@ -51,7 +57,10 @@
 - MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
-- If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
+- Only claim tdcc_history_ready when tdcc_rows >= 8 and latest_tdcc_date equals official_tdcc_signal_date.
+- If latest_tdcc_date differs from official_tdcc_signal_date, mark tdcc_window_stale and do not claim current TDCC history.
+- If the stock is absent from the official current main-price universe, preserve real TDCC dates and mark historical_only_noncurrent; do not infer a formal delisting status.
+- If TDCC is current but tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DISPLAY
@@ -113,29 +122,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260716
-- open: 38.5
-- high: 38.8
-- low: 38.5
-- close: 38.7
-- volume: 4026
-- ma5: 39.17
-- ema23_primary: 39.95
-- distance_to_ema23_pct: -3.13
-- ma20: 39.8
-- ma60: 41.92
-- ma120: 43.13
-- return_5d: -1.53
-- return_20d: -7.75
-- volume_ratio: 0.12
-- distance_to_ma20_pct_auxiliary: -2.78
-- distance_to_high_60_pct: -17.83
+- date: 20260717
+- open: 38.7
+- high: 38.9
+- low: 38.45
+- close: 38.5
+- volume: 38563
+- ma5: 38.91
+- ema23_primary: 39.83
+- distance_to_ema23_pct: -3.34
+- ma20: 39.64
+- ma60: 41.8
+- ma120: 43.06
+- return_5d: -3.27
+- return_20d: -7.78
+- volume_ratio: 1.13
+- distance_to_ma20_pct_auxiliary: -2.88
+- distance_to_high_60_pct: -18.26
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260617,41.6,41.95,41.6,41.75,10000,42.17,-0.99,41.87,43.37,0.3
 20260618,41.65,42,41.45,42,82000,42.16,-0.37,41.88,43.33,2.3
 20260622,41.9,42,41.8,42,19567,42.14,-0.34,41.89,43.31,0.6
 20260623,42,42.05,41.85,42.05,21000,42.13,-0.2,41.91,43.27,0.66
@@ -155,10 +163,11 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260714,39.5,39.7,38.3,38.95,26010,40.13,-2.95,40.1,42.13,0.72
 20260715,39.3,39.3,39,39.3,4000,40.06,-1.91,39.97,42.03,0.12
 20260716,38.5,38.8,38.5,38.7,4026,39.95,-3.13,39.8,41.92,0.12
+20260717,38.7,38.9,38.45,38.5,38563,39.83,-3.34,39.64,41.8,1.13
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260703
+- as_of_date: 20260717
 - over_400_ratio: 40.86
 - over_600_ratio: 27.8
 - over_800_ratio: 21.03
@@ -184,6 +193,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260618,40.64,0,21.03,0,18.13,0,0,False,False
 20260626,40.86,0.22,21.03,0,18.13,0,1,False,False
 20260703,40.86,0,21.03,0,18.13,0,0,False,False
+20260717,40.86,0,21.03,0,18.13,0,0,False,False
 ```
 
 ## Candidate Context

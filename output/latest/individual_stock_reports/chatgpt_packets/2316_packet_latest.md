@@ -1,15 +1,21 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2316 楠梓電
 
 ## Metadata
-- generated_at: 2026-07-17 22:26:25 Asia/Taipei
+- generated_at: 2026-07-18 20:53:31 Asia/Taipei
 - stock_id: 2316
 - stock_name: 楠梓電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260716
-- price_rows: 305
-- latest_tdcc_date: 20260703
-- tdcc_rows: 10
+- latest_price_date: 20260717
+- price_rows: 306
+- current_main_price_date: 20260717
+- current_main_price_universe_status: current
+- current_main_price_universe_source: official_daily_price_latest_main_price_date
+- listing_status_source_status: formal_listing_status_source_unavailable
+- official_tdcc_signal_date: 20260717
+- latest_tdcc_date: 20260717
+- tdcc_rows: 11
 - tdcc_history_status: tdcc_history_ready
+- tdcc_freshness_status: tdcc_window_fresh
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
 - notes:
@@ -51,7 +57,10 @@
 - MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
-- If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
+- Only claim tdcc_history_ready when tdcc_rows >= 8 and latest_tdcc_date equals official_tdcc_signal_date.
+- If latest_tdcc_date differs from official_tdcc_signal_date, mark tdcc_window_stale and do not claim current TDCC history.
+- If the stock is absent from the official current main-price universe, preserve real TDCC dates and mark historical_only_noncurrent; do not infer a formal delisting status.
+- If TDCC is current but tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DISPLAY
@@ -119,29 +128,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260716
-- open: 175
-- high: 181.5
-- low: 172
-- close: 177
-- volume: 2101659
-- ma5: 186.6
-- ema23_primary: 194.9
-- distance_to_ema23_pct: -9.18
-- ma20: 208.7
-- ma60: 164.23
-- ma120: 132.53
-- return_5d: -18.81
-- return_20d: 4.12
-- volume_ratio: 0.5
-- distance_to_ma20_pct_auxiliary: -15.19
-- distance_to_high_60_pct: -28.77
+- date: 20260717
+- open: 172
+- high: 172
+- low: 159.5
+- close: 159.5
+- volume: 2695065
+- ma5: 176.9
+- ema23_primary: 191.95
+- distance_to_ema23_pct: -16.91
+- ma20: 207.32
+- ma60: 164.97
+- ma120: 133.04
+- return_5d: -23.32
+- return_20d: -14.71
+- volume_ratio: 0.72
+- distance_to_ma20_pct_auxiliary: -23.07
+- distance_to_high_60_pct: -35.81
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260617,168.5,187,166.5,187,11978644,158.77,17.78,165,131.35,1.55
 20260618,192,205.5,192,205.5,5702420,162.66,26.33,167.72,133.08,0.77
 20260622,226,226,226,226,2199185,167.94,34.57,171.35,135.18,0.33
 20260623,237.5,248.5,216.5,217.5,19257817,172.07,26.4,173.8,137.09,2.64
@@ -161,20 +169,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260714,180,184,169,184,4473612,198.17,-7.15,208,162.08,0.96
 20260715,186.5,192,178,178.5,3278129,196.53,-9.17,208.35,163.15,0.72
 20260716,175,181.5,172,177,2101659,194.9,-9.18,208.7,164.23,0.5
+20260717,172,172,159.5,159.5,2695065,191.95,-16.91,207.32,164.97,0.72
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260703
-- over_400_ratio: 67.33
-- over_600_ratio: 63.91
-- over_800_ratio: 61.31
-- over_1000_ratio: 59.84
-- over_400_change_1w: -0.7
-- over_800_change_1w: 0.22
-- over_1000_change_1w: 0.25
-- tdcc_consecutive_up_weeks: 4
+- as_of_date: 20260717
+- over_400_ratio: 65.81
+- over_600_ratio: 63.24
+- over_800_ratio: 60.26
+- over_1000_ratio: 58.67
+- over_400_change_1w: -1.52
+- over_800_change_1w: -1.05
+- over_1000_change_1w: -1.17
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -190,22 +199,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260618,67.88,3.18,59.93,-0.16,58.42,0.76,2,False,True
 20260626,68.03,0.15,61.09,1.16,59.59,1.17,3,True,True
 20260703,67.33,-0.7,61.31,0.22,59.84,0.25,4,False,True
+20260717,65.81,-1.52,60.26,-1.05,58.67,-1.17,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 2316 | 楠梓電 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/06/23 2.發生緣由:依臺灣證券交易所股份有限公司通知辦理公告 3.財務業務資訊:              最近一月  與去年同期    最近一季    與去年同期   最近四季累計  期間       (115年05月)             (115年第1季)               (114年第2季                                                               ~115年第1季)  科目     (合併自結數)    增減%       (核閱數)      增減%     (查核/核閱數) ======   =============  ========   ============  ==========  ============== 營業收入 (百萬元)          382      39%         1,022          17%         3,891 稅前淨利 (百萬元)          127     299%           821         149%         3,703 歸屬母公司業主淨利 (百萬元)          105     312%           640         141%         2,801  每股盈餘(元)     0.58     312%          3.53         142%         15.45 註:稅前淨利較去年同期增加主要是營收增加及轉投資利潤增加所致。 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無。 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無。 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告: 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260717 | 2316 | 楠梓電 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/06/23 2.發生緣由:依臺灣證券交易所股份有限公司通知辦理公告 3.財務業務資訊:              最近一月  與去年同期    最近一季    與去年同期   最近四季累計  期間       (115年05月)             (115年第1季)               (114年第2季                                                               ~115年第1季)  科目     (合併自結數)    增減%       (核閱數)      增減%     (查核/核閱數) ======   =============  ========   ============  ==========  ============== 營業收入 (百萬元)          382      39%         1,022          17%         3,891 稅前淨利 (百萬元)          127     299%           821         149%         3,703 歸屬母公司業主淨利 (百萬元)          105     312%           640         141%         2,801  每股盈餘(元)     0.58     312%          3.53         142%         15.45 註:稅前淨利較去年同期增加主要是營收增加及轉投資利潤增加所致。 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無。 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無。 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告: 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 2316 | 楠梓電 | 1 | 1 | 4 | 5 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260717 | 2316 | 楠梓電 | 2 | 2 | 4 | 6 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 2316 | 楠梓電 | 84 | 0 | 6522260.0 | 0.0 |  | no_signal |
+| 20260717 | 2316 | 楠梓電 | 84 | 0 | 4879410.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,15 +1,21 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6201 亞弘電
 
 ## Metadata
-- generated_at: 2026-07-17 22:27:27 Asia/Taipei
+- generated_at: 2026-07-18 20:54:47 Asia/Taipei
 - stock_id: 6201
 - stock_name: 亞弘電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260716
-- price_rows: 305
-- latest_tdcc_date: 20260703
-- tdcc_rows: 10
+- latest_price_date: 20260717
+- price_rows: 306
+- current_main_price_date: 20260717
+- current_main_price_universe_status: current
+- current_main_price_universe_source: official_daily_price_latest_main_price_date
+- listing_status_source_status: formal_listing_status_source_unavailable
+- official_tdcc_signal_date: 20260717
+- latest_tdcc_date: 20260717
+- tdcc_rows: 11
 - tdcc_history_status: tdcc_history_ready
+- tdcc_freshness_status: tdcc_window_fresh
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
 - notes:
@@ -51,7 +57,10 @@
 - MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
-- If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
+- Only claim tdcc_history_ready when tdcc_rows >= 8 and latest_tdcc_date equals official_tdcc_signal_date.
+- If latest_tdcc_date differs from official_tdcc_signal_date, mark tdcc_window_stale and do not claim current TDCC history.
+- If the stock is absent from the official current main-price universe, preserve real TDCC dates and mark historical_only_noncurrent; do not infer a formal delisting status.
+- If TDCC is current but tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DISPLAY
@@ -113,29 +122,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260716
-- open: 49.2
-- high: 49.2
-- low: 48.4
-- close: 49
-- volume: 20027
-- ma5: 48.84
-- ema23_primary: 48.61
-- distance_to_ema23_pct: 0.79
-- ma20: 48.58
-- ma60: 48.83
-- ma120: 50.75
-- return_5d: 0.82
-- return_20d: 2.08
-- volume_ratio: 0.53
-- distance_to_ma20_pct_auxiliary: 0.86
-- distance_to_high_60_pct: -6.67
+- date: 20260717
+- open: 49.15
+- high: 49.15
+- low: 47.85
+- close: 49.05
+- volume: 69131
+- ma5: 49.01
+- ema23_primary: 48.65
+- distance_to_ema23_pct: 0.82
+- ma20: 48.62
+- ma60: 48.78
+- ma120: 50.7
+- return_5d: 1.76
+- return_20d: 1.66
+- volume_ratio: 1.74
+- distance_to_ma20_pct_auxiliary: 0.88
+- distance_to_high_60_pct: -5.31
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260617,47.9,48.3,47.5,48.25,28440,48.21,0.08,48.03,49.43,0.49
 20260618,48.3,48.6,47.5,48.4,51508,48.23,0.36,48.11,49.4,0.9
 20260622,48,48.75,47.7,48.3,90351,48.23,0.14,48.17,49.36,1.5
 20260623,48.35,48.7,48.1,48.7,46355,48.27,0.89,48.21,49.33,0.83
@@ -155,10 +163,11 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260714,49.4,49.4,47.9,49,53520,48.52,0.98,48.45,48.91,1.39
 20260715,49,49.2,48.6,49.2,43235,48.58,1.28,48.53,48.88,1.11
 20260716,49.2,49.2,48.4,49,20027,48.61,0.79,48.58,48.83,0.53
+20260717,49.15,49.15,47.85,49.05,69131,48.65,0.82,48.62,48.78,1.74
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260703
+- as_of_date: 20260717
 - over_400_ratio: 69.11
 - over_600_ratio: 66.37
 - over_800_ratio: 65.69
@@ -184,6 +193,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260618,69.11,0,65.69,0,61.43,0,0,False,False
 20260626,69.11,0,65.69,0,61.43,0,0,False,False
 20260703,69.11,0,65.69,0,61.43,0,0,False,False
+20260717,69.11,0,65.69,0,61.43,0,0,False,False
 ```
 
 ## Candidate Context

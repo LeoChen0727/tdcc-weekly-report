@@ -1,15 +1,21 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2376 技嘉
 
 ## Metadata
-- generated_at: 2026-07-17 22:26:28 Asia/Taipei
+- generated_at: 2026-07-18 20:53:34 Asia/Taipei
 - stock_id: 2376
 - stock_name: 技嘉
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260716
-- price_rows: 305
-- latest_tdcc_date: 20260703
-- tdcc_rows: 10
+- latest_price_date: 20260717
+- price_rows: 306
+- current_main_price_date: 20260717
+- current_main_price_universe_status: current
+- current_main_price_universe_source: official_daily_price_latest_main_price_date
+- listing_status_source_status: formal_listing_status_source_unavailable
+- official_tdcc_signal_date: 20260717
+- latest_tdcc_date: 20260717
+- tdcc_rows: 11
 - tdcc_history_status: tdcc_history_ready
+- tdcc_freshness_status: tdcc_window_fresh
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
 - notes:
@@ -51,7 +57,10 @@
 - MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
-- If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
+- Only claim tdcc_history_ready when tdcc_rows >= 8 and latest_tdcc_date equals official_tdcc_signal_date.
+- If latest_tdcc_date differs from official_tdcc_signal_date, mark tdcc_window_stale and do not claim current TDCC history.
+- If the stock is absent from the official current main-price universe, preserve real TDCC dates and mark historical_only_noncurrent; do not infer a formal delisting status.
+- If TDCC is current but tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DISPLAY
@@ -118,29 +127,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260716
-- open: 342.5
-- high: 342.5
-- low: 335.5
-- close: 337
-- volume: 5415663
-- ma5: 337.4
-- ema23_primary: 337.32
-- distance_to_ema23_pct: -0.1
-- ma20: 336.15
-- ma60: 328.27
-- ma120: 283.23
-- return_5d: 0.6
-- return_20d: -3.16
-- volume_ratio: 0.84
-- distance_to_ma20_pct_auxiliary: 0.25
-- distance_to_high_60_pct: -16.17
+- date: 20260717
+- open: 330
+- high: 332
+- low: 323.5
+- close: 325
+- volume: 8552370
+- ma5: 335.1
+- ema23_primary: 336.3
+- distance_to_ema23_pct: -3.36
+- ma20: 335.02
+- ma60: 328.88
+- ma120: 283.98
+- return_5d: -3.42
+- return_20d: -6.47
+- volume_ratio: 1.3
+- distance_to_ma20_pct_auxiliary: -2.99
+- distance_to_high_60_pct: -19.15
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260617,346,349.5,343,347.5,5752681,343.3,1.22,352.32,300.49,0.35
 20260618,348,353,344,344,8646604,343.36,0.19,353.7,302.35,0.54
 20260622,350,351,337.5,339.5,13004047,343.04,-1.03,354.55,304.09,0.82
 20260623,340,340,328.5,330.5,8905417,341.99,-3.36,354.25,305.7,0.57
@@ -160,19 +168,20 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260714,339,339,323.5,334,4898954,336.75,-0.82,336.98,326.26,0.76
 20260715,337,345.5,335,344,4886987,337.35,1.97,336.7,327.3,0.76
 20260716,342.5,342.5,335.5,337,5415663,337.32,-0.1,336.15,328.27,0.84
+20260717,330,332,323.5,325,8552370,336.3,-3.36,335.02,328.88,1.3
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260703
-- over_400_ratio: 69.14
-- over_600_ratio: 66.48
-- over_800_ratio: 63.68
-- over_1000_ratio: 61.55
+- as_of_date: 20260717
+- over_400_ratio: 69.6
+- over_600_ratio: 66.91
+- over_800_ratio: 64.01
+- over_1000_ratio: 62.29
 - over_400_change_1w: 0.46
-- over_800_change_1w: 0.43
-- over_1000_change_1w: -0.23
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: False
+- over_800_change_1w: 0.33
+- over_1000_change_1w: 0.74
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -189,23 +198,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260618,69.67,-0.15,63.75,-0.26,62.82,0.18,1,False,True
 20260626,68.68,-0.99,63.25,-0.5,61.78,-1.04,0,False,False
 20260703,69.14,0.46,63.68,0.43,61.55,-0.23,1,False,True
+20260717,69.6,0.46,64.01,0.33,62.29,0.74,2,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 2376 | 技嘉 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/07/13 2.契約或承諾相對人:兆豐國際商業銀行、第一商業銀行及國泰世華商業銀行 等聯合授信銀行團 3.與公司關係:無 4.契約或承諾起迄日期（或解除日期）:自首動日起算5年 5.主要內容（解除者不適用）:總額度新臺幣參佰伍拾億元整，於35%範圍內 以等比例增減本聯合授信總額度。 6.限制條款（解除者不適用）:依聯合授信合約辦理 7.承諾事項（解除者不適用）:依聯合授信合約辦理 8.其他重要約定事項（解除者不適用）:依聯合授信合約辦理 9.對公司財務、業務之影響:充實中期營運資金及償還金融負債 10.具體目的:充實中期營運資金及償還金融負債 11.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第8款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260716 | 2376 | 技嘉 | revenue_breakout_low_response | 營收爆發低反應股 | 13.0 | 29.0 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | 1.事實發生日:115/07/13 2.契約或承諾相對人:兆豐國際商業銀行、第一商業銀行及國泰世華商業銀行 等聯合授信銀行團 3.與公司關係:無 4.契約或承諾起迄日期（或解除日期）:自首動日起算5年 5.主要內容（解除者不適用）:總額度新臺幣參佰伍拾億元整，於35%範圍內 以等比例增減本聯合授信總額度。 6.限制條款（解除者不適用）:依聯合授信合約辦理 7.承諾事項（解除者不適用）:依聯合授信合約辦理 8.其他重要約定事項（解除者不適用）:依聯合授信合約辦理 9.對公司財務、業務之影響:充實中期營運資金及償還金融負債 10.具體目的:充實中期營運資金及償還金融負債 11.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第8款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260717 | 2376 | 技嘉 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/07/13 2.契約或承諾相對人:兆豐國際商業銀行、第一商業銀行及國泰世華商業銀行 等聯合授信銀行團 3.與公司關係:無 4.契約或承諾起迄日期（或解除日期）:自首動日起算5年 5.主要內容（解除者不適用）:總額度新臺幣參佰伍拾億元整，於35%範圍內 以等比例增減本聯合授信總額度。 6.限制條款（解除者不適用）:依聯合授信合約辦理 7.承諾事項（解除者不適用）:依聯合授信合約辦理 8.其他重要約定事項（解除者不適用）:依聯合授信合約辦理 9.對公司財務、業務之影響:充實中期營運資金及償還金融負債 10.具體目的:充實中期營運資金及償還金融負債 11.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第8款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260717 | 2376 | 技嘉 | revenue_breakout_low_response | 營收爆發低反應股 | 12.0 | 34.0 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | 1.事實發生日:115/07/13 2.契約或承諾相對人:兆豐國際商業銀行、第一商業銀行及國泰世華商業銀行 等聯合授信銀行團 3.與公司關係:無 4.契約或承諾起迄日期（或解除日期）:自首動日起算5年 5.主要內容（解除者不適用）:總額度新臺幣參佰伍拾億元整，於35%範圍內 以等比例增減本聯合授信總額度。 6.限制條款（解除者不適用）:依聯合授信合約辦理 7.承諾事項（解除者不適用）:依聯合授信合約辦理 8.其他重要約定事項（解除者不適用）:依聯合授信合約辦理 9.對公司財務、業務之影響:充實中期營運資金及償還金融負債 10.具體目的:充實中期營運資金及償還金融負債 11.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第8款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 2376 | 技嘉 | 5 | 1 | 5 | 5 | 8 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260717 | 2376 | 技嘉 | 6 | 2 | 5 | 6 | 8 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 2376 | 技嘉 | 125 | 0 | 9341180.0 | 0.0 |  | no_signal |
+| 20260717 | 2376 | 技嘉 | 125 | 0 | 2509140.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

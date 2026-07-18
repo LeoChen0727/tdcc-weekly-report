@@ -1,15 +1,21 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2637 慧洋-KY
 
 ## Metadata
-- generated_at: 2026-07-17 22:26:37 Asia/Taipei
+- generated_at: 2026-07-18 20:53:45 Asia/Taipei
 - stock_id: 2637
 - stock_name: 慧洋-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260716
-- price_rows: 305
-- latest_tdcc_date: 20260703
-- tdcc_rows: 10
+- latest_price_date: 20260717
+- price_rows: 306
+- current_main_price_date: 20260717
+- current_main_price_universe_status: current
+- current_main_price_universe_source: official_daily_price_latest_main_price_date
+- listing_status_source_status: formal_listing_status_source_unavailable
+- official_tdcc_signal_date: 20260717
+- latest_tdcc_date: 20260717
+- tdcc_rows: 11
 - tdcc_history_status: tdcc_history_ready
+- tdcc_freshness_status: tdcc_window_fresh
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
 - notes:
@@ -51,7 +57,10 @@
 - MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
-- If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
+- Only claim tdcc_history_ready when tdcc_rows >= 8 and latest_tdcc_date equals official_tdcc_signal_date.
+- If latest_tdcc_date differs from official_tdcc_signal_date, mark tdcc_window_stale and do not claim current TDCC history.
+- If the stock is absent from the official current main-price universe, preserve real TDCC dates and mark historical_only_noncurrent; do not infer a formal delisting status.
+- If TDCC is current but tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DISPLAY
@@ -113,29 +122,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260716
-- open: 84.2
-- high: 84.2
-- low: 82.1
-- close: 82.5
-- volume: 1727406
-- ma5: 83.58
-- ema23_primary: 78.64
-- distance_to_ema23_pct: 4.91
-- ma20: 77.5
-- ma60: 75.9
-- ma120: 73.27
-- return_5d: 3.12
-- return_20d: 5.23
-- volume_ratio: 0.5
-- distance_to_ma20_pct_auxiliary: 6.44
-- distance_to_high_60_pct: -6.25
+- date: 20260717
+- open: 81.6
+- high: 81.9
+- low: 79.2
+- close: 79.4
+- volume: 2795263
+- ma5: 82.86
+- ema23_primary: 78.7
+- distance_to_ema23_pct: 0.89
+- ma20: 77.61
+- ma60: 75.97
+- ma120: 73.34
+- return_5d: -4.34
+- return_20d: 2.58
+- volume_ratio: 0.83
+- distance_to_ma20_pct_auxiliary: 2.31
+- distance_to_high_60_pct: -9.77
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260617,78.4,78.4,75.8,77.4,4925604,76.85,0.71,76.98,73.56,0.76
 20260618,76.8,77.4,75.4,77.4,5408866,76.9,0.65,77.25,73.72,0.82
 20260622,77.9,77.9,76.3,77.1,2003159,76.92,0.24,77.55,73.85,0.3
 20260623,77.3,77.4,76.2,76.8,2241864,76.91,-0.14,77.64,73.95,0.35
@@ -155,20 +163,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260714,86.6,86.6,81.5,83.8,4025402,77.77,7.75,77.06,75.6,1.06
 20260715,84.8,84.8,82.9,83.9,2000477,78.28,7.17,77.3,75.73,0.55
 20260716,84.2,84.2,82.1,82.5,1727406,78.64,4.91,77.5,75.9,0.5
+20260717,81.6,81.9,79.2,79.4,2795263,78.7,0.89,77.61,75.97,0.83
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260703
-- over_400_ratio: 80.96
-- over_600_ratio: 79.25
-- over_800_ratio: 77.44
-- over_1000_ratio: 76
-- over_400_change_1w: -0.33
-- over_800_change_1w: -0.32
-- over_1000_change_1w: -0.45
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260717
+- over_400_ratio: 82.48
+- over_600_ratio: 80.77
+- over_800_ratio: 79.12
+- over_1000_ratio: 77.95
+- over_400_change_1w: 1.52
+- over_800_change_1w: 1.68
+- over_1000_change_1w: 1.95
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -184,24 +193,25 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260618,81.48,-0.13,78.07,0.04,76.76,-0.2,4,False,True
 20260626,81.29,-0.19,77.76,-0.31,76.45,-0.31,0,False,False
 20260703,80.96,-0.33,77.44,-0.32,76,-0.45,0,False,False
+20260717,82.48,1.52,79.12,1.68,77.95,1.95,1,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 2637 | 慧洋-KY | pattern | 型態觀察 | 51.0 |  |  | base_building |  | no_signal | stale_signal | 1. 原公告日期： 114/03/17 2. 簡述原公告申報內容： 董事會核准購置內海造船株式會社建造之二艘高規格散裝貨輪案 交易數量：39,000噸散裝貨輪二艘 單位價格：不高於USD 35,375,000 交易總金額：不高於USD 70,750,000 3. 變動緣由及主要內容： 原公告取得資產案因雙方未達共識故終止。 4. 變動後對公司財務業務之影響： 因尚未簽訂契約及支付款項，故對本公司財務業務無重大影響。 5. 其他應敘明事項： 無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
-| 20260716 | 2637 | 慧洋-KY | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | no_signal | stale_signal | 1. 原公告日期： 114/03/17 2. 簡述原公告申報內容： 董事會核准購置內海造船株式會社建造之二艘高規格散裝貨輪案 交易數量：39,000噸散裝貨輪二艘 單位價格：不高於USD 35,375,000 交易總金額：不高於USD 70,750,000 3. 變動緣由及主要內容： 原公告取得資產案因雙方未達共識故終止。 4. 變動後對公司財務業務之影響： 因尚未簽訂契約及支付款項，故對本公司財務業務無重大影響。 5. 其他應敘明事項： 無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260716 | 2637 | 慧洋-KY | revenue_breakout_low_response | 營收爆發低反應股 | 12.0 | 31.0 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | 1. 原公告日期： 114/03/17 2. 簡述原公告申報內容： 董事會核准購置內海造船株式會社建造之二艘高規格散裝貨輪案 交易數量：39,000噸散裝貨輪二艘 單位價格：不高於USD 35,375,000 交易總金額：不高於USD 70,750,000 3. 變動緣由及主要內容： 原公告取得資產案因雙方未達共識故終止。 4. 變動後對公司財務業務之影響： 因尚未簽訂契約及支付款項，故對本公司財務業務無重大影響。 5. 其他應敘明事項： 無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260717 | 2637 | 慧洋-KY | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_inflow | stale_signal | 1. 原公告日期： 114/03/17 2. 簡述原公告申報內容： 董事會核准購置內海造船株式會社建造之二艘高規格散裝貨輪案 交易數量：39,000噸散裝貨輪二艘 單位價格：不高於USD 35,375,000 交易總金額：不高於USD 70,750,000 3. 變動緣由及主要內容： 原公告取得資產案因雙方未達共識故終止。 4. 變動後對公司財務業務之影響： 因尚未簽訂契約及支付款項，故對本公司財務業務無重大影響。 5. 其他應敘明事項： 無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d |
+| 20260717 | 2637 | 慧洋-KY | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | call_inflow | stale_signal | 1. 原公告日期： 114/03/17 2. 簡述原公告申報內容： 董事會核准購置內海造船株式會社建造之二艘高規格散裝貨輪案 交易數量：39,000噸散裝貨輪二艘 單位價格：不高於USD 35,375,000 交易總金額：不高於USD 70,750,000 3. 變動緣由及主要內容： 原公告取得資產案因雙方未達共識故終止。 4. 變動後對公司財務業務之影響： 因尚未簽訂契約及支付款項，故對本公司財務業務無重大影響。 5. 其他應敘明事項： 無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260717 | 2637 | 慧洋-KY | revenue_breakout_low_response | 營收爆發低反應股 | 14.0 | 32.0 | D_降級_TDCC轉弱 |  |  | call_inflow | stale_signal | 1. 原公告日期： 114/03/17 2. 簡述原公告申報內容： 董事會核准購置內海造船株式會社建造之二艘高規格散裝貨輪案 交易數量：39,000噸散裝貨輪二艘 單位價格：不高於USD 35,375,000 交易總金額：不高於USD 70,750,000 3. 變動緣由及主要內容： 原公告取得資產案因雙方未達共識故終止。 4. 變動後對公司財務業務之影響： 因尚未簽訂契約及支付款項，故對本公司財務業務無重大影響。 5. 其他應敘明事項： 無。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 2637 | 慧洋-KY | 10 | 2 | 5 | 10 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260717 | 2637 | 慧洋-KY | 11 | 3 | 5 | 10 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 2637 | 慧洋-KY | 23 | 0 | 380020.0 | 0.0 |  | no_signal |
+| 20260717 | 2637 | 慧洋-KY | 22 | 0 | 1136400.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

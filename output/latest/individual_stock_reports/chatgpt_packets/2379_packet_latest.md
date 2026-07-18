@@ -1,15 +1,21 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2379 瑞昱
 
 ## Metadata
-- generated_at: 2026-07-17 22:26:28 Asia/Taipei
+- generated_at: 2026-07-18 20:53:34 Asia/Taipei
 - stock_id: 2379
 - stock_name: 瑞昱
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260716
-- price_rows: 305
-- latest_tdcc_date: 20260703
-- tdcc_rows: 10
+- latest_price_date: 20260717
+- price_rows: 306
+- current_main_price_date: 20260717
+- current_main_price_universe_status: current
+- current_main_price_universe_source: official_daily_price_latest_main_price_date
+- listing_status_source_status: formal_listing_status_source_unavailable
+- official_tdcc_signal_date: 20260717
+- latest_tdcc_date: 20260717
+- tdcc_rows: 11
 - tdcc_history_status: tdcc_history_ready
+- tdcc_freshness_status: tdcc_window_fresh
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
 - notes:
@@ -51,7 +57,10 @@
 - MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
-- If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
+- Only claim tdcc_history_ready when tdcc_rows >= 8 and latest_tdcc_date equals official_tdcc_signal_date.
+- If latest_tdcc_date differs from official_tdcc_signal_date, mark tdcc_window_stale and do not claim current TDCC history.
+- If the stock is absent from the official current main-price universe, preserve real TDCC dates and mark historical_only_noncurrent; do not infer a formal delisting status.
+- If TDCC is current but tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DISPLAY
@@ -88,6 +97,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +122,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260716
-- open: 755
-- high: 755
-- low: 712
-- close: 712
-- volume: 6355950
-- ma5: 763
-- ema23_primary: 752.92
-- distance_to_ema23_pct: -5.43
-- ma20: 793.65
-- ma60: 654.2
-- ma120: 573.66
-- return_5d: -12.85
-- return_20d: 5.01
-- volume_ratio: 1.01
-- distance_to_ma20_pct_auxiliary: -10.29
-- distance_to_high_60_pct: -26.6
+- date: 20260717
+- open: 699
+- high: 733
+- low: 696
+- close: 718
+- volume: 7045073
+- ma5: 738.6
+- ema23_primary: 750.01
+- distance_to_ema23_pct: -4.27
+- ma20: 792.3
+- ma60: 656.98
+- ma120: 574.85
+- return_5d: -14.52
+- return_20d: -3.62
+- volume_ratio: 1.11
+- distance_to_ma20_pct_auxiliary: -9.38
+- distance_to_high_60_pct: -25.98
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260617,677,745,662,745,5744695,624.79,19.24,625.1,561.53,0.95
 20260618,770,819,754,819,6727481,640.98,27.77,637.3,567.36,1.07
 20260622,840,900,840,900,7335818,662.56,35.84,653.4,574.35,1.14
 20260623,948,970,857,863,8046068,679.26,27.05,667.4,580.58,1.21
@@ -154,18 +163,19 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260714,751,769,741,754,4042876,756.97,-0.39,786,647.6,0.66
 20260715,776,783,750,753,2864143,756.64,-0.48,791.95,651.3,0.46
 20260716,755,755,712,712,6355950,752.92,-5.43,793.65,654.2,1.01
+20260717,699,733,696,718,7045073,750.01,-4.27,792.3,656.98,1.11
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260703
-- over_400_ratio: 74.06
-- over_600_ratio: 67.86
-- over_800_ratio: 62.9
-- over_1000_ratio: 58.52
-- over_400_change_1w: -0.4
-- over_800_change_1w: 0.07
-- over_1000_change_1w: -0.25
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260717
+- over_400_ratio: 73.89
+- over_600_ratio: 68.14
+- over_800_ratio: 63.48
+- over_1000_ratio: 59.04
+- over_400_change_1w: -0.17
+- over_800_change_1w: 0.58
+- over_1000_change_1w: 0.52
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -183,23 +193,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260618,75.24,0.27,63.97,0.2,59.43,-0.37,2,False,True
 20260626,74.46,-0.78,62.83,-1.14,58.77,-0.66,0,False,False
 20260703,74.06,-0.4,62.9,0.07,58.52,-0.25,1,False,True
+20260717,73.89,-0.17,63.48,0.58,59.04,0.52,2,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 2379 | 瑞昱 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | repeated_but_no_breakout | 符合條款第四條第XX款：12 事實發生日：115/07/30 1.召開法人說明會之日期：115/07/30 2.召開法人說明會之時間：15 時 00 分  3.召開法人說明會之地點：網路直播 4.法人說明會擇要訊息：瑞昱半導體將於115年07月30日(四)舉行2026年第2季線上法人說明會。 時間：3:00-4:00 pm 語言: 英文 直播網址：https://www.zucast.com/webcast/bv68uLnF建議參與者於法說會前安裝或升級所需播放軟體，或至http://www.zucast.com/help 尋求技術支援。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
-| 20260716 | 2379 | 瑞昱 | revenue_pullback | 營收成長股價回檔 | 60.0 |  |  |  |  | no_signal | repeated_but_no_breakout | 符合條款第四條第XX款：12 事實發生日：115/07/30 1.召開法人說明會之日期：115/07/30 2.召開法人說明會之時間：15 時 00 分  3.召開法人說明會之地點：網路直播 4.法人說明會擇要訊息：瑞昱半導體將於115年07月30日(四)舉行2026年第2季線上法人說明會。 時間：3:00-4:00 pm 語言: 英文 直播網址：https://www.zucast.com/webcast/bv68uLnF建議參與者於法說會前安裝或升級所需播放軟體，或至http://www.zucast.com/help 尋求技術支援。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260717 | 2379 | 瑞昱 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  | mixed_flow | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/30 1.召開法人說明會之日期：115/07/30 2.召開法人說明會之時間：15 時 00 分  3.召開法人說明會之地點：網路直播 4.法人說明會擇要訊息：瑞昱半導體將於115年07月30日(四)舉行2026年第2季線上法人說明會。 時間：3:00-4:00 pm 語言: 英文 直播網址：https://www.zucast.com/webcast/bv68uLnF建議參與者於法說會前安裝或升級所需播放軟體，或至http://www.zucast.com/help 尋求技術支援。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d |
+| 20260717 | 2379 | 瑞昱 | revenue_pullback | 營收成長股價回檔 | 60.0 |  |  |  |  | mixed_flow | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/30 1.召開法人說明會之日期：115/07/30 2.召開法人說明會之時間：15 時 00 分  3.召開法人說明會之地點：網路直播 4.法人說明會擇要訊息：瑞昱半導體將於115年07月30日(四)舉行2026年第2季線上法人說明會。 時間：3:00-4:00 pm 語言: 英文 直播網址：https://www.zucast.com/webcast/bv68uLnF建議參與者於法說會前安裝或升級所需播放軟體，或至http://www.zucast.com/help 尋求技術支援。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 2379 | 瑞昱 | 8 | 3 | 5 | 8 | 13 | repeated_but_no_breakout | 近 10 日上榜 8 次、近 20 日上榜 13 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260717 | 2379 | 瑞昱 | 9 | 4 | 5 | 9 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 2379 | 瑞昱 | 104 | 0 | 6461610.0 | 0.0 |  | no_signal |
+| 20260717 | 2379 | 瑞昱 | 102 | 1 | 12186490.0 | 1466310.0 | 8.31 | mixed_flow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

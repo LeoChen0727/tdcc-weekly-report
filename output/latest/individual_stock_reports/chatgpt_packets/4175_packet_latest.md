@@ -1,15 +1,21 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4175 杏一
 
 ## Metadata
-- generated_at: 2026-07-17 22:27:03 Asia/Taipei
+- generated_at: 2026-07-18 20:54:18 Asia/Taipei
 - stock_id: 4175
 - stock_name: 杏一
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260716
-- price_rows: 170
-- latest_tdcc_date: 20260703
-- tdcc_rows: 10
+- latest_price_date: 20260717
+- price_rows: 171
+- current_main_price_date: 20260717
+- current_main_price_universe_status: current
+- current_main_price_universe_source: official_daily_price_latest_main_price_date
+- listing_status_source_status: formal_listing_status_source_unavailable
+- official_tdcc_signal_date: 20260717
+- latest_tdcc_date: 20260717
+- tdcc_rows: 11
 - tdcc_history_status: tdcc_history_ready
+- tdcc_freshness_status: tdcc_window_fresh
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
 - notes:
@@ -51,7 +57,10 @@
 - MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
-- If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
+- Only claim tdcc_history_ready when tdcc_rows >= 8 and latest_tdcc_date equals official_tdcc_signal_date.
+- If latest_tdcc_date differs from official_tdcc_signal_date, mark tdcc_window_stale and do not claim current TDCC history.
+- If the stock is absent from the official current main-price universe, preserve real TDCC dates and mark historical_only_noncurrent; do not infer a formal delisting status.
+- If TDCC is current but tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DISPLAY
@@ -113,29 +122,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260716
-- open: 50.4
-- high: 50.6
-- low: 50.3
-- close: 50.6
-- volume: 11000
-- ma5: 50.5
-- ema23_primary: 52.06
-- distance_to_ema23_pct: -2.8
-- ma20: 52.27
-- ma60: 53.3
-- ma120: 54.78
-- return_5d: -0.39
-- return_20d: -5.42
-- volume_ratio: 0.29
-- distance_to_ma20_pct_auxiliary: -3.19
-- distance_to_high_60_pct: -9.64
+- date: 20260717
+- open: 50.5
+- high: 50.5
+- low: 50.2
+- close: 50.2
+- volume: 24000
+- ma5: 50.38
+- ema23_primary: 51.9
+- distance_to_ema23_pct: -3.28
+- ma20: 52.1
+- ma60: 53.21
+- ma120: 54.71
+- return_5d: -1.18
+- return_20d: -6.17
+- volume_ratio: 0.62
+- distance_to_ma20_pct_auxiliary: -3.65
+- distance_to_high_60_pct: -10.36
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260617,53.4,53.9,53.4,53.5,9000,53.52,-0.04,53.42,54.33,0.25
 20260618,53.2,53.7,52.7,53.7,18000,53.54,0.3,53.44,54.31,0.51
 20260622,53.7,53.7,53.2,53.2,31000,53.51,-0.58,53.45,54.29,0.9
 20260623,53.2,53.3,52.8,52.9,19000,53.46,-1.05,53.46,54.26,0.58
@@ -155,10 +163,11 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260714,51,51,50.1,50.2,40000,52.37,-4.14,52.58,53.47,1.06
 20260715,50.4,50.4,50.1,50.2,27000,52.19,-3.81,52.41,53.38,0.71
 20260716,50.4,50.6,50.3,50.6,11000,52.06,-2.8,52.27,53.3,0.29
+20260717,50.5,50.5,50.2,50.2,24000,51.9,-3.28,52.1,53.21,0.62
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260703
+- as_of_date: 20260717
 - over_400_ratio: 56.05
 - over_600_ratio: 54.98
 - over_800_ratio: 54.98
@@ -184,6 +193,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260618,56.05,0,54.98,0,54.98,0,0,False,False
 20260626,56.05,0,54.98,0,54.98,0,0,False,False
 20260703,56.05,0,54.98,0,54.98,0,0,False,False
+20260717,56.05,0,54.98,0,54.98,0,0,False,False
 ```
 
 ## Candidate Context

@@ -1,15 +1,21 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2382 廣達
 
 ## Metadata
-- generated_at: 2026-07-17 22:26:28 Asia/Taipei
+- generated_at: 2026-07-18 20:53:34 Asia/Taipei
 - stock_id: 2382
 - stock_name: 廣達
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260716
-- price_rows: 305
-- latest_tdcc_date: 20260703
-- tdcc_rows: 10
+- latest_price_date: 20260717
+- price_rows: 306
+- current_main_price_date: 20260717
+- current_main_price_universe_status: current
+- current_main_price_universe_source: official_daily_price_latest_main_price_date
+- listing_status_source_status: formal_listing_status_source_unavailable
+- official_tdcc_signal_date: 20260717
+- latest_tdcc_date: 20260717
+- tdcc_rows: 11
 - tdcc_history_status: tdcc_history_ready
+- tdcc_freshness_status: tdcc_window_fresh
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
 - notes:
@@ -51,14 +57,17 @@
 - MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
-- If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
+- Only claim tdcc_history_ready when tdcc_rows >= 8 and latest_tdcc_date equals official_tdcc_signal_date.
+- If latest_tdcc_date differs from official_tdcc_signal_date, mark tdcc_window_stale and do not claim current TDCC history.
+- If the stock is absent from the official current main-price universe, preserve real TDCC dates and mark historical_only_noncurrent; do not infer a formal delisting status.
+- If TDCC is current but tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 可分批買進
 - model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
 - action_summary_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。
 - entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
 - position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
@@ -73,7 +82,7 @@
 - internal_use_only: true
 - action_rating: scale_in
 - action_rating_label_zh: 可分批買進
-- confidence_level: high
+- confidence_level: medium
 - thesis_state: healthy_pullback
 - entry_style: pullback_to_23ema
 - position_sizing: half_position
@@ -92,7 +101,6 @@
 
 ### entry_prerequisites
 - model_recommended
-- decision_score_high
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -119,29 +127,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260716
-- open: 360.5
-- high: 360.5
-- low: 349
-- close: 352
-- volume: 33111611
-- ma5: 372.9
-- ema23_primary: 369.79
-- distance_to_ema23_pct: -4.81
-- ma20: 372.43
-- ma60: 351.19
-- ma120: 320.49
-- return_5d: -6.63
-- return_20d: -2.9
-- volume_ratio: 1.86
-- distance_to_ma20_pct_auxiliary: -5.48
-- distance_to_high_60_pct: -19.63
+- date: 20260717
+- open: 346
+- high: 349
+- low: 324.5
+- close: 325.5
+- volume: 33474930
+- ma5: 363.3
+- ema23_primary: 366.1
+- distance_to_ema23_pct: -11.09
+- ma20: 370
+- ma60: 350.95
+- ma120: 320.88
+- return_5d: -12.85
+- return_20d: -12.97
+- volume_ratio: 1.82
+- distance_to_ma20_pct_auxiliary: -12.03
+- distance_to_high_60_pct: -25.68
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260617,361,374,358,374,21858689,358.92,4.2,359.07,328.43,0.39
 20260618,374.5,379.5,372.5,376,22566584,360.35,4.34,362.48,330.03,0.41
 20260622,378.5,385,376.5,380,20023542,361.99,4.98,365.68,331.68,0.37
 20260623,381,381,368,372.5,16362886,362.86,2.66,368.48,333.13,0.31
@@ -161,18 +168,19 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260714,378,380,368,380,25976500,370.53,2.55,372.4,349.84,1.52
 20260715,383.5,384,376,381,24915093,371.41,2.58,372.95,350.81,1.45
 20260716,360.5,360.5,349,352,33111611,369.79,-4.81,372.43,351.19,1.86
+20260717,346,349,324.5,325.5,33474930,366.1,-11.09,370,350.95,1.82
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260703
-- over_400_ratio: 85.44
-- over_600_ratio: 84
-- over_800_ratio: 82.8
-- over_1000_ratio: 81.48
-- over_400_change_1w: 0.11
-- over_800_change_1w: 0.24
-- over_1000_change_1w: 0.21
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260717
+- over_400_ratio: 85.46
+- over_600_ratio: 84.06
+- over_800_ratio: 82.94
+- over_1000_ratio: 81.71
+- over_400_change_1w: 0.02
+- over_800_change_1w: 0.14
+- over_1000_change_1w: 0.23
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -190,18 +198,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260618,85.38,-0.14,82.72,-0.04,81.4,-0.04,0,False,False
 20260626,85.33,-0.05,82.56,-0.16,81.27,-0.13,0,False,False
 20260703,85.44,0.11,82.8,0.24,81.48,0.21,1,True,True
+20260717,85.46,0.02,82.94,0.14,81.71,0.23,2,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 2382 | 廣達 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  |  | repeated_but_no_breakout | 1.事實發生日: 115/07/08 2.公司名稱: 廣達 3.與公司關係(請輸入本公司或子公司): 本公司 4.相互持股比例: 不適用 5.傳播媒體名稱:工商時報 6.報導內容:  …全年營收年增三位數目標不變… 7.發生緣由: 媒體報導 8.因應措施: 不適用 9.其他應敘明事項:  本公司並未提供財務預測，實際財務暨營運狀況，  均已遵循法令規範揭露於公開資訊觀測站。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260716 | 2382 | 廣達 | revenue_breakout_low_response | 營收爆發低反應股 | 19.0 | 4.0 | A_優先追蹤 |  |  |  | repeated_but_no_breakout | 1.事實發生日: 115/07/08 2.公司名稱: 廣達 3.與公司關係(請輸入本公司或子公司): 本公司 4.相互持股比例: 不適用 5.傳播媒體名稱:工商時報 6.報導內容:  …全年營收年增三位數目標不變… 7.發生緣由: 媒體報導 8.因應措施: 不適用 9.其他應敘明事項:  本公司並未提供財務預測，實際財務暨營運狀況，  均已遵循法令規範揭露於公開資訊觀測站。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260717 | 2382 | 廣達 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  |  | stale_signal | 1.標的物之名稱及性質（屬特別股者，並應標明特別股約定發行條件，如股息率等）: QMHP Co. Ltd 現金增資 2.事實發生日:115/7/17~115/7/17 3.董事會通過日期: 民國115年2月26日 4.其他核決日期: 不適用 5.交易數量、每單位價格及交易總金額: US$ 15,000千元, (約NT$ 471,450千元; 匯率 31.43) 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之 關係人者，得免揭露其姓名）: 交易相對人: QMHP Co. Ltd，得於額度內分次投資。 與公司之關係: 本公司持股100%之越南子公司 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移 轉之所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次 移轉日期及移轉金額: 現金增資，不適用 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係人之取 得及處分日期、價格及交易當時與公司之關係: 不適用 9.本次係處分債權之相關事項（含處分之債權附隨擔保品種類、處分債權 如有屬對關係人債權者尚需公告關係人名稱及本次處分該關係人之債權 帳面金額: 不適用 10.處分利益（或損失）（取得有價證券者不適用）（原遞延者應列表說明 認列情形）: 不適用 11.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 依增資時程辦理 12.本次交易之決定方式、價格決定之參考依據及決策單位: 審委會及董事會決議 13.取得或處分有價證券標的公司每股淨值: 不適用 14.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 金額：US$ 20,000千元；持股比例：100%；權利受限情形：無 15.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列 之有價證券投資（含本次交易）占公司最近期財務報表中總資產及歸屬 於母公司業主之權益之比例暨最近期財務報表中營運資金數額（註二）: NT$ 123,923,278千元; 11.87%; 50.80%; NT$ 96,909,887千元 16.經紀人及經紀費用: 不適用 17.取得或處分之具體目的或用途: 業務需求 18.本次交易表示異議董事之意見: 無 19.本次交易為關係人交易:是 20.監察人承認或審計委員會同意日期: 民國115年 2月26日 21.本次交易會計師出具非合理性意見:不適用 22.會計師事務所名稱: 不適用 23.會計師姓名: 不適用 24.會計師開業證書字號: 不適用 25.是否涉及營運模式變更:否 26.營運模式變更說明: 不適用 27.過去一年及預計未來一年內與交易相對人交易情形: 不適用 28.資金來源: 不適用 29.前已就同一件事件發布重大訊息日期: 115年2月26日 30.其他敘明事項: 更正誤植事實發生日年份；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 2382 | 廣達 | 1 | 1 | 4 | 9 | 19 | repeated_but_no_breakout | 近 10 日上榜 9 次、近 20 日上榜 19 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260717 | 2382 | 廣達 | 2 | 2 | 4 | 9 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

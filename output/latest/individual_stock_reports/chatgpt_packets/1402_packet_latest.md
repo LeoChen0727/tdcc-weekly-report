@@ -1,15 +1,21 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1402 遠東新
 
 ## Metadata
-- generated_at: 2026-07-17 22:26:10 Asia/Taipei
+- generated_at: 2026-07-18 20:53:12 Asia/Taipei
 - stock_id: 1402
 - stock_name: 遠東新
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260716
-- price_rows: 305
-- latest_tdcc_date: 20260709
-- tdcc_rows: 33
+- latest_price_date: 20260717
+- price_rows: 306
+- current_main_price_date: 20260717
+- current_main_price_universe_status: current
+- current_main_price_universe_source: official_daily_price_latest_main_price_date
+- listing_status_source_status: formal_listing_status_source_unavailable
+- official_tdcc_signal_date: 20260717
+- latest_tdcc_date: 20260717
+- tdcc_rows: 34
 - tdcc_history_status: tdcc_history_ready
+- tdcc_freshness_status: tdcc_window_fresh
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
 - notes:
@@ -51,7 +57,10 @@
 - MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
-- If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
+- Only claim tdcc_history_ready when tdcc_rows >= 8 and latest_tdcc_date equals official_tdcc_signal_date.
+- If latest_tdcc_date differs from official_tdcc_signal_date, mark tdcc_window_stale and do not claim current TDCC history.
+- If the stock is absent from the official current main-price universe, preserve real TDCC dates and mark historical_only_noncurrent; do not infer a formal delisting status.
+- If TDCC is current but tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DISPLAY
@@ -113,29 +122,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260716
-- open: 27.35
-- high: 27.9
-- low: 27.3
-- close: 27.8
-- volume: 21827775
-- ma5: 27.2
-- ema23_primary: 27.81
-- distance_to_ema23_pct: -0.02
-- ma20: 28.27
-- ma60: 27.04
+- date: 20260717
+- open: 27.6
+- high: 28.2
+- low: 27.6
+- close: 27.7
+- volume: 23024082
+- ma5: 27.25
+- ema23_primary: 27.8
+- distance_to_ema23_pct: -0.35
+- ma20: 28.21
+- ma60: 27.07
 - ma120: 27.32
-- return_5d: -0.18
-- return_20d: -2.63
-- volume_ratio: 0.81
-- distance_to_ma20_pct_auxiliary: -1.65
-- distance_to_high_60_pct: -7.02
+- return_5d: 0.91
+- return_20d: -3.82
+- volume_ratio: 0.87
+- distance_to_ma20_pct_auxiliary: -1.81
+- distance_to_high_60_pct: -7.36
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260617,28.55,29.15,28.25,28.8,30949414,27.06,6.42,26.82,26.46,0.41
 20260618,28.85,29.3,28.75,28.85,38500260,27.21,6.03,26.91,26.51,0.5
 20260622,28.9,29.1,28.45,28.8,32428444,27.34,5.33,27,26.55,0.42
 20260623,28.75,29,28.45,28.65,24518528,27.45,4.36,27.07,26.6,0.32
@@ -155,26 +163,26 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260714,25.75,26.7,25.75,26.35,42826352,27.83,-5.32,28.3,26.99,1.59
 20260715,26.5,27.75,26.25,27.55,35978832,27.81,-0.93,28.3,27.01,1.29
 20260716,27.35,27.9,27.3,27.8,21827775,27.81,-0.02,28.27,27.04,0.81
+20260717,27.6,28.2,27.6,27.7,23024082,27.8,-0.35,28.21,27.07,0.87
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260709
-- over_400_ratio: 88.7
-- over_600_ratio: 87.83
-- over_800_ratio: 87.27
-- over_1000_ratio: 86.67
-- over_400_change_1w: 0.09
-- over_800_change_1w: 0.09
-- over_1000_change_1w: 0.14
-- tdcc_consecutive_up_weeks: 6
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260717
+- over_400_ratio: 88.46
+- over_600_ratio: 87.61
+- over_800_ratio: 87.06
+- over_1000_ratio: 86.49
+- over_400_change_1w: -0.24
+- over_800_change_1w: -0.21
+- over_1000_change_1w: -0.18
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260424,87.7,-0.21,85.85,-0.23,85.19,-0.16,0,False,False
 20260430,87.82,0.12,86,0.15,85.34,0.15,1,True,True
 20260508,87.78,-0.04,86.01,0.01,85.3,-0.04,2,False,True
 20260515,88.06,0.28,86.3,0.29,85.55,0.25,3,True,True
@@ -186,22 +194,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260626,88.46,0.38,87.06,0.47,86.39,0.47,4,True,True
 20260703,88.61,0.15,87.18,0.12,86.53,0.14,5,True,True
 20260709,88.7,0.09,87.27,0.09,86.67,0.14,6,True,True
+20260717,88.46,-0.24,87.06,-0.21,86.49,-0.18,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 1402 | 遠東新 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  | no_signal | repeated_but_no_breakout | 1.證券名稱: 亞洲水泥股份有限公司 普通股股票 2.交易日期:115/6/17~115/6/29 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:董事長核決 民國115年06月29日 5.交易數量、每單位價格及交易總金額: 交易數量：8,362,000股 每單位價格：新台幣35.98元整 交易總金額：新台幣300,900,058元整 6.處分利益（或損失）（取得有價證券者不適用）: 不適用 7.與交易標的公司之關係: 企業採權益法評價之被投資公司 8.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 持有股數：23,147,674股 持有金額：新台幣882,861,598元整 持股比例：0.65% 權利受限情形：無 9.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列之有價證券投 資（含本次交易）占公司最近期財務報表中總資產及歸屬於母公司業主之權益之比例 暨最近期財務報表中營運資金數額: 佔總資產比例：0.90% 佔股東權益比例：1.42% 營運資金：新台幣-2,597,834仟元整 資金來源：營業收入 10.取得或處分之具體目的: 增加投資 11.本次交易表示異議董事之意見: 無 12.本次交易為關係人交易: 否 13.交易相對人及其與公司之關係: 不適用 14.監察人承認或審計委員會同意日期: 不適用 15.前已就同一件事件發布重大訊息日期: 不適用 16.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260717 | 1402 | 遠東新 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.證券名稱: 亞洲水泥股份有限公司 普通股股票 2.交易日期:115/6/17~115/6/29 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:董事長核決 民國115年06月29日 5.交易數量、每單位價格及交易總金額: 交易數量：8,362,000股 每單位價格：新台幣35.98元整 交易總金額：新台幣300,900,058元整 6.處分利益（或損失）（取得有價證券者不適用）: 不適用 7.與交易標的公司之關係: 企業採權益法評價之被投資公司 8.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 持有股數：23,147,674股 持有金額：新台幣882,861,598元整 持股比例：0.65% 權利受限情形：無 9.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列之有價證券投 資（含本次交易）占公司最近期財務報表中總資產及歸屬於母公司業主之權益之比例 暨最近期財務報表中營運資金數額: 佔總資產比例：0.90% 佔股東權益比例：1.42% 營運資金：新台幣-2,597,834仟元整 資金來源：營業收入 10.取得或處分之具體目的: 增加投資 11.本次交易表示異議董事之意見: 無 12.本次交易為關係人交易: 否 13.交易相對人及其與公司之關係: 不適用 14.監察人承認或審計委員會同意日期: 不適用 15.前已就同一件事件發布重大訊息日期: 不適用 16.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 1402 | 遠東新 | 1 | 1 | 1 | 5 | 11 | repeated_but_no_breakout | 近 10 日上榜 5 次、近 20 日上榜 11 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260717 | 1402 | 遠東新 | 2 | 2 | 2 | 5 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 1402 | 遠東新 | 11 | 0 | 1426600.0 | 0.0 |  | no_signal |
+| 20260717 | 1402 | 遠東新 | 11 | 0 | 994020.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

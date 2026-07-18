@@ -1,15 +1,21 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5388 中磊
 
 ## Metadata
-- generated_at: 2026-07-17 22:27:17 Asia/Taipei
+- generated_at: 2026-07-18 20:54:35 Asia/Taipei
 - stock_id: 5388
 - stock_name: 中磊
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260716
-- price_rows: 305
-- latest_tdcc_date: 20260703
-- tdcc_rows: 10
+- latest_price_date: 20260717
+- price_rows: 306
+- current_main_price_date: 20260717
+- current_main_price_universe_status: current
+- current_main_price_universe_source: official_daily_price_latest_main_price_date
+- listing_status_source_status: formal_listing_status_source_unavailable
+- official_tdcc_signal_date: 20260717
+- latest_tdcc_date: 20260717
+- tdcc_rows: 11
 - tdcc_history_status: tdcc_history_ready
+- tdcc_freshness_status: tdcc_window_fresh
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
 - notes:
@@ -51,7 +57,10 @@
 - MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
-- If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
+- Only claim tdcc_history_ready when tdcc_rows >= 8 and latest_tdcc_date equals official_tdcc_signal_date.
+- If latest_tdcc_date differs from official_tdcc_signal_date, mark tdcc_window_stale and do not claim current TDCC history.
+- If the stock is absent from the official current main-price universe, preserve real TDCC dates and mark historical_only_noncurrent; do not infer a formal delisting status.
+- If TDCC is current but tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DISPLAY
@@ -117,29 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260716
-- open: 88.8
-- high: 89.2
-- low: 86.5
-- close: 86.6
-- volume: 5017963
-- ma5: 86.34
-- ema23_primary: 83.78
-- distance_to_ema23_pct: 3.37
-- ma20: 82.49
+- date: 20260717
+- open: 85
+- high: 86.2
+- low: 83.1
+- close: 83.3
+- volume: 4564591
+- ma5: 86.08
+- ema23_primary: 83.74
+- distance_to_ema23_pct: -0.52
+- ma20: 82.39
 - ma60: 82.98
-- ma120: 81.88
-- return_5d: 4.21
-- return_20d: 2.85
-- volume_ratio: 1.13
-- distance_to_ma20_pct_auxiliary: 4.98
-- distance_to_high_60_pct: -8.36
+- ma120: 81.93
+- return_5d: -1.54
+- return_20d: -2.34
+- volume_ratio: 1
+- distance_to_ma20_pct_auxiliary: 1.1
+- distance_to_high_60_pct: -11.85
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260617,84,85.3,83.6,85.3,2199574,85.25,0.06,86.42,82.22,0.45
 20260618,85.7,86,84,84.2,3102958,85.16,-1.13,86.48,82.35,0.64
 20260622,84.2,84.3,82.2,82.4,4317474,84.93,-2.98,86.34,82.45,0.9
 20260623,83.3,83.7,79.7,79.9,4144148,84.51,-5.46,86.02,82.51,0.87
@@ -159,20 +167,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260714,84.4,85.8,82.8,85.7,4439309,82.99,3.27,82.22,82.81,1.17
 20260715,86.5,91.1,86.4,89.4,13182437,83.52,7.04,82.37,82.93,3.05
 20260716,88.8,89.2,86.5,86.6,5017963,83.78,3.37,82.49,82.98,1.13
+20260717,85,86.2,83.1,83.3,4564591,83.74,-0.52,82.39,82.98,1
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260703
-- over_400_ratio: 50.24
-- over_600_ratio: 44.85
-- over_800_ratio: 42.17
-- over_1000_ratio: 40.2
-- over_400_change_1w: -1.06
-- over_800_change_1w: -0.79
-- over_1000_change_1w: -0.5
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260717
+- over_400_ratio: 52.42
+- over_600_ratio: 47.64
+- over_800_ratio: 43.68
+- over_1000_ratio: 41.04
+- over_400_change_1w: 2.18
+- over_800_change_1w: 1.51
+- over_1000_change_1w: 0.84
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -188,23 +197,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260618,52.36,-0.78,43.7,-0.6,42.3,-0.01,0,False,False
 20260626,51.3,-1.06,42.96,-0.74,40.7,-1.6,0,False,False
 20260703,50.24,-1.06,42.17,-0.79,40.2,-0.5,0,False,False
+20260717,52.42,2.18,43.68,1.51,41.04,0.84,1,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 5388 | 中磊 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | call_inflow | stale_signal | 1.法律事件之當事人: 原告: 華為技術有限公司 被告: 中磊電子德國子公司Sercomm Deutschland GmbH 2.法律事件之法院名稱或處分機關: 歐洲統一專利法院 3.法律事件之相關文書案號: UPC_CFI_9/2023, UPC_CFI_752/2025 4.事實發生日:115/06/21 5.發生原委(含爭訟標的): 本公司德國子公司Sercomm Deutschland GmbH收到華為公司訴訟書，針對中磊於 德國等地區銷售之部分產品提起專利訴訟。 6.處理過程: 本公司已委任國際專利訴訟專業團隊積極應訴，以維護本公司之最佳利益。 7.對公司財務業務影響及預估影響金額: 本公司於德國地區營收比重甚低，預估對本公司財務、營運影響極為有限。 8.因應措施及改善情形: 本公司專注自主技術研發，對於智慧財產權的投入與保護，向以最嚴格標準，謹慎 處理智慧財產權相關事宜。本公司對該訴訟案件將審慎評估，並委任專業律師妥善 因應，以維護公司最佳權益。 9.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第2款所定對股東權益或證券價格有重大影響之事項): 無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260716 | 5388 | 中磊 | revenue_breakout_low_response | 營收爆發低反應股 | 16.0 | 24.0 | D_降級_TDCC轉弱 |  |  | call_inflow | stale_signal | 1.法律事件之當事人: 原告: 華為技術有限公司 被告: 中磊電子德國子公司Sercomm Deutschland GmbH 2.法律事件之法院名稱或處分機關: 歐洲統一專利法院 3.法律事件之相關文書案號: UPC_CFI_9/2023, UPC_CFI_752/2025 4.事實發生日:115/06/21 5.發生原委(含爭訟標的): 本公司德國子公司Sercomm Deutschland GmbH收到華為公司訴訟書，針對中磊於 德國等地區銷售之部分產品提起專利訴訟。 6.處理過程: 本公司已委任國際專利訴訟專業團隊積極應訴，以維護本公司之最佳利益。 7.對公司財務業務影響及預估影響金額: 本公司於德國地區營收比重甚低，預估對本公司財務、營運影響極為有限。 8.因應措施及改善情形: 本公司專注自主技術研發，對於智慧財產權的投入與保護，向以最嚴格標準，謹慎 處理智慧財產權相關事宜。本公司對該訴訟案件將審慎評估，並委任專業律師妥善 因應，以維護公司最佳權益。 9.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第2款所定對股東權益或證券價格有重大影響之事項): 無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260717 | 5388 | 中磊 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | 1.法律事件之當事人: 原告: 華為技術有限公司 被告: 中磊電子德國子公司Sercomm Deutschland GmbH 2.法律事件之法院名稱或處分機關: 歐洲統一專利法院 3.法律事件之相關文書案號: UPC_CFI_9/2023, UPC_CFI_752/2025 4.事實發生日:115/06/21 5.發生原委(含爭訟標的): 本公司德國子公司Sercomm Deutschland GmbH收到華為公司訴訟書，針對中磊於 德國等地區銷售之部分產品提起專利訴訟。 6.處理過程: 本公司已委任國際專利訴訟專業團隊積極應訴，以維護本公司之最佳利益。 7.對公司財務業務影響及預估影響金額: 本公司於德國地區營收比重甚低，預估對本公司財務、營運影響極為有限。 8.因應措施及改善情形: 本公司專注自主技術研發，對於智慧財產權的投入與保護，向以最嚴格標準，謹慎 處理智慧財產權相關事宜。本公司對該訴訟案件將審慎評估，並委任專業律師妥善 因應，以維護公司最佳權益。 9.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第2款所定對股東權益或證券價格有重大影響之事項): 無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260717 | 5388 | 中磊 | revenue_breakout_low_response | 營收爆發低反應股 | 15.0 | 30.0 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | 1.法律事件之當事人: 原告: 華為技術有限公司 被告: 中磊電子德國子公司Sercomm Deutschland GmbH 2.法律事件之法院名稱或處分機關: 歐洲統一專利法院 3.法律事件之相關文書案號: UPC_CFI_9/2023, UPC_CFI_752/2025 4.事實發生日:115/06/21 5.發生原委(含爭訟標的): 本公司德國子公司Sercomm Deutschland GmbH收到華為公司訴訟書，針對中磊於 德國等地區銷售之部分產品提起專利訴訟。 6.處理過程: 本公司已委任國際專利訴訟專業團隊積極應訴，以維護本公司之最佳利益。 7.對公司財務業務影響及預估影響金額: 本公司於德國地區營收比重甚低，預估對本公司財務、營運影響極為有限。 8.因應措施及改善情形: 本公司專注自主技術研發，對於智慧財產權的投入與保護，向以最嚴格標準，謹慎 處理智慧財產權相關事宜。本公司對該訴訟案件將審慎評估，並委任專業律師妥善 因應，以維護公司最佳權益。 9.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第2款所定對股東權益或證券價格有重大影響之事項): 無；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 5388 | 中磊 | 17 | 1 | 5 | 10 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260717 | 5388 | 中磊 | 18 | 2 | 5 | 10 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 5388 | 中磊 | 29 | 0 | 4296790.0 | 0.0 |  | call_inflow |
+| 20260717 | 5388 | 中磊 | 29 | 0 | 952520.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

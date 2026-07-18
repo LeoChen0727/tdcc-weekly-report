@@ -1,15 +1,21 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4160 訊聯基因
 
 ## Metadata
-- generated_at: 2026-07-17 22:27:03 Asia/Taipei
+- generated_at: 2026-07-18 20:54:17 Asia/Taipei
 - stock_id: 4160
 - stock_name: 訊聯基因
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260716
-- price_rows: 170
-- latest_tdcc_date: 20260703
-- tdcc_rows: 10
+- latest_price_date: 20260717
+- price_rows: 171
+- current_main_price_date: 20260717
+- current_main_price_universe_status: current
+- current_main_price_universe_source: official_daily_price_latest_main_price_date
+- listing_status_source_status: formal_listing_status_source_unavailable
+- official_tdcc_signal_date: 20260717
+- latest_tdcc_date: 20260717
+- tdcc_rows: 11
 - tdcc_history_status: tdcc_history_ready
+- tdcc_freshness_status: tdcc_window_fresh
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
 - notes:
@@ -51,7 +57,10 @@
 - MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
-- If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
+- Only claim tdcc_history_ready when tdcc_rows >= 8 and latest_tdcc_date equals official_tdcc_signal_date.
+- If latest_tdcc_date differs from official_tdcc_signal_date, mark tdcc_window_stale and do not claim current TDCC history.
+- If the stock is absent from the official current main-price universe, preserve real TDCC dates and mark historical_only_noncurrent; do not infer a formal delisting status.
+- If TDCC is current but tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DISPLAY
@@ -113,29 +122,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260716
-- open: 41
-- high: 41.1
-- low: 40.65
-- close: 40.65
-- volume: 14000
-- ma5: 40.91
-- ema23_primary: 40.76
-- distance_to_ema23_pct: -0.27
-- ma20: 40.51
-- ma60: 41.4
-- ma120: 45.12
-- return_5d: -3.67
-- return_20d: 1.5
-- volume_ratio: 0.24
-- distance_to_ma20_pct_auxiliary: 0.35
-- distance_to_high_60_pct: -10.66
+- date: 20260717
+- open: 40.65
+- high: 41
+- low: 39.7
+- close: 39.9
+- volume: 43000
+- ma5: 40.56
+- ema23_primary: 40.69
+- distance_to_ema23_pct: -1.94
+- ma20: 40.45
+- ma60: 41.32
+- ma120: 45.02
+- return_5d: -4.2
+- return_20d: -2.92
+- volume_ratio: 0.76
+- distance_to_ma20_pct_auxiliary: -1.35
+- distance_to_high_60_pct: -12.31
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260617,40.05,41.3,40,41.1,65000,40.85,0.6,40.42,42.83,1.66
 20260618,41.1,41.1,40.35,40.4,41000,40.82,-1.02,40.38,42.76,1.12
 20260622,40.15,40.45,39.2,39.4,129000,40.7,-3.19,40.28,42.64,3.14
 20260623,40.05,40.05,39.2,39.3,61000,40.58,-3.16,40.21,42.53,1.45
@@ -155,10 +163,11 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260714,41,41,39.7,40.15,48000,40.75,-1.48,40.44,41.52,0.79
 20260715,40.8,41.2,40.8,40.95,8000,40.77,0.44,40.48,41.45,0.13
 20260716,41,41.1,40.65,40.65,14000,40.76,-0.27,40.51,41.4,0.24
+20260717,40.65,41,39.7,39.9,43000,40.69,-1.94,40.45,41.32,0.76
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260703
+- as_of_date: 20260717
 - over_400_ratio: 29.63
 - over_600_ratio: 27.72
 - over_800_ratio: 25.36
@@ -184,6 +193,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260618,29.63,0,25.36,0,25.36,0,0,False,False
 20260626,29.63,0,25.36,0,25.36,0,0,False,False
 20260703,29.63,0,25.36,0,25.36,0,0,False,False
+20260717,29.63,0,25.36,0,25.36,0,0,False,False
 ```
 
 ## Candidate Context

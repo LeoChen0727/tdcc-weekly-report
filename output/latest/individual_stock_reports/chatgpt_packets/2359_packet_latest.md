@@ -1,15 +1,21 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2359 所羅門
 
 ## Metadata
-- generated_at: 2026-07-17 22:26:27 Asia/Taipei
+- generated_at: 2026-07-18 20:53:33 Asia/Taipei
 - stock_id: 2359
 - stock_name: 所羅門
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260716
-- price_rows: 305
-- latest_tdcc_date: 20260703
-- tdcc_rows: 10
+- latest_price_date: 20260717
+- price_rows: 306
+- current_main_price_date: 20260717
+- current_main_price_universe_status: current
+- current_main_price_universe_source: official_daily_price_latest_main_price_date
+- listing_status_source_status: formal_listing_status_source_unavailable
+- official_tdcc_signal_date: 20260717
+- latest_tdcc_date: 20260717
+- tdcc_rows: 11
 - tdcc_history_status: tdcc_history_ready
+- tdcc_freshness_status: tdcc_window_fresh
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
 - notes:
@@ -51,7 +57,10 @@
 - MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
-- If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
+- Only claim tdcc_history_ready when tdcc_rows >= 8 and latest_tdcc_date equals official_tdcc_signal_date.
+- If latest_tdcc_date differs from official_tdcc_signal_date, mark tdcc_window_stale and do not claim current TDCC history.
+- If the stock is absent from the official current main-price universe, preserve real TDCC dates and mark historical_only_noncurrent; do not infer a formal delisting status.
+- If TDCC is current but tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DISPLAY
@@ -118,29 +127,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260716
-- open: 143.5
-- high: 147.5
-- low: 136.5
-- close: 147
-- volume: 5574604
-- ma5: 144.1
-- ema23_primary: 138.94
-- distance_to_ema23_pct: 5.8
-- ma20: 137.7
-- ma60: 132.79
-- ma120: 127.29
-- return_5d: 8.49
-- return_20d: 10.53
-- volume_ratio: 1.21
-- distance_to_ma20_pct_auxiliary: 6.75
-- distance_to_high_60_pct: -4.85
+- date: 20260717
+- open: 139
+- high: 145
+- low: 138.5
+- close: 141
+- volume: 9184934
+- ma5: 144.5
+- ema23_primary: 139.12
+- distance_to_ema23_pct: 1.35
+- ma20: 138.15
+- ma60: 133.21
+- ma120: 127.4
+- return_5d: 1.44
+- return_20d: 6.82
+- volume_ratio: 1.84
+- distance_to_ma20_pct_auxiliary: 2.06
+- distance_to_high_60_pct: -8.74
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260617,132,132.5,129,132,1469348,135.39,-2.5,139.35,124.62,0.24
 20260618,135,137.5,132.5,134,2458260,135.27,-0.94,139.35,124.99,0.41
 20260622,136,139,135,136.5,2582242,135.37,0.83,139.12,125.4,0.45
 20260623,139,141.5,135.5,140.5,4001908,135.8,3.46,139.07,125.82,0.72
@@ -160,19 +168,20 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260714,147.5,147.5,136.5,142.5,6109319,137.69,3.5,136.68,131.8,1.43
 20260715,147,149,141,144,5362090,138.21,4.19,137,132.28,1.21
 20260716,143.5,147.5,136.5,147,5574604,138.94,5.8,137.7,132.79,1.21
+20260717,139,145,138.5,141,9184934,139.12,1.35,138.15,133.21,1.84
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260703
-- over_400_ratio: 47.41
-- over_600_ratio: 45.31
-- over_800_ratio: 44.05
-- over_1000_ratio: 39.88
-- over_400_change_1w: 2.29
-- over_800_change_1w: 2.31
-- over_1000_change_1w: 1.78
-- tdcc_consecutive_up_weeks: 7
-- all_thresholds_up: True
+- as_of_date: 20260717
+- over_400_ratio: 48.52
+- over_600_ratio: 46.01
+- over_800_ratio: 43.95
+- over_1000_ratio: 40.21
+- over_400_change_1w: 1.11
+- over_800_change_1w: -0.1
+- over_1000_change_1w: 0.33
+- tdcc_consecutive_up_weeks: 8
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -189,22 +198,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260618,44.84,-0.74,41.65,0.25,38.02,-0.12,5,False,True
 20260626,45.12,0.28,41.74,0.09,38.1,0.08,6,True,True
 20260703,47.41,2.29,44.05,2.31,39.88,1.78,7,True,True
+20260717,48.52,1.11,43.95,-0.1,40.21,0.33,8,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 2359 | 所羅門 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_inflow | repeated_but_no_breakout | 1.事實發生日:115/07/09 2.公司名稱:所羅門股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: 本公司為活化閒置資產及充實營運資金，經董事會通過以公開標售方式處分位於台北市　 南港區之南港大樓(含土地及建物)。 (1)標的物名稱及性質： a.土地座落：台北市南港區玉成段二小段 (地號：0170-0000，所有權全部)。 b.建物座落：台北市南港區南港路三段47巷2號（座落：南港區玉成段二小段；   建號01648-000及建號01649-000，所有權全部）。 (2) 交易單位數量、每單位價格及交易總金額: a.土地：面積2,548平方公尺（折合770.77坪）。 b.建物：面積12,735.54平方公尺（折合3,852.50坪）。 (土地及建物面積，以土地及建物所有權狀登記為準）。 決定方式：公開標售 價格決定之參考依據：參考連邦不動產估價師聯合事務所及行遠不動產估價師事務所之 估價報告之估價金額及董事會核定之授權底價決定，交易金額則待與交易相對人簽約後 再行公告。 6.因應措施:不適用。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): (1)本案授權董事長於不低於董事會通過之公開標售之底價金額，進行公開標售作業， 並與得標之交易相對人簽署不動產買賣契約等相關文件。 (2)本案尚未簽訂合約，故交易相對人、交易金額與該金額佔最近期個體財務報告期末 總資產比率、處分損益及對本公司損益等影響，將於簽約後另行辦理公告及重大訊息 作業。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260717 | 2359 | 所羅門 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  | no_signal | continued_2_3d | 1.事實發生日:115/07/09 2.公司名稱:所羅門股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: 本公司為活化閒置資產及充實營運資金，經董事會通過以公開標售方式處分位於台北市　 南港區之南港大樓(含土地及建物)。 (1)標的物名稱及性質： a.土地座落：台北市南港區玉成段二小段 (地號：0170-0000，所有權全部)。 b.建物座落：台北市南港區南港路三段47巷2號（座落：南港區玉成段二小段；   建號01648-000及建號01649-000，所有權全部）。 (2) 交易單位數量、每單位價格及交易總金額: a.土地：面積2,548平方公尺（折合770.77坪）。 b.建物：面積12,735.54平方公尺（折合3,852.50坪）。 (土地及建物面積，以土地及建物所有權狀登記為準）。 決定方式：公開標售 價格決定之參考依據：參考連邦不動產估價師聯合事務所及行遠不動產估價師事務所之 估價報告之估價金額及董事會核定之授權底價決定，交易金額則待與交易相對人簽約後 再行公告。 6.因應措施:不適用。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): (1)本案授權董事長於不低於董事會通過之公開標售之底價金額，進行公開標售作業， 並與得標之交易相對人簽署不動產買賣契約等相關文件。 (2)本案尚未簽訂合約，故交易相對人、交易金額與該金額佔最近期個體財務報告期末 總資產比率、處分損益及對本公司損益等影響，將於簽約後另行辦理公告及重大訊息 作業。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 2359 | 所羅門 | 1 | 1 | 4 | 7 | 11 | repeated_but_no_breakout | 近 10 日上榜 7 次、近 20 日上榜 11 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260717 | 2359 | 所羅門 | 2 | 2 | 4 | 7 | 11 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 2359 | 所羅門 | 40 | 0 | 10058070.0 | 0.0 |  | call_inflow |
+| 20260717 | 2359 | 所羅門 | 42 | 0 | 10708490.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

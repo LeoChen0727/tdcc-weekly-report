@@ -1,15 +1,21 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0052 富邦科技
 
 ## Metadata
-- generated_at: 2026-07-17 22:26:02 Asia/Taipei
+- generated_at: 2026-07-18 20:53:02 Asia/Taipei
 - stock_id: 0052
 - stock_name: 富邦科技
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260716
-- price_rows: 164
+- latest_price_date: 20260717
+- price_rows: 165
+- current_main_price_date: 20260717
+- current_main_price_universe_status: current
+- current_main_price_universe_source: official_daily_price_latest_main_price_date
+- listing_status_source_status: formal_listing_status_source_unavailable
+- official_tdcc_signal_date: 20260717
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
+- tdcc_freshness_status: tdcc_missing
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
 - notes: TDCC history missing
@@ -51,7 +57,10 @@
 - MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
-- If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
+- Only claim tdcc_history_ready when tdcc_rows >= 8 and latest_tdcc_date equals official_tdcc_signal_date.
+- If latest_tdcc_date differs from official_tdcc_signal_date, mark tdcc_window_stale and do not claim current TDCC history.
+- If the stock is absent from the official current main-price universe, preserve real TDCC dates and mark historical_only_noncurrent; do not infer a formal delisting status.
+- If TDCC is current but tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DISPLAY
@@ -88,7 +97,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +121,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260716
-- open: 61.75
-- high: 62.45
-- low: 61.1
-- close: 62.2
-- volume: 17870324
-- ma5: 61.94
-- ema23_primary: 61.97
-- distance_to_ema23_pct: 0.37
-- ma20: 62.79
-- ma60: 59.12
-- ma120: 52.07
-- return_5d: 0.08
-- return_20d: 0.57
-- volume_ratio: 0.63
-- distance_to_ma20_pct_auxiliary: -0.94
-- distance_to_high_60_pct: -5.76
+- date: 20260717
+- open: 59.75
+- high: 60.15
+- low: 57.9
+- close: 57.9
+- volume: 66848132
+- ma5: 61.12
+- ema23_primary: 61.63
+- distance_to_ema23_pct: -6.05
+- ma20: 62.58
+- ma60: 59.25
+- ma120: 52.21
+- return_5d: -6.61
+- return_20d: -6.84
+- volume_ratio: 2.19
+- distance_to_ma20_pct_auxiliary: -7.47
+- distance_to_high_60_pct: -12.27
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260617,61.2,62.15,61.05,62.15,26888610,59.41,4.61,60.33,53.91,0.76
 20260618,62.6,62.9,62.35,62.8,25192808,59.7,5.2,60.65,54.22,0.71
 20260622,64.25,65.55,64.25,65.25,46591322,60.16,8.46,61.02,54.58,1.29
 20260623,65.8,66,64.6,64.6,32097183,60.53,6.73,61.27,54.9,0.91
@@ -155,6 +162,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260714,61.6,61.8,59.85,61.15,38947848,61.92,-1.24,62.74,58.7,1.32
 20260715,61.45,62.35,61.1,62.25,18375422,61.95,0.49,62.77,58.9,0.64
 20260716,61.75,62.45,61.1,62.2,17870324,61.97,0.37,62.79,59.12,0.63
+20260717,59.75,60.15,57.9,57.9,66848132,61.63,-6.05,62.58,59.25,2.19
 ```
 
 ## Latest TDCC Snapshot
@@ -190,7 +198,7 @@ no_rows,True
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 0052 | 富邦科技 | 19 | 0 | 879570.0 | 0.0 |  | no_signal |
+| 20260717 | 0052 | 富邦科技 | 20 | 3 | 5751750.0 | 190.0 | 30272.37 | call_put_bullish |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

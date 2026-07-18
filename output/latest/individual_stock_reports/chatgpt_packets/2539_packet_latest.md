@@ -1,15 +1,21 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2539 櫻花建
 
 ## Metadata
-- generated_at: 2026-07-17 22:26:35 Asia/Taipei
+- generated_at: 2026-07-18 20:53:43 Asia/Taipei
 - stock_id: 2539
 - stock_name: 櫻花建
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260716
-- price_rows: 305
-- latest_tdcc_date: 20260703
-- tdcc_rows: 10
+- latest_price_date: 20260717
+- price_rows: 306
+- current_main_price_date: 20260717
+- current_main_price_universe_status: current
+- current_main_price_universe_source: official_daily_price_latest_main_price_date
+- listing_status_source_status: formal_listing_status_source_unavailable
+- official_tdcc_signal_date: 20260717
+- latest_tdcc_date: 20260717
+- tdcc_rows: 11
 - tdcc_history_status: tdcc_history_ready
+- tdcc_freshness_status: tdcc_window_fresh
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
 - notes:
@@ -51,22 +57,25 @@
 - MA20 / MA60 / MA120 remain backend auxiliary and backtest fields; do not make them the main chart/conclusion unless the user explicitly asks.
 - The full historical CSV remains available for Python backtests.
 - If price_rows < 60, do not produce a standard technical report.
-- If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
+- Only claim tdcc_history_ready when tdcc_rows >= 8 and latest_tdcc_date equals official_tdcc_signal_date.
+- If latest_tdcc_date differs from official_tdcc_signal_date, mark tdcc_window_stale and do not claim current TDCC history.
+- If the stock is absent from the official current main-price universe, preserve real TDCC dates and mark historical_only_noncurrent; do not infer a formal delisting status.
+- If TDCC is current but tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 回檔後短線轉強
+- model_category_display_zh: 營收成長股價回檔
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 回檔後短線轉強 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 回檔後短線轉強 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -112,29 +121,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260716
-- open: 40.1
-- high: 41.4
-- low: 40.1
-- close: 41.2
-- volume: 1493740
-- ma5: 40.42
-- ema23_primary: 39.48
-- distance_to_ema23_pct: 4.36
-- ma20: 39.47
-- ma60: 39.08
-- ma120: 43.62
-- return_5d: 5.24
-- return_20d: 5.91
-- volume_ratio: 1.42
-- distance_to_ma20_pct_auxiliary: 4.38
-- distance_to_high_60_pct: -11.02
+- date: 20260717
+- open: 40.8
+- high: 41.6
+- low: 40.8
+- close: 40.8
+- volume: 1771263
+- ma5: 40.72
+- ema23_primary: 39.59
+- distance_to_ema23_pct: 3.06
+- ma20: 39.54
+- ma60: 39.01
+- ma120: 43.56
+- return_5d: 3.82
+- return_20d: 3.55
+- volume_ratio: 1.61
+- distance_to_ma20_pct_auxiliary: 3.19
+- distance_to_high_60_pct: -11.88
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260617,39.15,39.45,38.75,39.4,891295,38.32,2.82,37.23,41.68,0.38
 20260618,39.8,40.25,39.15,39.95,1771484,38.46,3.89,37.31,41.55,0.74
 20260622,39.95,39.95,38.55,38.65,1776165,38.47,0.46,37.34,41.4,0.73
 20260623,38.5,38.85,38.3,38.65,1068071,38.49,0.43,37.44,41.23,0.47
@@ -154,18 +162,19 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260714,41.2,41.2,40.15,40.55,1276476,39.25,3.31,39.3,39.27,1.24
 20260715,40.6,40.95,39.75,40.1,1453977,39.32,1.98,39.35,39.16,1.39
 20260716,40.1,41.4,40.1,41.2,1493740,39.48,4.36,39.47,39.08,1.42
+20260717,40.8,41.6,40.8,40.8,1771263,39.59,3.06,39.54,39.01,1.61
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260703
-- over_400_ratio: 86.83
-- over_600_ratio: 85.65
-- over_800_ratio: 85.1
-- over_1000_ratio: 84.27
-- over_400_change_1w: -0.05
-- over_800_change_1w: 0.06
-- over_1000_change_1w: -0.02
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260717
+- over_400_ratio: 86.94
+- over_600_ratio: 85.52
+- over_800_ratio: 85.13
+- over_1000_ratio: 84.3
+- over_400_change_1w: 0.11
+- over_800_change_1w: 0.03
+- over_1000_change_1w: 0.03
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -183,20 +192,20 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260618,86.81,-0.07,84.96,0,84.21,0,1,False,False
 20260626,86.88,0.07,85.04,0.08,84.29,0.08,2,False,True
 20260703,86.83,-0.05,85.1,0.06,84.27,-0.02,3,False,True
+20260717,86.94,0.11,85.13,0.03,84.3,0.03,4,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 2539 | 櫻花建 | pullback_rebound | 回檔後短線轉強 | 63.0 |  |  |  |  |  | stale_signal | 1.發生變動日期:115/06/30 2.功能性委員會名稱:薪資報酬委員會 3.舊任者姓名:許振華、王癸元、黃子翎 4.舊任者簡歷: 許振華 / 協侑營造有限公司行政服務處總經理 王癸元 / 亞洲大學副教授 黃子翎 / 誠佳建設(股)公司行政服務處經理 5.新任者姓名:王癸元、徐文宗、黃瓊瑤 6.新任者簡歷: 王癸元 / 亞洲大學副教授 徐文宗 / 維翰聯合法律事務所主持律師 黃瓊瑤 / 雲林科技大學教授 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 任期屆滿 8.異動原因:任期屆滿，重新委任 9.原任期（例xx/xx/xx ~ xx/xx/xx）:112/06/13~115/06/12 10.新任生效日期:115/6/30 11.其他應敘明事項: 本屆薪資報酬委員會任期115/06/30~118/06/15，同本屆董事會任期。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
-| 20260716 | 2539 | 櫻花建 | revenue_pullback | 營收成長股價回檔 | 63.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  |  | stale_signal | 1.發生變動日期:115/06/30 2.功能性委員會名稱:薪資報酬委員會 3.舊任者姓名:許振華、王癸元、黃子翎 4.舊任者簡歷: 許振華 / 協侑營造有限公司行政服務處總經理 王癸元 / 亞洲大學副教授 黃子翎 / 誠佳建設(股)公司行政服務處經理 5.新任者姓名:王癸元、徐文宗、黃瓊瑤 6.新任者簡歷: 王癸元 / 亞洲大學副教授 徐文宗 / 維翰聯合法律事務所主持律師 黃瓊瑤 / 雲林科技大學教授 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 任期屆滿 8.異動原因:任期屆滿，重新委任 9.原任期（例xx/xx/xx ~ xx/xx/xx）:112/06/13~115/06/12 10.新任生效日期:115/6/30 11.其他應敘明事項: 本屆薪資報酬委員會任期115/06/30~118/06/15，同本屆董事會任期。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
-| 20260716 | 2539 | 櫻花建 | revenue_breakout_low_response | 營收爆發低反應股 | 16.0 | 15.0 | B_可觀察 |  |  |  | stale_signal | 1.發生變動日期:115/06/30 2.功能性委員會名稱:薪資報酬委員會 3.舊任者姓名:許振華、王癸元、黃子翎 4.舊任者簡歷: 許振華 / 協侑營造有限公司行政服務處總經理 王癸元 / 亞洲大學副教授 黃子翎 / 誠佳建設(股)公司行政服務處經理 5.新任者姓名:王癸元、徐文宗、黃瓊瑤 6.新任者簡歷: 王癸元 / 亞洲大學副教授 徐文宗 / 維翰聯合法律事務所主持律師 黃瓊瑤 / 雲林科技大學教授 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 任期屆滿 8.異動原因:任期屆滿，重新委任 9.原任期（例xx/xx/xx ~ xx/xx/xx）:112/06/13~115/06/12 10.新任生效日期:115/6/30 11.其他應敘明事項: 本屆薪資報酬委員會任期115/06/30~118/06/15，同本屆董事會任期。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
-| 20260716 | 2539 | 櫻花建 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | 1.發生變動日期:115/06/30 2.功能性委員會名稱:薪資報酬委員會 3.舊任者姓名:許振華、王癸元、黃子翎 4.舊任者簡歷: 許振華 / 協侑營造有限公司行政服務處總經理 王癸元 / 亞洲大學副教授 黃子翎 / 誠佳建設(股)公司行政服務處經理 5.新任者姓名:王癸元、徐文宗、黃瓊瑤 6.新任者簡歷: 王癸元 / 亞洲大學副教授 徐文宗 / 維翰聯合法律事務所主持律師 黃瓊瑤 / 雲林科技大學教授 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 任期屆滿 8.異動原因:任期屆滿，重新委任 9.原任期（例xx/xx/xx ~ xx/xx/xx）:112/06/13~115/06/12 10.新任生效日期:115/6/30 11.其他應敘明事項: 本屆薪資報酬委員會任期115/06/30~118/06/15，同本屆董事會任期。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_30d |
+| 20260717 | 2539 | 櫻花建 | revenue_pullback | 營收成長股價回檔 | 63.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  |  | stale_signal | 1.發生變動日期:115/06/30 2.功能性委員會名稱:薪資報酬委員會 3.舊任者姓名:許振華、王癸元、黃子翎 4.舊任者簡歷: 許振華 / 協侑營造有限公司行政服務處總經理 王癸元 / 亞洲大學副教授 黃子翎 / 誠佳建設(股)公司行政服務處經理 5.新任者姓名:王癸元、徐文宗、黃瓊瑤 6.新任者簡歷: 王癸元 / 亞洲大學副教授 徐文宗 / 維翰聯合法律事務所主持律師 黃瓊瑤 / 雲林科技大學教授 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 任期屆滿 8.異動原因:任期屆滿，重新委任 9.原任期（例xx/xx/xx ~ xx/xx/xx）:112/06/13~115/06/12 10.新任生效日期:115/6/30 11.其他應敘明事項: 本屆薪資報酬委員會任期115/06/30~118/06/15，同本屆董事會任期。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260717 | 2539 | 櫻花建 | revenue_breakout_low_response | 營收爆發低反應股 | 16.0 | 18.0 | B_可觀察 |  |  |  | stale_signal | 1.發生變動日期:115/06/30 2.功能性委員會名稱:薪資報酬委員會 3.舊任者姓名:許振華、王癸元、黃子翎 4.舊任者簡歷: 許振華 / 協侑營造有限公司行政服務處總經理 王癸元 / 亞洲大學副教授 黃子翎 / 誠佳建設(股)公司行政服務處經理 5.新任者姓名:王癸元、徐文宗、黃瓊瑤 6.新任者簡歷: 王癸元 / 亞洲大學副教授 徐文宗 / 維翰聯合法律事務所主持律師 黃瓊瑤 / 雲林科技大學教授 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 任期屆滿 8.異動原因:任期屆滿，重新委任 9.原任期（例xx/xx/xx ~ xx/xx/xx）:112/06/13~115/06/12 10.新任生效日期:115/6/30 11.其他應敘明事項: 本屆薪資報酬委員會任期115/06/30~118/06/15，同本屆董事會任期。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260717 | 2539 | 櫻花建 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | 1.發生變動日期:115/06/30 2.功能性委員會名稱:薪資報酬委員會 3.舊任者姓名:許振華、王癸元、黃子翎 4.舊任者簡歷: 許振華 / 協侑營造有限公司行政服務處總經理 王癸元 / 亞洲大學副教授 黃子翎 / 誠佳建設(股)公司行政服務處經理 5.新任者姓名:王癸元、徐文宗、黃瓊瑤 6.新任者簡歷: 王癸元 / 亞洲大學副教授 徐文宗 / 維翰聯合法律事務所主持律師 黃瓊瑤 / 雲林科技大學教授 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 任期屆滿 8.異動原因:任期屆滿，重新委任 9.原任期（例xx/xx/xx ~ xx/xx/xx）:112/06/13~115/06/12 10.新任生效日期:115/6/30 11.其他應敘明事項: 本屆薪資報酬委員會任期115/06/30~118/06/15，同本屆董事會任期。；calendar event: monthly_revenue_expected_window on 20260801; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260716 | 2539 | 櫻花建 | 1 | 1 | 3 | 3 | 8 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260717 | 2539 | 櫻花建 | 2 | 2 | 4 | 4 | 8 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |
