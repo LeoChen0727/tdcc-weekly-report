@@ -39,6 +39,9 @@ DATA_FRESHNESS_CSV = LATEST_DIR / "data_freshness_latest.csv"
 READ_ME_FIRST_TXT = LATEST_DIR / "READ_ME_FIRST_DAILY_REPORT.txt"
 OFFICIAL_TDCC_CONTRACT_JSON = LATEST_DIR / "tdcc_weekly_candidate_report_validation_latest.json"
 OFFICIAL_TDCC_DATE_SOURCE = "report_ready_csv_signal_date"
+OFFICIAL_DAILY_PRICE_CSV = LATEST_DIR / "official_daily_price_latest.csv"
+CURRENT_UNIVERSE_SOURCE = "official_daily_price_latest_main_price_date"
+LISTING_STATUS_SOURCE_STATUS = "formal_listing_status_source_unavailable"
 
 
 def now_text() -> str:
@@ -146,6 +149,29 @@ def load_official_tdcc_signal_date(path: Path | None = None) -> str:
     if not re.fullmatch(r"20[0-9]{6}", signal_date):
         raise SystemExit(f"ERROR: Official TDCC date contract missing valid signal_date: {contract_path}")
     return signal_date
+
+
+def load_current_main_price_universe(main_price_date: str, path: Path | None = None) -> set[str]:
+    universe_path = path or OFFICIAL_DAILY_PRICE_CSV
+    if not main_price_date:
+        raise SystemExit("ERROR: Cannot resolve main_price_date for current price universe.")
+    if not universe_path.exists():
+        raise SystemExit(f"ERROR: Missing current main-price universe artifact: {universe_path}")
+    universe_df = read_csv(universe_path)
+    if universe_df.empty:
+        raise SystemExit(f"ERROR: Current main-price universe artifact is empty: {universe_path}")
+    date_col = first_existing(universe_df, ["date", "trade_date"])
+    stock_id_col = first_existing(universe_df, ["stock_id", "code"])
+    if not date_col or not stock_id_col:
+        raise SystemExit(f"ERROR: Current main-price universe artifact missing date/stock_id columns: {universe_path}")
+    universe_dates = {normalize_date(value) for value in universe_df[date_col].tolist() if normalize_date(value)}
+    if universe_dates != {main_price_date}:
+        raise SystemExit(
+            f"ERROR: Current main-price universe date mismatch: expected only {main_price_date}, "
+            f"got {sorted(universe_dates) or ['missing']} ({universe_path})"
+        )
+    stock_ids = {normalize_stock_id(value) for value in universe_df[stock_id_col].tolist()}
+    return {stock_id for stock_id in stock_ids if is_valid_stock_id(stock_id)}
 
 
 def filter_to_main_price_date(df: pd.DataFrame, main_date: str) -> pd.DataFrame:
@@ -414,6 +440,7 @@ def status_from_rows(
     tdcc_rows: int,
     latest_tdcc_date: str,
     official_tdcc_signal_date: str,
+    is_current_main_price_universe: bool = True,
 ) -> tuple[str, str, str, str]:
     if price_rows >= 120:
         packet_status = "standard_180d_window_packet"
@@ -424,7 +451,10 @@ def status_from_rows(
     else:
         packet_status = "insufficient_price_data"
 
-    if tdcc_rows > 0 and latest_tdcc_date != official_tdcc_signal_date:
+    if tdcc_rows > 0 and not is_current_main_price_universe:
+        tdcc_status = "historical_only_noncurrent"
+        tdcc_freshness_status = "historical_only_noncurrent"
+    elif tdcc_rows > 0 and latest_tdcc_date != official_tdcc_signal_date:
         tdcc_status = "tdcc_window_stale"
         tdcc_freshness_status = "tdcc_window_stale"
     elif tdcc_rows >= 8:
@@ -451,6 +481,11 @@ def status_from_rows(
             f"TDCC window stale: latest_tdcc_date={latest_tdcc_date or 'missing'} does not match "
             f"official_tdcc_signal_date={official_tdcc_signal_date}; do not claim current TDCC history"
         )
+    if tdcc_status == "historical_only_noncurrent":
+        notes.append(
+            "Historical-only TDCC window: stock is absent from the official current main-price universe; "
+            "retain real historical dates and do not claim current TDCC history"
+        )
     return packet_status, tdcc_status, tdcc_freshness_status, "; ".join(notes)
 
 
@@ -473,6 +508,8 @@ def build_packet(
     price_days: int,
     tdcc_weeks: int,
     official_tdcc_signal_date: str,
+    main_price_date: str,
+    is_current_main_price_universe: bool,
 ) -> tuple[str, dict[str, Any]]:
     price_df = sort_by_date(price_df, ["date", "trade_date"])
     tdcc_df = sort_by_date(tdcc_df, ["as_of_date", "date"])
@@ -490,6 +527,7 @@ def build_packet(
         tdcc_rows,
         latest_tdcc_date,
         official_tdcc_signal_date,
+        is_current_main_price_universe,
     )
 
     packet_path = PACKET_DIR / f"{stock_id}_packet_latest.md"
@@ -520,7 +558,7 @@ def build_packet(
             "tdcc_status": pick_value(latest_tdcc, ["tdcc_status", "tdcc_judgement", "tdcc_accumulation_signal"]),
         }
     )
-    if tdcc_status in {"insufficient_tdcc_history", "tdcc_window_stale"}:
+    if tdcc_status in {"insufficient_tdcc_history", "tdcc_window_stale", "historical_only_noncurrent"}:
         action_source["downgrade_flags"] = "|".join(
             [safe_str(action_source.get("downgrade_flags", "")), tdcc_status]
         ).strip("|")
@@ -588,6 +626,10 @@ def build_packet(
         f"- packet_status: {packet_status}",
         f"- latest_price_date: {latest_price_date}",
         f"- price_rows: {price_rows}",
+        f"- current_main_price_date: {main_price_date}",
+        f"- current_main_price_universe_status: {'current' if is_current_main_price_universe else 'historical_only_noncurrent'}",
+        f"- current_main_price_universe_source: {CURRENT_UNIVERSE_SOURCE}",
+        f"- listing_status_source_status: {LISTING_STATUS_SOURCE_STATUS}",
         f"- official_tdcc_signal_date: {official_tdcc_signal_date}",
         f"- latest_tdcc_date: {latest_tdcc_date}",
         f"- tdcc_rows: {tdcc_rows}",
@@ -636,6 +678,7 @@ def build_packet(
         "- If price_rows < 60, do not produce a standard technical report.",
         "- Only claim tdcc_history_ready when tdcc_rows >= 8 and latest_tdcc_date equals official_tdcc_signal_date.",
         "- If latest_tdcc_date differs from official_tdcc_signal_date, mark tdcc_window_stale and do not claim current TDCC history.",
+        "- If the stock is absent from the official current main-price universe, preserve real TDCC dates and mark historical_only_noncurrent; do not infer a formal delisting status.",
         "- If TDCC is current but tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.",
         "- External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.",
         "",
@@ -810,6 +853,10 @@ def build_packet(
         "packet_status": packet_status,
         "price_rows": price_rows,
         "latest_price_date": latest_price_date,
+        "current_main_price_date": main_price_date,
+        "current_main_price_universe_status": "current" if is_current_main_price_universe else "historical_only_noncurrent",
+        "current_main_price_universe_source": CURRENT_UNIVERSE_SOURCE,
+        "listing_status_source_status": LISTING_STATUS_SOURCE_STATUS,
         "tdcc_rows": tdcc_rows,
         "official_tdcc_signal_date": official_tdcc_signal_date,
         "latest_tdcc_date": latest_tdcc_date,
@@ -885,6 +932,11 @@ def write_index_md(index: pd.DataFrame) -> None:
     tdcc_freshness_counts = (
         index["tdcc_freshness_status"].value_counts().to_dict() if "tdcc_freshness_status" in index.columns else {}
     )
+    universe_status_counts = (
+        index["current_main_price_universe_status"].value_counts().to_dict()
+        if "current_main_price_universe_status" in index.columns
+        else {}
+    )
     official_tdcc_dates = (
         sorted({safe_str(value) for value in index["official_tdcc_signal_date"].tolist() if safe_str(value)})
         if "official_tdcc_signal_date" in index.columns
@@ -904,6 +956,9 @@ def write_index_md(index: pd.DataFrame) -> None:
         f"- tdcc_window_fresh: {tdcc_freshness_counts.get('tdcc_window_fresh', 0)}",
         f"- tdcc_window_stale: {tdcc_freshness_counts.get('tdcc_window_stale', 0)}",
         f"- tdcc_missing: {tdcc_freshness_counts.get('tdcc_missing', 0)}",
+        f"- historical_only_noncurrent: {tdcc_freshness_counts.get('historical_only_noncurrent', 0)}",
+        f"- current_main_price_universe: {universe_status_counts.get('current', 0)}",
+        f"- noncurrent_main_price_universe: {universe_status_counts.get('historical_only_noncurrent', 0)}",
         f"- csv_raw_url: {raw_url(PACKET_INDEX_CSV)}",
         f"- csv_pages_url: {pages_url_for(DOCS_PACKET_INDEX_CSV)}",
         f"- csv_github_api_url: {github_api_url(PACKET_INDEX_CSV)}",
@@ -930,6 +985,8 @@ def write_index_md(index: pd.DataFrame) -> None:
                 "packet_status",
                 "price_rows",
                 "latest_price_date",
+                "current_main_price_date",
+                "current_main_price_universe_status",
                 "tdcc_rows",
                 "official_tdcc_signal_date",
                 "latest_tdcc_date",
@@ -981,6 +1038,7 @@ def main() -> int:
     warrant_df = read_csv(WARRANT_FLOW_CSV)
     repeat_df = read_csv(REPEAT_CSV)
     main_date = current_main_price_date()
+    current_main_price_universe = load_current_main_price_universe(main_date)
     shared_frames = [all_candidates_df, warrant_df, repeat_df]
 
     selected = [normalize_stock_id(x) for x in args.stock_id if is_valid_stock_id(x)]
@@ -1010,6 +1068,8 @@ def main() -> int:
             price_days=args.price_days,
             tdcc_weeks=args.tdcc_weeks,
             official_tdcc_signal_date=official_tdcc_signal_date,
+            main_price_date=main_date,
+            is_current_main_price_universe=stock_id in current_main_price_universe,
         )
         packet_path = PACKET_DIR / f"{stock_id}_packet_latest.md"
         write_text(packet_path, text)
@@ -1021,6 +1081,7 @@ def main() -> int:
     print(f"Saved: {PACKET_INDEX_CSV} rows={len(index)}")
     print(f"Saved: {PACKET_INDEX_MD}")
     print(f"Official TDCC signal date: {official_tdcc_signal_date}")
+    print(f"Current main-price universe date: {main_date} rows={len(current_main_price_universe)}")
     return 0
 
 

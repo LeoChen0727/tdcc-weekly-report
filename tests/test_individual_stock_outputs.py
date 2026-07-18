@@ -120,6 +120,7 @@ def packet_text(
     history_status: str,
     freshness_status: str,
     tdcc_rows: int = 12,
+    universe_status: str = "current",
 ) -> str:
     return "\n".join(
         [
@@ -127,6 +128,10 @@ def packet_text(
             "",
             "## Metadata",
             "- stock_id: 2330",
+            "- current_main_price_date: 20260717",
+            f"- current_main_price_universe_status: {universe_status}",
+            "- current_main_price_universe_source: official_daily_price_latest_main_price_date",
+            "- listing_status_source_status: formal_listing_status_source_unavailable",
             "- official_tdcc_signal_date: 20260717",
             f"- latest_tdcc_date: {latest_tdcc_date}",
             f"- tdcc_rows: {tdcc_rows}",
@@ -159,6 +164,20 @@ def test_official_tdcc_contract_loaders_fail_closed(tmp_path):
             loader(wrong_source_contract)
 
 
+def test_current_main_price_universe_is_dated_and_fail_closed(tmp_path):
+    builder = load_script("build_individual_stock_chatgpt_packets")
+    validator = load_script("validate_individual_stock_outputs")
+    universe_path = tmp_path / "official_daily_price_latest.csv"
+    universe_path.write_text(
+        "date,stock_id,stock_name\n20260717,2330,TSMC\n",
+        encoding="utf-8",
+    )
+    for loader in [builder.load_current_main_price_universe, validator.read_current_main_price_universe]:
+        assert loader("20260717", universe_path) == {"2330"}
+        with pytest.raises(SystemExit, match="Current main-price universe date mismatch"):
+            loader("20260716", universe_path)
+
+
 def test_tdcc_packet_20260703_fails_then_rebuilt_20260717_passes(tmp_path):
     builder = load_script("build_individual_stock_chatgpt_packets")
     validator = load_script("validate_individual_stock_outputs")
@@ -178,6 +197,10 @@ def test_tdcc_packet_20260703_fails_then_rebuilt_20260717_passes(tmp_path):
         encoding="utf-8",
     )
     stale_index_row = {
+        "current_main_price_date": "20260717",
+        "current_main_price_universe_status": "current",
+        "current_main_price_universe_source": "official_daily_price_latest_main_price_date",
+        "listing_status_source_status": "formal_listing_status_source_unavailable",
         "official_tdcc_signal_date": "20260717",
         "latest_tdcc_date": "20260703",
         "tdcc_rows": "12",
@@ -185,7 +208,7 @@ def test_tdcc_packet_20260703_fails_then_rebuilt_20260717_passes(tmp_path):
         "tdcc_freshness_status": stale_freshness_status,
     }
     stale_errors = validator.validate_tdcc_packet_freshness(
-        "2330", packet_path, stale_index_row, "20260717"
+        "2330", packet_path, stale_index_row, "20260717", main_price_date="20260717"
     )
     assert any("packet latest_tdcc_date mismatch" in error for error in stale_errors)
     assert any("expected tdcc_history_ready" in error for error in stale_errors)
@@ -204,6 +227,10 @@ def test_tdcc_packet_20260703_fails_then_rebuilt_20260717_passes(tmp_path):
         encoding="utf-8",
     )
     fresh_index_row = {
+        "current_main_price_date": "20260717",
+        "current_main_price_universe_status": "current",
+        "current_main_price_universe_source": "official_daily_price_latest_main_price_date",
+        "listing_status_source_status": "formal_listing_status_source_unavailable",
         "official_tdcc_signal_date": "20260717",
         "latest_tdcc_date": "20260717",
         "tdcc_rows": "12",
@@ -211,7 +238,7 @@ def test_tdcc_packet_20260703_fails_then_rebuilt_20260717_passes(tmp_path):
         "tdcc_freshness_status": fresh_freshness_status,
     }
     assert validator.validate_tdcc_packet_freshness(
-        "2330", packet_path, fresh_index_row, "20260717"
+        "2330", packet_path, fresh_index_row, "20260717", main_price_date="20260717"
     ) == []
 
 
@@ -248,6 +275,10 @@ def test_tdcc_missing_and_fresh_history_states_are_accepted(
         encoding="utf-8",
     )
     index_row = {
+        "current_main_price_date": "20260717",
+        "current_main_price_universe_status": "current",
+        "current_main_price_universe_source": "official_daily_price_latest_main_price_date",
+        "listing_status_source_status": "formal_listing_status_source_unavailable",
         "official_tdcc_signal_date": "20260717",
         "latest_tdcc_date": latest_tdcc_date,
         "tdcc_rows": str(tdcc_rows),
@@ -255,5 +286,45 @@ def test_tdcc_missing_and_fresh_history_states_are_accepted(
         "tdcc_freshness_status": freshness_status,
     }
     assert validator.validate_tdcc_packet_freshness(
-        "2330", packet_path, index_row, "20260717"
+        "2330", packet_path, index_row, "20260717", main_price_date="20260717"
+    ) == []
+
+
+def test_noncurrent_main_price_universe_preserves_historical_tdcc(tmp_path):
+    builder = load_script("build_individual_stock_chatgpt_packets")
+    validator = load_script("validate_individual_stock_outputs")
+    packet_path = tmp_path / "3426_packet_latest.md"
+    _, history_status, freshness_status, _ = builder.status_from_rows(
+        180, 5, "20260529", "20260717", is_current_main_price_universe=False
+    )
+    assert history_status == "historical_only_noncurrent"
+    assert freshness_status == "historical_only_noncurrent"
+    packet_path.write_text(
+        packet_text(
+            latest_tdcc_date="20260529",
+            history_status=history_status,
+            freshness_status=freshness_status,
+            tdcc_rows=5,
+            universe_status="historical_only_noncurrent",
+        ),
+        encoding="utf-8",
+    )
+    index_row = {
+        "current_main_price_date": "20260717",
+        "current_main_price_universe_status": "historical_only_noncurrent",
+        "current_main_price_universe_source": "official_daily_price_latest_main_price_date",
+        "listing_status_source_status": "formal_listing_status_source_unavailable",
+        "official_tdcc_signal_date": "20260717",
+        "latest_tdcc_date": "20260529",
+        "tdcc_rows": "5",
+        "tdcc_history_status": history_status,
+        "tdcc_freshness_status": freshness_status,
+    }
+    assert validator.validate_tdcc_packet_freshness(
+        "3426",
+        packet_path,
+        index_row,
+        "20260717",
+        main_price_date="20260717",
+        is_current_main_price_universe=False,
     ) == []

@@ -49,6 +49,56 @@ Stocks with no TDCC rows are a separate valid state: `tdcc_rows=0`, blank
 official signal date for audit, but they do not fabricate a latest TDCC date and
 must not classify the missing window as stale.
 
+## Historical-only noncurrent packets
+
+The repository does not currently provide a formal point-in-time listing-status
+source. Runtime code therefore must not infer `delisted` from an announcement,
+stock name, or an old price/TDCC date. Until a formal listing-status source is
+registered, the fail-closed current-universe evidence is:
+
+```text
+output/latest/official_daily_price_latest.csv
+```
+
+This artifact must contain one date only, and that date must equal
+`data_freshness_latest.csv.main_price_date`. Packet/index metadata records:
+
+- `current_main_price_date`
+- `current_main_price_universe_status`
+- `current_main_price_universe_source=official_daily_price_latest_main_price_date`
+- `listing_status_source_status=formal_listing_status_source_unavailable`
+
+A stock absent from that dated current main-price universe is marked
+`current_main_price_universe_status=historical_only_noncurrent`. If it retains
+TDCC rows, its real last TDCC date is preserved and both
+`tdcc_history_status` and `tdcc_freshness_status` are
+`historical_only_noncurrent`. This is not a stale-current claim, does not request
+source backfill, and does not assert a formal delisting status. The packet is
+historical-only and must not be presented as current TDCC data.
+
+For a stock present in the current main-price universe, any non-empty TDCC
+window whose last date differs from the official TDCC signal date remains
+`tdcc_window_stale` and fails validation. Absence from the current price
+universe must never be used to rewrite or fabricate either price or TDCC dates.
+
+### Known non-runtime audit evidence
+
+The initial `historical_only_noncurrent` cases are auditable without making the
+builder depend on web access:
+
+- `3426` is absent from the `20260717` official current-price artifact; repo
+  price history ends `20260601` and TDCC history ends `20260529`. TPEx separately
+  announced termination of OTC trading effective `20260608`:
+  `https://www.tpex.org.tw/storage/about_otc_news/2026/04/1776935023715_1458144_news.pdf`.
+- `4987` is absent from the `20260717` official current-price artifact; repo
+  price history ends `20260520` and TDCC history ends `20260522`. TPEx separately
+  announced termination of OTC trading effective `20260529`:
+  `https://www.tpex.org.tw/storage/about_otc_news/2026/04/1776934842791_1458144_news.pdf`.
+
+These announcement links are audit context, not runtime classification inputs.
+The machine-enforced status remains `historical_only_noncurrent` rather than
+`delisted` until the repository registers a formal listing-status source.
+
 ## Validation boundary
 
 `python scripts/validate_individual_stock_outputs.py --all` reads the same
