@@ -7,17 +7,11 @@ on:
       - "config/daily_pdf_semantic_golden_cases.csv"
       - "scripts/generate_chatgpt_side_daily_reports.py"
       - "scripts/validate_chatgpt_side_pdf_contract.py"
-      - "output/latest/approved_operation_patterns_latest.csv"
-      - "output/latest/daily_neckline_volume_breakout_confirmation_operation_section_latest.csv"
-      - "output/latest/daily_price_pullback_23ema_operation_section_latest.csv"
-      - "output/latest/daily_volume_breakout_operation_section_latest.csv"
-      - "output/latest/daily_w_bottom_right_side_operation_section_latest.csv"
-      - "output/latest/model_operation_readiness_latest.csv"
-  # This automatic path set is limited to renderer/font runtime and formal
-  # operation-model PDF inputs. Producer-only, validation-only, general daily
-  # pipeline, docs-mirror, and routine generated-state changes stay on Ubuntu
-  # validation or their owning workflow. Dispatch this replay explicitly when
-  # one of those changes also alters the rendered PDF runtime or presentation.
+  # Automatic replay is limited to the renderer and its PDF presentation/font
+  # contracts. Model producers and generated operation artifacts stay on the
+  # no-font Ubuntu model workflow; their end-to-end completion evidence comes
+  # from post-merge formal report production, not a branch font installation.
+  # Dispatch this replay explicitly only for a real renderer/font investigation.
   workflow_dispatch:
 
 permissions:

@@ -20,11 +20,13 @@ see `docs/output_latest_artifact_layout.md`.
 
 ## DFKai Font Execution Boundary
 
+- Model, research, source-integrity, data-refresh, and validator-only workflows must not install DFKai or allocate a Windows font runner. This remains true when model completion requires a report artifact: branch validation proves the model and report contracts without a font install, and the post-merge formal report run supplies the end-to-end rendered-output evidence.
+- DFKai is a hard requirement only when actually producing one of these report classes: the formal daily six-PDF deliverables, the TDCC weekly report, or an explicitly requested individual-stock report. Data packets, CSV/JSON/Markdown evidence, source gates, and model test artifacts do not acquire a font requirement merely because a downstream formal report can consume them.
 - The official local daily PDF entrypoint validates and reuses an existing `C:\Windows\Fonts\kaiu.ttf`; an existing valid font never invokes DISM.
 - `--source-gate-only` never validates or installs a font because it does not render PDFs.
 - Only an unconfigured canonical font path that is actually missing on Windows may invoke one bounded 20-minute `DISM /Add-Capability` attempt. Timeout or process-start failure fails immediately. After a completed DISM attempt, its exit code is diagnostic only: the final decision requires the canonical `kaiu.ttf` file plus exact DFKai name identity, file-size, and Traditional Chinese cmap-glyph validation. A completed nonzero result may continue only when every final-state check passes; a configured missing path, non-Windows host, invalid existing font, missing post-install file, or invalid post-install font fails closed without another attempt in that entrypoint invocation. If the font remains missing, a later formal PDF run may make its own single bounded attempt.
 - The local entrypoint must not change Windows Update registry policy or Windows services, and it never requests or performs automatic elevation. A missing-font install therefore requires the invoking Windows session to already have sufficient permission; otherwise it fails closed with installation guidance. Hosted-runner policy and service accommodations remain isolated to the GitHub Windows replay job.
-- GitHub Windows DFKai replay runs only in formal `daily_full_pipeline.yml`, PDF-impact pull requests through `daily_pdf_replay_pr_validation.yml`, or an explicit manual dispatch. General model research and financial-statement source-audit changes do not trigger it.
+- GitHub Windows DFKai replay runs in formal `daily_full_pipeline.yml`, true renderer/font-contract pull requests through `daily_pdf_replay_pr_validation.yml`, or an explicit manual renderer/font investigation. Model-produced operation artifacts, general model research, and financial-statement source-audit changes stay on the no-font Ubuntu workflow and cannot trigger that replay automatically.
 
 ## Daily Replay Date Boundary
 
