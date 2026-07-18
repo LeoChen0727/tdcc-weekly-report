@@ -238,7 +238,7 @@ def test_data_sharing_registry_uses_model_owned_research_entrypoints() -> None:
 
 def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
     rows = read_csv("config/daily_model_data_sharing_migrations.csv")
-    assert len(rows) == 16
+    assert len(rows) == 17
     baseline = rows[0]
     assert tuple(baseline) == DATA_SHARING_MIGRATION_COLUMNS
     assert data_migration_row_sha256(baseline) == BASELINE_DATA_MIGRATION_ROW_SHA256
@@ -547,6 +547,23 @@ def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
         "user_requested_formal_lineage_hardening_20260718"
     )
     assert warrant_lineage_hardening["migration_status"] == (
+        "validated_user_approved_migration"
+    )
+
+    canonical_tdcc_consumer = rows[16]
+    assert canonical_tdcc_consumer["migration_id"] == (
+        "canonical_tdcc_full_history_consumer_20260719"
+    )
+    assert canonical_tdcc_consumer["changed_data_families"] == (
+        "daily_model_signal_background_feature_panel"
+    )
+    assert canonical_tdcc_consumer["previous_contract_sha256s"] == (
+        "3c405af56f0e056f542c7f47fab7d89db25242037b7d1de8bb5887f95eb82c27"
+    )
+    assert canonical_tdcc_consumer["new_contract_sha256s"] == (
+        "ac32d241d118ab1121bffa97f0f3b4b821f0403fe4fbbf53d6624cd4f641cff9"
+    )
+    assert canonical_tdcc_consumer["migration_status"] == (
         "validated_user_approved_migration"
     )
 

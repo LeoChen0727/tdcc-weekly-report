@@ -1,8 +1,13 @@
 from __future__ import annotations
 
 from pathlib import Path
+import sys
 
 import pandas as pd
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+
+from research_tdcc_dataset_consumer import load_research_tdcc_dataset_contract  # noqa: E402
 
 
 ROOT = Path(".")
@@ -35,6 +40,7 @@ REQUIRED_SUMMARY_COLUMNS = {
     "ranking_research_score",
     "ranking_research_rank",
     "generated_at",
+    "source_tdcc_dataset_id",
 }
 
 REQUIRED_EVENT_COLUMNS = {
@@ -59,6 +65,7 @@ REQUIRED_EVENT_COLUMNS = {
     "tdcc_rank",
     "tdcc_ranking_score",
     "approved_for_daily",
+    "source_tdcc_dataset_id",
 }
 
 EXPECTED_CONFLUENCE_SCOPES = {
@@ -116,12 +123,18 @@ def main() -> int:
     summary = read_csv(LATEST_SUMMARY_CSV)
     history = read_csv(HISTORY_SUMMARY_CSV)
     events = read_csv(HISTORY_EVENTS_CSV)
+    contract = load_research_tdcc_dataset_contract()
     if summary.empty:
         fail(f"{LATEST_SUMMARY_CSV} has no rows")
     if history.empty:
         fail(f"{HISTORY_SUMMARY_CSV} has no rows")
     if events.empty:
         fail(f"{HISTORY_EVENTS_CSV} has no rows")
+
+    for label, frame in [("summary", summary), ("history", history), ("events", events)]:
+        values = sorted({value for value in frame.get("source_tdcc_dataset_id", pd.Series(dtype=str)).astype(str) if value})
+        if values != [contract.dataset_id]:
+            fail(f"{label} source_tdcc_dataset_id mismatch: expected {contract.dataset_id}, got {values}")
 
     missing_summary = sorted(REQUIRED_SUMMARY_COLUMNS - set(summary.columns))
     if missing_summary:

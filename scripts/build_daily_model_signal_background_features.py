@@ -12,13 +12,16 @@ import pandas as pd
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from tracking_utils import DOCS_LATEST_DIR, LATEST_DIR, markdown_table, normalize_code, normalize_date, now_text, write_csv  # noqa: E402
+from research_tdcc_dataset_consumer import (  # noqa: E402
+    build_canonical_tdcc_history,
+    load_research_tdcc_dataset_contract,
+)
 
 
 ROOT = Path(__file__).resolve().parents[1]
 SIGNAL_SNAPSHOT_DIR = ROOT / "output" / "history" / "daily_model_snapshots"
 LATEST_SIGNAL_CSV = LATEST_DIR / "daily_candidate_model_signals_for_report_latest.csv"
 PRICE_HISTORY_DIR = ROOT / "data" / "stock_price_history"
-TDCC_HISTORY_DIR = ROOT / "data" / "tdcc_stock_history"
 MARKET_INDEX_HISTORY_CSV = ROOT / "data" / "market_index_history.csv"
 RESEARCH_LATEST_DIR = LATEST_DIR / "research_backtest"
 MONTHLY_REVENUE_PIT_PANEL_CSV = RESEARCH_LATEST_DIR / "monthly_revenue_point_in_time_panel_latest.csv"
@@ -240,13 +243,19 @@ def load_price_history(stock_id: str, price_dir_text: str = str(PRICE_HISTORY_DI
     return out.reset_index(drop=True)
 
 
+@lru_cache(maxsize=1)
+def load_canonical_tdcc_history() -> pd.DataFrame:
+    return build_canonical_tdcc_history(load_research_tdcc_dataset_contract())
+
+
 @lru_cache(maxsize=4096)
-def load_tdcc_history(stock_id: str, tdcc_dir_text: str = str(TDCC_HISTORY_DIR)) -> pd.DataFrame:
-    path = Path(tdcc_dir_text) / f"{normalize_stock_id(stock_id)}.csv"
-    df = read_csv_safely(path, dtype={"stock_id": str}, keep_default_na=False)
+def load_tdcc_history(stock_id: str) -> pd.DataFrame:
+    df = load_canonical_tdcc_history()
     if df.empty or "as_of_date" not in df.columns:
         return pd.DataFrame()
-    out = df.copy()
+    out = df[df["stock_id"].astype(str).eq(normalize_stock_id(stock_id))].copy()
+    if out.empty:
+        return out
     out["tdcc_as_of_date"] = out["as_of_date"].map(normalize_date)
     for col in [
         "tdcc_consecutive_up_weeks",
@@ -585,13 +594,28 @@ def price_background_features(stock_id: str, signal_date: str, price_dir: Path =
     return base
 
 
-def tdcc_background_features(stock_id: str, signal_date: str, tdcc_dir: Path = TDCC_HISTORY_DIR) -> dict[str, Any]:
-    full = load_tdcc_history(stock_id, str(tdcc_dir))
+def tdcc_background_features(
+    stock_id: str,
+    signal_date: str,
+    tdcc_history: pd.DataFrame | None = None,
+    source_tdcc_dataset_id: str | None = None,
+) -> dict[str, Any]:
+    if tdcc_history is None:
+        contract = load_research_tdcc_dataset_contract()
+        source_tdcc_dataset_id = contract.dataset_id
+        full = load_tdcc_history(stock_id)
+    else:
+        full = tdcc_history.copy()
+        if "tdcc_as_of_date" not in full.columns and "as_of_date" in full.columns:
+            full["tdcc_as_of_date"] = full["as_of_date"].map(normalize_date)
     features: dict[str, Any] = {
+        "source_tdcc_dataset_id": source_tdcc_dataset_id or "",
         "tdcc_as_of_date": "",
         "tdcc_rows_as_of": 0,
         "tdcc_future_rows_ignored": 0,
         "tdcc_data_status": "missing_tdcc_history",
+        "tdcc_continuity_status": "",
+        "tdcc_missing_official_dates": "",
         "tdcc_consecutive_up_weeks": "",
         "tdcc_over_400_ratio": "",
         "tdcc_over_400_change_1w": "",
@@ -615,6 +639,8 @@ def tdcc_background_features(stock_id: str, signal_date: str, tdcc_dir: Path = T
     features["tdcc_as_of_date"] = str(row.get("tdcc_as_of_date", ""))
     features["tdcc_rows_as_of"] = len(asof)
     features["tdcc_data_status"] = "ready"
+    features["tdcc_continuity_status"] = str(row.get("tdcc_continuity_status", ""))
+    features["tdcc_missing_official_dates"] = str(row.get("tdcc_missing_official_dates", ""))
     mapping = {
         "tdcc_consecutive_up_weeks": "tdcc_consecutive_up_weeks",
         "tdcc_over_400_ratio": "over_400_ratio",
@@ -719,6 +745,8 @@ def build_feature_panel(signals: pd.DataFrame | None = None) -> pd.DataFrame:
     market_cache: dict[str, dict[str, Any]] = {}
     theme_history = load_theme_status_history()
     revenue_panel = load_monthly_revenue_pit_panel()
+    tdcc_contract = load_research_tdcc_dataset_contract()
+    tdcc_history = load_canonical_tdcc_history()
     for _, signal in signal_rows.iterrows():
         stock_id = normalize_stock_id(signal.get("stock_id"))
         signal_date = normalize_date(signal.get("signal_date"))
@@ -736,7 +764,17 @@ def build_feature_panel(signals: pd.DataFrame | None = None) -> pd.DataFrame:
             "source_signal_rows": signal.get("source_signal_rows", ""),
         }
         row.update(price_background_features(stock_id, signal_date))
-        row.update(tdcc_background_features(stock_id, signal_date))
+        stock_tdcc_history = tdcc_history[
+            tdcc_history["stock_id"].astype(str).eq(stock_id)
+        ].copy()
+        row.update(
+            tdcc_background_features(
+                stock_id,
+                signal_date,
+                tdcc_history=stock_tdcc_history,
+                source_tdcc_dataset_id=tdcc_contract.dataset_id,
+            )
+        )
         row.update(revenue_background_features(stock_id, signal_date, revenue_panel))
         row.update(theme_background_features(stock_id, signal_date, theme_history))
         row.update(market_cache[signal_date])
@@ -754,6 +792,7 @@ def feature_catalog(panel: pd.DataFrame) -> pd.DataFrame:
         "stock_name",
         "signal_date",
         "source_model_ids",
+        "source_tdcc_dataset_id",
         "source_snapshot_dates",
         "source_snapshot_files",
         "source_signal_rows",
@@ -878,6 +917,7 @@ def write_markdown(panel: pd.DataFrame, catalog: pd.DataFrame) -> None:
         "",
         f"- generated_at: `{now_text()}`",
         f"- feature_panel_id: `{PANEL_ID}`",
+        f"- source_tdcc_dataset_id: `{panel['source_tdcc_dataset_id'].iloc[0] if not panel.empty else ''}`",
         "- owner: `research_backtest`",
         "- scope: shared objective point-in-time background features for model research discussion.",
         "- non_goal: not a production gate, not a score, not a recommendation, not a model-specific filter.",
@@ -906,6 +946,7 @@ def write_markdown(panel: pd.DataFrame, catalog: pd.DataFrame) -> None:
                 "stock_id",
                 "signal_date",
                 "source_model_ids",
+                "source_tdcc_dataset_id",
                 "feature_as_of_date",
                 "point_in_time_status",
                 "close",

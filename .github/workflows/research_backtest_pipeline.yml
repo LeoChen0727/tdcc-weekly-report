@@ -79,6 +79,7 @@ jobs:
       TARGET_BRANCH: ${{ github.ref_name }}
       ANY_RESEARCH_SELECTED: ${{ github.event.inputs.run_market_timing == 'true' || github.event.inputs.run_weekly_surge == 'true' || github.event.inputs.run_explosive_volume == 'true' || github.event.inputs.run_surge_model == 'true' || github.event.inputs.run_signal_performance == 'true' || github.event.inputs.run_volume_breakout == 'true' || github.event.inputs.run_catalyst_performance == 'true' || github.event.inputs.run_msci_rebalance == 'true' || github.event.inputs.run_tdcc_signal_performance == 'true' || github.event.inputs.run_tdcc_short_term_edge == 'true' || github.event.inputs.run_short_term_specialty_packet == 'true' || github.event.inputs.run_shared_model_research_data_refresh == 'true' || github.event.inputs.run_price_pullback_23ema_research == 'true' || github.event.inputs.run_revenue_unreacted_range_research == 'true' || github.event.inputs.run_volume_range_breakout_v2_research == 'true' }}
       MODEL_RESEARCH_SELECTED: ${{ github.event.inputs.run_price_pullback_23ema_research == 'true' || github.event.inputs.run_revenue_unreacted_range_research == 'true' || github.event.inputs.run_volume_range_breakout_v2_research == 'true' }}
+      TDCC_RESEARCH_SELECTED: ${{ github.event.inputs.run_weekly_surge == 'true' || github.event.inputs.run_surge_model == 'true' || github.event.inputs.run_volume_breakout == 'true' || github.event.inputs.run_tdcc_signal_performance == 'true' || github.event.inputs.run_tdcc_short_term_edge == 'true' || github.event.inputs.run_shared_model_research_data_refresh == 'true' }}
 
     steps:
       - name: Require production artifact write deploy key
@@ -124,6 +125,12 @@ jobs:
           python -m pip install --upgrade pip
           pip install pandas requests tabulate matplotlib pillow openpyxl lxml html5lib beautifulsoup4 reportlab pypdf
 
+      - name: Validate canonical TDCC research consumer contract
+        if: ${{ env.TDCC_RESEARCH_SELECTED == 'true' }}
+        run: |
+          python scripts/validate_tdcc_dataset_manifest.py
+          python scripts/validate_research_tdcc_dataset_consumers.py
+
       - name: Build market timing technical backtest
         if: ${{ github.event.inputs.run_market_timing == 'true' }}
         run: |
@@ -136,6 +143,14 @@ jobs:
           python scripts/build_tdcc_signal_structures.py --full-history --price-metrics-limit 0
           python scripts/update_tdcc_normalized_signal_performance.py
           python scripts/build_tdcc_overheated_short_term_edge.py
+          python scripts/validate_research_tdcc_dataset_consumers.py \
+            --csv output/history/tdcc_signals/tdcc_signal_snapshot.csv \
+            --csv output/history/tdcc_signals/tdcc_normalized_signal_log.csv \
+            --csv output/history/tdcc_signals/tdcc_signal_performance.csv \
+            --csv output/latest/tdcc_overheated_short_term_edge_latest.csv \
+            --csv output/latest/tdcc_overheated_short_term_edge_candidates_latest.csv \
+            --markdown output/latest/tdcc_signal_structures_latest.md \
+            --markdown output/latest/tdcc_overheated_short_term_edge_latest.md
 
       - name: Build TDCC weekly ranking formula backtest
         if: ${{ github.event.inputs.run_tdcc_signal_performance == 'true' }}
@@ -153,6 +168,15 @@ jobs:
           python scripts/build_weekly_surge_multifactor_candidates.py
           python scripts/research_weekly_surge_strict_parameter_search.py
           python scripts/build_weekly_surge_strict_parameter_candidates.py
+          python scripts/validate_research_tdcc_dataset_consumers.py \
+            --csv output/latest/weekly_surge_multifactor_filter_grid_latest.csv \
+            --csv output/latest/weekly_surge_multifactor_candidates_latest.csv \
+            --csv output/latest/weekly_surge_strict_parameter_search_latest.csv \
+            --csv output/latest/weekly_surge_strict_parameter_candidates_latest.csv \
+            --markdown output/latest/weekly_surge_multifactor_filter_grid_latest.md \
+            --markdown output/latest/weekly_surge_multifactor_candidates_latest.md \
+            --markdown output/latest/weekly_surge_strict_parameter_search_latest.md \
+            --markdown output/latest/weekly_surge_strict_parameter_candidates_latest.md
 
       - name: Build explosive volume up research
         if: ${{ github.event.inputs.run_explosive_volume == 'true' }}

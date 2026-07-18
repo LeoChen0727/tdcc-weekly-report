@@ -18,6 +18,7 @@ from build_daily_model_signal_background_features import (  # noqa: E402
     PANEL_ID,
     PANEL_MD,
 )
+from research_tdcc_dataset_consumer import load_research_tdcc_dataset_contract  # noqa: E402
 
 
 REQUIRED_PANEL_COLUMNS = {
@@ -27,6 +28,7 @@ REQUIRED_PANEL_COLUMNS = {
     "stock_id",
     "signal_date",
     "source_model_ids",
+    "source_tdcc_dataset_id",
     "feature_as_of_date",
     "point_in_time_status",
     "price_history_rows_as_of",
@@ -116,7 +118,7 @@ def validate_docs_mirror(errors: list[str]) -> None:
             errors.append(f"docs/latest mirror differs: {docs_path.as_posix()}")
 
 
-def validate_panel(panel: pd.DataFrame) -> list[str]:
+def validate_panel(panel: pd.DataFrame, expected_tdcc_dataset_id: str | None = None) -> list[str]:
     errors: list[str] = []
     missing = REQUIRED_PANEL_COLUMNS - set(panel.columns)
     if missing:
@@ -125,6 +127,16 @@ def validate_panel(panel: pd.DataFrame) -> list[str]:
     if panel.empty:
         errors.append("background feature panel is empty")
         return errors
+
+    if expected_tdcc_dataset_id:
+        dataset_ids = sorted(
+            {value for value in panel["source_tdcc_dataset_id"].astype(str) if value}
+        )
+        if dataset_ids != [expected_tdcc_dataset_id]:
+            errors.append(
+                "background feature panel source_tdcc_dataset_id mismatch: "
+                f"expected {expected_tdcc_dataset_id}, got {dataset_ids}"
+            )
 
     semantic_columns = [
         col
@@ -258,7 +270,12 @@ def main() -> int:
         catalog = pd.DataFrame()
 
     if not panel.empty:
-        errors.extend(validate_panel(panel))
+        try:
+            expected_tdcc_dataset_id = load_research_tdcc_dataset_contract().dataset_id
+        except Exception as exc:
+            errors.append(f"cannot load canonical TDCC dataset contract: {exc}")
+            expected_tdcc_dataset_id = None
+        errors.extend(validate_panel(panel, expected_tdcc_dataset_id))
     if not catalog.empty:
         errors.extend(validate_catalog(panel, catalog))
 

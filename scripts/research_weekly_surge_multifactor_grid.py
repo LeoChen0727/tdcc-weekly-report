@@ -9,11 +9,14 @@ import pandas as pd
 from research_weekly_20pct_surge_volume import build_stock_day_frame
 from research_weekly_surge_technical_grid import add_technical_features
 from research_weekly_surge_theme_segments import attach_theme_labels
+from research_tdcc_dataset_consumer import (
+    build_canonical_tdcc_history,
+    load_research_tdcc_dataset_contract,
+)
 
 
 LATEST_DIR = Path("output/latest")
 HISTORY_DIR = Path("output/history/research")
-TDCC_HISTORY_DIR = Path("output/history/tdcc")
 MARKET_HISTORY = Path("data/market_index_history.csv")
 
 OUT_CSV = LATEST_DIR / "weekly_surge_multifactor_filter_grid_latest.csv"
@@ -46,32 +49,11 @@ def normalize_date(value: object) -> str:
 
 
 def load_tdcc_context() -> pd.DataFrame:
-    frames: list[pd.DataFrame] = []
-    for path in sorted(TDCC_HISTORY_DIR.glob("tdcc_holder_ratio_*.csv")):
-        try:
-            df = pd.read_csv(path, dtype=str, keep_default_na=False)
-        except Exception:
-            continue
-        required = {"date", "code", "over_400_pct", "over_600_pct", "over_800_pct", "over_1000_pct"}
-        if not required.issubset(df.columns):
-            continue
-        df = df.copy()
-        df["stock_id"] = df["code"].map(normalize_stock_id)
-        df["tdcc_date"] = df["date"].map(normalize_date)
-        for col in ["over_400_pct", "over_600_pct", "over_800_pct", "over_1000_pct"]:
-            df[col] = pd.to_numeric(df[col], errors="coerce")
-        frames.append(df[["stock_id", "tdcc_date", "over_400_pct", "over_600_pct", "over_800_pct", "over_1000_pct"]])
-    if not frames:
+    contract = load_research_tdcc_dataset_contract()
+    tdcc = build_canonical_tdcc_history(contract)
+    if tdcc.empty:
         return pd.DataFrame()
-
-    tdcc = pd.concat(frames, ignore_index=True)
-    tdcc = tdcc.dropna(subset=["over_400_pct", "over_800_pct", "over_1000_pct"])
-    tdcc = tdcc.sort_values(["stock_id", "tdcc_date"]).drop_duplicates(["stock_id", "tdcc_date"], keep="last")
-    group = tdcc.groupby("stock_id", group_keys=False)
-    for level in ["400", "600", "800", "1000"]:
-        col = f"over_{level}_pct"
-        tdcc[f"over_{level}_change_1w"] = group[col].diff()
-
+    tdcc = tdcc.rename(columns={"as_of_date": "tdcc_date"}).copy()
     tdcc["tdcc_all_thresholds_up"] = (
         (tdcc["over_400_change_1w"] > 0)
         & (tdcc["over_600_change_1w"] > 0)
@@ -80,7 +62,9 @@ def load_tdcc_context() -> pd.DataFrame:
     )
     tdcc["tdcc_high_thresholds_up"] = (tdcc["over_800_change_1w"] > 0) & (tdcc["over_1000_change_1w"] > 0)
     tdcc["tdcc_any_high_level_up"] = (tdcc["over_800_change_1w"] > 0) | (tdcc["over_1000_change_1w"] > 0)
-    tdcc["tdcc_high_change_sum"] = tdcc["over_800_change_1w"].fillna(0) + tdcc["over_1000_change_1w"].fillna(0)
+    tdcc["tdcc_high_change_sum"] = tdcc[["over_800_change_1w", "over_1000_change_1w"]].sum(
+        axis=1, min_count=2
+    )
     tdcc["tdcc_available"] = True
 
     streaks: list[int] = []
@@ -285,6 +269,8 @@ def build_markdown(summary: pd.DataFrame, df: pd.DataFrame) -> str:
     lines.append("# Next-Open +10pct Multifactor Filter Grid")
     lines.append("")
     lines.append(f"- generated_at: `{now_text()}`")
+    dataset_ids = sorted({str(value) for value in summary.get("source_tdcc_dataset_id", []) if str(value)})
+    lines.append(f"- source_tdcc_dataset_id: `{dataset_ids[0] if len(dataset_ids) == 1 else 'missing_or_mixed'}`")
     lines.append("- entry_basis: D+1 open.")
     lines.append("- target: D+1 open to D+1 / ... / D+10 / D+20 max high >= 10%.")
     lines.append("- strict parts: market regime is derived from historical index data; TDCC uses latest available weekly holder ratio as of each stock date.")
@@ -351,6 +337,8 @@ def main() -> int:
     df = attach_tdcc_context(df)
     df = attach_market_context(df)
     summary = build_summary(df)
+    contract = load_research_tdcc_dataset_contract()
+    summary["source_tdcc_dataset_id"] = contract.dataset_id
     write_csv(summary, OUT_CSV)
     write_csv(summary, HISTORY_CSV)
     OUT_MD.write_text(build_markdown(summary, df), encoding="utf-8", newline="\n")

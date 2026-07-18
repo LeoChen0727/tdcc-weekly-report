@@ -14,6 +14,10 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from research_weekly_20pct_surge_volume import build_stock_day_frame  # noqa: E402
 from research_weekly_surge_technical_grid import add_technical_features  # noqa: E402
 from research_weekly_surge_theme_segments import attach_theme_labels  # noqa: E402
+from research_tdcc_dataset_consumer import (  # noqa: E402
+    build_canonical_tdcc_history,
+    load_research_tdcc_dataset_contract,
+)
 from build_daily_candidate_model_layer import build_parameter_table, build_specs, cond_pullback  # noqa: E402
 from build_approved_operation_patterns import (  # noqa: E402
     NECKLINE_APPROVAL_METRICS,
@@ -499,40 +503,29 @@ def add_price_structure_features(df: pd.DataFrame) -> pd.DataFrame:
     return out
 
 
-def attach_tdcc_features(df: pd.DataFrame) -> pd.DataFrame:
-    rows: list[pd.DataFrame] = []
-    tdcc_dir = Path("data/tdcc_stock_history")
-    for path in sorted(tdcc_dir.glob("*.csv")):
-        try:
-            t = pd.read_csv(path, dtype={"stock_id": str}, keep_default_na=False)
-        except Exception:
-            continue
-        if t.empty or "as_of_date" not in t.columns or "stock_id" not in t.columns:
-            continue
-        t = t.copy()
-        t["stock_id"] = t["stock_id"].astype(str).str.extract(r"(\d+)")[0].str.zfill(4)
-        t["tdcc_as_of_date"] = t["as_of_date"].astype(str).str.replace(r"\D", "", regex=True).str[:8]
-        keep = [
-            "stock_id",
-            "tdcc_as_of_date",
-            "tdcc_consecutive_up_weeks",
-            "all_thresholds_up",
-            "high_thresholds_up",
-            "four_thresholds_sync_up",
-            "over_400_change_1w",
-            "over_800_change_1w",
-            "over_1000_change_1w",
-        ]
-        for col in keep:
-            if col not in t.columns:
-                t[col] = ""
-        rows.append(t[keep])
-    if not rows:
-        out = df.copy()
-        out["tdcc_history_available"] = False
-        return out
+def attach_tdcc_features(
+    df: pd.DataFrame,
+    tdcc_history: pd.DataFrame | None = None,
+    *,
+    source_tdcc_dataset_id: str | None = None,
+) -> pd.DataFrame:
+    if tdcc_history is None:
+        contract = load_research_tdcc_dataset_contract()
+        tdcc = build_canonical_tdcc_history(contract)
+        source_tdcc_dataset_id = contract.dataset_id
+    else:
+        tdcc = tdcc_history.copy()
+    if tdcc.empty:
+        raise RuntimeError("canonical TDCC history is empty")
+    if not source_tdcc_dataset_id:
+        raise RuntimeError("source_tdcc_dataset_id is required for TDCC research features")
 
-    tdcc = pd.concat(rows, ignore_index=True)
+    tdcc = tdcc.copy()
+    tdcc["stock_id"] = tdcc["stock_id"].astype(str).str.extract(r"(\d+)")[0].str.zfill(4)
+    if "tdcc_as_of_date" not in tdcc.columns:
+        tdcc["tdcc_as_of_date"] = tdcc["as_of_date"]
+    tdcc["tdcc_as_of_date"] = tdcc["tdcc_as_of_date"].astype(str).str.replace(r"\D", "", regex=True).str[:8]
+    tdcc["source_tdcc_dataset_id"] = source_tdcc_dataset_id
     tdcc["tdcc_date_dt"] = pd.to_datetime(tdcc["tdcc_as_of_date"], format="%Y%m%d", errors="coerce")
     for col in ["tdcc_consecutive_up_weeks", "over_400_change_1w", "over_800_change_1w", "over_1000_change_1w"]:
         tdcc[col] = pd.to_numeric(tdcc[col], errors="coerce")
@@ -547,6 +540,7 @@ def attach_tdcc_features(df: pd.DataFrame) -> pd.DataFrame:
         if tdcc_part.empty:
             p = price_part.copy()
             p["tdcc_history_available"] = False
+            p["source_tdcc_dataset_id"] = source_tdcc_dataset_id
             merged_parts.append(p)
             continue
         merged = pd.merge_asof(
@@ -9904,6 +9898,9 @@ def main() -> int:
 
     summary_df = pd.DataFrame(summaries)
     detail_df = pd.DataFrame(details)
+    source_tdcc_dataset_id = safe_str(df["source_tdcc_dataset_id"].dropna().iloc[0])
+    summary_df["source_tdcc_dataset_id"] = source_tdcc_dataset_id
+    detail_df["source_tdcc_dataset_id"] = source_tdcc_dataset_id
     coverage = coverage_stats()
     parity_df = build_model_parity(summary_df)
     print("Building price_pullback operation research", flush=True)

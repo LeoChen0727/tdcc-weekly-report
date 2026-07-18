@@ -93,9 +93,13 @@ def test_tdcc_background_features_use_asof_rows_only(tmp_path: Path) -> None:
             },
         ]
     ).to_csv(tdcc_dir / "2330.csv", index=False)
-    load_tdcc_history.cache_clear()
-
-    features = tdcc_background_features("2330", "20260320", tdcc_dir=tdcc_dir)
+    history = pd.read_csv(tdcc_dir / "2330.csv", dtype=str, keep_default_na=False)
+    features = tdcc_background_features(
+        "2330",
+        "20260320",
+        tdcc_history=history,
+        source_tdcc_dataset_id="tdcc-fixture",
+    )
 
     assert features["tdcc_as_of_date"] == "20260313"
     assert features["tdcc_future_rows_ignored"] == 1
@@ -236,7 +240,6 @@ def test_background_feature_panel_stays_shared_objective(tmp_path: Path) -> None
         ]
     ).to_csv(tdcc_dir / "2330.csv", index=False)
     load_price_history.cache_clear()
-    load_tdcc_history.cache_clear()
 
     signals = pd.DataFrame(
         [
@@ -268,7 +271,14 @@ def test_background_feature_panel_stays_shared_objective(tmp_path: Path) -> None
         "source_signal_rows": 2,
     }
     row.update(price_background_features("2330", "20260320", price_dir=price_dir))
-    row.update(tdcc_background_features("2330", "20260320", tdcc_dir=tdcc_dir))
+    row.update(
+        tdcc_background_features(
+            "2330",
+            "20260320",
+            tdcc_history=pd.read_csv(tdcc_dir / "2330.csv", dtype=str, keep_default_na=False),
+            source_tdcc_dataset_id="tdcc-fixture",
+        )
+    )
     row.update(
         {
             "monthly_revenue_context_as_of_date": "20260313",

@@ -5,6 +5,7 @@ from pathlib import Path
 
 import pandas as pd
 
+from research_tdcc_dataset_consumer import load_research_tdcc_dataset_contract, require_dataset_id
 from tracking_utils import LATEST_DIR, now_text, read_csv
 
 
@@ -64,6 +65,8 @@ def main() -> int:
     errors: list[str] = []
     warnings: list[str] = []
     status: dict[str, object] = {"generated_at": now_text()}
+    contract = load_research_tdcc_dataset_contract()
+    status["source_tdcc_dataset_id"] = contract.dataset_id
 
     for path in REQUIRED_FILES:
         if not path.exists():
@@ -75,6 +78,16 @@ def main() -> int:
     labels = read_csv(HISTORY_DIR / "surge_event_labels.csv", dtype=str, keep_default_na=False)
     candidates = read_csv(LATEST_DIR / "surge_precondition_candidates_latest.csv", dtype=str, keep_default_na=False)
     backtest = read_csv(LATEST_DIR / "surge_model_backtest_latest.csv", dtype=str, keep_default_na=False)
+    for label, frame in (
+        ("surge feature panel", feature),
+        ("surge labels", labels),
+        ("surge candidates", candidates),
+        ("surge backtest", backtest),
+    ):
+        try:
+            require_dataset_id(frame, contract, label=label)
+        except RuntimeError as exc:
+            errors.append(str(exc))
 
     if feature.empty:
         errors.append("feature panel is empty")
@@ -121,6 +134,8 @@ def main() -> int:
             warnings.append("surge packet does not explicitly mark tuning_status = not_ready")
         if "Top Surge Precondition Candidates" not in text:
             errors.append("surge packet missing Top Surge Precondition Candidates section")
+        if contract.dataset_id not in text or "source_tdcc_dataset_id" not in text:
+            errors.append("surge packet lacks canonical TDCC dataset lineage")
 
     validation_status = "pass" if not errors else "fail"
     status["status"] = validation_status

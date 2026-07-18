@@ -12,6 +12,7 @@ import pandas as pd
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from tracking_utils import normalize_code, normalize_date, safe_str, to_number, write_csv  # noqa: E402
+from research_tdcc_dataset_consumer import load_research_tdcc_dataset_contract, require_dataset_id  # noqa: E402
 
 
 ROOT = Path(".")
@@ -53,6 +54,7 @@ ZH = {
 }
 
 SUMMARY_COLUMNS = [
+    "source_tdcc_dataset_id",
     "model_id",
     "overlay_model_id",
     "research_id",
@@ -95,6 +97,7 @@ SUMMARY_COLUMNS = [
 ]
 
 EVENT_COLUMNS = [
+    "source_tdcc_dataset_id",
     "model_id",
     "overlay_model_id",
     "research_id",
@@ -353,6 +356,9 @@ def metric_row(
     sample_size = int(len(returns))
     out_size = int(len(oos_returns))
     row: dict[str, Any] = {
+        "source_tdcc_dataset_id": safe_str(part.get("source_tdcc_dataset_id", pd.Series(dtype=str)).iloc[0])
+        if "source_tdcc_dataset_id" in part.columns and not part.empty
+        else "",
         "model_id": MODEL_ID,
         "overlay_model_id": OVERLAY_MODEL_ID,
         "research_id": RESEARCH_ID,
@@ -503,6 +509,7 @@ def write_markdown(summary: pd.DataFrame, events: pd.DataFrame) -> None:
         "# Volume Breakout TDCC Confluence Backtest",
         "",
         f"- generated_at: `{now_text()}`",
+        f"- source_tdcc_dataset_id: `{events['source_tdcc_dataset_id'].iloc[0] if not events.empty else ''}`",
         f"- model_id: `{MODEL_ID}`",
         f"- overlay_model_id: `{OVERLAY_MODEL_ID}`",
         f"- tdcc_as_of_rule: `tdcc_signal_date <= event_date and tdcc_signal_age_days <= {MAX_TDCC_SIGNAL_AGE_DAYS}`",
@@ -541,9 +548,11 @@ def write_markdown(summary: pd.DataFrame, events: pd.DataFrame) -> None:
 
 
 def main() -> int:
+    contract = load_research_tdcc_dataset_contract()
     ops = read_csv(OPERATION_EVENTS_CSV)
     classification = read_csv(CLASSIFICATION_EVENTS_CSV)
     tdcc = read_csv(TDCC_EVENTS_CSV)
+    require_dataset_id(tdcc, contract, label=TDCC_EVENTS_CSV.as_posix())
     ops, classification, tdcc = normalize_inputs(ops, classification, tdcc)
     ops = attach_classification(ops, classification)
     events = attach_tdcc_asof(ops, tdcc)
@@ -551,6 +560,8 @@ def main() -> int:
     data_start = safe_str(events["event_date"].min()) if not events.empty else ""
     data_end = safe_str(events["event_date"].max()) if not events.empty else ""
     summary = scope_summary(events, generated_at, data_start, data_end)
+    events["source_tdcc_dataset_id"] = contract.dataset_id
+    summary["source_tdcc_dataset_id"] = contract.dataset_id
 
     write_csv(events, HISTORY_EVENTS_CSV)
     write_csv(summary, HISTORY_SUMMARY_CSV)

@@ -1,8 +1,13 @@
 from __future__ import annotations
 
 from pathlib import Path
+import sys
 
 import pandas as pd
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+
+from research_tdcc_dataset_consumer import load_research_tdcc_dataset_contract  # noqa: E402
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -24,6 +29,7 @@ REQUIRED_SUMMARY_COLUMNS = {
     "out_of_sample_pass",
     "confidence_status",
     "approved_for_daily",
+    "source_tdcc_dataset_id",
 }
 
 REQUIRED_EVENT_COLUMNS = {
@@ -31,6 +37,9 @@ REQUIRED_EVENT_COLUMNS = {
     "ranking_model_version",
     "tdcc_list_type",
     "signal_date",
+    "source_tdcc_dataset_id",
+    "source_tdcc_prior_date",
+    "tdcc_interval_status",
     "stock_id",
     "tdcc_rank",
     "tdcc_ranking_score",
@@ -64,6 +73,11 @@ def bool_false_only(series: pd.Series) -> bool:
 
 def main() -> int:
     errors: list[str] = []
+    try:
+        contract = load_research_tdcc_dataset_contract()
+    except Exception as exc:
+        print(f"ERROR: cannot load canonical TDCC dataset contract: {exc}")
+        return 1
     for path in [LATEST_CSV, LATEST_MD, HISTORY_SUMMARY, HISTORY_EVENTS]:
         if not path.exists():
             errors.append(f"missing required output: {path.relative_to(ROOT)}")
@@ -122,6 +136,32 @@ def main() -> int:
         errors.append("summary approved_for_daily must remain false")
     if "approved_for_daily" in events.columns and not bool_false_only(events["approved_for_daily"]):
         errors.append("events approved_for_daily must remain false")
+
+    for label, frame in [("summary", summary), ("history summary", history), ("events", events)]:
+        if "source_tdcc_dataset_id" in frame.columns:
+            values = sorted({value for value in frame["source_tdcc_dataset_id"].fillna("").astype(str) if value})
+            if values != [contract.dataset_id]:
+                errors.append(
+                    f"{label} source_tdcc_dataset_id mismatch: expected {contract.dataset_id}, got {values}"
+                )
+
+    if {"signal_date", "source_tdcc_prior_date", "tdcc_interval_status"}.issubset(events.columns):
+        date_positions = {date: index for index, date in enumerate(contract.history_dates)}
+        for _, row in events.iterrows():
+            signal_date = str(row["signal_date"])
+            position = date_positions.get(signal_date)
+            if position is None or position == 0:
+                errors.append(f"event signal_date is outside canonical history intervals: {signal_date}")
+                break
+            expected_prior = contract.history_dates[position - 1]
+            if str(row["source_tdcc_prior_date"]) != expected_prior:
+                errors.append(
+                    f"event source_tdcc_prior_date mismatch for {signal_date}: expected {expected_prior}"
+                )
+                break
+            if str(row["tdcc_interval_status"]) != "complete_official_period":
+                errors.append("ranked TDCC event must come from a complete official-period interval")
+                break
 
     if "tdcc_rank" in events.columns:
         ranks = pd.to_numeric(events["tdcc_rank"], errors="coerce")

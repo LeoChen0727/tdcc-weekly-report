@@ -6,6 +6,11 @@ from typing import Any
 
 import pandas as pd
 
+from research_tdcc_dataset_consumer import (
+    build_canonical_tdcc_history,
+    load_research_tdcc_dataset_contract,
+)
+
 from tracking_utils import (
     LATEST_DIR,
     STOCK_PRICE_HISTORY_DIR,
@@ -42,7 +47,6 @@ STOCK_THEME_MAP_CSV = Path("config/stock_theme_map.csv")
 DAILY_CANDIDATE_LOG_CSV = Path("output/history/daily_candidates/daily_candidate_signal_log.csv")
 ALL_CANDIDATES_CSV = LATEST_DIR / "all_candidates_latest.csv"
 CANDIDATE_REPEAT_CSV = LATEST_DIR / "candidate_repeat_appearance_latest.csv"
-TDCC_SNAPSHOT_CSV = Path("output/history/tdcc_signals/tdcc_signal_snapshot.csv")
 ABM_TOP_CSV = LATEST_DIR / "tdcc_pre_move_abm_top_latest.csv"
 WARRANT_FLOW_CSV = LATEST_DIR / "warrant_flow_by_stock_latest.csv"
 WARRANT_SECTOR_HEAT_CSV = LATEST_DIR / "warrant_sector_heat_latest.csv"
@@ -369,7 +373,12 @@ def merge_asof_by_stock(panel: pd.DataFrame, source: pd.DataFrame, source_date_c
     return out.drop(columns=[c for c in ["_trade_dt", "_source_dt"] if c in out.columns])
 
 
-def enrich_panel(panel: pd.DataFrame) -> pd.DataFrame:
+def enrich_panel(
+    panel: pd.DataFrame,
+    tdcc_history: pd.DataFrame | None = None,
+    *,
+    source_tdcc_dataset_id: str | None = None,
+) -> pd.DataFrame:
     out = panel.copy()
 
     theme_map = read_csv(STOCK_THEME_MAP_CSV, dtype=str, keep_default_na=False)
@@ -409,7 +418,22 @@ def enrich_panel(panel: pd.DataFrame) -> pd.DataFrame:
     ]
     out = merge_exact_enrichment(out, repeat, repeat_cols)
 
-    tdcc = read_csv(TDCC_SNAPSHOT_CSV, dtype=str, keep_default_na=False)
+    if tdcc_history is None:
+        contract = load_research_tdcc_dataset_contract()
+        tdcc = build_canonical_tdcc_history(contract)
+        source_tdcc_dataset_id = contract.dataset_id
+    else:
+        tdcc = tdcc_history.copy()
+    if tdcc.empty:
+        raise RuntimeError("canonical TDCC history is empty")
+    if not source_tdcc_dataset_id:
+        raise RuntimeError("source_tdcc_dataset_id is required for surge-model TDCC features")
+    tdcc["signal_date"] = tdcc["as_of_date"]
+    tdcc["source_tdcc_dataset_id"] = source_tdcc_dataset_id
+    for threshold in (400, 600, 800, 1000):
+        for weeks in (1, 2, 3):
+            canonical_col = f"over_{threshold}_change_{weeks}w"
+            tdcc[f"tdcc_{weeks}w_change_{threshold}"] = tdcc.get(canonical_col, math.nan)
     tdcc_cols = [
         "primary_theme", "tdcc_available", "tdcc_consecutive_up_weeks", "all_thresholds_up",
         "high_thresholds_up", "four_thresholds_sync_up", "tdcc_1w_change_400",
@@ -421,6 +445,7 @@ def enrich_panel(panel: pd.DataFrame) -> pd.DataFrame:
         "theme_mainstream_status", "theme_heat_level", "theme_momentum_score",
         "theme_tdcc_breadth_score", "theme_price_breadth_score", "theme_warrant_heat_score",
         "theme_relative_strength",
+        "source_tdcc_dataset_id", "tdcc_continuity_status", "tdcc_missing_official_dates",
     ]
     out = merge_asof_by_stock(out, tdcc, "signal_date", tdcc_cols, max_days=10)
 
@@ -579,6 +604,7 @@ def finalize_columns(panel: pd.DataFrame) -> pd.DataFrame:
         "max_drawdown_d5", "max_drawdown_d10", "max_drawdown_d20",
         "days_to_high_d5", "days_to_high_d10", "days_to_high_d20",
         "surge_5d", "surge_10d", "surge_20d", "mature_5d", "mature_10d", "mature_20d",
+        "source_tdcc_dataset_id", "tdcc_continuity_status", "tdcc_missing_official_dates",
     ]
     for col in desired:
         if col not in out.columns:
@@ -880,6 +906,7 @@ def event_study_export_frame(event_study: pd.DataFrame) -> pd.DataFrame:
         "catalyst_available", "theme_breadth_score", "theme_mainstream_status",
         "market_regime", "risk_level", "surge_precondition_score",
         "surge_watch_label", "risk_flags", "reason_summary",
+        "source_tdcc_dataset_id", "tdcc_continuity_status", "tdcc_missing_official_dates",
     ]
     out = event_study[[col for col in keep if col in event_study.columns]].copy()
     if "pre_date" in out.columns:
@@ -925,6 +952,10 @@ def write_latest_reports(
     backtest: pd.DataFrame,
 ) -> None:
     latest_date = panel["trade_date"].max() if not panel.empty else ""
+    dataset_values = panel.get("source_tdcc_dataset_id", pd.Series(dtype=str)).dropna().astype(str).unique()
+    if len(dataset_values) != 1 or not dataset_values[0]:
+        raise RuntimeError(f"surge model has invalid source_tdcc_dataset_id values: {dataset_values.tolist()}")
+    source_tdcc_dataset_id = dataset_values[0]
     latest = scored[scored["trade_date"].eq(latest_date)].copy()
     latest = latest.sort_values(["surge_precondition_score", "stock_id"], ascending=[False, True])
 
@@ -935,6 +966,7 @@ def write_latest_reports(
         "volume_ratio_20d", "theme_mainstream_status", "revenue_yoy",
         "warrant_flow_score", "catalyst_summary", "market_regime", "risk_flags",
         "reason_summary",
+        "source_tdcc_dataset_id", "tdcc_continuity_status", "tdcc_missing_official_dates",
     ]
     candidates = latest[[col for col in candidate_cols if col in latest.columns]].head(100)
     write_csv(candidates, CANDIDATES_CSV)
@@ -945,6 +977,7 @@ def write_latest_reports(
                 "",
                 f"generated_at: {now_text()}",
                 f"trade_date: {latest_date}",
+                f"source_tdcc_dataset_id: {source_tdcc_dataset_id}",
                 "",
                 "這不是買進建議，是暴漲前條件研究與候選追蹤。",
                 "",
@@ -958,6 +991,7 @@ def write_latest_reports(
     score_cols = [
         "trade_date", "stock_id", "stock_name", "theme", "surge_precondition_score",
         "surge_watch_label", "reason_summary", "risk_flags",
+        "source_tdcc_dataset_id",
     ]
     score_latest = latest[[col for col in score_cols if col in latest.columns]].head(300)
     write_csv(score_latest, SCORE_CSV)
@@ -968,6 +1002,7 @@ def write_latest_reports(
                 "",
                 f"generated_at: {now_text()}",
                 f"trade_date: {latest_date}",
+                f"source_tdcc_dataset_id: {source_tdcc_dataset_id}",
                 "",
                 "初版為 rule-based score，等待 mature samples 足夠後才可調整權重。",
                 "",
@@ -985,6 +1020,7 @@ def write_latest_reports(
                 "# Surge Model Feature Importance Latest",
                 "",
                 f"generated_at: {now_text()}",
+                f"source_tdcc_dataset_id: {source_tdcc_dataset_id}",
                 "",
                 "使用可解釋條件統計，比較 mature surge samples 與非暴漲對照母體。樣本不足時不得下正式結論。",
                 "",
@@ -1002,6 +1038,7 @@ def write_latest_reports(
                 "# Surge Model Backtest Latest",
                 "",
                 f"generated_at: {now_text()}",
+                f"source_tdcc_dataset_id: {source_tdcc_dataset_id}",
                 "",
                 "所有回測僅使用 mature_dN=True 的樣本；pending 不視為成功或失敗。",
                 "",
@@ -1039,7 +1076,7 @@ def write_latest_reports(
         f"- labels: {LABELS_CSV.exists()}",
         f"- pre_surge_event_study: {EVENT_STUDY_CSV.exists()}",
         f"- non_surge_control_sample: {CONTROL_SAMPLE_CSV.exists()}",
-        f"- tdcc_snapshot: {TDCC_SNAPSHOT_CSV.exists()}",
+        f"- source_tdcc_dataset_id: {source_tdcc_dataset_id}",
         f"- warrant_flow_by_stock: {WARRANT_FLOW_CSV.exists()}",
         f"- market_index_history: {MARKET_INDEX_CSV.exists()}",
         "",
@@ -1093,8 +1130,14 @@ def main() -> int:
     if not frames:
         raise RuntimeError("No stock price history available for surge model")
 
+    contract = load_research_tdcc_dataset_contract()
+    tdcc_history = build_canonical_tdcc_history(contract)
     panel = pd.concat(frames, ignore_index=True, sort=False)
-    panel = enrich_panel(panel)
+    panel = enrich_panel(
+        panel,
+        tdcc_history,
+        source_tdcc_dataset_id=contract.dataset_id,
+    )
     panel = finalize_columns(panel)
     scored = score_rows(panel)
     labels = build_labels(scored)
@@ -1102,6 +1145,9 @@ def main() -> int:
     controls = build_control_sample(scored, event_study)
     importance = build_feature_importance(scored, controls)
     backtest = build_backtest(scored)
+    for frame in (importance, backtest):
+        if not frame.empty:
+            frame["source_tdcc_dataset_id"] = contract.dataset_id
 
     feature_export = feature_export_frame(scored)
     labels_export = label_export_frame(labels)
