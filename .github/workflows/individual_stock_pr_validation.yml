@@ -51,7 +51,7 @@ jobs:
 
       - name: Install affected-path dependencies
         if: steps.scope.outputs.affected == 'true'
-        run: python -m pip install --disable-pip-version-check pandas
+        run: python -m pip install --disable-pip-version-check pandas requests
 
       - name: Validate affected individual-stock contracts
         if: steps.scope.outputs.affected == 'true'

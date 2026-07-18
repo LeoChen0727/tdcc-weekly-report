@@ -88,6 +88,7 @@ def test_workflow_contains_required_affected_validation_commands() -> None:
     text = workflow_text()
     commands = (
         "git diff --check",
+        "python -m pip install --disable-pip-version-check pandas requests",
         "python scripts/validate_repo_file_lifecycle_inventory.py",
         "python scripts/validate_repo_production_inventory.py",
         "python scripts/validate_individual_pdf_contract_consumers.py",
