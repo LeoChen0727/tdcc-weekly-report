@@ -2039,10 +2039,6 @@ def build_manifest(
     history_summary_pdf: Path,
     history_full_md: Path,
     history_full_pdf: Path,
-    history_summary_alias_md: Path,
-    history_summary_alias_pdf: Path,
-    history_full_alias_md: Path,
-    history_full_alias_pdf: Path,
 ) -> dict:
     kline_status = read_pdf_kline_status_summary()
 
@@ -2063,49 +2059,51 @@ def build_manifest(
         "summary_pdf_kline_status_md": str(PDF_KLINE_STATUS_MD),
 
         "recommended_read_order": [
-            str(LATEST_SUMMARY_ALIAS_MD),
-            str(LATEST_FULL_ALIAS_MD),
-            str(LATEST_SUMMARY_ALIAS_PDF),
-            str(LATEST_FULL_ALIAS_PDF),
-            str(history_summary_alias_md),
-            str(history_full_alias_md),
-            str(history_summary_alias_pdf),
-            str(history_full_alias_pdf),
-            str(LATEST_SUMMARY_MD),
-            str(LATEST_FULL_MD),
-            str(latest_summary_pdf),
-            str(latest_full_pdf),
+            LATEST_SUMMARY_ALIAS_MD.as_posix(),
+            LATEST_FULL_ALIAS_MD.as_posix(),
+            LATEST_SUMMARY_ALIAS_PDF.as_posix(),
+            LATEST_FULL_ALIAS_PDF.as_posix(),
+            history_summary_md.as_posix(),
+            history_full_md.as_posix(),
+            history_summary_pdf.as_posix(),
+            history_full_pdf.as_posix(),
+            LATEST_SUMMARY_MD.as_posix(),
+            LATEST_FULL_MD.as_posix(),
+            latest_summary_pdf.as_posix(),
+            latest_full_pdf.as_posix(),
         ],
 
-        "latest_summary_md": str(LATEST_SUMMARY_MD),
-        "latest_summary_pdf": str(latest_summary_pdf),
-        "latest_full_md": str(LATEST_FULL_MD),
-        "latest_full_pdf": str(latest_full_pdf),
+        "latest_summary_md": LATEST_SUMMARY_MD.as_posix(),
+        "latest_summary_pdf": latest_summary_pdf.as_posix(),
+        "latest_full_md": LATEST_FULL_MD.as_posix(),
+        "latest_full_pdf": latest_full_pdf.as_posix(),
 
-        "latest_summary_alias_md": str(LATEST_SUMMARY_ALIAS_MD),
-        "latest_summary_alias_pdf": str(LATEST_SUMMARY_ALIAS_PDF),
-        "latest_full_alias_md": str(LATEST_FULL_ALIAS_MD),
-        "latest_full_alias_pdf": str(LATEST_FULL_ALIAS_PDF),
+        "latest_summary_alias_md": LATEST_SUMMARY_ALIAS_MD.as_posix(),
+        "latest_summary_alias_pdf": LATEST_SUMMARY_ALIAS_PDF.as_posix(),
+        "latest_full_alias_md": LATEST_FULL_ALIAS_MD.as_posix(),
+        "latest_full_alias_pdf": LATEST_FULL_ALIAS_PDF.as_posix(),
 
-        "history_summary_md": str(history_summary_md),
-        "history_summary_pdf": str(history_summary_pdf),
-        "history_full_md": str(history_full_md),
-        "history_full_pdf": str(history_full_pdf),
+        "history_summary_md": history_summary_md.as_posix(),
+        "history_summary_pdf": history_summary_pdf.as_posix(),
+        "history_full_md": history_full_md.as_posix(),
+        "history_full_pdf": history_full_pdf.as_posix(),
 
-        "history_summary_alias_md": str(history_summary_alias_md),
-        "history_summary_alias_pdf": str(history_summary_alias_pdf),
-        "history_full_alias_md": str(history_full_alias_md),
-        "history_full_alias_pdf": str(history_full_alias_pdf),
+        # Backward-compatible field names now resolve to the canonical history paths.
+        "history_summary_alias_md": history_summary_md.as_posix(),
+        "history_summary_alias_pdf": history_summary_pdf.as_posix(),
+        "history_full_alias_md": history_full_md.as_posix(),
+        "history_full_alias_pdf": history_full_pdf.as_posix(),
+        "history_path_contract": "canonical_daily_market_history_only",
 
         "summary_alias_md_raw_url": raw_url_for_path(LATEST_SUMMARY_ALIAS_MD),
         "summary_alias_pdf_raw_url": raw_url_for_path(LATEST_SUMMARY_ALIAS_PDF),
         "full_alias_md_raw_url": raw_url_for_path(LATEST_FULL_ALIAS_MD),
         "full_alias_pdf_raw_url": raw_url_for_path(LATEST_FULL_ALIAS_PDF),
 
-        "history_summary_alias_md_raw_url": raw_url_for_path(history_summary_alias_md),
-        "history_summary_alias_pdf_raw_url": raw_url_for_path(history_summary_alias_pdf),
-        "history_full_alias_md_raw_url": raw_url_for_path(history_full_alias_md),
-        "history_full_alias_pdf_raw_url": raw_url_for_path(history_full_alias_pdf),
+        "history_summary_alias_md_raw_url": raw_url_for_path(history_summary_md),
+        "history_summary_alias_pdf_raw_url": raw_url_for_path(history_summary_pdf),
+        "history_full_alias_md_raw_url": raw_url_for_path(history_full_md),
+        "history_full_alias_pdf_raw_url": raw_url_for_path(history_full_pdf),
 
         "summary_md_raw_url": raw_url_for_path(history_summary_md),
         "summary_pdf_raw_url": raw_url_for_path(history_summary_pdf),
@@ -2153,26 +2151,22 @@ def write_manifest_files(manifest: dict) -> None:
     lines.append("2. latest 英文完整版 MD")
     lines.append("3. latest 英文精華 PDF")
     lines.append("4. latest 英文完整版 PDF")
-    lines.append("5. 日期版英文 MD / PDF")
-    lines.append("6. 中文檔名僅作人類閱讀備援")
+    lines.append("5. canonical history MD / PDF")
+    lines.append("6. 中文 PDF 檔名僅保留於 published human-delivery surface")
     lines.append("")
-    lines.append("## 英文 alias raw URLs")
+    lines.append("## Latest alias raw URLs")
     lines.append("")
     lines.append(f"- latest summary md: {manifest.get('summary_alias_md_raw_url', '')}")
     lines.append(f"- latest full md: {manifest.get('full_alias_md_raw_url', '')}")
     lines.append(f"- latest summary pdf: {manifest.get('summary_alias_pdf_raw_url', '')}")
     lines.append(f"- latest full pdf: {manifest.get('full_alias_pdf_raw_url', '')}")
+    lines.append("")
+    lines.append("## Canonical history raw URLs")
+    lines.append("")
     lines.append(f"- history summary md: {manifest.get('history_summary_alias_md_raw_url', '')}")
     lines.append(f"- history full md: {manifest.get('history_full_alias_md_raw_url', '')}")
     lines.append(f"- history summary pdf: {manifest.get('history_summary_alias_pdf_raw_url', '')}")
     lines.append(f"- history full pdf: {manifest.get('history_full_alias_pdf_raw_url', '')}")
-    lines.append("")
-    lines.append("## 中文檔名 raw URLs")
-    lines.append("")
-    lines.append(f"- summary_md_raw_url: {manifest.get('summary_md_raw_url', '')}")
-    lines.append(f"- summary_pdf_raw_url: {manifest.get('summary_pdf_raw_url', '')}")
-    lines.append(f"- full_md_raw_url: {manifest.get('full_md_raw_url', '')}")
-    lines.append(f"- full_pdf_raw_url: {manifest.get('full_pdf_raw_url', '')}")
     lines.append("")
 
     MANIFEST_MD.write_text("\n".join(lines), encoding="utf-8")
@@ -2233,27 +2227,16 @@ def main() -> int:
     shutil.copyfile(latest_summary_pdf, LATEST_SUMMARY_ALIAS_PDF)
     shutil.copyfile(latest_full_pdf, LATEST_FULL_ALIAS_PDF)
 
-    # 中文日期版
-    history_summary_md = HISTORY_REPORT_DIR / f"{main_date}_每日全市場候選股監測報告_精華版.md"
-    history_summary_pdf = HISTORY_REPORT_DIR / f"{main_date}_每日全市場候選股監測報告_精華版.pdf"
-    history_full_md = HISTORY_REPORT_DIR / f"{main_date}_完整候選股清單_完整版.md"
-    history_full_pdf = HISTORY_REPORT_DIR / f"{main_date}_完整候選股清單_完整版表格.pdf"
+    # Canonical history artifacts. Chinese PDF filenames are reserved for published delivery.
+    history_summary_md = HISTORY_REPORT_DIR / f"{main_date}_daily_market_summary.md"
+    history_summary_pdf = HISTORY_REPORT_DIR / f"{main_date}_daily_market_summary.pdf"
+    history_full_md = HISTORY_REPORT_DIR / f"{main_date}_daily_market_full.md"
+    history_full_pdf = HISTORY_REPORT_DIR / f"{main_date}_daily_market_full.pdf"
 
-    shutil.copyfile(LATEST_SUMMARY_MD, history_summary_md)
-    shutil.copyfile(latest_summary_pdf, history_summary_pdf)
-    shutil.copyfile(LATEST_FULL_MD, history_full_md)
-    shutil.copyfile(latest_full_pdf, history_full_pdf)
-
-    # 英文日期版 alias
-    history_summary_alias_md = HISTORY_REPORT_DIR / f"{main_date}_daily_market_summary.md"
-    history_summary_alias_pdf = HISTORY_REPORT_DIR / f"{main_date}_daily_market_summary.pdf"
-    history_full_alias_md = HISTORY_REPORT_DIR / f"{main_date}_daily_market_full.md"
-    history_full_alias_pdf = HISTORY_REPORT_DIR / f"{main_date}_daily_market_full.pdf"
-
-    shutil.copyfile(LATEST_SUMMARY_ALIAS_MD, history_summary_alias_md)
-    shutil.copyfile(LATEST_SUMMARY_ALIAS_PDF, history_summary_alias_pdf)
-    shutil.copyfile(LATEST_FULL_ALIAS_MD, history_full_alias_md)
-    shutil.copyfile(LATEST_FULL_ALIAS_PDF, history_full_alias_pdf)
+    shutil.copyfile(LATEST_SUMMARY_ALIAS_MD, history_summary_md)
+    shutil.copyfile(LATEST_SUMMARY_ALIAS_PDF, history_summary_pdf)
+    shutil.copyfile(LATEST_FULL_ALIAS_MD, history_full_md)
+    shutil.copyfile(LATEST_FULL_ALIAS_PDF, history_full_pdf)
 
     manifest = build_manifest(
         main_date=main_date,
@@ -2265,10 +2248,6 @@ def main() -> int:
         history_summary_pdf=history_summary_pdf,
         history_full_md=history_full_md,
         history_full_pdf=history_full_pdf,
-        history_summary_alias_md=history_summary_alias_md,
-        history_summary_alias_pdf=history_summary_alias_pdf,
-        history_full_alias_md=history_full_alias_md,
-        history_full_alias_pdf=history_full_alias_pdf,
     )
 
     write_manifest_files(manifest)

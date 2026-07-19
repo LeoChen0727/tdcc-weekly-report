@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import csv
+import json
 import re
 from dataclasses import dataclass
 from pathlib import Path
@@ -11,10 +12,15 @@ INVENTORY = ROOT / "docs" / "pdf_production_inventory.md"
 DAILY_WORKFLOW = ROOT / ".github" / "workflows" / "daily_full_pipeline.yml"
 PUBLISHER = ROOT / "publish_chatgpt_report_readme_and_check.py"
 PACKET_BUILDER = ROOT / "build_chatgpt_daily_report_packet.py"
+DAILY_MARKET_ARTIFACT_BUILDER = ROOT / "build_daily_market_report_artifacts.py"
+ALIAS_ENSURER = ROOT / "ensure_report_aliases.py"
 RULES_BUILDER = ROOT / "build_chatgpt_daily_report_rules.py"
 DOCS_LATEST = ROOT / "docs" / "latest"
 OUTPUT_LATEST = ROOT / "output" / "latest"
+HISTORY_REPORTS = ROOT / "output" / "history" / "reports"
 DATA_FRESHNESS = OUTPUT_LATEST / "data_freshness_latest.csv"
+REPORT_MANIFEST_JSON = OUTPUT_LATEST / "report_manifest_latest.json"
+REPORT_MANIFEST_MD = OUTPUT_LATEST / "report_manifest_latest.md"
 
 
 @dataclass(frozen=True)
@@ -126,6 +132,28 @@ DAILY_MARKET_REPO_ARTIFACT_LIFECYCLE = (
         "published_human_pdf",
         "published_date_stamped_daily_market_pdf",
     ),
+    (
+        "output/history/reports/YYYYMMDD_daily_market_summary.pdf",
+        "canonical_history_pdf",
+        "canonical_history_only",
+    ),
+    (
+        "output/history/reports/YYYYMMDD_daily_market_full.pdf",
+        "canonical_history_pdf",
+        "canonical_history_only",
+    ),
+)
+
+LEGACY_HISTORY_REFERENCE_FRAGMENTS = (
+    "_每日全市場候選股監測報告_精華版.",
+    "_完整候選股清單_完整版.",
+    "_完整候選股清單_完整版表格.",
+)
+
+HISTORY_PRODUCER_PATHS = (
+    DAILY_MARKET_ARTIFACT_BUILDER,
+    PACKET_BUILDER,
+    ALIAS_ENSURER,
 )
 
 REPO_ARTIFACT_DAILY_PDF_NAMES = tuple(
@@ -202,6 +230,131 @@ def daily_market_published_pdf_paths(main_date: str) -> tuple[Path, ...]:
         published_dir / f"每日全市場候選股監測報告_精華版_{date_text}.pdf",
         published_dir / f"完整候選股清單_完整版_{date_text}.pdf",
     )
+
+
+def daily_market_canonical_history_paths(main_date: str) -> dict[str, Path]:
+    date_text = re.sub(r"[^0-9]", "", str(main_date))[:8]
+    if len(date_text) != 8:
+        return {}
+    return {
+        "history_summary_md": HISTORY_REPORTS / f"{date_text}_daily_market_summary.md",
+        "history_summary_pdf": HISTORY_REPORTS / f"{date_text}_daily_market_summary.pdf",
+        "history_full_md": HISTORY_REPORTS / f"{date_text}_daily_market_full.md",
+        "history_full_pdf": HISTORY_REPORTS / f"{date_text}_daily_market_full.pdf",
+    }
+
+
+def contains_legacy_history_reference(text: str) -> bool:
+    normalized = text.replace("\\", "/")
+    if "output/history/reports/" not in normalized:
+        return False
+    return any(fragment in normalized for fragment in LEGACY_HISTORY_REFERENCE_FRAGMENTS)
+
+
+def validate_daily_history_producer_contract(errors: list[str]) -> None:
+    forbidden_literals = (
+        "{main_date}_每日全市場候選股監測報告_精華版.md",
+        "{main_date}_每日全市場候選股監測報告_精華版.pdf",
+        "{main_date}_完整候選股清單_完整版.md",
+        "{main_date}_完整候選股清單_完整版表格.pdf",
+    )
+    required_literals = (
+        "{main_date}_daily_market_summary.pdf",
+        "{main_date}_daily_market_full.pdf",
+    )
+    for path in HISTORY_PRODUCER_PATHS:
+        if not path.exists():
+            errors.append(f"missing daily history producer: {path.relative_to(ROOT).as_posix()}")
+            continue
+        source = read_text(path)
+        rel = path.relative_to(ROOT).as_posix()
+        for literal in forbidden_literals:
+            if literal in source:
+                errors.append(f"{rel} still generates retired Chinese history alias: {literal}")
+        for literal in required_literals:
+            if literal not in source:
+                errors.append(f"{rel} missing canonical history artifact literal: {literal}")
+
+    if ALIAS_ENSURER.exists():
+        alias_source = read_text(ALIAS_ENSURER)
+        for literal in (
+            "published_summary_pdf(main_date)",
+            "published_full_pdf(main_date)",
+            "canonical_daily_market_history_only",
+        ):
+            if literal not in alias_source:
+                errors.append(f"ensure_report_aliases.py missing history contract literal: {literal}")
+        for literal in ("CHINESE_SUMMARY_PDF", "CHINESE_FULL_PDF"):
+            if literal in alias_source:
+                errors.append(f"ensure_report_aliases.py must not restore retired root PDF source: {literal}")
+
+
+def validate_report_manifest_history_contract(errors: list[str]) -> None:
+    if not REPORT_MANIFEST_JSON.exists():
+        return
+
+    try:
+        manifest = json.loads(REPORT_MANIFEST_JSON.read_text(encoding="utf-8"))
+    except Exception as exc:
+        errors.append(f"report manifest JSON is invalid: {exc}")
+        return
+
+    manifest_text = json.dumps(manifest, ensure_ascii=False)
+    if contains_legacy_history_reference(manifest_text):
+        errors.append("report_manifest_latest.json references retired Chinese history alias")
+
+    main_date = current_main_price_date() or str(manifest.get("main_price_date", ""))
+    expected = daily_market_canonical_history_paths(main_date)
+    if not expected:
+        errors.append("report manifest canonical history validation requires an 8-digit main_price_date")
+        return
+
+    if manifest.get("history_path_contract") != "canonical_daily_market_history_only":
+        errors.append("report manifest missing canonical history_path_contract")
+
+    alias_fields = {
+        "history_summary_md": "history_summary_alias_md",
+        "history_summary_pdf": "history_summary_alias_pdf",
+        "history_full_md": "history_full_alias_md",
+        "history_full_pdf": "history_full_alias_pdf",
+    }
+    for field, path in expected.items():
+        expected_rel = path.relative_to(ROOT).as_posix()
+        if str(manifest.get(field, "")).replace("\\", "/") != expected_rel:
+            errors.append(f"report manifest {field} must equal canonical path: {expected_rel}")
+        alias_field = alias_fields[field]
+        if str(manifest.get(alias_field, "")).replace("\\", "/") != expected_rel:
+            errors.append(f"report manifest {alias_field} must resolve to canonical path: {expected_rel}")
+
+    raw_field_paths = {
+        "history_summary_alias_md_raw_url": expected["history_summary_md"],
+        "history_summary_alias_pdf_raw_url": expected["history_summary_pdf"],
+        "history_full_alias_md_raw_url": expected["history_full_md"],
+        "history_full_alias_pdf_raw_url": expected["history_full_pdf"],
+        "summary_md_raw_url": expected["history_summary_md"],
+        "summary_pdf_raw_url": expected["history_summary_pdf"],
+        "full_md_raw_url": expected["history_full_md"],
+        "full_pdf_raw_url": expected["history_full_pdf"],
+    }
+    for field, path in raw_field_paths.items():
+        expected_rel = path.relative_to(ROOT).as_posix()
+        value = str(manifest.get(field, "")).replace("\\", "/")
+        if not value.endswith(expected_rel):
+            errors.append(f"report manifest {field} must target canonical path: {expected_rel}")
+
+    for field in ("history_summary_pdf", "history_full_pdf"):
+        path = expected[field]
+        if not path.exists():
+            errors.append(f"canonical daily history PDF missing: {path.relative_to(ROOT).as_posix()}")
+
+    if REPORT_MANIFEST_MD.exists():
+        markdown = read_text(REPORT_MANIFEST_MD)
+        if contains_legacy_history_reference(markdown):
+            errors.append("report_manifest_latest.md references retired Chinese history alias")
+        for path in expected.values():
+            expected_rel = path.relative_to(ROOT).as_posix()
+            if expected_rel not in markdown:
+                errors.append(f"report_manifest_latest.md missing canonical history path: {expected_rel}")
 
 
 def validate_inventory_document(errors: list[str]) -> None:
@@ -340,7 +493,9 @@ def validate() -> list[str]:
     errors: list[str] = []
     validate_inventory_document(errors)
     validate_paths_exist(errors)
+    validate_daily_history_producer_contract(errors)
     validate_output_latest(errors)
+    validate_report_manifest_history_contract(errors)
     validate_public_surface_text(errors)
     validate_docs_latest(errors)
     validate_workflow_hooks(errors)

@@ -15,6 +15,8 @@ ENTRYPOINT = ROOT / "scripts" / "run_chatgpt_daily_report_entrypoint.py"
 WORKTREE_SAFETY = ROOT / "scripts" / "git_worktree_safety.py"
 RENDERER = ROOT / "scripts" / "generate_chatgpt_side_daily_reports.py"
 PACKET_BUILDER = ROOT / "build_chatgpt_daily_report_packet.py"
+DAILY_MARKET_ARTIFACT_BUILDER = ROOT / "build_daily_market_report_artifacts.py"
+ALIAS_ENSURER = ROOT / "ensure_report_aliases.py"
 README_PUBLISHER = ROOT / "publish_chatgpt_report_readme_and_check.py"
 REPLAY_VALIDATOR = ROOT / "scripts" / "validate_chatgpt_daily_report_new_conversation_replay.py"
 
@@ -29,6 +31,12 @@ EXPECTED_WINDOWS_DFKAI_INSTALL_DETAIL_LIMIT = 2000
 TRADITIONAL_CHINESE_GLYPH_CANARY = "標楷體繁體中文測試買賣停損勝敗本日無股票推薦"
 DFKAI_NAME_TABLE_TOKENS = {"DFKai-SB", "DFKaiShu-SB-Estd-BF"}
 DFKAI_PDF_BASE_FONTS = {"/DFKai-SB", "/DFKaiShu-SB-Estd-BF"}
+LEGACY_DAILY_HISTORY_ALIAS_LITERALS = (
+    "{main_date}_每日全市場候選股監測報告_精華版.md",
+    "{main_date}_每日全市場候選股監測報告_精華版.pdf",
+    "{main_date}_完整候選股清單_完整版.md",
+    "{main_date}_完整候選股清單_完整版表格.pdf",
+)
 FORBIDDEN_DAILY_PDF_FONT_TOKENS = (
     "MSung-Light",
     "MSung",
@@ -1182,6 +1190,8 @@ def validate() -> list[str]:
         WORKTREE_SAFETY,
         RENDERER,
         PACKET_BUILDER,
+        DAILY_MARKET_ARTIFACT_BUILDER,
+        ALIAS_ENSURER,
         README_PUBLISHER,
         REPLAY_VALIDATOR,
     ):
@@ -1196,6 +1206,8 @@ def validate() -> list[str]:
     entrypoint = read_text(ENTRYPOINT)
     renderer = read_text(RENDERER)
     packet = read_text(PACKET_BUILDER)
+    daily_market_builder = read_text(DAILY_MARKET_ARTIFACT_BUILDER)
+    alias_ensurer = read_text(ALIAS_ENSURER)
     readme = read_text(README_PUBLISHER)
     replay_validator = read_text(REPLAY_VALIDATOR)
 
@@ -1274,6 +1286,22 @@ def validate() -> list[str]:
             errors.append(f"packet builder must not expose retired fixed PDF artifact: {output_path}")
         if output_path in readme:
             errors.append(f"README publisher must not expose retired fixed PDF artifact: {output_path}")
+
+    for path, source in (
+        (DAILY_MARKET_ARTIFACT_BUILDER, daily_market_builder),
+        (PACKET_BUILDER, packet),
+        (ALIAS_ENSURER, alias_ensurer),
+    ):
+        rel = path.relative_to(ROOT).as_posix()
+        for literal in LEGACY_DAILY_HISTORY_ALIAS_LITERALS:
+            if literal in source:
+                errors.append(f"{rel} still generates retired Chinese history alias: {literal}")
+        for literal in (
+            "{main_date}_daily_market_summary.pdf",
+            "{main_date}_daily_market_full.pdf",
+        ):
+            if literal not in source:
+                errors.append(f"{rel} missing canonical daily history PDF path: {literal}")
 
     if "daily_market_pdf_report_manifest_latest" in packet:
         errors.append("packet builder must not read retired fixed PDF manifest")
