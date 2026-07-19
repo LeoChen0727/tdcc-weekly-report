@@ -84,3 +84,18 @@ Full local reports stay in ignored `workspace_cleanup_reports/`.
 Tracked summaries may be written only when explicitly requested with `--history-summary`; overwriting a tracked summary requires `--overwrite-history-summary`.
 
 Retained local evidence that should not clutter the repository root stays in ignored `_workspace_retained_outputs/`. Moving evidence there must preserve an archive manifest or an equivalent path-level record so future cleanup work can tell why it was retained.
+
+## External Daily Report Archive Boundary
+
+`scripts/archive_daily_official_report_bundles.py` is a separate copy-only
+retention command for dated official daily report bundles. It is not a cleanup
+apply action and must not delete, quarantine, move, rename, or rewrite source
+artifacts.
+
+The command derives current and baseline retention from the authoritative
+`origin/main` report manifest, data freshness record, and bundle runtime
+manifest. It requires an explicit external destination root and expected
+volume, validates NTFS and free space, verifies SHA-256 before and after copy,
+and writes per-file execution evidence. It must remain outside all automation
+until its owning PR and post-merge pilot are complete and a separate
+`workflow_automation_maintenance` change is approved.

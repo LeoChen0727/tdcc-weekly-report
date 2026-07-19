@@ -1,0 +1,24 @@
+{
+  "contract_version": 1,
+  "report_family": "daily",
+  "source_root_name": "chatgpt_side_outputs_official",
+  "report_manifest_path": "output/latest/report_manifest_latest.json",
+  "freshness_csv_path": "output/latest/data_freshness_latest.csv",
+  "runtime_manifest_name": "chatgpt_daily_report_runtime_manifest.json",
+  "required_current_pdf_count": 6,
+  "required_baseline_pdf_count": 6,
+  "allowed_extensions": [
+    ".csv",
+    ".json",
+    ".pdf",
+    ".png"
+  ],
+  "required_destination_filesystem": "NTFS",
+  "free_space_margin_bytes": 67108864,
+  "current_authority": "origin_main_report_manifest_and_data_freshness",
+  "baseline_authority": "immediate_predecessor_dated_bundle_runtime_manifest",
+  "copy_only": true,
+  "source_mutation_forbidden": true,
+  "automation_allowed": false,
+  "execution_report_required": true
+}
