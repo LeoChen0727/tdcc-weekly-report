@@ -13,23 +13,28 @@ on:
       - "docs/APPS_SCRIPT_WORKFLOW_TRIGGER.md"
       - "docs/apps_script_workflow_trigger.gs"
       - "docs/tdcc_weekly_data_continuity.md"
+      - "docs/tdcc_analytics_store.md"
       - "scripts/backfill_tdcc_history.py"
       - "scripts/build_tdcc_dataset_manifest.py"
+      - "scripts/build_tdcc_analytics_store.py"
       - "scripts/build_tdcc_stock_history.py"
       - "scripts/repair_tdcc_monthly_history_gaps.py"
       - "scripts/repair_tdcc_weekly_history_continuity.py"
       - "scripts/tdcc_stock_history_utils.py"
       - "scripts/tdcc_dataset_contract.py"
+      - "scripts/tdcc_analytics_store.py"
       - "scripts/tdcc_weekly_data_readiness.py"
       - "scripts/validate_apps_script_workflow_triggers.py"
       - "scripts/validate_tdcc_weekly_history_continuity.py"
       - "scripts/validate_tdcc_dataset_manifest.py"
+      - "scripts/validate_tdcc_analytics_store.py"
       - "scripts/validate_repo_production_inventory.py"
       - "tdcc_holder_ratio_top10.py"
       - "tests/test_tdcc_monthly_history_gap_repair.py"
       - "tests/test_tdcc_weekly_data_readiness.py"
       - "tests/test_tdcc_weekly_history_continuity.py"
       - "tests/test_tdcc_dataset_contract.py"
+      - "tests/test_tdcc_analytics_store.py"
       - "tests/test_tdcc_weekly_pr_validation_workflow.py"
   workflow_dispatch:
 
@@ -66,7 +71,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --disable-pip-version-check \
-            pandas requests lxml html5lib beautifulsoup4 matplotlib pytest pyyaml
+            pandas requests lxml html5lib beautifulsoup4 matplotlib pytest pyyaml duckdb==1.5.4
 
       - name: Validate TDCC continuity contracts
         run: |
@@ -76,10 +81,16 @@ jobs:
           python scripts/validate_repo_semantic_integrity.py
           python scripts/validate_daily_production_boundaries.py
 
+      - name: Build and validate TDCC analytics store
+        run: |
+          python scripts/build_tdcc_analytics_store.py --output-dir "$RUNNER_TEMP/tdcc_analytics"
+          python scripts/validate_tdcc_analytics_store.py --output-dir "$RUNNER_TEMP/tdcc_analytics"
+
       - name: Run TDCC continuity regression tests
         run: |
           python -m pytest \
             tests/test_tdcc_dataset_contract.py \
+            tests/test_tdcc_analytics_store.py \
             tests/test_tdcc_monthly_history_gap_repair.py \
             tests/test_tdcc_weekly_data_readiness.py \
             tests/test_tdcc_weekly_history_continuity.py \

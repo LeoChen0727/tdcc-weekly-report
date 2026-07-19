@@ -10,7 +10,7 @@ PR 內的 continuity 程式變更由唯讀 workflow `.github/workflows/tdcc_week
 - `data/tdcc_stock_history_raw/{stock_id}.csv` 保存官方級距原始列；`data/tdcc_stock_history/{stock_id}.csv` 是依 canonical snapshots 重建的個股衍生特徵，不是獨立事實來源。
 - `output/latest/tdcc_dataset_manifest_latest.json` 與 `output/history/tdcc/tdcc_dataset_manifest_YYYYMMDD.json` 是同一份 content-addressed dataset contract。`required_dates` / `snapshots` 保留正式週報使用的近期 continuity window；`history_dates` / `history_snapshots` 則涵蓋 repo archive 起點至 `signal_date` 的全部官方連續期別。`dataset_id` 納入完整歷史逐期 snapshot 正規化雜湊、正式期別、股票數與已核准例外，不含執行時間，因此相同資料必須得到相同 ID，任一歷史 snapshot 內容改變或中間官方期別缺檔時都必須改變或 fail closed。
 - TDCC weekly、individual stock 與 research/backtest consumer 必須記錄 `source_tdcc_dataset_id`，不得只用 latest date 判斷資料已同步。
-- 目前沒有以 SQLite、DuckDB 或 Parquet 取代上述 canonical history。現有回測可直接讀逐期 snapshot；未來若新增 DuckDB/Parquet，只能是可由 canonical history 重建的分析加速層，不能掩蓋缺期或改寫官方期別。
+- `output/latest/tdcc_analytics/` 提供由上述 canonical history 重建的 Parquet/DuckDB 分析加速層；它必須記錄相同 `dataset_id` 與逐期 hash，不能成為第二套原始資料、掩蓋缺期或改寫官方期別。詳細契約見 `docs/tdcc_analytics_store.md`。
 
 ## 目的
 
