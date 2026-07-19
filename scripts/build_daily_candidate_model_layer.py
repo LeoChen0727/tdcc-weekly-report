@@ -3856,7 +3856,7 @@ def validate_volume_v2_watch_advisory_lineage(
         )
     artifact = Path(artifact_text)
     if not artifact.is_absolute():
-        artifact = ROOT / artifact
+        artifact = Path(__file__).resolve().parents[1] / artifact
     if not artifact.is_file():
         raise RuntimeError(
             "volume v2 watch advisory score source artifact is missing: "
