@@ -13,6 +13,7 @@ if str(SCRIPTS) not in sys.path:
 
 from build_volume_breakout_confirmed_operation_backtest import (  # noqa: E402
     EVENT_COLUMNS,
+    FORMAL_TRIGGER_IDS,
     METRIC_SAMPLE_SCOPE,
     TRIGGER_MAP,
     add_operation_selection_columns,
@@ -25,6 +26,7 @@ from build_volume_breakout_confirmed_operation_backtest import (  # noqa: E402
     summarize,
 )
 import build_daily_volume_breakout_operation_section as daily_builder  # noqa: E402
+import validate_volume_breakout_confirmed_operation_backtest as operation_validator  # noqa: E402
 
 
 def price_frame(stop_on_entry_day: bool = False) -> pd.DataFrame:
@@ -87,8 +89,8 @@ def minimal_event(**overrides: str) -> dict[str, str]:
             "stock_id": "1234",
             "stock_name": "TEST",
             "market": "TWSE",
-            "trigger_id": "pullback_5ma_confirmed",
-            "trigger_name_zh": "pullback",
+            "trigger_id": "next_day_continuation_confirmed",
+            "trigger_name_zh": "continuation",
             "entry_rule_id": "confirmation_next_open",
             "entry_date": "20260611",
             "entry_price": "100",
@@ -247,6 +249,20 @@ def test_summary_keeps_research_only_and_operation_rules() -> None:
     assert set(summary["entry_rule_id"]) == {"confirmation_next_open"}
     assert set(summary["metric_sample_scope"]) == {METRIC_SAMPLE_SCOPE}
     assert "operation_trigger" in set(summary["confluence_scope"])
+
+
+def test_formal_v2_trigger_contract_excludes_legacy_empty_state_rows() -> None:
+    expected = {"next_day_continuation_confirmed"}
+    summary = summarize(pd.DataFrame([minimal_event()]))
+
+    assert set(FORMAL_TRIGGER_IDS) == expected
+    assert operation_validator.EXPECTED_TRIGGERS == expected
+    assert set(summary["trigger_id"].astype(str)) == expected
+    assert not {
+        "next_day_break_signal_high_confirmed",
+        "pullback_5ma_confirmed",
+        "pullback_10ma_confirmed",
+    } & set(summary["trigger_id"].astype(str))
 
 
 def test_formal_operation_selects_earliest_confirmation_then_priority() -> None:
