@@ -725,6 +725,51 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
                 watch_updates={"advisory_score_source_sha256": "0" * 64}
             )
 
+    def test_volume_v2_watch_advisory_lineage_resolves_repo_relative_source(self) -> None:
+        source_path = ROOT / "tests" / "test_daily_candidate_model_layer.py"
+        row = pd.Series(
+            {
+                "stock_id": "1618",
+                "signal_date": "20260530",
+                "advisory_score_as_of": "20260530",
+                "advisory_score_source_artifact": source_path.relative_to(ROOT).as_posix(),
+                "advisory_score_source_sha256": (
+                    model_layer.volume_v2_canonical_text_sha256(source_path)
+                ),
+            }
+        )
+
+        model_layer.validate_volume_v2_watch_advisory_lineage(row, "20260530")
+
+    def test_volume_v2_watch_advisory_lineage_rejects_missing_relative_source(self) -> None:
+        row = pd.Series(
+            {
+                "stock_id": "1618",
+                "signal_date": "20260530",
+                "advisory_score_as_of": "20260530",
+                "advisory_score_source_artifact": "data/stock_price_history/missing.csv",
+                "advisory_score_source_sha256": "0" * 64,
+            }
+        )
+
+        with self.assertRaisesRegex(RuntimeError, "source artifact is missing"):
+            model_layer.validate_volume_v2_watch_advisory_lineage(row, "20260530")
+
+    def test_volume_v2_watch_advisory_lineage_rejects_tampered_relative_sha(self) -> None:
+        source_path = ROOT / "tests" / "test_daily_candidate_model_layer.py"
+        row = pd.Series(
+            {
+                "stock_id": "1618",
+                "signal_date": "20260530",
+                "advisory_score_as_of": "20260530",
+                "advisory_score_source_artifact": source_path.relative_to(ROOT).as_posix(),
+                "advisory_score_source_sha256": "0" * 64,
+            }
+        )
+
+        with self.assertRaisesRegex(RuntimeError, "source SHA-256 mismatch"):
+            model_layer.validate_volume_v2_watch_advisory_lineage(row, "20260530")
+
     def test_volume_v2_dispatcher_sha_is_lf_crlf_canonical(self) -> None:
         with tempfile.TemporaryDirectory() as tmpdir:
             lf_path = Path(tmpdir) / "lf.csv"

@@ -83,7 +83,6 @@ def test_shared_business_semantics_are_disclosed_as_contained_not_technical() ->
     )
     for family_helper in (
         "function:append_volume_breakout_signals",
-        "function:validate_volume_v2_watch_advisory_lineage",
         "function:volume_v2_candidate_lookup",
         "function:volume_v2_canonical_text_sha256",
     ):
@@ -93,6 +92,11 @@ def test_shared_business_semantics_are_disclosed_as_contained_not_technical() ->
         assert by_item[family_helper]["last_migration_id"] == (
             "volume_v2_formal_lineage_hardening_20260718"
         )
+    watch_lineage_validator = by_item["function:validate_volume_v2_watch_advisory_lineage"]
+    assert watch_lineage_validator["semantic_class"] == "contained_model_family_semantic"
+    assert watch_lineage_validator["last_migration_id"] == (
+        "volume_v2_watch_repo_relative_source_fix_20260720"
+    )
     for dispatcher_guard in (
         "global:VOLUME_V2_CANDIDATE_SCORE_FIELDS",
         "global:VOLUME_V2_FORMAL_DISPATCH_FORBIDDEN_FIELDS",
