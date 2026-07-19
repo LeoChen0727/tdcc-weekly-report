@@ -5,8 +5,10 @@ from pathlib import Path
 
 import pytest
 
+import scripts.git_worktree_safety as worktree_safety
 from scripts.git_worktree_safety import (
     GitWorktreeSafetyError,
+    _cleanup_failed_worktree,
     audit_ref_transition,
     checkout_materialization_lock,
     create_registered_full_temp_worktree,
@@ -160,6 +162,211 @@ def test_sparse_worktree_rejects_existing_destination(tmp_path: Path) -> None:
         create_sparse_worktree(repo, target, destination, include_paths=("scripts",))
 
 
+def test_sparse_worktree_allows_child_of_approved_ntfs_root(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    repo = init_repo(tmp_path)
+    write(repo, "scripts/a.py", "print('a')\n")
+    target = commit_all(repo, "base")
+    system_temp = tmp_path / "isolated-system-temp"
+    system_temp.mkdir()
+    approved_root = tmp_path / "approved-f-root"
+    destination = approved_root / "pilot"
+    monkeypatch.setattr(worktree_safety, "_system_temp_root", lambda: system_temp)
+    monkeypatch.setattr(worktree_safety, "_filesystem_type", lambda _path: "NTFS")
+    monkeypatch.setattr(
+        worktree_safety,
+        "_approved_sparse_destination_roots",
+        lambda: (approved_root,),
+    )
+
+    result = create_sparse_worktree(
+        repo,
+        target,
+        destination,
+        include_paths=("scripts",),
+        branch="codex/test-approved-f-root",
+    )
+    try:
+        assert approved_root.is_dir()
+        assert (destination / "scripts" / "a.py").exists()
+        assert result.destination == str(destination.resolve())
+        assert run_git(destination, "status", "--porcelain=v1") == ""
+    finally:
+        remove_worktree(repo, destination)
+
+
+def test_sparse_worktree_rejects_path_outside_approved_root(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    repo = init_repo(tmp_path)
+    write(repo, "scripts/a.py", "print('a')\n")
+    target = commit_all(repo, "base")
+    system_temp = tmp_path / "isolated-system-temp"
+    system_temp.mkdir()
+    approved_root = tmp_path / "approved-f-root"
+    destination = tmp_path / "other-f-path" / "pilot"
+    monkeypatch.setattr(worktree_safety, "_system_temp_root", lambda: system_temp)
+    monkeypatch.setattr(worktree_safety, "_filesystem_type", lambda _path: "NTFS")
+    monkeypatch.setattr(
+        worktree_safety,
+        "_approved_sparse_destination_roots",
+        lambda: (approved_root,),
+    )
+
+    with pytest.raises(GitWorktreeSafetyError, match="system temp root.*approved sparse root"):
+        create_sparse_worktree(
+            repo,
+            target,
+            destination,
+            include_paths=("scripts",),
+        )
+
+
+@pytest.mark.parametrize("drive_root", [Path("C:\\"), Path("F:\\")])
+def test_sparse_worktree_rejects_drive_roots(tmp_path: Path, drive_root: Path) -> None:
+    repo = init_repo(tmp_path)
+    write(repo, "scripts/a.py", "print('a')\n")
+    target = commit_all(repo, "base")
+
+    with pytest.raises(GitWorktreeSafetyError, match="must not be a drive root"):
+        create_sparse_worktree(
+            repo,
+            target,
+            drive_root,
+            include_paths=("scripts",),
+        )
+
+
+def test_sparse_worktree_rejects_approved_root_itself(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    repo = init_repo(tmp_path)
+    write(repo, "scripts/a.py", "print('a')\n")
+    target = commit_all(repo, "base")
+    system_temp = tmp_path / "isolated-system-temp"
+    system_temp.mkdir()
+    approved_root = tmp_path / "approved-f-root"
+    monkeypatch.setattr(worktree_safety, "_system_temp_root", lambda: system_temp)
+    monkeypatch.setattr(worktree_safety, "_filesystem_type", lambda _path: "NTFS")
+    monkeypatch.setattr(
+        worktree_safety,
+        "_approved_sparse_destination_roots",
+        lambda: (approved_root,),
+    )
+
+    with pytest.raises(GitWorktreeSafetyError, match="child of the approved root"):
+        create_sparse_worktree(
+            repo,
+            target,
+            approved_root,
+            include_paths=("scripts",),
+        )
+
+
+def test_sparse_worktree_rejects_reparse_point(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    repo = init_repo(tmp_path)
+    write(repo, "scripts/a.py", "print('a')\n")
+    target = commit_all(repo, "base")
+    system_temp = tmp_path / "isolated-system-temp"
+    system_temp.mkdir()
+    approved_root = tmp_path / "approved-f-root"
+    destination = approved_root / "reparse-pilot"
+    monkeypatch.setattr(worktree_safety, "_system_temp_root", lambda: system_temp)
+    monkeypatch.setattr(
+        worktree_safety,
+        "_approved_sparse_destination_roots",
+        lambda: (approved_root,),
+    )
+    monkeypatch.setattr(
+        worktree_safety,
+        "_is_reparse_point",
+        lambda path: Path(path) == destination,
+    )
+
+    with pytest.raises(GitWorktreeSafetyError, match="contains a reparse point"):
+        create_sparse_worktree(
+            repo,
+            target,
+            destination,
+            include_paths=("scripts",),
+        )
+
+
+def test_sparse_worktree_rejects_non_ntfs_approved_root(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    repo = init_repo(tmp_path)
+    write(repo, "scripts/a.py", "print('a')\n")
+    target = commit_all(repo, "base")
+    system_temp = tmp_path / "isolated-system-temp"
+    system_temp.mkdir()
+    approved_root = tmp_path / "approved-f-root"
+    monkeypatch.setattr(worktree_safety, "_system_temp_root", lambda: system_temp)
+    monkeypatch.setattr(worktree_safety, "_filesystem_type", lambda _path: "FAT32")
+    monkeypatch.setattr(
+        worktree_safety,
+        "_approved_sparse_destination_roots",
+        lambda: (approved_root,),
+    )
+
+    with pytest.raises(GitWorktreeSafetyError, match="must be on NTFS"):
+        create_sparse_worktree(
+            repo,
+            target,
+            approved_root / "pilot",
+            include_paths=("scripts",),
+        )
+
+
+def test_sparse_worktree_rejects_approved_root_inside_repository(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    repo = init_repo(tmp_path)
+    write(repo, "scripts/a.py", "print('a')\n")
+    target = commit_all(repo, "base")
+    system_temp = tmp_path / "isolated-system-temp"
+    system_temp.mkdir()
+    approved_root = repo / "docs" / "task-worktrees"
+    monkeypatch.setattr(worktree_safety, "_system_temp_root", lambda: system_temp)
+    monkeypatch.setattr(
+        worktree_safety,
+        "_approved_sparse_destination_roots",
+        lambda: (approved_root,),
+    )
+
+    with pytest.raises(GitWorktreeSafetyError, match="protected repository data/output/docs root"):
+        create_sparse_worktree(
+            repo,
+            target,
+            approved_root / "pilot",
+            include_paths=("scripts",),
+        )
+
+
+def test_failed_cleanup_refuses_unregistered_directory(tmp_path: Path) -> None:
+    repo = init_repo(tmp_path)
+    write(repo, "scripts/a.py", "print('a')\n")
+    commit_all(repo, "base")
+    unregistered = tmp_path / "unregistered"
+    unregistered.mkdir()
+    marker = unregistered / "keep.txt"
+    marker.write_text("keep\n", encoding="utf-8")
+
+    with pytest.raises(GitWorktreeSafetyError, match="automatic deletion was refused"):
+        _cleanup_failed_worktree(repo, unregistered)
+
+    assert marker.read_text(encoding="utf-8") == "keep\n"
+
+
 def test_checkout_lock_fails_closed_instead_of_waiting(tmp_path: Path) -> None:
     repo = init_repo(tmp_path)
     write(repo, "scripts/a.py", "print('a')\n")
@@ -192,6 +399,28 @@ def test_registered_full_temp_worktree_materializes_complete_tree(tmp_path: Path
         assert run_git(destination, "status", "--porcelain=v1") == ""
     finally:
         remove_worktree(repo, destination)
+
+
+def test_registered_full_temp_worktree_stays_under_system_temp(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    repo = init_repo(tmp_path)
+    write(repo, "scripts/a.py", "print('a')\n")
+    target = commit_all(repo, "base")
+    system_temp = tmp_path / "isolated-system-temp"
+    system_temp.mkdir()
+    external_root = tmp_path / "external-full-root"
+    monkeypatch.setattr(worktree_safety, "_system_temp_root", lambda: system_temp)
+
+    with pytest.raises(GitWorktreeSafetyError, match="must stay under the system temp root"):
+        create_registered_full_temp_worktree(
+            repo,
+            target,
+            external_root,
+            leaf_name="source",
+            consumer_id="chatgpt_daily_report_entrypoint",
+        )
 
 
 def test_unregistered_full_temp_consumer_is_rejected(tmp_path: Path) -> None:

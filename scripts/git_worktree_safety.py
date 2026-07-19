@@ -5,6 +5,7 @@ import csv
 import hashlib
 import json
 import os
+import stat
 import subprocess
 import sys
 import tempfile
@@ -17,6 +18,11 @@ from typing import Iterator, Sequence
 
 ROOT = Path(__file__).resolve().parents[1]
 CONTRACT_PATH = ROOT / "config" / "git_worktree_materialization_contract.csv"
+SPARSE_TASK_CONSUMER_ID = "sparse_task_worktree"
+APPROVED_SPARSE_DESTINATION_ROOT_WINDOWS = (
+    r"F:\CodexStorage\task-worktrees\taiwan-stock-recommendation"
+)
+APPROVED_SPARSE_DESTINATION_FILESYSTEM = "NTFS"
 DEFAULT_MAX_CHANGED_PATHS = 250
 DEFAULT_MAX_MATERIALIZED_FILES = 2500
 DEFAULT_INCLUDE_PATHS = (".github", "AGENTS.md", "config", "docs", "rules", "scripts", "tests")
@@ -174,20 +180,86 @@ def _system_temp_root() -> Path:
     return Path(tempfile.gettempdir()).resolve()
 
 
-def _require_new_temp_destination(destination: Path) -> Path:
-    destination = destination.resolve(strict=False)
-    temp_root = _system_temp_root()
+def _path_is_within(path: Path, root: Path) -> bool:
     try:
-        destination.relative_to(temp_root)
-    except ValueError as exc:
+        path.relative_to(root)
+        return True
+    except ValueError:
+        return False
+
+
+def _is_drive_root(path: Path) -> bool:
+    raw = str(path)
+    if len(raw) == 3 and raw[1] == ":" and raw[2] in {"/", "\\"}:
+        return True
+    absolute = Path(os.path.abspath(raw))
+    return absolute.parent == absolute
+
+
+def _absolute_without_resolving(path: Path) -> Path:
+    return Path(os.path.abspath(str(path)))
+
+
+def _is_reparse_point(path: Path) -> bool:
+    try:
+        metadata = path.lstat()
+    except OSError:
+        return False
+    attributes = getattr(metadata, "st_file_attributes", 0)
+    reparse_attribute = getattr(stat, "FILE_ATTRIBUTE_REPARSE_POINT", 0x400)
+    return path.is_symlink() or bool(attributes & reparse_attribute)
+
+
+def _require_no_reparse_points(path: Path) -> None:
+    current = path
+    while True:
+        if _is_reparse_point(current):
+            raise GitWorktreeSafetyError(
+                f"worktree destination path contains a reparse point: {current}"
+            )
+        if current.parent == current:
+            break
+        current = current.parent
+
+
+def _filesystem_type(path: Path) -> str:
+    if os.name != "nt":
+        raise GitWorktreeSafetyError("approved non-system-temp worktree roots are supported only on Windows")
+    import ctypes
+    from ctypes import wintypes
+
+    volume_root = Path(path.anchor)
+    if not volume_root.anchor:
+        raise GitWorktreeSafetyError(f"approved worktree root has no Windows volume: {path}")
+    filesystem_name = ctypes.create_unicode_buffer(261)
+    kernel32 = ctypes.WinDLL("kernel32", use_last_error=True)
+    get_volume_information = kernel32.GetVolumeInformationW
+    get_volume_information.argtypes = (
+        wintypes.LPCWSTR,
+        wintypes.LPWSTR,
+        wintypes.DWORD,
+        ctypes.POINTER(wintypes.DWORD),
+        ctypes.POINTER(wintypes.DWORD),
+        ctypes.POINTER(wintypes.DWORD),
+        wintypes.LPWSTR,
+        wintypes.DWORD,
+    )
+    get_volume_information.restype = wintypes.BOOL
+    if not get_volume_information(
+        str(volume_root),
+        None,
+        0,
+        None,
+        None,
+        None,
+        filesystem_name,
+        len(filesystem_name),
+    ):
+        error_code = ctypes.get_last_error()
         raise GitWorktreeSafetyError(
-            f"worktree destination must stay under the system temp root {temp_root}: {destination}"
-        ) from exc
-    if destination == temp_root:
-        raise GitWorktreeSafetyError("worktree destination must not be the system temp root itself")
-    if destination.exists():
-        raise GitWorktreeSafetyError(f"worktree destination already exists: {destination}")
-    return destination
+            f"cannot verify approved worktree root filesystem for {volume_root}: winerror={error_code}"
+        )
+    return filesystem_name.value.upper()
 
 
 def _common_git_dir(repo_root: Path) -> Path:
@@ -196,6 +268,164 @@ def _common_git_dir(repo_root: Path) -> Path:
     if not path.is_absolute():
         path = repo_root / path
     return path.resolve()
+
+
+def _load_materialization_contract_rows() -> list[dict[str, str]]:
+    if not CONTRACT_PATH.exists():
+        raise GitWorktreeSafetyError(f"missing worktree materialization contract: {CONTRACT_PATH}")
+    with CONTRACT_PATH.open("r", encoding="utf-8-sig", newline="") as handle:
+        return [dict(row) for row in csv.DictReader(handle)]
+
+
+def _load_materialization_contract(consumer_id: str) -> dict[str, str]:
+    matching = [
+        row
+        for row in _load_materialization_contract_rows()
+        if row.get("consumer_id", "").strip() == consumer_id
+    ]
+    if len(matching) != 1:
+        raise GitWorktreeSafetyError(
+            f"worktree consumer must have exactly one contract row: {consumer_id!r}"
+        )
+    return matching[0]
+
+
+def _approved_sparse_destination_roots() -> tuple[Path, ...]:
+    row = _load_materialization_contract(SPARSE_TASK_CONSUMER_ID)
+    if row.get("materialization_mode", "").strip() != "sparse_task_only":
+        raise GitWorktreeSafetyError("sparse task contract must use materialization_mode=sparse_task_only")
+    if row.get("temp_root_policy", "").strip() != "system_temp_or_approved_root":
+        raise GitWorktreeSafetyError(
+            "sparse task contract must use temp_root_policy=system_temp_or_approved_root"
+        )
+    approved_root = row.get("approved_destination_root", "").strip()
+    if approved_root.lower().rstrip("\\/") != APPROVED_SPARSE_DESTINATION_ROOT_WINDOWS.lower():
+        raise GitWorktreeSafetyError(
+            "sparse task contract approved_destination_root must be exactly "
+            f"{APPROVED_SPARSE_DESTINATION_ROOT_WINDOWS}"
+        )
+    filesystem = row.get("approved_root_filesystem", "").strip().upper()
+    if filesystem != APPROVED_SPARSE_DESTINATION_FILESYSTEM:
+        raise GitWorktreeSafetyError(
+            "sparse task contract approved_root_filesystem must be NTFS"
+        )
+    return (Path(approved_root),)
+
+
+def _registered_worktree_paths(repo_root: Path) -> tuple[Path, ...]:
+    output = _require(
+        _git(repo_root, "worktree", "list", "--porcelain"),
+        "list registered worktrees",
+    )
+    paths: list[Path] = []
+    for line in output.splitlines():
+        if line.startswith("worktree "):
+            paths.append(Path(line.removeprefix("worktree ")).resolve())
+    return tuple(paths)
+
+
+def _require_destination_outside_repository_roots(repo_root: Path, destination: Path) -> None:
+    repo_root = repo_root.resolve()
+    try:
+        relative = destination.relative_to(repo_root)
+    except ValueError:
+        relative = None
+    if relative is not None:
+        first_part = relative.parts[0].lower() if relative.parts else ""
+        if first_part in {"data", "docs", "output", "published_reports"} or first_part.startswith(
+            "chatgpt_side_outputs"
+        ):
+            raise GitWorktreeSafetyError(
+                "worktree destination must not be inside a protected repository data/output/docs root: "
+                f"{destination}"
+            )
+
+    common_git_dir = _common_git_dir(repo_root)
+    protected_roots = (repo_root, common_git_dir, *_registered_worktree_paths(repo_root))
+    for protected_root in protected_roots:
+        if _path_is_within(destination, protected_root):
+            raise GitWorktreeSafetyError(
+                f"worktree destination must not be inside a repository, Git common, or registered worktree root: "
+                f"{protected_root}"
+            )
+
+
+def _prepare_approved_sparse_root(repo_root: Path, approved_root: Path) -> Path:
+    if _is_drive_root(approved_root):
+        raise GitWorktreeSafetyError(
+            f"approved worktree root must not be a drive root: {approved_root}"
+        )
+    approved_root = _absolute_without_resolving(approved_root)
+    _require_no_reparse_points(approved_root)
+    _require_destination_outside_repository_roots(repo_root, approved_root)
+    filesystem = _filesystem_type(approved_root)
+    if filesystem != APPROVED_SPARSE_DESTINATION_FILESYSTEM:
+        raise GitWorktreeSafetyError(
+            f"approved worktree root must be on NTFS, found {filesystem or 'unknown'}: {approved_root}"
+        )
+    try:
+        approved_root.mkdir(parents=True, exist_ok=True)
+    except OSError as exc:
+        raise GitWorktreeSafetyError(
+            f"cannot create approved worktree root {approved_root}: {exc}"
+        ) from exc
+    _require_no_reparse_points(approved_root)
+    if not approved_root.is_dir():
+        raise GitWorktreeSafetyError(
+            f"approved worktree root is not a directory: {approved_root}"
+        )
+    return approved_root.resolve()
+
+
+def _require_new_worktree_destination(
+    repo_root: Path,
+    destination: Path,
+    *,
+    approved_sparse_roots: Sequence[Path] = (),
+) -> Path:
+    if _is_drive_root(destination):
+        raise GitWorktreeSafetyError(
+            f"worktree destination must not be a drive root: {destination}"
+        )
+    destination = _absolute_without_resolving(destination)
+    _require_no_reparse_points(destination)
+    temp_root = _system_temp_root()
+
+    if destination == temp_root:
+        raise GitWorktreeSafetyError("worktree destination must not be the system temp root itself")
+    if _path_is_within(destination, temp_root):
+        _require_destination_outside_repository_roots(repo_root, destination)
+    else:
+        matched_root: Path | None = None
+        for configured_root in approved_sparse_roots:
+            if _is_drive_root(configured_root):
+                raise GitWorktreeSafetyError(
+                    f"approved worktree root must not be a drive root: {configured_root}"
+                )
+            configured_root = _absolute_without_resolving(configured_root)
+            if destination == configured_root:
+                raise GitWorktreeSafetyError(
+                    f"worktree destination must be a child of the approved root, not the root itself: "
+                    f"{configured_root}"
+                )
+            if not _path_is_within(destination, configured_root):
+                continue
+            approved_root = _prepare_approved_sparse_root(repo_root, configured_root)
+            if _path_is_within(destination, approved_root):
+                matched_root = approved_root
+                break
+        if matched_root is None:
+            allowed = ", ".join(str(root) for root in approved_sparse_roots) or "none"
+            raise GitWorktreeSafetyError(
+                f"worktree destination must stay under the system temp root {temp_root} or an approved sparse "
+                f"root ({allowed}): {destination}"
+            )
+        _require_no_reparse_points(destination)
+        _require_destination_outside_repository_roots(repo_root, destination)
+
+    if destination.exists():
+        raise GitWorktreeSafetyError(f"worktree destination already exists: {destination}")
+    return destination.resolve(strict=False)
 
 
 def _lock_path(repo_root: Path) -> Path:
@@ -287,7 +517,12 @@ def create_sparse_worktree(
     max_materialized_files: int = DEFAULT_MAX_MATERIALIZED_FILES,
 ) -> SparseWorktreeResult:
     repo_root = repo_root.resolve()
-    destination = _require_new_temp_destination(destination)
+    roots = _approved_sparse_destination_roots()
+    destination = _require_new_worktree_destination(
+        repo_root,
+        destination,
+        approved_sparse_roots=roots,
+    )
     includes = tuple(dict.fromkeys(_normalize_path(path) for path in include_paths if _normalize_path(path)))
     if not includes:
         raise GitWorktreeSafetyError("at least one sparse include path is required")
@@ -340,22 +575,23 @@ def create_sparse_worktree(
     )
 
 
-def _load_materialization_contract(consumer_id: str) -> dict[str, str]:
-    if not CONTRACT_PATH.exists():
-        raise GitWorktreeSafetyError(f"missing worktree materialization contract: {CONTRACT_PATH}")
-    with CONTRACT_PATH.open("r", encoding="utf-8-sig", newline="") as handle:
-        rows = [dict(row) for row in csv.DictReader(handle)]
-    matching = [row for row in rows if row.get("consumer_id", "").strip() == consumer_id]
-    if len(matching) != 1:
-        raise GitWorktreeSafetyError(
-            f"full worktree consumer must have exactly one contract row: {consumer_id!r}"
-        )
-    row = matching[0]
+def _require_full_temp_materialization_contract(consumer_id: str) -> dict[str, str]:
+    row = _load_materialization_contract(consumer_id)
     if row.get("materialization_mode", "").strip() != "full_temp_only":
         raise GitWorktreeSafetyError(f"consumer is not approved for full temp materialization: {consumer_id}")
     if row.get("checkout_workers", "").strip() != "1" or row.get("max_concurrent", "").strip() != "1":
         raise GitWorktreeSafetyError(
             f"consumer must use checkout_workers=1 and max_concurrent=1: {consumer_id}"
+        )
+    if row.get("temp_root_policy", "").strip() != "system_temp_only":
+        raise GitWorktreeSafetyError(
+            f"full temp consumer must stay system_temp_only: {consumer_id}"
+        )
+    if row.get("approved_destination_root", "").strip() or row.get(
+        "approved_root_filesystem", ""
+    ).strip():
+        raise GitWorktreeSafetyError(
+            f"full temp consumer must not define an approved external root: {consumer_id}"
         )
     return row
 
@@ -368,10 +604,10 @@ def create_registered_full_temp_worktree(
     leaf_name: str,
     consumer_id: str,
 ) -> Path:
-    _load_materialization_contract(consumer_id)
+    _require_full_temp_materialization_contract(consumer_id)
     repo_root = repo_root.resolve()
     temp_root = temp_root.resolve(strict=False)
-    destination = _require_new_temp_destination(temp_root / leaf_name)
+    destination = _require_new_worktree_destination(repo_root, temp_root / leaf_name)
     _require(_git(repo_root, "rev-parse", "--verify", source_ref), f"resolve {source_ref}")
 
     with checkout_materialization_lock(repo_root):
