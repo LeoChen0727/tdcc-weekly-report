@@ -115,9 +115,12 @@ def execute(
     tmp_path: Path,
     *,
     apply_copy: bool,
+    move_after_verify: bool = False,
     include_dates: tuple[str, ...] = (),
     storage_probe: archive.StorageProbe | None = None,
     copy_function: archive.CopyFunction | None = None,
+    delete_function: archive.DeleteFunction | None = None,
+    pre_delete_hook: archive.PreDeleteHook | None = None,
 ) -> tuple[archive.ArchiveResult, Path, Path, Path]:
     source, destination, reports, contract = make_environment(tmp_path)
     result = archive.execute_archive(
@@ -129,10 +132,13 @@ def execute(
         authority_ref="origin/main",
         contract=contract,
         apply_copy=apply_copy,
+        move_after_verify=move_after_verify,
         include_dates=include_dates,
         storage_probe=storage_probe or storage(),
         authority_state=authority(),
         copy_function=copy_function,
+        delete_function=delete_function,
+        pre_delete_hook=pre_delete_hook,
     )
     return result, source, destination, reports
 
@@ -380,6 +386,307 @@ def test_relative_repo_root_is_resolved_for_cli_compatible_execution(
 
     assert result.success
     assert report["repo_root"] == str(tmp_path.resolve())
+
+
+def test_verified_transfer_removes_exact_older_bundles_after_full_parity(
+    tmp_path: Path,
+) -> None:
+    result, source, destination, _reports = execute(
+        tmp_path,
+        apply_copy=False,
+        move_after_verify=True,
+    )
+
+    assert result.success
+    assert result.completion_state == "verified_transfer_complete"
+    assert result.source_files_deleted == 8
+    assert not (source / OLDER_A).exists()
+    assert not (source / OLDER_B).exists()
+    assert (source / BASELINE).is_dir()
+    assert (source / CURRENT).is_dir()
+    assert result.pre_delete_manifest_path is not None
+    assert result.pre_delete_manifest_path.is_file()
+    manifest = archive.load_verified_pre_delete_manifest(
+        result.pre_delete_manifest_path,
+        result.pre_delete_manifest_sha256,
+    )
+    assert len(manifest["rows"]) == 8
+    assert all(item.source_deletion_status == "removed" for item in result.selected_files)
+
+    assert result.archive_index_path is not None
+    index = archive.load_archive_index(result.archive_index_path, archive.load_contract())
+    assert len(index["entries"]) == 8
+    assert all(entry["source_removed"] is True for entry in index["entries"])
+    assert all(entry["execution_id"] == result.execution_id for entry in index["entries"])
+    assert all(entry["archived_at"] for entry in index["entries"])
+    assert all("source_path" not in entry for entry in index["entries"])
+    assert all(
+        Path(entry["canonical_archive_path"]).is_relative_to(destination)
+        for entry in index["entries"]
+    )
+
+
+def test_move_existing_same_sha_destinations_is_idempotent_and_removes_sources(
+    tmp_path: Path,
+) -> None:
+    first, source, destination, reports = execute(tmp_path, apply_copy=True)
+    second = archive.execute_archive(
+        repo_root=tmp_path,
+        source_root=source,
+        destination_root=destination,
+        report_dir=reports,
+        expected_destination_volume="F:",
+        authority_ref="origin/main",
+        contract=archive.load_contract(),
+        apply_copy=False,
+        move_after_verify=True,
+        storage_probe=storage(),
+        authority_state=authority(),
+    )
+
+    assert first.success and second.success
+    assert {item.copy_action for item in second.selected_files} == {
+        "already_present_same_sha"
+    }
+    assert not (source / OLDER_A).exists()
+    assert not (source / OLDER_B).exists()
+
+
+def test_destination_drift_after_copy_blocks_all_source_deletion(tmp_path: Path) -> None:
+    source, destination, reports, contract = make_environment(tmp_path)
+
+    def mutate_destination(_manifest_path: Path) -> None:
+        (destination / "daily" / OLDER_A / "report.pdf").write_bytes(b"changed")
+
+    result = archive.execute_archive(
+        repo_root=tmp_path,
+        source_root=source,
+        destination_root=destination,
+        report_dir=reports,
+        expected_destination_volume="F:",
+        authority_ref="origin/main",
+        contract=contract,
+        apply_copy=False,
+        move_after_verify=True,
+        storage_probe=storage(),
+        authority_state=authority(),
+        pre_delete_hook=mutate_destination,
+    )
+
+    assert not result.success
+    assert result.completion_state == "verified_transfer_failed"
+    assert result.source_files_deleted == 0
+    assert "destination parity" in result.error
+    assert (source / OLDER_A / "report.pdf").exists()
+    assert (source / OLDER_B / "report.pdf").exists()
+
+
+def test_source_hash_drift_after_copy_blocks_all_source_deletion(tmp_path: Path) -> None:
+    source, destination, reports, contract = make_environment(tmp_path)
+
+    def mutate_source(_manifest_path: Path) -> None:
+        (source / OLDER_A / "report.pdf").write_bytes(b"changed")
+
+    result = archive.execute_archive(
+        repo_root=tmp_path,
+        source_root=source,
+        destination_root=destination,
+        report_dir=reports,
+        expected_destination_volume="F:",
+        authority_ref="origin/main",
+        contract=contract,
+        apply_copy=False,
+        move_after_verify=True,
+        storage_probe=storage(),
+        authority_state=authority(),
+        pre_delete_hook=mutate_source,
+    )
+
+    assert not result.success
+    assert result.source_files_deleted == 0
+    assert "source changed after copy verification" in result.error
+    assert (source / OLDER_A).is_dir()
+    assert (source / OLDER_B).is_dir()
+
+
+def test_pre_delete_manifest_digest_tamper_blocks_all_source_deletion(tmp_path: Path) -> None:
+    source, destination, reports, contract = make_environment(tmp_path)
+
+    def tamper_manifest(manifest_path: Path) -> None:
+        payload = json.loads(manifest_path.read_text(encoding="utf-8"))
+        payload["rows"][0]["bytes"] += 1
+        manifest_path.write_text(json.dumps(payload), encoding="utf-8")
+
+    result = archive.execute_archive(
+        repo_root=tmp_path,
+        source_root=source,
+        destination_root=destination,
+        report_dir=reports,
+        expected_destination_volume="F:",
+        authority_ref="origin/main",
+        contract=contract,
+        apply_copy=False,
+        move_after_verify=True,
+        storage_probe=storage(),
+        authority_state=authority(),
+        pre_delete_hook=tamper_manifest,
+    )
+
+    assert not result.success
+    assert result.source_files_deleted == 0
+    assert "content digest mismatch" in result.error
+    assert (source / OLDER_A).is_dir()
+    assert (source / OLDER_B).is_dir()
+
+
+def test_unlisted_or_unsupported_source_after_copy_blocks_bundle_deletion(
+    tmp_path: Path,
+) -> None:
+    source, destination, reports, contract = make_environment(tmp_path)
+
+    def add_unlisted(_manifest_path: Path) -> None:
+        (source / OLDER_A / "unexpected.txt").write_text("blocked", encoding="utf-8")
+
+    result = archive.execute_archive(
+        repo_root=tmp_path,
+        source_root=source,
+        destination_root=destination,
+        report_dir=reports,
+        expected_destination_volume="F:",
+        authority_ref="origin/main",
+        contract=contract,
+        apply_copy=False,
+        move_after_verify=True,
+        storage_probe=storage(),
+        authority_state=authority(),
+        pre_delete_hook=add_unlisted,
+    )
+
+    assert not result.success
+    assert result.source_files_deleted == 0
+    assert "unlisted" in result.error
+    assert (source / OLDER_A / "report.pdf").exists()
+    assert (source / OLDER_B / "report.pdf").exists()
+
+
+def test_reparse_source_detected_after_copy_blocks_deletion(
+    tmp_path: Path, monkeypatch
+) -> None:
+    source, destination, reports, contract = make_environment(tmp_path)
+    target = source / OLDER_A / "report.pdf"
+    original = archive.is_reparse_point
+    active = False
+
+    def fake_is_reparse(path: Path) -> bool:
+        return active and path == target or original(path)
+
+    def activate_reparse_guard(_manifest_path: Path) -> None:
+        nonlocal active
+        active = True
+
+    monkeypatch.setattr(archive, "is_reparse_point", fake_is_reparse)
+    result = archive.execute_archive(
+        repo_root=tmp_path,
+        source_root=source,
+        destination_root=destination,
+        report_dir=reports,
+        expected_destination_volume="F:",
+        authority_ref="origin/main",
+        contract=contract,
+        apply_copy=False,
+        move_after_verify=True,
+        storage_probe=storage(),
+        authority_state=authority(),
+        pre_delete_hook=activate_reparse_guard,
+    )
+
+    assert not result.success
+    assert result.source_files_deleted == 0
+    assert "reparse point" in result.error
+    assert (source / OLDER_A).is_dir()
+
+
+def test_partial_source_cleanup_is_reported_and_safe_to_rerun(tmp_path: Path) -> None:
+    source, destination, reports, contract = make_environment(tmp_path)
+    calls = 0
+
+    def fail_second(path: Path) -> None:
+        nonlocal calls
+        calls += 1
+        if calls == 2:
+            raise OSError("injected delete failure")
+        archive.delete_source_file_exact(path)
+
+    first = archive.execute_archive(
+        repo_root=tmp_path,
+        source_root=source,
+        destination_root=destination,
+        report_dir=reports,
+        expected_destination_volume="F:",
+        authority_ref="origin/main",
+        contract=contract,
+        apply_copy=False,
+        move_after_verify=True,
+        storage_probe=storage(),
+        authority_state=authority(),
+        delete_function=fail_second,
+    )
+
+    assert not first.success
+    assert first.completion_state == "partial_source_cleanup"
+    assert first.source_files_deleted == 1
+    assert all(path.is_file() for path in (destination / "daily").glob("20*/*"))
+
+    second = archive.execute_archive(
+        repo_root=tmp_path,
+        source_root=source,
+        destination_root=destination,
+        report_dir=reports,
+        expected_destination_volume="F:",
+        authority_ref="origin/main",
+        contract=contract,
+        apply_copy=False,
+        move_after_verify=True,
+        storage_probe=storage(),
+        authority_state=authority(),
+    )
+
+    assert second.success
+    assert not (source / OLDER_A).exists()
+    assert not (source / OLDER_B).exists()
+    index = archive.load_archive_index(second.archive_index_path, contract)
+    assert all(entry["source_removed"] is True for entry in index["entries"])
+
+
+def test_move_include_date_does_not_recursively_remove_other_source_bundles(
+    tmp_path: Path,
+) -> None:
+    result, source, _destination, _reports = execute(
+        tmp_path,
+        apply_copy=False,
+        move_after_verify=True,
+        include_dates=(OLDER_A,),
+    )
+
+    assert result.success
+    assert not (source / OLDER_A).exists()
+    assert (source / OLDER_B).is_dir()
+    assert (source / BASELINE).is_dir()
+    assert (source / CURRENT).is_dir()
+
+
+def test_copy_mode_writes_f_canonical_index_without_removing_sources(tmp_path: Path) -> None:
+    result, source, destination, _reports = execute(tmp_path, apply_copy=True)
+
+    assert result.success
+    assert all((source / date).is_dir() for date in (OLDER_A, OLDER_B, BASELINE, CURRENT))
+    index = archive.load_archive_index(result.archive_index_path, archive.load_contract())
+    assert all(entry["source_removed"] is False for entry in index["entries"])
+    assert all(
+        str(entry["canonical_archive_path"]).startswith(str(destination.resolve()))
+        for entry in index["entries"]
+    )
+    assert all("source_path" not in entry for entry in index["entries"])
 
 
 def test_archive_contract_validator_passes() -> None:

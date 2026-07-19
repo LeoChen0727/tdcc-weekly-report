@@ -87,15 +87,18 @@ Retained local evidence that should not clutter the repository root stays in ign
 
 ## External Daily Report Archive Boundary
 
-`scripts/archive_daily_official_report_bundles.py` is a separate copy-only
-retention command for dated official daily report bundles. It is not a cleanup
-apply action and must not delete, quarantine, move, rename, or rewrite source
-artifacts.
+`scripts/archive_daily_official_report_bundles.py` is a separate verified
+retention command for dated official daily report bundles. Its default and
+`--copy` modes must not mutate source artifacts. Only explicit
+`--move-after-verify` may remove exact pre-delete-manifest files from bundles
+older than baseline after full destination SHA-256 parity; recursive source-root
+deletion, quarantine, rename, and rewrite remain forbidden.
 
 The command derives current and baseline retention from the authoritative
 `origin/main` report manifest, data freshness record, and bundle runtime
 manifest. It requires an explicit external destination root and expected
 volume, validates NTFS and free space, verifies SHA-256 before and after copy,
-and writes per-file execution evidence. It must remain outside all automation
-until its owning PR and post-merge pilot are complete and a separate
-`workflow_automation_maintenance` change is approved.
+writes immutable pre-delete evidence, and atomically maintains an external
+archive index. It must remain outside all automation until its owning PR and
+post-merge pilot are complete and a separate `workflow_automation_maintenance`
+change is approved.

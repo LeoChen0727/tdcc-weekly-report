@@ -19,10 +19,11 @@ see `docs/output_latest_artifact_layout.md`.
 | Individual stock report | `scripts/generate_individual_stock_report.py` | `scripts/validate_individual_stock_outputs.py` | `docs/latest/individual_stock_reports/` through individual-stock workflows. It is not a daily full-market report. |
 
 Official daily bundle retention is separate from PDF production.
-`scripts/archive_daily_official_report_bundles.py` may copy only dated bundles
-older than the contract-derived current and baseline bundles. It does not
-render, alter, publish, move, or delete any report, and it is not wired into a
-workflow.
+`scripts/archive_daily_official_report_bundles.py` keeps validate and `--copy`
+non-destructive. Its explicit `--move-after-verify` mode may remove only older
+manifest-listed source files after complete F archive parity; current and
+baseline remain protected. It does not render, alter, or publish report content,
+and this change does not wire it into a workflow.
 
 ## DFKai Font Execution Boundary
 
