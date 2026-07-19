@@ -68,8 +68,21 @@ Human-facing daily market PDFs are date-stamped published reports under `output/
 | `output/latest/daily_market_full_latest.pdf` | compatibility_alias for packet/raw-health consumers | must_keep_until_packet_and_raw_health_consumers_move |
 | `output/latest/published_reports/daily_market/每日全市場候選股監測報告_精華版_YYYYMMDD.pdf` | published_human_pdf generated from the daily market summary PDF | published_date_stamped_daily_market_pdf |
 | `output/latest/published_reports/daily_market/完整候選股清單_完整版_YYYYMMDD.pdf` | published_human_pdf generated from the daily market full PDF | published_date_stamped_daily_market_pdf |
+| `output/history/reports/YYYYMMDD_daily_market_summary.pdf` | canonical_history_pdf for the daily market summary | canonical_history_only |
+| `output/history/reports/YYYYMMDD_daily_market_full.pdf` | canonical_history_pdf for the daily market full report | canonical_history_only |
 
 The legacy root Chinese PDFs `output/latest/每日全市場候選股監測報告_精華版.pdf` and `output/latest/完整候選股清單_完整版表格.pdf` are retired. They must not be regenerated, retained in `output/latest` root, or restored as compatibility aliases. Retiring the English compatibility aliases requires a later reviewed PR that first moves packet/raw-health consumers.
+
+Daily history uses only the canonical English filenames shown above. Producers
+must not create `YYYYMMDD_每日全市場候選股監測報告_精華版.pdf` or
+`YYYYMMDD_完整候選股清單_完整版表格.pdf` under `output/history/reports`.
+`report_manifest_latest.json` and `report_manifest_latest.md` must resolve every
+history path and URL to the canonical names. Chinese human-delivery PDF names
+are supported only under `output/latest/published_reports/daily_market/`.
+
+This lifecycle contract does not authorize deleting pre-existing untracked
+history aliases from any worktree. Physical cleanup remains a separately
+authorized workspace-cleanup task and must use its file-level evidence manifest.
 
 ## Auxiliary Internal PDFs
 
@@ -86,5 +99,7 @@ These files may exist in `output/latest` for internal source/reference use. Dail
 - ChatGPT-side daily PDFs consume model or catalyst/event fields outside the approved contracts;
 - a retired daily PDF filename appears in Daily Full Pipeline, README publisher, packet builder, current README, packet, or `docs/latest`;
 - a repo artifact daily PDF or auxiliary internal PDF is published under `docs/latest`;
+- a daily history producer restores a Chinese history alias or a report manifest references one;
+- either current canonical daily history PDF is missing for `main_price_date`;
 - `output/latest` or `docs/latest` keeps stale date-stamped daily README files from dates other than the current `main_price_date`;
 - `docs/latest` contains root-level PDF filenames outside the approved public set.

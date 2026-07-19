@@ -24,38 +24,27 @@
 2. latest 英文完整版 MD
 3. latest 英文精華 PDF
 4. latest 英文完整版 PDF
-5. 日期版英文 MD / PDF
-6. 中文檔名僅作人類閱讀備援
+5. canonical history MD / PDF
+6. 中文 PDF 檔名僅保留於 published human-delivery surface
 
-## 英文 alias raw URLs
+## Latest alias raw URLs
 
-- latest summary md: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_market_summary_latest.md
-- latest full md: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_market_full_latest.md
-- latest summary pdf: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_market_summary_latest.pdf
-- latest full pdf: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_market_full_latest.pdf
-- history summary md: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/reports/20260717_daily_market_summary.md
-- history full md: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/reports/20260717_daily_market_full.md
-- history summary pdf: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/reports/20260717_daily_market_summary.pdf
-- history full pdf: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/reports/20260717_daily_market_full.pdf
-
-## 中文檔名 raw URLs
-
-- summary_md_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/reports/20260717_%E6%AF%8F%E6%97%A5%E5%85%A8%E5%B8%82%E5%A0%B4%E5%80%99%E9%81%B8%E8%82%A1%E7%9B%A3%E6%B8%AC%E5%A0%B1%E5%91%8A_%E7%B2%BE%E8%8F%AF%E7%89%88.md
-- summary_pdf_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/reports/20260717_%E6%AF%8F%E6%97%A5%E5%85%A8%E5%B8%82%E5%A0%B4%E5%80%99%E9%81%B8%E8%82%A1%E7%9B%A3%E6%B8%AC%E5%A0%B1%E5%91%8A_%E7%B2%BE%E8%8F%AF%E7%89%88.pdf
-- full_md_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/reports/20260717_%E5%AE%8C%E6%95%B4%E5%80%99%E9%81%B8%E8%82%A1%E6%B8%85%E5%96%AE_%E5%AE%8C%E6%95%B4%E7%89%88.md
-- full_pdf_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/reports/20260717_%E5%AE%8C%E6%95%B4%E5%80%99%E9%81%B8%E8%82%A1%E6%B8%85%E5%96%AE_%E5%AE%8C%E6%95%B4%E7%89%88%E8%A1%A8%E6%A0%BC.pdf
-
-
-## English alias raw URLs
-
-這些英文檔名是給 ChatGPT / raw 讀取工具優先使用，避免中文檔名 Cache miss。
+這些固定英文檔名供 ChatGPT / raw 讀取工具使用。
 
 - latest summary md: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_market_summary_latest.md
 - latest full md: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_market_full_latest.md
 - latest summary pdf: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_market_summary_latest.pdf
 - latest full pdf: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_market_full_latest.pdf
+
+## Canonical history raw URLs
+
 - history summary md: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/reports/20260717_daily_market_summary.md
 - history full md: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/reports/20260717_daily_market_full.md
 - history summary pdf: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/reports/20260717_daily_market_summary.pdf
 - history full pdf: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/reports/20260717_daily_market_full.pdf
+
+## Published human delivery PDFs
+
+- published summary pdf: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/published_reports/daily_market/每日全市場候選股監測報告_精華版_20260717.pdf
+- published full pdf: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/published_reports/daily_market/完整候選股清單_完整版_20260717.pdf
 

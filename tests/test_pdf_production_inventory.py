@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 from pathlib import Path
 
 import ensure_report_aliases
@@ -36,6 +37,8 @@ def test_daily_market_repo_artifact_lifecycle_is_explicit() -> None:
         "output/latest/daily_market_full_latest.pdf",
         "output/latest/published_reports/daily_market/每日全市場候選股監測報告_精華版_YYYYMMDD.pdf",
         "output/latest/published_reports/daily_market/完整候選股清單_完整版_YYYYMMDD.pdf",
+        "output/history/reports/YYYYMMDD_daily_market_summary.pdf",
+        "output/history/reports/YYYYMMDD_daily_market_full.pdf",
     }
     assert inventory.REPO_ARTIFACT_DAILY_PDF_NAMES == tuple(
         Path(path).name for path, _role, _status in lifecycle
@@ -128,3 +131,86 @@ def test_report_aliases_do_not_fall_back_to_wall_clock_date() -> None:
 
     assert 'datetime.now(ZoneInfo("Asia/Taipei")).strftime("%Y%m%d")' not in body
     assert "wall-clock date fallback is forbidden" in text
+
+
+def test_daily_history_producers_use_only_canonical_history_names() -> None:
+    for path in inventory.HISTORY_PRODUCER_PATHS:
+        source = path.read_text(encoding="utf-8")
+        for literal in inventory.LEGACY_HISTORY_REFERENCE_FRAGMENTS:
+            assert f'{{main_date}}{literal}' not in source
+        assert "{main_date}_daily_market_summary.pdf" in source
+        assert "{main_date}_daily_market_full.pdf" in source
+
+
+def test_report_aliases_rewrite_manifest_to_canonical_history_paths(
+    monkeypatch, tmp_path: Path
+) -> None:
+    monkeypatch.chdir(tmp_path)
+    latest = Path("output/latest")
+    history = Path("output/history/reports")
+    published = latest / "published_reports" / "daily_market"
+    latest.mkdir(parents=True)
+    history.mkdir(parents=True)
+    published.mkdir(parents=True)
+
+    main_date = "20260717"
+    (latest / "data_freshness_latest.csv").write_text(
+        f"main_price_date,report_ready\n{main_date},True\n",
+        encoding="utf-8",
+    )
+    (latest / "每日全市場候選股監測報告_精華版.md").write_text(
+        "summary", encoding="utf-8"
+    )
+    (latest / "完整候選股清單_完整版.md").write_text("full", encoding="utf-8")
+    (published / f"每日全市場候選股監測報告_精華版_{main_date}.pdf").write_bytes(
+        b"summary-pdf"
+    )
+    (published / f"完整候選股清單_完整版_{main_date}.pdf").write_bytes(b"full-pdf")
+
+    legacy_summary = (
+        f"output/history/reports/{main_date}_每日全市場候選股監測報告_精華版.pdf"
+    )
+    legacy_full = f"output/history/reports/{main_date}_完整候選股清單_完整版表格.pdf"
+    (latest / "report_manifest_latest.json").write_text(
+        json.dumps(
+            {
+                "main_price_date": main_date,
+                "history_summary_pdf": legacy_summary,
+                "history_full_pdf": legacy_full,
+                "recommended_read_order": [legacy_summary, legacy_full],
+            },
+            ensure_ascii=False,
+        ),
+        encoding="utf-8",
+    )
+    (latest / "report_manifest_latest.md").write_text(
+        "# Daily manifest\n\n"
+        "5. 日期版英文 MD / PDF\n"
+        "6. 中文檔名僅作人類閱讀備援\n\n"
+        "## 英文 alias raw URLs\n\n"
+        f"- history summary pdf: {legacy_summary}\n"
+        f"- history full pdf: {legacy_full}\n",
+        encoding="utf-8",
+    )
+
+    assert ensure_report_aliases.main() == 0
+
+    manifest = json.loads((latest / "report_manifest_latest.json").read_text(encoding="utf-8"))
+    expected_summary = f"output/history/reports/{main_date}_daily_market_summary.pdf"
+    expected_full = f"output/history/reports/{main_date}_daily_market_full.pdf"
+    assert manifest["history_path_contract"] == "canonical_daily_market_history_only"
+    assert manifest["history_summary_pdf"] == expected_summary
+    assert manifest["history_summary_alias_pdf"] == expected_summary
+    assert manifest["history_full_pdf"] == expected_full
+    assert manifest["history_full_alias_pdf"] == expected_full
+    assert not ensure_report_aliases.contains_legacy_history_reference(
+        json.dumps(manifest, ensure_ascii=False)
+    )
+    manifest_md = (latest / "report_manifest_latest.md").read_text(encoding="utf-8")
+    assert expected_summary in manifest_md
+    assert expected_full in manifest_md
+    assert "5. canonical history MD / PDF" in manifest_md
+    assert "6. 中文 PDF 檔名僅保留於 published human-delivery surface" in manifest_md
+    assert not ensure_report_aliases.contains_legacy_history_reference(manifest_md)
+    assert (history / f"{main_date}_daily_market_summary.pdf").read_bytes() == b"summary-pdf"
+    assert (history / f"{main_date}_daily_market_full.pdf").read_bytes() == b"full-pdf"

@@ -55,6 +55,19 @@ def test_contract_validator_passes() -> None:
     assert contract.main() == 0
 
 
+def test_daily_history_pdf_contract_rejects_chinese_history_alias_producers() -> None:
+    for path in (
+        contract.DAILY_MARKET_ARTIFACT_BUILDER,
+        contract.PACKET_BUILDER,
+        contract.ALIAS_ENSURER,
+    ):
+        source = _source(path)
+        for literal in contract.LEGACY_DAILY_HISTORY_ALIAS_LITERALS:
+            assert literal not in source
+        assert "{main_date}_daily_market_summary.pdf" in source
+        assert "{main_date}_daily_market_full.pdf" in source
+
+
 def test_official_entrypoint_uses_registered_worktree_helper() -> None:
     source = _source(contract.ENTRYPOINT)
 

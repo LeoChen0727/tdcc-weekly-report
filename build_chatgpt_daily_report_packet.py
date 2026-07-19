@@ -109,10 +109,6 @@ SUMMARY_LATEST_MD = LATEST_DIR / "daily_market_summary_latest.md"
 FULL_LATEST_MD = LATEST_DIR / "daily_market_full_latest.md"
 SUMMARY_LATEST_PDF = LATEST_DIR / "daily_market_summary_latest.pdf"
 FULL_LATEST_PDF = LATEST_DIR / "daily_market_full_latest.pdf"
-SUMMARY_CN_MD = LATEST_DIR / "每日全市場候選股監測報告_精華版.md"
-FULL_CN_MD = LATEST_DIR / "完整候選股清單_完整版.md"
-SUMMARY_CN_PDF = LATEST_DIR / "每日全市場候選股監測報告_精華版.pdf"
-FULL_CN_PDF = LATEST_DIR / "完整候選股清單_完整版表格.pdf"
 
 PACKET_LATEST_OLD = LATEST_DIR / "CHATGPT_DAILY_REPORT_PACKET.txt"
 PACKET_LATEST = LATEST_DIR / "chatgpt_daily_report_packet_latest.txt"
@@ -587,30 +583,16 @@ def ensure_dated_artifacts(main_date: str) -> dict[str, Path]:
     dated_summary_pdf = HISTORY_REPORT_DIR / f"{main_date}_daily_market_summary.pdf"
     dated_full_pdf = HISTORY_REPORT_DIR / f"{main_date}_daily_market_full.pdf"
 
-    dated_summary_cn_md = HISTORY_REPORT_DIR / f"{main_date}_每日全市場候選股監測報告_精華版.md"
-    dated_full_cn_md = HISTORY_REPORT_DIR / f"{main_date}_完整候選股清單_完整版.md"
-    dated_summary_cn_pdf = HISTORY_REPORT_DIR / f"{main_date}_每日全市場候選股監測報告_精華版.pdf"
-    dated_full_cn_pdf = HISTORY_REPORT_DIR / f"{main_date}_完整候選股清單_完整版表格.pdf"
-
     safe_copy(SUMMARY_LATEST_MD, dated_summary_md)
     safe_copy(FULL_LATEST_MD, dated_full_md)
     safe_copy(SUMMARY_LATEST_PDF, dated_summary_pdf)
     safe_copy(FULL_LATEST_PDF, dated_full_pdf)
-
-    safe_copy(SUMMARY_CN_MD, dated_summary_cn_md)
-    safe_copy(FULL_CN_MD, dated_full_cn_md)
-    safe_copy(SUMMARY_CN_PDF, dated_summary_cn_pdf)
-    safe_copy(FULL_CN_PDF, dated_full_cn_pdf)
 
     return {
         "dated_summary_md": dated_summary_md,
         "dated_full_md": dated_full_md,
         "dated_summary_pdf": dated_summary_pdf,
         "dated_full_pdf": dated_full_pdf,
-        "dated_summary_cn_md": dated_summary_cn_md,
-        "dated_full_cn_md": dated_full_cn_md,
-        "dated_summary_cn_pdf": dated_summary_cn_pdf,
-        "dated_full_cn_pdf": dated_full_cn_pdf,
     }
 
 
