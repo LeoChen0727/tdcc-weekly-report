@@ -18,6 +18,12 @@ see `docs/output_latest_artifact_layout.md`.
 | Daily signal performance reports | `scripts/generate_daily_signal_performance_report.py` | `scripts/validate_daily_signal_performance.py` | Research/backtest-owned performance output. It is not a daily recommendation PDF. |
 | Individual stock report | `scripts/generate_individual_stock_report.py` | `scripts/validate_individual_stock_outputs.py` | `docs/latest/individual_stock_reports/` through individual-stock workflows. It is not a daily full-market report. |
 
+Official daily bundle retention is separate from PDF production.
+`scripts/archive_daily_official_report_bundles.py` may copy only dated bundles
+older than the contract-derived current and baseline bundles. It does not
+render, alter, publish, move, or delete any report, and it is not wired into a
+workflow.
+
 ## DFKai Font Execution Boundary
 
 - Model, research, source-integrity, data-refresh, and validator-only workflows must not install DFKai or allocate a Windows font runner. This remains true when model completion requires a report artifact: branch validation proves the model and report contracts without a font install, and the post-merge formal report run supplies the end-to-end rendered-output evidence.
