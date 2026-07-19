@@ -151,6 +151,48 @@ def test_sparse_worktree_rejects_protected_include(tmp_path: Path) -> None:
         )
 
 
+def test_sparse_worktree_rejects_ancestor_include_of_protected_subtree(tmp_path: Path) -> None:
+    repo = init_repo(tmp_path)
+    write(repo, "docs/rules/safe.md", "safe\n")
+    write(repo, "docs/history/protected.md", "protected\n")
+    target = commit_all(repo, "base")
+
+    with pytest.raises(GitWorktreeSafetyError, match="protected high-churn paths"):
+        create_sparse_worktree(
+            repo,
+            target,
+            tmp_path / "blocked-ancestor-worktree",
+            include_paths=("docs",),
+        )
+
+
+def test_default_sparse_includes_do_not_cover_protected_subtrees() -> None:
+    assert "docs/rules" in worktree_safety.DEFAULT_INCLUDE_PATHS
+    assert "docs" not in worktree_safety.DEFAULT_INCLUDE_PATHS
+    assert all(
+        not worktree_safety._include_materializes_protected_path(path)
+        for path in worktree_safety.DEFAULT_INCLUDE_PATHS
+    )
+
+
+@pytest.mark.parametrize("include_path", [".", "/"])
+def test_sparse_worktree_rejects_whole_tree_include(
+    tmp_path: Path,
+    include_path: str,
+) -> None:
+    repo = init_repo(tmp_path)
+    write(repo, "scripts/a.py", "print('a')\n")
+    target = commit_all(repo, "base")
+
+    with pytest.raises(GitWorktreeSafetyError, match="protected high-churn paths"):
+        create_sparse_worktree(
+            repo,
+            target,
+            tmp_path / f"blocked-whole-tree-{include_path.replace('/', 'slash')}",
+            include_paths=(include_path,),
+        )
+
+
 def test_sparse_worktree_rejects_existing_destination(tmp_path: Path) -> None:
     repo = init_repo(tmp_path)
     write(repo, "scripts/a.py", "print('a')\n")
