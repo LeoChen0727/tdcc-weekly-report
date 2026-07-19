@@ -160,10 +160,7 @@ REQUIRED_PENDING_COLUMNS = {
 }
 
 EXPECTED_TRIGGERS = {
-    "pullback_5ma_confirmed",
-    "next_day_break_signal_high_confirmed",
     "next_day_continuation_confirmed",
-    "pullback_10ma_confirmed",
 }
 
 EXPECTED_SCOPES = {
@@ -354,6 +351,9 @@ def main() -> int:
     missing_triggers = sorted(EXPECTED_TRIGGERS - set(summary["trigger_id"].astype(str)))
     if missing_triggers:
         fail(f"summary missing trigger rows: {missing_triggers}")
+    bad_summary_triggers = sorted(set(summary["trigger_id"].astype(str)) - EXPECTED_TRIGGERS)
+    if bad_summary_triggers:
+        fail(f"unexpected summary trigger_id values: {bad_summary_triggers}")
     bad_triggers = sorted(set(events["trigger_id"].astype(str)) - EXPECTED_TRIGGERS)
     if bad_triggers:
         fail(f"unexpected event trigger_id values: {bad_triggers}")

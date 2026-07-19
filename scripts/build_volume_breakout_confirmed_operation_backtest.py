@@ -98,6 +98,7 @@ TRIGGERS = [
     spec for spec in SHARED_TRIGGERS
     if spec.trigger_id == "next_day_continuation_confirmed"
 ]
+FORMAL_TRIGGER_IDS = tuple(spec.trigger_id for spec in TRIGGERS)
 TRIGGER_MAP = {spec.trigger_id: spec for spec in TRIGGERS}
 TRIGGER_PRIORITY = dict(SHARED_TRIGGER_PRIORITY)
 SELECTION_COLUMNS = [
@@ -1710,7 +1711,8 @@ def write_formal_summary_markdown(summary: pd.DataFrame, events: pd.DataFrame, l
         f"- lifecycle_definition: `{LIFECYCLE_DEFINITION_ID}`",
         f"- metric_sample_scope: `{METRIC_SAMPLE_SCOPE}`",
         "- trigger_selection_rule: earliest confirmation date wins; if multiple triggers confirm on the same date, use trigger priority order.",
-        "- trigger_priority: `next_day_continuation_confirmed`, `pullback_5ma_confirmed`, `pullback_10ma_confirmed`.",
+        f"- formal_trigger_ids: `{','.join(FORMAL_TRIGGER_IDS)}`.",
+        "- legacy trigger empty-state rows: not emitted; retired triggers are outside the formal v2 contract.",
         "- research note: multi-trigger events remain in `volume_breakout_confirmed_operation_events.csv`; this formal artifact is the production-operation statistics source.",
         f"- formal_event_rows: `{len(events)}`",
         f"- lifecycle_event_rows: `{len(lifecycle)}`",
