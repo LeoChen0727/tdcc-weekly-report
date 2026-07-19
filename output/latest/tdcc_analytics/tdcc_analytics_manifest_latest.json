@@ -1,9 +1,9 @@
 {
   "status": "pass",
   "schema_version": "tdcc_analytics_manifest_v1",
-  "generated_at": "2026-07-19 11:45:54 Asia/Taipei",
+  "generated_at": "2026-07-19 12:10:08 Asia/Taipei",
   "source_manifest_path": "output/latest/tdcc_dataset_manifest_latest.json",
-  "source_manifest_sha256": "9e2c03c31af06f4695f772e29095a742972860040944208f4d6376f234a49f4c",
+  "source_manifest_sha256": "73db83c00184676e93ed4bc724ba11a5e0b190da5cf5db8a6fa2a92ddb84b7cf",
   "source_tdcc_dataset_id": "tdcc-20260717-98c564c5bc4ab725",
   "source_tdcc_dataset_hash": "98c564c5bc4ab725a75b632950e37f9cbc9f85a9b152bf5b67ae6601c9b89b08",
   "signal_date": "20260717",
@@ -320,7 +320,7 @@
     "duckdb": {
       "path": "output/latest/tdcc_analytics/tdcc_analytics_latest.duckdb",
       "size_bytes": 2895872,
-      "sha256": "b125299fa39d4933cd4e090982cc11d80ea9ff3e9b2c965f0ddc53b669ff29bc"
+      "sha256": "11ae1a62a178dacbcbe249d67cb855669b3485fd7f1f89a69f3345ea9bc289a9"
     }
   }
 }

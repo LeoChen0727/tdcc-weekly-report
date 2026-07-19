@@ -1,6 +1,6 @@
 # TDCC Overheated Short-Term Edge
 
-- generated_at: `2026-07-19 11:49:57 Asia/Taipei`
+- generated_at: `2026-07-19 12:13:02 Asia/Taipei`
 - source_tdcc_dataset_id: `tdcc-20260717-98c564c5bc4ab725`
 - tuning_status: `not_ready`
 - allowed_changes: `reporting_priority_only`
