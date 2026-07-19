@@ -693,7 +693,32 @@ def score_rows(panel: pd.DataFrame) -> pd.DataFrame:
     return out
 
 
-def build_labels(panel: pd.DataFrame) -> pd.DataFrame:
+def build_labels(
+    panel: pd.DataFrame,
+    *,
+    source_tdcc_dataset_id: str | None = None,
+) -> pd.DataFrame:
+    if "source_tdcc_dataset_id" not in panel.columns:
+        raise RuntimeError("surge label source lacks source_tdcc_dataset_id")
+    observed_ids = sorted(
+        {
+            safe_str(value)
+            for value in panel["source_tdcc_dataset_id"]
+            if safe_str(value)
+        }
+    )
+    expected_id = safe_str(source_tdcc_dataset_id)
+    if not expected_id:
+        if len(observed_ids) != 1:
+            raise RuntimeError(
+                f"surge label source has invalid source_tdcc_dataset_id values: {observed_ids}"
+            )
+        expected_id = observed_ids[0]
+    if observed_ids != [expected_id]:
+        raise RuntimeError(
+            "surge label source source_tdcc_dataset_id mismatch: "
+            f"expected {expected_id}, got {observed_ids}"
+        )
     cols = [
         "trade_date", "stock_id", "stock_name", "close",
         "future_close_d5", "future_close_d10", "future_close_d20",
@@ -704,9 +729,10 @@ def build_labels(panel: pd.DataFrame) -> pd.DataFrame:
         "max_drawdown_d5", "max_drawdown_d10", "max_drawdown_d20",
         "days_to_high_d5", "days_to_high_d10", "days_to_high_d20",
         "surge_5d", "surge_10d", "surge_20d", "mature_5d", "mature_10d", "mature_20d",
+        "source_tdcc_dataset_id",
     ]
     labels = panel[[col for col in cols if col in panel.columns]].copy()
-    labels = labels.rename(columns={"trade_date": "trade_date"})
+    labels["source_tdcc_dataset_id"] = expected_id
     return labels
 
 
@@ -1140,7 +1166,7 @@ def main() -> int:
     )
     panel = finalize_columns(panel)
     scored = score_rows(panel)
-    labels = build_labels(scored)
+    labels = build_labels(scored, source_tdcc_dataset_id=contract.dataset_id)
     event_study = build_event_study(scored)
     controls = build_control_sample(scored, event_study)
     importance = build_feature_importance(scored, controls)
