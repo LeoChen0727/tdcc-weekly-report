@@ -175,6 +175,7 @@ def test_daily_model_maintenance_pr_workflow_runs_contract_validators() -> None:
         "python scripts/validate_daily_published_model_snapshots.py",
         "python scripts/validate_daily_model_background_data_registry.py",
         "python scripts/validate_model_data_independence.py",
+        "python scripts/validate_model_research_shared_utilities.py",
         "python scripts/validate_volume_breakout_watch.py --latest-only",
         "python scripts/validate_volume_attack_theme_layer.py",
         "python scripts/validate_daily_canonical_field_lineage.py",
