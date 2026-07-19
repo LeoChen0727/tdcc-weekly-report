@@ -19,13 +19,20 @@ REQUIRED_COLUMNS = {
     "checkout_workers",
     "max_concurrent",
     "temp_root_policy",
+    "approved_destination_root",
+    "approved_root_filesystem",
     "purpose",
 }
-EXPECTED_CONSUMERS = {
+EXPECTED_FULL_CONSUMERS = {
     "chatgpt_daily_report_entrypoint": "scripts/run_chatgpt_daily_report_entrypoint.py",
     "tdcc_weekly_report_entrypoint": "scripts/run_tdcc_weekly_report_entrypoint.py",
     "chatgpt_daily_report_new_conversation_replay": "scripts/validate_chatgpt_daily_report_new_conversation_replay.py",
 }
+EXPECTED_SPARSE_CONSUMER = {
+    "sparse_task_worktree": "scripts/git_worktree_safety.py",
+}
+EXPECTED_CONSUMERS = {**EXPECTED_FULL_CONSUMERS, **EXPECTED_SPARSE_CONSUMER}
+APPROVED_SPARSE_ROOT = r"F:\CodexStorage\task-worktrees\taiwan-stock-recommendation"
 
 
 def _literal_words(node: ast.AST) -> list[str]:
@@ -85,14 +92,10 @@ def validate() -> list[str]:
             continue
         seen.add(consumer_id)
         actual[consumer_id] = entrypoint
-        if row.get("materialization_mode", "").strip() != "full_temp_only":
-            errors.append(f"{consumer_id}: only full_temp_only is allowed for registered full consumers")
         if row.get("checkout_workers", "").strip() != "1":
             errors.append(f"{consumer_id}: checkout_workers must be 1")
         if row.get("max_concurrent", "").strip() != "1":
             errors.append(f"{consumer_id}: max_concurrent must be 1")
-        if row.get("temp_root_policy", "").strip() != "system_temp_only":
-            errors.append(f"{consumer_id}: temp_root_policy must be system_temp_only")
         if not row.get("purpose", "").strip():
             errors.append(f"{consumer_id}: purpose is required")
         entrypoint_path = ROOT / entrypoint
@@ -100,11 +103,37 @@ def validate() -> list[str]:
             errors.append(f"{consumer_id}: missing entrypoint {entrypoint}")
             continue
         text = entrypoint_path.read_text(encoding="utf-8-sig")
-        if "create_registered_full_temp_worktree" not in text or consumer_id not in text:
-            errors.append(f"{consumer_id}: entrypoint must call the guarded full-temp helper")
+        if consumer_id in EXPECTED_FULL_CONSUMERS:
+            if row.get("materialization_mode", "").strip() != "full_temp_only":
+                errors.append(f"{consumer_id}: registered full consumers must use full_temp_only")
+            if row.get("temp_root_policy", "").strip() != "system_temp_only":
+                errors.append(f"{consumer_id}: full consumers must stay system_temp_only")
+            if row.get("approved_destination_root", "").strip() or row.get(
+                "approved_root_filesystem", ""
+            ).strip():
+                errors.append(f"{consumer_id}: full consumers must not define an approved external root")
+            if "create_registered_full_temp_worktree" not in text or consumer_id not in text:
+                errors.append(f"{consumer_id}: entrypoint must call the guarded full-temp helper")
+        elif consumer_id in EXPECTED_SPARSE_CONSUMER:
+            if row.get("materialization_mode", "").strip() != "sparse_task_only":
+                errors.append(f"{consumer_id}: sparse task consumer must use sparse_task_only")
+            if row.get("temp_root_policy", "").strip() != "system_temp_or_approved_root":
+                errors.append(
+                    f"{consumer_id}: sparse task consumer must use system_temp_or_approved_root"
+                )
+            if row.get("approved_destination_root", "").strip().lower().rstrip("\\/") != (
+                APPROVED_SPARSE_ROOT.lower()
+            ):
+                errors.append(
+                    f"{consumer_id}: approved_destination_root must be exactly {APPROVED_SPARSE_ROOT}"
+                )
+            if row.get("approved_root_filesystem", "").strip().upper() != "NTFS":
+                errors.append(f"{consumer_id}: approved_root_filesystem must be NTFS")
+        else:
+            errors.append(f"unexpected worktree materialization consumer: {consumer_id}")
 
     if actual != EXPECTED_CONSUMERS:
-        errors.append(f"full worktree consumer set drifted: expected={EXPECTED_CONSUMERS}, actual={actual}")
+        errors.append(f"worktree materialization consumer set drifted: expected={EXPECTED_CONSUMERS}, actual={actual}")
 
     safety_text = SAFETY_MODULE.read_text(encoding="utf-8-sig") if SAFETY_MODULE.exists() else ""
     for token in (
@@ -113,6 +142,10 @@ def validate() -> list[str]:
         "checkout_materialization_lock",
         "sparse-checkout",
         "PROTECTED_MATERIALIZATION_PREFIXES",
+        "APPROVED_SPARSE_DESTINATION_ROOT_WINDOWS",
+        "approved_root_filesystem",
+        "FILE_ATTRIBUTE_REPARSE_POINT",
+        "worktree destination must not be a drive root",
     ):
         if token not in safety_text:
             errors.append(f"git worktree safety module missing required token: {token}")
@@ -152,7 +185,9 @@ def main() -> int:
             print(f"ERROR: {error}")
         return 1
     print("git worktree materialization safety validation passed")
-    print(f"registered_full_consumers={len(EXPECTED_CONSUMERS)}")
+    print(f"registered_full_consumers={len(EXPECTED_FULL_CONSUMERS)}")
+    print(f"registered_sparse_consumers={len(EXPECTED_SPARSE_CONSUMER)}")
+    print(f"approved_sparse_root={APPROVED_SPARSE_ROOT}")
     print("checkout_workers=1")
     print("max_concurrent_materializations=1")
     return 0

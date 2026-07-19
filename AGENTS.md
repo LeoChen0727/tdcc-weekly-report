@@ -97,8 +97,16 @@ task. The default edit, PR, and code-only post-merge validation path is a
 temporary sparse worktree created from the required ref:
 
 ```text
-python scripts/git_worktree_safety.py create-sparse --repo-root . --source-ref origin/main --destination <system-temp-path> --branch codex/<lane-task-name> --include .github --include AGENTS.md --include config --include docs --include rules --include scripts --include tests
+python scripts/git_worktree_safety.py create-sparse --repo-root . --source-ref origin/main --destination <approved-task-worktree-path> --branch codex/<lane-task-name> --include .github --include AGENTS.md --include config --include docs --include rules --include scripts --include tests
 ```
+
+Ordinary sparse task worktrees may use the system Temp root or the single
+registered NTFS root
+`F:\CodexStorage\task-worktrees\taiwan-stock-recommendation`. Arbitrary F-drive
+paths, drive roots, the approved root itself, existing destinations, reparse
+points, fixed project roots, Git common roots, and protected data/output/docs
+roots remain forbidden. Do not change the global or process-local Windows
+`TEMP` / `TMP` values to bypass this contract.
 
 Do not replace that helper with a raw full checkout. Only consumers registered
 in `config/git_worktree_materialization_contract.csv` may materialize a full
