@@ -533,6 +533,7 @@ def test_entrypoint_runs_generator_from_clean_source_worktree(tmp_path: Path, mo
         source_root=tmp_path,
         output_dir=tmp_path,
         source_ref="histlocal/codex/historical-report-source-20260615",
+        validation_replay_main_price_date="20260615",
     )
 
     assert len(paths) == 6
@@ -550,6 +551,7 @@ def test_entrypoint_runs_generator_from_clean_source_worktree(tmp_path: Path, mo
     assert env["CHATGPT_DAILY_REPORT_ENTRYPOINT"] == "1"
     assert env["CHATGPT_DAILY_REPO_ROOT"] == str(tmp_path)
     assert env["CHATGPT_DAILY_SOURCE_REF"] == "histlocal/codex/historical-report-source-20260615"
+    assert env["CHATGPT_DAILY_VALIDATION_REPLAY_MAIN_PRICE_DATE"] == "20260615"
 
 
 def _resolved_state(date: str) -> dict[str, object]:

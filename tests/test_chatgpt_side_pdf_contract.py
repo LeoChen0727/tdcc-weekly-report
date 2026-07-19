@@ -16,6 +16,35 @@ PACKET_BUILDER = ROOT / "build_chatgpt_daily_report_packet.py"
 README_PUBLISHER = ROOT / "publish_chatgpt_report_readme_and_check.py"
 
 
+def test_renderer_source_gate_preserves_closed_session_validation_replay_date(
+    tmp_path: Path,
+    monkeypatch,
+) -> None:
+    calls: list[dict[str, object]] = []
+
+    def fake_resolve_source_state(*args: object, **kwargs: object) -> dict[str, object]:
+        calls.append(kwargs)
+        return {
+            "readme_fields": {},
+            "main_price_date": "20260717",
+        }
+
+    monkeypatch.setattr(renderer, "REPO", tmp_path)
+    monkeypatch.setattr(renderer, "resolve_daily_report_source_state", fake_resolve_source_state)
+    monkeypatch.setenv("CHATGPT_DAILY_SOURCE_REF", "pinned-replay/workflow-29680090734-1")
+    monkeypatch.setenv("CHATGPT_DAILY_VALIDATION_REPLAY_MAIN_PRICE_DATE", "20260717")
+
+    renderer.enforce_fresh_repo_data()
+
+    assert calls == [
+        {
+            "source_ref": "pinned-replay/workflow-29680090734-1",
+            "validation_replay_main_price_date": "20260717",
+        }
+    ]
+    assert renderer.SOURCE_STATE["main_price_date"] == "20260717"
+
+
 def _source(path: Path) -> str:
     return path.read_text(encoding="utf-8", errors="replace")
 
