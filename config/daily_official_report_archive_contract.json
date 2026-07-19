@@ -1,5 +1,5 @@
 {
-  "contract_version": 1,
+  "contract_version": 2,
   "report_family": "daily",
   "source_root_name": "chatgpt_side_outputs_official",
   "report_manifest_path": "output/latest/report_manifest_latest.json",
@@ -15,10 +15,16 @@
   ],
   "required_destination_filesystem": "NTFS",
   "free_space_margin_bytes": 67108864,
+  "archive_index_relative_path": "daily/archive_index_latest.json",
   "current_authority": "origin_main_report_manifest_and_data_freshness",
   "baseline_authority": "immediate_predecessor_dated_bundle_runtime_manifest",
-  "copy_only": true,
-  "source_mutation_forbidden": true,
+  "default_mode": "validate_only",
+  "copy_mode_source_mutation_forbidden": true,
+  "verified_transfer_enabled": true,
+  "verified_transfer_mode": "move_after_verify",
+  "source_removal_scope": "manifest_exact_older_bundle_files_only",
+  "pre_delete_manifest_required": true,
+  "archive_index_required": true,
   "automation_allowed": false,
   "execution_report_required": true
 }

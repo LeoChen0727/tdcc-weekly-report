@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import ast
 import csv
 import json
 from pathlib import Path
@@ -27,6 +28,32 @@ def rows_by_path(path: Path, key: str = "path") -> dict[str, dict[str, str]]:
     return {str(row.get(key, "")): row for row in read_csv(path)}
 
 
+def validate_destructive_call_scope(source: str) -> list[str]:
+    errors: list[str] = []
+    tree = ast.parse(source)
+    allowed = {
+        "unlink": {"copy_candidate_atomic", "write_archive_index_atomic", "delete_source_file_exact"},
+        "rmdir": {"remove_empty_bundle_directory"},
+        "replace": {"write_archive_index_atomic"},
+    }
+    for node in ast.walk(tree):
+        if not isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)):
+            continue
+        for child in ast.walk(node):
+            if not isinstance(child, ast.Call) or not isinstance(child.func, ast.Attribute):
+                continue
+            operation = child.func.attr
+            if operation == "replace" and not (
+                isinstance(child.func.value, ast.Name) and child.func.value.id == "os"
+            ):
+                continue
+            if operation in allowed and node.name not in allowed[operation]:
+                errors.append(
+                    f"destructive operation {operation} is outside its approved helper: {node.name}"
+                )
+    return errors
+
+
 def validate() -> list[str]:
     errors: list[str] = []
     required_paths = (
@@ -49,6 +76,7 @@ def validate() -> list[str]:
 
     contract = json.loads(CONTRACT.read_text(encoding="utf-8"))
     expected = {
+        "contract_version": 2,
         "report_family": "daily",
         "source_root_name": "chatgpt_side_outputs_official",
         "report_manifest_path": "output/latest/report_manifest_latest.json",
@@ -57,8 +85,14 @@ def validate() -> list[str]:
         "required_destination_filesystem": "NTFS",
         "current_authority": "origin_main_report_manifest_and_data_freshness",
         "baseline_authority": "immediate_predecessor_dated_bundle_runtime_manifest",
-        "copy_only": True,
-        "source_mutation_forbidden": True,
+        "archive_index_relative_path": "daily/archive_index_latest.json",
+        "default_mode": "validate_only",
+        "copy_mode_source_mutation_forbidden": True,
+        "verified_transfer_enabled": True,
+        "verified_transfer_mode": "move_after_verify",
+        "source_removal_scope": "manifest_exact_older_bundle_files_only",
+        "pre_delete_manifest_required": True,
+        "archive_index_required": True,
         "automation_allowed": False,
         "execution_report_required": True,
     }
@@ -74,27 +108,35 @@ def validate() -> list[str]:
         "validate_retained_bundle",
         "preflight_destinations",
         "copy_candidate_atomic",
+        "write_pre_delete_manifest",
+        "load_verified_pre_delete_manifest",
+        "validate_bundle_before_deletion",
+        "validate_source_immediately_before_deletion",
+        "delete_source_file_exact",
+        "remove_empty_bundle_directory",
+        "write_archive_index_atomic",
+        "source_recheck_matches_exact_authorized_state",
         "source_fingerprint_unchanged",
         "already_present_same_sha",
         "execution_manifest",
-        "source_files_deleted\": 0",
+        "partial_source_cleanup",
         "--expected-destination-volume",
         "--include-date",
         "--copy",
+        "--move-after-verify",
     ):
         if marker not in archiver_text:
             errors.append(f"archive command missing contract marker: {marker}")
     for forbidden in (
         "F:\\CodexStorage",
         "shutil.move(",
+        "shutil.rmtree(",
         "os.remove(",
-        "os.replace(",
-        ".rmdir(",
         "--delete",
-        "--move",
     ):
         if forbidden in archiver_text:
             errors.append(f"archive command contains forbidden source/destructive marker: {forbidden}")
+    errors.extend(validate_destructive_call_scope(archiver_text))
 
     workflow_mentions: list[str] = []
     for workflow in sorted((ROOT / ".github" / "workflows").glob("*.y*ml")):
@@ -134,6 +176,12 @@ def validate() -> list[str]:
         errors.append("archive command lifecycle row must reference its behavioral tests")
     if DOC.relative_to(ROOT).as_posix() not in str(archiver_lifecycle.get("documented_by", "")):
         errors.append("archive command lifecycle row must reference its contract document")
+    for marker in (
+        "external/archive-execution/daily_official_report_pre_delete_*.json",
+        "external/report-archive/taiwan-stock-recommendation/daily/archive_index_latest.json",
+    ):
+        if marker not in str(archiver_lifecycle.get("writes_artifact", "")):
+            errors.append(f"archive command lifecycle row missing verified-transfer artifact: {marker}")
 
     runtime_rows = rows_by_path(RUNTIME_LINEAGE, key="script_path")
     runtime_row = runtime_rows.get(ARCHIVER.relative_to(ROOT).as_posix())
@@ -164,6 +212,8 @@ def validate() -> list[str]:
     for evidence_artifact in (
         "external/archive-execution/daily_official_report_archive_*.csv",
         "external/archive-execution/daily_official_report_archive_*.json",
+        "external/archive-execution/daily_official_report_pre_delete_*.json",
+        "external/report-archive/taiwan-stock-recommendation/daily/archive_index_latest.json",
     ):
         evidence_row = report_rows.get(evidence_artifact)
         if evidence_row is None:
@@ -178,7 +228,10 @@ def validate() -> list[str]:
         "baseline",
         "--expected-destination-volume F:",
         "--copy",
-        "不得刪除、搬移、改名或改寫",
+        "--move-after-verify",
+        "partial_source_cleanup",
+        "archive_index_latest.json",
+        "current 與 baseline 絕不刪除",
         "workflow_automation_maintenance",
     ):
         if marker not in doc_text:
@@ -195,7 +248,7 @@ def main() -> int:
             print(f"ERROR: {error}")
         return 1
     print("daily official report archive contract validation passed")
-    print("archive_mode=copy_only_non_destructive")
+    print("archive_modes=validate_only,copy,move_after_verify")
     print("automation_allowed=false")
     print("destination_root=runtime_argument_only")
     return 0

@@ -187,10 +187,11 @@ The semantic integrity validator additionally enforces:
 The advanced integrity validator adds the next layer of executable contracts:
 
 - External daily report archive contract:
-  `scripts/archive_daily_official_report_bundles.py` copies only bundles older
-  than the authoritative current and baseline dates to an operator-supplied
-  external root. It is a manual, copy-only producer and is not a workflow
-  publisher or a cleanup command.
+  `scripts/archive_daily_official_report_bundles.py` validates or copies bundles
+  older than the authoritative current and baseline dates. Its explicit
+  `--move-after-verify` mode may remove only digest-bound source files after
+  complete destination parity. It remains a manual producer and is not wired
+  into a workflow by this contract change.
 
 - Runtime file lineage contract:
   `config/runtime_file_lineage_contract.csv` defines expected read/write
