@@ -474,13 +474,6 @@ def resolve_daily_report_source_state(
     validation_replay_date = normalize_validation_replay_main_price_date(
         validation_replay_main_price_date
     )
-    if validation_replay_date and source_ref != DEFAULT_SOURCE_REF:
-        raise DailyReportSourceError(
-            [
-                "validation replay date is restricted to the official origin/main source: "
-                f"source_ref={source_ref}"
-            ]
-        )
 
     clean_errors = require_clean_git_checkout(repo_root, allow_dirty=allow_dirty) if require_git_clean else []
     if clean_errors:
