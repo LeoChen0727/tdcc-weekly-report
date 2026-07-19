@@ -50,7 +50,6 @@ required commit:
 python scripts/git_worktree_safety.py create-sparse \
   --repo-root . \
   --source-ref origin/main \
-  --destination <approved-task-worktree-path> \
   --branch codex/<lane-task-name> \
   --include .github \
   --include AGENTS.md \
@@ -60,6 +59,12 @@ python scripts/git_worktree_safety.py create-sparse \
   --include scripts \
   --include tests
 ```
+
+When `--destination` is omitted, `--task-name` is used first; otherwise the
+helper derives the task name from `--branch` and removes a leading `codex/`.
+The name is deterministically lowercased and sanitized into one Windows-safe
+child name. Long names receive a stable hash suffix. An empty or reserved name,
+an existing/colliding child, or a reparse point fails closed.
 
 An include is rejected when it is a protected path or an ancestor that would
 materialize a protected subtree. Use the narrowest required subtree, such as
@@ -81,6 +86,14 @@ common roots, registered worktree roots, and protected `data` / `docs` /
 `output` roots. Arbitrary paths on F or any other volume remain forbidden. The
 helper may create the registered approved root after those checks, but the
 destination must be a new child below it.
+
+This approved F root is the default for ordinary sparse tasks. Before creating
+the child, the helper requires at least 10 GiB available. If the root is
+unavailable, non-NTFS, below the space threshold, invalid, or unsafe, creation
+stops; it never falls back to system Temp. Callers may still pass an explicit
+compliant `--destination` under system Temp or the approved F root. Explicit
+destinations remain subject to the same root, existence, reparse, repository,
+Git-common, registered-worktree, and protected-path guards.
 
 The helper registers the worktree with `--no-checkout`, configures sparse paths
 before materialization, uses one checkout worker, serializes materialization per
