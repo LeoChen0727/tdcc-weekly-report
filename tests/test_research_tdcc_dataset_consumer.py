@@ -6,6 +6,7 @@ import math
 import sys
 from pathlib import Path
 
+import pandas as pd
 import pytest
 
 
@@ -18,6 +19,7 @@ from research_tdcc_dataset_consumer import (  # noqa: E402
     build_canonical_tdcc_history,
     load_research_tdcc_dataset_contract,
 )
+from build_surge_precondition_model import build_labels  # noqa: E402
 from tdcc_dataset_contract import build_dataset_manifest  # noqa: E402
 
 
@@ -165,3 +167,35 @@ def test_approved_middle_gap_cannot_create_fake_one_week_change_or_streak(tmp_pa
     assert int(latest["tdcc_consecutive_up_weeks"]) == 0
     assert latest["tdcc_continuity_status"] == "accepted_history_exception"
     assert latest["tdcc_missing_official_dates"] == "20260709"
+
+
+def test_surge_labels_preserve_verified_dataset_id_for_every_row() -> None:
+    dataset_id = "tdcc-fixture-full-history"
+    panel = pd.DataFrame(
+        [
+            {"trade_date": "20260717", "stock_id": "1001", "source_tdcc_dataset_id": dataset_id},
+            {"trade_date": "20260717", "stock_id": "1002", "source_tdcc_dataset_id": ""},
+        ]
+    )
+
+    labels = build_labels(panel, source_tdcc_dataset_id=dataset_id)
+
+    assert set(labels["source_tdcc_dataset_id"]) == {dataset_id}
+
+
+def test_surge_labels_fail_closed_on_missing_or_foreign_dataset_id() -> None:
+    dataset_id = "tdcc-fixture-full-history"
+    with pytest.raises(RuntimeError, match="lacks source_tdcc_dataset_id"):
+        build_labels(pd.DataFrame([{"trade_date": "20260717", "stock_id": "1001"}]), source_tdcc_dataset_id=dataset_id)
+
+    foreign = pd.DataFrame(
+        [
+            {
+                "trade_date": "20260717",
+                "stock_id": "1001",
+                "source_tdcc_dataset_id": "tdcc-foreign",
+            }
+        ]
+    )
+    with pytest.raises(RuntimeError, match="source_tdcc_dataset_id mismatch"):
+        build_labels(foreign, source_tdcc_dataset_id=dataset_id)
