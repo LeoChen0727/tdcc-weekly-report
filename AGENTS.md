@@ -97,7 +97,7 @@ task. The default edit, PR, and code-only post-merge validation path is a
 temporary sparse worktree created from the required ref:
 
 ```text
-python scripts/git_worktree_safety.py create-sparse --repo-root . --source-ref origin/main --destination <approved-task-worktree-path> --branch codex/<lane-task-name> --include .github --include AGENTS.md --include config --include docs --include rules --include scripts --include tests
+python scripts/git_worktree_safety.py create-sparse --repo-root . --source-ref origin/main --destination <approved-task-worktree-path> --branch codex/<lane-task-name> --include .github --include AGENTS.md --include config --include docs/rules --include rules --include scripts --include tests
 ```
 
 Ordinary sparse task worktrees may use the system Temp root or the single

@@ -25,7 +25,15 @@ APPROVED_SPARSE_DESTINATION_ROOT_WINDOWS = (
 APPROVED_SPARSE_DESTINATION_FILESYSTEM = "NTFS"
 DEFAULT_MAX_CHANGED_PATHS = 250
 DEFAULT_MAX_MATERIALIZED_FILES = 2500
-DEFAULT_INCLUDE_PATHS = (".github", "AGENTS.md", "config", "docs", "rules", "scripts", "tests")
+DEFAULT_INCLUDE_PATHS = (
+    ".github",
+    "AGENTS.md",
+    "config",
+    "docs/rules",
+    "rules",
+    "scripts",
+    "tests",
+)
 PROTECTED_MATERIALIZATION_PREFIXES = (
     "chatgpt_side_outputs",
     "data/",
@@ -114,6 +122,19 @@ def _is_protected_path(path: str) -> bool:
     return any(
         normalized == prefix.rstrip("/") or normalized.startswith(prefix)
         for prefix in PROTECTED_MATERIALIZATION_PREFIXES
+    )
+
+
+def _include_materializes_protected_path(path: str) -> bool:
+    normalized = _normalize_path(path).rstrip("/")
+    if normalized in {"", "."}:
+        return True
+    return any(
+        normalized == protected
+        or normalized.startswith(f"{protected}/")
+        or protected.startswith(f"{normalized}/")
+        for prefix in PROTECTED_MATERIALIZATION_PREFIXES
+        if (protected := prefix.rstrip("/"))
     )
 
 
@@ -526,7 +547,9 @@ def create_sparse_worktree(
     includes = tuple(dict.fromkeys(_normalize_path(path) for path in include_paths if _normalize_path(path)))
     if not includes:
         raise GitWorktreeSafetyError("at least one sparse include path is required")
-    protected_includes = sorted(path for path in includes if _is_protected_path(path))
+    protected_includes = sorted(
+        path for path in includes if _include_materializes_protected_path(path)
+    )
     if protected_includes:
         raise GitWorktreeSafetyError(
             f"sparse task worktree includes protected high-churn paths: {protected_includes}"

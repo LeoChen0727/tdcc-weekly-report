@@ -55,11 +55,16 @@ python scripts/git_worktree_safety.py create-sparse \
   --include .github \
   --include AGENTS.md \
   --include config \
-  --include docs \
+  --include docs/rules \
   --include rules \
   --include scripts \
   --include tests
 ```
+
+An include is rejected when it is a protected path or an ancestor that would
+materialize a protected subtree. Use the narrowest required subtree, such as
+`docs/rules`; do not include `docs`, the repository root, or another broad
+ancestor of protected history, data, or output paths.
 
 Sparse task destinations may stay below the system Temp root. On Windows, the
 only additional approved root is registered in
