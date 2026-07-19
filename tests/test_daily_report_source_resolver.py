@@ -343,6 +343,25 @@ def test_resolver_allows_exact_closed_market_validation_replay_only(tmp_path: Pa
         for error in excinfo.value.errors
     )
 
+    status["market_session_date"] = "20260716"
+    status_path.write_text(json.dumps(status), encoding="utf-8")
+    boundary_head = commit_all(repo, "invalid scheduled closure date boundary")
+    point_origin_main(repo, boundary_head)
+
+    with pytest.raises(DailyReportSourceError) as boundary_excinfo:
+        resolve_daily_report_source_state(
+            repo,
+            fetch=False,
+            require_git_clean=True,
+            validation_replay_main_price_date="20260717",
+        )
+
+    assert any(
+        "market_session_date=20260716 precedes validation_replay_main_price_date=20260717"
+        in error
+        for error in boundary_excinfo.value.errors
+    )
+
 
 def test_resolver_rejects_local_latest_that_does_not_match_origin_main(tmp_path: Path) -> None:
     repo = init_repo(tmp_path)

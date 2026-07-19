@@ -15,6 +15,8 @@ if str(REPO_ROOT) not in sys.path:
 from scripts.resolve_daily_report_source_state import (  # noqa: E402
     DEFAULT_SOURCE_REF,
     DailyReportSourceError,
+    MARKET_SESSION_STATUS_PATH,
+    git_show_text,
     resolve_daily_report_source_state,
 )
 from scripts.git_worktree_safety import (  # noqa: E402
@@ -119,7 +121,12 @@ def resolve_validation_replay_date(
             f"expected_main_price_date={requested_text!r}"
         )
 
-    if source_ref != DEFAULT_SOURCE_REF:
+    market_status = str(state.get("market_session_status") or "").strip()
+    if (
+        source_ref != DEFAULT_SOURCE_REF
+        and not requested
+        and market_status != market_session_calendar.CLOSED_SCHEDULED
+    ):
         return ""
 
     source_expected = market_session_calendar.normalize_date(
@@ -142,6 +149,46 @@ def resolve_validation_replay_date(
             f"source_expected_main_price_date={source_expected or '<missing>'} "
             f"main_price_date={main_price_date or '<missing>'}"
         )
+    return replay_date
+
+
+def infer_committed_closed_scheduled_replay_date(
+    repo_root: Path,
+    source_ref: str,
+    expected_main_price_date: str = "",
+) -> str:
+    requested_text = str(expected_main_price_date or "").strip()
+    if requested_text:
+        return requested_text
+    try:
+        status = json.loads(
+            git_show_text(repo_root, source_ref, MARKET_SESSION_STATUS_PATH)
+        )
+    except (DailyReportSourceError, json.JSONDecodeError) as exc:
+        raise ReplayValidationError(
+            f"cannot inspect committed market-session status for replay: {exc}"
+        ) from exc
+    if not isinstance(status, dict):
+        raise ReplayValidationError(
+            "committed market-session status must be a JSON object for replay"
+        )
+    if str(status.get("market_status") or "").strip() != market_session_calendar.CLOSED_SCHEDULED:
+        return ""
+    replay_date = market_session_calendar.normalize_date(
+        status.get("expected_main_price_date")
+    )
+    if not replay_date:
+        raise ReplayValidationError(
+            "closed_scheduled committed market-session status is missing "
+            "expected_main_price_date"
+        )
+    try:
+        market_session_calendar.parse_date(replay_date)
+    except ValueError as exc:
+        raise ReplayValidationError(
+            "closed_scheduled committed expected_main_price_date is invalid: "
+            f"{replay_date!r}"
+        ) from exc
     return replay_date
 
 
@@ -777,6 +824,11 @@ def run_replay(
     output_dir: Path,
     expected_main_price_date: str = "",
 ) -> tuple[str, dict, list[Path], Path]:
+    committed_replay_date = infer_committed_closed_scheduled_replay_date(
+        repo_root,
+        source_ref,
+        expected_main_price_date,
+    )
     try:
         current_source_state = resolve_daily_report_source_state(
             repo_root=repo_root,
@@ -785,16 +837,14 @@ def run_replay(
             require_git_clean=False,
             allow_dirty=False,
             require_local_match=False,
-            validation_replay_main_price_date=(
-                expected_main_price_date if source_ref == DEFAULT_SOURCE_REF else ""
-            ),
+            validation_replay_main_price_date=committed_replay_date,
         )
     except DailyReportSourceError as exc:
         raise ReplayValidationError("\n".join(exc.errors)) from exc
     validation_replay_date = resolve_validation_replay_date(
         current_source_state,
         source_ref,
-        expected_main_price_date,
+        committed_replay_date,
     )
 
     stale_path = create_stale_residue(output_dir)
@@ -808,9 +858,7 @@ def run_replay(
                 require_git_clean=True,
                 allow_dirty=False,
                 require_local_match=True,
-                validation_replay_main_price_date=(
-                    expected_main_price_date if source_ref == DEFAULT_SOURCE_REF else ""
-                ),
+                validation_replay_main_price_date=committed_replay_date,
             )
             if state["source_commit_sha"] != current_source_state["source_commit_sha"]:
                 raise ReplayValidationError(
@@ -820,7 +868,7 @@ def run_replay(
             clean_validation_replay_date = resolve_validation_replay_date(
                 state,
                 source_ref,
-                expected_main_price_date,
+                committed_replay_date,
             )
             if clean_validation_replay_date != validation_replay_date:
                 raise ReplayValidationError(

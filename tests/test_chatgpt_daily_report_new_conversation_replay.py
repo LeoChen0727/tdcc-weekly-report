@@ -3,6 +3,7 @@ from __future__ import annotations
 from pathlib import Path
 import json
 import subprocess
+import pytest
 
 from scripts import validate_chatgpt_daily_report_new_conversation_replay as replay
 from scripts.validate_chatgpt_daily_report_new_conversation_replay import (
@@ -99,6 +100,85 @@ def test_replay_origin_main_date_must_match_source_freshness_contract() -> None:
         raise AssertionError("mismatched workflow expected date must fail closed")
 
 
+@pytest.mark.parametrize(
+    ("market_session_date", "expected_main_price_date", "reason_code"),
+    [
+        ("20260718", "20260717", "weekend"),
+        ("20260228", "20260227", "exchange_holiday"),
+    ],
+)
+def test_replay_infers_exact_scheduled_closure_date_from_committed_status(
+    tmp_path: Path,
+    monkeypatch,
+    market_session_date: str,
+    expected_main_price_date: str,
+    reason_code: str,
+) -> None:
+    monkeypatch.setattr(
+        replay,
+        "git_show_text",
+        lambda repo_root, source_ref, repo_path: json.dumps(
+            {
+                "market_status": "closed_scheduled",
+                "phase": "preflight",
+                "market_session_date": market_session_date,
+                "expected_main_price_date": expected_main_price_date,
+                "should_run_daily_pipeline": False,
+                "reason_code": reason_code,
+            }
+        ),
+    )
+
+    assert replay.infer_committed_closed_scheduled_replay_date(
+        tmp_path,
+        "pinned-replay/workflow-29677505156-1",
+    ) == expected_main_price_date
+
+
+def test_replay_open_session_does_not_enable_closed_validation_mode(
+    tmp_path: Path,
+    monkeypatch,
+) -> None:
+    monkeypatch.setattr(
+        replay,
+        "git_show_text",
+        lambda repo_root, source_ref, repo_path: json.dumps(
+            {
+                "market_status": "open_confirmed",
+                "phase": "confirm",
+                "market_session_date": "20260717",
+                "expected_main_price_date": "20260717",
+                "should_run_daily_pipeline": True,
+            }
+        ),
+    )
+
+    assert replay.infer_committed_closed_scheduled_replay_date(
+        tmp_path,
+        "pinned-replay/workflow-open",
+    ) == ""
+
+
+def test_replay_pinned_branch_closed_date_must_match_source_freshness_contract() -> None:
+    state = {
+        "market_session_status": "closed_scheduled",
+        "expected_main_price_date": "20260717",
+        "main_price_date": "20260717",
+    }
+
+    assert replay.resolve_validation_replay_date(
+        state,
+        "pinned-replay/workflow-29677505156-1",
+        "20260717",
+    ) == "20260717"
+    with pytest.raises(replay.ReplayValidationError, match="source freshness contract"):
+        replay.resolve_validation_replay_date(
+            state,
+            "pinned-replay/workflow-29677505156-1",
+            "20260716",
+        )
+
+
 def test_run_replay_passes_exact_origin_main_date_to_entrypoint(
     tmp_path: Path,
     monkeypatch,
@@ -154,6 +234,63 @@ def test_run_replay_passes_exact_origin_main_date_to_entrypoint(
     flag_index = commands[0].index("--validation-replay-main-price-date")
     assert commands[0][flag_index + 1] == "20260717"
     assert len(resolver_calls) == 2
+    assert all(
+        call["validation_replay_main_price_date"] == "20260717"
+        for call in resolver_calls
+    )
+
+
+def test_run_replay_passes_committed_weekend_date_for_pinned_pr_source(
+    tmp_path: Path,
+    monkeypatch,
+) -> None:
+    source_root = tmp_path / "clean-source"
+    source_root.mkdir()
+    stale_path = tmp_path / replay.STALE_RESIDUE_NAME
+    state = {
+        "source_ref": "pinned-replay/workflow-29677505156-1",
+        "source_commit_sha": "b" * 40,
+        "market_session_status": "closed_scheduled",
+        "expected_main_price_date": "20260717",
+        "main_price_date": "20260717",
+    }
+    commands: list[list[str]] = []
+    resolver_calls: list[dict[str, object]] = []
+
+    monkeypatch.setattr(
+        replay,
+        "infer_committed_closed_scheduled_replay_date",
+        lambda *args, **kwargs: "20260717",
+    )
+
+    def fake_resolve_source_state(**kwargs: object) -> dict[str, object]:
+        resolver_calls.append(kwargs)
+        return dict(state)
+
+    monkeypatch.setattr(replay, "resolve_daily_report_source_state", fake_resolve_source_state)
+    monkeypatch.setattr(replay, "create_stale_residue", lambda output_dir: stale_path)
+    monkeypatch.setattr(replay, "add_clean_entrypoint_worktree", lambda *args, **kwargs: source_root)
+    monkeypatch.setattr(replay, "remove_clean_entrypoint_worktree", lambda *args: None)
+
+    def fake_run_command(args: list[str], cwd: Path) -> subprocess.CompletedProcess[str]:
+        commands.append(args)
+        return subprocess.CompletedProcess(
+            args=args,
+            returncode=0,
+            stdout="official ChatGPT-side daily PDF generation completed\n",
+            stderr="",
+        )
+
+    monkeypatch.setattr(replay, "run_command", fake_run_command)
+
+    replay.run_replay(
+        tmp_path,
+        "pinned-replay/workflow-29677505156-1",
+        tmp_path / "output",
+    )
+
+    flag_index = commands[0].index("--validation-replay-main-price-date")
+    assert commands[0][flag_index + 1] == "20260717"
     assert all(
         call["validation_replay_main_price_date"] == "20260717"
         for call in resolver_calls
