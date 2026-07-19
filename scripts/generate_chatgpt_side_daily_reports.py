@@ -545,7 +545,15 @@ def enforce_fresh_repo_data() -> None:
     global DATA_DATE, DATA_DATE_SLASH, REQUEST_DATE, REQUEST_DATE_SLASH, REMOTE_README, SOURCE_STATE
 
     source_ref = os.environ.get("CHATGPT_DAILY_SOURCE_REF", "origin/main")
-    source_state = resolve_daily_report_source_state(REPO, source_ref=source_ref)
+    validation_replay_main_price_date = os.environ.get(
+        "CHATGPT_DAILY_VALIDATION_REPLAY_MAIN_PRICE_DATE",
+        "",
+    )
+    source_state = resolve_daily_report_source_state(
+        REPO,
+        source_ref=source_ref,
+        validation_replay_main_price_date=validation_replay_main_price_date,
+    )
     SOURCE_STATE = source_state
     remote = source_state["readme_fields"]
     remote_date = source_state["main_price_date"]

@@ -411,13 +411,21 @@ def remove_source_worktree(repo_root: Path, source_root: Path) -> None:
         )
 
 
-def run_generator(source_root: Path, output_dir: Path, source_ref: str) -> list[Path]:
+def run_generator(
+    source_root: Path,
+    output_dir: Path,
+    source_ref: str,
+    validation_replay_main_price_date: str = "",
+) -> list[Path]:
     source_generator = source_root / GENERATOR_RELATIVE_PATH
     env = os.environ.copy()
     env["CHATGPT_DAILY_REPORT_ENTRYPOINT"] = "1"
     env["CHATGPT_DAILY_REPO_ROOT"] = str(source_root)
     env["CHATGPT_DAILY_OUTPUT_DIR"] = str(output_dir)
     env["CHATGPT_DAILY_SOURCE_REF"] = source_ref
+    env["CHATGPT_DAILY_VALIDATION_REPLAY_MAIN_PRICE_DATE"] = (
+        validation_replay_main_price_date
+    )
     env["PYTHONIOENCODING"] = "utf-8"
     proc = run_command(
         [
@@ -613,7 +621,12 @@ def main() -> int:
                 if args.source_gate_only:
                     return 0
                 output_dir.mkdir(parents=True, exist_ok=True)
-                paths = run_generator(source_root, output_dir, args.source_ref)
+                paths = run_generator(
+                    source_root,
+                    output_dir,
+                    args.source_ref,
+                    state.get("validation_replay_main_price_date", ""),
+                )
                 manifest_path = write_runtime_manifest(output_dir, state, temp_state, paths, source_root)
                 print("official ChatGPT-side daily PDF generation completed")
                 print(f"runtime_manifest={manifest_path}")
