@@ -1,11 +1,12 @@
 {
-  "generated_at": "2026-06-03 21:00:02 Asia/Taipei",
-  "feature_panel_rows": 39116,
+  "generated_at": "2026-07-19 11:20:08 Asia/Taipei",
+  "source_tdcc_dataset_id": "tdcc-20260717-98c564c5bc4ab725",
+  "feature_panel_rows": 42095,
   "feature_panel_dates": 20,
-  "mature_5d_count": 107052,
-  "mature_10d_count": 97197,
-  "mature_20d_count": 77507,
-  "packet_line_count": 109,
+  "mature_5d_count": 112602,
+  "mature_10d_count": 101986,
+  "mature_20d_count": 80756,
+  "packet_line_count": 108,
   "status": "pass",
   "errors": [],
   "warnings": []

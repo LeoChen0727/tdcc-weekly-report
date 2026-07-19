@@ -1,6 +1,6 @@
 # Monthly Revenue Point-In-Time Panel
 
-- generated_at: `2026-07-12 16:58:53 Asia/Taipei`
+- generated_at: `2026-07-19 11:02:52 Asia/Taipei`
 - panel_id: `monthly_revenue_point_in_time_panel`
 - panel_version: `daily_snapshot_observed_revenue_v1`
 - source_kind: `daily_all_candidates_snapshot_observed_asof`
@@ -13,7 +13,7 @@
 
 | point_in_time_status | rows |
 | --- | --- |
-| ready_snapshot_observed_missing_release_date | 6512 |
+| ready_snapshot_observed_missing_release_date | 7944 |
 
 ## Snapshot Coverage
 
@@ -34,15 +34,19 @@
 | 20260706 | 515 | 515 |
 | 20260707 | 430 | 430 |
 | 20260708 | 410 | 410 |
-| 20260709 | 326 | 326 |
+| 20260709 | 328 | 328 |
+| 20260713 | 379 | 379 |
+| 20260714 | 383 | 383 |
+| 20260716 | 349 | 349 |
+| 20260717 | 319 | 319 |
 
 ## Numerical Anomaly Labels
 
 | revenue_numerical_anomaly_reason | rows |
 | --- | --- |
-| cumulative_revenue_yoy_abs_ge_500pct | 43 |
-| latest_revenue_yoy_abs_ge_300pct | 194 |
-| latest_revenue_yoy_abs_ge_300pct;cumulative_revenue_yoy_abs_ge_500pct | 118 |
+| cumulative_revenue_yoy_abs_ge_500pct | 47 |
+| latest_revenue_yoy_abs_ge_300pct | 242 |
+| latest_revenue_yoy_abs_ge_300pct;cumulative_revenue_yoy_abs_ge_500pct | 151 |
 
 ## Sample
 

@@ -1,6 +1,6 @@
 # Daily Model Background Feature Catalog
 
-- generated_at: `2026-07-12 17:00:16 Asia/Taipei`
+- generated_at: `2026-07-19 11:05:15 Asia/Taipei`
 - scope: documents which columns are shared objective background data and which ideas are explicitly model-specific.
 - rule: shared objective data can be reused; model-specific interpretations require separate research evidence and promotion.
 
@@ -81,10 +81,13 @@
 | obv_slope_5d | technical_indicator | shared_objective_point_in_time | research_background_only_not_a_model_gate_or_score |  | use rows available on or before signal_date |
 | bb_width_pct | technical_indicator | shared_objective_point_in_time | research_background_only_not_a_model_gate_or_score |  | use rows available on or before signal_date |
 | bb_width_pct_rank_120d | technical_indicator | shared_objective_point_in_time | research_background_only_not_a_model_gate_or_score |  | use rows available on or before signal_date |
+| source_tdcc_dataset_id | metadata | metadata | research_background_only_not_a_model_gate_or_score |  | use rows available on or before signal_date |
 | tdcc_as_of_date | holder_flow | shared_objective_point_in_time | research_background_only_not_a_model_gate_or_score |  | use rows available on or before signal_date |
 | tdcc_rows_as_of | holder_flow | shared_objective_point_in_time | research_background_only_not_a_model_gate_or_score |  | use rows available on or before signal_date |
 | tdcc_future_rows_ignored | holder_flow | shared_objective_point_in_time | research_background_only_not_a_model_gate_or_score |  | use rows available on or before signal_date |
 | tdcc_data_status | holder_flow | shared_objective_point_in_time | research_background_only_not_a_model_gate_or_score |  | use rows available on or before signal_date |
+| tdcc_continuity_status | holder_flow | shared_objective_point_in_time | research_background_only_not_a_model_gate_or_score |  | use rows available on or before signal_date |
+| tdcc_missing_official_dates | holder_flow | shared_objective_point_in_time | research_background_only_not_a_model_gate_or_score |  | use rows available on or before signal_date |
 | tdcc_consecutive_up_weeks | holder_flow | shared_objective_point_in_time | research_background_only_not_a_model_gate_or_score |  | use rows available on or before signal_date |
 | tdcc_over_400_ratio | holder_flow | shared_objective_point_in_time | research_background_only_not_a_model_gate_or_score |  | use rows available on or before signal_date |
 | tdcc_over_400_change_1w | holder_flow | shared_objective_point_in_time | research_background_only_not_a_model_gate_or_score |  | use rows available on or before signal_date |
@@ -123,6 +126,3 @@
 | theme_context_priority | theme_status_history | shared_objective_point_in_time | research_background_only_not_a_model_gate_or_score |  | use rows available on or before signal_date |
 | theme_context_tdcc_status | theme_status_history | shared_objective_point_in_time | research_background_only_not_a_model_gate_or_score |  | use rows available on or before signal_date |
 | theme_context_warrant_flow_signal | theme_status_history | shared_objective_point_in_time | research_background_only_not_a_model_gate_or_score |  | use rows available on or before signal_date |
-| theme_context_volume_ratio | theme_status_history | shared_objective_point_in_time | research_background_only_not_a_model_gate_or_score |  | use rows available on or before signal_date |
-| theme_context_return_20d_pct | theme_status_history | shared_objective_point_in_time | research_background_only_not_a_model_gate_or_score |  | use rows available on or before signal_date |
-| theme_context_repeat_label | theme_status_history | shared_objective_point_in_time | research_background_only_not_a_model_gate_or_score |  | use rows available on or before signal_date |
