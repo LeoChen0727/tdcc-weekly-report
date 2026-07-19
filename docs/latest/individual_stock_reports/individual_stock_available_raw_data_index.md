@@ -1,6 +1,6 @@
 # Individual Stock Available Raw Data Index
 
-- generated_at: 2026-07-19 07:29:39 Asia/Taipei
+- generated_at: 2026-07-19 22:29:38 Asia/Taipei
 - total_stocks: 2401
 - standard_rawdata_report: 1970
 - partial_rawdata_report: 408
