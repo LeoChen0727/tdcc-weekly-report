@@ -21,6 +21,8 @@ REQUIRED_COLUMNS = {
     "temp_root_policy",
     "approved_destination_root",
     "approved_root_filesystem",
+    "default_destination_policy",
+    "minimum_free_bytes",
     "purpose",
 }
 EXPECTED_FULL_CONSUMERS = {
@@ -33,6 +35,8 @@ EXPECTED_SPARSE_CONSUMER = {
 }
 EXPECTED_CONSUMERS = {**EXPECTED_FULL_CONSUMERS, **EXPECTED_SPARSE_CONSUMER}
 APPROVED_SPARSE_ROOT = r"F:\CodexStorage\task-worktrees\taiwan-stock-recommendation"
+DEFAULT_DESTINATION_POLICY = "approved_root_task_child"
+MINIMUM_FREE_BYTES = "10737418240"
 
 
 def _literal_words(node: ast.AST) -> list[str]:
@@ -110,6 +114,8 @@ def validate() -> list[str]:
                 errors.append(f"{consumer_id}: full consumers must stay system_temp_only")
             if row.get("approved_destination_root", "").strip() or row.get(
                 "approved_root_filesystem", ""
+            ).strip() or row.get("default_destination_policy", "").strip() or row.get(
+                "minimum_free_bytes", ""
             ).strip():
                 errors.append(f"{consumer_id}: full consumers must not define an approved external root")
             if "create_registered_full_temp_worktree" not in text or consumer_id not in text:
@@ -129,6 +135,14 @@ def validate() -> list[str]:
                 )
             if row.get("approved_root_filesystem", "").strip().upper() != "NTFS":
                 errors.append(f"{consumer_id}: approved_root_filesystem must be NTFS")
+            if row.get("default_destination_policy", "").strip() != DEFAULT_DESTINATION_POLICY:
+                errors.append(
+                    f"{consumer_id}: default_destination_policy must be {DEFAULT_DESTINATION_POLICY}"
+                )
+            if row.get("minimum_free_bytes", "").strip() != MINIMUM_FREE_BYTES:
+                errors.append(
+                    f"{consumer_id}: minimum_free_bytes must be {MINIMUM_FREE_BYTES}"
+                )
         else:
             errors.append(f"unexpected worktree materialization consumer: {consumer_id}")
 
@@ -146,6 +160,9 @@ def validate() -> list[str]:
         "approved_root_filesystem",
         "FILE_ATTRIBUTE_REPARSE_POINT",
         "worktree destination must not be a drive root",
+        "default_approved_root",
+        "--task-name",
+        "insufficient free space",
     ):
         if token not in safety_text:
             errors.append(f"git worktree safety module missing required token: {token}")
@@ -188,6 +205,8 @@ def main() -> int:
     print(f"registered_full_consumers={len(EXPECTED_FULL_CONSUMERS)}")
     print(f"registered_sparse_consumers={len(EXPECTED_SPARSE_CONSUMER)}")
     print(f"approved_sparse_root={APPROVED_SPARSE_ROOT}")
+    print(f"default_destination_policy={DEFAULT_DESTINATION_POLICY}")
+    print(f"minimum_free_bytes={MINIMUM_FREE_BYTES}")
     print("checkout_workers=1")
     print("max_concurrent_materializations=1")
     return 0

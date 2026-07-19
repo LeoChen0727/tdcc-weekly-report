@@ -5,6 +5,8 @@ import csv
 import hashlib
 import json
 import os
+import re
+import shutil
 import stat
 import subprocess
 import sys
@@ -23,6 +25,9 @@ APPROVED_SPARSE_DESTINATION_ROOT_WINDOWS = (
     r"F:\CodexStorage\task-worktrees\taiwan-stock-recommendation"
 )
 APPROVED_SPARSE_DESTINATION_FILESYSTEM = "NTFS"
+DEFAULT_SPARSE_DESTINATION_POLICY = "approved_root_task_child"
+MINIMUM_APPROVED_ROOT_FREE_BYTES = 10 * 1024 * 1024 * 1024
+MAX_TASK_NAME_LENGTH = 80
 DEFAULT_MAX_CHANGED_PATHS = 250
 DEFAULT_MAX_MATERIALIZED_FILES = 2500
 DEFAULT_INCLUDE_PATHS = (
@@ -66,6 +71,8 @@ class RefTransitionAudit:
 class SparseWorktreeResult:
     repo_root: str
     destination: str
+    destination_mode: str
+    task_name: str
     source_ref: str
     source_sha: str
     branch: str
@@ -330,6 +337,20 @@ def _approved_sparse_destination_roots() -> tuple[Path, ...]:
         raise GitWorktreeSafetyError(
             "sparse task contract approved_root_filesystem must be NTFS"
         )
+    if row.get("default_destination_policy", "").strip() != DEFAULT_SPARSE_DESTINATION_POLICY:
+        raise GitWorktreeSafetyError(
+            "sparse task contract default_destination_policy must be approved_root_task_child"
+        )
+    try:
+        minimum_free_bytes = int(row.get("minimum_free_bytes", "").strip())
+    except ValueError as exc:
+        raise GitWorktreeSafetyError(
+            "sparse task contract minimum_free_bytes must be an integer"
+        ) from exc
+    if minimum_free_bytes != MINIMUM_APPROVED_ROOT_FREE_BYTES:
+        raise GitWorktreeSafetyError(
+            f"sparse task contract minimum_free_bytes must be {MINIMUM_APPROVED_ROOT_FREE_BYTES}"
+        )
     return (Path(approved_root),)
 
 
@@ -395,7 +416,93 @@ def _prepare_approved_sparse_root(repo_root: Path, approved_root: Path) -> Path:
         raise GitWorktreeSafetyError(
             f"approved worktree root is not a directory: {approved_root}"
         )
+    free_bytes = _available_free_bytes(approved_root)
+    if free_bytes < MINIMUM_APPROVED_ROOT_FREE_BYTES:
+        raise GitWorktreeSafetyError(
+            "approved worktree root has insufficient free space: "
+            f"required={MINIMUM_APPROVED_ROOT_FREE_BYTES}, available={free_bytes}, root={approved_root}"
+        )
     return approved_root.resolve()
+
+
+def _available_free_bytes(path: Path) -> int:
+    try:
+        return int(shutil.disk_usage(path).free)
+    except OSError as exc:
+        raise GitWorktreeSafetyError(
+            f"cannot verify approved worktree root free space for {path}: {exc}"
+        ) from exc
+
+
+def _sanitize_task_name(task_name: str, branch: str) -> str:
+    raw = task_name.strip() or branch.strip()
+    if not raw:
+        raise GitWorktreeSafetyError(
+            "omitting --destination requires --task-name or --branch for a traceable F-drive child"
+        )
+    if raw.lower().startswith("refs/heads/"):
+        raw = raw[len("refs/heads/") :]
+    if raw.lower().startswith("codex/"):
+        raw = raw[len("codex/") :]
+    normalized = raw.lower().replace("\\", "/")
+    slug = re.sub(r"[^a-z0-9._-]+", "-", normalized)
+    slug = re.sub(r"-+", "-", slug).strip(" ._-")
+    if not slug:
+        raise GitWorktreeSafetyError("task name is empty after sanitization")
+    if len(slug) > MAX_TASK_NAME_LENGTH:
+        digest = hashlib.sha256(normalized.encode("utf-8")).hexdigest()[:8]
+        prefix = slug[: MAX_TASK_NAME_LENGTH - len(digest) - 1].rstrip(" ._-")
+        slug = f"{prefix}-{digest}"
+    reserved = {
+        "aux",
+        "con",
+        "nul",
+        "prn",
+        *(f"com{index}" for index in range(1, 10)),
+        *(f"lpt{index}" for index in range(1, 10)),
+    }
+    if slug in reserved or slug in {".", "..", ".git"}:
+        raise GitWorktreeSafetyError(f"task name is reserved on Windows: {slug}")
+    return slug
+
+
+def _resolve_sparse_destination(
+    repo_root: Path,
+    destination: Path | None,
+    *,
+    approved_sparse_roots: Sequence[Path],
+    task_name: str,
+    branch: str,
+) -> tuple[Path, str, str]:
+    if destination is not None:
+        if task_name.strip():
+            raise GitWorktreeSafetyError(
+                "--task-name cannot be combined with an explicit --destination"
+            )
+        return (
+            _require_new_worktree_destination(
+                repo_root,
+                destination,
+                approved_sparse_roots=approved_sparse_roots,
+            ),
+            "",
+            "explicit",
+        )
+    if len(approved_sparse_roots) != 1:
+        raise GitWorktreeSafetyError(
+            "default sparse destination requires exactly one approved external root"
+        )
+    sanitized_task_name = _sanitize_task_name(task_name, branch)
+    default_destination = approved_sparse_roots[0] / sanitized_task_name
+    return (
+        _require_new_worktree_destination(
+            repo_root,
+            default_destination,
+            approved_sparse_roots=approved_sparse_roots,
+        ),
+        sanitized_task_name,
+        "default_approved_root",
+    )
 
 
 def _require_new_worktree_destination(
@@ -531,18 +638,21 @@ def _verify_clean_worktree(worktree_root: Path) -> str:
 def create_sparse_worktree(
     repo_root: Path,
     source_ref: str,
-    destination: Path,
+    destination: Path | None = None,
     *,
     include_paths: Sequence[str] = DEFAULT_INCLUDE_PATHS,
     branch: str = "",
+    task_name: str = "",
     max_materialized_files: int = DEFAULT_MAX_MATERIALIZED_FILES,
 ) -> SparseWorktreeResult:
     repo_root = repo_root.resolve()
     roots = _approved_sparse_destination_roots()
-    destination = _require_new_worktree_destination(
+    destination, resolved_task_name, destination_mode = _resolve_sparse_destination(
         repo_root,
         destination,
         approved_sparse_roots=roots,
+        task_name=task_name,
+        branch=branch,
     )
     includes = tuple(dict.fromkeys(_normalize_path(path) for path in include_paths if _normalize_path(path)))
     if not includes:
@@ -588,6 +698,8 @@ def create_sparse_worktree(
     return SparseWorktreeResult(
         repo_root=str(repo_root),
         destination=str(destination),
+        destination_mode=destination_mode,
+        task_name=resolved_task_name,
         source_ref=source_ref,
         source_sha=source_sha,
         branch=branch,
@@ -610,11 +722,14 @@ def _require_full_temp_materialization_contract(consumer_id: str) -> dict[str, s
         raise GitWorktreeSafetyError(
             f"full temp consumer must stay system_temp_only: {consumer_id}"
         )
-    if row.get("approved_destination_root", "").strip() or row.get(
-        "approved_root_filesystem", ""
-    ).strip():
+    if (
+        row.get("approved_destination_root", "").strip()
+        or row.get("approved_root_filesystem", "").strip()
+        or row.get("default_destination_policy", "").strip()
+        or row.get("minimum_free_bytes", "").strip()
+    ):
         raise GitWorktreeSafetyError(
-            f"full temp consumer must not define an approved external root: {consumer_id}"
+            f"full temp consumer must not define sparse destination settings: {consumer_id}"
         )
     return row
 
@@ -664,8 +779,9 @@ def _build_parser() -> argparse.ArgumentParser:
     create = subparsers.add_parser("create-sparse", help="Create a temp sparse worktree without full checkout.")
     create.add_argument("--repo-root", type=Path, default=Path.cwd())
     create.add_argument("--source-ref", default="origin/main")
-    create.add_argument("--destination", type=Path, required=True)
+    create.add_argument("--destination", type=Path)
     create.add_argument("--branch", default="")
+    create.add_argument("--task-name", default="")
     create.add_argument("--include", action="append", dest="includes")
     create.add_argument("--max-materialized-files", type=int, default=DEFAULT_MAX_MATERIALIZED_FILES)
     return parser
@@ -688,6 +804,7 @@ def main() -> int:
             args.destination,
             include_paths=args.includes or DEFAULT_INCLUDE_PATHS,
             branch=args.branch,
+            task_name=args.task_name,
             max_materialized_files=args.max_materialized_files,
         )
         print(json.dumps(asdict(result), ensure_ascii=False, indent=2))
