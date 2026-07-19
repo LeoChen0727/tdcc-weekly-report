@@ -329,6 +329,20 @@ def test_resolver_allows_exact_closed_market_validation_replay_only(tmp_path: Pa
     assert state["main_price_date"] == "20260717"
     assert state["validation_replay_main_price_date"] == "20260717"
 
+    pinned_ref = "refs/remotes/pinned-replay/workflow-29679143076-1"
+    run_git(repo, "update-ref", pinned_ref, head)
+    pinned_state = resolve_daily_report_source_state(
+        repo,
+        source_ref="pinned-replay/workflow-29679143076-1",
+        fetch=False,
+        require_git_clean=True,
+        validation_replay_main_price_date="20260717",
+    )
+
+    assert pinned_state["source_ref"] == "pinned-replay/workflow-29679143076-1"
+    assert pinned_state["market_session_status"] == "closed_scheduled"
+    assert pinned_state["validation_replay_main_price_date"] == "20260717"
+
     with pytest.raises(DailyReportSourceError) as excinfo:
         resolve_daily_report_source_state(
             repo,
