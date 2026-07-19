@@ -139,6 +139,30 @@ def test_build_and_validate_analytics_store(tmp_path: Path) -> None:
         connection.close()
 
 
+def test_validator_accepts_source_manifest_newline_conversion(tmp_path: Path) -> None:
+    source_manifest, output_dir = fixture_contract(tmp_path)
+    analytics.build_analytics_store(
+        source_manifest_path=source_manifest,
+        output_dir=output_dir,
+        generated_at="fixture",
+    )
+
+    original = source_manifest.read_bytes()
+    if b"\r\n" in original:
+        converted = original.replace(b"\r\n", b"\n")
+    else:
+        converted = original.replace(b"\n", b"\r\n")
+    assert converted != original
+    source_manifest.write_bytes(converted)
+
+    result = analytics.validate_analytics_store(
+        source_manifest_path=source_manifest,
+        output_dir=output_dir,
+    )
+
+    assert result["status"] == "pass"
+
+
 def test_builder_rejects_snapshot_hash_drift(tmp_path: Path) -> None:
     source_manifest, output_dir = fixture_contract(tmp_path)
     manifest = json.loads(source_manifest.read_text(encoding="utf-8"))
