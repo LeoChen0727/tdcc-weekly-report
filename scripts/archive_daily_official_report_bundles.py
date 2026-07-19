@@ -106,6 +106,7 @@ class ArchivePlan:
     baseline_date: str
     eligible_dates: tuple[str, ...]
     selected_dates: tuple[str, ...]
+    empty_selected_dates: tuple[str, ...]
     all_source_files: tuple[FileEvidence, ...]
     selected_files: tuple[FileEvidence, ...]
     source_fingerprint: str
@@ -395,8 +396,6 @@ def scan_source_tree(
     evidence: list[FileEvidence] = []
     for report_date, bundle_dir in sorted(date_dirs.items()):
         bundle_files = sorted(path for path in bundle_dir.rglob("*") if path.is_file())
-        if not bundle_files:
-            raise ArchiveError(f"dated report bundle is empty: {bundle_dir}")
         for source_path in bundle_files:
             suffix = source_path.suffix.lower()
             if suffix not in contract.allowed_extensions:
@@ -460,6 +459,10 @@ def build_archive_plan(
     else:
         selected_dates = eligible_dates
     selected_set = set(selected_dates)
+    dates_with_files = {item.report_date for item in all_files}
+    empty_selected_dates = tuple(
+        date for date in selected_dates if date not in dates_with_files
+    )
     selected_files = tuple(
         replace(
             item,
@@ -475,7 +478,7 @@ def build_archive_plan(
         for item in all_files
         if item.report_date in selected_set
     )
-    if not selected_files:
+    if not selected_files and not empty_selected_dates:
         raise ArchiveError("archive selection contains no eligible artifacts")
     fingerprint, file_count, total_bytes = source_tree_fingerprint(all_files)
     return ArchivePlan(
@@ -484,6 +487,7 @@ def build_archive_plan(
         baseline_date=baseline_date,
         eligible_dates=eligible_dates,
         selected_dates=selected_dates,
+        empty_selected_dates=empty_selected_dates,
         all_source_files=all_files,
         selected_files=selected_files,
         source_fingerprint=fingerprint,
@@ -1002,6 +1006,34 @@ def validate_source_immediately_before_deletion(
         raise ArchiveError(f"destination parity failed immediately before deletion: {resolved_destination}")
 
 
+def validate_empty_bundle_archive_index(
+    report_date: str,
+    destination_root: Path,
+    contract: ArchiveContract,
+) -> None:
+    index = load_archive_index(archive_index_path(destination_root, contract), contract)
+    entries = [
+        entry
+        for entry in index["entries"]
+        if isinstance(entry, dict) and entry.get("report_date") == report_date
+    ]
+    if not entries:
+        raise ArchiveError(
+            f"empty source bundle has no prior verified-transfer index evidence: {report_date}"
+        )
+    for entry in entries:
+        if entry.get("source_removed") is not True:
+            raise ArchiveError(
+                f"empty source bundle index is not fully source_removed: {report_date}"
+            )
+        destination = Path(str(entry.get("canonical_archive_path", "")))
+        if not destination.is_absolute() or not is_under(destination, destination_root):
+            raise ArchiveError(f"empty bundle index path escaped destination root: {destination}")
+        size_bytes, sha256 = hash_file_stable(destination)
+        if size_bytes != int(entry.get("bytes", -1)) or sha256 != entry.get("sha256"):
+            raise ArchiveError(f"empty bundle destination parity failed: {destination}")
+
+
 def delete_source_file_exact(path: Path) -> None:
     path.unlink()
 
@@ -1011,6 +1043,17 @@ def remove_empty_bundle_directory(bundle_dir: Path, source_root: Path) -> None:
         raise ArchiveError(f"refusing to remove an unauthorized bundle directory: {bundle_dir}")
     if is_reparse_point(bundle_dir):
         raise ArchiveError(f"refusing to remove a reparse-backed bundle directory: {bundle_dir}")
+    descendants = sorted(
+        (path for path in bundle_dir.rglob("*") if path.is_dir()),
+        key=lambda path: len(path.relative_to(bundle_dir).parts),
+        reverse=True,
+    )
+    for directory in descendants:
+        if is_reparse_point(directory) or not is_under(directory, bundle_dir):
+            raise ArchiveError(f"refusing to remove an unsafe bundle subdirectory: {directory}")
+        if any(directory.iterdir()):
+            raise ArchiveError(f"refusing to remove non-empty bundle subdirectory: {directory}")
+        directory.rmdir()
     if any(bundle_dir.iterdir()):
         raise ArchiveError(f"refusing to remove non-empty bundle directory: {bundle_dir}")
     bundle_dir.rmdir()
@@ -1057,6 +1100,12 @@ def delete_verified_bundles(
                 plan=plan,
                 manifest_payload=payload,
             )
+            if not bundle_files:
+                validate_empty_bundle_archive_index(
+                    report_date,
+                    destination_root,
+                    contract,
+                )
             for position in positions:
                 item = updated[position]
                 load_verified_pre_delete_manifest(
@@ -1436,6 +1485,7 @@ def execute_archive(
         "baseline_date": plan.baseline_date if plan else "",
         "eligible_dates": list(plan.eligible_dates) if plan else [],
         "selected_dates": list(plan.selected_dates) if plan else [],
+        "empty_selected_dates": list(plan.empty_selected_dates) if plan else [],
         "selected_files": len(files),
         "selected_bytes": sum(item.size_bytes for item in files),
         "copy_required_bytes": sum(

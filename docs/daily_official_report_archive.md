@@ -66,12 +66,15 @@ reparse 邊界。
    source absolute path、非 reparse、bytes/SHA 與 destination parity。
 5. 只以 `Path.unlink()` 刪除 manifest 精確列出的 source files。每一檔刪除前都重驗
    路徑、日期、hash 與 destination parity。
-6. 全部列檔刪除後，只有該日期資料夾確實為空時才用 `Path.rmdir()` 移除；不得對
-   source root 使用 recursive delete。
+6. 全部列檔刪除後，逐層驗證並以 `Path.rmdir()` 移除 bundle 內的空子目錄，最後才
+   移除空的日期資料夾；不得對 source root 使用 recursive delete。
 
 任何 bundle 級 pre-delete 條件失敗時，該 bundle 不開始刪除。若逐檔刪除中途失敗，
 completion state 為 `partial_source_cleanup`；F 槽資料保留，execution evidence 逐檔記錄
 已刪、失敗與未執行狀態，重跑仍以剩餘 source 作新的精確 manifest。
+若前次已刪完檔案但空目錄清理失敗，重跑必須先由 F archive index 證明該日期已有
+完整 entries、全部 `source_removed=true` 且 destination parity 仍通過，才能只收尾
+空目錄。
 
 ## Evidence And Canonical Delivery
 

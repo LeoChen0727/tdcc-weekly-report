@@ -86,7 +86,9 @@ def write_bundle(root: Path, report_date: str, *, retained: bool) -> None:
         )
     else:
         (bundle / "report.pdf").write_bytes(f"{report_date}-pdf".encode())
-        (bundle / "chart.png").write_bytes(f"{report_date}-png".encode())
+        charts = bundle / "charts"
+        charts.mkdir()
+        (charts / "chart.png").write_bytes(f"{report_date}-png".encode())
         (bundle / "validation.csv").write_text("status\npass\n", encoding="utf-8")
         (bundle / "evidence.json").write_text('{"status":"pass"}', encoding="utf-8")
 
@@ -635,7 +637,13 @@ def test_partial_source_cleanup_is_reported_and_safe_to_rerun(tmp_path: Path) ->
     assert not first.success
     assert first.completion_state == "partial_source_cleanup"
     assert first.source_files_deleted == 1
-    assert all(path.is_file() for path in (destination / "daily").glob("20*/*"))
+    archived_files = [
+        path
+        for report_date in (OLDER_A, OLDER_B)
+        for path in (destination / "daily" / report_date).rglob("*")
+        if path.is_file()
+    ]
+    assert len(archived_files) == 8
 
     second = archive.execute_archive(
         repo_root=tmp_path,
@@ -656,6 +664,68 @@ def test_partial_source_cleanup_is_reported_and_safe_to_rerun(tmp_path: Path) ->
     assert not (source / OLDER_B).exists()
     index = archive.load_archive_index(second.archive_index_path, contract)
     assert all(entry["source_removed"] is True for entry in index["entries"])
+
+
+def test_empty_nested_bundle_left_by_directory_cleanup_failure_is_safe_to_rerun(
+    tmp_path: Path, monkeypatch
+) -> None:
+    source, destination, reports, contract = make_environment(tmp_path)
+    original_remove = archive.remove_empty_bundle_directory
+
+    def fail_directory_cleanup(_bundle_dir: Path, _source_root: Path) -> None:
+        raise OSError("injected empty directory cleanup failure")
+
+    monkeypatch.setattr(
+        archive,
+        "remove_empty_bundle_directory",
+        fail_directory_cleanup,
+    )
+    first = archive.execute_archive(
+        repo_root=tmp_path,
+        source_root=source,
+        destination_root=destination,
+        report_dir=reports,
+        expected_destination_volume="F:",
+        authority_ref="origin/main",
+        contract=contract,
+        apply_copy=False,
+        move_after_verify=True,
+        include_dates=(OLDER_A,),
+        storage_probe=storage(),
+        authority_state=authority(),
+    )
+
+    assert not first.success
+    assert first.completion_state == "partial_source_cleanup"
+    assert first.source_files_deleted == 4
+    assert (source / OLDER_A / "charts").is_dir()
+    assert list((source / OLDER_A).rglob("*")) == [source / OLDER_A / "charts"]
+
+    monkeypatch.setattr(
+        archive,
+        "remove_empty_bundle_directory",
+        original_remove,
+    )
+    second = archive.execute_archive(
+        repo_root=tmp_path,
+        source_root=source,
+        destination_root=destination,
+        report_dir=reports,
+        expected_destination_volume="F:",
+        authority_ref="origin/main",
+        contract=contract,
+        apply_copy=False,
+        move_after_verify=True,
+        include_dates=(OLDER_A,),
+        storage_probe=storage(),
+        authority_state=authority(),
+    )
+
+    assert second.success
+    assert second.source_files_deleted == 0
+    assert second.selected_files == ()
+    assert not (source / OLDER_A).exists()
+    assert (source / OLDER_B).is_dir()
 
 
 def test_move_include_date_does_not_recursively_remove_other_source_bundles(
