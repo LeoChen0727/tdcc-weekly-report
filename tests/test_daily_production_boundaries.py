@@ -921,14 +921,131 @@ def test_daily_workflow_publishes_as_published_model_snapshots() -> None:
         encoding="utf-8"
     )
 
-    assert "python scripts/update_daily_published_model_snapshots.py" in text
-    assert "python scripts/validate_daily_published_model_snapshots.py" in text
-    assert "git add output/history/daily_candidate_models/ || true" in text
-    assert "git add output/history/daily_model_snapshots/ || true" in text
+    audit_source_publish_start = text.index(
+        "- name: Publish and validate volume v2 audit-source snapshots"
+    )
+    lineage_audit_start = text.index(
+        "- name: Build volume v2 lineage audit from published snapshots"
+    )
+    operation_adapter_start = text.index(
+        "- name: Build volume v2 formal operation adapter"
+    )
+    remaining_artifacts_start = text.index("- name: Build remaining daily model artifacts")
+    post_audit_publish_start = text.index(
+        "- name: Publish and validate post-audit daily model snapshots"
+    )
+    monthly_revenue_start = text.index(
+        "- name: Build monthly revenue coverage/backfill audit"
+    )
+
+    audit_source_publish_block = text[
+        audit_source_publish_start:lineage_audit_start
+    ]
+    lineage_audit_block = text[lineage_audit_start:operation_adapter_start]
+    operation_adapter_block = text[
+        operation_adapter_start:remaining_artifacts_start
+    ]
+    post_audit_publish_block = text[
+        post_audit_publish_start:monthly_revenue_start
+    ]
+
+    assert text.count("python scripts/update_daily_published_model_snapshots.py") == 2
+    assert text.count("python scripts/build_volume_v2_warrant_lineage_history_audit.py") == 1
+    assert text.count("python scripts/build_daily_volume_breakout_operation_section.py") == 1
+
+    assert audit_source_publish_block.count("--artifact-id model_signals_for_report") == 2
+    assert audit_source_publish_block.count("--artifact-id all_candidates_source_rows") == 2
+    assert "--revision-reason daily_full_volume_v2_audit_sources" in (
+        audit_source_publish_block
+    )
+    assert "--artifact-id data_freshness" not in audit_source_publish_block
+    assert "--artifact-id volume_breakout_operation_section" not in (
+        audit_source_publish_block
+    )
+    assert "python scripts/validate_daily_canonical_field_lineage.py" in (
+        audit_source_publish_block
+    )
     assert (
-        text.index("- name: Guard daily freshness before publishing")
+        audit_source_publish_block.index(
+            "python scripts/update_daily_published_model_snapshots.py"
+        )
+        < audit_source_publish_block.index(
+            "python scripts/validate_daily_published_model_snapshots.py"
+        )
+        < audit_source_publish_block.index(
+            "python scripts/validate_daily_canonical_field_lineage.py"
+        )
+    )
+
+    assert "python scripts/build_volume_v2_warrant_lineage_history_audit.py" in (
+        lineage_audit_block
+    )
+    assert "python scripts/validate_volume_v2_warrant_lineage_history_audit.py" in (
+        lineage_audit_block
+    )
+    assert "python scripts/build_daily_volume_breakout_operation_section.py" in (
+        operation_adapter_block
+    )
+    assert (
+        "python scripts/validate_daily_volume_breakout_operation_section.py --output-only"
+        in operation_adapter_block
+    )
+
+    for artifact_id in (
+        "data_freshness",
+        "model_summary_for_report",
+        "model_registry",
+        "model_parameters",
+        "volume_breakout_operation_section",
+        "volume_breakout_operation_evidence_audit",
+        "w_bottom_right_side_operation_section",
+        "neckline_volume_breakout_confirmation_operation_section",
+    ):
+        assert post_audit_publish_block.count(f"--artifact-id {artifact_id}") == 1
+    assert "--revision-reason daily_full_post_audit_artifacts" in (
+        post_audit_publish_block
+    )
+    assert "--artifact-id model_signals_for_report" not in post_audit_publish_block
+    assert "--artifact-id all_candidates_source_rows" not in post_audit_publish_block
+    assert (
+        "python scripts/build_volume_v2_warrant_lineage_history_audit.py"
+        not in post_audit_publish_block
+    )
+    assert any(
+        line.strip() == "python scripts/validate_daily_published_model_snapshots.py"
+        for line in post_audit_publish_block.splitlines()
+    )
+    assert (
+        post_audit_publish_block.index(
+            "python scripts/update_daily_published_model_snapshots.py"
+        )
+        < post_audit_publish_block.index(
+            "python scripts/validate_daily_published_model_snapshots.py"
+        )
+        < post_audit_publish_block.index(
+            "python scripts/validate_daily_canonical_field_lineage.py"
+        )
+        < post_audit_publish_block.index(
+            "python scripts/validate_volume_v2_warrant_lineage_history_audit.py"
+        )
+    )
+
+    assert "git add output/history/daily_candidate_models/ || true" in text
+    assert "git add output/history/daily_model_snapshots/ || true" not in text
+    assert (
+        "git add output/history/daily_model_snapshots/"
+        "daily_published_model_snapshot_manifest.csv"
+    ) not in text
+    assert "python scripts/stage_daily_published_snapshot_revisions.py" in text
+    assert (
+        text.index("- name: Build daily candidate model layer")
+        < audit_source_publish_start
+        < lineage_audit_start
+        < operation_adapter_start
+        < remaining_artifacts_start
+        < text.index("- name: Guard daily freshness before publishing")
         < text.index("- name: Build daily market report artifacts")
-        < text.index("- name: Publish daily model snapshots")
+        < post_audit_publish_start
         < text.index("- name: Commit report artifacts, packets, and rules first")
     )
     commit_block = text[

@@ -12,12 +12,19 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
 import validate_daily_canonical_field_lineage as lineage  # noqa: E402
+from daily_snapshot_revision_utils import snapshot_file_sha256  # noqa: E402
 
 
 MIGRATION_ID = "volume_v2_warrant_canonical_field_lineage_20260718"
 SCORE_RANK_MIGRATION_ID = "volume_v2_score_rank_canonical_field_lineage_20260718"
 CONSUMER_HARDENING_MIGRATION_ID = "canonical_field_consumer_hardening_20260718"
 CONSUMER_EXCLUSION_MIGRATION_ID = "canonical_field_consumer_exclusions_20260718"
+RANKING_VALIDATOR_HISTORY_MIGRATION_ID = (
+    "daily_published_ranking_validator_history_consumers_20260720"
+)
+RANKING_VALIDATOR_EXCLUSION_MIGRATION_ID = (
+    "daily_published_ranking_validator_current_hash_exclusions_20260720"
+)
 COLLISION_MIGRATION_ID = "volume_v2_dispatcher_collision_registry_20260718"
 APPROVAL = "user_requested_formal_lineage_hardening_20260718"
 MODELS = ";".join(sorted(lineage.VOLUME_V2_MODELS))
@@ -39,6 +46,33 @@ def write_csv(path: Path, columns: list[str], rows: list[dict[str, str]]) -> Non
         writer = csv.DictWriter(handle, fieldnames=columns)
         writer.writeheader()
         writer.writerows(rows)
+
+
+def initialize_git_fixture(root: Path, *, empty_commit: bool = False) -> str:
+    subprocess.run(["git", "init"], cwd=root, check=True, capture_output=True)
+    subprocess.run(
+        ["git", "config", "user.email", "lineage-test@example.invalid"],
+        cwd=root,
+        check=True,
+    )
+    subprocess.run(
+        ["git", "config", "user.name", "Lineage Test"],
+        cwd=root,
+        check=True,
+    )
+    if not empty_commit:
+        subprocess.run(["git", "add", "."], cwd=root, check=True)
+    command = ["git", "commit", "-m", "fixture"]
+    if empty_commit:
+        command.insert(2, "--allow-empty")
+    subprocess.run(command, cwd=root, check=True, capture_output=True)
+    return subprocess.run(
+        ["git", "rev-parse", "HEAD"],
+        cwd=root,
+        check=True,
+        capture_output=True,
+        text=True,
+    ).stdout.strip()
 
 
 def registry_rows() -> list[dict[str, str]]:
@@ -392,6 +426,7 @@ def build_valid_repo(root: Path) -> None:
         MIGRATION_ID,
         SCORE_RANK_MIGRATION_ID,
         CONSUMER_HARDENING_MIGRATION_ID,
+        RANKING_VALIDATOR_HISTORY_MIGRATION_ID,
     ]
     write_csv(
         root / lineage.MIGRATIONS_PATH,
@@ -417,6 +452,7 @@ def build_valid_repo(root: Path) -> None:
     assert {row["migration_id"] for row in consumer_exclusion_migrations} == {
         CONSUMER_EXCLUSION_MIGRATION_ID,
         "canonical_field_consumer_theme_exclusions_20260718",
+        RANKING_VALIDATOR_EXCLUSION_MIGRATION_ID,
     }
     write_csv(
         root / lineage.CONSUMER_EXCLUSION_MIGRATIONS_PATH,
@@ -618,6 +654,43 @@ def build_valid_repo(root: Path) -> None:
         "daily_candidate_model_signals_for_report_20260717.csv",
         list(formal[0]),
         formal,
+    )
+    snapshot_dir = root / "output/history/daily_model_snapshots"
+    candidate_snapshot = snapshot_dir / "all_candidates_20260717.csv"
+    report_snapshot = (
+        snapshot_dir / "daily_candidate_model_signals_for_report_20260717.csv"
+    )
+    write_csv(
+        snapshot_dir / "daily_published_model_snapshot_manifest.csv",
+        [
+            "snapshot_report_date",
+            "snapshot_revision",
+            "supersedes_snapshot_sha256",
+            "revision_reason",
+            "artifact_id",
+            "snapshot_path",
+            "snapshot_sha256",
+        ],
+        [
+            {
+                "snapshot_report_date": "20260717",
+                "snapshot_revision": "r1",
+                "supersedes_snapshot_sha256": "",
+                "revision_reason": "legacy_v1_manifest",
+                "artifact_id": "all_candidates_source_rows",
+                "snapshot_path": candidate_snapshot.relative_to(root).as_posix(),
+                "snapshot_sha256": snapshot_file_sha256(candidate_snapshot),
+            },
+            {
+                "snapshot_report_date": "20260717",
+                "snapshot_revision": "r1",
+                "supersedes_snapshot_sha256": "",
+                "revision_reason": "legacy_v1_manifest",
+                "artifact_id": "model_signals_for_report",
+                "snapshot_path": report_snapshot.relative_to(root).as_posix(),
+                "snapshot_sha256": snapshot_file_sha256(report_snapshot),
+            },
+        ],
     )
 
 
@@ -1080,10 +1153,153 @@ def test_historical_volume_v2_zero_pair_fails_closed(tmp_path: Path) -> None:
         / "output/history/daily_model_snapshots/"
         "daily_candidate_model_signals_for_report_20260717.csv"
     ).unlink()
+    manifest_path = (
+        tmp_path
+        / "output/history/daily_model_snapshots/"
+        "daily_published_model_snapshot_manifest.csv"
+    )
+    columns, rows = lineage._read_artifact(manifest_path)
+    write_csv(
+        manifest_path,
+        columns,
+        [row for row in rows if row["artifact_id"] != "model_signals_for_report"],
+    )
 
     errors = lineage.validate(tmp_path)
 
     assert "historical parity has no formal report snapshots" in errors
+
+
+def test_historical_parity_selects_same_day_manifest_max_revisions(
+    tmp_path: Path,
+) -> None:
+    build_valid_repo(tmp_path)
+    snapshot_dir = tmp_path / "output/history/daily_model_snapshots"
+    manifest_path = snapshot_dir / "daily_published_model_snapshot_manifest.csv"
+    candidate_r1 = snapshot_dir / "all_candidates_20260717.csv"
+    report_r1 = snapshot_dir / "daily_candidate_model_signals_for_report_20260717.csv"
+    for path in (candidate_r1, report_r1):
+        columns, rows = lineage._read_artifact(path)
+        rows[0]["warrant_flow_signal"] = "no_signal"
+        write_csv(path, columns, rows)
+    candidate_r1_sha = snapshot_file_sha256(candidate_r1)
+    report_r1_sha = snapshot_file_sha256(report_r1)
+    candidate_columns, candidate_rows = lineage._read_artifact(
+        tmp_path / "output/latest/all_candidates_latest.csv"
+    )
+    candidate_staging = snapshot_dir / "candidate-r2-staging.csv"
+    write_csv(candidate_staging, candidate_columns, candidate_rows)
+    candidate_r2_sha = snapshot_file_sha256(candidate_staging)
+    candidate_r2 = snapshot_dir / (
+        f"all_candidates_20260717_r2_{candidate_r2_sha[:12]}.csv"
+    )
+    candidate_staging.rename(candidate_r2)
+    report_columns, report_rows = lineage._read_artifact(
+        tmp_path / "output/latest/daily_candidate_model_signals_for_report_latest.csv"
+    )
+    report_staging = snapshot_dir / "report-r2-staging.csv"
+    write_csv(report_staging, report_columns, report_rows)
+    report_r2_sha = snapshot_file_sha256(report_staging)
+    report_r2 = snapshot_dir / (
+        "daily_candidate_model_signals_for_report_"
+        f"20260717_r2_{report_r2_sha[:12]}.csv"
+    )
+    report_staging.rename(report_r2)
+    columns, manifest_rows = lineage._read_artifact(manifest_path)
+    for row in manifest_rows:
+        if row["artifact_id"] == "all_candidates_source_rows":
+            row["snapshot_sha256"] = candidate_r1_sha
+        elif row["artifact_id"] == "model_signals_for_report":
+            row["snapshot_sha256"] = report_r1_sha
+    manifest_rows.extend(
+        [
+            {
+                "snapshot_report_date": "20260717",
+                "snapshot_revision": "r2",
+                "supersedes_snapshot_sha256": candidate_r1_sha,
+                "revision_reason": "same_day_candidate_correction",
+                "artifact_id": "all_candidates_source_rows",
+                "snapshot_path": candidate_r2.relative_to(tmp_path).as_posix(),
+                "snapshot_sha256": candidate_r2_sha,
+            },
+            {
+                "snapshot_report_date": "20260717",
+                "snapshot_revision": "r2",
+                "supersedes_snapshot_sha256": report_r1_sha,
+                "revision_reason": "same_day_report_correction",
+                "artifact_id": "model_signals_for_report",
+                "snapshot_path": report_r2.relative_to(tmp_path).as_posix(),
+                "snapshot_sha256": report_r2_sha,
+            },
+        ]
+    )
+    write_csv(manifest_path, columns, manifest_rows)
+
+    assert lineage.validate(tmp_path) == []
+
+
+@pytest.mark.parametrize(
+    ("relative_path", "tamper"),
+    [
+        (lineage.MIGRATIONS_PATH, "rewrite_notes"),
+        (
+            lineage.CONSUMER_EXCLUSION_MIGRATIONS_PATH,
+            "rewrite_validation_commands",
+        ),
+        (lineage.MIGRATIONS_PATH, "reorder"),
+        (lineage.COLLISION_MIGRATIONS_PATH, "delete"),
+    ],
+)
+def test_migration_ledgers_reject_base_row_tampering(
+    tmp_path: Path,
+    relative_path: Path,
+    tamper: str,
+) -> None:
+    build_valid_repo(tmp_path)
+    base_sha = initialize_git_fixture(tmp_path)
+    path = tmp_path / relative_path
+    columns, rows = lineage._read_artifact(path)
+    if tamper == "rewrite_notes":
+        rows[0]["notes"] = "tampered historical migration note"
+    elif tamper == "rewrite_validation_commands":
+        rows[0]["validation_commands"] = "python tampered_validator.py"
+    elif tamper == "reorder":
+        rows[0], rows[1] = rows[1], rows[0]
+    elif tamper == "delete":
+        rows.pop(0)
+    else:  # pragma: no cover - the parametrization is the contract.
+        raise AssertionError(f"unsupported test tamper: {tamper}")
+    write_csv(path, columns, rows)
+
+    errors = lineage.validate_migration_ledgers_append_only(tmp_path, base_sha)
+
+    assert any(
+        f"{relative_path.as_posix()} is append-only" in error for error in errors
+    )
+
+
+def test_append_only_validation_accepts_ledgers_absent_from_real_base_tree(
+    tmp_path: Path,
+) -> None:
+    base_sha = initialize_git_fixture(tmp_path, empty_commit=True)
+    build_valid_repo(tmp_path)
+
+    assert lineage.validate_migration_ledgers_append_only(tmp_path, base_sha) == []
+
+
+def test_append_only_validation_rejects_unresolvable_base_ref(tmp_path: Path) -> None:
+    build_valid_repo(tmp_path)
+    initialize_git_fixture(tmp_path)
+
+    errors = lineage.validate_migration_ledgers_append_only(
+        tmp_path,
+        "missing-base-ref",
+    )
+
+    assert any(
+        "cannot resolve append-only migration validation base" in error
+        for error in errors
+    )
 
 
 def test_sparse_historical_artifacts_are_read_from_head(tmp_path: Path) -> None:
@@ -1122,7 +1338,7 @@ def test_migration_tip_must_pin_current_contract(tmp_path: Path) -> None:
     path = tmp_path / lineage.MIGRATIONS_PATH
     columns, rows = lineage._read_artifact(path)
     hashes = rows[-1]["new_contract_sha256s"].split(";")
-    hashes[2] = "0" * 64
+    hashes[0] = "0" * 64
     rows[-1]["new_contract_sha256s"] = ";".join(hashes)
     write_csv(path, columns, rows)
     errors = lineage.validate(tmp_path)

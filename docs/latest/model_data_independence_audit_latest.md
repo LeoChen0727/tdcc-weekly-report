@@ -1,7 +1,7 @@
 # 每日股票模型與資料獨立性稽核
 
-- 產生時間：`2026-07-20 01:40:20 Asia/Taipei`
-- 結果：`CONTAINED=27, DISCLOSED_NOT_INDEPENDENT=4, PASS=49`
+- 產生時間：`2026-07-20 03:55:49 Asia/Taipei`
+- 結果：`CONTAINED=27, DISCLOSED_NOT_INDEPENDENT=4, PASS=50`
 - 原則：新模型與新資料 family 預設獨立；跨模型共用商業語意必須先有使用者核准與 migration evidence。
 - `CONTAINED` 代表既有共用已被凍結與精確盤點，不代表已物理拆分。
 - `DISCLOSED_NOT_INDEPENDENT` 代表該 validator 只能做 implementation consistency，不得當成獨立模型正確性證據。
@@ -28,6 +28,7 @@
 | data_family_ownership | market_sentiment_context_history | PASS | approved_shared_objective | none |
 | data_family_ownership | daily_model_signal_snapshots | PASS | approved_shared_replay_read_only | none |
 | data_family_ownership | daily_all_candidates_snapshots | PASS | approved_shared_replay_read_only | none |
+| data_family_ownership | daily_model_snapshot_revision_manifest | PASS | approved_shared_replay_read_only | none |
 | data_family_ownership | daily_model_signal_background_feature_panel | PASS | approved_shared_objective | none |
 | data_family_ownership | daily_model_background_feature_catalog | PASS | approved_shared_objective | none |
 | data_family_ownership | monthly_revenue_history | PASS | approved_shared_objective | none |

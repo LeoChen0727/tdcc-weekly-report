@@ -105,6 +105,10 @@ def test_staged_path_allowlist_accepts_event_owned_formal_sync_outputs() -> None
             "output/latest/daily_candidate_model_signals_latest.csv",
             "output/history/daily_candidate_models/daily_candidate_model_signal_log.csv",
             "output/history/daily_model_snapshots/all_candidates_20260716.csv",
+            "output/history/daily_model_snapshots/data_freshness_20260716_r2.csv",
+            "output/history/daily_model_snapshots/daily_candidate_model_signals_for_report_20260716_r2.csv",
+            "output/history/daily_model_snapshots/all_candidates_20260716_r2.csv",
+            "output/history/daily_model_snapshots/daily_candidate_model_summary_for_report_20260716_r2.csv",
             "docs/latest/daily_candidate_model_signals_latest.csv",
         ]
     ) == []

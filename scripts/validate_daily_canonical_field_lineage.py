@@ -14,6 +14,7 @@ from decimal import Decimal, InvalidOperation
 from pathlib import Path
 from typing import Iterable
 
+from daily_snapshot_revision_utils import select_latest_snapshot_revisions
 
 ROOT = Path(__file__).resolve().parents[1]
 REGISTRY_PATH = Path("config/daily_model_canonical_field_lineage_registry.csv")
@@ -135,6 +136,24 @@ COLLISION_MIGRATION_COLUMNS = (
     "notes",
 )
 
+APPEND_ONLY_MIGRATION_LEDGERS = (
+    (
+        MIGRATIONS_PATH,
+        MIGRATION_COLUMNS,
+        "daily canonical field lineage migrations",
+    ),
+    (
+        CONSUMER_EXCLUSION_MIGRATIONS_PATH,
+        CONSUMER_EXCLUSION_MIGRATION_COLUMNS,
+        "daily canonical field consumer exclusion migrations",
+    ),
+    (
+        COLLISION_MIGRATIONS_PATH,
+        COLLISION_MIGRATION_COLUMNS,
+        "daily volume-v2 dispatcher collision migrations",
+    ),
+)
+
 FIELD_NAME = "warrant_flow_signal"
 CURRENT_FAMILY = "volume_v2_warrant_current"
 HISTORY_FAMILY = "volume_v2_warrant_history"
@@ -145,10 +164,20 @@ CONSUMER_EXCLUSION_MIGRATION_STATUS = "validated_user_approved_migration"
 CONSUMER_EXCLUSION_APPROVAL_REFERENCE = (
     "user_requested_formal_lineage_hardening_20260718"
 )
+SNAPSHOT_REVISION_LINEAGE_APPROVAL_REFERENCE = (
+    "user_selected_option_1_daily_snapshot_revision_lineage_20260720"
+)
+CONSUMER_EXCLUSION_APPROVAL_REFERENCES = frozenset(
+    {
+        CONSUMER_EXCLUSION_APPROVAL_REFERENCE,
+        SNAPSHOT_REVISION_LINEAGE_APPROVAL_REFERENCE,
+    }
+)
 CONSUMER_EXCLUSION_CLASSIFICATIONS = frozenset(
     {
         "cross_artifact_literal",
         "forbidden_field_guard",
+        "hash_lineage_proof_only",
         "model_scope_mismatch",
         "no_direct_field_read",
         "routing_metadata_only",
@@ -487,6 +516,211 @@ def _strict_csv_rows(
     return rows
 
 
+def _migration_ledger_records(
+    payload: bytes,
+    *,
+    expected_columns: tuple[str, ...],
+    source: str,
+) -> tuple[list[tuple[bytes, ...]], list[str]]:
+    try:
+        text = payload.decode("utf-8-sig")
+    except UnicodeDecodeError as exc:
+        return [], [f"{source}: migration ledger is not valid UTF-8: {exc}"]
+    try:
+        parsed = list(csv.reader(io.StringIO(text, newline="")))
+    except csv.Error as exc:
+        return [], [f"{source}: migration ledger cannot be parsed: {exc}"]
+    if not parsed:
+        return [], [f"{source}: migration ledger is empty"]
+    header = tuple(parsed[0])
+    if header != expected_columns:
+        return [], [
+            f"{source}: migration ledger schema drift: "
+            f"expected={expected_columns!r} actual={header!r}"
+        ]
+    records: list[tuple[bytes, ...]] = []
+    errors: list[str] = []
+    for line_number, values in enumerate(parsed[1:], start=2):
+        if len(values) != len(header):
+            errors.append(
+                f"{source}: migration ledger row {line_number} field count "
+                f"{len(values)} does not match header count {len(header)}"
+            )
+            continue
+        records.append(tuple(value.encode("utf-8") for value in values))
+    return records, errors
+
+
+def _run_git(
+    root: Path,
+    args: list[str],
+    *,
+    operation: str,
+) -> tuple[subprocess.CompletedProcess[bytes] | None, list[str]]:
+    try:
+        result = subprocess.run(
+            ["git", *args],
+            cwd=root,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            check=False,
+            timeout=15,
+        )
+    except (OSError, subprocess.TimeoutExpired) as exc:
+        return None, [f"cannot {operation}: {exc}"]
+    return result, []
+
+
+def _validate_append_only_base(root: Path, base_ref: str) -> list[str]:
+    if not base_ref.strip():
+        return ["append-only migration validation base ref is blank"]
+    result, errors = _run_git(
+        root,
+        ["cat-file", "-e", f"{base_ref}^{{commit}}"],
+        operation=f"resolve append-only migration validation base {base_ref!r}",
+    )
+    if errors:
+        return errors
+    assert result is not None
+    if result.returncode != 0:
+        detail = result.stderr.decode("utf-8", errors="replace").strip()
+        return [
+            f"cannot resolve append-only migration validation base {base_ref!r}"
+            + (f": {detail}" if detail else "")
+        ]
+    result, errors = _run_git(
+        root,
+        ["merge-base", "--is-ancestor", base_ref, "HEAD"],
+        operation=(
+            f"verify append-only migration validation base {base_ref!r} "
+            "is an ancestor of HEAD"
+        ),
+    )
+    if errors:
+        return errors
+    assert result is not None
+    if result.returncode != 0:
+        return [
+            f"append-only migration validation base {base_ref!r} "
+            "is not an ancestor of HEAD"
+        ]
+    return []
+
+
+def _validate_migration_ledger_append_only(
+    root: Path,
+    base_ref: str,
+    relative_path: Path,
+    expected_columns: tuple[str, ...],
+    label: str,
+) -> list[str]:
+    path = root / relative_path
+    if not path.is_file():
+        return [f"missing {label}: {relative_path.as_posix()}"]
+    current_bytes = path.read_bytes()
+    current_records, errors = _migration_ledger_records(
+        current_bytes,
+        expected_columns=expected_columns,
+        source=f"current worktree {relative_path.as_posix()}",
+    )
+    if errors:
+        return errors
+
+    relative = relative_path.as_posix()
+    tree_result, git_errors = _run_git(
+        root,
+        ["ls-tree", "-z", "--full-tree", base_ref, "--", relative],
+        operation=f"inspect base migration ledger {base_ref}:{relative}",
+    )
+    if git_errors:
+        return git_errors
+    assert tree_result is not None
+    if tree_result.returncode != 0:
+        detail = tree_result.stderr.decode("utf-8", errors="replace").strip()
+        return [
+            f"cannot inspect base migration ledger {base_ref}:{relative}"
+            + (f": {detail}" if detail else "")
+        ]
+    if not tree_result.stdout:
+        # The base commit is already proven to exist and to be an ancestor of
+        # HEAD.  An empty ls-tree result therefore means this ledger was not
+        # yet present in that real repository history, not that Git lookup
+        # failed.  There are no base rows to preserve in this one case.
+        return []
+
+    show_result, git_errors = _run_git(
+        root,
+        ["show", f"{base_ref}:{relative}"],
+        operation=f"read base migration ledger {base_ref}:{relative}",
+    )
+    if git_errors:
+        return git_errors
+    assert show_result is not None
+    if show_result.returncode != 0:
+        detail = show_result.stderr.decode("utf-8", errors="replace").strip()
+        return [
+            f"cannot read base migration ledger {base_ref}:{relative}"
+            + (f": {detail}" if detail else "")
+        ]
+    base_bytes = show_result.stdout
+    base_records, base_errors = _migration_ledger_records(
+        base_bytes,
+        expected_columns=expected_columns,
+        source=f"base_ref {base_ref}:{relative}",
+    )
+    errors.extend(base_errors)
+    if errors:
+        return errors
+
+    normalized_base = base_bytes.replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+    normalized_current = current_bytes.replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+    if not normalized_current.startswith(normalized_base):
+        errors.append(
+            f"{relative} is append-only: base CSV bytes are not an exact "
+            "current prefix after line-ending normalization"
+        )
+    if len(current_records) < len(base_records):
+        errors.append(
+            f"{relative} is append-only: current row count {len(current_records)} "
+            f"deleted base rows from {len(base_records)}"
+        )
+        return errors
+    for offset, base_record in enumerate(base_records):
+        current_record = current_records[offset]
+        if current_record == base_record:
+            continue
+        base_id = base_record[0].decode("utf-8", errors="replace") if base_record else ""
+        current_id = (
+            current_record[0].decode("utf-8", errors="replace")
+            if current_record
+            else ""
+        )
+        errors.append(
+            f"{relative} is append-only: base row {offset + 2} is not an exact "
+            f"current row prefix (base migration_id={base_id!r}, "
+            f"current migration_id={current_id!r})"
+        )
+    return errors
+
+
+def validate_migration_ledgers_append_only(root: Path, base_ref: str) -> list[str]:
+    root = root.resolve()
+    errors = _validate_append_only_base(root, base_ref)
+    if errors:
+        return errors
+    for relative_path, expected_columns, label in APPEND_ONLY_MIGRATION_LEDGERS:
+        errors.extend(
+            _validate_migration_ledger_append_only(
+                root,
+                base_ref,
+                relative_path,
+                expected_columns,
+                label,
+            )
+        )
+    return errors
+
+
 def _artifact_paths(root: Path, pattern: str) -> list[Path]:
     paths: set[Path] = set()
     if "*" not in pattern and "?" not in pattern and "[" not in pattern:
@@ -778,7 +1012,7 @@ def _validate_consumer_exclusions(
                 "canonical consumer exclusion masks a registered consumer: "
                 f"{exclusion_id}:{module}"
             )
-        if row["approval_reference"] != CONSUMER_EXCLUSION_APPROVAL_REFERENCE:
+        if row["approval_reference"] not in CONSUMER_EXCLUSION_APPROVAL_REFERENCES:
             errors.append(
                 f"canonical consumer exclusion approval mismatch: {exclusion_id}"
             )
@@ -921,7 +1155,7 @@ def _validate_consumer_exclusion_migrations(
             )
         if (
             migration["user_approval_reference"]
-            != CONSUMER_EXCLUSION_APPROVAL_REFERENCE
+            not in CONSUMER_EXCLUSION_APPROVAL_REFERENCES
         ):
             errors.append(
                 f"canonical consumer exclusion migration approval mismatch: {migration_id}"
@@ -2198,16 +2432,27 @@ def _dated_files(root: Path, pattern: str) -> dict[str, Path]:
     return result
 
 
+def _manifest_dated_files(root: Path, artifact_id: str) -> dict[str, Path]:
+    snapshot_dir = root / "output" / "history" / "daily_model_snapshots"
+    return {
+        snapshot.report_date: snapshot.path
+        for snapshot in select_latest_snapshot_revisions(
+            snapshot_dir,
+            artifact_id,
+            repository_root=root,
+            payload_loader=lambda path: _artifact_payload(path, root),
+        )
+    }
+
+
 def _validate_historical_projection(root: Path) -> list[str]:
     official = _dated_files(root, "output/history/warrant_flow/warrant_flow_*.csv")
-    candidates = _dated_files(
-        root, "output/history/daily_model_snapshots/all_candidates_*.csv"
-    )
-    reports = _dated_files(
-        root,
-        "output/history/daily_model_snapshots/daily_candidate_model_signals_for_report_*.csv",
-    )
     errors: list[str] = []
+    try:
+        candidates = _manifest_dated_files(root, "all_candidates_source_rows")
+        reports = _manifest_dated_files(root, "model_signals_for_report")
+    except RuntimeError as exc:
+        return [f"historical parity cannot select manifest revisions: {exc}"]
     if not reports:
         return ["historical parity has no formal report snapshots"]
 
@@ -2262,9 +2507,11 @@ def _validate_historical_projection(root: Path) -> list[str]:
     return errors
 
 
-def validate(root: Path = ROOT) -> list[str]:
+def validate(root: Path = ROOT, *, base_ref: str | None = None) -> list[str]:
     root = root.resolve()
     errors: list[str] = []
+    if base_ref is not None:
+        errors.extend(validate_migration_ledgers_append_only(root, base_ref))
     registry_rows = _strict_csv_rows(root / REGISTRY_PATH, REGISTRY_COLUMNS, errors)
     migration_rows = _strict_csv_rows(root / MIGRATIONS_PATH, MIGRATION_COLUMNS, errors)
     consumer_exclusion_rows = _strict_csv_rows(
@@ -2329,8 +2576,16 @@ def main() -> int:
         )
     )
     parser.add_argument("--repo-root", type=Path, default=ROOT)
+    parser.add_argument(
+        "--base-ref",
+        default=None,
+        help=(
+            "Git base commit/ref whose three migration ledgers must remain an "
+            "exact append-only prefix"
+        ),
+    )
     args = parser.parse_args()
-    errors = validate(args.repo_root)
+    errors = validate(args.repo_root, base_ref=args.base_ref)
     if errors:
         for error in errors:
             print(f"ERROR: {error}")

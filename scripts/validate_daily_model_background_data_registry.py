@@ -59,6 +59,7 @@ REQUIRED_FAMILIES = {
     "market_index_history",
     "daily_model_signal_snapshots",
     "daily_all_candidates_snapshots",
+    "daily_model_snapshot_revision_manifest",
     "daily_model_signal_background_feature_panel",
     "daily_model_background_feature_catalog",
     "monthly_revenue_history",

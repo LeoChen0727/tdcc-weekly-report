@@ -17,6 +17,10 @@ from build_daily_candidate_model_layer import (  # noqa: E402
     price_history_for_stock,
     normalize_code,
 )
+from daily_snapshot_revision_utils import (  # noqa: E402
+    SnapshotRevision,
+    select_latest_snapshot_revisions,
+)
 from tracking_utils import markdown_table, read_csv, safe_str, write_csv  # noqa: E402
 
 
@@ -376,14 +380,15 @@ def daily_model_signal_rows(signals: pd.DataFrame, config: ModelConfig, report_d
     return rows.sort_values(["_display_order", "stock_id"]).drop(columns=["_display_order"], errors="ignore")
 
 
-def signal_snapshot_paths(report_date: str) -> list[Path]:
-    report_date = normalize_date_text(report_date)
-    out: list[Path] = []
-    for path in sorted(MODEL_SNAPSHOT_DIR.glob("daily_candidate_model_signals_for_report_*.csv")):
-        snapshot_date = normalize_date_text(path.stem.rsplit("_", 1)[-1])
-        if snapshot_date and (not report_date or snapshot_date <= report_date):
-            out.append(path)
-    return out
+def signal_snapshot_paths(report_date: str) -> list[SnapshotRevision]:
+    return list(
+        select_latest_snapshot_revisions(
+            MODEL_SNAPSHOT_DIR,
+            "model_signals_for_report",
+            through_date=normalize_date_text(report_date),
+            repository_root=ROOT,
+        )
+    )
 
 
 def collapse_signal_history_rows(frame: pd.DataFrame) -> pd.DataFrame:
@@ -430,14 +435,14 @@ def load_signal_history(current_signals: pd.DataFrame, config: ModelConfig, repo
             signal_log["_source_priority"] = 1
             frames.append(signal_log)
 
-    for path in signal_snapshot_paths(report_date):
-        frame = read_csv(path, dtype=str).fillna("")
+    for snapshot in signal_snapshot_paths(report_date):
+        frame = read_csv(snapshot.path, dtype=str).fillna("")
         if frame.empty or "model_id" not in frame.columns:
             continue
         frame = frame[frame["model_id"].astype(str).str.strip().eq(config.model_id)].copy()
         if frame.empty:
             continue
-        frame["snapshot_report_date"] = normalize_date_text(path.stem.rsplit("_", 1)[-1])
+        frame["snapshot_report_date"] = snapshot.report_date
         frame["_source_priority"] = 2
         frames.append(frame)
 

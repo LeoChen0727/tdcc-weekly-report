@@ -10,6 +10,7 @@ import pandas as pd
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from tracking_utils import DOCS_LATEST_DIR, RESEARCH_LATEST_DIR, markdown_table, normalize_code, normalize_date, now_text, write_csv  # noqa: E402
+from daily_snapshot_revision_utils import select_latest_snapshot_revisions  # noqa: E402
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -140,19 +141,27 @@ def load_history(path: Path = HISTORY_CSV) -> pd.DataFrame:
     return history.sort_values(["stock_id", "source_table_date", "revenue_period"]).reset_index(drop=True)
 
 
-def load_signal_rows() -> tuple[pd.DataFrame, str]:
+def load_signal_rows(
+    snapshot_dir: Path = SNAPSHOT_DIR,
+    repository_root: Path = ROOT,
+) -> tuple[pd.DataFrame, str]:
     if SIGNAL_LOG_CSV.exists():
         df = read_csv(SIGNAL_LOG_CSV)
         source = rel_to_root(SIGNAL_LOG_CSV)
     else:
         frames: list[pd.DataFrame] = []
-        for path in sorted(SNAPSHOT_DIR.glob("daily_candidate_model_signals_for_report_*.csv")):
-            frame = read_csv(path)
+        snapshots = select_latest_snapshot_revisions(
+            snapshot_dir,
+            "model_signals_for_report",
+            repository_root=repository_root,
+        )
+        for snapshot in snapshots:
+            frame = read_csv(snapshot.path)
             if not frame.empty:
-                frame["source_snapshot_file"] = rel_to_root(path)
+                frame["source_snapshot_file"] = rel_to_root(snapshot.path)
                 frames.append(frame)
         df = pd.concat(frames, ignore_index=True, sort=False) if frames else pd.DataFrame()
-        source = rel_to_root(SNAPSHOT_DIR / "daily_candidate_model_signals_for_report_*.csv")
+        source = rel_to_root(snapshot_dir / "daily_published_model_snapshot_manifest.csv")
     for col in ["signal_date", "model_id", "stock_id", "stock_name"]:
         if col not in df.columns:
             df[col] = ""

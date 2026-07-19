@@ -25,6 +25,19 @@ def test_daily_model_background_data_registry_passes() -> None:
     assert validate_registry(registry_rows()) == []
 
 
+def test_snapshot_revision_manifest_is_a_required_background_data_family() -> None:
+    rows = [
+        row
+        for row in registry_rows()
+        if row["data_family_id"] != "daily_model_snapshot_revision_manifest"
+    ]
+
+    errors = validate_registry(rows)
+
+    assert any("registry missing required background data families" in error for error in errors)
+    assert any("daily_model_snapshot_revision_manifest" in error for error in errors)
+
+
 def test_model_specific_family_cannot_be_all_models() -> None:
     rows = deepcopy(registry_rows())
     for row in rows:

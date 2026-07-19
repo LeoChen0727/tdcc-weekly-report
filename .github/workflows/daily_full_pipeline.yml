@@ -691,13 +691,32 @@ jobs:
         run: |
           python scripts/build_daily_candidate_model_layer.py
           python scripts/validate_daily_candidate_model_layer.py
+
+      - name: Publish and validate volume v2 audit-source snapshots
+        run: |
+          python scripts/update_daily_published_model_snapshots.py \
+            --artifact-id model_signals_for_report \
+            --artifact-id all_candidates_source_rows \
+            --revision-reason daily_full_volume_v2_audit_sources
+          python scripts/validate_daily_published_model_snapshots.py \
+            --artifact-id model_signals_for_report \
+            --artifact-id all_candidates_source_rows
           python scripts/validate_daily_canonical_field_lineage.py
+
+      - name: Build volume v2 lineage audit from published snapshots
+        run: |
           python scripts/build_volume_v2_warrant_lineage_history_audit.py
           python scripts/validate_volume_v2_warrant_lineage_history_audit.py
-          python scripts/validate_revenue_unreacted_range_financial_statement_fail_closed.py
-          python scripts/build_daily_report_model_summary.py
+
+      - name: Build volume v2 formal operation adapter
+        run: |
           python scripts/build_daily_volume_breakout_operation_section.py
           python scripts/validate_daily_volume_breakout_operation_section.py --output-only
+
+      - name: Build remaining daily model artifacts
+        run: |
+          python scripts/validate_revenue_unreacted_range_financial_statement_fail_closed.py
+          python scripts/build_daily_report_model_summary.py
           python scripts/validate_daily_legacy_volume_range_breakout_removed.py
           python scripts/validate_daily_legacy_mature_model_paths_removed.py
           python scripts/build_daily_w_bottom_operation_sections.py
@@ -794,12 +813,20 @@ jobs:
         run: |
           python build_chatgpt_daily_report_rules.py
 
-      - name: Publish daily model snapshots
+      - name: Publish and validate post-audit daily model snapshots
         run: |
-          python scripts/update_daily_published_model_snapshots.py
+          python scripts/update_daily_published_model_snapshots.py \
+            --artifact-id data_freshness \
+            --artifact-id model_summary_for_report \
+            --artifact-id model_registry \
+            --artifact-id model_parameters \
+            --artifact-id volume_breakout_operation_section \
+            --artifact-id volume_breakout_operation_evidence_audit \
+            --artifact-id w_bottom_right_side_operation_section \
+            --artifact-id neckline_volume_breakout_confirmation_operation_section \
+            --revision-reason daily_full_post_audit_artifacts
           python scripts/validate_daily_published_model_snapshots.py
           python scripts/validate_daily_canonical_field_lineage.py
-          python scripts/build_volume_v2_warrant_lineage_history_audit.py
           python scripts/validate_volume_v2_warrant_lineage_history_audit.py
 
       - name: Build monthly revenue coverage/backfill audit
@@ -892,6 +919,12 @@ jobs:
           git pull --rebase --autostash origin "$TARGET_BRANCH"
           python scripts/validate_no_conflict_markers.py
 
+          snapshot_report_date="$(python -c 'import re; import pandas as pd; print(re.sub(r"[^0-9]", "", str(pd.read_csv("output/latest/data_freshness_latest.csv", dtype=str).iloc[0]["main_price_date"])))')"
+          if [[ ! "$snapshot_report_date" =~ ^[0-9]{8}$ ]]; then
+            echo "Invalid snapshot report date: $snapshot_report_date" >&2
+            exit 1
+          fi
+
           # Daily pipeline only stages daily report outputs and source data.
           # Heavy research/backtest outputs are maintained by research_backtest_pipeline.yml.
           git add data/daily_price/ data/stock_price_history/ || true
@@ -929,7 +962,18 @@ jobs:
           git add output/history/daily_candidate_models/ || true
           git add output/history/daily_signals/daily_candidate_signal_log.csv || true
           git add output/history/daily_signals/daily_theme_status_history.csv || true
-          git add output/history/daily_model_snapshots/ || true
+          python scripts/stage_daily_published_snapshot_revisions.py \
+            --report-date "$snapshot_report_date" \
+            --artifact-id data_freshness \
+            --artifact-id model_signals_for_report \
+            --artifact-id all_candidates_source_rows \
+            --artifact-id model_summary_for_report \
+            --artifact-id model_registry \
+            --artifact-id model_parameters \
+            --artifact-id volume_breakout_operation_section \
+            --artifact-id volume_breakout_operation_evidence_audit \
+            --artifact-id w_bottom_right_side_operation_section \
+            --artifact-id neckline_volume_breakout_confirmation_operation_section
           git add output/history/daily_candidates/daily_theme_status_history.csv || true
           git add output/history/market_risk/ || true
 

@@ -12,6 +12,10 @@ import pandas as pd
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from build_daily_candidate_model_layer import price_history_for_stock  # noqa: E402
+from daily_snapshot_revision_utils import (  # noqa: E402
+    SnapshotRevision,
+    select_latest_snapshot_revisions,
+)
 from tracking_utils import DOCS_LATEST_DIR, LATEST_DIR, markdown_table, normalize_code, read_csv, safe_str, to_number, write_csv  # noqa: E402
 
 
@@ -296,13 +300,15 @@ def daily_model_signal_rows(signals: pd.DataFrame, report_date: str) -> pd.DataF
     return rows.reset_index(drop=True)
 
 
-def signal_snapshot_paths(report_date: str) -> list[Path]:
-    out: list[Path] = []
-    for path in sorted(MODEL_SNAPSHOT_DIR.glob("daily_candidate_model_signals_for_report_*.csv")):
-        snapshot_date = compact_date(path.stem.rsplit("_", 1)[-1])
-        if snapshot_date and snapshot_date <= report_date:
-            out.append(path)
-    return out
+def signal_snapshot_paths(report_date: str) -> list[SnapshotRevision]:
+    return list(
+        select_latest_snapshot_revisions(
+            MODEL_SNAPSHOT_DIR,
+            "model_signals_for_report",
+            through_date=compact_date(report_date),
+            repository_root=ROOT,
+        )
+    )
 
 
 def load_signal_history(current_signals: pd.DataFrame, report_date: str) -> pd.DataFrame:
@@ -315,8 +321,8 @@ def load_signal_history(current_signals: pd.DataFrame, report_date: str) -> pd.D
         if not part.empty:
             part["_source_priority"] = 1
             frames.append(part)
-    for path in signal_snapshot_paths(report_date):
-        frame = read_csv(path, dtype=str).fillna("")
+    for snapshot in signal_snapshot_paths(report_date):
+        frame = read_csv(snapshot.path, dtype=str).fillna("")
         if frame.empty or "model_id" not in frame.columns:
             continue
         frame = frame[frame["model_id"].astype(str).eq(MODEL_ID)].copy()

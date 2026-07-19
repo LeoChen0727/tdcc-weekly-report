@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from pathlib import Path
+import subprocess
 import sys
 
 import pandas as pd
@@ -19,10 +20,21 @@ def write_csv(path: Path, rows: list[dict[str, str]]) -> None:
     pd.DataFrame(rows).to_csv(path, index=False, encoding="utf-8", lineterminator="\n")
 
 
-def manifest_row(report_date: str, artifact_id: str, snapshot_path: Path) -> dict[str, str]:
+def manifest_row(
+    report_date: str,
+    artifact_id: str,
+    snapshot_path: Path,
+    *,
+    snapshot_revision: str = "r1",
+    supersedes_snapshot_sha256: str = "",
+    revision_reason: str = "legacy_v1_manifest",
+) -> dict[str, str]:
     df = pd.read_csv(snapshot_path, dtype=str)
     return {
         "snapshot_report_date": report_date,
+        "snapshot_revision": snapshot_revision,
+        "supersedes_snapshot_sha256": supersedes_snapshot_sha256,
+        "revision_reason": revision_reason,
         "generated_at": "2026-06-16 18:00:00 Asia/Taipei",
         "pipeline_commit_sha": "test-sha",
         "main_price_date": report_date,
@@ -51,24 +63,109 @@ def lineage_audit_row(
     disposition: str = "verified_clean",
     evidence_status: str = "complete",
     paired_source_resolution: str = "current_worktree_exact_source_files",
+    historical_promotion_evidence_eligible: str = "True",
 ) -> dict[str, str]:
     values = formal_row.to_dict() if isinstance(formal_row, pd.Series) else dict(formal_row)
     signal_date = str(values.get("signal_date", ""))
+    audit_promotion_eligible = (
+        historical_promotion_evidence_eligible == "True"
+        and disposition == "verified_clean"
+        and evidence_status == "complete"
+    )
     return {
+        "audit_version": builder.VOLUME_V2_LINEAGE_AUDIT_VERSION,
+        "audit_row_type": "formal_row",
         "snapshot_report_date": signal_date,
+        "snapshot_revision": "r1",
         "signal_date": signal_date,
         "model_id": str(values.get("model_id", "")),
         "stock_id": str(values.get("stock_id", "")),
         "formal_row_sha256": builder.canonical_row_sha256(values),
         "formal_snapshot_sha256": builder.canonical_text_sha256(formal_snapshot_path),
+        "formal_snapshot_path": formal_snapshot_path.as_posix(),
         "paired_source_resolution": paired_source_resolution,
         "production_code_sha256": "1" * 64,
         "watch_artifact_sha256": "2" * 64,
+        "watch_artifact_path": "output/latest/volume_breakout_watch_latest.csv",
         "candidate_artifact_sha256": "3" * 64,
+        "candidate_artifact_path": "output/latest/all_candidates_latest.csv",
         "official_warrant_artifact_sha256": "4" * 64,
+        "official_warrant_artifact_path": "output/latest/warrant_flow_latest.csv",
         "formal_row_disposition": disposition,
         "evidence_status": evidence_status,
+        "legacy_precontract_revision_history_status": (
+            "complete"
+            if historical_promotion_evidence_eligible == "True"
+            else "incomplete_fail_closed"
+        ),
+        "historical_promotion_evidence_eligible": (
+            "True" if audit_promotion_eligible else "False"
+        ),
+        "snapshot_commit_sha": "a" * 40,
+        "paired_source_commit_sha": "b" * 40,
     }
+
+
+def materialize_lineage_git_proof(
+    tmp_path: Path,
+    formal_snapshot_path: Path,
+    lineage_path: Path,
+) -> Path:
+    repository = tmp_path / "lineage_git"
+    snapshot_relative = (
+        Path("output/history/daily_model_snapshots") / formal_snapshot_path.name
+    )
+    paired_files = {
+        snapshot_relative: formal_snapshot_path.read_bytes(),
+        Path("output/latest/daily_candidate_model_signals_for_report_latest.csv"): (
+            formal_snapshot_path.read_bytes()
+        ),
+        Path("scripts/build_daily_candidate_model_layer.py"): b"VALUE = 1\n",
+        Path("output/latest/volume_breakout_watch_latest.csv"): b"stock_id\n1234\n",
+        Path("output/latest/all_candidates_latest.csv"): b"stock_id\n1234\n",
+        Path("output/latest/warrant_flow_latest.csv"): b"stock_id\n1234\n",
+    }
+    for relative_path, payload in paired_files.items():
+        target = repository / relative_path
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_bytes(payload)
+    for command in (
+        ["git", "init", "-q"],
+        ["git", "config", "user.email", "test@example.com"],
+        ["git", "config", "user.name", "Test User"],
+        ["git", "add", "."],
+        ["git", "commit", "-q", "-m", "fixture"],
+    ):
+        subprocess.run(command, cwd=repository, check=True)
+    commit_sha = subprocess.run(
+        ["git", "rev-parse", "HEAD"],
+        cwd=repository,
+        check=True,
+        stdout=subprocess.PIPE,
+        text=True,
+    ).stdout.strip()
+    audit = pd.read_csv(lineage_path, dtype=str, keep_default_na=False)
+    audit["formal_snapshot_path"] = snapshot_relative.as_posix()
+    audit["snapshot_commit_sha"] = commit_sha
+    audit["paired_source_commit_sha"] = commit_sha
+    hash_sources = {
+        "production_code_sha256": (
+            repository / "scripts/build_daily_candidate_model_layer.py"
+        ),
+        "watch_artifact_sha256": (
+            repository / "output/latest/volume_breakout_watch_latest.csv"
+        ),
+        "candidate_artifact_sha256": (
+            repository / "output/latest/all_candidates_latest.csv"
+        ),
+        "official_warrant_artifact_sha256": (
+            repository / "output/latest/warrant_flow_latest.csv"
+        ),
+    }
+    for column, path in hash_sources.items():
+        audit[column] = builder.canonical_text_sha256(path)
+    audit.to_csv(lineage_path, index=False, encoding="utf-8", lineterminator="\n")
+    return repository
 
 
 def formal_snapshot_index_for(
@@ -228,6 +325,10 @@ def test_published_snapshot_ranking_backtest_uses_date_stamped_snapshots(tmp_pat
     assert set(model_events["mainstream_segment"]) == {"mainstream", "non_mainstream"}
     assert set(model_events["score_decile"]) == {"score_90_100", "score_70_80"}
     assert set(model_events["rank_bucket"]) == {"rank_001_005", "rank_011_020"}
+    assert set(events["snapshot_revision"]) == {"r1"}
+    assert set(events["snapshot_revision_policy"]) == {
+        builder.SNAPSHOT_REVISION_POLICY
+    }
     assert set(model_events["ranking_evaluation_eligible"]) == {"True"}
     assert set(model_events["trade_eligible"]) == {"False"}
 
@@ -242,6 +343,169 @@ def test_published_snapshot_ranking_backtest_uses_date_stamped_snapshots(tmp_pat
     volume_sections = summary[summary["segment_type"].eq("volume_operation_section")]
     assert "volume_range_breakout|active_operation" in set(volume_sections["segment_value"])
     assert set(summary["advisory_only"]) == {"True"}
+
+
+@pytest.mark.parametrize(
+    "present_revision_columns",
+    [
+        ("snapshot_revision",),
+        ("supersedes_snapshot_sha256",),
+        ("revision_reason",),
+        ("snapshot_revision", "supersedes_snapshot_sha256"),
+        ("snapshot_revision", "revision_reason"),
+        ("supersedes_snapshot_sha256", "revision_reason"),
+    ],
+)
+def test_ranking_builder_and_validator_reject_partial_revision_schema(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    present_revision_columns: tuple[str, ...],
+) -> None:
+    manifest, snapshot_dir, _ = write_snapshot_fixture(tmp_path)
+    frame = pd.read_csv(manifest, dtype=str, keep_default_na=False)
+    revision_columns = {
+        "snapshot_revision",
+        "supersedes_snapshot_sha256",
+        "revision_reason",
+    }
+    frame = frame.drop(
+        columns=sorted(revision_columns - set(present_revision_columns))
+    )
+    frame.to_csv(manifest, index=False, encoding="utf-8", lineterminator="\n")
+
+    with pytest.raises(RuntimeError, match="partial revision schema"):
+        builder.load_manifest(manifest, snapshot_dir)
+
+    monkeypatch.setattr(validator, "MANIFEST_CSV", manifest)
+    monkeypatch.setattr(validator, "SNAPSHOT_DIR", snapshot_dir)
+    errors = validator.validate_manifest_source_contract()
+    assert any("partial revision schema" in error for error in errors)
+
+
+def test_ranking_builder_and_validator_reject_blank_modern_snapshot_revision(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    manifest, snapshot_dir, _ = write_snapshot_fixture(tmp_path)
+    frame = pd.read_csv(manifest, dtype=str, keep_default_na=False)
+    frame.loc[:, "snapshot_revision"] = ""
+    frame.to_csv(manifest, index=False, encoding="utf-8", lineterminator="\n")
+
+    with pytest.raises(RuntimeError, match="snapshot_revision must not be blank"):
+        builder.load_manifest(manifest, snapshot_dir)
+
+    monkeypatch.setattr(validator, "MANIFEST_CSV", manifest)
+    monkeypatch.setattr(validator, "SNAPSHOT_DIR", snapshot_dir)
+    errors = validator.validate_manifest_source_contract()
+    assert any("snapshot_revision must not be blank" in error for error in errors)
+
+
+def test_published_snapshot_ranking_backtest_selects_latest_same_date_revision(
+    tmp_path: Path,
+) -> None:
+    manifest, snapshot_dir, price_dir = write_snapshot_fixture(tmp_path)
+    report_date = "20260615"
+    r1_path = snapshot_dir / f"daily_candidate_model_signals_for_report_{report_date}.csv"
+    r2_path = snapshot_dir / (
+        f"daily_candidate_model_signals_for_report_{report_date}_r2_deadbeef0000.csv"
+    )
+    r2 = pd.read_csv(r1_path, dtype=str, keep_default_na=False)
+    r2.loc[r2["stock_id"].eq("1234"), "model_score"] = "55"
+    r2.to_csv(r2_path, index=False, encoding="utf-8", lineterminator="\n")
+    operation_path = snapshot_dir / f"daily_volume_breakout_operation_section_{report_date}.csv"
+    r1_manifest = manifest_row(report_date, "model_signals_for_report", r1_path)
+    write_csv(
+        manifest,
+        [
+            r1_manifest,
+            manifest_row(
+                report_date,
+                "model_signals_for_report",
+                r2_path,
+                snapshot_revision="r2",
+                supersedes_snapshot_sha256=r1_manifest["snapshot_sha256"],
+                revision_reason="warrant_formal_sync",
+            ),
+            manifest_row(
+                report_date,
+                "volume_breakout_operation_section",
+                operation_path,
+            ),
+        ],
+    )
+
+    _, events = builder.build_daily_published_snapshot_ranking_backtest(
+        manifest_path=manifest,
+        snapshot_root=snapshot_dir,
+        price_dir=price_dir,
+        generated_at="2026-06-16 19:00:00 Asia/Taipei",
+    )
+
+    model_events = events[events["source_artifact"].eq("model_signals_for_report")]
+    alpha = model_events[model_events["stock_id"].eq("1234")].iloc[0]
+    assert alpha["model_score"] == "55"
+    assert alpha["snapshot_revision"] == "r2"
+    assert len(model_events) == 2
+
+
+def test_formal_revision_binding_rejects_valid_older_audit_after_other_row_r2(
+    tmp_path: Path,
+) -> None:
+    manifest, snapshot_dir, price_dir = write_snapshot_fixture(tmp_path)
+    lineage_path = rewrite_fixture_volume_rows_as_v2(
+        manifest, snapshot_dir, first_disposition="verified_clean"
+    )
+    _, r1_events = builder.build_daily_published_snapshot_ranking_backtest(
+        manifest_path=manifest,
+        snapshot_root=snapshot_dir,
+        price_dir=price_dir,
+        lineage_audit_path=lineage_path,
+        generated_at="2026-06-16 18:00:00 Asia/Taipei",
+    )
+    report_date = "20260615"
+    r1_path = snapshot_dir / f"daily_candidate_model_signals_for_report_{report_date}.csv"
+    r2 = pd.read_csv(r1_path, dtype=str, keep_default_na=False)
+    r2.loc[r2["stock_id"].eq("1234"), "model_score"] = "51"
+    staged = tmp_path / "r2-staged.csv"
+    r2.to_csv(staged, index=False, encoding="utf-8", lineterminator="\n")
+    r2_sha = builder.canonical_text_sha256(staged)
+    r2_path = snapshot_dir / (
+        f"daily_candidate_model_signals_for_report_{report_date}_r2_{r2_sha[:12]}.csv"
+    )
+    r2_path.write_bytes(staged.read_bytes())
+    manifest_frame = pd.read_csv(manifest, dtype=str, keep_default_na=False)
+    r1_manifest = manifest_frame[
+        manifest_frame["artifact_id"].eq("model_signals_for_report")
+    ].iloc[0]
+    manifest_frame = pd.concat(
+        [
+            manifest_frame,
+            pd.DataFrame(
+                [
+                    manifest_row(
+                        report_date,
+                        "model_signals_for_report",
+                        r2_path,
+                        snapshot_revision="r2",
+                        supersedes_snapshot_sha256=str(r1_manifest["snapshot_sha256"]),
+                        revision_reason="same_date_other_row_correction",
+                    )
+                ]
+            ),
+        ],
+        ignore_index=True,
+    )
+    manifest_frame.to_csv(manifest, index=False, encoding="utf-8", lineterminator="\n")
+
+    errors = validator.validate_volume_v2_formal_revision_binding(
+        r1_events,
+        snapshot_dir=snapshot_dir,
+        manifest_path=manifest,
+        repository_root=tmp_path,
+    )
+
+    assert errors
+    assert any("manifest-max formal revision" in error for error in errors)
 
 
 def rewrite_fixture_volume_rows_as_v2(
@@ -326,6 +590,11 @@ def test_volume_v2_non_clean_events_are_retained_but_excluded_from_research_metr
         snapshot_dir,
         first_disposition="quarantined",
     )
+    proof_repository = materialize_lineage_git_proof(
+        tmp_path,
+        snapshot_dir / "daily_candidate_model_signals_for_report_20260615.csv",
+        lineage_path,
+    )
 
     summary, events = builder.build_daily_published_snapshot_ranking_backtest(
         manifest_path=manifest,
@@ -366,6 +635,65 @@ def test_volume_v2_non_clean_events_are_retained_but_excluded_from_research_metr
     assert int(model_signal_summary.iloc[0]["sample_size"]) == 1
     assert int(model_signal_summary.iloc[0]["lineage_excluded_count"]) == 1
     assert validator.validate_volume_v2_lineage(events) == []
+    volume_events = events[events["model_id"].isin(builder.VOLUME_V2_MODEL_IDS)]
+    assert set(volume_events["lineage_audit_source"]) == {
+        "output/latest/volume_v2_warrant_lineage_history_audit_latest.csv"
+    }
+    assert (
+        validator.validate_volume_v2_audit_binding(
+            events, lineage_path, repository_root=proof_repository
+        )
+        == []
+    )
+    assert (
+        validator.validate_events_against_published_snapshots(
+            events,
+            snapshot_dir=snapshot_dir,
+            manifest_path=manifest,
+            repository_root=tmp_path,
+        )
+        == []
+    )
+    assert (
+        validator.validate_volume_v2_formal_revision_binding(
+            events,
+            snapshot_dir=snapshot_dir,
+            manifest_path=manifest,
+            repository_root=tmp_path,
+        )
+        == []
+    )
+    assert validator.validate_summary_against_events(summary, events) == []
+
+    audit_without_non_clean_row = pd.read_csv(
+        lineage_path, dtype=str, keep_default_na=False
+    )
+    audit_without_non_clean_row = audit_without_non_clean_row[
+        ~(
+            audit_without_non_clean_row["audit_row_type"].eq("formal_row")
+            & audit_without_non_clean_row["stock_id"].eq("1234")
+        )
+    ]
+    audit_without_non_clean_path = tmp_path / "audit_without_non_clean_row.csv"
+    audit_without_non_clean_row.to_csv(
+        audit_without_non_clean_path,
+        index=False,
+        encoding="utf-8",
+        lineterminator="\n",
+    )
+    missing_non_clean_evidence = events.copy()
+    missing_non_clean_evidence.loc[
+        missing_non_clean_evidence["model_id"].isin(builder.VOLUME_V2_MODEL_IDS),
+        "lineage_audit_source_sha256",
+    ] = builder.sha256_file(audit_without_non_clean_path)
+    assert any(
+        "non-clean event does not join exactly one canonical audit row" in error
+        for error in validator.validate_volume_v2_audit_binding(
+            missing_non_clean_evidence,
+            audit_without_non_clean_path,
+            repository_root=proof_repository,
+        )
+    )
 
     invalid = events.copy()
     invalid.loc[
@@ -377,6 +705,201 @@ def test_volume_v2_non_clean_events_are_retained_but_excluded_from_research_metr
         for error in validator.validate_volume_v2_lineage(invalid)
     )
 
+    redirected = events.copy()
+    operation_target = redirected["source_artifact"].eq(
+        "volume_breakout_operation_section"
+    ) & redirected["stock_id"].eq("5678")
+    redirected.loc[operation_target, "lineage_signal_date"] = "20991231"
+    assert validator.validate_events_against_published_snapshots(
+        redirected,
+        snapshot_dir=snapshot_dir,
+        manifest_path=manifest,
+        repository_root=tmp_path,
+    )
+
+    duplicated = pd.concat([events, events.iloc[[0]]], ignore_index=True)
+    duplicate_errors = validator.validate_events_against_published_snapshots(
+        duplicated,
+        snapshot_dir=snapshot_dir,
+        manifest_path=manifest,
+        repository_root=tmp_path,
+    )
+    assert any("exactly one event" in error for error in duplicate_errors)
+
+    stale_revision = events.copy()
+    stale_revision.loc[
+        stale_revision["model_id"].isin(builder.VOLUME_V2_MODEL_IDS),
+        "lineage_formal_snapshot_revision",
+    ] = "r999"
+    assert validator.validate_volume_v2_formal_revision_binding(
+        stale_revision,
+        snapshot_dir=snapshot_dir,
+        manifest_path=manifest,
+        repository_root=tmp_path,
+    )
+
+    absolute_audit_source = events.copy()
+    absolute_audit_source.loc[
+        absolute_audit_source["model_id"].isin(builder.VOLUME_V2_MODEL_IDS),
+        "lineage_audit_source",
+    ] = lineage_path.resolve().as_posix()
+    assert any(
+        "not the canonical audit" in error
+        for error in validator.validate_volume_v2_audit_binding(
+            absolute_audit_source,
+            lineage_path,
+            repository_root=proof_repository,
+        )
+    )
+
+    backslash_audit_source = events.copy()
+    backslash_audit_source.loc[
+        backslash_audit_source["model_id"].isin(builder.VOLUME_V2_MODEL_IDS),
+        "lineage_audit_source",
+    ] = "output\\latest\\volume_v2_warrant_lineage_history_audit_latest.csv"
+    assert any(
+        "not the canonical audit" in error
+        for error in validator.validate_volume_v2_audit_binding(
+            backslash_audit_source,
+            lineage_path,
+            repository_root=proof_repository,
+        )
+    )
+
+    invalid_trade = events.copy()
+    active_index = invalid_trade[
+        invalid_trade["source_artifact"].eq("volume_breakout_operation_section")
+    ].index[0]
+    invalid_trade.loc[active_index, "operation_section"] = "active_operation"
+    invalid_trade.loc[active_index, "trade_eligible"] = "True"
+    assert any(
+        "complete confirmed-operation contract" in error
+        for error in validator.validate_events(invalid_trade)
+    )
+
+    confirmed_index = events[
+        events["source_artifact"].eq("volume_breakout_operation_section")
+        & events["trade_eligible"].eq("True")
+    ].index[0]
+    forged_action = events.copy()
+    forged_action.loc[confirmed_index, "row_action_status"] = "advisory_only"
+    assert any(
+        "complete confirmed-operation contract" in error
+        for error in validator.validate_events(forged_action)
+    )
+    assert any(
+        "independent operation and audit replay" in error
+        for error in validator.validate_volume_v2_audit_binding(
+            forged_action,
+            lineage_path,
+            repository_root=proof_repository,
+        )
+    )
+
+    suppressed_eligible_trade = events.copy()
+    suppressed_eligible_trade.loc[confirmed_index, "trade_eligible"] = "False"
+    assert any(
+        "complete confirmed-operation contract" in error
+        for error in validator.validate_events(suppressed_eligible_trade)
+    )
+    assert any(
+        "independent operation and audit replay" in error
+        for error in validator.validate_volume_v2_audit_binding(
+            suppressed_eligible_trade,
+            lineage_path,
+            repository_root=proof_repository,
+        )
+    )
+
+
+def test_independent_validator_rejects_forged_promotion_flags_and_hashes(
+    tmp_path: Path,
+) -> None:
+    manifest, snapshot_dir, price_dir = write_snapshot_fixture(tmp_path)
+    lineage_path = rewrite_fixture_volume_rows_as_v2(
+        manifest,
+        snapshot_dir,
+        first_disposition="verified_clean",
+    )
+    audit = pd.read_csv(lineage_path, dtype=str, keep_default_na=False)
+    audit.loc[audit["stock_id"].eq("1234"), [
+        "legacy_precontract_revision_history_status",
+        "historical_promotion_evidence_eligible",
+    ]] = ["incomplete_fail_closed", "False"]
+    audit.to_csv(lineage_path, index=False, encoding="utf-8", lineterminator="\n")
+    _, events = builder.build_daily_published_snapshot_ranking_backtest(
+        manifest_path=manifest,
+        snapshot_root=snapshot_dir,
+        price_dir=price_dir,
+        lineage_audit_path=lineage_path,
+        generated_at="2026-06-16 18:00:00 Asia/Taipei",
+    )
+    forged = events.copy()
+    target = forged["stock_id"].eq("1234") & forged["model_id"].isin(
+        builder.VOLUME_V2_MODEL_IDS
+    )
+    for column in (
+        "lineage_historical_promotion_evidence_eligible",
+        "summary_evidence_eligible",
+        "lineage_gate_pass_for_promotion_evidence",
+        "ranking_evaluation_eligible",
+    ):
+        forged.loc[target, column] = "True"
+    forged.loc[target, "lineage_audit_source_sha256"] = "f" * 64
+    forged.loc[target, "lineage_snapshot_commit_sha"] = "c" * 40
+    forged.loc[target, "lineage_paired_source_commit_sha"] = "d" * 40
+
+    errors = validator.validate_volume_v2_audit_binding(forged, lineage_path)
+
+    assert errors
+    assert any("actual audit" in error or "canonical audit" in error for error in errors)
+
+
+def test_independent_summary_replay_rejects_metric_tamper(tmp_path: Path) -> None:
+    manifest, snapshot_dir, price_dir = write_snapshot_fixture(tmp_path)
+    summary, events = builder.build_daily_published_snapshot_ranking_backtest(
+        manifest_path=manifest,
+        snapshot_root=snapshot_dir,
+        price_dir=price_dir,
+        generated_at="2026-06-16 18:00:00 Asia/Taipei",
+    )
+    assert validator.validate_summary_against_events(summary, events) == []
+    tampered = summary.astype(str).copy()
+    tampered.loc[0, "sample_size"] = "999"
+
+    errors = validator.validate_summary_against_events(tampered, events)
+
+    assert errors
+    assert "independent event replay" in errors[0]
+
+
+@pytest.mark.parametrize(
+    ("value", "prefix"),
+    [
+        (
+            "C:/evil/output/latest/warrant_flow_latest.csv",
+            "output/latest",
+        ),
+        (
+            "/tmp/repo/output/history/daily_model_snapshots/formal.csv",
+            "output/history/daily_model_snapshots",
+        ),
+        (
+            "output\\latest\\all_candidates_latest.csv",
+            "output/latest",
+        ),
+        (
+            "output/latest/../latest/warrant_flow_latest.csv",
+            "output/latest",
+        ),
+    ],
+)
+def test_repo_relative_audit_path_rejects_absolute_or_non_posix_identity(
+    value: str,
+    prefix: str,
+) -> None:
+    assert validator._repo_relative_audit_path(value, prefix) == ""
+
 
 @pytest.mark.parametrize(
     "paired_source_resolution",
@@ -384,6 +907,8 @@ def test_volume_v2_non_clean_events_are_retained_but_excluded_from_research_metr
         "current_worktree_exact_source_files",
         "manifest_pipeline_commit_exact_source_blob",
         "snapshot_history_exact_blob_fallback",
+        "manifest_history_first_exact_row_same_commit_sources",
+        "legacy_git_manifest_recovered_same_commit_exact_sources",
     ],
 )
 def test_volume_v2_verified_clean_requires_exact_current_or_history_row_hash(
@@ -429,6 +954,49 @@ def test_volume_v2_verified_clean_requires_exact_current_or_history_row_hash(
     assert payload["lineage_formal_row_sha256"] == payload["lineage_observed_formal_row_sha256"]
     assert payload["lineage_formal_snapshot_sha256"] == payload["lineage_observed_formal_snapshot_sha256"]
     assert payload["lineage_paired_source_resolution"] == paired_source_resolution
+
+
+def test_volume_v2_verified_clean_with_incomplete_precontract_history_is_not_promotion_evidence(
+    tmp_path: Path,
+) -> None:
+    formal_path = tmp_path / "formal.csv"
+    formal_row = {
+        "signal_date": "20260717",
+        "model_id": "volume_range_breakout_v2_high_position_volume_attack",
+        "stock_id": "6505",
+        "warrant_flow_signal": "call_inflow",
+        "final_rank_score": "80",
+        "model_rank": "1",
+    }
+    write_csv(formal_path, [formal_row])
+    lineage_path = tmp_path / "lineage.csv"
+    write_csv(
+        lineage_path,
+        [
+            lineage_audit_row(
+                formal_row,
+                formal_path,
+                historical_promotion_evidence_eligible="False",
+            )
+        ],
+    )
+    audit_index, audit_sha = builder.load_volume_v2_lineage_audit(lineage_path)
+
+    payload = builder.volume_v2_lineage_payload(
+        signal_date="20260717",
+        model_id=formal_row["model_id"],
+        stock_id="6505",
+        audit_index=audit_index,
+        formal_snapshot_index=formal_snapshot_index_for(formal_row, formal_path),
+        audit_path=lineage_path,
+        audit_sha256=audit_sha,
+    )
+
+    assert payload["lineage_gate_status"] == "verified_clean"
+    assert payload["lineage_formal_row_disposition"] == "verified_clean"
+    assert payload["lineage_historical_promotion_evidence_eligible"] == "False"
+    assert payload["summary_evidence_eligible"] == "False"
+    assert payload["lineage_gate_pass_for_promotion_evidence"] == "False"
 
 
 @pytest.mark.parametrize(

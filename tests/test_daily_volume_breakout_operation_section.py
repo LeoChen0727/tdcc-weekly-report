@@ -15,6 +15,7 @@ import build_volume_breakout_confirmed_operation_backtest as operation_backtest 
 import generate_chatgpt_side_daily_reports as pdf_generator  # noqa: E402
 import validate_daily_staged_paths as staged_path_validator  # noqa: E402
 import validate_daily_volume_breakout_operation_section as section_validator  # noqa: E402
+from daily_snapshot_revision_utils import snapshot_file_sha256  # noqa: E402
 
 LOW_VOLUME_MODEL_ID = "volume_range_breakout_v2_low_position_volume_attack"
 MID_VOLUME_MODEL_ID = "volume_range_breakout_v2_mid_position_momentum_attack"
@@ -350,6 +351,51 @@ def formal_summary(
     )
 
 
+def refresh_legacy_snapshot_manifest(snapshot_dir: Path) -> None:
+    specs = (
+        (
+            "daily_candidate_model_signals_for_report_*.csv",
+            "daily_candidate_model_signals_for_report_",
+            "model_signals_for_report",
+        ),
+        (
+            "daily_volume_breakout_operation_section_*.csv",
+            "daily_volume_breakout_operation_section_",
+            "volume_breakout_operation_section",
+        ),
+        (
+            "daily_volume_breakout_operation_evidence_audit_*.csv",
+            "daily_volume_breakout_operation_evidence_audit_",
+            "volume_breakout_operation_evidence_audit",
+        ),
+    )
+    rows: list[dict[str, str]] = []
+    for pattern, prefix, artifact_id in specs:
+        for path in sorted(snapshot_dir.glob(pattern)):
+            report_date = path.stem.removeprefix(prefix)
+            if len(report_date) != 8 or not report_date.isdigit():
+                continue
+            rows.append(
+                {
+                    "snapshot_report_date": report_date,
+                    "artifact_id": artifact_id,
+                    "snapshot_path": path.as_posix(),
+                    "snapshot_sha256": snapshot_file_sha256(path),
+                }
+            )
+    pd.DataFrame(
+        rows,
+        columns=[
+            "snapshot_report_date",
+            "artifact_id",
+            "snapshot_path",
+            "snapshot_sha256",
+        ],
+    ).to_csv(
+        snapshot_dir / "daily_published_model_snapshot_manifest.csv", index=False
+    )
+
+
 def patch_lifecycle_sources(monkeypatch, tmp_path: Path, stock_id: str, price_rows: list[dict[str, str]]) -> Path:
     snapshot_dir = tmp_path / "output" / "history" / "daily_model_snapshots"
     signal_log = tmp_path / "output" / "history" / "daily_candidate_models" / "daily_candidate_model_signal_log.csv"
@@ -362,6 +408,13 @@ def patch_lifecycle_sources(monkeypatch, tmp_path: Path, stock_id: str, price_ro
     monkeypatch.setattr(builder, "MODEL_SNAPSHOT_DIR", snapshot_dir)
     monkeypatch.setattr(builder, "MODEL_SIGNAL_LOG_CSV", signal_log)
     monkeypatch.setattr(builder, "STOCK_PRICE_HISTORY_DIR", price_dir)
+    original_signal_snapshot_paths = builder.signal_snapshot_paths
+
+    def signal_snapshot_paths(report_date: str):
+        refresh_legacy_snapshot_manifest(snapshot_dir)
+        return original_signal_snapshot_paths(report_date)
+
+    monkeypatch.setattr(builder, "signal_snapshot_paths", signal_snapshot_paths)
     return snapshot_dir
 
 
@@ -392,6 +445,7 @@ def write_operation_snapshot(
             }
         ]
     ).to_csv(snapshot_dir / f"daily_volume_breakout_operation_section_{snapshot_date}.csv", index=False)
+    refresh_legacy_snapshot_manifest(snapshot_dir)
 
 
 def build_rows_for_test(
@@ -613,6 +667,7 @@ def lineage_audit_row(**updates: str) -> dict[str, str]:
     source_sha = "a" * 64
     row = {
         "snapshot_report_date": "20260716",
+        "snapshot_revision": "r1",
         "signal_date": "20260716",
         "model_id": HIGH_VOLUME_MODEL_ID,
         "stock_id": "6505",
@@ -669,12 +724,32 @@ def write_lineage_fixture(
     *,
     formal_updates: dict[str, str] | None = None,
     audit_updates: dict[str, str] | None = None,
-    source_relative_path: str = "formal.csv",
+    source_relative_path: str = (
+        "output/history/daily_model_snapshots/"
+        "daily_candidate_model_signals_for_report_20260716.csv"
+    ),
 ) -> tuple[Path, Path, pd.DataFrame]:
     source_path = tmp_path / source_relative_path
     source_path.parent.mkdir(parents=True, exist_ok=True)
     formal = pd.DataFrame([lineage_formal_signal_row(**(formal_updates or {}))])
     formal.to_csv(source_path, index=False)
+    snapshot_dir = tmp_path / "output" / "history" / "daily_model_snapshots"
+    snapshot_dir.mkdir(parents=True, exist_ok=True)
+    pd.DataFrame(
+        [
+            {
+                "snapshot_report_date": "20260716",
+                "snapshot_revision": "r1",
+                "supersedes_snapshot_sha256": "",
+                "revision_reason": "legacy_v1_manifest",
+                "artifact_id": "model_signals_for_report",
+                "snapshot_path": source_relative_path.replace("\\", "/"),
+                "snapshot_sha256": snapshot_file_sha256(source_path),
+            }
+        ]
+    ).to_csv(
+        snapshot_dir / "daily_published_model_snapshot_manifest.csv", index=False
+    )
     resolved_audit_updates = {
         "formal_snapshot_path": source_relative_path.replace("\\", "/"),
         "formal_snapshot_sha256": builder.canonical_text_sha256(source_path.read_bytes()),
@@ -702,6 +777,83 @@ def test_formal_operation_lineage_gate_accepts_only_exact_verified_clean_row(tmp
     assert len(evidence["audit_sha256"]) == 64
     assert evidence["formal_row_disposition"] == "verified_clean"
     assert evidence["evidence_status"] == "complete"
+
+
+def test_formal_operation_lineage_gate_selects_manifest_max_same_day_revision(
+    tmp_path: Path,
+) -> None:
+    snapshot_dir = tmp_path / "output" / "history" / "daily_model_snapshots"
+    snapshot_dir.mkdir(parents=True, exist_ok=True)
+    r1 = snapshot_dir / "daily_candidate_model_signals_for_report_20260716.csv"
+    r1_formal = pd.DataFrame(
+        [lineage_formal_signal_row(final_rank_score="91")]
+    )
+    r1_formal.to_csv(r1, index=False)
+    r1_sha = snapshot_file_sha256(r1)
+    r2_staging = snapshot_dir / "model_signals_r2_staging.csv"
+    r2_formal = pd.DataFrame([lineage_formal_signal_row()])
+    r2_formal.to_csv(r2_staging, index=False)
+    r2_sha = snapshot_file_sha256(r2_staging)
+    r2 = snapshot_dir / (
+        f"daily_candidate_model_signals_for_report_20260716_r2_{r2_sha[:12]}.csv"
+    )
+    r2_staging.rename(r2)
+    r1_relative = r1.relative_to(tmp_path).as_posix()
+    r2_relative = r2.relative_to(tmp_path).as_posix()
+    pd.DataFrame(
+        [
+            {
+                "snapshot_report_date": "20260716",
+                "snapshot_revision": "r1",
+                "supersedes_snapshot_sha256": "",
+                "revision_reason": "legacy_v1_manifest",
+                "artifact_id": "model_signals_for_report",
+                "snapshot_path": r1_relative,
+                "snapshot_sha256": r1_sha,
+            },
+            {
+                "snapshot_report_date": "20260716",
+                "snapshot_revision": "r2",
+                "supersedes_snapshot_sha256": r1_sha,
+                "revision_reason": "same_day_correction",
+                "artifact_id": "model_signals_for_report",
+                "snapshot_path": r2_relative,
+                "snapshot_sha256": r2_sha,
+            },
+        ]
+    ).to_csv(
+        snapshot_dir / "daily_published_model_snapshot_manifest.csv", index=False
+    )
+    r1_canonical_sha = builder.canonical_text_sha256(r1.read_bytes())
+    r2_canonical_sha = builder.canonical_text_sha256(r2.read_bytes())
+    audit_path = tmp_path / "lineage.csv"
+    pd.DataFrame(
+        [
+            lineage_audit_row(
+                snapshot_revision="r2",
+                formal_snapshot_path=r2_relative,
+                formal_snapshot_sha256=r2_canonical_sha,
+                formal_row_sha256=builder.canonical_row_sha256(r2_formal.iloc[0]),
+            ),
+            lineage_audit_row(
+                snapshot_revision="r1",
+                formal_row_disposition="superseded",
+                formal_snapshot_path=r1_relative,
+                formal_snapshot_sha256=r1_canonical_sha,
+                formal_row_sha256=builder.canonical_row_sha256(r1_formal.iloc[0]),
+            ),
+        ]
+    ).to_csv(audit_path, index=False)
+
+    evidence = builder.require_verified_clean_volume_v2_lineage(
+        lineage_operation_section(),
+        audit_path=audit_path,
+        formal_signal_rows=r2_formal,
+        source_root=tmp_path,
+    )
+
+    assert evidence["checked_rows"] == 1
+    assert evidence["formal_row_disposition"] == "verified_clean"
 
 
 @pytest.mark.parametrize("disposition", ["superseded", "quarantined", "unreplayable"])
@@ -798,7 +950,7 @@ def test_formal_operation_lineage_gate_rejects_stale_formal_snapshot_source(
     changed.loc[0, "final_rank_score"] = "91"
     changed.to_csv(source_path, index=False)
 
-    with pytest.raises(RuntimeError, match="formal_snapshot_sha256_mismatch"):
+    with pytest.raises(RuntimeError, match="daily snapshot SHA-256 mismatch"):
         builder.require_verified_clean_volume_v2_lineage(
             lineage_operation_section(),
             audit_path=audit_path,
@@ -836,8 +988,8 @@ def test_restored_operation_snapshot_requires_exact_historical_formal_row(
             "paired_source_resolution": "snapshot_history_exact_blob_fallback",
         },
     )
-    snapshot_dir = tmp_path / "operation_snapshots"
-    snapshot_dir.mkdir()
+    snapshot_dir = tmp_path / "output" / "history" / "daily_model_snapshots"
+    snapshot_dir.mkdir(parents=True, exist_ok=True)
     section_rows = [
         output_row(model_id=LOW_VOLUME_MODEL_ID),
         output_row(model_id=MID_VOLUME_MODEL_ID),
@@ -856,6 +1008,7 @@ def test_restored_operation_snapshot_requires_exact_historical_formal_row(
         snapshot_dir / "daily_volume_breakout_operation_evidence_audit_20260716.csv",
         index=False,
     )
+    refresh_legacy_snapshot_manifest(snapshot_dir)
     monkeypatch.setattr(builder, "MODEL_SNAPSHOT_DIR", snapshot_dir)
 
     restored = builder.restore_published_snapshot("20260716")
@@ -868,7 +1021,7 @@ def test_restored_operation_snapshot_requires_exact_historical_formal_row(
     assert evidence["checked_rows"] == 1
 
     source_path.unlink()
-    with pytest.raises(RuntimeError, match="formal_snapshot_missing"):
+    with pytest.raises(RuntimeError, match="daily snapshot file is missing"):
         builder.require_verified_clean_volume_v2_lineage(
             restored[0],
             audit_path=audit_path,
@@ -925,6 +1078,7 @@ def test_build_reuses_existing_published_operation_snapshot(monkeypatch, tmp_pat
         snapshot_dir / "daily_volume_breakout_operation_evidence_audit_20260615.csv",
         index=False,
     )
+    refresh_legacy_snapshot_manifest(snapshot_dir)
 
     monkeypatch.setattr(builder, "MODEL_SNAPSHOT_DIR", snapshot_dir)
     monkeypatch.setattr(builder, "DAILY_SIGNALS_CSV", latest_dir / "daily_candidate_model_signals_for_report_latest.csv")
@@ -987,6 +1141,7 @@ def test_build_allows_empty_published_operation_evidence_audit_snapshot(monkeypa
         snapshot_dir / "daily_volume_breakout_operation_evidence_audit_20260615.csv",
         index=False,
     )
+    refresh_legacy_snapshot_manifest(snapshot_dir)
 
     monkeypatch.setattr(builder, "MODEL_SNAPSHOT_DIR", snapshot_dir)
     monkeypatch.setattr(builder, "DAILY_SIGNALS_CSV", latest_dir / "daily_candidate_model_signals_for_report_latest.csv")
@@ -1465,8 +1620,8 @@ def test_volume_operation_validator_rejects_prior_active_without_buy_ranked_conf
     monkeypatch,
     tmp_path,
 ) -> None:
-    snapshot_dir = tmp_path / "snapshots"
-    snapshot_dir.mkdir()
+    snapshot_dir = tmp_path / "output" / "history" / "daily_model_snapshots"
+    snapshot_dir.mkdir(parents=True)
     write_operation_snapshot(
         snapshot_dir,
         "20260616",

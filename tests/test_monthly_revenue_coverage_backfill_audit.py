@@ -10,6 +10,7 @@ SCRIPTS = ROOT / "scripts"
 if str(SCRIPTS) not in sys.path:
     sys.path.insert(0, str(SCRIPTS))
 
+import build_monthly_revenue_coverage_backfill_audit as coverage_builder  # noqa: E402
 from build_monthly_revenue_coverage_backfill_audit import (  # noqa: E402
     AUDIT_ID,
     REQUIRED_MIN_HISTORY_MONTHS,
@@ -18,6 +19,7 @@ from build_monthly_revenue_coverage_backfill_audit import (  # noqa: E402
     summarize_history_scope,
     summarize_signal_scope,
 )
+from daily_snapshot_revision_utils import snapshot_file_sha256  # noqa: E402
 from validate_monthly_revenue_coverage_backfill_audit import validate_detail, validate_summary  # noqa: E402
 from backfill_monthly_revenue_history_from_mops_html import period_add_months  # noqa: E402
 
@@ -117,3 +119,59 @@ def test_validator_rejects_ready_scope_with_insufficient_months() -> None:
 
     assert any("insufficient history months" in error for error in errors)
     assert summary.loc[0, "audit_id"] == AUDIT_ID
+
+
+def test_signal_fallback_selects_same_day_manifest_max_revision(
+    tmp_path: Path,
+    monkeypatch,
+) -> None:
+    monkeypatch.setattr(coverage_builder, "SIGNAL_LOG_CSV", tmp_path / "missing.csv")
+    snapshot_dir = tmp_path / "output" / "history" / "daily_model_snapshots"
+    snapshot_dir.mkdir(parents=True)
+    r1 = snapshot_dir / "daily_candidate_model_signals_for_report_20260717.csv"
+    pd.DataFrame([signal_row("20260717", stock_id="1111")]).to_csv(
+        r1, index=False
+    )
+    r1_sha = snapshot_file_sha256(r1)
+    staging = snapshot_dir / "signals-r2-staging.csv"
+    pd.DataFrame([signal_row("20260717", stock_id="2222")]).to_csv(
+        staging, index=False
+    )
+    r2_sha = snapshot_file_sha256(staging)
+    r2 = snapshot_dir / (
+        f"daily_candidate_model_signals_for_report_20260717_r2_{r2_sha[:12]}.csv"
+    )
+    staging.rename(r2)
+    pd.DataFrame(
+        [
+            {
+                "snapshot_report_date": "20260717",
+                "snapshot_revision": "r1",
+                "supersedes_snapshot_sha256": "",
+                "revision_reason": "legacy_v1_manifest",
+                "artifact_id": "model_signals_for_report",
+                "snapshot_path": r1.relative_to(tmp_path).as_posix(),
+                "snapshot_sha256": r1_sha,
+            },
+            {
+                "snapshot_report_date": "20260717",
+                "snapshot_revision": "r2",
+                "supersedes_snapshot_sha256": r1_sha,
+                "revision_reason": "same_day_correction",
+                "artifact_id": "model_signals_for_report",
+                "snapshot_path": r2.relative_to(tmp_path).as_posix(),
+                "snapshot_sha256": r2_sha,
+            },
+        ]
+    ).to_csv(
+        snapshot_dir / "daily_published_model_snapshot_manifest.csv", index=False
+    )
+
+    signals, source = coverage_builder.load_signal_rows(
+        snapshot_dir=snapshot_dir,
+        repository_root=tmp_path,
+    )
+
+    assert signals["stock_id"].tolist() == ["2222"]
+    assert signals["source_snapshot_file"].tolist() == [r2.as_posix()]
+    assert source.endswith("daily_published_model_snapshot_manifest.csv")

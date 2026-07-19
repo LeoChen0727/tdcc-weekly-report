@@ -36,10 +36,15 @@ def test_sync_catalyst_pages_artifacts_fails_on_missing_source(tmp_path: Path) -
 
 
 def test_event_and_weekly_workflows_publish_pages_and_use_full_validation() -> None:
-    for workflow in [
-        ROOT / ".github" / "workflows" / "event_catalyst_update.yml",
-        ROOT / ".github" / "workflows" / "weekly_theme_review.yml",
-    ]:
+    workflows = {
+        ROOT / ".github" / "workflows" / "event_catalyst_update.yml": (
+            "event_catalyst_formal_sync"
+        ),
+        ROOT / ".github" / "workflows" / "weekly_theme_review.yml": (
+            "weekly_theme_formal_sync"
+        ),
+    }
+    for workflow, revision_reason in workflows.items():
         text = workflow.read_text(encoding="utf-8")
         parsed_workflow = yaml.safe_load(text)
         assert parsed_workflow["jobs"]
@@ -62,6 +67,7 @@ def test_event_and_weekly_workflows_publish_pages_and_use_full_validation() -> N
         assert "python scripts/audit_daily_candidate_model_selection_correctness.py" in text
         assert "python scripts/audit_daily_candidate_pipeline_integrity.py" in text
         assert "python scripts/update_daily_published_model_snapshots.py" in text
+        assert f"--revision-reason {revision_reason}" in text
         assert "python scripts/validate_daily_published_model_snapshots.py" in text
         assert "python scripts/validate_daily_staged_paths.py" in text
         assert "python scripts/validate_daily_event_catalyst_formal_sync_scope.py" in text
@@ -71,6 +77,9 @@ def test_event_and_weekly_workflows_publish_pages_and_use_full_validation() -> N
         assert 'capture_mature_sentinels "$mature_sentinel_before"' in text
         assert 'capture_mature_sentinels "$mature_sentinel_after"' in text
         assert 'cmp --silent "$mature_sentinel_before" "$mature_sentinel_after"' in text
+        assert 'row["snapshot_revision"] = row.get("snapshot_revision") or "r1"' in text
+        assert '"legacy_v1_manifest" if row["snapshot_revision"] == "r1"' in text
+        assert ":{row.get('snapshot_revision', '')}" in text
         assert "mature_model_sentinel_before_sha256=" in text
         assert "mature_model_sentinel_after_sha256=" in text
         assert "mature_model_sentinel_artifact_count=" in text
@@ -78,6 +87,21 @@ def test_event_and_weekly_workflows_publish_pages_and_use_full_validation() -> N
         assert "git add output/history/daily_candidate_models/ || true" not in text
         assert "git add output/history/daily_model_snapshots/ || true" not in text
         assert "git add docs/latest/ || true" not in text
+        commit_block = text[
+            text.index("- name: Commit") :
+            text.index("- name: Dispatch and wait for catalyst Pages deploy")
+        ]
+        assert commit_block.count(
+            "python scripts/stage_daily_published_snapshot_revisions.py"
+        ) == 1
+        for artifact_id in (
+            "data_freshness",
+            "model_signals_for_report",
+            "all_candidates_source_rows",
+            "model_summary_for_report",
+        ):
+            assert commit_block.count(f"--artifact-id {artifact_id}") == 1
+        assert 'daily_model_snapshots/data_freshness_${snapshot_report_date}"*.csv' not in commit_block
         for artifact_id in (
             "data_freshness",
             "model_signals_for_report",

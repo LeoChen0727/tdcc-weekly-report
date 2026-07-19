@@ -5,6 +5,7 @@ from pathlib import Path
 
 import pandas as pd
 
+from daily_snapshot_revision_utils import latest_snapshot_revision_for_date
 from validate_daily_operation_adapter_protected_fields import validate_adapter_frame
 
 
@@ -715,8 +716,14 @@ def validate_lifecycle_suppression_audit(audit: pd.DataFrame) -> None:
         fail("lifecycle_suppressed audit rows must explain same-stock suppression or confirmation snapshot gating")
 
 
-def published_section_snapshot_path(report_date: str) -> Path:
-    return MODEL_SNAPSHOT_DIR / f"daily_volume_breakout_operation_section_{normalize_date_text(report_date)}.csv"
+def published_section_snapshot_path(report_date: str) -> Path | None:
+    record = latest_snapshot_revision_for_date(
+        MODEL_SNAPSHOT_DIR,
+        "volume_breakout_operation_section",
+        normalize_date_text(report_date),
+        repository_root=ROOT,
+    )
+    return record.path if record is not None else None
 
 
 def matching_snapshot_rows(path: Path, row: pd.Series) -> pd.DataFrame:
@@ -739,7 +746,7 @@ def matching_snapshot_rows(path: Path, row: pd.Series) -> pd.DataFrame:
 def active_backed_by_confirmation_snapshot(row: pd.Series) -> bool:
     confirmation_date = normalize_date_text(row.get("selected_confirmation_date"))
     path = published_section_snapshot_path(confirmation_date)
-    if not path.exists():
+    if path is None:
         return False
     matches = matching_snapshot_rows(path, row)
     buy_ranked = matches[

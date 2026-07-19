@@ -1246,6 +1246,10 @@ def test_warrant_formal_sync_staged_paths_are_positive_allowlisted() -> None:
         [
             "output/latest/warrant_flow_latest.csv",
             "output/history/daily_model_snapshots/data_freshness_20260716.csv",
+            "output/history/daily_model_snapshots/data_freshness_20260716_r2.csv",
+            "output/history/daily_model_snapshots/daily_candidate_model_signals_for_report_20260716_r2.csv",
+            "output/history/daily_model_snapshots/all_candidates_20260716_r2.csv",
+            "output/history/daily_model_snapshots/daily_candidate_model_summary_for_report_20260716_r2.csv",
             "output/history/daily_model_snapshots/daily_published_model_snapshot_manifest.csv",
             "docs/latest/daily_candidate_model_signals_latest.csv",
             "output/latest/volume_attack_theme_layer_latest.csv",
@@ -1301,6 +1305,9 @@ def test_warrant_workflow_rebuilds_formal_consumers_and_fails_closed() -> None:
     assert 'capture_mature_sentinels "$mature_sentinel_before"' in workflow
     assert 'capture_mature_sentinels "$mature_sentinel_after"' in workflow
     assert 'cmp --silent "$mature_sentinel_before" "$mature_sentinel_after"' in workflow
+    assert 'row["snapshot_revision"] = row.get("snapshot_revision") or "r1"' in workflow
+    assert '"legacy_v1_manifest" if row["snapshot_revision"] == "r1"' in workflow
+    assert ":{row.get('snapshot_revision', '')}" in workflow
     for protected_static_artifact in (
         "output/latest/daily_candidate_model_parameters_latest.csv",
         "docs/latest/daily_candidate_model_parameters_latest.csv",
@@ -1326,6 +1333,7 @@ def test_warrant_workflow_rebuilds_formal_consumers_and_fails_closed() -> None:
         "model_summary_for_report",
     ):
         assert f"--artifact-id {artifact_id}" in workflow
+    assert "--revision-reason warrant_formal_sync" in workflow
     assert "daily_volume_breakout_operation_section_*.csv" in workflow
     assert "manifest:" in workflow
     assert "python build_data_freshness_latest.py" not in workflow
@@ -1353,6 +1361,16 @@ def test_warrant_workflow_rebuilds_formal_consumers_and_fails_closed() -> None:
     indexes = [workflow.index(command) for command in expected_order]
     assert indexes == sorted(indexes)
     snapshot_update_index = workflow.index("python scripts/update_daily_published_model_snapshots.py")
+    history_build_before_update = workflow.rindex(
+        "python scripts/build_volume_v2_warrant_lineage_history_audit.py",
+        0,
+        snapshot_update_index,
+    )
+    history_validate_before_update = workflow.rindex(
+        "python scripts/validate_volume_v2_warrant_lineage_history_audit.py",
+        history_build_before_update,
+        snapshot_update_index,
+    )
     snapshot_validate_after_update = workflow.index(
         "python scripts/validate_daily_published_model_snapshots.py",
         snapshot_update_index,
@@ -1366,7 +1384,9 @@ def test_warrant_workflow_rebuilds_formal_consumers_and_fails_closed() -> None:
         canonical_validate_after_update,
     )
     assert (
-        snapshot_update_index
+        history_build_before_update
+        < history_validate_before_update
+        < snapshot_update_index
         < snapshot_validate_after_update
         < canonical_validate_after_update
         < history_validate_after_update
@@ -1428,6 +1448,17 @@ def test_warrant_workflow_rebuilds_formal_consumers_and_fails_closed() -> None:
     assert "git add docs/latest/volume_attack_theme_stocks_latest.*" in commit_block
     assert "git add docs/latest/chatgpt_indicator_usage_guide_latest.md" in commit_block
     assert "git add docs/latest/CHATGPT_INDICATOR_USAGE_GUIDE.txt" in commit_block
+    assert commit_block.count(
+        "python scripts/stage_daily_published_snapshot_revisions.py"
+    ) == 1
+    for artifact_id in (
+        "data_freshness",
+        "model_signals_for_report",
+        "all_candidates_source_rows",
+        "model_summary_for_report",
+    ):
+        assert commit_block.count(f"--artifact-id {artifact_id}") == 1
+    assert 'daily_model_snapshots/data_freshness_${snapshot_report_date}"*.csv' not in commit_block
 
     pages_block = workflow[workflow.index("- name: Dispatch and wait for warrant Pages deploy") :]
     assert "env.ARTIFACT_COMMIT_CREATED == 'true'" in pages_block

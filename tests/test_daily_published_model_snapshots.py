@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import hashlib
 from pathlib import Path
 import sys
 
@@ -22,6 +23,11 @@ def write_csv(path: Path, rows: list[dict[str, str]]) -> None:
 def rewrite_with_crlf(path: Path) -> None:
     text = path.read_text(encoding="utf-8").replace("\r\n", "\n").replace("\r", "\n")
     path.write_bytes(text.replace("\n", "\r\n").encode("utf-8"))
+
+
+def repository_file(repository_root: Path, path_text: object) -> Path:
+    path = Path(str(path_text))
+    return path if path.is_absolute() else repository_root / path
 
 
 def write_minimal_latest_artifacts(latest_dir: Path, report_date: str = "20260615") -> None:
@@ -244,8 +250,36 @@ def test_daily_published_model_snapshot_builder_and_validator_use_report_date(
         "w_bottom_right_side_operation_section",
     }
     assert set(manifest_rows["snapshot_report_date"]) == {"20260615"}
-    assert (snapshot_dir / "daily_candidate_model_signals_for_report_20260615.csv").exists()
-    assert (snapshot_dir / "all_candidates_20260615.csv").exists()
+    assert set(manifest_rows["snapshot_revision"]) == {"r1"}
+    assert set(manifest_rows["supersedes_snapshot_sha256"]) == {""}
+    assert set(manifest_rows["revision_reason"]) == {"initial_publish"}
+    assert all(
+        not Path(value).is_absolute()
+        and "\\" not in str(value)
+        and str(value).startswith("output/latest/")
+        for value in manifest_rows["source_path"]
+    )
+    assert all(
+        not Path(value).is_absolute()
+        and "\\" not in str(value)
+        and str(value).startswith("output/history/daily_model_snapshots/")
+        for value in manifest_rows["snapshot_path"]
+    )
+    signal_row = manifest_rows[
+        manifest_rows["artifact_id"].eq("model_signals_for_report")
+    ].iloc[0]
+    candidate_row = manifest_rows[
+        manifest_rows["artifact_id"].eq("all_candidates_source_rows")
+    ].iloc[0]
+    assert Path(signal_row["snapshot_path"]).name == (
+        "daily_candidate_model_signals_for_report_20260615_r1_"
+        f"{signal_row['snapshot_sha256'][:12]}.csv"
+    )
+    assert Path(candidate_row["snapshot_path"]).name == (
+        f"all_candidates_20260615_r1_{candidate_row['snapshot_sha256'][:12]}.csv"
+    )
+    assert repository_file(tmp_path, signal_row["snapshot_path"]).exists()
+    assert repository_file(tmp_path, candidate_row["snapshot_path"]).exists()
     assert validate_snapshots.validate_current_report_snapshots(
         latest_dir=latest_dir,
         snapshot_dir=snapshot_dir,
@@ -275,7 +309,7 @@ def test_warrant_formal_sync_updates_only_selected_snapshot_families(
         "neckline_volume_breakout_confirmation_operation_section",
     }
     write_minimal_latest_artifacts(latest_dir, report_date=report_date)
-    update_snapshots.build_daily_published_model_snapshots(
+    initial_manifest = update_snapshots.build_daily_published_model_snapshots(
         latest_dir=latest_dir,
         snapshot_dir=snapshot_dir,
         manifest_path=manifest_path,
@@ -289,8 +323,15 @@ def test_warrant_formal_sync_updates_only_selected_snapshot_families(
         .reset_index(drop=True)
     )
     protected_snapshot_bytes = {
-        row["artifact_id"]: Path(row["snapshot_path"]).read_bytes()
+        row["artifact_id"]: repository_file(tmp_path, row["snapshot_path"]).read_bytes()
         for _, row in protected_before.iterrows()
+    }
+    selected_r1_paths = {
+        row["artifact_id"]: repository_file(tmp_path, row["snapshot_path"])
+        for _, row in manifest_before[manifest_before["artifact_id"].isin(selected_ids)].iterrows()
+    }
+    selected_r1_bytes = {
+        artifact_id: path.read_bytes() for artifact_id, path in selected_r1_paths.items()
     }
 
     freshness = pd.read_csv(latest_dir / "data_freshness_latest.csv", dtype=str)
@@ -337,10 +378,16 @@ def test_warrant_formal_sync_updates_only_selected_snapshot_families(
         generated_at="2026-06-16 09:00:00 Asia/Taipei",
         commit_sha="warrant-formal-sync-sha",
         artifact_ids=selected_ids,
+        revision_reason="warrant_formal_sync",
     )
 
     assert set(manifest_rows["artifact_id"]) == selected_ids
+    assert set(manifest_rows["snapshot_revision"]) == {"r2"}
+    assert set(manifest_rows["revision_reason"]) == {"warrant_formal_sync"}
     manifest_after = pd.read_csv(manifest_path, dtype=str).fillna("")
+    selected_after = manifest_after[manifest_after["artifact_id"].isin(selected_ids)]
+    assert len(selected_after) == len(selected_ids) * 2
+    assert set(selected_after["snapshot_revision"]) == {"r1", "r2"}
     protected_after = (
         manifest_after[manifest_after["artifact_id"].isin(protected_ids)]
         .sort_values("artifact_id")
@@ -348,7 +395,12 @@ def test_warrant_formal_sync_updates_only_selected_snapshot_families(
     )
     pd.testing.assert_frame_equal(protected_before, protected_after)
     for _, row in protected_after.iterrows():
-        assert Path(row["snapshot_path"]).read_bytes() == protected_snapshot_bytes[row["artifact_id"]]
+        assert repository_file(tmp_path, row["snapshot_path"]).read_bytes() == (
+            protected_snapshot_bytes[row["artifact_id"]]
+        )
+    for artifact_id, path in selected_r1_paths.items():
+        assert path.exists()
+        assert path.read_bytes() == selected_r1_bytes[artifact_id]
     assert validate_snapshots.validate_current_report_snapshots(
         latest_dir=latest_dir,
         snapshot_dir=snapshot_dir,
@@ -365,8 +417,14 @@ def test_targeted_snapshot_selection_fails_closed_on_empty_or_unknown_ids(
     with pytest.raises(RuntimeError, match="selection must not be empty"):
         update_snapshots.build_daily_published_model_snapshots(
             latest_dir=latest_dir,
-            snapshot_dir=tmp_path / "history",
-            manifest_path=tmp_path / "history" / "manifest.csv",
+            snapshot_dir=tmp_path / "output" / "history" / "daily_model_snapshots",
+            manifest_path=(
+                tmp_path
+                / "output"
+                / "history"
+                / "daily_model_snapshots"
+                / "daily_published_model_snapshot_manifest.csv"
+            ),
             artifact_ids=set(),
         )
     with pytest.raises(RuntimeError, match="unknown daily snapshot artifact ids"):
@@ -378,6 +436,167 @@ def test_targeted_snapshot_selection_fails_closed_on_empty_or_unknown_ids(
         )
 
 
+@pytest.mark.parametrize(
+    ("manifest_payload", "expected_message"),
+    [
+        (b"\xff\xfe\x00\x00", "manifest is unreadable"),
+        (
+            (",".join(update_snapshots.MANIFEST_COLUMNS) + "\n").encode("utf-8"),
+            "manifest has no data rows",
+        ),
+    ],
+)
+def test_existing_unreadable_or_header_only_manifest_fails_without_lineage_loss(
+    tmp_path: Path,
+    manifest_payload: bytes,
+    expected_message: str,
+) -> None:
+    latest_dir = tmp_path / "output" / "latest"
+    snapshot_dir = tmp_path / "output" / "history" / "daily_model_snapshots"
+    manifest_path = snapshot_dir / "daily_published_model_snapshot_manifest.csv"
+    write_minimal_latest_artifacts(latest_dir, report_date="20260615")
+    snapshot_dir.mkdir(parents=True, exist_ok=True)
+    protected_snapshot = snapshot_dir / "data_freshness_20260614.csv"
+    protected_snapshot.write_bytes(b"immutable historical payload\n")
+    manifest_path.write_bytes(manifest_payload)
+    before_files = {
+        path.name: path.read_bytes()
+        for path in snapshot_dir.iterdir()
+        if path.is_file()
+    }
+
+    with pytest.raises(RuntimeError, match=expected_message):
+        update_snapshots.build_daily_published_model_snapshots(
+            latest_dir=latest_dir,
+            snapshot_dir=snapshot_dir,
+            manifest_path=manifest_path,
+            artifact_ids={"data_freshness"},
+        )
+
+    after_files = {
+        path.name: path.read_bytes()
+        for path in snapshot_dir.iterdir()
+        if path.is_file()
+    }
+    assert after_files == before_files
+    assert not update_snapshots.manifest_publication_lock_path(manifest_path).exists()
+    assert not list(snapshot_dir.glob(".*.tmp"))
+
+
+@pytest.mark.parametrize("removed_column", ["row_count", "revision_reason"])
+def test_existing_manifest_with_unapproved_partial_schema_fails_without_rewrite(
+    tmp_path: Path,
+    removed_column: str,
+) -> None:
+    latest_dir = tmp_path / "output" / "latest"
+    snapshot_dir = tmp_path / "output" / "history" / "daily_model_snapshots"
+    manifest_path = snapshot_dir / "daily_published_model_snapshot_manifest.csv"
+    write_minimal_latest_artifacts(latest_dir, report_date="20260615")
+    update_snapshots.build_daily_published_model_snapshots(
+        latest_dir=latest_dir,
+        snapshot_dir=snapshot_dir,
+        manifest_path=manifest_path,
+        artifact_ids={"data_freshness"},
+    )
+
+    manifest = pd.read_csv(manifest_path, dtype=str, keep_default_na=False)
+    assert removed_column in manifest.columns
+    manifest.drop(columns=[removed_column]).to_csv(
+        manifest_path,
+        index=False,
+        lineterminator="\n",
+    )
+    corrupted_manifest = manifest_path.read_bytes()
+    before_snapshots = {
+        path.name: path.read_bytes()
+        for path in snapshot_dir.glob("*.csv")
+        if path != manifest_path
+    }
+
+    with pytest.raises(RuntimeError, match="unapproved daily snapshot manifest schema"):
+        update_snapshots.build_daily_published_model_snapshots(
+            latest_dir=latest_dir,
+            snapshot_dir=snapshot_dir,
+            manifest_path=manifest_path,
+            artifact_ids={"data_freshness"},
+        )
+
+    assert manifest_path.read_bytes() == corrupted_manifest
+    assert {
+        path.name: path.read_bytes()
+        for path in snapshot_dir.glob("*.csv")
+        if path != manifest_path
+    } == before_snapshots
+    assert not update_snapshots.manifest_publication_lock_path(manifest_path).exists()
+    assert not list(snapshot_dir.glob(".*.tmp"))
+
+
+def test_manifest_lock_collision_fails_closed_and_keeps_unknown_lock(
+    tmp_path: Path,
+) -> None:
+    latest_dir = tmp_path / "output" / "latest"
+    snapshot_dir = tmp_path / "output" / "history" / "daily_model_snapshots"
+    manifest_path = snapshot_dir / "daily_published_model_snapshot_manifest.csv"
+    write_minimal_latest_artifacts(latest_dir, report_date="20260615")
+    snapshot_dir.mkdir(parents=True, exist_ok=True)
+    lock_path = update_snapshots.manifest_publication_lock_path(manifest_path)
+    unknown_lock = b"unknown stale or concurrent owner\n"
+    lock_path.write_bytes(unknown_lock)
+
+    with pytest.raises(RuntimeError, match="publication lock already exists"):
+        update_snapshots.build_daily_published_model_snapshots(
+            latest_dir=latest_dir,
+            snapshot_dir=snapshot_dir,
+            manifest_path=manifest_path,
+            artifact_ids={"data_freshness"},
+        )
+
+    assert lock_path.read_bytes() == unknown_lock
+    assert not manifest_path.exists()
+    assert not list(snapshot_dir.glob("data_freshness_20260615_r1_*.csv"))
+    assert not list(snapshot_dir.glob(".*.tmp"))
+
+
+def test_manifest_cas_detects_bypass_writer_and_rolls_back_promoted_snapshot(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    latest_dir = tmp_path / "output" / "latest"
+    snapshot_dir = tmp_path / "output" / "history" / "daily_model_snapshots"
+    manifest_path = snapshot_dir / "daily_published_model_snapshot_manifest.csv"
+    write_minimal_latest_artifacts(latest_dir, report_date="20260615")
+    external_manifest = b"external writer bypassed publication lock\n"
+    real_replace = update_snapshots.os.replace
+    injected = False
+
+    def replace_then_mutate_manifest(source: Path | str, target: Path | str) -> None:
+        nonlocal injected
+        real_replace(source, target)
+        target_path = Path(target)
+        if (
+            not injected
+            and target_path != manifest_path
+            and target_path.name.startswith("data_freshness_20260615_r1_")
+        ):
+            injected = True
+            manifest_path.write_bytes(external_manifest)
+
+    monkeypatch.setattr(update_snapshots.os, "replace", replace_then_mutate_manifest)
+    with pytest.raises(RuntimeError, match="manifest changed since planning"):
+        update_snapshots.build_daily_published_model_snapshots(
+            latest_dir=latest_dir,
+            snapshot_dir=snapshot_dir,
+            manifest_path=manifest_path,
+            artifact_ids={"data_freshness"},
+        )
+
+    assert injected
+    assert manifest_path.read_bytes() == external_manifest
+    assert not list(snapshot_dir.glob("data_freshness_20260615_r1_*.csv"))
+    assert not update_snapshots.manifest_publication_lock_path(manifest_path).exists()
+    assert not list(snapshot_dir.glob(".*.tmp"))
+
+
 def test_targeted_snapshot_sync_does_not_repair_excluded_operation_drift(
     tmp_path: Path,
 ) -> None:
@@ -385,14 +604,19 @@ def test_targeted_snapshot_sync_does_not_repair_excluded_operation_drift(
     snapshot_dir = tmp_path / "output" / "history" / "daily_model_snapshots"
     manifest_path = snapshot_dir / "daily_published_model_snapshot_manifest.csv"
     write_minimal_latest_artifacts(latest_dir)
-    update_snapshots.build_daily_published_model_snapshots(
+    initial_manifest = update_snapshots.build_daily_published_model_snapshots(
         latest_dir=latest_dir,
         snapshot_dir=snapshot_dir,
         manifest_path=manifest_path,
         generated_at="2026-06-16 08:00:00 Asia/Taipei",
         commit_sha="full-build-sha",
     )
-    target = snapshot_dir / "daily_volume_breakout_operation_section_20260615.csv"
+    target = repository_file(
+        tmp_path,
+        initial_manifest[
+            initial_manifest["artifact_id"].eq("volume_breakout_operation_section")
+        ].iloc[0]["snapshot_path"]
+    )
     target_before = target.read_bytes()
     operation_source = latest_dir / "daily_volume_breakout_operation_section_latest.csv"
     operation = pd.read_csv(operation_source, dtype=str)
@@ -438,8 +662,8 @@ def test_daily_published_model_snapshot_hashes_tolerate_windows_crlf_checkout(
     )
     manifest = pd.read_csv(manifest_path, dtype=str)
     for _, row in manifest.iterrows():
-        rewrite_with_crlf(Path(row["source_path"]))
-        rewrite_with_crlf(Path(row["snapshot_path"]))
+        rewrite_with_crlf(repository_file(tmp_path, row["source_path"]))
+        rewrite_with_crlf(repository_file(tmp_path, row["snapshot_path"]))
 
     assert validate_snapshots.validate_current_report_snapshots(
         latest_dir=latest_dir,
@@ -448,16 +672,68 @@ def test_daily_published_model_snapshot_hashes_tolerate_windows_crlf_checkout(
     ) == []
 
 
-def test_daily_published_model_snapshot_builder_blocks_silent_same_date_rewrite(
+def test_legacy_crlf_raw_manifest_hash_is_preserved_and_reused_from_lf_checkout(
     tmp_path: Path,
-    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    latest_dir = tmp_path / "output" / "latest"
+    snapshot_dir = tmp_path / "output" / "history" / "daily_model_snapshots"
+    manifest_path = snapshot_dir / "daily_published_model_snapshot_manifest.csv"
+    write_minimal_latest_artifacts(latest_dir, report_date="20260615")
+    update_snapshots.build_daily_published_model_snapshots(
+        latest_dir=latest_dir,
+        snapshot_dir=snapshot_dir,
+        manifest_path=manifest_path,
+        generated_at="2026-06-16 08:00:00 Asia/Taipei",
+        commit_sha="test-sha",
+    )
+
+    manifest = pd.read_csv(manifest_path, dtype=str).fillna("")
+    freshness_mask = manifest["artifact_id"].eq("data_freshness")
+    row = manifest.loc[freshness_mask].iloc[0]
+    versioned_path = repository_file(tmp_path, row["snapshot_path"])
+    artifact = update_snapshots.ARTIFACTS_BY_ID["data_freshness"]
+    legacy_path = snapshot_dir / update_snapshots.legacy_snapshot_name(
+        artifact,
+        "20260615",
+    )
+    versioned_path.replace(legacy_path)
+    lf_payload = legacy_path.read_bytes().replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+    legacy_crlf_hash = hashlib.sha256(lf_payload.replace(b"\n", b"\r\n")).hexdigest()
+    manifest.loc[freshness_mask, "snapshot_path"] = legacy_path.as_posix()
+    manifest.loc[freshness_mask, "source_sha256"] = legacy_crlf_hash
+    manifest.loc[freshness_mask, "snapshot_sha256"] = legacy_crlf_hash
+    manifest.loc[freshness_mask, "revision_reason"] = (
+        update_snapshots.LEGACY_REVISION_REASON
+    )
+    manifest.to_csv(manifest_path, index=False, encoding="utf-8", lineterminator="\n")
+
+    assert validate_snapshots.validate_current_report_snapshots(
+        latest_dir=latest_dir,
+        snapshot_dir=snapshot_dir,
+        manifest_path=manifest_path,
+    ) == []
+    reused = update_snapshots.build_daily_published_model_snapshots(
+        latest_dir=latest_dir,
+        snapshot_dir=snapshot_dir,
+        manifest_path=manifest_path,
+        generated_at="2026-06-16 09:00:00 Asia/Taipei",
+        commit_sha="test-sha-2",
+        artifact_ids={"data_freshness"},
+    )
+    assert reused.iloc[0]["snapshot_revision"] == "r1"
+    assert reused.iloc[0]["snapshot_sha256"] == legacy_crlf_hash
+    assert repository_file(tmp_path, reused.iloc[0]["snapshot_path"]) == legacy_path
+
+
+def test_daily_published_model_snapshot_builder_requires_reason_before_writing_r2(
+    tmp_path: Path,
 ) -> None:
     latest_dir = tmp_path / "output" / "latest"
     snapshot_dir = tmp_path / "output" / "history" / "daily_model_snapshots"
     manifest_path = snapshot_dir / "daily_published_model_snapshot_manifest.csv"
     write_minimal_latest_artifacts(latest_dir, report_date="20260615")
 
-    update_snapshots.build_daily_published_model_snapshots(
+    initial = update_snapshots.build_daily_published_model_snapshots(
         latest_dir=latest_dir,
         snapshot_dir=snapshot_dir,
         manifest_path=manifest_path,
@@ -470,8 +746,9 @@ def test_daily_published_model_snapshot_builder_blocks_silent_same_date_rewrite(
     section.loc[0, "stock_id"] = "9999"
     section.to_csv(section_path, index=False, encoding="utf-8", lineterminator="\n")
 
-    monkeypatch.delenv(update_snapshots.ALLOW_SNAPSHOT_REWRITE_ENV, raising=False)
-    with pytest.raises(RuntimeError, match="published daily model snapshot rewrite blocked"):
+    manifest_before = manifest_path.read_bytes()
+    snapshot_paths_before = sorted(path.name for path in snapshot_dir.glob("*.csv"))
+    with pytest.raises(RuntimeError, match="revision_reason is required"):
         update_snapshots.build_daily_published_model_snapshots(
             latest_dir=latest_dir,
             snapshot_dir=snapshot_dir,
@@ -479,23 +756,33 @@ def test_daily_published_model_snapshot_builder_blocks_silent_same_date_rewrite(
             generated_at="2026-06-16 09:00:00 Asia/Taipei",
             commit_sha="test-sha-2",
         )
+    assert manifest_path.read_bytes() == manifest_before
+    assert sorted(path.name for path in snapshot_dir.glob("*.csv")) == snapshot_paths_before
 
-    monkeypatch.setenv(update_snapshots.ALLOW_SNAPSHOT_REWRITE_ENV, "1")
-    update_snapshots.build_daily_published_model_snapshots(
+    revised = update_snapshots.build_daily_published_model_snapshots(
         latest_dir=latest_dir,
         snapshot_dir=snapshot_dir,
         manifest_path=manifest_path,
         generated_at="2026-06-16 09:00:00 Asia/Taipei",
         commit_sha="test-sha-2",
+        revision_reason="explicit_operation_correction",
     )
-    rewritten = pd.read_csv(
-        snapshot_dir / "daily_volume_breakout_operation_section_20260615.csv",
-        dtype=str,
-    )
-    assert rewritten.loc[0, "stock_id"] == "9999"
+    initial_row = initial[
+        initial["artifact_id"].eq("volume_breakout_operation_section")
+    ].iloc[0]
+    revised_row = revised[
+        revised["artifact_id"].eq("volume_breakout_operation_section")
+    ].iloc[0]
+    assert revised_row["snapshot_revision"] == "r2"
+    assert revised_row["supersedes_snapshot_sha256"] == initial_row["snapshot_sha256"]
+    assert repository_file(tmp_path, initial_row["snapshot_path"]).exists()
+    assert Path(initial_row["snapshot_path"]) != Path(revised_row["snapshot_path"])
+    assert pd.read_csv(
+        repository_file(tmp_path, revised_row["snapshot_path"]), dtype=str
+    ).loc[0, "stock_id"] == "9999"
 
 
-def test_daily_published_model_snapshot_builder_allows_non_guarded_status_rewrite(
+def test_snapshot_publish_copy_failure_leaves_no_final_or_temporary_orphan(
     tmp_path: Path,
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
@@ -504,7 +791,73 @@ def test_daily_published_model_snapshot_builder_allows_non_guarded_status_rewrit
     manifest_path = snapshot_dir / "daily_published_model_snapshot_manifest.csv"
     write_minimal_latest_artifacts(latest_dir, report_date="20260615")
 
-    update_snapshots.build_daily_published_model_snapshots(
+    original_copyfile = update_snapshots.shutil.copyfile
+    copy_count = 0
+
+    def fail_second_copy(source: Path, target: Path) -> str:
+        nonlocal copy_count
+        copy_count += 1
+        if copy_count == 2:
+            raise OSError("injected snapshot copy failure")
+        return original_copyfile(source, target)
+
+    monkeypatch.setattr(update_snapshots.shutil, "copyfile", fail_second_copy)
+    with pytest.raises(OSError, match="injected snapshot copy failure"):
+        update_snapshots.build_daily_published_model_snapshots(
+            latest_dir=latest_dir,
+            snapshot_dir=snapshot_dir,
+            manifest_path=manifest_path,
+            generated_at="2026-06-16 08:00:00 Asia/Taipei",
+            commit_sha="test-sha",
+        )
+
+    assert not manifest_path.exists()
+    assert list(snapshot_dir.glob("*.csv")) == []
+    assert list(snapshot_dir.glob("*.tmp")) == []
+    assert not update_snapshots.manifest_publication_lock_path(manifest_path).exists()
+
+
+def test_snapshot_publish_manifest_replace_failure_rolls_back_promoted_files(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    latest_dir = tmp_path / "output" / "latest"
+    snapshot_dir = tmp_path / "output" / "history" / "daily_model_snapshots"
+    manifest_path = snapshot_dir / "daily_published_model_snapshot_manifest.csv"
+    write_minimal_latest_artifacts(latest_dir, report_date="20260615")
+
+    original_replace = update_snapshots.os.replace
+
+    def fail_manifest_replace(source: Path, target: Path) -> None:
+        if Path(target) == manifest_path:
+            raise OSError("injected manifest replace failure")
+        original_replace(source, target)
+
+    monkeypatch.setattr(update_snapshots.os, "replace", fail_manifest_replace)
+    with pytest.raises(OSError, match="injected manifest replace failure"):
+        update_snapshots.build_daily_published_model_snapshots(
+            latest_dir=latest_dir,
+            snapshot_dir=snapshot_dir,
+            manifest_path=manifest_path,
+            generated_at="2026-06-16 08:00:00 Asia/Taipei",
+            commit_sha="test-sha",
+        )
+
+    assert not manifest_path.exists()
+    assert list(snapshot_dir.glob("*.csv")) == []
+    assert list(snapshot_dir.glob("*.tmp")) == []
+    assert not update_snapshots.manifest_publication_lock_path(manifest_path).exists()
+
+
+def test_daily_published_model_snapshot_builder_appends_status_revision_idempotently(
+    tmp_path: Path,
+) -> None:
+    latest_dir = tmp_path / "output" / "latest"
+    snapshot_dir = tmp_path / "output" / "history" / "daily_model_snapshots"
+    manifest_path = snapshot_dir / "daily_published_model_snapshot_manifest.csv"
+    write_minimal_latest_artifacts(latest_dir, report_date="20260615")
+
+    initial = update_snapshots.build_daily_published_model_snapshots(
         latest_dir=latest_dir,
         snapshot_dir=snapshot_dir,
         manifest_path=manifest_path,
@@ -517,17 +870,335 @@ def test_daily_published_model_snapshot_builder_allows_non_guarded_status_rewrit
     freshness.loc[0, "warrant_source_status"] = "ok_refreshed"
     freshness.to_csv(freshness_path, index=False, encoding="utf-8", lineterminator="\n")
 
-    monkeypatch.delenv(update_snapshots.ALLOW_SNAPSHOT_REWRITE_ENV, raising=False)
+    revised = update_snapshots.build_daily_published_model_snapshots(
+        latest_dir=latest_dir,
+        snapshot_dir=snapshot_dir,
+        manifest_path=manifest_path,
+        generated_at="2026-06-16 09:00:00 Asia/Taipei",
+        commit_sha="test-sha-2",
+        artifact_ids={"data_freshness"},
+        revision_reason="warrant_formal_sync",
+    )
+
+    initial_row = initial[initial["artifact_id"].eq("data_freshness")].iloc[0]
+    revised_row = revised.iloc[0]
+    assert revised_row["snapshot_revision"] == "r2"
+    assert revised_row["supersedes_snapshot_sha256"] == initial_row["snapshot_sha256"]
+    assert revised_row["revision_reason"] == "warrant_formal_sync"
+    assert pd.read_csv(repository_file(tmp_path, initial_row["snapshot_path"]), dtype=str).loc[
+        0, "warrant_source_status"
+    ] == "ok"
+    assert pd.read_csv(repository_file(tmp_path, revised_row["snapshot_path"]), dtype=str).loc[
+        0, "warrant_source_status"
+    ] == "ok_refreshed"
+
+    manifest_before_idempotent = manifest_path.read_bytes()
+    repeated = update_snapshots.build_daily_published_model_snapshots(
+        latest_dir=latest_dir,
+        snapshot_dir=snapshot_dir,
+        manifest_path=manifest_path,
+        generated_at="2026-06-16 10:00:00 Asia/Taipei",
+        commit_sha="test-sha-3",
+        artifact_ids={"data_freshness"},
+    )
+    assert repeated.iloc[0]["snapshot_revision"] == "r2"
+    assert manifest_path.read_bytes() == manifest_before_idempotent
+
+
+def test_legacy_v1_manifest_is_normalized_without_moving_or_overwriting_snapshot(
+    tmp_path: Path,
+) -> None:
+    latest_dir = tmp_path / "output" / "latest"
+    snapshot_dir = tmp_path / "output" / "history" / "daily_model_snapshots"
+    manifest_path = snapshot_dir / "daily_published_model_snapshot_manifest.csv"
+    report_date = "20260615"
+    write_minimal_latest_artifacts(latest_dir, report_date=report_date)
+    update_snapshots.build_daily_published_model_snapshots(
+        latest_dir=latest_dir,
+        snapshot_dir=snapshot_dir,
+        manifest_path=manifest_path,
+        generated_at="2026-06-16 08:00:00 Asia/Taipei",
+        commit_sha="test-sha",
+    )
+
+    manifest = pd.read_csv(manifest_path, dtype=str).fillna("")
+    legacy_paths: dict[str, Path] = {}
+    for index, row in manifest.iterrows():
+        artifact = update_snapshots.ARTIFACTS_BY_ID[row["artifact_id"]]
+        legacy_path = snapshot_dir / update_snapshots.legacy_snapshot_name(
+            artifact,
+            report_date,
+        )
+        repository_file(tmp_path, row["snapshot_path"]).replace(legacy_path)
+        manifest.loc[index, "snapshot_path"] = legacy_path.as_posix()
+        legacy_paths[row["artifact_id"]] = legacy_path
+    manifest = manifest.drop(
+        columns=[
+            "snapshot_revision",
+            "supersedes_snapshot_sha256",
+            "revision_reason",
+        ]
+    )
+    manifest.to_csv(manifest_path, index=False, encoding="utf-8", lineterminator="\n")
+    legacy_freshness_bytes = legacy_paths["data_freshness"].read_bytes()
+
+    reused = update_snapshots.build_daily_published_model_snapshots(
+        latest_dir=latest_dir,
+        snapshot_dir=snapshot_dir,
+        manifest_path=manifest_path,
+        generated_at="2026-06-16 09:00:00 Asia/Taipei",
+        commit_sha="test-sha-2",
+        artifact_ids={"data_freshness"},
+    )
+    assert reused.iloc[0]["snapshot_revision"] == "r1"
+    assert reused.iloc[0]["revision_reason"] == "legacy_v1_manifest"
+    assert repository_file(tmp_path, reused.iloc[0]["snapshot_path"]) == (
+        legacy_paths["data_freshness"]
+    )
+    assert legacy_paths["data_freshness"].read_bytes() == legacy_freshness_bytes
+
+    freshness_path = latest_dir / "data_freshness_latest.csv"
+    freshness = pd.read_csv(freshness_path, dtype=str)
+    freshness.loc[0, "warrant_source_status"] = "ok_revised"
+    freshness.to_csv(freshness_path, index=False, encoding="utf-8", lineterminator="\n")
+    revised = update_snapshots.build_daily_published_model_snapshots(
+        latest_dir=latest_dir,
+        snapshot_dir=snapshot_dir,
+        manifest_path=manifest_path,
+        generated_at="2026-06-16 10:00:00 Asia/Taipei",
+        commit_sha="test-sha-3",
+        artifact_ids={"data_freshness"},
+        revision_reason="warrant_formal_sync",
+    )
+    assert revised.iloc[0]["snapshot_revision"] == "r2"
+    assert revised.iloc[0]["supersedes_snapshot_sha256"] == reused.iloc[0][
+        "snapshot_sha256"
+    ]
+    assert legacy_paths["data_freshness"].read_bytes() == legacy_freshness_bytes
+    assert validate_snapshots.validate_current_report_snapshots(
+        latest_dir=latest_dir,
+        snapshot_dir=snapshot_dir,
+        manifest_path=manifest_path,
+    ) == []
+
+
+def test_snapshot_validator_rejects_revision_gap_and_broken_supersedes_chain(
+    tmp_path: Path,
+) -> None:
+    latest_dir = tmp_path / "output" / "latest"
+    snapshot_dir = tmp_path / "output" / "history" / "daily_model_snapshots"
+    manifest_path = snapshot_dir / "daily_published_model_snapshot_manifest.csv"
+    write_minimal_latest_artifacts(latest_dir, report_date="20260615")
+    update_snapshots.build_daily_published_model_snapshots(
+        latest_dir=latest_dir,
+        snapshot_dir=snapshot_dir,
+        manifest_path=manifest_path,
+        generated_at="2026-06-16 08:00:00 Asia/Taipei",
+        commit_sha="test-sha",
+    )
+    freshness_path = latest_dir / "data_freshness_latest.csv"
+    freshness = pd.read_csv(freshness_path, dtype=str)
+    freshness.loc[0, "warrant_source_status"] = "ok_revised"
+    freshness.to_csv(freshness_path, index=False, encoding="utf-8", lineterminator="\n")
     update_snapshots.build_daily_published_model_snapshots(
         latest_dir=latest_dir,
         snapshot_dir=snapshot_dir,
         manifest_path=manifest_path,
         generated_at="2026-06-16 09:00:00 Asia/Taipei",
         commit_sha="test-sha-2",
+        artifact_ids={"data_freshness"},
+        revision_reason="warrant_formal_sync",
     )
 
-    rewritten = pd.read_csv(snapshot_dir / "data_freshness_20260615.csv", dtype=str)
-    assert rewritten.loc[0, "warrant_source_status"] == "ok_refreshed"
+    manifest = pd.read_csv(manifest_path, dtype=str).fillna("")
+    r2_mask = manifest["artifact_id"].eq("data_freshness") & manifest[
+        "snapshot_revision"
+    ].eq("r2")
+    manifest.loc[r2_mask, "snapshot_revision"] = "r3"
+    manifest.to_csv(manifest_path, index=False, encoding="utf-8", lineterminator="\n")
+    gap_errors = validate_snapshots.validate_current_report_snapshots(
+        latest_dir=latest_dir,
+        snapshot_dir=snapshot_dir,
+        manifest_path=manifest_path,
+    )
+    assert any("revision sequence must be continuous" in error for error in gap_errors)
+
+    manifest.loc[r2_mask, "snapshot_revision"] = "r2"
+    manifest.loc[r2_mask, "supersedes_snapshot_sha256"] = "0" * 64
+    manifest.to_csv(manifest_path, index=False, encoding="utf-8", lineterminator="\n")
+    chain_errors = validate_snapshots.validate_current_report_snapshots(
+        latest_dir=latest_dir,
+        snapshot_dir=snapshot_dir,
+        manifest_path=manifest_path,
+    )
+    assert any("must equal the prior revision" in error for error in chain_errors)
+
+    r1_sha = manifest.loc[
+        manifest["artifact_id"].eq("data_freshness")
+        & manifest["snapshot_revision"].eq("r1"),
+        "snapshot_sha256",
+    ].iloc[0]
+    manifest.loc[r2_mask, "supersedes_snapshot_sha256"] = r1_sha
+    manifest.loc[r2_mask, "revision_reason"] = ""
+    manifest.to_csv(manifest_path, index=False, encoding="utf-8", lineterminator="\n")
+    reason_errors = validate_snapshots.validate_current_report_snapshots(
+        latest_dir=latest_dir,
+        snapshot_dir=snapshot_dir,
+        manifest_path=manifest_path,
+    )
+    assert any("revision_reason is required" in error for error in reason_errors)
+
+
+def test_snapshot_validator_checks_all_revision_hashes_and_current_max_revision(
+    tmp_path: Path,
+) -> None:
+    latest_dir = tmp_path / "output" / "latest"
+    snapshot_dir = tmp_path / "output" / "history" / "daily_model_snapshots"
+    manifest_path = snapshot_dir / "daily_published_model_snapshot_manifest.csv"
+    write_minimal_latest_artifacts(latest_dir, report_date="20260615")
+    initial = update_snapshots.build_daily_published_model_snapshots(
+        latest_dir=latest_dir,
+        snapshot_dir=snapshot_dir,
+        manifest_path=manifest_path,
+        generated_at="2026-06-16 08:00:00 Asia/Taipei",
+        commit_sha="test-sha",
+    )
+    freshness_path = latest_dir / "data_freshness_latest.csv"
+    freshness = pd.read_csv(freshness_path, dtype=str)
+    freshness.loc[0, "warrant_source_status"] = "ok_revised"
+    freshness.to_csv(freshness_path, index=False, encoding="utf-8", lineterminator="\n")
+    update_snapshots.build_daily_published_model_snapshots(
+        latest_dir=latest_dir,
+        snapshot_dir=snapshot_dir,
+        manifest_path=manifest_path,
+        generated_at="2026-06-16 09:00:00 Asia/Taipei",
+        commit_sha="test-sha-2",
+        artifact_ids={"data_freshness"},
+        revision_reason="warrant_formal_sync",
+    )
+    initial_freshness = initial[initial["artifact_id"].eq("data_freshness")].iloc[0]
+    initial_freshness_path = repository_file(
+        tmp_path, initial_freshness["snapshot_path"]
+    )
+    initial_payload = initial_freshness_path.read_bytes()
+    initial_freshness_path.write_text(
+        "tampered\n",
+        encoding="utf-8",
+    )
+    errors = validate_snapshots.validate_current_report_snapshots(
+        latest_dir=latest_dir,
+        snapshot_dir=snapshot_dir,
+        manifest_path=manifest_path,
+    )
+    assert any("r1: snapshot_sha256 does not match snapshot file" in error for error in errors)
+
+    initial_freshness_path.write_bytes(initial_payload)
+    current = pd.read_csv(freshness_path, dtype=str)
+    current.loc[0, "warrant_source_status"] = "unpublished_drift"
+    current.to_csv(freshness_path, index=False, encoding="utf-8", lineterminator="\n")
+    errors = validate_snapshots.validate_current_report_snapshots(
+        latest_dir=latest_dir,
+        snapshot_dir=snapshot_dir,
+        manifest_path=manifest_path,
+    )
+    assert any("max revision does not match current source" in error for error in errors)
+
+
+def test_snapshot_validator_does_not_apply_current_schema_to_historical_revision(
+    tmp_path: Path,
+) -> None:
+    latest_dir = tmp_path / "output" / "latest"
+    snapshot_dir = tmp_path / "output" / "history" / "daily_model_snapshots"
+    manifest_path = snapshot_dir / "daily_published_model_snapshot_manifest.csv"
+    write_minimal_latest_artifacts(latest_dir, report_date="20260615")
+    update_snapshots.build_daily_published_model_snapshots(
+        latest_dir=latest_dir,
+        snapshot_dir=snapshot_dir,
+        manifest_path=manifest_path,
+        generated_at="2026-06-16 08:00:00 Asia/Taipei",
+        commit_sha="test-sha",
+    )
+
+    manifest = pd.read_csv(manifest_path, dtype=str).fillna("")
+    historical_mask = manifest["artifact_id"].eq("model_signals_for_report")
+    historical_row = manifest.loc[historical_mask].iloc[0]
+    versioned_path = repository_file(tmp_path, historical_row["snapshot_path"])
+    historical = pd.read_csv(versioned_path, dtype=str)
+    historical = historical.drop(columns=["base_model_score"])
+    artifact = update_snapshots.ARTIFACTS_BY_ID["model_signals_for_report"]
+    legacy_path = snapshot_dir / update_snapshots.legacy_snapshot_name(
+        artifact,
+        "20260615",
+    )
+    historical.to_csv(legacy_path, index=False, encoding="utf-8", lineterminator="\n")
+    versioned_path.unlink()
+    historical_hash = update_snapshots.sha256_file(legacy_path)
+    manifest.loc[historical_mask, "snapshot_path"] = legacy_path.as_posix()
+    manifest.loc[historical_mask, "snapshot_sha256"] = historical_hash
+    manifest.loc[historical_mask, "source_sha256"] = historical_hash
+    manifest.loc[historical_mask, "row_count"] = str(len(historical))
+    manifest.loc[historical_mask, "column_count"] = str(len(historical.columns))
+    manifest.loc[historical_mask, "revision_reason"] = (
+        update_snapshots.LEGACY_REVISION_REASON
+    )
+    manifest.to_csv(manifest_path, index=False, encoding="utf-8", lineterminator="\n")
+
+    write_minimal_latest_artifacts(latest_dir, report_date="20260616")
+    update_snapshots.build_daily_published_model_snapshots(
+        latest_dir=latest_dir,
+        snapshot_dir=snapshot_dir,
+        manifest_path=manifest_path,
+        generated_at="2026-06-17 08:00:00 Asia/Taipei",
+        commit_sha="test-sha-2",
+    )
+
+    assert validate_snapshots.validate_current_report_snapshots(
+        latest_dir=latest_dir,
+        snapshot_dir=snapshot_dir,
+        manifest_path=manifest_path,
+    ) == []
+
+
+def test_snapshot_validator_rejects_unreferenced_versioned_file(
+    tmp_path: Path,
+) -> None:
+    latest_dir = tmp_path / "output" / "latest"
+    snapshot_dir = tmp_path / "output" / "history" / "daily_model_snapshots"
+    manifest_path = snapshot_dir / "daily_published_model_snapshot_manifest.csv"
+    write_minimal_latest_artifacts(latest_dir, report_date="20260615")
+    rows = update_snapshots.build_daily_published_model_snapshots(
+        latest_dir=latest_dir,
+        snapshot_dir=snapshot_dir,
+        manifest_path=manifest_path,
+        generated_at="2026-06-16 08:00:00 Asia/Taipei",
+        commit_sha="test-sha",
+    )
+    signal_row = rows[rows["artifact_id"].eq("model_signals_for_report")].iloc[0]
+    source = repository_file(tmp_path, signal_row["snapshot_path"])
+    orphan = snapshot_dir / (
+        "daily_candidate_model_signals_for_report_20260615_"
+        f"r99_{signal_row['snapshot_sha256'][:12]}.csv"
+    )
+    orphan.write_bytes(source.read_bytes())
+
+    errors = validate_snapshots.validate_current_report_snapshots(
+        latest_dir=latest_dir,
+        snapshot_dir=snapshot_dir,
+        manifest_path=manifest_path,
+    )
+    assert any(
+        "unreferenced versioned daily snapshot file is forbidden" in error
+        and orphan.as_posix() in error
+        for error in errors
+    )
+
+
+def test_snapshot_cli_accepts_revision_reason() -> None:
+    args = update_snapshots.parse_args(
+        ["--artifact-id", "data_freshness", "--revision-reason", "warrant_formal_sync"]
+    )
+    assert args.artifact_id == ["data_freshness"]
+    assert args.revision_reason == "warrant_formal_sync"
 
 
 def test_daily_published_model_snapshot_builder_rejects_not_ready_freshness(
@@ -619,8 +1290,307 @@ def test_daily_published_model_snapshot_builder_rejects_wrong_model_signal_date(
     with pytest.raises(RuntimeError, match="signal_date must match report date 20260615"):
         update_snapshots.build_daily_published_model_snapshots(
             latest_dir=latest_dir,
-            snapshot_dir=tmp_path / "history",
-            manifest_path=tmp_path / "history" / "manifest.csv",
+            snapshot_dir=tmp_path / "output" / "history" / "daily_model_snapshots",
+            manifest_path=(
+                tmp_path
+                / "output"
+                / "history"
+                / "daily_model_snapshots"
+                / "daily_published_model_snapshot_manifest.csv"
+            ),
             generated_at="2026-06-16 08:00:00 Asia/Taipei",
             commit_sha="test-sha",
         )
+
+
+def test_legacy_absolute_c_paths_relocate_without_rewriting_manifest_identity(
+    tmp_path: Path,
+) -> None:
+    latest_dir = tmp_path / "output" / "latest"
+    snapshot_dir = tmp_path / "output" / "history" / "daily_model_snapshots"
+    manifest_path = snapshot_dir / "daily_published_model_snapshot_manifest.csv"
+    write_minimal_latest_artifacts(latest_dir, report_date="20260615")
+    update_snapshots.build_daily_published_model_snapshots(
+        latest_dir=latest_dir,
+        snapshot_dir=snapshot_dir,
+        manifest_path=manifest_path,
+        generated_at="2026-06-16 08:00:00 Asia/Taipei",
+        commit_sha="test-sha",
+    )
+
+    manifest = pd.read_csv(manifest_path, dtype=str).fillna("")
+    for column in ("source_path", "snapshot_path"):
+        manifest[column] = manifest[column].map(
+            lambda value: f"C:/retired-runner/repository/{value}"
+        )
+    identity_columns = [
+        "artifact_id",
+        "snapshot_revision",
+        "source_path",
+        "snapshot_path",
+        "source_sha256",
+        "snapshot_sha256",
+    ]
+    before = manifest[identity_columns].copy()
+    manifest.to_csv(manifest_path, index=False, encoding="utf-8", lineterminator="\n")
+
+    reused = update_snapshots.build_daily_published_model_snapshots(
+        latest_dir=latest_dir,
+        snapshot_dir=snapshot_dir,
+        manifest_path=manifest_path,
+        generated_at="2026-06-16 09:00:00 Asia/Taipei",
+        commit_sha="test-sha-2",
+        artifact_ids={"data_freshness"},
+    )
+    after = pd.read_csv(manifest_path, dtype=str).fillna("")
+
+    pd.testing.assert_frame_equal(before, after[identity_columns])
+    assert reused.iloc[0]["snapshot_path"].startswith(
+        "C:/retired-runner/repository/output/history/daily_model_snapshots/"
+    )
+    assert validate_snapshots.validate_current_report_snapshots(
+        latest_dir=latest_dir,
+        snapshot_dir=snapshot_dir,
+        manifest_path=manifest_path,
+    ) == []
+
+
+def test_legacy_absolute_path_without_approved_tail_fails_closed(
+    tmp_path: Path,
+) -> None:
+    latest_dir = tmp_path / "output" / "latest"
+    snapshot_dir = tmp_path / "output" / "history" / "daily_model_snapshots"
+    manifest_path = snapshot_dir / "daily_published_model_snapshot_manifest.csv"
+    write_minimal_latest_artifacts(latest_dir, report_date="20260615")
+    update_snapshots.build_daily_published_model_snapshots(
+        latest_dir=latest_dir,
+        snapshot_dir=snapshot_dir,
+        manifest_path=manifest_path,
+        generated_at="2026-06-16 08:00:00 Asia/Taipei",
+        commit_sha="test-sha",
+    )
+    manifest = pd.read_csv(manifest_path, dtype=str).fillna("")
+    mask = manifest["artifact_id"].eq("data_freshness")
+    filename = Path(manifest.loc[mask, "snapshot_path"].iloc[0]).name
+    manifest.loc[mask, "snapshot_path"] = f"C:/retired-runner/arbitrary/{filename}"
+    manifest.to_csv(manifest_path, index=False, encoding="utf-8", lineterminator="\n")
+
+    errors = validate_snapshots.validate_current_report_snapshots(
+        latest_dir=latest_dir,
+        snapshot_dir=snapshot_dir,
+        manifest_path=manifest_path,
+        artifact_ids={"data_freshness"},
+    )
+    assert any("does not end in the approved path" in error for error in errors)
+    with pytest.raises(RuntimeError, match="does not end in the approved path"):
+        update_snapshots.build_daily_published_model_snapshots(
+            latest_dir=latest_dir,
+            snapshot_dir=snapshot_dir,
+            manifest_path=manifest_path,
+            artifact_ids={"data_freshness"},
+        )
+
+
+def test_publisher_and_validator_reject_canonical_duplicate_fake_r2(
+    tmp_path: Path,
+) -> None:
+    latest_dir = tmp_path / "output" / "latest"
+    snapshot_dir = tmp_path / "output" / "history" / "daily_model_snapshots"
+    manifest_path = snapshot_dir / "daily_published_model_snapshot_manifest.csv"
+    report_date = "20260615"
+    write_minimal_latest_artifacts(latest_dir, report_date=report_date)
+    update_snapshots.build_daily_published_model_snapshots(
+        latest_dir=latest_dir,
+        snapshot_dir=snapshot_dir,
+        manifest_path=manifest_path,
+        generated_at="2026-06-16 08:00:00 Asia/Taipei",
+        commit_sha="test-sha",
+        artifact_ids={"data_freshness"},
+    )
+
+    manifest = pd.read_csv(manifest_path, dtype=str).fillna("")
+    r1 = manifest.iloc[0].copy()
+    r1_versioned = repository_file(tmp_path, r1["snapshot_path"])
+    lf_payload = r1_versioned.read_bytes().replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+    crlf_payload = lf_payload.replace(b"\n", b"\r\n")
+    legacy_path = snapshot_dir / f"data_freshness_{report_date}.csv"
+    legacy_path.write_bytes(crlf_payload)
+    r1_versioned.unlink()
+    legacy_raw_sha = hashlib.sha256(crlf_payload).hexdigest()
+    canonical_sha = hashlib.sha256(lf_payload).hexdigest()
+    manifest.loc[0, "snapshot_path"] = legacy_path.as_posix()
+    manifest.loc[0, "source_sha256"] = legacy_raw_sha
+    manifest.loc[0, "snapshot_sha256"] = legacy_raw_sha
+    manifest.loc[0, "revision_reason"] = update_snapshots.LEGACY_REVISION_REASON
+
+    artifact = update_snapshots.ARTIFACTS_BY_ID["data_freshness"]
+    r2_path = snapshot_dir / update_snapshots.snapshot_name(
+        artifact,
+        report_date,
+        "r2",
+        canonical_sha,
+    )
+    r2_path.write_bytes(lf_payload)
+    r2 = manifest.iloc[0].copy()
+    r2["snapshot_revision"] = "r2"
+    r2["supersedes_snapshot_sha256"] = legacy_raw_sha
+    r2["revision_reason"] = "fake_line_ending_revision"
+    r2["snapshot_path"] = (
+        update_snapshots.SNAPSHOT_REPOSITORY_PATH / r2_path.name
+    ).as_posix()
+    r2["source_sha256"] = canonical_sha
+    r2["snapshot_sha256"] = canonical_sha
+    pd.concat([manifest, r2.to_frame().T], ignore_index=True).to_csv(
+        manifest_path,
+        index=False,
+        encoding="utf-8",
+        lineterminator="\n",
+    )
+
+    errors = validate_snapshots.validate_current_report_snapshots(
+        latest_dir=latest_dir,
+        snapshot_dir=snapshot_dir,
+        manifest_path=manifest_path,
+        artifact_ids={"data_freshness"},
+    )
+    assert any("canonical duplicate payload revision is forbidden" in error for error in errors)
+    with pytest.raises(RuntimeError, match="canonical duplicate payload revision is forbidden"):
+        update_snapshots.build_daily_published_model_snapshots(
+            latest_dir=latest_dir,
+            snapshot_dir=snapshot_dir,
+            manifest_path=manifest_path,
+            artifact_ids={"data_freshness"},
+            revision_reason="must_not_publish",
+        )
+
+
+def test_publisher_rejects_r3_that_repeats_r1_canonical_payload(
+    tmp_path: Path,
+) -> None:
+    latest_dir = tmp_path / "output" / "latest"
+    snapshot_dir = tmp_path / "output" / "history" / "daily_model_snapshots"
+    manifest_path = snapshot_dir / "daily_published_model_snapshot_manifest.csv"
+    write_minimal_latest_artifacts(latest_dir, report_date="20260615")
+    initial = update_snapshots.build_daily_published_model_snapshots(
+        latest_dir=latest_dir,
+        snapshot_dir=snapshot_dir,
+        manifest_path=manifest_path,
+        artifact_ids={"data_freshness"},
+    )
+    r1_payload = repository_file(
+        tmp_path, initial.iloc[0]["snapshot_path"]
+    ).read_bytes()
+
+    source = latest_dir / "data_freshness_latest.csv"
+    frame = pd.read_csv(source, dtype=str)
+    frame.loc[0, "warrant_source_status"] = "ok_revised"
+    frame.to_csv(source, index=False, encoding="utf-8", lineterminator="\n")
+    update_snapshots.build_daily_published_model_snapshots(
+        latest_dir=latest_dir,
+        snapshot_dir=snapshot_dir,
+        manifest_path=manifest_path,
+        artifact_ids={"data_freshness"},
+        revision_reason="real_r2",
+    )
+    manifest_before = manifest_path.read_bytes()
+    source.write_bytes(r1_payload)
+
+    with pytest.raises(RuntimeError, match="canonical duplicate payload revision"):
+        update_snapshots.build_daily_published_model_snapshots(
+            latest_dir=latest_dir,
+            snapshot_dir=snapshot_dir,
+            manifest_path=manifest_path,
+            artifact_ids={"data_freshness"},
+            revision_reason="fake_r3_reversion",
+        )
+    assert manifest_path.read_bytes() == manifest_before
+
+
+def test_scoped_validator_requires_only_requested_current_artifacts_but_full_chain(
+    tmp_path: Path,
+) -> None:
+    latest_dir = tmp_path / "output" / "latest"
+    snapshot_dir = tmp_path / "output" / "history" / "daily_model_snapshots"
+    manifest_path = snapshot_dir / "daily_published_model_snapshot_manifest.csv"
+    selected_ids = {"model_signals_for_report", "all_candidates_source_rows"}
+    write_minimal_latest_artifacts(latest_dir, report_date="20260615")
+    update_snapshots.build_daily_published_model_snapshots(
+        latest_dir=latest_dir,
+        snapshot_dir=snapshot_dir,
+        manifest_path=manifest_path,
+        generated_at="2026-06-16 08:00:00 Asia/Taipei",
+        commit_sha="test-sha",
+        artifact_ids=selected_ids,
+    )
+
+    signals_path = latest_dir / "daily_candidate_model_signals_for_report_latest.csv"
+    signals = pd.read_csv(signals_path, dtype=str)
+    signals.loc[0, "model_score"] = "71.0"
+    signals.to_csv(
+        signals_path,
+        index=False,
+        encoding="utf-8",
+        lineterminator="\n",
+    )
+    update_snapshots.build_daily_published_model_snapshots(
+        latest_dir=latest_dir,
+        snapshot_dir=snapshot_dir,
+        manifest_path=manifest_path,
+        generated_at="2026-06-16 09:00:00 Asia/Taipei",
+        commit_sha="test-sha-2",
+        artifact_ids={"model_signals_for_report"},
+        revision_reason="scoped_formal_sync",
+    )
+
+    assert validate_snapshots.validate_current_report_snapshots(
+        latest_dir=latest_dir,
+        snapshot_dir=snapshot_dir,
+        manifest_path=manifest_path,
+        artifact_ids=selected_ids,
+    ) == []
+    manifest = pd.read_csv(manifest_path, dtype=str).fillna("")
+    historical_r1 = manifest[
+        manifest["artifact_id"].eq("model_signals_for_report")
+        & manifest["snapshot_revision"].eq("r1")
+    ].iloc[0]
+    historical_path = repository_file(tmp_path, historical_r1["snapshot_path"])
+    historical_payload = historical_path.read_bytes()
+    historical_path.write_text("tampered historical revision\n", encoding="utf-8")
+    historical_errors = validate_snapshots.validate_current_report_snapshots(
+        latest_dir=latest_dir,
+        snapshot_dir=snapshot_dir,
+        manifest_path=manifest_path,
+        artifact_ids=selected_ids,
+    )
+    assert any(
+        "model_signals_for_report/r1" in error
+        and "snapshot_sha256 does not match" in error
+        for error in historical_errors
+    )
+    historical_path.write_bytes(historical_payload)
+    full_errors = validate_snapshots.validate_current_report_snapshots(
+        latest_dir=latest_dir,
+        snapshot_dir=snapshot_dir,
+        manifest_path=manifest_path,
+    )
+    assert any("manifest missing current" in error for error in full_errors)
+    missing_selected_errors = validate_snapshots.validate_current_report_snapshots(
+        latest_dir=latest_dir,
+        snapshot_dir=snapshot_dir,
+        manifest_path=manifest_path,
+        artifact_ids={"data_freshness"},
+    )
+    assert any("data_freshness" in error for error in missing_selected_errors)
+
+    args = validate_snapshots.parse_args(
+        [
+            "--artifact-id",
+            "model_signals_for_report",
+            "--artifact-id",
+            "all_candidates_source_rows",
+        ]
+    )
+    assert args.artifact_id == [
+        "model_signals_for_report",
+        "all_candidates_source_rows",
+    ]

@@ -66,7 +66,8 @@ def signal_row(model_id: str, signal_date: str = "20260630") -> dict[str, str]:
     }
 
 
-def test_current_signal_becomes_confirmed_buy_rows() -> None:
+def test_current_signal_becomes_confirmed_buy_rows(monkeypatch) -> None:
+    monkeypatch.setattr(builder, "signal_snapshot_paths", lambda _report_date: [])
     section, audit = builder.build_model_section(
         pd.DataFrame([signal_row("w_bottom_right_side")]),
         approval_frame(),
