@@ -16,6 +16,11 @@ import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
+from daily_snapshot_revision_utils import (  # noqa: E402
+    SnapshotRevision,
+    latest_snapshot_revision_for_date,
+    select_latest_snapshot_revisions,
+)
 from volume_breakout_operation_utils import (  # noqa: E402
     TRIGGERS as SHARED_TRIGGERS,
     TRIGGER_MAP as SHARED_TRIGGER_MAP,
@@ -64,6 +69,7 @@ FORMAL_MODEL_IDS = (V2_LOW_MODEL_ID, V2_MID_MODEL_ID, V2_HIGH_MODEL_ID)
 MODEL_ID = ",".join(FORMAL_MODEL_IDS)
 VOLUME_V2_LINEAGE_AUDIT_REQUIRED_COLUMNS = {
     "snapshot_report_date",
+    "snapshot_revision",
     "signal_date",
     "model_id",
     "stock_id",
@@ -416,18 +422,21 @@ def read_snapshot_csv_cached(path_text: str) -> pd.DataFrame:
     return read_csv(Path(path_text)).fillna("")
 
 
-@lru_cache(maxsize=None)
 def prior_operation_snapshot_paths(report_date: str) -> tuple[str, ...]:
     report_date = normalize_date_text(report_date)
-    paths: list[tuple[str, str]] = []
-    for path in MODEL_SNAPSHOT_DIR.glob("daily_volume_breakout_operation_section_*.csv"):
-        snapshot_date = normalize_date_text(path.stem.rsplit("_", 1)[-1])
-        if snapshot_date and snapshot_date < report_date:
-            paths.append((snapshot_date, str(path)))
-    return tuple(path for _snapshot_date, path in sorted(paths, reverse=True))
+    records = select_latest_snapshot_revisions(
+        MODEL_SNAPSHOT_DIR,
+        "volume_breakout_operation_section",
+        through_date=report_date,
+        repository_root=ROOT,
+    )
+    return tuple(
+        str(record.path)
+        for record in sorted(records, key=lambda item: item.report_date, reverse=True)
+        if record.report_date < report_date
+    )
 
 
-@lru_cache(maxsize=None)
 def prior_active_snapshot_keys(report_date: str) -> frozenset[tuple[str, str, str, str]]:
     keys: set[tuple[str, str, str, str]] = set()
     for path_text in prior_operation_snapshot_paths(report_date):
@@ -456,12 +465,24 @@ def true_env(name: str) -> bool:
     return safe_str(os.environ.get(name)).lower() in {"1", "true", "yes", "y"}
 
 
-def published_section_snapshot_path(report_date: str) -> Path:
-    return MODEL_SNAPSHOT_DIR / f"daily_volume_breakout_operation_section_{normalize_date_text(report_date)}.csv"
+def published_section_snapshot_path(report_date: str) -> Path | None:
+    record = latest_snapshot_revision_for_date(
+        MODEL_SNAPSHOT_DIR,
+        "volume_breakout_operation_section",
+        normalize_date_text(report_date),
+        repository_root=ROOT,
+    )
+    return record.path if record is not None else None
 
 
-def published_evidence_audit_snapshot_path(report_date: str) -> Path:
-    return MODEL_SNAPSHOT_DIR / f"daily_volume_breakout_operation_evidence_audit_{normalize_date_text(report_date)}.csv"
+def published_evidence_audit_snapshot_path(report_date: str) -> Path | None:
+    record = latest_snapshot_revision_for_date(
+        MODEL_SNAPSHOT_DIR,
+        "volume_breakout_operation_evidence_audit",
+        normalize_date_text(report_date),
+        repository_root=ROOT,
+    )
+    return record.path if record is not None else None
 
 
 def confirmation_snapshot_buy_ranked(signal: pd.Series, selected: dict[str, Any]) -> tuple[bool, str]:
@@ -469,7 +490,7 @@ def confirmation_snapshot_buy_ranked(signal: pd.Series, selected: dict[str, Any]
     if not confirmation_date:
         return False, "missing_selected_confirmation_date"
     path = published_section_snapshot_path(confirmation_date)
-    if not path.exists():
+    if path is None:
         return False, "missing_confirmation_operation_snapshot"
     section = read_snapshot_csv_cached(str(path))
     if section.empty:
@@ -529,12 +550,12 @@ def restore_published_snapshot(report_date: str) -> tuple[pd.DataFrame, pd.DataF
         return None
     section_path = published_section_snapshot_path(report_date)
     audit_path = published_evidence_audit_snapshot_path(report_date)
-    if not section_path.exists():
+    if section_path is None:
         return None
-    if not audit_path.exists():
+    if audit_path is None:
         raise RuntimeError(
             "published volume breakout operation section snapshot exists without matching evidence audit snapshot: "
-            f"{section_path.as_posix()} requires {audit_path.as_posix()}; set {ALLOW_SNAPSHOT_REWRITE_ENV}=1 only for an explicit correction run"
+            f"{section_path.as_posix()} requires a manifest-selected evidence audit; set {ALLOW_SNAPSHOT_REWRITE_ENV}=1 only for an explicit correction run"
         )
     section = read_csv(section_path)
     audit = read_csv(audit_path)
@@ -665,6 +686,7 @@ def require_verified_clean_volume_v2_lineage(
     audit_path: Path = VOLUME_V2_LINEAGE_AUDIT_CSV,
     formal_signal_rows: pd.DataFrame | None = None,
     source_root: Path = ROOT,
+    manifest_path: Path | None = None,
 ) -> dict[str, Any]:
     """Reject non-clean or uncovered volume-v2 rows before formal use.
 
@@ -699,34 +721,36 @@ def require_verified_clean_volume_v2_lineage(
     audit["_signal_date"] = audit["signal_date"].map(normalize_date_text)
     audit["_model_id"] = audit["model_id"].map(safe_str)
     audit["_stock_id"] = audit["stock_id"].map(stock_id_key)
-    duplicate_mask = audit.duplicated(
-        subset=["_signal_date", "_model_id", "_stock_id"], keep=False
+    audit["_snapshot_report_date"] = audit["snapshot_report_date"].map(
+        normalize_date_text
     )
-    if duplicate_mask.any():
-        duplicates = audit.loc[
-            duplicate_mask, ["signal_date", "model_id", "stock_id"]
-        ].drop_duplicates().to_dict("records")
+    audit["_snapshot_revision"] = audit["snapshot_revision"].map(
+        lambda value: f"r{int(safe_str(value)[1:])}"
+        if re.fullmatch(r"r[1-9][0-9]*", safe_str(value))
+        else ""
+    )
+    audit["_formal_snapshot_sha256"] = audit["formal_snapshot_sha256"].map(
+        safe_str
+    )
+    invalid_revisions = audit[audit["_snapshot_revision"].eq("")]
+    if not invalid_revisions.empty:
         raise RuntimeError(
-            "volume v2 formal lineage gate failed: duplicate lineage audit keys "
-            f"audit={audit_path.as_posix()} audit_sha256={audit_sha256} keys={duplicates}"
+            "volume v2 formal lineage gate failed: invalid snapshot_revision rows "
+            f"audit={audit_path.as_posix()} rows={invalid_revisions.index.tolist()}"
         )
 
-    dispositions = {
-        (row["_signal_date"], row["_model_id"], row["_stock_id"]): {
-            "formal_row_disposition": safe_str(row.get("formal_row_disposition")),
-            "evidence_status": safe_str(row.get("evidence_status")),
-            "paired_source_resolution": safe_str(row.get("paired_source_resolution")),
-            "snapshot_report_date": normalize_date_text(row.get("snapshot_report_date")),
-            "formal_snapshot_path": safe_str(row.get("formal_snapshot_path")),
-            "formal_snapshot_sha256": safe_str(row.get("formal_snapshot_sha256")),
-            "formal_row_number": safe_str(row.get("formal_row_number")),
-            "formal_row_sha256": safe_str(row.get("formal_row_sha256")),
-            "source_sha_complete": all(
-                bool(re.fullmatch(r"[0-9a-f]{64}", safe_str(row.get(field))))
-                for field in VOLUME_V2_LINEAGE_SOURCE_SHA_COLUMNS
-            ),
-        }
-        for _, row in audit.iterrows()
+    lineage_snapshot_dir = source_root / "output" / "history" / "daily_model_snapshots"
+    manifest_records = select_latest_snapshot_revisions(
+        lineage_snapshot_dir,
+        "model_signals_for_report",
+        through_date=max(work["signal_date"].map(normalize_date_text)),
+        manifest_path=manifest_path,
+        repository_root=source_root,
+    )
+    manifest_by_date = {record.report_date: record for record in manifest_records}
+    canonical_snapshot_sha_by_date = {
+        record.report_date: canonical_text_sha256(record.path.read_bytes())
+        for record in manifest_records
     }
     violations: list[dict[str, str]] = []
     checked_keys: set[tuple[str, str, str]] = set()
@@ -740,18 +764,72 @@ def require_verified_clean_volume_v2_lineage(
         if key in checked_keys:
             continue
         checked_keys.add(key)
-        evidence = dispositions.get(key)
-        if evidence is None:
+        manifest_record = manifest_by_date.get(key[0])
+        if manifest_record is None:
             violations.append(
                 {
                     "signal_date": key[0],
                     "model_id": key[1],
                     "stock_id": key[2],
-                    "formal_row_disposition": "uncovered",
-                    "evidence_status": "missing",
+                    "formal_source_status": "missing_manifest_max_formal_snapshot",
                 }
             )
             continue
+        expected_canonical_snapshot_sha = canonical_snapshot_sha_by_date[key[0]]
+        matches = audit[
+            audit["_signal_date"].eq(key[0])
+            & audit["_model_id"].eq(key[1])
+            & audit["_stock_id"].eq(key[2])
+            & audit["_snapshot_report_date"].eq(manifest_record.report_date)
+            & audit["_snapshot_revision"].eq(manifest_record.revision)
+            & audit["_formal_snapshot_sha256"].eq(expected_canonical_snapshot_sha)
+        ].copy()
+        if len(matches) != 1:
+            violations.append(
+                {
+                    "signal_date": key[0],
+                    "model_id": key[1],
+                    "stock_id": key[2],
+                    "formal_source_status": (
+                        "uncovered_manifest_max_lineage_evidence"
+                        if matches.empty
+                        else "duplicate_manifest_max_lineage_evidence"
+                    ),
+                    "manifest_snapshot_revision": manifest_record.revision,
+                    "manifest_snapshot_sha256": manifest_record.snapshot_sha256,
+                    "matching_audit_rows": str(len(matches)),
+                }
+            )
+            continue
+        evidence_row = matches.iloc[0]
+        evidence = {
+            "formal_row_disposition": safe_str(
+                evidence_row.get("formal_row_disposition")
+            ),
+            "evidence_status": safe_str(evidence_row.get("evidence_status")),
+            "paired_source_resolution": safe_str(
+                evidence_row.get("paired_source_resolution")
+            ),
+            "snapshot_report_date": normalize_date_text(
+                evidence_row.get("snapshot_report_date")
+            ),
+            "formal_snapshot_path": safe_str(
+                evidence_row.get("formal_snapshot_path")
+            ),
+            "formal_snapshot_sha256": safe_str(
+                evidence_row.get("formal_snapshot_sha256")
+            ),
+            "formal_row_number": safe_str(evidence_row.get("formal_row_number")),
+            "formal_row_sha256": safe_str(evidence_row.get("formal_row_sha256")),
+            "source_sha_complete": all(
+                bool(
+                    re.fullmatch(
+                        r"[0-9a-f]{64}", safe_str(evidence_row.get(field))
+                    )
+                )
+                for field in VOLUME_V2_LINEAGE_SOURCE_SHA_COLUMNS
+            ),
+        }
         disposition = evidence["formal_row_disposition"]
         evidence_status = evidence["evidence_status"]
         source_resolution = evidence["paired_source_resolution"]
@@ -811,6 +889,18 @@ def require_verified_clean_volume_v2_lineage(
                     "model_id": key[1],
                     "stock_id": key[2],
                     "formal_source_status": str(exc),
+                }
+            )
+            continue
+        if snapshot_path != manifest_record.path:
+            violations.append(
+                {
+                    "signal_date": key[0],
+                    "model_id": key[1],
+                    "stock_id": key[2],
+                    "formal_source_status": "formal_snapshot_path_not_manifest_max",
+                    "audit_snapshot_path": snapshot_path.as_posix(),
+                    "manifest_snapshot_path": manifest_record.path.as_posix(),
                 }
             )
             continue
@@ -1226,15 +1316,16 @@ def stop_hit_index(price: pd.DataFrame, entry_idx: int, through_idx: int, signal
     return last_stop_exit_idx
 
 
-def signal_snapshot_paths(report_date: str) -> list[Path]:
+def signal_snapshot_paths(report_date: str) -> list[SnapshotRevision]:
     report_date = normalize_date_text(report_date)
-    paths = sorted(MODEL_SNAPSHOT_DIR.glob("daily_candidate_model_signals_for_report_*.csv"))
-    out: list[Path] = []
-    for path in paths:
-        date = normalize_date_text(path.stem.rsplit("_", 1)[-1])
-        if date and (not report_date or date <= report_date):
-            out.append(path)
-    return out
+    return list(
+        select_latest_snapshot_revisions(
+            MODEL_SNAPSHOT_DIR,
+            "model_signals_for_report",
+            through_date=report_date,
+            repository_root=ROOT,
+        )
+    )
 
 
 def load_volume_signal_history(current_signals: pd.DataFrame, report_date: str) -> pd.DataFrame:
@@ -1250,14 +1341,14 @@ def load_volume_signal_history(current_signals: pd.DataFrame, report_date: str) 
             signal_log["_source_priority"] = 1
             frames.append(signal_log)
 
-    for path in signal_snapshot_paths(report_date):
-        frame = read_csv(path)
+    for snapshot in signal_snapshot_paths(report_date):
+        frame = read_csv(snapshot.path)
         if frame.empty or "model_id" not in frame.columns:
             continue
         frame = frame[frame["model_id"].astype(str).str.strip().isin(FORMAL_MODEL_IDS)].copy()
         if frame.empty:
             continue
-        frame["snapshot_report_date"] = normalize_date_text(path.stem.rsplit("_", 1)[-1])
+        frame["snapshot_report_date"] = snapshot.report_date
         frame["_source_priority"] = 2
         frames.append(frame)
 

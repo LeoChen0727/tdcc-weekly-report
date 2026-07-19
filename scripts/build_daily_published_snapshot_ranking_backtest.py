@@ -11,6 +11,9 @@ import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
+from daily_snapshot_revision_utils import (  # noqa: E402
+    normalize_revision_manifest_schema,
+)
 from tracking_utils import (  # noqa: E402
     DOCS_LATEST_DIR,
     HISTORY_DIR,
@@ -37,6 +40,10 @@ EVENTS_CSV = RESEARCH_HISTORY_DIR / "daily_published_snapshot_ranking_events.csv
 DOCS_CSV = DOCS_LATEST_DIR / OUT_CSV.name
 DOCS_MD = DOCS_LATEST_DIR / OUT_MD.name
 VOLUME_V2_LINEAGE_AUDIT_CSV = LATEST_DIR / "volume_v2_warrant_lineage_history_audit_latest.csv"
+VOLUME_V2_LINEAGE_AUDIT_SOURCE_IDENTITY = (
+    "output/latest/volume_v2_warrant_lineage_history_audit_latest.csv"
+)
+SNAPSHOT_REVISION_POLICY = "latest_revision_per_report_date_artifact"
 
 HORIZONS = [1, 3, 5, 10]
 VOLUME_V2_MODEL_IDS = {
@@ -45,7 +52,10 @@ VOLUME_V2_MODEL_IDS = {
     "volume_range_breakout_v2_high_position_volume_attack",
 }
 VOLUME_V2_LINEAGE_AUDIT_REQUIRED_COLUMNS = {
+    "audit_version",
+    "audit_row_type",
     "snapshot_report_date",
+    "snapshot_revision",
     "signal_date",
     "model_id",
     "stock_id",
@@ -58,7 +68,12 @@ VOLUME_V2_LINEAGE_AUDIT_REQUIRED_COLUMNS = {
     "official_warrant_artifact_sha256",
     "formal_row_disposition",
     "evidence_status",
+    "legacy_precontract_revision_history_status",
+    "historical_promotion_evidence_eligible",
+    "snapshot_commit_sha",
+    "paired_source_commit_sha",
 }
+VOLUME_V2_LINEAGE_AUDIT_VERSION = "volume_v2_warrant_lineage_history_audit_v5"
 VOLUME_V2_LINEAGE_SOURCE_SHA_COLUMNS = (
     "production_code_sha256",
     "watch_artifact_sha256",
@@ -67,9 +82,12 @@ VOLUME_V2_LINEAGE_SOURCE_SHA_COLUMNS = (
 )
 VOLUME_V2_EXACT_PAIRED_SOURCE_RESOLUTIONS = {
     "current_worktree_exact_source_files",
+    "current_worktree_pending_same_date_revision_exact_sources",
     "published_snapshot_exact_current_sources_pending_commit",
     "manifest_pipeline_commit_exact_source_blob",
     "snapshot_history_exact_blob_fallback",
+    "manifest_history_first_exact_row_same_commit_sources",
+    "legacy_git_manifest_recovered_same_commit_exact_sources",
 }
 REQUIRED_ARTIFACT_IDS = {
     "model_signals_for_report",
@@ -171,6 +189,15 @@ def load_volume_v2_lineage_audit(
             f"audit={path.as_posix()} missing={missing}"
         )
     work = audit.copy()
+    invalid_versions = work[
+        ~work["audit_version"].astype(str).eq(VOLUME_V2_LINEAGE_AUDIT_VERSION)
+    ]
+    if not invalid_versions.empty:
+        raise RuntimeError(
+            "volume v2 lineage audit version mismatch: "
+            f"expected={VOLUME_V2_LINEAGE_AUDIT_VERSION}"
+        )
+    work = work[work["audit_row_type"].astype(str).eq("formal_row")].copy()
     work["_signal_date"] = work["signal_date"].map(normalize_date)
     work["_model_id"] = work["model_id"].map(safe_str)
     work["_stock_id"] = work["stock_id"].map(normalize_code)
@@ -228,6 +255,7 @@ def volume_v2_lineage_payload(
     audit_sha256: str,
 ) -> dict[str, str]:
     blank_hash_payload = {
+        "lineage_signal_date": normalize_date(signal_date),
         "lineage_formal_row_sha256": "",
         "lineage_observed_formal_row_sha256": "",
         "lineage_formal_snapshot_sha256": "",
@@ -237,6 +265,13 @@ def volume_v2_lineage_payload(
         "lineage_watch_artifact_sha256": "",
         "lineage_candidate_artifact_sha256": "",
         "lineage_official_warrant_artifact_sha256": "",
+        "lineage_legacy_precontract_revision_history_status": "",
+        "lineage_historical_promotion_evidence_eligible": "False",
+        "lineage_audit_version": "",
+        "lineage_audit_row_type": "",
+        "lineage_formal_snapshot_revision": "",
+        "lineage_snapshot_commit_sha": "",
+        "lineage_paired_source_commit_sha": "",
     }
     if model_id not in VOLUME_V2_MODEL_IDS:
         return {
@@ -248,6 +283,7 @@ def volume_v2_lineage_payload(
             "summary_evidence_eligible": "True",
             "lineage_gate_pass_for_promotion_evidence": "not_applicable",
             **blank_hash_payload,
+            "lineage_historical_promotion_evidence_eligible": "not_applicable",
         }
     key = (normalize_date(signal_date), safe_str(model_id), normalize_code(stock_id))
     evidence_rows = audit_index.get(key, [])
@@ -257,7 +293,7 @@ def volume_v2_lineage_payload(
             "lineage_gate_status": "uncovered_fail_closed",
             "lineage_formal_row_disposition": "uncovered",
             "lineage_evidence_status": "missing",
-            "lineage_audit_source": audit_path.as_posix(),
+            "lineage_audit_source": VOLUME_V2_LINEAGE_AUDIT_SOURCE_IDENTITY,
             "lineage_audit_source_sha256": audit_sha256,
             "summary_evidence_eligible": "False",
             "lineage_gate_pass_for_promotion_evidence": "False",
@@ -277,7 +313,7 @@ def volume_v2_lineage_payload(
             "lineage_gate_status": "non_clean_excluded",
             "lineage_formal_row_disposition": "hash_mismatch",
             "lineage_evidence_status": "incomplete",
-            "lineage_audit_source": audit_path.as_posix(),
+            "lineage_audit_source": VOLUME_V2_LINEAGE_AUDIT_SOURCE_IDENTITY,
             "lineage_audit_source_sha256": audit_sha256,
             "summary_evidence_eligible": "False",
             "lineage_gate_pass_for_promotion_evidence": "False",
@@ -310,20 +346,30 @@ def volume_v2_lineage_payload(
         for column in VOLUME_V2_LINEAGE_SOURCE_SHA_COLUMNS
     )
     exact_source_pair = paired_resolution in VOLUME_V2_EXACT_PAIRED_SOURCE_RESOLUTIONS
-    clean = (
+    operational_clean = (
         disposition == "verified_clean"
         and evidence_status == "complete"
         and exact_source_pair
         and source_hashes_complete
     )
+    historical_promotion_eligible = (
+        safe_str(evidence.get("historical_promotion_evidence_eligible", ""))
+        == "True"
+    )
+    promotion_clean = operational_clean and historical_promotion_eligible
     return {
-        "lineage_gate_status": "verified_clean" if clean else "non_clean_excluded",
+        "lineage_signal_date": normalize_date(signal_date),
+        "lineage_gate_status": (
+            "verified_clean" if operational_clean else "non_clean_excluded"
+        ),
         "lineage_formal_row_disposition": disposition or "missing",
         "lineage_evidence_status": evidence_status or "missing",
-        "lineage_audit_source": audit_path.as_posix(),
+        "lineage_audit_source": VOLUME_V2_LINEAGE_AUDIT_SOURCE_IDENTITY,
         "lineage_audit_source_sha256": audit_sha256,
-        "summary_evidence_eligible": "True" if clean else "False",
-        "lineage_gate_pass_for_promotion_evidence": "True" if clean else "False",
+        "summary_evidence_eligible": "True" if promotion_clean else "False",
+        "lineage_gate_pass_for_promotion_evidence": (
+            "True" if promotion_clean else "False"
+        ),
         "lineage_formal_row_sha256": safe_str(evidence.get("formal_row_sha256", "")),
         "lineage_observed_formal_row_sha256": safe_str(
             observed.get("formal_row_sha256", "")
@@ -346,6 +392,23 @@ def volume_v2_lineage_payload(
         ),
         "lineage_official_warrant_artifact_sha256": safe_str(
             evidence.get("official_warrant_artifact_sha256", "")
+        ),
+        "lineage_legacy_precontract_revision_history_status": safe_str(
+            evidence.get("legacy_precontract_revision_history_status", "")
+        ),
+        "lineage_historical_promotion_evidence_eligible": (
+            "True" if historical_promotion_eligible else "False"
+        ),
+        "lineage_audit_version": safe_str(evidence.get("audit_version", "")),
+        "lineage_audit_row_type": safe_str(evidence.get("audit_row_type", "")),
+        "lineage_formal_snapshot_revision": safe_str(
+            evidence.get("snapshot_revision", "")
+        ),
+        "lineage_snapshot_commit_sha": safe_str(
+            evidence.get("snapshot_commit_sha", "")
+        ),
+        "lineage_paired_source_commit_sha": safe_str(
+            evidence.get("paired_source_commit_sha", "")
         ),
     }
 
@@ -444,17 +507,80 @@ def load_manifest(manifest_path: Path = MANIFEST_CSV, snapshot_root: Path = SNAP
     if missing:
         raise RuntimeError(f"manifest missing columns: {sorted(missing)}")
 
-    manifest = manifest.copy()
+    manifest = normalize_revision_manifest_schema(
+        manifest,
+        source=manifest_path.as_posix(),
+    )
     manifest["snapshot_report_date"] = manifest["snapshot_report_date"].map(normalize_date)
     manifest = manifest[manifest["purpose"].astype(str).eq("as_published_daily_model_snapshot")]
     if manifest.empty:
         raise RuntimeError("manifest has no as_published_daily_model_snapshot rows")
 
     errors: list[str] = []
-    duplicate_mask = manifest.duplicated(subset=["snapshot_report_date", "artifact_id"], keep=False)
+    manifest["snapshot_revision"] = manifest["snapshot_revision"].map(
+        safe_str
+    )
+    revision_numbers = manifest["snapshot_revision"].str.extract(r"^r([1-9][0-9]*)$", expand=False)
+    invalid_revision = revision_numbers.isna()
+    if invalid_revision.any():
+        errors.append(
+            "invalid snapshot_revision values: "
+            f"{sorted(manifest.loc[invalid_revision, 'snapshot_revision'].astype(str).unique())}"
+        )
+    manifest["_snapshot_revision_number"] = pd.to_numeric(
+        revision_numbers, errors="coerce"
+    ).fillna(0).astype(int)
+    duplicate_mask = manifest.duplicated(
+        subset=["snapshot_report_date", "artifact_id", "snapshot_revision"],
+        keep=False,
+    )
     if duplicate_mask.any():
-        dupes = manifest.loc[duplicate_mask, ["snapshot_report_date", "artifact_id"]].to_dict("records")
+        dupes = manifest.loc[
+            duplicate_mask,
+            ["snapshot_report_date", "artifact_id", "snapshot_revision"],
+        ].to_dict("records")
         errors.append(f"duplicate snapshot manifest keys: {dupes}")
+
+    for (report_date, artifact_id), part in manifest.groupby(
+        ["snapshot_report_date", "artifact_id"], sort=True
+    ):
+        ordered = part.sort_values("_snapshot_revision_number")
+        observed = ordered["_snapshot_revision_number"].tolist()
+        expected = list(range(1, len(ordered) + 1))
+        if observed != expected:
+            errors.append(
+                "non-contiguous snapshot revision chain: "
+                f"report_date={report_date} artifact_id={artifact_id} "
+                f"observed={observed} expected={expected}"
+            )
+            continue
+        prior_sha = ""
+        for _, revision_row in ordered.iterrows():
+            revision_number = int(revision_row["_snapshot_revision_number"])
+            supersedes = safe_str(
+                revision_row.get("supersedes_snapshot_sha256", "")
+            )
+            reason = safe_str(revision_row.get("revision_reason", ""))
+            if revision_number == 1:
+                if supersedes:
+                    errors.append(
+                        "r1 snapshot must not supersede another revision: "
+                        f"report_date={report_date} artifact_id={artifact_id}"
+                    )
+            else:
+                if supersedes != prior_sha:
+                    errors.append(
+                        "snapshot revision supersedes hash mismatch: "
+                        f"report_date={report_date} artifact_id={artifact_id} "
+                        f"revision=r{revision_number}"
+                    )
+                if not reason:
+                    errors.append(
+                        "snapshot revision reason is required: "
+                        f"report_date={report_date} artifact_id={artifact_id} "
+                        f"revision=r{revision_number}"
+                    )
+            prior_sha = safe_str(revision_row.get("snapshot_sha256", ""))
 
     for _, row in manifest.iterrows():
         if safe_str(row.get("artifact_id", "")) in REQUIRED_ARTIFACT_IDS:
@@ -469,7 +595,16 @@ def load_manifest(manifest_path: Path = MANIFEST_CSV, snapshot_root: Path = SNAP
     if errors:
         raise RuntimeError("daily published snapshot manifest validation failed:\n" + "\n".join(errors))
 
-    return manifest
+    latest = (
+        manifest.sort_values(
+            ["snapshot_report_date", "artifact_id", "_snapshot_revision_number"]
+        )
+        .groupby(["snapshot_report_date", "artifact_id"], as_index=False, sort=False)
+        .tail(1)
+        .copy()
+    )
+    latest["snapshot_revision_policy"] = SNAPSHOT_REVISION_POLICY
+    return latest.drop(columns=["_snapshot_revision_number"])
 
 
 def snapshot_path_for(manifest: pd.DataFrame, report_date: str, artifact_id: str) -> Path:
@@ -480,6 +615,18 @@ def snapshot_path_for(manifest: pd.DataFrame, report_date: str, artifact_id: str
     if part.empty:
         return Path()
     return Path(safe_str(part.iloc[0].get("snapshot_path", "")))
+
+
+def snapshot_revision_for(
+    manifest: pd.DataFrame, report_date: str, artifact_id: str
+) -> str:
+    part = manifest[
+        manifest["snapshot_report_date"].astype(str).eq(report_date)
+        & manifest["artifact_id"].astype(str).eq(artifact_id)
+    ]
+    if len(part) != 1:
+        return ""
+    return safe_str(part.iloc[0].get("snapshot_revision", ""))
 
 
 def load_price_frame(stock_id: str, price_dir: Path = STOCK_PRICE_HISTORY_DIR) -> pd.DataFrame:
@@ -554,6 +701,9 @@ def build_model_signal_events(
     formal_snapshot_index = load_formal_snapshot_lineage_index(manifest)
     for report_date in sorted(manifest["snapshot_report_date"].dropna().unique()):
         path = snapshot_path_for(manifest, report_date, "model_signals_for_report")
+        snapshot_revision = snapshot_revision_for(
+            manifest, report_date, "model_signals_for_report"
+        )
         signals = read_csv(path)
         if signals.empty:
             continue
@@ -582,6 +732,10 @@ def build_model_signal_events(
             event = {
                 "source_artifact": "model_signals_for_report",
                 "snapshot_report_date": report_date,
+                "snapshot_revision": snapshot_revision,
+                "snapshot_revision_policy": SNAPSHOT_REVISION_POLICY,
+                "published_source_snapshot_sha256": canonical_text_sha256(path),
+                "published_source_row_sha256": canonical_row_sha256(row),
                 "stock_id": stock_id,
                 "stock_name": safe_str(row.get("stock_name", "")),
                 "model_id": model_id,
@@ -621,6 +775,9 @@ def build_volume_operation_events(
     formal_snapshot_index = load_formal_snapshot_lineage_index(manifest)
     for report_date in sorted(manifest["snapshot_report_date"].dropna().unique()):
         path = snapshot_path_for(manifest, report_date, "volume_breakout_operation_section")
+        snapshot_revision = snapshot_revision_for(
+            manifest, report_date, "volume_breakout_operation_section"
+        )
         ops = read_csv(path)
         if ops.empty:
             continue
@@ -663,6 +820,10 @@ def build_volume_operation_events(
             event = {
                 "source_artifact": "volume_breakout_operation_section",
                 "snapshot_report_date": report_date,
+                "snapshot_revision": snapshot_revision,
+                "snapshot_revision_policy": SNAPSHOT_REVISION_POLICY,
+                "published_source_snapshot_sha256": canonical_text_sha256(path),
+                "published_source_row_sha256": canonical_row_sha256(row),
                 "stock_id": stock_id,
                 "stock_name": safe_str(row.get("stock_name", "")),
                 "model_id": model_id,
@@ -902,7 +1063,7 @@ def write_markdown(summary: pd.DataFrame, events: pd.DataFrame, path: Path, gene
         "- D+1/D+3/D+5/D+10 returns use close prices; MFE/MAE use high/low versus entry open.",
         "- `model_signals_for_report` rows are ranking-evaluation samples, not trade-eligible operation rows.",
         "- `volume_breakout_operation_section` rows are evaluated separately by `confirmed_operation`, `confirmed_unranked_operation`, `pending_confirmation`, and `active_operation`.",
-        "- Volume-v2 rows require exact historical lineage coverage with `formal_row_disposition=verified_clean` and `evidence_status=complete`; non-clean or uncovered rows remain in the event audit but are excluded from all performance summaries and promotion evidence.",
+        "- Volume-v2 rows may be operationally `verified_clean` only when the exact row, snapshot, and paired sources match. Performance summaries and promotion evidence additionally require `historical_promotion_evidence_eligible=True`; incomplete pre-contract revision history remains fail closed.",
         "- The artifact is advisory-only and must not directly change daily production parameters.",
     ]
     path.parent.mkdir(parents=True, exist_ok=True)

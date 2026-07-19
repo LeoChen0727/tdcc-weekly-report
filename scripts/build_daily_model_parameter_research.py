@@ -19,6 +19,10 @@ from research_tdcc_dataset_consumer import (  # noqa: E402
     load_research_tdcc_dataset_contract,
 )
 from build_daily_candidate_model_layer import build_parameter_table, build_specs, cond_pullback  # noqa: E402
+from daily_snapshot_revision_utils import (  # noqa: E402
+    latest_snapshot_revision_for_date,
+    select_latest_snapshot_revisions,
+)
 from build_approved_operation_patterns import (  # noqa: E402
     NECKLINE_APPROVAL_METRICS,
     NECKLINE_OPERATION_MODULE_ID,
@@ -9244,10 +9248,6 @@ def _stock_id_sample(values: set[str], limit: int = 12) -> str:
     return ";".join(sorted(values)[:limit])
 
 
-def _snapshot_date_from_path(path: Path) -> str:
-    return normalize_date(path.stem.rsplit("_", 1)[-1])
-
-
 def _value_counts_summary(series: pd.Series, limit: int = 8) -> str:
     if series.empty:
         return ""
@@ -9256,16 +9256,18 @@ def _value_counts_summary(series: pd.Series, limit: int = 8) -> str:
     return ";".join(f"{key}:{int(count)}" for key, count in counts.head(limit).items())
 
 
-def _all_candidates_snapshot_path(snapshot_dir: Path, report_date: str) -> Path:
-    return snapshot_dir / f"all_candidates_{report_date}.csv"
-
-
 def _price_pullback_candidate_universe_replay(
     snapshot_dir: Path,
     report_date: str,
+    repository_root: Path,
 ) -> dict[str, object]:
-    path = _all_candidates_snapshot_path(snapshot_dir, report_date)
-    if not path.exists():
+    record = latest_snapshot_revision_for_date(
+        snapshot_dir,
+        "all_candidates_source_rows",
+        report_date,
+        repository_root=repository_root,
+    )
+    if record is None:
         return {
             "comparison_basis": "full_research_frame_proxy",
             "comparison_stock_ids": None,
@@ -9276,6 +9278,7 @@ def _price_pullback_candidate_universe_replay(
             "candidate_universe_missing_required_columns": "",
             "replay_error": "",
         }
+    path = record.path
 
     try:
         candidates = pd.read_csv(path, dtype=str, keep_default_na=False).fillna("")
@@ -9379,6 +9382,7 @@ def build_price_pullback_daily_row_parity_audit(
     df: pd.DataFrame,
     snapshot_dir: Path = DAILY_SNAPSHOT_DIR,
     generated_at: str | None = None,
+    repository_root: Path | None = None,
 ) -> pd.DataFrame:
     generated = generated_at or now_text()
     columns = [
@@ -9421,6 +9425,7 @@ def build_price_pullback_daily_row_parity_audit(
     ]
     if df.empty:
         return pd.DataFrame(columns=columns)
+    repository_root = Path(repository_root or snapshot_dir.parents[2]).resolve()
 
     research = df.copy()
     research["_row_parity_date"] = research["date"].map(normalize_date)
@@ -9439,10 +9444,14 @@ def build_price_pullback_daily_row_parity_audit(
     }
 
     rows: list[dict[str, object]] = []
-    for snapshot_path in sorted(snapshot_dir.glob("daily_candidate_model_signals_for_report_*.csv")):
-        report_date = _snapshot_date_from_path(snapshot_path)
-        if not report_date:
-            continue
+    signal_snapshots = select_latest_snapshot_revisions(
+        snapshot_dir,
+        "model_signals_for_report",
+        repository_root=repository_root,
+    )
+    for snapshot_record in signal_snapshots:
+        snapshot_path = snapshot_record.path
+        report_date = snapshot_record.report_date
         try:
             snapshot = pd.read_csv(snapshot_path, dtype=str, keep_default_na=False)
         except Exception as exc:
@@ -9535,7 +9544,9 @@ def build_price_pullback_daily_row_parity_audit(
         published_stock_ids = [normalize_code(value) for value in published["stock_id"].tolist()]
         published_stock_ids = [stock_id for stock_id in published_stock_ids if stock_id]
         published_set = set(published_stock_ids)
-        candidate_replay = _price_pullback_candidate_universe_replay(snapshot_dir, report_date)
+        candidate_replay = _price_pullback_candidate_universe_replay(
+            snapshot_dir, report_date, repository_root
+        )
         comparison_basis = safe_str(candidate_replay.get("comparison_basis", "")) or "full_research_frame_proxy"
         candidate_replay_set = candidate_replay.get("comparison_stock_ids")
         source_row_research_has_date = (

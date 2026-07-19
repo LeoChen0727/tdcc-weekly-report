@@ -4,12 +4,21 @@ import ast
 import csv
 import json
 import re
+import sys
 from datetime import datetime, timedelta
 from pathlib import Path
 from typing import Any
 
+SCRIPT_DIR = Path(__file__).resolve().parent
+if str(SCRIPT_DIR) not in sys.path:
+    sys.path.insert(0, str(SCRIPT_DIR))
 
-ROOT = Path(__file__).resolve().parents[1]
+from daily_snapshot_revision_utils import (  # noqa: E402
+    latest_snapshot_revision_for_date,
+    select_latest_snapshot_revisions,
+)
+
+ROOT = SCRIPT_DIR.parent
 INVENTORY_CSV = ROOT / "config" / "repo_production_inventory.csv"
 LINEAGE_CSV = ROOT / "config" / "report_artifact_lineage.csv"
 RUNTIME_LINEAGE_CONTRACT = ROOT / "config" / "runtime_file_lineage_contract.csv"
@@ -27,6 +36,20 @@ MODEL_PARAMETERS_CSV = ROOT / "output" / "latest" / "daily_candidate_model_param
 DAILY_MODEL_SNAPSHOT_DIR = ROOT / "output" / "history" / "daily_model_snapshots"
 MODEL_PARITY_CSV = ROOT / "output" / "latest" / "research_backtest" / "daily_model_research_parity_latest.csv"
 MODEL_REGISTRY_CSV = ROOT / "output" / "latest" / "daily_report_model_registry_latest.csv"
+
+HISTORICAL_REPLAY_CONTRACT_COLUMNS = (
+    "artifact_id",
+    "artifact_glob",
+    "window_days",
+    "min_snapshots",
+    "required_columns",
+    "forbidden_columns",
+    "allowed_report_lines",
+    "allowed_report_buckets",
+    "date_column",
+    "file_date_regex",
+)
+MAX_HISTORICAL_REPLAY_WINDOW_DAYS = 3660
 
 
 REQUIRED_CONFIGS = {
@@ -52,6 +75,42 @@ def read_csv_rows(path: Path) -> list[dict[str, str]]:
         return []
     with path.open("r", encoding="utf-8-sig", newline="") as fh:
         return [{key: str(value or "") for key, value in row.items()} for row in csv.DictReader(fh)]
+
+
+def load_historical_replay_contract(errors: list[str]) -> list[dict[str, str]]:
+    if not HISTORICAL_REPLAY_CONTRACT.exists():
+        errors.append(
+            f"missing historical replay semantic contract: {rel(HISTORICAL_REPLAY_CONTRACT)}"
+        )
+        return []
+    try:
+        with HISTORICAL_REPLAY_CONTRACT.open(
+            "r", encoding="utf-8-sig", newline=""
+        ) as handle:
+            reader = csv.DictReader(handle)
+            actual_columns = tuple(reader.fieldnames or ())
+            if actual_columns != HISTORICAL_REPLAY_CONTRACT_COLUMNS:
+                errors.append(
+                    "historical replay semantic contract schema drift: "
+                    f"expected={HISTORICAL_REPLAY_CONTRACT_COLUMNS!r} "
+                    f"actual={actual_columns!r}"
+                )
+                return []
+            rows: list[dict[str, str]] = []
+            for line_number, row in enumerate(reader, start=2):
+                if None in row or any(value is None for value in row.values()):
+                    errors.append(
+                        "historical replay semantic contract field count mismatch "
+                        f"at line {line_number}"
+                    )
+                    continue
+                rows.append({key: str(value) for key, value in row.items()})
+    except (OSError, UnicodeError, csv.Error) as exc:
+        errors.append(f"cannot parse historical replay semantic contract: {exc}")
+        return []
+    if not rows:
+        errors.append("historical replay semantic contract is empty")
+    return rows
 
 
 def split_list(value: str) -> list[str]:
@@ -300,8 +359,14 @@ def model_contract_valid_on(row: dict[str, str], snapshot_dt: datetime) -> bool:
     return True
 
 
-def historical_model_parameters_path(date_text: str) -> Path:
-    return DAILY_MODEL_SNAPSHOT_DIR / f"daily_candidate_model_parameters_{date_text}.csv"
+def historical_model_parameters_path(date_text: str) -> Path | None:
+    record = latest_snapshot_revision_for_date(
+        DAILY_MODEL_SNAPSHOT_DIR,
+        "model_parameters",
+        date_text,
+        repository_root=ROOT,
+    )
+    return record.path if record is not None else None
 
 
 def known_historical_models_for_date(
@@ -311,11 +376,12 @@ def known_historical_models_for_date(
 ) -> set[str]:
     models: set[str] = set()
     parameter_snapshot = historical_model_parameters_path(date_text)
-    models.update(
-        row.get("model_id", "").strip()
-        for row in read_csv_rows(parameter_snapshot)
-        if row.get("model_id", "").strip()
-    )
+    if parameter_snapshot is not None:
+        models.update(
+            row.get("model_id", "").strip()
+            for row in read_csv_rows(parameter_snapshot)
+            if row.get("model_id", "").strip()
+        )
     try:
         snapshot_dt = datetime.strptime(date_text, "%Y%m%d")
     except ValueError:
@@ -330,7 +396,100 @@ def known_historical_models_for_date(
 
 def validate_historical_replay_semantics() -> list[str]:
     errors: list[str] = []
-    contracts = read_csv_rows(HISTORICAL_REPLAY_CONTRACT)
+    contracts = load_historical_replay_contract(errors)
+    if errors:
+        return errors
+    validated_contracts: list[
+        tuple[dict[str, str], re.Pattern[str], int, int]
+    ] = []
+    seen_artifact_ids: dict[str, int] = {}
+    seen_artifact_globs: dict[str, int] = {}
+    for line_number, contract in enumerate(contracts, start=2):
+        row_errors: list[str] = []
+        artifact_id = contract["artifact_id"].strip()
+        glob_pattern = contract["artifact_glob"].strip()
+        if not artifact_id:
+            row_errors.append(
+                f"historical replay semantic contract line {line_number} has empty artifact_id"
+            )
+        elif artifact_id in seen_artifact_ids:
+            row_errors.append(
+                "historical replay semantic contract has duplicate artifact_id "
+                f"{artifact_id!r} at lines {seen_artifact_ids[artifact_id]} and {line_number}"
+            )
+        else:
+            seen_artifact_ids[artifact_id] = line_number
+        if not glob_pattern:
+            row_errors.append(
+                f"historical replay semantic contract line {line_number} has empty artifact_glob"
+            )
+        elif glob_pattern in seen_artifact_globs:
+            row_errors.append(
+                "historical replay semantic contract has duplicate artifact_glob "
+                f"{glob_pattern!r} at lines {seen_artifact_globs[glob_pattern]} and {line_number}"
+            )
+        else:
+            seen_artifact_globs[glob_pattern] = line_number
+
+        regex_text = contract["file_date_regex"].strip()
+        try:
+            file_date_regex = re.compile(regex_text)
+        except (re.error, RecursionError, OverflowError) as exc:
+            row_errors.append(
+                "historical replay semantic contract has invalid file_date_regex "
+                f"at line {line_number}: {exc}"
+            )
+            file_date_regex = re.compile(r"(?!)")
+        else:
+            if file_date_regex.groups < 1:
+                row_errors.append(
+                    "historical replay semantic contract file_date_regex must contain "
+                    f"a report-date capture group at line {line_number}"
+                )
+
+        parsed_numbers: dict[str, int] = {}
+        for column in ("window_days", "min_snapshots"):
+            raw_value = contract[column].strip()
+            if not re.fullmatch(r"[1-9][0-9]*", raw_value):
+                row_errors.append(
+                    f"historical replay semantic contract {column} must be a positive integer "
+                    f"at line {line_number}: {raw_value!r}"
+                )
+                continue
+            if len(raw_value) > 10:
+                row_errors.append(
+                    f"historical replay semantic contract {column} is too large "
+                    f"to parse at line {line_number}"
+                )
+                continue
+            try:
+                parsed_numbers[column] = int(raw_value)
+            except ValueError as exc:
+                row_errors.append(
+                    f"historical replay semantic contract {column} is too large "
+                    f"to parse at line {line_number}: {exc}"
+                )
+        window_days = parsed_numbers.get("window_days", 0)
+        min_snapshots = parsed_numbers.get("min_snapshots", 0)
+        if window_days > MAX_HISTORICAL_REPLAY_WINDOW_DAYS:
+            row_errors.append(
+                "historical replay semantic contract window_days exceeds reasonable bound "
+                f"{MAX_HISTORICAL_REPLAY_WINDOW_DAYS} at line {line_number}: {window_days}"
+            )
+        if window_days > 0 and min_snapshots > window_days + 1:
+            row_errors.append(
+                "historical replay semantic contract min_snapshots exceeds the maximum "
+                f"calendar snapshots in its window at line {line_number}: "
+                f"min_snapshots={min_snapshots} window_days={window_days}"
+            )
+        errors.extend(row_errors)
+        if not row_errors:
+            validated_contracts.append(
+                (contract, file_date_regex, window_days, min_snapshots)
+            )
+    if errors:
+        return errors
+
     parameters = read_csv_rows(MODEL_PARAMETERS_CSV)
     contract_rows = read_csv_rows(STOCK_MODEL_CONTRACT_REGISTRY)
     current_models = {row.get("model_id", "").strip() for row in parameters if row.get("model_id", "").strip()}
@@ -344,23 +503,45 @@ def validate_historical_replay_semantics() -> list[str]:
         errors.append(f"cannot validate historical replay: invalid main_price_date {main_date!r}")
         return errors
 
-    for contract in contracts:
-        glob_pattern = contract.get("artifact_glob", "")
+    for contract, file_date_regex, window_days, min_snapshots in validated_contracts:
+        glob_pattern = contract["artifact_glob"].strip()
+        artifact_id = contract["artifact_id"].strip()
         required_columns = set(split_list(contract.get("required_columns", "")))
         forbidden_columns = set(split_list(contract.get("forbidden_columns", "")))
         allowed_lines = set(split_list(contract.get("allowed_report_lines", "")))
         allowed_buckets = set(split_list(contract.get("allowed_report_buckets", "")))
         date_column = contract.get("date_column", "")
-        file_date_regex = re.compile(contract.get("file_date_regex", ""))
-        window_days = int(contract.get("window_days", "60"))
-        min_snapshots = int(contract.get("min_snapshots", "1"))
         cutoff = latest_dt - timedelta(days=window_days)
         matched: list[tuple[str, Path]] = []
-        for path in ROOT.glob(glob_pattern):
-            match = file_date_regex.search(path.name)
+        try:
+            snapshots = select_latest_snapshot_revisions(
+                DAILY_MODEL_SNAPSHOT_DIR,
+                artifact_id,
+                through_date=main_date,
+                repository_root=ROOT,
+            )
+        except (RuntimeError, ValueError, OSError) as exc:
+            errors.append(
+                f"historical replay contract {glob_pattern} cannot select manifest revisions: {exc}"
+            )
+            continue
+        for snapshot in snapshots:
+            path = snapshot.path
+            match = file_date_regex.fullmatch(path.name)
             if not match:
+                errors.append(
+                    "historical replay manifest-selected path does not match file_date_regex: "
+                    f"artifact_id={artifact_id} path={rel(path)}"
+                )
                 continue
             date_text = match.group(1)
+            if date_text != snapshot.report_date:
+                errors.append(
+                    "historical replay manifest date/path date mismatch: "
+                    f"artifact_id={artifact_id} manifest_date={snapshot.report_date} "
+                    f"path_date={date_text} path={rel(path)}"
+                )
+                continue
             try:
                 file_dt = datetime.strptime(date_text, "%Y%m%d")
             except ValueError:

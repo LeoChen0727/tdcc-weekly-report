@@ -48,7 +48,8 @@ def signal_row(signal_date: str = "20260703") -> dict[str, str]:
     }
 
 
-def test_current_price_pullback_signal_becomes_confirmed_operation_rows() -> None:
+def test_current_price_pullback_signal_becomes_confirmed_operation_rows(monkeypatch) -> None:
+    monkeypatch.setattr(builder, "signal_snapshot_paths", lambda _report_date: [])
     section, audit = builder.build_section(
         pd.DataFrame([signal_row("20260703")]),
         approval_frame(),

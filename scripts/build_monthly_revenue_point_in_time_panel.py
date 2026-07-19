@@ -11,6 +11,7 @@ import pandas as pd
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from tracking_utils import DOCS_LATEST_DIR, RESEARCH_LATEST_DIR, markdown_table, normalize_code, now_text, write_csv  # noqa: E402
+from daily_snapshot_revision_utils import select_latest_snapshot_revisions  # noqa: E402
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -204,12 +205,7 @@ def anomaly_flag(latest_yoy: Any, cumulative_yoy: Any) -> tuple[str, str]:
     return ("True" if reasons else "False", ";".join(reasons))
 
 
-def snapshot_date(path: Path) -> str:
-    match = re.search(r"_(\d{8})\.csv$", path.name)
-    return match.group(1) if match else ""
-
-
-def read_snapshot(path: Path) -> pd.DataFrame:
+def read_snapshot(path: Path, source_snapshot_date: str) -> pd.DataFrame:
     try:
         df = pd.read_csv(
             path,
@@ -226,7 +222,7 @@ def read_snapshot(path: Path) -> pd.DataFrame:
             df[col] = ""
     out = df[REVENUE_SOURCE_COLUMNS].copy()
     out["stock_id"] = out["stock_id"].map(normalize_code)
-    out["source_snapshot_date"] = snapshot_date(path)
+    out["source_snapshot_date"] = source_snapshot_date
     out["source_snapshot_file"] = rel_to_root(path)
     out["latest_revenue_yoy_pct"] = out.apply(
         lambda row: first_numeric_text(pd.Series([row.get("latest_revenue_yoy"), row.get("revenue_yoy_pct")])),
@@ -254,8 +250,18 @@ def conflict_flag(values: pd.Series) -> str:
     return "True" if len(normalized) > 1 else "False"
 
 
-def build_panel(snapshot_dir: Path = SNAPSHOT_DIR) -> pd.DataFrame:
-    frames = [read_snapshot(path) for path in sorted(snapshot_dir.glob("all_candidates_*.csv"))]
+def build_panel(
+    snapshot_dir: Path = SNAPSHOT_DIR,
+    repository_root: Path = ROOT,
+) -> pd.DataFrame:
+    snapshots = select_latest_snapshot_revisions(
+        snapshot_dir,
+        "all_candidates_source_rows",
+        repository_root=repository_root,
+    )
+    frames = [
+        read_snapshot(snapshot.path, snapshot.report_date) for snapshot in snapshots
+    ]
     frames = [frame for frame in frames if not frame.empty]
     if not frames:
         return pd.DataFrame(columns=OUTPUT_COLUMNS)

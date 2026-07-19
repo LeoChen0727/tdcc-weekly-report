@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import math
-import re
 import sys
 from functools import lru_cache
 from pathlib import Path
@@ -12,6 +11,7 @@ import pandas as pd
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from tracking_utils import DOCS_LATEST_DIR, LATEST_DIR, markdown_table, normalize_code, normalize_date, now_text, write_csv  # noqa: E402
+from daily_snapshot_revision_utils import select_latest_snapshot_revisions  # noqa: E402
 from research_tdcc_dataset_consumer import (  # noqa: E402
     build_canonical_tdcc_history,
     load_research_tdcc_dataset_contract,
@@ -175,32 +175,29 @@ def normalize_stock_id(value: Any) -> str:
     return normalize_code(value)
 
 
-def signal_snapshot_date(path: Path) -> str:
-    match = re.search(r"_(\d{8})\.csv$", path.name)
-    return match.group(1) if match else "latest"
-
-
 def load_signal_universe(
     snapshot_dir: Path = SIGNAL_SNAPSHOT_DIR,
-    latest_signal_csv: Path = LATEST_SIGNAL_CSV,
+    latest_signal_csv: Path | None = None,
+    repository_root: Path = ROOT,
 ) -> pd.DataFrame:
+    # The mutable latest file is intentionally not a historical source.  Keep
+    # the optional argument only for caller compatibility while selecting exact
+    # immutable paths exclusively from the publisher manifest.
+    _ = latest_signal_csv
     frames: list[pd.DataFrame] = []
-    for path in sorted(snapshot_dir.glob("daily_candidate_model_signals_for_report_*.csv")):
-        df = read_csv_safely(path, dtype=str, keep_default_na=False)
+    snapshots = select_latest_snapshot_revisions(
+        snapshot_dir,
+        "model_signals_for_report",
+        repository_root=repository_root,
+    )
+    for snapshot in snapshots:
+        df = read_csv_safely(snapshot.path, dtype=str, keep_default_na=False)
         if df.empty:
             continue
         df = df.copy()
-        df["source_snapshot_date"] = signal_snapshot_date(path)
-        df["source_snapshot_file"] = rel_to_root(path)
+        df["source_snapshot_date"] = snapshot.report_date
+        df["source_snapshot_file"] = rel_to_root(snapshot.path)
         frames.append(df)
-
-    if latest_signal_csv.exists():
-        latest = read_csv_safely(latest_signal_csv, dtype=str, keep_default_na=False)
-        if not latest.empty:
-            latest = latest.copy()
-            latest["source_snapshot_date"] = "latest"
-            latest["source_snapshot_file"] = rel_to_root(latest_signal_csv)
-            frames.append(latest)
 
     if not frames:
         return pd.DataFrame()

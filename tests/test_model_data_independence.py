@@ -1,9 +1,11 @@
 from __future__ import annotations
 
 import csv
+import subprocess
 import sys
 from pathlib import Path
 
+import pytest
 
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPTS = ROOT / "scripts"
@@ -27,7 +29,11 @@ from model_data_independence import (  # noqa: E402
     validate_model_semantic_ownership,
     validate_validator_independence,
 )
-from validate_model_data_independence import validate, validate_audit_artifact  # noqa: E402
+from validate_model_data_independence import (  # noqa: E402
+    validate,
+    validate_audit_artifact,
+    validate_data_sharing_migration_append_only,
+)
 
 
 ACTIVE_MODELS = {
@@ -50,12 +56,100 @@ def read_csv(path: str) -> list[dict[str, str]]:
         return list(csv.DictReader(fh))
 
 
+def _write_data_migrations(path: Path, rows: list[dict[str, str]]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("w", encoding="utf-8", newline="") as handle:
+        writer = csv.DictWriter(handle, fieldnames=DATA_SHARING_MIGRATION_COLUMNS)
+        writer.writeheader()
+        writer.writerows(rows)
+
+
+def _migration_row(migration_id: str) -> dict[str, str]:
+    return {
+        column: (
+            migration_id
+            if column == "migration_id"
+            else "validated_user_approved_migration"
+            if column == "migration_status"
+            else f"{migration_id}_{column}"
+        )
+        for column in DATA_SHARING_MIGRATION_COLUMNS
+    }
+
+
+def _commit_base_migrations(tmp_path: Path) -> tuple[Path, list[dict[str, str]]]:
+    migration_path = tmp_path / "config" / "daily_model_data_sharing_migrations.csv"
+    rows = [_migration_row("base_one"), _migration_row("base_two")]
+    _write_data_migrations(migration_path, rows)
+    subprocess.run(["git", "init", "-q"], cwd=tmp_path, check=True)
+    subprocess.run(["git", "add", migration_path.relative_to(tmp_path).as_posix()], cwd=tmp_path, check=True)
+    subprocess.run(
+        [
+            "git",
+            "-c",
+            "user.name=Codex Test",
+            "-c",
+            "user.email=codex-test@example.invalid",
+            "commit",
+            "-qm",
+            "base migrations",
+        ],
+        cwd=tmp_path,
+        check=True,
+    )
+    return migration_path, rows
+
+
 def test_model_data_independence_validator_passes() -> None:
     assert validate(base_ref="") == []
 
 
 def test_model_data_independence_audit_is_current_and_mirrored() -> None:
     assert validate_audit_artifact() == []
+
+
+def test_data_sharing_migration_base_rows_allow_only_exact_prefix_append(
+    tmp_path: Path,
+) -> None:
+    migration_path, rows = _commit_base_migrations(tmp_path)
+    _write_data_migrations(migration_path, [*rows, _migration_row("appended_three")])
+
+    assert validate_data_sharing_migration_append_only(
+        "HEAD",
+        migration_path=migration_path,
+        repository_root=tmp_path,
+    ) == []
+
+
+@pytest.mark.parametrize("attack", ["rewrite", "reorder", "delete", "requote"])
+def test_data_sharing_migration_base_prefix_rejects_hostile_history_changes(
+    tmp_path: Path,
+    attack: str,
+) -> None:
+    migration_path, rows = _commit_base_migrations(tmp_path)
+    hostile = [dict(row) for row in rows]
+    if attack == "rewrite":
+        hostile[0]["migration_status"] = "silently_rewritten"
+    elif attack == "reorder":
+        hostile = [hostile[1], hostile[0]]
+    elif attack == "delete":
+        hostile = hostile[:-1]
+    _write_data_migrations(migration_path, hostile)
+    if attack == "requote":
+        text = migration_path.read_text(encoding="utf-8")
+        migration_path.write_text(
+            text.replace("base_one,", '"base_one",', 1),
+            encoding="utf-8",
+        )
+
+    errors = validate_data_sharing_migration_append_only(
+        "HEAD",
+        migration_path=migration_path,
+        repository_root=tmp_path,
+    )
+
+    assert errors
+    assert any("is append-only" in error for error in errors)
 
 
 def test_every_active_model_has_exact_ast_semantic_ownership() -> None:
@@ -242,7 +336,7 @@ def test_data_sharing_registry_uses_model_owned_research_entrypoints() -> None:
 
 def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
     rows = read_csv("config/daily_model_data_sharing_migrations.csv")
-    assert len(rows) == 17
+    assert len(rows) == 18
     baseline = rows[0]
     assert tuple(baseline) == DATA_SHARING_MIGRATION_COLUMNS
     assert data_migration_row_sha256(baseline) == BASELINE_DATA_MIGRATION_ROW_SHA256
@@ -568,6 +662,30 @@ def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
         "ac32d241d118ab1121bffa97f0f3b4b821f0403fe4fbbf53d6624cd4f641cff9"
     )
     assert canonical_tdcc_consumer["migration_status"] == (
+        "validated_user_approved_migration"
+    )
+
+    snapshot_revision_contract = rows[17]
+    assert snapshot_revision_contract["migration_id"] == (
+        "daily_snapshot_append_only_revision_contract_20260720"
+    )
+    assert snapshot_revision_contract["changed_data_families"] == (
+        "daily_model_signal_snapshots;daily_all_candidates_snapshots;"
+        "daily_model_snapshot_revision_manifest"
+    )
+    assert snapshot_revision_contract["previous_contract_sha256s"] == (
+        "93adf9f60cdbd52b34ddf08d7294f5391af5895b9f80116c4a3259a0dcf308e9;"
+        "6f5b7c13d4f6b4478f4ec843066690627c3034abc46cdc5a61e0238ca25226d7;NEW"
+    )
+    assert snapshot_revision_contract["new_contract_sha256s"] == (
+        "78bceca0e4bb643a5d56f86971c488350b44618a3b4c30b30f4c05b0b011f9c7;"
+        "43159083c5c2173a45d60a6bb3e7cb892df11073cafb4b55c1b3d8ddb4fde1d8;"
+        "affa7abf285f61ed8ddca94f47068b81404940e010b595cb7f71405a84534cb5"
+    )
+    assert snapshot_revision_contract["user_approval_reference"] == (
+        "user_selected_option_1_daily_snapshot_revision_lineage_20260720"
+    )
+    assert snapshot_revision_contract["migration_status"] == (
         "validated_user_approved_migration"
     )
 

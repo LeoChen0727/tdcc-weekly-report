@@ -1,9 +1,11 @@
 from __future__ import annotations
 
+import re
 import subprocess
 from pathlib import Path
 
 from scripts import validate_daily_production_boundaries as boundaries
+from scripts.update_daily_published_model_snapshots import ARTIFACTS_BY_ID
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -11,6 +13,74 @@ WORKFLOW = ROOT / ".github" / "workflows" / "daily_model_maintenance_pr_validati
 DAILY_WORKFLOW = ROOT / ".github" / "workflows" / "daily_full_pipeline.yml"
 WARRANT_WORKFLOW = ROOT / ".github" / "workflows" / "warrant_flow.yml"
 PDF_REPLAY_WORKFLOW = ROOT / ".github" / "workflows" / "daily_pdf_replay_pr_validation.yml"
+
+
+def test_every_formal_snapshot_workflow_pins_an_explicit_revision_reason() -> None:
+    expected_callers = {
+        "daily_full_pipeline.yml": (
+            "daily_full_volume_v2_audit_sources",
+            "daily_full_post_audit_artifacts",
+        ),
+        "event_catalyst_update.yml": ("event_catalyst_formal_sync",),
+        "weekly_theme_review.yml": ("weekly_theme_formal_sync",),
+        "warrant_flow.yml": ("warrant_formal_sync",),
+    }
+    workflow_dir = ROOT / ".github" / "workflows"
+    publisher = "python scripts/update_daily_published_model_snapshots.py"
+    actual_callers = {
+        path.name
+        for path in workflow_dir.glob("*.yml")
+        if publisher in path.read_text(encoding="utf-8")
+    }
+
+    assert actual_callers == set(expected_callers)
+    for filename, revision_reasons in expected_callers.items():
+        text = (workflow_dir / filename).read_text(encoding="utf-8")
+        assert text.count(publisher) == len(revision_reasons)
+        for revision_reason in revision_reasons:
+            assert text.count(f"--revision-reason {revision_reason}") == 1
+
+
+def test_every_formal_snapshot_workflow_uses_registered_artifact_ids() -> None:
+    workflow_dir = ROOT / ".github" / "workflows"
+    publisher = "python scripts/update_daily_published_model_snapshots.py"
+    for path in workflow_dir.glob("*.yml"):
+        text = path.read_text(encoding="utf-8")
+        if publisher not in text:
+            continue
+        observed = set(re.findall(r"--artifact-id ([A-Za-z0-9_]+)", text))
+        assert observed
+        assert observed <= set(ARTIFACTS_BY_ID), path.name
+
+
+def test_daily_full_stages_only_exact_manifest_snapshot_revisions() -> None:
+    text = DAILY_WORKFLOW.read_text(encoding="utf-8")
+    commit_block = text[
+        text.index("- name: Commit report artifacts, packets, and rules first") :
+        text.index("- name: Wait briefly for GitHub Pages and raw propagation")
+    ]
+    assert 're.sub(r"[^0-9]", ""' in commit_block
+    assert 'if [[ ! "$snapshot_report_date" =~ ^[0-9]{8}$ ]]; then' in commit_block
+    assert "git add output/history/daily_model_snapshots/ || true" not in commit_block
+
+    artifact_ids = (
+        "data_freshness",
+        "model_signals_for_report",
+        "all_candidates_source_rows",
+        "model_summary_for_report",
+        "model_registry",
+        "model_parameters",
+        "volume_breakout_operation_section",
+        "volume_breakout_operation_evidence_audit",
+        "w_bottom_right_side_operation_section",
+        "neckline_volume_breakout_confirmation_operation_section",
+    )
+    assert commit_block.count(
+        "python scripts/stage_daily_published_snapshot_revisions.py"
+    ) == 1
+    for artifact_id in artifact_ids:
+        assert commit_block.count(f"--artifact-id {artifact_id}") == 1
+    assert 'daily_model_snapshots/data_freshness_${snapshot_report_date}"*.csv' not in commit_block
 
 
 def run_git(repo: Path, *args: str) -> str:
@@ -150,6 +220,8 @@ def test_daily_model_maintenance_pr_workflow_triggers_on_independence_guard_chan
         "scripts/validate_daily_canonical_field_lineage.py",
         "scripts/build_volume_v2_warrant_lineage_history_audit.py",
         "scripts/build_daily_published_snapshot_ranking_backtest.py",
+        "scripts/backfill_historical_all_candidates_snapshots_from_git_history.py",
+        "scripts/stage_daily_published_snapshot_revisions.py",
         "scripts/validate_volume_v2_warrant_lineage_history_audit.py",
         "tests/test_financial_statement_pit.py",
         "tests/test_volume_breakout_watch.py",
@@ -157,9 +229,32 @@ def test_daily_model_maintenance_pr_workflow_triggers_on_independence_guard_chan
         "tests/test_daily_model_maintenance_pr_validation_workflow.py",
         "tests/test_volume_v2_warrant_lineage_history_audit.py",
         "tests/test_daily_published_snapshot_ranking_backtest.py",
+        "tests/test_backfill_historical_all_candidates_snapshots.py",
+        "tests/test_stage_daily_published_snapshot_revisions.py",
     )
     for path in required_paths:
         assert path in text
+
+
+def test_daily_model_maintenance_pr_workflow_pins_append_only_validation_base() -> None:
+    text = WORKFLOW.read_text(encoding="utf-8")
+
+    assert "fetch-depth: 0" in text
+    assert "BASE_SHA: ${{ github.event.pull_request.base.sha || 'origin/main' }}" in text
+    assert 'if [ "$BASE_SHA" = "origin/main" ]; then' in text
+    assert "git fetch --no-tags origin main:refs/remotes/origin/main" in text
+    assert 'git cat-file -e "${BASE_SHA}^{commit}"' in text
+    assert (
+        'python scripts/validate_model_data_independence.py --base-ref "$BASE_SHA"'
+        in text
+    )
+    assert (
+        'python scripts/validate_daily_canonical_field_lineage.py '
+        '--base-ref "$BASE_SHA"'
+        in text
+    )
+    assert "python scripts/validate_model_data_independence.py\n" not in text
+    assert "python scripts/validate_daily_canonical_field_lineage.py\n" not in text
 
 
 def test_daily_model_maintenance_pr_workflow_runs_contract_validators() -> None:
@@ -208,7 +303,9 @@ def test_daily_model_maintenance_pr_workflow_runs_focused_pdf_operation_tests() 
         "tests/test_daily_pdf_contract_consumers.py",
         "tests/test_daily_pdf_completion_hard_gate.py",
         "tests/test_daily_published_model_snapshots.py",
+        "tests/test_backfill_historical_all_candidates_snapshots.py",
         "tests/test_daily_published_snapshot_ranking_backtest.py",
+        "tests/test_stage_daily_published_snapshot_revisions.py",
         "tests/test_daily_operation_adapter_protected_fields.py",
         "tests/test_daily_volume_breakout_operation_section.py",
         "tests/test_daily_w_bottom_operation_sections.py",

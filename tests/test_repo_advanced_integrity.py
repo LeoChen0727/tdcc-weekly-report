@@ -5,6 +5,7 @@ from pathlib import Path
 
 from scripts import trace_runtime_file_lineage
 from scripts import validate_repo_advanced_integrity as validator
+from scripts.daily_snapshot_revision_utils import snapshot_file_sha256
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -189,6 +190,42 @@ def test_external_source_contract_runs_bounded_degradation_validator() -> None:
     assert "validate_degraded_external_source(source_id, data, str(observed_status))" in text
 
 
+def _historical_replay_contract_row() -> dict[str, str]:
+    return {
+        "artifact_id": "model_signals_for_report",
+        "artifact_glob": (
+            "output/history/daily_model_snapshots/"
+            "daily_candidate_model_signals_for_report_*.csv"
+        ),
+        "window_days": "60",
+        "min_snapshots": "1",
+        "required_columns": (
+            "signal_date;stock_id;model_id;model_score;report_line;report_bucket;"
+            "mainstream_report_eligible;non_mainstream_report_eligible"
+        ),
+        "forbidden_columns": "trade_decision",
+        "allowed_report_lines": "mainstream;non_mainstream",
+        "allowed_report_buckets": "mainstream;non_mainstream",
+        "date_column": "signal_date",
+        "file_date_regex": (
+            r"daily_candidate_model_signals_for_report_(\d{8})"
+            r"(?:_r[1-9][0-9]*_[0-9a-f]{12})?\.csv"
+        ),
+    }
+
+
+def _write_historical_replay_contract(
+    path: Path,
+    rows: list[dict[str, str]],
+    *,
+    fieldnames: tuple[str, ...] = validator.HISTORICAL_REPLAY_CONTRACT_COLUMNS,
+) -> None:
+    with path.open("w", encoding="utf-8", newline="") as handle:
+        writer = csv.DictWriter(handle, fieldnames=fieldnames)
+        writer.writeheader()
+        writer.writerows(rows)
+
+
 def _write_minimal_historical_replay_repo(tmp_path: Path, model_id: str) -> None:
     config_dir = tmp_path / "config"
     latest_dir = tmp_path / "output" / "latest"
@@ -201,10 +238,9 @@ def _write_minimal_historical_replay_repo(tmp_path: Path, model_id: str) -> None
         "main_price_date\n20260630\n",
         encoding="utf-8",
     )
-    (config_dir / "historical_replay_semantic_contract.csv").write_text(
-        "artifact_glob,window_days,min_snapshots,required_columns,forbidden_columns,allowed_report_lines,allowed_report_buckets,date_column,file_date_regex\n"
-        "output/history/daily_model_snapshots/daily_candidate_model_signals_for_report_*.csv,60,1,signal_date;stock_id;model_id;model_score;report_line;report_bucket;mainstream_report_eligible;non_mainstream_report_eligible,trade_decision,mainstream;non_mainstream,mainstream;non_mainstream,signal_date,daily_candidate_model_signals_for_report_(\\d{8})\\.csv\n",
-        encoding="utf-8",
+    _write_historical_replay_contract(
+        config_dir / "historical_replay_semantic_contract.csv",
+        [_historical_replay_contract_row()],
     )
     (latest_dir / "daily_candidate_model_parameters_latest.csv").write_text(
         "model_id\nneckline_volume_breakout_confirmation\n",
@@ -216,15 +252,47 @@ def _write_minimal_historical_replay_repo(tmp_path: Path, model_id: str) -> None
         "platform_strengthening,2026-06-21,2026-06-29\n",
         encoding="utf-8",
     )
-    (snapshot_dir / "daily_candidate_model_parameters_20260624.csv").write_text(
+    parameter_snapshot = snapshot_dir / "daily_candidate_model_parameters_20260624.csv"
+    parameter_snapshot.write_text(
         "model_id\nnear_high_neckline_challenge\nplatform_strengthening\n",
         encoding="utf-8",
     )
-    (snapshot_dir / "daily_candidate_model_signals_for_report_20260624.csv").write_text(
+    signal_snapshot = snapshot_dir / "daily_candidate_model_signals_for_report_20260624.csv"
+    signal_snapshot.write_text(
         "signal_date,stock_id,model_id,model_score,report_line,report_bucket,mainstream_report_eligible,non_mainstream_report_eligible\n"
         f"20260624,2330,{model_id},80,mainstream,mainstream,True,False\n",
         encoding="utf-8",
     )
+    manifest = snapshot_dir / "daily_published_model_snapshot_manifest.csv"
+    with manifest.open("w", encoding="utf-8", newline="") as handle:
+        writer = csv.DictWriter(
+            handle,
+            fieldnames=[
+                "snapshot_report_date",
+                "snapshot_revision",
+                "supersedes_snapshot_sha256",
+                "revision_reason",
+                "artifact_id",
+                "snapshot_path",
+                "snapshot_sha256",
+            ],
+        )
+        writer.writeheader()
+        for artifact_id, path in (
+            ("model_parameters", parameter_snapshot),
+            ("model_signals_for_report", signal_snapshot),
+        ):
+            writer.writerow(
+                {
+                    "snapshot_report_date": "20260624",
+                    "snapshot_revision": "r1",
+                    "supersedes_snapshot_sha256": "",
+                    "revision_reason": "legacy_v1_manifest",
+                    "artifact_id": artifact_id,
+                    "snapshot_path": path.relative_to(tmp_path).as_posix(),
+                    "snapshot_sha256": snapshot_file_sha256(path),
+                }
+            )
 
 
 def _patch_historical_replay_paths(tmp_path: Path, monkeypatch) -> None:
@@ -273,6 +341,176 @@ def test_historical_replay_rejects_never_registered_model_id(tmp_path: Path, mon
     errors = validator.validate_historical_replay_semantics()
 
     assert any("historical replay unknown model_id 'not_a_registered_model'" in error for error in errors)
+
+
+def test_historical_replay_contract_requires_exact_schema_without_crashing(
+    tmp_path: Path,
+    monkeypatch,
+) -> None:
+    _write_minimal_historical_replay_repo(tmp_path, "near_high_neckline_challenge")
+    _patch_historical_replay_paths(tmp_path, monkeypatch)
+    wrong_order = (
+        "artifact_glob",
+        "artifact_id",
+        *validator.HISTORICAL_REPLAY_CONTRACT_COLUMNS[2:],
+    )
+    _write_historical_replay_contract(
+        validator.HISTORICAL_REPLAY_CONTRACT,
+        [_historical_replay_contract_row()],
+        fieldnames=wrong_order,
+    )
+
+    errors = validator.validate_historical_replay_semantics()
+
+    assert any("schema drift" in error for error in errors)
+
+
+def test_historical_replay_contract_rejects_duplicate_ids_and_globs(
+    tmp_path: Path,
+    monkeypatch,
+) -> None:
+    _write_minimal_historical_replay_repo(tmp_path, "near_high_neckline_challenge")
+    _patch_historical_replay_paths(tmp_path, monkeypatch)
+    first = _historical_replay_contract_row()
+    duplicate_id = dict(first)
+    duplicate_id["artifact_glob"] = "output/history/other_*.csv"
+    _write_historical_replay_contract(
+        validator.HISTORICAL_REPLAY_CONTRACT,
+        [first, duplicate_id],
+    )
+    id_errors = validator.validate_historical_replay_semantics()
+
+    duplicate_glob = dict(first)
+    duplicate_glob["artifact_id"] = "different_artifact"
+    _write_historical_replay_contract(
+        validator.HISTORICAL_REPLAY_CONTRACT,
+        [first, duplicate_glob],
+    )
+    glob_errors = validator.validate_historical_replay_semantics()
+
+    assert any("duplicate artifact_id" in error for error in id_errors)
+    assert any("duplicate artifact_glob" in error for error in glob_errors)
+
+
+def test_historical_replay_contract_hostile_values_return_errors_not_exceptions(
+    tmp_path: Path,
+    monkeypatch,
+) -> None:
+    _write_minimal_historical_replay_repo(tmp_path, "near_high_neckline_challenge")
+    _patch_historical_replay_paths(tmp_path, monkeypatch)
+    cases = (
+        ("file_date_regex", "(", "invalid file_date_regex"),
+        ("file_date_regex", r"no_date_capture", "report-date capture group"),
+        ("window_days", "0", "window_days must be a positive integer"),
+        ("window_days", "not_an_integer", "window_days must be a positive integer"),
+        (
+            "window_days",
+            str(validator.MAX_HISTORICAL_REPLAY_WINDOW_DAYS + 1),
+            "window_days exceeds reasonable bound",
+        ),
+        (
+            "window_days",
+            "9" * 5000,
+            "window_days is too large to parse",
+        ),
+        ("min_snapshots", "0", "min_snapshots must be a positive integer"),
+        (
+            "min_snapshots",
+            "62",
+            "min_snapshots exceeds the maximum calendar snapshots",
+        ),
+    )
+
+    for field, value, expected in cases:
+        hostile = _historical_replay_contract_row()
+        hostile[field] = value
+        _write_historical_replay_contract(
+            validator.HISTORICAL_REPLAY_CONTRACT,
+            [hostile],
+        )
+
+        errors = validator.validate_historical_replay_semantics()
+
+        assert any(expected in error for error in errors), (field, value, errors)
+
+
+def test_historical_replay_selects_same_day_max_signal_and_parameter_revisions(
+    tmp_path: Path,
+    monkeypatch,
+) -> None:
+    _write_minimal_historical_replay_repo(tmp_path, "not_a_registered_model")
+    _patch_historical_replay_paths(tmp_path, monkeypatch)
+    snapshot_dir = tmp_path / "output" / "history" / "daily_model_snapshots"
+    parameter_r1 = snapshot_dir / "daily_candidate_model_parameters_20260624.csv"
+    parameter_r1.write_text(
+        "model_id\nnear_high_neckline_challenge\n",
+        encoding="utf-8",
+    )
+    parameter_r1_sha = snapshot_file_sha256(parameter_r1)
+    signal_r1 = snapshot_dir / "daily_candidate_model_signals_for_report_20260624.csv"
+    signal_r1_sha = snapshot_file_sha256(signal_r1)
+    parameter_staging = snapshot_dir / "parameters-r2-staging.csv"
+    parameter_staging.write_text(
+        "model_id\nplatform_strengthening\n",
+        encoding="utf-8",
+    )
+    parameter_r2_sha = snapshot_file_sha256(parameter_staging)
+    parameter_r2 = snapshot_dir / (
+        f"daily_candidate_model_parameters_20260624_r2_{parameter_r2_sha[:12]}.csv"
+    )
+    parameter_staging.rename(parameter_r2)
+    signal_staging = snapshot_dir / "signals-r2-staging.csv"
+    signal_staging.write_text(
+        "signal_date,stock_id,model_id,model_score,report_line,report_bucket,mainstream_report_eligible,non_mainstream_report_eligible\n"
+        "20260624,2330,platform_strengthening,80,mainstream,mainstream,True,False\n",
+        encoding="utf-8",
+    )
+    signal_r2_sha = snapshot_file_sha256(signal_staging)
+    signal_r2 = snapshot_dir / (
+        f"daily_candidate_model_signals_for_report_20260624_r2_{signal_r2_sha[:12]}.csv"
+    )
+    signal_staging.rename(signal_r2)
+    manifest = snapshot_dir / "daily_published_model_snapshot_manifest.csv"
+    with manifest.open("r", encoding="utf-8-sig", newline="") as handle:
+        rows = list(csv.DictReader(handle))
+        fieldnames = list(rows[0])
+    for row in rows:
+        if row["artifact_id"] == "model_parameters":
+            row["snapshot_sha256"] = parameter_r1_sha
+    rows.extend(
+        [
+            {
+                "snapshot_report_date": "20260624",
+                "snapshot_revision": "r2",
+                "supersedes_snapshot_sha256": parameter_r1_sha,
+                "revision_reason": "same_day_contract_correction",
+                "artifact_id": "model_parameters",
+                "snapshot_path": parameter_r2.relative_to(tmp_path).as_posix(),
+                "snapshot_sha256": parameter_r2_sha,
+            },
+            {
+                "snapshot_report_date": "20260624",
+                "snapshot_revision": "r2",
+                "supersedes_snapshot_sha256": signal_r1_sha,
+                "revision_reason": "same_day_signal_correction",
+                "artifact_id": "model_signals_for_report",
+                "snapshot_path": signal_r2.relative_to(tmp_path).as_posix(),
+                "snapshot_sha256": signal_r2_sha,
+            },
+        ]
+    )
+    with manifest.open("w", encoding="utf-8", newline="") as handle:
+        writer = csv.DictWriter(handle, fieldnames=fieldnames)
+        writer.writeheader()
+        writer.writerows(rows)
+    (tmp_path / "config" / "stock_model_contract_registry.csv").write_text(
+        "model_id,effective_from,deprecated_after\n"
+        "near_high_neckline_challenge,2026-06-21,2026-06-29\n"
+        "platform_strengthening,2026-07-01,\n",
+        encoding="utf-8",
+    )
+
+    assert validator.validate_historical_replay_semantics() == []
 
 
 def test_advanced_integrity_contracts_exist() -> None:

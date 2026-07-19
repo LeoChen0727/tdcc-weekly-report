@@ -10,12 +10,32 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
 from build_daily_model_parameter_research import build_price_pullback_daily_row_parity_audit  # noqa: E402
+from daily_snapshot_revision_utils import snapshot_file_sha256  # noqa: E402
 from validate_price_pullback_daily_row_parity import validate_row_parity_frame  # noqa: E402
 
 
 def write_csv(path: Path, rows: list[dict[str, str]]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     pd.DataFrame(rows).to_csv(path, index=False, encoding="utf-8", lineterminator="\n")
+
+
+def write_manifest(
+    snapshot_dir: Path,
+    rows: list[tuple[str, str, Path]],
+) -> None:
+    pd.DataFrame(
+        [
+            {
+                "snapshot_report_date": report_date,
+                "artifact_id": artifact_id,
+                "snapshot_path": path.as_posix(),
+                "snapshot_sha256": snapshot_file_sha256(path),
+            }
+            for artifact_id, report_date, path in rows
+        ]
+    ).to_csv(
+        snapshot_dir / "daily_published_model_snapshot_manifest.csv", index=False
+    )
 
 
 def research_frame() -> pd.DataFrame:
@@ -113,6 +133,21 @@ def test_price_pullback_daily_row_parity_audit_reports_bidirectional_gaps(tmp_pa
         snapshot_dir / "daily_candidate_model_signals_for_report_20260616.csv",
         [{"model_id": "price_pullback_23ema", "stock_id": "1234"}],
     )
+    write_manifest(
+        snapshot_dir,
+        [
+            (
+                "model_signals_for_report",
+                "20260615",
+                snapshot_dir / "daily_candidate_model_signals_for_report_20260615.csv",
+            ),
+            (
+                "model_signals_for_report",
+                "20260616",
+                snapshot_dir / "daily_candidate_model_signals_for_report_20260616.csv",
+            ),
+        ],
+    )
 
     audit = build_price_pullback_daily_row_parity_audit(
         research_frame(),
@@ -193,6 +228,21 @@ def test_price_pullback_daily_row_parity_uses_all_candidates_replay_when_availab
             }
         ],
     )
+    write_manifest(
+        snapshot_dir,
+        [
+            (
+                "model_signals_for_report",
+                "20260615",
+                snapshot_dir / "daily_candidate_model_signals_for_report_20260615.csv",
+            ),
+            (
+                "all_candidates_source_rows",
+                "20260615",
+                snapshot_dir / "all_candidates_20260615.csv",
+            ),
+        ],
+    )
 
     audit = build_price_pullback_daily_row_parity_audit(
         research_frame(),
@@ -259,6 +309,21 @@ def test_price_pullback_daily_row_parity_accepts_source_row_replay_without_outco
                 "price_pullback_high_thresholds_up": "True",
                 "price_pullback_obv_above_ma20": "True",
             }
+        ],
+    )
+    write_manifest(
+        snapshot_dir,
+        [
+            (
+                "model_signals_for_report",
+                "20260616",
+                snapshot_dir / "daily_candidate_model_signals_for_report_20260616.csv",
+            ),
+            (
+                "all_candidates_source_rows",
+                "20260616",
+                snapshot_dir / "all_candidates_20260616.csv",
+            ),
         ],
     )
 

@@ -14,6 +14,7 @@ if str(SCRIPTS) not in sys.path:
 from build_daily_model_signal_background_features import (  # noqa: E402
     build_feature_panel,
     feature_catalog,
+    load_signal_universe,
     load_theme_status_history,
     load_monthly_revenue_pit_panel,
     load_price_history,
@@ -23,6 +24,7 @@ from build_daily_model_signal_background_features import (  # noqa: E402
     theme_background_features,
     tdcc_background_features,
 )
+from daily_snapshot_revision_utils import snapshot_file_sha256  # noqa: E402
 from validate_daily_model_signal_background_features import validate_catalog, validate_panel  # noqa: E402
 
 
@@ -353,3 +355,52 @@ def test_background_feature_panel_stays_shared_objective(tmp_path: Path) -> None
 
 def test_build_feature_panel_accepts_empty_signal_override() -> None:
     assert build_feature_panel(pd.DataFrame()).empty
+
+
+def test_signal_universe_selects_same_day_manifest_max_revision(tmp_path: Path) -> None:
+    snapshot_dir = tmp_path / "output" / "history" / "daily_model_snapshots"
+    snapshot_dir.mkdir(parents=True)
+    r1 = snapshot_dir / "daily_candidate_model_signals_for_report_20260717.csv"
+    r2_staging = snapshot_dir / "daily_candidate_model_signals_for_report_r2_staging.csv"
+    pd.DataFrame(
+        [{"signal_date": "20260717", "stock_id": "1111", "model_id": "model_a"}]
+    ).to_csv(r1, index=False)
+    pd.DataFrame(
+        [{"signal_date": "20260717", "stock_id": "2222", "model_id": "model_a"}]
+    ).to_csv(r2_staging, index=False)
+    r1_sha = snapshot_file_sha256(r1)
+    r2_sha = snapshot_file_sha256(r2_staging)
+    r2 = snapshot_dir / (
+        f"daily_candidate_model_signals_for_report_20260717_r2_{r2_sha[:12]}.csv"
+    )
+    r2_staging.rename(r2)
+    pd.DataFrame(
+        [
+            {
+                "snapshot_report_date": "20260717",
+                "snapshot_revision": "r1",
+                "supersedes_snapshot_sha256": "",
+                "revision_reason": "legacy_v1_manifest",
+                "artifact_id": "model_signals_for_report",
+                "snapshot_path": r1.as_posix(),
+                "snapshot_sha256": r1_sha,
+            },
+            {
+                "snapshot_report_date": "20260717",
+                "snapshot_revision": "r2",
+                "supersedes_snapshot_sha256": r1_sha,
+                "revision_reason": "same_day_correction",
+                "artifact_id": "model_signals_for_report",
+                "snapshot_path": r2.as_posix(),
+                "snapshot_sha256": r2_sha,
+            },
+        ]
+    ).to_csv(
+        snapshot_dir / "daily_published_model_snapshot_manifest.csv", index=False
+    )
+
+    signals = load_signal_universe(snapshot_dir, repository_root=tmp_path)
+
+    assert signals["stock_id"].tolist() == ["2222"]
+    assert signals.iloc[0]["source_snapshot_dates"] == "20260717"
+    assert signals.iloc[0]["source_signal_rows"] == 1
