@@ -1,29 +1,13 @@
 {
   "status": "pass",
-  "schema_version": "tdcc_dataset_manifest_v1",
-  "dataset_id": "tdcc-20260717-98c564c5bc4ab725",
-  "dataset_hash": "98c564c5bc4ab725a75b632950e37f9cbc9f85a9b152bf5b67ae6601c9b89b08",
-  "hash_mode": "utf8_text_lf_normalized_sha256",
-  "generated_at": "2026-07-19 11:45:51 Asia/Taipei",
+  "schema_version": "tdcc_analytics_manifest_v1",
+  "generated_at": "2026-07-19 11:45:54 Asia/Taipei",
+  "source_manifest_path": "output/latest/tdcc_dataset_manifest_latest.json",
+  "source_manifest_sha256": "9e2c03c31af06f4695f772e29095a742972860040944208f4d6376f234a49f4c",
+  "source_tdcc_dataset_id": "tdcc-20260717-98c564c5bc4ab725",
+  "source_tdcc_dataset_hash": "98c564c5bc4ab725a75b632950e37f9cbc9f85a9b152bf5b67ae6601c9b89b08",
   "signal_date": "20260717",
-  "official_date_source": "https://www.tdcc.com.tw/portal/zh/smWeb/qryStock",
-  "canonical_source_root": "output/history/tdcc",
-  "readiness_path": "output/latest/tdcc_weekly_data_readiness_latest.json",
-  "continuity_path": "output/latest/tdcc_weekly_history_continuity_latest.json",
-  "required_dates": [
-    "20260430",
-    "20260508",
-    "20260515",
-    "20260522",
-    "20260529",
-    "20260605",
-    "20260612",
-    "20260618",
-    "20260626",
-    "20260703",
-    "20260709",
-    "20260717"
-  ],
+  "history_snapshot_count": 34,
   "history_dates": [
     "20251121",
     "20251128",
@@ -60,146 +44,6 @@
     "20260709",
     "20260717"
   ],
-  "current_stock_count": 1972,
-  "snapshot_count": 12,
-  "snapshots": [
-    {
-      "date": "20260430",
-      "path": "output/history/tdcc/tdcc_holder_ratio_20260430.csv",
-      "row_count": 1972,
-      "stock_count": 1972,
-      "current_universe_missing_count": 0,
-      "current_universe_missing_stock_ids": [],
-      "current_universe_extra_count": 0,
-      "coverage_status": "complete",
-      "sha256": "c65b3d0b10a8d5e03a901f981d543d725b72a4206a7a5af8194bbf4e0d58f015"
-    },
-    {
-      "date": "20260508",
-      "path": "output/history/tdcc/tdcc_holder_ratio_20260508.csv",
-      "row_count": 1972,
-      "stock_count": 1972,
-      "current_universe_missing_count": 0,
-      "current_universe_missing_stock_ids": [],
-      "current_universe_extra_count": 0,
-      "coverage_status": "complete",
-      "sha256": "a64ddf96e7d65c7732379d58d8ab434e6de547d72288460521c31fbe8d08e99c"
-    },
-    {
-      "date": "20260515",
-      "path": "output/history/tdcc/tdcc_holder_ratio_20260515.csv",
-      "row_count": 1972,
-      "stock_count": 1972,
-      "current_universe_missing_count": 0,
-      "current_universe_missing_stock_ids": [],
-      "current_universe_extra_count": 0,
-      "coverage_status": "complete",
-      "sha256": "360a1aa7bd8a254e2bcabbb4965d2a0e0198afd09aabca9baf955b4b8aff7f66"
-    },
-    {
-      "date": "20260522",
-      "path": "output/history/tdcc/tdcc_holder_ratio_20260522.csv",
-      "row_count": 1972,
-      "stock_count": 1972,
-      "current_universe_missing_count": 0,
-      "current_universe_missing_stock_ids": [],
-      "current_universe_extra_count": 0,
-      "coverage_status": "complete",
-      "sha256": "f8429acbc0a383338ea5a639d9e1e8838594e7c61a69e94bc7ab707b9ac828b9"
-    },
-    {
-      "date": "20260529",
-      "path": "output/history/tdcc/tdcc_holder_ratio_20260529.csv",
-      "row_count": 1972,
-      "stock_count": 1972,
-      "current_universe_missing_count": 0,
-      "current_universe_missing_stock_ids": [],
-      "current_universe_extra_count": 0,
-      "coverage_status": "complete",
-      "sha256": "8383ad6d544dd496d33caacd410af252d0d4317a6665db48196810fb0e4480ce"
-    },
-    {
-      "date": "20260605",
-      "path": "output/history/tdcc/tdcc_holder_ratio_20260605.csv",
-      "row_count": 1972,
-      "stock_count": 1972,
-      "current_universe_missing_count": 0,
-      "current_universe_missing_stock_ids": [],
-      "current_universe_extra_count": 0,
-      "coverage_status": "complete",
-      "sha256": "600ae8d6a193c7bbf78505ddf08dd320d96817f1167c2807599006216653c6d8"
-    },
-    {
-      "date": "20260612",
-      "path": "output/history/tdcc/tdcc_holder_ratio_20260612.csv",
-      "row_count": 1972,
-      "stock_count": 1972,
-      "current_universe_missing_count": 0,
-      "current_universe_missing_stock_ids": [],
-      "current_universe_extra_count": 0,
-      "coverage_status": "complete",
-      "sha256": "94fd09606358a3e69a37f768695e4a4348e956cd2cec72b0ba187e2c8c18a14f"
-    },
-    {
-      "date": "20260618",
-      "path": "output/history/tdcc/tdcc_holder_ratio_20260618.csv",
-      "row_count": 1972,
-      "stock_count": 1972,
-      "current_universe_missing_count": 0,
-      "current_universe_missing_stock_ids": [],
-      "current_universe_extra_count": 0,
-      "coverage_status": "complete",
-      "sha256": "ec029bf45025aa46235835c42c7c1471d361d324d28314a3cb1d1837f061abbb"
-    },
-    {
-      "date": "20260626",
-      "path": "output/history/tdcc/tdcc_holder_ratio_20260626.csv",
-      "row_count": 1970,
-      "stock_count": 1970,
-      "current_universe_missing_count": 2,
-      "current_universe_missing_stock_ids": [
-        "2380",
-        "3152"
-      ],
-      "current_universe_extra_count": 0,
-      "coverage_status": "accepted_exceptions",
-      "sha256": "04203132814e52e154a35c18ff795f2ec49d498644d267bbd313719f58ef6df9"
-    },
-    {
-      "date": "20260703",
-      "path": "output/history/tdcc/tdcc_holder_ratio_20260703.csv",
-      "row_count": 1972,
-      "stock_count": 1972,
-      "current_universe_missing_count": 0,
-      "current_universe_missing_stock_ids": [],
-      "current_universe_extra_count": 0,
-      "coverage_status": "complete",
-      "sha256": "48c51a42860f530d91f094cae83b03782fcbd5744cb620c177fc5b1ccfbbd900"
-    },
-    {
-      "date": "20260709",
-      "path": "output/history/tdcc/tdcc_holder_ratio_20260709.csv",
-      "row_count": 1972,
-      "stock_count": 1972,
-      "current_universe_missing_count": 0,
-      "current_universe_missing_stock_ids": [],
-      "current_universe_extra_count": 0,
-      "coverage_status": "complete",
-      "sha256": "063ae4c615aece8656e46627daa8badc11ef07f83cbe1ccc1b138de9af2c9ea6"
-    },
-    {
-      "date": "20260717",
-      "path": "output/history/tdcc/tdcc_holder_ratio_20260717.csv",
-      "row_count": 1972,
-      "stock_count": 1972,
-      "current_universe_missing_count": 0,
-      "current_universe_missing_stock_ids": [],
-      "current_universe_extra_count": 0,
-      "coverage_status": "complete",
-      "sha256": "141fe58ff437c0730e3d7d9766a69c6a91fd2364eb65894cae3cd36b9e73be3c"
-    }
-  ],
-  "history_snapshot_count": 34,
   "history_snapshots": [
     {
       "date": "20251121",
@@ -440,20 +284,43 @@
       "sha256": "141fe58ff437c0730e3d7d9766a69c6a91fd2364eb65894cae3cd36b9e73be3c"
     }
   ],
-  "accepted_history_exceptions": [
-    {
-      "date": "20260626",
-      "stock_id": "2380"
-    },
-    {
-      "date": "20260626",
-      "stock_id": "3152"
-    }
+  "row_count": 25448,
+  "latest_stock_count": 1972,
+  "history_columns": [
+    "source_tdcc_dataset_id",
+    "signal_date",
+    "snapshot_date",
+    "period_index",
+    "code",
+    "name",
+    "over_400_pct",
+    "over_600_pct",
+    "over_800_pct",
+    "over_1000_pct",
+    "source_snapshot_sha256",
+    "source_snapshot_path"
   ],
-  "producer": {
-    "workflow": "TDCC Weekly Report",
-    "run_id": "29672180320",
-    "source_ref": "main",
-    "source_commit_sha": "4dca90828d9bc2f6cd6e91d26637a82cde76f4fd"
+  "duckdb_version": "1.5.4",
+  "tables": [
+    "tdcc_holder_ratio_history",
+    "tdcc_dataset_metadata",
+    "tdcc_snapshot_metadata"
+  ],
+  "views": [
+    "tdcc_holder_ratio_latest",
+    "tdcc_holder_ratio_previous_official",
+    "tdcc_holder_ratio_latest_comparison"
+  ],
+  "artifacts": {
+    "parquet": {
+      "path": "output/latest/tdcc_analytics/tdcc_holder_ratio_history_latest.parquet",
+      "size_bytes": 329397,
+      "sha256": "e5d9c895d97aeda43b488b2c080f474b355af74c8248bfcb95ba645f3671235d"
+    },
+    "duckdb": {
+      "path": "output/latest/tdcc_analytics/tdcc_analytics_latest.duckdb",
+      "size_bytes": 2895872,
+      "sha256": "b125299fa39d4933cd4e090982cc11d80ea9ff3e9b2c965f0ddc53b669ff29bc"
+    }
   }
 }

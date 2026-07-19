@@ -1,6 +1,6 @@
 # TDCC Top Risk List
 
-- generated_at: 2026-07-19 07:20:37 Asia/Taipei
+- generated_at: 2026-07-19 11:55:29 Asia/Taipei
 - purpose: identify TDCC-strong names that are late, overheated, or divergent; do not treat these as pre-move accumulation.
 
 ## price_leading_tdcc Top 20
@@ -38,7 +38,6 @@
 | 8039 | 台虹 | other electronics | mainstream_leader | 215.00 | overheated_after_tdcc | 31.85 | 38.78 | 23.54 | 3.93 | strong_but_overheated | 籌碼強但股價已過熱，需防追高。 |
 | 8383 | 千附 | semiconductor | non_mainstream_watch | 205.00 | overheated_after_tdcc | 48.09 | 47.11 | 29.81 | 2.90 | strong_but_overheated | 籌碼強但股價已過熱，需防追高。 |
 | 3685 | 元創精密 | other electronics | mainstream_leader | 185.00 | overheated_after_tdcc | 23.14 | 37.51 | 20.26 | 1.67 | strong_but_overheated | 籌碼強但股價已過熱，需防追高。 |
-| 6907 | 雅特力-KY | other | single_name_signal | 175.00 | overheated_after_tdcc | 78.79 | 57.87 | 34.88 | 0.27 | strong_but_overheated | 籌碼強但股價已過熱，需防追高。 |
 | 4556 | 旭然 | other | single_name_signal | 175.00 | overheated_after_tdcc | 47.74 | 39.61 | 21.76 | 0.78 | strong_but_overheated | 籌碼強但股價已過熱，需防追高。 |
 
 ## tdcc_price_divergence Top 20
@@ -51,7 +50,6 @@
 | 3516 | 亞帝歐 | other electronics | mainstream_leader | 235.00 | tdcc_price_divergence | -11.96 | -6.35 | -8.95 | 0.16 | strong_but_divergent | TDCC 增加但股價轉弱，需防訊號失效。 |
 | 6170 | 統振 | other electronics | mainstream_leader | 235.00 | tdcc_price_divergence | -10.65 | -5.21 | -7.84 | 0.82 | strong_but_divergent | TDCC 增加但股價轉弱，需防訊號失效。 |
 | 4198 | 欣大健康 | other | single_name_signal | 235.00 | tdcc_price_divergence | -0.39 | -0.43 | -5.67 | 0.28 | strong_but_divergent | TDCC 增加但股價轉弱，需防訊號失效。 |
-| 2243 | 宏旭-KY | traditional industries | mainstream_leader | 225.00 | tdcc_price_divergence | 10.64 | -8.35 | -4.79 | 0.77 | strong_but_divergent | TDCC 增加但股價轉弱，需防訊號失效。 |
 | 8097 | 常珵 | other electronics | mainstream_leader | 225.00 | tdcc_price_divergence | -9.71 | -3.00 | -8.30 | 1.81 | strong_but_divergent | TDCC 增加但股價轉弱，需防訊號失效。 |
 | 3206 | 志豐 | semiconductor | non_mainstream_watch | 225.00 | tdcc_price_divergence | -8.42 | -4.81 | -7.89 | 0.90 | strong_but_divergent | TDCC 增加但股價轉弱，需防訊號失效。 |
 | 5011 | 久陽 | other | single_name_signal | 225.00 | tdcc_price_divergence | -6.31 | -14.63 | -17.78 | 0.52 | strong_but_divergent | TDCC 增加但股價轉弱，需防訊號失效。 |
@@ -59,9 +57,10 @@
 | 3504 | 揚明光 | other electronics | mainstream_leader | 225.00 | tdcc_price_divergence | -26.01 | -9.76 | -18.80 | 0.42 | strong_but_divergent | TDCC 增加但股價轉弱，需防訊號失效。 |
 | 5263 | 智崴 | other electronics | mainstream_leader | 215.00 | tdcc_price_divergence | -9.90 | -0.93 | -6.78 | 1.71 | strong_but_divergent | TDCC 增加但股價轉弱，需防訊號失效。 |
 | 7792 | 安葆 | other | single_name_signal | 215.00 | tdcc_price_divergence | -18.40 | -11.81 | -16.71 | 2.62 | strong_but_divergent | TDCC 增加但股價轉弱，需防訊號失效。 |
-| 3228 | 金麗科 | semiconductor | non_mainstream_watch | 215.00 | tdcc_price_divergence | -12.12 | -8.40 | -10.51 | 0.85 | strong_but_divergent | TDCC 增加但股價轉弱，需防訊號失效。 |
 | 6226 | 光鼎 | other electronics | mainstream_leader | 205.00 | tdcc_price_divergence | 81.85 | -6.67 | 4.63 | 0.21 | strong_but_divergent | TDCC 增加但股價轉弱，需防訊號失效。 |
-| 4743 | 合一 | biotechnology | non_mainstream_watch | 205.00 | tdcc_price_divergence | 2.21 | -1.10 | -5.83 | 0.75 | strong_but_divergent | TDCC 增加但股價轉弱，需防訊號失效。 |
 | 6906 | 現觀科 | other | single_name_signal | 205.00 | tdcc_price_divergence | -21.80 | -14.79 | -17.04 | 0.68 | strong_but_divergent | TDCC 增加但股價轉弱，需防訊號失效。 |
 | 6272 | 驊陞 | other electronics | mainstream_leader | 205.00 | tdcc_price_divergence | -15.99 | -5.69 | -12.15 | 2.18 | strong_but_divergent | TDCC 增加但股價轉弱，需防訊號失效。 |
 | 4571 | 鈞興-KY | other | single_name_signal | 205.00 | tdcc_price_divergence | -15.08 | -3.93 | -9.79 | 1.12 | strong_but_divergent | TDCC 增加但股價轉弱，需防訊號失效。 |
+| 2438 | 翔耀 | other electronics | mainstream_leader | 205.00 | tdcc_price_divergence | -14.91 | -3.99 | -12.10 | 0.86 | strong_but_divergent | TDCC 增加但股價轉弱，需防訊號失效。 |
+| 6283 | 淳安 | other electronics | mainstream_leader | 205.00 | tdcc_price_divergence | -11.85 | -2.40 | -8.54 | 1.46 | strong_but_divergent | TDCC 增加但股價轉弱，需防訊號失效。 |
+| 6261 | 久元 | other electronics | mainstream_leader | 205.00 | tdcc_price_divergence | -11.12 | -5.88 | -10.18 | 0.97 | strong_but_divergent | TDCC 增加但股價轉弱，需防訊號失效。 |

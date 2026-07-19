@@ -1,6 +1,6 @@
 {
   "status": "pass",
-  "generated_at": "2026-07-19 07:11:24 Asia/Taipei",
+  "generated_at": "2026-07-19 11:45:51 Asia/Taipei",
   "signal_date": "20260717",
   "readiness_path": "output/latest/tdcc_weekly_data_readiness_latest.json",
   "required_periods": 0,

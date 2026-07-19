@@ -23,24 +23,24 @@
     ]
   },
   "row_counts": {
-    "weekly_increase": 404,
+    "weekly_increase": 360,
     "consecutive_accumulation": 13,
-    "model_cross": 10,
-    "highlight_report": 30,
-    "full_report": 73,
+    "model_cross": 9,
+    "highlight_report": 29,
+    "full_report": 72,
     "manifest_sections": 4
   },
   "section_counts": {
     "highlight": {
       "weekly_increase": 10,
       "consecutive_accumulation": 10,
-      "model_cross_weekly_increase_tdcc_short_term_continuation_d5_d10": 9,
+      "model_cross_weekly_increase_tdcc_short_term_continuation_d5_d10": 8,
       "model_cross_consecutive_accumulation_tdcc_short_term_continuation_d5_d10": 1
     },
     "full": {
       "weekly_increase": 50,
       "consecutive_accumulation": 13,
-      "model_cross_weekly_increase_tdcc_short_term_continuation_d5_d10": 9,
+      "model_cross_weekly_increase_tdcc_short_term_continuation_d5_d10": 8,
       "model_cross_consecutive_accumulation_tdcc_short_term_continuation_d5_d10": 1
     }
   },

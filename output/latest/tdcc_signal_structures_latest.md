@@ -1,10 +1,11 @@
 # TDCC Normalized Signal Structures
 
-- generated_at: `2026-07-19 07:15:08 Asia/Taipei`
+- generated_at: `2026-07-19 11:49:48 Asia/Taipei`
+- source_tdcc_dataset_id: `tdcc-20260717-98c564c5bc4ab725`
 - processed_snapshot_window: `latest_8_dates`
 - price_metrics_limit: `500`
-- snapshot_rows: `13908`
-- normalized_rows: `13908`
+- snapshot_rows: `13723`
+- normalized_rows: `13723`
 - theme_breadth_rows: `127`
 
 ## Latest Theme Breadth
@@ -66,25 +67,6 @@
 
 | tdcc_consecutive_up_weeks | tdcc_price_phase | signal_count |
 | --- | --- | --- |
-| 6 | insufficient_price_context | 8 |
-| 6 | price_leading_tdcc | 1 |
-| 6 | tdcc_price_divergence | 1 |
-| 5 | insufficient_price_context | 2 |
-| 5 | tdcc_price_divergence | 1 |
-| 4 | insufficient_price_context | 9 |
-| 4 | tdcc_price_divergence | 3 |
-| 4 | price_leading_tdcc | 1 |
-| 3 | insufficient_price_context | 14 |
-| 3 | tdcc_price_divergence | 3 |
-| 3 | price_leading_tdcc | 1 |
-| 2 | insufficient_price_context | 40 |
-| 2 | tdcc_price_divergence | 5 |
-| 2 | price_leading_tdcc | 3 |
-| 2 | tdcc_leading_price | 2 |
-| 2 | failed_after_tdcc | 1 |
-| 1 | insufficient_price_context | 80 |
-| 1 | price_leading_tdcc | 3 |
-| 1 | overheated_after_tdcc | 1 |
 | 7 | insufficient_price_context | 48 |
 | 7 | price_leading_tdcc | 21 |
 | 7 | tdcc_price_divergence | 10 |

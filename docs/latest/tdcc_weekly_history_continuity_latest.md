@@ -1,7 +1,7 @@
 # TDCC Weekly History Continuity
 
 - status: `pass`
-- generated_at: `2026-07-19 07:11:24 Asia/Taipei`
+- generated_at: `2026-07-19 11:45:51 Asia/Taipei`
 - signal_date: `20260717`
 - required_dates: `20260430, 20260508, 20260515, 20260522, 20260529, 20260605, 20260612, 20260618, 20260626, 20260703, 20260709, 20260717`
 - current_stock_count: 1972

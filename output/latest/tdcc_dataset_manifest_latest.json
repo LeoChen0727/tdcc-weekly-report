@@ -4,7 +4,7 @@
   "dataset_id": "tdcc-20260717-98c564c5bc4ab725",
   "dataset_hash": "98c564c5bc4ab725a75b632950e37f9cbc9f85a9b152bf5b67ae6601c9b89b08",
   "hash_mode": "utf8_text_lf_normalized_sha256",
-  "generated_at": "2026-07-19 07:11:25 Asia/Taipei",
+  "generated_at": "2026-07-19 11:45:51 Asia/Taipei",
   "signal_date": "20260717",
   "official_date_source": "https://www.tdcc.com.tw/portal/zh/smWeb/qryStock",
   "canonical_source_root": "output/history/tdcc",
@@ -452,8 +452,8 @@
   ],
   "producer": {
     "workflow": "TDCC Weekly Report",
-    "run_id": "29664695862",
+    "run_id": "29672180320",
     "source_ref": "main",
-    "source_commit_sha": "8c4f49a7f42ba69f555402bc10836b62e53430df"
+    "source_commit_sha": "4dca90828d9bc2f6cd6e91d26637a82cde76f4fd"
   }
 }
