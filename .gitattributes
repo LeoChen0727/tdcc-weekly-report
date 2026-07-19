@@ -3,3 +3,5 @@
 *.jpg binary
 *.jpeg binary
 *.xlsx binary
+*.parquet binary
+*.duckdb binary

@@ -1,5 +1,9 @@
 path,kind,owner,status,purpose,allowed_workflows,allowed_stage_patterns
 scripts/build_tdcc_dataset_manifest.py,python,tdcc_weekly,active,TDCC canonical content-addressed dataset manifest builder,.github/workflows/tdcc_weekly.yml,
+scripts/build_tdcc_analytics_store.py,python,tdcc_weekly,active,TDCC canonical-derived Parquet and DuckDB analytics builder,.github/workflows/tdcc_weekly.yml;.github/workflows/tdcc_weekly_pr_validation.yml,
+scripts/tdcc_analytics_store.py,python,tdcc_weekly,active,TDCC analytics serialization and validation contract,.github/workflows/tdcc_weekly.yml;.github/workflows/tdcc_weekly_pr_validation.yml,
+scripts/validate_tdcc_analytics_store.py,python,tdcc_weekly,active,TDCC canonical-derived analytics store validator,.github/workflows/tdcc_weekly.yml;.github/workflows/tdcc_weekly_pr_validation.yml,
+tests/test_tdcc_analytics_store.py,test_python,tdcc_weekly,active,TDCC analytics lineage hash exact-period and workflow regression tests,,
 scripts/tdcc_dataset_contract.py,python,repo_infrastructure,active,shared TDCC canonical dataset identity and snapshot coverage contract,,
 scripts/validate_tdcc_dataset_manifest.py,python,repo_infrastructure,active,shared TDCC canonical dataset manifest validator,.github/workflows/individual_stock_data_refresh.yml;.github/workflows/individual_stock_report.yml;.github/workflows/research_backtest_pipeline.yml;.github/workflows/tdcc_weekly.yml,
 scripts/research_tdcc_dataset_consumer.py,python,repo_infrastructure,active,shared fail-closed canonical full-history TDCC manifest consumer adapter,,

@@ -45,7 +45,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install pandas requests tabulate matplotlib reportlab pypdf lxml html5lib
+          pip install pandas requests tabulate matplotlib reportlab pypdf lxml html5lib duckdb==1.5.4
 
       - name: Wait for expected TDCC period
         run: |
@@ -70,6 +70,14 @@ jobs:
       - name: Validate canonical TDCC dataset manifest
         run: |
           python scripts/validate_tdcc_dataset_manifest.py
+
+      - name: Build TDCC analytics store
+        run: |
+          python scripts/build_tdcc_analytics_store.py
+
+      - name: Validate TDCC analytics store
+        run: |
+          python scripts/validate_tdcc_analytics_store.py
 
       - name: Build TDCC weekly report from continuous history
         run: |
@@ -154,6 +162,9 @@ jobs:
               output/latest/tdcc_weekly_history_continuity_latest.json \
               output/latest/tdcc_weekly_history_continuity_latest.md \
               output/latest/tdcc_dataset_manifest_latest.json \
+              output/latest/tdcc_analytics/tdcc_analytics_manifest_latest.json \
+              output/latest/tdcc_analytics/tdcc_holder_ratio_history_latest.parquet \
+              output/latest/tdcc_analytics/tdcc_analytics_latest.duckdb \
               output/latest/tdcc_invalid_holder_distribution_latest.csv \
               output/latest/tdcc_signal_performance_latest.md \
               output/latest/tdcc_signal_structures_latest.md \
@@ -231,6 +242,9 @@ jobs:
               cp "$file" "docs/latest/$rel"
             fi
           done
+          rm -rf docs/latest/tdcc_analytics
+          mkdir -p docs/latest/tdcc_analytics
+          cp -R output/latest/tdcc_analytics/. docs/latest/tdcc_analytics/
 
       - name: Validate TDCC Pages sync
         run: |
@@ -242,6 +256,7 @@ jobs:
           mismatches = []
           src_files = [
               *sorted(output_dir.glob("tdcc_*")),
+              *sorted((output_dir / "tdcc_analytics").rglob("*")),
               *sorted((output_dir / "published_reports" / "tdcc_weekly").glob("TDCC大戶籌碼週報_*.pdf")),
           ]
           for src in src_files:
