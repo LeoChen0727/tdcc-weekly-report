@@ -19,3 +19,15 @@ def test_research_workflow_validates_generated_tdcc_lineage() -> None:
     assert text.count("python scripts/validate_research_tdcc_dataset_consumers.py") >= 3
     assert "--csv output/history/tdcc_signals/tdcc_signal_snapshot.csv" in text
     assert "--csv output/latest/weekly_surge_multifactor_filter_grid_latest.csv" in text
+
+
+def test_volume_breakout_commit_scope_includes_research_latest_artifacts() -> None:
+    text = WORKFLOW.read_text(encoding="utf-8")
+    commit_step = text.index("Commit research and backtest outputs")
+    volume_scope = text.index('github.event.inputs.run_volume_breakout }}" == "true"', commit_step)
+    volume_scope_end = text.index("fi", volume_scope)
+
+    assert (
+        "git add output/latest/research_backtest/volume_breakout_* || true"
+        in text[volume_scope:volume_scope_end]
+    )

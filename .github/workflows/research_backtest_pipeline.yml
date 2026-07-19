@@ -348,6 +348,7 @@ jobs:
           if [[ "${{ github.event.inputs.run_volume_breakout }}" == "true" ]]; then
             git add output/history/volume_breakout/ || true
             git add output/history/research/volume_breakout_* || true
+            git add output/latest/research_backtest/volume_breakout_* || true
             git add output/latest/volume_breakout_* output/latest/historical_pattern_operation_* || true
             git add docs/latest/volume_breakout_* docs/latest/historical_pattern_operation_* || true
           fi
