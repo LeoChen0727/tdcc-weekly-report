@@ -978,17 +978,36 @@ def test_entrypoint_validation_replay_rejects_emergency_closure(
         )
 
 
-def test_entrypoint_validation_replay_rejects_non_main_source(tmp_path: Path) -> None:
-    with pytest.raises(
-        entrypoint.DailyReportEntrypointError,
-        match="restricted to the official origin/main source",
-    ):
-        entrypoint.ensure_entrypoint_can_run(
-            tmp_path,
-            "origin/codex/test-branch",
-            False,
-            validation_replay_main_price_date="20260717",
-        )
+def test_entrypoint_validation_replay_accepts_exact_closed_scheduled_branch_contract(
+    tmp_path: Path,
+    monkeypatch,
+) -> None:
+    resolver_calls: list[dict[str, object]] = []
+
+    def fake_resolve_source_state(**kwargs: object) -> dict[str, object]:
+        resolver_calls.append(kwargs)
+        state = _resolved_state("20260717")
+        state["market_session_status"] = "closed_scheduled"
+        return state
+
+    monkeypatch.setattr(
+        entrypoint.market_session_calendar,
+        "refresh_market_session_status",
+        lambda *args, **kwargs: (_ for _ in ()).throw(AssertionError("live gate must not run")),
+    )
+    monkeypatch.setattr(entrypoint, "resolve_daily_report_source_state", fake_resolve_source_state)
+
+    state = entrypoint.ensure_entrypoint_can_run(
+        tmp_path,
+        "pinned-replay/workflow-29677505156-1",
+        False,
+        validation_replay_main_price_date="20260717",
+    )
+
+    assert state["market_session_validation_scope"] == "branch_source_ref_validation_replay"
+    assert state["live_expected_main_price_date"] == ""
+    assert state["validation_replay_main_price_date"] == "20260717"
+    assert resolver_calls[0]["validation_replay_main_price_date"] == "20260717"
 
 
 def test_entrypoint_branch_replay_uses_committed_branch_contract_without_live_gate(

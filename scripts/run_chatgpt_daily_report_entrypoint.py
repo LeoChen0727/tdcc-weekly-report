@@ -291,11 +291,15 @@ def require_live_expected_date_match(
     if live_status is None:
         state.update(
             {
-                "market_session_validation_scope": "branch_source_ref",
+                "market_session_validation_scope": (
+                    "branch_source_ref_validation_replay"
+                    if validation_replay_main_price_date
+                    else "branch_source_ref"
+                ),
                 "live_market_session_status": "",
                 "live_market_session_date": "",
                 "live_expected_main_price_date": "",
-                "validation_replay_main_price_date": "",
+                "validation_replay_main_price_date": validation_replay_main_price_date,
             }
         )
         return state
@@ -354,11 +358,6 @@ def ensure_entrypoint_can_run(
     validation_replay_date = normalize_validation_replay_main_price_date(
         validation_replay_main_price_date
     )
-    if validation_replay_date and source_ref != DEFAULT_SOURCE_REF:
-        raise DailyReportEntrypointError(
-            "validation replay date is restricted to the official origin/main source: "
-            f"source_ref={source_ref}"
-        )
     live_status = resolve_live_market_session_for_entrypoint(
         repo_root,
         source_ref,
@@ -550,9 +549,9 @@ def parse_args() -> argparse.Namespace:
         "--validation-replay-main-price-date",
         default="",
         help=(
-            "CI validation only. Permit an exact origin/main report-date replay after the clock "
-            "crosses into a closed market day. The value must equal the live expected date and "
-            "the source expected/main price dates."
+            "CI validation only. Permit an exact report-date replay after the clock crosses into "
+            "a scheduled closed market day. For origin/main the value must also equal the live "
+            "expected date; every source ref must match its committed expected/main price dates."
         ),
     )
     return parser.parse_args()
