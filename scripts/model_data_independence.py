@@ -117,7 +117,10 @@ VALID_SHARED_SEMANTIC_CLASS = {
     "shared_technical",
     "contained_model_family_semantic",
     "contained_legacy_cross_model_semantic",
+    "registered_cross_model_runtime_semantic",
 }
+RUNTIME_SUBGRAPH_PREFIX = "runtime_subgraph:"
+RUNTIME_CONSUMER_CONTRACT_GLOBAL = "CROSS_MODEL_RUNTIME_SUBGRAPH_CONSUMERS"
 VALID_DATA_OWNERSHIP_MODE = {
     "approved_shared_objective",
     "approved_shared_replay_read_only",
@@ -250,6 +253,72 @@ class SourceSemanticGraph:
             items[f"global:{name}"] = canonical_ast_sha256(self.globals[name])
         return items
 
+    def runtime_semantic_items(self, roots: Iterable[str]) -> dict[str, str]:
+        """Return a fail-closed runtime graph including callable references.
+
+        Model condition ownership follows direct calls for legacy compatibility.
+        Registered runtime subgraphs are stricter: any loaded repo-local
+        function is included even when it is passed as a callback or selected
+        indirectly by local code.
+        """
+
+        missing = sorted({name for name in roots if name not in self.functions})
+        if missing:
+            raise ValueError(f"{self.source_file}: missing runtime root functions: {missing}")
+        reachable_functions: set[str] = set()
+        stack = list(roots)
+        while stack:
+            name = stack.pop()
+            if name in reachable_functions:
+                continue
+            node = self.functions.get(name)
+            if node is None:
+                raise ValueError(
+                    f"{self.source_file}: unresolved repo-local runtime function: {name}"
+                )
+            reachable_functions.add(name)
+            stack.extend(
+                loaded
+                for loaded in _loaded_names(node)
+                if loaded in self.functions and loaded not in reachable_functions
+            )
+
+        reachable_globals: set[str] = set()
+        global_stack: list[str] = []
+        for name in reachable_functions:
+            global_stack.extend(_loaded_names(self.functions[name]))
+        while global_stack:
+            name = global_stack.pop()
+            if name in reachable_globals or name not in self.globals:
+                continue
+            reachable_globals.add(name)
+            global_stack.extend(_loaded_names(self.globals[name]))
+
+        items: dict[str, str] = {}
+        for name in sorted(reachable_functions):
+            items[f"function:{name}"] = canonical_ast_sha256(self.functions[name])
+        for name in sorted(reachable_globals):
+            items[f"global:{name}"] = canonical_ast_sha256(self.globals[name])
+        return items
+
+    def literal_global(self, name: str) -> object:
+        node = self.globals.get(name)
+        if node is None:
+            raise ValueError(f"{self.source_file}: missing literal runtime global: {name}")
+        value_node: ast.AST | None = None
+        if isinstance(node, ast.Assign):
+            value_node = node.value
+        elif isinstance(node, ast.AnnAssign):
+            value_node = node.value
+        if value_node is None:
+            raise ValueError(f"{self.source_file}: runtime global is not an assignment: {name}")
+        try:
+            return ast.literal_eval(value_node)
+        except (ValueError, TypeError) as exc:
+            raise ValueError(
+                f"{self.source_file}: runtime global must be a literal: {name}"
+            ) from exc
+
 
 def _assigned_names(target: ast.AST) -> list[str]:
     if isinstance(target, ast.Name):
@@ -278,6 +347,17 @@ def canonical_ast_sha256(node: ast.AST) -> str:
 def aggregate_semantic_sha256(items: dict[str, str]) -> str:
     payload = "\n".join(f"{key}={items[key]}" for key in sorted(items))
     return hashlib.sha256(payload.encode("utf-8")).hexdigest()
+
+
+def runtime_subgraph_sha256(graph: SourceSemanticGraph, semantic_item: str) -> str:
+    """Hash one registered runtime root and every reachable function/global AST."""
+
+    if not semantic_item.startswith(RUNTIME_SUBGRAPH_PREFIX):
+        raise ValueError(f"runtime semantic item must start with {RUNTIME_SUBGRAPH_PREFIX}")
+    root = semantic_item.removeprefix(RUNTIME_SUBGRAPH_PREFIX)
+    if not root:
+        raise ValueError("runtime semantic item has an empty root function")
+    return aggregate_semantic_sha256(graph.runtime_semantic_items([root]))
 
 
 def semantic_record_sha256(semantic_key: str, row: dict[str, str]) -> str:
@@ -762,11 +842,15 @@ def validate_model_semantic_ownership(*, base_ref: str | None = None) -> tuple[l
         )
 
     shared_by_key: dict[tuple[str, str], dict[str, str]] = {}
+    runtime_shared_by_key: dict[tuple[str, str], dict[str, str]] = {}
     for row in shared_rows:
         key = (row["source_file"], row["semantic_item"])
-        if key in shared_by_key:
+        if key in shared_by_key or key in runtime_shared_by_key:
             errors.append(f"duplicate shared semantic registry row: {key}")
-        shared_by_key[key] = row
+        if row["semantic_item"].startswith(RUNTIME_SUBGRAPH_PREFIX):
+            runtime_shared_by_key[key] = row
+        else:
+            shared_by_key[key] = row
     if set(shared_by_key) != set(actual_shared):
         errors.append(
             "shared semantic registry must match the AST consumer graph exactly: "
@@ -798,6 +882,115 @@ def validate_model_semantic_ownership(*, base_ref: str | None = None) -> tuple[l
             )
         if not row["change_policy"] or not row["required_validation_commands"]:
             errors.append(f"{source_file}::{item}: missing change policy or validators")
+
+    ownership_by_model = {row["model_id"]: row for row in ownership_rows}
+    runtime_graphs: dict[str, SourceSemanticGraph] = {}
+    runtime_consumer_contracts: dict[str, dict[str, tuple[str, ...]]] = {}
+    for (source_file, item), row in sorted(runtime_shared_by_key.items()):
+        consumers = split_list(row["consumer_models"])
+        consumer_set = set(consumers)
+        if consumers != tuple(sorted(consumer_set)):
+            errors.append(
+                f"{source_file}::{item}: runtime consumers must be unique and sorted"
+            )
+        if len(consumer_set) < 2:
+            errors.append(
+                f"{source_file}::{item}: runtime semantic must have at least two consumers"
+            )
+        unknown_consumers = sorted(consumer_set - set(active_models))
+        if unknown_consumers:
+            errors.append(
+                f"{source_file}::{item}: runtime semantic has unknown consumers: "
+                f"{unknown_consumers}"
+            )
+        wrong_source_consumers = sorted(
+            model_id
+            for model_id in consumer_set & set(ownership_by_model)
+            if ownership_by_model[model_id]["production_source_file"] != source_file
+        )
+        if wrong_source_consumers:
+            errors.append(
+                f"{source_file}::{item}: runtime consumers do not own this source: "
+                f"{wrong_source_consumers}"
+            )
+        if row["semantic_class"] != "registered_cross_model_runtime_semantic":
+            errors.append(
+                f"{source_file}::{item}: runtime semantic_class must be "
+                "registered_cross_model_runtime_semantic"
+            )
+        source = ROOT / source_file
+        if not source.is_file():
+            errors.append(f"{source_file}::{item}: runtime source file is missing")
+            continue
+        if source_file not in runtime_graphs:
+            try:
+                runtime_graphs[source_file] = SourceSemanticGraph(
+                    source_file, source.read_text(encoding="utf-8")
+                )
+            except (SyntaxError, UnicodeError) as exc:
+                errors.append(f"{source_file}: cannot parse runtime semantic source: {exc}")
+                continue
+        if source_file not in runtime_consumer_contracts:
+            try:
+                raw_contract = runtime_graphs[source_file].literal_global(
+                    RUNTIME_CONSUMER_CONTRACT_GLOBAL
+                )
+            except ValueError as exc:
+                errors.append(str(exc))
+                continue
+            if not isinstance(raw_contract, dict):
+                errors.append(
+                    f"{source_file}: {RUNTIME_CONSUMER_CONTRACT_GLOBAL} must be a literal dict"
+                )
+                continue
+            normalized_contract: dict[str, tuple[str, ...]] = {}
+            for runtime_root, declared_consumers in raw_contract.items():
+                if not isinstance(runtime_root, str) or not isinstance(
+                    declared_consumers, (list, tuple)
+                ):
+                    errors.append(
+                        f"{source_file}: invalid runtime consumer contract entry: "
+                        f"{runtime_root!r}"
+                    )
+                    continue
+                normalized_contract[runtime_root] = tuple(
+                    str(model_id) for model_id in declared_consumers
+                )
+            runtime_consumer_contracts[source_file] = normalized_contract
+        runtime_root = item.removeprefix(RUNTIME_SUBGRAPH_PREFIX)
+        declared_consumers = runtime_consumer_contracts.get(source_file, {}).get(
+            runtime_root
+        )
+        if declared_consumers != consumers:
+            errors.append(
+                f"{source_file}::{item}: runtime consumer registry drift; "
+                f"declared={declared_consumers} registry={consumers}"
+            )
+        try:
+            actual_hash = runtime_subgraph_sha256(runtime_graphs[source_file], item)
+        except ValueError as exc:
+            errors.append(f"{source_file}::{item}: {exc}")
+            continue
+        if row["canonical_ast_sha256"] != actual_hash:
+            errors.append(
+                f"{source_file}::{item}: runtime subgraph SHA drift; "
+                f"expected={row['canonical_ast_sha256']}; actual={actual_hash}"
+            )
+        if not row["change_policy"] or not row["required_validation_commands"]:
+            errors.append(f"{source_file}::{item}: missing change policy or validators")
+
+    for source_file, contract in runtime_consumer_contracts.items():
+        registered_roots = {
+            item.removeprefix(RUNTIME_SUBGRAPH_PREFIX)
+            for registered_source, item in runtime_shared_by_key
+            if registered_source == source_file
+        }
+        if set(contract) != registered_roots:
+            errors.append(
+                f"{source_file}: runtime consumer contract roots must match registry exactly; "
+                f"missing={sorted(registered_roots - set(contract))}; "
+                f"extra={sorted(set(contract) - registered_roots)}"
+            )
 
     migrations = {row["migration_id"]: row for row in migration_rows}
     _validate_current_migration_chain(ownership_rows, shared_rows, migration_rows, errors)

@@ -1,7 +1,7 @@
 # 每日股票模型與資料獨立性稽核
 
-- 產生時間：`2026-07-20 03:55:49 Asia/Taipei`
-- 結果：`CONTAINED=27, DISCLOSED_NOT_INDEPENDENT=4, PASS=50`
+- 產生時間：`2026-07-20 10:56:40 Asia/Taipei`
+- 結果：`CONTAINED=28, DISCLOSED_NOT_INDEPENDENT=4, PASS=50`
 - 原則：新模型與新資料 family 預設獨立；跨模型共用商業語意必須先有使用者核准與 migration evidence。
 - `CONTAINED` 代表既有共用已被凍結與精確盤點，不代表已物理拆分。
 - `DISCLOSED_NOT_INDEPENDENT` 代表該 validator 只能做 implementation consistency，不得當成獨立模型正確性證據。
@@ -21,6 +21,7 @@
 | production_model_semantics | w_bottom_right_side | CONTAINED | contained_legacy_monolith | existing shared producer/semantic remains frozen; future model must use a model-owned module |
 | shared_production_semantics | contained_legacy_cross_model_semantic | CONTAINED | contained_legacy_cross_model_semantic | legacy sharing is contained but not physically separated |
 | shared_production_semantics | contained_model_family_semantic | CONTAINED | contained_model_family_semantic | legacy sharing is contained but not physically separated |
+| shared_production_semantics | registered_cross_model_runtime_semantic | CONTAINED | registered_cross_model_runtime_semantic | legacy sharing is contained but not physically separated |
 | shared_production_semantics | shared_technical | PASS | shared_technical | none |
 | data_family_ownership | stock_price_history | PASS | approved_shared_objective | none |
 | data_family_ownership | tdcc_stock_history | PASS | approved_shared_objective | none |

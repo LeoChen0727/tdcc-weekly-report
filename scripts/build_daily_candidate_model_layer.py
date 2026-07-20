@@ -1,10 +1,12 @@
 from __future__ import annotations
 
+import argparse
 import hashlib
 import math
 import re
 import sys
 from dataclasses import dataclass
+from decimal import Decimal, InvalidOperation
 from functools import lru_cache
 from pathlib import Path
 from typing import Any, Callable, Iterable
@@ -670,6 +672,146 @@ MODEL_SCORE_PROFILES: dict[str, ScoreProfile] = {
         false_breakout_penalty=4.0,
     ),
 }
+
+# Warrant Flow is a field-level formal sync, not a model-selection refresh.
+# These registrations deliberately mirror the independently validated scope in
+# validate_daily_warrant_formal_sync_scope.py without importing that validator.
+WARRANT_FORMAL_SYNC_ALLOWED_MODEL_IDS = frozenset(
+    {
+        "hot_theme_pullback",
+        "neckline_volume_breakout_confirmation",
+        "pullback_short_reclaim",
+        "revenue_unreacted_range",
+        "tdcc_stealth_accumulation",
+        "volume_range_breakout_v2_low_position_volume_attack",
+        "volume_range_breakout_v2_mid_position_momentum_attack",
+        "w_bottom_right_side",
+    }
+)
+WARRANT_FORMAL_SYNC_PROTECTED_MODEL_IDS = frozenset(
+    {
+        "price_pullback_23ema",
+        "tdcc_short_term_continuation_d5_d10",
+        "volume_range_breakout_v2_high_position_volume_attack",
+    }
+)
+WARRANT_FORMAL_SYNC_VOLUME_V2_MODEL_IDS = frozenset(
+    {
+        "volume_range_breakout_v2_high_position_volume_attack",
+        "volume_range_breakout_v2_low_position_volume_attack",
+        "volume_range_breakout_v2_mid_position_momentum_attack",
+    }
+)
+WARRANT_FORMAL_SYNC_REGISTERED_MODEL_IDS = (
+    WARRANT_FORMAL_SYNC_ALLOWED_MODEL_IDS | WARRANT_FORMAL_SYNC_PROTECTED_MODEL_IDS
+)
+CROSS_MODEL_RUNTIME_SUBGRAPH_CONSUMERS = {
+    "run_warrant_formal_sync_only": (
+        "hot_theme_pullback",
+        "neckline_volume_breakout_confirmation",
+        "price_pullback_23ema",
+        "pullback_short_reclaim",
+        "revenue_unreacted_range",
+        "tdcc_short_term_continuation_d5_d10",
+        "tdcc_stealth_accumulation",
+        "volume_range_breakout_v2_high_position_volume_attack",
+        "volume_range_breakout_v2_low_position_volume_attack",
+        "volume_range_breakout_v2_mid_position_momentum_attack",
+        "w_bottom_right_side",
+    ),
+    "synchronize_warrant_formal_frames": (
+        "hot_theme_pullback",
+        "neckline_volume_breakout_confirmation",
+        "price_pullback_23ema",
+        "pullback_short_reclaim",
+        "revenue_unreacted_range",
+        "tdcc_short_term_continuation_d5_d10",
+        "tdcc_stealth_accumulation",
+        "volume_range_breakout_v2_high_position_volume_attack",
+        "volume_range_breakout_v2_low_position_volume_attack",
+        "volume_range_breakout_v2_mid_position_momentum_attack",
+        "w_bottom_right_side",
+    ),
+    "rebuild_warrant_formal_consumers": (
+        "hot_theme_pullback",
+        "neckline_volume_breakout_confirmation",
+        "price_pullback_23ema",
+        "pullback_short_reclaim",
+        "revenue_unreacted_range",
+        "tdcc_short_term_continuation_d5_d10",
+        "tdcc_stealth_accumulation",
+        "volume_range_breakout_v2_high_position_volume_attack",
+        "volume_range_breakout_v2_low_position_volume_attack",
+        "volume_range_breakout_v2_mid_position_momentum_attack",
+        "w_bottom_right_side",
+    ),
+    "finalize_warrant_formal_consumer_parity": (
+        "hot_theme_pullback",
+        "neckline_volume_breakout_confirmation",
+        "price_pullback_23ema",
+        "pullback_short_reclaim",
+        "revenue_unreacted_range",
+        "tdcc_short_term_continuation_d5_d10",
+        "tdcc_stealth_accumulation",
+        "volume_range_breakout_v2_high_position_volume_attack",
+        "volume_range_breakout_v2_low_position_volume_attack",
+        "volume_range_breakout_v2_mid_position_momentum_attack",
+        "w_bottom_right_side",
+    ),
+}
+WARRANT_FORMAL_SYNC_NON_CANDIDATE_EXEMPT_MODEL_IDS = frozenset(
+    {"tdcc_short_term_continuation_d5_d10"}
+)
+WARRANT_FORMAL_SYNC_IDENTITY_COLUMNS = (
+    "signal_date",
+    "report_line",
+    "report_bucket",
+    "source_row_index",
+    "stock_id",
+    "model_id",
+)
+WARRANT_FORMAL_SYNC_HISTORY_IDENTITY_COLUMNS = (
+    "signal_date",
+    "report_bucket",
+    "stock_id",
+    "model_id",
+)
+WARRANT_FORMAL_SYNC_NUMERIC_SCORE_FIELDS = (
+    "base_model_score",
+    "final_rank_score",
+    "model_score",
+)
+WARRANT_FORMAL_SYNC_SCORE_RANK_FIELDS = frozenset(
+    {
+        "base_model_score",
+        "display_rank",
+        "display_rank_new_signal",
+        "display_rank_repeated_signal",
+        "final_rank_score",
+        "merged_score_components",
+        "model_rank",
+        "model_rank_new_signal",
+        "model_rank_overall",
+        "model_rank_repeated_signal",
+        "model_score",
+        "primary_model_rank",
+        "primary_model_score",
+        "score_components",
+        "score_components_zh",
+    }
+)
+WARRANT_FORMAL_SYNC_PRESENTATION_FIELDS = frozenset(
+    {
+        "frontpage_display_allowed",
+        "frontpage_duplicate_reason",
+        "frontpage_duplicate_reason_zh",
+        "warrant_flow_signal",
+        "warrant_flow_signal_zh",
+        "why_selected_human_zh",
+        "why_selected_zh",
+        "why_selected",
+    }
+)
 
 SCORE_COMPONENT_EXTRA_ZH_REPLACEMENTS = {
     "profile=volume_range_breakout_v2_low_position_volume_attack": "參數=低位放量攻擊",
@@ -5314,6 +5456,833 @@ def write_packet(
     PACKET_MD.write_text("\n".join(lines) + "\n", encoding="utf-8", newline="\n")
 
 
+def _warrant_sync_string_frame(frame: pd.DataFrame) -> pd.DataFrame:
+    out = frame.copy().reset_index(drop=True)
+    for column in out.columns:
+        out[column] = out[column].map(safe_str)
+    return out
+
+
+def _warrant_sync_identity_index(
+    frame: pd.DataFrame,
+    columns: tuple[str, ...],
+    label: str,
+) -> dict[tuple[str, ...], int]:
+    missing = [column for column in columns if column not in frame.columns]
+    if missing:
+        raise RuntimeError(f"{label} missing warrant formal-sync identity columns: {missing}")
+    indexed: dict[tuple[str, ...], int] = {}
+    for index, row in frame.iterrows():
+        key = tuple(safe_str(row.get(column)) for column in columns)
+        if any(not value for value in key):
+            raise RuntimeError(f"{label} has incomplete warrant formal-sync identity: {key}")
+        if key in indexed:
+            raise RuntimeError(f"{label} has duplicate warrant formal-sync exact identity: {key}")
+        indexed[key] = int(index)
+    return indexed
+
+
+def _warrant_sync_require_same_identities(
+    before: dict[tuple[str, ...], int],
+    after: dict[tuple[str, ...], int],
+    label: str,
+) -> None:
+    if set(before) == set(after):
+        return
+    missing = sorted(set(before) - set(after))[:10]
+    added = sorted(set(after) - set(before))[:10]
+    raise RuntimeError(
+        f"{label} warrant formal-sync exact identity drift: "
+        f"missing={missing} added={added}"
+    )
+
+
+def _warrant_sync_signal(value: object) -> str:
+    return safe_str(value).strip().lower()
+
+
+def _warrant_sync_candidate_projection(
+    candidates: pd.DataFrame,
+    signal_dates: set[str],
+) -> dict[tuple[str, str], str]:
+    if candidates.empty:
+        raise RuntimeError("canonical all_candidates source is missing or empty")
+    date_column = "signal_date" if "signal_date" in candidates.columns else "date"
+    required = {date_column, "stock_id", "warrant_flow_signal"}
+    missing = sorted(required - set(candidates.columns))
+    if missing:
+        raise RuntimeError(f"canonical all_candidates warrant projection columns missing: {missing}")
+
+    projection: dict[tuple[str, str], str] = {}
+    for _, row in candidates.iterrows():
+        signal_date = compact_date(row.get(date_column))
+        if signal_date not in signal_dates:
+            continue
+        stock_id = normalize_code(row.get("stock_id"))
+        if not stock_id:
+            raise RuntimeError("canonical all_candidates has an incomplete warrant source identity")
+        key = (signal_date, stock_id)
+        signal = _warrant_sync_signal(row.get("warrant_flow_signal"))
+        if key in projection and projection[key] != signal:
+            raise RuntimeError(
+                "canonical all_candidates has inconsistent duplicate warrant sources: "
+                f"key={key} values={sorted({projection[key], signal})}"
+            )
+        projection[key] = signal
+    if not projection:
+        raise RuntimeError("canonical all_candidates has no current warrant projection rows")
+    return projection
+
+
+def _warrant_sync_official_projection(
+    official_warrant: pd.DataFrame,
+    signal_dates: set[str],
+) -> dict[tuple[str, str], str]:
+    date_column = "date" if "date" in official_warrant.columns else "signal_date"
+    required = {date_column, "stock_id", "warrant_flow_signal"}
+    missing = sorted(required - set(official_warrant.columns))
+    if missing:
+        raise RuntimeError(f"official warrant projection columns missing: {missing}")
+    if official_warrant.empty:
+        raise RuntimeError(
+            "official warrant projection has no rows for negative-lineage evidence"
+        )
+    projection: dict[tuple[str, str], str] = {}
+    for _, row in official_warrant.iterrows():
+        signal_date = compact_date(row.get(date_column))
+        if signal_date not in signal_dates:
+            raise RuntimeError(
+                "official warrant projection date mismatch: "
+                f"observed={signal_date!r} expected={sorted(signal_dates)}"
+            )
+        stock_id = normalize_code(row.get("stock_id"))
+        if not stock_id:
+            raise RuntimeError("official warrant projection has an incomplete source identity")
+        key = (signal_date, stock_id)
+        signal = _warrant_sync_signal(row.get("warrant_flow_signal"))
+        if key in projection:
+            raise RuntimeError(
+                "official warrant projection has duplicate sources: "
+                f"key={key} existing={projection[key]!r} duplicate={signal!r}"
+            )
+        projection[key] = signal
+    return projection
+
+
+def _warrant_sync_taxonomy_stock_ids(volume_taxonomy: pd.DataFrame) -> set[str]:
+    if volume_taxonomy.empty or "stock_id" not in volume_taxonomy.columns:
+        raise RuntimeError("volume-v2 taxonomy is missing stock_id lineage")
+    stock_ids = [normalize_code(value) for value in volume_taxonomy["stock_id"]]
+    if any(not stock_id for stock_id in stock_ids):
+        raise RuntimeError("volume-v2 taxonomy has an incomplete stock identity")
+    if len(stock_ids) != len(set(stock_ids)):
+        raise RuntimeError("volume-v2 taxonomy has duplicate normalized stock identities")
+    return set(stock_ids)
+
+
+def _warrant_sync_volume_watch_identities(
+    volume_watch: pd.DataFrame,
+    current_signal_date: str,
+) -> set[tuple[str, str]]:
+    required = {
+        "stock_id",
+        "selection_status",
+        "volume_breakout_type",
+        "signal_date",
+        "advisory_score_as_of",
+        "advisory_score_source_artifact",
+        "advisory_score_source_sha256",
+    }
+    missing = sorted(required - set(volume_watch.columns))
+    if missing:
+        raise RuntimeError(
+            f"volume-v2 formal-sync watch lineage missing columns: {missing}"
+        )
+    identities: set[tuple[str, str]] = set()
+    for row_index, row in volume_watch.reset_index(drop=True).iterrows():
+        if safe_str(row.get("selection_status")).lower() != "selected":
+            continue
+        if safe_str(row.get("volume_breakout_type")).lower() != "bottom_volume_attack":
+            continue
+        validate_volume_v2_watch_advisory_lineage(row, current_signal_date)
+        stock_id = normalize_code(row.get("stock_id"))
+        if not stock_id:
+            raise RuntimeError(
+                "volume-v2 formal-sync watch lineage has blank stock_id: "
+                f"row_index={row_index}"
+            )
+        identity = (f"volume_breakout:{row_index}", stock_id)
+        if identity in identities:
+            raise RuntimeError(
+                "volume-v2 formal-sync watch lineage has duplicate exact identity: "
+                f"{identity}"
+            )
+        identities.add(identity)
+    return identities
+
+
+def _warrant_sync_decimal(value: object, *, label: str) -> Decimal:
+    text_value = safe_str(value).strip()
+    try:
+        number = Decimal(text_value)
+    except (InvalidOperation, ValueError) as exc:
+        raise RuntimeError(f"{label} is not a finite numeric score: {text_value!r}") from exc
+    if not number.is_finite():
+        raise RuntimeError(f"{label} is not a finite numeric score: {text_value!r}")
+    return number
+
+
+def _warrant_sync_clamp_score(value: Decimal) -> Decimal:
+    return max(Decimal("0"), min(Decimal("100"), value))
+
+
+def _warrant_sync_bonus_marker(bonus: Decimal) -> str:
+    bonus_text = format(bonus, "f").rstrip("0").rstrip(".")
+    return f"warrant bullish +{bonus_text}"
+
+
+def _warrant_sync_update_score_components(
+    value: object,
+    *,
+    model_id: str,
+    before_signal: str,
+    after_signal: str,
+    bonus: Decimal,
+) -> str:
+    parts = [part.strip() for part in safe_str(value).split("|") if part.strip()]
+    observed = [part for part in parts if part.lower().startswith("warrant bullish +")]
+    marker = _warrant_sync_bonus_marker(bonus)
+    expected = [marker] if before_signal in BULLISH_WARRANT else []
+    if observed != expected:
+        raise RuntimeError(
+            "warrant formal-sync score marker does not match the published source: "
+            f"model_id={model_id} before_signal={before_signal!r} "
+            f"expected={expected} actual={observed}"
+        )
+    non_warrant_parts = [
+        part for part in parts if not part.lower().startswith("warrant bullish +")
+    ]
+    if after_signal in BULLISH_WARRANT:
+        non_warrant_parts.append(marker)
+    return " | ".join(non_warrant_parts)
+
+
+def _warrant_sync_update_score_components_zh(
+    value: object,
+    *,
+    before_signal: str,
+    after_signal: str,
+    bonus: Decimal,
+) -> str:
+    current = safe_str(value)
+    if not current.strip():
+        return current
+    english_marker = _warrant_sync_bonus_marker(bonus)
+    translated_marker = score_components_zh(english_marker)
+    parts = [part.strip() for part in current.split("|") if part.strip()]
+    translated_marker_pattern = re.compile(
+        r"(?:權證偏多|warrant bullish)\s*\+\s*(?:\d+(?:\.\d+)?|\.\d+)",
+        flags=re.IGNORECASE,
+    )
+    observed = [part for part in parts if translated_marker_pattern.fullmatch(part)]
+    expected = [translated_marker] if before_signal in BULLISH_WARRANT else []
+    if observed != expected:
+        raise RuntimeError(
+            "warrant formal-sync translated score marker does not match the published source: "
+            f"before_signal={before_signal!r} expected={expected} actual={observed}"
+        )
+    non_warrant_parts = [part for part in parts if part not in observed]
+    if after_signal in BULLISH_WARRANT:
+        non_warrant_parts.append(translated_marker)
+    return " | ".join(non_warrant_parts)
+
+
+def _warrant_sync_update_merged_score_components(
+    value: object,
+    *,
+    before_signal: str,
+    after_signal: str,
+    bonus: Decimal,
+) -> str:
+    current = safe_str(value)
+    if not current.strip():
+        return current
+    marker = _warrant_sync_bonus_marker(bonus)
+    parts = [part.strip() for part in current.split(" / ") if part.strip()]
+    observed = [
+        part for part in parts if part.lower().startswith("warrant bullish +")
+    ]
+    expected = [marker] if before_signal in BULLISH_WARRANT else []
+    if observed != expected:
+        raise RuntimeError(
+            "warrant formal-sync merged score marker does not match the published source: "
+            f"before_signal={before_signal!r} expected={expected} actual={observed}"
+        )
+    non_warrant_parts = [part for part in parts if part not in observed]
+    if after_signal in BULLISH_WARRANT:
+        non_warrant_parts.append(marker)
+    return " / ".join(non_warrant_parts)
+
+
+def _warrant_sync_apply_bonus_delta(
+    frame: pd.DataFrame,
+    index: int,
+    *,
+    model_id: str,
+    before_signal: str,
+    after_signal: str,
+) -> None:
+    profile = MODEL_SCORE_PROFILES.get(model_id)
+    if profile is None or profile.warrant_bullish_bonus <= 0:
+        raise RuntimeError(f"warrant formal-sync model has no registered bonus: {model_id}")
+    bonus = Decimal(str(profile.warrant_bullish_bonus))
+    before_effect = bonus if before_signal in BULLISH_WARRANT else Decimal("0")
+    after_effect = bonus if after_signal in BULLISH_WARRANT else Decimal("0")
+    delta = after_effect - before_effect
+
+    if "score_components" not in frame.columns:
+        raise RuntimeError("formal raw signal artifact is missing score_components")
+    frame.at[index, "score_components"] = _warrant_sync_update_score_components(
+        frame.at[index, "score_components"],
+        model_id=model_id,
+        before_signal=before_signal,
+        after_signal=after_signal,
+        bonus=bonus,
+    )
+    if "score_components_zh" in frame.columns:
+        frame.at[index, "score_components_zh"] = _warrant_sync_update_score_components_zh(
+            frame.at[index, "score_components_zh"],
+            before_signal=before_signal,
+            after_signal=after_signal,
+            bonus=bonus,
+        )
+
+    if "model_score" not in frame.columns:
+        raise RuntimeError("formal raw signal artifact is missing model_score")
+    for column in WARRANT_FORMAL_SYNC_NUMERIC_SCORE_FIELDS:
+        if column not in frame.columns:
+            continue
+        before_text = safe_str(frame.at[index, column]).strip()
+        if not before_text:
+            if column == "model_score":
+                raise RuntimeError(
+                    f"warrant formal-sync required score is blank: model_id={model_id} column={column}"
+                )
+            continue
+        before_value = _warrant_sync_decimal(
+            before_text,
+            label=f"warrant formal-sync {model_id} {column}",
+        )
+        if delta > 0 and before_value == 0:
+            raise RuntimeError(
+                "warrant formal-sync bonus is not provable across the lower clamp boundary: "
+                f"model_id={model_id} column={column}"
+            )
+        if delta < 0 and before_value == 100:
+            raise RuntimeError(
+                "warrant formal-sync bonus is not provable across the upper clamp boundary: "
+                f"model_id={model_id} column={column}"
+            )
+        if delta:
+            frame.at[index, column] = f"{_warrant_sync_clamp_score(before_value + delta):.1f}"
+
+
+def _warrant_sync_rerank_allowed_models(frame: pd.DataFrame) -> pd.DataFrame:
+    out = frame.copy()
+    if "model_rank" not in out.columns:
+        raise RuntimeError("formal raw signal artifact is missing model_rank")
+    group_columns = ["signal_date", "report_bucket", "model_id"]
+    for group_key, part in out.groupby(group_columns, dropna=False, sort=False):
+        model_id = safe_str(group_key[2])
+        if model_id not in WARRANT_FORMAL_SYNC_ALLOWED_MODEL_IDS:
+            continue
+        ranked: list[tuple[Decimal, str, str, int]] = []
+        for index, row in part.iterrows():
+            score = _warrant_sync_decimal(
+                row.get("model_score"),
+                label=f"warrant formal-sync {model_id} model_score",
+            )
+            ranked.append(
+                (
+                    -score,
+                    normalize_code(row.get("stock_id")),
+                    safe_str(row.get("source_row_index")),
+                    int(index),
+                )
+            )
+        for rank, (_, _, _, index) in enumerate(sorted(ranked), start=1):
+            out.at[index, "model_rank"] = str(rank)
+    return out
+
+
+def synchronize_warrant_formal_frames(
+    candidates: pd.DataFrame,
+    raw_signals: pd.DataFrame,
+    report_signals: pd.DataFrame,
+    model_history: pd.DataFrame,
+    *,
+    official_warrant: pd.DataFrame | None = None,
+    volume_taxonomy: pd.DataFrame | None = None,
+    volume_watch: pd.DataFrame | None = None,
+) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
+    """Project warrant-only changes while preserving published membership.
+
+    This function intentionally never evaluates a model condition and never
+    reads TDCC, price, revenue, theme, or research inputs.  A different data
+    epoch therefore cannot enter a warrant-only formal sync.
+    """
+
+    raw = _warrant_sync_string_frame(raw_signals)
+    report = _warrant_sync_string_frame(report_signals)
+    # Prior-date history is immutable evidence. Keep every prior cell and dtype
+    # untouched; normalize only identity comparisons and current-row fields.
+    history = model_history.copy().reset_index(drop=True)
+    if raw.empty or report.empty or history.empty:
+        raise RuntimeError("warrant formal-sync requires existing raw, report, and history artifacts")
+
+    raw_before = _warrant_sync_identity_index(
+        raw, WARRANT_FORMAL_SYNC_IDENTITY_COLUMNS, "formal raw signal artifact"
+    )
+    report_before = _warrant_sync_identity_index(
+        report, WARRANT_FORMAL_SYNC_IDENTITY_COLUMNS, "formal report signal artifact"
+    )
+    _warrant_sync_require_same_identities(raw_before, report_before, "raw/report")
+
+    signal_dates = {safe_str(row[0]) for row in raw_before}
+    if len(signal_dates) != 1:
+        raise RuntimeError(
+            f"warrant formal-sync requires exactly one published signal date: {sorted(signal_dates)}"
+        )
+
+    current_history_mask = history["signal_date"].map(safe_str).isin(signal_dates)
+    current_history = history[current_history_mask].copy()
+    history_before = _warrant_sync_identity_index(
+        current_history,
+        WARRANT_FORMAL_SYNC_HISTORY_IDENTITY_COLUMNS,
+        "current formal history artifact",
+    )
+    raw_history_before = _warrant_sync_identity_index(
+        raw,
+        WARRANT_FORMAL_SYNC_HISTORY_IDENTITY_COLUMNS,
+        "formal raw history projection",
+    )
+    _warrant_sync_require_same_identities(
+        raw_history_before, history_before, "raw/current-history"
+    )
+
+    unknown_models = sorted(
+        set(raw["model_id"].astype(str)) - WARRANT_FORMAL_SYNC_REGISTERED_MODEL_IDS
+    )
+    if unknown_models:
+        raise RuntimeError(
+            f"warrant formal-sync encountered unregistered formal model ids: {unknown_models}"
+        )
+
+    projection = _warrant_sync_candidate_projection(candidates, signal_dates)
+    official_projection: dict[tuple[str, str], str] | None = None
+    taxonomy_stock_ids: set[str] | None = None
+    volume_watch_identities: set[tuple[str, str]] | None = None
+    protected_score_columns = [
+        column
+        for column in WARRANT_FORMAL_SYNC_SCORE_RANK_FIELDS
+        if column in raw.columns
+    ]
+    protected_before = raw.loc[
+        raw["model_id"].isin(WARRANT_FORMAL_SYNC_PROTECTED_MODEL_IDS),
+        [*WARRANT_FORMAL_SYNC_IDENTITY_COLUMNS, *protected_score_columns],
+    ].copy()
+
+    for index, row in raw.iterrows():
+        model_id = safe_str(row.get("model_id"))
+        if model_id in WARRANT_FORMAL_SYNC_NON_CANDIDATE_EXEMPT_MODEL_IDS:
+            continue
+        source_key = (
+            safe_str(row.get("signal_date")),
+            normalize_code(row.get("stock_id")),
+        )
+        before_signal = _warrant_sync_signal(row.get("warrant_flow_signal"))
+        if source_key in projection:
+            after_signal = projection[source_key]
+        elif (
+            model_id in WARRANT_FORMAL_SYNC_VOLUME_V2_MODEL_IDS
+            and re.fullmatch(r"volume_breakout:[0-9]+", safe_str(row.get("source_row_index")))
+        ):
+            if (
+                official_warrant is None
+                or volume_taxonomy is None
+                or volume_watch is None
+            ):
+                raise RuntimeError(
+                    "volume-v2 formal row without all_candidates source requires official "
+                    "warrant, exact watch, and taxonomy negative-lineage evidence"
+                )
+            if official_projection is None:
+                official_projection = _warrant_sync_official_projection(
+                    official_warrant,
+                    signal_dates,
+                )
+            if taxonomy_stock_ids is None:
+                taxonomy_stock_ids = _warrant_sync_taxonomy_stock_ids(volume_taxonomy)
+            if volume_watch_identities is None:
+                volume_watch_identities = _warrant_sync_volume_watch_identities(
+                    volume_watch,
+                    next(iter(signal_dates)),
+                )
+            watch_identity = (
+                safe_str(row.get("source_row_index")),
+                source_key[1],
+            )
+            if watch_identity not in volume_watch_identities:
+                raise RuntimeError(
+                    "formal volume signal has no exact model-owned watch lineage: "
+                    f"source_row_index={watch_identity[0]} stock_id={watch_identity[1]}"
+                )
+            if source_key[1] not in taxonomy_stock_ids:
+                raise RuntimeError(
+                    "volume-v2 formal row has no canonical taxonomy lineage: "
+                    f"stock_id={source_key[1]}"
+                )
+            if source_key in official_projection:
+                raise RuntimeError(
+                    "formal volume signal has official warrant data but no canonical "
+                    "all_candidates projection: "
+                    f"stock_id={source_key[1]} signal={official_projection[source_key]!r}"
+                )
+            after_signal = ""
+        else:
+            raise RuntimeError(
+                "formal signal has no canonical all_candidates warrant source: "
+                f"identity={tuple(row.get(column, '') for column in WARRANT_FORMAL_SYNC_IDENTITY_COLUMNS)}"
+            )
+        if model_id in WARRANT_FORMAL_SYNC_ALLOWED_MODEL_IDS:
+            _warrant_sync_apply_bonus_delta(
+                raw,
+                int(index),
+                model_id=model_id,
+                before_signal=before_signal,
+                after_signal=after_signal,
+            )
+        else:
+            components = safe_str(row.get("score_components"))
+            if any(
+                part.strip().lower().startswith("warrant bullish +")
+                for part in components.split("|")
+            ):
+                raise RuntimeError(
+                    "protected formal model contains an unregistered warrant score marker: "
+                    f"model_id={model_id} stock_id={source_key[1]}"
+                )
+        raw.at[index, "warrant_flow_signal"] = after_signal
+
+    raw = _warrant_sync_rerank_allowed_models(raw)
+
+    displayed_raw = apply_display_columns(raw.copy())
+    displayed_raw_index = _warrant_sync_identity_index(
+        displayed_raw,
+        WARRANT_FORMAL_SYNC_IDENTITY_COLUMNS,
+        "displayed formal raw signal artifact",
+    )
+    _warrant_sync_require_same_identities(
+        raw_before,
+        displayed_raw_index,
+        "displayed formal raw",
+    )
+    for key, raw_index in raw_before.items():
+        display_index = displayed_raw_index[key]
+        for column in WARRANT_FORMAL_SYNC_PRESENTATION_FIELDS:
+            if column in raw.columns and column in displayed_raw.columns:
+                raw.at[raw_index, column] = safe_str(
+                    displayed_raw.at[display_index, column]
+                )
+
+    raw_after = _warrant_sync_identity_index(
+        raw, WARRANT_FORMAL_SYNC_IDENTITY_COLUMNS, "formal raw signal artifact after sync"
+    )
+    _warrant_sync_require_same_identities(raw_before, raw_after, "formal raw")
+
+    raw_rows = {key: raw.loc[index] for key, index in raw_after.items()}
+    for key, report_index in report_before.items():
+        source = raw_rows[key]
+        model_id = safe_str(source.get("model_id"))
+        before_report_signal = _warrant_sync_signal(
+            report.at[report_index, "warrant_flow_signal"]
+            if "warrant_flow_signal" in report.columns
+            else ""
+        )
+        after_report_signal = _warrant_sync_signal(source.get("warrant_flow_signal"))
+        if "warrant_flow_signal" in report.columns:
+            report.at[report_index, "warrant_flow_signal"] = after_report_signal
+        if model_id not in WARRANT_FORMAL_SYNC_ALLOWED_MODEL_IDS:
+            continue
+        for column in (
+            *WARRANT_FORMAL_SYNC_NUMERIC_SCORE_FIELDS,
+            "model_rank",
+            "score_components",
+            "score_components_zh",
+        ):
+            if column in report.columns and column in raw.columns:
+                report.at[report_index, column] = safe_str(source.get(column))
+        if "merged_score_components" in report.columns:
+            profile = MODEL_SCORE_PROFILES[model_id]
+            report.at[
+                report_index, "merged_score_components"
+            ] = _warrant_sync_update_merged_score_components(
+                report.at[report_index, "merged_score_components"],
+                before_signal=before_report_signal,
+                after_signal=after_report_signal,
+                bonus=Decimal(str(profile.warrant_bullish_bonus)),
+            )
+        if "primary_model_score" in report.columns:
+            report.at[report_index, "primary_model_score"] = safe_str(
+                source.get("model_score")
+            )
+        if "primary_model_rank" in report.columns:
+            report.at[report_index, "primary_model_rank"] = safe_str(
+                source.get("model_rank")
+            )
+
+    raw_history_rows = {
+        key: raw.loc[index] for key, index in raw_history_before.items()
+    }
+    current_mask = history["signal_date"].map(safe_str).isin(signal_dates)
+    for history_index, row in history.loc[current_mask].iterrows():
+        key = tuple(
+            safe_str(row.get(column))
+            for column in WARRANT_FORMAL_SYNC_HISTORY_IDENTITY_COLUMNS
+        )
+        source = raw_history_rows[key]
+        for column in WARRANT_FORMAL_SYNC_PRESENTATION_FIELDS:
+            if column in history.columns and column in raw.columns:
+                history.at[history_index, column] = safe_str(source.get(column))
+        if safe_str(source.get("model_id")) not in WARRANT_FORMAL_SYNC_ALLOWED_MODEL_IDS:
+            continue
+        for column in (*WARRANT_FORMAL_SYNC_NUMERIC_SCORE_FIELDS, "model_rank"):
+            if column in history.columns and column in raw.columns:
+                history.at[history_index, column] = safe_str(source.get(column))
+
+    report_after = _warrant_sync_identity_index(
+        report, WARRANT_FORMAL_SYNC_IDENTITY_COLUMNS, "formal report signal artifact after sync"
+    )
+    _warrant_sync_require_same_identities(report_before, report_after, "formal report")
+    history_after = _warrant_sync_identity_index(
+        history[history["signal_date"].map(safe_str).isin(signal_dates)].copy(),
+        WARRANT_FORMAL_SYNC_HISTORY_IDENTITY_COLUMNS,
+        "current formal history artifact after sync",
+    )
+    _warrant_sync_require_same_identities(history_before, history_after, "formal history")
+
+    protected_after = raw.loc[
+        raw["model_id"].isin(WARRANT_FORMAL_SYNC_PROTECTED_MODEL_IDS),
+        [*WARRANT_FORMAL_SYNC_IDENTITY_COLUMNS, *protected_score_columns],
+    ].copy()
+    if not protected_before.equals(protected_after):
+        raise RuntimeError("protected formal model score/rank or identity drifted during warrant sync")
+    return raw, report, history
+
+
+def rebuild_warrant_formal_consumers(
+    report_signals: pd.DataFrame,
+    model_history: pd.DataFrame,
+) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
+    report = _warrant_sync_string_frame(report_signals)
+    report_before = _warrant_sync_identity_index(
+        report, WARRANT_FORMAL_SYNC_IDENTITY_COLUMNS, "formal report signal artifact"
+    )
+    rebuilt, same_model_repeat = attach_same_model_repeat(report.copy(), model_history)
+    rebuilt = annotate_frontpage_uniqueness(rebuilt)
+    rebuilt = apply_display_columns(rebuilt)
+    rebuilt = attach_report_contract_columns(rebuilt)
+    rebuilt = apply_display_columns(rebuilt)
+    rebuilt_after = _warrant_sync_identity_index(
+        rebuilt, WARRANT_FORMAL_SYNC_IDENTITY_COLUMNS, "rebuilt formal report consumers"
+    )
+    _warrant_sync_require_same_identities(report_before, rebuilt_after, "report consumers")
+
+    rebuilt_rows = {key: rebuilt.loc[index] for key, index in rebuilt_after.items()}
+    for key, report_index in report_before.items():
+        source = rebuilt_rows[key]
+        model_id = safe_str(source.get("model_id"))
+        for column in WARRANT_FORMAL_SYNC_PRESENTATION_FIELDS:
+            if column in report.columns and column in rebuilt.columns:
+                report.at[report_index, column] = safe_str(source.get(column))
+        if model_id in WARRANT_FORMAL_SYNC_ALLOWED_MODEL_IDS:
+            for column in WARRANT_FORMAL_SYNC_SCORE_RANK_FIELDS:
+                if column in {"merged_score_components", "score_components_zh"}:
+                    continue
+                if column in report.columns and column in rebuilt.columns:
+                    report.at[report_index, column] = safe_str(source.get(column))
+
+    same_model_repeat = apply_display_columns(same_model_repeat)
+    frontpage_unique = build_frontpage_unique(report)
+    frontpage_unique = apply_display_columns(frontpage_unique)
+    report_after = _warrant_sync_identity_index(
+        report, WARRANT_FORMAL_SYNC_IDENTITY_COLUMNS, "formal report consumers after sync"
+    )
+    _warrant_sync_require_same_identities(report_before, report_after, "formal report consumers")
+    return report, same_model_repeat, frontpage_unique
+
+
+def finalize_warrant_formal_consumer_parity(
+    raw_signals: pd.DataFrame,
+    report_signals: pd.DataFrame,
+    model_history: pd.DataFrame,
+) -> tuple[pd.DataFrame, pd.DataFrame]:
+    """Mirror only registered report-derived fields back to raw/current history."""
+
+    raw = _warrant_sync_string_frame(raw_signals)
+    report = _warrant_sync_string_frame(report_signals)
+    # Prior-date history is immutable; only current-date registered projection
+    # fields are assigned below.
+    history = model_history.copy().reset_index(drop=True)
+    raw_index = _warrant_sync_identity_index(
+        raw,
+        WARRANT_FORMAL_SYNC_IDENTITY_COLUMNS,
+        "formal raw consumer parity artifact",
+    )
+    report_index = _warrant_sync_identity_index(
+        report,
+        WARRANT_FORMAL_SYNC_IDENTITY_COLUMNS,
+        "formal report consumer parity artifact",
+    )
+    _warrant_sync_require_same_identities(raw_index, report_index, "raw/report consumers")
+
+    for key, raw_row_index in raw_index.items():
+        report_row_index = report_index[key]
+        model_id = key[-1]
+        for column in WARRANT_FORMAL_SYNC_PRESENTATION_FIELDS:
+            if column in raw.columns and column in report.columns:
+                raw.at[raw_row_index, column] = safe_str(
+                    report.at[report_row_index, column]
+                )
+        if model_id in WARRANT_FORMAL_SYNC_ALLOWED_MODEL_IDS:
+            for column in WARRANT_FORMAL_SYNC_SCORE_RANK_FIELDS:
+                if column in raw.columns and column in report.columns:
+                    raw.at[raw_row_index, column] = safe_str(
+                        report.at[report_row_index, column]
+                    )
+
+    signal_dates = set(raw["signal_date"].astype(str))
+    report_history_rows: dict[tuple[str, str, str, str], pd.Series] = {}
+    for _, row in report.iterrows():
+        key = tuple(
+            safe_str(row.get(column))
+            for column in WARRANT_FORMAL_SYNC_HISTORY_IDENTITY_COLUMNS
+        )
+        if key in report_history_rows:
+            raise RuntimeError(
+                f"formal report has duplicate current-history identity after warrant sync: {key}"
+            )
+        report_history_rows[key] = row
+
+    current_history_mask = history["signal_date"].map(safe_str).isin(signal_dates)
+    current_history = history[current_history_mask].copy()
+    current_history_index = _warrant_sync_identity_index(
+        current_history,
+        WARRANT_FORMAL_SYNC_HISTORY_IDENTITY_COLUMNS,
+        "current history consumer parity artifact",
+    )
+    if set(current_history_index) != set(report_history_rows):
+        raise RuntimeError("formal report/current-history membership drift after warrant sync")
+    for history_row_index, row in history.loc[current_history_mask].iterrows():
+        key = tuple(
+            safe_str(row.get(column))
+            for column in WARRANT_FORMAL_SYNC_HISTORY_IDENTITY_COLUMNS
+        )
+        source = report_history_rows[key]
+        for column in WARRANT_FORMAL_SYNC_PRESENTATION_FIELDS:
+            if column in history.columns and column in report.columns:
+                history.at[history_row_index, column] = safe_str(source.get(column))
+        if key[-1] in WARRANT_FORMAL_SYNC_ALLOWED_MODEL_IDS:
+            for column in WARRANT_FORMAL_SYNC_SCORE_RANK_FIELDS:
+                if column in history.columns and column in report.columns:
+                    history.at[history_row_index, column] = safe_str(source.get(column))
+    return raw, history
+
+
+def run_warrant_formal_sync_only() -> int:
+    candidates = read_csv(ALL_CANDIDATES, dtype=str, keep_default_na=False)
+    official_warrant = read_csv(WARRANT_FLOW, dtype=str, keep_default_na=False)
+    volume_taxonomy = read_csv(VOLUME_BREAKOUT_TAXONOMY, dtype=str, keep_default_na=False)
+    volume_watch = read_csv(VOLUME_BREAKOUT_WATCH, dtype=str, keep_default_na=False)
+    raw_signals = read_csv(SIGNALS_CSV, dtype=str, keep_default_na=False)
+    report_signals = read_csv(REPORT_SIGNALS_CSV, dtype=str, keep_default_na=False)
+    model_history = read_csv(MODEL_SIGNAL_LOG_CSV, dtype=str, keep_default_na=False)
+    raw_signals, report_signals, model_history = synchronize_warrant_formal_frames(
+        candidates,
+        raw_signals,
+        report_signals,
+        model_history,
+        official_warrant=official_warrant,
+        volume_taxonomy=volume_taxonomy,
+        volume_watch=volume_watch,
+    )
+    report_signals, same_model_repeat, frontpage_unique = rebuild_warrant_formal_consumers(
+        report_signals,
+        model_history,
+    )
+    raw_signals, model_history = finalize_warrant_formal_consumer_parity(
+        raw_signals,
+        report_signals,
+        model_history,
+    )
+
+    write_csv(raw_signals, SIGNALS_CSV)
+    write_md_table(
+        SIGNALS_MD,
+        "Daily Candidate Model Signals",
+        raw_signals,
+        [
+            "- Warrant-only formal sync preserves the published model membership exactly.",
+            "- `model_rank` may change only for registered warrant-bonus models.",
+        ],
+        limit=300,
+    )
+    write_csv(report_signals, REPORT_SIGNALS_CSV)
+    write_md_table(
+        REPORT_SIGNALS_MD,
+        "Daily Candidate Model Signals For Report",
+        report_signals,
+        [
+            "- Use this table for PDF model sections.",
+            "- Warrant-only formal sync does not reevaluate model selection conditions.",
+        ],
+        limit=300,
+    )
+    write_csv(model_history, MODEL_SIGNAL_LOG_CSV)
+    write_csv(frontpage_unique, FRONTPAGE_UNIQUE_CSV)
+    write_md_table(
+        FRONTPAGE_UNIQUE_MD,
+        "Daily Candidate Front Page Unique Representatives",
+        frontpage_unique,
+        ["- Rebuilt from the fixed-membership formal report rows after warrant sync."],
+        limit=120,
+    )
+    write_csv(same_model_repeat, MODEL_REPEAT_CSV)
+    write_md_table(
+        MODEL_REPEAT_MD,
+        "Daily Candidate Same Model Repeat Table",
+        same_model_repeat,
+        ["- Rebuilt from the fixed-membership formal report history after warrant sync."],
+        limit=160,
+    )
+
+    params = read_csv(PARAMETERS_CSV, dtype=str, keep_default_na=False)
+    rotation = read_csv(ROTATION_CSV, dtype=str, keep_default_na=False)
+    signal_dates = sorted(set(raw_signals["signal_date"].astype(str)))
+    write_packet(
+        params,
+        report_signals,
+        frontpage_unique,
+        same_model_repeat,
+        rotation,
+        signal_dates[-1] if signal_dates else "",
+    )
+    print(f"Saved warrant-only formal sync: {SIGNALS_CSV} rows={len(raw_signals)}")
+    print(f"Saved warrant-only formal sync: {REPORT_SIGNALS_CSV} rows={len(report_signals)}")
+    print(f"Saved warrant-only formal sync: {MODEL_SIGNAL_LOG_CSV} rows={len(model_history)}")
+    return 0
+
+
 def main() -> int:
     LATEST_DIR.mkdir(parents=True, exist_ok=True)
     preferred_date = main_price_date_from_freshness()
@@ -5441,5 +6410,18 @@ def main() -> int:
     return 0
 
 
+def cli_main(argv: list[str] | None = None) -> int:
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--warrant-formal-sync-only",
+        action="store_true",
+        help="Update canonical warrant fields and registered bonus ranks without rerunning selection.",
+    )
+    args = parser.parse_args(argv)
+    if args.warrant_formal_sync_only:
+        return run_warrant_formal_sync_only()
+    return main()
+
+
 if __name__ == "__main__":
-    raise SystemExit(main())
+    raise SystemExit(cli_main())
