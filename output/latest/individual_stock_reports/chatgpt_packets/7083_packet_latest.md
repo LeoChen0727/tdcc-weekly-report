@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7083 優群台新5B購01
 
 ## Metadata
-- generated_at: 2026-07-19 22:28:20 Asia/Taipei
+- generated_at: 2026-07-20 22:28:26 Asia/Taipei
 - stock_id: 7083
 - stock_name: 優群台新5B購01
 - packet_status: partial_rawdata_packet
