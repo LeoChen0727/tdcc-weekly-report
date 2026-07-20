@@ -964,6 +964,19 @@ def dispatcher_warrant_source_mode(code_payload: bytes) -> str:
     return "legacy_watch_overrides_candidate"
 
 
+def published_warrant_score_source(dispatcher_mode: str) -> str:
+    if dispatcher_mode in {
+        "canonical_candidate_after_watch_merge",
+        "canonical_candidate_explicit_allowlist",
+    }:
+        return "canonical_candidate"
+    if dispatcher_mode == "legacy_watch_overrides_candidate":
+        return "legacy_watch"
+    raise RuntimeError(
+        f"unknown dispatcher warrant source mode: {dispatcher_mode!r}"
+    )
+
+
 def decimal_value(value: Any, field: str) -> Decimal:
     text = normalize_text(value)
     try:
@@ -1828,11 +1841,7 @@ def build_audit_dataframe(root: Path = ROOT) -> pd.DataFrame:
                 candidate_row.to_dict() if candidate_row is not None else {}
             )
             score_basis_signal = published_context.get("warrant_flow_signal", "")
-            score_source = (
-                "canonical_candidate"
-                if source_mode == "canonical_candidate_after_watch_merge"
-                else "legacy_watch"
-            )
+            score_source = published_warrant_score_source(source_mode)
             collision_names = collision_field_names(
                 watch_context,
                 counterfactual_context,

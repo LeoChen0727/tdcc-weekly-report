@@ -251,15 +251,24 @@ def _setup_dynamic_repo(
     *,
     current_watch_score: str = "1",
     current_candidate_score: str = "1",
+    explicit_candidate_allowlist: bool = False,
 ) -> None:
     (root / "scripts").mkdir(parents=True)
     snapshot_dir = root / "output" / "history" / "daily_model_snapshots"
     snapshot_dir.mkdir(parents=True)
-    (root / builder.PRODUCTION_CODE_PATH).write_text(
+    production_source = (
         "def append_volume_breakout_signals():\n"
+        "    score_source = {field: candidate_values[field] for field in candidate_fields}\n"
+        "    score_source.update({field: watch_values[field] for field in watch_fields})\n"
+        "    score_source['warrant_flow_signal'] = authoritative_warrant_signal\n"
+        if explicit_candidate_allowlist
+        else "def append_volume_breakout_signals():\n"
         "    score_source = {}\n"
         "    score_source.update(row.to_dict())\n"
-        "    score_source['warrant_flow_signal'] = authoritative_warrant_signal\n",
+        "    score_source['warrant_flow_signal'] = authoritative_warrant_signal\n"
+    )
+    (root / builder.PRODUCTION_CODE_PATH).write_text(
+        production_source,
         encoding="utf-8",
         newline="\n",
     )
@@ -1514,6 +1523,50 @@ def append_volume_breakout_signals():
         builder.dispatcher_warrant_source_mode(explicit_allowlist)
         == "canonical_candidate_explicit_allowlist"
     )
+
+
+def test_explicit_allowlist_audit_and_independent_validator_use_canonical_source(
+    tmp_path: Path,
+) -> None:
+    root = tmp_path / "repo"
+    root.mkdir()
+    _setup_dynamic_repo(root, explicit_candidate_allowlist=True)
+
+    audit = builder.build_audit_dataframe(root)
+    current = _formal_audit_rows(audit)
+    current = current[current["snapshot_report_date"].eq("20260718")]
+
+    assert len(current) == 1
+    assert set(current["dispatcher_warrant_source_mode"]) == {
+        "canonical_candidate_explicit_allowlist"
+    }
+    assert set(current["published_warrant_score_source"]) == {
+        "canonical_candidate"
+    }
+    _validate_generated_audit(root, audit, tmp_path / "explicit-allowlist")
+
+
+def test_published_warrant_score_source_covers_every_dispatcher_mode() -> None:
+    assert (
+        builder.published_warrant_score_source(
+            "canonical_candidate_after_watch_merge"
+        )
+        == "canonical_candidate"
+    )
+    assert (
+        builder.published_warrant_score_source(
+            "canonical_candidate_explicit_allowlist"
+        )
+        == "canonical_candidate"
+    )
+    assert (
+        builder.published_warrant_score_source("legacy_watch_overrides_candidate")
+        == "legacy_watch"
+    )
+    with pytest.raises(RuntimeError, match="unknown dispatcher warrant source mode"):
+        builder.published_warrant_score_source("unknown_mode")
+    with pytest.raises(RuntimeError, match="unknown dispatcher warrant source mode"):
+        builder.published_warrant_score_source("canonical_candidate_unknown")
 
 
 def test_three_collision_fields_replay_complete_component_delta() -> None:
