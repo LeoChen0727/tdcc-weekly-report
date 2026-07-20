@@ -1340,6 +1340,17 @@ def test_warrant_formal_sync_staged_paths_are_positive_allowlisted() -> None:
     assert len(errors) == 3
     assert all("outside allowlist" in error for error in errors)
 
+    protected_errors = validate_staged_path_list(
+        [
+            "output/latest/daily_candidate_model_selection_audit_latest.json",
+            "docs/latest/daily_candidate_model_selection_audit_latest.md",
+            "output/latest/daily_candidate_pipeline_integrity_audit_latest.json",
+            "docs/latest/daily_candidate_pipeline_integrity_audit_latest.md",
+        ]
+    )
+    assert len(protected_errors) == 4
+    assert all("protected full-selection evidence" in error for error in protected_errors)
+
 
 def test_scope_is_order_independent_for_protected_rows(tmp_path: Path) -> None:
     _write_artifacts(tmp_path, _signal_rows())
@@ -1387,11 +1398,22 @@ def test_warrant_workflow_rebuilds_formal_consumers_and_fails_closed() -> None:
         "output/latest/daily_report_model_registry_latest.md",
         "docs/latest/daily_report_model_registry_latest.csv",
         "docs/latest/daily_report_model_registry_latest.md",
+        "output/latest/daily_candidate_model_selection_audit_latest.*",
+        "docs/latest/daily_candidate_model_selection_audit_latest.*",
+        "output/latest/daily_candidate_pipeline_integrity_audit_latest.*",
+        "docs/latest/daily_candidate_pipeline_integrity_audit_latest.*",
     ):
         assert protected_static_artifact in workflow
     sentinel_pattern_block = workflow[
         workflow.index("mature_sentinel_patterns=(") : workflow.index("capture_mature_sentinels()")
     ]
+    for frozen_audit_pattern in (
+        "output/latest/daily_candidate_model_selection_audit_latest.*",
+        "docs/latest/daily_candidate_model_selection_audit_latest.*",
+        "output/latest/daily_candidate_pipeline_integrity_audit_latest.*",
+        "docs/latest/daily_candidate_pipeline_integrity_audit_latest.*",
+    ):
+        assert frozen_audit_pattern in sentinel_pattern_block
     assert "daily_candidate_model_parameters_latest.md" not in sentinel_pattern_block
     assert "daily_report_model_registry_latest.md" in sentinel_pattern_block
     assert "python scripts/validate_warrant_source_status.py" in workflow
@@ -1424,14 +1446,25 @@ def test_warrant_workflow_rebuilds_formal_consumers_and_fails_closed() -> None:
         "python scripts/validate_volume_v2_warrant_lineage_history_audit.py",
         "python scripts/validate_revenue_unreacted_range_financial_statement_fail_closed.py",
         "python scripts/build_daily_report_model_summary.py",
-        "python scripts/audit_daily_candidate_model_selection_correctness.py",
-        "python scripts/audit_daily_candidate_pipeline_integrity.py",
         "python scripts/build_theme_event_watch.py",
         "python scripts/update_daily_published_model_snapshots.py",
         "python scripts/build_chatgpt_indicator_usage_guide.py",
     ]
     indexes = [workflow.index(command) for command in expected_order]
     assert indexes == sorted(indexes)
+    assert "python scripts/audit_daily_candidate_model_selection_correctness.py" not in workflow
+    assert "python scripts/audit_daily_candidate_pipeline_integrity.py" not in workflow
+    copy_block = workflow[
+        workflow.index("          for artifact in \\") :
+        workflow.index("          done", workflow.index("          for artifact in \\"))
+    ]
+    assert "daily_candidate_model_selection_audit_latest" not in copy_block
+    assert "daily_candidate_pipeline_integrity_audit_latest" not in copy_block
+    daily_full_pipeline = (
+        ROOT / ".github" / "workflows" / "daily_full_pipeline.yml"
+    ).read_text(encoding="utf-8")
+    assert "python scripts/audit_daily_candidate_model_selection_correctness.py" in daily_full_pipeline
+    assert "python scripts/audit_daily_candidate_pipeline_integrity.py" in daily_full_pipeline
     assert "          python scripts/build_daily_candidate_model_layer.py\n" not in workflow
     candidate_after_merge_index = workflow.index(
         '--write-snapshot "$warrant_formal_sync_scope_after_merge"'
@@ -1552,6 +1585,9 @@ def test_warrant_workflow_rebuilds_formal_consumers_and_fails_closed() -> None:
     assert "git add docs/latest/volume_attack_theme_stocks_latest.*" in commit_block
     assert "git add docs/latest/chatgpt_indicator_usage_guide_latest.md" in commit_block
     assert "git add docs/latest/CHATGPT_INDICATOR_USAGE_GUIDE.txt" in commit_block
+    assert "git add output/latest/daily_candidate_model_selection_audit_latest.*" not in commit_block
+    assert "git add output/latest/daily_candidate_pipeline_integrity_audit_latest.*" not in commit_block
+    assert "git add docs/latest/daily_candidate_pipeline_integrity_audit_latest.*" not in commit_block
     assert commit_block.count(
         "python scripts/stage_daily_published_snapshot_revisions.py"
     ) == 1
