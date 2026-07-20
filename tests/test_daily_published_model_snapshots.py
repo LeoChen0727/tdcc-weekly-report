@@ -645,6 +645,110 @@ def test_targeted_snapshot_sync_does_not_repair_excluded_operation_drift(
     )
 
 
+def test_targeted_snapshot_sync_preserves_protected_legacy_manifest_identity(
+    tmp_path: Path,
+) -> None:
+    latest_dir = tmp_path / "output" / "latest"
+    snapshot_dir = tmp_path / "output" / "history" / "daily_model_snapshots"
+    manifest_path = snapshot_dir / "daily_published_model_snapshot_manifest.csv"
+    write_minimal_latest_artifacts(latest_dir, report_date="20260615")
+    initial_manifest = update_snapshots.build_daily_published_model_snapshots(
+        latest_dir=latest_dir,
+        snapshot_dir=snapshot_dir,
+        manifest_path=manifest_path,
+        generated_at="2026-06-16 08:00:00 Asia/Taipei",
+        commit_sha="full-build-sha",
+    )
+
+    protected_id = "volume_breakout_operation_section"
+    protected_row = initial_manifest[
+        initial_manifest["artifact_id"].eq(protected_id)
+    ].iloc[0]
+    protected_snapshot = repository_file(tmp_path, protected_row["snapshot_path"])
+    protected_snapshot_before = protected_snapshot.read_bytes()
+
+    legacy_manifest = pd.read_csv(
+        manifest_path,
+        dtype=str,
+        keep_default_na=False,
+    ).drop(columns=list(update_snapshots.REVISION_MANIFEST_COLUMNS))
+    protected_mask = legacy_manifest["artifact_id"].eq(protected_id)
+    legacy_manifest.loc[
+        protected_mask,
+        list(update_snapshots.WARRANT_LINEAGE_MANIFEST_COLUMNS),
+    ] = ""
+    legacy_manifest.to_csv(
+        manifest_path,
+        index=False,
+        encoding="utf-8",
+        lineterminator="\n",
+    )
+    canonical_before = update_snapshots.normalize_known_manifest_schema(
+        pd.read_csv(manifest_path, dtype=str, keep_default_na=False),
+        context="test legacy mature manifest before targeted sync",
+    )
+    protected_before = canonical_before[
+        canonical_before["artifact_id"].eq(protected_id)
+    ].to_dict("records")
+
+    freshness_path = latest_dir / "data_freshness_latest.csv"
+    freshness = pd.read_csv(freshness_path, dtype=str, keep_default_na=False)
+    freshness.loc[0, "warrant_source_status"] = "ok_revised"
+    freshness.to_csv(
+        freshness_path,
+        index=False,
+        encoding="utf-8",
+        lineterminator="\n",
+    )
+    update_snapshots.build_daily_published_model_snapshots(
+        latest_dir=latest_dir,
+        snapshot_dir=snapshot_dir,
+        manifest_path=manifest_path,
+        generated_at="2026-06-16 09:00:00 Asia/Taipei",
+        commit_sha="warrant-formal-sync-sha",
+        artifact_ids={"data_freshness"},
+        revision_reason="warrant_formal_sync",
+    )
+
+    current_manifest = pd.read_csv(
+        manifest_path,
+        dtype=str,
+        keep_default_na=False,
+    )
+    protected_after = current_manifest[
+        current_manifest["artifact_id"].eq(protected_id)
+    ].to_dict("records")
+    assert protected_after == protected_before
+    assert protected_snapshot.read_bytes() == protected_snapshot_before
+    assert list(current_manifest.columns) == update_snapshots.MANIFEST_COLUMNS
+    assert len(current_manifest) == len(initial_manifest) + 1
+    selected_revisions = current_manifest[
+        current_manifest["artifact_id"].eq("data_freshness")
+    ]["snapshot_revision"].tolist()
+    assert selected_revisions == ["r1", "r2"]
+
+
+def test_current_manifest_blank_warrant_lineage_is_not_legacy_defaulted() -> None:
+    row = {column: "" for column in update_snapshots.MANIFEST_COLUMNS}
+    row.update(
+        {
+            "snapshot_report_date": "20260615",
+            "snapshot_revision": "r1",
+            "revision_reason": "initial_publish",
+            "warrant_ready": "True",
+            "artifact_id": "volume_breakout_operation_section",
+        }
+    )
+
+    normalized = update_snapshots.normalize_known_manifest_schema(
+        pd.DataFrame([row], columns=update_snapshots.MANIFEST_COLUMNS),
+        context="test current mature manifest blank lineage",
+    )
+
+    for column in update_snapshots.WARRANT_LINEAGE_MANIFEST_COLUMNS:
+        assert normalized.iloc[0][column] == ""
+
+
 def test_daily_published_model_snapshot_hashes_tolerate_windows_crlf_checkout(
     tmp_path: Path,
 ) -> None:
