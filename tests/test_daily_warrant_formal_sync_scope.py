@@ -1388,8 +1388,13 @@ def test_warrant_workflow_rebuilds_formal_consumers_and_fails_closed() -> None:
     assert 'capture_mature_sentinels "$mature_sentinel_before"' in workflow
     assert 'capture_mature_sentinels "$mature_sentinel_after"' in workflow
     assert 'cmp --silent "$mature_sentinel_before" "$mature_sentinel_after"' in workflow
-    assert 'row["snapshot_revision"] = row.get("snapshot_revision") or "r1"' in workflow
-    assert '"legacy_v1_manifest" if row["snapshot_revision"] == "r1"' in workflow
+    assert "from scripts.update_daily_published_model_snapshots import (" in workflow
+    assert "normalize_known_manifest_schema," in workflow
+    assert 'context="warrant mature-model sentinel manifest"' in workflow
+    assert (
+        'row["snapshot_revision"] = row.get("snapshot_revision") or "r1"'
+        not in workflow
+    )
     assert ":{row.get('snapshot_revision', '')}" in workflow
     for protected_static_artifact in (
         "output/latest/daily_candidate_model_parameters_latest.csv",
