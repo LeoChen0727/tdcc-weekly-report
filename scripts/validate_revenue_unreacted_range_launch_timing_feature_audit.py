@@ -1,6 +1,16 @@
 from __future__ import annotations
 
+from pathlib import Path
+
 import pandas as pd
+
+from revenue_unreacted_range_monthly_revenue_cross_market_resolution import (
+    canonical_monthly_revenue_history_table_sha256,
+    cross_market_resolution_registry_canonical_sha256,
+    load_canonical_monthly_revenue_history,
+    load_cross_market_resolutions,
+    monthly_revenue_history_blob_sha256,
+)
 
 from revenue_unreacted_range_launch_timing_feature_audit import (
     ANALYSIS_BASES,
@@ -14,6 +24,7 @@ from revenue_unreacted_range_launch_timing_feature_audit import (
     HORIZONS,
     LATEST_CSV,
     LATEST_MD,
+    MONTHLY_REVENUE_RUNTIME_LINEAGE_COLUMNS,
     OUTCOME_SPECS,
     PRIMARY_ANALYSIS_BASIS,
     PRIMARY_OUTCOME_ID,
@@ -38,6 +49,17 @@ DETAIL_DTYPES = {
     "first_trigger_date": str,
     "launch_date": str,
 }
+EXPECTED_SOURCE_ARTIFACT_ID = "revenue_unreacted_range_lag_strength_matrix"
+EXPECTED_SOURCE_ARTIFACT_VERSION = (
+    "trading_day_lag_strength_root_cause_pending_v4_20260720"
+)
+ROOT = Path(__file__).resolve().parents[1]
+MONTHLY_REVENUE_HISTORY = (
+    ROOT / "output/latest/research_backtest/monthly_revenue_history_latest.csv"
+)
+MONTHLY_REVENUE_CROSS_MARKET_RESOLUTION_CSV = (
+    ROOT / "config/revenue_unreacted_range_monthly_revenue_cross_market_resolution.csv"
+)
 
 
 def _read(path, *, detail: bool = False) -> pd.DataFrame:
@@ -53,15 +75,80 @@ def _boolish(series: pd.Series) -> pd.Series:
     return series.astype(str).str.strip().str.lower().isin({"true", "1", "yes"})
 
 
+def _current_monthly_revenue_runtime_lineage() -> dict[str, str]:
+    canonical = load_canonical_monthly_revenue_history(
+        MONTHLY_REVENUE_HISTORY,
+        MONTHLY_REVENUE_CROSS_MARKET_RESOLUTION_CSV,
+    )
+    return {
+        "monthly_revenue_history_blob_sha256": monthly_revenue_history_blob_sha256(
+            MONTHLY_REVENUE_HISTORY
+        ),
+        "monthly_revenue_canonical_table_sha256": (
+            canonical_monthly_revenue_history_table_sha256(canonical)
+        ),
+        "cross_market_resolution_registry_canonical_sha256": (
+            cross_market_resolution_registry_canonical_sha256(
+                load_cross_market_resolutions(
+                    MONTHLY_REVENUE_CROSS_MARKET_RESOLUTION_CSV
+                )
+            )
+        ),
+    }
+
+
+def _source_lineage_errors(
+    source: pd.DataFrame,
+    *,
+    expected_runtime_lineage: dict[str, str] | None = None,
+) -> list[str]:
+    required = {
+        "artifact_id",
+        "artifact_version",
+        *MONTHLY_REVENUE_RUNTIME_LINEAGE_COLUMNS,
+    }
+    missing = sorted(required - set(source.columns))
+    if missing:
+        return [f"launch timing source lineage is missing columns: {missing}"]
+    errors: list[str] = []
+    if set(source["artifact_id"].astype(str)) != {EXPECTED_SOURCE_ARTIFACT_ID}:
+        errors.append("launch timing source artifact id drift")
+    if set(source["artifact_version"].astype(str)) != {
+        EXPECTED_SOURCE_ARTIFACT_VERSION
+    }:
+        errors.append("launch timing source artifact version drift")
+    for column in MONTHLY_REVENUE_RUNTIME_LINEAGE_COLUMNS:
+        values = set(source[column].astype(str).str.strip().str.lower())
+        if len(values) != 1:
+            errors.append(f"launch timing source runtime lineage is not constant: {column}")
+            continue
+        value = next(iter(values))
+        if len(value) != 64 or any(
+            character not in "0123456789abcdef" for character in value
+        ):
+            errors.append(
+                f"launch timing source runtime lineage is not canonical SHA-256: {column}"
+            )
+            continue
+        if expected_runtime_lineage is not None and value != expected_runtime_lineage[column]:
+            errors.append(f"launch timing source current input lineage drift: {column}")
+    return errors
+
+
 def validate() -> list[str]:
     errors: list[str] = []
-    for path in (LATEST_CSV, DETAIL_CSV, FEATURE_CSV):
+    for path in (LATEST_CSV, DETAIL_CSV, FEATURE_CSV, SOURCE_DETAIL):
         if not path.is_file():
             errors.append(f"launch timing feature artifact is missing: {path}")
     if errors:
         return errors
     if not LATEST_MD.is_file():
         return [f"launch timing markdown artifact is missing: {LATEST_MD}"]
+
+    try:
+        expected_runtime_lineage = _current_monthly_revenue_runtime_lineage()
+    except (RuntimeError, ValueError, KeyError, pd.errors.ParserError) as exc:
+        return [f"launch timing current monthly revenue lineage cannot be verified: {exc}"]
 
     try:
         resolution = pd.read_csv(
@@ -161,6 +248,9 @@ def validate() -> list[str]:
             errors.append(f"launch timing {name} must remain research-only")
         if _boolish(frame["production_change"]).any():
             errors.append(f"launch timing {name} must not change production")
+        for column, expected in expected_runtime_lineage.items():
+            if set(frame[column].astype(str).str.strip().str.lower()) != {expected}:
+                errors.append(f"launch timing {name} runtime lineage drift: {column}")
 
     expected_combinations = len(ANALYSIS_BASES) * len(TRIGGER_SPECS) * len(OUTCOME_SPECS) * len(HORIZONS)
     if len(summary) != expected_combinations:
@@ -179,6 +269,12 @@ def validate() -> list[str]:
         errors.append("launch timing outcome definition coverage drift")
 
     source = pd.read_csv(SOURCE_DETAIL, dtype={"stock_id": str}, keep_default_na=False, low_memory=False)
+    errors.extend(
+        _source_lineage_errors(
+            source,
+            expected_runtime_lineage=expected_runtime_lineage,
+        )
+    )
     expected_source_counts = {
         basis: len(_source_cohort(source, basis))
         for basis in ANALYSIS_BASES

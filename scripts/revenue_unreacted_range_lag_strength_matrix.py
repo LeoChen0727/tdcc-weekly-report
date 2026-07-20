@@ -7,11 +7,20 @@ from zoneinfo import ZoneInfo
 
 import pandas as pd
 
+from revenue_unreacted_range_monthly_revenue_cross_market_resolution import (
+    RESOLUTION_CSV as MONTHLY_REVENUE_CROSS_MARKET_RESOLUTION_CSV,
+    canonical_monthly_revenue_history_table_sha256,
+    cross_market_resolution_registry_canonical_sha256,
+    load_canonical_monthly_revenue_history,
+    load_cross_market_resolutions,
+    monthly_revenue_history_blob_sha256,
+)
+
 
 ROOT = Path(__file__).resolve().parents[1]
 MODEL_ID = "revenue_unreacted_range"
 ARTIFACT_ID = "revenue_unreacted_range_lag_strength_matrix"
-ARTIFACT_VERSION = "trading_day_lag_strength_root_cause_pending_v3_20260712"
+ARTIFACT_VERSION = "trading_day_lag_strength_root_cause_pending_v4_20260720"
 SOURCE_DETAIL = ROOT / "output/latest/research_backtest/revenue_unreacted_range_fixed_confirmation_feature_contrast_audit_detail_latest.csv"
 MONTHLY_REVENUE_HISTORY = ROOT / "output/latest/research_backtest/monthly_revenue_history_latest.csv"
 PRICE_HISTORY_DIR = ROOT / "data/stock_price_history"
@@ -26,6 +35,11 @@ WIN_RETURN_PCT = 5.0
 HIGH_RETURN_PCT = 8.0
 LARGE_LOSS_PCT = -5.0
 ANOMALY_CANDIDATE_ABS_RETURN_PCT = 80.0
+MONTHLY_REVENUE_RUNTIME_LINEAGE_COLUMNS = (
+    "monthly_revenue_history_blob_sha256",
+    "monthly_revenue_canonical_table_sha256",
+    "cross_market_resolution_registry_canonical_sha256",
+)
 
 CURRENT_LAG_BUCKETS = (
     ("lag_d0_3", "0至3個交易日", 0, 3),
@@ -48,6 +62,7 @@ SUMMARY_COLUMNS = [
     "model_id",
     "artifact_id",
     "artifact_version",
+    *MONTHLY_REVENUE_RUNTIME_LINEAGE_COLUMNS,
     "matrix_order",
     "matrix_family",
     "condition_test_id",
@@ -96,6 +111,7 @@ DETAIL_COLUMNS = [
     "model_id",
     "artifact_id",
     "artifact_version",
+    *MONTHLY_REVENUE_RUNTIME_LINEAGE_COLUMNS,
     "episode_key",
     "stock_id",
     "stock_name",
@@ -236,12 +252,34 @@ def _source_episodes(source: pd.DataFrame) -> pd.DataFrame:
     return episodes.sort_values(["stock_id", "signal_date"], kind="mergesort").reset_index(drop=True)
 
 
-def _monthly_history_lookup() -> dict[str, dict[str, dict[str, object]]]:
-    history = pd.read_csv(
+def _monthly_revenue_runtime_context() -> tuple[pd.DataFrame, dict[str, str]]:
+    history = load_canonical_monthly_revenue_history(
         MONTHLY_REVENUE_HISTORY,
-        dtype={"stock_id": str, "revenue_period": str, "source_table_date": str},
-        low_memory=False,
+        MONTHLY_REVENUE_CROSS_MARKET_RESOLUTION_CSV,
     )
+    lineage = {
+        "monthly_revenue_history_blob_sha256": monthly_revenue_history_blob_sha256(
+            MONTHLY_REVENUE_HISTORY
+        ),
+        "monthly_revenue_canonical_table_sha256": (
+            canonical_monthly_revenue_history_table_sha256(history)
+        ),
+        "cross_market_resolution_registry_canonical_sha256": (
+            cross_market_resolution_registry_canonical_sha256(
+                load_cross_market_resolutions(
+                    MONTHLY_REVENUE_CROSS_MARKET_RESOLUTION_CSV
+                )
+            )
+        ),
+    }
+    return history, lineage
+
+
+def _monthly_history_lookup(
+    history: pd.DataFrame | None = None,
+) -> dict[str, dict[str, dict[str, object]]]:
+    if history is None:
+        history, _lineage = _monthly_revenue_runtime_context()
     if history.duplicated(["stock_id", "revenue_period"]).any():
         raise RuntimeError("monthly revenue history contains duplicate stock-period rows")
     lookup: dict[str, dict[str, dict[str, object]]] = {}
@@ -289,7 +327,8 @@ def build_lag_strength_detail(source: pd.DataFrame) -> pd.DataFrame:
     episodes = _source_episodes(source)
     generated_at = _now_text()
     price_cache: dict[str, pd.Series] = {}
-    revenue_lookup = _monthly_history_lookup()
+    monthly_revenue_history, runtime_lineage = _monthly_revenue_runtime_context()
+    revenue_lookup = _monthly_history_lookup(monthly_revenue_history)
     rows: list[dict[str, object]] = []
     for episode in episodes.itertuples(index=False):
         stock_id = str(episode.stock_id).zfill(4)
@@ -318,6 +357,7 @@ def build_lag_strength_detail(source: pd.DataFrame) -> pd.DataFrame:
             "model_id": MODEL_ID,
             "artifact_id": ARTIFACT_ID,
             "artifact_version": ARTIFACT_VERSION,
+            **runtime_lineage,
             "episode_key": str(episode.episode_key),
             "stock_id": stock_id,
             "stock_name": str(getattr(episode, "stock_name", "")),
@@ -499,6 +539,10 @@ def _summary_row(
         "model_id": MODEL_ID,
         "artifact_id": ARTIFACT_ID,
         "artifact_version": ARTIFACT_VERSION,
+        **{
+            column: str(detail[column].iloc[0])
+            for column in MONTHLY_REVENUE_RUNTIME_LINEAGE_COLUMNS
+        },
         "matrix_order": order,
         "matrix_family": family,
         "condition_test_id": test_id,

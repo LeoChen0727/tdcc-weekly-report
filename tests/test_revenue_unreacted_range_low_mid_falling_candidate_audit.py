@@ -13,6 +13,7 @@ SCRIPTS = ROOT / "scripts"
 if str(SCRIPTS) not in sys.path:
     sys.path.insert(0, str(SCRIPTS))
 
+import revenue_unreacted_range_low_mid_falling_candidate_audit as low_mid_producer  # noqa: E402
 from revenue_unreacted_range_low_mid_falling_candidate_audit import (  # noqa: E402
     ANALYSIS_BASES,
     ARTIFACT_ID,
@@ -85,21 +86,33 @@ def _source_row(
         "model_id": "revenue_unreacted_range",
         "artifact_id": SOURCE_FIRST_ARTIFACT_ID,
         "artifact_version": SOURCE_FIRST_ARTIFACT_VERSION,
+        "monthly_revenue_history_blob_sha256": "1" * 64,
+        "monthly_revenue_canonical_table_sha256": "2" * 64,
+        "cross_market_resolution_registry_canonical_sha256": "3" * 64,
         "condition_variant_id": SOURCE_VARIANT_ID,
         "episode_key": f"episode-{stock_id}",
         "stock_id": stock_id,
         "stock_name": stock_name,
         "episode_start_revenue_period": "202601",
         "episode_start_source_date": source_date,
+        "episode_start_cross_market_resolution_id": "none",
+        "episode_start_source_row_canonical_sha256": "4" * 64,
+        "episode_start_canonical_source_table_date": source_date,
         "episode_start_trade_date": source_date,
         "episode_start_sequence_index": source_index,
         "latest_qualifying_revenue_period": "202601",
         "latest_qualifying_source_date": source_date,
+        "latest_qualifying_cross_market_resolution_id": "none",
+        "latest_qualifying_source_row_canonical_sha256": "4" * 64,
+        "latest_qualifying_canonical_source_table_date": source_date,
         "latest_qualifying_trade_date": source_date,
         "latest_qualifying_sequence_index": source_index,
         "qualifying_update_count": 1,
         "qualifying_revenue_periods": "202601",
         "qualifying_source_dates": source_date,
+        "qualifying_cross_market_resolution_ids": "none",
+        "qualifying_source_row_canonical_sha256s": "4" * 64,
+        "qualifying_canonical_source_table_dates": source_date,
         "qualifying_trade_dates": source_date,
         "qualifying_sequence_indices": str(source_index),
     }
@@ -325,6 +338,9 @@ def test_immutable_lineage_hashes_are_emitted_and_stable_per_source() -> None:
     assert detail["rearmed_producer_semantic_sha256"].str.fullmatch(
         digest_pattern
     ).all()
+    assert detail["position_shape_producer_semantic_sha256"].str.fullmatch(
+        digest_pattern
+    ).all()
     assert detail["source_first_canonical_row_sha256"].str.fullmatch(
         digest_pattern
     ).all()
@@ -361,7 +377,15 @@ def test_immutable_lineage_hashes_are_emitted_and_stable_per_source() -> None:
     for frame in (summary, paired, contrast):
         assert set(frame["data_contract_sha256"]) == {DATA_CONTRACT_SHA256}
         assert frame["producer_semantic_sha256"].str.fullmatch(digest_pattern).all()
+        assert frame["position_shape_producer_semantic_sha256"].str.fullmatch(
+            digest_pattern
+        ).all()
     for frame in (summary, detail, paired, contrast):
+        assert set(frame["monthly_revenue_history_blob_sha256"]) == {"1" * 64}
+        assert set(frame["monthly_revenue_canonical_table_sha256"]) == {"2" * 64}
+        assert set(frame["cross_market_resolution_registry_canonical_sha256"]) == {
+            "3" * 64
+        }
         for column in (
             "source_first_selected_slice_canonical_sha256",
             "rearmed_d30_no_stop_slice_canonical_sha256",
@@ -460,6 +484,93 @@ def test_source_first_contract_mutation_fails_closed(
         )
 
 
+def test_source_first_run_lineage_mutation_changes_row_hash_and_propagates() -> None:
+    source, operations, daily = _inputs()
+    baseline = build_low_mid_falling_candidate_audit(
+        source,
+        operations,
+        daily,
+        generated_at=GENERATED_AT,
+    )
+    baseline_rows = baseline[1].set_index("episode_key")
+
+    mutated = source.copy()
+    mutated["monthly_revenue_canonical_table_sha256"] = "a" * 64
+    outputs = build_low_mid_falling_candidate_audit(
+        mutated,
+        operations,
+        daily,
+        generated_at=GENERATED_AT,
+    )
+    mutated_rows = outputs[1].set_index("episode_key")
+    assert not mutated_rows["source_first_canonical_row_sha256"].eq(
+        baseline_rows["source_first_canonical_row_sha256"]
+    ).all()
+    for frame in outputs:
+        assert set(frame["monthly_revenue_canonical_table_sha256"]) == {"a" * 64}
+
+
+def test_source_first_run_lineage_invalid_sha_fails_closed() -> None:
+    source, operations, daily = _inputs()
+    source["cross_market_resolution_registry_canonical_sha256"] = "invalid"
+    with pytest.raises(RuntimeError, match="source-first cross_market_resolution"):
+        build_low_mid_falling_candidate_audit(
+            source,
+            operations,
+            daily,
+            generated_at=GENERATED_AT,
+        )
+
+
+def test_asof_source_payload_lineage_is_selected_from_aligned_lists() -> None:
+    _summary, detail, _paired, _contrast = _build()
+    assert set(detail["asof_latest_qualifying_cross_market_resolution_id"]) == {
+        "none"
+    }
+    assert set(detail["asof_latest_qualifying_source_row_canonical_sha256"]) == {
+        "4" * 64
+    }
+    assert detail["asof_latest_qualifying_canonical_source_table_date"].astype(
+        str
+    ).eq(detail["asof_latest_qualifying_source_date"].astype(str)).all()
+
+
+@pytest.mark.parametrize(
+    ("module_name", "constant_name"),
+    (
+        ("source_first_producer", "ARTIFACT_ID"),
+        ("source_first_producer", "ARTIFACT_VERSION"),
+        ("source_first_producer", "PRIMARY_VARIANT_ID"),
+        ("rearmed_producer", "ARTIFACT_ID"),
+        ("rearmed_producer", "ARTIFACT_VERSION"),
+        ("rearmed_producer", "SOURCE_ARTIFACT_ID"),
+        ("rearmed_producer", "SOURCE_VARIANT_ID"),
+        ("rearmed_producer", "NO_STOP_POLICY_ID"),
+        ("position_shape_producer", "ARTIFACT_ID"),
+        ("position_shape_producer", "ARTIFACT_VERSION"),
+        ("position_shape_producer", "SOURCE_VARIANT_ID"),
+        ("position_shape_producer", "POSITION_POLICY"),
+        ("position_shape_producer", "SHAPE_POLICY"),
+        ("position_shape_producer", "PRICE_HISTORY_CUTOFF_DATE"),
+    ),
+)
+def test_upstream_business_contract_constants_are_literal_pins(
+    monkeypatch: pytest.MonkeyPatch,
+    module_name: str,
+    constant_name: str,
+) -> None:
+    upstream = getattr(low_mid_producer, module_name)
+    monkeypatch.setattr(upstream, constant_name, "mutated-upstream-contract")
+    source, operations, daily = _inputs()
+    with pytest.raises(RuntimeError, match="pinned upstream contract drift"):
+        build_low_mid_falling_candidate_audit(
+            source,
+            operations,
+            daily,
+            generated_at=GENERATED_AT,
+        )
+
+
 def test_source_variant_and_sequence_index_mutations_fail_closed() -> None:
     source, operations, daily = _inputs()
     source["condition_variant_id"] = "wrong-source-variant"
@@ -526,6 +637,15 @@ def test_source_variant_and_sequence_index_mutations_fail_closed() -> None:
     source.loc[source.index[0], "qualifying_source_dates"] = (
         f"{first_date}|{latest_date}"
     )
+    source.loc[source.index[0], "qualifying_cross_market_resolution_ids"] = (
+        "none|none"
+    )
+    source.loc[source.index[0], "qualifying_source_row_canonical_sha256s"] = (
+        f"{'6' * 64}|{'4' * 64}"
+    )
+    source.loc[source.index[0], "qualifying_canonical_source_table_dates"] = (
+        f"{first_date}|{latest_date}"
+    )
     source.loc[source.index[0], "qualifying_trade_dates"] = (
         f"{first_date}|{latest_date}"
     )
@@ -534,6 +654,13 @@ def test_source_variant_and_sequence_index_mutations_fail_closed() -> None:
     )
     source.loc[source.index[0], "episode_start_revenue_period"] = "202512"
     source.loc[source.index[0], "episode_start_source_date"] = first_date
+    source.loc[source.index[0], "episode_start_cross_market_resolution_id"] = "none"
+    source.loc[source.index[0], "episode_start_source_row_canonical_sha256"] = (
+        "6" * 64
+    )
+    source.loc[source.index[0], "episode_start_canonical_source_table_date"] = (
+        first_date
+    )
     source.loc[source.index[0], "episode_start_trade_date"] = first_date
     source.loc[source.index[0], "episode_start_sequence_index"] = first_index
     source.loc[source.index[0], "latest_qualifying_revenue_period"] = "202601"

@@ -13,7 +13,7 @@ ARTIFACT_VERSION = "operation_lag_bucket_v1_20260714"
 SOURCE_OPERATION_ARTIFACT_ID = "revenue_unreacted_range_rearmed_operation_grid"
 SOURCE_OPERATION_ARTIFACT_VERSION = "rearmed_operation_grid_v1_20260713"
 SOURCE_CONDITION_ARTIFACT_ID = "revenue_unreacted_range_source_first_condition_audit"
-SOURCE_CONDITION_ARTIFACT_VERSION = "source_first_condition_v2_20260714"
+SOURCE_CONDITION_ARTIFACT_VERSION = "source_first_condition_v3_20260720"
 SOURCE_VARIANT_ID = "absolute_or_two_month_yoy_ge15"
 GRID_ID = (
     "rearm_after_realized_exit_next_trade_day|delayed_next_close_continuation_bonus|"

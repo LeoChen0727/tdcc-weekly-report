@@ -26,6 +26,18 @@ def test_revenue_step_rejects_another_model_producer() -> None:
     assert any("mixes producers" in error for error in errors)
 
 
+def test_revenue_cross_market_lineage_preflight_runs_before_expensive_build() -> None:
+    text, _rows, _producers = _inputs()
+    preflight = (
+        "          python scripts/"
+        "validate_revenue_unreacted_range_monthly_revenue_cross_market_resolution.py"
+    )
+    build = "          python scripts/build_revenue_unreacted_range_research.py"
+
+    assert preflight in text
+    assert text.index(preflight) < text.index(build)
+
+
 def test_research_workflow_rejects_broad_history_stage() -> None:
     text, rows, producers = _inputs()
     text = text.replace(

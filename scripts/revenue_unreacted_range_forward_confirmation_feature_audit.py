@@ -26,6 +26,8 @@ ROOT = Path(__file__).resolve().parents[1]
 MODEL_ID = "revenue_unreacted_range"
 ARTIFACT_ID = "revenue_unreacted_range_forward_confirmation_feature_audit"
 ARTIFACT_VERSION = "forward_confirmation_v1_20260713"
+EXPECTED_SOURCE_ARTIFACT_ID = "revenue_unreacted_range_source_first_condition_audit"
+EXPECTED_SOURCE_ARTIFACT_VERSION = "source_first_condition_v3_20260720"
 
 LATEST_CSV = ROOT / f"output/latest/research_backtest/{ARTIFACT_ID}_latest.csv"
 DETAIL_CSV = ROOT / f"output/latest/research_backtest/{ARTIFACT_ID}_detail_latest.csv"
@@ -296,6 +298,8 @@ def _pooled_effect(success: pd.Series, failure: pd.Series) -> float | str:
 def _normalize_source_detail(frame: pd.DataFrame) -> pd.DataFrame:
     frame = frame.copy()
     required = {
+        "artifact_id",
+        "artifact_version",
         "condition_variant_id",
         "episode_key",
         "stock_id",
@@ -314,6 +318,18 @@ def _normalize_source_detail(frame: pd.DataFrame) -> pd.DataFrame:
     missing = sorted(required - set(frame.columns))
     if missing:
         raise RuntimeError(f"forward confirmation source detail is missing columns: {missing}")
+    if set(frame["artifact_id"].astype(str)) != {EXPECTED_SOURCE_ARTIFACT_ID}:
+        raise RuntimeError(
+            "forward confirmation source artifact id drift: "
+            f"expected={EXPECTED_SOURCE_ARTIFACT_ID}"
+        )
+    if set(frame["artifact_version"].astype(str)) != {
+        EXPECTED_SOURCE_ARTIFACT_VERSION
+    }:
+        raise RuntimeError(
+            "forward confirmation source artifact version drift: "
+            f"expected={EXPECTED_SOURCE_ARTIFACT_VERSION}"
+        )
     frame = frame.loc[frame["condition_variant_id"].eq(PRIMARY_VARIANT_ID)].copy()
     frame["stock_id"] = frame["stock_id"].map(_normalize_stock_id)
     for column in ("episode_start_trade_date", "episode_end_date", "first_breakout_date", "launch_date"):

@@ -11,12 +11,38 @@ SCRIPTS = ROOT / "scripts"
 if str(SCRIPTS) not in sys.path:
     sys.path.insert(0, str(SCRIPTS))
 
-from revenue_unreacted_range_lag_strength_matrix import DETAIL_CSV, LATEST_CSV  # noqa: E402
-from validate_revenue_unreacted_range_lag_strength_matrix import validate  # noqa: E402
+from revenue_unreacted_range_lag_strength_matrix import (  # noqa: E402
+    DETAIL_CSV,
+    LATEST_CSV,
+    MONTHLY_REVENUE_RUNTIME_LINEAGE_COLUMNS,
+)
+from validate_revenue_unreacted_range_lag_strength_matrix import (  # noqa: E402
+    _runtime_lineage_errors,
+    validate,
+)
 
 
 def test_revenue_lag_strength_matrix_passes() -> None:
     assert validate() == []
+
+
+def test_lag_runtime_lineage_validator_rejects_each_mutated_sha() -> None:
+    expected = {
+        column: character * 64
+        for column, character in zip(
+            MONTHLY_REVENUE_RUNTIME_LINEAGE_COLUMNS,
+            ("a", "b", "c"),
+        )
+    }
+    frame = pd.DataFrame([expected])
+    for column in MONTHLY_REVENUE_RUNTIME_LINEAGE_COLUMNS:
+        mutated = frame.copy()
+        mutated.loc[0, column] = "d" * 64
+        assert _runtime_lineage_errors(
+            mutated,
+            label="synthetic",
+            expected=expected,
+        ) == [f"lag strength matrix synthetic runtime lineage drift: {column}"]
 
 
 def test_revenue_lag_matrix_has_no_omission_overlap_or_hidden_small_sample_gate() -> None:

@@ -15,23 +15,10 @@ import pandas as pd
 
 import revenue_unreacted_range_rearmed_operation_grid as rearmed_producer
 import revenue_unreacted_range_source_first_condition_audit as source_first_producer
+import revenue_unreacted_range_position_shape_transition_matrix as position_shape_producer
 from revenue_unreacted_range_position_shape_transition_matrix import (
-    POSITION_POLICY,
-    PRICE_HISTORY_CUTOFF_DATE,
-    SHAPE_POLICY,
     _anchor_features,
     _normalize_price_frame,
-)
-from revenue_unreacted_range_rearmed_operation_grid import (
-    ARTIFACT_ID as REARMED_ARTIFACT_ID,
-    ARTIFACT_VERSION as REARMED_ARTIFACT_VERSION,
-    NO_STOP_POLICY_ID,
-    SOURCE_ARTIFACT_ID as REARMED_SOURCE_ARTIFACT_ID,
-    SOURCE_VARIANT_ID as REARMED_SOURCE_VARIANT_ID,
-)
-from revenue_unreacted_range_source_first_condition_audit import (
-    ARTIFACT_ID as SOURCE_FIRST_ARTIFACT_ID,
-    ARTIFACT_VERSION as SOURCE_FIRST_ARTIFACT_VERSION,
 )
 
 
@@ -39,13 +26,39 @@ ROOT = Path(__file__).resolve().parents[1]
 MODEL_ID = "revenue_unreacted_range"
 ARTIFACT_ID = "revenue_unreacted_range_low_mid_falling_candidate_audit"
 ARTIFACT_VERSION = "low_mid_falling_candidate_v1_20260720"
+SOURCE_FIRST_ARTIFACT_ID = "revenue_unreacted_range_source_first_condition_audit"
+SOURCE_FIRST_ARTIFACT_VERSION = "source_first_condition_v3_20260720"
+REARMED_ARTIFACT_ID = "revenue_unreacted_range_rearmed_operation_grid"
+REARMED_ARTIFACT_VERSION = "rearmed_operation_grid_v1_20260713"
+REARMED_SOURCE_ARTIFACT_ID = "revenue_unreacted_range_source_first_condition_audit"
+REARMED_SOURCE_VARIANT_ID = "absolute_or_two_month_yoy_ge15"
 SOURCE_VARIANT_ID = "absolute_or_two_month_yoy_ge15"
+NO_STOP_POLICY_ID = "none_no_stop_reference"
+POSITION_SHAPE_ARTIFACT_ID = (
+    "revenue_unreacted_range_position_shape_transition_matrix"
+)
+POSITION_SHAPE_ARTIFACT_VERSION = "position_shape_transition_matrix_v1_20260717"
+PRICE_HISTORY_CUTOFF_DATE = "20260713"
+POSITION_POLICY = (
+    "anchor adjusted close positioned within the adjusted analysis-high/analysis-low range "
+    "of exactly 120 prior trading sessions, excluding the anchor"
+)
+SHAPE_POLICY = (
+    "revenue-model-owned descriptive shape: adjusted close return from t-20 to anchor; "
+    "adjusted-close range across the 23 sessions ending at anchor; EMA23 through anchor "
+    "with five-session slope"
+)
 WATCH_HORIZON_TRADING_DAYS = 60
 HOLDING_DAYS = 30
 DATA_CONTRACT_SHA256 = (
-    "45ccdded177fa9425bf0d6f2f092f55662734026e7a3dd6a9353c2f9b785ceaa"
+    "b92495db71a2fd4534e80ba1c77c5c2d1a1d50effd934e2e188c24804a8d4bd3"
 )
 CANONICAL_LINEAGE_VERSION = "canonical_json_v1"
+MONTHLY_REVENUE_RUN_LINEAGE_COLUMNS = (
+    "monthly_revenue_history_blob_sha256",
+    "monthly_revenue_canonical_table_sha256",
+    "cross_market_resolution_registry_canonical_sha256",
+)
 PRICE_HISTORY_CANONICAL_COLUMNS = (
     "date",
     "analysis_open",
@@ -300,6 +313,83 @@ def _require_sha256(value: object, *, label: str) -> str:
     return digest
 
 
+def _assert_literal_upstream_contracts() -> None:
+    expected = (
+        (
+            "source-first artifact id",
+            source_first_producer.ARTIFACT_ID,
+            SOURCE_FIRST_ARTIFACT_ID,
+        ),
+        (
+            "source-first artifact version",
+            source_first_producer.ARTIFACT_VERSION,
+            SOURCE_FIRST_ARTIFACT_VERSION,
+        ),
+        (
+            "source-first source variant",
+            source_first_producer.PRIMARY_VARIANT_ID,
+            SOURCE_VARIANT_ID,
+        ),
+        ("rearmed artifact id", rearmed_producer.ARTIFACT_ID, REARMED_ARTIFACT_ID),
+        (
+            "rearmed artifact version",
+            rearmed_producer.ARTIFACT_VERSION,
+            REARMED_ARTIFACT_VERSION,
+        ),
+        (
+            "rearmed source artifact id",
+            rearmed_producer.SOURCE_ARTIFACT_ID,
+            REARMED_SOURCE_ARTIFACT_ID,
+        ),
+        (
+            "rearmed source variant",
+            rearmed_producer.SOURCE_VARIANT_ID,
+            REARMED_SOURCE_VARIANT_ID,
+        ),
+        (
+            "rearmed no-stop policy",
+            rearmed_producer.NO_STOP_POLICY_ID,
+            NO_STOP_POLICY_ID,
+        ),
+        (
+            "position-shape artifact id",
+            position_shape_producer.ARTIFACT_ID,
+            POSITION_SHAPE_ARTIFACT_ID,
+        ),
+        (
+            "position-shape artifact version",
+            position_shape_producer.ARTIFACT_VERSION,
+            POSITION_SHAPE_ARTIFACT_VERSION,
+        ),
+        (
+            "position-shape source variant",
+            position_shape_producer.SOURCE_VARIANT_ID,
+            SOURCE_VARIANT_ID,
+        ),
+        (
+            "position-shape position policy",
+            position_shape_producer.POSITION_POLICY,
+            POSITION_POLICY,
+        ),
+        (
+            "position-shape shape policy",
+            position_shape_producer.SHAPE_POLICY,
+            SHAPE_POLICY,
+        ),
+        (
+            "position-shape price-history cutoff",
+            position_shape_producer.PRICE_HISTORY_CUTOFF_DATE,
+            PRICE_HISTORY_CUTOFF_DATE,
+        ),
+    )
+    for label, observed, literal in expected:
+        if observed != literal:
+            raise RuntimeError(
+                f"low/mid falling pinned upstream contract drift: {label}; "
+                f"observed={observed!r} expected={literal!r}"
+            )
+
+
 def _require_constant(
     frame: pd.DataFrame,
     column: str,
@@ -347,17 +437,27 @@ def _normalize_source(source_first_detail: pd.DataFrame) -> pd.DataFrame:
         "stock_name",
         "episode_start_revenue_period",
         "episode_start_source_date",
+        "episode_start_cross_market_resolution_id",
+        "episode_start_source_row_canonical_sha256",
+        "episode_start_canonical_source_table_date",
         "episode_start_trade_date",
         "episode_start_sequence_index",
         "latest_qualifying_revenue_period",
         "latest_qualifying_source_date",
+        "latest_qualifying_cross_market_resolution_id",
+        "latest_qualifying_source_row_canonical_sha256",
+        "latest_qualifying_canonical_source_table_date",
         "latest_qualifying_trade_date",
         "latest_qualifying_sequence_index",
         "qualifying_update_count",
         "qualifying_revenue_periods",
         "qualifying_source_dates",
+        "qualifying_cross_market_resolution_ids",
+        "qualifying_source_row_canonical_sha256s",
+        "qualifying_canonical_source_table_dates",
         "qualifying_trade_dates",
         "qualifying_sequence_indices",
+        *MONTHLY_REVENUE_RUN_LINEAGE_COLUMNS,
     }
     missing = sorted(required - set(source_first_detail.columns))
     if missing:
@@ -375,6 +475,16 @@ def _normalize_source(source_first_detail: pd.DataFrame) -> pd.DataFrame:
         SOURCE_FIRST_ARTIFACT_VERSION,
         label="source-first artifact version",
     )
+    for column in MONTHLY_REVENUE_RUN_LINEAGE_COLUMNS:
+        observed = {
+            str(value).strip().lower()
+            for value in source_first_detail[column]
+        }
+        if len(observed) != 1:
+            raise RuntimeError(
+                f"low/mid falling source-first run lineage is not constant: {column}"
+            )
+        _require_sha256(next(iter(observed)), label=f"source-first {column}")
     source = source_first_detail.loc[
         source_first_detail["condition_variant_id"].astype(str).eq(SOURCE_VARIANT_ID)
     ].copy()
@@ -615,6 +725,18 @@ def _asof_source(
 ) -> dict[str, object]:
     periods = _split(episode["qualifying_revenue_periods"])
     source_dates = [_date_text(value) for value in _split(episode["qualifying_source_dates"])]
+    resolution_ids = [
+        _canonical_value(value)
+        for value in _split(episode["qualifying_cross_market_resolution_ids"])
+    ]
+    source_row_sha256s = [
+        _require_sha256(value, label="qualifying source-row lineage")
+        for value in _split(episode["qualifying_source_row_canonical_sha256s"])
+    ]
+    canonical_source_table_dates = [
+        _date_text(value)
+        for value in _split(episode["qualifying_canonical_source_table_dates"])
+    ]
     trade_dates = [_date_text(value) for value in _split(episode["qualifying_trade_dates"])]
     try:
         sequence_indices = [int(value) for value in _split(episode["qualifying_sequence_indices"])]
@@ -625,6 +747,9 @@ def _asof_source(
     lengths = {
         len(periods),
         len(source_dates),
+        len(resolution_ids),
+        len(source_row_sha256s),
+        len(canonical_source_table_dates),
         len(trade_dates),
         len(sequence_indices),
         int(episode["qualifying_update_count"]),
@@ -633,6 +758,14 @@ def _asof_source(
         raise RuntimeError(
             f"low/mid falling qualifying lineage is not aligned: {episode['episode_key']}"
         )
+    aligned_text_values = (
+        source_dates + resolution_ids + canonical_source_table_dates + trade_dates
+    )
+    if any(not value for value in aligned_text_values):
+        raise RuntimeError(
+            f"low/mid falling qualifying source lineage contains an empty value: "
+            f"{episode['episode_key']}"
+        )
     scalar_lineage = (
         (
             "episode_start_revenue_period",
@@ -640,6 +773,21 @@ def _asof_source(
             _canonical_value,
         ),
         ("episode_start_source_date", source_dates[0], _date_text),
+        (
+            "episode_start_cross_market_resolution_id",
+            resolution_ids[0],
+            _canonical_value,
+        ),
+        (
+            "episode_start_source_row_canonical_sha256",
+            source_row_sha256s[0],
+            lambda value: _require_sha256(value, label="episode-start source row"),
+        ),
+        (
+            "episode_start_canonical_source_table_date",
+            canonical_source_table_dates[0],
+            _date_text,
+        ),
         ("episode_start_trade_date", trade_dates[0], _date_text),
         (
             "episode_start_sequence_index",
@@ -652,6 +800,21 @@ def _asof_source(
             _canonical_value,
         ),
         ("latest_qualifying_source_date", source_dates[-1], _date_text),
+        (
+            "latest_qualifying_cross_market_resolution_id",
+            resolution_ids[-1],
+            _canonical_value,
+        ),
+        (
+            "latest_qualifying_source_row_canonical_sha256",
+            source_row_sha256s[-1],
+            lambda value: _require_sha256(value, label="latest qualifying source row"),
+        ),
+        (
+            "latest_qualifying_canonical_source_table_date",
+            canonical_source_table_dates[-1],
+            _date_text,
+        ),
         ("latest_qualifying_trade_date", trade_dates[-1], _date_text),
         (
             "latest_qualifying_sequence_index",
@@ -734,6 +897,15 @@ def _asof_source(
     return {
         "asof_latest_qualifying_revenue_period": periods[position],
         "asof_latest_qualifying_source_date": source_dates[position],
+        "asof_latest_qualifying_cross_market_resolution_id": (
+            resolution_ids[position]
+        ),
+        "asof_latest_qualifying_source_row_canonical_sha256": (
+            source_row_sha256s[position]
+        ),
+        "asof_latest_qualifying_canonical_source_table_date": (
+            canonical_source_table_dates[position]
+        ),
         "asof_latest_qualifying_trade_date": trade_dates[position],
         "asof_latest_qualifying_sequence_index": sequence_indices[position],
         "latest_source_to_trigger_trading_days": trigger_index - source_index,
@@ -858,6 +1030,7 @@ def _build_detail(
     producer_semantic_sha256: str,
     source_first_producer_semantic_sha256: str,
     rearmed_producer_semantic_sha256: str,
+    position_shape_producer_semantic_sha256: str,
     data_contract_sha256: str,
 ) -> pd.DataFrame:
     daily = {
@@ -948,9 +1121,16 @@ def _build_detail(
                 "rearmed_producer_semantic_sha256": (
                     rearmed_producer_semantic_sha256
                 ),
+                "position_shape_producer_semantic_sha256": (
+                    position_shape_producer_semantic_sha256
+                ),
                 "source_first_artifact_id": SOURCE_FIRST_ARTIFACT_ID,
                 "source_first_artifact_version": SOURCE_FIRST_ARTIFACT_VERSION,
                 "source_variant_id": SOURCE_VARIANT_ID,
+                **{
+                    column: str(episode[column]).strip().lower()
+                    for column in MONTHLY_REVENUE_RUN_LINEAGE_COLUMNS
+                },
                 "source_first_canonical_row_sha256": str(
                     episode["source_first_canonical_row_sha256"]
                 ),
@@ -1159,10 +1339,17 @@ def _artifact_lineage(detail: pd.DataFrame) -> dict[str, str]:
         "rearmed_producer_semantic_sha256": str(
             first["rearmed_producer_semantic_sha256"]
         ),
+        "position_shape_producer_semantic_sha256": str(
+            first["position_shape_producer_semantic_sha256"]
+        ),
         "source_first_artifact_id": str(first["source_first_artifact_id"]),
         "source_first_artifact_version": str(
             first["source_first_artifact_version"]
         ),
+        **{
+            column: str(first[column])
+            for column in MONTHLY_REVENUE_RUN_LINEAGE_COLUMNS
+        },
         "rearmed_artifact_id": str(first["rearmed_artifact_id"]),
         "rearmed_artifact_version": str(first["rearmed_artifact_version"]),
         "source_first_selected_slice_canonical_sha256": str(
@@ -1500,6 +1687,7 @@ def build_low_mid_falling_candidate_audit(
     generated_at: str | None = None,
     data_contract_sha256: str | None = None,
 ) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.DataFrame]:
+    _assert_literal_upstream_contracts()
     contract_sha = _require_sha256(
         data_contract_sha256 or DATA_CONTRACT_SHA256,
         label="data contract SHA-256",
@@ -1520,6 +1708,10 @@ def build_low_mid_falling_candidate_audit(
         _normalized_file_sha256(rearmed_producer.__file__),
         label="rearmed producer semantic SHA-256",
     )
+    position_shape_producer_sha = _require_sha256(
+        _normalized_file_sha256(position_shape_producer.__file__),
+        label="position-shape producer semantic SHA-256",
+    )
     source = _normalize_source(source_first_detail)
     operations = _normalize_operations(rearmed_detail)
     detail = _build_detail(
@@ -1530,6 +1722,7 @@ def build_low_mid_falling_candidate_audit(
         producer_semantic_sha256=producer_sha,
         source_first_producer_semantic_sha256=source_first_producer_sha,
         rearmed_producer_semantic_sha256=rearmed_producer_sha,
+        position_shape_producer_semantic_sha256=position_shape_producer_sha,
         data_contract_sha256=contract_sha,
     )
     summary = _build_summary(detail)

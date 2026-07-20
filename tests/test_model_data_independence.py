@@ -17,9 +17,14 @@ from model_data_independence import (  # noqa: E402
     BASELINE_MIGRATION_ROW_SHA256,
     BASELINE_DATA_MIGRATION_ROW_SHA256,
     DATA_SHARING_MIGRATION_COLUMNS,
+    REVENUE_CROSS_MARKET_CONSUMER_FAMILIES,
+    REVENUE_CROSS_MARKET_RESOLUTION_CANONICAL_COLUMNS,
+    REVENUE_CROSS_MARKET_RESOLUTION_SHA_TOKEN,
     SEMANTIC_MIGRATION_COLUMNS,
     SourceSemanticGraph,
     _production_imports,
+    _revenue_cross_market_resolution_registry_canonical_sha256,
+    _validate_revenue_cross_market_resolution_contract_binding,
     _validate_current_migration_chain,
     aggregate_semantic_sha256,
     data_contract_sha256,
@@ -446,7 +451,7 @@ def test_data_sharing_registry_uses_model_owned_research_entrypoints() -> None:
 
 def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
     rows = read_csv("config/daily_model_data_sharing_migrations.csv")
-    assert len(rows) == 19
+    assert len(rows) == 20
     baseline = rows[0]
     assert tuple(baseline) == DATA_SHARING_MIGRATION_COLUMNS
     assert data_migration_row_sha256(baseline) == BASELINE_DATA_MIGRATION_ROW_SHA256
@@ -820,6 +825,122 @@ def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
         "validated_user_approved_migration"
     )
 
+    cross_market_lineage = rows[19]
+    assert cross_market_lineage["migration_id"] == (
+        "revenue_monthly_cross_market_lineage_resolution_20260720"
+    )
+    expected_cross_market_contracts = {
+        "revenue_unreacted_range_revenue_condition_matrix": (
+            "ed8750ab708a521c25dd7fa63ae57575888741f74f3fe1ec5c2915543b6f4cd0",
+            "d00447260585f63c729ecd06d984408284393ac5c2de1a136cabe0d8e35f7346",
+        ),
+        "revenue_unreacted_range_operation_candidate_matrix": (
+            "2916eeb6a8b13d73505068aafdea9f85b9d38595529af2866bff65036152419f",
+            "fab505e8a651241996203a6aea2dd54de2ab4cd469fec1f6cdbf270967eea630",
+        ),
+        "revenue_unreacted_range_feature_contrast_audit": (
+            "289aab7764939a9eab80a8427d870ce94e7350f87927bd33f1840df26dd897ce",
+            "d56a182fb8798d8924aa1d99c3399abd37d8c3505469744dadc19a86349075b3",
+        ),
+        "revenue_unreacted_range_close_confirmation_timing_audit": (
+            "c99b6fb2080896b4cbb432ad6d0e2468bdcd9148c638a469563e545a1c1c2ed4",
+            "66c8e65e36e46deaf69a5827a11e638680044aaf1f578b8ab63f8dfc31e09acc",
+        ),
+        "revenue_unreacted_range_fixed_confirmation_feature_contrast_audit": (
+            "cf59df65d092aa900528b0f11a5440a4917386ed77f4fcbae1bcf3850a4a285e",
+            "300064197a3b83510f7f16e9f675a4da2ed4846f9184d49088e54e48a56e5576",
+        ),
+        "revenue_unreacted_range_extreme_return_path_audit": (
+            "8b52d4659d3212236328ecb1b2decb582fb6a063bdc598bf98d4bfae79c55719",
+            "9de8bfd31d9cea1395ac4ace08504f2353a8c6c3ec2ac53333244020143899e0",
+        ),
+        "revenue_unreacted_range_lag_strength_matrix": (
+            "c42e820afc93e6f467de7103f70b19faae344dcb40e96048ab11318fe75a54df",
+            "93a83bd64ba0f7b4a8595ba5683a9cb38e9e35011e3cd6f0bbc514068efa9766",
+        ),
+        "revenue_unreacted_range_launch_timing_feature_audit": (
+            "7fae8b6102f7cac5715ef3845ee6345788bee7d57188c9eff5d754219a632145",
+            "a3facf77c3ca4831cd2c9fe47246e84c601f96fcd326b0cf4f2bdacfef9df305",
+        ),
+        "revenue_unreacted_range_source_first_condition_audit": (
+            "ed1c90dfeba7846f6078c01a116967b2cc42e695d37471c6892402b9e7acb044",
+            "fca68c6a1eab47d9fca82720981f08afe496f473a9602efd641337adb95acd94",
+        ),
+        "revenue_unreacted_range_forward_confirmation_feature_audit": (
+            "995625483248e76a27316420e8de07491158a83f25c3fc443c4f76bb72490dd5",
+            "1a350c64189bdf6ead59dc0d2494f6d07df7f1f18f685de6c41220e8cac43d2c",
+        ),
+        "revenue_unreacted_range_rearmed_operation_grid": (
+            "1b3915bf2f82c119820a1ae7b545ed74c91dd83fc24c00a0f5f49481206b1189",
+            "de1c5ff2386087bd64775e4ba01f9fc953be23253828ccd064619b422ddb2449",
+        ),
+        "revenue_unreacted_range_operation_lag_bucket_audit": (
+            "c204e9e4fe2dfd55da9331272f3084654e9323f025c10950a0cfe92e567af693",
+            "8720f64feb216362755d9c3a4f503e9233d1ce5a06d04de1a3c1580c7a36863b",
+        ),
+        "revenue_unreacted_range_position_shape_transition_matrix": (
+            "5c41b1f6314159a580ed1bb54811ba96e8c5193235367d4d8d512314077e37ac",
+            "c5598b7f0a8c988667f8c635d609a86c4d7f339608c02f2a7a25c1167e278d65",
+        ),
+        "revenue_unreacted_range_low_mid_falling_candidate_audit": (
+            "45ccdded177fa9425bf0d6f2f092f55662734026e7a3dd6a9353c2f9b785ceaa",
+            "b92495db71a2fd4534e80ba1c77c5c2d1a1d50effd934e2e188c24804a8d4bd3",
+        ),
+    }
+    assert cross_market_lineage["changed_data_families"].split(";") == list(
+        expected_cross_market_contracts
+    )
+    assert cross_market_lineage["previous_contract_sha256s"].split(";") == [
+        old_hash for old_hash, _new_hash in expected_cross_market_contracts.values()
+    ]
+    assert cross_market_lineage["new_contract_sha256s"].split(";") == [
+        new_hash for _old_hash, new_hash in expected_cross_market_contracts.values()
+    ]
+    assert cross_market_lineage["affected_models"] == "revenue_unreacted_range"
+    assert cross_market_lineage["user_approval_reference"] == (
+        "user_requested_revenue_low_mid_falling_research_candidates_20260720"
+    )
+    assert cross_market_lineage["migration_status"] == (
+        "validated_user_approved_migration"
+    )
+    sharing_by_family = {
+        row["data_family_id"]: row
+        for row in read_csv("config/daily_model_data_sharing_registry.csv")
+    }
+    background_by_family = {
+        row["data_family_id"]: row
+        for row in read_csv("config/daily_model_background_data_registry.csv")
+    }
+    for family, (_old_hash, new_hash) in expected_cross_market_contracts.items():
+        assert sharing_by_family[family]["data_contract_sha256"] == new_hash
+        assert sharing_by_family[family]["last_migration_id"] == (
+            "revenue_monthly_cross_market_lineage_resolution_20260720"
+        )
+        assert sharing_by_family[family]["sharing_decision_reference"] == (
+            "user_requested_revenue_low_mid_falling_research_candidates_20260720"
+        )
+        background = background_by_family[family]
+        assert (
+            "config/revenue_unreacted_range_monthly_revenue_cross_market_resolution.csv"
+            in background["source_artifacts"].split(";")
+        )
+        assert (
+            "registered_exact_lineage_equal_payload_cross_market_mirror_"
+            "earliest_availability_fail_closed"
+            in background["point_in_time_status"]
+        )
+        assert (
+            "registered exact-lineage equal-payload cross-market mirrors use the "
+            "earliest official source-table availability"
+            in background["allowed_use"]
+        )
+        assert (
+            "unregistered same-market or conflicting-payload stock-period "
+            "collisions fail closed"
+            in background["forbidden_use"]
+        )
+        assert "Raw monthly history remains market-grained" in background["notes"]
+
 
 def test_data_contract_hash_detects_point_in_time_or_forbidden_use_drift() -> None:
     row = read_csv("config/daily_model_background_data_registry.csv")[0]
@@ -830,6 +951,163 @@ def test_data_contract_hash_detects_point_in_time_or_forbidden_use_drift() -> No
     changed_forbidden["forbidden_use"] = "silently_changed"
     assert data_contract_sha256(changed_pit) != original
     assert data_contract_sha256(changed_forbidden) != original
+
+
+def test_revenue_cross_market_resolution_contract_requires_one_exact_sha_token() -> None:
+    digest = "a" * 64
+    rows = {
+        family: {
+            "notes": (
+                "model-owned resolution contract; "
+                f"{REVENUE_CROSS_MARKET_RESOLUTION_SHA_TOKEN}{digest}"
+            )
+        }
+        for family in REVENUE_CROSS_MARKET_CONSUMER_FAMILIES
+    }
+    errors: list[str] = []
+    _validate_revenue_cross_market_resolution_contract_binding(rows, digest, errors)
+    assert errors == []
+
+    drifted = {family: dict(row) for family, row in rows.items()}
+    drifted[REVENUE_CROSS_MARKET_CONSUMER_FAMILIES[0]]["notes"] = (
+        f"{REVENUE_CROSS_MARKET_RESOLUTION_SHA_TOKEN}{'b' * 64}"
+    )
+    errors = []
+    _validate_revenue_cross_market_resolution_contract_binding(
+        drifted, digest, errors
+    )
+    assert any("must pin exact" in error for error in errors)
+
+
+def test_revenue_cross_market_research_artifact_lineage_is_complete() -> None:
+    rows = read_csv("config/report_artifact_lineage.csv")
+    artifact_paths = [row["artifact_path"] for row in rows]
+    assert len(artifact_paths) == len(set(artifact_paths))
+
+    expected_by_family = {
+        "revenue_unreacted_range_launch_timing_feature_audit": {
+            "output/latest/research_backtest/revenue_unreacted_range_launch_timing_feature_audit_latest.csv",
+            "output/latest/research_backtest/revenue_unreacted_range_launch_timing_feature_audit_detail_latest.csv",
+            "output/latest/research_backtest/revenue_unreacted_range_launch_timing_feature_audit_feature_contrast_latest.csv",
+            "output/latest/research_backtest/revenue_unreacted_range_launch_timing_feature_audit_latest.md",
+            "output/history/research/revenue_unreacted_range_launch_timing_feature_audit.csv",
+            "output/history/research/revenue_unreacted_range_launch_timing_feature_audit_feature_contrast.csv",
+        },
+        "revenue_unreacted_range_source_first_condition_audit": {
+            "output/latest/research_backtest/revenue_unreacted_range_source_first_condition_audit_latest.csv",
+            "output/latest/research_backtest/revenue_unreacted_range_source_first_condition_audit_detail_latest.csv",
+            "output/latest/research_backtest/revenue_unreacted_range_source_first_condition_audit_latest.md",
+            "output/history/research/revenue_unreacted_range_source_first_condition_audit.csv",
+        },
+        "revenue_unreacted_range_forward_confirmation_feature_audit": {
+            "output/latest/research_backtest/revenue_unreacted_range_forward_confirmation_feature_audit_latest.csv",
+            "output/latest/research_backtest/revenue_unreacted_range_forward_confirmation_feature_audit_detail_latest.csv",
+            "output/latest/research_backtest/revenue_unreacted_range_forward_confirmation_feature_audit_event_detail_latest.csv",
+            "output/latest/research_backtest/revenue_unreacted_range_forward_confirmation_feature_audit_feature_contrast_latest.csv",
+            "output/latest/research_backtest/revenue_unreacted_range_forward_confirmation_feature_audit_operation_return_review_latest.csv",
+            "output/latest/research_backtest/revenue_unreacted_range_forward_confirmation_feature_audit_latest.md",
+            "output/history/research/revenue_unreacted_range_forward_confirmation_feature_audit.csv",
+            "output/history/research/revenue_unreacted_range_forward_confirmation_feature_audit_feature_contrast.csv",
+            "output/history/research/revenue_unreacted_range_forward_confirmation_feature_audit_operation_return_review.csv",
+        },
+        "revenue_unreacted_range_rearmed_operation_grid": {
+            "output/latest/research_backtest/revenue_unreacted_range_rearmed_operation_grid_latest.csv",
+            "output/latest/research_backtest/revenue_unreacted_range_rearmed_operation_grid_detail_latest.csv",
+            "output/latest/research_backtest/revenue_unreacted_range_rearmed_operation_grid_operation_return_review_latest.csv",
+            "output/latest/research_backtest/revenue_unreacted_range_rearmed_operation_grid_latest.md",
+            "output/history/research/revenue_unreacted_range_rearmed_operation_grid.csv",
+            "output/history/research/revenue_unreacted_range_rearmed_operation_grid_operation_return_review.csv",
+        },
+        "revenue_unreacted_range_operation_lag_bucket_audit": {
+            "output/latest/research_backtest/revenue_unreacted_range_operation_lag_bucket_audit_latest.csv",
+            "output/latest/research_backtest/revenue_unreacted_range_operation_lag_bucket_audit_detail_latest.csv",
+            "output/latest/research_backtest/revenue_unreacted_range_operation_lag_bucket_audit_latest.md",
+            "output/history/research/revenue_unreacted_range_operation_lag_bucket_audit.csv",
+        },
+        "revenue_unreacted_range_position_shape_transition_matrix": {
+            "output/latest/research_backtest/revenue_unreacted_range_position_shape_transition_matrix_latest.csv",
+            "output/latest/research_backtest/revenue_unreacted_range_position_shape_transition_matrix_detail_latest.csv",
+            "output/latest/research_backtest/revenue_unreacted_range_position_shape_transition_matrix_transition_latest.csv",
+            "output/latest/research_backtest/revenue_unreacted_range_position_shape_transition_matrix_latest.md",
+            "output/history/research/revenue_unreacted_range_position_shape_transition_matrix.csv",
+            "output/history/research/revenue_unreacted_range_position_shape_transition_matrix_transition.csv",
+        },
+        "revenue_unreacted_range_low_mid_falling_candidate_audit": {
+            "output/latest/research_backtest/revenue_unreacted_range_low_mid_falling_candidate_audit_latest.csv",
+            "output/latest/research_backtest/revenue_unreacted_range_low_mid_falling_candidate_audit_detail_latest.csv",
+            "output/latest/research_backtest/revenue_unreacted_range_low_mid_falling_candidate_audit_paired_confirmation_latest.csv",
+            "output/latest/research_backtest/revenue_unreacted_range_low_mid_falling_candidate_audit_feature_contrast_latest.csv",
+            "output/latest/research_backtest/revenue_unreacted_range_low_mid_falling_candidate_audit_latest.md",
+            "output/history/research/revenue_unreacted_range_low_mid_falling_candidate_audit.csv",
+            "output/history/research/revenue_unreacted_range_low_mid_falling_candidate_audit_detail.csv",
+            "output/history/research/revenue_unreacted_range_low_mid_falling_candidate_audit_paired_confirmation.csv",
+            "output/history/research/revenue_unreacted_range_low_mid_falling_candidate_audit_feature_contrast.csv",
+        },
+    }
+    row_by_path = {row["artifact_path"]: row for row in rows}
+    for family, expected_paths in expected_by_family.items():
+        actual_paths = {
+            path for path in artifact_paths if Path(path).name.startswith(family)
+        }
+        assert actual_paths == expected_paths
+        for path in expected_paths:
+            row = row_by_path[path]
+            if "_latest.csv" in path and "output/latest/" in path:
+                assert (
+                    "config/revenue_unreacted_range_monthly_revenue_cross_market_resolution.csv"
+                    in row["source_artifacts"].split(";")
+                )
+
+
+def test_revenue_cross_market_resolution_canonical_sha_is_semantic_and_stable() -> None:
+    row = {
+        column: f"value-{column}"
+        for column in REVENUE_CROSS_MARKET_RESOLUTION_CANONICAL_COLUMNS
+    }
+    row.update(
+        {
+            "model_id": "revenue_unreacted_range",
+            "stock_id": "5236.0",
+            "revenue_period": "2026-06",
+            "earlier_market": "OTC",
+            "earlier_source_market_name": "tpex",
+            "earlier_source_table_date": "2026-07-15",
+            "later_market": "LISTED",
+            "later_source_market_name": "twse",
+            "later_source_table_date": "2026-07-17",
+            "official_market_transition_date": "2026-07-16",
+            "canonical_source_table_date": "2026-07-15",
+            "formal_model_use_allowed": "False",
+            "notes": "not part of the canonical payload",
+        }
+    )
+    normalized_equivalent = dict(row)
+    normalized_equivalent.update(
+        {
+            "stock_id": "5236",
+            "revenue_period": "202606",
+            "earlier_market": "otc",
+            "earlier_source_market_name": "TPEX",
+            "earlier_source_table_date": "20260715",
+            "later_market": "listed",
+            "later_source_market_name": "TWSE",
+            "later_source_table_date": "20260717",
+            "official_market_transition_date": "20260716",
+            "canonical_source_table_date": "20260715",
+            "formal_model_use_allowed": "false",
+            "notes": "changed but intentionally excluded",
+        }
+    )
+    digest = _revenue_cross_market_resolution_registry_canonical_sha256([row])
+    assert digest == _revenue_cross_market_resolution_registry_canonical_sha256(
+        [normalized_equivalent]
+    )
+
+    changed_raw_binding = dict(row)
+    changed_raw_binding["earlier_raw_row_canonical_sha256"] = "b" * 64
+    assert digest != _revenue_cross_market_resolution_registry_canonical_sha256(
+        [changed_raw_binding]
+    )
 
 
 def test_financial_statement_revision_guard_migrates_every_changed_shared_contract() -> None:
@@ -879,6 +1157,39 @@ def test_production_importing_audits_cannot_claim_independent_evidence() -> None
         == "scripts/validate_revenue_unreacted_range_financial_statement_fail_closed.py"
     )
     assert revenue_guard["independence_claim"] == "True"
+    research_independent = {
+        row["validator_path"]: row
+        for row in rows
+        if row["validator_path"]
+        in {
+            "scripts/validate_revenue_unreacted_range_monthly_revenue_cross_market_resolution.py",
+            "scripts/validate_revenue_unreacted_range_low_mid_falling_candidate_audit.py",
+        }
+    }
+    assert set(research_independent) == {
+        "scripts/validate_revenue_unreacted_range_monthly_revenue_cross_market_resolution.py",
+        "scripts/validate_revenue_unreacted_range_low_mid_falling_candidate_audit.py",
+    }
+    expected_sources = {
+        "scripts/validate_revenue_unreacted_range_monthly_revenue_cross_market_resolution.py": (
+            "scripts/revenue_unreacted_range_monthly_revenue_cross_market_resolution.py"
+        ),
+        "scripts/validate_revenue_unreacted_range_low_mid_falling_candidate_audit.py": (
+            "scripts/revenue_unreacted_range_low_mid_falling_candidate_audit.py"
+        ),
+    }
+    for path, row in research_independent.items():
+        assert row["independence_claim"] == "True"
+        assert row["imported_production_symbols"] == ""
+        assert row["production_source_file"] == expected_sources[path]
+        assert "independent" in row["allowed_evidence_use"]
+        assert "not_promotion_proof" in row["allowed_evidence_use"]
+        sources, symbols = _production_imports(
+            ROOT / path,
+            {Path(expected_sources[path]).stem: expected_sources[path]},
+        )
+        assert sources == ()
+        assert symbols == ()
 
 
 def test_future_model_owned_module_import_is_detected(tmp_path: Path) -> None:

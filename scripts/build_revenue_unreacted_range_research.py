@@ -10,7 +10,6 @@ from build_daily_model_parameter_research import (
     REVENUE_UNREACTED_FEATURE_CONTRAST_NUMERIC_SPECS,
     _attach_revenue_signal_market_regime,
     _revenue_unreacted_timing_prepared_frame,
-    build_research_frame,
     build_revenue_unreacted_range_close_confirmation_timing_audit,
     build_revenue_unreacted_range_feature_contrast_audit,
     build_revenue_unreacted_range_operation_candidate_matrix,
@@ -63,6 +62,9 @@ from revenue_unreacted_range_source_first_condition_audit import (
     build_source_first_condition_audit,
     write_source_first_condition_audit,
 )
+from revenue_unreacted_range_research_frame import (
+    build_revenue_unreacted_range_research_frame,
+)
 
 
 MODEL_ID = "revenue_unreacted_range"
@@ -70,7 +72,7 @@ PRODUCER = "scripts/build_revenue_unreacted_range_research.py"
 
 
 def build_and_write() -> None:
-    frame = build_research_frame()
+    frame = build_revenue_unreacted_range_research_frame()
     if frame.empty:
         raise RuntimeError("No price history available for revenue_unreacted_range research")
 
@@ -163,7 +165,7 @@ def build_and_write_launch_timing_feature_audit() -> None:
             "Launch timing stage requires the existing model-owned lag-strength detail artifact: "
             f"{LAG_STRENGTH_DETAIL_CSV}"
         )
-    frame = build_research_frame()
+    frame = build_revenue_unreacted_range_research_frame()
     if frame.empty:
         raise RuntimeError("No price history available for revenue_unreacted_range launch timing research")
     prepared = _attach_revenue_signal_market_regime(_revenue_unreacted_timing_prepared_frame(frame))
@@ -188,7 +190,7 @@ def build_and_write_source_first_condition_audit() -> None:
 
 
 def build_and_write_forward_confirmation_feature_audit() -> None:
-    frame = build_research_frame()
+    frame = build_revenue_unreacted_range_research_frame()
     if frame.empty:
         raise RuntimeError("No price history available for revenue_unreacted_range forward confirmation research")
     prepared = _attach_revenue_signal_market_regime(_revenue_unreacted_timing_prepared_frame(frame))
@@ -199,7 +201,7 @@ def build_and_write_forward_confirmation_feature_audit() -> None:
 
 
 def build_and_write_rearmed_operation_grid() -> None:
-    frame = build_research_frame()
+    frame = build_revenue_unreacted_range_research_frame()
     if frame.empty:
         raise RuntimeError("No price history available for revenue_unreacted_range rearmed operation grid")
     prepared = _attach_revenue_signal_market_regime(_revenue_unreacted_timing_prepared_frame(frame))
@@ -221,7 +223,7 @@ def build_and_write_position_shape_transition_matrix() -> None:
 
 def build_and_write_low_mid_falling_candidate_audit() -> None:
     _source_first_summary, source_first_detail = build_source_first_condition_audit()
-    frame = build_research_frame()
+    frame = build_revenue_unreacted_range_research_frame()
     if frame.empty:
         raise RuntimeError(
             "No price history available for revenue_unreacted_range low/mid falling "

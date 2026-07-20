@@ -4,6 +4,7 @@ import sys
 from pathlib import Path
 
 import pandas as pd
+import pytest
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -18,6 +19,7 @@ from revenue_unreacted_range_source_first_condition_audit import (  # noqa: E402
     PRIMARY_VARIANT_ID,
 )
 from validate_revenue_unreacted_range_source_first_condition_audit import validate  # noqa: E402
+import validate_revenue_unreacted_range_source_first_condition_audit as validator  # noqa: E402
 
 
 def test_source_first_condition_audit_passes() -> None:
@@ -89,13 +91,99 @@ def test_source_first_condition_preserves_aligned_qualifying_revenue_lineage() -
     for row in detail.itertuples(index=False):
         periods = str(row.qualifying_revenue_periods).split("|")
         source_dates = str(row.qualifying_source_dates).split("|")
+        resolution_ids = str(row.qualifying_cross_market_resolution_ids).split("|")
+        source_hashes = str(row.qualifying_source_row_canonical_sha256s).split("|")
+        canonical_dates = str(row.qualifying_canonical_source_table_dates).split("|")
         trade_dates = str(row.qualifying_trade_dates).split("|")
         sequence_indices = str(row.qualifying_sequence_indices).split("|")
-        assert len(periods) == len(source_dates) == len(trade_dates) == len(sequence_indices)
+        assert (
+            len(periods)
+            == len(source_dates)
+            == len(resolution_ids)
+            == len(source_hashes)
+            == len(canonical_dates)
+            == len(trade_dates)
+            == len(sequence_indices)
+        )
         assert len(periods) == int(row.qualifying_update_count)
+        assert all(resolution_ids)
+        assert all(len(value) == 64 for value in source_hashes)
         assert periods[0] == str(row.episode_start_revenue_period)
         assert source_dates[0] == str(row.episode_start_source_date)
+        assert resolution_ids[0] == str(row.episode_start_cross_market_resolution_id)
+        assert source_hashes[0] == str(row.episode_start_source_row_canonical_sha256)
+        assert canonical_dates[0] == str(row.episode_start_canonical_source_table_date)
         assert trade_dates[0] == str(row.episode_start_trade_date)
         assert periods[-1] == str(row.latest_qualifying_revenue_period)
         assert source_dates[-1] == str(row.latest_qualifying_source_date)
+        assert resolution_ids[-1] == str(
+            row.latest_qualifying_cross_market_resolution_id
+        )
+        assert source_hashes[-1] == str(
+            row.latest_qualifying_source_row_canonical_sha256
+        )
+        assert canonical_dates[-1] == str(
+            row.latest_qualifying_canonical_source_table_date
+        )
         assert trade_dates[-1] == str(row.latest_qualifying_trade_date)
+
+
+def test_source_first_condition_emits_current_run_level_monthly_revenue_hashes() -> None:
+    summary = pd.read_csv(LATEST_CSV, keep_default_na=False, low_memory=False)
+    detail = pd.read_csv(DETAIL_CSV, keep_default_na=False, low_memory=False)
+    for frame in (summary, detail):
+        for column in (
+            "monthly_revenue_history_blob_sha256",
+            "monthly_revenue_canonical_table_sha256",
+            "cross_market_resolution_registry_canonical_sha256",
+        ):
+            assert frame[column].astype(str).str.fullmatch(r"[0-9a-f]{64}").all()
+            assert frame[column].nunique() == 1
+
+
+@pytest.mark.parametrize(
+    "mutation",
+    (
+        "run_sha",
+        "aligned_source_hash",
+        "aligned_source_date",
+        "aligned_resolution_id",
+    ),
+)
+def test_source_first_validator_rejects_monthly_revenue_lineage_mutation(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    mutation: str,
+) -> None:
+    summary_path = tmp_path / "summary.csv"
+    detail_path = tmp_path / "detail.csv"
+    markdown_path = tmp_path / "summary.md"
+    summary = pd.read_csv(LATEST_CSV, keep_default_na=False, low_memory=False)
+    detail = pd.read_csv(DETAIL_CSV, dtype={"stock_id": str}, keep_default_na=False)
+    markdown_path.write_bytes(validator.LATEST_MD.read_bytes())
+    if mutation == "run_sha":
+        summary.loc[0, "monthly_revenue_history_blob_sha256"] = "0" * 64
+    else:
+        row = detail.index[0]
+        if mutation == "aligned_source_hash":
+            values = str(detail.at[row, "qualifying_source_row_canonical_sha256s"]).split("|")
+            values[0] = "f" * 64
+            detail.at[row, "qualifying_source_row_canonical_sha256s"] = "|".join(values)
+            detail.at[row, "episode_start_source_row_canonical_sha256"] = values[0]
+        elif mutation == "aligned_source_date":
+            values = str(detail.at[row, "qualifying_source_dates"]).split("|")
+            values[0] = "19990101"
+            detail.at[row, "qualifying_source_dates"] = "|".join(values)
+            detail.at[row, "episode_start_source_date"] = values[0]
+        else:
+            values = str(detail.at[row, "qualifying_cross_market_resolution_ids"]).split("|")
+            values[0] = "mutated-resolution"
+            detail.at[row, "qualifying_cross_market_resolution_ids"] = "|".join(values)
+            detail.at[row, "episode_start_cross_market_resolution_id"] = values[0]
+    summary.to_csv(summary_path, index=False)
+    detail.to_csv(detail_path, index=False)
+    monkeypatch.setattr(validator, "LATEST_CSV", summary_path)
+    monkeypatch.setattr(validator, "DETAIL_CSV", detail_path)
+    monkeypatch.setattr(validator, "LATEST_MD", markdown_path)
+    errors = validator.validate()
+    assert any("current input lineage drift" in error for error in errors)

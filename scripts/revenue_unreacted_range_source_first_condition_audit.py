@@ -8,11 +8,20 @@ from zoneinfo import ZoneInfo
 import numpy as np
 import pandas as pd
 
+from revenue_unreacted_range_monthly_revenue_cross_market_resolution import (
+    RESOLUTION_CSV as MONTHLY_REVENUE_CROSS_MARKET_RESOLUTION_CSV,
+    canonical_monthly_revenue_history_table_sha256,
+    cross_market_resolution_registry_canonical_sha256,
+    load_canonical_monthly_revenue_history,
+    load_cross_market_resolutions,
+    monthly_revenue_history_blob_sha256,
+)
+
 
 ROOT = Path(__file__).resolve().parents[1]
 MODEL_ID = "revenue_unreacted_range"
 ARTIFACT_ID = "revenue_unreacted_range_source_first_condition_audit"
-ARTIFACT_VERSION = "source_first_condition_v2_20260714"
+ARTIFACT_VERSION = "source_first_condition_v3_20260720"
 
 REVENUE_HISTORY_CSV = ROOT / "data/monthly_revenue_history/monthly_revenue_history.csv"
 PRICE_HISTORY_DIR = ROOT / "data/stock_price_history"
@@ -36,6 +45,7 @@ FINANCIAL_STATEMENT_SCOPE = (
     "monthly_revenue_only;EPS_gross_margin_operating_margin_operating_income_"
     "non_operating_income_net_income_excluded"
 )
+NO_CROSS_MARKET_RESOLUTION_ID = "none"
 
 
 @dataclass(frozen=True)
@@ -146,6 +156,9 @@ SUMMARY_COLUMNS = [
     "model_id",
     "artifact_id",
     "artifact_version",
+    "monthly_revenue_history_blob_sha256",
+    "monthly_revenue_canonical_table_sha256",
+    "cross_market_resolution_registry_canonical_sha256",
     "condition_order",
     "condition_variant_id",
     "condition_family",
@@ -200,6 +213,9 @@ DETAIL_COLUMNS = [
     "model_id",
     "artifact_id",
     "artifact_version",
+    "monthly_revenue_history_blob_sha256",
+    "monthly_revenue_canonical_table_sha256",
+    "cross_market_resolution_registry_canonical_sha256",
     "condition_variant_id",
     "episode_key",
     "stock_id",
@@ -207,15 +223,24 @@ DETAIL_COLUMNS = [
     "episode_number",
     "episode_start_revenue_period",
     "episode_start_source_date",
+    "episode_start_cross_market_resolution_id",
+    "episode_start_source_row_canonical_sha256",
+    "episode_start_canonical_source_table_date",
     "episode_start_trade_date",
     "episode_start_sequence_index",
     "latest_qualifying_revenue_period",
     "latest_qualifying_source_date",
+    "latest_qualifying_cross_market_resolution_id",
+    "latest_qualifying_source_row_canonical_sha256",
+    "latest_qualifying_canonical_source_table_date",
     "latest_qualifying_trade_date",
     "latest_qualifying_sequence_index",
     "qualifying_update_count",
     "qualifying_revenue_periods",
     "qualifying_source_dates",
+    "qualifying_cross_market_resolution_ids",
+    "qualifying_source_row_canonical_sha256s",
+    "qualifying_canonical_source_table_dates",
     "qualifying_trade_dates",
     "qualifying_sequence_indices",
     "episode_end_sequence_index",
@@ -283,6 +308,11 @@ def _stable(value: object, digits: int = 4) -> float | str:
     return "" if number is None else round(number, digits)
 
 
+def _cross_market_resolution_id(value: object) -> str:
+    text = str(value).strip()
+    return text if text else NO_CROSS_MARKET_RESOLUTION_ID
+
+
 def _rate(numerator: int, denominator: int) -> float | str:
     return round(numerator / denominator * 100.0, 4) if denominator else ""
 
@@ -305,13 +335,19 @@ def _period_ordinal(series: pd.Series) -> pd.Series:
     return year * 12 + month
 
 
-def load_revenue_history(path: Path = REVENUE_HISTORY_CSV) -> pd.DataFrame:
-    frame = pd.read_csv(path, dtype={"stock_id": str}, keep_default_na=False, low_memory=False)
+def load_revenue_history(
+    path: Path = REVENUE_HISTORY_CSV,
+    resolution_path: Path = MONTHLY_REVENUE_CROSS_MARKET_RESOLUTION_CSV,
+) -> pd.DataFrame:
+    frame = load_canonical_monthly_revenue_history(path, resolution_path)
     required = {
         "stock_id",
         "stock_name",
         "revenue_period",
         "source_table_date",
+        "source_row_canonical_sha256",
+        "cross_market_resolution_id",
+        "canonical_source_table_date",
         "latest_revenue_yoy_pct",
         "cumulative_revenue_yoy_pct",
         "month_over_month_pct",
@@ -324,6 +360,24 @@ def load_revenue_history(path: Path = REVENUE_HISTORY_CSV) -> pd.DataFrame:
     frame = frame.copy()
     frame["stock_id"] = frame["stock_id"].map(_normalize_stock_id)
     frame["source_table_date"] = _normalize_date(frame["source_table_date"])
+    frame["canonical_source_table_date"] = _normalize_date(
+        frame["canonical_source_table_date"]
+    )
+    frame["source_row_canonical_sha256"] = (
+        frame["source_row_canonical_sha256"].astype(str).str.strip().str.lower()
+    )
+    if not frame["source_row_canonical_sha256"].str.fullmatch(r"[0-9a-f]{64}").all():
+        raise RuntimeError("source-first revenue history has invalid canonical row SHA-256")
+    frame["cross_market_resolution_id"] = (
+        frame["cross_market_resolution_id"].astype(str).str.strip()
+    )
+    if (
+        ~frame["canonical_source_table_date"].str.fullmatch(r"\d{8}")
+        | frame["canonical_source_table_date"].ne(frame["source_table_date"])
+    ).any():
+        raise RuntimeError(
+            "source-first revenue history canonical source date does not match the selected source row"
+        )
     frame["revenue_period"] = frame["revenue_period"].astype(str).str.replace(r"\D", "", regex=True).str[:6]
     for column in (
         "latest_revenue_yoy_pct",
@@ -334,7 +388,9 @@ def load_revenue_history(path: Path = REVENUE_HISTORY_CSV) -> pd.DataFrame:
     frame = frame.sort_values(
         ["stock_id", "source_table_date", "revenue_period"],
         kind="mergesort",
-    ).drop_duplicates(["stock_id", "revenue_period"], keep="last")
+    )
+    if frame.duplicated(["stock_id", "revenue_period"]).any():
+        raise RuntimeError("source-first revenue history contains unresolved stock-period duplicates")
     grouped = frame.groupby("stock_id", sort=False, dropna=False)
     frame["previous_latest_revenue_yoy_pct"] = grouped["latest_revenue_yoy_pct"].shift(1)
     frame["previous_cumulative_revenue_yoy_pct"] = grouped["cumulative_revenue_yoy_pct"].shift(1)
@@ -358,6 +414,27 @@ def load_revenue_history(path: Path = REVENUE_HISTORY_CSV) -> pd.DataFrame:
         frame["revenue_numerical_anomaly_flag"]
     )
     return frame.reset_index(drop=True)
+
+
+def _monthly_revenue_run_lineage(
+    revenue: pd.DataFrame,
+    *,
+    revenue_path: Path,
+    resolution_path: Path,
+) -> dict[str, str]:
+    return {
+        "monthly_revenue_history_blob_sha256": monthly_revenue_history_blob_sha256(
+            revenue_path
+        ),
+        "monthly_revenue_canonical_table_sha256": (
+            canonical_monthly_revenue_history_table_sha256(revenue)
+        ),
+        "cross_market_resolution_registry_canonical_sha256": (
+            cross_market_resolution_registry_canonical_sha256(
+                load_cross_market_resolutions(resolution_path)
+            )
+        ),
+    }
 
 
 def condition_masks(revenue: pd.DataFrame) -> dict[str, pd.Series]:
@@ -566,6 +643,7 @@ def _episode_rows(
     variant_id: str,
     events: list[tuple[int, pd.Series]],
     price: pd.DataFrame,
+    monthly_revenue_run_lineage: dict[str, str],
 ) -> list[dict[str, object]]:
     rows: list[dict[str, object]] = []
     position = 0
@@ -645,6 +723,7 @@ def _episode_rows(
                 "model_id": MODEL_ID,
                 "artifact_id": ARTIFACT_ID,
                 "artifact_version": ARTIFACT_VERSION,
+                **monthly_revenue_run_lineage,
                 "condition_variant_id": variant_id,
                 "episode_key": episode_key,
                 "stock_id": stock_id,
@@ -652,10 +731,32 @@ def _episode_rows(
                 "episode_number": episode_number,
                 "episode_start_revenue_period": str(start_event["revenue_period"]),
                 "episode_start_source_date": str(start_event["source_table_date"]),
+                "episode_start_cross_market_resolution_id": (
+                    _cross_market_resolution_id(
+                        start_event["cross_market_resolution_id"]
+                    )
+                ),
+                "episode_start_source_row_canonical_sha256": str(
+                    start_event["source_row_canonical_sha256"]
+                ),
+                "episode_start_canonical_source_table_date": str(
+                    start_event["canonical_source_table_date"]
+                ),
                 "episode_start_trade_date": str(price.at[start_index, "date"]),
                 "episode_start_sequence_index": start_index,
                 "latest_qualifying_revenue_period": str(latest_event["revenue_period"]),
                 "latest_qualifying_source_date": str(latest_event["source_table_date"]),
+                "latest_qualifying_cross_market_resolution_id": (
+                    _cross_market_resolution_id(
+                        latest_event["cross_market_resolution_id"]
+                    )
+                ),
+                "latest_qualifying_source_row_canonical_sha256": str(
+                    latest_event["source_row_canonical_sha256"]
+                ),
+                "latest_qualifying_canonical_source_table_date": str(
+                    latest_event["canonical_source_table_date"]
+                ),
                 "latest_qualifying_trade_date": str(price.at[latest_index, "date"]),
                 "latest_qualifying_sequence_index": latest_index,
                 "qualifying_update_count": len(used),
@@ -664,6 +765,20 @@ def _episode_rows(
                 ),
                 "qualifying_source_dates": "|".join(
                     str(event[1]["source_table_date"]) for event in used
+                ),
+                "qualifying_cross_market_resolution_ids": "|".join(
+                    _cross_market_resolution_id(
+                        event[1]["cross_market_resolution_id"]
+                    )
+                    for event in used
+                ),
+                "qualifying_source_row_canonical_sha256s": "|".join(
+                    str(event[1]["source_row_canonical_sha256"])
+                    for event in used
+                ),
+                "qualifying_canonical_source_table_dates": "|".join(
+                    str(event[1]["canonical_source_table_date"])
+                    for event in used
                 ),
                 "qualifying_trade_dates": "|".join(
                     str(price.at[event[0], "date"]) for event in used
@@ -759,9 +874,15 @@ def _episode_rows(
 def build_source_first_condition_audit(
     revenue_path: Path = REVENUE_HISTORY_CSV,
     price_dir: Path = PRICE_HISTORY_DIR,
+    resolution_path: Path = MONTHLY_REVENUE_CROSS_MARKET_RESOLUTION_CSV,
 ) -> tuple[pd.DataFrame, pd.DataFrame]:
     generated_at = _now_text()
-    revenue = load_revenue_history(revenue_path)
+    revenue = load_revenue_history(revenue_path, resolution_path)
+    monthly_revenue_run_lineage = _monthly_revenue_run_lineage(
+        revenue,
+        revenue_path=revenue_path,
+        resolution_path=resolution_path,
+    )
     masks = condition_masks(revenue)
     resolutions = _load_price_resolutions()
     rows: list[dict[str, object]] = []
@@ -816,6 +937,7 @@ def build_source_first_condition_audit(
                     variant_id=spec.condition_variant_id,
                     events=events,
                     price=price,
+                    monthly_revenue_run_lineage=monthly_revenue_run_lineage,
                 )
             )
 
@@ -857,6 +979,7 @@ def build_source_first_condition_audit(
                 "model_id": MODEL_ID,
                 "artifact_id": ARTIFACT_ID,
                 "artifact_version": ARTIFACT_VERSION,
+                **monthly_revenue_run_lineage,
                 "condition_order": spec.condition_order,
                 "condition_variant_id": spec.condition_variant_id,
                 "condition_family": spec.condition_family,

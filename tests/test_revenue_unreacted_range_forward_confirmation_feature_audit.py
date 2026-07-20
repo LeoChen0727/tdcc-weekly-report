@@ -5,6 +5,7 @@ from pathlib import Path
 
 import numpy as np
 import pandas as pd
+import pytest
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -14,12 +15,16 @@ if str(SCRIPTS) not in sys.path:
 
 from revenue_unreacted_range_forward_confirmation_feature_audit import (  # noqa: E402
     PRIMARY_ANALYSIS_BASIS,
+    EXPECTED_SOURCE_ARTIFACT_ID,
+    EXPECTED_SOURCE_ARTIFACT_VERSION,
+    _normalize_source_detail,
     build_forward_confirmation_feature_audit,
     build_operation_return_review,
 )
 from validate_revenue_unreacted_range_forward_confirmation_feature_audit import (  # noqa: E402
     validate,
 )
+import validate_revenue_unreacted_range_forward_confirmation_feature_audit as forward_validator  # noqa: E402
 
 
 def _stock_frame(stock_id: str, *, false_index: int | None, launch_index: int) -> pd.DataFrame:
@@ -92,6 +97,8 @@ def _stock_frame(stock_id: str, *, false_index: int | None, launch_index: int) -
 
 def _source_row(stock: pd.DataFrame, stock_id: str, *, start: int, end: int, first: int, launch: int) -> dict[str, object]:
     return {
+        "artifact_id": EXPECTED_SOURCE_ARTIFACT_ID,
+        "artifact_version": EXPECTED_SOURCE_ARTIFACT_VERSION,
         "condition_variant_id": "absolute_or_two_month_yoy_ge15",
         "episode_key": f"episode-{stock_id}",
         "stock_id": stock_id,
@@ -107,6 +114,29 @@ def _source_row(stock: pd.DataFrame, stock_id: str, *, start: int, end: int, fir
         "unresolved_price_path_candidate_flag": False,
         "same_stock_non_overlap_applied": True,
     }
+
+
+@pytest.mark.parametrize(
+    ("column", "value", "message"),
+    (
+        ("artifact_id", "wrong_source_artifact", "artifact id drift"),
+        ("artifact_version", "source_first_condition_v2_20260714", "artifact version drift"),
+    ),
+)
+def test_forward_source_normalization_rejects_mutated_or_stale_artifact(
+    column: str,
+    value: str,
+    message: str,
+) -> None:
+    stock = _stock_frame("4916", false_index=25, launch_index=50)
+    source = pd.DataFrame(
+        [_source_row(stock, "4916", start=20, end=50, first=25, launch=50)]
+    )
+    source.loc[0, column] = value
+
+    with pytest.raises(RuntimeError, match=message):
+        _normalize_source_detail(source)
+    assert any(message in error for error in forward_validator._source_lineage_errors(source))
 
 
 def _audit_frames() -> tuple[

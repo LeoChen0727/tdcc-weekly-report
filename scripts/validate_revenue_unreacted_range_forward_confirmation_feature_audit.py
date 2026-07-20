@@ -38,6 +38,22 @@ from revenue_unreacted_range_source_first_condition_audit import (
 
 
 DETAIL_MAX_BYTES = 50_000_000
+EXPECTED_SOURCE_ARTIFACT_ID = "revenue_unreacted_range_source_first_condition_audit"
+EXPECTED_SOURCE_ARTIFACT_VERSION = "source_first_condition_v3_20260720"
+
+
+def _source_lineage_errors(source: pd.DataFrame) -> list[str]:
+    missing = sorted({"artifact_id", "artifact_version"} - set(source.columns))
+    if missing:
+        return [f"forward confirmation source lineage is missing columns: {missing}"]
+    errors: list[str] = []
+    if set(source["artifact_id"].astype(str)) != {EXPECTED_SOURCE_ARTIFACT_ID}:
+        errors.append("forward confirmation source artifact id drift")
+    if set(source["artifact_version"].astype(str)) != {
+        EXPECTED_SOURCE_ARTIFACT_VERSION
+    }:
+        errors.append("forward confirmation source artifact version drift")
+    return errors
 
 SUMMARY_REQUIRED = {
     "model_id",
@@ -232,6 +248,7 @@ def validate() -> list[str]:
         keep_default_na=False,
         low_memory=False,
     )
+    errors.extend(_source_lineage_errors(source))
     source = source.loc[source["condition_variant_id"].eq(PRIMARY_VARIANT_ID)].copy()
     price_resolutions = pd.read_csv(
         PRICE_RESOLUTION_CSV,

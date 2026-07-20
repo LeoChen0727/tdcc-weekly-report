@@ -1,19 +1,37 @@
 from __future__ import annotations
 
 from io import StringIO
+from pathlib import Path
 
 import pandas as pd
+
+from revenue_unreacted_range_monthly_revenue_cross_market_resolution import (
+    canonical_monthly_revenue_history_table_sha256,
+    cross_market_resolution_registry_canonical_sha256,
+    load_canonical_monthly_revenue_history,
+    load_cross_market_resolutions,
+    monthly_revenue_history_blob_sha256,
+)
 
 from revenue_unreacted_range_lag_strength_matrix import (
     ARTIFACT_VERSION,
     DETAIL_COLUMNS,
     DETAIL_CSV,
     LATEST_CSV,
+    MONTHLY_REVENUE_RUNTIME_LINEAGE_COLUMNS,
     SOURCE_DETAIL,
     SUMMARY_COLUMNS,
     build_lag_strength_matrix,
 )
 
+
+ROOT = Path(__file__).resolve().parents[1]
+MONTHLY_REVENUE_HISTORY = (
+    ROOT / "output/latest/research_backtest/monthly_revenue_history_latest.csv"
+)
+MONTHLY_REVENUE_CROSS_MARKET_RESOLUTION_CSV = (
+    ROOT / "config/revenue_unreacted_range_monthly_revenue_cross_market_resolution.csv"
+)
 
 DETAIL_DTYPES = {
         "episode_key": str,
@@ -51,6 +69,42 @@ def _serialized(frame: pd.DataFrame, *, detail: bool = False) -> pd.DataFrame:
     )
 
 
+def _current_monthly_revenue_runtime_lineage() -> dict[str, str]:
+    canonical = load_canonical_monthly_revenue_history(
+        MONTHLY_REVENUE_HISTORY,
+        MONTHLY_REVENUE_CROSS_MARKET_RESOLUTION_CSV,
+    )
+    return {
+        "monthly_revenue_history_blob_sha256": monthly_revenue_history_blob_sha256(
+            MONTHLY_REVENUE_HISTORY
+        ),
+        "monthly_revenue_canonical_table_sha256": (
+            canonical_monthly_revenue_history_table_sha256(canonical)
+        ),
+        "cross_market_resolution_registry_canonical_sha256": (
+            cross_market_resolution_registry_canonical_sha256(
+                load_cross_market_resolutions(
+                    MONTHLY_REVENUE_CROSS_MARKET_RESOLUTION_CSV
+                )
+            )
+        ),
+    }
+
+
+def _runtime_lineage_errors(
+    frame: pd.DataFrame,
+    *,
+    label: str,
+    expected: dict[str, str],
+) -> list[str]:
+    errors: list[str] = []
+    for column in MONTHLY_REVENUE_RUNTIME_LINEAGE_COLUMNS:
+        actual = set(frame[column].astype(str).str.strip().str.lower())
+        if actual != {expected[column]}:
+            errors.append(f"lag strength matrix {label} runtime lineage drift: {column}")
+    return errors
+
+
 def validate() -> list[str]:
     errors: list[str] = []
     if not LATEST_CSV.is_file() or not DETAIL_CSV.is_file():
@@ -63,10 +117,28 @@ def validate() -> list[str]:
         errors.append("lag strength matrix detail schema drift")
     if errors:
         return errors
+    try:
+        expected_runtime_lineage = _current_monthly_revenue_runtime_lineage()
+    except (RuntimeError, ValueError, KeyError, pd.errors.ParserError) as exc:
+        return [f"lag strength current monthly revenue lineage cannot be verified: {exc}"]
     if set(summary["artifact_version"].astype(str)) != {ARTIFACT_VERSION}:
         errors.append("lag strength matrix summary version drift")
     if set(detail["artifact_version"].astype(str)) != {ARTIFACT_VERSION}:
         errors.append("lag strength matrix detail version drift")
+    errors.extend(
+        _runtime_lineage_errors(
+            summary,
+            label="summary",
+            expected=expected_runtime_lineage,
+        )
+    )
+    errors.extend(
+        _runtime_lineage_errors(
+            detail,
+            label="detail",
+            expected=expected_runtime_lineage,
+        )
+    )
     source = pd.read_csv(SOURCE_DETAIL, dtype={"stock_id": str}, low_memory=False)
     source_mask = (
         source["decision_basis"].astype(str).str.lower().isin({"true", "1", "yes"})

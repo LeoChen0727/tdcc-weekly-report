@@ -5,6 +5,7 @@ import csv
 import fnmatch
 import hashlib
 import io
+import json
 import os
 import subprocess
 from collections import defaultdict
@@ -22,9 +23,15 @@ SEMANTIC_MIGRATIONS = ROOT / "config" / "daily_model_semantic_migrations.csv"
 BACKGROUND_DATA_REGISTRY = ROOT / "config" / "daily_model_background_data_registry.csv"
 DATA_SHARING_REGISTRY = ROOT / "config" / "daily_model_data_sharing_registry.csv"
 DATA_SHARING_MIGRATIONS = ROOT / "config" / "daily_model_data_sharing_migrations.csv"
+REVENUE_CROSS_MARKET_RESOLUTION = (
+    ROOT
+    / "config"
+    / "revenue_unreacted_range_monthly_revenue_cross_market_resolution.csv"
+)
 VALIDATOR_INDEPENDENCE = ROOT / "config" / "daily_model_validator_independence.csv"
 RESEARCH_ARTIFACT_OWNERSHIP = ROOT / "config" / "model_research_artifact_ownership.csv"
 FORMAL_EVIDENCE_PINS = ROOT / "config" / "formal_model_evidence_pins.csv"
+REPO_PRODUCTION_INVENTORY = ROOT / "config" / "repo_production_inventory.csv"
 
 BASELINE_REFERENCE_PREFIX = "baseline_"
 BASELINE_MIGRATION_ID = "baseline_20260712"
@@ -130,6 +137,102 @@ VALID_DATA_OWNERSHIP_MODE = {
     "cross_model_audit_not_model_evidence",
     "legacy_frozen_no_new_consumers",
 }
+
+REVENUE_CROSS_MARKET_CONSUMER_FAMILIES = (
+    "revenue_unreacted_range_revenue_condition_matrix",
+    "revenue_unreacted_range_operation_candidate_matrix",
+    "revenue_unreacted_range_feature_contrast_audit",
+    "revenue_unreacted_range_close_confirmation_timing_audit",
+    "revenue_unreacted_range_fixed_confirmation_feature_contrast_audit",
+    "revenue_unreacted_range_extreme_return_path_audit",
+    "revenue_unreacted_range_lag_strength_matrix",
+    "revenue_unreacted_range_launch_timing_feature_audit",
+    "revenue_unreacted_range_source_first_condition_audit",
+    "revenue_unreacted_range_forward_confirmation_feature_audit",
+    "revenue_unreacted_range_rearmed_operation_grid",
+    "revenue_unreacted_range_operation_lag_bucket_audit",
+    "revenue_unreacted_range_position_shape_transition_matrix",
+    "revenue_unreacted_range_low_mid_falling_candidate_audit",
+)
+REVENUE_CROSS_MARKET_RESOLUTION_SHA_TOKEN = (
+    "resolution_registry_canonical_sha256="
+)
+REVENUE_CROSS_MARKET_RESOLUTION_COLUMNS = (
+    "resolution_id",
+    "model_id",
+    "stock_id",
+    "revenue_period",
+    "earlier_market",
+    "earlier_source_market_name",
+    "earlier_source_table_date",
+    "earlier_source_kind",
+    "earlier_source_url",
+    "earlier_source_file",
+    "earlier_raw_row_canonical_sha256",
+    "later_market",
+    "later_source_market_name",
+    "later_source_table_date",
+    "later_source_kind",
+    "later_source_url",
+    "later_source_file",
+    "later_raw_row_canonical_sha256",
+    "official_market_transition_date",
+    "canonical_source_table_date",
+    "canonical_row_canonical_sha256",
+    "resolution_status",
+    "canonicalization_policy",
+    "evidence_url",
+    "formal_model_use_allowed",
+    "notes",
+)
+REPO_PRODUCTION_INVENTORY_COLUMNS = (
+    "path",
+    "kind",
+    "owner",
+    "status",
+    "purpose",
+    "allowed_workflows",
+    "allowed_stage_patterns",
+)
+VALID_INDEPENDENT_VALIDATOR_ROLES = {
+    "independent_contract_ast_guard",
+    "independent_source_lineage_validator",
+    "independent_research_replay_validator",
+}
+REVENUE_CROSS_MARKET_RESOLUTION_CANONICAL_COLUMNS = (
+    "resolution_id",
+    "model_id",
+    "stock_id",
+    "revenue_period",
+    "earlier_market",
+    "earlier_source_market_name",
+    "earlier_source_table_date",
+    "earlier_source_kind",
+    "earlier_source_url",
+    "earlier_source_file",
+    "earlier_raw_row_canonical_sha256",
+    "later_market",
+    "later_source_market_name",
+    "later_source_table_date",
+    "later_source_kind",
+    "later_source_url",
+    "later_source_file",
+    "later_raw_row_canonical_sha256",
+    "official_market_transition_date",
+    "canonical_source_table_date",
+    "canonical_row_canonical_sha256",
+    "resolution_status",
+    "canonicalization_policy",
+    "evidence_url",
+    "formal_model_use_allowed",
+)
+REVENUE_CROSS_MARKET_RESOLUTION_SORT_KEYS = (
+    "model_id",
+    "stock_id",
+    "revenue_period",
+    "resolution_id",
+)
+REVENUE_CROSS_MARKET_RESOLUTION_CANONICAL_JSON_VERSION = "canonical_json_v1"
 
 VOLUME_MODEL_FAMILY = {
     "volume_range_breakout_v2_low_position_volume_attack",
@@ -412,6 +515,91 @@ def data_contract_sha256(row: dict[str, str]) -> str:
     )
     payload = "\n".join(f"{field}={row[field]}" for field in fields)
     return hashlib.sha256(payload.encode("utf-8")).hexdigest()
+
+
+def _revenue_cross_market_resolution_registry_canonical_sha256(
+    rows: list[dict[str, str]],
+) -> str:
+    normalized_rows: list[dict[str, str]] = []
+    for row in rows:
+        normalized = {
+            column: str(row.get(column, "") or "").strip()
+            for column in REVENUE_CROSS_MARKET_RESOLUTION_CANONICAL_COLUMNS
+        }
+        stock_id = normalized["stock_id"].replace(".0", "")
+        normalized["stock_id"] = stock_id.zfill(4) if stock_id else ""
+        normalized["revenue_period"] = "".join(
+            character
+            for character in normalized["revenue_period"]
+            if character.isdigit()
+        )[:6]
+        for column in (
+            "earlier_source_table_date",
+            "later_source_table_date",
+            "official_market_transition_date",
+            "canonical_source_table_date",
+        ):
+            normalized[column] = "".join(
+                character
+                for character in normalized[column]
+                if character.isdigit()
+            )[:8]
+        for column in ("earlier_market", "later_market"):
+            normalized[column] = normalized[column].lower()
+        for column in (
+            "earlier_source_market_name",
+            "later_source_market_name",
+        ):
+            normalized[column] = normalized[column].upper()
+        normalized["formal_model_use_allowed"] = normalized[
+            "formal_model_use_allowed"
+        ].lower()
+        normalized_rows.append(normalized)
+
+    normalized_rows.sort(
+        key=lambda row: tuple(
+            row[column] for column in REVENUE_CROSS_MARKET_RESOLUTION_SORT_KEYS
+        )
+    )
+    payload = [
+        REVENUE_CROSS_MARKET_RESOLUTION_CANONICAL_JSON_VERSION,
+        list(REVENUE_CROSS_MARKET_RESOLUTION_CANONICAL_COLUMNS),
+        [
+            [row[column] for column in REVENUE_CROSS_MARKET_RESOLUTION_CANONICAL_COLUMNS]
+            for row in normalized_rows
+        ],
+    ]
+    encoded = json.dumps(
+        payload,
+        ensure_ascii=False,
+        separators=(",", ":"),
+    ).encode("utf-8")
+    return hashlib.sha256(encoded).hexdigest()
+
+
+def _validate_revenue_cross_market_resolution_contract_binding(
+    background_by_id: dict[str, dict[str, str]],
+    resolution_sha256: str,
+    errors: list[str],
+) -> None:
+    expected_token = f"{REVENUE_CROSS_MARKET_RESOLUTION_SHA_TOKEN}{resolution_sha256}"
+    for family in REVENUE_CROSS_MARKET_CONSUMER_FAMILIES:
+        row = background_by_id.get(family)
+        if row is None:
+            errors.append(
+                f"revenue cross-market resolution consumer family is missing: {family}"
+            )
+            continue
+        tokens = [
+            token.strip()
+            for token in row["notes"].split(";")
+            if token.strip().startswith(REVENUE_CROSS_MARKET_RESOLUTION_SHA_TOKEN)
+        ]
+        if tokens != [expected_token]:
+            errors.append(
+                f"{family}: revenue cross-market resolution contract must pin exact "
+                f"{expected_token}"
+            )
 
 
 def data_migration_row_sha256(row: dict[str, str]) -> str:
@@ -1214,6 +1402,11 @@ def validate_data_sharing(*, base_ref: str | None = None) -> tuple[list[str], li
     data_migrations = strict_csv_rows(
         DATA_SHARING_MIGRATIONS, DATA_SHARING_MIGRATION_COLUMNS, errors
     )
+    resolution_rows = strict_csv_rows(
+        REVENUE_CROSS_MARKET_RESOLUTION,
+        REVENUE_CROSS_MARKET_RESOLUTION_COLUMNS,
+        errors,
+    )
     research_columns = (
         "owner_model_id",
         "producer",
@@ -1231,6 +1424,19 @@ def validate_data_sharing(*, base_ref: str | None = None) -> tuple[list[str], li
         return errors, sharing
 
     background_by_id = {row["data_family_id"]: row for row in background}
+    if not resolution_rows:
+        errors.append("monthly revenue cross-market resolution registry is empty")
+    else:
+        resolution_sha256 = (
+            _revenue_cross_market_resolution_registry_canonical_sha256(
+                resolution_rows
+            )
+        )
+        _validate_revenue_cross_market_resolution_contract_binding(
+            background_by_id,
+            resolution_sha256,
+            errors,
+        )
     sharing_by_id: dict[str, dict[str, str]] = {}
     for row in sharing:
         family = row["data_family_id"]
@@ -1377,6 +1583,19 @@ def _production_imports(
     return tuple(sorted(sources)), tuple(sorted(symbols))
 
 
+def _active_repo_python_sources(errors: list[str]) -> set[str]:
+    rows = strict_csv_rows(
+        REPO_PRODUCTION_INVENTORY,
+        REPO_PRODUCTION_INVENTORY_COLUMNS,
+        errors,
+    )
+    return {
+        row["path"]
+        for row in rows
+        if row["kind"] == "python" and row["status"] == "active"
+    }
+
+
 def validate_validator_independence() -> tuple[list[str], list[dict[str, str]]]:
     errors: list[str] = []
     rows = strict_csv_rows(
@@ -1428,18 +1647,32 @@ def validate_validator_independence() -> tuple[list[str], list[dict[str, str]]]:
     if independent_guard not in independent_paths:
         errors.append(f"{independent_guard}: independent guard must claim independence")
     active_production_sources = set(production_modules.values())
+    active_repo_python_sources = _active_repo_python_sources(errors)
     for path in sorted(independent_paths):
         row = registered[path]
         validator_file = ROOT / path
         if not validator_file.is_file():
             errors.append(f"{path}: registered independent validator does not exist")
             continue
-        if row["validator_role"] != "independent_contract_ast_guard":
-            errors.append(f"{path}: independent validator must use independent_contract_ast_guard role")
+        if row["validator_role"] not in VALID_INDEPENDENT_VALIDATOR_ROLES:
+            errors.append(
+                f"{path}: independent validator role is invalid: {row['validator_role']}"
+            )
         declared_sources = set(split_list(row["production_source_file"]))
-        if not declared_sources or not declared_sources <= active_production_sources:
-            errors.append(f"{path}: independent validator target source is not an active production module")
-        _guard_sources, guard_symbols = _production_imports(validator_file, production_modules)
+        allowed_sources = active_production_sources | active_repo_python_sources
+        if not declared_sources or not declared_sources <= allowed_sources:
+            errors.append(
+                f"{path}: independent validator target source is not an active registered module"
+            )
+        declared_modules: dict[str, str] = {}
+        for source in declared_sources:
+            stem = Path(source).stem
+            declared_modules[stem] = source
+            declared_modules[f"scripts.{stem}"] = source
+        _guard_sources, guard_symbols = _production_imports(
+            validator_file,
+            declared_modules,
+        )
         if guard_symbols:
             errors.append(f"{path}: independent guard must parse contracts, not import production logic")
         if "independent" not in row["allowed_evidence_use"].lower():

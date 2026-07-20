@@ -4,6 +4,7 @@ import sys
 from pathlib import Path
 
 import pandas as pd
+import pytest
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -16,19 +17,93 @@ from revenue_unreacted_range_launch_timing_feature_audit import (  # noqa: E402
     FEATURE_CSV,
     FULL_OBSERVATION_NON_OVERLAP_DAYS,
     LATEST_CSV,
+    MONTHLY_REVENUE_RUNTIME_LINEAGE_COLUMNS,
     PRIMARY_ANALYSIS_BASIS,
     PRIMARY_OUTCOME_ID,
     PRIMARY_TRIGGER_ID,
     SENSITIVITY_ANALYSIS_BASIS,
+    EXPECTED_SOURCE_ARTIFACT_ID,
+    EXPECTED_SOURCE_ARTIFACT_VERSION,
+    _assert_source_detail_lineage,
     _path_rows,
     _prepare_daily_rows,
     _source_cohort,
 )
 from validate_revenue_unreacted_range_launch_timing_feature_audit import validate  # noqa: E402
+import validate_revenue_unreacted_range_launch_timing_feature_audit as launch_validator  # noqa: E402
+
+
+VALID_RUNTIME_LINEAGE = {
+    column: character * 64
+    for column, character in zip(
+        MONTHLY_REVENUE_RUNTIME_LINEAGE_COLUMNS,
+        ("a", "b", "c"),
+    )
+}
+
+
+def _source_lineage_frame() -> pd.DataFrame:
+    return pd.DataFrame(
+        [
+            {
+                "artifact_id": EXPECTED_SOURCE_ARTIFACT_ID,
+                "artifact_version": EXPECTED_SOURCE_ARTIFACT_VERSION,
+                **VALID_RUNTIME_LINEAGE,
+            }
+        ]
+    )
 
 
 def test_revenue_launch_timing_feature_audit_passes() -> None:
     assert validate() == []
+
+
+@pytest.mark.parametrize(
+    ("column", "value", "message"),
+    (
+        ("artifact_id", "wrong_lag_artifact", "artifact id drift"),
+        ("artifact_version", "stale_lag_v3", "artifact version drift"),
+    ),
+)
+def test_launch_source_lineage_rejects_mutated_or_stale_artifact(
+    column: str,
+    value: str,
+    message: str,
+) -> None:
+    source = _source_lineage_frame()
+    source.loc[0, column] = value
+
+    with pytest.raises(RuntimeError, match=message):
+        _assert_source_detail_lineage(source)
+    assert any(message in error for error in launch_validator._source_lineage_errors(source))
+
+
+@pytest.mark.parametrize("column", MONTHLY_REVENUE_RUNTIME_LINEAGE_COLUMNS)
+def test_launch_source_lineage_rejects_nonconstant_or_noncanonical_runtime_sha(
+    column: str,
+) -> None:
+    source = pd.concat([_source_lineage_frame(), _source_lineage_frame()], ignore_index=True)
+    source.loc[1, column] = "not-a-sha"
+
+    with pytest.raises(RuntimeError, match="not constant"):
+        _assert_source_detail_lineage(source)
+    assert any(
+        "not constant" in error
+        for error in launch_validator._source_lineage_errors(source)
+    )
+
+
+@pytest.mark.parametrize("column", MONTHLY_REVENUE_RUNTIME_LINEAGE_COLUMNS)
+def test_launch_validator_rejects_stale_constant_runtime_lineage(column: str) -> None:
+    source = _source_lineage_frame()
+    expected = dict(VALID_RUNTIME_LINEAGE)
+    expected[column] = "d" * 64
+
+    errors = launch_validator._source_lineage_errors(
+        source,
+        expected_runtime_lineage=expected,
+    )
+    assert errors == [f"launch timing source current input lineage drift: {column}"]
 
 
 def test_user_no_fallback_definition_is_stricter_than_month_end_and_retain10() -> None:

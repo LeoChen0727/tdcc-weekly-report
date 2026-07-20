@@ -13,7 +13,16 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parents[1]
 MODEL_ID = "revenue_unreacted_range"
 ARTIFACT_ID = "revenue_unreacted_range_launch_timing_feature_audit"
-ARTIFACT_VERSION = "launch_timing_breakout_feature_v2_20260713"
+ARTIFACT_VERSION = "launch_timing_breakout_feature_v3_20260720"
+EXPECTED_SOURCE_ARTIFACT_ID = "revenue_unreacted_range_lag_strength_matrix"
+EXPECTED_SOURCE_ARTIFACT_VERSION = (
+    "trading_day_lag_strength_root_cause_pending_v4_20260720"
+)
+MONTHLY_REVENUE_RUNTIME_LINEAGE_COLUMNS = (
+    "monthly_revenue_history_blob_sha256",
+    "monthly_revenue_canonical_table_sha256",
+    "cross_market_resolution_registry_canonical_sha256",
+)
 
 SOURCE_DETAIL = (
     ROOT
@@ -57,6 +66,43 @@ ANALYSIS_BASES = (
     PRIMARY_ANALYSIS_BASIS,
     SENSITIVITY_ANALYSIS_BASIS,
 )
+
+
+def _assert_source_detail_lineage(source: pd.DataFrame) -> dict[str, str]:
+    required = {
+        "artifact_id",
+        "artifact_version",
+        *MONTHLY_REVENUE_RUNTIME_LINEAGE_COLUMNS,
+    }
+    missing = sorted(required - set(source.columns))
+    if missing:
+        raise RuntimeError(f"launch timing source lineage is missing columns: {missing}")
+    if set(source["artifact_id"].astype(str)) != {EXPECTED_SOURCE_ARTIFACT_ID}:
+        raise RuntimeError(
+            "launch timing source artifact id drift: "
+            f"expected={EXPECTED_SOURCE_ARTIFACT_ID}"
+        )
+    if set(source["artifact_version"].astype(str)) != {
+        EXPECTED_SOURCE_ARTIFACT_VERSION
+    }:
+        raise RuntimeError(
+            "launch timing source artifact version drift: "
+            f"expected={EXPECTED_SOURCE_ARTIFACT_VERSION}"
+        )
+    lineage: dict[str, str] = {}
+    for column in MONTHLY_REVENUE_RUNTIME_LINEAGE_COLUMNS:
+        values = set(source[column].astype(str).str.strip().str.lower())
+        if len(values) != 1:
+            raise RuntimeError(
+                f"launch timing source runtime lineage is not constant: {column}"
+            )
+        value = next(iter(values))
+        if len(value) != 64 or any(character not in "0123456789abcdef" for character in value):
+            raise RuntimeError(
+                f"launch timing source runtime lineage is not canonical SHA-256: {column}"
+            )
+        lineage[column] = value
+    return lineage
 
 OUTCOME_SPECS = (
     {
@@ -107,6 +153,7 @@ SUMMARY_COLUMNS = [
     "model_id",
     "artifact_id",
     "artifact_version",
+    *MONTHLY_REVENUE_RUNTIME_LINEAGE_COLUMNS,
     "analysis_basis",
     "trigger_id",
     "trigger_label_zh",
@@ -151,6 +198,7 @@ DETAIL_COLUMNS = [
     "model_id",
     "artifact_id",
     "artifact_version",
+    *MONTHLY_REVENUE_RUNTIME_LINEAGE_COLUMNS,
     "analysis_basis",
     "episode_key",
     "stock_id",
@@ -205,6 +253,7 @@ FEATURE_COLUMNS = [
     "model_id",
     "artifact_id",
     "artifact_version",
+    *MONTHLY_REVENUE_RUNTIME_LINEAGE_COLUMNS,
     "analysis_basis",
     "classification_trigger_id",
     "classification_outcome_definition_id",
@@ -685,6 +734,7 @@ def build_launch_detail(
     *,
     daily_by_stock: dict[str, pd.DataFrame] | None = None,
 ) -> tuple[pd.DataFrame, pd.DataFrame]:
+    runtime_lineage = _assert_source_detail_lineage(source)
     if daily_by_stock is None:
         if prepared is None:
             raise ValueError("prepared frame is required when daily_by_stock is not provided")
@@ -755,6 +805,7 @@ def build_launch_detail(
                         "model_id": MODEL_ID,
                         "artifact_id": ARTIFACT_ID,
                         "artifact_version": ARTIFACT_VERSION,
+                        **runtime_lineage,
                         **episode._asdict(),
                         "trigger_id": trigger_id,
                         "trigger_label_zh": str(trigger["trigger_label_zh"]),
@@ -861,6 +912,10 @@ def _summary_row(
         "model_id": MODEL_ID,
         "artifact_id": ARTIFACT_ID,
         "artifact_version": ARTIFACT_VERSION,
+        **{
+            column: str(detail[column].iloc[0])
+            for column in MONTHLY_REVENUE_RUNTIME_LINEAGE_COLUMNS
+        },
         "analysis_basis": analysis_basis,
         "trigger_id": str(trigger["trigger_id"]),
         "trigger_label_zh": str(trigger["trigger_label_zh"]),
@@ -1027,6 +1082,10 @@ def _snapshot_rows(
                     "observation_unresolved_price_path_anomaly_candidate_flag": bool(
                         episode.observation_unresolved_price_path_anomaly_candidate_flag
                     ),
+                    **{
+                        column: str(getattr(episode, column))
+                        for column in MONTHLY_REVENUE_RUNTIME_LINEAGE_COLUMNS
+                    },
                 }
             )
             if time_basis == "retrospective_breakout_anchor" and position >= 5:
@@ -1099,6 +1158,10 @@ def _feature_base_row(
         "model_id": MODEL_ID,
         "artifact_id": ARTIFACT_ID,
         "artifact_version": ARTIFACT_VERSION,
+        **{
+            column: str(snapshots[column].iloc[0])
+            for column in MONTHLY_REVENUE_RUNTIME_LINEAGE_COLUMNS
+        },
         "analysis_basis": analysis_basis,
         "classification_trigger_id": PRIMARY_TRIGGER_ID,
         "classification_outcome_definition_id": PRIMARY_OUTCOME_ID,

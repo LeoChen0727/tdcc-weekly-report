@@ -65,25 +65,39 @@ def _source_row(
     indices = [source_index, 230] if with_future_update else [source_index]
     source_dates = [str(price.at[index, "date"]) for index in indices]
     periods = ["202601", "202602"] if with_future_update else ["202601"]
+    resolution_ids = ["none"] * len(indices)
+    source_hashes = [str(offset + 4) * 64 for offset in range(len(indices))]
     return {
         "model_id": validator.MODEL_ID,
         "artifact_id": validator.SOURCE_FIRST_ARTIFACT_ID,
         "artifact_version": validator.SOURCE_FIRST_ARTIFACT_VERSION,
+        "monthly_revenue_history_blob_sha256": "1" * 64,
+        "monthly_revenue_canonical_table_sha256": "2" * 64,
+        "cross_market_resolution_registry_canonical_sha256": "3" * 64,
         "condition_variant_id": validator.SOURCE_VARIANT_ID,
         "episode_key": f"episode-{stock_id}",
         "stock_id": stock_id,
         "stock_name": stock_name,
         "episode_start_revenue_period": periods[0],
         "episode_start_source_date": source_dates[0],
+        "episode_start_cross_market_resolution_id": resolution_ids[0],
+        "episode_start_source_row_canonical_sha256": source_hashes[0],
+        "episode_start_canonical_source_table_date": source_dates[0],
         "episode_start_trade_date": source_dates[0],
         "episode_start_sequence_index": indices[0],
         "latest_qualifying_revenue_period": periods[-1],
         "latest_qualifying_source_date": source_dates[-1],
+        "latest_qualifying_cross_market_resolution_id": resolution_ids[-1],
+        "latest_qualifying_source_row_canonical_sha256": source_hashes[-1],
+        "latest_qualifying_canonical_source_table_date": source_dates[-1],
         "latest_qualifying_trade_date": source_dates[-1],
         "latest_qualifying_sequence_index": indices[-1],
         "qualifying_update_count": len(indices),
         "qualifying_revenue_periods": "|".join(periods),
         "qualifying_source_dates": "|".join(source_dates),
+        "qualifying_cross_market_resolution_ids": "|".join(resolution_ids),
+        "qualifying_source_row_canonical_sha256s": "|".join(source_hashes),
+        "qualifying_canonical_source_table_dates": "|".join(source_dates),
         "qualifying_trade_dates": "|".join(source_dates),
         "qualifying_sequence_indices": "|".join(str(index) for index in indices),
     }
@@ -174,6 +188,7 @@ def _build_fixture(root: Path) -> dict[str, Path]:
     for relative_path in (
         validator.SOURCE_FIRST_PRODUCER_RELATIVE_PATH,
         validator.REARMED_PRODUCER_RELATIVE_PATH,
+        validator.POSITION_SHAPE_PRODUCER_RELATIVE_PATH,
         validator.DATA_SHARING_REGISTRY_RELATIVE_PATH,
         validator.BACKGROUND_REGISTRY_RELATIVE_PATH,
     ):
@@ -274,7 +289,7 @@ def _rewrite_family(paths: dict[str, Path], family: str, frame: pd.DataFrame) ->
 
 
 def test_validator_is_independent_and_accepts_synthetic_replay(tmp_path: Path) -> None:
-    _build_fixture(tmp_path)
+    paths = _build_fixture(tmp_path)
 
     tree = ast.parse(Path(validator.__file__).read_text(encoding="utf-8"))
     imported_modules = {
@@ -293,6 +308,16 @@ def test_validator_is_independent_and_accepts_synthetic_replay(tmp_path: Path) -
         not in imported_modules
     )
     assert validator.validate(artifact_root=tmp_path, source_root=tmp_path) == []
+    detail = pd.read_csv(
+        paths["detail_latest"], dtype={"stock_id": str}, keep_default_na=False
+    )
+    row = detail.loc[detail["stock_id"].eq("1111")].iloc[0]
+    assert row["asof_latest_qualifying_cross_market_resolution_id"] == "none"
+    assert row["asof_latest_qualifying_source_row_canonical_sha256"] == "4" * 64
+    assert (
+        str(row["asof_latest_qualifying_canonical_source_table_date"])
+        == str(row["asof_latest_qualifying_source_date"])
+    )
 
 
 def test_validator_rejects_latest_known_source_and_watch_horizon_drift(
@@ -399,7 +424,7 @@ def test_validator_rejects_lineage_and_registered_contract_drift(
     registry.loc[row, "data_contract_sha256"] = "f" * 64
     registry.to_csv(registry_path, index=False, encoding="utf-8")
     assert any(
-        "background data contract SHA-256 drift" in error
+        "data contract SHA-256 drift" in error
         for error in validator.validate(artifact_root=tmp_path, source_root=tmp_path)
     )
 
@@ -412,4 +437,53 @@ def test_validator_rejects_lineage_and_registered_contract_drift(
     assert any(
         "background data contract SHA-256 drift" in error
         for error in validator.validate(artifact_root=tmp_path, source_root=tmp_path)
+    )
+
+
+def test_validator_rejects_position_shape_producer_lineage_mutation(
+    tmp_path: Path,
+) -> None:
+    paths = _build_fixture(tmp_path)
+    detail = pd.read_csv(paths["detail_latest"], dtype={"stock_id": str})
+    detail.loc[:, "position_shape_producer_semantic_sha256"] = "0" * 64
+    _rewrite_family(paths, "detail", detail)
+    assert any(
+        "position_shape_producer_semantic_sha256" in error
+        for error in validator.validate(artifact_root=tmp_path, source_root=tmp_path)
+    )
+
+    paths = _build_fixture(tmp_path)
+    position_shape_path = tmp_path / validator.POSITION_SHAPE_PRODUCER_RELATIVE_PATH
+    position_shape_path.write_bytes(position_shape_path.read_bytes() + b"\n# mutation\n")
+    assert any(
+        "position_shape_producer_semantic_sha256" in error
+        for error in validator.validate(artifact_root=tmp_path, source_root=tmp_path)
+    )
+
+
+def test_validator_rejects_asof_payload_lineage_misalignment(tmp_path: Path) -> None:
+    _build_fixture(tmp_path)
+    source_path = tmp_path / validator.SOURCE_RELATIVE_PATHS["source_first"]
+    source = pd.read_csv(source_path, dtype={"stock_id": str}, keep_default_na=False)
+    row = source.index[source["stock_id"].eq("1111")][0]
+    assert int(source.at[row, "qualifying_update_count"]) == 2
+    source.at[row, "qualifying_source_row_canonical_sha256s"] = "4" * 64
+    source.to_csv(source_path, index=False, encoding="utf-8-sig")
+
+    errors = validator.validate(artifact_root=tmp_path, source_root=tmp_path)
+    assert any("qualifying lineage is not aligned" in error for error in errors)
+
+
+def test_validator_rejects_source_first_run_lineage_mutation(tmp_path: Path) -> None:
+    _build_fixture(tmp_path)
+    source_path = tmp_path / validator.SOURCE_RELATIVE_PATHS["source_first"]
+    source = pd.read_csv(source_path, dtype={"stock_id": str}, keep_default_na=False)
+    source["monthly_revenue_history_blob_sha256"] = "a" * 64
+    source.to_csv(source_path, index=False, encoding="utf-8-sig")
+
+    errors = validator.validate(artifact_root=tmp_path, source_root=tmp_path)
+    assert any(
+        "source_first_canonical_row_sha256" in error
+        or "monthly_revenue_history_blob_sha256" in error
+        for error in errors
     )

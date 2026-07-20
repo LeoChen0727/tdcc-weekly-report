@@ -211,6 +211,7 @@ jobs:
       - name: Build model-owned revenue lag and strength research
         if: ${{ github.event.inputs.run_revenue_unreacted_range_research == 'true' }}
         run: |
+          python scripts/validate_revenue_unreacted_range_monthly_revenue_cross_market_resolution.py
           python scripts/build_revenue_unreacted_range_research.py
           python scripts/validate_daily_model_revenue_condition_matrix.py
           python scripts/validate_revenue_unreacted_range_operation_candidate_matrix.py
