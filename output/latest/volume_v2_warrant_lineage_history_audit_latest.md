@@ -2,21 +2,21 @@
 
 - Audit version: `volume_v2_warrant_lineage_history_audit_v5`
 - Audited trading dates: `20260615, 20260616, 20260617, 20260618, 20260622, 20260623, 20260624, 20260626, 20260629, 20260630, 20260701, 20260702, 20260703, 20260706, 20260707, 20260708, 20260709, 20260713, 20260714, 20260715, 20260716, 20260717`
-- Dynamic source coverage: `108/108` revisions
-- Formal volume v2 rows: `96`
-- Formal verified clean: `71`
+- Dynamic source coverage: `109/109` revisions
+- Formal volume v2 rows: `99`
+- Formal verified clean: `73`
 - Formal superseded: `3`
-- Formal quarantined: `22`
+- Formal quarantined: `23`
 - Formal unreplayable: `0`
-- Legacy precontract history incomplete dates: `13`
-- Historical promotion evidence eligible rows: `19/96`
-- Superseded advisory watch rows: `4`
-- Independent component replay resolved: `96/96`
-- Candidate-absent canonical score contexts: `46` stored as `{}`
+- Legacy precontract history incomplete dates: `16`
+- Historical promotion evidence eligible rows: `19/99`
+- Superseded advisory watch rows: `5`
+- Independent component replay resolved: `99/99`
+- Candidate-absent canonical score contexts: `48` stored as `{}`
 - Warrant collision rows: `4`
 - TDCC-status collision rows: `0`
 - False-breakout collision rows: `0`
-- Watch/candidate source score collisions: `0`
+- Watch/candidate source score collisions: `1`
 - Watch/candidate source rank collisions: `0`
 - Historical daily snapshots were read only and were not rewritten.
 
@@ -24,25 +24,25 @@
 
 | Report date | Revision | Formal v2 rows | Revision history | Precontract history | Promotion eligible | Dispatcher warrant score source |
 |---|---|---:|---|---|---:|---|
-| 20260615 | r1 | 0 | complete | complete | 0 | legacy_watch_overrides_candidate |
+| 20260615 | r1 | 0 | incomplete_fail_closed | incomplete_fail_closed | 0 | legacy_watch_overrides_candidate |
 | 20260616 | legacy_r1 | 0 | legacy_git_manifest_recovered | incomplete_fail_closed | 0 | legacy_watch_overrides_candidate |
 | 20260616 | legacy_r2 | 0 | legacy_git_manifest_recovered | incomplete_fail_closed | 0 | legacy_watch_overrides_candidate |
 | 20260616 | legacy_r3 | 0 | legacy_git_manifest_recovered | incomplete_fail_closed | 0 | legacy_watch_overrides_candidate |
 | 20260616 | legacy_r4 | 0 | legacy_git_manifest_recovered | incomplete_fail_closed | 0 | legacy_watch_overrides_candidate |
 | 20260616 | legacy_r5 | 0 | legacy_git_manifest_recovered | incomplete_fail_closed | 0 | legacy_watch_overrides_candidate |
 | 20260616 | legacy_r7 | 0 | legacy_git_manifest_recovered | incomplete_fail_closed | 0 | legacy_watch_overrides_candidate |
-| 20260616 | r1 | 0 | complete | incomplete_fail_closed | 0 | legacy_watch_overrides_candidate |
-| 20260617 | legacy_r1 | 0 | legacy_git_manifest_recovered | complete | 0 | legacy_watch_overrides_candidate |
-| 20260617 | legacy_r2 | 0 | legacy_git_manifest_recovered | complete | 0 | legacy_watch_overrides_candidate |
-| 20260617 | legacy_r3 | 0 | legacy_git_manifest_recovered | complete | 0 | legacy_watch_overrides_candidate |
-| 20260617 | legacy_r4 | 0 | legacy_git_manifest_recovered | complete | 0 | legacy_watch_overrides_candidate |
-| 20260617 | legacy_r5 | 0 | legacy_git_manifest_recovered | complete | 0 | legacy_watch_overrides_candidate |
-| 20260617 | legacy_r6 | 0 | legacy_git_manifest_recovered | complete | 0 | legacy_watch_overrides_candidate |
-| 20260617 | legacy_r7 | 0 | legacy_git_manifest_recovered | complete | 0 | legacy_watch_overrides_candidate |
-| 20260617 | legacy_r8 | 0 | legacy_git_manifest_recovered | complete | 0 | legacy_watch_overrides_candidate |
-| 20260617 | legacy_r9 | 0 | legacy_git_manifest_recovered | complete | 0 | legacy_watch_overrides_candidate |
-| 20260617 | legacy_r10 | 0 | legacy_git_manifest_recovered | complete | 0 | legacy_watch_overrides_candidate |
-| 20260617 | r1 | 0 | complete | complete | 0 | legacy_watch_overrides_candidate |
+| 20260616 | r1 | 0 | incomplete_fail_closed | incomplete_fail_closed | 0 | legacy_watch_overrides_candidate |
+| 20260617 | legacy_r1 | 0 | legacy_git_manifest_recovered | incomplete_fail_closed | 0 | legacy_watch_overrides_candidate |
+| 20260617 | legacy_r2 | 0 | legacy_git_manifest_recovered | incomplete_fail_closed | 0 | legacy_watch_overrides_candidate |
+| 20260617 | legacy_r3 | 0 | legacy_git_manifest_recovered | incomplete_fail_closed | 0 | legacy_watch_overrides_candidate |
+| 20260617 | legacy_r4 | 0 | legacy_git_manifest_recovered | incomplete_fail_closed | 0 | legacy_watch_overrides_candidate |
+| 20260617 | legacy_r5 | 0 | legacy_git_manifest_recovered | incomplete_fail_closed | 0 | legacy_watch_overrides_candidate |
+| 20260617 | legacy_r6 | 0 | legacy_git_manifest_recovered | incomplete_fail_closed | 0 | legacy_watch_overrides_candidate |
+| 20260617 | legacy_r7 | 0 | legacy_git_manifest_recovered | incomplete_fail_closed | 0 | legacy_watch_overrides_candidate |
+| 20260617 | legacy_r8 | 0 | legacy_git_manifest_recovered | incomplete_fail_closed | 0 | legacy_watch_overrides_candidate |
+| 20260617 | legacy_r9 | 0 | legacy_git_manifest_recovered | incomplete_fail_closed | 0 | legacy_watch_overrides_candidate |
+| 20260617 | legacy_r10 | 0 | legacy_git_manifest_recovered | incomplete_fail_closed | 0 | legacy_watch_overrides_candidate |
+| 20260617 | r1 | 0 | incomplete_fail_closed | incomplete_fail_closed | 0 | legacy_watch_overrides_candidate |
 | 20260618 | legacy_r1 | 0 | legacy_git_manifest_recovered | incomplete_fail_closed | 0 | legacy_watch_overrides_candidate |
 | 20260618 | legacy_r2 | 0 | legacy_git_manifest_recovered | incomplete_fail_closed | 0 | legacy_watch_overrides_candidate |
 | 20260618 | legacy_r3 | 0 | legacy_git_manifest_recovered | incomplete_fail_closed | 0 | legacy_watch_overrides_candidate |
@@ -55,8 +55,8 @@
 | 20260618 | legacy_r11 | 0 | legacy_git_manifest_recovered | incomplete_fail_closed | 0 | legacy_watch_overrides_candidate |
 | 20260618 | legacy_r12 | 0 | legacy_git_manifest_recovered | incomplete_fail_closed | 0 | legacy_watch_overrides_candidate |
 | 20260618 | legacy_r13 | 0 | legacy_git_manifest_recovered | incomplete_fail_closed | 0 | legacy_watch_overrides_candidate |
-| 20260618 | r1 | 0 | complete | incomplete_fail_closed | 0 | legacy_watch_overrides_candidate |
-| 20260622 | r1 | 0 | complete | complete | 0 | legacy_watch_overrides_candidate |
+| 20260618 | r1 | 0 | incomplete_fail_closed | incomplete_fail_closed | 0 | legacy_watch_overrides_candidate |
+| 20260622 | r1 | 0 | incomplete_fail_closed | incomplete_fail_closed | 0 | legacy_watch_overrides_candidate |
 | 20260623 | legacy_r1 | 0 | legacy_git_manifest_recovered | complete | 0 | legacy_watch_overrides_candidate |
 | 20260623 | r1 | 0 | complete | complete | 0 | legacy_watch_overrides_candidate |
 | 20260624 | legacy_r1 | 0 | legacy_git_manifest_recovered | complete | 0 | legacy_watch_overrides_candidate |
@@ -132,6 +132,7 @@
 | 20260716 | r1 | 5 | complete | complete | 5 | canonical_candidate_after_watch_merge |
 | 20260717 | legacy_r1 | 3 | legacy_git_manifest_recovered | complete | 3 | canonical_candidate_after_watch_merge |
 | 20260717 | r1 | 3 | complete | complete | 3 | canonical_candidate_after_watch_merge |
+| 20260717 | r2 | 3 | versioned_revision_exact | complete | 0 | canonical_candidate_explicit_allowlist |
 
 ## Watch collision disposition
 
@@ -141,6 +142,7 @@
 | 20260716 | 6505 | volume_range_breakout_v2_high_position_volume_attack | warrant_flow_signal | warrant=call_put_bullish/call_put_bullish→call_strong_inflow; tdcc=/→; false_breakout=False/False→False | 64.0→64.0 | 0.0→0.0 | 0.0→0.0 | 73.0→73.0 | 1→1 | superseded |
 | 20260716 | 6505 | volume_range_breakout_v2_high_position_volume_attack | warrant_flow_signal | warrant=call_put_bullish/call_put_bullish→call_strong_inflow; tdcc=/→; false_breakout=False/False→False | 64.0→64.0 | 0.0→0.0 | 0.0→0.0 | 73.0→73.0 | 1→1 | superseded |
 | 20260716 | 6505 | volume_range_breakout_v2_high_position_volume_attack | warrant_flow_signal | warrant=call_put_bullish/call_strong_inflow→call_strong_inflow; tdcc=/→; false_breakout=False/False→False | 64.0→64.0 | 0.0→0.0 | 0.0→0.0 | 73.0→73.0 | 1→1 | verified_clean |
+| 20260717 | 6243 | volume_range_breakout_v2_high_position_volume_attack |  | warrant=/→; tdcc=/→; false_breakout=False/False→False | 64.0→64.0 | 0.0→0.0 | 0.0→0.0 | 68.5→68.5 | 2→2 | quarantined |
 
 ## Conclusion
 
