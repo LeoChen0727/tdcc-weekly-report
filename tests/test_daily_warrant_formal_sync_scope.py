@@ -1327,6 +1327,10 @@ def test_warrant_formal_sync_staged_paths_are_positive_allowlisted() -> None:
             "output/latest/volume_attack_theme_layer_validation_latest.json",
             "docs/latest/volume_attack_theme_layer_latest.md",
             "docs/latest/volume_attack_theme_stocks_latest.csv",
+            "output/latest/volume_v2_warrant_lineage_history_audit_latest.csv",
+            "output/latest/volume_v2_warrant_lineage_history_audit_latest.md",
+            "docs/latest/volume_v2_warrant_lineage_history_audit_latest.csv",
+            "docs/latest/volume_v2_warrant_lineage_history_audit_latest.md",
         ]
     ) == []
 
@@ -1335,9 +1339,10 @@ def test_warrant_formal_sync_staged_paths_are_positive_allowlisted() -> None:
             "output/latest/daily_w_bottom_right_side_operation_section_latest.csv",
             "output/history/daily_model_snapshots/daily_w_bottom_right_side_operation_section_20260716.csv",
             "output/latest/research_backtest/volume_range_breakout_v2_research_latest.csv",
+            "output/latest/volume_v2_warrant_lineage_history_audit_latest.json",
         ]
     )
-    assert len(errors) == 3
+    assert len(errors) == 4
     assert all("outside allowlist" in error for error in errors)
 
     protected_errors = validate_staged_path_list(
