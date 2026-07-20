@@ -4,6 +4,7 @@ import ast
 import sys
 import tempfile
 import unittest
+from decimal import Decimal
 from pathlib import Path
 
 import pandas as pd
@@ -143,6 +144,123 @@ def write_volume_v2_watch_fixture(
         model_layer.volume_v2_canonical_text_sha256(price_path)
     )
     payload.to_csv(watch_path, index=False, encoding="utf-8-sig")
+
+
+def warrant_formal_sync_fixture() -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.DataFrame]:
+    raw_rows = [
+        {
+            "signal_date": "20260717",
+            "report_line": "mainstream",
+            "report_bucket": "mainstream",
+            "source_row_index": "candidate:0",
+            "stock_id": "2330",
+            "model_id": "revenue_unreacted_range",
+            "base_model_score": "80",
+            "final_rank_score": "80",
+            "model_score": "80",
+            "model_rank": "2",
+            "score_components": "base=50 | revenue strong +30",
+            "warrant_flow_signal": "no_signal",
+        },
+        {
+            "signal_date": "20260717",
+            "report_line": "mainstream",
+            "report_bucket": "mainstream",
+            "source_row_index": "candidate:1",
+            "stock_id": "2317",
+            "model_id": "revenue_unreacted_range",
+            "base_model_score": "81",
+            "final_rank_score": "81",
+            "model_score": "81",
+            "model_rank": "1",
+            "score_components": "base=50 | revenue strong +28 | warrant bullish +3",
+            "warrant_flow_signal": "call_inflow",
+        },
+        {
+            "signal_date": "20260717",
+            "report_line": "mainstream",
+            "report_bucket": "mainstream",
+            "source_row_index": "candidate:2",
+            "stock_id": "2454",
+            "model_id": "price_pullback_23ema",
+            "base_model_score": "70",
+            "final_rank_score": "70",
+            "model_score": "70",
+            "model_rank": "1",
+            "score_components": "base=70 | price_pullback_v1_required_gate",
+            "warrant_flow_signal": "no_signal",
+        },
+        {
+            "signal_date": "20260717",
+            "report_line": "non_mainstream",
+            "report_bucket": "non_mainstream",
+            "source_row_index": "tdcc_edge:0",
+            "stock_id": "1301",
+            "model_id": "tdcc_short_term_continuation_d5_d10",
+            "base_model_score": "60",
+            "final_rank_score": "60",
+            "model_score": "60",
+            "model_rank": "1",
+            "score_components": "base=50 | D+10 win 70.0% +5.0",
+            "warrant_flow_signal": "",
+        },
+    ]
+    raw = pd.DataFrame(raw_rows)
+    report = raw.copy()
+    report["merged_score_components"] = report["score_components"].str.replace(
+        " | ",
+        " / ",
+        regex=False,
+    )
+    current_history = [
+        {
+            column: row[column]
+            for column in (
+                "signal_date",
+                "report_bucket",
+                "stock_id",
+                "model_id",
+                "base_model_score",
+                "final_rank_score",
+                "model_score",
+                "model_rank",
+            )
+        }
+        for row in raw_rows
+    ]
+    prior = dict(current_history[0])
+    prior.update(
+        {
+            "signal_date": "20260715",
+            "base_model_score": "75",
+            "final_rank_score": "75",
+            "model_score": "75",
+            "model_rank": "1",
+        }
+    )
+    history = pd.DataFrame([prior, *current_history])
+    history["immutable_prior_cell"] = ""
+    history.loc[0, "immutable_prior_cell"] = "  preserve prior spacing exactly  "
+    candidates = pd.DataFrame(
+        [
+            {
+                "signal_date": "20260717",
+                "stock_id": "2330",
+                "warrant_flow_signal": "call_inflow",
+            },
+            {
+                "signal_date": "20260717",
+                "stock_id": "2317",
+                "warrant_flow_signal": "no_signal",
+            },
+            {
+                "signal_date": "20260717",
+                "stock_id": "2454",
+                "warrant_flow_signal": "call_inflow",
+            },
+        ]
+    )
+    return candidates, raw, report, history
 
 
 class DailyCandidateModelLayerTest(unittest.TestCase):
@@ -2180,6 +2298,401 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
             text = " ".join(report_ready[col].astype(str))
             self.assertNotRegex(text, r"\?\?\?|[a-z]+(?:_[a-z0-9]+){1,}")
         self.assertIn("放量攻擊", report_ready["model_name_zh"].iloc[0])
+
+    def test_warrant_formal_sync_preserves_membership_and_protected_models(self) -> None:
+        candidates, raw, report, history = warrant_formal_sync_fixture()
+        raw_identity = raw[
+            list(model_layer.WARRANT_FORMAL_SYNC_IDENTITY_COLUMNS)
+        ].copy()
+        report_identity = report[
+            list(model_layer.WARRANT_FORMAL_SYNC_IDENTITY_COLUMNS)
+        ].copy()
+        prior_history = history[history["signal_date"].eq("20260715")].copy()
+        protected_before = raw[
+            raw["model_id"].isin(model_layer.WARRANT_FORMAL_SYNC_PROTECTED_MODEL_IDS)
+        ][["model_id", "stock_id", "model_score", "model_rank"]].copy()
+
+        synced_raw, synced_report, synced_history = (
+            model_layer.synchronize_warrant_formal_frames(
+                candidates,
+                raw,
+                report,
+                history,
+            )
+        )
+
+        pd.testing.assert_frame_equal(
+            raw_identity,
+            synced_raw[list(model_layer.WARRANT_FORMAL_SYNC_IDENTITY_COLUMNS)],
+        )
+        pd.testing.assert_frame_equal(
+            report_identity,
+            synced_report[list(model_layer.WARRANT_FORMAL_SYNC_IDENTITY_COLUMNS)],
+        )
+        pd.testing.assert_frame_equal(
+            prior_history.reset_index(drop=True),
+            synced_history[synced_history["signal_date"].eq("20260715")].reset_index(
+                drop=True
+            ),
+        )
+        protected_after = synced_raw[
+            synced_raw["model_id"].isin(model_layer.WARRANT_FORMAL_SYNC_PROTECTED_MODEL_IDS)
+        ][["model_id", "stock_id", "model_score", "model_rank"]]
+        pd.testing.assert_frame_equal(
+            protected_before.reset_index(drop=True),
+            protected_after.reset_index(drop=True),
+        )
+
+        revenue = synced_raw[
+            synced_raw["model_id"].eq("revenue_unreacted_range")
+        ].set_index("stock_id")
+        self.assertEqual(revenue.loc["2330", "model_score"], "83.0")
+        self.assertEqual(revenue.loc["2330", "model_rank"], "1")
+        self.assertIn("warrant bullish +3", revenue.loc["2330", "score_components"])
+        self.assertEqual(revenue.loc["2317", "model_score"], "78.0")
+        self.assertEqual(revenue.loc["2317", "model_rank"], "2")
+        self.assertNotIn("warrant bullish", revenue.loc["2317", "score_components"])
+        revenue_report = synced_report[
+            synced_report["model_id"].eq("revenue_unreacted_range")
+        ].set_index("stock_id")
+        self.assertEqual(
+            revenue_report.loc["2330", "merged_score_components"],
+            "base=50 / revenue strong +30 / warrant bullish +3",
+        )
+        self.assertEqual(
+            revenue_report.loc["2317", "merged_score_components"],
+            "base=50 / revenue strong +28",
+        )
+        protected = synced_raw.set_index("stock_id")
+        self.assertEqual(protected.loc["2454", "warrant_flow_signal"], "call_inflow")
+        self.assertEqual(protected.loc["2454", "model_score"], "70")
+        self.assertEqual(protected.loc["1301", "warrant_flow_signal"], "")
+
+    def test_warrant_formal_sync_fails_closed_on_missing_or_conflicting_source(self) -> None:
+        candidates, raw, report, history = warrant_formal_sync_fixture()
+        missing = candidates[candidates["stock_id"].ne("2454")].copy()
+        with self.assertRaisesRegex(RuntimeError, "no canonical all_candidates"):
+            model_layer.synchronize_warrant_formal_frames(
+                missing,
+                raw,
+                report,
+                history,
+            )
+
+        conflicting = pd.concat(
+            [
+                candidates,
+                pd.DataFrame(
+                    [
+                        {
+                            "signal_date": "20260717",
+                            "stock_id": "2330",
+                            "warrant_flow_signal": "put_inflow",
+                        }
+                    ]
+                ),
+            ],
+            ignore_index=True,
+        )
+        with self.assertRaisesRegex(RuntimeError, "inconsistent duplicate warrant"):
+            model_layer.synchronize_warrant_formal_frames(
+                conflicting,
+                raw,
+                report,
+                history,
+            )
+
+    def test_warrant_formal_sync_fails_closed_on_identity_or_model_drift(self) -> None:
+        candidates, raw, report, history = warrant_formal_sync_fixture()
+        duplicated = pd.concat([report, report.iloc[[0]]], ignore_index=True)
+        with self.assertRaisesRegex(RuntimeError, "duplicate warrant formal-sync exact identity"):
+            model_layer.synchronize_warrant_formal_frames(
+                candidates,
+                raw,
+                duplicated,
+                history,
+            )
+
+        unknown = raw.copy()
+        unknown.loc[0, "model_id"] = "unregistered_model"
+        unknown_report = report.copy()
+        unknown_report.loc[0, "model_id"] = "unregistered_model"
+        unknown_history = history.copy()
+        unknown_history.loc[
+            unknown_history["signal_date"].eq("20260717")
+            & unknown_history["stock_id"].eq("2330"),
+            "model_id",
+        ] = "unregistered_model"
+        with self.assertRaisesRegex(RuntimeError, "unregistered formal model ids"):
+            model_layer.synchronize_warrant_formal_frames(
+                candidates,
+                unknown,
+                unknown_report,
+                unknown_history,
+            )
+
+    def test_warrant_formal_sync_volume_row_requires_negative_official_lineage(self) -> None:
+        candidates, raw, report, history = warrant_formal_sync_fixture()
+        price_mask = raw["model_id"].eq("price_pullback_23ema")
+        raw.loc[price_mask, "model_id"] = HIGH_VOLUME_MODEL_ID
+        raw.loc[price_mask, "source_row_index"] = "volume_breakout:0"
+        report.loc[price_mask, "model_id"] = HIGH_VOLUME_MODEL_ID
+        report.loc[price_mask, "source_row_index"] = "volume_breakout:0"
+        history.loc[
+            history["signal_date"].eq("20260717")
+            & history["model_id"].eq("price_pullback_23ema"),
+            "model_id",
+        ] = HIGH_VOLUME_MODEL_ID
+        candidates = candidates[candidates["stock_id"].ne("2454")].copy()
+        taxonomy = pd.DataFrame([{"stock_id": "2454"}])
+        lineage_source = Path(model_layer.__file__).resolve()
+        volume_watch = pd.DataFrame(
+            [
+                {
+                    "stock_id": "2454",
+                    "selection_status": "selected",
+                    "volume_breakout_type": "bottom_volume_attack",
+                    "signal_date": "20260717",
+                    "advisory_score_as_of": "20260717",
+                    "advisory_score_source_artifact": str(lineage_source),
+                    "advisory_score_source_sha256": (
+                        model_layer.volume_v2_canonical_text_sha256(lineage_source)
+                    ),
+                }
+            ]
+        )
+        empty_official = pd.DataFrame(
+            columns=["date", "stock_id", "warrant_flow_signal"]
+        )
+        negative_official = pd.DataFrame(
+            [
+                {
+                    "date": "20260717",
+                    "stock_id": "9999",
+                    "warrant_flow_signal": "no_signal",
+                }
+            ]
+        )
+
+        with self.assertRaisesRegex(RuntimeError, "official warrant projection columns missing"):
+            model_layer.synchronize_warrant_formal_frames(
+                candidates,
+                raw,
+                report,
+                history,
+                official_warrant=pd.DataFrame(),
+                volume_taxonomy=taxonomy,
+                volume_watch=volume_watch,
+            )
+
+        with self.assertRaisesRegex(RuntimeError, "has no rows"):
+            model_layer.synchronize_warrant_formal_frames(
+                candidates,
+                raw,
+                report,
+                history,
+                official_warrant=empty_official,
+                volume_taxonomy=taxonomy,
+                volume_watch=volume_watch,
+            )
+
+        stale_official = negative_official.copy()
+        stale_official.loc[0, "date"] = "20260716"
+        with self.assertRaisesRegex(RuntimeError, "date mismatch"):
+            model_layer.synchronize_warrant_formal_frames(
+                candidates,
+                raw,
+                report,
+                history,
+                official_warrant=stale_official,
+                volume_taxonomy=taxonomy,
+                volume_watch=volume_watch,
+            )
+
+        duplicate_official = pd.concat(
+            [negative_official, negative_official], ignore_index=True
+        )
+        with self.assertRaisesRegex(RuntimeError, "duplicate sources"):
+            model_layer.synchronize_warrant_formal_frames(
+                candidates,
+                raw,
+                report,
+                history,
+                official_warrant=duplicate_official,
+                volume_taxonomy=taxonomy,
+                volume_watch=volume_watch,
+            )
+
+        synced_raw, _, _ = model_layer.synchronize_warrant_formal_frames(
+            candidates,
+            raw,
+            report,
+            history,
+            official_warrant=negative_official,
+            volume_taxonomy=taxonomy,
+            volume_watch=volume_watch,
+        )
+        volume = synced_raw[synced_raw["model_id"].eq(HIGH_VOLUME_MODEL_ID)].iloc[0]
+        self.assertEqual(volume["warrant_flow_signal"], "")
+        self.assertEqual(volume["model_score"], "70")
+
+        official = pd.DataFrame(
+            [
+                {
+                    "date": "20260717",
+                    "stock_id": "2454",
+                    "warrant_flow_signal": "call_inflow",
+                }
+            ]
+        )
+        with self.assertRaisesRegex(RuntimeError, "official warrant data"):
+            model_layer.synchronize_warrant_formal_frames(
+                candidates,
+                raw,
+                report,
+                history,
+                official_warrant=official,
+                volume_taxonomy=taxonomy,
+                volume_watch=volume_watch,
+            )
+
+        wrong_watch = volume_watch.copy()
+        wrong_watch.loc[0, "selection_status"] = "watch_only"
+        with self.assertRaisesRegex(RuntimeError, "no exact model-owned watch lineage"):
+            model_layer.synchronize_warrant_formal_frames(
+                candidates,
+                raw,
+                report,
+                history,
+                official_warrant=negative_official,
+                volume_taxonomy=taxonomy,
+                volume_watch=wrong_watch,
+            )
+
+        stale_watch = volume_watch.copy()
+        stale_watch.loc[0, "advisory_score_as_of"] = "20260716"
+        with self.assertRaisesRegex(RuntimeError, "advisory lineage date mismatch"):
+            model_layer.synchronize_warrant_formal_frames(
+                candidates,
+                raw,
+                report,
+                history,
+                official_warrant=negative_official,
+                volume_taxonomy=taxonomy,
+                volume_watch=stale_watch,
+            )
+
+        missing_source_watch = volume_watch.copy()
+        missing_source_watch.loc[0, "advisory_score_source_artifact"] = ""
+        with self.assertRaisesRegex(RuntimeError, "source artifact is blank"):
+            model_layer.synchronize_warrant_formal_frames(
+                candidates,
+                raw,
+                report,
+                history,
+                official_warrant=negative_official,
+                volume_taxonomy=taxonomy,
+                volume_watch=missing_source_watch,
+            )
+
+        wrong_sha_watch = volume_watch.copy()
+        wrong_sha_watch.loc[0, "advisory_score_source_sha256"] = "0" * 64
+        with self.assertRaisesRegex(RuntimeError, "SHA-256 mismatch"):
+            model_layer.synchronize_warrant_formal_frames(
+                candidates,
+                raw,
+                report,
+                history,
+                official_warrant=negative_official,
+                volume_taxonomy=taxonomy,
+                volume_watch=wrong_sha_watch,
+            )
+
+    def test_warrant_formal_sync_rejects_mismatched_translated_bonus_marker(self) -> None:
+        with self.assertRaisesRegex(RuntimeError, "translated score marker"):
+            model_layer._warrant_sync_update_score_components_zh(
+                "基礎分60 | 權證偏多 +999",
+                before_signal="no_signal",
+                after_signal="call_inflow",
+                bonus=Decimal("2"),
+            )
+
+        with self.assertRaisesRegex(RuntimeError, "translated score marker"):
+            model_layer._warrant_sync_update_score_components_zh(
+                "基礎分60 | 權證偏多 +2 | 權證偏多 +2",
+                before_signal="call_inflow",
+                after_signal="call_inflow",
+                bonus=Decimal("2"),
+            )
+
+    def test_warrant_formal_sync_final_parity_is_allowlisted_and_current_only(self) -> None:
+        candidates, raw, report, history = warrant_formal_sync_fixture()
+        raw["score_components_zh"] = raw["score_components"].map(
+            model_layer.score_components_zh
+        )
+        report["score_components_zh"] = raw["score_components_zh"]
+        history["score_components_zh"] = "history"
+        protected_original = raw.loc[
+            raw["model_id"].eq("price_pullback_23ema"),
+            "score_components_zh",
+        ].iloc[0]
+        synced_raw, synced_report, synced_history = (
+            model_layer.synchronize_warrant_formal_frames(
+                candidates,
+                raw,
+                report,
+                history,
+            )
+        )
+        synced_report.loc[
+            synced_report["model_id"].eq("revenue_unreacted_range"),
+            "score_components_zh",
+        ] = "fresh allowed display"
+        synced_report.loc[
+            synced_report["model_id"].eq("price_pullback_23ema"),
+            "score_components_zh",
+        ] = "must not enter protected score fields"
+
+        final_raw, final_history = model_layer.finalize_warrant_formal_consumer_parity(
+            synced_raw,
+            synced_report,
+            synced_history,
+        )
+
+        revenue_raw = final_raw[
+            final_raw["model_id"].eq("revenue_unreacted_range")
+        ]
+        self.assertEqual(set(revenue_raw["score_components_zh"]), {"fresh allowed display"})
+        protected_raw = final_raw[
+            final_raw["model_id"].eq("price_pullback_23ema")
+        ].iloc[0]
+        self.assertEqual(protected_raw["score_components_zh"], protected_original)
+        prior = final_history[final_history["signal_date"].eq("20260715")].iloc[0]
+        self.assertEqual(prior["score_components_zh"], "history")
+        current_revenue = final_history[
+            final_history["signal_date"].eq("20260717")
+            & final_history["model_id"].eq("revenue_unreacted_range")
+        ]
+        self.assertEqual(
+            set(current_revenue["score_components_zh"]),
+            {"fresh allowed display"},
+        )
+
+    def test_warrant_formal_sync_cli_never_dispatches_full_selection(self) -> None:
+        original_sync = model_layer.run_warrant_formal_sync_only
+        original_main = model_layer.main
+        calls: list[str] = []
+        try:
+            model_layer.run_warrant_formal_sync_only = lambda: calls.append("warrant") or 0
+            model_layer.main = lambda: calls.append("full") or 0
+            self.assertEqual(
+                model_layer.cli_main(["--warrant-formal-sync-only"]),
+                0,
+            )
+        finally:
+            model_layer.run_warrant_formal_sync_only = original_sync
+            model_layer.main = original_main
+        self.assertEqual(calls, ["warrant"])
 
 
     def test_rotation_theme_resolver_maps_known_raw_market_terms(self) -> None:

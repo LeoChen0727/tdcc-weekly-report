@@ -143,3 +143,67 @@ def test_merge_is_idempotent_and_drops_only_stale_suffix_columns(
     assert len(second.columns) == len(set(second.columns))
     assert not any(column.endswith("_warrant") for column in second.columns)
     assert not any(column.endswith("_from_warrant") for column in second.columns)
+
+
+def test_merge_preserves_non_warrant_text_when_date_column_has_blanks(
+    monkeypatch: pytest.MonkeyPatch,
+    tmp_path: Path,
+) -> None:
+    candidate_path, warrant_path = _configure_merge_paths(monkeypatch, tmp_path)
+    rows = []
+    fixtures = (
+        ("2330", "20260717", "0012", "False"),
+        ("2317", "", "0000", "True"),
+    )
+    for stock_id, catalyst_date, lineage_code, boolean_text in fixtures:
+        row = _candidate_row()
+        row["stock_id"] = stock_id
+        row["catalyst_date"] = catalyst_date
+        row["lineage_code"] = lineage_code
+        row["boolean_text"] = boolean_text
+        rows.append(row)
+    original_columns = [
+        *_candidate_columns(),
+        "catalyst_date",
+        "lineage_code",
+        "boolean_text",
+    ]
+    pd.DataFrame(rows, columns=original_columns).to_csv(
+        candidate_path,
+        index=False,
+        encoding="utf-8-sig",
+    )
+    pd.DataFrame(
+        [
+            {
+                "stock_id": "2330",
+                "warrant_flow_signal": "call_inflow",
+                "warrant_flow_score": "2",
+                "note": "official",
+            }
+        ]
+    ).to_csv(
+        warrant_path,
+        index=False,
+        encoding="utf-8-sig",
+    )
+    before = pd.read_csv(candidate_path, dtype=str, keep_default_na=False)
+
+    warrant_merge.merge_warrant_flow()
+
+    after = pd.read_csv(candidate_path, dtype=str, keep_default_na=False)
+    non_warrant_columns = [
+        column
+        for column in original_columns
+        if column not in warrant_merge.WARRANT_OUTPUT_COLUMNS
+    ]
+    pd.testing.assert_frame_equal(
+        before[non_warrant_columns],
+        after[non_warrant_columns],
+    )
+    assert after.loc[0, "catalyst_date"] == "20260717"
+    assert after.loc[1, "catalyst_date"] == ""
+    assert after.loc[0, "lineage_code"] == "0012"
+    assert after.loc[1, "lineage_code"] == "0000"
+    assert after.loc[0, "boolean_text"] == "False"
+    assert after.loc[1, "boolean_text"] == "True"

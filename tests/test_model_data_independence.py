@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import ast
 import csv
 import subprocess
 import sys
@@ -24,6 +25,8 @@ from model_data_independence import (  # noqa: E402
     data_contract_sha256,
     data_migration_row_sha256,
     migration_row_sha256,
+    runtime_subgraph_sha256,
+    semantic_record_sha256,
     strict_csv_rows,
     validate_data_sharing,
     validate_model_semantic_ownership,
@@ -162,7 +165,7 @@ def test_every_active_model_has_exact_ast_semantic_ownership() -> None:
 def test_shared_business_semantics_are_disclosed_as_contained_not_technical() -> None:
     rows = read_csv("config/daily_model_shared_semantic_registry.csv")
     by_item = {row["semantic_item"]: row for row in rows}
-    assert len(rows) == 85
+    assert len(rows) == 89
     assert by_item["global:MODEL_SCORE_PROFILES"]["semantic_class"] == (
         "contained_legacy_cross_model_semantic"
     )
@@ -222,6 +225,113 @@ def test_shared_business_semantics_are_disclosed_as_contained_not_technical() ->
         "global:STOCK_THEME_TAXONOMY",
     ):
         assert no_longer_shared_item not in by_item
+
+
+def test_warrant_runtime_subgraphs_pin_recursive_hashes_consumers_and_migration() -> None:
+    registry_rows = read_csv("config/daily_model_shared_semantic_registry.csv")
+    runtime_rows = {
+        row["semantic_item"]: row
+        for row in registry_rows
+        if row["semantic_item"].startswith("runtime_subgraph:")
+    }
+    expected_items = {
+        "runtime_subgraph:run_warrant_formal_sync_only",
+        "runtime_subgraph:synchronize_warrant_formal_frames",
+        "runtime_subgraph:rebuild_warrant_formal_consumers",
+        "runtime_subgraph:finalize_warrant_formal_consumer_parity",
+    }
+    assert set(runtime_rows) == expected_items
+    source_path = ROOT / "scripts/build_daily_candidate_model_layer.py"
+    graph = SourceSemanticGraph(
+        "scripts/build_daily_candidate_model_layer.py",
+        source_path.read_text(encoding="utf-8"),
+    )
+    expected_consumers = ";".join(sorted(ACTIVE_MODELS))
+    for item, row in runtime_rows.items():
+        assert row["semantic_class"] == "registered_cross_model_runtime_semantic"
+        assert row["consumer_models"] == expected_consumers
+        assert row["canonical_ast_sha256"] == runtime_subgraph_sha256(graph, item)
+        assert row["last_migration_id"] == (
+            "warrant_fixed_membership_runtime_semantics_20260720"
+        )
+
+    migration = next(
+        row
+        for row in read_csv("config/daily_model_semantic_migrations.csv")
+        if row["migration_id"]
+        == "warrant_fixed_membership_runtime_semantics_20260720"
+    )
+    changed = migration["changed_semantics"].split(";")
+    assert changed == [
+        f"item:scripts/build_daily_candidate_model_layer.py::{item}"
+        for item in (
+            "runtime_subgraph:run_warrant_formal_sync_only",
+            "runtime_subgraph:synchronize_warrant_formal_frames",
+            "runtime_subgraph:rebuild_warrant_formal_consumers",
+            "runtime_subgraph:finalize_warrant_formal_consumer_parity",
+        )
+    ]
+    assert migration["previous_sha256s"].split(";") == ["NEW", "NEW", "NEW", "NEW"]
+    assert migration["new_sha256s"].split(";") == [
+        semantic_record_sha256(changed_item, runtime_rows[changed_item.rsplit("::", 1)[1]])
+        for changed_item in changed
+    ]
+    assert migration["affected_models"] == expected_consumers
+
+
+def test_warrant_runtime_entrypoint_pins_lifecycle_sequence() -> None:
+    source_path = ROOT / "scripts/build_daily_candidate_model_layer.py"
+    graph = SourceSemanticGraph(
+        "scripts/build_daily_candidate_model_layer.py",
+        source_path.read_text(encoding="utf-8"),
+    )
+    entrypoint = graph.functions["run_warrant_formal_sync_only"]
+    calls = sorted(
+        (
+            node.lineno,
+            node.func.id,
+        )
+        for node in ast.walk(entrypoint)
+        if isinstance(node, ast.Call) and isinstance(node.func, ast.Name)
+    )
+    lifecycle_calls = [
+        name
+        for _, name in calls
+        if name
+        in {
+            "synchronize_warrant_formal_frames",
+            "rebuild_warrant_formal_consumers",
+            "finalize_warrant_formal_consumer_parity",
+        }
+    ]
+    assert lifecycle_calls == [
+        "synchronize_warrant_formal_frames",
+        "rebuild_warrant_formal_consumers",
+        "finalize_warrant_formal_consumer_parity",
+    ]
+    first_write_line = min(
+        lineno for lineno, name in calls if name in {"write_csv", "write_md_table"}
+    )
+    finalize_line = next(
+        lineno
+        for lineno, name in calls
+        if name == "finalize_warrant_formal_consumer_parity"
+    )
+    packet_line = next(lineno for lineno, name in calls if name == "write_packet")
+    assert finalize_line < first_write_line < packet_line
+
+
+def test_runtime_subgraph_hash_includes_indirect_repo_local_callback() -> None:
+    before = SourceSemanticGraph(
+        "runtime.py",
+        "def helper():\n    return 1\n\ndef root():\n    callback = helper\n    return callback()\n",
+    )
+    after = SourceSemanticGraph(
+        "runtime.py",
+        "def helper():\n    return 2\n\ndef root():\n    callback = helper\n    return callback()\n",
+    )
+    item = "runtime_subgraph:root"
+    assert runtime_subgraph_sha256(before, item) != runtime_subgraph_sha256(after, item)
 
 
 def test_semantic_baseline_is_immutable_and_pins_all_initial_records() -> None:

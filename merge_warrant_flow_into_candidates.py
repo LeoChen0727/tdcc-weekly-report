@@ -120,6 +120,18 @@ def load_csv(path: Path) -> pd.DataFrame:
         return pd.DataFrame()
 
 
+def load_candidate_csv(path: Path) -> pd.DataFrame:
+    """Load the published candidate table without coercing non-warrant text."""
+    if not path.exists():
+        return pd.DataFrame()
+
+    try:
+        return pd.read_csv(path, dtype=str, keep_default_na=False)
+    except Exception as exc:
+        print(f"Failed to read {path}: {exc}")
+        return pd.DataFrame()
+
+
 def detect_stock_id_col(df: pd.DataFrame) -> str:
     for col in ["stock_id", "ticker", "code", "股票代號"]:
         if col in df.columns:
@@ -208,7 +220,7 @@ def prepare_warrant_flow(warrant: pd.DataFrame) -> pd.DataFrame:
 
 
 def merge_warrant_flow() -> tuple[pd.DataFrame, str]:
-    candidates = load_csv(ALL_CANDIDATES_CSV)
+    candidates = load_candidate_csv(ALL_CANDIDATES_CSV)
 
     if candidates.empty:
         return candidates, "all_candidates_latest.csv not found or empty. Skip merge."

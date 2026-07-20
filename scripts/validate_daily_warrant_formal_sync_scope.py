@@ -1067,6 +1067,57 @@ def compare_scope_snapshots(before: dict[str, Any], after: dict[str, Any]) -> li
     return errors
 
 
+def compare_candidate_scope_snapshots(
+    before: dict[str, Any],
+    after: dict[str, Any],
+) -> list[str]:
+    """Validate the candidate merge boundary before formal signal projection.
+
+    The warrant workflow updates the canonical warrant projection in
+    ``all_candidates`` before it updates formal model artifacts.  This focused
+    comparison intentionally does not validate signal/report parity yet; it
+    proves that the merge changed only registered warrant columns.
+    """
+
+    errors: list[str] = []
+    if before.get("schema_version") != SCHEMA_VERSION:
+        errors.append("warrant candidate scope before snapshot schema_version mismatch")
+    if after.get("schema_version") != SCHEMA_VERSION:
+        errors.append("warrant candidate scope after snapshot schema_version mismatch")
+
+    before_artifacts = before.get("artifacts")
+    after_artifacts = after.get("artifacts")
+    if not isinstance(before_artifacts, dict):
+        errors.append("warrant candidate scope before snapshot artifacts must be an object")
+        before_artifacts = {}
+    if not isinstance(after_artifacts, dict):
+        errors.append("warrant candidate scope after snapshot artifacts must be an object")
+        after_artifacts = {}
+
+    before_record = before_artifacts.get(ALL_CANDIDATES_ARTIFACT)
+    after_record = after_artifacts.get(ALL_CANDIDATES_ARTIFACT)
+    if not isinstance(before_record, dict):
+        errors.append("warrant candidate scope before snapshot is missing all_candidates")
+        return errors
+    if not isinstance(after_record, dict):
+        errors.append("warrant candidate scope after snapshot is missing all_candidates")
+        return errors
+
+    if before_record.get("columns") != after_record.get("columns"):
+        errors.append("all_candidates schema drift during warrant merge")
+    if before_record.get("non_warrant_columns") != after_record.get(
+        "non_warrant_columns"
+    ):
+        errors.append("all_candidates non-warrant schema drift during warrant merge")
+    if before_record.get("protected_row_count") != after_record.get(
+        "protected_row_count"
+    ):
+        errors.append("all_candidates non-warrant row-count drift during warrant merge")
+    if before_record.get("protected_sha256") != after_record.get("protected_sha256"):
+        errors.append("all_candidates non-warrant content drift during warrant merge")
+    return errors
+
+
 def validate_staged_path_list(paths: list[str]) -> list[str]:
     errors: list[str] = []
     for raw_path in paths:
@@ -1599,6 +1650,7 @@ def main() -> int:
     action = parser.add_mutually_exclusive_group(required=True)
     action.add_argument("--write-snapshot", type=Path)
     action.add_argument("--compare-snapshot", type=Path)
+    action.add_argument("--compare-candidate-snapshot", type=Path)
     action.add_argument("--validate-staged", action="store_true")
     action.add_argument("--validate-source-date", action="store_true")
     parser.add_argument("--repo-root", type=Path, default=ROOT)
@@ -1640,6 +1692,29 @@ def main() -> int:
             "warrant formal sync scope snapshot captured "
             f"artifacts={snapshot['artifact_count']} "
             f"aggregate_sha256={snapshot['aggregate_sha256']}"
+        )
+        return 0
+
+    if args.compare_candidate_snapshot is not None:
+        try:
+            before = json.loads(
+                args.compare_candidate_snapshot.read_text(encoding="utf-8")
+            )
+        except (OSError, json.JSONDecodeError) as exc:
+            print(f"ERROR: unable to read warrant candidate scope snapshot: {exc}")
+            return 1
+        candidate_errors = compare_candidate_scope_snapshots(before, snapshot)
+        if candidate_errors:
+            for error in candidate_errors:
+                print(f"ERROR: {error}")
+            return 1
+        before_record = before["artifacts"][ALL_CANDIDATES_ARTIFACT]
+        after_record = snapshot["artifacts"][ALL_CANDIDATES_ARTIFACT]
+        print(
+            "warrant candidate merge scope validation passed "
+            f"rows={after_record['protected_row_count']} "
+            f"before_sha256={before_record['protected_sha256']} "
+            f"after_sha256={after_record['protected_sha256']}"
         )
         return 0
 

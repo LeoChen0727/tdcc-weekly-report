@@ -154,6 +154,7 @@ jobs:
           python scripts/validate_daily_published_model_snapshots.py
           capture_mature_sentinels "$mature_sentinel_before"
           warrant_formal_sync_scope_before="$RUNNER_TEMP/warrant-formal-sync-scope-before.json"
+          warrant_formal_sync_scope_after_merge="$RUNNER_TEMP/warrant-formal-sync-scope-after-merge.json"
           warrant_formal_sync_scope_after="$RUNNER_TEMP/warrant-formal-sync-scope-after.json"
           python scripts/validate_daily_warrant_formal_sync_scope.py \
             --write-snapshot "$warrant_formal_sync_scope_before"
@@ -173,10 +174,14 @@ jobs:
           python build_warrant_flow_latest.py
           python merge_warrant_flow_into_candidates.py
           python scripts/validate_daily_warrant_formal_sync_scope.py --validate-source-date
+          python scripts/validate_daily_warrant_formal_sync_scope.py \
+            --write-snapshot "$warrant_formal_sync_scope_after_merge"
+          python scripts/validate_daily_warrant_formal_sync_scope.py \
+            --compare-candidate-snapshot "$warrant_formal_sync_scope_before"
           python scripts/validate_data_freshness_latest.py
           python scripts/build_volume_attack_theme_layer.py
           python scripts/validate_volume_attack_theme_layer.py
-          python scripts/build_daily_candidate_model_layer.py
+          python scripts/build_daily_candidate_model_layer.py --warrant-formal-sync-only
           python scripts/validate_daily_candidate_model_layer.py
           python scripts/validate_daily_canonical_field_lineage.py
           python scripts/build_volume_v2_warrant_lineage_history_audit.py
@@ -232,8 +237,6 @@ jobs:
           done
 
           python scripts/validate_daily_warrant_formal_sync_scope.py \
-            --compare-snapshot "$warrant_formal_sync_scope_before"
-          python scripts/validate_daily_warrant_formal_sync_scope.py \
             --write-snapshot "$warrant_formal_sync_scope_after"
           capture_mature_sentinels "$mature_sentinel_after"
           mature_sentinel_before_sha256="$(sha256sum "$mature_sentinel_before" | cut -d' ' -f1)"
@@ -241,6 +244,8 @@ jobs:
           echo "mature_model_sentinel_before_sha256=$mature_sentinel_before_sha256"
           echo "mature_model_sentinel_after_sha256=$mature_sentinel_after_sha256"
           echo "mature_model_sentinel_artifact_count=$(wc -l < "$mature_sentinel_after")"
+          python scripts/validate_daily_warrant_formal_sync_scope.py \
+            --compare-snapshot "$warrant_formal_sync_scope_before"
           cmp --silent "$mature_sentinel_before" "$mature_sentinel_after" || {
             diff -u "$mature_sentinel_before" "$mature_sentinel_after" || true
             echo "mature-model sentinel hash drift detected" >&2
@@ -256,7 +261,17 @@ jobs:
             ${{ runner.temp }}/warrant-flow-mature-model-before.sha256
             ${{ runner.temp }}/warrant-flow-mature-model-after.sha256
             ${{ runner.temp }}/warrant-formal-sync-scope-before.json
+            ${{ runner.temp }}/warrant-formal-sync-scope-after-merge.json
             ${{ runner.temp }}/warrant-formal-sync-scope-after.json
+            output/latest/warrant_flow_latest.csv
+            output/latest/warrant_flow_merge_latest.md
+            output/latest/all_candidates_latest.csv
+            output/latest/daily_candidate_model_signals_latest.csv
+            output/latest/daily_candidate_model_signals_for_report_latest.csv
+            output/history/daily_candidate_models/daily_candidate_model_signal_log.csv
+            output/latest/daily_candidate_frontpage_unique_latest.csv
+            output/latest/daily_candidate_same_model_repeat_latest.csv
+            output/latest/daily_candidate_model_summary_for_report_latest.csv
             output/latest/volume_v2_warrant_lineage_history_audit_latest.csv
             output/latest/volume_v2_warrant_lineage_history_audit_latest.md
             output/history/daily_model_snapshots/daily_published_model_snapshot_manifest.csv

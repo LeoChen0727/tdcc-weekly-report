@@ -7,7 +7,13 @@ import subprocess
 
 import yaml
 
-from scripts.build_daily_candidate_model_layer import MODEL_SCORE_PROFILES
+from scripts.build_daily_candidate_model_layer import (
+    CROSS_MODEL_RUNTIME_SUBGRAPH_CONSUMERS,
+    MODEL_SCORE_PROFILES,
+    WARRANT_FORMAL_SYNC_ALLOWED_MODEL_IDS,
+    WARRANT_FORMAL_SYNC_PROTECTED_MODEL_IDS,
+    WARRANT_FORMAL_SYNC_REGISTERED_MODEL_IDS,
+)
 from scripts.validate_daily_warrant_formal_sync_scope import (
     ALLOWED_MUTABLE_MODEL_IDS,
     ALL_CANDIDATES_ARTIFACT,
@@ -24,6 +30,7 @@ from scripts.validate_daily_warrant_formal_sync_scope import (
     WARRANT_SOURCE_TO_CANDIDATE_FIELDS,
     BULLISH_WARRANT_SIGNALS,
     build_scope_snapshot,
+    compare_candidate_scope_snapshots,
     compare_scope_snapshots,
     validate_current_projection,
     validate_frontpage_uniqueness,
@@ -416,6 +423,26 @@ def test_mutable_scope_matches_nonzero_warrant_score_profiles() -> None:
         if profile.warrant_bullish_bonus != 0
     }
     assert ALLOWED_MUTABLE_MODEL_IDS == nonzero_profiles
+    assert WARRANT_FORMAL_SYNC_ALLOWED_MODEL_IDS == ALLOWED_MUTABLE_MODEL_IDS
+    assert WARRANT_FORMAL_SYNC_REGISTERED_MODEL_IDS == (
+        WARRANT_FORMAL_SYNC_ALLOWED_MODEL_IDS
+        | WARRANT_FORMAL_SYNC_PROTECTED_MODEL_IDS
+    )
+    assert set(CROSS_MODEL_RUNTIME_SUBGRAPH_CONSUMERS) == {
+        "run_warrant_formal_sync_only",
+        "synchronize_warrant_formal_frames",
+        "rebuild_warrant_formal_consumers",
+        "finalize_warrant_formal_consumer_parity",
+    }
+    assert all(
+        tuple(sorted(WARRANT_FORMAL_SYNC_REGISTERED_MODEL_IDS)) == consumers
+        for consumers in CROSS_MODEL_RUNTIME_SUBGRAPH_CONSUMERS.values()
+    )
+    assert {
+        model_id: format(profile.warrant_bullish_bonus, "g")
+        for model_id, profile in MODEL_SCORE_PROFILES.items()
+        if model_id in WARRANT_FORMAL_SYNC_ALLOWED_MODEL_IDS
+    } == WARRANT_BONUS_BY_MODEL
     assert "volume_range_breakout_v2_high_position_volume_attack" not in nonzero_profiles
     assert "price_pullback_23ema" not in nonzero_profiles
 
@@ -792,6 +819,49 @@ def test_candidate_scope_allows_only_warrant_columns(tmp_path: Path) -> None:
     assert "all_candidates non-warrant content drift" in compare_scope_snapshots(
         before, non_warrant_after
     )
+
+
+def test_candidate_merge_scope_isolated_from_stale_formal_projection(
+    tmp_path: Path,
+) -> None:
+    _write_artifacts(tmp_path, _signal_rows())
+    before, errors = build_scope_snapshot(tmp_path)
+    assert errors == []
+
+    candidate_rows = _candidate_rows()
+    candidate_rows[0]["warrant_flow_signal"] = "no_signal"
+    candidate_rows[0]["warrant_flow_score"] = "0"
+    _write_csv(
+        tmp_path / ALL_CANDIDATES_ARTIFACT,
+        list(candidate_rows[0]),
+        candidate_rows,
+    )
+    after, errors = build_scope_snapshot(tmp_path)
+
+    assert errors == []
+    assert compare_candidate_scope_snapshots(before, after) == []
+    projection_errors, _ = validate_current_projection(tmp_path)
+    assert any("formal signal warrant projection mismatch" in error for error in projection_errors)
+
+
+def test_candidate_merge_scope_rejects_non_warrant_cell_drift(tmp_path: Path) -> None:
+    _write_artifacts(tmp_path, _signal_rows())
+    before, errors = build_scope_snapshot(tmp_path)
+    assert errors == []
+
+    candidate_rows = _candidate_rows()
+    candidate_rows[0]["industry"] = "changed"
+    _write_csv(
+        tmp_path / ALL_CANDIDATES_ARTIFACT,
+        list(candidate_rows[0]),
+        candidate_rows,
+    )
+    after, errors = build_scope_snapshot(tmp_path)
+
+    assert errors == []
+    assert compare_candidate_scope_snapshots(before, after) == [
+        "all_candidates non-warrant content drift during warrant merge"
+    ]
 
 
 def test_candidate_scope_rejects_warrant_column_relocation(tmp_path: Path) -> None:
@@ -1301,6 +1371,8 @@ def test_warrant_workflow_rebuilds_formal_consumers_and_fails_closed() -> None:
     assert '--date "${{ github.event.inputs.date }}"' not in workflow
     assert "python scripts/validate_daily_warrant_formal_sync_scope.py" in workflow
     assert '--write-snapshot "$warrant_formal_sync_scope_before"' in workflow
+    assert '--write-snapshot "$warrant_formal_sync_scope_after_merge"' in workflow
+    assert '--compare-candidate-snapshot "$warrant_formal_sync_scope_before"' in workflow
     assert '--compare-snapshot "$warrant_formal_sync_scope_before"' in workflow
     assert 'capture_mature_sentinels "$mature_sentinel_before"' in workflow
     assert 'capture_mature_sentinels "$mature_sentinel_after"' in workflow
@@ -1346,7 +1418,7 @@ def test_warrant_workflow_rebuilds_formal_consumers_and_fails_closed() -> None:
         "python scripts/validate_daily_warrant_formal_sync_scope.py --validate-source-date",
         "python scripts/build_volume_attack_theme_layer.py",
         "python scripts/validate_volume_attack_theme_layer.py",
-        "python scripts/build_daily_candidate_model_layer.py",
+        "python scripts/build_daily_candidate_model_layer.py --warrant-formal-sync-only",
         "python scripts/validate_daily_candidate_model_layer.py",
         "python scripts/validate_daily_canonical_field_lineage.py",
         "python scripts/validate_volume_v2_warrant_lineage_history_audit.py",
@@ -1360,6 +1432,17 @@ def test_warrant_workflow_rebuilds_formal_consumers_and_fails_closed() -> None:
     ]
     indexes = [workflow.index(command) for command in expected_order]
     assert indexes == sorted(indexes)
+    assert "          python scripts/build_daily_candidate_model_layer.py\n" not in workflow
+    candidate_after_merge_index = workflow.index(
+        '--write-snapshot "$warrant_formal_sync_scope_after_merge"'
+    )
+    candidate_compare_index = workflow.index(
+        '--compare-candidate-snapshot "$warrant_formal_sync_scope_before"'
+    )
+    warrant_only_build_index = workflow.index(
+        "python scripts/build_daily_candidate_model_layer.py --warrant-formal-sync-only"
+    )
+    assert candidate_after_merge_index < candidate_compare_index < warrant_only_build_index
     snapshot_update_index = workflow.index("python scripts/update_daily_published_model_snapshots.py")
     history_build_before_update = workflow.rindex(
         "python scripts/build_volume_v2_warrant_lineage_history_audit.py",
@@ -1401,10 +1484,31 @@ def test_warrant_workflow_rebuilds_formal_consumers_and_fails_closed() -> None:
     assert "${{ runner.temp }}/warrant-flow-mature-model-before.sha256" in workflow
     assert "${{ runner.temp }}/warrant-flow-mature-model-after.sha256" in workflow
     assert "${{ runner.temp }}/warrant-formal-sync-scope-before.json" in workflow
+    assert "${{ runner.temp }}/warrant-formal-sync-scope-after-merge.json" in workflow
     assert "${{ runner.temp }}/warrant-formal-sync-scope-after.json" in workflow
     assert (
         '--write-snapshot "$warrant_formal_sync_scope_after"' in workflow
     )
+    after_snapshot_index = workflow.index(
+        '--write-snapshot "$warrant_formal_sync_scope_after"'
+    )
+    after_sentinel_index = workflow.index(
+        'capture_mature_sentinels "$mature_sentinel_after"'
+    )
+    final_compare_index = workflow.index(
+        '--compare-snapshot "$warrant_formal_sync_scope_before"'
+    )
+    assert after_snapshot_index < after_sentinel_index < final_compare_index
+    for diagnostic_artifact in (
+        "output/latest/all_candidates_latest.csv",
+        "output/latest/daily_candidate_model_signals_latest.csv",
+        "output/latest/daily_candidate_model_signals_for_report_latest.csv",
+        "output/history/daily_candidate_models/daily_candidate_model_signal_log.csv",
+        "output/latest/daily_candidate_frontpage_unique_latest.csv",
+        "output/latest/daily_candidate_same_model_repeat_latest.csv",
+        "output/latest/daily_candidate_model_summary_for_report_latest.csv",
+    ):
+        assert diagnostic_artifact in workflow
     assert "output/latest/volume_v2_warrant_lineage_history_audit_latest.csv" in workflow
     assert (
         "output/history/daily_model_snapshots/daily_published_model_snapshot_manifest.csv"
