@@ -112,12 +112,17 @@ jobs:
         run: |
           python scripts/validate_apps_script_workflow_triggers.py
           python scripts/validate_repo_production_inventory.py
-          python scripts/validate_daily_model_background_data_registry.py
+          python scripts/validate_daily_model_background_data_registry.py --structure-only
           python scripts/validate_research_production_boundaries.py
           python scripts/validate_model_research_artifact_ownership.py
           python scripts/validate_model_research_shared_utilities.py
           python scripts/validate_formal_model_evidence_pins.py
           python scripts/validate_model_research_workflow_isolation.py
+
+      - name: Validate existing registered artifacts before non-model research
+        if: ${{ env.MODEL_RESEARCH_SELECTED != 'true' }}
+        run: |
+          python scripts/validate_daily_model_background_data_registry.py
 
       - name: Install dependencies
         if: ${{ env.ANY_RESEARCH_SELECTED == 'true' }}
@@ -220,6 +225,7 @@ jobs:
           python scripts/validate_revenue_unreacted_range_rearmed_operation_grid.py
           python scripts/validate_revenue_unreacted_range_operation_lag_bucket_audit.py
           python scripts/validate_revenue_unreacted_range_position_shape_transition_matrix.py
+          python scripts/validate_revenue_unreacted_range_low_mid_falling_candidate_audit.py
 
       - name: Build volume breakout watch backtest
         if: ${{ github.event.inputs.run_volume_breakout == 'true' }}
@@ -274,6 +280,7 @@ jobs:
       - name: Validate post-run model research contracts
         if: ${{ env.MODEL_RESEARCH_SELECTED == 'true' }}
         run: |
+          python scripts/validate_daily_model_background_data_registry.py
           python scripts/validate_model_research_artifact_ownership.py
           python scripts/validate_formal_model_evidence_pins.py
           python scripts/validate_daily_model_research_parity.py
@@ -379,5 +386,9 @@ jobs:
             git add docs/latest/daily_short_term_specialty_packet_latest.md || true
           fi
           git status --short
-          git commit -m "Update research backtest outputs" || echo "No changes to commit"
-          bash scripts/ci_push_with_retry.sh "$TARGET_BRANCH" 5
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          git commit -m "Update research backtest outputs"
+          git push origin "HEAD:$TARGET_BRANCH"

@@ -446,7 +446,7 @@ def test_data_sharing_registry_uses_model_owned_research_entrypoints() -> None:
 
 def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
     rows = read_csv("config/daily_model_data_sharing_migrations.csv")
-    assert len(rows) == 18
+    assert len(rows) == 19
     baseline = rows[0]
     assert tuple(baseline) == DATA_SHARING_MIGRATION_COLUMNS
     assert data_migration_row_sha256(baseline) == BASELINE_DATA_MIGRATION_ROW_SHA256
@@ -796,6 +796,27 @@ def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
         "user_selected_option_1_daily_snapshot_revision_lineage_20260720"
     )
     assert snapshot_revision_contract["migration_status"] == (
+        "validated_user_approved_migration"
+    )
+
+    low_mid_falling_candidate = rows[18]
+    assert low_mid_falling_candidate["migration_id"] == (
+        "revenue_low_mid_falling_candidate_audit_20260720"
+    )
+    assert low_mid_falling_candidate["changed_data_families"] == (
+        "revenue_unreacted_range_low_mid_falling_candidate_audit"
+    )
+    assert low_mid_falling_candidate["previous_contract_sha256s"] == "NEW"
+    assert low_mid_falling_candidate["new_contract_sha256s"] == (
+        "45ccdded177fa9425bf0d6f2f092f55662734026e7a3dd6a9353c2f9b785ceaa"
+    )
+    assert low_mid_falling_candidate["affected_models"] == (
+        "revenue_unreacted_range"
+    )
+    assert low_mid_falling_candidate["user_approval_reference"] == (
+        "user_requested_revenue_low_mid_falling_research_candidates_20260720"
+    )
+    assert low_mid_falling_candidate["migration_status"] == (
         "validated_user_approved_migration"
     )
 

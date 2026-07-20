@@ -56,6 +56,19 @@ SHARED_DATA_STAGE_COMMANDS = {
     "git add output/latest/research_backtest/daily_model_background_feature_catalog_latest.* || true",
 }
 
+BACKGROUND_REGISTRY_STRUCTURE_COMMAND = (
+    "python scripts/validate_daily_model_background_data_registry.py --structure-only"
+)
+BACKGROUND_REGISTRY_FULL_COMMAND = (
+    "python scripts/validate_daily_model_background_data_registry.py"
+)
+COMMIT_STEP_MARKER = "- name: Commit research and backtest outputs"
+COMMIT_STEP_NAME = "Commit research and backtest outputs"
+STAGED_DIFF_GUARD = "if git diff --cached --quiet; then"
+RESEARCH_COMMIT_COMMAND = 'git commit -m "Update research backtest outputs"'
+FAIL_CLOSED_PUSH_COMMAND = 'git push origin "HEAD:$TARGET_BRANCH"'
+REBASE_RETRY_PUSH_COMMAND = 'bash scripts/ci_push_with_retry.sh "$TARGET_BRANCH" 5'
+
 
 @dataclass(frozen=True)
 class WorkflowEntrypoint:
@@ -160,6 +173,7 @@ def validate_workflow_text(
     errors: list[str] = []
     defaults = workflow_input_defaults(text)
     blocks = workflow_step_blocks(text)
+    stripped_lines = [line.strip() for line in text.splitlines()]
     any_selected_line = next(
         (line for line in text.splitlines() if "ANY_RESEARCH_SELECTED:" in line),
         "",
@@ -173,6 +187,13 @@ def validate_workflow_text(
         errors.append("legacy cross-model workflow input is forbidden: run_model_parameter_research")
     if 'git pull --rebase --autostash origin "$TARGET_BRANCH" || true' in text:
         errors.append("research workflow must not pull or ignore sync failure after producers run")
+    if REBASE_RETRY_PUSH_COMMAND in text:
+        errors.append(
+            "research workflow must fail closed when the target branch advances after validation; "
+            "post-validation rebase retry is forbidden"
+        )
+    if f'{RESEARCH_COMMIT_COMMAND} ||' in text:
+        errors.append("research workflow must not swallow commit failures")
     pre_run_sync = 'git pull --ff-only origin "$TARGET_BRANCH"'
     if pre_run_sync not in text:
         errors.append("research workflow missing fail-closed pre-run branch synchronization")
@@ -275,6 +296,122 @@ def validate_workflow_text(
             errors.append("shared objective data refresh must precede model-owned producers")
     if model_positions and pre_run_sync in text and text.index(pre_run_sync) > min(model_positions):
         errors.append("target branch synchronization must precede model-owned producers")
+
+    commit_blocks = [
+        block for block in blocks if block.splitlines()[0].strip() == COMMIT_STEP_NAME
+    ]
+    if len(commit_blocks) != 1:
+        errors.append("research workflow must contain exactly one research artifact commit step")
+    else:
+        commit_block = commit_blocks[0]
+        for required in (
+            STAGED_DIFF_GUARD,
+            'echo "No changes to commit"',
+            "exit 0",
+            RESEARCH_COMMIT_COMMAND,
+            FAIL_CLOSED_PUSH_COMMAND,
+        ):
+            if required not in commit_block:
+                errors.append(
+                    "research artifact commit step is missing fail-closed command: "
+                    f"{required}"
+                )
+        if all(
+            command in commit_block
+            for command in (
+                STAGED_DIFF_GUARD,
+                RESEARCH_COMMIT_COMMAND,
+                FAIL_CLOSED_PUSH_COMMAND,
+            )
+        ):
+            if not (
+                commit_block.index(STAGED_DIFF_GUARD)
+                < commit_block.index(RESEARCH_COMMIT_COMMAND)
+                < commit_block.index(FAIL_CLOSED_PUSH_COMMAND)
+            ):
+                errors.append(
+                    "research artifact commit step must guard no-change then commit then "
+                    "push without rebasing"
+                )
+
+    structure_positions = [
+        index
+        for index, line in enumerate(stripped_lines)
+        if line == BACKGROUND_REGISTRY_STRUCTURE_COMMAND
+    ]
+    full_positions = [
+        index
+        for index, line in enumerate(stripped_lines)
+        if line == BACKGROUND_REGISTRY_FULL_COMMAND
+    ]
+    producer_line_positions = [
+        index
+        for index, line in enumerate(stripped_lines)
+        if any(line == f"python {row.producer}" for row in rows)
+    ]
+    commit_positions = [
+        index
+        for index, line in enumerate(stripped_lines)
+        if line == COMMIT_STEP_MARKER
+    ]
+    structure_blocks = [
+        block
+        for block in blocks
+        if BACKGROUND_REGISTRY_STRUCTURE_COMMAND in {
+            line.strip() for line in block.splitlines()
+        }
+    ]
+    full_blocks = [
+        block
+        for block in blocks
+        if BACKGROUND_REGISTRY_FULL_COMMAND in {
+            line.strip() for line in block.splitlines()
+        }
+    ]
+    if len(structure_positions) != 1 or len(structure_blocks) != 1:
+        errors.append(
+            "research workflow must run background registry structure-only validation "
+            "exactly once before model producers"
+        )
+    if len(full_positions) != 2 or len(full_blocks) != 2:
+        errors.append(
+            "research workflow must run full background artifact validation exactly "
+            "once for non-model research and once after model producers"
+        )
+    else:
+        non_model_blocks = [
+            block
+            for block in full_blocks
+            if "env.MODEL_RESEARCH_SELECTED != 'true'" in block
+        ]
+        post_model_blocks = [
+            block
+            for block in full_blocks
+            if "env.MODEL_RESEARCH_SELECTED == 'true'" in block
+        ]
+        if len(non_model_blocks) != 1:
+            errors.append(
+                "existing registered artifacts full validation must be conditional on "
+                "MODEL_RESEARCH_SELECTED != true"
+            )
+        if len(post_model_blocks) != 1:
+            errors.append(
+                "post-run full background artifact validation must be conditional on "
+                "MODEL_RESEARCH_SELECTED == true"
+            )
+    if producer_line_positions:
+        if not structure_positions or structure_positions[0] >= min(producer_line_positions):
+            errors.append(
+                "background registry structure-only validation must precede model-owned producers"
+            )
+        if not full_positions or max(full_positions) <= max(producer_line_positions):
+            errors.append(
+                "full background artifact validation must run after model-owned producers"
+            )
+        if not commit_positions or not full_positions or max(full_positions) >= min(commit_positions):
+            errors.append(
+                "full background artifact validation must pass before research artifacts are committed"
+            )
     post_run_parity = "python scripts/validate_daily_model_research_parity.py"
     if model_positions and (
         post_run_parity not in text or text.index(post_run_parity) < max(model_positions)

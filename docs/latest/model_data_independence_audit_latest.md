@@ -1,7 +1,7 @@
 # 每日股票模型與資料獨立性稽核
 
-- 產生時間：`2026-07-20 10:56:40 Asia/Taipei`
-- 結果：`CONTAINED=28, DISCLOSED_NOT_INDEPENDENT=4, PASS=50`
+- 產生時間：`2026-07-20 18:54:03 Asia/Taipei`
+- 結果：`CONTAINED=28, DISCLOSED_NOT_INDEPENDENT=4, PASS=51`
 - 原則：新模型與新資料 family 預設獨立；跨模型共用商業語意必須先有使用者核准與 migration evidence。
 - `CONTAINED` 代表既有共用已被凍結與精確盤點，不代表已物理拆分。
 - `DISCLOSED_NOT_INDEPENDENT` 代表該 validator 只能做 implementation consistency，不得當成獨立模型正確性證據。
@@ -57,6 +57,7 @@
 | data_family_ownership | revenue_unreacted_range_rearmed_operation_grid | PASS | model_owned_not_shared | none |
 | data_family_ownership | revenue_unreacted_range_operation_lag_bucket_audit | PASS | model_owned_not_shared | none |
 | data_family_ownership | revenue_unreacted_range_position_shape_transition_matrix | PASS | model_owned_not_shared | none |
+| data_family_ownership | revenue_unreacted_range_low_mid_falling_candidate_audit | PASS | model_owned_not_shared | none |
 | data_family_ownership | financial_statement_point_in_time_history | PASS | approved_shared_objective | none |
 | data_family_ownership | financial_statement_source_manifest | PASS | approved_shared_objective | none |
 | data_family_ownership | financial_statement_pit_coverage_audit | PASS | approved_shared_objective | none |

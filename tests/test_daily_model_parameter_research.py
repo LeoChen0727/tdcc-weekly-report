@@ -2046,6 +2046,7 @@ def test_research_workflow_validates_revenue_fixed_confirmation_and_lag_artifact
     assert "python scripts/validate_revenue_unreacted_range_rearmed_operation_grid.py" in workflow
     assert "python scripts/validate_revenue_unreacted_range_operation_lag_bucket_audit.py" in workflow
     assert "python scripts/validate_revenue_unreacted_range_position_shape_transition_matrix.py" in workflow
+    assert "python scripts/validate_revenue_unreacted_range_low_mid_falling_candidate_audit.py" in workflow
 
 
 def test_research_workflow_does_not_refresh_formal_adapters_or_snapshots() -> None:

@@ -47,6 +47,10 @@ from revenue_unreacted_range_launch_timing_feature_audit import (
     build_launch_timing_feature_audit,
     write_launch_timing_feature_audit,
 )
+from revenue_unreacted_range_low_mid_falling_candidate_audit import (
+    build_low_mid_falling_candidate_audit,
+    write_low_mid_falling_candidate_audit,
+)
 from revenue_unreacted_range_operation_lag_bucket_audit import (
     build_operation_lag_bucket_audit,
     write_operation_lag_bucket_audit,
@@ -108,6 +112,16 @@ def build_and_write() -> None:
         operation_detail=rearmed_detail,
         source_detail=source_first_detail,
     )
+    (
+        low_mid_falling_summary,
+        low_mid_falling_detail,
+        low_mid_falling_paired,
+        low_mid_falling_contrast,
+    ) = build_low_mid_falling_candidate_audit(
+        source_first_detail,
+        rearmed_detail,
+        daily_by_stock,
+    )
 
     write_revenue_unreacted_range_revenue_condition_matrix(condition_matrix)
     write_revenue_unreacted_range_operation_candidate_matrix(operation_matrix)
@@ -127,6 +141,12 @@ def build_and_write() -> None:
     )
     write_rearmed_operation_grid(rearmed_summary, rearmed_detail, rearmed_return_review)
     write_operation_lag_bucket_audit(operation_lag_summary, operation_lag_detail)
+    write_low_mid_falling_candidate_audit(
+        low_mid_falling_summary,
+        low_mid_falling_detail,
+        low_mid_falling_paired,
+        low_mid_falling_contrast,
+    )
     position_shape_summary, position_shape_detail, position_shape_transition = (
         build_position_shape_transition_matrix()
     )
@@ -199,6 +219,39 @@ def build_and_write_position_shape_transition_matrix() -> None:
     write_position_shape_transition_matrix(summary, detail, transition)
 
 
+def build_and_write_low_mid_falling_candidate_audit() -> None:
+    _source_first_summary, source_first_detail = build_source_first_condition_audit()
+    frame = build_research_frame()
+    if frame.empty:
+        raise RuntimeError(
+            "No price history available for revenue_unreacted_range low/mid falling "
+            "candidate audit"
+        )
+    prepared = _attach_revenue_signal_market_regime(
+        _revenue_unreacted_timing_prepared_frame(frame)
+    )
+    del frame
+    gc.collect()
+    daily_by_stock = prepare_daily_by_stock(prepared, source_first_detail)
+    _rearmed_summary, rearmed_detail, _rearmed_return_review = (
+        build_rearmed_operation_grid(
+            source_detail=source_first_detail,
+            daily_by_stock=daily_by_stock,
+        )
+    )
+    summary, detail, paired, contrast = build_low_mid_falling_candidate_audit(
+        source_first_detail,
+        rearmed_detail,
+        daily_by_stock,
+    )
+    write_low_mid_falling_candidate_audit(
+        summary,
+        detail,
+        paired,
+        contrast,
+    )
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Build model-owned revenue_unreacted_range research artifacts.")
     parser.add_argument(
@@ -211,6 +264,7 @@ def parse_args() -> argparse.Namespace:
             "rearmed_operation_grid",
             "operation_lag_bucket_audit",
             "position_shape_transition_matrix",
+            "low_mid_falling_candidate_audit",
         ),
         default="all",
         help="Run the full producer or one model-owned audit stage.",
@@ -233,6 +287,8 @@ def main() -> int:
             build_and_write_operation_lag_bucket_audit()
         elif args.stage == "position_shape_transition_matrix":
             build_and_write_position_shape_transition_matrix()
+        elif args.stage == "low_mid_falling_candidate_audit":
+            build_and_write_low_mid_falling_candidate_audit()
         else:
             build_and_write()
     return 0

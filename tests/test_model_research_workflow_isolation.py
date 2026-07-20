@@ -72,6 +72,60 @@ def test_research_workflow_rejects_default_true_model_input() -> None:
     assert any("must default false" in error for error in errors)
 
 
+def test_research_workflow_rejects_missing_post_run_full_background_validation() -> None:
+    text, rows, producers = _inputs()
+    marker = "      - name: Validate post-run model research contracts"
+    marker_index = text.index(marker)
+    command = "          python scripts/validate_daily_model_background_data_registry.py\n"
+    command_index = text.index(command, marker_index)
+    text = text[:command_index] + text[command_index + len(command) :]
+
+    errors = validator.validate_workflow_text(text, rows, producers)
+
+    assert any("full background artifact validation" in error for error in errors)
+
+
+def test_research_workflow_rejects_wrong_post_run_full_validation_condition() -> None:
+    text, rows, producers = _inputs()
+    marker = "      - name: Validate post-run model research contracts"
+    marker_index = text.index(marker)
+    condition = "        if: ${{ env.MODEL_RESEARCH_SELECTED == 'true' }}"
+    condition_index = text.index(condition, marker_index)
+    text = (
+        text[:condition_index]
+        + "        if: ${{ env.MODEL_RESEARCH_SELECTED != 'true' }}"
+        + text[condition_index + len(condition) :]
+    )
+
+    errors = validator.validate_workflow_text(text, rows, producers)
+
+    assert any("post-run full background artifact validation" in error for error in errors)
+
+
+def test_research_workflow_rejects_post_validation_rebase_retry() -> None:
+    text, rows, producers = _inputs()
+    text = text.replace(
+        'git push origin "HEAD:$TARGET_BRANCH"',
+        'bash scripts/ci_push_with_retry.sh "$TARGET_BRANCH" 5',
+    )
+
+    errors = validator.validate_workflow_text(text, rows, producers)
+
+    assert any("post-validation rebase retry is forbidden" in error for error in errors)
+
+
+def test_research_workflow_rejects_swallowed_commit_failure() -> None:
+    text, rows, producers = _inputs()
+    text = text.replace(
+        'git commit -m "Update research backtest outputs"',
+        'git commit -m "Update research backtest outputs" || echo "No changes to commit"',
+    )
+
+    errors = validator.validate_workflow_text(text, rows, producers)
+
+    assert any("must not swallow commit failures" in error for error in errors)
+
+
 def test_pr_validation_requires_each_registered_model_namespace() -> None:
     rows = validator.load_registry()
     text = validator.PR_VALIDATION_WORKFLOW.read_text(encoding="utf-8").replace(

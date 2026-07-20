@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import argparse
 from pathlib import Path
 
 from model_data_independence import strict_csv_rows, validate_data_sharing
@@ -93,7 +94,11 @@ def artifact_exists(pattern: str) -> bool:
     return (ROOT / normalized).exists()
 
 
-def validate_registry(rows: list[dict[str, str]]) -> list[str]:
+def validate_registry(
+    rows: list[dict[str, str]],
+    *,
+    require_artifacts: bool = True,
+) -> list[str]:
     errors: list[str] = []
     seen: set[str] = set()
     for idx, row in enumerate(rows, start=2):
@@ -144,7 +149,7 @@ def validate_registry(rows: list[dict[str, str]]) -> list[str]:
                 errors.append(f"{data_family_id}: missing data family allowed_use must block use until implementation")
             continue
 
-        if artifact_path and not artifact_exists(artifact_path):
+        if require_artifacts and artifact_path and not artifact_exists(artifact_path):
             errors.append(f"{data_family_id}: artifact_path does not exist or match files: {artifact_path}")
 
         if validator and validator != "not_implemented" and validator.endswith(".py") and not (ROOT / validator).exists():
@@ -161,11 +166,30 @@ def validate_registry(rows: list[dict[str, str]]) -> list[str]:
     return errors
 
 
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(
+        description="Validate the daily-model background data registry."
+    )
+    parser.add_argument(
+        "--structure-only",
+        action="store_true",
+        help=(
+            "Validate registry schema, ownership, contracts, migrations, producers, "
+            "and validators without requiring not-yet-built artifact paths. A full "
+            "validation is still required after the selected model producer runs."
+        ),
+    )
+    return parser.parse_args()
+
+
 def main() -> int:
+    args = parse_args()
     errors: list[str] = []
     rows = load_registry(errors)
     if rows:
-        errors.extend(validate_registry(rows))
+        errors.extend(
+            validate_registry(rows, require_artifacts=not args.structure_only)
+        )
     sharing_errors, _ = validate_data_sharing()
     errors.extend(sharing_errors)
 
@@ -174,7 +198,9 @@ def main() -> int:
             print(f"ERROR: {error}")
         return 1
 
+    mode = "structure_only" if args.structure_only else "full_artifact"
     print(f"validated_daily_model_background_data_registry_rows={len(rows)}")
+    print(f"validation_mode={mode}")
     return 0
 
 

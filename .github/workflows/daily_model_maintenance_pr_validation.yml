@@ -202,6 +202,7 @@ jobs:
           python scripts/validate_revenue_unreacted_range_rearmed_operation_grid.py
           python scripts/validate_revenue_unreacted_range_operation_lag_bucket_audit.py
           python scripts/validate_revenue_unreacted_range_position_shape_transition_matrix.py
+          python scripts/validate_revenue_unreacted_range_low_mid_falling_candidate_audit.py
           python scripts/validate_revenue_unreacted_range_financial_statement_fail_closed.py
           python scripts/build_mature_model_row_level_metric_contract_audit.py
           python scripts/validate_mature_model_row_level_metric_contract_audit.py
@@ -257,6 +258,8 @@ jobs:
             tests/test_revenue_unreacted_range_rearmed_operation_grid.py \
             tests/test_revenue_unreacted_range_operation_lag_bucket_audit.py \
             tests/test_revenue_unreacted_range_position_shape_transition_matrix.py \
+            tests/test_revenue_unreacted_range_low_mid_falling_candidate_audit.py \
+            tests/test_validate_revenue_unreacted_range_low_mid_falling_candidate_audit.py \
             tests/test_revenue_unreacted_range_financial_statement_fail_closed.py \
             tests/test_repo_hidden_coupling_audit.py \
             tests/test_git_worktree_safety.py \

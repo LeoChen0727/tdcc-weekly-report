@@ -65,6 +65,46 @@ def test_revenue_panel_must_stay_coverage_limited() -> None:
     assert any("validator path missing" in error for error in errors)
 
 
+def test_structure_only_mode_allows_registered_artifact_bootstrap_but_full_mode_fails() -> None:
+    rows = deepcopy(registry_rows())
+    target = next(
+        row
+        for row in rows
+        if row["data_family_id"] == "revenue_unreacted_range_position_shape_transition_matrix"
+    )
+    target["artifact_path"] = (
+        "output/latest/research_backtest/"
+        "registered_but_not_yet_built_revenue_artifact_latest.csv"
+    )
+
+    full_errors = validate_registry(rows)
+    structure_errors = validate_registry(rows, require_artifacts=False)
+
+    assert any("artifact_path does not exist" in error for error in full_errors)
+    assert not any("artifact_path does not exist" in error for error in structure_errors)
+
+
+def test_research_workflow_pre_registers_then_requires_full_artifact_validation() -> None:
+    workflow = (ROOT / ".github/workflows/research_backtest_pipeline.yml").read_text(
+        encoding="utf-8"
+    )
+    structure_command = (
+        "python scripts/validate_daily_model_background_data_registry.py --structure-only"
+    )
+    producer_command = "python scripts/build_revenue_unreacted_range_research.py"
+    post_run_marker = "- name: Validate post-run model research contracts"
+    full_command = "python scripts/validate_daily_model_background_data_registry.py"
+    commit_marker = "- name: Commit research and backtest outputs"
+
+    structure_index = workflow.index(structure_command)
+    producer_index = workflow.index(producer_command)
+    post_run_index = workflow.index(post_run_marker)
+    full_index = workflow.index(full_command, post_run_index)
+    commit_index = workflow.index(commit_marker)
+
+    assert structure_index < producer_index < post_run_index < full_index < commit_index
+
+
 def test_financial_statement_data_families_are_registered_and_formal_use_is_blocked() -> None:
     by_id = {row["data_family_id"]: row for row in registry_rows()}
     required = {

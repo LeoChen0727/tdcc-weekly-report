@@ -287,6 +287,7 @@ def test_daily_model_maintenance_pr_workflow_runs_contract_validators() -> None:
         "python scripts/validate_revenue_unreacted_range_forward_confirmation_feature_audit.py",
         "python scripts/validate_revenue_unreacted_range_rearmed_operation_grid.py",
         "python scripts/validate_revenue_unreacted_range_operation_lag_bucket_audit.py",
+        "python scripts/validate_revenue_unreacted_range_low_mid_falling_candidate_audit.py",
         "python scripts/build_mature_model_row_level_metric_contract_audit.py",
         "python scripts/validate_mature_model_row_level_metric_contract_audit.py",
         "python scripts/validate_research_against_stock_model_contract.py",
@@ -329,6 +330,8 @@ def test_daily_model_maintenance_pr_workflow_runs_focused_pdf_operation_tests() 
         "tests/test_revenue_unreacted_range_forward_confirmation_feature_audit.py",
         "tests/test_revenue_unreacted_range_rearmed_operation_grid.py",
         "tests/test_revenue_unreacted_range_operation_lag_bucket_audit.py",
+        "tests/test_revenue_unreacted_range_low_mid_falling_candidate_audit.py",
+        "tests/test_validate_revenue_unreacted_range_low_mid_falling_candidate_audit.py",
         "tests/test_repo_hidden_coupling_audit.py",
         "tests/test_stock_model_contract_registry.py",
     )
