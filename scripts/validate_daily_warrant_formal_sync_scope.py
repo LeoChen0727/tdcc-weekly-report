@@ -84,8 +84,6 @@ STAGED_ALLOWED_PATTERNS = (
     "output/latest/daily_candidate_same_model_repeat_latest.*",
     "output/latest/daily_candidate_model_layer_packet_latest.md",
     "output/latest/daily_candidate_model_layer_validation_latest.*",
-    "output/latest/daily_candidate_model_selection_audit_latest.*",
-    "output/latest/daily_candidate_pipeline_integrity_audit_latest.*",
     "output/latest/daily_candidate_group_rotation_latest.*",
     "output/latest/daily_report_model_registry_latest.*",
     "output/latest/daily_candidate_model_summary_for_report_latest.*",
@@ -109,6 +107,12 @@ STAGED_ALLOWED_PATTERNS = (
     "docs/latest/volume_attack_theme_stocks_latest.*",
     "docs/latest/chatgpt_indicator_usage_guide_latest.md",
     "docs/latest/CHATGPT_INDICATOR_USAGE_GUIDE.txt",
+)
+STAGED_FORBIDDEN_PATTERNS = (
+    "output/latest/daily_candidate_model_selection_audit_latest.*",
+    "docs/latest/daily_candidate_model_selection_audit_latest.*",
+    "output/latest/daily_candidate_pipeline_integrity_audit_latest.*",
+    "docs/latest/daily_candidate_pipeline_integrity_audit_latest.*",
 )
 WARRANT_CANDIDATE_FIELDS = frozenset(
     {
@@ -1123,6 +1127,12 @@ def validate_staged_path_list(paths: list[str]) -> list[str]:
     for raw_path in paths:
         path = raw_path.strip().replace("\\", "/")
         if not path:
+            continue
+        if any(fnmatchcase(path, pattern) for pattern in STAGED_FORBIDDEN_PATTERNS):
+            errors.append(
+                "warrant formal sync staged path is protected full-selection evidence: "
+                f"{path}"
+            )
             continue
         if not any(fnmatchcase(path, pattern) for pattern in STAGED_ALLOWED_PATTERNS):
             errors.append(f"warrant formal sync staged path is outside allowlist: {path}")
