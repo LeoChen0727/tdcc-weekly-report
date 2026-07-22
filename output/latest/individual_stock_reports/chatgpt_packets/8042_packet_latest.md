@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8042 金山電
 
 ## Metadata
-- generated_at: 2026-07-21 22:29:09 Asia/Taipei
+- generated_at: 2026-07-22 22:29:20 Asia/Taipei
 - stock_id: 8042
 - stock_name: 金山電
 - packet_status: standard_180d_window_packet

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8410 森田
 
 ## Metadata
-- generated_at: 2026-07-21 22:29:16 Asia/Taipei
+- generated_at: 2026-07-22 22:29:28 Asia/Taipei
 - stock_id: 8410
 - stock_name: 森田
 - packet_status: standard_180d_window_packet

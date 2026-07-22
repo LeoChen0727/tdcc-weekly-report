@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6574 霈方
 
 ## Metadata
-- generated_at: 2026-07-21 22:28:46 Asia/Taipei
+- generated_at: 2026-07-22 22:28:52 Asia/Taipei
 - stock_id: 6574
 - stock_name: 霈方
 - packet_status: standard_180d_window_packet

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1104 環泥
 
 ## Metadata
-- generated_at: 2026-07-21 22:26:56 Asia/Taipei
+- generated_at: 2026-07-22 22:26:46 Asia/Taipei
 - stock_id: 1104
 - stock_name: 環泥
 - packet_status: standard_180d_window_packet

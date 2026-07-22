@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3516 亞帝歐
 
 ## Metadata
-- generated_at: 2026-07-21 22:27:55 Asia/Taipei
+- generated_at: 2026-07-22 22:27:54 Asia/Taipei
 - stock_id: 3516
 - stock_name: 亞帝歐
 - packet_status: standard_180d_window_packet

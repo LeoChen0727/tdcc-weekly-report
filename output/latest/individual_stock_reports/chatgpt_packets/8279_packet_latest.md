@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8279 生展
 
 ## Metadata
-- generated_at: 2026-07-21 22:29:15 Asia/Taipei
+- generated_at: 2026-07-22 22:29:26 Asia/Taipei
 - stock_id: 8279
 - stock_name: 生展
 - packet_status: standard_180d_window_packet

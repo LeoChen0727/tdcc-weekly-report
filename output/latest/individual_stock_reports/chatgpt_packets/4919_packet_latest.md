@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4919 新唐
 
 ## Metadata
-- generated_at: 2026-07-21 22:28:15 Asia/Taipei
+- generated_at: 2026-07-22 22:28:17 Asia/Taipei
 - stock_id: 4919
 - stock_name: 新唐
 - packet_status: standard_180d_window_packet

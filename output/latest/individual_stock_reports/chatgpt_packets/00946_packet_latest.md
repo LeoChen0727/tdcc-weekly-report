@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00946 群益科技高息成長
 
 ## Metadata
-- generated_at: 2026-07-21 22:26:54 Asia/Taipei
+- generated_at: 2026-07-22 22:26:44 Asia/Taipei
 - stock_id: 00946
 - stock_name: 群益科技高息成長
 - packet_status: partial_rawdata_packet

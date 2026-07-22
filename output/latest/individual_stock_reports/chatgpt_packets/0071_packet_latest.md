@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0071 期街口布蘭特正2
 
 ## Metadata
-- generated_at: 2026-07-21 22:26:52 Asia/Taipei
+- generated_at: 2026-07-22 22:26:42 Asia/Taipei
 - stock_id: 0071
 - stock_name: 期街口布蘭特正2
 - packet_status: insufficient_price_data

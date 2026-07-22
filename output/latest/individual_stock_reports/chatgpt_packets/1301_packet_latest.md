@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1301 台塑
 
 ## Metadata
-- generated_at: 2026-07-21 22:26:58 Asia/Taipei
+- generated_at: 2026-07-22 22:26:48 Asia/Taipei
 - stock_id: 1301
 - stock_name: 台塑
 - packet_status: standard_180d_window_packet

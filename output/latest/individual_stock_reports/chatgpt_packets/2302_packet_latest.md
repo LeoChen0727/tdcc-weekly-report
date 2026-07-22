@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2302 麗正
 
 ## Metadata
-- generated_at: 2026-07-21 22:27:18 Asia/Taipei
+- generated_at: 2026-07-22 22:27:12 Asia/Taipei
 - stock_id: 2302
 - stock_name: 麗正
 - packet_status: standard_180d_window_packet

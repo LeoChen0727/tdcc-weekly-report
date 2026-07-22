@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1809 中釉
 
 ## Metadata
-- generated_at: 2026-07-21 22:27:12 Asia/Taipei
+- generated_at: 2026-07-22 22:27:05 Asia/Taipei
 - stock_id: 1809
 - stock_name: 中釉
 - packet_status: standard_180d_window_packet

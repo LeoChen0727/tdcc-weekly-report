@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4555 氣立
 
 ## Metadata
-- generated_at: 2026-07-21 22:28:09 Asia/Taipei
+- generated_at: 2026-07-22 22:28:11 Asia/Taipei
 - stock_id: 4555
 - stock_name: 氣立
 - packet_status: standard_180d_window_packet

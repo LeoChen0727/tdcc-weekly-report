@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6111 光聚晶電
 
 ## Metadata
-- generated_at: 2026-07-21 22:28:29 Asia/Taipei
+- generated_at: 2026-07-22 22:28:33 Asia/Taipei
 - stock_id: 6111
 - stock_name: 光聚晶電
 - packet_status: standard_180d_window_packet

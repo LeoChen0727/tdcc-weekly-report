@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8034 榮群
 
 ## Metadata
-- generated_at: 2026-07-21 22:29:09 Asia/Taipei
+- generated_at: 2026-07-22 22:29:20 Asia/Taipei
 - stock_id: 8034
 - stock_name: 榮群
 - packet_status: standard_180d_window_packet

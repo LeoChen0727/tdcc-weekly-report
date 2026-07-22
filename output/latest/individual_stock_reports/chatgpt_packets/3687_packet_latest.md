@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3687 歐買尬
 
 ## Metadata
-- generated_at: 2026-07-21 22:28:01 Asia/Taipei
+- generated_at: 2026-07-22 22:28:00 Asia/Taipei
 - stock_id: 3687
 - stock_name: 歐買尬
 - packet_status: standard_180d_window_packet

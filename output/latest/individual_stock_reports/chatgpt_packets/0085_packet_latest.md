@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0085 國泰美國道瓊正2
 
 ## Metadata
-- generated_at: 2026-07-21 22:26:53 Asia/Taipei
+- generated_at: 2026-07-22 22:26:42 Asia/Taipei
 - stock_id: 0085
 - stock_name: 國泰美國道瓊正2
 - packet_status: insufficient_price_data

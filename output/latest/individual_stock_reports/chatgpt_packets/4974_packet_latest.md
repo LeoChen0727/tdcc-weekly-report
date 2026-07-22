@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4974 亞泰
 
 ## Metadata
-- generated_at: 2026-07-21 22:28:17 Asia/Taipei
+- generated_at: 2026-07-22 22:28:19 Asia/Taipei
 - stock_id: 4974
 - stock_name: 亞泰
 - packet_status: standard_180d_window_packet

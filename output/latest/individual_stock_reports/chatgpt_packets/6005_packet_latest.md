@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6005 群益證
 
 ## Metadata
-- generated_at: 2026-07-21 22:28:28 Asia/Taipei
+- generated_at: 2026-07-22 22:28:32 Asia/Taipei
 - stock_id: 6005
 - stock_name: 群益證
 - packet_status: standard_180d_window_packet

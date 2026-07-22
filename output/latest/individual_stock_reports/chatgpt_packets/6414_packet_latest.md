@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6414 樺漢
 
 ## Metadata
-- generated_at: 2026-07-21 22:28:40 Asia/Taipei
+- generated_at: 2026-07-22 22:28:46 Asia/Taipei
 - stock_id: 6414
 - stock_name: 樺漢
 - packet_status: standard_180d_window_packet
