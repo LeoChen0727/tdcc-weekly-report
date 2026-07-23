@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2851 中再保
 
 ## Metadata
-- generated_at: 2026-07-22 22:27:33 Asia/Taipei
+- generated_at: 2026-07-23 22:27:04 Asia/Taipei
 - stock_id: 2851
 - stock_name: 中再保
 - packet_status: standard_180d_window_packet

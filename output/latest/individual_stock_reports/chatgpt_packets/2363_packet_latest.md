@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2363 矽統
 
 ## Metadata
-- generated_at: 2026-07-22 22:27:15 Asia/Taipei
+- generated_at: 2026-07-23 22:26:49 Asia/Taipei
 - stock_id: 2363
 - stock_name: 矽統
 - packet_status: standard_180d_window_packet

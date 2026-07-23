@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0066 國泰臺灣加權反1
 
 ## Metadata
-- generated_at: 2026-07-22 22:26:41 Asia/Taipei
+- generated_at: 2026-07-23 22:26:19 Asia/Taipei
 - stock_id: 0066
 - stock_name: 國泰臺灣加權反1
 - packet_status: insufficient_price_data

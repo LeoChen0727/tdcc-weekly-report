@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4528 江興鍛
 
 ## Metadata
-- generated_at: 2026-07-22 22:28:09 Asia/Taipei
+- generated_at: 2026-07-23 22:27:35 Asia/Taipei
 - stock_id: 4528
 - stock_name: 江興鍛
 - packet_status: standard_180d_window_packet
