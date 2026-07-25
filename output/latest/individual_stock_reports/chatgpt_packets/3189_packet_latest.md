@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3189 景碩
 
 ## Metadata
-- generated_at: 2026-07-24 22:27:02 Asia/Taipei
+- generated_at: 2026-07-25 22:26:57 Asia/Taipei
 - stock_id: 3189
 - stock_name: 景碩
 - packet_status: standard_180d_window_packet

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7285 弘塑國票5B售02
 
 ## Metadata
-- generated_at: 2026-07-24 22:28:00 Asia/Taipei
+- generated_at: 2026-07-25 22:27:48 Asia/Taipei
 - stock_id: 7285
 - stock_name: 弘塑國票5B售02
 - packet_status: partial_rawdata_packet

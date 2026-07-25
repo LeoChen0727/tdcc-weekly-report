@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9917 中保科
 
 ## Metadata
-- generated_at: 2026-07-24 22:28:15 Asia/Taipei
+- generated_at: 2026-07-25 22:28:00 Asia/Taipei
 - stock_id: 9917
 - stock_name: 中保科
 - packet_status: standard_180d_window_packet

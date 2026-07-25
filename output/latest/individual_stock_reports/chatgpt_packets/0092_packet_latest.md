@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0092 復華台灣科技優息
 
 ## Metadata
-- generated_at: 2026-07-24 22:26:20 Asia/Taipei
+- generated_at: 2026-07-25 22:26:20 Asia/Taipei
 - stock_id: 0092
 - stock_name: 復華台灣科技優息
 - packet_status: insufficient_price_data

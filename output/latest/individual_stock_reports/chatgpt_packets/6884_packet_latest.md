@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6884 海柏特
 
 ## Metadata
-- generated_at: 2026-07-24 22:27:55 Asia/Taipei
+- generated_at: 2026-07-25 22:27:44 Asia/Taipei
 - stock_id: 6884
 - stock_name: 海柏特
 - packet_status: standard_180d_window_packet

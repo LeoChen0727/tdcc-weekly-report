@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6499 益安
 
 ## Metadata
-- generated_at: 2026-07-24 22:27:45 Asia/Taipei
+- generated_at: 2026-07-25 22:27:35 Asia/Taipei
 - stock_id: 6499
 - stock_name: 益安
 - packet_status: standard_180d_window_packet
