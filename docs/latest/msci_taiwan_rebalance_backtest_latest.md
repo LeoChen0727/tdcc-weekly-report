@@ -1,6 +1,6 @@
 # MSCI Taiwan Rebalance Event Backtest
 
-- generated_at: 2026-07-05 05:08:59 Asia/Taipei
+- generated_at: 2026-07-06 09:16:52 Asia/Taipei
 - event_type: msci_index_rebalance
 - source: MSCI official Global Standard / Small Cap public list PDFs
 - entry rule: first trading day after MSCI effective date, entry at open
