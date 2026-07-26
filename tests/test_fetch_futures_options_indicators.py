@@ -48,7 +48,11 @@ def test_fetch_taifex_historical_filters_exact_dates_with_ms950(monkeypatch):
         assert data["queryEndDate"] == "2026/07/24"
         return _FakeResponse(payload)
 
-    monkeypatch.setattr(fut, "requests", type("RequestsNamespace", (), {"post": fake_post})())
+    monkeypatch.setattr(
+        fut,
+        "requests",
+        type("RequestsNamespace", (), {"post": staticmethod(fake_post)})(),
+    )
     df, provenance = fut.fetch_taifex_historical(
         "institutional_fo",
         "20260720",
@@ -61,6 +65,141 @@ def test_fetch_taifex_historical_filters_exact_dates_with_ms950(monkeypatch):
     assert provenance["observed_dates"] == requested_dates
     assert provenance["rows"] == len(requested_dates)
     assert provenance["raw_sha256"] == hashlib.sha256(payload).hexdigest()
+
+
+def test_fetch_taifex_historical_preserves_date_when_row_has_trailing_empty_field(monkeypatch):
+    payload = (
+        "日期,賣權成交量,買權成交量,買賣權成交量比率%,賣權未平倉量,買權未平倉量,買賣權未平倉量比率%\r\n"
+        "2026/07/20,151759,170328,89.10,60816,73520,82.72,\r\n"
+    ).encode("cp950")
+
+    def fake_post(*args, **kwargs):
+        return _FakeResponse(payload)
+
+    monkeypatch.setattr(
+        fut,
+        "requests",
+        type("RequestsNamespace", (), {"post": staticmethod(fake_post)})(),
+    )
+    df, provenance = fut.fetch_taifex_historical(
+        "put_call_ratio",
+        "20260720",
+        "20260720",
+        require_exact_source_dates=True,
+    )
+
+    assert df.index.tolist() == [0]
+    assert df["日期"].tolist() == ["20260720"]
+    assert provenance["observed_dates"] == ["20260720"]
+    assert provenance["rows"] == 1
+    assert provenance["attempt_count"] == 1
+    assert provenance["parse_metadata"] == {
+        "header_columns": 7,
+        "data_rows": 1,
+        "rows_with_trimmed_trailing_empty_fields": 1,
+        "trimmed_trailing_empty_fields": 1,
+    }
+
+
+def test_parse_taifex_historical_csv_rejects_nonempty_surplus_field():
+    payload = "日期,值\n2026/07/20,1,unexpected\n"
+
+    with pytest.raises(RuntimeError, match="row-width mismatch"):
+        fut.parse_taifex_historical_csv(payload, "put_call_ratio")
+
+
+def test_fetch_taifex_historical_retries_header_only_then_records_exact_attempts(monkeypatch):
+    header_only = "日期,值\r\n".encode("cp950")
+    exact_payload = "日期,值\r\n2026/07/20,1,\r\n".encode("cp950")
+    responses = iter([_FakeResponse(header_only), _FakeResponse(exact_payload)])
+    calls: list[tuple[str, dict[str, str]]] = []
+    sleeps: list[float] = []
+
+    def fake_post(endpoint, *args, **kwargs):
+        calls.append((endpoint, dict(kwargs["data"])))
+        return next(responses)
+
+    monkeypatch.setattr(
+        fut,
+        "requests",
+        type("RequestsNamespace", (), {"post": staticmethod(fake_post)})(),
+    )
+    monkeypatch.setattr(fut.time, "sleep", lambda delay: sleeps.append(delay))
+
+    df, provenance = fut.fetch_taifex_historical(
+        "put_call_ratio",
+        "20260720",
+        "20260720",
+        require_exact_source_dates=True,
+    )
+
+    assert df["日期"].tolist() == ["20260720"]
+    assert calls == [
+        (fut.TAIFEX_HISTORICAL_ENDPOINTS["put_call_ratio"], {"queryStartDate": "2026/07/20", "queryEndDate": "2026/07/20"}),
+        (fut.TAIFEX_HISTORICAL_ENDPOINTS["put_call_ratio"], {"queryStartDate": "2026/07/20", "queryEndDate": "2026/07/20"}),
+    ]
+    assert sleeps == [1.0]
+    assert provenance["attempt_count"] == 2
+    assert [attempt["status"] for attempt in provenance["attempts"]] == ["failed", "ok"]
+    assert provenance["attempts"][0]["observed_dates"] == []
+    assert provenance["attempts"][0]["raw_sha256"] == hashlib.sha256(header_only).hexdigest()
+    assert provenance["attempts"][1]["observed_dates"] == ["20260720"]
+    assert provenance["attempts"][1]["parse_metadata"]["trimmed_trailing_empty_fields"] == 1
+
+
+@pytest.mark.parametrize("source_name", list(fut.TAIFEX_HISTORICAL_ENDPOINTS))
+def test_fetch_taifex_historical_four_sources_require_exact_mock_date(monkeypatch, source_name):
+    payload = "日期,值\r\n2026/07/20,1\r\n".encode("cp950")
+    called_endpoints: list[str] = []
+
+    def fake_post(endpoint, *args, **kwargs):
+        called_endpoints.append(endpoint)
+        return _FakeResponse(payload)
+
+    monkeypatch.setattr(
+        fut,
+        "requests",
+        type("RequestsNamespace", (), {"post": staticmethod(fake_post)})(),
+    )
+    df, provenance = fut.fetch_taifex_historical(
+        source_name,
+        "20260720",
+        "20260720",
+        require_exact_source_dates=True,
+    )
+
+    assert called_endpoints == [fut.TAIFEX_HISTORICAL_ENDPOINTS[source_name]]
+    assert df["日期"].tolist() == ["20260720"]
+    assert provenance["requested_dates"] == ["20260720"]
+    assert provenance["observed_dates"] == ["20260720"]
+
+
+def test_main_historical_retry_exhaustion_commits_no_files(monkeypatch, tmp_path):
+    _configure_io_roots(monkeypatch, tmp_path)
+    header_only = "日期,值\r\n".encode("cp950")
+    call_count = 0
+
+    def fake_post(*args, **kwargs):
+        nonlocal call_count
+        call_count += 1
+        return _FakeResponse(header_only)
+
+    monkeypatch.setattr(fut, "requests", type("RequestsNamespace", (), {"post": fake_post})())
+    monkeypatch.setattr(fut.time, "sleep", lambda *_: None)
+    replaced: list[str] = []
+    monkeypatch.setattr(
+        fut,
+        "commit_staged_paths",
+        lambda staged_paths, rollback_root: replaced.extend(str(target) for _, target in staged_paths),
+    )
+    monkeypatch.setattr(sys, "argv", ["fetch_futures_options_indicators.py", "--start-date", "20260720", "--end-date", "20260720"])
+
+    with pytest.raises(RuntimeError, match="exhausted bounded retries.*source=institutional_fo"):
+        fut.main()
+
+    assert call_count == fut.TAIFEX_HISTORICAL_MAX_ATTEMPTS
+    assert replaced == []
+    assert [path for path in tmp_path.rglob("*") if path.is_file()] == []
 
 
 def test_fetch_taifex_historical_fails_missing_or_mixed_dates(monkeypatch):

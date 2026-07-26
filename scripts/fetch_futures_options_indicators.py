@@ -7,9 +7,11 @@ from datetime import datetime
 from typing import Any
 import shutil
 import argparse
+import csv
 import json
 import math
 import hashlib
+import time
 
 import pandas as pd
 import requests
@@ -41,6 +43,8 @@ TAIFEX_HISTORICAL_ENDPOINTS = {
     "options_call_put": "https://www.taifex.com.tw/cht/3/callsAndPutsDateDown",
     "put_call_ratio": "https://www.taifex.com.tw/cht/3/pcRatioDown",
 }
+TAIFEX_HISTORICAL_MAX_ATTEMPTS = 3
+TAIFEX_HISTORICAL_RETRY_BACKOFF_SECONDS = 1.0
 
 SOURCES = {
     "institutional_fo": "MarketDataOfMajorInstitutionalTradersDividedByFuturesAndOptionsBytheDate",
@@ -86,6 +90,55 @@ def decode_response_with_metadata(content: bytes) -> tuple[str, str]:
         except UnicodeDecodeError:
             continue
     return content.decode("utf-8", errors="replace"), "utf-8-replace"
+
+
+def parse_taifex_historical_csv(text: str, source_name: str) -> tuple[pd.DataFrame, dict[str, int]]:
+    """Parse TAIFEX CSV without letting pandas infer the first field as an index.
+
+    Some TAIFEX downloads append an empty field to each data row even though the
+    header has no matching trailing column.  ``pandas.read_csv`` then silently
+    promotes the first field (the trading date) to the DataFrame index.  Only
+    surplus trailing empty fields are safe to discard; every other row-width
+    mismatch remains a hard source-contract failure.
+    """
+    try:
+        rows = [row for row in csv.reader(StringIO(text)) if any(cell.strip() for cell in row)]
+    except csv.Error as exc:
+        raise RuntimeError(f"TAIFEX historical endpoint parse failed for {source_name}: {exc}") from exc
+    if len(rows) < 2:
+        raise RuntimeError(f"TAIFEX historical endpoint returned empty rows for {source_name}")
+
+    header = [cell.lstrip("\ufeff").strip() for cell in rows[0]]
+    if not header or not any(header):
+        raise RuntimeError(f"TAIFEX historical endpoint returned an empty header for {source_name}")
+
+    normalized_rows: list[list[str]] = []
+    rows_with_trimmed_trailing_empty_fields = 0
+    trimmed_trailing_empty_fields = 0
+    for line_number, source_row in enumerate(rows[1:], start=2):
+        row = list(source_row)
+        trimmed_for_row = 0
+        while len(row) > len(header) and row[-1].strip() == "":
+            row.pop()
+            trimmed_for_row += 1
+        if len(row) != len(header):
+            raise RuntimeError(
+                "TAIFEX historical endpoint row-width mismatch for "
+                f"{source_name} line={line_number}: header={len(header)} row={len(row)}"
+            )
+        if trimmed_for_row:
+            rows_with_trimmed_trailing_empty_fields += 1
+            trimmed_trailing_empty_fields += trimmed_for_row
+        normalized_rows.append(row)
+
+    if not normalized_rows:
+        raise RuntimeError(f"TAIFEX historical endpoint returned empty rows for {source_name}")
+    return pd.DataFrame(normalized_rows, columns=header, dtype=str), {
+        "header_columns": len(header),
+        "data_rows": len(normalized_rows),
+        "rows_with_trimmed_trailing_empty_fields": rows_with_trimmed_trailing_empty_fields,
+        "trimmed_trailing_empty_fields": trimmed_trailing_empty_fields,
+    }
 
 
 def sha256_hex(content: bytes) -> str:
@@ -260,60 +313,126 @@ def fetch_taifex_historical(
     start_date: str,
     end_date: str,
     require_exact_source_dates: bool = True,
+    max_attempts: int = TAIFEX_HISTORICAL_MAX_ATTEMPTS,
+    retry_backoff_seconds: float = TAIFEX_HISTORICAL_RETRY_BACKOFF_SECONDS,
 ) -> tuple[pd.DataFrame, dict[str, Any]]:
     if source_name not in TAIFEX_HISTORICAL_ENDPOINTS:
         raise RuntimeError(f"Unsupported TAIFEX historical source: {source_name}")
+    if max_attempts < 1:
+        raise RuntimeError("TAIFEX historical max_attempts must be at least 1")
+    if retry_backoff_seconds < 0:
+        raise RuntimeError("TAIFEX historical retry_backoff_seconds must be non-negative")
     endpoint = TAIFEX_HISTORICAL_ENDPOINTS[source_name]
     params = {
         "queryStartDate": normalize_taifex_query_date(start_date),
         "queryEndDate": normalize_taifex_query_date(end_date),
     }
-    response = requests.post(
-        endpoint,
-        data=params,
-        timeout=45,
-        headers={"User-Agent": "Mozilla/5.0"},
-    )
-    response.raise_for_status()
-    raw_content = response.content
-    text, encoding = decode_response_with_metadata(raw_content)
-    if "<html" in text.lower():
-        raise RuntimeError(f"TAIFEX historical endpoint returned non-CSV payload for {source_name}")
-    if not text.strip():
-        raise RuntimeError(f"TAIFEX historical endpoint returned empty payload for {source_name}")
-    try:
-        df = pd.read_csv(StringIO(text), dtype=str)
-    except Exception as exc:
-        raise RuntimeError(f"TAIFEX historical endpoint parse failed for {source_name}: {exc}") from exc
-    if df.empty:
-        raise RuntimeError(f"TAIFEX historical endpoint returned empty rows for {source_name}")
-    df = normalize_dates(df)
     required_dates = requested_trading_dates(start_date, end_date)
-    if require_exact_source_dates:
-        df, required_dates, observed_dates = filter_rows_exact_dates(df, start_date, end_date, required_dates=required_dates)
-    else:
-        date_col = detect_date_column(df)
-        if date_col is None:
-            raise RuntimeError("TAIFEX historical data missing expected date column")
-        temp = df.copy()
-        temp[date_col] = temp[date_col].map(normalize_date)
-        temp = temp[temp[date_col] != ""]
-        observed_dates = sorted(set(safe_str(v) for v in temp[date_col].tolist()))
-        df = temp
-    provenance = {
-        "source": source_name,
-        "status": "ok",
-        "fetched_at": now_text(),
-        "endpoint": endpoint,
-        "params": params,
-        "encoding": encoding,
-        "raw_sha256": sha256_hex(raw_content),
-        "normalized_sha256": sha256_hex(text.encode("utf-8")),
-        "requested_dates": required_dates,
-        "observed_dates": observed_dates,
-        "rows": len(df),
-    }
-    return df, provenance
+    attempts: list[dict[str, Any]] = []
+
+    for attempt_number in range(1, max_attempts + 1):
+        attempt: dict[str, Any] = {
+            "attempt": attempt_number,
+            "source": source_name,
+            "endpoint": endpoint,
+            "params": dict(params),
+            "fetched_at": now_text(),
+            "status": "failed",
+            "http_status": None,
+            "raw_bytes": 0,
+            "raw_sha256": "",
+            "normalized_sha256": "",
+            "encoding": "",
+            "requested_dates": list(required_dates),
+            "observed_dates": [],
+            "rows": 0,
+            "parse_metadata": {},
+            "error": "",
+        }
+        try:
+            response = requests.post(
+                endpoint,
+                data=params,
+                timeout=45,
+                headers={"User-Agent": "Mozilla/5.0"},
+            )
+            attempt["http_status"] = getattr(response, "status_code", None)
+            raw_content = response.content
+            attempt["raw_bytes"] = len(raw_content)
+            attempt["raw_sha256"] = sha256_hex(raw_content)
+            response.raise_for_status()
+            text, encoding = decode_response_with_metadata(raw_content)
+            attempt["encoding"] = encoding
+            attempt["normalized_sha256"] = sha256_hex(text.encode("utf-8"))
+            if "<html" in text.lower():
+                raise RuntimeError(f"TAIFEX historical endpoint returned non-CSV payload for {source_name}")
+            if not text.strip():
+                raise RuntimeError(f"TAIFEX historical endpoint returned empty payload for {source_name}")
+            df, parse_metadata = parse_taifex_historical_csv(text, source_name)
+            attempt["parse_metadata"] = parse_metadata
+            df = normalize_dates(df)
+
+            date_col = detect_date_column(df)
+            observed_frame = df.copy()
+            observed_frame[date_col] = observed_frame[date_col].map(normalize_date)
+            observed_frame = observed_frame[observed_frame[date_col] != ""]
+            attempt["observed_dates"] = sorted(
+                set(safe_str(value) for value in observed_frame[date_col].tolist())
+            )
+            attempt["rows"] = len(observed_frame)
+
+            if require_exact_source_dates:
+                df, required_dates, observed_dates = filter_rows_exact_dates(
+                    df,
+                    start_date,
+                    end_date,
+                    required_dates=required_dates,
+                )
+            else:
+                observed_dates = attempt["observed_dates"]
+                df = observed_frame
+
+            attempt["status"] = "ok"
+            attempt["observed_dates"] = observed_dates
+            attempt["rows"] = len(df)
+            attempts.append(attempt)
+            provenance = {
+                "source": source_name,
+                "status": "ok",
+                "fetched_at": attempt["fetched_at"],
+                "endpoint": endpoint,
+                "params": params,
+                "encoding": attempt["encoding"],
+                "raw_sha256": attempt["raw_sha256"],
+                "normalized_sha256": attempt["normalized_sha256"],
+                "requested_dates": required_dates,
+                "observed_dates": observed_dates,
+                "rows": len(df),
+                "attempt_count": attempt_number,
+                "attempts": attempts,
+                "parse_metadata": parse_metadata,
+            }
+            return df, provenance
+        except Exception as exc:
+            attempt["error"] = f"{type(exc).__name__}: {exc}"
+            attempts.append(attempt)
+            if attempt_number >= max_attempts:
+                evidence = json.dumps(attempts, ensure_ascii=False, sort_keys=True)
+                raise RuntimeError(
+                    "TAIFEX historical fetch exhausted bounded retries "
+                    f"source={source_name} endpoint={endpoint} params={json.dumps(params, sort_keys=True)} "
+                    f"attempts={evidence}"
+                ) from exc
+            delay = retry_backoff_seconds * attempt_number
+            print(
+                "Retry TAIFEX historical source="
+                f"{source_name} attempt={attempt_number}/{max_attempts} delay_seconds={delay:g} "
+                f"observed_dates={attempt['observed_dates']} raw_sha256={attempt['raw_sha256']} "
+                f"error={attempt['error']}"
+            )
+            time.sleep(delay)
+
+    raise RuntimeError(f"TAIFEX historical fetch failed unexpectedly for {source_name}")
 
 
 def rows_have_unique_keys(df: pd.DataFrame, key_cols: list[str]) -> bool:
@@ -797,6 +916,9 @@ def main() -> int:
                     "raw_sha256": provenance.get("raw_sha256", ""),
                     "normalized_sha256": provenance.get("normalized_sha256", ""),
                     "rows": provenance.get("rows", len(df)),
+                    "attempt_count": provenance.get("attempt_count", 0),
+                    "attempts": provenance.get("attempts", []),
+                    "parse_metadata": provenance.get("parse_metadata", {}),
                     "pk_unique": rows_have_unique_keys(df, key_map[name]),
                     "publication_status": provenance.get("publication_status", "as_published"),
                 },

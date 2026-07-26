@@ -83,3 +83,72 @@ def test_replay_window_excludes_weekend_dates_20260718_and_20260719() -> None:
         "20260723",
         "20260724",
     ]
+
+
+def test_taifex_manifest_keeps_failed_attempt_evidence_and_accepts_only_exact_success(monkeypatch) -> None:
+    failed = {
+        "attempt": 1,
+        "status": "failed",
+        "endpoint": "https://www.taifex.com.tw/cht/3/pcRatioDown",
+        "params": {"queryStartDate": "2026/07/20", "queryEndDate": "2026/07/20"},
+        "http_status": 200,
+        "raw_bytes": 92,
+        "raw_sha256": "a" * 64,
+        "normalized_sha256": "b" * 64,
+        "encoding": "cp950",
+        "requested_dates": ["20260720"],
+        "observed_dates": [],
+        "rows": 0,
+        "parse_metadata": {},
+        "error": "RuntimeError: header only",
+        "fetched_at": "2026-07-27 00:00:00 Asia/Taipei",
+    }
+    accepted = {
+        **failed,
+        "attempt": 2,
+        "status": "ok",
+        "raw_bytes": 143,
+        "raw_sha256": "c" * 64,
+        "normalized_sha256": "d" * 64,
+        "observed_dates": ["20260720"],
+        "rows": 1,
+        "parse_metadata": {"trimmed_trailing_empty_fields": 1},
+        "error": "",
+    }
+    status = {
+        "fallback_used": False,
+        "future_rows_used": False,
+        "sources": {
+            "put_call_ratio": {
+                "observed_dates": ["20260720"],
+                "provenance": {"attempts": [failed, accepted]},
+            }
+        },
+    }
+    monkeypatch.setattr(
+        replay,
+        "build_source_output_evidence",
+        lambda *args, **kwargs: {
+            "pk_unique": True,
+            "row_count": 1,
+            "output_sha256": "e" * 64,
+        },
+    )
+
+    row = replay.manifest_source_row(
+        "taifex_futures_options_vix",
+        "20260720",
+        status,
+        "20260717",
+        "20260720",
+        observed_dates=["20260720"],
+    )
+
+    assert row["source_attempt_count"] == 2
+    assert [item["status"] for item in row["source_response_attempts"]] == ["failed", "ok"]
+    assert row["source_response_attempts"][0]["raw_sha256"] == "a" * 64
+    assert row["source_response_attempts"][1]["parse_metadata"] == {
+        "trimmed_trailing_empty_fields": 1
+    }
+    assert row["accepted_source_response_count"] == 1
+    assert row["accepted_source_responses"][0]["raw_sha256"] == "c" * 64
