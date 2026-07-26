@@ -4,6 +4,7 @@ from pathlib import Path
 from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
 import argparse
+import hashlib
 import io
 import json
 import os
@@ -25,6 +26,7 @@ SOURCE_STATUS_JSON = OUTPUT_DIR / "warrant_source_status_latest.json"
 SOURCE_STATUS_MD = OUTPUT_DIR / "warrant_source_status_latest.md"
 DEBUG_MD = DEBUG_DIR / "warrant_fetch_debug_latest.md"
 DEBUG_CSV = DEBUG_DIR / "warrant_fetch_debug_latest.csv"
+FETCH_RESPONSE_PROVENANCE: list[dict[str, Any]] = []
 
 REQUEST_TIMEOUT_SECONDS = float(os.getenv("OFFICIAL_WARRANT_REQUEST_TIMEOUT", "8"))
 FETCH_MAX_SECONDS = float(os.getenv("OFFICIAL_WARRANT_FETCH_MAX_SECONDS", "360"))
@@ -77,6 +79,90 @@ def request_timeout(deadline: float | None) -> float:
     if remaining is None:
         return REQUEST_TIMEOUT_SECONDS
     return max(1.0, min(REQUEST_TIMEOUT_SECONDS, remaining))
+
+
+def reset_fetch_response_provenance() -> None:
+    FETCH_RESPONSE_PROVENANCE.clear()
+
+
+def fetch_response_provenance() -> list[dict[str, Any]]:
+    return [dict(row) for row in FETCH_RESPONSE_PROVENANCE]
+
+
+def extract_official_response_dates(text: str) -> list[str]:
+    payload_text = str(text or "")
+    try:
+        payload = json.loads(payload_text)
+    except Exception:
+        payload = None
+
+    values: list[str] = []
+    if isinstance(payload, dict):
+        for key in ("title", "date", "queryDate", "reportDate", "tradeDate"):
+            if key in payload and not isinstance(payload[key], (dict, list)):
+                values.append(str(payload[key]))
+        tables = payload.get("tables")
+        if isinstance(tables, list):
+            for table in tables:
+                if not isinstance(table, dict):
+                    continue
+                for key in ("title", "date", "queryDate", "reportDate", "tradeDate"):
+                    if key in table and not isinstance(table[key], (dict, list)):
+                        values.append(str(table[key]))
+    elif payload is None:
+        # Official CSV puts the report title on the first non-empty line.
+        # Never scan body rows, which contain exercise/listing dates.
+        first_line = next((line.strip() for line in payload_text.splitlines() if line.strip()), "")
+        if first_line:
+            values.append(first_line)
+    dates: set[str] = set()
+    for value in values:
+        for roc_year, month, day in re.findall(r"(?<!\d)(\d{2,3})\s*年\s*(\d{1,2})\s*月\s*(\d{1,2})\s*日", value):
+            try:
+                dates.add(datetime(int(roc_year) + 1911, int(month), int(day)).strftime("%Y%m%d"))
+            except ValueError:
+                continue
+        for year, month, day in re.findall(r"(?<!\d)(20\d{2})[-/.](\d{1,2})[-/.](\d{1,2})(?!\d)", value):
+            try:
+                dates.add(datetime(int(year), int(month), int(day)).strftime("%Y%m%d"))
+            except ValueError:
+                continue
+        for compact in re.findall(r"(?<!\d)(20\d{6})(?!\d)", value):
+            try:
+                dates.add(datetime.strptime(compact, "%Y%m%d").strftime("%Y%m%d"))
+            except ValueError:
+                continue
+    return sorted(dates)
+
+
+def record_response_provenance(
+    url: str,
+    response: Any,
+    *,
+    source_name: str = "",
+    expected_response_date: str = "",
+) -> dict[str, Any]:
+    text = str(getattr(response, "text", "") or "")
+    raw = getattr(response, "content", None)
+    if not isinstance(raw, bytes):
+        raw = text.encode("utf-8")
+    observed_dates = extract_official_response_dates(text)
+    row = {
+            "endpoint": url,
+            "source_name": source_name,
+            "params": {},
+            "status_code": int(getattr(response, "status_code", 0) or 0),
+            "fetched_at": f"{now_taipei()} Asia/Taipei",
+            "raw_sha256": hashlib.sha256(raw).hexdigest(),
+            "normalized_sha256": hashlib.sha256(text.encode("utf-8")).hexdigest(),
+            "observed_response_dates": observed_dates,
+            "expected_response_date": expected_response_date,
+            "exact_date_match": (
+                observed_dates == [expected_response_date] if expected_response_date else "not_required"
+            ),
+        }
+    FETCH_RESPONSE_PROVENANCE.append(row)
+    return dict(row)
 
 
 def now_taipei() -> str:
@@ -228,6 +314,17 @@ def normalize_date_value(value) -> str:
         return digits[:8]
 
     return ""
+
+
+def require_calendar_date(value: str, label: str = "date") -> str:
+    text = normalize_date_value(value)
+    if text != str(value or "").strip():
+        raise RuntimeError(f"{label} must be calendar-valid YYYYMMDD")
+    try:
+        datetime.strptime(text, "%Y%m%d")
+    except ValueError as exc:
+        raise RuntimeError(f"{label} must be calendar-valid YYYYMMDD") from exc
+    return text
 
 
 def normalize_raw_snapshot(df: pd.DataFrame) -> pd.DataFrame:
@@ -443,6 +540,7 @@ def fetch_source(
     source_name: str,
     referer: str = "https://www.twse.com.tw/",
     deadline: float | None = None,
+    expected_response_date: str = "",
 ) -> tuple[list[pd.DataFrame], str]:
     headers = {
         "User-Agent": "Mozilla/5.0",
@@ -456,6 +554,18 @@ def fetch_source(
     try:
         response = requests.get(url, headers=headers, timeout=request_timeout(deadline))
         response.encoding = response.apparent_encoding or response.encoding or "utf-8"
+        provenance = record_response_provenance(
+            url,
+            response,
+            source_name=source_name,
+            expected_response_date=expected_response_date,
+        )
+        if expected_response_date and provenance["exact_date_match"] is not True:
+            return [], (
+                "response_date_mismatch "
+                f"source={source_name}, expected={expected_response_date}, "
+                f"observed={provenance['observed_response_dates']}, url={url}"
+            )
 
         frames = read_tables_from_text(response.text)
 
@@ -833,6 +943,7 @@ def standardize_twse_mi_index_quotes_v2(
 def fetch_twse_warrant_mapping(
     date_str: str,
     deadline: float | None = None,
+    require_exact_response_date: bool = False,
 ) -> tuple[pd.DataFrame, list[str], list[dict]]:
     urls = [
         (
@@ -854,7 +965,12 @@ def fetch_twse_warrant_mapping(
             logs.append(f"deadline_exceeded mapping date={date_str}")
             break
 
-        tables, log = fetch_source(url, source_name, deadline=deadline)
+        tables, log = fetch_source(
+            url,
+            source_name,
+            deadline=deadline,
+            expected_response_date=date_str if require_exact_response_date else "",
+        )
         logs.append(log)
 
         for idx, table in enumerate(tables):
@@ -886,6 +1002,7 @@ def fetch_twse_warrant_mapping(
 def fetch_twse_mi_index_quotes(
     date_str: str,
     deadline: float | None = None,
+    require_exact_response_date: bool = False,
 ) -> tuple[pd.DataFrame, list[str], list[dict]]:
     """
     重點：
@@ -920,7 +1037,12 @@ def fetch_twse_mi_index_quotes(
                 logs.append(f"deadline_exceeded quote date={date_str}, source={source_name}")
                 break
 
-            tables, log = fetch_source(url, source_name, deadline=deadline)
+            tables, log = fetch_source(
+                url,
+                source_name,
+                deadline=deadline,
+                expected_response_date=date_str if require_exact_response_date else "",
+            )
             logs.append(log)
 
             for idx, table in enumerate(tables):
@@ -967,6 +1089,7 @@ def fetch_warrant_data_with_quote_fallback(
     requested_date: str,
     lookback_days: int = 10,
     deadline: float | None = None,
+    require_exact_response_date: bool = False,
 ) -> tuple[str, pd.DataFrame, pd.DataFrame, pd.DataFrame, list[str], list[dict], str]:
     logs: list[str] = []
     debug_rows: list[dict] = []
@@ -978,7 +1101,11 @@ def fetch_warrant_data_with_quote_fallback(
             deadline_hit = True
             break
 
-        quotes, quote_logs, quote_debug = fetch_twse_mi_index_quotes(candidate_date, deadline=deadline)
+        quotes, quote_logs, quote_debug = fetch_twse_mi_index_quotes(
+            candidate_date,
+            deadline=deadline,
+            require_exact_response_date=require_exact_response_date,
+        )
         logs.extend(quote_logs)
         debug_rows.extend(add_fetch_date_to_debug(quote_debug, requested_date, candidate_date))
 
@@ -988,7 +1115,11 @@ def fetch_warrant_data_with_quote_fallback(
                 deadline_hit = True
                 break
 
-            mapping, mapping_logs, mapping_debug = fetch_twse_warrant_mapping(candidate_date, deadline=deadline)
+            mapping, mapping_logs, mapping_debug = fetch_twse_warrant_mapping(
+                candidate_date,
+                deadline=deadline,
+                require_exact_response_date=require_exact_response_date,
+            )
             logs.extend(mapping_logs)
             debug_rows.extend(add_fetch_date_to_debug(mapping_debug, requested_date, candidate_date))
 
@@ -1024,7 +1155,11 @@ def fetch_warrant_data_with_quote_fallback(
             warning,
         )
 
-    mapping, mapping_logs, mapping_debug = fetch_twse_warrant_mapping(requested_date, deadline=deadline)
+    mapping, mapping_logs, mapping_debug = fetch_twse_warrant_mapping(
+        requested_date,
+        deadline=deadline,
+        require_exact_response_date=require_exact_response_date,
+    )
     logs.extend(mapping_logs)
     debug_rows.extend(add_fetch_date_to_debug(mapping_debug, requested_date, requested_date))
 
@@ -1285,6 +1420,71 @@ def build_source_status(
     }
 
 
+def attach_replay_provenance(
+    status: dict[str, Any],
+    *,
+    historical_replay: bool,
+    requested_date: str,
+    data_date: str,
+    fallback_used: bool,
+) -> dict[str, Any]:
+    result = dict(status)
+    result.update(
+        {
+            "mode": "reconstructed_source_tail_gap" if historical_replay else "latest_refresh",
+            "publication_status": (
+                "reconstructed_not_as_published" if historical_replay else "as_published"
+            ),
+            "as_published": False if historical_replay else True,
+            "requested_date": normalize_date_value(requested_date),
+            "observed_date": normalize_date_value(data_date),
+            "fallback_used": bool(fallback_used),
+            "future_rows_used": False,
+            "source_responses": fetch_response_provenance(),
+        }
+    )
+    if historical_replay:
+        if result["requested_date"] != result["observed_date"]:
+            raise RuntimeError(
+                "historical warrant replay response date mismatch: "
+                f"{result['observed_date']} != {result['requested_date']}"
+            )
+        if fallback_used:
+            raise RuntimeError("historical warrant replay forbids existing-artifact fallback")
+        if not result["source_responses"]:
+            raise RuntimeError("historical warrant replay requires live source response provenance")
+        accepted_exact_families: set[str] = set()
+        for index, response in enumerate(result["source_responses"]):
+            if not isinstance(response, dict):
+                raise RuntimeError(
+                    f"historical warrant replay source response {index} must be an object"
+                )
+            if not str(response.get("endpoint", "")).strip():
+                raise RuntimeError(
+                    f"historical warrant replay source response {index} lacks endpoint"
+                )
+            for field in ("raw_sha256", "normalized_sha256"):
+                if not re.fullmatch(r"[0-9a-f]{64}", str(response.get(field, ""))):
+                    raise RuntimeError(
+                        f"historical warrant replay source response {index} lacks valid {field}"
+                    )
+            if response.get("exact_date_match") is True:
+                if response.get("observed_response_dates") != [result["requested_date"]]:
+                    raise RuntimeError(
+                        "historical warrant replay accepted response date evidence mismatch"
+                    )
+                source_name = str(response.get("source_name", ""))
+                if source_name.startswith("TWSE_WARRANT_STOCK_"):
+                    accepted_exact_families.add("mapping")
+                if source_name.startswith("TWSE_MI_INDEX_"):
+                    accepted_exact_families.add("quote")
+        if accepted_exact_families != {"mapping", "quote"}:
+            raise RuntimeError(
+                "historical warrant replay requires accepted exact-date mapping and quote responses"
+            )
+    return result
+
+
 def write_source_status(status: dict[str, Any]) -> None:
     SOURCE_STATUS_JSON.write_text(json.dumps(status, ensure_ascii=False, indent=2), encoding="utf-8")
     lines = [
@@ -1324,18 +1524,32 @@ def main() -> int:
             "stock-level warrant quote rows."
         ),
     )
+    parser.add_argument("--historical-replay", action="store_true")
+    parser.add_argument("--require-live-fetch", action="store_true")
     args = parser.parse_args()
+
+    if args.historical_replay and not (args.require_live_fetch and args.require_current_usable):
+        raise RuntimeError(
+            "--historical-replay requires --require-live-fetch and --require-current-usable"
+        )
+    if args.require_live_fetch and not args.historical_replay:
+        raise RuntimeError("--require-live-fetch is valid only with --historical-replay")
 
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     DEBUG_DIR.mkdir(parents=True, exist_ok=True)
     HISTORY_DIR.mkdir(parents=True, exist_ok=True)
 
     requested_date = args.date.strip() or get_latest_price_date()
+    if args.historical_replay:
+        requested_date = require_calendar_date(requested_date, "historical warrant replay --date")
     deadline = time.monotonic() + FETCH_MAX_SECONDS
+    reset_fetch_response_provenance()
 
     fetch_kwargs = {"deadline": deadline}
-    if args.require_current_usable:
+    if args.require_current_usable or args.historical_replay:
         fetch_kwargs["lookback_days"] = 0
+    if args.historical_replay:
+        fetch_kwargs["require_exact_response_date"] = True
 
     (
         date_str,
@@ -1346,6 +1560,21 @@ def main() -> int:
         debug_rows,
         fallback_warning,
     ) = fetch_warrant_data_with_quote_fallback(requested_date, **fetch_kwargs)
+    if args.historical_replay:
+        if normalize_date_value(date_str) != requested_date:
+            raise RuntimeError(
+                f"historical warrant replay response date mismatch: {date_str} != {requested_date}"
+            )
+        out_dates = {
+            normalize_date_value(value)
+            for value in out.get("date", pd.Series(dtype=str)).tolist()
+            if normalize_date_value(value)
+        }
+        if out_dates and out_dates != {requested_date}:
+            raise RuntimeError(
+                "historical warrant replay output contains mixed dates: "
+                + ",".join(sorted(out_dates))
+            )
 
     write_debug(
         debug_rows,
@@ -1353,7 +1582,10 @@ def main() -> int:
     )
 
     if out.empty or not has_usable_quote_rows(out):
-        fallback_path, fallback_raw, fallback_date = find_existing_raw_fallback(date_str, requested_date)
+        if args.require_live_fetch:
+            fallback_path, fallback_raw, fallback_date = None, pd.DataFrame(), ""
+        else:
+            fallback_path, fallback_raw, fallback_date = find_existing_raw_fallback(date_str, requested_date)
 
         if not fallback_raw.empty:
             fallback_raw.to_csv(RAW_LATEST, index=False, encoding="utf-8-sig")
@@ -1376,14 +1608,20 @@ def main() -> int:
                 requested_date=requested_date,
             )
             write_source_status(
-                build_source_status(
+                attach_replay_provenance(
+                    build_source_status(
+                        requested_date=requested_date,
+                        data_date=fallback_date,
+                        usable=True,
+                        final_rows=len(fallback_raw),
+                        mapping_rows=len(mapping),
+                        quote_rows=len(quotes),
+                        note=f"preserved existing same-date usable raw snapshot from {fallback_path}",
+                    ),
+                    historical_replay=args.historical_replay,
                     requested_date=requested_date,
                     data_date=fallback_date,
-                    usable=True,
-                    final_rows=len(fallback_raw),
-                    mapping_rows=len(mapping),
-                    quote_rows=len(quotes),
-                    note=f"preserved existing same-date usable raw snapshot from {fallback_path}",
+                    fallback_used=True,
                 )
             )
 
@@ -1417,14 +1655,20 @@ def main() -> int:
                 requested_date=requested_date,
             )
             write_source_status(
-                build_source_status(
+                attach_replay_provenance(
+                    build_source_status(
+                        requested_date=requested_date,
+                        data_date=date_str,
+                        usable=False,
+                        final_rows=len(out),
+                        mapping_rows=len(mapping),
+                        quote_rows=len(quotes),
+                        note=warning,
+                    ),
+                    historical_replay=args.historical_replay,
                     requested_date=requested_date,
                     data_date=date_str,
-                    usable=False,
-                    final_rows=len(out),
-                    mapping_rows=len(mapping),
-                    quote_rows=len(quotes),
-                    note=warning,
+                    fallback_used=False,
                 )
             )
             print(f"Saved mapping-only warrant raw data without usable quotes: {RAW_LATEST}, rows={len(out)}")
@@ -1452,14 +1696,20 @@ def main() -> int:
             ),
         )
         write_source_status(
-            build_source_status(
+            attach_replay_provenance(
+                build_source_status(
+                    requested_date=requested_date,
+                    data_date=date_str,
+                    usable=False,
+                    final_rows=0,
+                    mapping_rows=len(mapping),
+                    quote_rows=len(quotes),
+                    note="current-date stock-level warrant raw data is unavailable",
+                ),
+                historical_replay=args.historical_replay,
                 requested_date=requested_date,
                 data_date=date_str,
-                usable=False,
-                final_rows=0,
-                mapping_rows=len(mapping),
-                quote_rows=len(quotes),
-                note="current-date stock-level warrant raw data is unavailable",
+                fallback_used=False,
             )
         )
 
@@ -1492,14 +1742,20 @@ def main() -> int:
         warning=warning,
     )
     write_source_status(
-        build_source_status(
+        attach_replay_provenance(
+            build_source_status(
+                requested_date=requested_date,
+                data_date=date_str,
+                usable=True,
+                final_rows=len(out),
+                mapping_rows=len(mapping),
+                quote_rows=len(quotes),
+                note=warning or "current-date stock-level warrant data is usable",
+            ),
+            historical_replay=args.historical_replay,
             requested_date=requested_date,
             data_date=date_str,
-            usable=True,
-            final_rows=len(out),
-            mapping_rows=len(mapping),
-            quote_rows=len(quotes),
-            note=warning or "current-date stock-level warrant data is usable",
+            fallback_used=False,
         )
     )
 

@@ -3,6 +3,7 @@ from __future__ import annotations
 import sys
 
 import pandas as pd
+import pytest
 
 from scripts import fetch_official_warrant_daily as warrant_fetch
 
@@ -194,3 +195,163 @@ def test_require_current_usable_rejects_empty_without_same_date_fallback(tmp_pat
 
     latest_raw = pd.read_csv(latest_dir / "warrant_daily_raw_latest.csv", dtype=str)
     assert latest_raw.empty
+
+
+def test_historical_replay_requires_strict_flag_bundle(monkeypatch):
+    monkeypatch.setattr(
+        sys,
+        "argv",
+        ["fetch_official_warrant_daily.py", "--date", "20260720", "--historical-replay"],
+    )
+    with pytest.raises(RuntimeError, match="requires --require-live-fetch"):
+        warrant_fetch.main()
+
+
+def test_historical_replay_date_must_be_calendar_valid(monkeypatch):
+    monkeypatch.setattr(
+        sys,
+        "argv",
+        [
+            "fetch_official_warrant_daily.py",
+            "--date",
+            "20260230",
+            "--historical-replay",
+            "--require-live-fetch",
+            "--require-current-usable",
+        ],
+    )
+    with pytest.raises(RuntimeError, match="calendar-valid YYYYMMDD"):
+        warrant_fetch.main()
+
+
+def test_historical_replay_provenance_requires_valid_response_hashes(monkeypatch):
+    monkeypatch.setattr(
+        warrant_fetch,
+        "fetch_response_provenance",
+        lambda: [{
+            "endpoint": "https://example.invalid",
+            "source_name": "TWSE_MI_INDEX_0999_JSON",
+            "raw_sha256": "bad",
+        }],
+    )
+    with pytest.raises(RuntimeError, match="valid raw_sha256"):
+        warrant_fetch.attach_replay_provenance(
+            {"status": "ok"},
+            historical_replay=True,
+            requested_date="20260720",
+            data_date="20260720",
+            fallback_used=False,
+        )
+
+
+def test_historical_replay_rejects_response_date_mismatch(monkeypatch):
+    sha = "a" * 64
+    monkeypatch.setattr(
+        warrant_fetch,
+        "fetch_response_provenance",
+        lambda: [
+            {
+                "endpoint": "https://example.invalid/quote",
+                "source_name": "TWSE_MI_INDEX_0999_JSON",
+                "raw_sha256": sha,
+                "normalized_sha256": sha,
+                "observed_response_dates": ["20260720"],
+                "exact_date_match": True,
+            },
+            {
+                "endpoint": "https://example.invalid/mapping",
+                "source_name": "TWSE_WARRANT_STOCK_JSON",
+                "raw_sha256": sha,
+                "normalized_sha256": sha,
+                "observed_response_dates": ["20260720"],
+                "exact_date_match": True,
+            },
+        ],
+    )
+    with pytest.raises(RuntimeError, match="response date mismatch"):
+        warrant_fetch.attach_replay_provenance(
+            {"status": "ok"},
+            historical_replay=True,
+            requested_date="20260720",
+            data_date="20260717",
+            fallback_used=False,
+        )
+
+
+def test_historical_replay_never_uses_existing_raw_fallback(tmp_path, monkeypatch):
+    latest_dir, history_dir = patch_warrant_fetch_paths(tmp_path, monkeypatch)
+    raw_snapshot("20260720").to_csv(
+        history_dir / "warrant_daily_20260720.csv",
+        index=False,
+        encoding="utf-8",
+    )
+
+    def fake_fetch(
+        requested_date,
+        lookback_days=10,
+        deadline=None,
+        require_exact_response_date=False,
+    ):
+        return (
+            requested_date,
+            pd.DataFrame(),
+            pd.DataFrame(),
+            pd.DataFrame(columns=warrant_fetch.RAW_COLUMNS),
+            ["live fetch empty"],
+            [],
+            "live fetch failed",
+        )
+
+    sha = "b" * 64
+    monkeypatch.setattr(warrant_fetch, "fetch_warrant_data_with_quote_fallback", fake_fetch)
+    monkeypatch.setattr(
+        warrant_fetch,
+        "fetch_response_provenance",
+        lambda: [
+            {
+                "endpoint": "https://example.invalid/quote",
+                "source_name": "TWSE_MI_INDEX_0999_JSON",
+                "raw_sha256": sha,
+                "normalized_sha256": sha,
+                "observed_response_dates": ["20260720"],
+                "exact_date_match": True,
+            },
+            {
+                "endpoint": "https://example.invalid/mapping",
+                "source_name": "TWSE_WARRANT_STOCK_JSON",
+                "raw_sha256": sha,
+                "normalized_sha256": sha,
+                "observed_response_dates": ["20260720"],
+                "exact_date_match": True,
+            },
+        ],
+    )
+    monkeypatch.setattr(
+        sys,
+        "argv",
+        [
+            "fetch_official_warrant_daily.py",
+            "--date",
+            "20260720",
+            "--historical-replay",
+            "--require-live-fetch",
+            "--require-current-usable",
+        ],
+    )
+
+    assert warrant_fetch.main() == 1
+    latest_raw = pd.read_csv(latest_dir / "warrant_daily_raw_latest.csv", dtype=str)
+    assert latest_raw.empty
+
+
+def test_extract_official_response_date_from_roc_json_title() -> None:
+    payload = '{"title":"115年07月20日 上市權證每日成交資訊","data":[]}'
+    assert warrant_fetch.extract_official_response_dates(payload) == ["20260720"]
+
+
+def test_response_date_extractor_ignores_dates_inside_data_rows() -> None:
+    payload = (
+        '{"title":"上市認購(售)權證每日收盤行情資訊彙總表 115年07月20日",'
+        '"data":[["030001","114年01月03日","2030/12/31"]]}'
+    )
+    assert warrant_fetch.extract_official_response_dates(payload) == ["20260720"]

@@ -9,6 +9,9 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 DAILY_WORKFLOW = ROOT / ".github" / "workflows" / "daily_full_pipeline.yml"
 RECENT_PRICE_GAP_WORKFLOW = ROOT / ".github" / "workflows" / "repair_recent_daily_price_gaps.yml"
+HISTORICAL_SOURCE_REPLAY_WORKFLOW = (
+    ROOT / ".github" / "workflows" / "historical_structured_source_replay.yml"
+)
 DAILY_MODEL_MAINTENANCE_PR_WORKFLOW = ROOT / ".github" / "workflows" / "daily_model_maintenance_pr_validation.yml"
 DAILY_PDF_REPLAY_PR_WORKFLOW = ROOT / ".github" / "workflows" / "daily_pdf_replay_pr_validation.yml"
 DAILY_PDF_REPLAY_AUTOMATIC_PATHS = {
@@ -600,9 +603,108 @@ def run_repo_advanced_integrity_validation() -> list[str]:
     return list(module.validate(include_external_sources=False))
 
 
+def validate_historical_source_replay_workflow(text: str) -> list[str]:
+    errors: list[str] = []
+    required_literals = {
+        "workflow_dispatch:": "must be manually and explicitly dispatched",
+        "expected_main_sha:": "must require an immutable authorized main SHA",
+        "github.ref != 'refs/heads/main'": "must reject non-main dispatches",
+        "ref: main": "must checkout main",
+        "group: daily-full-pipeline-${{ github.ref }}": "must serialize with Daily Full Pipeline",
+        "cancel-in-progress: false": "must not cancel an in-flight official producer",
+        "Require production artifact write deploy key": "must fail closed on missing writer credentials",
+        "Checkout exact main source": "must checkout only after credential preflight",
+        "Install replay dependencies": "must install runtime dependencies before repository validators",
+        "Validate repository automation boundaries": "must validate repository contracts before replay",
+        '"$base_sha" != "$EXPECTED_MAIN_SHA"': "must bind checkout to expected_main_sha",
+        '"$base_sha" != "$remote_main_sha"': "must bind checkout to remote main",
+        "python scripts/replay_historical_structured_sources.py": "must use the canonical replay orchestrator",
+        "--repair-market-index-base-date \"$BASE_REPAIR_DATE\"": "must explicitly route the TPEX base repair",
+        "--replay-id \"$HISTORICAL_SOURCE_REPLAY_ID\"": "must use the immutable run namespace",
+        "--expected-pipeline-sha \"$REPLAY_BASE_SHA\"": "must validate against the code-base SHA",
+        "python scripts/validate_historical_source_replay_staged_paths.py": "must fail closed on staged/worktree paths",
+        "git add data/daily_price/": "must explicitly stage dated price sources",
+        "git add data/stock_price_history/": "must explicitly stage stock histories",
+        "git add data/market_index_history.csv data/market_index_ohlc_history.csv": "must explicitly stage market-index histories",
+        "git add data/futures_options/": "must explicitly stage TAIFEX histories",
+        "git add output/history/warrant_daily/": "must explicitly stage warrant history",
+        "git add output/history/warrant_flow/": "must explicitly stage warrant-flow history",
+        "REMOTE_MAIN_SHA_PRECOMMIT": "must record the precommit remote SHA",
+        "REMOTE_MAIN_SHA_AFTER": "must verify the post-push remote SHA",
+        "commit_count_after - commit_count_before": "must prove exactly one output commit",
+        "git push origin HEAD:refs/heads/main": "must use one fail-closed non-force push",
+        "Revalidate pushed replay against immutable code base": "must validate again after the output commit is pushed",
+    }
+    for literal, purpose in required_literals.items():
+        if literal not in text:
+            errors.append(f"historical structured-source replay {purpose}: missing {literal!r}")
+
+    if text.count("python scripts/validate_historical_structured_source_replay.py") != 2:
+        errors.append(
+            "historical structured-source replay must run the final validator exactly before commit and after push"
+        )
+    if len(re.findall(r"(?m)^\s*git commit\s", text)) != 1:
+        errors.append("historical structured-source replay must create exactly one Git commit")
+    if len(re.findall(r"(?m)^\s*git push\s", text)) != 1:
+        errors.append("historical structured-source replay must execute exactly one Git push")
+
+    forbidden_literals = {
+        "git add -A": "must not broad-stage the repository",
+        "ci_push_with_retry.sh": "must not rebase or regenerate on a moving main",
+        "git rebase": "must not rebase after replay validation",
+        "git push --force": "must not force-push production artifacts",
+        "generate_chatgpt_side_daily_reports.py": "must not reconstruct historical PDFs",
+        "build_daily_candidate_model_layer.py": "must not reconstruct historical model outputs",
+        "build_theme_event_watch.py": "must not reconstruct historical event/catalyst outputs",
+        "git add output/latest/all_candidates": "must not stage candidate outputs",
+        "git add output/history/daily_model": "must not stage model outputs",
+        "git add published_reports": "must not stage published reports",
+        "git add chatgpt_side_outputs": "must not stage PDF outputs",
+    }
+    for literal, purpose in forbidden_literals.items():
+        if literal in text:
+            errors.append(f"historical structured-source replay {purpose}: found {literal!r}")
+
+    ordered_literals = (
+        "Require production artifact write deploy key",
+        "Checkout exact main source",
+        "Install replay dependencies",
+        "Validate repository automation boundaries",
+        "python scripts/replay_historical_structured_sources.py",
+        "python scripts/validate_historical_structured_source_replay.py",
+        "git add data/daily_price/",
+        "python scripts/validate_historical_source_replay_staged_paths.py",
+        "Reject remote-main drift before the only output commit",
+        "git commit -m",
+        "git push origin HEAD:refs/heads/main",
+        "Verify pushed main and output commit",
+        "python scripts/validate_historical_structured_source_replay.py",
+    )
+    cursor = -1
+    for literal in ordered_literals:
+        position = text.find(literal, cursor + 1)
+        if position < 0:
+            errors.append(
+                "historical structured-source replay fail-closed order is incomplete or invalid: "
+                f"expected {literal!r} after position {cursor}"
+            )
+            break
+        cursor = position
+    return errors
+
+
 def main() -> int:
     errors: list[str] = []
     daily_text = read_text(DAILY_WORKFLOW)
+
+    if not HISTORICAL_SOURCE_REPLAY_WORKFLOW.exists():
+        errors.append("missing historical structured-source replay workflow")
+    else:
+        errors.extend(
+            validate_historical_source_replay_workflow(
+                read_text(HISTORICAL_SOURCE_REPLAY_WORKFLOW)
+            )
+        )
 
     errors.extend(run_code_isolation_policy_validation())
     errors.extend(run_repo_production_inventory_validation())

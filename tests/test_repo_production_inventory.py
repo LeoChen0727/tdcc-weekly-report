@@ -97,7 +97,7 @@ def test_all_inventory_artifact_writers_use_the_deploy_key() -> None:
 
     inventory.validate_production_artifact_writer_auth(rows, workflow_paths, errors)
 
-    assert len(writer_rows) == 12
+    assert len(writer_rows) == 13
     assert errors == []
 
 

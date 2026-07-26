@@ -1333,3 +1333,34 @@ def test_research_workflow_does_not_stage_generated_recommendations_as_config() 
     assert "git add config/daily_model_parameter_recommendations.csv" not in workflow
     assert "CONFIG_CSV" not in recommender
     assert 'Path("config/daily_model_parameter_recommendations.csv")' not in recommender
+
+
+def test_historical_structured_source_replay_workflow_is_fail_closed() -> None:
+    text = boundaries.HISTORICAL_SOURCE_REPLAY_WORKFLOW.read_text(encoding="utf-8")
+
+    assert boundaries.validate_historical_source_replay_workflow(text) == []
+
+
+def test_historical_structured_source_replay_rejects_broad_stage_and_retry_push() -> None:
+    text = boundaries.HISTORICAL_SOURCE_REPLAY_WORKFLOW.read_text(encoding="utf-8")
+    text += "\nrun: git add -A\nrun: scripts/ci_push_with_retry.sh\n"
+
+    errors = boundaries.validate_historical_source_replay_workflow(text)
+
+    assert any("broad-stage" in error for error in errors)
+    assert any("moving main" in error for error in errors)
+
+
+def test_historical_structured_source_replay_rejects_dependency_validator_order_swap() -> None:
+    text = boundaries.HISTORICAL_SOURCE_REPLAY_WORKFLOW.read_text(encoding="utf-8")
+    text = text.replace("Install replay dependencies", "TEMP STEP NAME", 1)
+    text = text.replace(
+        "Validate repository automation boundaries",
+        "Install replay dependencies",
+        1,
+    )
+    text = text.replace("TEMP STEP NAME", "Validate repository automation boundaries", 1)
+
+    errors = boundaries.validate_historical_source_replay_workflow(text)
+
+    assert any("fail-closed order" in error for error in errors)

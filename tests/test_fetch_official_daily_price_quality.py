@@ -114,7 +114,12 @@ def test_tpex_fetch_skips_latest_only_openapi_for_historical_target(monkeypatch)
 
     requested: list[str] = []
 
-    def fake_request_text(url: str, log: list[str], referer: str = "https://www.twse.com.tw/") -> str:
+    def fake_request_text(
+        url: str,
+        log: list[str],
+        referer: str = "https://www.twse.com.tw/",
+        **kwargs,
+    ) -> str:
         requested.append(url)
         if "openapi" in url:
             return '{"data":[["006201","ETF","50.25","","49.25","50.25","48.96","50","2512"]]}'
@@ -128,6 +133,59 @@ def test_tpex_fetch_skips_latest_only_openapi_for_historical_target(monkeypatch)
     assert df.empty
     assert not any("openapi" in url for url in requested)
     assert any("latest-only" in item for item in log)
+
+
+def test_twse_historical_json_requires_official_exact_response_date(monkeypatch):
+    monkeypatch.setattr(fetcher, "REQUIRE_EXACT_HISTORICAL_RESPONSE_DATES", True)
+    text = (
+        '{"title":"115年07月17日 每日收盤行情","data9":'
+        '[["2330","TSMC","1000","10","500000","500","510","495","505"]]}'
+    )
+    log: list[str] = []
+
+    rejected = fetcher.parse_twse_mi_index_json(
+        text,
+        "20260720",
+        "TWSE_RWD_JSON_MI_INDEX",
+        log,
+    )
+    accepted = fetcher.parse_twse_mi_index_json(
+        text,
+        "20260717",
+        "TWSE_RWD_JSON_MI_INDEX",
+        log,
+    )
+
+    assert rejected.empty
+    assert len(accepted) == 1
+    assert accepted.iloc[0]["date"] == "20260717"
+
+
+def test_twse_historical_mode_skips_latest_only_openapi(monkeypatch):
+    monkeypatch.setattr(fetcher, "REQUIRE_EXACT_HISTORICAL_RESPONSE_DATES", True)
+    requested: list[str] = []
+
+    def fake_request_text(url: str, log: list[str], **kwargs) -> str:
+        requested.append(url)
+        return ""
+
+    monkeypatch.setattr(fetcher, "request_text", fake_request_text)
+    fetcher.fetch_twse_batch("20260720", [])
+
+    assert not any("openapi" in url for url in requested)
+
+
+def test_official_response_date_extraction_reads_roc_title() -> None:
+    text = '{"title":"115年07月20日 每日收盤行情","data9":[]}'
+    assert fetcher.collect_official_response_dates_from_text(text) == ["20260720"]
+
+
+def test_official_response_date_extraction_ignores_data_row_dates() -> None:
+    text = (
+        '{"title":"115年07月20日 每日收盤行情",'
+        '"data9":[["2330","TSMC","2030/12/31","114年01月03日"]]}'
+    )
+    assert fetcher.collect_official_response_dates_from_text(text) == ["20260720"]
 
 
 def test_apply_canonical_stock_names_overrides_corrupted_endpoint_name(tmp_path, monkeypatch):

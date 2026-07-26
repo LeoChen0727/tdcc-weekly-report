@@ -1,0 +1,213 @@
+name: Historical Structured Source Replay
+
+on:
+  workflow_dispatch:
+    inputs:
+      start_date:
+        description: "First missing trading date in YYYYMMDD"
+        required: true
+        default: "20260720"
+        type: string
+      end_date:
+        description: "Last missing trading date in YYYYMMDD"
+        required: true
+        default: "20260724"
+        type: string
+      repair_market_index_base_date:
+        description: "TPEX-only market-index base repair date in YYYYMMDD"
+        required: true
+        default: "20260717"
+        type: string
+      expected_main_sha:
+        description: "Exact 40-character merged main SHA authorized for this replay"
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-full-pipeline-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  replay-historical-structured-sources:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      START_DATE: ${{ inputs.start_date }}
+      END_DATE: ${{ inputs.end_date }}
+      BASE_REPAIR_DATE: ${{ inputs.repair_market_index_base_date }}
+      EXPECTED_MAIN_SHA: ${{ inputs.expected_main_sha }}
+      HISTORICAL_SOURCE_REPLAY_ID: github-run-${{ github.run_id }}-${{ github.run_attempt }}
+
+    steps:
+      - name: Reject non-main production dispatch
+        if: github.ref != 'refs/heads/main'
+        run: |
+          echo "::error::Historical Structured Source Replay is production-only on refs/heads/main."
+          exit 1
+
+      - name: Require production artifact write deploy key
+        shell: bash
+        env:
+          PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY: ${{ secrets.PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY }}
+        run: |
+          if [ -z "${PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY}" ]; then
+            echo "::error::PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY is required for artifact publishing."
+            exit 1
+          fi
+
+      - name: Checkout exact main source
+        uses: actions/checkout@v6
+        with:
+          ssh-key: ${{ secrets.PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY }}
+          persist-credentials: true
+          ref: main
+          fetch-depth: 0
+
+      - name: Capture immutable main replay base
+        shell: bash
+        run: |
+          base_sha="$(git rev-parse HEAD)"
+          remote_main_sha="$(git ls-remote origin refs/heads/main | awk '{print $1}')"
+          if [[ ! "$EXPECTED_MAIN_SHA" =~ ^[0-9a-f]{40}$ ]]; then
+            echo "::error::expected_main_sha must be an exact 40-character Git SHA."
+            exit 1
+          fi
+          if [ -z "$remote_main_sha" ] || [ "$base_sha" != "$remote_main_sha" ] || [ "$base_sha" != "$EXPECTED_MAIN_SHA" ]; then
+            echo "::error::Checked-out main, remote main, and expected_main_sha must match exactly."
+            exit 1
+          fi
+          echo "REPLAY_BASE_SHA=$base_sha" >> "$GITHUB_ENV"
+          echo "REMOTE_MAIN_SHA_BEFORE=$remote_main_sha" >> "$GITHUB_ENV"
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      - name: Install replay dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pandas requests lxml html5lib beautifulsoup4 openpyxl tabulate
+
+      - name: Validate repository automation boundaries
+        run: |
+          python scripts/validate_apps_script_workflow_triggers.py
+          python scripts/validate_repo_production_inventory.py
+          python scripts/validate_repo_file_lifecycle_inventory.py
+          python scripts/validate_repo_semantic_integrity.py
+          python scripts/validate_daily_production_boundaries.py
+
+      - name: Replay structured objective sources in ascending order
+        shell: bash
+        run: |
+          python scripts/replay_historical_structured_sources.py \
+            --start-date "$START_DATE" \
+            --end-date "$END_DATE" \
+            --repair-market-index-base-date "$BASE_REPAIR_DATE" \
+            --replay-id "$HISTORICAL_SOURCE_REPLAY_ID"
+
+      - name: Validate final replay artifacts and target-slice parity
+        shell: bash
+        run: |
+          python scripts/validate_historical_structured_source_replay.py \
+            --start-date "$START_DATE" \
+            --end-date "$END_DATE" \
+            --repair-market-index-base-date "$BASE_REPAIR_DATE" \
+            --replay-id "$HISTORICAL_SOURCE_REPLAY_ID" \
+            --expected-pipeline-sha "$REPLAY_BASE_SHA"
+
+      - name: Stage exact structured-source artifact families
+        shell: bash
+        run: |
+          git add data/daily_price/
+          git add data/stock_price_history/
+          git add data/market_index_history.csv data/market_index_ohlc_history.csv
+          git add data/futures_options/
+          git add output/history/warrant_daily/
+          git add output/history/warrant_flow/
+          git add "output/history/historical_source_replay/$HISTORICAL_SOURCE_REPLAY_ID/"
+          git add output/latest/official_daily_price_latest.csv
+          git add output/latest/official_price_fetch_latest.json output/latest/official_price_fetch_latest.md
+          git add output/latest/market_index_source_status_latest.json output/latest/market_index_source_status_latest.md
+          git add output/latest/market_benchmark_latest.csv
+          git add output/latest/futures_options_*.csv output/latest/futures_options_*.json output/latest/futures_options_*.md
+          git add output/latest/taiwan_vix_latest.csv
+          git add output/latest/warrant_daily_raw_latest.csv
+          git add output/latest/warrant_daily_fetch_latest.md
+          git add output/latest/warrant_source_status_latest.json output/latest/warrant_source_status_latest.md
+          git add output/latest/warrant_flow_latest.csv output/latest/warrant_flow_latest.md
+          git add output/latest/stock_price_history_manifest.csv output/latest/stock_price_history_manifest.json output/latest/stock_price_history_manifest.md
+          git add output/latest/daily_price_history_continuity_latest.json output/latest/daily_price_history_continuity_latest.md
+          git add output/latest/data_freshness_latest.csv output/latest/data_freshness_latest.md
+          git add output/latest/historical_structured_source_replay_latest.json output/latest/historical_structured_source_replay_latest.md
+          git add output/debug/warrant_fetch_debug_latest.csv output/debug/warrant_fetch_debug_latest.md
+          git add docs/latest/stock_price_history_manifest.csv docs/latest/stock_price_history_manifest.json docs/latest/stock_price_history_manifest.md
+          python scripts/validate_historical_source_replay_staged_paths.py
+          if git diff --cached --quiet; then
+            echo "::error::Historical replay produced no staged artifact changes."
+            exit 1
+          fi
+
+      - name: Reject remote-main drift before the only output commit
+        shell: bash
+        run: |
+          remote_main_sha="$(git ls-remote origin refs/heads/main | awk '{print $1}')"
+          if [ -z "$remote_main_sha" ] || [ "$remote_main_sha" != "$REPLAY_BASE_SHA" ]; then
+            echo "::error::Remote main drifted during replay; refusing to commit or push."
+            exit 1
+          fi
+          echo "REMOTE_MAIN_SHA_PRECOMMIT=$remote_main_sha" >> "$GITHUB_ENV"
+
+      - name: Create and push exactly one replay output commit
+        shell: bash
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          commit_count_before="$(git rev-list --count HEAD)"
+          git commit -m "Replay historical structured sources $START_DATE-$END_DATE"
+          commit_count_after="$(git rev-list --count HEAD)"
+          if [ "$((commit_count_after - commit_count_before))" -ne 1 ]; then
+            echo "::error::Historical replay must create exactly one output commit."
+            exit 1
+          fi
+          output_commit_sha="$(git rev-parse HEAD)"
+          echo "OUTPUT_COMMIT_SHA=$output_commit_sha" >> "$GITHUB_ENV"
+          git push origin HEAD:refs/heads/main
+
+      - name: Verify pushed main and output commit
+        shell: bash
+        run: |
+          remote_main_sha="$(git ls-remote origin refs/heads/main | awk '{print $1}')"
+          if [ -z "$remote_main_sha" ] || [ "$remote_main_sha" != "$OUTPUT_COMMIT_SHA" ]; then
+            echo "::error::Remote main does not equal the replay output commit."
+            exit 1
+          fi
+          echo "REMOTE_MAIN_SHA_AFTER=$remote_main_sha" >> "$GITHUB_ENV"
+
+      - name: Revalidate pushed replay against immutable code base
+        shell: bash
+        run: |
+          python scripts/validate_historical_structured_source_replay.py \
+            --start-date "$START_DATE" \
+            --end-date "$END_DATE" \
+            --repair-market-index-base-date "$BASE_REPAIR_DATE" \
+            --replay-id "$HISTORICAL_SOURCE_REPLAY_ID" \
+            --expected-pipeline-sha "$REPLAY_BASE_SHA"
+
+      - name: Upload replay evidence
+        if: always()
+        continue-on-error: true
+        uses: actions/upload-artifact@v4
+        with:
+          name: historical-structured-source-replay-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            output/history/historical_source_replay/${{ env.HISTORICAL_SOURCE_REPLAY_ID }}/
+            output/latest/historical_structured_source_replay_latest.json
+            output/latest/historical_structured_source_replay_latest.md
+            output/latest/daily_price_history_continuity_latest.json
+            output/latest/data_freshness_latest.csv
+          if-no-files-found: ignore
+          retention-days: 90
