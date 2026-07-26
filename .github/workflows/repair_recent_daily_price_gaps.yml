@@ -65,6 +65,11 @@ jobs:
         with:
           python-version: "3.11"
 
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pandas requests lxml html5lib tabulate
+
       - name: Validate workflow automation boundaries
         run: |
           python scripts/validate_apps_script_workflow_triggers.py
@@ -72,11 +77,6 @@ jobs:
           python scripts/validate_repo_file_lifecycle_inventory.py
           python scripts/validate_repo_semantic_integrity.py
           python scripts/validate_daily_production_boundaries.py
-
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install pandas requests lxml html5lib tabulate
 
       - name: Repair recent daily price gaps
         env:
