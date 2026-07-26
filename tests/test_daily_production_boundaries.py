@@ -3,6 +3,7 @@ from __future__ import annotations
 from pathlib import Path
 import shutil
 import subprocess
+from collections import defaultdict
 
 import pytest
 
@@ -34,6 +35,78 @@ DAILY_OPERATION_CONCLUSION_PHRASES = [
     "先不買",
     "排除買進",
 ]
+
+
+def _collect_workflow_validation_steps(file_path: Path) -> tuple[dict[str, list[int]], dict[str, list[int]]]:
+    installs_by_job: dict[str, list[int]] = defaultdict(list)
+    validator_steps_by_job: dict[str, list[int]] = defaultdict(list)
+
+    lines = file_path.read_text(encoding="utf-8").splitlines()
+    in_jobs_block = False
+    in_steps_block = False
+    current_job: str | None = None
+    current_step_index = 0
+    current_step_is_install = False
+
+    for raw_line in lines:
+        line = raw_line.rstrip("\n")
+        if line.startswith("jobs:"):
+            in_jobs_block = True
+            continue
+
+        if in_jobs_block and line.startswith("  ") and not line.startswith("    "):
+            if line.rstrip().endswith(":") and line.strip() != "jobs:":
+                current_job = line.strip()[:-1]
+                in_steps_block = False
+            else:
+                current_job = None
+                in_steps_block = False
+            continue
+
+        if line.startswith("    steps:") and current_job is not None:
+            in_steps_block = True
+            continue
+
+        if not in_steps_block or current_job is None:
+            continue
+
+        if line.startswith("      - name:"):
+            current_step_index += 1
+            current_step_is_install = line.split(":", 1)[1].strip() == "Install dependencies"
+            continue
+
+        if current_step_is_install and "pip install" in line:
+            if current_step_index not in installs_by_job[current_job]:
+                installs_by_job[current_job].append(current_step_index)
+
+        if "python scripts/validate_daily_production_boundaries.py" in line:
+            validator_steps_by_job[current_job].append(current_step_index)
+
+    return installs_by_job, validator_steps_by_job
+
+
+@pytest.mark.parametrize(
+    "workflow_file",
+    [
+        ".github/workflows/daily_full_pipeline.yml",
+        ".github/workflows/repair_recent_daily_price_gaps.yml",
+    ],
+)
+def test_workflow_dependency_install_precedes_boundary_validator(
+    workflow_file: str,
+) -> None:
+    workflow_path = ROOT / workflow_file
+    installs_by_job, validator_steps_by_job = _collect_workflow_validation_steps(workflow_path)
+
+    assert validator_steps_by_job, f"{workflow_path} missing validate_daily_production_boundaries.py"
+
+    for job, validator_steps in validator_steps_by_job.items():
+        for validator_step_index in validator_steps:
+            install_before = [idx for idx in installs_by_job[job] if idx < validator_step_index]
+            assert install_before, (
+                f"{workflow_path} job={job}: no Install dependencies step before validator step "
+                f"{validator_step_index}"
+            )
 
 
 def test_daily_production_boundary_validator_passes_current_repo() -> None:
