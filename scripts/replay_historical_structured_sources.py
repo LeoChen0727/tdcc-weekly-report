@@ -756,6 +756,15 @@ def manifest_source_row(
                     }
                     for source_file in source_files
                 )
+            elif attempts := provenance.get("attempts"):
+                flattened.extend(
+                    {
+                        **attempt,
+                        "source": name,
+                        "observed_response_dates": attempt.get("observed_dates", []),
+                    }
+                    for attempt in attempts
+                )
             elif provenance:
                 flattened.append(
                     {
@@ -766,12 +775,20 @@ def manifest_source_row(
                 )
         responses = flattened
     responses = responses if isinstance(responses, list) else []
-    source_attempt_count = len(responses)
+    source_response_attempts = list(responses)
+    source_attempt_count = len(source_response_attempts)
     if source_id in {"official_daily_price", "official_warrant_daily"}:
         responses = [
             response
             for response in responses
             if response.get("exact_date_match") is True
+            and response.get("observed_response_dates") == [target_date]
+        ]
+    elif source_id == "taifex_futures_options_vix":
+        responses = [
+            response
+            for response in responses
+            if response.get("status", "ok") == "ok"
             and response.get("observed_response_dates") == [target_date]
         ]
     output_evidence = build_source_output_evidence(
@@ -788,6 +805,30 @@ def manifest_source_row(
         "params": [row.get("params", {}) for row in responses],
         "fetched_at": [row.get("fetched_at", "") for row in responses],
         "source_attempt_count": source_attempt_count,
+        "source_response_attempts": [
+            {
+                field: row.get(field, "")
+                for field in (
+                    "attempt",
+                    "source",
+                    "endpoint",
+                    "params",
+                    "status",
+                    "http_status",
+                    "raw_bytes",
+                    "raw_sha256",
+                    "normalized_sha256",
+                    "encoding",
+                    "requested_dates",
+                    "observed_response_dates",
+                    "rows",
+                    "parse_metadata",
+                    "error",
+                    "fetched_at",
+                )
+            }
+            for row in source_response_attempts
+        ],
         "accepted_source_response_count": len(responses),
         "accepted_source_responses": [
             {
