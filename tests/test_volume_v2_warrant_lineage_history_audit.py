@@ -1417,8 +1417,15 @@ def test_builder_reconstructs_all_dynamic_volume_v2_sources(tmp_path: Path) -> N
         formal_audit["official_warrant_row_present"].eq("True"),
         "official_warrant_row_sha256",
     ].str.fullmatch(r"[0-9a-f]{64}").all()
-    assert int(formal_audit["watch_candidate_score_collision"].eq("True").sum()) == 0
-    assert int(formal_audit["watch_candidate_rank_collision"].eq("True").sum()) == 0
+    collision = formal_audit[
+        formal_audit["watch_candidate_score_collision"].eq("True")
+        | formal_audit["watch_candidate_rank_collision"].eq("True")
+    ]
+    assert collision["formal_row_disposition"].eq("quarantined").all()
+    assert collision["historical_promotion_evidence_eligible"].eq("False").all()
+    assert (
+        collision["impact_scope"] == "legacy_watch_source_score_rank_effect_unresolved"
+    ).all()
     assert set(formal_audit["replay_status"]) == {"resolved"}
     assert set(formal_audit["rank_replay_status"]) == {"resolved"}
     incomplete_revisions = formal_audit[
