@@ -517,3 +517,37 @@ def test_fetch_vix_month_provenance_hashes_actual_payload(monkeypatch):
     assert provenance["raw_sha256"] == hashlib.sha256(payload).hexdigest()
     decoded = payload.decode(provenance["encoding"])
     assert provenance["normalized_sha256"] == hashlib.sha256(decoded.encode("utf-8")).hexdigest()
+
+
+def test_vix_latest_context_keeps_chart_history_and_excludes_future_rows():
+    dates = pd.date_range("2026-01-20", "2026-07-27", freq="B").strftime("%Y%m%d")
+    history = pd.DataFrame(
+        {
+            "date": dates,
+            "taiwan_vix": range(len(dates)),
+            "vix_return_5d": range(len(dates)),
+        }
+    )
+    latest = fut.vix_latest_context(history, "20260724")
+
+    assert len(latest) > 100
+    assert latest["date"].max() == "20260724"
+    assert not (latest["date"] > "20260724").any()
+    assert latest.iloc[-1]["vix_return_5d"] == history.loc[
+        history["date"].eq("20260724"), "vix_return_5d"
+    ].iloc[0]
+
+
+def test_put_call_latest_context_keeps_chart_history_and_excludes_future_rows():
+    dates = pd.date_range("2026-01-01", "2026-07-27", freq="B").strftime("%Y%m%d")
+    history = pd.DataFrame({"日期": dates, "買賣權成交量比率%": range(len(dates))})
+    latest = fut.dated_latest_context(
+        history,
+        "20260724",
+        date_col="日期",
+        max_rows=90,
+    )
+
+    assert len(latest) == 90
+    assert latest["日期"].max() == "20260724"
+    assert not (latest["日期"] > "20260724").any()

@@ -487,6 +487,37 @@ def filter_vix_candidate_exact_dates(
     )
 
 
+def vix_latest_context(history: pd.DataFrame, target_date: str, months: int = 6) -> pd.DataFrame:
+    if "date" not in history.columns:
+        raise RuntimeError("TAIFEX VIX history missing date column")
+    target = parse_cli_date(target_date, "target_date")
+    work = history.copy()
+    work["date"] = work["date"].map(normalize_date)
+    work = work[(work["date"] != "") & (work["date"] <= target)].copy()
+    if work.empty or target not in set(work["date"].astype(str)):
+        raise RuntimeError(f"TAIFEX VIX history missing target date {target}")
+    cutoff = (pd.Timestamp(target) - pd.DateOffset(months=months)).strftime("%Y%m%d")
+    return work[work["date"] >= cutoff].sort_values("date").reset_index(drop=True)
+
+
+def dated_latest_context(
+    history: pd.DataFrame,
+    target_date: str,
+    *,
+    date_col: str,
+    max_rows: int,
+) -> pd.DataFrame:
+    if date_col not in history.columns:
+        raise RuntimeError(f"historical context missing date column: {date_col}")
+    target = parse_cli_date(target_date, "target_date")
+    work = history.copy()
+    work[date_col] = work[date_col].map(normalize_date)
+    work = work[(work[date_col] != "") & (work[date_col] <= target)].copy()
+    if work.empty or target not in set(work[date_col].astype(str)):
+        raise RuntimeError(f"historical context missing target date {target}")
+    return work.sort_values(date_col).tail(max_rows).reset_index(drop=True)
+
+
 def identity_mask(df: pd.DataFrame, label: str) -> pd.Series:
     if "身份別" not in df.columns:
         return pd.Series(False, index=df.index)
@@ -896,15 +927,24 @@ def main() -> int:
             staged_latest_path = staging_latest / LATEST_FILES[source_name].name
             staged_history_path = staging_history / HISTORY_FILES[source_name].name
             write_csv(frame, staged_raw_path)
-            write_csv(frame, staged_latest_path)
             if HISTORY_FILES[source_name].exists():
                 write_csv(read_csv(HISTORY_FILES[source_name], dtype=str), staged_history_path)
-            append_update_csv(
+            combined_source = append_update_csv(
                 frame,
                 staged_history_path,
                 key_cols=key_map[source_name],
                 sort_cols=key_map[source_name],
             )
+            if historical_mode and source_name == "put_call_ratio":
+                latest_frame = dated_latest_context(
+                    combined_source,
+                    end_date,
+                    date_col="日期",
+                    max_rows=90,
+                )
+            else:
+                latest_frame = frame
+            write_csv(latest_frame, staged_latest_path)
             staged_paths.extend(
                 [
                     (staged_raw_path, raw_snapshot_path(source_name, target_date)),
@@ -917,15 +957,19 @@ def main() -> int:
             frame = frames["taiwan_vix"]
             staged_latest_vix = staging_latest / LATEST_FILES["taiwan_vix"].name
             staged_history_vix = staging_history / HISTORY_FILES["taiwan_vix"].name
-            write_csv(frame, staged_latest_vix)
             if HISTORY_FILES["taiwan_vix"].exists():
                 write_csv(read_csv(HISTORY_FILES["taiwan_vix"], dtype=str), staged_history_vix)
-            append_update_csv(
+            combined_vix = append_update_csv(
                 frame,
                 staged_history_vix,
                 key_cols=["date"],
                 sort_cols=["date"],
             )
+            if historical_mode:
+                latest_vix = vix_latest_context(combined_vix, end_date)
+            else:
+                latest_vix = frame
+            write_csv(latest_vix, staged_latest_vix)
             staged_paths.extend(
                 [
                     (staged_latest_vix, LATEST_FILES["taiwan_vix"]),

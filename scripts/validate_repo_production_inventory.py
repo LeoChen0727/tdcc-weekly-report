@@ -87,6 +87,12 @@ WORKFLOW_ALLOWED_OWNERS = {
         "daily_production",
         "repo_infrastructure",
     },
+    ".github/workflows/historical_structured_source_replay.yml": {
+        "official_price_data",
+        "market_risk",
+        "warrant",
+        "repo_infrastructure",
+    },
     ".github/workflows/individual_stock_data_refresh.yml": {
         "individual_stock",
         "official_price_data",
@@ -279,6 +285,16 @@ REQUIRED_WORKFLOW_COMMANDS = {
         "python scripts/validate_daily_pdf_completion_hard_gate.py",
         "python scripts/validate_repo_code_isolation_policy.py",
         "python scripts/validate_model_research_workflow_isolation.py",
+    ),
+    ".github/workflows/historical_structured_source_replay.yml": (
+        "python scripts/validate_apps_script_workflow_triggers.py",
+        "python scripts/validate_repo_production_inventory.py",
+        "python scripts/validate_repo_file_lifecycle_inventory.py",
+        "python scripts/validate_repo_semantic_integrity.py",
+        "python scripts/validate_daily_production_boundaries.py",
+        "python scripts/replay_historical_structured_sources.py",
+        "python scripts/validate_historical_structured_source_replay.py",
+        "python scripts/validate_historical_source_replay_staged_paths.py",
     ),
     ".github/workflows/research_backtest_pipeline.yml": (
         "python scripts/validate_repo_production_inventory.py",
