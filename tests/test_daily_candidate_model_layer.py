@@ -13,6 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
 import build_daily_candidate_model_layer as model_layer  # noqa: E402
+from build_volume_breakout_watch import canonical_csv_slice_sha256  # noqa: E402
 from build_daily_candidate_model_layer import (  # noqa: E402
     MODEL_SCORE_PROFILES,
     annotate_frontpage_uniqueness,
@@ -35,6 +36,10 @@ from build_daily_candidate_model_layer import (  # noqa: E402
 from audit_daily_candidate_model_selection_correctness import (  # noqa: E402
     model_stock_key_set,
     selected_price_pullback_23ema_condition,
+)
+from validate_volume_breakout_watch import (  # noqa: E402
+    advisory_source_lineage_errors,
+    canonical_csv_slice_sha256 as validator_canonical_csv_slice_sha256,
 )
 
 LOW_VOLUME_MODEL_ID = "volume_range_breakout_v2_low_position_volume_attack"
@@ -140,8 +145,11 @@ def write_volume_v2_watch_fixture(
     payload = source.copy()
     payload["advisory_score_as_of"] = payload["signal_date"]
     payload["advisory_score_source_artifact"] = price_path.as_posix()
+    signal_dates = sorted(set(payload["signal_date"].astype(str)))
+    if len(signal_dates) != 1:
+        raise AssertionError(f"watch fixture requires one signal date: {signal_dates}")
     payload["advisory_score_source_sha256"] = (
-        model_layer.volume_v2_canonical_text_sha256(price_path)
+        model_layer.volume_v2_canonical_text_sha256(price_path, signal_dates[0])
     )
     payload.to_csv(watch_path, index=False, encoding="utf-8-sig")
 
@@ -844,20 +852,121 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
             )
 
     def test_volume_v2_watch_advisory_lineage_resolves_repo_relative_source(self) -> None:
-        source_path = ROOT / "tests" / "test_daily_candidate_model_layer.py"
-        row = pd.Series(
-            {
-                "stock_id": "1618",
-                "signal_date": "20260530",
-                "advisory_score_as_of": "20260530",
-                "advisory_score_source_artifact": source_path.relative_to(ROOT).as_posix(),
-                "advisory_score_source_sha256": (
-                    model_layer.volume_v2_canonical_text_sha256(source_path)
-                ),
-            }
-        )
+        original_file = model_layer.__file__
+        with tempfile.TemporaryDirectory() as tmpdir:
+            root = Path(tmpdir)
+            source_path = root / "data" / "stock_price_history" / "1618.csv"
+            source_path.parent.mkdir(parents=True)
+            source_path.write_text(
+                "date,stock_id,close\n20260530,1618,42\n",
+                encoding="utf-8",
+            )
+            row = pd.Series(
+                {
+                    "stock_id": "1618",
+                    "signal_date": "20260530",
+                    "advisory_score_as_of": "20260530",
+                    "advisory_score_source_artifact": (
+                        "data/stock_price_history/1618.csv"
+                    ),
+                    "advisory_score_source_sha256": (
+                        model_layer.volume_v2_canonical_text_sha256(
+                            source_path, "20260530"
+                        )
+                    ),
+                }
+            )
+            model_layer.__file__ = str(root / "scripts" / "build_daily_candidate_model_layer.py")
+            try:
+                model_layer.validate_volume_v2_watch_advisory_lineage(
+                    row, "20260530"
+                )
+            finally:
+                model_layer.__file__ = original_file
 
-        model_layer.validate_volume_v2_watch_advisory_lineage(row, "20260530")
+    def test_volume_v2_lineage_producer_validator_consumer_parity(self) -> None:
+        original_file = model_layer.__file__
+        with tempfile.TemporaryDirectory() as tmpdir:
+            root = Path(tmpdir)
+            source_path = root / "data" / "stock_price_history" / "1618.csv"
+            source_path.parent.mkdir(parents=True)
+            as_of_text = (
+                "date,stock_id,close\n"
+                "20260529,1618,41\n"
+                "20260530,1618,42\n"
+            )
+            source_path.write_text(
+                as_of_text + "20260601,1618,43\n",
+                encoding="utf-8",
+            )
+            expected = canonical_csv_slice_sha256(source_path, "20260530")
+            self.assertEqual(
+                validator_canonical_csv_slice_sha256(source_path, "20260530"),
+                expected,
+            )
+            self.assertEqual(
+                model_layer.volume_v2_canonical_text_sha256(
+                    source_path, "20260530"
+                ),
+                expected,
+            )
+            watch = pd.DataFrame(
+                [
+                    {
+                        "stock_id": "1618",
+                        "signal_date": "20260530",
+                        "advisory_score_as_of": "20260530",
+                        "advisory_score_source_artifact": (
+                            "data/stock_price_history/1618.csv"
+                        ),
+                        "advisory_score_source_sha256": expected,
+                    }
+                ]
+            )
+            self.assertEqual(advisory_source_lineage_errors(watch, root), [])
+
+            model_layer.__file__ = str(root / "scripts" / "build_daily_candidate_model_layer.py")
+            try:
+                model_layer.validate_volume_v2_watch_advisory_lineage(
+                    watch.iloc[0], "20260530"
+                )
+                source_path.write_text(
+                    as_of_text
+                    + "20260603,1618,45\n"
+                    + "20260601,1618,43\n"
+                    + "20260603,1618,999\n",
+                    encoding="utf-8",
+                )
+                model_layer.validate_volume_v2_watch_advisory_lineage(
+                    watch.iloc[0], "20260530"
+                )
+                self.assertEqual(advisory_source_lineage_errors(watch, root), [])
+                source_path.write_text(
+                    as_of_text
+                    + "20260603,1618,998\n"
+                    + "20260601,1618,999\n"
+                    + "20260603,1618,997\n",
+                    encoding="utf-8",
+                )
+                model_layer.validate_volume_v2_watch_advisory_lineage(
+                    watch.iloc[0], "20260530"
+                )
+                self.assertEqual(advisory_source_lineage_errors(watch, root), [])
+
+                source_path.write_text(
+                    "date,stock_id,close\n"
+                    "20260529,1618,40\n"
+                    "20260530,1618,42\n"
+                    "20260601,1618,43\n",
+                    encoding="utf-8",
+                )
+                with self.assertRaisesRegex(RuntimeError, "source SHA-256 mismatch"):
+                    model_layer.validate_volume_v2_watch_advisory_lineage(
+                        watch.iloc[0], "20260530"
+                    )
+                self.assertTrue(advisory_source_lineage_errors(watch, root))
+            finally:
+                model_layer.__file__ = original_file
 
     def test_volume_v2_watch_advisory_lineage_rejects_missing_relative_source(self) -> None:
         row = pd.Series(
@@ -874,19 +983,34 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
             model_layer.validate_volume_v2_watch_advisory_lineage(row, "20260530")
 
     def test_volume_v2_watch_advisory_lineage_rejects_tampered_relative_sha(self) -> None:
-        source_path = ROOT / "tests" / "test_daily_candidate_model_layer.py"
-        row = pd.Series(
-            {
-                "stock_id": "1618",
-                "signal_date": "20260530",
-                "advisory_score_as_of": "20260530",
-                "advisory_score_source_artifact": source_path.relative_to(ROOT).as_posix(),
-                "advisory_score_source_sha256": "0" * 64,
-            }
-        )
-
-        with self.assertRaisesRegex(RuntimeError, "source SHA-256 mismatch"):
-            model_layer.validate_volume_v2_watch_advisory_lineage(row, "20260530")
+        original_file = model_layer.__file__
+        with tempfile.TemporaryDirectory() as tmpdir:
+            root = Path(tmpdir)
+            source_path = root / "data" / "stock_price_history" / "1618.csv"
+            source_path.parent.mkdir(parents=True)
+            source_path.write_text(
+                "date,stock_id,close\n20260530,1618,42\n",
+                encoding="utf-8",
+            )
+            row = pd.Series(
+                {
+                    "stock_id": "1618",
+                    "signal_date": "20260530",
+                    "advisory_score_as_of": "20260530",
+                    "advisory_score_source_artifact": (
+                        "data/stock_price_history/1618.csv"
+                    ),
+                    "advisory_score_source_sha256": "0" * 64,
+                }
+            )
+            model_layer.__file__ = str(root / "scripts" / "build_daily_candidate_model_layer.py")
+            try:
+                with self.assertRaisesRegex(RuntimeError, "source SHA-256 mismatch"):
+                    model_layer.validate_volume_v2_watch_advisory_lineage(
+                        row, "20260530"
+                    )
+            finally:
+                model_layer.__file__ = original_file
 
     def test_volume_v2_dispatcher_sha_is_lf_crlf_canonical(self) -> None:
         with tempfile.TemporaryDirectory() as tmpdir:
@@ -2445,7 +2569,13 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
         ] = HIGH_VOLUME_MODEL_ID
         candidates = candidates[candidates["stock_id"].ne("2454")].copy()
         taxonomy = pd.DataFrame([{"stock_id": "2454"}])
-        lineage_source = Path(model_layer.__file__).resolve()
+        lineage_temp_dir = tempfile.TemporaryDirectory()
+        self.addCleanup(lineage_temp_dir.cleanup)
+        lineage_source = Path(lineage_temp_dir.name) / "2454.csv"
+        lineage_source.write_text(
+            "date,stock_id,close\n20260717,2454,100\n",
+            encoding="utf-8",
+        )
         volume_watch = pd.DataFrame(
             [
                 {
@@ -2456,7 +2586,9 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
                     "advisory_score_as_of": "20260717",
                     "advisory_score_source_artifact": str(lineage_source),
                     "advisory_score_source_sha256": (
-                        model_layer.volume_v2_canonical_text_sha256(lineage_source)
+                        model_layer.volume_v2_canonical_text_sha256(
+                            lineage_source, "20260717"
+                        )
                     ),
                 }
             ]

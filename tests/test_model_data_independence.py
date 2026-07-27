@@ -181,7 +181,6 @@ def test_shared_business_semantics_are_disclosed_as_contained_not_technical() ->
     for family_helper in (
         "function:append_volume_breakout_signals",
         "function:volume_v2_candidate_lookup",
-        "function:volume_v2_canonical_text_sha256",
     ):
         assert by_item[family_helper]["semantic_class"] == (
             "contained_model_family_semantic"
@@ -192,7 +191,12 @@ def test_shared_business_semantics_are_disclosed_as_contained_not_technical() ->
     watch_lineage_validator = by_item["function:validate_volume_v2_watch_advisory_lineage"]
     assert watch_lineage_validator["semantic_class"] == "contained_model_family_semantic"
     assert watch_lineage_validator["last_migration_id"] == (
-        "volume_v2_watch_repo_relative_source_fix_20260720"
+        "volume_v2_advisory_asof_slice_lineage_20260727"
+    )
+    canonical_hash = by_item["function:volume_v2_canonical_text_sha256"]
+    assert canonical_hash["semantic_class"] == "contained_model_family_semantic"
+    assert canonical_hash["last_migration_id"] == (
+        "volume_v2_advisory_asof_slice_lineage_20260727"
     )
     for dispatcher_guard in (
         "global:VOLUME_V2_CANDIDATE_SCORE_FIELDS",
@@ -251,9 +255,16 @@ def test_warrant_runtime_subgraphs_pin_recursive_hashes_consumers_and_migration(
         assert row["semantic_class"] == "registered_cross_model_runtime_semantic"
         assert row["consumer_models"] == expected_consumers
         assert row["canonical_ast_sha256"] == runtime_subgraph_sha256(graph, item)
-        assert row["last_migration_id"] == (
-            "warrant_fixed_membership_runtime_semantics_20260720"
+        expected_migration = (
+            "volume_v2_advisory_asof_slice_lineage_20260727"
+            if item
+            in {
+                "runtime_subgraph:run_warrant_formal_sync_only",
+                "runtime_subgraph:synchronize_warrant_formal_frames",
+            }
+            else "warrant_fixed_membership_runtime_semantics_20260720"
         )
+        assert row["last_migration_id"] == expected_migration
 
     migration = next(
         row
@@ -273,10 +284,64 @@ def test_warrant_runtime_subgraphs_pin_recursive_hashes_consumers_and_migration(
     ]
     assert migration["previous_sha256s"].split(";") == ["NEW", "NEW", "NEW", "NEW"]
     assert migration["new_sha256s"].split(";") == [
-        semantic_record_sha256(changed_item, runtime_rows[changed_item.rsplit("::", 1)[1]])
-        for changed_item in changed
+        "7f14f7f8836872c113147bf95816806cf78f1266904990855cb719a854139ac8",
+        "6b4e2f3d99eebe91d964298a5324ce3e577c93842452314cb07f34892a1a9f4d",
+        "a4c28d82a2ecd4634c91b31099584ebb7b353dacb76d471e95f138c837249f04",
+        "07751409ace85e0f5d99aea851a9dd1a325daf3ddf6015804b943cac80a7c103",
     ]
     assert migration["affected_models"] == expected_consumers
+
+
+def test_volume_v2_asof_slice_migration_pins_exact_current_records() -> None:
+    migration_id = "volume_v2_advisory_asof_slice_lineage_20260727"
+    approval = "user_approved_option_A_volume_watch_asof_lineage_20260727"
+    ownership = {
+        row["model_id"]: row
+        for row in read_csv("config/daily_model_semantic_ownership.csv")
+    }
+    shared = {
+        f"item:{row['source_file']}::{row['semantic_item']}": row
+        for row in read_csv("config/daily_model_shared_semantic_registry.csv")
+    }
+    migration = next(
+        row
+        for row in read_csv("config/daily_model_semantic_migrations.csv")
+        if row["migration_id"] == migration_id
+    )
+    changed = migration["changed_semantics"].split(";")
+    assert changed == [
+        "item:scripts/build_daily_candidate_model_layer.py::function:validate_volume_v2_watch_advisory_lineage",
+        "item:scripts/build_daily_candidate_model_layer.py::function:volume_v2_canonical_text_sha256",
+        "item:scripts/build_daily_candidate_model_layer.py::runtime_subgraph:run_warrant_formal_sync_only",
+        "item:scripts/build_daily_candidate_model_layer.py::runtime_subgraph:synchronize_warrant_formal_frames",
+        "model:volume_range_breakout_v2_high_position_volume_attack",
+        "model:volume_range_breakout_v2_low_position_volume_attack",
+        "model:volume_range_breakout_v2_mid_position_momentum_attack",
+    ]
+    assert migration["previous_sha256s"].split(";") == [
+        "3003fe187bbc20fcfe665779a0d1c7c988a39fd0bed8315b60cf52b2a7c10480",
+        "98ae16b8cd4329f0aeeb7ec1649439ad2920881dbf834cbcd600ab014e1cdf66",
+        "7f14f7f8836872c113147bf95816806cf78f1266904990855cb719a854139ac8",
+        "6b4e2f3d99eebe91d964298a5324ce3e577c93842452314cb07f34892a1a9f4d",
+        "8931241b02aff58db5a59ee465b6c46608756aa1238aa1cb8b3c1e5dd0e8f2c8",
+        "058e804846048b75e88274525c5265fe8357a4263605d9f7d71d5be2ed53c9af",
+        "8f85c0a93255f5d58424d9adc947f7051a8b5c763ec5882dec36da689bbe96a5",
+    ]
+    current_rows = [
+        shared[key] if key.startswith("item:") else ownership[key.removeprefix("model:")]
+        for key in changed
+    ]
+    assert migration["new_sha256s"].split(";") == [
+        semantic_record_sha256(key, row)
+        for key, row in zip(changed, current_rows)
+    ]
+    expected_consumers = ";".join(sorted(ACTIVE_MODELS))
+    assert migration["affected_models"] == expected_consumers
+    assert migration["user_approval_reference"] == approval
+    assert migration["migration_status"] == "validated_user_approved_migration"
+    for key, row in zip(changed, current_rows):
+        assert row["last_migration_id"] == migration_id
+        assert row["approval_reference"] == approval
 
 
 def test_warrant_runtime_entrypoint_pins_lifecycle_sequence() -> None:
