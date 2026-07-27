@@ -1,23 +1,23 @@
 # Individual Stock ChatGPT Packet Index
 
-- generated_at: 2026-07-26 22:29:38 Asia/Taipei
-- total_packets: 2401
+- generated_at: 2026-07-27 22:28:10 Asia/Taipei
+- total_packets: 2403
 - standard_180d_window_packet: 1940
 - standard_120d_plus_packet: 0
 - standard_rawdata_packet: 30
 - partial_rawdata_packet: 408
-- insufficient_price_data: 23
+- insufficient_price_data: 25
 - official_tdcc_signal_date: 20260717
 - source_tdcc_dataset_id: tdcc-20260717-98c564c5bc4ab725
 - tdcc_window_fresh: 1951
 - tdcc_window_degraded: 2
 - tdcc_window_stale: 0
-- tdcc_missing: 427
+- tdcc_missing: 429
 - historical_only_noncurrent: 21
 - tdcc_continuity_complete: 1970
 - tdcc_continuity_accepted_history_exception: 2
 - current_main_price_universe: 2113
-- noncurrent_main_price_universe: 288
+- noncurrent_main_price_universe: 290
 - csv_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/individual_stock_reports/individual_stock_chatgpt_packet_index.csv
 - csv_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/individual_stock_reports/individual_stock_chatgpt_packet_index.csv
 - csv_github_api_url: https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/individual_stock_reports/individual_stock_chatgpt_packet_index.csv?ref=main
