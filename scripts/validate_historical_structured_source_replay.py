@@ -125,14 +125,22 @@ def validate_manifest(
                     )
         if source_id == "official_warrant_daily":
             families = set()
+            logical_groups = set()
             for response in accepted:
                 source_name = str(response.get("source_name", ""))
                 if source_name.startswith("TWSE_WARRANT_STOCK_"):
                     families.add("mapping")
                 if source_name.startswith("TWSE_MI_INDEX_"):
                     families.add("quote")
+                logical_groups.add(str(response.get("logical_group", "")))
+                if response.get("accepted") is not True:
+                    errors.append(f"{path}: warrant accepted response lacks accepted=true")
+                if int(response.get("accepted_rows", 0) or 0) < 1:
+                    errors.append(f"{path}: warrant accepted response lacks parsed rows")
             if families != {"mapping", "quote"}:
                 errors.append(f"{path}: warrant accepted mapping/quote evidence incomplete")
+            if logical_groups != {"mapping", "quote-0999", "quote-0999P"}:
+                errors.append(f"{path}: warrant accepted logical source groups incomplete")
         try:
             expected_evidence = replay.build_source_output_evidence(source_id, target_date)
         except Exception as exc:

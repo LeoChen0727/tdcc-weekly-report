@@ -777,11 +777,20 @@ def manifest_source_row(
     responses = responses if isinstance(responses, list) else []
     source_response_attempts = list(responses)
     source_attempt_count = len(source_response_attempts)
-    if source_id in {"official_daily_price", "official_warrant_daily"}:
+    if source_id == "official_daily_price":
         responses = [
             response
             for response in responses
             if response.get("exact_date_match") is True
+            and response.get("observed_response_dates") == [target_date]
+        ]
+    elif source_id == "official_warrant_daily":
+        responses = [
+            response
+            for response in responses
+            if response.get("accepted") is True
+            and response.get("status") == "accepted"
+            and response.get("exact_date_match") is True
             and response.get("observed_response_dates") == [target_date]
         ]
     elif source_id == "taifex_futures_options_vix":
@@ -811,20 +820,31 @@ def manifest_source_row(
                 for field in (
                     "attempt",
                     "source",
+                    "source_name",
+                    "family",
+                    "logical_group",
                     "endpoint",
                     "params",
                     "status",
                     "http_status",
+                    "status_code",
                     "raw_bytes",
                     "raw_sha256",
                     "normalized_sha256",
                     "encoding",
+                    "expected_response_date",
+                    "exact_date_match",
                     "requested_dates",
                     "observed_response_dates",
                     "rows",
+                    "parsed_table_count",
+                    "parsed_table_rows",
+                    "accepted_rows",
+                    "accepted",
                     "parse_metadata",
                     "error",
                     "fetched_at",
+                    "elapsed_seconds",
                 )
             }
             for row in source_response_attempts
@@ -837,8 +857,12 @@ def manifest_source_row(
                     "endpoint",
                     "source_name",
                     "source",
+                    "family",
+                    "logical_group",
                     "observed_response_dates",
                     "exact_date_match",
+                    "accepted_rows",
+                    "accepted",
                     "raw_sha256",
                     "normalized_sha256",
                     "fetched_at",

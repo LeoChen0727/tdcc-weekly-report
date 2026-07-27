@@ -152,3 +152,72 @@ def test_taifex_manifest_keeps_failed_attempt_evidence_and_accepts_only_exact_su
     }
     assert row["accepted_source_response_count"] == 1
     assert row["accepted_source_responses"][0]["raw_sha256"] == "c" * 64
+
+
+def test_warrant_manifest_keeps_attempts_but_accepts_all_three_logical_groups(monkeypatch) -> None:
+    def response(source_name, logical_group, *, accepted, sha):
+        return {
+            "attempt": 1,
+            "source_name": source_name,
+            "family": "mapping" if logical_group == "mapping" else "quote",
+            "logical_group": logical_group,
+            "endpoint": "https://example.invalid/" + source_name,
+            "params": {"date": "20260720"},
+            "status": "accepted" if accepted else "failed",
+            "status_code": 200,
+            "raw_bytes": 10,
+            "raw_sha256": sha,
+            "normalized_sha256": sha,
+            "encoding": "utf-8",
+            "expected_response_date": "20260720",
+            "observed_response_dates": ["20260720"],
+            "exact_date_match": True,
+            "parsed_table_count": 1,
+            "parsed_table_rows": 1,
+            "accepted_rows": 1 if accepted else 0,
+            "accepted": accepted,
+            "error": "" if accepted else "parser produced no usable rows",
+            "fetched_at": "2026-07-27 00:00:00 Asia/Taipei",
+            "elapsed_seconds": 0.1,
+        }
+
+    status = {
+        "fallback_used": False,
+        "future_rows_used": False,
+        "source_responses": [
+            response("TWSE_MI_INDEX_0999_JSON", "quote-0999", accepted=False, sha="a" * 64),
+            response("TWSE_MI_INDEX_0999_JSON", "quote-0999", accepted=True, sha="b" * 64),
+            response("TWSE_MI_INDEX_0999P_JSON", "quote-0999P", accepted=True, sha="c" * 64),
+            response("TWSE_WARRANT_STOCK_JSON", "mapping", accepted=True, sha="d" * 64),
+        ],
+    }
+    monkeypatch.setattr(
+        replay,
+        "build_source_output_evidence",
+        lambda *args, **kwargs: {
+            "pk_unique": True,
+            "row_count": 1,
+            "output_sha256": "e" * 64,
+        },
+    )
+
+    row = replay.manifest_source_row(
+        "official_warrant_daily",
+        "20260720",
+        status,
+        "20260717",
+        "20260720",
+        observed_dates=["20260720"],
+    )
+
+    assert row["source_attempt_count"] == 4
+    assert len(row["source_response_attempts"]) == 4
+    assert row["source_response_attempts"][0]["accepted"] is False
+    assert row["source_response_attempts"][0]["logical_group"] == "quote-0999"
+    assert row["accepted_source_response_count"] == 3
+    assert {item["logical_group"] for item in row["accepted_source_responses"]} == {
+        "mapping",
+        "quote-0999",
+        "quote-0999P",
+    }
+    assert all(item["accepted"] is True for item in row["accepted_source_responses"])
