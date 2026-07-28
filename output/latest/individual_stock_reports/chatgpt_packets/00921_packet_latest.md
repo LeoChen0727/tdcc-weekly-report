@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00921 兆豐龍頭等權重
 
 ## Metadata
-- generated_at: 2026-07-26 22:26:27 Asia/Taipei
+- generated_at: 2026-07-28 22:26:36 Asia/Taipei
 - stock_id: 00921
 - stock_name: 兆豐龍頭等權重
 - packet_status: partial_rawdata_packet

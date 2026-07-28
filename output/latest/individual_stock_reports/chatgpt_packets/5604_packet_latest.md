@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5604 中連
 
 ## Metadata
-- generated_at: 2026-07-26 22:28:25 Asia/Taipei
+- generated_at: 2026-07-28 22:27:53 Asia/Taipei
 - stock_id: 5604
 - stock_name: 中連
 - packet_status: standard_180d_window_packet

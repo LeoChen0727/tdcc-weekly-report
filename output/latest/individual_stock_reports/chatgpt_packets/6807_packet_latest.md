@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6807 峰源-KY
 
 ## Metadata
-- generated_at: 2026-07-26 22:28:59 Asia/Taipei
+- generated_at: 2026-07-28 22:28:16 Asia/Taipei
 - stock_id: 6807
 - stock_name: 峰源-KY
 - packet_status: standard_180d_window_packet

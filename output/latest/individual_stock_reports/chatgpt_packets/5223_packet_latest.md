@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5223 安力-KY
 
 ## Metadata
-- generated_at: 2026-07-26 22:28:15 Asia/Taipei
+- generated_at: 2026-07-28 22:27:47 Asia/Taipei
 - stock_id: 5223
 - stock_name: 安力-KY
 - packet_status: standard_180d_window_packet

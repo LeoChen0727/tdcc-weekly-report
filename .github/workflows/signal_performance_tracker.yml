@@ -1,8 +1,6 @@
 name: Signal Performance Tracker
 
 on:
-  schedule:
-    - cron: "10 11 * * 1-5"  # Taiwan time 19:10, Monday to Friday
   workflow_dispatch:
 
 permissions:

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6276 安鈦克
 
 ## Metadata
-- generated_at: 2026-07-26 22:28:40 Asia/Taipei
+- generated_at: 2026-07-28 22:28:03 Asia/Taipei
 - stock_id: 6276
 - stock_name: 安鈦克
 - packet_status: standard_180d_window_packet

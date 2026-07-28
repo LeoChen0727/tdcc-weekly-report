@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6617 共信-KY
 
 ## Metadata
-- generated_at: 2026-07-26 22:28:51 Asia/Taipei
+- generated_at: 2026-07-28 22:28:11 Asia/Taipei
 - stock_id: 6617
 - stock_name: 共信-KY
 - packet_status: standard_180d_window_packet

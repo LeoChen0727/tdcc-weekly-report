@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6189 豐藝
 
 ## Metadata
-- generated_at: 2026-07-26 22:28:34 Asia/Taipei
+- generated_at: 2026-07-28 22:27:59 Asia/Taipei
 - stock_id: 6189
 - stock_name: 豐藝
 - packet_status: standard_180d_window_packet

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1309 台達化
 
 ## Metadata
-- generated_at: 2026-07-26 22:26:33 Asia/Taipei
+- generated_at: 2026-07-28 22:26:41 Asia/Taipei
 - stock_id: 1309
 - stock_name: 台達化
 - packet_status: standard_180d_window_packet

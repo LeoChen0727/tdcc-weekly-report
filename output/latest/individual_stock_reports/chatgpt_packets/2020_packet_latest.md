@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2020 美亞
 
 ## Metadata
-- generated_at: 2026-07-26 22:26:52 Asia/Taipei
+- generated_at: 2026-07-28 22:26:54 Asia/Taipei
 - stock_id: 2020
 - stock_name: 美亞
 - packet_status: standard_180d_window_packet

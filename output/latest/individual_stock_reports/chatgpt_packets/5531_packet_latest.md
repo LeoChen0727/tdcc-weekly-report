@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5531 鄉林
 
 ## Metadata
-- generated_at: 2026-07-26 22:28:24 Asia/Taipei
+- generated_at: 2026-07-28 22:27:53 Asia/Taipei
 - stock_id: 5531
 - stock_name: 鄉林
 - packet_status: standard_180d_window_packet

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1805 寶徠
 
 ## Metadata
-- generated_at: 2026-07-26 22:26:50 Asia/Taipei
+- generated_at: 2026-07-28 22:26:52 Asia/Taipei
 - stock_id: 1805
 - stock_name: 寶徠
 - packet_status: standard_180d_window_packet

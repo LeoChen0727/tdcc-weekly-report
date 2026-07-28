@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009806 台新標普500
 
 ## Metadata
-- generated_at: 2026-07-26 22:26:29 Asia/Taipei
+- generated_at: 2026-07-28 22:26:37 Asia/Taipei
 - stock_id: 009806
 - stock_name: 台新標普500
 - packet_status: partial_rawdata_packet

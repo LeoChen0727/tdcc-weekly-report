@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2211 長榮鋼
 
 ## Metadata
-- generated_at: 2026-07-26 22:26:57 Asia/Taipei
+- generated_at: 2026-07-28 22:26:57 Asia/Taipei
 - stock_id: 2211
 - stock_name: 長榮鋼
 - packet_status: standard_180d_window_packet

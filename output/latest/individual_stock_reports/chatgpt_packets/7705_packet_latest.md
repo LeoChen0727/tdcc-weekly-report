@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7705 三商餐飲
 
 ## Metadata
-- generated_at: 2026-07-26 22:29:13 Asia/Taipei
+- generated_at: 2026-07-28 22:28:25 Asia/Taipei
 - stock_id: 7705
 - stock_name: 三商餐飲
 - packet_status: standard_180d_window_packet

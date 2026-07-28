@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00876 元大全球5G
 
 ## Metadata
-- generated_at: 2026-07-26 22:26:26 Asia/Taipei
+- generated_at: 2026-07-28 22:26:36 Asia/Taipei
 - stock_id: 00876
 - stock_name: 元大全球5G
 - packet_status: partial_rawdata_packet

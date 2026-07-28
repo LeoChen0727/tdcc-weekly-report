@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4707 磐亞
 
 ## Metadata
-- generated_at: 2026-07-26 22:28:06 Asia/Taipei
+- generated_at: 2026-07-28 22:27:41 Asia/Taipei
 - stock_id: 4707
 - stock_name: 磐亞
 - packet_status: standard_180d_window_packet

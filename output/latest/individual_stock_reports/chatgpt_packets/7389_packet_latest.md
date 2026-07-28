@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7389 精測統一65購01
 
 ## Metadata
-- generated_at: 2026-07-26 22:29:12 Asia/Taipei
+- generated_at: 2026-07-28 22:28:24 Asia/Taipei
 - stock_id: 7389
 - stock_name: 精測統一65購01
 - packet_status: partial_rawdata_packet
