@@ -1,8 +1,12 @@
 from __future__ import annotations
 
+import os
+import io
+import subprocess
 import sys
 import tempfile
 import unittest
+from unittest.mock import patch
 from pathlib import Path
 
 import pandas as pd
@@ -17,12 +21,16 @@ from build_volume_breakout_watch import (  # noqa: E402
     _process_latest_path,
     _process_price_history_path,
     add_price_metrics,
+    canonical_csv_slice_sha256,
     canonical_text_sha256,
     classify_watch,
     detect_volume_breakout,
     ensure_watch_schema,
     event_log_has_formal_bottom_history,
     filter_latest_to_effective_signal_date,
+)
+from build_daily_candidate_model_layer import (  # noqa: E402
+    volume_v2_canonical_text_sha256 as consumer_canonical_csv_slice_sha256,
 )
 from build_volume_attack_theme_layer import (  # noqa: E402
     enrich_stocks,
@@ -34,6 +42,7 @@ from validate_volume_attack_theme_layer import (  # noqa: E402
 from validate_volume_breakout_watch import (  # noqa: E402
     advisory_as_of_matches_signal_date,
     advisory_source_lineage_errors,
+    canonical_csv_slice_sha256 as validator_canonical_csv_slice_sha256,
     canonical_text_sha256 as validator_canonical_text_sha256,
     forbidden_watch_columns,
 )
@@ -419,10 +428,43 @@ class VolumeBreakoutWatchTest(unittest.TestCase):
         stale.loc[0, "advisory_score_as_of"] = "20260717"
         blank = valid.copy()
         blank.loc[0, "advisory_score_as_of"] = ""
+        mixed = pd.DataFrame(
+            [{"signal_date": "20260718", "advisory_score_as_of": "2026-07-18"}]
+        )
+        invalid_signal = valid.copy()
+        invalid_signal.loc[0, "signal_date"] = "20260230"
+        invalid_advisory = valid.copy()
+        invalid_advisory.loc[0, "advisory_score_as_of"] = "2026-02-30"
 
         self.assertTrue(advisory_as_of_matches_signal_date(valid))
+        self.assertTrue(advisory_as_of_matches_signal_date(mixed))
         self.assertFalse(advisory_as_of_matches_signal_date(stale))
         self.assertFalse(advisory_as_of_matches_signal_date(blank))
+        self.assertFalse(advisory_as_of_matches_signal_date(invalid_signal))
+        self.assertFalse(advisory_as_of_matches_signal_date(invalid_advisory))
+
+    def test_mixed_date_formats_have_producer_validator_consumer_parity(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            source = Path(temp_dir) / "6505.csv"
+            source.write_text(
+                "date,stock_id,close\n"
+                "2026-07-17,6505,41\n"
+                "20260718,6505,42\n",
+                encoding="utf-8",
+            )
+            hashers = (
+                canonical_csv_slice_sha256,
+                validator_canonical_csv_slice_sha256,
+                consumer_canonical_csv_slice_sha256,
+            )
+            expected = canonical_csv_slice_sha256(source, "20260718")
+            for hasher in hashers:
+                with self.subTest(hasher=hasher.__module__):
+                    self.assertEqual(hasher(source, "2026-07-18"), expected)
+            mixed_watch = pd.DataFrame(
+                [{"signal_date": "2026-07-18", "advisory_score_as_of": "20260718"}]
+            )
+            self.assertTrue(advisory_as_of_matches_signal_date(mixed_watch))
 
     def test_advisory_score_source_lineage_is_hash_pinned(self) -> None:
         with tempfile.TemporaryDirectory() as temp_dir:
@@ -430,11 +472,13 @@ class VolumeBreakoutWatchTest(unittest.TestCase):
             source = root / "data/stock_price_history/6505.csv"
             source.parent.mkdir(parents=True, exist_ok=True)
             source.write_text("date,stock_id,close\n20260718,6505,42\n", encoding="utf-8")
-            source_sha = canonical_text_sha256(source)
+            source_sha = canonical_csv_slice_sha256(source, "20260718")
             watch = pd.DataFrame(
                 [
                     {
                         "stock_id": "6505",
+                        "signal_date": "20260718",
+                        "advisory_score_as_of": "20260718",
                         "advisory_score_source_artifact": (
                             "data/stock_price_history/6505.csv"
                         ),
@@ -447,18 +491,322 @@ class VolumeBreakoutWatchTest(unittest.TestCase):
             watch.loc[0, "advisory_score_source_sha256"] = "0" * 64
             self.assertTrue(advisory_source_lineage_errors(watch, root))
 
+    def test_advisory_source_slice_is_stable_after_later_rows_append(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            source = Path(temp_dir) / "6505.csv"
+            as_of_text = (
+                "date,stock_id,close\n"
+                "20260717,6505,41\n"
+                "20260718,6505,42\n"
+            )
+            source.write_text(as_of_text, encoding="utf-8")
+            expected = canonical_text_sha256(source)
+
+            source.write_text(
+                as_of_text + "20260720,6505,43\n20260721,6505,44\n",
+                encoding="utf-8",
+            )
+
+            self.assertEqual(
+                canonical_csv_slice_sha256(source, "20260718"), expected
+            )
+            self.assertEqual(
+                validator_canonical_csv_slice_sha256(source, "20260718"), expected
+            )
+            source.write_text(
+                as_of_text + "20260720,6505,999\n20260721,6505,44\n",
+                encoding="utf-8",
+            )
+            self.assertEqual(
+                canonical_csv_slice_sha256(source, "20260718"), expected
+            )
+            self.assertEqual(
+                validator_canonical_csv_slice_sha256(source, "20260718"), expected
+            )
+
+    def test_advisory_source_slice_rejects_prior_or_as_of_row_mutation(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            source = Path(temp_dir) / "6505.csv"
+            source.write_text(
+                "date,stock_id,close\n"
+                "20260717,6505,41\n"
+                "20260718,6505,42\n"
+                "20260720,6505,43\n",
+                encoding="utf-8",
+            )
+            expected = canonical_csv_slice_sha256(source, "20260718")
+
+            source.write_text(
+                "date,stock_id,close\n"
+                "20260717,6505,40\n"
+                "20260718,6505,42\n"
+                "20260720,6505,43\n",
+                encoding="utf-8",
+            )
+            self.assertNotEqual(
+                canonical_csv_slice_sha256(source, "20260718"), expected
+            )
+
+            source.write_text(
+                "date,stock_id,close\n"
+                "20260717,6505,41\n"
+                "20260718,6505,99\n"
+                "20260720,6505,43\n",
+                encoding="utf-8",
+            )
+            self.assertNotEqual(
+                validator_canonical_csv_slice_sha256(source, "20260718"), expected
+            )
+
+    def test_advisory_source_slice_fails_closed_on_invalid_date_contract(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            source = Path(temp_dir) / "6505.csv"
+            source.write_text(
+                "date,stock_id,close\n"
+                "20260717,6505,41\n"
+                "20260720,6505,43\n",
+                encoding="utf-8",
+            )
+            with self.assertRaisesRegex(RuntimeError, "exactly one as-of row"):
+                canonical_csv_slice_sha256(source, "20260718")
+
+            source.write_text(
+                "date,stock_id,close\n"
+                "20260718,6505,42\n"
+                "20260717,6505,41\n",
+                encoding="utf-8",
+            )
+            with self.assertRaisesRegex(RuntimeError, "strictly increasing and unique"):
+                validator_canonical_csv_slice_sha256(source, "20260718")
+
+            source.write_text(
+                "date,date,stock_id\n"
+                "20260718,20260718,6505\n",
+                encoding="utf-8",
+            )
+            with self.assertRaisesRegex(RuntimeError, "exactly one date column"):
+                canonical_csv_slice_sha256(source, "20260718")
+
+    def test_advisory_source_slice_uses_strict_calendar_dates(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            source = Path(temp_dir) / "6505.csv"
+            hashers = (
+                canonical_csv_slice_sha256,
+                validator_canonical_csv_slice_sha256,
+                consumer_canonical_csv_slice_sha256,
+            )
+            source.write_text(
+                "date,stock_id,close\n20260230,6505,41\n",
+                encoding="utf-8",
+            )
+            for hasher in hashers:
+                with self.subTest(hasher=hasher.__module__):
+                    with self.assertRaisesRegex(RuntimeError, "row date is invalid"):
+                        hasher(source, "20260228")
+
+            source.write_text(
+                "date,stock_id,close\n20260228,6505,41\n",
+                encoding="utf-8",
+            )
+            for invalid_as_of in ("20260230", "prefix20260228suffix", "2026-2-28"):
+                for hasher in hashers:
+                    with self.subTest(as_of=invalid_as_of, hasher=hasher.__module__):
+                        with self.assertRaisesRegex(RuntimeError, "as-of date is invalid"):
+                            hasher(source, invalid_as_of)
+
+            source.write_text(
+                "date,stock_id,close\n"
+                "20260717,6505,41\n"
+                "2026-07-17,6505,42\n"
+                "20260718,6505,43\n",
+                encoding="utf-8",
+            )
+            for hasher in hashers:
+                with self.subTest(normalized_duplicate=hasher.__module__):
+                    with self.assertRaisesRegex(RuntimeError, "strictly increasing and unique"):
+                        hasher(source, "20260718")
+
+    def test_advisory_source_slice_ignores_future_order_and_duplicates(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            source = Path(temp_dir) / "6505.csv"
+            through_as_of = (
+                "date,stock_id,close\n"
+                "20260717,6505,41\n"
+                "20260718,6505,42\n"
+            )
+            source.write_text(through_as_of, encoding="utf-8")
+            expected = canonical_text_sha256(source)
+            source.write_text(
+                through_as_of
+                + "20260721,6505,45\n"
+                + "20260720,6505,44\n"
+                + "20260721,6505,999\n",
+                encoding="utf-8",
+            )
+            for hasher in (
+                canonical_csv_slice_sha256,
+                validator_canonical_csv_slice_sha256,
+                consumer_canonical_csv_slice_sha256,
+            ):
+                with self.subTest(hasher=hasher.__module__):
+                    self.assertEqual(hasher(source, "20260718"), expected)
+
+    def test_advisory_source_slice_canonicalizes_escaped_and_multiline_csv(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            first = Path(temp_dir) / "first.csv"
+            second = Path(temp_dir) / "second.csv"
+            first.write_text(
+                'date,stock_id,note\n'
+                '2026-07-17,6505,"alpha, ""quoted"""\n'
+                '20260718,6505,"line one\nline two"\n'
+                '20260720,6505,future\n',
+                encoding="utf-8",
+            )
+            second.write_bytes(
+                b'\xef\xbb\xbfdate,stock_id,note\r\n'
+                b'20260717,6505,"alpha, ""quoted"""\r\n'
+                b'20260718,6505,"line one\r\nline two"\r\n'
+                b'20260721,6505,ignored\r\n'
+            )
+            expected = canonical_csv_slice_sha256(first, "2026-07-18")
+            for hasher in (
+                canonical_csv_slice_sha256,
+                validator_canonical_csv_slice_sha256,
+                consumer_canonical_csv_slice_sha256,
+            ):
+                with self.subTest(hasher=hasher.__module__):
+                    self.assertEqual(hasher(first, "20260718"), expected)
+                    self.assertEqual(hasher(second, "20260718"), expected)
+
+            malformed = Path(temp_dir) / "malformed.csv"
+            malformed.write_text(
+                'date,stock_id,note\n20260718,6505,"unterminated\n',
+                encoding="utf-8",
+            )
+            for hasher in (
+                canonical_csv_slice_sha256,
+                validator_canonical_csv_slice_sha256,
+                consumer_canonical_csv_slice_sha256,
+            ):
+                with self.subTest(malformed=hasher.__module__):
+                    with self.assertRaisesRegex(RuntimeError, "CSV is invalid"):
+                        hasher(malformed, "20260718")
+
+    def test_materialized_20260717_artifact_hashes_are_slice_compatible(self) -> None:
+        artifact_root = Path(os.environ.get("TDCC_VOLUME_LINEAGE_REPO_ROOT", ROOT))
+        watch_path = artifact_root / "output/latest/volume_breakout_watch_latest.csv"
+        if not watch_path.is_file():
+            self.skipTest("current-main volume breakout artifacts are not materialized")
+        expected = {
+            "4139": "28cbde51ca0eb7a03631839d06c647647cf58cb8557964cd3632243458546e61",
+            "6243": "418e3ed7d1dfa2e2f0d6cf8e02393204942b7e5bc97611e6458d1d0ef0716b8f",
+            "3288": "2cdc283b3c40b503194efd275a761c4a740dd3458fc754864cc318fdde1f9929",
+            "3024": "b60cdd6df569aa6640af0119ce693502f9e2a2a57430b56245230c950abff48b",
+        }
+        watch = pd.read_csv(watch_path, dtype=str, keep_default_na=False)
+        current = watch[watch["signal_date"].astype(str) == "20260717"]
+        self.assertEqual(len(current), len(expected))
+        self.assertEqual(
+            dict(zip(current["stock_id"], current["advisory_score_source_sha256"])),
+            expected,
+        )
+        for row in current.to_dict("records"):
+            source = artifact_root / row["advisory_score_source_artifact"]
+            self.assertTrue(source.is_file(), source.as_posix())
+            for hasher in (
+                canonical_csv_slice_sha256,
+                validator_canonical_csv_slice_sha256,
+                consumer_canonical_csv_slice_sha256,
+            ):
+                with self.subTest(stock_id=row["stock_id"], hasher=hasher.__module__):
+                    self.assertEqual(
+                        hasher(source, row["advisory_score_as_of"]),
+                        row["advisory_score_source_sha256"],
+                    )
+
+    def test_origin_main_20260717_artifact_hashes_survive_future_appends(self) -> None:
+        repository = os.environ.get("TDCC_VOLUME_LINEAGE_GIT_REPO", "").strip()
+        if not repository:
+            self.skipTest("set TDCC_VOLUME_LINEAGE_GIT_REPO for origin/main integration")
+        repo = Path(repository)
+
+        def git_show(relative_path: str) -> str:
+            return subprocess.check_output(
+                [
+                    "git",
+                    "-c",
+                    f"safe.directory={repo.resolve().as_posix()}",
+                    "show",
+                    f"origin/main:{relative_path}",
+                ],
+                cwd=repo,
+            ).decode("utf-8-sig")
+
+        expected = {
+            "4139": "28cbde51ca0eb7a03631839d06c647647cf58cb8557964cd3632243458546e61",
+            "6243": "418e3ed7d1dfa2e2f0d6cf8e02393204942b7e5bc97611e6458d1d0ef0716b8f",
+            "3288": "2cdc283b3c40b503194efd275a761c4a740dd3458fc754864cc318fdde1f9929",
+            "3024": "b60cdd6df569aa6640af0119ce693502f9e2a2a57430b56245230c950abff48b",
+        }
+        watch = pd.read_csv(
+            io.StringIO(git_show("output/latest/volume_breakout_watch_latest.csv")),
+            dtype=str,
+            keep_default_na=False,
+        )
+        current = watch[watch["signal_date"].astype(str) == "20260717"]
+        self.assertEqual(len(current), len(expected))
+        self.assertEqual(
+            dict(zip(current["stock_id"], current["advisory_score_source_sha256"])),
+            expected,
+        )
+        for row in current.to_dict("records"):
+            source_text = git_show(row["advisory_score_source_artifact"])
+            with patch.object(Path, "read_text", return_value=source_text):
+                for hasher in (
+                    canonical_csv_slice_sha256,
+                    validator_canonical_csv_slice_sha256,
+                    consumer_canonical_csv_slice_sha256,
+                ):
+                    with self.subTest(
+                        stock_id=row["stock_id"],
+                        hasher=hasher.__module__,
+                    ):
+                        self.assertEqual(
+                            hasher(
+                                Path(row["advisory_score_source_artifact"]),
+                                row["advisory_score_as_of"],
+                            ),
+                            row["advisory_score_source_sha256"],
+                        )
+
     def test_canonical_text_sha_is_equal_for_lf_and_crlf(self) -> None:
         with tempfile.TemporaryDirectory() as temp_dir:
             lf_path = Path(temp_dir) / "lf.csv"
             crlf_path = Path(temp_dir) / "crlf.csv"
+            bom_path = Path(temp_dir) / "bom.csv"
             lf_path.write_bytes(b"date,stock_id\n20260718,6505\n")
             crlf_path.write_bytes(b"date,stock_id\r\n20260718,6505\r\n")
+            bom_path.write_bytes(
+                b"\xef\xbb\xbfdate,stock_id\r\n20260718,6505\r\n"
+            )
 
             expected = canonical_text_sha256(lf_path)
 
             self.assertEqual(expected, canonical_text_sha256(crlf_path))
             self.assertEqual(expected, validator_canonical_text_sha256(lf_path))
             self.assertEqual(expected, validator_canonical_text_sha256(crlf_path))
+            self.assertEqual(
+                canonical_csv_slice_sha256(lf_path, "20260718"),
+                canonical_csv_slice_sha256(crlf_path, "20260718"),
+            )
+            self.assertEqual(
+                canonical_csv_slice_sha256(lf_path, "20260718"),
+                canonical_csv_slice_sha256(bom_path, "20260718"),
+            )
+            self.assertEqual(
+                validator_canonical_csv_slice_sha256(lf_path, "20260718"),
+                validator_canonical_csv_slice_sha256(crlf_path, "20260718"),
+            )
             self.assertEqual(expected, theme_canonical_text_sha256(lf_path))
             self.assertEqual(expected, theme_canonical_text_sha256(crlf_path))
             self.assertEqual(expected, theme_validator_canonical_text_sha256(lf_path))
