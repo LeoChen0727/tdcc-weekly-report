@@ -120,16 +120,31 @@ on:
       - "tests/test_mature_model_row_level_metric_contract_audit.py"
       - "tests/test_stock_model_contract_registry.py"
   workflow_dispatch:
+    inputs:
+      refresh_model_data_independence_audit:
+        description: "Temporarily refresh only the four model/data independence governance audit mirrors"
+        required: false
+        default: false
+        type: boolean
+      expected_head_sha:
+        description: "Exact 40-character branch head SHA authorized for the temporary refresh"
+        required: true
+        type: string
+      expected_base_sha:
+        description: "Exact 40-character main SHA authorized as the refresh and restoration base"
+        required: true
+        type: string
 
 permissions:
   contents: read
 
 concurrency:
   group: daily-model-maintenance-pr-validation-${{ github.ref }}
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   daily-model-maintenance-pr-validation:
+    if: ${{ github.event_name != 'workflow_dispatch' || inputs.refresh_model_data_independence_audit != true }}
     runs-on: ubuntu-latest
     env:
       BASE_SHA: ${{ github.event.pull_request.base.sha || 'origin/main' }}
@@ -262,3 +277,423 @@ jobs:
             tests/test_git_worktree_safety.py \
             tests/test_model_research_workflow_isolation.py \
             tests/test_stock_model_contract_registry.py
+
+  build-model-data-independence-audit:
+    if: ${{ github.event_name == 'workflow_dispatch' && inputs.refresh_model_data_independence_audit == true }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    outputs:
+      output_csv_sha256: ${{ steps.hashes.outputs.output_csv_sha256 }}
+      output_md_sha256: ${{ steps.hashes.outputs.output_md_sha256 }}
+      docs_csv_sha256: ${{ steps.hashes.outputs.docs_csv_sha256 }}
+      docs_md_sha256: ${{ steps.hashes.outputs.docs_md_sha256 }}
+    env:
+      EXPECTED_BRANCH: codex/volume-watch-asof-lineage-main-sync
+      EXPECTED_HEAD_SHA: ${{ inputs.expected_head_sha }}
+      EXPECTED_BASE_SHA: ${{ inputs.expected_base_sha }}
+      WORKFLOW_PATH: .github/workflows/daily_model_maintenance_pr_validation.yml
+
+    steps:
+      - name: Checkout exact authorized branch
+        uses: actions/checkout@v6
+        with:
+          ref: ${{ inputs.expected_head_sha }}
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Verify exact branch, head, base, and transient commit
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ "$GITHUB_REF" != "refs/heads/$EXPECTED_BRANCH" ]; then
+            echo "::error::Refresh is restricted to refs/heads/$EXPECTED_BRANCH; actual=$GITHUB_REF"
+            exit 1
+          fi
+          if [[ ! "$EXPECTED_HEAD_SHA" =~ ^[0-9a-f]{40}$ ]] || [[ ! "$EXPECTED_BASE_SHA" =~ ^[0-9a-f]{40}$ ]]; then
+            echo "::error::expected_head_sha and expected_base_sha must be exact lowercase 40-character SHAs"
+            exit 1
+          fi
+          checkout_sha="$(git rev-parse HEAD)"
+          if [ "$GITHUB_SHA" != "$EXPECTED_HEAD_SHA" ]; then
+            echo "::error::workflow_dispatch github.sha is not the authorized branch head"
+            exit 1
+          fi
+          remote_head_sha="$(git ls-remote origin "refs/heads/$EXPECTED_BRANCH" | awk '{print $1}')"
+          remote_main_sha="$(git ls-remote origin refs/heads/main | awk '{print $1}')"
+          if [ "$checkout_sha" != "$EXPECTED_HEAD_SHA" ] || [ "$remote_head_sha" != "$EXPECTED_HEAD_SHA" ]; then
+            echo "::error::Authorized branch head mismatch"
+            echo "expected=$EXPECTED_HEAD_SHA checkout=$checkout_sha remote=$remote_head_sha"
+            exit 1
+          fi
+          if [ "$remote_main_sha" != "$EXPECTED_BASE_SHA" ]; then
+            echo "::error::Authorized main base mismatch"
+            echo "expected=$EXPECTED_BASE_SHA remote=$remote_main_sha"
+            exit 1
+          fi
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "::error::Checkout must be clean before governance audit refresh"
+            git status --short
+            exit 1
+          fi
+          git cat-file -e "${EXPECTED_BASE_SHA}^{commit}"
+          parent_count="$(git rev-list --parents -n 1 HEAD | awk '{print NF - 1}')"
+          if [ "$parent_count" != "1" ]; then
+            echo "::error::The transient authorization commit must have exactly one parent"
+            exit 1
+          fi
+          parent_sha="$(git rev-parse HEAD^)"
+          mapfile -t transient_commit_paths < <(git diff-tree --no-commit-id --name-only -r HEAD | sort)
+          if [ "${transient_commit_paths[*]}" != "$WORKFLOW_PATH" ]; then
+            echo "::error::The transient authorization commit must change only $WORKFLOW_PATH"
+            exit 1
+          fi
+          if ! git diff --quiet "$EXPECTED_BASE_SHA" "$parent_sha" -- "$WORKFLOW_PATH"; then
+            echo "::error::The pre-authorization branch did not match the authorized main workflow"
+            exit 1
+          fi
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      - name: Build and validate only the four governance audit mirrors
+        shell: bash
+        run: |
+          set -euo pipefail
+          artifact_paths=(
+            "output/latest/model_data_independence_audit_latest.csv"
+            "output/latest/model_data_independence_audit_latest.md"
+            "docs/latest/model_data_independence_audit_latest.csv"
+            "docs/latest/model_data_independence_audit_latest.md"
+          )
+          python scripts/build_model_data_independence_audit.py
+          python scripts/validate_model_data_independence.py --base-ref "$EXPECTED_BASE_SHA"
+          cmp "${artifact_paths[0]}" "${artifact_paths[2]}"
+          cmp "${artifact_paths[1]}" "${artifact_paths[3]}"
+          mapfile -t actual_paths < <(git status --porcelain=v1 | sed -E 's/^...//' | sort)
+          mapfile -t expected_paths < <(printf '%s\n' "${artifact_paths[@]}" | sort)
+          if [ "${actual_paths[*]}" != "${expected_paths[*]}" ]; then
+            echo "::error::Builder changed paths outside the exact four-artifact allowlist"
+            printf 'expected=%s\n' "${expected_paths[*]}"
+            printf 'actual=%s\n' "${actual_paths[*]}"
+            exit 1
+          fi
+
+      - name: Record exact audit hashes
+        id: hashes
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo "output_csv_sha256=$(sha256sum output/latest/model_data_independence_audit_latest.csv | awk '{print $1}')" >> "$GITHUB_OUTPUT"
+          echo "output_md_sha256=$(sha256sum output/latest/model_data_independence_audit_latest.md | awk '{print $1}')" >> "$GITHUB_OUTPUT"
+          echo "docs_csv_sha256=$(sha256sum docs/latest/model_data_independence_audit_latest.csv | awk '{print $1}')" >> "$GITHUB_OUTPUT"
+          echo "docs_md_sha256=$(sha256sum docs/latest/model_data_independence_audit_latest.md | awk '{print $1}')" >> "$GITHUB_OUTPUT"
+
+      - name: Stage exact read-only transfer payload
+        shell: bash
+        run: |
+          set -euo pipefail
+          artifact_paths=(
+            "output/latest/model_data_independence_audit_latest.csv"
+            "output/latest/model_data_independence_audit_latest.md"
+            "docs/latest/model_data_independence_audit_latest.csv"
+            "docs/latest/model_data_independence_audit_latest.md"
+          )
+          payload_dir="$RUNNER_TEMP/model-data-independence-audit"
+          mkdir -p "$payload_dir"
+          cp --parents "${artifact_paths[@]}" "$payload_dir"
+          mapfile -t payload_paths < <(cd "$payload_dir" && find . -type f -printf '%P\n' | sort)
+          mapfile -t expected_paths < <(printf '%s\n' "${artifact_paths[@]}" | sort)
+          if [ "${payload_paths[*]}" != "${expected_paths[*]}" ]; then
+            echo "::error::Transfer payload does not contain exactly the four authorized paths"
+            exit 1
+          fi
+
+      - name: Upload exact governance audit mirrors
+        uses: actions/upload-artifact@v4
+        with:
+          name: model-data-independence-audit-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/model-data-independence-audit
+          if-no-files-found: error
+          retention-days: 1
+
+  commit-model-data-independence-audit:
+    if: ${{ github.event_name == 'workflow_dispatch' && inputs.refresh_model_data_independence_audit == true }}
+    needs: build-model-data-independence-audit
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    env:
+      EXPECTED_BRANCH: codex/volume-watch-asof-lineage-main-sync
+      EXPECTED_HEAD_SHA: ${{ inputs.expected_head_sha }}
+      EXPECTED_BASE_SHA: ${{ inputs.expected_base_sha }}
+      WORKFLOW_PATH: .github/workflows/daily_model_maintenance_pr_validation.yml
+      OUTPUT_CSV_SHA256: ${{ needs.build-model-data-independence-audit.outputs.output_csv_sha256 }}
+      OUTPUT_MD_SHA256: ${{ needs.build-model-data-independence-audit.outputs.output_md_sha256 }}
+      DOCS_CSV_SHA256: ${{ needs.build-model-data-independence-audit.outputs.docs_csv_sha256 }}
+      DOCS_MD_SHA256: ${{ needs.build-model-data-independence-audit.outputs.docs_md_sha256 }}
+
+    steps:
+      - name: Checkout exact authorized head for write-only commit
+        uses: actions/checkout@v6
+        with:
+          ref: ${{ inputs.expected_head_sha }}
+          fetch-depth: 0
+
+      - name: Revalidate immutable refs without executing repository code
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ "$GITHUB_REF" != "refs/heads/$EXPECTED_BRANCH" ] || [ "$GITHUB_SHA" != "$EXPECTED_HEAD_SHA" ]; then
+            echo "::error::Write job is not bound to the authorized branch and dispatch SHA"
+            exit 1
+          fi
+          checkout_sha="$(git rev-parse HEAD)"
+          remote_head_sha="$(git ls-remote origin "refs/heads/$EXPECTED_BRANCH" | awk '{print $1}')"
+          remote_main_sha="$(git ls-remote origin refs/heads/main | awk '{print $1}')"
+          if [ "$checkout_sha" != "$EXPECTED_HEAD_SHA" ] || [ "$remote_head_sha" != "$EXPECTED_HEAD_SHA" ]; then
+            echo "::error::Authorized branch head changed before write-only commit"
+            exit 1
+          fi
+          if [ "$remote_main_sha" != "$EXPECTED_BASE_SHA" ]; then
+            echo "::error::Authorized main base changed before write-only commit"
+            exit 1
+          fi
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "::error::Write checkout must start clean"
+            exit 1
+          fi
+
+      - name: Download exact governance audit mirrors
+        uses: actions/download-artifact@v4
+        with:
+          name: model-data-independence-audit-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/model-data-independence-audit
+
+      - name: Verify downloaded paths and hashes
+        env:
+          AUDIT_DOWNLOAD_DIR: ${{ runner.temp }}/model-data-independence-audit
+        shell: bash
+        run: |
+          set -euo pipefail
+          artifact_paths=(
+            "output/latest/model_data_independence_audit_latest.csv"
+            "output/latest/model_data_independence_audit_latest.md"
+            "docs/latest/model_data_independence_audit_latest.csv"
+            "docs/latest/model_data_independence_audit_latest.md"
+          )
+          mapfile -t downloaded_paths < <(cd "$AUDIT_DOWNLOAD_DIR" && find . -type f -printf '%P\n' | sort)
+          mapfile -t expected_paths < <(printf '%s\n' "${artifact_paths[@]}" | sort)
+          if [ "${downloaded_paths[*]}" != "${expected_paths[*]}" ]; then
+            echo "::error::Downloaded artifact does not contain exactly the four authorized paths"
+            printf 'expected=%s\n' "${expected_paths[*]}"
+            printf 'actual=%s\n' "${downloaded_paths[*]}"
+            exit 1
+          fi
+          actual_output_csv_sha="$(sha256sum "$AUDIT_DOWNLOAD_DIR/${artifact_paths[0]}" | awk '{print $1}')"
+          actual_output_md_sha="$(sha256sum "$AUDIT_DOWNLOAD_DIR/${artifact_paths[1]}" | awk '{print $1}')"
+          actual_docs_csv_sha="$(sha256sum "$AUDIT_DOWNLOAD_DIR/${artifact_paths[2]}" | awk '{print $1}')"
+          actual_docs_md_sha="$(sha256sum "$AUDIT_DOWNLOAD_DIR/${artifact_paths[3]}" | awk '{print $1}')"
+          if [ "$actual_output_csv_sha" != "$OUTPUT_CSV_SHA256" ] || [ "$actual_output_md_sha" != "$OUTPUT_MD_SHA256" ] || \
+             [ "$actual_docs_csv_sha" != "$DOCS_CSV_SHA256" ] || [ "$actual_docs_md_sha" != "$DOCS_MD_SHA256" ]; then
+            echo "::error::Downloaded audit hash mismatch"
+            exit 1
+          fi
+          if [ "$actual_output_csv_sha" != "$actual_docs_csv_sha" ] || [ "$actual_output_md_sha" != "$actual_docs_md_sha" ]; then
+            echo "::error::Downloaded docs mirrors do not match output mirrors"
+            exit 1
+          fi
+
+      - name: Restore workflow and create exact governance artifact commit
+        env:
+          AUDIT_DOWNLOAD_DIR: ${{ runner.temp }}/model-data-independence-audit
+        shell: bash
+        run: |
+          set -euo pipefail
+          artifact_paths=(
+            "output/latest/model_data_independence_audit_latest.csv"
+            "output/latest/model_data_independence_audit_latest.md"
+            "docs/latest/model_data_independence_audit_latest.csv"
+            "docs/latest/model_data_independence_audit_latest.md"
+          )
+          existing_pr_paths=(
+            "config/daily_model_semantic_migrations.csv"
+            "config/daily_model_semantic_ownership.csv"
+            "config/daily_model_shared_semantic_registry.csv"
+            "config/repo_file_lifecycle_inventory.csv"
+            "scripts/build_daily_candidate_model_layer.py"
+            "scripts/build_volume_breakout_watch.py"
+            "scripts/validate_volume_breakout_watch.py"
+            "tests/test_daily_candidate_model_layer.py"
+            "tests/test_model_data_independence.py"
+            "tests/test_volume_breakout_watch.py"
+          )
+          for path in "${artifact_paths[@]}"; do
+            cp "$AUDIT_DOWNLOAD_DIR/$path" "$path"
+          done
+          git restore --source="$EXPECTED_BASE_SHA" --staged --worktree -- "$WORKFLOW_PATH"
+          git add -- "$WORKFLOW_PATH" "${artifact_paths[@]}"
+
+          mapfile -t staged_paths < <(git diff --cached --name-only | sort)
+          mapfile -t expected_staged_paths < <(printf '%s\n' "$WORKFLOW_PATH" "${artifact_paths[@]}" | sort)
+          if [ "${staged_paths[*]}" != "${expected_staged_paths[*]}" ]; then
+            echo "::error::Staged commit is not the workflow restoration plus exactly four audit artifacts"
+            printf 'expected=%s\n' "${expected_staged_paths[*]}"
+            printf 'actual=%s\n' "${staged_paths[*]}"
+            exit 1
+          fi
+          if [ -n "$(git diff --name-only)" ] || [ -n "$(git ls-files --others --exclude-standard)" ]; then
+            echo "::error::Unstaged or untracked paths remain after exact staging"
+            git status --short
+            exit 1
+          fi
+
+          merge_base_sha="$(git merge-base HEAD "$EXPECTED_BASE_SHA")"
+          mapfile -t actual_pr_paths < <(git diff --name-only "$merge_base_sha" | sort)
+          mapfile -t expected_pr_paths < <(printf '%s\n' "${existing_pr_paths[@]}" "${artifact_paths[@]}" | sort)
+          if [ "${actual_pr_paths[*]}" != "${expected_pr_paths[*]}" ]; then
+            echo "::error::Final PR tree would differ from the exact 14-path allowlist"
+            printf 'expected=%s\n' "${expected_pr_paths[*]}"
+            printf 'actual=%s\n' "${actual_pr_paths[*]}"
+            exit 1
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Refresh model data independence audit"
+
+      - name: Verify final tree and push without force
+        id: push
+        shell: bash
+        run: |
+          set -euo pipefail
+          artifact_paths=(
+            "output/latest/model_data_independence_audit_latest.csv"
+            "output/latest/model_data_independence_audit_latest.md"
+            "docs/latest/model_data_independence_audit_latest.csv"
+            "docs/latest/model_data_independence_audit_latest.md"
+          )
+          existing_pr_paths=(
+            "config/daily_model_semantic_migrations.csv"
+            "config/daily_model_semantic_ownership.csv"
+            "config/daily_model_shared_semantic_registry.csv"
+            "config/repo_file_lifecycle_inventory.csv"
+            "scripts/build_daily_candidate_model_layer.py"
+            "scripts/build_volume_breakout_watch.py"
+            "scripts/validate_volume_breakout_watch.py"
+            "tests/test_daily_candidate_model_layer.py"
+            "tests/test_model_data_independence.py"
+            "tests/test_volume_breakout_watch.py"
+          )
+          if ! git diff --quiet "$EXPECTED_BASE_SHA" -- "$WORKFLOW_PATH"; then
+            echo "::error::Final branch tree still differs from main workflow"
+            exit 1
+          fi
+          merge_base_sha="$(git merge-base HEAD "$EXPECTED_BASE_SHA")"
+          mapfile -t actual_pr_paths < <(git diff --name-only "$merge_base_sha" HEAD | sort)
+          mapfile -t expected_pr_paths < <(printf '%s\n' "${existing_pr_paths[@]}" "${artifact_paths[@]}" | sort)
+          if [ "${actual_pr_paths[*]}" != "${expected_pr_paths[*]}" ]; then
+            echo "::error::Committed PR tree differs from the exact 14-path allowlist"
+            exit 1
+          fi
+          current_main_sha="$(git ls-remote origin refs/heads/main | awk '{print $1}')"
+          remote_head_sha="$(git ls-remote origin "refs/heads/$EXPECTED_BRANCH" | awk '{print $1}')"
+          if [ "$current_main_sha" != "$EXPECTED_BASE_SHA" ]; then
+            echo "::error::origin/main advanced during artifact build; refusing stale restoration"
+            exit 1
+          fi
+          if [ "$remote_head_sha" != "$EXPECTED_HEAD_SHA" ]; then
+            echo "::error::Remote branch advanced during artifact build; refusing overwrite"
+            exit 1
+          fi
+          final_sha="$(git rev-parse HEAD)"
+          git push origin "HEAD:refs/heads/$EXPECTED_BRANCH"
+          pushed_sha="$(git ls-remote origin "refs/heads/$EXPECTED_BRANCH" | awk '{print $1}')"
+          post_push_main_sha="$(git ls-remote origin refs/heads/main | awk '{print $1}')"
+          if [ "$pushed_sha" != "$final_sha" ]; then
+            echo "::error::Remote branch does not match final governance artifact commit"
+            exit 1
+          fi
+          if [ "$post_push_main_sha" != "$EXPECTED_BASE_SHA" ]; then
+            echo "::error::origin/main advanced across the final branch push; refresh requires revalidation"
+            exit 1
+          fi
+          echo "final_sha=$final_sha" >> "$GITHUB_OUTPUT"
+          echo "FINAL_ARTIFACT_COMMIT_SHA=$final_sha"
+
+  restore-workflow-on-refresh-failure:
+    if: ${{ always() && github.event_name == 'workflow_dispatch' && inputs.refresh_model_data_independence_audit == true }}
+    needs:
+      - build-model-data-independence-audit
+      - commit-model-data-independence-audit
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    env:
+      EXPECTED_BRANCH: codex/volume-watch-asof-lineage-main-sync
+      EXPECTED_HEAD_SHA: ${{ inputs.expected_head_sha }}
+      WORKFLOW_PATH: .github/workflows/daily_model_maintenance_pr_validation.yml
+
+    steps:
+      - name: Checkout authorized transient head for fail-safe restoration
+        uses: actions/checkout@v6
+        with:
+          ref: ${{ inputs.expected_head_sha }}
+          fetch-depth: 0
+
+      - name: Restore main workflow only when transient head is still remote
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ "$GITHUB_REF" != "refs/heads/$EXPECTED_BRANCH" ] || [ "$GITHUB_SHA" != "$EXPECTED_HEAD_SHA" ]; then
+            echo "::error::Cleanup is not bound to the authorized branch and dispatch SHA"
+            exit 1
+          fi
+          checkout_sha="$(git rev-parse HEAD)"
+          remote_head_sha="$(git ls-remote origin "refs/heads/$EXPECTED_BRANCH" | awk '{print $1}')"
+          if [ "$checkout_sha" != "$EXPECTED_HEAD_SHA" ]; then
+            echo "::error::Cleanup checkout is not the authorized transient head"
+            exit 1
+          fi
+          if [ "$remote_head_sha" != "$EXPECTED_HEAD_SHA" ]; then
+            echo "Remote branch already moved away from the transient head; cleanup will not mutate it."
+            exit 0
+          fi
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "::error::Cleanup checkout must start clean"
+            exit 1
+          fi
+          git fetch --no-tags origin main:refs/remotes/origin/main
+          restore_base_sha="$(git rev-parse origin/main)"
+          git restore --source="$restore_base_sha" --staged --worktree -- "$WORKFLOW_PATH"
+          git add -- "$WORKFLOW_PATH"
+          mapfile -t staged_paths < <(git diff --cached --name-only | sort)
+          if [ "${staged_paths[*]}" != "$WORKFLOW_PATH" ]; then
+            echo "::error::Fail-safe cleanup may stage only $WORKFLOW_PATH"
+            exit 1
+          fi
+          if [ -n "$(git diff --name-only)" ] || [ -n "$(git ls-files --others --exclude-standard)" ]; then
+            echo "::error::Unexpected cleanup worktree changes"
+            exit 1
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Restore daily model validation workflow after refresh failure"
+          pre_push_remote_head="$(git ls-remote origin "refs/heads/$EXPECTED_BRANCH" | awk '{print $1}')"
+          if [ "$pre_push_remote_head" != "$EXPECTED_HEAD_SHA" ]; then
+            echo "::error::Remote branch advanced before fail-safe restoration push"
+            exit 1
+          fi
+          restored_sha="$(git rev-parse HEAD)"
+          git push origin "HEAD:refs/heads/$EXPECTED_BRANCH"
+          pushed_sha="$(git ls-remote origin "refs/heads/$EXPECTED_BRANCH" | awk '{print $1}')"
+          if [ "$pushed_sha" != "$restored_sha" ]; then
+            echo "::error::Fail-safe workflow restoration did not reach the remote branch"
+            exit 1
+          fi
+          echo "RESTORED_WORKFLOW_COMMIT_SHA=$restored_sha"
