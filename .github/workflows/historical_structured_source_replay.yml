@@ -13,6 +13,11 @@ on:
         required: true
         default: "20260724"
         type: string
+      price_history_high_water_date:
+        description: "Existing raw daily-price and stock-history high-water date to preserve; empty keeps legacy replay writes"
+        required: false
+        default: ""
+        type: string
       repair_market_index_base_date:
         description: "TPEX-only market-index base repair date in YYYYMMDD"
         required: true
@@ -37,6 +42,7 @@ jobs:
     env:
       START_DATE: ${{ inputs.start_date }}
       END_DATE: ${{ inputs.end_date }}
+      PRICE_HISTORY_HIGH_WATER_DATE: ${{ inputs.price_history_high_water_date }}
       BASE_REPAIR_DATE: ${{ inputs.repair_market_index_base_date }}
       EXPECTED_MAIN_SHA: ${{ inputs.expected_main_sha }}
       HISTORICAL_SOURCE_REPLAY_ID: github-run-${{ github.run_id }}-${{ github.run_attempt }}
@@ -106,6 +112,7 @@ jobs:
           python scripts/replay_historical_structured_sources.py \
             --start-date "$START_DATE" \
             --end-date "$END_DATE" \
+            --price-history-high-water-date "$PRICE_HISTORY_HIGH_WATER_DATE" \
             --repair-market-index-base-date "$BASE_REPAIR_DATE" \
             --replay-id "$HISTORICAL_SOURCE_REPLAY_ID"
 
@@ -115,6 +122,7 @@ jobs:
           python scripts/validate_historical_structured_source_replay.py \
             --start-date "$START_DATE" \
             --end-date "$END_DATE" \
+            --price-history-high-water-date "$PRICE_HISTORY_HIGH_WATER_DATE" \
             --repair-market-index-base-date "$BASE_REPAIR_DATE" \
             --replay-id "$HISTORICAL_SOURCE_REPLAY_ID" \
             --expected-pipeline-sha "$REPLAY_BASE_SHA"
@@ -122,8 +130,10 @@ jobs:
       - name: Stage exact structured-source artifact families
         shell: bash
         run: |
-          git add data/daily_price/
-          git add data/stock_price_history/
+          if [ -z "$PRICE_HISTORY_HIGH_WATER_DATE" ]; then
+            git add data/daily_price/
+            git add data/stock_price_history/
+          fi
           git add data/market_index_history.csv data/market_index_ohlc_history.csv
           git add data/futures_options/
           git add output/history/warrant_daily/
@@ -139,13 +149,18 @@ jobs:
           git add output/latest/warrant_daily_fetch_latest.md
           git add output/latest/warrant_source_status_latest.json output/latest/warrant_source_status_latest.md
           git add output/latest/warrant_flow_latest.csv output/latest/warrant_flow_latest.md
-          git add output/latest/stock_price_history_manifest.csv output/latest/stock_price_history_manifest.json output/latest/stock_price_history_manifest.md
+          if [ -z "$PRICE_HISTORY_HIGH_WATER_DATE" ]; then
+            git add output/latest/stock_price_history_manifest.csv output/latest/stock_price_history_manifest.json output/latest/stock_price_history_manifest.md
+          fi
           git add output/latest/daily_price_history_continuity_latest.json output/latest/daily_price_history_continuity_latest.md
           git add output/latest/data_freshness_latest.csv output/latest/data_freshness_latest.md
           git add output/latest/historical_structured_source_replay_latest.json output/latest/historical_structured_source_replay_latest.md
           git add output/debug/warrant_fetch_debug_latest.csv output/debug/warrant_fetch_debug_latest.md
-          git add docs/latest/stock_price_history_manifest.csv docs/latest/stock_price_history_manifest.json docs/latest/stock_price_history_manifest.md
-          python scripts/validate_historical_source_replay_staged_paths.py
+          if [ -z "$PRICE_HISTORY_HIGH_WATER_DATE" ]; then
+            git add docs/latest/stock_price_history_manifest.csv docs/latest/stock_price_history_manifest.json docs/latest/stock_price_history_manifest.md
+          fi
+          python scripts/validate_historical_source_replay_staged_paths.py \
+            --price-history-high-water-date "$PRICE_HISTORY_HIGH_WATER_DATE"
           if git diff --cached --quiet; then
             echo "::error::Historical replay produced no staged artifact changes."
             exit 1
@@ -193,6 +208,7 @@ jobs:
           python scripts/validate_historical_structured_source_replay.py \
             --start-date "$START_DATE" \
             --end-date "$END_DATE" \
+            --price-history-high-water-date "$PRICE_HISTORY_HIGH_WATER_DATE" \
             --repair-market-index-base-date "$BASE_REPAIR_DATE" \
             --replay-id "$HISTORICAL_SOURCE_REPLAY_ID" \
             --expected-pipeline-sha "$REPLAY_BASE_SHA"

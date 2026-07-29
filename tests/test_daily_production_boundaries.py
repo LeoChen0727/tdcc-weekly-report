@@ -1341,6 +1341,18 @@ def test_historical_structured_source_replay_workflow_is_fail_closed() -> None:
     assert boundaries.validate_historical_source_replay_workflow(text) == []
 
 
+def test_historical_structured_source_replay_workflow_wires_optional_price_high_water() -> None:
+    text = boundaries.HISTORICAL_SOURCE_REPLAY_WORKFLOW.read_text(encoding="utf-8")
+
+    assert "price_history_high_water_date:" in text
+    assert "PRICE_HISTORY_HIGH_WATER_DATE: ${{ inputs.price_history_high_water_date }}" in text
+    assert text.count(
+        '--price-history-high-water-date "$PRICE_HISTORY_HIGH_WATER_DATE"'
+    ) == 4
+    assert 'if [ -z "$PRICE_HISTORY_HIGH_WATER_DATE" ]; then\n            git add data/daily_price/' in text
+    assert "git add output/latest/official_daily_price_latest.csv" in text
+
+
 def test_historical_structured_source_replay_rejects_broad_stage_and_retry_push() -> None:
     text = boundaries.HISTORICAL_SOURCE_REPLAY_WORKFLOW.read_text(encoding="utf-8")
     text += "\nrun: git add -A\nrun: scripts/ci_push_with_retry.sh\n"

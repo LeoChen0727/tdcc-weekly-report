@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 import re
 import subprocess
+from datetime import datetime
 from pathlib import Path
 
 
@@ -28,6 +29,13 @@ ALLOWED_PATTERNS = [
     r"output/latest/data_freshness_latest\.(?:csv|md)",
     r"output/latest/historical_structured_source_replay_latest\.(?:json|md)",
     r"output/debug/warrant_fetch_debug_latest\.(?:csv|md)",
+    r"docs/latest/stock_price_history_manifest\.(?:csv|json|md)",
+]
+
+PRESERVE_PRICE_HISTORY_FORBIDDEN_PATTERNS = [
+    r"data/daily_price/.+",
+    r"data/stock_price_history/.+",
+    r"output/latest/stock_price_history_manifest\.(?:csv|json|md)",
     r"docs/latest/stock_price_history_manifest\.(?:csv|json|md)",
 ]
 
@@ -110,11 +118,25 @@ def staged_paths() -> list[str]:
     return [path for _, path in staged_changes()]
 
 
-def validate(paths: list[str], *, deleted_paths: list[str] | None = None) -> list[str]:
+def validate(
+    paths: list[str],
+    *,
+    deleted_paths: list[str] | None = None,
+    price_history_high_water_date: str = "",
+) -> list[str]:
     errors: list[str] = []
     for path in deleted_paths or []:
         errors.append(f"historical source replay staged deletion is forbidden: {path}")
     for path in paths:
+        if price_history_high_water_date and any(
+            re.fullmatch(pattern, path)
+            for pattern in PRESERVE_PRICE_HISTORY_FORBIDDEN_PATTERNS
+        ):
+            errors.append(
+                "historical source replay preserve mode forbids protected price/history path: "
+                f"{path}"
+            )
+            continue
         lower = path.lower()
         if any(token in lower for token in FORBIDDEN_TOKENS):
             errors.append(f"historical source replay staged forbidden artifact: {path}")
@@ -124,7 +146,12 @@ def validate(paths: list[str], *, deleted_paths: list[str] | None = None) -> lis
     return errors
 
 
-def validate_changes(changes: list[tuple[str, str]], *, scope: str) -> list[str]:
+def validate_changes(
+    changes: list[tuple[str, str]],
+    *,
+    scope: str,
+    price_history_high_water_date: str = "",
+) -> list[str]:
     errors: list[str] = []
     paths: list[str] = []
     for status, path in changes:
@@ -134,7 +161,12 @@ def validate_changes(changes: list[tuple[str, str]], *, scope: str) -> list[str]
                 f"historical source replay {scope} status is forbidden: {status} {path}"
             )
         paths.append(path)
-    errors.extend(validate(paths))
+    errors.extend(
+        validate(
+            paths,
+            price_history_high_water_date=price_history_high_water_date,
+        )
+    )
     return errors
 
 
@@ -142,8 +174,14 @@ def validate_repository_state(
     staged: list[tuple[str, str]],
     unstaged: list[tuple[str, str]],
     untracked: list[str],
+    *,
+    price_history_high_water_date: str = "",
 ) -> list[str]:
-    errors = validate_changes(staged, scope="staged")
+    errors = validate_changes(
+        staged,
+        scope="staged",
+        price_history_high_water_date=price_history_high_water_date,
+    )
     for status, path in unstaged:
         errors.append(
             "historical source replay has an unstaged worktree change; "
@@ -159,19 +197,38 @@ def validate_repository_state(
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
+    parser.add_argument("--price-history-high-water-date", default="")
     parser.add_argument("paths", nargs="*")
     return parser.parse_args()
 
 
 def main() -> int:
     args = parse_args()
+    price_history_high_water_date = str(args.price_history_high_water_date or "").strip()
+    if price_history_high_water_date:
+        if not re.fullmatch(r"20\d{6}", price_history_high_water_date):
+            raise RuntimeError("--price-history-high-water-date must be YYYYMMDD")
+        try:
+            datetime.strptime(price_history_high_water_date, "%Y%m%d")
+        except ValueError as exc:
+            raise RuntimeError(
+                "--price-history-high-water-date must be calendar-valid"
+            ) from exc
     if args.paths:
         paths = args.paths
-        errors = validate(paths)
+        errors = validate(
+            paths,
+            price_history_high_water_date=price_history_high_water_date,
+        )
     else:
         changes = staged_changes()
         paths = [path for _, path in changes]
-        errors = validate_repository_state(changes, unstaged_changes(), untracked_paths())
+        errors = validate_repository_state(
+            changes,
+            unstaged_changes(),
+            untracked_paths(),
+            price_history_high_water_date=price_history_high_water_date,
+        )
     if errors:
         for error in errors:
             print(f"ERROR: {error}")
