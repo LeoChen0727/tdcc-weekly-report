@@ -221,3 +221,283 @@ def test_warrant_manifest_keeps_attempts_but_accepts_all_three_logical_groups(mo
         "quote-0999P",
     }
     assert all(item["accepted"] is True for item in row["accepted_source_responses"])
+
+
+def test_optional_high_water_date_keeps_empty_legacy_mode_and_validates_nonempty() -> None:
+    assert replay.parse_optional_date("", "--price-history-high-water-date") == ""
+    assert (
+        replay.parse_optional_date("20260728", "--price-history-high-water-date")
+        == "20260728"
+    )
+    with pytest.raises(RuntimeError, match="calendar-valid"):
+        replay.parse_optional_date("20260230", "--price-history-high-water-date")
+
+
+def test_daily_price_high_water_requires_identical_canonical_and_legacy_pair(
+    tmp_path: Path,
+    monkeypatch,
+) -> None:
+    monkeypatch.chdir(tmp_path)
+    price_dir = tmp_path / "data" / "daily_price"
+    price_dir.mkdir(parents=True)
+    frame = pd.DataFrame(
+        [
+            {"date": "20260728", "stock_id": "2330", "close": "100"},
+            {"date": "20260728", "stock_id": "2317", "close": "90"},
+        ]
+    )
+    frame.to_csv(price_dir / "daily_price_20260728.csv", index=False)
+    frame.iloc[::-1].to_csv(price_dir / "20260728.csv", index=False)
+
+    hashes = replay.validate_daily_price_canonical_legacy_pair("20260728")
+
+    assert len(hashes) == 2
+    assert len(set(hashes.values())) == 1
+
+
+def test_daily_price_high_water_rejects_missing_or_different_legacy_pair(
+    tmp_path: Path,
+    monkeypatch,
+) -> None:
+    monkeypatch.chdir(tmp_path)
+    price_dir = tmp_path / "data" / "daily_price"
+    price_dir.mkdir(parents=True)
+    frame = pd.DataFrame(
+        [{"date": "20260728", "stock_id": "2330", "close": "100"}]
+    )
+    frame.to_csv(price_dir / "daily_price_20260728.csv", index=False)
+
+    with pytest.raises(RuntimeError, match="pair is missing"):
+        replay.validate_daily_price_canonical_legacy_pair("20260728")
+
+    changed = frame.copy()
+    changed["close"] = "101"
+    changed.to_csv(price_dir / "20260728.csv", index=False)
+    with pytest.raises(RuntimeError, match="content mismatch"):
+        replay.validate_daily_price_canonical_legacy_pair("20260728")
+
+
+def _prepare_stock_history_coverage_case(
+    tmp_path: Path,
+    monkeypatch,
+    manifest_end_date: str,
+) -> None:
+    monkeypatch.chdir(tmp_path)
+    history_dir = tmp_path / "data" / "stock_price_history"
+    history_dir.mkdir(parents=True)
+    pd.DataFrame(
+        [
+            {"date": "20260720", "stock_id": "2330"},
+            {"date": "20260724", "stock_id": "2330"},
+        ]
+    ).to_csv(history_dir / "2330.csv", index=False)
+    manifest = tmp_path / "stock_price_history_manifest.csv"
+    pd.DataFrame([{"stock_id": "2330", "end_date": manifest_end_date}]).to_csv(
+        manifest,
+        index=False,
+    )
+    monkeypatch.setattr(replay, "STOCK_HISTORY_MANIFEST", manifest)
+    monkeypatch.setattr(replay, "supported_daily_stock_ids", lambda target_date: ["2330"])
+
+
+def test_preserved_target_coverage_accepts_manifest_end_between_target_and_high_water(
+    tmp_path: Path,
+    monkeypatch,
+) -> None:
+    _prepare_stock_history_coverage_case(tmp_path, monkeypatch, "20260724")
+
+    result = replay.validate_stock_history_date_coverage(
+        "20260720",
+        manifest_end_date="20260728",
+    )
+
+    assert result["supported_stock_count"] == 1
+    assert result["manifest_end_date_lower_bound"] == "20260720"
+    assert result["manifest_end_date_upper_bound"] == "20260728"
+
+
+@pytest.mark.parametrize("manifest_end_date", ["20260717", "20260729"])
+def test_preserved_target_coverage_rejects_manifest_end_outside_target_high_water_bounds(
+    tmp_path: Path,
+    monkeypatch,
+    manifest_end_date: str,
+) -> None:
+    _prepare_stock_history_coverage_case(tmp_path, monkeypatch, manifest_end_date)
+
+    with pytest.raises(RuntimeError, match="outside target/high-water bounds"):
+        replay.validate_stock_history_date_coverage(
+            "20260720",
+            manifest_end_date="20260728",
+        )
+
+
+def test_preserve_price_replay_refetches_but_skips_raw_and_history_writers(monkeypatch) -> None:
+    frame = pd.DataFrame(
+        [
+            {
+                "date": "20260720",
+                "stock_id": "2330",
+                "source": "TWSE",
+            }
+        ]
+    )
+    monkeypatch.setattr(replay.price_fetcher, "MAX_WORKERS", 8)
+    monkeypatch.setattr(replay.price_fetcher, "reset_fetch_response_provenance", lambda: None)
+    monkeypatch.setattr(
+        replay.price_fetcher,
+        "fetch_response_provenance",
+        lambda: [
+            {
+                "source_name": "TWSE",
+                "exact_date_match": True,
+                "observed_response_dates": ["20260720"],
+            }
+        ],
+    )
+    monkeypatch.setattr(
+        replay.price_repair,
+        "fetch_with_retry",
+        lambda *args, **kwargs: (frame, {"full_market_ok": True}, []),
+    )
+    monkeypatch.setattr(
+        replay.price_repair,
+        "write_daily_price_files",
+        lambda *args, **kwargs: pytest.fail("preserve mode wrote raw daily prices"),
+    )
+    monkeypatch.setattr(
+        replay,
+        "run_checked",
+        lambda *args, **kwargs: pytest.fail("preserve mode rebuilt stock histories"),
+    )
+    monkeypatch.setattr(
+        replay,
+        "validate_preserved_price_target_slices",
+        lambda *args, **kwargs: {"mode": "preserve_existing_price_history"},
+    )
+    monkeypatch.setattr(
+        replay,
+        "write_price_status",
+        lambda *args, **kwargs: {"future_rows_used": False},
+    )
+    monkeypatch.setattr(
+        replay,
+        "validate_stock_history_date_coverage",
+        lambda *args, **kwargs: {"supported_stock_count": 1},
+    )
+
+    result = replay.replay_price_date("20260720", "20260728")
+
+    assert result["stock_history_coverage"] == {"supported_stock_count": 1}
+
+
+def test_mixed_tail_contract_keeps_price_history_high_water_and_other_sources_at_day() -> None:
+    matrix = {
+        "daily_price": "20260728",
+        "stock_price_history": {"max_date": "20260728"},
+        "market_index": {"TWSE": "20260724", "TPEX": "20260724"},
+        "market_index_ohlc": {"TWSE": "20260724", "TPEX": "20260724"},
+        "taifex": {"a": "20260724", "b": "20260724"},
+        "warrant_daily": "20260724",
+        "warrant_flow": "20260724",
+    }
+
+    replay.validate_replay_day_tail_matrix(matrix, "20260724", "20260728")
+
+    matrix["warrant_flow"] = "20260723"
+    with pytest.raises(RuntimeError, match="day tail mismatch"):
+        replay.validate_replay_day_tail_matrix(matrix, "20260724", "20260728")
+
+
+def test_protected_price_history_fingerprint_drift_fails_closed() -> None:
+    before = {"daily_price": {"path_count": 2, "aggregate_sha256": "a" * 64}}
+    replay.require_protected_price_history_fingerprints_unchanged(before, before.copy())
+
+    after = {"daily_price": {"path_count": 2, "aggregate_sha256": "b" * 64}}
+    with pytest.raises(RuntimeError, match="changed a protected"):
+        replay.require_protected_price_history_fingerprints_unchanged(before, after)
+
+
+def test_refresh_freshness_wires_replay_only_flags_and_keeps_legacy_command_clean(
+    tmp_path: Path,
+    monkeypatch,
+) -> None:
+    freshness_csv = tmp_path / "data_freshness_latest.csv"
+    pd.DataFrame(
+        [
+            {
+                "main_price_date": "20260724",
+                "report_ready": "false",
+                "daily_pdf_ready": "false",
+            }
+        ]
+    ).to_csv(freshness_csv, index=False)
+    monkeypatch.setattr(replay, "FRESHNESS_CSV", freshness_csv)
+    commands: list[list[str]] = []
+    monkeypatch.setattr(
+        replay,
+        "run_checked",
+        lambda command, **kwargs: commands.append(command),
+    )
+
+    replay.refresh_truthful_freshness("20260724", "20260728")
+    replay.refresh_truthful_freshness("20260724", "")
+
+    freshness_builder = "build_data_" + "freshness_latest.py"
+    assert commands[0] == [
+        replay.sys.executable,
+        freshness_builder,
+        "--historical-replay-main-price-date",
+        "20260724",
+        "--expected-price-history-high-water-date",
+        "20260728",
+    ]
+    assert commands[1] == [replay.sys.executable, freshness_builder]
+
+
+def test_replay_continuity_lookback_covers_long_window_without_narrowing_default() -> None:
+    assert replay.replay_continuity_lookback_days("20260718", "20260724") == (
+        replay.continuity.DEFAULT_LOOKBACK_DAYS
+    )
+    assert replay.replay_continuity_lookback_days("20260601", "20260724") == 53
+
+
+def test_taifex_dated_raw_must_match_committed_history_target_slice(
+    tmp_path: Path,
+    monkeypatch,
+) -> None:
+    monkeypatch.chdir(tmp_path)
+    history_path = Path("data/futures_options/taifex_institutional_fo_history.csv")
+    raw_path = Path("data/futures_options/raw/institutional_fo_20260724.csv")
+    history_path.parent.mkdir(parents=True)
+    raw_path.parent.mkdir(parents=True)
+    frame = pd.DataFrame(
+        [{"date": "20260724", "kind": "dealer", "value": "10"}]
+    )
+    frame.to_csv(history_path, index=False)
+    frame.iloc[::-1].to_csv(raw_path, index=False)
+    monkeypatch.setattr(
+        replay,
+        "TAIFEX_HISTORY_SPECS",
+        {
+            "institutional_fo": (history_path, ["date", "kind"]),
+            "taiwan_vix": (
+                Path("data/futures_options/taiwan_vix_history.csv"),
+                ["date"],
+            ),
+        },
+    )
+    monkeypatch.setattr(
+        replay,
+        "TAIFEX_DATED_RAW_SOURCE_IDS",
+        ("institutional_fo",),
+    )
+
+    parity = replay.validate_taifex_raw_history_parity("20260724")
+    assert parity["institutional_fo"]["raw_path"] == raw_path.as_posix()
+    assert parity["institutional_fo"]["row_count"] == 1
+
+    changed = frame.copy()
+    changed.loc[0, "value"] = "11"
+    changed.to_csv(raw_path, index=False)
+    with pytest.raises(RuntimeError, match="dated raw/history target-slice mismatch"):
+        replay.validate_taifex_raw_history_parity("20260724")

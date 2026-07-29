@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import argparse
 import json
 import re
 from datetime import datetime
@@ -14,10 +15,13 @@ STOCK_PRICE_HISTORY_DIR = Path("data/stock_price_history")
 PRICE_DUPLICATE_CHECK_COLUMNS = ("open", "high", "low", "close", "volume")
 MIN_PRICE_QUALITY_SAMPLE = 100
 MAX_ALLOWED_RECENT_DUPLICATE_RATIO = 0.20
+MIN_HISTORICAL_REPLAY_OFFICIAL_PRICE_ROWS = 1300
 
 STOCK_MONITOR_MD = LATEST_DIR / "stock_monitor_latest.md"
 OFFICIAL_PRICE_FETCH_MD = LATEST_DIR / "official_price_fetch_latest.md"
 OFFICIAL_PRICE_FETCH_JSON = LATEST_DIR / "official_price_fetch_latest.json"
+OFFICIAL_DAILY_PRICE_CSV = LATEST_DIR / "official_daily_price_latest.csv"
+DAILY_PRICE_HISTORY_CONTINUITY_JSON = LATEST_DIR / "daily_price_history_continuity_latest.json"
 ALL_CANDIDATES_CSV = LATEST_DIR / "all_candidates_latest.csv"
 WARRANT_FLOW_CSV = LATEST_DIR / "warrant_flow_latest.csv"
 WARRANT_FLOW_BY_STOCK_CSV = LATEST_DIR / "warrant_flow_by_stock_latest.csv"
@@ -244,6 +248,226 @@ def latest_stock_price_history_date() -> str:
         if is_valid_stock_price_history_date(date):
             return date
     return max(dates) if dates else ""
+
+
+def raw_stock_price_history_high_water_date() -> str:
+    dates: set[str] = set()
+    if not STOCK_PRICE_HISTORY_DIR.exists():
+        return ""
+    for path in STOCK_PRICE_HISTORY_DIR.glob("*.csv"):
+        try:
+            frame = pd.read_csv(path, dtype=str, usecols=["date"])
+        except Exception:
+            continue
+        normalized = frame["date"].map(normalize_date)
+        dates.update(str(value) for value in normalized if len(str(value)) == 8)
+    return max(dates) if dates else ""
+
+
+def raw_daily_price_high_water_date() -> str:
+    daily_price_dir = Path("data/daily_price")
+    dates = []
+    for path in daily_price_dir.glob("daily_price_*.csv"):
+        match = re.fullmatch(r"daily_price_(20\d{6})\.csv", path.name)
+        if match:
+            dates.append(match.group(1))
+    return max(dates) if dates else ""
+
+
+def validate_historical_replay_main_price_date(
+    main_price_date: str,
+    expected_price_history_high_water_date: str,
+    *,
+    daily_price_high_water_date: str,
+    stock_price_history_high_water_date: str,
+) -> str:
+    values = {
+        "historical replay main price date": str(main_price_date or "").strip(),
+        "expected price/history high-water date": str(
+            expected_price_history_high_water_date or ""
+        ).strip(),
+        "daily price high-water date": str(daily_price_high_water_date or "").strip(),
+        "stock price history high-water date": str(
+            stock_price_history_high_water_date or ""
+        ).strip(),
+    }
+    for label, value in values.items():
+        if not re.fullmatch(r"20\d{6}", value):
+            raise ValueError(f"{label} must be YYYYMMDD")
+        try:
+            datetime.strptime(value, "%Y%m%d")
+        except ValueError as exc:
+            raise ValueError(f"{label} must be a valid calendar date") from exc
+    expected = values["expected price/history high-water date"]
+    paired = {
+        values["daily price high-water date"],
+        values["stock price history high-water date"],
+    }
+    if paired != {expected}:
+        raise ValueError(
+            "historical replay requires exact paired raw price/history high-water dates: "
+            f"daily={values['daily price high-water date']} "
+            f"stock_history={values['stock price history high-water date']} "
+            f"expected={expected}"
+        )
+    override = values["historical replay main price date"]
+    if override >= expected:
+        raise ValueError(
+            "historical replay main price date must be earlier than raw paired high-water date"
+        )
+    return override
+
+
+def validate_historical_replay_freshness_prerequisites(
+    target_date: str,
+    expected_price_history_high_water_date: str,
+) -> None:
+    if not OFFICIAL_DAILY_PRICE_CSV.exists():
+        raise ValueError(f"historical replay official latest is missing: {OFFICIAL_DAILY_PRICE_CSV}")
+    frame = pd.read_csv(OFFICIAL_DAILY_PRICE_CSV, dtype=str, keep_default_na=False).fillna("")
+    required_columns = {"date", "stock_id", "market"}
+    if not required_columns.issubset(frame.columns):
+        raise ValueError(
+            f"historical replay official latest missing schema columns: "
+            f"{sorted(required_columns - set(frame.columns))}"
+        )
+    if frame.empty or set(frame["date"].astype(str)) != {target_date}:
+        raise ValueError(
+            "historical replay official latest must contain only the exact target date"
+        )
+    supported_rows = frame["stock_id"].astype(str).str.strip().ne("")
+    markets = {str(value).strip().lower() for value in frame["market"] if str(value).strip()}
+    if (
+        len(frame) < MIN_HISTORICAL_REPLAY_OFFICIAL_PRICE_ROWS
+        or int(supported_rows.sum()) < MIN_HISTORICAL_REPLAY_OFFICIAL_PRICE_ROWS
+        or not {"twse", "tpex"}.issubset(markets)
+    ):
+        raise ValueError(
+            "historical replay official latest does not satisfy the full-market row/market gate"
+        )
+
+    if not OFFICIAL_PRICE_FETCH_JSON.exists():
+        raise ValueError(
+            f"historical replay official price status is missing: {OFFICIAL_PRICE_FETCH_JSON}"
+        )
+    price_status = json.loads(OFFICIAL_PRICE_FETCH_JSON.read_text(encoding="utf-8-sig"))
+    required_status = {
+        "mode": "reconstructed_source_tail_gap_preserve_existing_price_history",
+        "target_date": target_date,
+        "saved_price_date": target_date,
+        "is_target_date": True,
+        "result": "success_target_full_market",
+        "full_market_ok": True,
+        "publication_status": "reconstructed_not_as_published",
+        "as_published": False,
+        "fallback_used": False,
+        "calculation_context_max_date": target_date,
+        "future_row_count": 0,
+        "future_rows_used": False,
+        "price_history_high_water_date": expected_price_history_high_water_date,
+    }
+    mismatches = {
+        key: {"observed": price_status.get(key), "expected": expected}
+        for key, expected in required_status.items()
+        if price_status.get(key) != expected
+    }
+    if mismatches:
+        raise ValueError(
+            f"historical replay official price status contract mismatch: {mismatches}"
+        )
+    preserved_evidence = price_status.get("preserved_target_slice_evidence") or {}
+    if (
+        preserved_evidence.get("mode") != "preserve_existing_price_history"
+        or preserved_evidence.get("price_history_high_water_date")
+        != expected_price_history_high_water_date
+    ):
+        raise ValueError(
+            "historical replay official price status lacks exact preserve-tail evidence"
+        )
+    normalized_markets = frame["market"].astype(str).str.strip().str.lower()
+    observed_counts = {
+        "total_rows": int(len(frame)),
+        "twse_rows": int(normalized_markets.eq("twse").sum()),
+        "tpex_rows": int(normalized_markets.eq("tpex").sum()),
+    }
+    status_counts = {
+        key: int(price_status.get(key, -1) or -1)
+        for key in ("total_rows", "twse_rows", "tpex_rows")
+    }
+    if status_counts != observed_counts:
+        raise ValueError(
+            "historical replay official price status count parity mismatch: "
+            f"status={status_counts} observed={observed_counts}"
+        )
+    expected_paths = {
+        "dated_csv": f"data/daily_price/daily_price_{target_date}.csv",
+        "dated_alt_csv": f"data/daily_price/{target_date}.csv",
+        "latest_csv": "output/latest/official_daily_price_latest.csv",
+    }
+    if price_status.get("paths") != expected_paths:
+        raise ValueError(
+            "historical replay official price status path contract mismatch: "
+            f"{price_status.get('paths')} != {expected_paths}"
+        )
+    canonical_latest = frame.copy().fillna("")
+    for column in canonical_latest.columns:
+        canonical_latest[column] = canonical_latest[column].astype(str)
+    canonical_latest = canonical_latest[sorted(canonical_latest.columns)]
+    canonical_latest = canonical_latest.sort_values(
+        list(dict.fromkeys(["date", "stock_id", *sorted(canonical_latest.columns)])),
+        kind="stable",
+    ).reset_index(drop=True)
+    if canonical_latest.duplicated(["date", "stock_id"]).any():
+        raise ValueError("historical replay official latest contains duplicate date/stock PK rows")
+    for key in ("dated_csv", "dated_alt_csv"):
+        target_path = Path(expected_paths[key])
+        if not target_path.exists():
+            raise ValueError(f"historical replay preserved target file is missing: {target_path}")
+        target_frame = pd.read_csv(
+            target_path,
+            dtype=str,
+            keep_default_na=False,
+        ).fillna("")
+        if set(target_frame.columns) != set(frame.columns):
+            raise ValueError(
+                f"historical replay preserved target schema mismatch: {target_path}"
+            )
+        if set(target_frame["date"].astype(str)) != {target_date}:
+            raise ValueError(
+                f"historical replay preserved target is not exact date {target_date}: {target_path}"
+            )
+        for column in target_frame.columns:
+            target_frame[column] = target_frame[column].astype(str)
+        canonical_target = target_frame[sorted(target_frame.columns)].sort_values(
+            list(dict.fromkeys(["date", "stock_id", *sorted(target_frame.columns)])),
+            kind="stable",
+        ).reset_index(drop=True)
+        if not canonical_target.equals(canonical_latest):
+            raise ValueError(
+                f"historical replay preserved target content differs from official latest: {target_path}"
+            )
+
+    if not DAILY_PRICE_HISTORY_CONTINUITY_JSON.exists():
+        raise ValueError(
+            "historical replay daily price/history continuity report is missing: "
+            f"{DAILY_PRICE_HISTORY_CONTINUITY_JSON}"
+        )
+    continuity = json.loads(
+        DAILY_PRICE_HISTORY_CONTINUITY_JSON.read_text(encoding="utf-8-sig")
+    )
+    if continuity.get("status") != "pass" or continuity.get("main_price_date") != target_date:
+        raise ValueError(
+            "historical replay continuity must pass for the exact replay target date"
+        )
+    expected_trading_dates = continuity.get("expected_trading_dates") or []
+    if (
+        not isinstance(expected_trading_dates, list)
+        or target_date not in expected_trading_dates
+        or max(expected_trading_dates, default="") != target_date
+    ):
+        raise ValueError(
+            "historical replay continuity expected_trading_dates must end at the replay target"
+        )
 
 
 def is_valid_stock_price_history_date(date: str) -> bool:
@@ -543,8 +767,37 @@ def determine_daily_pdf_ready(
     return True, f"core daily data, warrant layer, and PDF theme display are ready for daily PDF source use{suffix}"
 
 
-def build_status() -> pd.DataFrame:
+def build_status(
+    historical_replay_main_price_date: str = "",
+    expected_price_history_high_water_date: str = "",
+) -> pd.DataFrame:
     actual_price_date = latest_stock_price_history_date()
+
+    replay_override = ""
+    if historical_replay_main_price_date or expected_price_history_high_water_date:
+        if not historical_replay_main_price_date or not expected_price_history_high_water_date:
+            raise ValueError(
+                "historical replay main-price override and expected high-water date must be supplied together"
+            )
+        raw_daily_high_water = raw_daily_price_high_water_date()
+        raw_stock_high_water = raw_stock_price_history_high_water_date()
+        replay_override = validate_historical_replay_main_price_date(
+            historical_replay_main_price_date,
+            expected_price_history_high_water_date,
+            daily_price_high_water_date=raw_daily_high_water,
+            stock_price_history_high_water_date=raw_stock_high_water,
+        )
+        if actual_price_date != expected_price_history_high_water_date:
+            raise ValueError(
+                "historical replay expected high-water date does not equal the latest validated "
+                "all-market stock price history date: "
+                f"detected={actual_price_date or '<missing>'} "
+                f"expected={expected_price_history_high_water_date}"
+            )
+        validate_historical_replay_freshness_prerequisites(
+            replay_override,
+            expected_price_history_high_water_date,
+        )
 
     raw_stock_monitor_date = extract_stock_monitor_price_date()
     raw_official_fetch_date = extract_official_price_fetch_date()
@@ -556,7 +809,7 @@ def build_status() -> pd.DataFrame:
     all_candidates_date = cap_to_actual_trading_date(raw_all_candidates_date, actual_price_date)
     warrant_flow_date = cap_to_actual_trading_date(raw_warrant_flow_date, actual_price_date)
 
-    main_price_date = determine_main_price_date(
+    main_price_date = replay_override or determine_main_price_date(
         stock_monitor_date=stock_monitor_date,
         all_candidates_date=all_candidates_date,
         official_fetch_date=official_fetch_date,
@@ -581,6 +834,12 @@ def build_status() -> pd.DataFrame:
         expected_main_price_date=expected_main_price_date,
         main_price_date=main_price_date,
     )
+    if replay_override:
+        report_ready = False
+        report_ready_note = (
+            "historical structured-source replay updates objective-source freshness only; "
+            "publish artifacts remain stale"
+        )
     warrant_ready, warrant_ready_note = determine_warrant_ready(
         main_price_date=main_price_date,
         warrant_flow_date=warrant_flow_date,
@@ -609,7 +868,21 @@ def build_status() -> pd.DataFrame:
         group_rotation_theme_ready=group_rotation_theme_ready,
         group_rotation_theme_note=group_rotation_theme_note,
     )
+    if replay_override:
+        daily_pdf_ready = False
+        daily_pdf_ready_note = (
+            "historical structured-source replay must not mark stale daily PDFs ready"
+        )
 
+    main_price_date_source = (
+        "historical_replay_override"
+        if replay_override
+        else (
+            "validated_stock_history"
+            if actual_price_date and main_price_date == actual_price_date
+            else "legacy_priority_fallback"
+        )
+    )
     row = {
         "generated_at": now_taipei(),
         "market_session_status": market_session_status,
@@ -618,6 +891,11 @@ def build_status() -> pd.DataFrame:
         "market_session_reason_code": market_session.get("reason_code", ""),
         "market_session_generated_at": market_session.get("generated_at", ""),
         "main_price_date": main_price_date,
+        "main_price_date_source": main_price_date_source,
+        "historical_replay_main_price_date": replay_override,
+        "expected_price_history_high_water_date": (
+            expected_price_history_high_water_date if replay_override else ""
+        ),
         "actual_stock_price_history_date": actual_price_date,
         "stock_monitor_price_date": stock_monitor_date,
         "all_candidates_date": all_candidates_date,
@@ -657,6 +935,21 @@ def build_status() -> pd.DataFrame:
 
 def write_markdown(df: pd.DataFrame) -> None:
     row = df.iloc[0].to_dict()
+    if row.get("main_price_date_source") == "historical_replay_override":
+        rule_text = (
+            "Historical structured-source replay explicitly pins the canonical "
+            "main_price_date while preserving the newer validated raw price/history "
+            "high-water date. The two dates remain visible and publish/PDF readiness "
+            "must stay false until current publication artifacts are rebuilt."
+        )
+    else:
+        rule_text = (
+            "When an upstream daily snapshot has a raw date newer than the latest validated all-market "
+            "price history date, the effective report date is capped to the validated price date. "
+            "A stock price history date is rejected when many symbols have the exact same OHLCV as "
+            "recent prior rows, because that indicates a copied or stale upstream snapshot rather than "
+            "a trustworthy trading-day close."
+        )
     lines = [
         "# Data Freshness Status",
         "",
@@ -666,6 +959,9 @@ def write_markdown(df: pd.DataFrame) -> None:
         f"- expected_main_price_date: `{row.get('expected_main_price_date', '')}`",
         f"- market_session_reason_code: `{row.get('market_session_reason_code', '')}`",
         f"- main_price_date: `{row.get('main_price_date', '')}`",
+        f"- main_price_date_source: `{row.get('main_price_date_source', '')}`",
+        f"- historical_replay_main_price_date: `{row.get('historical_replay_main_price_date', '')}`",
+        f"- expected_price_history_high_water_date: `{row.get('expected_price_history_high_water_date', '')}`",
         f"- actual_stock_price_history_date: `{row.get('actual_stock_price_history_date', '')}`",
         f"- report_ready: `{row.get('report_ready', '')}`",
         f"- report_ready_note: {row.get('report_ready_note', '')}",
@@ -704,21 +1000,26 @@ def write_markdown(df: pd.DataFrame) -> None:
         "",
         "## Rule",
         "",
-        (
-            "When an upstream daily snapshot has a raw date newer than the latest validated all-market "
-            "price history date, the effective report date is capped to the validated price date. "
-            "A stock price history date is rejected when many symbols have the exact same OHLCV as "
-            "recent prior rows, because that indicates a copied or stale upstream snapshot rather than "
-            "a trustworthy trading-day close."
-        ),
+        rule_text,
         "",
     ]
     OUTPUT_MD.write_text("\n".join(lines), encoding="utf-8")
 
 
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--historical-replay-main-price-date", default="")
+    parser.add_argument("--expected-price-history-high-water-date", default="")
+    return parser.parse_args()
+
+
 def main() -> int:
+    args = parse_args()
     LATEST_DIR.mkdir(parents=True, exist_ok=True)
-    df = build_status()
+    df = build_status(
+        historical_replay_main_price_date=args.historical_replay_main_price_date,
+        expected_price_history_high_water_date=args.expected_price_history_high_water_date,
+    )
     df.to_csv(OUTPUT_CSV, index=False, encoding="utf-8-sig")
     write_markdown(df)
     print(f"Saved: {OUTPUT_CSV}")

@@ -37,6 +37,18 @@ WARRANT_STATUS_JSON = Path("output/latest/warrant_source_status_latest.json")
 FRESHNESS_CSV = Path("output/latest/data_freshness_latest.csv")
 STOCK_HISTORY_MANIFEST = Path("output/latest/stock_price_history_manifest.csv")
 WARRANT_FLOW_LATEST = Path("output/latest/warrant_flow_latest.csv")
+PROTECTED_PRICE_HISTORY_MANIFEST_PATHS = {
+    "stock_history_manifest_output": [
+        Path("output/latest/stock_price_history_manifest.csv"),
+        Path("output/latest/stock_price_history_manifest.json"),
+        Path("output/latest/stock_price_history_manifest.md"),
+    ],
+    "stock_history_manifest_docs": [
+        Path("docs/latest/stock_price_history_manifest.csv"),
+        Path("docs/latest/stock_price_history_manifest.json"),
+        Path("docs/latest/stock_price_history_manifest.md"),
+    ],
+}
 TAIFEX_HISTORY_SPECS = {
     "institutional_fo": (
         Path("data/futures_options/taifex_institutional_fo_history.csv"),
@@ -59,6 +71,9 @@ TAIFEX_HISTORY_SPECS = {
         ["date"],
     ),
 }
+TAIFEX_DATED_RAW_SOURCE_IDS = tuple(
+    source_id for source_id in TAIFEX_HISTORY_SPECS if source_id != "taiwan_vix"
+)
 
 
 def parse_date(value: str, label: str) -> str:
@@ -70,6 +85,11 @@ def parse_date(value: str, label: str) -> str:
     except ValueError as exc:
         raise RuntimeError(f"{label} must be calendar-valid YYYYMMDD") from exc
     return text
+
+
+def parse_optional_date(value: str, label: str) -> str:
+    text = str(value or "").strip()
+    return parse_date(text, label) if text else ""
 
 
 def parse_replay_id(value: str) -> str:
@@ -103,6 +123,40 @@ def aggregate_path_sha256(paths: list[Path]) -> str:
     )
 
 
+def protected_price_history_fingerprints() -> dict[str, dict[str, Any]]:
+    groups = {
+        "daily_price": sorted(
+            path for path in Path("data/daily_price").rglob("*") if path.is_file()
+        ),
+        "stock_price_history": sorted(
+            path for path in Path("data/stock_price_history").rglob("*") if path.is_file()
+        ),
+        **PROTECTED_PRICE_HISTORY_MANIFEST_PATHS,
+    }
+    fingerprints: dict[str, dict[str, Any]] = {}
+    for group, paths in groups.items():
+        missing = [path.as_posix() for path in paths if not path.is_file()]
+        if missing:
+            raise RuntimeError(f"protected price/history paths missing for {group}: {missing}")
+        if not paths:
+            raise RuntimeError(f"protected price/history group is empty: {group}")
+        fingerprints[group] = {
+            "path_count": len(paths),
+            "aggregate_sha256": aggregate_path_sha256(list(paths)),
+        }
+    return fingerprints
+
+
+def require_protected_price_history_fingerprints_unchanged(
+    expected: dict[str, dict[str, Any]],
+    observed: dict[str, dict[str, Any]],
+) -> None:
+    if observed != expected:
+        raise RuntimeError(
+            "preserve-price-history mode changed a protected raw price/history or manifest path"
+        )
+
+
 def aggregate_response_hash(rows: list[dict[str, Any]], field: str) -> str:
     values = [str(row.get(field, "")) for row in rows if str(row.get(field, ""))]
     return sha256_bytes("\n".join(values).encode("utf-8")) if values else ""
@@ -113,6 +167,55 @@ def detect_date_column(frame: pd.DataFrame, path: Path) -> str:
     if len(candidates) != 1:
         raise RuntimeError(f"cannot resolve one date column for replay slice: {path} {candidates}")
     return candidates[0]
+
+
+def canonical_frame_sha256(frame: pd.DataFrame, *, pk_columns: list[str]) -> str:
+    normalized = frame.copy().fillna("")
+    missing_pk = [column for column in pk_columns if column not in normalized.columns]
+    if missing_pk:
+        raise RuntimeError(f"canonical frame missing PK columns: {missing_pk}")
+    for column in normalized.columns:
+        normalized[column] = normalized[column].astype(str)
+    ordered_columns = sorted(str(column) for column in normalized.columns)
+    normalized = normalized[ordered_columns]
+    sort_columns = list(dict.fromkeys([*pk_columns, *ordered_columns]))
+    if normalized.duplicated(pk_columns).any():
+        raise RuntimeError(f"canonical frame has duplicate PK rows: {pk_columns}")
+    canonical = normalized.sort_values(sort_columns, kind="stable").reset_index(drop=True)
+    return sha256_bytes(canonical.to_csv(index=False, lineterminator="\n").encode("utf-8"))
+
+
+def validate_daily_price_canonical_legacy_pair(target_date: str) -> dict[str, str]:
+    paths = (
+        Path(f"data/daily_price/daily_price_{target_date}.csv"),
+        Path(f"data/daily_price/{target_date}.csv"),
+    )
+    hashes: dict[str, str] = {}
+    expected_columns: set[str] | None = None
+    for path in paths:
+        if not path.exists():
+            raise RuntimeError(f"daily price canonical/legacy pair is missing: {path}")
+        frame = pd.read_csv(path, dtype=str, keep_default_na=False).fillna("")
+        if "date" not in frame.columns or set(frame["date"].astype(str)) != {target_date}:
+            raise RuntimeError(
+                f"daily price canonical/legacy pair is not exact date {target_date}: {path}"
+            )
+        columns = set(str(column) for column in frame.columns)
+        if expected_columns is None:
+            expected_columns = columns
+        elif columns != expected_columns:
+            raise RuntimeError(
+                f"daily price canonical/legacy pair schema mismatch for {target_date}: {path}"
+            )
+        hashes[path.as_posix()] = canonical_frame_sha256(
+            frame,
+            pk_columns=["date", "stock_id"],
+        )
+    if len(set(hashes.values())) != 1:
+        raise RuntimeError(
+            f"daily price canonical/legacy pair content mismatch for {target_date}"
+        )
+    return hashes
 
 
 def canonical_target_slice(
@@ -213,8 +316,13 @@ def supported_daily_stock_ids(target_date: str) -> list[str]:
     return stock_ids
 
 
-def validate_stock_history_date_coverage(target_date: str) -> dict[str, Any]:
+def validate_stock_history_date_coverage(
+    target_date: str,
+    *,
+    manifest_end_date: str | None = None,
+) -> dict[str, Any]:
     stock_ids = supported_daily_stock_ids(target_date)
+    manifest_high_water = manifest_end_date or target_date
     missing: list[str] = []
     for stock_id in stock_ids:
         path = Path("data/stock_price_history") / f"{stock_id}.csv"
@@ -233,17 +341,61 @@ def validate_stock_history_date_coverage(target_date: str) -> dict[str, Any]:
         raise RuntimeError("stock history manifest lacks stock_id/end_date")
     manifest["stock_id"] = manifest["stock_id"].map(continuity.normalize_stock_id)
     indexed = manifest.drop_duplicates("stock_id", keep="last").set_index("stock_id")
-    bad_manifest = [
-        stock_id
-        for stock_id in stock_ids
-        if stock_id not in indexed.index or str(indexed.at[stock_id, "end_date"]) != target_date
-    ]
+    bad_manifest: list[str] = []
+    for stock_id in stock_ids:
+        if stock_id not in indexed.index:
+            bad_manifest.append(stock_id)
+            continue
+        observed_end = str(indexed.at[stock_id, "end_date"])
+        if observed_end < target_date or observed_end > manifest_high_water:
+            bad_manifest.append(stock_id)
     if bad_manifest:
         raise RuntimeError(
-            f"stock history manifest does not end at {target_date} for {len(bad_manifest)} stocks: "
+            "stock history manifest end date is outside target/high-water bounds "
+            f"[{target_date}, {manifest_high_water}] for {len(bad_manifest)} stocks: "
             f"{bad_manifest[:20]}"
         )
-    return {"supported_stock_count": len(stock_ids), "missing_history_rows": 0}
+    return {
+        "supported_stock_count": len(stock_ids),
+        "missing_history_rows": 0,
+        "manifest_end_date_lower_bound": target_date,
+        "manifest_end_date_upper_bound": manifest_high_water,
+    }
+
+
+def taifex_dated_raw_path(source_id: str, target_date: str) -> Path:
+    if source_id not in TAIFEX_DATED_RAW_SOURCE_IDS:
+        raise RuntimeError(f"TAIFEX source does not own a dated raw CSV: {source_id}")
+    return Path("data/futures_options/raw") / f"{source_id}_{target_date}.csv"
+
+
+def validate_taifex_raw_history_parity(target_date: str) -> dict[str, dict[str, Any]]:
+    parity: dict[str, dict[str, Any]] = {}
+    for source_id in TAIFEX_DATED_RAW_SOURCE_IDS:
+        history_path, pk_columns = TAIFEX_HISTORY_SPECS[source_id]
+        raw_path = taifex_dated_raw_path(source_id, target_date)
+        raw_slice = canonical_target_slice(
+            raw_path,
+            target_date,
+            pk_columns=pk_columns,
+        )
+        history_slice = canonical_target_slice(
+            history_path,
+            target_date,
+            pk_columns=pk_columns,
+        )
+        if raw_slice["slice_sha256"] != history_slice["slice_sha256"]:
+            raise RuntimeError(
+                "TAIFEX dated raw/history target-slice mismatch: "
+                f"source={source_id} target_date={target_date}"
+            )
+        parity[source_id] = {
+            "raw_path": raw_path.as_posix(),
+            "history_path": history_path.as_posix(),
+            "row_count": raw_slice["row_count"],
+            "slice_sha256": raw_slice["slice_sha256"],
+        }
+    return parity
 
 
 def build_source_output_evidence(
@@ -253,6 +405,7 @@ def build_source_output_evidence(
     market_index_codes: set[str] | None = None,
 ) -> dict[str, Any]:
     components: list[dict[str, Any]] = []
+    extra_evidence: dict[str, Any] = {}
     if source_id == "official_daily_price":
         components.append(
             build_component_evidence(
@@ -287,8 +440,26 @@ def build_source_output_evidence(
         ]
         components.append(build_component_evidence("market_index_target_rows", specs, target_date))
     elif source_id == "taifex_futures_options_vix":
-        specs = [(path, pk_columns, {}) for path, pk_columns in TAIFEX_HISTORY_SPECS.values()]
-        components.append(build_component_evidence("taifex_target_rows", specs, target_date))
+        history_specs = [
+            (path, pk_columns, {}) for path, pk_columns in TAIFEX_HISTORY_SPECS.values()
+        ]
+        raw_specs = [
+            (
+                taifex_dated_raw_path(raw_source_id, target_date),
+                TAIFEX_HISTORY_SPECS[raw_source_id][1],
+                {},
+            )
+            for raw_source_id in TAIFEX_DATED_RAW_SOURCE_IDS
+        ]
+        components.append(
+            build_component_evidence("taifex_history_target_rows", history_specs, target_date)
+        )
+        components.append(
+            build_component_evidence("taifex_dated_raw_target_rows", raw_specs, target_date)
+        )
+        extra_evidence["taifex_raw_history_parity"] = validate_taifex_raw_history_parity(
+            target_date
+        )
     elif source_id == "official_warrant_daily":
         components.append(
             build_component_evidence(
@@ -318,8 +489,11 @@ def build_source_output_evidence(
         }
         for component in components
     ]
+    stable_evidence: Any = stable_components
+    if extra_evidence:
+        stable_evidence = {"components": stable_components, **extra_evidence}
     evidence_payload = json.dumps(
-        stable_components,
+        stable_evidence,
         ensure_ascii=False,
         sort_keys=True,
         separators=(",", ":"),
@@ -332,6 +506,7 @@ def build_source_output_evidence(
         "future_row_count": sum(int(component["future_row_count"]) for component in components),
         "future_rows_excluded_from_slice": True,
         "output_sha256": sha256_bytes(evidence_payload),
+        **extra_evidence,
     }
 
 
@@ -397,6 +572,15 @@ def expected_trading_dates(start_date: str, end_date: str) -> list[str]:
     if not dates:
         raise RuntimeError("historical source replay window has no trading dates")
     return dates
+
+
+def replay_continuity_lookback_days(start_date: str, end_date: str) -> int:
+    start = datetime.strptime(start_date, "%Y%m%d")
+    end = datetime.strptime(end_date, "%Y%m%d")
+    if end < start:
+        raise RuntimeError("end_date must be >= start_date")
+    replay_span_days = (end - start).days
+    return max(continuity.DEFAULT_LOOKBACK_DAYS, replay_span_days)
 
 
 def max_csv_date(path: Path, date_col: str = "date", *, index_code: str = "") -> str:
@@ -471,14 +655,24 @@ def previous_trading_date(date_text: str) -> str:
     return current.strftime("%Y%m%d")
 
 
-def validate_exact_baseline(matrix: dict[str, Any], base_date: str) -> None:
+def validate_exact_baseline(
+    matrix: dict[str, Any],
+    base_date: str,
+    price_history_high_water_date: str = "",
+) -> None:
     expected_previous = previous_trading_date(base_date)
+    expected_price_history_tail = price_history_high_water_date or base_date
     errors: list[str] = []
-    if matrix.get("daily_price") != base_date:
-        errors.append(f"daily_price={matrix.get('daily_price')} expected={base_date}")
+    if matrix.get("daily_price") != expected_price_history_tail:
+        errors.append(
+            f"daily_price={matrix.get('daily_price')} expected={expected_price_history_tail}"
+        )
     stock_tail = matrix.get("stock_price_history", {})
-    if stock_tail.get("max_date") != base_date:
-        errors.append(f"stock_price_history={stock_tail.get('max_date')} expected={base_date}")
+    if stock_tail.get("max_date") != expected_price_history_tail:
+        errors.append(
+            "stock_price_history="
+            f"{stock_tail.get('max_date')} expected={expected_price_history_tail}"
+        )
     expected_market = {"TWSE": base_date, "TPEX": expected_previous}
     for family in ("market_index", "market_index_ohlc"):
         if matrix.get(family) != expected_market:
@@ -490,7 +684,44 @@ def validate_exact_baseline(matrix: dict[str, Any], base_date: str) -> None:
             errors.append(f"{family}={matrix.get(family)} expected={base_date}")
     if errors:
         raise RuntimeError("historical source replay baseline mismatch: " + "; ".join(errors))
-    validate_stock_history_date_coverage(base_date)
+    if price_history_high_water_date:
+        validate_daily_price_canonical_legacy_pair(price_history_high_water_date)
+    validate_stock_history_date_coverage(
+        expected_price_history_tail,
+        manifest_end_date=expected_price_history_tail,
+    )
+
+
+def validate_replay_day_tail_matrix(
+    matrix: dict[str, Any],
+    target_date: str,
+    price_history_high_water_date: str = "",
+) -> None:
+    expected_price_history_tail = price_history_high_water_date or target_date
+    errors: list[str] = []
+    if matrix.get("daily_price") != expected_price_history_tail:
+        errors.append(
+            f"daily_price={matrix.get('daily_price')} expected={expected_price_history_tail}"
+        )
+    if matrix.get("stock_price_history", {}).get("max_date") != expected_price_history_tail:
+        errors.append(
+            "stock_price_history="
+            f"{matrix.get('stock_price_history', {}).get('max_date')} "
+            f"expected={expected_price_history_tail}"
+        )
+    expected_market = {"TWSE": target_date, "TPEX": target_date}
+    for family in ("market_index", "market_index_ohlc"):
+        if matrix.get(family) != expected_market:
+            errors.append(f"{family}={matrix.get(family)} expected={expected_market}")
+    if set(matrix.get("taifex", {}).values()) != {target_date}:
+        errors.append(f"taifex={matrix.get('taifex')} expected all {target_date}")
+    for family in ("warrant_daily", "warrant_flow"):
+        if matrix.get(family) != target_date:
+            errors.append(f"{family}={matrix.get(family)} expected={target_date}")
+    if errors:
+        raise RuntimeError(
+            f"historical source replay day tail mismatch for {target_date}: " + "; ".join(errors)
+        )
 
 
 def validate_price_frame(frame: pd.DataFrame, target_date: str, status: dict[str, Any]) -> None:
@@ -501,11 +732,72 @@ def validate_price_frame(frame: pd.DataFrame, target_date: str, status: dict[str
         raise RuntimeError(f"official price source did not pass full-market gate: {status}")
 
 
+def validate_preserved_price_target_slices(
+    frame: pd.DataFrame,
+    target_date: str,
+    price_history_high_water_date: str,
+) -> dict[str, Any]:
+    fetched_sha256 = canonical_frame_sha256(frame, pk_columns=["date", "stock_id"])
+    dated_sha256: dict[str, str] = {}
+    for path in (
+        Path(f"data/daily_price/daily_price_{target_date}.csv"),
+        Path(f"data/daily_price/{target_date}.csv"),
+    ):
+        if not path.exists():
+            raise RuntimeError(f"preserved daily price target file missing: {path}")
+        existing = pd.read_csv(path, dtype=str, keep_default_na=False).fillna("")
+        if set(existing.columns) != set(frame.columns):
+            raise RuntimeError(
+                f"preserved daily price target schema differs from exact-date refetch: {path}"
+            )
+        existing_dates = set(existing.get("date", pd.Series(dtype=str)).astype(str))
+        if existing_dates != {target_date}:
+            raise RuntimeError(
+                f"preserved daily price target is not exact target date {target_date}: "
+                f"{path} {sorted(existing_dates)}"
+            )
+        existing_sha256 = canonical_frame_sha256(existing, pk_columns=["date", "stock_id"])
+        if existing_sha256 != fetched_sha256:
+            raise RuntimeError(
+                f"preserved daily price target differs from exact-date refetch: {path}"
+            )
+        dated_sha256[path.as_posix()] = existing_sha256
+
+    coverage = validate_stock_history_date_coverage(
+        target_date,
+        manifest_end_date=price_history_high_water_date,
+    )
+    output_evidence = build_source_output_evidence("official_daily_price", target_date)
+    history_components = [
+        component
+        for component in output_evidence.get("components", [])
+        if component.get("component_id") == "stock_history_target_slices"
+    ]
+    if len(history_components) != 1:
+        raise RuntimeError(
+            f"preserved stock history target-slice evidence missing for {target_date}"
+        )
+    return {
+        "mode": "preserve_existing_price_history",
+        "price_history_high_water_date": price_history_high_water_date,
+        "fetched_target_slice_sha256": fetched_sha256,
+        "preserved_daily_price_target_slice_sha256": dated_sha256,
+        "preserved_stock_history_target_slice_manifest_sha256": history_components[0][
+            "slice_manifest_sha256"
+        ],
+        "preserved_stock_history_target_slice_rows": history_components[0]["row_count"],
+        "stock_history_coverage": coverage,
+    }
+
+
 def write_price_status(
     target_date: str,
     frame: pd.DataFrame,
     status: dict[str, Any],
     responses: list[dict[str, Any]],
+    *,
+    price_history_high_water_date: str = "",
+    preserved_target_slice_evidence: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     canonical = Path(f"data/daily_price/daily_price_{target_date}.csv")
     legacy = Path(f"data/daily_price/{target_date}.csv")
@@ -515,7 +807,11 @@ def write_price_status(
     future_row_count = int(normalized_frame_dates.gt(target_date).sum())
     payload = {
         "generated_at": datetime.now().astimezone().isoformat(),
-        "mode": "reconstructed_source_tail_gap",
+        "mode": (
+            "reconstructed_source_tail_gap_preserve_existing_price_history"
+            if price_history_high_water_date
+            else "reconstructed_source_tail_gap"
+        ),
         "publication_status": "reconstructed_not_as_published",
         "as_published": False,
         "target_date": target_date,
@@ -530,6 +826,8 @@ def write_price_status(
         "calculation_context_max_date": str(normalized_frame_dates.max()),
         "future_row_count": future_row_count,
         "future_rows_used": future_row_count > 0,
+        "price_history_high_water_date": price_history_high_water_date,
+        "preserved_target_slice_evidence": preserved_target_slice_evidence or {},
         "source_responses": responses,
         "paths": {
             "dated_csv": canonical.as_posix(),
@@ -561,7 +859,10 @@ def write_price_status(
     return payload
 
 
-def replay_price_date(target_date: str) -> dict[str, Any]:
+def replay_price_date(
+    target_date: str,
+    price_history_high_water_date: str = "",
+) -> dict[str, Any]:
     price_fetcher.MAX_WORKERS = 1
     price_fetcher.reset_fetch_response_provenance()
     previous_strict = price_fetcher.REQUIRE_EXACT_HISTORICAL_RESPONSE_DATES
@@ -575,7 +876,15 @@ def replay_price_date(target_date: str) -> dict[str, Any]:
     finally:
         price_fetcher.REQUIRE_EXACT_HISTORICAL_RESPONSE_DATES = previous_strict
     validate_price_frame(frame, target_date, status)
-    price_repair.write_daily_price_files(frame, target_date)
+    preserved_target_slice_evidence: dict[str, Any] | None = None
+    if price_history_high_water_date:
+        preserved_target_slice_evidence = validate_preserved_price_target_slices(
+            frame,
+            target_date,
+            price_history_high_water_date,
+        )
+    else:
+        price_repair.write_daily_price_files(frame, target_date)
     selected_sources = set(frame["source"].astype(str))
     responses = [
         response
@@ -590,9 +899,22 @@ def replay_price_date(target_date: str) -> dict[str, Any]:
             "official price historical replay lacks exact-date provenance for adopted sources: "
             f"selected={sorted(selected_sources)} proven={sorted(proven_sources)}"
         )
-    price_status = write_price_status(target_date, frame, status, responses)
-    run_checked([sys.executable, "scripts/build_stock_price_history.py", "--incremental-latest"])
-    coverage = validate_stock_history_date_coverage(target_date)
+    price_status = write_price_status(
+        target_date,
+        frame,
+        status,
+        responses,
+        price_history_high_water_date=price_history_high_water_date,
+        preserved_target_slice_evidence=preserved_target_slice_evidence,
+    )
+    if price_history_high_water_date:
+        coverage = validate_stock_history_date_coverage(
+            target_date,
+            manifest_end_date=price_history_high_water_date,
+        )
+    else:
+        run_checked([sys.executable, "scripts/build_stock_price_history.py", "--incremental-latest"])
+        coverage = validate_stock_history_date_coverage(target_date)
     price_status["stock_history_coverage"] = coverage
     return price_status
 
@@ -880,6 +1202,16 @@ def manifest_source_row(
         "output_evidence": output_evidence,
         "fallback_used": bool(status.get("fallback_used", False)),
         "future_rows_used": future_rows_used,
+        "price_history_high_water_date": (
+            str(status.get("price_history_high_water_date", ""))
+            if source_id == "official_daily_price"
+            else ""
+        ),
+        "preserved_target_slice_evidence": (
+            status.get("preserved_target_slice_evidence", {})
+            if source_id == "official_daily_price"
+            else {}
+        ),
         "before_tail": before_tail,
         "after_tail": after_tail,
         "validation_status": "pass",
@@ -897,6 +1229,8 @@ def write_day_manifest(
     market_status: dict[str, Any],
     taifex_status: dict[str, Any],
     warrant_status: dict[str, Any],
+    price_history_high_water_date: str = "",
+    protected_price_history_fingerprints: dict[str, dict[str, Any]] | None = None,
 ) -> Path:
     sources = [
         manifest_source_row(
@@ -971,6 +1305,8 @@ def write_day_manifest(
         "publication_status": "reconstructed_not_as_published",
         "as_published": False,
         "pipeline_commit_sha": git_output("rev-parse", "HEAD"),
+        "price_history_high_water_date": price_history_high_water_date,
+        "protected_price_history_fingerprints": protected_price_history_fingerprints or {},
         "before_tail_matrix": before,
         "after_tail_matrix": after,
         "sources": sources,
@@ -1027,8 +1363,21 @@ def write_market_base_repair_manifest(
     return path
 
 
-def refresh_truthful_freshness(expected_end_date: str) -> dict[str, Any]:
-    run_checked([sys.executable, "build_data_freshness_latest.py"])
+def refresh_truthful_freshness(
+    expected_end_date: str,
+    price_history_high_water_date: str = "",
+) -> dict[str, Any]:
+    command = [sys.executable, "build_data_freshness_latest.py"]
+    if price_history_high_water_date:
+        command.extend(
+            [
+                "--historical-replay-main-price-date",
+                expected_end_date,
+                "--expected-price-history-high-water-date",
+                price_history_high_water_date,
+            ]
+        )
+    run_checked(command)
     frame = pd.read_csv(FRESHNESS_CSV, dtype=str).fillna("")
     if len(frame) != 1:
         raise RuntimeError("data_freshness_latest.csv must have exactly one row")
@@ -1054,6 +1403,9 @@ def write_latest_summary(
     after: dict[str, Any],
     manifests: list[Path],
     freshness: dict[str, Any],
+    price_history_high_water_date: str = "",
+    protected_price_history_fingerprints_before: dict[str, dict[str, Any]] | None = None,
+    protected_price_history_fingerprints_after: dict[str, dict[str, Any]] | None = None,
 ) -> None:
     payload = {
         "schema_version": "historical_structured_source_replay_v1",
@@ -1062,12 +1414,19 @@ def write_latest_summary(
         "status": "pass",
         "start_date": start_date,
         "end_date": end_date,
+        "price_history_high_water_date": price_history_high_water_date,
         "trading_dates": trading_dates,
         "base_repair_date": base_repair_date,
         "publication_status": "reconstructed_not_as_published",
         "as_published": False,
         "before_tail_matrix": before,
         "after_tail_matrix": after,
+        "protected_price_history_fingerprints_before": (
+            protected_price_history_fingerprints_before or {}
+        ),
+        "protected_price_history_fingerprints_after": (
+            protected_price_history_fingerprints_after or {}
+        ),
         "manifest_paths": [path.as_posix() for path in manifests],
         "freshness": freshness,
         "single_commit_required": True,
@@ -1083,6 +1442,7 @@ def write_latest_summary(
                 "- status: `pass`",
                 f"- trading_dates: `{', '.join(trading_dates)}`",
                 f"- base_repair_date: `{base_repair_date}`",
+                f"- price_history_high_water_date: `{price_history_high_water_date}`",
                 "- publication_status: `reconstructed_not_as_published`",
                 "- as_published: `False`",
                 f"- main_price_date: `{freshness.get('main_price_date', '')}`",
@@ -1099,6 +1459,7 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
     parser.add_argument("--start-date", required=True)
     parser.add_argument("--end-date", required=True)
+    parser.add_argument("--price-history-high-water-date", default="")
     parser.add_argument("--repair-market-index-base-date", required=True)
     parser.add_argument(
         "--replay-id",
@@ -1112,6 +1473,12 @@ def main() -> int:
     os.chdir(ROOT)
     start_date = parse_date(args.start_date, "--start-date")
     end_date = parse_date(args.end_date, "--end-date")
+    price_history_high_water_date = parse_optional_date(
+        args.price_history_high_water_date,
+        "--price-history-high-water-date",
+    )
+    if price_history_high_water_date and price_history_high_water_date <= end_date:
+        raise RuntimeError("--price-history-high-water-date must be later than --end-date")
     base_repair_date = parse_date(
         args.repair_market_index_base_date,
         "--repair-market-index-base-date",
@@ -1124,7 +1491,10 @@ def main() -> int:
         raise RuntimeError("historical structured-source replay requires a clean checkout")
 
     initial = source_tail_matrix()
-    validate_exact_baseline(initial, base_repair_date)
+    validate_exact_baseline(initial, base_repair_date, price_history_high_water_date)
+    protected_fingerprints_before = (
+        protected_price_history_fingerprints() if price_history_high_water_date else {}
+    )
     manifests: list[Path] = []
     if base_repair_date:
         before_base = source_tail_matrix()
@@ -1177,15 +1547,20 @@ def main() -> int:
         if previous_date and target_date <= previous_date:
             raise RuntimeError("historical replay dates must be strictly ascending")
         before = source_tail_matrix()
-        price_status = replay_price_date(target_date)
+        price_status = replay_price_date(target_date, price_history_high_water_date)
         market_status = run_market_date(target_date)
         taifex_status = run_taifex_date(target_date)
         warrant_status = run_warrant_date(target_date)
         after = source_tail_matrix()
-        if after.get("daily_price") != target_date:
-            raise RuntimeError(f"daily price tail did not advance to {target_date}")
-        if after.get("stock_price_history", {}).get("max_date") != target_date:
-            raise RuntimeError(f"stock history tail did not advance to {target_date}")
+        validate_replay_day_tail_matrix(after, target_date, price_history_high_water_date)
+        current_protected_fingerprints = (
+            protected_price_history_fingerprints() if price_history_high_water_date else {}
+        )
+        if price_history_high_water_date:
+            require_protected_price_history_fingerprints_unchanged(
+                protected_fingerprints_before,
+                current_protected_fingerprints,
+            )
         manifests.append(
             write_day_manifest(
                 replay_id,
@@ -1196,6 +1571,8 @@ def main() -> int:
                 market_status,
                 taifex_status,
                 warrant_status,
+                price_history_high_water_date,
+                current_protected_fingerprints,
             )
         )
         previous_date = target_date
@@ -1206,10 +1583,21 @@ def main() -> int:
             "scripts/validate_daily_price_history_continuity.py",
             "--main-price-date",
             end_date,
+            "--lookback-days",
+            str(replay_continuity_lookback_days(start_date, end_date)),
         ]
     )
-    freshness = refresh_truthful_freshness(end_date)
+    freshness = refresh_truthful_freshness(end_date, price_history_high_water_date)
     final = source_tail_matrix()
+    validate_replay_day_tail_matrix(final, end_date, price_history_high_water_date)
+    protected_fingerprints_after = (
+        protected_price_history_fingerprints() if price_history_high_water_date else {}
+    )
+    if price_history_high_water_date:
+        require_protected_price_history_fingerprints_unchanged(
+            protected_fingerprints_before,
+            protected_fingerprints_after,
+        )
     write_latest_summary(
         replay_id,
         start_date,
@@ -1220,6 +1608,9 @@ def main() -> int:
         final,
         manifests,
         freshness,
+        price_history_high_water_date,
+        protected_fingerprints_before,
+        protected_fingerprints_after,
     )
     print(
         "historical structured-source replay passed: "

@@ -16,6 +16,7 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from scripts import replay_historical_structured_sources as replay  # noqa: E402
+import build_data_freshness_latest as freshness_builder  # noqa: E402
 
 
 REQUIRED_SOURCES = {
@@ -63,6 +64,8 @@ def validate_manifest(
     target_date: str,
     replay_id: str,
     expected_pipeline_sha: str,
+    price_history_high_water_date: str = "",
+    expected_protected_fingerprints: dict[str, dict[str, Any]] | None = None,
 ) -> list[str]:
     errors: list[str] = []
     payload = load_json(path)
@@ -83,6 +86,22 @@ def validate_manifest(
         errors.append(f"{path}: publication_status must be reconstructed_not_as_published")
     if payload.get("as_published") is not False:
         errors.append(f"{path}: as_published must be false")
+    if payload.get("price_history_high_water_date", "") != price_history_high_water_date:
+        errors.append(f"{path}: price_history_high_water_date mismatch")
+    protected_fingerprints = payload.get("protected_price_history_fingerprints") or {}
+    if price_history_high_water_date:
+        if protected_fingerprints != (expected_protected_fingerprints or {}):
+            errors.append(f"{path}: protected price/history fingerprint mismatch")
+    elif protected_fingerprints:
+        errors.append(f"{path}: legacy replay must not claim protected price/history fingerprints")
+    try:
+        replay.validate_replay_day_tail_matrix(
+            payload.get("after_tail_matrix") or {},
+            target_date,
+            price_history_high_water_date,
+        )
+    except Exception as exc:
+        errors.append(f"{path}: after_tail_matrix contract failed: {exc}")
     sources = payload.get("sources") or []
     source_ids = {str(row.get("source_id", "")) for row in sources if isinstance(row, dict)}
     if source_ids != REQUIRED_SOURCES:
@@ -153,6 +172,94 @@ def validate_manifest(
             stored_evidence = row.get("output_evidence") or {}
             if stored_evidence.get("future_rows_excluded_from_slice") is not True:
                 errors.append(f"{path}: {source_id} must record future rows excluded from slice")
+            if source_id == "official_daily_price":
+                expected_tail = price_history_high_water_date or target_date
+                if row.get("after_tail") != expected_tail:
+                    errors.append(f"{path}: official_daily_price after_tail mismatch")
+                if price_history_high_water_date:
+                    if row.get("before_tail") != price_history_high_water_date:
+                        errors.append(f"{path}: preserved official_daily_price before_tail mismatch")
+                    if row.get("price_history_high_water_date") != price_history_high_water_date:
+                        errors.append(f"{path}: official_daily_price high-water evidence mismatch")
+                    preserved = row.get("preserved_target_slice_evidence") or {}
+                    if preserved.get("mode") != "preserve_existing_price_history":
+                        errors.append(f"{path}: preserved daily-price mode evidence missing")
+                    if preserved.get("price_history_high_water_date") != price_history_high_water_date:
+                        errors.append(f"{path}: preserved daily-price high-water date mismatch")
+                    fetched_sha = str(preserved.get("fetched_target_slice_sha256", ""))
+                    if not re.fullmatch(r"[0-9a-f]{64}", fetched_sha):
+                        errors.append(f"{path}: preserved daily-price fetched slice SHA invalid")
+                    dated_shas = preserved.get("preserved_daily_price_target_slice_sha256") or {}
+                    expected_dated_paths = {
+                        f"data/daily_price/daily_price_{target_date}.csv",
+                        f"data/daily_price/{target_date}.csv",
+                    }
+                    if set(dated_shas) != expected_dated_paths or set(dated_shas.values()) != {
+                        fetched_sha
+                    }:
+                        errors.append(f"{path}: preserved daily-price canonical parity evidence mismatch")
+                    try:
+                        committed_dated_shas = replay.validate_daily_price_canonical_legacy_pair(
+                            target_date
+                        )
+                    except Exception as exc:
+                        errors.append(
+                            f"{path}: preserved daily-price committed parity recompute failed: {exc}"
+                        )
+                    else:
+                        if (
+                            committed_dated_shas != dated_shas
+                            or set(committed_dated_shas.values()) != {fetched_sha}
+                        ):
+                            errors.append(
+                                f"{path}: preserved fetched SHA is not bound to committed target CSVs"
+                            )
+                    history_components = [
+                        component
+                        for component in expected_evidence.get("components", [])
+                        if component.get("component_id") == "stock_history_target_slices"
+                    ]
+                    if len(history_components) != 1 or preserved.get(
+                        "preserved_stock_history_target_slice_manifest_sha256"
+                    ) != history_components[0].get("slice_manifest_sha256"):
+                        errors.append(f"{path}: preserved stock-history target-slice parity mismatch")
+                    if len(history_components) == 1 and int(
+                        preserved.get("preserved_stock_history_target_slice_rows", -1)
+                    ) != int(history_components[0].get("row_count", -2)):
+                        errors.append(
+                            f"{path}: preserved stock-history target-slice row count mismatch"
+                        )
+                    try:
+                        expected_coverage = replay.validate_stock_history_date_coverage(
+                            target_date,
+                            manifest_end_date=price_history_high_water_date,
+                        )
+                    except Exception as exc:
+                        errors.append(
+                            f"{path}: preserved stock-history coverage recompute failed: {exc}"
+                        )
+                    else:
+                        if preserved.get("stock_history_coverage") != expected_coverage:
+                            errors.append(
+                                f"{path}: preserved stock-history coverage evidence mismatch"
+                            )
+                elif row.get("price_history_high_water_date") or row.get(
+                    "preserved_target_slice_evidence"
+                ):
+                    errors.append(f"{path}: legacy official_daily_price contains preserve evidence")
+            elif source_id == "market_index":
+                if row.get("after_tail") != {"TWSE": target_date, "TPEX": target_date}:
+                    errors.append(f"{path}: market_index after_tail mismatch")
+            elif source_id == "taifex_futures_options_vix":
+                if set((row.get("after_tail") or {}).values()) != {target_date}:
+                    errors.append(f"{path}: TAIFEX after_tail mismatch")
+                if stored_evidence.get("taifex_raw_history_parity") != expected_evidence.get(
+                    "taifex_raw_history_parity"
+                ):
+                    errors.append(f"{path}: TAIFEX dated raw/history parity evidence mismatch")
+            elif source_id == "official_warrant_daily":
+                if row.get("after_tail") != target_date:
+                    errors.append(f"{path}: warrant after_tail mismatch")
     return errors
 
 
@@ -197,7 +304,11 @@ def validate_exact_dated_artifact(path: Path, target_date: str, label: str) -> l
     return []
 
 
-def validate_freshness_frame(freshness: pd.DataFrame, end_date: str) -> list[str]:
+def validate_freshness_frame(
+    freshness: pd.DataFrame,
+    end_date: str,
+    price_history_high_water_date: str = "",
+) -> list[str]:
     errors: list[str] = []
     if len(freshness) != 1:
         return ["data freshness must have exactly one row"]
@@ -208,6 +319,44 @@ def validate_freshness_frame(freshness: pd.DataFrame, end_date: str) -> list[str
         errors.append("data freshness must keep stale publish artifacts not ready")
     if str(row.get("daily_pdf_ready", "")).lower() == "true":
         errors.append("data freshness must keep stale daily PDFs not ready")
+    if price_history_high_water_date:
+        expected_fields = {
+            "main_price_date_source": "historical_replay_override",
+            "historical_replay_main_price_date": end_date,
+            "expected_price_history_high_water_date": price_history_high_water_date,
+            "actual_stock_price_history_date": price_history_high_water_date,
+            "official_price_fetch_date": end_date,
+            "raw_official_price_fetch_date": end_date,
+        }
+        for field, expected in expected_fields.items():
+            if row.get(field) != expected:
+                errors.append(
+                    f"data freshness {field} mismatch: {row.get(field)} != {expected}"
+                )
+    return errors
+
+
+def validate_continuity_report(
+    report: dict[str, Any],
+    end_date: str,
+    expected_dates: list[str],
+    replay_trading_dates: list[str],
+) -> list[str]:
+    errors: list[str] = []
+    if report.get("status") != "pass":
+        errors.append("daily price history continuity status must be pass")
+    if report.get("main_price_date") != end_date:
+        errors.append("daily price history continuity main_price_date mismatch")
+    if report.get("expected_trading_dates") != expected_dates:
+        errors.append("daily price history continuity expected_trading_dates mismatch")
+    missing_replay_dates = [
+        date for date in replay_trading_dates if date not in set(expected_dates)
+    ]
+    if missing_replay_dates:
+        errors.append(
+            "daily price history continuity omits replay trading dates: "
+            f"{missing_replay_dates}"
+        )
     return errors
 
 
@@ -225,9 +374,15 @@ def validate(
     base_repair_date: str,
     replay_id: str,
     expected_pipeline_sha: str,
+    price_history_high_water_date: str = "",
 ) -> list[str]:
     errors: list[str] = []
     trading_dates = replay.expected_trading_dates(start_date, end_date)
+    protected_fingerprints = (
+        replay.protected_price_history_fingerprints()
+        if price_history_high_water_date
+        else {}
+    )
     latest = load_json(replay.LATEST_JSON)
     if latest.get("status") != "pass":
         errors.append("historical replay latest status must be pass")
@@ -241,6 +396,19 @@ def validate(
         errors.append("historical replay latest base_repair_date mismatch")
     if latest.get("replay_id") != replay_id:
         errors.append("historical replay latest replay_id mismatch")
+    if latest.get("price_history_high_water_date", "") != price_history_high_water_date:
+        errors.append("historical replay latest price_history_high_water_date mismatch")
+    latest_fingerprints_before = (
+        latest.get("protected_price_history_fingerprints_before") or {}
+    )
+    latest_fingerprints_after = latest.get("protected_price_history_fingerprints_after") or {}
+    if price_history_high_water_date:
+        if latest_fingerprints_before != protected_fingerprints:
+            errors.append("historical replay latest protected before fingerprint mismatch")
+        if latest_fingerprints_after != protected_fingerprints:
+            errors.append("historical replay latest protected after fingerprint mismatch")
+    elif latest_fingerprints_before or latest_fingerprints_after:
+        errors.append("legacy historical replay must not claim protected price/history fingerprints")
     errors.extend(
         validate_pipeline_commit_sha(
             latest,
@@ -267,6 +435,8 @@ def validate(
                 target_date,
                 replay_id,
                 expected_pipeline_sha,
+                price_history_high_water_date,
+                protected_fingerprints,
             )
         )
         errors.extend(
@@ -291,6 +461,17 @@ def validate(
             )
         )
         errors.extend(validate_final_stock_history_coverage(target_date))
+        if price_history_high_water_date:
+            try:
+                replay.validate_stock_history_date_coverage(
+                    target_date,
+                    manifest_end_date=price_history_high_water_date,
+                )
+            except Exception as exc:
+                errors.append(
+                    f"preserved stock-history target/high-water coverage failed for "
+                    f"{target_date}: {exc}"
+                )
         for market_path in (
             Path("data/market_index_history.csv"),
             Path("data/market_index_ohlc_history.csv"),
@@ -305,6 +486,12 @@ def validate(
         ):
             if target_date not in csv_dates(source_path, date_col):
                 errors.append(f"TAIFEX source history missing target date: {source_path} {target_date}")
+        try:
+            replay.validate_taifex_raw_history_parity(target_date)
+        except Exception as exc:
+            errors.append(
+                f"TAIFEX dated raw/history parity failed for {target_date}: {exc}"
+            )
 
     if base_repair_date:
         base_path = (
@@ -369,19 +556,22 @@ def validate(
                 errors.append(f"TPEX base repair missing exact date: {market_path} {base_repair_date}")
 
     tails = replay.source_tail_matrix()
-    if tails.get("daily_price") != end_date:
-        errors.append(f"daily price tail mismatch: {tails.get('daily_price')} != {end_date}")
-    if tails.get("stock_price_history", {}).get("max_date") != end_date:
-        errors.append("stock price history tail mismatch")
-    for family in ("market_index", "market_index_ohlc"):
-        if tails.get(family) != {"TWSE": end_date, "TPEX": end_date}:
-            errors.append(f"{family} tail mismatch: {tails.get(family)}")
-    if set(tails.get("taifex", {}).values()) != {end_date}:
-        errors.append(f"TAIFEX tail mismatch: {tails.get('taifex')}")
-    if tails.get("warrant_daily") != end_date:
-        errors.append(f"warrant daily tail mismatch: {tails.get('warrant_daily')}")
-    if tails.get("warrant_flow") != end_date:
-        errors.append(f"warrant flow tail mismatch: {tails.get('warrant_flow')}")
+    try:
+        replay.validate_replay_day_tail_matrix(
+            tails,
+            end_date,
+            price_history_high_water_date,
+        )
+    except Exception as exc:
+        errors.append(f"final mixed-tail contract failed: {exc}")
+    if price_history_high_water_date:
+        try:
+            replay.validate_stock_history_date_coverage(
+                price_history_high_water_date,
+                manifest_end_date=price_history_high_water_date,
+            )
+        except Exception as exc:
+            errors.append(f"price/history high-water paired coverage failed: {exc}")
 
     errors.extend(
         validate_context_latest(
@@ -400,12 +590,46 @@ def validate(
         )
     )
     freshness = pd.read_csv(replay.FRESHNESS_CSV, dtype=str).fillna("")
-    errors.extend(validate_freshness_frame(freshness, end_date))
+    errors.extend(
+        validate_freshness_frame(
+            freshness,
+            end_date,
+            price_history_high_water_date,
+        )
+    )
+    if price_history_high_water_date:
+        try:
+            freshness_builder.validate_historical_replay_freshness_prerequisites(
+                end_date,
+                price_history_high_water_date,
+            )
+        except Exception as exc:
+            errors.append(f"official replay latest/status contract failed: {exc}")
     continuity_report = load_json(Path("output/latest/daily_price_history_continuity_latest.json"))
-    if continuity_report.get("status") != "pass":
-        errors.append("daily price history continuity status must be pass")
-    if continuity_report.get("main_price_date") != end_date:
-        errors.append("daily price history continuity main_price_date mismatch")
+    try:
+        lookback_days = int(continuity_report.get("lookback_days", -1))
+        if lookback_days < 1:
+            raise ValueError("lookback_days must be positive")
+        non_trading_days = replay.continuity.load_non_trading_days(
+            replay.ROOT,
+            replay.continuity.NON_TRADING_DAYS,
+        )
+        expected_continuity_dates = replay.continuity.expected_trading_dates(
+            end_date,
+            lookback_days,
+            non_trading_days,
+        )
+    except Exception as exc:
+        errors.append(f"daily price history continuity date recompute failed: {exc}")
+        expected_continuity_dates = []
+    errors.extend(
+        validate_continuity_report(
+            continuity_report,
+            end_date,
+            expected_continuity_dates,
+            trading_dates,
+        )
+    )
     return errors
 
 
@@ -413,6 +637,7 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
     parser.add_argument("--start-date", required=True)
     parser.add_argument("--end-date", required=True)
+    parser.add_argument("--price-history-high-water-date", default="")
     parser.add_argument("--repair-market-index-base-date", required=True)
     parser.add_argument(
         "--replay-id",
@@ -429,6 +654,12 @@ def main() -> int:
     args = parse_args()
     start_date = replay.parse_date(args.start_date, "--start-date")
     end_date = replay.parse_date(args.end_date, "--end-date")
+    price_history_high_water_date = replay.parse_optional_date(
+        args.price_history_high_water_date,
+        "--price-history-high-water-date",
+    )
+    if price_history_high_water_date and price_history_high_water_date <= end_date:
+        raise RuntimeError("--price-history-high-water-date must be later than --end-date")
     base = replay.parse_date(
         args.repair_market_index_base_date,
         "--repair-market-index-base-date",
@@ -443,6 +674,7 @@ def main() -> int:
         base,
         replay_id,
         expected_pipeline_sha,
+        price_history_high_water_date,
     )
     if errors:
         for error in errors:
@@ -450,7 +682,8 @@ def main() -> int:
         return 1
     print(
         "historical structured-source replay validated: "
-        f"start={start_date} end={end_date} base_repair={base or 'none'}"
+        f"start={start_date} end={end_date} base_repair={base or 'none'} "
+        f"price_history_high_water={price_history_high_water_date or 'legacy'}"
     )
     return 0
 
