@@ -1,90 +1,90 @@
 # Upcoming Catalyst Calendar
 
-- generated_at: `2026-07-18 08:16:56 Asia/Taipei`
-- rows: `912`
+- generated_at: `2026-07-31 02:54:52 Asia/Taipei`
+- rows: `773`
 - note: Calendar proximity is a reminder, not a confirmed bullish catalyst.
 
 ## Company / Stock Calendar
 
 | event_date | event_end_date | stock_id | stock_name | event_type | event_status | days_to_event | proximity_bucket | catalyst_tags | notes |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260713 | 20260713 | 1907 | 永豐餘 | ex_dividend | confirmed | -5 | recent | dividend_calendar | cash_dividend=1.00000000; ex_right_dividend_flag=息 |
-| 20260713 | 20260713 | 2248 | 華勝-KY | ex_dividend | confirmed | -5 | recent | dividend_calendar | cash_dividend=3.10550000; ex_right_dividend_flag=息 |
-| 20260713 | 20260713 | 2316 | 楠梓電 | ex_dividend | confirmed | -5 | recent | dividend_calendar | cash_dividend=2.00000000; ex_right_dividend_flag=息 |
-| 20260713 | 20260713 | 2347 | 聯強 | ex_dividend | confirmed | -5 | recent | dividend_calendar | cash_dividend=4.20000000; ex_right_dividend_flag=息 |
-| 20260713 | 20260713 | 2359 | 所羅門 | ex_dividend | confirmed | -5 | recent | dividend_calendar | cash_dividend=1.00000000; ex_right_dividend_flag=息 |
-| 20260713 | 20260713 | 2645 | 長榮航太 | ex_dividend | confirmed | -5 | recent | dividend_calendar | cash_dividend=5.00000000; ex_right_dividend_flag=息 |
-| 20260713 | 20260713 | 4306 | 炎洲 | ex_dividend | confirmed | -5 | recent | dividend_calendar | cash_dividend=0.70000000; ex_right_dividend_flag=息 |
-| 20260713 | 20260713 | 4999 | 鑫禾 | ex_dividend | confirmed | -5 | recent | dividend_calendar | cash_dividend=0.25000000; ex_right_dividend_flag=息 |
-| 20260713 | 20260713 | 6790 | 永豐實 | ex_dividend | confirmed | -5 | recent | dividend_calendar | cash_dividend=2.65000000; ex_right_dividend_flag=息 |
-| 20260713 | 20260713 | 6890 | 來億-KY | ex_dividend | confirmed | -5 | recent | dividend_calendar | cash_dividend=8.96778900; ex_right_dividend_flag=息 |
-| 20260713 | 20260713 | 6951 | 青新-創 | ex_right | confirmed | -5 | recent | dividend_calendar | cash_dividend=0.00000000; ex_right_dividend_flag=權 |
-| 20260713 | 20260713 | 7610 | 聯友金屬-創 | ex_right_dividend | confirmed | -5 | recent | dividend_calendar | cash_dividend=0.50000000; ex_right_dividend_flag=權息 |
-| 20260713 | 20260713 | 8103 | 瀚荃 | ex_dividend | confirmed | -5 | recent | dividend_calendar | cash_dividend=2.80000000; ex_right_dividend_flag=息 |
-| 20260714 | 20260714 | 1402 | 遠東新 | ex_dividend | confirmed | -4 | recent | dividend_calendar | cash_dividend=1.25000000; ex_right_dividend_flag=息 |
-| 20260714 | 20260714 | 1603 | 華電 | ex_dividend | confirmed | -4 | recent | dividend_calendar | cash_dividend=2.00000000; ex_right_dividend_flag=息 |
-| 20260714 | 20260714 | 2027 | 大成鋼 | ex_dividend | confirmed | -4 | recent | dividend_calendar | cash_dividend=1.50000000; ex_right_dividend_flag=息 |
-| 20260714 | 20260714 | 2029 | 盛餘 | ex_dividend | confirmed | -4 | recent | dividend_calendar | cash_dividend=0.60000000; ex_right_dividend_flag=息 |
-| 20260714 | 20260714 | 2501 | 國建 | ex_dividend | confirmed | -4 | recent | dividend_calendar | cash_dividend=1.20000000; ex_right_dividend_flag=息 |
-| 20260714 | 20260714 | 2609 | 陽明 | ex_dividend | confirmed | -4 | recent | dividend_calendar | cash_dividend=2.00000000; ex_right_dividend_flag=息 |
-| 20260714 | 20260714 | 2633 | 台灣高鐵 | ex_dividend | confirmed | -4 | recent | dividend_calendar | cash_dividend=1.15000000; ex_right_dividend_flag=息 |
-| 20260714 | 20260714 | 2836 | 高雄銀甲特 | ex_dividend | confirmed | -4 | recent | dividend_calendar | cash_dividend=0.77500000; ex_right_dividend_flag=息 |
-| 20260714 | 20260714 | 2849 | 安泰銀 | ex_dividend | confirmed | -4 | recent | dividend_calendar | cash_dividend=0.51000000; ex_right_dividend_flag=息 |
-| 20260714 | 20260714 | 3013 | 晟銘電 | ex_dividend | confirmed | -4 | recent | dividend_calendar | cash_dividend=0.40000000; ex_right_dividend_flag=息 |
-| 20260714 | 20260714 | 3130 | 一零四 | ex_dividend | confirmed | -4 | recent | dividend_calendar | cash_dividend=14.70435000; ex_right_dividend_flag=息 |
-| 20260714 | 20260714 | 3150 | 鈺寶-創 | ex_dividend | confirmed | -4 | recent | dividend_calendar | cash_dividend=0.50000000; ex_right_dividend_flag=息 |
-| 20260714 | 20260714 | 3532 | 台勝科 | ex_dividend | confirmed | -4 | recent | dividend_calendar | cash_dividend=1.00000000; ex_right_dividend_flag=息 |
-| 20260714 | 20260714 | 3645 | 達邁 | ex_dividend | confirmed | -4 | recent | dividend_calendar | cash_dividend=1.20000000; ex_right_dividend_flag=息 |
-| 20260714 | 20260714 | 3717 | 聯嘉投控 | ex_dividend | confirmed | -4 | recent | dividend_calendar | cash_dividend=0.19705800; ex_right_dividend_flag=息 |
-| 20260714 | 20260714 | 4588 | 玖鼎電力 | ex_dividend | confirmed | -4 | recent | dividend_calendar | cash_dividend=3.00000000; ex_right_dividend_flag=息 |
-| 20260714 | 20260714 | 5471 | 松翰 | ex_dividend | confirmed | -4 | recent | dividend_calendar | cash_dividend=0.80000000; ex_right_dividend_flag=息 |
-| 20260714 | 20260714 | 6698 | 旭暉應材 | ex_dividend | confirmed | -4 | recent | dividend_calendar | cash_dividend=0.50000000; ex_right_dividend_flag=息 |
-| 20260714 | 20260714 | 6906 | 現觀科 | ex_dividend | confirmed | -4 | recent | dividend_calendar | cash_dividend=1.80000000; ex_right_dividend_flag=息 |
-| 20260715 | 20260715 | 00904 | 台新臺灣半導體30 | ex_dividend | confirmed | -3 | recent | dividend_calendar | cash_dividend=0.68000000; ex_right_dividend_flag=息 |
-| 20260715 | 20260715 | 00936 | 台新永續高息中小 | ex_dividend | confirmed | -3 | recent | dividend_calendar | cash_dividend=0.12000000; ex_right_dividend_flag=息 |
-| 20260715 | 20260715 | 00947 | 台新臺灣IC設計 | ex_dividend | confirmed | -3 | recent | dividend_calendar | cash_dividend=0.30000000; ex_right_dividend_flag=息 |
-| 20260715 | 20260715 | 00962 | 台新AI優息動能 | ex_dividend | confirmed | -3 | recent | dividend_calendar | cash_dividend=0.08000000; ex_right_dividend_flag=息 |
-| 20260715 | 20260715 | 009805 | 台新美國電力基建 | ex_dividend | confirmed | -3 | recent | dividend_calendar | cash_dividend=0.10000000; ex_right_dividend_flag=息 |
-| 20260715 | 20260715 | 1563 | 巧新 | ex_dividend | confirmed | -3 | recent | dividend_calendar | cash_dividend=2.00000000; ex_right_dividend_flag=息 |
-| 20260715 | 20260715 | 2228 | 劍麟 | ex_dividend | confirmed | -3 | recent | dividend_calendar | cash_dividend=4.50000000; ex_right_dividend_flag=息 |
-| 20260715 | 20260715 | 2356 | 英業達 | ex_dividend | confirmed | -3 | recent | dividend_calendar | cash_dividend=2.00000000; ex_right_dividend_flag=息 |
-| 20260715 | 20260715 | 2617 | 台航 | ex_dividend | confirmed | -3 | recent | dividend_calendar | cash_dividend=1.50000000; ex_right_dividend_flag=息 |
-| 20260715 | 20260715 | 2636 | 台驊控股 | ex_dividend | confirmed | -3 | recent | dividend_calendar | cash_dividend=5.00000000; ex_right_dividend_flag=息 |
-| 20260715 | 20260715 | 2838 | 聯邦銀 | ex_right_dividend | confirmed | -3 | recent | dividend_calendar | cash_dividend=0.46000000; ex_right_dividend_flag=權息 |
-| 20260715 | 20260715 | 3305 | 昇貿 | ex_dividend | confirmed | -3 | recent | dividend_calendar | cash_dividend=2.28330400; ex_right_dividend_flag=息 |
-| 20260715 | 20260715 | 3652 | 精聯 | ex_dividend | confirmed | -3 | recent | dividend_calendar | cash_dividend=1.19541700; ex_right_dividend_flag=息 |
-| 20260715 | 20260715 | 3665 | 貿聯-KY | ex_dividend | confirmed | -3 | recent | dividend_calendar | cash_dividend=15.18493800; ex_right_dividend_flag=息 |
-| 20260715 | 20260715 | 6215 | 和椿 | ex_dividend | confirmed | -3 | recent | dividend_calendar | cash_dividend=1.00000000; ex_right_dividend_flag=息 |
-| 20260715 | 20260715 | 6442 | 光聖 | ex_dividend | confirmed | -3 | recent | dividend_calendar | cash_dividend=11.25866600; ex_right_dividend_flag=息 |
-| 20260715 | 20260715 | 6614 | 資拓宏宇 | ex_dividend | confirmed | -3 | recent | dividend_calendar | cash_dividend=1.65000000; ex_right_dividend_flag=息 |
-| 20260715 | 20260715 | 6933 | AMAX-KY | ex_dividend | confirmed | -3 | recent | dividend_calendar | cash_dividend=2.49803300; ex_right_dividend_flag=息 |
-| 20260715 | 20260715 | 8021 | 尖點 | ex_dividend | confirmed | -3 | recent | dividend_calendar | cash_dividend=1.97218500; ex_right_dividend_flag=息 |
-| 20260715 | 20260715 | 8131 | 福懋科 | ex_dividend | confirmed | -3 | recent | dividend_calendar | cash_dividend=1.00000000; ex_right_dividend_flag=息 |
-| 20260715 | 20260715 | 8438 | 昶昕 | ex_dividend | confirmed | -3 | recent | dividend_calendar | cash_dividend=1.30000000; ex_right_dividend_flag=息 |
-| 20260715 | 20260715 | 9908 | 大台北 | ex_dividend | confirmed | -3 | recent | dividend_calendar | cash_dividend=1.20000000; ex_right_dividend_flag=息 |
-| 20260716 | 20260716 | 006208 | 富邦台50 | ex_dividend | confirmed | -2 | recent | dividend_calendar | cash_dividend=4.75000000; ex_right_dividend_flag=息 |
-| 20260716 | 20260716 | 00692 | 富邦公司治理 | ex_dividend | confirmed | -2 | recent | dividend_calendar | cash_dividend=1.92000000; ex_right_dividend_flag=息 |
-| 20260716 | 20260716 | 00702 | 國泰標普低波高息 | ex_dividend | confirmed | -2 | recent | dividend_calendar | cash_dividend=0.68000000; ex_right_dividend_flag=息 |
-| 20260716 | 20260716 | 00714 | 群益道瓊美國地產 | ex_dividend | confirmed | -2 | recent | dividend_calendar | cash_dividend=0.12300000; ex_right_dividend_flag=息 |
-| 20260716 | 20260716 | 00717 | 富邦美國特別股 | ex_dividend | confirmed | -2 | recent | dividend_calendar | cash_dividend=0.14100000; ex_right_dividend_flag=息 |
-| 20260716 | 20260716 | 00730 | 富邦臺灣優質高息 | ex_dividend | confirmed | -2 | recent | dividend_calendar | cash_dividend=0.11000000; ex_right_dividend_flag=息 |
-| 20260716 | 20260716 | 00735 | 國泰臺韓科技 | ex_dividend | confirmed | -2 | recent | dividend_calendar | cash_dividend=3.00000000; ex_right_dividend_flag=息 |
-| 20260716 | 20260716 | 00736 | 國泰新興市場 | ex_dividend | confirmed | -2 | recent | dividend_calendar | cash_dividend=0.25000000; ex_right_dividend_flag=息 |
-| 20260716 | 20260716 | 00882 | 中信中國高股息 | ex_dividend | confirmed | -2 | recent | dividend_calendar | cash_dividend=0.55000000; ex_right_dividend_flag=息 |
-| 20260716 | 20260716 | 00892 | 富邦台灣半導體 | ex_dividend | confirmed | -2 | recent | dividend_calendar | cash_dividend=2.46000000; ex_right_dividend_flag=息 |
-| 20260716 | 20260716 | 00900 | 富邦特選高股息30 | ex_dividend | confirmed | -2 | recent | dividend_calendar | cash_dividend=0.07500000; ex_right_dividend_flag=息 |
-| 20260716 | 20260716 | 00905 | FT臺灣Smart | ex_dividend | confirmed | -2 | recent | dividend_calendar | cash_dividend=1.05800000; ex_right_dividend_flag=息 |
-| 20260716 | 20260716 | 00908 | 富邦入息REITs+ | ex_dividend | confirmed | -2 | recent | dividend_calendar | cash_dividend=0.14200000; ex_right_dividend_flag=息 |
-| 20260716 | 20260716 | 00911 | 兆豐洲際半導體 | ex_dividend | confirmed | -2 | recent | dividend_calendar | cash_dividend=3.50000000; ex_right_dividend_flag=息 |
-| 20260716 | 20260716 | 00912 | 中信臺灣智慧50 | ex_dividend | confirmed | -2 | recent | dividend_calendar | cash_dividend=1.00000000; ex_right_dividend_flag=息 |
-| 20260716 | 20260716 | 00927 | 群益半導體收益 | ex_dividend | confirmed | -2 | recent | dividend_calendar | cash_dividend=1.88000000; ex_right_dividend_flag=息 |
-| 20260716 | 20260716 | 00934 | 中信成長高股息 | ex_dividend | confirmed | -2 | recent | dividend_calendar | cash_dividend=0.30000000; ex_right_dividend_flag=息 |
-| 20260716 | 20260716 | 00943 | 兆豐電子高息等權 | ex_dividend | confirmed | -2 | recent | dividend_calendar | cash_dividend=0.12000000; ex_right_dividend_flag=息 |
-| 20260716 | 20260716 | 00944 | 野村趨勢動能高息 | ex_dividend | confirmed | -2 | recent | dividend_calendar | cash_dividend=0.10900000; ex_right_dividend_flag=息 |
-| 20260716 | 20260716 | 00945 | 凱基美國非投等債 | ex_dividend | confirmed | -2 | recent | dividend_calendar | cash_dividend=0.09000000; ex_right_dividend_flag=息 |
-| 20260716 | 20260716 | 00952 | 凱基台灣AI50 | ex_dividend | confirmed | -2 | recent | dividend_calendar | cash_dividend=0.12000000; ex_right_dividend_flag=息 |
-| 20260716 | 20260716 | 00956 | 中信日經高股息 | ex_dividend | confirmed | -2 | recent | dividend_calendar | cash_dividend=0.30000000; ex_right_dividend_flag=息 |
-| 20260716 | 20260716 | 00960 | 野村全球航運龍頭 | ex_dividend | confirmed | -2 | recent | dividend_calendar | cash_dividend=0.22500000; ex_right_dividend_flag=息 |
-| 20260716 | 20260716 | 00961 | FT臺灣永續高息 | ex_dividend | confirmed | -2 | recent | dividend_calendar | cash_dividend=0.19000000; ex_right_dividend_flag=息 |
-| 20260716 | 20260716 | 00963 | 中信全球高股息 | ex_dividend | confirmed | -2 | recent | dividend_calendar | cash_dividend=0.09500000; ex_right_dividend_flag=息 |
-| 20260716 | 20260716 | 00964 | 中信亞太高股息 | ex_dividend | confirmed | -2 | recent | dividend_calendar | cash_dividend=0.12000000; ex_right_dividend_flag=息 |
+| 20260724 | 20260724 | 1617 | 榮星 | ex_dividend | confirmed | -7 | recent | dividend_calendar | cash_dividend=0.60000000; ex_right_dividend_flag=息 |
+| 20260724 | 20260724 | 1734 | 杏輝 | ex_dividend | confirmed | -7 | recent | dividend_calendar | cash_dividend=1.00000000; ex_right_dividend_flag=息 |
+| 20260724 | 20260724 | 2002 | 中鋼特 | ex_dividend | confirmed | -7 | recent | dividend_calendar | cash_dividend=1.40000000; ex_right_dividend_flag=息 |
+| 20260724 | 20260724 | 2495 | 普安 | ex_dividend | confirmed | -7 | recent | dividend_calendar | cash_dividend=0.80000000; ex_right_dividend_flag=息 |
+| 20260724 | 20260724 | 3694 | 海華 | ex_dividend | confirmed | -7 | recent | dividend_calendar | cash_dividend=2.30057100; ex_right_dividend_flag=息 |
+| 20260724 | 20260724 | 4764 | 雙鍵 | ex_right | confirmed | -7 | recent | dividend_calendar | cash_dividend=0.00000000; ex_right_dividend_flag=權 |
+| 20260724 | 20260724 | 4771 | 望隼 | ex_dividend | confirmed | -7 | recent | dividend_calendar | cash_dividend=6.97224500; ex_right_dividend_flag=息 |
+| 20260724 | 20260724 | 6796 | 晉弘 | ex_dividend | confirmed | -7 | recent | dividend_calendar | cash_dividend=0.25000000; ex_right_dividend_flag=息 |
+| 20260724 | 20260724 | 6863 | 永道-KY | ex_dividend | confirmed | -7 | recent | dividend_calendar | cash_dividend=1.50000000; ex_right_dividend_flag=息 |
+| 20260724 | 20260724 | 7740 | 熙特爾-創 | ex_right_dividend | confirmed | -7 | recent | dividend_calendar | cash_dividend=2.05000000; ex_right_dividend_flag=權息 |
+| 20260724 | 20260724 | 7788 | 松川精密 | ex_dividend | confirmed | -7 | recent | dividend_calendar | cash_dividend=2.00000000; ex_right_dividend_flag=息 |
+| 20260724 | 20260724 | 9925 | 新保 | ex_dividend | confirmed | -7 | recent | dividend_calendar | cash_dividend=2.00000000; ex_right_dividend_flag=息 |
+| 20260727 | 20260727 | 00930 | 永豐ESG低碳高息 | ex_dividend | confirmed | -4 | recent | dividend_calendar | cash_dividend=<p style= text-align:center;>待公告實際收益分配金額</p>; ex_right_dividend_fl... |
+| 20260727 | 20260727 | 1530 | 亞崴 | ex_right_dividend | confirmed | -4 | recent | dividend_calendar | cash_dividend=0.10000000; ex_right_dividend_flag=權息 |
+| 20260727 | 20260727 | 3002 | 歐格 | ex_dividend | confirmed | -4 | recent | dividend_calendar | cash_dividend=0.32986700; ex_right_dividend_flag=息 |
+| 20260727 | 20260727 | 5546 | 永固-KY | ex_dividend | confirmed | -4 | recent | dividend_calendar | cash_dividend=1.00000000; ex_right_dividend_flag=息 |
+| 20260727 | 20260727 | 6451 | 訊芯-KY | ex_dividend | confirmed | -4 | recent | dividend_calendar | cash_dividend=0.21766500; ex_right_dividend_flag=息 |
+| 20260727 | 20260727 | 6931 | 青松健康 | ex_dividend | confirmed | -4 | recent | dividend_calendar | cash_dividend=0.12000000; ex_right_dividend_flag=息 |
+| 20260728 | 20260728 | 2449 | 京元電子 | ex_right_dividend | confirmed | -3 | recent | dividend_calendar | cash_dividend=1.00000000; ex_right_dividend_flag=權息 |
+| 20260728 | 20260728 | 2497 | 怡利電 | ex_dividend | confirmed | -3 | recent | dividend_calendar | cash_dividend=2.00000000; ex_right_dividend_flag=息 |
+| 20260728 | 20260728 | 2528 | 皇普 | ex_right | confirmed | -3 | recent | dividend_calendar | cash_dividend=0.00000000; ex_right_dividend_flag=權 |
+| 20260728 | 20260728 | 5876 | 上海商銀 | ex_right_dividend | confirmed | -3 | recent | dividend_calendar | cash_dividend=1.80000000; ex_right_dividend_flag=權息 |
+| 20260728 | 20260728 | 6416 | 瑞祺電通 | ex_dividend | confirmed | -3 | recent | dividend_calendar | cash_dividend=2.80000000; ex_right_dividend_flag=息 |
+| 20260728 | 20260728 | 6757 | 台灣虎航 | ex_dividend | confirmed | -3 | recent | dividend_calendar | cash_dividend=2.42027000; ex_right_dividend_flag=息 |
+| 20260728 | 20260728 | 7786 | 東方風能 | ex_dividend | confirmed | -3 | recent | dividend_calendar | cash_dividend=5.60000000; ex_right_dividend_flag=息 |
+| 20260729 | 20260729 | 1540 | 喬福 | ex_dividend | confirmed | -2 | recent | dividend_calendar | cash_dividend=1.00000000; ex_right_dividend_flag=息 |
+| 20260729 | 20260729 | 2009 | 第一銅 | ex_dividend | confirmed | -2 | recent | dividend_calendar | cash_dividend=0.40000000; ex_right_dividend_flag=息 |
+| 20260729 | 20260729 | 2402 | 毅嘉 | ex_dividend | confirmed | -2 | recent | dividend_calendar | cash_dividend=2.00000000; ex_right_dividend_flag=息 |
+| 20260729 | 20260729 | 2482 | 連宇 | ex_dividend | confirmed | -2 | recent | dividend_calendar | cash_dividend=0.10000000; ex_right_dividend_flag=息 |
+| 20260729 | 20260729 | 2836 | 高雄銀 | ex_right_dividend | confirmed | -2 | recent | dividend_calendar | cash_dividend=0.40000000; ex_right_dividend_flag=權息 |
+| 20260729 | 20260729 | 4942 | 嘉彰 | ex_dividend | confirmed | -2 | recent | dividend_calendar | cash_dividend=2.00000000; ex_right_dividend_flag=息 |
+| 20260729 | 20260729 | 5871 | 中租-KY甲特 | ex_dividend | confirmed | -2 | recent | dividend_calendar | cash_dividend=4.17946300; ex_right_dividend_flag=息 |
+| 20260729 | 20260729 | 5871 | 中租-KY | ex_right_dividend | confirmed | -2 | recent | dividend_calendar | cash_dividend=5.80000000; ex_right_dividend_flag=權息 |
+| 20260729 | 20260729 | 6689 | 伊雲谷 | ex_dividend | confirmed | -2 | recent | dividend_calendar | cash_dividend=2.00000000; ex_right_dividend_flag=息 |
+| 20260729 | 20260729 | 6715 | 嘉基 | ex_right | confirmed | -2 | recent | dividend_calendar | cash_dividend=0.00000000; ex_right_dividend_flag=權 |
+| 20260730 | 20260730 | 1216 | 統一 | ex_dividend | confirmed | -1 | recent | dividend_calendar | cash_dividend=3.00000000; ex_right_dividend_flag=息 |
+| 20260730 | 20260730 | 1231 | 聯華食 | ex_right_dividend | confirmed | -1 | recent | dividend_calendar | cash_dividend=1.50000000; ex_right_dividend_flag=權息 |
+| 20260730 | 20260730 | 1514 | 亞力 | ex_right_dividend | confirmed | -1 | recent | dividend_calendar | cash_dividend=2.00000000; ex_right_dividend_flag=權息 |
+| 20260730 | 20260730 | 2233 | 宇隆 | ex_dividend | confirmed | -1 | recent | dividend_calendar | cash_dividend=3.99994600; ex_right_dividend_flag=息 |
+| 20260730 | 20260730 | 2345 | 智邦 | ex_dividend | confirmed | -1 | recent | dividend_calendar | cash_dividend=15.00000000; ex_right_dividend_flag=息 |
+| 20260730 | 20260730 | 2409 | 友達 | ex_dividend | confirmed | -1 | recent | dividend_calendar | cash_dividend=0.40000000; ex_right_dividend_flag=息 |
+| 20260730 | 20260730 | 2511 | 太子 | ex_dividend | confirmed | -1 | recent | dividend_calendar | cash_dividend=0.30000000; ex_right_dividend_flag=息 |
+| 20260730 | 20260730 | 2538 | 基泰 | ex_dividend | confirmed | -1 | recent | dividend_calendar | cash_dividend=0.50000000; ex_right_dividend_flag=息 |
+| 20260730 | 20260730 | 2748 | 雲品 | ex_dividend | confirmed | -1 | recent | dividend_calendar | cash_dividend=1.75000000; ex_right_dividend_flag=息 |
+| 20260730 | 20260730 | 2912 | 統一超 | ex_dividend | confirmed | -1 | recent | dividend_calendar | cash_dividend=9.00000000; ex_right_dividend_flag=息 |
+| 20260730 | 20260730 | 3583 | 辛耘 | ex_dividend | confirmed | -1 | recent | dividend_calendar | cash_dividend=5.74761900; ex_right_dividend_flag=息 |
+| 20260730 | 20260730 | 4106 | 雃博 | ex_dividend | confirmed | -1 | recent | dividend_calendar | cash_dividend=1.00000000; ex_right_dividend_flag=息 |
+| 20260730 | 20260730 | 4526 | 東台 | ex_dividend | confirmed | -1 | recent | dividend_calendar | cash_dividend=1.00000000; ex_right_dividend_flag=息 |
+| 20260730 | 20260730 | 4551 | 智伸科 | ex_dividend | confirmed | -1 | recent | dividend_calendar | cash_dividend=4.20000000; ex_right_dividend_flag=息 |
+| 20260730 | 20260730 | 4916 | 事欣科 | ex_dividend | confirmed | -1 | recent | dividend_calendar | cash_dividend=0.49850500; ex_right_dividend_flag=息 |
+| 20260730 | 20260730 | 5607 | 遠雄港 | ex_dividend | confirmed | -1 | recent | dividend_calendar | cash_dividend=1.80000000; ex_right_dividend_flag=息 |
+| 20260730 | 20260730 | 6239 | 力成 | ex_dividend | confirmed | -1 | recent | dividend_calendar | cash_dividend=4.50000000; ex_right_dividend_flag=息 |
+| 20260730 | 20260730 | 6962 | 奕力-KY | ex_dividend | confirmed | -1 | recent | dividend_calendar | cash_dividend=1.00000000; ex_right_dividend_flag=息 |
+| 20260730 | 20260730 | 7769 | 鴻勁 | ex_dividend | confirmed | -1 | recent | dividend_calendar | cash_dividend=64.99024600; ex_right_dividend_flag=息 |
+| 20260730 | 20260730 | 9942 | 茂順 | ex_dividend | confirmed | -1 | recent | dividend_calendar | cash_dividend=7.00000000; ex_right_dividend_flag=息 |
+| 20260730 | 20260730 | 9955 | 佳龍 | ex_right | confirmed | -1 | recent | dividend_calendar | cash_dividend=0.00000000; ex_right_dividend_flag=權 |
+| 20260731 | 20260731 | 00406 | 主動中信台灣收益 | ex_dividend | confirmed | 0 | within_3d | dividend_calendar | cash_dividend=0.12800000; ex_right_dividend_flag=息 |
+| 20260731 | 20260731 | 00939 | 統一台灣高息動能 | ex_dividend | confirmed | 0 | within_3d | dividend_calendar | cash_dividend=0.12500000; ex_right_dividend_flag=息 |
+| 20260731 | 20260731 | 00984 | 主動聯博全球非投 | ex_dividend | confirmed | 0 | within_3d | dividend_calendar | cash_dividend=0.08500000; ex_right_dividend_flag=息 |
+| 20260731 | 20260731 | 1532 | 勤美 | ex_dividend | confirmed | 0 | within_3d | dividend_calendar | cash_dividend=0.80000000; ex_right_dividend_flag=息 |
+| 20260731 | 20260731 | 2616 | 山隆 | ex_dividend | confirmed | 0 | within_3d | dividend_calendar | cash_dividend=0.30000000; ex_right_dividend_flag=息 |
+| 20260731 | 20260731 | 6024 | 群益期 | ex_right_dividend | confirmed | 0 | within_3d | dividend_calendar | cash_dividend=2.80000000; ex_right_dividend_flag=權息 |
+| 20260731 | 20260731 | 6472 | 保瑞 | ex_dividend | confirmed | 0 | within_3d | dividend_calendar | cash_dividend=10.00000000; ex_right_dividend_flag=息 |
+| 20260731 | 20260731 | 8467 | 波力-KY | ex_dividend | confirmed | 0 | within_3d | dividend_calendar | cash_dividend=3.00000000; ex_right_dividend_flag=息 |
+| 20260801 | 20260810 | 0050 | 元大台灣50 | monthly_revenue_expected_window | expected_window | 1 | within_3d | monthly_revenue_calendar | Most listed companies publish monthly revenue by the 10th of the following month... |
+| 20260801 | 20260810 | 0056 | 元大高股息 | monthly_revenue_expected_window | expected_window | 1 | within_3d | monthly_revenue_calendar | Most listed companies publish monthly revenue by the 10th of the following month... |
+| 20260801 | 20260810 | 1101 | 台泥 | monthly_revenue_expected_window | expected_window | 1 | within_3d | monthly_revenue_calendar | Most listed companies publish monthly revenue by the 10th of the following month... |
+| 20260801 | 20260810 | 1210 | 大成 | monthly_revenue_expected_window | expected_window | 1 | within_3d | monthly_revenue_calendar | Most listed companies publish monthly revenue by the 10th of the following month... |
+| 20260801 | 20260810 | 1216 | 統一 | monthly_revenue_expected_window | expected_window | 1 | within_3d | monthly_revenue_calendar | Most listed companies publish monthly revenue by the 10th of the following month... |
+| 20260801 | 20260810 | 1227 | 佳格 | monthly_revenue_expected_window | expected_window | 1 | within_3d | monthly_revenue_calendar | Most listed companies publish monthly revenue by the 10th of the following month... |
+| 20260801 | 20260810 | 1231 | 聯華食 | monthly_revenue_expected_window | expected_window | 1 | within_3d | monthly_revenue_calendar | Most listed companies publish monthly revenue by the 10th of the following month... |
+| 20260801 | 20260810 | 1232 | 大統益 | monthly_revenue_expected_window | expected_window | 1 | within_3d | monthly_revenue_calendar | Most listed companies publish monthly revenue by the 10th of the following month... |
+| 20260801 | 20260810 | 1301 | 台塑 | monthly_revenue_expected_window | expected_window | 1 | within_3d | monthly_revenue_calendar | Most listed companies publish monthly revenue by the 10th of the following month... |
+| 20260801 | 20260810 | 1303 | 南亞 | monthly_revenue_expected_window | expected_window | 1 | within_3d | monthly_revenue_calendar | Most listed companies publish monthly revenue by the 10th of the following month... |
+| 20260801 | 20260810 | 1304 | 台聚 | monthly_revenue_expected_window | expected_window | 1 | within_3d | monthly_revenue_calendar | Most listed companies publish monthly revenue by the 10th of the following month... |
+| 20260801 | 20260810 | 1305 | 華夏 | monthly_revenue_expected_window | expected_window | 1 | within_3d | monthly_revenue_calendar | Most listed companies publish monthly revenue by the 10th of the following month... |
+| 20260801 | 20260810 | 1308 | 亞聚 | monthly_revenue_expected_window | expected_window | 1 | within_3d | monthly_revenue_calendar | Most listed companies publish monthly revenue by the 10th of the following month... |
+| 20260801 | 20260810 | 1310 | 台苯 | monthly_revenue_expected_window | expected_window | 1 | within_3d | monthly_revenue_calendar | Most listed companies publish monthly revenue by the 10th of the following month... |
+| 20260801 | 20260810 | 1312 | 國喬 | monthly_revenue_expected_window | expected_window | 1 | within_3d | monthly_revenue_calendar | Most listed companies publish monthly revenue by the 10th of the following month... |
+| 20260801 | 20260810 | 1313 | 聯成 | monthly_revenue_expected_window | expected_window | 1 | within_3d | monthly_revenue_calendar | Most listed companies publish monthly revenue by the 10th of the following month... |
