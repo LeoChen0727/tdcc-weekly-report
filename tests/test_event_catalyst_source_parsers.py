@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import subprocess
 import sys
 from datetime import date
 from pathlib import Path
@@ -11,6 +12,16 @@ sys.path.insert(0, str(ROOT / "scripts"))
 
 import update_event_calendar_data as calendar  # noqa: E402
 import update_event_catalyst_data as catalyst  # noqa: E402
+
+
+def run_git(root: Path, *args: str) -> subprocess.CompletedProcess[str]:
+    return subprocess.run(
+        ["git", *args],
+        cwd=root,
+        check=True,
+        capture_output=True,
+        text=True,
+    )
 
 
 def test_bls_release_table_parser_extracts_macro_rows(monkeypatch) -> None:
@@ -275,6 +286,48 @@ def test_material_classifier_keeps_governance_events_out_of_product_certificatio
 
     assert catalyst.classify_material_event(governance_title, governance_summary) == ("shareholder_meeting", "low")
     assert catalyst.classify_material_event(product_title, "") == ("product_certification", "medium")
+
+
+def test_event_source_csv_normalizes_multiline_trailing_whitespace(
+    tmp_path: Path,
+) -> None:
+    output_path = tmp_path / "event_catalyst_log.csv"
+    catalyst.write_source_csv(
+        pd.DataFrame(columns=catalyst.EVENT_CATALYST_COLUMNS),
+        output_path,
+    )
+    run_git(tmp_path, "init", "--initial-branch=main")
+    run_git(tmp_path, "config", "user.email", "test@example.invalid")
+    run_git(tmp_path, "config", "user.name", "Test")
+    run_git(tmp_path, "add", output_path.name)
+    run_git(tmp_path, "commit", "-m", "baseline")
+
+    row = {col: "" for col in catalyst.EVENT_CATALYST_COLUMNS}
+    row.update(
+        {
+            "event_date": "20260731",
+            "stock_id": "2330",
+            "title": "Official title  \r\n  indented continuation\t  ",
+            "summary": "First line\t \n\nThird line   ",
+            "source": "TWSE material information OpenAPI",
+            "source_url": catalyst.TWSE_MATERIAL_INFO_URL,
+        }
+    )
+    catalyst.write_source_csv(
+        pd.DataFrame([row], columns=catalyst.EVENT_CATALYST_COLUMNS),
+        output_path,
+    )
+
+    written = pd.read_csv(output_path, dtype=str, keep_default_na=False).iloc[0]
+    assert written["title"] == "Official title\n  indented continuation"
+    assert written["summary"] == "First line\n\nThird line"
+    for line in output_path.read_text(encoding="utf-8").splitlines():
+        assert line == line.rstrip(" \t")
+
+    run_git(tmp_path, "add", output_path.name)
+    checked = run_git(tmp_path, "diff", "--cached", "--check")
+    assert checked.stdout == ""
+    assert checked.stderr == ""
 
 
 def test_event_merge_replaces_reclassified_official_rows() -> None:
