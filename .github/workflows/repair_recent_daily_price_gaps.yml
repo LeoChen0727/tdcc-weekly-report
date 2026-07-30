@@ -18,6 +18,11 @@ on:
         required: false
         default: "5"
         type: string
+      max_structured_replay_dates:
+        description: "Independent safety limit for bounded structured objective-source catch-up"
+        required: false
+        default: "10"
+        type: string
       check_code:
         description: "Optional stock code to check during underlying date repair"
         required: false
@@ -34,6 +39,12 @@ concurrency:
 jobs:
   repair-recent-daily-price-gaps:
     runs-on: ubuntu-latest
+    concurrency:
+      group: daily-full-pipeline-${{ github.ref }}
+      cancel-in-progress: false
+    outputs:
+      caller_repair_workflow_blob_sha: ${{ steps.caller_workflows.outputs.repair_blob_sha }}
+      caller_replay_workflow_blob_sha: ${{ steps.caller_workflows.outputs.replay_blob_sha }}
 
     steps:
       - name: Reject non-main production dispatch
@@ -60,6 +71,34 @@ jobs:
           ref: main
           fetch-depth: 0
 
+      - name: Verify and capture caller-pinned workflow definitions
+        id: caller_workflows
+        shell: bash
+        env:
+          CALLER_SHA: ${{ github.sha }}
+        run: |
+          checkout_sha="$(git rev-parse HEAD)"
+          remote_main_sha="$(git ls-remote origin refs/heads/main | awk '{print $1}')"
+          if [[ ! "$CALLER_SHA" =~ ^[0-9a-f]{40}$ ]] || \
+             [ -z "$remote_main_sha" ] || [ "$checkout_sha" != "$remote_main_sha" ]; then
+            echo "::error::Recent repair checkout must equal current remote main before any data work."
+            exit 1
+          fi
+          echo "REPAIR_BASE_SHA=$checkout_sha" >> "$GITHUB_ENV"
+          repair_blob_sha="$(git rev-parse "${CALLER_SHA}:.github/workflows/repair_recent_daily_price_gaps.yml")"
+          replay_blob_sha="$(git rev-parse "${CALLER_SHA}:.github/workflows/historical_structured_source_replay.yml")"
+          checkout_repair_blob_sha="$(git rev-parse HEAD:.github/workflows/repair_recent_daily_price_gaps.yml)"
+          checkout_replay_blob_sha="$(git rev-parse HEAD:.github/workflows/historical_structured_source_replay.yml)"
+          if [[ ! "$repair_blob_sha" =~ ^[0-9a-f]{40}$ ]] || \
+             [[ ! "$replay_blob_sha" =~ ^[0-9a-f]{40}$ ]] || \
+             [ "$checkout_repair_blob_sha" != "$repair_blob_sha" ] || \
+             [ "$checkout_replay_blob_sha" != "$replay_blob_sha" ]; then
+            echo "::error::Executing workflow definitions differ from the checked-out main definitions."
+            exit 1
+          fi
+          echo "repair_blob_sha=$repair_blob_sha" >> "$GITHUB_OUTPUT"
+          echo "replay_blob_sha=$replay_blob_sha" >> "$GITHUB_OUTPUT"
+
       - name: Set up Python
         uses: actions/setup-python@v6
         with:
@@ -77,6 +116,7 @@ jobs:
           python scripts/validate_repo_file_lifecycle_inventory.py
           python scripts/validate_repo_semantic_integrity.py
           python scripts/validate_daily_production_boundaries.py
+          python scripts/validate_recent_structured_source_repair_workflow.py
 
       - name: Repair recent daily price gaps
         env:
@@ -154,5 +194,127 @@ jobs:
           git add output/latest/daily_price_history_continuity_latest.* || true
           git add docs/latest/stock_price_history_manifest.* || true
           git status --short
-          git commit -m "Refresh recent price gaps and market session evidence" || echo "No changes to commit"
-          bash scripts/ci_push_with_retry.sh main 5
+          if git diff --cached --quiet; then
+            echo "No staged recent price or market-session changes to commit."
+          else
+            python scripts/validate_recent_daily_price_repair_staged_paths.py
+            remote_main_sha="$(git ls-remote origin refs/heads/main | awk '{print $1}')"
+            if [ -z "$remote_main_sha" ] || [ "$remote_main_sha" != "$REPAIR_BASE_SHA" ]; then
+              echo "::error::Remote main drifted during recent price repair; refusing to commit or rebase stale outputs."
+              exit 1
+            fi
+            git commit -m "Refresh recent price gaps and market session evidence"
+            export CI_PUSH_EXPECTED_REMOTE_SHA="$REPAIR_BASE_SHA"
+            bash scripts/ci_push_with_retry.sh main 5
+            local_sha="$(git rev-parse HEAD)"
+            remote_main_sha="$(git ls-remote origin refs/heads/main | awk '{print $1}')"
+            if [ -z "$remote_main_sha" ] || [ "$local_sha" != "$remote_main_sha" ]; then
+              echo "::error::Remote main does not equal the persisted recent price repair commit."
+              exit 1
+            fi
+          fi
+
+  plan-structured-objective-source-catch-up:
+    needs: repair-recent-daily-price-gaps
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    outputs:
+      should_replay: ${{ steps.structured_replay_plan.outputs.should_replay }}
+      start_date: ${{ steps.structured_replay_plan.outputs.start_date }}
+      end_date: ${{ steps.structured_replay_plan.outputs.end_date }}
+      price_history_high_water_date: ${{ steps.structured_replay_plan.outputs.price_history_high_water_date }}
+      expected_main_sha: ${{ steps.structured_replay_plan.outputs.expected_main_sha }}
+
+    steps:
+      - name: Checkout current main for structured catch-up planning
+        uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      - name: Install planner dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pandas requests lxml html5lib tabulate
+
+      - name: Plan bounded structured objective-source catch-up
+        id: structured_replay_plan
+        env:
+          MAX_REPLAY_DATES: ${{ inputs.max_structured_replay_dates }}
+          CALLER_REPAIR_WORKFLOW_BLOB_SHA: ${{ needs.repair-recent-daily-price-gaps.outputs.caller_repair_workflow_blob_sha }}
+          CALLER_REPLAY_WORKFLOW_BLOB_SHA: ${{ needs.repair-recent-daily-price-gaps.outputs.caller_replay_workflow_blob_sha }}
+        shell: bash
+        run: |
+          git fetch origin main
+          local_sha="$(git rev-parse HEAD)"
+          remote_main_sha="$(git rev-parse origin/main)"
+          if [ -z "$local_sha" ] || [ "$local_sha" != "$remote_main_sha" ]; then
+            echo "::error::Recent price repair checkout must equal origin/main before planning structured replay."
+            exit 1
+          fi
+          remote_repair_workflow_blob_sha="$(git rev-parse origin/main:.github/workflows/repair_recent_daily_price_gaps.yml)"
+          remote_replay_workflow_blob_sha="$(git rev-parse origin/main:.github/workflows/historical_structured_source_replay.yml)"
+          if [[ ! "$CALLER_REPAIR_WORKFLOW_BLOB_SHA" =~ ^[0-9a-f]{40}$ ]] || \
+             [[ ! "$CALLER_REPLAY_WORKFLOW_BLOB_SHA" =~ ^[0-9a-f]{40}$ ]] || \
+             [ "$remote_repair_workflow_blob_sha" != "$CALLER_REPAIR_WORKFLOW_BLOB_SHA" ] || \
+             [ "$remote_replay_workflow_blob_sha" != "$CALLER_REPLAY_WORKFLOW_BLOB_SHA" ]; then
+            echo "::error::Caller workflow definitions differ from current main; refusing structured replay."
+            exit 1
+          fi
+
+          plan_path="$RUNNER_TEMP/historical_structured_source_replay_plan.json"
+          python scripts/plan_historical_structured_source_replay.py \
+            --max-replay-dates "$MAX_REPLAY_DATES" \
+            --output "$plan_path"
+
+          remote_main_sha_after_plan="$(git ls-remote origin refs/heads/main | awk '{print $1}')"
+          if [ -z "$remote_main_sha_after_plan" ] || [ "$remote_main_sha_after_plan" != "$local_sha" ]; then
+            echo "::error::Remote main drifted while planning structured replay; refusing stale success."
+            exit 1
+          fi
+
+          python - "$plan_path" "$remote_main_sha" <<'PY' >> "$GITHUB_OUTPUT"
+          import json
+          from pathlib import Path
+          import sys
+
+          payload = json.loads(Path(sys.argv[1]).read_text(encoding="utf-8"))
+          print(f"should_replay={str(bool(payload['should_replay'])).lower()}")
+          print(f"start_date={payload.get('start_date', '')}")
+          print(f"end_date={payload.get('end_date', '')}")
+          print(
+              "price_history_high_water_date="
+              f"{payload.get('price_history_high_water_date', '')}"
+          )
+          print(f"expected_main_sha={sys.argv[2]}")
+          PY
+
+      - name: Upload structured objective-source catch-up plan
+        if: always()
+        continue-on-error: true
+        uses: actions/upload-artifact@v4
+        with:
+          name: historical-structured-source-replay-plan
+          path: ${{ runner.temp }}/historical_structured_source_replay_plan.json
+          if-no-files-found: ignore
+          retention-days: 30
+
+  replay-structured-objective-sources:
+    needs: plan-structured-objective-source-catch-up
+    if: needs.plan-structured-objective-source-catch-up.outputs.should_replay == 'true'
+    uses: ./.github/workflows/historical_structured_source_replay.yml
+    with:
+      start_date: ${{ needs.plan-structured-objective-source-catch-up.outputs.start_date }}
+      end_date: ${{ needs.plan-structured-objective-source-catch-up.outputs.end_date }}
+      price_history_high_water_date: ${{ needs.plan-structured-objective-source-catch-up.outputs.price_history_high_water_date }}
+      repair_market_index_base_date: ""
+      expected_main_sha: ${{ needs.plan-structured-objective-source-catch-up.outputs.expected_main_sha }}
+    secrets:
+      PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY: ${{ secrets.PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY }}

@@ -101,6 +101,93 @@ def test_all_inventory_artifact_writers_use_the_deploy_key() -> None:
     assert errors == []
 
 
+def test_reusable_writer_may_declare_the_required_deploy_key() -> None:
+    workflow_path = ".github/workflows/historical_structured_source_replay.yml"
+    text = (ROOT / workflow_path).read_text(encoding="utf-8")
+
+    assert inventory.workflow_call_declared_secrets(text) == {
+        inventory.PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY
+    }
+
+    errors: list[str] = []
+    rows = inventory.load_inventory(errors)
+    inventory.validate_production_artifact_writer_auth(
+        rows,
+        {workflow_path},
+        errors,
+    )
+
+    assert errors == []
+
+
+def test_recent_repair_passes_only_the_named_secret_to_registered_reusable_writer() -> None:
+    workflow_path = ".github/workflows/repair_recent_daily_" + "price_gaps.yml"
+    text = (ROOT / workflow_path).read_text(encoding="utf-8")
+    jobs = inventory.workflow_job_blocks(text)
+    block = jobs["replay-structured-objective-sources"]
+    errors: list[str] = []
+
+    assert inventory.local_reusable_workflow_path(block) == (
+        ".github/workflows/historical_structured_source_replay.yml"
+    )
+    assert inventory.workflow_job_mapping(block, "secrets") == {
+        inventory.PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY: (
+            inventory.PRODUCTION_ARTIFACT_WRITE_SECRET_EXPRESSION
+        )
+    }
+    inventory.validate_reusable_writer_delegate(
+        workflow_path,
+        "replay-structured-objective-sources",
+        block,
+        errors,
+    )
+
+    assert errors == []
+
+
+def test_reusable_writer_rejects_inherit_or_extra_secrets() -> None:
+    workflow_path = ".github/workflows/repair_recent_daily_" + "price_gaps.yml"
+    text = (ROOT / workflow_path).read_text(encoding="utf-8")
+    block = inventory.workflow_job_blocks(text)["replay-structured-objective-sources"]
+
+    for invalid_block in (
+        block.replace(
+            "    secrets:\n"
+            "      PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY: "
+            "${{ secrets.PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY }}\n",
+            "    secrets: inherit\n",
+        ),
+        block.replace(
+            "    secrets:\n",
+            "    secrets:\n      OTHER_SECRET: ${{ secrets.OTHER_SECRET }}\n",
+        ),
+    ):
+        errors: list[str] = []
+        inventory.validate_reusable_writer_delegate(
+            workflow_path,
+            "replay-structured-objective-sources",
+            invalid_block,
+            errors,
+        )
+        assert errors == [
+            f"{workflow_path} reusable writer job replay-structured-objective-sources "
+            "must pass exactly secrets.PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY and no "
+            "other secrets"
+        ]
+
+
+def test_unregistered_reusable_job_is_not_a_writer_delegate() -> None:
+    block = (
+        "  unregistered:\n"
+        "    uses: ./.github/workflows/not_registered.yml\n"
+        "    secrets:\n"
+        "      PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY: "
+        "${{ secrets.PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY }}\n"
+    )
+
+    assert inventory.is_registered_reusable_writer_job(block, {}) is False
+
+
 def test_daily_pipeline_only_gives_the_key_to_its_two_writer_jobs() -> None:
     text = (ROOT / ".github" / "workflows" / "daily_full_pipeline.yml").read_text(
         encoding="utf-8"
