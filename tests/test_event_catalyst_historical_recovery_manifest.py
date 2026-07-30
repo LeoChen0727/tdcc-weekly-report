@@ -129,6 +129,8 @@ def test_historical_recovery_is_blocked_without_reconstructing_content(
 
     assert index["completion_state"] == BLOCKED_STATUS
     assert tuple(index["target_dates"]) == TARGET_DATES
+    for line in latest_md.read_text(encoding="utf-8").splitlines():
+        assert line == line.rstrip(" \t")
     assert validate_index(
         tmp_path,
         index_path=latest_json,

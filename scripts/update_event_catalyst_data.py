@@ -169,6 +169,24 @@ def ensure_columns(df: pd.DataFrame, columns: list[str]) -> pd.DataFrame:
     return out[columns]
 
 
+def normalize_multiline_text(value: Any) -> str:
+    text = safe_str(value)
+    if not text:
+        return ""
+    return "\n".join(line.rstrip(" \t") for line in text.splitlines())
+
+
+def normalize_source_csv_fields(df: pd.DataFrame) -> pd.DataFrame:
+    out = df.copy()
+    for col in out.columns:
+        out[col] = out[col].map(normalize_multiline_text)
+    return out
+
+
+def write_source_csv(df: pd.DataFrame, path: Path) -> None:
+    write_csv(normalize_source_csv_fields(df), path)
+
+
 def normalize_code(value: Any) -> str:
     text = safe_str(value)
     text = re.sub(r"\.0$", "", text)
@@ -239,7 +257,7 @@ def row_value(row: pd.Series | dict[str, Any], *names: str) -> str:
     stripped = {safe_str(k).strip(): v for k, v in items.items()}
     for name in names:
         if name in stripped:
-            value = safe_str(stripped[name])
+            value = normalize_multiline_text(stripped[name])
             if value:
                 return value
     return ""
@@ -298,7 +316,7 @@ def ensure_csv(path: Path, columns: list[str]) -> pd.DataFrame:
     if df.empty:
         df = pd.DataFrame(columns=columns)
     df = ensure_columns(df, columns)
-    write_csv(df, path)
+    write_source_csv(df, path)
     return df
 
 
@@ -607,13 +625,13 @@ def write_status(status: dict[str, Any]) -> None:
 def main() -> int:
     ensure_csv(THEME_EVENT_CALENDAR, THEME_EVENT_COLUMNS)
     existing_mapping = ensure_csv(COMPANY_THEME_MAPPING, COMPANY_THEME_COLUMNS)
-    write_csv(build_company_theme_mapping(existing_mapping), COMPANY_THEME_MAPPING)
+    write_source_csv(build_company_theme_mapping(existing_mapping), COMPANY_THEME_MAPPING)
     universe = stock_universe()
     quarterly_existing = ensure_csv(QUARTERLY_CATALYST, QUARTERLY_CATALYST_COLUMNS)
     event_existing = ensure_csv(EVENT_CATALYST_LOG, EVENT_CATALYST_COLUMNS)
     quarterly_generated, revenue_sources = build_monthly_revenue_fundamental_rows(universe)
     event_generated, material_sources = build_material_event_rows(universe)
-    write_csv(
+    write_source_csv(
         merge_rows(
             quarterly_existing,
             quarterly_generated,
@@ -622,7 +640,7 @@ def main() -> int:
         ),
         QUARTERLY_CATALYST,
     )
-    write_csv(
+    write_source_csv(
         merge_rows(
             event_existing,
             event_generated,

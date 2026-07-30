@@ -274,7 +274,7 @@ def build_manifests(
         f"- completion_state: `{BLOCKED_STATUS}`",
         f"- workflow_run_id: `{workflow_run_id}`",
         "",
-        "No target date has a saved point-in-time/as-published event/catalyst artifact. ",
+        "No target date has a saved point-in-time/as-published event/catalyst artifact.",
         "Current values were not used as historical backfill.",
         "",
         "| target_date | status | failed_runs | failed_gate | manifest |",
