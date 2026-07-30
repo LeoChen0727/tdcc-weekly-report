@@ -157,6 +157,19 @@ def test_weekly_workflow_repairs_history_before_derived_build() -> None:
     )
 
 
+def test_weekly_workflow_rebuilds_full_signal_history_before_dataset_id_consumer() -> None:
+    workflow = Path(".github/workflows/tdcc_weekly.yml").read_text(encoding="utf-8")
+    build_start = workflow.index("Build TDCC normalized signal structures")
+    consumer_start = workflow.index("Build TDCC overheated short-term edge")
+    build_step = workflow[build_start:consumer_start]
+
+    assert (
+        "python scripts/build_tdcc_signal_structures.py --full-history --price-metrics-limit 500"
+        in build_step
+    )
+    assert "--max-dates" not in build_step
+
+
 def test_apps_script_retries_only_named_tdcc_data_steps() -> None:
     source = Path("docs/apps_script_workflow_trigger.gs").read_text(encoding="utf-8")
 
