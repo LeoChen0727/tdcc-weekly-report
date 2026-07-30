@@ -1,6 +1,32 @@
 name: Historical Structured Source Replay
 
 on:
+  workflow_call:
+    inputs:
+      start_date:
+        description: "First missing trading date in YYYYMMDD"
+        required: true
+        type: string
+      end_date:
+        description: "Last missing trading date in YYYYMMDD"
+        required: true
+        type: string
+      price_history_high_water_date:
+        description: "Existing raw daily-price and stock-history high-water date to preserve"
+        required: true
+        type: string
+      repair_market_index_base_date:
+        description: "Optional TPEX-only market-index base repair date in YYYYMMDD"
+        required: false
+        default: ""
+        type: string
+      expected_main_sha:
+        description: "Exact 40-character main SHA authorized for this replay"
+        required: true
+        type: string
+    secrets:
+      PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY:
+        required: true
   workflow_dispatch:
     inputs:
       start_date:
@@ -181,11 +207,21 @@ jobs:
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
+          head_before_commit="$(git rev-parse HEAD)"
+          if [ "$head_before_commit" != "$REPLAY_BASE_SHA" ]; then
+            echo "::error::Replay HEAD changed before the only output commit."
+            exit 1
+          fi
           commit_count_before="$(git rev-list --count HEAD)"
           git commit -m "Replay historical structured sources $START_DATE-$END_DATE"
           commit_count_after="$(git rev-list --count HEAD)"
           if [ "$((commit_count_after - commit_count_before))" -ne 1 ]; then
             echo "::error::Historical replay must create exactly one output commit."
+            exit 1
+          fi
+          replay_commit_count="$(git rev-list --count "$REPLAY_BASE_SHA..HEAD")"
+          if [ "$replay_commit_count" -ne 1 ]; then
+            echo "::error::Historical replay output must be exactly one commit above REPLAY_BASE_SHA."
             exit 1
           fi
           output_commit_sha="$(git rev-parse HEAD)"
