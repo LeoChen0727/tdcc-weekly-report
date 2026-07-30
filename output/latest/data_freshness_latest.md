@@ -1,13 +1,13 @@
 # Data Freshness Status
 
-- generated_at: `2026-07-30 11:19:08` Asia/Taipei
+- generated_at: `2026-07-30 12:17:35` Asia/Taipei
 - market_session_status: `unknown`
 - market_session_date: `20260729`
 - expected_main_price_date: `20260729`
 - market_session_reason_code: `awaiting_official_price_confirmation`
-- main_price_date: `20260724`
+- main_price_date: `20260729`
 - main_price_date_source: `historical_replay_override`
-- historical_replay_main_price_date: `20260724`
+- historical_replay_main_price_date: `20260729`
 - expected_price_history_high_water_date: `20260729`
 - actual_stock_price_history_date: `20260729`
 - report_ready: `False`
@@ -29,10 +29,10 @@
 | source | effective_date | raw_date | note |
 |---|---:|---:|---|
 | all_candidates_latest.csv | 20260717 | 20260717 | stale_date=20260717 |
-| official_price_fetch_latest | 20260724 | 20260724 | ready |
+| official_price_fetch_latest | 20260729 | 20260729 | ready |
 | stock_monitor_latest.md | 20260717 | 20260717 | stale_date=20260717 |
-| warrant_flow_latest.csv | 20260724 | 20260724 | ready |
+| warrant_flow_latest.csv | 20260729 | 20260729 | ready |
 
 ## Rule
 
-Historical structured-source replay explicitly pins the canonical main_price_date while preserving the newer validated raw price/history high-water date. The two dates remain visible and publish/PDF readiness must stay false until current publication artifacts are rebuilt.
+Historical structured-source replay explicitly pins the canonical main_price_date while preserving the same or newer validated raw price/history high-water date. The two dates remain visible and publish/PDF readiness must stay false until current publication artifacts are rebuilt.

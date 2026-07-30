@@ -1,32 +1,32 @@
 {
-  "generated_at": "2026-07-30 11:17:16 Asia/Taipei",
+  "generated_at": "2026-07-30 12:15:44 Asia/Taipei",
   "mode": "reconstructed_source_tail_gap",
   "requested_window": {
-    "start_date": "20260724",
-    "end_date": "20260724"
+    "start_date": "20260729",
+    "end_date": "20260729"
   },
   "sources": {
     "institutional_fo": {
       "status": "ok",
       "rows": 3,
-      "latest_date": "20260724",
+      "latest_date": "20260729",
       "message": "",
       "requested_dates": [
-        "20260724"
+        "20260729"
       ],
       "observed_dates": [
-        "20260724"
+        "20260729"
       ],
       "provenance": {
         "endpoint": "https://www.taifex.com.tw/cht/3/futAndOptDateDown",
         "params": {
-          "queryStartDate": "2026/07/24",
-          "queryEndDate": "2026/07/24"
+          "queryStartDate": "2026/07/29",
+          "queryEndDate": "2026/07/29"
         },
-        "fetched_at": "2026-07-30 11:17:16 Asia/Taipei",
+        "fetched_at": "2026-07-30 12:15:44 Asia/Taipei",
         "encoding": "cp950",
-        "raw_sha256": "a59ecc8e20e50221ecc2a90ad23d687478dfcb7849531b75ceaf896c0b2bd476",
-        "normalized_sha256": "8bca9b923abd552960e58c6a5c804c1a3e37efa369b1b286fa4ac6b0d22351a9",
+        "raw_sha256": "3fa2d369454116297679fc117f1052deb773acd72b5f6b28da5c76808fd4a7df",
+        "normalized_sha256": "55e7f6eeddcb26b1ca8f3627ac21f0599f3c9341b701ae0f935c6640e32229b4",
         "rows": 3,
         "attempt_count": 1,
         "attempts": [
@@ -35,21 +35,21 @@
             "source": "institutional_fo",
             "endpoint": "https://www.taifex.com.tw/cht/3/futAndOptDateDown",
             "params": {
-              "queryStartDate": "2026/07/24",
-              "queryEndDate": "2026/07/24"
+              "queryStartDate": "2026/07/29",
+              "queryEndDate": "2026/07/29"
             },
-            "fetched_at": "2026-07-30 11:17:16 Asia/Taipei",
+            "fetched_at": "2026-07-30 12:15:44 Asia/Taipei",
             "status": "ok",
             "http_status": 200,
-            "raw_bytes": 1204,
-            "raw_sha256": "a59ecc8e20e50221ecc2a90ad23d687478dfcb7849531b75ceaf896c0b2bd476",
-            "normalized_sha256": "8bca9b923abd552960e58c6a5c804c1a3e37efa369b1b286fa4ac6b0d22351a9",
+            "raw_bytes": 1218,
+            "raw_sha256": "3fa2d369454116297679fc117f1052deb773acd72b5f6b28da5c76808fd4a7df",
+            "normalized_sha256": "55e7f6eeddcb26b1ca8f3627ac21f0599f3c9341b701ae0f935c6640e32229b4",
             "encoding": "cp950",
             "requested_dates": [
-              "20260724"
+              "20260729"
             ],
             "observed_dates": [
-              "20260724"
+              "20260729"
             ],
             "rows": 3,
             "parse_metadata": {
@@ -74,24 +74,24 @@
     "futures_contracts": {
       "status": "ok",
       "rows": 69,
-      "latest_date": "20260724",
+      "latest_date": "20260729",
       "message": "",
       "requested_dates": [
-        "20260724"
+        "20260729"
       ],
       "observed_dates": [
-        "20260724"
+        "20260729"
       ],
       "provenance": {
         "endpoint": "https://www.taifex.com.tw/cht/3/futContractsDateDown",
         "params": {
-          "queryStartDate": "2026/07/24",
-          "queryEndDate": "2026/07/24"
+          "queryStartDate": "2026/07/29",
+          "queryEndDate": "2026/07/29"
         },
-        "fetched_at": "2026-07-30 11:17:16 Asia/Taipei",
+        "fetched_at": "2026-07-30 12:15:48 Asia/Taipei",
         "encoding": "cp950",
-        "raw_sha256": "463e1687f7bb2fbaa6ede42355f2b84b38e91fc30dadfc20543797e23fda2f08",
-        "normalized_sha256": "518e6c97e852a216cc0b5fffc334a2b511086f0dbefdd047921178937f597ce8",
+        "raw_sha256": "69abe66f6286b1df1df5821f182c688068b39d7c996ef175e462b8d4bb6e8598",
+        "normalized_sha256": "1075693055f8cf53a3a7fa23b936e7845dfb7cc80261c76267a32fd59ecc7afd",
         "rows": 69,
         "attempt_count": 1,
         "attempts": [
@@ -100,21 +100,21 @@
             "source": "futures_contracts",
             "endpoint": "https://www.taifex.com.tw/cht/3/futContractsDateDown",
             "params": {
-              "queryStartDate": "2026/07/24",
-              "queryEndDate": "2026/07/24"
+              "queryStartDate": "2026/07/29",
+              "queryEndDate": "2026/07/29"
             },
-            "fetched_at": "2026-07-30 11:17:16 Asia/Taipei",
+            "fetched_at": "2026-07-30 12:15:48 Asia/Taipei",
             "status": "ok",
             "http_status": 200,
-            "raw_bytes": 5908,
-            "raw_sha256": "463e1687f7bb2fbaa6ede42355f2b84b38e91fc30dadfc20543797e23fda2f08",
-            "normalized_sha256": "518e6c97e852a216cc0b5fffc334a2b511086f0dbefdd047921178937f597ce8",
+            "raw_bytes": 5930,
+            "raw_sha256": "69abe66f6286b1df1df5821f182c688068b39d7c996ef175e462b8d4bb6e8598",
+            "normalized_sha256": "1075693055f8cf53a3a7fa23b936e7845dfb7cc80261c76267a32fd59ecc7afd",
             "encoding": "cp950",
             "requested_dates": [
-              "20260724"
+              "20260729"
             ],
             "observed_dates": [
-              "20260724"
+              "20260729"
             ],
             "rows": 69,
             "parse_metadata": {
@@ -139,24 +139,24 @@
     "options_call_put": {
       "status": "ok",
       "rows": 30,
-      "latest_date": "20260724",
+      "latest_date": "20260729",
       "message": "",
       "requested_dates": [
-        "20260724"
+        "20260729"
       ],
       "observed_dates": [
-        "20260724"
+        "20260729"
       ],
       "provenance": {
         "endpoint": "https://www.taifex.com.tw/cht/3/callsAndPutsDateDown",
         "params": {
-          "queryStartDate": "2026/07/24",
-          "queryEndDate": "2026/07/24"
+          "queryStartDate": "2026/07/29",
+          "queryEndDate": "2026/07/29"
         },
-        "fetched_at": "2026-07-30 11:17:20 Asia/Taipei",
+        "fetched_at": "2026-07-30 12:15:48 Asia/Taipei",
         "encoding": "cp950",
-        "raw_sha256": "0a41a60fe5db9b41466901152f1f124673865bcff4bcaffc86c32f232db9e3f9",
-        "normalized_sha256": "50be7e17d1cfa3bfc9b20d11b704ec0f040da6dd28ab2e50d7be02c487f37a09",
+        "raw_sha256": "39d7d2c026ce11d5a3e357b82453367ab7b60becaa0d26de39208dc1d7f5c04b",
+        "normalized_sha256": "b9aa6c090f68ba7848d9fe9b3b97f4036922e3d882118bf5614b555c5b78ea79",
         "rows": 30,
         "attempt_count": 1,
         "attempts": [
@@ -165,21 +165,21 @@
             "source": "options_call_put",
             "endpoint": "https://www.taifex.com.tw/cht/3/callsAndPutsDateDown",
             "params": {
-              "queryStartDate": "2026/07/24",
-              "queryEndDate": "2026/07/24"
+              "queryStartDate": "2026/07/29",
+              "queryEndDate": "2026/07/29"
             },
-            "fetched_at": "2026-07-30 11:17:20 Asia/Taipei",
+            "fetched_at": "2026-07-30 12:15:48 Asia/Taipei",
             "status": "ok",
             "http_status": 200,
-            "raw_bytes": 2476,
-            "raw_sha256": "0a41a60fe5db9b41466901152f1f124673865bcff4bcaffc86c32f232db9e3f9",
-            "normalized_sha256": "50be7e17d1cfa3bfc9b20d11b704ec0f040da6dd28ab2e50d7be02c487f37a09",
+            "raw_bytes": 2535,
+            "raw_sha256": "39d7d2c026ce11d5a3e357b82453367ab7b60becaa0d26de39208dc1d7f5c04b",
+            "normalized_sha256": "b9aa6c090f68ba7848d9fe9b3b97f4036922e3d882118bf5614b555c5b78ea79",
             "encoding": "cp950",
             "requested_dates": [
-              "20260724"
+              "20260729"
             ],
             "observed_dates": [
-              "20260724"
+              "20260729"
             ],
             "rows": 30,
             "parse_metadata": {
@@ -204,24 +204,24 @@
     "put_call_ratio": {
       "status": "ok",
       "rows": 1,
-      "latest_date": "20260724",
+      "latest_date": "20260729",
       "message": "",
       "requested_dates": [
-        "20260724"
+        "20260729"
       ],
       "observed_dates": [
-        "20260724"
+        "20260729"
       ],
       "provenance": {
         "endpoint": "https://www.taifex.com.tw/cht/3/pcRatioDown",
         "params": {
-          "queryStartDate": "2026/07/24",
-          "queryEndDate": "2026/07/24"
+          "queryStartDate": "2026/07/29",
+          "queryEndDate": "2026/07/29"
         },
-        "fetched_at": "2026-07-30 11:17:20 Asia/Taipei",
+        "fetched_at": "2026-07-30 12:15:52 Asia/Taipei",
         "encoding": "cp950",
-        "raw_sha256": "0579ca6f2ac803e7bc4875c3bbaeb43d0f985033ea8a587eeb511b8d7734c5cc",
-        "normalized_sha256": "31e12e10a7f3c374d015a303206a496aa8ac494a8bafec741c0e20966dea82ee",
+        "raw_sha256": "fa2a1e74a1077fc6f6e2088aa49ee35cbc7f3bffe8c749f832a74fb2e20adb21",
+        "normalized_sha256": "c630a27487793da68ddc81a0f8c819eb785709b6758d6577346f4a13ae8af8ac",
         "rows": 1,
         "attempt_count": 1,
         "attempts": [
@@ -230,21 +230,21 @@
             "source": "put_call_ratio",
             "endpoint": "https://www.taifex.com.tw/cht/3/pcRatioDown",
             "params": {
-              "queryStartDate": "2026/07/24",
-              "queryEndDate": "2026/07/24"
+              "queryStartDate": "2026/07/29",
+              "queryEndDate": "2026/07/29"
             },
-            "fetched_at": "2026-07-30 11:17:20 Asia/Taipei",
+            "fetched_at": "2026-07-30 12:15:52 Asia/Taipei",
             "status": "ok",
             "http_status": 200,
             "raw_bytes": 144,
-            "raw_sha256": "0579ca6f2ac803e7bc4875c3bbaeb43d0f985033ea8a587eeb511b8d7734c5cc",
-            "normalized_sha256": "31e12e10a7f3c374d015a303206a496aa8ac494a8bafec741c0e20966dea82ee",
+            "raw_sha256": "fa2a1e74a1077fc6f6e2088aa49ee35cbc7f3bffe8c749f832a74fb2e20adb21",
+            "normalized_sha256": "c630a27487793da68ddc81a0f8c819eb785709b6758d6577346f4a13ae8af8ac",
             "encoding": "cp950",
             "requested_dates": [
-              "20260724"
+              "20260729"
             ],
             "observed_dates": [
-              "20260724"
+              "20260729"
             ],
             "rows": 1,
             "parse_metadata": {
@@ -269,22 +269,22 @@
     "taiwan_vix": {
       "status": "ok",
       "rows": 1,
-      "latest_date": "20260724",
+      "latest_date": "20260729",
       "message": "",
       "publication_status": "reconstructed_not_as_published",
       "requested_dates": [
-        "20260724"
+        "20260729"
       ],
       "observed_dates": [
-        "20260724"
+        "20260729"
       ],
       "provenance": {
         "endpoint": "https://www.taifex.com.tw/file/taifex/Dailydownload/vix/log2data/{yyyymm}new.txt",
         "params": {
-          "start_date": "20260724",
-          "end_date": "20260724"
+          "start_date": "20260729",
+          "end_date": "20260729"
         },
-        "fetched_at": "2026-07-30 11:17:30 Asia/Taipei",
+        "fetched_at": "2026-07-30 12:16:05 Asia/Taipei",
         "source_files": [
           {
             "endpoint": "https://www.taifex.com.tw/file/taifex/Dailydownload/vix/log2data/202602new.txt",

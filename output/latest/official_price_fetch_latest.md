@@ -1,10 +1,10 @@
 # Official Price Historical Replay Status
 
-- target_date: `20260724`
+- target_date: `20260729`
 - publication_status: `reconstructed_not_as_published`
 - as_published: `False`
 - fallback_used: `False`
-- TWSE rows: `1240`
-- TPEx rows: `881`
-- total rows: `2121`
+- TWSE rows: `1239`
+- TPEx rows: `892`
+- total rows: `2131`
 - source response count: `2`

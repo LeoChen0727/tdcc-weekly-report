@@ -1,0 +1,1342 @@
+{
+  "after_tail_matrix": {
+    "daily_price": "20260729",
+    "market_index": {
+      "TPEX": "20260728",
+      "TWSE": "20260728"
+    },
+    "market_index_ohlc": {
+      "TPEX": "20260728",
+      "TWSE": "20260728"
+    },
+    "stock_price_history": {
+      "files": 2381,
+      "files_at_max": 2113,
+      "max_date": "20260729"
+    },
+    "taifex": {
+      "futures_contracts": "20260728",
+      "institutional_fo": "20260728",
+      "options_call_put": "20260728",
+      "put_call_ratio": "20260728",
+      "taiwan_vix": "20260728"
+    },
+    "warrant_daily": "20260728",
+    "warrant_flow": "20260728"
+  },
+  "as_published": false,
+  "before_tail_matrix": {
+    "daily_price": "20260729",
+    "market_index": {
+      "TPEX": "20260727",
+      "TWSE": "20260727"
+    },
+    "market_index_ohlc": {
+      "TPEX": "20260727",
+      "TWSE": "20260727"
+    },
+    "stock_price_history": {
+      "files": 2381,
+      "files_at_max": 2113,
+      "max_date": "20260729"
+    },
+    "taifex": {
+      "futures_contracts": "20260727",
+      "institutional_fo": "20260727",
+      "options_call_put": "20260727",
+      "put_call_ratio": "20260727",
+      "taiwan_vix": "20260727"
+    },
+    "warrant_daily": "20260727",
+    "warrant_flow": "20260727"
+  },
+  "forbidden_reconstruction": [
+    "candidate_as_published",
+    "model_as_published",
+    "event_as_published",
+    "catalyst_as_published",
+    "pdf_as_published"
+  ],
+  "pipeline_commit_sha": "a4a17293cba864cfb56616b265fa2bb6d5eb2539",
+  "price_history_high_water_date": "20260729",
+  "protected_price_history_fingerprints": {
+    "daily_price": {
+      "aggregate_sha256": "6d678cba4734f809bc0cac18cadf31b949191bfa58d44801747cc27f19f22909",
+      "path_count": 369
+    },
+    "stock_history_manifest_docs": {
+      "aggregate_sha256": "705791f9b5ca60ecdb3109ed28f71517be3b776c8704ee6b9ae86afd4dabdd7f",
+      "path_count": 3
+    },
+    "stock_history_manifest_output": {
+      "aggregate_sha256": "36b6883f550abe4aff27c108fb6354916c724be519edaeca7ad08a4aba0d3e04",
+      "path_count": 3
+    },
+    "stock_price_history": {
+      "aggregate_sha256": "9dc9d2b0b2a9e06adb683a6e747ac5cc54554e6780433cc924f441f8c403b76b",
+      "path_count": 2381
+    }
+  },
+  "publication_status": "reconstructed_not_as_published",
+  "replay_id": "github-run-30512929097-1",
+  "report_date": "20260728",
+  "schema_version": "historical_structured_source_replay_v1",
+  "sources": [
+    {
+      "accepted_source_response_count": 2,
+      "accepted_source_responses": [
+        {
+          "accepted": "",
+          "accepted_rows": "",
+          "endpoint": "https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20260728&type=ALLBUT0999&response=json",
+          "exact_date_match": true,
+          "family": "",
+          "fetched_at": "2026-07-30 12:12:38 Asia/Taipei",
+          "logical_group": "",
+          "normalized_sha256": "84871d496fe139d25451ed118f9a9742d09de575ea5fab031fb379cae015670f",
+          "observed_response_dates": [
+            "20260728"
+          ],
+          "raw_sha256": "84871d496fe139d25451ed118f9a9742d09de575ea5fab031fb379cae015670f",
+          "source": "",
+          "source_name": "TWSE_RWD_JSON_MI_INDEX"
+        },
+        {
+          "accepted": "",
+          "accepted_rows": "",
+          "endpoint": "https://www.tpex.org.tw/web/stock/aftertrading/otc_quotes_no1430/stk_wn1430_result.php?l=zh-tw&o=json&d=115/07/28&se=EW",
+          "exact_date_match": true,
+          "family": "",
+          "fetched_at": "2026-07-30 12:12:44 Asia/Taipei",
+          "logical_group": "",
+          "normalized_sha256": "cc300d980d8f315ef7c6afd34b9184386662037168c9965f736a1f8f15ed1938",
+          "observed_response_dates": [
+            "20260728"
+          ],
+          "raw_sha256": "cc300d980d8f315ef7c6afd34b9184386662037168c9965f736a1f8f15ed1938",
+          "source": "",
+          "source_name": "TPEX_OTC_QUOTES_NO1430_JSON"
+        }
+      ],
+      "after_tail": "20260729",
+      "as_published": false,
+      "before_tail": "20260729",
+      "endpoint": [
+        "https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20260728&type=ALLBUT0999&response=json",
+        "https://www.tpex.org.tw/web/stock/aftertrading/otc_quotes_no1430/stk_wn1430_result.php?l=zh-tw&o=json&d=115/07/28&se=EW"
+      ],
+      "fallback_used": false,
+      "fetched_at": [
+        "2026-07-30 12:12:38 Asia/Taipei",
+        "2026-07-30 12:12:44 Asia/Taipei"
+      ],
+      "future_rows_used": false,
+      "normalized_sha256": "d8ffff65379515aa8fcaa8234e2bb54fcb497687dcb3ab1fbed9bb20ff6c1fde",
+      "observed_dates": [
+        "20260728"
+      ],
+      "output_evidence": {
+        "components": [
+          {
+            "component_id": "dated_daily_price",
+            "future_row_count": 0,
+            "future_rows_excluded_from_slice": true,
+            "member_count": 2,
+            "pk_unique": true,
+            "row_count": 4236,
+            "slice_manifest_sha256": "5d31a75820984365167091c2a15c1694eee4640aa80e28a9870782a5fa881713"
+          },
+          {
+            "component_id": "stock_history_target_slices",
+            "future_row_count": 2092,
+            "future_rows_excluded_from_slice": true,
+            "member_count": 2103,
+            "pk_unique": true,
+            "row_count": 2103,
+            "slice_manifest_sha256": "8bd0a297730a327e10194fd8feba27b003a8d2d56e8e2ab7f662ebd3609a43ce"
+          }
+        ],
+        "future_row_count": 2092,
+        "future_rows_excluded_from_slice": true,
+        "output_sha256": "973f7fd12c794e1a05f1f8fd0a79cedb86438cc0a662f3f7ed53f9277b54ceab",
+        "pk_unique": true,
+        "row_count": 6339,
+        "target_date": "20260728"
+      },
+      "output_sha256": "973f7fd12c794e1a05f1f8fd0a79cedb86438cc0a662f3f7ed53f9277b54ceab",
+      "params": [
+        {},
+        {}
+      ],
+      "pk_unique": true,
+      "preserved_target_slice_evidence": {
+        "fetched_target_slice_sha256": "805b9c41c06307e70597422f4fe37854fd5f3bbb38e087b8ea379df381b5537e",
+        "mode": "preserve_existing_price_history",
+        "preserved_daily_price_target_slice_sha256": {
+          "data/daily_price/20260728.csv": "805b9c41c06307e70597422f4fe37854fd5f3bbb38e087b8ea379df381b5537e",
+          "data/daily_price/daily_price_20260728.csv": "805b9c41c06307e70597422f4fe37854fd5f3bbb38e087b8ea379df381b5537e"
+        },
+        "preserved_stock_history_target_slice_manifest_sha256": "8bd0a297730a327e10194fd8feba27b003a8d2d56e8e2ab7f662ebd3609a43ce",
+        "preserved_stock_history_target_slice_rows": 2103,
+        "price_history_high_water_date": "20260729",
+        "stock_history_coverage": {
+          "manifest_end_date_lower_bound": "20260728",
+          "manifest_end_date_upper_bound": "20260729",
+          "missing_history_rows": 0,
+          "supported_stock_count": 2103
+        }
+      },
+      "price_history_high_water_date": "20260729",
+      "publication_status": "reconstructed_not_as_published",
+      "raw_sha256": "d8ffff65379515aa8fcaa8234e2bb54fcb497687dcb3ab1fbed9bb20ff6c1fde",
+      "requested_dates": [
+        "20260728"
+      ],
+      "row_count": 6339,
+      "source_attempt_count": 2,
+      "source_id": "official_daily_price",
+      "source_response_attempts": [
+        {
+          "accepted": "",
+          "accepted_rows": "",
+          "attempt": "",
+          "elapsed_seconds": "",
+          "encoding": "",
+          "endpoint": "https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20260728&type=ALLBUT0999&response=json",
+          "error": "",
+          "exact_date_match": true,
+          "expected_response_date": "20260728",
+          "family": "",
+          "fetched_at": "2026-07-30 12:12:38 Asia/Taipei",
+          "http_status": "",
+          "logical_group": "",
+          "normalized_sha256": "84871d496fe139d25451ed118f9a9742d09de575ea5fab031fb379cae015670f",
+          "observed_response_dates": [
+            "20260728"
+          ],
+          "params": {},
+          "parse_metadata": "",
+          "parsed_table_count": "",
+          "parsed_table_rows": "",
+          "raw_bytes": "",
+          "raw_sha256": "84871d496fe139d25451ed118f9a9742d09de575ea5fab031fb379cae015670f",
+          "requested_dates": "",
+          "rows": "",
+          "source": "",
+          "source_name": "TWSE_RWD_JSON_MI_INDEX",
+          "status": "",
+          "status_code": 200
+        },
+        {
+          "accepted": "",
+          "accepted_rows": "",
+          "attempt": "",
+          "elapsed_seconds": "",
+          "encoding": "",
+          "endpoint": "https://www.tpex.org.tw/web/stock/aftertrading/otc_quotes_no1430/stk_wn1430_result.php?l=zh-tw&o=json&d=115/07/28&se=EW",
+          "error": "",
+          "exact_date_match": true,
+          "expected_response_date": "20260728",
+          "family": "",
+          "fetched_at": "2026-07-30 12:12:44 Asia/Taipei",
+          "http_status": "",
+          "logical_group": "",
+          "normalized_sha256": "cc300d980d8f315ef7c6afd34b9184386662037168c9965f736a1f8f15ed1938",
+          "observed_response_dates": [
+            "20260728"
+          ],
+          "params": {},
+          "parse_metadata": "",
+          "parsed_table_count": "",
+          "parsed_table_rows": "",
+          "raw_bytes": "",
+          "raw_sha256": "cc300d980d8f315ef7c6afd34b9184386662037168c9965f736a1f8f15ed1938",
+          "requested_dates": "",
+          "rows": "",
+          "source": "",
+          "source_name": "TPEX_OTC_QUOTES_NO1430_JSON",
+          "status": "",
+          "status_code": 200
+        }
+      ],
+      "validation_status": "pass"
+    },
+    {
+      "accepted_source_response_count": 3,
+      "accepted_source_responses": [
+        {
+          "accepted": "",
+          "accepted_rows": "",
+          "endpoint": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20260701&response=json",
+          "exact_date_match": "",
+          "family": "",
+          "fetched_at": "2026-07-30 12:13:21 Asia/Taipei",
+          "logical_group": "",
+          "normalized_sha256": "c9697493de94d2e22902d1dc60c3f928369e4460c3060e1b724be0e9c9379d03",
+          "observed_response_dates": "",
+          "raw_sha256": "5204ffe53330fca04885c7195b76bf0a317637322fe15023a7499da3c967e88f",
+          "source": "",
+          "source_name": ""
+        },
+        {
+          "accepted": "",
+          "accepted_rows": "",
+          "endpoint": "https://www.tpex.org.tw/www/zh-tw/indexInfo/inx?date=115/07&response=json",
+          "exact_date_match": "",
+          "family": "",
+          "fetched_at": "2026-07-30 12:13:21 Asia/Taipei",
+          "logical_group": "",
+          "normalized_sha256": "7c6d28b746a1717f8a1e6dfb48ac2982469a79e28b5848c87517129e1acce706",
+          "observed_response_dates": "",
+          "raw_sha256": "7a9bbd2d7fef67c92700b8c0402f8106ded6c2cb907fb5e1f79f9c725666b78f",
+          "source": "",
+          "source_name": ""
+        },
+        {
+          "accepted": "",
+          "accepted_rows": "",
+          "endpoint": "https://www.twse.com.tw/rwd/zh/afterTrading/FMTQIK?date=20260701&response=json",
+          "exact_date_match": "",
+          "family": "",
+          "fetched_at": "2026-07-30 12:13:22 Asia/Taipei",
+          "logical_group": "",
+          "normalized_sha256": "8841559221cde46212e6491b002d94e0e465276c04a8ca693104148d5f91a4c0",
+          "observed_response_dates": "",
+          "raw_sha256": "5a0997bd325b612c26564104a09657c359d8725e3d2a6154f6fe384d178fa69c",
+          "source": "",
+          "source_name": ""
+        }
+      ],
+      "after_tail": {
+        "TPEX": "20260728",
+        "TWSE": "20260728"
+      },
+      "as_published": false,
+      "before_tail": {
+        "TPEX": "20260727",
+        "TWSE": "20260727"
+      },
+      "endpoint": [
+        "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20260701&response=json",
+        "https://www.tpex.org.tw/www/zh-tw/indexInfo/inx?date=115/07&response=json",
+        "https://www.twse.com.tw/rwd/zh/afterTrading/FMTQIK?date=20260701&response=json"
+      ],
+      "fallback_used": false,
+      "fetched_at": [
+        "2026-07-30 12:13:21 Asia/Taipei",
+        "2026-07-30 12:13:21 Asia/Taipei",
+        "2026-07-30 12:13:22 Asia/Taipei"
+      ],
+      "future_rows_used": false,
+      "normalized_sha256": "a15bafb77f5da4af6d6cbd1a48d9be14c0a8255aadae59edf68ea28f39a6157a",
+      "observed_dates": [
+        "20260728"
+      ],
+      "output_evidence": {
+        "components": [
+          {
+            "component_id": "market_index_target_rows",
+            "future_row_count": 0,
+            "future_rows_excluded_from_slice": true,
+            "member_count": 4,
+            "pk_unique": true,
+            "row_count": 4,
+            "slice_manifest_sha256": "c38abab0e81114b7fb681edc8203715e71e891d46d79f0362ada4785fdf1f13f"
+          }
+        ],
+        "future_row_count": 0,
+        "future_rows_excluded_from_slice": true,
+        "output_sha256": "3a2805c98909fb1cc7c688f9c1943131194a4c60698ede39f7a4313668f5284f",
+        "pk_unique": true,
+        "row_count": 4,
+        "target_date": "20260728"
+      },
+      "output_sha256": "3a2805c98909fb1cc7c688f9c1943131194a4c60698ede39f7a4313668f5284f",
+      "params": [
+        {},
+        {},
+        {}
+      ],
+      "pk_unique": true,
+      "preserved_target_slice_evidence": {},
+      "price_history_high_water_date": "",
+      "publication_status": "reconstructed_not_as_published",
+      "raw_sha256": "da664c5a27d1b0e139904047d7bc2214b436e85f49f961e7354dce2379b5deb6",
+      "requested_dates": [
+        "20260728"
+      ],
+      "row_count": 4,
+      "source_attempt_count": 3,
+      "source_id": "market_index",
+      "source_response_attempts": [
+        {
+          "accepted": "",
+          "accepted_rows": "",
+          "attempt": "",
+          "elapsed_seconds": "",
+          "encoding": "",
+          "endpoint": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20260701&response=json",
+          "error": "",
+          "exact_date_match": "",
+          "expected_response_date": "",
+          "family": "",
+          "fetched_at": "2026-07-30 12:13:21 Asia/Taipei",
+          "http_status": "",
+          "logical_group": "",
+          "normalized_sha256": "c9697493de94d2e22902d1dc60c3f928369e4460c3060e1b724be0e9c9379d03",
+          "observed_response_dates": "",
+          "params": {},
+          "parse_metadata": "",
+          "parsed_table_count": "",
+          "parsed_table_rows": "",
+          "raw_bytes": "",
+          "raw_sha256": "5204ffe53330fca04885c7195b76bf0a317637322fe15023a7499da3c967e88f",
+          "requested_dates": "",
+          "rows": "",
+          "source": "",
+          "source_name": "",
+          "status": "",
+          "status_code": ""
+        },
+        {
+          "accepted": "",
+          "accepted_rows": "",
+          "attempt": "",
+          "elapsed_seconds": "",
+          "encoding": "",
+          "endpoint": "https://www.tpex.org.tw/www/zh-tw/indexInfo/inx?date=115/07&response=json",
+          "error": "",
+          "exact_date_match": "",
+          "expected_response_date": "",
+          "family": "",
+          "fetched_at": "2026-07-30 12:13:21 Asia/Taipei",
+          "http_status": "",
+          "logical_group": "",
+          "normalized_sha256": "7c6d28b746a1717f8a1e6dfb48ac2982469a79e28b5848c87517129e1acce706",
+          "observed_response_dates": "",
+          "params": {},
+          "parse_metadata": "",
+          "parsed_table_count": "",
+          "parsed_table_rows": "",
+          "raw_bytes": "",
+          "raw_sha256": "7a9bbd2d7fef67c92700b8c0402f8106ded6c2cb907fb5e1f79f9c725666b78f",
+          "requested_dates": "",
+          "rows": "",
+          "source": "",
+          "source_name": "",
+          "status": "",
+          "status_code": ""
+        },
+        {
+          "accepted": "",
+          "accepted_rows": "",
+          "attempt": "",
+          "elapsed_seconds": "",
+          "encoding": "",
+          "endpoint": "https://www.twse.com.tw/rwd/zh/afterTrading/FMTQIK?date=20260701&response=json",
+          "error": "",
+          "exact_date_match": "",
+          "expected_response_date": "",
+          "family": "",
+          "fetched_at": "2026-07-30 12:13:22 Asia/Taipei",
+          "http_status": "",
+          "logical_group": "",
+          "normalized_sha256": "8841559221cde46212e6491b002d94e0e465276c04a8ca693104148d5f91a4c0",
+          "observed_response_dates": "",
+          "params": {},
+          "parse_metadata": "",
+          "parsed_table_count": "",
+          "parsed_table_rows": "",
+          "raw_bytes": "",
+          "raw_sha256": "5a0997bd325b612c26564104a09657c359d8725e3d2a6154f6fe384d178fa69c",
+          "requested_dates": "",
+          "rows": "",
+          "source": "",
+          "source_name": "",
+          "status": "",
+          "status_code": ""
+        }
+      ],
+      "validation_status": "pass"
+    },
+    {
+      "accepted_source_response_count": 10,
+      "accepted_source_responses": [
+        {
+          "accepted": "",
+          "accepted_rows": "",
+          "endpoint": "https://www.taifex.com.tw/cht/3/futAndOptDateDown",
+          "exact_date_match": "",
+          "family": "",
+          "fetched_at": "2026-07-30 12:13:23 Asia/Taipei",
+          "logical_group": "",
+          "normalized_sha256": "13d47f4495d758a2ac532e984177ea6d42fcb74f248ff1601d02df84c63fe521",
+          "observed_response_dates": [
+            "20260728"
+          ],
+          "raw_sha256": "23792c6cabeb09d7ed34a82559c21f61ed3e5c4fa8a766604808e8c837c1857f",
+          "source": "institutional_fo",
+          "source_name": ""
+        },
+        {
+          "accepted": "",
+          "accepted_rows": "",
+          "endpoint": "https://www.taifex.com.tw/cht/3/futContractsDateDown",
+          "exact_date_match": "",
+          "family": "",
+          "fetched_at": "2026-07-30 12:13:27 Asia/Taipei",
+          "logical_group": "",
+          "normalized_sha256": "426a2a02673782505f54171e6ca0481407669567356c5fc9d58f2a0ffd90d9bc",
+          "observed_response_dates": [
+            "20260728"
+          ],
+          "raw_sha256": "56080ba843589e5af6d8885415606584eff1cfc76f1c9d8eef0e2e8ddc54f450",
+          "source": "futures_contracts",
+          "source_name": ""
+        },
+        {
+          "accepted": "",
+          "accepted_rows": "",
+          "endpoint": "https://www.taifex.com.tw/cht/3/callsAndPutsDateDown",
+          "exact_date_match": "",
+          "family": "",
+          "fetched_at": "2026-07-30 12:13:28 Asia/Taipei",
+          "logical_group": "",
+          "normalized_sha256": "01d337e7db1ed43617c4684215f06f513b9f6ca5552d5ff98ea66e992e4bba0f",
+          "observed_response_dates": [
+            "20260728"
+          ],
+          "raw_sha256": "7e04f776199bc9664d185bf193cb8217085f4c627be15288276679bef4ad8583",
+          "source": "options_call_put",
+          "source_name": ""
+        },
+        {
+          "accepted": "",
+          "accepted_rows": "",
+          "endpoint": "https://www.taifex.com.tw/cht/3/pcRatioDown",
+          "exact_date_match": "",
+          "family": "",
+          "fetched_at": "2026-07-30 12:13:28 Asia/Taipei",
+          "logical_group": "",
+          "normalized_sha256": "6c9c29dc4b5e6b303536f3a4c8be8889443d1be00275f776d23c085f84857e6b",
+          "observed_response_dates": [
+            "20260728"
+          ],
+          "raw_sha256": "31746045621a17f16d562572898650527dd3f5d3a0bcb0b0ed4358ec9df6e242",
+          "source": "put_call_ratio",
+          "source_name": ""
+        },
+        {
+          "accepted": "",
+          "accepted_rows": "",
+          "endpoint": "https://www.taifex.com.tw/file/taifex/Dailydownload/vix/log2data/202602new.txt",
+          "exact_date_match": "",
+          "family": "",
+          "fetched_at": "",
+          "logical_group": "",
+          "normalized_sha256": "9c8b794723e93316d4593fadf89e13ab4c6e27d87f4399c58a8601f11c0a6bf6",
+          "observed_response_dates": [
+            "20260728"
+          ],
+          "raw_sha256": "99217abd21cae0ec777bf59d2370462836ef7de18d66f5465d6f4919f4fc0fb8",
+          "source": "taiwan_vix",
+          "source_name": ""
+        },
+        {
+          "accepted": "",
+          "accepted_rows": "",
+          "endpoint": "https://www.taifex.com.tw/file/taifex/Dailydownload/vix/log2data/202603new.txt",
+          "exact_date_match": "",
+          "family": "",
+          "fetched_at": "",
+          "logical_group": "",
+          "normalized_sha256": "9c8b794723e93316d4593fadf89e13ab4c6e27d87f4399c58a8601f11c0a6bf6",
+          "observed_response_dates": [
+            "20260728"
+          ],
+          "raw_sha256": "99217abd21cae0ec777bf59d2370462836ef7de18d66f5465d6f4919f4fc0fb8",
+          "source": "taiwan_vix",
+          "source_name": ""
+        },
+        {
+          "accepted": "",
+          "accepted_rows": "",
+          "endpoint": "https://www.taifex.com.tw/file/taifex/Dailydownload/vix/log2data/202604new.txt",
+          "exact_date_match": "",
+          "family": "",
+          "fetched_at": "",
+          "logical_group": "",
+          "normalized_sha256": "eee50853359b151757795a359885a79a49a5d413a2bc8e89fc9848657f53eec8",
+          "observed_response_dates": [
+            "20260728"
+          ],
+          "raw_sha256": "d90b4219510d196c229396a7879659f4357399e43eb96c6c6384c58dc48a9a78",
+          "source": "taiwan_vix",
+          "source_name": ""
+        },
+        {
+          "accepted": "",
+          "accepted_rows": "",
+          "endpoint": "https://www.taifex.com.tw/file/taifex/Dailydownload/vix/log2data/202605new.txt",
+          "exact_date_match": "",
+          "family": "",
+          "fetched_at": "",
+          "logical_group": "",
+          "normalized_sha256": "c2cb5a09cd6c92229bba7a3120b38066db81afd1853f41768a841ff60605de04",
+          "observed_response_dates": [
+            "20260728"
+          ],
+          "raw_sha256": "3067a6be7e95fbce54d2078f9d90601d9503cce7443e7bda6f56ac61f46b71d1",
+          "source": "taiwan_vix",
+          "source_name": ""
+        },
+        {
+          "accepted": "",
+          "accepted_rows": "",
+          "endpoint": "https://www.taifex.com.tw/file/taifex/Dailydownload/vix/log2data/202606new.txt",
+          "exact_date_match": "",
+          "family": "",
+          "fetched_at": "",
+          "logical_group": "",
+          "normalized_sha256": "4a55133df0586c71ad129765ae78f517cb5e9f09b158778e5686d10b733bcb07",
+          "observed_response_dates": [
+            "20260728"
+          ],
+          "raw_sha256": "b7fa355126982960b0e50ec38f69cb72a501813632cd76e556fd3e4040c7cbcc",
+          "source": "taiwan_vix",
+          "source_name": ""
+        },
+        {
+          "accepted": "",
+          "accepted_rows": "",
+          "endpoint": "https://www.taifex.com.tw/file/taifex/Dailydownload/vix/log2data/202607new.txt",
+          "exact_date_match": "",
+          "family": "",
+          "fetched_at": "",
+          "logical_group": "",
+          "normalized_sha256": "7f9a6da7548a346d3cbe20567489993efc0ec3694bd446f271f93efdefa9488c",
+          "observed_response_dates": [
+            "20260728"
+          ],
+          "raw_sha256": "47d0cfa05ef563a4cd8862572c994b17ed66a18417e9b36cfa64b6069d1a788b",
+          "source": "taiwan_vix",
+          "source_name": ""
+        }
+      ],
+      "after_tail": {
+        "futures_contracts": "20260728",
+        "institutional_fo": "20260728",
+        "options_call_put": "20260728",
+        "put_call_ratio": "20260728",
+        "taiwan_vix": "20260728"
+      },
+      "as_published": false,
+      "before_tail": {
+        "futures_contracts": "20260727",
+        "institutional_fo": "20260727",
+        "options_call_put": "20260727",
+        "put_call_ratio": "20260727",
+        "taiwan_vix": "20260727"
+      },
+      "endpoint": [
+        "https://www.taifex.com.tw/cht/3/futAndOptDateDown",
+        "https://www.taifex.com.tw/cht/3/futContractsDateDown",
+        "https://www.taifex.com.tw/cht/3/callsAndPutsDateDown",
+        "https://www.taifex.com.tw/cht/3/pcRatioDown",
+        "https://www.taifex.com.tw/file/taifex/Dailydownload/vix/log2data/202602new.txt",
+        "https://www.taifex.com.tw/file/taifex/Dailydownload/vix/log2data/202603new.txt",
+        "https://www.taifex.com.tw/file/taifex/Dailydownload/vix/log2data/202604new.txt",
+        "https://www.taifex.com.tw/file/taifex/Dailydownload/vix/log2data/202605new.txt",
+        "https://www.taifex.com.tw/file/taifex/Dailydownload/vix/log2data/202606new.txt",
+        "https://www.taifex.com.tw/file/taifex/Dailydownload/vix/log2data/202607new.txt"
+      ],
+      "fallback_used": false,
+      "fetched_at": [
+        "2026-07-30 12:13:23 Asia/Taipei",
+        "2026-07-30 12:13:27 Asia/Taipei",
+        "2026-07-30 12:13:28 Asia/Taipei",
+        "2026-07-30 12:13:28 Asia/Taipei",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "future_rows_used": false,
+      "normalized_sha256": "6907c464dd950bd3da3986bbd853bf27dfc9b8e7d6e3368e81e7acf484d746fd",
+      "observed_dates": [
+        "20260728"
+      ],
+      "output_evidence": {
+        "components": [
+          {
+            "component_id": "taifex_history_target_rows",
+            "future_row_count": 0,
+            "future_rows_excluded_from_slice": true,
+            "member_count": 5,
+            "pk_unique": true,
+            "row_count": 104,
+            "slice_manifest_sha256": "a8964406dcf7e7528db1b5d2ff8201eb276a7cce738eafef9fe0da8655f6802e"
+          },
+          {
+            "component_id": "taifex_dated_raw_target_rows",
+            "future_row_count": 0,
+            "future_rows_excluded_from_slice": true,
+            "member_count": 4,
+            "pk_unique": true,
+            "row_count": 103,
+            "slice_manifest_sha256": "8bd48a94757a71e3f9acc73fc074bbfbdb8b30e9b836a7efa8b215232cc15503"
+          }
+        ],
+        "future_row_count": 0,
+        "future_rows_excluded_from_slice": true,
+        "output_sha256": "92d5f6fbbd1e9bc883863fc1d7de9ce437101cb754252096c2e0506007139b95",
+        "pk_unique": true,
+        "row_count": 207,
+        "taifex_raw_history_parity": {
+          "futures_contracts": {
+            "history_path": "data/futures_options/taifex_futures_contracts_history.csv",
+            "raw_path": "data/futures_options/raw/futures_contracts_20260728.csv",
+            "row_count": 69,
+            "slice_sha256": "65165ce20bc5d92e413c6f241f71f1eab5945759e3cc6a573f3cf51c15920074"
+          },
+          "institutional_fo": {
+            "history_path": "data/futures_options/taifex_institutional_fo_history.csv",
+            "raw_path": "data/futures_options/raw/institutional_fo_20260728.csv",
+            "row_count": 3,
+            "slice_sha256": "c8e309c170ef281fcb2a4eb8e6ebaa5b79362ecfa3f0e6077f070aea24d5e16d"
+          },
+          "options_call_put": {
+            "history_path": "data/futures_options/taifex_options_call_put_history.csv",
+            "raw_path": "data/futures_options/raw/options_call_put_20260728.csv",
+            "row_count": 30,
+            "slice_sha256": "e3cf97d0e92e48980ccfe8315f56c0aa15e48e5c99f015a4dbc4bf0720645461"
+          },
+          "put_call_ratio": {
+            "history_path": "data/futures_options/put_call_ratio_history.csv",
+            "raw_path": "data/futures_options/raw/put_call_ratio_20260728.csv",
+            "row_count": 1,
+            "slice_sha256": "daa5d15980e0ffa94d7b7ec6966895554c9ed2bcac63721d448153d1bbc8c427"
+          }
+        },
+        "target_date": "20260728"
+      },
+      "output_sha256": "92d5f6fbbd1e9bc883863fc1d7de9ce437101cb754252096c2e0506007139b95",
+      "params": [
+        {
+          "queryEndDate": "2026/07/28",
+          "queryStartDate": "2026/07/28"
+        },
+        {
+          "queryEndDate": "2026/07/28",
+          "queryStartDate": "2026/07/28"
+        },
+        {
+          "queryEndDate": "2026/07/28",
+          "queryStartDate": "2026/07/28"
+        },
+        {
+          "queryEndDate": "2026/07/28",
+          "queryStartDate": "2026/07/28"
+        },
+        {},
+        {},
+        {},
+        {},
+        {},
+        {}
+      ],
+      "pk_unique": true,
+      "preserved_target_slice_evidence": {},
+      "price_history_high_water_date": "",
+      "publication_status": "reconstructed_not_as_published",
+      "raw_sha256": "c816f8613aee10a4b955e3f692afd7261c85b0ff0004ee404a15917bf343e268",
+      "requested_dates": [
+        "20260728"
+      ],
+      "row_count": 207,
+      "source_attempt_count": 10,
+      "source_id": "taifex_futures_options_vix",
+      "source_response_attempts": [
+        {
+          "accepted": "",
+          "accepted_rows": "",
+          "attempt": 1,
+          "elapsed_seconds": "",
+          "encoding": "cp950",
+          "endpoint": "https://www.taifex.com.tw/cht/3/futAndOptDateDown",
+          "error": "",
+          "exact_date_match": "",
+          "expected_response_date": "",
+          "family": "",
+          "fetched_at": "2026-07-30 12:13:23 Asia/Taipei",
+          "http_status": 200,
+          "logical_group": "",
+          "normalized_sha256": "13d47f4495d758a2ac532e984177ea6d42fcb74f248ff1601d02df84c63fe521",
+          "observed_response_dates": [
+            "20260728"
+          ],
+          "params": {
+            "queryEndDate": "2026/07/28",
+            "queryStartDate": "2026/07/28"
+          },
+          "parse_metadata": {
+            "data_rows": 3,
+            "header_columns": 26,
+            "rows_with_trimmed_trailing_empty_fields": 0,
+            "trimmed_trailing_empty_fields": 0
+          },
+          "parsed_table_count": "",
+          "parsed_table_rows": "",
+          "raw_bytes": 1213,
+          "raw_sha256": "23792c6cabeb09d7ed34a82559c21f61ed3e5c4fa8a766604808e8c837c1857f",
+          "requested_dates": [
+            "20260728"
+          ],
+          "rows": 3,
+          "source": "institutional_fo",
+          "source_name": "",
+          "status": "ok",
+          "status_code": ""
+        },
+        {
+          "accepted": "",
+          "accepted_rows": "",
+          "attempt": 1,
+          "elapsed_seconds": "",
+          "encoding": "cp950",
+          "endpoint": "https://www.taifex.com.tw/cht/3/futContractsDateDown",
+          "error": "",
+          "exact_date_match": "",
+          "expected_response_date": "",
+          "family": "",
+          "fetched_at": "2026-07-30 12:13:27 Asia/Taipei",
+          "http_status": 200,
+          "logical_group": "",
+          "normalized_sha256": "426a2a02673782505f54171e6ca0481407669567356c5fc9d58f2a0ffd90d9bc",
+          "observed_response_dates": [
+            "20260728"
+          ],
+          "params": {
+            "queryEndDate": "2026/07/28",
+            "queryStartDate": "2026/07/28"
+          },
+          "parse_metadata": {
+            "data_rows": 69,
+            "header_columns": 15,
+            "rows_with_trimmed_trailing_empty_fields": 0,
+            "trimmed_trailing_empty_fields": 0
+          },
+          "parsed_table_count": "",
+          "parsed_table_rows": "",
+          "raw_bytes": 5870,
+          "raw_sha256": "56080ba843589e5af6d8885415606584eff1cfc76f1c9d8eef0e2e8ddc54f450",
+          "requested_dates": [
+            "20260728"
+          ],
+          "rows": 69,
+          "source": "futures_contracts",
+          "source_name": "",
+          "status": "ok",
+          "status_code": ""
+        },
+        {
+          "accepted": "",
+          "accepted_rows": "",
+          "attempt": 1,
+          "elapsed_seconds": "",
+          "encoding": "cp950",
+          "endpoint": "https://www.taifex.com.tw/cht/3/callsAndPutsDateDown",
+          "error": "",
+          "exact_date_match": "",
+          "expected_response_date": "",
+          "family": "",
+          "fetched_at": "2026-07-30 12:13:28 Asia/Taipei",
+          "http_status": 200,
+          "logical_group": "",
+          "normalized_sha256": "01d337e7db1ed43617c4684215f06f513b9f6ca5552d5ff98ea66e992e4bba0f",
+          "observed_response_dates": [
+            "20260728"
+          ],
+          "params": {
+            "queryEndDate": "2026/07/28",
+            "queryStartDate": "2026/07/28"
+          },
+          "parse_metadata": {
+            "data_rows": 30,
+            "header_columns": 16,
+            "rows_with_trimmed_trailing_empty_fields": 0,
+            "trimmed_trailing_empty_fields": 0
+          },
+          "parsed_table_count": "",
+          "parsed_table_rows": "",
+          "raw_bytes": 2501,
+          "raw_sha256": "7e04f776199bc9664d185bf193cb8217085f4c627be15288276679bef4ad8583",
+          "requested_dates": [
+            "20260728"
+          ],
+          "rows": 30,
+          "source": "options_call_put",
+          "source_name": "",
+          "status": "ok",
+          "status_code": ""
+        },
+        {
+          "accepted": "",
+          "accepted_rows": "",
+          "attempt": 1,
+          "elapsed_seconds": "",
+          "encoding": "cp950",
+          "endpoint": "https://www.taifex.com.tw/cht/3/pcRatioDown",
+          "error": "",
+          "exact_date_match": "",
+          "expected_response_date": "",
+          "family": "",
+          "fetched_at": "2026-07-30 12:13:28 Asia/Taipei",
+          "http_status": 200,
+          "logical_group": "",
+          "normalized_sha256": "6c9c29dc4b5e6b303536f3a4c8be8889443d1be00275f776d23c085f84857e6b",
+          "observed_response_dates": [
+            "20260728"
+          ],
+          "params": {
+            "queryEndDate": "2026/07/28",
+            "queryStartDate": "2026/07/28"
+          },
+          "parse_metadata": {
+            "data_rows": 1,
+            "header_columns": 7,
+            "rows_with_trimmed_trailing_empty_fields": 1,
+            "trimmed_trailing_empty_fields": 1
+          },
+          "parsed_table_count": "",
+          "parsed_table_rows": "",
+          "raw_bytes": 143,
+          "raw_sha256": "31746045621a17f16d562572898650527dd3f5d3a0bcb0b0ed4358ec9df6e242",
+          "requested_dates": [
+            "20260728"
+          ],
+          "rows": 1,
+          "source": "put_call_ratio",
+          "source_name": "",
+          "status": "ok",
+          "status_code": ""
+        },
+        {
+          "accepted": "",
+          "accepted_rows": "",
+          "attempt": "",
+          "elapsed_seconds": "",
+          "encoding": "cp950",
+          "endpoint": "https://www.taifex.com.tw/file/taifex/Dailydownload/vix/log2data/202602new.txt",
+          "error": "",
+          "exact_date_match": "",
+          "expected_response_date": "",
+          "family": "",
+          "fetched_at": "",
+          "http_status": "",
+          "logical_group": "",
+          "normalized_sha256": "9c8b794723e93316d4593fadf89e13ab4c6e27d87f4399c58a8601f11c0a6bf6",
+          "observed_response_dates": [
+            "20260728"
+          ],
+          "params": "",
+          "parse_metadata": "",
+          "parsed_table_count": "",
+          "parsed_table_rows": "",
+          "raw_bytes": "",
+          "raw_sha256": "99217abd21cae0ec777bf59d2370462836ef7de18d66f5465d6f4919f4fc0fb8",
+          "requested_dates": "",
+          "rows": 0,
+          "source": "taiwan_vix",
+          "source_name": "",
+          "status": "",
+          "status_code": ""
+        },
+        {
+          "accepted": "",
+          "accepted_rows": "",
+          "attempt": "",
+          "elapsed_seconds": "",
+          "encoding": "cp950",
+          "endpoint": "https://www.taifex.com.tw/file/taifex/Dailydownload/vix/log2data/202603new.txt",
+          "error": "",
+          "exact_date_match": "",
+          "expected_response_date": "",
+          "family": "",
+          "fetched_at": "",
+          "http_status": "",
+          "logical_group": "",
+          "normalized_sha256": "9c8b794723e93316d4593fadf89e13ab4c6e27d87f4399c58a8601f11c0a6bf6",
+          "observed_response_dates": [
+            "20260728"
+          ],
+          "params": "",
+          "parse_metadata": "",
+          "parsed_table_count": "",
+          "parsed_table_rows": "",
+          "raw_bytes": "",
+          "raw_sha256": "99217abd21cae0ec777bf59d2370462836ef7de18d66f5465d6f4919f4fc0fb8",
+          "requested_dates": "",
+          "rows": 0,
+          "source": "taiwan_vix",
+          "source_name": "",
+          "status": "",
+          "status_code": ""
+        },
+        {
+          "accepted": "",
+          "accepted_rows": "",
+          "attempt": "",
+          "elapsed_seconds": "",
+          "encoding": "cp950",
+          "endpoint": "https://www.taifex.com.tw/file/taifex/Dailydownload/vix/log2data/202604new.txt",
+          "error": "",
+          "exact_date_match": "",
+          "expected_response_date": "",
+          "family": "",
+          "fetched_at": "",
+          "http_status": "",
+          "logical_group": "",
+          "normalized_sha256": "eee50853359b151757795a359885a79a49a5d413a2bc8e89fc9848657f53eec8",
+          "observed_response_dates": [
+            "20260728"
+          ],
+          "params": "",
+          "parse_metadata": "",
+          "parsed_table_count": "",
+          "parsed_table_rows": "",
+          "raw_bytes": "",
+          "raw_sha256": "d90b4219510d196c229396a7879659f4357399e43eb96c6c6384c58dc48a9a78",
+          "requested_dates": "",
+          "rows": 20,
+          "source": "taiwan_vix",
+          "source_name": "",
+          "status": "",
+          "status_code": ""
+        },
+        {
+          "accepted": "",
+          "accepted_rows": "",
+          "attempt": "",
+          "elapsed_seconds": "",
+          "encoding": "cp950",
+          "endpoint": "https://www.taifex.com.tw/file/taifex/Dailydownload/vix/log2data/202605new.txt",
+          "error": "",
+          "exact_date_match": "",
+          "expected_response_date": "",
+          "family": "",
+          "fetched_at": "",
+          "http_status": "",
+          "logical_group": "",
+          "normalized_sha256": "c2cb5a09cd6c92229bba7a3120b38066db81afd1853f41768a841ff60605de04",
+          "observed_response_dates": [
+            "20260728"
+          ],
+          "params": "",
+          "parse_metadata": "",
+          "parsed_table_count": "",
+          "parsed_table_rows": "",
+          "raw_bytes": "",
+          "raw_sha256": "3067a6be7e95fbce54d2078f9d90601d9503cce7443e7bda6f56ac61f46b71d1",
+          "requested_dates": "",
+          "rows": 20,
+          "source": "taiwan_vix",
+          "source_name": "",
+          "status": "",
+          "status_code": ""
+        },
+        {
+          "accepted": "",
+          "accepted_rows": "",
+          "attempt": "",
+          "elapsed_seconds": "",
+          "encoding": "cp950",
+          "endpoint": "https://www.taifex.com.tw/file/taifex/Dailydownload/vix/log2data/202606new.txt",
+          "error": "",
+          "exact_date_match": "",
+          "expected_response_date": "",
+          "family": "",
+          "fetched_at": "",
+          "http_status": "",
+          "logical_group": "",
+          "normalized_sha256": "4a55133df0586c71ad129765ae78f517cb5e9f09b158778e5686d10b733bcb07",
+          "observed_response_dates": [
+            "20260728"
+          ],
+          "params": "",
+          "parse_metadata": "",
+          "parsed_table_count": "",
+          "parsed_table_rows": "",
+          "raw_bytes": "",
+          "raw_sha256": "b7fa355126982960b0e50ec38f69cb72a501813632cd76e556fd3e4040c7cbcc",
+          "requested_dates": "",
+          "rows": 21,
+          "source": "taiwan_vix",
+          "source_name": "",
+          "status": "",
+          "status_code": ""
+        },
+        {
+          "accepted": "",
+          "accepted_rows": "",
+          "attempt": "",
+          "elapsed_seconds": "",
+          "encoding": "cp950",
+          "endpoint": "https://www.taifex.com.tw/file/taifex/Dailydownload/vix/log2data/202607new.txt",
+          "error": "",
+          "exact_date_match": "",
+          "expected_response_date": "",
+          "family": "",
+          "fetched_at": "",
+          "http_status": "",
+          "logical_group": "",
+          "normalized_sha256": "7f9a6da7548a346d3cbe20567489993efc0ec3694bd446f271f93efdefa9488c",
+          "observed_response_dates": [
+            "20260728"
+          ],
+          "params": "",
+          "parse_metadata": "",
+          "parsed_table_count": "",
+          "parsed_table_rows": "",
+          "raw_bytes": "",
+          "raw_sha256": "47d0cfa05ef563a4cd8862572c994b17ed66a18417e9b36cfa64b6069d1a788b",
+          "requested_dates": "",
+          "rows": 20,
+          "source": "taiwan_vix",
+          "source_name": "",
+          "status": "",
+          "status_code": ""
+        }
+      ],
+      "validation_status": "pass"
+    },
+    {
+      "accepted_source_response_count": 3,
+      "accepted_source_responses": [
+        {
+          "accepted": true,
+          "accepted_rows": 27364,
+          "endpoint": "https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20260728&type=0999&response=json",
+          "exact_date_match": true,
+          "family": "quote",
+          "fetched_at": "2026-07-30 12:13:58 Asia/Taipei",
+          "logical_group": "quote-0999",
+          "normalized_sha256": "d60faff306b252d9b03287b7314e496ed94995015a24c939b4b98c75516f29f0",
+          "observed_response_dates": [
+            "20260728"
+          ],
+          "raw_sha256": "d60faff306b252d9b03287b7314e496ed94995015a24c939b4b98c75516f29f0",
+          "source": "",
+          "source_name": "TWSE_MI_INDEX_0999_JSON"
+        },
+        {
+          "accepted": true,
+          "accepted_rows": 2244,
+          "endpoint": "https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20260728&type=0999P&response=json",
+          "exact_date_match": true,
+          "family": "quote",
+          "fetched_at": "2026-07-30 12:14:00 Asia/Taipei",
+          "logical_group": "quote-0999P",
+          "normalized_sha256": "f0909610f596a4201139bd3a5c83ef5863c4c02443e17e92c4448cec4a179699",
+          "observed_response_dates": [
+            "20260728"
+          ],
+          "raw_sha256": "f0909610f596a4201139bd3a5c83ef5863c4c02443e17e92c4448cec4a179699",
+          "source": "",
+          "source_name": "TWSE_MI_INDEX_0999P_JSON"
+        },
+        {
+          "accepted": true,
+          "accepted_rows": 29673,
+          "endpoint": "https://www.twse.com.tw/rwd/zh/stock/warrantStock?date=20260728&response=json",
+          "exact_date_match": true,
+          "family": "mapping",
+          "fetched_at": "2026-07-30 12:14:11 Asia/Taipei",
+          "logical_group": "mapping",
+          "normalized_sha256": "84add3fa3a9a8f6f74f97994053eacc24373ff2d6df80af435d84a1fd236fdc6",
+          "observed_response_dates": [
+            "20260728"
+          ],
+          "raw_sha256": "84add3fa3a9a8f6f74f97994053eacc24373ff2d6df80af435d84a1fd236fdc6",
+          "source": "",
+          "source_name": "TWSE_WARRANT_STOCK_JSON"
+        }
+      ],
+      "after_tail": "20260728",
+      "as_published": false,
+      "before_tail": "20260727",
+      "endpoint": [
+        "https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20260728&type=0999&response=json",
+        "https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20260728&type=0999P&response=json",
+        "https://www.twse.com.tw/rwd/zh/stock/warrantStock?date=20260728&response=json"
+      ],
+      "fallback_used": false,
+      "fetched_at": [
+        "2026-07-30 12:13:58 Asia/Taipei",
+        "2026-07-30 12:14:00 Asia/Taipei",
+        "2026-07-30 12:14:11 Asia/Taipei"
+      ],
+      "future_rows_used": false,
+      "normalized_sha256": "f1f5bcb43cc77be8ddf303a84be03f1de521c6dbd5fb3f325541fdf76fee7959",
+      "observed_dates": [
+        "20260728"
+      ],
+      "output_evidence": {
+        "components": [
+          {
+            "component_id": "warrant_raw_and_flow_dated",
+            "future_row_count": 0,
+            "future_rows_excluded_from_slice": true,
+            "member_count": 2,
+            "pk_unique": true,
+            "row_count": 30092,
+            "slice_manifest_sha256": "2874e294de83a97408e5139a5b8a6a6c34d0a5fa3a412c2a33321b42b6e34a6c"
+          }
+        ],
+        "future_row_count": 0,
+        "future_rows_excluded_from_slice": true,
+        "output_sha256": "3d45c78247ad8d1d5603887f377a2585e500433ab70616afc3121a8e969e6af9",
+        "pk_unique": true,
+        "row_count": 30092,
+        "target_date": "20260728"
+      },
+      "output_sha256": "3d45c78247ad8d1d5603887f377a2585e500433ab70616afc3121a8e969e6af9",
+      "params": [
+        {
+          "date": "20260728",
+          "response": "json",
+          "type": "0999"
+        },
+        {
+          "date": "20260728",
+          "response": "json",
+          "type": "0999P"
+        },
+        {
+          "date": "20260728",
+          "response": "json"
+        }
+      ],
+      "pk_unique": true,
+      "preserved_target_slice_evidence": {},
+      "price_history_high_water_date": "",
+      "publication_status": "reconstructed_not_as_published",
+      "raw_sha256": "f1f5bcb43cc77be8ddf303a84be03f1de521c6dbd5fb3f325541fdf76fee7959",
+      "requested_dates": [
+        "20260728"
+      ],
+      "row_count": 30092,
+      "source_attempt_count": 3,
+      "source_id": "official_warrant_daily",
+      "source_response_attempts": [
+        {
+          "accepted": true,
+          "accepted_rows": 27364,
+          "attempt": 1,
+          "elapsed_seconds": 3.337839,
+          "encoding": "utf-8",
+          "endpoint": "https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20260728&type=0999&response=json",
+          "error": "",
+          "exact_date_match": true,
+          "expected_response_date": "20260728",
+          "family": "quote",
+          "fetched_at": "2026-07-30 12:13:58 Asia/Taipei",
+          "http_status": "",
+          "logical_group": "quote-0999",
+          "normalized_sha256": "d60faff306b252d9b03287b7314e496ed94995015a24c939b4b98c75516f29f0",
+          "observed_response_dates": [
+            "20260728"
+          ],
+          "params": {
+            "date": "20260728",
+            "response": "json",
+            "type": "0999"
+          },
+          "parse_metadata": "",
+          "parsed_table_count": 2,
+          "parsed_table_rows": 27367,
+          "raw_bytes": 4525927,
+          "raw_sha256": "d60faff306b252d9b03287b7314e496ed94995015a24c939b4b98c75516f29f0",
+          "requested_dates": "",
+          "rows": "",
+          "source": "",
+          "source_name": "TWSE_MI_INDEX_0999_JSON",
+          "status": "accepted",
+          "status_code": 200
+        },
+        {
+          "accepted": true,
+          "accepted_rows": 2244,
+          "attempt": 1,
+          "elapsed_seconds": 1.491736,
+          "encoding": "utf-8",
+          "endpoint": "https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20260728&type=0999P&response=json",
+          "error": "",
+          "exact_date_match": true,
+          "expected_response_date": "20260728",
+          "family": "quote",
+          "fetched_at": "2026-07-30 12:14:00 Asia/Taipei",
+          "http_status": "",
+          "logical_group": "quote-0999P",
+          "normalized_sha256": "f0909610f596a4201139bd3a5c83ef5863c4c02443e17e92c4448cec4a179699",
+          "observed_response_dates": [
+            "20260728"
+          ],
+          "params": {
+            "date": "20260728",
+            "response": "json",
+            "type": "0999P"
+          },
+          "parse_metadata": "",
+          "parsed_table_count": 2,
+          "parsed_table_rows": 2247,
+          "raw_bytes": 382817,
+          "raw_sha256": "f0909610f596a4201139bd3a5c83ef5863c4c02443e17e92c4448cec4a179699",
+          "requested_dates": "",
+          "rows": "",
+          "source": "",
+          "source_name": "TWSE_MI_INDEX_0999P_JSON",
+          "status": "accepted",
+          "status_code": 200
+        },
+        {
+          "accepted": true,
+          "accepted_rows": 29673,
+          "attempt": 1,
+          "elapsed_seconds": 10.280523,
+          "encoding": "utf-8",
+          "endpoint": "https://www.twse.com.tw/rwd/zh/stock/warrantStock?date=20260728&response=json",
+          "error": "",
+          "exact_date_match": true,
+          "expected_response_date": "20260728",
+          "family": "mapping",
+          "fetched_at": "2026-07-30 12:14:11 Asia/Taipei",
+          "http_status": "",
+          "logical_group": "mapping",
+          "normalized_sha256": "84add3fa3a9a8f6f74f97994053eacc24373ff2d6df80af435d84a1fd236fdc6",
+          "observed_response_dates": [
+            "20260728"
+          ],
+          "params": {
+            "date": "20260728",
+            "response": "json"
+          },
+          "parse_metadata": "",
+          "parsed_table_count": 2,
+          "parsed_table_rows": 29676,
+          "raw_bytes": 7100984,
+          "raw_sha256": "84add3fa3a9a8f6f74f97994053eacc24373ff2d6df80af435d84a1fd236fdc6",
+          "requested_dates": "",
+          "rows": "",
+          "source": "",
+          "source_name": "TWSE_WARRANT_STOCK_JSON",
+          "status": "accepted",
+          "status_code": 200
+        }
+      ],
+      "validation_status": "pass"
+    }
+  ]
+}
