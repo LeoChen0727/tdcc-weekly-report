@@ -639,43 +639,9 @@ def validate_historical_source_replay_workflow(text: str) -> list[str]:
         if literal not in text:
             errors.append(f"historical structured-source replay {purpose}: missing {literal!r}")
 
-    repair_input = re.search(
-        r"(?ms)^      repair_market_index_base_date:\s*$\n"
-        r"(?P<body>.*?)(?=^      [A-Za-z_][A-Za-z0-9_]*:\s*$)",
-        text,
-    )
-    if repair_input is None:
-        errors.append(
-            "historical structured-source replay must define repair_market_index_base_date input"
-        )
-    else:
-        repair_body = repair_input.group("body")
-        required_false = re.findall(r"(?m)^        required: false\s*$", repair_body)
-        required_true = re.findall(r"(?m)^        required: true\s*$", repair_body)
-        empty_default = re.findall(r'(?m)^        default: ""\s*$', repair_body)
-        nonempty_default = re.findall(
-            r'(?m)^        default: "[^\"]+"\s*$',
-            repair_body,
-        )
-        if (
-            len(required_false) != 1
-            or required_true
-            or len(empty_default) != 1
-            or nonempty_default
-        ):
-            errors.append(
-                "historical structured-source replay repair_market_index_base_date "
-                "must remain optional with an empty default"
-            )
-
     if text.count("python scripts/validate_historical_structured_source_replay.py") != 2:
         errors.append(
             "historical structured-source replay must run the final validator exactly before commit and after push"
-        )
-    if text.count('--repair-market-index-base-date "$BASE_REPAIR_DATE"') != 3:
-        errors.append(
-            "historical structured-source replay must pass the optional base repair "
-            "to the producer and both final-validator calls exactly"
         )
     if len(re.findall(r"(?m)^\s*git commit\s", text)) != 1:
         errors.append("historical structured-source replay must create exactly one Git commit")

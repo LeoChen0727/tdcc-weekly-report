@@ -1,12 +1,17 @@
 from __future__ import annotations
 
 import json
+from pathlib import Path
 
 import pandas as pd
 import pytest
 
 from scripts import replay_historical_structured_sources as replay
 from scripts import validate_historical_structured_source_replay as validator
+
+
+ROOT = Path(__file__).resolve().parents[1]
+WORKFLOW = ROOT / ".github" / "workflows" / "historical_structured_source_replay.yml"
 
 
 def test_manifest_rejects_wrong_replay_id_and_pipeline_sha(tmp_path) -> None:
@@ -189,6 +194,18 @@ def test_recorded_baseline_rejects_wrong_required_tail_without_live_reads(
     )
 
     assert any("warrant_flow=20260723" in error for error in errors)
+
+
+def test_workflow_keeps_base_repair_optional_and_routes_it_exactly() -> None:
+    text = WORKFLOW.read_text(encoding="utf-8")
+    block = text.split("repair_market_index_base_date:", 1)[1].split(
+        "expected_main_sha:", 1
+    )[0]
+
+    assert block.count("required: false") == 1
+    assert "required: true" not in block
+    assert block.count('default: ""') == 1
+    assert text.count('--repair-market-index-base-date "$BASE_REPAIR_DATE"') == 3
 
 
 def _preserve_manifest_payload(expected_sha: str, fingerprints: dict) -> dict:

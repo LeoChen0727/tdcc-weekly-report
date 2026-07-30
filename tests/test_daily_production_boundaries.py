@@ -1353,48 +1353,6 @@ def test_historical_structured_source_replay_workflow_wires_optional_price_high_
     assert "git add output/latest/official_daily_price_latest.csv" in text
 
 
-def test_historical_structured_source_replay_workflow_keeps_base_repair_optional() -> None:
-    text = boundaries.HISTORICAL_SOURCE_REPLAY_WORKFLOW.read_text(encoding="utf-8")
-
-    assert boundaries.validate_historical_source_replay_workflow(text) == []
-    block = text.split("repair_market_index_base_date:", 1)[1].split(
-        "expected_main_sha:", 1
-    )[0]
-    assert "required: false" in block
-    assert 'default: ""' in block
-    assert text.count('--repair-market-index-base-date "$BASE_REPAIR_DATE"') == 3
-
-
-def test_historical_structured_source_replay_rejects_required_base_repair_input() -> None:
-    text = boundaries.HISTORICAL_SOURCE_REPLAY_WORKFLOW.read_text(encoding="utf-8")
-    text = text.replace(
-        'repair_market_index_base_date:\n        description: "Optional',
-        'repair_market_index_base_date:\n        required: true\n        description: "Optional',
-        1,
-    )
-
-    errors = boundaries.validate_historical_source_replay_workflow(text)
-
-    assert any("must remain optional with an empty default" in error for error in errors)
-
-
-def test_historical_structured_source_replay_rejects_nonempty_base_repair_default() -> None:
-    text = boundaries.HISTORICAL_SOURCE_REPLAY_WORKFLOW.read_text(encoding="utf-8")
-    text = text.replace(
-        'description: "Optional TPEX-only market-index base repair date in YYYYMMDD; leave empty for a contiguous replay"\n'
-        '        required: false\n'
-        '        default: ""',
-        'description: "Optional TPEX-only market-index base repair date in YYYYMMDD; leave empty for a contiguous replay"\n'
-        '        required: false\n'
-        '        default: "20260717"',
-        1,
-    )
-
-    errors = boundaries.validate_historical_source_replay_workflow(text)
-
-    assert any("must remain optional with an empty default" in error for error in errors)
-
-
 def test_historical_structured_source_replay_rejects_broad_stage_and_retry_push() -> None:
     text = boundaries.HISTORICAL_SOURCE_REPLAY_WORKFLOW.read_text(encoding="utf-8")
     text += "\nrun: git add -A\nrun: scripts/ci_push_with_retry.sh\n"
