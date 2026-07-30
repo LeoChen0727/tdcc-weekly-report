@@ -21,7 +21,6 @@ def test_every_formal_snapshot_workflow_pins_an_explicit_revision_reason() -> No
             "daily_full_volume_v2_audit_sources",
             "daily_full_post_audit_artifacts",
         ),
-        "event_catalyst_update.yml": ("event_catalyst_formal_sync",),
         "weekly_theme_review.yml": ("weekly_theme_formal_sync",),
         "warrant_flow.yml": ("warrant_formal_sync",),
     }

@@ -46,3 +46,24 @@ If the status escalates to `failed`, the integrity validator still hard-fails. T
 ## Report Source Priority
 
 ChatGPT and downstream report readers should use original structured data first: packet fields, CSV/raw URLs, signal logs, warrant tables, market tables, catalyst source logs, and validation files. PDF files are auxiliary/shareable outputs. If raw/source tables cannot be read and only PDF content is used, the report must disclose that at the beginning.
+
+## Historical Recovery Boundary
+
+`Event Catalyst Update` is an event/catalyst source-only producer. It refreshes the
+registered event and calendar source tables, validates the source schemas, and stages
+only paths accepted by `scripts/validate_event_catalyst_source_refresh_scope.py`. It
+does not build daily candidate models, ranking artifacts, model snapshots, catalyst
+performance, or PDF content.
+
+The fixed failure evidence for 20260720 through 20260724 is stored in
+`config/event_catalyst_historical_recovery_failures.csv`. Because the failed runners
+generated source tables only inside an ephemeral runner and skipped the commit step,
+no point-in-time/as-published event/catalyst artifact is recoverable for those dates.
+`scripts/build_event_catalyst_historical_recovery_manifest.py` therefore records each
+date as `blocked_authoritative_history`; it does not rebuild historical content.
+`scripts/validate_event_catalyst_historical_recovery_manifest.py` requires
+`current_value_backfill_allowed=false`,
+`runner_uncommitted_sources_irrecoverable=true`, and the existing historical replay
+evidence that forbids `event_as_published` and `catalyst_as_published`
+reconstruction. Current source refreshes remain disclosure-only context and must not
+be retro-dated to fill these historical gaps.

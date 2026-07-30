@@ -40,163 +40,53 @@ jobs:
           python -m pip install --upgrade pip
           pip install pandas requests openpyxl tabulate lxml html5lib beautifulsoup4
 
-      - name: Prepare catalyst data tables
+      - name: Prepare event catalyst source tables
         run: |
           build_base_sha="$(git rev-parse HEAD)"
           echo "BUILD_BASE_SHA=$build_base_sha" >> "$GITHUB_ENV"
-          echo "event_catalyst_formal_sync_base_sha=$build_base_sha"
-          mature_sentinel_before="$RUNNER_TEMP/event-catalyst-mature-model-before.sha256"
-          mature_sentinel_after="$RUNNER_TEMP/event-catalyst-mature-model-after.sha256"
-          mature_sentinel_patterns=(
-            "config/stock_model_contract_registry.csv"
-            "config/formal_model_evidence_pins.csv"
-            "output/latest/daily_candidate_model_parameters_latest.csv"
-            "docs/latest/daily_candidate_model_parameters_latest.csv"
-            "output/latest/daily_report_model_registry_latest.csv"
-            "output/latest/daily_report_model_registry_latest.md"
-            "docs/latest/daily_report_model_registry_latest.csv"
-            "docs/latest/daily_report_model_registry_latest.md"
-            "docs/specs/w_bottom_right_side_early_entry_operation_spec.md"
-            "docs/specs/neckline_volume_breakout_confirmation_model_change_spec.md"
-            "docs/specs/price_pullback_23ema_operation_candidate_spec.md"
-            "output/latest/approved_operation_patterns_latest.*"
-            "docs/latest/approved_operation_patterns_latest.*"
-            "output/latest/model_operation_readiness_latest.*"
-            "docs/latest/model_operation_readiness_latest.*"
-            "output/latest/daily_volume_breakout_operation_*_latest.*"
-            "docs/latest/daily_volume_breakout_operation_*_latest.*"
-            "output/latest/daily_w_bottom_right_side_operation_*_latest.*"
-            "docs/latest/daily_w_bottom_right_side_operation_*_latest.*"
-            "output/latest/daily_neckline_volume_breakout_confirmation_operation_*_latest.*"
-            "docs/latest/daily_neckline_volume_breakout_confirmation_operation_*_latest.*"
-            "output/latest/daily_price_pullback_23ema_operation_*_latest.*"
-            "docs/latest/daily_price_pullback_23ema_operation_*_latest.*"
-            "output/latest/mature_model_row_level_metric_*_latest.*"
-            "docs/latest/mature_model_row_level_metric_*_latest.*"
-            "output/latest/research_backtest/volume_range_breakout_v2_candidate_bucket_contract_latest.csv"
-            "output/latest/research_backtest/volume_range_breakout_v2_high_position_improvement_audit_latest.csv"
-            "output/history/daily_model_snapshots/daily_volume_breakout_operation_section_*.csv"
-            "output/history/daily_model_snapshots/daily_volume_breakout_operation_evidence_audit_*.csv"
-            "output/history/daily_model_snapshots/daily_w_bottom_right_side_operation_section_*.csv"
-            "output/history/daily_model_snapshots/daily_neckline_volume_breakout_confirmation_operation_section_*.csv"
-          )
-          capture_mature_sentinels() {
-            local output_file="$1"
-            local pattern artifact
-            local -a matches
-            : > "$output_file"
-            shopt -s nullglob
-            for pattern in "${mature_sentinel_patterns[@]}"; do
-              matches=( $pattern )
-              if [[ ${#matches[@]} -eq 0 ]]; then
-                echo "missing required mature-model sentinel pattern: $pattern" >&2
-                exit 1
-              fi
-              for artifact in "${matches[@]}"; do
-                sha256sum "$artifact" >> "$output_file"
-              done
-            done
-            shopt -u nullglob
-            python - <<'PY' >> "$output_file"
-          import csv
-          import hashlib
-          import json
+          echo "event_catalyst_source_refresh_base_sha=$build_base_sha"
 
-          protected_ids = {
-              "volume_breakout_operation_section",
-              "volume_breakout_operation_evidence_audit",
-              "w_bottom_right_side_operation_section",
-              "neckline_volume_breakout_confirmation_operation_section",
-          }
-          manifest_path = "output/history/daily_model_snapshots/daily_published_model_snapshot_manifest.csv"
-          with open(manifest_path, encoding="utf-8-sig", newline="") as handle:
-              rows = [row for row in csv.DictReader(handle) if row.get("artifact_id") in protected_ids]
-          if not rows:
-              raise SystemExit("missing protected mature-model snapshot manifest rows")
-          for row in rows:
-              row["snapshot_revision"] = row.get("snapshot_revision") or "r1"
-              row["supersedes_snapshot_sha256"] = row.get("supersedes_snapshot_sha256") or ""
-              row["revision_reason"] = row.get("revision_reason") or (
-                  "legacy_v1_manifest" if row["snapshot_revision"] == "r1" else ""
-              )
-          for row in sorted(rows, key=lambda item: (item.get("snapshot_report_date", ""), item.get("artifact_id", ""), item.get("snapshot_revision", ""))):
-              payload = json.dumps(row, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
-              digest = hashlib.sha256(payload.encode("utf-8")).hexdigest()
-              print(f"{digest}  manifest:{row.get('snapshot_report_date', '')}:{row.get('artifact_id', '')}:{row.get('snapshot_revision', '')}")
-          PY
-            LC_ALL=C sort -k2,2 -u "$output_file" -o "$output_file"
-          }
-          python scripts/validate_data_freshness_latest.py
-          python scripts/validate_daily_published_model_snapshots.py
-          capture_mature_sentinels "$mature_sentinel_before"
-          formal_sync_scope_before="$RUNNER_TEMP/event-catalyst-formal-sync-scope-before.json"
-          python scripts/validate_daily_event_catalyst_formal_sync_scope.py \
-            --write-snapshot "$formal_sync_scope_before"
           python scripts/update_event_catalyst_data.py
           python scripts/update_event_calendar_data.py
-          python scripts/apply_fundamental_catalyst_layer.py
-          python scripts/update_catalyst_performance.py
+          python scripts/validate_event_catalyst_overlay_contract.py
           python scripts/validate_event_calendar_data.py
-          python scripts/validate_catalyst_layer.py
-          python scripts/build_daily_candidate_model_layer.py
-          python scripts/validate_daily_candidate_model_layer.py
-          python scripts/validate_revenue_unreacted_range_financial_statement_fail_closed.py
-          python scripts/build_daily_report_model_summary.py
-          python scripts/audit_daily_candidate_model_selection_correctness.py
-          python scripts/audit_daily_candidate_pipeline_integrity.py
-          python scripts/build_theme_event_watch.py
-          python scripts/update_daily_published_model_snapshots.py \
-            --revision-reason event_catalyst_formal_sync \
-            --artifact-id data_freshness \
-            --artifact-id model_signals_for_report \
-            --artifact-id all_candidates_source_rows \
-            --artifact-id model_summary_for_report
-          python scripts/validate_daily_published_model_snapshots.py
-          python scripts/sync_catalyst_pages_artifacts.py
-          python scripts/build_chatgpt_indicator_usage_guide.py
+          python scripts/validate_catalyst_layer.py --schema-only
+          python scripts/validate_daily_production_boundaries.py
+
+          if [ ! -f output/latest/event_catalyst_historical_recovery_latest.json ]; then
+            recovery_id="github-run-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+            workflow_run_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+            python scripts/build_event_catalyst_historical_recovery_manifest.py \
+              --recovery-id "$recovery_id" \
+              --workflow-run-id "$GITHUB_RUN_ID" \
+              --workflow-run-url "$workflow_run_url"
+          fi
+
           mkdir -p docs/latest
-          for artifact in \
-            daily_candidate_model_parameters_latest.csv \
-            daily_candidate_model_parameters_latest.md \
-            daily_candidate_model_signals_latest.csv \
-            daily_candidate_model_signals_latest.md \
-            daily_candidate_model_signals_for_report_latest.csv \
-            daily_candidate_model_signals_for_report_latest.md \
-            daily_candidate_frontpage_unique_latest.csv \
-            daily_candidate_frontpage_unique_latest.md \
-            daily_candidate_same_model_repeat_latest.csv \
-            daily_candidate_same_model_repeat_latest.md \
-            daily_candidate_model_layer_packet_latest.md \
-            daily_candidate_model_layer_validation_latest.json \
-            daily_candidate_model_layer_validation_latest.md \
-            daily_candidate_model_selection_audit_latest.json \
-            daily_candidate_model_selection_audit_latest.md \
-            daily_candidate_pipeline_integrity_audit_latest.json \
-            daily_candidate_pipeline_integrity_audit_latest.md \
-            daily_candidate_group_rotation_latest.csv \
-            daily_candidate_group_rotation_latest.md \
-            daily_report_model_registry_latest.csv \
-            daily_report_model_registry_latest.md \
-            daily_candidate_model_summary_for_report_latest.csv \
-            daily_candidate_model_summary_for_report_latest.md
-          do
+          source_artifacts=(
+            upcoming_catalyst_calendar_latest.csv
+            upcoming_catalyst_calendar_latest.md
+            upcoming_macro_event_calendar_latest.csv
+            upcoming_macro_event_calendar_latest.md
+            calendar_data_source_status_latest.json
+            calendar_data_source_status_latest.md
+            catalyst_data_source_status_latest.json
+            catalyst_data_source_status_latest.md
+            catalyst_needs_review_latest.csv
+            catalyst_needs_review_latest.md
+            event_calendar_validation_latest.json
+            event_calendar_validation_latest.md
+            catalyst_layer_validation_latest.json
+            catalyst_layer_validation_latest.md
+            event_catalyst_historical_recovery_latest.json
+            event_catalyst_historical_recovery_latest.md
+          )
+          for artifact in "${source_artifacts[@]}"; do
             cp "output/latest/$artifact" "docs/latest/$artifact"
           done
-          python scripts/validate_daily_event_catalyst_formal_sync_scope.py \
-            --compare-snapshot "$formal_sync_scope_before"
-          capture_mature_sentinels "$mature_sentinel_after"
-          mature_sentinel_before_sha256="$(sha256sum "$mature_sentinel_before" | cut -d' ' -f1)"
-          mature_sentinel_after_sha256="$(sha256sum "$mature_sentinel_after" | cut -d' ' -f1)"
-          echo "mature_model_sentinel_before_sha256=$mature_sentinel_before_sha256"
-          echo "mature_model_sentinel_after_sha256=$mature_sentinel_after_sha256"
-          echo "mature_model_sentinel_artifact_count=$(wc -l < "$mature_sentinel_after")"
-          cmp --silent "$mature_sentinel_before" "$mature_sentinel_after" || {
-            diff -u "$mature_sentinel_before" "$mature_sentinel_after" || true
-            echo "mature-model sentinel hash drift detected" >&2
-            exit 1
-          }
+          python scripts/validate_event_catalyst_historical_recovery_manifest.py
 
-      - name: Commit catalyst data tables
+      - name: Commit catalyst source tables
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
@@ -205,91 +95,48 @@ jobs:
           git add data/macro_events/ || true
           git add data/fundamental_catalysts/ || true
           git add data/event_catalysts/ || true
-          git add output/latest/upcoming_catalyst_calendar_latest.csv || true
-          git add output/latest/upcoming_catalyst_calendar_latest.md || true
-          git add output/latest/upcoming_macro_event_calendar_latest.csv || true
-          git add output/latest/upcoming_macro_event_calendar_latest.md || true
-          git add output/latest/calendar_data_source_status_latest.md || true
-          git add output/latest/calendar_data_source_status_latest.json || true
-          git add output/latest/catalyst_needs_review_latest.csv || true
-          git add output/latest/catalyst_needs_review_latest.md || true
-          git add output/latest/all_candidates_latest.csv || true
-          git add output/latest/all_candidates_latest.xlsx || true
-          git add output/latest/fundamental_catalyst_layer_latest.md || true
-          git add output/latest/catalyst_summary_latest.csv || true
-          git add output/latest/catalyst_summary_latest.md || true
-          git add output/latest/chatgpt_indicator_usage_guide_latest.md || true
-          git add output/latest/CHATGPT_INDICATOR_USAGE_GUIDE.txt || true
-          git add output/history/catalyst_performance/ || true
-          git add output/latest/theme_event_watch_latest.csv || true
-          git add output/latest/theme_event_watch_latest.md || true
-          git add output/latest/event_calendar_validation_latest.md || true
-          git add output/latest/event_calendar_validation_latest.json || true
-          git add output/latest/catalyst_data_source_status_latest.md || true
-          git add output/latest/catalyst_data_source_status_latest.json || true
-          git add output/latest/catalyst_layer_validation_latest.md || true
-          git add output/latest/catalyst_layer_validation_latest.json || true
-          git add output/latest/daily_candidate_model_parameters_latest.* || true
-          git add output/latest/daily_candidate_model_signals_latest.* || true
-          git add output/latest/daily_candidate_model_signals_for_report_latest.* || true
-          git add output/latest/daily_candidate_frontpage_unique_latest.* || true
-          git add output/latest/daily_candidate_same_model_repeat_latest.* || true
-          git add output/latest/daily_candidate_model_layer_packet_latest.md || true
-          git add output/latest/daily_candidate_model_layer_validation_latest.* || true
-          git add output/latest/daily_candidate_model_selection_audit_latest.* || true
-          git add output/latest/daily_candidate_pipeline_integrity_audit_latest.* || true
-          git add output/latest/daily_candidate_group_rotation_latest.* || true
-          git add output/latest/daily_report_model_registry_latest.* || true
-          git add output/latest/daily_candidate_model_summary_for_report_latest.* || true
-          git add output/history/daily_candidate_models/daily_candidate_model_signal_log.csv || true
-          snapshot_report_date="$(python -c 'import sys; sys.path.insert(0, "scripts"); from tracking_utils import normalize_date; import pandas as pd; print(normalize_date(pd.read_csv("output/latest/data_freshness_latest.csv", dtype=str).iloc[0]["main_price_date"]))')"
-          if [[ ! "$snapshot_report_date" =~ ^[0-9]{8}$ ]]; then
-            echo "Invalid snapshot report date: $snapshot_report_date" >&2
-            exit 1
-          fi
-          python scripts/stage_daily_published_snapshot_revisions.py \
-            --report-date "$snapshot_report_date" \
-            --artifact-id data_freshness \
-            --artifact-id model_signals_for_report \
-            --artifact-id all_candidates_source_rows \
-            --artifact-id model_summary_for_report
-          git add docs/latest/fundamental_catalyst_layer_latest.md || true
-          git add docs/latest/theme_event_watch_latest.* || true
-          git add docs/latest/upcoming_catalyst_calendar_latest.* || true
-          git add docs/latest/upcoming_macro_event_calendar_latest.* || true
-          git add docs/latest/catalyst_summary_latest.* || true
-          git add docs/latest/catalyst_needs_review_latest.* || true
-          git add docs/latest/event_calendar_validation_latest.* || true
-          git add docs/latest/catalyst_layer_validation_latest.* || true
-          git add docs/latest/catalyst_data_source_status_latest.* || true
-          git add docs/latest/calendar_data_source_status_latest.* || true
-          git add docs/latest/daily_candidate_model_* || true
-          git add docs/latest/daily_candidate_frontpage_unique_latest.* || true
-          git add docs/latest/daily_candidate_same_model_repeat_latest.* || true
-          git add docs/latest/daily_candidate_pipeline_integrity_audit_latest.* || true
-          git add docs/latest/daily_candidate_group_rotation_latest.* || true
-          git add docs/latest/daily_report_model_registry_latest.* || true
-          git add docs/latest/chatgpt_indicator_usage_guide_latest.md || true
-          git add docs/latest/CHATGPT_INDICATOR_USAGE_GUIDE.txt || true
-          python scripts/validate_daily_staged_paths.py
-          python scripts/validate_daily_event_catalyst_formal_sync_scope.py --validate-staged
-          python scripts/validate_daily_published_model_snapshots.py
+          git add output/history/event_catalyst_recovery/ || true
+
+          source_artifacts=(
+            upcoming_catalyst_calendar_latest.csv
+            upcoming_catalyst_calendar_latest.md
+            upcoming_macro_event_calendar_latest.csv
+            upcoming_macro_event_calendar_latest.md
+            calendar_data_source_status_latest.json
+            calendar_data_source_status_latest.md
+            catalyst_data_source_status_latest.json
+            catalyst_data_source_status_latest.md
+            catalyst_needs_review_latest.csv
+            catalyst_needs_review_latest.md
+            event_calendar_validation_latest.json
+            event_calendar_validation_latest.md
+            catalyst_layer_validation_latest.json
+            catalyst_layer_validation_latest.md
+            event_catalyst_historical_recovery_latest.json
+            event_catalyst_historical_recovery_latest.md
+          )
+          for artifact in "${source_artifacts[@]}"; do
+            git add "output/latest/$artifact" "docs/latest/$artifact"
+          done
+
+          python scripts/validate_event_catalyst_source_refresh_scope.py
+          python scripts/validate_event_catalyst_historical_recovery_manifest.py
           python scripts/validate_no_conflict_markers.py
           if ! git diff --quiet; then
-            echo "Unstaged tracked files remain after event-catalyst formal sync staging" >&2
+            echo "Unstaged tracked files remain after event/catalyst source staging" >&2
             git status --short
             exit 1
           fi
           if [ -n "$(git ls-files --others --exclude-standard)" ]; then
-            echo "Untracked files remain after event-catalyst formal sync staging" >&2
+            echo "Untracked files remain after event/catalyst source staging" >&2
             git status --short
             exit 1
           fi
           if git diff --cached --quiet; then
-            echo "No staged event-catalyst changes to commit"
+            echo "No staged event/catalyst source changes to commit"
             echo "ARTIFACT_COMMIT_CREATED=false" >> "$GITHUB_ENV"
           else
-            git commit -m "Update event catalyst data tables"
+            git commit -m "Update event catalyst source tables"
             echo "ARTIFACT_COMMIT_CREATED=true" >> "$GITHUB_ENV"
           fi
           pushed_artifact_sha="$(git rev-parse HEAD)"
@@ -298,7 +145,7 @@ jobs:
           git fetch origin main
           current_origin_main="$(git rev-parse origin/main)"
           if [ "$current_origin_main" != "$BUILD_BASE_SHA" ]; then
-            echo "origin/main advanced after event-catalyst formal artifact build; refusing stale artifacts" >&2
+            echo "origin/main advanced after event/catalyst source build; refusing stale artifacts" >&2
             echo "build_base_sha=$BUILD_BASE_SHA current_origin_main=$current_origin_main" >&2
             exit 1
           fi
