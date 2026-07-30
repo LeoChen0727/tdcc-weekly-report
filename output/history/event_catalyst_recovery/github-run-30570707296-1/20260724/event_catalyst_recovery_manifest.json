@@ -1,0 +1,85 @@
+{
+  "as_published": false,
+  "authoritative_history_artifact_present": false,
+  "blocker_reason": "no_saved_point_in_time_or_as_published_event_catalyst_artifact",
+  "commit_step_state": "skipped",
+  "completion_state": "blocked_authoritative_history",
+  "current_source_refresh_context": {
+    "historical_backfill_effect_allowed": false,
+    "interpretation": "Current source status proves only the current refresh and must not be treated as target-date evidence.",
+    "status_artifacts": [
+      {
+        "generated_at": "2026-07-31 02:34:59 Asia/Taipei",
+        "path": "output/latest/catalyst_data_source_status_latest.json",
+        "status": "partial_ok"
+      },
+      {
+        "generated_at": "2026-07-31 02:35:05 Asia/Taipei",
+        "path": "output/latest/calendar_data_source_status_latest.json",
+        "status": ""
+      }
+    ]
+  },
+  "current_value_backfill_allowed": false,
+  "effect_policy": {
+    "allowed_effect": "disclosure_only",
+    "contract_path": "config/event_catalyst_overlay_contract.csv",
+    "contract_sha256": "2038b76f26583e82810d20e9677de9002555542808085477a3d1b7ad66f9ebfe",
+    "ranking_allowed": false,
+    "reason_text_allowed": false,
+    "requires_human_review": true,
+    "score_allowed": false
+  },
+  "failed_gate": "validate_daily_event_catalyst_formal_sync_scope:non_revenue_formal_signal_row_count_and_hash_drift",
+  "failed_head_sha": "1b768d4e74c3d83bdb45ecf5c27157e55b3ee75b",
+  "failed_runs": [
+    {
+      "run_id": "30055582037",
+      "url": "https://github.com/LeoChen0727/tdcc-weekly-report/actions/runs/30055582037"
+    },
+    {
+      "run_id": "30085323614",
+      "url": "https://github.com/LeoChen0727/tdcc-weekly-report/actions/runs/30085323614"
+    }
+  ],
+  "failed_step": "Prepare catalyst data tables",
+  "generated_at": "2026-07-31 02:35:23 Asia/Taipei",
+  "historical_content_reconstructed": false,
+  "historical_replay_evidence": {
+    "as_published": false,
+    "forbidden_reconstruction": [
+      "candidate_as_published",
+      "catalyst_as_published",
+      "event_as_published",
+      "model_as_published",
+      "pdf_as_published"
+    ],
+    "path": "output/history/historical_source_replay/github-run-30510020253-1/20260724/structured_source_manifest.json",
+    "pipeline_commit_sha": "f2ac085b0ac9b4a7b6c9f2c423dbf606615f6bd0",
+    "publication_status": "reconstructed_not_as_published",
+    "replay_id": "github-run-30510020253-1",
+    "sha256": "6ce0e5e8c9b579712ccf779106bced9a6ad8aeeb9942c7df0983ddc1f18efece"
+  },
+  "lineage": {
+    "evidence_contract_path": "config/event_catalyst_historical_recovery_failures.csv",
+    "evidence_contract_sha256": "7077fbe4eb53776c0059b9a6bf8b36926deb36e5ffea7093dc4dbb8b9910b5d5",
+    "producer": "scripts/build_event_catalyst_historical_recovery_manifest.py",
+    "recovery_id": "github-run-30570707296-1",
+    "source_head_sha": "f35e7f824e2807c50466c46495581aba2778e99e",
+    "validator": "scripts/validate_event_catalyst_historical_recovery_manifest.py",
+    "workflow": ".github/workflows/event_catalyst_update.yml",
+    "workflow_run_id": "30570707296",
+    "workflow_run_url": "https://github.com/LeoChen0727/tdcc-weekly-report/actions/runs/30570707296"
+  },
+  "prohibitions": [
+    "do_not_reconstruct_historical_event_content",
+    "do_not_infer_historical_catalyst_content",
+    "do_not_retro_date_current_source_values"
+  ],
+  "publication_status": "historical_event_catalyst_not_as_published",
+  "runner_source_state": "source_tables_generated_in_ephemeral_runner_commit_step_skipped",
+  "runner_uncommitted_sources_irrecoverable": true,
+  "schema_version": "event_catalyst_historical_recovery_v1",
+  "status": "blocked_authoritative_history",
+  "target_date": "20260724"
+}

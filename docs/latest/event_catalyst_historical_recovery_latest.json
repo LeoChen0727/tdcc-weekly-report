@@ -1,0 +1,48 @@
+{
+  "completion_state": "blocked_authoritative_history",
+  "generated_at": "2026-07-31 02:35:23 Asia/Taipei",
+  "manifests": [
+    {
+      "manifest_path": "output/history/event_catalyst_recovery/github-run-30570707296-1/20260720/event_catalyst_recovery_manifest.json",
+      "manifest_sha256": "498276e283717d55846cfd9e03f9fa66a2df3d2ea873ea6d23a4539bca2df2ef",
+      "status": "blocked_authoritative_history",
+      "target_date": "20260720"
+    },
+    {
+      "manifest_path": "output/history/event_catalyst_recovery/github-run-30570707296-1/20260721/event_catalyst_recovery_manifest.json",
+      "manifest_sha256": "3666d3de372416a53b4699a9a2a0b80820d3cdb8ce6d41330f6e680037f44857",
+      "status": "blocked_authoritative_history",
+      "target_date": "20260721"
+    },
+    {
+      "manifest_path": "output/history/event_catalyst_recovery/github-run-30570707296-1/20260722/event_catalyst_recovery_manifest.json",
+      "manifest_sha256": "6a922264b8847fd0749dcf3fc16f397f7b06ffc851b1335e8460781f6a82a9d6",
+      "status": "blocked_authoritative_history",
+      "target_date": "20260722"
+    },
+    {
+      "manifest_path": "output/history/event_catalyst_recovery/github-run-30570707296-1/20260723/event_catalyst_recovery_manifest.json",
+      "manifest_sha256": "a4d25283ab7a6d77b32bc3ff7c985af9795aa02d925e8e8ebd205fd40a8f8cac",
+      "status": "blocked_authoritative_history",
+      "target_date": "20260723"
+    },
+    {
+      "manifest_path": "output/history/event_catalyst_recovery/github-run-30570707296-1/20260724/event_catalyst_recovery_manifest.json",
+      "manifest_sha256": "4e420c9972d339b65e57deb7af6a5a261188cee555071148728f920c173d45f4",
+      "status": "blocked_authoritative_history",
+      "target_date": "20260724"
+    }
+  ],
+  "recovery_id": "github-run-30570707296-1",
+  "schema_version": "event_catalyst_historical_recovery_index_v1",
+  "source_head_sha": "f35e7f824e2807c50466c46495581aba2778e99e",
+  "target_dates": [
+    "20260720",
+    "20260721",
+    "20260722",
+    "20260723",
+    "20260724"
+  ],
+  "workflow_run_id": "30570707296",
+  "workflow_run_url": "https://github.com/LeoChen0727/tdcc-weekly-report/actions/runs/30570707296"
+}
