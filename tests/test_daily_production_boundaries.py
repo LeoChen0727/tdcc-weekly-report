@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import hashlib
+import json
 from pathlib import Path
 import shutil
 import subprocess
@@ -15,6 +17,15 @@ from scripts import validate_research_production_boundaries
 
 
 ROOT = Path(__file__).resolve().parents[1]
+BUNDLED_NODE = Path(r"C:\Users\p4693\.cache\codex-runtimes\codex-primary-runtime\dependencies\node\bin\node.exe")
+
+
+def resolve_test_node() -> str:
+    node = shutil.which("node")
+    if node:
+        return node
+    assert BUNDLED_NODE.exists(), "Bundled Node.js is required to execute the Apps Script behavioral test"
+    return str(BUNDLED_NODE)
 DAILY_DECISION_LAYER_FIELDS = [
     "decision_priority",
     "trade_decision",
@@ -146,6 +157,1034 @@ def test_apps_script_recent_daily_price_gap_repair_trigger_is_weekday_only() -> 
     assert 'max_repair_dates: "5"' in body
 
 
+def test_apps_script_morning_handler_and_price_gap_install_remove_hashes_are_stable() -> None:
+    fixture = (
+        ROOT / "tests" / "fixtures" / "evening_data_only_early_gas_hashes.json"
+    )
+    expected_hashes = json.loads(fixture.read_text(encoding="utf-8"))
+    actual_hashes = {
+        function_name: hashlib.sha256(
+            validate_apps_script_workflow_triggers.apps_script_function_body(function_name).encode(
+                "utf-8"
+            )
+        ).hexdigest()
+        for function_name in expected_hashes
+    }
+
+    assert actual_hashes == expected_hashes
+
+
+def test_apps_script_evening_data_only_trigger_is_weekday_deterministic() -> None:
+    body = validate_apps_script_workflow_triggers.apps_script_function_body(
+        "triggerEveningDataOnlyRepair"
+    )
+
+    assert "const dayOfWeek = currentWeekday_();" in body
+    assert "new Date().getDay()" not in body
+
+
+def test_apps_script_evening_data_only_repair_retry_and_reconciliation_behavior(
+    tmp_path: Path,
+) -> None:
+    node = resolve_test_node()
+
+    source = (ROOT / "docs" / "apps_script_workflow_trigger.gs").read_text(
+        encoding="utf-8"
+    )
+    harness = r'''
+const TARGET_DATE = "20260721";
+const WORKFLOW = "repair_recent_daily_price_gaps.yml";
+const BASE_SHA = "a".repeat(40);
+const ALT_SHA = "b".repeat(40);
+const START_TIME = new Date("2026-07-21T20:30:00.000Z").getTime();
+
+let scriptProperties = {};
+let dispatches = [];
+let workflowRuns = {};
+let correlationRuns = [];
+let marketSessionProvider = function () { return { assessment_date: TARGET_DATE, market_status: "open" }; };
+let dispatchError = null;
+let nowCursorMs = START_TIME;
+let mainShaValue = BASE_SHA;
+let preflightMode = "";
+let formatDateWeekdayOverride = null;
+let historyPropertyFailureMode = "";
+let correlationApiFailureMode = "";
+let harnessUuidCounter = 0;
+
+function setNow(iso) {
+  nowCursorMs = new Date(iso).getTime();
+}
+
+function setCorrelationRuns(values) {
+  correlationRuns = values.slice();
+}
+
+function setWorkflowRuns(values) {
+  workflowRuns = {};
+  Object.keys(values).forEach(function (runId) {
+    workflowRuns[runId] = values[runId];
+  });
+}
+
+function setHistoryPropertyFailureMode(mode) {
+  historyPropertyFailureMode = mode || "";
+}
+
+function setCorrelationApiFailureMode(mode) {
+  correlationApiFailureMode = mode || "";
+}
+
+  function setState(state) {
+    if (!state) {
+      delete scriptProperties[EVENING_DATA_ONLY_STATE_PROPERTY];
+      return;
+    }
+    scriptProperties[EVENING_DATA_ONLY_STATE_PROPERTY] = JSON.stringify(state);
+  }
+
+  function setStateWithEveningIdentity(state) {
+    if (!state) {
+      setState(null);
+      return;
+    }
+    const clone = JSON.parse(JSON.stringify(state));
+    const attemptedCorrelationId = clone.dispatch_correlation_id == null ? null : String(clone.dispatch_correlation_id);
+    const correlationId = attemptedCorrelationId != null ? attemptedCorrelationId : buildHarnessCorrelationId(Number(clone.attempt_count || 1));
+    clone.dispatch_correlation_id = correlationId;
+    clone.expected_run_display_title = buildEveningDataOnlyRunDisplayTitle_(correlationId);
+    setState(clone);
+  }
+
+function setHistory(stateRows) {
+  if (!stateRows) {
+    delete scriptProperties[EVENING_DATA_ONLY_DISPATCH_HISTORY_PROPERTY];
+    return;
+  }
+  scriptProperties[EVENING_DATA_ONLY_DISPATCH_HISTORY_PROPERTY] = JSON.stringify(stateRows);
+}
+
+function resetHarness() {
+    scriptProperties = {};
+    scriptProperties[GITHUB_PAT_PROPERTY] = "local-dev-token";
+    scriptProperties[GITHUB_TOKEN_FALLBACK_PROPERTY] = "local-dev-token";
+  dispatches = [];
+  workflowRuns = {};
+  correlationRuns = [];
+  dispatchError = null;
+  nowCursorMs = START_TIME;
+  mainShaValue = BASE_SHA;
+  preflightMode = "";
+  formatDateWeekdayOverride = null;
+  historyPropertyFailureMode = "";
+  correlationApiFailureMode = "";
+  harnessUuidCounter = 0;
+  currentDate_ = function () { return new Date("2026-07-21T12:00:00.000Z"); };
+  taipeiYyyyMmDd_ = function () { return TARGET_DATE; };
+  marketSessionProvider = function () { return { assessment_date: TARGET_DATE, market_status: "open" }; };
+  delete scriptProperties[EVENING_DATA_ONLY_DISPATCH_HISTORY_PROPERTY];
+}
+
+global.Date.now = function () { return nowCursorMs; };
+
+global.PropertiesService = {
+  getScriptProperties: function () {
+    return {
+      getProperty: function (key) {
+        if (key === EVENING_DATA_ONLY_DISPATCH_HISTORY_PROPERTY) {
+          if (historyPropertyFailureMode === "get") {
+            throw new Error("simulated history property get failure");
+          }
+          if (historyPropertyFailureMode === "parse") {
+            return "{not-json";
+          }
+        }
+        return scriptProperties[key] || null;
+      },
+      setProperty: function (key, value) {
+        if (key === EVENING_DATA_ONLY_DISPATCH_HISTORY_PROPERTY && historyPropertyFailureMode === "set") {
+          throw new Error("simulated history property set failure");
+        }
+        scriptProperties[key] = String(value);
+      },
+    };
+  },
+};
+
+global.LockService = {
+  getScriptLock: function () {
+    return {
+      waitLock: function () {},
+      releaseLock: function () {},
+    };
+  },
+};
+
+function currentFormatDateWeekday_(dateObj) {
+  if (formatDateWeekdayOverride != null) {
+    return String(formatDateWeekdayOverride);
+  }
+  const date = dateObj ? new Date(dateObj) : currentDate_();
+  const jsWeekday = date.getUTCDay();
+  return String(jsWeekday === 0 ? 7 : jsWeekday);
+}
+
+function setCurrentWeekdayFormatDate_(value) {
+  formatDateWeekdayOverride = value == null ? null : Number(value);
+}
+
+global.Utilities = {
+  sleep: function () {},
+  getUuid: function () {
+    harnessUuidCounter += 1;
+    return "u" + String(harnessUuidCounter);
+  },
+  formatDate: function (date, timezone, format) {
+    if (format === "u") {
+      return currentFormatDateWeekday_(date);
+    }
+    if (format === "yyyyMMdd") {
+      return TARGET_DATE;
+    }
+    return new Date(date).toISOString();
+  },
+};
+global.UrlFetchApp = {
+  fetch: function () {
+    return {
+      getResponseCode: function () {
+        return 204;
+      },
+      getContentText: function () {
+        return "{}";
+      },
+    };
+  },
+};
+global.Logger = { log: function () {} };
+
+function buildHarnessCorrelationId(attemptCount) {
+  const resolvedAttemptCount = Math.max(Number(attemptCount || 1), 1);
+  return (
+    "evening-" +
+    TARGET_DATE +
+    "-attempt-" +
+    String(resolvedAttemptCount) +
+    "-u" +
+    String(resolvedAttemptCount)
+  );
+}
+
+function buildHarnessDisplayTitle(attemptCount) {
+  return buildEveningDataOnlyRunDisplayTitle_(buildHarnessCorrelationId(attemptCount));
+}
+
+function currentEveningDispatchAttemptFromState_() {
+  if (!scriptProperties[EVENING_DATA_ONLY_STATE_PROPERTY]) {
+    return 1;
+  }
+  try {
+    const state = JSON.parse(scriptProperties[EVENING_DATA_ONLY_STATE_PROPERTY]);
+    return Number(state.attempt_count || 1);
+  } catch {
+    return 1;
+  }
+}
+
+function currentEveningExpectedDisplayTitleFromState_() {
+  if (!scriptProperties[EVENING_DATA_ONLY_STATE_PROPERTY]) {
+    return "";
+  }
+  try {
+    const state = JSON.parse(scriptProperties[EVENING_DATA_ONLY_STATE_PROPERTY]);
+    return String(state.expected_run_display_title || "");
+  } catch {
+    return "";
+  }
+}
+
+function buildHarnessDefaultRunDisplayTitle_() {
+  const stateRaw = scriptProperties[EVENING_DATA_ONLY_STATE_PROPERTY];
+  if (!stateRaw) {
+    return buildHarnessDisplayTitle(1);
+  }
+  try {
+    const state = JSON.parse(stateRaw);
+    const phase = String(state.phase || "");
+    const attemptCount = Number(state.attempt_count || 1);
+    if (phase === "run_completed_non_success") {
+      return buildHarnessDisplayTitle(attemptCount + 1);
+    }
+    return String(state.expected_run_display_title || buildHarnessDisplayTitle(attemptCount));
+  } catch {
+    return buildHarnessDisplayTitle(1);
+  }
+}
+
+currentDate_ = function () { return new Date("2026-07-21T12:00:00.000Z"); };
+taipeiYyyyMmDd_ = function () { return TARGET_DATE; };
+nowIso_ = function () { return new Date(nowCursorMs).toISOString(); };
+setPreflightMode = function (value) {
+  preflightMode = value || "";
+};
+getMainRefSha_ = function () {
+  if (preflightMode === "main_sha") {
+    throw new Error("main SHA unavailable");
+  }
+  return mainShaValue;
+};
+listWorkflowRuns_ = function (workflowFile, perPage) {
+  return { workflow_runs: correlationRuns.slice() };
+};
+latestWorkflowRunId_ = function (workflowFile) {
+  if (preflightMode === "baseline_run") {
+    throw new Error("latest workflow run id unavailable");
+  }
+  return 0;
+};
+findCorrelatedWorkflowRuns_ = function (
+  workflowFile,
+  baselineRunId,
+  dispatchedAt,
+  expectedHeadSha,
+  expectedDisplayTitle
+) {
+  if (correlationApiFailureMode === "list_failure") {
+    throw new Error("simulated correlation API failure");
+  }
+  const resolvedExpectedTitle =
+    expectedDisplayTitle === undefined ? null : String(expectedDisplayTitle);
+  return correlationRuns.filter(function (run) {
+    if (!run || run.id === undefined) {
+      return false;
+    }
+    if (expectedDisplayTitle && String(run.display_title || "") !== resolvedExpectedTitle) {
+      return false;
+    }
+    if (expectedHeadSha && String(run.head_sha || "") !== String(expectedHeadSha)) {
+      return false;
+    }
+    return true;
+  });
+};
+getWorkflowRun_ = function (runId) {
+  const key = String(runId);
+  if (!(key in workflowRuns)) {
+    throw new Error("workflow run not found: " + key);
+  }
+  return workflowRuns[key];
+};
+dispatchWorkflow_ = function (workflow, inputs) {
+  dispatches.push({ workflow: workflow, inputs: inputs });
+  if (dispatchError) {
+    throw dispatchError;
+  }
+  return { statusCode: 204, responseBody: "ok" };
+};
+responsePreview_ = function (body) { return body ? String(body) : ""; };
+readEveningDataOnlyMarketSession_ = function () {
+  return marketSessionProvider();
+};
+
+  function workflowRun(id, status, conclusion, headSha, displayTitle) {
+    const resolvedDisplayTitle =
+      displayTitle === undefined ? buildHarnessDefaultRunDisplayTitle_() : displayTitle;
+    return {
+      id: String(id),
+      status: status,
+      conclusion: conclusion,
+      head_sha: headSha || BASE_SHA,
+      display_title: resolvedDisplayTitle,
+      html_url: "https://example/" + String(id),
+    };
+  }
+
+function requireBehavior(condition, message) {
+  if (!condition) {
+    throw new Error(message);
+  }
+}
+
+function runInvocation(label) {
+  const beforeDispatch = dispatches.length;
+  let threw = false;
+  let message = "";
+  try {
+    triggerEveningDataOnlyRepair();
+  } catch (error) {
+    threw = true;
+    message = String(error.message || error);
+  }
+  const state = readEveningDataOnlyRepairState_();
+  const history = readEveningDataOnlyRepairDispatchHistory_();
+  return {
+    label: label,
+    threw: threw,
+    error: message,
+    dispatches: dispatches.length - beforeDispatch,
+    state: state,
+    history: history,
+  };
+}
+
+function includesAttempt(history, attempt) {
+  for (let i = 0; i < history.length; i++) {
+    if (
+      history[i].target_date === TARGET_DATE &&
+      history[i].workflow === WORKFLOW &&
+      history[i].attempt_count === attempt
+    ) {
+      return true;
+    }
+  }
+  return false;
+}
+
+let step;
+resetHarness();
+setPreflightMode("baseline_run");
+step = runInvocation("attempt1_preflight_error");
+requireBehavior(step.threw, step.label + " should throw on preflight baseline run id failure");
+requireBehavior(step.dispatches === 0, step.label + " should not POST on preflight error");
+requireBehavior(
+  step.state === null,
+  step.label + " should not persist authoritative state after initial preflight failure"
+);
+requireBehavior(
+  Array.isArray(step.history) && step.history.length === 0,
+  step.label + " should not persist dispatch history row on initial preflight failure"
+);
+
+setPreflightMode("");
+const queuedRunForPreflightRetry = workflowRun("111", "in_progress", null, BASE_SHA);
+setCorrelationRuns([queuedRunForPreflightRetry]);
+setWorkflowRuns({ "111": queuedRunForPreflightRetry });
+step = runInvocation("attempt1_preflight_retry");
+requireBehavior(!step.threw, step.label + " should recover on preflight success");
+requireBehavior(step.dispatches === 1, step.label + " should POST once after preflight retry");
+requireBehavior(step.state && step.state.phase === "dispatched", step.label + " should be dispatched after recovery");
+requireBehavior(step.state && step.state.attempt_count === 1, step.label + " should remain attempt 1");
+
+resetHarness();
+setHistoryPropertyFailureMode("get");
+setCorrelationRuns([workflowRun("111", "in_progress", null, BASE_SHA)]);
+setWorkflowRuns({ "111": workflowRun("111", "in_progress", null, BASE_SHA) });
+step = runInvocation("history_get_failure");
+requireBehavior(!step.threw, step.label + " should still dispatch when history get fails");
+requireBehavior(step.state && step.state.phase === "dispatched", step.label + " should dispatch by state/correlation path");
+requireBehavior(step.dispatches === 1, step.label + " should POST once with history get failure");
+setHistoryPropertyFailureMode("");
+
+resetHarness();
+setHistoryPropertyFailureMode("parse");
+setCorrelationRuns([workflowRun("112", "in_progress", null, BASE_SHA)]);
+setWorkflowRuns({ "112": workflowRun("112", "in_progress", null, BASE_SHA) });
+step = runInvocation("history_parse_failure");
+requireBehavior(!step.threw, step.label + " should still dispatch when history parse fails");
+requireBehavior(step.state && step.state.phase === "dispatched", step.label + " should dispatch by state/correlation path with parse failure");
+requireBehavior(step.dispatches === 1, step.label + " should POST once with history parse failure");
+setHistoryPropertyFailureMode("");
+
+resetHarness();
+setHistoryPropertyFailureMode("set");
+setCorrelationRuns([workflowRun("113", "in_progress", null, BASE_SHA)]);
+setWorkflowRuns({ "113": workflowRun("113", "in_progress", null, BASE_SHA) });
+step = runInvocation("history_set_failure");
+requireBehavior(!step.threw, step.label + " should still dispatch when history set fails");
+requireBehavior(step.state && step.state.phase === "dispatched", step.label + " should dispatch by state/correlation path with set failure");
+requireBehavior(step.dispatches === 1, step.label + " should POST once with history set failure");
+setHistoryPropertyFailureMode("");
+
+  setState({
+    target_date: TARGET_DATE,
+    workflow: WORKFLOW,
+    attempt_count: 1,
+    phase: "run_completed_non_success",
+    baseline_run_id: "200",
+    workflow_main_sha: BASE_SHA,
+    workflow_run_id: "201",
+    workflow_run_head_sha: BASE_SHA,
+    workflow_run_status: "completed",
+    workflow_run_conclusion: "failure",
+    dispatch_correlation_id: "evening-" + TARGET_DATE + "-attempt-1-u1",
+    expected_run_display_title: buildHarnessDisplayTitle(1),
+  });
+    setWorkflowRuns({ "201": workflowRun("201", "completed", "failure", BASE_SHA, buildHarnessDisplayTitle(1)) });
+    setPreflightMode("baseline_run");
+    step = runInvocation("attempt2_preflight_error");
+    requireBehavior(step.threw, step.label + " should throw on attempt 2 preflight baseline run id failure");
+    requireBehavior(step.dispatches === 0, step.label + " should not POST on attempt 2 preflight error");
+    requireBehavior(step.state && step.state.phase === "run_completed_non_success", step.label + " should remain retryable attempt 2 state");
+    requireBehavior(step.state && step.state.attempt_count === 1, step.label + " should keep attempt 1 evidence");
+    requireBehavior(step.state && step.state.workflow_run_id === "201", step.label + " should retain prior run id");
+requireBehavior(step.state && step.state.workflow_run_conclusion === "failure", step.label + " should retain prior failure conclusion");
+requireBehavior(step.state && includesAttempt(step.history, 1), step.label + " should keep attempt 1 history");
+requireBehavior(!includesAttempt(step.history, 2), step.label + " should not create attempt 2 before preflight success");
+
+    setPreflightMode("");
+    setCorrelationRuns([workflowRun("202", "in_progress", null, BASE_SHA)]);
+    setWorkflowRuns({
+      "201": workflowRun("201", "completed", "failure", BASE_SHA, buildHarnessDisplayTitle(1)),
+      "202": workflowRun("202", "in_progress", null, BASE_SHA, buildHarnessDisplayTitle(2)),
+    });
+    step = runInvocation("attempt2_preflight_retry");
+requireBehavior(!step.threw, step.label + " should recover on attempt 2 preflight success");
+requireBehavior(step.dispatches === 1, step.label + " should POST once for attempt 2");
+requireBehavior(step.state && step.state.phase === "dispatched", step.label + " should be dispatched for attempt 2");
+requireBehavior(step.state && step.state.attempt_count === 2, step.label + " should be attempt 2");
+
+resetHarness();
+  setStateWithEveningIdentity({
+  target_date: TARGET_DATE,
+  workflow: WORKFLOW,
+  attempt_count: 1,
+  phase: "dispatching",
+  baseline_run_id: "200",
+  workflow_main_sha: BASE_SHA,
+  dispatched_at: "2026-07-21T20:00:00.000Z",
+});
+setCorrelationRuns([workflowRun("401", "in_progress", null, BASE_SHA)]);
+setWorkflowRuns({ "401": workflowRun("401", "in_progress", null, BASE_SHA) });
+setCorrelationApiFailureMode("list_failure");
+step = runInvocation("dispatching_no_runid_correlation_api_error");
+requireBehavior(step.threw, step.label + " should throw when correlation API is unavailable");
+requireBehavior(step.state && step.state.phase === "dispatch_uncertain", step.label + " should become dispatch_uncertain");
+requireBehavior(step.state && step.state.attempt_count === 1, step.label + " should keep attempt 1");
+requireBehavior(step.dispatches === 0, step.label + " should not POST when recovery correlation lookup fails");
+setCorrelationApiFailureMode("");
+setCorrelationRuns([workflowRun("501", "completed", "failure", BASE_SHA)]);
+setWorkflowRuns({ "501": workflowRun("501", "completed", "failure", BASE_SHA) });
+step = runInvocation("dispatching_no_runid_correlation_api_error_reinvoke");
+requireBehavior(!step.threw, step.label + " should stay fail-closed after correlation API recovery");
+requireBehavior(step.state && step.state.phase === "dispatch_uncertain", step.label + " should remain dispatch_uncertain");
+requireBehavior(step.state && step.state.attempt_count === 1, step.label + " should keep attempt count");
+requireBehavior(step.dispatches === 0, step.label + " should not POST on reinvoke");
+
+resetHarness();
+const queuedRun = workflowRun("111", "in_progress", null, BASE_SHA);
+setCorrelationRuns([queuedRun]);
+setWorkflowRuns({ "111": queuedRun });
+step = runInvocation("attempt1_inflight");
+requireBehavior(!step.threw, step.label + " should not throw on first dispatch: " + step.error);
+requireBehavior(step.dispatches === 1, step.label + " must POST once");
+requireBehavior(step.state && step.state.phase === "dispatched", step.label + " should be dispatched");
+
+step = runInvocation("attempt1_inflight_reinvoke");
+requireBehavior(!step.threw, step.label + " should not throw when inflight is seen");
+requireBehavior(step.dispatches === 0, step.label + " must not re-post for inflight state");
+requireBehavior(step.state && step.state.phase === "dispatched", step.label + " should stay dispatched");
+
+const successRun = workflowRun("111", "completed", "success", BASE_SHA);
+setWorkflowRuns({ "111": successRun });
+setCorrelationRuns([successRun]);
+step = runInvocation("attempt1_success");
+requireBehavior(!step.threw, step.label + " should not throw on completed success");
+requireBehavior(step.dispatches === 0, step.label + " must not re-post after success");
+requireBehavior(step.state && step.state.phase === "duplicate_skipped", step.label + " should mark duplicate_skipped");
+const successState = step.state;
+
+step = runInvocation("attempt1_success_reinvoke");
+requireBehavior(!step.threw, step.label + " should not throw on duplicate_skipped");
+requireBehavior(step.dispatches === 0, step.label + " should stay no POST after duplicate_skipped");
+setState(successState);
+setCorrelationRuns([successRun]);
+setWorkflowRuns({ "111": successRun });
+step = runInvocation("attempt1_success_reinvoke_with_state");
+requireBehavior(!step.threw, step.label + " should remain fail-closed after duplicate_skipped");
+requireBehavior(step.dispatches === 0, step.label + " should still not POST after duplicate_skipped");
+requireBehavior(step.state && step.state.phase === "duplicate_skipped", step.label + " should remain duplicate_skipped");
+
+resetHarness();
+const firstFailure = workflowRun("201", "completed", "failure", BASE_SHA);
+setCorrelationRuns([firstFailure]);
+setWorkflowRuns({ "201": firstFailure });
+step = runInvocation("attempt1_failure");
+requireBehavior(!step.threw, step.label + " should recover to run_completed_non_success");
+requireBehavior(step.dispatches === 1, step.label + " must POST once");
+requireBehavior(step.state && step.state.phase === "run_completed_non_success", step.label + " should be non-success");
+requireBehavior(step.state && step.state.attempt_count === 1, step.label + " should stay attempt 1");
+const attempt1FailureState = step.state;
+requireBehavior(attempt1FailureState && attempt1FailureState.workflow_run_id === "201", step.label + " should persist first failure run id");
+requireBehavior(includesAttempt(step.history, 1), step.label + " should write attempt 1 history row");
+
+setPreflightMode("baseline_run");
+step = runInvocation("attempt2_preflight_error_after_attempt1_failure");
+requireBehavior(step.threw, step.label + " should throw on attempt 2 preflight failure");
+requireBehavior(step.dispatches === 0, step.label + " should not POST during attempt 2 preflight failure");
+requireBehavior(step.state && step.state.phase === "run_completed_non_success", step.label + " should stay at attempt 1");
+requireBehavior(step.state && step.state.attempt_count === 1, step.label + " should keep attempt 1 attempt_count");
+requireBehavior(step.state && step.state.workflow_run_id === "201", step.label + " should keep attempt 1 run id");
+requireBehavior(step.state && step.state.workflow_run_conclusion === "failure", step.label + " should keep attempt 1 failure conclusion");
+requireBehavior(includesAttempt(step.history, 1), step.label + " should still have attempt 1 history");
+requireBehavior(!includesAttempt(step.history, 2), step.label + " should not create attempt 2 preflight history row");
+requireBehavior(
+  step.history.some(
+    function (entry) {
+      return entry && entry.attempt_count === 1 && entry.workflow_run_id === "201" && entry.workflow_run_conclusion === "failure";
+    }
+  ),
+  step.label + " should preserve attempt 1 terminal evidence"
+);
+
+setPreflightMode("");
+const secondAttempt = workflowRun("202", "in_progress", null, BASE_SHA);
+setCorrelationRuns([secondAttempt]);
+setWorkflowRuns({
+  "201": firstFailure,
+  "202": secondAttempt,
+});
+step = runInvocation("attempt2_dispatch");
+requireBehavior(!step.threw, step.label + " should dispatch attempt 2");
+requireBehavior(step.dispatches === 1, step.label + " should POST once for attempt 2");
+requireBehavior(step.state && step.state.phase === "dispatched", step.label + " should be dispatched");
+requireBehavior(step.state && step.state.attempt_count === 2, step.label + " should be attempt 2");
+requireBehavior(includesAttempt(step.history, 1), "history must retain attempt 1");
+requireBehavior(includesAttempt(step.history, 2), "history must retain attempt 2");
+requireBehavior(step.state.workflow_run_id !== "201", step.label + " should not bind attempt 2 to stale attempt 1 run id");
+
+const attempt2FailureState = step.state;
+attempt2FailureState.phase = "run_completed_non_success";
+attempt2FailureState.workflow_run_status = "completed";
+attempt2FailureState.workflow_run_conclusion = "failure";
+attempt2FailureState.workflow_run_id = "202";
+setState(attempt2FailureState);
+setCorrelationRuns([]);
+setWorkflowRuns({
+  "201": firstFailure,
+  "202": workflowRun("202", "completed", "failure", BASE_SHA, buildHarnessDisplayTitle(2)),
+});
+step = runInvocation("attempt2_max");
+requireBehavior(step.threw, step.label + " should throw on max attempts");
+requireBehavior(step.state && step.state.phase === "max_attempts_exceeded", step.label + " should be max_attempts_exceeded");
+requireBehavior(step.state && step.state.attempt_count === 2, step.label + " should remain at attempt 2");
+requireBehavior(step.dispatches === 0, step.label + " must not POST again after max attempts");
+
+resetHarness();
+  setStateWithEveningIdentity({
+  target_date: TARGET_DATE,
+  workflow: WORKFLOW,
+  attempt_count: 1,
+  phase: "run_completed_non_success",
+  baseline_run_id: "200",
+  workflow_main_sha: BASE_SHA,
+  workflow_run_id: "201",
+  workflow_run_head_sha: BASE_SHA,
+  workflow_run_status: "completed",
+  workflow_run_conclusion: "failure",
+  dispatched_at: "2026-07-21T20:00:00.000Z",
+});
+setWorkflowRuns({});
+setCorrelationRuns([workflowRun("1000", "completed", "failure", BASE_SHA)]);
+step = runInvocation("run_completed_non_success_direct_lookup_error_with_different_id_candidate");
+requireBehavior(!step.threw, step.label + " should stay fail-closed for run_completed_non_success without exact same run");
+requireBehavior(step.state && step.state.phase === "run_completed_non_success", step.label + " should remain run_completed_non_success");
+requireBehavior(step.state && step.state.attempt_count === 1, step.label + " should keep attempt 1");
+requireBehavior(step.state && step.state.workflow_run_id === "201", step.label + " should keep authoritative run id 201");
+requireBehavior(step.dispatches === 0, step.label + " should not POST for non-exact run");
+step = runInvocation("run_completed_non_success_direct_lookup_error_with_different_id_candidate_reinvoke");
+requireBehavior(!step.threw, step.label + " should remain fail-closed");
+requireBehavior(step.state && step.state.phase === "run_completed_non_success", step.label + " should remain run_completed_non_success");
+requireBehavior(step.state && step.state.workflow_run_id === "201", step.label + " should keep authoritative run id 201");
+requireBehavior(step.dispatches === 0, step.label + " should still avoid POST on reinvoke");
+
+resetHarness();
+const queuedHistoryFailure = [
+  {
+    target_date: TARGET_DATE,
+    workflow: WORKFLOW,
+    attempt_count: 2,
+    phase: "run_completed_non_success",
+    workflow_run_id: "999",
+    workflow_run_conclusion: "failure",
+    workflow_run_head_sha: BASE_SHA,
+  },
+];
+setHistory(queuedHistoryFailure);
+setCorrelationRuns([workflowRun("401", "in_progress", null, BASE_SHA)]);
+setWorkflowRuns({ "401": workflowRun("401", "in_progress", null, BASE_SHA) });
+step = runInvocation("history_only_forged_attempt_2_not_short_circuit");
+requireBehavior(!step.threw, step.label + " should not use history-only terminal row as authoritative");
+requireBehavior(step.dispatches === 1, step.label + " should dispatch when only history is present");
+requireBehavior(step.state && step.state.phase === "dispatched", step.label + " should be dispatched on first attempt");
+requireBehavior(step.state && step.state.attempt_count === 1, step.label + " should start at attempt 1");
+requireBehavior(includesAttempt(step.history, 2), "forged attempt 2 history row should remain");
+requireBehavior(includesAttempt(step.history, 1), "new attempt 1 history row should be recorded");
+
+resetHarness();
+  setStateWithEveningIdentity({
+  target_date: TARGET_DATE,
+  workflow: WORKFLOW,
+  attempt_count: 1,
+  phase: "dispatching",
+  baseline_run_id: "200",
+  workflow_main_sha: BASE_SHA,
+  workflow_run_id: "999",
+  dispatched_at: "2026-07-21T20:00:00.000Z",
+  workflow_run_head_sha: ALT_SHA,
+});
+setWorkflowRuns({ "999": workflowRun("999", "completed", "success", ALT_SHA) });
+setCorrelationRuns([]);
+step = runInvocation("head_sha_mismatch");
+requireBehavior(step.threw, step.label + " should throw on head SHA mismatch");
+requireBehavior(step.state && step.state.phase === "dispatch_ambiguous", step.label + " should be dispatch_ambiguous");
+requireBehavior(step.dispatches === 0, step.label + " must not POST on mismatch");
+step = runInvocation("head_sha_mismatch_reinvoke");
+requireBehavior(!step.threw, step.label + " should stay fail-closed after head SHA mismatch");
+requireBehavior(step.dispatches === 0, step.label + " should remain no POST on mismatch reinvoke");
+requireBehavior(step.state && step.state.phase === "dispatch_ambiguous", step.label + " should remain dispatch_ambiguous");
+
+resetHarness();
+  setStateWithEveningIdentity({
+  target_date: TARGET_DATE,
+  workflow: WORKFLOW,
+  attempt_count: 1,
+  phase: "dispatching",
+  baseline_run_id: "200",
+  workflow_main_sha: BASE_SHA,
+  dispatched_at: "2026-07-21T20:00:00.000Z",
+});
+setCorrelationRuns([
+  workflowRun("601", "completed", "success", BASE_SHA),
+  workflowRun("602", "completed", "success", BASE_SHA),
+]);
+setWorkflowRuns({
+  "601": workflowRun("601", "completed", "success", BASE_SHA),
+  "602": workflowRun("602", "completed", "success", BASE_SHA),
+});
+step = runInvocation("multiple_correlation_ambiguity");
+requireBehavior(step.threw, step.label + " should throw on multiple matching workflow runs");
+requireBehavior(step.state && step.state.phase === "dispatch_ambiguous", step.label + " should be dispatch_ambiguous");
+requireBehavior(step.dispatches === 0, step.label + " should not POST when ambiguous");
+step = runInvocation("multiple_correlation_ambiguity_reinvoke");
+requireBehavior(!step.threw, step.label + " should stay fail-closed on reinvoke");
+requireBehavior(step.dispatches === 0, step.label + " should not POST on reinvoke");
+requireBehavior(step.state && step.state.phase === "dispatch_ambiguous", step.label + " should remain dispatch_ambiguous");
+
+resetHarness();
+setCorrelationRuns([workflowRun("301", "in_progress", null, BASE_SHA)]);
+setWorkflowRuns({ "301": workflowRun("301", "in_progress", null, BASE_SHA) });
+dispatchError = new Error("network failure");
+step = runInvocation("dispatch_exception");
+requireBehavior(step.threw, step.label + " must throw on dispatch exception");
+requireBehavior(step.dispatches === 1, step.label + " should record one attempted dispatch");
+requireBehavior(step.state && step.state.phase === "dispatch_uncertain", step.label + " should enter dispatch_uncertain");
+
+dispatchError = null;
+setCorrelationRuns([]);
+setNow("2026-07-21T20:45:00.000Z");
+step = runInvocation("dispatch_uncertain_followup");
+requireBehavior(!step.threw, step.label + " should stay fail-closed");
+requireBehavior(step.state && step.state.phase === "dispatch_uncertain", step.label + " should stay dispatch_uncertain");
+requireBehavior(step.dispatches === 0, step.label + " should not re-dispatch");
+
+resetHarness();
+setCorrelationApiFailureMode("list_failure");
+step = runInvocation("polling_api_error_after_post");
+requireBehavior(step.threw, step.label + " should throw when polling correlation API fails");
+requireBehavior(step.dispatches === 1, step.label + " should record one dispatch");
+requireBehavior(step.state && step.state.phase === "dispatch_uncertain", step.label + " should become dispatch_uncertain");
+requireBehavior(step.state && step.state.attempt_count === 1, step.label + " should keep attempt 1");
+setCorrelationApiFailureMode("");
+setCorrelationRuns([workflowRun("701", "completed", "failure", BASE_SHA)]);
+setWorkflowRuns({ "701": workflowRun("701", "completed", "failure", BASE_SHA) });
+step = runInvocation("polling_api_error_after_post_reinvoke");
+requireBehavior(!step.threw, step.label + " should stay fail-closed after polling API recovery");
+requireBehavior(step.state && step.state.phase === "dispatch_uncertain", step.label + " should remain dispatch_uncertain");
+requireBehavior(step.state && step.state.attempt_count === 1, step.label + " should keep attempt count");
+requireBehavior(step.dispatches === 0, step.label + " should remain no-POST on reinvoke");
+
+resetHarness();
+  setStateWithEveningIdentity({
+  target_date: TARGET_DATE,
+  workflow: WORKFLOW,
+  attempt_count: 1,
+  phase: "dispatching",
+  baseline_run_id: "200",
+  workflow_main_sha: BASE_SHA,
+  workflow_run_id: "missing",
+  dispatched_at: "2026-07-21T20:00:00.000Z",
+});
+setCorrelationRuns([]);
+setWorkflowRuns({});
+setNow("2026-07-21T20:20:00.000Z");
+step = runInvocation("api_error_uncertain");
+requireBehavior(step.threw, step.label + " should throw when recovery API fails");
+requireBehavior(step.state && step.state.phase === "dispatch_uncertain", step.label + " should be dispatch_uncertain");
+requireBehavior(step.dispatches === 0, step.label + " should not POST after API uncertainty");
+
+    step = runInvocation("api_error_uncertain_reinvoke");
+    requireBehavior(!step.threw, step.label + " should stay fail-closed after uncertain API");
+    requireBehavior(step.state && step.state.phase === "dispatch_uncertain", step.label + " should remain dispatch_uncertain");
+    requireBehavior(step.dispatches === 0, step.label + " should not POST on uncertainty reinvoke");
+    setWorkflowRuns({ "missing": workflowRun("missing", "completed", "failure", BASE_SHA) });
+    step = runInvocation("api_error_uncertain_reinvoke_failed_lookup");
+    requireBehavior(!step.threw, step.label + " should remain fail-closed on failed lookup recovery");
+    requireBehavior(step.state && step.state.phase === "dispatch_uncertain", step.label + " should stay dispatch_uncertain after direct failure recovery");
+    requireBehavior(step.state && step.state.attempt_count === 1, step.label + " should keep attempt 1");
+    requireBehavior(step.dispatches === 0, step.label + " should still not POST after API uncertainty with failed lookup");
+
+    resetHarness();
+    setStateWithEveningIdentity({
+      target_date: TARGET_DATE,
+      workflow: WORKFLOW,
+      attempt_count: 1,
+      phase: "dispatch_uncertain",
+      baseline_run_id: "200",
+      workflow_main_sha: BASE_SHA,
+      workflow_run_id: "801",
+      workflow_run_head_sha: BASE_SHA,
+      dispatched_at: "2026-07-21T20:00:00.000Z",
+    });
+    setCorrelationRuns([]);
+    setWorkflowRuns({});
+    step = runInvocation("dispatch_uncertain_recovery_fallback_failed_run");
+    requireBehavior(!step.threw, step.label + " should not throw for dispatch_uncertain terminal state");
+    requireBehavior(step.state && step.state.phase === "dispatch_uncertain", step.label + " should stay dispatch_uncertain");
+    requireBehavior(step.state && step.state.attempt_count === 1, step.label + " should keep attempt 1");
+    requireBehavior(step.dispatches === 0, step.label + " should not POST from dispatch_uncertain");
+    setWorkflowRuns({ "801": workflowRun("801", "completed", "failure", BASE_SHA) });
+    step = runInvocation("dispatch_uncertain_recovery_fallback_failed_run_reinvoke");
+    requireBehavior(!step.threw, step.label + " should stay fail-closed when failed run is now discoverable");
+    requireBehavior(step.state && step.state.phase === "dispatch_uncertain", step.label + " should remain dispatch_uncertain");
+    requireBehavior(step.state && step.state.attempt_count === 1, step.label + " should not increase attempt count");
+    requireBehavior(step.dispatches === 0, step.label + " should stay 0 POST");
+
+    resetHarness();
+    setStateWithEveningIdentity({
+      target_date: TARGET_DATE,
+      workflow: WORKFLOW,
+      attempt_count: 1,
+      phase: "dispatch_ambiguous",
+      baseline_run_id: "200",
+      workflow_main_sha: BASE_SHA,
+      workflow_run_id: "901",
+      workflow_run_head_sha: BASE_SHA,
+      dispatched_at: "2026-07-21T20:00:00.000Z",
+    });
+    setCorrelationRuns([]);
+    setWorkflowRuns({});
+    step = runInvocation("dispatch_ambiguous_recovery_fallback_failed_run");
+    requireBehavior(!step.threw, step.label + " should not throw for dispatch_ambiguous terminal state");
+    requireBehavior(step.state && step.state.phase === "dispatch_ambiguous", step.label + " should stay dispatch_ambiguous");
+    requireBehavior(step.state && step.state.attempt_count === 1, step.label + " should keep attempt 1");
+    requireBehavior(step.dispatches === 0, step.label + " should not POST from dispatch_ambiguous");
+    setWorkflowRuns({ "901": workflowRun("901", "completed", "failure", BASE_SHA) });
+    step = runInvocation("dispatch_ambiguous_recovery_fallback_failed_run_reinvoke");
+    requireBehavior(!step.threw, step.label + " should stay fail-closed when failed run is now discoverable");
+    requireBehavior(step.state && step.state.phase === "dispatch_ambiguous", step.label + " should remain dispatch_ambiguous");
+    requireBehavior(step.state && step.state.attempt_count === 1, step.label + " should not increase attempt count");
+    requireBehavior(step.dispatches === 0, step.label + " should stay 0 POST");
+
+    resetHarness();
+    setStateWithEveningIdentity({
+      target_date: TARGET_DATE,
+      workflow: WORKFLOW,
+  attempt_count: 1,
+  phase: "dispatching",
+  baseline_run_id: "200",
+  workflow_main_sha: BASE_SHA,
+  dispatched_at: "not-a-timestamp",
+});
+setCorrelationRuns([]);
+setWorkflowRuns({});
+step = runInvocation("invalid_dispatched_at");
+requireBehavior(step.threw, step.label + " should throw on invalid dispatched_at");
+requireBehavior(step.state && step.state.phase === "dispatch_uncertain", step.label + " should become dispatch_uncertain");
+requireBehavior(step.dispatches === 0, step.label + " should avoid POST for invalid dispatched_at");
+step = runInvocation("invalid_dispatched_at_reinvoke");
+requireBehavior(!step.threw, step.label + " should stay fail-closed on reinvoke");
+requireBehavior(step.state && step.state.phase === "dispatch_uncertain", step.label + " should remain dispatch_uncertain");
+requireBehavior(step.dispatches === 0, step.label + " should still avoid POST on reinvoke");
+
+resetHarness();
+    setStateWithEveningIdentity({
+  target_date: TARGET_DATE,
+  workflow: WORKFLOW,
+  attempt_count: 1,
+  phase: "dispatching",
+  baseline_run_id: "200",
+  workflow_main_sha: BASE_SHA,
+});
+setCorrelationRuns([]);
+setWorkflowRuns({});
+step = runInvocation("missing_dispatched_at");
+requireBehavior(step.threw, step.label + " should throw on missing dispatched_at");
+requireBehavior(step.state && step.state.phase === "dispatch_uncertain", step.label + " should become dispatch_uncertain");
+requireBehavior(step.dispatches === 0, step.label + " should avoid POST for missing dispatched_at");
+  step = runInvocation("missing_dispatched_at_reinvoke");
+  requireBehavior(!step.threw, step.label + " should stay fail-closed on reinvoke");
+  requireBehavior(step.state && step.state.phase === "dispatch_uncertain", step.label + " should remain dispatch_uncertain");
+  requireBehavior(step.dispatches === 0, step.label + " should still avoid POST on reinvoke");
+
+  resetHarness();
+  setStateWithEveningIdentity({
+    target_date: TARGET_DATE,
+    workflow: WORKFLOW,
+    attempt_count: 1,
+    phase: "dispatching",
+    baseline_run_id: "200",
+    workflow_main_sha: BASE_SHA,
+    workflow_run_id: "701",
+    dispatched_at: null,
+    dispatch_correlation_id: "mismatch-token",
+  });
+  setCorrelationRuns([]);
+  setWorkflowRuns({
+    "701": workflowRun("701", "completed", "failure", BASE_SHA, "workflow-title-different"),
+  });
+  step = runInvocation("identity_mismatch_token_title");
+  requireBehavior(!step.threw, step.label + " should fail closed on title contract mismatch");
+  requireBehavior(step.state && step.state.phase === "dispatch_ambiguous", step.label + " should become dispatch_ambiguous");
+  requireBehavior(step.dispatches === 0, step.label + " should avoid POST when title mismatches");
+  step = runInvocation("identity_mismatch_token_title_reinvoke");
+  requireBehavior(!step.threw, step.label + " should remain fail-closed after title mismatch");
+  requireBehavior(step.state && step.state.phase === "dispatch_ambiguous", step.label + " should remain dispatch_ambiguous");
+  requireBehavior(step.dispatches === 0, step.label + " should still avoid POST on reinvoke");
+
+  resetHarness();
+  setState({
+    target_date: TARGET_DATE,
+    workflow: WORKFLOW,
+    attempt_count: 1,
+    phase: "dispatching",
+    baseline_run_id: "200",
+    workflow_main_sha: BASE_SHA,
+    workflow_run_id: "702",
+    dispatched_at: null,
+  });
+  setCorrelationRuns([]);
+  setWorkflowRuns({
+    "702": workflowRun("702", "completed", "failure", BASE_SHA),
+  });
+  step = runInvocation("identity_mismatch_missing_token");
+  requireBehavior(!step.threw, step.label + " should fail closed when token is missing");
+  requireBehavior(step.state && step.state.phase === "dispatch_ambiguous", step.label + " should become dispatch_ambiguous");
+  requireBehavior(step.dispatches === 0, step.label + " should avoid POST without token");
+  step = runInvocation("identity_mismatch_missing_token_reinvoke");
+  requireBehavior(!step.threw, step.label + " should remain fail-closed after missing token");
+  requireBehavior(step.state && step.state.phase === "dispatch_ambiguous", step.label + " should remain dispatch_ambiguous");
+  requireBehavior(step.dispatches === 0, step.label + " should still avoid POST on reinvoke");
+
+  resetHarness();
+  setState({
+    target_date: TARGET_DATE,
+    workflow: WORKFLOW,
+    attempt_count: 1,
+    phase: "dispatched",
+    baseline_run_id: "200",
+    workflow_main_sha: BASE_SHA,
+    workflow_run_id: "703",
+    dispatched_at: null,
+    dispatch_correlation_id: "token-dispatched-phase",
+    expected_run_display_title: buildEveningDataOnlyRunDisplayTitle_("other-token"),
+  });
+  setCorrelationRuns([]);
+  setWorkflowRuns({
+    "703": workflowRun("703", "completed", "failure", BASE_SHA, "workflow-title-different"),
+  });
+  step = runInvocation("identity_mismatch_dispatched_phase");
+  requireBehavior(!step.threw, step.label + " should fail closed on dispatched phase mismatch");
+  requireBehavior(step.state && step.state.phase === "dispatch_ambiguous", step.label + " should become dispatch_ambiguous");
+  requireBehavior(step.dispatches === 0, step.label + " should avoid POST when dispatched phase has identity mismatch");
+  step = runInvocation("identity_mismatch_dispatched_phase_reinvoke");
+  requireBehavior(!step.threw, step.label + " should remain fail-closed after dispatched identity mismatch");
+  requireBehavior(step.state && step.state.phase === "dispatch_ambiguous", step.label + " should remain dispatch_ambiguous");
+  requireBehavior(step.dispatches === 0, step.label + " should still avoid POST on reinvoke");
+
+  resetHarness();
+  currentDate_ = function () { return new Date("2026-07-19T12:00:00.000Z"); };
+setCorrelationRuns([]);
+step = runInvocation("weekend_skip");
+requireBehavior(!step.threw, step.label + " should not throw on weekend guard");
+requireBehavior(step.dispatches === 0, step.label + " must skip weekend");
+requireBehavior(step.state && step.state.phase === "skipped_weekend", step.label + " should persist skipped_weekend");
+
+resetHarness();
+currentDate_ = function () { return new Date("2026-07-21T12:00:00.000Z"); };
+marketSessionProvider = function () { return { assessment_date: TARGET_DATE, market_status: "closed_scheduled" }; };
+setCorrelationRuns([]);
+step = runInvocation("closed_scheduled_skip");
+requireBehavior(!step.threw, step.label + " should not throw on closed_scheduled");
+requireBehavior(step.dispatches === 0, step.label + " should skip closed_scheduled");
+requireBehavior(step.state && step.state.phase === "skipped_closed_market", step.label + " should persist skipped_closed_market");
+
+resetHarness();
+currentDate_ = function () { return new Date("2026-07-21T12:00:00.000Z"); };
+marketSessionProvider = function () { return { assessment_date: TARGET_DATE, market_status: "closed_emergency" }; };
+setCorrelationRuns([]);
+step = runInvocation("closed_emergency_skip");
+requireBehavior(!step.threw, step.label + " should not throw on closed_emergency");
+requireBehavior(step.dispatches === 0, step.label + " should skip closed_emergency");
+requireBehavior(step.state && step.state.phase === "skipped_closed_market", step.label + " should persist skipped_closed_market");
+
+  resetHarness();
+  currentDate_ = function () { return new Date("2026-07-21T12:00:00.000Z"); };
+  setCorrelationRuns([workflowRun("401", "in_progress", null, BASE_SHA)]);
+  setWorkflowRuns({ "401": workflowRun("401", "in_progress", null, BASE_SHA) });
+  marketSessionProvider = function () {
+    return { assessment_date: "20260720", market_status: "closed_scheduled" };
+  };
+  step = runInvocation("stale_session_still_dispatch");
+  requireBehavior(!step.threw, step.label + " should not throw: " + step.error);
+  requireBehavior(
+    step.state && step.state.phase === "dispatched",
+    step.label + " should be dispatched but got phase=" + JSON.stringify(step.state)
+  );
+  requireBehavior(step.dispatches === 1, step.label + " should dispatch for stale market session");
+
+resetHarness();
+setCorrelationRuns([workflowRun("402", "in_progress", null, BASE_SHA)]);
+setWorkflowRuns({ "402": workflowRun("402", "in_progress", null, BASE_SHA) });
+marketSessionProvider = function () { return {}; };
+step = runInvocation("missing_session_still_dispatch");
+requireBehavior(step.dispatches === 1, step.label + " should dispatch when session is missing");
+
+resetHarness();
+setCorrelationRuns([workflowRun("403", "in_progress", null, BASE_SHA)]);
+setWorkflowRuns({ "403": workflowRun("403", "in_progress", null, BASE_SHA) });
+marketSessionProvider = function () { throw new Error("read failed"); };
+  step = runInvocation("read_error_session_still_dispatch");
+  requireBehavior(step.dispatches === 1, step.label + " should dispatch when session read fails");
+
+  resetHarness();
+  setStateWithEveningIdentity({
+    target_date: TARGET_DATE,
+    workflow: WORKFLOW,
+    attempt_count: 1,
+    phase: "duplicate_skipped",
+  baseline_run_id: "200",
+  workflow_main_sha: BASE_SHA,
+  workflow_run_id: "999",
+  workflow_run_head_sha: BASE_SHA,
+  dispatched_at: "2026-07-21T20:00:00.000Z",
+});
+setWorkflowRuns({});
+setCorrelationRuns([workflowRun("999", "completed", "failure", BASE_SHA)]);
+step = runInvocation("success_state_direct_lookup_error_with_window_candidate");
+requireBehavior(!step.threw, step.label + " should stay fail-closed for stale terminal state");
+requireBehavior(step.state && step.state.phase === "duplicate_skipped", step.label + " should remain duplicate_skipped");
+requireBehavior(step.dispatches === 0, step.label + " should not POST when direct lookup fails");
+step = runInvocation("success_state_direct_lookup_error_with_window_candidate_reinvoke");
+requireBehavior(!step.threw, step.label + " should remain fail-closed on reinvoke");
+requireBehavior(step.state && step.state.phase === "duplicate_skipped", step.label + " should remain duplicate_skipped");
+requireBehavior(step.dispatches === 0, step.label + " should still not POST on reinvoke");
+
+process.stdout.write("evening-data-only-behavior-pass");
+'''
+    script = tmp_path / "apps_script_evening_data_only_behavior.js"
+    script.write_text(source + "\n" + harness, encoding="utf-8")
+    result = subprocess.run(
+        [node, str(script)],
+        cwd=ROOT,
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+
+    assert result.returncode == 0, result.stderr
+    assert result.stdout == "evening-data-only-behavior-pass"
+
+
 def test_apps_script_tdcc_history_gap_repair_trigger_is_tuesday_monthly_guard() -> None:
     body = validate_apps_script_workflow_triggers.apps_script_function_body(
         "triggerTdccHistoryGapRepair"
@@ -249,9 +1288,7 @@ def test_apps_script_tdcc_chain_is_idempotent_and_tracks_one_downstream_run() ->
 def test_apps_script_tdcc_chain_identity_is_retryable_after_failed_attempt(
     tmp_path: Path,
 ) -> None:
-    node = shutil.which("node")
-    if node is None:
-        pytest.skip("Node.js is required to execute the Apps Script behavioral test")
+    node = resolve_test_node()
 
     source = (ROOT / "docs" / "apps_script_workflow_trigger.gs").read_text(
         encoding="utf-8"
@@ -320,9 +1357,7 @@ process.stdout.write("behavior-pass");
 def test_apps_script_tdcc_reconciliation_trigger_lifecycle_behavior(
     tmp_path: Path,
 ) -> None:
-    node = shutil.which("node")
-    if node is None:
-        pytest.skip("Node.js is required to execute the Apps Script trigger lifecycle test")
+    node = resolve_test_node()
 
     source = (ROOT / "docs" / "apps_script_workflow_trigger.gs").read_text(
         encoding="utf-8"

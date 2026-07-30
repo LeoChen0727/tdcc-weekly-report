@@ -1,8 +1,14 @@
 name: Repair Recent Daily Price Gaps
+run-name: Repair Recent Daily Price Gaps | correlation=${{ inputs.dispatch_correlation_id }}
 
 on:
   workflow_dispatch:
     inputs:
+      dispatch_correlation_id:
+        description: "Optional identifier for a single dispatch correlation id"
+        required: false
+        default: "manual"
+        type: string
       as_of_date:
         description: "Optional maintenance boundary date in YYYYMMDD. Empty means today in Asia/Taipei; the date itself is excluded."
         required: false
