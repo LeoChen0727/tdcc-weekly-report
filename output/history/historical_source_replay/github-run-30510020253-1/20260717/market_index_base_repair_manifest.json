@@ -1,0 +1,174 @@
+{
+  "after_tail_matrix": {
+    "daily_price": "20260729",
+    "market_index": {
+      "TPEX": "20260717",
+      "TWSE": "20260717"
+    },
+    "market_index_ohlc": {
+      "TPEX": "20260717",
+      "TWSE": "20260717"
+    },
+    "stock_price_history": {
+      "files": 2381,
+      "files_at_max": 2113,
+      "max_date": "20260729"
+    },
+    "taifex": {
+      "futures_contracts": "20260717",
+      "institutional_fo": "20260717",
+      "options_call_put": "20260717",
+      "put_call_ratio": "20260717",
+      "taiwan_vix": "20260717"
+    },
+    "warrant_daily": "20260717",
+    "warrant_flow": "20260717"
+  },
+  "as_published": false,
+  "before_tail_matrix": {
+    "daily_price": "20260729",
+    "market_index": {
+      "TPEX": "20260716",
+      "TWSE": "20260717"
+    },
+    "market_index_ohlc": {
+      "TPEX": "20260716",
+      "TWSE": "20260717"
+    },
+    "stock_price_history": {
+      "files": 2381,
+      "files_at_max": 2113,
+      "max_date": "20260729"
+    },
+    "taifex": {
+      "futures_contracts": "20260717",
+      "institutional_fo": "20260717",
+      "options_call_put": "20260717",
+      "put_call_ratio": "20260717",
+      "taiwan_vix": "20260717"
+    },
+    "warrant_daily": "20260717",
+    "warrant_flow": "20260717"
+  },
+  "pipeline_commit_sha": "f2ac085b0ac9b4a7b6c9f2c423dbf606615f6bd0",
+  "publication_status": "reconstructed_not_as_published",
+  "replay_id": "github-run-30510020253-1",
+  "report_date": "20260717",
+  "schema_version": "historical_structured_source_replay_v1",
+  "sources": [
+    {
+      "accepted_source_response_count": 1,
+      "accepted_source_responses": [
+        {
+          "accepted": "",
+          "accepted_rows": "",
+          "endpoint": "https://www.tpex.org.tw/www/zh-tw/indexInfo/inx?date=115/07&response=json",
+          "exact_date_match": "",
+          "family": "",
+          "fetched_at": "2026-07-30 11:05:14 Asia/Taipei",
+          "logical_group": "",
+          "normalized_sha256": "7c6d28b746a1717f8a1e6dfb48ac2982469a79e28b5848c87517129e1acce706",
+          "observed_response_dates": "",
+          "raw_sha256": "7a9bbd2d7fef67c92700b8c0402f8106ded6c2cb907fb5e1f79f9c725666b78f",
+          "source": "",
+          "source_name": ""
+        }
+      ],
+      "after_tail": {
+        "TPEX": "20260717",
+        "TWSE": "20260717"
+      },
+      "as_published": false,
+      "before_tail": {
+        "TPEX": "20260716",
+        "TWSE": "20260717"
+      },
+      "endpoint": [
+        "https://www.tpex.org.tw/www/zh-tw/indexInfo/inx?date=115/07&response=json"
+      ],
+      "fallback_used": false,
+      "fetched_at": [
+        "2026-07-30 11:05:14 Asia/Taipei"
+      ],
+      "future_rows_used": false,
+      "normalized_sha256": "4a4648247deb71a84fac9b089289c55d331ac9026f11890385d63de964f0874a",
+      "observed_dates": [
+        "20260717"
+      ],
+      "output_evidence": {
+        "components": [
+          {
+            "component_id": "market_index_target_rows",
+            "future_row_count": 0,
+            "future_rows_excluded_from_slice": true,
+            "member_count": 2,
+            "pk_unique": true,
+            "row_count": 2,
+            "slice_manifest_sha256": "d7866aaefead472520f20cf370db031067482b8092dd6910dc022e8e57770279"
+          }
+        ],
+        "future_row_count": 0,
+        "future_rows_excluded_from_slice": true,
+        "output_sha256": "757a6c3cd9667d3b543ae71d8bf8c821e9f8203e9d5b41f55cdf60d3be900e1b",
+        "pk_unique": true,
+        "row_count": 2,
+        "target_date": "20260717"
+      },
+      "output_sha256": "757a6c3cd9667d3b543ae71d8bf8c821e9f8203e9d5b41f55cdf60d3be900e1b",
+      "params": [
+        {}
+      ],
+      "pk_unique": true,
+      "preserved_target_slice_evidence": {},
+      "price_history_high_water_date": "",
+      "publication_status": "reconstructed_not_as_published",
+      "raw_sha256": "6337f8369ac2cd42063089f03f9b84925863c94feb91bb4137e7d763c0fe38fc",
+      "requested_dates": [
+        "20260717"
+      ],
+      "row_count": 2,
+      "source_attempt_count": 1,
+      "source_id": "market_index_base_repair",
+      "source_response_attempts": [
+        {
+          "accepted": "",
+          "accepted_rows": "",
+          "attempt": "",
+          "elapsed_seconds": "",
+          "encoding": "",
+          "endpoint": "https://www.tpex.org.tw/www/zh-tw/indexInfo/inx?date=115/07&response=json",
+          "error": "",
+          "exact_date_match": "",
+          "expected_response_date": "",
+          "family": "",
+          "fetched_at": "2026-07-30 11:05:14 Asia/Taipei",
+          "http_status": "",
+          "logical_group": "",
+          "normalized_sha256": "7c6d28b746a1717f8a1e6dfb48ac2982469a79e28b5848c87517129e1acce706",
+          "observed_response_dates": "",
+          "params": {},
+          "parse_metadata": "",
+          "parsed_table_count": "",
+          "parsed_table_rows": "",
+          "raw_bytes": "",
+          "raw_sha256": "7a9bbd2d7fef67c92700b8c0402f8106ded6c2cb907fb5e1f79f9c725666b78f",
+          "requested_dates": "",
+          "rows": "",
+          "source": "",
+          "source_name": "",
+          "status": "",
+          "status_code": ""
+        }
+      ],
+      "validation_status": "pass"
+    }
+  ],
+  "twse_base_row_sha256_after": {
+    "data/market_index_history.csv": "4e26e35052671b87cb92f2362ecd82c10299dad3194e2f27d69a0948e2d908b8",
+    "data/market_index_ohlc_history.csv": "1fbf5fb565009ec1d17e2756d2897f652348a418720586ce45caed2ca6521583"
+  },
+  "twse_base_row_sha256_before": {
+    "data/market_index_history.csv": "4e26e35052671b87cb92f2362ecd82c10299dad3194e2f27d69a0948e2d908b8",
+    "data/market_index_ohlc_history.csv": "1fbf5fb565009ec1d17e2756d2897f652348a418720586ce45caed2ca6521583"
+  }
+}

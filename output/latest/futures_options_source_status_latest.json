@@ -1,37 +1,348 @@
 {
-  "generated_at": "2026-07-17 23:44:35 Asia/Taipei",
+  "generated_at": "2026-07-30 11:17:16 Asia/Taipei",
+  "mode": "reconstructed_source_tail_gap",
+  "requested_window": {
+    "start_date": "20260724",
+    "end_date": "20260724"
+  },
   "sources": {
     "institutional_fo": {
       "status": "ok",
       "rows": 3,
-      "latest_date": "20260717",
-      "message": ""
+      "latest_date": "20260724",
+      "message": "",
+      "requested_dates": [
+        "20260724"
+      ],
+      "observed_dates": [
+        "20260724"
+      ],
+      "provenance": {
+        "endpoint": "https://www.taifex.com.tw/cht/3/futAndOptDateDown",
+        "params": {
+          "queryStartDate": "2026/07/24",
+          "queryEndDate": "2026/07/24"
+        },
+        "fetched_at": "2026-07-30 11:17:16 Asia/Taipei",
+        "encoding": "cp950",
+        "raw_sha256": "a59ecc8e20e50221ecc2a90ad23d687478dfcb7849531b75ceaf896c0b2bd476",
+        "normalized_sha256": "8bca9b923abd552960e58c6a5c804c1a3e37efa369b1b286fa4ac6b0d22351a9",
+        "rows": 3,
+        "attempt_count": 1,
+        "attempts": [
+          {
+            "attempt": 1,
+            "source": "institutional_fo",
+            "endpoint": "https://www.taifex.com.tw/cht/3/futAndOptDateDown",
+            "params": {
+              "queryStartDate": "2026/07/24",
+              "queryEndDate": "2026/07/24"
+            },
+            "fetched_at": "2026-07-30 11:17:16 Asia/Taipei",
+            "status": "ok",
+            "http_status": 200,
+            "raw_bytes": 1204,
+            "raw_sha256": "a59ecc8e20e50221ecc2a90ad23d687478dfcb7849531b75ceaf896c0b2bd476",
+            "normalized_sha256": "8bca9b923abd552960e58c6a5c804c1a3e37efa369b1b286fa4ac6b0d22351a9",
+            "encoding": "cp950",
+            "requested_dates": [
+              "20260724"
+            ],
+            "observed_dates": [
+              "20260724"
+            ],
+            "rows": 3,
+            "parse_metadata": {
+              "header_columns": 26,
+              "data_rows": 3,
+              "rows_with_trimmed_trailing_empty_fields": 0,
+              "trimmed_trailing_empty_fields": 0
+            },
+            "error": ""
+          }
+        ],
+        "parse_metadata": {
+          "header_columns": 26,
+          "data_rows": 3,
+          "rows_with_trimmed_trailing_empty_fields": 0,
+          "trimmed_trailing_empty_fields": 0
+        },
+        "pk_unique": true,
+        "publication_status": "reconstructed_not_as_published"
+      }
     },
     "futures_contracts": {
       "status": "ok",
-      "rows": 66,
-      "latest_date": "20260717",
-      "message": ""
+      "rows": 69,
+      "latest_date": "20260724",
+      "message": "",
+      "requested_dates": [
+        "20260724"
+      ],
+      "observed_dates": [
+        "20260724"
+      ],
+      "provenance": {
+        "endpoint": "https://www.taifex.com.tw/cht/3/futContractsDateDown",
+        "params": {
+          "queryStartDate": "2026/07/24",
+          "queryEndDate": "2026/07/24"
+        },
+        "fetched_at": "2026-07-30 11:17:16 Asia/Taipei",
+        "encoding": "cp950",
+        "raw_sha256": "463e1687f7bb2fbaa6ede42355f2b84b38e91fc30dadfc20543797e23fda2f08",
+        "normalized_sha256": "518e6c97e852a216cc0b5fffc334a2b511086f0dbefdd047921178937f597ce8",
+        "rows": 69,
+        "attempt_count": 1,
+        "attempts": [
+          {
+            "attempt": 1,
+            "source": "futures_contracts",
+            "endpoint": "https://www.taifex.com.tw/cht/3/futContractsDateDown",
+            "params": {
+              "queryStartDate": "2026/07/24",
+              "queryEndDate": "2026/07/24"
+            },
+            "fetched_at": "2026-07-30 11:17:16 Asia/Taipei",
+            "status": "ok",
+            "http_status": 200,
+            "raw_bytes": 5908,
+            "raw_sha256": "463e1687f7bb2fbaa6ede42355f2b84b38e91fc30dadfc20543797e23fda2f08",
+            "normalized_sha256": "518e6c97e852a216cc0b5fffc334a2b511086f0dbefdd047921178937f597ce8",
+            "encoding": "cp950",
+            "requested_dates": [
+              "20260724"
+            ],
+            "observed_dates": [
+              "20260724"
+            ],
+            "rows": 69,
+            "parse_metadata": {
+              "header_columns": 15,
+              "data_rows": 69,
+              "rows_with_trimmed_trailing_empty_fields": 0,
+              "trimmed_trailing_empty_fields": 0
+            },
+            "error": ""
+          }
+        ],
+        "parse_metadata": {
+          "header_columns": 15,
+          "data_rows": 69,
+          "rows_with_trimmed_trailing_empty_fields": 0,
+          "trimmed_trailing_empty_fields": 0
+        },
+        "pk_unique": true,
+        "publication_status": "reconstructed_not_as_published"
+      }
     },
     "options_call_put": {
       "status": "ok",
       "rows": 30,
-      "latest_date": "20260717",
-      "message": ""
+      "latest_date": "20260724",
+      "message": "",
+      "requested_dates": [
+        "20260724"
+      ],
+      "observed_dates": [
+        "20260724"
+      ],
+      "provenance": {
+        "endpoint": "https://www.taifex.com.tw/cht/3/callsAndPutsDateDown",
+        "params": {
+          "queryStartDate": "2026/07/24",
+          "queryEndDate": "2026/07/24"
+        },
+        "fetched_at": "2026-07-30 11:17:20 Asia/Taipei",
+        "encoding": "cp950",
+        "raw_sha256": "0a41a60fe5db9b41466901152f1f124673865bcff4bcaffc86c32f232db9e3f9",
+        "normalized_sha256": "50be7e17d1cfa3bfc9b20d11b704ec0f040da6dd28ab2e50d7be02c487f37a09",
+        "rows": 30,
+        "attempt_count": 1,
+        "attempts": [
+          {
+            "attempt": 1,
+            "source": "options_call_put",
+            "endpoint": "https://www.taifex.com.tw/cht/3/callsAndPutsDateDown",
+            "params": {
+              "queryStartDate": "2026/07/24",
+              "queryEndDate": "2026/07/24"
+            },
+            "fetched_at": "2026-07-30 11:17:20 Asia/Taipei",
+            "status": "ok",
+            "http_status": 200,
+            "raw_bytes": 2476,
+            "raw_sha256": "0a41a60fe5db9b41466901152f1f124673865bcff4bcaffc86c32f232db9e3f9",
+            "normalized_sha256": "50be7e17d1cfa3bfc9b20d11b704ec0f040da6dd28ab2e50d7be02c487f37a09",
+            "encoding": "cp950",
+            "requested_dates": [
+              "20260724"
+            ],
+            "observed_dates": [
+              "20260724"
+            ],
+            "rows": 30,
+            "parse_metadata": {
+              "header_columns": 16,
+              "data_rows": 30,
+              "rows_with_trimmed_trailing_empty_fields": 0,
+              "trimmed_trailing_empty_fields": 0
+            },
+            "error": ""
+          }
+        ],
+        "parse_metadata": {
+          "header_columns": 16,
+          "data_rows": 30,
+          "rows_with_trimmed_trailing_empty_fields": 0,
+          "trimmed_trailing_empty_fields": 0
+        },
+        "pk_unique": true,
+        "publication_status": "reconstructed_not_as_published"
+      }
     },
     "put_call_ratio": {
       "status": "ok",
-      "rows": 21,
-      "latest_date": "20260717",
-      "message": ""
+      "rows": 1,
+      "latest_date": "20260724",
+      "message": "",
+      "requested_dates": [
+        "20260724"
+      ],
+      "observed_dates": [
+        "20260724"
+      ],
+      "provenance": {
+        "endpoint": "https://www.taifex.com.tw/cht/3/pcRatioDown",
+        "params": {
+          "queryStartDate": "2026/07/24",
+          "queryEndDate": "2026/07/24"
+        },
+        "fetched_at": "2026-07-30 11:17:20 Asia/Taipei",
+        "encoding": "cp950",
+        "raw_sha256": "0579ca6f2ac803e7bc4875c3bbaeb43d0f985033ea8a587eeb511b8d7734c5cc",
+        "normalized_sha256": "31e12e10a7f3c374d015a303206a496aa8ac494a8bafec741c0e20966dea82ee",
+        "rows": 1,
+        "attempt_count": 1,
+        "attempts": [
+          {
+            "attempt": 1,
+            "source": "put_call_ratio",
+            "endpoint": "https://www.taifex.com.tw/cht/3/pcRatioDown",
+            "params": {
+              "queryStartDate": "2026/07/24",
+              "queryEndDate": "2026/07/24"
+            },
+            "fetched_at": "2026-07-30 11:17:20 Asia/Taipei",
+            "status": "ok",
+            "http_status": 200,
+            "raw_bytes": 144,
+            "raw_sha256": "0579ca6f2ac803e7bc4875c3bbaeb43d0f985033ea8a587eeb511b8d7734c5cc",
+            "normalized_sha256": "31e12e10a7f3c374d015a303206a496aa8ac494a8bafec741c0e20966dea82ee",
+            "encoding": "cp950",
+            "requested_dates": [
+              "20260724"
+            ],
+            "observed_dates": [
+              "20260724"
+            ],
+            "rows": 1,
+            "parse_metadata": {
+              "header_columns": 7,
+              "data_rows": 1,
+              "rows_with_trimmed_trailing_empty_fields": 1,
+              "trimmed_trailing_empty_fields": 1
+            },
+            "error": ""
+          }
+        ],
+        "parse_metadata": {
+          "header_columns": 7,
+          "data_rows": 1,
+          "rows_with_trimmed_trailing_empty_fields": 1,
+          "trimmed_trailing_empty_fields": 1
+        },
+        "pk_unique": true,
+        "publication_status": "reconstructed_not_as_published"
+      }
     },
     "taiwan_vix": {
       "status": "ok",
-      "rows": 73,
-      "latest_date": "20260717",
-      "message": ""
+      "rows": 1,
+      "latest_date": "20260724",
+      "message": "",
+      "publication_status": "reconstructed_not_as_published",
+      "requested_dates": [
+        "20260724"
+      ],
+      "observed_dates": [
+        "20260724"
+      ],
+      "provenance": {
+        "endpoint": "https://www.taifex.com.tw/file/taifex/Dailydownload/vix/log2data/{yyyymm}new.txt",
+        "params": {
+          "start_date": "20260724",
+          "end_date": "20260724"
+        },
+        "fetched_at": "2026-07-30 11:17:30 Asia/Taipei",
+        "source_files": [
+          {
+            "endpoint": "https://www.taifex.com.tw/file/taifex/Dailydownload/vix/log2data/202602new.txt",
+            "yyyymm": "202602",
+            "encoding": "cp950",
+            "raw_sha256": "99217abd21cae0ec777bf59d2370462836ef7de18d66f5465d6f4919f4fc0fb8",
+            "normalized_sha256": "9c8b794723e93316d4593fadf89e13ab4c6e27d87f4399c58a8601f11c0a6bf6",
+            "rows": 0
+          },
+          {
+            "endpoint": "https://www.taifex.com.tw/file/taifex/Dailydownload/vix/log2data/202603new.txt",
+            "yyyymm": "202603",
+            "encoding": "cp950",
+            "raw_sha256": "99217abd21cae0ec777bf59d2370462836ef7de18d66f5465d6f4919f4fc0fb8",
+            "normalized_sha256": "9c8b794723e93316d4593fadf89e13ab4c6e27d87f4399c58a8601f11c0a6bf6",
+            "rows": 0
+          },
+          {
+            "endpoint": "https://www.taifex.com.tw/file/taifex/Dailydownload/vix/log2data/202604new.txt",
+            "yyyymm": "202604",
+            "encoding": "cp950",
+            "raw_sha256": "d90b4219510d196c229396a7879659f4357399e43eb96c6c6384c58dc48a9a78",
+            "normalized_sha256": "eee50853359b151757795a359885a79a49a5d413a2bc8e89fc9848657f53eec8",
+            "rows": 20
+          },
+          {
+            "endpoint": "https://www.taifex.com.tw/file/taifex/Dailydownload/vix/log2data/202605new.txt",
+            "yyyymm": "202605",
+            "encoding": "cp950",
+            "raw_sha256": "3067a6be7e95fbce54d2078f9d90601d9503cce7443e7bda6f56ac61f46b71d1",
+            "normalized_sha256": "c2cb5a09cd6c92229bba7a3120b38066db81afd1853f41768a841ff60605de04",
+            "rows": 20
+          },
+          {
+            "endpoint": "https://www.taifex.com.tw/file/taifex/Dailydownload/vix/log2data/202606new.txt",
+            "yyyymm": "202606",
+            "encoding": "cp950",
+            "raw_sha256": "b7fa355126982960b0e50ec38f69cb72a501813632cd76e556fd3e4040c7cbcc",
+            "normalized_sha256": "4a55133df0586c71ad129765ae78f517cb5e9f09b158778e5686d10b733bcb07",
+            "rows": 21
+          },
+          {
+            "endpoint": "https://www.taifex.com.tw/file/taifex/Dailydownload/vix/log2data/202607new.txt",
+            "yyyymm": "202607",
+            "encoding": "cp950",
+            "raw_sha256": "47d0cfa05ef563a4cd8862572c994b17ed66a18417e9b36cfa64b6069d1a788b",
+            "normalized_sha256": "7f9a6da7548a346d3cbe20567489993efc0ec3694bd446f271f93efdefa9488c",
+            "rows": 20
+          }
+        ],
+        "source_manifest_sha256": "da40bf803f843550623cc615d6393f38ffae1b44dd8d9592c6d6e0c30bef52fb",
+        "rows": 1,
+        "publication_status": "reconstructed_not_as_published"
+      }
     }
   },
   "overall_status": "ready",
-  "indicator_path": "output/latest/futures_options_indicators_latest.csv"
+  "indicator_path": "output/latest/futures_options_indicators_latest.csv",
+  "latest_context_future_row_count": 0,
+  "future_rows_used": false
 }
