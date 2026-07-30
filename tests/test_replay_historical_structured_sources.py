@@ -390,6 +390,139 @@ def test_preserve_price_replay_refetches_but_skips_raw_and_history_writers(monke
     assert result["stock_history_coverage"] == {"supported_stock_count": 1}
 
 
+def _baseline_matrix(
+    structured_date: str,
+    price_history_high_water_date: str,
+    *,
+    tpex_date: str | None = None,
+) -> dict:
+    market_tail = {
+        "TWSE": structured_date,
+        "TPEX": tpex_date or structured_date,
+    }
+    return {
+        "daily_price": price_history_high_water_date,
+        "stock_price_history": {"max_date": price_history_high_water_date},
+        "market_index": market_tail.copy(),
+        "market_index_ohlc": market_tail.copy(),
+        "taifex": {
+            "institutional_fo": structured_date,
+            "futures_contracts": structured_date,
+            "options_call_put": structured_date,
+            "put_call_ratio": structured_date,
+            "taiwan_vix": structured_date,
+        },
+        "warrant_daily": structured_date,
+        "warrant_flow": structured_date,
+    }
+
+
+def test_contiguous_replay_baseline_accepts_aligned_structured_tail(
+    monkeypatch,
+) -> None:
+    monkeypatch.setattr(
+        replay,
+        "validate_daily_price_canonical_legacy_pair",
+        lambda *_: None,
+    )
+    monkeypatch.setattr(
+        replay,
+        "validate_stock_history_date_coverage",
+        lambda *_, **__: {},
+    )
+
+    replay.validate_exact_baseline(
+        _baseline_matrix("20260724", "20260729"),
+        "20260724",
+        "20260729",
+    )
+
+
+def test_contiguous_replay_baseline_rejects_structured_tail_drift(monkeypatch) -> None:
+    monkeypatch.setattr(
+        replay,
+        "validate_daily_price_canonical_legacy_pair",
+        lambda *_: None,
+    )
+    monkeypatch.setattr(
+        replay,
+        "validate_stock_history_date_coverage",
+        lambda *_, **__: {},
+    )
+    matrix = _baseline_matrix("20260724", "20260729")
+    matrix["warrant_flow"] = "20260723"
+
+    with pytest.raises(RuntimeError, match="warrant_flow=20260723"):
+        replay.validate_exact_baseline(
+            matrix,
+            "20260724",
+            "20260729",
+        )
+
+
+def test_tpex_base_repair_baseline_remains_supported(monkeypatch) -> None:
+    monkeypatch.setattr(
+        replay,
+        "validate_daily_price_canonical_legacy_pair",
+        lambda *_: None,
+    )
+    monkeypatch.setattr(
+        replay,
+        "validate_stock_history_date_coverage",
+        lambda *_, **__: {},
+    )
+
+    replay.validate_exact_baseline(
+        _baseline_matrix("20260717", "20260729", tpex_date="20260716"),
+        "20260717",
+        "20260729",
+        "20260717",
+    )
+
+
+def test_tpex_base_repair_date_must_match_derived_baseline(monkeypatch) -> None:
+    monkeypatch.setattr(
+        replay,
+        "validate_daily_price_canonical_legacy_pair",
+        lambda *_: None,
+    )
+    monkeypatch.setattr(
+        replay,
+        "validate_stock_history_date_coverage",
+        lambda *_, **__: {},
+    )
+
+    with pytest.raises(RuntimeError, match="base_repair_date=20260717 expected=20260724"):
+        replay.validate_exact_baseline(
+            _baseline_matrix("20260724", "20260729"),
+            "20260724",
+            "20260729",
+            "20260717",
+        )
+
+
+def test_price_history_high_water_allows_end_date_equality() -> None:
+    replay.validate_price_history_high_water_date("20260729", "20260729")
+
+    with pytest.raises(RuntimeError, match="same as or later"):
+        replay.validate_price_history_high_water_date("20260729", "20260728")
+
+
+def test_recorded_baseline_validation_does_not_read_live_post_replay_history(
+    monkeypatch,
+) -> None:
+    monkeypatch.setattr(
+        replay,
+        "validate_stock_history_date_coverage",
+        lambda *_, **__: pytest.fail("recorded baseline validation read live history"),
+    )
+
+    assert replay.baseline_matrix_errors(
+        _baseline_matrix("20260724", "20260724"),
+        "20260724",
+    ) == []
+
+
 def test_mixed_tail_contract_keeps_price_history_high_water_and_other_sources_at_day() -> None:
     matrix = {
         "daily_price": "20260728",

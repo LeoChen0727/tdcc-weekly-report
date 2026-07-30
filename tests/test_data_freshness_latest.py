@@ -220,11 +220,20 @@ def test_historical_replay_main_price_date_accepts_exact_paired_raw_high_water()
     ) == "20260724"
 
 
+def test_historical_replay_main_price_date_accepts_high_water_equality() -> None:
+    assert freshness.validate_historical_replay_main_price_date(
+        "20260728",
+        "20260728",
+        daily_price_high_water_date="20260728",
+        stock_price_history_high_water_date="20260728",
+    ) == "20260728"
+
+
 @pytest.mark.parametrize(
     ("target", "expected", "daily", "history", "message"),
     [
         ("20260230", "20260728", "20260728", "20260728", "valid calendar date"),
-        ("20260728", "20260728", "20260728", "20260728", "must be earlier"),
+        ("20260729", "20260728", "20260728", "20260728", "must not be later"),
         ("20260724", "20260728", "20260727", "20260728", "exact paired"),
     ],
 )
@@ -471,6 +480,24 @@ def test_historical_replay_override_keeps_raw_actual_date_and_forces_readiness_f
     assert row["historical_replay_main_price_date"] == "20260724"
     assert row["expected_price_history_high_water_date"] == "20260728"
     assert row["actual_stock_price_history_date"] == "20260728"
+    assert bool(row["report_ready"]) is False
+    assert bool(row["daily_pdf_ready"]) is False
+
+
+def test_historical_replay_override_at_high_water_keeps_readiness_false(
+    monkeypatch,
+) -> None:
+    _patch_status_build_dependencies(monkeypatch, validated_history_date="20260728")
+
+    frame = freshness.build_status(
+        historical_replay_main_price_date="20260728",
+        expected_price_history_high_water_date="20260728",
+    )
+    row = frame.iloc[0]
+
+    assert row["main_price_date"] == "20260728"
+    assert row["main_price_date_source"] == "historical_replay_override"
+    assert row["expected_price_history_high_water_date"] == "20260728"
     assert bool(row["report_ready"]) is False
     assert bool(row["daily_pdf_ready"]) is False
 

@@ -655,14 +655,18 @@ def previous_trading_date(date_text: str) -> str:
     return current.strftime("%Y%m%d")
 
 
-def validate_exact_baseline(
+def baseline_matrix_errors(
     matrix: dict[str, Any],
-    base_date: str,
+    required_base_date: str,
     price_history_high_water_date: str = "",
-) -> None:
-    expected_previous = previous_trading_date(base_date)
-    expected_price_history_tail = price_history_high_water_date or base_date
+    base_repair_date: str = "",
+) -> list[str]:
+    expected_price_history_tail = price_history_high_water_date or required_base_date
     errors: list[str] = []
+    if base_repair_date and base_repair_date != required_base_date:
+        errors.append(
+            f"base_repair_date={base_repair_date} expected={required_base_date}"
+        )
     if matrix.get("daily_price") != expected_price_history_tail:
         errors.append(
             f"daily_price={matrix.get('daily_price')} expected={expected_price_history_tail}"
@@ -673,23 +677,60 @@ def validate_exact_baseline(
             "stock_price_history="
             f"{stock_tail.get('max_date')} expected={expected_price_history_tail}"
         )
-    expected_market = {"TWSE": base_date, "TPEX": expected_previous}
+    expected_market = (
+        {
+            "TWSE": required_base_date,
+            "TPEX": previous_trading_date(required_base_date),
+        }
+        if base_repair_date
+        else {"TWSE": required_base_date, "TPEX": required_base_date}
+    )
     for family in ("market_index", "market_index_ohlc"):
         if matrix.get(family) != expected_market:
             errors.append(f"{family}={matrix.get(family)} expected={expected_market}")
-    if set(matrix.get("taifex", {}).values()) != {base_date}:
-        errors.append(f"taifex={matrix.get('taifex')} expected all {base_date}")
+    if set(matrix.get("taifex", {}).values()) != {required_base_date}:
+        errors.append(
+            f"taifex={matrix.get('taifex')} expected all {required_base_date}"
+        )
     for family in ("warrant_daily", "warrant_flow"):
-        if matrix.get(family) != base_date:
-            errors.append(f"{family}={matrix.get(family)} expected={base_date}")
+        if matrix.get(family) != required_base_date:
+            errors.append(
+                f"{family}={matrix.get(family)} expected={required_base_date}"
+            )
+    return errors
+
+
+def validate_exact_baseline(
+    matrix: dict[str, Any],
+    required_base_date: str,
+    price_history_high_water_date: str = "",
+    base_repair_date: str = "",
+) -> None:
+    errors = baseline_matrix_errors(
+        matrix,
+        required_base_date,
+        price_history_high_water_date,
+        base_repair_date,
+    )
     if errors:
         raise RuntimeError("historical source replay baseline mismatch: " + "; ".join(errors))
+    expected_price_history_tail = price_history_high_water_date or required_base_date
     if price_history_high_water_date:
         validate_daily_price_canonical_legacy_pair(price_history_high_water_date)
     validate_stock_history_date_coverage(
         expected_price_history_tail,
         manifest_end_date=expected_price_history_tail,
     )
+
+
+def validate_price_history_high_water_date(
+    end_date: str,
+    price_history_high_water_date: str,
+) -> None:
+    if price_history_high_water_date and price_history_high_water_date < end_date:
+        raise RuntimeError(
+            "--price-history-high-water-date must be the same as or later than --end-date"
+        )
 
 
 def validate_replay_day_tail_matrix(
@@ -1398,6 +1439,7 @@ def write_latest_summary(
     start_date: str,
     end_date: str,
     trading_dates: list[str],
+    required_base_date: str,
     base_repair_date: str,
     before: dict[str, Any],
     after: dict[str, Any],
@@ -1416,6 +1458,7 @@ def write_latest_summary(
         "end_date": end_date,
         "price_history_high_water_date": price_history_high_water_date,
         "trading_dates": trading_dates,
+        "required_base_date": required_base_date,
         "base_repair_date": base_repair_date,
         "publication_status": "reconstructed_not_as_published",
         "as_published": False,
@@ -1441,6 +1484,7 @@ def write_latest_summary(
                 "",
                 "- status: `pass`",
                 f"- trading_dates: `{', '.join(trading_dates)}`",
+                f"- required_base_date: `{required_base_date}`",
                 f"- base_repair_date: `{base_repair_date}`",
                 f"- price_history_high_water_date: `{price_history_high_water_date}`",
                 "- publication_status: `reconstructed_not_as_published`",
@@ -1460,7 +1504,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--start-date", required=True)
     parser.add_argument("--end-date", required=True)
     parser.add_argument("--price-history-high-water-date", default="")
-    parser.add_argument("--repair-market-index-base-date", required=True)
+    parser.add_argument("--repair-market-index-base-date", default="")
     parser.add_argument(
         "--replay-id",
         default=os.environ.get("HISTORICAL_SOURCE_REPLAY_ID", ""),
@@ -1477,21 +1521,26 @@ def main() -> int:
         args.price_history_high_water_date,
         "--price-history-high-water-date",
     )
-    if price_history_high_water_date and price_history_high_water_date <= end_date:
-        raise RuntimeError("--price-history-high-water-date must be later than --end-date")
-    base_repair_date = parse_date(
+    validate_price_history_high_water_date(end_date, price_history_high_water_date)
+    base_repair_date = parse_optional_date(
         args.repair_market_index_base_date,
         "--repair-market-index-base-date",
     )
     replay_id = parse_replay_id(args.replay_id)
     trading_dates = expected_trading_dates(start_date, end_date)
+    required_base_date = previous_trading_date(start_date)
     if git_output("rev-parse", "--abbrev-ref", "HEAD") != "main":
         raise RuntimeError("historical structured-source replay is main-only")
     if git_output("status", "--porcelain"):
         raise RuntimeError("historical structured-source replay requires a clean checkout")
 
     initial = source_tail_matrix()
-    validate_exact_baseline(initial, base_repair_date, price_history_high_water_date)
+    validate_exact_baseline(
+        initial,
+        required_base_date,
+        price_history_high_water_date,
+        base_repair_date,
+    )
     protected_fingerprints_before = (
         protected_price_history_fingerprints() if price_history_high_water_date else {}
     )
@@ -1603,6 +1652,7 @@ def main() -> int:
         start_date,
         end_date,
         trading_dates,
+        required_base_date,
         base_repair_date,
         initial,
         final,

@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 
 import pandas as pd
+import pytest
 
 from scripts import replay_historical_structured_sources as replay
 from scripts import validate_historical_structured_source_replay as validator
@@ -139,6 +140,55 @@ def test_pipeline_sha_helper_accepts_exact_replay_base() -> None:
     sha = replay.git_output("rev-parse", "HEAD")
 
     assert validator.validate_pipeline_commit_sha({"pipeline_commit_sha": sha}, "day", sha) == []
+
+
+def test_expected_manifest_paths_omit_optional_base_repair() -> None:
+    assert validator.expected_replay_manifest_paths(
+        "github-run-123-1",
+        ["20260727", "20260728", "20260729"],
+    ) == [
+        "output/history/historical_source_replay/github-run-123-1/20260727/structured_source_manifest.json",
+        "output/history/historical_source_replay/github-run-123-1/20260728/structured_source_manifest.json",
+        "output/history/historical_source_replay/github-run-123-1/20260729/structured_source_manifest.json",
+    ]
+
+
+def test_expected_manifest_paths_include_explicit_base_repair_first() -> None:
+    assert validator.expected_replay_manifest_paths(
+        "github-run-123-1",
+        ["20260720"],
+        "20260717",
+    ) == [
+        "output/history/historical_source_replay/github-run-123-1/20260717/market_index_base_repair_manifest.json",
+        "output/history/historical_source_replay/github-run-123-1/20260720/structured_source_manifest.json",
+    ]
+
+
+def test_recorded_baseline_rejects_wrong_required_tail_without_live_reads(
+    monkeypatch,
+) -> None:
+    monkeypatch.setattr(
+        replay,
+        "validate_stock_history_date_coverage",
+        lambda *_, **__: pytest.fail("recorded baseline validation read live history"),
+    )
+    matrix = {
+        "daily_price": "20260729",
+        "stock_price_history": {"max_date": "20260729"},
+        "market_index": {"TWSE": "20260724", "TPEX": "20260724"},
+        "market_index_ohlc": {"TWSE": "20260724", "TPEX": "20260724"},
+        "taifex": {"source": "20260724"},
+        "warrant_daily": "20260724",
+        "warrant_flow": "20260723",
+    }
+
+    errors = validator.validate_recorded_baseline(
+        {"before_tail_matrix": matrix},
+        "20260724",
+        "20260729",
+    )
+
+    assert any("warrant_flow=20260723" in error for error in errors)
 
 
 def _preserve_manifest_payload(expected_sha: str, fingerprints: dict) -> dict:

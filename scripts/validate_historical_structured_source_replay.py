@@ -263,6 +263,50 @@ def validate_manifest(
     return errors
 
 
+def expected_replay_manifest_paths(
+    replay_id: str,
+    trading_dates: list[str],
+    base_repair_date: str = "",
+) -> list[str]:
+    paths: list[str] = []
+    if base_repair_date:
+        paths.append(
+            (
+                replay.REPLAY_HISTORY
+                / replay_id
+                / base_repair_date
+                / "market_index_base_repair_manifest.json"
+            ).as_posix()
+        )
+    paths.extend(
+        (
+            replay.REPLAY_HISTORY
+            / replay_id
+            / target_date
+            / "structured_source_manifest.json"
+        ).as_posix()
+        for target_date in trading_dates
+    )
+    return paths
+
+
+def validate_recorded_baseline(
+    latest: dict,
+    required_base_date: str,
+    price_history_high_water_date: str = "",
+    base_repair_date: str = "",
+) -> list[str]:
+    return [
+        "historical replay before-tail baseline mismatch: " + error
+        for error in replay.baseline_matrix_errors(
+            latest.get("before_tail_matrix") or {},
+            required_base_date,
+            price_history_high_water_date,
+            base_repair_date,
+        )
+    ]
+
+
 def validate_context_latest(path: Path, date_col: str, end_date: str, minimum_rows: int) -> list[str]:
     errors: list[str] = []
     if not path.exists():
@@ -378,6 +422,7 @@ def validate(
 ) -> list[str]:
     errors: list[str] = []
     trading_dates = replay.expected_trading_dates(start_date, end_date)
+    required_base_date = replay.previous_trading_date(start_date)
     protected_fingerprints = (
         replay.protected_price_history_fingerprints()
         if price_history_high_water_date
@@ -394,6 +439,8 @@ def validate(
         errors.append("historical replay latest as_published must be false")
     if latest.get("base_repair_date", "") != base_repair_date:
         errors.append("historical replay latest base_repair_date mismatch")
+    if latest.get("required_base_date", "") != required_base_date:
+        errors.append("historical replay latest required_base_date mismatch")
     if latest.get("replay_id") != replay_id:
         errors.append("historical replay latest replay_id mismatch")
     if latest.get("price_history_high_water_date", "") != price_history_high_water_date:
@@ -417,15 +464,22 @@ def validate(
         )
     )
 
-    expected_manifest_paths = [
-        (replay.REPLAY_HISTORY / replay_id / base_repair_date / "market_index_base_repair_manifest.json").as_posix(),
-        *[
-            (replay.REPLAY_HISTORY / replay_id / target_date / "structured_source_manifest.json").as_posix()
-            for target_date in trading_dates
-        ],
-    ]
+    expected_manifest_paths = expected_replay_manifest_paths(
+        replay_id,
+        trading_dates,
+        base_repair_date,
+    )
     if latest.get("manifest_paths") != expected_manifest_paths:
         errors.append("historical replay latest manifest_paths mismatch")
+
+    errors.extend(
+        validate_recorded_baseline(
+            latest,
+            required_base_date,
+            price_history_high_water_date,
+            base_repair_date,
+        )
+    )
 
     for target_date in trading_dates:
         manifest = replay.REPLAY_HISTORY / replay_id / target_date / "structured_source_manifest.json"
@@ -638,7 +692,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--start-date", required=True)
     parser.add_argument("--end-date", required=True)
     parser.add_argument("--price-history-high-water-date", default="")
-    parser.add_argument("--repair-market-index-base-date", required=True)
+    parser.add_argument("--repair-market-index-base-date", default="")
     parser.add_argument(
         "--replay-id",
         default=os.environ.get("HISTORICAL_SOURCE_REPLAY_ID", ""),
@@ -658,9 +712,8 @@ def main() -> int:
         args.price_history_high_water_date,
         "--price-history-high-water-date",
     )
-    if price_history_high_water_date and price_history_high_water_date <= end_date:
-        raise RuntimeError("--price-history-high-water-date must be later than --end-date")
-    base = replay.parse_date(
+    replay.validate_price_history_high_water_date(end_date, price_history_high_water_date)
+    base = replay.parse_optional_date(
         args.repair_market_index_base_date,
         "--repair-market-index-base-date",
     )

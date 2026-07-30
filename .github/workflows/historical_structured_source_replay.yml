@@ -19,9 +19,9 @@ on:
         default: ""
         type: string
       repair_market_index_base_date:
-        description: "TPEX-only market-index base repair date in YYYYMMDD"
-        required: true
-        default: "20260717"
+        description: "Optional TPEX-only market-index base repair date in YYYYMMDD; leave empty for a contiguous replay"
+        required: false
+        default: ""
         type: string
       expected_main_sha:
         description: "Exact 40-character merged main SHA authorized for this replay"
