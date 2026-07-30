@@ -24,6 +24,16 @@ const TDCC_VALIDATION_PATH = "output/latest/tdcc_weekly_candidate_report_validat
 const TDCC_OFFICIAL_DATE_SOURCE = "report_ready_csv_signal_date";
 const INDIVIDUAL_REFRESH_RUN_STATUS_PATH =
   "output/latest/individual_stock_reports/individual_stock_refresh_run_status_latest.json";
+const EVENING_DATA_ONLY_STATE_PROPERTY = "EVENING_DATA_ONLY_REPAIR_CHAIN_STATE";
+const EVENING_DATA_ONLY_DISPATCH_HISTORY_PROPERTY =
+  "EVENING_DATA_ONLY_REPAIR_DISPATCH_HISTORY";
+const EVENING_DATA_ONLY_HISTORY_LIMIT = 16;
+const EVENING_DATA_ONLY_MAX_ATTEMPTS = 2;
+const EVENING_DATA_ONLY_WORKFLOW = "repair_recent_daily_price_gaps.yml";
+const EVENING_DATA_ONLY_WORKFLOW_RUN_NAME_PREFIX =
+  "Repair Recent Daily Price Gaps | correlation=";
+const EVENING_DATA_ONLY_MARKET_SESSION_STATUS_PATH =
+  "output/latest/market_session_status_latest.json";
 
 function getGithubToken_() {
   const properties = PropertiesService.getScriptProperties();
@@ -54,6 +64,27 @@ function responsePreview_(responseBody) {
     return responseBody;
   }
   return responseBody.slice(0, RESPONSE_PREVIEW_MAX_CHARS) + "...[truncated]";
+}
+
+function buildEveningDataOnlyRunCorrelationId_(targetDate, attemptCount) {
+  const sanitizedDate = String(targetDate || "");
+  const sanitizedAttempt = String(attemptCount || 1);
+  return (
+    "evening-" +
+    sanitizedDate +
+    "-attempt-" +
+    sanitizedAttempt +
+    "-" +
+    Utilities.getUuid()
+  );
+}
+
+function buildEveningDataOnlyRunDisplayTitle_(correlationId) {
+  return EVENING_DATA_ONLY_WORKFLOW_RUN_NAME_PREFIX + String(correlationId || "manual");
+}
+
+function isEveningDataOnlyRunMatchedByDisplayTitle_(run, expectedDisplayTitle) {
+  return String(run && run.display_title) === String(expectedDisplayTitle || "");
 }
 
 function githubStatusHint_(statusCode) {
@@ -307,7 +338,7 @@ function latestWorkflowRunId_(workflowFile) {
   }, 0);
 }
 
-function findCorrelatedWorkflowRuns_(workflowFile, baselineRunId, dispatchedAt) {
+function findCorrelatedWorkflowRuns_(workflowFile, baselineRunId, dispatchedAt, expectedHeadSha, expectedDisplayTitle) {
   const dispatchedAtMs = new Date(dispatchedAt).getTime();
   const earliestMs = dispatchedAtMs - 15000;
   const latestMs = dispatchedAtMs + TDCC_CHAIN_CORRELATION_WINDOW_MS;
@@ -319,6 +350,8 @@ function findCorrelatedWorkflowRuns_(workflowFile, baselineRunId, dispatchedAt) 
         Number(run.id) > Number(baselineRunId || 0) &&
         run.event === "workflow_dispatch" &&
         run.head_branch === GITHUB_REF &&
+        (!expectedHeadSha || run.head_sha === expectedHeadSha) &&
+        (!expectedDisplayTitle || isEveningDataOnlyRunMatchedByDisplayTitle_(run, expectedDisplayTitle)) &&
         createdAtMs >= earliestMs &&
         createdAtMs <= latestMs
       );
@@ -332,8 +365,234 @@ function nowIso_() {
   return new Date().toISOString();
 }
 
+function currentDate_() {
+  return new Date();
+}
+
+function currentWeekday_() {
+  const rawWeekday = Utilities.formatDate(currentDate_(), "Asia/Taipei", "u");
+  const numericWeekday = Number(rawWeekday);
+  if (String(numericWeekday) !== rawWeekday) {
+    return 0;
+  }
+  return numericWeekday === 7 ? 0 : numericWeekday;
+}
+
 function taipeiYyyyMmDd_() {
   return Utilities.formatDate(new Date(), "Asia/Taipei", "yyyyMMdd");
+}
+
+function readEveningDataOnlyRepairState_() {
+  const raw = PropertiesService.getScriptProperties().getProperty(
+    EVENING_DATA_ONLY_STATE_PROPERTY
+  );
+  return raw ? JSON.parse(raw) : null;
+}
+
+function writeEveningDataOnlyRepairState_(state) {
+  state.updated_at = nowIso_();
+  PropertiesService.getScriptProperties().setProperty(
+    EVENING_DATA_ONLY_STATE_PROPERTY,
+    JSON.stringify(state)
+  );
+  Logger.log("Evening data-only repair state: " + JSON.stringify(state));
+}
+
+function readEveningDataOnlyRepairDispatchHistory_() {
+  try {
+    const raw = PropertiesService.getScriptProperties().getProperty(
+      EVENING_DATA_ONLY_DISPATCH_HISTORY_PROPERTY
+    );
+    if (!raw) {
+      return [];
+    }
+    const history = JSON.parse(raw);
+    return Array.isArray(history) ? history : [];
+  } catch (error) {
+    Logger.log(
+      "Evening data-only repair dispatch history read failed (best effort): " +
+        error.message
+    );
+    return [];
+  }
+}
+
+function writeEveningDataOnlyRepairDispatchHistory_(history) {
+  try {
+    PropertiesService.getScriptProperties().setProperty(
+      EVENING_DATA_ONLY_DISPATCH_HISTORY_PROPERTY,
+      JSON.stringify(history.slice(-EVENING_DATA_ONLY_HISTORY_LIMIT))
+    );
+  } catch (error) {
+    Logger.log(
+      "Evening data-only repair dispatch history write failed (best effort): " +
+        error.message
+    );
+  }
+}
+
+function readEveningDataOnlyMarketSession_() {
+  const statusText = getRepositoryTextFile_(EVENING_DATA_ONLY_MARKET_SESSION_STATUS_PATH, GITHUB_REF);
+  return JSON.parse(statusText);
+}
+
+function isMarketSessionClosed_(targetDate, marketSession) {
+  const session = marketSession || {};
+  const assessmentDate = String(session.assessment_date || "").trim();
+  const marketStatus = String(session.market_status || "").toLowerCase();
+  return (
+    String(targetDate) === assessmentDate &&
+    (marketStatus === "closed_scheduled" || marketStatus === "closed_emergency")
+  );
+}
+
+function isEveningDataOnlyAttemptAllowed_(state) {
+  return Number(state && state.attempt_count) >= 1 && Number(state && state.attempt_count) <= EVENING_DATA_ONLY_MAX_ATTEMPTS;
+}
+
+function maybeRecoverEveningDataOnlyRunFromState_(state, targetDate) {
+  if (!state || state.target_date !== targetDate) {
+    return { run: null, reason: "no_state" };
+  }
+  const expectedCorrelationId = String(state.dispatch_correlation_id || "");
+  const expectedDisplayTitleFromCorrelationId = expectedCorrelationId
+    ? buildEveningDataOnlyRunDisplayTitle_(expectedCorrelationId)
+    : "";
+  if (
+    !state.dispatch_correlation_id ||
+    String(state.expected_run_display_title || "") !== expectedDisplayTitleFromCorrelationId
+  ) {
+    return { run: null, reason: "identity_mismatch", error: "State identity contract is missing or invalid." };
+  }
+  if (state.workflow_run_id) {
+    if (
+      state.workflow_run_head_sha &&
+      state.workflow_main_sha &&
+      state.workflow_run_head_sha !== state.workflow_main_sha
+    ) {
+      return { run: null, reason: "head_sha_mismatch" };
+    }
+    if (!state.workflow_main_sha) {
+      return { run: null, reason: "no_correlation_contract" };
+    }
+    try {
+      const workflowRun = getWorkflowRun_(state.workflow_run_id);
+      if (
+        !isEveningDataOnlyRunMatchedByDisplayTitle_(
+          workflowRun,
+          state.expected_run_display_title
+        )
+      ) {
+        return { run: null, reason: "identity_mismatch", error: "Recovered run display title does not match state identity contract." };
+      }
+      if (
+        state.workflow_main_sha &&
+        !isEveningDataOnlyRunMatchedByHeadSha_(workflowRun, state.workflow_main_sha)
+      ) {
+        return {
+          run: null,
+          reason: "head_sha_mismatch",
+          workflowRun: workflowRun,
+        };
+      }
+      return { run: workflowRun, reason: "direct_lookup" };
+    } catch (error) {
+      Logger.log(
+        "Evening data-only recovery by prior workflow_run_id failed: " +
+          state.workflow_run_id +
+          ", " +
+          error.message
+      );
+      return { run: null, reason: "api_error", error: error };
+    }
+  }
+  if (!state.dispatched_at) {
+    return { run: null, reason: "invalid_dispatched_at" };
+  }
+  const dispatchedAtMs = new Date(state.dispatched_at).getTime();
+  if (Number.isNaN(dispatchedAtMs)) {
+    return { run: null, reason: "invalid_dispatched_at" };
+  }
+  if (
+    !state.baseline_run_id ||
+    !state.workflow_main_sha ||
+    !state.expected_run_display_title
+  ) {
+    return { run: null, reason: "no_correlation_contract" };
+  }
+  let recoveryCandidates;
+  try {
+    recoveryCandidates = findCorrelatedWorkflowRuns_(
+      EVENING_DATA_ONLY_WORKFLOW,
+      state.baseline_run_id,
+      state.dispatched_at,
+      state.workflow_main_sha,
+      state.expected_run_display_title
+    );
+  } catch (error) {
+    Logger.log(
+      "Evening data-only recovery by correlation list failed for target date " +
+        targetDate +
+        ": " +
+        error.message
+    );
+    return { run: null, reason: "correlation_api_error", error: error };
+  }
+  if (recoveryCandidates.length === 1) {
+    return { run: recoveryCandidates[0], reason: "correlated" };
+  }
+  if (recoveryCandidates.length > 1) {
+    return { run: null, reason: "ambiguous", candidates: recoveryCandidates };
+  }
+  return { run: null, reason: "not_found" };
+}
+
+function annotateEveningDataOnlyRunState_(state, run) {
+  if (!state || !run) {
+    return;
+  }
+  state.workflow_run_id = String(run.id);
+  state.workflow_run_url = run.html_url || null;
+  state.workflow_run_display_title = run.display_title || null;
+  state.workflow_run_status = run.status || null;
+  state.workflow_run_conclusion = run.conclusion || null;
+  state.workflow_run_head_sha = run.head_sha || null;
+}
+
+function isEveningDataOnlyRunInFlight_(run) {
+  return run && run.status !== "completed";
+}
+
+function isEveningDataOnlyRunSuccess_(run) {
+  return run && run.status === "completed" && run.conclusion === "success";
+}
+
+function isEveningDataOnlyRunMatchedByHeadSha_(run, expectedHeadSha) {
+  return run && run.head_sha === expectedHeadSha;
+}
+
+function recordEveningDataOnlyRepairDispatch_(state) {
+  try {
+    const history = readEveningDataOnlyRepairDispatchHistory_();
+    const existingIndex = history.findIndex(function (entry) {
+      return (
+        entry.target_date === state.target_date &&
+        entry.workflow === state.workflow &&
+        entry.attempt_count === state.attempt_count
+      );
+    });
+    if (existingIndex >= 0) {
+      history[existingIndex] = state;
+    } else {
+      history.push(state);
+    }
+    writeEveningDataOnlyRepairDispatchHistory_(history);
+  } catch (error) {
+    Logger.log(
+      "Evening data-only repair dispatch history record failed (best effort): " +
+        error.message
+    );
+  }
 }
 
 function readTdccChainState_() {
@@ -659,6 +918,570 @@ function triggerDailyPriceGapRepair() {
   logLatestWorkflowRunsSafe_("repair_recent_daily_price_gaps.yml");
 }
 
+function triggerEveningDataOnlyRepair() {
+  return withScriptLock_(function () {
+    const dayOfWeek = currentWeekday_();
+    const targetDate = taipeiYyyyMmDd_();
+
+    if (dayOfWeek === 0 || dayOfWeek === 6) {
+      const state = {
+        target_date: targetDate,
+        phase: "skipped_weekend",
+      };
+      writeEveningDataOnlyRepairState_(state);
+      Logger.log("Skip evening data-only repair on weekend.");
+      return;
+    }
+
+    let marketSession = null;
+    try {
+      marketSession = readEveningDataOnlyMarketSession_();
+    } catch (error) {
+      Logger.log("Evening data-only repair market-session read failed: " + error.message);
+      marketSession = null;
+    }
+
+    if (isMarketSessionClosed_(targetDate, marketSession)) {
+      const state = {
+        target_date: targetDate,
+        phase: "skipped_closed_market",
+        market_status: marketSession && marketSession.market_status ? marketSession.market_status : "unknown",
+        expected_main_price_date:
+          marketSession && marketSession.expected_main_price_date
+            ? marketSession.expected_main_price_date
+            : "",
+      };
+      writeEveningDataOnlyRepairState_(state);
+      Logger.log("Skip evening data-only repair on closed market day.");
+      return;
+    }
+
+    let currentState = readEveningDataOnlyRepairState_();
+    if (!currentState || currentState.target_date !== targetDate) {
+      currentState = null;
+    }
+
+    let stateForDispatch = null;
+
+    if (currentState) {
+      const recovery = maybeRecoverEveningDataOnlyRunFromState_(currentState, targetDate);
+      const statePhase = String(currentState.phase || "");
+      const terminalPhases = [
+        "dispatch_ambiguous",
+        "dispatch_uncertain",
+        "dispatch_missing",
+        "duplicate_skipped",
+        "max_attempts_exceeded",
+        "skipped_weekend",
+        "skipped_closed_market",
+      ];
+      if (recovery.reason === "identity_mismatch") {
+        currentState.phase = "dispatch_ambiguous";
+        currentState.workflow = EVENING_DATA_ONLY_WORKFLOW;
+        currentState.target_date = targetDate;
+        currentState.error = String(
+          recovery.error || "Evening data-only repair state identity contract mismatch."
+        );
+        writeEveningDataOnlyRepairState_(currentState);
+        recordEveningDataOnlyRepairDispatch_(currentState);
+        Logger.log(
+          "Evening data-only repair state identity mismatch persisted as dispatch_ambiguous: " +
+            JSON.stringify(currentState)
+        );
+        return;
+      }
+      if (terminalPhases.indexOf(statePhase) >= 0) {
+        if (recovery.run) {
+          annotateEveningDataOnlyRunState_(currentState, recovery.run);
+          if (recovery.run.status === "completed" && recovery.run.conclusion === "success") {
+            Logger.log(
+              "Evening data-only repair recovered success for terminal state " +
+                statePhase +
+                ", but will not retry."
+            );
+          }
+        }
+        currentState.workflow = EVENING_DATA_ONLY_WORKFLOW;
+        currentState.target_date = targetDate;
+        currentState.phase = statePhase;
+        if (
+          statePhase === "run_completed_non_success" &&
+          !currentState.error
+        ) {
+          currentState.error =
+            "run_completed_non_success is terminal without exact retry evidence.";
+        }
+        writeEveningDataOnlyRepairState_(currentState);
+        recordEveningDataOnlyRepairDispatch_(currentState);
+        Logger.log(
+          "Evening data-only repair kept terminal state from prior outcome: " +
+            JSON.stringify(currentState)
+        );
+        return;
+      }
+
+      if (statePhase === "run_completed_non_success") {
+        if (recovery.run) {
+          annotateEveningDataOnlyRunState_(currentState, recovery.run);
+          if (
+            recovery.run.status === "completed" &&
+            (recovery.run.conclusion === "failure" || recovery.run.conclusion === "cancelled")
+          ) {
+            const nextAttemptCount = Number(currentState.attempt_count || 1) + 1;
+            if (!isEveningDataOnlyAttemptAllowed_({ attempt_count: nextAttemptCount })) {
+              currentState.phase = "max_attempts_exceeded";
+              currentState.error =
+                "Evening data-only repair reached max retry attempts (" +
+                String(EVENING_DATA_ONLY_MAX_ATTEMPTS) +
+                ") for target date " +
+                targetDate +
+                ".";
+              currentState.workflow = EVENING_DATA_ONLY_WORKFLOW;
+              currentState.target_date = targetDate;
+              writeEveningDataOnlyRepairState_(currentState);
+              recordEveningDataOnlyRepairDispatch_(currentState);
+              throw new Error(currentState.error);
+            }
+
+            const terminalFailureState = JSON.parse(JSON.stringify(currentState));
+            terminalFailureState.workflow = EVENING_DATA_ONLY_WORKFLOW;
+            terminalFailureState.target_date = targetDate;
+            terminalFailureState.phase = "run_completed_non_success";
+            terminalFailureState.attempt_count = Number(currentState.attempt_count || 1);
+            terminalFailureState.error =
+              "Previous run completed non-success and is eligible for bounded retry " +
+              String(nextAttemptCount) +
+              " / " +
+              String(EVENING_DATA_ONLY_MAX_ATTEMPTS) +
+              ".";
+            writeEveningDataOnlyRepairState_(terminalFailureState);
+            recordEveningDataOnlyRepairDispatch_(terminalFailureState);
+
+            stateForDispatch = {
+              target_date: targetDate,
+              workflow: EVENING_DATA_ONLY_WORKFLOW,
+              attempt_count: nextAttemptCount,
+              baseline_run_id: terminalFailureState.baseline_run_id,
+              workflow_main_sha: terminalFailureState.workflow_main_sha,
+            };
+          } else {
+            currentState.workflow = EVENING_DATA_ONLY_WORKFLOW;
+            currentState.target_date = targetDate;
+            currentState.phase = "run_completed_non_success";
+            currentState.error =
+              "Latest completed run had non-retryable conclusion: " +
+              ((recovery.run && recovery.run.conclusion) || recovery.run.status || "unknown");
+            writeEveningDataOnlyRepairState_(currentState);
+            recordEveningDataOnlyRepairDispatch_(currentState);
+            Logger.log(
+              "Evening data-only repair completed run is non-retryable for target date " +
+                targetDate +
+                "; skip dispatch."
+            );
+            return;
+          }
+        } else {
+          currentState.workflow = EVENING_DATA_ONLY_WORKFLOW;
+          currentState.target_date = targetDate;
+          currentState.phase = "run_completed_non_success";
+          if (!currentState.error) {
+            currentState.error =
+              "run_completed_non_success is terminal without exact retry evidence.";
+          }
+          writeEveningDataOnlyRepairState_(currentState);
+          recordEveningDataOnlyRepairDispatch_(currentState);
+          return;
+        }
+      }
+
+      else if (recovery.run) {
+        annotateEveningDataOnlyRunState_(currentState, recovery.run);
+        if (isEveningDataOnlyRunInFlight_(recovery.run)) {
+          currentState.phase = "dispatched";
+          currentState.workflow = EVENING_DATA_ONLY_WORKFLOW;
+          writeEveningDataOnlyRepairState_(currentState);
+          recordEveningDataOnlyRepairDispatch_(currentState);
+          Logger.log(
+            "Evening data-only repair run is still in-flight: " + JSON.stringify(currentState)
+          );
+          return;
+        }
+        if (isEveningDataOnlyRunSuccess_(recovery.run)) {
+          currentState.phase = "duplicate_skipped";
+          currentState.workflow = EVENING_DATA_ONLY_WORKFLOW;
+          currentState.target_date = targetDate;
+          writeEveningDataOnlyRepairState_(currentState);
+          recordEveningDataOnlyRepairDispatch_(currentState);
+          Logger.log(
+            "Evening data-only repair run for target date already succeeded; skip duplicate dispatch."
+          );
+          return;
+        }
+        if (
+          recovery.run.status === "completed" &&
+          (recovery.run.conclusion === "failure" || recovery.run.conclusion === "cancelled")
+        ) {
+          const nextAttemptCount = Number(currentState.attempt_count || 1) + 1;
+          if (!isEveningDataOnlyAttemptAllowed_({ attempt_count: nextAttemptCount })) {
+            currentState.phase = "max_attempts_exceeded";
+            currentState.error =
+              "Evening data-only repair reached max retry attempts (" +
+              String(EVENING_DATA_ONLY_MAX_ATTEMPTS) +
+              ") for target date " +
+              targetDate +
+              ".";
+            currentState.workflow = EVENING_DATA_ONLY_WORKFLOW;
+            currentState.target_date = targetDate;
+            writeEveningDataOnlyRepairState_(currentState);
+            recordEveningDataOnlyRepairDispatch_(currentState);
+            Logger.log("Evening data-only repair max attempts reached: " + JSON.stringify(currentState));
+            throw new Error(currentState.error);
+          }
+
+          const terminalFailureState = JSON.parse(JSON.stringify(currentState));
+          terminalFailureState.workflow = EVENING_DATA_ONLY_WORKFLOW;
+          terminalFailureState.target_date = targetDate;
+          terminalFailureState.phase = "run_completed_non_success";
+          terminalFailureState.attempt_count = Number(currentState.attempt_count || 1);
+          terminalFailureState.error =
+            "Previous run completed non-success and is eligible for bounded retry " +
+            String(nextAttemptCount) +
+            " / " +
+            String(EVENING_DATA_ONLY_MAX_ATTEMPTS) +
+            ".";
+          writeEveningDataOnlyRepairState_(terminalFailureState);
+          recordEveningDataOnlyRepairDispatch_(terminalFailureState);
+
+          stateForDispatch = {
+            target_date: targetDate,
+            workflow: EVENING_DATA_ONLY_WORKFLOW,
+            attempt_count: nextAttemptCount,
+            baseline_run_id: terminalFailureState.baseline_run_id,
+            workflow_main_sha: terminalFailureState.workflow_main_sha,
+          };
+        } else {
+          currentState.workflow = EVENING_DATA_ONLY_WORKFLOW;
+          currentState.target_date = targetDate;
+          currentState.phase = "run_completed_non_success";
+          currentState.error =
+            "Latest completed run had non-retryable conclusion: " +
+            ((recovery.run && recovery.run.conclusion) || recovery.run.status || "unknown");
+          writeEveningDataOnlyRepairState_(currentState);
+          recordEveningDataOnlyRepairDispatch_(currentState);
+          Logger.log(
+            "Evening data-only repair latest completed run is non-retryable for target date " +
+              targetDate +
+              "; skip dispatch."
+          );
+          return;
+        }
+        } else if (
+        ["dispatching", "dispatched"].indexOf(statePhase) >= 0
+      ) {
+        if (recovery.reason === "head_sha_mismatch") {
+          currentState.phase = "dispatch_ambiguous";
+          currentState.workflow = EVENING_DATA_ONLY_WORKFLOW;
+          currentState.target_date = targetDate;
+          currentState.error = "Existing run references workflow run with mismatched head SHA.";
+          writeEveningDataOnlyRepairState_(currentState);
+          recordEveningDataOnlyRepairDispatch_(currentState);
+          throw new Error(currentState.error);
+        }
+        if (recovery.reason === "api_error") {
+          currentState.phase = "dispatch_uncertain";
+          currentState.workflow = EVENING_DATA_ONLY_WORKFLOW;
+          currentState.target_date = targetDate;
+          currentState.error = "Unable to recover prior run from workflow_run_id API error.";
+          writeEveningDataOnlyRepairState_(currentState);
+          recordEveningDataOnlyRepairDispatch_(currentState);
+          throw new Error(currentState.error);
+        }
+        if (recovery.reason === "correlation_api_error") {
+          currentState.phase = "dispatch_uncertain";
+          currentState.workflow = EVENING_DATA_ONLY_WORKFLOW;
+          currentState.target_date = targetDate;
+          currentState.error =
+            "Unable to recover prior run from correlation list API error.";
+          writeEveningDataOnlyRepairState_(currentState);
+          recordEveningDataOnlyRepairDispatch_(currentState);
+          throw new Error(currentState.error);
+        }
+        if (recovery.reason === "invalid_dispatched_at") {
+          currentState.phase = "dispatch_uncertain";
+          currentState.workflow = EVENING_DATA_ONLY_WORKFLOW;
+          currentState.target_date = targetDate;
+          currentState.error = "Existing state has invalid or missing dispatched_at timestamp.";
+          writeEveningDataOnlyRepairState_(currentState);
+          recordEveningDataOnlyRepairDispatch_(currentState);
+          throw new Error(currentState.error);
+        }
+        if (recovery.reason === "ambiguous") {
+          currentState.phase = "dispatch_ambiguous";
+          currentState.workflow = EVENING_DATA_ONLY_WORKFLOW;
+          currentState.target_date = targetDate;
+          currentState.error = "Multiple candidate runs matched prior dispatch window.";
+          writeEveningDataOnlyRepairState_(currentState);
+          recordEveningDataOnlyRepairDispatch_(currentState);
+          throw new Error(currentState.error);
+        }
+        if (
+          currentState.dispatched_at &&
+          !correlationWindowExpired_(currentState.dispatched_at) &&
+          ["dispatching", "dispatched", "dispatch_missing", "dispatch_uncertain", "dispatch_ambiguous"].indexOf(
+            String(currentState.phase)
+          ) >= 0
+        ) {
+          currentState.phase = "dispatch_uncertain";
+          currentState.workflow = EVENING_DATA_ONLY_WORKFLOW;
+          currentState.target_date = targetDate;
+          currentState.error = "Api error during correlation check: uncertain state within correlation window.";
+          writeEveningDataOnlyRepairState_(currentState);
+          recordEveningDataOnlyRepairDispatch_(currentState);
+          Logger.log(
+            "Evening data-only repair correlation is not yet confirmed for target date: " +
+              targetDate
+          );
+          throw new Error(currentState.error);
+        }
+        if (correlationWindowExpired_(currentState.dispatched_at || nowIso_())) {
+          currentState.phase = "dispatch_uncertain";
+          currentState.workflow = EVENING_DATA_ONLY_WORKFLOW;
+          currentState.target_date = targetDate;
+          currentState.error = "No correlated workflow run found during correlation window.";
+          writeEveningDataOnlyRepairState_(currentState);
+          recordEveningDataOnlyRepairDispatch_(currentState);
+          throw new Error(currentState.error);
+        }
+      } else {
+        currentState.workflow = EVENING_DATA_ONLY_WORKFLOW;
+        currentState.target_date = targetDate;
+        currentState.phase = statePhase || "run_completed_non_success";
+        currentState.error = "Evening data-only repair has an unknown terminal phase: " + statePhase;
+        writeEveningDataOnlyRepairState_(currentState);
+        recordEveningDataOnlyRepairDispatch_(currentState);
+        Logger.log(
+          "Evening data-only repair state phase is not recoverable: " + JSON.stringify(currentState)
+        );
+        return;
+      }
+    }
+
+    if (!stateForDispatch) {
+      stateForDispatch = currentState
+        ? JSON.parse(JSON.stringify(currentState))
+        : {
+            target_date: targetDate,
+            workflow: EVENING_DATA_ONLY_WORKFLOW,
+            attempt_count: 1,
+          };
+    }
+
+    const attemptCount = Math.max(Number(stateForDispatch.attempt_count || 1), 1);
+    if (!isEveningDataOnlyAttemptAllowed_({ attempt_count: attemptCount })) {
+      stateForDispatch.phase = "max_attempts_exceeded";
+      stateForDispatch.error =
+        "Evening data-only repair reached max retry attempts (" +
+        String(EVENING_DATA_ONLY_MAX_ATTEMPTS) +
+        ") for target date " +
+        targetDate +
+        ".";
+      stateForDispatch.target_date = targetDate;
+      stateForDispatch.workflow = EVENING_DATA_ONLY_WORKFLOW;
+      writeEveningDataOnlyRepairState_(stateForDispatch);
+      recordEveningDataOnlyRepairDispatch_(stateForDispatch);
+      Logger.log("Evening data-only repair max attempts reached: " + JSON.stringify(stateForDispatch));
+      throw new Error(stateForDispatch.error);
+    }
+
+    let baselineRunId;
+    let workflowMainSha;
+    try {
+      baselineRunId = latestWorkflowRunId_(EVENING_DATA_ONLY_WORKFLOW);
+      workflowMainSha = getMainRefSha_();
+    } catch (error) {
+      if (currentState) {
+        const preflightFailureState = JSON.parse(JSON.stringify(currentState));
+        const preflightFailureAttemptCount = Math.max(
+          Number(preflightFailureState.attempt_count || 1),
+          1
+        );
+        preflightFailureState.attempt_count = preflightFailureAttemptCount;
+        preflightFailureState.target_date = targetDate;
+        preflightFailureState.workflow = EVENING_DATA_ONLY_WORKFLOW;
+        preflightFailureState.phase = "run_completed_non_success";
+        preflightFailureState.error = "Preflight for evening data-only repair failed: " + error.message;
+        preflightFailureState.last_preflight_error = error.message;
+        preflightFailureState.last_preflight_failed_at = nowIso_();
+        writeEveningDataOnlyRepairState_(preflightFailureState);
+      } else {
+        Logger.log(
+          "Evening data-only repair initial preflight failed with no authoritative state; no retry state will be persisted."
+        );
+      }
+      throw error;
+    }
+
+    stateForDispatch.target_date = targetDate;
+    stateForDispatch.workflow = EVENING_DATA_ONLY_WORKFLOW;
+    stateForDispatch.phase = "dispatching";
+    stateForDispatch.attempt_count = attemptCount;
+    stateForDispatch.baseline_run_id = baselineRunId;
+    stateForDispatch.dispatched_at = nowIso_();
+    stateForDispatch.market_status =
+      marketSession && marketSession.market_status ? marketSession.market_status : "open";
+    stateForDispatch.expected_main_price_date =
+      marketSession && marketSession.expected_main_price_date
+        ? marketSession.expected_main_price_date
+        : "";
+    stateForDispatch.workflow_main_sha = workflowMainSha;
+    stateForDispatch.dispatch_correlation_id = buildEveningDataOnlyRunCorrelationId_(
+      targetDate,
+      attemptCount
+    );
+    stateForDispatch.expected_run_display_title = buildEveningDataOnlyRunDisplayTitle_(
+      stateForDispatch.dispatch_correlation_id
+    );
+    delete stateForDispatch.workflow_run_id;
+    delete stateForDispatch.workflow_run_url;
+    delete stateForDispatch.workflow_run_status;
+    delete stateForDispatch.workflow_run_conclusion;
+    delete stateForDispatch.workflow_run_head_sha;
+    writeEveningDataOnlyRepairState_(stateForDispatch);
+    recordEveningDataOnlyRepairDispatch_(stateForDispatch);
+
+    let result = {};
+    try {
+      result = dispatchWorkflow_(EVENING_DATA_ONLY_WORKFLOW, {
+        lookback_days: "7",
+        max_repair_dates: "5",
+        dispatch_correlation_id: stateForDispatch.dispatch_correlation_id,
+      });
+      stateForDispatch.dispatch_http_status = result.statusCode;
+      stateForDispatch.dispatch_response_preview = responsePreview_(result.responseBody);
+      writeEveningDataOnlyRepairState_(stateForDispatch);
+      recordEveningDataOnlyRepairDispatch_(stateForDispatch);
+    } catch (error) {
+      stateForDispatch.phase = "dispatch_uncertain";
+      stateForDispatch.error = error.message;
+      if (error.statusCode != null) {
+        stateForDispatch.dispatch_http_status = error.statusCode;
+      }
+      writeEveningDataOnlyRepairState_(stateForDispatch);
+      recordEveningDataOnlyRepairDispatch_(stateForDispatch);
+      throw error;
+    }
+
+    let correlatedRuns = [];
+    const correlationDeadlineMs = new Date(stateForDispatch.dispatched_at).getTime() + TDCC_CHAIN_CORRELATION_WINDOW_MS;
+    for (let i = 0; i < 6; i++) {
+      Utilities.sleep(5000);
+      try {
+        correlatedRuns = findCorrelatedWorkflowRuns_(
+          EVENING_DATA_ONLY_WORKFLOW,
+          stateForDispatch.baseline_run_id,
+          stateForDispatch.dispatched_at,
+          stateForDispatch.workflow_main_sha,
+          stateForDispatch.expected_run_display_title
+        );
+      } catch (error) {
+        stateForDispatch.phase = "dispatch_uncertain";
+        stateForDispatch.error =
+          "Unable to recover dispatch correlation after dispatch request: " +
+          error.message;
+        if (error.statusCode != null) {
+          stateForDispatch.dispatch_http_status = error.statusCode;
+        }
+        writeEveningDataOnlyRepairState_(stateForDispatch);
+        recordEveningDataOnlyRepairDispatch_(stateForDispatch);
+        throw error;
+      }
+      if (correlatedRuns.length > 0 || Date.now() >= correlationDeadlineMs) {
+        break;
+      }
+    }
+
+    if (correlatedRuns.length === 0) {
+      stateForDispatch.phase = "dispatch_uncertain";
+      stateForDispatch.error = "No workflow run matched the dispatch window during polling.";
+      writeEveningDataOnlyRepairState_(stateForDispatch);
+      recordEveningDataOnlyRepairDispatch_(stateForDispatch);
+      Logger.log(
+        "Evening data-only repair dispatch correlation unresolved: " + JSON.stringify(stateForDispatch)
+      );
+      throw new Error(stateForDispatch.error);
+    }
+    if (correlatedRuns.length > 1) {
+      stateForDispatch.phase = "dispatch_ambiguous";
+      stateForDispatch.error =
+        "Multiple workflow runs matched the dispatch window: " +
+        correlatedRuns
+          .map(function (run) {
+            return String(run.id);
+          })
+          .join(",");
+      writeEveningDataOnlyRepairState_(stateForDispatch);
+      recordEveningDataOnlyRepairDispatch_(stateForDispatch);
+      throw new Error(stateForDispatch.error);
+    }
+
+    const correlatedRun = correlatedRuns[0];
+    annotateEveningDataOnlyRunState_(stateForDispatch, correlatedRun);
+    if (!isEveningDataOnlyRunMatchedByHeadSha_(correlatedRun, stateForDispatch.workflow_main_sha)) {
+      stateForDispatch.phase = "dispatch_ambiguous";
+      stateForDispatch.error = "Correlated run head SHA did not match dispatch-time main SHA.";
+      writeEveningDataOnlyRepairState_(stateForDispatch);
+      recordEveningDataOnlyRepairDispatch_(stateForDispatch);
+      throw new Error(stateForDispatch.error);
+    }
+    if (
+      !isEveningDataOnlyRunMatchedByDisplayTitle_(
+        correlatedRun,
+        stateForDispatch.expected_run_display_title
+      )
+    ) {
+      stateForDispatch.phase = "dispatch_ambiguous";
+      stateForDispatch.error =
+        "Correlated run display title did not match the dispatch correlation contract.";
+      writeEveningDataOnlyRepairState_(stateForDispatch);
+      recordEveningDataOnlyRepairDispatch_(stateForDispatch);
+      throw new Error(stateForDispatch.error);
+    }
+
+    if (isEveningDataOnlyRunInFlight_(correlatedRun)) {
+      stateForDispatch.phase = "dispatched";
+      writeEveningDataOnlyRepairState_(stateForDispatch);
+      recordEveningDataOnlyRepairDispatch_(stateForDispatch);
+      logLatestWorkflowRunsSafe_(EVENING_DATA_ONLY_WORKFLOW);
+      Logger.log(
+        "Evening data-only repair dispatch accepted, run is in-flight: " + JSON.stringify(stateForDispatch)
+      );
+      return;
+    }
+
+    if (isEveningDataOnlyRunSuccess_(correlatedRun)) {
+      stateForDispatch.phase = "duplicate_skipped";
+      stateForDispatch.workflow = EVENING_DATA_ONLY_WORKFLOW;
+      stateForDispatch.target_date = targetDate;
+      writeEveningDataOnlyRepairState_(stateForDispatch);
+      recordEveningDataOnlyRepairDispatch_(stateForDispatch);
+      Logger.log(
+        "Evening data-only repair dispatch accepted and already completed successfully: " +
+          JSON.stringify(stateForDispatch)
+      );
+      return;
+    }
+
+    stateForDispatch.phase = "run_completed_non_success";
+    stateForDispatch.error = "Dispatch-linked run finished non-success: conclusion=" +
+      (correlatedRun.conclusion || "unknown");
+    writeEveningDataOnlyRepairState_(stateForDispatch);
+    recordEveningDataOnlyRepairDispatch_(stateForDispatch);
+    Logger.log(
+      "Evening data-only repair dispatch linked run finished non-success; retry policy allows future reruns: " +
+        JSON.stringify(stateForDispatch)
+    );
+  });
+}
 function triggerTdccWeeklyReport() {
   withScriptLock_(function () {
     const existing = readTdccChainState_();
@@ -1015,6 +1838,12 @@ function installDailyPriceGapRepairTrigger() {
   listAllTriggers();
 }
 
+function installEveningDataOnlyRepairTrigger() {
+  installEveningDataOnlyRepairTrigger_();
+  Logger.log("Installed evening data-only repair trigger: daily 20:30 Asia/Taipei, weekday-only guard plus market-closed skip.");
+  listAllTriggers();
+}
+
 function installTdccHistoryGapRepairTrigger() {
   installTdccHistoryGapRepairTrigger_();
   Logger.log("Installed TDCC monthly history gap repair trigger: Tuesday 09:30 Asia/Taipei.");
@@ -1030,6 +1859,12 @@ function removeDailyStockMonitorTrigger() {
 function removeDailyPriceGapRepairTrigger() {
   removeTriggersForFunction_("triggerDailyPriceGapRepair");
   Logger.log("Removed daily price gap repair triggers.");
+  listAllTriggers();
+}
+
+function removeEveningDataOnlyRepairTrigger() {
+  removeTriggersForFunction_("triggerEveningDataOnlyRepair");
+  Logger.log("Removed evening data-only repair triggers.");
   listAllTriggers();
 }
 
@@ -1097,6 +1932,17 @@ function installDailyStockMonitorTrigger_() {
     .timeBased()
     .everyDays(1)
     .atHour(19)
+    .nearMinute(30)
+    .inTimezone("Asia/Taipei")
+    .create();
+}
+
+function installEveningDataOnlyRepairTrigger_() {
+  removeTriggersForFunction_("triggerEveningDataOnlyRepair");
+  ScriptApp.newTrigger("triggerEveningDataOnlyRepair")
+    .timeBased()
+    .everyDays(1)
+    .atHour(20)
     .nearMinute(30)
     .inTimezone("Asia/Taipei")
     .create();
