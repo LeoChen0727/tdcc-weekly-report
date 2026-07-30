@@ -89,7 +89,7 @@ jobs:
 
       - name: Build TDCC normalized signal structures
         run: |
-          python scripts/build_tdcc_signal_structures.py --max-dates 8 --price-metrics-limit 500
+          python scripts/build_tdcc_signal_structures.py --full-history --price-metrics-limit 500
 
       - name: Build TDCC overheated short-term edge
         run: |
