@@ -4,8 +4,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
-  actions: write
+  contents: read
 
 concurrency:
   group: daily-full-pipeline-${{ github.ref }}
@@ -16,9 +15,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Require production artifact write deploy key
+        shell: bash
+        env:
+          PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY: ${{ secrets.PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY }}
+        run: |
+          if [ -z "${PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY}" ]; then
+            echo "::error::PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY is required for artifact publishing."
+            exit 1
+          fi
+
       - name: Checkout
         uses: actions/checkout@v6.0.3
         with:
+          ssh-key: ${{ secrets.PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY }}
+          persist-credentials: true
           fetch-depth: 0
           ref: main
 
@@ -132,13 +143,14 @@ jobs:
             git status --short
             exit 1
           fi
+          artifact_commit_created=false
           if git diff --cached --quiet; then
             echo "No staged event/catalyst source changes to commit"
-            echo "ARTIFACT_COMMIT_CREATED=false" >> "$GITHUB_ENV"
           else
             git commit -m "Update event catalyst source tables"
-            echo "ARTIFACT_COMMIT_CREATED=true" >> "$GITHUB_ENV"
+            artifact_commit_created=true
           fi
+          echo "ARTIFACT_COMMIT_CREATED=$artifact_commit_created" >> "$GITHUB_ENV"
           pushed_artifact_sha="$(git rev-parse HEAD)"
           echo "PUSHED_ARTIFACT_SHA=$pushed_artifact_sha" >> "$GITHUB_ENV"
           test -z "$(git status --porcelain)"
@@ -149,70 +161,28 @@ jobs:
             echo "build_base_sha=$BUILD_BASE_SHA current_origin_main=$current_origin_main" >&2
             exit 1
           fi
-          git push origin HEAD:main
-
-      - name: Dispatch and wait for catalyst Pages deploy
-        if: ${{ github.ref == 'refs/heads/main' && env.ARTIFACT_COMMIT_CREATED == 'true' }}
-        timeout-minutes: 40
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          target_sha="$PUSHED_ARTIFACT_SHA"
-          git fetch origin main
-          current_origin_main="$(git rev-parse origin/main)"
-          if [ "$current_origin_main" != "$target_sha" ]; then
-            echo "::error::origin/main advanced before Pages dispatch expected=$target_sha actual=$current_origin_main"
-            exit 1
-          fi
-          previous_pages_run_id="$(gh run list \
-            --workflow pages.yml \
-            --branch main \
-            --event workflow_dispatch \
-            --commit "$target_sha" \
-            --limit 1 \
-            --json databaseId \
-            --jq '.[0].databaseId // ""')"
-          echo "Dispatching GitHub Pages deploy for exact artifact commit $target_sha"
-          gh workflow run pages.yml --ref main
-
-          for poll_attempt in {1..150}; do
-            pages_run="$(gh run list \
-              --workflow pages.yml \
-              --branch main \
-              --event workflow_dispatch \
-              --commit "$target_sha" \
-              --limit 1 \
-              --json databaseId,event,headSha,headBranch,status,conclusion \
-              --jq '.[0] // {}')"
-            pages_run_id="$(jq -r '.databaseId // empty' <<< "$pages_run")"
-            pages_event="$(jq -r '.event // empty' <<< "$pages_run")"
-            pages_head_sha="$(jq -r '.headSha // empty' <<< "$pages_run")"
-            pages_head_branch="$(jq -r '.headBranch // empty' <<< "$pages_run")"
-            status="$(jq -r '.status // empty' <<< "$pages_run")"
-            conclusion="$(jq -r '.conclusion // empty' <<< "$pages_run")"
-
-            if [ -n "$pages_run_id" ] && [ "$pages_run_id" != "$previous_pages_run_id" ]; then
-              if [ "$pages_event" != "workflow_dispatch" ] || [ "$pages_head_branch" != "main" ]; then
-                echo "::error::Pages replay identity mismatch run_id=$pages_run_id event=$pages_event head_branch=$pages_head_branch"
-                exit 1
-              fi
-              if [ "$pages_head_sha" != "$target_sha" ]; then
-                echo "::error::Pages replay head SHA mismatch run_id=$pages_run_id expected=$target_sha actual=$pages_head_sha"
-                exit 1
-              fi
-              echo "Pages run $pages_run_id poll_attempt=$poll_attempt status=$status conclusion=${conclusion:-pending} head_sha=$pages_head_sha"
-              if [ "$status" = "completed" ]; then
-                if [ "$conclusion" = "success" ]; then
-                  exit 0
-                fi
-                echo "::error::GitHub Pages deploy failed conclusion=$conclusion run_id=$pages_run_id"
-                exit 1
-              fi
-            else
-              echo "Waiting for new workflow_dispatch Pages run for target_sha=$target_sha poll_attempt=$poll_attempt previous_run_id=${previous_pages_run_id:-none}"
+          if [ "$artifact_commit_created" = "true" ]; then
+            artifact_branch="codex/event-catalyst-artifacts-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+            if git ls-remote --exit-code --heads origin "refs/heads/$artifact_branch" >/dev/null 2>&1; then
+              echo "artifact publication branch already exists: $artifact_branch" >&2
+              exit 1
             fi
-            sleep 15
-          done
-
-          echo "::error::Timed out waiting for exact-sha GitHub Pages deploy target_sha=$target_sha"
-          exit 1
+            git push origin "HEAD:refs/heads/$artifact_branch"
+            compare_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/compare/main...${artifact_branch}?expand=1"
+            echo "ARTIFACT_BRANCH=$artifact_branch" >> "$GITHUB_ENV"
+            echo "ARTIFACT_COMPARE_URL=$compare_url" >> "$GITHUB_ENV"
+            {
+              echo "## Event/catalyst artifact PR required"
+              echo
+              echo "- base_sha: \`$BUILD_BASE_SHA\`"
+              echo "- artifact_commit_sha: \`$pushed_artifact_sha\`"
+              echo "- artifact_branch: \`$artifact_branch\`"
+              echo "- compare_url: $compare_url"
+              echo
+              echo "The workflow does not push directly to main or self-trigger PR checks."
+              echo "An external operator must open the artifact PR, wait for required checks, and merge it."
+            } >> "$GITHUB_STEP_SUMMARY"
+            echo "::notice title=Event catalyst artifact PR required::branch=$artifact_branch commit=$pushed_artifact_sha"
+          else
+            echo "No artifact branch was created because the source refresh produced no changes." >> "$GITHUB_STEP_SUMMARY"
+          fi
