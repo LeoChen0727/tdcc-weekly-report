@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3092 鴻碩
 
 ## Metadata
-- generated_at: 2026-07-30 22:27:24 Asia/Taipei
+- generated_at: 2026-07-31 01:14:58 Asia/Taipei
 - stock_id: 3092
 - stock_name: 鴻碩
 - packet_status: standard_180d_window_packet
@@ -11,10 +11,10 @@
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260717-98c564c5bc4ab725
-- official_tdcc_signal_date: 20260717
-- latest_tdcc_date: 20260717
-- tdcc_rows: 12
+- source_tdcc_dataset_id: tdcc-20260724-88f3a903b384007d
+- official_tdcc_signal_date: 20260724
+- latest_tdcc_date: 20260724
+- tdcc_rows: 13
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -170,23 +170,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260717
-- over_400_ratio: 37.66
-- over_600_ratio: 34.86
+- as_of_date: 20260724
+- over_400_ratio: 37.63
+- over_600_ratio: 34.83
 - over_800_ratio: 31.04
 - over_1000_ratio: 30.18
 - over_400_change_1w: -0.03
-- over_800_change_1w: -0.79
-- over_1000_change_1w: 0.96
-- tdcc_consecutive_up_weeks: 10
+- over_800_change_1w: 0
+- over_1000_change_1w: 0
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260430,34.36,,30.05,,29.19,,0,False,False
 20260508,33.88,-0.48,30.05,0,29.19,0,0,False,False
 20260515,34.34,0.46,30.05,0,29.19,0,1,False,False
 20260522,34.55,0.21,30.05,0,29.19,0,2,False,False
@@ -198,6 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260703,37.03,0.5,31.99,1.02,30.23,1.01,8,True,True
 20260709,37.69,0.66,31.83,-0.16,29.22,-1.01,9,False,False
 20260717,37.66,-0.03,31.04,-0.79,30.18,0.96,10,False,True
+20260724,37.63,-0.03,31.04,0,30.18,0,0,False,False
 ```
 
 ## Candidate Context

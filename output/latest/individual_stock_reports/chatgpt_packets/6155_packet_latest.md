@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6155 鈞寶
 
 ## Metadata
-- generated_at: 2026-07-30 22:28:21 Asia/Taipei
+- generated_at: 2026-07-31 01:15:36 Asia/Taipei
 - stock_id: 6155
 - stock_name: 鈞寶
 - packet_status: standard_180d_window_packet
@@ -11,10 +11,10 @@
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260717-98c564c5bc4ab725
-- official_tdcc_signal_date: 20260717
-- latest_tdcc_date: 20260717
-- tdcc_rows: 12
+- source_tdcc_dataset_id: tdcc-20260724-88f3a903b384007d
+- official_tdcc_signal_date: 20260724
+- latest_tdcc_date: 20260724
+- tdcc_rows: 13
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -170,23 +170,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260717
-- over_400_ratio: 55.04
-- over_600_ratio: 51.07
-- over_800_ratio: 50.25
-- over_1000_ratio: 49.3
-- over_400_change_1w: 0.18
-- over_800_change_1w: -0.1
-- over_1000_change_1w: -0.1
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260724
+- over_400_ratio: 55.86
+- over_600_ratio: 52.66
+- over_800_ratio: 51.1
+- over_1000_ratio: 49.22
+- over_400_change_1w: 0.82
+- over_800_change_1w: 0.85
+- over_1000_change_1w: -0.08
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260430,58.3,,53.22,,51.34,,0,False,False
 20260508,61.15,2.85,55.09,1.87,53.21,1.87,1,True,True
 20260515,59.01,-2.14,54.59,-0.5,52.71,-0.5,0,False,False
 20260522,60.48,1.47,54.51,-0.08,52.63,-0.08,1,False,False
@@ -198,6 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260703,55.43,-1.59,51.57,0.06,50.62,1.09,1,False,True
 20260709,54.86,-0.57,50.35,-1.22,49.4,-1.22,0,False,False
 20260717,55.04,0.18,50.25,-0.1,49.3,-0.1,1,False,False
+20260724,55.86,0.82,51.1,0.85,49.22,-0.08,2,False,True
 ```
 
 ## Candidate Context

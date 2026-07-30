@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9918 欣天然
 
 ## Metadata
-- generated_at: 2026-07-30 22:29:21 Asia/Taipei
+- generated_at: 2026-07-31 01:16:14 Asia/Taipei
 - stock_id: 9918
 - stock_name: 欣天然
 - packet_status: standard_180d_window_packet
@@ -11,10 +11,10 @@
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260717-98c564c5bc4ab725
-- official_tdcc_signal_date: 20260717
-- latest_tdcc_date: 20260717
-- tdcc_rows: 12
+- source_tdcc_dataset_id: tdcc-20260724-88f3a903b384007d
+- official_tdcc_signal_date: 20260724
+- latest_tdcc_date: 20260724
+- tdcc_rows: 13
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -171,15 +171,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260717
+- as_of_date: 20260724
 - over_400_ratio: 84.59
 - over_600_ratio: 80.87
 - over_800_ratio: 77.96
 - over_1000_ratio: 77.04
-- over_400_change_1w: 0.01
+- over_400_change_1w: 0
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 1
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260430,83.65,,77.75,,76.32,,0,False,False
 20260508,83.75,0.1,77.85,0.1,76.93,0.61,1,True,True
 20260515,83.8,0.05,77.9,0.05,76.98,0.05,2,True,True
 20260522,83.8,0,77.9,0,76.98,0,0,False,False
@@ -199,6 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260703,84.58,0.04,77.96,0.02,77.04,0.02,5,True,True
 20260709,84.58,0,77.96,0,77.04,0,0,False,False
 20260717,84.59,0.01,77.96,0,77.04,0,1,False,False
+20260724,84.59,0,77.96,0,77.04,0,0,False,False
 ```
 
 ## Candidate Context

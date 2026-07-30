@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8403 盛弘
 
 ## Metadata
-- generated_at: 2026-07-30 22:29:14 Asia/Taipei
+- generated_at: 2026-07-31 01:16:09 Asia/Taipei
 - stock_id: 8403
 - stock_name: 盛弘
 - packet_status: standard_180d_window_packet
@@ -11,10 +11,10 @@
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260717-98c564c5bc4ab725
-- official_tdcc_signal_date: 20260717
-- latest_tdcc_date: 20260717
-- tdcc_rows: 12
+- source_tdcc_dataset_id: tdcc-20260724-88f3a903b384007d
+- official_tdcc_signal_date: 20260724
+- latest_tdcc_date: 20260724
+- tdcc_rows: 13
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -171,15 +171,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260717
-- over_400_ratio: 38.52
+- as_of_date: 20260724
+- over_400_ratio: 38.53
 - over_600_ratio: 35.63
 - over_800_ratio: 33.58
 - over_1000_ratio: 32.25
 - over_400_change_1w: 0.01
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 1
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260430,37.39,,32.12,,31.49,,0,False,False
 20260508,37.74,0.35,32.12,0,31.49,0,1,False,False
 20260515,37.82,0.08,32.12,0,31.49,0,2,False,False
 20260522,38.07,0.25,32.76,0.64,31.49,0,3,False,True
@@ -199,6 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260703,38.56,0.24,33.58,0,32.25,0,1,False,False
 20260709,38.51,-0.05,33.58,0,32.25,0,0,False,False
 20260717,38.52,0.01,33.58,0,32.25,0,1,False,False
+20260724,38.53,0.01,33.58,0,32.25,0,2,False,False
 ```
 
 ## Candidate Context

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5543 桓鼎-KY
 
 ## Metadata
-- generated_at: 2026-07-30 22:28:14 Asia/Taipei
+- generated_at: 2026-07-31 01:15:32 Asia/Taipei
 - stock_id: 5543
 - stock_name: 桓鼎-KY
 - packet_status: standard_180d_window_packet
@@ -11,10 +11,10 @@
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260717-98c564c5bc4ab725
-- official_tdcc_signal_date: 20260717
-- latest_tdcc_date: 20260717
-- tdcc_rows: 12
+- source_tdcc_dataset_id: tdcc-20260724-88f3a903b384007d
+- official_tdcc_signal_date: 20260724
+- latest_tdcc_date: 20260724
+- tdcc_rows: 13
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -171,23 +171,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260717
-- over_400_ratio: 72.81
+- as_of_date: 20260724
+- over_400_ratio: 72.82
 - over_600_ratio: 62.6
 - over_800_ratio: 52.16
 - over_1000_ratio: 46.24
-- over_400_change_1w: 0.04
-- over_800_change_1w: 0.02
+- over_400_change_1w: 0.01
+- over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 11
+- tdcc_consecutive_up_weeks: 12
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260430,71.26,,50.4,,46.31,,0,False,False
 20260508,71.31,0.05,50.36,-0.04,46.27,-0.04,1,False,False
 20260515,71.34,0.03,50.36,0,46.27,0,2,False,False
 20260522,71.41,0.07,50.38,0.02,46.29,0.02,3,True,True
@@ -199,6 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260703,72.72,0.14,52.11,0.06,46.24,0,9,False,True
 20260709,72.77,0.05,52.14,0.03,46.24,0,10,False,True
 20260717,72.81,0.04,52.16,0.02,46.24,0,11,False,True
+20260724,72.82,0.01,52.16,0,46.24,0,12,False,False
 ```
 
 ## Candidate Context

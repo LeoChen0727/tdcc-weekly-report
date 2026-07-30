@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2477 美隆電
 
 ## Metadata
-- generated_at: 2026-07-30 22:27:03 Asia/Taipei
+- generated_at: 2026-07-31 01:14:45 Asia/Taipei
 - stock_id: 2477
 - stock_name: 美隆電
 - packet_status: standard_180d_window_packet
@@ -11,10 +11,10 @@
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260717-98c564c5bc4ab725
-- official_tdcc_signal_date: 20260717
-- latest_tdcc_date: 20260717
-- tdcc_rows: 12
+- source_tdcc_dataset_id: tdcc-20260724-88f3a903b384007d
+- official_tdcc_signal_date: 20260724
+- latest_tdcc_date: 20260724
+- tdcc_rows: 13
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -171,23 +171,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260717
-- over_400_ratio: 73.22
+- as_of_date: 20260724
+- over_400_ratio: 73.59
 - over_600_ratio: 71.21
 - over_800_ratio: 69.12
 - over_1000_ratio: 67
-- over_400_change_1w: 0.03
-- over_800_change_1w: 0.03
-- over_1000_change_1w: 0.03
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
-- high_thresholds_up: True
+- over_400_change_1w: 0.37
+- over_800_change_1w: 0
+- over_1000_change_1w: 0
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260430,72.68,,68.75,,66.63,,0,False,False
 20260508,72.69,0.01,68.84,0.09,66.72,0.09,1,False,True
 20260515,72.78,0.09,68.96,0.12,66.84,0.12,2,False,True
 20260522,72.86,0.08,68.99,0.03,66.87,0.03,3,True,True
@@ -199,6 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260703,73.47,-0.24,69.09,0,66.97,0,2,False,False
 20260709,73.19,-0.28,69.09,0,66.97,0,0,False,False
 20260717,73.22,0.03,69.12,0.03,67,0.03,1,True,True
+20260724,73.59,0.37,69.12,0,67,0,2,False,False
 ```
 
 ## Candidate Context

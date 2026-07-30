@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1525 江申
 
 ## Metadata
-- generated_at: 2026-07-30 22:26:36 Asia/Taipei
+- generated_at: 2026-07-31 01:14:27 Asia/Taipei
 - stock_id: 1525
 - stock_name: 江申
 - packet_status: standard_180d_window_packet
@@ -11,10 +11,10 @@
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260717-98c564c5bc4ab725
-- official_tdcc_signal_date: 20260717
-- latest_tdcc_date: 20260717
-- tdcc_rows: 12
+- source_tdcc_dataset_id: tdcc-20260724-88f3a903b384007d
+- official_tdcc_signal_date: 20260724
+- latest_tdcc_date: 20260724
+- tdcc_rows: 13
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -171,7 +171,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260717
+- as_of_date: 20260724
 - over_400_ratio: 88.19
 - over_600_ratio: 88.19
 - over_800_ratio: 86.25
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260430,87.68,,84.7,,84.7,,0,False,False
 20260508,88.1,0.42,86.16,1.46,85.02,0.32,1,True,True
 20260515,88.13,0.03,86.19,0.03,85.02,0,2,False,True
 20260522,87.93,-0.2,85.99,-0.2,84.75,-0.27,0,False,False
@@ -199,6 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260703,88.19,0.1,86.25,0.1,86.25,0.1,1,True,True
 20260709,88.19,0,86.25,0,86.25,0,0,False,False
 20260717,88.19,0,86.25,0,86.25,0,0,False,False
+20260724,88.19,0,86.25,0,86.25,0,0,False,False
 ```
 
 ## Candidate Context

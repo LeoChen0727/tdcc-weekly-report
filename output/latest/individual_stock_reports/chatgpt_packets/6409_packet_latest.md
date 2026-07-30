@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6409 旭隼
 
 ## Metadata
-- generated_at: 2026-07-30 22:28:31 Asia/Taipei
+- generated_at: 2026-07-31 01:15:42 Asia/Taipei
 - stock_id: 6409
 - stock_name: 旭隼
 - packet_status: standard_180d_window_packet
@@ -11,10 +11,10 @@
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260717-98c564c5bc4ab725
-- official_tdcc_signal_date: 20260717
-- latest_tdcc_date: 20260717
-- tdcc_rows: 12
+- source_tdcc_dataset_id: tdcc-20260724-88f3a903b384007d
+- official_tdcc_signal_date: 20260724
+- latest_tdcc_date: 20260724
+- tdcc_rows: 13
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -170,23 +170,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260717
-- over_400_ratio: 66.17
-- over_600_ratio: 58.98
-- over_800_ratio: 53.61
-- over_1000_ratio: 51.39
-- over_400_change_1w: -0.42
-- over_800_change_1w: -0.34
-- over_1000_change_1w: 0.69
-- tdcc_consecutive_up_weeks: 11
-- all_thresholds_up: False
+- as_of_date: 20260724
+- over_400_ratio: 67.4
+- over_600_ratio: 59.17
+- over_800_ratio: 53.8
+- over_1000_ratio: 51.63
+- over_400_change_1w: 1.23
+- over_800_change_1w: 0.19
+- over_1000_change_1w: 0.24
+- tdcc_consecutive_up_weeks: 12
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260430,59.83,,42.47,,36.12,,0,False,False
 20260508,59.47,-0.36,43.05,0.58,35.71,-0.41,1,False,True
 20260515,56.76,-2.71,43.4,0.35,34.96,-0.75,2,False,True
 20260522,57.56,0.8,44.59,1.19,36.12,1.16,3,True,True
@@ -198,6 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260703,65.42,3.03,52.58,2.82,49.33,2.8,9,True,True
 20260709,66.59,1.17,53.95,1.37,50.7,1.37,10,False,True
 20260717,66.17,-0.42,53.61,-0.34,51.39,0.69,11,False,True
+20260724,67.4,1.23,53.8,0.19,51.63,0.24,12,True,True
 ```
 
 ## Candidate Context

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1784 訊聯
 
 ## Metadata
-- generated_at: 2026-07-30 22:26:43 Asia/Taipei
+- generated_at: 2026-07-31 01:14:32 Asia/Taipei
 - stock_id: 1784
 - stock_name: 訊聯
 - packet_status: standard_180d_window_packet
@@ -11,10 +11,10 @@
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260717-98c564c5bc4ab725
-- official_tdcc_signal_date: 20260717
-- latest_tdcc_date: 20260717
-- tdcc_rows: 12
+- source_tdcc_dataset_id: tdcc-20260724-88f3a903b384007d
+- official_tdcc_signal_date: 20260724
+- latest_tdcc_date: 20260724
+- tdcc_rows: 13
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -170,13 +170,13 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260717
-- over_400_ratio: 28.23
-- over_600_ratio: 24.6
+- as_of_date: 20260724
+- over_400_ratio: 28.04
+- over_600_ratio: 24.49
 - over_800_ratio: 21.82
 - over_1000_ratio: 18.13
-- over_400_change_1w: -0.95
-- over_800_change_1w: -1.56
+- over_400_change_1w: -0.19
+- over_800_change_1w: 0
 - over_1000_change_1w: 0
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
@@ -186,7 +186,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260430,28.51,,21.96,,13.44,,0,False,False
 20260508,28.61,0.1,23.45,1.49,13.44,0,1,False,True
 20260515,28.23,-0.38,20.38,-3.07,13.44,0,0,False,False
 20260522,27.53,-0.7,20.53,0.15,13.44,0,1,False,True
@@ -198,6 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260703,29.16,0.65,23.36,0.7,18.11,2.22,7,True,True
 20260709,29.18,0.02,23.38,0.02,18.13,0.02,8,True,True
 20260717,28.23,-0.95,21.82,-1.56,18.13,0,0,False,False
+20260724,28.04,-0.19,21.82,0,18.13,0,0,False,False
 ```
 
 ## Candidate Context

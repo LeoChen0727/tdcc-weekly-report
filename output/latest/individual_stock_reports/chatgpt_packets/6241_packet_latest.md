@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6241 鑫永洋
 
 ## Metadata
-- generated_at: 2026-07-30 22:28:28 Asia/Taipei
+- generated_at: 2026-07-31 01:15:40 Asia/Taipei
 - stock_id: 6241
 - stock_name: 鑫永洋
 - packet_status: standard_180d_window_packet
@@ -11,10 +11,10 @@
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260717-98c564c5bc4ab725
-- official_tdcc_signal_date: 20260717
-- latest_tdcc_date: 20260717
-- tdcc_rows: 12
+- source_tdcc_dataset_id: tdcc-20260724-88f3a903b384007d
+- official_tdcc_signal_date: 20260724
+- latest_tdcc_date: 20260724
+- tdcc_rows: 13
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -171,12 +171,12 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260717
+- as_of_date: 20260724
 - over_400_ratio: 46.37
 - over_600_ratio: 43.58
 - over_800_ratio: 40.61
 - over_1000_ratio: 38.75
-- over_400_change_1w: -0.31
+- over_400_change_1w: 0
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
 - tdcc_consecutive_up_weeks: 0
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260430,49.59,,43.09,,41.41,,0,False,False
 20260508,49.38,-0.21,42.86,-0.23,41.18,-0.23,0,False,False
 20260515,48.9,-0.48,42.26,-0.6,38.71,-2.47,0,False,False
 20260522,48.89,-0.01,42.24,-0.02,38.71,0,0,False,False
@@ -199,6 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260703,46.58,-1.06,40.51,0,38.71,0,0,False,False
 20260709,46.68,0.1,40.61,0.1,38.75,0.04,1,True,True
 20260717,46.37,-0.31,40.61,0,38.75,0,0,False,False
+20260724,46.37,0,40.61,0,38.75,0,0,False,False
 ```
 
 ## Candidate Context

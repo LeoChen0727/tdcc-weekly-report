@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8444 綠河-KY
 
 ## Metadata
-- generated_at: 2026-07-30 22:29:16 Asia/Taipei
+- generated_at: 2026-07-31 01:16:11 Asia/Taipei
 - stock_id: 8444
 - stock_name: 綠河-KY
 - packet_status: standard_180d_window_packet
@@ -11,10 +11,10 @@
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260717-98c564c5bc4ab725
-- official_tdcc_signal_date: 20260717
-- latest_tdcc_date: 20260717
-- tdcc_rows: 12
+- source_tdcc_dataset_id: tdcc-20260724-88f3a903b384007d
+- official_tdcc_signal_date: 20260724
+- latest_tdcc_date: 20260724
+- tdcc_rows: 13
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -170,23 +170,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260717
+- as_of_date: 20260724
 - over_400_ratio: 85.95
 - over_600_ratio: 80.62
 - over_800_ratio: 78.96
 - over_1000_ratio: 77.61
-- over_400_change_1w: 1.76
-- over_800_change_1w: 2.63
-- over_1000_change_1w: 2.81
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
-- high_thresholds_up: True
+- over_400_change_1w: 0
+- over_800_change_1w: 0
+- over_1000_change_1w: 0
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260430,83.19,,75.23,,74.51,,0,False,False
 20260508,83.24,0.05,75.21,-0.02,74.49,-0.02,1,False,False
 20260515,83.23,-0.01,75.19,-0.02,74.47,-0.02,0,False,False
 20260522,83.27,0.04,75.19,0,74.47,0,1,False,False
@@ -198,6 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260703,84.19,0.02,76.33,0.01,74.8,0.01,3,True,True
 20260709,84.19,0,76.33,0,74.8,0,0,False,False
 20260717,85.95,1.76,78.96,2.63,77.61,2.81,1,True,True
+20260724,85.95,0,78.96,0,77.61,0,0,False,False
 ```
 
 ## Candidate Context
