@@ -1,7 +1,7 @@
 {
   "status": "pass",
-  "generated_at": "2026-07-19 12:10:06 Asia/Taipei",
-  "signal_date": "20260717",
+  "generated_at": "2026-07-31 00:42:55 Asia/Taipei",
+  "signal_date": "20260724",
   "readiness_path": "output/latest/tdcc_weekly_data_readiness_latest.json",
   "required_periods": 0,
   "required_dates": [
@@ -16,9 +16,10 @@
     "20260626",
     "20260703",
     "20260709",
-    "20260717"
+    "20260717",
+    "20260724"
   ],
-  "current_stock_count": 1972,
+  "current_stock_count": 1971,
   "missing_rows_before": 2,
   "missing_before": [
     {
