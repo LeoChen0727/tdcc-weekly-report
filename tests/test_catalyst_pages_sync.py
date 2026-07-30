@@ -35,7 +35,7 @@ def test_sync_catalyst_pages_artifacts_fails_on_missing_source(tmp_path: Path) -
         sync_artifacts(latest, docs_latest, ["catalyst_summary_latest.md"])
 
 
-def test_event_workflow_is_source_only_and_publishes_exact_source_artifacts() -> None:
+def test_event_workflow_is_source_only_and_prepares_protected_artifact_pr() -> None:
     workflow = ROOT / ".github" / "workflows" / "event_catalyst_update.yml"
     text = workflow.read_text(encoding="utf-8")
     parsed_workflow = yaml.safe_load(text)
@@ -43,8 +43,17 @@ def test_event_workflow_is_source_only_and_publishes_exact_source_artifacts() ->
     assert parsed_workflow["jobs"]
     assert "workflow_dispatch:" in text
     assert "schedule:" not in text
-    assert "actions: write" in text
+    assert "contents: read" in text
+    assert "actions: write" not in text
+    assert "Require production artifact write deploy key" in text
+    assert (
+        "PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY: "
+        "${{ secrets.PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY }}"
+    ) in text
+    assert 'if [ -z "${PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY}" ]; then' in text
     assert "actions/checkout@v6.0.3" in text
+    assert "ssh-key: ${{ secrets.PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY }}" in text
+    assert "persist-credentials: true" in text
     assert "group: daily-full-pipeline-${{ github.ref }}" in text
     assert "cancel-in-progress: false" in text
     assert "ref: main" in text
@@ -132,17 +141,31 @@ def test_event_workflow_is_source_only_and_publishes_exact_source_artifacts() ->
 
     assert "git add output/history/event_catalyst_recovery/ || true" in text
     assert "git add docs/latest/ || true" not in text
+    assert "artifact_commit_created=false" in text
+    assert "artifact_commit_created=true" in text
+    assert 'if [ "$artifact_commit_created" = "true" ]; then' in text
     assert "if git diff --cached --quiet; then" in text
     assert 'echo "BUILD_BASE_SHA=$build_base_sha" >> "$GITHUB_ENV"' in text
     assert 'if [ "$current_origin_main" != "$BUILD_BASE_SHA" ]; then' in text
-    assert "git push origin HEAD:main" in text
+    assert "git push origin HEAD:main" not in text
+    assert (
+        'artifact_branch="codex/event-catalyst-artifacts-'
+        '${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"'
+    ) in text
+    assert 'git push origin "HEAD:refs/heads/$artifact_branch"' in text
+    assert "Event/catalyst artifact PR required" in text
+    assert "An external operator must open the artifact PR" in text
+    assert "gh pr create" not in text
     assert "git pull --rebase origin main" not in text
-    assert "gh workflow run pages.yml --ref main" in text
-    assert "timeout-minutes: 40" in text
-    assert "for poll_attempt in {1..150}" in text
-    assert 'target_sha="$PUSHED_ARTIFACT_SHA"' in text
-    assert '--commit "$target_sha"' in text
-    assert 'pages_head_sha" != "$target_sha"' in text
+    assert "gh workflow run pages.yml --ref main" not in text
+    assert "Dispatch and wait for catalyst Pages deploy" not in text
+
+    preflight_index = text.index("Require production artifact write deploy key")
+    checkout_index = text.index("- name: Checkout")
+    branch_push_index = text.index(
+        'git push origin "HEAD:refs/heads/$artifact_branch"'
+    )
+    assert preflight_index < checkout_index < prepare_index < branch_push_index
 
 
 def test_weekly_workflow_publishes_pages_and_uses_full_validation() -> None:
