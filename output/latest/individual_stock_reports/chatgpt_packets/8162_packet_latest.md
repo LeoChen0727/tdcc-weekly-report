@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8162 微矽電子-創
 
 ## Metadata
-- generated_at: 2026-07-29 22:29:22 Asia/Taipei
+- generated_at: 2026-07-30 22:29:11 Asia/Taipei
 - stock_id: 8162
 - stock_name: 微矽電子-創
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260717
-- price_rows: 305
-- current_main_price_date: 20260717
+- latest_price_date: 20260730
+- price_rows: 314
+- current_main_price_date: 20260730
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -125,37 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260717
-- open: 68.3
-- high: 70.1
-- low: 65
-- close: 66
-- volume: 434937
-- ma5: 69.76
-- ema23_primary: 74.25
-- distance_to_ema23_pct: -11.11
-- ma20: 78.02
-- ma60: 67.13
-- ma120: 52.98
-- return_5d: -15.49
-- return_20d: -8.71
-- volume_ratio: 0.54
-- distance_to_ma20_pct_auxiliary: -15.41
-- distance_to_high_60_pct: -26.59
+- date: 20260730
+- open: 48.65
+- high: 49.6
+- low: 44.7
+- close: 45.5
+- volume: 413566
+- ma5: 52.98
+- ema23_primary: 64.23
+- distance_to_ema23_pct: -29.16
+- ma20: 67.16
+- ma60: 68.04
+- ma120: 54.45
+- return_5d: -25.77
+- return_20d: -41.06
+- volume_ratio: 0.91
+- distance_to_ma20_pct_auxiliary: -32.25
+- distance_to_high_60_pct: -49.39
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260618,72.9,79.5,72.9,78.4,1448712,68.18,14.99,71.74,55.31,1.57
-20260622,81.3,86.2,79.1,86.2,1803891,69.68,23.71,73.01,56.1,1.85
-20260623,87,89.9,81.9,82.6,1746007,70.76,16.74,73.8,56.81,1.69
-20260624,80.6,86,79.5,85,1256819,71.94,18.15,74.38,57.57,1.27
-20260625,85,86.5,80.3,84,1365426,72.95,15.15,75.03,58.32,1.42
-20260626,84,86.4,80.6,80.7,1048918,73.59,9.66,75.22,59.01,1.12
-20260629,80.1,80.7,76.8,77.5,713013,73.92,4.84,75.42,59.67,0.78
-20260630,78.2,80.5,78.2,79.2,297760,74.36,6.51,75.33,60.34,0.34
-20260701,80.9,80.9,77.2,77.2,323121,74.6,3.49,75.16,60.99,0.39
 20260702,76.7,80,75.9,79,242056,74.96,5.39,75.26,61.67,0.31
 20260703,78,81.9,77.6,79.2,449921,75.32,5.16,75.43,62.32,0.59
 20260706,81.9,87.1,81.8,85.8,2052450,76.19,12.61,76.19,63.04,2.48
@@ -167,6 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260715,71.5,71.5,68,70.4,254347,75.41,-6.64,78.31,66.26,0.31
 20260716,70.9,71.9,69.4,70.5,163728,75,-6,78.33,66.75,0.2
 20260717,68.3,70.1,65,66,434937,74.25,-11.11,78.02,67.13,0.54
+20260720,65,65.3,59.4,61,672611,73.15,-16.61,77.15,67.34,0.87
+20260721,62.2,62.9,60.8,61.9,216564,72.21,-14.28,75.94,67.5,0.31
+20260722,62.1,64.6,62.1,64.5,220536,71.57,-9.87,75.03,67.68,0.36
+20260723,64,64,61,61.3,242645,70.71,-13.31,73.84,67.89,0.43
+20260724,61.3,61.6,59,59.6,108878,69.79,-14.6,72.62,68.07,0.22
+20260727,59,59.6,56.7,57.5,208881,68.76,-16.38,71.47,68.14,0.46
+20260728,56.2,56.2,53.2,53.3,260583,67.47,-21.01,70.25,68.18,0.6
+20260729,53.1,53.6,48,49,548956,65.93,-25.68,68.75,68.15,1.22
+20260730,48.65,49.6,44.7,45.5,413566,64.23,-29.16,67.16,68.04,0.91
 ```
 
 ## Latest TDCC Snapshot

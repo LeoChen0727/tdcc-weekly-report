@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7007 竑騰統一5C購01
 
 ## Metadata
-- generated_at: 2026-07-29 22:29:06 Asia/Taipei
+- generated_at: 2026-07-30 22:28:55 Asia/Taipei
 - stock_id: 7007
 - stock_name: 竑騰統一5C購01
 - packet_status: partial_rawdata_packet
 - latest_price_date: 20250407
 - price_rows: 1
-- current_main_price_date: 20260717
+- current_main_price_date: 20260730
 - current_main_price_universe_status: historical_only_noncurrent
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable

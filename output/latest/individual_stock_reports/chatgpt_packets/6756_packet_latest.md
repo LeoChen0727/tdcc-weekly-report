@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6756 威鋒電子
 
 ## Metadata
-- generated_at: 2026-07-29 22:28:56 Asia/Taipei
+- generated_at: 2026-07-30 22:28:45 Asia/Taipei
 - stock_id: 6756
 - stock_name: 威鋒電子
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260717
-- price_rows: 306
-- current_main_price_date: 20260717
+- latest_price_date: 20260730
+- price_rows: 315
+- current_main_price_date: 20260730
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -125,37 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260717
-- open: 95.3
-- high: 95.3
-- low: 90.5
-- close: 91.6
-- volume: 308803
-- ma5: 97.24
-- ema23_primary: 98.35
-- distance_to_ema23_pct: -6.87
-- ma20: 99.58
-- ma60: 97.17
-- ma120: 87.32
-- return_5d: -8.12
-- return_20d: -7.47
-- volume_ratio: 1.14
-- distance_to_ma20_pct_auxiliary: -8.01
-- distance_to_high_60_pct: -20.69
+- date: 20260730
+- open: 86.2
+- high: 88.8
+- low: 83.4
+- close: 84.5
+- volume: 190356
+- ma5: 90.5
+- ema23_primary: 94.69
+- distance_to_ema23_pct: -10.76
+- ma20: 95.92
+- ma60: 98.05
+- ma120: 88.01
+- return_5d: -12.25
+- return_20d: -12.34
+- volume_ratio: 1.01
+- distance_to_ma20_pct_auxiliary: -11.9
+- distance_to_high_60_pct: -26.84
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260618,99.9,105.5,99.9,103.5,476003,97.51,6.14,99.67,89.1,1.08
-20260622,106.5,110,105,108,717323,98.38,9.77,99.83,89.67,1.63
-20260623,109.5,111,102.5,105,482126,98.94,6.13,99.45,90.15,1.18
-20260624,101.5,106,101,104,223610,99.36,4.67,99.3,90.63,0.59
-20260625,106,106,99.8,100.5,229252,99.45,1.05,99.08,91.05,0.62
-20260626,99.9,99.9,93.7,94.7,336350,99.06,-4.4,98.76,91.42,0.93
-20260629,94.7,96.4,93.5,94,190421,98.64,-4.7,98.46,91.82,0.55
-20260630,95.2,98.3,94.7,97.9,139989,98.57,-0.68,98.43,92.27,0.42
-20260701,98.6,100.5,96.1,96.4,164500,98.39,-2.03,98.12,92.7,0.53
 20260702,96.4,98.6,95.1,98.5,94741,98.4,0.1,98.05,93.16,0.32
 20260703,97.9,103.5,97.4,101,308348,98.62,2.42,98.25,93.63,1.06
 20260706,101.5,106.5,100.5,102.5,250527,98.94,3.6,98.61,94.15,0.86
@@ -167,6 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260715,98.2,101,97.3,101,152379,99.24,1.78,100.03,96.73,0.55
 20260716,101,101,96,96,137128,98.97,-3,99.94,97.01,0.52
 20260717,95.3,95.3,90.5,91.6,308803,98.35,-6.87,99.58,97.17,1.14
+20260720,91.7,94.2,88.3,92.2,164974,97.84,-5.77,99.01,97.2,0.65
+20260721,92.3,94.7,92.3,94,94112,97.52,-3.61,98.31,97.38,0.42
+20260722,95.8,97.3,95.2,95.8,141673,97.38,-1.62,97.85,97.49,0.69
+20260723,95.7,96.3,93.6,96.3,110448,97.29,-1.02,97.47,97.66,0.55
+20260724,95.9,97.3,94.7,97,109276,97.26,-0.27,97.29,97.89,0.56
+20260727,96.1,97,93.6,95,117008,97.08,-2.14,97.31,98.09,0.64
+20260728,92.3,92.3,89,89.7,118595,96.46,-7.01,97.09,98.17,0.66
+20260729,90.6,90.8,83,86.3,286201,95.61,-9.74,96.51,98.17,1.53
+20260730,86.2,88.8,83.4,84.5,190356,94.69,-10.76,95.92,98.05,1.01
 ```
 
 ## Latest TDCC Snapshot

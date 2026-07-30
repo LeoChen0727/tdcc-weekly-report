@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4747 強生製藥
 
 ## Metadata
-- generated_at: 2026-07-29 22:28:08 Asia/Taipei
+- generated_at: 2026-07-30 22:27:58 Asia/Taipei
 - stock_id: 4747
 - stock_name: 強生製藥
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260717
-- price_rows: 169
-- current_main_price_date: 20260717
+- latest_price_date: 20260730
+- price_rows: 178
+- current_main_price_date: 20260730
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,37 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260717
-- open: 50.4
-- high: 50.4
-- low: 48
-- close: 48
-- volume: 22000
-- ma5: 49.07
-- ema23_primary: 50.32
-- distance_to_ema23_pct: -4.61
-- ma20: 49.74
-- ma60: 53.37
-- ma120: 54.83
-- return_5d: -4
-- return_20d: -10.61
-- volume_ratio: 0.87
-- distance_to_ma20_pct_auxiliary: -3.49
-- distance_to_high_60_pct: -17.67
+- date: 20260730
+- open: 48
+- high: 48.65
+- low: 45.1
+- close: 48.6
+- volume: 99000
+- ma5: 49.96
+- ema23_primary: 49.95
+- distance_to_ema23_pct: -2.7
+- ma20: 49.35
+- ma60: 52.73
+- ma120: 54.09
+- return_5d: -1.62
+- return_20d: 0.1
+- volume_ratio: 4.2
+- distance_to_ma20_pct_auxiliary: -1.52
+- distance_to_high_60_pct: -16.64
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260618,53.7,53.7,52.8,52.8,7000,54.73,-3.53,55.09,54.89,0.18
-20260622,53.9,53.9,52,52.4,54000,54.54,-3.92,54.87,54.85,1.38
-20260623,52.2,52.2,51,52.1,39000,54.33,-4.11,54.75,54.8,1.02
-20260624,50.7,51.8,50.6,51.2,25000,54.07,-5.31,54.47,54.75,0.68
-20260625,50.6,51,49.4,49.55,97000,53.7,-7.72,54.12,54.67,2.5
-20260626,49.85,49.85,49.4,49.5,15000,53.35,-7.21,53.77,54.59,0.41
-20260629,49.45,49.7,49.15,49.15,63000,53,-7.26,53.38,54.51,1.7
-20260630,49.2,49.25,48.1,48.75,49000,52.64,-7.39,52.97,54.39,1.34
-20260701,49.45,49.45,48.55,48.55,7000,52.3,-7.17,52.62,54.29,0.19
 20260702,48.55,49.05,48.55,49.05,8000,52.03,-5.73,52.32,54.19,0.23
 20260703,49.5,50.2,48.5,50.2,44000,51.88,-3.23,52.06,54.1,1.29
 20260706,49.2,49.2,48.9,48.95,15000,51.63,-5.2,51.72,53.99,0.47
@@ -168,6 +159,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260715,48.5,49.95,47.6,49,19000,50.72,-3.39,50.27,53.5,0.75
 20260716,48.05,48.5,48.05,48.45,7000,50.53,-4.12,50.02,53.44,0.29
 20260717,50.4,50.4,48,48,22000,50.32,-4.61,49.74,53.37,0.87
+20260720,50.2,50.2,48,49.4,12000,50.24,-1.68,49.57,53.33,0.47
+20260721,48.8,48.8,48.8,48.8,2000,50.12,-2.64,49.39,53.27,0.09
+20260722,48.1,48.9,47,48.9,26000,50.02,-2.24,49.23,53.21,1.17
+20260723,49.5,50.1,49,49.4,23000,49.97,-1.14,49.14,53.14,1.04
+20260724,49,49.8,49,49.8,5000,49.96,-0.31,49.15,53.07,0.29
+20260727,49.8,49.95,49.1,49.95,15000,49.96,-0.01,49.17,52.99,0.86
+20260728,49.9,51.5,47.25,51.5,41000,50.08,2.83,49.29,52.93,2.5
+20260729,50.8,50.8,46.4,49.95,100000,50.07,-0.25,49.35,52.84,5.28
+20260730,48,48.65,45.1,48.6,99000,49.95,-2.7,49.35,52.73,4.2
 ```
 
 ## Latest TDCC Snapshot

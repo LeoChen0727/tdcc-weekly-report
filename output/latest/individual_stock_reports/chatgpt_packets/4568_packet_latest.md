@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4568 科際精密
 
 ## Metadata
-- generated_at: 2026-07-29 22:28:05 Asia/Taipei
+- generated_at: 2026-07-30 22:27:55 Asia/Taipei
 - stock_id: 4568
 - stock_name: 科際精密
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260717
-- price_rows: 151
-- current_main_price_date: 20260717
+- latest_price_date: 20260730
+- price_rows: 160
+- current_main_price_date: 20260730
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,37 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260717
-- open: 40.5
-- high: 40.5
-- low: 39.75
-- close: 39.85
-- volume: 17000
-- ma5: 40.65
-- ema23_primary: 41.03
-- distance_to_ema23_pct: -2.88
-- ma20: 41.19
-- ma60: 41.08
-- ma120: 41.68
-- return_5d: -3.74
-- return_20d: -4.78
-- volume_ratio: 0.95
-- distance_to_ma20_pct_auxiliary: -3.26
-- distance_to_high_60_pct: -8.81
+- date: 20260730
+- open: 38.75
+- high: 38.75
+- low: 38.75
+- close: 38.75
+- volume: 1000
+- ma5: 39.16
+- ema23_primary: 40.12
+- distance_to_ema23_pct: -3.41
+- ma20: 40.35
+- ma60: 40.68
+- ma120: 41.45
+- return_5d: -2.39
+- return_20d: -6.74
+- volume_ratio: 0.08
+- distance_to_ma20_pct_auxiliary: -3.97
+- distance_to_high_60_pct: -8.07
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260618,40.75,41.1,40.45,40.5,37000,40.89,-0.96,40.84,41.31,1.29
-20260622,40.65,41.9,40.5,40.8,21000,40.88,-0.2,40.87,41.29,0.76
-20260623,40.8,40.85,40.6,40.85,22000,40.88,-0.07,40.92,41.27,0.82
-20260624,40.6,41.7,40.6,41.7,20000,40.95,1.84,40.98,41.26,0.77
-20260625,41.45,41.95,41.45,41.8,15000,41.02,1.9,41.05,41.26,0.61
-20260626,41.8,41.8,40.95,41.8,25000,41.08,1.74,41.13,41.26,1.05
-20260629,41.8,41.8,40.7,41.05,5000,41.08,-0.08,41.17,41.24,0.23
-20260630,41.6,41.6,41.6,41.6,5000,41.12,1.16,41.2,41.24,0.25
-20260701,41.15,41.55,41.1,41.55,9000,41.16,0.95,41.18,41.23,0.43
 20260702,41.55,41.95,41.55,41.95,14000,41.23,1.76,41.18,41.23,0.72
 20260703,41.8,41.8,41.2,41.2,3000,41.22,-0.06,41.14,41.21,0.17
 20260706,41.25,41.4,41.25,41.25,7000,41.23,0.06,41.11,41.2,0.44
@@ -168,6 +159,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260715,41.4,41.4,40.05,40.35,63000,41.26,-2.21,41.33,41.14,4.09
 20260716,38.65,40.5,38.65,39.75,48000,41.14,-3.37,41.29,41.11,2.76
 20260717,40.5,40.5,39.75,39.85,17000,41.03,-2.88,41.19,41.08,0.95
+20260720,39.9,40,39.75,40,16000,40.94,-2.31,41.17,41.06,0.95
+20260721,39.7,39.75,39.7,39.75,2000,40.84,-2.68,41.12,41.02,0.13
+20260722,40.05,40.05,39.55,39.55,6000,40.74,-2.91,41.05,40.98,0.4
+20260723,40,40,39.6,39.7,9000,40.65,-2.34,40.95,40.92,0.62
+20260724,39.75,39.75,39.2,39.35,5000,40.54,-2.94,40.83,40.85,0.36
+20260727,39.6,39.6,39.45,39.45,4000,40.45,-2.47,40.71,40.78,0.31
+20260728,39.25,39.25,38.5,38.95,13000,40.33,-3.41,40.6,40.74,0.97
+20260729,38.9,39.3,38.4,39.3,8000,40.24,-2.34,40.49,40.71,0.59
+20260730,38.75,38.75,38.75,38.75,1000,40.12,-3.41,40.35,40.68,0.08
 ```
 
 ## Latest TDCC Snapshot

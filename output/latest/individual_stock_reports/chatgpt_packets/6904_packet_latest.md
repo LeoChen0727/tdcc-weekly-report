@@ -1,27 +1,27 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6904 伯鑫
 
 ## Metadata
-- generated_at: 2026-07-29 22:29:02 Asia/Taipei
+- generated_at: 2026-07-30 22:28:51 Asia/Taipei
 - stock_id: 6904
 - stock_name: 伯鑫
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260715
-- price_rows: 129
-- current_main_price_date: 20260717
-- current_main_price_universe_status: historical_only_noncurrent
+- latest_price_date: 20260730
+- price_rows: 135
+- current_main_price_date: 20260730
+- current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
 - source_tdcc_dataset_id: tdcc-20260717-98c564c5bc4ab725
 - official_tdcc_signal_date: 20260717
 - latest_tdcc_date: 20260717
 - tdcc_rows: 12
-- tdcc_history_status: historical_only_noncurrent
-- tdcc_freshness_status: historical_only_noncurrent
+- tdcc_history_status: tdcc_history_ready
+- tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
 - tdcc_missing_official_dates: 
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
-- notes: Historical-only TDCC window: stock is absent from the official current main-price universe; retain real historical dates and do not claim current TDCC history
+- notes:
 
 ## Stable Read URLs
 - packet_pages_url: not_published_to_pages_use_raw_or_github_api
@@ -101,7 +101,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -126,34 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260715
-- open: 128
-- high: 128
-- low: 128
-- close: 128
-- volume: 1000
-- ma5: 127
-- ema23_primary: 123.26
-- distance_to_ema23_pct: 3.85
-- ma20: 123.2
-- ma60: 120.02
-- ma120: 121.3
-- return_5d: 2.4
-- return_20d: 8.47
-- volume_ratio: 0.07
-- distance_to_ma20_pct_auxiliary: 3.9
-- distance_to_high_60_pct: 0
+- date: 20260730
+- open: 115
+- high: 115
+- low: 113
+- close: 114.5
+- volume: 8000
+- ma5: 119.3
+- ema23_primary: 121.91
+- distance_to_ema23_pct: -6.08
+- ma20: 123.78
+- ma60: 119.67
+- ma120: 121.13
+- return_5d: -9.84
+- return_20d: -4.18
+- volume_ratio: 2.32
+- distance_to_ma20_pct_auxiliary: -7.49
+- distance_to_high_60_pct: -10.55
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260602,119,119,119,119,119,116.85,1.84,115.85,120.71,0
-20260604,115,118,115,118,117000,116.95,0.9,115.7,120.56,3.6
-20260605,118,118,118,118,118000,117.04,0.82,115.78,120.38,3.08
-20260609,117,118.5,117,118.5,2000,117.16,1.14,115.85,120.22,0.05
-20260611,119,119,119,119,1000,117.31,1.44,116.1,120.12,0.03
-20260612,119,119.5,119,119.5,3000,117.49,1.71,116.42,119.98,0.08
 20260615,120,122.5,120,122.5,3000,117.91,3.89,116.8,119.96,0.08
 20260617,122.5,123,122.5,123,2000,118.34,3.94,117.15,119.92,0.05
 20260622,121.5,124,118,123,10000,118.72,3.6,117.5,119.86,0.27
@@ -168,6 +161,12 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260713,126,126,122,126,4000,122.54,2.82,122.2,119.93,0.16
 20260714,126,126,126,126,1000,122.83,2.58,122.7,119.97,0.05
 20260715,128,128,128,128,1000,123.26,3.85,123.2,120.02,0.07
+20260721,124,127,122,127,6000,123.57,2.78,123.6,120.05,0.42
+20260722,122.5,122.5,122.5,122.5,1000,123.48,-0.79,123.83,120.02,0.12
+20260724,125,125,125,125,1000,123.61,1.13,124.17,120.03,0.38
+20260728,121,121,118.5,118.5,2000,123.18,-3.8,124.17,119.9,0.75
+20260729,118,120,114,116,12000,122.58,-5.37,124.03,119.83,3.75
+20260730,115,115,113,114.5,8000,121.91,-6.08,123.78,119.67,2.32
 ```
 
 ## Latest TDCC Snapshot

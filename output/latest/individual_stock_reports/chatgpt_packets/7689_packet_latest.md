@@ -1,14 +1,14 @@
-# INDIVIDUAL STOCK CHATGPT PACKET - 7689
+# INDIVIDUAL STOCK CHATGPT PACKET - 7689 大鵬科CLMX
 
 ## Metadata
-- generated_at: 2026-07-29 22:29:11 Asia/Taipei
+- generated_at: 2026-07-30 22:29:00 Asia/Taipei
 - stock_id: 7689
-- stock_name: 
-- packet_status: insufficient_price_data
-- latest_price_date: 
-- price_rows: 0
-- current_main_price_date: 20260717
-- current_main_price_universe_status: historical_only_noncurrent
+- stock_name: 大鵬科CLMX
+- packet_status: partial_rawdata_packet
+- latest_price_date: 20260730
+- price_rows: 3
+- current_main_price_date: 20260730
+- current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
 - source_tdcc_dataset_id: tdcc-20260717-98c564c5bc4ab725
@@ -21,7 +21,7 @@
 - tdcc_missing_official_dates: 
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
-- notes: price history missing; do not produce standard technical conclusions; TDCC history missing
+- notes: price history shorter than 120 rows; K-line context is partial; TDCC history missing
 
 ## Stable Read URLs
 - packet_pages_url: not_published_to_pages_use_raw_or_github_api
@@ -125,12 +125,12 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date:
-- open:
-- high:
-- low:
-- close:
-- volume:
+- date: 20260730
+- open: 178
+- high: 179
+- low: 172
+- close: 177.5
+- volume: 244476
 - ma5:
 - ema23_primary:
 - distance_to_ema23_pct:
@@ -146,8 +146,10 @@
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
-status,no_rows
-no_rows,True
+date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
+20260728,172,175,164,175,754511,,,,,
+20260729,179.5,179.5,166.5,176.5,342635,,,,,
+20260730,178,179,172,177.5,244476,,,,,
 ```
 
 ## Latest TDCC Snapshot

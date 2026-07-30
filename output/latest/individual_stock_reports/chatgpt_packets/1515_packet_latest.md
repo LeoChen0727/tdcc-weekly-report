@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1515 力山
 
 ## Metadata
-- generated_at: 2026-07-29 22:26:46 Asia/Taipei
+- generated_at: 2026-07-30 22:26:35 Asia/Taipei
 - stock_id: 1515
 - stock_name: 力山
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260717
-- price_rows: 306
-- current_main_price_date: 20260717
+- latest_price_date: 20260730
+- price_rows: 315
+- current_main_price_date: 20260730
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -72,14 +72,14 @@
 - action_rating_display_zh: 已持有續抱
 - model_category_display_zh: 單一個股分析
 - score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 股價乖離過大
+- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -87,7 +87,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: high_level_consolidation
+- thesis_state: unclear
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -104,6 +104,7 @@
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
+- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -116,7 +117,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- price_too_extended
+- none
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -124,37 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260717
-- open: 42
-- high: 43.65
-- low: 40.4
-- close: 40.95
-- volume: 2601593
-- ma5: 41.81
-- ema23_primary: 35.89
-- distance_to_ema23_pct: 14.1
-- ma20: 35.98
-- ma60: 27.19
-- ma120: 26.35
-- return_5d: 1.99
-- return_20d: 59.34
-- volume_ratio: 0.59
-- distance_to_ma20_pct_auxiliary: 13.81
-- distance_to_high_60_pct: -9.2
+- date: 20260730
+- open: 28.2
+- high: 28.3
+- low: 27.25
+- close: 27.4
+- volume: 2182020
+- ma5: 30.41
+- ema23_primary: 34.53
+- distance_to_ema23_pct: -20.66
+- ma20: 38.23
+- ma60: 29.04
+- ma120: 26.82
+- return_5d: -20.58
+- return_20d: -22.71
+- volume_ratio: 0.51
+- distance_to_ma20_pct_auxiliary: -28.32
+- distance_to_high_60_pct: -39.25
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260618,25.75,27.2,25.3,25.9,3323092,23.61,9.72,23.43,23.09,2.03
-20260622,26.25,27.75,26,27.4,2537843,23.92,14.54,23.67,23.15,1.46
-20260623,27.4,27.4,26.3,26.8,1328951,24.16,10.92,23.86,23.19,0.75
-20260624,26.8,27.5,26.4,27,1279394,24.4,10.67,24.07,23.23,0.7
-20260625,27.35,29.7,27.15,29.7,4499535,24.84,19.57,24.46,23.32,2.26
-20260626,30,32,29.9,30.5,8162379,25.31,20.5,24.89,23.43,3.44
-20260629,30.85,33.55,30.35,31.45,5499347,25.82,21.79,25.37,23.56,2.17
-20260630,31.75,32.5,31,32.25,4290333,26.36,22.35,25.88,23.7,1.6
-20260701,32.55,35.45,32.55,35.45,6035906,27.12,30.73,26.55,23.9,2.05
 20260702,37,38.95,37,38.95,7489521,28.1,38.6,27.35,24.16,2.29
 20260703,39,42.8,38.05,42,13280899,29.26,43.54,28.18,24.45,3.53
 20260706,45.05,45.05,41.45,42.75,10900004,30.38,40.7,29.01,24.77,2.79
@@ -166,6 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260715,40.8,42,40.25,41.1,1317787,34.57,18.87,34.15,26.53,0.31
 20260716,41.9,45.1,41.55,44.85,4042428,35.43,26.59,35.22,26.89,0.91
 20260717,42,43.65,40.4,40.95,2601593,35.89,14.1,35.98,27.19,0.59
+20260720,41.1,44.15,39,44,2615568,36.57,20.33,36.88,27.54,0.6
+20260721,42.5,45,42.5,42.55,2816586,37.06,14.8,37.64,27.86,0.64
+20260722,42,42.95,38.3,38.3,8119860,37.17,3.05,38.22,28.12,1.73
+20260723,37.25,37.55,34.5,34.5,6010062,36.95,-6.62,38.59,28.33,1.22
+20260724,34.5,35.55,33.65,33.95,4352505,36.7,-7.48,38.8,28.53,0.88
+20260727,33.45,33.8,32.1,32.45,2638770,36.34,-10.71,38.9,28.7,0.57
+20260728,31,31.4,29.9,29.95,2650727,35.81,-16.36,38.83,28.84,0.59
+20260729,29.1,30.1,27.3,28.3,3391540,35.18,-19.56,38.63,28.95,0.76
+20260730,28.2,28.3,27.25,27.4,2182020,34.53,-20.66,38.23,29.04,0.51
 ```
 
 ## Latest TDCC Snapshot

@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3465 進泰電子
 
 ## Metadata
-- generated_at: 2026-07-29 22:27:45 Asia/Taipei
+- generated_at: 2026-07-30 22:27:34 Asia/Taipei
 - stock_id: 3465
 - stock_name: 進泰電子
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260717
-- price_rows: 171
-- current_main_price_date: 20260717
+- latest_price_date: 20260730
+- price_rows: 180
+- current_main_price_date: 20260730
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -125,37 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260717
-- open: 30
-- high: 30.95
-- low: 29.4
-- close: 30.85
-- volume: 24000
-- ma5: 32.07
-- ema23_primary: 33.56
-- distance_to_ema23_pct: -8.07
-- ma20: 35.28
-- ma60: 31.77
-- ma120: 37.37
-- return_5d: -11.1
-- return_20d: -6.52
-- volume_ratio: 0.17
-- distance_to_ma20_pct_auxiliary: -12.56
-- distance_to_high_60_pct: -29.65
+- date: 20260730
+- open: 29.5
+- high: 30.15
+- low: 29.5
+- close: 30
+- volume: 17000
+- ma5: 30.19
+- ema23_primary: 31.78
+- distance_to_ema23_pct: -5.59
+- ma20: 32.12
+- ma60: 31.44
+- ma120: 35.88
+- return_5d: -1.64
+- return_20d: -13.79
+- volume_ratio: 0.24
+- distance_to_ma20_pct_auxiliary: -6.61
+- distance_to_high_60_pct: -31.58
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260618,33.6,36.3,33.6,36.3,145000,31.28,16.03,30.69,32.27,2.98
-20260622,39.9,39.9,39.9,39.9,110000,32,24.68,31.3,32.26,2.09
-20260623,43.8,43.85,40,40,702000,32.67,22.44,31.92,32.24,8.12
-20260624,38.1,39.4,37.1,39.4,230000,33.23,18.57,32.52,32.25,2.38
-20260625,40,42,38.6,38.6,227000,33.68,14.62,33.08,32.22,2.13
-20260626,37.45,38.3,35.55,35.55,143000,33.83,5.08,33.46,32.19,1.27
-20260629,36.5,36.5,35,35.7,104000,33.99,5.04,33.82,32.18,0.9
-20260630,36.5,37.5,34.55,35.7,179000,34.13,4.6,34.11,32.15,1.45
-20260701,35.7,35.95,34.4,34.8,79000,34.19,1.79,34.25,32.12,0.62
 20260702,34.8,35.95,34.6,35.3,23000,34.28,2.98,34.41,32.09,0.18
 20260703,35.3,36.55,35.05,35.35,18000,34.37,2.85,34.59,32.05,0.14
 20260706,35.35,35.95,35.35,35.95,46000,34.5,4.2,34.78,32.02,0.36
@@ -167,6 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260715,31.8,31.8,31.15,31.7,26000,34.04,-6.88,35.33,31.88,0.18
 20260716,31.05,31.9,31.05,31.15,37000,33.8,-7.85,35.39,31.83,0.25
 20260717,30,30.95,29.4,30.85,24000,33.56,-8.07,35.28,31.77,0.17
+20260720,30,30.9,29.6,30,72000,33.26,-9.8,34.97,31.71,0.51
+20260721,30.15,30.7,29.9,30.7,82000,33.05,-7.1,34.51,31.67,0.59
+20260722,30.95,30.95,30.35,30.7,62000,32.85,-6.55,34.04,31.64,0.58
+20260723,30.7,30.7,30.35,30.5,28000,32.66,-6.6,33.59,31.58,0.29
+20260724,30.45,30.8,30.35,30.35,60000,32.46,-6.51,33.18,31.54,0.68
+20260727,30.35,30.7,30.1,30.7,46000,32.32,-5,32.94,31.5,0.55
+20260728,30.35,30.35,29.9,29.95,34000,32.12,-6.75,32.65,31.45,0.43
+20260729,29.6,30.15,29.4,29.95,62000,31.94,-6.23,32.37,31.43,0.84
+20260730,29.5,30.15,29.5,30,17000,31.78,-5.59,32.12,31.44,0.24
 ```
 
 ## Latest TDCC Snapshot

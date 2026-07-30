@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6190 萬泰科
 
 ## Metadata
-- generated_at: 2026-07-29 22:28:34 Asia/Taipei
+- generated_at: 2026-07-30 22:28:23 Asia/Taipei
 - stock_id: 6190
 - stock_name: 萬泰科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260717
-- price_rows: 171
-- current_main_price_date: 20260717
+- latest_price_date: 20260730
+- price_rows: 180
+- current_main_price_date: 20260730
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -125,37 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260717
-- open: 74
-- high: 74.6
-- low: 68.4
-- close: 68.4
-- volume: 2773000
-- ma5: 75.16
-- ema23_primary: 79.7
-- distance_to_ema23_pct: -14.18
-- ma20: 81.3
-- ma60: 79.21
-- ma120: 66.03
-- return_5d: -16.69
-- return_20d: -12.64
-- volume_ratio: 0.72
-- distance_to_ma20_pct_auxiliary: -15.87
-- distance_to_high_60_pct: -31.33
+- date: 20260730
+- open: 56.2
+- high: 60.6
+- low: 56.2
+- close: 57.2
+- volume: 2054000
+- ma5: 64.84
+- ema23_primary: 72.54
+- distance_to_ema23_pct: -21.14
+- ma20: 74.47
+- ma60: 78.66
+- ma120: 67.31
+- return_5d: -20.99
+- return_20d: -31.99
+- volume_ratio: 0.8
+- distance_to_ma20_pct_auxiliary: -23.2
+- distance_to_high_60_pct: -42.57
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260618,78.9,83.2,78.4,82.9,5408000,79.62,4.12,81.56,72.13,2.84
-20260622,83.5,85.5,82.3,83.7,8767000,79.96,4.68,81.74,72.65,3.75
-20260623,84,84.3,81,81.7,4427000,80.1,1.99,81.83,73.1,1.73
-20260624,80,83.2,80,83.1,2979000,80.35,3.42,82.09,73.61,1.1
-20260625,83.4,84,82.5,83.4,3393000,80.61,3.47,82.24,74.09,1.18
-20260626,83,84.1,81.2,81.6,4232000,80.69,1.13,82.03,74.56,1.38
-20260629,81.6,82.4,79.1,79.1,2699000,80.56,-1.81,81.38,74.97,0.84
-20260630,80.4,85,80.3,84,5254000,80.84,3.9,81,75.45,1.52
-20260701,85.6,85.8,83.3,84.1,5982000,81.12,3.68,81.04,75.97,1.59
 20260702,84.2,86,84,85.9,4311000,81.51,5.38,81.19,76.47,1.09
 20260703,86,87,85.3,85.8,3766000,81.87,4.8,81.38,76.89,0.91
 20260706,86.8,87.9,85.3,87.1,4733000,82.31,5.82,81.67,77.24,1.08
@@ -167,6 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260715,75.7,79.8,75.7,78.1,2651000,81.23,-3.85,81.84,78.95,0.67
 20260716,75.9,76.8,74.3,75.2,1819000,80.72,-6.84,81.8,79.14,0.47
 20260717,74,74.6,68.4,68.4,2773000,79.7,-14.18,81.3,79.21,0.72
+20260720,68.7,69.9,63.6,69.2,2715000,78.82,-12.21,80.61,79.27,0.73
+20260721,69.6,70.4,68.7,69.8,1422000,78.07,-10.59,79.92,79.28,0.43
+20260722,71.1,73.2,71.1,71.5,1774000,77.52,-7.77,79.41,79.23,0.55
+20260723,73,73.3,71.7,72.4,1570000,77.1,-6.09,78.88,79.23,0.5
+20260724,71.8,72.5,70.3,70.8,1331000,76.57,-7.54,78.25,79.21,0.44
+20260727,71.2,71.9,68.9,71.2,1420000,76.12,-6.47,77.72,79.22,0.49
+20260728,69.1,69.1,64.8,64.8,1804000,75.18,-13.81,77.01,79.13,0.63
+20260729,65.8,66.3,58.4,60.2,3733000,73.93,-18.57,75.82,78.94,1.35
+20260730,56.2,60.6,56.2,57.2,2054000,72.54,-21.14,74.47,78.66,0.8
 ```
 
 ## Latest TDCC Snapshot

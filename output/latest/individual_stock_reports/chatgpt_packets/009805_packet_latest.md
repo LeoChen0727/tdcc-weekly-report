@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009805 新光美國電力基建
 
 ## Metadata
-- generated_at: 2026-07-29 22:26:34 Asia/Taipei
+- generated_at: 2026-07-30 22:26:24 Asia/Taipei
 - stock_id: 009805
 - stock_name: 新光美國電力基建
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260717
-- price_rows: 39
-- current_main_price_date: 20260717
+- latest_price_date: 20260730
+- price_rows: 48
+- current_main_price_date: 20260730
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -101,7 +101,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -126,37 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260717
-- open: 16.22
-- high: 16.22
-- low: 16.01
-- close: 16.02
-- volume: 7824978
-- ma5: 16.41
-- ema23_primary: 16.61
-- distance_to_ema23_pct: -3.58
-- ma20: 16.78
-- ma60: 16.62
-- ma120: 16.62
-- return_5d: -3.49
-- return_20d: -2.61
-- volume_ratio: 0.99
-- distance_to_ma20_pct_auxiliary: -4.52
-- distance_to_high_60_pct: -8.09
+- date: 20260730
+- open: 15
+- high: 15.11
+- low: 14.97
+- close: 15.02
+- volume: 6765869
+- ma5: 15.83
+- ema23_primary: 16.26
+- distance_to_ema23_pct: -7.61
+- ma20: 16.35
+- ma60: 16.51
+- ma120: 16.51
+- return_5d: -8.19
+- return_20d: -13.38
+- volume_ratio: 1.04
+- distance_to_ma20_pct_auxiliary: -8.11
+- distance_to_high_60_pct: -13.83
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260618,16.59,16.69,16.59,16.67,8227074,16.41,1.56,16.46,16.46,0.67
-20260622,16.85,16.93,16.85,16.91,13550197,16.45,2.77,16.48,16.48,1.1
-20260623,17.36,17.43,17.18,17.18,19612929,16.52,4.03,16.49,16.51,1.61
-20260624,16.8,16.85,16.77,16.82,12246608,16.54,1.69,16.48,16.53,1
-20260625,16.99,17.14,16.93,17.14,7477297,16.59,3.31,16.5,16.55,0.63
-20260626,17.18,17.27,17,17.05,12124137,16.63,2.53,16.51,16.57,1.02
-20260629,16.92,16.94,16.82,16.89,4470671,16.65,1.44,16.53,16.59,0.39
-20260630,17,17.07,16.93,17.05,8057637,16.68,2.19,16.55,16.6,0.75
-20260701,17.4,17.41,17.28,17.34,7300084,16.74,3.59,16.61,16.63,0.71
 20260702,16.9,16.97,16.87,16.93,5863806,16.75,1.05,16.62,16.64,0.58
 20260703,16.71,16.83,16.69,16.82,6549480,16.76,0.36,16.63,16.65,0.66
 20260706,16.82,16.84,16.78,16.8,5846581,16.76,0.22,16.64,16.65,0.59
@@ -168,6 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260715,16.51,16.61,16.51,16.59,2368304,16.68,-0.56,16.8,16.64,0.29
 20260716,16.53,16.54,16.45,16.5,2437901,16.67,-1.01,16.8,16.63,0.31
 20260717,16.22,16.22,16.01,16.02,7824978,16.61,-3.58,16.78,16.62,0.99
+20260720,16.18,16.24,16.16,16.2,4838082,16.58,-2.29,16.76,16.61,0.62
+20260721,16.2,16.27,16.15,16.26,2466600,16.55,-1.77,16.72,16.6,0.34
+20260722,16.43,16.43,16.32,16.4,8280270,16.54,-0.85,16.68,16.6,1.25
+20260723,16.4,16.45,16.33,16.36,3332483,16.53,-1,16.66,16.59,0.54
+20260724,16.47,16.52,16.42,16.44,3580500,16.52,-0.47,16.63,16.59,0.6
+20260727,16.52,16.53,16.33,16.4,2746593,16.51,-0.66,16.59,16.58,0.5
+20260728,16.05,16.05,15.78,15.78,22129992,16.45,-4.06,16.54,16.56,3.45
+20260729,15.77,15.77,15.48,15.52,10442052,16.37,-5.19,16.46,16.54,1.6
+20260730,15,15.11,14.97,15.02,6765869,16.26,-7.61,16.35,16.51,1.04
 ```
 
 ## Latest TDCC Snapshot

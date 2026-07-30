@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4148 全宇生技-KY
 
 ## Metadata
-- generated_at: 2026-07-29 22:27:58 Asia/Taipei
+- generated_at: 2026-07-30 22:27:47 Asia/Taipei
 - stock_id: 4148
 - stock_name: 全宇生技-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260717
-- price_rows: 299
-- current_main_price_date: 20260717
+- latest_price_date: 20260730
+- price_rows: 308
+- current_main_price_date: 20260730
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,37 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260717
-- open: 30
-- high: 30.2
-- low: 29.5
-- close: 30.05
-- volume: 44629
-- ma5: 30
-- ema23_primary: 30.57
-- distance_to_ema23_pct: -1.69
-- ma20: 30.28
-- ma60: 32.77
-- ma120: 35.97
-- return_5d: 0.17
-- return_20d: -3.53
-- volume_ratio: 1.17
-- distance_to_ma20_pct_auxiliary: -0.77
-- distance_to_high_60_pct: -25.06
+- date: 20260730
+- open: 30.35
+- high: 30.35
+- low: 29.4
+- close: 30.35
+- volume: 60100
+- ma5: 30.96
+- ema23_primary: 30.72
+- distance_to_ema23_pct: -1.21
+- ma20: 30.51
+- ma60: 31.84
+- ma120: 35.37
+- return_5d: -2.1
+- return_20d: 0.33
+- volume_ratio: 1.77
+- distance_to_ma20_pct_auxiliary: -0.52
+- distance_to_high_60_pct: -23.07
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260618,31.2,31.2,30.45,30.85,23381,32.13,-4,31.46,36.17,0.4
-20260622,30.85,30.85,30,30.65,91007,32.01,-4.25,31.28,35.98,1.47
-20260623,30.25,30.45,29.8,29.8,77217,31.83,-6.37,31.15,35.78,1.32
-20260624,29.8,30.8,29.7,30.8,40866,31.74,-2.96,31.09,35.6,0.71
-20260625,31.2,31.2,29.95,30.45,24658,31.63,-3.74,31.02,35.39,0.43
-20260626,30.1,30.35,29.5,29.5,63444,31.46,-6.22,30.95,35.17,1.14
-20260629,29.5,30.55,29.5,30.55,33778,31.38,-2.65,30.96,34.95,0.63
-20260630,30.7,30.75,30.05,30.3,17126,31.29,-3.16,30.96,34.73,0.33
-20260701,30.15,30.5,30.1,30.25,16202,31.2,-3.06,30.92,34.51,0.32
 20260702,30.25,30.5,30,30.5,26933,31.14,-2.07,30.82,34.3,0.59
 20260703,30.6,30.95,30.6,30.8,40352,31.12,-1.02,30.74,34.12,0.88
 20260706,31.05,31.35,30.6,30.85,38578,31.09,-0.78,30.66,33.94,0.83
@@ -168,6 +159,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260715,30.05,30.15,29.9,30.15,20363,30.65,-1.63,30.34,33.01,0.54
 20260716,30.25,30.25,29.8,30.25,36275,30.61,-1.19,30.34,32.89,0.95
 20260717,30,30.2,29.5,30.05,44629,30.57,-1.69,30.28,32.77,1.17
+20260720,30.9,30.9,30,30.35,24250,30.55,-0.65,30.26,32.65,0.63
+20260721,30.7,30.8,30.25,30.65,15000,30.56,0.3,30.26,32.55,0.43
+20260722,30.8,30.85,30.6,30.85,31723,30.58,0.88,30.31,32.42,0.98
+20260723,30.95,31.15,30.95,31,23572,30.62,1.25,30.32,32.31,0.75
+20260724,30.8,31.15,30.65,31.15,18330,30.66,1.59,30.36,32.2,0.59
+20260727,31.3,31.7,31.2,31.7,30100,30.75,3.1,30.46,32.11,1.02
+20260728,31.05,31.05,30.6,31.05,27126,30.77,0.9,30.49,32.02,0.93
+20260729,31.05,31.05,29.85,30.55,72744,30.75,-0.67,30.5,31.93,2.28
+20260730,30.35,30.35,29.4,30.35,60100,30.72,-1.21,30.51,31.84,1.77
 ```
 
 ## Latest TDCC Snapshot

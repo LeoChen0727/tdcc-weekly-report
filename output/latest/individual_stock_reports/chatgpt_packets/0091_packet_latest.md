@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0091 群益台灣精選高息
 
 ## Metadata
-- generated_at: 2026-07-29 22:26:33 Asia/Taipei
+- generated_at: 2026-07-30 22:26:22 Asia/Taipei
 - stock_id: 0091
 - stock_name: 群益台灣精選高息
 - packet_status: insufficient_price_data
 - latest_price_date: 
 - price_rows: 0
-- current_main_price_date: 20260717
+- current_main_price_date: 20260730
 - current_main_price_universe_status: historical_only_noncurrent
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable

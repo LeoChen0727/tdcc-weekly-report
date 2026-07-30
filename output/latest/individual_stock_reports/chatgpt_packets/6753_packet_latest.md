@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6753 龍德造船
 
 ## Metadata
-- generated_at: 2026-07-29 22:28:56 Asia/Taipei
+- generated_at: 2026-07-30 22:28:45 Asia/Taipei
 - stock_id: 6753
 - stock_name: 龍德造船
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260717
-- price_rows: 306
-- current_main_price_date: 20260717
+- latest_price_date: 20260730
+- price_rows: 315
+- current_main_price_date: 20260730
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -101,7 +101,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 - acceptable_risk_reward
@@ -125,37 +124,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260717
-- open: 142
-- high: 148
-- low: 137
-- close: 139
-- volume: 3568894
-- ma5: 151.6
-- ema23_primary: 141.22
-- distance_to_ema23_pct: -1.57
-- ma20: 140.3
-- ma60: 133.18
-- ma120: 135.9
-- return_5d: -6.08
-- return_20d: 16.81
-- volume_ratio: 0.77
-- distance_to_ma20_pct_auxiliary: -0.93
-- distance_to_high_60_pct: -17.75
+- date: 20260730
+- open: 126
+- high: 129.5
+- low: 123
+- close: 123
+- volume: 1435274
+- ma5: 132.7
+- ema23_primary: 138.43
+- distance_to_ema23_pct: -11.15
+- ma20: 144.65
+- ma60: 132.78
+- ma120: 135.23
+- return_5d: -11.19
+- return_20d: -13.07
+- volume_ratio: 0.28
+- distance_to_ma20_pct_auxiliary: -14.97
+- distance_to_high_60_pct: -27.22
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260618,119,121.5,118.5,121.5,455057,123.89,-1.93,123.08,130.12,0.53
-20260622,124.5,132,124,128,2784390,124.23,3.03,123.15,130.15,3.02
-20260623,128.5,130,125.5,126,835468,124.38,1.3,123.22,130.05,0.94
-20260624,124.5,127,124,125,460747,124.43,0.46,123.33,129.95,0.54
-20260625,126,126.5,123,123.5,318230,124.35,-0.69,123.3,129.85,0.39
-20260626,124.5,126.5,121,121.5,579193,124.11,-2.11,123.17,129.68,0.71
-20260629,122.5,132,122.5,128.5,2595715,124.48,3.23,123.17,129.71,3.1
-20260630,128,139.5,127.5,136.5,5539298,125.48,8.78,123.5,129.84,5.34
-20260701,138,150,137.5,141.5,6517206,126.82,11.58,124.3,130.1,4.96
 20260702,139,153.5,136.5,140,5237845,127.92,9.45,125.03,130.33,3.38
 20260703,147,154,144.5,154,4997277,130.09,18.38,126.53,130.75,2.83
 20260706,160,168.5,151,153,15144520,132,15.91,128.03,131.17,6.1
@@ -167,6 +157,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260715,157.5,160,148,156,4315212,141,10.64,137.95,133.19,1
 20260716,153,157,143,146,3014551,141.42,3.24,139.3,133.22,0.68
 20260717,142,148,137,139,3568894,141.22,-1.57,140.3,133.18,0.77
+20260720,138,147.5,135,139.5,3641082,141.07,-1.12,141.2,133.16,0.76
+20260721,140,153,138,153,4293005,142.07,7.69,142.45,133.28,0.89
+20260722,152,160,142,144.5,8210385,142.27,1.57,143.38,133.31,1.57
+20260723,147,147,135.5,138.5,3082235,141.96,-2.44,144.05,133.26,0.58
+20260724,137,146,136.5,140,3776699,141.79,-1.26,144.88,133.32,0.68
+20260727,139.5,139.5,132.5,138,1506212,141.48,-2.46,145.7,133.32,0.27
+20260728,135,141,133,133,2119411,140.77,-5.52,145.93,133.28,0.38
+20260729,134,138.5,123.5,129.5,3088977,139.83,-7.39,145.57,133.13,0.57
+20260730,126,129.5,123,123,1435274,138.43,-11.15,144.65,132.78,0.28
 ```
 
 ## Latest TDCC Snapshot

@@ -1,14 +1,14 @@
-# INDIVIDUAL STOCK CHATGPT PACKET - 7835
+# INDIVIDUAL STOCK CHATGPT PACKET - 7835 永悅健康-創
 
 ## Metadata
-- generated_at: 2026-07-29 22:29:16 Asia/Taipei
+- generated_at: 2026-07-30 22:29:05 Asia/Taipei
 - stock_id: 7835
-- stock_name: 
-- packet_status: insufficient_price_data
-- latest_price_date: 
-- price_rows: 0
-- current_main_price_date: 20260717
-- current_main_price_universe_status: historical_only_noncurrent
+- stock_name: 永悅健康-創
+- packet_status: partial_rawdata_packet
+- latest_price_date: 20260730
+- price_rows: 5
+- current_main_price_date: 20260730
+- current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
 - source_tdcc_dataset_id: tdcc-20260717-98c564c5bc4ab725
@@ -21,7 +21,7 @@
 - tdcc_missing_official_dates: 
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
-- notes: price history missing; do not produce standard technical conclusions; TDCC history missing
+- notes: price history shorter than 120 rows; K-line context is partial; TDCC history missing
 
 ## Stable Read URLs
 - packet_pages_url: not_published_to_pages_use_raw_or_github_api
@@ -125,29 +125,33 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date:
-- open:
-- high:
-- low:
-- close:
-- volume:
-- ma5:
-- ema23_primary:
-- distance_to_ema23_pct:
-- ma20:
-- ma60:
-- ma120:
+- date: 20260730
+- open: 34.7
+- high: 34.7
+- low: 29
+- close: 30.6
+- volume: 118646
+- ma5: 35.06
+- ema23_primary: 38.09
+- distance_to_ema23_pct: -19.66
+- ma20: 35.06
+- ma60: 35.06
+- ma120: 35.06
 - return_5d:
 - return_20d:
-- volume_ratio:
-- distance_to_ma20_pct_auxiliary:
-- distance_to_high_60_pct:
+- volume_ratio: 0.41
+- distance_to_ma20_pct_auxiliary: -12.72
+- distance_to_high_60_pct: -38.8
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
-status,no_rows
-no_rows,True
+date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
+20260724,49.1,50,37.9,39.95,1010424,,,,,
+20260727,38.1,38.1,32.8,36.4,189670,,,,,
+20260728,35,35.45,34,35.35,63008,,,,,
+20260729,35.2,35.2,32,33,75177,,,,,
+20260730,34.7,34.7,29,30.6,118646,38.09,-19.66,35.06,35.06,0.41
 ```
 
 ## Latest TDCC Snapshot

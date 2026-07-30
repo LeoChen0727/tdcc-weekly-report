@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6578 達邦蛋白
 
 ## Metadata
-- generated_at: 2026-07-29 22:28:48 Asia/Taipei
+- generated_at: 2026-07-30 22:28:38 Asia/Taipei
 - stock_id: 6578
 - stock_name: 達邦蛋白
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260717
-- price_rows: 171
-- current_main_price_date: 20260717
+- latest_price_date: 20260730
+- price_rows: 180
+- current_main_price_date: 20260730
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,37 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260717
-- open: 16.9
-- high: 16.95
-- low: 16.15
-- close: 16.35
-- volume: 73000
-- ma5: 16.49
-- ema23_primary: 16.49
-- distance_to_ema23_pct: -0.85
-- ma20: 16.41
-- ma60: 16.35
-- ma120: 17.47
-- return_5d: -0.3
-- return_20d: -1.21
-- volume_ratio: 0.85
-- distance_to_ma20_pct_auxiliary: -0.35
-- distance_to_high_60_pct: -8.15
+- date: 20260730
+- open: 16
+- high: 16.15
+- low: 15.9
+- close: 16.1
+- volume: 27000
+- ma5: 16.19
+- ema23_primary: 16.31
+- distance_to_ema23_pct: -1.3
+- ma20: 16.34
+- ma60: 16.39
+- ma120: 17.19
+- return_5d: -0.31
+- return_20d: -1.53
+- volume_ratio: 0.34
+- distance_to_ma20_pct_auxiliary: -1.45
+- distance_to_high_60_pct: -9.55
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260618,16.95,17,16.45,16.45,64000,16.68,-1.36,16.8,16.78,1.29
-20260622,16.8,16.8,16.15,16.45,116000,16.66,-1.25,16.76,16.76,2.13
-20260623,16.25,16.35,16.1,16.3,44000,16.63,-1.98,16.72,16.73,0.79
-20260624,16,16.3,16,16.3,58000,16.6,-1.81,16.67,16.71,1
-20260625,16.3,16.3,16,16.1,108000,16.56,-2.77,16.64,16.68,1.73
-20260626,16.1,16.25,16.1,16.1,67000,16.52,-2.55,16.63,16.66,1.03
-20260629,16.5,16.6,16.15,16.25,24000,16.5,-1.51,16.61,16.63,0.37
-20260630,16.5,16.75,16.35,16.55,31000,16.5,0.29,16.62,16.61,0.47
-20260701,16.8,16.8,16,16.35,69000,16.49,-0.85,16.61,16.59,0.99
 20260702,16.2,16.4,16.15,16.35,32000,16.48,-0.78,16.59,16.56,0.46
 20260703,16.4,16.45,16.4,16.45,40000,16.48,-0.16,16.58,16.54,0.56
 20260706,16.5,16.55,16.35,16.5,76000,16.48,0.13,16.55,16.51,1.02
@@ -168,6 +159,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260715,16.3,17.65,16.1,17.3,230000,16.51,4.8,16.42,16.38,2.74
 20260716,17.25,17.25,16.4,16.45,122000,16.5,-0.32,16.42,16.37,1.41
 20260717,16.9,16.95,16.15,16.35,73000,16.49,-0.85,16.41,16.35,0.85
+20260720,16.65,16.7,16.1,16.1,49000,16.46,-2.17,16.39,16.34,0.58
+20260721,16.5,16.6,16,16.2,56000,16.44,-1.43,16.38,16.34,0.68
+20260722,16.3,16.35,16.05,16.05,53000,16.4,-2.16,16.36,16.33,0.64
+20260723,16.2,16.2,16.05,16.15,11000,16.38,-1.42,16.36,16.33,0.14
+20260724,16.5,16.5,16,16.1,27000,16.36,-1.58,16.36,16.34,0.35
+20260727,16.1,16.4,16.1,16.35,90000,16.36,-0.05,16.37,16.35,1.16
+20260728,16.5,16.5,16.1,16.3,71000,16.35,-0.33,16.37,16.36,0.89
+20260729,16.05,16.1,15.9,16.1,46000,16.33,-1.42,16.35,16.38,0.57
+20260730,16,16.15,15.9,16.1,27000,16.31,-1.3,16.34,16.39,0.34
 ```
 
 ## Latest TDCC Snapshot

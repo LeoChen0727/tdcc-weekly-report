@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009825 聯邦美國金融創新
 
 ## Metadata
-- generated_at: 2026-07-29 22:26:35 Asia/Taipei
+- generated_at: 2026-07-30 22:26:24 Asia/Taipei
 - stock_id: 009825
 - stock_name: 聯邦美國金融創新
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260717
-- price_rows: 1
-- current_main_price_date: 20260717
+- latest_price_date: 20260730
+- price_rows: 10
+- current_main_price_date: 20260730
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -101,6 +101,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -125,29 +126,38 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260717
-- open: 9.78
-- high: 9.79
-- low: 9.62
-- close: 9.63
-- volume: 6616000
-- ma5:
-- ema23_primary:
-- distance_to_ema23_pct:
-- ma20:
-- ma60:
-- ma120:
-- return_5d:
+- date: 20260730
+- open: 9.61
+- high: 9.8
+- low: 9.61
+- close: 9.75
+- volume: 769000
+- ma5: 9.74
+- ema23_primary: 9.71
+- distance_to_ema23_pct: 0.43
+- ma20: 9.77
+- ma60: 9.77
+- ma120: 9.77
+- return_5d: -0.31
 - return_20d:
-- volume_ratio:
-- distance_to_ma20_pct_auxiliary:
-- distance_to_high_60_pct:
+- volume_ratio: 0.37
+- distance_to_ma20_pct_auxiliary: -0.16
+- distance_to_high_60_pct: -2.5
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260717,9.78,9.79,9.62,9.63,6616000,,,,,
+20260720,9.64,9.77,9.62,9.74,2733000,,,,,
+20260721,9.8,9.92,9.8,9.91,1308000,,,,,
+20260722,10,10,9.84,9.91,3192000,,,,,
+20260723,9.85,9.91,9.77,9.78,997000,9.69,0.92,9.79,9.79,0.34
+20260724,9.77,9.77,9.68,9.69,518000,9.69,-0.01,9.78,9.78,0.2
+20260727,9.62,9.9,9.62,9.74,964000,9.69,0.47,9.77,9.77,0.41
+20260728,9.74,9.74,9.68,9.68,1196000,9.69,-0.14,9.76,9.76,0.55
+20260729,9.76,9.83,9.75,9.83,2642000,9.7,1.29,9.77,9.77,1.18
+20260730,9.61,9.8,9.61,9.75,769000,9.71,0.43,9.77,9.77,0.37
 ```
 
 ## Latest TDCC Snapshot

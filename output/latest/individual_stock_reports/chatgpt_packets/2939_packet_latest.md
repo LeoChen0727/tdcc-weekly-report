@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2939 永邑-KY
 
 ## Metadata
-- generated_at: 2026-07-29 22:27:28 Asia/Taipei
+- generated_at: 2026-07-30 22:27:17 Asia/Taipei
 - stock_id: 2939
 - stock_name: 永邑-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260717
-- price_rows: 302
-- current_main_price_date: 20260717
+- latest_price_date: 20260730
+- price_rows: 311
+- current_main_price_date: 20260730
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,37 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260717
-- open: 18.8
-- high: 19.2
-- low: 18.8
-- close: 19.15
-- volume: 7000
-- ma5: 18.9
-- ema23_primary: 19.78
-- distance_to_ema23_pct: -3.17
-- ma20: 19.52
-- ma60: 21.94
-- ma120: 23.02
-- return_5d: -1.54
-- return_20d: -11.34
-- volume_ratio: 0.3
-- distance_to_ma20_pct_auxiliary: -1.9
-- distance_to_high_60_pct: -25.2
+- date: 20260730
+- open: 19.5
+- high: 19.5
+- low: 19.1
+- close: 19.1
+- volume: 12000
+- ma5: 19.29
+- ema23_primary: 19.48
+- distance_to_ema23_pct: -1.96
+- ma20: 19.2
+- ma60: 21.05
+- ma120: 22.78
+- return_5d: 0.53
+- return_20d: -0.52
+- volume_ratio: 0.33
+- distance_to_ma20_pct_auxiliary: -0.49
+- distance_to_high_60_pct: -23.6
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260618,22.2,22.2,21.6,21.9,10265,22.07,-0.77,21.68,23.96,0.57
-20260622,21.8,22.3,21.3,21.35,18000,22.01,-2.99,21.63,23.87,0.98
-20260623,20.5,20.5,20.05,20.15,45282,21.85,-7.8,21.5,23.77,2.27
-20260624,20.15,20.65,19.4,19.75,54001,21.68,-8.9,21.36,23.66,2.42
-20260625,19.85,20.1,19.45,19.65,15000,21.51,-8.65,21.21,23.54,0.67
-20260626,19.25,21,18.9,19.1,86000,21.31,-10.37,21.05,23.42,3.27
-20260629,19.1,19.35,18.7,19.15,17002,21.13,-9.37,20.94,23.3,0.67
-20260630,19.15,19.3,19,19.2,16003,20.97,-8.43,20.85,23.18,0.63
-20260701,19.2,19.2,19.2,19.2,1002,20.82,-7.78,20.76,23.07,0.04
 20260702,19.05,19.05,18.95,18.95,20000,20.66,-8.3,20.65,22.95,0.85
 20260703,19,19.8,19,19.7,22001,20.58,-4.3,20.59,22.85,0.92
 20260706,19.3,19.5,19,19.5,18001,20.49,-4.85,20.47,22.74,0.77
@@ -168,6 +159,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260715,18.9,19.5,18.6,18.8,12000,19.93,-5.66,19.8,22.18,0.5
 20260716,18.45,18.8,18.45,18.8,6000,19.83,-5.21,19.64,22.05,0.25
 20260717,18.8,19.2,18.8,19.15,7000,19.78,-3.17,19.52,21.94,0.3
+20260720,18.85,19.5,18.85,19.4,11022,19.75,-1.75,19.39,21.84,0.47
+20260721,19.25,19.45,18.95,19.1,34004,19.69,-3.01,19.28,21.74,1.42
+20260722,19.1,19.1,18.65,19,12004,19.63,-3.23,19.23,21.64,0.54
+20260723,19.05,19.05,18.75,19,14105,19.58,-2.97,19.19,21.54,0.69
+20260724,18.75,19.4,18.1,18.4,44069,19.48,-5.56,19.12,21.43,2.02
+20260727,18.55,20.2,18.55,20.2,186008,19.54,3.36,19.18,21.34,6.94
+20260728,20.45,21.6,19.2,19.2,159012,19.51,-1.61,19.18,21.24,4.69
+20260729,19.3,19.65,18.7,19.55,64000,19.52,0.17,19.2,21.15,1.76
+20260730,19.5,19.5,19.1,19.1,12000,19.48,-1.96,19.2,21.05,0.33
 ```
 
 ## Latest TDCC Snapshot

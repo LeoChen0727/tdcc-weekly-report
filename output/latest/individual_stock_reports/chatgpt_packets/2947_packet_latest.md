@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2947 振宇五金
 
 ## Metadata
-- generated_at: 2026-07-29 22:27:28 Asia/Taipei
+- generated_at: 2026-07-30 22:27:17 Asia/Taipei
 - stock_id: 2947
 - stock_name: 振宇五金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260717
-- price_rows: 162
-- current_main_price_date: 20260717
+- latest_price_date: 20260730
+- price_rows: 171
+- current_main_price_date: 20260730
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -125,37 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260717
-- open: 69.6
-- high: 69.6
-- low: 67.5
-- close: 67.5
-- volume: 14000
-- ma5: 68.76
-- ema23_primary: 73.35
-- distance_to_ema23_pct: -7.97
-- ma20: 74.6
-- ma60: 76.63
-- ma120: 78.28
-- return_5d: -2.17
-- return_20d: -12.34
-- volume_ratio: 1.13
-- distance_to_ma20_pct_auxiliary: -9.52
-- distance_to_high_60_pct: -16.15
+- date: 20260730
+- open: 62.2
+- high: 62.2
+- low: 61.8
+- close: 61.8
+- volume: 4000
+- ma5: 62.88
+- ema23_primary: 68.08
+- distance_to_ema23_pct: -9.22
+- ma20: 68.03
+- ma60: 74.58
+- ma120: 76.89
+- return_5d: -4.63
+- return_20d: -21.27
+- volume_ratio: 0.29
+- distance_to_ma20_pct_auxiliary: -9.16
+- distance_to_high_60_pct: -23.23
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260618,77,79.4,77,79.1,16000,77.38,2.22,77.25,77.83,0.34
-20260622,79.3,80.5,79.3,79.3,12000,77.54,2.27,77.32,77.86,0.27
-20260623,79.3,79.3,78.7,78.7,10000,77.64,1.37,77.36,77.86,0.25
-20260624,78.9,79,78,78,10000,77.67,0.43,77.38,77.87,0.27
-20260625,79.6,79.6,78.2,78.5,3000,77.74,0.98,77.42,77.89,0.09
-20260626,78.8,78.8,77.2,77.2,11000,77.69,-0.63,77.39,77.88,0.36
-20260629,78.4,78.5,78.4,78.5,3000,77.76,0.95,77.45,77.86,0.11
-20260630,79.4,79.4,79.4,79.4,1000,77.9,1.93,77.55,77.88,0.04
-20260701,79.2,79.2,78.5,78.5,8000,77.95,0.71,77.61,77.89,0.35
 20260702,78.9,79.5,78.8,79,14000,78.03,1.24,77.69,77.9,0.71
 20260703,80,80,79,79.5,31000,78.16,1.72,77.77,77.92,1.78
 20260706,72.3,74,72.3,74,14000,77.81,-4.9,77.64,77.83,0.98
@@ -167,6 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260715,70,70,69.4,69.4,6000,74.36,-6.67,75.49,76.96,0.42
 20260716,68.6,68.6,68.6,68.6,4000,73.88,-7.15,75.08,76.8,0.34
 20260717,69.6,69.6,67.5,67.5,14000,73.35,-7.97,74.6,76.63,1.13
+20260720,66.6,66.6,65.8,65.8,7000,72.72,-9.51,73.94,76.43,0.59
+20260721,65.7,66.1,65.6,65.6,17000,72.13,-9.05,73.25,76.22,1.4
+20260722,66.6,66.6,65.2,65.3,9000,71.56,-8.74,72.58,76.03,0.74
+20260723,66.3,66.3,64.7,64.8,15000,70.99,-8.72,71.92,75.81,1.21
+20260724,64.8,65.6,63.9,63.9,22000,70.4,-9.24,71.19,75.59,1.65
+20260727,67.9,67.9,65,65.2,6000,69.97,-6.82,70.59,75.39,0.46
+20260728,63.6,63.6,62.4,62.5,15000,69.35,-9.87,69.79,75.14,1.1
+20260729,62.6,62.6,61,61,9000,68.65,-11.14,68.87,74.85,0.64
+20260730,62.2,62.2,61.8,61.8,4000,68.08,-9.22,68.03,74.58,0.29
 ```
 
 ## Latest TDCC Snapshot

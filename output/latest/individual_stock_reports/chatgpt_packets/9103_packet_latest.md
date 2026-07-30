@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9103 美德醫療-DR
 
 ## Metadata
-- generated_at: 2026-07-29 22:29:30 Asia/Taipei
+- generated_at: 2026-07-30 22:29:20 Asia/Taipei
 - stock_id: 9103
 - stock_name: 美德醫療-DR
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260717
-- price_rows: 306
-- current_main_price_date: 20260717
+- latest_price_date: 20260730
+- price_rows: 315
+- current_main_price_date: 20260730
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -130,37 +130,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260717
-- open: 5.07
-- high: 5.42
-- low: 5.03
-- close: 5.28
-- volume: 4231006
-- ma5: 5.06
-- ema23_primary: 5.18
-- distance_to_ema23_pct: 2.02
-- ma20: 5.15
-- ma60: 5.14
-- ma120: 5.16
-- return_5d: 4.55
-- return_20d: -0.94
-- volume_ratio: 3.79
-- distance_to_ma20_pct_auxiliary: 2.49
-- distance_to_high_60_pct: -19.63
+- date: 20260730
+- open: 5.13
+- high: 5.17
+- low: 5
+- close: 5.06
+- volume: 1456897
+- ma5: 5.24
+- ema23_primary: 5.25
+- distance_to_ema23_pct: -3.54
+- ma20: 5.2
+- ma60: 5.24
+- ma120: 5.21
+- return_5d: -11.69
+- return_20d: -0.39
+- volume_ratio: 0.73
+- distance_to_ma20_pct_auxiliary: -2.67
+- distance_to_high_60_pct: -22.98
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260618,5.33,5.51,5.24,5.33,1442856,5.42,-1.63,5.51,5.11,0.37
-20260622,5.37,5.39,5.22,5.25,1364602,5.4,-2.86,5.52,5.11,0.36
-20260623,5.25,5.39,5.2,5.34,1036347,5.4,-1.09,5.51,5.12,0.29
-20260624,5.33,5.33,5.2,5.23,1231146,5.38,-2.88,5.51,5.12,0.36
-20260625,5.23,5.25,5.17,5.18,877242,5.37,-3.5,5.5,5.12,0.26
-20260626,5.17,5.22,5.12,5.14,885591,5.35,-3.9,5.49,5.12,0.27
-20260629,5.21,5.26,5.15,5.24,535951,5.34,-1.87,5.49,5.12,0.17
-20260630,5.31,5.31,5.16,5.18,984945,5.33,-2.75,5.49,5.12,0.31
-20260701,5.2,5.21,5.08,5.08,839403,5.31,-4.26,5.48,5.12,0.26
 20260702,5,5.15,5,5.1,777373,5.29,-3.57,5.46,5.12,0.25
 20260703,5.1,5.29,5.1,5.27,948703,5.29,-0.33,5.43,5.13,0.34
 20260706,5.27,5.33,5.17,5.18,909150,5.28,-1.86,5.39,5.13,0.44
@@ -172,6 +163,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260715,4.89,5.15,4.89,5.11,974844,5.17,-1.26,5.16,5.13,0.91
 20260716,5.12,5.19,5.06,5.07,611720,5.17,-1.86,5.15,5.14,0.6
 20260717,5.07,5.42,5.03,5.28,4231006,5.18,2.02,5.15,5.14,3.79
+20260720,5.4,5.59,5.17,5.18,3850425,5.18,0.08,5.14,5.15,3.11
+20260721,5.22,5.37,5.22,5.29,918552,5.19,2.01,5.15,5.16,0.76
+20260722,5.36,5.72,5.34,5.5,4184405,5.21,5.53,5.15,5.17,3.05
+20260723,5.7,6.05,5.67,5.73,8097071,5.25,9.04,5.18,5.19,4.72
+20260724,5.73,5.73,5.37,5.38,2891709,5.27,2.18,5.19,5.2,1.59
+20260727,5.4,5.55,5.27,5.34,1562403,5.27,1.3,5.2,5.21,0.84
+20260728,5.34,5.36,5.14,5.31,1830671,5.27,0.67,5.2,5.22,0.96
+20260729,5.35,5.44,5.07,5.13,1788971,5.26,-2.52,5.2,5.23,0.91
+20260730,5.13,5.17,5,5.06,1456897,5.25,-3.54,5.2,5.24,0.73
 ```
 
 ## Latest TDCC Snapshot

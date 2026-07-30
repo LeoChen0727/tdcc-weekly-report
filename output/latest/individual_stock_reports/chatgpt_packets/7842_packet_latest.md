@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7842 天能綠電
 
 ## Metadata
-- generated_at: 2026-07-29 22:29:16 Asia/Taipei
+- generated_at: 2026-07-30 22:29:05 Asia/Taipei
 - stock_id: 7842
 - stock_name: 天能綠電
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260717
-- price_rows: 48
-- current_main_price_date: 20260717
+- latest_price_date: 20260730
+- price_rows: 57
+- current_main_price_date: 20260730
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -101,7 +101,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -126,37 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260717
-- open: 94.3
-- high: 94.3
-- low: 91.5
-- close: 92.7
-- volume: 22000
-- ma5: 95.52
-- ema23_primary: 98.54
-- distance_to_ema23_pct: -5.93
-- ma20: 97.31
-- ma60: 104.26
-- ma120: 104.26
-- return_5d: -3.44
-- return_20d: -8.67
-- volume_ratio: 1.07
-- distance_to_ma20_pct_auxiliary: -4.73
-- distance_to_high_60_pct: -27.29
+- date: 20260730
+- open: 80.5
+- high: 81
+- low: 78.2
+- close: 78.6
+- volume: 110000
+- ma5: 85.14
+- ema23_primary: 92.46
+- distance_to_ema23_pct: -14.99
+- ma20: 92.62
+- ma60: 101.75
+- ma120: 101.75
+- return_5d: -14.19
+- return_20d: -18.8
+- volume_ratio: 5.37
+- distance_to_ma20_pct_auxiliary: -15.14
+- distance_to_high_60_pct: -38.35
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260617,101,101,99,100.5,59000,107.26,-6.3,108.2,108.93,0.77
-20260618,100.5,101.5,100.5,101,15000,106.74,-5.38,108.15,108.67,0.2
-20260622,106.5,106.5,100,100,25000,106.18,-5.82,108.1,108.39,0.35
-20260623,101,101.5,99.2,99.4,32000,105.61,-5.88,107.52,108.11,0.48
-20260624,99.4,100,97.5,98.2,39000,105,-6.47,106.38,107.81,0.61
-20260625,98.2,99.1,97.5,99.1,13000,104.5,-5.17,105.58,107.55,0.22
-20260626,98,98,95.7,95.8,35000,103.78,-7.69,104.85,107.21,0.64
-20260629,97.8,98.6,96.2,98,12000,103.3,-5.13,104.25,106.96,0.24
-20260630,96.9,97.6,96.7,96.8,20000,102.76,-5.8,103.44,106.68,0.44
 20260701,96.8,96.8,95.8,96,30000,102.19,-6.06,102.67,106.4,0.65
 20260702,96,96,95,95.2,11000,101.61,-6.31,101.78,106.12,0.27
 20260703,95.2,96.5,94,96.5,18000,101.18,-4.63,101,105.88,0.49
@@ -168,6 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260714,94.2,94.2,93.5,93.6,14000,99.27,-5.71,98.12,104.67,0.62
 20260715,93.7,96.9,93.7,96.9,9000,99.08,-2.2,97.75,104.51,0.43
 20260717,94.3,94.3,91.5,92.7,22000,98.54,-5.93,97.31,104.26,1.07
+20260720,90,93,89.6,93,11000,98.08,-5.18,96.93,104.03,0.6
+20260721,90.4,92.4,88,92.4,20000,97.61,-5.34,96.5,103.8,1.08
+20260722,90.1,92.4,89.4,92.4,17000,97.17,-4.91,96.12,103.58,0.94
+20260723,90.2,91.6,90.2,91.6,2000,96.71,-5.28,95.73,103.35,0.12
+20260724,90,90,89.5,89.5,9000,96.11,-6.88,95.3,103.08,0.6
+20260727,89.5,89.5,86,88.9,18000,95.51,-6.92,94.78,102.82,1.17
+20260728,86.2,86.3,85.8,85.8,11000,94.7,-9.4,94.28,102.51,0.78
+20260729,84,84.5,78.2,82.9,49000,93.72,-11.54,93.53,102.16,3.06
+20260730,80.5,81,78.2,78.6,110000,92.46,-14.99,92.62,101.75,5.37
 ```
 
 ## Latest TDCC Snapshot

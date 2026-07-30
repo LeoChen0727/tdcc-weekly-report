@@ -1,27 +1,27 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6865 偉康科技
 
 ## Metadata
-- generated_at: 2026-07-29 22:29:00 Asia/Taipei
+- generated_at: 2026-07-30 22:28:50 Asia/Taipei
 - stock_id: 6865
 - stock_name: 偉康科技
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260717
-- price_rows: 167
-- current_main_price_date: 20260717
-- current_main_price_universe_status: current
+- latest_price_date: 20260729
+- price_rows: 174
+- current_main_price_date: 20260730
+- current_main_price_universe_status: historical_only_noncurrent
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
 - source_tdcc_dataset_id: tdcc-20260717-98c564c5bc4ab725
 - official_tdcc_signal_date: 20260717
 - latest_tdcc_date: 20260717
 - tdcc_rows: 12
-- tdcc_history_status: tdcc_history_ready
-- tdcc_freshness_status: tdcc_window_fresh
+- tdcc_history_status: historical_only_noncurrent
+- tdcc_freshness_status: historical_only_noncurrent
 - tdcc_continuity_status: complete
 - tdcc_missing_official_dates: 
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
-- notes:
+- notes: Historical-only TDCC window: stock is absent from the official current main-price universe; retain real historical dates and do not claim current TDCC history
 
 ## Stable Read URLs
 - packet_pages_url: not_published_to_pages_use_raw_or_github_api
@@ -101,6 +101,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -125,35 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260717
-- open: 25.4
-- high: 26.8
-- low: 25.3
+- date: 20260729
+- open: 24.4
+- high: 25.4
+- low: 23.85
 - close: 25.4
-- volume: 23000
-- ma5: 26.18
-- ema23_primary: 27.24
-- distance_to_ema23_pct: -6.76
-- ma20: 27.19
-- ma60: 29.81
-- ma120: 34.94
-- return_5d: -5.93
-- return_20d: -4.51
-- volume_ratio: 0.79
-- distance_to_ma20_pct_auxiliary: -6.57
-- distance_to_high_60_pct: -33.25
+- volume: 14000
+- ma5: 25.03
+- ema23_primary: 26.25
+- distance_to_ema23_pct: -3.25
+- ma20: 26.55
+- ma60: 28.52
+- ma120: 33.56
+- return_5d: 0.59
+- return_20d: -8.63
+- volume_ratio: 0.67
+- distance_to_ma20_pct_auxiliary: -4.32
+- distance_to_high_60_pct: -30.51
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260617,26.1,26.5,25.75,25.75,31000,28.21,-8.72,27.2,32.79,0.79
-20260618,25.75,27.45,25.7,26.25,39000,28.05,-6.41,27.12,32.64,0.95
-20260622,26.25,26.8,26,26.8,26000,27.94,-4.09,27.07,32.5,0.66
-20260623,26.5,27,26.2,26.8,38000,27.85,-3.76,26.99,32.37,0.96
-20260624,27,27,26.35,27,13000,27.78,-2.8,26.94,32.25,0.33
-20260625,27.05,28,26.35,28,39000,27.8,0.73,26.95,32.16,0.98
-20260626,26.9,27.9,26.75,27.8,19000,27.8,0.01,27,32.02,0.48
 20260629,28,28.45,27.8,28.45,63000,27.85,2.15,27.1,31.82,1.54
 20260630,28.6,29.05,27.35,29.05,78000,27.95,3.93,27.26,31.62,1.79
 20260701,28.1,28.3,27.9,28.05,10000,27.96,0.33,27.36,31.45,0.23
@@ -167,6 +161,13 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260715,27.15,27.4,25.05,25.8,148000,27.59,-6.5,27.26,30.17,3.5
 20260716,25.8,25.8,25.15,25.4,14000,27.41,-7.33,27.25,29.99,0.34
 20260717,25.4,26.8,25.3,25.4,23000,27.24,-6.76,27.19,29.81,0.79
+20260720,25.6,25.6,25.2,25.2,6000,27.07,-6.91,27.16,29.62,0.22
+20260721,25.25,25.25,25.25,25.25,1000,26.92,-6.2,27.11,29.44,0.04
+20260722,25.25,25.25,24.5,25.1,8000,26.77,-6.23,27.02,29.25,0.32
+20260723,25.15,25.15,25.05,25.05,2000,26.63,-5.92,26.94,29.07,0.09
+20260727,25.05,25.05,25.05,25.05,4000,26.49,-5.45,26.84,28.88,0.18
+20260728,25.05,25.05,24.55,24.55,6000,26.33,-6.77,26.67,28.7,0.28
+20260729,24.4,25.4,23.85,25.4,14000,26.25,-3.25,26.55,28.52,0.67
 ```
 
 ## Latest TDCC Snapshot

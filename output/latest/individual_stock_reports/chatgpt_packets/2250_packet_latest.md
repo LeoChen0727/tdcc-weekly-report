@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2250 IKKA-KY
 
 ## Metadata
-- generated_at: 2026-07-29 22:27:02 Asia/Taipei
+- generated_at: 2026-07-30 22:26:52 Asia/Taipei
 - stock_id: 2250
 - stock_name: IKKA-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260717
-- price_rows: 306
-- current_main_price_date: 20260717
+- latest_price_date: 20260730
+- price_rows: 315
+- current_main_price_date: 20260730
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -101,7 +101,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -126,37 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260717
-- open: 62.8
-- high: 66.2
-- low: 61.8
-- close: 61.8
-- volume: 383997
-- ma5: 63.8
-- ema23_primary: 64.53
-- distance_to_ema23_pct: -4.23
-- ma20: 64.7
-- ma60: 63.45
-- ma120: 65.68
-- return_5d: -4.19
-- return_20d: 0.65
-- volume_ratio: 1.16
-- distance_to_ma20_pct_auxiliary: -4.49
-- distance_to_high_60_pct: -19.43
+- date: 20260730
+- open: 57
+- high: 57.7
+- low: 54.9
+- close: 55
+- volume: 126802
+- ma5: 58.7
+- ema23_primary: 61.78
+- distance_to_ema23_pct: -10.97
+- ma20: 63.7
+- ma60: 62.89
+- ma120: 64.45
+- return_5d: -9.98
+- return_20d: -19.83
+- volume_ratio: 0.38
+- distance_to_ma20_pct_auxiliary: -13.66
+- distance_to_high_60_pct: -28.29
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260618,61.5,62.6,61.5,61.7,95330,62.2,-0.81,62.33,62.68,0.81
-20260622,61.8,62,61.3,61.3,60272,62.13,-1.33,62.24,62.66,0.51
-20260623,61.4,61.4,60.5,60.9,115762,62.02,-1.81,62.19,62.6,1
-20260624,60.5,61.1,60.3,60.7,26036,61.91,-1.96,62.17,62.56,0.24
-20260625,61.6,64.9,61.6,62.2,261873,61.94,0.42,62.24,62.55,2.25
-20260626,64.1,64.5,60.8,60.8,190002,61.84,-1.69,62.24,62.53,1.59
-20260629,61,62,60.6,60.7,103333,61.75,-1.7,62.02,62.54,0.95
-20260630,61.5,62.5,61.3,62.4,135392,61.8,0.97,61.93,62.57,1.25
-20260701,62.4,68.6,61.6,68.6,377417,62.37,9.99,62.18,62.7,3.08
 20260702,74,75.4,71.5,75.4,1255105,63.45,18.83,62.69,62.94,7.21
 20260703,76.2,76.7,71.3,71.5,1850370,64.12,11.5,62.97,63.09,7.06
 20260706,72,73.5,69.1,69.4,531098,64.56,7.49,63.21,63.22,1.88
@@ -168,6 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260715,64.5,64.8,63.6,64,113643,64.82,-1.26,64.52,63.47,0.36
 20260716,65.2,65.8,63.1,64.3,88100,64.77,-0.73,64.69,63.48,0.28
 20260717,62.8,66.2,61.8,61.8,383997,64.53,-4.23,64.7,63.45,1.16
+20260720,62.1,62.2,60.2,60.4,312368,64.18,-5.89,64.64,63.36,0.91
+20260721,60.5,62.6,60.5,62.3,71561,64.03,-2.7,64.69,63.34,0.21
+20260722,62.4,62.6,62,62,89738,63.86,-2.91,64.75,63.31,0.26
+20260723,62.4,62.4,61,61.1,73681,63.63,-3.97,64.77,63.31,0.21
+20260724,61.1,61.9,60.9,61.1,61795,63.42,-3.65,64.71,63.31,0.18
+20260727,61.1,62,60.6,62,62021,63.3,-2.05,64.77,63.29,0.19
+20260728,60.8,60.8,59,59.1,293864,62.95,-6.11,64.69,63.22,0.87
+20260729,59.5,59.5,54.9,56.3,330342,62.39,-9.77,64.39,63.08,0.95
+20260730,57,57.7,54.9,55,126802,61.78,-10.97,63.7,62.89,0.38
 ```
 
 ## Latest TDCC Snapshot

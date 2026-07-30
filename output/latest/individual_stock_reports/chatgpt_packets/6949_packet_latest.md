@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6949 沛爾生醫-創
 
 ## Metadata
-- generated_at: 2026-07-29 22:29:04 Asia/Taipei
+- generated_at: 2026-07-30 22:28:53 Asia/Taipei
 - stock_id: 6949
 - stock_name: 沛爾生醫-創
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260717
-- price_rows: 306
-- current_main_price_date: 20260717
+- latest_price_date: 20260730
+- price_rows: 315
+- current_main_price_date: 20260730
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -125,37 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260717
-- open: 1100
-- high: 1120
-- low: 1025
-- close: 1030
-- volume: 450939
-- ma5: 999
-- ema23_primary: 904.92
-- distance_to_ema23_pct: 13.82
-- ma20: 918.05
-- ma60: 782.97
-- ma120: 687.98
-- return_5d: 11.35
-- return_20d: 15.08
-- volume_ratio: 1.38
-- distance_to_ma20_pct_auxiliary: 12.19
-- distance_to_high_60_pct: -8.04
+- date: 20260730
+- open: 796
+- high: 840
+- low: 757
+- close: 790
+- volume: 238392
+- ma5: 892.8
+- ema23_primary: 915.23
+- distance_to_ema23_pct: -13.68
+- ma20: 948.05
+- ma60: 804.33
+- ma120: 728.33
+- return_5d: -21.39
+- return_20d: -12.8
+- volume_ratio: 0.78
+- distance_to_ma20_pct_auxiliary: -16.67
+- distance_to_high_60_pct: -29.46
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260618,938,968,895,911,740735,732.39,24.39,706,698.6,3.07
-20260622,911,915,857,886,295335,745.19,18.9,716.85,704.62,1.17
-20260623,887,889,819,833,228301,752.51,10.7,725.7,709.03,0.9
-20260624,834,860,809,860,172420,761.47,12.94,735.3,713.72,0.66
-20260625,870,900,845,879,190032,771.26,13.97,743.55,718.92,0.74
-20260626,870,875,840,862,146455,778.82,10.68,753.25,723.78,0.59
-20260629,861,888,847,856,139411,785.26,9.01,763.8,728.7,0.57
-20260630,870,882,854,871,125762,792.4,9.92,775.15,733.72,0.53
-20260701,879,918,862,906,244904,801.87,12.99,788.9,739.45,1
 20260702,903,909,873,890,303600,809.21,9.98,801.65,744.42,1.18
 20260703,883,921,883,916,171553,818.11,11.97,815.2,749.55,0.65
 20260706,890,902,875,891,122562,824.18,8.11,826.85,754.02,0.47
@@ -167,6 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260715,959,1025,950,1025,838537,874.32,17.23,896.75,774.02,2.77
 20260716,1020,1115,1020,1105,798340,893.55,23.66,911.3,779.1,2.5
 20260717,1100,1120,1025,1030,450939,904.92,13.82,918.05,782.97,1.38
+20260720,1030,1030,933,991,265584,912.09,8.65,922.05,785.15,0.88
+20260721,1000,1060,980,994,278962,918.92,8.17,927.45,787.3,0.92
+20260722,1005,1020,995,1010,194855,926.51,9.01,936.3,790.13,0.65
+20260723,1050,1050,992,1005,133739,933.05,7.71,943.55,794.28,0.45
+20260724,1015,1065,992,992,177670,937.96,5.76,949.2,798.05,0.6
+20260727,1000,1010,983,989,77399,942.21,4.97,955.55,801.42,0.26
+20260728,983,987,891,891,259340,937.95,-5.01,957.3,803.42,0.86
+20260729,891,891,802,802,224287,926.62,-13.45,953.85,804.15,0.73
+20260730,796,840,757,790,238392,915.23,-13.68,948.05,804.33,0.78
 ```
 
 ## Latest TDCC Snapshot

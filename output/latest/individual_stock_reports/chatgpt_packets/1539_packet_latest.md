@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1539 巨庭
 
 ## Metadata
-- generated_at: 2026-07-29 22:26:47 Asia/Taipei
+- generated_at: 2026-07-30 22:26:37 Asia/Taipei
 - stock_id: 1539
 - stock_name: 巨庭
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260717
-- price_rows: 306
-- current_main_price_date: 20260717
+- latest_price_date: 20260730
+- price_rows: 315
+- current_main_price_date: 20260730
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -126,37 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260717
-- open: 16.75
-- high: 16.95
-- low: 16.1
-- close: 16.3
-- volume: 340239
+- date: 20260730
+- open: 16
+- high: 16.1
+- low: 15.65
+- close: 15.85
+- volume: 122355
 - ma5: 16.09
-- ema23_primary: 15.94
-- distance_to_ema23_pct: 2.25
-- ma20: 15.85
-- ma60: 15.9
-- ma120: 16.75
-- return_5d: 2.84
-- return_20d: 3.49
-- volume_ratio: 2.08
-- distance_to_ma20_pct_auxiliary: 2.84
-- distance_to_high_60_pct: -5.78
+- ema23_primary: 16.01
+- distance_to_ema23_pct: -0.97
+- ma20: 16.04
+- ma60: 15.88
+- ma120: 16.47
+- return_5d: -2.46
+- return_20d: 1.28
+- volume_ratio: 0.7
+- distance_to_ma20_pct_auxiliary: -1.17
+- distance_to_high_60_pct: -8.38
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260618,15.8,15.85,15.65,15.7,89819,15.89,-1.21,15.97,16.09,0.58
-20260622,15.8,15.9,15.65,15.8,146104,15.88,-0.53,15.99,16.07,0.92
-20260623,15.8,15.8,15.6,15.65,59026,15.86,-1.35,15.96,16.06,0.4
-20260624,15.7,15.8,15.7,15.7,58801,15.85,-0.95,15.95,16.04,0.41
-20260625,15.75,15.8,15.65,15.7,34013,15.84,-0.88,15.95,16.02,0.24
-20260626,15.65,15.65,15.4,15.5,83320,15.81,-1.96,15.92,16,0.6
-20260629,15.5,15.6,15.4,15.45,33318,15.78,-2.09,15.87,15.99,0.28
-20260630,15.6,15.7,15.5,15.65,79044,15.77,-0.76,15.84,15.97,0.69
-20260701,15.75,15.75,15.55,15.65,45348,15.76,-0.69,15.81,15.96,0.41
 20260702,15.9,16,15.8,16,129539,15.78,1.4,15.79,15.96,1.2
 20260703,16.1,16.1,15.8,16.05,112043,15.8,1.57,15.76,15.95,1.08
 20260706,16.1,16.6,16.05,16.1,184281,15.83,1.73,15.75,15.95,1.71
@@ -168,6 +159,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260715,15.65,15.9,15.5,15.85,124155,15.81,0.23,15.75,15.89,1.04
 20260716,16.1,17.3,16,16.95,1118579,15.91,6.55,15.82,15.9,7.38
 20260717,16.75,16.95,16.1,16.3,340239,15.94,2.25,15.85,15.9,2.08
+20260720,16.35,16.35,15.85,15.85,103378,15.93,-0.52,15.86,15.88,0.63
+20260721,15.9,16.25,15.9,16,61020,15.94,0.38,15.87,15.88,0.38
+20260722,16,16.3,16,16,99253,15.94,0.35,15.88,15.87,0.61
+20260723,16.2,16.25,16.05,16.25,71310,15.97,1.76,15.91,15.88,0.44
+20260724,16.1,16.25,15.9,16.25,58243,15.99,1.61,15.94,15.88,0.36
+20260727,16.3,16.45,16.2,16.25,86224,16.01,1.47,15.98,15.88,0.53
+20260728,16.25,16.25,15.9,16.1,65684,16.02,0.49,16.01,15.88,0.4
+20260729,16.3,16.3,15.75,16,166151,16.02,-0.12,16.03,15.88,0.98
+20260730,16,16.1,15.65,15.85,122355,16.01,-0.97,16.04,15.88,0.7
 ```
 
 ## Latest TDCC Snapshot

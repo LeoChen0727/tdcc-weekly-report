@@ -1,14 +1,14 @@
-# INDIVIDUAL STOCK CHATGPT PACKET - 6947
+# INDIVIDUAL STOCK CHATGPT PACKET - 6947 台鎔科技
 
 ## Metadata
-- generated_at: 2026-07-29 22:29:04 Asia/Taipei
+- generated_at: 2026-07-30 22:28:53 Asia/Taipei
 - stock_id: 6947
-- stock_name: 
-- packet_status: insufficient_price_data
-- latest_price_date: 
-- price_rows: 0
-- current_main_price_date: 20260717
-- current_main_price_universe_status: historical_only_noncurrent
+- stock_name: 台鎔科技
+- packet_status: partial_rawdata_packet
+- latest_price_date: 20260730
+- price_rows: 6
+- current_main_price_date: 20260730
+- current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
 - source_tdcc_dataset_id: tdcc-20260717-98c564c5bc4ab725
@@ -21,7 +21,7 @@
 - tdcc_missing_official_dates: 
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
-- notes: price history missing; do not produce standard technical conclusions; TDCC history missing
+- notes: price history shorter than 120 rows; K-line context is partial; TDCC history missing
 
 ## Stable Read URLs
 - packet_pages_url: not_published_to_pages_use_raw_or_github_api
@@ -125,29 +125,34 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date:
-- open:
-- high:
-- low:
-- close:
-- volume:
-- ma5:
-- ema23_primary:
-- distance_to_ema23_pct:
-- ma20:
-- ma60:
-- ma120:
-- return_5d:
+- date: 20260730
+- open: 68.3
+- high: 70.8
+- low: 68.3
+- close: 68.6
+- volume: 400016
+- ma5: 73.2
+- ema23_primary: 76.45
+- distance_to_ema23_pct: -10.27
+- ma20: 74.08
+- ma60: 74.08
+- ma120: 74.08
+- return_5d: -12.61
 - return_20d:
-- volume_ratio:
-- distance_to_ma20_pct_auxiliary:
-- distance_to_high_60_pct:
+- volume_ratio: 0.3
+- distance_to_ma20_pct_auxiliary: -7.4
+- distance_to_high_60_pct: -19.48
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
-status,no_rows
-no_rows,True
+date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
+20260723,78.1,81.6,75.8,78.5,2399429,,,,,
+20260724,78.5,85.2,78.5,80,1989306,,,,,
+20260727,82.5,83.4,75.8,76,1640690,,,,,
+20260728,74.5,74.5,71,72.1,739016,,,,,
+20260729,72.2,73,68,69.3,871212,77.17,-10.19,75.18,75.18,0.57
+20260730,68.3,70.8,68.3,68.6,400016,76.45,-10.27,74.08,74.08,0.3
 ```
 
 ## Latest TDCC Snapshot

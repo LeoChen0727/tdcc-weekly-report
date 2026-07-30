@@ -1,13 +1,13 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6691 洋基工程
 
 ## Metadata
-- generated_at: 2026-07-29 22:28:53 Asia/Taipei
+- generated_at: 2026-07-30 22:28:43 Asia/Taipei
 - stock_id: 6691
 - stock_name: 洋基工程
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260717
-- price_rows: 306
-- current_main_price_date: 20260717
+- latest_price_date: 20260730
+- price_rows: 315
+- current_main_price_date: 20260730
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
@@ -132,37 +132,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260717
-- open: 733
-- high: 758
-- low: 702
-- close: 704
-- volume: 1159148
-- ma5: 728.2
-- ema23_primary: 724.79
-- distance_to_ema23_pct: -2.87
-- ma20: 744.1
-- ma60: 681.22
-- ma120: 646.44
-- return_5d: -0.56
-- return_20d: 0.14
-- volume_ratio: 1
-- distance_to_ma20_pct_auxiliary: -5.39
-- distance_to_high_60_pct: -15.59
+- date: 20260730
+- open: 622
+- high: 642
+- low: 602
+- close: 607
+- volume: 777643
+- ma5: 658
+- ema23_primary: 698.38
+- distance_to_ema23_pct: -13.08
+- ma20: 711.4
+- ma60: 686.27
+- ma120: 652.74
+- return_5d: -16.85
+- return_20d: -19.07
+- volume_ratio: 0.93
+- distance_to_ma20_pct_auxiliary: -14.68
+- distance_to_high_60_pct: -27.22
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260618,712,720,700,720,734853,665.46,8.2,660.1,638.52,0.8
-20260622,723,744,712,728,667129,670.67,8.55,665.1,640.57,0.71
-20260623,731,737,709,712,562323,674.12,5.62,668.4,642.18,0.6
-20260624,701,764,694,758,1353116,681.11,11.29,673.8,644.98,1.42
-20260625,768,802,749,797,1758715,690.77,15.38,679.95,648.4,1.78
-20260626,785,816,785,793,1751555,699.28,13.4,687.7,651.97,1.69
-20260629,811,834,795,795,2340221,707.26,12.41,694.95,655.97,2.07
-20260630,810,817,761,761,1719463,711.74,6.92,700.6,659.08,1.45
-20260701,782,790,750,750,1511841,714.93,4.91,705.9,662.23,1.21
 20260702,740,780,729,766,986685,719.18,6.51,711.95,665.63,0.77
 20260703,760,777,759,762,1007699,722.75,5.43,718.3,668.63,0.78
 20260706,774,774,748,748,1240777,724.86,3.19,723.6,671.1,0.94
@@ -174,6 +165,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260715,710,764,710,753,747623,724.2,3.98,741.85,679.28,0.62
 20260716,753,767,738,754,1015784,726.69,3.76,744.05,680.77,0.89
 20260717,733,758,702,704,1159148,724.79,-2.87,744.1,681.22,1
+20260720,708,716,685,693,803487,722.15,-4.04,742.75,681.37,0.69
+20260721,707,723,706,721,483840,722.05,-0.15,742.4,682.12,0.42
+20260722,730,748,722,726,542694,722.38,0.5,743.1,682.97,0.47
+20260723,736,736,721,730,311296,723.01,0.97,741.7,684.52,0.28
+20260724,720,734,709,713,513148,722.18,-1.27,737.5,685.77,0.5
+20260727,726,726,687,696,697829,720,-3.33,732.65,686.77,0.71
+20260728,680,680,641,645,1003162,713.75,-9.63,725.15,687,1.1
+20260729,647,659,600,629,853369,706.69,-10.99,718.55,686.8,0.98
+20260730,622,642,602,607,777643,698.38,-13.08,711.4,686.27,0.93
 ```
 
 ## Latest TDCC Snapshot
