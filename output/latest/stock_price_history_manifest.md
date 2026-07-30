@@ -1,6 +1,6 @@
 # Stock Price History Manifest
 
-- generated_at: `2026-07-29 10:30:11 Asia/Taipei`
+- generated_at: `2026-07-30 10:30:20 Asia/Taipei`
 - stock_count: `2381`
 - history_dir: `data/stock_price_history/`
 - manifest_csv: `output/latest/stock_price_history_manifest.csv`
@@ -17,33 +17,33 @@
 
 | stock_id | stock_name | rows | start_date | end_date | file_path |
 |---|---|---:|---|---|---|
-| 1102 | 亞泥 | 313 | 20250407 | 20260728 | `data/stock_price_history/1102.csv` |
-| 1103 | 嘉泥 | 313 | 20250407 | 20260728 | `data/stock_price_history/1103.csv` |
-| 1104 | 環泥 | 313 | 20250407 | 20260728 | `data/stock_price_history/1104.csv` |
-| 1108 | 幸福 | 313 | 20250407 | 20260728 | `data/stock_price_history/1108.csv` |
-| 1109 | 信大 | 313 | 20250407 | 20260728 | `data/stock_price_history/1109.csv` |
-| 1110 | 東泥 | 313 | 20250407 | 20260728 | `data/stock_price_history/1110.csv` |
-| 1201 | 味全 | 313 | 20250407 | 20260728 | `data/stock_price_history/1201.csv` |
-| 1210 | 大成 | 313 | 20250407 | 20260728 | `data/stock_price_history/1210.csv` |
-| 1215 | 卜蜂 | 313 | 20250407 | 20260728 | `data/stock_price_history/1215.csv` |
-| 1216 | 統一 | 313 | 20250407 | 20260728 | `data/stock_price_history/1216.csv` |
-| 1217 | 愛之味 | 313 | 20250407 | 20260728 | `data/stock_price_history/1217.csv` |
-| 1218 | 泰山 | 313 | 20250407 | 20260728 | `data/stock_price_history/1218.csv` |
-| 1219 | 福壽 | 313 | 20250407 | 20260728 | `data/stock_price_history/1219.csv` |
-| 1220 | 台榮 | 313 | 20250407 | 20260728 | `data/stock_price_history/1220.csv` |
-| 1227 | 佳格 | 313 | 20250407 | 20260728 | `data/stock_price_history/1227.csv` |
-| 1229 | 聯華 | 313 | 20250407 | 20260728 | `data/stock_price_history/1229.csv` |
-| 1231 | 聯華食 | 313 | 20250407 | 20260728 | `data/stock_price_history/1231.csv` |
-| 1232 | 大統益 | 313 | 20250407 | 20260728 | `data/stock_price_history/1232.csv` |
-| 1233 | 天仁 | 313 | 20250407 | 20260728 | `data/stock_price_history/1233.csv` |
-| 1234 | 黑松 | 313 | 20250407 | 20260728 | `data/stock_price_history/1234.csv` |
-| 1256 | 鮮活果汁-KY | 313 | 20250407 | 20260728 | `data/stock_price_history/1256.csv` |
-| 1301 | 台塑 | 313 | 20250407 | 20260728 | `data/stock_price_history/1301.csv` |
-| 1303 | 南亞 | 313 | 20250407 | 20260728 | `data/stock_price_history/1303.csv` |
-| 1304 | 台聚 | 313 | 20250407 | 20260728 | `data/stock_price_history/1304.csv` |
-| 1305 | 華夏 | 313 | 20250407 | 20260728 | `data/stock_price_history/1305.csv` |
-| 1307 | 三芳 | 313 | 20250407 | 20260728 | `data/stock_price_history/1307.csv` |
-| 1308 | 亞聚 | 313 | 20250407 | 20260728 | `data/stock_price_history/1308.csv` |
-| 1309 | 台達化 | 313 | 20250407 | 20260728 | `data/stock_price_history/1309.csv` |
-| 1310 | 台苯 | 313 | 20250407 | 20260728 | `data/stock_price_history/1310.csv` |
-| 1312 | 國喬 | 313 | 20250407 | 20260728 | `data/stock_price_history/1312.csv` |
+| 1102 | 亞泥 | 314 | 20250407 | 20260729 | `data/stock_price_history/1102.csv` |
+| 1103 | 嘉泥 | 314 | 20250407 | 20260729 | `data/stock_price_history/1103.csv` |
+| 1104 | 環泥 | 314 | 20250407 | 20260729 | `data/stock_price_history/1104.csv` |
+| 1108 | 幸福 | 314 | 20250407 | 20260729 | `data/stock_price_history/1108.csv` |
+| 1109 | 信大 | 314 | 20250407 | 20260729 | `data/stock_price_history/1109.csv` |
+| 1110 | 東泥 | 314 | 20250407 | 20260729 | `data/stock_price_history/1110.csv` |
+| 1201 | 味全 | 314 | 20250407 | 20260729 | `data/stock_price_history/1201.csv` |
+| 1210 | 大成 | 314 | 20250407 | 20260729 | `data/stock_price_history/1210.csv` |
+| 1215 | 卜蜂 | 314 | 20250407 | 20260729 | `data/stock_price_history/1215.csv` |
+| 1216 | 統一 | 314 | 20250407 | 20260729 | `data/stock_price_history/1216.csv` |
+| 1217 | 愛之味 | 314 | 20250407 | 20260729 | `data/stock_price_history/1217.csv` |
+| 1218 | 泰山 | 314 | 20250407 | 20260729 | `data/stock_price_history/1218.csv` |
+| 1219 | 福壽 | 314 | 20250407 | 20260729 | `data/stock_price_history/1219.csv` |
+| 1220 | 台榮 | 314 | 20250407 | 20260729 | `data/stock_price_history/1220.csv` |
+| 1227 | 佳格 | 314 | 20250407 | 20260729 | `data/stock_price_history/1227.csv` |
+| 1229 | 聯華 | 314 | 20250407 | 20260729 | `data/stock_price_history/1229.csv` |
+| 1231 | 聯華食 | 314 | 20250407 | 20260729 | `data/stock_price_history/1231.csv` |
+| 1232 | 大統益 | 314 | 20250407 | 20260729 | `data/stock_price_history/1232.csv` |
+| 1233 | 天仁 | 314 | 20250407 | 20260729 | `data/stock_price_history/1233.csv` |
+| 1234 | 黑松 | 314 | 20250407 | 20260729 | `data/stock_price_history/1234.csv` |
+| 1256 | 鮮活果汁-KY | 314 | 20250407 | 20260729 | `data/stock_price_history/1256.csv` |
+| 1301 | 台塑 | 314 | 20250407 | 20260729 | `data/stock_price_history/1301.csv` |
+| 1303 | 南亞 | 314 | 20250407 | 20260729 | `data/stock_price_history/1303.csv` |
+| 1304 | 台聚 | 314 | 20250407 | 20260729 | `data/stock_price_history/1304.csv` |
+| 1305 | 華夏 | 314 | 20250407 | 20260729 | `data/stock_price_history/1305.csv` |
+| 1307 | 三芳 | 314 | 20250407 | 20260729 | `data/stock_price_history/1307.csv` |
+| 1308 | 亞聚 | 314 | 20250407 | 20260729 | `data/stock_price_history/1308.csv` |
+| 1309 | 台達化 | 314 | 20250407 | 20260729 | `data/stock_price_history/1309.csv` |
+| 1310 | 台苯 | 314 | 20250407 | 20260729 | `data/stock_price_history/1310.csv` |
+| 1312 | 國喬 | 314 | 20250407 | 20260729 | `data/stock_price_history/1312.csv` |
