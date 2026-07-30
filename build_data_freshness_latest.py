@@ -311,9 +311,9 @@ def validate_historical_replay_main_price_date(
             f"expected={expected}"
         )
     override = values["historical replay main price date"]
-    if override >= expected:
+    if override > expected:
         raise ValueError(
-            "historical replay main price date must be earlier than raw paired high-water date"
+            "historical replay main price date must not be later than raw paired high-water date"
         )
     return override
 
@@ -938,7 +938,7 @@ def write_markdown(df: pd.DataFrame) -> None:
     if row.get("main_price_date_source") == "historical_replay_override":
         rule_text = (
             "Historical structured-source replay explicitly pins the canonical "
-            "main_price_date while preserving the newer validated raw price/history "
+            "main_price_date while preserving the same or newer validated raw price/history "
             "high-water date. The two dates remain visible and publish/PDF readiness "
             "must stay false until current publication artifacts are rebuilt."
         )
