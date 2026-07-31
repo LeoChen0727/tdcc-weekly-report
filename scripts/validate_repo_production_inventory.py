@@ -141,6 +141,13 @@ WORKFLOW_ALLOWED_OWNERS = {
     },
 }
 
+WORKFLOW_CROSS_OWNER_PATH_EXCEPTIONS = {
+    (
+        ".github/workflows/historical_structured_source_replay.yml",
+        "scripts/build_volume_attack_theme_layer.py",
+    ): "daily_production",
+}
+
 FORBIDDEN_WORKFLOW_SNIPPETS = {
     ".github/workflows/daily_full_pipeline.yml": {
         "daily pipeline must not run TDCC weekly report builders": (
@@ -967,7 +974,17 @@ def validate_workflow_invocations(rows_by_path: dict[str, InventoryRow], workflo
                 continue
             if invoked_row.status == "legacy_deprecated":
                 errors.append(f"{workflow_path} invokes deprecated Python path: {invoked_path}")
-            if invoked_row.owner not in allowed_owners:
+            cross_owner_exception = WORKFLOW_CROSS_OWNER_PATH_EXCEPTIONS.get(
+                (workflow_path, invoked_path)
+            )
+            if cross_owner_exception is not None:
+                if invoked_row.owner != cross_owner_exception:
+                    errors.append(
+                        f"{workflow_path} invokes {invoked_path} under a cross-owner "
+                        f"exception for {cross_owner_exception}, but inventory owner is "
+                        f"{invoked_row.owner}"
+                    )
+            elif invoked_row.owner not in allowed_owners:
                 errors.append(
                     f"{workflow_path} invokes {invoked_path} owned by {invoked_row.owner}; "
                     f"allowed owners are {sorted(allowed_owners)}"

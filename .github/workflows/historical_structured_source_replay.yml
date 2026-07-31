@@ -142,6 +142,13 @@ jobs:
             --repair-market-index-base-date "$BASE_REPAIR_DATE" \
             --replay-id "$HISTORICAL_SOURCE_REPLAY_ID"
 
+      - name: Rebuild and validate registered warrant advisory consumer lineage
+        shell: bash
+        run: |
+          python scripts/build_volume_attack_theme_layer.py
+          python scripts/validate_volume_attack_theme_layer.py
+          python scripts/validate_daily_canonical_field_lineage.py
+
       - name: Validate final replay artifacts and target-slice parity
         shell: bash
         run: |
@@ -175,6 +182,11 @@ jobs:
           git add output/latest/warrant_daily_fetch_latest.md
           git add output/latest/warrant_source_status_latest.json output/latest/warrant_source_status_latest.md
           git add output/latest/warrant_flow_latest.csv output/latest/warrant_flow_latest.md
+          git add output/latest/volume_attack_theme_layer_latest.*
+          git add output/latest/volume_attack_theme_stocks_latest.*
+          git add output/latest/volume_attack_theme_layer_validation_latest.*
+          git add docs/latest/volume_attack_theme_layer_latest.*
+          git add docs/latest/volume_attack_theme_stocks_latest.*
           if [ -z "$PRICE_HISTORY_HIGH_WATER_DATE" ]; then
             git add output/latest/stock_price_history_manifest.csv output/latest/stock_price_history_manifest.json output/latest/stock_price_history_manifest.md
           fi
@@ -259,6 +271,9 @@ jobs:
             output/history/historical_source_replay/${{ env.HISTORICAL_SOURCE_REPLAY_ID }}/
             output/latest/historical_structured_source_replay_latest.json
             output/latest/historical_structured_source_replay_latest.md
+            output/latest/volume_attack_theme_layer_validation_latest.json
+            output/latest/volume_attack_theme_layer_validation_latest.md
+            output/latest/volume_attack_theme_stocks_latest.csv
             output/latest/daily_price_history_continuity_latest.json
             output/latest/data_freshness_latest.csv
           if-no-files-found: ignore

@@ -33,6 +33,7 @@ from build_daily_candidate_model_layer import (  # noqa: E402
     volume_v2_canonical_text_sha256 as consumer_canonical_csv_slice_sha256,
 )
 from build_volume_attack_theme_layer import (  # noqa: E402
+    VOLUME_THEME_WATCH_OUTPUT_FIELDS,
     enrich_stocks,
     sha256_file as theme_canonical_text_sha256,
 )
@@ -92,6 +93,30 @@ class VolumeBreakoutWatchTest(unittest.TestCase):
             ]
         )
         return watch, empty, empty, candidates, empty, official
+
+    def test_theme_layer_uses_explicit_source_column_order(self) -> None:
+        inputs = self._theme_enrichment_inputs()
+        watch = inputs[0]
+
+        out = enrich_stocks(
+            *inputs,
+            volume_watch_source_sha256="b" * 64,
+            candidate_source_sha256="c" * 64,
+            official_warrant_source_sha256="f" * 64,
+        )
+
+        expected_source_columns = [
+            field for field in VOLUME_THEME_WATCH_OUTPUT_FIELDS if field in watch.columns
+        ]
+        self.assertEqual(
+            out.columns[: len(expected_source_columns)].tolist(),
+            expected_source_columns,
+        )
+        builder_source = (ROOT / "scripts" / "build_volume_attack_theme_layer.py").read_text(
+            encoding="utf-8"
+        )
+        self.assertIn("for key in VOLUME_THEME_WATCH_OUTPUT_FIELDS", builder_source)
+        self.assertNotIn("for key in VOLUME_THEME_WATCH_ALLOWED_FIELDS", builder_source)
 
     def test_theme_layer_uses_allowlisted_canonical_candidate_warrant(self) -> None:
         out = enrich_stocks(
