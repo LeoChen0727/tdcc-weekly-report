@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1308 亞聚
 
 ## Metadata
-- generated_at: 2026-07-31 01:14:22 Asia/Taipei
+- generated_at: 2026-07-31 22:26:15 Asia/Taipei
 - stock_id: 1308
 - stock_name: 亞聚
 - packet_status: standard_180d_window_packet

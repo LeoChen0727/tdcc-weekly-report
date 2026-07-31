@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00736 國泰新興市場
 
 ## Metadata
-- generated_at: 2026-07-31 01:14:17 Asia/Taipei
+- generated_at: 2026-07-31 22:26:09 Asia/Taipei
 - stock_id: 00736
 - stock_name: 國泰新興市場
 - packet_status: partial_rawdata_packet

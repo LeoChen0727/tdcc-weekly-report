@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6908 宏碁遊戲-創
 
 ## Metadata
-- generated_at: 2026-07-31 01:15:55 Asia/Taipei
+- generated_at: 2026-07-31 22:28:19 Asia/Taipei
 - stock_id: 6908
 - stock_name: 宏碁遊戲-創
 - packet_status: standard_rawdata_packet

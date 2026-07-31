@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00936 台新永續高息中小
 
 ## Metadata
-- generated_at: 2026-07-31 01:14:19 Asia/Taipei
+- generated_at: 2026-07-31 22:26:11 Asia/Taipei
 - stock_id: 00936
 - stock_name: 台新永續高息中小
 - packet_status: partial_rawdata_packet

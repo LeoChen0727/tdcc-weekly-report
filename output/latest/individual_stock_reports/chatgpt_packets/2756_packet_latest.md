@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2756 聯發國際
 
 ## Metadata
-- generated_at: 2026-07-31 01:14:51 Asia/Taipei
+- generated_at: 2026-07-31 22:26:54 Asia/Taipei
 - stock_id: 2756
 - stock_name: 聯發國際
 - packet_status: standard_180d_window_packet

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4563 百德
 
 ## Metadata
-- generated_at: 2026-07-31 01:15:18 Asia/Taipei
+- generated_at: 2026-07-31 22:27:30 Asia/Taipei
 - stock_id: 4563
 - stock_name: 百德
 - packet_status: standard_180d_window_packet

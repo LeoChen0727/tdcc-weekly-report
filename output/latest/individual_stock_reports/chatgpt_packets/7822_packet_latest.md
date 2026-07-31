@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7822 倍利科
 
 ## Metadata
-- generated_at: 2026-07-31 01:16:04 Asia/Taipei
+- generated_at: 2026-07-31 22:28:31 Asia/Taipei
 - stock_id: 7822
 - stock_name: 倍利科
 - packet_status: standard_rawdata_packet

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6854 錼創科技-KY創
 
 ## Metadata
-- generated_at: 2026-07-31 01:15:54 Asia/Taipei
+- generated_at: 2026-07-31 22:28:16 Asia/Taipei
 - stock_id: 6854
 - stock_name: 錼創科技-KY創
 - packet_status: standard_180d_window_packet

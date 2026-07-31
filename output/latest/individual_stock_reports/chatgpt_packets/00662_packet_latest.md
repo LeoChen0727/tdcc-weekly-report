@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00662 富邦NASDAQ
 
 ## Metadata
-- generated_at: 2026-07-31 01:14:17 Asia/Taipei
+- generated_at: 2026-07-31 22:26:08 Asia/Taipei
 - stock_id: 00662
 - stock_name: 富邦NASDAQ
 - packet_status: partial_rawdata_packet

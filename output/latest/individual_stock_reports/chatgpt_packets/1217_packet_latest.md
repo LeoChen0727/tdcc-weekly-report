@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1217 愛之味
 
 ## Metadata
-- generated_at: 2026-07-31 01:14:20 Asia/Taipei
+- generated_at: 2026-07-31 22:26:13 Asia/Taipei
 - stock_id: 1217
 - stock_name: 愛之味
 - packet_status: standard_180d_window_packet

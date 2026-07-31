@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6417 韋僑
 
 ## Metadata
-- generated_at: 2026-07-31 01:15:42 Asia/Taipei
+- generated_at: 2026-07-31 22:28:01 Asia/Taipei
 - stock_id: 6417
 - stock_name: 韋僑
 - packet_status: standard_180d_window_packet

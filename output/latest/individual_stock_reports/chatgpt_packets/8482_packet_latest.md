@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8482 商億-KY
 
 ## Metadata
-- generated_at: 2026-07-31 01:16:11 Asia/Taipei
+- generated_at: 2026-07-31 22:28:41 Asia/Taipei
 - stock_id: 8482
 - stock_name: 商億-KY
 - packet_status: standard_180d_window_packet

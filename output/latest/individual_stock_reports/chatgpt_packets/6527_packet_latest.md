@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6527 明達醫
 
 ## Metadata
-- generated_at: 2026-07-31 01:15:45 Asia/Taipei
+- generated_at: 2026-07-31 22:28:05 Asia/Taipei
 - stock_id: 6527
 - stock_name: 明達醫
 - packet_status: standard_180d_window_packet

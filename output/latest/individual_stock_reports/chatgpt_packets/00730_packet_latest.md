@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00730 富邦臺灣優質高息
 
 ## Metadata
-- generated_at: 2026-07-31 01:14:17 Asia/Taipei
+- generated_at: 2026-07-31 22:26:09 Asia/Taipei
 - stock_id: 00730
 - stock_name: 富邦臺灣優質高息
 - packet_status: partial_rawdata_packet

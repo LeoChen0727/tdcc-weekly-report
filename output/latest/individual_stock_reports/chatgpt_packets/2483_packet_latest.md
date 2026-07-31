@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2483 百容
 
 ## Metadata
-- generated_at: 2026-07-31 01:14:45 Asia/Taipei
+- generated_at: 2026-07-31 22:26:46 Asia/Taipei
 - stock_id: 2483
 - stock_name: 百容
 - packet_status: standard_180d_window_packet

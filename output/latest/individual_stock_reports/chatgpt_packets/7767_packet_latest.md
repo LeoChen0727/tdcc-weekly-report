@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7767 仁大資訊
 
 ## Metadata
-- generated_at: 2026-07-31 01:16:03 Asia/Taipei
+- generated_at: 2026-07-31 22:28:29 Asia/Taipei
 - stock_id: 7767
 - stock_name: 仁大資訊
 - packet_status: standard_180d_window_packet

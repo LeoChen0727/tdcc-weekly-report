@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7760 享溫馨
 
 ## Metadata
-- generated_at: 2026-07-31 01:16:02 Asia/Taipei
+- generated_at: 2026-07-31 22:28:29 Asia/Taipei
 - stock_id: 7760
 - stock_name: 享溫馨
 - packet_status: standard_rawdata_packet

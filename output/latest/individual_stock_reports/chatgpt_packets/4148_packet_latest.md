@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4148 全宇生技-KY
 
 ## Metadata
-- generated_at: 2026-07-31 01:15:14 Asia/Taipei
+- generated_at: 2026-07-31 22:27:24 Asia/Taipei
 - stock_id: 4148
 - stock_name: 全宇生技-KY
 - packet_status: standard_180d_window_packet

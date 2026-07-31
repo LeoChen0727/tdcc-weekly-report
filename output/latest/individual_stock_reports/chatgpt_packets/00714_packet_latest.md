@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00714 群益道瓊美國地產
 
 ## Metadata
-- generated_at: 2026-07-31 01:14:17 Asia/Taipei
+- generated_at: 2026-07-31 22:26:09 Asia/Taipei
 - stock_id: 00714
 - stock_name: 群益道瓊美國地產
 - packet_status: partial_rawdata_packet

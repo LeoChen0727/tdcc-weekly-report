@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6441 廣錠
 
 ## Metadata
-- generated_at: 2026-07-31 01:15:43 Asia/Taipei
+- generated_at: 2026-07-31 22:28:02 Asia/Taipei
 - stock_id: 6441
 - stock_name: 廣錠
 - packet_status: standard_180d_window_packet

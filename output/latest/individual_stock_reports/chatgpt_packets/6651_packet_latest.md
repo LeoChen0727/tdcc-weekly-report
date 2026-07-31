@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6651 全宇昕
 
 ## Metadata
-- generated_at: 2026-07-31 01:15:48 Asia/Taipei
+- generated_at: 2026-07-31 22:28:10 Asia/Taipei
 - stock_id: 6651
 - stock_name: 全宇昕
 - packet_status: standard_180d_window_packet

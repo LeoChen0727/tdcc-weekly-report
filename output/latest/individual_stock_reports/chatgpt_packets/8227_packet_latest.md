@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8227 巨有科技
 
 ## Metadata
-- generated_at: 2026-07-31 01:16:08 Asia/Taipei
+- generated_at: 2026-07-31 22:28:37 Asia/Taipei
 - stock_id: 8227
 - stock_name: 巨有科技
 - packet_status: standard_180d_window_packet

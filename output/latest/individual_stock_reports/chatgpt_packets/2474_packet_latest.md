@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2474 可成
 
 ## Metadata
-- generated_at: 2026-07-31 01:14:45 Asia/Taipei
+- generated_at: 2026-07-31 22:26:46 Asia/Taipei
 - stock_id: 2474
 - stock_name: 可成
 - packet_status: standard_180d_window_packet

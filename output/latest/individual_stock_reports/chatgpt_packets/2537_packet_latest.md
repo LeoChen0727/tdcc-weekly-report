@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2537 聯上發
 
 ## Metadata
-- generated_at: 2026-07-31 01:14:47 Asia/Taipei
+- generated_at: 2026-07-31 22:26:49 Asia/Taipei
 - stock_id: 2537
 - stock_name: 聯上發
 - packet_status: standard_180d_window_packet

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8476 台境*
 
 ## Metadata
-- generated_at: 2026-07-31 01:16:11 Asia/Taipei
+- generated_at: 2026-07-31 22:28:41 Asia/Taipei
 - stock_id: 8476
 - stock_name: 台境*
 - packet_status: standard_180d_window_packet

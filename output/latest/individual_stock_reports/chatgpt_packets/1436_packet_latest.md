@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1436 華友聯
 
 ## Metadata
-- generated_at: 2026-07-31 01:14:24 Asia/Taipei
+- generated_at: 2026-07-31 22:26:18 Asia/Taipei
 - stock_id: 1436
 - stock_name: 華友聯
 - packet_status: standard_180d_window_packet

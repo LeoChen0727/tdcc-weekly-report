@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5547 久舜
 
 ## Metadata
-- generated_at: 2026-07-31 01:15:32 Asia/Taipei
+- generated_at: 2026-07-31 22:27:47 Asia/Taipei
 - stock_id: 5547
 - stock_name: 久舜
 - packet_status: standard_rawdata_packet

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9931 欣高
 
 ## Metadata
-- generated_at: 2026-07-31 01:16:14 Asia/Taipei
+- generated_at: 2026-07-31 22:28:46 Asia/Taipei
 - stock_id: 9931
 - stock_name: 欣高
 - packet_status: standard_180d_window_packet

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4169 泰宗
 
 ## Metadata
-- generated_at: 2026-07-31 01:15:15 Asia/Taipei
+- generated_at: 2026-07-31 22:27:25 Asia/Taipei
 - stock_id: 4169
 - stock_name: 泰宗
 - packet_status: standard_rawdata_packet

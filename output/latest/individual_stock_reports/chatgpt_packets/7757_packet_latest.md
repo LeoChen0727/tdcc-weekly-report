@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7757 金色三麥
 
 ## Metadata
-- generated_at: 2026-07-31 01:16:02 Asia/Taipei
+- generated_at: 2026-07-31 22:28:29 Asia/Taipei
 - stock_id: 7757
 - stock_name: 金色三麥
 - packet_status: standard_180d_window_packet

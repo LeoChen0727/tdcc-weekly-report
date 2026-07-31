@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8487 愛爾達-創
 
 ## Metadata
-- generated_at: 2026-07-31 01:16:12 Asia/Taipei
+- generated_at: 2026-07-31 22:28:42 Asia/Taipei
 - stock_id: 8487
 - stock_name: 愛爾達-創
 - packet_status: standard_180d_window_packet

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1560 中砂
 
 ## Metadata
-- generated_at: 2026-07-31 01:14:28 Asia/Taipei
+- generated_at: 2026-07-31 22:26:23 Asia/Taipei
 - stock_id: 1560
 - stock_name: 中砂
 - packet_status: standard_180d_window_packet
