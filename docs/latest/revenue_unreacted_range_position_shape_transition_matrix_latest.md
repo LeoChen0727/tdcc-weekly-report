@@ -1,6 +1,6 @@
 # 營收改善但股價尚未反應：三錨點位階與型態轉換矩陣
 
-- generated_at: `2026-07-17 10:06:41 Asia/Taipei`
+- generated_at: `2026-07-31 16:58:31 Asia/Taipei`
 - model_id: `revenue_unreacted_range`
 - artifact_version: `position_shape_transition_matrix_v1_20260717`
 - adopted_grid: `rearm_after_realized_exit_next_trade_day|delayed_next_close_continuation_bonus|d30|none_no_stop_reference`
