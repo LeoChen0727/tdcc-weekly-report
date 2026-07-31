@@ -1,6 +1,6 @@
 # 營收改善但股價尚未反應：低／中位下降型態候選稽核
 
-- generated_at: `2026-07-31 16:57:20 Asia/Taipei`
+- generated_at: `2026-07-31 19:23:13 Asia/Taipei`
 - artifact_version: `low_mid_falling_candidate_v1_20260720`
 - 狀態：`research_only`；不是正式 gate、ranking、operation adapter、PDF 或 promotion evidence。
 - 月營收與季／年財報分離；EPS、毛利率、營益率、營業利益、業外與淨利全部排除。
