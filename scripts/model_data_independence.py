@@ -148,6 +148,7 @@ REVENUE_CROSS_MARKET_CONSUMER_FAMILIES = (
     "revenue_unreacted_range_lag_strength_matrix",
     "revenue_unreacted_range_launch_timing_feature_audit",
     "revenue_unreacted_range_source_first_condition_audit",
+    "revenue_unreacted_range_source_snapshot_projection",
     "revenue_unreacted_range_forward_confirmation_feature_audit",
     "revenue_unreacted_range_rearmed_operation_grid",
     "revenue_unreacted_range_operation_lag_bucket_audit",

@@ -14,6 +14,7 @@ if str(SCRIPTS) not in sys.path:
     sys.path.insert(0, str(SCRIPTS))
 
 import revenue_unreacted_range_low_mid_falling_candidate_audit as producer  # noqa: E402
+import revenue_unreacted_range_source_snapshot_projection as projection  # noqa: E402
 import validate_revenue_unreacted_range_low_mid_falling_candidate_audit as validator  # noqa: E402
 
 
@@ -85,6 +86,7 @@ def _source_row(
         "episode_start_canonical_source_table_date": source_dates[0],
         "episode_start_trade_date": source_dates[0],
         "episode_start_sequence_index": indices[0],
+        "episode_end_date": str(price.at[250, "date"]),
         "latest_qualifying_revenue_period": periods[-1],
         "latest_qualifying_source_date": source_dates[-1],
         "latest_qualifying_cross_market_resolution_id": resolution_ids[-1],
@@ -272,6 +274,84 @@ def _build_fixture(root: Path) -> dict[str, Path]:
     source_path = root / validator.SOURCE_RELATIVE_PATHS["source_first"]
     source_path.parent.mkdir(parents=True, exist_ok=True)
     source.to_csv(source_path, index=False, encoding="utf-8-sig")
+    projected_source = pd.read_csv(
+        source_path,
+        dtype={"stock_id": str},
+        keep_default_na=False,
+        low_memory=False,
+    )
+    manifest_row = {column: "" for column in projection.MANIFEST_COLUMNS}
+    source_dates = (
+        projected_source["qualifying_source_dates"]
+        .astype(str)
+        .str.split("|")
+        .explode()
+        .tolist()
+    )
+    trade_dates = (
+        projected_source["qualifying_trade_dates"]
+        .astype(str)
+        .str.split("|")
+        .explode()
+        .tolist()
+    )
+    manifest_row.update(
+        {
+            "generated_at": GENERATED_AT,
+            "model_id": projection.MODEL_ID,
+            "artifact_id": projection.ARTIFACT_ID,
+            "artifact_version": projection.ARTIFACT_VERSION,
+            "projection_id": projection.PROJECTION_ID,
+            "projection_version": projection.PROJECTION_VERSION,
+            "projection_policy_id": projection.PROJECTION_POLICY_ID,
+            "cutoff_date": projection.CUTOFF_DATE,
+            "full_source_artifact_id": validator.SOURCE_FIRST_ARTIFACT_ID,
+            "full_source_artifact_version": validator.SOURCE_FIRST_ARTIFACT_VERSION,
+            "full_source_episode_row_count": len(projected_source),
+            "full_source_episode_semantic_sha256": "4" * 64,
+            "monthly_revenue_history_blob_sha256": "1" * 64,
+            "monthly_revenue_canonical_table_sha256": "5" * 64,
+            "cross_market_resolution_registry_canonical_sha256": "3" * 64,
+            "cutoff_revenue_subset_row_count": len(projected_source),
+            "cutoff_revenue_subset_semantic_sha256": "2" * 64,
+            "cutoff_price_input_stock_count": projected_source["stock_id"].nunique(),
+            "cutoff_price_input_row_count": 1,
+            "cutoff_price_input_file_semantic_sha256s": "synthetic",
+            "cutoff_price_input_semantic_sha256": "6" * 64,
+            "applied_monthly_resolution_count": 0,
+            "applied_monthly_resolution_ids": "none",
+            "applied_monthly_resolution_semantic_sha256": "7" * 64,
+            "applied_price_resolution_count": 0,
+            "applied_price_resolution_ids": "none",
+            "applied_price_resolution_semantic_sha256": "8" * 64,
+            "projected_episode_row_count": len(projected_source),
+            "projected_episode_semantic_sha256": (
+                projection.canonical_projected_source_detail_semantic_sha256(
+                    projected_source
+                )
+            ),
+            "projected_max_source_date": max(source_dates),
+            "projected_max_trade_date": max(trade_dates),
+            "projected_max_episode_end_date": max(
+                projected_source["episode_end_date"].astype(str)
+            ),
+            "research_only": True,
+            "formal_model_use_allowed": False,
+            "approved_for_daily": False,
+            "production_change": False,
+            "promotion_evidence_allowed": False,
+            "ranking_consumption_allowed": False,
+            "pdf_consumption_allowed": False,
+        }
+    )
+    projection_manifest_path = root / validator.SOURCE_RELATIVE_PATHS[
+        "projection_manifest"
+    ]
+    projection_manifest_path.parent.mkdir(parents=True, exist_ok=True)
+    pd.DataFrame([manifest_row], columns=projection.MANIFEST_COLUMNS).to_csv(
+        projection_manifest_path,
+        index=False,
+    )
     rearmed_path = root / validator.SOURCE_RELATIVE_PATHS["rearmed"]
     operations.to_csv(rearmed_path, index=False, encoding="utf-8-sig")
     return paths
@@ -471,7 +551,11 @@ def test_validator_rejects_asof_payload_lineage_misalignment(tmp_path: Path) -> 
     source.to_csv(source_path, index=False, encoding="utf-8-sig")
 
     errors = validator.validate(artifact_root=tmp_path, source_root=tmp_path)
-    assert any("qualifying lineage is not aligned" in error for error in errors)
+    assert any(
+        "projected detail semantic SHA-256 binding mismatch" in error
+        or "qualifying lineage is not aligned" in error
+        for error in errors
+    )
 
 
 def test_validator_rejects_source_first_run_lineage_mutation(tmp_path: Path) -> None:

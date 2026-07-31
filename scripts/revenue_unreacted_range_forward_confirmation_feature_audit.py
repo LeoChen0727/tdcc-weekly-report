@@ -367,6 +367,7 @@ def prepare_daily_by_stock(
     source_detail: pd.DataFrame,
     *,
     price_dir: Path = PRICE_HISTORY_DIR,
+    observation_cutoff_date: str | None = None,
 ) -> dict[str, pd.DataFrame]:
     features = _prepared_feature_frame(prepared)
     resolutions = _load_price_resolutions()
@@ -380,7 +381,12 @@ def prepare_daily_by_stock(
         path = price_dir / f"{stock_id}.csv"
         if not path.is_file():
             continue
-        price = load_stock_price(stock_id, path, resolutions)
+        price = load_stock_price(
+            stock_id,
+            path,
+            resolutions,
+            observation_cutoff_date=observation_cutoff_date,
+        )
         price["analysis_open"] = price["open"] * price["analysis_price_adjustment_factor"]
         price["analysis_high"] = price["high"] * price["analysis_price_adjustment_factor"]
         price["analysis_low"] = price["low"] * price["analysis_price_adjustment_factor"]

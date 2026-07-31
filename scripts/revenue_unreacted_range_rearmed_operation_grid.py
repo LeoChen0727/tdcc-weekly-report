@@ -13,8 +13,12 @@ from revenue_unreacted_range_forward_confirmation_feature_audit import (
     _bool_value,
     _normalize_source_detail as _normalize_forward_source_detail,
     _strict_launch_metrics,
-    load_source_detail,
     prepare_daily_by_stock,
+)
+from revenue_unreacted_range_source_snapshot_projection import (
+    load_projected_source_detail,
+    load_source_snapshot_projection_manifest,
+    validate_projection_binding,
 )
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -884,13 +888,25 @@ def build_rearmed_operation_grid(
     prepared: pd.DataFrame | None = None,
     source_detail: pd.DataFrame | None = None,
     daily_by_stock: dict[str, pd.DataFrame] | None = None,
+    source_projection_manifest: pd.DataFrame | None = None,
 ) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
-    source = load_source_detail() if source_detail is None else _normalize_source_detail(source_detail)
+    raw_source = load_projected_source_detail() if source_detail is None else source_detail
+    projection_manifest = (
+        load_source_snapshot_projection_manifest()
+        if source_projection_manifest is None
+        else source_projection_manifest
+    )
+    validate_projection_binding(projection_manifest, raw_source)
+    source = _normalize_source_detail(raw_source)
     _assert_source_within_price_history_cutoff(source)
     if daily_by_stock is None:
         if prepared is None:
             raise RuntimeError("prepared research frame is required when daily_by_stock is not supplied")
-        daily_by_stock = prepare_daily_by_stock(prepared, source)
+        daily_by_stock = prepare_daily_by_stock(
+            prepared,
+            source,
+            observation_cutoff_date=PRICE_HISTORY_CUTOFF_DATE,
+        )
     daily_by_stock = _apply_price_history_cutoff(daily_by_stock)
     generated_at = _now_text()
     detail = build_operation_detail(source, daily_by_stock, generated_at)

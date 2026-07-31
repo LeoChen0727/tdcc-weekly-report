@@ -8,9 +8,13 @@ import pandas as pd
 from revenue_unreacted_range_forward_confirmation_feature_audit import (
     OPERATION_RETURN_REVIEW_THRESHOLD_PCT,
     PRICE_HISTORY_DIR,
-    SOURCE_DETAIL_CSV,
 )
 from revenue_unreacted_range_source_first_condition_audit import PRICE_RESOLUTION_CSV
+from revenue_unreacted_range_source_snapshot_projection import (
+    LATEST_DETAIL_CSV as SOURCE_DETAIL_CSV,
+    LATEST_MANIFEST_CSV as SOURCE_PROJECTION_MANIFEST_CSV,
+    validate_projection_binding,
+)
 from revenue_unreacted_range_rearmed_operation_grid import (
     ANALYSIS_BASES,
     ARTIFACT_ID,
@@ -302,6 +306,7 @@ def validate() -> list[str]:
         DOCS_RETURN_REVIEW_CSV,
         DOCS_MD,
         SOURCE_DETAIL_CSV,
+        SOURCE_PROJECTION_MANIFEST_CSV,
         PRICE_RESOLUTION_CSV,
     )
     for path in paths:
@@ -341,6 +346,15 @@ def validate() -> list[str]:
         keep_default_na=False,
         low_memory=False,
     )
+    source_projection_manifest = pd.read_csv(
+        SOURCE_PROJECTION_MANIFEST_CSV,
+        dtype=str,
+        keep_default_na=False,
+    )
+    try:
+        validate_projection_binding(source_projection_manifest, source)
+    except RuntimeError as exc:
+        errors.append(str(exc))
     errors.extend(_source_lineage_errors(source))
     source = source.loc[source["condition_variant_id"].eq(SOURCE_VARIANT_ID)].copy()
     price_resolutions = pd.read_csv(

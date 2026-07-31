@@ -493,16 +493,34 @@ def load_cross_market_resolutions(path: Path = RESOLUTION_CSV) -> pd.DataFrame:
 def resolve_monthly_revenue_cross_market_mirrors(
     frame: pd.DataFrame,
     resolution_path: Path = RESOLUTION_CSV,
+    *,
+    observation_cutoff_date: str | None = None,
 ) -> pd.DataFrame:
     required = set(KEY_COLUMNS + SOURCE_IDENTITY_COLUMNS + BUSINESS_PAYLOAD_COLUMNS)
     missing = sorted(required - set(frame.columns))
     if missing:
         raise RuntimeError(f"monthly revenue cross-market resolver is missing columns: {missing}")
 
+    cutoff = None
+    if observation_cutoff_date is not None:
+        cutoff = str(observation_cutoff_date).strip()
+        if len(cutoff) != 8 or not cutoff.isdigit():
+            raise RuntimeError(
+                "monthly revenue observation cutoff must be exactly YYYYMMDD"
+            )
+
     # Load the registry even when the input appears unique. A registered mirror is
     # evidence about a required raw pair, so a missing earlier or later row must
-    # never silently turn into an apparently unique history row.
+    # never silently turn into an apparently unique history row. For a historical
+    # observation projection, a resolution becomes applicable only after both raw
+    # sides were available by the cutoff; a future mirror must not rewrite the
+    # earlier as-of view.
     registry = load_cross_market_resolutions(resolution_path)
+    if cutoff is not None:
+        registry = registry.loc[
+            registry["earlier_source_table_date"].le(cutoff)
+            & registry["later_source_table_date"].le(cutoff)
+        ].copy()
     registrations = {
         (str(row.stock_id), str(row.revenue_period)): row
         for row in registry.itertuples(index=False)
@@ -514,6 +532,8 @@ def resolve_monthly_revenue_cross_market_mirrors(
     resolved["source_table_date"] = resolved["source_table_date"].map(
         lambda value: _digits(value, 8)
     )
+    if cutoff is not None:
+        resolved = resolved.loc[resolved["source_table_date"].le(cutoff)].copy()
     resolved["market"] = resolved["market"].astype(str).str.strip().str.lower()
     resolved["source_market_name"] = (
         resolved["source_market_name"].astype(str).str.strip().str.upper()
@@ -523,9 +543,12 @@ def resolve_monthly_revenue_cross_market_mirrors(
     if resolved[list(KEY_COLUMNS + SOURCE_IDENTITY_COLUMNS)].eq("").any(axis=None):
         raise RuntimeError("monthly revenue history has blank duplicate-resolution identity fields")
     resolved["cross_market_resolution_id"] = ""
-    resolved["source_row_canonical_sha256"] = resolved.apply(
-        canonical_monthly_revenue_raw_row_sha256, axis=1
-    )
+    if resolved.empty:
+        resolved["source_row_canonical_sha256"] = pd.Series(dtype=str)
+    else:
+        resolved["source_row_canonical_sha256"] = resolved.apply(
+            canonical_monthly_revenue_raw_row_sha256, axis=1
+        )
     resolved["canonical_source_table_date"] = resolved["source_table_date"]
 
     duplicate_mask = resolved.duplicated(list(KEY_COLUMNS), keep=False)
@@ -675,6 +698,8 @@ def resolve_monthly_revenue_cross_market_mirrors(
 def load_canonical_monthly_revenue_history(
     history_path: Path,
     resolution_path: Path = RESOLUTION_CSV,
+    *,
+    observation_cutoff_date: str | None = None,
 ) -> pd.DataFrame:
     """Return the model-owned monthly history view after fail-closed mirror resolution."""
     if not history_path.is_file():
@@ -685,4 +710,8 @@ def load_canonical_monthly_revenue_history(
         keep_default_na=False,
         low_memory=False,
     )
-    return resolve_monthly_revenue_cross_market_mirrors(history, resolution_path)
+    return resolve_monthly_revenue_cross_market_mirrors(
+        history,
+        resolution_path,
+        observation_cutoff_date=observation_cutoff_date,
+    )

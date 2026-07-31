@@ -284,6 +284,7 @@ def test_daily_model_maintenance_pr_workflow_runs_contract_validators() -> None:
         "python scripts/validate_volume_v2_warrant_lineage_history_audit.py",
         "python scripts/validate_financial_statement_pit.py",
         "python scripts/validate_revenue_unreacted_range_source_first_condition_audit.py",
+        "python scripts/validate_revenue_unreacted_range_source_snapshot_projection.py",
         "python scripts/validate_revenue_unreacted_range_monthly_revenue_cross_market_resolution.py",
         "python scripts/validate_revenue_unreacted_range_forward_confirmation_feature_audit.py",
         "python scripts/validate_revenue_unreacted_range_rearmed_operation_grid.py",
@@ -299,6 +300,19 @@ def test_daily_model_maintenance_pr_workflow_runs_contract_validators() -> None:
     )
     for command in required_commands:
         assert command in text
+
+    revenue_validator_order = (
+        "python scripts/validate_revenue_unreacted_range_monthly_revenue_cross_market_resolution.py",
+        "python scripts/validate_revenue_unreacted_range_source_first_condition_audit.py",
+        "python scripts/validate_revenue_unreacted_range_source_snapshot_projection.py",
+        "python scripts/validate_revenue_unreacted_range_forward_confirmation_feature_audit.py",
+        "python scripts/validate_revenue_unreacted_range_rearmed_operation_grid.py",
+        "python scripts/validate_revenue_unreacted_range_operation_lag_bucket_audit.py",
+        "python scripts/validate_revenue_unreacted_range_position_shape_transition_matrix.py",
+        "python scripts/validate_revenue_unreacted_range_low_mid_falling_candidate_audit.py",
+    )
+    positions = [text.index(command) for command in revenue_validator_order]
+    assert positions == sorted(positions)
 
 
 def test_daily_model_maintenance_pr_workflow_runs_focused_pdf_operation_tests() -> None:
@@ -328,6 +342,7 @@ def test_daily_model_maintenance_pr_workflow_runs_focused_pdf_operation_tests() 
         "tests/test_volume_v2_warrant_lineage_history_audit.py",
         "tests/test_financial_statement_pit.py",
         "tests/test_revenue_unreacted_range_source_first_condition_audit.py",
+        "tests/test_revenue_unreacted_range_source_snapshot_projection.py",
         "tests/test_revenue_unreacted_range_monthly_revenue_cross_market_resolution.py",
         "tests/test_validate_revenue_unreacted_range_monthly_revenue_cross_market_resolution.py",
         "tests/test_revenue_unreacted_range_forward_confirmation_feature_audit.py",

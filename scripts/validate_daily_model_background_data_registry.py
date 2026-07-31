@@ -69,6 +69,7 @@ REQUIRED_FAMILIES = {
     "financial_statement_point_in_time_history",
     "financial_statement_source_manifest",
     "financial_statement_pit_coverage_audit",
+    "revenue_unreacted_range_source_snapshot_projection",
     "price_pullback_23ema_research_outputs",
     "neckline_context_interpretation",
     "w_bottom_shape_interpretation",

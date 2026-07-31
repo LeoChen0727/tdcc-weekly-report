@@ -294,6 +294,15 @@ def _normalize_date(series: pd.Series) -> pd.Series:
     return series.astype(str).str.replace(r"\D", "", regex=True).str[:8]
 
 
+def _normalize_observation_cutoff_date(value: str | None) -> str | None:
+    if value is None:
+        return None
+    text = str(value).strip()
+    if len(text) != 8 or not text.isdigit():
+        raise RuntimeError("source-first observation cutoff must be exactly YYYYMMDD")
+    return text
+
+
 def _boolish(series: pd.Series) -> pd.Series:
     return series.astype(str).str.strip().str.lower().isin({"true", "1", "yes"})
 
@@ -338,8 +347,15 @@ def _period_ordinal(series: pd.Series) -> pd.Series:
 def load_revenue_history(
     path: Path = REVENUE_HISTORY_CSV,
     resolution_path: Path = MONTHLY_REVENUE_CROSS_MARKET_RESOLUTION_CSV,
+    *,
+    observation_cutoff_date: str | None = None,
 ) -> pd.DataFrame:
-    frame = load_canonical_monthly_revenue_history(path, resolution_path)
+    cutoff = _normalize_observation_cutoff_date(observation_cutoff_date)
+    frame = load_canonical_monthly_revenue_history(
+        path,
+        resolution_path,
+        observation_cutoff_date=cutoff,
+    )
     required = {
         "stock_id",
         "stock_name",
@@ -363,6 +379,11 @@ def load_revenue_history(
     frame["canonical_source_table_date"] = _normalize_date(
         frame["canonical_source_table_date"]
     )
+    if cutoff is not None and (
+        frame["source_table_date"].gt(cutoff).any()
+        or frame["canonical_source_table_date"].gt(cutoff).any()
+    ):
+        raise RuntimeError("source-first revenue projection exceeds observation cutoff")
     frame["source_row_canonical_sha256"] = (
         frame["source_row_canonical_sha256"].astype(str).str.strip().str.lower()
     )
@@ -472,10 +493,10 @@ def condition_masks(revenue: pd.DataFrame) -> dict[str, pd.Series]:
     return {key: value.fillna(False) for key, value in masks.items()}
 
 
-def _load_price_resolutions() -> pd.DataFrame:
-    if not PRICE_RESOLUTION_CSV.is_file():
+def _load_price_resolutions(path: Path = PRICE_RESOLUTION_CSV) -> pd.DataFrame:
+    if not path.is_file():
         return pd.DataFrame(columns=["stock_id", "resume_date", "exchange_ratio", "resolution_id"])
-    frame = pd.read_csv(PRICE_RESOLUTION_CSV, dtype={"stock_id": str}, keep_default_na=False)
+    frame = pd.read_csv(path, dtype={"stock_id": str}, keep_default_na=False)
     required = {"stock_id", "resume_date", "exchange_ratio", "resolution_id", "root_cause_status"}
     missing = sorted(required - set(frame.columns))
     if missing:
@@ -493,7 +514,10 @@ def load_stock_price(
     stock_id: str,
     path: Path,
     resolutions: pd.DataFrame,
+    *,
+    observation_cutoff_date: str | None = None,
 ) -> pd.DataFrame:
+    cutoff = _normalize_observation_cutoff_date(observation_cutoff_date)
     frame = pd.read_csv(path, low_memory=False)
     required = {"date", "open", "high", "low", "close", "volume", "volume_ratio"}
     missing = sorted(required - set(frame.columns))
@@ -502,6 +526,8 @@ def load_stock_price(
     frame = frame.copy()
     frame["date"] = _normalize_date(frame["date"])
     frame = frame.sort_values("date", kind="mergesort").drop_duplicates("date", keep="last")
+    if cutoff is not None:
+        frame = frame.loc[frame["date"].le(cutoff)].copy()
     for column in ("open", "high", "low", "close", "volume", "volume_ratio"):
         frame[column] = pd.to_numeric(frame[column], errors="coerce")
     frame = frame.dropna(subset=["close"]).reset_index(drop=True)
@@ -509,6 +535,10 @@ def load_stock_price(
     frame["analysis_price_adjustment_factor"] = 1.0
     frame["price_resolution_ids_on_date"] = ""
     stock_resolutions = resolutions.loc[resolutions["stock_id"].eq(stock_id)]
+    if cutoff is not None:
+        stock_resolutions = stock_resolutions.loc[
+            stock_resolutions["resume_date"].astype(str).le(cutoff)
+        ]
     for event in stock_resolutions.itertuples(index=False):
         ratio = float(event.exchange_ratio)
         frame.loc[frame["date"].lt(str(event.resume_date)), "analysis_price_adjustment_factor"] *= (
@@ -871,20 +901,65 @@ def _episode_rows(
     return rows
 
 
+def _assert_projected_detail_within_cutoff(
+    detail: pd.DataFrame,
+    cutoff: str | None,
+) -> None:
+    if cutoff is None or detail.empty:
+        return
+    scalar_columns = (
+        "episode_start_source_date",
+        "episode_start_canonical_source_table_date",
+        "episode_start_trade_date",
+        "latest_qualifying_source_date",
+        "latest_qualifying_canonical_source_table_date",
+        "latest_qualifying_trade_date",
+        "episode_end_date",
+        "first_breakout_date",
+        "launch_date",
+    )
+    for column in scalar_columns:
+        dates = detail[column].astype(str).str.strip()
+        dates = dates.loc[dates.ne("")]
+        if dates.gt(cutoff).any():
+            raise RuntimeError(
+                f"source-first projected detail exceeds observation cutoff: {column}"
+            )
+    for column in (
+        "qualifying_source_dates",
+        "qualifying_canonical_source_table_dates",
+        "qualifying_trade_dates",
+    ):
+        values = detail[column].astype(str).str.split("|").explode().str.strip()
+        values = values.loc[values.ne("")]
+        if values.gt(cutoff).any():
+            raise RuntimeError(
+                f"source-first projected lineage exceeds observation cutoff: {column}"
+            )
+
+
 def build_source_first_condition_audit(
     revenue_path: Path = REVENUE_HISTORY_CSV,
     price_dir: Path = PRICE_HISTORY_DIR,
     resolution_path: Path = MONTHLY_REVENUE_CROSS_MARKET_RESOLUTION_CSV,
+    price_resolution_path: Path = PRICE_RESOLUTION_CSV,
+    *,
+    observation_cutoff_date: str | None = None,
 ) -> tuple[pd.DataFrame, pd.DataFrame]:
+    cutoff = _normalize_observation_cutoff_date(observation_cutoff_date)
     generated_at = _now_text()
-    revenue = load_revenue_history(revenue_path, resolution_path)
+    revenue = load_revenue_history(
+        revenue_path,
+        resolution_path,
+        observation_cutoff_date=cutoff,
+    )
     monthly_revenue_run_lineage = _monthly_revenue_run_lineage(
         revenue,
         revenue_path=revenue_path,
         resolution_path=resolution_path,
     )
     masks = condition_masks(revenue)
-    resolutions = _load_price_resolutions()
+    resolutions = _load_price_resolutions(price_resolution_path)
     rows: list[dict[str, object]] = []
     price_paths = sorted(price_dir.glob("*.csv"))
     price_stock_ids = {_normalize_stock_id(path.stem) for path in price_paths}
@@ -920,7 +995,12 @@ def build_source_first_condition_audit(
         stock_revenue = revenue.loc[revenue["stock_id"].eq(stock_id)].copy()
         if stock_revenue.empty:
             continue
-        price = load_stock_price(stock_id, path, resolutions)
+        price = load_stock_price(
+            stock_id,
+            path,
+            resolutions,
+            observation_cutoff_date=cutoff,
+        )
         if price.empty:
             continue
         stock_name = str(stock_revenue["stock_name"].iloc[-1])
@@ -942,6 +1022,7 @@ def build_source_first_condition_audit(
             )
 
     detail = pd.DataFrame(rows, columns=DETAIL_COLUMNS)
+    _assert_projected_detail_within_cutoff(detail, cutoff)
     summary_rows: list[dict[str, object]] = []
     for spec in CONDITION_SPECS:
         part = detail.loc[detail["condition_variant_id"].eq(spec.condition_variant_id)].copy()

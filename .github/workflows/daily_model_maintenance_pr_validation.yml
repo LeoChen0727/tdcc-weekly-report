@@ -199,8 +199,9 @@ jobs:
             docs/latest/financial_statement_historical_pit_source_audit_latest.md \
             output/latest/research_backtest/financial_statement_historical_pit_source_audit_latest.csv \
             output/latest/research_backtest/financial_statement_historical_pit_source_audit_latest.md
-          python scripts/validate_revenue_unreacted_range_source_first_condition_audit.py
           python scripts/validate_revenue_unreacted_range_monthly_revenue_cross_market_resolution.py
+          python scripts/validate_revenue_unreacted_range_source_first_condition_audit.py
+          python scripts/validate_revenue_unreacted_range_source_snapshot_projection.py
           python scripts/validate_revenue_unreacted_range_forward_confirmation_feature_audit.py
           python scripts/validate_revenue_unreacted_range_rearmed_operation_grid.py
           python scripts/validate_revenue_unreacted_range_operation_lag_bucket_audit.py
@@ -257,6 +258,7 @@ jobs:
             tests/test_financial_statement_pit.py \
             tests/test_financial_statement_historical_pit_source_audit.py \
             tests/test_revenue_unreacted_range_source_first_condition_audit.py \
+            tests/test_revenue_unreacted_range_source_snapshot_projection.py \
             tests/test_revenue_unreacted_range_monthly_revenue_cross_market_resolution.py \
             tests/test_validate_revenue_unreacted_range_monthly_revenue_cross_market_resolution.py \
             tests/test_revenue_unreacted_range_forward_confirmation_feature_audit.py \

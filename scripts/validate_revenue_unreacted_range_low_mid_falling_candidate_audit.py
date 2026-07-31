@@ -11,13 +11,17 @@ import re
 import numpy as np
 import pandas as pd
 
+from validate_revenue_unreacted_range_source_snapshot_projection import (
+    validate_projection_binding_frames,
+)
+
 
 ROOT = Path(__file__).resolve().parents[1]
 MODEL_ID = "revenue_unreacted_range"
 ARTIFACT_ID = "revenue_unreacted_range_low_mid_falling_candidate_audit"
 ARTIFACT_VERSION = "low_mid_falling_candidate_v1_20260720"
 EXPECTED_DATA_CONTRACT_SHA256 = (
-    "b92495db71a2fd4534e80ba1c77c5c2d1a1d50effd934e2e188c24804a8d4bd3"
+    "4aff77863a07ba5fe7c574731ea84ac778b85daffbbfe7123d38cccd4cc61432"
 )
 SOURCE_FIRST_ARTIFACT_ID = "revenue_unreacted_range_source_first_condition_audit"
 SOURCE_FIRST_ARTIFACT_VERSION = "source_first_condition_v3_20260720"
@@ -130,9 +134,13 @@ NON_OVERLAP_POLICY = (
 PROMOTION_READINESS = "research_only_pending_holdout_validation"
 
 SOURCE_RELATIVE_PATHS = {
+    "projection_manifest": (
+        "output/latest/research_backtest/"
+        "revenue_unreacted_range_source_snapshot_projection_manifest_latest.csv"
+    ),
     "source_first": (
         "output/latest/research_backtest/"
-        "revenue_unreacted_range_source_first_condition_audit_detail_latest.csv"
+        "revenue_unreacted_range_source_snapshot_projection_detail_latest.csv"
     ),
     "rearmed": (
         "output/latest/research_backtest/"
@@ -610,10 +618,12 @@ def _anchor_features(price: pd.DataFrame, index: int) -> dict[str, object]:
     }
 
 
-def _read_sources(source_root: Path) -> tuple[pd.DataFrame, pd.DataFrame]:
+def _read_sources(
+    source_root: Path,
+) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     paths = {
         name: source_root / SOURCE_RELATIVE_PATHS[name]
-        for name in ("source_first", "rearmed")
+        for name in ("projection_manifest", "source_first", "rearmed")
     }
     missing_paths = [str(path) for path in paths.values() if not path.is_file()]
     if missing_paths:
@@ -630,7 +640,12 @@ def _read_sources(source_root: Path) -> tuple[pd.DataFrame, pd.DataFrame]:
         keep_default_na=False,
         low_memory=False,
     )
-    return source, rearmed
+    projection_manifest = pd.read_csv(
+        paths["projection_manifest"],
+        dtype=str,
+        keep_default_na=False,
+    )
+    return projection_manifest, source, rearmed
 
 
 def _prepare_source(source: pd.DataFrame) -> pd.DataFrame:
@@ -2125,7 +2140,12 @@ def validate(
     if errors:
         return errors
     try:
-        source_raw, rearmed_raw = _read_sources(source_root)
+        projection_manifest, source_raw, rearmed_raw = _read_sources(source_root)
+        errors.extend(
+            validate_projection_binding_frames(projection_manifest, source_raw)
+        )
+        if errors:
+            return errors
         source = _prepare_source(source_raw)
         operations = _prepare_operations(rearmed_raw)
         if "stock_id" not in source_raw.columns:

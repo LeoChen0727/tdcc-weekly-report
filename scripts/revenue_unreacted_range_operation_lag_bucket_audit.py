@@ -19,8 +19,13 @@ from revenue_unreacted_range_rearmed_operation_grid import (
 from revenue_unreacted_range_source_first_condition_audit import (
     ARTIFACT_ID as SOURCE_CONDITION_ARTIFACT_ID,
     ARTIFACT_VERSION as SOURCE_CONDITION_ARTIFACT_VERSION,
-    DETAIL_CSV as SOURCE_CONDITION_DETAIL_CSV,
     DISCOVERY_HORIZON_DAYS,
+)
+from revenue_unreacted_range_source_snapshot_projection import (
+    LATEST_DETAIL_CSV as SOURCE_CONDITION_DETAIL_CSV,
+    load_projected_source_detail,
+    load_source_snapshot_projection_manifest,
+    validate_projection_binding,
 )
 
 
@@ -659,6 +664,7 @@ def build_operation_lag_summary(
 def build_operation_lag_bucket_audit(
     operation_detail: pd.DataFrame | None = None,
     source_detail: pd.DataFrame | None = None,
+    source_projection_manifest: pd.DataFrame | None = None,
 ) -> tuple[pd.DataFrame, pd.DataFrame]:
     if operation_detail is None:
         operation_detail = pd.read_csv(
@@ -668,12 +674,16 @@ def build_operation_lag_bucket_audit(
             low_memory=False,
         )
     if source_detail is None:
-        source_detail = pd.read_csv(
-            SOURCE_CONDITION_DETAIL_CSV,
-            dtype={"stock_id": str},
-            keep_default_na=False,
-            low_memory=False,
-        )
+        source_detail = load_projected_source_detail(SOURCE_CONDITION_DETAIL_CSV)
+    projection_manifest = (
+        load_source_snapshot_projection_manifest()
+        if source_projection_manifest is None
+        else source_projection_manifest
+    )
+    validate_projection_binding(
+        projection_manifest,
+        source_detail,
+    )
     generated_at = _now_text()
     detail = build_operation_lag_detail(operation_detail, source_detail, generated_at)
     summary = build_operation_lag_summary(detail, generated_at)

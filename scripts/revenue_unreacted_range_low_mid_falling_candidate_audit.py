@@ -15,6 +15,7 @@ import pandas as pd
 
 import revenue_unreacted_range_rearmed_operation_grid as rearmed_producer
 import revenue_unreacted_range_source_first_condition_audit as source_first_producer
+import revenue_unreacted_range_source_snapshot_projection as source_projection
 import revenue_unreacted_range_position_shape_transition_matrix as position_shape_producer
 from revenue_unreacted_range_position_shape_transition_matrix import (
     _anchor_features,
@@ -39,6 +40,9 @@ POSITION_SHAPE_ARTIFACT_ID = (
 )
 POSITION_SHAPE_ARTIFACT_VERSION = "position_shape_transition_matrix_v1_20260717"
 PRICE_HISTORY_CUTOFF_DATE = "20260713"
+SOURCE_PROJECTION_ARTIFACT_ID = "revenue_unreacted_range_source_snapshot_projection"
+SOURCE_PROJECTION_ARTIFACT_VERSION = "source_snapshot_projection_v1_20260731"
+SOURCE_PROJECTION_CUTOFF_DATE = "20260713"
 POSITION_POLICY = (
     "anchor adjusted close positioned within the adjusted analysis-high/analysis-low range "
     "of exactly 120 prior trading sessions, excluding the anchor"
@@ -51,7 +55,7 @@ SHAPE_POLICY = (
 WATCH_HORIZON_TRADING_DAYS = 60
 HOLDING_DAYS = 30
 DATA_CONTRACT_SHA256 = (
-    "b92495db71a2fd4534e80ba1c77c5c2d1a1d50effd934e2e188c24804a8d4bd3"
+    "4aff77863a07ba5fe7c574731ea84ac778b85daffbbfe7123d38cccd4cc61432"
 )
 CANONICAL_LINEAGE_VERSION = "canonical_json_v1"
 MONTHLY_REVENUE_RUN_LINEAGE_COLUMNS = (
@@ -329,6 +333,21 @@ def _assert_literal_upstream_contracts() -> None:
             "source-first source variant",
             source_first_producer.PRIMARY_VARIANT_ID,
             SOURCE_VARIANT_ID,
+        ),
+        (
+            "source projection artifact id",
+            source_projection.ARTIFACT_ID,
+            SOURCE_PROJECTION_ARTIFACT_ID,
+        ),
+        (
+            "source projection artifact version",
+            source_projection.ARTIFACT_VERSION,
+            SOURCE_PROJECTION_ARTIFACT_VERSION,
+        ),
+        (
+            "source projection cutoff date",
+            source_projection.CUTOFF_DATE,
+            SOURCE_PROJECTION_CUTOFF_DATE,
         ),
         ("rearmed artifact id", rearmed_producer.ARTIFACT_ID, REARMED_ARTIFACT_ID),
         (

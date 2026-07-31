@@ -1,7 +1,7 @@
 # 每日股票模型與資料獨立性稽核
 
-- 產生時間：`2026-07-31 12:01:27 Asia/Taipei`
-- 結果：`CONTAINED=28, DISCLOSED_NOT_INDEPENDENT=4, PASS=53`
+- 產生時間：`2026-07-31 13:08:03 Asia/Taipei`
+- 結果：`CONTAINED=28, DISCLOSED_NOT_INDEPENDENT=4, PASS=55`
 - 原則：新模型與新資料 family 預設獨立；跨模型共用商業語意必須先有使用者核准與 migration evidence。
 - `CONTAINED` 代表既有共用已被凍結與精確盤點，不代表已物理拆分。
 - `DISCLOSED_NOT_INDEPENDENT` 代表該 validator 只能做 implementation consistency，不得當成獨立模型正確性證據。
@@ -53,6 +53,7 @@
 | data_family_ownership | volume_breakout_operation_research_outputs | CONTAINED | legacy_frozen_no_new_consumers | legacy/latest/audit data is barred from formal model evidence |
 | data_family_ownership | revenue_unreacted_range_launch_timing_feature_audit | PASS | model_owned_not_shared | none |
 | data_family_ownership | revenue_unreacted_range_source_first_condition_audit | PASS | model_owned_not_shared | none |
+| data_family_ownership | revenue_unreacted_range_source_snapshot_projection | PASS | model_owned_not_shared | none |
 | data_family_ownership | revenue_unreacted_range_forward_confirmation_feature_audit | PASS | model_owned_not_shared | none |
 | data_family_ownership | revenue_unreacted_range_rearmed_operation_grid | PASS | model_owned_not_shared | none |
 | data_family_ownership | revenue_unreacted_range_operation_lag_bucket_audit | PASS | model_owned_not_shared | none |
@@ -93,3 +94,4 @@
 | validator_independence | scripts/validate_revenue_unreacted_range_monthly_revenue_cross_market_resolution.py | PASS | independent_source_lineage_validator | none |
 | validator_independence | scripts/validate_revenue_unreacted_range_low_mid_falling_candidate_audit.py | PASS | independent_research_replay_validator | none |
 | validator_independence | scripts/validate_research_against_stock_model_contract.py | DISCLOSED_NOT_INDEPENDENT | production_research_contract_consistency | may verify implementation consistency only; cannot prove model correctness independently |
+| validator_independence | scripts/validate_revenue_unreacted_range_source_snapshot_projection.py | PASS | independent_source_lineage_validator | none |

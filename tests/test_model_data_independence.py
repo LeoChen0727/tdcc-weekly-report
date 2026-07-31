@@ -516,7 +516,7 @@ def test_data_sharing_registry_uses_model_owned_research_entrypoints() -> None:
 
 def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
     rows = read_csv("config/daily_model_data_sharing_migrations.csv")
-    assert len(rows) == 20
+    assert len(rows) == 21
     baseline = rows[0]
     assert tuple(baseline) == DATA_SHARING_MIGRATION_COLUMNS
     assert data_migration_row_sha256(baseline) == BASELINE_DATA_MIGRATION_ROW_SHA256
@@ -976,13 +976,29 @@ def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
         row["data_family_id"]: row
         for row in read_csv("config/daily_model_background_data_registry.csv")
     }
+    snapshot_contracts = {
+        "revenue_unreacted_range_rearmed_operation_grid": (
+            "2d528012095f626e20b67f33ca7df5d357a245874ccbe148769e4a37bf6b611b"
+        ),
+        "revenue_unreacted_range_operation_lag_bucket_audit": (
+            "3038067e652157e31c76a8a4b9254e1184fe1309de87b78ba94b44ed02595d06"
+        ),
+        "revenue_unreacted_range_low_mid_falling_candidate_audit": (
+            "4aff77863a07ba5fe7c574731ea84ac778b85daffbbfe7123d38cccd4cc61432"
+        ),
+    }
     for family, (_old_hash, new_hash) in expected_cross_market_contracts.items():
-        assert sharing_by_family[family]["data_contract_sha256"] == new_hash
+        expected_current_hash = snapshot_contracts.get(family, new_hash)
+        assert sharing_by_family[family]["data_contract_sha256"] == expected_current_hash
         assert sharing_by_family[family]["last_migration_id"] == (
-            "revenue_monthly_cross_market_lineage_resolution_20260720"
+            "revenue_source_snapshot_projection_20260731"
+            if family in snapshot_contracts
+            else "revenue_monthly_cross_market_lineage_resolution_20260720"
         )
         assert sharing_by_family[family]["sharing_decision_reference"] == (
-            "user_requested_revenue_low_mid_falling_research_candidates_20260720"
+            "user_authorized_20260713_source_snapshot_projection_and_955_baseline_20260731"
+            if family in snapshot_contracts
+            else "user_requested_revenue_low_mid_falling_research_candidates_20260720"
         )
         background = background_by_family[family]
         assert (
@@ -1005,6 +1021,41 @@ def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
             in background["forbidden_use"]
         )
         assert "Raw monthly history remains market-grained" in background["notes"]
+
+    snapshot_migration = rows[-1]
+    assert snapshot_migration["migration_id"] == (
+        "revenue_source_snapshot_projection_20260731"
+    )
+    assert snapshot_migration["changed_data_families"].split(";") == [
+        "revenue_unreacted_range_source_snapshot_projection",
+        "revenue_unreacted_range_rearmed_operation_grid",
+        "revenue_unreacted_range_operation_lag_bucket_audit",
+        "revenue_unreacted_range_low_mid_falling_candidate_audit",
+    ]
+    assert snapshot_migration["previous_contract_sha256s"].split(";")[0] == "NEW"
+    assert snapshot_migration["new_contract_sha256s"].split(";") == [
+        "d941b53613e393cc016e4f7b777787b0e9118e6e9d30aa4e00e5a04f959daa79",
+        snapshot_contracts["revenue_unreacted_range_rearmed_operation_grid"],
+        snapshot_contracts["revenue_unreacted_range_operation_lag_bucket_audit"],
+        snapshot_contracts["revenue_unreacted_range_low_mid_falling_candidate_audit"],
+    ]
+    assert snapshot_migration["user_approval_reference"] == (
+        "user_authorized_20260713_source_snapshot_projection_and_955_baseline_20260731"
+    )
+    projection = sharing_by_family[
+        "revenue_unreacted_range_source_snapshot_projection"
+    ]
+    assert projection["data_contract_sha256"] == (
+        "d941b53613e393cc016e4f7b777787b0e9118e6e9d30aa4e00e5a04f959daa79"
+    )
+    assert projection["ownership_mode"] == "model_owned_not_shared"
+    projection_background = background_by_family[
+        "revenue_unreacted_range_source_snapshot_projection"
+    ]
+    assert projection_background["validator"] == (
+        "scripts/validate_revenue_unreacted_range_source_snapshot_projection.py"
+    )
+    assert "20260713" in projection_background["point_in_time_status"]
 
 
 def test_data_contract_hash_detects_point_in_time_or_forbidden_use_drift() -> None:
@@ -1063,6 +1114,12 @@ def test_revenue_cross_market_research_artifact_lineage_is_complete() -> None:
             "output/latest/research_backtest/revenue_unreacted_range_source_first_condition_audit_detail_latest.csv",
             "output/latest/research_backtest/revenue_unreacted_range_source_first_condition_audit_latest.md",
             "output/history/research/revenue_unreacted_range_source_first_condition_audit.csv",
+        },
+        "revenue_unreacted_range_source_snapshot_projection": {
+            "output/latest/research_backtest/revenue_unreacted_range_source_snapshot_projection_manifest_latest.csv",
+            "output/latest/research_backtest/revenue_unreacted_range_source_snapshot_projection_detail_latest.csv",
+            "output/history/research/revenue_unreacted_range_source_snapshot_projection_manifest.csv",
+            "docs/latest/revenue_unreacted_range_source_snapshot_projection_manifest_latest.csv",
         },
         "revenue_unreacted_range_forward_confirmation_feature_audit": {
             "output/latest/research_backtest/revenue_unreacted_range_forward_confirmation_feature_audit_latest.csv",

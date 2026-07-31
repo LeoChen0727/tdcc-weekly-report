@@ -30,6 +30,7 @@ from revenue_unreacted_range_forward_confirmation_feature_audit import (
     write_forward_confirmation_feature_audit,
 )
 from revenue_unreacted_range_rearmed_operation_grid import (
+    PRICE_HISTORY_CUTOFF_DATE,
     build_rearmed_operation_grid,
     write_rearmed_operation_grid,
 )
@@ -61,6 +62,13 @@ from revenue_unreacted_range_position_shape_transition_matrix import (
 from revenue_unreacted_range_source_first_condition_audit import (
     build_source_first_condition_audit,
     write_source_first_condition_audit,
+)
+from revenue_unreacted_range_source_snapshot_projection import (
+    build_source_snapshot_projection_manifest,
+    load_projected_source_detail,
+    load_source_snapshot_projection_manifest,
+    validate_projection_binding,
+    write_source_snapshot_projection,
 )
 from revenue_unreacted_range_research_frame import (
     build_revenue_unreacted_range_research_frame,
@@ -99,20 +107,34 @@ def build_and_write() -> None:
         lag_strength_detail,
     )
     source_first_summary, source_first_detail = build_source_first_condition_audit()
-    daily_by_stock = prepare_daily_by_stock(prepared, source_first_detail)
+    _projected_source_summary, projected_source_detail = build_source_first_condition_audit(
+        observation_cutoff_date=PRICE_HISTORY_CUTOFF_DATE,
+    )
+    source_projection_manifest = build_source_snapshot_projection_manifest(
+        source_first_detail,
+        projected_source_detail,
+    )
+    current_daily_by_stock = prepare_daily_by_stock(prepared, source_first_detail)
+    projected_daily_by_stock = prepare_daily_by_stock(
+        prepared,
+        projected_source_detail,
+        observation_cutoff_date=PRICE_HISTORY_CUTOFF_DATE,
+    )
     forward_summary, forward_detail, forward_events, forward_feature, forward_return_review = (
         build_forward_confirmation_feature_audit(
             source_detail=source_first_detail,
-            daily_by_stock=daily_by_stock,
+            daily_by_stock=current_daily_by_stock,
         )
     )
     rearmed_summary, rearmed_detail, rearmed_return_review = build_rearmed_operation_grid(
-        source_detail=source_first_detail,
-        daily_by_stock=daily_by_stock,
+        source_detail=projected_source_detail,
+        daily_by_stock=projected_daily_by_stock,
+        source_projection_manifest=source_projection_manifest,
     )
     operation_lag_summary, operation_lag_detail = build_operation_lag_bucket_audit(
         operation_detail=rearmed_detail,
-        source_detail=source_first_detail,
+        source_detail=projected_source_detail,
+        source_projection_manifest=source_projection_manifest,
     )
     (
         low_mid_falling_summary,
@@ -120,9 +142,9 @@ def build_and_write() -> None:
         low_mid_falling_paired,
         low_mid_falling_contrast,
     ) = build_low_mid_falling_candidate_audit(
-        source_first_detail,
+        projected_source_detail,
         rearmed_detail,
-        daily_by_stock,
+        projected_daily_by_stock,
     )
 
     write_revenue_unreacted_range_revenue_condition_matrix(condition_matrix)
@@ -134,6 +156,7 @@ def build_and_write() -> None:
     write_lag_strength_matrix(lag_strength_summary, lag_strength_detail)
     write_launch_timing_feature_audit(launch_summary, launch_detail, launch_feature)
     write_source_first_condition_audit(source_first_summary, source_first_detail)
+    write_source_snapshot_projection(source_projection_manifest, projected_source_detail)
     write_forward_confirmation_feature_audit(
         forward_summary,
         forward_detail,
@@ -189,6 +212,16 @@ def build_and_write_source_first_condition_audit() -> None:
     write_source_first_condition_audit(summary, detail)
 
 
+def build_and_write_source_snapshot_projection() -> None:
+    full_summary, full_detail = build_source_first_condition_audit()
+    _projected_summary, projected_detail = build_source_first_condition_audit(
+        observation_cutoff_date=PRICE_HISTORY_CUTOFF_DATE,
+    )
+    manifest = build_source_snapshot_projection_manifest(full_detail, projected_detail)
+    write_source_first_condition_audit(full_summary, full_detail)
+    write_source_snapshot_projection(manifest, projected_detail)
+
+
 def build_and_write_forward_confirmation_feature_audit() -> None:
     frame = build_revenue_unreacted_range_research_frame()
     if frame.empty:
@@ -217,12 +250,17 @@ def build_and_write_operation_lag_bucket_audit() -> None:
 
 
 def build_and_write_position_shape_transition_matrix() -> None:
+    projected_source_detail = load_projected_source_detail()
+    source_projection_manifest = load_source_snapshot_projection_manifest()
+    validate_projection_binding(source_projection_manifest, projected_source_detail)
     summary, detail, transition = build_position_shape_transition_matrix()
     write_position_shape_transition_matrix(summary, detail, transition)
 
 
 def build_and_write_low_mid_falling_candidate_audit() -> None:
-    _source_first_summary, source_first_detail = build_source_first_condition_audit()
+    source_first_detail = load_projected_source_detail()
+    source_projection_manifest = load_source_snapshot_projection_manifest()
+    validate_projection_binding(source_projection_manifest, source_first_detail)
     frame = build_revenue_unreacted_range_research_frame()
     if frame.empty:
         raise RuntimeError(
@@ -234,11 +272,16 @@ def build_and_write_low_mid_falling_candidate_audit() -> None:
     )
     del frame
     gc.collect()
-    daily_by_stock = prepare_daily_by_stock(prepared, source_first_detail)
+    daily_by_stock = prepare_daily_by_stock(
+        prepared,
+        source_first_detail,
+        observation_cutoff_date=PRICE_HISTORY_CUTOFF_DATE,
+    )
     _rearmed_summary, rearmed_detail, _rearmed_return_review = (
         build_rearmed_operation_grid(
             source_detail=source_first_detail,
             daily_by_stock=daily_by_stock,
+            source_projection_manifest=source_projection_manifest,
         )
     )
     summary, detail, paired, contrast = build_low_mid_falling_candidate_audit(
@@ -262,6 +305,7 @@ def parse_args() -> argparse.Namespace:
             "all",
             "launch_timing_feature_audit",
             "source_first_condition_audit",
+            "source_snapshot_projection",
             "forward_confirmation_feature_audit",
             "rearmed_operation_grid",
             "operation_lag_bucket_audit",
@@ -281,6 +325,8 @@ def main() -> int:
             build_and_write_launch_timing_feature_audit()
         elif args.stage == "source_first_condition_audit":
             build_and_write_source_first_condition_audit()
+        elif args.stage == "source_snapshot_projection":
+            build_and_write_source_snapshot_projection()
         elif args.stage == "forward_confirmation_feature_audit":
             build_and_write_forward_confirmation_feature_audit()
         elif args.stage == "rearmed_operation_grid":

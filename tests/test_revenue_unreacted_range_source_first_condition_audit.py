@@ -17,6 +17,7 @@ from revenue_unreacted_range_source_first_condition_audit import (  # noqa: E402
     DETAIL_CSV,
     LATEST_CSV,
     PRIMARY_VARIANT_ID,
+    load_stock_price,
 )
 from validate_revenue_unreacted_range_source_first_condition_audit import validate  # noqa: E402
 import validate_revenue_unreacted_range_source_first_condition_audit as validator  # noqa: E402
@@ -139,6 +140,42 @@ def test_source_first_condition_emits_current_run_level_monthly_revenue_hashes()
         ):
             assert frame[column].astype(str).str.fullmatch(r"[0-9a-f]{64}").all()
             assert frame[column].nunique() == 1
+
+
+def test_price_projection_excludes_future_rows_and_future_resolution(
+    tmp_path: Path,
+) -> None:
+    price_path = tmp_path / "9999.csv"
+    pd.DataFrame(
+        {
+            "date": ["20260711", "20260713", "20260714"],
+            "open": [10.0, 11.0, 12.0],
+            "high": [10.5, 11.5, 12.5],
+            "low": [9.5, 10.5, 11.5],
+            "close": [10.0, 11.0, 12.0],
+            "volume": [1_000_000, 1_000_000, 1_000_000],
+            "volume_ratio": [1.0, 1.0, 1.0],
+        }
+    ).to_csv(price_path, index=False)
+    resolutions = pd.DataFrame(
+        {
+            "stock_id": ["9999"],
+            "resume_date": ["20260714"],
+            "exchange_ratio": [0.5],
+            "resolution_id": ["future_resolution"],
+        }
+    )
+
+    projected = load_stock_price(
+        "9999",
+        price_path,
+        resolutions,
+        observation_cutoff_date="20260713",
+    )
+
+    assert projected["date"].tolist() == ["20260711", "20260713"]
+    assert projected["analysis_price_adjustment_factor"].eq(1.0).all()
+    assert projected["price_resolution_ids_on_date"].eq("").all()
 
 
 @pytest.mark.parametrize(

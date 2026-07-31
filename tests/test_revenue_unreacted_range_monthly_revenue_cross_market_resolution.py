@@ -117,6 +117,31 @@ def test_registered_equal_payload_cross_market_mirror_keeps_earliest_official_ro
     assert resolved.iloc[0]["canonical_source_table_date"] == "20260715"
 
 
+def test_observation_cutoff_excludes_future_cross_market_mirror_without_rewriting_history() -> None:
+    before_either_side = resolve_monthly_revenue_cross_market_mirrors(
+        _registered_pair(),
+        observation_cutoff_date="20260713",
+    )
+    after_earlier_side_only = resolve_monthly_revenue_cross_market_mirrors(
+        _registered_pair(),
+        observation_cutoff_date="20260716",
+    )
+
+    assert before_either_side.empty
+    assert len(after_earlier_side_only) == 1
+    assert after_earlier_side_only.iloc[0]["source_table_date"] == "20260715"
+    assert after_earlier_side_only.iloc[0]["cross_market_resolution_id"] == ""
+    assert after_earlier_side_only.iloc[0]["canonical_source_table_date"] == "20260715"
+
+
+def test_observation_cutoff_requires_exact_yyyymmdd() -> None:
+    with pytest.raises(RuntimeError, match="exactly YYYYMMDD"):
+        resolve_monthly_revenue_cross_market_mirrors(
+            _registered_pair(),
+            observation_cutoff_date="2026-07-13",
+        )
+
+
 @pytest.mark.parametrize(
     ("column", "value"),
     (
