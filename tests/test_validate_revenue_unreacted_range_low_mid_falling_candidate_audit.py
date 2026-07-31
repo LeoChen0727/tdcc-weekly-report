@@ -443,7 +443,12 @@ def test_validator_is_independent_and_accepts_synthetic_replay(tmp_path: Path) -
     )
     assert validator.validate(artifact_root=tmp_path, source_root=tmp_path) == []
     detail = pd.read_csv(
-        paths["detail_latest"], dtype={"stock_id": str}, keep_default_na=False
+        paths["detail_latest"],
+        dtype={
+            "stock_id": str,
+            "asof_latest_qualifying_source_row_canonical_sha256": str,
+        },
+        keep_default_na=False,
     )
     row = detail.loc[detail["stock_id"].eq("1111")].iloc[0]
     assert row["asof_latest_qualifying_cross_market_resolution_id"] == "none"

@@ -223,13 +223,16 @@ def test_raw_row_hash_is_stable_across_equivalent_numeric_dtypes() -> None:
         (192161.0, 5236.0, 202606.0, 20260715.0),
         ("192161", "5236", "202606", "20260715"),
     ):
-        variant = base.copy()
+        # pandas 3 rejects assigning numeric scalars into a string-inferred
+        # Series.  Use an object fixture so this test exercises the canonical
+        # hash normalizer, rather than pandas' assignment coercion policy.
+        variant = base.astype(object).copy()
         variant["monthly_revenue"] = monthly_revenue
         variant["stock_id"] = stock_id
         variant["revenue_period"] = revenue_period
         variant["source_table_date"] = source_date
         assert canonical_monthly_revenue_raw_row_sha256(variant) == expected
-    changed = base.copy()
+    changed = base.astype(object).copy()
     changed["monthly_revenue"] = 192162
     assert canonical_monthly_revenue_raw_row_sha256(changed) != expected
 

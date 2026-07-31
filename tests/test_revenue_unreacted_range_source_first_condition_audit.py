@@ -196,7 +196,15 @@ def test_source_first_validator_rejects_monthly_revenue_lineage_mutation(
     detail_path = tmp_path / "detail.csv"
     markdown_path = tmp_path / "summary.md"
     summary = pd.read_csv(LATEST_CSV, keep_default_na=False, low_memory=False)
-    detail = pd.read_csv(DETAIL_CSV, dtype={"stock_id": str}, keep_default_na=False)
+    detail = pd.read_csv(
+        DETAIL_CSV,
+        dtype={
+            "stock_id": str,
+            "qualifying_source_dates": str,
+            "episode_start_source_date": str,
+        },
+        keep_default_na=False,
+    )
     markdown_path.write_bytes(validator.LATEST_MD.read_bytes())
     if mutation == "run_sha":
         summary.loc[0, "monthly_revenue_history_blob_sha256"] = "0" * 64
