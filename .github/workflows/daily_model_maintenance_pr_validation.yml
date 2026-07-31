@@ -177,7 +177,7 @@ jobs:
           python scripts/validate_daily_legacy_volume_range_breakout_removed.py
           python scripts/validate_daily_legacy_mature_model_paths_removed.py
           python scripts/validate_daily_production_boundaries.py
-          python scripts/validate_daily_published_model_snapshots.py
+          python scripts/validate_daily_published_model_snapshots.py --pr-immutable-history-only
           python scripts/validate_daily_model_background_data_registry.py
           python scripts/validate_model_data_independence.py --base-ref "$BASE_SHA"
           python scripts/validate_model_research_shared_utilities.py --base-ref "$BASE_SHA"

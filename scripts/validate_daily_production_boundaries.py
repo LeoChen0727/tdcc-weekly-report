@@ -14,6 +14,15 @@ HISTORICAL_SOURCE_REPLAY_WORKFLOW = (
 )
 DAILY_MODEL_MAINTENANCE_PR_WORKFLOW = ROOT / ".github" / "workflows" / "daily_model_maintenance_pr_validation.yml"
 DAILY_PDF_REPLAY_PR_WORKFLOW = ROOT / ".github" / "workflows" / "daily_pdf_replay_pr_validation.yml"
+WARRANT_WORKFLOW = ROOT / ".github" / "workflows" / "warrant_flow.yml"
+WEEKLY_THEME_WORKFLOW = ROOT / ".github" / "workflows" / "weekly_theme_review.yml"
+PUBLISHED_SNAPSHOT_VALIDATOR_COMMAND = (
+    "python scripts/validate_daily_published_model_snapshots.py"
+)
+PR_IMMUTABLE_HISTORY_ONLY_FLAG = "--pr-immutable-history-only"
+PR_IMMUTABLE_HISTORY_ONLY_COMMAND = (
+    f"{PUBLISHED_SNAPSHOT_VALIDATOR_COMMAND} {PR_IMMUTABLE_HISTORY_ONLY_FLAG}"
+)
 DAILY_PDF_REPLAY_AUTOMATIC_PATHS = {
     "config/daily_pdf_rendered_model_regression_contract.csv",
     "config/daily_pdf_semantic_golden_cases.csv",
@@ -1002,7 +1011,7 @@ def main() -> int:
             "python scripts/validate_daily_production_boundaries.py": (
                 "daily model maintenance PR workflow must run production boundary validation"
             ),
-            "python scripts/validate_daily_published_model_snapshots.py": (
+            PR_IMMUTABLE_HISTORY_ONLY_COMMAND: (
                 "daily model maintenance PR workflow must validate published model snapshots"
             ),
             "tests/test_chatgpt_daily_report_new_conversation_replay.py": (
@@ -1021,6 +1030,14 @@ def main() -> int:
         for literal, message in required_pr_workflow_literals.items():
             if literal not in pr_workflow_text:
                 errors.append(f"{message}: missing {literal!r}")
+        pr_workflow_lines = {
+            line.strip() for line in pr_workflow_text.splitlines()
+        }
+        if PR_IMMUTABLE_HISTORY_ONLY_COMMAND not in pr_workflow_lines:
+            errors.append(
+                "daily model maintenance PR workflow must execute the exact immutable "
+                "snapshot history command"
+            )
         if "daily-pdf-dfkai-replay:" in pr_workflow_text:
             errors.append("daily model maintenance PR workflow must not own the Windows DFKai replay job")
         if "Install and validate DFKai-SB" in pr_workflow_text:
@@ -1031,6 +1048,39 @@ def main() -> int:
         )
         if "- name: Replay ChatGPT-side daily PDF new conversation" in pr_validation_block:
             errors.append("daily model PR Ubuntu validation job must not render the six daily PDFs")
+
+    workflow_paths = {
+        *list((ROOT / ".github" / "workflows").glob("*.yml")),
+        *list((ROOT / ".github" / "workflows").glob("*.yaml")),
+    }
+    history_flag_callers = {
+        path.name
+        for path in workflow_paths
+        if PR_IMMUTABLE_HISTORY_ONLY_FLAG in read_text(path)
+    }
+    expected_history_flag_callers = {DAILY_MODEL_MAINTENANCE_PR_WORKFLOW.name}
+    if history_flag_callers != expected_history_flag_callers:
+        errors.append(
+            "PR immutable snapshot history mode must be isolated to the daily model "
+            "maintenance PR workflow; "
+            f"observed={sorted(history_flag_callers)} "
+            f"expected={sorted(expected_history_flag_callers)}"
+        )
+    for production_workflow in (
+        DAILY_WORKFLOW,
+        WARRANT_WORKFLOW,
+        WEEKLY_THEME_WORKFLOW,
+    ):
+        if not production_workflow.exists():
+            continue
+        production_lines = {
+            line.strip() for line in read_text(production_workflow).splitlines()
+        }
+        if PUBLISHED_SNAPSHOT_VALIDATOR_COMMAND not in production_lines:
+            errors.append(
+                "formal publish workflow must retain strict current snapshot validation: "
+                f"{production_workflow.relative_to(ROOT).as_posix()}"
+            )
 
     if not DAILY_PDF_REPLAY_PR_WORKFLOW.exists():
         errors.append(
