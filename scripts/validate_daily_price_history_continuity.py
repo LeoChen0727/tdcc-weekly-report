@@ -311,13 +311,20 @@ def validate(
     root: Path,
     *,
     freshness_path: Path = DATA_FRESHNESS,
+    main_price_date_override: str = "",
     lookback_days: int = DEFAULT_LOOKBACK_DAYS,
     min_full_rows: int = DEFAULT_MIN_FULL_ROWS,
     non_trading_days_path: Path = NON_TRADING_DAYS,
 ) -> ValidationResult:
     errors: list[str] = []
     try:
-        main_date = load_main_price_date(root, freshness_path)
+        if main_price_date_override:
+            main_date = safe_str(main_price_date_override)
+            if not re.fullmatch(r"\d{8}", main_date):
+                raise ValueError(f"invalid --main-price-date: {main_date!r}")
+            parse_yyyymmdd(main_date)
+        else:
+            main_date = load_main_price_date(root, freshness_path)
         non_trading_days = load_non_trading_days(root, non_trading_days_path)
     except Exception as exc:
         report = {"status": "fail", "error": str(exc)}
@@ -386,6 +393,14 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument("--repo-root", default=".", help="Repository root. Default: current directory.")
     parser.add_argument("--freshness-csv", default=DATA_FRESHNESS.as_posix())
+    parser.add_argument(
+        "--main-price-date",
+        default="",
+        help=(
+            "Optional explicit YYYYMMDD validation end date. This is used by historical "
+            "source replay before data_freshness_latest.csv is regenerated."
+        ),
+    )
     parser.add_argument("--lookback-days", type=int, default=DEFAULT_LOOKBACK_DAYS)
     parser.add_argument("--min-full-rows", type=int, default=DEFAULT_MIN_FULL_ROWS)
     parser.add_argument("--non-trading-days", default=NON_TRADING_DAYS.as_posix())
@@ -399,6 +414,7 @@ def main() -> int:
     result = validate(
         root,
         freshness_path=Path(args.freshness_csv),
+        main_price_date_override=args.main_price_date,
         lookback_days=args.lookback_days,
         min_full_rows=args.min_full_rows,
         non_trading_days_path=Path(args.non_trading_days),

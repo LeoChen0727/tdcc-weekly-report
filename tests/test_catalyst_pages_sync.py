@@ -35,11 +35,141 @@ def test_sync_catalyst_pages_artifacts_fails_on_missing_source(tmp_path: Path) -
         sync_artifacts(latest, docs_latest, ["catalyst_summary_latest.md"])
 
 
-def test_event_and_weekly_workflows_publish_pages_and_use_full_validation() -> None:
+def test_event_workflow_is_source_only_and_prepares_protected_artifact_pr() -> None:
+    workflow = ROOT / ".github" / "workflows" / "event_catalyst_update.yml"
+    text = workflow.read_text(encoding="utf-8")
+    parsed_workflow = yaml.safe_load(text)
+
+    assert parsed_workflow["jobs"]
+    assert "workflow_dispatch:" in text
+    assert "schedule:" not in text
+    assert "contents: read" in text
+    assert "actions: write" not in text
+    assert "Require production artifact write deploy key" in text
+    assert (
+        "PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY: "
+        "${{ secrets.PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY }}"
+    ) in text
+    assert 'if [ -z "${PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY}" ]; then' in text
+    assert "actions/checkout@v6.0.3" in text
+    assert "ssh-key: ${{ secrets.PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY }}" in text
+    assert "persist-credentials: true" in text
+    assert "group: daily-full-pipeline-${{ github.ref }}" in text
+    assert "cancel-in-progress: false" in text
+    assert "ref: main" in text
+    assert "Enforce main-only mutation" in text
+    assert 'if [[ "${GITHUB_REF}" != "refs/heads/main" ]]; then' in text
+    assert 'test "$(git branch --show-current)" = "main"' in text
+    assert "actions/setup-python@v6.2.0" in text
+    assert "tabulate lxml html5lib beautifulsoup4" in text
+
+    required_commands = (
+        "python scripts/update_event_catalyst_data.py",
+        "python scripts/update_event_calendar_data.py",
+        "python scripts/validate_event_catalyst_overlay_contract.py",
+        "python scripts/validate_event_calendar_data.py",
+        "python scripts/validate_catalyst_layer.py --schema-only",
+        "python scripts/validate_daily_production_boundaries.py",
+        "python scripts/build_event_catalyst_historical_recovery_manifest.py",
+        "python scripts/validate_event_catalyst_historical_recovery_manifest.py",
+        "python scripts/validate_event_catalyst_source_refresh_scope.py",
+    )
+    for command in required_commands:
+        assert command in text
+
+    forbidden_commands = (
+        "python scripts/validate_data_freshness_latest.py",
+        "python scripts/apply_fundamental_catalyst_layer.py",
+        "python scripts/update_catalyst_performance.py",
+        "python scripts/build_daily_candidate_model_layer.py",
+        "python scripts/validate_daily_candidate_model_layer.py",
+        "python scripts/build_daily_report_model_summary.py",
+        "python scripts/audit_daily_candidate_model_selection_correctness.py",
+        "python scripts/audit_daily_candidate_pipeline_integrity.py",
+        "python scripts/build_theme_event_watch.py",
+        "python scripts/update_daily_published_model_snapshots.py",
+        "python scripts/validate_daily_published_model_snapshots.py",
+        "python scripts/stage_daily_published_snapshot_revisions.py",
+        "python scripts/validate_daily_event_catalyst_formal_sync_scope.py",
+        "python scripts/validate_daily_staged_paths.py",
+        "python scripts/sync_catalyst_pages_artifacts.py",
+        "python scripts/build_chatgpt_indicator_usage_guide.py",
+    )
+    for command in forbidden_commands:
+        assert command not in text
+
+    for forbidden_path in (
+        "output/latest/all_candidates_latest",
+        "output/latest/daily_candidate",
+        "output/history/daily_candidate_models",
+        "output/history/daily_model_snapshots",
+        "docs/latest/daily_candidate",
+    ):
+        assert forbidden_path not in text
+
+    required_artifacts = (
+        "upcoming_catalyst_calendar_latest.csv",
+        "upcoming_macro_event_calendar_latest.csv",
+        "calendar_data_source_status_latest.json",
+        "catalyst_data_source_status_latest.json",
+        "catalyst_needs_review_latest.csv",
+        "event_calendar_validation_latest.json",
+        "catalyst_layer_validation_latest.json",
+        "event_catalyst_historical_recovery_latest.json",
+    )
+    for artifact in required_artifacts:
+        assert artifact in text
+
+    prepare_index = text.index("python scripts/update_event_catalyst_data.py")
+    calendar_index = text.index("python scripts/update_event_calendar_data.py")
+    source_validate_index = text.index("python scripts/validate_event_calendar_data.py")
+    recovery_index = text.index(
+        "python scripts/build_event_catalyst_historical_recovery_manifest.py"
+    )
+    staged_gate_index = text.index(
+        "python scripts/validate_event_catalyst_source_refresh_scope.py"
+    )
+    commit_index = text.index('git commit -m "Update event catalyst source tables"')
+    assert (
+        prepare_index
+        < calendar_index
+        < source_validate_index
+        < recovery_index
+        < staged_gate_index
+        < commit_index
+    )
+
+    assert "git add output/history/event_catalyst_recovery/ || true" in text
+    assert "git add docs/latest/ || true" not in text
+    assert "artifact_commit_created=false" in text
+    assert "artifact_commit_created=true" in text
+    assert 'if [ "$artifact_commit_created" = "true" ]; then' in text
+    assert "if git diff --cached --quiet; then" in text
+    assert 'echo "BUILD_BASE_SHA=$build_base_sha" >> "$GITHUB_ENV"' in text
+    assert 'if [ "$current_origin_main" != "$BUILD_BASE_SHA" ]; then' in text
+    assert "git push origin HEAD:main" not in text
+    assert (
+        'artifact_branch="codex/event-catalyst-artifacts-'
+        '${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"'
+    ) in text
+    assert 'git push origin "HEAD:refs/heads/$artifact_branch"' in text
+    assert "Event/catalyst artifact PR required" in text
+    assert "An external operator must open the artifact PR" in text
+    assert "gh pr create" not in text
+    assert "git pull --rebase origin main" not in text
+    assert "gh workflow run pages.yml --ref main" not in text
+    assert "Dispatch and wait for catalyst Pages deploy" not in text
+
+    preflight_index = text.index("Require production artifact write deploy key")
+    checkout_index = text.index("- name: Checkout")
+    branch_push_index = text.index(
+        'git push origin "HEAD:refs/heads/$artifact_branch"'
+    )
+    assert preflight_index < checkout_index < prepare_index < branch_push_index
+
+
+def test_weekly_workflow_publishes_pages_and_uses_full_validation() -> None:
     workflows = {
-        ROOT / ".github" / "workflows" / "event_catalyst_update.yml": (
-            "event_catalyst_formal_sync"
-        ),
         ROOT / ".github" / "workflows" / "weekly_theme_review.yml": (
             "weekly_theme_formal_sync"
         ),

@@ -1,19 +1,19 @@
 # TDCC Weekly Candidate Report Validation
 
 - status: pass
-- signal_date: 20260717
+- signal_date: 20260724
 - date_source: report_ready_csv_signal_date
 - error_count: 0
-- warning_count: 0
+- warning_count: 2
 
 ## Date Contract
 
 - date_source: `report_ready_csv_signal_date`
-- report_date: `20260717`
-- highlight_report_ready_signal_dates: `['20260717']`
-- full_report_ready_signal_dates: `['20260717']`
-- weekly_source_signal_dates: `['20260717']`
-- consecutive_source_signal_dates: `['20260717']`
+- report_date: `20260724`
+- highlight_report_ready_signal_dates: `['20260724']`
+- full_report_ready_signal_dates: `['20260724']`
+- weekly_source_signal_dates: `['20260724']`
+- consecutive_source_signal_dates: `['20260724']`
 
 ## Manifest Sections
 
@@ -24,11 +24,11 @@
 
 ## Report Row Counts
 
-- weekly_increase: 360
-- consecutive_accumulation: 13
-- model_cross: 9
-- highlight_report: 29
-- full_report: 72
+- weekly_increase: 365
+- consecutive_accumulation: 11
+- model_cross: 4
+- highlight_report: 24
+- full_report: 65
 - manifest_sections: 4
 
 ## Section Row Counts
@@ -36,20 +36,20 @@
 ### highlight
 - `weekly_increase`: 10
 - `consecutive_accumulation`: 10
-- `model_cross_weekly_increase_tdcc_short_term_continuation_d5_d10`: 8
-- `model_cross_consecutive_accumulation_tdcc_short_term_continuation_d5_d10`: 1
+- `model_cross_weekly_increase_tdcc_short_term_continuation_d5_d10`: 4
+- `model_cross_consecutive_accumulation_tdcc_short_term_continuation_d5_d10`: 0
 ### full
 - `weekly_increase`: 50
-- `consecutive_accumulation`: 13
-- `model_cross_weekly_increase_tdcc_short_term_continuation_d5_d10`: 8
-- `model_cross_consecutive_accumulation_tdcc_short_term_continuation_d5_d10`: 1
+- `consecutive_accumulation`: 11
+- `model_cross_weekly_increase_tdcc_short_term_continuation_d5_d10`: 4
+- `model_cross_consecutive_accumulation_tdcc_short_term_continuation_d5_d10`: 0
 
 ## Font Contract
 
 - `output/latest/tdcc_weekly_candidate_highlight_latest.pdf`: `['/AAAAAA+TW-Kai-98_1', '/AAAAAB+TW-Kai-98_1', '/Helvetica']`
 - `output/latest/tdcc_weekly_candidate_full_latest.pdf`: `['/AAAAAA+TW-Kai-98_1', '/AAAAAB+TW-Kai-98_1', '/Helvetica']`
-- `output/latest/published_reports/tdcc_weekly/TDCC大戶籌碼週報_精華版_20260717.pdf`: `['/AAAAAA+TW-Kai-98_1', '/AAAAAB+TW-Kai-98_1', '/Helvetica']`
-- `output/latest/published_reports/tdcc_weekly/TDCC大戶籌碼週報_完整版_20260717.pdf`: `['/AAAAAA+TW-Kai-98_1', '/AAAAAB+TW-Kai-98_1', '/Helvetica']`
+- `output/latest/published_reports/tdcc_weekly/TDCC大戶籌碼週報_精華版_20260724.pdf`: `['/AAAAAA+TW-Kai-98_1', '/AAAAAB+TW-Kai-98_1', '/Helvetica']`
+- `output/latest/published_reports/tdcc_weekly/TDCC大戶籌碼週報_完整版_20260724.pdf`: `['/AAAAAA+TW-Kai-98_1', '/AAAAAB+TW-Kai-98_1', '/Helvetica']`
 
 ## Errors
 
@@ -57,4 +57,5 @@
 
 ## Warnings
 
-- none
+- highlight report-ready CSV section has no rows and will render an explicit empty state: model_cross_consecutive_accumulation_tdcc_short_term_continuation_d5_d10
+- full report-ready CSV section has no rows and will render an explicit empty state: model_cross_consecutive_accumulation_tdcc_short_term_continuation_d5_d10

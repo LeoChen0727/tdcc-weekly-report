@@ -1,7 +1,10 @@
 from __future__ import annotations
 
 import argparse
+import csv
+from datetime import datetime
 import hashlib
+import io
 from pathlib import Path
 import sys
 
@@ -99,14 +102,30 @@ def forbidden_watch_columns(columns: list[str]) -> list[str]:
     )
 
 
+def strict_calendar_date(value: object) -> str:
+    raw = str(value).strip()
+    for date_format in ("%Y%m%d", "%Y-%m-%d"):
+        try:
+            parsed = datetime.strptime(raw, date_format)
+        except ValueError:
+            continue
+        if parsed.strftime(date_format) == raw and parsed.strftime("%Y").startswith("20"):
+            return parsed.strftime("%Y%m%d")
+    return ""
+
+
 def advisory_as_of_matches_signal_date(watch: pd.DataFrame) -> bool:
     if watch.empty:
         return True
     if not {"signal_date", "advisory_score_as_of"} <= set(watch.columns):
         return False
-    signal_dates = watch["signal_date"].astype(str).str.strip()
-    advisory_as_of = watch["advisory_score_as_of"].astype(str).str.strip()
-    return bool((advisory_as_of != "").all() and advisory_as_of.equals(signal_dates))
+    signal_dates = watch["signal_date"].map(strict_calendar_date)
+    advisory_as_of = watch["advisory_score_as_of"].map(strict_calendar_date)
+    return bool(
+        (signal_dates != "").all()
+        and (advisory_as_of != "").all()
+        and advisory_as_of.equals(signal_dates)
+    )
 
 
 def canonical_text_sha256(path: Path) -> str:
@@ -115,12 +134,76 @@ def canonical_text_sha256(path: Path) -> str:
     return hashlib.sha256(canonical_text.encode("utf-8")).hexdigest()
 
 
+def canonical_csv_slice_sha256(path: Path, as_of_date: str) -> str:
+    normalized_as_of = strict_calendar_date(as_of_date)
+    if not normalized_as_of:
+        raise RuntimeError(f"advisory score source as-of date is invalid: {as_of_date!r}")
+
+    text = path.read_text(encoding="utf-8-sig")
+    canonical_text = text.replace("\r\n", "\n").replace("\r", "\n")
+    try:
+        rows = list(csv.reader(io.StringIO(canonical_text, newline=""), strict=True))
+    except csv.Error as exc:
+        raise RuntimeError(
+            f"advisory score source CSV is invalid: {path.as_posix()}: {exc}"
+        ) from exc
+    if not rows:
+        raise RuntimeError(f"advisory score source CSV is empty: {path.as_posix()}")
+    header = rows[0]
+    if header.count("date") != 1:
+        raise RuntimeError(
+            "advisory score source CSV must contain exactly one date column: "
+            f"{path.as_posix()} count={header.count('date')}"
+        )
+    date_index = header.index("date")
+    selected_rows = [header]
+    exact_as_of_count = 0
+    previous_date = ""
+    for line_number, values in enumerate(rows[1:], start=2):
+        if len(values) != len(header):
+            raise RuntimeError(
+                "advisory score source CSV field count mismatch: "
+                f"{path.as_posix()} line={line_number} "
+                f"expected={len(header)} actual={len(values)}"
+            )
+        row_date = strict_calendar_date(values[date_index])
+        if not row_date:
+            raise RuntimeError(
+                "advisory score source CSV row date is invalid: "
+                f"{path.as_posix()} line={line_number} value={values[date_index]!r}"
+            )
+        if row_date <= normalized_as_of:
+            if previous_date and row_date <= previous_date:
+                raise RuntimeError(
+                    "advisory score source CSV dates through as-of must be strictly "
+                    "increasing and unique: "
+                    f"{path.as_posix()} line={line_number} "
+                    f"previous={previous_date} actual={row_date}"
+                )
+            canonical_values = list(values)
+            canonical_values[date_index] = row_date
+            selected_rows.append(canonical_values)
+            previous_date = row_date
+            exact_as_of_count += int(row_date == normalized_as_of)
+
+    if exact_as_of_count != 1:
+        raise RuntimeError(
+            "advisory score source CSV must contain exactly one as-of row: "
+            f"{path.as_posix()} as_of={normalized_as_of} count={exact_as_of_count}"
+        )
+    buffer = io.StringIO(newline="")
+    csv.writer(buffer, lineterminator="\n").writerows(selected_rows)
+    canonical_slice = buffer.getvalue()
+    return hashlib.sha256(canonical_slice.encode("utf-8")).hexdigest()
+
+
 def advisory_source_lineage_errors(
     watch: pd.DataFrame, root: Path = Path(".")
 ) -> list[str]:
     errors: list[str] = []
     required = {
         "stock_id",
+        "advisory_score_as_of",
         "advisory_score_source_artifact",
         "advisory_score_source_sha256",
     }
@@ -140,7 +223,17 @@ def advisory_source_lineage_errors(
                 f"row={row_number} advisory score source artifact is missing: {artifact_text}"
             )
             continue
-        actual_sha = canonical_text_sha256(artifact)
+        try:
+            actual_sha = canonical_csv_slice_sha256(
+                artifact, str(row.get("advisory_score_as_of", ""))
+            )
+        except (OSError, UnicodeError, RuntimeError) as exc:
+            errors.append(
+                "row="
+                f"{row_number} advisory score source slice is invalid: "
+                f"stock_id={row.get('stock_id', '')} error={exc}"
+            )
+            continue
         if expected_sha != actual_sha:
             errors.append(
                 "row="

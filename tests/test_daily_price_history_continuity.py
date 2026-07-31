@@ -90,6 +90,35 @@ def test_configured_non_trading_day_is_not_required(tmp_path: Path) -> None:
     assert not any("20260619" in error for error in result.errors)
 
 
+def test_explicit_main_price_date_overrides_stale_freshness(tmp_path: Path) -> None:
+    _write_freshness(tmp_path, "20260717")
+    for date_text in ("20260720", "20260721"):
+        _write_daily_price(tmp_path, date_text, _market_rows(date_text))
+
+    result = validator.validate(
+        tmp_path,
+        main_price_date_override="20260721",
+        lookback_days=1,
+        min_full_rows=1,
+    )
+
+    assert result.status == "pass"
+    assert result.report["main_price_date"] == "20260721"
+    assert result.report["expected_trading_dates"] == ["20260720", "20260721"]
+
+
+def test_explicit_main_price_date_must_be_calendar_valid(tmp_path: Path) -> None:
+    result = validator.validate(
+        tmp_path,
+        main_price_date_override="20260230",
+        lookback_days=1,
+        min_full_rows=1,
+    )
+
+    assert result.status == "fail"
+    assert "day is out of range for month" in result.errors[0]
+
+
 def test_exceptional_non_trading_day_is_not_required(tmp_path: Path) -> None:
     _write_freshness(tmp_path, "20260713")
     exceptional = tmp_path / "data" / "market_calendar" / "exceptional_non_trading_days.csv"

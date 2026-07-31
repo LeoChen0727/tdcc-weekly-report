@@ -7,7 +7,9 @@ from zoneinfo import ZoneInfo
 from concurrent.futures import ThreadPoolExecutor
 from functools import partial
 import argparse
+import csv
 import hashlib
+import io
 import math
 import os
 from typing import Any
@@ -180,16 +182,90 @@ def normalize_date(value: Any) -> str:
     return ""
 
 
-def advisory_score_source_lineage(path: Path) -> tuple[str, str]:
+def advisory_score_source_lineage(path: Path, as_of_date: str) -> tuple[str, str]:
     if not path.is_file():
         raise RuntimeError(f"advisory score source artifact is missing: {path.as_posix()}")
-    return path.as_posix(), canonical_text_sha256(path)
+    return path.as_posix(), canonical_csv_slice_sha256(path, as_of_date)
 
 
 def canonical_text_sha256(path: Path) -> str:
     text = path.read_text(encoding="utf-8-sig")
     canonical_text = text.replace("\r\n", "\n").replace("\r", "\n")
     return hashlib.sha256(canonical_text.encode("utf-8")).hexdigest()
+
+
+def canonical_csv_slice_sha256(path: Path, as_of_date: str) -> str:
+    def strict_date(value: Any) -> str:
+        raw = safe_str(value).strip()
+        for date_format in ("%Y%m%d", "%Y-%m-%d"):
+            try:
+                parsed = datetime.strptime(raw, date_format)
+            except ValueError:
+                continue
+            if parsed.strftime(date_format) == raw and parsed.strftime("%Y").startswith("20"):
+                return parsed.strftime("%Y%m%d")
+        return ""
+
+    normalized_as_of = strict_date(as_of_date)
+    if not normalized_as_of:
+        raise RuntimeError(f"advisory score source as-of date is invalid: {as_of_date!r}")
+
+    text = path.read_text(encoding="utf-8-sig")
+    canonical_text = text.replace("\r\n", "\n").replace("\r", "\n")
+    try:
+        rows = list(csv.reader(io.StringIO(canonical_text, newline=""), strict=True))
+    except csv.Error as exc:
+        raise RuntimeError(
+            f"advisory score source CSV is invalid: {path.as_posix()}: {exc}"
+        ) from exc
+    if not rows:
+        raise RuntimeError(f"advisory score source CSV is empty: {path.as_posix()}")
+    header = rows[0]
+    if header.count("date") != 1:
+        raise RuntimeError(
+            "advisory score source CSV must contain exactly one date column: "
+            f"{path.as_posix()} count={header.count('date')}"
+        )
+    date_index = header.index("date")
+    selected_rows = [header]
+    exact_as_of_count = 0
+    previous_date = ""
+    for line_number, values in enumerate(rows[1:], start=2):
+        if len(values) != len(header):
+            raise RuntimeError(
+                "advisory score source CSV field count mismatch: "
+                f"{path.as_posix()} line={line_number} "
+                f"expected={len(header)} actual={len(values)}"
+            )
+        row_date = strict_date(values[date_index])
+        if not row_date:
+            raise RuntimeError(
+                "advisory score source CSV row date is invalid: "
+                f"{path.as_posix()} line={line_number} value={values[date_index]!r}"
+            )
+        if row_date <= normalized_as_of:
+            if previous_date and row_date <= previous_date:
+                raise RuntimeError(
+                    "advisory score source CSV dates through as-of must be strictly "
+                    "increasing and unique: "
+                    f"{path.as_posix()} line={line_number} "
+                    f"previous={previous_date} actual={row_date}"
+                )
+            canonical_values = list(values)
+            canonical_values[date_index] = row_date
+            selected_rows.append(canonical_values)
+            previous_date = row_date
+            exact_as_of_count += int(row_date == normalized_as_of)
+
+    if exact_as_of_count != 1:
+        raise RuntimeError(
+            "advisory score source CSV must contain exactly one as-of row: "
+            f"{path.as_posix()} as_of={normalized_as_of} count={exact_as_of_count}"
+        )
+    buffer = io.StringIO(newline="")
+    csv.writer(buffer, lineterminator="\n").writerows(selected_rows)
+    canonical_slice = buffer.getvalue()
+    return hashlib.sha256(canonical_slice.encode("utf-8")).hexdigest()
 
 
 def latest_main_date() -> str:
@@ -621,10 +697,13 @@ def _process_price_history_path(path: Path, target_date: str = "") -> tuple[list
     latest_row = _select_latest_signal_row(df, target_date)
     latest_signal = detect_volume_breakout(latest_row) if latest_row is not None else None
     if latest_row is not None and latest_signal is not None:
-        source_artifact, source_sha256 = advisory_score_source_lineage(path)
+        latest_signal_date = normalize_date(latest_row.get("date"))
+        source_artifact, source_sha256 = advisory_score_source_lineage(
+            path, latest_signal_date
+        )
         latest_rows.append(
             {
-                "signal_date": normalize_date(latest_row.get("date")),
+                "signal_date": latest_signal_date,
                 "stock_id": normalize_stock_id(latest_row.get("stock_id")),
                 "stock_name": safe_str(latest_row.get("stock_name")),
                 "market": safe_str(latest_row.get("market")),
@@ -756,10 +835,11 @@ def _process_latest_path(path: Path, target_date: str = "") -> list[dict[str, An
     signal = detect_volume_breakout(row)
     if signal is None:
         return []
-    source_artifact, source_sha256 = advisory_score_source_lineage(path)
+    signal_date = normalize_date(row.get("date"))
+    source_artifact, source_sha256 = advisory_score_source_lineage(path, signal_date)
     return [
         {
-            "signal_date": normalize_date(row.get("date")),
+            "signal_date": signal_date,
             "stock_id": normalize_stock_id(row.get("stock_id")),
             "stock_name": safe_str(row.get("stock_name")),
             "market": safe_str(row.get("market")),

@@ -1,6 +1,6 @@
 # Daily Candidate Front Page Unique Representatives
 
-- generated_at: `2026-07-20 16:28:51 Asia/Taipei`
+- generated_at: `2026-07-26 15:10:01 Asia/Taipei`
 
 - Rebuilt from the fixed-membership formal report rows after warrant sync.
 

@@ -5,6 +5,7 @@ from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
 from concurrent.futures import ThreadPoolExecutor, TimeoutError as FutureTimeoutError, as_completed
 import csv
+import hashlib
 import io
 import json
 import math
@@ -73,6 +74,87 @@ FINAL_COLUMNS = [
     "trading_value",
     "source",
 ]
+FETCH_RESPONSE_PROVENANCE: list[dict[str, Any]] = []
+REQUIRE_EXACT_HISTORICAL_RESPONSE_DATES = False
+
+
+def reset_fetch_response_provenance() -> None:
+    FETCH_RESPONSE_PROVENANCE.clear()
+
+
+def fetch_response_provenance() -> list[dict[str, Any]]:
+    return [dict(row) for row in FETCH_RESPONSE_PROVENANCE]
+
+
+def collect_official_response_dates_from_text(text: str) -> list[str]:
+    payload = parse_json(text)
+    values: list[str] = []
+    if isinstance(payload, dict):
+        for key in ("title", "date", "queryDate", "reportDate", "tradeDate"):
+            if key in payload and not isinstance(payload[key], (dict, list)):
+                values.append(str(payload[key]))
+        tables = payload.get("tables")
+        if isinstance(tables, list):
+            for table in tables:
+                if not isinstance(table, dict):
+                    continue
+                for key in ("title", "date", "queryDate", "reportDate", "tradeDate"):
+                    if key in table and not isinstance(table[key], (dict, list)):
+                        values.append(str(table[key]))
+    elif payload is None:
+        # Official CSV puts the report title on its first non-empty line.
+        # Do not scan securities rows, where unrelated dates may appear.
+        first_line = next((line.strip() for line in str(text or "").splitlines() if line.strip()), "")
+        if first_line:
+            values.append(first_line)
+    dates: set[str] = set()
+    for value in values:
+        for roc_year, month, day in re.findall(r"(?<!\d)(\d{2,3})\s*年\s*(\d{1,2})\s*月\s*(\d{1,2})\s*日", value):
+            try:
+                dates.add(datetime(int(roc_year) + 1911, int(month), int(day)).strftime("%Y%m%d"))
+            except ValueError:
+                continue
+        for year, month, day in re.findall(r"(?<!\d)(20\d{2})[-/.](\d{1,2})[-/.](\d{1,2})(?!\d)", value):
+            try:
+                dates.add(datetime(int(year), int(month), int(day)).strftime("%Y%m%d"))
+            except ValueError:
+                continue
+        for compact in re.findall(r"(?<!\d)(20\d{6})(?!\d)", value):
+            try:
+                dates.add(datetime.strptime(compact, "%Y%m%d").strftime("%Y%m%d"))
+            except ValueError:
+                continue
+    return sorted(dates)
+
+
+def record_response_provenance(
+    url: str,
+    response: Any,
+    *,
+    source_name: str = "",
+    expected_response_date: str = "",
+) -> dict[str, Any]:
+    text = str(getattr(response, "text", "") or "")
+    raw = getattr(response, "content", None)
+    if not isinstance(raw, bytes):
+        raw = text.encode("utf-8")
+    observed_dates = collect_official_response_dates_from_text(text)
+    row = {
+            "endpoint": url,
+            "source_name": source_name,
+            "params": {},
+            "status_code": int(getattr(response, "status_code", 0) or 0),
+            "fetched_at": now_taipei().strftime("%Y-%m-%d %H:%M:%S Asia/Taipei"),
+            "raw_sha256": hashlib.sha256(raw).hexdigest(),
+            "normalized_sha256": hashlib.sha256(text.encode("utf-8")).hexdigest(),
+            "observed_response_dates": observed_dates,
+            "expected_response_date": expected_response_date,
+            "exact_date_match": (
+                observed_dates == [expected_response_date] if expected_response_date else "not_required"
+            ),
+        }
+    FETCH_RESPONSE_PROVENANCE.append(row)
+    return dict(row)
 
 
 def now_taipei() -> datetime:
@@ -208,7 +290,14 @@ def is_valid_stock_id(stock_id: str) -> bool:
     return bool(re.fullmatch(r"\d{4,6}", safe_str(stock_id)))
 
 
-def request_text(url: str, log: list[str], referer: str = "https://www.twse.com.tw/") -> str:
+def request_text(
+    url: str,
+    log: list[str],
+    referer: str = "https://www.twse.com.tw/",
+    *,
+    source_name: str = "",
+    expected_response_date: str = "",
+) -> str:
     headers = {
         "User-Agent": USER_AGENT,
         "Accept": "application/json,text/csv,text/plain,text/html,*/*",
@@ -217,10 +306,22 @@ def request_text(url: str, log: list[str], referer: str = "https://www.twse.com.
 
     try:
         response = requests.get(url, headers=headers, timeout=REQUEST_TIMEOUT)
+        provenance = record_response_provenance(
+            url,
+            response,
+            source_name=source_name,
+            expected_response_date=expected_response_date,
+        )
         text = response.text or ""
         log.append(f"GET {url} -> status={response.status_code}, chars={len(text)}")
 
         if response.status_code != 200:
+            return ""
+        if expected_response_date and provenance["exact_date_match"] is not True:
+            log.append(
+                f"{source_name}: rejected response date evidence "
+                f"{provenance['observed_response_dates']}; target date is {expected_response_date}"
+            )
             return ""
 
         return text
@@ -387,6 +488,13 @@ def parse_twse_mi_index_json(text: str, date_text: str, source: str, log: list[s
     if not isinstance(obj, dict):
         log.append(f"{source}: JSON parse failed")
         return pd.DataFrame(columns=FINAL_COLUMNS)
+    if REQUIRE_EXACT_HISTORICAL_RESPONSE_DATES:
+        response_dates = collect_official_response_dates_from_text(text)
+        if response_dates != [date_text]:
+            log.append(
+                f"{source}: rejected TWSE response dates {response_dates}; target date is {date_text}"
+            )
+            return pd.DataFrame(columns=FINAL_COLUMNS)
 
     rows: list[dict[str, Any]] = []
 
@@ -416,6 +524,13 @@ def parse_twse_mi_index_json(text: str, date_text: str, source: str, log: list[s
 
 
 def parse_twse_mi_index_csv(text: str, date_text: str, source: str, log: list[str]) -> pd.DataFrame:
+    if REQUIRE_EXACT_HISTORICAL_RESPONSE_DATES:
+        response_dates = collect_official_response_dates_from_text(text)
+        if response_dates != [date_text]:
+            log.append(
+                f"{source}: rejected TWSE CSV response dates {response_dates}; target date is {date_text}"
+            )
+            return pd.DataFrame(columns=FINAL_COLUMNS)
     rows = []
 
     reader = csv.reader(io.StringIO(text.lstrip("\ufeff")))
@@ -498,8 +613,17 @@ def fetch_twse_batch(date_text: str, log: list[str]) -> pd.DataFrame:
     best = pd.DataFrame(columns=FINAL_COLUMNS)
 
     for source, url, kind in urls:
+        if REQUIRE_EXACT_HISTORICAL_RESPONSE_DATES and kind == "openapi":
+            log.append(f"Skip TWSE latest-only source={source} for historical target date {date_text}")
+            continue
         log.append(f"Trying TWSE batch source={source} date={date_text}")
-        text = request_text(url, log, referer="https://www.twse.com.tw/")
+        text = request_text(
+            url,
+            log,
+            referer="https://www.twse.com.tw/",
+            source_name=source,
+            expected_response_date=(date_text if REQUIRE_EXACT_HISTORICAL_RESPONSE_DATES else ""),
+        )
 
         if not text:
             continue
@@ -594,6 +718,7 @@ def fetch_twse_individual_one(
     try:
         time.sleep(REQUEST_SLEEP_SECONDS)
         resp = requests.get(url, headers=headers, timeout=INDIVIDUAL_REQUEST_TIMEOUT)
+        record_response_provenance(url, resp)
         if resp.status_code != 200:
             return None
 
@@ -753,6 +878,12 @@ def parse_tpex_json(text: str, date_text: str, source: str, log: list[str]) -> p
         return pd.DataFrame(columns=FINAL_COLUMNS)
 
     response_dates = collect_json_response_dates(obj)
+    official_response_dates = set(collect_official_response_dates_from_text(text))
+    if REQUIRE_EXACT_HISTORICAL_RESPONSE_DATES and official_response_dates != {date_text}:
+        log.append(
+            f"{source}: rejected response dates {sorted(official_response_dates)}; target date is {date_text}"
+        )
+        return pd.DataFrame(columns=FINAL_COLUMNS)
     if response_dates and date_text not in response_dates:
         log.append(
             f"{source}: rejected response dates {sorted(response_dates)}; target date is {date_text}"
@@ -800,6 +931,12 @@ def parse_tpex_json(text: str, date_text: str, source: str, log: list[str]) -> p
 
 def parse_tpex_csv(text: str, date_text: str, source: str, log: list[str]) -> pd.DataFrame:
     response_date = extract_response_date(text)
+    official_response_dates = collect_official_response_dates_from_text(text)
+    if REQUIRE_EXACT_HISTORICAL_RESPONSE_DATES and official_response_dates != [date_text]:
+        log.append(
+            f"{source}: rejected response dates {official_response_dates}; target date is {date_text}"
+        )
+        return pd.DataFrame(columns=FINAL_COLUMNS)
     if response_date and not response_date_matches_target(response_date, date_text):
         log.append(f"{source}: rejected response date {response_date}; target date is {date_text}")
         return pd.DataFrame(columns=FINAL_COLUMNS)
@@ -876,7 +1013,13 @@ def fetch_tpex_batch(date_text: str, log: list[str]) -> pd.DataFrame:
             )
             continue
         log.append(f"Trying TPEx batch source={source} date={date_text}")
-        text = request_text(url, log, referer="https://www.tpex.org.tw/")
+        text = request_text(
+            url,
+            log,
+            referer="https://www.tpex.org.tw/",
+            source_name=source,
+            expected_response_date=(date_text if REQUIRE_EXACT_HISTORICAL_RESPONSE_DATES else ""),
+        )
 
         if not text:
             continue
@@ -1221,7 +1364,11 @@ def fetch_price_for_date(
 
     twse = fetch_twse_batch(date_text, log)
 
-    if len(twse) < MIN_TWSE_ROWS and remaining_seconds(deadline) > 5:
+    if (
+        len(twse) < MIN_TWSE_ROWS
+        and remaining_seconds(deadline) > 5
+        and not REQUIRE_EXACT_HISTORICAL_RESPONSE_DATES
+    ):
         log.append(f"TWSE batch insufficient rows={len(twse)}; start individual fallback")
         fallback_twse = fetch_twse_individual_fallback(date_text, universe, log, deadline=deadline)
 

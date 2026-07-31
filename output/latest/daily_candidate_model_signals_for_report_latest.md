@@ -1,6 +1,6 @@
 # Daily Candidate Model Signals For Report
 
-- generated_at: `2026-07-20 16:28:51 Asia/Taipei`
+- generated_at: `2026-07-26 15:10:00 Asia/Taipei`
 
 - Use this table for PDF model sections.
 - Warrant-only formal sync does not reevaluate model selection conditions.

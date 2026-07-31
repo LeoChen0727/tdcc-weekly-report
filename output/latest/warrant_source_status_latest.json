@@ -1,9 +1,9 @@
 {
   "status": "ok",
-  "generated_at": "2026-07-20 16:28:33 Asia/Taipei",
-  "requested_date": "20260717",
-  "target_date": "20260717",
-  "data_date": "20260717",
+  "generated_at": "2026-07-30 16:48:18 Asia/Taipei",
+  "requested_date": "20260730",
+  "target_date": "20260730",
+  "data_date": "20260730",
   "last_unavailable_date": "",
   "consecutive_unavailable_trading_days": 0,
   "max_warning_days": 2,
@@ -12,8 +12,110 @@
   "warrant_pdf_visibility": "visible",
   "model_effect_allowed": true,
   "pdf_effect_allowed": true,
-  "final_rows": 28899,
-  "mapping_rows": 28961,
-  "quote_rows": 0,
-  "note": "preserved existing same-date usable raw snapshot from output/latest/warrant_daily_raw_latest.csv"
+  "final_rows": 29943,
+  "mapping_rows": 30003,
+  "quote_rows": 29943,
+  "note": "current-date stock-level warrant data is usable",
+  "mode": "reconstructed_source_tail_gap",
+  "publication_status": "reconstructed_not_as_published",
+  "as_published": false,
+  "observed_date": "20260730",
+  "fallback_used": false,
+  "future_rows_used": false,
+  "source_responses": [
+    {
+      "endpoint": "https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20260730&type=0999&response=json",
+      "source_name": "TWSE_MI_INDEX_0999_JSON",
+      "family": "quote",
+      "logical_group": "quote-0999",
+      "attempt": 1,
+      "params": {
+        "date": "20260730",
+        "type": "0999",
+        "response": "json"
+      },
+      "status_code": 200,
+      "fetched_at": "2026-07-30 16:48:09 Asia/Taipei",
+      "elapsed_seconds": 1.787038,
+      "raw_bytes": 4567958,
+      "raw_sha256": "3e0642f7b6f3d53ffc66dd0a5e81130e07e518ec7cc8d4ccb3879af8cae34371",
+      "normalized_sha256": "3e0642f7b6f3d53ffc66dd0a5e81130e07e518ec7cc8d4ccb3879af8cae34371",
+      "encoding": "utf-8",
+      "observed_response_dates": [
+        "20260730"
+      ],
+      "expected_response_date": "20260730",
+      "exact_date_match": true,
+      "parsed_table_count": 2,
+      "parsed_table_rows": 27661,
+      "accepted_rows": 27658,
+      "accepted": true,
+      "status": "accepted",
+      "error": ""
+    },
+    {
+      "endpoint": "https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20260730&type=0999P&response=json",
+      "source_name": "TWSE_MI_INDEX_0999P_JSON",
+      "family": "quote",
+      "logical_group": "quote-0999P",
+      "attempt": 1,
+      "params": {
+        "date": "20260730",
+        "type": "0999P",
+        "response": "json"
+      },
+      "status_code": 200,
+      "fetched_at": "2026-07-30 16:48:11 Asia/Taipei",
+      "elapsed_seconds": 0.865182,
+      "raw_bytes": 391738,
+      "raw_sha256": "73df1f02722d066d9251d9ef82d2317ed1a4e133535a73f6f026dcb9fc006d0c",
+      "normalized_sha256": "73df1f02722d066d9251d9ef82d2317ed1a4e133535a73f6f026dcb9fc006d0c",
+      "encoding": "utf-8",
+      "observed_response_dates": [
+        "20260730"
+      ],
+      "expected_response_date": "20260730",
+      "exact_date_match": true,
+      "parsed_table_count": 2,
+      "parsed_table_rows": 2288,
+      "accepted_rows": 2285,
+      "accepted": true,
+      "status": "accepted",
+      "error": ""
+    },
+    {
+      "endpoint": "https://www.twse.com.tw/rwd/zh/stock/warrantStock?date=20260730&response=json",
+      "source_name": "TWSE_WARRANT_STOCK_JSON",
+      "family": "mapping",
+      "logical_group": "mapping",
+      "attempt": 1,
+      "params": {
+        "date": "20260730",
+        "response": "json"
+      },
+      "status_code": 200,
+      "fetched_at": "2026-07-30 16:48:17 Asia/Taipei",
+      "elapsed_seconds": 5.556587,
+      "raw_bytes": 7124219,
+      "raw_sha256": "76ce331a480556f30d98e6f43c847e71104e274bcfb841f0f5042409c715ef8c",
+      "normalized_sha256": "76ce331a480556f30d98e6f43c847e71104e274bcfb841f0f5042409c715ef8c",
+      "encoding": "utf-8",
+      "observed_response_dates": [
+        "20260730"
+      ],
+      "expected_response_date": "20260730",
+      "exact_date_match": true,
+      "parsed_table_count": 2,
+      "parsed_table_rows": 30006,
+      "accepted_rows": 30003,
+      "accepted": true,
+      "status": "accepted",
+      "error": ""
+    }
+  ],
+  "warrant_flow_date": "20260730",
+  "warrant_flow_rows": 486,
+  "calculation_context_max_date": "20260730",
+  "prior_warrant_flow_context_max_date": "20260729",
+  "future_row_count": 0
 }

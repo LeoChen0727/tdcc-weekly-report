@@ -1,6 +1,6 @@
 # Daily Candidate Model Signals
 
-- generated_at: `2026-07-20 16:28:51 Asia/Taipei`
+- generated_at: `2026-07-26 15:10:00 Asia/Taipei`
 
 - Warrant-only formal sync preserves the published model membership exactly.
 - `model_rank` may change only for registered warrant-bonus models.

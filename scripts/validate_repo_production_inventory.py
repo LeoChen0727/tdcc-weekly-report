@@ -87,6 +87,12 @@ WORKFLOW_ALLOWED_OWNERS = {
         "daily_production",
         "repo_infrastructure",
     },
+    ".github/workflows/historical_structured_source_replay.yml": {
+        "official_price_data",
+        "market_risk",
+        "warrant",
+        "repo_infrastructure",
+    },
     ".github/workflows/individual_stock_data_refresh.yml": {
         "individual_stock",
         "official_price_data",
@@ -280,6 +286,16 @@ REQUIRED_WORKFLOW_COMMANDS = {
         "python scripts/validate_repo_code_isolation_policy.py",
         "python scripts/validate_model_research_workflow_isolation.py",
     ),
+    ".github/workflows/historical_structured_source_replay.yml": (
+        "python scripts/validate_apps_script_workflow_triggers.py",
+        "python scripts/validate_repo_production_inventory.py",
+        "python scripts/validate_repo_file_lifecycle_inventory.py",
+        "python scripts/validate_repo_semantic_integrity.py",
+        "python scripts/validate_daily_production_boundaries.py",
+        "python scripts/replay_historical_structured_sources.py",
+        "python scripts/validate_historical_structured_source_replay.py",
+        "python scripts/validate_historical_source_replay_staged_paths.py",
+    ),
     ".github/workflows/research_backtest_pipeline.yml": (
         "python scripts/validate_repo_production_inventory.py",
         "python scripts/validate_research_production_boundaries.py",
@@ -331,6 +347,7 @@ REQUIRED_WORKFLOW_COMMANDS = {
         "python scripts/validate_repo_production_inventory.py",
         "python scripts/validate_repo_file_lifecycle_inventory.py",
         "python scripts/validate_repo_semantic_integrity.py",
+        "python scripts/validate_recent_structured_source_repair_workflow.py",
     ),
 }
 
@@ -593,6 +610,93 @@ def workflow_has_pull_request_trigger(text: str) -> bool:
     return False
 
 
+def workflow_call_declared_secrets(text: str) -> set[str]:
+    secrets: set[str] = set()
+    in_workflow_call = False
+    in_secrets = False
+
+    for line in text.splitlines():
+        if line == "  workflow_call:":
+            in_workflow_call = True
+            in_secrets = False
+            continue
+        if not in_workflow_call:
+            continue
+        if re.match(r"^  \S", line):
+            break
+        if line == "    secrets:":
+            in_secrets = True
+            continue
+        if not in_secrets:
+            continue
+        if re.match(r"^    \S", line):
+            in_secrets = False
+            continue
+        match = re.match(r"^      ([A-Za-z0-9_]+):\s*$", line)
+        if match:
+            secrets.add(match.group(1))
+
+    return secrets
+
+
+def local_reusable_workflow_path(job_block: str) -> str:
+    match = re.search(
+        r"^    uses:\s+\./(\.github/workflows/[A-Za-z0-9_.-]+\.ya?ml)\s*$",
+        job_block,
+        flags=re.MULTILINE,
+    )
+    return match.group(1) if match else ""
+
+
+def workflow_job_mapping(job_block: str, section: str) -> dict[str, str]:
+    lines = job_block.splitlines()
+    section_line = f"    {section}:"
+    mapping: dict[str, str] = {}
+    in_section = False
+    for line in lines:
+        if not in_section:
+            if line == section_line:
+                in_section = True
+            continue
+        if re.match(r"^    \S", line):
+            break
+        match = re.match(r"^      ([A-Za-z0-9_]+):\s*(.*?)\s*$", line)
+        if match:
+            mapping[match.group(1)] = match.group(2).strip("'\"")
+    return mapping
+
+
+def is_registered_reusable_writer_job(
+    job_block: str,
+    rows_by_path: dict[str, InventoryRow],
+) -> bool:
+    called_path = local_reusable_workflow_path(job_block)
+    called_row = rows_by_path.get(called_path)
+    if not called_path or called_row is None or not called_row.allowed_stage_patterns:
+        return False
+    called_text = read_text(called_path)
+    return workflow_call_declared_secrets(called_text) == {
+        PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY
+    }
+
+
+def validate_reusable_writer_delegate(
+    workflow_path: str,
+    job_name: str,
+    block: str,
+    errors: list[str],
+) -> None:
+    secrets = workflow_job_mapping(block, "secrets")
+    expected = {
+        PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY: PRODUCTION_ARTIFACT_WRITE_SECRET_EXPRESSION
+    }
+    if secrets != expected:
+        errors.append(
+            f"{workflow_path} reusable writer job {job_name} must pass exactly "
+            f"secrets.{PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY} and no other secrets"
+        )
+
+
 def workflow_step_blocks(job_block: str) -> list[str]:
     blocks: list[str] = []
     in_steps = False
@@ -747,6 +851,11 @@ def validate_production_artifact_writer_auth(
         }
         is_registered_writer = bool(row is not None and row.allowed_stage_patterns)
         writer_jobs = artifact_push_jobs if is_registered_writer else {}
+        reusable_writer_jobs = {
+            job_name: block
+            for job_name, block in job_blocks.items()
+            if is_registered_reusable_writer_job(block, rows_by_path)
+        }
 
         if is_registered_writer and not artifact_push_jobs:
             errors.append(
@@ -755,9 +864,15 @@ def validate_production_artifact_writer_auth(
 
         for job_name, block in writer_jobs.items():
             validate_artifact_push_job(workflow_path, job_name, block, errors)
+        for job_name, block in reusable_writer_jobs.items():
+            validate_reusable_writer_delegate(workflow_path, job_name, block, errors)
 
         for job_name, block in job_blocks.items():
-            if job_name not in writer_jobs and PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY in block:
+            if (
+                job_name not in writer_jobs
+                and job_name not in reusable_writer_jobs
+                and PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY in block
+            ):
                 errors.append(
                     f"{workflow_path} non-writer job {job_name} must not use "
                     f"secrets.{PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY}"
@@ -767,7 +882,21 @@ def validate_production_artifact_writer_auth(
             block.count(PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY)
             for block in writer_jobs.values()
         )
-        if text.count(PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY) != writer_secret_count:
+        reusable_writer_secret_count = sum(
+            block.count(PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY)
+            for block in reusable_writer_jobs.values()
+        )
+        reusable_secret_declaration_count = int(
+            is_registered_writer
+            and PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY
+            in workflow_call_declared_secrets(text)
+        )
+        if (
+            text.count(PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY)
+            != writer_secret_count
+            + reusable_writer_secret_count
+            + reusable_secret_declaration_count
+        ):
             errors.append(
                 f"{workflow_path} must scope secrets.{PRODUCTION_ARTIFACT_WRITE_DEPLOY_KEY} "
                 "to artifact push jobs only"
