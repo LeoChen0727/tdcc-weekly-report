@@ -364,7 +364,11 @@ def _build_fixture(root: Path) -> dict[str, Path]:
         index=False,
     )
     rearmed_path = root / validator.SOURCE_RELATIVE_PATHS["rearmed"]
-    operations.to_csv(rearmed_path, index=False, encoding="utf-8-sig")
+    serialized_operations = operations.copy()
+    serialized_operations["planned_exit_index"] = serialized_operations[
+        "planned_exit_index"
+    ].map(lambda value: f"{float(value):.1f}")
+    serialized_operations.to_csv(rearmed_path, index=False, encoding="utf-8-sig")
     return paths
 
 

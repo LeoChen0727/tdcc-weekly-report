@@ -1302,7 +1302,7 @@ def _expected_detail(
                 "entry_index": indices["entry"],
                 "entry_date": str(operation.entry_date),
                 "entry_price": round(float(operation.entry_price), 8),
-                "planned_exit_index": int(operation.planned_exit_index),
+                "planned_exit_index": indices["exit"],
                 "planned_exit_date": _date_text(operation.planned_exit_date),
                 "exit_index": indices["exit"],
                 "exit_date": str(operation.exit_date),
