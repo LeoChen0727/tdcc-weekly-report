@@ -10,8 +10,131 @@ from scripts import validate_pdf_production_inventory as inventory
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def test_pdf_production_inventory_validator_passes() -> None:
-    assert inventory.main() == 0
+def _patch_runtime_inventory_paths(monkeypatch, tmp_path: Path) -> None:
+    output_latest = tmp_path / "output" / "latest"
+    docs_latest = tmp_path / "docs" / "latest"
+    history_reports = tmp_path / "output" / "history" / "reports"
+    output_latest.mkdir(parents=True)
+    docs_latest.mkdir(parents=True)
+    history_reports.mkdir(parents=True)
+
+    monkeypatch.setattr(inventory, "ROOT", tmp_path)
+    monkeypatch.setattr(inventory, "OUTPUT_LATEST", output_latest)
+    monkeypatch.setattr(inventory, "DOCS_LATEST", docs_latest)
+    monkeypatch.setattr(inventory, "HISTORY_REPORTS", history_reports)
+    monkeypatch.setattr(inventory, "DATA_FRESHNESS", output_latest / "data_freshness_latest.csv")
+    monkeypatch.setattr(
+        inventory,
+        "REPORT_MANIFEST_JSON",
+        output_latest / "report_manifest_latest.json",
+    )
+    monkeypatch.setattr(
+        inventory,
+        "REPORT_MANIFEST_MD",
+        output_latest / "report_manifest_latest.md",
+    )
+    monkeypatch.setattr(
+        inventory,
+        "DAILY_MARKET_COMPATIBILITY_ALIAS_PATHS",
+        (
+            output_latest / "daily_market_summary_latest.pdf",
+            output_latest / "daily_market_full_latest.pdf",
+        ),
+    )
+    monkeypatch.setattr(inventory, "LEGACY_ROOT_DAILY_MARKET_PDF_PATHS", ())
+    monkeypatch.setattr(inventory, "STATIC_PUBLIC_SURFACES", ())
+    monkeypatch.setattr(inventory, "RUNTIME_PUBLIC_SURFACES", ())
+    for function_name in (
+        "validate_inventory_document",
+        "validate_paths_exist",
+        "validate_daily_history_producer_contract",
+        "validate_workflow_hooks",
+    ):
+        monkeypatch.setattr(inventory, function_name, lambda errors: None)
+
+
+def _write_complete_runtime_inventory(main_date: str) -> None:
+    inventory.DATA_FRESHNESS.write_text(
+        f"main_price_date\n{main_date}\n",
+        encoding="utf-8",
+    )
+    for path in inventory.DAILY_MARKET_COMPATIBILITY_ALIAS_PATHS:
+        path.write_bytes(b"pdf")
+    for path in inventory.daily_market_published_pdf_paths(main_date):
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_bytes(b"pdf")
+
+    expected = inventory.daily_market_canonical_history_paths(main_date)
+    for path in expected.values():
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_bytes(b"pdf" if path.suffix == ".pdf" else b"markdown")
+
+    expected_rel = {field: path.relative_to(inventory.ROOT).as_posix() for field, path in expected.items()}
+    manifest = {
+        "main_price_date": main_date,
+        "history_path_contract": "canonical_daily_market_history_only",
+        **expected_rel,
+        "history_summary_alias_md": expected_rel["history_summary_md"],
+        "history_summary_alias_pdf": expected_rel["history_summary_pdf"],
+        "history_full_alias_md": expected_rel["history_full_md"],
+        "history_full_alias_pdf": expected_rel["history_full_pdf"],
+    }
+    for field, source_field in (
+        ("history_summary_alias_md_raw_url", "history_summary_md"),
+        ("history_summary_alias_pdf_raw_url", "history_summary_pdf"),
+        ("history_full_alias_md_raw_url", "history_full_md"),
+        ("history_full_alias_pdf_raw_url", "history_full_pdf"),
+        ("summary_md_raw_url", "history_summary_md"),
+        ("summary_pdf_raw_url", "history_summary_pdf"),
+        ("full_md_raw_url", "history_full_md"),
+        ("full_pdf_raw_url", "history_full_pdf"),
+    ):
+        manifest[field] = f"https://example.invalid/{expected_rel[source_field]}"
+    inventory.REPORT_MANIFEST_JSON.write_text(
+        json.dumps(manifest, ensure_ascii=False),
+        encoding="utf-8",
+    )
+    inventory.REPORT_MANIFEST_MD.write_text(
+        "\n".join(expected_rel.values()),
+        encoding="utf-8",
+    )
+
+
+def test_pdf_production_inventory_prebuild_validator_passes() -> None:
+    assert inventory.main(["--phase", "prebuild"]) == 0
+
+
+def test_prebuild_allows_old_runtime_but_full_requires_completed_new_artifacts(
+    monkeypatch, tmp_path: Path
+) -> None:
+    _patch_runtime_inventory_paths(monkeypatch, tmp_path)
+    _write_complete_runtime_inventory("20260730")
+    inventory.DATA_FRESHNESS.write_text(
+        "main_price_date\n20260731\n",
+        encoding="utf-8",
+    )
+
+    assert inventory.validate(inventory.VALIDATION_PHASE_PREBUILD) == []
+    old_runtime_errors = inventory.validate()
+    assert any("published daily market PDF missing" in error for error in old_runtime_errors)
+    assert any("history_summary_md must equal canonical path" in error for error in old_runtime_errors)
+
+    _write_complete_runtime_inventory("20260731")
+
+    assert inventory.validate() == []
+
+
+def test_pdf_production_inventory_cli_defaults_to_full(monkeypatch) -> None:
+    observed_phases: list[str] = []
+
+    def fake_validate(phase: str = inventory.VALIDATION_PHASE_FULL) -> list[str]:
+        observed_phases.append(phase)
+        return []
+
+    monkeypatch.setattr(inventory, "validate", fake_validate)
+
+    assert inventory.main([]) == 0
+    assert observed_phases == [inventory.VALIDATION_PHASE_FULL]
 
 
 def test_inventory_tracks_every_pdf_purpose() -> None:
@@ -76,12 +199,36 @@ def test_retired_daily_pdf_paths_are_not_in_public_surfaces() -> None:
             assert name not in text, f"{path.relative_to(ROOT).as_posix()} exposes {name}"
 
 
-def test_daily_workflow_runs_inventory_validator_twice() -> None:
+def test_daily_workflow_uses_prebuild_once_and_keeps_two_full_validations() -> None:
     workflow = (ROOT / ".github" / "workflows" / "daily_full_pipeline.yml").read_text(
         encoding="utf-8"
     )
+    commands = [line.strip() for line in workflow.splitlines()]
 
-    assert workflow.count("python scripts/validate_pdf_production_inventory.py") >= 2
+    assert commands.count(
+        "python scripts/validate_pdf_production_inventory.py --phase prebuild"
+    ) == 1
+    assert commands.count("python scripts/validate_pdf_production_inventory.py") >= 2
+
+    prebuild_step = workflow[workflow.index("- name: Validate Apps Script workflow triggers") :]
+    prebuild_step = prebuild_step[: prebuild_step.index("- name: Install dependencies")]
+    assert "python scripts/validate_pdf_production_inventory.py --phase prebuild" in prebuild_step
+    assert "\n          python scripts/validate_pdf_production_inventory.py\n" not in prebuild_step
+
+    build_index = workflow.index("- name: Build daily market report artifacts")
+    post_build_full_index = workflow.index(
+        "python scripts/validate_pdf_production_inventory.py",
+        build_index,
+    )
+    publish_index = workflow.index(
+        "- name: Publish readme and multi-entry URL check",
+        post_build_full_index,
+    )
+    post_publish_full_index = workflow.index(
+        "python scripts/validate_pdf_production_inventory.py",
+        publish_index,
+    )
+    assert build_index < post_build_full_index < publish_index < post_publish_full_index
 
 
 def test_daily_workflow_cleans_stale_readmes_before_pdf_inventory_validation() -> None:
