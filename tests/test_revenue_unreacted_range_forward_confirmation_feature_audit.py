@@ -17,14 +17,31 @@ from revenue_unreacted_range_forward_confirmation_feature_audit import (  # noqa
     PRIMARY_ANALYSIS_BASIS,
     EXPECTED_SOURCE_ARTIFACT_ID,
     EXPECTED_SOURCE_ARTIFACT_VERSION,
+    SOURCE_PROJECTION_CUTOFF_DATE,
+    SOURCE_PROJECTION_SUMMARY_COLUMNS,
     _normalize_source_detail,
     build_forward_confirmation_feature_audit,
     build_operation_return_review,
+)
+from revenue_unreacted_range_source_snapshot_projection import (  # noqa: E402
+    ARTIFACT_ID as SOURCE_PROJECTION_ARTIFACT_ID,
+    ARTIFACT_VERSION as SOURCE_PROJECTION_ARTIFACT_VERSION,
+    MANIFEST_COLUMNS as SOURCE_PROJECTION_MANIFEST_COLUMNS,
+    MODEL_ID as SOURCE_PROJECTION_MODEL_ID,
+    PROJECTION_ID as SOURCE_PROJECTION_ID,
+    PROJECTION_POLICY_ID as SOURCE_PROJECTION_POLICY_ID,
+    PROJECTION_VERSION as SOURCE_PROJECTION_VERSION,
+    canonical_projected_source_detail_semantic_sha256,
 )
 from validate_revenue_unreacted_range_forward_confirmation_feature_audit import (  # noqa: E402
     validate,
 )
 import validate_revenue_unreacted_range_forward_confirmation_feature_audit as forward_validator  # noqa: E402
+
+
+MONTHLY_REVENUE_BLOB_SHA = "a" * 64
+MONTHLY_REVENUE_TABLE_SHA = "b" * 64
+CROSS_MARKET_REGISTRY_SHA = "c" * 64
 
 
 def _stock_frame(stock_id: str, *, false_index: int | None, launch_index: int) -> pd.DataFrame:
@@ -105,6 +122,10 @@ def _source_row(stock: pd.DataFrame, stock_id: str, *, start: int, end: int, fir
         "stock_name": stock_id,
         "episode_start_trade_date": stock.at[start, "date"],
         "episode_start_source_date": stock.at[start, "date"],
+        "latest_qualifying_source_date": stock.at[start, "date"],
+        "qualifying_source_dates": stock.at[start, "date"],
+        "latest_qualifying_trade_date": stock.at[start, "date"],
+        "qualifying_trade_dates": stock.at[start, "date"],
         "episode_end_date": stock.at[end, "date"],
         "episode_status": "launch_within_active_horizon",
         "first_breakout_date": stock.at[first, "date"],
@@ -113,7 +134,63 @@ def _source_row(stock: pd.DataFrame, stock_id: str, *, start: int, end: int, fir
         "qualifying_source_revenue_anomaly_candidate_flag": False,
         "unresolved_price_path_candidate_flag": False,
         "same_stock_non_overlap_applied": True,
+        "monthly_revenue_history_blob_sha256": MONTHLY_REVENUE_BLOB_SHA,
+        "monthly_revenue_canonical_table_sha256": MONTHLY_REVENUE_TABLE_SHA,
+        "cross_market_resolution_registry_canonical_sha256": CROSS_MARKET_REGISTRY_SHA,
     }
+
+
+def _source_projection_manifest(source: pd.DataFrame) -> pd.DataFrame:
+    projected_sha = canonical_projected_source_detail_semantic_sha256(source)
+    row = {column: "" for column in SOURCE_PROJECTION_MANIFEST_COLUMNS}
+    row.update(
+        {
+            "generated_at": "2026-07-31 00:00:00 Asia/Taipei",
+            "model_id": SOURCE_PROJECTION_MODEL_ID,
+            "artifact_id": SOURCE_PROJECTION_ARTIFACT_ID,
+            "artifact_version": SOURCE_PROJECTION_ARTIFACT_VERSION,
+            "projection_id": SOURCE_PROJECTION_ID,
+            "projection_version": SOURCE_PROJECTION_VERSION,
+            "projection_policy_id": SOURCE_PROJECTION_POLICY_ID,
+            "cutoff_date": SOURCE_PROJECTION_CUTOFF_DATE,
+            "full_source_artifact_id": EXPECTED_SOURCE_ARTIFACT_ID,
+            "full_source_artifact_version": EXPECTED_SOURCE_ARTIFACT_VERSION,
+            "full_source_episode_row_count": len(source),
+            "full_source_episode_semantic_sha256": projected_sha,
+            "monthly_revenue_history_blob_sha256": MONTHLY_REVENUE_BLOB_SHA,
+            "monthly_revenue_canonical_table_sha256": MONTHLY_REVENUE_TABLE_SHA,
+            "cross_market_resolution_registry_canonical_sha256": CROSS_MARKET_REGISTRY_SHA,
+            "cutoff_revenue_subset_row_count": 1,
+            "cutoff_revenue_subset_semantic_sha256": MONTHLY_REVENUE_TABLE_SHA,
+            "cutoff_price_input_stock_count": source["stock_id"].nunique(),
+            "cutoff_price_input_row_count": len(source),
+            "cutoff_price_input_file_semantic_sha256s": "d" * 64,
+            "cutoff_price_input_semantic_sha256": "d" * 64,
+            "applied_monthly_resolution_count": 0,
+            "applied_monthly_resolution_ids": "none",
+            "applied_monthly_resolution_semantic_sha256": "e" * 64,
+            "applied_price_resolution_count": 0,
+            "applied_price_resolution_ids": "none",
+            "applied_price_resolution_semantic_sha256": "f" * 64,
+            "projected_episode_row_count": len(source),
+            "projected_episode_semantic_sha256": projected_sha,
+            "projected_max_source_date": max(
+                source["latest_qualifying_source_date"].astype(str)
+            ),
+            "projected_max_trade_date": max(
+                source["latest_qualifying_trade_date"].astype(str)
+            ),
+            "projected_max_episode_end_date": max(source["episode_end_date"].astype(str)),
+            "research_only": "true",
+            "formal_model_use_allowed": "false",
+            "approved_for_daily": "false",
+            "production_change": "false",
+            "promotion_evidence_allowed": "false",
+            "ranking_consumption_allowed": "false",
+            "pdf_consumption_allowed": "false",
+        }
+    )
+    return pd.DataFrame([row], columns=list(SOURCE_PROJECTION_MANIFEST_COLUMNS))
 
 
 @pytest.mark.parametrize(
@@ -156,7 +233,14 @@ def _audit_frames() -> tuple[
         ]
     )
     daily = {"4916": stock_4916, "1303": stock_1303}
-    return (*build_forward_confirmation_feature_audit(source_detail=source, daily_by_stock=daily), daily)
+    return (
+        *build_forward_confirmation_feature_audit(
+            source_detail=source,
+            daily_by_stock=daily,
+            source_projection_manifest=_source_projection_manifest(source),
+        ),
+        daily,
+    )
 
 
 def test_first_match_policy_keeps_4916_false_breakout_in_baseline() -> None:
@@ -178,6 +262,27 @@ def test_first_match_policy_keeps_4916_false_breakout_in_baseline() -> None:
     ].iloc[0] == 1
 
 
+def test_summary_carries_all_eight_source_projection_lineage_fields() -> None:
+    summary, _, _, _, _, _ = _audit_frames()
+
+    observed = tuple(
+        column for column in summary.columns if column.startswith("source_projection_")
+    )
+    assert observed == SOURCE_PROJECTION_SUMMARY_COLUMNS
+    for column in SOURCE_PROJECTION_SUMMARY_COLUMNS:
+        assert summary[column].nunique(dropna=False) == 1
+    assert set(summary["source_projection_artifact_id"]) == {
+        SOURCE_PROJECTION_ARTIFACT_ID
+    }
+    assert set(summary["source_projection_cutoff_date"]) == {
+        SOURCE_PROJECTION_CUTOFF_DATE
+    }
+    assert set(summary["source_projection_episode_row_count"]) == {2}
+    assert summary["source_projection_detail_semantic_sha256"].str.fullmatch(
+        r"[0-9a-f]{64}"
+    ).all()
+
+
 def test_source_level_reference_preserves_old_first_breakout_parity() -> None:
     _, detail, _, _, _, daily = _audit_frames()
     row = detail.loc[
@@ -187,6 +292,109 @@ def test_source_level_reference_preserves_old_first_breakout_parity() -> None:
     assert row["trigger_date"] == daily["4916"].at[25, "date"]
     assert row["outcome_status"] == "mature_failure"
     assert row["rule_trigger_mode"] == "level"
+
+
+@pytest.mark.parametrize(
+    ("mutation", "expected_message"),
+    (
+        ("missing", "baseline reference is missing source episode keys"),
+        ("extra", "baseline reference has extra episode keys"),
+        ("duplicate", "baseline reference has duplicate episode keys"),
+    ),
+)
+def test_source_reference_membership_mutations_fail_closed_without_key_error(
+    mutation: str,
+    expected_message: str,
+) -> None:
+    source = pd.DataFrame(
+        [
+            {
+                "episode_key": "episode-a",
+                "first_breakout_date": "20250110",
+                "first_breakout_outcome": "strict_success",
+            },
+            {
+                "episode_key": "episode-b",
+                "first_breakout_date": "20250120",
+                "first_breakout_outcome": "mature_failure",
+            },
+        ]
+    )
+    reference = pd.DataFrame(
+        [
+            {
+                "episode_key": "episode-a",
+                "rule_id": "source_first_close_above_prev20_reference",
+                "trigger_date": "20250110",
+                "outcome_status": "strict_success",
+            },
+            {
+                "episode_key": "episode-b",
+                "rule_id": "source_first_close_above_prev20_reference",
+                "trigger_date": "20250120",
+                "outcome_status": "mature_failure",
+            },
+        ]
+    )
+    if mutation == "missing":
+        reference = reference.loc[reference["episode_key"].ne("episode-b")].copy()
+    elif mutation == "extra":
+        reference = pd.concat(
+            [
+                reference,
+                pd.DataFrame(
+                    [
+                        {
+                            "episode_key": "episode-extra",
+                            "rule_id": "source_first_close_above_prev20_reference",
+                            "trigger_date": "20250130",
+                            "outcome_status": "strict_success",
+                        }
+                    ]
+                ),
+            ],
+            ignore_index=True,
+        )
+    else:
+        reference = pd.concat([reference, reference.iloc[[0]]], ignore_index=True)
+
+    errors = forward_validator._source_reference_errors(source, reference)
+
+    assert any(expected_message in error for error in errors)
+
+
+def test_explicit_source_detail_requires_projection_manifest() -> None:
+    stock = _stock_frame("4916", false_index=25, launch_index=50)
+    source = pd.DataFrame(
+        [_source_row(stock, "4916", start=20, end=50, first=25, launch=50)]
+    )
+
+    with pytest.raises(
+        ValueError,
+        match="source_projection_manifest is required with explicit source_detail",
+    ):
+        build_forward_confirmation_feature_audit(
+            source_detail=source,
+            daily_by_stock={"4916": stock},
+        )
+
+
+def test_explicit_daily_frame_cannot_extend_projection_cutoff() -> None:
+    stock = _stock_frame("4916", false_index=25, launch_index=50)
+    source = pd.DataFrame(
+        [_source_row(stock, "4916", start=20, end=50, first=25, launch=50)]
+    )
+    stock.loc[stock.index[-1], "date"] = "20260714"
+
+    with pytest.raises(
+        RuntimeError,
+        match="daily frame exceeds source projection cutoff",
+    ):
+        build_forward_confirmation_feature_audit(
+            source_detail=source,
+            daily_by_stock={"4916": stock},
+            source_projection_manifest=_source_projection_manifest(source),
+        )
 
 
 def test_direct_source_detail_filters_non_primary_variants_before_expansion() -> None:
@@ -199,11 +407,74 @@ def test_direct_source_detail_filters_non_primary_variants_before_expansion() ->
     summary, detail, events, _, _ = build_forward_confirmation_feature_audit(
         source_detail=source,
         daily_by_stock={"4916": stock},
+        source_projection_manifest=_source_projection_manifest(source),
     )
 
     assert set(detail["episode_key"]) == {"episode-4916"}
     assert set(events["episode_key"]) == {"episode-4916"}
     assert set(summary["source_episode_count"]) == {1}
+
+
+def test_current_post_cutoff_episode_cannot_change_projected_forward_outputs() -> None:
+    stock_4916 = _stock_frame("4916", false_index=25, launch_index=50)
+    stock_1303 = _stock_frame("1303", false_index=None, launch_index=30)
+    projected_source = pd.DataFrame(
+        [
+            _source_row(stock_4916, "4916", start=20, end=50, first=25, launch=50),
+            _source_row(stock_1303, "1303", start=20, end=30, first=30, launch=30),
+        ]
+    )
+    projected_daily = {"4916": stock_4916, "1303": stock_1303}
+    manifest = _source_projection_manifest(projected_source)
+    expected = build_forward_confirmation_feature_audit(
+        source_detail=projected_source,
+        daily_by_stock=projected_daily,
+        source_projection_manifest=manifest,
+    )
+
+    post_cutoff_stock = _stock_frame("9999", false_index=None, launch_index=30)
+    post_cutoff = _source_row(
+        post_cutoff_stock,
+        "9999",
+        start=20,
+        end=30,
+        first=30,
+        launch=30,
+    )
+    for column in (
+        "episode_start_source_date",
+        "latest_qualifying_source_date",
+        "qualifying_source_dates",
+        "episode_start_trade_date",
+        "latest_qualifying_trade_date",
+        "qualifying_trade_dates",
+        "first_breakout_date",
+        "launch_date",
+    ):
+        post_cutoff[column] = "20260714"
+    post_cutoff["episode_end_date"] = "20260715"
+    current_source = pd.concat(
+        [projected_source, pd.DataFrame([post_cutoff])],
+        ignore_index=True,
+    )
+
+    with pytest.raises(RuntimeError, match="source snapshot projection binding failed"):
+        build_forward_confirmation_feature_audit(
+            source_detail=current_source,
+            daily_by_stock={**projected_daily, "9999": post_cutoff_stock},
+            source_projection_manifest=manifest,
+        )
+
+    observed = build_forward_confirmation_feature_audit(
+        source_detail=projected_source,
+        daily_by_stock={**projected_daily, "9999": post_cutoff_stock},
+        source_projection_manifest=manifest,
+    )
+    for expected_frame, observed_frame in zip(expected, observed, strict=True):
+        pd.testing.assert_frame_equal(
+            expected_frame.drop(columns=["generated_at"], errors="ignore"),
+            observed_frame.drop(columns=["generated_at"], errors="ignore"),
+        )
 
 
 def test_next_day_close_rule_rejects_false_breakout_and_selects_later_launch() -> None:

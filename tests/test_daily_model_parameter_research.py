@@ -2041,13 +2041,20 @@ def test_research_workflow_has_opt_in_revenue_projection_chain_stage_mode() -> N
     )
     stage_start = workflow.index(stage_command)
     full_branch = workflow.index("          else", stage_start)
+    stage_branch = workflow[stage_start:full_branch]
 
     assert input_contract in workflow
     assert stage_command in workflow
     assert "python scripts/build_revenue_unreacted_range_research.py\n" in workflow
-    assert (
-        "validate_revenue_unreacted_range_forward_confirmation_feature_audit.py"
-        not in workflow[stage_start:full_branch]
+    forward_validator = (
+        "python scripts/validate_revenue_unreacted_range_forward_confirmation_feature_audit.py"
+    )
+    assert forward_validator in stage_branch
+    assert stage_branch.index(
+        "python scripts/validate_revenue_unreacted_range_source_snapshot_projection.py"
+    ) < stage_branch.index(forward_validator)
+    assert stage_branch.index(forward_validator) < stage_branch.index(
+        "python scripts/validate_revenue_unreacted_range_rearmed_operation_grid.py"
     )
 
 

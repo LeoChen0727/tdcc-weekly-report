@@ -516,7 +516,7 @@ def test_data_sharing_registry_uses_model_owned_research_entrypoints() -> None:
 
 def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
     rows = read_csv("config/daily_model_data_sharing_migrations.csv")
-    assert len(rows) == 21
+    assert len(rows) == 22
     baseline = rows[0]
     assert tuple(baseline) == DATA_SHARING_MIGRATION_COLUMNS
     assert data_migration_row_sha256(baseline) == BASELINE_DATA_MIGRATION_ROW_SHA256
@@ -977,6 +977,9 @@ def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
         for row in read_csv("config/daily_model_background_data_registry.csv")
     }
     snapshot_contracts = {
+        "revenue_unreacted_range_forward_confirmation_feature_audit": (
+            "ad1bbe3e1f76d8680857b7c40d588915582da39e398e39cefcefcbb77da4b637"
+        ),
         "revenue_unreacted_range_rearmed_operation_grid": (
             "2d528012095f626e20b67f33ca7df5d357a245874ccbe148769e4a37bf6b611b"
         ),
@@ -987,11 +990,18 @@ def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
             "4aff77863a07ba5fe7c574731ea84ac778b85daffbbfe7123d38cccd4cc61432"
         ),
     }
+    snapshot_migration_ids = {
+        family: "revenue_source_snapshot_projection_20260731"
+        for family in snapshot_contracts
+    }
+    snapshot_migration_ids[
+        "revenue_unreacted_range_forward_confirmation_feature_audit"
+    ] = "revenue_forward_confirmation_source_snapshot_projection_20260731"
     for family, (_old_hash, new_hash) in expected_cross_market_contracts.items():
         expected_current_hash = snapshot_contracts.get(family, new_hash)
         assert sharing_by_family[family]["data_contract_sha256"] == expected_current_hash
         assert sharing_by_family[family]["last_migration_id"] == (
-            "revenue_source_snapshot_projection_20260731"
+            snapshot_migration_ids[family]
             if family in snapshot_contracts
             else "revenue_monthly_cross_market_lineage_resolution_20260720"
         )
@@ -1022,7 +1032,11 @@ def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
         )
         assert "Raw monthly history remains market-grained" in background["notes"]
 
-    snapshot_migration = rows[-1]
+    snapshot_migration = next(
+        row
+        for row in rows
+        if row["migration_id"] == "revenue_source_snapshot_projection_20260731"
+    )
     assert snapshot_migration["migration_id"] == (
         "revenue_source_snapshot_projection_20260731"
     )
@@ -1056,6 +1070,93 @@ def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
         "scripts/validate_revenue_unreacted_range_source_snapshot_projection.py"
     )
     assert "20260713" in projection_background["point_in_time_status"]
+
+    forward_migration = next(
+        row
+        for row in rows
+        if row["migration_id"]
+        == "revenue_forward_confirmation_source_snapshot_projection_20260731"
+    )
+    assert forward_migration["changed_data_families"] == (
+        "revenue_unreacted_range_forward_confirmation_feature_audit"
+    )
+    assert forward_migration["previous_contract_sha256s"] == (
+        "1a350c64189bdf6ead59dc0d2494f6d07df7f1f18f685de6c41220e8cac43d2c"
+    )
+    assert forward_migration["new_contract_sha256s"] == snapshot_contracts[
+        "revenue_unreacted_range_forward_confirmation_feature_audit"
+    ]
+    assert forward_migration["affected_models"] == "revenue_unreacted_range"
+    assert forward_migration["user_approval_reference"] == (
+        "user_authorized_20260713_source_snapshot_projection_and_955_baseline_20260731"
+    )
+    assert forward_migration["migration_status"] == (
+        "validated_user_approved_migration"
+    )
+    forward = sharing_by_family[
+        "revenue_unreacted_range_forward_confirmation_feature_audit"
+    ]
+    assert forward["last_migration_id"] == forward_migration["migration_id"]
+    assert forward["data_contract_sha256"] == forward_migration[
+        "new_contract_sha256s"
+    ]
+    forward_background = background_by_family[
+        "revenue_unreacted_range_forward_confirmation_feature_audit"
+    ]
+    forward_sources = forward_background["source_artifacts"].split(";")
+    assert (
+        "output/latest/research_backtest/"
+        "revenue_unreacted_range_source_snapshot_projection_manifest_latest.csv"
+        in forward_sources
+    )
+    assert (
+        "output/latest/research_backtest/"
+        "revenue_unreacted_range_source_snapshot_projection_detail_latest.csv"
+        in forward_sources
+    )
+    assert (
+        "output/latest/research_backtest/"
+        "revenue_unreacted_range_source_first_condition_audit_detail_latest.csv"
+        not in forward_sources
+    )
+    assert "20260713" in forward_background["point_in_time_status"]
+    assert "current source-first fallback" in forward_background["forbidden_use"]
+    assert "current source-first fallback is forbidden" in forward_background["notes"]
+
+
+def test_forward_confirmation_artifact_lineage_uses_projection_not_current_source() -> None:
+    rows = {
+        row["artifact_path"]: row
+        for row in read_csv("config/report_artifact_lineage.csv")
+    }
+    prefix = (
+        "output/latest/research_backtest/"
+        "revenue_unreacted_range_forward_confirmation_feature_audit"
+    )
+    direct_artifacts = {
+        f"{prefix}_latest.csv",
+        f"{prefix}_detail_latest.csv",
+        f"{prefix}_event_detail_latest.csv",
+        f"{prefix}_feature_contrast_latest.csv",
+        f"{prefix}_operation_return_review_latest.csv",
+    }
+    projection_manifest = (
+        "output/latest/research_backtest/"
+        "revenue_unreacted_range_source_snapshot_projection_manifest_latest.csv"
+    )
+    projection_detail = (
+        "output/latest/research_backtest/"
+        "revenue_unreacted_range_source_snapshot_projection_detail_latest.csv"
+    )
+    mutable_source = (
+        "output/latest/research_backtest/"
+        "revenue_unreacted_range_source_first_condition_audit_detail_latest.csv"
+    )
+    for artifact_path in direct_artifacts:
+        sources = rows[artifact_path]["source_artifacts"].split(";")
+        assert projection_manifest in sources
+        assert projection_detail in sources
+        assert mutable_source not in sources
 
 
 def test_data_contract_hash_detects_point_in_time_or_forbidden_use_drift() -> None:

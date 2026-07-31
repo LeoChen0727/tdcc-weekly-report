@@ -81,6 +81,7 @@ REVENUE_PROJECTION_CHAIN_BUILD_COMMAND = (
 REVENUE_PROJECTION_CHAIN_VALIDATOR_COMMANDS = {
     "python scripts/validate_revenue_unreacted_range_source_first_condition_audit.py",
     "python scripts/validate_revenue_unreacted_range_source_snapshot_projection.py",
+    "python scripts/validate_revenue_unreacted_range_forward_confirmation_feature_audit.py",
     "python scripts/validate_revenue_unreacted_range_rearmed_operation_grid.py",
     "python scripts/validate_revenue_unreacted_range_operation_lag_bucket_audit.py",
     "python scripts/validate_revenue_unreacted_range_position_shape_transition_matrix.py",

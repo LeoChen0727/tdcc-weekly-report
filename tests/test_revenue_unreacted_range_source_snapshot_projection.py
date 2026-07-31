@@ -726,7 +726,7 @@ def test_projection_stage_refreshes_full_source_before_writing_projection(
     ]
 
 
-def test_projection_chain_stage_rebuilds_only_cutoff_consumers(
+def test_projection_chain_stage_rebuilds_cutoff_consumers_in_dependency_order(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
     frames = {
@@ -737,6 +737,11 @@ def test_projection_chain_stage_rebuilds_only_cutoff_consumers(
             "projected_summary",
             "projected_detail",
             "manifest",
+            "forward_summary",
+            "forward_detail",
+            "forward_events",
+            "forward_feature",
+            "forward_review",
             "rearmed_summary",
             "rearmed_detail",
             "rearmed_review",
@@ -793,6 +798,24 @@ def test_projection_chain_stage_rebuilds_only_cutoff_consumers(
 
     monkeypatch.setattr(orchestrator, "prepare_daily_by_stock", fake_prepare)
 
+    def fake_forward(*, source_detail, daily_by_stock, source_projection_manifest):
+        assert source_detail is frames["projected_detail"]
+        assert daily_by_stock is projected_daily
+        assert source_projection_manifest is frames["manifest"]
+        return (
+            frames["forward_summary"],
+            frames["forward_detail"],
+            frames["forward_events"],
+            frames["forward_feature"],
+            frames["forward_review"],
+        )
+
+    monkeypatch.setattr(
+        orchestrator,
+        "build_forward_confirmation_feature_audit",
+        fake_forward,
+    )
+
     def fake_rearmed(*, source_detail, daily_by_stock, source_projection_manifest):
         assert source_detail is frames["projected_detail"]
         assert daily_by_stock is projected_daily
@@ -841,6 +864,11 @@ def test_projection_chain_stage_rebuilds_only_cutoff_consumers(
     )
     monkeypatch.setattr(
         orchestrator,
+        "write_forward_confirmation_feature_audit",
+        lambda *_args: writes.append("forward"),
+    )
+    monkeypatch.setattr(
+        orchestrator,
         "write_rearmed_operation_grid",
         lambda *_args: writes.append("rearmed"),
     )
@@ -851,7 +879,13 @@ def test_projection_chain_stage_rebuilds_only_cutoff_consumers(
     )
 
     def fake_position():
-        assert writes == ["source_first", "projection", "rearmed", "lag"]
+        assert writes == [
+            "source_first",
+            "projection",
+            "forward",
+            "rearmed",
+            "lag",
+        ]
         return (
             frames["position_summary"],
             frames["position_detail"],
@@ -869,22 +903,12 @@ def test_projection_chain_stage_rebuilds_only_cutoff_consumers(
         "write_low_mid_falling_candidate_audit",
         lambda *_args: writes.append("low_mid"),
     )
-    monkeypatch.setattr(
-        orchestrator,
-        "build_forward_confirmation_feature_audit",
-        lambda *_args, **_kwargs: pytest.fail("projection chain built forward artifacts"),
-    )
-    monkeypatch.setattr(
-        orchestrator,
-        "write_forward_confirmation_feature_audit",
-        lambda *_args, **_kwargs: pytest.fail("projection chain wrote forward artifacts"),
-    )
-
     orchestrator.build_and_write_source_snapshot_projection_chain()
 
     assert writes == [
         "source_first",
         "projection",
+        "forward",
         "rearmed",
         "lag",
         "position_shape",
