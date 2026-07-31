@@ -2051,6 +2051,23 @@ def test_research_workflow_has_opt_in_revenue_projection_chain_stage_mode() -> N
     )
 
 
+def test_scheduled_research_keeps_revenue_projection_chain_stage_mode_disabled() -> None:
+    apps_script = (ROOT / "docs" / "apps_script_workflow_trigger.gs").read_text(
+        encoding="utf-8"
+    )
+    function_start = apps_script.index("function triggerResearchBacktestPipeline()")
+    function_end = apps_script.index(
+        "function triggerIndividualStockDataRefresh()",
+        function_start,
+    )
+    research_dispatch = apps_script[function_start:function_end]
+
+    assert (
+        'run_revenue_unreacted_range_source_snapshot_projection_chain_only: "false"'
+        in research_dispatch
+    )
+
+
 def test_research_workflow_validates_revenue_close_confirmation_timing_artifacts() -> None:
     workflow = (ROOT / ".github" / "workflows" / "research_backtest_pipeline.yml").read_text(encoding="utf-8")
 
