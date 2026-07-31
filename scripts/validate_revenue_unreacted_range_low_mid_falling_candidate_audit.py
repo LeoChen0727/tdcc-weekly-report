@@ -37,7 +37,7 @@ PRICE_HISTORY_CUTOFF_DATE = "20260713"
 WATCH_HORIZON_TRADING_DAYS = 60
 HOLDING_DAYS = 30
 NO_STOP_POLICY_ID = "none_no_stop_reference"
-CANONICAL_LINEAGE_VERSION = "canonical_json_v1"
+CANONICAL_LINEAGE_VERSION = "canonical_json_numeric_text_v1"
 MONTHLY_REVENUE_RUN_LINEAGE_COLUMNS = (
     "monthly_revenue_history_blob_sha256",
     "monthly_revenue_canonical_table_sha256",
@@ -229,6 +229,30 @@ def _strict_integral(value: object, *, label: str) -> int:
     return int(number)
 
 
+def _canonical_numeric_text(text: str) -> str | None:
+    candidate = text.strip()
+    if not re.fullmatch(
+        r"[+-]?(?:(?:\d+(?:\.\d*)?)|(?:\.\d+))(?:[eE][+-]?\d+)?",
+        candidate,
+    ):
+        return None
+    unsigned = candidate.lstrip("+-")
+    mantissa = re.split(r"[eE]", unsigned, maxsplit=1)[0]
+    integer_part = mantissa.split(".", maxsplit=1)[0]
+    if len(integer_part) > 1 and integer_part.startswith("0"):
+        return None
+    try:
+        number = Decimal(candidate)
+    except InvalidOperation:
+        return None
+    if not number.is_finite():
+        return None
+    if number == 0:
+        return "0"
+    rendered = format(number.normalize(), "f")
+    return rendered.rstrip("0").rstrip(".") if "." in rendered else rendered
+
+
 def _canonical_value(value: object) -> str:
     if value is None or (
         not isinstance(value, (str, bytes)) and pd.isna(value)
@@ -236,14 +260,19 @@ def _canonical_value(value: object) -> str:
         return ""
     if isinstance(value, (bool, np.bool_)):
         return "true" if bool(value) else "false"
-    if isinstance(value, numbers.Integral):
-        return str(int(value))
-    if isinstance(value, numbers.Real):
+    if isinstance(value, (numbers.Integral, numbers.Real, Decimal)):
         number = float(value)
         if not np.isfinite(number):
             return ""
-        return format(number, ".17g")
-    return str(value).strip()
+        numeric = _canonical_numeric_text(str(value))
+        if numeric is None:
+            raise RuntimeError(f"canonical numeric value is invalid: {value!r}")
+        return numeric
+    text = str(value).strip()
+    if text.lower() in {"true", "false"}:
+        return text.lower()
+    numeric = _canonical_numeric_text(text)
+    return numeric if numeric is not None else text
 
 
 def _require_sha256(value: object, *, label: str) -> str:

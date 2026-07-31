@@ -33,6 +33,45 @@ def test_strict_integral_accepts_csv_integer_float_text_only() -> None:
             validator._strict_integral(invalid, label="sequence index")
 
 
+def test_canonical_hash_is_stable_across_csv_numeric_and_boolean_text() -> None:
+    in_memory = pd.DataFrame(
+        [
+            {
+                "stock_id": "0050",
+                "sequence_index": 215.0,
+                "candidate_flag": True,
+                "ratio": 0.1,
+                "zero": -0.0,
+            }
+        ]
+    )
+    csv_round_trip = pd.DataFrame(
+        [
+            {
+                "stock_id": "0050",
+                "sequence_index": "215.0",
+                "candidate_flag": "True",
+                "ratio": "0.1000",
+                "zero": "-0.0",
+            }
+        ]
+    )
+
+    assert producer._canonical_table_sha256(in_memory) == producer._canonical_table_sha256(
+        csv_round_trip
+    )
+    assert validator._canonical_table_sha256(
+        in_memory
+    ) == validator._canonical_table_sha256(csv_round_trip)
+    assert producer._canonical_table_sha256(in_memory) == validator._canonical_table_sha256(
+        csv_round_trip
+    )
+    assert producer._canonical_value("0050") == "0050"
+    assert validator._canonical_value("0050") == "0050"
+    assert producer._canonical_value(50) == "50"
+    assert validator._canonical_value(50) == "50"
+
+
 def _price_frame(source_index: int, position: str, return_pct: float) -> pd.DataFrame:
     dates = pd.bdate_range("2025-01-02", periods=290).strftime("%Y%m%d")
     target = 90.0 if position == "low" else 100.0
