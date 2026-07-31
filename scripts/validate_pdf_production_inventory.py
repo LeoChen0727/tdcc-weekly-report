@@ -1,8 +1,10 @@
 from __future__ import annotations
 
+import argparse
 import csv
 import json
 import re
+import sys
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -193,11 +195,14 @@ ALLOWED_DOCS_LATEST_ROOT_PDF_NAMES = {
     "tdcc_weekly_candidate_full_latest.pdf",
 }
 
-PUBLIC_SURFACES = (
+STATIC_PUBLIC_SURFACES = (
     DAILY_WORKFLOW,
     PUBLISHER,
     PACKET_BUILDER,
     RULES_BUILDER,
+)
+
+RUNTIME_PUBLIC_SURFACES = (
     OUTPUT_LATEST / "READ_ME_FIRST_DAILY_REPORT.txt",
     OUTPUT_LATEST / "READ_ME_FIRST_DAILY_REPORT_INDEX.txt",
     OUTPUT_LATEST / "chatgpt_daily_report_packet_latest.txt",
@@ -205,6 +210,12 @@ PUBLIC_SURFACES = (
     DOCS_LATEST / "READ_ME_FIRST_DAILY_REPORT_INDEX.txt",
     DOCS_LATEST / "chatgpt_daily_report_packet_latest.txt",
 )
+
+PUBLIC_SURFACES = (*STATIC_PUBLIC_SURFACES, *RUNTIME_PUBLIC_SURFACES)
+
+VALIDATION_PHASE_FULL = "full"
+VALIDATION_PHASE_PREBUILD = "prebuild"
+VALIDATION_PHASES = (VALIDATION_PHASE_FULL, VALIDATION_PHASE_PREBUILD)
 
 
 def read_text(path: Path) -> str:
@@ -414,8 +425,8 @@ def validate_output_latest(errors: list[str]) -> None:
                 errors.append(f"published daily market PDF missing: {path.relative_to(ROOT).as_posix()}")
 
 
-def validate_public_surface_text(errors: list[str]) -> None:
-    for path in PUBLIC_SURFACES:
+def validate_public_surface_text(errors: list[str], paths: tuple[Path, ...] = PUBLIC_SURFACES) -> None:
+    for path in paths:
         if not path.exists():
             continue
         text = read_text(path)
@@ -469,9 +480,31 @@ def validate_workflow_hooks(errors: list[str]) -> None:
         errors.append("missing Daily Full Pipeline workflow")
         return
     workflow = read_text(DAILY_WORKFLOW)
-    required = "python scripts/validate_pdf_production_inventory.py"
-    if workflow.count(required) < 2:
+    commands = [line.strip() for line in workflow.splitlines()]
+    full_command = "python scripts/validate_pdf_production_inventory.py"
+    prebuild_command = f"{full_command} --phase prebuild"
+    if commands.count(prebuild_command) != 1:
+        errors.append(
+            "Daily Full Pipeline must run exactly one prebuild PDF production inventory validation"
+        )
+    if commands.count(full_command) < 2:
         errors.append("Daily Full Pipeline must run validate_pdf_production_inventory.py before and after publish")
+    try:
+        prebuild_step_index = workflow.index("- name: Validate Apps Script workflow triggers")
+        install_index = workflow.index("- name: Install dependencies", prebuild_step_index)
+        workflow.index(prebuild_command, prebuild_step_index, install_index)
+        build_index = workflow.index("- name: Build daily market report artifacts", install_index)
+        post_build_full_index = workflow.index(full_command, build_index)
+        publish_index = workflow.index(
+            "- name: Publish readme and multi-entry URL check",
+            post_build_full_index,
+        )
+        workflow.index(full_command, publish_index)
+    except ValueError:
+        errors.append(
+            "Daily Full Pipeline must run prebuild validation before dependencies and full validation "
+            "after both report build and publish"
+        )
     deletion_aware_readme_staging = (
         'git add -A -- "output/latest/READ_ME_FIRST_DAILY_REPORT*.txt"',
         'git add -A -- "docs/latest/READ_ME_FIRST_DAILY_REPORT*.txt"',
@@ -489,30 +522,48 @@ def validate_workflow_hooks(errors: list[str]) -> None:
             errors.append(f"Daily Full Pipeline stages forbidden PDF in docs/latest: {name}")
 
 
-def validate() -> list[str]:
+def validate(phase: str = VALIDATION_PHASE_FULL) -> list[str]:
+    if phase not in VALIDATION_PHASES:
+        raise ValueError(f"unsupported PDF production inventory validation phase: {phase}")
+
     errors: list[str] = []
     validate_inventory_document(errors)
     validate_paths_exist(errors)
     validate_daily_history_producer_contract(errors)
-    validate_output_latest(errors)
-    validate_report_manifest_history_contract(errors)
-    validate_public_surface_text(errors)
-    validate_docs_latest(errors)
+    validate_public_surface_text(errors, STATIC_PUBLIC_SURFACES)
     validate_workflow_hooks(errors)
+    if phase == VALIDATION_PHASE_FULL:
+        validate_output_latest(errors)
+        validate_report_manifest_history_contract(errors)
+        validate_public_surface_text(errors, RUNTIME_PUBLIC_SURFACES)
+        validate_docs_latest(errors)
     return errors
 
 
-def main() -> int:
-    errors = validate()
+def parse_args(argv: list[str]) -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="Validate the PDF production inventory contract.")
+    parser.add_argument(
+        "--phase",
+        choices=VALIDATION_PHASES,
+        default=VALIDATION_PHASE_FULL,
+        help="prebuild checks static contracts only; full also requires current runtime artifacts",
+    )
+    return parser.parse_args(argv)
+
+
+def main(argv: list[str] | None = None) -> int:
+    args = parse_args([] if argv is None else argv)
+    errors = validate(args.phase)
     if errors:
         for error in errors:
             print(f"ERROR: {error}")
         return 1
     print("PDF production inventory validation passed")
+    print(f"validation_phase={args.phase}")
     for producer in PDF_PRODUCERS:
         print(f"validated_pdf_purpose={producer.purpose}")
     return 0
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    raise SystemExit(main(sys.argv[1:]))
