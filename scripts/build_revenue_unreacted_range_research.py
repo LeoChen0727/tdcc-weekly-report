@@ -222,6 +222,80 @@ def build_and_write_source_snapshot_projection() -> None:
     write_source_snapshot_projection(manifest, projected_detail)
 
 
+def build_and_write_source_snapshot_projection_chain() -> None:
+    """Refresh only the cutoff-pinned source projection consumer chain."""
+
+    full_summary, full_detail = build_source_first_condition_audit()
+    _projected_summary, projected_detail = build_source_first_condition_audit(
+        observation_cutoff_date=PRICE_HISTORY_CUTOFF_DATE,
+    )
+    manifest = build_source_snapshot_projection_manifest(full_detail, projected_detail)
+
+    frame = build_revenue_unreacted_range_research_frame()
+    if frame.empty:
+        raise RuntimeError(
+            "No price history available for revenue_unreacted_range source snapshot "
+            "projection chain"
+        )
+    prepared = _attach_revenue_signal_market_regime(
+        _revenue_unreacted_timing_prepared_frame(frame)
+    )
+    del frame
+    gc.collect()
+    projected_daily_by_stock = prepare_daily_by_stock(
+        prepared,
+        projected_detail,
+        observation_cutoff_date=PRICE_HISTORY_CUTOFF_DATE,
+    )
+    rearmed_summary, rearmed_detail, rearmed_return_review = (
+        build_rearmed_operation_grid(
+            source_detail=projected_detail,
+            daily_by_stock=projected_daily_by_stock,
+            source_projection_manifest=manifest,
+        )
+    )
+    operation_lag_summary, operation_lag_detail = build_operation_lag_bucket_audit(
+        operation_detail=rearmed_detail,
+        source_detail=projected_detail,
+        source_projection_manifest=manifest,
+    )
+    (
+        low_mid_falling_summary,
+        low_mid_falling_detail,
+        low_mid_falling_paired,
+        low_mid_falling_contrast,
+    ) = build_low_mid_falling_candidate_audit(
+        projected_detail,
+        rearmed_detail,
+        projected_daily_by_stock,
+    )
+
+    # Write upstream lineage before the position/shape builder reads the exact
+    # persisted sources and enforces the immutable 955-operation semantic pins.
+    write_source_first_condition_audit(full_summary, full_detail)
+    write_source_snapshot_projection(manifest, projected_detail)
+    write_rearmed_operation_grid(
+        rearmed_summary,
+        rearmed_detail,
+        rearmed_return_review,
+    )
+    write_operation_lag_bucket_audit(operation_lag_summary, operation_lag_detail)
+    position_shape_summary, position_shape_detail, position_shape_transition = (
+        build_position_shape_transition_matrix()
+    )
+    write_position_shape_transition_matrix(
+        position_shape_summary,
+        position_shape_detail,
+        position_shape_transition,
+    )
+    write_low_mid_falling_candidate_audit(
+        low_mid_falling_summary,
+        low_mid_falling_detail,
+        low_mid_falling_paired,
+        low_mid_falling_contrast,
+    )
+
+
 def build_and_write_forward_confirmation_feature_audit() -> None:
     frame = build_revenue_unreacted_range_research_frame()
     if frame.empty:
@@ -306,6 +380,7 @@ def parse_args() -> argparse.Namespace:
             "launch_timing_feature_audit",
             "source_first_condition_audit",
             "source_snapshot_projection",
+            "source_snapshot_projection_chain",
             "forward_confirmation_feature_audit",
             "rearmed_operation_grid",
             "operation_lag_bucket_audit",
@@ -327,6 +402,8 @@ def main() -> int:
             build_and_write_source_first_condition_audit()
         elif args.stage == "source_snapshot_projection":
             build_and_write_source_snapshot_projection()
+        elif args.stage == "source_snapshot_projection_chain":
+            build_and_write_source_snapshot_projection_chain()
         elif args.stage == "forward_confirmation_feature_audit":
             build_and_write_forward_confirmation_feature_audit()
         elif args.stage == "rearmed_operation_grid":

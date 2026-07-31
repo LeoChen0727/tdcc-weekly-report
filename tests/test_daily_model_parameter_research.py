@@ -2026,6 +2026,31 @@ def test_research_workflow_routes_revenue_feature_contrast_through_model_owned_p
     assert "git add docs/latest/revenue_unreacted_range_* || true" in workflow
 
 
+def test_research_workflow_has_opt_in_revenue_projection_chain_stage_mode() -> None:
+    workflow = (ROOT / ".github" / "workflows" / "research_backtest_pipeline.yml").read_text(encoding="utf-8")
+    input_contract = (
+        "      run_revenue_unreacted_range_source_snapshot_projection_chain_only:\n"
+        "        description: \"When revenue research is selected, rebuild only its "
+        "20260713 source snapshot projection chain\"\n"
+        "        required: false\n"
+        "        default: \"false\""
+    )
+    stage_command = (
+        "python scripts/build_revenue_unreacted_range_research.py "
+        "--stage source_snapshot_projection_chain"
+    )
+    stage_start = workflow.index(stage_command)
+    full_branch = workflow.index("          else", stage_start)
+
+    assert input_contract in workflow
+    assert stage_command in workflow
+    assert "python scripts/build_revenue_unreacted_range_research.py\n" in workflow
+    assert (
+        "validate_revenue_unreacted_range_forward_confirmation_feature_audit.py"
+        not in workflow[stage_start:full_branch]
+    )
+
+
 def test_research_workflow_validates_revenue_close_confirmation_timing_artifacts() -> None:
     workflow = (ROOT / ".github" / "workflows" / "research_backtest_pipeline.yml").read_text(encoding="utf-8")
 

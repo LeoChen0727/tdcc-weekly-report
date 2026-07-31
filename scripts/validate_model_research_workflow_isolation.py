@@ -69,6 +69,24 @@ RESEARCH_COMMIT_COMMAND = 'git commit -m "Update research backtest outputs"'
 FAIL_CLOSED_PUSH_COMMAND = 'git push origin "HEAD:$TARGET_BRANCH"'
 REBASE_RETRY_PUSH_COMMAND = 'bash scripts/ci_push_with_retry.sh "$TARGET_BRANCH" 5'
 
+REVENUE_WORKFLOW_INPUT = "run_revenue_unreacted_range_research"
+REVENUE_PROJECTION_CHAIN_STAGE_INPUT = (
+    "run_revenue_unreacted_range_source_snapshot_projection_chain_only"
+)
+REVENUE_PRODUCER = "scripts/build_revenue_unreacted_range_research.py"
+REVENUE_FULL_BUILD_COMMAND = f"python {REVENUE_PRODUCER}"
+REVENUE_PROJECTION_CHAIN_BUILD_COMMAND = (
+    f"{REVENUE_FULL_BUILD_COMMAND} --stage source_snapshot_projection_chain"
+)
+REVENUE_PROJECTION_CHAIN_VALIDATOR_COMMANDS = {
+    "python scripts/validate_revenue_unreacted_range_source_first_condition_audit.py",
+    "python scripts/validate_revenue_unreacted_range_source_snapshot_projection.py",
+    "python scripts/validate_revenue_unreacted_range_rearmed_operation_grid.py",
+    "python scripts/validate_revenue_unreacted_range_operation_lag_bucket_audit.py",
+    "python scripts/validate_revenue_unreacted_range_position_shape_transition_matrix.py",
+    "python scripts/validate_revenue_unreacted_range_low_mid_falling_candidate_audit.py",
+}
+
 
 @dataclass(frozen=True)
 class WorkflowEntrypoint:
@@ -221,6 +239,86 @@ def validate_workflow_text(
     for command in SHARED_DATA_STAGE_COMMANDS:
         if command not in text:
             errors.append(f"shared objective data stage allowlist missing from workflow: {command}")
+
+    if defaults.get(REVENUE_PROJECTION_CHAIN_STAGE_INPUT) != "false":
+        errors.append(
+            "missing opt-in revenue source projection chain stage input with false "
+            f"default: {REVENUE_PROJECTION_CHAIN_STAGE_INPUT}"
+        )
+    if any(
+        row.workflow_input == REVENUE_PROJECTION_CHAIN_STAGE_INPUT for row in rows
+    ):
+        errors.append(
+            "revenue source projection chain stage mode must not be registered as a "
+            "second producer entrypoint"
+        )
+    stage_input_condition = (
+        f"github.event.inputs.{REVENUE_PROJECTION_CHAIN_STAGE_INPUT} == 'true'"
+    )
+    if stage_input_condition in any_selected_line or stage_input_condition in model_selected_line:
+        errors.append(
+            "revenue source projection chain stage mode must require the primary revenue "
+            "workflow input instead of selecting research independently"
+        )
+    revenue_blocks = [
+        block for block in blocks if REVENUE_PROJECTION_CHAIN_BUILD_COMMAND in block
+    ]
+    if len(revenue_blocks) != 1:
+        errors.append(
+            "revenue source projection chain stage command must appear in exactly one "
+            "workflow step"
+        )
+    else:
+        revenue_block = revenue_blocks[0]
+        revenue_lines = [line.strip() for line in revenue_block.splitlines()]
+        stage_if = (
+            'if [[ "${{ github.event.inputs.'
+            f'{REVENUE_PROJECTION_CHAIN_STAGE_INPUT}'
+            ' }}" == "true" ]]; then'
+        )
+        try:
+            stage_index = revenue_lines.index(stage_if)
+            else_index = revenue_lines.index("else", stage_index + 1)
+            fi_index = revenue_lines.index("fi", else_index + 1)
+        except ValueError:
+            errors.append(
+                "revenue source projection chain stage mode is missing its guarded "
+                "stage/full branch"
+            )
+        else:
+            stage_python = {
+                line for line in revenue_lines[stage_index + 1 : else_index]
+                if line.startswith("python ")
+            }
+            full_python = {
+                line for line in revenue_lines[else_index + 1 : fi_index]
+                if line.startswith("python ")
+            }
+            expected_stage_python = {
+                REVENUE_PROJECTION_CHAIN_BUILD_COMMAND,
+                *REVENUE_PROJECTION_CHAIN_VALIDATOR_COMMANDS,
+            }
+            if stage_python != expected_stage_python:
+                errors.append(
+                    "revenue source projection chain stage mode must contain only its "
+                    "existing producer stage and cutoff-chain validators: "
+                    f"actual={sorted(stage_python)}"
+                )
+            if REVENUE_FULL_BUILD_COMMAND not in full_python:
+                errors.append(
+                    "revenue full research branch must retain the existing producer"
+                )
+            if REVENUE_PROJECTION_CHAIN_BUILD_COMMAND in full_python:
+                errors.append(
+                    "revenue full research branch must not replace the full producer with "
+                    "the source projection chain stage"
+                )
+        revenue_condition = f"github.event.inputs.{REVENUE_WORKFLOW_INPUT} == 'true'"
+        if revenue_condition not in revenue_block:
+            errors.append(
+                "revenue source projection chain stage mode must remain nested under the "
+                "primary revenue workflow input"
+            )
 
     volume_source = "python scripts/build_volume_breakout_confirmed_operation_backtest.py"
     volume_v2 = "python scripts/build_volume_range_breakout_v2_research.py"

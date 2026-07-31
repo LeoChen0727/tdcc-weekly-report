@@ -724,3 +724,169 @@ def test_projection_stage_refreshes_full_source_before_writing_projection(
         ("full", full_summary, full_detail),
         ("projection", manifest, projected_detail),
     ]
+
+
+def test_projection_chain_stage_rebuilds_only_cutoff_consumers(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    frames = {
+        name: pd.DataFrame([{"view": name}])
+        for name in (
+            "full_summary",
+            "full_detail",
+            "projected_summary",
+            "projected_detail",
+            "manifest",
+            "rearmed_summary",
+            "rearmed_detail",
+            "rearmed_review",
+            "lag_summary",
+            "lag_detail",
+            "position_summary",
+            "position_detail",
+            "position_transition",
+            "low_mid_summary",
+            "low_mid_detail",
+            "low_mid_paired",
+            "low_mid_contrast",
+        )
+    }
+    prepared = pd.DataFrame([{"prepared": True}])
+    projected_daily = {"1111": pd.DataFrame([{"date": CUTOFF_DATE}])}
+    writes: list[str] = []
+
+    def fake_source(*, observation_cutoff_date: str | None = None):
+        if observation_cutoff_date is None:
+            return frames["full_summary"], frames["full_detail"]
+        assert observation_cutoff_date == CUTOFF_DATE
+        return frames["projected_summary"], frames["projected_detail"]
+
+    monkeypatch.setattr(orchestrator, "build_source_first_condition_audit", fake_source)
+    monkeypatch.setattr(
+        orchestrator,
+        "build_source_snapshot_projection_manifest",
+        lambda full, projected: frames["manifest"]
+        if full is frames["full_detail"] and projected is frames["projected_detail"]
+        else pytest.fail("projection chain used the wrong source frames"),
+    )
+    monkeypatch.setattr(
+        orchestrator,
+        "build_revenue_unreacted_range_research_frame",
+        lambda: pd.DataFrame([{"frame": True}]),
+    )
+    monkeypatch.setattr(
+        orchestrator,
+        "_revenue_unreacted_timing_prepared_frame",
+        lambda _frame: prepared,
+    )
+    monkeypatch.setattr(
+        orchestrator,
+        "_attach_revenue_signal_market_regime",
+        lambda value: value,
+    )
+
+    def fake_prepare(_prepared, source, *, observation_cutoff_date=None):
+        assert _prepared is prepared
+        assert source is frames["projected_detail"]
+        assert observation_cutoff_date == CUTOFF_DATE
+        return projected_daily
+
+    monkeypatch.setattr(orchestrator, "prepare_daily_by_stock", fake_prepare)
+
+    def fake_rearmed(*, source_detail, daily_by_stock, source_projection_manifest):
+        assert source_detail is frames["projected_detail"]
+        assert daily_by_stock is projected_daily
+        assert source_projection_manifest is frames["manifest"]
+        return (
+            frames["rearmed_summary"],
+            frames["rearmed_detail"],
+            frames["rearmed_review"],
+        )
+
+    monkeypatch.setattr(orchestrator, "build_rearmed_operation_grid", fake_rearmed)
+
+    def fake_lag(*, operation_detail, source_detail, source_projection_manifest):
+        assert operation_detail is frames["rearmed_detail"]
+        assert source_detail is frames["projected_detail"]
+        assert source_projection_manifest is frames["manifest"]
+        return frames["lag_summary"], frames["lag_detail"]
+
+    monkeypatch.setattr(orchestrator, "build_operation_lag_bucket_audit", fake_lag)
+
+    def fake_low_mid(source, rearmed, daily):
+        assert source is frames["projected_detail"]
+        assert rearmed is frames["rearmed_detail"]
+        assert daily is projected_daily
+        return (
+            frames["low_mid_summary"],
+            frames["low_mid_detail"],
+            frames["low_mid_paired"],
+            frames["low_mid_contrast"],
+        )
+
+    monkeypatch.setattr(
+        orchestrator,
+        "build_low_mid_falling_candidate_audit",
+        fake_low_mid,
+    )
+    monkeypatch.setattr(
+        orchestrator,
+        "write_source_first_condition_audit",
+        lambda *_args: writes.append("source_first"),
+    )
+    monkeypatch.setattr(
+        orchestrator,
+        "write_source_snapshot_projection",
+        lambda *_args: writes.append("projection"),
+    )
+    monkeypatch.setattr(
+        orchestrator,
+        "write_rearmed_operation_grid",
+        lambda *_args: writes.append("rearmed"),
+    )
+    monkeypatch.setattr(
+        orchestrator,
+        "write_operation_lag_bucket_audit",
+        lambda *_args: writes.append("lag"),
+    )
+
+    def fake_position():
+        assert writes == ["source_first", "projection", "rearmed", "lag"]
+        return (
+            frames["position_summary"],
+            frames["position_detail"],
+            frames["position_transition"],
+        )
+
+    monkeypatch.setattr(orchestrator, "build_position_shape_transition_matrix", fake_position)
+    monkeypatch.setattr(
+        orchestrator,
+        "write_position_shape_transition_matrix",
+        lambda *_args: writes.append("position_shape"),
+    )
+    monkeypatch.setattr(
+        orchestrator,
+        "write_low_mid_falling_candidate_audit",
+        lambda *_args: writes.append("low_mid"),
+    )
+    monkeypatch.setattr(
+        orchestrator,
+        "build_forward_confirmation_feature_audit",
+        lambda *_args, **_kwargs: pytest.fail("projection chain built forward artifacts"),
+    )
+    monkeypatch.setattr(
+        orchestrator,
+        "write_forward_confirmation_feature_audit",
+        lambda *_args, **_kwargs: pytest.fail("projection chain wrote forward artifacts"),
+    )
+
+    orchestrator.build_and_write_source_snapshot_projection_chain()
+
+    assert writes == [
+        "source_first",
+        "projection",
+        "rearmed",
+        "lag",
+        "position_shape",
+        "low_mid",
+    ]

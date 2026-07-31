@@ -38,6 +38,50 @@ def test_revenue_cross_market_lineage_preflight_runs_before_expensive_build() ->
     assert text.index(preflight) < text.index(build)
 
 
+def test_revenue_projection_chain_stage_is_not_a_second_producer_entrypoint() -> None:
+    text, rows, producers = _inputs()
+    stage_input = validator.REVENUE_PROJECTION_CHAIN_STAGE_INPUT
+
+    assert validator.workflow_input_defaults(text)[stage_input] == "false"
+    assert stage_input not in {row.workflow_input for row in rows}
+    assert validator.REVENUE_PROJECTION_CHAIN_BUILD_COMMAND in text
+    assert validator.validate_workflow_text(text, rows, producers) == []
+
+
+def test_revenue_projection_chain_stage_rejects_unregistered_command() -> None:
+    text, rows, producers = _inputs()
+    stage_command = (
+        f"            {validator.REVENUE_PROJECTION_CHAIN_BUILD_COMMAND}\n"
+    )
+    text = text.replace(
+        stage_command,
+        stage_command
+        + "            python scripts/unregistered_projection_chain_command.py\n",
+        1,
+    )
+
+    errors = validator.validate_workflow_text(text, rows, producers)
+
+    assert any("stage mode must contain only" in error for error in errors)
+
+
+def test_revenue_projection_chain_stage_rejects_independent_selection() -> None:
+    text, rows, producers = _inputs()
+    marker = "      MODEL_RESEARCH_SELECTED: ${{ "
+    text = text.replace(
+        marker,
+        marker
+        + "github.event.inputs."
+        + validator.REVENUE_PROJECTION_CHAIN_STAGE_INPUT
+        + " == 'true' || ",
+        1,
+    )
+
+    errors = validator.validate_workflow_text(text, rows, producers)
+
+    assert any("instead of selecting research independently" in error for error in errors)
+
+
 def test_research_workflow_rejects_broad_history_stage() -> None:
     text, rows, producers = _inputs()
     text = text.replace(
