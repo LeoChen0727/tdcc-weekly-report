@@ -6,6 +6,7 @@ from pathlib import Path
 
 import numpy as np
 import pandas as pd
+import pytest
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -20,6 +21,16 @@ import validate_revenue_unreacted_range_low_mid_falling_candidate_audit as valid
 
 GENERATED_AT = "2026-07-20 12:00:00 Asia/Taipei"
 TRIGGER_INDEX = 220
+
+
+def test_strict_integral_accepts_csv_integer_float_text_only() -> None:
+    assert validator._strict_integral("215", label="sequence index") == 215
+    assert validator._strict_integral("215.0", label="sequence index") == 215
+    assert validator._strict_integral(215.0, label="sequence index") == 215
+
+    for invalid in ("215.5", "nan", "inf", "not-a-number", ""):
+        with pytest.raises(ValueError):
+            validator._strict_integral(invalid, label="sequence index")
 
 
 def _price_frame(source_index: int, position: str, return_pct: float) -> pd.DataFrame:

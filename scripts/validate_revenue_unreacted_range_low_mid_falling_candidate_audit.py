@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+from decimal import Decimal, InvalidOperation
 import hashlib
 import json
 import math
@@ -215,6 +216,17 @@ def _same_number(
 
 def _split(value: object) -> list[str]:
     return [part.strip() for part in str(value).split("|") if part.strip()]
+
+
+def _strict_integral(value: object, *, label: str) -> int:
+    text = str(value).strip()
+    try:
+        number = Decimal(text)
+    except (InvalidOperation, ValueError) as exc:
+        raise ValueError(f"{label} is not numeric: {text!r}") from exc
+    if not number.is_finite() or number != number.to_integral_value():
+        raise ValueError(f"{label} is not an integer: {text!r}")
+    return int(number)
 
 
 def _canonical_value(value: object) -> str:
@@ -883,9 +895,13 @@ def _asof_source(
     ]
     try:
         sequence_indices = [
-            int(value) for value in _split(episode["qualifying_sequence_indices"])
+            _strict_integral(value, label="qualifying sequence index")
+            for value in _split(episode["qualifying_sequence_indices"])
         ]
-        update_count = int(episode["qualifying_update_count"])
+        update_count = _strict_integral(
+            episode["qualifying_update_count"],
+            label="qualifying update count",
+        )
     except ValueError as exc:
         raise RuntimeError(
             f"source-first qualifying lineage is invalid: {episode['episode_key']}"
