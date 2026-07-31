@@ -75,6 +75,19 @@ REARMED_ENTRY_PRICE_BASIS = "analysis_open"
 REARMED_FIXED_EXIT_PRICE_BASIS = "analysis_close"
 REARMED_EXIT_PRICE_BASIS = "fixed_future_close"
 REARMED_EXIT_REASON = "fixed_d30_close"
+REARMED_PERSISTED_DETAIL_DROP_COLUMNS = (
+    "base_confirmation_rule",
+    "bonus_timing_role",
+    "stop_rule",
+    "episode_status",
+    "source_launch_date",
+    "same_stock_non_overlap_policy",
+    "outcome_definition",
+    "operation_return_review_policy",
+    "financial_statement_scope",
+    "promotion_readiness",
+    "lifecycle_role",
+)
 HOLDING_SESSION_INDEX_OFFSET = HOLDING_DAYS - 1
 HOLDING_SESSION_CONTRACT = "inclusive_entry_session_count_30_exit_offset_29"
 
@@ -399,6 +412,11 @@ def _assert_literal_upstream_contracts() -> None:
             "rearmed no-stop policy",
             rearmed_producer.NO_STOP_POLICY_ID,
             NO_STOP_POLICY_ID,
+        ),
+        (
+            "rearmed persisted detail drop columns",
+            tuple(rearmed_producer.DETAIL_ARTIFACT_DROP_COLUMNS),
+            REARMED_PERSISTED_DETAIL_DROP_COLUMNS,
         ),
         (
             "position-shape artifact id",
@@ -748,8 +766,21 @@ def _normalize_operations(rearmed_detail: pd.DataFrame) -> pd.DataFrame:
             f"low/mid falling rearmed D30/no-stop slice contains same-stock overlap: "
             f"{overlap_count}"
         )
-    selected_slice_sha256 = _canonical_table_sha256(operations)
-    operations["rearmed_operation_canonical_row_sha256"] = operations.apply(
+    drop_columns = set(REARMED_PERSISTED_DETAIL_DROP_COLUMNS)
+    present_drop_columns = drop_columns.intersection(operations.columns)
+    if present_drop_columns and present_drop_columns != drop_columns:
+        missing_drop_columns = sorted(drop_columns - present_drop_columns)
+        raise RuntimeError(
+            "low/mid falling rearmed persisted-schema projection is partial; "
+            f"missing drop columns: {missing_drop_columns}"
+        )
+    persisted_hash_view = (
+        operations.drop(columns=list(REARMED_PERSISTED_DETAIL_DROP_COLUMNS))
+        if present_drop_columns
+        else operations.copy()
+    )
+    selected_slice_sha256 = _canonical_table_sha256(persisted_hash_view)
+    operations["rearmed_operation_canonical_row_sha256"] = persisted_hash_view.apply(
         lambda row: _canonical_mapping_sha256(row.to_dict()), axis=1
     )
     operations["rearmed_d30_no_stop_slice_canonical_sha256"] = (

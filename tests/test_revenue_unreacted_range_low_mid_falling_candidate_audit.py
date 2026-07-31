@@ -28,6 +28,7 @@ from revenue_unreacted_range_low_mid_falling_candidate_audit import (  # noqa: E
     REARMED_EXIT_PRICE_BASIS,
     REARMED_EXIT_REASON,
     REARMED_FIXED_EXIT_PRICE_BASIS,
+    REARMED_PERSISTED_DETAIL_DROP_COLUMNS,
     REARMED_SOURCE_ARTIFACT_ID,
     PRIMARY_ANALYSIS_BASIS,
     SENSITIVITY_ANALYSIS_BASIS,
@@ -413,6 +414,81 @@ def test_immutable_lineage_hashes_are_emitted_and_stable_per_source() -> None:
     assert paired["delayed_candidate_detail_row_sha256"].str.fullmatch(
         digest_pattern
     ).all()
+
+
+def test_rearmed_lineage_hashes_use_exact_persisted_artifact_schema() -> None:
+    source, operations, daily = _inputs()
+    transient_values = {
+        "base_confirmation_rule": "close confirmation description",
+        "bonus_timing_role": "advisory bonus role",
+        "stop_rule": "no stop; fixed future close exit",
+        "episode_status": "mature",
+        "source_launch_date": "20260115",
+        "same_stock_non_overlap_policy": "entry after prior exit",
+        "outcome_definition": "win above zero",
+        "operation_return_review_policy": "review candidate only",
+        "financial_statement_scope": "monthly_revenue_only",
+        "promotion_readiness": "research_only",
+        "lifecycle_role": "research lifecycle",
+    }
+    assert set(transient_values) == set(REARMED_PERSISTED_DETAIL_DROP_COLUMNS)
+    full_memory_operations = operations.assign(**transient_values)
+    persisted_operations = full_memory_operations.drop(
+        columns=list(REARMED_PERSISTED_DETAIL_DROP_COLUMNS)
+    )
+
+    full_detail = build_low_mid_falling_candidate_audit(
+        source,
+        full_memory_operations,
+        daily,
+        generated_at=GENERATED_AT,
+    )[1].sort_values("operation_key", kind="mergesort").reset_index(drop=True)
+    persisted_detail = build_low_mid_falling_candidate_audit(
+        source,
+        persisted_operations,
+        daily,
+        generated_at=GENERATED_AT,
+    )[1].sort_values("operation_key", kind="mergesort").reset_index(drop=True)
+
+    for column in (
+        "rearmed_operation_canonical_row_sha256",
+        "rearmed_d30_no_stop_slice_canonical_sha256",
+        "candidate_detail_row_sha256",
+        "detail_artifact_canonical_sha256",
+    ):
+        assert full_detail[column].tolist() == persisted_detail[column].tolist()
+
+    changed_operations = persisted_operations.copy()
+    changed_stock_id = str(changed_operations.loc[0, "stock_id"])
+    changed_operations.loc[
+        changed_operations["stock_id"].astype(str).eq(changed_stock_id), "stock_name"
+    ] = "persisted-lineage-change"
+    changed_detail = build_low_mid_falling_candidate_audit(
+        source,
+        changed_operations,
+        daily,
+        generated_at=GENERATED_AT,
+    )[1]
+    baseline_hashes = set(
+        persisted_detail["rearmed_operation_canonical_row_sha256"].astype(str)
+    )
+    changed_hashes = set(
+        changed_detail["rearmed_operation_canonical_row_sha256"].astype(str)
+    )
+    assert baseline_hashes != changed_hashes
+
+
+def test_rearmed_persisted_schema_projection_fails_on_partial_drop_columns() -> None:
+    source, operations, daily = _inputs()
+    operations[REARMED_PERSISTED_DETAIL_DROP_COLUMNS[0]] = "partial"
+
+    with pytest.raises(RuntimeError, match="persisted-schema projection is partial"):
+        build_low_mid_falling_candidate_audit(
+            source,
+            operations,
+            daily,
+            generated_at=GENERATED_AT,
+        )
 
 
 def test_price_history_hash_uses_only_fixed_normalized_analysis_ohlc_subset() -> None:
