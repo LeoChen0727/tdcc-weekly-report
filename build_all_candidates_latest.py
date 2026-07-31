@@ -3,6 +3,8 @@ from __future__ import annotations
 from pathlib import Path
 from datetime import datetime
 from zoneinfo import ZoneInfo
+import hashlib
+import json
 import math
 import re
 
@@ -29,31 +31,37 @@ TDCC_TREND_CSV = LATEST_DIR / "tdcc_trend_debug_latest.csv"
 SOURCE_FILES = [
     {
         "path": LATEST_DIR / "breakout_latest.csv",
+        "producer": "stock_daily_monitor.py",
         "default_category": "true_breakout",
         "default_category_cn": "嚴格突破",
     },
     {
         "path": LATEST_DIR / "range_rebound_watch_latest.csv",
+        "producer": "stock_daily_monitor.py",
         "default_category": "range_rebound",
         "default_category_cn": "區間內轉強 / 挑戰前高觀察",
     },
     {
         "path": LATEST_DIR / "revenue_breakout_low_response_latest.csv",
+        "producer": "scripts/build_revenue_breakout_low_response.py",
         "default_category": "revenue_breakout_low_response",
         "default_category_cn": "營收爆發但股價尚未反應",
     },
     {
         "path": LATEST_DIR / "revenue_pullback_latest.csv",
+        "producer": "stock_daily_monitor.py",
         "default_category": "revenue_pullback",
         "default_category_cn": "營收成長股價回檔",
     },
     {
         "path": LATEST_DIR / "pullback_rebound_latest.csv",
+        "producer": "stock_daily_monitor.py",
         "default_category": "pullback_rebound",
         "default_category_cn": "回檔後短線轉強",
     },
     {
         "path": LATEST_DIR / "daily_pattern_watch_latest.csv",
+        "producer": "stock_daily_monitor.py",
         "default_category": "pattern",
         "default_category_cn": "型態觀察",
     },
@@ -83,6 +91,15 @@ CATEGORY_ORDER = {
     "pattern": 60,
 }
 
+SOURCE_CSV_ENCODINGS = ("utf-8-sig", "utf-8", "cp950")
+SOURCE_IDENTITY_ALIAS_COLUMNS = (
+    "stock_id",
+    "code",
+    "ticker",
+    "證券代號",
+    "股票代號",
+)
+
 FINAL_COLUMNS = [
     "date",
     "signal_date",
@@ -93,6 +110,15 @@ FINAL_COLUMNS = [
     "category_cn",
     "breakout_type",
     "stock_id",
+    "candidate_source_raw_stock_id",
+    "candidate_source_normalized_stock_id",
+    "candidate_source_identity_columns",
+    "candidate_source_artifact",
+    "candidate_source_producer",
+    "candidate_source_artifact_sha256",
+    "candidate_source_record_number",
+    "candidate_source_row_sha256",
+    "candidate_source_row_id",
     "stock_name",
     "industry",
     "細分族群",
@@ -256,14 +282,31 @@ def read_csv(path: Path) -> pd.DataFrame:
     if not path.exists():
         return pd.DataFrame()
 
-    for encoding in ["utf-8-sig", "utf-8", "cp950"]:
+    decode_errors: list[str] = []
+    for encoding in SOURCE_CSV_ENCODINGS:
         try:
-            return pd.read_csv(path, dtype=str, encoding=encoding)
-        except Exception:
-            continue
+            return pd.read_csv(
+                path,
+                dtype=str,
+                encoding=encoding,
+                keep_default_na=False,
+                skip_blank_lines=True,
+            )
+        except UnicodeError as exc:
+            decode_errors.append(f"{encoding}:{type(exc).__name__}")
+        except pd.errors.EmptyDataError:
+            return pd.DataFrame()
+        except Exception as exc:
+            raise RuntimeError(
+                "failed to parse CSV source: "
+                f"path={path.as_posix()} encoding={encoding} error={exc}"
+            ) from exc
 
-    print(f"[WARN] failed to read CSV: {path}")
-    return pd.DataFrame()
+    raise RuntimeError(
+        "failed to decode CSV source with bounded encodings: "
+        f"path={path.as_posix()} encodings={list(SOURCE_CSV_ENCODINGS)} "
+        f"errors={decode_errors}"
+    )
 
 
 def coalesce_columns(df: pd.DataFrame, target: str, candidates: list[str]) -> pd.DataFrame:
@@ -342,7 +385,102 @@ def load_source_file(info: dict) -> pd.DataFrame:
         print(f"[INFO] source missing or empty: {path}")
         return pd.DataFrame()
 
+    raw_stock_ids: list[str] = []
+    normalized_stock_ids: list[str] = []
+    identity_columns: list[str] = []
+    source_row_sha256s: list[str] = []
+    source_columns = [str(column) for column in df.columns]
+    for source_record_number, (_, source_row) in enumerate(df.iterrows(), start=2):
+        aliases = [
+            (column, safe_str(source_row.get(column, "")))
+            for column in SOURCE_IDENTITY_ALIAS_COLUMNS
+            if column in df.columns and safe_str(source_row.get(column, ""))
+        ]
+        if not aliases:
+            raise RuntimeError(
+                "all_candidates source row has no stock identity alias: "
+                f"artifact={path.as_posix()} record={source_record_number}"
+            )
+        normalized_aliases = {normalize_stock_id(value) for _, value in aliases}
+        if len(normalized_aliases) != 1:
+            raise RuntimeError(
+                "all_candidates source row has conflicting stock identity aliases: "
+                f"artifact={path.as_posix()} record={source_record_number} aliases={aliases}"
+            )
+        normalized_stock_id = next(iter(normalized_aliases))
+        if not re.fullmatch(r"[0-9]{4}", normalized_stock_id):
+            raise RuntimeError(
+                "all_candidates source row is not a four-digit equity identity: "
+                f"artifact={path.as_posix()} record={source_record_number} "
+                f"normalized_stock_id={normalized_stock_id!r}"
+            )
+        raw_stock_ids.append(aliases[0][1])
+        normalized_stock_ids.append(normalized_stock_id)
+        identity_columns.append(";".join(column for column, _ in aliases))
+        row_payload = [
+            [column, safe_str(source_row.get(column, ""))]
+            for column in source_columns
+        ]
+        source_row_sha256s.append(
+            hashlib.sha256(
+                json.dumps(
+                    row_payload,
+                    ensure_ascii=False,
+                    separators=(",", ":"),
+                ).encode("utf-8")
+            ).hexdigest()
+        )
+
+    source_record_numbers = pd.Series(
+        range(2, len(df) + 2),
+        index=df.index,
+        dtype="int64",
+    ).astype(str)
+    source_artifact_sha256 = hashlib.sha256(path.read_bytes()).hexdigest()
+    source_producer = safe_str(info.get("producer", ""))
+    if not source_producer:
+        raise RuntimeError(
+            "all_candidates source producer is missing: "
+            f"artifact={path.as_posix()}"
+        )
+
     df = normalize_basic_columns(df)
+    df["candidate_source_raw_stock_id"] = raw_stock_ids
+    df["candidate_source_normalized_stock_id"] = normalized_stock_ids
+    df["candidate_source_identity_columns"] = identity_columns
+    df["candidate_source_artifact"] = path.as_posix()
+    df["candidate_source_producer"] = source_producer
+    df["candidate_source_artifact_sha256"] = source_artifact_sha256
+    df["candidate_source_record_number"] = source_record_numbers
+    df["candidate_source_row_sha256"] = source_row_sha256s
+    df["candidate_source_row_id"] = (
+        df["candidate_source_artifact"].map(safe_str)
+        + "@"
+        + df["candidate_source_artifact_sha256"].map(safe_str)
+        + "#"
+        + df["candidate_source_record_number"].map(safe_str)
+        + ":"
+        + df["candidate_source_normalized_stock_id"].map(safe_str)
+        + ":"
+        + df["candidate_source_row_sha256"].map(safe_str)
+    )
+    normalization_parity = df["stock_id"].map(normalize_stock_id).eq(
+        df["candidate_source_normalized_stock_id"]
+    )
+    if not normalization_parity.all():
+        bad_records = df.loc[
+            ~normalization_parity,
+            [
+                "stock_id",
+                "candidate_source_raw_stock_id",
+                "candidate_source_normalized_stock_id",
+                "candidate_source_record_number",
+            ],
+        ].head(5)
+        raise RuntimeError(
+            "all_candidates normalized identity changed during source normalization: "
+            f"artifact={path.as_posix()} rows={bad_records.to_dict(orient='records')}"
+        )
 
     default_category = info["default_category"]
     default_category_cn = info["default_category_cn"]
@@ -396,6 +534,89 @@ def load_all_sources() -> pd.DataFrame:
     all_df = normalize_basic_columns(all_df)
 
     all_df = all_df[all_df["stock_id"].map(safe_str) != ""].copy()
+
+    identity_required = [
+        "candidate_source_raw_stock_id",
+        "candidate_source_normalized_stock_id",
+        "candidate_source_identity_columns",
+        "candidate_source_artifact",
+        "candidate_source_producer",
+        "candidate_source_artifact_sha256",
+        "candidate_source_record_number",
+        "candidate_source_row_sha256",
+        "candidate_source_row_id",
+    ]
+    missing_identity = [
+        column
+        for column in identity_required
+        if column not in all_df.columns or all_df[column].map(safe_str).eq("").any()
+    ]
+    if missing_identity:
+        raise RuntimeError(
+            "all_candidates source identity lineage is missing: "
+            f"fields={','.join(missing_identity)}"
+        )
+    normalized_parity = all_df["stock_id"].map(normalize_stock_id).eq(
+        all_df["candidate_source_normalized_stock_id"]
+    ) & all_df["candidate_source_raw_stock_id"].map(normalize_stock_id).eq(
+        all_df["candidate_source_normalized_stock_id"]
+    )
+    if not normalized_parity.all():
+        bad = all_df.loc[
+            ~normalized_parity,
+            [
+                "candidate_source_raw_stock_id",
+                "candidate_source_normalized_stock_id",
+                "stock_id",
+            ],
+        ].head(5)
+        raise RuntimeError(
+            "all_candidates source identity normalization parity mismatch: "
+            f"rows={bad.to_dict(orient='records')}"
+        )
+    invalid_hash_rows = all_df[
+        ~all_df["candidate_source_artifact_sha256"].map(
+            lambda value: bool(re.fullmatch(r"[0-9a-f]{64}", safe_str(value)))
+        )
+        | ~all_df["candidate_source_row_sha256"].map(
+            lambda value: bool(re.fullmatch(r"[0-9a-f]{64}", safe_str(value)))
+        )
+    ]
+    if not invalid_hash_rows.empty:
+        raise RuntimeError(
+            "all_candidates source identity hash lineage is invalid: "
+            f"rows={invalid_hash_rows.index.tolist()[:10]}"
+        )
+    expected_source_row_ids = (
+        all_df["candidate_source_artifact"].map(safe_str)
+        + "@"
+        + all_df["candidate_source_artifact_sha256"].map(safe_str)
+        + "#"
+        + all_df["candidate_source_record_number"].map(safe_str)
+        + ":"
+        + all_df["candidate_source_normalized_stock_id"].map(safe_str)
+        + ":"
+        + all_df["candidate_source_row_sha256"].map(safe_str)
+    )
+    row_id_parity = all_df["candidate_source_row_id"].map(safe_str).eq(
+        expected_source_row_ids
+    )
+    if not row_id_parity.all():
+        raise RuntimeError(
+            "all_candidates source row id lineage parity mismatch: "
+            f"rows={all_df.index[~row_id_parity].tolist()[:10]}"
+        )
+    duplicate_source_ids = all_df["candidate_source_row_id"].map(safe_str).duplicated(
+        keep=False
+    )
+    if duplicate_source_ids.any():
+        duplicate_ids = sorted(
+            set(all_df.loc[duplicate_source_ids, "candidate_source_row_id"].map(safe_str))
+        )
+        raise RuntimeError(
+            "all_candidates source identity is not unique: "
+            f"candidate_source_row_ids={duplicate_ids[:10]}"
+        )
 
     return all_df
 
@@ -802,11 +1023,33 @@ def deduplicate_candidates(df: pd.DataFrame) -> pd.DataFrame:
         return df
 
     df = df.copy()
-
-    # 同一支股票如果在不同 category 同時出現，保留不同 category。
-    # 同 category 重複才去重，保留排序後第一筆。
     df = sort_output(df)
-    df = df.drop_duplicates(["date", "category", "stock_id"], keep="first")
+
+    # `all_candidates` 的 grain 是 date/category/stock_id，但每一筆原始
+    # source row 都已有 immutable identity。相同 grain 若出現兩個不同
+    # source row，不能再用排序後第一筆靜默裁決，否則正式 dispatcher
+    # 永遠無法看見被丟棄的 lineage。這裡明確 fail closed，由來源 producer
+    # 修正或由下游已登記的 multi-source resolution 處理跨 category 列。
+    key_columns = ["date", "category", "stock_id"]
+    duplicate_mask = df.duplicated(key_columns, keep=False)
+    if duplicate_mask.any():
+        duplicate_rows = df.loc[
+            duplicate_mask,
+            key_columns
+            + [
+                "candidate_source_artifact",
+                "candidate_source_record_number",
+                "candidate_source_row_id",
+            ],
+        ].copy()
+        duplicate_rows = duplicate_rows.sort_values(
+            key_columns + ["candidate_source_row_id"]
+        )
+        detail = duplicate_rows.to_dict(orient="records")
+        raise RuntimeError(
+            "all_candidates has duplicate source rows at the canonical "
+            f"date/category/stock_id grain: rows={detail}"
+        )
 
     return df
 

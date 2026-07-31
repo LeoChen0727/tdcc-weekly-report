@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 import ast
+import hashlib
+import json
 import sys
 import tempfile
 import unittest
@@ -12,6 +14,7 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
+import build_all_candidates_latest as all_candidates_builder  # noqa: E402
 import build_daily_candidate_model_layer as model_layer  # noqa: E402
 from build_volume_breakout_watch import canonical_csv_slice_sha256  # noqa: E402
 from build_daily_candidate_model_layer import (  # noqa: E402
@@ -80,6 +83,66 @@ def make_row(**overrides: object) -> pd.Series:
     }
     base.update(overrides)
     return pd.Series(base)
+
+
+def candidate_rows_with_lineage(rows: list[dict[str, object]]) -> pd.DataFrame:
+    payload: list[dict[str, object]] = []
+    for index, source in enumerate(rows, start=2):
+        row = dict(source)
+        row.setdefault("signal_date", "20260530")
+        raw_stock_id = str(
+            row.get("candidate_source_raw_stock_id", row.get("stock_id", ""))
+        )
+        normalized_stock_id = str(
+            row.get(
+                "candidate_source_normalized_stock_id",
+                row.get("stock_id", ""),
+            )
+        )
+        artifact = str(
+            row.get(
+                "candidate_source_artifact",
+                f"output/latest/test_source_{index}.csv",
+            )
+        )
+        record_number = str(row.get("candidate_source_record_number", index))
+        artifact_sha256 = str(
+            row.get(
+                "candidate_source_artifact_sha256",
+                hashlib.sha256(artifact.encode("utf-8")).hexdigest(),
+            )
+        )
+        row_sha256 = str(
+            row.get(
+                "candidate_source_row_sha256",
+                hashlib.sha256(
+                    f"{artifact}|{record_number}|{normalized_stock_id}".encode("utf-8")
+                ).hexdigest(),
+            )
+        )
+        row.update(
+            {
+                "candidate_source_raw_stock_id": raw_stock_id,
+                "candidate_source_normalized_stock_id": normalized_stock_id,
+                "candidate_source_identity_columns": row.get(
+                    "candidate_source_identity_columns", "stock_id"
+                ),
+                "candidate_source_artifact": artifact,
+                "candidate_source_producer": row.get(
+                    "candidate_source_producer", "tests/fixture.py"
+                ),
+                "candidate_source_artifact_sha256": artifact_sha256,
+                "candidate_source_record_number": record_number,
+                "candidate_source_row_sha256": row_sha256,
+                "candidate_source_row_id": row.get(
+                    "candidate_source_row_id",
+                    f"{artifact}@{artifact_sha256}#{record_number}:"
+                    f"{normalized_stock_id}:{row_sha256}",
+                ),
+            }
+        )
+        payload.append(row)
+    return pd.DataFrame(payload)
 
 
 def volume_v2_price_history(signal_date: str = "20260530") -> pd.DataFrame:
@@ -277,12 +340,14 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
         *,
         watch_updates: dict[str, str] | None = None,
         candidates: pd.DataFrame | None = None,
+        stock_id: str = "1618",
+        duplicate_selected_watch: bool = False,
     ) -> pd.DataFrame:
         source = pd.DataFrame(
             [
                 {
                     "signal_date": "20260530",
-                    "stock_id": "1618",
+                    "stock_id": stock_id,
                     "stock_name": "TEST",
                     "volume_breakout_type": "bottom_volume_attack",
                     "selection_status": "selected",
@@ -295,37 +360,64 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
             ]
         )
         original_path = model_layer.VOLUME_BREAKOUT_WATCH
+        original_taxonomy_path = model_layer.VOLUME_BREAKOUT_TAXONOMY
         original_price_dir = model_layer.STOCK_PRICE_HISTORY_DIR
         with tempfile.TemporaryDirectory() as tmpdir:
             temp_dir = Path(tmpdir)
             temp_path = temp_dir / "volume_breakout_watch_latest.csv"
+            taxonomy_path = temp_dir / "stock_theme_taxonomy_latest.csv"
             price_dir = temp_dir / "stock_price_history"
             price_dir.mkdir()
             write_volume_v2_watch_fixture(
                 source,
                 temp_path,
-                price_dir / "1618.csv",
+                price_dir / f"{stock_id}.csv",
                 mid_position_volume_v2_price_history(),
             )
+            pd.DataFrame(
+                [
+                    {
+                        "stock_id": stock_id,
+                        "stock_name": "TEST",
+                        "industry": "test_industry",
+                        "primary_theme": "test_theme",
+                        "structural_theme_bucket": "test_theme",
+                        "effective_mainstream_label": "core_mainstream",
+                        "report_line_memberships": "mainstream",
+                        "mainstream_report_eligible": "True",
+                        "non_mainstream_report_eligible": "False",
+                        "dual_report_membership_flag": "False",
+                    }
+                ]
+            ).to_csv(taxonomy_path, index=False, encoding="utf-8-sig")
             if watch_updates:
                 payload = pd.read_csv(temp_path, dtype=str, keep_default_na=False)
                 for field, value in watch_updates.items():
                     payload[field] = value
                 payload.to_csv(temp_path, index=False, encoding="utf-8-sig")
+            if duplicate_selected_watch:
+                payload = pd.read_csv(
+                    temp_path, dtype=str, keep_default_na=False
+                )
+                pd.concat([payload, payload], ignore_index=True).to_csv(
+                    temp_path, index=False, encoding="utf-8-sig"
+                )
             model_layer.VOLUME_BREAKOUT_WATCH = temp_path
+            model_layer.VOLUME_BREAKOUT_TAXONOMY = taxonomy_path
             model_layer.STOCK_PRICE_HISTORY_DIR = price_dir
             try:
                 return model_layer.append_volume_breakout_signals(
                     pd.DataFrame(),
                     candidates
                     if candidates is not None
-                    else pd.DataFrame(
-                        [{"stock_id": "1618", "warrant_flow_signal": "call_inflow"}]
+                    else candidate_rows_with_lineage(
+                        [{"stock_id": stock_id, "warrant_flow_signal": "call_inflow"}]
                     ),
                     "20260530",
                 )
             finally:
                 model_layer.VOLUME_BREAKOUT_WATCH = original_path
+                model_layer.VOLUME_BREAKOUT_TAXONOMY = original_taxonomy_path
                 model_layer.STOCK_PRICE_HISTORY_DIR = original_price_dir
 
     def test_required_models_are_parameterized(self) -> None:
@@ -631,7 +723,7 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
             try:
                 out = model_layer.append_volume_breakout_signals(
                     pd.DataFrame(),
-                    pd.DataFrame(
+                    candidate_rows_with_lineage(
                         [
                             {
                                 "stock_id": "1617",
@@ -640,7 +732,16 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
                                 "theme_group": "canonical_theme",
                                 "score": "1",
                                 "rank": "1",
-                            }
+                                "category": "range_rebound",
+                            },
+                            {
+                                "stock_id": "1617",
+                                "warrant_flow_signal": "call_inflow",
+                                "tdcc_status": "strong_accumulation",
+                                "score": "99",
+                                "rank": "9",
+                                "category": "pattern",
+                            },
                         ]
                     ),
                     "20260530",
@@ -666,6 +767,7 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
         self.assertEqual(row["tdcc_status"], "strong_accumulation")
         self.assertIn("warrant bullish +2", row["score_components"])
         self.assertIn("TDCC positive +4", row["score_components"])
+        self.assertEqual(len(row["candidate_source_row_ids"].split("|")), 2)
         self.assertNotIn("watch_poison_theme", row.astype(str).tolist())
         self.assertNotIn("volume_range_breakout", set(out["model_id"].astype(str)))
 
@@ -705,7 +807,7 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
             try:
                 out = model_layer.append_volume_breakout_signals(
                     pd.DataFrame(),
-                    pd.DataFrame(
+                    candidate_rows_with_lineage(
                         [{"stock_id": "1618", "warrant_flow_signal": "call_inflow"}]
                     ),
                     "20260530",
@@ -761,7 +863,7 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
                 ):
                     model_layer.append_volume_breakout_signals(
                         pd.DataFrame(),
-                        pd.DataFrame(
+                        candidate_rows_with_lineage(
                             [
                                 {
                                     "stock_id": "1618",
@@ -817,7 +919,7 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
             try:
                 out = model_layer.append_volume_breakout_signals(
                     pd.DataFrame(),
-                    pd.DataFrame(
+                    candidate_rows_with_lineage(
                         [
                             {
                                 "stock_id": "1618",
@@ -1025,7 +1127,7 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
             )
 
     def test_volume_v2_dispatcher_rejects_ambiguous_candidate_duplicates(self) -> None:
-        candidates = pd.DataFrame(
+        candidates = candidate_rows_with_lineage(
             [
                 {
                     "stock_id": "1618",
@@ -1044,12 +1146,12 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
 
         with self.assertRaisesRegex(
             RuntimeError,
-            "ambiguous duplicate normalized stock_id.*warrant_flow_signal",
+            "conflicting canonical warrant signals",
         ):
             self._dispatch_mid_volume_fixture(candidates=candidates)
 
     def test_volume_v2_dispatcher_ignores_non_relevant_ambiguous_duplicates(self) -> None:
-        candidates = pd.DataFrame(
+        candidates = candidate_rows_with_lineage(
             [
                 {"stock_id": "1618", "warrant_flow_signal": "call_inflow"},
                 {
@@ -1071,7 +1173,7 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
         self.assertEqual(out.iloc[0]["stock_id"], "1618")
 
     def test_volume_v2_dispatcher_rejects_relevant_consumed_field_conflict(self) -> None:
-        candidates = pd.DataFrame(
+        candidates = candidate_rows_with_lineage(
             [
                 {
                     "stock_id": "1618",
@@ -1086,11 +1188,14 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
             ]
         )
 
-        with self.assertRaisesRegex(RuntimeError, "conflicting_fields=tdcc_status"):
+        with self.assertRaisesRegex(
+            RuntimeError,
+            "change formal model outcome.*conflicting_fields=.*tdcc_status",
+        ):
             self._dispatch_mid_volume_fixture(candidates=candidates)
 
-    def test_volume_v2_dispatcher_dedupes_semantically_equal_candidate_rows(self) -> None:
-        candidates = pd.DataFrame(
+    def test_volume_v2_dispatcher_resolves_equal_rows_and_preserves_lineage(self) -> None:
+        candidates = candidate_rows_with_lineage(
             [
                 {
                     "stock_id": "1618",
@@ -1115,6 +1220,149 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
 
         self.assertEqual(len(out), 1)
         self.assertEqual(out.iloc[0]["warrant_flow_signal"], "call_inflow")
+        self.assertEqual(
+            len(out.iloc[0]["candidate_source_row_ids"].split("|")), 2
+        )
+        self.assertEqual(
+            set(out.iloc[0]["candidate_source_categories"].split("|")),
+            {"range_rebound", "pattern"},
+        )
+
+    def test_exact_2451_raw_sources_reach_lookup_with_distinct_lineage(self) -> None:
+        columns = [
+            "date",
+            "stock_id",
+            "ticker",
+            "category",
+            "platform_high",
+            "short_platform_high",
+            "platform_width_pct",
+            "short_platform_width_pct",
+            "false_breakout_risk",
+            "revenue_yoy_pct",
+            "cumulative_yoy_pct",
+        ]
+        with tempfile.TemporaryDirectory() as tmpdir:
+            temp_dir = Path(tmpdir)
+            range_path = temp_dir / "range_rebound_watch_latest.csv"
+            revenue_path = temp_dir / "revenue_pullback_latest.csv"
+            pd.DataFrame(
+                [
+                    {
+                        "date": "20260731",
+                        "stock_id": "2451",
+                        "ticker": "2451",
+                        "category": "range_rebound",
+                        "platform_high": "280",
+                        "short_platform_high": "280",
+                        "platform_width_pct": "29.63",
+                        "short_platform_width_pct": "29.63",
+                        "false_breakout_risk": "False",
+                        "revenue_yoy_pct": "381.5468504599",
+                        "cumulative_yoy_pct": "422.1697253819",
+                    }
+                ],
+                columns=columns,
+            ).to_csv(range_path, index=False, encoding="utf-8-sig")
+            pd.DataFrame(
+                [
+                    {
+                        "date": "20260731",
+                        "stock_id": "2451",
+                        "ticker": "2451",
+                        "category": "revenue_pullback",
+                        "platform_high": "",
+                        "short_platform_high": "",
+                        "platform_width_pct": "",
+                        "short_platform_width_pct": "",
+                        "false_breakout_risk": "",
+                        "revenue_yoy_pct": "381.55",
+                        "cumulative_yoy_pct": "422.17",
+                    }
+                ],
+                columns=columns,
+            ).to_csv(revenue_path, index=False, encoding="utf-8-sig")
+            loaded = pd.concat(
+                [
+                    all_candidates_builder.load_source_file(
+                        {
+                            "path": range_path,
+                            "producer": "stock_daily_monitor.py",
+                            "default_category": "range_rebound",
+                            "default_category_cn": "range rebound",
+                        }
+                    ),
+                    all_candidates_builder.load_source_file(
+                        {
+                            "path": revenue_path,
+                            "producer": "stock_daily_monitor.py",
+                            "default_category": "revenue_pullback",
+                            "default_category_cn": "revenue pullback",
+                        }
+                    ),
+                ],
+                ignore_index=True,
+                sort=False,
+            )
+
+        sourced_rows = model_layer.volume_v2_candidate_lookup(
+            loaded, {"2451"}
+        )["2451"]
+        self.assertEqual(len(sourced_rows), 2)
+        self.assertEqual(
+            {row["candidate_source_identity_columns"] for row in sourced_rows},
+            {"stock_id;ticker"},
+        )
+        self.assertEqual(
+            {row["candidate_source_producer"] for row in sourced_rows},
+            {"stock_daily_monitor.py"},
+        )
+        self.assertEqual(
+            {row["category"] for row in sourced_rows},
+            {"range_rebound", "revenue_pullback"},
+        )
+        self.assertEqual(
+            len({row["candidate_source_row_id"] for row in sourced_rows}), 2
+        )
+
+    def test_all_candidates_same_grain_duplicate_fails_before_silent_choice(self) -> None:
+        rows = pd.DataFrame(
+            [
+                {
+                    "date": "20260731",
+                    "category": "range_rebound",
+                    "stock_id": "2451",
+                    "score": "80",
+                    "rank": "1",
+                    "candidate_source_artifact": "source.csv",
+                    "candidate_source_record_number": "2",
+                    "candidate_source_row_id": "source-row-a",
+                },
+                {
+                    "date": "20260731",
+                    "category": "range_rebound",
+                    "stock_id": "2451",
+                    "score": "79",
+                    "rank": "2",
+                    "candidate_source_artifact": "source.csv",
+                    "candidate_source_record_number": "3",
+                    "candidate_source_row_id": "source-row-b",
+                },
+            ]
+        )
+
+        with self.assertRaisesRegex(
+            RuntimeError,
+            "duplicate source rows at the canonical date/category/stock_id grain",
+        ):
+            all_candidates_builder.deduplicate_candidates(rows)
+
+    def test_volume_v2_dispatcher_rejects_duplicate_selected_watch_rows(self) -> None:
+        with self.assertRaisesRegex(
+            RuntimeError,
+            "duplicate selected normalized stock rows",
+        ):
+            self._dispatch_mid_volume_fixture(duplicate_selected_watch=True)
 
     def test_volume_v2_dispatcher_identical_duplicates_are_deterministic(self) -> None:
         row = {
@@ -1123,14 +1371,323 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
             "warrant_flow_signal": "call_inflow",
             "tdcc_status": "accumulation",
         }
-        candidates = pd.DataFrame([row, dict(row)])
+        candidates = candidate_rows_with_lineage([row, dict(row)])
 
         first = self._dispatch_mid_volume_fixture(candidates=candidates)
         second = self._dispatch_mid_volume_fixture(
             candidates=candidates.iloc[::-1].reset_index(drop=True)
         )
 
-        pd.testing.assert_frame_equal(first, second)
+        source_specific_fields = {
+            "candidate_presentation_source_artifact",
+            "candidate_presentation_source_artifact_sha256",
+        }
+        pd.testing.assert_frame_equal(
+            first.drop(columns=source_specific_fields),
+            second.drop(columns=source_specific_fields),
+        )
+        first_descriptor = json.loads(
+            first.iloc[0]["candidate_presentation_source_artifact"]
+        )
+        second_descriptor = json.loads(
+            second.iloc[0]["candidate_presentation_source_artifact"]
+        )
+        for descriptor in (first_descriptor, second_descriptor):
+            self.assertEqual(
+                descriptor["candidate_source_row_ids"],
+                sorted(descriptor["candidate_source_row_ids"]),
+            )
+            self.assertEqual(
+                descriptor["presentation_row_sha256"],
+                first.iloc[0]["candidate_presentation_source_row_sha256"],
+            )
+
+    def test_volume_v2_dispatcher_preserves_2451_complementary_source_rows(self) -> None:
+        candidates = candidate_rows_with_lineage(
+            [
+                {
+                    "stock_id": "2451",
+                    "category": "range_rebound",
+                    "candidate_source_artifact": "output/latest/range_rebound_watch_latest.csv",
+                    "platform_high": "280",
+                    "short_platform_high": "280",
+                    "platform_width_pct": "29.63",
+                    "short_platform_width_pct": "29.63",
+                    "false_breakout_risk": "False",
+                    "revenue_yoy_pct": "381.5468504599",
+                    "cumulative_yoy_pct": "422.1697253819",
+                    "signal_date": "20260731",
+                    "warrant_flow_signal": "call_inflow",
+                },
+                {
+                    "stock_id": "2451",
+                    "category": "revenue_pullback",
+                    "candidate_source_artifact": "output/latest/revenue_pullback_latest.csv",
+                    "platform_high": "",
+                    "short_platform_high": "",
+                    "platform_width_pct": "",
+                    "short_platform_width_pct": "",
+                    "false_breakout_risk": "",
+                    "revenue_yoy_pct": "381.55",
+                    "cumulative_yoy_pct": "422.17",
+                    "signal_date": "20260731",
+                    "warrant_flow_signal": "call_inflow",
+                },
+            ]
+        )
+
+        sourced_rows = model_layer.volume_v2_candidate_lookup(candidates, {"2451"})["2451"]
+        reversed_sourced_rows = model_layer.volume_v2_candidate_lookup(
+            candidates.iloc[::-1].reset_index(drop=True), {"2451"}
+        )["2451"]
+
+        self.assertEqual(len(sourced_rows), 2)
+        self.assertEqual(
+            [row["candidate_source_row_id"] for row in sourced_rows],
+            [row["candidate_source_row_id"] for row in reversed_sourced_rows],
+        )
+        self.assertEqual(
+            {row["category"] for row in sourced_rows},
+            {"range_rebound", "revenue_pullback"},
+        )
+
+    def test_volume_v2_dispatcher_2451_projection_keeps_score_parity(self) -> None:
+        stock_id = "2451"
+        canonical = candidate_rows_with_lineage(
+            [
+                {
+                    "stock_id": stock_id,
+                    "platform_high": "280",
+                    "short_platform_high": "280",
+                    "platform_width_pct": "29.63",
+                    "short_platform_width_pct": "29.63",
+                    "false_breakout_risk": "False",
+                    "revenue_yoy_pct": "381.5468504599",
+                    "cumulative_yoy_pct": "422.1697253819",
+                    "signal_date": "20260530",
+                    "warrant_flow_signal": "call_inflow",
+                }
+            ]
+        )
+        complementary = candidate_rows_with_lineage(
+            [
+                dict(canonical.iloc[0], category="range_rebound"),
+                {
+                    "stock_id": stock_id,
+                    "category": "revenue_pullback",
+                    "platform_high": "",
+                    "short_platform_high": "",
+                    "platform_width_pct": "",
+                    "short_platform_width_pct": "",
+                    "false_breakout_risk": "",
+                    "revenue_yoy_pct": "381.55",
+                    "cumulative_yoy_pct": "422.17",
+                    "signal_date": "20260530",
+                    "warrant_flow_signal": "call_inflow",
+                },
+            ]
+        )
+
+        baseline = self._dispatch_mid_volume_fixture(
+            candidates=canonical,
+            stock_id=stock_id,
+        )
+        projected = self._dispatch_mid_volume_fixture(
+            candidates=complementary,
+            stock_id=stock_id,
+        )
+
+        parity_columns = [
+            "model_id",
+            "stock_id",
+            "model_score",
+            "final_rank_score",
+            "model_rank",
+            "score_components",
+            "risk_penalty_tags",
+            "warrant_flow_signal",
+        ]
+        pd.testing.assert_frame_equal(
+            baseline[parity_columns].reset_index(drop=True),
+            projected[parity_columns].reset_index(drop=True),
+        )
+        presentation_columns = [
+            "stock_name",
+            "industry",
+            "primary_theme",
+            "effective_primary_theme",
+            "secondary_themes",
+            "effective_structural_theme_bucket",
+            "effective_mainstream_label",
+            "report_line_memberships",
+            "mainstream_report_eligible",
+            "non_mainstream_report_eligible",
+            "dual_report_membership_flag",
+            "report_bucket",
+        ]
+        pd.testing.assert_frame_equal(
+            baseline[presentation_columns].reset_index(drop=True),
+            projected[presentation_columns].reset_index(drop=True),
+        )
+        self.assertEqual(projected.iloc[0]["original_category"], "volume_breakout")
+        sourced_rows = model_layer.volume_v2_candidate_lookup(
+            complementary, {stock_id}
+        )[stock_id]
+        self.assertEqual(
+            projected.iloc[0]["candidate_source_row_ids"].split("|"),
+            [row["candidate_source_row_id"] for row in sourced_rows],
+        )
+        self.assertEqual(
+            projected.iloc[0]["candidate_source_row_sha256s"].split("|"),
+            [row["candidate_source_row_sha256"] for row in sourced_rows],
+        )
+        self.assertEqual(
+            projected.iloc[0]["candidate_source_categories"].split("|"),
+            [row.get("category", "") or "<blank>" for row in sourced_rows],
+        )
+        self.assertRegex(
+            projected.iloc[0]["candidate_formal_outcome_sha256"],
+            r"^[0-9a-f]{64}$",
+        )
+        self.assertEqual(
+            projected.iloc[0]["candidate_formal_outcome_sha256"],
+            model_layer._volume_v2_formal_outcome_sha256(projected.iloc[0]),
+        )
+        presentation = {
+            "stock_name": projected.iloc[0]["stock_name"],
+            "industry": projected.iloc[0]["industry"],
+            "primary_theme": projected.iloc[0]["primary_theme"],
+            "secondary_themes": projected.iloc[0]["secondary_themes"],
+            "effective_structural_theme_bucket": projected.iloc[0][
+                "effective_structural_theme_bucket"
+            ],
+            "effective_mainstream_label": projected.iloc[0][
+                "effective_mainstream_label"
+            ],
+            "report_line_memberships": projected.iloc[0][
+                "report_line_memberships"
+            ],
+            "mainstream_report_eligible": projected.iloc[0][
+                "mainstream_report_eligible"
+            ],
+            "non_mainstream_report_eligible": projected.iloc[0][
+                "non_mainstream_report_eligible"
+            ],
+            "dual_report_membership_flag": projected.iloc[0][
+                "dual_report_membership_flag"
+            ],
+            "report_bucket": projected.iloc[0]["report_bucket"],
+        }
+        expected_presentation_sha = hashlib.sha256(
+            json.dumps(
+                presentation,
+                ensure_ascii=False,
+                sort_keys=True,
+                separators=(",", ":"),
+            ).encode("utf-8")
+        ).hexdigest()
+        self.assertEqual(
+            projected.iloc[0]["candidate_presentation_source_row_sha256"],
+            expected_presentation_sha,
+        )
+        descriptor_text = projected.iloc[0][
+            "candidate_presentation_source_artifact"
+        ]
+        descriptor = json.loads(descriptor_text)
+        self.assertEqual(
+            descriptor["contract"], "volume_v2_formal_presentation_v1"
+        )
+        self.assertEqual(descriptor["mode"], "all_candidates")
+        self.assertEqual(
+            descriptor["candidate_source_row_ids"],
+            projected.iloc[0]["candidate_source_row_ids"].split("|"),
+        )
+        self.assertEqual(
+            descriptor["candidate_source_row_sha256s"],
+            projected.iloc[0]["candidate_source_row_sha256s"].split("|"),
+        )
+        self.assertEqual(
+            descriptor["candidate_source_categories"],
+            projected.iloc[0]["candidate_source_categories"].split("|"),
+        )
+        self.assertEqual(
+            descriptor["presentation_row_sha256"],
+            expected_presentation_sha,
+        )
+        self.assertEqual(
+            projected.iloc[0][
+                "candidate_presentation_source_artifact_sha256"
+            ],
+            hashlib.sha256(descriptor_text.encode("utf-8")).hexdigest(),
+        )
+        report = model_layer.build_report_ready_model_signals(projected)
+        for field in [
+            "candidate_source_row_ids",
+            "candidate_source_row_sha256s",
+            "candidate_source_categories",
+            "candidate_formal_outcome_sha256",
+            "candidate_presentation_source_artifact",
+            "candidate_presentation_source_artifact_sha256",
+            "candidate_presentation_source_row_sha256",
+        ]:
+            self.assertEqual(report.iloc[0][field], projected.iloc[0][field])
+
+    def test_volume_v2_dispatcher_rejects_conflict_that_changes_formal_outcome(self) -> None:
+        candidates = candidate_rows_with_lineage(
+            [
+                {"stock_id": "1618", "revenue_yoy_pct": "29.99"},
+                {"stock_id": "1618", "revenue_yoy_pct": "30.00"},
+            ]
+        )
+
+        with self.assertRaisesRegex(RuntimeError, "change formal model outcome"):
+            self._dispatch_mid_volume_fixture(candidates=candidates)
+
+    def test_volume_v2_dispatcher_rejects_conflicting_presentation(self) -> None:
+        candidates = candidate_rows_with_lineage(
+            [
+                {"stock_id": "1618", "industry": "industry_a"},
+                {"stock_id": "1618", "industry": "industry_b"},
+            ]
+        )
+
+        with self.assertRaisesRegex(
+            RuntimeError,
+            "change formal presentation.*conflicting_fields=industry",
+        ):
+            self._dispatch_mid_volume_fixture(candidates=candidates)
+
+    def test_volume_v2_dispatcher_rejects_non_equity_identity_collapse(self) -> None:
+        candidates = candidate_rows_with_lineage(
+            [
+                {
+                    "stock_id": "2451",
+                    "candidate_source_raw_stock_id": "2451A",
+                    "candidate_source_normalized_stock_id": "2451",
+                }
+            ]
+        )
+
+        with self.assertRaisesRegex(RuntimeError, "would collapse a non-equity identifier"):
+            model_layer.volume_v2_candidate_lookup(candidates, {"2451"})
+
+    def test_volume_v2_dispatcher_rejects_duplicate_rows_without_source_lineage(self) -> None:
+        candidates = pd.DataFrame(
+            [
+                {"stock_id": "2451", "platform_high": "280"},
+                {"stock_id": "2451", "platform_high": ""},
+            ]
+        )
+
+        with self.assertRaisesRegex(RuntimeError, "missing source identity lineage"):
+            model_layer.volume_v2_candidate_lookup(candidates, {"2451"})
+
+    def test_volume_v2_dispatcher_rejects_duplicate_source_row_id(self) -> None:
+        candidate = candidate_rows_with_lineage([{"stock_id": "2451"}])
+        candidates = pd.concat([candidate, candidate.copy()], ignore_index=True)
+
+        with self.assertRaisesRegex(RuntimeError, "reuse candidate_source_row_id"):
+            model_layer.volume_v2_candidate_lookup(candidates, {"2451"})
 
     def test_volume_v2_dispatcher_fails_on_stale_watch_score_rank_collision(self) -> None:
         source = pd.DataFrame(
@@ -1172,7 +1729,7 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
                 ):
                     model_layer.append_volume_breakout_signals(
                         pd.DataFrame(),
-                        pd.DataFrame(
+                        candidate_rows_with_lineage(
                             [
                                 {
                                     "stock_id": "1618",
@@ -1226,15 +1783,37 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
             try:
                 out = model_layer.append_volume_breakout_signals(
                     pd.DataFrame(),
-                    pd.DataFrame(
-                        [{"stock_id": "2489", "warrant_flow_signal": "call_inflow"}]
+                    candidate_rows_with_lineage(
+                        [
+                            {
+                                "stock_id": "2489",
+                                "warrant_flow_signal": "call_inflow",
+                                "category": "range_rebound",
+                            },
+                            {
+                                "stock_id": "2489",
+                                "warrant_flow_signal": "call_inflow",
+                                "category": "pattern",
+                            },
+                        ]
                     ),
                     "20260530",
                 )
                 out_without_warrant = model_layer.append_volume_breakout_signals(
                     pd.DataFrame(),
-                    pd.DataFrame(
-                        [{"stock_id": "2489", "warrant_flow_signal": "no_signal"}]
+                    candidate_rows_with_lineage(
+                        [
+                            {
+                                "stock_id": "2489",
+                                "warrant_flow_signal": "no_signal",
+                                "category": "range_rebound",
+                            },
+                            {
+                                "stock_id": "2489",
+                                "warrant_flow_signal": "no_signal",
+                                "category": "pattern",
+                            },
+                        ]
                     ),
                     "20260530",
                 )
@@ -1251,6 +1830,7 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
         self.assertEqual(row["volume_shape_bucket"], "non_consolidation")
         self.assertEqual(row["volume_ma60_gt_ma120"], "True")
         self.assertEqual(row["warrant_flow_signal"], "call_inflow")
+        self.assertEqual(len(row["candidate_source_row_ids"].split("|")), 2)
         self.assertEqual(row["model_score"], out_without_warrant.iloc[0]["model_score"])
         self.assertNotIn("warrant bullish", row["score_components"])
         self.assertIn("profile=volume_range_breakout_v2_high_position_volume_attack", row["score_components"])
@@ -2059,6 +2639,72 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
         self.assertEqual(set(current_day["model_id"]), {LOW_VOLUME_MODEL_ID})
         self.assertIn("price_pullback_23ema", set(out["model_id"]))
 
+    def test_model_signal_log_preserves_effective_volume_v2_resolution_lineage(self) -> None:
+        lineage = {
+            "candidate_source_row_ids": "source-a:"
+            + "a" * 64
+            + "|source-b:"
+            + "b" * 64,
+            "candidate_source_row_sha256s": "a" * 64 + "|" + "b" * 64,
+            "candidate_source_categories": "range_rebound|revenue_pullback",
+            "candidate_formal_outcome_sha256": "c" * 64,
+            "candidate_presentation_source_artifact": '{"contract":"volume_v2_formal_presentation_v1"}',
+            "candidate_presentation_source_artifact_sha256": "d" * 64,
+            "candidate_presentation_source_row_sha256": "e" * 64,
+        }
+        current = pd.DataFrame(
+            [
+                {
+                    "signal_date": "20260731",
+                    "report_bucket": "mainstream",
+                    "stock_id": "2451",
+                    "stock_name": "創見",
+                    "model_id": MID_VOLUME_MODEL_ID,
+                    "model_name_zh": "中位動能放量攻擊",
+                    "model_group": "pdf_core_model",
+                    "model_score": "76.4",
+                    "model_rank": "1",
+                    **lineage,
+                }
+            ]
+        )
+        original_dir = model_layer.MODEL_HISTORY_DIR
+        original_csv = model_layer.MODEL_SIGNAL_LOG_CSV
+        original_theme_history = model_layer.DAILY_THEME_STATUS_HISTORY_CSVS
+        with tempfile.TemporaryDirectory() as tmpdir:
+            temp_dir = Path(tmpdir)
+            temp_csv = temp_dir / "daily_candidate_model_signal_log.csv"
+            pd.DataFrame(
+                columns=["signal_date", "report_bucket", "stock_id", "model_id"]
+            ).to_csv(temp_csv, index=False)
+            model_layer.MODEL_HISTORY_DIR = temp_dir
+            model_layer.MODEL_SIGNAL_LOG_CSV = temp_csv
+            model_layer.DAILY_THEME_STATUS_HISTORY_CSVS = []
+            try:
+                out = update_model_signal_log(current)
+            finally:
+                model_layer.MODEL_HISTORY_DIR = original_dir
+                model_layer.MODEL_SIGNAL_LOG_CSV = original_csv
+                model_layer.DAILY_THEME_STATUS_HISTORY_CSVS = original_theme_history
+
+        row = out.iloc[0]
+        for field, value in lineage.items():
+            self.assertEqual(row[field], value)
+
+    def test_model_signal_log_rejects_duplicate_effective_volume_v2_identity(self) -> None:
+        duplicate = {
+            "signal_date": "20260731",
+            "report_bucket": "mainstream",
+            "stock_id": "2451",
+            "model_id": MID_VOLUME_MODEL_ID,
+        }
+        with self.assertRaisesRegex(
+            RuntimeError, "duplicate formal identities"
+        ):
+            model_layer.snapshot_model_signals(
+                pd.DataFrame([duplicate, dict(duplicate)])
+            )
+
     def test_model_signal_log_backfills_selected_bottom_volume_attack_lineage(self) -> None:
         current = pd.DataFrame(
             [
@@ -2491,6 +3137,159 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
         self.assertEqual(protected.loc["2454", "warrant_flow_signal"], "call_inflow")
         self.assertEqual(protected.loc["2454", "model_score"], "70")
         self.assertEqual(protected.loc["1301", "warrant_flow_signal"], "")
+
+    def test_warrant_formal_sync_refreshes_effective_volume_v2_outcome_hash(self) -> None:
+        immutable_lineage = {
+            "candidate_source_row_ids": "source-a:" + "a" * 64,
+            "candidate_source_row_sha256s": "a" * 64,
+            "candidate_source_categories": "range_rebound",
+            "candidate_presentation_source_artifact": (
+                '{"contract":"volume_v2_formal_presentation_v1"}'
+            ),
+            "candidate_presentation_source_artifact_sha256": "b" * 64,
+            "candidate_presentation_source_row_sha256": "c" * 64,
+        }
+        raw_row = {
+            "signal_date": "20260801",
+            "report_line": "mainstream",
+            "report_bucket": "mainstream",
+            "source_row_index": "candidate:0",
+            "stock_id": "2451",
+            "model_id": LOW_VOLUME_MODEL_ID,
+            "model_name_zh": "低位放量攻擊",
+            "model_group": "pdf_core_model",
+            "base_model_score": "60.0",
+            "operation_score": "60.0",
+            "tdcc_score": "0.0",
+            "pattern_score": "0.0",
+            "risk_penalty": "0.0",
+            "final_rank_score": "60.0",
+            "rank_reason_zh": "",
+            "model_score": "60.0",
+            "model_rank": "1",
+            "score_components": "base=60",
+            "risk_penalty_tags": "",
+            "tdcc_status": "",
+            "next_confirmation": "confirm next close",
+            "warrant_flow_signal": "no_signal",
+            **immutable_lineage,
+        }
+        raw_row["candidate_formal_outcome_sha256"] = (
+            model_layer._volume_v2_formal_outcome_sha256(raw_row)
+        )
+        old_outcome_sha256 = raw_row["candidate_formal_outcome_sha256"]
+        raw = pd.DataFrame([raw_row])
+        report = raw.copy()
+        report["merged_score_components"] = "base=60"
+        current_history = raw.drop(columns=["report_line", "source_row_index"]).copy()
+        prior_history = current_history.copy()
+        prior_history["signal_date"] = "20260731"
+        prior_history["candidate_formal_outcome_sha256"] = prior_history.apply(
+            model_layer._volume_v2_formal_outcome_sha256,
+            axis=1,
+        )
+        history = pd.concat([prior_history, current_history], ignore_index=True)
+        expected_prior_history = prior_history.reset_index(drop=True).copy()
+        candidates = pd.DataFrame(
+            [
+                {
+                    "signal_date": "20260801",
+                    "stock_id": "2451",
+                    "warrant_flow_signal": "call_inflow",
+                }
+            ]
+        )
+
+        synced_raw, synced_report, synced_history = (
+            model_layer.synchronize_warrant_formal_frames(
+                candidates,
+                raw,
+                report,
+                history,
+            )
+        )
+        drifted_report_before_rebuild = synced_report.copy()
+        drifted_report_before_rebuild.at[0, "tdcc_status"] = "forged_tdcc_status"
+        with self.assertRaisesRegex(
+            RuntimeError,
+            "immutable outcome drift.*artifact=report.*field=tdcc_status",
+        ):
+            model_layer._warrant_sync_refresh_volume_v2_formal_resolution_lineage(
+                synced_raw.copy(),
+                drifted_report_before_rebuild,
+                synced_history.copy(),
+                {"20260801"},
+            )
+
+        drifted_history_before_rebuild = synced_history.copy()
+        current_history_index = drifted_history_before_rebuild.index[
+            drifted_history_before_rebuild["signal_date"].eq("20260801")
+        ][0]
+        drifted_history_before_rebuild.at[
+            current_history_index, "next_confirmation"
+        ] = "forged_next_confirmation"
+        with self.assertRaisesRegex(
+            RuntimeError,
+            "immutable outcome drift.*artifact=history.*field=next_confirmation",
+        ):
+            model_layer._warrant_sync_refresh_volume_v2_formal_resolution_lineage(
+                synced_raw.copy(),
+                synced_report.copy(),
+                drifted_history_before_rebuild,
+                {"20260801"},
+            )
+
+        rebuilt_report, _, _ = model_layer.rebuild_warrant_formal_consumers(
+            synced_report,
+            synced_history,
+        )
+        final_raw, final_history = model_layer.finalize_warrant_formal_consumer_parity(
+            synced_raw,
+            rebuilt_report,
+            synced_history,
+        )
+        model_layer._warrant_sync_validate_final_volume_v2_formal_resolution_lineage(
+            final_raw,
+            rebuilt_report,
+            final_history,
+        )
+
+        outcome_hashes: set[str] = set()
+        current_rows = (
+            final_raw.iloc[0],
+            rebuilt_report.iloc[0],
+            final_history[final_history["signal_date"].eq("20260801")].iloc[0],
+        )
+        for row in current_rows:
+            actual_sha256 = row["candidate_formal_outcome_sha256"]
+            self.assertNotEqual(actual_sha256, old_outcome_sha256)
+            self.assertEqual(
+                actual_sha256,
+                model_layer._volume_v2_formal_outcome_sha256(row),
+            )
+            outcome_hashes.add(actual_sha256)
+            for field, expected in immutable_lineage.items():
+                self.assertEqual(row[field], expected)
+        self.assertEqual(len(outcome_hashes), 1)
+        self.assertEqual(final_raw.iloc[0]["warrant_flow_signal"], "call_inflow")
+        self.assertNotEqual(final_raw.iloc[0]["model_score"], "60.0")
+        pd.testing.assert_frame_equal(
+            final_history[final_history["signal_date"].eq("20260731")]
+            .reset_index(drop=True),
+            expected_prior_history,
+        )
+
+        drifted_report = rebuilt_report.copy()
+        drifted_report.at[0, "score_components"] = "consumer rebuild drift"
+        with self.assertRaisesRegex(
+            RuntimeError,
+            "final report outcome envelope/hash drift",
+        ):
+            model_layer._warrant_sync_validate_final_volume_v2_formal_resolution_lineage(
+                final_raw,
+                drifted_report,
+                final_history,
+            )
 
     def test_warrant_formal_sync_fails_closed_on_missing_or_conflicting_source(self) -> None:
         candidates, raw, report, history = warrant_formal_sync_fixture()

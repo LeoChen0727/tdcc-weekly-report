@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 import csv
+import hashlib
+import json
 import subprocess
 import sys
 from pathlib import Path
@@ -22,6 +24,7 @@ CONSUMER_EXCLUSION_MIGRATION_ID = "canonical_field_consumer_exclusions_20260718"
 RANKING_VALIDATOR_HISTORY_MIGRATION_ID = (
     "daily_published_ranking_validator_history_consumers_20260720"
 )
+SOURCE_IDENTITY_MIGRATION_ID = "volume_v2_candidate_projection_lineage_20260731"
 RANKING_VALIDATOR_EXCLUSION_MIGRATION_ID = (
     "daily_published_ranking_validator_current_hash_exclusions_20260720"
 )
@@ -38,6 +41,992 @@ def test_canonical_text_sha_is_bom_and_line_ending_independent() -> None:
     expected = lineage._canonical_text_sha256(lf)
     assert lineage._canonical_text_sha256(crlf_with_bom) == expected
     assert lineage._canonical_text_sha256(cr) == expected
+
+
+def source_identity_fixture(
+    root: Path,
+    *,
+    artifact: str,
+    producer: str,
+    stock_id: str = "2451",
+) -> dict[str, str]:
+    source_path = root / artifact
+    write_csv(source_path, ["stock_id"], [{"stock_id": stock_id}])
+    artifact_sha256 = hashlib.sha256(source_path.read_bytes()).hexdigest()
+    row_sha256 = hashlib.sha256(
+        json.dumps(
+            [["stock_id", stock_id]],
+            ensure_ascii=False,
+            separators=(",", ":"),
+        ).encode("utf-8")
+    ).hexdigest()
+    return {
+        "stock_id": stock_id,
+        "candidate_source_raw_stock_id": stock_id,
+        "candidate_source_normalized_stock_id": stock_id,
+        "candidate_source_identity_columns": "stock_id",
+        "candidate_source_artifact": artifact,
+        "candidate_source_producer": producer,
+        "candidate_source_artifact_sha256": artifact_sha256,
+        "candidate_source_record_number": "2",
+        "candidate_source_row_sha256": row_sha256,
+        "candidate_source_row_id": (
+            f"{artifact}@{artifact_sha256}#2:{stock_id}:{row_sha256}"
+        ),
+    }
+
+
+def test_all_candidates_source_identity_accepts_registered_unique_rows(
+    tmp_path: Path,
+) -> None:
+    columns = ["stock_id", *lineage.SOURCE_IDENTITY_FIELDS]
+    rows = [
+        source_identity_fixture(
+            tmp_path,
+            artifact="output/latest/range_rebound_watch_latest.csv",
+            producer="stock_daily_monitor.py",
+        ),
+        source_identity_fixture(
+            tmp_path,
+            artifact="output/latest/revenue_pullback_latest.csv",
+            producer="stock_daily_monitor.py",
+        ),
+    ]
+    write_csv(tmp_path / lineage.ALL_CANDIDATES_ARTIFACT, columns, rows)
+
+    assert lineage._validate_all_candidates_source_identity(tmp_path) == []
+
+
+def test_all_candidates_source_identity_accepts_cp950_literal_na_lineage(
+    tmp_path: Path,
+) -> None:
+    artifact = "output/latest/range_rebound_watch_latest.csv"
+    source_path = tmp_path / artifact
+    source_path.parent.mkdir(parents=True, exist_ok=True)
+    source_text = (
+        "stock_id,note,literal_na,literal_n_a\r\n"
+        "2451,測試,NA,N/A\r\n"
+    )
+    source_path.write_bytes(source_text.encode("cp950"))
+    artifact_sha256 = hashlib.sha256(source_path.read_bytes()).hexdigest()
+    row_sha256 = hashlib.sha256(
+        json.dumps(
+            [
+                ["stock_id", "2451"],
+                ["note", "測試"],
+                ["literal_na", "NA"],
+                ["literal_n_a", "N/A"],
+            ],
+            ensure_ascii=False,
+            separators=(",", ":"),
+        ).encode("utf-8")
+    ).hexdigest()
+    row = {
+        "stock_id": "2451",
+        "candidate_source_raw_stock_id": "2451",
+        "candidate_source_normalized_stock_id": "2451",
+        "candidate_source_identity_columns": "stock_id",
+        "candidate_source_artifact": artifact,
+        "candidate_source_producer": "stock_daily_monitor.py",
+        "candidate_source_artifact_sha256": artifact_sha256,
+        "candidate_source_record_number": "2",
+        "candidate_source_row_sha256": row_sha256,
+        "candidate_source_row_id": (
+            f"{artifact}@{artifact_sha256}#2:2451:{row_sha256}"
+        ),
+    }
+    write_csv(
+        tmp_path / lineage.ALL_CANDIDATES_ARTIFACT,
+        ["stock_id", *lineage.SOURCE_IDENTITY_FIELDS],
+        [row],
+    )
+
+    assert lineage._validate_all_candidates_source_identity(tmp_path) == []
+
+
+def test_all_candidates_source_identity_derives_every_nonblank_raw_alias(
+    tmp_path: Path,
+) -> None:
+    artifact = "output/latest/range_rebound_watch_latest.csv"
+    source_path = tmp_path / artifact
+    write_csv(
+        source_path,
+        ["stock_id", "ticker"],
+        [{"stock_id": "2451", "ticker": "2452"}],
+    )
+    artifact_sha256 = hashlib.sha256(source_path.read_bytes()).hexdigest()
+    row_sha256 = hashlib.sha256(
+        json.dumps(
+            [["stock_id", "2451"], ["ticker", "2452"]],
+            ensure_ascii=False,
+            separators=(",", ":"),
+        ).encode("utf-8")
+    ).hexdigest()
+    row = {
+        "stock_id": "2451",
+        "candidate_source_raw_stock_id": "2451",
+        "candidate_source_normalized_stock_id": "2451",
+        "candidate_source_identity_columns": "stock_id",
+        "candidate_source_artifact": artifact,
+        "candidate_source_producer": "stock_daily_monitor.py",
+        "candidate_source_artifact_sha256": artifact_sha256,
+        "candidate_source_record_number": "2",
+        "candidate_source_row_sha256": row_sha256,
+        "candidate_source_row_id": (
+            f"{artifact}@{artifact_sha256}#2:2451:{row_sha256}"
+        ),
+    }
+    write_csv(
+        tmp_path / lineage.ALL_CANDIDATES_ARTIFACT,
+        ["stock_id", *lineage.SOURCE_IDENTITY_FIELDS],
+        [row],
+    )
+
+    errors = lineage._validate_all_candidates_source_identity(tmp_path)
+
+    assert any(
+        "source identity alias declaration mismatch" in error
+        and "derived=['stock_id', 'ticker']" in error
+        for error in errors
+    )
+    assert any(
+        "raw source alias normalization mismatch" in error
+        and "column=ticker" in error
+        for error in errors
+    )
+
+
+def test_all_candidates_source_identity_uses_logical_records_across_blank_lines(
+    tmp_path: Path,
+) -> None:
+    artifact = "output/latest/range_rebound_watch_latest.csv"
+    source_path = tmp_path / artifact
+    source_path.parent.mkdir(parents=True, exist_ok=True)
+    source_path.write_bytes(b"\xef\xbb\xbfstock_id\r\n\r\n2451\r\n")
+    artifact_sha256 = hashlib.sha256(source_path.read_bytes()).hexdigest()
+    row_sha256 = hashlib.sha256(
+        json.dumps(
+            [["stock_id", "2451"]],
+            ensure_ascii=False,
+            separators=(",", ":"),
+        ).encode("utf-8")
+    ).hexdigest()
+    row = {
+        "stock_id": "2451",
+        "candidate_source_raw_stock_id": "2451",
+        "candidate_source_normalized_stock_id": "2451",
+        "candidate_source_identity_columns": "stock_id",
+        "candidate_source_artifact": artifact,
+        "candidate_source_producer": "stock_daily_monitor.py",
+        "candidate_source_artifact_sha256": artifact_sha256,
+        "candidate_source_record_number": "2",
+        "candidate_source_row_sha256": row_sha256,
+        "candidate_source_row_id": (
+            f"{artifact}@{artifact_sha256}#2:2451:{row_sha256}"
+        ),
+    }
+    write_csv(
+        tmp_path / lineage.ALL_CANDIDATES_ARTIFACT,
+        ["stock_id", *lineage.SOURCE_IDENTITY_FIELDS],
+        [row],
+    )
+
+    assert lineage._validate_all_candidates_source_identity(tmp_path) == []
+
+
+def test_all_candidates_source_identity_fails_when_all_decoders_fail(
+    tmp_path: Path,
+) -> None:
+    artifact = "output/latest/range_rebound_watch_latest.csv"
+    source_path = tmp_path / artifact
+    source_path.parent.mkdir(parents=True, exist_ok=True)
+    source_path.write_bytes(b"stock_id,note\n2451,\x81")
+    artifact_sha256 = hashlib.sha256(source_path.read_bytes()).hexdigest()
+    row_sha256 = "f" * 64
+    row = {
+        "stock_id": "2451",
+        "candidate_source_raw_stock_id": "2451",
+        "candidate_source_normalized_stock_id": "2451",
+        "candidate_source_identity_columns": "stock_id",
+        "candidate_source_artifact": artifact,
+        "candidate_source_producer": "stock_daily_monitor.py",
+        "candidate_source_artifact_sha256": artifact_sha256,
+        "candidate_source_record_number": "2",
+        "candidate_source_row_sha256": row_sha256,
+        "candidate_source_row_id": (
+            f"{artifact}@{artifact_sha256}#2:2451:{row_sha256}"
+        ),
+    }
+    write_csv(
+        tmp_path / lineage.ALL_CANDIDATES_ARTIFACT,
+        ["stock_id", *lineage.SOURCE_IDENTITY_FIELDS],
+        [row],
+    )
+
+    errors = lineage._validate_all_candidates_source_identity(tmp_path)
+
+    assert any(
+        "cannot be decoded with bounded encodings" in error for error in errors
+    )
+
+
+def test_all_candidates_source_identity_rejects_collapse_and_duplicate_lineage(
+    tmp_path: Path,
+) -> None:
+    columns = ["stock_id", *lineage.SOURCE_IDENTITY_FIELDS]
+    valid = source_identity_fixture(
+        tmp_path,
+        artifact="output/latest/range_rebound_watch_latest.csv",
+        producer="stock_daily_monitor.py",
+    )
+    malformed = dict(valid)
+    malformed["candidate_source_raw_stock_id"] = "2451A"
+    malformed["candidate_source_normalized_stock_id"] = "2451A"
+    collapsed = dict(valid)
+    collapsed["candidate_source_raw_stock_id"] = "2451A"
+    rows = [malformed, collapsed, dict(collapsed)]
+    write_csv(tmp_path / lineage.ALL_CANDIDATES_ARTIFACT, columns, rows)
+
+    errors = lineage._validate_all_candidates_source_identity(tmp_path)
+
+    assert any("not a four-digit equity code" in error for error in errors)
+    assert any("normalized identity parity mismatch" in error for error in errors)
+    assert any("raw-to-normalized identity parity mismatch" in error for error in errors)
+    assert any("source row id is duplicated" in error for error in errors)
+
+
+def formal_resolution_row(
+    source_rows: list[dict[str, str]],
+    root: Path,
+    *,
+    report_surface: bool = False,
+) -> dict[str, str]:
+    ordered = sorted(source_rows, key=lambda row: row["candidate_source_row_id"])
+    row = {
+        "signal_date": "20260731",
+        "report_bucket": "" if report_surface else "mainstream",
+        "report_line": "mainstream" if report_surface else "",
+        "source_row_index": "volume_breakout:0",
+        "stock_id": "2451",
+        "model_id": "volume_range_breakout_v2_mid_position_momentum_attack",
+        "original_category": "volume_breakout",
+        "candidate_source_row_ids": "|".join(
+            row["candidate_source_row_id"] for row in ordered
+        ),
+        "candidate_source_row_sha256s": "|".join(
+            row["candidate_source_row_sha256"] for row in ordered
+        ),
+        "candidate_source_categories": "|".join(
+            row.get("original_category") or row.get("category") or "<blank>"
+            for row in ordered
+        ),
+        "candidate_formal_outcome_sha256": "",
+        "candidate_presentation_source_artifact": "",
+        "candidate_presentation_source_artifact_sha256": "",
+        "candidate_presentation_source_row_sha256": "",
+    }
+    row["candidate_formal_outcome_sha256"] = lineage._canonical_payload_sha256(
+        lineage._formal_outcome_envelope(row)
+    )
+    row["candidate_presentation_source_row_sha256"] = (
+        lineage._canonical_payload_sha256(
+            lineage._formal_presentation_envelope(row)
+        )
+    )
+    watch_path = root / lineage.VOLUME_WATCH_ARTIFACT
+    watch_columns = ["signal_date", "stock_id", "volume_breakout_type"]
+    watch_row = {
+        "signal_date": "20260731",
+        "stock_id": "2451",
+        "volume_breakout_type": "bottom_volume_attack",
+    }
+    write_csv(watch_path, watch_columns, [watch_row])
+    taxonomy_path = root / lineage.VOLUME_TAXONOMY_ARTIFACT
+    taxonomy_columns = ["stock_id"]
+    taxonomy_row = {"stock_id": "2451"}
+    write_csv(taxonomy_path, taxonomy_columns, [taxonomy_row])
+    descriptor = {
+        "contract": lineage.FORMAL_PRESENTATION_PROJECTION_CONTRACT,
+        "mode": "all_candidates",
+        "candidate_source_row_ids": row["candidate_source_row_ids"].split("|"),
+        "candidate_source_row_sha256s": row[
+            "candidate_source_row_sha256s"
+        ].split("|"),
+        "candidate_source_categories": row["candidate_source_categories"].split(
+            "|"
+        ),
+        "watch": {
+            "artifact": lineage.VOLUME_WATCH_ARTIFACT,
+            "artifact_sha256": lineage._canonical_text_sha256(
+                watch_path.read_bytes()
+            ),
+            "record_number": 2,
+            "row_sha256": lineage._ordered_row_sha256(watch_columns, watch_row),
+        },
+        "taxonomy": {
+            "artifact": lineage.VOLUME_TAXONOMY_ARTIFACT,
+            "artifact_sha256": lineage._canonical_text_sha256(
+                taxonomy_path.read_bytes()
+            ),
+            "row_sha256": lineage._ordered_row_sha256(
+                taxonomy_columns, taxonomy_row
+            ),
+        },
+        "presentation_row_sha256": row[
+            "candidate_presentation_source_row_sha256"
+        ],
+    }
+    descriptor_text = json.dumps(
+        descriptor,
+        ensure_ascii=False,
+        sort_keys=True,
+        separators=(",", ":"),
+    )
+    row["candidate_presentation_source_artifact"] = descriptor_text
+    row["candidate_presentation_source_artifact_sha256"] = hashlib.sha256(
+        descriptor_text.encode("utf-8")
+    ).hexdigest()
+    return row
+
+
+def rehash_formal_resolution_row(row: dict[str, str]) -> None:
+    row["candidate_formal_outcome_sha256"] = lineage._canonical_payload_sha256(
+        lineage._formal_outcome_envelope(row)
+    )
+    row["candidate_presentation_source_row_sha256"] = (
+        lineage._canonical_payload_sha256(
+            lineage._formal_presentation_envelope(row)
+        )
+    )
+    descriptor = json.loads(row["candidate_presentation_source_artifact"])
+    for field_name in (
+        "candidate_source_row_ids",
+        "candidate_source_row_sha256s",
+        "candidate_source_categories",
+    ):
+        field_value = row[field_name]
+        descriptor[field_name] = field_value.split("|") if field_value else []
+    descriptor["mode"] = (
+        "all_candidates" if row["candidate_source_row_ids"] else "taxonomy"
+    )
+    descriptor["presentation_row_sha256"] = row[
+        "candidate_presentation_source_row_sha256"
+    ]
+    descriptor_text = json.dumps(
+        descriptor,
+        ensure_ascii=False,
+        sort_keys=True,
+        separators=(",", ":"),
+    )
+    row["candidate_presentation_source_artifact"] = descriptor_text
+    row["candidate_presentation_source_artifact_sha256"] = hashlib.sha256(
+        descriptor_text.encode("utf-8")
+    ).hexdigest()
+
+
+def test_formal_resolution_lineage_requires_exact_raw_report_pairing(
+    tmp_path: Path,
+) -> None:
+    source_rows = [
+        {
+            **source_identity_fixture(
+                tmp_path,
+                artifact="output/latest/range_rebound_watch_latest.csv",
+                producer="stock_daily_monitor.py",
+            ),
+            "category": "range_rebound",
+        },
+        {
+            **source_identity_fixture(
+                tmp_path,
+                artifact="output/latest/revenue_pullback_latest.csv",
+                producer="stock_daily_monitor.py",
+            ),
+            "category": "revenue_pullback",
+        },
+    ]
+    write_csv(
+        tmp_path / lineage.ALL_CANDIDATES_ARTIFACT,
+        list(source_rows[0]),
+        source_rows,
+    )
+    raw = formal_resolution_row(source_rows, tmp_path)
+    report = formal_resolution_row(source_rows, tmp_path, report_surface=True)
+    columns = list(raw)
+    write_csv(
+        tmp_path / "output/latest/daily_candidate_model_signals_latest.csv",
+        columns,
+        [raw],
+    )
+    write_csv(
+        tmp_path
+        / "output/latest/daily_candidate_model_signals_for_report_latest.csv",
+        columns,
+        [report],
+    )
+
+    assert lineage._validate_formal_resolution_lineage(tmp_path) == []
+
+    report["candidate_formal_outcome_sha256"] = "6" * 64
+    report["candidate_source_row_sha256s"] = "1" * 64
+    write_csv(
+        tmp_path
+        / "output/latest/daily_candidate_model_signals_for_report_latest.csv",
+        columns,
+        [report],
+    )
+    errors = lineage._validate_formal_resolution_lineage(tmp_path)
+
+    assert any("source lineage arrays are not paired" in error for error in errors)
+    assert any("raw/report resolution lineage mismatch" in error for error in errors)
+
+
+def test_formal_resolution_lineage_rejects_synchronized_forged_source_rows(
+    tmp_path: Path,
+) -> None:
+    source_rows = [
+        {
+            **source_identity_fixture(
+                tmp_path,
+                artifact="output/latest/range_rebound_watch_latest.csv",
+                producer="stock_daily_monitor.py",
+            ),
+            "category": "range_rebound",
+        }
+    ]
+    write_csv(
+        tmp_path / lineage.ALL_CANDIDATES_ARTIFACT,
+        list(source_rows[0]),
+        source_rows,
+    )
+    forged_sha = "f" * 64
+    forged_id = f"output/latest/forged.csv@{'e' * 64}#2:2451:{forged_sha}"
+    raw = formal_resolution_row(source_rows, tmp_path)
+    report = formal_resolution_row(source_rows, tmp_path, report_surface=True)
+    for row in (raw, report):
+        row["candidate_source_row_ids"] = forged_id
+        row["candidate_source_row_sha256s"] = forged_sha
+        row["candidate_source_categories"] = "range_rebound"
+    columns = list(raw)
+    write_csv(
+        tmp_path / "output/latest/daily_candidate_model_signals_latest.csv",
+        columns,
+        [raw],
+    )
+    write_csv(
+        tmp_path
+        / "output/latest/daily_candidate_model_signals_for_report_latest.csv",
+        columns,
+        [report],
+    )
+
+    errors = lineage._validate_formal_resolution_lineage(tmp_path)
+
+    assert any("formal source crosswalk membership/order mismatch" in error for error in errors)
+    assert any("references an unknown candidate row" in error for error in errors)
+
+
+def test_formal_resolution_lineage_rejects_descriptor_mode_source_mismatch(
+    tmp_path: Path,
+) -> None:
+    source_rows = [
+        {
+            **source_identity_fixture(
+                tmp_path,
+                artifact="output/latest/range_rebound_watch_latest.csv",
+                producer="stock_daily_monitor.py",
+            ),
+            "category": "range_rebound",
+        }
+    ]
+    write_csv(
+        tmp_path / lineage.ALL_CANDIDATES_ARTIFACT,
+        list(source_rows[0]),
+        source_rows,
+    )
+    raw = formal_resolution_row(source_rows, tmp_path)
+    report = formal_resolution_row(source_rows, tmp_path, report_surface=True)
+    for row in (raw, report):
+        descriptor = json.loads(row["candidate_presentation_source_artifact"])
+        descriptor["mode"] = "taxonomy"
+        descriptor_text = json.dumps(
+            descriptor,
+            ensure_ascii=False,
+            sort_keys=True,
+            separators=(",", ":"),
+        )
+        row["candidate_presentation_source_artifact"] = descriptor_text
+        row["candidate_presentation_source_artifact_sha256"] = hashlib.sha256(
+            descriptor_text.encode("utf-8")
+        ).hexdigest()
+    columns = list(raw)
+    write_csv(
+        tmp_path / "output/latest/daily_candidate_model_signals_latest.csv",
+        columns,
+        [raw],
+    )
+    write_csv(
+        tmp_path
+        / "output/latest/daily_candidate_model_signals_for_report_latest.csv",
+        columns,
+        [report],
+    )
+
+    errors = lineage._validate_formal_resolution_lineage(tmp_path)
+
+    assert any(
+        "formal presentation descriptor mode/source mismatch" in error
+        for error in errors
+    )
+
+
+@pytest.mark.parametrize(
+    ("field_name", "expected_error"),
+    [
+        (
+            "candidate_formal_outcome_sha256",
+            "formal outcome SHA-256 does not match the independent row projection",
+        ),
+        (
+            "candidate_presentation_source_row_sha256",
+            "formal presentation row SHA-256 does not match the independent row projection",
+        ),
+    ],
+)
+def test_formal_resolution_lineage_rejects_synchronized_derived_hash_tampering(
+    tmp_path: Path,
+    field_name: str,
+    expected_error: str,
+) -> None:
+    source_rows = [
+        {
+            **source_identity_fixture(
+                tmp_path,
+                artifact="output/latest/range_rebound_watch_latest.csv",
+                producer="stock_daily_monitor.py",
+            ),
+            "category": "range_rebound",
+        }
+    ]
+    write_csv(
+        tmp_path / lineage.ALL_CANDIDATES_ARTIFACT,
+        list(source_rows[0]),
+        source_rows,
+    )
+    raw = formal_resolution_row(source_rows, tmp_path)
+    report = formal_resolution_row(source_rows, tmp_path, report_surface=True)
+    for row in (raw, report):
+        row[field_name] = "f" * 64
+    columns = list(raw)
+    write_csv(
+        tmp_path / "output/latest/daily_candidate_model_signals_latest.csv",
+        columns,
+        [raw],
+    )
+    write_csv(
+        tmp_path
+        / "output/latest/daily_candidate_model_signals_for_report_latest.csv",
+        columns,
+        [report],
+    )
+
+    errors = lineage._validate_formal_resolution_lineage(tmp_path)
+
+    assert any(expected_error in error for error in errors)
+
+
+def test_current_formal_resolution_rejects_self_consistent_wrong_watch_source(
+    tmp_path: Path,
+) -> None:
+    source_rows = [
+        {
+            **source_identity_fixture(
+                tmp_path,
+                artifact="output/latest/range_rebound_watch_latest.csv",
+                producer="stock_daily_monitor.py",
+            ),
+            "category": "range_rebound",
+        }
+    ]
+    write_csv(
+        tmp_path / lineage.ALL_CANDIDATES_ARTIFACT,
+        list(source_rows[0]),
+        source_rows,
+    )
+    raw = formal_resolution_row(source_rows, tmp_path)
+    report = formal_resolution_row(source_rows, tmp_path, report_surface=True)
+    for row in (raw, report):
+        descriptor = json.loads(row["candidate_presentation_source_artifact"])
+        descriptor["watch"]["row_sha256"] = "f" * 64
+        descriptor_text = json.dumps(
+            descriptor,
+            ensure_ascii=False,
+            sort_keys=True,
+            separators=(",", ":"),
+        )
+        row["candidate_presentation_source_artifact"] = descriptor_text
+        row["candidate_presentation_source_artifact_sha256"] = hashlib.sha256(
+            descriptor_text.encode("utf-8")
+        ).hexdigest()
+    columns = list(raw)
+    write_csv(
+        tmp_path / "output/latest/daily_candidate_model_signals_latest.csv",
+        columns,
+        [raw],
+    )
+    write_csv(
+        tmp_path
+        / "output/latest/daily_candidate_model_signals_for_report_latest.csv",
+        columns,
+        [report],
+    )
+
+    errors = lineage._validate_formal_resolution_lineage(tmp_path)
+
+    assert any(
+        "formal presentation watch row SHA-256 mismatch" in error
+        for error in errors
+    )
+
+
+def test_historical_formal_source_crosswalk_rejects_forged_source_rows(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    source_rows = [
+        {
+            **source_identity_fixture(
+                tmp_path,
+                artifact="output/latest/range_rebound_watch_latest.csv",
+                producer="stock_daily_monitor.py",
+            ),
+            "category": "range_rebound",
+            "warrant_flow_signal": "call_inflow",
+        }
+    ]
+    forged_sha = "f" * 64
+    forged_id = f"output/latest/forged.csv@{'e' * 64}#2:2451:{forged_sha}"
+    report = formal_resolution_row(source_rows, tmp_path, report_surface=True)
+    report.update(
+        {
+            "candidate_source_row_ids": forged_id,
+            "candidate_source_row_sha256s": forged_sha,
+            "candidate_source_categories": "range_rebound",
+            "warrant_flow_signal": "call_inflow",
+        }
+    )
+    snapshot_dir = tmp_path / "output/history/daily_model_snapshots"
+    candidate_path = snapshot_dir / "all_candidates_20260731.csv"
+    report_path = snapshot_dir / "daily_candidate_model_signals_for_report_20260731.csv"
+    official_path = tmp_path / "output/history/warrant_flow/warrant_flow_20260731.csv"
+    write_csv(candidate_path, list(source_rows[0]), source_rows)
+    write_csv(report_path, list(report), [report])
+    write_csv(
+        official_path,
+        ["stock_id", "warrant_flow_signal"],
+        [{"stock_id": "2451", "warrant_flow_signal": "call_inflow"}],
+    )
+    monkeypatch.setattr(
+        lineage,
+        "_manifest_dated_files",
+        lambda _root, artifact_id: {
+            "20260731": (
+                candidate_path
+                if artifact_id == "all_candidates_source_rows"
+                else report_path
+            )
+        },
+    )
+    monkeypatch.setattr(
+        lineage,
+        "_dated_files",
+        lambda _root, _pattern: {"20260731": official_path},
+    )
+
+    errors = lineage._validate_historical_projection(tmp_path)
+
+    assert any(
+        "formal source crosswalk membership/order mismatch" in error
+        and "historical_pair_20260731" in error
+        for error in errors
+    )
+
+
+def test_historical_formal_report_rejects_truncated_parallel_arrays_after_rehash(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    source_rows = [
+        {
+            **source_identity_fixture(
+                tmp_path,
+                artifact="output/latest/range_rebound_watch_latest.csv",
+                producer="stock_daily_monitor.py",
+            ),
+            "category": "range_rebound",
+            "warrant_flow_signal": "call_inflow",
+        },
+        {
+            **source_identity_fixture(
+                tmp_path,
+                artifact="output/latest/revenue_pullback_latest.csv",
+                producer="stock_daily_monitor.py",
+            ),
+            "category": "revenue_pullback",
+            "warrant_flow_signal": "call_inflow",
+        },
+    ]
+    report = formal_resolution_row(source_rows, tmp_path, report_surface=True)
+    report["candidate_source_row_sha256s"] = report[
+        "candidate_source_row_sha256s"
+    ].split("|")[0]
+    rehash_formal_resolution_row(report)
+
+    lifecycle = formal_resolution_row(source_rows, tmp_path)
+    signal_log_path = tmp_path / lineage.FORMAL_SIGNAL_LOG_ARTIFACT
+    write_csv(signal_log_path, list(lifecycle), [lifecycle])
+
+    snapshot_dir = tmp_path / "output/history/daily_model_snapshots"
+    candidate_path = snapshot_dir / "all_candidates_20260731.csv"
+    report_path = snapshot_dir / "model_signals_for_report_20260731.csv"
+    official_path = tmp_path / "output/history/warrant_flow/warrant_flow_20260731.csv"
+    write_csv(candidate_path, list(source_rows[0]), source_rows)
+    write_csv(report_path, list(report), [report])
+    write_csv(
+        official_path,
+        ["stock_id", "warrant_flow_signal"],
+        [{"stock_id": "2451", "warrant_flow_signal": "call_inflow"}],
+    )
+    monkeypatch.setattr(
+        lineage,
+        "_manifest_dated_files",
+        lambda _root, artifact_id: {
+            "20260731": (
+                candidate_path
+                if artifact_id == "all_candidates_source_rows"
+                else report_path
+            )
+        },
+    )
+    monkeypatch.setattr(
+        lineage,
+        "_dated_files",
+        lambda _root, _pattern: {"20260731": official_path},
+    )
+
+    errors = lineage._validate_historical_projection(tmp_path)
+
+    assert any(
+        "formal resolution source lineage arrays are not paired" in error
+        and "artifact=historical_pair_20260731" in error
+        for error in errors
+    )
+
+
+def test_historical_formal_signal_log_rejects_truncated_pairing_after_rehash(
+    tmp_path: Path,
+) -> None:
+    source_rows = [
+        {
+            **source_identity_fixture(
+                tmp_path,
+                artifact="output/latest/range_rebound_watch_latest.csv",
+                producer="stock_daily_monitor.py",
+            ),
+            "category": "range_rebound",
+        },
+        {
+            **source_identity_fixture(
+                tmp_path,
+                artifact="output/latest/revenue_pullback_latest.csv",
+                producer="stock_daily_monitor.py",
+            ),
+            "category": "revenue_pullback",
+        },
+    ]
+    candidate_snapshot = (
+        tmp_path
+        / "output/history/daily_model_snapshots/all_candidates_20260731.csv"
+    )
+    write_csv(candidate_snapshot, list(source_rows[0]), source_rows)
+
+    report = formal_resolution_row(source_rows, tmp_path, report_surface=True)
+    lifecycle = formal_resolution_row(source_rows, tmp_path)
+    for row in (report, lifecycle):
+        row["candidate_source_row_sha256s"] = "f" * 64
+        rehash_formal_resolution_row(row)
+    report_snapshot = (
+        tmp_path
+        / "output/history/daily_model_snapshots/model_signals_for_report_20260731.csv"
+    )
+    write_csv(report_snapshot, list(report), [report])
+    signal_log_path = tmp_path / lineage.FORMAL_SIGNAL_LOG_ARTIFACT
+    write_csv(signal_log_path, list(lifecycle), [lifecycle])
+
+    errors = lineage._validate_historical_formal_signal_log(
+        tmp_path,
+        {"20260731": candidate_snapshot},
+        {"20260731": report_snapshot},
+    )
+
+    assert any(
+        "formal resolution source lineage arrays are not paired" in error
+        and "artifact=formal_signal_log_20260731" in error
+        for error in errors
+    )
+    assert any(
+        "formal resolution source row ID/hash pairing mismatch" in error
+        and "artifact=formal_signal_log_20260731" in error
+        for error in errors
+    )
+
+
+def test_historical_formal_signal_log_rejects_blank_candidate_source_identity(
+    tmp_path: Path,
+) -> None:
+    blank_candidate = {
+        "stock_id": "2451",
+        "category": "range_rebound",
+        **{field_name: "" for field_name in lineage.SOURCE_IDENTITY_FIELDS},
+    }
+    candidate_snapshot = (
+        tmp_path
+        / "output/history/daily_model_snapshots/all_candidates_20260801.csv"
+    )
+    write_csv(candidate_snapshot, list(blank_candidate), [blank_candidate])
+
+    report = formal_resolution_row([], tmp_path, report_surface=True)
+    lifecycle = formal_resolution_row([], tmp_path)
+    for row in (report, lifecycle):
+        row["signal_date"] = "20260801"
+        rehash_formal_resolution_row(row)
+    report_snapshot = (
+        tmp_path
+        / "output/history/daily_model_snapshots/model_signals_for_report_20260801.csv"
+    )
+    write_csv(report_snapshot, list(report), [report])
+    write_csv(
+        tmp_path / lineage.FORMAL_SIGNAL_LOG_ARTIFACT,
+        list(lifecycle),
+        [lifecycle],
+    )
+
+    errors = lineage._validate_historical_formal_signal_log(
+        tmp_path,
+        {"20260801": candidate_snapshot},
+        {"20260801": report_snapshot},
+    )
+
+    assert any(
+        "candidate row is missing source identity" in error
+        and "label=formal_signal_log_20260801" in error
+        and "stock_id='2451'" in error
+        for error in errors
+    )
+
+
+def test_historical_formal_signal_log_requires_crosswalk_and_unique_identity(
+    tmp_path: Path,
+) -> None:
+    source_rows = [
+        {
+            **source_identity_fixture(
+                tmp_path,
+                artifact="output/latest/range_rebound_watch_latest.csv",
+                producer="stock_daily_monitor.py",
+            ),
+            "category": "range_rebound",
+        }
+    ]
+    candidate_snapshot = (
+        tmp_path
+        / "output/history/daily_model_snapshots/all_candidates_20260731.csv"
+    )
+    write_csv(candidate_snapshot, list(source_rows[0]), source_rows)
+    formal = formal_resolution_row(source_rows, tmp_path)
+    report = formal_resolution_row(source_rows, tmp_path, report_surface=True)
+    report_snapshot = (
+        tmp_path
+        / "output/history/daily_model_snapshots/model_signals_for_report_20260731.csv"
+    )
+    write_csv(report_snapshot, list(report), [report])
+    signal_log_path = tmp_path / lineage.FORMAL_SIGNAL_LOG_ARTIFACT
+    write_csv(signal_log_path, list(formal), [formal])
+
+    assert lineage._validate_historical_formal_signal_log(
+        tmp_path,
+        {"20260731": candidate_snapshot},
+        {"20260731": report_snapshot},
+    ) == []
+
+    forged = dict(formal)
+    forged_sha = "f" * 64
+    forged["candidate_source_row_ids"] = (
+        f"output/latest/forged.csv@{'e' * 64}#2:2451:{forged_sha}"
+    )
+    forged["candidate_source_row_sha256s"] = forged_sha
+    write_csv(signal_log_path, list(formal), [forged, dict(forged)])
+
+    errors = lineage._validate_historical_formal_signal_log(
+        tmp_path,
+        {"20260731": candidate_snapshot},
+        {"20260731": report_snapshot},
+    )
+
+    assert any("formal signal log has duplicate effective identity" in error for error in errors)
+    assert any("formal source crosswalk membership/order mismatch" in error for error in errors)
+
+
+def test_historical_formal_signal_log_rejects_report_parity_drift_after_self_rehash(
+    tmp_path: Path,
+) -> None:
+    source_rows = [
+        {
+            **source_identity_fixture(
+                tmp_path,
+                artifact="output/latest/range_rebound_watch_latest.csv",
+                producer="stock_daily_monitor.py",
+            ),
+            "category": "range_rebound",
+        }
+    ]
+    candidate_snapshot = (
+        tmp_path
+        / "output/history/daily_model_snapshots/all_candidates_20260731.csv"
+    )
+    write_csv(candidate_snapshot, list(source_rows[0]), source_rows)
+
+    report = formal_resolution_row(source_rows, tmp_path, report_surface=True)
+    report_snapshot = (
+        tmp_path
+        / "output/history/daily_model_snapshots/model_signals_for_report_20260731.csv"
+    )
+    write_csv(report_snapshot, list(report), [report])
+
+    lifecycle = formal_resolution_row(source_rows, tmp_path)
+    lifecycle["rank_reason_zh"] = "tampered_but_self_consistent"
+    lifecycle["candidate_formal_outcome_sha256"] = (
+        lineage._canonical_payload_sha256(
+            lineage._formal_outcome_envelope(lifecycle)
+        )
+    )
+    signal_log_path = tmp_path / lineage.FORMAL_SIGNAL_LOG_ARTIFACT
+    write_csv(signal_log_path, list(lifecycle), [lifecycle])
+
+    errors = lineage._validate_historical_formal_signal_log(
+        tmp_path,
+        {"20260731": candidate_snapshot},
+        {"20260731": report_snapshot},
+    )
+
+    assert not any(
+        "formal outcome lineage hash mismatch" in error for error in errors
+    )
+    assert any(
+        "formal signal log/report lineage mismatch" in error
+        and "field=candidate_formal_outcome_sha256" in error
+        for error in errors
+    )
 
 
 def write_csv(path: Path, columns: list[str], rows: list[dict[str, str]]) -> None:
@@ -427,6 +1416,7 @@ def build_valid_repo(root: Path) -> None:
         SCORE_RANK_MIGRATION_ID,
         CONSUMER_HARDENING_MIGRATION_ID,
         RANKING_VALIDATOR_HISTORY_MIGRATION_ID,
+        SOURCE_IDENTITY_MIGRATION_ID,
     ]
     write_csv(
         root / lineage.MIGRATIONS_PATH,
@@ -533,7 +1523,12 @@ def build_valid_repo(root: Path) -> None:
         {
             "signal_date": "20260717",
             "source_row_index": "1",
-            "stock_id": "1617",
+            **source_identity_fixture(
+                root,
+                artifact="output/latest/range_rebound_watch_latest.csv",
+                producer="stock_daily_monitor.py",
+                stock_id="1617",
+            ),
             "score": "71",
             "rank": "1",
             "warrant_flow_signal": "call_inflow",
@@ -610,6 +1605,14 @@ def build_valid_repo(root: Path) -> None:
         root / "output/latest/daily_candidate_model_signals_for_report_latest.csv",
         list(formal[0]),
         formal,
+    )
+    signal_log_row = dict(formal[0])
+    for field_name in lineage.FORMAL_RESOLUTION_FIELDS:
+        signal_log_row[field_name] = ""
+    write_csv(
+        root / lineage.FORMAL_SIGNAL_LOG_ARTIFACT,
+        list(signal_log_row),
+        [signal_log_row],
     )
     operation = [
         {
@@ -697,6 +1700,37 @@ def build_valid_repo(root: Path) -> None:
 def test_valid_canonical_field_lineage_contract_passes(tmp_path: Path) -> None:
     build_valid_repo(tmp_path)
     assert lineage.validate(tmp_path) == []
+
+
+def test_source_identity_registry_requires_every_in_place_writer_mirror(
+    tmp_path: Path,
+) -> None:
+    build_valid_repo(tmp_path)
+    path = tmp_path / lineage.REGISTRY_PATH
+    columns, rows = lineage._read_artifact(path)
+    row = next(
+        item
+        for item in rows
+        if item["lineage_id"] == "candidate_source_row_id__all_candidates_current"
+    )
+    removed = "scripts/build_candidate_repeat_appearance.py"
+    row["allowed_consumer_modules"] = ";".join(
+        consumer
+        for consumer in row["allowed_consumer_modules"].split(";")
+        if consumer != removed
+    )
+    row["contract_sha256"] = lineage.contract_sha256(row)
+    write_csv(path, columns, rows)
+
+    errors = lineage.validate(tmp_path)
+
+    assert any(
+        "all_candidates source identity lineage omits registered in-place writer mirrors"
+        in error
+        and "candidate_source_row_id__all_candidates_current" in error
+        and removed in error
+        for error in errors
+    )
 
 
 def test_unregistered_direct_advisory_field_consumer_fails_closed(

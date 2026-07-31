@@ -5,6 +5,7 @@ import csv
 from datetime import datetime
 import hashlib
 import io
+import json
 import math
 import re
 import sys
@@ -815,6 +816,72 @@ WARRANT_FORMAL_SYNC_PRESENTATION_FIELDS = frozenset(
         "why_selected",
     }
 )
+VOLUME_V2_FORMAL_RESOLUTION_LINEAGE_FIELDS = (
+    "candidate_source_row_ids",
+    "candidate_source_row_sha256s",
+    "candidate_source_categories",
+    "candidate_formal_outcome_sha256",
+    "candidate_presentation_source_artifact",
+    "candidate_presentation_source_artifact_sha256",
+    "candidate_presentation_source_row_sha256",
+)
+VOLUME_V2_FORMAL_OUTCOME_ARTIFACT_FIELDS = (
+    "warrant_flow_signal",
+    "base_model_score",
+    "operation_score",
+    "tdcc_score",
+    "pattern_score",
+    "risk_penalty",
+    "final_rank_score",
+    "rank_reason_zh",
+    "model_score",
+    "score_components",
+    "risk_penalty_tags",
+    "tdcc_status",
+    "next_confirmation",
+)
+VOLUME_V2_WARRANT_SYNC_MUTABLE_OUTCOME_FIELDS = (
+    "warrant_flow_signal",
+    *WARRANT_FORMAL_SYNC_NUMERIC_SCORE_FIELDS,
+    "score_components",
+)
+VOLUME_V2_WARRANT_SYNC_IMMUTABLE_OUTCOME_FIELDS = tuple(
+    field
+    for field in VOLUME_V2_FORMAL_OUTCOME_ARTIFACT_FIELDS
+    if field not in VOLUME_V2_WARRANT_SYNC_MUTABLE_OUTCOME_FIELDS
+)
+
+
+def _volume_v2_formal_outcome_envelope(row: pd.Series | dict[str, Any]) -> dict[str, str]:
+    has_candidate_sources = bool(safe_str(row.get("candidate_source_row_ids", "")))
+    signal_date = safe_str(row.get("signal_date", "")) or safe_str(row.get("date", ""))
+    return {
+        "model_id": safe_str(row.get("model_id", "")),
+        "candidate_signal_date": signal_date if has_candidate_sources else "",
+        "authoritative_warrant_signal": safe_str(row.get("warrant_flow_signal", "")),
+        "base_model_score": safe_str(row.get("base_model_score", "")),
+        "operation_score": safe_str(row.get("operation_score", "")),
+        "tdcc_score": safe_str(row.get("tdcc_score", "")),
+        "pattern_score": safe_str(row.get("pattern_score", "")),
+        "risk_penalty": safe_str(row.get("risk_penalty", "")),
+        "final_rank_score": safe_str(row.get("final_rank_score", "")),
+        "rank_reason_zh": safe_str(row.get("rank_reason_zh", "")),
+        "model_score": safe_str(row.get("model_score", "")),
+        "score_components": safe_str(row.get("score_components", "")),
+        "risk_penalty_tags": safe_str(row.get("risk_penalty_tags", "")),
+        "tdcc_status": safe_str(row.get("tdcc_status", "")),
+        "next_confirmation": safe_str(row.get("next_confirmation", "")),
+    }
+
+
+def _volume_v2_formal_outcome_sha256(row: pd.Series | dict[str, Any]) -> str:
+    payload = json.dumps(
+        _volume_v2_formal_outcome_envelope(row),
+        ensure_ascii=False,
+        sort_keys=True,
+        separators=(",", ":"),
+    )
+    return hashlib.sha256(payload.encode("utf-8")).hexdigest()
 
 SCORE_COMPONENT_EXTRA_ZH_REPLACEMENTS = {
     "profile=volume_range_breakout_v2_low_position_volume_attack": "參數=低位放量攻擊",
@@ -3636,11 +3703,29 @@ def build_frontpage_unique(signals: pd.DataFrame) -> pd.DataFrame:
 
 
 def snapshot_model_signals(signals: pd.DataFrame) -> pd.DataFrame:
+    resolution_lineage_cols = [
+        "candidate_source_row_ids",
+        "candidate_source_row_sha256s",
+        "candidate_source_categories",
+        "candidate_formal_outcome_sha256",
+        "candidate_presentation_source_artifact",
+        "candidate_presentation_source_artifact_sha256",
+        "candidate_presentation_source_row_sha256",
+    ]
     cols = [
         "signal_date",
         "report_bucket",
         "stock_id",
         "stock_name",
+        "industry",
+        "primary_theme",
+        "secondary_themes",
+        "effective_structural_theme_bucket",
+        "effective_mainstream_label",
+        "report_line_memberships",
+        "mainstream_report_eligible",
+        "non_mainstream_report_eligible",
+        "dual_report_membership_flag",
         "model_id",
         "model_name_zh",
         "model_group",
@@ -3654,6 +3739,9 @@ def snapshot_model_signals(signals: pd.DataFrame) -> pd.DataFrame:
         "model_score",
         "model_rank",
         "effective_primary_theme",
+        "tdcc_status",
+        "warrant_flow_signal",
+        "score_components",
         "risk_penalty_tags",
         "next_confirmation",
         "volume_position_bucket_120d",
@@ -3661,6 +3749,7 @@ def snapshot_model_signals(signals: pd.DataFrame) -> pd.DataFrame:
         "volume_ma60",
         "volume_ma120",
         "volume_ma60_gt_ma120",
+        *resolution_lineage_cols,
     ]
     if signals.empty:
         return pd.DataFrame(columns=cols)
@@ -3668,7 +3757,39 @@ def snapshot_model_signals(signals: pd.DataFrame) -> pd.DataFrame:
     for col in cols:
         if col not in out.columns:
             out[col] = ""
-    return out[cols].drop_duplicates(["signal_date", "report_bucket", "stock_id", "model_id"], keep="first")
+    snapshot = out[cols].copy()
+    effective_volume_v2 = snapshot["model_id"].astype(str).isin(
+        {
+            VOLUME_BREAKOUT_V2_LOW_MODEL_ID,
+            VOLUME_BREAKOUT_V2_MID_MODEL_ID,
+            VOLUME_BREAKOUT_V2_HIGH_MODEL_ID,
+        }
+    ) & snapshot["signal_date"].astype(str).map(
+        lambda value: re.sub(r"[^0-9]", "", value)[:8]
+    ).ge("20260731")
+    effective_duplicates = snapshot.loc[effective_volume_v2].duplicated(
+        ["signal_date", "report_bucket", "stock_id", "model_id"],
+        keep=False,
+    )
+    if effective_duplicates.any():
+        duplicate_rows = snapshot.loc[effective_volume_v2].loc[
+            effective_duplicates,
+            [
+                "signal_date",
+                "report_bucket",
+                "stock_id",
+                "model_id",
+                *resolution_lineage_cols,
+            ],
+        ]
+        raise RuntimeError(
+            "volume v2 signal-log snapshot has duplicate formal identities: "
+            f"rows={duplicate_rows.to_dict(orient='records')}"
+        )
+    return snapshot.drop_duplicates(
+        ["signal_date", "report_bucket", "stock_id", "model_id"],
+        keep="first",
+    )
 
 
 def selected_volume_breakout_history_signals(max_signal_date: str = "") -> pd.DataFrame:
@@ -3725,6 +3846,39 @@ def update_model_signal_log(signals: pd.DataFrame) -> pd.DataFrame:
     frames = [frame for frame in [merged_base, supplemental, current] if not frame.empty]
     merged = pd.concat(frames, ignore_index=True, sort=False) if frames else pd.DataFrame(columns=current.columns)
     if not merged.empty:
+        effective_volume_v2 = merged.get(
+            "model_id", pd.Series("", index=merged.index)
+        ).astype(str).isin(
+            {
+                VOLUME_BREAKOUT_V2_LOW_MODEL_ID,
+                VOLUME_BREAKOUT_V2_MID_MODEL_ID,
+                VOLUME_BREAKOUT_V2_HIGH_MODEL_ID,
+            }
+        ) & merged.get(
+            "signal_date", pd.Series("", index=merged.index)
+        ).astype(str).map(
+            lambda value: re.sub(r"[^0-9]", "", value)[:8]
+        ).ge("20260731")
+        effective_duplicates = merged.loc[effective_volume_v2].duplicated(
+            ["signal_date", "report_bucket", "stock_id", "model_id"],
+            keep=False,
+        )
+        if effective_duplicates.any():
+            duplicate_rows = merged.loc[effective_volume_v2].loc[
+                effective_duplicates,
+                [
+                    "signal_date",
+                    "report_bucket",
+                    "stock_id",
+                    "model_id",
+                    "candidate_source_row_ids",
+                    "candidate_formal_outcome_sha256",
+                ],
+            ]
+            raise RuntimeError(
+                "volume v2 signal log has duplicate effective formal identities: "
+                f"rows={duplicate_rows.to_dict(orient='records')}"
+            )
         merged = merged.drop_duplicates(["signal_date", "report_bucket", "stock_id", "model_id"], keep="last")
     if not merged.empty:
         merged = merged.sort_values(["signal_date", "model_id", "report_bucket", "stock_id"]).reset_index(drop=True)
@@ -3917,49 +4071,110 @@ def candidate_lookup(candidates: pd.DataFrame) -> dict[str, pd.Series]:
 
 def volume_v2_candidate_lookup(
     candidates: pd.DataFrame, relevant_stock_ids: set[str]
-) -> dict[str, pd.Series]:
-    lookup: dict[str, pd.Series] = {}
+) -> dict[str, tuple[pd.Series, ...]]:
     normalized_relevant_stock_ids = {
         normalized
         for value in relevant_stock_ids
         if (normalized := normalize_code(value))
     }
     if candidates.empty or not normalized_relevant_stock_ids:
-        return lookup
-    comparison_fields = tuple(
-        dict.fromkeys(
-            (
-                *VOLUME_V2_CANDIDATE_SCORE_FIELDS,
-                "signal_date",
-                "date",
-                "warrant_flow_signal",
-            )
-        )
+        return {}
+    source_identity_fields = (
+        "candidate_source_raw_stock_id",
+        "candidate_source_normalized_stock_id",
+        "candidate_source_identity_columns",
+        "candidate_source_artifact",
+        "candidate_source_producer",
+        "candidate_source_artifact_sha256",
+        "candidate_source_record_number",
+        "candidate_source_row_sha256",
+        "candidate_source_row_id",
     )
+
+    def source_normalized_identity(value: object) -> str:
+        normalized = safe_str(value).strip()
+        normalized = re.sub(r"\.0$", "", normalized)
+        normalized = re.sub(r"[^0-9A-Za-z]", "", normalized)
+        return normalized.zfill(4) if normalized.isdigit() else normalized
+
+    def strict_source_identity(row: pd.Series) -> tuple[str, str]:
+        missing = [
+            field for field in source_identity_fields if not safe_str(row.get(field, ""))
+        ]
+        if missing:
+            raise RuntimeError(
+                "volume v2 candidate row is missing source identity lineage: "
+                f"fields={missing}"
+            )
+        stock_id = safe_str(row.get("stock_id", ""))
+        normalized_identity = safe_str(
+            row.get("candidate_source_normalized_stock_id", "")
+        )
+        raw_identity = safe_str(row.get("candidate_source_raw_stock_id", ""))
+        if not re.fullmatch(r"[0-9]{4}", normalized_identity):
+            raise RuntimeError(
+                "volume v2 candidate source identity is not a four-digit equity code: "
+                f"normalized_stock_id={normalized_identity!r}"
+            )
+        if stock_id != normalized_identity:
+            raise RuntimeError(
+                "volume v2 candidate stock identity parity mismatch: "
+                f"stock_id={stock_id!r} normalized_stock_id={normalized_identity!r}"
+            )
+        raw_normalized = source_normalized_identity(raw_identity)
+        if raw_normalized != normalized_identity:
+            raise RuntimeError(
+                "volume v2 candidate identity would collapse a non-equity identifier: "
+                f"raw_stock_id={raw_identity!r} "
+                f"source_normalized_stock_id={raw_normalized!r}"
+            )
+        artifact = safe_str(row.get("candidate_source_artifact", ""))
+        artifact_sha = safe_str(row.get("candidate_source_artifact_sha256", ""))
+        record_number = safe_str(row.get("candidate_source_record_number", ""))
+        row_sha = safe_str(row.get("candidate_source_row_sha256", ""))
+        source_row_id = safe_str(row.get("candidate_source_row_id", ""))
+        if not re.fullmatch(r"[0-9a-f]{64}", artifact_sha) or not re.fullmatch(
+            r"[0-9a-f]{64}", row_sha
+        ):
+            raise RuntimeError(
+                "volume v2 candidate source hash lineage is invalid: "
+                f"stock_id={stock_id} source_row_id={source_row_id!r}"
+            )
+        if not record_number.isdigit() or int(record_number) < 2:
+            raise RuntimeError(
+                "volume v2 candidate source record number is invalid: "
+                f"stock_id={stock_id} record_number={record_number!r}"
+            )
+        expected_source_row_id = (
+            f"{artifact}@{artifact_sha}#{record_number}:"
+            f"{normalized_identity}:{row_sha}"
+        )
+        if source_row_id != expected_source_row_id:
+            raise RuntimeError(
+                "volume v2 candidate source row id parity mismatch: "
+                f"stock_id={stock_id} expected={expected_source_row_id!r} "
+                f"actual={source_row_id!r}"
+            )
+        return normalized_identity, source_row_id
+
+    grouped_rows: dict[str, list[tuple[str, pd.Series]]] = {}
     for _, row in candidates.iterrows():
-        stock_id = normalize_code(text(row, "stock_id", "ticker"))
+        stock_id, source_row_id = strict_source_identity(row)
         if not stock_id or stock_id not in normalized_relevant_stock_ids:
             continue
-        if stock_id in lookup:
-            previous = lookup[stock_id]
-            conflicting_fields = [
-                field
-                for field in comparison_fields
-                if safe_str(previous.get(field, "")) != safe_str(row.get(field, ""))
-            ]
-            if conflicting_fields:
-                raise RuntimeError(
-                    "volume v2 all_candidates has ambiguous duplicate normalized "
-                    "stock_id rows: "
-                    f"stock_id={stock_id} "
-                    f"conflicting_fields={','.join(conflicting_fields)}"
-                )
-            # Multiple source-category rows are allowed when the score inputs,
-            # warrant projection, date lineage and normalized identity consumed
-            # by this dispatcher are identical. Generic presentation score,
-            # rank, category and theme fields are outside this projection.
-            continue
-        lookup[stock_id] = row
+        grouped_rows.setdefault(stock_id, []).append((source_row_id, row.copy()))
+
+    lookup: dict[str, tuple[pd.Series, ...]] = {}
+    for stock_id, sourced_rows in grouped_rows.items():
+        row_ids = [row_id for row_id, _ in sourced_rows]
+        if len(row_ids) != len(set(row_ids)):
+            raise RuntimeError(
+                "volume v2 duplicate candidate rows reuse candidate_source_row_id: "
+                f"stock_id={stock_id} source_row_ids={sorted(row_ids)}"
+            )
+        lookup[stock_id] = tuple(
+            row for _, row in sorted(sourced_rows, key=lambda item: item[0])
+        )
     return lookup
 
 
@@ -4312,6 +4527,337 @@ def append_volume_breakout_signals(signals: pd.DataFrame, candidates: pd.DataFra
     rows: list[dict[str, Any]] = []
     valid_statuses = {"selected"}
     valid_types = {"bottom_volume_attack"}
+    presentation_projection_contract = "volume_v2_formal_presentation_v1"
+    watch_repository_artifact = "output/latest/volume_breakout_watch_latest.csv"
+    taxonomy_repository_artifact = "output/latest/stock_theme_taxonomy_latest.csv"
+    watch_artifact_sha256 = volume_v2_canonical_text_sha256(
+        VOLUME_BREAKOUT_WATCH
+    )
+    taxonomy_artifact_sha256 = volume_v2_canonical_text_sha256(
+        VOLUME_BREAKOUT_TAXONOMY
+    )
+
+    selected_watch_identities: dict[tuple[str, str], list[int]] = {}
+    for watch_index, watch_row in df.iterrows():
+        watch_type = text(
+            watch_row, "volume_breakout_type", "breakout_type"
+        ).lower()
+        watch_status = text(watch_row, "selection_status").lower()
+        if watch_type not in valid_types or watch_status not in valid_statuses:
+            continue
+        watch_stock_id = normalize_code(text(watch_row, "stock_id"))
+        watch_signal_date = re.sub(
+            r"[^0-9]", "", text(watch_row, "signal_date", "date")
+        )[:8]
+        if watch_stock_id:
+            selected_watch_identities.setdefault(
+                (watch_signal_date, watch_stock_id), []
+            ).append(int(watch_index) + 2)
+    duplicate_watch_identities = {
+        identity: record_numbers
+        for identity, record_numbers in selected_watch_identities.items()
+        if len(record_numbers) > 1
+    }
+    if duplicate_watch_identities:
+        raise RuntimeError(
+            "volume v2 watch has duplicate selected normalized stock rows: "
+            f"identities={duplicate_watch_identities}"
+        )
+
+    def strict_taxonomy_row(stock_id: str) -> pd.Series:
+        nonlocal volume_taxonomy_by_stock
+        if volume_taxonomy_by_stock is None:
+            taxonomy = read_csv(
+                VOLUME_BREAKOUT_TAXONOMY,
+                dtype=str,
+                keep_default_na=False,
+            )
+            if taxonomy.empty or "stock_id" not in taxonomy.columns:
+                raise RuntimeError(
+                    "volume breakout source identity requires current canonical taxonomy rows"
+                )
+            taxonomy = taxonomy.copy()
+            taxonomy["_normalized_stock_id"] = taxonomy["stock_id"].map(
+                normalize_code
+            )
+            taxonomy = taxonomy[
+                taxonomy["_normalized_stock_id"].astype(str).ne("")
+            ]
+            if taxonomy["_normalized_stock_id"].duplicated(keep=False).any():
+                raise RuntimeError(
+                    "current canonical taxonomy has duplicate normalized stock_id rows"
+                )
+            volume_taxonomy_by_stock = {
+                str(taxonomy_stock_id): taxonomy_row
+                for taxonomy_stock_id, taxonomy_row in taxonomy.set_index(
+                    "_normalized_stock_id", drop=True
+                ).iterrows()
+            }
+        taxonomy_row = volume_taxonomy_by_stock.get(stock_id)
+        if taxonomy_row is None:
+            raise RuntimeError(
+                "volume breakout formal signal has no canonical taxonomy source row: "
+                f"stock_id={stock_id}"
+            )
+        return taxonomy_row
+
+    def taxonomy_row_sha256(taxonomy_row: pd.Series) -> str:
+        payload = [
+            [safe_str(column), safe_str(taxonomy_row.get(column, ""))]
+            for column in taxonomy_row.index
+            if safe_str(column) != "_normalized_stock_id"
+        ]
+        return hashlib.sha256(
+            json.dumps(
+                payload,
+                ensure_ascii=False,
+                separators=(",", ":"),
+            ).encode("utf-8")
+        ).hexdigest()
+
+    def source_row_sha256(source_row: pd.Series) -> str:
+        payload = [
+            [safe_str(column), safe_str(source_row.get(column, ""))]
+            for column in source_row.index
+        ]
+        return hashlib.sha256(
+            json.dumps(
+                payload,
+                ensure_ascii=False,
+                separators=(",", ":"),
+            ).encode("utf-8")
+        ).hexdigest()
+
+    def presentation_envelope(
+        source_row: pd.Series,
+        watch_row: pd.Series,
+    ) -> dict[str, str]:
+        return {
+            "stock_name": text(source_row, "stock_name")
+            or text(watch_row, "stock_name"),
+            "industry": text(source_row, "industry"),
+            "primary_theme": primary_theme(source_row),
+            "secondary_themes": text(
+                source_row,
+                "secondary_themes",
+                "taxonomy_secondary_themes",
+            ),
+            "effective_structural_theme_bucket": (
+                effective_structural_theme_bucket(source_row)
+            ),
+            "effective_mainstream_label": effective_mainstream_label(
+                source_row
+            ),
+            "report_line_memberships": report_line_memberships_value(
+                source_row
+            ),
+            "mainstream_report_eligible": mainstream_report_eligible_value(
+                source_row
+            ),
+            "non_mainstream_report_eligible": (
+                non_mainstream_report_eligible_value(source_row)
+            ),
+            "dual_report_membership_flag": dual_report_membership_flag_value(
+                source_row
+            ),
+            "report_bucket": external_report_bucket(watch_row, source_row),
+        }
+
+    def canonical_payload_sha256(payload: Any) -> str:
+        return hashlib.sha256(
+            json.dumps(
+                payload,
+                ensure_ascii=False,
+                sort_keys=True,
+                separators=(",", ":"),
+            ).encode("utf-8")
+        ).hexdigest()
+
+    def presentation_projection_lineage(
+        *,
+        mode: str,
+        watch_row: pd.Series,
+        watch_record_number: int,
+        taxonomy_row: pd.Series,
+        candidate_source_row_ids: list[str],
+        candidate_source_row_sha256s: list[str],
+        candidate_source_categories: list[str],
+        presentation: dict[str, str],
+    ) -> tuple[str, str, str]:
+        presentation_row_sha256 = canonical_payload_sha256(presentation)
+        descriptor = {
+            "contract": presentation_projection_contract,
+            "mode": mode,
+            "candidate_source_row_ids": candidate_source_row_ids,
+            "candidate_source_row_sha256s": candidate_source_row_sha256s,
+            "candidate_source_categories": candidate_source_categories,
+            "watch": {
+                "artifact": watch_repository_artifact,
+                "artifact_sha256": watch_artifact_sha256,
+                "record_number": watch_record_number,
+                "row_sha256": source_row_sha256(watch_row),
+            },
+            "taxonomy": {
+                "artifact": taxonomy_repository_artifact,
+                "artifact_sha256": taxonomy_artifact_sha256,
+                "row_sha256": taxonomy_row_sha256(taxonomy_row),
+            },
+            "presentation_row_sha256": presentation_row_sha256,
+        }
+        descriptor_text = json.dumps(
+            descriptor,
+            ensure_ascii=False,
+            sort_keys=True,
+            separators=(",", ":"),
+        )
+        return (
+            descriptor_text,
+            hashlib.sha256(descriptor_text.encode("utf-8")).hexdigest(),
+            presentation_row_sha256,
+        )
+
+    def evaluate_candidate_outcome(
+        *,
+        candidate_row: pd.Series | None,
+        watch_row: pd.Series,
+        model_id: str,
+        v2_features: dict[str, Any],
+        breakout_type: str,
+        stock_id: str,
+        authoritative_warrant_signal: str,
+    ) -> dict[str, Any]:
+        candidate_values = (
+            candidate_row.to_dict() if isinstance(candidate_row, pd.Series) else {}
+        )
+        watch_values = watch_row.to_dict()
+        overlapping_fields = set(candidate_values).intersection(watch_values)
+        registered_collisions = set(VOLUME_V2_WATCH_OVERLAY_FIELDS).union(
+            VOLUME_V2_WATCH_NON_AUTHORITATIVE_COLLISION_FIELDS
+        )
+        unregistered_collisions = sorted(
+            overlapping_fields - registered_collisions
+        )
+        if unregistered_collisions:
+            raise RuntimeError(
+                "volume v2 watch has unregistered same-name field collision: "
+                f"stock_id={stock_id} fields={unregistered_collisions}"
+            )
+        score_source = {
+            field: candidate_values[field]
+            for field in VOLUME_V2_CANDIDATE_SCORE_FIELDS
+            if field in candidate_values
+        }
+        score_source.update(
+            {
+                field: watch_values[field]
+                for field in VOLUME_V2_WATCH_OVERLAY_FIELDS
+                if field in watch_values
+            }
+        )
+        forbidden_dispatch_fields = sorted(
+            set(score_source).intersection(
+                VOLUME_V2_FORMAL_DISPATCH_FORBIDDEN_FIELDS
+            )
+        )
+        if forbidden_dispatch_fields:
+            raise RuntimeError(
+                "volume v2 formal dispatcher received advisory/source score-rank fields: "
+                f"stock_id={stock_id} fields={forbidden_dispatch_fields}"
+            )
+        score_source["warrant_flow_signal"] = authoritative_warrant_signal
+        score_source.update(v2_features)
+        if model_id == VOLUME_BREAKOUT_V2_HIGH_MODEL_ID:
+            score, comps, risks = score_volume_breakout_v2_high_position(
+                pd.Series(score_source)
+            )
+        else:
+            score, comps, risks = score_volume_breakout_profile(
+                pd.Series(score_source), model_id
+            )
+        raw_risks = text(watch_row, "risk_flags", "risk_penalty_tags")
+        for risk in re.split(r"[|,;]+", raw_risks):
+            item = risk.strip()
+            if item:
+                risks.append(item)
+        priority = text(watch_row, "volume_breakout_priority")
+        if priority.startswith("B_"):
+            risks.append(priority)
+        notes = text(watch_row, "volume_breakout_notes")
+        breakout_pct = bottom_volume_attack_breakout_pct(pd.Series(score_source))
+        comps = [
+            f"type={breakout_type}",
+            f"volume_ratio={watch_row.get('volume_ratio','')}".strip(),
+            *comps,
+        ]
+        if not math.isnan(breakout_pct):
+            comps.append(f"breakout_pct={breakout_pct:.2f}%")
+        comps.append(
+            f"position_bucket_120d={v2_features['position_bucket_120d']}"
+        )
+        comps.append(f"shape_bucket={v2_features['shape_bucket']}")
+        if notes:
+            comps.append(notes)
+        score_fields = volume_breakout_operation_score_fields(
+            pd.Series(score_source), score, risks, model_id
+        )
+        if score_fields["rank_reason_zh"]:
+            comps.append(f"操作排序:{score_fields['rank_reason_zh']}")
+        score_components = " | ".join([component for component in comps if component])
+        risk_penalty_tags = " | ".join(dict.fromkeys(risks))
+        candidate_signal_date = (
+            text(candidate_row, "signal_date", "date")
+            if isinstance(candidate_row, pd.Series)
+            else ""
+        )
+        candidate_tdcc_status = (
+            tdcc_status(candidate_row)
+            if isinstance(candidate_row, pd.Series)
+            else ""
+        )
+        next_confirmation = text(
+            watch_row, "next_volume_breakout_confirmation"
+        ) or (
+            text(candidate_row, "next_confirmation")
+            if isinstance(candidate_row, pd.Series)
+            else ""
+        )
+        final_score = score_fields["final_rank_score"]
+        outcome_projection = {
+            "model_id": model_id,
+            "signal_date": candidate_signal_date,
+            "candidate_source_row_ids": (
+                safe_str(candidate_row.get("candidate_source_row_id", ""))
+                if isinstance(candidate_row, pd.Series)
+                else ""
+            ),
+            "warrant_flow_signal": authoritative_warrant_signal,
+            "base_model_score": safe_str(score_fields["base_model_score"]),
+            "operation_score": safe_str(score_fields["operation_score"]),
+            "tdcc_score": safe_str(score_fields["tdcc_score"]),
+            "pattern_score": safe_str(score_fields["pattern_score"]),
+            "risk_penalty": safe_str(score_fields["risk_penalty"]),
+            "final_rank_score": safe_str(final_score),
+            "rank_reason_zh": safe_str(score_fields["rank_reason_zh"]),
+            "model_score": safe_str(final_score),
+            "score_components": score_components,
+            "risk_penalty_tags": risk_penalty_tags,
+            "tdcc_status": candidate_tdcc_status,
+            "next_confirmation": next_confirmation,
+        }
+        envelope = _volume_v2_formal_outcome_envelope(outcome_projection)
+        return {
+            "score_fields": score_fields,
+            "final_score": final_score,
+            "score_components": score_components,
+            "risk_penalty_tags": risk_penalty_tags,
+            "tdcc_status": candidate_tdcc_status,
+            "next_confirmation": next_confirmation,
+            "outcome_envelope": envelope,
+            "outcome_sha256": _volume_v2_formal_outcome_sha256(
+                outcome_projection
+            ),
+        }
+
     for idx, row in df.iterrows():
         breakout_type = text(row, "volume_breakout_type", "breakout_type").lower()
         selection_status = text(row, "selection_status").lower()
@@ -4328,8 +4874,17 @@ def append_volume_breakout_signals(signals: pd.DataFrame, candidates: pd.DataFra
         if not memberships:
             continue
         validate_volume_v2_watch_advisory_lineage(row, signal_date)
-        candidate_row = lookup.get(stock_id)
-        taxonomy_row: pd.Series | None = None
+        candidate_rows = lookup.get(stock_id, ())
+        model_id = memberships[0]
+        expected_signal_date = signal_date or text(row, "signal_date", "date")
+        candidate_source_row_ids: list[str] = []
+        candidate_source_row_sha256s: list[str] = []
+        candidate_source_categories: list[str] = []
+        presentation_source_artifact = ""
+        presentation_source_artifact_sha256 = ""
+        presentation_source_row_sha256 = ""
+        presentation: dict[str, str]
+        taxonomy_source = strict_taxonomy_row(stock_id)
         # volume_breakout_watch is a model-owned producer and can legitimately
         # contain a selected row that is absent from the general all_candidates
         # table.  In that case taxonomy may supply presentation fields, but it
@@ -4337,37 +4892,8 @@ def append_volume_breakout_signals(signals: pd.DataFrame, candidates: pd.DataFra
         # validator permits only an empty official warrant projection for this
         # path; if an official warrant row exists, the workflow fails closed
         # until all_candidates carries its canonical projection.
-        if candidate_row is None:
-            if volume_taxonomy_by_stock is None:
-                taxonomy = read_csv(
-                    VOLUME_BREAKOUT_TAXONOMY,
-                    dtype=str,
-                    keep_default_na=False,
-                )
-                if taxonomy.empty or "stock_id" not in taxonomy.columns:
-                    raise RuntimeError(
-                        "volume breakout source identity requires current canonical taxonomy rows"
-                    )
-                taxonomy = taxonomy.copy()
-                taxonomy["_normalized_stock_id"] = taxonomy["stock_id"].map(normalize_code)
-                taxonomy = taxonomy[taxonomy["_normalized_stock_id"].astype(str).ne("")]
-                if taxonomy["_normalized_stock_id"].duplicated(keep=False).any():
-                    raise RuntimeError(
-                        "current canonical taxonomy has duplicate normalized stock_id rows"
-                    )
-                volume_taxonomy_by_stock = {
-                    str(taxonomy_stock_id): taxonomy_row
-                    for taxonomy_stock_id, taxonomy_row in taxonomy.set_index(
-                        "_normalized_stock_id", drop=True
-                    ).iterrows()
-                }
-            taxonomy_row = volume_taxonomy_by_stock.get(stock_id)
-            source = taxonomy_row
-            if source is None:
-                raise RuntimeError(
-                    "volume breakout formal signal has no canonical taxonomy source row: "
-                    f"stock_id={stock_id}"
-                )
+        if not candidate_rows:
+            source = taxonomy_source
             if official_warrant_stock_ids is None:
                 official_warrant = read_csv(WARRANT_FLOW, dtype=str, keep_default_na=False)
                 if official_warrant.empty or "stock_id" not in official_warrant.columns:
@@ -4390,90 +4916,197 @@ def append_volume_breakout_signals(signals: pd.DataFrame, candidates: pd.DataFra
                     f"canonical all_candidates row: stock_id={stock_id}"
                 )
             authoritative_warrant_signal = ""
-        else:
-            source = candidate_row
-            authoritative_warrant_signal = warrant_signal(candidate_row)
-        # Taxonomy is a presentation fallback only.  When all_candidates has no
-        # row, it must not become an alternate producer for score semantics.
-        candidate_values = (
-            candidate_row.to_dict() if isinstance(candidate_row, pd.Series) else {}
-        )
-        watch_values = row.to_dict()
-        overlapping_fields = set(candidate_values).intersection(watch_values)
-        registered_collisions = set(VOLUME_V2_WATCH_OVERLAY_FIELDS).union(
-            VOLUME_V2_WATCH_NON_AUTHORITATIVE_COLLISION_FIELDS
-        )
-        unregistered_collisions = sorted(overlapping_fields - registered_collisions)
-        if unregistered_collisions:
-            raise RuntimeError(
-                "volume v2 watch has unregistered same-name field collision: "
-                f"stock_id={stock_id} fields={unregistered_collisions}"
+            outcome = evaluate_candidate_outcome(
+                candidate_row=None,
+                watch_row=row,
+                model_id=model_id,
+                v2_features=v2_features,
+                breakout_type=breakout_type,
+                stock_id=stock_id,
+                authoritative_warrant_signal=authoritative_warrant_signal,
             )
-        score_source = {
-            field: candidate_values[field]
-            for field in VOLUME_V2_CANDIDATE_SCORE_FIELDS
-            if field in candidate_values
-        }
-        score_source.update(
-            {
-                field: watch_values[field]
-                for field in VOLUME_V2_WATCH_OVERLAY_FIELDS
-                if field in watch_values
+            original_category = category(source)
+            presentation = presentation_envelope(source, row)
+            (
+                presentation_source_artifact,
+                presentation_source_artifact_sha256,
+                presentation_source_row_sha256,
+            ) = presentation_projection_lineage(
+                mode="taxonomy",
+                watch_row=row,
+                watch_record_number=int(idx) + 2,
+                taxonomy_row=taxonomy_source,
+                candidate_source_row_ids=candidate_source_row_ids,
+                candidate_source_row_sha256s=candidate_source_row_sha256s,
+                candidate_source_categories=candidate_source_categories,
+                presentation=presentation,
+            )
+        else:
+            candidate_dates = {
+                text(candidate_row, "signal_date", "date")
+                for candidate_row in candidate_rows
             }
-        )
-        forbidden_dispatch_fields = sorted(
-            set(score_source).intersection(VOLUME_V2_FORMAL_DISPATCH_FORBIDDEN_FIELDS)
-        )
-        if forbidden_dispatch_fields:
-            raise RuntimeError(
-                "volume v2 formal dispatcher received advisory/source score-rank fields: "
-                f"stock_id={stock_id} fields={forbidden_dispatch_fields}"
+            if candidate_dates != {expected_signal_date}:
+                raise RuntimeError(
+                    "volume v2 candidate source dates do not match the formal signal date: "
+                    f"stock_id={stock_id} expected={expected_signal_date!r} "
+                    f"candidate_dates={sorted(candidate_dates)}"
+                )
+            warrant_signals = {
+                warrant_signal(candidate_row) for candidate_row in candidate_rows
+            }
+            if len(warrant_signals) != 1:
+                raise RuntimeError(
+                    "volume v2 candidate rows have conflicting canonical warrant signals: "
+                    f"stock_id={stock_id} warrant_signals={sorted(warrant_signals)}"
+                )
+            authoritative_warrant_signal = next(iter(warrant_signals))
+            evaluated_by_source: dict[str, dict[str, Any]] = {}
+            for candidate_row in candidate_rows:
+                source_row_id = safe_str(
+                    candidate_row.get("candidate_source_row_id", "")
+                )
+                evaluated_by_source[source_row_id] = evaluate_candidate_outcome(
+                    candidate_row=candidate_row,
+                    watch_row=row,
+                    model_id=model_id,
+                    v2_features=v2_features,
+                    breakout_type=breakout_type,
+                    stock_id=stock_id,
+                    authoritative_warrant_signal=authoritative_warrant_signal,
+                )
+                candidate_source_row_ids.append(source_row_id)
+                candidate_source_row_sha256s.append(
+                    safe_str(candidate_row.get("candidate_source_row_sha256", ""))
+                )
+                candidate_source_categories.append(
+                    category(candidate_row) or "<blank>"
+                )
+            outcome_sha256s = {
+                evaluation["outcome_sha256"]
+                for evaluation in evaluated_by_source.values()
+            }
+            if len(outcome_sha256s) != 1:
+                envelope_fields = sorted(
+                    {
+                        field
+                        for evaluation in evaluated_by_source.values()
+                        for field in evaluation["outcome_envelope"]
+                    }
+                )
+                conflicting_outcome_fields = [
+                    field
+                    for field in envelope_fields
+                    if len(
+                        {
+                            safe_str(evaluation["outcome_envelope"].get(field, ""))
+                            for evaluation in evaluated_by_source.values()
+                        }
+                    )
+                    > 1
+                ]
+                lineage = ";".join(
+                    f"{source_row_id}={evaluation['outcome_sha256']}"
+                    for source_row_id, evaluation in sorted(
+                        evaluated_by_source.items()
+                    )
+                )
+                raise RuntimeError(
+                    "volume v2 duplicate candidate rows change formal model outcome: "
+                    f"stock_id={stock_id} "
+                    f"conflicting_fields={','.join(conflicting_outcome_fields)} "
+                    f"sources={lineage}"
+                )
+            common_outcome_sha256 = next(iter(outcome_sha256s))
+            outcome = next(
+                evaluation
+                for evaluation in evaluated_by_source.values()
+                if evaluation["outcome_sha256"] == common_outcome_sha256
             )
-        score_source["warrant_flow_signal"] = authoritative_warrant_signal
-        model_id = memberships[0]
-        score_source.update(v2_features)
-        if model_id == VOLUME_BREAKOUT_V2_HIGH_MODEL_ID:
-            score, comps, risks = score_volume_breakout_v2_high_position(pd.Series(score_source))
-        else:
-            score, comps, risks = score_volume_breakout_profile(pd.Series(score_source), model_id)
-        raw_risks = text(row, "risk_flags", "risk_penalty_tags")
-        for risk in re.split(r"[|,;]+", raw_risks):
-            item = risk.strip()
-            if item:
-                risks.append(item)
-        priority = text(row, "volume_breakout_priority")
-        if priority.startswith("B_"):
-            risks.append(priority)
-        notes = text(row, "volume_breakout_notes")
-        breakout_pct = bottom_volume_attack_breakout_pct(pd.Series(score_source))
-        comps = [f"type={breakout_type}", f"volume_ratio={row.get('volume_ratio','')}".strip(), *comps]
-        if not math.isnan(breakout_pct):
-            comps.append(f"breakout_pct={breakout_pct:.2f}%")
-        comps.append(f"position_bucket_120d={v2_features['position_bucket_120d']}")
-        comps.append(f"shape_bucket={v2_features['shape_bucket']}")
-        if notes:
-            comps.append(notes)
-        score_fields = volume_breakout_operation_score_fields(pd.Series(score_source), score, risks, model_id)
+            if len(candidate_rows) == 1:
+                source = candidate_rows[0]
+                original_category = category(source)
+                presentation = presentation_envelope(source, row)
+            else:
+                # No category row is allowed to win by input order.  Each row
+                # already replayed to the exact common formal outcome above.
+                # Business-facing presentation values must also agree exactly;
+                # choosing one row as a value carrier is safe only after that
+                # parity proof.  Source categories remain separate lineage.
+                presentation_by_source = {
+                    safe_str(candidate_row.get("candidate_source_row_id", "")):
+                    presentation_envelope(candidate_row, row)
+                    for candidate_row in candidate_rows
+                }
+                presentation_hashes = {
+                    canonical_payload_sha256(candidate_presentation)
+                    for candidate_presentation in presentation_by_source.values()
+                }
+                if len(presentation_hashes) != 1:
+                    presentation_fields = sorted(
+                        field
+                        for field in next(iter(presentation_by_source.values()))
+                        if len(
+                            {
+                                values[field]
+                                for values in presentation_by_source.values()
+                            }
+                        )
+                        > 1
+                    )
+                    raise RuntimeError(
+                        "volume v2 duplicate candidate rows change formal presentation: "
+                        f"stock_id={stock_id} "
+                        f"conflicting_fields={','.join(presentation_fields)}"
+                    )
+                source = candidate_rows[0]
+                presentation = next(iter(presentation_by_source.values()))
+                original_category = "volume_breakout"
+            (
+                presentation_source_artifact,
+                presentation_source_artifact_sha256,
+                presentation_source_row_sha256,
+            ) = presentation_projection_lineage(
+                mode="all_candidates",
+                watch_row=row,
+                watch_record_number=int(idx) + 2,
+                taxonomy_row=taxonomy_source,
+                candidate_source_row_ids=candidate_source_row_ids,
+                candidate_source_row_sha256s=candidate_source_row_sha256s,
+                candidate_source_categories=candidate_source_categories,
+                presentation=presentation,
+            )
+        score_fields = outcome["score_fields"]
         final_score = score_fields["final_rank_score"]
-        if score_fields["rank_reason_zh"]:
-            comps.append(f"操作排序:{score_fields['rank_reason_zh']}")
         rows.append(
             {
                 "signal_date": signal_date or text(row, "signal_date", "date"),
                 "source_row_index": f"volume_breakout:{idx}",
                 "stock_id": stock_id,
-                "stock_name": text(source, "stock_name") or text(row, "stock_name"),
-                "industry": text(source, "industry"),
-                "primary_theme": primary_theme(source),
-                "effective_primary_theme": primary_theme(source),
-                "secondary_themes": text(source, "secondary_themes", "taxonomy_secondary_themes"),
-                "effective_structural_theme_bucket": effective_structural_theme_bucket(source),
-                "effective_mainstream_label": effective_mainstream_label(source),
-                "report_line_memberships": report_line_memberships_value(source),
-                "mainstream_report_eligible": mainstream_report_eligible_value(source),
-                "non_mainstream_report_eligible": non_mainstream_report_eligible_value(source),
-                "dual_report_membership_flag": dual_report_membership_flag_value(source),
-                "report_bucket": external_report_bucket(row, source),
+                "stock_name": presentation["stock_name"],
+                "industry": presentation["industry"],
+                "primary_theme": presentation["primary_theme"],
+                "effective_primary_theme": presentation["primary_theme"],
+                "secondary_themes": presentation["secondary_themes"],
+                "effective_structural_theme_bucket": presentation[
+                    "effective_structural_theme_bucket"
+                ],
+                "effective_mainstream_label": presentation[
+                    "effective_mainstream_label"
+                ],
+                "report_line_memberships": presentation[
+                    "report_line_memberships"
+                ],
+                "mainstream_report_eligible": presentation[
+                    "mainstream_report_eligible"
+                ],
+                "non_mainstream_report_eligible": presentation[
+                    "non_mainstream_report_eligible"
+                ],
+                "dual_report_membership_flag": presentation[
+                    "dual_report_membership_flag"
+                ],
+                "report_bucket": presentation["report_bucket"],
                 "model_id": model_id,
                 "model_name_zh": volume_v2_model_name(model_id),
                 "model_group": "pdf_core_model",
@@ -4487,11 +5120,28 @@ def append_volume_breakout_signals(signals: pd.DataFrame, candidates: pd.DataFra
                 "final_rank_score": final_score,
                 "rank_reason_zh": score_fields["rank_reason_zh"],
                 "model_score": final_score,
-                "score_components": " | ".join([c for c in comps if c]),
-                "risk_penalty_tags": " | ".join(dict.fromkeys(risks)),
-                "original_category": category(source),
-                "tdcc_status": tdcc_status(source),
+                "score_components": outcome["score_components"],
+                "risk_penalty_tags": outcome["risk_penalty_tags"],
+                "original_category": original_category,
+                "tdcc_status": outcome["tdcc_status"],
                 "warrant_flow_signal": authoritative_warrant_signal,
+                "candidate_source_row_ids": "|".join(candidate_source_row_ids),
+                "candidate_source_row_sha256s": "|".join(
+                    candidate_source_row_sha256s
+                ),
+                "candidate_source_categories": "|".join(
+                    candidate_source_categories
+                ),
+                "candidate_formal_outcome_sha256": outcome["outcome_sha256"],
+                "candidate_presentation_source_artifact": (
+                    presentation_source_artifact
+                ),
+                "candidate_presentation_source_artifact_sha256": (
+                    presentation_source_artifact_sha256
+                ),
+                "candidate_presentation_source_row_sha256": (
+                    presentation_source_row_sha256
+                ),
                 "volume_ratio": num(row, "volume_ratio"),
                 "return_5d": num(row, "return_5d", "return_5d_pct"),
                 "return_20d": num(row, "return_20d", "return_20d_pct"),
@@ -4518,7 +5168,7 @@ def append_volume_breakout_signals(signals: pd.DataFrame, candidates: pd.DataFra
                     else ""
                 ),
                 "volume_ma60_gt_ma120": "True" if bool(v2_features["ma60_gt_ma120"]) else "False",
-                "next_confirmation": text(row, "next_volume_breakout_confirmation") or text(source, "next_confirmation"),
+                "next_confirmation": outcome["next_confirmation"],
                 "model_main_conditions": (
                     "低位放量攻擊：120日位階<=40且三種shape皆收；"
                     "中位動能放量攻擊：120日位階>40且<=75，且shape為非盤整或寬幅。"
@@ -4539,7 +5189,36 @@ def append_volume_breakout_signals(signals: pd.DataFrame, candidates: pd.DataFra
         ["model_id", "_bucket_order", "_score_num", "stock_id", "source_row_index"],
         ascending=[True, True, False, True, True],
     ).reset_index(drop=True)
-    out = out.drop_duplicates(["model_id", "report_bucket", "stock_id"], keep="first").reset_index(drop=True)
+    volume_v2_mask = out.get("model_id", pd.Series(dtype=str)).astype(str).isin(
+        {
+            VOLUME_BREAKOUT_V2_LOW_MODEL_ID,
+            VOLUME_BREAKOUT_V2_MID_MODEL_ID,
+            VOLUME_BREAKOUT_V2_HIGH_MODEL_ID,
+        }
+    )
+    volume_v2_duplicates = out.loc[volume_v2_mask].duplicated(
+        ["model_id", "report_bucket", "stock_id"], keep=False
+    )
+    if volume_v2_duplicates.any():
+        duplicate_rows = out.loc[volume_v2_mask].loc[
+            volume_v2_duplicates,
+            [
+                "signal_date",
+                "model_id",
+                "report_bucket",
+                "stock_id",
+                "source_row_index",
+                "candidate_source_row_ids",
+                "candidate_formal_outcome_sha256",
+            ],
+        ]
+        raise RuntimeError(
+            "volume v2 formal output has duplicate model/report/stock rows: "
+            f"rows={duplicate_rows.to_dict(orient='records')}"
+        )
+    out = out.drop_duplicates(
+        ["model_id", "report_bucket", "stock_id"], keep="first"
+    ).reset_index(drop=True)
     out["model_rank"] = out.groupby(["model_id", "report_bucket"], dropna=False).cumcount() + 1
     return out.drop(columns=["_bucket_order", "_score_num"])
 
@@ -5897,6 +6576,196 @@ def _warrant_sync_rerank_allowed_models(frame: pd.DataFrame) -> pd.DataFrame:
     return out
 
 
+def _warrant_sync_refresh_volume_v2_formal_resolution_lineage(
+    raw: pd.DataFrame,
+    report: pd.DataFrame,
+    history: pd.DataFrame,
+    signal_dates: set[str],
+) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
+    """Refresh only the effective Volume V2 outcome hash after warrant sync."""
+
+    frames = {
+        "raw": raw,
+        "report": report,
+        "history": history,
+    }
+    effective_frames: dict[str, pd.DataFrame] = {}
+    required_columns = set(VOLUME_V2_FORMAL_RESOLUTION_LINEAGE_FIELDS).union(
+        VOLUME_V2_FORMAL_OUTCOME_ARTIFACT_FIELDS,
+        WARRANT_FORMAL_SYNC_HISTORY_IDENTITY_COLUMNS,
+    )
+    for label, frame in frames.items():
+        effective_mask = frame.get(
+            "model_id", pd.Series("", index=frame.index)
+        ).astype(str).isin(WARRANT_FORMAL_SYNC_VOLUME_V2_MODEL_IDS) & frame.get(
+            "signal_date", pd.Series("", index=frame.index)
+        ).map(compact_date).ge("20260731") & frame.get(
+            "signal_date", pd.Series("", index=frame.index)
+        ).map(safe_str).isin(signal_dates)
+        effective = frame.loc[effective_mask].copy()
+        effective_frames[label] = effective
+        if effective.empty:
+            continue
+        missing = sorted(required_columns - set(frame.columns))
+        if missing:
+            raise RuntimeError(
+                "effective volume v2 warrant formal-sync lineage fields are missing: "
+                f"artifact={label} missing={missing}"
+            )
+
+    raw_index = _warrant_sync_identity_index(
+        effective_frames["raw"],
+        WARRANT_FORMAL_SYNC_HISTORY_IDENTITY_COLUMNS,
+        "effective volume v2 raw resolution lineage",
+    )
+    report_index = _warrant_sync_identity_index(
+        effective_frames["report"],
+        WARRANT_FORMAL_SYNC_HISTORY_IDENTITY_COLUMNS,
+        "effective volume v2 report resolution lineage",
+    )
+    history_index = _warrant_sync_identity_index(
+        effective_frames["history"],
+        WARRANT_FORMAL_SYNC_HISTORY_IDENTITY_COLUMNS,
+        "effective volume v2 history resolution lineage",
+    )
+    _warrant_sync_require_same_identities(raw_index, report_index, "effective volume v2 raw/report lineage")
+    _warrant_sync_require_same_identities(raw_index, history_index, "effective volume v2 raw/history lineage")
+
+    immutable_lineage_fields = tuple(
+        field
+        for field in VOLUME_V2_FORMAL_RESOLUTION_LINEAGE_FIELDS
+        if field != "candidate_formal_outcome_sha256"
+    )
+    for identity, raw_row_index in raw_index.items():
+        raw_row = raw.loc[raw_row_index]
+        for label, frame, row_index in (
+            ("report", report, report_index[identity]),
+            ("history", history, history_index[identity]),
+        ):
+            for field in immutable_lineage_fields:
+                if safe_str(frame.at[row_index, field]) != safe_str(raw_row.get(field, "")):
+                    raise RuntimeError(
+                        "effective volume v2 warrant formal-sync immutable lineage drift: "
+                        f"artifact={label} identity={identity} field={field}"
+                    )
+            for field in VOLUME_V2_WARRANT_SYNC_IMMUTABLE_OUTCOME_FIELDS:
+                if safe_str(frame.at[row_index, field]) != safe_str(
+                    raw_row.get(field, "")
+                ):
+                    raise RuntimeError(
+                        "effective volume v2 warrant formal-sync immutable outcome drift: "
+                        f"artifact={label} identity={identity} field={field}"
+                    )
+            for field in VOLUME_V2_WARRANT_SYNC_MUTABLE_OUTCOME_FIELDS:
+                frame.at[row_index, field] = safe_str(raw_row.get(field, ""))
+
+        outcome_sha256 = _volume_v2_formal_outcome_sha256(raw_row)
+        raw.at[raw_row_index, "candidate_formal_outcome_sha256"] = outcome_sha256
+        report.at[
+            report_index[identity], "candidate_formal_outcome_sha256"
+        ] = outcome_sha256
+        history.at[
+            history_index[identity], "candidate_formal_outcome_sha256"
+        ] = outcome_sha256
+    return raw, report, history
+
+
+def _warrant_sync_validate_final_volume_v2_formal_resolution_lineage(
+    raw: pd.DataFrame,
+    report: pd.DataFrame,
+    history: pd.DataFrame,
+) -> None:
+    """Fail closed if post-sync consumer rebuilding drifts Volume V2 lineage."""
+
+    frames = {
+        "raw": raw,
+        "report": report,
+        "history": history,
+    }
+    signal_dates = {
+        safe_str(value)
+        for value in raw.get("signal_date", pd.Series(dtype=str)).tolist()
+        if safe_str(value)
+    }
+    if len(signal_dates) != 1:
+        raise RuntimeError(
+            "effective volume v2 final formal-sync requires exactly one raw "
+            f"signal date: signal_dates={sorted(signal_dates)}"
+        )
+    effective_frames: dict[str, pd.DataFrame] = {}
+    required_columns = set(VOLUME_V2_FORMAL_RESOLUTION_LINEAGE_FIELDS).union(
+        VOLUME_V2_FORMAL_OUTCOME_ARTIFACT_FIELDS,
+        WARRANT_FORMAL_SYNC_HISTORY_IDENTITY_COLUMNS,
+    )
+    for label, frame in frames.items():
+        effective_mask = frame.get(
+            "model_id", pd.Series("", index=frame.index)
+        ).astype(str).isin(WARRANT_FORMAL_SYNC_VOLUME_V2_MODEL_IDS) & frame.get(
+            "signal_date", pd.Series("", index=frame.index)
+        ).map(compact_date).ge("20260731") & frame.get(
+            "signal_date", pd.Series("", index=frame.index)
+        ).map(safe_str).isin(signal_dates)
+        effective = frame.loc[effective_mask].copy()
+        effective_frames[label] = effective
+        if effective.empty:
+            continue
+        missing = sorted(required_columns - set(frame.columns))
+        if missing:
+            raise RuntimeError(
+                "effective volume v2 final formal-sync lineage fields are missing: "
+                f"artifact={label} missing={missing}"
+            )
+
+    indices = {
+        label: _warrant_sync_identity_index(
+            frame,
+            WARRANT_FORMAL_SYNC_HISTORY_IDENTITY_COLUMNS,
+            f"effective volume v2 final {label} resolution lineage",
+        )
+        for label, frame in effective_frames.items()
+    }
+    report_index = indices["report"]
+    _warrant_sync_require_same_identities(
+        report_index,
+        indices["raw"],
+        "effective volume v2 final report/raw lineage",
+    )
+    _warrant_sync_require_same_identities(
+        report_index,
+        indices["history"],
+        "effective volume v2 final report/history lineage",
+    )
+
+    exact_fields = (
+        *VOLUME_V2_FORMAL_RESOLUTION_LINEAGE_FIELDS,
+        *VOLUME_V2_FORMAL_OUTCOME_ARTIFACT_FIELDS,
+    )
+    for identity, report_row_index in report_index.items():
+        report_row = report.loc[report_row_index]
+        expected_outcome_sha256 = _volume_v2_formal_outcome_sha256(report_row)
+        if safe_str(
+            report_row.get("candidate_formal_outcome_sha256", "")
+        ) != expected_outcome_sha256:
+            raise RuntimeError(
+                "effective volume v2 final report outcome envelope/hash drift: "
+                f"identity={identity} expected={expected_outcome_sha256} "
+                f"actual={safe_str(report_row.get('candidate_formal_outcome_sha256', ''))}"
+            )
+        for label, frame in (("raw", raw), ("history", history)):
+            row = frame.loc[indices[label][identity]]
+            for field in exact_fields:
+                if safe_str(row.get(field, "")) != safe_str(report_row.get(field, "")):
+                    raise RuntimeError(
+                        "effective volume v2 final formal-sync lineage parity drift: "
+                        f"artifact={label} identity={identity} field={field}"
+                    )
+            if _volume_v2_formal_outcome_sha256(row) != expected_outcome_sha256:
+                raise RuntimeError(
+                    "effective volume v2 final formal-sync outcome envelope drift: "
+                    f"artifact={label} identity={identity}"
+                )
+
+
 def synchronize_warrant_formal_frames(
     candidates: pd.DataFrame,
     raw_signals: pd.DataFrame,
@@ -6153,6 +7022,13 @@ def synchronize_warrant_formal_frames(
     )
     _warrant_sync_require_same_identities(history_before, history_after, "formal history")
 
+    raw, report, history = _warrant_sync_refresh_volume_v2_formal_resolution_lineage(
+        raw,
+        report,
+        history,
+        signal_dates,
+    )
+
     protected_after = raw.loc[
         raw["model_id"].isin(WARRANT_FORMAL_SYNC_PROTECTED_MODEL_IDS),
         [*WARRANT_FORMAL_SYNC_IDENTITY_COLUMNS, *protected_score_columns],
@@ -6303,6 +7179,11 @@ def run_warrant_formal_sync_only() -> int:
         model_history,
     )
     raw_signals, model_history = finalize_warrant_formal_consumer_parity(
+        raw_signals,
+        report_signals,
+        model_history,
+    )
+    _warrant_sync_validate_final_volume_v2_formal_resolution_lineage(
         raw_signals,
         report_signals,
         model_history,
