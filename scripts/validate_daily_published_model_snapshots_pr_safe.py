@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import re
 import subprocess
 import sys
@@ -33,6 +34,26 @@ PR_SAFE_BOOTSTRAP_SURFACES = frozenset(
         PR_VALIDATION_WORKFLOW_PATH,
         PR_BOUNDARY_VALIDATOR_PATH,
     }
+)
+CONTROL_PLANE_MIGRATION_ID = "advanced-integrity-pr-safe-v1"
+CONTROL_PLANE_MIGRATION_BASE_HELPER_SHA256 = (
+    "08a637bc19f4401eb1fc3f2915905d894a3be75a4384eca421bdf6431cfa827d"
+)
+CONTROL_PLANE_MIGRATION_SURFACES = frozenset(
+    {
+        PR_SAFE_HELPER_PATH,
+        PR_VALIDATION_WORKFLOW_PATH,
+    }
+)
+CONTROL_HELPER_SHA_ENV = "SNAPSHOT_PR_SAFE_CONTROL_HELPER_SHA256"
+ADVANCED_PR_SAFE_HELPER_PATH = "scripts/validate_repo_advanced_integrity_pr_safe.py"
+ADVANCED_PR_SAFE_TEST_PATH = "tests/test_repo_advanced_integrity_pr_safe.py"
+ADVANCED_PR_SAFE_COMMAND = (
+    'python scripts/validate_repo_advanced_integrity_pr_safe.py --base-ref "$BASE_SHA"'
+)
+ADVANCED_STRICT_TEST_DESELECT = (
+    "--deselect tests/test_repo_advanced_integrity.py::"
+    "test_repo_advanced_integrity_validator_passes"
 )
 
 EXPECTED_STRICT_NOT_READY_ERROR = (
@@ -331,6 +352,122 @@ def is_initial_pr_safe_gate_bootstrap(
     )
 
 
+def canonical_repository_bytes(payload: bytes) -> bytes:
+    return payload.replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+
+
+def sha256_bytes(payload: bytes) -> str:
+    return hashlib.sha256(canonical_repository_bytes(payload)).hexdigest()
+
+
+def expected_control_plane_workflow(
+    base_workflow: bytes,
+    *,
+    current_helper_sha256: str,
+) -> bytes | None:
+    if not re.fullmatch(r"[0-9a-f]{64}", current_helper_sha256):
+        return None
+    replacements = (
+        (
+            b"      BASE_SHA: ${{ github.event.pull_request.base.sha || 'origin/main' }}\n",
+            (
+                "      BASE_SHA: ${{ github.event.pull_request.base.sha || 'origin/main' }}\n"
+                f"      {CONTROL_HELPER_SHA_ENV}: {current_helper_sha256}\n"
+            ).encode("utf-8"),
+        ),
+        (
+            b'      - "scripts/validate_repo_advanced_integrity.py"\n',
+            (
+                '      - "scripts/validate_repo_advanced_integrity.py"\n'
+                f'      - "{ADVANCED_PR_SAFE_HELPER_PATH}"\n'
+            ).encode("utf-8"),
+        ),
+        (
+            b'      - "tests/test_repo_advanced_integrity.py"\n',
+            (
+                '      - "tests/test_repo_advanced_integrity.py"\n'
+                f'      - "{ADVANCED_PR_SAFE_TEST_PATH}"\n'
+            ).encode("utf-8"),
+        ),
+        (
+            (f"          {PR_SAFE_SNAPSHOT_COMMAND}\n").encode("utf-8"),
+            (
+                f"          {PR_SAFE_SNAPSHOT_COMMAND}\n"
+                f"          {ADVANCED_PR_SAFE_COMMAND}\n"
+            ).encode("utf-8"),
+        ),
+        (
+            b"            tests/test_repo_advanced_integrity.py \\\n",
+            (
+                "            tests/test_repo_advanced_integrity.py \\\n"
+                f"            {ADVANCED_PR_SAFE_TEST_PATH} \\\n"
+            ).encode("utf-8"),
+        ),
+        (
+            b"            tests/test_stock_model_contract_registry.py\n",
+            (
+                "            tests/test_stock_model_contract_registry.py \\\n"
+                f"            {ADVANCED_STRICT_TEST_DESELECT}\n"
+            ).encode("utf-8"),
+        ),
+    )
+    expected = canonical_repository_bytes(base_workflow)
+    for old, new in replacements:
+        if expected.count(old) != 1:
+            return None
+        expected = expected.replace(old, new, 1)
+    return expected
+
+
+def is_control_plane_self_update_migration(
+    base_ref: str,
+    strict_surface_changes: set[str],
+    *,
+    repository_root: Path,
+) -> bool:
+    if strict_surface_changes != CONTROL_PLANE_MIGRATION_SURFACES:
+        return False
+    helper_existed_at_base = git_path_exists_at_ref(
+        base_ref,
+        PR_SAFE_HELPER_PATH,
+        repository_root=repository_root,
+    )
+    if helper_existed_at_base is not True:
+        return False
+    base_helper = git_blob_at_ref(
+        base_ref,
+        PR_SAFE_HELPER_PATH,
+        repository_root=repository_root,
+    )
+    base_workflow = git_blob_at_ref(
+        base_ref,
+        PR_VALIDATION_WORKFLOW_PATH,
+        repository_root=repository_root,
+    )
+    try:
+        current_helper = (repository_root / PR_SAFE_HELPER_PATH).read_bytes()
+        current_workflow = (repository_root / PR_VALIDATION_WORKFLOW_PATH).read_bytes()
+    except OSError:
+        return False
+    if base_helper is None or base_workflow is None or not current_helper:
+        return False
+    if sha256_bytes(base_helper) != CONTROL_PLANE_MIGRATION_BASE_HELPER_SHA256:
+        return False
+    if CONTROL_PLANE_MIGRATION_ID.encode("utf-8") in base_helper:
+        return False
+    if CONTROL_PLANE_MIGRATION_ID.encode("utf-8") not in current_helper:
+        return False
+    current_helper_sha256 = sha256_bytes(current_helper)
+    expected_workflow = expected_control_plane_workflow(
+        base_workflow,
+        current_helper_sha256=current_helper_sha256,
+    )
+    return bool(
+        expected_workflow is not None
+        and canonical_repository_bytes(current_workflow) == expected_workflow
+    )
+
+
 def validate_pr_safe_snapshot_contract(
     base_ref: str,
     *,
@@ -348,6 +485,10 @@ def validate_pr_safe_snapshot_contract(
         path for path in changed_paths if requires_strict_runtime_validation(path)
     }
     if is_initial_pr_safe_gate_bootstrap(
+        base_ref,
+        strict_surface_changes,
+        repository_root=repository_root,
+    ) or is_control_plane_self_update_migration(
         base_ref,
         strict_surface_changes,
         repository_root=repository_root,
