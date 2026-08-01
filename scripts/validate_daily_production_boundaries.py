@@ -1005,6 +1005,12 @@ def main() -> int:
             'python scripts/validate_daily_published_model_snapshots_pr_safe.py --base-ref "$BASE_SHA"': (
                 "daily model maintenance PR workflow must use the PR-safe published snapshot gate"
             ),
+            'python scripts/validate_repo_advanced_integrity_pr_safe.py --base-ref "$BASE_SHA"': (
+                "daily model maintenance PR workflow must use the PR-safe advanced-integrity gate"
+            ),
+            "--deselect tests/test_repo_advanced_integrity.py::test_repo_advanced_integrity_validator_passes": (
+                "daily model maintenance PR workflow must replace only the strict runtime advanced-integrity test"
+            ),
             "tests/test_chatgpt_daily_report_new_conversation_replay.py": (
                 "daily model maintenance PR workflow must run rendered PDF replay regression tests"
             ),

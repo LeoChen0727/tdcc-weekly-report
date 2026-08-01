@@ -87,6 +87,7 @@ on:
       - "scripts/validate_git_worktree_safety.py"
       - "scripts/validate_repo_code_isolation_policy.py"
       - "scripts/validate_repo_advanced_integrity.py"
+      - "scripts/validate_repo_advanced_integrity_pr_safe.py"
       - "scripts/validate_stock_model_contract_registry.py"
       - "scripts/validate_warrant_source_status.py"
       - "tests/test_chatgpt_daily_report_new_conversation_replay.py"
@@ -115,6 +116,7 @@ on:
       - "tests/test_price_pullback_daily_row_parity.py"
       - "tests/test_monthly_revenue_point_in_time_panel.py"
       - "tests/test_repo_advanced_integrity.py"
+      - "tests/test_repo_advanced_integrity_pr_safe.py"
       - "tests/test_revenue_unreacted_range_*.py"
       - "tests/test_volume_range_breakout_v2_*.py"
       - "tests/test_mature_model_row_level_metric_contract_audit.py"
@@ -176,6 +178,7 @@ jobs:
           python scripts/validate_daily_legacy_mature_model_paths_removed.py
           python scripts/validate_daily_production_boundaries.py
           python scripts/validate_daily_published_model_snapshots_pr_safe.py --base-ref "$BASE_SHA"
+          python scripts/validate_repo_advanced_integrity_pr_safe.py --base-ref "$BASE_SHA"
           python scripts/validate_daily_model_background_data_registry.py
           python scripts/validate_model_data_independence.py --base-ref "$BASE_SHA"
           python scripts/validate_model_research_shared_utilities.py --base-ref "$BASE_SHA"
@@ -247,6 +250,7 @@ jobs:
             tests/test_price_pullback_daily_row_parity.py \
             tests/test_monthly_revenue_point_in_time_panel.py \
             tests/test_repo_advanced_integrity.py \
+            tests/test_repo_advanced_integrity_pr_safe.py \
             tests/test_mature_model_row_level_metric_contract_audit.py \
             tests/test_daily_report_model_summary.py \
             tests/test_daily_production_boundaries.py \
@@ -262,4 +266,5 @@ jobs:
             tests/test_repo_hidden_coupling_audit.py \
             tests/test_git_worktree_safety.py \
             tests/test_model_research_workflow_isolation.py \
-            tests/test_stock_model_contract_registry.py
+            tests/test_stock_model_contract_registry.py \
+            --deselect tests/test_repo_advanced_integrity.py::test_repo_advanced_integrity_validator_passes
