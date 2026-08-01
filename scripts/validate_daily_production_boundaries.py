@@ -1002,8 +1002,8 @@ def main() -> int:
             "python scripts/validate_daily_production_boundaries.py": (
                 "daily model maintenance PR workflow must run production boundary validation"
             ),
-            "python scripts/validate_daily_published_model_snapshots.py": (
-                "daily model maintenance PR workflow must validate published model snapshots"
+            'python scripts/validate_daily_published_model_snapshots_pr_safe.py --base-ref "$BASE_SHA"': (
+                "daily model maintenance PR workflow must use the PR-safe published snapshot gate"
             ),
             "tests/test_chatgpt_daily_report_new_conversation_replay.py": (
                 "daily model maintenance PR workflow must run rendered PDF replay regression tests"
