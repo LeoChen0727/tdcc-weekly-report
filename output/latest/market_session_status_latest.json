@@ -1,12 +1,12 @@
 {
-  "assessment_date": "20260731",
+  "assessment_date": "20260802",
   "exceptional_non_trading_days": [
     "20260710"
   ],
   "expected_main_price_date": "20260731",
-  "generated_at": "2026-07-31T20:34:40+08:00",
-  "market_session_date": "20260731",
-  "market_status": "unknown",
+  "generated_at": "2026-08-02T01:18:21+08:00",
+  "market_session_date": "20260802",
+  "market_status": "closed_scheduled",
   "official_sources": {
     "dgpa_emergency_closure": {
       "conflict_dates": [],
@@ -14,7 +14,7 @@
         "20260710",
         "20260711"
       ],
-      "queried_at": "2026-07-31T20:34:40+08:00",
+      "queried_at": "2026-08-02T01:18:21+08:00",
       "status": "ok",
       "taipei_notice_count": 3,
       "url": "https://alerts.ncdr.nat.gov.tw/RssAtomFeed.ashx?AlertType=33"
@@ -24,7 +24,7 @@
       "covered_years": [
         2026
       ],
-      "queried_at": "2026-07-31T20:34:40+08:00",
+      "queried_at": "2026-08-02T01:18:21+08:00",
       "status": "ok",
       "url": "https://openapi.twse.com.tw/v1/holidaySchedule/holidaySchedule"
     },
@@ -35,8 +35,8 @@
   },
   "phase": "preflight",
   "price_confirmation": {},
-  "reason": "TWSE and TPEx target-date prices must be fetched before open status is confirmed",
-  "reason_code": "awaiting_official_price_confirmation",
+  "reason": "weekend",
+  "reason_code": "weekend",
   "scheduled_non_trading_days": [
     "20260101",
     "20260212",
@@ -58,5 +58,5 @@
     "20261225"
   ],
   "schema_version": 1,
-  "should_run_daily_pipeline": true
+  "should_run_daily_pipeline": false
 }
