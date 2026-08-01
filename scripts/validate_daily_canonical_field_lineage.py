@@ -32,6 +32,7 @@ COLLISION_REGISTRY_PATH = Path(
 COLLISION_MIGRATIONS_PATH = Path(
     "config/daily_model_volume_v2_dispatcher_collision_migrations.csv"
 )
+LIVE_SOURCE_REVISION = "working_tree"
 
 REGISTRY_COLUMNS = (
     "lineage_id",
@@ -776,6 +777,191 @@ def _canonical_text_sha256(payload: bytes) -> str:
     return hashlib.sha256(canonical_text.encode("utf-8")).hexdigest()
 
 
+def _read_csv_payload(payload: bytes) -> tuple[list[str], list[dict[str, str]]]:
+    handle = io.StringIO(payload.decode("utf-8-sig"), newline="")
+    reader = csv.DictReader(handle)
+    columns = list(reader.fieldnames or [])
+    rows = [
+        {column: _text(row.get(column)) for column in columns}
+        for row in reader
+    ]
+    return columns, rows
+
+
+def _resolve_pinned_canonical_source_revision(
+    root: Path,
+    artifact_path: str,
+    declared_sha256: str,
+    *,
+    trusted_ref: str = "HEAD",
+    allow_live: bool = True,
+) -> tuple[bytes, str]:
+    """Resolve an exact current or committed source payload by canonical SHA."""
+
+    relative = Path(artifact_path)
+    if relative.is_absolute() or ".." in relative.parts:
+        raise RuntimeError(
+            f"pinned canonical source artifact path is unsafe: {artifact_path}"
+        )
+    if re.fullmatch(r"[0-9a-f]{64}", declared_sha256) is None:
+        raise RuntimeError(
+            "pinned canonical source SHA-256 is malformed: "
+            f"artifact={artifact_path} sha256={declared_sha256!r}"
+        )
+
+    current_path = root / relative
+    current_payload: bytes | None = None
+    current_sha = "<missing>"
+    if current_path.is_file():
+        try:
+            current_payload = current_path.read_bytes()
+            current_sha = _canonical_text_sha256(current_payload)
+        except (OSError, UnicodeError):
+            current_payload = None
+    if allow_live and current_payload is not None and current_sha == declared_sha256:
+        head_payload = subprocess.run(
+            ["git", "show", f"HEAD:{relative.as_posix()}"],
+            cwd=root,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            check=False,
+        )
+        current_is_committed_at_head = False
+        if head_payload.returncode == 0:
+            try:
+                current_is_committed_at_head = (
+                    _canonical_text_sha256(head_payload.stdout) == current_sha
+                )
+            except UnicodeError:
+                current_is_committed_at_head = False
+        if not current_is_committed_at_head:
+            return current_payload, LIVE_SOURCE_REVISION
+
+    completed = subprocess.run(
+        [
+            "git",
+            "log",
+            "--format=%H",
+            trusted_ref,
+            "--",
+            relative.as_posix(),
+        ],
+        cwd=root,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        check=False,
+    )
+    if completed.returncode != 0:
+        detail = completed.stderr.decode("utf-8", errors="replace").strip()
+        raise RuntimeError(
+            "pinned canonical source revision history is unavailable: "
+            f"artifact={artifact_path} trusted_ref={trusted_ref} "
+            f"detail={detail or '<none>'}"
+        )
+    commits = [
+        value.strip()
+        for value in completed.stdout.decode("utf-8", errors="replace").splitlines()
+        if value.strip()
+    ]
+    for commit_sha in commits:
+        revision = subprocess.run(
+            ["git", "show", f"{commit_sha}:{relative.as_posix()}"],
+            cwd=root,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            check=False,
+        )
+        if revision.returncode != 0:
+            continue
+        try:
+            revision_sha = _canonical_text_sha256(revision.stdout)
+        except UnicodeError:
+            continue
+        if revision_sha == declared_sha256:
+            return revision.stdout, commit_sha
+    raise RuntimeError(
+        "pinned canonical source revision is not reconstructable: "
+        f"artifact={artifact_path} expected_sha256={declared_sha256} "
+        f"current_sha256={current_sha} trusted_ref={trusted_ref} "
+        f"searched_commits={len(commits)}"
+    )
+
+
+def _committed_artifact_revision(
+    root: Path,
+    artifact_path: str,
+    payload: bytes,
+    *,
+    trusted_ref: str,
+) -> str | None:
+    relative = Path(artifact_path)
+    committed = subprocess.run(
+        ["git", "show", f"HEAD:{relative.as_posix()}"],
+        cwd=root,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        check=False,
+    )
+    if committed.returncode != 0:
+        return None
+    try:
+        if _canonical_text_sha256(committed.stdout) != _canonical_text_sha256(payload):
+            return None
+    except UnicodeError:
+        return None
+    revision = subprocess.run(
+        [
+            "git",
+            "log",
+            "-1",
+            "--format=%H",
+            "HEAD",
+            "--",
+            relative.as_posix(),
+        ],
+        cwd=root,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        check=False,
+        text=True,
+    )
+    commit_sha = revision.stdout.strip() if revision.returncode == 0 else ""
+    if not commit_sha:
+        raise RuntimeError(
+            "committed theme artifact revision cannot be identified: "
+            f"artifact={artifact_path}"
+        )
+    trusted = subprocess.run(
+        ["git", "merge-base", "--is-ancestor", commit_sha, trusted_ref],
+        cwd=root,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        check=False,
+    )
+    if trusted.returncode != 0:
+        raise RuntimeError(
+            "committed theme artifact revision is outside trusted ref ancestry: "
+            f"artifact={artifact_path} revision={commit_sha} "
+            f"trusted_ref={trusted_ref}"
+        )
+    return commit_sha
+
+
+def _source_precedes_consumer(
+    root: Path,
+    source_revision: str,
+    consumer_revision: str,
+) -> bool:
+    completed = subprocess.run(
+        ["git", "merge-base", "--is-ancestor", source_revision, consumer_revision],
+        cwd=root,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        check=False,
+    )
+    return completed.returncode == 0
+
+
 def _artifact_columns(path: Path, root: Path | None = None) -> list[str]:
     payload = _artifact_payload(path, root)
     handle = io.StringIO(payload.decode("utf-8-sig"), newline="")
@@ -787,14 +973,7 @@ def _read_artifact(
     root: Path | None = None,
 ) -> tuple[list[str], list[dict[str, str]]]:
     payload = _artifact_payload(path, root)
-    handle = io.StringIO(payload.decode("utf-8-sig"), newline="")
-    reader = csv.DictReader(handle)
-    columns = list(reader.fieldnames or [])
-    rows = [
-        {column: _text(row.get(column)) for column in columns}
-        for row in reader
-    ]
-    return columns, rows
+    return _read_csv_payload(payload)
 
 
 def _validate_registry(root: Path, rows: list[dict[str, str]]) -> list[str]:
@@ -2232,7 +2411,11 @@ def _validate_projection_set(
     return errors, indexed_signals
 
 
-def _validate_current_projection(root: Path) -> list[str]:
+def _validate_current_projection(
+    root: Path,
+    *,
+    trusted_ref: str = "HEAD",
+) -> list[str]:
     paths = {
         "official": root / "output/latest/warrant_flow_latest.csv",
         "candidate": root / "output/latest/all_candidates_latest.csv",
@@ -2296,15 +2479,139 @@ def _validate_current_projection(root: Path) -> list[str]:
         )
         return errors
 
-    official_index = _index_official(official_rows, "current_theme", errors)
     _, candidate_index = _index_candidates(candidate_rows, "current_theme", errors)
-    official_dates: dict[str, str] = {}
-    for row in official_rows:
-        stock_id = _normalize_stock_id(row.get("stock_id"))
-        if stock_id:
-            official_dates[stock_id] = _text(row.get("date")) or _text(
-                row.get("signal_date")
+    declared_official_artifacts = {
+        _text(row.get("warrant_flow_official_source_artifact"))
+        for row in theme_rows
+    }
+    declared_official_shas = {
+        _text(row.get("warrant_flow_official_source_sha256"))
+        for row in theme_rows
+    }
+    expected_official_artifact = "output/latest/warrant_flow_latest.csv"
+    theme_official_rows: list[dict[str, str]] = []
+    theme_revision_invalid = False
+    try:
+        theme_payload = _artifact_payload(paths["theme"], root)
+        theme_revision = _committed_artifact_revision(
+            root,
+            THEME_ADVISORY_ARTIFACT,
+            theme_payload,
+            trusted_ref=trusted_ref,
+        )
+    except (FileNotFoundError, OSError, RuntimeError, UnicodeError) as exc:
+        errors.append(f"theme advisory revision cannot be identified: {exc}")
+        theme_revision = None
+        theme_revision_invalid = True
+    if theme_rows and declared_official_artifacts != {expected_official_artifact}:
+        errors.append(
+            "theme advisory official warrant source artifact is not singular canonical: "
+            f"expected={expected_official_artifact!r} "
+            f"actual={sorted(declared_official_artifacts)}"
+        )
+    if theme_rows and len(declared_official_shas) != 1:
+        errors.append(
+            "theme advisory official warrant source revision is not singular: "
+            f"actual={sorted(declared_official_shas)}"
+        )
+    elif (
+        theme_rows
+        and declared_official_artifacts == {expected_official_artifact}
+        and not theme_revision_invalid
+    ):
+        declared_official_sha = next(iter(declared_official_shas))
+        try:
+            official_payload, official_revision = _resolve_pinned_canonical_source_revision(
+                root,
+                expected_official_artifact,
+                declared_official_sha,
+                trusted_ref=trusted_ref,
+                allow_live=theme_revision is None,
             )
+            if theme_revision is None and official_revision != LIVE_SOURCE_REVISION:
+                errors.append(
+                    "live theme advisory artifact cannot consume a historical official "
+                    f"warrant revision: source_revision={official_revision}"
+                )
+            elif theme_revision is not None and (
+                official_revision == LIVE_SOURCE_REVISION
+                or not _source_precedes_consumer(
+                    root,
+                    official_revision,
+                    theme_revision,
+                )
+            ):
+                errors.append(
+                    "theme advisory official warrant revision is not available before "
+                    "the consumer artifact: "
+                    f"source_revision={official_revision} "
+                    f"theme_revision={theme_revision}"
+                )
+            official_columns, theme_official_rows = _read_csv_payload(official_payload)
+            missing_official_columns = sorted(
+                {"stock_id", FIELD_NAME} - set(official_columns)
+            )
+            if missing_official_columns:
+                errors.append(
+                    "theme advisory pinned official warrant revision is missing columns: "
+                    + ",".join(missing_official_columns)
+                )
+                theme_official_rows = []
+            if not {"date", "signal_date"}.intersection(official_columns):
+                errors.append(
+                    "theme advisory pinned official warrant revision has no as-of column"
+                )
+                theme_official_rows = []
+        except (RuntimeError, UnicodeError) as exc:
+            errors.append(
+                "theme advisory official warrant source revision cannot be validated: "
+                f"{exc}"
+            )
+
+    official_index = _index_official(
+        theme_official_rows,
+        "current_theme_pinned_official_revision",
+        errors,
+    )
+    official_dates: dict[str, str] = {}
+    official_source_dates: set[str] = set()
+    official_source_ids: set[str] = set()
+    for row_number, row in enumerate(theme_official_rows, start=2):
+        stock_id = _normalize_stock_id(row.get("stock_id"))
+        source_date = _text(row.get("date")) or _text(row.get("signal_date"))
+        if not source_date:
+            errors.append(
+                "theme advisory pinned official warrant revision row has no as-of: "
+                f"row={row_number} stock_id={stock_id}"
+            )
+        else:
+            if re.fullmatch(r"[0-9]{8}", source_date) is None:
+                errors.append(
+                    "theme advisory pinned official warrant revision row has invalid "
+                    f"as-of: row={row_number} stock_id={stock_id} value={source_date!r}"
+                )
+            official_source_dates.add(source_date)
+        if stock_id:
+            if stock_id in official_source_ids:
+                errors.append(
+                    "theme advisory pinned official warrant revision has duplicate "
+                    f"stock_id rows: stock_id={stock_id}"
+                )
+            official_source_ids.add(stock_id)
+            official_dates[stock_id] = source_date
+    if len(official_source_dates) > 1:
+        errors.append(
+            "theme advisory pinned official warrant revision has multiple as-of dates: "
+            + ",".join(sorted(official_source_dates))
+        )
+    if theme_official_rows and not official_source_dates:
+        errors.append(
+            "theme advisory pinned official warrant revision has no verifiable as-of"
+        )
+    if not theme_official_rows and theme_rows:
+        errors.append(
+            "theme advisory pinned official warrant revision is empty; as-of cannot be verified"
+        )
     candidate_dates: dict[str, set[str]] = defaultdict(set)
     for row in candidate_rows:
         stock_id = _normalize_stock_id(row.get("stock_id"))
@@ -2316,9 +2623,6 @@ def _validate_current_projection(root: Path) -> list[str]:
     expected_candidate_sha = _canonical_text_sha256(
         _artifact_payload(paths["candidate"], root)
     )
-    expected_official_sha = _canonical_text_sha256(
-        _artifact_payload(paths["official"], root)
-    )
     expected_watch_sha = _canonical_text_sha256(
         _artifact_payload(paths["watch"], root)
     )
@@ -2327,8 +2631,7 @@ def _validate_current_projection(root: Path) -> list[str]:
         "volume_watch_source_sha256": expected_watch_sha,
         "warrant_flow_source_artifact": "output/latest/all_candidates_latest.csv",
         "warrant_flow_source_sha256": expected_candidate_sha,
-        "warrant_flow_official_source_artifact": "output/latest/warrant_flow_latest.csv",
-        "warrant_flow_official_source_sha256": expected_official_sha,
+        "warrant_flow_official_source_artifact": expected_official_artifact,
     }
     watch_index: dict[tuple[str, str], dict[str, str]] = {}
     for row in watch_rows:
@@ -2391,6 +2694,11 @@ def _validate_current_projection(root: Path) -> list[str]:
                 f"row={row_number} stock_id={stock_id} "
                 f"official={official_index[stock_id]!r} actual={actual!r}"
             )
+        elif actual and stock_id not in official_index:
+            errors.append(
+                "theme advisory positive warrant projection lacks pinned official row: "
+                f"row={row_number} stock_id={stock_id} actual={actual!r}"
+            )
         for column, expected_value in expected_constants.items():
             if _text(row.get(column)) != expected_value:
                 errors.append(
@@ -2401,6 +2709,8 @@ def _validate_current_projection(root: Path) -> list[str]:
         expected_dates = candidate_dates.get(stock_id, set())
         expected_dates.discard("")
         expected_as_of = official_dates.get(stock_id, "")
+        if not expected_as_of and len(official_source_dates) == 1:
+            expected_as_of = next(iter(official_source_dates))
         if not expected_as_of and len(expected_dates) == 1:
             expected_as_of = next(iter(expected_dates))
         actual_as_of = _text(row.get("warrant_flow_as_of"))
@@ -2413,6 +2723,19 @@ def _validate_current_projection(root: Path) -> list[str]:
                 "theme advisory warrant_flow_as_of mismatch: "
                 f"row={row_number} stock_id={stock_id} "
                 f"expected={expected_as_of!r} actual={actual_as_of!r}"
+            )
+        signal_date = _text(row.get("signal_date"))
+        if (
+            actual_as_of
+            and signal_date
+            and re.fullmatch(r"[0-9]{8}", actual_as_of)
+            and re.fullmatch(r"[0-9]{8}", signal_date)
+            and actual_as_of > signal_date
+        ):
+            errors.append(
+                "theme advisory warrant_flow_as_of is later than signal_date: "
+                f"row={row_number} stock_id={stock_id} "
+                f"signal_date={signal_date} warrant_flow_as_of={actual_as_of}"
             )
     if set(theme_index) != set(watch_index):
         errors.append(
@@ -2561,7 +2884,12 @@ def validate(root: Path = ROOT, *, base_ref: str | None = None) -> list[str]:
             _validate_collision_migrations(collision_rows, collision_migration_rows)
         )
     errors.extend(_validate_dispatcher_ast(root))
-    errors.extend(_validate_current_projection(root))
+    errors.extend(
+        _validate_current_projection(
+            root,
+            trusted_ref=base_ref or "HEAD",
+        )
+    )
     errors.extend(_validate_historical_projection(root))
     return errors
 

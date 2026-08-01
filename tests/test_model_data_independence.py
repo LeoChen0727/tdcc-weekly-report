@@ -498,7 +498,7 @@ def test_data_sharing_registry_uses_model_owned_research_entrypoints() -> None:
         "latest_context_not_historical"
     )
     assert by_family["official_warrant_flow_current_snapshot"]["consumer_access_mode"] == (
-        "current_date_negative_or_exact_projection_parity_guard_only"
+        "current_projection_parity_and_pinned_committed_revision_lineage_audit_only"
     )
     background = {
         row["data_family_id"]: row
@@ -511,7 +511,7 @@ def test_data_sharing_registry_uses_model_owned_research_entrypoints() -> None:
 
 def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
     rows = read_csv("config/daily_model_data_sharing_migrations.csv")
-    assert len(rows) == 18
+    assert len(rows) == 19
     baseline = rows[0]
     assert tuple(baseline) == DATA_SHARING_MIGRATION_COLUMNS
     assert data_migration_row_sha256(baseline) == BASELINE_DATA_MIGRATION_ROW_SHA256
@@ -861,6 +861,23 @@ def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
         "user_selected_option_1_daily_snapshot_revision_lineage_20260720"
     )
     assert snapshot_revision_contract["migration_status"] == (
+        "validated_user_approved_migration"
+    )
+
+    theme_warrant_revision_contract = rows[18]
+    assert theme_warrant_revision_contract["migration_id"] == (
+        "theme_warrant_lineage_revision_contract_20260801"
+    )
+    assert theme_warrant_revision_contract["changed_data_families"] == (
+        "official_warrant_flow_current_snapshot"
+    )
+    assert theme_warrant_revision_contract["previous_contract_sha256s"] == (
+        "75872e9619017808259ebb41f72655b795ce4154ba128260f4a239ccd5f8b691"
+    )
+    assert theme_warrant_revision_contract["new_contract_sha256s"] == (
+        "a7bccc9ab66457283c1070606fc8ef763a07920642255aa79740ab93b3c69d19"
+    )
+    assert theme_warrant_revision_contract["migration_status"] == (
         "validated_user_approved_migration"
     )
 

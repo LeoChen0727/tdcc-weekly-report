@@ -1,7 +1,9 @@
 from __future__ import annotations
 
 import hashlib
+import io
 import math
+import re
 from pathlib import Path
 from typing import Any
 
@@ -138,9 +140,78 @@ VOLUME_THEME_CANDIDATE_ALLOWED_FIELDS = frozenset(
 def sha256_file(path: Path) -> str:
     if not path.is_file():
         return ""
-    text = path.read_text(encoding="utf-8-sig")
+    return canonical_text_sha256(path.read_bytes())
+
+
+def canonical_text_sha256(payload: bytes) -> str:
+    text = payload.decode("utf-8-sig")
     canonical_text = text.replace("\r\n", "\n").replace("\r", "\n")
     return hashlib.sha256(canonical_text.encode("utf-8")).hexdigest()
+
+
+def read_csv_revision(path: Path) -> tuple[pd.DataFrame, str]:
+    """Parse and hash one immutable in-memory read of a mutable latest file."""
+
+    if not path.is_file():
+        raise RuntimeError(f"volume attack theme source is unavailable: {path.as_posix()}")
+    payload = path.read_bytes()
+    try:
+        frame = pd.read_csv(
+            io.StringIO(payload.decode("utf-8-sig")),
+            dtype=str,
+            keep_default_na=False,
+        )
+    except (UnicodeError, pd.errors.ParserError, pd.errors.EmptyDataError) as exc:
+        raise RuntimeError(
+            f"volume attack theme source is unreadable: {path.as_posix()}: {exc}"
+        ) from exc
+    return frame, canonical_text_sha256(payload)
+
+
+def validate_official_warrant_source_revision(
+    official_warrant: pd.DataFrame,
+    *,
+    expected_as_of: str,
+    source_sha256: str,
+) -> str:
+    """Pin one internally consistent official-warrant source revision."""
+
+    if re.fullmatch(r"[0-9a-f]{64}", source_sha256) is None:
+        raise RuntimeError(
+            "volume attack theme official warrant source SHA-256 is unavailable"
+        )
+    if official_warrant.empty:
+        raise RuntimeError(
+            "volume attack theme official warrant source is empty; as-of cannot be verified"
+        )
+    source_dates: set[str] = set()
+    for row_number, (_, row) in enumerate(official_warrant.iterrows(), start=2):
+        source_date = safe_str(row.get("date", "")) or safe_str(
+            row.get("signal_date", "")
+        )
+        if not source_date:
+            raise RuntimeError(
+                "volume attack theme official warrant source row has no as-of: "
+                f"row={row_number}"
+            )
+        if re.fullmatch(r"[0-9]{8}", source_date) is None:
+            raise RuntimeError(
+                "volume attack theme official warrant source has invalid as-of: "
+                f"row={row_number} value={source_date!r}"
+            )
+        source_dates.add(source_date)
+    if len(source_dates) > 1:
+        raise RuntimeError(
+            "volume attack theme official warrant source has multiple as-of dates: "
+            + ",".join(sorted(source_dates))
+        )
+    source_as_of = next(iter(source_dates))
+    if expected_as_of and source_as_of != safe_str(expected_as_of):
+        raise RuntimeError(
+            "volume attack theme official warrant source as-of mismatch: "
+            f"expected={safe_str(expected_as_of)!r} actual={source_as_of!r}"
+        )
+    return source_as_of
 
 
 def first_text(row: pd.Series, columns: list[str]) -> str:
@@ -339,6 +410,11 @@ def enrich_stocks(
             raise RuntimeError(
                 f"volume attack theme {source_name} source SHA-256 is unavailable"
             )
+    warrant_as_of = validate_official_warrant_source_revision(
+        official_warrant if official_warrant is not None else pd.DataFrame(),
+        expected_as_of=warrant_as_of,
+        source_sha256=official_warrant_source_sha256,
+    )
     rows: list[dict[str, Any]] = []
 
     for _, row in watch.iterrows():
@@ -676,7 +752,15 @@ def md_table(df: pd.DataFrame, columns: list[str], limit: int = 80) -> str:
     return df[cols].head(limit).to_markdown(index=False)
 
 
-def write_markdown(theme_layer: pd.DataFrame, stock_layer: pd.DataFrame, main_date: str) -> None:
+def write_markdown(
+    theme_layer: pd.DataFrame,
+    stock_layer: pd.DataFrame,
+    main_date: str,
+    *,
+    volume_watch_source_sha256: str,
+    candidate_source_sha256: str,
+    official_warrant_source_sha256: str,
+) -> None:
     theme_cols = [
         "theme_name",
         "theme_final_status",
@@ -723,12 +807,12 @@ def write_markdown(theme_layer: pd.DataFrame, stock_layer: pd.DataFrame, main_da
         f"- generated_at: `{now_text()}`",
         f"- signal_date: `{main_date}`",
         f"- source_watch: `{VOLUME_WATCH_CSV.as_posix()}`",
-        f"- source_watch_sha256: `{sha256_file(VOLUME_WATCH_CSV)}`",
+        f"- source_watch_sha256: `{volume_watch_source_sha256}`",
         f"- source_theme: `{THEME_LEADERSHIP_CSV.as_posix()}`",
         f"- warrant_projection_source: `{ALL_CANDIDATES_CSV.as_posix()}`",
-        f"- warrant_projection_source_sha256: `{sha256_file(ALL_CANDIDATES_CSV)}`",
+        f"- warrant_projection_source_sha256: `{candidate_source_sha256}`",
         f"- warrant_official_parity_source: `{WARRANT_FLOW_CSV.as_posix()}`",
-        f"- warrant_official_parity_source_sha256: `{sha256_file(WARRANT_FLOW_CSV)}`",
+        f"- warrant_official_parity_source_sha256: `{official_warrant_source_sha256}`",
         "- rule: Volume-attack sections must show `theme_final_status`, `theme_structural_status`, `theme_mainstream_label`, and `theme_volume_attack_status`; do not show only the theme name.",
         "",
         "## Status Rules",
@@ -768,11 +852,11 @@ def write_markdown(theme_layer: pd.DataFrame, stock_layer: pd.DataFrame, main_da
         f"- generated_at: `{now_text()}`",
         f"- signal_date: `{main_date}`",
         f"- source_watch: `{VOLUME_WATCH_CSV.as_posix()}`",
-        f"- source_watch_sha256: `{sha256_file(VOLUME_WATCH_CSV)}`",
+        f"- source_watch_sha256: `{volume_watch_source_sha256}`",
         f"- warrant_projection_source: `{ALL_CANDIDATES_CSV.as_posix()}`",
-        f"- warrant_projection_source_sha256: `{sha256_file(ALL_CANDIDATES_CSV)}`",
+        f"- warrant_projection_source_sha256: `{candidate_source_sha256}`",
         f"- warrant_official_parity_source: `{WARRANT_FLOW_CSV.as_posix()}`",
-        f"- warrant_official_parity_source_sha256: `{sha256_file(WARRANT_FLOW_CSV)}`",
+        f"- warrant_official_parity_source_sha256: `{official_warrant_source_sha256}`",
         "- rule: Every volume attack stock row carries explicit mainstream/non-mainstream status.",
         "",
         md_table(stock_layer, stock_cols, 250),
@@ -783,22 +867,44 @@ def write_markdown(theme_layer: pd.DataFrame, stock_layer: pd.DataFrame, main_da
     DOCS_STOCK_LAYER_MD.write_text(stock_text, encoding="utf-8")
 
 
-def write_outputs(theme_layer: pd.DataFrame, stock_layer: pd.DataFrame, main_date: str) -> None:
+def write_outputs(
+    theme_layer: pd.DataFrame,
+    stock_layer: pd.DataFrame,
+    main_date: str,
+    *,
+    volume_watch_source_sha256: str,
+    candidate_source_sha256: str,
+    official_warrant_source_sha256: str,
+) -> None:
     write_csv(theme_layer, THEME_LAYER_CSV)
     write_csv(stock_layer, STOCK_LAYER_CSV)
     write_csv(theme_layer, DOCS_THEME_LAYER_CSV)
     write_csv(stock_layer, DOCS_STOCK_LAYER_CSV)
-    write_markdown(theme_layer, stock_layer, main_date)
+    write_markdown(
+        theme_layer,
+        stock_layer,
+        main_date,
+        volume_watch_source_sha256=volume_watch_source_sha256,
+        candidate_source_sha256=candidate_source_sha256,
+        official_warrant_source_sha256=official_warrant_source_sha256,
+    )
 
 
 def main() -> int:
     main_date = main_price_date_from_freshness()
-    watch = read_csv(VOLUME_WATCH_CSV, dtype=str, keep_default_na=False)
-    candidates = read_csv(ALL_CANDIDATES_CSV, dtype=str, keep_default_na=False)
-    official_warrant = read_csv(WARRANT_FLOW_CSV, dtype=str, keep_default_na=False)
+    watch, volume_watch_source_sha256 = read_csv_revision(VOLUME_WATCH_CSV)
+    candidates, candidate_source_sha256 = read_csv_revision(ALL_CANDIDATES_CSV)
+    official_warrant, official_warrant_source_sha256 = read_csv_revision(
+        WARRANT_FLOW_CSV
+    )
     theme_df = read_csv(THEME_LEADERSHIP_CSV, dtype=str, keep_default_na=False)
     two_line = read_csv(TWO_LINE_VIEW_CSV, dtype=str, keep_default_na=False)
     taxonomy = read_csv(STOCK_THEME_TAXONOMY_CSV, dtype=str, keep_default_na=False)
+    warrant_as_of = validate_official_warrant_source_revision(
+        official_warrant,
+        expected_as_of=main_date,
+        source_sha256=official_warrant_source_sha256,
+    )
 
     if watch.empty:
         stock_layer = pd.DataFrame()
@@ -811,15 +917,22 @@ def main() -> int:
             candidates,
             taxonomy,
             official_warrant,
-            warrant_as_of=main_date,
-            volume_watch_source_sha256=sha256_file(VOLUME_WATCH_CSV),
-            candidate_source_sha256=sha256_file(ALL_CANDIDATES_CSV),
-            official_warrant_source_sha256=sha256_file(WARRANT_FLOW_CSV),
+            warrant_as_of=warrant_as_of,
+            volume_watch_source_sha256=volume_watch_source_sha256,
+            candidate_source_sha256=candidate_source_sha256,
+            official_warrant_source_sha256=official_warrant_source_sha256,
         )
         theme_layer = build_theme_layer(stock_layer)
         stock_layer = apply_theme_status_to_stocks(stock_layer, theme_layer)
 
-    write_outputs(theme_layer, stock_layer, main_date)
+    write_outputs(
+        theme_layer,
+        stock_layer,
+        main_date,
+        volume_watch_source_sha256=volume_watch_source_sha256,
+        candidate_source_sha256=candidate_source_sha256,
+        official_warrant_source_sha256=official_warrant_source_sha256,
+    )
     print(f"Saved: {THEME_LAYER_CSV} rows={len(theme_layer)}")
     print(f"Saved: {THEME_LAYER_MD}")
     print(f"Saved: {STOCK_LAYER_CSV} rows={len(stock_layer)}")

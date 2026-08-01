@@ -427,6 +427,7 @@ def build_valid_repo(root: Path) -> None:
         SCORE_RANK_MIGRATION_ID,
         CONSUMER_HARDENING_MIGRATION_ID,
         RANKING_VALIDATOR_HISTORY_MIGRATION_ID,
+        "theme_warrant_lineage_revision_contract_20260801",
     ]
     write_csv(
         root / lineage.MIGRATIONS_PATH,
@@ -929,6 +930,275 @@ def test_theme_advisory_warrant_projection_and_source_sha_fail_closed(
     assert any(
         "theme advisory warrant lineage metadata mismatch" in error
         and "warrant_flow_source_sha256" in error
+        for error in errors
+    )
+
+
+def test_theme_official_lineage_resolves_pinned_revision_after_latest_advances(
+    tmp_path: Path,
+) -> None:
+    build_valid_repo(tmp_path)
+    official_path = tmp_path / "output/latest/warrant_flow_latest.csv"
+    columns, rows = lineage._read_artifact(official_path)
+    rows.append(
+        {
+            "date": "20260717",
+            "stock_id": "9999",
+            "warrant_flow_signal": "call_inflow",
+        }
+    )
+    write_csv(official_path, columns, rows)
+    old_official_sha = lineage._canonical_text_sha256(official_path.read_bytes())
+    theme_path = tmp_path / lineage.THEME_ADVISORY_ARTIFACT
+    theme_columns, theme_rows = lineage._read_artifact(theme_path)
+    theme_rows[0]["warrant_flow_official_source_sha256"] = old_official_sha
+    write_csv(theme_path, theme_columns, theme_rows)
+    base_sha = initialize_git_fixture(tmp_path)
+    rows[0]["date"] = "20260730"
+    rows[1]["date"] = "20260730"
+    rows[1]["warrant_flow_signal"] = "put_inflow"
+    write_csv(official_path, columns, rows)
+    subprocess.run(["git", "add", "."], cwd=tmp_path, check=True)
+    subprocess.run(
+        ["git", "commit", "-m", "advance mutable warrant latest"],
+        cwd=tmp_path,
+        check=True,
+        capture_output=True,
+    )
+
+    assert lineage.validate(tmp_path, base_ref=base_sha) == []
+    payload, revision = lineage._resolve_pinned_canonical_source_revision(
+        tmp_path,
+        "output/latest/warrant_flow_latest.csv",
+        old_official_sha,
+        trusted_ref=base_sha,
+        allow_live=False,
+    )
+    _, resolved_rows = lineage._read_csv_payload(payload)
+    resolved = {row["stock_id"]: row["warrant_flow_signal"] for row in resolved_rows}
+    assert resolved["9999"] == "call_inflow"
+    assert revision == base_sha
+
+
+def test_theme_official_lineage_rejects_unreconstructable_revision(
+    tmp_path: Path,
+) -> None:
+    build_valid_repo(tmp_path)
+    initialize_git_fixture(tmp_path)
+    theme_path = tmp_path / lineage.THEME_ADVISORY_ARTIFACT
+    columns, rows = lineage._read_artifact(theme_path)
+    rows[0]["warrant_flow_official_source_sha256"] = "f" * 64
+    write_csv(theme_path, columns, rows)
+
+    errors = lineage.validate(tmp_path)
+
+    assert any(
+        "theme advisory official warrant source revision cannot be validated" in error
+        and "not reconstructable" in error
+        for error in errors
+    )
+
+
+def test_theme_same_revision_signal_mismatch_still_fails_closed(
+    tmp_path: Path,
+) -> None:
+    build_valid_repo(tmp_path)
+    theme_path = tmp_path / lineage.THEME_ADVISORY_ARTIFACT
+    columns, rows = lineage._read_artifact(theme_path)
+    rows[0]["warrant_flow_signal"] = "no_signal"
+    write_csv(theme_path, columns, rows)
+
+    errors = lineage.validate(tmp_path)
+
+    assert any(
+        "theme advisory warrant projection differs from official warrant" in error
+        for error in errors
+    )
+
+
+def test_theme_mixed_official_revisions_fail_closed(tmp_path: Path) -> None:
+    build_valid_repo(tmp_path)
+    theme_path = tmp_path / lineage.THEME_ADVISORY_ARTIFACT
+    columns, rows = lineage._read_artifact(theme_path)
+    mixed = dict(rows[0])
+    mixed["stock_id"] = "9999"
+    mixed["warrant_flow_signal"] = ""
+    mixed["warrant_flow_official_source_sha256"] = "f" * 64
+    rows.append(mixed)
+    write_csv(theme_path, columns, rows)
+
+    errors = lineage.validate(tmp_path)
+
+    assert any(
+        "theme advisory official warrant source revision is not singular" in error
+        for error in errors
+    )
+
+
+def test_theme_positive_signal_requires_row_in_pinned_official_revision(
+    tmp_path: Path,
+) -> None:
+    build_valid_repo(tmp_path)
+    official_path = tmp_path / "output/latest/warrant_flow_latest.csv"
+    write_csv(
+        official_path,
+        ["date", "stock_id", "warrant_flow_signal"],
+        [{"date": "20260717", "stock_id": "9999", "warrant_flow_signal": ""}],
+    )
+    official_sha = lineage._canonical_text_sha256(official_path.read_bytes())
+    theme_path = tmp_path / lineage.THEME_ADVISORY_ARTIFACT
+    columns, rows = lineage._read_artifact(theme_path)
+    rows[0]["warrant_flow_official_source_sha256"] = official_sha
+    write_csv(theme_path, columns, rows)
+
+    errors = lineage.validate(tmp_path)
+
+    assert any(
+        "theme advisory positive warrant projection lacks pinned official row" in error
+        and "stock_id=1617" in error
+        for error in errors
+    )
+
+
+def test_theme_rejects_source_revision_committed_after_consumer(
+    tmp_path: Path,
+) -> None:
+    build_valid_repo(tmp_path)
+    official_path = tmp_path / "output/latest/warrant_flow_latest.csv"
+    official_payload = official_path.read_bytes()
+    official_path.unlink()
+    initialize_git_fixture(tmp_path)
+    official_path.parent.mkdir(parents=True, exist_ok=True)
+    official_path.write_bytes(official_payload)
+    subprocess.run(["git", "add", "."], cwd=tmp_path, check=True)
+    subprocess.run(
+        ["git", "commit", "-m", "add source after theme"],
+        cwd=tmp_path,
+        check=True,
+        capture_output=True,
+    )
+
+    errors = lineage._validate_current_projection(tmp_path, trusted_ref="HEAD")
+
+    assert any(
+        "official warrant revision is not available before the consumer artifact"
+        in error
+        for error in errors
+    )
+
+
+def test_theme_rejects_branch_committed_pair_outside_trusted_ref(
+    tmp_path: Path,
+) -> None:
+    build_valid_repo(tmp_path)
+    trusted_base = initialize_git_fixture(tmp_path)
+    official_path = tmp_path / "output/latest/warrant_flow_latest.csv"
+    official_columns, official_rows = lineage._read_artifact(official_path)
+    official_rows.append(
+        {
+            "date": official_rows[0]["date"],
+            "stock_id": "9999",
+            "warrant_flow_signal": "",
+        }
+    )
+    write_csv(official_path, official_columns, official_rows)
+    branch_source_sha = lineage._canonical_text_sha256(official_path.read_bytes())
+    theme_path = tmp_path / lineage.THEME_ADVISORY_ARTIFACT
+    theme_columns, theme_rows = lineage._read_artifact(theme_path)
+    for row in theme_rows:
+        row["warrant_flow_official_source_sha256"] = branch_source_sha
+    write_csv(theme_path, theme_columns, theme_rows)
+    subprocess.run(["git", "add", "."], cwd=tmp_path, check=True)
+    subprocess.run(
+        ["git", "commit", "-m", "branch-only theme source pair"],
+        cwd=tmp_path,
+        check=True,
+        capture_output=True,
+    )
+
+    errors = lineage._validate_current_projection(
+        tmp_path,
+        trusted_ref=trusted_base,
+    )
+
+    assert any(
+        "committed theme artifact revision is outside trusted ref ancestry"
+        in error
+        for error in errors
+    )
+
+
+def test_theme_accepts_true_uncommitted_live_source_pair(tmp_path: Path) -> None:
+    build_valid_repo(tmp_path)
+    trusted_base = initialize_git_fixture(tmp_path)
+    official_path = tmp_path / "output/latest/warrant_flow_latest.csv"
+    official_columns, official_rows = lineage._read_artifact(official_path)
+    official_rows.append(
+        {
+            "date": official_rows[0]["date"],
+            "stock_id": "9999",
+            "warrant_flow_signal": "",
+        }
+    )
+    write_csv(official_path, official_columns, official_rows)
+    live_source_sha = lineage._canonical_text_sha256(official_path.read_bytes())
+    theme_path = tmp_path / lineage.THEME_ADVISORY_ARTIFACT
+    theme_columns, theme_rows = lineage._read_artifact(theme_path)
+    for row in theme_rows:
+        row["warrant_flow_official_source_sha256"] = live_source_sha
+    write_csv(theme_path, theme_columns, theme_rows)
+
+    assert (
+        lineage._validate_current_projection(
+            tmp_path,
+            trusted_ref=trusted_base,
+        )
+        == []
+    )
+
+
+def test_theme_rejects_live_consumer_with_branch_committed_untrusted_source(
+    tmp_path: Path,
+) -> None:
+    build_valid_repo(tmp_path)
+    trusted_base = initialize_git_fixture(tmp_path)
+    official_path = tmp_path / "output/latest/warrant_flow_latest.csv"
+    official_columns, official_rows = lineage._read_artifact(official_path)
+    official_rows.append(
+        {
+            "date": official_rows[0]["date"],
+            "stock_id": "9999",
+            "warrant_flow_signal": "",
+        }
+    )
+    write_csv(official_path, official_columns, official_rows)
+    branch_source_sha = lineage._canonical_text_sha256(official_path.read_bytes())
+    subprocess.run(
+        ["git", "add", "output/latest/warrant_flow_latest.csv"],
+        cwd=tmp_path,
+        check=True,
+    )
+    subprocess.run(
+        ["git", "commit", "-m", "branch-only official source"],
+        cwd=tmp_path,
+        check=True,
+        capture_output=True,
+    )
+    theme_path = tmp_path / lineage.THEME_ADVISORY_ARTIFACT
+    theme_columns, theme_rows = lineage._read_artifact(theme_path)
+    for row in theme_rows:
+        row["warrant_flow_official_source_sha256"] = branch_source_sha
+    write_csv(theme_path, theme_columns, theme_rows)
+
+    errors = lineage._validate_current_projection(
+        tmp_path,
+        trusted_ref=trusted_base,
+    )
+
+    assert any(
+        "theme advisory official warrant source revision cannot be validated"
+        in error
+        and "not reconstructable" in error
         for error in errors
     )
 
