@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7711 永擎
 
 ## Metadata
-- generated_at: 2026-07-31 22:28:27 Asia/Taipei
+- generated_at: 2026-08-01 15:54:52 Asia/Taipei
 - stock_id: 7711
 - stock_name: 永擎
 - packet_status: standard_180d_window_packet
@@ -11,10 +11,10 @@
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260724-88f3a903b384007d
-- official_tdcc_signal_date: 20260724
-- latest_tdcc_date: 20260724
-- tdcc_rows: 13
+- source_tdcc_dataset_id: tdcc-20260731-0b236a2d4a043618
+- official_tdcc_signal_date: 20260731
+- latest_tdcc_date: 20260731
+- tdcc_rows: 14
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -170,10 +170,10 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260724
-- over_400_ratio: 61.79
-- over_600_ratio: 61.22
-- over_800_ratio: 57.23
+- as_of_date: 20260731
+- over_400_ratio: 61.77
+- over_600_ratio: 61.21
+- over_800_ratio: 57.22
 - over_1000_ratio: 54.67
 - over_400_change_1w: -0.02
 - over_800_change_1w: -0.01
@@ -186,7 +186,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260508,61.68,-0.01,58.09,0,56.87,0,0,False,False
 20260515,61.7,0.02,58.09,0,56.87,0,1,False,False
 20260522,61.66,-0.04,58.06,-0.03,56.84,-0.03,0,False,False
 20260529,61.76,0.1,57.09,-0.97,54.65,-2.19,1,False,False
@@ -198,6 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260709,61.79,-0.02,57.21,-0.01,54.67,0,0,False,False
 20260717,61.81,0.02,57.24,0.03,54.67,0,1,False,True
 20260724,61.79,-0.02,57.23,-0.01,54.67,0,0,False,False
+20260731,61.77,-0.02,57.22,-0.01,54.67,0,0,False,False
 ```
 
 ## Candidate Context

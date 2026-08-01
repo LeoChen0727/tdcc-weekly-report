@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6550 北極星藥業-KY
 
 ## Metadata
-- generated_at: 2026-07-31 22:28:06 Asia/Taipei
+- generated_at: 2026-08-01 15:54:31 Asia/Taipei
 - stock_id: 6550
 - stock_name: 北極星藥業-KY
 - packet_status: standard_180d_window_packet
@@ -11,10 +11,10 @@
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260724-88f3a903b384007d
-- official_tdcc_signal_date: 20260724
-- latest_tdcc_date: 20260724
-- tdcc_rows: 13
+- source_tdcc_dataset_id: tdcc-20260731-0b236a2d4a043618
+- official_tdcc_signal_date: 20260731
+- latest_tdcc_date: 20260731
+- tdcc_rows: 14
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -170,23 +170,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260724
-- over_400_ratio: 77.05
-- over_600_ratio: 75.58
-- over_800_ratio: 74.65
-- over_1000_ratio: 73.67
-- over_400_change_1w: 0.04
-- over_800_change_1w: -0.01
-- over_1000_change_1w: -0.12
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260731
+- over_400_ratio: 77.11
+- over_600_ratio: 75.65
+- over_800_ratio: 74.81
+- over_1000_ratio: 73.74
+- over_400_change_1w: 0.06
+- over_800_change_1w: 0.16
+- over_1000_change_1w: 0.07
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260508,75.52,0.01,72.79,0.04,71.78,0.35,1,True,True
 20260515,75.62,0.1,72.77,-0.02,71.33,-0.45,2,False,False
 20260522,75.41,-0.21,72.82,0.05,71.59,0.26,3,False,True
 20260529,75.87,0.46,73.5,0.68,72.48,0.89,4,True,True
@@ -198,6 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260709,77.11,0,74.78,0.06,73.91,0.16,2,False,True
 20260717,77.01,-0.1,74.66,-0.12,73.79,-0.12,0,False,False
 20260724,77.05,0.04,74.65,-0.01,73.67,-0.12,1,False,False
+20260731,77.11,0.06,74.81,0.16,73.74,0.07,2,True,True
 ```
 
 ## Candidate Context

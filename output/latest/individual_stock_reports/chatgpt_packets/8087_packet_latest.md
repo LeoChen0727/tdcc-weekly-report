@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8087 麗升能源
 
 ## Metadata
-- generated_at: 2026-07-31 22:28:34 Asia/Taipei
+- generated_at: 2026-08-01 15:54:58 Asia/Taipei
 - stock_id: 8087
 - stock_name: 麗升能源
 - packet_status: standard_180d_window_packet
@@ -11,10 +11,10 @@
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260724-88f3a903b384007d
-- official_tdcc_signal_date: 20260724
-- latest_tdcc_date: 20260724
-- tdcc_rows: 13
+- source_tdcc_dataset_id: tdcc-20260731-0b236a2d4a043618
+- official_tdcc_signal_date: 20260731
+- latest_tdcc_date: 20260731
+- tdcc_rows: 14
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -170,14 +170,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260724
-- over_400_ratio: 57.66
-- over_600_ratio: 48.92
-- over_800_ratio: 43.9
-- over_1000_ratio: 43.9
-- over_400_change_1w: 0
-- over_800_change_1w: 0
-- over_1000_change_1w: 0
+- as_of_date: 20260731
+- over_400_ratio: 57.59
+- over_600_ratio: 48.87
+- over_800_ratio: 43.84
+- over_1000_ratio: 43.84
+- over_400_change_1w: -0.07
+- over_800_change_1w: -0.06
+- over_1000_change_1w: -0.06
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -186,7 +186,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260508,58.3,-0.08,45.97,-0.1,45.97,-0.1,0,False,False
 20260515,58.29,-0.01,45.94,-0.03,43.62,-2.35,0,False,False
 20260522,58.12,-0.17,43.88,-2.06,43.88,0.26,1,False,True
 20260529,58.3,0.18,44.12,0.24,44.12,0.24,2,True,True
@@ -198,6 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260709,57.7,-0.14,43.94,0.06,43.94,0.06,5,False,True
 20260717,57.66,-0.04,43.9,-0.04,43.9,-0.04,0,False,False
 20260724,57.66,0,43.9,0,43.9,0,0,False,False
+20260731,57.59,-0.07,43.84,-0.06,43.84,-0.06,0,False,False
 ```
 
 ## Candidate Context

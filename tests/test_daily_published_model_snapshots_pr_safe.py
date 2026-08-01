@@ -306,6 +306,73 @@ def test_bootstrap_fails_closed_when_base_tree_cannot_be_read(tmp_path: Path) ->
     )
 
 
+def test_control_plane_self_update_requires_exact_base_and_workflow_bytes(
+    tmp_path: Path,
+    monkeypatch,
+) -> None:
+    repo, _ = initialized_pr_repo(tmp_path)
+    helper = repo / pr_safe.PR_SAFE_HELPER_PATH
+    workflow = repo / pr_safe.PR_VALIDATION_WORKFLOW_PATH
+    helper.parent.mkdir(parents=True, exist_ok=True)
+    workflow.parent.mkdir(parents=True, exist_ok=True)
+    base_helper = b"snapshot PR-safe helper before controlled migration\n"
+    base_workflow = b"".join(
+        (
+            b"jobs:\n",
+            b"  validation:\n",
+            b"    env:\n",
+            b"      BASE_SHA: ${{ github.event.pull_request.base.sha || 'origin/main' }}\n",
+            b"      - \"scripts/validate_repo_advanced_integrity.py\"\n",
+            b"      - \"tests/test_repo_advanced_integrity.py\"\n",
+            (f"          {pr_safe.PR_SAFE_SNAPSHOT_COMMAND}\n").encode("utf-8"),
+            b"            tests/test_repo_advanced_integrity.py \\\n",
+            b"            tests/test_stock_model_contract_registry.py\n",
+        )
+    )
+    helper.write_bytes(base_helper)
+    workflow.write_bytes(base_workflow)
+    run_git(repo, "add", ".")
+    run_git(repo, "commit", "-m", "base PR-safe control plane")
+    base_ref = run_git(repo, "rev-parse", "HEAD")
+
+    current_helper = (
+        f"CONTROL_PLANE_MIGRATION_ID = {pr_safe.CONTROL_PLANE_MIGRATION_ID!r}\n"
+    ).encode("utf-8")
+    helper.write_bytes(current_helper)
+    expected_workflow = pr_safe.expected_control_plane_workflow(
+        base_workflow,
+        current_helper_sha256=pr_safe.sha256_bytes(current_helper),
+    )
+    assert expected_workflow is not None
+    workflow.write_bytes(expected_workflow)
+    monkeypatch.setattr(
+        pr_safe,
+        "CONTROL_PLANE_MIGRATION_BASE_HELPER_SHA256",
+        pr_safe.sha256_bytes(base_helper),
+    )
+
+    assert pr_safe.is_control_plane_self_update_migration(
+        base_ref,
+        set(pr_safe.CONTROL_PLANE_MIGRATION_SURFACES),
+        repository_root=repo,
+    )
+
+    workflow.write_bytes(expected_workflow + b"unexpected broad workflow change\n")
+    assert not pr_safe.is_control_plane_self_update_migration(
+        base_ref,
+        set(pr_safe.CONTROL_PLANE_MIGRATION_SURFACES),
+        repository_root=repo,
+    )
+    assert not pr_safe.is_control_plane_self_update_migration(
+        base_ref,
+        {
+            *pr_safe.CONTROL_PLANE_MIGRATION_SURFACES,
+            pr_safe.PR_BOUNDARY_VALIDATOR_PATH,
+        },
+        repository_root=repo,
+    )
+
+
 def test_pr_workflow_uses_pr_safe_gate_while_publish_workflows_remain_strict() -> None:
     pr_workflow = (
         ROOT / ".github" / "workflows" / "daily_model_maintenance_pr_validation.yml"

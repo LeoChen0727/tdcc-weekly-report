@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3465 進泰電子
 
 ## Metadata
-- generated_at: 2026-07-31 22:27:13 Asia/Taipei
+- generated_at: 2026-08-01 15:53:39 Asia/Taipei
 - stock_id: 3465
 - stock_name: 進泰電子
 - packet_status: standard_180d_window_packet
@@ -11,10 +11,10 @@
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260724-88f3a903b384007d
-- official_tdcc_signal_date: 20260724
-- latest_tdcc_date: 20260724
-- tdcc_rows: 13
+- source_tdcc_dataset_id: tdcc-20260731-0b236a2d4a043618
+- official_tdcc_signal_date: 20260731
+- latest_tdcc_date: 20260731
+- tdcc_rows: 14
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -170,23 +170,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260724
-- over_400_ratio: 66
-- over_600_ratio: 61.69
-- over_800_ratio: 59.48
+- as_of_date: 20260731
+- over_400_ratio: 66.1
+- over_600_ratio: 61.79
+- over_800_ratio: 61.79
 - over_1000_ratio: 54.67
-- over_400_change_1w: 0.09
-- over_800_change_1w: 0
+- over_400_change_1w: 0.1
+- over_800_change_1w: 2.31
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 2
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260508,68.35,0.32,63.89,0,59.08,0,1,False,False
 20260515,68.33,-0.02,65.34,1.45,58.07,-1.01,2,False,True
 20260522,68.33,0,63.79,-1.55,58.98,0.91,3,False,True
 20260529,68.34,0.01,63.8,0.01,58.99,0.01,4,True,True
@@ -198,6 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260709,67.4,-0.52,59.48,0,54.67,0,0,False,False
 20260717,65.91,-1.49,59.48,0,54.67,0,1,False,False
 20260724,66,0.09,59.48,0,54.67,0,2,False,False
+20260731,66.1,0.1,61.79,2.31,54.67,0,3,False,True
 ```
 
 ## Candidate Context
